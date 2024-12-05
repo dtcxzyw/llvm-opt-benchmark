@@ -18,7 +18,7 @@ define range(i32 -12, 1) i32 @env_dup(ptr nocapture noundef writeonly %0, ptr no
   br i1 %.not38, label %7, label %.preheader42, !llvm.loop !6
 
 7:                                                ; preds = %.preheader42
-  %8 = getelementptr inbounds i8, ptr %0, i64 912
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 912
   store i64 %.032, ptr %8, align 8
   %.not39 = icmp eq i64 %.032, 0
   br i1 %.not39, label %.loopexit, label %9
@@ -76,7 +76,7 @@ define range(i32 -12, 1) i32 @env_dup(ptr nocapture noundef writeonly %0, ptr no
 .loopexit:                                        ; preds = %32, %9, %._crit_edge, %7
   %.031 = phi ptr [ null, %._crit_edge ], [ null, %7 ], [ null, %9 ], [ %12, %32 ]
   %.1 = phi i32 [ -12, %._crit_edge ], [ 0, %7 ], [ -12, %9 ], [ 0, %32 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 904
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 904
   store ptr %.031, ptr %34, align 8
   br label %35
 

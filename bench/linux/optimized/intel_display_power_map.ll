@@ -458,7 +458,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_display_power_map_init(ptr
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %6, align 4
   br label %93
 
@@ -635,7 +635,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
   %8 = phi i32 [ %39, %.loopexit12 ], [ 0, %3 ]
   %9 = load ptr, ptr %7, align 8
   %10 = ptrtoint ptr %9 to i64
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i64
   %14 = icmp eq i8 %12, 0
@@ -644,11 +644,11 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
 .preheader11:                                     ; preds = %6, %.loopexit10
   %15 = phi ptr [ %34, %.loopexit10 ], [ %9, %6 ]
   %16 = phi i32 [ %33, %.loopexit10 ], [ %8, %6 ]
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load i8, ptr %21, align 8
   %23 = zext i8 %22 to i64
   %24 = icmp eq i8 %22, 0
@@ -684,13 +684,13 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
   br i1 %44, label %6, label %45, !llvm.loop !10
 
 45:                                               ; preds = %.loopexit12
-  %46 = getelementptr inbounds i8, ptr %0, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %39, ptr %46, align 4
   %47 = icmp slt i32 %39, 0
   br i1 %47, label %.thread, label %49, !prof !11
 
 .thread:                                          ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %0, i64 512
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store ptr null, ptr %48, align 8
   br label %.loopexit8
 
@@ -698,7 +698,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
   %50 = zext nneg i32 %39 to i64
   %51 = shl nuw nsw i64 %50, 5
   %52 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %51, i32 noundef 3520) #4
-  %53 = getelementptr inbounds i8, ptr %0, i64 512
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store ptr %52, ptr %53, align 8
   %54 = icmp eq ptr %52, null
   br i1 %54, label %.loopexit8, label %55
@@ -711,7 +711,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
   %58 = phi i64 [ 0, %55 ], [ %189, %.loopexit7 ]
   %59 = phi ptr [ %1, %55 ], [ %190, %.loopexit7 ]
   %60 = phi i32 [ 0, %55 ], [ %188, %.loopexit7 ]
-  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load i8, ptr %61, align 8
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %.loopexit7, label %64
@@ -726,9 +726,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
   %69 = phi i64 [ %180, %.loopexit6 ], [ %58, %64 ]
   %70 = phi ptr [ %181, %.loopexit6 ], [ %65, %64 ]
   %71 = phi i32 [ %179, %.loopexit6 ], [ %60, %64 ]
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i8, ptr %74, align 8
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %.loopexit6, label %77
@@ -746,7 +746,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
   %85 = load ptr, ptr %53, align 8
   %86 = sext i32 %84 to i64
   %87 = getelementptr %struct.i915_power_well, ptr %85, i64 %86
-  %88 = getelementptr inbounds i8, ptr %83, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %89 = load i32, ptr %88, align 8
   store ptr %70, ptr %87, align 8
   %90 = load ptr, ptr %72, align 8
@@ -762,7 +762,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
   %97 = load ptr, ptr %56, align 8
   %98 = tail call ptr @dev_driver_string(ptr noundef %97) #5
   %99 = load ptr, ptr %56, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 80
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 80
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %105
@@ -788,22 +788,22 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
 107:                                              ; preds = %105, %80
   %.pre-phi32 = phi i64 [ %.pre31, %105 ], [ %94, %80 ]
   %108 = trunc i64 %.pre-phi32 to i8
-  %109 = getelementptr inbounds i8, ptr %87, i64 29
+  %109 = getelementptr inbounds nuw i8, ptr %87, i64 29
   store i8 %108, ptr %109, align 1
-  %110 = getelementptr inbounds i8, ptr %83, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   br i1 %112, label %.loopexit, label %113
 
 113:                                              ; preds = %107
-  %114 = getelementptr inbounds i8, ptr %111, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %115 = load i8, ptr %114, align 8
   %116 = icmp eq i8 %115, 0
-  %117 = getelementptr inbounds i8, ptr %87, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %87, i64 8
   br i1 %116, label %118, label %.preheader
 
 118:                                              ; preds = %113
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %117, i8 -1, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, i8 -1, i64 16, i1 false)
   br label %.loopexit
 
 .preheader:                                       ; preds = %113, %.preheader
@@ -813,10 +813,10 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
   %122 = getelementptr i32, ptr %121, i64 %119
   %123 = load i32, ptr %122, align 4
   %124 = zext i32 %123 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %117, i64 %124) #5, !srcloc !17
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %117, i64 %124) #5, !srcloc !17
   %125 = add nuw nsw i64 %119, 1
   %126 = load ptr, ptr %110, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load i8, ptr %127, align 8
   %129 = zext i8 %128 to i64
   %130 = icmp samesign ult i64 %125, %129
@@ -837,7 +837,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
   %137 = load ptr, ptr %56, align 8
   %138 = tail call ptr @dev_driver_string(ptr noundef %137) #5
   %139 = load ptr, ptr %56, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 80
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 80
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
   br i1 %142, label %143, label %145
@@ -866,7 +866,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
   %152 = load ptr, ptr %56, align 8
   %153 = tail call ptr @dev_driver_string(ptr noundef %152) #5
   %154 = load ptr, ptr %56, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 80
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 80
   %156 = load ptr, ptr %155, align 8
   %157 = icmp eq ptr %156, null
   br i1 %157, label %158, label %160
@@ -897,7 +897,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
   %170 = ptrtoint ptr %168 to i64
   %171 = sub i64 %169, %170
   %172 = sdiv exact i64 %171, 24
-  %173 = getelementptr inbounds i8, ptr %167, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %174 = load i8, ptr %173, align 8
   %175 = zext i8 %174 to i64
   %176 = icmp slt i64 %172, %175
@@ -939,7 +939,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr noca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_display_power_map_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 512
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #5
   ret void

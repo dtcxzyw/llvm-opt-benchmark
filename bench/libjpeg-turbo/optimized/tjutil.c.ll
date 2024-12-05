@@ -15,7 +15,7 @@ define dso_local double @getTime() local_unnamed_addr #0 {
 4:                                                ; preds = %0
   %5 = load i64, ptr %1, align 8
   %6 = sitofp i64 %5 to double
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = sitofp i64 %8 to double
   %10 = fdiv double %9, 1.000000e+06

@@ -22,8 +22,8 @@ define range(i32 0, 2) i32 @ADIOI_Strncpy(ptr nocapture noundef writeonly %0, pt
 
 8:                                                ; preds = %.lr.ph
   %9 = add nsw i32 %.018, -1
-  %10 = getelementptr inbounds i8, ptr %.0917, i64 1
-  %11 = getelementptr inbounds i8, ptr %.01016, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0917, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01016, i64 1
   store i8 %6, ptr %.01016, align 1
   %12 = load i8, ptr %10, align 1
   %.not = icmp eq i8 %12, 0
@@ -61,8 +61,8 @@ define ptr @ADIOI_Strdup(ptr nocapture noundef readonly %0) local_unnamed_addr #
   %6 = phi i8 [ %9, %.lr.ph ], [ %5, %.preheader ]
   %.015 = phi ptr [ %8, %.lr.ph ], [ %4, %.preheader ]
   %.0914 = phi ptr [ %7, %.lr.ph ], [ %0, %.preheader ]
-  %7 = getelementptr inbounds i8, ptr %.0914, i64 1
-  %8 = getelementptr inbounds i8, ptr %.015, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.0914, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   store i8 %6, ptr %.015, align 1
   %9 = load i8, ptr %7, align 1
   %.not12 = icmp eq i8 %9, 0

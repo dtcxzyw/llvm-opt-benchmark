@@ -105,7 +105,7 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder12EncodeToFileERKNS_10PointCloud
           to label %8 unwind label %12
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %9, align 8
   store ptr %5, ptr %0, align 8
   %10 = invoke noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeInternalEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
@@ -129,19 +129,19 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder12EncodeToFileERKNS_10PointCloud
 16:                                               ; preds = %11
   %17 = load ptr, ptr %4, align 8
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %18 to i64
   %23 = sub i64 %21, %22
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %18, i64 noundef %23)
           to label %28 unwind label %14
 
 28:                                               ; preds = %16, %11
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
@@ -168,7 +168,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
 
 _ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i: ; preds = %33
   %34 = load ptr, ptr %.pr, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #14
   br label %_ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit
@@ -185,7 +185,7 @@ _ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i9: ; preds = %37
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(8) %38) #14
   br label %_ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit10
@@ -202,7 +202,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeToBufferERKNS_10PointCloudEPNS_13EncoderBufferE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(164) %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   store ptr %2, ptr %0, align 8
   %5 = tail call noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeInternalEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
@@ -212,7 +212,7 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeToBufferERKNS_10PointClo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i
@@ -238,7 +238,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10PlyEncoder12EncodeToFileERKNS_4MeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = tail call noundef zeroext i1 @_ZN5draco10PlyEncoder12EncodeToFileERKNS_10PointCloudERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(164) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   ret i1 %5
@@ -251,7 +251,7 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeInternalEv(ptr nocapture
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2)
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str)
           to label %8 unwind label %38
 
@@ -272,9 +272,9 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeInternalEv(ptr nocapture
           to label %16 unwind label %38
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 160
   %20 = load i32, ptr %19, align 8
   %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef %20)
           to label %22 unwind label %38
@@ -318,12 +318,12 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeInternalEv(ptr nocapture
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %17, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = zext nneg i32 %29 to i64
   %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i8, ptr %49, align 8
   %.not = icmp eq i8 %50, 3
   %spec.select = select i1 %.not, i32 %29, i32 -1
@@ -336,12 +336,12 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeInternalEv(ptr nocapture
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %17, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = zext nneg i32 %32 to i64
   %57 = load ptr, ptr %55, align 8
-  %58 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %57, i64 %56
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load i8, ptr %60, align 8
   %.fr = freeze i8 %61
   %.not79 = icmp eq i8 %.fr, 2
@@ -355,12 +355,12 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeInternalEv(ptr nocapture
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr %17, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = zext nneg i32 %26 to i64
   %68 = load ptr, ptr %66, align 8
-  %69 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %68, i64 %67
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 28
   %72 = load i32, ptr %71, align 4
   switch i32 %72, label %75 [
     i32 9, label %_ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit
@@ -396,11 +396,11 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit: ; preds = %75, %74, %73, %64
 
 83:                                               ; preds = %81
   %84 = load ptr, ptr %17, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %86, i64 %67
+  %87 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %86, i64 %67
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 28
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 28
   %90 = load i32, ptr %89, align 4
   switch i32 %90, label %93 [
     i32 9, label %_ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit86
@@ -436,11 +436,11 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit86: ; preds = %93, %92, %91, %
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr %17, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %104, i64 %67
+  %105 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %104, i64 %67
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 28
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 28
   %108 = load i32, ptr %107, align 4
   switch i32 %108, label %111 [
     i32 9, label %_ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit88
@@ -480,12 +480,12 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit88: ; preds = %111, %110, %109
 
 121:                                              ; preds = %119
   %122 = load ptr, ptr %17, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = zext nneg i32 %.070 to i64
   %125 = load ptr, ptr %123, align 8
-  %126 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %125, i64 %124
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 28
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 28
   %129 = load i32, ptr %128, align 4
   switch i32 %129, label %132 [
     i32 9, label %_ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit90
@@ -521,11 +521,11 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit90: ; preds = %132, %131, %130
 
 140:                                              ; preds = %138
   %141 = load ptr, ptr %17, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %143, i64 %124
+  %144 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %143, i64 %124
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 28
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 28
   %147 = load i32, ptr %146, align 4
   switch i32 %147, label %150 [
     i32 9, label %_ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit92
@@ -561,11 +561,11 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit92: ; preds = %150, %149, %148
 
 158:                                              ; preds = %156
   %159 = load ptr, ptr %17, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %161, i64 %124
+  %162 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %161, i64 %124
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 28
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 28
   %165 = load i32, ptr %164, align 4
   switch i32 %165, label %168 [
     i32 9, label %_ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit94
@@ -601,12 +601,12 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit94: ; preds = %168, %167, %166
 
 176:                                              ; preds = %174
   %177 = load ptr, ptr %17, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = zext nneg i32 %35 to i64
   %180 = load ptr, ptr %178, align 8
-  %181 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %180, i64 %179
+  %181 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %180, i64 %179
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %184 = load i8, ptr %183, align 8
   %.not80 = icmp eq i8 %184, 0
   br i1 %.not80, label %.thread137, label %185
@@ -617,11 +617,11 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit94: ; preds = %168, %167, %166
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %17, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %190, i64 %179
+  %191 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %190, i64 %179
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 28
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 28
   %194 = load i32, ptr %193, align 4
   switch i32 %194, label %197 [
     i32 9, label %_ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit96
@@ -662,11 +662,11 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit96: ; preds = %197, %196, %195
 
 207:                                              ; preds = %205
   %208 = load ptr, ptr %17, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %210, i64 %179
+  %211 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %210, i64 %179
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 28
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 28
   %214 = load i32, ptr %213, align 4
   switch i32 %214, label %217 [
     i32 9, label %_ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit98
@@ -707,11 +707,11 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit98: ; preds = %217, %216, %215
 
 227:                                              ; preds = %225
   %228 = load ptr, ptr %17, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %230 = load ptr, ptr %229, align 8
-  %231 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %230, i64 %179
+  %231 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %230, i64 %179
   %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 28
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 28
   %234 = load i32, ptr %233, align 4
   switch i32 %234, label %237 [
     i32 9, label %_ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit100
@@ -752,11 +752,11 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit100: ; preds = %237, %236, %23
 
 246:                                              ; preds = %244
   %247 = load ptr, ptr %17, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %249, i64 %179
+  %250 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %249, i64 %179
   %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 28
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 28
   %253 = load i32, ptr %252, align 4
   switch i32 %253, label %256 [
     i32 9, label %_ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit102
@@ -787,7 +787,7 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit102: ; preds = %256, %255, %25
           to label %.thread137 unwind label %38
 
 .thread137:                                       ; preds = %203, %176, %223, %.thread134, %260, %174
-  %262 = getelementptr inbounds i8, ptr %0, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %263 = load ptr, ptr %262, align 8
   %.not81 = icmp eq ptr %263, null
   br i1 %.not81, label %305, label %264
@@ -798,8 +798,8 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit102: ; preds = %256, %255, %25
 
 266:                                              ; preds = %264
   %267 = load ptr, ptr %262, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 192
-  %269 = getelementptr inbounds i8, ptr %267, i64 200
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 192
+  %269 = getelementptr inbounds nuw i8, ptr %267, i64 200
   %270 = load ptr, ptr %269, align 8
   %271 = load ptr, ptr %268, align 8
   %272 = ptrtoint ptr %270 to i64
@@ -832,12 +832,12 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit102: ; preds = %256, %255, %25
 
 288:                                              ; preds = %286
   %289 = load ptr, ptr %17, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 16
   %291 = zext nneg i32 %.071 to i64
   %292 = load ptr, ptr %290, align 8
-  %293 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %292, i64 %291
+  %293 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %292, i64 %291
   %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 28
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 28
   %296 = load i32, ptr %295, align 4
   switch i32 %296, label %299 [
     i32 9, label %_ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit104
@@ -883,13 +883,13 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit104: ; preds = %299, %298, %29
   %311 = load ptr, ptr %0, align 8
   %312 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   %313 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
-  %314 = getelementptr inbounds i8, ptr %311, i64 32
+  %314 = getelementptr inbounds nuw i8, ptr %311, i64 32
   %315 = load i64, ptr %314, align 8
   %316 = icmp slt i64 %315, 1
   br i1 %316, label %317, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 317:                                              ; preds = %310
-  %318 = getelementptr inbounds i8, ptr %311, i64 8
+  %318 = getelementptr inbounds nuw i8, ptr %311, i64 8
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr inbounds i8, ptr %312, i64 %313
   %321 = load ptr, ptr %311, align 8
@@ -902,7 +902,7 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit104: ; preds = %299, %298, %29
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %310, %317
   %326 = load ptr, ptr %17, align 8
-  %327 = getelementptr inbounds i8, ptr %326, i64 160
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 160
   %328 = load i32, ptr %327, align 8
   %.not158 = icmp eq i32 %328, 0
   br i1 %.not158, label %._crit_edge, label %.lr.ph
@@ -916,27 +916,27 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %310, %317
 331:                                              ; preds = %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit114
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit114 ]
   %332 = load ptr, ptr %17, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 16
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
   %334 = load ptr, ptr %333, align 8
-  %335 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %334, i64 %67
+  %335 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %334, i64 %67
   %336 = load ptr, ptr %335, align 8
   %337 = load ptr, ptr %0, align 8
-  %338 = getelementptr inbounds i8, ptr %336, i64 100
+  %338 = getelementptr inbounds nuw i8, ptr %336, i64 100
   %339 = load i8, ptr %338, align 4
   %340 = trunc i8 %339 to i1
   %341 = trunc nuw i64 %indvars.iv to i32
   br i1 %340, label %347, label %342
 
 342:                                              ; preds = %331
-  %343 = getelementptr inbounds i8, ptr %336, i64 72
+  %343 = getelementptr inbounds nuw i8, ptr %336, i64 72
   %344 = load ptr, ptr %343, align 8
-  %345 = getelementptr inbounds %"class.draco::IndexType.60", ptr %344, i64 %indvars.iv
+  %345 = getelementptr inbounds nuw %"class.draco::IndexType.60", ptr %344, i64 %indvars.iv
   %346 = load i32, ptr %345, align 4
   br label %347
 
 347:                                              ; preds = %331, %342
   %.sroa.02.0.i = phi i32 [ %346, %342 ], [ %341, %331 ]
-  %348 = getelementptr inbounds i8, ptr %337, i64 32
+  %348 = getelementptr inbounds nuw i8, ptr %337, i64 32
   %349 = load i64, ptr %348, align 8
   %350 = icmp slt i64 %349, 1
   br i1 %350, label %351, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit106
@@ -944,15 +944,15 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %310, %317
 351:                                              ; preds = %347
   %352 = load ptr, ptr %336, align 8
   %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds i8, ptr %336, i64 40
+  %354 = getelementptr inbounds nuw i8, ptr %336, i64 40
   %355 = load i64, ptr %354, align 8
   %356 = zext i32 %.sroa.02.0.i to i64
   %357 = mul nsw i64 %355, %356
   %358 = getelementptr i8, ptr %353, i64 %357
-  %359 = getelementptr inbounds i8, ptr %336, i64 48
+  %359 = getelementptr inbounds nuw i8, ptr %336, i64 48
   %360 = load i64, ptr %359, align 8
   %361 = getelementptr i8, ptr %358, i64 %360
-  %362 = getelementptr inbounds i8, ptr %337, i64 8
+  %362 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %363 = load ptr, ptr %362, align 8
   %364 = getelementptr inbounds i8, ptr %361, i64 %355
   %365 = load ptr, ptr %337, align 8
@@ -968,26 +968,26 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit106:     ; preds = %347, %351
 
 370:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit106
   %371 = load ptr, ptr %17, align 8
-  %372 = getelementptr inbounds i8, ptr %371, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 16
   %373 = load ptr, ptr %372, align 8
-  %374 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %373, i64 %329
+  %374 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %373, i64 %329
   %375 = load ptr, ptr %374, align 8
   %376 = load ptr, ptr %0, align 8
-  %377 = getelementptr inbounds i8, ptr %375, i64 100
+  %377 = getelementptr inbounds nuw i8, ptr %375, i64 100
   %378 = load i8, ptr %377, align 4
   %379 = trunc i8 %378 to i1
   br i1 %379, label %385, label %380
 
 380:                                              ; preds = %370
-  %381 = getelementptr inbounds i8, ptr %375, i64 72
+  %381 = getelementptr inbounds nuw i8, ptr %375, i64 72
   %382 = load ptr, ptr %381, align 8
-  %383 = getelementptr inbounds %"class.draco::IndexType.60", ptr %382, i64 %indvars.iv
+  %383 = getelementptr inbounds nuw %"class.draco::IndexType.60", ptr %382, i64 %indvars.iv
   %384 = load i32, ptr %383, align 4
   br label %385
 
 385:                                              ; preds = %370, %380
   %.sroa.02.0.i107 = phi i32 [ %384, %380 ], [ %341, %370 ]
-  %386 = getelementptr inbounds i8, ptr %376, i64 32
+  %386 = getelementptr inbounds nuw i8, ptr %376, i64 32
   %387 = load i64, ptr %386, align 8
   %388 = icmp slt i64 %387, 1
   br i1 %388, label %389, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit110
@@ -995,15 +995,15 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit106:     ; preds = %347, %351
 389:                                              ; preds = %385
   %390 = load ptr, ptr %375, align 8
   %391 = load ptr, ptr %390, align 8
-  %392 = getelementptr inbounds i8, ptr %375, i64 40
+  %392 = getelementptr inbounds nuw i8, ptr %375, i64 40
   %393 = load i64, ptr %392, align 8
   %394 = zext i32 %.sroa.02.0.i107 to i64
   %395 = mul nsw i64 %393, %394
   %396 = getelementptr i8, ptr %391, i64 %395
-  %397 = getelementptr inbounds i8, ptr %375, i64 48
+  %397 = getelementptr inbounds nuw i8, ptr %375, i64 48
   %398 = load i64, ptr %397, align 8
   %399 = getelementptr i8, ptr %396, i64 %398
-  %400 = getelementptr inbounds i8, ptr %376, i64 8
+  %400 = getelementptr inbounds nuw i8, ptr %376, i64 8
   %401 = load ptr, ptr %400, align 8
   %402 = getelementptr inbounds i8, ptr %399, i64 %393
   %403 = load ptr, ptr %376, align 8
@@ -1044,26 +1044,26 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit110:     ; preds = %385, %389, %_ZN5dra
 
 408:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit110
   %409 = load ptr, ptr %17, align 8
-  %410 = getelementptr inbounds i8, ptr %409, i64 16
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 16
   %411 = load ptr, ptr %410, align 8
-  %412 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %411, i64 %330
+  %412 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %411, i64 %330
   %413 = load ptr, ptr %412, align 8
   %414 = load ptr, ptr %0, align 8
-  %415 = getelementptr inbounds i8, ptr %413, i64 100
+  %415 = getelementptr inbounds nuw i8, ptr %413, i64 100
   %416 = load i8, ptr %415, align 4
   %417 = trunc i8 %416 to i1
   br i1 %417, label %423, label %418
 
 418:                                              ; preds = %408
-  %419 = getelementptr inbounds i8, ptr %413, i64 72
+  %419 = getelementptr inbounds nuw i8, ptr %413, i64 72
   %420 = load ptr, ptr %419, align 8
-  %421 = getelementptr inbounds %"class.draco::IndexType.60", ptr %420, i64 %indvars.iv
+  %421 = getelementptr inbounds nuw %"class.draco::IndexType.60", ptr %420, i64 %indvars.iv
   %422 = load i32, ptr %421, align 4
   br label %423
 
 423:                                              ; preds = %408, %418
   %.sroa.02.0.i111 = phi i32 [ %422, %418 ], [ %341, %408 ]
-  %424 = getelementptr inbounds i8, ptr %414, i64 32
+  %424 = getelementptr inbounds nuw i8, ptr %414, i64 32
   %425 = load i64, ptr %424, align 8
   %426 = icmp slt i64 %425, 1
   br i1 %426, label %427, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit114
@@ -1071,15 +1071,15 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit110:     ; preds = %385, %389, %_ZN5dra
 427:                                              ; preds = %423
   %428 = load ptr, ptr %413, align 8
   %429 = load ptr, ptr %428, align 8
-  %430 = getelementptr inbounds i8, ptr %413, i64 40
+  %430 = getelementptr inbounds nuw i8, ptr %413, i64 40
   %431 = load i64, ptr %430, align 8
   %432 = zext i32 %.sroa.02.0.i111 to i64
   %433 = mul nsw i64 %431, %432
   %434 = getelementptr i8, ptr %429, i64 %433
-  %435 = getelementptr inbounds i8, ptr %413, i64 48
+  %435 = getelementptr inbounds nuw i8, ptr %413, i64 48
   %436 = load i64, ptr %435, align 8
   %437 = getelementptr i8, ptr %434, i64 %436
-  %438 = getelementptr inbounds i8, ptr %414, i64 8
+  %438 = getelementptr inbounds nuw i8, ptr %414, i64 8
   %439 = load ptr, ptr %438, align 8
   %440 = getelementptr inbounds i8, ptr %437, i64 %431
   %441 = load ptr, ptr %414, align 8
@@ -1101,8 +1101,8 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit114:     ; preds = %423, %427, %_ZN5dra
   br i1 %.not82, label %.loopexit141, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %447 = getelementptr inbounds i8, ptr %446, i64 192
-  %448 = getelementptr inbounds i8, ptr %446, i64 200
+  %447 = getelementptr inbounds nuw i8, ptr %446, i64 192
+  %448 = getelementptr inbounds nuw i8, ptr %446, i64 200
   %449 = load ptr, ptr %448, align 8
   %450 = load ptr, ptr %447, align 8
   %451 = ptrtoint ptr %449 to i64
@@ -1114,9 +1114,9 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit114:     ; preds = %423, %427, %_ZN5dra
   br i1 %.not159, label %.loopexit141, label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %.preheader
-  %456 = getelementptr inbounds i8, ptr %4, i64 1
+  %456 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %457 = icmp sgt i32 %.071, -1
-  %458 = getelementptr inbounds i8, ptr %5, i64 1
+  %458 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %459 = zext nneg i32 %.071 to i64
   br i1 %457, label %.lr.ph155.split.us, label %.lr.ph155.split
 
@@ -1125,13 +1125,13 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit114:     ; preds = %423, %427, %_ZN5dra
   %.sroa.0.0154.us = phi i32 [ %548, %.loopexit.us ], [ 0, %.lr.ph155 ]
   %461 = load ptr, ptr %0, align 8
   store i8 3, ptr %4, align 1
-  %462 = getelementptr inbounds i8, ptr %461, i64 32
+  %462 = getelementptr inbounds nuw i8, ptr %461, i64 32
   %463 = load i64, ptr %462, align 8
   %464 = icmp slt i64 %463, 1
   br i1 %464, label %465, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us
 
 465:                                              ; preds = %.lr.ph155.split.us
-  %466 = getelementptr inbounds i8, ptr %461, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %461, i64 8
   %467 = load ptr, ptr %466, align 8
   %468 = load ptr, ptr %461, align 8
   %469 = ptrtoint ptr %467 to i64
@@ -1147,22 +1147,22 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit114:     ; preds = %423, %427, %_ZN5dra
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us: ; preds = %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us_crit_edge, %.lr.ph155.split.us
   %473 = phi ptr [ %.pre176, %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us_crit_edge ], [ %460, %.lr.ph155.split.us ]
-  %474 = getelementptr inbounds i8, ptr %473, i64 192
+  %474 = getelementptr inbounds nuw i8, ptr %473, i64 192
   %475 = zext i32 %.sroa.0.0154.us to i64
   %476 = load ptr, ptr %474, align 8
-  %477 = getelementptr inbounds %"struct.std::array", ptr %476, i64 %475
+  %477 = getelementptr inbounds nuw %"struct.std::array", ptr %476, i64 %475
   br label %531
 
 478:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit.us
   %479 = load ptr, ptr %0, align 8
   store i8 6, ptr %5, align 1
-  %480 = getelementptr inbounds i8, ptr %479, i64 32
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 32
   %481 = load i64, ptr %480, align 8
   %482 = icmp slt i64 %481, 1
   br i1 %482, label %483, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit118.us
 
 483:                                              ; preds = %478
-  %484 = getelementptr inbounds i8, ptr %479, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %479, i64 8
   %485 = load ptr, ptr %484, align 8
   %486 = load ptr, ptr %479, align 8
   %487 = ptrtoint ptr %485 to i64
@@ -1174,20 +1174,20 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us: ; preds = %._ZN5draco13Encoder
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit118.us: ; preds = %483, %478
   %491 = load ptr, ptr %17, align 8
-  %492 = getelementptr inbounds i8, ptr %491, i64 16
+  %492 = getelementptr inbounds nuw i8, ptr %491, i64 16
   %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %493, i64 %459
+  %494 = getelementptr inbounds nuw %"class.std::unique_ptr.62", ptr %493, i64 %459
   %495 = load ptr, ptr %494, align 8
-  %496 = getelementptr inbounds i8, ptr %495, i64 100
-  %497 = getelementptr inbounds i8, ptr %495, i64 72
-  %498 = getelementptr inbounds i8, ptr %495, i64 40
-  %499 = getelementptr inbounds i8, ptr %495, i64 48
+  %496 = getelementptr inbounds nuw i8, ptr %495, i64 100
+  %497 = getelementptr inbounds nuw i8, ptr %495, i64 72
+  %498 = getelementptr inbounds nuw i8, ptr %495, i64 40
+  %499 = getelementptr inbounds nuw i8, ptr %495, i64 48
   br label %500
 
 500:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit122.us, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit118.us
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit122.us ], [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit118.us ]
   %501 = load ptr, ptr %0, align 8
-  %502 = getelementptr inbounds [3 x %"class.draco::IndexType"], ptr %477, i64 0, i64 %indvars.iv172
+  %502 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %477, i64 0, i64 %indvars.iv172
   %.sroa.0.0.copyload.us = load i32, ptr %502, align 4
   %503 = load i8, ptr %496, align 4
   %504 = trunc i8 %503 to i1
@@ -1196,13 +1196,13 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit118.us: ; preds = %483, %478
 505:                                              ; preds = %500
   %506 = zext i32 %.sroa.0.0.copyload.us to i64
   %507 = load ptr, ptr %497, align 8
-  %508 = getelementptr inbounds %"class.draco::IndexType.60", ptr %507, i64 %506
+  %508 = getelementptr inbounds nuw %"class.draco::IndexType.60", ptr %507, i64 %506
   %509 = load i32, ptr %508, align 4
   br label %510
 
 510:                                              ; preds = %505, %500
   %.sroa.02.0.i119.us = phi i32 [ %509, %505 ], [ %.sroa.0.0.copyload.us, %500 ]
-  %511 = getelementptr inbounds i8, ptr %501, i64 32
+  %511 = getelementptr inbounds nuw i8, ptr %501, i64 32
   %512 = load i64, ptr %511, align 8
   %513 = icmp slt i64 %512, 1
   br i1 %513, label %514, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit122.us
@@ -1216,7 +1216,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit118.us: ; preds = %483, %478
   %520 = getelementptr i8, ptr %516, i64 %519
   %521 = load i64, ptr %499, align 8
   %522 = getelementptr i8, ptr %520, i64 %521
-  %523 = getelementptr inbounds i8, ptr %501, i64 8
+  %523 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %524 = load ptr, ptr %523, align 8
   %525 = getelementptr inbounds i8, ptr %522, i64 %517
   %526 = load ptr, ptr %501, align 8
@@ -1234,22 +1234,22 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit122.us:  ; preds = %514, %510
 
 531:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit.us, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit.us ], [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit.us ]
-  %532 = getelementptr inbounds [3 x %"class.draco::IndexType"], ptr %477, i64 0, i64 %indvars.iv168
+  %532 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %477, i64 0, i64 %indvars.iv168
   %533 = load i32, ptr %532, align 4
   %.not139.us = icmp ult i32 %533, %328
   br i1 %.not139.us, label %534, label %.loopexit141
 
 534:                                              ; preds = %531
   %535 = load ptr, ptr %0, align 8
-  %536 = getelementptr inbounds i8, ptr %535, i64 32
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 32
   %537 = load i64, ptr %536, align 8
   %538 = icmp slt i64 %537, 1
   br i1 %538, label %539, label %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit.us
 
 539:                                              ; preds = %534
-  %540 = getelementptr inbounds i8, ptr %535, i64 8
+  %540 = getelementptr inbounds nuw i8, ptr %535, i64 8
   %541 = load ptr, ptr %540, align 8
-  %542 = getelementptr inbounds i8, ptr %532, i64 4
+  %542 = getelementptr inbounds nuw i8, ptr %532, i64 4
   %543 = load ptr, ptr %535, align 8
   %544 = ptrtoint ptr %541 to i64
   %545 = ptrtoint ptr %543 to i64
@@ -1266,8 +1266,8 @@ _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRK
 .loopexit.us:                                     ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit122.us
   %548 = add nuw i32 %.sroa.0.0154.us, 1
   %549 = load ptr, ptr %262, align 8
-  %550 = getelementptr inbounds i8, ptr %549, i64 192
-  %551 = getelementptr inbounds i8, ptr %549, i64 200
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 192
+  %551 = getelementptr inbounds nuw i8, ptr %549, i64 200
   %552 = load ptr, ptr %551, align 8
   %553 = load ptr, ptr %550, align 8
   %554 = ptrtoint ptr %552 to i64
@@ -1298,13 +1298,13 @@ _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRK
   %.sroa.0.0154 = phi i32 [ %596, %595 ], [ 0, %.lr.ph155 ]
   %561 = load ptr, ptr %0, align 8
   store i8 3, ptr %4, align 1
-  %562 = getelementptr inbounds i8, ptr %561, i64 32
+  %562 = getelementptr inbounds nuw i8, ptr %561, i64 32
   %563 = load i64, ptr %562, align 8
   %564 = icmp slt i64 %563, 1
   br i1 %564, label %565, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
 565:                                              ; preds = %.lr.ph155.split
-  %566 = getelementptr inbounds i8, ptr %561, i64 8
+  %566 = getelementptr inbounds nuw i8, ptr %561, i64 8
   %567 = load ptr, ptr %566, align 8
   %568 = load ptr, ptr %561, align 8
   %569 = ptrtoint ptr %567 to i64
@@ -1320,30 +1320,30 @@ _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRK
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit_crit_edge, %.lr.ph155.split
   %573 = phi ptr [ %.pre, %._ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit_crit_edge ], [ %560, %.lr.ph155.split ]
-  %574 = getelementptr inbounds i8, ptr %573, i64 192
+  %574 = getelementptr inbounds nuw i8, ptr %573, i64 192
   %575 = zext i32 %.sroa.0.0154 to i64
   %576 = load ptr, ptr %574, align 8
-  %577 = getelementptr inbounds %"struct.std::array", ptr %576, i64 %575
+  %577 = getelementptr inbounds nuw %"struct.std::array", ptr %576, i64 %575
   br label %578
 
 578:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit, %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit
   %indvars.iv164 = phi i64 [ 0, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ], [ %indvars.iv.next165, %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit ]
-  %579 = getelementptr inbounds [3 x %"class.draco::IndexType"], ptr %577, i64 0, i64 %indvars.iv164
+  %579 = getelementptr inbounds nuw [3 x %"class.draco::IndexType"], ptr %577, i64 0, i64 %indvars.iv164
   %580 = load i32, ptr %579, align 4
   %.not139 = icmp ult i32 %580, %328
   br i1 %.not139, label %581, label %.loopexit141
 
 581:                                              ; preds = %578
   %582 = load ptr, ptr %0, align 8
-  %583 = getelementptr inbounds i8, ptr %582, i64 32
+  %583 = getelementptr inbounds nuw i8, ptr %582, i64 32
   %584 = load i64, ptr %583, align 8
   %585 = icmp slt i64 %584, 1
   br i1 %585, label %586, label %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit
 
 586:                                              ; preds = %581
-  %587 = getelementptr inbounds i8, ptr %582, i64 8
+  %587 = getelementptr inbounds nuw i8, ptr %582, i64 8
   %588 = load ptr, ptr %587, align 8
-  %589 = getelementptr inbounds i8, ptr %579, i64 4
+  %589 = getelementptr inbounds nuw i8, ptr %579, i64 4
   %590 = load ptr, ptr %582, align 8
   %591 = ptrtoint ptr %588 to i64
   %592 = ptrtoint ptr %590 to i64
@@ -1360,8 +1360,8 @@ _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRK
 595:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRKT_.exit
   %596 = add nuw i32 %.sroa.0.0154, 1
   %597 = load ptr, ptr %262, align 8
-  %598 = getelementptr inbounds i8, ptr %597, i64 192
-  %599 = getelementptr inbounds i8, ptr %597, i64 200
+  %598 = getelementptr inbounds nuw i8, ptr %597, i64 192
+  %599 = getelementptr inbounds nuw i8, ptr %597, i64 200
   %600 = load ptr, ptr %599, align 8
   %601 = load ptr, ptr %598, align 8
   %602 = ptrtoint ptr %600 to i64
@@ -1396,9 +1396,9 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder14ExitAndCleanupEb(ptr nocapture
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeToBufferERKNS_4MeshEPNS_13EncoderBufferE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %0, align 8
   %6 = tail call noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeInternalEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
@@ -1420,14 +1420,14 @@ declare noundef i32 @_ZNK5draco10PointCloud19GetNamedAttributeIdENS_17GeometryAt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN5draco10PlyEncoder20GetAttributeDataTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %14 [
     i32 9, label %15
@@ -1481,9 +1481,9 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cx
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -1533,8 +1533,8 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %.0910.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ]
   %32 = load i8, ptr %.0910.i.i.i.i.i, align 1
   store i8 %32, ptr %.0811.i.i.i.i.i, align 1
-  %33 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
-  %34 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 1
   %35 = add nsw i64 %.012.i.i.i.i.i, -1
   %36 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !9
@@ -1552,8 +1552,8 @@ _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %.0910.i.i.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i.i.i ], [ %37, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
   %41 = load i8, ptr %.0910.i.i.i.i.i.i.i.i, align 1
   store i8 %41, ptr %.0811.i.i.i.i.i.i.i.i, align 1
-  %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
-  %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %44 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
   %45 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !9
@@ -1588,8 +1588,8 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   %.0910.i.i.i.i.i61 = phi ptr [ %54, %.lr.ph.i.i.i.i.i58 ], [ %2, %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56 ]
   %53 = load i8, ptr %.0910.i.i.i.i.i61, align 1
   store i8 %53, ptr %.0811.i.i.i.i.i60, align 1
-  %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i61, i64 1
-  %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i60, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i61, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i60, i64 1
   %56 = add nsw i64 %.012.i.i.i.i.i59, -1
   %57 = icmp samesign ugt i64 %.012.i.i.i.i.i59, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !9
@@ -1665,7 +1665,7 @@ _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69: ; preds = %.lr.p
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %83, %85
   store ptr %71, ptr %0, align 8
   store ptr %84, ptr %11, align 8
-  %86 = getelementptr inbounds i8, ptr %71, i64 %68
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 %68
   store ptr %86, ptr %9, align 8
   br label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit
 

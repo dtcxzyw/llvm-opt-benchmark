@@ -78,10 +78,10 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_regcache_reg
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 528
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
-  %7 = getelementptr inbounds i8, ptr %1, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %6, label %10, label %20
@@ -90,24 +90,24 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readon
   br i1 %9, label %11, label %15
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %11, %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %17, ptr noundef nonnull @.str) #10
   br label %18
 
 18:                                               ; preds = %15, %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 549
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 549
   store i8 1, ptr %19, align 1
   br label %.loopexit
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %1, i64 232
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %9, label %28, label %24
@@ -116,7 +116,7 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readon
   br i1 %23, label %25, label %.thread
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load ptr, ptr %26, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %27, ptr noundef nonnull @.str.1) #10
   br label %.loopexit
@@ -129,12 +129,12 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readon
   br label %45
 
 .thread:                                          ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 508
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %31 = load i32, ptr %30, align 4
   br label %38
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load ptr, ptr %33, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %34, ptr noundef nonnull @.str.2) #10
   br label %.loopexit
@@ -157,7 +157,7 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readon
   %46 = phi i64 [ %53, %52 ], [ 0, %.loopexit14 ]
   %47 = getelementptr [3 x ptr], ptr @cache_types, i64 0, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, %5
   br i1 %51, label %55, label %52
@@ -172,43 +172,43 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readon
   br i1 %56, label %.thread10, label %59
 
 .thread10:                                        ; preds = %52, %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %58 = load ptr, ptr %57, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %58, ptr noundef nonnull @.str.3, i32 noundef %5) #10
   br label %.loopexit
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %0, i64 540
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 540
   store i32 %29, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 248
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 544
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 240
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 560
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store ptr %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 7
   %70 = sdiv i32 %69, 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 536
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i32 %70, ptr %71, align 8
   %72 = load i32, ptr %61, align 8
   %73 = mul i32 %70, %72
-  %74 = getelementptr inbounds i8, ptr %0, i64 532
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 532
   store i32 %73, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %0, i64 568
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr null, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 520
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store ptr %48, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %48, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.loopexit, label %80
 
 80:                                               ; preds = %59
-  %81 = getelementptr inbounds i8, ptr %48, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.loopexit, label %84
@@ -231,7 +231,7 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readon
   br i1 %94, label %.loopexit, label %95
 
 95:                                               ; preds = %90
-  %96 = getelementptr inbounds i8, ptr %0, i64 552
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr %93, ptr %96, align 8
   br label %219
 
@@ -241,7 +241,7 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readon
 
 99:                                               ; preds = %97
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
-  %100 = getelementptr inbounds i8, ptr %0, i64 508
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 508
   br label %101
 
 101:                                              ; preds = %114, %99
@@ -273,7 +273,7 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readon
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %0, i64 549
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 549
   store i8 1, ptr %122, align 1
   br label %regcache_hw_init.exit.thread
 
@@ -283,7 +283,7 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readon
   br i1 %124, label %.thread.i, label %126, !prof !11
 
 .thread.i:                                        ; preds = %123
-  %125 = getelementptr inbounds i8, ptr %0, i64 552
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr null, ptr %125, align 8
   br label %regcache_hw_init.exit.thread12
 
@@ -291,7 +291,7 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readon
   %127 = zext nneg i32 %115 to i64
   %128 = shl nuw nsw i64 %127, 3
   %129 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %128, i32 noundef 3264) #13
-  %130 = getelementptr inbounds i8, ptr %0, i64 552
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr %129, ptr %130, align 8
   %131 = icmp eq ptr %129, null
   br i1 %131, label %regcache_hw_init.exit.thread12, label %132
@@ -303,9 +303,9 @@ define dso_local i32 @regcache_init(ptr noundef %0, ptr nocapture noundef readon
   br i1 %134, label %135, label %.thread8.i
 
 135:                                              ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %0, i64 549
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 549
   %137 = load i8, ptr %136, align 1, !range !13, !noundef !14
-  %138 = getelementptr inbounds i8, ptr %0, i64 64
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %139 = load ptr, ptr %138, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %139, ptr noundef nonnull @.str.11) #10
   store i8 1, ptr %136, align 1
@@ -331,7 +331,7 @@ regcache_hw_init.exit.thread13:                   ; preds = %135
 
 150:                                              ; preds = %145
   store ptr %142, ptr %66, align 8
-  %151 = getelementptr inbounds i8, ptr %0, i64 550
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 550
   store i8 1, ptr %151, align 2
   br label %.thread8.i
 
@@ -345,9 +345,9 @@ regcache_hw_init.exit.thread13:                   ; preds = %135
   br i1 %154, label %regcache_hw_init.exit.thread, label %155
 
 155:                                              ; preds = %.thread8.i
-  %156 = getelementptr inbounds i8, ptr %0, i64 144
-  %157 = getelementptr inbounds i8, ptr %0, i64 549
-  %158 = getelementptr inbounds i8, ptr %0, i64 64
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 549
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %159
 
 159:                                              ; preds = %206, %155
@@ -461,13 +461,13 @@ regcache_hw_init.exit:                            ; preds = %195
   br i1 %214, label %.loopexit, label %215
 
 215:                                              ; preds = %regcache_hw_init.exit.thread, %regcache_hw_init.exit
-  %216 = getelementptr inbounds i8, ptr %0, i64 549
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 549
   %217 = load i8, ptr %216, align 1, !range !13, !noundef !14
   %218 = icmp eq i8 %217, 0
   br i1 %218, label %219, label %.loopexit
 
 219:                                              ; preds = %215, %97, %95
-  %220 = getelementptr inbounds i8, ptr %0, i64 336
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %221 = load i32, ptr %220, align 8
   %222 = icmp eq i32 %221, 0
   br i1 %222, label %223, label %231
@@ -479,7 +479,7 @@ regcache_hw_init.exit:                            ; preds = %195
 
 226:                                              ; preds = %223
   %227 = add i32 %224, -1
-  %228 = getelementptr inbounds i8, ptr %0, i64 508
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %229 = load i32, ptr %228, align 4
   %230 = mul i32 %229, %227
   store i32 %230, ptr %220, align 8
@@ -487,7 +487,7 @@ regcache_hw_init.exit:                            ; preds = %195
 
 231:                                              ; preds = %226, %223, %219
   %232 = load ptr, ptr %76, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %234 = load ptr, ptr %233, align 8
   %235 = icmp eq ptr %234, null
   br i1 %235, label %.loopexit, label %236
@@ -498,10 +498,10 @@ regcache_hw_init.exit:                            ; preds = %195
   br i1 %238, label %.loopexit, label %239
 
 239:                                              ; preds = %236
-  %240 = getelementptr inbounds i8, ptr %0, i64 552
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %241 = load ptr, ptr %240, align 8
   tail call void @kfree(ptr noundef %241) #12
-  %242 = getelementptr inbounds i8, ptr %0, i64 550
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 550
   %243 = load i8, ptr %242, align 2, !range !13, !noundef !14
   %244 = icmp eq i8 %243, 0
   br i1 %244, label %.loopexit, label %245
@@ -536,13 +536,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @regcache_exit(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 528
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %26, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 520
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10, !prof !11
@@ -553,23 +553,23 @@ define dso_local void @regcache_exit(ptr noundef %0) local_unnamed_addr #0 align
   unreachable
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 552
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %12 = load ptr, ptr %11, align 8
   tail call void @kfree(ptr noundef %12) #12
-  %13 = getelementptr inbounds i8, ptr %0, i64 550
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 550
   %14 = load i8, ptr %13, align 2, !range !13, !noundef !14
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 560
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %18 = load ptr, ptr %17, align 8
   tail call void @kfree(ptr noundef %18) #12
   br label %19
 
 19:                                               ; preds = %16, %10
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %26, label %24
@@ -584,13 +584,13 @@ define dso_local void @regcache_exit(ptr noundef %0) local_unnamed_addr #0 align
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @regcache_read(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 528
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %42, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 520
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12, !prof !11
@@ -606,7 +606,7 @@ define dso_local i32 @regcache_read(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0, i32 noundef %1, ptr noundef %2) #12
   %19 = icmp eq i32 %18, 0
@@ -634,7 +634,7 @@ define dso_local i32 @regcache_read(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @__SCT__tp_func_regmap_reg_read_cache(ptr noundef %33, ptr noundef %0, i32 noundef %1, i32 noundef %21) #12
   br label %35
@@ -663,13 +663,13 @@ declare dso_local zeroext i1 @regmap_volatile(ptr noundef, i32 noundef) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @regcache_write(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 528
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %19, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 520
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12, !prof !11
@@ -685,7 +685,7 @@ define dso_local i32 @regcache_write(ptr noundef %0, i32 noundef %1, i32 noundef
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0, i32 noundef %1, i32 noundef %2) #12
   br label %19
@@ -702,7 +702,7 @@ define dso_local noundef zeroext i1 @regcache_reg_needs_sync(ptr noundef %0, i32
   br i1 %5, label %6, label %33
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 577
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 577
   %8 = load i8, ptr %7, align 1, !range !13, !noundef !14
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %33, label %10
@@ -710,11 +710,11 @@ define dso_local noundef zeroext i1 @regcache_reg_needs_sync(ptr noundef %0, i32
 10:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store i32 %1, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 552
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 540
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   %17 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef %13, i64 noundef %16, i64 noundef 8, ptr noundef nonnull @regcache_default_cmp) #12
@@ -759,11 +759,11 @@ define dso_local i32 @regcache_lookup_reg(ptr nocapture noundef readonly %0, i32
   %3 = alloca %struct.reg_default, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 552
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 540
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
   %10 = call ptr @bsearch(ptr noundef nonnull %3, ptr noundef %6, i64 noundef %9, i64 noundef 8, ptr noundef nonnull @regcache_default_cmp) #12
@@ -789,7 +789,7 @@ define dso_local i32 @regcache_lookup_reg(ptr nocapture noundef readonly %0, i32
 define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %7, !prof !11
@@ -801,7 +801,7 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
   br label %145
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 520
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12, !prof !11
@@ -813,12 +813,12 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
 
 12:                                               ; preds = %7
   store i32 0, ptr %2, align 4, !annotation !12
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   tail call void %14(ptr noundef %16) #12
-  %17 = getelementptr inbounds i8, ptr %0, i64 549
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 549
   %18 = load i8, ptr %17, align 1, !range !13, !noundef !14
   %19 = load ptr, ptr %8, align 8
   %20 = load ptr, ptr %19, align 8
@@ -842,7 +842,7 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @__SCT__tp_func_regcache_sync(ptr noundef %32, ptr noundef %0, ptr noundef %20, ptr noundef nonnull @.str.5) #12
   br label %34
@@ -862,21 +862,21 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
   br label %41
 
 41:                                               ; preds = %38, %34, %21, %12
-  %42 = getelementptr inbounds i8, ptr %0, i64 576
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %43 = load i8, ptr %42, align 8, !range !13, !noundef !14
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %87, label %45
 
 45:                                               ; preds = %41
   store i8 1, ptr %17, align 1
-  %46 = getelementptr inbounds i8, ptr %0, i64 592
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store i32 0, ptr %2, align 4
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %.loopexit9, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 584
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 584
   br label %51
 
 51:                                               ; preds = %69, %49
@@ -885,19 +885,19 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
   %54 = zext i32 %52 to i64
   %55 = getelementptr %struct.reg_sequence, ptr %53, i64 %54
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %55, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = tail call i32 @_regmap_write(ptr noundef %0, i32 noundef %56, i32 noundef %58) #12
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %69, label %61
 
 61:                                               ; preds = %51
-  %62 = getelementptr inbounds i8, ptr %0, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %50, align 8
   %65 = getelementptr %struct.reg_sequence, ptr %64, i64 %54
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %65, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %68 = load i32, ptr %67, align 4
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %63, ptr noundef nonnull @.str.6, i32 noundef %66, i32 noundef %68, i32 noundef %59) #10
   br label %87
@@ -912,10 +912,10 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
 .loopexit9:                                       ; preds = %69, %45
   store i8 0, ptr %17, align 1
   %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
-  %77 = getelementptr inbounds i8, ptr %0, i64 336
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %78 = load i32, ptr %77, align 8
   br i1 %76, label %81, label %79
 
@@ -939,9 +939,9 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
 87:                                               ; preds = %86, %83, %61, %41
   %88 = phi i32 [ %59, %61 ], [ 0, %86 ], [ %84, %83 ], [ 0, %41 ]
   store i8 %18, ptr %17, align 1
-  %89 = getelementptr inbounds i8, ptr %0, i64 577
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 577
   store i8 0, ptr %89, align 1
-  %90 = getelementptr inbounds i8, ptr %0, i64 616
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 616
   br label %91
 
 91:                                               ; preds = %91, %87
@@ -949,7 +949,7 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
   %93 = phi ptr [ null, %87 ], [ %94, %91 ]
   %94 = load ptr, ptr %92, align 8
   %95 = icmp eq ptr %94, null
-  %96 = getelementptr inbounds i8, ptr %94, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 16
   br i1 %95, label %97, label %91, !llvm.loop !43
 
 97:                                               ; preds = %91
@@ -957,13 +957,13 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
   br i1 %98, label %.loopexit, label %99
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %0, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %101
 
 101:                                              ; preds = %117, %99
   %102 = phi i32 [ %88, %99 ], [ %.ph, %117 ]
   %103 = phi ptr [ %93, %99 ], [ %118, %117 ]
-  %104 = getelementptr inbounds i8, ptr %103, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 48
   %105 = load i32, ptr %104, align 8
   %106 = call i32 @regcache_read(ptr noundef %0, i32 noundef %105, ptr noundef nonnull %2)
   %107 = icmp eq i32 %106, 0
@@ -991,7 +991,7 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
 
 .loopexit:                                        ; preds = %117, %113, %97
   %120 = phi i32 [ %88, %97 ], [ %111, %113 ], [ %.ph, %117 ]
-  %121 = getelementptr inbounds i8, ptr %0, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %15, align 8
   call void %122(ptr noundef %123) #12
@@ -1016,7 +1016,7 @@ define dso_local i32 @regcache_sync(ptr noundef %0) #0 align 16 {
   br i1 %133, label %138, label %134
 
 134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %132, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %136 = load ptr, ptr %135, align 8
   %137 = call i32 @__SCT__tp_func_regcache_sync(ptr noundef %136, ptr noundef %0, ptr noundef %20, ptr noundef nonnull @.str.7) #12
   br label %138
@@ -1052,13 +1052,13 @@ define internal fastcc i32 @regcache_default_sync(ptr noundef %0, i32 noundef %1
   br i1 %6, label %.loopexit7, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 577
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 552
-  %11 = getelementptr inbounds i8, ptr %0, i64 540
-  %12 = getelementptr inbounds i8, ptr %0, i64 549
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
-  %14 = getelementptr inbounds i8, ptr %0, i64 508
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 577
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 540
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 549
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 508
   br label %15
 
 15:                                               ; preds = %54, %7
@@ -1157,7 +1157,7 @@ declare dso_local i32 @regmap_async_complete(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @regcache_sync_region(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 528
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8, !prof !11
@@ -1169,7 +1169,7 @@ define dso_local i32 @regcache_sync_region(ptr noundef %0, i32 noundef %1, i32 n
   br label %84
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 520
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13, !prof !11
@@ -1180,12 +1180,12 @@ define dso_local i32 @regcache_sync_region(ptr noundef %0, i32 noundef %1, i32 n
   unreachable
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   tail call void %15(ptr noundef %17) #12
-  %18 = getelementptr inbounds i8, ptr %0, i64 549
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 549
   %19 = load i8, ptr %18, align 1, !range !13, !noundef !14
   %20 = load ptr, ptr %9, align 8
   %21 = load ptr, ptr %20, align 8
@@ -1209,7 +1209,7 @@ define dso_local i32 @regcache_sync_region(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @__SCT__tp_func_regcache_sync(ptr noundef %33, ptr noundef %0, ptr noundef %21, ptr noundef nonnull @.str.8) #12
   br label %35
@@ -1229,16 +1229,16 @@ define dso_local i32 @regcache_sync_region(ptr noundef %0, i32 noundef %1, i32 n
   br label %42
 
 42:                                               ; preds = %39, %35, %22, %13
-  %43 = getelementptr inbounds i8, ptr %0, i64 576
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %44 = load i8, ptr %43, align 8, !range !13, !noundef !14
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %56, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %0, i64 184
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 1, ptr %47, align 8
   %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %54, label %52
@@ -1254,11 +1254,11 @@ define dso_local i32 @regcache_sync_region(ptr noundef %0, i32 noundef %1, i32 n
 56:                                               ; preds = %54, %52, %42
   %57 = phi i32 [ %53, %52 ], [ %55, %54 ], [ 0, %42 ]
   store i8 %19, ptr %18, align 1
-  %58 = getelementptr inbounds i8, ptr %0, i64 184
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 577
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 577
   store i8 0, ptr %59, align 1
-  %60 = getelementptr inbounds i8, ptr %0, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %16, align 8
   tail call void %61(ptr noundef %62) #12
@@ -1283,7 +1283,7 @@ define dso_local i32 @regcache_sync_region(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 @__SCT__tp_func_regcache_sync(ptr noundef %75, ptr noundef %0, ptr noundef %21, ptr noundef nonnull @.str.9) #12
   br label %77
@@ -1309,21 +1309,21 @@ define dso_local i32 @regcache_sync_region(ptr noundef %0, i32 noundef %1, i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @regcache_drop_region(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 520
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %44, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %44, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   tail call void %13(ptr noundef %15) #12
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_regcache_drop_region, i64 8), i32 2) #12
@@ -1346,7 +1346,7 @@ define dso_local i32 @regcache_drop_region(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @__SCT__tp_func_regcache_drop_region(ptr noundef %27, ptr noundef %0, i32 noundef %1, i32 noundef %2) #12
   br label %29
@@ -1367,10 +1367,10 @@ define dso_local i32 @regcache_drop_region(ptr noundef %0, i32 noundef %1, i32 n
 
 36:                                               ; preds = %33, %29, %16, %11
   %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef %0, i32 noundef %1, i32 noundef %2) #12
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %14, align 8
   tail call void %42(ptr noundef %43) #12
@@ -1383,18 +1383,18 @@ define dso_local i32 @regcache_drop_region(ptr noundef %0, i32 noundef %1, i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @regcache_cache_only(ptr noundef initializes((548, 549)) %0, i1 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   tail call void %4(ptr noundef %6) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 528
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 549
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 549
   %12 = load i8, ptr %11, align 1, !range !13, !noundef !14
   %13 = icmp ne i8 %12, 0
   %14 = and i1 %1, %13
@@ -1408,7 +1408,7 @@ define dso_local void @regcache_cache_only(ptr noundef initializes((548, 549)) %
 
 16:                                               ; preds = %15, %10, %2
   %17 = zext i1 %1 to i8
-  %18 = getelementptr inbounds i8, ptr %0, i64 548
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 548
   store i8 %17, ptr %18, align 4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_regmap_cache_only, i64 8), i32 2) #12
           to label %39 [label %19], !srcloc !22
@@ -1430,7 +1430,7 @@ define dso_local void @regcache_cache_only(ptr noundef initializes((548, 549)) %
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @__SCT__tp_func_regmap_cache_only(ptr noundef %30, ptr noundef %0, i1 noundef zeroext %1) #12
   br label %32
@@ -1450,7 +1450,7 @@ define dso_local void @regcache_cache_only(ptr noundef initializes((548, 549)) %
   br label %39
 
 39:                                               ; preds = %36, %32, %19, %16
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %5, align 8
   tail call void %41(ptr noundef %42) #12
@@ -1459,16 +1459,16 @@ define dso_local void @regcache_cache_only(ptr noundef initializes((548, 549)) %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @regcache_mark_dirty(ptr nocapture noundef initializes((576, 578)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   tail call void %3(ptr noundef %5) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 576
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store i8 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 577
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 577
   store i8 1, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %4, align 8
   tail call void %9(ptr noundef %10) #12
@@ -1477,12 +1477,12 @@ define dso_local void @regcache_mark_dirty(ptr nocapture noundef initializes((57
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @regcache_cache_bypass(ptr noundef initializes((549, 550)) %0, i1 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   tail call void %4(ptr noundef %6) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 548
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %8 = load i8, ptr %7, align 4, !range !13, !noundef !14
   %9 = icmp ne i8 %8, 0
   %10 = and i1 %1, %9
@@ -1496,7 +1496,7 @@ define dso_local void @regcache_cache_bypass(ptr noundef initializes((549, 550))
 
 12:                                               ; preds = %11, %2
   %13 = zext i1 %1 to i8
-  %14 = getelementptr inbounds i8, ptr %0, i64 549
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 549
   store i8 %13, ptr %14, align 1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_regmap_cache_bypass, i64 8), i32 2) #12
           to label %35 [label %15], !srcloc !22
@@ -1518,7 +1518,7 @@ define dso_local void @regcache_cache_bypass(ptr noundef initializes((549, 550))
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @__SCT__tp_func_regmap_cache_bypass(ptr noundef %26, ptr noundef %0, i1 noundef zeroext %1) #12
   br label %28
@@ -1538,7 +1538,7 @@ define dso_local void @regcache_cache_bypass(ptr noundef initializes((549, 550))
   br label %35
 
 35:                                               ; preds = %32, %28, %15, %12
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %5, align 8
   tail call void %37(ptr noundef %38) #12
@@ -1550,13 +1550,13 @@ define dso_local zeroext i1 @regcache_reg_cached(ptr noundef %0, i32 noundef %1)
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
   store i32 0, ptr %3, align 4, !annotation !12
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   tail call void %5(ptr noundef %7) #12
   %8 = call i32 @regcache_read(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3)
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %6, align 8
   call void %10(ptr noundef %11) #12
@@ -1567,10 +1567,10 @@ define dso_local zeroext i1 @regcache_reg_cached(ptr noundef %0, i32 noundef %1)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @regcache_set_val(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  %8 = getelementptr inbounds i8, ptr %0, i64 536
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %9 = load i32, ptr %8, align 8
   br i1 %7, label %14, label %10
 
@@ -1623,10 +1623,10 @@ define dso_local i32 @regcache_get_val(ptr nocapture noundef readonly %0, ptr no
   br i1 %4, label %32, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %0, i64 536
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %10 = load i32, ptr %9, align 8
   br i1 %8, label %16, label %11
 
@@ -1692,7 +1692,7 @@ define dso_local i32 @regcache_sync_val(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %5, label %6, label %39
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 577
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 577
   %8 = load i8, ptr %7, align 1, !range !13, !noundef !14
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %32, label %10
@@ -1700,11 +1700,11 @@ define dso_local i32 @regcache_sync_val(ptr noundef %0, i32 noundef %1, i32 noun
 10:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store i32 %1, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 552
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 540
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   %17 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef %13, i64 noundef %16, i64 noundef 8, ptr noundef nonnull @regcache_default_cmp) #12
@@ -1734,7 +1734,7 @@ define dso_local i32 @regcache_sync_val(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %31, label %39, label %32
 
 32:                                               ; preds = %.thread, %26, %19, %6
-  %33 = getelementptr inbounds i8, ptr %0, i64 549
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 549
   store i8 1, ptr %33, align 1
   %34 = call i32 @_regmap_write(ptr noundef %0, i32 noundef %1, i32 noundef %2) #12
   store i8 0, ptr %33, align 1
@@ -1742,7 +1742,7 @@ define dso_local i32 @regcache_sync_val(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %38, ptr noundef nonnull @.str.10, i32 noundef %1, i32 noundef %34) #10
   br label %39
@@ -1759,7 +1759,7 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %8, label %9, label %149
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 597
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 597
   %11 = load i8, ptr %10, align 1, !range !13, !noundef !14
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %149
@@ -1769,18 +1769,18 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %14, label %15, label %.thread26
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 508
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %17 = icmp eq ptr %2, null
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
-  %19 = getelementptr inbounds i8, ptr %0, i64 549
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 549
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = icmp eq ptr %1, null
-  %22 = getelementptr inbounds i8, ptr %0, i64 144
-  %23 = getelementptr inbounds i8, ptr %0, i64 536
-  %24 = getelementptr inbounds i8, ptr %0, i64 577
-  %25 = getelementptr inbounds i8, ptr %7, i64 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 552
-  %27 = getelementptr inbounds i8, ptr %0, i64 540
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 577
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %28 = zext i32 %4 to i64
   %29 = zext i32 %5 to i64
   br label %30
@@ -1995,11 +1995,11 @@ define dso_local i32 @regcache_sync_block(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %150, label %151, label %.thread26
 
 151:                                              ; preds = %149
-  %152 = getelementptr inbounds i8, ptr %0, i64 508
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %153 = icmp eq ptr %2, null
   %154 = icmp eq ptr %1, null
-  %155 = getelementptr inbounds i8, ptr %0, i64 144
-  %156 = getelementptr inbounds i8, ptr %0, i64 536
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %157 = zext i32 %4 to i64
   %158 = zext i32 %5 to i64
   br i1 %154, label %.split.us, label %.split

@@ -37,7 +37,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp3, label %land.lhs.true, label %if.end17
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end
-  %indent = getelementptr inbounds i8, ptr %call, i64 8
+  %indent = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load i32, ptr %indent, align 8
   %cmp5 = icmp eq i32 %2, 0
   br i1 %cmp5, label %if.then7, label %if.end17
@@ -52,7 +52,7 @@ if.then10:                                        ; preds = %if.then7
   %4 = load i8, ptr %arrayidx, align 1
   %cmp12 = icmp eq i8 %4, 10
   %conv13 = zext i1 %cmp12 to i32
-  %linestart = getelementptr inbounds i8, ptr %call, i64 12
+  %linestart = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i32 %conv13, ptr %linestart, align 4
   br label %if.end14
 
@@ -67,8 +67,8 @@ if.end17:                                         ; preds = %land.lhs.true, %lor
   br i1 %cmp18.not44, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end17
-  %linestart20 = getelementptr inbounds i8, ptr %call, i64 12
-  %indent35 = getelementptr inbounds i8, ptr %call, i64 8
+  %linestart20 = getelementptr inbounds nuw i8, ptr %call, i64 12
+  %indent35 = getelementptr inbounds nuw i8, ptr %call, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end67
@@ -227,18 +227,18 @@ sw.bb11:                                          ; preds = %if.end
 
 if.then14:                                        ; preds = %sw.bb11
   %conv15 = trunc i64 %num to i32
-  %indent = getelementptr inbounds i8, ptr %call, i64 8
+  %indent = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %conv15, ptr %indent, align 8
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
-  %indent18 = getelementptr inbounds i8, ptr %call, i64 8
+  %indent18 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load i32, ptr %indent18, align 8
   %conv19 = zext i32 %1 to i64
   br label %return
 
 sw.bb20:                                          ; preds = %if.end, %if.end
-  %linestart = getelementptr inbounds i8, ptr %call, i64 12
+  %linestart = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i32 1, ptr %linestart, align 4
   br label %sw.epilog
 
@@ -266,9 +266,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr null, ptr %call, align 8
-  %indent = getelementptr inbounds i8, ptr %call, i64 8
+  %indent = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 0, ptr %indent, align 8
-  %linestart = getelementptr inbounds i8, ptr %call, i64 12
+  %linestart = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i32 1, ptr %linestart, align 4
   tail call void @BIO_set_data(ptr noundef %b, ptr noundef nonnull %call) #4
   tail call void @BIO_set_init(ptr noundef %b, i32 noundef 1) #4

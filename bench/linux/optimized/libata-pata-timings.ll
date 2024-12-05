@@ -26,12 +26,12 @@ define dso_local void @ata_timing_merge(ptr nocapture noundef readonly %0, ptr n
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i16, ptr %8, align 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = tail call i16 @llvm.umax.i16(i16 %9, i16 %11)
-  %13 = getelementptr inbounds i8, ptr %2, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %12, ptr %13, align 2
   br label %14
 
@@ -41,12 +41,12 @@ define dso_local void @ata_timing_merge(ptr nocapture noundef readonly %0, ptr n
   br i1 %16, label %24, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i16, ptr %18, align 2
-  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load i16, ptr %20, align 2
   %22 = tail call i16 @llvm.umax.i16(i16 %19, i16 %21)
-  %23 = getelementptr inbounds i8, ptr %2, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i16 %22, ptr %23, align 2
   br label %24
 
@@ -56,12 +56,12 @@ define dso_local void @ata_timing_merge(ptr nocapture noundef readonly %0, ptr n
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 6
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %29 = load i16, ptr %28, align 2
-  %30 = getelementptr inbounds i8, ptr %1, i64 6
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %31 = load i16, ptr %30, align 2
   %32 = tail call i16 @llvm.umax.i16(i16 %29, i16 %31)
-  %33 = getelementptr inbounds i8, ptr %2, i64 6
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i16 %32, ptr %33, align 2
   br label %34
 
@@ -71,12 +71,12 @@ define dso_local void @ata_timing_merge(ptr nocapture noundef readonly %0, ptr n
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i16, ptr %38, align 2
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i16, ptr %40, align 2
   %42 = tail call i16 @llvm.umax.i16(i16 %39, i16 %41)
-  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 %42, ptr %43, align 2
   br label %44
 
@@ -86,12 +86,12 @@ define dso_local void @ata_timing_merge(ptr nocapture noundef readonly %0, ptr n
   br i1 %46, label %54, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 10
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %49 = load i16, ptr %48, align 2
-  %50 = getelementptr inbounds i8, ptr %1, i64 10
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %51 = load i16, ptr %50, align 2
   %52 = tail call i16 @llvm.umax.i16(i16 %49, i16 %51)
-  %53 = getelementptr inbounds i8, ptr %2, i64 10
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i16 %52, ptr %53, align 2
   br label %54
 
@@ -101,12 +101,12 @@ define dso_local void @ata_timing_merge(ptr nocapture noundef readonly %0, ptr n
   br i1 %56, label %64, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %0, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %59 = load i16, ptr %58, align 2
-  %60 = getelementptr inbounds i8, ptr %1, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %61 = load i16, ptr %60, align 2
   %62 = tail call i16 @llvm.umax.i16(i16 %59, i16 %61)
-  %63 = getelementptr inbounds i8, ptr %2, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i16 %62, ptr %63, align 2
   br label %64
 
@@ -116,12 +116,12 @@ define dso_local void @ata_timing_merge(ptr nocapture noundef readonly %0, ptr n
   br i1 %66, label %74, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %0, i64 14
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %69 = load i16, ptr %68, align 2
-  %70 = getelementptr inbounds i8, ptr %1, i64 14
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %71 = load i16, ptr %70, align 2
   %72 = tail call i16 @llvm.umax.i16(i16 %69, i16 %71)
-  %73 = getelementptr inbounds i8, ptr %2, i64 14
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 14
   store i16 %72, ptr %73, align 2
   br label %74
 
@@ -131,12 +131,12 @@ define dso_local void @ata_timing_merge(ptr nocapture noundef readonly %0, ptr n
   br i1 %76, label %84, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %0, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load i16, ptr %78, align 2
-  %80 = getelementptr inbounds i8, ptr %1, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %81 = load i16, ptr %80, align 2
   %82 = tail call i16 @llvm.umax.i16(i16 %79, i16 %81)
-  %83 = getelementptr inbounds i8, ptr %2, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i16 %82, ptr %83, align 2
   br label %84
 
@@ -146,12 +146,12 @@ define dso_local void @ata_timing_merge(ptr nocapture noundef readonly %0, ptr n
   br i1 %86, label %94, label %87
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %0, i64 18
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %89 = load i16, ptr %88, align 2
-  %90 = getelementptr inbounds i8, ptr %1, i64 18
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %91 = load i16, ptr %90, align 2
   %92 = tail call i16 @llvm.umax.i16(i16 %89, i16 %91)
-  %93 = getelementptr inbounds i8, ptr %2, i64 18
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 18
   store i16 %92, ptr %93, align 2
   br label %94
 
@@ -219,7 +219,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
   br i1 %11, label %8, label %13, !llvm.loop !5
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 896
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %15 = zext nneg i16 %7 to i32
   %16 = icmp eq i16 %7, %10
   br i1 %16, label %20, label %17
@@ -263,7 +263,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 32:                                               ; preds = %30
   %33 = getelementptr i8, ptr %0, i64 1030
   %34 = load i16, ptr %33, align 2
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 %34, ptr %35, align 2
   br label %57
 
@@ -292,7 +292,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 47:                                               ; preds = %42, %36
   %48 = getelementptr i8, ptr %0, i64 1032
   %49 = load i16, ptr %48, align 2
-  %50 = getelementptr inbounds i8, ptr %6, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 %49, ptr %50, align 2
   br label %57
 
@@ -309,25 +309,25 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 57:                                               ; preds = %54, %47, %32
   %58 = phi i16 [ 0, %54 ], [ %34, %32 ], [ %49, %47 ]
   %59 = phi i16 [ %56, %54 ], [ %34, %32 ], [ %49, %47 ]
-  %60 = getelementptr inbounds i8, ptr %6, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 %59, ptr %60, align 2
   br label %61
 
 61:                                               ; preds = %57, %51, %42, %40, %40, %38
   %62 = phi i16 [ %59, %57 ], [ 0, %51 ], [ 0, %42 ], [ 0, %40 ], [ 0, %40 ], [ 0, %38 ]
   %63 = phi i16 [ %58, %57 ], [ 0, %51 ], [ 0, %42 ], [ 0, %40 ], [ 0, %40 ], [ 0, %38 ]
-  %64 = getelementptr inbounds i8, ptr %2, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %65 = load i16, ptr %64, align 2
   %66 = tail call i16 @llvm.umax.i16(i16 %63, i16 %65)
   store i16 %66, ptr %64, align 2
-  %67 = getelementptr inbounds i8, ptr %2, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %68 = load i16, ptr %67, align 2
   %69 = tail call i16 @llvm.umax.i16(i16 %62, i16 %68)
   store i16 %69, ptr %67, align 2
   br label %70
 
 70:                                               ; preds = %61, %22
-  %71 = getelementptr inbounds i8, ptr %2, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %72 = load i16, ptr %71, align 2
   %73 = icmp eq i16 %72, 0
   br i1 %73, label %81, label %74
@@ -344,7 +344,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 81:                                               ; preds = %74, %70
   %82 = phi i16 [ %80, %74 ], [ 0, %70 ]
   store i16 %82, ptr %71, align 2
-  %83 = getelementptr inbounds i8, ptr %2, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %84 = load i16, ptr %83, align 2
   %85 = icmp eq i16 %84, 0
   br i1 %85, label %93, label %86
@@ -361,7 +361,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 93:                                               ; preds = %86, %81
   %94 = phi i16 [ %92, %86 ], [ 0, %81 ]
   store i16 %94, ptr %83, align 2
-  %95 = getelementptr inbounds i8, ptr %2, i64 6
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %96 = load i16, ptr %95, align 2
   %97 = icmp eq i16 %96, 0
   br i1 %97, label %105, label %98
@@ -378,7 +378,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 105:                                              ; preds = %98, %93
   %106 = phi i16 [ %104, %98 ], [ 0, %93 ]
   store i16 %106, ptr %95, align 2
-  %107 = getelementptr inbounds i8, ptr %2, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %108 = load i16, ptr %107, align 2
   %109 = icmp eq i16 %108, 0
   br i1 %109, label %117, label %110
@@ -395,7 +395,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 117:                                              ; preds = %110, %105
   %118 = phi i16 [ %116, %110 ], [ 0, %105 ]
   store i16 %118, ptr %107, align 2
-  %119 = getelementptr inbounds i8, ptr %2, i64 10
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %120 = load i16, ptr %119, align 2
   %121 = icmp eq i16 %120, 0
   br i1 %121, label %129, label %122
@@ -412,7 +412,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 129:                                              ; preds = %122, %117
   %130 = phi i16 [ %128, %122 ], [ 0, %117 ]
   store i16 %130, ptr %119, align 2
-  %131 = getelementptr inbounds i8, ptr %2, i64 12
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %132 = load i16, ptr %131, align 2
   %133 = icmp eq i16 %132, 0
   br i1 %133, label %141, label %134
@@ -429,7 +429,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 141:                                              ; preds = %134, %129
   %142 = phi i16 [ %140, %134 ], [ 0, %129 ]
   store i16 %142, ptr %131, align 2
-  %143 = getelementptr inbounds i8, ptr %2, i64 14
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %144 = load i16, ptr %143, align 2
   %145 = icmp eq i16 %144, 0
   br i1 %145, label %153, label %146
@@ -446,7 +446,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 153:                                              ; preds = %146, %141
   %154 = phi i16 [ %152, %146 ], [ 0, %141 ]
   store i16 %154, ptr %143, align 2
-  %155 = getelementptr inbounds i8, ptr %2, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %156 = load i16, ptr %155, align 2
   %157 = icmp eq i16 %156, 0
   br i1 %157, label %165, label %158
@@ -463,7 +463,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 165:                                              ; preds = %158, %153
   %166 = phi i16 [ %164, %158 ], [ 0, %153 ]
   store i16 %166, ptr %155, align 2
-  %167 = getelementptr inbounds i8, ptr %2, i64 18
+  %167 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %168 = load i16, ptr %167, align 2
   %169 = icmp eq i16 %168, 0
   br i1 %169, label %177, label %170
@@ -484,51 +484,51 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
   br i1 %179, label %180, label %221
 
 180:                                              ; preds = %177
-  %181 = getelementptr inbounds i8, ptr %0, i64 816
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %182 = load i8, ptr %181, align 16
   %183 = zext i8 %182 to i16
   %184 = call i32 @ata_timing_compute(ptr noundef %0, i16 noundef zeroext %183, ptr noundef nonnull %6, i32 noundef %3, i32 noundef %4), !range !15
-  %185 = getelementptr inbounds i8, ptr %6, i64 2
+  %185 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %186 = load i16, ptr %185, align 2
   %187 = load i16, ptr %71, align 2
   %188 = tail call i16 @llvm.umax.i16(i16 %186, i16 %187)
   store i16 %188, ptr %71, align 2
-  %189 = getelementptr inbounds i8, ptr %6, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %190 = load i16, ptr %189, align 2
   %191 = load i16, ptr %83, align 2
   %192 = tail call i16 @llvm.umax.i16(i16 %190, i16 %191)
   store i16 %192, ptr %83, align 2
-  %193 = getelementptr inbounds i8, ptr %6, i64 6
+  %193 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %194 = load i16, ptr %193, align 2
   %195 = load i16, ptr %95, align 2
   %196 = tail call i16 @llvm.umax.i16(i16 %194, i16 %195)
   store i16 %196, ptr %95, align 2
-  %197 = getelementptr inbounds i8, ptr %6, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %198 = load i16, ptr %197, align 2
   %199 = load i16, ptr %107, align 2
   %200 = tail call i16 @llvm.umax.i16(i16 %198, i16 %199)
   store i16 %200, ptr %107, align 2
-  %201 = getelementptr inbounds i8, ptr %6, i64 10
+  %201 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %202 = load i16, ptr %201, align 2
   %203 = load i16, ptr %119, align 2
   %204 = tail call i16 @llvm.umax.i16(i16 %202, i16 %203)
   store i16 %204, ptr %119, align 2
-  %205 = getelementptr inbounds i8, ptr %6, i64 12
+  %205 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %206 = load i16, ptr %205, align 2
   %207 = load i16, ptr %131, align 2
   %208 = tail call i16 @llvm.umax.i16(i16 %206, i16 %207)
   store i16 %208, ptr %131, align 2
-  %209 = getelementptr inbounds i8, ptr %6, i64 14
+  %209 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %210 = load i16, ptr %209, align 2
   %211 = load i16, ptr %143, align 2
   %212 = tail call i16 @llvm.umax.i16(i16 %210, i16 %211)
   store i16 %212, ptr %143, align 2
-  %213 = getelementptr inbounds i8, ptr %6, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %214 = load i16, ptr %213, align 2
   %215 = load i16, ptr %155, align 2
   %216 = tail call i16 @llvm.umax.i16(i16 %214, i16 %215)
   store i16 %216, ptr %155, align 2
-  %217 = getelementptr inbounds i8, ptr %6, i64 18
+  %217 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %218 = load i16, ptr %217, align 2
   %219 = load i16, ptr %167, align 2
   %220 = tail call i16 @llvm.umax.i16(i16 %218, i16 %219)

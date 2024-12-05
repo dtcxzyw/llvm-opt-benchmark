@@ -18,7 +18,7 @@ define ptr @Java_java_lang_SecurityManager_getClassContext(ptr noundef %0, ptr n
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull @.str) #2
   %10 = icmp eq ptr %9, null
@@ -26,13 +26,13 @@ define ptr @Java_java_lang_SecurityManager_getClassContext(ptr noundef %0, ptr n
   br i1 %10, label %12, label %15
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %11, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %0) #2
   br label %check.exit.thread
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %11, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #2
   store ptr %18, ptr @check.initField, align 8
@@ -41,7 +41,7 @@ define ptr @Java_java_lang_SecurityManager_getClassContext(ptr noundef %0, ptr n
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 136
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 136
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull %0) #2
   br label %check.exit.thread
@@ -49,7 +49,7 @@ define ptr @Java_java_lang_SecurityManager_getClassContext(ptr noundef %0, ptr n
 24:                                               ; preds = %15, %2
   %25 = phi ptr [ %18, %15 ], [ %3, %2 ]
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 768
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 768
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i8 %28(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %25) #2
   %30 = icmp eq i8 %29, 1
@@ -57,7 +57,7 @@ define ptr @Java_java_lang_SecurityManager_getClassContext(ptr noundef %0, ptr n
 
 31:                                               ; preds = %24
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #2
   %.not.i = icmp eq ptr %35, null
@@ -65,7 +65,7 @@ define ptr @Java_java_lang_SecurityManager_getClassContext(ptr noundef %0, ptr n
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 112
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull @.str.4) #2
   br label %check.exit.thread

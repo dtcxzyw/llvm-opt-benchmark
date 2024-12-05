@@ -60,7 +60,7 @@ define void @dlarrc_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %40 = phi i64 [ 1, %37 ], [ %46, %64 ]
   %41 = phi double [ %24, %37 ], [ %54, %64 ]
   %42 = phi double [ %22, %37 ], [ %51, %64 ]
-  %43 = getelementptr inbounds double, ptr %12, i64 %40
+  %43 = getelementptr inbounds nuw double, ptr %12, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !7
   %45 = fmul double %44, %44
   %46 = add nuw nsw i64 %40, 1
@@ -112,7 +112,7 @@ define void @dlarrc_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %76 = phi i64 [ 1, %73 ], [ %107, %92 ]
   %77 = phi double [ %70, %73 ], [ %106, %92 ]
   %78 = phi double [ %68, %73 ], [ %101, %92 ]
-  %79 = getelementptr inbounds double, ptr %13, i64 %76
+  %79 = getelementptr inbounds nuw double, ptr %13, i64 %76
   %80 = load double, ptr %79, align 8, !tbaa !7
   %81 = fadd double %78, %80
   %82 = fadd double %77, %80
@@ -136,7 +136,7 @@ define void @dlarrc_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br label %92
 
 92:                                               ; preds = %89, %87
-  %93 = getelementptr inbounds double, ptr %12, i64 %76
+  %93 = getelementptr inbounds nuw double, ptr %12, i64 %76
   %94 = load double, ptr %93, align 8, !tbaa !7
   %95 = fmul double %80, %94
   %96 = fmul double %94, %95

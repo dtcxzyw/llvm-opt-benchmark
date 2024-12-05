@@ -491,7 +491,7 @@ define internal i32 @dissect_gmr1_rach(ptr noundef %0, ptr noundef %1, ptr nound
   %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef %7, ptr noundef nonnull @.str.204, ptr noundef nonnull %.042) #7
   %18 = load i32, ptr @ett_rach_msg, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #7
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   br i1 %.not, label %25, label %22
 
@@ -605,7 +605,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %38, %48, %56, %60
   %94 = lshr i8 %93, 2
   %95 = zext nneg i8 %94 to i16
   %96 = or disjoint i16 %92, %95
-  %97 = getelementptr inbounds i8, ptr %5, i64 2
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %96, ptr %97, align 2
   %98 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #7
   %99 = and i8 %98, 3
@@ -614,7 +614,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %38, %48, %56, %60
   %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #7
   %103 = zext i8 %102 to i16
   %104 = or disjoint i16 %101, %103
-  %105 = getelementptr inbounds i8, ptr %5, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 %104, ptr %105, align 2
   %106 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #7
   %107 = zext i8 %106 to i16
@@ -623,7 +623,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %38, %48, %56, %60
   %110 = lshr i8 %109, 6
   %111 = zext nneg i8 %110 to i16
   %112 = or disjoint i16 %108, %111
-  %113 = getelementptr inbounds i8, ptr %5, i64 6
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 %112, ptr %113, align 2
   %114 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #7
   %115 = and i8 %114, 63
@@ -633,7 +633,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %38, %48, %56, %60
   %119 = lshr i8 %118, 3
   %120 = zext nneg i8 %119 to i16
   %121 = or disjoint i16 %117, %120
-  %122 = getelementptr inbounds i8, ptr %5, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 %121, ptr %122, align 2
   %123 = zext nneg i16 %112 to i32
   br label %124

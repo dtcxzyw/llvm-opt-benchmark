@@ -54,7 +54,7 @@ define void @_ZN5draco17PointCloudBuilder5StartEj(ptr nocapture noundef nonnull 
 
 _ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i.i.i: ; preds = %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(164) %5) #12
   %.pre = load ptr, ptr %0, align 8
@@ -62,7 +62,7 @@ _ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i.i.i: ; preds = %4
 
 _ZNSt10unique_ptrIN5draco10PointCloudESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i.i.i, %4
   %9 = phi ptr [ %.pre, %_ZNKSt14default_deleteIN5draco10PointCloudEEclEPS1_.exit.i.i.i.i ], [ %3, %4 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 160
   store i32 %1, ptr %10, align 8
   ret void
 
@@ -94,7 +94,7 @@ define noundef i32 @_ZN5draco17PointCloudBuilder12AddAttributeENS_17GeometryAttr
   %9 = sext i32 %8 to i64
   call void @_ZN5draco17GeometryAttribute4InitENS0_4TypeEPNS_10DataBufferEhNS_8DataTypeEbll(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %1, ptr noundef null, i8 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext false, i64 noundef %9, i64 noundef 0)
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %12 = load i32, ptr %11, align 8
   %13 = call noundef i32 @_ZN5draco10PointCloud12AddAttributeERKNS_17GeometryAttributeEbj(ptr noundef nonnull align 8 dereferenceable(164) %10, ptr noundef nonnull align 8 dereferenceable(64) %5, i1 noundef zeroext true, i32 noundef %12)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
@@ -111,7 +111,7 @@ define noundef i32 @_ZN5draco17PointCloudBuilder12AddAttributeENS_17GeometryAttr
   %10 = sext i32 %9 to i64
   call void @_ZN5draco17GeometryAttribute4InitENS0_4TypeEPNS_10DataBufferEhNS_8DataTypeEbll(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %1, ptr noundef null, i8 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, i64 noundef %10, i64 noundef 0)
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %13 = load i32, ptr %12, align 8
   %14 = call noundef i32 @_ZN5draco10PointCloud12AddAttributeERKNS_17GeometryAttributeEbj(ptr noundef nonnull align 8 dereferenceable(164) %11, ptr noundef nonnull align 8 dereferenceable(64) %6, i1 noundef zeroext true, i32 noundef %13)
   ret i32 %14
@@ -128,28 +128,28 @@ declare noundef i32 @_ZN5draco10PointCloud12AddAttributeERKNS_17GeometryAttribut
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5draco17PointCloudBuilder25SetAttributeValueForPointEiNS_9IndexTypeIjNS_20PointIndex_tag_type_EEEPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3) local_unnamed_addr #7 align 2 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = sext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr inbounds %"class.std::unique_ptr.42", ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 100
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 100
   %12 = load i8, ptr %11, align 4
   %13 = trunc i8 %12 to i1
   br i1 %13, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %10, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %16 = zext i32 %2 to i64
   %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds %"class.draco::IndexType.36", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw %"class.draco::IndexType.36", ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %4, %14
   %.sroa.02.0.i = phi i32 [ %19, %14 ], [ %2, %4 ]
   %20 = zext i32 %.sroa.02.0.i to i64
-  %21 = getelementptr inbounds i8, ptr %10, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %22 = load i64, ptr %21, align 8
   %23 = mul nsw i64 %22, %20
   %24 = load ptr, ptr %10, align 8
@@ -165,15 +165,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5draco17PointCloudBuilder30SetAttributeValuesForAllPointsEiPKvi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = sext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr inbounds %"class.std::unique_ptr.42", ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = tail call noundef i32 @_ZN5draco14DataTypeLengthENS_8DataTypeE(i32 noundef %12)
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %15 = load i8, ptr %14, align 8
   %16 = zext i8 %15 to i32
   %17 = mul nsw i32 %13, %16
@@ -184,22 +184,22 @@ define void @_ZN5draco17PointCloudBuilder30SetAttributeValuesForAllPointsEiPKvi(
 
 .preheader:                                       ; preds = %4
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 160
   %23 = load i32, ptr %22, align 8
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %10, i64 100
-  %25 = getelementptr inbounds i8, ptr %10, i64 72
-  %26 = getelementptr inbounds i8, ptr %10, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 100
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 40
   br label %36
 
 27:                                               ; preds = %4
-  %28 = getelementptr inbounds i8, ptr %10, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 160
   %32 = load i32, ptr %31, align 8
   %33 = mul i32 %32, %17
   %34 = zext i32 %33 to i64
@@ -216,7 +216,7 @@ define void @_ZN5draco17PointCloudBuilder30SetAttributeValuesForAllPointsEiPKvi(
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %25, align 8
-  %42 = getelementptr inbounds %"class.draco::IndexType.36", ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %"class.draco::IndexType.36", ptr %41, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
@@ -224,7 +224,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %.sroa.02.0.i = phi i32 [ %43, %40 ], [ %39, %36 ]
   %44 = mul i32 %3, %39
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 %45
   %47 = zext i32 %.sroa.02.0.i to i64
   %48 = load i64, ptr %26, align 8
   %49 = mul nsw i64 %48, %47
@@ -234,7 +234,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr align 1 %46, i64 %48, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 160
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 160
   %55 = load i32, ptr %54, align 8
   %56 = zext i32 %55 to i64
   %57 = icmp samesign ult i64 %indvars.iv.next, %56
@@ -251,12 +251,12 @@ define void @_ZN5draco17PointCloudBuilder8FinalizeEb(ptr dead_on_unwind noalias 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(164) %5)
   %10 = load ptr, ptr %1, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(164) %10)
   br label %14
@@ -271,12 +271,12 @@ define void @_ZN5draco17PointCloudBuilder8FinalizeEb(ptr dead_on_unwind noalias 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5draco17PointCloudBuilder20SetAttributeUniqueIdEij(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds %"class.std::unique_ptr.42", ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 60
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 60
   store i32 %2, ptr %10, align 4
   ret void
 }

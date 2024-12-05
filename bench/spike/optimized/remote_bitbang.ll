@@ -40,11 +40,11 @@ define void @_ZN16remote_bitbang_tC2EtP10jtag_dtm_t(ptr nocapture noundef nonnul
   %5 = alloca %struct.sockaddr_in, align 4
   %6 = alloca i32, align 4
   store ptr %2, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 131088
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 131088
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #10
   store i32 %10, ptr %7, align 8
@@ -80,13 +80,13 @@ define void @_ZN16remote_bitbang_tC2EtP10jtag_dtm_t(ptr nocapture noundef nonnul
   unreachable
 
 31:                                               ; preds = %19
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %32, align 4
   store i16 2, ptr %5, align 4
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %33, align 4
   %34 = call zeroext i16 @htons(i16 noundef zeroext %1) #11
-  %35 = getelementptr inbounds i8, ptr %5, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %34, ptr %35, align 2
   %36 = load i32, ptr %7, align 8
   %37 = call i32 @bind(i32 noundef %36, ptr noundef nonnull %5, i32 noundef 16) #10
@@ -192,10 +192,10 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16remote_bitbang_t6acceptEv(ptr nocapture noundef nonnull align 8 dereferenceable(131104) initializes((12, 16)) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @accept(i32 noundef %3, ptr noundef null, ptr noundef null)
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %4, ptr %5, align 4
   %6 = icmp eq i32 %4, -1
   br i1 %6, label %7, label %16
@@ -226,7 +226,7 @@ declare i32 @accept(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16remote_bitbang_t4tickEv(ptr nocapture noundef nonnull align 8 dereferenceable(131104) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %6
@@ -236,7 +236,7 @@ define void @_ZN16remote_bitbang_t4tickEv(ptr nocapture noundef nonnull align 8 
   br label %_ZN16remote_bitbang_t6acceptEv.exit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = tail call i32 @accept(i32 noundef %8, ptr noundef null, ptr noundef null)
   store i32 %9, ptr %2, align 4
@@ -268,14 +268,14 @@ _ZN16remote_bitbang_t6acceptEv.exit:              ; preds = %20, %11, %5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr nocapture noundef nonnull align 8 dereferenceable(131104) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 131088
-  %7 = getelementptr inbounds i8, ptr %0, i64 131096
-  %8 = getelementptr inbounds i8, ptr %0, i64 65552
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 131088
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 131096
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 65552
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.pre = load i64, ptr %7, align 8
   br label %11
 
@@ -358,13 +358,13 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr nocapture noundef non
 
 36:                                               ; preds = %.lr.ph
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 15
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 15
   %39 = load i8, ptr %38, align 1
   %40 = trunc i8 %39 to i1
   %41 = select i1 %40, i8 49, i8 48
   %42 = add i32 %.02244, 1
   %43 = zext i32 %.02244 to i64
-  %44 = getelementptr inbounds [65536 x i8], ptr %9, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [65536 x i8], ptr %9, i64 0, i64 %43
   store i8 %41, ptr %44, align 1
   br label %50
 
@@ -388,7 +388,7 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr nocapture noundef non
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 68
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 68
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 1
   br i1 %58, label %._crit_edge, label %59
@@ -417,7 +417,7 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr nocapture noundef non
   %.01757 = phi i32 [ 0, %.lr.ph59 ], [ %65, %63 ]
   %68 = load i32, ptr %10, align 4
   %69 = zext i32 %.01757 to i64
-  %70 = getelementptr inbounds i8, ptr %9, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 %69
   %71 = tail call i64 @write(i32 noundef %68, ptr noundef nonnull %70, i64 noundef %62)
   %72 = icmp eq i64 %71, -1
   br i1 %72, label %73, label %63

@@ -50,13 +50,13 @@ if.then1:                                         ; preds = %if.end
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %if.end
-  %prev_odb = getelementptr inbounds i8, ptr %t, i64 48
+  %prev_odb = getelementptr inbounds nuw i8, ptr %t, i64 48
   %1 = load ptr, ptr %prev_odb, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
-  %buf = getelementptr inbounds i8, ptr %t, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %t, i64 16
   %2 = load ptr, ptr %buf, align 8
   tail call void @restore_primary_odb(ptr noundef nonnull %1, ptr noundef %2) #15
   br label %if.end6
@@ -64,7 +64,7 @@ if.then4:                                         ; preds = %if.end2
 if.end6:                                          ; preds = %if.then4, %if.end2
   %call = tail call i32 @remove_dir_recursively(ptr noundef nonnull %t, i32 noundef 0) #15
   tail call void @strbuf_release(ptr noundef nonnull %t) #15
-  %env.i = getelementptr inbounds i8, ptr %t, i64 24
+  %env.i = getelementptr inbounds nuw i8, ptr %t, i64 24
   tail call void @strvec_clear(ptr noundef nonnull %env.i) #15
   tail call void @free(ptr noundef nonnull %t) #15
   br label %return
@@ -100,11 +100,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #15
   tail call void @strbuf_init(ptr noundef %call, i64 noundef 0) #15
-  %env = getelementptr inbounds i8, ptr %call, i64 24
+  %env = getelementptr inbounds nuw i8, ptr %call, i64 24
   tail call void @strvec_init(ptr noundef nonnull %env) #15
   %call2 = tail call ptr @get_object_directory() #15
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %call, ptr noundef nonnull @.str.2, ptr noundef %call2, ptr noundef %prefix) #15
-  %buf = getelementptr inbounds i8, ptr %call, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %call, i64 16
   %1 = load ptr, ptr %buf, align 8
   %call4 = tail call ptr @mkdtemp(ptr noundef %1) #15
   %tobool5.not = icmp eq ptr %call4, null
@@ -147,7 +147,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.then1.i, %if.end.i
-  %prev_odb.i = getelementptr inbounds i8, ptr %call, i64 48
+  %prev_odb.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   %6 = load ptr, ptr %prev_odb.i, align 8
   %tobool3.not.i = icmp eq ptr %6, null
   br i1 %tobool3.not.i, label %tmp_objdir_destroy.exit, label %if.then4.i
@@ -180,9 +180,9 @@ lor.lhs.false.i:                                  ; preds = %if.end18
 
 strbuf_addch.exit.i:                              ; preds = %lor.lhs.false.i, %if.end18
   call void @strbuf_grow(ptr noundef nonnull %quoted.i, i64 noundef 1) #15
-  %buf.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %quoted.i, i64 16
+  %buf.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %quoted.i, i64 16
   %.pre.i = load ptr, ptr %buf.i.phi.trans.insert.i, align 8
-  %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %quoted.i, i64 8
+  %len.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %quoted.i, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   store i64 %.pre8.i.i, ptr %len.phi.trans.insert.i.i, align 8
@@ -281,13 +281,13 @@ entry:
 
 if.end2.i:                                        ; preds = %entry
   store ptr null, ptr @the_tmp_objdir, align 8
-  %prev_odb.i = getelementptr inbounds i8, ptr %0, i64 48
+  %prev_odb.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %prev_odb.i, align 8
   %tobool3.not.i = icmp eq ptr %1, null
   br i1 %tobool3.not.i, label %if.end6.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end2.i
-  %buf.i = getelementptr inbounds i8, ptr %0, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %buf.i, align 8
   tail call void @restore_primary_odb(ptr noundef nonnull %1, ptr noundef %2) #15
   br label %if.end6.i
@@ -295,7 +295,7 @@ if.then4.i:                                       ; preds = %if.end2.i
 if.end6.i:                                        ; preds = %if.then4.i, %if.end2.i
   %call.i = tail call i32 @remove_dir_recursively(ptr noundef nonnull %0, i32 noundef 0) #15
   tail call void @strbuf_release(ptr noundef nonnull %0) #15
-  %env.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %env.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @strvec_clear(ptr noundef nonnull %env.i.i) #15
   tail call void @free(ptr noundef nonnull %0) #15
   br label %tmp_objdir_destroy.exit
@@ -317,17 +317,17 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %prev_odb = getelementptr inbounds i8, ptr %t, i64 48
+  %prev_odb = getelementptr inbounds nuw i8, ptr %t, i64 48
   %0 = load ptr, ptr %prev_odb, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.end.i, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %1 = load ptr, ptr @the_repository, align 8
-  %objects = getelementptr inbounds i8, ptr %1, i64 16
+  %objects = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %objects, align 8
   %3 = load ptr, ptr %2, align 8
-  %will_destroy = getelementptr inbounds i8, ptr %3, i64 52
+  %will_destroy = getelementptr inbounds nuw i8, ptr %3, i64 52
   %4 = load i32, ptr %will_destroy, align 4
   %tobool3.not = icmp eq i32 %4, 0
   br i1 %tobool3.not, label %if.end5, label %if.then4
@@ -337,7 +337,7 @@ if.then4:                                         ; preds = %if.then2
   unreachable
 
 if.end5:                                          ; preds = %if.then2
-  %buf = getelementptr inbounds i8, ptr %t, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %t, i64 16
   %5 = load ptr, ptr %buf, align 8
   tail call void @restore_primary_odb(ptr noundef nonnull %0, ptr noundef %5) #15
   store ptr null, ptr %prev_odb, align 8
@@ -365,7 +365,7 @@ if.end2.i:                                        ; preds = %if.then1.i, %if.end
   br i1 %tobool3.not.i, label %tmp_objdir_destroy.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end2.i
-  %buf.i = getelementptr inbounds i8, ptr %t, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %t, i64 16
   %8 = load ptr, ptr %buf.i, align 8
   call void @restore_primary_odb(ptr noundef nonnull %7, ptr noundef %8) #15
   br label %tmp_objdir_destroy.exit
@@ -373,7 +373,7 @@ if.then4.i:                                       ; preds = %if.end2.i
 tmp_objdir_destroy.exit:                          ; preds = %if.end2.i, %if.then4.i
   %call.i7 = call i32 @remove_dir_recursively(ptr noundef nonnull %t, i32 noundef 0) #15
   call void @strbuf_release(ptr noundef nonnull %t) #15
-  %env.i.i = getelementptr inbounds i8, ptr %t, i64 24
+  %env.i.i = getelementptr inbounds nuw i8, ptr %t, i64 24
   call void @strvec_clear(ptr noundef nonnull %env.i.i) #15
   call void @free(ptr noundef nonnull %t) #15
   br label %return
@@ -393,14 +393,14 @@ define internal fastcc i32 @migrate_paths(ptr noundef nonnull %src, ptr noundef 
 entry:
   %st.i = alloca %struct.stat, align 8
   %paths = alloca %struct.string_list, align 8
-  %len = getelementptr inbounds i8, ptr %src, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i64, ptr %len, align 8
-  %len1 = getelementptr inbounds i8, ptr %dst, i64 8
+  %len1 = getelementptr inbounds nuw i8, ptr %dst, i64 8
   %1 = load i64, ptr %len1, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %paths, i8 0, i64 40, i1 false)
-  %2 = getelementptr inbounds i8, ptr %paths, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %paths, i64 24
   store i8 1, ptr %2, align 8
-  %buf = getelementptr inbounds i8, ptr %src, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %src, i64 16
   %3 = load ptr, ptr %buf, align 8
   %call.i = tail call ptr @opendir(ptr noundef readonly %3)
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -413,7 +413,7 @@ while.cond.preheader.i:                           ; preds = %entry
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end7.i
   %call16.i = phi ptr [ %call1.i, %if.end7.i ], [ %call14.i, %while.cond.preheader.i ]
-  %d_name.i = getelementptr inbounds i8, ptr %call16.i, i64 19
+  %d_name.i = getelementptr inbounds nuw i8, ptr %call16.i, i64 19
   %4 = load i8, ptr %d_name.i, align 1
   %cmp.not.i = icmp eq i8 %4, 46
   br i1 %cmp.not.i, label %if.end7.i, label %if.then4.i
@@ -429,24 +429,24 @@ if.end7.i:                                        ; preds = %if.then4.i, %while.
 
 if.end:                                           ; preds = %if.end7.i, %while.cond.preheader.i
   %call8.i = call i32 @closedir(ptr noundef nonnull %call.i)
-  %cmp2 = getelementptr inbounds i8, ptr %paths, i64 32
+  %cmp2 = getelementptr inbounds nuw i8, ptr %paths, i64 32
   store ptr @pack_copy_cmp, ptr %cmp2, align 8
   call void @string_list_sort(ptr noundef nonnull %paths) #15
-  %nr = getelementptr inbounds i8, ptr %paths, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %paths, i64 8
   %5 = load i64, ptr %nr, align 8
   %cmp334.not = icmp eq i64 %5, 0
   br i1 %cmp334.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
-  %buf19.i = getelementptr inbounds i8, ptr %dst, i64 16
+  %st_mode.i = getelementptr inbounds nuw i8, ptr %st.i, i64 24
+  %buf19.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %strbuf_setlen.exit29
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %strbuf_setlen.exit29 ]
   %ret.036 = phi i32 [ 0, %for.body.lr.ph ], [ %or, %strbuf_setlen.exit29 ]
   %6 = load ptr, ptr %paths, align 8
-  %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %6, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.string_list_item, ptr %6, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %src, ptr noundef nonnull @.str.11, ptr noundef %7) #15
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %dst, ptr noundef nonnull @.str.11, ptr noundef %7) #15
@@ -560,7 +560,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %env = getelementptr inbounds i8, ptr %t, i64 24
+  %env = getelementptr inbounds nuw i8, ptr %t, i64 24
   %0 = load ptr, ptr %env, align 8
   br label %return
 
@@ -572,7 +572,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local void @tmp_objdir_add_as_alternate(ptr nocapture noundef readonly %t) local_unnamed_addr #0 {
 entry:
-  %buf = getelementptr inbounds i8, ptr %t, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %t, i64 16
   %0 = load ptr, ptr %buf, align 8
   tail call void @add_to_alternates_memory(ptr noundef %0) #15
   ret void
@@ -583,7 +583,7 @@ declare void @add_to_alternates_memory(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @tmp_objdir_replace_primary_odb(ptr nocapture noundef %t, i32 noundef %will_destroy) local_unnamed_addr #0 {
 entry:
-  %prev_odb = getelementptr inbounds i8, ptr %t, i64 48
+  %prev_odb = getelementptr inbounds nuw i8, ptr %t, i64 48
   %0 = load ptr, ptr %prev_odb, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -593,11 +593,11 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %buf = getelementptr inbounds i8, ptr %t, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %t, i64 16
   %1 = load ptr, ptr %buf, align 8
   %call = tail call ptr @set_temporary_primary_odb(ptr noundef %1, i32 noundef %will_destroy) #15
   store ptr %call, ptr %prev_odb, align 8
-  %will_destroy2 = getelementptr inbounds i8, ptr %t, i64 56
+  %will_destroy2 = getelementptr inbounds nuw i8, ptr %t, i64 56
   store i32 %will_destroy, ptr %will_destroy2, align 8
   ret void
 }
@@ -612,17 +612,17 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %prev_odb = getelementptr inbounds i8, ptr %0, i64 48
+  %prev_odb = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %prev_odb, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %buf = getelementptr inbounds i8, ptr %0, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %buf, align 8
   tail call void @restore_primary_odb(ptr noundef nonnull %1, ptr noundef %2) #15
   %3 = load ptr, ptr @the_tmp_objdir, align 8
-  %prev_odb3 = getelementptr inbounds i8, ptr %3, i64 48
+  %prev_odb3 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %prev_odb3, align 8
   br label %return
 
@@ -634,10 +634,10 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define dso_local void @tmp_objdir_reapply_primary_odb(ptr noundef initializes((8, 16)) %t, ptr noundef %old_cwd, ptr noundef %new_cwd) local_unnamed_addr #0 {
 entry:
-  %buf = getelementptr inbounds i8, ptr %t, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %t, i64 16
   %0 = load ptr, ptr %buf, align 8
   %call = tail call ptr @reparent_relative_path(ptr noundef %old_cwd, ptr noundef %new_cwd, ptr noundef %0) #15
-  %len2.i = getelementptr inbounds i8, ptr %t, i64 8
+  %len2.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   store i64 0, ptr %len2.i, align 8
   %1 = load ptr, ptr %buf, align 8
   %cmp3.not.i = icmp eq ptr %1, @strbuf_slopbuf
@@ -651,7 +651,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #17
   tail call void @strbuf_add(ptr noundef nonnull %t, ptr noundef %call, i64 noundef %call.i) #15
   tail call void @free(ptr noundef %call) #15
-  %prev_odb.i = getelementptr inbounds i8, ptr %t, i64 48
+  %prev_odb.i = getelementptr inbounds nuw i8, ptr %t, i64 48
   %2 = load ptr, ptr %prev_odb.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %tmp_objdir_replace_primary_odb.exit, label %if.then.i
@@ -661,7 +661,7 @@ if.then.i:                                        ; preds = %strbuf_setlen.exit
   unreachable
 
 tmp_objdir_replace_primary_odb.exit:              ; preds = %strbuf_setlen.exit
-  %will_destroy = getelementptr inbounds i8, ptr %t, i64 56
+  %will_destroy = getelementptr inbounds nuw i8, ptr %t, i64 56
   %3 = load i32, ptr %will_destroy, align 8
   %4 = load ptr, ptr %buf, align 8
   %call.i7 = tail call ptr @set_temporary_primary_odb(ptr noundef %4, i32 noundef %3) #15

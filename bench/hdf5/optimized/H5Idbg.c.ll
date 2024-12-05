@@ -32,20 +32,20 @@ define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 
   br i1 %.not, label %35, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef %10) #4
   %12 = load ptr, ptr @stderr, align 8
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.2, i32 noundef %15) #4
   %17 = load ptr, ptr @stderr, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.3, i64 noundef %19) #4
   %21 = load ptr, ptr @stderr, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %23 = load i64, ptr %22, align 8
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.4, i64 noundef %23) #4
   %25 = load i64, ptr %18, align 8
@@ -57,14 +57,14 @@ define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 
   %28 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 11, i64 1, ptr %27) #5
   %29 = load ptr, ptr @stderr, align 8
   %30 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 18, i64 1, ptr %29) #5
-  %31 = getelementptr inbounds i8, ptr %6, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %32 = load ptr, ptr %31, align 8
   %.not18 = icmp eq ptr %32, null
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.sink26 = phi ptr [ %34, %.lr.ph ], [ %32, %26 ]
-  %33 = getelementptr inbounds i8, ptr %.sink26, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %.sink26, i64 72
   %34 = load ptr, ptr %33, align 8
   tail call fastcc void @H5I__id_dump_cb(ptr noundef %.sink26, i32 %0)
   %.not20 = icmp eq ptr %34, null
@@ -87,15 +87,15 @@ define internal fastcc void @H5I__id_dump_cb(ptr nocapture noundef nonnull reado
   %3 = load i64, ptr %0, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.8, i64 noundef %3) #4
   %5 = load ptr, ptr @stderr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.9, i32 noundef %7) #4
   %9 = load ptr, ptr @stderr, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.10, ptr noundef %11) #4
   %13 = load ptr, ptr @stderr, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i8, ptr %14, align 8
   %16 = and i8 %15, 1
   %17 = zext nneg i8 %16 to i32
@@ -109,10 +109,10 @@ define internal fastcc void @H5I__id_dump_cb(ptr nocapture noundef nonnull reado
 19:                                               ; preds = %1
   %20 = load ptr, ptr %10, align 8
   %21 = tail call ptr @H5VL_object_data(ptr noundef %20) #6
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.thread
@@ -124,10 +124,10 @@ define internal fastcc void @H5I__id_dump_cb(ptr nocapture noundef nonnull reado
 30:                                               ; preds = %1
   %31 = load ptr, ptr %10, align 8
   %32 = tail call ptr @H5VL_object_data(ptr noundef %31) #6
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %.thread
@@ -148,7 +148,7 @@ define internal fastcc void @H5I__id_dump_cb(ptr nocapture noundef nonnull reado
   br i1 %.not, label %.thread, label %46
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %.0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not24 = icmp eq ptr %48, null
   br i1 %.not24, label %53, label %49

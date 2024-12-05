@@ -1388,7 +1388,7 @@ define internal i32 @dissect_ospf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %5 = alloca i32, align 4
   %6 = alloca [4 x %struct.vec_t], align 16
   %7 = alloca [2 x i32], align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.603) #5
   %10 = load ptr, ptr %8, align 8
@@ -1431,13 +1431,13 @@ define internal i32 @dissect_ospf(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %37
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %36, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %39 = load ptr, ptr %38, align 8
   %.not5.i = icmp eq ptr %39, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %39, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = or i32 %42, 1
   store i32 %43, ptr %41, align 4
@@ -1480,7 +1480,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   br i1 %57, label %104, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %1, i64 272
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %66 = load i32, ptr %65, align 8
   %.not185 = icmp ne i32 %66, 0
   %.not186 = icmp ult i32 %62, %63
@@ -1493,7 +1493,7 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
   br i1 %switch.selectcmp192, label %68, label %77
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %6, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 16, ptr %69, align 8
   %70 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 16) #5
   store ptr %70, ptr %6, align 16
@@ -1502,40 +1502,40 @@ proto_item_set_hidden.exit:                       ; preds = %40, %37, %30, %4
 
 72:                                               ; preds = %68
   %73 = add i32 %63, -24
-  %74 = getelementptr inbounds i8, ptr %6, i64 16
-  %75 = getelementptr inbounds i8, ptr %6, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %73, ptr %75, align 8
   %76 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 24, i32 noundef %73) #5
   store ptr %76, ptr %74, align 16
   br label %95
 
 77:                                               ; preds = %67
-  %78 = getelementptr inbounds i8, ptr %1, i64 216
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %79 = load ptr, ptr %78, align 8
   store ptr %79, ptr %6, align 16
-  %80 = getelementptr inbounds i8, ptr %1, i64 212
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %6, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 240
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %6, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %84, ptr %85, align 16
-  %86 = getelementptr inbounds i8, ptr %1, i64 236
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %6, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %87, ptr %88, align 8
   %trunc = zext i16 %16 to i32
   %rev = tail call i32 @llvm.bswap.i32(i32 %trunc)
   store i32 %rev, ptr %7, align 4
-  %89 = getelementptr inbounds i8, ptr %7, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1493172224, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %6, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %7, ptr %90, align 16
-  %91 = getelementptr inbounds i8, ptr %6, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 8, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %6, i64 48
-  %93 = getelementptr inbounds i8, ptr %6, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 %63, ptr %93, align 8
   %94 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %63) #5
   store ptr %94, ptr %92, align 16
@@ -2074,7 +2074,7 @@ switch.hole_check:                                ; preds = %.lr.ph.split.i218
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %384 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.dissect_ospf, i64 0, i64 %384
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.dissect_ospf, i64 0, i64 %384
   %switch.load = load ptr, ptr %switch.gep, align 8
   %385 = load i32, ptr %switch.load, align 4
   %386 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %385, ptr noundef %0, i32 noundef range(i32 -2147483648, 327930) %.040.i, i32 noundef %378, i32 noundef 0) #5
@@ -2420,13 +2420,13 @@ ospf_ls_type_to_filter.exit247:                   ; preds = %38, %ospf_ls_type_t
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %47
 
 47:                                               ; preds = %ospf_ls_type_to_filter.exit247
-  %48 = getelementptr inbounds i8, ptr %46, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %49 = load ptr, ptr %48, align 8
   %.not5.i = icmp eq ptr %49, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %49, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = or i32 %52, 1
   store i32 %53, ptr %51, align 4
@@ -2543,7 +2543,7 @@ proto_item_set_hidden.exit:                       ; preds = %50, %47, %ospf_ls_t
   br i1 %.not272, label %.loopexit, label %.lr.ph270
 
 .lr.ph270:                                        ; preds = %108
-  %117 = getelementptr inbounds i8, ptr %1, i64 408
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %118
 
 118:                                              ; preds = %.lr.ph270, %._crit_edge
@@ -2723,7 +2723,7 @@ proto_item_set_hidden.exit:                       ; preds = %50, %47, %ospf_ls_t
   br i1 %.not.i.i, label %dissect_ospf_lsa_opaque.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %228
-  %229 = getelementptr inbounds i8, ptr %1, i64 408
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %230
 
 230:                                              ; preds = %274, %.preheader.i.i
@@ -2814,7 +2814,7 @@ proto_item_set_hidden.exit:                       ; preds = %50, %47, %ospf_ls_t
   br i1 %281, label %.lr.ph197.i.i, label %dissect_ospf_lsa_ext_prefix.exit.i
 
 .lr.ph197.i.i:                                    ; preds = %277
-  %282 = getelementptr inbounds i8, ptr %1, i64 408
+  %282 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %283
 
 283:                                              ; preds = %.loopexit.i.i, %.lr.ph197.i.i
@@ -3100,7 +3100,7 @@ dissect_ospf_lsa_ext_prefix.exit.i:               ; preds = %.loopexit.i.i, %376
   br i1 %460, label %.lr.ph274.i.i, label %dissect_ospf_lsa_ext_link.exit.i
 
 .lr.ph274.i.i:                                    ; preds = %456
-  %461 = getelementptr inbounds i8, ptr %1, i64 408
+  %461 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %462
 
 462:                                              ; preds = %.loopexit267.i.i, %.lr.ph274.i.i
@@ -3690,13 +3690,13 @@ define internal fastcc i32 @dissect_ospf_v3_lsa(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %44
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not5.i = icmp eq ptr %46, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %49, 1
   store i32 %50, ptr %48, align 4
@@ -4118,20 +4118,20 @@ define internal fastcc void @dissect_ospf_lsa_mpls(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %10, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not5.i = icmp eq ptr %13, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 1
   store i32 %17, ptr %15, align 4
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %5, %11, %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %19
 
 19:                                               ; preds = %proto_item_set_hidden.exit, %.loopexit

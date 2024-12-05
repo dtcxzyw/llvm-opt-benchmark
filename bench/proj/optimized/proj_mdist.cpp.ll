@@ -25,7 +25,7 @@ define hidden noalias noundef ptr @_Z14proj_mdist_inid(double noundef %0) local_
   %8 = fmul double %.06468, %7
   %9 = fdiv double %5, %8
   %10 = fmul double %.05971, %9
-  %11 = getelementptr inbounds [20 x double], ptr %2, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [20 x double], ptr %2, i64 0, i64 %indvars.iv
   store double %10, ptr %11, align 8
   %12 = fsub double %.05374, %10
   %13 = fcmp oeq double %12, %.05374
@@ -57,12 +57,12 @@ define hidden noalias noundef ptr @_Z14proj_mdist_inid(double noundef %0) local_
 26:                                               ; preds = %.split.loop.exit87
   %27 = add nsw i32 %.051.lcssa, -1
   store i32 %27, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store double %0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store double %12, ptr %29, align 8
   %30 = fsub double 1.000000e+00, %12
-  %31 = getelementptr inbounds i8, ptr %24, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store double %30, ptr %31, align 8
   %32 = icmp samesign ugt i32 %.051.lcssa, 1
   br i1 %32, label %.lr.ph, label %.loopexit
@@ -74,14 +74,14 @@ define hidden noalias noundef ptr @_Z14proj_mdist_inid(double noundef %0) local_
   %.05878 = phi double [ %41, %.lr.ph ], [ 2.000000e+00, %26 ]
   %.16177 = phi double [ %42, %.lr.ph ], [ 3.000000e+00, %26 ]
   %.16376 = phi double [ %37, %.lr.ph ], [ 1.000000e+00, %26 ]
-  %33 = getelementptr inbounds [20 x double], ptr %2, i64 0, i64 %indvars.iv83
+  %33 = getelementptr inbounds nuw [20 x double], ptr %2, i64 0, i64 %indvars.iv83
   %34 = load double, ptr %33, align 8
   %35 = fsub double %.280, %34
   %36 = fmul double %.05878, %.15679
   %37 = fmul double %.16376, %.16177
   %38 = fmul double %36, %35
   %39 = fdiv double %38, %37
-  %40 = getelementptr inbounds [1 x double], ptr %31, i64 0, i64 %indvars.iv83
+  %40 = getelementptr inbounds nuw [1 x double], ptr %31, i64 0, i64 %indvars.iv83
   store double %39, ptr %40, align 8
   %41 = fadd double %.05878, 2.000000e+00
   %42 = fadd double %.16177, 2.000000e+00
@@ -102,14 +102,14 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define hidden noundef double @_Z10proj_mdistdddPKv(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 {
   %5 = fmul double %1, %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fneg double %9
   %11 = tail call double @llvm.fmuladd.f64(double %10, double %5, double 1.000000e+00)
   %12 = tail call double @sqrt(double noundef %11) #9
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load i32, ptr %3, align 8
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [1 x double], ptr %13, i64 0, i64 %15
@@ -146,12 +146,12 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef double @_Z14proj_inv_mdistP6pj_ctxdPKv(ptr noundef %0, double noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fsub double 1.000000e+00, %5
   %7 = fdiv double 1.000000e+00, %6
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %10
 
 10:                                               ; preds = %_Z10proj_mdistdddPKv.exit, %3

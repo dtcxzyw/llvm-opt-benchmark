@@ -81,12 +81,12 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %1 = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i, label %if.then.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i: ; preds = %entry
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp3.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
@@ -161,21 +161,21 @@ entry:
   %ref.tmp5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %ref.tmp6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   store i64 %path.coerce0, ptr %path, align 8
-  %0 = getelementptr inbounds i8, ptr %path, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %path, i64 8
   store ptr %path.coerce1, ptr %0, align 8
   store i32 0, ptr %ec, align 8
-  %_M_cat.i = getelementptr inbounds i8, ptr %ec, i64 8
+  %_M_cat.i = getelementptr inbounds nuw i8, ptr %ec, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #15
   store ptr %call.i, ptr %_M_cat.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i)
   store i64 %path.coerce0, ptr %ref.tmp.i, align 8
-  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr %path.coerce1, ptr %1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #13
-  %_M_cmpts.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %_M_cmpts.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i) #13
   call void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -192,12 +192,12 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i:  ; preds = %if.then.i.i.i, %entry
   store ptr null, ptr %_M_cmpts.i, align 8
   %3 = load ptr, ptr %ref.tmp, align 8
-  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i1.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -223,12 +223,12 @@ if.end:                                           ; preds = %_ZNSt10filesystem7_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i.i), !noalias !4
   store i64 %path.coerce0, ptr %ref.tmp.i.i, align 8, !noalias !4
-  %7 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %path.coerce1, ptr %7, align 8, !noalias !4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i) #13, !noalias !4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i) #13
-  %_M_cmpts.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 32
+  %_M_cmpts.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 32
   call void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i.i) #13
   call void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp5) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !4
@@ -236,22 +236,22 @@ if.end:                                           ; preds = %_ZNSt10filesystem7_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i3)
   store i64 2, ptr %ref.tmp.i2, align 8
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i2, i64 8
   store ptr @.str, ptr %8, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i3) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i3)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i3) #13
-  %_M_cmpts.i4 = getelementptr inbounds i8, ptr %ref.tmp6, i64 32
+  %_M_cmpts.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 32
   call void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i4) #13
   call void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp6) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3.i3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp5)
-  %_M_cmpts.i.i5 = getelementptr inbounds i8, ptr %ref.tmp4, i64 32
+  %_M_cmpts.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 32
   call void @_ZNSt10filesystem7__cxx114path5_ListC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i.i5, ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i.i) #13
   %call.i6 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx114pathdVERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp6) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp4)
-  %_M_cmpts.i.i7 = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
+  %_M_cmpts.i.i7 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 32
   call void @_ZNSt10filesystem7__cxx114path5_ListC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i.i7, ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i.i5) #13
   %call.i9 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx114pathdVERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(40) %link) #13
   call void @_ZNKSt10filesystem7__cxx114path16lexically_normalEv(ptr nonnull sret(%"class.std::filesystem::__cxx11::path") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp3) #13
@@ -260,7 +260,7 @@ if.end:                                           ; preds = %_ZNSt10filesystem7_
   call void @_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i10)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i10) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i10)
-  %_M_cmpts.i11 = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
+  %_M_cmpts.i11 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 32
   %9 = load ptr, ptr %_M_cmpts.i11, align 8
   %cmp.not.i.i.i12 = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i12, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i14, label %if.then.i.i.i13
@@ -272,12 +272,12 @@ if.then.i.i.i13:                                  ; preds = %if.end
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i14: ; preds = %if.then.i.i.i13, %if.end
   store ptr null, ptr %_M_cmpts.i11, align 8
   %10 = load ptr, ptr %ref.tmp2, align 8
-  %11 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   %cmp.i.i.i.i15 = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i.i15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i17, label %if.then.i.i1.i16
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i17: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i14
-  %_M_string_length.i.i.i.i18 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %_M_string_length.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i.i18, align 8
   %cmp3.i.i.i.i19 = icmp ult i64 %12, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i19)
@@ -300,12 +300,12 @@ if.then.i.i.i23:                                  ; preds = %_ZNSt10filesystem7_
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i24: ; preds = %if.then.i.i.i23, %_ZNSt10filesystem7__cxx114pathD2Ev.exit20
   store ptr null, ptr %_M_cmpts.i.i7, align 8
   %14 = load ptr, ptr %ref.tmp3, align 8
-  %15 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 16
   %cmp.i.i.i.i25 = icmp eq ptr %14, %15
   br i1 %cmp.i.i.i.i25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i27, label %if.then.i.i1.i26
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i27: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i24
-  %_M_string_length.i.i.i.i28 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %_M_string_length.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   %16 = load i64, ptr %_M_string_length.i.i.i.i28, align 8
   %cmp3.i.i.i.i29 = icmp ult i64 %16, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i29)
@@ -328,12 +328,12 @@ if.then.i.i.i33:                                  ; preds = %_ZNSt10filesystem7_
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i34: ; preds = %if.then.i.i.i33, %_ZNSt10filesystem7__cxx114pathD2Ev.exit30
   store ptr null, ptr %_M_cmpts.i.i5, align 8
   %18 = load ptr, ptr %ref.tmp4, align 8
-  %19 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 16
   %cmp.i.i.i.i35 = icmp eq ptr %18, %19
   br i1 %cmp.i.i.i.i35, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i37, label %if.then.i.i1.i36
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i37: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i34
-  %_M_string_length.i.i.i.i38 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
+  %_M_string_length.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
   %20 = load i64, ptr %_M_string_length.i.i.i.i38, align 8
   %cmp3.i.i.i.i39 = icmp ult i64 %20, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i39)
@@ -356,12 +356,12 @@ if.then.i.i.i43:                                  ; preds = %_ZNSt10filesystem7_
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i44: ; preds = %if.then.i.i.i43, %_ZNSt10filesystem7__cxx114pathD2Ev.exit40
   store ptr null, ptr %_M_cmpts.i4, align 8
   %22 = load ptr, ptr %ref.tmp6, align 8
-  %23 = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 16
   %cmp.i.i.i.i45 = icmp eq ptr %22, %23
   br i1 %cmp.i.i.i.i45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i47, label %if.then.i.i1.i46
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i47: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i44
-  %_M_string_length.i.i.i.i48 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %_M_string_length.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
   %24 = load i64, ptr %_M_string_length.i.i.i.i48, align 8
   %cmp3.i.i.i.i49 = icmp ult i64 %24, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i49)
@@ -384,12 +384,12 @@ if.then.i.i.i53:                                  ; preds = %_ZNSt10filesystem7_
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i54: ; preds = %if.then.i.i.i53, %_ZNSt10filesystem7__cxx114pathD2Ev.exit50
   store ptr null, ptr %_M_cmpts.i.i, align 8
   %26 = load ptr, ptr %ref.tmp5, align 8
-  %27 = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
   %cmp.i.i.i.i55 = icmp eq ptr %26, %27
   br i1 %cmp.i.i.i.i55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i57, label %if.then.i.i1.i56
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i57: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i54
-  %_M_string_length.i.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+  %_M_string_length.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
   %28 = load i64, ptr %_M_string_length.i.i.i.i58, align 8
   %cmp3.i.i.i.i59 = icmp ult i64 %28, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i59)
@@ -404,7 +404,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit60:        ; preds = %_ZNKSt7__cxx1112bas
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit60, %if.then
-  %_M_cmpts.i61 = getelementptr inbounds i8, ptr %link, i64 32
+  %_M_cmpts.i61 = getelementptr inbounds nuw i8, ptr %link, i64 32
   %29 = load ptr, ptr %_M_cmpts.i61, align 8
   %cmp.not.i.i.i62 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i62, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i64, label %if.then.i.i.i63
@@ -416,12 +416,12 @@ if.then.i.i.i63:                                  ; preds = %cleanup
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i64: ; preds = %if.then.i.i.i63, %cleanup
   store ptr null, ptr %_M_cmpts.i61, align 8
   %30 = load ptr, ptr %link, align 8
-  %31 = getelementptr inbounds i8, ptr %link, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %link, i64 16
   %cmp.i.i.i.i65 = icmp eq ptr %30, %31
   br i1 %cmp.i.i.i.i65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i67, label %if.then.i.i1.i66
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i67: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i64
-  %_M_string_length.i.i.i.i68 = getelementptr inbounds i8, ptr %link, i64 8
+  %_M_string_length.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %link, i64 8
   %32 = load i64, ptr %_M_string_length.i.i.i.i68, align 8
   %cmp3.i.i.i.i69 = icmp ult i64 %32, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i69)
@@ -445,9 +445,9 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %__t, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat align 2 {
 entry:
   %agg.tmp3.sroa.0.0.copyload = load i64, ptr %__t, align 8
-  %agg.tmp3.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__t, i64 8
+  %agg.tmp3.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %__t, i64 8
   %agg.tmp3.sroa.2.0.copyload = load ptr, ptr %agg.tmp3.sroa.2.0..sroa_idx, align 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) #13
   store ptr %0, ptr %this, align 8
   %cmp.i.i = icmp eq ptr %agg.tmp3.sroa.2.0.copyload, null
@@ -503,7 +503,7 @@ if.end.i.i.i3.i.i.i:                              ; preds = %if.end.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_.exit: ; preds = %if.end.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i3.i.i.i
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %agg.tmp3.sroa.0.0.copyload, ptr %_M_string_length.i.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %agg.tmp3.sroa.0.0.copyload
   store i8 0, ptr %arrayidx.i.i.i.i, align 1
@@ -526,12 +526,12 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i.i), !noalias !10
   store i64 %path.coerce0, ptr %ref.tmp.i.i, align 8, !noalias !10
-  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %path.coerce1, ptr %0, align 8, !noalias !10
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i) #13, !noalias !10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i.i) #13
-  %_M_cmpts.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 32
+  %_M_cmpts.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 32
   call void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i.i) #13
   call void @_ZNSt10filesystem7__cxx114path14_M_split_cmptsEv(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp1) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !10
@@ -542,7 +542,7 @@ entry:
   call void @_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %_M_cmpts.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %_M_cmpts.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   %1 = load ptr, ptr %_M_cmpts.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i, label %if.then.i.i.i
@@ -554,12 +554,12 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i:  ; preds = %if.then.i.i.i, %entry
   store ptr null, ptr %_M_cmpts.i, align 8
   %2 = load ptr, ptr %ref.tmp, align 8
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i1.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp ult i64 %4, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -582,12 +582,12 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt10filesystem7_
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i4: ; preds = %if.then.i.i.i3, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
   store ptr null, ptr %_M_cmpts.i.i, align 8
   %6 = load ptr, ptr %ref.tmp1, align 8
-  %7 = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 16
   %cmp.i.i.i.i5 = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i7, label %if.then.i.i1.i6
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i7: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i4
-  %_M_string_length.i.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
+  %_M_string_length.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
   %8 = load i64, ptr %_M_string_length.i.i.i.i8, align 8
   %cmp3.i.i.i.i9 = icmp ult i64 %8, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i9)
@@ -617,8 +617,8 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @_ZNSt10filesystem12current_pathB5cxx11Ev(ptr nonnull sret(%"class.std::filesystem::__cxx11::path") align 8 %ref.tmp1) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp1)
-  %_M_cmpts.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %_M_cmpts3.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 32
+  %_M_cmpts.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
+  %_M_cmpts3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 32
   call void @_ZNSt10filesystem7__cxx114path5_ListC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i.i, ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts3.i.i) #13
   %call.i1 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx114pathdVERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %path) #13
   call void @_ZNKSt10filesystem7__cxx114path16lexically_normalEv(ptr sret(%"class.std::filesystem::__cxx11::path") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #13
@@ -633,12 +633,12 @@ if.then.i.i.i:                                    ; preds = %if.end
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i:  ; preds = %if.then.i.i.i, %if.end
   store ptr null, ptr %_M_cmpts.i.i, align 8
   %1 = load ptr, ptr %ref.tmp, align 8
-  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i1.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %3 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp ult i64 %3, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -661,12 +661,12 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt10filesystem7_
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i5: ; preds = %if.then.i.i.i4, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
   store ptr null, ptr %_M_cmpts3.i.i, align 8
   %5 = load ptr, ptr %ref.tmp1, align 8
-  %6 = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 16
   %cmp.i.i.i.i6 = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i8, label %if.then.i.i1.i7
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i8: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i5
-  %_M_string_length.i.i.i.i9 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
+  %_M_string_length.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
   %7 = load i64, ptr %_M_string_length.i.i.i.i9, align 8
   %cmp3.i.i.i.i10 = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i10)
@@ -722,13 +722,13 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__str) unnamed_addr #4 comdat align 2 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %__str) #13
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   store ptr %0, ptr %this, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   %1 = load ptr, ptr %__str, align 8
-  %_M_string_length.i = getelementptr inbounds i8, ptr %__str, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %__str, i64 8
   %2 = load i64, ptr %_M_string_length.i, align 8
   %cmp.i = icmp ugt i64 %2, 15
   br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
@@ -777,7 +777,7 @@ if.end.i.i.i3.i:                                  ; preds = %if.end.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag.exit: ; preds = %if.end.i, %if.then.i.i.i, %if.end.i.i.i3.i
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %2, ptr %_M_string_length.i.i.i, align 8
   %5 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %2
@@ -794,9 +794,9 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 define linkonce_odr dso_local void @_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 1 dereferenceable(1) %__a) local_unnamed_addr #4 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_string_length.i, align 8
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %__a) #13
   store ptr %2, ptr %agg.result, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -852,7 +852,7 @@ if.end.i.i.i3.i.i:                                ; preds = %if.end.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit: ; preds = %if.end.i.i, %if.then.i.i.i.i, %if.end.i.i.i3.i.i
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %1, ptr %_M_string_length.i.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %1
   store i8 0, ptr %arrayidx.i.i.i, align 1

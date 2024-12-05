@@ -62,7 +62,7 @@ sunvasnprintf.exit.thread:                        ; preds = %11, %7, %sunvasnpri
 
 switch.lookup:                                    ; preds = %20
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.sunCreateLogMessage, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.sunCreateLogMessage, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.fold.split
 
@@ -114,27 +114,27 @@ define range(i32 -9999, 1) i32 @SUNLogger_Create(i32 noundef %0, i32 noundef %1,
   br i1 %.not, label %7, label %SUNHashMap_New.exit.sink.split
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 56
-  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %11 = load ptr, ptr @stderr, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %11, ptr %12, align 8
   %13 = load ptr, ptr @stdout, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %16, align 8
   %17 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   store ptr %17, ptr %10, align 8
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 8, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #15
   store ptr %20, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
@@ -143,9 +143,9 @@ define range(i32 -9999, 1) i32 @SUNLogger_Create(i32 noundef %0, i32 noundef %1,
 .preheader.i:                                     ; preds = %7, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %7 ]
   %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
   store ptr null, ptr %24, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -190,27 +190,27 @@ define range(i32 -9999, 1) i32 @SUNLogger_CreateFromEnv(i32 noundef %0, ptr noca
   br i1 %.not.i, label %16, label %SUNLogger_Create.exit
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %13, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %8, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %13, i64 56
-  %19 = getelementptr inbounds i8, ptr %13, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   %20 = load ptr, ptr @stderr, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %20, ptr %21, align 8
   %22 = load ptr, ptr @stdout, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %13, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr null, ptr %25, align 8
   %26 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   store ptr %26, ptr %19, align 8
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 8, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #15
   store ptr %29, ptr %28, align 8
   %.not.i.i = icmp eq ptr %29, null
@@ -223,9 +223,9 @@ SUNLogger_Create.exit.thread33:                   ; preds = %16
 .preheader.i.i:                                   ; preds = %16, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i ], [ 0, %16 ]
   %30 = load ptr, ptr %19, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -280,7 +280,7 @@ define range(i32 -9999, 1) i32 @SUNLogger_SetErrorFilename(ptr noundef %0, ptr n
   br i1 %.not17, label %SUNHashMap_Insert.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %SUNHashMap_Iterate.exit.i.thread, label %.lr.ph.i.i
@@ -289,7 +289,7 @@ define range(i32 -9999, 1) i32 @SUNLogger_SetErrorFilename(ptr noundef %0, ptr n
   %9 = phi i8 [ %14, %.lr.ph.i.i ], [ %strcmpload, %5 ]
   %.07.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %1, %5 ]
   %.036.i.i = phi i64 [ %13, %.lr.ph.i.i ], [ 1099511628211, %5 ]
-  %10 = getelementptr inbounds i8, ptr %.07.i.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1
   %11 = sext i8 %9 to i64
   %12 = xor i64 %.036.i.i, %11
   %13 = mul i64 %12, -3750763034362895579
@@ -298,12 +298,12 @@ define range(i32 -9999, 1) i32 @SUNLogger_SetErrorFilename(ptr noundef %0, ptr n
   br i1 %.not.i.i, label %fnv1a_hash.exit.i, label %.lr.ph.i.i
 
 fnv1a_hash.exit.i:                                ; preds = %.lr.ph.i.i
-  %15 = getelementptr inbounds i8, ptr %7, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = urem i64 %13, %17
   %19 = trunc i64 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8
   %sext.i = shl i64 %18, 32
   %22 = ashr exact i64 %sext.i, 29
@@ -355,9 +355,9 @@ SUNHashMap_Iterate.exit.i:                        ; preds = %37
   br i1 %or.cond, label %SUNHashMap_Iterate.exit.i.thread, label %43
 
 43:                                               ; preds = %SUNHashMap_Iterate.exit.i, %26
-  %44 = getelementptr inbounds i8, ptr %24, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %45, ptr %46, align 8
   br label %SUNHashMap_Insert.exit
 
@@ -385,7 +385,7 @@ SUNHashMap_Iterate.exit.i.thread:                 ; preds = %sunHashMapLinearPro
 
 sunOpenLogFile.exit:                              ; preds = %48, %52, %54
   %.0.i21 = phi ptr [ %55, %54 ], [ %53, %52 ], [ %49, %48 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.0.i21, ptr %56, align 8
   %.not19 = icmp eq ptr %.0.i21, null
   br i1 %.not19, label %SUNHashMap_Insert.exit, label %57
@@ -404,7 +404,7 @@ sunOpenLogFile.exit:                              ; preds = %48, %52, %54
   %62 = phi i8 [ %67, %.lr.ph.i.i23 ], [ %61, %60 ]
   %.07.i.i24 = phi ptr [ %63, %.lr.ph.i.i23 ], [ %1, %60 ]
   %.036.i.i25 = phi i64 [ %66, %.lr.ph.i.i23 ], [ 1099511628211, %60 ]
-  %63 = getelementptr inbounds i8, ptr %.07.i.i24, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.07.i.i24, i64 1
   %64 = sext i8 %62 to i64
   %65 = xor i64 %.036.i.i25, %64
   %66 = mul i64 %65, -3750763034362895579
@@ -414,11 +414,11 @@ sunOpenLogFile.exit:                              ; preds = %48, %52, %54
 
 fnv1a_hash.exit.i27:                              ; preds = %.lr.ph.i.i23, %60
   %.03.lcssa.i.i28 = phi i64 [ 1099511628211, %60 ], [ %66, %.lr.ph.i.i23 ]
-  %68 = getelementptr inbounds i8, ptr %58, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
   %71 = urem i64 %.03.lcssa.i.i28, %70
-  %72 = getelementptr inbounds i8, ptr %58, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %73 = load ptr, ptr %72, align 8
   %sext.i29 = shl i64 %71, 32
   %74 = ashr exact i64 %sext.i29, 29
@@ -465,7 +465,7 @@ SUNHashMap_Iterate.exit.i31:                      ; preds = %.lr.ph.i31.i
 
 92:                                               ; preds = %89
   store ptr %1, ptr %90, align 8
-  %93 = getelementptr inbounds i8, ptr %90, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %.0.i21, ptr %93, align 8
   %sext = shl i64 %.025.i, 32
   %94 = ashr exact i64 %sext, 29
@@ -496,7 +496,7 @@ define range(i32 -9999, 1) i32 @SUNLogger_SetWarningFilename(ptr noundef %0, ptr
   br i1 %.not17, label %SUNHashMap_Insert.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %SUNHashMap_Iterate.exit.i.thread, label %.lr.ph.i.i
@@ -505,7 +505,7 @@ define range(i32 -9999, 1) i32 @SUNLogger_SetWarningFilename(ptr noundef %0, ptr
   %9 = phi i8 [ %14, %.lr.ph.i.i ], [ %strcmpload, %5 ]
   %.07.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %1, %5 ]
   %.036.i.i = phi i64 [ %13, %.lr.ph.i.i ], [ 1099511628211, %5 ]
-  %10 = getelementptr inbounds i8, ptr %.07.i.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1
   %11 = sext i8 %9 to i64
   %12 = xor i64 %.036.i.i, %11
   %13 = mul i64 %12, -3750763034362895579
@@ -514,12 +514,12 @@ define range(i32 -9999, 1) i32 @SUNLogger_SetWarningFilename(ptr noundef %0, ptr
   br i1 %.not.i.i, label %fnv1a_hash.exit.i, label %.lr.ph.i.i
 
 fnv1a_hash.exit.i:                                ; preds = %.lr.ph.i.i
-  %15 = getelementptr inbounds i8, ptr %7, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = urem i64 %13, %17
   %19 = trunc i64 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8
   %sext.i = shl i64 %18, 32
   %22 = ashr exact i64 %sext.i, 29
@@ -571,9 +571,9 @@ SUNHashMap_Iterate.exit.i:                        ; preds = %37
   br i1 %or.cond, label %SUNHashMap_Iterate.exit.i.thread, label %43
 
 43:                                               ; preds = %SUNHashMap_Iterate.exit.i, %26
-  %44 = getelementptr inbounds i8, ptr %24, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %45, ptr %46, align 8
   br label %SUNHashMap_Insert.exit
 
@@ -601,7 +601,7 @@ SUNHashMap_Iterate.exit.i.thread:                 ; preds = %sunHashMapLinearPro
 
 sunOpenLogFile.exit:                              ; preds = %48, %52, %54
   %.0.i21 = phi ptr [ %55, %54 ], [ %53, %52 ], [ %49, %48 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i21, ptr %56, align 8
   %.not19 = icmp eq ptr %.0.i21, null
   br i1 %.not19, label %SUNHashMap_Insert.exit, label %57
@@ -620,7 +620,7 @@ sunOpenLogFile.exit:                              ; preds = %48, %52, %54
   %62 = phi i8 [ %67, %.lr.ph.i.i23 ], [ %61, %60 ]
   %.07.i.i24 = phi ptr [ %63, %.lr.ph.i.i23 ], [ %1, %60 ]
   %.036.i.i25 = phi i64 [ %66, %.lr.ph.i.i23 ], [ 1099511628211, %60 ]
-  %63 = getelementptr inbounds i8, ptr %.07.i.i24, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.07.i.i24, i64 1
   %64 = sext i8 %62 to i64
   %65 = xor i64 %.036.i.i25, %64
   %66 = mul i64 %65, -3750763034362895579
@@ -630,11 +630,11 @@ sunOpenLogFile.exit:                              ; preds = %48, %52, %54
 
 fnv1a_hash.exit.i27:                              ; preds = %.lr.ph.i.i23, %60
   %.03.lcssa.i.i28 = phi i64 [ 1099511628211, %60 ], [ %66, %.lr.ph.i.i23 ]
-  %68 = getelementptr inbounds i8, ptr %58, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
   %71 = urem i64 %.03.lcssa.i.i28, %70
-  %72 = getelementptr inbounds i8, ptr %58, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %73 = load ptr, ptr %72, align 8
   %sext.i29 = shl i64 %71, 32
   %74 = ashr exact i64 %sext.i29, 29
@@ -681,7 +681,7 @@ SUNHashMap_Iterate.exit.i31:                      ; preds = %.lr.ph.i31.i
 
 92:                                               ; preds = %89
   store ptr %1, ptr %90, align 8
-  %93 = getelementptr inbounds i8, ptr %90, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %.0.i21, ptr %93, align 8
   %sext = shl i64 %.025.i, 32
   %94 = ashr exact i64 %sext, 29
@@ -722,7 +722,7 @@ define i32 @SUNLogger_Destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not15, label %.critedge, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %6 = load ptr, ptr %5, align 8
   %.not16 = icmp eq ptr %6, null
   br i1 %.not16, label %9, label %7
@@ -732,9 +732,9 @@ define i32 @SUNLogger_Destroy(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
@@ -742,15 +742,15 @@ define i32 @SUNLogger_Destroy(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %9, %sunCloseLogFile.exit.thread10.i
   %15 = phi ptr [ %28, %sunCloseLogFile.exit.thread10.i ], [ %11, %9 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %sunCloseLogFile.exit.thread10.i ], [ 0, %9 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %.not31.i = icmp eq ptr %19, null
   br i1 %.not31.i, label %sunCloseLogFile.exit.thread10.i, label %20
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not32.i = icmp eq ptr %22, null
   br i1 %.not32.i, label %sunCloseLogFile.exit.thread.i, label %23
@@ -766,9 +766,9 @@ define i32 @SUNLogger_Destroy(ptr noundef %0) local_unnamed_addr #0 {
 sunCloseLogFile.exit.i:                           ; preds = %23
   %26 = tail call i32 @fclose(ptr noundef nonnull %22)
   %.pre.i = load ptr, ptr %10, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %.pre4.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert5.i = getelementptr inbounds ptr, ptr %.pre4.i, i64 %indvars.iv.i
+  %.phi.trans.insert5.i = getelementptr inbounds nuw ptr, ptr %.pre4.i, i64 %indvars.iv.i
   %.pre6.i = load ptr, ptr %.phi.trans.insert5.i, align 8
   %.not33.i = icmp eq ptr %.pre6.i, null
   br i1 %.not33.i, label %sunCloseLogFile.exit.thread10.i, label %sunCloseLogFile.exit.thread.i
@@ -782,7 +782,7 @@ sunCloseLogFile.exit.thread.i:                    ; preds = %sunCloseLogFile.exi
 sunCloseLogFile.exit.thread10.i:                  ; preds = %sunCloseLogFile.exit.thread.i, %sunCloseLogFile.exit.i, %.lr.ph.i
   %28 = phi ptr [ %.pre.i, %sunCloseLogFile.exit.i ], [ %.pre7.i, %sunCloseLogFile.exit.thread.i ], [ %15, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next.i, %31
@@ -790,7 +790,7 @@ sunCloseLogFile.exit.thread10.i:                  ; preds = %sunCloseLogFile.exi
 
 ._crit_edge.i:                                    ; preds = %sunCloseLogFile.exit.thread10.i, %9
   %.lcssa.i = phi ptr [ %11, %9 ], [ %28, %sunCloseLogFile.exit.thread10.i ]
-  %33 = getelementptr inbounds i8, ptr %.lcssa.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %.thread.i, label %35
@@ -827,7 +827,7 @@ define i32 @SUNLogger_QueueMsg(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 8:                                                ; preds = %5
   call void @llvm.va_start.p0(ptr nonnull %6)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %.not31 = icmp eq ptr %10, null
   br i1 %.not31, label %13, label %11
@@ -851,7 +851,7 @@ define i32 @SUNLogger_QueueMsg(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %30
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not37 = icmp eq ptr %16, null
   %.pre42 = load ptr, ptr %7, align 8
@@ -862,7 +862,7 @@ define i32 @SUNLogger_QueueMsg(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %30
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not35 = icmp eq ptr %20, null
   %.pre41 = load ptr, ptr %7, align 8
@@ -873,7 +873,7 @@ define i32 @SUNLogger_QueueMsg(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %30
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not33 = icmp eq ptr %24, null
   %.pre40 = load ptr, ptr %7, align 8
@@ -884,7 +884,7 @@ define i32 @SUNLogger_QueueMsg(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %30
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not32 = icmp eq ptr %28, null
   %.pre39 = load ptr, ptr %7, align 8
@@ -916,7 +916,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br i1 %.not, label %49, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not36 = icmp eq ptr %5, null
   br i1 %.not36, label %8, label %6
@@ -935,7 +935,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   ]
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not44 = icmp eq ptr %11, null
   br i1 %.not44, label %49, label %12
@@ -945,7 +945,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %49
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not43 = icmp eq ptr %16, null
   br i1 %.not43, label %49, label %17
@@ -955,7 +955,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %49
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not42 = icmp eq ptr %21, null
   br i1 %.not42, label %49, label %22
@@ -965,7 +965,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %49
 
 24:                                               ; preds = %8
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not41 = icmp eq ptr %26, null
   br i1 %.not41, label %49, label %27
@@ -975,7 +975,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %49
 
 29:                                               ; preds = %8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not37 = icmp eq ptr %31, null
   br i1 %.not37, label %34, label %32
@@ -985,7 +985,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %34
 
 34:                                               ; preds = %32, %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not38 = icmp eq ptr %36, null
   br i1 %.not38, label %39, label %37
@@ -995,7 +995,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %39
 
 39:                                               ; preds = %37, %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not39 = icmp eq ptr %41, null
   br i1 %.not39, label %44, label %42
@@ -1005,7 +1005,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %44
 
 44:                                               ; preds = %42, %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not40 = icmp eq ptr %46, null
   br i1 %.not40, label %49, label %47
@@ -1028,7 +1028,7 @@ define range(i32 -9999, 1) i32 @SUNLogger_GetOutputRank(ptr noundef readonly %0,
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %1, align 4
   br label %6

@@ -28,8 +28,8 @@ entry:
   %agg.tmp27 = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %ref.tmp61 = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp62 = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %fTimeIgnorables = getelementptr inbounds i8, ptr %this, i64 8
-  %fOtherIgnorables = getelementptr inbounds i8, ptr %this, i64 16
+  %fTimeIgnorables = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %fOtherIgnorables = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 200) #5
   %new.isnull.not = icmp eq ptr %call, null
@@ -256,7 +256,7 @@ delete.notnull:                                   ; preds = %entry
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %this, align 8
-  %fTimeIgnorables = getelementptr inbounds i8, ptr %this, i64 8
+  %fTimeIgnorables = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %fTimeIgnorables, align 8
   %isnull3 = icmp eq ptr %1, null
   br i1 %isnull3, label %delete.end5, label %delete.notnull4
@@ -268,7 +268,7 @@ delete.notnull4:                                  ; preds = %delete.end
 
 delete.end5:                                      ; preds = %delete.notnull4, %delete.end
   store ptr null, ptr %fTimeIgnorables, align 8
-  %fOtherIgnorables = getelementptr inbounds i8, ptr %this, i64 16
+  %fOtherIgnorables = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %fOtherIgnorables, align 8
   %isnull7 = icmp eq ptr %2, null
   br i1 %isnull7, label %delete.end9, label %delete.notnull8
@@ -343,14 +343,14 @@ lpad.i:                                           ; preds = %new.notnull.i
 
 _ZN6icu_75L17smpdtfmt_initSetsER10UErrorCode.exit: ; preds = %new.cont.i, %if.then.i
   %2 = phi i32 [ %.pre, %new.cont.i ], [ 7, %if.then.i ]
-  store i32 %2, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7535gSimpleDateFormatStaticSetsInitOnceE, i64 4), align 4
+  store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7535gSimpleDateFormatStaticSetsInitOnceE, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7535gSimpleDateFormatStaticSetsInitOnceE)
   %.pr.old = load i32, ptr %status, align 4
   %cmp.i.old = icmp slt i32 %.pr.old, 1
   br i1 %cmp.i.old, label %if.end, label %return
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6icu_7535gSimpleDateFormatStaticSetsInitOnceE, i64 4), align 4
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7535gSimpleDateFormatStaticSetsInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %3, 1
   %.pr = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %.pr, 1
@@ -379,13 +379,13 @@ sw.bb:                                            ; preds = %if.end, %if.end, %i
 
 sw.bb1:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
   %6 = load ptr, ptr @_ZN6icu_7511gStaticSetsE, align 8
-  %fTimeIgnorables = getelementptr inbounds i8, ptr %6, i64 8
+  %fTimeIgnorables = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %fTimeIgnorables, align 8
   br label %return
 
 sw.default:                                       ; preds = %if.end
   %8 = load ptr, ptr @_ZN6icu_7511gStaticSetsE, align 8
-  %fOtherIgnorables = getelementptr inbounds i8, ptr %8, i64 16
+  %fOtherIgnorables = getelementptr inbounds nuw i8, ptr %8, i64 16
   %9 = load ptr, ptr %fOtherIgnorables, align 8
   br label %return
 

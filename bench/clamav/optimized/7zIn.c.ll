@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @SzCoderInfo_Init(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @Buf_Init(ptr noundef nonnull %2) #11
   ret void
 }
@@ -27,7 +27,7 @@ declare void @Buf_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @SzCoderInfo_Free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @Buf_Free(ptr noundef nonnull %3, ptr noundef %1) #11
   tail call void @Buf_Init(ptr noundef nonnull %3) #11
   ret void
@@ -48,7 +48,7 @@ define void @SzFolder_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnam
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %.not20 = icmp eq i32 %5, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph
@@ -56,7 +56,7 @@ define void @SzFolder_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnam
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds %struct.CSzCoderInfo, ptr %6, i64 %indvars.iv, i32 3
+  %7 = getelementptr inbounds nuw %struct.CSzCoderInfo, ptr %6, i64 %indvars.iv, i32 3
   tail call void @Buf_Free(ptr noundef nonnull %7, ptr noundef %1) #11
   tail call void @Buf_Init(ptr noundef nonnull %7) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -71,19 +71,19 @@ define void @SzFolder_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnam
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %2
   %11 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %3, %.preheader ], [ null, %2 ]
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef %1, ptr noundef %11) #11
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %14(ptr noundef %1, ptr noundef %16) #11
   %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void %17(ptr noundef %1, ptr noundef %19) #11
   %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void %20(ptr noundef %1, ptr noundef %22) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -92,7 +92,7 @@ define void @SzFolder_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnam
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @SzFolder_GetNumOutStreams(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -105,7 +105,7 @@ define i32 @SzFolder_GetNumOutStreams(ptr nocapture noundef readonly %0) local_u
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %.067 = phi i32 [ 0, %.lr.ph ], [ %8, %5 ]
-  %6 = getelementptr inbounds %struct.CSzCoderInfo, ptr %4, i64 %indvars.iv, i32 1
+  %6 = getelementptr inbounds nuw %struct.CSzCoderInfo, ptr %4, i64 %indvars.iv, i32 1
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, %.067
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -119,20 +119,20 @@ define i32 @SzFolder_GetNumOutStreams(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @SzFolder_FindBindPairForInStream(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext i32 %4 to i64
   br label %7
 
 7:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds %struct.CSzBindPair, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.CSzBindPair, ptr %6, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, %1
   br i1 %10, label %._crit_edge.loopexit.split.loop.exit12, label %11
@@ -153,20 +153,20 @@ define i32 @SzFolder_FindBindPairForInStream(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @SzFolder_FindBindPairForOutStream(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext i32 %4 to i64
   br label %7
 
 7:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds %struct.CSzBindPair, ptr %6, i64 %indvars.iv, i32 1
+  %8 = getelementptr inbounds nuw %struct.CSzBindPair, ptr %6, i64 %indvars.iv, i32 1
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, %1
   br i1 %10, label %._crit_edge.loopexit.split.loop.exit12, label %11
@@ -187,7 +187,7 @@ define i32 @SzFolder_FindBindPairForOutStream(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i64 @SzFolder_GetUnpackSize(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %SzFolder_GetNumOutStreams.exit.thread, label %.lr.ph.i
@@ -200,7 +200,7 @@ define i64 @SzFolder_GetUnpackSize(ptr nocapture noundef readonly %0) local_unna
 5:                                                ; preds = %5, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %5 ]
   %.067.i = phi i32 [ 0, %.lr.ph.i ], [ %8, %5 ]
-  %6 = getelementptr inbounds %struct.CSzCoderInfo, ptr %4, i64 %indvars.iv.i, i32 1
+  %6 = getelementptr inbounds nuw %struct.CSzCoderInfo, ptr %4, i64 %indvars.iv.i, i32 1
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, %.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -212,8 +212,8 @@ SzFolder_GetNumOutStreams.exit:                   ; preds = %5
   br i1 %9, label %SzFolder_GetNumOutStreams.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %SzFolder_GetNumOutStreams.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 12:                                               ; preds = %.preheader, %SzFolder_FindBindPairForOutStream.exit
@@ -234,7 +234,7 @@ SzFolder_GetNumOutStreams.exit:                   ; preds = %5
 
 17:                                               ; preds = %21, %.lr.ph.i12
   %indvars.iv.i14 = phi i64 [ 0, %.lr.ph.i12 ], [ %indvars.iv.next.i15, %21 ]
-  %18 = getelementptr inbounds %struct.CSzBindPair, ptr %16, i64 %indvars.iv.i14, i32 1
+  %18 = getelementptr inbounds nuw %struct.CSzBindPair, ptr %16, i64 %indvars.iv.i14, i32 1
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %.0
   br i1 %20, label %SzFolder_FindBindPairForOutStream.exit, label %21
@@ -250,10 +250,10 @@ SzFolder_FindBindPairForOutStream.exit:           ; preds = %17
   br i1 %.not, label %12, label %SzFolder_FindBindPairForOutStream.exit.thread
 
 SzFolder_FindBindPairForOutStream.exit.thread:    ; preds = %14, %SzFolder_FindBindPairForOutStream.exit, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %.0 to i64
-  %26 = getelementptr inbounds i64, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw i64, ptr %24, i64 %25
   %27 = load i64, ptr %26, align 8
   br label %SzFolder_GetNumOutStreams.exit.thread
 
@@ -264,9 +264,9 @@ SzFolder_GetNumOutStreams.exit.thread:            ; preds = %12, %1, %SzFolder_G
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SzFile_Init(ptr nocapture noundef writeonly initializes((24, 29)) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 25
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i32 0, ptr %3, align 1
   ret void
 }
@@ -279,31 +279,31 @@ define void @SzAr_Init(ptr nocapture noundef writeonly initializes((0, 52)) %0) 
 
 ; Function Attrs: nounwind uwtable
 define void @SzAr_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not23 = icmp eq i32 %6, 0
   br i1 %.not23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %SzFolder_Free.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %SzFolder_Free.exit ]
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.CSzFolder, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.CSzFolder, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %SzFolder_Free.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %13 = load i32, ptr %12, align 8
   %.not20.i = icmp eq i32 %13, 0
   br i1 %.not20.i, label %SzFolder_Free.exit, label %.lr.ph.i
@@ -311,7 +311,7 @@ define void @SzAr_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_a
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds %struct.CSzCoderInfo, ptr %14, i64 %indvars.iv.i, i32 3
+  %15 = getelementptr inbounds nuw %struct.CSzCoderInfo, ptr %14, i64 %indvars.iv.i, i32 3
   tail call void @Buf_Free(ptr noundef nonnull %15, ptr noundef %1) #11
   tail call void @Buf_Init(ptr noundef nonnull %15) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -329,15 +329,15 @@ SzFolder_Free.exit:                               ; preds = %8, %.preheader.i, %
   %20 = load ptr, ptr %7, align 8
   tail call void %20(ptr noundef %1, ptr noundef %19) #11
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void %21(ptr noundef %1, ptr noundef %23) #11
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %26 = load ptr, ptr %25, align 8
   tail call void %24(ptr noundef %1, ptr noundef %26) #11
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %10, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %29 = load ptr, ptr %28, align 8
   tail call void %27(ptr noundef %1, ptr noundef %29) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
@@ -348,23 +348,23 @@ SzFolder_Free.exit:                               ; preds = %8, %.preheader.i, %
   br i1 %32, label %8, label %.loopexit
 
 .loopexit:                                        ; preds = %SzFolder_Free.exit, %.preheader, %2
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %0, align 8
   tail call void %34(ptr noundef %1, ptr noundef %35) #11
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void %36(ptr noundef %1, ptr noundef %38) #11
   %39 = load ptr, ptr %33, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   tail call void %39(ptr noundef %1, ptr noundef %41) #11
   %42 = load ptr, ptr %33, align 8
   %43 = load ptr, ptr %3, align 8
   tail call void %42(ptr noundef %1, ptr noundef %43) #11
   %44 = load ptr, ptr %33, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
   tail call void %44(ptr noundef %1, ptr noundef %46) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
@@ -374,8 +374,8 @@ SzFolder_Free.exit:                               ; preds = %8, %.preheader.i, %
 ; Function Attrs: nounwind uwtable
 define void @SzArEx_Init(ptr noundef initializes((0, 52), (72, 112)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   tail call void @Buf_Init(ptr noundef nonnull %3) #11
   ret void
@@ -383,28 +383,28 @@ define void @SzArEx_Init(ptr noundef initializes((0, 52), (72, 112)) %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define void @SzArEx_Free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   tail call void %4(ptr noundef %1, ptr noundef %6) #11
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %1, ptr noundef %9) #11
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load ptr, ptr %11, align 8
   tail call void %10(ptr noundef %1, ptr noundef %12) #11
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8
   tail call void %13(ptr noundef %1, ptr noundef %15) #11
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load ptr, ptr %17, align 8
   tail call void %16(ptr noundef %1, ptr noundef %18) #11
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @Buf_Free(ptr noundef nonnull %19, ptr noundef %1) #11
   tail call void @SzAr_Free(ptr noundef %0, ptr noundef %1)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
@@ -415,18 +415,18 @@ define void @SzArEx_Free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @SzArEx_GetFolderStreamPos(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, %2
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds i64, ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %7, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %5
   ret i64 %17
@@ -434,14 +434,14 @@ define i64 @SzArEx_GetFolderStreamPos(ptr nocapture noundef readonly %0, i32 nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 12) i32 @SzArEx_GetFolderFullPackSize(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.CSzFolder, ptr %10, i64 %6, i32 6
+  %11 = getelementptr inbounds nuw %struct.CSzFolder, ptr %10, i64 %6, i32 6
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -462,7 +462,7 @@ define range(i32 0, 12) i32 @SzArEx_GetFolderFullPackSize(ptr nocapture noundef 
   %16 = trunc nuw i64 %indvars.iv to i32
   %17 = add i32 %8, %16
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds i64, ptr %13, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %13, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %.01720
   %22 = icmp ult i64 %21, %.01720
@@ -480,7 +480,7 @@ define range(i32 0, 12) i32 @SzArEx_GetFolderFullPackSize(ptr nocapture noundef 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i64 @SzArEx_GetFileNameUtf16(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i64, ptr %5, i64 %1
   %7 = getelementptr i8, ptr %6, i64 8
@@ -491,7 +491,7 @@ define i64 @SzArEx_GetFileNameUtf16(ptr nocapture noundef readonly %0, i64 nound
   br i1 %.not, label %.loopexit, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = shl i64 %9, 1
   %15 = getelementptr inbounds i8, ptr %13, i64 %14
@@ -538,7 +538,7 @@ define i32 @SzArEx_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   store i64 0, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 %17(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1) #11
   %.not.i = icmp eq i32 %18, 0
@@ -556,43 +556,43 @@ define i32 @SzArEx_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 .preheader.i:                                     ; preds = %19, %21
   %.06.i.i = phi i64 [ %22, %21 ], [ 0, %19 ]
-  %23 = getelementptr inbounds i8, ptr %5, i64 %.06.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 %.06.i.i
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds [6 x i8], ptr @k7zSignature, i64 0, i64 %.06.i.i
+  %25 = getelementptr inbounds nuw [6 x i8], ptr @k7zSignature, i64 0, i64 %.06.i.i
   %26 = load i8, ptr %25, align 1
   %.not.i.i = icmp eq i8 %24, %26
   br i1 %.not.i.i, label %21, label %.sink.split
 
 TestSignatureCandidate.exit.i:                    ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %5, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %28 = load i8, ptr %27, align 2
   %.not120.i = icmp eq i8 %28, 0
   br i1 %.not120.i, label %29, label %.sink.split
 
 29:                                               ; preds = %TestSignatureCandidate.exit.i
-  %30 = getelementptr inbounds i8, ptr %5, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %34 = load i32, ptr %33, align 16
   %35 = sext i32 %34 to i64
   %36 = shl nsw i64 %35, 32
   %37 = or i64 %36, %32
-  %38 = getelementptr inbounds i8, ptr %5, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %5, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
   %44 = shl nsw i64 %43, 32
   %45 = or i64 %44, %40
-  %46 = getelementptr inbounds i8, ptr %5, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = load i64, ptr %6, align 8
   %49 = add nsw i64 %48, 32
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = icmp ne i32 %52, 0
   %54 = icmp ne i64 %37, 0
@@ -648,7 +648,7 @@ TestSignatureCandidate.exit.i:                    ; preds = %21
 
 .lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %76, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.thread.i ]
-  %77 = getelementptr inbounds [500 x i8], ptr %8, i64 0, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [500 x i8], ptr %8, i64 0, i64 %indvars.iv.i
   %78 = load i8, ptr %77, align 1
   switch i8 %78, label %.thread.i [
     i8 23, label %79
@@ -657,14 +657,14 @@ TestSignatureCandidate.exit.i:                    ; preds = %21
 
 79:                                               ; preds = %.lr.ph.i
   %80 = add nuw nsw i64 %indvars.iv.i, 1
-  %81 = getelementptr inbounds [500 x i8], ptr %8, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [500 x i8], ptr %8, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = icmp eq i8 %82, 6
   br i1 %83, label %90, label %.thread.i
 
 84:                                               ; preds = %.lr.ph.i
   %85 = add nuw nsw i64 %indvars.iv.i, 1
-  %86 = getelementptr inbounds [500 x i8], ptr %8, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [500 x i8], ptr %8, i64 0, i64 %85
   %87 = load i8, ptr %86, align 1
   %88 = icmp eq i8 %87, 4
   br i1 %88, label %90, label %.thread.i
@@ -686,7 +686,7 @@ TestSignatureCandidate.exit.i:                    ; preds = %21
   %sext146.i = shl i64 %96, 32
   %97 = ashr exact i64 %sext146.i, 32
   %98 = add i64 %93, -32
-  %99 = getelementptr inbounds i8, ptr %8, i64 %92
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 %92
   %100 = call i32 @CrcCalc(ptr noundef nonnull %99, i64 noundef %97) #11
   %101 = load ptr, ptr %16, align 8
   %102 = call i32 %101(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 0) #11
@@ -770,9 +770,9 @@ SzArEx_Open2.exit.thread11:                       ; preds = %103
 136:                                              ; preds = %132
   %137 = load ptr, ptr %7, align 8
   store ptr %137, ptr %13, align 8
-  %138 = getelementptr inbounds i8, ptr %7, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %139 = load i64, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %13, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %139, ptr %140, align 8
   %141 = call fastcc i32 @SzReadID(ptr noundef %13, ptr noundef %14)
   %142 = icmp eq i32 %141, 0
@@ -796,7 +796,7 @@ SzArEx_Open2.exit.thread11:                       ; preds = %103
   call void @Buf_Free(ptr noundef nonnull %7, ptr noundef %3) #11
   %149 = load ptr, ptr %15, align 8
   store ptr %149, ptr %7, align 8
-  %150 = getelementptr inbounds i8, ptr %15, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %151 = load i64, ptr %150, align 8
   store i64 %151, ptr %138, align 8
   store ptr %149, ptr %13, align 8
@@ -853,28 +853,28 @@ SzArEx_Open2.exit:                                ; preds = %155
 
 159:                                              ; preds = %.sink.split, %SzArEx_Open2.exit
   %.0.i9 = phi i32 [ %158, %SzArEx_Open2.exit ], [ %.0.i9.ph, %.sink.split ]
-  %160 = getelementptr inbounds i8, ptr %2, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 72
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %163 = load ptr, ptr %162, align 8
   call void %161(ptr noundef %2, ptr noundef %163) #11
   %164 = load ptr, ptr %160, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 80
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %166 = load ptr, ptr %165, align 8
   call void %164(ptr noundef %2, ptr noundef %166) #11
   %167 = load ptr, ptr %160, align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 88
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %169 = load ptr, ptr %168, align 8
   call void %167(ptr noundef %2, ptr noundef %169) #11
   %170 = load ptr, ptr %160, align 8
-  %171 = getelementptr inbounds i8, ptr %0, i64 96
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %172 = load ptr, ptr %171, align 8
   call void %170(ptr noundef %2, ptr noundef %172) #11
   %173 = load ptr, ptr %160, align 8
-  %174 = getelementptr inbounds i8, ptr %0, i64 104
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %175 = load ptr, ptr %174, align 8
   call void %173(ptr noundef %2, ptr noundef %175) #11
-  %176 = getelementptr inbounds i8, ptr %0, i64 112
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 112
   call void @Buf_Free(ptr noundef nonnull %176, ptr noundef %2) #11
   call void @SzAr_Free(ptr noundef %0, ptr noundef %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
@@ -889,20 +889,20 @@ SzArEx_Open2.exit:                                ; preds = %155
 
 ; Function Attrs: nounwind uwtable
 define i32 @SzArEx_Extract(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.thread126, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %.not105 = icmp ult i32 %2, %15
   br i1 %.not105, label %16, label %.thread126
 
 16:                                               ; preds = %13
   %17 = zext i32 %2 to i64
-  %18 = getelementptr inbounds i32, ptr %12, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %12, i64 %17
   %19 = load i32, ptr %18, align 4
   store i64 0, ptr %6, align 8
   store i64 0, ptr %7, align 8
@@ -910,7 +910,7 @@ define i32 @SzArEx_Extract(ptr nocapture noundef readonly %0, ptr noundef %1, i3
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %4, align 8
   tail call void %23(ptr noundef %8, ptr noundef %24) #11
@@ -930,11 +930,11 @@ define i32 @SzArEx_Extract(ptr nocapture noundef readonly %0, ptr noundef %1, i3
   br i1 %.not106, label %.thread123, label %30
 
 30:                                               ; preds = %28, %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %19 to i64
-  %34 = getelementptr inbounds %struct.CSzFolder, ptr %32, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %34 = getelementptr inbounds nuw %struct.CSzFolder, ptr %32, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load i32, ptr %35, align 8
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %SzFolder_GetUnpackSize.exit, label %.lr.ph.i.i
@@ -947,7 +947,7 @@ define i32 @SzArEx_Extract(ptr nocapture noundef readonly %0, ptr noundef %1, i3
 38:                                               ; preds = %38, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %38 ]
   %.067.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %41, %38 ]
-  %39 = getelementptr inbounds %struct.CSzCoderInfo, ptr %37, i64 %indvars.iv.i.i, i32 1
+  %39 = getelementptr inbounds nuw %struct.CSzCoderInfo, ptr %37, i64 %indvars.iv.i.i, i32 1
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, %.067.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -959,8 +959,8 @@ SzFolder_GetNumOutStreams.exit.i:                 ; preds = %38
   br i1 %42, label %SzFolder_GetUnpackSize.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %SzFolder_GetNumOutStreams.exit.i
-  %43 = getelementptr inbounds i8, ptr %34, i64 36
-  %44 = getelementptr inbounds i8, ptr %34, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 8
   br label %45
 
 45:                                               ; preds = %SzFolder_FindBindPairForOutStream.exit.i, %.preheader.i
@@ -981,7 +981,7 @@ SzFolder_GetNumOutStreams.exit.i:                 ; preds = %38
 
 50:                                               ; preds = %54, %.lr.ph.i12.i
   %indvars.iv.i14.i = phi i64 [ 0, %.lr.ph.i12.i ], [ %indvars.iv.next.i15.i, %54 ]
-  %51 = getelementptr inbounds %struct.CSzBindPair, ptr %49, i64 %indvars.iv.i14.i, i32 1
+  %51 = getelementptr inbounds nuw %struct.CSzBindPair, ptr %49, i64 %indvars.iv.i14.i, i32 1
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, %.0.i
   br i1 %53, label %SzFolder_FindBindPairForOutStream.exit.i, label %54
@@ -997,49 +997,49 @@ SzFolder_FindBindPairForOutStream.exit.i:         ; preds = %50
   br i1 %.not.i, label %45, label %SzFolder_FindBindPairForOutStream.exit.thread.i
 
 SzFolder_FindBindPairForOutStream.exit.thread.i:  ; preds = %SzFolder_FindBindPairForOutStream.exit.i, %47, %54
-  %56 = getelementptr inbounds i8, ptr %34, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = zext nneg i32 %.0.i to i64
-  %59 = getelementptr inbounds i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8
   br label %SzFolder_GetUnpackSize.exit
 
 SzFolder_GetUnpackSize.exit:                      ; preds = %45, %30, %SzFolder_GetNumOutStreams.exit.i, %SzFolder_FindBindPairForOutStream.exit.thread.i
   %.09.i = phi i64 [ %60, %SzFolder_FindBindPairForOutStream.exit.thread.i ], [ 0, %SzFolder_GetNumOutStreams.exit.i ], [ 0, %30 ], [ 0, %45 ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %62 = load ptr, ptr %61, align 8
   %.not107 = icmp eq ptr %62, null
   br i1 %.not107, label %.thread126, label %63
 
 63:                                               ; preds = %SzFolder_GetUnpackSize.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %65 = load ptr, ptr %64, align 8
   %.not108 = icmp eq ptr %65, null
   br i1 %.not108, label %.thread126, label %66
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %0, i64 44
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %68 = load i32, ptr %67, align 4
   %.not109 = icmp ult i32 %19, %68
   br i1 %.not109, label %69, label %.thread126
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i32, ptr %65, i64 %33
+  %70 = getelementptr inbounds nuw i32, ptr %65, i64 %33
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %0, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %73 = load i32, ptr %72, align 8
   %.not110 = icmp ult i32 %71, %73
   br i1 %.not110, label %74, label %.thread126
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %0, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %76 = load i64, ptr %75, align 8
   %77 = zext i32 %71 to i64
-  %78 = getelementptr inbounds i64, ptr %62, i64 %77
+  %78 = getelementptr inbounds nuw i64, ptr %62, i64 %77
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, %76
   store i32 %19, ptr %3, align 4
-  %81 = getelementptr inbounds i8, ptr %8, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = load ptr, ptr %4, align 8
   tail call void %82(ptr noundef %8, ptr noundef %83) #11
@@ -1068,16 +1068,16 @@ SzFolder_GetUnpackSize.exit:                      ; preds = %45, %30, %SzFolder_
   %89 = phi ptr [ %.pre, %..thread_crit_edge ], [ %88, %86 ]
   %90 = load ptr, ptr %0, align 8
   %91 = load ptr, ptr %64, align 8
-  %92 = getelementptr inbounds i32, ptr %91, i64 %33
+  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %33
   %93 = load i32, ptr %92, align 4
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds i64, ptr %90, i64 %94
+  %95 = getelementptr inbounds nuw i64, ptr %90, i64 %94
   %96 = tail call i32 @SzFolder_Decode(ptr noundef %34, ptr noundef %95, ptr noundef %1, i64 noundef %80, ptr noundef %89, i64 noundef %.09.i, ptr noundef %9) #11
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %98, label %.thread126
 
 98:                                               ; preds = %.thread
-  %99 = getelementptr inbounds i8, ptr %34, i64 44
+  %99 = getelementptr inbounds nuw i8, ptr %34, i64 44
   %100 = load i32, ptr %99, align 4
   %.not113 = icmp eq i32 %100, 0
   br i1 %.not113, label %.thread123, label %101
@@ -1085,30 +1085,30 @@ SzFolder_GetUnpackSize.exit:                      ; preds = %45, %30, %SzFolder_
 101:                                              ; preds = %98
   %102 = load ptr, ptr %4, align 8
   %103 = tail call i32 @CrcCalc(ptr noundef %102, i64 noundef %.09.i) #11
-  %104 = getelementptr inbounds i8, ptr %34, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %105 = load i32, ptr %104, align 8
   %.not114 = icmp eq i32 %103, %105
   br i1 %.not114, label %.thread123, label %.thread126
 
 .thread123:                                       ; preds = %101, %28, %98
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %struct.CSzFileItem, ptr %107, i64 %17
+  %108 = getelementptr inbounds nuw %struct.CSzFileItem, ptr %107, i64 %17
   store i64 0, ptr %6, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 88
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %110 = load ptr, ptr %109, align 8
   %.not115 = icmp eq ptr %110, null
   br i1 %.not115, label %.thread126, label %111
 
 111:                                              ; preds = %.thread123
-  %112 = getelementptr inbounds i8, ptr %0, i64 44
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %113 = load i32, ptr %112, align 4
   %.not116 = icmp ult i32 %19, %113
   br i1 %.not116, label %114, label %.thread126
 
 114:                                              ; preds = %111
   %115 = zext i32 %19 to i64
-  %116 = getelementptr inbounds i32, ptr %110, i64 %115
+  %116 = getelementptr inbounds nuw i32, ptr %110, i64 %115
   %117 = load i32, ptr %116, align 4
   %118 = icmp ult i32 %117, %2
   br i1 %118, label %.lr.ph.preheader, label %._crit_edge
@@ -1121,7 +1121,7 @@ SzFolder_GetUnpackSize.exit:                      ; preds = %45, %30, %SzFolder_
   %120 = phi i64 [ 0, %.lr.ph.preheader ], [ %125, %.lr.ph ]
   %indvars.iv = phi i64 [ %119, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %121 = load ptr, ptr %106, align 8
-  %122 = getelementptr inbounds %struct.CSzFileItem, ptr %121, i64 %indvars.iv, i32 1
+  %122 = getelementptr inbounds nuw %struct.CSzFileItem, ptr %121, i64 %indvars.iv, i32 1
   %123 = load i64, ptr %122, align 8
   %124 = and i64 %123, 4294967295
   %125 = add i64 %120, %124
@@ -1131,7 +1131,7 @@ SzFolder_GetUnpackSize.exit:                      ; preds = %45, %30, %SzFolder_
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %114
-  %126 = getelementptr inbounds i8, ptr %108, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %127 = load i64, ptr %126, align 8
   store i64 %127, ptr %7, align 8
   %128 = load i64, ptr %6, align 8
@@ -1141,7 +1141,7 @@ SzFolder_GetUnpackSize.exit:                      ; preds = %45, %30, %SzFolder_
   br i1 %131, label %.thread126, label %132
 
 132:                                              ; preds = %._crit_edge
-  %133 = getelementptr inbounds i8, ptr %108, i64 27
+  %133 = getelementptr inbounds nuw i8, ptr %108, i64 27
   %134 = load i8, ptr %133, align 1
   %.not117 = icmp eq i8 %134, 0
   br i1 %.not117, label %.thread126, label %135
@@ -1150,7 +1150,7 @@ SzFolder_GetUnpackSize.exit:                      ; preds = %45, %30, %SzFolder_
   %136 = load ptr, ptr %4, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 %128
   %138 = tail call i32 @CrcCalc(ptr noundef %137, i64 noundef %127) #11
-  %139 = getelementptr inbounds i8, ptr %108, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %140 = load i32, ptr %139, align 8
   %.not118 = icmp eq i32 %138, %140
   %spec.select121 = select i1 %.not118, i32 0, i32 3
@@ -1175,7 +1175,7 @@ declare i32 @LookInStream_Read(ptr noundef, ptr noundef, i64 noundef) local_unna
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 17) i32 @SzReadID(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %SzReadNumber.exit, label %6
@@ -1184,7 +1184,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadID(ptr nocapture noundef nonn
   %7 = add i64 %4, -1
   store i64 %7, ptr %3, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %9, ptr %0, align 8
   %10 = load i8, ptr %8, align 1
   store i64 0, ptr %1, align 8
@@ -1226,7 +1226,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadID(ptr nocapture noundef nonn
   %27 = add i64 %24, -1
   store i64 %27, ptr %3, align 8
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %29, ptr %0, align 8
   %30 = load i8, ptr %28, align 1
   %31 = zext i8 %30 to i64
@@ -1266,15 +1266,15 @@ define internal fastcc i32 @SzReadAndDecodePackedStreams(ptr noundef %0, ptr nou
 13:                                               ; preds = %5
   %14 = load i64, ptr %7, align 8
   %15 = add i64 %14, %3
-  %16 = getelementptr inbounds i8, ptr %8, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %17 = load i32, ptr %16, align 4
   %.not35.i = icmp eq i32 %17, 1
   br i1 %.not35.i, label %18, label %SzReadAndDecodePackedStreams2.exit
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %8, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load i32, ptr %21, align 8
   %.not.i.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i.i, label %SzFolder_GetUnpackSize.exit.i, label %.lr.ph.i.i.i
@@ -1287,7 +1287,7 @@ define internal fastcc i32 @SzReadAndDecodePackedStreams(ptr noundef %0, ptr nou
 24:                                               ; preds = %24, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %24 ]
   %.067.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %27, %24 ]
-  %25 = getelementptr inbounds %struct.CSzCoderInfo, ptr %23, i64 %indvars.iv.i.i.i, i32 1
+  %25 = getelementptr inbounds nuw %struct.CSzCoderInfo, ptr %23, i64 %indvars.iv.i.i.i, i32 1
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %26, %.067.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1299,8 +1299,8 @@ SzFolder_GetNumOutStreams.exit.i.i:               ; preds = %24
   br i1 %28, label %SzFolder_GetUnpackSize.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %SzFolder_GetNumOutStreams.exit.i.i
-  %29 = getelementptr inbounds i8, ptr %20, i64 36
-  %30 = getelementptr inbounds i8, ptr %20, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %31
 
 31:                                               ; preds = %SzFolder_FindBindPairForOutStream.exit.i.i, %.preheader.i.i
@@ -1321,7 +1321,7 @@ SzFolder_GetNumOutStreams.exit.i.i:               ; preds = %24
 
 36:                                               ; preds = %40, %.lr.ph.i12.i.i
   %indvars.iv.i14.i.i = phi i64 [ 0, %.lr.ph.i12.i.i ], [ %indvars.iv.next.i15.i.i, %40 ]
-  %37 = getelementptr inbounds %struct.CSzBindPair, ptr %35, i64 %indvars.iv.i14.i.i, i32 1
+  %37 = getelementptr inbounds nuw %struct.CSzBindPair, ptr %35, i64 %indvars.iv.i14.i.i, i32 1
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, %.0.i.i
   br i1 %39, label %SzFolder_FindBindPairForOutStream.exit.i.i, label %40
@@ -1337,10 +1337,10 @@ SzFolder_FindBindPairForOutStream.exit.i.i:       ; preds = %36
   br i1 %.not.i.i, label %31, label %SzFolder_FindBindPairForOutStream.exit.thread.i.i
 
 SzFolder_FindBindPairForOutStream.exit.thread.i.i: ; preds = %SzFolder_FindBindPairForOutStream.exit.i.i, %33, %40
-  %42 = getelementptr inbounds i8, ptr %20, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = zext nneg i32 %.0.i.i to i64
-  %45 = getelementptr inbounds i64, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %44
   %46 = load i64, ptr %45, align 8
   br label %SzFolder_GetUnpackSize.exit.i
 
@@ -1363,7 +1363,7 @@ SzFolder_GetUnpackSize.exit.i:                    ; preds = %31, %SzFolder_FindB
   br i1 %.not38.i, label %54, label %SzReadAndDecodePackedStreams2.exit
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %20, i64 44
+  %55 = getelementptr inbounds nuw i8, ptr %20, i64 44
   %56 = load i32, ptr %55, align 4
   %.not39.i = icmp eq i32 %56, 0
   br i1 %.not39.i, label %62, label %57
@@ -1371,7 +1371,7 @@ SzFolder_GetUnpackSize.exit.i:                    ; preds = %31, %SzFolder_FindB
 57:                                               ; preds = %54
   %58 = load ptr, ptr %2, align 8
   %59 = tail call i32 @CrcCalc(ptr noundef %58, i64 noundef %.09.i.i) #11
-  %60 = getelementptr inbounds i8, ptr %20, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %61 = load i32, ptr %60, align 8
   %.not40.i = icmp eq i32 %59, %61
   br i1 %.not40.i, label %62, label %SzReadAndDecodePackedStreams2.exit
@@ -1384,7 +1384,7 @@ SzReadAndDecodePackedStreams2.exit:               ; preds = %5, %13, %SzFolder_G
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @SzAr_Free(ptr noundef nonnull %8, ptr noundef %4)
-  %63 = getelementptr inbounds i8, ptr %4, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %9, align 8
   tail call void %64(ptr noundef %4, ptr noundef %65) #11
@@ -1414,7 +1414,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadHeader(ptr noundef %0, ptr no
   store ptr null, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %SzReadHeader2.exit, label %15
@@ -1423,7 +1423,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadHeader(ptr noundef %0, ptr no
   %16 = add i64 %13, -1
   store i64 %16, ptr %12, align 8
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %18, ptr %1, align 8
   %19 = load i8, ptr %17, align 1
   %20 = zext i8 %19 to i32
@@ -1466,7 +1466,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadHeader(ptr noundef %0, ptr no
 36:                                               ; preds = %.lr.ph.i.i
   %37 = add i64 %34, -1
   store i64 %37, ptr %12, align 8
-  %38 = getelementptr inbounds i8, ptr %33, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %38, ptr %1, align 8
   %39 = load i8, ptr %33, align 1
   %40 = zext i8 %39 to i64
@@ -1493,7 +1493,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadHeader(ptr noundef %0, ptr no
   %.promoted3544.i.i = phi i64 [ %.promoted36.i.i, %SzSkeepData.exit.i.i ], [ %.promoted32.i.i, %45 ]
   %48 = add i64 %.promoted3544.i.i, -1
   store i64 %48, ptr %12, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %49, ptr %1, align 8
   %50 = load i8, ptr %47, align 1
   %51 = zext i8 %50 to i32
@@ -1536,7 +1536,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadHeader(ptr noundef %0, ptr no
 68:                                               ; preds = %.lr.ph.i.i.i
   %69 = add i64 %66, -1
   store i64 %69, ptr %12, align 8
-  %70 = getelementptr inbounds i8, ptr %65, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 1
   store ptr %70, ptr %1, align 8
   %71 = load i8, ptr %65, align 1
   %72 = zext i8 %71 to i64
@@ -1561,7 +1561,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadHeader(ptr noundef %0, ptr no
 81:                                               ; preds = %80
   %82 = add i64 %77, -1
   store i64 %82, ptr %12, align 8
-  %83 = getelementptr inbounds i8, ptr %76, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %76, i64 1
   store ptr %83, ptr %1, align 8
   %84 = load i8, ptr %76, align 1
   %85 = zext i8 %84 to i32
@@ -1594,7 +1594,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadHeader(ptr noundef %0, ptr no
 101:                                              ; preds = %99
   %102 = add i64 %88, -1
   store i64 %102, ptr %12, align 8
-  %103 = getelementptr inbounds i8, ptr %87, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store ptr %103, ptr %1, align 8
   %104 = load i8, ptr %87, align 1
   %105 = zext i8 %104 to i64
@@ -1632,7 +1632,7 @@ SzReadArchiveProperties.exit.i:                   ; preds = %.loopexit.i.i
 117:                                              ; preds = %SzReadArchiveProperties.exit.i
   %118 = add i64 %77, -1
   store i64 %118, ptr %12, align 8
-  %119 = getelementptr inbounds i8, ptr %76, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %76, i64 1
   store ptr %119, ptr %1, align 8
   %120 = load i8, ptr %76, align 1
   %121 = zext i8 %120 to i32
@@ -1675,7 +1675,7 @@ SzReadArchiveProperties.exit.i:                   ; preds = %.loopexit.i.i
 139:                                              ; preds = %.lr.ph.i256.i
   %140 = add i64 %137, -1
   store i64 %140, ptr %12, align 8
-  %141 = getelementptr inbounds i8, ptr %136, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 1
   store ptr %141, ptr %1, align 8
   %142 = load i8, ptr %136, align 1
   %143 = zext i8 %142 to i64
@@ -1694,13 +1694,13 @@ SzReadID.exit267.thread.i:                        ; preds = %139, %._crit_edge.i
   br i1 %149, label %150, label %SzReadID.exit279.thread.i
 
 150:                                              ; preds = %SzReadID.exit267.thread.i
-  %151 = getelementptr inbounds i8, ptr %0, i64 64
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %152 = call fastcc i32 @SzReadStreamsInfo(ptr noundef nonnull %1, ptr noundef nonnull %151, ptr noundef %0, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3)
   %.not223.i = icmp eq i32 %152, 0
   br i1 %.not223.i, label %153, label %SzReadHeader2.exit
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds i8, ptr %0, i64 56
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %155 = load i64, ptr %154, align 8
   %156 = load i64, ptr %151, align 8
   %157 = add i64 %156, %155
@@ -1713,7 +1713,7 @@ SzReadID.exit267.thread.i:                        ; preds = %139, %._crit_edge.i
   %161 = add i64 %158, -1
   store i64 %161, ptr %12, align 8
   %162 = load ptr, ptr %1, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 1
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 1
   store ptr %163, ptr %1, align 8
   %164 = load i8, ptr %162, align 1
   %165 = zext i8 %164 to i32
@@ -1756,7 +1756,7 @@ SzReadID.exit267.thread.i:                        ; preds = %139, %._crit_edge.i
 183:                                              ; preds = %.lr.ph.i268.i
   %184 = add i64 %181, -1
   store i64 %184, ptr %12, align 8
-  %185 = getelementptr inbounds i8, ptr %180, i64 1
+  %185 = getelementptr inbounds nuw i8, ptr %180, i64 1
   store ptr %185, ptr %1, align 8
   %186 = load i8, ptr %180, align 1
   %187 = zext i8 %186 to i64
@@ -1786,7 +1786,7 @@ SzReadID.exit279.thread.i:                        ; preds = %183, %._crit_edge.i
 196:                                              ; preds = %194
   %197 = add i64 %192, -1
   store i64 %197, ptr %12, align 8
-  %198 = getelementptr inbounds i8, ptr %191, i64 1
+  %198 = getelementptr inbounds nuw i8, ptr %191, i64 1
   store ptr %198, ptr %1, align 8
   %199 = load i8, ptr %191, align 1
   %200 = zext i8 %199 to i32
@@ -1819,7 +1819,7 @@ SzReadID.exit279.thread.i:                        ; preds = %183, %._crit_edge.i
 216:                                              ; preds = %214
   %217 = add i64 %203, -1
   store i64 %217, ptr %12, align 8
-  %218 = getelementptr inbounds i8, ptr %202, i64 1
+  %218 = getelementptr inbounds nuw i8, ptr %202, i64 1
   store ptr %218, ptr %1, align 8
   %219 = load i8, ptr %202, align 1
   %220 = zext i8 %219 to i64
@@ -1838,13 +1838,13 @@ SzReadID.exit279.thread.i:                        ; preds = %183, %._crit_edge.i
 
 226:                                              ; preds = %.loopexit.i282.i
   %227 = trunc nuw i64 %.1.ph.i.i to i32
-  %228 = getelementptr inbounds i8, ptr %0, i64 48
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %227, ptr %228, align 8
   %229 = icmp eq i64 %.1.ph.i.i, 0
   br i1 %229, label %.thread.i, label %231
 
 .thread.i:                                        ; preds = %226
-  %230 = getelementptr inbounds i8, ptr %0, i64 32
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %230, align 8
   br label %.preheader394.i
 
@@ -1856,7 +1856,7 @@ SzReadID.exit279.thread.i:                        ; preds = %183, %._crit_edge.i
   br i1 %235, label %SzReadHeader2.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %231
-  %236 = getelementptr inbounds i8, ptr %0, i64 32
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %234, ptr %236, align 8
   %umax.i = tail call i32 @llvm.umax.i32(i32 %227, i32 1)
   %wide.trip.count.i = zext nneg i32 %umax.i to i64
@@ -1869,9 +1869,9 @@ SzReadID.exit279.thread.i:                        ; preds = %183, %._crit_edge.i
   br i1 %238, label %SzReadHeader2.exit, label %.lr.ph468.i
 
 .lr.ph468.i:                                      ; preds = %.preheader394.i
-  %239 = getelementptr inbounds i8, ptr %3, i64 8
-  %240 = getelementptr inbounds i8, ptr %0, i64 112
-  %241 = getelementptr inbounds i8, ptr %0, i64 104
+  %239 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %242 = shl nuw nsw i64 %.1.ph.i.i, 3
   %243 = add nuw nsw i64 %242, 8
   %umax582.i = tail call i32 @llvm.umax.i32(i32 %227, i32 1)
@@ -1880,10 +1880,10 @@ SzReadID.exit279.thread.i:                        ; preds = %183, %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %244 = getelementptr inbounds %struct.CSzFileItem, ptr %234, i64 %indvars.iv.i
-  %245 = getelementptr inbounds i8, ptr %244, i64 24
+  %244 = getelementptr inbounds nuw %struct.CSzFileItem, ptr %234, i64 %indvars.iv.i
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 24
   store i8 1, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %244, i64 25
+  %246 = getelementptr inbounds nuw i8, ptr %244, i64 25
   store i32 0, ptr %246, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1895,7 +1895,7 @@ SzReadID.exit279.thread.i:                        ; preds = %183, %._crit_edge.i
   %249 = add i64 %248, -1
   store i64 %249, ptr %12, align 8
   %250 = load ptr, ptr %1, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 1
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 1
   store ptr %251, ptr %1, align 8
   %252 = load i8, ptr %250, align 1
   %253 = zext i8 %252 to i32
@@ -1938,7 +1938,7 @@ SzReadID.exit279.thread.i:                        ; preds = %183, %._crit_edge.i
 271:                                              ; preds = %.lr.ph.i284.i
   %272 = add i64 %269, -1
   store i64 %272, ptr %12, align 8
-  %273 = getelementptr inbounds i8, ptr %268, i64 1
+  %273 = getelementptr inbounds nuw i8, ptr %268, i64 1
   store ptr %273, ptr %1, align 8
   %274 = load i8, ptr %268, align 1
   %275 = zext i8 %274 to i64
@@ -1978,7 +1978,7 @@ SzReadID.exit279.thread.i:                        ; preds = %183, %._crit_edge.i
 292:                                              ; preds = %290
   %293 = add i64 %280, -1
   store i64 %293, ptr %12, align 8
-  %294 = getelementptr inbounds i8, ptr %279, i64 1
+  %294 = getelementptr inbounds nuw i8, ptr %279, i64 1
   store ptr %294, ptr %1, align 8
   %295 = load i8, ptr %279, align 1
   %296 = zext i8 %295 to i32
@@ -2011,7 +2011,7 @@ SzReadID.exit279.thread.i:                        ; preds = %183, %._crit_edge.i
 312:                                              ; preds = %310
   %313 = add i64 %299, -1
   store i64 %313, ptr %12, align 8
-  %314 = getelementptr inbounds i8, ptr %298, i64 1
+  %314 = getelementptr inbounds nuw i8, ptr %298, i64 1
   store ptr %314, ptr %1, align 8
   %315 = load i8, ptr %298, align 1
   %316 = zext i8 %315 to i64
@@ -2059,7 +2059,7 @@ SzSkeepDataSize.exit.i:                           ; preds = %324
 332:                                              ; preds = %330
   %333 = add i64 %322, -1
   store i64 %333, ptr %12, align 8
-  %334 = getelementptr inbounds i8, ptr %321, i64 1
+  %334 = getelementptr inbounds nuw i8, ptr %321, i64 1
   store ptr %334, ptr %1, align 8
   %335 = load i8, ptr %321, align 1
   %336 = icmp eq i8 %335, 0
@@ -2127,7 +2127,7 @@ SzSkeepDataSize.exit299.thread.i:                 ; preds = %354
 363:                                              ; preds = %363, %.lr.ph466.i
   %indvars.iv591.i = phi i64 [ 0, %.lr.ph466.i ], [ %indvars.iv.next592.i, %363 ]
   %.2465.i = phi i32 [ 0, %.lr.ph466.i ], [ %spec.select.i, %363 ]
-  %364 = getelementptr inbounds i8, ptr %362, i64 %indvars.iv591.i
+  %364 = getelementptr inbounds nuw i8, ptr %362, i64 %indvars.iv591.i
   %365 = load i8, ptr %364, align 1
   %.not241.i = icmp ne i8 %365, 0
   %366 = zext i1 %.not241.i to i32
@@ -2156,7 +2156,7 @@ SzSkeepDataSize.exit299.thread.i:                 ; preds = %354
   %376 = add i64 %373, -1
   store i64 %376, ptr %12, align 8
   %377 = load ptr, ptr %1, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 1
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 1
   store ptr %378, ptr %1, align 8
   %379 = load i8, ptr %377, align 1
   %380 = icmp eq i8 %379, 0
@@ -2168,12 +2168,12 @@ SzReadSwitch.exit300.preheader.i:                 ; preds = %375
 
 .lr.ph463.i:                                      ; preds = %SzReadSwitch.exit300.preheader.i, %SzReadUInt32.exit.thread.i
   %indvars.iv585.i = phi i64 [ %indvars.iv.next586.i, %SzReadUInt32.exit.thread.i ], [ 0, %SzReadSwitch.exit300.preheader.i ]
-  %381 = getelementptr inbounds %struct.CSzFileItem, ptr %.0184609.i, i64 %indvars.iv585.i
-  %382 = getelementptr inbounds i8, ptr %.pre208, i64 %indvars.iv585.i
+  %381 = getelementptr inbounds nuw %struct.CSzFileItem, ptr %.0184609.i, i64 %indvars.iv585.i
+  %382 = getelementptr inbounds nuw i8, ptr %.pre208, i64 %indvars.iv585.i
   %383 = load i8, ptr %382, align 1
-  %384 = getelementptr inbounds i8, ptr %381, i64 29
+  %384 = getelementptr inbounds nuw i8, ptr %381, i64 29
   store i8 %383, ptr %384, align 1
-  %385 = getelementptr inbounds i8, ptr %381, i64 20
+  %385 = getelementptr inbounds nuw i8, ptr %381, i64 20
   store i32 0, ptr %385, align 4
   %.not237.i = icmp eq i8 %383, 0
   br i1 %.not237.i, label %SzReadUInt32.exit.thread.i, label %.preheader
@@ -2188,7 +2188,7 @@ SzReadSwitch.exit300.preheader.i:                 ; preds = %375
   %389 = add i64 %386, -1
   store i64 %389, ptr %12, align 8
   %390 = load ptr, ptr %1, align 8
-  %391 = getelementptr inbounds i8, ptr %390, i64 1
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 1
   store ptr %391, ptr %1, align 8
   %392 = load i8, ptr %390, align 1
   %393 = zext i8 %392 to i32
@@ -2220,7 +2220,7 @@ SzReadUInt32.exit.thread.i:                       ; preds = %388, %.lr.ph463.i
   %405 = add i64 %402, -1
   store i64 %405, ptr %12, align 8
   %406 = load ptr, ptr %1, align 8
-  %407 = getelementptr inbounds i8, ptr %406, i64 1
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 1
   store ptr %407, ptr %1, align 8
   %408 = load i8, ptr %406, align 1
   %409 = icmp eq i8 %408, 0
@@ -2232,12 +2232,12 @@ SzReadSwitch.exit303.preheader.i:                 ; preds = %404
 
 .lr.ph461.i:                                      ; preds = %SzReadSwitch.exit303.preheader.i, %SzReadUInt32.exit311.thread.i
   %indvars.iv579.i = phi i64 [ %indvars.iv.next580.i, %SzReadUInt32.exit311.thread.i ], [ 0, %SzReadSwitch.exit303.preheader.i ]
-  %410 = getelementptr inbounds %struct.CSzFileItem, ptr %.0184609.i, i64 %indvars.iv579.i
-  %411 = getelementptr inbounds i8, ptr %.pre, i64 %indvars.iv579.i
+  %410 = getelementptr inbounds nuw %struct.CSzFileItem, ptr %.0184609.i, i64 %indvars.iv579.i
+  %411 = getelementptr inbounds nuw i8, ptr %.pre, i64 %indvars.iv579.i
   %412 = load i8, ptr %411, align 1
-  %413 = getelementptr inbounds i8, ptr %410, i64 28
+  %413 = getelementptr inbounds nuw i8, ptr %410, i64 28
   store i8 %412, ptr %413, align 4
-  %414 = getelementptr inbounds i8, ptr %410, i64 4
+  %414 = getelementptr inbounds nuw i8, ptr %410, i64 4
   store i32 0, ptr %414, align 4
   store i32 0, ptr %410, align 8
   %.not232.i = icmp eq i8 %412, 0
@@ -2257,7 +2257,7 @@ SzReadSwitch.exit303.preheader.i:                 ; preds = %404
   %420 = add i64 %417, -1
   store i64 %420, ptr %12, align 8
   %421 = load ptr, ptr %1, align 8
-  %422 = getelementptr inbounds i8, ptr %421, i64 1
+  %422 = getelementptr inbounds nuw i8, ptr %421, i64 1
   store ptr %422, ptr %1, align 8
   %423 = load i8, ptr %421, align 1
   %424 = zext i8 %423 to i32
@@ -2284,7 +2284,7 @@ SzReadSwitch.exit303.preheader.i:                 ; preds = %404
   %435 = add i64 %432, -1
   store i64 %435, ptr %12, align 8
   %436 = load ptr, ptr %1, align 8
-  %437 = getelementptr inbounds i8, ptr %436, i64 1
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 1
   store ptr %437, ptr %1, align 8
   %438 = load i8, ptr %436, align 1
   %439 = zext i8 %438 to i32
@@ -2331,27 +2331,27 @@ SzSkeepDataSize.exit313.i:                        ; preds = %328
   %indvars.iv597.i = phi i64 [ 0, %.lr.ph508.i ], [ %indvars.iv.next598.i, %487 ]
   %.0181507.i = phi i32 [ 0, %.lr.ph508.i ], [ %.1.i, %487 ]
   %.0182506.i = phi i32 [ 0, %.lr.ph508.i ], [ %.1183.i, %487 ]
-  %452 = getelementptr inbounds %struct.CSzFileItem, ptr %.0184609.i, i64 %indvars.iv597.i
-  %453 = getelementptr inbounds i8, ptr %452, i64 26
+  %452 = getelementptr inbounds nuw %struct.CSzFileItem, ptr %.0184609.i, i64 %indvars.iv597.i
+  %453 = getelementptr inbounds nuw i8, ptr %452, i64 26
   store i8 0, ptr %453, align 2
   br i1 %284, label %.thread610.i, label %455
 
 .thread610.i:                                     ; preds = %451
-  %454 = getelementptr inbounds i8, ptr %452, i64 24
+  %454 = getelementptr inbounds nuw i8, ptr %452, i64 24
   store i8 1, ptr %454, align 8
   br label %460
 
 455:                                              ; preds = %451
-  %456 = getelementptr inbounds i8, ptr %283, i64 %indvars.iv597.i
+  %456 = getelementptr inbounds nuw i8, ptr %283, i64 %indvars.iv597.i
   %457 = load i8, ptr %456, align 1
   %.not250.i = icmp eq i8 %457, 0
   %458 = zext i1 %.not250.i to i8
-  %459 = getelementptr inbounds i8, ptr %452, i64 24
+  %459 = getelementptr inbounds nuw i8, ptr %452, i64 24
   store i8 %458, ptr %459, align 8
   br i1 %.not250.i, label %460, label %475
 
 460:                                              ; preds = %455, %.thread610.i
-  %461 = getelementptr inbounds i8, ptr %452, i64 25
+  %461 = getelementptr inbounds nuw i8, ptr %452, i64 25
   store i8 0, ptr %461, align 1
   %462 = icmp ugt i32 %.0181507.i, %282
   %or.cond.i = select i1 %.not253.i, i1 true, i1 %462
@@ -2359,17 +2359,17 @@ SzSkeepDataSize.exit313.i:                        ; preds = %328
 
 463:                                              ; preds = %460
   %464 = zext i32 %.0181507.i to i64
-  %465 = getelementptr inbounds i64, ptr %287, i64 %464
+  %465 = getelementptr inbounds nuw i64, ptr %287, i64 %464
   %466 = load i64, ptr %465, align 8
-  %467 = getelementptr inbounds i8, ptr %452, i64 8
+  %467 = getelementptr inbounds nuw i8, ptr %452, i64 8
   store i64 %466, ptr %467, align 8
-  %468 = getelementptr inbounds i32, ptr %288, i64 %464
+  %468 = getelementptr inbounds nuw i32, ptr %288, i64 %464
   %469 = load i32, ptr %468, align 4
-  %470 = getelementptr inbounds i8, ptr %452, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %452, i64 16
   store i32 %469, ptr %470, align 8
-  %471 = getelementptr inbounds i8, ptr %289, i64 %464
+  %471 = getelementptr inbounds nuw i8, ptr %289, i64 %464
   %472 = load i8, ptr %471, align 1
-  %473 = getelementptr inbounds i8, ptr %452, i64 27
+  %473 = getelementptr inbounds nuw i8, ptr %452, i64 27
   store i8 %472, ptr %473, align 1
   %474 = add i32 %.0181507.i, 1
   br label %487
@@ -2379,7 +2379,7 @@ SzSkeepDataSize.exit313.i:                        ; preds = %328
 
 476:                                              ; preds = %475
   %477 = zext i32 %.0182506.i to i64
-  %478 = getelementptr inbounds i8, ptr %285, i64 %477
+  %478 = getelementptr inbounds nuw i8, ptr %285, i64 %477
   %479 = load i8, ptr %478, align 1
   %.not252.i = icmp eq i8 %479, 0
   %480 = zext i1 %.not252.i to i8
@@ -2387,14 +2387,14 @@ SzSkeepDataSize.exit313.i:                        ; preds = %328
 
 481:                                              ; preds = %476, %475
   %.sink603.i = phi i8 [ %480, %476 ], [ 1, %475 ]
-  %482 = getelementptr inbounds i8, ptr %452, i64 25
+  %482 = getelementptr inbounds nuw i8, ptr %452, i64 25
   store i8 %.sink603.i, ptr %482, align 1
   %483 = add i32 %.0182506.i, 1
-  %484 = getelementptr inbounds i8, ptr %452, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %452, i64 8
   store i64 0, ptr %484, align 8
-  %485 = getelementptr inbounds i8, ptr %452, i64 16
+  %485 = getelementptr inbounds nuw i8, ptr %452, i64 16
   store i32 0, ptr %485, align 8
-  %486 = getelementptr inbounds i8, ptr %452, i64 27
+  %486 = getelementptr inbounds nuw i8, ptr %452, i64 27
   store i8 0, ptr %486, align 1
   br label %487
 
@@ -2418,7 +2418,7 @@ SzReadHeader2.exit:                               ; preds = %.lr.ph.i.i, %80, %S
   %489 = phi ptr [ null, %193 ], [ null, %._crit_edge.i ], [ null, %150 ], [ null, %SzReadID.exit279.thread.i ], [ null, %231 ], [ null, %4 ], [ null, %SzReadArchiveProperties.exit.i ], [ null, %153 ], [ null, %45 ], [ null, %194 ], [ null, %.loopexit.i282.i ], [ null, %.preheader394.i ], [ %.pre209, %SzReadHeader2.exit.loopexit118 ], [ null, %460 ], [ %.pre208, %.preheader ], [ %.pre, %431 ], [ %.pre, %416 ], [ null, %310 ], [ null, %.lr.ph.i284.i ], [ null, %214 ], [ null, %.lr.ph.i268.i ], [ null, %.lr.ph.i256.i ], [ null, %99 ], [ null, %.lr.ph.i.i.i ], [ null, %SzSkeepData.exit.i.i ], [ null, %80 ], [ null, %.lr.ph.i.i ]
   %.0.i = phi i32 [ 16, %193 ], [ %488, %._crit_edge.i ], [ %152, %150 ], [ 0, %SzReadID.exit279.thread.i ], [ 2, %231 ], [ 16, %4 ], [ 16, %SzReadArchiveProperties.exit.i ], [ 16, %153 ], [ 16, %45 ], [ 16, %194 ], [ 4, %.loopexit.i282.i ], [ 16, %.preheader394.i ], [ %.0.i.ph, %SzReadHeader2.exit.loopexit118 ], [ 11, %460 ], [ 16, %.preheader ], [ 16, %431 ], [ 16, %416 ], [ 16, %310 ], [ 16, %.lr.ph.i284.i ], [ 16, %214 ], [ 16, %.lr.ph.i268.i ], [ 16, %.lr.ph.i256.i ], [ 16, %99 ], [ 16, %.lr.ph.i.i.i ], [ 16, %SzSkeepData.exit.i.i ], [ 16, %80 ], [ 16, %.lr.ph.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %490 = getelementptr inbounds i8, ptr %3, i64 8
+  %490 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %491 = load ptr, ptr %490, align 8
   %492 = load ptr, ptr %6, align 8
   tail call void %491(ptr noundef %3, ptr noundef %492) #11
@@ -2448,18 +2448,18 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
   %14 = alloca i64, align 8
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %SzReadID.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %20 = getelementptr inbounds i8, ptr %2, i64 44
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 40
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %26
 
 26:                                               ; preds = %.lr.ph, %SzReadPackInfo.exit
@@ -2467,7 +2467,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
   %28 = add i64 %27, -1
   store i64 %28, ptr %17, align 8
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %30, ptr %0, align 8
   %31 = load i8, ptr %29, align 1
   %32 = zext i8 %31 to i32
@@ -2510,7 +2510,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
 50:                                               ; preds = %.lr.ph.i
   %51 = add i64 %48, -1
   store i64 %51, ptr %17, align 8
-  %52 = getelementptr inbounds i8, ptr %47, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %52, ptr %0, align 8
   %53 = load i8, ptr %47, align 1
   %54 = zext i8 %53 to i64
@@ -2545,7 +2545,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
 65:                                               ; preds = %63
   %66 = add i64 %59, -1
   store i64 %66, ptr %17, align 8
-  %67 = getelementptr inbounds i8, ptr %58, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %67, ptr %0, align 8
   %68 = load i8, ptr %58, align 1
   store i64 0, ptr %1, align 8
@@ -2587,7 +2587,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
   %85 = add i64 %82, -1
   store i64 %85, ptr %17, align 8
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1
   store ptr %87, ptr %0, align 8
   %88 = load i8, ptr %86, align 1
   %89 = zext i8 %88 to i64
@@ -2609,7 +2609,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
   %97 = add i64 %94, -1
   store i64 %97, ptr %17, align 8
   %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
   store ptr %99, ptr %0, align 8
   %100 = load i8, ptr %98, align 1
   %101 = zext i8 %100 to i32
@@ -2642,7 +2642,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
 117:                                              ; preds = %115
   %118 = add i64 %104, -1
   store i64 %118, ptr %17, align 8
-  %119 = getelementptr inbounds i8, ptr %103, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %103, i64 1
   store ptr %119, ptr %0, align 8
   %120 = load i8, ptr %103, align 1
   %121 = zext i8 %120 to i64
@@ -2697,7 +2697,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
 .lr.ph176.i:                                      ; preds = %141, %.loopexit117.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit117.i ], [ 0, %141 ]
   %142 = load ptr, ptr %2, align 8
-  %143 = getelementptr inbounds i64, ptr %142, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw i64, ptr %142, i64 %indvars.iv.i
   %144 = load i64, ptr %17, align 8
   %145 = icmp eq i64 %144, 0
   br i1 %145, label %SzReadID.exit, label %146
@@ -2706,7 +2706,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
   %147 = add i64 %144, -1
   store i64 %147, ptr %17, align 8
   %148 = load ptr, ptr %0, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 1
   store ptr %149, ptr %0, align 8
   %150 = load i8, ptr %148, align 1
   store i64 0, ptr %143, align 8
@@ -2748,7 +2748,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
   %167 = add i64 %164, -1
   store i64 %167, ptr %17, align 8
   %168 = load ptr, ptr %0, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 1
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 1
   store ptr %169, ptr %0, align 8
   %170 = load i8, ptr %168, align 1
   %171 = zext i8 %170 to i64
@@ -2785,7 +2785,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
   %182 = phi i64 [ %.pr.i, %.lr.ph177.i ], [ %250, %SzSkeepData.exit.i ]
   %183 = add i64 %182, -1
   store i64 %183, ptr %17, align 8
-  %184 = getelementptr inbounds i8, ptr %181, i64 1
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 1
   store ptr %184, ptr %0, align 8
   %185 = load i8, ptr %181, align 1
   %186 = zext i8 %185 to i32
@@ -2828,7 +2828,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
 203:                                              ; preds = %.lr.ph.i.i
   %204 = add i64 %201, -1
   store i64 %204, ptr %17, align 8
-  %205 = getelementptr inbounds i8, ptr %200, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %200, i64 1
   store ptr %205, ptr %0, align 8
   %206 = load i8, ptr %200, align 1
   %207 = zext i8 %206 to i64
@@ -2862,7 +2862,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
 218:                                              ; preds = %216
   %219 = add i64 %.promoted180.i, -1
   store i64 %219, ptr %17, align 8
-  %220 = getelementptr inbounds i8, ptr %211, i64 1
+  %220 = getelementptr inbounds nuw i8, ptr %211, i64 1
   store ptr %220, ptr %0, align 8
   %221 = load i8, ptr %211, align 1
   %222 = zext i8 %221 to i32
@@ -2895,7 +2895,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.i.
 238:                                              ; preds = %236
   %239 = add i64 %225, -1
   store i64 %239, ptr %17, align 8
-  %240 = getelementptr inbounds i8, ptr %224, i64 1
+  %240 = getelementptr inbounds nuw i8, ptr %224, i64 1
   store ptr %240, ptr %0, align 8
   %241 = load i8, ptr %224, align 1
   %242 = zext i8 %241 to i64
@@ -2975,10 +2975,10 @@ SzSkeepData.exit.i:                               ; preds = %.loopexit.i94.i
 .lr.ph188.i:                                      ; preds = %274, %.lr.ph188.i
   %indvars.iv236.i = phi i64 [ %indvars.iv.next237.i, %.lr.ph188.i ], [ 0, %274 ]
   %276 = load ptr, ptr %24, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 %indvars.iv236.i
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 %indvars.iv236.i
   store i8 0, ptr %277, align 1
   %278 = load ptr, ptr %25, align 8
-  %279 = getelementptr inbounds i32, ptr %278, i64 %indvars.iv236.i
+  %279 = getelementptr inbounds nuw i32, ptr %278, i64 %indvars.iv236.i
   store i32 0, ptr %279, align 4
   %indvars.iv.next237.i = add nuw nsw i64 %indvars.iv236.i, 1
   %280 = load i32, ptr %23, align 4
@@ -3003,7 +3003,7 @@ SzSkeepData.exit.i:                               ; preds = %.loopexit.i94.i
   %289 = add i64 %286, -1
   store i64 %289, ptr %17, align 8
   %290 = load ptr, ptr %0, align 8
-  %291 = getelementptr inbounds i8, ptr %290, i64 1
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 1
   store ptr %291, ptr %0, align 8
   %292 = load i8, ptr %290, align 1
   %293 = zext i8 %292 to i32
@@ -3036,7 +3036,7 @@ SzSkeepData.exit.i:                               ; preds = %.loopexit.i94.i
 309:                                              ; preds = %307
   %310 = add i64 %296, -1
   store i64 %310, ptr %17, align 8
-  %311 = getelementptr inbounds i8, ptr %295, i64 1
+  %311 = getelementptr inbounds nuw i8, ptr %295, i64 1
   store ptr %311, ptr %0, align 8
   %312 = load i8, ptr %295, align 1
   %313 = zext i8 %312 to i64
@@ -3083,7 +3083,7 @@ SzSkeepData.exit.i:                               ; preds = %.loopexit.i94.i
 .lr.ph.i53:                                       ; preds = %.lr.ph.i53, %.lr.ph.preheader.i
   %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i55, %.lr.ph.i53 ]
   %329 = load ptr, ptr %21, align 8
-  %330 = getelementptr inbounds %struct.CSzFolder, ptr %329, i64 %indvars.iv.i54
+  %330 = getelementptr inbounds nuw %struct.CSzFolder, ptr %329, i64 %indvars.iv.i54
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %330, i8 0, i64 56, i1 false)
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %331 = load i32, ptr %20, align 4
@@ -3100,7 +3100,7 @@ SzSkeepData.exit.i:                               ; preds = %.loopexit.i94.i
   %337 = add i64 %334, -1
   store i64 %337, ptr %17, align 8
   %338 = load ptr, ptr %0, align 8
-  %339 = getelementptr inbounds i8, ptr %338, i64 1
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 1
   store ptr %339, ptr %0, align 8
   %340 = load i8, ptr %338, align 1
   %341 = icmp eq i8 %340, 0
@@ -3114,7 +3114,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
 .lr.ph294.i:                                      ; preds = %SzReadSwitch.exit.preheader.i, %SzReadSwitch.exit.i
   %indvars.iv475.i = phi i64 [ %indvars.iv.next476.i, %SzReadSwitch.exit.i ], [ 0, %SzReadSwitch.exit.preheader.i ]
   %343 = load ptr, ptr %21, align 8
-  %344 = getelementptr inbounds %struct.CSzFolder, ptr %343, i64 %indvars.iv475.i
+  %344 = getelementptr inbounds nuw %struct.CSzFolder, ptr %343, i64 %indvars.iv475.i
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %13)
   %345 = load i64, ptr %17, align 8
   %346 = icmp eq i64 %345, 0
@@ -3124,7 +3124,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
   %348 = add i64 %345, -1
   store i64 %348, ptr %17, align 8
   %349 = load ptr, ptr %0, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 1
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 1
   store ptr %350, ptr %0, align 8
   %351 = load i8, ptr %349, align 1
   %352 = zext i8 %351 to i32
@@ -3157,7 +3157,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
 368:                                              ; preds = %366
   %369 = add i64 %355, -1
   store i64 %369, ptr %17, align 8
-  %370 = getelementptr inbounds i8, ptr %354, i64 1
+  %370 = getelementptr inbounds nuw i8, ptr %354, i64 1
   store ptr %370, ptr %0, align 8
   %371 = load i8, ptr %354, align 1
   %372 = zext i8 %371 to i64
@@ -3180,7 +3180,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
   br i1 %380, label %SzGetNextFolderItem.exit.thread.i, label %381
 
 381:                                              ; preds = %378
-  %382 = getelementptr inbounds i8, ptr %344, i64 32
+  %382 = getelementptr inbounds nuw i8, ptr %344, i64 32
   store i32 %379, ptr %382, align 8
   %383 = icmp eq i64 %.1.ph.i.i.i, 0
   br i1 %383, label %.preheader337.thread.i.i, label %384
@@ -3205,7 +3205,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
 .lr.ph.i.i57:                                     ; preds = %.lr.ph.i.i57, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i58, %.lr.ph.i.i57 ]
   %389 = load ptr, ptr %344, align 8
-  %390 = getelementptr inbounds %struct.CSzCoderInfo, ptr %389, i64 %indvars.iv.i.i, i32 3
+  %390 = getelementptr inbounds nuw %struct.CSzCoderInfo, ptr %389, i64 %indvars.iv.i.i, i32 3
   tail call void @Buf_Init(ptr noundef nonnull %390) #11
   %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i59 = icmp eq i64 %indvars.iv.next.i.i58, %wide.trip.count.i.i
@@ -3216,7 +3216,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
   %.0127449.i.i = phi i32 [ %673, %._crit_edge434.i.i ], [ 0, %.lr.ph.i.i57 ]
   %.0128448.i.i = phi i32 [ %676, %._crit_edge434.i.i ], [ 0, %.lr.ph.i.i57 ]
   %391 = load ptr, ptr %344, align 8
-  %392 = getelementptr inbounds %struct.CSzCoderInfo, ptr %391, i64 %indvars.iv578.i.i
+  %392 = getelementptr inbounds nuw %struct.CSzCoderInfo, ptr %391, i64 %indvars.iv578.i.i
   %393 = load i64, ptr %17, align 8
   %394 = icmp eq i64 %393, 0
   br i1 %394, label %SzGetNextFolderItem.exit.thread.i, label %395
@@ -3225,7 +3225,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
   %396 = add i64 %393, -1
   store i64 %396, ptr %17, align 8
   %397 = load ptr, ptr %0, align 8
-  %398 = getelementptr inbounds i8, ptr %397, i64 1
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 1
   store ptr %398, ptr %0, align 8
   %399 = load i8, ptr %397, align 1
   %400 = and i8 %399, 15
@@ -3241,10 +3241,10 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
   br i1 %404, label %SzGetNextFolderItem.exit.thread.i, label %405
 
 405:                                              ; preds = %.lr.ph.i.i.i
-  %406 = getelementptr inbounds i8, ptr %13, i64 %.0812.i.i.i
+  %406 = getelementptr inbounds nuw i8, ptr %13, i64 %.0812.i.i.i
   %407 = add i64 %403, -1
   store i64 %407, ptr %17, align 8
-  %408 = getelementptr inbounds i8, ptr %402, i64 1
+  %408 = getelementptr inbounds nuw i8, ptr %402, i64 1
   store ptr %408, ptr %0, align 8
   %409 = load i8, ptr %402, align 1
   store i8 %409, ptr %406, align 1
@@ -3262,7 +3262,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
   %413 = xor i64 %indvars.iv573.i.i, -1
   %414 = add nsw i64 %413, %401
   %415 = and i64 %414, 4294967295
-  %416 = getelementptr inbounds [15 x i8], ptr %13, i64 0, i64 %415
+  %416 = getelementptr inbounds nuw [15 x i8], ptr %13, i64 0, i64 %415
   %417 = load i8, ptr %416, align 1
   %418 = zext i8 %417 to i64
   %419 = shl nuw nsw i64 %indvars.iv573.i.i, 3
@@ -3274,7 +3274,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
 
 .thread596.i.i:                                   ; preds = %.preheader, %395
   %.lcssa826.sink = phi i64 [ 0, %395 ], [ %421, %.preheader ]
-  %422 = getelementptr inbounds i8, ptr %392, i64 8
+  %422 = getelementptr inbounds nuw i8, ptr %392, i64 8
   store i64 %.lcssa826.sink, ptr %422, align 8
   %423 = and i8 %399, 16
   %.not158.i.i = icmp eq i8 %423, 0
@@ -3289,7 +3289,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
   %428 = add i64 %425, -1
   store i64 %428, ptr %17, align 8
   %429 = load ptr, ptr %0, align 8
-  %430 = getelementptr inbounds i8, ptr %429, i64 1
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 1
   store ptr %430, ptr %0, align 8
   %431 = load i8, ptr %429, align 1
   %432 = zext i8 %431 to i32
@@ -3322,7 +3322,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
 448:                                              ; preds = %446
   %449 = add i64 %435, -1
   store i64 %449, ptr %17, align 8
-  %450 = getelementptr inbounds i8, ptr %434, i64 1
+  %450 = getelementptr inbounds nuw i8, ptr %434, i64 1
   store ptr %450, ptr %0, align 8
   %451 = load i8, ptr %434, align 1
   %452 = zext i8 %451 to i64
@@ -3342,7 +3342,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
 458:                                              ; preds = %.loopexit.i181.i.i
   %459 = trunc nuw nsw i64 %.1.ph.i182.i.i to i32
   store i32 %459, ptr %392, align 4
-  %460 = getelementptr inbounds i8, ptr %392, i64 4
+  %460 = getelementptr inbounds nuw i8, ptr %392, i64 4
   %461 = load i64, ptr %17, align 8
   %462 = icmp eq i64 %461, 0
   br i1 %462, label %SzGetNextFolderItem.exit.thread.i, label %463
@@ -3351,7 +3351,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
   %464 = add i64 %461, -1
   store i64 %464, ptr %17, align 8
   %465 = load ptr, ptr %0, align 8
-  %466 = getelementptr inbounds i8, ptr %465, i64 1
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 1
   store ptr %466, ptr %0, align 8
   %467 = load i8, ptr %465, align 1
   %468 = zext i8 %467 to i32
@@ -3384,7 +3384,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
 484:                                              ; preds = %482
   %485 = add i64 %471, -1
   store i64 %485, ptr %17, align 8
-  %486 = getelementptr inbounds i8, ptr %470, i64 1
+  %486 = getelementptr inbounds nuw i8, ptr %470, i64 1
   store ptr %486, ptr %0, align 8
   %487 = load i8, ptr %470, align 1
   %488 = zext i8 %487 to i64
@@ -3412,7 +3412,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
 
 499:                                              ; preds = %.thread596.i.i
   store i32 1, ptr %392, align 8
-  %500 = getelementptr inbounds i8, ptr %392, i64 4
+  %500 = getelementptr inbounds nuw i8, ptr %392, i64 4
   store i32 1, ptr %500, align 4
   br label %501
 
@@ -3430,7 +3430,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
   %507 = add i64 %504, -1
   store i64 %507, ptr %17, align 8
   %508 = load ptr, ptr %0, align 8
-  %509 = getelementptr inbounds i8, ptr %508, i64 1
+  %509 = getelementptr inbounds nuw i8, ptr %508, i64 1
   store ptr %509, ptr %0, align 8
   %510 = load i8, ptr %508, align 1
   %511 = zext i8 %510 to i32
@@ -3463,7 +3463,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
 527:                                              ; preds = %525
   %528 = add i64 %514, -1
   store i64 %528, ptr %17, align 8
-  %529 = getelementptr inbounds i8, ptr %513, i64 1
+  %529 = getelementptr inbounds nuw i8, ptr %513, i64 1
   store ptr %529, ptr %0, align 8
   %530 = load i8, ptr %513, align 1
   %531 = zext i8 %530 to i64
@@ -3477,7 +3477,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
 
 .loopexit332.i.i:                                 ; preds = %527, %517
   %.1273.ph.i.i = phi i64 [ %524, %517 ], [ %534, %527 ]
-  %536 = getelementptr inbounds i8, ptr %392, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %392, i64 16
   %537 = tail call i32 @Buf_Create(ptr noundef nonnull %536, i64 noundef %.1273.ph.i.i, ptr noundef nonnull %7) #11
   %.not163.i.i = icmp eq i32 %537, 0
   br i1 %.not163.i.i, label %SzGetNextFolderItem.exit.thread.i, label %538
@@ -3498,7 +3498,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %336
   %544 = add i64 %540, -1
   store i64 %544, ptr %17, align 8
   %545 = load ptr, ptr %0, align 8
-  %546 = getelementptr inbounds i8, ptr %545, i64 1
+  %546 = getelementptr inbounds nuw i8, ptr %545, i64 1
   store ptr %546, ptr %0, align 8
   %547 = load i8, ptr %545, align 1
   store i8 %547, ptr %543, align 1
@@ -3523,7 +3523,7 @@ SzReadBytes.exit201.thread.i.i:                   ; preds = %542, %538, %501
   %553 = add i64 %550, -1
   store i64 %553, ptr %17, align 8
   %554 = load ptr, ptr %0, align 8
-  %555 = getelementptr inbounds i8, ptr %554, i64 1
+  %555 = getelementptr inbounds nuw i8, ptr %554, i64 1
   store ptr %555, ptr %0, align 8
   %556 = load i8, ptr %554, align 1
   %557 = and i8 %556, 15
@@ -3534,7 +3534,7 @@ SzReadBytes.exit201.thread.i.i:                   ; preds = %542, %538, %501
 560:                                              ; preds = %552
   %561 = sub nuw i64 %553, %558
   store i64 %561, ptr %17, align 8
-  %562 = getelementptr inbounds i8, ptr %555, i64 %558
+  %562 = getelementptr inbounds nuw i8, ptr %555, i64 %558
   store ptr %562, ptr %0, align 8
   %563 = and i8 %556, 16
   %.not168.i.i = icmp eq i8 %563, 0
@@ -3547,7 +3547,7 @@ SzReadBytes.exit201.thread.i.i:                   ; preds = %542, %538, %501
 566:                                              ; preds = %564
   %567 = add i64 %561, -1
   store i64 %567, ptr %17, align 8
-  %568 = getelementptr inbounds i8, ptr %562, i64 1
+  %568 = getelementptr inbounds nuw i8, ptr %562, i64 1
   store ptr %568, ptr %0, align 8
   %569 = load i8, ptr %562, align 1
   %570 = zext i8 %569 to i32
@@ -3580,7 +3580,7 @@ SzReadBytes.exit201.thread.i.i:                   ; preds = %542, %538, %501
 586:                                              ; preds = %584
   %587 = add i64 %573, -1
   store i64 %587, ptr %17, align 8
-  %588 = getelementptr inbounds i8, ptr %572, i64 1
+  %588 = getelementptr inbounds nuw i8, ptr %572, i64 1
   store ptr %588, ptr %0, align 8
   %589 = load i8, ptr %572, align 1
   %590 = zext i8 %589 to i64
@@ -3606,7 +3606,7 @@ SzReadNumber32.exit213.i.i:                       ; preds = %.loopexit.i210.i.i
 599:                                              ; preds = %SzReadNumber32.exit213.i.i
   %600 = add i64 %596, -1
   store i64 %600, ptr %17, align 8
-  %601 = getelementptr inbounds i8, ptr %595, i64 1
+  %601 = getelementptr inbounds nuw i8, ptr %595, i64 1
   store ptr %601, ptr %0, align 8
   %602 = load i8, ptr %595, align 1
   %603 = zext i8 %602 to i32
@@ -3639,7 +3639,7 @@ SzReadNumber32.exit213.i.i:                       ; preds = %.loopexit.i210.i.i
 619:                                              ; preds = %617
   %620 = add i64 %606, -1
   store i64 %620, ptr %17, align 8
-  %621 = getelementptr inbounds i8, ptr %605, i64 1
+  %621 = getelementptr inbounds nuw i8, ptr %605, i64 1
   store ptr %621, ptr %0, align 8
   %622 = load i8, ptr %605, align 1
   %623 = zext i8 %622 to i64
@@ -3672,7 +3672,7 @@ SzReadNumber32.exit222.i.i:                       ; preds = %.loopexit.i219.i.i,
 636:                                              ; preds = %634
   %637 = add i64 %632, -1
   store i64 %637, ptr %17, align 8
-  %638 = getelementptr inbounds i8, ptr %631, i64 1
+  %638 = getelementptr inbounds nuw i8, ptr %631, i64 1
   store ptr %638, ptr %0, align 8
   %639 = load i8, ptr %631, align 1
   %640 = zext i8 %639 to i32
@@ -3705,7 +3705,7 @@ SzReadNumber32.exit222.i.i:                       ; preds = %.loopexit.i219.i.i,
 656:                                              ; preds = %654
   %657 = add i64 %643, -1
   store i64 %657, ptr %17, align 8
-  %658 = getelementptr inbounds i8, ptr %642, i64 1
+  %658 = getelementptr inbounds nuw i8, ptr %642, i64 1
   store ptr %658, ptr %0, align 8
   %659 = load i8, ptr %642, align 1
   %660 = zext i8 %659 to i64
@@ -3739,7 +3739,7 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
 ._crit_edge434.i.i:                               ; preds = %670, %SzReadBytes.exit201.thread.i.i
   %672 = load i32, ptr %392, align 8
   %673 = add i32 %672, %.0127449.i.i
-  %674 = getelementptr inbounds i8, ptr %392, i64 4
+  %674 = getelementptr inbounds nuw i8, ptr %392, i64 4
   %675 = load i32, ptr %674, align 4
   %676 = add i32 %675, %.0128448.i.i
   %indvars.iv.next579.i.i = add nuw nsw i64 %indvars.iv578.i.i, 1
@@ -3752,13 +3752,13 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
 
 678:                                              ; preds = %._crit_edge452.i.i
   %679 = add i32 %676, -1
-  %680 = getelementptr inbounds i8, ptr %344, i64 36
+  %680 = getelementptr inbounds nuw i8, ptr %344, i64 36
   store i32 %679, ptr %680, align 4
   %681 = icmp eq i32 %679, 0
   br i1 %681, label %.thread599.i.i, label %683
 
 .thread599.i.i:                                   ; preds = %678
-  %682 = getelementptr inbounds i8, ptr %344, i64 8
+  %682 = getelementptr inbounds nuw i8, ptr %344, i64 8
   store ptr null, ptr %682, align 8
   br label %._crit_edge457.i.i
 
@@ -3767,7 +3767,7 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
   %685 = load ptr, ptr %7, align 8
   %686 = shl nuw nsw i64 %684, 3
   %687 = tail call ptr %685(ptr noundef nonnull %7, i64 noundef %686) #11
-  %688 = getelementptr inbounds i8, ptr %344, i64 8
+  %688 = getelementptr inbounds nuw i8, ptr %344, i64 8
   store ptr %687, ptr %688, align 8
   %689 = icmp eq ptr %687, null
   br i1 %689, label %SzGetNextFolderItem.exit.thread.i, label %.lr.ph456.i.i
@@ -3775,7 +3775,7 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
 .lr.ph456.i.i:                                    ; preds = %683, %761
   %indvars.iv584.i.i = phi i64 [ %indvars.iv.next585.i.i, %761 ], [ 0, %683 ]
   %690 = load ptr, ptr %688, align 8
-  %691 = getelementptr inbounds %struct.CSzBindPair, ptr %690, i64 %indvars.iv584.i.i
+  %691 = getelementptr inbounds nuw %struct.CSzBindPair, ptr %690, i64 %indvars.iv584.i.i
   %692 = load i64, ptr %17, align 8
   %693 = icmp eq i64 %692, 0
   br i1 %693, label %SzGetNextFolderItem.exit.thread.i, label %694
@@ -3784,7 +3784,7 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
   %695 = add i64 %692, -1
   store i64 %695, ptr %17, align 8
   %696 = load ptr, ptr %0, align 8
-  %697 = getelementptr inbounds i8, ptr %696, i64 1
+  %697 = getelementptr inbounds nuw i8, ptr %696, i64 1
   store ptr %697, ptr %0, align 8
   %698 = load i8, ptr %696, align 1
   %699 = zext i8 %698 to i32
@@ -3817,7 +3817,7 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
 715:                                              ; preds = %713
   %716 = add i64 %702, -1
   store i64 %716, ptr %17, align 8
-  %717 = getelementptr inbounds i8, ptr %701, i64 1
+  %717 = getelementptr inbounds nuw i8, ptr %701, i64 1
   store ptr %717, ptr %0, align 8
   %718 = load i8, ptr %701, align 1
   %719 = zext i8 %718 to i64
@@ -3837,7 +3837,7 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
 725:                                              ; preds = %.loopexit.i236.i.i
   %726 = trunc nuw nsw i64 %.1.ph.i237.i.i to i32
   store i32 %726, ptr %691, align 4
-  %727 = getelementptr inbounds i8, ptr %691, i64 4
+  %727 = getelementptr inbounds nuw i8, ptr %691, i64 4
   %728 = load i64, ptr %17, align 8
   %729 = icmp eq i64 %728, 0
   br i1 %729, label %SzGetNextFolderItem.exit.thread.i, label %730
@@ -3846,7 +3846,7 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
   %731 = add i64 %728, -1
   store i64 %731, ptr %17, align 8
   %732 = load ptr, ptr %0, align 8
-  %733 = getelementptr inbounds i8, ptr %732, i64 1
+  %733 = getelementptr inbounds nuw i8, ptr %732, i64 1
   store ptr %733, ptr %0, align 8
   %734 = load i8, ptr %732, align 1
   %735 = zext i8 %734 to i32
@@ -3879,7 +3879,7 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
 751:                                              ; preds = %749
   %752 = add i64 %738, -1
   store i64 %752, ptr %17, align 8
-  %753 = getelementptr inbounds i8, ptr %737, i64 1
+  %753 = getelementptr inbounds nuw i8, ptr %737, i64 1
   store ptr %753, ptr %0, align 8
   %754 = load i8, ptr %737, align 1
   %755 = zext i8 %754 to i64
@@ -3909,13 +3909,13 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
 
 764:                                              ; preds = %._crit_edge457.i.i
   %765 = sub nuw i32 %673, %679
-  %766 = getelementptr inbounds i8, ptr %344, i64 40
+  %766 = getelementptr inbounds nuw i8, ptr %344, i64 40
   store i32 %765, ptr %766, align 8
   %767 = icmp eq i32 %673, %679
   br i1 %767, label %.preheader320.thread.i.i, label %769
 
 .preheader320.thread.i.i:                         ; preds = %764
-  %768 = getelementptr inbounds i8, ptr %344, i64 16
+  %768 = getelementptr inbounds nuw i8, ptr %344, i64 16
   store ptr null, ptr %768, align 8
   br label %SzReadSwitch.exit.i
 
@@ -3924,7 +3924,7 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
   %771 = load ptr, ptr %7, align 8
   %772 = shl nuw nsw i64 %770, 2
   %773 = tail call ptr %771(ptr noundef nonnull %7, i64 noundef %772) #11
-  %774 = getelementptr inbounds i8, ptr %344, i64 16
+  %774 = getelementptr inbounds nuw i8, ptr %344, i64 16
   store ptr %773, ptr %774, align 8
   %775 = icmp eq ptr %773, null
   br i1 %775, label %SzGetNextFolderItem.exit.thread.i, label %776
@@ -3940,7 +3940,7 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
   br i1 %.not.i249.i.i, label %SzFolder_FindBindPairForInStream.exit.thread.i.i, label %.lr.ph464.split.i.i
 
 .lr.ph464.split.i.i:                              ; preds = %.lr.ph464.i.i
-  %779 = getelementptr inbounds i8, ptr %344, i64 8
+  %779 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %780 = load ptr, ptr %779, align 8
   br label %.lr.ph.i250.i.i
 
@@ -3950,7 +3950,7 @@ SzSkeepDataSize.exit230.thread.i.i:               ; preds = %.loopexit.i107.i
 
 781:                                              ; preds = %785, %.lr.ph.i250.i.i
   %indvars.iv.i251.i.i = phi i64 [ 0, %.lr.ph.i250.i.i ], [ %indvars.iv.next.i252.i.i, %785 ]
-  %782 = getelementptr inbounds %struct.CSzBindPair, ptr %780, i64 %indvars.iv.i251.i.i
+  %782 = getelementptr inbounds nuw %struct.CSzBindPair, ptr %780, i64 %indvars.iv.i251.i.i
   %783 = load i32, ptr %782, align 4
   %784 = icmp eq i32 %783, %.3463.i.i
   br i1 %784, label %SzFolder_FindBindPairForInStream.exit.i.i, label %785
@@ -3987,7 +3987,7 @@ SzFolder_FindBindPairForInStream.exit.thread.i.i: ; preds = %SzFolder_FindBindPa
 .lr.ph459.i.i:                                    ; preds = %776, %791
   %indvars.iv589.i.i = phi i64 [ %indvars.iv.next590.i.i, %791 ], [ 0, %776 ]
   %792 = load ptr, ptr %774, align 8
-  %793 = getelementptr inbounds i32, ptr %792, i64 %indvars.iv589.i.i
+  %793 = getelementptr inbounds nuw i32, ptr %792, i64 %indvars.iv589.i.i
   %794 = tail call fastcc i32 @SzReadNumber32(ptr noundef nonnull %0, ptr noundef %793)
   %.not153.i.i = icmp eq i32 %794, 0
   br i1 %.not153.i.i, label %791, label %SzGetNextFolderItem.exit.thread.i
@@ -4023,8 +4023,8 @@ SzReadSwitch.exit._crit_edge.i:                   ; preds = %SzReadSwitch.exit.i
 .lr.ph307.i:                                      ; preds = %.preheader139.i, %._crit_edge305.i
   %indvars.iv481.i = phi i64 [ %indvars.iv.next482.i, %._crit_edge305.i ], [ 0, %.preheader139.i ]
   %801 = load ptr, ptr %21, align 8
-  %802 = getelementptr inbounds %struct.CSzFolder, ptr %801, i64 %indvars.iv481.i
-  %803 = getelementptr inbounds i8, ptr %802, i64 32
+  %802 = getelementptr inbounds nuw %struct.CSzFolder, ptr %801, i64 %indvars.iv481.i
+  %803 = getelementptr inbounds nuw i8, ptr %802, i64 32
   %804 = load i32, ptr %803, align 8
   %.not.i109.i = icmp eq i32 %804, 0
   br i1 %.not.i109.i, label %SzFolder_GetNumOutStreams.exit.thread.i, label %.lr.ph.i110.i
@@ -4037,7 +4037,7 @@ SzReadSwitch.exit._crit_edge.i:                   ; preds = %SzReadSwitch.exit.i
 806:                                              ; preds = %806, %.lr.ph.i110.i
   %indvars.iv.i112.i = phi i64 [ 0, %.lr.ph.i110.i ], [ %indvars.iv.next.i113.i, %806 ]
   %.067.i.i = phi i32 [ 0, %.lr.ph.i110.i ], [ %809, %806 ]
-  %807 = getelementptr inbounds %struct.CSzCoderInfo, ptr %805, i64 %indvars.iv.i112.i, i32 1
+  %807 = getelementptr inbounds nuw %struct.CSzCoderInfo, ptr %805, i64 %indvars.iv.i112.i, i32 1
   %808 = load i32, ptr %807, align 4
   %809 = add i32 %808, %.067.i.i
   %indvars.iv.next.i113.i = add nuw nsw i64 %indvars.iv.i112.i, 1
@@ -4045,13 +4045,13 @@ SzReadSwitch.exit._crit_edge.i:                   ; preds = %SzReadSwitch.exit.i
   br i1 %exitcond.not.i114.i, label %SzFolder_GetNumOutStreams.exit.i, label %806
 
 SzFolder_GetNumOutStreams.exit.i:                 ; preds = %806
-  %810 = getelementptr inbounds i8, ptr %802, i64 24
+  %810 = getelementptr inbounds nuw i8, ptr %802, i64 24
   %811 = load ptr, ptr %810, align 8
   %.not100.i = icmp eq ptr %811, null
   br i1 %.not100.i, label %814, label %SzReadUnpackInfo.exit.thread
 
 SzFolder_GetNumOutStreams.exit.thread.i:          ; preds = %.lr.ph307.i
-  %812 = getelementptr inbounds i8, ptr %802, i64 24
+  %812 = getelementptr inbounds nuw i8, ptr %802, i64 24
   %813 = load ptr, ptr %812, align 8
   %.not100129.i = icmp eq ptr %813, null
   br i1 %.not100129.i, label %.thread489.i, label %SzReadUnpackInfo.exit.thread
@@ -4077,7 +4077,7 @@ SzFolder_GetNumOutStreams.exit.thread.i:          ; preds = %.lr.ph307.i
 .lr.ph304.i:                                      ; preds = %817, %.loopexit.i62
   %indvars.iv478.i = phi i64 [ %indvars.iv.next479.i, %.loopexit.i62 ], [ 0, %817 ]
   %823 = load ptr, ptr %810, align 8
-  %824 = getelementptr inbounds i64, ptr %823, i64 %indvars.iv478.i
+  %824 = getelementptr inbounds nuw i64, ptr %823, i64 %indvars.iv478.i
   %825 = load i64, ptr %17, align 8
   %826 = icmp eq i64 %825, 0
   br i1 %826, label %SzReadUnpackInfo.exit.thread, label %827
@@ -4086,7 +4086,7 @@ SzFolder_GetNumOutStreams.exit.thread.i:          ; preds = %.lr.ph307.i
   %828 = add i64 %825, -1
   store i64 %828, ptr %17, align 8
   %829 = load ptr, ptr %0, align 8
-  %830 = getelementptr inbounds i8, ptr %829, i64 1
+  %830 = getelementptr inbounds nuw i8, ptr %829, i64 1
   store ptr %830, ptr %0, align 8
   %831 = load i8, ptr %829, align 1
   store i64 0, ptr %824, align 8
@@ -4128,7 +4128,7 @@ SzFolder_GetNumOutStreams.exit.thread.i:          ; preds = %.lr.ph307.i
   %848 = add i64 %845, -1
   store i64 %848, ptr %17, align 8
   %849 = load ptr, ptr %0, align 8
-  %850 = getelementptr inbounds i8, ptr %849, i64 1
+  %850 = getelementptr inbounds nuw i8, ptr %849, i64 1
   store ptr %850, ptr %0, align 8
   %851 = load i8, ptr %849, align 1
   %852 = zext i8 %851 to i64
@@ -4179,15 +4179,15 @@ SzFolder_GetNumOutStreams.exit.thread.i:          ; preds = %.lr.ph307.i
 .lr.ph309.i:                                      ; preds = %.preheader.i, %.lr.ph309.i
   %indvars.iv484.i = phi i64 [ %indvars.iv.next485.i, %.lr.ph309.i ], [ 0, %.preheader.i ]
   %867 = load ptr, ptr %21, align 8
-  %868 = getelementptr inbounds %struct.CSzFolder, ptr %867, i64 %indvars.iv484.i
-  %869 = getelementptr inbounds i8, ptr %.pre487.i, i64 %indvars.iv484.i
+  %868 = getelementptr inbounds nuw %struct.CSzFolder, ptr %867, i64 %indvars.iv484.i
+  %869 = getelementptr inbounds nuw i8, ptr %.pre487.i, i64 %indvars.iv484.i
   %870 = load i8, ptr %869, align 1
   %871 = zext i8 %870 to i32
-  %872 = getelementptr inbounds i8, ptr %868, i64 44
+  %872 = getelementptr inbounds nuw i8, ptr %868, i64 44
   store i32 %871, ptr %872, align 4
-  %873 = getelementptr inbounds i32, ptr %.pre.i, i64 %indvars.iv484.i
+  %873 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %indvars.iv484.i
   %874 = load i32, ptr %873, align 4
-  %875 = getelementptr inbounds i8, ptr %868, i64 48
+  %875 = getelementptr inbounds nuw i8, ptr %868, i64 48
   store i32 %874, ptr %875, align 8
   %indvars.iv.next485.i = add nuw nsw i64 %indvars.iv484.i, 1
   %876 = load i32, ptr %20, align 4
@@ -4250,7 +4250,7 @@ SzReadUnpackInfo.exit:                            ; preds = %.lr.ph312.i
 
 .lr.ph.i65:                                       ; preds = %.lr.ph.i65, %.lr.ph.preheader.i63
   %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.preheader.i63 ], [ %indvars.iv.next.i67, %.lr.ph.i65 ]
-  %891 = getelementptr inbounds %struct.CSzFolder, ptr %890, i64 %indvars.iv.i66, i32 9
+  %891 = getelementptr inbounds nuw %struct.CSzFolder, ptr %890, i64 %indvars.iv.i66, i32 9
   store i32 1, ptr %891, align 4
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
   %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i64
@@ -4271,7 +4271,7 @@ SzReadUnpackInfo.exit:                            ; preds = %.lr.ph312.i
   %896 = add i64 %895, -1
   store i64 %896, ptr %17, align 8
   %897 = load ptr, ptr %0, align 8
-  %898 = getelementptr inbounds i8, ptr %897, i64 1
+  %898 = getelementptr inbounds nuw i8, ptr %897, i64 1
   store ptr %898, ptr %0, align 8
   %899 = load i8, ptr %897, align 1
   %900 = zext i8 %899 to i32
@@ -4314,7 +4314,7 @@ SzReadUnpackInfo.exit:                            ; preds = %.lr.ph312.i
 919:                                              ; preds = %.lr.ph.i.i70
   %920 = add i64 %917, -1
   store i64 %920, ptr %17, align 8
-  %921 = getelementptr inbounds i8, ptr %915, i64 1
+  %921 = getelementptr inbounds nuw i8, ptr %915, i64 1
   store ptr %921, ptr %0, align 8
   %922 = load i8, ptr %915, align 1
   %923 = zext i8 %922 to i64
@@ -4350,7 +4350,7 @@ SzReadUnpackInfo.exit:                            ; preds = %.lr.ph312.i
   %933 = add i64 %930, -1
   store i64 %933, ptr %17, align 8
   %934 = load ptr, ptr %0, align 8
-  %935 = getelementptr inbounds i8, ptr %934, i64 1
+  %935 = getelementptr inbounds nuw i8, ptr %934, i64 1
   store ptr %935, ptr %0, align 8
   %936 = load i8, ptr %934, align 1
   %937 = zext i8 %936 to i32
@@ -4383,7 +4383,7 @@ SzReadUnpackInfo.exit:                            ; preds = %.lr.ph312.i
 953:                                              ; preds = %951
   %954 = add i64 %940, -1
   store i64 %954, ptr %17, align 8
-  %955 = getelementptr inbounds i8, ptr %939, i64 1
+  %955 = getelementptr inbounds nuw i8, ptr %939, i64 1
   store ptr %955, ptr %0, align 8
   %956 = load i8, ptr %939, align 1
   %957 = zext i8 %956 to i64
@@ -4402,7 +4402,7 @@ SzReadUnpackInfo.exit:                            ; preds = %.lr.ph312.i
 
 963:                                              ; preds = %.loopexit.i.i87
   %964 = trunc nuw nsw i64 %.1.ph.i.i88 to i32
-  %965 = getelementptr inbounds %struct.CSzFolder, ptr %890, i64 %indvars.iv378.i, i32 9
+  %965 = getelementptr inbounds nuw %struct.CSzFolder, ptr %890, i64 %indvars.iv378.i, i32 9
   store i32 %964, ptr %965, align 4
   %966 = load i32, ptr %3, align 4
   %967 = add i32 %966, %964
@@ -4418,7 +4418,7 @@ SzReadUnpackInfo.exit:                            ; preds = %.lr.ph312.i
 970:                                              ; preds = %968
   %971 = add i64 %928, -1
   store i64 %971, ptr %17, align 8
-  %972 = getelementptr inbounds i8, ptr %927, i64 1
+  %972 = getelementptr inbounds nuw i8, ptr %927, i64 1
   store ptr %972, ptr %0, align 8
   %973 = load i8, ptr %927, align 1
   %974 = zext i8 %973 to i32
@@ -4451,7 +4451,7 @@ SzReadUnpackInfo.exit:                            ; preds = %.lr.ph312.i
 990:                                              ; preds = %988
   %991 = add i64 %977, -1
   store i64 %991, ptr %17, align 8
-  %992 = getelementptr inbounds i8, ptr %976, i64 1
+  %992 = getelementptr inbounds nuw i8, ptr %976, i64 1
   store ptr %992, ptr %0, align 8
   %993 = load i8, ptr %976, align 1
   %994 = zext i8 %993 to i64
@@ -4554,8 +4554,8 @@ SzSkeepData.exit.i91:                             ; preds = %.loopexit.i185.i
 .lr.ph303.split.us.i:                             ; preds = %.lr.ph303.i, %1082
   %indvars.iv389.i = phi i64 [ %indvars.iv.next390.i, %1082 ], [ 0, %.lr.ph303.i ]
   %.0135300.us.i = phi i32 [ %.1136.us.i, %1082 ], [ 0, %.lr.ph303.i ]
-  %1040 = getelementptr inbounds %struct.CSzFolder, ptr %890, i64 %indvars.iv389.i
-  %1041 = getelementptr inbounds i8, ptr %1040, i64 52
+  %1040 = getelementptr inbounds nuw %struct.CSzFolder, ptr %890, i64 %indvars.iv389.i
+  %1041 = getelementptr inbounds nuw i8, ptr %1040, i64 52
   %1042 = load i32, ptr %1041, align 4
   switch i32 %1042, label %.lr.ph297.us.preheader.i [
     i32 0, label %1082
@@ -4578,7 +4578,7 @@ SzSkeepData.exit.i91:                             ; preds = %.loopexit.i185.i
   %1048 = add i64 %1045, -1
   store i64 %1048, ptr %17, align 8
   %1049 = load ptr, ptr %0, align 8
-  %1050 = getelementptr inbounds i8, ptr %1049, i64 1
+  %1050 = getelementptr inbounds nuw i8, ptr %1049, i64 1
   store ptr %1050, ptr %0, align 8
   %1051 = load i8, ptr %1049, align 1
   %1052 = zext i8 %1051 to i32
@@ -4601,7 +4601,7 @@ SzSkeepData.exit.i91:                             ; preds = %.loopexit.i185.i
 1060:                                             ; preds = %1058
   %1061 = add i64 %1055, -1
   store i64 %1061, ptr %17, align 8
-  %1062 = getelementptr inbounds i8, ptr %1054, i64 1
+  %1062 = getelementptr inbounds nuw i8, ptr %1054, i64 1
   store ptr %1062, ptr %0, align 8
   %1063 = load i8, ptr %1054, align 1
   %1064 = zext i8 %1063 to i64
@@ -4628,7 +4628,7 @@ SzSkeepData.exit.i91:                             ; preds = %.loopexit.i185.i
   %1077 = load ptr, ptr %4, align 8
   %1078 = add i32 %.3138296.us.i, 1
   %1079 = zext i32 %.3138296.us.i to i64
-  %1080 = getelementptr inbounds i64, ptr %1077, i64 %1079
+  %1080 = getelementptr inbounds nuw i64, ptr %1077, i64 %1079
   store i64 %.5197.ph.us.i, ptr %1080, align 8
   %1081 = add i64 %.5197.ph.us.i, %.1145295.us.i
   %exitcond388.not.i = icmp eq i32 %1078, %1044
@@ -4648,21 +4648,21 @@ SzSkeepData.exit.i91:                             ; preds = %.loopexit.i185.i
   %1085 = load ptr, ptr %4, align 8
   %1086 = add i32 %.3138.lcssa.us.i, 1
   %1087 = zext i32 %.3138.lcssa.us.i to i64
-  %1088 = getelementptr inbounds i64, ptr %1085, i64 %1087
+  %1088 = getelementptr inbounds nuw i64, ptr %1085, i64 %1087
   store i64 %1084, ptr %1088, align 8
   br label %1082
 
 .lr.ph303.split.i:                                ; preds = %.lr.ph303.i, %1124
   %indvars.iv383.i = phi i64 [ %indvars.iv.next384.i, %1124 ], [ 0, %.lr.ph303.i ]
   %.0135300.i = phi i32 [ %.1136.i, %1124 ], [ 0, %.lr.ph303.i ]
-  %1089 = getelementptr inbounds %struct.CSzFolder, ptr %890, i64 %indvars.iv383.i
-  %1090 = getelementptr inbounds i8, ptr %1089, i64 52
+  %1089 = getelementptr inbounds nuw %struct.CSzFolder, ptr %890, i64 %indvars.iv383.i
+  %1090 = getelementptr inbounds nuw i8, ptr %1089, i64 52
   %1091 = load i32, ptr %1090, align 4
   %1092 = icmp eq i32 %1091, 0
   br i1 %1092, label %1124, label %1093
 
 1093:                                             ; preds = %.lr.ph303.split.i
-  %1094 = getelementptr inbounds i8, ptr %1089, i64 32
+  %1094 = getelementptr inbounds nuw i8, ptr %1089, i64 32
   %1095 = load i32, ptr %1094, align 8
   %.not.i.i104 = icmp eq i32 %1095, 0
   br i1 %.not.i.i104, label %SzFolder_GetUnpackSize.exit, label %.lr.ph.i.i105
@@ -4675,7 +4675,7 @@ SzSkeepData.exit.i91:                             ; preds = %.loopexit.i185.i
 1097:                                             ; preds = %1097, %.lr.ph.i.i105
   %indvars.iv.i.i107 = phi i64 [ 0, %.lr.ph.i.i105 ], [ %indvars.iv.next.i.i109, %1097 ]
   %.067.i.i108 = phi i32 [ 0, %.lr.ph.i.i105 ], [ %1100, %1097 ]
-  %1098 = getelementptr inbounds %struct.CSzCoderInfo, ptr %1096, i64 %indvars.iv.i.i107, i32 1
+  %1098 = getelementptr inbounds nuw %struct.CSzCoderInfo, ptr %1096, i64 %indvars.iv.i.i107, i32 1
   %1099 = load i32, ptr %1098, align 4
   %1100 = add i32 %1099, %.067.i.i108
   %indvars.iv.next.i.i109 = add nuw nsw i64 %indvars.iv.i.i107, 1
@@ -4687,8 +4687,8 @@ SzFolder_GetNumOutStreams.exit.i111:              ; preds = %1097
   br i1 %1101, label %SzFolder_GetUnpackSize.exit, label %.preheader.i112
 
 .preheader.i112:                                  ; preds = %SzFolder_GetNumOutStreams.exit.i111
-  %1102 = getelementptr inbounds i8, ptr %1089, i64 36
-  %1103 = getelementptr inbounds i8, ptr %1089, i64 8
+  %1102 = getelementptr inbounds nuw i8, ptr %1089, i64 36
+  %1103 = getelementptr inbounds nuw i8, ptr %1089, i64 8
   br label %1104
 
 1104:                                             ; preds = %SzFolder_FindBindPairForOutStream.exit.i, %.preheader.i112
@@ -4709,7 +4709,7 @@ SzFolder_GetNumOutStreams.exit.i111:              ; preds = %1097
 
 1109:                                             ; preds = %1113, %.lr.ph.i12.i
   %indvars.iv.i14.i = phi i64 [ 0, %.lr.ph.i12.i ], [ %indvars.iv.next.i15.i, %1113 ]
-  %1110 = getelementptr inbounds %struct.CSzBindPair, ptr %1108, i64 %indvars.iv.i14.i, i32 1
+  %1110 = getelementptr inbounds nuw %struct.CSzBindPair, ptr %1108, i64 %indvars.iv.i14.i, i32 1
   %1111 = load i32, ptr %1110, align 4
   %1112 = icmp eq i32 %1111, %.0.i113
   br i1 %1112, label %SzFolder_FindBindPairForOutStream.exit.i, label %1113
@@ -4725,10 +4725,10 @@ SzFolder_FindBindPairForOutStream.exit.i:         ; preds = %1109
   br i1 %.not.i115, label %1104, label %SzFolder_FindBindPairForOutStream.exit.thread.i
 
 SzFolder_FindBindPairForOutStream.exit.thread.i:  ; preds = %SzFolder_FindBindPairForOutStream.exit.i, %1106, %1113
-  %1115 = getelementptr inbounds i8, ptr %1089, i64 24
+  %1115 = getelementptr inbounds nuw i8, ptr %1089, i64 24
   %1116 = load ptr, ptr %1115, align 8
   %1117 = zext nneg i32 %.0.i113 to i64
-  %1118 = getelementptr inbounds i64, ptr %1116, i64 %1117
+  %1118 = getelementptr inbounds nuw i64, ptr %1116, i64 %1117
   %1119 = load i64, ptr %1118, align 8
   br label %SzFolder_GetUnpackSize.exit
 
@@ -4737,7 +4737,7 @@ SzFolder_GetUnpackSize.exit:                      ; preds = %1104, %1093, %SzFol
   %1120 = load ptr, ptr %4, align 8
   %1121 = add i32 %.0135300.i, 1
   %1122 = zext i32 %.0135300.i to i64
-  %1123 = getelementptr inbounds i64, ptr %1120, i64 %1122
+  %1123 = getelementptr inbounds nuw i64, ptr %1120, i64 %1122
   store i64 %.09.i, ptr %1123, align 8
   br label %1124
 
@@ -4767,10 +4767,10 @@ SzFolder_GetUnpackSize.exit:                      ; preds = %1104, %1093, %SzFol
 .lr.ph307.i81:                                    ; preds = %1128, %.lr.ph307.i81
   %indvars.iv394.i = phi i64 [ %indvars.iv.next395.i, %.lr.ph307.i81 ], [ 0, %1128 ]
   %1130 = load ptr, ptr %5, align 8
-  %1131 = getelementptr inbounds i8, ptr %1130, i64 %indvars.iv394.i
+  %1131 = getelementptr inbounds nuw i8, ptr %1130, i64 %indvars.iv394.i
   store i8 0, ptr %1131, align 1
   %1132 = load ptr, ptr %6, align 8
-  %1133 = getelementptr inbounds i32, ptr %1132, i64 %indvars.iv394.i
+  %1133 = getelementptr inbounds nuw i32, ptr %1132, i64 %indvars.iv394.i
   store i32 0, ptr %1133, align 4
   %indvars.iv.next395.i = add nuw nsw i64 %indvars.iv394.i, 1
   %1134 = load i32, ptr %3, align 4
@@ -4790,14 +4790,14 @@ SzFolder_GetUnpackSize.exit:                      ; preds = %1104, %1093, %SzFol
 .lr.ph310.i:                                      ; preds = %.preheader214.i, %1146
   %indvars.iv397.i = phi i64 [ %indvars.iv.next398.i, %1146 ], [ 0, %.preheader214.i ]
   %.0142308.i = phi i32 [ %.1143.i, %1146 ], [ 0, %.preheader214.i ]
-  %1138 = getelementptr inbounds %struct.CSzFolder, ptr %890, i64 %indvars.iv397.i
-  %1139 = getelementptr inbounds i8, ptr %1138, i64 52
+  %1138 = getelementptr inbounds nuw %struct.CSzFolder, ptr %890, i64 %indvars.iv397.i
+  %1139 = getelementptr inbounds nuw i8, ptr %1138, i64 52
   %1140 = load i32, ptr %1139, align 4
   %.not174.i = icmp eq i32 %1140, 1
   br i1 %.not174.i, label %1141, label %1144
 
 1141:                                             ; preds = %.lr.ph310.i
-  %1142 = getelementptr inbounds i8, ptr %1138, i64 44
+  %1142 = getelementptr inbounds nuw i8, ptr %1138, i64 44
   %1143 = load i32, ptr %1142, align 4
   %.not175.i = icmp eq i32 %1143, 0
   br i1 %.not175.i, label %1144, label %1146
@@ -4834,8 +4834,8 @@ SzReadID.exit103:                                 ; preds = %SzReadID.exit103.ba
   %indvars.iv406.i = phi i64 [ %indvars.iv.next407.i, %.loopexit.i83 ], [ 0, %1147 ]
   %.6320.i = phi i32 [ %.7.i, %.loopexit.i83 ], [ %.4139.i, %1147 ]
   %.0147319.i = phi i32 [ %.1148.i, %.loopexit.i83 ], [ 0, %1147 ]
-  %1150 = getelementptr inbounds %struct.CSzFolder, ptr %890, i64 %indvars.iv406.i
-  %1151 = getelementptr inbounds i8, ptr %1150, i64 52
+  %1150 = getelementptr inbounds nuw %struct.CSzFolder, ptr %890, i64 %indvars.iv406.i
+  %1151 = getelementptr inbounds nuw i8, ptr %1150, i64 52
   %1152 = load i32, ptr %1151, align 4
   switch i32 %1152, label %.lr.ph316.preheader.i [
     i32 1, label %1153
@@ -4843,7 +4843,7 @@ SzReadID.exit103:                                 ; preds = %SzReadID.exit103.ba
   ]
 
 1153:                                             ; preds = %.lr.ph322.i
-  %1154 = getelementptr inbounds i8, ptr %1150, i64 44
+  %1154 = getelementptr inbounds nuw i8, ptr %1150, i64 44
   %1155 = load i32, ptr %1154, align 4
   %.not171.i = icmp eq i32 %1155, 0
   br i1 %.not171.i, label %.lr.ph316.preheader.i, label %1156
@@ -4860,12 +4860,12 @@ SzReadID.exit103:                                 ; preds = %SzReadID.exit103.ba
 1159:                                             ; preds = %1156
   %1160 = load ptr, ptr %5, align 8
   %1161 = zext i32 %.6320.i to i64
-  %1162 = getelementptr inbounds i8, ptr %1160, i64 %1161
+  %1162 = getelementptr inbounds nuw i8, ptr %1160, i64 %1161
   store i8 1, ptr %1162, align 1
-  %1163 = getelementptr inbounds i8, ptr %1150, i64 48
+  %1163 = getelementptr inbounds nuw i8, ptr %1150, i64 48
   %1164 = load i32, ptr %1163, align 8
   %1165 = load ptr, ptr %6, align 8
-  %1166 = getelementptr inbounds i32, ptr %1165, i64 %1161
+  %1166 = getelementptr inbounds nuw i32, ptr %1165, i64 %1161
   store i32 %1164, ptr %1166, align 4
   %1167 = add nuw i32 %.6320.i, 1
   br label %.loopexit.i83
@@ -4891,12 +4891,12 @@ SzReadID.exit103:                                 ; preds = %SzReadID.exit103.ba
   %1173 = load i8, ptr %1172, align 1
   %1174 = load ptr, ptr %5, align 8
   %1175 = zext i32 %.8314.i to i64
-  %1176 = getelementptr inbounds i8, ptr %1174, i64 %1175
+  %1176 = getelementptr inbounds nuw i8, ptr %1174, i64 %1175
   store i8 %1173, ptr %1176, align 1
   %1177 = getelementptr inbounds i32, ptr %.pre411.i, i64 %indvars.iv402.i
   %1178 = load i32, ptr %1177, align 4
   %1179 = load ptr, ptr %6, align 8
-  %1180 = getelementptr inbounds i32, ptr %1179, i64 %1175
+  %1180 = getelementptr inbounds nuw i32, ptr %1179, i64 %1175
   store i32 %1178, ptr %1180, align 4
   %1181 = add nuw i32 %.8314.i, 1
   br label %1182
@@ -4942,7 +4942,7 @@ SzReadID.exit103:                                 ; preds = %SzReadID.exit103.ba
   %1193 = add i64 %1190, -1
   store i64 %1193, ptr %17, align 8
   %1194 = load ptr, ptr %0, align 8
-  %1195 = getelementptr inbounds i8, ptr %1194, i64 1
+  %1195 = getelementptr inbounds nuw i8, ptr %1194, i64 1
   store ptr %1195, ptr %0, align 8
   %1196 = load i8, ptr %1194, align 1
   %1197 = zext i8 %1196 to i32
@@ -4987,7 +4987,7 @@ SzReadID.exit103.backedge:                        ; preds = %1214, %._crit_edge.
 1214:                                             ; preds = %.lr.ph.i92
   %1215 = add i64 %1212, -1
   store i64 %1215, ptr %17, align 8
-  %1216 = getelementptr inbounds i8, ptr %1210, i64 1
+  %1216 = getelementptr inbounds nuw i8, ptr %1210, i64 1
   store ptr %1216, ptr %0, align 8
   %1217 = load i8, ptr %1210, align 1
   %1218 = zext i8 %1217 to i64
@@ -5026,7 +5026,7 @@ SzReadID.exit:                                    ; preds = %.loopexit, %SzReadP
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 17) i32 @SzReadNumber32(ptr nocapture noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %SzReadNumber.exit, label %6
@@ -5035,7 +5035,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadNumber32(ptr nocapture nounde
   %7 = add i64 %4, -1
   store i64 %7, ptr %3, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %9, ptr %0, align 8
   %10 = load i8, ptr %8, align 1
   %11 = zext i8 %10 to i32
@@ -5068,7 +5068,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadNumber32(ptr nocapture nounde
 27:                                               ; preds = %25
   %28 = add i64 %14, -1
   store i64 %28, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %13, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %29, ptr %0, align 8
   %30 = load i8, ptr %13, align 1
   %31 = zext i8 %30 to i64
@@ -5097,7 +5097,7 @@ SzReadNumber.exit:                                ; preds = %25, %2, %.loopexit,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 17) i32 @SzWaitAttribute(ptr nocapture noundef nonnull %0, i64 noundef range(i64 9, 13) %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted41 = load i64, ptr %3, align 8
   %4 = icmp eq i64 %.promoted41, 0
   br i1 %4, label %SzReadID.exit, label %.lr.ph
@@ -5111,7 +5111,7 @@ define internal fastcc range(i32 0, 17) i32 @SzWaitAttribute(ptr nocapture nound
   %.promoted4447 = phi i64 [ %.promoted41, %.lr.ph ], [ %72, %SzSkeepData.exit ]
   %7 = add i64 %.promoted4447, -1
   store i64 %7, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %8, ptr %0, align 8
   %9 = load i8, ptr %6, align 1
   %10 = zext i8 %9 to i32
@@ -5154,7 +5154,7 @@ define internal fastcc range(i32 0, 17) i32 @SzWaitAttribute(ptr nocapture nound
 27:                                               ; preds = %.lr.ph.i
   %28 = add i64 %25, -1
   store i64 %28, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %29, ptr %0, align 8
   %30 = load i8, ptr %24, align 1
   %31 = zext i8 %30 to i64
@@ -5181,7 +5181,7 @@ define internal fastcc range(i32 0, 17) i32 @SzWaitAttribute(ptr nocapture nound
 40:                                               ; preds = %37
   %41 = add i64 %.promoted42, -1
   store i64 %41, ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %42, ptr %0, align 8
   %43 = load i8, ptr %35, align 1
   %44 = zext i8 %43 to i32
@@ -5214,7 +5214,7 @@ define internal fastcc range(i32 0, 17) i32 @SzWaitAttribute(ptr nocapture nound
 60:                                               ; preds = %58
   %61 = add i64 %47, -1
   store i64 %61, ptr %3, align 8
-  %62 = getelementptr inbounds i8, ptr %46, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store ptr %62, ptr %0, align 8
   %63 = load i8, ptr %46, align 1
   %64 = zext i8 %63 to i64
@@ -5248,7 +5248,7 @@ SzReadID.exit:                                    ; preds = %.loopexit, %37, %Sz
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 17) i32 @SzReadHashDigests(ptr nocapture noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %SzReadUInt32.exit, label %9
@@ -5257,7 +5257,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadHashDigests(ptr nocapture nou
   %10 = add i64 %7, -1
   store i64 %10, ptr %6, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %0, align 8
   %13 = load i8, ptr %11, align 1
   %14 = icmp eq i8 %13, 0
@@ -5295,7 +5295,7 @@ SzReadByte.exit.thread.i.i:                       ; preds = %24
   %27 = add i64 %25, -1
   store i64 %27, ptr %6, align 8
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %29, ptr %0, align 8
   %30 = load i8, ptr %28, align 1
   br label %31
@@ -5307,7 +5307,7 @@ SzReadByte.exit.thread.i.i:                       ; preds = %24
   %.not23.i.i = icmp ne i8 %32, 0
   %33 = zext i1 %.not23.i.i to i8
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 %.01831.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.01831.i.i
   store i8 %33, ptr %35, align 1
   %36 = lshr i8 %.1.i.i, 1
   %37 = add nuw nsw i64 %.01831.i.i, 1
@@ -5331,7 +5331,7 @@ SzReadByte.exit.thread.i.i:                       ; preds = %24
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
   %.01930.i = phi i64 [ %47, %.lr.ph.i ], [ 0, %41 ]
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %.01930.i
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %.01930.i
   store i8 1, ptr %46, align 1
   %47 = add nuw nsw i64 %.01930.i, 1
   %exitcond.not.i = icmp eq i64 %47, %1
@@ -5360,14 +5360,14 @@ SzReadBoolVector2.exit.thread34:                  ; preds = %17, %39
 .lr.ph:                                           ; preds = %50, %SzReadUInt32.exit.thread
   %.02342 = phi i64 [ %75, %SzReadUInt32.exit.thread ], [ 0, %50 ]
   %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 %.02342
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.02342
   %57 = load i8, ptr %56, align 1
   %.not28 = icmp eq i8 %57, 0
   br i1 %.not28, label %SzReadUInt32.exit.thread, label %58
 
 58:                                               ; preds = %.lr.ph
   %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds i32, ptr %59, i64 %.02342
+  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %.02342
   store i32 0, ptr %60, align 4
   br label %61
 
@@ -5381,7 +5381,7 @@ SzReadBoolVector2.exit.thread34:                  ; preds = %17, %39
   %65 = add i64 %62, -1
   store i64 %65, ptr %6, align 8
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   store ptr %67, ptr %0, align 8
   %68 = load i8, ptr %66, align 1
   %69 = zext i8 %68 to i32
@@ -5406,7 +5406,7 @@ SzReadUInt32.exit:                                ; preds = %24, %SzReadUInt32.e
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 17) i32 @SzSkeepData(ptr nocapture noundef nonnull %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %SzReadNumber.exit, label %5
@@ -5415,7 +5415,7 @@ define internal fastcc range(i32 0, 17) i32 @SzSkeepData(ptr nocapture noundef n
   %6 = add i64 %3, -1
   store i64 %6, ptr %2, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %8, ptr %0, align 8
   %9 = load i8, ptr %7, align 1
   %10 = zext i8 %9 to i32
@@ -5448,7 +5448,7 @@ define internal fastcc range(i32 0, 17) i32 @SzSkeepData(ptr nocapture noundef n
 26:                                               ; preds = %24
   %27 = add i64 %13, -1
   store i64 %27, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %12, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %28, ptr %0, align 8
   %29 = load i8, ptr %12, align 1
   %30 = zext i8 %29 to i64
@@ -5481,7 +5481,7 @@ SzReadNumber.exit:                                ; preds = %24, %38, %.loopexit
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 17) i32 @SzReadBoolVector2(ptr nocapture noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %SzReadByte.exit, label %8
@@ -5490,7 +5490,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadBoolVector2(ptr nocapture nou
   %9 = add i64 %6, -1
   store i64 %9, ptr %5, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %11, ptr %0, align 8
   %12 = load i8, ptr %10, align 1
   %13 = icmp eq i8 %12, 0
@@ -5528,7 +5528,7 @@ SzReadByte.exit.thread.i:                         ; preds = %23
   %26 = add i64 %24, -1
   store i64 %26, ptr %5, align 8
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %28, ptr %0, align 8
   %29 = load i8, ptr %27, align 1
   br label %30
@@ -5540,7 +5540,7 @@ SzReadByte.exit.thread.i:                         ; preds = %23
   %.not23.i = icmp ne i8 %31, 0
   %32 = zext i1 %.not23.i to i8
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 %.01831.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.01831.i
   store i8 %32, ptr %34, align 1
   %35 = lshr i8 %.1.i, 1
   %36 = add nuw nsw i64 %.01831.i, 1
@@ -5564,7 +5564,7 @@ SzReadByte.exit.thread.i:                         ; preds = %23
 .lr.ph:                                           ; preds = %40, %.lr.ph
   %.01930 = phi i64 [ %46, %.lr.ph ], [ 0, %40 ]
   %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 %.01930
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.01930
   store i8 1, ptr %45, align 1
   %46 = add nuw nsw i64 %.01930, 1
   %exitcond.not = icmp eq i64 %46, %1
@@ -5601,7 +5601,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadBoolVector(ptr nocapture noun
   br i1 %11, label %SzReadByte.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
@@ -5620,7 +5620,7 @@ SzReadByte.exit.thread:                           ; preds = %14
   %17 = add i64 %15, -1
   store i64 %17, ptr %12, align 8
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %19, ptr %0, align 8
   %20 = load i8, ptr %18, align 1
   br label %21
@@ -5632,7 +5632,7 @@ SzReadByte.exit.thread:                           ; preds = %14
   %.not23 = icmp ne i8 %22, 0
   %23 = zext i1 %.not23 to i8
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 %.01831
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.01831
   store i8 %23, ptr %25, align 1
   %26 = lshr i8 %.1, 1
   %27 = add nuw nsw i64 %.01831, 1
@@ -5661,7 +5661,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadFileNames(ptr nocapture nound
 .lr.ph29:                                         ; preds = %.lr.ph29.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph29.preheader ], [ %indvars.iv.next, %17 ]
   %.028 = phi i64 [ 0, %.lr.ph29.preheader ], [ %18, %17 ]
-  %5 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %.028, ptr %5, align 8
   %.not24 = icmp ult i64 %.028, %1
   br i1 %.not24, label %.lr.ph, label %.loopexit
@@ -5699,7 +5699,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadFileNames(ptr nocapture nound
 ._crit_edge:                                      ; preds = %4, %._crit_edge.loopexit
   %.019.lcssa = phi i64 [ %19, %._crit_edge.loopexit ], [ 0, %4 ]
   %.0.lcssa = phi i64 [ %18, %._crit_edge.loopexit ], [ 0, %4 ]
-  %20 = getelementptr inbounds i64, ptr %3, i64 %.019.lcssa
+  %20 = getelementptr inbounds nuw i64, ptr %3, i64 %.019.lcssa
   store i64 %.0.lcssa, ptr %20, align 8
   %21 = icmp eq i64 %.0.lcssa, %1
   %22 = select i1 %21, i32 0, i32 16
@@ -5712,13 +5712,13 @@ define internal fastcc range(i32 0, 17) i32 @SzReadFileNames(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef initializes((72, 80)) %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.thread, label %7
 
 .thread:                                          ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %6, align 8
   br label %._crit_edge
 
@@ -5727,7 +5727,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
   %9 = zext i32 %4 to i64
   %10 = shl nuw nsw i64 %9, 2
   %11 = tail call ptr %8(ptr noundef nonnull %1, i64 noundef %10) #11
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %11, ptr %12, align 8
   %13 = icmp eq ptr %11, null
   br i1 %13, label %.loopexit, label %14
@@ -5738,18 +5738,18 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %18
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %.07192 = phi i32 [ 0, %.lr.ph ], [ %24, %18 ]
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   store i32 %.07192, ptr %20, align 4
   %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds %struct.CSzFolder, ptr %21, i64 %indvars.iv, i32 6
+  %22 = getelementptr inbounds nuw %struct.CSzFolder, ptr %21, i64 %indvars.iv, i32 6
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, %.07192
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5759,13 +5759,13 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
   br i1 %27, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18, %.thread, %14
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.thread127, label %32
 
 .thread127:                                       ; preds = %._crit_edge
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %31, align 8
   br label %._crit_edge97
 
@@ -5774,7 +5774,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
   %34 = zext i32 %29 to i64
   %35 = shl nuw nsw i64 %34, 3
   %36 = tail call ptr %33(ptr noundef nonnull %1, i64 noundef %35) #11
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %36, ptr %37, align 8
   %38 = icmp eq ptr %36, null
   br i1 %38, label %.loopexit, label %39
@@ -5785,17 +5785,17 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
   br i1 %40, label %._crit_edge97, label %.lr.ph96
 
 .lr.ph96:                                         ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %42
 
 42:                                               ; preds = %.lr.ph96, %42
   %indvars.iv112 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next113, %42 ]
   %.07893 = phi i64 [ 0, %.lr.ph96 ], [ %48, %42 ]
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds i64, ptr %43, i64 %indvars.iv112
+  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv112
   store i64 %.07893, ptr %44, align 8
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i64, ptr %45, i64 %indvars.iv112
+  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv112
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, %.07893
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
@@ -5810,7 +5810,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %._crit_edge97
-  %55 = getelementptr inbounds i8, ptr %0, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr null, ptr %55, align 8
   br label %63
 
@@ -5819,19 +5819,19 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
   %58 = zext i32 %52 to i64
   %59 = shl nuw nsw i64 %58, 2
   %60 = tail call ptr %57(ptr noundef nonnull %1, i64 noundef %59) #11
-  %61 = getelementptr inbounds i8, ptr %0, i64 88
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %60, ptr %61, align 8
   %62 = icmp eq ptr %60, null
   br i1 %62, label %.loopexit, label %63
 
 63:                                               ; preds = %56, %54
-  %64 = getelementptr inbounds i8, ptr %0, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %.thread129, label %68
 
 .thread129:                                       ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %0, i64 96
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %67, align 8
   br label %.loopexit
 
@@ -5840,7 +5840,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
   %70 = zext i32 %65 to i64
   %71 = shl nuw nsw i64 %70, 2
   %72 = tail call ptr %69(ptr noundef nonnull %1, i64 noundef %71) #11
-  %73 = getelementptr inbounds i8, ptr %0, i64 96
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %72, ptr %73, align 8
   %74 = icmp eq ptr %72, null
   br i1 %74, label %.loopexit, label %75
@@ -5851,10 +5851,10 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
   br i1 %76, label %.loopexit, label %.lr.ph105
 
 .lr.ph105:                                        ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %0, i64 32
-  %78 = getelementptr inbounds i8, ptr %0, i64 88
-  %79 = getelementptr inbounds i8, ptr %0, i64 24
-  %80 = getelementptr inbounds i8, ptr %0, i64 96
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %81
 
 81:                                               ; preds = %.lr.ph105, %111
@@ -5862,7 +5862,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
   %.072103 = phi i32 [ 0, %.lr.ph105 ], [ %.1, %111 ]
   %.073102 = phi i32 [ 0, %.lr.ph105 ], [ %.174, %111 ]
   %82 = load ptr, ptr %77, align 8
-  %83 = getelementptr inbounds %struct.CSzFileItem, ptr %82, i64 %indvars.iv118, i32 4
+  %83 = getelementptr inbounds nuw %struct.CSzFileItem, ptr %82, i64 %indvars.iv118, i32 4
   %84 = load i8, ptr %83, align 8
   %.not = icmp eq i8 %84, 0
   %85 = icmp eq i32 %.072103, 0
@@ -5871,7 +5871,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr %80, align 8
-  %88 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv118
+  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv118
   store i32 -1, ptr %88, align 4
   br label %111
 
@@ -5891,10 +5891,10 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %98
   %indvars.iv115 = phi i64 [ %91, %.lr.ph100.preheader ], [ %indvars.iv.next116, %98 ]
   %93 = load ptr, ptr %78, align 8
-  %94 = getelementptr inbounds i32, ptr %93, i64 %indvars.iv115
+  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv115
   store i32 %92, ptr %94, align 4
   %95 = load ptr, ptr %79, align 8
-  %96 = getelementptr inbounds %struct.CSzFolder, ptr %95, i64 %indvars.iv115, i32 9
+  %96 = getelementptr inbounds nuw %struct.CSzFolder, ptr %95, i64 %indvars.iv115, i32 9
   %97 = load i32, ptr %96, align 4
   %.not85 = icmp eq i32 %97, 0
   br i1 %.not85, label %98, label %.loopexit88.loopexit
@@ -5913,7 +5913,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
 .loopexit88:                                      ; preds = %.loopexit88.loopexit, %89
   %.2 = phi i32 [ %.073102, %89 ], [ %101, %.loopexit88.loopexit ]
   %102 = load ptr, ptr %80, align 8
-  %103 = getelementptr inbounds i32, ptr %102, i64 %indvars.iv118
+  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv118
   store i32 %.2, ptr %103, align 4
   br i1 %.not, label %111, label %104
 
@@ -5921,7 +5921,7 @@ define internal fastcc range(i32 0, 17) i32 @SzArEx_Fill(ptr nocapture noundef i
   %105 = add i32 %.072103, 1
   %106 = load ptr, ptr %79, align 8
   %107 = zext i32 %.2 to i64
-  %108 = getelementptr inbounds %struct.CSzFolder, ptr %106, i64 %107, i32 9
+  %108 = getelementptr inbounds nuw %struct.CSzFolder, ptr %106, i64 %107, i32 9
   %109 = load i32, ptr %108, align 4
   %.not86 = icmp uge i32 %105, %109
   %110 = zext i1 %.not86 to i32

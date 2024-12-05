@@ -54,10 +54,10 @@ $_ZTIN3irr5video15IContextManagerE = comdat any
 define void @_ZN3irr5video11CSDLManagerC2EPNS_13CIrrDeviceSDLE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 32), (40, 48)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %device) unnamed_addr #0 align 2 {
 entry:
   store i64 0, ptr %this, align 8
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %3 = load ptr, ptr %2, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %1, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -65,15 +65,15 @@ entry:
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = load ptr, ptr %vtt, align 8
   store ptr %4, ptr %this, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %6 = load ptr, ptr %5, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %4, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %6, ptr %add.ptr, align 8, !tbaa !3
-  %Data = getelementptr inbounds i8, ptr %this, i64 8
+  %Data = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Data, i8 0, i64 24, i1 false)
-  %SDLDevice = getelementptr inbounds i8, ptr %this, i64 40
+  %SDLDevice = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %device, ptr %SDLDevice, align 8, !tbaa !6
   ret void
 }
@@ -84,16 +84,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3irr5video11CSDLManagerC1EPNS_13CIrrDeviceSDLE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 32), (40, 68)) %this, ptr noundef %device) unnamed_addr #2 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 48
-  %DebugName.i = getelementptr inbounds i8, ptr %this, i64 56
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %DebugName.i, align 8, !tbaa !12
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 64
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CSDLManagerE, i64 24), ptr %this, align 8, !tbaa !3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video11CSDLManagerE, i64 144), ptr %0, align 8, !tbaa !3
-  %Data = getelementptr inbounds i8, ptr %this, i64 8
+  %Data = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Data, i8 0, i64 24, i1 false)
-  %SDLDevice = getelementptr inbounds i8, ptr %this, i64 40
+  %SDLDevice = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %device, ptr %SDLDevice, align 8, !tbaa !6
   ret void
 }
@@ -101,7 +101,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN3irr5video11CSDLManager10initializeERKNS_27SIrrlichtCreationParametersERKNS0_17SExposedVideoDataE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((8, 40)) %this, ptr nocapture nonnull readnone align 8 %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %data) unnamed_addr #3 align 2 {
 entry:
-  %Data = getelementptr inbounds i8, ptr %this, i64 8
+  %Data = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %Data, ptr noundef nonnull align 8 dereferenceable(32) %data, i64 32, i1 false), !tbaa.struct !16
   ret i1 true
 }
@@ -112,7 +112,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr5video11CSDLManager10getContextEv(ptr noundef nonnull readnone align 8 dereferenceable(48) %this) unnamed_addr #5 align 2 {
 entry:
-  %Data = getelementptr inbounds i8, ptr %this, i64 8
+  %Data = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %Data
 }
 
@@ -135,7 +135,7 @@ declare ptr @SDL_GL_GetProcAddress(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN3irr5video11CSDLManager11swapBuffersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 {
 entry:
-  %SDLDevice = getelementptr inbounds i8, ptr %this, i64 40
+  %SDLDevice = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %SDLDevice, align 8, !tbaa !6
   tail call void @_ZN3irr13CIrrDeviceSDL10SwapWindowEv(ptr noundef nonnull align 8 dereferenceable(452) %0) #13
   ret i1 true

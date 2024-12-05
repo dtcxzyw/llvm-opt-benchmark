@@ -97,7 +97,7 @@ define void @dlatm7_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %48 = phi i64 [ 2, %44 ], [ %52, %47 ]
   %49 = load double, ptr %1, align 8, !tbaa !7
   %50 = fdiv double 1.000000e+00, %49
-  %51 = getelementptr inbounds double, ptr %11, i64 %48
+  %51 = getelementptr inbounds nuw double, ptr %11, i64 %48
   store double %50, ptr %51, align 8, !tbaa !7
   %52 = add nuw nsw i64 %48, 1
   %53 = icmp eq i64 %52, %46
@@ -134,7 +134,7 @@ define void @dlatm7_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 70:                                               ; preds = %70, %68
   %71 = phi i64 [ 1, %68 ], [ %73, %70 ]
-  %72 = getelementptr inbounds double, ptr %11, i64 %71
+  %72 = getelementptr inbounds nuw double, ptr %11, i64 %71
   store double 1.000000e+00, ptr %72, align 8, !tbaa !7
   %73 = add nuw nsw i64 %71, 1
   %74 = icmp eq i64 %73, %69
@@ -212,7 +212,7 @@ define void @dlatm7_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .loopexit20:                                      ; preds = %.preheader19, %103
   %120 = phi double [ %108, %103 ], [ %118, %.preheader19 ]
-  %121 = getelementptr inbounds double, ptr %11, i64 %104
+  %121 = getelementptr inbounds nuw double, ptr %11, i64 %104
   store double %120, ptr %121, align 8, !tbaa !7
   %122 = add nuw nsw i64 %104, 1
   %123 = icmp eq i64 %122, %102
@@ -257,7 +257,7 @@ define void @dlatm7_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %148 = sub i32 %12, %147
   %149 = sitofp i32 %148 to double
   %150 = tail call double @llvm.fmuladd.f64(double %149, double %142, double %138)
-  %151 = getelementptr inbounds double, ptr %11, i64 %146
+  %151 = getelementptr inbounds nuw double, ptr %11, i64 %146
   store double %150, ptr %151, align 8, !tbaa !7
   %152 = add nuw nsw i64 %146, 1
   %153 = icmp eq i64 %152, %144
@@ -281,7 +281,7 @@ define void @dlatm7_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %163 = tail call double @dlaran_(ptr noundef %4) #6
   %164 = fmul double %157, %163
   %165 = tail call double @exp(double noundef %164) #6
-  %166 = getelementptr inbounds double, ptr %11, i64 %162
+  %166 = getelementptr inbounds nuw double, ptr %11, i64 %162
   store double %165, ptr %166, align 8, !tbaa !7
   %167 = add nuw nsw i64 %162, 1
   %exitcond.not = icmp eq i64 %167, %160
@@ -321,7 +321,7 @@ define void @dlatm7_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %180, label %181, label %185
 
 181:                                              ; preds = %177
-  %182 = getelementptr inbounds double, ptr %11, i64 %178
+  %182 = getelementptr inbounds nuw double, ptr %11, i64 %178
   %183 = load double, ptr %182, align 8, !tbaa !7
   %184 = fneg double %183
   store double %184, ptr %182, align 8, !tbaa !7
@@ -356,7 +356,7 @@ thread-pre-split15:                               ; preds = %173, %thread-pre-sp
 
 198:                                              ; preds = %198, %192
   %199 = phi i64 [ 1, %192 ], [ %205, %198 ]
-  %200 = getelementptr inbounds double, ptr %11, i64 %199
+  %200 = getelementptr inbounds nuw double, ptr %11, i64 %199
   %201 = load double, ptr %200, align 8, !tbaa !7
   %202 = sub nsw i64 %195, %199
   %203 = getelementptr inbounds double, ptr %11, i64 %202

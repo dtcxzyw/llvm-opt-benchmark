@@ -40,7 +40,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef %0, ptr 
   %indvars.iv325 = phi i64 [ 0, %.lr.ph278.preheader ], [ %indvars.iv.next326, %.lr.ph278 ]
   %.0224275 = phi double [ 0.000000e+00, %.lr.ph278.preheader ], [ %.1225, %.lr.ph278 ]
   %.0226274 = phi double [ 0.000000e+00, %.lr.ph278.preheader ], [ %.1227, %.lr.ph278 ]
-  %16 = getelementptr inbounds double, ptr %2, i64 %indvars.iv325
+  %16 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv325
   %17 = load double, ptr %16, align 8
   %18 = fcmp ogt double %17, 0.000000e+00
   %19 = fadd double %.0226274, %17
@@ -62,7 +62,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef %0, ptr 
   %indvars.iv330 = phi i64 [ 0, %.preheader258 ], [ %indvars.iv.next331, %.lr.ph285 ]
   %.0220283 = phi double [ 0.000000e+00, %.preheader258 ], [ %30, %.lr.ph285 ]
   %.0223282 = phi double [ 0.000000e+00, %.preheader258 ], [ %28, %.lr.ph285 ]
-  %25 = getelementptr inbounds double, ptr %2, i64 %indvars.iv330
+  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv330
   %26 = load double, ptr %25, align 8
   %27 = tail call double @llvm.fabs.f64(double %26)
   %28 = fadd double %.0223282, %27
@@ -107,7 +107,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef %0, ptr 
 
 .lr.ph291:                                        ; preds = %.lr.ph291.preheader, %.lr.ph291
   %indvars.iv335 = phi i64 [ 0, %.lr.ph291.preheader ], [ %indvars.iv.next336, %.lr.ph291 ]
-  %46 = getelementptr inbounds double, ptr %2, i64 %indvars.iv335
+  %46 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv335
   %47 = load double, ptr %46, align 8
   %48 = fmul double %47, %43
   %49 = fcmp ogt double %48, 0x41DFFFFFFFC00000
@@ -115,7 +115,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef %0, ptr 
   %50 = fcmp olt double %.0204, 0xC1E0000000000000
   %.1205 = select i1 %50, double 0xC1E0000000000000, double %.0204
   %51 = fptosi double %.1205 to i32
-  %52 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv335
+  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv335
   store i32 %51, ptr %52, align 4
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
@@ -144,14 +144,14 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef %0, ptr 
 
 .lr.ph294:                                        ; preds = %.lr.ph294.preheader, %.lr.ph294
   %indvars.iv340 = phi i64 [ 0, %.lr.ph294.preheader ], [ %indvars.iv.next341, %.lr.ph294 ]
-  %61 = getelementptr inbounds double, ptr %2, i64 %indvars.iv340
+  %61 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv340
   %62 = load double, ptr %61, align 8
   %63 = fcmp ogt double %62, 0.000000e+00
   %64 = tail call double @llvm.fmuladd.f64(double %62, double %58, double 5.000000e-01)
   %65 = tail call double @llvm.fmuladd.f64(double %62, double %58, double -5.000000e-01)
   %.sink.in = select i1 %63, double %64, double %65
   %.sink = fptosi double %.sink.in to i32
-  %66 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv340
+  %66 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv340
   store i32 %.sink, ptr %66, align 4
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %exitcond344.not = icmp eq i64 %indvars.iv.next341, %wide.trip.count343
@@ -161,7 +161,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef %0, ptr 
   %indvars.iv345 = phi i64 [ 0, %.lr.ph299.preheader ], [ %indvars.iv.next346, %.lr.ph299 ]
   %.0216297 = phi i32 [ 0, %.lr.ph299.preheader ], [ %.1217, %.lr.ph299 ]
   %.0218296 = phi i32 [ 0, %.lr.ph299.preheader ], [ %.1219, %.lr.ph299 ]
-  %67 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv345
+  %67 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv345
   %68 = load i32, ptr %67, align 4
   %69 = tail call i32 @llvm.smax.i32(i32 %68, i32 0)
   %.1219 = add nuw nsw i32 %69, %.0218296
@@ -202,7 +202,7 @@ define range(i32 0, 2) i32 @j2d_mlib_ImageConvKernelConvert(ptr noundef %0, ptr 
 80:                                               ; preds = %.lr.ph306, %80
   %indvars.iv350 = phi i64 [ 0, %.lr.ph306 ], [ %indvars.iv.next351, %80 ]
   %.2214303 = phi i32 [ %spec.select252, %.lr.ph306 ], [ %spec.select253, %80 ]
-  %81 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv350
+  %81 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv350
   %82 = load i32, ptr %81, align 4
   %83 = tail call i32 @llvm.abs.i32(i32 %82, i1 true)
   %.highbits = lshr i32 %83, %79
@@ -232,12 +232,12 @@ select.unfold.loopexit:                           ; preds = %80
 
 .lr.ph311:                                        ; preds = %.lr.ph311.preheader, %.lr.ph311
   %indvars.iv360 = phi i64 [ 0, %.lr.ph311.preheader ], [ %indvars.iv.next361, %.lr.ph311 ]
-  %84 = getelementptr inbounds double, ptr %2, i64 %indvars.iv360
+  %84 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv360
   %85 = load double, ptr %84, align 8
   %86 = fmul double %85, %58
   %87 = fptosi double %86 to i32
   %88 = shl i32 %87, %.0207
-  %89 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv360
+  %89 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv360
   store i32 %88, ptr %89, align 4
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond364.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count363
@@ -245,7 +245,7 @@ select.unfold.loopexit:                           ; preds = %80
 
 .lr.ph309:                                        ; preds = %.lr.ph309.preheader, %.lr.ph309
   %indvars.iv355 = phi i64 [ 0, %.lr.ph309.preheader ], [ %indvars.iv.next356, %.lr.ph309 ]
-  %90 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv355
+  %90 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv355
   %91 = load i32, ptr %90, align 4
   %92 = shl i32 %91, %.0207
   store i32 %92, ptr %90, align 4
@@ -261,7 +261,7 @@ select.unfold.loopexit:                           ; preds = %80
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.1221261 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %98, %.lr.ph ]
-  %94 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %95 = load double, ptr %94, align 8
   %96 = tail call double @llvm.fabs.f64(double %95)
   %97 = fcmp ogt double %.1221261, %96
@@ -301,7 +301,7 @@ select.unfold.loopexit:                           ; preds = %80
 
 .lr.ph273:                                        ; preds = %._crit_edge268, %.lr.ph273
   %indvars.iv320 = phi i64 [ 0, %._crit_edge268 ], [ %indvars.iv.next321, %.lr.ph273 ]
-  %110 = getelementptr inbounds double, ptr %2, i64 %indvars.iv320
+  %110 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv320
   %111 = load double, ptr %110, align 8
   %112 = fcmp ogt double %111, 0.000000e+00
   %113 = tail call double @llvm.fmuladd.f64(double %111, double %109, double 5.000000e-01)
@@ -312,7 +312,7 @@ select.unfold.loopexit:                           ; preds = %80
   %116 = fcmp olt double %.0202, 0xC1E0000000000000
   %.1203 = select i1 %116, double 0xC1E0000000000000, double %.0202
   %.sink365 = fptosi double %.1203 to i32
-  %117 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv320
+  %117 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv320
   store i32 %.sink365, ptr %117, align 4
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %exitcond324.not = icmp eq i64 %indvars.iv.next321, %wide.trip.count323

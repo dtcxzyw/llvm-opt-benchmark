@@ -35,7 +35,7 @@ define hidden range(i32 -1, 1) i32 @aom_uleb_decode(ptr noundef readonly %0, i64
 .lr.ph:                                           ; preds = %7, %24
   %8 = phi i64 [ %15, %24 ], [ 0, %7 ]
   %.01924 = phi i64 [ %25, %24 ], [ 0, %7 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 %.01924
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.01924
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 127
   %12 = zext nneg i8 %11 to i64
@@ -110,7 +110,7 @@ aom_uleb_size_in_bytes.exit:                      ; preds = %5
   %.not = icmp ult i64 %.02632, 128
   %masksel = select i1 %.not, i8 0, i8 -128
   %.0 = or disjoint i8 %15, %masksel
-  %17 = getelementptr inbounds i8, ptr %2, i64 %.02433
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %.02433
   store i8 %.0, ptr %17, align 1
   %18 = add nuw nsw i64 %.02433, 1
   %exitcond.not = icmp eq i64 %18, %indvars.iv
@@ -163,7 +163,7 @@ define hidden range(i32 -1, 1) i32 @aom_uleb_encode_fixed_size(i64 noundef %0, i
   %19 = icmp ult i64 %.02735, %14
   %masksel = select i1 %19, i8 -128, i8 0
   %.0 = or disjoint i8 %masksel, %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 %.02735
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.02735
   store i8 %.0, ptr %20, align 1
   %21 = add nuw nsw i64 %.02735, 1
   %exitcond.not = icmp eq i64 %21, %2

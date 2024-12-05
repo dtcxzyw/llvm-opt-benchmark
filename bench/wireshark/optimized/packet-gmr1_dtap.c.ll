@@ -79,7 +79,7 @@ define internal i32 @dissect_gmr1_dtap(ptr noundef %0, ptr noundef %1, ptr nound
   br label %54
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_append_str(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.10) #2
   %20 = load ptr, ptr %18, align 8

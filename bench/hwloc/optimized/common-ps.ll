@@ -48,14 +48,14 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   br i1 %17, label %.sink.split, label %18
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = tail call i64 @read(i32 noundef %16, ptr noundef nonnull %19, i64 noundef 63) #14
   %21 = tail call i32 @close(i32 noundef %16) #14
   %22 = icmp slt i64 %20, 1
   br i1 %22, label %.sink.split, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds [64 x i8], ptr %19, i64 0, i64 %20
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 0, i64 %20
   store i8 0, ptr %24, align 1
   %25 = and i64 %3, 4
   %.not166 = icmp eq i64 %25, 0
@@ -76,7 +76,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   br i1 %34, label %35, label %60
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %32
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %32
   store i8 0, ptr %36, align 1
   %.not169 = icmp eq i64 %32, 1
   br i1 %.not169, label %60, label %37
@@ -106,19 +106,19 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds [32 x i8], ptr %6, i64 0, i64 %49
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %49
   store i8 0, ptr %53, align 1
   %54 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 40) #16
   %55 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 41) #16
   %.not167 = icmp eq ptr %55, null
-  %56 = getelementptr inbounds i8, ptr %6, i64 31
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 31
   %spec.select = select i1 %.not167, ptr %56, ptr %55
   store i8 0, ptr %spec.select, align 1
   %.not168 = icmp eq ptr %54, null
   br i1 %.not168, label %60, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %54, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.3, ptr noundef nonnull %58) #14
   br label %60
 
@@ -133,14 +133,14 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 
 64:                                               ; preds = %60, %62, %23
   call void @free(ptr noundef %13) #14
-  %65 = getelementptr inbounds i8, ptr %2, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i8 0, ptr %65, align 8
   %66 = and i64 %3, 8
   %.not171 = icmp eq i64 %66, 0
   br i1 %.not171, label %86, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %2, i64 1104
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 1104
   store i64 -1, ptr %68, align 8
   %69 = call noalias dereferenceable_or_null(35) ptr @malloc(i64 noundef 35) #15
   %70 = load i64, ptr %2, align 8
@@ -155,14 +155,14 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   br i1 %76, label %77, label %85
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %7, i64 1023
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 1023
   store i8 0, ptr %78, align 1
   %79 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.5) #16
   %.not172 = icmp eq ptr %79, null
   br i1 %.not172, label %83, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %82 = call i64 @strtoul(ptr nocapture noundef nonnull %81, ptr noundef null, i32 noundef 0) #14
   store i64 %82, ptr %68, align 8
   br label %83
@@ -196,7 +196,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %94 = phi ptr [ %100, %.lr.ph ], [ %93, %.preheader ]
   %.0145196 = phi i32 [ %spec.select192, %.lr.ph ], [ 0, %.preheader ]
-  %95 = getelementptr inbounds i8, ptr %94, i64 19
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 19
   %96 = call i64 @strtol(ptr noundef nonnull %95, ptr noundef nonnull %8, i32 noundef 10) #14
   %97 = load ptr, ptr %8, align 8
   %98 = load i8, ptr %97, align 1
@@ -214,7 +214,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 102:                                              ; preds = %._crit_edge
   %103 = zext i32 %spec.select192 to i64
   %104 = call noalias ptr @calloc(i64 noundef %103, i64 noundef 40) #17
-  %105 = getelementptr inbounds i8, ptr %2, i64 1128
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 1128
   store ptr %104, ptr %105, align 8
   %.not176 = icmp eq ptr %104, null
   br i1 %.not176, label %.loopexit, label %106
@@ -223,8 +223,8 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   call void @rewinddir(ptr noundef nonnull %92) #14
   %107 = and i64 %3, 2
   %.not181 = icmp eq i64 %107, 0
-  %108 = getelementptr inbounds i8, ptr %2, i64 1120
-  %109 = getelementptr inbounds i8, ptr %2, i64 1116
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 1120
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 1116
   br label %.outer
 
 .outer:                                           ; preds = %166, %106
@@ -237,7 +237,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   br i1 %.not177, label %.loopexit, label %112
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %111, i64 19
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 19
   %114 = call i64 @strtol(ptr noundef nonnull %113, ptr noundef nonnull %8, i32 noundef 10) #14
   %115 = load ptr, ptr %8, align 8
   %116 = load i8, ptr %115, align 1
@@ -246,7 +246,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 
 117:                                              ; preds = %112
   %118 = load ptr, ptr %105, align 8
-  %119 = getelementptr inbounds %struct.hwloc_ps_thread, ptr %118, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %118, i64 %indvars.iv
   store i64 %114, ptr %119, align 8
   %120 = call noalias dereferenceable_or_null(61) ptr @malloc(i64 noundef 61) #15
   %.not179 = icmp eq ptr %120, null
@@ -260,7 +260,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %105, align 8
-  %127 = getelementptr inbounds %struct.hwloc_ps_thread, ptr %126, i64 %indvars.iv, i32 3
+  %127 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %126, i64 %indvars.iv, i32 3
   %128 = call i64 @read(i32 noundef %123, ptr noundef nonnull %127, i64 noundef 16) #14
   %129 = call i32 @close(i32 noundef %123) #14
   %130 = icmp slt i64 %128, 1
@@ -268,7 +268,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 
 131:                                              ; preds = %125
   %132 = load ptr, ptr %105, align 8
-  %133 = getelementptr inbounds %struct.hwloc_ps_thread, ptr %132, i64 %indvars.iv, i32 3
+  %133 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %132, i64 %indvars.iv, i32 3
   store i8 0, ptr %133, align 4
   br label %139
 
@@ -278,16 +278,16 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 
 136:                                              ; preds = %134
   %137 = load ptr, ptr %105, align 8
-  %138 = getelementptr inbounds %struct.hwloc_ps_thread, ptr %137, i64 %indvars.iv, i32 3, i64 %128
+  %138 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %137, i64 %indvars.iv, i32 3, i64 %128
   store i8 0, ptr %138, align 1
   br label %139
 
 139:                                              ; preds = %134, %136, %131
   %140 = load ptr, ptr %105, align 8
-  %141 = getelementptr inbounds %struct.hwloc_ps_thread, ptr %140, i64 %indvars.iv, i32 3, i64 15
+  %141 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %140, i64 %indvars.iv, i32 3, i64 15
   store i8 0, ptr %141, align 1
   %142 = load ptr, ptr %105, align 8
-  %143 = getelementptr inbounds %struct.hwloc_ps_thread, ptr %142, i64 %indvars.iv, i32 3
+  %143 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %142, i64 %indvars.iv, i32 3
   %144 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %143, i32 noundef 10) #16
   store ptr %144, ptr %8, align 8
   %.not180 = icmp eq ptr %144, null
@@ -324,7 +324,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 156:                                              ; preds = %153
   %157 = call noalias ptr @hwloc_bitmap_dup(ptr noundef nonnull %11) #14
   %158 = load ptr, ptr %105, align 8
-  %159 = getelementptr inbounds %struct.hwloc_ps_thread, ptr %158, i64 %indvars.iv, i32 1
+  %159 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %158, i64 %indvars.iv, i32 1
   store ptr %157, ptr %159, align 8
   %160 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %11, ptr noundef %1) #16
   %.not185 = icmp eq i32 %160, 0
@@ -332,7 +332,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 
 161:                                              ; preds = %156
   %162 = load ptr, ptr %105, align 8
-  %163 = getelementptr inbounds %struct.hwloc_ps_thread, ptr %162, i64 %indvars.iv, i32 2
+  %163 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %162, i64 %indvars.iv, i32 2
   store i32 1, ptr %163, align 8
   %164 = load i32, ptr %108, align 8
   %165 = add i32 %164, 1
@@ -380,9 +380,9 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   %182 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %11, ptr noundef %1) #16
   %.not190 = icmp eq i32 %182, 0
   %183 = zext i1 %.not190 to i32
-  %184 = getelementptr inbounds i8, ptr %2, i64 1112
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 1112
   store i32 %183, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %2, i64 1096
+  %185 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   store ptr %11, ptr %185, align 8
   br label %187
 
@@ -484,7 +484,7 @@ define hidden void @hwloc_ps_pidcmd(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not19, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %9, ptr %3, align 8
   call fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 noundef 1, ptr noundef %3)
   br label %27
@@ -501,7 +501,7 @@ define hidden void @hwloc_ps_pidcmd(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not20, label %26, label %18
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = tail call ptr @fgets(ptr noundef nonnull %19, i32 noundef 1024, ptr noundef nonnull %17)
   %.not21 = icmp eq ptr %20, null
   br i1 %.not21, label %24, label %21
@@ -562,7 +562,7 @@ define internal fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 nounde
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.preheader, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.preheader.preheader ], [ %indvars.iv.next, %.loopexit ]
-  %17 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #16
   br label %.lr.ph.i
@@ -575,16 +575,16 @@ define internal fastcc void @hwloc_ps_pidcmd_from_env(ptr noundef %0, i32 nounde
 
 21:                                               ; preds = %.lr.ph.i
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01115.i) #16
-  %23 = add i64 %22, 1
-  %24 = getelementptr inbounds i8, ptr %.01115.i, i64 %23
+  %23 = getelementptr i8, ptr %.01115.i, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %.not.i = icmp eq i8 %25, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 hwloc_ps_pidcmd__from_env.exit:                   ; preds = %.lr.ph.i
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %.01115.i, i64 noundef 1024) #14
-  %28 = getelementptr inbounds i8, ptr %0, i64 1095
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1095
   store i8 0, ptr %28, align 1
   br label %.loopexit18
 
@@ -617,20 +617,20 @@ declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @hwloc_ps_free_process(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1116
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1116
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   br label %5
 
 5:                                                ; preds = %.lr.ph, %11
   %6 = phi i32 [ %3, %.lr.ph ], [ %12, %11 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.hwloc_ps_thread, ptr %7, i64 %indvars.iv, i32 1
+  %8 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %7, i64 %indvars.iv, i32 1
   %9 = load ptr, ptr %8, align 8
   %.not10 = icmp eq ptr %9, null
   br i1 %.not10, label %11, label %10
@@ -648,10 +648,10 @@ define hidden void @hwloc_ps_free_process(ptr nocapture noundef readonly %0) loc
   br i1 %14, label %5, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %11, %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 1128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #14
-  %17 = getelementptr inbounds i8, ptr %0, i64 1096
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %18 = load ptr, ptr %17, align 8
   tail call void @hwloc_bitmap_free(ptr noundef %18) #14
   ret void
@@ -671,19 +671,19 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr
   br i1 %.not2130, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %8, i64 1096
-  %13 = getelementptr inbounds i8, ptr %8, i64 1116
-  %14 = getelementptr inbounds i8, ptr %8, i64 1120
-  %15 = getelementptr inbounds i8, ptr %8, i64 1128
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1096
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 1116
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1120
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 1128
   %.not23 = icmp eq ptr %5, null
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = icmp eq i64 %6, -1
-  %18 = getelementptr inbounds i8, ptr %8, i64 1104
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 1104
   br label %19
 
 19:                                               ; preds = %.lr.ph, %.backedge
   %20 = phi ptr [ %11, %.lr.ph ], [ %49, %.backedge ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 19
   %22 = call i64 @strtol(ptr noundef nonnull %21, ptr noundef nonnull %9, i32 noundef 10) #14
   %23 = load ptr, ptr %9, align 8
   %24 = load i8, ptr %23, align 1
@@ -729,7 +729,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_foreach_process(ptr noundef %0, ptr
   %38 = phi i32 [ %44, %43 ], [ %37, %36 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %36 ]
   %39 = load ptr, ptr %15, align 8
-  %40 = getelementptr inbounds %struct.hwloc_ps_thread, ptr %39, i64 %indvars.iv.i, i32 1
+  %40 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %39, i64 %indvars.iv.i, i32 1
   %41 = load ptr, ptr %40, align 8
   %.not10.i = icmp eq ptr %41, null
   br i1 %.not10.i, label %43, label %42
@@ -774,13 +774,13 @@ define hidden noundef i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1
   %11 = alloca [4096 x i8], align 16
   %12 = alloca ptr, align 8
   store i64 %2, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 1096
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1096
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 1116
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 1116
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %9, i64 1120
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1120
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 1128
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 1128
   store ptr null, ptr %16, align 8
   %17 = call i32 @hwloc_ps_read_process(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, i64 noundef %5)
   %18 = icmp slt i32 %17, 0
@@ -791,14 +791,14 @@ define hidden noundef i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %23, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %9, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %22 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %6) #16
   %.not35 = icmp eq ptr %22, null
   br i1 %.not35, label %30, label %23
 
 23:                                               ; preds = %20, %19
   %24 = icmp eq i64 %7, -1
-  %25 = getelementptr inbounds i8, ptr %9, i64 1104
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 1104
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, -1
   %.not36 = icmp eq i64 %26, %7
@@ -819,7 +819,7 @@ define hidden noundef i32 @hwloc_ps_foreach_child(ptr noundef %0, ptr noundef %1
   %32 = phi i32 [ %38, %37 ], [ %31, %30 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %37 ], [ 0, %30 ]
   %33 = load ptr, ptr %16, align 8
-  %34 = getelementptr inbounds %struct.hwloc_ps_thread, ptr %33, i64 %indvars.iv.i, i32 1
+  %34 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %33, i64 %indvars.iv.i, i32 1
   %35 = load ptr, ptr %34, align 8
   %.not10.i = icmp eq ptr %35, null
   br i1 %.not10.i, label %37, label %36
@@ -855,7 +855,7 @@ hwloc_ps_free_process.exit:                       ; preds = %37, %30
 .lr.ph45:                                         ; preds = %.preheader, %.backedge
   %47 = phi ptr [ %52, %.backedge ], [ %46, %.preheader ]
   %48 = load i64, ptr %9, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 19
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 19
   %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 512, ptr noundef nonnull @.str.17, i64 noundef %48, ptr noundef nonnull %49) #14
   %51 = call noalias ptr @fopen(ptr noundef nonnull %10, ptr noundef nonnull @.str.15)
   %.not39 = icmp eq ptr %51, null

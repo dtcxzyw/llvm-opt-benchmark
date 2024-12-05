@@ -15,42 +15,42 @@ $_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4NodeEE6insertINS2_7CompareEEEvPS3_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6asmjit9_abi_1_109ConstPoolC2EPNS0_4ZoneE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((0, 264)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %0, align 8, !tbaa !3
-  %10 = getelementptr inbounds i8, ptr %0, i64 176
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1, ptr %11, align 8, !tbaa !9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 2, ptr %12, align 8, !tbaa !9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 4, ptr %13, align 8, !tbaa !9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 8, ptr %14, align 8, !tbaa !9
   store <4 x ptr> zeroinitializer, ptr %10, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 16, ptr %15, align 8, !tbaa !9
-  %16 = getelementptr inbounds i8, ptr %0, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr null, ptr %16, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 32, ptr %17, align 8, !tbaa !9
-  %18 = getelementptr inbounds i8, ptr %0, i64 216
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr null, ptr %18, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %19 = getelementptr inbounds i8, ptr %0, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 64, ptr %19, align 8, !tbaa !9
-  %20 = getelementptr inbounds i8, ptr %0, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
   ret void
 }
@@ -58,41 +58,41 @@ define dso_local void @_ZN6asmjit9_abi_1_109ConstPoolC2EPNS0_4ZoneE(ptr nocaptur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6asmjit9_abi_1_109ConstPool5resetEPNS0_4ZoneE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((0, 264)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1, ptr %5, align 8, !tbaa !9
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 2, ptr %7, align 8, !tbaa !9
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 4, ptr %9, align 8, !tbaa !9
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 8, ptr %11, align 8, !tbaa !9
   store <4 x ptr> zeroinitializer, ptr %4, align 8, !tbaa !12
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 16, ptr %13, align 8, !tbaa !9
-  %14 = getelementptr inbounds i8, ptr %0, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr null, ptr %14, align 8, !tbaa !12
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 32, ptr %16, align 8, !tbaa !9
-  %17 = getelementptr inbounds i8, ptr %0, i64 216
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr null, ptr %17, align 8, !tbaa !12
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  %19 = getelementptr inbounds i8, ptr %0, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 64, ptr %19, align 8, !tbaa !9
-  %20 = getelementptr inbounds i8, ptr %0, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
   ret void
 }
@@ -143,9 +143,9 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 13:                                               ; preds = %12, %11, %10, %9, %8, %7, %4
   %14 = phi i1 [ false, %7 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ true, %4 ]
   %15 = phi i64 [ 5, %7 ], [ 4, %8 ], [ 3, %9 ], [ 2, %10 ], [ 1, %11 ], [ 0, %12 ], [ 6, %4 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = getelementptr inbounds [7 x %"struct.asmjit::_abi_1_10::ConstPool::Tree"], ptr %16, i64 0, i64 %15
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw [7 x %"struct.asmjit::_abi_1_10::ConstPool::Tree"], ptr %16, i64 0, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = load ptr, ptr %17, align 8, !tbaa !13
   %21 = icmp eq ptr %20, null
@@ -153,7 +153,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 
 .preheader23:                                     ; preds = %13, %26
   %22 = phi ptr [ %32, %26 ], [ %20, %13 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = tail call noundef i32 @memcmp(ptr noundef nonnull %23, ptr noundef %1, i64 noundef %19) #11
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %34, label %26
@@ -161,7 +161,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 26:                                               ; preds = %.preheader23
   %27 = lshr i32 %24, 31
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [2 x i64], ptr %22, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i64], ptr %22, i64 0, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !14
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
@@ -177,15 +177,15 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
   br i1 %14, label %.split25.us.thread, label %38
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 176
-  %40 = getelementptr inbounds [7 x ptr], ptr %39, i64 0, i64 %15
-  %41 = getelementptr inbounds i8, ptr %0, i64 232
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %40 = getelementptr inbounds nuw [7 x ptr], ptr %39, i64 0, i64 %15
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %42 = load ptr, ptr %40, align 8, !tbaa !12
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.split25.us.thread, label %.split
 
 44:                                               ; preds = %34
-  %45 = getelementptr inbounds i8, ptr %35, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %46 = load i32, ptr %45, align 4, !tbaa !15
   %47 = zext i32 %46 to i64
   store i64 %47, ptr %3, align 8, !tbaa !14
@@ -203,9 +203,9 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
   br i1 %51, label %62, label %52
 
 52:                                               ; preds = %.split
-  %53 = getelementptr inbounds i8, ptr %48, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !20
-  %55 = getelementptr inbounds i8, ptr %48, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !22
   %57 = load ptr, ptr %48, align 8, !tbaa !23
   store ptr %57, ptr %40, align 8, !tbaa !12
@@ -231,7 +231,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
   br i1 %66, label %.split25.us.thread, label %81
 
 .split25.us.thread:                               ; preds = %38, %.split25.us, %37
-  %67 = getelementptr inbounds i8, ptr %0, i64 240
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %68 = load i64, ptr %67, align 8, !tbaa !28
   %69 = add i64 %2, -1
   %70 = add i64 %69, %68
@@ -262,7 +262,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
   %87 = add i64 %86, 7
   %88 = and i64 %87, -8
   %89 = inttoptr i64 %88 to ptr
-  %90 = getelementptr inbounds i8, ptr %83, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !31
   %92 = icmp ule ptr %91, %89
   %93 = ptrtoint ptr %91 to i64
@@ -287,25 +287,25 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 
 104:                                              ; preds = %101
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
-  %105 = getelementptr inbounds i8, ptr %102, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %106 = load i8, ptr %105, align 8
   %107 = and i8 %106, -2
   store i8 %107, ptr %105, align 8
-  %108 = getelementptr inbounds i8, ptr %102, i64 20
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 20
   %109 = trunc i64 %82 to i32
   store i32 %109, ptr %108, align 4, !tbaa !15
-  %110 = getelementptr inbounds i8, ptr %102, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %102, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %110, ptr align 1 %1, i64 %2, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   %111 = load i64, ptr %18, align 8, !tbaa !9
   store i64 %111, ptr %6, align 8, !tbaa !33
   call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4NodeEE6insertINS2_7CompareEEEvPS3_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %102, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %112 = getelementptr inbounds i8, ptr %17, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %113 = load i64, ptr %112, align 8, !tbaa !35
   %114 = add i64 %113, 1
   store i64 %114, ptr %112, align 8, !tbaa !35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  %115 = getelementptr inbounds i8, ptr %0, i64 248
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %116 = load i64, ptr %115, align 8, !tbaa !14
   %117 = call noundef i64 @llvm.umax.i64(i64 %116, i64 %2)
   store i64 %117, ptr %115, align 8, !tbaa !36
@@ -329,9 +329,9 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 
 127:                                              ; preds = %.preheader21
   %128 = getelementptr inbounds [7 x %"struct.asmjit::_abi_1_10::ConstPool::Tree"], ptr %16, i64 0, i64 %125
-  %129 = getelementptr inbounds i8, ptr %128, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = add nuw i64 %124, 24
-  %131 = getelementptr inbounds i8, ptr %128, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 8
   br label %132
 
 132:                                              ; preds = %187, %127
@@ -344,7 +344,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 
 .preheader:                                       ; preds = %132, %142
   %138 = phi ptr [ %148, %142 ], [ %136, %132 ]
-  %139 = getelementptr inbounds i8, ptr %138, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %140 = call noundef i32 @memcmp(ptr noundef nonnull %139, ptr noundef %134, i64 noundef %135) #11
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %150, label %142
@@ -352,7 +352,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 142:                                              ; preds = %.preheader
   %143 = lshr i32 %140, 31
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds [2 x i64], ptr %138, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw [2 x i64], ptr %138, i64 0, i64 %144
   %146 = load i64, ptr %145, align 8, !tbaa !14
   %147 = and i64 %146, -2
   %148 = inttoptr i64 %147 to ptr
@@ -373,7 +373,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
   %159 = add i64 %158, 7
   %160 = and i64 %159, -8
   %161 = inttoptr i64 %160 to ptr
-  %162 = getelementptr inbounds i8, ptr %154, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !31
   %164 = icmp ule ptr %163, %161
   %165 = ptrtoint ptr %163 to i64
@@ -398,14 +398,14 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 
 176:                                              ; preds = %173
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, i8 0, i64 16, i1 false)
-  %177 = getelementptr inbounds i8, ptr %174, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %178 = load i8, ptr %177, align 8
   %179 = or i8 %178, 1
   store i8 %179, ptr %177, align 8
-  %180 = getelementptr inbounds i8, ptr %174, i64 20
+  %180 = getelementptr inbounds nuw i8, ptr %174, i64 20
   %181 = trunc i64 %156 to i32
   store i32 %181, ptr %180, align 4, !tbaa !15
-  %182 = getelementptr inbounds i8, ptr %174, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %174, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %182, ptr align 1 %134, i64 %124, i1 false)
   br label %183
 
@@ -422,12 +422,12 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_109ConstPool3add
 
 187:                                              ; preds = %183, %150
   %188 = add nuw i64 %133, 1
-  %189 = getelementptr inbounds i8, ptr %134, i64 %124
+  %189 = getelementptr inbounds nuw i8, ptr %134, i64 %124
   %190 = icmp eq i64 %188, %123
   br i1 %190, label %.loopexit, label %132, !llvm.loop !38
 
 .loopexit22:                                      ; preds = %.loopexit, %104
-  %191 = getelementptr inbounds i8, ptr %0, i64 256
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %192 = load i64, ptr %191, align 8, !tbaa !14
   %193 = icmp eq i64 %192, 0
   %194 = call i64 @llvm.umin.i64(i64 %2, i64 %192)
@@ -446,8 +446,8 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9Const
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
-  %7 = getelementptr inbounds i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %8
 
 8:                                                ; preds = %67, %5
@@ -517,7 +517,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9Const
   %48 = add i64 %47, 7
   %49 = and i64 %48, -8
   %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds i8, ptr %45, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !31
   %53 = icmp ule ptr %52, %50
   %54 = ptrtoint ptr %52 to i64
@@ -531,7 +531,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9Const
   br label %64
 
 60:                                               ; preds = %44
-  %61 = getelementptr inbounds i8, ptr %50, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %61, ptr %45, align 8, !tbaa !29
   br label %64
 
@@ -547,13 +547,13 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9Const
 
 67:                                               ; preds = %64, %62
   %68 = phi ptr [ %42, %62 ], [ %65, %64 ]
-  %69 = getelementptr inbounds [7 x ptr], ptr %7, i64 0, i64 %40
+  %69 = getelementptr inbounds nuw [7 x ptr], ptr %7, i64 0, i64 %40
   %70 = load ptr, ptr %69, align 8, !tbaa !12
   store ptr %70, ptr %68, align 8, !tbaa !23
   store ptr %68, ptr %69, align 8, !tbaa !12
-  %71 = getelementptr inbounds i8, ptr %68, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 %9, ptr %71, align 8, !tbaa !20
-  %72 = getelementptr inbounds i8, ptr %68, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i64 %41, ptr %72, align 8, !tbaa !22
   %73 = add i64 %41, %9
   %74 = sub i64 %10, %41
@@ -567,10 +567,10 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L16ConstPool_addGapEPNS0_9Const
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZNK6asmjit9_abi_1_109ConstPool4fillEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [62 x ptr], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 240
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load i64, ptr %4, align 8, !tbaa !28
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %5, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 7:                                                ; preds = %50
@@ -579,7 +579,7 @@ define dso_local void @_ZNK6asmjit9_abi_1_109ConstPool4fillEPv(ptr nocapture nou
 8:                                                ; preds = %50, %2
   %9 = phi i64 [ 0, %2 ], [ %52, %50 ]
   %10 = phi i64 [ 1, %2 ], [ %51, %50 ]
-  %11 = getelementptr inbounds [7 x %"struct.asmjit::_abi_1_10::ConstPool::Tree"], ptr %6, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw [7 x %"struct.asmjit::_abi_1_10::ConstPool::Tree"], ptr %6, i64 0, i64 %9
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %50, label %14
@@ -605,23 +605,23 @@ define dso_local void @_ZNK6asmjit9_abi_1_109ConstPool4fillEPv(ptr nocapture nou
 .preheader:                                       ; preds = %15, %42
   %24 = phi i64 [ %43, %42 ], [ %16, %15 ]
   %25 = phi ptr [ %45, %42 ], [ %17, %15 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i8, ptr %26, align 8
   %28 = and i8 %27, 1
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %.preheader
-  %31 = getelementptr inbounds i8, ptr %25, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %32 = load i32, ptr %31, align 4, !tbaa !15
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %1, i64 %33
-  %35 = getelementptr inbounds i8, ptr %25, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 1 %35, i64 %10, i1 false)
   br label %36
 
 36:                                               ; preds = %30, %.preheader
-  %37 = getelementptr inbounds i8, ptr %25, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !14
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %40, label %.loopexit
@@ -680,13 +680,13 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   store i64 0, ptr %4, align 8
   %9 = ptrtoint ptr %5 to i64
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %9, ptr %10, align 8, !tbaa !14
   %11 = load i64, ptr %1, align 8, !tbaa !14
   %12 = or i64 %11, 1
   store i64 %12, ptr %1, align 8, !tbaa !14
   %13 = ptrtoint ptr %1 to i64
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %15
 
 15:                                               ; preds = %133, %8
@@ -700,7 +700,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds [2 x i64], ptr %17, i64 0, i64 %20
+  %24 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %20
   %25 = load i64, ptr %24, align 8, !tbaa !14
   %26 = and i64 %25, 1
   %27 = or i64 %26, %13
@@ -721,7 +721,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   br i1 %36, label %54, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %19, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !14
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %54, label %41
@@ -764,7 +764,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
 65:                                               ; preds = %61
   %66 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds i8, ptr %18, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %68 = load i64, ptr %67, align 8, !tbaa !14
   %69 = inttoptr i64 %68 to ptr
   %70 = icmp eq ptr %16, %69
@@ -778,13 +778,13 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %78 = zext i1 %77 to i64
   %79 = xor i1 %77, true
   %80 = zext i1 %79 to i64
-  %81 = getelementptr inbounds [2 x i64], ptr %16, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i64], ptr %16, i64 0, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !14
   %83 = and i64 %82, -2
   %84 = inttoptr i64 %83 to ptr
   %85 = icmp ne i64 %83, 0
   tail call void @llvm.assume(i1 %85)
-  %86 = getelementptr inbounds [2 x i64], ptr %84, i64 0, i64 %78
+  %86 = getelementptr inbounds nuw [2 x i64], ptr %84, i64 0, i64 %78
   %87 = load i64, ptr %86, align 8, !tbaa !14
   %88 = and i64 %87, -2
   br i1 %76, label %89, label %92
@@ -798,7 +798,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %93 = inttoptr i64 %88 to ptr
   %94 = icmp ne i64 %88, 0
   tail call void @llvm.assume(i1 %94)
-  %95 = getelementptr inbounds [2 x i64], ptr %93, i64 0, i64 %80
+  %95 = getelementptr inbounds nuw [2 x i64], ptr %93, i64 0, i64 %80
   %96 = load i64, ptr %95, align 8, !tbaa !14
   %97 = and i64 %96, -2
   %98 = and i64 %87, 1
@@ -818,7 +818,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %108 = and i64 %107, 1
   %109 = or disjoint i64 %108, %88
   store i64 %109, ptr %81, align 8, !tbaa !14
-  %110 = getelementptr inbounds [2 x i64], ptr %93, i64 0, i64 %78
+  %110 = getelementptr inbounds nuw [2 x i64], ptr %93, i64 0, i64 %78
   %111 = load i64, ptr %110, align 8, !tbaa !14
   %112 = and i64 %111, -2
   %113 = or disjoint i64 %112, %108
@@ -841,7 +841,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %125 = load i64, ptr %117, align 8, !tbaa !14
   %126 = and i64 %125, -2
   store i64 %126, ptr %117, align 8, !tbaa !14
-  %127 = getelementptr inbounds [2 x i64], ptr %18, i64 0, i64 %71
+  %127 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %71
   %128 = load i64, ptr %127, align 8, !tbaa !14
   %129 = and i64 %128, 1
   %130 = or disjoint i64 %129, %118
@@ -853,14 +853,14 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   br i1 %132, label %145, label %133
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %55, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %135 = load i64, ptr %2, align 8, !tbaa !33
   %136 = tail call noundef i32 @memcmp(ptr noundef nonnull %134, ptr noundef nonnull %14, i64 noundef %135) #11
   %137 = lshr i32 %136, 31
   %138 = zext nneg i32 %137 to i64
   %139 = icmp eq ptr %16, null
   %140 = select i1 %139, ptr %18, ptr %16
-  %141 = getelementptr inbounds [2 x i64], ptr %55, i64 0, i64 %138
+  %141 = getelementptr inbounds nuw [2 x i64], ptr %55, i64 0, i64 %138
   %142 = load i64, ptr %141, align 8, !tbaa !14
   %143 = and i64 %142, -2
   %144 = inttoptr i64 %143 to ptr

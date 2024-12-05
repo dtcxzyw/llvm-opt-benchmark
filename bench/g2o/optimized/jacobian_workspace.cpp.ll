@@ -52,7 +52,7 @@ define void @_ZN3g2o17JacobianWorkspaceD2Ev(ptr nocapture noundef nonnull readon
   %.05.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i ], [ %2, %1 ]
   %5 = load ptr, ptr %.05.i.i.i.i, align 8
   tail call void @free(ptr noundef %5) #22
-  %6 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
@@ -114,7 +114,7 @@ define noundef zeroext i1 @_ZN3g2o17JacobianWorkspace8allocateEv(ptr noundef non
   br i1 %22, label %23, label %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds %"class.Eigen::Matrix", ptr %13, i64 %10
+  %24 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %13, i64 %10
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -122,7 +122,7 @@ define noundef zeroext i1 @_ZN3g2o17JacobianWorkspace8allocateEv(ptr noundef non
   %.05.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %24, %23 ]
   %25 = load ptr, ptr %.05.i.i.i.i.i, align 8
   tail call void @free(ptr noundef %25) #22
-  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %26, %12
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
@@ -153,7 +153,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; preds = %.lr.ph, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
-  %36 = getelementptr inbounds i8, ptr %.sroa.03.08, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.03.08, i64 16
   %37 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %36, %37
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
@@ -185,7 +185,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; preds = %.lr.ph, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
-  %10 = getelementptr inbounds i8, ptr %.sroa.04.08, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 16
   %.not = icmp eq ptr %10, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -222,7 +222,7 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeEb(ptr
   %16 = load i32, ptr %15, align 8
   %17 = mul nsw i32 %16, %9
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %17, i32 %.027.i)
-  %18 = getelementptr inbounds i8, ptr %.sroa.012.026.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.012.026.i, i64 8
   %.not.i = icmp eq ptr %18, %12
   br i1 %.not.i, label %_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit, label %.lr.ph.i
 
@@ -263,7 +263,7 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE(ptr 
   %11 = load i32, ptr %10, align 8
   %12 = mul nsw i32 %11, %4
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %12, i32 %.027)
-  %13 = getelementptr inbounds i8, ptr %.sroa.012.026, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.012.026, i64 8
   %.not = icmp eq ptr %13, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -297,9 +297,9 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeERKNS_16OptimizableGraphEb(pt
   br label %7
 
 7:                                                ; preds = %4, %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.not7 = icmp eq ptr %9, %10
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -333,7 +333,7 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeERKNS_16OptimizableGraphEb(pt
   %24 = load i32, ptr %23, align 8
   %25 = mul nsw i32 %24, %17
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %25, i32 %.027.i)
-  %26 = getelementptr inbounds i8, ptr %.sroa.012.026.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.012.026.i, i64 8
   %.not.i = icmp eq ptr %26, %20
   br i1 %.not.i, label %_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit, label %.lr.ph.i
 
@@ -446,8 +446,8 @@ _ZNKSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE12_M_check_lenEmPK
   %32 = load i64, ptr %31, align 8, !alias.scope !11, !noalias !8
   store i64 %32, ptr %30, align 8, !alias.scope !8, !noalias !11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i8 0, i64 16, i1 false), !alias.scope !11, !noalias !8
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %33, %5
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 
@@ -466,7 +466,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE13_M_dealloc
   store ptr %26, ptr %0, align 8
   %39 = getelementptr inbounds %"class.Eigen::Matrix", ptr %27, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds %"class.Eigen::Matrix", ptr %26, i64 %24
+  %40 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %26, i64 %24
   store ptr %40, ptr %11, align 8
   br label %41
 

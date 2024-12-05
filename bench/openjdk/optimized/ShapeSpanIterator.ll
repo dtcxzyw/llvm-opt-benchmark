@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #14
   store ptr %6, ptr @pSpanDataID, align 8
@@ -30,7 +30,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_initIDs(ptr noundef %0, ptr 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_setNormalize(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 808
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 808
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @pSpanDataID, align 8
   %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #14
@@ -52,25 +52,25 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_setNormalize(ptr noundef %0,
 
 14:                                               ; preds = %10
   store ptr @PCMoveTo, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @PCLineTo, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @PCQuadTo, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr @PCCubicTo, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr @PCClosePath, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr @PCPathDone, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 50
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 50
   store i8 1, ptr %20, align 2
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 880
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 880
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @pSpanDataID, align 8
   %25 = ptrtoint ptr %11 to i64
   tail call void %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %24, i64 noundef %25) #14
-  %26 = getelementptr inbounds i8, ptr %11, i64 51
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 51
   store i8 %2, ptr %26, align 1
   br label %MakeSpanData.exit.thread
 
@@ -81,7 +81,7 @@ MakeSpanData.exit.thread:                         ; preds = %13, %9, %14
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_setOutputAreaXYXY(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 808
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 808
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @pSpanDataID, align 8
   %11 = tail call i64 %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10) #14
@@ -94,7 +94,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_setOutputAreaXYXY(ptr nounde
 
 14:                                               ; preds = %6
   %15 = inttoptr i64 %11 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load i8, ptr %16, align 8
   %or.cond.i.not = icmp eq i8 %17, 0
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %18
@@ -104,13 +104,13 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_setOutputAreaXYXY(ptr nounde
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 52
   store i32 %2, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store i32 %3, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 60
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 60
   store i32 %4, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %15, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store i32 %5, ptr %22, align 8
   store i8 1, ptr %16, align 8
   br label %GetSpanData.exit.thread
@@ -122,7 +122,7 @@ GetSpanData.exit.thread:                          ; preds = %18, %13, %GetSpanDa
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_setRule(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 808
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 808
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @pSpanDataID, align 8
   %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #14
@@ -135,7 +135,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_setRule(ptr noundef %0, ptr 
 
 11:                                               ; preds = %3
   %12 = inttoptr i64 %8 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load i8, ptr %13, align 8
   %or.cond.i.not = icmp eq i8 %14, 1
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %15
@@ -147,7 +147,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_setRule(ptr noundef %0, ptr 
 GetSpanData.exit:                                 ; preds = %11
   %16 = icmp eq i32 %2, 0
   %17 = zext i1 %16 to i8
-  %18 = getelementptr inbounds i8, ptr %12, i64 49
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 49
   store i8 %17, ptr %18, align 1
   store i8 2, ptr %13, align 8
   br label %GetSpanData.exit.thread
@@ -160,7 +160,7 @@ GetSpanData.exit.thread:                          ; preds = %15, %10, %GetSpanDa
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_addSegment(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [6 x float], align 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 808
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 808
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @pSpanDataID, align 8
   %10 = tail call i64 %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %9) #14
@@ -173,7 +173,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_addSegment(ptr noundef %0, p
 
 13:                                               ; preds = %4
   %14 = inttoptr i64 %10 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load i8, ptr %15, align 8
   %or.cond.i.not = icmp eq i8 %16, 2
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %17
@@ -184,11 +184,11 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_addSegment(ptr noundef %0, p
 
 GetSpanData.exit:                                 ; preds = %13
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1640
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1640
   %20 = load ptr, ptr %19, align 8
   call void %20(ptr noundef nonnull %0, ptr noundef %3, i32 noundef 0, i32 noundef 6, ptr noundef nonnull %5) #14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1824
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1824
   %23 = load ptr, ptr %22, align 8
   %24 = call zeroext i8 %23(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %24, 0
@@ -205,30 +205,30 @@ GetSpanData.exit:                                 ; preds = %13
 
 26:                                               ; preds = %25
   %27 = load float, ptr %5, align 16
-  %28 = getelementptr inbounds i8, ptr %5, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %14, i64 68
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 68
   %31 = load float, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %14, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 76
   %33 = load float, ptr %32, align 4
   %34 = fcmp une float %31, %33
-  %.phi.trans.insert377 = getelementptr inbounds i8, ptr %14, i64 72
+  %.phi.trans.insert377 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %.pre378 = load float, ptr %.phi.trans.insert377, align 8
-  %.phi.trans.insert379 = getelementptr inbounds i8, ptr %14, i64 80
+  %.phi.trans.insert379 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %.pre380 = load float, ptr %.phi.trans.insert379, align 8
   %35 = fcmp une float %.pre378, %.pre380
   %or.cond = select i1 %34, i1 true, i1 %35
   br i1 %or.cond, label %._crit_edge376, label %65
 
 ._crit_edge376:                                   ; preds = %26
-  %36 = getelementptr inbounds i8, ptr %14, i64 72
-  %37 = getelementptr inbounds i8, ptr %14, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %38 = fcmp olt float %31, %33
   %..i = select i1 %38, float %31, float %33
   %.41.i = select i1 %38, float %33, float %31
   %39 = fcmp olt float %.pre378, %.pre380
   %.031.i = select i1 %39, float %.pre380, float %.pre378
-  %40 = getelementptr inbounds i8, ptr %14, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %41 = load i32, ptr %40, align 8
   %42 = sitofp i32 %41 to float
   %43 = fcmp ugt float %.031.i, %42
@@ -236,21 +236,21 @@ GetSpanData.exit:                                 ; preds = %13
 
 44:                                               ; preds = %._crit_edge376
   %.032.i = select i1 %39, float %.pre378, float %.pre380
-  %45 = getelementptr inbounds i8, ptr %14, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %46 = load i32, ptr %45, align 8
   %47 = sitofp i32 %46 to float
   %48 = fcmp ult float %.032.i, %47
   br i1 %48, label %49, label %subdivideLine.exit.thread
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %14, i64 60
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %51 = load i32, ptr %50, align 4
   %52 = sitofp i32 %51 to float
   %53 = fcmp ult float %..i, %52
   br i1 %53, label %54, label %subdivideLine.exit.thread
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %14, i64 52
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %56 = load i32, ptr %55, align 4
   %57 = sitofp i32 %56 to float
   %58 = fcmp ugt float %.41.i, %57
@@ -282,7 +282,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
 
 65:                                               ; preds = %26, %subdivideLine.exit, %subdivideLine.exit.thread
   %66 = phi i1 [ true, %subdivideLine.exit.thread ], [ false, %subdivideLine.exit ], [ true, %26 ]
-  %67 = getelementptr inbounds i8, ptr %14, i64 51
+  %67 = getelementptr inbounds nuw i8, ptr %14, i64 51
   %68 = load i8, ptr %67, align 1
   %.not339 = icmp eq i8 %68, 0
   br i1 %.not339, label %80, label %69
@@ -296,9 +296,9 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   %75 = fadd float %74, 2.500000e-01
   %76 = fsub float %72, %27
   %77 = fsub float %75, %29
-  %78 = getelementptr inbounds i8, ptr %14, i64 84
+  %78 = getelementptr inbounds nuw i8, ptr %14, i64 84
   store float %76, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %14, i64 88
+  %79 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store float %77, ptr %79, align 8
   br label %80
 
@@ -306,27 +306,27 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   %.0312 = phi float [ %75, %69 ], [ %29, %65 ]
   %.0 = phi float [ %72, %69 ], [ %27, %65 ]
   store float %.0, ptr %32, align 4
-  %81 = getelementptr inbounds i8, ptr %14, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %14, i64 80
   store float %.0312, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %14, i64 50
+  %82 = getelementptr inbounds nuw i8, ptr %14, i64 50
   %83 = load i8, ptr %82, align 2
   %.not340 = icmp eq i8 %83, 0
   br i1 %.not340, label %89, label %84
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %14, i64 100
+  %85 = getelementptr inbounds nuw i8, ptr %14, i64 100
   store float %.0, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %14, i64 92
+  %86 = getelementptr inbounds nuw i8, ptr %14, i64 92
   store float %.0, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %14, i64 104
+  %87 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store float %.0312, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %14, i64 96
+  %88 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store float %.0312, ptr %88, align 8
   store i8 0, ptr %82, align 2
   br label %109
 
 89:                                               ; preds = %80
-  %90 = getelementptr inbounds i8, ptr %14, i64 92
+  %90 = getelementptr inbounds nuw i8, ptr %14, i64 92
   %91 = load float, ptr %90, align 4
   %92 = fcmp ogt float %91, %.0
   br i1 %92, label %93, label %94
@@ -336,7 +336,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %94
 
 94:                                               ; preds = %93, %89
-  %95 = getelementptr inbounds i8, ptr %14, i64 96
+  %95 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %96 = load float, ptr %95, align 8
   %97 = fcmp ogt float %96, %.0312
   br i1 %97, label %98, label %99
@@ -346,7 +346,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %99
 
 99:                                               ; preds = %98, %94
-  %100 = getelementptr inbounds i8, ptr %14, i64 100
+  %100 = getelementptr inbounds nuw i8, ptr %14, i64 100
   %101 = load float, ptr %100, align 4
   %102 = fcmp olt float %101, %.0
   br i1 %102, label %103, label %104
@@ -356,7 +356,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %104
 
 104:                                              ; preds = %103, %99
-  %105 = getelementptr inbounds i8, ptr %14, i64 104
+  %105 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %106 = load float, ptr %105, align 8
   %107 = fcmp olt float %106, %.0312
   br i1 %107, label %108, label %109
@@ -367,15 +367,15 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
 
 109:                                              ; preds = %84, %108, %104
   store float %.0, ptr %30, align 4
-  %110 = getelementptr inbounds i8, ptr %14, i64 72
+  %110 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store float %.0312, ptr %110, align 8
   br i1 %66, label %.critedge, label %.critedge343
 
 111:                                              ; preds = %25
   %112 = load float, ptr %5, align 16
-  %113 = getelementptr inbounds i8, ptr %5, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %114 = load float, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %14, i64 51
+  %115 = getelementptr inbounds nuw i8, ptr %14, i64 51
   %116 = load i8, ptr %115, align 1
   %.not335 = icmp eq i8 %116, 0
   br i1 %.not335, label %128, label %117
@@ -389,25 +389,25 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   %123 = fadd float %122, 2.500000e-01
   %124 = fsub float %120, %112
   %125 = fsub float %123, %114
-  %126 = getelementptr inbounds i8, ptr %14, i64 84
+  %126 = getelementptr inbounds nuw i8, ptr %14, i64 84
   store float %124, ptr %126, align 4
-  %127 = getelementptr inbounds i8, ptr %14, i64 88
+  %127 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store float %125, ptr %127, align 8
   br label %128
 
 128:                                              ; preds = %111, %117
   %.1313 = phi float [ %123, %117 ], [ %114, %111 ]
   %.1 = phi float [ %120, %117 ], [ %112, %111 ]
-  %129 = getelementptr inbounds i8, ptr %14, i64 68
+  %129 = getelementptr inbounds nuw i8, ptr %14, i64 68
   %130 = load float, ptr %129, align 4
-  %131 = getelementptr inbounds i8, ptr %14, i64 72
+  %131 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %132 = load float, ptr %131, align 8
   %133 = fcmp olt float %130, %.1
   %..i344 = select i1 %133, float %130, float %.1
   %.41.i345 = select i1 %133, float %.1, float %130
   %134 = fcmp olt float %132, %.1313
   %.031.i346 = select i1 %134, float %.1313, float %132
-  %135 = getelementptr inbounds i8, ptr %14, i64 56
+  %135 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %136 = load i32, ptr %135, align 8
   %137 = sitofp i32 %136 to float
   %138 = fcmp ugt float %.031.i346, %137
@@ -415,21 +415,21 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
 
 139:                                              ; preds = %128
   %.032.i348 = select i1 %134, float %132, float %.1313
-  %140 = getelementptr inbounds i8, ptr %14, i64 64
+  %140 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %141 = load i32, ptr %140, align 8
   %142 = sitofp i32 %141 to float
   %143 = fcmp ult float %.032.i348, %142
   br i1 %143, label %144, label %subdivideLine.exit349.thread
 
 144:                                              ; preds = %139
-  %145 = getelementptr inbounds i8, ptr %14, i64 60
+  %145 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %146 = load i32, ptr %145, align 4
   %147 = sitofp i32 %146 to float
   %148 = fcmp ult float %..i344, %147
   br i1 %148, label %149, label %subdivideLine.exit349.thread
 
 149:                                              ; preds = %144
-  %150 = getelementptr inbounds i8, ptr %14, i64 52
+  %150 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %151 = load i32, ptr %150, align 4
   %152 = sitofp i32 %151 to float
   %153 = fcmp ugt float %.41.i345, %152
@@ -449,25 +449,25 @@ subdivideLine.exit349:                            ; preds = %154, %156
   br i1 %.not336, label %.critedge343, label %subdivideLine.exit349.thread
 
 subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %subdivideLine.exit349
-  %158 = getelementptr inbounds i8, ptr %14, i64 50
+  %158 = getelementptr inbounds nuw i8, ptr %14, i64 50
   %159 = load i8, ptr %158, align 2
   %.not337 = icmp eq i8 %159, 0
   br i1 %.not337, label %165, label %160
 
 160:                                              ; preds = %subdivideLine.exit349.thread
-  %161 = getelementptr inbounds i8, ptr %14, i64 100
+  %161 = getelementptr inbounds nuw i8, ptr %14, i64 100
   store float %.1, ptr %161, align 4
-  %162 = getelementptr inbounds i8, ptr %14, i64 92
+  %162 = getelementptr inbounds nuw i8, ptr %14, i64 92
   store float %.1, ptr %162, align 4
-  %163 = getelementptr inbounds i8, ptr %14, i64 104
+  %163 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store float %.1313, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %14, i64 96
+  %164 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store float %.1313, ptr %164, align 8
   store i8 0, ptr %158, align 2
   br label %185
 
 165:                                              ; preds = %subdivideLine.exit349.thread
-  %166 = getelementptr inbounds i8, ptr %14, i64 92
+  %166 = getelementptr inbounds nuw i8, ptr %14, i64 92
   %167 = load float, ptr %166, align 4
   %168 = fcmp ogt float %167, %.1
   br i1 %168, label %169, label %170
@@ -477,7 +477,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br label %170
 
 170:                                              ; preds = %169, %165
-  %171 = getelementptr inbounds i8, ptr %14, i64 96
+  %171 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %172 = load float, ptr %171, align 8
   %173 = fcmp ogt float %172, %.1313
   br i1 %173, label %174, label %175
@@ -487,7 +487,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br label %175
 
 175:                                              ; preds = %174, %170
-  %176 = getelementptr inbounds i8, ptr %14, i64 100
+  %176 = getelementptr inbounds nuw i8, ptr %14, i64 100
   %177 = load float, ptr %176, align 4
   %178 = fcmp olt float %177, %.1
   br i1 %178, label %179, label %180
@@ -497,7 +497,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br label %180
 
 180:                                              ; preds = %179, %175
-  %181 = getelementptr inbounds i8, ptr %14, i64 104
+  %181 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %182 = load float, ptr %181, align 8
   %183 = fcmp olt float %182, %.1313
   br i1 %183, label %184, label %185
@@ -513,13 +513,13 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
 
 186:                                              ; preds = %25
   %187 = load float, ptr %5, align 16
-  %188 = getelementptr inbounds i8, ptr %5, i64 4
+  %188 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %189 = load float, ptr %188, align 4
-  %190 = getelementptr inbounds i8, ptr %5, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %191 = load float, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %5, i64 12
+  %192 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %193 = load float, ptr %192, align 4
-  %194 = getelementptr inbounds i8, ptr %14, i64 51
+  %194 = getelementptr inbounds nuw i8, ptr %14, i64 51
   %195 = load i8, ptr %194, align 1
   %.not331 = icmp eq i8 %195, 0
   br i1 %.not331, label %215, label %196
@@ -533,12 +533,12 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   %202 = fadd float %201, 2.500000e-01
   %203 = fsub float %199, %191
   %204 = fsub float %202, %193
-  %205 = getelementptr inbounds i8, ptr %14, i64 84
+  %205 = getelementptr inbounds nuw i8, ptr %14, i64 84
   %206 = load float, ptr %205, align 4
   %207 = fadd float %204, %206
   %208 = fmul float %207, 5.000000e-01
   %209 = fadd float %187, %208
-  %210 = getelementptr inbounds i8, ptr %14, i64 88
+  %210 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %211 = load float, ptr %210, align 8
   %212 = fadd float %204, %211
   %213 = fmul float %212, 5.000000e-01
@@ -552,34 +552,34 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   %.0316 = phi float [ %199, %196 ], [ %191, %186 ]
   %.2314 = phi float [ %214, %196 ], [ %189, %186 ]
   %.2 = phi float [ %209, %196 ], [ %187, %186 ]
-  %216 = getelementptr inbounds i8, ptr %14, i64 68
+  %216 = getelementptr inbounds nuw i8, ptr %14, i64 68
   %217 = load float, ptr %216, align 4
-  %218 = getelementptr inbounds i8, ptr %14, i64 72
+  %218 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %219 = load float, ptr %218, align 8
   %220 = call fastcc zeroext i8 @subdivideQuad(ptr noundef nonnull %14, i32 noundef 0, float noundef %217, float noundef %219, float noundef %.2, float noundef %.2314, float noundef %.0316, float noundef %.0318)
   %.not332 = icmp eq i8 %220, 0
   br i1 %.not332, label %.critedge343, label %221
 
 221:                                              ; preds = %215
-  %222 = getelementptr inbounds i8, ptr %14, i64 50
+  %222 = getelementptr inbounds nuw i8, ptr %14, i64 50
   %223 = load i8, ptr %222, align 2
   %.not333 = icmp eq i8 %223, 0
   br i1 %.not333, label %228, label %.thread
 
 .thread:                                          ; preds = %221
-  %224 = getelementptr inbounds i8, ptr %14, i64 100
+  %224 = getelementptr inbounds nuw i8, ptr %14, i64 100
   store float %.2, ptr %224, align 4
-  %225 = getelementptr inbounds i8, ptr %14, i64 92
+  %225 = getelementptr inbounds nuw i8, ptr %14, i64 92
   store float %.2, ptr %225, align 4
-  %226 = getelementptr inbounds i8, ptr %14, i64 104
+  %226 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store float %.2314, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %14, i64 96
+  %227 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store float %.2314, ptr %227, align 8
   store i8 0, ptr %222, align 2
   br label %251
 
 228:                                              ; preds = %221
-  %229 = getelementptr inbounds i8, ptr %14, i64 92
+  %229 = getelementptr inbounds nuw i8, ptr %14, i64 92
   %230 = load float, ptr %229, align 4
   %231 = fcmp ogt float %230, %.2
   br i1 %231, label %232, label %233
@@ -590,7 +590,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
 
 233:                                              ; preds = %232, %228
   %234 = phi float [ %.2, %232 ], [ %230, %228 ]
-  %235 = getelementptr inbounds i8, ptr %14, i64 96
+  %235 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %236 = load float, ptr %235, align 8
   %237 = fcmp ogt float %236, %.2314
   br i1 %237, label %238, label %239
@@ -601,7 +601,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
 
 239:                                              ; preds = %238, %233
   %240 = phi float [ %.2314, %238 ], [ %236, %233 ]
-  %241 = getelementptr inbounds i8, ptr %14, i64 100
+  %241 = getelementptr inbounds nuw i8, ptr %14, i64 100
   %242 = load float, ptr %241, align 4
   %243 = fcmp olt float %242, %.2
   br i1 %243, label %244, label %245
@@ -612,7 +612,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
 
 245:                                              ; preds = %244, %239
   %246 = phi float [ %.2, %244 ], [ %242, %239 ]
-  %247 = getelementptr inbounds i8, ptr %14, i64 104
+  %247 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %248 = load float, ptr %247, align 8
   %249 = fcmp olt float %248, %.2314
   br i1 %249, label %250, label %251
@@ -630,7 +630,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br i1 %256, label %257, label %259
 
 257:                                              ; preds = %251
-  %258 = getelementptr inbounds i8, ptr %14, i64 92
+  %258 = getelementptr inbounds nuw i8, ptr %14, i64 92
   store float %.0316, ptr %258, align 4
   br label %259
 
@@ -639,7 +639,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br i1 %260, label %261, label %263
 
 261:                                              ; preds = %259
-  %262 = getelementptr inbounds i8, ptr %14, i64 96
+  %262 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store float %.0318, ptr %262, align 8
   br label %263
 
@@ -648,7 +648,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br i1 %264, label %265, label %267
 
 265:                                              ; preds = %263
-  %266 = getelementptr inbounds i8, ptr %14, i64 100
+  %266 = getelementptr inbounds nuw i8, ptr %14, i64 100
   store float %.0316, ptr %266, align 4
   br label %267
 
@@ -657,7 +657,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br i1 %268, label %269, label %271
 
 269:                                              ; preds = %267
-  %270 = getelementptr inbounds i8, ptr %14, i64 104
+  %270 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store float %.0318, ptr %270, align 8
   br label %271
 
@@ -668,17 +668,17 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
 
 272:                                              ; preds = %25
   %273 = load float, ptr %5, align 16
-  %274 = getelementptr inbounds i8, ptr %5, i64 4
+  %274 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %275 = load float, ptr %274, align 4
-  %276 = getelementptr inbounds i8, ptr %5, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %277 = load float, ptr %276, align 8
-  %278 = getelementptr inbounds i8, ptr %5, i64 12
+  %278 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %279 = load float, ptr %278, align 4
-  %280 = getelementptr inbounds i8, ptr %5, i64 16
+  %280 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %281 = load float, ptr %280, align 16
-  %282 = getelementptr inbounds i8, ptr %5, i64 20
+  %282 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %283 = load float, ptr %282, align 4
-  %284 = getelementptr inbounds i8, ptr %14, i64 51
+  %284 = getelementptr inbounds nuw i8, ptr %14, i64 51
   %285 = load i8, ptr %284, align 1
   %.not326 = icmp eq i8 %285, 0
   br i1 %.not326, label %303, label %286
@@ -692,10 +692,10 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   %292 = fadd float %291, 2.500000e-01
   %293 = fsub float %289, %281
   %294 = fsub float %292, %283
-  %295 = getelementptr inbounds i8, ptr %14, i64 84
+  %295 = getelementptr inbounds nuw i8, ptr %14, i64 84
   %296 = load float, ptr %295, align 4
   %297 = fadd float %273, %296
-  %298 = getelementptr inbounds i8, ptr %14, i64 88
+  %298 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %299 = load float, ptr %298, align 8
   %300 = fadd float %275, %299
   %301 = fadd float %277, %293
@@ -711,34 +711,34 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   %.1317 = phi float [ %301, %286 ], [ %277, %272 ]
   %.3315 = phi float [ %300, %286 ], [ %275, %272 ]
   %.3 = phi float [ %297, %286 ], [ %273, %272 ]
-  %304 = getelementptr inbounds i8, ptr %14, i64 68
+  %304 = getelementptr inbounds nuw i8, ptr %14, i64 68
   %305 = load float, ptr %304, align 4
-  %306 = getelementptr inbounds i8, ptr %14, i64 72
+  %306 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %307 = load float, ptr %306, align 8
   %308 = call fastcc zeroext i8 @subdivideCubic(ptr noundef nonnull %14, i32 noundef 0, float noundef %305, float noundef %307, float noundef %.3, float noundef %.3315, float noundef %.1317, float noundef %.1319, float noundef %.0320, float noundef %.0321)
   %.not327 = icmp eq i8 %308, 0
   br i1 %.not327, label %.critedge343, label %309
 
 309:                                              ; preds = %303
-  %310 = getelementptr inbounds i8, ptr %14, i64 50
+  %310 = getelementptr inbounds nuw i8, ptr %14, i64 50
   %311 = load i8, ptr %310, align 2
   %.not328 = icmp eq i8 %311, 0
   br i1 %.not328, label %316, label %.thread364
 
 .thread364:                                       ; preds = %309
-  %312 = getelementptr inbounds i8, ptr %14, i64 100
+  %312 = getelementptr inbounds nuw i8, ptr %14, i64 100
   store float %.3, ptr %312, align 4
-  %313 = getelementptr inbounds i8, ptr %14, i64 92
+  %313 = getelementptr inbounds nuw i8, ptr %14, i64 92
   store float %.3, ptr %313, align 4
-  %314 = getelementptr inbounds i8, ptr %14, i64 104
+  %314 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store float %.3315, ptr %314, align 8
-  %315 = getelementptr inbounds i8, ptr %14, i64 96
+  %315 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store float %.3315, ptr %315, align 8
   store i8 0, ptr %310, align 2
   br label %339
 
 316:                                              ; preds = %309
-  %317 = getelementptr inbounds i8, ptr %14, i64 92
+  %317 = getelementptr inbounds nuw i8, ptr %14, i64 92
   %318 = load float, ptr %317, align 4
   %319 = fcmp ogt float %318, %.3
   br i1 %319, label %320, label %321
@@ -749,7 +749,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
 
 321:                                              ; preds = %320, %316
   %322 = phi float [ %.3, %320 ], [ %318, %316 ]
-  %323 = getelementptr inbounds i8, ptr %14, i64 96
+  %323 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %324 = load float, ptr %323, align 8
   %325 = fcmp ogt float %324, %.3315
   br i1 %325, label %326, label %327
@@ -760,7 +760,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
 
 327:                                              ; preds = %326, %321
   %328 = phi float [ %.3315, %326 ], [ %324, %321 ]
-  %329 = getelementptr inbounds i8, ptr %14, i64 100
+  %329 = getelementptr inbounds nuw i8, ptr %14, i64 100
   %330 = load float, ptr %329, align 4
   %331 = fcmp olt float %330, %.3
   br i1 %331, label %332, label %333
@@ -771,7 +771,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
 
 333:                                              ; preds = %332, %327
   %334 = phi float [ %.3, %332 ], [ %330, %327 ]
-  %335 = getelementptr inbounds i8, ptr %14, i64 104
+  %335 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %336 = load float, ptr %335, align 8
   %337 = fcmp olt float %336, %.3315
   br i1 %337, label %338, label %339
@@ -789,7 +789,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br i1 %344, label %345, label %347
 
 345:                                              ; preds = %339
-  %346 = getelementptr inbounds i8, ptr %14, i64 92
+  %346 = getelementptr inbounds nuw i8, ptr %14, i64 92
   store float %.1317, ptr %346, align 4
   br label %347
 
@@ -799,7 +799,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br i1 %349, label %350, label %352
 
 350:                                              ; preds = %347
-  %351 = getelementptr inbounds i8, ptr %14, i64 96
+  %351 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store float %.1319, ptr %351, align 8
   br label %352
 
@@ -809,7 +809,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br i1 %354, label %355, label %357
 
 355:                                              ; preds = %352
-  %356 = getelementptr inbounds i8, ptr %14, i64 100
+  %356 = getelementptr inbounds nuw i8, ptr %14, i64 100
   store float %.1317, ptr %356, align 4
   br label %357
 
@@ -819,7 +819,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br i1 %359, label %360, label %362
 
 360:                                              ; preds = %357
-  %361 = getelementptr inbounds i8, ptr %14, i64 104
+  %361 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store float %.1319, ptr %361, align 8
   br label %362
 
@@ -829,7 +829,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br i1 %364, label %365, label %367
 
 365:                                              ; preds = %362
-  %366 = getelementptr inbounds i8, ptr %14, i64 92
+  %366 = getelementptr inbounds nuw i8, ptr %14, i64 92
   store float %.0320, ptr %366, align 4
   br label %367
 
@@ -838,7 +838,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br i1 %368, label %369, label %371
 
 369:                                              ; preds = %367
-  %370 = getelementptr inbounds i8, ptr %14, i64 96
+  %370 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store float %.0321, ptr %370, align 8
   br label %371
 
@@ -847,7 +847,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br i1 %372, label %373, label %375
 
 373:                                              ; preds = %371
-  %374 = getelementptr inbounds i8, ptr %14, i64 100
+  %374 = getelementptr inbounds nuw i8, ptr %14, i64 100
   store float %.0320, ptr %374, align 4
   br label %375
 
@@ -856,7 +856,7 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br i1 %376, label %377, label %379
 
 377:                                              ; preds = %375
-  %378 = getelementptr inbounds i8, ptr %14, i64 104
+  %378 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store float %.0321, ptr %378, align 8
   br label %379
 
@@ -866,28 +866,28 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   br label %.critedge
 
 380:                                              ; preds = %25
-  %381 = getelementptr inbounds i8, ptr %14, i64 68
+  %381 = getelementptr inbounds nuw i8, ptr %14, i64 68
   %382 = load float, ptr %381, align 4
-  %383 = getelementptr inbounds i8, ptr %14, i64 76
+  %383 = getelementptr inbounds nuw i8, ptr %14, i64 76
   %384 = load float, ptr %383, align 4
   %385 = fcmp une float %382, %384
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %14, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 72
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert372 = getelementptr inbounds i8, ptr %14, i64 80
+  %.phi.trans.insert372 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %.pre373 = load float, ptr %.phi.trans.insert372, align 8
   %386 = fcmp une float %.pre, %.pre373
   %or.cond382 = select i1 %385, i1 true, i1 %386
   br i1 %or.cond382, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %380
-  %387 = getelementptr inbounds i8, ptr %14, i64 72
-  %388 = getelementptr inbounds i8, ptr %14, i64 80
+  %387 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  %388 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %389 = fcmp olt float %382, %384
   %..i350 = select i1 %389, float %382, float %384
   %.41.i351 = select i1 %389, float %384, float %382
   %390 = fcmp olt float %.pre, %.pre373
   %.031.i352 = select i1 %390, float %.pre373, float %.pre
-  %391 = getelementptr inbounds i8, ptr %14, i64 56
+  %391 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %392 = load i32, ptr %391, align 8
   %393 = sitofp i32 %392 to float
   %394 = fcmp ugt float %.031.i352, %393
@@ -895,21 +895,21 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
 
 395:                                              ; preds = %._crit_edge
   %.032.i354 = select i1 %390, float %.pre, float %.pre373
-  %396 = getelementptr inbounds i8, ptr %14, i64 64
+  %396 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %397 = load i32, ptr %396, align 8
   %398 = sitofp i32 %397 to float
   %399 = fcmp ult float %.032.i354, %398
   br i1 %399, label %400, label %subdivideLine.exit355.thread
 
 400:                                              ; preds = %395
-  %401 = getelementptr inbounds i8, ptr %14, i64 60
+  %401 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %402 = load i32, ptr %401, align 4
   %403 = sitofp i32 %402 to float
   %404 = fcmp ult float %..i350, %403
   br i1 %404, label %405, label %subdivideLine.exit355.thread
 
 405:                                              ; preds = %400
-  %406 = getelementptr inbounds i8, ptr %14, i64 52
+  %406 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %407 = load i32, ptr %406, align 4
   %408 = sitofp i32 %407 to float
   %409 = fcmp ugt float %.41.i351, %408
@@ -958,7 +958,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @subdivideLine(ptr nocapture no
   %.41 = select i1 %6, float %3, float %1
   %7 = fcmp olt float %2, %4
   %.031 = select i1 %7, float %4, float %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = sitofp i32 %9 to float
   %11 = fcmp ugt float %.031, %10
@@ -966,21 +966,21 @@ define internal fastcc zeroext range(i8 0, 2) i8 @subdivideLine(ptr nocapture no
 
 12:                                               ; preds = %5
   %.032 = select i1 %7, float %2, float %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i32, ptr %13, align 8
   %15 = sitofp i32 %14 to float
   %16 = fcmp ult float %.032, %15
   br i1 %16, label %17, label %31
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %19 = load i32, ptr %18, align 4
   %20 = sitofp i32 %19 to float
   %21 = fcmp ult float %., %20
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %24 = load i32, ptr %23, align 4
   %25 = sitofp i32 %24 to float
   %26 = fcmp ugt float %.41, %25
@@ -1004,10 +1004,10 @@ declare double @llvm.floor.f64(double) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext range(i8 0, 2) i8 @subdivideQuad(ptr nocapture noundef %0, i32 noundef range(i32 0, 11) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 60
-  %12 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %76, %8
@@ -1157,10 +1157,10 @@ ptSegDistSq.exit:                                 ; preds = %53, %61, %67
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext range(i8 0, 2) i8 @subdivideCubic(ptr nocapture noundef %0, i32 noundef range(i32 0, 11) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) unnamed_addr #0 {
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
-  %13 = getelementptr inbounds i8, ptr %0, i64 60
-  %14 = getelementptr inbounds i8, ptr %0, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %109, %10
@@ -1371,7 +1371,7 @@ declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_getPathBox(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i32], align 16
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @pSpanDataID, align 8
   %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #14
@@ -1384,7 +1384,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_getPathBox(ptr noundef %0, p
 
 12:                                               ; preds = %3
   %13 = inttoptr i64 %9 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load i8, ptr %14, align 8
   %or.cond.i.not = icmp eq i8 %15, 3
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %16
@@ -1394,31 +1394,31 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_getPathBox(ptr noundef %0, p
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %13, i64 92
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 92
   %18 = load float, ptr %17, align 4
   %19 = tail call float @llvm.floor.f32(float %18)
   %20 = fptosi float %19 to i32
   store i32 %20, ptr %4, align 16
-  %21 = getelementptr inbounds i8, ptr %13, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %22 = load float, ptr %21, align 8
   %23 = tail call float @llvm.floor.f32(float %22)
   %24 = fptosi float %23 to i32
-  %25 = getelementptr inbounds i8, ptr %4, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %13, i64 100
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 100
   %27 = load float, ptr %26, align 4
   %28 = tail call float @llvm.ceil.f32(float %27)
   %29 = fptosi float %28 to i32
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %13, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %32 = load float, ptr %31, align 8
   %33 = tail call float @llvm.ceil.f32(float %32)
   %34 = fptosi float %33 to i32
-  %35 = getelementptr inbounds i8, ptr %4, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %34, ptr %35, align 4
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1688
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1688
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %4) #14
   br label %GetSpanData.exit.thread
@@ -1429,28 +1429,28 @@ GetSpanData.exit.thread:                          ; preds = %16, %11, %GetSpanDa
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @ShapeSIGetPathBox(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 92
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %5 = load float, ptr %4, align 4
   %6 = tail call float @llvm.floor.f32(float %5)
   %7 = fptosi float %6 to i32
   store i32 %7, ptr %2, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %9 = load float, ptr %8, align 8
   %10 = tail call float @llvm.floor.f32(float %9)
   %11 = fptosi float %10 to i32
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 100
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %14 = load float, ptr %13, align 4
   %15 = tail call float @llvm.ceil.f32(float %14)
   %16 = fptosi float %15 to i32
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %19 = load float, ptr %18, align 8
   %20 = tail call float @llvm.ceil.f32(float %19)
   %21 = fptosi float %20 to i32
-  %22 = getelementptr inbounds i8, ptr %2, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %21, ptr %22, align 4
   ret void
 }
@@ -1458,7 +1458,7 @@ define internal void @ShapeSIGetPathBox(ptr nocapture readnone %0, ptr nocapture
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_intersectClipBox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 808
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 808
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @pSpanDataID, align 8
   %11 = tail call i64 %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10) #14
@@ -1471,7 +1471,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_intersectClipBox(ptr noundef
 
 14:                                               ; preds = %6
   %15 = inttoptr i64 %11 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load i8, ptr %16, align 8
   %or.cond.i.not = icmp eq i8 %17, 3
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %18
@@ -1481,7 +1481,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_intersectClipBox(ptr noundef
   br label %ShapeSIIntersectClipBox.exit
 
 GetSpanData.exit:                                 ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 52
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %2, %20
   br i1 %21, label %22, label %23
@@ -1491,7 +1491,7 @@ GetSpanData.exit:                                 ; preds = %14
   br label %23
 
 23:                                               ; preds = %22, %GetSpanData.exit
-  %24 = getelementptr inbounds i8, ptr %15, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %3, %25
   br i1 %26, label %27, label %28
@@ -1501,7 +1501,7 @@ GetSpanData.exit:                                 ; preds = %14
   br label %28
 
 28:                                               ; preds = %27, %23
-  %29 = getelementptr inbounds i8, ptr %15, i64 60
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 60
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %4, %30
   br i1 %31, label %32, label %33
@@ -1511,7 +1511,7 @@ GetSpanData.exit:                                 ; preds = %14
   br label %33
 
 33:                                               ; preds = %32, %28
-  %34 = getelementptr inbounds i8, ptr %15, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %35 = load i32, ptr %34, align 8
   %36 = icmp slt i32 %5, %35
   br i1 %36, label %37, label %ShapeSIIntersectClipBox.exit
@@ -1526,7 +1526,7 @@ ShapeSIIntersectClipBox.exit:                     ; preds = %18, %13, %37, %33
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @ShapeSIIntersectClipBox(ptr nocapture readnone %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #4 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %2, %8
   br i1 %9, label %10, label %11
@@ -1536,7 +1536,7 @@ define internal void @ShapeSIIntersectClipBox(ptr nocapture readnone %0, ptr noc
   br label %11
 
 11:                                               ; preds = %10, %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %3, %13
   br i1 %14, label %15, label %16
@@ -1546,7 +1546,7 @@ define internal void @ShapeSIIntersectClipBox(ptr nocapture readnone %0, ptr noc
   br label %16
 
 16:                                               ; preds = %15, %11
-  %17 = getelementptr inbounds i8, ptr %1, i64 60
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %18 = load i32, ptr %17, align 4
   %19 = icmp slt i32 %4, %18
   br i1 %19, label %20, label %21
@@ -1556,7 +1556,7 @@ define internal void @ShapeSIIntersectClipBox(ptr nocapture readnone %0, ptr noc
   br label %21
 
 21:                                               ; preds = %20, %16
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load i32, ptr %22, align 8
   %24 = icmp slt i32 %5, %23
   br i1 %24, label %25, label %26
@@ -1573,7 +1573,7 @@ define internal void @ShapeSIIntersectClipBox(ptr nocapture readnone %0, ptr noc
 define zeroext range(i8 0, 2) i8 @Java_sun_java2d_pipe_ShapeSpanIterator_nextSpan(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i32], align 16
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @pSpanDataID, align 8
   %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #14
@@ -1586,7 +1586,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_pipe_ShapeSpanIterator_nextSpa
 
 12:                                               ; preds = %3
   %13 = inttoptr i64 %9 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load i8, ptr %14, align 8
   %16 = add i8 %15, -5
   %or.cond.i = icmp ult i8 %16, -2
@@ -1603,7 +1603,7 @@ GetSpanData.exit:                                 ; preds = %12
 
 19:                                               ; preds = %GetSpanData.exit
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1688
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1688
   %22 = load ptr, ptr %21, align 8
   call void %22(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %4) #14
   br label %GetSpanData.exit.thread
@@ -1615,23 +1615,23 @@ GetSpanData.exit.thread:                          ; preds = %17, %11, %GetSpanDa
 
 ; Function Attrs: nofree nounwind uwtable
 define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i8, ptr %5, align 8
   %.not = icmp eq i8 %6, 4
   br i1 %.not, label %._crit_edge295, label %7
 
 ._crit_edge295:                                   ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 128
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert296 = getelementptr inbounds i8, ptr %0, i64 132
+  %.phi.trans.insert296 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %.pre297 = load i32, ptr %.phi.trans.insert296, align 4
-  %.phi.trans.insert298 = getelementptr inbounds i8, ptr %0, i64 136
+  %.phi.trans.insert298 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.pre299 = load i32, ptr %.phi.trans.insert298, align 8
-  %.phi.trans.insert300 = getelementptr inbounds i8, ptr %0, i64 56
+  %.phi.trans.insert300 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre301 = load i32, ptr %.phi.trans.insert300, align 8
-  %.phi.trans.insert302 = getelementptr inbounds i8, ptr %0, i64 144
+  %.phi.trans.insert302 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.pre303 = load ptr, ptr %.phi.trans.insert302, align 8
   br label %36
 
@@ -1648,15 +1648,15 @@ define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr nocapture noundef
   br i1 %13, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load ptr, ptr %14, align 8
   %wide.trip.count.i = zext nneg i32 %4 to i64
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds %struct.segmentData, ptr %15, i64 %indvars.iv.i
-  %18 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw %struct.segmentData, ptr %15, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
   store ptr %17, ptr %18, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1664,10 +1664,10 @@ define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr nocapture noundef
 
 ._crit_edge.i:                                    ; preds = %16, %12
   tail call void @qsort(ptr noundef nonnull %10, i64 noundef %8, i64 noundef 8, ptr noundef nonnull @sortSegmentsByLeadingY) #14
-  %19 = getelementptr inbounds i8, ptr %0, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %10, ptr %19, align 8
   %20 = load i32, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %20, 0
   br i1 %23, label %.lr.ph34.preheader.i, label %initSegmentTable.exit
@@ -1678,9 +1678,9 @@ define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr nocapture noundef
 
 .lr.ph34.i:                                       ; preds = %28, %.lr.ph34.preheader.i
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph34.preheader.i ], [ %indvars.iv.next39.i, %28 ]
-  %24 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv38.i
+  %24 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv38.i
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4
   %.not.i = icmp sgt i32 %27, %22
   br i1 %.not.i, label %.critedge.loopexit.split.loop.exit43.i, label %28
@@ -1696,18 +1696,18 @@ define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr nocapture noundef
 
 initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i, %.critedge.loopexit.split.loop.exit43.i
   %.028.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %29, %.critedge.loopexit.split.loop.exit43.i ], [ %20, %28 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %.028.lcssa.i, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 132
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %.028.lcssa.i, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %.028.lcssa.i, ptr %32, align 8
   %33 = add nsw i32 %22, -1
   store i32 %33, ptr %21, align 8
   br label %36
 
 34:                                               ; preds = %7
-  %35 = getelementptr inbounds i8, ptr %0, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %4, ptr %35, align 8
   br label %171
 
@@ -1718,18 +1718,18 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %40 = phi i32 [ %.pre299, %._crit_edge295 ], [ %.028.lcssa.i, %initSegmentTable.exit ]
   %41 = phi i32 [ %.pre297, %._crit_edge295 ], [ %.028.lcssa.i, %initSegmentTable.exit ]
   %42 = phi i32 [ %.pre, %._crit_edge295 ], [ %.028.lcssa.i, %initSegmentTable.exit ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 128
-  %44 = getelementptr inbounds i8, ptr %0, i64 132
-  %45 = getelementptr inbounds i8, ptr %0, i64 136
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = icmp slt i32 %42, %39
   br i1 %47, label %.lr.ph.lr.ph, label %.loopexit193
 
 .lr.ph.lr.ph:                                     ; preds = %36
-  %48 = getelementptr inbounds i8, ptr %0, i64 60
-  %49 = getelementptr inbounds i8, ptr %0, i64 52
-  %50 = getelementptr inbounds i8, ptr %0, i64 49
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %52 = sext i32 %39 to i64
   br label %.lr.ph.split.us
 
@@ -1776,7 +1776,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   br label %.loopexit.us
 
 69:                                               ; preds = %61
-  %70 = getelementptr inbounds i8, ptr %59, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %71 = load i8, ptr %70, align 4
   %72 = sext i8 %71 to i32
   %73 = add nsw i32 %.0148204.us237, 1
@@ -1794,7 +1794,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %77 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = load i8, ptr %79, align 4
   %81 = sext i8 %80 to i32
   %82 = add nsw i32 %.0147.us, %81
@@ -1819,12 +1819,12 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 
 .split213.us:                                     ; preds = %.loopexit.us
   store i32 %spec.select.us, ptr %1, align 4
-  %85 = getelementptr inbounds i8, ptr %1, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.0151.ph259, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %1, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %spec.select188.us, ptr %86, align 4
   %87 = add nsw i32 %.0151.ph259, 1
-  %88 = getelementptr inbounds i8, ptr %1, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %87, ptr %88, align 4
   br label %.loopexit193
 
@@ -1849,7 +1849,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %indvars.iv.next279 = add nsw i64 %indvars.iv278, -1
   %93 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.next279
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i32, ptr %95, align 4
   %97 = icmp sgt i32 %96, %89
   br i1 %97, label %98, label %102
@@ -1877,7 +1877,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %106 = sext i32 %.0160.ph258 to i64
   %107 = getelementptr inbounds ptr, ptr %37, i64 %106
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   %spec.select189 = tail call i32 @llvm.smax.i32(i32 %89, i32 %110)
   br label %111
@@ -1895,7 +1895,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %indvars.iv282 = phi i64 [ %113, %.lr.ph245.preheader ], [ %indvars.iv.next283, %118 ]
   %114 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv282
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %117 = load i32, ptr %116, align 4
   %.not181 = icmp sgt i32 %117, %.2153
   br i1 %.not181, label %.critedge.loopexit.split.loop.exit312, label %118
@@ -1925,19 +1925,19 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %124 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv286
   %125 = load ptr, ptr %124, align 8
   %126 = load i32, ptr %125, align 4
-  %127 = getelementptr inbounds i8, ptr %125, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds i8, ptr %125, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 12
   %130 = load i32, ptr %129, align 4
   %131 = add nsw i32 %128, 1
   %132 = icmp eq i32 %131, %.2153
   br i1 %132, label %133, label %141
 
 133:                                              ; preds = %123
-  %134 = getelementptr inbounds i8, ptr %125, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %135 = load i32, ptr %134, align 4
   %136 = add nsw i32 %135, %126
-  %137 = getelementptr inbounds i8, ptr %125, i64 20
+  %137 = getelementptr inbounds nuw i8, ptr %125, i64 20
   %138 = load i32, ptr %137, align 4
   %139 = add nsw i32 %138, %130
   %.neg = lshr i32 %139, 31
@@ -1947,13 +1947,13 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 141:                                              ; preds = %123
   %142 = sext i32 %128 to i64
   %143 = sub nsw i64 %121, %142
-  %144 = getelementptr inbounds i8, ptr %125, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %145 = load i32, ptr %144, align 4
   %146 = trunc i64 %143 to i32
   %147 = mul i32 %145, %146
   %148 = add nsw i32 %147, %126
   %149 = sext i32 %130 to i64
-  %150 = getelementptr inbounds i8, ptr %125, i64 20
+  %150 = getelementptr inbounds nuw i8, ptr %125, i64 20
   %151 = load i32, ptr %150, align 4
   %152 = sext i32 %151 to i64
   %153 = mul nsw i64 %143, %152
@@ -2023,7 +2023,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_skipDownTo(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 808
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 808
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @pSpanDataID, align 8
   %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #14
@@ -2036,7 +2036,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_skipDownTo(ptr noundef %0, p
 
 11:                                               ; preds = %3
   %12 = inttoptr i64 %8 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load i8, ptr %13, align 8
   %15 = add i8 %14, -5
   %or.cond.i = icmp ult i8 %15, -2
@@ -2056,18 +2056,18 @@ GetSpanData.exit.thread:                          ; preds = %16, %10, %GetSpanDa
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @ShapeSISkipDownTo(ptr nocapture noundef %0, i32 noundef %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 4
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 56
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %36
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 3
@@ -2081,15 +2081,15 @@ define internal void @ShapeSISkipDownTo(ptr nocapture noundef %0, i32 noundef %1
   br i1 %13, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load ptr, ptr %14, align 8
   %wide.trip.count.i = zext nneg i32 %7 to i64
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds %struct.segmentData, ptr %15, i64 %indvars.iv.i
-  %18 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw %struct.segmentData, ptr %15, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
   store ptr %17, ptr %18, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2097,10 +2097,10 @@ define internal void @ShapeSISkipDownTo(ptr nocapture noundef %0, i32 noundef %1
 
 ._crit_edge.i:                                    ; preds = %16, %12
   tail call void @qsort(ptr noundef nonnull %10, i64 noundef %8, i64 noundef 8, ptr noundef nonnull @sortSegmentsByLeadingY) #14
-  %19 = getelementptr inbounds i8, ptr %0, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %10, ptr %19, align 8
   %20 = load i32, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %20, 0
   br i1 %23, label %.lr.ph34.preheader.i, label %initSegmentTable.exit
@@ -2111,9 +2111,9 @@ define internal void @ShapeSISkipDownTo(ptr nocapture noundef %0, i32 noundef %1
 
 .lr.ph34.i:                                       ; preds = %28, %.lr.ph34.preheader.i
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph34.preheader.i ], [ %indvars.iv.next39.i, %28 ]
-  %24 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv38.i
+  %24 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv38.i
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4
   %.not.i = icmp sgt i32 %27, %22
   br i1 %.not.i, label %.critedge.loopexit.split.loop.exit43.i, label %28
@@ -2129,18 +2129,18 @@ define internal void @ShapeSISkipDownTo(ptr nocapture noundef %0, i32 noundef %1
 
 initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i, %.critedge.loopexit.split.loop.exit43.i
   %.028.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %29, %.critedge.loopexit.split.loop.exit43.i ], [ %20, %28 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %.028.lcssa.i, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 132
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %.028.lcssa.i, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %.028.lcssa.i, ptr %32, align 8
   %33 = add nsw i32 %22, -1
   store i32 %33, ptr %21, align 8
   br label %36
 
 34:                                               ; preds = %5
-  %35 = getelementptr inbounds i8, ptr %0, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %7, ptr %35, align 8
   br label %45
 
@@ -2150,12 +2150,12 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = add nsw i32 %1, -1
   store i32 %41, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 136
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 132
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %43, ptr %44, align 4
   br label %45
 
@@ -2171,7 +2171,7 @@ define noundef i64 @Java_sun_java2d_pipe_ShapeSpanIterator_getNativeIterator(ptr
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_dispose(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 808
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pSpanDataID, align 8
   %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #14
@@ -2180,7 +2180,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_dispose(ptr noundef %0, ptr 
   br i1 %9, label %23, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %8, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %14, label %13
@@ -2190,7 +2190,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_dispose(ptr noundef %0, ptr 
   br label %14
 
 14:                                               ; preds = %13, %10
-  %15 = getelementptr inbounds i8, ptr %8, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %16 = load ptr, ptr %15, align 8
   %.not14 = icmp eq ptr %16, null
   br i1 %.not14, label %18, label %17
@@ -2202,7 +2202,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_dispose(ptr noundef %0, ptr 
 18:                                               ; preds = %17, %14
   tail call void @free(ptr noundef nonnull %8) #14
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 880
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 880
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @pSpanDataID, align 8
   tail call void %21(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %22, i64 noundef 0) #14
@@ -2220,7 +2220,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_appendPoly(ptr noundef %0, p
   %8 = sitofp i32 %5 to float
   %9 = sitofp i32 %6 to float
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 808
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 808
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @pSpanDataID, align 8
   %14 = tail call i64 %12(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %13) #14
@@ -2233,7 +2233,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_appendPoly(ptr noundef %0, p
 
 17:                                               ; preds = %7
   %18 = inttoptr i64 %14 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load i8, ptr %19, align 8
   %or.cond.i.not = icmp eq i8 %20, 1
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %21
@@ -2243,10 +2243,10 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_appendPoly(ptr noundef %0, p
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %18, i64 49
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 49
   store i8 1, ptr %22, align 1
   store i8 2, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 51
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 51
   %24 = load i8, ptr %23, align 1
   %.not = icmp eq i8 %24, 0
   %25 = fadd float %8, 2.500000e-01
@@ -2264,7 +2264,7 @@ GetSpanData.exit:                                 ; preds = %17
 
 30:                                               ; preds = %GetSpanData.exit
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1368
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1368
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %33(ptr noundef nonnull %0, ptr noundef nonnull %2) #14
   %35 = icmp slt i32 %34, %4
@@ -2272,7 +2272,7 @@ GetSpanData.exit:                                 ; preds = %17
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1368
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1368
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %3) #14
   %41 = icmp slt i32 %40, %4
@@ -2288,7 +2288,7 @@ GetSpanData.exit:                                 ; preds = %17
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1776
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1776
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr %48(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #14
   %.not193 = icmp eq ptr %49, null
@@ -2296,7 +2296,7 @@ GetSpanData.exit:                                 ; preds = %17
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1776
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1776
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null) #14
   %.not194 = icmp eq ptr %54, null
@@ -2304,7 +2304,7 @@ GetSpanData.exit:                                 ; preds = %17
 
 .thread:                                          ; preds = %50
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1784
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1784
   %57 = load ptr, ptr %56, align 8
   tail call void %57(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %49, i32 noundef 2) #14
   br label %GetSpanData.exit.thread
@@ -2316,14 +2316,14 @@ GetSpanData.exit:                                 ; preds = %17
   %62 = load i32, ptr %54, align 4
   %63 = sitofp i32 %62 to float
   %64 = fadd float %.0168, %63
-  %65 = getelementptr inbounds i8, ptr %18, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %66 = load i32, ptr %65, align 8
   %67 = sitofp i32 %66 to float
   %68 = fcmp ugt float %64, %67
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %58
-  %70 = getelementptr inbounds i8, ptr %18, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %71 = load i32, ptr %70, align 8
   %72 = sitofp i32 %71 to float
   %73 = fcmp ult float %64, %72
@@ -2332,7 +2332,7 @@ GetSpanData.exit:                                 ; preds = %17
 
 74:                                               ; preds = %69, %58
   %.0166 = phi i32 [ 4, %58 ], [ %., %69 ]
-  %75 = getelementptr inbounds i8, ptr %18, i64 52
+  %75 = getelementptr inbounds nuw i8, ptr %18, i64 52
   %76 = load i32, ptr %75, align 4
   %77 = sitofp i32 %76 to float
   %78 = fcmp ugt float %61, %77
@@ -2343,7 +2343,7 @@ GetSpanData.exit:                                 ; preds = %17
   br label %88
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds i8, ptr %18, i64 60
+  %82 = getelementptr inbounds nuw i8, ptr %18, i64 60
   %83 = load i32, ptr %82, align 4
   %84 = sitofp i32 %83 to float
   %85 = fcmp ult float %61, %84
@@ -2355,30 +2355,30 @@ GetSpanData.exit:                                 ; preds = %17
 
 88:                                               ; preds = %79, %86, %81
   %.1167 = phi i32 [ %80, %79 ], [ %87, %86 ], [ %.0166, %81 ]
-  %89 = getelementptr inbounds i8, ptr %18, i64 68
+  %89 = getelementptr inbounds nuw i8, ptr %18, i64 68
   store float %61, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %18, i64 76
+  %90 = getelementptr inbounds nuw i8, ptr %18, i64 76
   store float %61, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %18, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %18, i64 72
   store float %64, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %18, i64 80
+  %92 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store float %64, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %18, i64 100
+  %93 = getelementptr inbounds nuw i8, ptr %18, i64 100
   store float %61, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %18, i64 92
+  %94 = getelementptr inbounds nuw i8, ptr %18, i64 92
   store float %61, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %18, i64 104
+  %95 = getelementptr inbounds nuw i8, ptr %18, i64 104
   store float %64, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %18, i64 96
+  %96 = getelementptr inbounds nuw i8, ptr %18, i64 96
   store float %64, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %18, i64 50
+  %97 = getelementptr inbounds nuw i8, ptr %18, i64 50
   store i8 0, ptr %97, align 2
   %.not219 = icmp eq i32 %4, 1
   br i1 %.not219, label %.thread212.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %88
-  %98 = getelementptr inbounds i8, ptr %18, i64 64
-  %99 = getelementptr inbounds i8, ptr %18, i64 60
+  %98 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %18, i64 60
   %100 = zext nneg i32 %4 to i64
   br label %101
 
@@ -2389,11 +2389,11 @@ GetSpanData.exit:                                 ; preds = %17
   %105 = phi float [ %64, %.lr.ph ], [ %196, %192 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %192 ]
   %.2218 = phi i32 [ %.1167, %.lr.ph ], [ %.5, %192 ]
-  %106 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4
   %108 = sitofp i32 %107 to float
   %109 = fadd float %.0169, %108
-  %110 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4
   %112 = sitofp i32 %111 to float
   %113 = fadd float %.0168, %112
@@ -2568,35 +2568,35 @@ GetSpanData.exit:                                 ; preds = %17
 
 .loopexit:                                        ; preds = %192
   %199 = load ptr, ptr %0, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 1784
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 1784
   %201 = load ptr, ptr %200, align 8
   tail call void %201(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %54, i32 noundef 2) #14
   %202 = load ptr, ptr %0, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 1784
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 1784
   %204 = load ptr, ptr %203, align 8
   tail call void %204(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %49, i32 noundef 2) #14
   br i1 %.4174, label %.thread212, label %.critedge
 
 .thread212.critedge:                              ; preds = %88
   %205 = load ptr, ptr %0, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 1784
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 1784
   %207 = load ptr, ptr %206, align 8
   tail call void %207(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %54, i32 noundef 2) #14
   %208 = load ptr, ptr %0, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 1784
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 1784
   %210 = load ptr, ptr %209, align 8
   tail call void %210(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %49, i32 noundef 2) #14
   br label %.thread212
 
 .thread212:                                       ; preds = %.thread212.critedge, %43, %.loopexit
-  %211 = getelementptr inbounds i8, ptr %18, i64 68
+  %211 = getelementptr inbounds nuw i8, ptr %18, i64 68
   %212 = load float, ptr %211, align 4
-  %213 = getelementptr inbounds i8, ptr %18, i64 76
+  %213 = getelementptr inbounds nuw i8, ptr %18, i64 76
   %214 = load float, ptr %213, align 4
   %215 = fcmp une float %212, %214
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %18, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 72
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert221 = getelementptr inbounds i8, ptr %18, i64 80
+  %.phi.trans.insert221 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %.pre222 = load float, ptr %.phi.trans.insert221, align 8
   %216 = fcmp une float %.pre, %.pre222
   %or.cond224 = select i1 %215, i1 true, i1 %216
@@ -2608,8 +2608,8 @@ GetSpanData.exit:                                 ; preds = %17
   br i1 %.not197, label %223, label %218
 
 218:                                              ; preds = %.thread212._crit_edge
-  %219 = getelementptr inbounds i8, ptr %18, i64 80
-  %220 = getelementptr inbounds i8, ptr %18, i64 72
+  %219 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %220 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %221 = load float, ptr %213, align 4
   store float %221, ptr %211, align 4
   %222 = load float, ptr %219, align 8
@@ -2654,27 +2654,27 @@ define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr nocapture no
   br i1 %.not, label %13, label %72
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i32, ptr %14, align 8
   %.not77 = icmp sgt i32 %15, %9
   br i1 %.not77, label %16, label %72
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load i32, ptr %17, align 8
   %.not78 = icmp slt i32 %18, %12
   br i1 %.not78, label %19, label %72
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 124
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %23 = load i32, ptr %22, align 4
   %.not79 = icmp slt i32 %21, %23
   br i1 %.not79, label %._crit_edge, label %24
 
 ._crit_edge:                                      ; preds = %19
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 112
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %36
 
@@ -2686,7 +2686,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr nocapture no
   br i1 %28, label %72, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %31 = load ptr, ptr %30, align 8
   %.not80 = icmp eq ptr %31, null
   br i1 %.not80, label %35, label %32
@@ -2737,17 +2737,17 @@ define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr nocapture no
   %64 = sext i32 %37 to i64
   %65 = getelementptr inbounds %struct.segmentData, ptr %38, i64 %64
   store i32 %50, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 %9, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %65, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 %12, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %65, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 12
   store i32 %62, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %65, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i32 %53, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %65, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 20
   store i32 %56, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %65, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i8 %., ptr %71, align 4
   br label %72
 
@@ -2759,7 +2759,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr nocapture no
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_moveTo(ptr noundef %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @pSpanDataID, align 8
   %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #14
@@ -2772,7 +2772,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_moveTo(ptr noundef %0, ptr n
 
 12:                                               ; preds = %4
   %13 = inttoptr i64 %9 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load i8, ptr %14, align 8
   %or.cond.i.not = icmp eq i8 %15, 2
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %16
@@ -2782,28 +2782,28 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_moveTo(ptr noundef %0, ptr n
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %13, i64 68
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %13, i64 76
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 76
   %20 = load float, ptr %19, align 4
   %21 = fcmp une float %18, %20
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %13, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 72
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert69 = getelementptr inbounds i8, ptr %13, i64 80
+  %.phi.trans.insert69 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %.pre70 = load float, ptr %.phi.trans.insert69, align 8
   %22 = fcmp une float %.pre, %.pre70
   %or.cond = select i1 %21, i1 true, i1 %22
   br i1 %or.cond, label %GetSpanData.exit._crit_edge, label %53
 
 GetSpanData.exit._crit_edge:                      ; preds = %GetSpanData.exit
-  %23 = getelementptr inbounds i8, ptr %13, i64 72
-  %24 = getelementptr inbounds i8, ptr %13, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %25 = fcmp olt float %18, %20
   %..i = select i1 %25, float %18, float %20
   %.41.i = select i1 %25, float %20, float %18
   %26 = fcmp olt float %.pre, %.pre70
   %.031.i = select i1 %26, float %.pre70, float %.pre
-  %27 = getelementptr inbounds i8, ptr %13, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %28 = load i32, ptr %27, align 8
   %29 = sitofp i32 %28 to float
   %30 = fcmp ugt float %.031.i, %29
@@ -2811,21 +2811,21 @@ GetSpanData.exit._crit_edge:                      ; preds = %GetSpanData.exit
 
 31:                                               ; preds = %GetSpanData.exit._crit_edge
   %.032.i = select i1 %26, float %.pre, float %.pre70
-  %32 = getelementptr inbounds i8, ptr %13, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %33 = load i32, ptr %32, align 8
   %34 = sitofp i32 %33 to float
   %35 = fcmp ult float %.032.i, %34
   br i1 %35, label %36, label %subdivideLine.exit.thread
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %13, i64 60
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 60
   %38 = load i32, ptr %37, align 4
   %39 = sitofp i32 %38 to float
   %40 = fcmp ult float %..i, %39
   br i1 %40, label %41, label %subdivideLine.exit.thread
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %13, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 52
   %43 = load i32, ptr %42, align 4
   %44 = sitofp i32 %43 to float
   %45 = fcmp ugt float %.41.i, %44
@@ -2860,7 +2860,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %53
 
 53:                                               ; preds = %GetSpanData.exit, %50, %subdivideLine.exit.thread
-  %54 = getelementptr inbounds i8, ptr %13, i64 51
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 51
   %55 = load i8, ptr %54, align 1
   %.not64 = icmp eq i8 %55, 0
   br i1 %.not64, label %67, label %56
@@ -2874,9 +2874,9 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   %62 = fadd float %61, 2.500000e-01
   %63 = fsub float %59, %2
   %64 = fsub float %62, %3
-  %65 = getelementptr inbounds i8, ptr %13, i64 84
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 84
   store float %63, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %13, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store float %64, ptr %66, align 8
   br label %67
 
@@ -2884,27 +2884,27 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   %.062 = phi float [ %62, %56 ], [ %3, %53 ]
   %.0 = phi float [ %59, %56 ], [ %2, %53 ]
   store float %.0, ptr %19, align 4
-  %68 = getelementptr inbounds i8, ptr %13, i64 80
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store float %.062, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %13, i64 50
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 50
   %70 = load i8, ptr %69, align 2
   %.not65 = icmp eq i8 %70, 0
   br i1 %.not65, label %76, label %71
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %13, i64 100
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 100
   store float %.0, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %13, i64 92
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 92
   store float %.0, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %13, i64 104
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store float %.062, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %13, i64 96
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store float %.062, ptr %75, align 8
   store i8 0, ptr %69, align 2
   br label %96
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %13, i64 92
+  %77 = getelementptr inbounds nuw i8, ptr %13, i64 92
   %78 = load float, ptr %77, align 4
   %79 = fcmp ogt float %78, %.0
   br i1 %79, label %80, label %81
@@ -2914,7 +2914,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %81
 
 81:                                               ; preds = %80, %76
-  %82 = getelementptr inbounds i8, ptr %13, i64 96
+  %82 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %83 = load float, ptr %82, align 8
   %84 = fcmp ogt float %83, %.062
   br i1 %84, label %85, label %86
@@ -2924,7 +2924,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %86
 
 86:                                               ; preds = %85, %81
-  %87 = getelementptr inbounds i8, ptr %13, i64 100
+  %87 = getelementptr inbounds nuw i8, ptr %13, i64 100
   %88 = load float, ptr %87, align 4
   %89 = fcmp olt float %88, %.0
   br i1 %89, label %90, label %91
@@ -2934,7 +2934,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %91
 
 91:                                               ; preds = %90, %86
-  %92 = getelementptr inbounds i8, ptr %13, i64 104
+  %92 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %93 = load float, ptr %92, align 8
   %94 = fcmp olt float %93, %.062
   br i1 %94, label %95, label %96
@@ -2945,7 +2945,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
 
 96:                                               ; preds = %71, %95, %91
   store float %.0, ptr %17, align 4
-  %97 = getelementptr inbounds i8, ptr %13, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store float %.062, ptr %97, align 8
   br label %GetSpanData.exit.thread
 
@@ -2956,7 +2956,7 @@ GetSpanData.exit.thread:                          ; preds = %16, %11, %96
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_lineTo(ptr noundef %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @pSpanDataID, align 8
   %9 = tail call i64 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #14
@@ -2969,7 +2969,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_lineTo(ptr noundef %0, ptr n
 
 12:                                               ; preds = %4
   %13 = inttoptr i64 %9 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load i8, ptr %14, align 8
   %or.cond.i.not = icmp eq i8 %15, 2
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %16
@@ -2979,7 +2979,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_lineTo(ptr noundef %0, ptr n
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %13, i64 51
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 51
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %30, label %19
@@ -2993,25 +2993,25 @@ GetSpanData.exit:                                 ; preds = %12
   %25 = fadd float %24, 2.500000e-01
   %26 = fsub float %22, %2
   %27 = fsub float %25, %3
-  %28 = getelementptr inbounds i8, ptr %13, i64 84
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 84
   store float %26, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %13, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store float %27, ptr %29, align 8
   br label %30
 
 30:                                               ; preds = %GetSpanData.exit, %19
   %.050 = phi float [ %25, %19 ], [ %3, %GetSpanData.exit ]
   %.0 = phi float [ %22, %19 ], [ %2, %GetSpanData.exit ]
-  %31 = getelementptr inbounds i8, ptr %13, i64 68
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %32 = load float, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %13, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %34 = load float, ptr %33, align 8
   %35 = fcmp olt float %32, %.0
   %..i = select i1 %35, float %32, float %.0
   %.41.i = select i1 %35, float %.0, float %32
   %36 = fcmp olt float %34, %.050
   %.031.i = select i1 %36, float %.050, float %34
-  %37 = getelementptr inbounds i8, ptr %13, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %38 = load i32, ptr %37, align 8
   %39 = sitofp i32 %38 to float
   %40 = fcmp ugt float %.031.i, %39
@@ -3019,21 +3019,21 @@ GetSpanData.exit:                                 ; preds = %12
 
 41:                                               ; preds = %30
   %.032.i = select i1 %36, float %34, float %.050
-  %42 = getelementptr inbounds i8, ptr %13, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %43 = load i32, ptr %42, align 8
   %44 = sitofp i32 %43 to float
   %45 = fcmp ult float %.032.i, %44
   br i1 %45, label %46, label %subdivideLine.exit.thread
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %13, i64 60
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 60
   %48 = load i32, ptr %47, align 4
   %49 = sitofp i32 %48 to float
   %50 = fcmp ult float %..i, %49
   br i1 %50, label %51, label %subdivideLine.exit.thread
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %13, i64 52
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 52
   %53 = load i32, ptr %52, align 4
   %54 = sitofp i32 %53 to float
   %55 = fcmp ugt float %.41.i, %54
@@ -3057,25 +3057,25 @@ subdivideLine.exit:                               ; preds = %56, %58
   br label %GetSpanData.exit.thread
 
 subdivideLine.exit.thread:                        ; preds = %30, %41, %46, %subdivideLine.exit
-  %61 = getelementptr inbounds i8, ptr %13, i64 50
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 50
   %62 = load i8, ptr %61, align 2
   %.not53 = icmp eq i8 %62, 0
   br i1 %.not53, label %68, label %63
 
 63:                                               ; preds = %subdivideLine.exit.thread
-  %64 = getelementptr inbounds i8, ptr %13, i64 100
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 100
   store float %.0, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %13, i64 92
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 92
   store float %.0, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %13, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store float %.050, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %13, i64 96
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store float %.050, ptr %67, align 8
   store i8 0, ptr %61, align 2
   br label %88
 
 68:                                               ; preds = %subdivideLine.exit.thread
-  %69 = getelementptr inbounds i8, ptr %13, i64 92
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 92
   %70 = load float, ptr %69, align 4
   %71 = fcmp ogt float %70, %.0
   br i1 %71, label %72, label %73
@@ -3085,7 +3085,7 @@ subdivideLine.exit.thread:                        ; preds = %30, %41, %46, %subd
   br label %73
 
 73:                                               ; preds = %72, %68
-  %74 = getelementptr inbounds i8, ptr %13, i64 96
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %75 = load float, ptr %74, align 8
   %76 = fcmp ogt float %75, %.050
   br i1 %76, label %77, label %78
@@ -3095,7 +3095,7 @@ subdivideLine.exit.thread:                        ; preds = %30, %41, %46, %subd
   br label %78
 
 78:                                               ; preds = %77, %73
-  %79 = getelementptr inbounds i8, ptr %13, i64 100
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 100
   %80 = load float, ptr %79, align 4
   %81 = fcmp olt float %80, %.0
   br i1 %81, label %82, label %83
@@ -3105,7 +3105,7 @@ subdivideLine.exit.thread:                        ; preds = %30, %41, %46, %subd
   br label %83
 
 83:                                               ; preds = %82, %78
-  %84 = getelementptr inbounds i8, ptr %13, i64 104
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %85 = load float, ptr %84, align 8
   %86 = fcmp olt float %85, %.050
   br i1 %86, label %87, label %88
@@ -3126,7 +3126,7 @@ GetSpanData.exit.thread:                          ; preds = %16, %11, %88, %60
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_quadTo(ptr noundef %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 808
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 808
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @pSpanDataID, align 8
   %11 = tail call i64 %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %10) #14
@@ -3139,7 +3139,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_quadTo(ptr noundef %0, ptr n
 
 14:                                               ; preds = %6
   %15 = inttoptr i64 %11 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load i8, ptr %16, align 8
   %or.cond.i.not = icmp eq i8 %17, 2
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %18
@@ -3149,7 +3149,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_quadTo(ptr noundef %0, ptr n
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 51
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 51
   %20 = load i8, ptr %19, align 1
   %.not = icmp eq i8 %20, 0
   br i1 %.not, label %40, label %21
@@ -3163,12 +3163,12 @@ GetSpanData.exit:                                 ; preds = %14
   %27 = fadd float %26, 2.500000e-01
   %28 = fsub float %24, %4
   %29 = fsub float %27, %5
-  %30 = getelementptr inbounds i8, ptr %15, i64 84
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 84
   %31 = load float, ptr %30, align 4
   %32 = fadd float %29, %31
   %33 = fmul float %32, 5.000000e-01
   %34 = fadd float %2, %33
-  %35 = getelementptr inbounds i8, ptr %15, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %36 = load float, ptr %35, align 8
   %37 = fadd float %29, %36
   %38 = fmul float %37, 5.000000e-01
@@ -3182,9 +3182,9 @@ GetSpanData.exit:                                 ; preds = %14
   %.083 = phi float [ %24, %21 ], [ %4, %GetSpanData.exit ]
   %.082 = phi float [ %39, %21 ], [ %3, %GetSpanData.exit ]
   %.0 = phi float [ %34, %21 ], [ %2, %GetSpanData.exit ]
-  %41 = getelementptr inbounds i8, ptr %15, i64 68
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 68
   %42 = load float, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %15, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %44 = load float, ptr %43, align 8
   %45 = tail call fastcc zeroext i8 @subdivideQuad(ptr noundef nonnull %15, i32 noundef 0, float noundef %42, float noundef %44, float noundef %.0, float noundef %.082, float noundef %.083, float noundef %.084)
   %.not86 = icmp eq i8 %45, 0
@@ -3195,25 +3195,25 @@ GetSpanData.exit:                                 ; preds = %14
   br label %GetSpanData.exit.thread
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %15, i64 50
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 50
   %49 = load i8, ptr %48, align 2
   %.not87 = icmp eq i8 %49, 0
   br i1 %.not87, label %54, label %.thread
 
 .thread:                                          ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %15, i64 100
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 100
   store float %.0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %15, i64 92
+  %51 = getelementptr inbounds nuw i8, ptr %15, i64 92
   store float %.0, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %15, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %15, i64 104
   store float %.082, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %15, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store float %.082, ptr %53, align 8
   store i8 0, ptr %48, align 2
   br label %77
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %15, i64 92
+  %55 = getelementptr inbounds nuw i8, ptr %15, i64 92
   %56 = load float, ptr %55, align 4
   %57 = fcmp ogt float %56, %.0
   br i1 %57, label %58, label %59
@@ -3224,7 +3224,7 @@ GetSpanData.exit:                                 ; preds = %14
 
 59:                                               ; preds = %58, %54
   %60 = phi float [ %.0, %58 ], [ %56, %54 ]
-  %61 = getelementptr inbounds i8, ptr %15, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %62 = load float, ptr %61, align 8
   %63 = fcmp ogt float %62, %.082
   br i1 %63, label %64, label %65
@@ -3235,7 +3235,7 @@ GetSpanData.exit:                                 ; preds = %14
 
 65:                                               ; preds = %64, %59
   %66 = phi float [ %.082, %64 ], [ %62, %59 ]
-  %67 = getelementptr inbounds i8, ptr %15, i64 100
+  %67 = getelementptr inbounds nuw i8, ptr %15, i64 100
   %68 = load float, ptr %67, align 4
   %69 = fcmp olt float %68, %.0
   br i1 %69, label %70, label %71
@@ -3246,7 +3246,7 @@ GetSpanData.exit:                                 ; preds = %14
 
 71:                                               ; preds = %70, %65
   %72 = phi float [ %.0, %70 ], [ %68, %65 ]
-  %73 = getelementptr inbounds i8, ptr %15, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %74 = load float, ptr %73, align 8
   %75 = fcmp olt float %74, %.082
   br i1 %75, label %76, label %77
@@ -3264,7 +3264,7 @@ GetSpanData.exit:                                 ; preds = %14
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %15, i64 92
+  %84 = getelementptr inbounds nuw i8, ptr %15, i64 92
   store float %.083, ptr %84, align 4
   br label %85
 
@@ -3273,7 +3273,7 @@ GetSpanData.exit:                                 ; preds = %14
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %15, i64 96
+  %88 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store float %.084, ptr %88, align 8
   br label %89
 
@@ -3282,7 +3282,7 @@ GetSpanData.exit:                                 ; preds = %14
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %15, i64 100
+  %92 = getelementptr inbounds nuw i8, ptr %15, i64 100
   store float %.083, ptr %92, align 4
   br label %93
 
@@ -3291,7 +3291,7 @@ GetSpanData.exit:                                 ; preds = %14
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %15, i64 104
+  %96 = getelementptr inbounds nuw i8, ptr %15, i64 104
   store float %.084, ptr %96, align 8
   br label %97
 
@@ -3307,7 +3307,7 @@ GetSpanData.exit.thread:                          ; preds = %18, %13, %97, %46
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_curveTo(ptr noundef %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #0 {
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 808
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 808
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @pSpanDataID, align 8
   %13 = tail call i64 %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %12) #14
@@ -3320,7 +3320,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_curveTo(ptr noundef %0, ptr 
 
 16:                                               ; preds = %8
   %17 = inttoptr i64 %13 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load i8, ptr %18, align 8
   %or.cond.i.not = icmp eq i8 %19, 2
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %20
@@ -3330,7 +3330,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_curveTo(ptr noundef %0, ptr 
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %17, i64 51
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 51
   %22 = load i8, ptr %21, align 1
   %.not = icmp eq i8 %22, 0
   br i1 %.not, label %40, label %23
@@ -3344,10 +3344,10 @@ GetSpanData.exit:                                 ; preds = %16
   %29 = fadd float %28, 2.500000e-01
   %30 = fsub float %26, %6
   %31 = fsub float %29, %7
-  %32 = getelementptr inbounds i8, ptr %17, i64 84
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 84
   %33 = load float, ptr %32, align 4
   %34 = fadd float %2, %33
-  %35 = getelementptr inbounds i8, ptr %17, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %36 = load float, ptr %35, align 8
   %37 = fadd float %3, %36
   %38 = fadd float %4, %30
@@ -3363,9 +3363,9 @@ GetSpanData.exit:                                 ; preds = %16
   %.0111 = phi float [ %38, %23 ], [ %4, %GetSpanData.exit ]
   %.0110 = phi float [ %37, %23 ], [ %3, %GetSpanData.exit ]
   %.0 = phi float [ %34, %23 ], [ %2, %GetSpanData.exit ]
-  %41 = getelementptr inbounds i8, ptr %17, i64 68
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %42 = load float, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %17, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %44 = load float, ptr %43, align 8
   %45 = tail call fastcc zeroext i8 @subdivideCubic(ptr noundef nonnull %17, i32 noundef 0, float noundef %42, float noundef %44, float noundef %.0, float noundef %.0110, float noundef %.0111, float noundef %.0112, float noundef %.0113, float noundef %.0114)
   %.not116 = icmp eq i8 %45, 0
@@ -3376,25 +3376,25 @@ GetSpanData.exit:                                 ; preds = %16
   br label %GetSpanData.exit.thread
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %17, i64 50
+  %48 = getelementptr inbounds nuw i8, ptr %17, i64 50
   %49 = load i8, ptr %48, align 2
   %.not117 = icmp eq i8 %49, 0
   br i1 %.not117, label %54, label %.thread
 
 .thread:                                          ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %17, i64 100
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 100
   store float %.0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %17, i64 92
+  %51 = getelementptr inbounds nuw i8, ptr %17, i64 92
   store float %.0, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %17, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store float %.0110, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %17, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %17, i64 96
   store float %.0110, ptr %53, align 8
   store i8 0, ptr %48, align 2
   br label %77
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %17, i64 92
+  %55 = getelementptr inbounds nuw i8, ptr %17, i64 92
   %56 = load float, ptr %55, align 4
   %57 = fcmp ogt float %56, %.0
   br i1 %57, label %58, label %59
@@ -3405,7 +3405,7 @@ GetSpanData.exit:                                 ; preds = %16
 
 59:                                               ; preds = %58, %54
   %60 = phi float [ %.0, %58 ], [ %56, %54 ]
-  %61 = getelementptr inbounds i8, ptr %17, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %62 = load float, ptr %61, align 8
   %63 = fcmp ogt float %62, %.0110
   br i1 %63, label %64, label %65
@@ -3416,7 +3416,7 @@ GetSpanData.exit:                                 ; preds = %16
 
 65:                                               ; preds = %64, %59
   %66 = phi float [ %.0110, %64 ], [ %62, %59 ]
-  %67 = getelementptr inbounds i8, ptr %17, i64 100
+  %67 = getelementptr inbounds nuw i8, ptr %17, i64 100
   %68 = load float, ptr %67, align 4
   %69 = fcmp olt float %68, %.0
   br i1 %69, label %70, label %71
@@ -3427,7 +3427,7 @@ GetSpanData.exit:                                 ; preds = %16
 
 71:                                               ; preds = %70, %65
   %72 = phi float [ %.0, %70 ], [ %68, %65 ]
-  %73 = getelementptr inbounds i8, ptr %17, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %74 = load float, ptr %73, align 8
   %75 = fcmp olt float %74, %.0110
   br i1 %75, label %76, label %77
@@ -3445,7 +3445,7 @@ GetSpanData.exit:                                 ; preds = %16
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %17, i64 92
+  %84 = getelementptr inbounds nuw i8, ptr %17, i64 92
   store float %.0111, ptr %84, align 4
   br label %85
 
@@ -3455,7 +3455,7 @@ GetSpanData.exit:                                 ; preds = %16
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %17, i64 96
+  %89 = getelementptr inbounds nuw i8, ptr %17, i64 96
   store float %.0112, ptr %89, align 8
   br label %90
 
@@ -3465,7 +3465,7 @@ GetSpanData.exit:                                 ; preds = %16
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %17, i64 100
+  %94 = getelementptr inbounds nuw i8, ptr %17, i64 100
   store float %.0111, ptr %94, align 4
   br label %95
 
@@ -3475,7 +3475,7 @@ GetSpanData.exit:                                 ; preds = %16
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %17, i64 104
+  %99 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store float %.0112, ptr %99, align 8
   br label %100
 
@@ -3485,7 +3485,7 @@ GetSpanData.exit:                                 ; preds = %16
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %17, i64 92
+  %104 = getelementptr inbounds nuw i8, ptr %17, i64 92
   store float %.0113, ptr %104, align 4
   br label %105
 
@@ -3494,7 +3494,7 @@ GetSpanData.exit:                                 ; preds = %16
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %17, i64 96
+  %108 = getelementptr inbounds nuw i8, ptr %17, i64 96
   store float %.0114, ptr %108, align 8
   br label %109
 
@@ -3503,7 +3503,7 @@ GetSpanData.exit:                                 ; preds = %16
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %17, i64 100
+  %112 = getelementptr inbounds nuw i8, ptr %17, i64 100
   store float %.0113, ptr %112, align 4
   br label %113
 
@@ -3512,7 +3512,7 @@ GetSpanData.exit:                                 ; preds = %16
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %17, i64 104
+  %116 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store float %.0114, ptr %116, align 8
   br label %117
 
@@ -3528,7 +3528,7 @@ GetSpanData.exit.thread:                          ; preds = %20, %15, %117, %46
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_closePath(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 808
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pSpanDataID, align 8
   %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #14
@@ -3541,7 +3541,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_closePath(ptr noundef %0, pt
 
 10:                                               ; preds = %2
   %11 = inttoptr i64 %7 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load i8, ptr %12, align 8
   %or.cond.i.not = icmp eq i8 %13, 2
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %14
@@ -3551,28 +3551,28 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_closePath(ptr noundef %0, pt
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %11, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %11, i64 76
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 76
   %18 = load float, ptr %17, align 4
   %19 = fcmp une float %16, %18
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 72
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert20 = getelementptr inbounds i8, ptr %11, i64 80
+  %.phi.trans.insert20 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %.pre21 = load float, ptr %.phi.trans.insert20, align 8
   %20 = fcmp une float %.pre, %.pre21
   %or.cond = select i1 %19, i1 true, i1 %20
   br i1 %or.cond, label %GetSpanData.exit._crit_edge, label %GetSpanData.exit.thread
 
 GetSpanData.exit._crit_edge:                      ; preds = %GetSpanData.exit
-  %21 = getelementptr inbounds i8, ptr %11, i64 72
-  %22 = getelementptr inbounds i8, ptr %11, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %23 = fcmp olt float %16, %18
   %..i = select i1 %23, float %16, float %18
   %.41.i = select i1 %23, float %18, float %16
   %24 = fcmp olt float %.pre, %.pre21
   %.031.i = select i1 %24, float %.pre21, float %.pre
-  %25 = getelementptr inbounds i8, ptr %11, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %26 = load i32, ptr %25, align 8
   %27 = sitofp i32 %26 to float
   %28 = fcmp ugt float %.031.i, %27
@@ -3580,21 +3580,21 @@ GetSpanData.exit._crit_edge:                      ; preds = %GetSpanData.exit
 
 29:                                               ; preds = %GetSpanData.exit._crit_edge
   %.032.i = select i1 %24, float %.pre, float %.pre21
-  %30 = getelementptr inbounds i8, ptr %11, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %31 = load i32, ptr %30, align 8
   %32 = sitofp i32 %31 to float
   %33 = fcmp ult float %.032.i, %32
   br i1 %33, label %34, label %subdivideLine.exit.thread
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %11, i64 60
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 60
   %36 = load i32, ptr %35, align 4
   %37 = sitofp i32 %36 to float
   %38 = fcmp ult float %..i, %37
   br i1 %38, label %39, label %subdivideLine.exit.thread
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %11, i64 52
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %41 = load i32, ptr %40, align 4
   %42 = sitofp i32 %41 to float
   %43 = fcmp ugt float %.41.i, %42
@@ -3635,7 +3635,7 @@ GetSpanData.exit.thread:                          ; preds = %GetSpanData.exit, %
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_ShapeSpanIterator_pathDone(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 808
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pSpanDataID, align 8
   %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #14
@@ -3648,7 +3648,7 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_pathDone(ptr noundef %0, ptr
 
 10:                                               ; preds = %2
   %11 = inttoptr i64 %7 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load i8, ptr %12, align 8
   %or.cond.i.not = icmp eq i8 %13, 2
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %14
@@ -3658,28 +3658,28 @@ define void @Java_sun_java2d_pipe_ShapeSpanIterator_pathDone(ptr noundef %0, ptr
   br label %GetSpanData.exit.thread
 
 GetSpanData.exit:                                 ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %11, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %11, i64 76
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 76
   %18 = load float, ptr %17, align 4
   %19 = fcmp une float %16, %18
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 72
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert21 = getelementptr inbounds i8, ptr %11, i64 80
+  %.phi.trans.insert21 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %.pre22 = load float, ptr %.phi.trans.insert21, align 8
   %20 = fcmp une float %.pre, %.pre22
   %or.cond = select i1 %19, i1 true, i1 %20
   br i1 %or.cond, label %GetSpanData.exit._crit_edge, label %51
 
 GetSpanData.exit._crit_edge:                      ; preds = %GetSpanData.exit
-  %21 = getelementptr inbounds i8, ptr %11, i64 72
-  %22 = getelementptr inbounds i8, ptr %11, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %23 = fcmp olt float %16, %18
   %..i = select i1 %23, float %16, float %18
   %.41.i = select i1 %23, float %18, float %16
   %24 = fcmp olt float %.pre, %.pre22
   %.031.i = select i1 %24, float %.pre22, float %.pre
-  %25 = getelementptr inbounds i8, ptr %11, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %26 = load i32, ptr %25, align 8
   %27 = sitofp i32 %26 to float
   %28 = fcmp ugt float %.031.i, %27
@@ -3687,21 +3687,21 @@ GetSpanData.exit._crit_edge:                      ; preds = %GetSpanData.exit
 
 29:                                               ; preds = %GetSpanData.exit._crit_edge
   %.032.i = select i1 %24, float %.pre, float %.pre22
-  %30 = getelementptr inbounds i8, ptr %11, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %31 = load i32, ptr %30, align 8
   %32 = sitofp i32 %31 to float
   %33 = fcmp ult float %.032.i, %32
   br i1 %33, label %34, label %subdivideLine.exit.thread
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %11, i64 60
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 60
   %36 = load i32, ptr %35, align 4
   %37 = sitofp i32 %36 to float
   %38 = fcmp ult float %..i, %37
   br i1 %38, label %39, label %subdivideLine.exit.thread
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %11, i64 52
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %41 = load i32, ptr %40, align 4
   %42 = sitofp i32 %41 to float
   %43 = fcmp ugt float %.41.i, %42
@@ -3746,7 +3746,7 @@ GetSpanData.exit.thread:                          ; preds = %14, %9, %51
 ; Function Attrs: nounwind uwtable
 define i64 @Java_sun_java2d_pipe_ShapeSpanIterator_getNativeConsumer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 808
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pSpanDataID, align 8
   %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #14
@@ -3759,7 +3759,7 @@ define i64 @Java_sun_java2d_pipe_ShapeSpanIterator_getNativeConsumer(ptr noundef
 
 10:                                               ; preds = %2
   %11 = inttoptr i64 %7 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load i8, ptr %12, align 8
   %or.cond.i.not = icmp eq i8 %13, 2
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %14
@@ -3778,28 +3778,28 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal zeroext range(i8 0, 2) i8 @PCMoveTo(ptr nocapture noundef %0, float noundef %1, float noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load float, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 76
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %7 = load float, ptr %6, align 4
   %8 = fcmp une float %5, %7
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert65 = getelementptr inbounds i8, ptr %0, i64 80
+  %.phi.trans.insert65 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre66 = load float, ptr %.phi.trans.insert65, align 8
   %9 = fcmp une float %.pre, %.pre66
   %or.cond = select i1 %8, i1 true, i1 %9
   br i1 %or.cond, label %._crit_edge, label %39
 
 ._crit_edge:                                      ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = fcmp olt float %5, %7
   %..i = select i1 %12, float %5, float %7
   %.41.i = select i1 %12, float %7, float %5
   %13 = fcmp olt float %.pre, %.pre66
   %.031.i = select i1 %13, float %.pre66, float %.pre
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = sitofp i32 %15 to float
   %17 = fcmp ugt float %.031.i, %16
@@ -3807,21 +3807,21 @@ define internal zeroext range(i8 0, 2) i8 @PCMoveTo(ptr nocapture noundef %0, fl
 
 18:                                               ; preds = %._crit_edge
   %.032.i = select i1 %13, float %.pre, float %.pre66
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load i32, ptr %19, align 8
   %21 = sitofp i32 %20 to float
   %22 = fcmp ult float %.032.i, %21
   br i1 %22, label %23, label %subdivideLine.exit.thread
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 60
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %25 = load i32, ptr %24, align 4
   %26 = sitofp i32 %25 to float
   %27 = fcmp ult float %..i, %26
   br i1 %27, label %28, label %subdivideLine.exit.thread
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %30 = load i32, ptr %29, align 4
   %31 = sitofp i32 %30 to float
   %32 = fcmp ugt float %.41.i, %31
@@ -3853,7 +3853,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
 
 39:                                               ; preds = %3, %subdivideLine.exit, %subdivideLine.exit.thread
   %.060 = phi i8 [ 0, %subdivideLine.exit.thread ], [ 1, %subdivideLine.exit ], [ 0, %3 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 51
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %41 = load i8, ptr %40, align 1
   %.not61 = icmp eq i8 %41, 0
   br i1 %.not61, label %53, label %42
@@ -3867,9 +3867,9 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   %48 = fadd float %47, 2.500000e-01
   %49 = fsub float %45, %1
   %50 = fsub float %48, %2
-  %51 = getelementptr inbounds i8, ptr %0, i64 84
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store float %49, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store float %50, ptr %52, align 8
   br label %53
 
@@ -3877,27 +3877,27 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   %.059 = phi float [ %48, %42 ], [ %2, %39 ]
   %.0 = phi float [ %45, %42 ], [ %1, %39 ]
   store float %.0, ptr %6, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store float %.059, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 50
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %56 = load i8, ptr %55, align 2
   %.not62 = icmp eq i8 %56, 0
   br i1 %.not62, label %62, label %57
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %0, i64 100
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %.0, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 92
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %.0, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %0, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store float %.059, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %.059, ptr %61, align 8
   store i8 0, ptr %55, align 2
   br label %82
 
 62:                                               ; preds = %53
-  %63 = getelementptr inbounds i8, ptr %0, i64 92
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %64 = load float, ptr %63, align 4
   %65 = fcmp ogt float %64, %.0
   br i1 %65, label %66, label %67
@@ -3907,7 +3907,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %67
 
 67:                                               ; preds = %66, %62
-  %68 = getelementptr inbounds i8, ptr %0, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %69 = load float, ptr %68, align 8
   %70 = fcmp ogt float %69, %.059
   br i1 %70, label %71, label %72
@@ -3917,7 +3917,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %72
 
 72:                                               ; preds = %71, %67
-  %73 = getelementptr inbounds i8, ptr %0, i64 100
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %74 = load float, ptr %73, align 4
   %75 = fcmp olt float %74, %.0
   br i1 %75, label %76, label %77
@@ -3927,7 +3927,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
   br label %77
 
 77:                                               ; preds = %76, %72
-  %78 = getelementptr inbounds i8, ptr %0, i64 104
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %79 = load float, ptr %78, align 8
   %80 = fcmp olt float %79, %.059
   br i1 %80, label %81, label %82
@@ -3938,14 +3938,14 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
 
 82:                                               ; preds = %57, %81, %77
   store float %.0, ptr %4, align 4
-  %83 = getelementptr inbounds i8, ptr %0, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store float %.059, ptr %83, align 8
   ret i8 %.060
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal zeroext range(i8 0, 2) i8 @PCLineTo(ptr nocapture noundef %0, float noundef %1, float noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 51
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %17, label %6
@@ -3959,25 +3959,25 @@ define internal zeroext range(i8 0, 2) i8 @PCLineTo(ptr nocapture noundef %0, fl
   %12 = fadd float %11, 2.500000e-01
   %13 = fsub float %9, %1
   %14 = fsub float %12, %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 84
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store float %13, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store float %14, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %3, %6
   %.047 = phi float [ %12, %6 ], [ %2, %3 ]
   %.0 = phi float [ %9, %6 ], [ %1, %3 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load float, ptr %20, align 8
   %22 = fcmp olt float %19, %.0
   %..i = select i1 %22, float %19, float %.0
   %.41.i = select i1 %22, float %.0, float %19
   %23 = fcmp olt float %21, %.047
   %.031.i = select i1 %23, float %.047, float %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load i32, ptr %24, align 8
   %26 = sitofp i32 %25 to float
   %27 = fcmp ugt float %.031.i, %26
@@ -3985,21 +3985,21 @@ define internal zeroext range(i8 0, 2) i8 @PCLineTo(ptr nocapture noundef %0, fl
 
 28:                                               ; preds = %17
   %.032.i = select i1 %23, float %21, float %.047
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load i32, ptr %29, align 8
   %31 = sitofp i32 %30 to float
   %32 = fcmp ult float %.032.i, %31
   br i1 %32, label %33, label %subdivideLine.exit.thread
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %0, i64 60
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %35 = load i32, ptr %34, align 4
   %36 = sitofp i32 %35 to float
   %37 = fcmp ult float %..i, %36
   br i1 %37, label %38, label %subdivideLine.exit.thread
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 52
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %40 = load i32, ptr %39, align 4
   %41 = sitofp i32 %40 to float
   %42 = fcmp ugt float %.41.i, %41
@@ -4019,25 +4019,25 @@ subdivideLine.exit:                               ; preds = %43, %45
   br i1 %.not49, label %75, label %subdivideLine.exit.thread
 
 subdivideLine.exit.thread:                        ; preds = %17, %28, %33, %subdivideLine.exit
-  %47 = getelementptr inbounds i8, ptr %0, i64 50
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %48 = load i8, ptr %47, align 2
   %.not50 = icmp eq i8 %48, 0
   br i1 %.not50, label %54, label %49
 
 49:                                               ; preds = %subdivideLine.exit.thread
-  %50 = getelementptr inbounds i8, ptr %0, i64 100
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %.0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 92
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %.0, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store float %.047, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %.047, ptr %53, align 8
   store i8 0, ptr %47, align 2
   br label %74
 
 54:                                               ; preds = %subdivideLine.exit.thread
-  %55 = getelementptr inbounds i8, ptr %0, i64 92
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %56 = load float, ptr %55, align 4
   %57 = fcmp ogt float %56, %.0
   br i1 %57, label %58, label %59
@@ -4047,7 +4047,7 @@ subdivideLine.exit.thread:                        ; preds = %17, %28, %33, %subd
   br label %59
 
 59:                                               ; preds = %58, %54
-  %60 = getelementptr inbounds i8, ptr %0, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %61 = load float, ptr %60, align 8
   %62 = fcmp ogt float %61, %.047
   br i1 %62, label %63, label %64
@@ -4057,7 +4057,7 @@ subdivideLine.exit.thread:                        ; preds = %17, %28, %33, %subd
   br label %64
 
 64:                                               ; preds = %63, %59
-  %65 = getelementptr inbounds i8, ptr %0, i64 100
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %66 = load float, ptr %65, align 4
   %67 = fcmp olt float %66, %.0
   br i1 %67, label %68, label %69
@@ -4067,7 +4067,7 @@ subdivideLine.exit.thread:                        ; preds = %17, %28, %33, %subd
   br label %69
 
 69:                                               ; preds = %68, %64
-  %70 = getelementptr inbounds i8, ptr %0, i64 104
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %71 = load float, ptr %70, align 8
   %72 = fcmp olt float %71, %.047
   br i1 %72, label %73, label %74
@@ -4088,7 +4088,7 @@ subdivideLine.exit.thread:                        ; preds = %17, %28, %33, %subd
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 51
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %27, label %8
@@ -4102,12 +4102,12 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, fl
   %14 = fadd float %13, 2.500000e-01
   %15 = fsub float %11, %3
   %16 = fsub float %14, %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 84
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %18 = load float, ptr %17, align 4
   %19 = fadd float %16, %18
   %20 = fmul float %19, 5.000000e-01
   %21 = fadd float %1, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %23 = load float, ptr %22, align 8
   %24 = fadd float %16, %23
   %25 = fmul float %24, 5.000000e-01
@@ -4121,34 +4121,34 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, fl
   %.080 = phi float [ %11, %8 ], [ %3, %5 ]
   %.079 = phi float [ %26, %8 ], [ %2, %5 ]
   %.0 = phi float [ %21, %8 ], [ %1, %5 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 68
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load float, ptr %30, align 8
   %32 = tail call fastcc zeroext i8 @subdivideQuad(ptr noundef nonnull %0, i32 noundef 0, float noundef %29, float noundef %31, float noundef %.0, float noundef %.079, float noundef %.080, float noundef %.081)
   %.not83 = icmp eq i8 %32, 0
   br i1 %.not83, label %84, label %33
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 50
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %35 = load i8, ptr %34, align 2
   %.not84 = icmp eq i8 %35, 0
   br i1 %.not84, label %40, label %.thread
 
 .thread:                                          ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 100
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %.0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 92
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %.0, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store float %.079, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %.079, ptr %39, align 8
   store i8 0, ptr %34, align 2
   br label %63
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %0, i64 92
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %42 = load float, ptr %41, align 4
   %43 = fcmp ogt float %42, %.0
   br i1 %43, label %44, label %45
@@ -4159,7 +4159,7 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, fl
 
 45:                                               ; preds = %44, %40
   %46 = phi float [ %.0, %44 ], [ %42, %40 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %48 = load float, ptr %47, align 8
   %49 = fcmp ogt float %48, %.079
   br i1 %49, label %50, label %51
@@ -4170,7 +4170,7 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, fl
 
 51:                                               ; preds = %50, %45
   %52 = phi float [ %.079, %50 ], [ %48, %45 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 100
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %54 = load float, ptr %53, align 4
   %55 = fcmp olt float %54, %.0
   br i1 %55, label %56, label %57
@@ -4181,7 +4181,7 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, fl
 
 57:                                               ; preds = %56, %51
   %58 = phi float [ %.0, %56 ], [ %54, %51 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %60 = load float, ptr %59, align 8
   %61 = fcmp olt float %60, %.079
   br i1 %61, label %62, label %63
@@ -4199,7 +4199,7 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, fl
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %0, i64 92
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %.080, ptr %70, align 4
   br label %71
 
@@ -4208,7 +4208,7 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, fl
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %0, i64 96
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %.081, ptr %74, align 8
   br label %75
 
@@ -4217,7 +4217,7 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, fl
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %0, i64 100
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %.080, ptr %78, align 4
   br label %79
 
@@ -4226,7 +4226,7 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, fl
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %0, i64 104
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store float %.081, ptr %82, align 8
   br label %83
 
@@ -4242,7 +4242,7 @@ define internal zeroext range(i8 0, 2) i8 @PCQuadTo(ptr nocapture noundef %0, fl
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) #0 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 51
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %9 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %27, label %10
@@ -4256,10 +4256,10 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
   %16 = fadd float %15, 2.500000e-01
   %17 = fsub float %13, %5
   %18 = fsub float %16, %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 84
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %20 = load float, ptr %19, align 4
   %21 = fadd float %1, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %23 = load float, ptr %22, align 8
   %24 = fadd float %2, %23
   %25 = fadd float %3, %17
@@ -4275,34 +4275,34 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
   %.0108 = phi float [ %25, %10 ], [ %3, %7 ]
   %.0107 = phi float [ %24, %10 ], [ %2, %7 ]
   %.0 = phi float [ %21, %10 ], [ %1, %7 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 68
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load float, ptr %30, align 8
   %32 = tail call fastcc zeroext i8 @subdivideCubic(ptr noundef nonnull %0, i32 noundef 0, float noundef %29, float noundef %31, float noundef %.0, float noundef %.0107, float noundef %.0108, float noundef %.0109, float noundef %.0111, float noundef %.0112)
   %.not113 = icmp eq i8 %32, 0
   br i1 %.not113, label %104, label %33
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 50
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %35 = load i8, ptr %34, align 2
   %.not114 = icmp eq i8 %35, 0
   br i1 %.not114, label %40, label %.thread
 
 .thread:                                          ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 100
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %.0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 92
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %.0, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store float %.0107, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %.0107, ptr %39, align 8
   store i8 0, ptr %34, align 2
   br label %63
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %0, i64 92
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %42 = load float, ptr %41, align 4
   %43 = fcmp ogt float %42, %.0
   br i1 %43, label %44, label %45
@@ -4313,7 +4313,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
 
 45:                                               ; preds = %44, %40
   %46 = phi float [ %.0, %44 ], [ %42, %40 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %48 = load float, ptr %47, align 8
   %49 = fcmp ogt float %48, %.0107
   br i1 %49, label %50, label %51
@@ -4324,7 +4324,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
 
 51:                                               ; preds = %50, %45
   %52 = phi float [ %.0107, %50 ], [ %48, %45 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 100
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %54 = load float, ptr %53, align 4
   %55 = fcmp olt float %54, %.0
   br i1 %55, label %56, label %57
@@ -4335,7 +4335,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
 
 57:                                               ; preds = %56, %51
   %58 = phi float [ %.0, %56 ], [ %54, %51 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %60 = load float, ptr %59, align 8
   %61 = fcmp olt float %60, %.0107
   br i1 %61, label %62, label %63
@@ -4353,7 +4353,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %0, i64 92
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %.0108, ptr %70, align 4
   br label %71
 
@@ -4363,7 +4363,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %0, i64 96
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %.0109, ptr %75, align 8
   br label %76
 
@@ -4373,7 +4373,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %0, i64 100
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %.0108, ptr %80, align 4
   br label %81
 
@@ -4383,7 +4383,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %0, i64 104
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store float %.0109, ptr %85, align 8
   br label %86
 
@@ -4393,7 +4393,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %0, i64 92
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %.0111, ptr %90, align 4
   br label %91
 
@@ -4402,7 +4402,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %0, i64 96
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %.0112, ptr %94, align 8
   br label %95
 
@@ -4411,7 +4411,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %0, i64 100
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %.0111, ptr %98, align 4
   br label %99
 
@@ -4420,7 +4420,7 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %0, i64 104
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store float %.0112, ptr %102, align 8
   br label %103
 
@@ -4436,28 +4436,28 @@ define internal zeroext range(i8 0, 2) i8 @PCCubicTo(ptr nocapture noundef %0, f
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal zeroext range(i8 0, 2) i8 @PCClosePath(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 68
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load float, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = load float, ptr %4, align 4
   %6 = fcmp une float %3, %5
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert16 = getelementptr inbounds i8, ptr %0, i64 80
+  %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre17 = load float, ptr %.phi.trans.insert16, align 8
   %7 = fcmp une float %.pre, %.pre17
   %or.cond = select i1 %6, i1 true, i1 %7
   br i1 %or.cond, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = fcmp olt float %3, %5
   %..i = select i1 %10, float %3, float %5
   %.41.i = select i1 %10, float %5, float %3
   %11 = fcmp olt float %.pre, %.pre17
   %.031.i = select i1 %11, float %.pre17, float %.pre
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = sitofp i32 %13 to float
   %15 = fcmp ugt float %.031.i, %14
@@ -4465,21 +4465,21 @@ define internal zeroext range(i8 0, 2) i8 @PCClosePath(ptr nocapture noundef %0)
 
 16:                                               ; preds = %._crit_edge
   %.032.i = select i1 %11, float %.pre, float %.pre17
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load i32, ptr %17, align 8
   %19 = sitofp i32 %18 to float
   %20 = fcmp ult float %.032.i, %19
   br i1 %20, label %21, label %subdivideLine.exit.thread
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 60
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %23 = load i32, ptr %22, align 4
   %24 = sitofp i32 %23 to float
   %25 = fcmp ult float %..i, %24
   br i1 %25, label %26, label %subdivideLine.exit.thread
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %28 = load i32, ptr %27, align 4
   %29 = sitofp i32 %28 to float
   %30 = fcmp ugt float %.41.i, %29
@@ -4516,28 +4516,28 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal zeroext range(i8 0, 2) i8 @PCPathDone(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 68
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load float, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = load float, ptr %4, align 4
   %6 = fcmp une float %3, %5
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre = load float, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert17 = getelementptr inbounds i8, ptr %0, i64 80
+  %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre18 = load float, ptr %.phi.trans.insert17, align 8
   %7 = fcmp une float %.pre, %.pre18
   %or.cond = select i1 %6, i1 true, i1 %7
   br i1 %or.cond, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = fcmp olt float %3, %5
   %..i = select i1 %10, float %3, float %5
   %.41.i = select i1 %10, float %5, float %3
   %11 = fcmp olt float %.pre, %.pre18
   %.031.i = select i1 %11, float %.pre18, float %.pre
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = sitofp i32 %13 to float
   %15 = fcmp ugt float %.031.i, %14
@@ -4545,21 +4545,21 @@ define internal zeroext range(i8 0, 2) i8 @PCPathDone(ptr nocapture noundef %0) 
 
 16:                                               ; preds = %._crit_edge
   %.032.i = select i1 %11, float %.pre, float %.pre18
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load i32, ptr %17, align 8
   %19 = sitofp i32 %18 to float
   %20 = fcmp ult float %.032.i, %19
   br i1 %20, label %21, label %subdivideLine.exit.thread
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 60
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %23 = load i32, ptr %22, align 4
   %24 = sitofp i32 %23 to float
   %25 = fcmp ult float %..i, %24
   br i1 %25, label %26, label %subdivideLine.exit.thread
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %28 = load i32, ptr %27, align 4
   %29 = sitofp i32 %28 to float
   %30 = fcmp ugt float %.41.i, %29
@@ -4591,7 +4591,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
 
 37:                                               ; preds = %1, %subdivideLine.exit, %subdivideLine.exit.thread
   %.0 = phi i8 [ 0, %subdivideLine.exit.thread ], [ 1, %subdivideLine.exit ], [ 0, %1 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 3, ptr %38, align 8
   ret i8 %.0
 }
@@ -4599,7 +4599,7 @@ subdivideLine.exit.thread:                        ; preds = %subdivideLine.exit.
 ; Function Attrs: nounwind uwtable
 define internal ptr @ShapeSIOpen(ptr noundef %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 808
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pSpanDataID, align 8
   %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #14
@@ -4612,7 +4612,7 @@ define internal ptr @ShapeSIOpen(ptr noundef %0, ptr noundef %1) #0 {
 
 10:                                               ; preds = %2
   %11 = inttoptr i64 %7 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load i8, ptr %12, align 8
   %or.cond.i.not = icmp eq i8 %13, 3
   br i1 %or.cond.i.not, label %GetSpanData.exit, label %14
@@ -4683,9 +4683,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal range(i32 -1, 2) i32 @sortSegmentsByLeadingY(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %6, %8
   br i1 %9, label %26, label %10
@@ -4705,9 +4705,9 @@ define internal range(i32 -1, 2) i32 @sortSegmentsByLeadingY(ptr nocapture nound
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 4
   %23 = icmp slt i32 %20, %22
   br i1 %23, label %26, label %24

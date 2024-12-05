@@ -68,7 +68,7 @@ declare void @abort() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @plugin_unregister_cb__locked(ptr nocapture noundef %ctx, i32 noundef %ev) local_unnamed_addr #0 {
 entry:
-  %callbacks = getelementptr inbounds i8, ptr %ctx, i64 16
+  %callbacks = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %idxprom = zext i32 %ev to i64
   %arrayidx = getelementptr [9 x ptr], ptr %callbacks, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
@@ -76,15 +76,15 @@ entry:
   br i1 %cmp, label %if.end30, label %do.body
 
 do.body:                                          ; preds = %entry
-  %entry1 = getelementptr inbounds i8, ptr %0, i64 24
+  %entry1 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %entry1, align 8
   %cmp2.not = icmp eq ptr %1, null
-  %le_prev13.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
+  %le_prev13.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load ptr, ptr %le_prev13.phi.trans.insert, align 8
   br i1 %cmp2.not, label %while.end, label %if.then3
 
 if.then3:                                         ; preds = %do.body
-  %le_prev8 = getelementptr inbounds i8, ptr %1, i64 32
+  %le_prev8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %.pre, ptr %le_prev8, align 8
   %.pre12 = load ptr, ptr %entry1, align 8
   %2 = ptrtoint ptr %.pre12 to i64
@@ -130,7 +130,7 @@ entry:
   %add.ptr = getelementptr i8, ptr %k, i64 -712
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @plugin, i64 104), align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %realized = getelementptr inbounds i8, ptr %call.i, i64 56
+  %realized = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %1 = load i8, ptr %realized, align 8
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.else
@@ -197,23 +197,23 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp.i31, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.then6
-  %f = getelementptr inbounds i8, ptr %5, i64 8
+  %f = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %func, ptr %f, align 8
-  %udata9 = getelementptr inbounds i8, ptr %5, i64 16
+  %udata9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %udata, ptr %udata9, align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.else:                                          ; preds = %if.then6
   %call10 = call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #12
   store ptr %add.ptr.i, ptr %call10, align 8
-  %f12 = getelementptr inbounds i8, ptr %call10, i64 8
+  %f12 = getelementptr inbounds nuw i8, ptr %call10, i64 8
   store ptr %func, ptr %f12, align 8
-  %udata13 = getelementptr inbounds i8, ptr %call10, i64 16
+  %udata13 = getelementptr inbounds nuw i8, ptr %call10, i64 16
   store ptr %udata, ptr %udata13, align 8
   store ptr %call10, ptr %arrayidx.i30, align 8
   %arrayidx18 = getelementptr [9 x %struct.anon], ptr getelementptr inbounds (i8, ptr @plugin, i64 16), i64 0, i64 %idxprom.i
-  %entry19 = getelementptr inbounds i8, ptr %call10, i64 24
-  %le_prev = getelementptr inbounds i8, ptr %call10, i64 32
+  %entry19 = getelementptr inbounds nuw i8, ptr %call10, i64 24
+  %le_prev = getelementptr inbounds nuw i8, ptr %call10, i64 32
   store ptr %arrayidx18, ptr %le_prev, align 8
   %6 = load ptr, ptr %arrayidx18, align 8
   store ptr %6, ptr %entry19, align 8
@@ -223,7 +223,7 @@ if.else:                                          ; preds = %if.then6
   br i1 %cmp.not, label %do.end43, label %if.then34
 
 if.then34:                                        ; preds = %if.else
-  %le_prev40 = getelementptr inbounds i8, ptr %6, i64 32
+  %le_prev40 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %entry19, ptr %le_prev40, align 8
   br label %do.end43
 
@@ -248,15 +248,15 @@ if.else51:                                        ; preds = %if.end
   br i1 %cmp.i31, label %glib_autoptr_cleanup_QemuLockable.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %if.else51
-  %entry1.i = getelementptr inbounds i8, ptr %5, i64 24
+  %entry1.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = load ptr, ptr %entry1.i, align 8
   %cmp2.not.i = icmp eq ptr %12, null
-  %le_prev13.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 32
+  %le_prev13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.i = load ptr, ptr %le_prev13.phi.trans.insert.i, align 8
   br i1 %cmp2.not.i, label %while.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.body.i
-  %le_prev8.i = getelementptr inbounds i8, ptr %12, i64 32
+  %le_prev8.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %.pre.i, ptr %le_prev8.i, align 8
   %.pre12.i = load ptr, ptr %entry1.i, align 8
   %13 = ptrtoint ptr %.pre12.i to i64
@@ -303,10 +303,10 @@ entry:
   %0 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.1, i32 noundef 216) #10
-  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @plugin, i64 104), align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cpu, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %realized.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
+  %realized.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 56
   %3 = load i8, ptr %realized.i, align 8
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.then.i, label %if.else.i
@@ -341,13 +341,13 @@ do.end5:                                          ; preds = %plugin_cpu_update__
 while.end5.i:                                     ; preds = %do.end5, %while.end5.i
   %cb.0.in6.i = phi i64 [ %6, %while.end5.i ], [ %5, %do.end5 ]
   %cb.0.i = inttoptr i64 %cb.0.in6.i to ptr
-  %entry6.i = getelementptr inbounds i8, ptr %cb.0.i, i64 24
+  %entry6.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 24
   %6 = load atomic i64, ptr %entry6.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %f.i = getelementptr inbounds i8, ptr %cb.0.i, i64 8
+  %f.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 8
   %7 = load ptr, ptr %f.i, align 8
   %8 = load ptr, ptr %cb.0.i, align 8
-  %id.i = getelementptr inbounds i8, ptr %8, i64 8
+  %id.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i64, ptr %id.i, align 8
   %10 = load i32, ptr %cpu_index, align 8
   tail call void %7(i64 noundef %9, i32 noundef %10) #10
@@ -371,19 +371,19 @@ entry:
   br i1 %tobool.not5.i, label %plugin_vcpu_cb__simple.exit, label %while.end5.lr.ph.i
 
 while.end5.lr.ph.i:                               ; preds = %entry
-  %cpu_index.i = getelementptr inbounds i8, ptr %cpu, i64 712
+  %cpu_index.i = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   br label %while.end5.i
 
 while.end5.i:                                     ; preds = %while.end5.i, %while.end5.lr.ph.i
   %cb.0.in6.i = phi i64 [ %0, %while.end5.lr.ph.i ], [ %1, %while.end5.i ]
   %cb.0.i = inttoptr i64 %cb.0.in6.i to ptr
-  %entry6.i = getelementptr inbounds i8, ptr %cb.0.i, i64 24
+  %entry6.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 24
   %1 = load atomic i64, ptr %entry6.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %f.i = getelementptr inbounds i8, ptr %cb.0.i, i64 8
+  %f.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 8
   %2 = load ptr, ptr %f.i, align 8
   %3 = load ptr, ptr %cb.0.i, align 8
-  %id.i = getelementptr inbounds i8, ptr %3, i64 8
+  %id.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i64, ptr %id.i, align 8
   %5 = load i32, ptr %cpu_index.i, align 8
   tail call void %2(i64 noundef %4, i32 noundef %5) #10
@@ -395,7 +395,7 @@ plugin_vcpu_cb__simple.exit:                      ; preds = %while.end5.i, %entr
   %7 = inttoptr i64 %6 to ptr
   tail call void %7(ptr noundef nonnull getelementptr inbounds (i8, ptr @plugin, i64 112), ptr noundef nonnull @.str.1, i32 noundef 232) #10
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @plugin, i64 96), align 8
-  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   %call = tail call i32 @g_hash_table_remove(ptr noundef %8, ptr noundef nonnull %cpu_index) #10
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %do.end3
@@ -440,7 +440,7 @@ if.then.i:                                        ; preds = %while.end
 plugin_id_to_ctx_locked.exit:                     ; preds = %while.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %id.addr.i)
   store ptr %add.ptr.i, ptr %args, align 8
-  %cb1 = getelementptr inbounds i8, ptr %args, i64 8
+  %cb1 = getelementptr inbounds nuw i8, ptr %args, i64 8
   store ptr %cb, ptr %cb1, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @plugin, i64 96), align 8
   call void @g_hash_table_foreach(ptr noundef %4, ptr noundef nonnull @plugin_vcpu_for_each, ptr noundef nonnull %args) #10
@@ -455,10 +455,10 @@ return:                                           ; preds = %entry, %plugin_id_t
 define internal void @plugin_vcpu_for_each(ptr nocapture noundef readonly %k, ptr nocapture readnone %v, ptr nocapture noundef readonly %udata) #0 {
 entry:
   %0 = load i32, ptr %k, align 4
-  %cb = getelementptr inbounds i8, ptr %udata, i64 8
+  %cb = getelementptr inbounds nuw i8, ptr %udata, i64 8
   %1 = load ptr, ptr %cb, align 8
   %2 = load ptr, ptr %udata, align 8
-  %id = getelementptr inbounds i8, ptr %2, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %id, align 8
   tail call void %1(i64 noundef %3, i32 noundef %0) #10
   ret void
@@ -478,7 +478,7 @@ if.then.i:                                        ; preds = %entry
 
 plugin_get_dyn_cb.exit:                           ; preds = %entry, %if.then.i
   %cbs.0.i = phi ptr [ %0, %entry ], [ %call.i, %if.then.i ]
-  %len.i = getelementptr inbounds i8, ptr %cbs.0.i, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %cbs.0.i, i64 8
   %1 = load i32, ptr %len.i, align 8
   %add.i = add i32 %1, 1
   %call1.i = tail call ptr @g_array_set_size(ptr noundef %cbs.0.i, i32 noundef %add.i) #10
@@ -487,15 +487,15 @@ plugin_get_dyn_cb.exit:                           ; preds = %entry, %if.then.i
   %sub.i = add i32 %3, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %2, i64 %idxprom.i
-  %userp = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %userp = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store ptr %ptr, ptr %userp, align 8
-  %type = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %type = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   store i32 1, ptr %type, align 8
-  %rw1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %rw1 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   store i32 %rw, ptr %rw1, align 4
-  %4 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   store i32 %op, ptr %4, align 8
-  %imm3 = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %imm3 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   store i64 %imm, ptr %imm3, align 8
   ret void
 }
@@ -514,7 +514,7 @@ if.then.i:                                        ; preds = %entry
 
 plugin_get_dyn_cb.exit:                           ; preds = %entry, %if.then.i
   %cbs.0.i = phi ptr [ %0, %entry ], [ %call.i, %if.then.i ]
-  %len.i = getelementptr inbounds i8, ptr %cbs.0.i, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %cbs.0.i, i64 8
   %1 = load i32, ptr %len.i, align 8
   %add.i = add i32 %1, 1
   %call1.i = tail call ptr @g_array_set_size(ptr noundef %cbs.0.i, i32 noundef %add.i) #10
@@ -523,10 +523,10 @@ plugin_get_dyn_cb.exit:                           ; preds = %entry, %if.then.i
   %sub.i = add i32 %3, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %2, i64 %idxprom.i
-  %userp = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %userp = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store ptr %udata, ptr %userp, align 8
   store ptr %cb, ptr %arrayidx.i, align 8
-  %type = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %type = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   store i32 0, ptr %type, align 8
   ret void
 }
@@ -545,7 +545,7 @@ if.then.i:                                        ; preds = %entry
 
 plugin_get_dyn_cb.exit:                           ; preds = %entry, %if.then.i
   %cbs.0.i = phi ptr [ %0, %entry ], [ %call.i, %if.then.i ]
-  %len.i = getelementptr inbounds i8, ptr %cbs.0.i, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %cbs.0.i, i64 8
   %1 = load i32, ptr %len.i, align 8
   %add.i = add i32 %1, 1
   %call1.i = tail call ptr @g_array_set_size(ptr noundef %cbs.0.i, i32 noundef %add.i) #10
@@ -554,11 +554,11 @@ plugin_get_dyn_cb.exit:                           ; preds = %entry, %if.then.i
   %sub.i = add i32 %3, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %2, i64 %idxprom.i
-  %userp = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %userp = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store ptr %udata, ptr %userp, align 8
-  %type = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %type = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   store i32 0, ptr %type, align 8
-  %rw1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %rw1 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   store i32 %rw, ptr %rw1, align 4
   store ptr %cb, ptr %arrayidx.i, align 8
   ret void
@@ -575,13 +575,13 @@ entry:
 while.end5:                                       ; preds = %entry, %while.end5
   %cb.0.in5 = phi i64 [ %1, %while.end5 ], [ %0, %entry ]
   %cb.0 = inttoptr i64 %cb.0.in5 to ptr
-  %entry6 = getelementptr inbounds i8, ptr %cb.0, i64 24
+  %entry6 = getelementptr inbounds nuw i8, ptr %cb.0, i64 24
   %1 = load atomic i64, ptr %entry6 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
-  %f = getelementptr inbounds i8, ptr %cb.0, i64 8
+  %f = getelementptr inbounds nuw i8, ptr %cb.0, i64 8
   %2 = load ptr, ptr %f, align 8
   %3 = load ptr, ptr %cb.0, align 8
-  %id = getelementptr inbounds i8, ptr %3, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i64, ptr %id, align 8
   tail call void %2(i64 noundef %4, ptr noundef %tb) #10
   %tobool.not = icmp eq i64 %1, 0
@@ -594,7 +594,7 @@ for.end:                                          ; preds = %while.end5, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_vcpu_syscall(ptr nocapture noundef readonly %cpu, i64 noundef %num, i64 noundef %a1, i64 noundef %a2, i64 noundef %a3, i64 noundef %a4, i64 noundef %a5, i64 noundef %a6, i64 noundef %a7, i64 noundef %a8) local_unnamed_addr #0 {
 entry:
-  %plugin_mask = getelementptr inbounds i8, ptr %cpu, i64 696
+  %plugin_mask = getelementptr inbounds nuw i8, ptr %cpu, i64 696
   %0 = load i64, ptr %plugin_mask, align 8
   %1 = and i64 %0, 32
   %tobool.not = icmp eq i64 %1, 0
@@ -607,19 +607,19 @@ while.end:                                        ; preds = %entry
   br i1 %tobool1.not6, label %for.end, label %while.end6.lr.ph
 
 while.end6.lr.ph:                                 ; preds = %while.end
-  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   br label %while.end6
 
 while.end6:                                       ; preds = %while.end6.lr.ph, %while.end6
   %cb.0.in7 = phi i64 [ %2, %while.end6.lr.ph ], [ %3, %while.end6 ]
   %cb.0 = inttoptr i64 %cb.0.in7 to ptr
-  %entry7 = getelementptr inbounds i8, ptr %cb.0, i64 24
+  %entry7 = getelementptr inbounds nuw i8, ptr %cb.0, i64 24
   %3 = load atomic i64, ptr %entry7 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
-  %f = getelementptr inbounds i8, ptr %cb.0, i64 8
+  %f = getelementptr inbounds nuw i8, ptr %cb.0, i64 8
   %4 = load ptr, ptr %f, align 8
   %5 = load ptr, ptr %cb.0, align 8
-  %id = getelementptr inbounds i8, ptr %5, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i64, ptr %id, align 8
   %7 = load i32, ptr %cpu_index, align 8
   tail call void %4(i64 noundef %6, i32 noundef %7, i64 noundef %num, i64 noundef %a1, i64 noundef %a2, i64 noundef %a3, i64 noundef %a4, i64 noundef %a5, i64 noundef %a6, i64 noundef %a7, i64 noundef %a8) #10
@@ -633,7 +633,7 @@ for.end:                                          ; preds = %while.end6, %while.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_vcpu_syscall_ret(ptr nocapture noundef readonly %cpu, i64 noundef %num, i64 noundef %ret) local_unnamed_addr #0 {
 entry:
-  %plugin_mask = getelementptr inbounds i8, ptr %cpu, i64 696
+  %plugin_mask = getelementptr inbounds nuw i8, ptr %cpu, i64 696
   %0 = load i64, ptr %plugin_mask, align 8
   %1 = and i64 %0, 64
   %tobool.not = icmp eq i64 %1, 0
@@ -646,19 +646,19 @@ while.end:                                        ; preds = %entry
   br i1 %tobool1.not6, label %for.end, label %while.end6.lr.ph
 
 while.end6.lr.ph:                                 ; preds = %while.end
-  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   br label %while.end6
 
 while.end6:                                       ; preds = %while.end6.lr.ph, %while.end6
   %cb.0.in7 = phi i64 [ %2, %while.end6.lr.ph ], [ %3, %while.end6 ]
   %cb.0 = inttoptr i64 %cb.0.in7 to ptr
-  %entry7 = getelementptr inbounds i8, ptr %cb.0, i64 24
+  %entry7 = getelementptr inbounds nuw i8, ptr %cb.0, i64 24
   %3 = load atomic i64, ptr %entry7 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !16
-  %f = getelementptr inbounds i8, ptr %cb.0, i64 8
+  %f = getelementptr inbounds nuw i8, ptr %cb.0, i64 8
   %4 = load ptr, ptr %f, align 8
   %5 = load ptr, ptr %cb.0, align 8
-  %id = getelementptr inbounds i8, ptr %5, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i64, ptr %id, align 8
   %7 = load i32, ptr %cpu_index, align 8
   tail call void %4(i64 noundef %6, i32 noundef %7, i64 noundef %num, i64 noundef %ret) #10
@@ -678,19 +678,19 @@ entry:
   br i1 %tobool.not5.i, label %plugin_vcpu_cb__simple.exit, label %while.end5.lr.ph.i
 
 while.end5.lr.ph.i:                               ; preds = %entry
-  %cpu_index.i = getelementptr inbounds i8, ptr %cpu, i64 712
+  %cpu_index.i = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   br label %while.end5.i
 
 while.end5.i:                                     ; preds = %while.end5.i, %while.end5.lr.ph.i
   %cb.0.in6.i = phi i64 [ %0, %while.end5.lr.ph.i ], [ %1, %while.end5.i ]
   %cb.0.i = inttoptr i64 %cb.0.in6.i to ptr
-  %entry6.i = getelementptr inbounds i8, ptr %cb.0.i, i64 24
+  %entry6.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 24
   %1 = load atomic i64, ptr %entry6.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %f.i = getelementptr inbounds i8, ptr %cb.0.i, i64 8
+  %f.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 8
   %2 = load ptr, ptr %f.i, align 8
   %3 = load ptr, ptr %cb.0.i, align 8
-  %id.i = getelementptr inbounds i8, ptr %3, i64 8
+  %id.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i64, ptr %id.i, align 8
   %5 = load i32, ptr %cpu_index.i, align 8
   tail call void %2(i64 noundef %4, i32 noundef %5) #10
@@ -710,19 +710,19 @@ entry:
   br i1 %tobool.not5.i, label %plugin_vcpu_cb__simple.exit, label %while.end5.lr.ph.i
 
 while.end5.lr.ph.i:                               ; preds = %entry
-  %cpu_index.i = getelementptr inbounds i8, ptr %cpu, i64 712
+  %cpu_index.i = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   br label %while.end5.i
 
 while.end5.i:                                     ; preds = %while.end5.i, %while.end5.lr.ph.i
   %cb.0.in6.i = phi i64 [ %0, %while.end5.lr.ph.i ], [ %1, %while.end5.i ]
   %cb.0.i = inttoptr i64 %cb.0.in6.i to ptr
-  %entry6.i = getelementptr inbounds i8, ptr %cb.0.i, i64 24
+  %entry6.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 24
   %1 = load atomic i64, ptr %entry6.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %f.i = getelementptr inbounds i8, ptr %cb.0.i, i64 8
+  %f.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 8
   %2 = load ptr, ptr %f.i, align 8
   %3 = load ptr, ptr %cb.0.i, align 8
-  %id.i = getelementptr inbounds i8, ptr %3, i64 8
+  %id.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i64, ptr %id.i, align 8
   %5 = load i32, ptr %cpu_index.i, align 8
   tail call void %2(i64 noundef %4, i32 noundef %5) #10
@@ -767,13 +767,13 @@ entry:
 while.end5.i:                                     ; preds = %entry, %while.end5.i
   %cb.0.in6.i = phi i64 [ %1, %while.end5.i ], [ %0, %entry ]
   %cb.0.i = inttoptr i64 %cb.0.in6.i to ptr
-  %entry6.i = getelementptr inbounds i8, ptr %cb.0.i, i64 24
+  %entry6.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 24
   %1 = load atomic i64, ptr %entry6.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !19
-  %f.i = getelementptr inbounds i8, ptr %cb.0.i, i64 8
+  %f.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 8
   %2 = load ptr, ptr %f.i, align 8
   %3 = load ptr, ptr %cb.0.i, align 8
-  %id.i = getelementptr inbounds i8, ptr %3, i64 8
+  %id.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i64, ptr %id.i, align 8
   tail call void %2(i64 noundef %4) #10
   %tobool.not.i = icmp eq i64 %1, 0
@@ -797,15 +797,15 @@ declare void @qht_reset(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @exec_inline_op(ptr nocapture noundef readonly %cb) local_unnamed_addr #0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %cb, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %cb, i64 24
   %1 = load i32, ptr %0, align 8
   %cond = icmp eq i32 %1, 0
   br i1 %cond, label %sw.bb, label %do.body
 
 sw.bb:                                            ; preds = %entry
-  %userp = getelementptr inbounds i8, ptr %cb, i64 8
+  %userp = getelementptr inbounds nuw i8, ptr %cb, i64 8
   %2 = load ptr, ptr %userp, align 8
-  %imm = getelementptr inbounds i8, ptr %cb, i64 32
+  %imm = getelementptr inbounds nuw i8, ptr %cb, i64 32
   %3 = load i64, ptr %imm, align 8
   %4 = load i64, ptr %2, align 8
   %add = add i64 %4, %3
@@ -820,19 +820,19 @@ do.body:                                          ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_vcpu_mem_cb(ptr nocapture noundef readonly %cpu, i64 noundef %vaddr, i32 noundef %oi, i32 noundef %rw) local_unnamed_addr #0 {
 entry:
-  %plugin_mem_cbs = getelementptr inbounds i8, ptr %cpu, i64 704
+  %plugin_mem_cbs = getelementptr inbounds nuw i8, ptr %cpu, i64 704
   %0 = load ptr, ptr %plugin_mem_cbs, align 16
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %len = getelementptr inbounds i8, ptr %0, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %len, align 8
   %cmp112.not = icmp eq i32 %1, 0
   br i1 %cmp112.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   %shl.i = shl i32 %rw, 16
   %or.i = or i32 %shl.i, %oi
   br label %for.body
@@ -841,14 +841,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.013 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %2 = load ptr, ptr %0, align 8
   %arrayidx = getelementptr %struct.qemu_plugin_dyn_cb, ptr %2, i64 %i.013
-  %rw3 = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %rw3 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 20
   %3 = load i32, ptr %rw3, align 4
   %and = and i32 %3, %rw
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %for.end, label %if.end5
 
 if.end5:                                          ; preds = %for.body
-  %type = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %type = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %4 = load i32, ptr %type, align 8
   switch i32 %4, label %do.body [
     i32 0, label %sw.bb
@@ -858,13 +858,13 @@ if.end5:                                          ; preds = %for.body
 sw.bb:                                            ; preds = %if.end5
   %5 = load ptr, ptr %arrayidx, align 8
   %6 = load i32, ptr %cpu_index, align 8
-  %userp = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %userp = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %7 = load ptr, ptr %userp, align 8
   tail call void %5(i32 noundef %6, i32 noundef %or.i, i64 noundef %vaddr, ptr noundef %7) #10
   br label %for.inc
 
 sw.bb6:                                           ; preds = %if.end5
-  %8 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %9 = load i32, ptr %8, align 8
   %cond.i = icmp eq i32 %9, 0
   br i1 %cond.i, label %exec_inline_op.exit, label %do.body.i
@@ -874,9 +874,9 @@ do.body.i:                                        ; preds = %sw.bb6
   unreachable
 
 exec_inline_op.exit:                              ; preds = %sw.bb6
-  %userp.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %userp.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %10 = load ptr, ptr %userp.i, align 8
-  %imm.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %imm.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %11 = load i64, ptr %imm.i, align 8
   %12 = load i64, ptr %10, align 8
   %add.i = add i64 %12, %11
@@ -909,15 +909,15 @@ entry:
 while.end5.i:                                     ; preds = %entry, %while.end5.i
   %cb.0.in7.i = phi i64 [ %1, %while.end5.i ], [ %0, %entry ]
   %cb.0.i = inttoptr i64 %cb.0.in7.i to ptr
-  %entry6.i = getelementptr inbounds i8, ptr %cb.0.i, i64 24
+  %entry6.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 24
   %1 = load atomic i64, ptr %entry6.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !23
-  %f.i = getelementptr inbounds i8, ptr %cb.0.i, i64 8
+  %f.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 8
   %2 = load ptr, ptr %f.i, align 8
   %3 = load ptr, ptr %cb.0.i, align 8
-  %id.i = getelementptr inbounds i8, ptr %3, i64 8
+  %id.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i64, ptr %id.i, align 8
-  %udata.i = getelementptr inbounds i8, ptr %cb.0.i, i64 16
+  %udata.i = getelementptr inbounds nuw i8, ptr %cb.0.i, i64 16
   %5 = load ptr, ptr %udata.i, align 8
   tail call void %2(i64 noundef %4, ptr noundef %5) #10
   %tobool.not.i = icmp eq i64 %1, 0
@@ -963,26 +963,26 @@ while.end13.lr.ph:                                ; preds = %while.end6
 while.end13:                                      ; preds = %while.end13.lr.ph, %plugin_unregister_cb__locked.exit
   %cb.0.in10 = phi i64 [ %2, %while.end13.lr.ph ], [ %3, %plugin_unregister_cb__locked.exit ]
   %cb.0 = inttoptr i64 %cb.0.in10 to ptr
-  %entry14 = getelementptr inbounds i8, ptr %cb.0, i64 24
+  %entry14 = getelementptr inbounds nuw i8, ptr %cb.0, i64 24
   %3 = load atomic i64, ptr %entry14 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
   %4 = load ptr, ptr %cb.0, align 8
-  %callbacks.i = getelementptr inbounds i8, ptr %4, i64 16
+  %callbacks.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %arrayidx.i = getelementptr [9 x ptr], ptr %callbacks.i, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %plugin_unregister_cb__locked.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %while.end13
-  %entry1.i = getelementptr inbounds i8, ptr %5, i64 24
+  %entry1.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %6 = load ptr, ptr %entry1.i, align 8
   %cmp2.not.i = icmp eq ptr %6, null
-  %le_prev13.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 32
+  %le_prev13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.i = load ptr, ptr %le_prev13.phi.trans.insert.i, align 8
   br i1 %cmp2.not.i, label %while.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.body.i
-  %le_prev8.i = getelementptr inbounds i8, ptr %6, i64 32
+  %le_prev8.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %.pre.i, ptr %le_prev8.i, align 8
   %.pre12.i = load ptr, ptr %entry1.i, align 8
   %7 = ptrtoint ptr %.pre12.i to i64
@@ -1023,9 +1023,9 @@ while.end23:                                      ; preds = %for.body, %for.inc1
 for.body27:                                       ; preds = %while.end23, %for.body27
   %cpu.0.in13 = phi i64 [ %13, %for.body27 ], [ %12, %while.end23 ]
   %cpu.0 = inttoptr i64 %cpu.0.in13 to ptr
-  %plugin_mem_cbs.i = getelementptr inbounds i8, ptr %cpu.0, i64 704
+  %plugin_mem_cbs.i = getelementptr inbounds nuw i8, ptr %cpu.0, i64 704
   store ptr null, ptr %plugin_mem_cbs.i, align 16
-  %node = getelementptr inbounds i8, ptr %cpu.0, i64 568
+  %node = getelementptr inbounds nuw i8, ptr %cpu.0, i64 568
   %13 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !30
   %tobool26.not = icmp eq i64 %13, 0
@@ -1045,15 +1045,15 @@ for.end35:                                        ; preds = %for.body27, %while.
 while.end5.i.i:                                   ; preds = %for.end35, %while.end5.i.i
   %cb.0.in7.i.i = phi i64 [ %17, %while.end5.i.i ], [ %16, %for.end35 ]
   %cb.0.i.i = inttoptr i64 %cb.0.in7.i.i to ptr
-  %entry6.i.i = getelementptr inbounds i8, ptr %cb.0.i.i, i64 24
+  %entry6.i.i = getelementptr inbounds nuw i8, ptr %cb.0.i.i, i64 24
   %17 = load atomic i64, ptr %entry6.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !23
-  %f.i.i = getelementptr inbounds i8, ptr %cb.0.i.i, i64 8
+  %f.i.i = getelementptr inbounds nuw i8, ptr %cb.0.i.i, i64 8
   %18 = load ptr, ptr %f.i.i, align 8
   %19 = load ptr, ptr %cb.0.i.i, align 8
-  %id.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %id.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %20 = load i64, ptr %id.i.i, align 8
-  %udata.i.i = getelementptr inbounds i8, ptr %cb.0.i.i, i64 16
+  %udata.i.i = getelementptr inbounds nuw i8, ptr %cb.0.i.i, i64 16
   %21 = load ptr, ptr %udata.i.i, align 8
   tail call void %18(i64 noundef %20, ptr noundef %21) #10
   %tobool.not.i.i = icmp eq i64 %17, 0
@@ -1143,7 +1143,7 @@ declare void @async_run_on_cpu(ptr noundef, ptr noundef, i64) local_unnamed_addr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @plugin_cpu_update__async(ptr noundef initializes((696, 704)) %cpu, i64 %data.coerce) #0 {
 entry:
-  %plugin_mask = getelementptr inbounds i8, ptr %cpu, i64 696
+  %plugin_mask = getelementptr inbounds nuw i8, ptr %cpu, i64 696
   store i64 %data.coerce, ptr %plugin_mask, align 8
   tail call void @tcg_flush_jmp_cache(ptr noundef %cpu) #10
   ret void

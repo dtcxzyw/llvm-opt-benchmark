@@ -5,14 +5,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
 define range(i32 0, 5) i32 @solve3(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load double, ptr %3, align 8
   %5 = tail call double @llvm.fabs.f64(double %4)
   %or.cond = fcmp olt double %5, 0x3E7AD7F29ABCAF48
   br i1 %or.cond, label %6, label %35
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load double, ptr %7, align 8
   %9 = tail call double @llvm.fabs.f64(double %8)
   %or.cond.i = fcmp olt double %9, 0x3E7AD7F29ABCAF48
@@ -57,7 +57,7 @@ define range(i32 0, 5) i32 @solve3(ptr nocapture noundef readonly %0, ptr nocapt
   store double %29, ptr %1, align 8
   %30 = fneg double %29
   %31 = tail call double @llvm.fmuladd.f64(double %20, double -2.000000e+00, double %30)
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %31, ptr %32, align 8
   br label %solve2.exit
 
@@ -68,9 +68,9 @@ define range(i32 0, 5) i32 @solve3(ptr nocapture noundef readonly %0, ptr nocapt
 
 35:                                               ; preds = %2
   %36 = load double, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load double, ptr %39, align 8
   %41 = fmul double %4, 3.000000e+00
   %42 = fdiv double %40, %41
@@ -110,7 +110,7 @@ define range(i32 0, 5) i32 @solve3(ptr nocapture noundef readonly %0, ptr nocapt
   %73 = fdiv double %72, 3.000000e+00
   %74 = tail call double @cos(double noundef %73) #5
   %75 = fmul double %67, %74
-  %76 = getelementptr inbounds i8, ptr %1, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %75, ptr %76, align 8
   %77 = fadd double %65, 0xC00921FB54442D18
   %78 = fadd double %77, 0xC00921FB54442D18
@@ -134,14 +134,14 @@ define range(i32 0, 5) i32 @solve3(ptr nocapture noundef readonly %0, ptr nocapt
 
 92:                                               ; preds = %82
   %93 = fmul double %90, -5.000000e-01
-  %94 = getelementptr inbounds i8, ptr %1, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %93, ptr %94, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %58, %92
   %.sink69 = phi i64 [ 8, %92 ], [ 16, %58 ]
   %.sink = phi double [ %93, %92 ], [ %81, %58 ]
-  %95 = getelementptr inbounds i8, ptr %1, i64 %.sink69
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink69
   store double %.sink, ptr %95, align 8
   br label %96
 
@@ -152,7 +152,7 @@ define range(i32 0, 5) i32 @solve3(ptr nocapture noundef readonly %0, ptr nocapt
 
 97:                                               ; preds = %96, %97
   %indvars.iv = phi i64 [ 0, %96 ], [ %indvars.iv.next, %97 ]
-  %98 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %99 = load double, ptr %98, align 8
   %100 = fsub double %99, %42
   store double %100, ptr %98, align 8

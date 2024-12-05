@@ -116,10 +116,10 @@ if.end:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN4base6Pickle16WriteBytesStaticILm2EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %data) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %write_offset_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %write_offset_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %write_offset_.i.i, align 8
   %add.i.i = add i64 %0, 4
-  %capacity_after_header_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %capacity_after_header_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %add.i.i, %1
   br i1 %cmp.i.i, label %if.then30.i.i, label %_ZN4base6Pickle16WriteBytesCommonEPKvm.exit
@@ -138,13 +138,13 @@ if.then30.i.i:                                    ; preds = %entry
 
 _ZN4base6Pickle16WriteBytesCommonEPKvm.exit:      ; preds = %entry, %if.then30.i.i
   %2 = phi i64 [ %.pre.i.i, %if.then30.i.i ], [ %0, %entry ]
-  %header_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %header_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %header_.i.i.i, align 8
-  %header_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i64, ptr %header_size_.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %2
-  %add.ptr40.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 2
+  %add.ptr40.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 2
   store i16 0, ptr %add.ptr40.i.i, align 1
   %conv.i.i = trunc i64 %add.i.i to i32
   %5 = load ptr, ptr %header_.i.i.i, align 8
@@ -158,10 +158,10 @@ _ZN4base6Pickle16WriteBytesCommonEPKvm.exit:      ; preds = %entry, %if.then30.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN4base6Pickle16WriteBytesStaticILm4EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %data) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %write_offset_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %write_offset_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %write_offset_.i.i, align 8
   %add.i.i = add i64 %0, 4
-  %capacity_after_header_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %capacity_after_header_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %add.i.i, %1
   br i1 %cmp.i.i, label %if.then30.i.i, label %_ZN4base6Pickle16WriteBytesCommonEPKvm.exit
@@ -180,9 +180,9 @@ if.then30.i.i:                                    ; preds = %entry
 
 _ZN4base6Pickle16WriteBytesCommonEPKvm.exit:      ; preds = %entry, %if.then30.i.i
   %2 = phi i64 [ %.pre.i.i, %if.then30.i.i ], [ %0, %entry ]
-  %header_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %header_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %header_.i.i.i, align 8
-  %header_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i64, ptr %header_size_.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %2
@@ -197,10 +197,10 @@ _ZN4base6Pickle16WriteBytesCommonEPKvm.exit:      ; preds = %entry, %if.then30.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN4base6Pickle16WriteBytesStaticILm8EEEvPKv(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %data) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %write_offset_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %write_offset_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %write_offset_.i.i, align 8
   %add.i.i = add i64 %0, 8
-  %capacity_after_header_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %capacity_after_header_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %add.i.i, %1
   br i1 %cmp.i.i, label %if.then30.i.i, label %_ZN4base6Pickle16WriteBytesCommonEPKvm.exit
@@ -219,9 +219,9 @@ if.then30.i.i:                                    ; preds = %entry
 
 _ZN4base6Pickle16WriteBytesCommonEPKvm.exit:      ; preds = %entry, %if.then30.i.i
   %2 = phi i64 [ %.pre.i.i, %if.then30.i.i ], [ %0, %entry ]
-  %header_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %header_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %header_.i.i.i, align 8
-  %header_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i64, ptr %header_size_.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %2
@@ -236,13 +236,13 @@ _ZN4base6Pickle16WriteBytesCommonEPKvm.exit:      ; preds = %entry, %if.then30.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4base14PickleIteratorC2ERKNS_6PickleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %pickle) unnamed_addr #3 align 2 {
 entry:
-  %header_.i = getelementptr inbounds i8, ptr %pickle, i64 8
+  %header_.i = getelementptr inbounds nuw i8, ptr %pickle, i64 8
   %0 = load ptr, ptr %header_.i, align 8
-  %header_size_.i = getelementptr inbounds i8, ptr %pickle, i64 16
+  %header_size_.i = getelementptr inbounds nuw i8, ptr %pickle, i64 16
   %1 = load i64, ptr %header_size_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %1
   store ptr %add.ptr.i, ptr %this, align 8
-  %read_index_ = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %read_index_, align 8
   %2 = load ptr, ptr %header_.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
@@ -255,7 +255,7 @@ cond.true.i:                                      ; preds = %entry
 
 _ZNK4base6Pickle12payload_sizeEv.exit:            ; preds = %entry, %cond.true.i
   %cond.i = phi i64 [ %4, %cond.true.i ], [ 0, %entry ]
-  %end_index_ = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %cond.i, ptr %end_index_, align 8
   ret void
 }
@@ -264,12 +264,12 @@ _ZNK4base6Pickle12payload_sizeEv.exit:            ; preds = %entry, %cond.true.i
 define dso_local noundef ptr @_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %num_bytes) local_unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp slt i32 %num_bytes, 0
-  %end_index_3.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_3.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pre = load i64, ptr %end_index_3.phi.trans.insert, align 8
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %read_index_ = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %read_index_, align 8
   %sub = sub i64 %.pre, %0
   %conv = zext nneg i32 %num_bytes to i64
@@ -277,7 +277,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %lor.lhs.false
-  %read_index_4 = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %.pre, ptr %read_index_4, align 8
   br label %return
 
@@ -300,9 +300,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator8ReadBoolEPb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
-  %end_index_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
-  %read_index_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, %1
   br i1 %cmp.i.i, label %_ZN4base14PickleIterator15ReadBuiltinTypeIbEEbPT_.exit, label %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i
@@ -332,9 +332,9 @@ _ZN4base14PickleIterator15ReadBuiltinTypeIbEEbPT_.exit: ; preds = %entry, %_ZN4b
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
-  %end_index_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
-  %read_index_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i, align 8
   %sub.i.i = sub i64 %0, %1
   %cmp.i.i = icmp ult i64 %sub.i.i, 4
@@ -359,9 +359,9 @@ _ZN4base14PickleIterator15ReadBuiltinTypeIiEEbPT_.exit: ; preds = %entry, %if.en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator8ReadLongEPl(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
-  %end_index_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
-  %read_index_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i, align 8
   %sub.i.i = sub i64 %0, %1
   %cmp.i.i = icmp ult i64 %sub.i.i, 8
@@ -386,9 +386,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt16EPt(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
-  %end_index_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
-  %read_index_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i, align 8
   %sub.i.i = sub i64 %0, %1
   %cmp.i.i = icmp ult i64 %sub.i.i, 2
@@ -414,9 +414,9 @@ _ZN4base14PickleIterator15ReadBuiltinTypeItEEbPT_.exit: ; preds = %entry, %if.en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt32EPj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
-  %end_index_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
-  %read_index_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i, align 8
   %sub.i.i = sub i64 %0, %1
   %cmp.i.i = icmp ult i64 %sub.i.i, 4
@@ -441,9 +441,9 @@ _ZN4base14PickleIterator15ReadBuiltinTypeIjEEbPT_.exit: ; preds = %entry, %if.en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator9ReadInt64EPl(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
-  %end_index_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
-  %read_index_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i, align 8
   %sub.i.i = sub i64 %0, %1
   %cmp.i.i = icmp ult i64 %sub.i.i, 8
@@ -468,9 +468,9 @@ _ZN4base14PickleIterator15ReadBuiltinTypeIlEEbPT_.exit: ; preds = %entry, %if.en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadUInt64EPm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
-  %end_index_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i, align 8
-  %read_index_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i, align 8
   %sub.i.i = sub i64 %0, %1
   %cmp.i.i = icmp ult i64 %sub.i.i, 8
@@ -495,9 +495,9 @@ _ZN4base14PickleIterator15ReadBuiltinTypeImEEbPT_.exit: ; preds = %entry, %if.en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator9ReadFloatEPf(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
-  %end_index_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i, align 8
-  %read_index_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i, align 8
   %sub.i = sub i64 %0, %1
   %cmp.i = icmp ult i64 %sub.i, 4
@@ -525,9 +525,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadDoubleEPd(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
-  %end_index_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i, align 8
-  %read_index_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i, align 8
   %sub.i = sub i64 %0, %1
   %cmp.i = icmp ult i64 %sub.i, 8
@@ -552,9 +552,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator10ReadStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %result) local_unnamed_addr #0 align 2 {
 entry:
-  %end_index_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i.i, align 8
-  %read_index_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i.i, align 8
   %sub.i.i.i = sub i64 %0, %1
   %cmp.i.i.i = icmp ult i64 %sub.i.i.i, 4
@@ -604,9 +604,9 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator15ReadStringPieceEPNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %end_index_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i.i, align 8
-  %read_index_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i.i, align 8
   %sub.i.i.i = sub i64 %0, %1
   %cmp.i.i.i = icmp ult i64 %sub.i.i.i, 4
@@ -656,9 +656,9 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator12ReadString16EPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %result) local_unnamed_addr #0 align 2 {
 entry:
-  %end_index_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i.i, align 8
-  %read_index_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i.i, align 8
   %sub.i.i.i = sub i64 %0, %1
   %cmp.i.i.i = icmp ult i64 %sub.i.i.i, 4
@@ -715,9 +715,9 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator17ReadStringPiece16EPNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.base::BasicStringPiece.5", align 8
-  %end_index_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i.i, align 8
-  %read_index_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i.i, align 8
   %sub.i.i.i = sub i64 %0, %1
   %cmp.i.i.i = icmp ult i64 %sub.i.i.i, 4
@@ -776,9 +776,9 @@ define dso_local noundef zeroext i1 @_ZN4base14PickleIterator8ReadDataEPPKcPi(pt
 entry:
   store i32 0, ptr %length, align 4
   store ptr null, ptr %data, align 8
-  %end_index_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %end_index_.i.i.i, align 8
-  %read_index_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i.i, align 8
   %sub.i.i.i = sub i64 %0, %1
   %cmp.i.i.i = icmp ult i64 %sub.i.i.i, 4
@@ -834,12 +834,12 @@ return:                                           ; preds = %if.end.i, %_ZN4base
 define dso_local noundef zeroext i1 @_ZN4base14PickleIterator9ReadBytesEPPKci(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %data, i32 noundef %length) local_unnamed_addr #2 align 2 {
 entry:
   %cmp.i = icmp slt i32 %length, 0
-  %end_index_3.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_index_3.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pre.i = load i64, ptr %end_index_3.phi.trans.insert.i, align 8
   br i1 %cmp.i, label %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %read_index_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %read_index_.i, align 8
   %sub.i = sub i64 %.pre.i, %0
   %conv.i = zext nneg i32 %length to i64
@@ -847,7 +847,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp2.i, label %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread, label %_ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit
 
 _ZN4base14PickleIterator24GetReadPointerAndAdvanceEi.exit.thread: ; preds = %entry, %lor.lhs.false.i
-  %read_index_4.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_index_4.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %.pre.i, ptr %read_index_4.i, align 8
   br label %return
 
@@ -979,7 +979,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base6Pickle10AttachmentC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6Pickle10AttachmentE, i64 16), ptr %this, align 8
   ret void
@@ -988,7 +988,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base6Pickle10AttachmentD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #8 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) #17
   ret void
 }
@@ -996,7 +996,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base6Pickle10AttachmentD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #8 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4base6subtle24RefCountedThreadSafeBaseD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
@@ -1009,11 +1009,11 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 define dso_local void @_ZN4base6PickleC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
-  %header_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %header_, align 8
-  %header_size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 4, ptr %header_size_, align 8
-  %capacity_after_header_ = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %capacity_after_header_, i8 0, i64 16, i1 false)
   tail call void @_ZN4base6Pickle6ResizeEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef 64)
   %0 = load ptr, ptr %header_, align 8
@@ -1026,7 +1026,7 @@ define dso_local void @_ZN4base6Pickle6ResizeEm(ptr noundef nonnull align 8 dere
 entry:
   %ref.tmp = alloca %"class.logging::LogMessage", align 8
   %ref.tmp10 = alloca %"class.logging::LogMessage", align 8
-  %capacity_after_header_ = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_after_header_, align 8
   %cmp.not.i = icmp eq i64 %0, -1
   br i1 %cmp.not.i, label %_ZN7logging11CheckNEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, label %if.end
@@ -1045,9 +1045,9 @@ if.end:                                           ; preds = %entry, %_ZN7logging
   %sub.i = add i64 %new_capacity, 63
   %and.i = and i64 %sub.i, -64
   store i64 %and.i, ptr %capacity_after_header_, align 8
-  %header_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %header_, align 8
-  %header_size_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %header_size_.i, align 8
   %add.i2 = add i64 %2, %and.i
   %call8 = call ptr @realloc(ptr noundef %1, i64 noundef %add.i2) #19
@@ -1068,14 +1068,14 @@ cleanup.done:                                     ; preds = %if.end, %cond.false
 define dso_local void @_ZN4base6PickleC2Ei(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, i32 noundef %header_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end14:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
-  %header_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %header_, align 8
-  %header_size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = sext i32 %header_size to i64
   %sub.i = add nsw i64 %conv, 3
   %and.i = and i64 %sub.i, -4
   store i64 %and.i, ptr %header_size_, align 8
-  %capacity_after_header_ = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %capacity_after_header_, i8 0, i64 16, i1 false)
   tail call void @_ZN4base6Pickle6ResizeEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef 64)
   %0 = load ptr, ptr %header_, align 8
@@ -1087,13 +1087,13 @@ if.end14:
 define dso_local void @_ZN4base6PickleC2EPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %data, i32 noundef %data_len) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
-  %header_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %data, ptr %header_, align 8
-  %header_size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %header_size_, align 8
-  %capacity_after_header_ = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 -1, ptr %capacity_after_header_, align 8
-  %write_offset_ = getelementptr inbounds i8, ptr %this, i64 32
+  %write_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %write_offset_, align 8
   %cmp = icmp sgt i32 %data_len, 3
   br i1 %cmp, label %if.end, label %if.end9
@@ -1135,19 +1135,19 @@ if.end19:                                         ; preds = %if.then17, %if.end1
 define dso_local void @_ZN4base6PickleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
-  %header_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %header_, align 8
-  %header_size_ = getelementptr inbounds i8, ptr %this, i64 16
-  %header_size_2 = getelementptr inbounds i8, ptr %other, i64 16
+  %header_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %header_size_2 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %0 = load i64, ptr %header_size_2, align 8
   store i64 %0, ptr %header_size_, align 8
-  %capacity_after_header_ = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %capacity_after_header_, align 8
-  %write_offset_ = getelementptr inbounds i8, ptr %this, i64 32
-  %write_offset_3 = getelementptr inbounds i8, ptr %other, i64 32
+  %write_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %write_offset_3 = getelementptr inbounds nuw i8, ptr %other, i64 32
   %1 = load i64, ptr %write_offset_3, align 8
   store i64 %1, ptr %write_offset_, align 8
-  %header_4 = getelementptr inbounds i8, ptr %other, i64 8
+  %header_4 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %2 = load ptr, ptr %header_4, align 8
   %3 = load i32, ptr %2, align 4
   %conv = zext i32 %3 to i64
@@ -1166,13 +1166,13 @@ entry:
 define dso_local void @_ZN4base6PickleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
-  %capacity_after_header_ = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_after_header_, align 8
   %cmp.not = icmp eq i64 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %header_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %header_, align 8
   tail call void @free(ptr noundef %1) #17
   br label %if.end
@@ -1188,13 +1188,13 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 define dso_local void @_ZN4base6PickleD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base6PickleE, i64 16), ptr %this, align 8
-  %capacity_after_header_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_after_header_.i, align 8
   %cmp.not.i = icmp eq i64 %0, -1
   br i1 %cmp.not.i, label %_ZN4base6PickleD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %header_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %header_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %header_.i, align 8
   tail call void @free(ptr noundef %1) #17
   br label %_ZN4base6PickleD2Ev.exit
@@ -1211,27 +1211,27 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %capacity_after_header_ = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_after_header_, align 8
   %cmp2 = icmp eq i64 %0, -1
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %header_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %header_, align 8
   store i64 0, ptr %capacity_after_header_, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %header_size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %header_size_, align 8
-  %header_size_6 = getelementptr inbounds i8, ptr %other, i64 16
+  %header_size_6 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %2 = load i64, ptr %header_size_6, align 8
   %cmp7.not = icmp eq i64 %1, %2
   br i1 %cmp7.not, label %if.end13, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
-  %header_9 = getelementptr inbounds i8, ptr %this, i64 8
+  %header_9 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %header_9, align 8
   tail call void @free(ptr noundef %3) #17
   store ptr null, ptr %header_9, align 8
@@ -1240,12 +1240,12 @@ if.then8:                                         ; preds = %if.end5
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then8, %if.end5
-  %header_14 = getelementptr inbounds i8, ptr %other, i64 8
+  %header_14 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %5 = load ptr, ptr %header_14, align 8
   %6 = load i32, ptr %5, align 4
   %conv = zext i32 %6 to i64
   tail call void @_ZN4base6Pickle6ResizeEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %conv)
-  %header_15 = getelementptr inbounds i8, ptr %this, i64 8
+  %header_15 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load ptr, ptr %header_15, align 8
   %8 = load ptr, ptr %header_14, align 8
   %9 = load i64, ptr %header_size_6, align 8
@@ -1253,9 +1253,9 @@ if.end13:                                         ; preds = %if.then8, %if.end5
   %conv20 = zext i32 %10 to i64
   %add = add i64 %9, %conv20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr nonnull align 4 %8, i64 %add, i1 false)
-  %write_offset_ = getelementptr inbounds i8, ptr %other, i64 32
+  %write_offset_ = getelementptr inbounds nuw i8, ptr %other, i64 32
   %11 = load i64, ptr %write_offset_, align 8
-  %write_offset_21 = getelementptr inbounds i8, ptr %this, i64 32
+  %write_offset_21 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 %11, ptr %write_offset_21, align 8
   br label %return
 
@@ -1268,10 +1268,10 @@ define dso_local noundef zeroext i1 @_ZN4base6Pickle11WriteStringERKNS_16BasicSt
 entry:
   %call = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
   %conv = trunc i64 %call to i32
-  %write_offset_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %write_offset_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %write_offset_.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %0, 4
-  %capacity_after_header_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %capacity_after_header_.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, %1
   br i1 %cmp.i.i.i.i.i, label %if.then30.i.i.i.i.i, label %if.end
@@ -1290,9 +1290,9 @@ if.then30.i.i.i.i.i:                              ; preds = %entry
 
 if.end:                                           ; preds = %if.then30.i.i.i.i.i, %entry
   %2 = phi i64 [ %.pre.i.i.i.i.i, %if.then30.i.i.i.i.i ], [ %0, %entry ]
-  %header_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %header_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %header_.i.i.i.i.i.i, align 8
-  %header_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i64, ptr %header_size_.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %2
@@ -1347,10 +1347,10 @@ entry:
   %conv = sext i32 %length to i64
   %sub.i.i.i = add nsw i64 %conv, 3
   %and.i.i.i = and i64 %sub.i.i.i, -4
-  %write_offset_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %write_offset_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %write_offset_.i.i, align 8
   %add.i.i = add i64 %0, %and.i.i.i
-  %capacity_after_header_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %capacity_after_header_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %add.i.i, %1
   br i1 %cmp.i.i, label %if.then30.i.i, label %_ZN4base6Pickle16WriteBytesCommonEPKvm.exit
@@ -1369,9 +1369,9 @@ if.then30.i.i:                                    ; preds = %entry
 
 _ZN4base6Pickle16WriteBytesCommonEPKvm.exit:      ; preds = %entry, %if.then30.i.i
   %2 = phi i64 [ %.pre.i.i, %if.then30.i.i ], [ %0, %entry ]
-  %header_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %header_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %header_.i.i.i, align 8
-  %header_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i64, ptr %header_size_.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %2
@@ -1393,10 +1393,10 @@ define dso_local noundef zeroext i1 @_ZN4base6Pickle13WriteString16ERKNS_16Basic
 entry:
   %call = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
   %conv = trunc i64 %call to i32
-  %write_offset_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %write_offset_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %write_offset_.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %0, 4
-  %capacity_after_header_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %capacity_after_header_.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, %1
   br i1 %cmp.i.i.i.i.i, label %if.then30.i.i.i.i.i, label %if.end
@@ -1415,9 +1415,9 @@ if.then30.i.i.i.i.i:                              ; preds = %entry
 
 if.end:                                           ; preds = %if.then30.i.i.i.i.i, %entry
   %2 = phi i64 [ %.pre.i.i.i.i.i, %if.then30.i.i.i.i.i ], [ %0, %entry ]
-  %header_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %header_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %header_.i.i.i.i.i.i, align 8
-  %header_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i64, ptr %header_size_.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %2
@@ -1476,10 +1476,10 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %write_offset_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %write_offset_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %write_offset_.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %0, 4
-  %capacity_after_header_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %capacity_after_header_.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i, %1
   br i1 %cmp.i.i.i.i.i, label %if.then30.i.i.i.i.i, label %land.rhs
@@ -1498,9 +1498,9 @@ if.then30.i.i.i.i.i:                              ; preds = %land.lhs.true
 
 land.rhs:                                         ; preds = %if.then30.i.i.i.i.i, %land.lhs.true
   %2 = phi i64 [ %.pre.i.i.i.i.i, %if.then30.i.i.i.i.i ], [ %0, %land.lhs.true ]
-  %header_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %header_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %header_.i.i.i.i.i.i, align 8
-  %header_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i64, ptr %header_size_.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %2
@@ -1535,7 +1535,7 @@ _ZN4base6Pickle10WriteBytesEPKvi.exit:            ; preds = %land.rhs, %if.then3
   %9 = load i64, ptr %header_size_.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %9
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %7
-  %add.ptr40.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
+  %add.ptr40.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 %conv.i
   %sub41.i.i.i = sub nsw i64 %and.i.i.i.i, %conv.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr40.i.i.i, i8 0, i64 %sub41.i.i.i, i1 false)
   %conv.i.i.i = trunc i64 %add.i.i.i to i32
@@ -1554,10 +1554,10 @@ define dso_local void @_ZN4base6Pickle7ReserveEm(ptr noundef nonnull align 8 der
 if.end24:
   %sub.i = add i64 %length, 3
   %and.i = and i64 %sub.i, -4
-  %write_offset_ = getelementptr inbounds i8, ptr %this, i64 32
+  %write_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %write_offset_, align 8
   %add = add i64 %0, %and.i
-  %capacity_after_header_ = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %capacity_after_header_, align 8
   %cmp = icmp ugt i64 %add, %1
   br i1 %cmp, label %if.then25, label %if.end28
@@ -1596,10 +1596,10 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK4base6Pickle21GetTotalAllocatedSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #13 align 2 {
 entry:
-  %capacity_after_header_ = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_after_header_, align 8
   %cmp = icmp eq i64 %0, -1
-  %header_size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %header_size_, align 8
   %add = add i64 %1, %0
   %retval.0 = select i1 %cmp, i64 0, i64 %add
@@ -1614,10 +1614,10 @@ entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %sub.i.i = add i64 %num_bytes, 3
   %and.i.i = and i64 %sub.i.i, -4
-  %write_offset_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %write_offset_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %write_offset_.i, align 8
   %add.i = add i64 %0, %and.i.i
-  %capacity_after_header_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_after_header_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %capacity_after_header_.i, align 8
   %cmp.i = icmp ugt i64 %add.i, %1
   br i1 %cmp.i, label %if.then30.i, label %_ZN4base6Pickle31ClaimUninitializedBytesInternalEm.exit
@@ -1636,9 +1636,9 @@ if.then30.i:                                      ; preds = %entry
 
 _ZN4base6Pickle31ClaimUninitializedBytesInternalEm.exit: ; preds = %entry, %if.then30.i
   %2 = phi i64 [ %.pre.i, %if.then30.i ], [ %0, %entry ]
-  %header_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %header_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %header_.i.i, align 8
-  %header_size_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %header_size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i64, ptr %header_size_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %4
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %2

@@ -33,9 +33,9 @@ define dso_local i64 @qcow2_co_compress(ptr nocapture noundef readonly %bs, ptr 
 entry:
   %arg.i4 = alloca %struct.Qcow2CompressData, align 8
   %arg.i = alloca %struct.Qcow2CompressData, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %compression_type = getelementptr inbounds i8, ptr %0, i64 492
+  %compression_type = getelementptr inbounds nuw i8, ptr %0, i64 492
   %1 = load i32, ptr %compression_type, align 4
   switch i32 %1, label %sw.default [
     i32 0, label %sw.bb.split
@@ -45,15 +45,15 @@ entry:
 sw.bb.split:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %arg.i)
   store ptr %dest, ptr %arg.i, align 8
-  %dest_size2.i = getelementptr inbounds i8, ptr %arg.i, i64 8
+  %dest_size2.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 8
   store i64 %dest_size, ptr %dest_size2.i, align 8
-  %src3.i = getelementptr inbounds i8, ptr %arg.i, i64 16
+  %src3.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 16
   store ptr %src, ptr %src3.i, align 8
-  %src_size4.i = getelementptr inbounds i8, ptr %arg.i, i64 24
+  %src_size4.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 24
   store i64 %src_size, ptr %src_size4.i, align 8
-  %ret.i = getelementptr inbounds i8, ptr %arg.i, i64 32
+  %ret.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 32
   store i64 0, ptr %ret.i, align 8
-  %func5.i = getelementptr inbounds i8, ptr %arg.i, i64 40
+  %func5.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 40
   store ptr @qcow2_zlib_compress, ptr %func5.i, align 8
   %call.i = call i32 @qcow2_co_process(ptr noundef nonnull readonly %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg.i)
   %2 = load i64, ptr %ret.i, align 8
@@ -63,15 +63,15 @@ sw.bb.split:                                      ; preds = %entry
 sw.bb1.split:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %arg.i4)
   store ptr %dest, ptr %arg.i4, align 8
-  %dest_size2.i5 = getelementptr inbounds i8, ptr %arg.i4, i64 8
+  %dest_size2.i5 = getelementptr inbounds nuw i8, ptr %arg.i4, i64 8
   store i64 %dest_size, ptr %dest_size2.i5, align 8
-  %src3.i6 = getelementptr inbounds i8, ptr %arg.i4, i64 16
+  %src3.i6 = getelementptr inbounds nuw i8, ptr %arg.i4, i64 16
   store ptr %src, ptr %src3.i6, align 8
-  %src_size4.i7 = getelementptr inbounds i8, ptr %arg.i4, i64 24
+  %src_size4.i7 = getelementptr inbounds nuw i8, ptr %arg.i4, i64 24
   store i64 %src_size, ptr %src_size4.i7, align 8
-  %ret.i8 = getelementptr inbounds i8, ptr %arg.i4, i64 32
+  %ret.i8 = getelementptr inbounds nuw i8, ptr %arg.i4, i64 32
   store i64 0, ptr %ret.i8, align 8
-  %func5.i9 = getelementptr inbounds i8, ptr %arg.i4, i64 40
+  %func5.i9 = getelementptr inbounds nuw i8, ptr %arg.i4, i64 40
   store ptr @qcow2_zstd_compress, ptr %func5.i9, align 8
   %call.i10 = call i32 @qcow2_co_process(ptr noundef nonnull readonly %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg.i4)
   %3 = load i64, ptr %ret.i8, align 8
@@ -98,13 +98,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv2 = trunc i64 %src_size to i32
-  %avail_in = getelementptr inbounds i8, ptr %strm, i64 8
+  %avail_in = getelementptr inbounds nuw i8, ptr %strm, i64 8
   store i32 %conv2, ptr %avail_in, align 8
   store ptr %src, ptr %strm, align 8
   %conv3 = trunc i64 %dest_size to i32
-  %avail_out = getelementptr inbounds i8, ptr %strm, i64 32
+  %avail_out = getelementptr inbounds nuw i8, ptr %strm, i64 32
   store i32 %conv3, ptr %avail_out, align 8
-  %next_out = getelementptr inbounds i8, ptr %strm, i64 24
+  %next_out = getelementptr inbounds nuw i8, ptr %strm, i64 24
   store ptr %dest, ptr %next_out, align 8
   %call4 = call i32 @deflate(ptr noundef nonnull %strm, i32 noundef 4) #7
   %cmp6 = icmp eq i32 %call4, 1
@@ -128,14 +128,14 @@ entry:
   %output = alloca %struct.ZSTD_outBuffer_s, align 8
   %input = alloca %struct.ZSTD_inBuffer_s, align 8
   store ptr %dest, ptr %output, align 8
-  %size = getelementptr inbounds i8, ptr %output, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %output, i64 8
   store i64 %dest_size, ptr %size, align 8
-  %pos = getelementptr inbounds i8, ptr %output, i64 16
+  %pos = getelementptr inbounds nuw i8, ptr %output, i64 16
   store i64 0, ptr %pos, align 8
   store ptr %src, ptr %input, align 8
-  %size2 = getelementptr inbounds i8, ptr %input, i64 8
+  %size2 = getelementptr inbounds nuw i8, ptr %input, i64 8
   store i64 %src_size, ptr %size2, align 8
-  %pos3 = getelementptr inbounds i8, ptr %input, i64 16
+  %pos3 = getelementptr inbounds nuw i8, ptr %input, i64 16
   store i64 0, ptr %pos3, align 8
   %call = tail call ptr @ZSTD_createCCtx() #7
   %tobool.not = icmp eq ptr %call, null
@@ -181,15 +181,15 @@ define internal i64 @qcow2_co_do_compress(ptr nocapture noundef readonly %bs, pt
 entry:
   %arg = alloca %struct.Qcow2CompressData, align 8
   store ptr %dest, ptr %arg, align 8
-  %dest_size2 = getelementptr inbounds i8, ptr %arg, i64 8
+  %dest_size2 = getelementptr inbounds nuw i8, ptr %arg, i64 8
   store i64 %dest_size, ptr %dest_size2, align 8
-  %src3 = getelementptr inbounds i8, ptr %arg, i64 16
+  %src3 = getelementptr inbounds nuw i8, ptr %arg, i64 16
   store ptr %src, ptr %src3, align 8
-  %src_size4 = getelementptr inbounds i8, ptr %arg, i64 24
+  %src_size4 = getelementptr inbounds nuw i8, ptr %arg, i64 24
   store i64 %src_size, ptr %src_size4, align 8
-  %ret = getelementptr inbounds i8, ptr %arg, i64 32
+  %ret = getelementptr inbounds nuw i8, ptr %arg, i64 32
   store i64 0, ptr %ret, align 8
-  %func5 = getelementptr inbounds i8, ptr %arg, i64 40
+  %func5 = getelementptr inbounds nuw i8, ptr %arg, i64 40
   store ptr %func, ptr %func5, align 8
   %call = call i32 @qcow2_co_process(ptr noundef %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg)
   %0 = load i64, ptr %ret, align 8
@@ -201,9 +201,9 @@ define dso_local i64 @qcow2_co_decompress(ptr nocapture noundef readonly %bs, pt
 entry:
   %arg.i4 = alloca %struct.Qcow2CompressData, align 8
   %arg.i = alloca %struct.Qcow2CompressData, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %compression_type = getelementptr inbounds i8, ptr %0, i64 492
+  %compression_type = getelementptr inbounds nuw i8, ptr %0, i64 492
   %1 = load i32, ptr %compression_type, align 4
   switch i32 %1, label %sw.default [
     i32 0, label %sw.bb.split
@@ -213,15 +213,15 @@ entry:
 sw.bb.split:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %arg.i)
   store ptr %dest, ptr %arg.i, align 8
-  %dest_size2.i = getelementptr inbounds i8, ptr %arg.i, i64 8
+  %dest_size2.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 8
   store i64 %dest_size, ptr %dest_size2.i, align 8
-  %src3.i = getelementptr inbounds i8, ptr %arg.i, i64 16
+  %src3.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 16
   store ptr %src, ptr %src3.i, align 8
-  %src_size4.i = getelementptr inbounds i8, ptr %arg.i, i64 24
+  %src_size4.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 24
   store i64 %src_size, ptr %src_size4.i, align 8
-  %ret.i = getelementptr inbounds i8, ptr %arg.i, i64 32
+  %ret.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 32
   store i64 0, ptr %ret.i, align 8
-  %func5.i = getelementptr inbounds i8, ptr %arg.i, i64 40
+  %func5.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 40
   store ptr @qcow2_zlib_decompress, ptr %func5.i, align 8
   %call.i = call i32 @qcow2_co_process(ptr noundef nonnull readonly %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg.i)
   %2 = load i64, ptr %ret.i, align 8
@@ -231,15 +231,15 @@ sw.bb.split:                                      ; preds = %entry
 sw.bb1.split:                                     ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %arg.i4)
   store ptr %dest, ptr %arg.i4, align 8
-  %dest_size2.i5 = getelementptr inbounds i8, ptr %arg.i4, i64 8
+  %dest_size2.i5 = getelementptr inbounds nuw i8, ptr %arg.i4, i64 8
   store i64 %dest_size, ptr %dest_size2.i5, align 8
-  %src3.i6 = getelementptr inbounds i8, ptr %arg.i4, i64 16
+  %src3.i6 = getelementptr inbounds nuw i8, ptr %arg.i4, i64 16
   store ptr %src, ptr %src3.i6, align 8
-  %src_size4.i7 = getelementptr inbounds i8, ptr %arg.i4, i64 24
+  %src_size4.i7 = getelementptr inbounds nuw i8, ptr %arg.i4, i64 24
   store i64 %src_size, ptr %src_size4.i7, align 8
-  %ret.i8 = getelementptr inbounds i8, ptr %arg.i4, i64 32
+  %ret.i8 = getelementptr inbounds nuw i8, ptr %arg.i4, i64 32
   store i64 0, ptr %ret.i8, align 8
-  %func5.i9 = getelementptr inbounds i8, ptr %arg.i4, i64 40
+  %func5.i9 = getelementptr inbounds nuw i8, ptr %arg.i4, i64 40
   store ptr @qcow2_zstd_decompress, ptr %func5.i9, align 8
   %call.i10 = call i32 @qcow2_co_process(ptr noundef nonnull readonly %bs, ptr noundef nonnull @qcow2_compress_pool_func, ptr noundef nonnull %arg.i4)
   %3 = load i64, ptr %ret.i8, align 8
@@ -259,16 +259,16 @@ sw.epilog:                                        ; preds = %sw.bb1.split, %sw.b
 define internal range(i64 -5, 1) i64 @qcow2_zlib_decompress(ptr noundef %dest, i64 noundef %dest_size, ptr noundef %src, i64 noundef %src_size) #0 {
 entry:
   %strm = alloca %struct.z_stream_s, align 8
-  %0 = getelementptr inbounds i8, ptr %strm, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %strm, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 104, i1 false)
   %conv = trunc i64 %src_size to i32
-  %avail_in = getelementptr inbounds i8, ptr %strm, i64 8
+  %avail_in = getelementptr inbounds nuw i8, ptr %strm, i64 8
   store i32 %conv, ptr %avail_in, align 8
   store ptr %src, ptr %strm, align 8
   %conv1 = trunc i64 %dest_size to i32
-  %avail_out = getelementptr inbounds i8, ptr %strm, i64 32
+  %avail_out = getelementptr inbounds nuw i8, ptr %strm, i64 32
   store i32 %conv1, ptr %avail_out, align 8
-  %next_out = getelementptr inbounds i8, ptr %strm, i64 24
+  %next_out = getelementptr inbounds nuw i8, ptr %strm, i64 24
   store ptr %dest, ptr %next_out, align 8
   %call = call i32 @inflateInit2_(ptr noundef nonnull %strm, i32 noundef -12, ptr noundef nonnull @.str, i32 noundef 112) #7
   %cmp.not = icmp eq i32 %call, 0
@@ -297,14 +297,14 @@ entry:
   %output = alloca %struct.ZSTD_outBuffer_s, align 8
   %input = alloca %struct.ZSTD_inBuffer_s, align 8
   store ptr %dest, ptr %output, align 8
-  %size = getelementptr inbounds i8, ptr %output, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %output, i64 8
   store i64 %dest_size, ptr %size, align 8
-  %pos = getelementptr inbounds i8, ptr %output, i64 16
+  %pos = getelementptr inbounds nuw i8, ptr %output, i64 16
   store i64 0, ptr %pos, align 8
   store ptr %src, ptr %input, align 8
-  %size2 = getelementptr inbounds i8, ptr %input, i64 8
+  %size2 = getelementptr inbounds nuw i8, ptr %input, i64 8
   store i64 %src_size, ptr %size2, align 8
-  %pos3 = getelementptr inbounds i8, ptr %input, i64 16
+  %pos3 = getelementptr inbounds nuw i8, ptr %input, i64 16
   store i64 0, ptr %pos3, align 8
   %call = tail call ptr @ZSTD_createDCtx() #7
   %tobool.not = icmp eq ptr %call, null
@@ -372,22 +372,22 @@ entry:
 define internal i32 @qcow2_co_encdec(ptr nocapture noundef readonly %bs, i64 noundef %host_offset, i64 noundef %guest_offset, ptr noundef %buf, i64 noundef %len, ptr noundef %func) #0 {
 entry:
   %arg = alloca %struct.Qcow2EncDecData, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %crypto = getelementptr inbounds i8, ptr %0, i64 232
+  %crypto = getelementptr inbounds nuw i8, ptr %0, i64 232
   %1 = load ptr, ptr %crypto, align 8
   store ptr %1, ptr %arg, align 8
-  %offset = getelementptr inbounds i8, ptr %arg, i64 8
-  %crypt_physical_offset = getelementptr inbounds i8, ptr %0, i64 240
+  %offset = getelementptr inbounds nuw i8, ptr %arg, i64 8
+  %crypt_physical_offset = getelementptr inbounds nuw i8, ptr %0, i64 240
   %2 = load i8, ptr %crypt_physical_offset, align 8
   %tobool = trunc i8 %2 to i1
   %cond = select i1 %tobool, i64 %host_offset, i64 %guest_offset
   store i64 %cond, ptr %offset, align 8
-  %buf1 = getelementptr inbounds i8, ptr %arg, i64 16
+  %buf1 = getelementptr inbounds nuw i8, ptr %arg, i64 16
   store ptr %buf, ptr %buf1, align 8
-  %len2 = getelementptr inbounds i8, ptr %arg, i64 24
+  %len2 = getelementptr inbounds nuw i8, ptr %arg, i64 24
   store i64 %len, ptr %len2, align 8
-  %func3 = getelementptr inbounds i8, ptr %arg, i64 32
+  %func3 = getelementptr inbounds nuw i8, ptr %arg, i64 32
   store ptr %func, ptr %func3, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.else, label %if.end
@@ -470,19 +470,19 @@ declare i64 @ZSTD_freeCCtx(ptr noundef) local_unnamed_addr #2
 define internal i32 @qcow2_co_process(ptr nocapture noundef readonly %bs, ptr noundef %func, ptr noundef %arg) #0 {
 entry:
   %.compoundliteral = alloca %struct.QemuLockable, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %lock = getelementptr inbounds i8, ptr %0, i64 160
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #7
-  %nb_threads = getelementptr inbounds i8, ptr %0, i64 472
+  %nb_threads = getelementptr inbounds nuw i8, ptr %0, i64 472
   %1 = load i32, ptr %nb_threads, align 8
   %cmp11 = icmp sgt i32 %1, 3
   br i1 %cmp11, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %thread_task_queue = getelementptr inbounds i8, ptr %0, i64 456
-  %lock3 = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
-  %unlock = getelementptr inbounds i8, ptr %.compoundliteral, i64 16
+  %thread_task_queue = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %lock3 = getelementptr inbounds nuw i8, ptr %.compoundliteral, i64 8
+  %unlock = getelementptr inbounds nuw i8, ptr %.compoundliteral, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -504,7 +504,7 @@ while.end:                                        ; preds = %while.body, %entry
   %3 = load i32, ptr %nb_threads, align 8
   %dec = add i32 %3, -1
   store i32 %dec, ptr %nb_threads, align 8
-  %thread_task_queue9 = getelementptr inbounds i8, ptr %0, i64 456
+  %thread_task_queue9 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %call10 = call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %thread_task_queue9) #7
   call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #7
   ret i32 %call6
@@ -513,17 +513,17 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @qcow2_compress_pool_func(ptr nocapture noundef initializes((32, 40)) %opaque) #0 {
 entry:
-  %func = getelementptr inbounds i8, ptr %opaque, i64 40
+  %func = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %func, align 8
   %1 = load ptr, ptr %opaque, align 8
-  %dest_size = getelementptr inbounds i8, ptr %opaque, i64 8
+  %dest_size = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %2 = load i64, ptr %dest_size, align 8
-  %src = getelementptr inbounds i8, ptr %opaque, i64 16
+  %src = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %3 = load ptr, ptr %src, align 8
-  %src_size = getelementptr inbounds i8, ptr %opaque, i64 24
+  %src_size = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %4 = load i64, ptr %src_size, align 8
   %call = tail call i64 %0(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #7
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 32
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   store i64 %call, ptr %ret, align 8
   ret i32 0
 }
@@ -557,14 +557,14 @@ declare i64 @qcrypto_block_get_sector_size(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @qcow2_encdec_pool_func(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %func = getelementptr inbounds i8, ptr %opaque, i64 32
+  %func = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %func, align 8
   %1 = load ptr, ptr %opaque, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 8
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %2 = load i64, ptr %offset, align 8
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %3 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds i8, ptr %opaque, i64 24
+  %len = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %4 = load i64, ptr %len, align 8
   %call = tail call i32 %0(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null) #7
   ret i32 %call

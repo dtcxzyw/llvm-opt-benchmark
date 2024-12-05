@@ -12,18 +12,18 @@ define dso_local noundef i64 @inet_spg_config(ptr nocapture noundef readonly %0)
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   store i32 650, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2278, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 13
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 13
   store i8 0, ptr %7, align 1
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -32,7 +32,7 @@ define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0)
   %8 = load i64, ptr %4, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #4
-  %11 = getelementptr inbounds i8, ptr %4, i64 21
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %22, label %14
@@ -43,33 +43,33 @@ define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0)
   %16 = and i8 %15, 1
   %.not = icmp eq i8 %16, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %17 = getelementptr inbounds i8, ptr %10, i64 %.v
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %.v
   %18 = load i8, ptr %17, align 1
   %19 = icmp ne i8 %18, 2
   %20 = zext i1 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %20, ptr %21, align 8
   br label %126
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = inttoptr i64 %24 to ptr
   %26 = tail call ptr @pg_detoast_datum_packed(ptr noundef %25) #4
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, 1
   %.not77 = icmp eq i8 %28, 0
-  %29 = getelementptr inbounds i8, ptr %26, i64 1
-  %30 = getelementptr inbounds i8, ptr %26, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %31 = select i1 %.not77, ptr %30, ptr %29
-  %32 = getelementptr inbounds i8, ptr %31, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = load i8, ptr %10, align 1
   %36 = and i8 %35, 1
   %.not78 = icmp eq i8 %36, 0
-  %37 = getelementptr inbounds i8, ptr %10, i64 1
-  %38 = getelementptr inbounds i8, ptr %10, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %39 = select i1 %.not78, ptr %38, ptr %37
   %40 = load i8, ptr %39, align 1
   %41 = load i8, ptr %31, align 1
@@ -78,11 +78,11 @@ define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0)
 
 42:                                               ; preds = %22
   store i32 3, ptr %7, align 8
-  %43 = getelementptr inbounds i8, ptr %7, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %7, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 2, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %7, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %45, align 8
   %46 = load i8, ptr %26, align 1
   %47 = and i8 %46, 1
@@ -91,21 +91,21 @@ define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0)
   %49 = load i8, ptr %48, align 1
   %50 = icmp ne i8 %49, 2
   %51 = zext i1 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %7, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %7, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i8 1, ptr %53, align 4
   br label %126
 
 54:                                               ; preds = %22
-  %55 = getelementptr inbounds i8, ptr %39, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = icmp ult i8 %56, %33
   br i1 %57, label %62, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %31, i64 2
-  %60 = getelementptr inbounds i8, ptr %39, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %31, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %61 = tail call i32 @bitncmp(ptr noundef nonnull %59, ptr noundef nonnull %60, i32 noundef %34) #4
   %.not80 = icmp eq i32 %61, 0
   br i1 %.not80, label %102, label %._crit_edge
@@ -122,31 +122,31 @@ define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0)
   %.pre-phi = phi i8 [ %.pre93, %._crit_edge ], [ %28, %54 ]
   %.not81 = icmp eq i8 %.pre-phi, 0
   %63 = select i1 %.not81, ptr %30, ptr %29
-  %64 = getelementptr inbounds i8, ptr %63, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %.not82 = icmp eq i8 %.pre-phi95, 0
   %65 = select i1 %.not82, ptr %38, ptr %37
-  %66 = getelementptr inbounds i8, ptr %65, i64 2
-  %67 = getelementptr inbounds i8, ptr %65, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = tail call i8 @llvm.umin.i8(i8 %68, i8 %33)
   %70 = zext i8 %69 to i32
   %71 = tail call i32 @bitncommon(ptr noundef nonnull %64, ptr noundef nonnull %66, i32 noundef %70) #4
   store i32 3, ptr %7, align 8
-  %72 = getelementptr inbounds i8, ptr %7, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 1, ptr %72, align 8
   %73 = tail call ptr @cidr_set_masklen_internal(ptr noundef nonnull %10, i32 noundef %71) #4
   %74 = ptrtoint ptr %73 to i64
-  %75 = getelementptr inbounds i8, ptr %7, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %74, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %7, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 4, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %7, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %77, align 8
   %78 = load i8, ptr %26, align 1
   %79 = and i8 %78, 1
   %.not.i = icmp eq i8 %79, 0
   %.v.i = select i1 %.not.i, i64 4, i64 1
-  %80 = getelementptr inbounds i8, ptr %26, i64 %.v.i
+  %80 = getelementptr inbounds nuw i8, ptr %26, i64 %.v.i
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 2
   %83 = select i1 %82, i32 32, i32 128
@@ -154,7 +154,7 @@ define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0)
   br i1 %84, label %85, label %inet_spg_node_number.exit
 
 85:                                               ; preds = %62
-  %86 = getelementptr inbounds i8, ptr %80, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 2
   %87 = sdiv i32 %71, 8
   %88 = sext i32 %87 to i64
   %89 = getelementptr [16 x i8], ptr %86, i64 0, i64 %88
@@ -168,15 +168,15 @@ define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0)
 
 inet_spg_node_number.exit:                        ; preds = %62, %85
   %.0.i = phi i32 [ 0, %62 ], [ %spec.select.i, %85 ]
-  %95 = getelementptr inbounds i8, ptr %80, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %80, i64 1
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
   %98 = icmp slt i32 %71, %97
   %99 = or disjoint i32 %.0.i, 2
   %spec.select18.i = select i1 %98, i32 %99, i32 %.0.i
-  %100 = getelementptr inbounds i8, ptr %7, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %spec.select18.i, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %7, i64 44
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i8 1, ptr %101, align 4
   br label %126
 
@@ -186,7 +186,7 @@ inet_spg_node_number.exit:                        ; preds = %62, %85
   %104 = and i8 %103, 1
   %.not.i84 = icmp eq i8 %104, 0
   %.v.i85 = select i1 %.not.i84, i64 4, i64 1
-  %105 = getelementptr inbounds i8, ptr %10, i64 %.v.i85
+  %105 = getelementptr inbounds nuw i8, ptr %10, i64 %.v.i85
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 2
   %108 = select i1 %107, i32 32, i32 128
@@ -194,7 +194,7 @@ inet_spg_node_number.exit:                        ; preds = %62, %85
   br i1 %109, label %110, label %inet_spg_node_number.exit89
 
 110:                                              ; preds = %102
-  %111 = getelementptr inbounds i8, ptr %105, i64 2
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %112 = lshr i8 %33, 3
   %113 = zext nneg i8 %112 to i64
   %114 = getelementptr [16 x i8], ptr %111, i64 0, i64 %113
@@ -209,12 +209,12 @@ inet_spg_node_number.exit:                        ; preds = %62, %85
 
 inet_spg_node_number.exit89:                      ; preds = %102, %110
   %.0.i86 = phi i32 [ 0, %102 ], [ %spec.select.i88, %110 ]
-  %121 = getelementptr inbounds i8, ptr %105, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %105, i64 1
   %122 = load i8, ptr %121, align 1
   %123 = icmp ult i8 %33, %122
   %124 = or disjoint i32 %.0.i86, 2
   %spec.select18.i87 = select i1 %123, i32 %124, i32 %.0.i86
-  %125 = getelementptr inbounds i8, ptr %7, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %spec.select18.i87, ptr %125, align 8
   br label %126
 
@@ -222,7 +222,7 @@ inet_spg_node_number.exit89:                      ; preds = %102, %110
   %.sink98 = phi ptr [ %10, %inet_spg_node_number.exit89 ], [ %26, %inet_spg_node_number.exit ], [ %26, %42 ], [ %10, %14 ]
   %.sink97 = phi i64 [ 16, %inet_spg_node_number.exit89 ], [ 48, %inet_spg_node_number.exit ], [ 48, %42 ], [ 16, %14 ]
   %127 = ptrtoint ptr %.sink98 to i64
-  %128 = getelementptr inbounds i8, ptr %7, i64 %.sink97
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink97
   store i64 %127, ptr %128, align 8
   ret i64 0
 }
@@ -235,13 +235,13 @@ declare ptr @cidr_set_masklen_internal(ptr noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
@@ -249,10 +249,10 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly 
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 1
   %.not = icmp eq i8 %14, 0
-  %15 = getelementptr inbounds i8, ptr %12, i64 1
-  %16 = getelementptr inbounds i8, ptr %12, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = select i1 %.not, ptr %16, ptr %15
-  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = load i32, ptr %4, align 8
@@ -278,7 +278,7 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly 
   %33 = and i8 %32, 1
   %.not76 = icmp eq i8 %33, 0
   %.v82 = select i1 %.not76, i64 4, i64 1
-  %34 = getelementptr inbounds i8, ptr %31, i64 %.v82
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.v82
   %35 = load i8, ptr %34, align 1
   %36 = load i8, ptr %12, align 1
   %37 = and i8 %36, 1
@@ -289,12 +289,12 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly 
   br i1 %.not78.not.not, label %._crit_edge, label %40
 
 40:                                               ; preds = %.lr.ph
-  %41 = getelementptr inbounds i8, ptr %34, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.06985, i32 %43)
-  %44 = getelementptr inbounds i8, ptr %38, i64 2
-  %45 = getelementptr inbounds i8, ptr %34, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %46 = tail call i32 @bitncommon(ptr noundef nonnull %44, ptr noundef nonnull %45, i32 noundef %spec.select) #4
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %._crit_edge, label %23
@@ -302,25 +302,25 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly 
 ._crit_edge:                                      ; preds = %23, %40, %.lr.ph, %1
   %.1 = phi i32 [ %20, %1 ], [ %.06985, %.lr.ph ], [ 0, %40 ], [ %46, %23 ]
   %.0 = phi i1 [ false, %1 ], [ %.not78.not.not, %.lr.ph ], [ %.not78.not.not, %40 ], [ %.not78.not.not, %23 ]
-  %48 = getelementptr inbounds i8, ptr %7, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %48, align 8
   %49 = load i32, ptr %4, align 8
   %50 = sext i32 %49 to i64
   %51 = shl nsw i64 %50, 2
   %52 = tail call ptr @palloc(i64 noundef %51) #4
-  %53 = getelementptr inbounds i8, ptr %7, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %52, ptr %53, align 8
   %54 = load i32, ptr %4, align 8
   %55 = sext i32 %54 to i64
   %56 = shl nsw i64 %55, 3
   %57 = tail call ptr @palloc(i64 noundef %56) #4
-  %58 = getelementptr inbounds i8, ptr %7, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %57, ptr %58, align 8
   br i1 %.0, label %59, label %82
 
 59:                                               ; preds = %._crit_edge
   store i8 0, ptr %7, align 8
-  %60 = getelementptr inbounds i8, ptr %7, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 2, ptr %60, align 8
   %61 = load i32, ptr %4, align 8
   %62 = icmp sgt i32 %61, 0
@@ -337,7 +337,7 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly 
   %69 = and i8 %68, 1
   %.not81 = icmp eq i8 %69, 0
   %.v = select i1 %.not81, i64 4, i64 1
-  %70 = getelementptr inbounds i8, ptr %67, i64 %.v
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %.v
   %71 = load i8, ptr %70, align 1
   %72 = icmp ne i8 %71, 2
   %73 = zext i1 %72 to i32
@@ -358,9 +358,9 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly 
   store i8 1, ptr %7, align 8
   %83 = tail call ptr @cidr_set_masklen_internal(ptr noundef nonnull %12, i32 noundef %.1) #4
   %84 = ptrtoint ptr %83 to i64
-  %85 = getelementptr inbounds i8, ptr %7, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %84, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %7, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 4, ptr %86, align 8
   %87 = load i32, ptr %4, align 8
   %88 = icmp sgt i32 %87, 0
@@ -384,7 +384,7 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly 
   %100 = and i8 %99, 1
   %.not.i = icmp eq i8 %100, 0
   %.v.i = select i1 %.not.i, i64 4, i64 1
-  %101 = getelementptr inbounds i8, ptr %98, i64 %.v.i
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 %.v.i
   %102 = load i8, ptr %101, align 1
   %103 = icmp eq i8 %102, 2
   %104 = select i1 %103, i32 32, i32 128
@@ -392,7 +392,7 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly 
   br i1 %105, label %106, label %inet_spg_node_number.exit
 
 106:                                              ; preds = %93
-  %107 = getelementptr inbounds i8, ptr %101, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %101, i64 2
   %108 = getelementptr [16 x i8], ptr %107, i64 0, i64 %90
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
@@ -402,7 +402,7 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly 
 
 inet_spg_node_number.exit:                        ; preds = %93, %106
   %.0.i = phi i32 [ 0, %93 ], [ %spec.select.i, %106 ]
-  %112 = getelementptr inbounds i8, ptr %101, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %101, i64 1
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i32
   %115 = icmp slt i32 %.1, %114
@@ -429,19 +429,19 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %4, i64 54
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 54
   %9 = load i8, ptr %8, align 2
   %10 = trunc i8 %9 to i1
   br i1 %10, label %50, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph, label %.sink.split
@@ -451,9 +451,9 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   %.04053 = phi i32 [ %.141, %46 ], [ 3, %.preheader ]
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr %struct.ScanKeyData, ptr %14, i64 %indvars.iv
-  %16 = getelementptr inbounds i8, ptr %15, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %17 = load i16, ptr %16, align 2
-  %18 = getelementptr inbounds i8, ptr %15, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %19 to ptr
   %21 = tail call ptr @pg_detoast_datum_packed(ptr noundef %20) #4
@@ -470,7 +470,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   %24 = and i8 %23, 1
   %.not42 = icmp eq i8 %24, 0
   %.v43 = select i1 %.not42, i64 4, i64 1
-  %25 = getelementptr inbounds i8, ptr %21, i64 %.v43
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.v43
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 2
   %28 = and i32 %.04053, 1
@@ -482,7 +482,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   %31 = and i8 %30, 1
   %.not = icmp eq i8 %31, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %32 = getelementptr inbounds i8, ptr %21, i64 %.v
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 %.v
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 3
   %35 = and i32 %.04053, 2
@@ -494,7 +494,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   %38 = and i8 %37, 1
   %.not44 = icmp eq i8 %38, 0
   %.v45 = select i1 %.not44, i64 4, i64 1
-  %39 = getelementptr inbounds i8, ptr %21, i64 %.v45
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 %.v45
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 2
   br i1 %41, label %42, label %44
@@ -516,17 +516,17 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
   br i1 %49, label %.lr.ph, label %.loopexit52, !llvm.loop !9
 
 50:                                               ; preds = %1
-  %51 = getelementptr inbounds i8, ptr %4, i64 53
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 53
   %52 = load i8, ptr %51, align 1
   %53 = trunc i8 %52 to i1
   br i1 %53, label %.sink.split, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %4, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %56 = load i64, ptr %55, align 8
   %57 = inttoptr i64 %56 to ptr
   %58 = tail call ptr @pg_detoast_datum_packed(ptr noundef %57) #4
-  %59 = getelementptr inbounds i8, ptr %4, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %60 = load i32, ptr %59, align 8
   %61 = load ptr, ptr %4, align 8
   %62 = tail call fastcc i32 @inet_spg_consistent_bitmap(ptr noundef %58, i32 noundef %60, ptr noundef %61, i1 noundef zeroext false)
@@ -545,12 +545,12 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
 
 63:                                               ; preds = %.sink.split, %.loopexit52
   %.251 = phi i32 [ %.2, %.loopexit52 ], [ %.251.ph, %.sink.split ]
-  %64 = getelementptr inbounds i8, ptr %4, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
   %67 = shl nsw i64 %66, 2
   %68 = tail call ptr @palloc(i64 noundef %67) #4
-  %69 = getelementptr inbounds i8, ptr %7, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %68, ptr %69, align 8
   %70 = load i32, ptr %64, align 8
   %71 = icmp sgt i32 %70, 0
@@ -592,10 +592,10 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
   %5 = load i8, ptr %0, align 1
   %6 = and i8 %5, 1
   %.not = icmp eq i8 %6, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = select i1 %.not, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %9, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = icmp sgt i32 %1, 0
@@ -614,17 +614,17 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %select.unfold285 ]
   %.1296 = phi i32 [ %., %.lr.ph ], [ %.4, %select.unfold285 ]
   %20 = getelementptr %struct.ScanKeyData, ptr %2, i64 %indvars.iv
-  %21 = getelementptr inbounds i8, ptr %20, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load i64, ptr %21, align 8
   %23 = inttoptr i64 %22 to ptr
   %24 = tail call ptr @pg_detoast_datum_packed(ptr noundef %23) #4
-  %25 = getelementptr inbounds i8, ptr %20, i64 6
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 6
   %26 = load i16, ptr %25, align 2
   %27 = load i8, ptr %24, align 1
   %28 = and i8 %27, 1
   %.not185 = icmp eq i8 %28, 0
-  %29 = getelementptr inbounds i8, ptr %24, i64 1
-  %30 = getelementptr inbounds i8, ptr %24, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %31 = select i1 %.not185, ptr %30, ptr %29
   %32 = load i8, ptr %31, align 1
   %33 = load i8, ptr %0, align 1
@@ -662,7 +662,7 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
   ]
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %31, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %45 = load i8, ptr %44, align 1
   %.not189 = icmp ugt i8 %11, %45
   %46 = and i32 %.1296, 12
@@ -670,7 +670,7 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
   br label %select.unfold244
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %31, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = icmp ult i8 %11, %49
   %51 = and i32 %.1296, 12
@@ -678,7 +678,7 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
   br label %select.unfold244
 
 52:                                               ; preds = %42
-  %53 = getelementptr inbounds i8, ptr %31, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = add nsw i32 %55, -1
@@ -694,7 +694,7 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
   br i1 %.not188, label %select.unfold244, label %.thread
 
 61:                                               ; preds = %42
-  %62 = getelementptr inbounds i8, ptr %31, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %11, %63
   br i1 %64, label %65, label %67
@@ -708,7 +708,7 @@ define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noun
   br i1 %68, label %.thread, label %select.unfold244
 
 69:                                               ; preds = %42
-  %70 = getelementptr inbounds i8, ptr %31, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %71 = load i8, ptr %70, align 1
   %72 = icmp ult i8 %11, %71
   br i1 %72, label %73, label %75
@@ -728,9 +728,9 @@ select.unfold244:                                 ; preds = %75, %60, %67, %47, 
   br i1 %.not190, label %.thread, label %78
 
 78:                                               ; preds = %select.unfold244
-  %79 = getelementptr inbounds i8, ptr %35, i64 2
-  %80 = getelementptr inbounds i8, ptr %31, i64 2
-  %81 = getelementptr inbounds i8, ptr %31, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %35, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %31, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %82 = load i8, ptr %81, align 1
   %83 = tail call i8 @llvm.umin.i8(i8 %11, i8 %82)
   %84 = zext i8 %83 to i32
@@ -765,13 +765,13 @@ select.unfold244:                                 ; preds = %75, %60, %67, %47, 
   %95 = and i8 %94, 1
   %.not195 = icmp eq i8 %95, 0
   %96 = select i1 %.not195, ptr %30, ptr %29
-  %97 = getelementptr inbounds i8, ptr %96, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %98 = load i8, ptr %97, align 1
   %99 = icmp ult i8 %11, %98
   br i1 %99, label %100, label %115
 
 100:                                              ; preds = %93
-  %101 = getelementptr inbounds i8, ptr %96, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 2
   %102 = getelementptr [16 x i8], ptr %101, i64 0, i64 %15
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
@@ -835,7 +835,7 @@ select.unfold257:                                 ; preds = %106, %108, %111, %1
   %119 = and i8 %118, 1
   %.not201 = icmp eq i8 %119, 0
   %120 = select i1 %.not201, ptr %30, ptr %29
-  %121 = getelementptr inbounds i8, ptr %120, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 1
   %122 = load i8, ptr %121, align 1
   %123 = icmp eq i8 %11, %122
   br i1 %123, label %124, label %126
@@ -853,7 +853,7 @@ select.unfold257:                                 ; preds = %106, %108, %111, %1
   %130 = and i8 %129, 1
   %.not200 = icmp eq i8 %130, 0
   %131 = select i1 %.not200, ptr %30, ptr %29
-  %132 = getelementptr inbounds i8, ptr %131, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 1
   %133 = load i8, ptr %132, align 1
   %134 = icmp ult i8 %11, %133
   %135 = and i32 %.7266, 12
@@ -871,7 +871,7 @@ select.unfold268:                                 ; preds = %128, %124
   %138 = and i8 %137, 1
   %.not203 = icmp eq i8 %138, 0
   %139 = select i1 %.not203, ptr %30, ptr %29
-  %140 = getelementptr inbounds i8, ptr %139, i64 1
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 1
   %141 = load i8, ptr %140, align 1
   %.not204 = icmp eq i8 %11, %141
   br i1 %.not204, label %142, label %select.unfold285
@@ -890,7 +890,7 @@ select.unfold268:                                 ; preds = %128, %124
   br i1 %148, label %149, label %.thread280
 
 149:                                              ; preds = %144
-  %150 = getelementptr inbounds i8, ptr %139, i64 2
+  %150 = getelementptr inbounds nuw i8, ptr %139, i64 2
   %151 = getelementptr [16 x i8], ptr %150, i64 0, i64 %15
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
@@ -939,8 +939,8 @@ select.unfold277:                                 ; preds = %155, %157, %160, %1
   %166 = and i8 %165, 1
   %.not210 = icmp eq i8 %166, 0
   %167 = select i1 %.not210, ptr %8, ptr %7
-  %168 = getelementptr inbounds i8, ptr %167, i64 2
-  %169 = getelementptr inbounds i8, ptr %139, i64 2
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 2
+  %169 = getelementptr inbounds nuw i8, ptr %139, i64 2
   %170 = load i8, ptr %167, align 1
   %171 = icmp eq i8 %170, 2
   %172 = select i1 %171, i32 32, i32 128
@@ -994,21 +994,21 @@ select.unfold285:                                 ; preds = %178, %174, %176, %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @inet_spg_leaf_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %4, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @pg_detoast_datum_packed(ptr noundef %10) #4
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %12, align 8
   %13 = ptrtoint ptr %11 to i64
   store i64 %13, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = load ptr, ptr %4, align 8
   %17 = tail call fastcc i32 @inet_spg_consistent_bitmap(ptr noundef %11, i32 noundef %15, ptr noundef %16, i1 noundef zeroext true)

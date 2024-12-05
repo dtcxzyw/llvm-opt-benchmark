@@ -1914,7 +1914,7 @@ define internal noundef zeroext i16 @de_eps_cmn_add_info(ptr noundef %0, ptr nou
   %10 = load i32, ptr @ett_nas_eps_cmn_add_info, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #10
   %12 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %3, i32 noundef %4) #10
-  %13 = getelementptr inbounds i8, ptr %2, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @proto_nas_eps, align 4
   %16 = tail call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %2, i32 noundef %15, i32 noundef 0) #10
@@ -3244,7 +3244,7 @@ define internal noundef zeroext i16 @de_emm_cause(ptr noundef %0, ptr noundef %1
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_nas_eps_emm_cause, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i8 %8 to i32
   %14 = tail call ptr @val_to_str_ext_const(i32 noundef %13, ptr noundef nonnull @nas_eps_emm_cause_values_ext, ptr noundef nonnull @.str.916) #10
@@ -3292,13 +3292,13 @@ define internal noundef zeroext i16 @de_emm_eps_mid(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %32
 
 32:                                               ; preds = %19
-  %33 = getelementptr inbounds i8, ptr %31, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %34 = load ptr, ptr %33, align 8
   %.not5.i = icmp eq ptr %34, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %34, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %37 = load i32, ptr %36, align 4
   %38 = or i32 %37, 1
   store i32 %38, ptr %36, align 4
@@ -3376,10 +3376,10 @@ define internal noundef zeroext i16 @de_emm_esm_msg_cont(ptr noundef %0, ptr nou
 26:                                               ; preds = %19
   store volatile i32 0, ptr %9, align 4
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @de_emm_esm_msg_cont.catch_spec, i64 noundef 1) #10
-  %27 = getelementptr inbounds i8, ptr %11, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %28 = call i32 @_setjmp(ptr noundef nonnull %27) #11
   %.not47 = icmp eq i32 %28, 0
-  %29 = getelementptr inbounds i8, ptr %11, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not47, ptr null, ptr %29
   store volatile ptr %.sink, ptr %8, align 8
   %.0..0..0..0. = load volatile i32, ptr %9, align 4
@@ -3422,35 +3422,35 @@ define internal noundef zeroext i16 @de_emm_esm_msg_cont(ptr noundef %0, ptr nou
 
 42:                                               ; preds = %41
   %.0..0..0..0.9 = load volatile ptr, ptr %8, align 8
-  %43 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %44 = load volatile i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 1
   br i1 %45, label %62, label %46
 
 46:                                               ; preds = %42
   %.0..0..0..0.10 = load volatile ptr, ptr %8, align 8
-  %47 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %48 = load volatile i64, ptr %47, align 8
   %49 = icmp eq i64 %48, 4
   br i1 %49, label %62, label %50
 
 50:                                               ; preds = %46
   %.0..0..0..0.11 = load volatile ptr, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %52 = load volatile i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 3
   br i1 %53, label %62, label %54
 
 54:                                               ; preds = %50
   %.0..0..0..0.12 = load volatile ptr, ptr %8, align 8
-  %55 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %56 = load volatile i64, ptr %55, align 8
   %57 = icmp eq i64 %56, 2
   br i1 %57, label %62, label %58
 
 58:                                               ; preds = %54
   %.0..0..0..0.13 = load volatile ptr, ptr %8, align 8
-  %59 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %60 = load volatile i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 7
   br i1 %61, label %62, label %68
@@ -3460,10 +3460,10 @@ define internal noundef zeroext i16 @de_emm_esm_msg_cont(ptr noundef %0, ptr nou
   %63 = or i32 %.0..0..0..0.5, 1
   store volatile i32 %63, ptr %9, align 4
   %.0..0..0..0.14 = load volatile ptr, ptr %8, align 8
-  %64 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %65 = load volatile i64, ptr %64, align 8
   %.0..0..0..0.15 = load volatile ptr, ptr %8, align 8
-  %66 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 16
   %67 = load volatile ptr, ptr %66, align 8
   call void @show_exception(ptr noundef %17, ptr noundef %2, ptr noundef %16, i64 noundef %65, ptr noundef %67) #10
   br label %68
@@ -3485,7 +3485,7 @@ define internal noundef zeroext i16 @de_emm_esm_msg_cont(ptr noundef %0, ptr nou
   unreachable
 
 72:                                               ; preds = %70, %68
-  %73 = getelementptr inbounds i8, ptr %11, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %74 = load volatile ptr, ptr %73, align 8
   call void @except_free(ptr noundef %74) #10
   %75 = call ptr @except_pop() #10
@@ -3567,10 +3567,10 @@ define internal noundef zeroext i16 @de_emm_nas_msg_cont(ptr noundef %0, ptr nou
 26:                                               ; preds = %21
   store volatile i32 0, ptr %9, align 4
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @de_emm_nas_msg_cont.catch_spec, i64 noundef 1) #10
-  %27 = getelementptr inbounds i8, ptr %11, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %28 = call i32 @_setjmp(ptr noundef nonnull %27) #11
   %.not42 = icmp eq i32 %28, 0
-  %29 = getelementptr inbounds i8, ptr %11, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not42, ptr null, ptr %29
   store volatile ptr %.sink, ptr %8, align 8
   %.0..0..0..0. = load volatile i32, ptr %9, align 4
@@ -3614,35 +3614,35 @@ define internal noundef zeroext i16 @de_emm_nas_msg_cont(ptr noundef %0, ptr nou
 
 44:                                               ; preds = %43
   %.0..0..0..0.9 = load volatile ptr, ptr %8, align 8
-  %45 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %46 = load volatile i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 1
   br i1 %47, label %64, label %48
 
 48:                                               ; preds = %44
   %.0..0..0..0.10 = load volatile ptr, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %50 = load volatile i64, ptr %49, align 8
   %51 = icmp eq i64 %50, 4
   br i1 %51, label %64, label %52
 
 52:                                               ; preds = %48
   %.0..0..0..0.11 = load volatile ptr, ptr %8, align 8
-  %53 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %54 = load volatile i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 3
   br i1 %55, label %64, label %56
 
 56:                                               ; preds = %52
   %.0..0..0..0.12 = load volatile ptr, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %58 = load volatile i64, ptr %57, align 8
   %59 = icmp eq i64 %58, 2
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %56
   %.0..0..0..0.13 = load volatile ptr, ptr %8, align 8
-  %61 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %62 = load volatile i64, ptr %61, align 8
   %63 = icmp eq i64 %62, 7
   br i1 %63, label %64, label %70
@@ -3652,10 +3652,10 @@ define internal noundef zeroext i16 @de_emm_nas_msg_cont(ptr noundef %0, ptr nou
   %65 = or i32 %.0..0..0..0.5, 1
   store volatile i32 %65, ptr %9, align 4
   %.0..0..0..0.14 = load volatile ptr, ptr %8, align 8
-  %66 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %67 = load volatile i64, ptr %66, align 8
   %.0..0..0..0.15 = load volatile ptr, ptr %8, align 8
-  %68 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 16
   %69 = load volatile ptr, ptr %68, align 8
   call void @show_exception(ptr noundef %16, ptr noundef %2, ptr noundef %15, i64 noundef %67, ptr noundef %69) #10
   br label %70
@@ -3677,7 +3677,7 @@ define internal noundef zeroext i16 @de_emm_nas_msg_cont(ptr noundef %0, ptr nou
   unreachable
 
 74:                                               ; preds = %72, %70
-  %75 = getelementptr inbounds i8, ptr %11, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %76 = load volatile ptr, ptr %75, align 8
   call void @except_free(ptr noundef %76) #10
   %77 = call ptr @except_pop() #10
@@ -3837,13 +3837,13 @@ define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr
   br i1 %.not.i, label %proto_item_set_generated.exit, label %50
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds i8, ptr %49, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %52 = load ptr, ptr %51, align 8
   %.not5.i = icmp eq ptr %52, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %52, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = or i32 %55, 2
   store i32 %56, ptr %54, align 4
@@ -4029,7 +4029,7 @@ define internal noundef zeroext i16 @de_emm_gen_msg_cont_type(ptr noundef %0, pt
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_nas_eps_emm_gen_msg_cont_type, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #10
-  %11 = getelementptr inbounds i8, ptr %2, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_nas_eps, align 4
   %14 = load i32, ptr %8, align 4
@@ -4046,7 +4046,7 @@ define internal noundef zeroext i16 @de_emm_gen_msg_cont(ptr noundef %0, ptr nou
   %10 = load i32, ptr @ett_nas_eps_gen_msg_cont, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #10
   %12 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %3, i32 noundef %4) #10
-  %13 = getelementptr inbounds i8, ptr %2, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @proto_nas_eps, align 4
   %16 = tail call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %2, i32 noundef %15, i32 noundef 0) #10
@@ -4110,10 +4110,10 @@ define internal noundef zeroext i16 @de_emm_replayed_nas_msg_cont(ptr noundef %0
   %16 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %3, i32 noundef %4) #10
   store volatile i32 0, ptr %9, align 4
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @de_emm_replayed_nas_msg_cont.catch_spec, i64 noundef 1) #10
-  %17 = getelementptr inbounds i8, ptr %11, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %18 = call i32 @_setjmp(ptr noundef nonnull %17) #11
   %.not = icmp eq i32 %18, 0
-  %19 = getelementptr inbounds i8, ptr %11, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not, ptr null, ptr %19
   store volatile ptr %.sink, ptr %8, align 8
   %.0..0..0..0. = load volatile i32, ptr %9, align 4
@@ -4156,35 +4156,35 @@ define internal noundef zeroext i16 @de_emm_replayed_nas_msg_cont(ptr noundef %0
 
 32:                                               ; preds = %31
   %.0..0..0..0.9 = load volatile ptr, ptr %8, align 8
-  %33 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %34 = load volatile i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 1
   br i1 %35, label %52, label %36
 
 36:                                               ; preds = %32
   %.0..0..0..0.10 = load volatile ptr, ptr %8, align 8
-  %37 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %38 = load volatile i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 4
   br i1 %39, label %52, label %40
 
 40:                                               ; preds = %36
   %.0..0..0..0.11 = load volatile ptr, ptr %8, align 8
-  %41 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %42 = load volatile i64, ptr %41, align 8
   %43 = icmp eq i64 %42, 3
   br i1 %43, label %52, label %44
 
 44:                                               ; preds = %40
   %.0..0..0..0.12 = load volatile ptr, ptr %8, align 8
-  %45 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %46 = load volatile i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 2
   br i1 %47, label %52, label %48
 
 48:                                               ; preds = %44
   %.0..0..0..0.13 = load volatile ptr, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %50 = load volatile i64, ptr %49, align 8
   %51 = icmp eq i64 %50, 7
   br i1 %51, label %52, label %58
@@ -4194,10 +4194,10 @@ define internal noundef zeroext i16 @de_emm_replayed_nas_msg_cont(ptr noundef %0
   %53 = or i32 %.0..0..0..0.5, 1
   store volatile i32 %53, ptr %9, align 4
   %.0..0..0..0.14 = load volatile ptr, ptr %8, align 8
-  %54 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %55 = load volatile i64, ptr %54, align 8
   %.0..0..0..0.15 = load volatile ptr, ptr %8, align 8
-  %56 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 16
   %57 = load volatile ptr, ptr %56, align 8
   call void @show_exception(ptr noundef %16, ptr noundef %2, ptr noundef %15, i64 noundef %55, ptr noundef %57) #10
   br label %58
@@ -4219,7 +4219,7 @@ define internal noundef zeroext i16 @de_emm_replayed_nas_msg_cont(ptr noundef %0
   unreachable
 
 62:                                               ; preds = %60, %58
-  %63 = getelementptr inbounds i8, ptr %11, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %64 = load volatile ptr, ptr %63, align 8
   call void @except_free(ptr noundef %64) #10
   %65 = call ptr @except_pop() #10
@@ -4260,16 +4260,16 @@ define internal noundef zeroext i16 @de_emm_ciph_key_data(ptr noundef %0, ptr no
 
 .lr.ph:                                           ; preds = %7
   %13 = shl i32 %3, 3
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
-  %15 = getelementptr inbounds i8, ptr %10, i64 28
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
-  %17 = getelementptr inbounds i8, ptr %10, i64 20
-  %18 = getelementptr inbounds i8, ptr %10, i64 16
-  %19 = getelementptr inbounds i8, ptr %10, i64 12
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 4
-  %22 = getelementptr inbounds i8, ptr %11, i64 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 408
   br label %24
 
 24:                                               ; preds = %.lr.ph, %103
@@ -4532,7 +4532,7 @@ define internal noundef zeroext i16 @de_esm_cause(ptr noundef %0, ptr noundef %1
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #10
   %9 = load i32, ptr @hf_nas_eps_esm_cause, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #10
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i8 %8 to i32
   %14 = tail call ptr @val_to_str_ext_const(i32 noundef %13, ptr noundef nonnull @nas_eps_esm_cause_vals_ext, ptr noundef nonnull @.str.916) #10
@@ -4588,31 +4588,31 @@ define internal noundef zeroext i16 @de_esm_pdn_addr(ptr noundef %0, ptr noundef
   %22 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %16, i64 noundef 8) #10
   %23 = load i32, ptr @hf_nas_eps_esm_pdn_ipv6_if_id, align 4
   %.val = load i8, ptr %8, align 1
-  %24 = getelementptr inbounds i8, ptr %8, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %.val33 = load i8, ptr %24, align 1
   %25 = zext i8 %.val to i32
   %26 = shl nuw nsw i32 %25, 8
   %27 = zext i8 %.val33 to i32
   %28 = or disjoint i32 %26, %27
-  %29 = getelementptr inbounds i8, ptr %8, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %.val34 = load i8, ptr %29, align 1
-  %30 = getelementptr inbounds i8, ptr %8, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %.val35 = load i8, ptr %30, align 1
   %31 = zext i8 %.val34 to i32
   %32 = shl nuw nsw i32 %31, 8
   %33 = zext i8 %.val35 to i32
   %34 = or disjoint i32 %32, %33
-  %35 = getelementptr inbounds i8, ptr %8, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.val36 = load i8, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %8, i64 5
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %.val37 = load i8, ptr %36, align 1
   %37 = zext i8 %.val36 to i32
   %38 = shl nuw nsw i32 %37, 8
   %39 = zext i8 %.val37 to i32
   %40 = or disjoint i32 %38, %39
-  %41 = getelementptr inbounds i8, ptr %8, i64 6
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %.val38 = load i8, ptr %41, align 1
-  %42 = getelementptr inbounds i8, ptr %8, i64 7
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 7
   %.val39 = load i8, ptr %42, align 1
   %43 = zext i8 %.val38 to i32
   %44 = shl nuw nsw i32 %43, 8
@@ -4626,31 +4626,31 @@ define internal noundef zeroext i16 @de_esm_pdn_addr(ptr noundef %0, ptr noundef
   %50 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %16, i64 noundef 8) #10
   %51 = load i32, ptr @hf_nas_eps_esm_pdn_ipv6_if_id, align 4
   %.val40 = load i8, ptr %8, align 1
-  %52 = getelementptr inbounds i8, ptr %8, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %.val41 = load i8, ptr %52, align 1
   %53 = zext i8 %.val40 to i32
   %54 = shl nuw nsw i32 %53, 8
   %55 = zext i8 %.val41 to i32
   %56 = or disjoint i32 %54, %55
-  %57 = getelementptr inbounds i8, ptr %8, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %.val42 = load i8, ptr %57, align 1
-  %58 = getelementptr inbounds i8, ptr %8, i64 3
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %.val43 = load i8, ptr %58, align 1
   %59 = zext i8 %.val42 to i32
   %60 = shl nuw nsw i32 %59, 8
   %61 = zext i8 %.val43 to i32
   %62 = or disjoint i32 %60, %61
-  %63 = getelementptr inbounds i8, ptr %8, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.val44 = load i8, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %8, i64 5
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %.val45 = load i8, ptr %64, align 1
   %65 = zext i8 %.val44 to i32
   %66 = shl nuw nsw i32 %65, 8
   %67 = zext i8 %.val45 to i32
   %68 = or disjoint i32 %66, %67
-  %69 = getelementptr inbounds i8, ptr %8, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %.val46 = load i8, ptr %69, align 1
-  %70 = getelementptr inbounds i8, ptr %8, i64 7
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 7
   %.val47 = load i8, ptr %70, align 1
   %71 = zext i8 %.val46 to i32
   %72 = shl nuw nsw i32 %71, 8
@@ -4999,7 +4999,7 @@ define internal noundef zeroext i16 @de_esm_user_data_cont(ptr noundef %0, ptr n
   br i1 %.not52, label %94, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load ptr, ptr %36, align 8
   call void @col_append_str(ptr noundef %37, i32 noundef 34, ptr noundef nonnull @.str.1014) #10
   %38 = load ptr, ptr %36, align 8
@@ -5010,10 +5010,10 @@ define internal noundef zeroext i16 @de_esm_user_data_cont(ptr noundef %0, ptr n
   call void @col_set_fence(ptr noundef %40, i32 noundef 25) #10
   store volatile i32 0, ptr %10, align 4
   call void @except_setup_try(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @de_esm_user_data_cont.catch_spec, i64 noundef 1) #10
-  %41 = getelementptr inbounds i8, ptr %12, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %42 = call i32 @_setjmp(ptr noundef nonnull %41) #11
   %.not53 = icmp eq i32 %42, 0
-  %43 = getelementptr inbounds i8, ptr %12, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sink58 = select i1 %.not53, ptr null, ptr %43
   store volatile ptr %.sink58, ptr %9, align 8
   %.0..0..0..0.8 = load volatile i32, ptr %10, align 4
@@ -5058,35 +5058,35 @@ define internal noundef zeroext i16 @de_esm_user_data_cont(ptr noundef %0, ptr n
 
 58:                                               ; preds = %57
   %.0..0..0..0.17 = load volatile ptr, ptr %9, align 8
-  %59 = getelementptr inbounds i8, ptr %.0..0..0..0.17, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.17, i64 8
   %60 = load volatile i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 1
   br i1 %61, label %78, label %62
 
 62:                                               ; preds = %58
   %.0..0..0..0.18 = load volatile ptr, ptr %9, align 8
-  %63 = getelementptr inbounds i8, ptr %.0..0..0..0.18, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.18, i64 8
   %64 = load volatile i64, ptr %63, align 8
   %65 = icmp eq i64 %64, 4
   br i1 %65, label %78, label %66
 
 66:                                               ; preds = %62
   %.0..0..0..0.19 = load volatile ptr, ptr %9, align 8
-  %67 = getelementptr inbounds i8, ptr %.0..0..0..0.19, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.19, i64 8
   %68 = load volatile i64, ptr %67, align 8
   %69 = icmp eq i64 %68, 3
   br i1 %69, label %78, label %70
 
 70:                                               ; preds = %66
   %.0..0..0..0.20 = load volatile ptr, ptr %9, align 8
-  %71 = getelementptr inbounds i8, ptr %.0..0..0..0.20, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.20, i64 8
   %72 = load volatile i64, ptr %71, align 8
   %73 = icmp eq i64 %72, 2
   br i1 %73, label %78, label %74
 
 74:                                               ; preds = %70
   %.0..0..0..0.21 = load volatile ptr, ptr %9, align 8
-  %75 = getelementptr inbounds i8, ptr %.0..0..0..0.21, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.21, i64 8
   %76 = load volatile i64, ptr %75, align 8
   %77 = icmp eq i64 %76, 7
   br i1 %77, label %78, label %86
@@ -5098,10 +5098,10 @@ define internal noundef zeroext i16 @de_esm_user_data_cont(ptr noundef %0, ptr n
   %80 = load i32, ptr @ett_nas_eps_esm_user_data_cont, align 4
   %81 = call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %80) #10
   %.0..0..0..0.22 = load volatile ptr, ptr %9, align 8
-  %82 = getelementptr inbounds i8, ptr %.0..0..0..0.22, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.22, i64 8
   %83 = load volatile i64, ptr %82, align 8
   %.0..0..0..0.23 = load volatile ptr, ptr %9, align 8
-  %84 = getelementptr inbounds i8, ptr %.0..0..0..0.23, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.23, i64 16
   %85 = load volatile ptr, ptr %84, align 8
   call void @show_exception(ptr noundef %17, ptr noundef nonnull %2, ptr noundef %81, i64 noundef %83, ptr noundef %85) #10
   br label %86
@@ -5123,7 +5123,7 @@ define internal noundef zeroext i16 @de_esm_user_data_cont(ptr noundef %0, ptr n
   unreachable
 
 90:                                               ; preds = %88, %86
-  %91 = getelementptr inbounds i8, ptr %12, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %92 = load volatile ptr, ptr %91, align 8
   call void @except_free(ptr noundef %92) #10
   %93 = call ptr @except_pop() #10
@@ -5158,7 +5158,7 @@ define internal noundef zeroext i16 @de_esm_serv_plmn_rate_ctrl(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @nas_esm_pdn_con_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = shl i32 %3, 3
   %8 = load i32, ptr @hf_nas_eps_esm_pdn_type, align 4
@@ -5247,25 +5247,25 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
   %1 = alloca [196 x ptr], align 16
   store ptr @ett_nas_eps, ptr %1, align 16
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @ett_nas_eps_esm_msg_cont, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @ett_nas_eps_nas_msg_cont, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @ett_nas_eps_gen_msg_cont, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr @ett_nas_eps_cmn_add_info, ptr %5, align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr @ett_nas_eps_remote_ue_context, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr @ett_nas_eps_esm_user_data_cont, ptr %7, align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr @ett_nas_eps_replayed_nas_msg_cont, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr @ett_nas_eps_ext_emerg_num, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr @ett_nas_eps_ciph_data_set, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr @ett_nas_eps_wus_assist_info_type, ptr %11, align 16
   br label %12
 
@@ -5402,7 +5402,7 @@ define internal i32 @dissect_nas_eps(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %91
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_append_sep_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.1014, ptr noundef nonnull @.str.816) #10
   %20 = load i32, ptr @proto_nas_eps, align 4
@@ -5550,7 +5550,7 @@ declare void @proto_register_alias(i32 noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nas_eps_plain(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_sep_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.1014, ptr noundef nonnull @.str.816) #10
   %7 = load i32, ptr @proto_nas_eps, align 4
@@ -5681,7 +5681,7 @@ define internal range(i32 0, 2) i32 @dissect_nas_eps_heur(ptr noundef %0, ptr no
   br i1 %.not, label %9, label %15
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_clear(ptr noundef %11, i32 noundef 34) #10
   %12 = load ptr, ptr %10, align 8
@@ -5746,7 +5746,7 @@ define internal fastcc void @dissect_nas_eps_esm_msg(ptr noundef %0, ptr noundef
   %22 = getelementptr [28 x ptr], ptr @nas_msg_esm_fcn, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   call void @col_append_sep_str(ptr noundef %25, i32 noundef 25, ptr noundef null, ptr noundef nonnull %17) #10
   %26 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0) #10
@@ -5800,7 +5800,7 @@ declare ptr @try_val_to_str_idx_ext(i32 noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_act_def_eps_bearer_ctx_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -6009,7 +6009,7 @@ define internal void @nas_esm_act_def_eps_bearer_ctx_req(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_act_def_eps_bearer_ctx_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %21, label %8
@@ -6040,7 +6040,7 @@ define internal void @nas_esm_act_def_eps_bearer_ctx_acc(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_act_def_eps_bearer_ctx_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -6093,7 +6093,7 @@ define internal void @nas_esm_act_def_eps_bearer_ctx_rej(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_act_ded_eps_bearer_ctx_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = shl i32 %3, 3
   %8 = load i32, ptr @hf_nas_eps_emm_spare_half_octet, align 4
@@ -6240,7 +6240,7 @@ define internal void @nas_esm_act_ded_eps_bearer_ctx_req(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_act_ded_eps_bearer_ctx_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %33, label %8
@@ -6287,7 +6287,7 @@ define internal void @nas_esm_act_ded_eps_bearer_ctx_acc(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_act_ded_eps_bearer_ctx_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -6348,7 +6348,7 @@ define internal void @nas_esm_act_ded_eps_bearer_ctx_rej(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_mod_eps_bearer_ctx_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %93, label %8
@@ -6475,7 +6475,7 @@ define internal void @nas_esm_mod_eps_bearer_ctx_req(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_mod_eps_bearer_ctx_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %27, label %8
@@ -6514,7 +6514,7 @@ define internal void @nas_esm_mod_eps_bearer_ctx_acc(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_mod_eps_bearer_ctx_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -6575,7 +6575,7 @@ define internal void @nas_esm_mod_eps_bearer_ctx_rej(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_deact_eps_bearer_ctx_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -6652,7 +6652,7 @@ define internal void @nas_esm_deact_eps_bearer_ctx_req(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_deact_eps_bearer_ctx_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %21, label %8
@@ -6683,7 +6683,7 @@ define internal void @nas_esm_deact_eps_bearer_ctx_acc(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_pdn_con_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -6760,7 +6760,7 @@ define internal void @nas_esm_pdn_con_rej(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_pdn_disc_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = shl i32 %3, 3
   %8 = load i32, ptr @hf_nas_eps_emm_spare_half_octet, align 4
@@ -6799,7 +6799,7 @@ define internal void @nas_esm_pdn_disc_req(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_pdn_disc_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -6852,7 +6852,7 @@ define internal void @nas_esm_pdn_disc_rej(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_bearer_res_all_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = shl i32 %3, 3
   %8 = load i32, ptr @hf_nas_eps_emm_spare_half_octet, align 4
@@ -6959,7 +6959,7 @@ define internal void @nas_esm_bearer_res_all_req(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_bearer_res_all_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -7036,7 +7036,7 @@ define internal void @nas_esm_bearer_res_all_rej(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_bearer_res_mod_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = shl i32 %3, 3
   %8 = load i32, ptr @hf_nas_eps_emm_spare_half_octet, align 4
@@ -7145,7 +7145,7 @@ define internal void @nas_esm_bearer_res_mod_req(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_bearer_res_mod_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -7235,7 +7235,7 @@ define internal void @nas_esm_inf_req(ptr noundef %0, ptr noundef %1, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_inf_resp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %27, label %8
@@ -7274,7 +7274,7 @@ define internal void @nas_esm_inf_resp(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_notification(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -7359,7 +7359,7 @@ define internal void @nas_esm_status(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_remote_ue_report(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %27, label %8
@@ -7398,7 +7398,7 @@ define internal void @nas_esm_remote_ue_report(ptr noundef %0, ptr noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_esm_remote_ue_report_resp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %7
@@ -7539,7 +7539,7 @@ define internal fastcc void @dissect_nas_eps_emm_msg(ptr noundef %0, ptr noundef
   %41 = getelementptr [33 x ptr], ptr @nas_msg_emm_fcn, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   call void @col_append_sep_str(ptr noundef %44, i32 noundef 25, ptr noundef null, ptr noundef nonnull %36) #10
   %45 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #10
@@ -7578,7 +7578,7 @@ define internal fastcc void @dissect_nas_eps_emm_msg(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_attach_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = shl i32 %3, 3
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = load i32, ptr @hf_nas_eps_tsc, align 4
   %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef range(i32 0, -3) %6, i32 noundef 1, i32 noundef 0) #10
@@ -7888,7 +7888,7 @@ define internal void @nas_emm_attach_req(ptr noundef %0, ptr noundef %1, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_attach_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = shl i32 %3, 3
   %8 = load i32, ptr @hf_nas_eps_emm_spare_half_octet, align 4
@@ -8204,7 +8204,7 @@ define internal void @nas_emm_attach_acc(ptr noundef %0, ptr noundef %1, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_attach_comp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -8241,7 +8241,7 @@ define internal void @nas_emm_attach_comp(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_attach_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -8334,7 +8334,7 @@ define internal void @nas_emm_attach_rej(ptr noundef %0, ptr noundef %1, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_detach_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %10 [
     i32 0, label %8
@@ -8368,7 +8368,7 @@ define internal void @nas_emm_detach_req(ptr noundef %0, ptr noundef %1, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_trac_area_upd_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = shl i32 %3, 3
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = load i32, ptr @hf_nas_eps_tsc, align 4
   %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef range(i32 0, -3) %6, i32 noundef 1, i32 noundef 0) #10
@@ -8675,7 +8675,7 @@ define internal void @nas_emm_trac_area_upd_req(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_trac_area_upd_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = shl i32 %3, 3
   %8 = load i32, ptr @hf_nas_eps_emm_spare_half_octet, align 4
@@ -8965,7 +8965,7 @@ define internal void @nas_emm_trac_area_upd_acc(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_trac_area_upd_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -9043,7 +9043,7 @@ define internal void @nas_emm_trac_area_upd_rej(ptr noundef %0, ptr noundef %1, 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_ext_serv_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = shl i32 %3, 3
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = load i32, ptr @hf_nas_eps_tsc, align 4
   %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef range(i32 0, -3) %6, i32 noundef 1, i32 noundef 0) #10
@@ -9131,7 +9131,7 @@ define internal void @nas_emm_ext_serv_req(ptr noundef %0, ptr noundef %1, ptr n
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_ctrl_plane_serv_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = shl i32 %3, 3
-  %7 = getelementptr inbounds i8, ptr %2, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %7, align 8
   %8 = load i32, ptr @hf_nas_eps_tsc, align 4
   %9 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef range(i32 0, -3) %6, i32 noundef 1, i32 noundef 0) #10
@@ -9191,7 +9191,7 @@ define internal void @nas_emm_ctrl_plane_serv_req(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_serv_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -9268,7 +9268,7 @@ define internal void @nas_emm_serv_rej(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_serv_accept(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %39, label %8
@@ -9323,7 +9323,7 @@ define internal void @nas_emm_serv_accept(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_guti_realloc_cmd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -9392,7 +9392,7 @@ define internal void @nas_emm_guti_realloc_cmd(ptr noundef %0, ptr noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_auth_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = shl i32 %3, 3
   %8 = load i32, ptr @hf_nas_eps_emm_spare_half_octet, align 4
@@ -9463,7 +9463,7 @@ define internal void @nas_emm_auth_req(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_auth_resp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -9500,7 +9500,7 @@ define internal void @nas_emm_auth_resp(ptr noundef %0, ptr noundef %1, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_id_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = shl i32 %3, 3
   %8 = load i32, ptr @hf_nas_eps_emm_spare_half_octet, align 4
@@ -9523,7 +9523,7 @@ define internal void @nas_emm_id_req(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_id_res(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -9560,7 +9560,7 @@ define internal void @nas_emm_id_res(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_auth_fail(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -9605,7 +9605,7 @@ define internal void @nas_emm_auth_fail(ptr noundef %0, ptr noundef %1, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_sec_mode_cmd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -9724,7 +9724,7 @@ define internal void @nas_emm_sec_mode_cmd(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_sec_mode_comp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %27, label %8
@@ -9763,7 +9763,7 @@ define internal void @nas_emm_sec_mode_comp(ptr noundef %0, ptr noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_sec_mode_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -9835,7 +9835,7 @@ define internal void @nas_emm_emm_status(ptr noundef %0, ptr noundef %1, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_emm_inf(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %39, label %8
@@ -9890,7 +9890,7 @@ define internal void @nas_emm_emm_inf(ptr noundef %0, ptr noundef %1, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_dl_nas_trans(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -9927,7 +9927,7 @@ define internal void @nas_emm_dl_nas_trans(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_ul_nas_trans(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -9964,7 +9964,7 @@ define internal void @nas_emm_ul_nas_trans(ptr noundef %0, ptr noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_cs_serv_not(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -10033,7 +10033,7 @@ define internal void @nas_emm_cs_serv_not(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_dl_gen_nas_trans(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -10100,7 +10100,7 @@ define internal void @nas_emm_dl_gen_nas_trans(ptr noundef %0, ptr noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_emm_ul_gen_nas_trans(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -10183,7 +10183,7 @@ define internal fastcc void @nas_emm_detach_req_UL(ptr noundef %0, ptr noundef %
   %19 = or disjoint i32 %10, 5
   %20 = load i32, ptr @hf_nas_eps_emm_detach_type_UL, align 4
   %21 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %1, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 3, ptr noundef nonnull %7, i32 noundef 0) #10
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i64, ptr %7, align 8
   %25 = trunc i64 %24 to i32
@@ -10225,7 +10225,7 @@ define internal fastcc void @nas_emm_detach_req_DL(ptr noundef %0, ptr noundef %
   %15 = or disjoint i32 %9, 5
   %16 = load i32, ptr @hf_nas_eps_emm_detach_type_DL, align 4
   %17 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %1, i32 noundef %16, ptr noundef %0, i32 noundef %15, i32 noundef 3, ptr noundef nonnull %6, i32 noundef 0) #10
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %6, align 8
   %21 = trunc i64 %20 to i32
@@ -10315,7 +10315,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @nas_emm_service_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3) unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 384
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %5, align 8
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %7, label %13

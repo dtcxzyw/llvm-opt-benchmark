@@ -48,7 +48,7 @@ init:                                             ; preds = %init.check
 
 init.end:                                         ; preds = %init, %init.check, %entry
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZNK6google8protobuf8internal10LazyString4InitB5cxx11EvE2mu)
-  %inited_ = getelementptr inbounds i8, ptr %this, i64 32
+  %inited_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %3 = load atomic i64, ptr %inited_ acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %3 to ptr
   %cmp = icmp eq i64 %3, 0
@@ -56,7 +56,7 @@ init.end:                                         ; preds = %init, %init.check, 
 
 if.then:                                          ; preds = %init.end
   %init_value.sroa.0.0.copyload = load ptr, ptr %this, align 8
-  %init_value.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %init_value.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %init_value.sroa.2.0.copyload = load i64, ptr %init_value.sroa.2.0..sroa_idx, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %init_value.sroa.0.0.copyload, i64 noundef %init_value.sroa.2.0.copyload, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -416,7 +416,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %inited_.i.i = getelementptr inbounds i8, ptr %default_value, i64 32
+  %inited_.i.i = getelementptr inbounds nuw i8, ptr %default_value, i64 32
   %3 = load atomic i64, ptr %inited_.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %3 to ptr
   %cmp.i.i = icmp eq i64 %3, 0
@@ -663,7 +663,7 @@ entry:
 if.else:                                          ; preds = %entry
   %and.i.i1 = and i64 %1, -4
   %2 = inttoptr i64 %and.i.i1 to ptr
-  %inited_.i = getelementptr inbounds i8, ptr %default_value, i64 32
+  %inited_.i = getelementptr inbounds nuw i8, ptr %default_value, i64 32
   %3 = load atomic i64, ptr %inited_.i acquire, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %3 to ptr
   %cmp.i = icmp eq i64 %3, 0
@@ -691,7 +691,7 @@ entry:
   br i1 %cmp.i, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread: ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i8, ptr %ptr, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %ptr, i64 1
   br label %if.end
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %entry
@@ -724,9 +724,9 @@ _ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJEEEPNSt7__cxx1112basic_s
   %storemerge.i3 = inttoptr i64 %or.i.i3.i to ptr
   store ptr %storemerge.i3, ptr %s, align 8
   %conv.i6 = sext i32 %retval.0.i18 to i64
-  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %buffer_end_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %buffer_end_.i, align 8
-  %add.ptr.i7 = getelementptr inbounds i8, ptr %4, i64 16
+  %add.ptr.i7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i7 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %storemerge.i17 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i

@@ -78,21 +78,21 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 define hidden void @_ZN14CompilerThreadC2EP12CompileQueueP16CompilerCounters(ptr noundef nonnull align 8 dereferenceable(1880) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   tail call void @_ZN10JavaThreadC2EPFvPS_S0_Em8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(1800) %0, ptr noundef nonnull @_ZN14CompilerThread12thread_entryEP10JavaThreadS1_, i64 noundef 0, i8 noundef zeroext 7) #6
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV14CompilerThread, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1864
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1864
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1808
-  %6 = getelementptr inbounds i8, ptr %0, i64 1824
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1808
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store volatile ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1832
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1800
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1840
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1840
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1848
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1848
   store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1856
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1856
   store ptr null, ptr %11, align 8
   %12 = load i8, ptr @_ZN26CompilationMemoryStatistic8_enabledE, align 1
   %13 = trunc i8 %12 to i1
@@ -105,7 +105,7 @@ define hidden void @_ZN14CompilerThreadC2EP12CompileQueueP16CompilerCounters(ptr
 
 16:                                               ; preds = %3, %14
   %17 = phi ptr [ %15, %14 ], [ null, %3 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 1872
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1872
   store ptr %17, ptr %18, align 8
   ret void
 }
@@ -123,7 +123,7 @@ declare void @_ZN16ArenaStatCounterC1Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14CompilerThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1880) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV14CompilerThread, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 1800
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -133,7 +133,7 @@ define hidden void @_ZN14CompilerThreadD2Ev(ptr noundef nonnull align 8 derefere
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1872
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1872
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
@@ -153,7 +153,7 @@ declare void @_ZN10JavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(18
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14CompilerThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1880) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV14CompilerThread, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 1800
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -163,7 +163,7 @@ define hidden void @_ZN14CompilerThreadD0Ev(ptr noundef nonnull align 8 derefere
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1872
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1872
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN14CompilerThreadD2Ev.exit, label %10
@@ -184,7 +184,7 @@ define hidden void @_ZN14CompilerThread12set_compilerEP16AbstractCompiler(ptr no
   br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 3
   %7 = zext i1 %6 to i8
@@ -192,9 +192,9 @@ define hidden void @_ZN14CompilerThread12set_compilerEP16AbstractCompiler(ptr no
 
 8:                                                ; preds = %3, %2
   %9 = phi i8 [ 0, %2 ], [ %7, %3 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 1848
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1848
   store i8 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1856
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1856
   store ptr %1, ptr %11, align 8
   ret void
 }
@@ -203,14 +203,14 @@ declare void @_ZN13CompileBroker20compiler_thread_loopEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK14CompilerThread28is_hidden_from_external_viewEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1880) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1856
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1856
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(96) %3) #6
   br label %10
@@ -293,7 +293,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Thread27is_monitor_deflation
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK14CompilerThread13can_call_javaEv(ptr noundef nonnull align 8 dereferenceable(1880) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1848
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1848
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -301,13 +301,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK14CompilerThread13can_call_ja
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK10JavaThread21is_active_Java_threadEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 888
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %7 = load volatile i32, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %8 = add i32 %7, -57007

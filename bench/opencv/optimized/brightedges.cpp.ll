@@ -52,15 +52,15 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #7
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #7
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #7
-  %25 = getelementptr inbounds i8, ptr %13, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %26, align 4
   store i32 16842752, ptr %13, align 8
-  %27 = getelementptr inbounds i8, ptr %13, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 8
-  %29 = getelementptr inbounds i8, ptr %14, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %29, align 8
   store i32 33619968, ptr %14, align 8
   store ptr %9, ptr %28, align 8
@@ -70,15 +70,15 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
           to label %30 unwind label %450
 
 30:                                               ; preds = %5
-  %31 = getelementptr inbounds i8, ptr %15, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %15, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 0, ptr %32, align 4
   store i32 16842752, ptr %15, align 8
-  %33 = getelementptr inbounds i8, ptr %15, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %16, i64 8
-  %35 = getelementptr inbounds i8, ptr %16, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %35, align 8
   store i32 33619968, ptr %16, align 8
   store ptr %10, ptr %34, align 8
@@ -88,22 +88,22 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
           to label %36 unwind label %452
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %17, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %17, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 0, ptr %38, align 4
   store i32 16842752, ptr %17, align 8
-  %39 = getelementptr inbounds i8, ptr %17, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %9, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %18, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %18, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i32 0, ptr %41, align 4
   store i32 16842752, ptr %18, align 8
-  %42 = getelementptr inbounds i8, ptr %18, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %10, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %19, i64 8
-  %44 = getelementptr inbounds i8, ptr %19, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 0, ptr %44, align 8
   store i32 33619968, ptr %19, align 8
   store ptr %11, ptr %43, align 8
@@ -111,15 +111,15 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
           to label %45 unwind label %454
 
 45:                                               ; preds = %36
-  %46 = getelementptr inbounds i8, ptr %20, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %20, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 0, ptr %47, align 4
   store i32 16842752, ptr %20, align 8
-  %48 = getelementptr inbounds i8, ptr %20, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %11, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %21, i64 8
-  %50 = getelementptr inbounds i8, ptr %21, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %50, align 8
   store i32 33619968, ptr %21, align 8
   store ptr %8, ptr %49, align 8
@@ -127,15 +127,15 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
           to label %51 unwind label %456
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %22, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %22, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i32 0, ptr %53, align 4
   store i32 16842752, ptr %22, align 8
-  %54 = getelementptr inbounds i8, ptr %22, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %8, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %23, i64 8
-  %56 = getelementptr inbounds i8, ptr %23, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 0, ptr %56, align 8
   store i32 33619968, ptr %23, align 8
   store ptr %12, ptr %55, align 8
@@ -147,9 +147,9 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   br i1 %58, label %59, label %462
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %12, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = load i32, ptr %61, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %64 to i64
@@ -170,7 +170,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %70 = load ptr, ptr %60, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = load i32, ptr %70, align 4
   %.sroa.2.0.insert.ext.i.i = zext i32 %73 to i64
@@ -180,23 +180,23 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %74 = load i32, ptr %12, align 8
   %75 = and i32 %74, 4095
   store double 2.550000e+02, ptr %7, align 8
-  %76 = getelementptr inbounds i8, ptr %7, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %6, i64 %.sroa.0.0.insert.insert.i.i, i32 noundef %75, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc unwind label %448
 
 .noexc:                                           ; preds = %69
-  %77 = getelementptr inbounds i8, ptr %12, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = icmp sgt i32 %78, 4
   br i1 %79, label %.preheader77.lr.ph.i, label %.preheader76.i
 
 .preheader77.lr.ph.i:                             ; preds = %.noexc
-  %80 = getelementptr inbounds i8, ptr %12, i64 12
-  %81 = getelementptr inbounds i8, ptr %12, i64 16
-  %82 = getelementptr inbounds i8, ptr %12, i64 72
-  %83 = getelementptr inbounds i8, ptr %6, i64 16
-  %84 = getelementptr inbounds i8, ptr %6, i64 72
+  %80 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %85 = load i32, ptr %80, align 4
   %86 = icmp sgt i32 %85, 4
   br i1 %86, label %.preheader77.i, label %.preheader76.i
@@ -220,17 +220,17 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   br label %104
 
 .preheader76.i:                                   ; preds = %._crit_edge.i, %.preheader77.lr.ph.i, %.noexc
-  %94 = getelementptr inbounds i8, ptr %6, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %95 = load i32, ptr %94, align 8
   %96 = icmp sgt i32 %95, 4
   br i1 %96, label %.preheader75.lr.ph.i, label %.preheader74.i
 
 .preheader75.lr.ph.i:                             ; preds = %.preheader76.i
-  %97 = getelementptr inbounds i8, ptr %6, i64 12
-  %98 = getelementptr inbounds i8, ptr %6, i64 16
-  %99 = getelementptr inbounds i8, ptr %6, i64 72
-  %100 = getelementptr inbounds i8, ptr %1, i64 16
-  %101 = getelementptr inbounds i8, ptr %1, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %102 = load i32, ptr %97, align 4
   %103 = icmp sgt i32 %102, 4
   br i1 %103, label %.preheader75.i, label %.preheader74.i
@@ -242,7 +242,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %.val65.val.i = load i64, ptr %.val65.i, align 8
   %105 = mul i64 %.val65.val.i, %indvars.iv100.i
   %106 = getelementptr inbounds i8, ptr %.val.i, i64 %105
-  %107 = getelementptr inbounds i8, ptr %106, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %indvars.iv.i
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %110 = add nuw nsw i32 %2, %109
@@ -259,13 +259,13 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %121 = mul i64 %.val65.val.i, %92
   %122 = getelementptr inbounds i8, ptr %.val.i, i64 %121
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %123 = getelementptr inbounds i8, ptr %122, i64 %indvars.iv.next.i
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %indvars.iv.next.i
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i32
   %126 = mul i64 %.val65.val.i, %93
   %127 = getelementptr inbounds i8, ptr %.val.i, i64 %126
   %128 = add nuw nsw i64 %indvars.iv.i, 2
-  %129 = getelementptr inbounds i8, ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %.not.i.i = icmp samesign ugt i32 %111, %120
@@ -291,13 +291,13 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 
 141:                                              ; preds = %138, %132, %104
   %.097.i.i = phi i32 [ 0, %132 ], [ 0, %104 ], [ %spec.select.i.i, %138 ]
-  %142 = getelementptr inbounds i8, ptr %116, i64 %indvars.iv.i
+  %142 = getelementptr inbounds nuw i8, ptr %116, i64 %indvars.iv.i
   %143 = load i8, ptr %142, align 1
   %144 = zext i8 %143 to i32
-  %145 = getelementptr inbounds i8, ptr %122, i64 %indvars.iv.i
+  %145 = getelementptr inbounds nuw i8, ptr %122, i64 %indvars.iv.i
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
-  %148 = getelementptr inbounds i8, ptr %127, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw i8, ptr %127, i64 %indvars.iv.i
   %149 = load i8, ptr %148, align 1
   %150 = zext i8 %149 to i32
   %.not111.i.i = icmp samesign ugt i32 %111, %144
@@ -306,7 +306,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   br i1 %or.cond123.i.i, label %161, label %151
 
 151:                                              ; preds = %141
-  %152 = getelementptr inbounds i8, ptr %113, i64 %indvars.iv.i
+  %152 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv.i
   %153 = load i8, ptr %152, align 1
   %154 = zext i8 %153 to i32
   %155 = add nuw nsw i32 %154, %144
@@ -324,7 +324,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 
 161:                                              ; preds = %157, %151, %141
   %.1.i.i = phi i32 [ %.097.i.i, %151 ], [ %.097.i.i, %141 ], [ %spec.select124.i.i, %157 ]
-  %162 = getelementptr inbounds i8, ptr %116, i64 %indvars.iv.next.i
+  %162 = getelementptr inbounds nuw i8, ptr %116, i64 %indvars.iv.next.i
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i32
   %165 = getelementptr inbounds i8, ptr %122, i64 %117
@@ -339,7 +339,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   br i1 %or.cond125.i.i, label %181, label %171
 
 171:                                              ; preds = %161
-  %172 = getelementptr inbounds i8, ptr %113, i64 %128
+  %172 = getelementptr inbounds nuw i8, ptr %113, i64 %128
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
   %175 = add nuw nsw i32 %174, %164
@@ -357,7 +357,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
 
 181:                                              ; preds = %177, %171, %161
   %.2.i.i = phi i32 [ %.1.i.i, %171 ], [ %.1.i.i, %161 ], [ %spec.select126.i.i, %177 ]
-  %182 = getelementptr inbounds i8, ptr %106, i64 %indvars.iv.next.i
+  %182 = getelementptr inbounds nuw i8, ptr %106, i64 %indvars.iv.next.i
   %183 = load i8, ptr %182, align 1
   %184 = zext i8 %183 to i32
   %185 = getelementptr inbounds i8, ptr %106, i64 %117
@@ -372,7 +372,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   br i1 %or.cond127.i.i, label %201, label %191
 
 191:                                              ; preds = %181
-  %192 = getelementptr inbounds i8, ptr %106, i64 %128
+  %192 = getelementptr inbounds nuw i8, ptr %106, i64 %128
   %193 = load i8, ptr %192, align 1
   %194 = zext i8 %193 to i32
   %195 = add nuw nsw i32 %194, %184
@@ -396,7 +396,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %205 = load i64, ptr %204, align 8
   %206 = mul i64 %205, %indvars.iv100.i
   %207 = getelementptr inbounds i8, ptr %203, i64 %206
-  %208 = getelementptr inbounds i8, ptr %207, i64 %indvars.iv.i
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 %indvars.iv.i
   %..i = sext i1 %202 to i8
   store i8 %..i, ptr %208, align 1
   %209 = load i32, ptr %80, align 4
@@ -437,20 +437,20 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   br label %231
 
 .preheader74.i:                                   ; preds = %._crit_edge82.i, %.preheader75.lr.ph.i, %.preheader76.i
-  %225 = getelementptr inbounds i8, ptr %1, i64 12
+  %225 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %226 = load i32, ptr %225, align 4
   %227 = icmp sgt i32 %226, 0
   br i1 %227, label %.preheader73.lr.ph.i, label %.preheader74.i..preheader72.i_crit_edge
 
 .preheader74.i..preheader72.i_crit_edge:          ; preds = %.preheader74.i
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %.preheader72.i
 
 .preheader73.lr.ph.i:                             ; preds = %.preheader74.i
-  %228 = getelementptr inbounds i8, ptr %1, i64 16
-  %229 = getelementptr inbounds i8, ptr %1, i64 72
-  %230 = getelementptr inbounds i8, ptr %1, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.preheader73.i
 
 231:                                              ; preds = %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i, %.lr.ph81.i
@@ -472,12 +472,12 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %243 = mul i64 %.val67.val.i, %indvars.iv106.i
   %244 = getelementptr inbounds i8, ptr %.val66.i, i64 %243
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
-  %245 = getelementptr inbounds i8, ptr %244, i64 %indvars.iv.next104.i
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 %indvars.iv.next104.i
   %246 = load i8, ptr %245, align 1
   %247 = zext i8 %246 to i32
   %248 = add nuw nsw i32 %242, %247
   %249 = add nuw nsw i64 %indvars.iv103.i, 2
-  %250 = getelementptr inbounds i8, ptr %244, i64 %249
+  %250 = getelementptr inbounds nuw i8, ptr %244, i64 %249
   %251 = load i8, ptr %250, align 1
   %252 = zext i8 %251 to i32
   %253 = or i32 %248, %252
@@ -492,11 +492,11 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %261 = add nuw nsw i32 %260, %257
   %262 = mul i64 %.val67.val.i, %222
   %263 = getelementptr inbounds i8, ptr %.val66.i, i64 %262
-  %264 = getelementptr inbounds i8, ptr %263, i64 %indvars.iv.next104.i
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 %indvars.iv.next104.i
   %265 = load i8, ptr %264, align 1
   %266 = zext i8 %265 to i32
   %267 = add nuw nsw i32 %261, %266
-  %268 = getelementptr inbounds i8, ptr %263, i64 %249
+  %268 = getelementptr inbounds nuw i8, ptr %263, i64 %249
   %269 = load i8, ptr %268, align 1
   %270 = zext i8 %269 to i32
   %271 = or i32 %267, %270
@@ -505,17 +505,17 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %.1.i69.i = select i1 %272, i32 %273, i32 %spec.select.i68.i
   %274 = mul i64 %.val67.val.i, %223
   %275 = getelementptr inbounds i8, ptr %.val66.i, i64 %274
-  %276 = getelementptr inbounds i8, ptr %275, i64 %indvars.iv103.i
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 %indvars.iv103.i
   %277 = load i8, ptr %276, align 1
   %278 = zext i8 %277 to i32
-  %279 = getelementptr inbounds i8, ptr %233, i64 %indvars.iv103.i
+  %279 = getelementptr inbounds nuw i8, ptr %233, i64 %indvars.iv103.i
   %280 = load i8, ptr %279, align 1
   %281 = zext i8 %280 to i32
   %282 = add nuw nsw i32 %281, %278
   %283 = add nuw nsw i32 %282, %266
   %284 = mul i64 %.val67.val.i, %224
   %285 = getelementptr inbounds i8, ptr %.val66.i, i64 %284
-  %286 = getelementptr inbounds i8, ptr %285, i64 %indvars.iv.next104.i
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 %indvars.iv.next104.i
   %287 = load i8, ptr %286, align 1
   %288 = zext i8 %287 to i32
   %289 = or i32 %283, %288
@@ -525,12 +525,12 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %292 = getelementptr inbounds i8, ptr %275, i64 %238
   %293 = load i8, ptr %292, align 1
   %294 = zext i8 %293 to i32
-  %295 = getelementptr inbounds i8, ptr %263, i64 %indvars.iv103.i
+  %295 = getelementptr inbounds nuw i8, ptr %263, i64 %indvars.iv103.i
   %296 = load i8, ptr %295, align 1
   %297 = zext i8 %296 to i32
   %298 = add nuw nsw i32 %297, %241
   %299 = add nuw nsw i32 %298, %294
-  %300 = getelementptr inbounds i8, ptr %285, i64 %indvars.iv103.i
+  %300 = getelementptr inbounds nuw i8, ptr %285, i64 %indvars.iv103.i
   %301 = load i8, ptr %300, align 1
   %302 = zext i8 %301 to i32
   %303 = or i32 %299, %302
@@ -540,7 +540,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %306 = getelementptr inbounds i8, ptr %275, i64 %234
   %307 = load i8, ptr %306, align 1
   %308 = zext i8 %307 to i32
-  %309 = getelementptr inbounds i8, ptr %285, i64 %249
+  %309 = getelementptr inbounds nuw i8, ptr %285, i64 %249
   %310 = load i8, ptr %309, align 1
   %311 = zext i8 %310 to i32
   %312 = add nuw nsw i32 %294, %288
@@ -552,7 +552,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %318 = icmp samesign ult i32 %317, 1020
   %319 = zext i1 %318 to i32
   %.4.i.i = add nuw nsw i32 %.3.i71.i, %319
-  %320 = getelementptr inbounds i8, ptr %275, i64 %indvars.iv.next104.i
+  %320 = getelementptr inbounds nuw i8, ptr %275, i64 %indvars.iv.next104.i
   %321 = load i8, ptr %320, align 1
   %322 = zext i8 %321 to i32
   %323 = getelementptr inbounds i8, ptr %285, i64 %238
@@ -566,13 +566,13 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   %331 = icmp samesign ult i32 %330, 1020
   %332 = zext i1 %331 to i32
   %.5.i.i = add nuw nsw i32 %.4.i.i, %332
-  %333 = getelementptr inbounds i8, ptr %275, i64 %249
+  %333 = getelementptr inbounds nuw i8, ptr %275, i64 %249
   %334 = load i8, ptr %333, align 1
   %335 = zext i8 %334 to i32
-  %336 = getelementptr inbounds i8, ptr %233, i64 %indvars.iv.next104.i
+  %336 = getelementptr inbounds nuw i8, ptr %233, i64 %indvars.iv.next104.i
   %337 = load i8, ptr %336, align 1
   %338 = zext i8 %337 to i32
-  %339 = getelementptr inbounds i8, ptr %233, i64 %249
+  %339 = getelementptr inbounds nuw i8, ptr %233, i64 %249
   %340 = load i8, ptr %339, align 1
   %341 = zext i8 %340 to i32
   %342 = getelementptr inbounds i8, ptr %263, i64 %238
@@ -618,7 +618,7 @@ define void @_ZN2cv8ximgproc11BrightEdgesERNS_3MatES2_iii(ptr noundef nonnull al
   ]
 
 375:                                              ; preds = %369
-  %376 = getelementptr inbounds i8, ptr %244, i64 %indvars.iv103.i
+  %376 = getelementptr inbounds nuw i8, ptr %244, i64 %indvars.iv103.i
   %377 = load i8, ptr %376, align 1
   br label %_ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i
 
@@ -629,7 +629,7 @@ _ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i: ; preds = %375, %369, %369, %
   %380 = load i64, ptr %379, align 8
   %381 = mul i64 %380, %indvars.iv106.i
   %382 = getelementptr inbounds i8, ptr %378, i64 %381
-  %383 = getelementptr inbounds i8, ptr %382, i64 %indvars.iv103.i
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 %indvars.iv103.i
   store i8 %.0.i.i, ptr %383, align 1
   %384 = load i32, ptr %97, align 4
   %385 = add nsw i32 %384, -2
@@ -653,13 +653,13 @@ _ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i: ; preds = %375, %369, %369, %
 .preheader73.i:                                   ; preds = %._crit_edge88.i, %.preheader73.lr.ph.i
   %indvars.iv115.i = phi i64 [ 0, %.preheader73.lr.ph.i ], [ %indvars.iv.next116.i, %._crit_edge88.i ]
   %393 = load ptr, ptr %228, align 8
-  %394 = getelementptr inbounds i8, ptr %393, i64 %indvars.iv115.i
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 %indvars.iv115.i
   store i8 -1, ptr %394, align 1
   %395 = load ptr, ptr %228, align 8
   %396 = load ptr, ptr %229, align 8
   %397 = load i64, ptr %396, align 8
   %398 = getelementptr inbounds i8, ptr %395, i64 %397
-  %399 = getelementptr inbounds i8, ptr %398, i64 %indvars.iv115.i
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 %indvars.iv115.i
   store i8 -1, ptr %399, align 1
   %400 = load i32, ptr %230, align 8
   %401 = add i32 %400, -2
@@ -668,13 +668,13 @@ _ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i: ; preds = %375, %369, %369, %
 
 .preheader72.i:                                   ; preds = %._crit_edge88.i, %.preheader74.i..preheader72.i_crit_edge
   %403 = phi i32 [ %.pre, %.preheader74.i..preheader72.i_crit_edge ], [ %415, %._crit_edge88.i ]
-  %404 = getelementptr inbounds i8, ptr %1, i64 8
+  %404 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %405 = icmp sgt i32 %403, 0
   br i1 %405, label %.preheader.lr.ph.i, label %_ZN2cv8ximgprocL13contrastEdgesERNS_3MatES2_i.exit
 
 .preheader.lr.ph.i:                               ; preds = %.preheader72.i
-  %406 = getelementptr inbounds i8, ptr %1, i64 16
-  %407 = getelementptr inbounds i8, ptr %1, i64 72
+  %406 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %407 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %.preheader.i
 
 408:                                              ; preds = %408, %.preheader73.i
@@ -684,7 +684,7 @@ _ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i: ; preds = %375, %369, %369, %
   %411 = load i64, ptr %410, align 8
   %412 = mul i64 %411, %indvars.iv112.i
   %413 = getelementptr inbounds i8, ptr %409, i64 %412
-  %414 = getelementptr inbounds i8, ptr %413, i64 %indvars.iv115.i
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 %indvars.iv115.i
   store i8 -1, ptr %414, align 1
   %indvars.iv.next113.i = add nsw i64 %indvars.iv112.i, 1
   %415 = load i32, ptr %230, align 8
@@ -712,7 +712,7 @@ _ZN2cv8ximgprocL12correctPixelERNS_3MatEii.exit.i: ; preds = %375, %369, %369, %
   %428 = load i64, ptr %427, align 8
   %429 = mul i64 %428, %indvars.iv124.i
   %430 = getelementptr inbounds i8, ptr %426, i64 %429
-  %431 = getelementptr inbounds i8, ptr %430, i64 1
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 1
   store i8 -1, ptr %431, align 1
   %432 = load i32, ptr %225, align 4
   %433 = add i32 %432, -2

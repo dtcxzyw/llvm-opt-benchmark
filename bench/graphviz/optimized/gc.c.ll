@@ -287,9 +287,9 @@ define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef nonnull %0, i32 nou
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
   %.020.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %19, %18 ]
-  %20 = getelementptr inbounds i8, ptr %.020.i.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %22, align 8
   %23 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.020.i.i) #14
   %.not.i.i = icmp eq ptr %23, null
@@ -303,9 +303,9 @@ define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef nonnull %0, i32 nou
 .lr.ph25.i.i:                                     ; preds = %._crit_edge.i.i, %cc_dfs.exit.i.i
   %.123.i.i = phi ptr [ %118, %cc_dfs.exit.i.i ], [ %24, %._crit_edge.i.i ]
   %.01322.i.i = phi i32 [ %.114.i.i, %cc_dfs.exit.i.i ], [ 0, %._crit_edge.i.i ]
-  %25 = getelementptr inbounds i8, ptr %.123.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.123.i.i, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
   %.not16.i.i = icmp eq i32 %28, 0
   br i1 %.not16.i.i, label %29, label %cc_dfs.exit.i.i
@@ -384,9 +384,9 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
   br i1 %.not.i.i.i, label %cc_dfs.exit.i.i, label %66
 
 66:                                               ; preds = %pop.exit.i.i.i
-  %67 = getelementptr inbounds i8, ptr %64, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i32 1, ptr %69, align 8
   %70 = call ptr @agfstedge(ptr noundef nonnull %0, ptr noundef nonnull %64) #14
   %.not2327.i.i.i = icmp eq ptr %70, null
@@ -398,8 +398,8 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
   %72 = and i32 %71, 3
   %73 = icmp eq i32 %72, 3
   %.idx.i.i.i = select i1 %73, i64 0, i64 64
-  %74 = getelementptr inbounds i8, ptr %.02028.i.i.i, i64 %.idx.i.i.i
-  %75 = getelementptr inbounds i8, ptr %74, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %.02028.i.i.i, i64 %.idx.i.i.i
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %64, %76
   br i1 %77, label %78, label %83
@@ -408,15 +408,15 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
   %79 = icmp eq i32 %72, 2
   %.idx24.i.i.i = select i1 %79, i64 0, i64 -64
   %80 = getelementptr inbounds i8, ptr %.02028.i.i.i, i64 %.idx24.i.i.i
-  %81 = getelementptr inbounds i8, ptr %80, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %82 = load ptr, ptr %81, align 8
   br label %83
 
 83:                                               ; preds = %78, %.lr.ph.i.i.i
   %.0.i.i.i = phi ptr [ %82, %78 ], [ %76, %.lr.ph.i.i.i ]
-  %84 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load i32, ptr %86, align 8
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %116

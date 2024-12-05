@@ -67,10 +67,10 @@ define i32 @plugin_get_syms(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %.015 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %17 ]
-  %6 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @dlsym(ptr noundef %0, ptr noundef %7) #10
-  %9 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   store ptr %8, ptr %9, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %10
@@ -121,7 +121,7 @@ define ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr nocapture n
 12:                                               ; preds = %16, %10
   %.pre38 = phi ptr [ %.pre, %16 ], [ %11, %10 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %10 ]
-  %13 = getelementptr inbounds i8, ptr %.pre38, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %.pre38, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %16 [
     i8 0, label %17
@@ -146,7 +146,7 @@ define ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %.not31, label %21, label %.preheader
 
 .preheader:                                       ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %6, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %23
 
 21:                                               ; preds = %17
@@ -158,7 +158,7 @@ define ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %24 = phi ptr [ %19, %.preheader ], [ %82, %81 ]
   %indvars.iv35 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next36, %81 ]
   %.021 = phi ptr [ %19, %.preheader ], [ %.122, %81 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv35
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv35
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 58
   br i1 %27, label %28, label %29
@@ -224,10 +224,10 @@ define ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr nocapture n
 .lr.ph.i:                                         ; preds = %68, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %68 ]
   %.015.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %68 ]
-  %57 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %58 = load ptr, ptr %57, align 8
   %59 = call ptr @dlsym(ptr noundef %55, ptr noundef %58) #10
-  %60 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   store ptr %59, ptr %60, align 8
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %63, label %61
@@ -285,8 +285,8 @@ plugin_get_syms.exit:                             ; preds = %68, %54
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr %7, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 %indvars.iv35
-  %80 = getelementptr inbounds i8, ptr %79, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv35
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1
   br label %81
 
 81:                                               ; preds = %29, %77
@@ -601,7 +601,7 @@ define ptr @plugin_context_create(ptr noundef %0, ptr noundef %1, ptr noundef wr
 22:                                               ; preds = %19
   %23 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.17, i32 noundef 356, ptr noundef nonnull @__func__.plugin_context_create) #10
   %24 = tail call ptr @xstrdup(ptr noundef nonnull %1) #10
-  %25 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %24, ptr %25, align 8
   store ptr null, ptr %23, align 8
   %26 = lshr i64 %4, 3
@@ -625,7 +625,7 @@ define ptr @plugin_context_create(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 36:                                               ; preds = %29
   %37 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %32) #10
-  %38 = getelementptr inbounds i8, ptr %23, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not48 = icmp eq ptr %39, null
   br i1 %.not48, label %40, label %44
@@ -663,7 +663,7 @@ define ptr @plugin_context_create(ptr noundef %0, ptr noundef %1, ptr noundef wr
 57:                                               ; preds = %55, %49, %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %23, ptr %6, align 8
-  %58 = getelementptr inbounds i8, ptr %23, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %62, label %60
@@ -715,7 +715,7 @@ declare ptr @plugrack_use_by_type(ptr noundef, ptr noundef) local_unnamed_addr #
 define range(i32 -1, 1) i32 @plugin_context_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -746,7 +746,7 @@ define range(i32 -1, 1) i32 @plugin_context_destroy(ptr noundef %0) local_unname
 
 plugin_unload.exit:                               ; preds = %12, %7, %5
   %.0 = phi i32 [ %spec.select, %5 ], [ 0, %7 ], [ 0, %12 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %14) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   ret i32 %.0
@@ -801,7 +801,7 @@ define ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %.lr.ph, %.backedge
   %20 = phi ptr [ %45, %.lr.ph ], [ %25, %.backedge ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 19
   %22 = load ptr, ptr %4, align 8
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #13
   %24 = call i32 @xstrncmp(ptr noundef nonnull %21, ptr noundef %22, i64 noundef %23) #10

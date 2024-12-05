@@ -577,7 +577,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   br i1 %.067.lcssa, label %.critedge, label %219
 
 219:                                              ; preds = %.thread131, %._crit_edge153
-  %220 = getelementptr inbounds i8, ptr %3, i64 84
+  %220 = getelementptr inbounds nuw i8, ptr %3, i64 84
   store i32 1, ptr %220, align 4
   br label %.critedge
 
@@ -652,7 +652,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
   br label %345
 
 264:                                              ; preds = %245, %226
-  %265 = getelementptr inbounds i8, ptr %3, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %266 = load ptr, ptr %265, align 8
   %.not107 = icmp eq ptr %266, null
   br i1 %.not107, label %268, label %267
@@ -792,7 +792,7 @@ parse_flag.exit:                                  ; preds = %15, %19, %22, %25, 
 345:                                              ; preds = %328, %340, %336, %309, %321, %317, %290, %302, %298, %271, %283, %279, %248, %260, %256, %229, %241, %237, %201, %213, %209, %167, %179, %175, %147, %159, %155, %127, %139, %135, %107, %119, %115
   %.070 = phi i64 [ -1, %115 ], [ -1, %119 ], [ -1, %107 ], [ -1, %135 ], [ -1, %139 ], [ -1, %127 ], [ %145, %155 ], [ %145, %159 ], [ %145, %147 ], [ %145, %175 ], [ %145, %179 ], [ %145, %167 ], [ %145, %209 ], [ %145, %213 ], [ %145, %201 ], [ %145, %237 ], [ %145, %241 ], [ %145, %229 ], [ %145, %256 ], [ %145, %260 ], [ %145, %248 ], [ %145, %279 ], [ %145, %283 ], [ %145, %271 ], [ %145, %298 ], [ %145, %302 ], [ %145, %290 ], [ %145, %317 ], [ %145, %321 ], [ %145, %309 ], [ %145, %336 ], [ %145, %340 ], [ %145, %328 ]
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %346 = getelementptr inbounds i8, ptr %3, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %347 = load ptr, ptr %346, align 8
   %.not117 = icmp eq ptr %347, null
   br i1 %.not117, label %349, label %348

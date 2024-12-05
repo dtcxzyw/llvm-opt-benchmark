@@ -41,20 +41,20 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
   %6 = alloca %"class.std::allocator.2", align 1
   %7 = alloca %"class.std::vector", align 16
   %8 = alloca %"struct.ZXing::DataMatrix::DataBlock", align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 20
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load i32, ptr %10, align 4, !tbaa !3
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = add nsw i32 %13, %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %15 = sext i32 %14 to i64
-  invoke void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %15) #10
+  invoke void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %15) #11
           to label %16 unwind label %43
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %18
 
 18:                                               ; preds = %.loopexit10, %16
@@ -65,13 +65,13 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
   br i1 %22, label %23, label %.loopexit10
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %19, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 4
   br label %48
 
 25:                                               ; preds = %.loopexit10
   %26 = load ptr, ptr %7, align 16, !tbaa !8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !11
   %30 = load ptr, ptr %27, align 8, !tbaa !13
   %31 = ptrtoint ptr %29 to i64
@@ -97,28 +97,28 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
 
 .loopexit10:                                      ; preds = %60, %18
   %45 = add nuw nsw i64 %20, 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 %45
   %47 = icmp eq i64 %45, 40
   br i1 %47, label %25, label %18
 
 48:                                               ; preds = %60, %23
   %49 = phi i32 [ 0, %23 ], [ %61, %60 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #10
   %50 = load i32, ptr %24, align 4, !tbaa !16
   store i32 %50, ptr %8, align 8, !tbaa !17
   %51 = load i32, ptr %9, align 4, !tbaa !14
   %52 = add nsw i32 %51, %50
   %53 = sext i32 %52 to i64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
   store i8 0, ptr %5, align 1, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #9
-  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %53, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
+  invoke void @_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %53, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
           to label %54 unwind label %64
 
 54:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #9
-  %55 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
+  %55 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #11
           to label %56 unwind label %66
 
 56:                                               ; preds = %54
@@ -127,11 +127,11 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %56
-  call void @_ZdlPv(ptr noundef nonnull %57) #11
+  call void @_ZdlPv(ptr noundef nonnull %57) #12
   br label %60
 
 60:                                               ; preds = %59, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
   %61 = add nuw nsw i32 %49, 1
   %62 = load i32, ptr %19, align 4, !tbaa !3
   %63 = icmp slt i32 %61, %62
@@ -150,12 +150,12 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
   br i1 %69, label %71, label %70
 
 70:                                               ; preds = %66
-  call void @_ZdlPv(ptr noundef nonnull %68) #11
+  call void @_ZdlPv(ptr noundef nonnull %68) #12
   br label %71
 
 71:                                               ; preds = %70, %66, %64
   %72 = phi { ptr, i32 } [ %65, %64 ], [ %67, %66 ], [ %67, %70 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
   br label %179
 
 73:                                               ; preds = %90, %39
@@ -169,7 +169,7 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
 
 .loopexit9:                                       ; preds = %90, %25
   %78 = phi i32 [ 0, %25 ], [ %91, %90 ]
-  %79 = getelementptr inbounds i8, ptr %2, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !26
   %81 = icmp eq i32 %80, 144
   %82 = select i1 %81, i32 8, i32 %14
@@ -200,9 +200,9 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
   %99 = getelementptr inbounds i8, ptr %98, i64 %95
   %100 = load i8, ptr %99, align 1, !tbaa !23
   %101 = load ptr, ptr %7, align 16, !tbaa !8
-  %102 = getelementptr inbounds %"struct.ZXing::DataMatrix::DataBlock", ptr %101, i64 %96, i32 1
+  %102 = getelementptr inbounds nuw %"struct.ZXing::DataMatrix::DataBlock", ptr %101, i64 %96, i32 1
   %103 = load ptr, ptr %102, align 8, !tbaa !13
-  %104 = getelementptr inbounds i8, ptr %103, i64 %74
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 %74
   store i8 %100, ptr %104, align 1, !tbaa !23
   %105 = add nuw nsw i64 %96, 1
   %106 = icmp eq i64 %105, %42
@@ -230,7 +230,7 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
   %120 = getelementptr inbounds i8, ptr %119, i64 %116
   %121 = load i8, ptr %120, align 1, !tbaa !23
   %122 = load ptr, ptr %7, align 16, !tbaa !8
-  %123 = getelementptr inbounds %"struct.ZXing::DataMatrix::DataBlock", ptr %122, i64 %117, i32 1
+  %123 = getelementptr inbounds nuw %"struct.ZXing::DataMatrix::DataBlock", ptr %122, i64 %117, i32 1
   %124 = load ptr, ptr %123, align 8, !tbaa !13
   %125 = getelementptr inbounds i8, ptr %124, i64 %85
   store i8 %121, ptr %125, align 1, !tbaa !23
@@ -249,7 +249,7 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
 
 .loopexit:                                        ; preds = %144, %109
   %133 = phi i32 [ %110, %109 ], [ %145, %144 ]
-  %134 = getelementptr inbounds i8, ptr %1, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !11
   %136 = load ptr, ptr %1, align 8, !tbaa !13
   %137 = ptrtoint ptr %135 to i64
@@ -303,8 +303,8 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
 172:                                              ; preds = %.loopexit
   %173 = load <2 x ptr>, ptr %7, align 16, !tbaa !33
   store <2 x ptr> %173, ptr %0, align 8, !tbaa !33
-  %174 = getelementptr inbounds i8, ptr %0, i64 16
-  %175 = getelementptr inbounds i8, ptr %7, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %176 = load ptr, ptr %175, align 16, !tbaa !34
   store ptr %176, ptr %174, align 8, !tbaa !34
   br label %177
@@ -312,14 +312,14 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
 177:                                              ; preds = %172, %.loopexit
   %178 = phi ptr [ %7, %172 ], [ %0, %.loopexit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
+  call void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
   ret void
 
 179:                                              ; preds = %71, %43
   %180 = phi { ptr, i32 } [ %72, %71 ], [ %44, %43 ]
-  call void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
+  call void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
   resume { ptr, i32 } %180
 }
 
@@ -332,11 +332,11 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE7re
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #13
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #14
   unreachable
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !34
   %8 = load ptr, ptr %0, align 8, !tbaa !8
   %9 = ptrtoint ptr %7 to i64
@@ -347,11 +347,11 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE7re
   br i1 %13, label %14, label %44
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !35
   %17 = ptrtoint ptr %16 to i64
   %18 = sub i64 %17, %10
-  %19 = tail call noundef ptr @_ZNSt15__new_allocatorIN5ZXing10DataMatrix9DataBlockEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null) #10
+  %19 = tail call noundef ptr @_ZNSt15__new_allocatorIN5ZXing10DataMatrix9DataBlockEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null) #11
   %20 = load ptr, ptr %0, align 8, !tbaa !8
   %21 = load ptr, ptr %15, align 8, !tbaa !35
   %22 = icmp eq ptr %20, %21
@@ -364,17 +364,17 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE7re
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %25 = load i32, ptr %24, align 8, !tbaa !17, !alias.scope !39, !noalias !36
   store i32 %25, ptr %23, align 8, !tbaa !17, !alias.scope !36, !noalias !39
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load <2 x ptr>, ptr %27, align 8, !tbaa !33, !alias.scope !39, !noalias !36
   store <2 x ptr> %28, ptr %26, align 8, !tbaa !33, !alias.scope !36, !noalias !39
-  %29 = getelementptr inbounds i8, ptr %23, i64 24
-  %30 = getelementptr inbounds i8, ptr %24, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !41, !alias.scope !39, !noalias !36
   store ptr %31, ptr %29, align 8, !tbaa !41, !alias.scope !36, !noalias !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false), !alias.scope !39, !noalias !36
-  %32 = getelementptr inbounds i8, ptr %24, i64 32
-  %33 = getelementptr inbounds i8, ptr %23, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %34 = icmp eq ptr %32, %21
   br i1 %34, label %35, label %.preheader, !llvm.loop !42
 
@@ -388,14 +388,14 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE7re
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %37
-  tail call void @_ZdlPv(ptr noundef nonnull %38) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %38) #12
   br label %41
 
 41:                                               ; preds = %40, %37
   store ptr %19, ptr %0, align 8, !tbaa !8
   %42 = getelementptr inbounds i8, ptr %19, i64 %18
   store ptr %42, ptr %15, align 8, !tbaa !35
-  %43 = getelementptr inbounds %"struct.ZXing::DataMatrix::DataBlock", ptr %19, i64 %1
+  %43 = getelementptr inbounds nuw %"struct.ZXing::DataMatrix::DataBlock", ptr %19, i64 %1
   store ptr %43, ptr %6, align 8, !tbaa !34
   br label %44
 
@@ -414,24 +414,24 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nounwind optsize uwtable
 define linkonce_odr void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !35
   %5 = icmp eq ptr %2, %4
   br i1 %5, label %16, label %.preheader
 
 .preheader:                                       ; preds = %1, %11
   %6 = phi ptr [ %12, %11 ], [ %2, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %.preheader
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #12
   br label %11
 
 11:                                               ; preds = %10, %.preheader
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = icmp eq ptr %12, %4
   br i1 %13, label %14, label %.preheader, !llvm.loop !43
 
@@ -445,7 +445,7 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2E
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void @_ZdlPv(ptr noundef nonnull %17) #11
+  tail call void @_ZdlPv(ptr noundef nonnull %17) #12
   br label %20
 
 20:                                               ; preds = %19, %16
@@ -458,25 +458,25 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_(ptr noundef nonnull a
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #13
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
   unreachable
 
 7:                                                ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  tail call void @_ZNSt12_Vector_baseIhSaIhEE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #10
+  tail call void @_ZNSt12_Vector_baseIhSaIhEE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #11
   %8 = load ptr, ptr %0, align 8, !tbaa !13
   %9 = icmp eq i64 %1, 0
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %1
   %12 = load i8, ptr %2, align 1, !tbaa !23
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 %12, i64 %1, i1 false)
   br label %13
 
 13:                                               ; preds = %10, %7
   %14 = phi ptr [ %8, %7 ], [ %11, %10 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8, !tbaa !11
   ret void
 }
@@ -494,20 +494,20 @@ define linkonce_odr void @_ZNSt12_Vector_baseIhSaIhEE17_M_create_storageEm(ptr n
   br i1 %5, label %6, label %7, !prof !44
 
 6:                                                ; preds = %4
-  tail call void @_ZSt17__throw_bad_allocv() #13
+  tail call void @_ZSt17__throw_bad_allocv() #14
   unreachable
 
 7:                                                ; preds = %4
-  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %1) #14
+  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %1) #15
   br label %9
 
 9:                                                ; preds = %7, %2
   %10 = phi ptr [ %8, %7 ], [ null, %2 ]
   store ptr %10, ptr %0, align 8, !tbaa !13
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !11
   %12 = getelementptr inbounds i8, ptr %10, i64 %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8, !tbaa !41
   ret void
 }
@@ -534,24 +534,24 @@ define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIN5ZXing10DataMatrix9Data
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #13
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #14
   unreachable
 
 8:                                                ; preds = %5
-  tail call void @_ZSt17__throw_bad_allocv() #13
+  tail call void @_ZSt17__throw_bad_allocv() #14
   unreachable
 
 9:                                                ; preds = %3
   %10 = shl nuw nsw i64 %1, 5
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #14
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #15
   ret ptr %11
 }
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !33
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %18, label %8
@@ -559,22 +559,22 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vecto
 8:                                                ; preds = %2
   %9 = load i32, ptr %1, align 8, !tbaa !17
   store i32 %9, ptr %4, align 8, !tbaa !17
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load <2 x ptr>, ptr %11, align 8, !tbaa !33
   store <2 x ptr> %12, ptr %10, align 8, !tbaa !33
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !41
   store ptr %15, ptr %13, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %16 = load ptr, ptr %3, align 8, !tbaa !35
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %17, ptr %3, align 8, !tbaa !35
   br label %20
 
 18:                                               ; preds = %2
-  tail call void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %1) #10
+  tail call void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %4, ptr noundef nonnull align 8 dereferenceable(32) %1) #11
   %19 = load ptr, ptr %3, align 8, !tbaa !33
   br label %20
 
@@ -586,107 +586,100 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vecto
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef i64 @_ZNKSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull @.str.2) #10
+  %4 = tail call noundef i64 @_ZNKSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull @.str.2) #11
   %5 = load ptr, ptr %0, align 8, !tbaa !33
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !35
   %8 = ptrtoint ptr %1 to i64
   %9 = ptrtoint ptr %5 to i64
   %10 = sub i64 %8, %9
-  %11 = ashr exact i64 %10, 5
-  %12 = icmp eq i64 %4, 0
-  br i1 %12, label %15, label %13
+  %11 = icmp ne i64 %4, 0
+  tail call void @llvm.assume(i1 %11)
+  %12 = tail call noundef ptr @_ZNSt15__new_allocatorIN5ZXing10DataMatrix9DataBlockEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #11
+  %13 = getelementptr inbounds i8, ptr %12, i64 %10
+  %14 = load i32, ptr %2, align 8, !tbaa !17
+  store i32 %14, ptr %13, align 8, !tbaa !17
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load <2 x ptr>, ptr %16, align 8, !tbaa !33
+  store <2 x ptr> %17, ptr %15, align 8, !tbaa !33
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %20 = load ptr, ptr %19, align 8, !tbaa !41
+  store ptr %20, ptr %18, align 8, !tbaa !41
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  %21 = icmp eq ptr %5, %1
+  br i1 %21, label %.loopexit4, label %.preheader3
 
-13:                                               ; preds = %3
-  %14 = tail call noundef ptr @_ZNSt15__new_allocatorIN5ZXing10DataMatrix9DataBlockEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %4, ptr noundef null) #10
-  br label %15
-
-15:                                               ; preds = %13, %3
-  %16 = phi ptr [ %14, %13 ], [ null, %3 ]
-  %17 = getelementptr inbounds %"struct.ZXing::DataMatrix::DataBlock", ptr %16, i64 %11
-  %18 = load i32, ptr %2, align 8, !tbaa !17
-  store i32 %18, ptr %17, align 8, !tbaa !17
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
-  %21 = load <2 x ptr>, ptr %20, align 8, !tbaa !33
-  store <2 x ptr> %21, ptr %19, align 8, !tbaa !33
-  %22 = getelementptr inbounds i8, ptr %17, i64 24
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !41
-  store ptr %24, ptr %22, align 8, !tbaa !41
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  %25 = icmp eq ptr %5, %1
-  br i1 %25, label %.loopexit4, label %.preheader3
-
-.preheader3:                                      ; preds = %15, %.preheader3
-  %26 = phi ptr [ %36, %.preheader3 ], [ %16, %15 ]
-  %27 = phi ptr [ %35, %.preheader3 ], [ %5, %15 ]
+.preheader3:                                      ; preds = %3, %.preheader3
+  %22 = phi ptr [ %32, %.preheader3 ], [ %12, %3 ]
+  %23 = phi ptr [ %31, %.preheader3 ], [ %5, %3 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %28 = load i32, ptr %27, align 8, !tbaa !17, !alias.scope !48, !noalias !45
-  store i32 %28, ptr %26, align 8, !tbaa !17, !alias.scope !45, !noalias !48
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
-  %31 = load <2 x ptr>, ptr %30, align 8, !tbaa !33, !alias.scope !48, !noalias !45
-  store <2 x ptr> %31, ptr %29, align 8, !tbaa !33, !alias.scope !45, !noalias !48
-  %32 = getelementptr inbounds i8, ptr %26, i64 24
-  %33 = getelementptr inbounds i8, ptr %27, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !41, !alias.scope !48, !noalias !45
-  store ptr %34, ptr %32, align 8, !tbaa !41, !alias.scope !45, !noalias !48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !alias.scope !48, !noalias !45
-  %35 = getelementptr inbounds i8, ptr %27, i64 32
-  %36 = getelementptr inbounds i8, ptr %26, i64 32
-  %37 = icmp eq ptr %35, %1
-  br i1 %37, label %.loopexit4, label %.preheader3, !llvm.loop !42
+  %24 = load i32, ptr %23, align 8, !tbaa !17, !alias.scope !48, !noalias !45
+  store i32 %24, ptr %22, align 8, !tbaa !17, !alias.scope !45, !noalias !48
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %27 = load <2 x ptr>, ptr %26, align 8, !tbaa !33, !alias.scope !48, !noalias !45
+  store <2 x ptr> %27, ptr %25, align 8, !tbaa !33, !alias.scope !45, !noalias !48
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %30 = load ptr, ptr %29, align 8, !tbaa !41, !alias.scope !48, !noalias !45
+  store ptr %30, ptr %28, align 8, !tbaa !41, !alias.scope !45, !noalias !48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false), !alias.scope !48, !noalias !45
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %33 = icmp eq ptr %31, %1
+  br i1 %33, label %.loopexit4, label %.preheader3, !llvm.loop !42
 
-.loopexit4:                                       ; preds = %.preheader3, %15
-  %38 = phi ptr [ %16, %15 ], [ %36, %.preheader3 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
-  %40 = icmp eq ptr %7, %1
-  br i1 %40, label %.loopexit, label %.preheader
+.loopexit4:                                       ; preds = %.preheader3, %3
+  %34 = phi ptr [ %12, %3 ], [ %32, %.preheader3 ]
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %36 = icmp eq ptr %7, %1
+  br i1 %36, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit4, %.preheader
-  %41 = phi ptr [ %51, %.preheader ], [ %39, %.loopexit4 ]
-  %42 = phi ptr [ %50, %.preheader ], [ %1, %.loopexit4 ]
+  %37 = phi ptr [ %47, %.preheader ], [ %35, %.loopexit4 ]
+  %38 = phi ptr [ %46, %.preheader ], [ %1, %.loopexit4 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %43 = load i32, ptr %42, align 8, !tbaa !17, !alias.scope !53, !noalias !50
-  store i32 %43, ptr %41, align 8, !tbaa !17, !alias.scope !50, !noalias !53
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
-  %46 = load <2 x ptr>, ptr %45, align 8, !tbaa !33, !alias.scope !53, !noalias !50
-  store <2 x ptr> %46, ptr %44, align 8, !tbaa !33, !alias.scope !50, !noalias !53
-  %47 = getelementptr inbounds i8, ptr %41, i64 24
-  %48 = getelementptr inbounds i8, ptr %42, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !41, !alias.scope !53, !noalias !50
-  store ptr %49, ptr %47, align 8, !tbaa !41, !alias.scope !50, !noalias !53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false), !alias.scope !53, !noalias !50
-  %50 = getelementptr inbounds i8, ptr %42, i64 32
-  %51 = getelementptr inbounds i8, ptr %41, i64 32
-  %52 = icmp eq ptr %50, %7
-  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !42
+  %39 = load i32, ptr %38, align 8, !tbaa !17, !alias.scope !53, !noalias !50
+  store i32 %39, ptr %37, align 8, !tbaa !17, !alias.scope !50, !noalias !53
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %42 = load <2 x ptr>, ptr %41, align 8, !tbaa !33, !alias.scope !53, !noalias !50
+  store <2 x ptr> %42, ptr %40, align 8, !tbaa !33, !alias.scope !50, !noalias !53
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %45 = load ptr, ptr %44, align 8, !tbaa !41, !alias.scope !53, !noalias !50
+  store ptr %45, ptr %43, align 8, !tbaa !41, !alias.scope !50, !noalias !53
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false), !alias.scope !53, !noalias !50
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %48 = icmp eq ptr %46, %7
+  br i1 %48, label %.loopexit, label %.preheader, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit4
-  %53 = phi ptr [ %39, %.loopexit4 ], [ %51, %.preheader ]
-  %54 = icmp eq ptr %5, null
-  br i1 %54, label %56, label %55
+  %49 = phi ptr [ %35, %.loopexit4 ], [ %47, %.preheader ]
+  %50 = icmp eq ptr %5, null
+  br i1 %50, label %52, label %51
 
-55:                                               ; preds = %.loopexit
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #11
-  br label %56
+51:                                               ; preds = %.loopexit
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #12
+  br label %52
 
-56:                                               ; preds = %55, %.loopexit
-  %57 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %16, ptr %0, align 8, !tbaa !8
-  store ptr %53, ptr %6, align 8, !tbaa !35
-  %58 = getelementptr inbounds %"struct.ZXing::DataMatrix::DataBlock", ptr %16, i64 %4
-  store ptr %58, ptr %57, align 8, !tbaa !34
+52:                                               ; preds = %51, %.loopexit
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %12, ptr %0, align 8, !tbaa !8
+  store ptr %49, ptr %6, align 8, !tbaa !35
+  %54 = getelementptr inbounds %"struct.ZXing::DataMatrix::DataBlock", ptr %12, i64 %4
+  store ptr %54, ptr %53, align 8, !tbaa !34
   ret void
 }
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr noundef i64 @_ZNKSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !35
   %6 = load ptr, ptr %0, align 8, !tbaa !8
   %7 = ptrtoint ptr %5 to i64
@@ -698,7 +691,7 @@ define linkonce_odr noundef i64 @_ZNKSt6vectorIN5ZXing10DataMatrix9DataBlockESaI
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef %2) #13
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef %2) #14
   unreachable
 
 14:                                               ; preds = %3
@@ -719,6 +712,9 @@ declare i64 @llvm.umax.i64(i64, i64) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #9
+
 attributes #0 = { mustprogress optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -728,12 +724,13 @@ attributes #5 = { nobuiltin optsize allocsize(0) "no-trapping-math"="true" "stac
 attributes #6 = { nobuiltin nounwind optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { optsize }
-attributes #11 = { builtin nounwind optsize }
-attributes #12 = { nounwind optsize }
-attributes #13 = { noreturn optsize }
-attributes #14 = { builtin optsize allocsize(0) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nounwind }
+attributes #11 = { optsize }
+attributes #12 = { builtin nounwind optsize }
+attributes #13 = { nounwind optsize }
+attributes #14 = { noreturn optsize }
+attributes #15 = { builtin optsize allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -27,7 +27,7 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   br label %79
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1040
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
@@ -37,11 +37,11 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   br label %79
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 224
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
@@ -60,23 +60,23 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   br label %79
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %22, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 72
   store ptr %0, ptr %26, align 8
   store i64 %1, ptr %22, align 8
   %27 = add nsw i64 %1, -1
   %28 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
   %.not = icmp sgt i64 %1, %28
   %. = select i1 %.not, i64 %28, i64 %27
-  %29 = getelementptr inbounds i8, ptr %22, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 %., ptr %29, align 8
   %30 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
   %.not109 = icmp sgt i64 %1, %30
   %31 = select i1 %.not109, i64 %30, i64 %27
-  %32 = getelementptr inbounds i8, ptr %22, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %22, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %22, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %35 = load ptr, ptr %0, align 8
   %36 = tail call ptr @SUNBandMatrixStorage(i64 noundef %1, i64 noundef %., i64 noundef %31, i64 noundef %., ptr noundef %35) #7
   store ptr %36, ptr %34, align 8
@@ -92,7 +92,7 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   %40 = add nsw i64 %31, %.
   %.not110 = icmp sgt i64 %1, %40
   %.113 = select i1 %.not110, i64 %40, i64 %27
-  %41 = getelementptr inbounds i8, ptr %22, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %42 = load ptr, ptr %0, align 8
   %43 = tail call ptr @SUNBandMatrixStorage(i64 noundef %1, i64 noundef %., i64 noundef %31, i64 noundef %.113, ptr noundef %42) #7
   store ptr %43, ptr %41, align 8
@@ -106,7 +106,7 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   br label %79
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %22, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %48 = load ptr, ptr %13, align 8
   %49 = load ptr, ptr %0, align 8
   %50 = tail call ptr @SUNLinSol_Band(ptr noundef %48, ptr noundef nonnull %43, ptr noundef %49) #7
@@ -122,7 +122,7 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   br label %79
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i8, ptr %22, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %55 = load ptr, ptr %13, align 8
   %56 = tail call ptr @N_VClone(ptr noundef %55) #7
   store ptr %56, ptr %54, align 8
@@ -138,7 +138,7 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   br label %79
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds i8, ptr %22, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %62 = load ptr, ptr %13, align 8
   %63 = tail call ptr @N_VClone(ptr noundef %62) #7
   store ptr %63, ptr %61, align 8
@@ -170,7 +170,7 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   br label %79
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %9, i64 232
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 232
   %73 = load ptr, ptr %72, align 8
   %.not112 = icmp eq ptr %73, null
   br i1 %.not112, label %76, label %74
@@ -180,7 +180,7 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   br label %76
 
 76:                                               ; preds = %74, %71
-  %77 = getelementptr inbounds i8, ptr %9, i64 240
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 240
   store ptr %22, ptr %77, align 8
   store ptr @CVBandPrecFree, ptr %72, align 8
   %78 = tail call i32 @CVodeSetPreconditioner(ptr noundef nonnull %0, ptr noundef nonnull @CVBandPrecSetup, ptr noundef nonnull @CVBandPrecSolve) #7
@@ -215,31 +215,31 @@ declare i32 @SUNLinSolInitialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @CVBandPrecFree(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1040
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %21, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @SUNLinSolFree(ptr noundef %11) #7
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @SUNMatDestroy(ptr noundef %14) #7
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void @SUNMatDestroy(ptr noundef %16) #7
-  %17 = getelementptr inbounds i8, ptr %7, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %18 = load ptr, ptr %17, align 8
   tail call void @N_VDestroy(ptr noundef %18) #7
-  %19 = getelementptr inbounds i8, ptr %7, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %20 = load ptr, ptr %19, align 8
   tail call void @N_VDestroy(ptr noundef %20) #7
   tail call void @free(ptr noundef nonnull %7) #7
@@ -253,16 +253,16 @@ declare i32 @CVodeSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, double noundef %5, ptr nocapture noundef %6) #0 {
-  %8 = getelementptr inbounds i8, ptr %6, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq i32 %3, 0
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %7
   store i32 0, ptr %4, align 4
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @SUNMatCopy(ptr noundef %12, ptr noundef %14) #7
   %16 = icmp slt i32 %15, 0
@@ -292,25 +292,25 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
   br i1 %.not39, label %25, label %195
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %6, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 200
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 200
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @N_VGetArrayPointer(ptr noundef %32) #7
   %34 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #7
   %35 = tail call ptr @N_VGetArrayPointer(ptr noundef %27) #7
   %36 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #7
   %37 = tail call ptr @N_VGetArrayPointer(ptr noundef %29) #7
-  %38 = getelementptr inbounds i8, ptr %30, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %39 = load i32, ptr %38, align 8
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %44, label %40
 
 40:                                               ; preds = %25
-  %41 = getelementptr inbounds i8, ptr %30, i64 264
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 264
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @N_VGetArrayPointer(ptr noundef %42) #7
   br label %44
@@ -318,7 +318,7 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
 44:                                               ; preds = %40, %25
   %.0132.i = phi ptr [ %43, %40 ], [ null, %25 ]
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1, ptr noundef %29) #7
-  %45 = getelementptr inbounds i8, ptr %30, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %46 = load double, ptr %45, align 8
   %47 = fcmp ugt double %46, 0.000000e+00
   br i1 %47, label %48, label %50
@@ -336,7 +336,7 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
   br i1 %54, label %55, label %65
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %30, i64 320
+  %56 = getelementptr inbounds nuw i8, ptr %30, i64 320
   %57 = load double, ptr %56, align 8
   %58 = tail call double @llvm.fabs.f64(double %57)
   %59 = fmul double %58, 1.000000e+03
@@ -349,20 +349,20 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
 
 65:                                               ; preds = %55, %50
   %66 = phi double [ %64, %55 ], [ 1.000000e+00, %50 ]
-  %67 = getelementptr inbounds i8, ptr %6, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %68, 1
   %72 = add i64 %71, %70
   %..i = tail call i64 @llvm.smin.i64(i64 %72, i64 %.pre.i)
-  %73 = getelementptr inbounds i8, ptr %30, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %.not152168.i = icmp slt i64 %..i, 1
   br i1 %.not152168.i, label %.loopexit, label %.lr.ph171.i
 
 .lr.ph171.i:                                      ; preds = %65
-  %74 = getelementptr inbounds i8, ptr %30, i64 24
-  %75 = getelementptr inbounds i8, ptr %6, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 64
   br label %76
 
 76:                                               ; preds = %._crit_edge167.i, %.lr.ph171.i
@@ -511,9 +511,9 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph163.i:                                      ; preds = %152, %.lr.ph163.i
   %.0135161.i = phi i64 [ %169, %.lr.ph163.i ], [ %spec.select.i, %152 ]
-  %161 = getelementptr inbounds double, ptr %35, i64 %.0135161.i
+  %161 = getelementptr inbounds nuw double, ptr %35, i64 %.0135161.i
   %162 = load double, ptr %161, align 8
-  %163 = getelementptr inbounds double, ptr %34, i64 %.0135161.i
+  %163 = getelementptr inbounds nuw double, ptr %34, i64 %.0135161.i
   %164 = load double, ptr %163, align 8
   %165 = fsub double %162, %164
   %166 = fmul double %153, %165
@@ -550,7 +550,7 @@ CVBandPDQJac.exit:                                ; preds = %._crit_edge.i
 
 .loopexit:                                        ; preds = %._crit_edge167.i, %65
   %177 = load ptr, ptr %10, align 8
-  %178 = getelementptr inbounds i8, ptr %6, i64 32
+  %178 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %179 = load ptr, ptr %178, align 8
   %180 = tail call i32 @SUNMatCopy(ptr noundef %177, ptr noundef %179) #7
   %181 = icmp slt i32 %180, 0
@@ -566,7 +566,7 @@ CVBandPDQJac.exit:                                ; preds = %._crit_edge.i
 
 184:                                              ; preds = %183, %18
   %185 = fneg double %5
-  %186 = getelementptr inbounds i8, ptr %6, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %187 = load ptr, ptr %186, align 8
   %188 = tail call i32 @SUNMatScaleAddI(double noundef %185, ptr noundef %187) #7
   %.not43 = icmp eq i32 %188, 0
@@ -577,7 +577,7 @@ CVBandPDQJac.exit:                                ; preds = %._crit_edge.i
   br label %195
 
 190:                                              ; preds = %184
-  %191 = getelementptr inbounds i8, ptr %6, i64 40
+  %191 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %192 = load ptr, ptr %191, align 8
   %193 = load ptr, ptr %186, align 8
   %194 = tail call i32 @SUNLinSolSetup_Band(ptr noundef %192, ptr noundef %193) #7
@@ -590,9 +590,9 @@ CVBandPDQJac.exit:                                ; preds = %._crit_edge.i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @CVBandPrecSolve(double %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, double %5, double %6, i32 %7, ptr nocapture noundef readonly %8) #0 {
-  %10 = getelementptr inbounds i8, ptr %8, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @SUNLinSolSolve(ptr noundef %11, ptr noundef %13, ptr noundef %4, ptr noundef %3, double noundef 0.000000e+00) #7
   ret i32 %14
@@ -612,7 +612,7 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr nocaptur
   br label %84
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 1040
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
@@ -622,7 +622,7 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr nocaptur
   br label %84
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %12, i64 240
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 240
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
@@ -634,11 +634,11 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr nocaptur
 20:                                               ; preds = %15
   store i64 4, ptr %2, align 8
   store i64 0, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %36, label %27
@@ -658,11 +658,11 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr nocaptur
   br label %36
 
 36:                                               ; preds = %27, %20
-  %37 = getelementptr inbounds i8, ptr %17, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 72
   %42 = load ptr, ptr %41, align 8
   %.not32 = icmp eq ptr %42, null
   br i1 %.not32, label %52, label %43
@@ -684,11 +684,11 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr nocaptur
   br label %52
 
 52:                                               ; preds = %45, %36
-  %53 = getelementptr inbounds i8, ptr %17, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
   %58 = load ptr, ptr %57, align 8
   %.not34 = icmp eq ptr %58, null
   br i1 %.not34, label %68, label %59
@@ -710,11 +710,11 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr nocaptur
   br label %68
 
 68:                                               ; preds = %61, %52
-  %69 = getelementptr inbounds i8, ptr %17, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 96
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 96
   %74 = load ptr, ptr %73, align 8
   %.not36 = icmp eq ptr %74, null
   br i1 %.not36, label %84, label %75
@@ -756,7 +756,7 @@ define range(i32 -5, 1) i32 @CVBandPrecGetNumRhsEvals(ptr noundef %0, ptr nocapt
   br label %18
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1040
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -766,7 +766,7 @@ define range(i32 -5, 1) i32 @CVBandPrecGetNumRhsEvals(ptr noundef %0, ptr nocapt
   br label %18
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 240
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
@@ -776,7 +776,7 @@ define range(i32 -5, 1) i32 @CVBandPrecGetNumRhsEvals(ptr noundef %0, ptr nocapt
   br label %18
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %12, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %1, align 8
   br label %18

@@ -78,10 +78,10 @@ define dso_local void @ProcSignalShmemInit() local_unnamed_addr #0 {
   %18 = add nsw i64 %17, -13
   %19 = load ptr, ptr @ProcSignal, align 8
   %20 = ptrtoint ptr %19 to i64
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = getelementptr [0 x %struct.ProcSignalSlot], ptr %21, i64 0, i64 %indvar
   store volatile i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 7
   %26 = icmp eq i64 %25, 0
@@ -108,11 +108,11 @@ define dso_local void @ProcSignalShmemInit() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %27
-  %36 = getelementptr inbounds i8, ptr %22, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store volatile i64 -1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %22, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 72
   store volatile i32 0, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %22, i64 76
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 76
   call void @ConditionVariableInit(ptr noundef nonnull %38) #11
   %indvar.next = add nuw nsw i64 %indvar, 1
   %39 = load i32, ptr @MaxBackends, align 4
@@ -164,7 +164,7 @@ define dso_local void @ProcSignalInit() local_unnamed_addr #0 {
 15:                                               ; preds = %6
   %16 = load ptr, ptr @ProcSignal, align 8
   %17 = ptrtoint ptr %16 to i64
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = zext nneg i32 %1 to i64
   %20 = getelementptr [0 x %struct.ProcSignalSlot], ptr %18, i64 0, i64 %19
   %21 = load volatile i32, ptr %20, align 8
@@ -183,7 +183,7 @@ define dso_local void @ProcSignalInit() local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %15, %22, %24
-  %29 = getelementptr inbounds i8, ptr %20, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, 7
   %32 = icmp eq i64 %31, 0
@@ -213,11 +213,11 @@ define dso_local void @ProcSignalInit() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %33, %45
-  %46 = getelementptr inbounds i8, ptr %20, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 72
   store volatile i32 0, ptr %46, align 4
   %47 = load ptr, ptr @ProcSignal, align 8
   %48 = load volatile i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %20, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store volatile i64 %48, ptr %49, align 8
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   %50 = load i32, ptr @MyProcPid, align 4
@@ -254,7 +254,7 @@ define internal void @CleanupProcSignalState(i32 %0, i64 %1) #0 {
 8:                                                ; preds = %6
   %9 = load i32, ptr @MyProcPid, align 4
   %10 = load ptr, ptr @ProcSignal, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = ptrtoint ptr %3 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
@@ -266,9 +266,9 @@ define internal void @CleanupProcSignalState(i32 %0, i64 %1) #0 {
   br label %22
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %3, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store volatile i64 -1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 76
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %21) #11
   store volatile i32 0, ptr %3, align 8
   br label %22
@@ -284,7 +284,7 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr @ProcSignal, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = sext i32 %2 to i64
   %8 = getelementptr [0 x %struct.ProcSignalSlot], ptr %6, i64 0, i64 %7
   %9 = load volatile i32, ptr %8, align 8
@@ -292,7 +292,7 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %8, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %13 = zext i32 %1 to i64
   %14 = getelementptr [14 x i32], ptr %12, i64 0, i64 %13
   store volatile i32 1, ptr %14, align 4
@@ -307,7 +307,7 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
 
 .lr.ph:                                           ; preds = %16
   %20 = load ptr, ptr @ProcSignal, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %25
 
 22:                                               ; preds = %25
@@ -324,7 +324,7 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %29, label %30, label %22
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %27, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %32 = zext i32 %1 to i64
   %33 = getelementptr [14 x i32], ptr %31, i64 0, i64 %32
   store volatile i32 1, ptr %33, align 4
@@ -385,7 +385,7 @@ define dso_local i64 @EmitProcSignalBarrier(i32 noundef %0) local_unnamed_addr #
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %27
   %20 = phi ptr [ %.pre24, %.lr.ph18.preheader ], [ %28, %27 ]
   %indvars.iv21 = phi i64 [ %19, %.lr.ph18.preheader ], [ %indvars.iv.next22, %27 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = getelementptr [0 x %struct.ProcSignalSlot], ptr %21, i64 0, i64 %indvars.iv21
   %23 = load volatile i32, ptr %22, align 8
   %.not = icmp eq i32 %23, 0
@@ -432,15 +432,15 @@ define dso_local void @WaitForProcSignalBarrier(i64 noundef %0) local_unnamed_ad
 .lr.ph14:                                         ; preds = %.lr.ph14.preheader, %._crit_edge
   %indvars.iv = phi i64 [ %9, %.lr.ph14.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %10 = load ptr, ptr @ProcSignal, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = getelementptr [0 x %struct.ProcSignalSlot], ptr %11, i64 0, i64 %indvars.iv
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %.011 = load volatile i64, ptr %13, align 8
   %14 = icmp ult i64 %.011, %0
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph14
-  %15 = getelementptr inbounds i8, ptr %12, i64 76
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 76
   br label %16
 
 16:                                               ; preds = %.lr.ph, %23
@@ -499,7 +499,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
 4:                                                ; preds = %0
   store volatile i32 0, ptr @ProcSignalBarrierPending, align 4
   %5 = load ptr, ptr @MyProcSignalSlot, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load volatile i64, ptr %6, align 8
   %8 = load ptr, ptr @ProcSignal, align 8
   %9 = load volatile i64, ptr %8, align 8
@@ -507,7 +507,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
   br i1 %10, label %39, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %13 = atomicrmw volatile xchg ptr %12, i32 0 seq_cst, align 4
   store volatile i32 %13, ptr %1, align 4
   %.0..0..0..0.9 = load volatile i32, ptr %1, align 4
@@ -559,7 +559,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
 
 .thread26:                                        ; preds = %24
   %28 = load ptr, ptr @MyProcSignalSlot, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %30 = atomicrmw or ptr %29, i32 1 seq_cst, align 4
   store volatile i32 1, ptr @ProcSignalBarrierPending, align 4
   store volatile i32 1, ptr @InterruptPending, align 4
@@ -577,7 +577,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
   store ptr %16, ptr @error_context_stack, align 8
   %.0..0..0..0.13 = load volatile i32, ptr %1, align 4
   %32 = load ptr, ptr @MyProcSignalSlot, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %34 = atomicrmw or ptr %33, i32 %.0..0..0..0.13 seq_cst, align 4
   store volatile i32 1, ptr @ProcSignalBarrierPending, align 4
   store volatile i32 1, ptr @InterruptPending, align 4
@@ -596,9 +596,9 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
 
 35:                                               ; preds = %.critedge, %._crit_edge, %11
   %36 = load ptr, ptr @MyProcSignalSlot, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   store volatile i64 %9, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 76
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 76
   call void @ConditionVariableBroadcast(ptr noundef nonnull %38) #11
   br label %39
 
@@ -623,7 +623,7 @@ define dso_local void @procsignal_sigusr1_handler(i32 noundef %0) local_unnamed_
   br i1 %.not.i, label %CheckProcSignal.exit52.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load volatile i32, ptr %4, align 4
   %.not6.i = icmp eq i32 %5, 0
   br i1 %.not6.i, label %CheckProcSignal.exit.thread.thread, label %CheckProcSignal.exit.thread

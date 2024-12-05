@@ -24,9 +24,9 @@ define void @Java_sun_java2d_loops_DrawRect_DrawRect(ptr noundef %0, ptr noundef
   br i1 %15, label %110, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %22, label %21
@@ -59,7 +59,7 @@ define void @Java_sun_java2d_loops_DrawRect_DrawRect(ptr noundef %0, ptr noundef
   br label %35
 
 35:                                               ; preds = %34, %25
-  %36 = getelementptr inbounds i8, ptr %9, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %37, %5
   br i1 %38, label %39, label %40
@@ -69,7 +69,7 @@ define void @Java_sun_java2d_loops_DrawRect_DrawRect(ptr noundef %0, ptr noundef
   br label %40
 
 40:                                               ; preds = %39, %35
-  %41 = getelementptr inbounds i8, ptr %9, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = icmp sgt i32 %42, %spec.store.select
   br i1 %43, label %44, label %45
@@ -79,7 +79,7 @@ define void @Java_sun_java2d_loops_DrawRect_DrawRect(ptr noundef %0, ptr noundef
   br label %45
 
 45:                                               ; preds = %44, %40
-  %46 = getelementptr inbounds i8, ptr %9, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %47, %spec.store.select6
   br i1 %48, label %49, label %50
@@ -90,7 +90,7 @@ define void @Java_sun_java2d_loops_DrawRect_DrawRect(ptr noundef %0, ptr noundef
 
 50:                                               ; preds = %49, %45
   %51 = load ptr, ptr %23, align 8
-  %52 = getelementptr inbounds i8, ptr %14, i64 52
+  %52 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %53 = load i32, ptr %52, align 4
   %54 = call i32 %51(ptr noundef %0, ptr noundef nonnull %23, ptr noundef nonnull %9, i32 noundef %53) #2
   %.not98 = icmp eq i32 %54, 0
@@ -109,16 +109,16 @@ define void @Java_sun_java2d_loops_DrawRect_DrawRect(ptr noundef %0, ptr noundef
   br i1 %62, label %63, label %106
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %23, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %65 = load ptr, ptr %64, align 8
   call void %65(ptr noundef %0, ptr noundef nonnull %23, ptr noundef nonnull %9) #2
-  %66 = getelementptr inbounds i8, ptr %9, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %67 = load ptr, ptr %66, align 8
   %.not99 = icmp eq ptr %67, null
   br i1 %.not99, label %102, label %68
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %14, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %36, align 4
   %72 = icmp eq i32 %5, %71
@@ -182,7 +182,7 @@ define void @Java_sun_java2d_loops_DrawRect_DrawRect(ptr noundef %0, ptr noundef
   br label %102
 
 102:                                              ; preds = %63, %98, %96
-  %103 = getelementptr inbounds i8, ptr %23, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %104 = load ptr, ptr %103, align 8
   %.not102 = icmp eq ptr %104, null
   br i1 %.not102, label %106, label %105
@@ -192,7 +192,7 @@ define void @Java_sun_java2d_loops_DrawRect_DrawRect(ptr noundef %0, ptr noundef
   br label %106
 
 106:                                              ; preds = %55, %59, %102, %105
-  %107 = getelementptr inbounds i8, ptr %23, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %108 = load ptr, ptr %107, align 8
   %.not103 = icmp eq ptr %108, null
   br i1 %.not103, label %110, label %109

@@ -18,7 +18,7 @@ define range(i32 -1, 1) i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @g_readytorun, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %58, label %9
@@ -34,7 +34,7 @@ define range(i32 -1, 1) i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 
   br i1 %.not.i, label %17, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %14 = load i16, ptr %13, align 16
   %15 = and i16 %14, 3
   %16 = icmp eq i16 %15, 1
@@ -52,18 +52,18 @@ define range(i32 -1, 1) i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 
 20:                                               ; preds = %12
   call void @nxtask_recover(ptr noundef nonnull %11) #4
   %21 = call i32 @group_kill_children(ptr noundef nonnull %11) #4
-  %22 = getelementptr inbounds i8, ptr %11, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %23 = load i8, ptr %22, align 16
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds [10 x %struct.tasklist_s], ptr @g_tasklisttable, i64 0, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %25 = getelementptr inbounds nuw [10 x %struct.tasklist_s], ptr @g_tasklisttable, i64 0, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i8, ptr %26, align 8
   %28 = and i8 %27, 8
   %.not55.i = icmp eq i8 %28, 0
   br i1 %.not55.i, label %35, label %29
 
 29:                                               ; preds = %20
-  %30 = getelementptr inbounds i8, ptr %11, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %31 = load ptr, ptr %30, align 16
   %32 = load ptr, ptr %25, align 16
   %33 = ptrtoint ptr %32 to i64
@@ -76,7 +76,7 @@ define range(i32 -1, 1) i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 
 
 37:                                               ; preds = %35, %29
   %38 = phi ptr [ %34, %29 ], [ %36, %35 ]
-  %39 = getelementptr inbounds i8, ptr %11, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %11, align 8
   %.not56.i = icmp eq ptr %40, null
@@ -84,22 +84,22 @@ define range(i32 -1, 1) i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 
   store ptr %41, ptr %..i, align 8
   %.not57.i = icmp eq ptr %41, null
   %.sink62.i = select i1 %.not57.i, ptr %38, ptr %41
-  %42 = getelementptr inbounds i8, ptr %.sink62.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 8
   store ptr %40, ptr %42, align 8
   store i8 0, ptr %22, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   call void @nxsig_cleanup(ptr noundef nonnull %11) #4
-  %43 = getelementptr inbounds i8, ptr %11, i64 136
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %44 = call i32 @sigemptyset(ptr noundef nonnull %43) #4
-  %45 = getelementptr inbounds i8, ptr %11, i64 29
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 29
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %11, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i8 %46, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %11, i64 66
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 66
   store i16 0, ptr %48, align 2
-  %49 = getelementptr inbounds i8, ptr %11, i64 50
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 50
   store i8 %46, ptr %49, align 2
-  %50 = getelementptr inbounds i8, ptr %11, i64 49
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 49
   store i8 0, ptr %50, align 1
   call void @up_initial_state(ptr noundef nonnull %11) #4
   store ptr null, ptr %39, align 8
@@ -113,7 +113,7 @@ define range(i32 -1, 1) i32 @task_restart(i32 noundef %0) local_unnamed_addr #0 
   br label %55
 
 53:                                               ; preds = %37
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %11, ptr %54, align 8
   br label %55
 

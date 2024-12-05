@@ -87,7 +87,7 @@ declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Dch_DeriveChoiceCountReprs(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %4, align 4
@@ -104,7 +104,7 @@ define i32 @Dch_DeriveChoiceCountReprs(ptr nocapture noundef readonly %0) local_
 8:                                                ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
-  %9 = getelementptr inbounds ptr, ptr %.val12, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %21, label %12
@@ -115,7 +115,7 @@ define i32 @Dch_DeriveChoiceCountReprs(ptr nocapture noundef readonly %0) local_
   br i1 %.not.i, label %Aig_ObjRepr.exit, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %10, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %.val13, i64 %16
@@ -142,7 +142,7 @@ Aig_ObjRepr.exit:                                 ; preds = %12, %13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Dch_DeriveChoiceCountEquivs(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %4, align 4
@@ -159,7 +159,7 @@ define i32 @Dch_DeriveChoiceCountEquivs(ptr nocapture noundef readonly %0) local
 8:                                                ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
-  %9 = getelementptr inbounds ptr, ptr %.val12, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %21, label %12
@@ -170,7 +170,7 @@ define i32 @Dch_DeriveChoiceCountEquivs(ptr nocapture noundef readonly %0) local
   br i1 %.not.i, label %Aig_ObjEquiv.exit, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %10, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %.val13, i64 %16
@@ -272,7 +272,7 @@ define range(i32 0, 2) i32 @Dch_ObjCheckSuppRed(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Aig_ManCheckReprs(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val76 = load i32, ptr %4, align 4
@@ -289,7 +289,7 @@ define void @Aig_ManCheckReprs(ptr nocapture noundef readonly %0) local_unnamed_
   %.04378 = phi i32 [ 0, %.lr.ph ], [ %.144, %Aig_ObjRepr.exit.thread ]
   %9 = getelementptr i8, ptr %8, i64 8
   %.val52 = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds ptr, ptr %.val52, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %.val52, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %Aig_ObjRepr.exit.thread, label %13
@@ -300,7 +300,7 @@ define void @Aig_ManCheckReprs(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %.not.i, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
 
 Aig_ObjRepr.exit:                                 ; preds = %13
-  %14 = getelementptr inbounds i8, ptr %11, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %.val59, i64 %16
@@ -365,7 +365,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define void @Dch_CheckChoices(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   tail call void @Aig_ManCleanMarkA(ptr noundef %0) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val64 = load i32, ptr %5, align 4
@@ -377,9 +377,9 @@ define void @Dch_CheckChoices(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %94
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %.not52 = icmp eq i32 %1, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 256
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %9
 
 9:                                                ; preds = %.lr.ph, %88
@@ -388,7 +388,7 @@ define void @Dch_CheckChoices(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %.066 = phi i32 [ 0, %.lr.ph ], [ %.5, %88 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val59 = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds ptr, ptr %.val59, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %.val59, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %88, label %15
@@ -404,7 +404,7 @@ define void @Dch_CheckChoices(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %.not50 = icmp eq ptr %23, null
   br i1 %.not50, label %72, label %24
@@ -429,7 +429,7 @@ define void @Dch_CheckChoices(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #11
   %36 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef nonnull %0, ptr noundef %35)
@@ -445,19 +445,19 @@ Dch_ObjCheckSuppRed.exit:                         ; preds = %32
   br i1 %.not53, label %47, label %Dch_ObjCheckSuppRed.exit.thread
 
 Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSuppRed.exit
-  %39 = getelementptr inbounds i8, ptr %13, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %40 = load i32, ptr %39, align 4
   %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %40, i32 noundef %45)
   br label %47
 
 47:                                               ; preds = %Dch_ObjCheckSuppRed.exit.thread, %Dch_ObjCheckSuppRed.exit, %29
   %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr i8, ptr %50, i64 36
   %.val61 = load i32, ptr %51, align 4
@@ -465,7 +465,7 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
   %53 = getelementptr inbounds ptr, ptr %48, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
-  %56 = getelementptr inbounds i8, ptr %50, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %57 = load i64, ptr %56, align 8
   br i1 %55, label %58, label %._crit_edge
 
@@ -508,13 +508,13 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
   br i1 %.not56, label %88, label %74
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
   %.not57 = icmp eq ptr %76, null
   br i1 %.not57, label %88, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %.042, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.042, i64 24
   %79 = load i64, ptr %78, align 8
   %80 = trunc i64 %79 to i32
   %.not58 = icmp ult i32 %80, 64
@@ -522,9 +522,9 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
 
 81:                                               ; preds = %77
   %82 = lshr i32 %80, 6
-  %83 = getelementptr inbounds i8, ptr %.042, i64 36
+  %83 = getelementptr inbounds nuw i8, ptr %.042, i64 36
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %76, i64 36
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 36
   %86 = load i32, ptr %85, align 4
   %87 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %84, i32 noundef %86, i32 noundef %82)
   br label %88
@@ -575,7 +575,7 @@ define range(i32 0, 2) i32 @Aig_ManCheckAcyclic_rec(ptr noundef %0, ptr nocaptur
   br i1 %.not62, label %.critedge, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, ptr noundef %12)
   %13 = getelementptr i8, ptr %1, i64 36
@@ -651,7 +651,7 @@ define range(i32 0, 2) i32 @Aig_ManCheckAcyclic_rec(ptr noundef %0, ptr nocaptur
   br i1 %.not.i, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
 
 Aig_ObjRepr.exit:                                 ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %1, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds ptr, ptr %.val71, i64 %41
@@ -711,7 +711,7 @@ Aig_ObjEquiv.exit:                                ; preds = %Aig_ObjRepr.exit.th
   br i1 %.not.i90, label %Aig_ObjEquiv.exit.thread, label %Aig_ObjEquiv.exit91
 
 Aig_ObjEquiv.exit91:                              ; preds = %58
-  %59 = getelementptr inbounds i8, ptr %.0100, i64 36
+  %59 = getelementptr inbounds nuw i8, ptr %.0100, i64 36
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds ptr, ptr %.val72, i64 %61
@@ -769,7 +769,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 define range(i32 0, 2) i32 @Aig_ManCheckAcyclic(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #11
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val2025 = load i32, ptr %5, align 4
@@ -785,7 +785,7 @@ define range(i32 0, 2) i32 @Aig_ManCheckAcyclic(ptr noundef %0, i32 noundef %1) 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %10 = getelementptr i8, ptr %9, i64 8
   %.val21 = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val21, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %.val21, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 8
   %.val = load ptr, ptr %13, align 8
@@ -888,7 +888,7 @@ define range(i32 0, 2) i32 @Dch_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1) 
   br i1 %.not.i, label %._crit_edge, label %Aig_ObjEquiv.exit
 
 Aig_ObjEquiv.exit:                                ; preds = %25
-  %26 = getelementptr inbounds i8, ptr %.tr2627, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %.tr2627, i64 36
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds ptr, ptr %.val24, i64 %28
@@ -912,7 +912,7 @@ define range(i32 0, 2) i32 @Dch_ObjCheckTfi(ptr noundef %0, ptr noundef %1, ptr 
 
 5:                                                ; preds = %.lr.ph, %Aig_ObjEquiv.exit
   %.018 = phi ptr [ %2, %.lr.ph ], [ %13, %Aig_ObjEquiv.exit ]
-  %6 = getelementptr inbounds i8, ptr %.018, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.018, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = or i64 %7, 16
   store i64 %8, ptr %6, align 8
@@ -921,7 +921,7 @@ define range(i32 0, 2) i32 @Dch_ObjCheckTfi(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i, label %._crit_edge, label %Aig_ObjEquiv.exit
 
 Aig_ObjEquiv.exit:                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %.018, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %.018, i64 36
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %.val14, i64 %11
@@ -940,7 +940,7 @@ Aig_ObjEquiv.exit:                                ; preds = %5
 
 16:                                               ; preds = %.lr.ph22, %Aig_ObjEquiv.exit16
   %.120 = phi ptr [ %2, %.lr.ph22 ], [ %24, %Aig_ObjEquiv.exit16 ]
-  %17 = getelementptr inbounds i8, ptr %.120, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.120, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, -17
   store i64 %19, ptr %17, align 8
@@ -949,7 +949,7 @@ Aig_ObjEquiv.exit:                                ; preds = %5
   br i1 %.not.i15, label %._crit_edge23, label %Aig_ObjEquiv.exit16
 
 Aig_ObjEquiv.exit16:                              ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %.120, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %.120, i64 36
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds ptr, ptr %.val, i64 %22
@@ -969,7 +969,7 @@ define void @Dch_DeriveChoiceAigNode(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not.i, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
 
 Aig_ObjRepr.exit:                                 ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %2, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds ptr, ptr %.val55, i64 %8
@@ -986,9 +986,9 @@ Aig_ObjRepr.exit:                                 ; preds = %4
   br i1 %switch, label %14, label %Aig_ObjRepr.exit.thread
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %10, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = xor i64 %18, %.val56
   %20 = lshr i64 %19, 3
@@ -996,7 +996,7 @@ Aig_ObjRepr.exit:                                 ; preds = %4
   %22 = ptrtoint ptr %16 to i64
   %23 = xor i64 %21, %22
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %2, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %24, ptr %25, align 8
   br label %175
 
@@ -1012,7 +1012,7 @@ Aig_ObjRepr.exit.thread:                          ; preds = %11, %4, %Aig_ObjRep
 
 30:                                               ; preds = %Aig_ObjRepr.exit.thread
   %31 = inttoptr i64 %29 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8
   %34 = and i64 %28, 1
   %35 = ptrtoint ptr %33 to i64
@@ -1031,7 +1031,7 @@ Aig_ObjChild0Copy.exit.i:                         ; preds = %30, %Aig_ObjRepr.ex
   br i1 %.not.i.i.i, label %Aig_ObjChild0CopyRepr.exit, label %Aig_ObjRepr.exit.i.i
 
 Aig_ObjRepr.exit.i.i:                             ; preds = %Aig_ObjChild0Copy.exit.i
-  %43 = getelementptr inbounds i8, ptr %42, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 36
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds ptr, ptr %.val2.i, i64 %45
@@ -1040,9 +1040,9 @@ Aig_ObjRepr.exit.i.i:                             ; preds = %Aig_ObjChild0Copy.e
   br i1 %.not.i3.i, label %Aig_ObjChild0CopyRepr.exit, label %48
 
 48:                                               ; preds = %Aig_ObjRepr.exit.i.i
-  %49 = getelementptr inbounds i8, ptr %42, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %47, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %52 = load i64, ptr %51, align 8
   %53 = xor i64 %52, %50
   %54 = trunc i64 %53 to i32
@@ -1067,7 +1067,7 @@ Aig_ObjChild0CopyRepr.exit:                       ; preds = %Aig_ObjChild0Copy.e
 
 66:                                               ; preds = %Aig_ObjChild0CopyRepr.exit
   %67 = inttoptr i64 %65 to ptr
-  %68 = getelementptr inbounds i8, ptr %67, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load ptr, ptr %68, align 8
   %70 = and i64 %64, 1
   %71 = ptrtoint ptr %69 to i64
@@ -1083,7 +1083,7 @@ Aig_ObjChild1Copy.exit.i:                         ; preds = %66, %Aig_ObjChild0C
   br i1 %.not.i.i.i, label %Aig_ObjChild1CopyRepr.exit, label %Aig_ObjRepr.exit.i.i64
 
 Aig_ObjRepr.exit.i.i64:                           ; preds = %Aig_ObjChild1Copy.exit.i
-  %78 = getelementptr inbounds i8, ptr %77, i64 36
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 36
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds ptr, ptr %.val2.i, i64 %80
@@ -1092,9 +1092,9 @@ Aig_ObjRepr.exit.i.i64:                           ; preds = %Aig_ObjChild1Copy.e
   br i1 %.not.i3.i65, label %Aig_ObjChild1CopyRepr.exit, label %83
 
 83:                                               ; preds = %Aig_ObjRepr.exit.i.i64
-  %84 = getelementptr inbounds i8, ptr %77, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %82, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %87 = load i64, ptr %86, align 8
   %88 = xor i64 %87, %85
   %89 = trunc i64 %88 to i32
@@ -1120,7 +1120,7 @@ Aig_ObjRepr.exit.i:                               ; preds = %Aig_ObjChild1CopyRe
   %99 = ptrtoint ptr %.0 to i64
   %100 = and i64 %99, -2
   %101 = inttoptr i64 %100 to ptr
-  %102 = getelementptr inbounds i8, ptr %101, i64 36
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 36
   %103 = load i32, ptr %102, align 4
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds ptr, ptr %.val57, i64 %104
@@ -1129,9 +1129,9 @@ Aig_ObjRepr.exit.i:                               ; preds = %Aig_ObjChild1CopyRe
   br i1 %.not.i68, label %Aig_ObjGetRepr.exit.thread, label %Aig_ObjGetRepr.exit
 
 Aig_ObjGetRepr.exit:                              ; preds = %Aig_ObjRepr.exit.i
-  %107 = getelementptr inbounds i8, ptr %101, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %106, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %110 = load i64, ptr %109, align 8
   %111 = xor i64 %110, %108
   %112 = trunc i64 %111 to i32
@@ -1148,7 +1148,7 @@ Aig_ObjGetRepr.exit:                              ; preds = %Aig_ObjRepr.exit.i
 
 Aig_ObjGetRepr.exit.thread:                       ; preds = %Aig_ObjGetRepr.exit, %Aig_ObjRepr.exit.i, %Aig_ObjChild1CopyRepr.exit
   %.us-phi = phi ptr [ %98, %Aig_ObjChild1CopyRepr.exit ], [ %120, %Aig_ObjGetRepr.exit ], [ %.0, %Aig_ObjRepr.exit.i ]
-  %122 = getelementptr inbounds i8, ptr %2, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %.us-phi, ptr %122, align 8
   br i1 %.not73, label %175, label %123
 
@@ -1156,14 +1156,14 @@ Aig_ObjGetRepr.exit.thread:                       ; preds = %Aig_ObjGetRepr.exit
   %124 = ptrtoint ptr %.us-phi to i64
   %125 = and i64 %124, -2
   %126 = inttoptr i64 %125 to ptr
-  %127 = getelementptr inbounds i8, ptr %26, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %128 = load ptr, ptr %127, align 8
   %129 = ptrtoint ptr %128 to i64
   %130 = and i64 %129, -2
   %131 = inttoptr i64 %130 to ptr
-  %132 = getelementptr inbounds i8, ptr %131, i64 36
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 36
   %133 = load i32, ptr %132, align 4
-  %134 = getelementptr inbounds i8, ptr %126, i64 36
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 36
   %135 = load i32, ptr %134, align 4
   %.not49 = icmp slt i32 %133, %135
   br i1 %.not49, label %136, label %175
@@ -1173,7 +1173,7 @@ Aig_ObjGetRepr.exit.thread:                       ; preds = %Aig_ObjGetRepr.exit
   %137 = sext i32 %135 to i64
   %138 = getelementptr inbounds ptr, ptr %.val60, i64 %137
   store ptr %131, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %126, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %140 = load i64, ptr %139, align 8
   %141 = and i64 %140, 4294967232
   %.not50 = icmp eq i64 %141, 0
@@ -1185,7 +1185,7 @@ Aig_ObjGetRepr.exit.thread:                       ; preds = %Aig_ObjGetRepr.exit
 
 143:                                              ; preds = %Aig_ObjEquiv.exit.i, %.lr.ph.i
   %.018.i = phi ptr [ %131, %.lr.ph.i ], [ %151, %Aig_ObjEquiv.exit.i ]
-  %144 = getelementptr inbounds i8, ptr %.018.i, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
   %145 = load i64, ptr %144, align 8
   %146 = or i64 %145, 16
   store i64 %146, ptr %144, align 8
@@ -1194,7 +1194,7 @@ Aig_ObjGetRepr.exit.thread:                       ; preds = %Aig_ObjGetRepr.exit
   br i1 %.not.i.i69, label %.lr.ph22.i, label %Aig_ObjEquiv.exit.i
 
 Aig_ObjEquiv.exit.i:                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %.018.i, i64 36
+  %147 = getelementptr inbounds nuw i8, ptr %.018.i, i64 36
   %148 = load i32, ptr %147, align 4
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds ptr, ptr %.val14.i, i64 %149
@@ -1209,7 +1209,7 @@ Aig_ObjEquiv.exit.i:                              ; preds = %143
 
 153:                                              ; preds = %Aig_ObjEquiv.exit16.i, %.lr.ph22.i
   %.120.i = phi ptr [ %131, %.lr.ph22.i ], [ %161, %Aig_ObjEquiv.exit16.i ]
-  %154 = getelementptr inbounds i8, ptr %.120.i, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %.120.i, i64 24
   %155 = load i64, ptr %154, align 8
   %156 = and i64 %155, -17
   store i64 %156, ptr %154, align 8
@@ -1218,7 +1218,7 @@ Aig_ObjEquiv.exit.i:                              ; preds = %143
   br i1 %.not.i15.i, label %Dch_ObjCheckTfi.exit, label %Aig_ObjEquiv.exit16.i
 
 Aig_ObjEquiv.exit16.i:                            ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %.120.i, i64 36
+  %157 = getelementptr inbounds nuw i8, ptr %.120.i, i64 36
   %158 = load i32, ptr %157, align 4
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds ptr, ptr %.val.i71, i64 %159
@@ -1249,7 +1249,7 @@ Dch_ObjCheckTfi.exit:                             ; preds = %153, %Aig_ObjEquiv.
 
 167:                                              ; preds = %167, %165
   %.043 = phi ptr [ %131, %165 ], [ %172, %167 ]
-  %168 = getelementptr inbounds i8, ptr %.043, i64 36
+  %168 = getelementptr inbounds nuw i8, ptr %.043, i64 36
   %169 = load i32, ptr %168, align 4
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds ptr, ptr %166, i64 %170
@@ -1280,23 +1280,23 @@ define ptr @Dch_DeriveChoiceAigInt(ptr noundef %0, i32 noundef %1) local_unnamed
   %.val49.val = load i32, ptr %6, align 4
   %7 = sext i32 %.val49.val to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #13
-  %9 = getelementptr inbounds i8, ptr %5, i64 248
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 248
   store ptr %8, ptr %9, align 8
   %.val50 = load ptr, ptr %3, align 8
   %10 = getelementptr i8, ptr %.val50, i64 4
   %.val50.val = load i32, ptr %10, align 4
   %11 = sext i32 %.val50.val to i64
   %12 = tail call noalias ptr @calloc(i64 noundef %11, i64 noundef 8) #13
-  %13 = getelementptr inbounds i8, ptr %5, i64 256
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 256
   store ptr %12, ptr %13, align 8
   tail call void @Aig_ManCleanData(ptr noundef %0) #11
   %14 = getelementptr i8, ptr %5, i64 48
   %.val52 = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %0, i64 48
   %.val51 = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %.val51, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.val51, i64 40
   store ptr %.val52, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 4
   %.val4254 = load i32, ptr %19, align 4
@@ -1315,10 +1315,10 @@ define ptr @Dch_DeriveChoiceAigInt(ptr noundef %0, i32 noundef %1) local_unnamed
   %24 = phi ptr [ %30, %.lr.ph ], [ %18, %2 ]
   %25 = getelementptr i8, ptr %24, i64 8
   %.val45 = load ptr, ptr %25, align 8
-  %26 = getelementptr inbounds ptr, ptr %.val45, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.val45, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @Aig_ObjCreateCi(ptr noundef %5) #11
-  %29 = getelementptr inbounds i8, ptr %27, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %28, ptr %29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load ptr, ptr %17, align 8
@@ -1329,7 +1329,7 @@ define ptr @Dch_DeriveChoiceAigInt(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %33, label %.lr.ph, label %.critedge.preheader, !llvm.loop !14
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 4
   %.val59 = load i32, ptr %36, align 4
@@ -1341,7 +1341,7 @@ define ptr @Dch_DeriveChoiceAigInt(ptr noundef %0, i32 noundef %1) local_unnamed
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.critedge ], [ 0, %.critedge.preheader ]
   %39 = getelementptr i8, ptr %38, i64 8
   %.val44 = load ptr, ptr %39, align 8
-  %40 = getelementptr inbounds ptr, ptr %.val44, i64 %indvars.iv63
+  %40 = getelementptr inbounds nuw ptr, ptr %.val44, i64 %indvars.iv63
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.critedge, label %43
@@ -1374,7 +1374,7 @@ define ptr @Dch_DeriveChoiceAigInt(ptr noundef %0, i32 noundef %1) local_unnamed
   %53 = phi ptr [ %93, %Aig_ObjChild0CopyRepr.exit ], [ %35, %.critedge2.preheader ]
   %54 = getelementptr i8, ptr %53, i64 8
   %.val43 = load ptr, ptr %54, align 8
-  %55 = getelementptr inbounds ptr, ptr %.val43, i64 %indvars.iv66
+  %55 = getelementptr inbounds nuw ptr, ptr %.val43, i64 %indvars.iv66
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %56, i64 8
   %.val47 = load ptr, ptr %57, align 8
@@ -1385,7 +1385,7 @@ define ptr @Dch_DeriveChoiceAigInt(ptr noundef %0, i32 noundef %1) local_unnamed
 
 60:                                               ; preds = %.lr.ph61
   %61 = inttoptr i64 %59 to ptr
-  %62 = getelementptr inbounds i8, ptr %61, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %63 = load ptr, ptr %62, align 8
   %64 = and i64 %58, 1
   %65 = ptrtoint ptr %63 to i64
@@ -1403,7 +1403,7 @@ Aig_ObjChild0Copy.exit.i:                         ; preds = %60, %.lr.ph61
   br i1 %.not.i.i.i, label %Aig_ObjChild0CopyRepr.exit, label %Aig_ObjRepr.exit.i.i
 
 Aig_ObjRepr.exit.i.i:                             ; preds = %Aig_ObjChild0Copy.exit.i
-  %72 = getelementptr inbounds i8, ptr %71, i64 36
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 36
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds ptr, ptr %.val2.i, i64 %74
@@ -1412,9 +1412,9 @@ Aig_ObjRepr.exit.i.i:                             ; preds = %Aig_ObjChild0Copy.e
   br i1 %.not.i3.i, label %Aig_ObjChild0CopyRepr.exit, label %77
 
 77:                                               ; preds = %Aig_ObjRepr.exit.i.i
-  %78 = getelementptr inbounds i8, ptr %71, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %76, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %81 = load i64, ptr %80, align 8
   %82 = xor i64 %81, %79
   %83 = trunc i64 %82 to i32
@@ -1462,7 +1462,7 @@ declare void @Aig_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define ptr @Dch_DeriveChoiceAig(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @Dch_DeriveChoiceAigInt(ptr noundef %0, i32 noundef %1)
-  %4 = getelementptr inbounds i8, ptr %3, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6

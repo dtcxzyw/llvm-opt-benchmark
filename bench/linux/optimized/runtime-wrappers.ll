@@ -143,7 +143,7 @@ define internal i64 @virt_efi_get_time(ptr noundef %0, ptr noundef %1) #0 align 
 
 6:                                                ; preds = %2
   store ptr %0, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %7, align 8
   %8 = call fastcc i64 @__efi_queue_work(i32 noundef 1, ptr noundef nonnull %3)
   call void @up(ptr noundef nonnull @efi_runtime_lock) #8
@@ -162,7 +162,7 @@ define internal i64 @virt_efi_set_time(ptr noundef %0) #0 align 16 {
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
   store ptr %0, ptr %2, align 8
   %7 = call fastcc i64 @__efi_queue_work(i32 noundef 2, ptr noundef nonnull %2)
@@ -183,9 +183,9 @@ define internal i64 @virt_efi_get_wakeup_time(ptr noundef %0, ptr noundef %1, pt
 
 7:                                                ; preds = %3
   store ptr %0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %9, align 8
   %10 = call fastcc i64 @__efi_queue_work(i32 noundef 3, ptr noundef nonnull %4)
   call void @up(ptr noundef nonnull @efi_runtime_lock) #8
@@ -206,7 +206,7 @@ define internal i64 @virt_efi_set_wakeup_time(i8 noundef zeroext %0, ptr noundef
 6:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   store i8 %0, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %7, align 8
   %8 = call fastcc i64 @__efi_queue_work(i32 noundef 4, ptr noundef nonnull %3)
   call void @up(ptr noundef nonnull @efi_runtime_lock) #8
@@ -226,13 +226,13 @@ define internal i64 @virt_efi_get_variable(ptr noundef %0, ptr noundef %1, ptr n
 
 9:                                                ; preds = %5
   store ptr %0, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %4, ptr %13, align 8
   %14 = call fastcc i64 @__efi_queue_work(i32 noundef 5, ptr noundef nonnull %6)
   call void @up(ptr noundef nonnull @efi_runtime_lock) #8
@@ -252,9 +252,9 @@ define internal i64 @virt_efi_get_next_variable(ptr noundef %0, ptr noundef %1, 
 
 7:                                                ; preds = %3
   store ptr %0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %9, align 8
   %10 = call fastcc i64 @__efi_queue_work(i32 noundef 6, ptr noundef nonnull %4)
   call void @up(ptr noundef nonnull @efi_runtime_lock) #8
@@ -274,13 +274,13 @@ define internal i64 @virt_efi_set_variable(ptr noundef %0, ptr noundef %1, i32 n
 
 9:                                                ; preds = %5
   store ptr %0, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %4, ptr %13, align 8
   %14 = call fastcc i64 @__efi_queue_work(i32 noundef 7, ptr noundef nonnull %6)
   call void @up(ptr noundef nonnull @efi_runtime_lock) #8
@@ -310,7 +310,7 @@ define internal i64 @virt_efi_set_variable_nb(ptr noundef %0, ptr noundef %1, i3
   %13 = icmp ne i8 %12, 0
   %14 = call i64 @ibt_save(i1 noundef zeroext %13) #10
   %15 = load ptr, ptr @efi, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %17 = load ptr, ptr %16, align 8
   %18 = call i64 (ptr, ...) @__efi_call(ptr noundef %17, ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #8
   call void @ibt_restore(i64 noundef %14) #10
@@ -365,7 +365,7 @@ define internal i64 @virt_efi_get_next_high_mono_count(ptr noundef %0) #0 align 
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 32, i1 false)
   store ptr %0, ptr %2, align 8
   %7 = call fastcc i64 @__efi_queue_work(i32 noundef 9, ptr noundef nonnull %2)
@@ -394,7 +394,7 @@ define internal void @virt_efi_reset_system(i32 noundef %0, i64 noundef %1, i64 
   %11 = icmp ne i8 %10, 0
   %12 = tail call i64 @ibt_save(i1 noundef zeroext %11) #10
   %13 = load ptr, ptr @efi, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 (ptr, ...) @__efi_call(ptr noundef %15, i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #8
   tail call void @ibt_restore(i64 noundef %12) #10
@@ -420,11 +420,11 @@ define internal i64 @virt_efi_query_variable_info(i32 noundef %0, ptr noundef %1
 
 11:                                               ; preds = %8
   store i32 %0, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %3, ptr %14, align 8
   %15 = call fastcc i64 @__efi_queue_work(i32 noundef 8, ptr noundef nonnull %5)
   call void @up(ptr noundef nonnull @efi_runtime_lock) #8
@@ -459,7 +459,7 @@ define internal i64 @virt_efi_query_variable_info_nb(i32 noundef %0, ptr noundef
   %15 = icmp ne i8 %14, 0
   %16 = call i64 @ibt_save(i1 noundef zeroext %15) #10
   %17 = load ptr, ptr @efi, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = call i64 (ptr, ...) @__efi_call(ptr noundef %19, i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #8
   call void @ibt_restore(i64 noundef %16) #10
@@ -520,9 +520,9 @@ define internal i64 @virt_efi_update_capsule(ptr noundef %0, i64 noundef %1, i64
 
 10:                                               ; preds = %7
   store ptr %0, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %12, align 8
   %13 = call fastcc i64 @__efi_queue_work(i32 noundef 11, ptr noundef nonnull %4)
   call void @up(ptr noundef nonnull @efi_runtime_lock) #8
@@ -547,11 +547,11 @@ define internal i64 @virt_efi_query_capsule_caps(ptr noundef %0, i64 noundef %1,
 
 11:                                               ; preds = %8
   store ptr %0, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %3, ptr %14, align 8
   %15 = call fastcc i64 @__efi_queue_work(i32 noundef 12, ptr noundef nonnull %5)
   call void @up(ptr noundef nonnull @efi_runtime_lock) #8
@@ -571,9 +571,9 @@ define dso_local i64 @efi_call_acpi_prm_handler(ptr noundef %0, i64 noundef %1, 
 
 7:                                                ; preds = %3
   store ptr %0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %9, align 8
   %10 = call fastcc i64 @__efi_queue_work(i32 noundef 13, ptr noundef nonnull %4)
   call void @up(ptr noundef nonnull @efi_runtime_lock) #8
@@ -705,10 +705,10 @@ define internal void @efi_call_rts(ptr nocapture readnone %0) #0 align 16 {
   %9 = icmp ne i8 %8, 0
   %10 = call i64 @ibt_save(i1 noundef zeroext %9) #10
   %11 = load ptr, ptr @efi, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = call i64 (ptr, ...) @__efi_call(ptr noundef %13, ptr noundef %14, ptr noundef %16) #8
   call void @ibt_restore(i64 noundef %10) #10
@@ -719,7 +719,7 @@ define internal void @efi_call_rts(ptr nocapture readnone %0) #0 align 16 {
   %20 = icmp ne i8 %19, 0
   %21 = call i64 @ibt_save(i1 noundef zeroext %20) #10
   %22 = load ptr, ptr @efi, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = call i64 (ptr, ...) @__efi_call(ptr noundef %24, ptr noundef %25) #8
@@ -731,12 +731,12 @@ define internal void @efi_call_rts(ptr nocapture readnone %0) #0 align 16 {
   %29 = icmp ne i8 %28, 0
   %30 = call i64 @ibt_save(i1 noundef zeroext %29) #10
   %31 = load ptr, ptr @efi, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = call i64 (ptr, ...) @__efi_call(ptr noundef %33, ptr noundef %34, ptr noundef %36, ptr noundef %38) #8
   call void @ibt_restore(i64 noundef %30) #10
@@ -747,11 +747,11 @@ define internal void @efi_call_rts(ptr nocapture readnone %0) #0 align 16 {
   %42 = icmp ne i8 %41, 0
   %43 = call i64 @ibt_save(i1 noundef zeroext %42) #10
   %44 = load ptr, ptr @efi, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8
   %47 = load i8, ptr %4, align 8
   %48 = zext i8 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %4, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = call i64 (ptr, ...) @__efi_call(ptr noundef %46, i32 noundef %48, ptr noundef %50) #8
   call void @ibt_restore(i64 noundef %43) #10
@@ -762,16 +762,16 @@ define internal void @efi_call_rts(ptr nocapture readnone %0) #0 align 16 {
   %54 = icmp ne i8 %53, 0
   %55 = call i64 @ibt_save(i1 noundef zeroext %54) #10
   %56 = load ptr, ptr @efi, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds i8, ptr %4, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %4, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %4, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %4, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = call i64 (ptr, ...) @__efi_call(ptr noundef %58, ptr noundef %59, ptr noundef %61, ptr noundef %63, ptr noundef %65, ptr noundef %67) #8
   call void @ibt_restore(i64 noundef %55) #10
@@ -782,12 +782,12 @@ define internal void @efi_call_rts(ptr nocapture readnone %0) #0 align 16 {
   %71 = icmp ne i8 %70, 0
   %72 = call i64 @ibt_save(i1 noundef zeroext %71) #10
   %73 = load ptr, ptr @efi, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 80
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 80
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds i8, ptr %4, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %4, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %80 = load ptr, ptr %79, align 8
   %81 = call i64 (ptr, ...) @__efi_call(ptr noundef %75, ptr noundef %76, ptr noundef %78, ptr noundef %80) #8
   call void @ibt_restore(i64 noundef %72) #10
@@ -798,16 +798,16 @@ define internal void @efi_call_rts(ptr nocapture readnone %0) #0 align 16 {
   %84 = icmp ne i8 %83, 0
   %85 = call i64 @ibt_save(i1 noundef zeroext %84) #10
   %86 = load ptr, ptr @efi, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 88
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 88
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %4, align 8
-  %90 = getelementptr inbounds i8, ptr %4, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %4, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %93 = load i32, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %4, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %4, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %97 = load ptr, ptr %96, align 8
   %98 = call i64 (ptr, ...) @__efi_call(ptr noundef %88, ptr noundef %89, ptr noundef %91, i32 noundef %93, i64 noundef %95, ptr noundef %97) #8
   call void @ibt_restore(i64 noundef %85) #10
@@ -818,14 +818,14 @@ define internal void @efi_call_rts(ptr nocapture readnone %0) #0 align 16 {
   %101 = icmp ne i8 %100, 0
   %102 = call i64 @ibt_save(i1 noundef zeroext %101) #10
   %103 = load ptr, ptr @efi, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 128
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 128
   %105 = load ptr, ptr %104, align 8
   %106 = load i32, ptr %4, align 8
-  %107 = getelementptr inbounds i8, ptr %4, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %4, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %4, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %112 = load ptr, ptr %111, align 8
   %113 = call i64 (ptr, ...) @__efi_call(ptr noundef %105, i32 noundef %106, ptr noundef %108, ptr noundef %110, ptr noundef %112) #8
   call void @ibt_restore(i64 noundef %102) #10
@@ -836,7 +836,7 @@ define internal void @efi_call_rts(ptr nocapture readnone %0) #0 align 16 {
   %116 = icmp ne i8 %115, 0
   %117 = call i64 @ibt_save(i1 noundef zeroext %116) #10
   %118 = load ptr, ptr @efi, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 96
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 96
   %120 = load ptr, ptr %119, align 8
   %121 = load ptr, ptr %4, align 8
   %122 = call i64 (ptr, ...) @__efi_call(ptr noundef %120, ptr noundef %121) #8
@@ -848,12 +848,12 @@ define internal void @efi_call_rts(ptr nocapture readnone %0) #0 align 16 {
   %125 = icmp ne i8 %124, 0
   %126 = call i64 @ibt_save(i1 noundef zeroext %125) #10
   %127 = load ptr, ptr @efi, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 112
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 112
   %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds i8, ptr %4, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %132 = load i64, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %4, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %134 = load i64, ptr %133, align 8
   %135 = call i64 (ptr, ...) @__efi_call(ptr noundef %129, ptr noundef %130, i64 noundef %132, i64 noundef %134) #8
   call void @ibt_restore(i64 noundef %126) #10
@@ -864,14 +864,14 @@ define internal void @efi_call_rts(ptr nocapture readnone %0) #0 align 16 {
   %138 = icmp ne i8 %137, 0
   %139 = call i64 @ibt_save(i1 noundef zeroext %138) #10
   %140 = load ptr, ptr @efi, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 120
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 120
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %4, align 8
-  %144 = getelementptr inbounds i8, ptr %4, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %145 = load i64, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %4, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %4, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %149 = load ptr, ptr %148, align 8
   %150 = call i64 (ptr, ...) @__efi_call(ptr noundef %142, ptr noundef %143, i64 noundef %145, ptr noundef %147, ptr noundef %149) #8
   call void @ibt_restore(i64 noundef %139) #10
@@ -882,9 +882,9 @@ define internal void @efi_call_rts(ptr nocapture readnone %0) #0 align 16 {
   %153 = icmp ne i8 %152, 0
   %154 = call i64 @ibt_save(i1 noundef zeroext %153) #10
   %155 = load ptr, ptr %4, align 8
-  %156 = getelementptr inbounds i8, ptr %4, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %157 = load i64, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %4, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %159 = load ptr, ptr %158, align 8
   %160 = call i64 (ptr, ...) @__efi_call(ptr noundef %155, i64 noundef %157, ptr noundef %159) #8
   call void @ibt_restore(i64 noundef %154) #10

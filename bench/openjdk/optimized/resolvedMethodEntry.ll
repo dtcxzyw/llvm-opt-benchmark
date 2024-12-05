@@ -45,7 +45,7 @@ define hidden noundef zeroext i1 @_ZN19ResolvedMethodEntry30check_no_old_or_obso
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 4
   %.not3 = icmp eq i32 %6, 0
@@ -63,16 +63,16 @@ define hidden noundef zeroext i1 @_ZN19ResolvedMethodEntry30check_no_old_or_obso
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN19ResolvedMethodEntry11reset_entryEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (10, 16), (18, 21), (22, 24)) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 21
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 32
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i16, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i16, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i8 32, ptr %2, align 1
@@ -81,7 +81,7 @@ define hidden void @_ZN19ResolvedMethodEntry11reset_entryEv(ptr nocapture nounde
   br label %13
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i16, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i16 %12, ptr %11, align 8
@@ -96,16 +96,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN19ResolvedMethodEntry23remove_unshareable_infoEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (10, 16), (18, 21), (22, 24)) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 21
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 32
   %.not.i = icmp eq i8 %4, 0
   br i1 %.not.i, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i16, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i16, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i8 32, ptr %2, align 1
@@ -114,7 +114,7 @@ define hidden void @_ZN19ResolvedMethodEntry23remove_unshareable_infoEv(ptr noca
   br label %_ZN19ResolvedMethodEntry11reset_entryEv.exit
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i16, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i16 %12, ptr %11, align 8
@@ -136,7 +136,7 @@ define hidden void @_ZN19ResolvedMethodEntry17mark_and_relocateEP12ConstantPool(
   br label %7
 
 7:                                                ; preds = %2, %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 22
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %9 = load volatile i8, ptr %8, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %10 = icmp eq i8 %9, -71
@@ -144,7 +144,7 @@ define hidden void @_ZN19ResolvedMethodEntry17mark_and_relocateEP12ConstantPool(
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN14ArchiveBuilder34mark_and_relocate_to_buffered_addrEPPh(ptr noundef nonnull align 8 dereferenceable(1080) %12, ptr noundef nonnull %13) #6
   br label %14
 
@@ -175,14 +175,14 @@ define hidden void @_ZNK19ResolvedMethodEntry8print_onEP12outputStream(ptr nound
   br label %10
 
 10:                                               ; preds = %9, %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 22
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %12 = load volatile i8, ptr %11, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %13 = icmp eq i8 %12, -71
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not20 = icmp eq ptr %16, null
   br i1 %.not20, label %20, label %17
@@ -204,7 +204,7 @@ define hidden void @_ZNK19ResolvedMethodEntry8print_onEP12outputStream(ptr nound
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i16, ptr %25, align 8
   %27 = zext i16 %26 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef %27) #6
@@ -215,14 +215,14 @@ define hidden void @_ZNK19ResolvedMethodEntry8print_onEP12outputStream(ptr nound
   br label %29
 
 29:                                               ; preds = %28, %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 23
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %31 = load volatile i8, ptr %30, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %32 = icmp eq i8 %31, -74
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i16, ptr %34, align 8
   %36 = zext i16 %35 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, i32 noundef %36) #6
@@ -233,18 +233,18 @@ define hidden void @_ZNK19ResolvedMethodEntry8print_onEP12outputStream(ptr nound
   br label %38
 
 38:                                               ; preds = %37, %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load i16, ptr %39, align 8
   %41 = zext i16 %40 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12, i32 noundef %41) #6
-  %42 = getelementptr inbounds i8, ptr %0, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %43 = load i8, ptr %42, align 4
   %44 = icmp ult i8 %43, 10
   br i1 %44, label %switch.lookup, label %_Z12as_BasicType8TosState.exit
 
 switch.lookup:                                    ; preds = %38
   %45 = zext nneg i8 %43 to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZNK19ResolvedMethodEntry8print_onEP12outputStream, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZNK19ResolvedMethodEntry8print_onEP12outputStream, i64 0, i64 %45
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_Z12as_BasicType8TosState.exit
 
@@ -252,11 +252,11 @@ _Z12as_BasicType8TosState.exit:                   ; preds = %38, %switch.lookup
   %.0.i = phi i8 [ %switch.load, %switch.lookup ], [ 99, %38 ]
   %46 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %.0.i) #6
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.13, ptr noundef %46) #6
-  %47 = getelementptr inbounds i8, ptr %0, i64 18
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.14, i32 noundef %49) #6
-  %50 = getelementptr inbounds i8, ptr %0, i64 21
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %51 = load i8, ptr %50, align 1
   %52 = and i8 %51, 1
   %53 = zext nneg i8 %52 to i32
@@ -284,13 +284,13 @@ _Z12as_BasicType8TosState.exit:                   ; preds = %38, %switch.lookup
   %66 = load volatile i8, ptr %11, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %67
   %69 = load ptr, ptr %68, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.20, ptr noundef %69) #6
   %70 = load volatile i8, ptr %30, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %71
   %73 = load ptr, ptr %72, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.21, ptr noundef %73) #6
   ret void

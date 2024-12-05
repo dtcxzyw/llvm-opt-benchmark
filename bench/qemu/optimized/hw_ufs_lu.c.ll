@@ -58,9 +58,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @ufs_init_wlu(ptr nocapture noundef writeonly initializes((160, 161), (448, 456)) %wlu, i8 noundef zeroext %wlun) local_unnamed_addr #0 {
 entry:
-  %lun = getelementptr inbounds i8, ptr %wlu, i64 160
+  %lun = getelementptr inbounds nuw i8, ptr %wlu, i64 160
   store i8 %wlun, ptr %lun, align 8
-  %scsi_op = getelementptr inbounds i8, ptr %wlu, i64 448
+  %scsi_op = getelementptr inbounds nuw i8, ptr %wlu, i64 448
   store ptr @ufs_emulate_scsi_cmd, ptr %scsi_op, align 8
   ret void
 }
@@ -70,12 +70,12 @@ define internal range(i32 0, 2) i32 @ufs_emulate_scsi_cmd(ptr nocapture noundef 
 entry:
   %outbuf = alloca [4096 x i8], align 16
   %sense_buf = alloca [18 x i8], align 16
-  %cdb = getelementptr inbounds i8, ptr %req, i64 64
+  %cdb = getelementptr inbounds nuw i8, ptr %req, i64 64
   %0 = load i8, ptr %cdb, align 4
-  %.sink2.i.i.sroa.gep = getelementptr inbounds i8, ptr %outbuf, i64 6
-  %.sink2.i.i.sroa.gep29 = getelementptr inbounds i8, ptr %outbuf, i64 4
-  %.sink1.i.i.sroa.gep = getelementptr inbounds i8, ptr %outbuf, i64 7
-  %.sink1.i.i.sroa.gep30 = getelementptr inbounds i8, ptr %outbuf, i64 5
+  %.sink2.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %outbuf, i64 6
+  %.sink2.i.i.sroa.gep29 = getelementptr inbounds nuw i8, ptr %outbuf, i64 4
+  %.sink1.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %outbuf, i64 7
+  %.sink1.i.i.sroa.gep30 = getelementptr inbounds nuw i8, ptr %outbuf, i64 5
   switch i8 %0, label %sw.epilog.thread [
     i8 -96, label %sw.bb
     i8 18, label %sw.bb5
@@ -91,8 +91,8 @@ sw.bb:                                            ; preds = %entry
 
 for.cond.preheader.i:                             ; preds = %sw.bb
   %req.val = load ptr, ptr %req, align 8
-  %invariant.gep.i = getelementptr inbounds i8, ptr %outbuf, i64 1
-  %lus.i = getelementptr inbounds i8, ptr %req.val, i64 3304
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 1
+  %lus.i = getelementptr inbounds nuw i8, ptr %req.val, i64 3304
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
@@ -147,11 +147,11 @@ sw.bb5:                                           ; preds = %entry
 
 if.then1.i:                                       ; preds = %sw.bb5
   store i8 30, ptr %outbuf, align 16
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %outbuf, i64 1
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 1
   store i8 %8, ptr %arrayidx4.i.i, align 1
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %outbuf, i64 2
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 2
   store i8 0, ptr %arrayidx7.i.i, align 2
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %outbuf, i64 3
+  %arrayidx10.i.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 3
   store i8 0, ptr %arrayidx10.i.i, align 1
   switch i8 %8, label %sw.epilog.thread [
     i8 0, label %if.end.i.i
@@ -181,21 +181,21 @@ if.end2.i:                                        ; preds = %sw.bb5
 
 if.end10.i:                                       ; preds = %if.end2.i
   store i8 30, ptr %outbuf, align 16
-  %arrayidx12.i = getelementptr inbounds i8, ptr %outbuf, i64 1
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 1
   store i8 0, ptr %arrayidx12.i, align 1
-  %arrayidx13.i = getelementptr inbounds i8, ptr %outbuf, i64 2
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 2
   store i8 6, ptr %arrayidx13.i, align 2
-  %arrayidx14.i = getelementptr inbounds i8, ptr %outbuf, i64 3
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 3
   store i8 2, ptr %arrayidx14.i, align 1
   store i8 31, ptr %.sink2.i.i.sroa.gep29, align 4
   store i8 0, ptr %.sink1.i.i.sroa.gep30, align 1
   store i8 0, ptr %.sink2.i.i.sroa.gep, align 2
   store i8 2, ptr %.sink1.i.i.sroa.gep, align 1
-  %arrayidx19.i = getelementptr inbounds i8, ptr %outbuf, i64 8
+  %arrayidx19.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 8
   call void @strpadcpy(ptr noundef nonnull %arrayidx19.i, i32 noundef 8, ptr noundef nonnull @.str, i8 noundef signext 32) #9
-  %arrayidx20.i = getelementptr inbounds i8, ptr %outbuf, i64 16
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 16
   call void @strpadcpy(ptr noundef nonnull %arrayidx20.i, i32 noundef 16, ptr noundef nonnull @.str.1, i8 noundef signext 32) #9
-  %arrayidx21.i = getelementptr inbounds i8, ptr %outbuf, i64 32
+  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %outbuf, i64 32
   store i32 0, ptr %arrayidx21.i, align 16
   br label %sw.epilog
 
@@ -205,7 +205,7 @@ sw.bb16:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
-  %lun1 = getelementptr inbounds i8, ptr %lu, i64 160
+  %lun1 = getelementptr inbounds nuw i8, ptr %lu, i64 160
   %10 = load i8, ptr %lun1, align 8
   %cmp21 = icmp eq i8 %10, -48
   br i1 %cmp21, label %sw.epilog, label %sw.epilog.thread
@@ -215,14 +215,14 @@ sw.epilog.thread:                                 ; preds = %entry, %sw.bb19, %i
   %len.0.ph = phi i32 [ -1, %sw.bb ], [ -1, %ufs_emulate_report_luns.exit ], [ -1, %if.end2.i ], [ -1, %if.then1.i ], [ 0, %sw.bb19 ], [ 0, %entry ]
   %sense_code_INVALID_OPCODE.coerce.0.copyload = load i24, ptr %sense_code_INVALID_OPCODE.sink, align 1
   %call26 = call i32 @scsi_build_sense(ptr noundef nonnull %sense_buf, i24 %sense_code_INVALID_OPCODE.coerce.0.copyload) #9
-  %data_len43 = getelementptr inbounds i8, ptr %req, i64 632
+  %data_len43 = getelementptr inbounds nuw i8, ptr %req, i64 632
   %11 = load i32, ptr %data_len43, align 8
   %cond44 = call i32 @llvm.smin.i32(i32 %len.0.ph, i32 %11)
   br label %if.end68
 
 sw.epilog:                                        ; preds = %if.end10.i, %if.end.i.i, %ufs_emulate_report_luns.exit.thread34, %sw.bb19, %ufs_emulate_report_luns.exit, %sw.bb16
   %len.0 = phi i32 [ %call18, %sw.bb16 ], [ %len.1.i, %ufs_emulate_report_luns.exit ], [ 0, %sw.bb19 ], [ %len.01.i, %ufs_emulate_report_luns.exit.thread34 ], [ 36, %if.end10.i ], [ %buflen.0.i.i, %if.end.i.i ]
-  %data_len = getelementptr inbounds i8, ptr %req, i64 632
+  %data_len = getelementptr inbounds nuw i8, ptr %req, i64 632
   %12 = load i32, ptr %data_len, align 8
   %cond = call i32 @llvm.smin.i32(i32 %len.0, i32 %12)
   %cmp32 = icmp sgt i32 %cond, 0
@@ -230,7 +230,7 @@ sw.epilog:                                        ; preds = %if.end10.i, %if.end
 
 land.lhs.true34:                                  ; preds = %sw.epilog
   %conv36 = zext nneg i32 %cond to i64
-  %sg = getelementptr inbounds i8, ptr %req, i64 624
+  %sg = getelementptr inbounds nuw i8, ptr %req, i64 624
   %13 = load ptr, ptr %sg, align 8
   %call64 = call i32 @dma_buf_read(ptr noundef nonnull %outbuf, i64 noundef %conv36, ptr noundef null, ptr noundef %13, i32 1) #9
   %cmp65.not = icmp eq i32 %call64, 0
@@ -240,7 +240,7 @@ if.end68:                                         ; preds = %sw.epilog.thread, %
   %cond48 = phi i32 [ %cond44, %sw.epilog.thread ], [ %cond, %land.lhs.true34 ], [ %cond, %sw.epilog ]
   %cmp15.not.i = phi i1 [ false, %sw.epilog.thread ], [ true, %land.lhs.true34 ], [ true, %sw.epilog ]
   %scsi_status.047 = phi i8 [ 2, %sw.epilog.thread ], [ 0, %land.lhs.true34 ], [ 0, %sw.epilog ]
-  %14 = getelementptr inbounds i8, ptr %req, i64 60
+  %14 = getelementptr inbounds nuw i8, ptr %req, i64 60
   %15 = load i32, ptr %14, align 4
   %16 = call noundef i32 @llvm.bswap.i32(i32 %15)
   %cmp.i = icmp ugt i32 %16, %cond48
@@ -262,7 +262,7 @@ if.end13.sink.split.i:                            ; preds = %if.then5.i, %if.the
   %sub6.sink.i = phi i32 [ %sub6.i, %if.then5.i ], [ %sub.i28, %if.then.i ]
   %flags.0.ph.i = phi i8 [ 64, %if.then5.i ], [ 32, %if.then.i ]
   %17 = call noundef i32 @llvm.bswap.i32(i32 %sub6.sink.i)
-  %18 = getelementptr inbounds i8, ptr %req, i64 348
+  %18 = getelementptr inbounds nuw i8, ptr %req, i64 348
   store i32 %17, ptr %18, align 4
   br label %if.end13.i
 
@@ -271,9 +271,9 @@ if.end13.i:                                       ; preds = %if.end13.sink.split
   br i1 %cmp15.not.i, label %ufs_build_scsi_response_upiu.exit, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.end13.i
-  %sense_data_len.i.i = getelementptr inbounds i8, ptr %req, i64 368
+  %sense_data_len.i.i = getelementptr inbounds nuw i8, ptr %req, i64 368
   store i16 4608, ptr %sense_data_len.i.i, align 4
-  %sense_data.i.i = getelementptr inbounds i8, ptr %req, i64 370
+  %sense_data.i.i = getelementptr inbounds nuw i8, ptr %req, i64 370
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %sense_data.i.i, ptr noundef nonnull readonly align 16 dereferenceable(18) %sense_buf, i64 18, i1 false)
   br label %ufs_build_scsi_response_upiu.exit
 
@@ -334,14 +334,14 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 define internal void @ufs_lu_class_init(ptr noundef %oc, ptr nocapture readnone %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
-  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @ufs_lu_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds i8, ptr %call.i, i64 152
+  %unrealize = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   store ptr @ufs_lu_unrealize, ptr %unrealize, align 8
-  %bus_type = getelementptr inbounds i8, ptr %call.i, i64 168
+  %bus_type = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr @.str.7, ptr %bus_type, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ufs_lu_props) #9
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.8, ptr %desc, align 8
   ret void
 }
@@ -350,10 +350,10 @@ entry:
 define internal void @ufs_lu_realize(ptr noundef %dev, ptr noundef %errp) #1 {
 entry:
   %call = tail call ptr @qdev_get_parent_bus(ptr noundef %dev) #9
-  %parent = getelementptr inbounds i8, ptr %call, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call, i64 40
   %0 = load ptr, ptr %parent, align 8
   %call2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.3, i32 noundef 384, ptr noundef nonnull @__func__.ufs_lu_realize) #9
-  %conf = getelementptr inbounds i8, ptr %dev, i64 360
+  %conf = getelementptr inbounds nuw i8, ptr %dev, i64 360
   %1 = load ptr, ptr %conf, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -363,7 +363,7 @@ if.then.i:                                        ; preds = %entry
   br label %return
 
 if.end.i:                                         ; preds = %entry
-  %lun.i = getelementptr inbounds i8, ptr %dev, i64 160
+  %lun.i = getelementptr inbounds nuw i8, ptr %dev, i64 160
   %2 = load i8, ptr %lun.i, align 8
   %cmp.i = icmp ugt i8 %2, 31
   br i1 %cmp.i, label %if.then2.i, label %if.end6
@@ -385,31 +385,31 @@ if.end10:                                         ; preds = %if.end6
 if.end15:                                         ; preds = %if.end10
   %3 = load ptr, ptr %conf, align 8
   %call.i = tail call i64 @blk_getlength(ptr noundef %3) #9
-  %unit_desc.i = getelementptr inbounds i8, ptr %dev, i64 161
-  %4 = getelementptr inbounds i8, ptr %dev, i64 165
+  %unit_desc.i = getelementptr inbounds nuw i8, ptr %dev, i64 161
+  %4 = getelementptr inbounds nuw i8, ptr %dev, i64 165
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %4, i8 0, i64 41, i1 false)
   store i8 45, ptr %unit_desc.i, align 1
-  %descriptor_idn.i = getelementptr inbounds i8, ptr %dev, i64 162
+  %descriptor_idn.i = getelementptr inbounds nuw i8, ptr %dev, i64 162
   store i8 2, ptr %descriptor_idn.i, align 1
-  %lu_enable.i = getelementptr inbounds i8, ptr %dev, i64 164
+  %lu_enable.i = getelementptr inbounds nuw i8, ptr %dev, i64 164
   store i8 1, ptr %lu_enable.i, align 1
-  %logical_block_size.i = getelementptr inbounds i8, ptr %dev, i64 171
+  %logical_block_size.i = getelementptr inbounds nuw i8, ptr %dev, i64 171
   store i8 12, ptr %logical_block_size.i, align 1
   %5 = load i8, ptr %lun.i, align 8
-  %unit_index.i = getelementptr inbounds i8, ptr %dev, i64 163
+  %unit_index.i = getelementptr inbounds nuw i8, ptr %dev, i64 163
   store i8 %5, ptr %unit_index.i, align 1
   %div.i = sdiv i64 %call.i, 4096
   %6 = tail call noundef i64 @llvm.bswap.i64(i64 %div.i)
-  %logical_block_count.i = getelementptr inbounds i8, ptr %dev, i64 172
+  %logical_block_count.i = getelementptr inbounds nuw i8, ptr %dev, i64 172
   store i64 %6, ptr %logical_block_count.i, align 1
-  %scsi_op.i = getelementptr inbounds i8, ptr %dev, i64 448
+  %scsi_op.i = getelementptr inbounds nuw i8, ptr %dev, i64 448
   store ptr @ufs_process_scsi_cmd, ptr %scsi_op.i, align 8
   %7 = load ptr, ptr %conf, align 8
   %call.i18 = tail call i64 @blk_getlength(ptr noundef %7) #9
-  %total_raw_device_capacity.i = getelementptr inbounds i8, ptr %call2, i64 5477
+  %total_raw_device_capacity.i = getelementptr inbounds nuw i8, ptr %call2, i64 5477
   %8 = load i64, ptr %total_raw_device_capacity.i, align 1
   %9 = tail call noundef i64 @llvm.bswap.i64(i64 %8)
-  %number_lu.i = getelementptr inbounds i8, ptr %call2, i64 5390
+  %number_lu.i = getelementptr inbounds nuw i8, ptr %call2, i64 5390
   %10 = load i8, ptr %number_lu.i, align 2
   %cmp.i19 = icmp ugt i8 %10, 31
   br i1 %cmp.i19, label %if.then.i23, label %if.end.i20
@@ -419,7 +419,7 @@ if.then.i23:                                      ; preds = %if.end15
   br label %return
 
 if.end.i20:                                       ; preds = %if.end15
-  %lus.i = getelementptr inbounds i8, ptr %call2, i64 3304
+  %lus.i = getelementptr inbounds nuw i8, ptr %call2, i64 3304
   %11 = load i8, ptr %lun.i, align 8
   %idxprom.i = zext i8 %11 to i64
   %arrayidx.i = getelementptr [32 x ptr], ptr %lus.i, i64 0, i64 %idxprom.i
@@ -440,7 +440,7 @@ if.end18:                                         ; preds = %if.end.i20
   %add.i = add i64 %9, %shr.i
   %13 = tail call noundef i64 @llvm.bswap.i64(i64 %add.i)
   store i64 %13, ptr %total_raw_device_capacity.i, align 1
-  %bus.i = getelementptr inbounds i8, ptr %dev, i64 208
+  %bus.i = getelementptr inbounds nuw i8, ptr %dev, i64 208
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   tail call void @scsi_bus_init_named(ptr noundef nonnull %bus.i, i64 noundef 144, ptr noundef %call.i.i, ptr noundef nonnull @ufs_scsi_info, ptr noundef null) #9
   tail call void @blk_ref(ptr noundef nonnull %1) #9
@@ -473,7 +473,7 @@ if.then9.i:                                       ; preds = %if.end.i27
 if.end10.i:                                       ; preds = %if.end.i27
   tail call void @blk_unref(ptr noundef nonnull %1) #9
   %call.i22.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call3.i, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #9
-  %scsi_dev12.i = getelementptr inbounds i8, ptr %dev, i64 352
+  %scsi_dev12.i = getelementptr inbounds nuw i8, ptr %dev, i64 352
   store ptr %call.i22.i, ptr %scsi_dev12.i, align 8
   br label %return
 
@@ -484,7 +484,7 @@ return:                                           ; preds = %if.then6.i, %if.the
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ufs_lu_unrealize(ptr nocapture noundef %dev) #1 {
 entry:
-  %scsi_dev = getelementptr inbounds i8, ptr %dev, i64 352
+  %scsi_dev = getelementptr inbounds nuw i8, ptr %dev, i64 352
   %0 = load ptr, ptr %scsi_dev, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -519,7 +519,7 @@ declare i64 @blk_getlength(ptr noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 3) i32 @ufs_process_scsi_cmd(ptr nocapture noundef readonly %lu, ptr noundef %req) #1 {
 entry:
-  %cdb = getelementptr inbounds i8, ptr %req, i64 64
+  %cdb = getelementptr inbounds nuw i8, ptr %req, i64 64
   %0 = load i8, ptr %cdb, align 4
   %cmp = icmp eq i8 %0, -96
   br i1 %cmp, label %if.then, label %if.end
@@ -529,12 +529,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %task_tag1 = getelementptr inbounds i8, ptr %req, i64 51
+  %task_tag1 = getelementptr inbounds nuw i8, ptr %req, i64 51
   %1 = load i8, ptr %task_tag1, align 1
-  %scsi_dev = getelementptr inbounds i8, ptr %lu, i64 352
+  %scsi_dev = getelementptr inbounds nuw i8, ptr %lu, i64 352
   %2 = load ptr, ptr %scsi_dev, align 8
   %conv4 = zext i8 %1 to i32
-  %lun = getelementptr inbounds i8, ptr %lu, i64 160
+  %lun = getelementptr inbounds nuw i8, ptr %lu, i64 160
   %3 = load i8, ptr %lun, align 8
   %conv5 = zext i8 %3 to i32
   %call8 = tail call ptr @scsi_req_new(ptr noundef %2, i32 noundef %conv4, i32 noundef %conv5, ptr noundef nonnull %cdb, i64 noundef 16, ptr noundef nonnull %req) #9
@@ -583,18 +583,18 @@ declare void @scsi_bus_init_named(ptr noundef, i64 noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ufs_scsi_command_complete(ptr noundef %scsi_req, i64 noundef %resid) #1 {
 entry:
-  %hba_private = getelementptr inbounds i8, ptr %scsi_req, i64 40
+  %hba_private = getelementptr inbounds nuw i8, ptr %scsi_req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
-  %status1 = getelementptr inbounds i8, ptr %scsi_req, i64 36
+  %status1 = getelementptr inbounds nuw i8, ptr %scsi_req, i64 36
   %1 = load i16, ptr %status1, align 4
-  %xfer = getelementptr inbounds i8, ptr %scsi_req, i64 80
+  %xfer = getelementptr inbounds nuw i8, ptr %scsi_req, i64 80
   %2 = load i64, ptr %xfer, align 8
   %sub = sub i64 %2, %resid
   %conv = trunc i64 %sub to i32
-  %sense = getelementptr inbounds i8, ptr %scsi_req, i64 112
-  %sense_len = getelementptr inbounds i8, ptr %scsi_req, i64 364
+  %sense = getelementptr inbounds nuw i8, ptr %scsi_req, i64 112
+  %sense_len = getelementptr inbounds nuw i8, ptr %scsi_req, i64 364
   %3 = load i32, ptr %sense_len, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
   %6 = tail call noundef i32 @llvm.bswap.i32(i32 %5)
   %cmp.i = icmp ugt i32 %6, %conv
@@ -616,7 +616,7 @@ if.end13.sink.split.i:                            ; preds = %if.then5.i, %if.the
   %sub6.sink.i = phi i32 [ %sub6.i, %if.then5.i ], [ %sub.i, %if.then.i ]
   %flags.0.ph.i = phi i8 [ 64, %if.then5.i ], [ 32, %if.then.i ]
   %7 = tail call noundef i32 @llvm.bswap.i32(i32 %sub6.sink.i)
-  %8 = getelementptr inbounds i8, ptr %0, i64 348
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 348
   store i32 %7, ptr %8, align 4
   br label %if.end13.i
 
@@ -628,7 +628,7 @@ if.end13.i:                                       ; preds = %if.end13.sink.split
 
 if.then17.i:                                      ; preds = %if.end13.i
   %9 = tail call noundef i16 @llvm.bswap.i16(i16 %.pre.i)
-  %sense_data_len.i.i = getelementptr inbounds i8, ptr %0, i64 368
+  %sense_data_len.i.i = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i16 %9, ptr %sense_data_len.i.i, align 4
   %cmp.i.i = icmp ult i32 %3, 19
   br i1 %cmp.i.i, label %ufs_build_upiu_sense_data.exit.i, label %if.else.i.i
@@ -638,7 +638,7 @@ if.else.i.i:                                      ; preds = %if.then17.i
   unreachable
 
 ufs_build_upiu_sense_data.exit.i:                 ; preds = %if.then17.i
-  %sense_data.i.i = getelementptr inbounds i8, ptr %0, i64 370
+  %sense_data.i.i = getelementptr inbounds nuw i8, ptr %0, i64 370
   %conv3.i.i = zext nneg i32 %3 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %sense_data.i.i, ptr nonnull readonly align 1 %sense, i64 %conv3.i.i, i1 false)
   br label %ufs_build_scsi_response_upiu.exit
@@ -658,9 +658,9 @@ ufs_build_scsi_response_upiu.exit:                ; preds = %if.end13.i, %ufs_bu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @ufs_get_sg_list(ptr nocapture noundef readonly %scsi_req) #7 {
 entry:
-  %hba_private = getelementptr inbounds i8, ptr %scsi_req, i64 40
+  %hba_private = getelementptr inbounds nuw i8, ptr %scsi_req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
-  %sg = getelementptr inbounds i8, ptr %0, i64 624
+  %sg = getelementptr inbounds nuw i8, ptr %0, i64 624
   %1 = load ptr, ptr %sg, align 8
   ret ptr %1
 }

@@ -122,7 +122,7 @@ define hidden void @_ZN19pyo3_macros_backend6quotes7ok_wrap17h19cb821bcf7fdef7E(
   %7 = alloca [32 x i8], align 8
   %8 = alloca [32 x i8], align 8
   %9 = alloca [32 x i8], align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load i32, ptr %10, align 8
   invoke void @_ZN19pyo3_macros_backend5utils13PyO3CratePath17to_tokens_spanned17h102a173b026af24bE(ptr nonnull sret([32 x i8]) align 8 %9, ptr nonnull align 8 %2, i32 %11)
           to label %15 unwind label %13
@@ -320,7 +320,7 @@ define hidden void @_ZN19pyo3_macros_backend6quotes19map_result_into_ptr17h24f32
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [32 x i8], align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %9 = load i32, ptr %8, align 8
   invoke void @_ZN19pyo3_macros_backend5utils13PyO3CratePath17to_tokens_spanned17h102a173b026af24bE(ptr nonnull sret([32 x i8]) align 8 %7, ptr nonnull align 8 %2, i32 %9)
           to label %13 unwind label %11

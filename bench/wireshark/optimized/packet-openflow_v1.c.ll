@@ -416,7 +416,7 @@ define internal i32 @dissect_openflow_v1(ptr noundef %0, ptr noundef %1, ptr nou
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i8 %7 to i32
   %11 = tail call ptr @val_to_str_ext_const(i32 noundef %10, ptr noundef nonnull @openflow_1_0_type_values_ext, ptr noundef nonnull @.str.251) #3

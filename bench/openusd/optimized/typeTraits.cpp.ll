@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits7GetNameENS1_10SchemeTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [3 x %"struct.OpenSubdiv::v3_6_0::Sdc::TraitsEntry"], ptr @_ZN10OpenSubdiv6v3_6_03SdcL17staticTraitsTableE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Sdc::TraitsEntry"], ptr @_ZN10OpenSubdiv6v3_6_03SdcL17staticTraitsTableE, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -22,7 +22,7 @@ define noundef ptr @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits7GetNameENS1_10S
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits23GetTopologicalSplitTypeENS1_10SchemeTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [3 x %"struct.OpenSubdiv::v3_6_0::Sdc::TraitsEntry"], ptr @_ZN10OpenSubdiv6v3_6_03SdcL17staticTraitsTableE, i64 0, i64 %2, i32 1
+  %3 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Sdc::TraitsEntry"], ptr @_ZN10OpenSubdiv6v3_6_03SdcL17staticTraitsTableE, i64 0, i64 %2, i32 1
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }
@@ -30,7 +30,7 @@ define noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits23GetTopological
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits18GetRegularFaceSizeENS1_10SchemeTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [3 x %"struct.OpenSubdiv::v3_6_0::Sdc::TraitsEntry"], ptr @_ZN10OpenSubdiv6v3_6_03SdcL17staticTraitsTableE, i64 0, i64 %2, i32 2
+  %3 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Sdc::TraitsEntry"], ptr @_ZN10OpenSubdiv6v3_6_03SdcL17staticTraitsTableE, i64 0, i64 %2, i32 2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -38,7 +38,7 @@ define noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits18GetRegularFace
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits23GetRegularVertexValenceENS1_10SchemeTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [3 x %"struct.OpenSubdiv::v3_6_0::Sdc::TraitsEntry"], ptr @_ZN10OpenSubdiv6v3_6_03SdcL17staticTraitsTableE, i64 0, i64 %2, i32 3
+  %3 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Sdc::TraitsEntry"], ptr @_ZN10OpenSubdiv6v3_6_03SdcL17staticTraitsTableE, i64 0, i64 %2, i32 3
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }
@@ -46,7 +46,7 @@ define noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits23GetRegularVert
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits24GetLocalNeighborhoodSizeENS1_10SchemeTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [3 x %"struct.OpenSubdiv::v3_6_0::Sdc::TraitsEntry"], ptr @_ZN10OpenSubdiv6v3_6_03SdcL17staticTraitsTableE, i64 0, i64 %2, i32 4
+  %3 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Sdc::TraitsEntry"], ptr @_ZN10OpenSubdiv6v3_6_03SdcL17staticTraitsTableE, i64 0, i64 %2, i32 4
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }

@@ -42,7 +42,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @_RNvMs2S_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhE10make_sliceCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = ptrtoint ptr %4 to i64
   %6 = ptrtoint ptr %2 to i64
@@ -54,7 +54,7 @@ define hidden { ptr, i64 } @_RNvMs2S_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4It
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536(ptr noalias noundef align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = load i64, ptr %0, align 8, !noundef !4
   %7 = sub i64 %6, %5
@@ -63,7 +63,7 @@ define hidden void @_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elemen
 
 9:                                                ; preds = %16, %3
   %10 = phi i64 [ %.pre, %16 ], [ %5, %3 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds i8, ptr %12, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %1, i64 %2, i1 false)
@@ -80,7 +80,7 @@ define hidden void @_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elemen
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536(ptr noalias noundef align 8 dereferenceable(24) %0, i8 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = icmp eq i64 %4, %5
@@ -91,7 +91,7 @@ define hidden void @_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1s
   br label %8
 
 8:                                                ; preds = %7, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds i8, ptr %10, i64 %4
   store i8 %1, ptr %11, align 1
@@ -102,7 +102,7 @@ define hidden void @_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1s
 
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXNtCs8mTrBI1stz4_15turborepo_vt1004termNtB2_11ClearScreenNtB2_8BufWrite9write_buf(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !5, !noundef !4
   %5 = load i64, ptr %1, align 8, !alias.scope !5, !noundef !4
   %6 = sub i64 %5, %4
@@ -116,7 +116,7 @@ define void @_RNvXNtCs8mTrBI1stz4_15turborepo_vt1004termNtB2_11ClearScreenNtB2_8
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %2, %8
   %9 = phi i64 [ %.pre.i, %8 ], [ %4, %2 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !5, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %12, ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.501b6e7c782e41b94b8f62820c9a442a.3.llvm.3209305459455205536, i64 6, i1 false)
@@ -128,7 +128,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXs_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB4_15ClearRowForwardNtB4_8BufWrite9write_buf(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !8, !noundef !4
   %5 = load i64, ptr %1, align 8, !alias.scope !8, !noundef !4
   %6 = sub i64 %5, %4
@@ -142,7 +142,7 @@ define void @_RNvXs_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB4_15ClearRowForward
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %2, %8
   %9 = phi i64 [ %.pre.i, %8 ], [ %4, %2 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %12, ptr noundef nonnull readonly align 1 dereferenceable(3) @anon.501b6e7c782e41b94b8f62820c9a442a.4.llvm.3209305459455205536, i64 3, i1 false)
@@ -154,7 +154,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !11, !noundef !4
   %5 = load i64, ptr %1, align 8, !alias.scope !11, !noundef !4
   %6 = sub i64 %5, %4
@@ -168,7 +168,7 @@ define void @_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWr
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %2, %8
   %9 = phi i64 [ %.pre.i, %8 ], [ %4, %2 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !11, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
   store i16 2573, ptr %12, align 1
@@ -180,7 +180,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !14, !noundef !4
   %5 = load i64, ptr %1, align 8, !alias.scope !14, !noundef !4
   %6 = icmp eq i64 %5, %4
@@ -193,7 +193,7 @@ define void @_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %2, %7
   %8 = phi i64 [ %.pre.i, %7 ], [ %4, %2 ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !14, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds i8, ptr %10, i64 %8
   store i8 8, ptr %11, align 1
@@ -205,7 +205,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10SaveCursorNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !17, !noundef !4
   %5 = load i64, ptr %1, align 8, !alias.scope !17, !noundef !4
   %6 = sub i64 %5, %4
@@ -219,7 +219,7 @@ define void @_RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10SaveCursorNtB5
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %2, %8
   %9 = phi i64 [ %.pre.i, %8 ], [ %4, %2 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !17, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
   store i16 14107, ptr %12, align 1
@@ -231,7 +231,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXs3_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_13RestoreCursorNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !20, !noundef !4
   %5 = load i64, ptr %1, align 8, !alias.scope !20, !noundef !4
   %6 = sub i64 %5, %4
@@ -245,7 +245,7 @@ define void @_RNvXs3_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_13RestoreCursorN
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %2, %8
   %9 = phi i64 [ %.pre.i, %8 ], [ %4, %2 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !20, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
   store i16 14363, ptr %12, align 1
@@ -268,11 +268,11 @@ define void @_RNvXs5_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_6MoveToNtB5_8Buf
   %4 = alloca [40 x i8], align 1
   %5 = load i16, ptr %0, align 2, !noundef !4
   %6 = icmp eq i16 %5, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %8 = load i16, ptr %7, align 2
   %9 = icmp eq i16 %8, 0
   %or.cond = select i1 %6, i1 %9, i1 false
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !4
   %12 = load i64, ptr %1, align 8, !noundef !4
   %13 = sub i64 %12, %11
@@ -289,7 +289,7 @@ define void @_RNvXs5_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_6MoveToNtB5_8Buf
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %14, %16
   %17 = phi i64 [ %.pre.i, %16 ], [ %11, %14 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !23, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
   store i16 23323, ptr %20, align 1
@@ -390,7 +390,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit7: ; preds = %63, %65
   %66 = phi i64 [ %.pre.i6, %65 ], [ %11, %63 ]
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load ptr, ptr %67, align 8, !alias.scope !44, !nonnull !4, !noundef !4
   %69 = getelementptr inbounds i8, ptr %68, i64 %66
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %69, ptr noundef nonnull readonly align 1 dereferenceable(3) @anon.501b6e7c782e41b94b8f62820c9a442a.9.llvm.3209305459455205536, i64 3, i1 false)
@@ -406,7 +406,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXs6_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10ClearAttrsNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !47, !noundef !4
   %5 = load i64, ptr %1, align 8, !alias.scope !47, !noundef !4
   %6 = sub i64 %5, %4
@@ -420,7 +420,7 @@ define void @_RNvXs6_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10ClearAttrsNtB5
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %2, %8
   %9 = phi i64 [ %.pre.i, %8 ], [ %4, %2 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !47, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %12, ptr noundef nonnull readonly align 1 dereferenceable(3) @anon.501b6e7c782e41b94b8f62820c9a442a.11.llvm.3209305459455205536, i64 3, i1 false)
@@ -432,7 +432,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs7fgcolor(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) initializes((4, 8)) %1, i32 %2) unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %2, ptr %4, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 12, i1 false)
   ret void
@@ -440,7 +440,7 @@ define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs7fg
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs7bgcolor(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) initializes((8, 12)) %1, i32 %2) unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %2, ptr %4, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 12, i1 false)
   ret void
@@ -457,7 +457,7 @@ define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs4bo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs6italic(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) initializes((1, 2)) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = zext i1 %2 to i8
-  %5 = getelementptr inbounds i8, ptr %1, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %4, ptr %5, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 12, i1 false)
   ret void
@@ -466,7 +466,7 @@ define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs6it
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs9underline(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) initializes((2, 3)) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = zext i1 %2 to i8
-  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %4, ptr %5, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 12, i1 false)
   ret void
@@ -475,7 +475,7 @@ define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs9un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs7inverse(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) initializes((3, 4)) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = zext i1 %2 to i8
-  %5 = getelementptr inbounds i8, ptr %1, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %4, ptr %5, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 12, i1 false)
   ret void
@@ -510,11 +510,11 @@ define void @_RNvXs8_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5AttrsNtB5_8BufW
   %27 = alloca [40 x i8], align 1
   %28 = alloca [40 x i8], align 1
   %29 = alloca [40 x i8], align 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %31 = load i8, ptr %30, align 1, !range !50, !noundef !4
   %32 = icmp eq i8 %31, 3
-  %.sroa.07.1.i.i92.sroa.gep242 = getelementptr inbounds i8, ptr %21, i64 1
-  %.sroa.07.1.i.i120.sroa.gep246 = getelementptr inbounds i8, ptr %18, i64 1
+  %.sroa.07.1.i.i92.sroa.gep242 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  %.sroa.07.1.i.i120.sroa.gep246 = getelementptr inbounds nuw i8, ptr %18, i64 1
   br i1 %32, label %34, label %.critedge
 
 default.unreachable:                              ; preds = %322
@@ -524,28 +524,28 @@ default.unreachable:                              ; preds = %322
   unreachable
 
 34:                                               ; preds = %2
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i8, ptr %35, align 1, !range !50, !noundef !4
   %37 = icmp eq i8 %36, 3
   %38 = load i8, ptr %0, align 1, !range !51
   %39 = icmp eq i8 %38, 2
   %or.cond = select i1 %37, i1 %39, i1 false
-  %40 = getelementptr inbounds i8, ptr %0, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %41 = load i8, ptr %40, align 1, !range !51
   %42 = icmp eq i8 %41, 2
   %or.cond4 = select i1 %or.cond, i1 %42, i1 false
-  %43 = getelementptr inbounds i8, ptr %0, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %44 = load i8, ptr %43, align 1, !range !51
   %45 = icmp eq i8 %44, 2
   %or.cond7 = select i1 %or.cond4, i1 %45, i1 false
-  %46 = getelementptr inbounds i8, ptr %0, i64 3
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %47 = load i8, ptr %46, align 1, !range !51
   %48 = icmp eq i8 %47, 2
   %or.cond10 = select i1 %or.cond7, i1 %48, i1 false
   br i1 %or.cond10, label %936, label %49
 
 49:                                               ; preds = %34
-  %50 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load i64, ptr %50, align 8, !alias.scope !52, !noundef !4
   %52 = load i64, ptr %1, align 8, !alias.scope !52, !noundef !4
   %53 = sub i64 %52, %51
@@ -559,7 +559,7 @@ default.unreachable:                              ; preds = %322
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %49, %55
   %56 = phi i64 [ %.pre.i, %55 ], [ %51, %49 ]
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8, !alias.scope !52, !nonnull !4, !noundef !4
   %59 = getelementptr inbounds i8, ptr %58, i64 %56
   store i16 23323, ptr %59, align 1
@@ -569,7 +569,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   br label %74
 
 .critedge:                                        ; preds = %2
-  %62 = getelementptr inbounds i8, ptr %1, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %63 = load i64, ptr %62, align 8, !alias.scope !55, !noundef !4
   %64 = load i64, ptr %1, align 8, !alias.scope !55, !noundef !4
   %65 = sub i64 %64, %63
@@ -583,18 +583,18 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit45: ; preds = %.critedge, %67
   %68 = phi i64 [ %.pre.i44, %67 ], [ %63, %.critedge ]
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8, !alias.scope !55, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds i8, ptr %70, i64 %68
   store i16 23323, ptr %71, align 1
   %72 = load i64, ptr %62, align 8, !alias.scope !55, !noundef !4
   %73 = add i64 %72, 2
   store i64 %73, ptr %62, align 8, !alias.scope !55
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 5
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 5
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 6
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 1
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 7
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 7
   %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 1
   switch i8 %31, label %33 [
     i8 0, label %79
@@ -605,7 +605,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 74:                                               ; preds = %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit73, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit109, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit99, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit83, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit
   %75 = phi i64 [ %61, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit ], [ %245, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit83 ], [ %307, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit99 ], [ %321, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit109 ], [ %229, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit73 ], [ %92, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit ]
   %.sroa.017.0 = phi i8 [ 1, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit ], [ 0, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit83 ], [ 0, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit99 ], [ 0, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit109 ], [ 0, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit73 ], [ 0, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit ]
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load i8, ptr %76, align 1, !range !50, !noundef !4
   %78 = icmp eq i8 %77, 3
   br i1 %78, label %323, label %322
@@ -735,22 +735,22 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %136 = shl nuw i8 %135, 1
   %137 = zext i8 %136 to i64
   %138 = udiv i8 %.sroa.4.0.copyload, 100
-  %139 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %137
-  %140 = getelementptr inbounds i8, ptr %26, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %137
+  %140 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %141 = load i16, ptr %139, align 1, !noalias !88
   store i16 %141, ptr %140, align 1, !alias.scope !85, !noalias !82
   br label %150
 
 142:                                              ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit50
-  %.sroa.07.017.i.sroa.gep1.i = getelementptr inbounds i8, ptr %26, i64 2
+  %.sroa.07.017.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %26, i64 2
   %143 = icmp samesign ult i8 %.sroa.4.0.copyload, 10
   br i1 %143, label %150, label %144
 
 144:                                              ; preds = %142
   %145 = shl nuw i8 %.sroa.4.0.copyload, 1
   %146 = zext i8 %145 to i64
-  %147 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %146
-  %148 = getelementptr inbounds i8, ptr %26, i64 1
+  %147 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %146
+  %148 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %149 = load i16, ptr %147, align 1, !noalias !88
   store i16 %149, ptr %148, align 1, !alias.scope !85, !noalias !82
   br label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i
@@ -811,22 +811,22 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %170 = shl nuw i8 %169, 1
   %171 = zext i8 %170 to i64
   %172 = udiv i8 %.sroa.6.0.copyload, 100
-  %173 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %171
-  %174 = getelementptr inbounds i8, ptr %25, i64 1
+  %173 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %171
+  %174 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %175 = load i16, ptr %173, align 1, !noalias !101
   store i16 %175, ptr %174, align 1, !alias.scope !98, !noalias !95
   br label %184
 
 176:                                              ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit52
-  %.sroa.07.017.i.sroa.gep1.i53 = getelementptr inbounds i8, ptr %25, i64 2
+  %.sroa.07.017.i.sroa.gep1.i53 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %177 = icmp samesign ult i8 %.sroa.6.0.copyload, 10
   br i1 %177, label %184, label %178
 
 178:                                              ; preds = %176
   %179 = shl nuw i8 %.sroa.6.0.copyload, 1
   %180 = zext i8 %179 to i64
-  %181 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %180
-  %182 = getelementptr inbounds i8, ptr %25, i64 1
+  %181 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %180
+  %182 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %183 = load i16, ptr %181, align 1, !noalias !101
   store i16 %183, ptr %182, align 1, !alias.scope !98, !noalias !95
   br label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i54
@@ -887,22 +887,22 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %204 = shl nuw i8 %203, 1
   %205 = zext i8 %204 to i64
   %206 = udiv i8 %.sroa.7.0.copyload, 100
-  %207 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %205
-  %208 = getelementptr inbounds i8, ptr %24, i64 1
+  %207 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %205
+  %208 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %209 = load i16, ptr %207, align 1, !noalias !114
   store i16 %209, ptr %208, align 1, !alias.scope !111, !noalias !108
   br label %218
 
 210:                                              ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit63
-  %.sroa.07.017.i.sroa.gep1.i64 = getelementptr inbounds i8, ptr %24, i64 2
+  %.sroa.07.017.i.sroa.gep1.i64 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %211 = icmp samesign ult i8 %.sroa.7.0.copyload, 10
   br i1 %211, label %218, label %212
 
 212:                                              ; preds = %210
   %213 = shl nuw i8 %.sroa.7.0.copyload, 1
   %214 = zext i8 %213 to i64
-  %215 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %214
-  %216 = getelementptr inbounds i8, ptr %24, i64 1
+  %215 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %214
+  %216 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %217 = load i16, ptr %215, align 1, !noalias !114
   store i16 %217, ptr %216, align 1, !alias.scope !111, !noalias !108
   br label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i65
@@ -948,8 +948,8 @@ _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.277294647238992513
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %232 = shl nuw nsw i8 %.sroa.4.0.copyload, 1
   %233 = zext nneg i8 %232 to i64
-  %234 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %233
-  %235 = getelementptr inbounds i8, ptr %234, i64 60
+  %234 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %233
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 60
   %236 = load i16, ptr %235, align 1, !noalias !121
   %237 = load i64, ptr %1, align 8, !alias.scope !124, !noundef !4
   %238 = sub i64 %237, %73
@@ -1061,7 +1061,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 286:                                              ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit89
   %287 = shl nuw i8 %.sroa.4.0.copyload, 1
   %288 = zext i8 %287 to i64
-  %289 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %288
+  %289 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %288
   %290 = load i16, ptr %289, align 1, !noalias !151
   br label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i91
 
@@ -1070,7 +1070,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %293 = shl nuw i8 %292, 1
   %294 = zext i8 %293 to i64
   %295 = udiv i8 %.sroa.4.0.copyload, 100
-  %296 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %294
+  %296 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %294
   %297 = load i16, ptr %296, align 1, !noalias !151
   %298 = or disjoint i8 %295, 48
   store i8 %298, ptr %21, align 1, !alias.scope !148, !noalias !145
@@ -1107,7 +1107,7 @@ _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.277294647238992513
   %308 = shl nuw nsw i8 %.sroa.4.0.copyload, 1
   %309 = add nuw nsw i8 %308, -92
   %310 = zext i8 %309 to i64
-  %311 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %310
+  %311 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %310
   %312 = load i16, ptr %311, align 1, !noalias !158
   %313 = load i64, ptr %1, align 8, !alias.scope !161, !noundef !4
   %314 = sub i64 %313, %73
@@ -1130,11 +1130,11 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit109: ; preds =
   br label %74
 
 322:                                              ; preds = %74
-  %.sroa.413.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   %.sroa.413.0.copyload = load i8, ptr %.sroa.413.0..sroa_idx, align 1
-  %.sroa.615.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 10
+  %.sroa.615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   %.sroa.615.0.copyload = load i8, ptr %.sroa.615.0..sroa_idx, align 1
-  %.sroa.716.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 11
+  %.sroa.716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 11
   %.sroa.716.0.copyload = load i8, ptr %.sroa.716.0..sroa_idx, align 1
   switch i8 %77, label %default.unreachable [
     i8 0, label %327
@@ -1162,7 +1162,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit109: ; preds =
   br i1 %332, label %505, label %483
 
 333:                                              ; preds = %327
-  %334 = getelementptr inbounds i8, ptr %1, i64 16
+  %334 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %335 = load i64, ptr %1, align 8, !alias.scope !164, !noundef !4
   %336 = icmp eq i64 %75, %335
   br i1 %336, label %337, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit110
@@ -1172,7 +1172,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit109: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit110
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit110: ; preds = %333, %337
-  %338 = getelementptr inbounds i8, ptr %1, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %339 = load ptr, ptr %338, align 8, !alias.scope !164, !nonnull !4, !noundef !4
   %340 = getelementptr inbounds i8, ptr %339, i64 %75
   store i8 59, ptr %340, align 1
@@ -1190,7 +1190,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %346 = extractvalue { ptr, i64 } %344, 1
   %347 = icmp ne ptr %345, null
   call void @llvm.assume(i1 %347)
-  %348 = getelementptr inbounds i8, ptr %1, i64 16
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %349 = load i64, ptr %1, align 8, !alias.scope !170, !noundef !4
   %350 = sub i64 %349, %343
   %351 = icmp ugt i64 %346, %350
@@ -1203,7 +1203,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit112: ; preds = %342, %352
   %353 = phi i64 [ %.pre.i.i111, %352 ], [ %343, %342 ]
-  %354 = getelementptr inbounds i8, ptr %1, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %355 = load ptr, ptr %354, align 8, !alias.scope !170, !nonnull !4, !noundef !4
   %356 = getelementptr inbounds i8, ptr %355, i64 %353
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %356, ptr nonnull align 1 %345, i64 %346, i1 false)
@@ -1229,7 +1229,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit112: ; preds =
   br i1 %361, label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i130, label %431
 
 366:                                              ; preds = %364
-  %367 = getelementptr inbounds i8, ptr %1, i64 16
+  %367 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %368 = load i64, ptr %1, align 8, !alias.scope !173, !noundef !4
   %369 = icmp eq i64 %75, %368
   br i1 %369, label %370, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit113
@@ -1239,7 +1239,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit112: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit113
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit113: ; preds = %366, %370
-  %371 = getelementptr inbounds i8, ptr %1, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %372 = load ptr, ptr %371, align 8, !alias.scope !173, !nonnull !4, !noundef !4
   %373 = getelementptr inbounds i8, ptr %372, i64 %75
   store i8 59, ptr %373, align 1
@@ -1250,7 +1250,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 375:                                              ; preds = %364, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit113
   %.sroa.017.10 = phi i8 [ %.sroa.017.0, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit113 ], [ 0, %364 ]
   call void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 48)
-  %376 = getelementptr inbounds i8, ptr %1, i64 16
+  %376 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %377 = load i64, ptr %376, align 8, !alias.scope !176, !noundef !4
   %378 = load i64, ptr %1, align 8, !alias.scope !176, !noundef !4
   %379 = icmp eq i64 %377, %378
@@ -1261,7 +1261,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit114
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit114: ; preds = %375, %380
-  %381 = getelementptr inbounds i8, ptr %1, i64 8
+  %381 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %382 = load ptr, ptr %381, align 8, !alias.scope !176, !nonnull !4, !noundef !4
   %383 = getelementptr inbounds i8, ptr %382, i64 %377
   store i8 59, ptr %383, align 1
@@ -1325,7 +1325,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 409:                                              ; preds = %406
   %410 = shl nuw i8 %.sroa.413.0.copyload, 1
   %411 = zext i8 %410 to i64
-  %412 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %411
+  %412 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %411
   %413 = load i16, ptr %412, align 1, !noalias !194
   br label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i119
 
@@ -1334,7 +1334,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %416 = shl nuw i8 %415, 1
   %417 = zext i8 %416 to i64
   %418 = udiv i8 %.sroa.413.0.copyload, 100
-  %419 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %417
+  %419 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %417
   %420 = load i16, ptr %419, align 1, !noalias !194
   %421 = or disjoint i8 %418, 48
   store i8 %421, ptr %18, align 1, !alias.scope !191, !noalias !188
@@ -1367,7 +1367,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit127: ; preds =
   br label %323
 
 431:                                              ; preds = %365
-  %432 = getelementptr inbounds i8, ptr %1, i64 16
+  %432 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %433 = load i64, ptr %1, align 8, !alias.scope !198, !noundef !4
   %434 = icmp eq i64 %75, %433
   br i1 %434, label %435, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit128
@@ -1377,7 +1377,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit127: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit128
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit128: ; preds = %431, %435
-  %436 = getelementptr inbounds i8, ptr %1, i64 8
+  %436 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %437 = load ptr, ptr %436, align 8, !alias.scope !198, !nonnull !4, !noundef !4
   %438 = getelementptr inbounds i8, ptr %437, i64 %75
   store i8 59, ptr %438, align 1
@@ -1394,7 +1394,7 @@ _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.277294647238992513
   %443 = getelementptr i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %442
   %444 = getelementptr i8, ptr %443, i64 -16
   %445 = load i16, ptr %444, align 1, !noalias !204
-  %446 = getelementptr inbounds i8, ptr %1, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %447 = load i64, ptr %1, align 8, !alias.scope !207, !noundef !4
   %448 = sub i64 %447, %440
   %449 = icmp ult i64 %448, 3
@@ -1407,11 +1407,11 @@ _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.277294647238992513
 
 _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit138: ; preds = %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i130, %450
   %451 = phi i64 [ %.pre.i.i133, %450 ], [ %440, %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i130 ]
-  %452 = getelementptr inbounds i8, ptr %1, i64 8
+  %452 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %453 = load ptr, ptr %452, align 8, !alias.scope !207, !nonnull !4, !noundef !4
   %454 = getelementptr inbounds i8, ptr %453, i64 %451
   store i8 49, ptr %454, align 1
-  %.sroa.4248.0..sroa_idx = getelementptr inbounds i8, ptr %454, i64 1
+  %.sroa.4248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %454, i64 1
   store i16 %445, ptr %.sroa.4248.0..sroa_idx, align 1
   %455 = load i64, ptr %446, align 8, !alias.scope !207, !noundef !4
   %456 = add i64 %455, 3
@@ -1419,7 +1419,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit138: ; preds =
   br label %323
 
 457:                                              ; preds = %362
-  %458 = getelementptr inbounds i8, ptr %1, i64 16
+  %458 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %459 = load i64, ptr %1, align 8, !alias.scope !210, !noundef !4
   %460 = icmp eq i64 %75, %459
   br i1 %460, label %461, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit139
@@ -1429,7 +1429,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit138: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit139
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit139: ; preds = %457, %461
-  %462 = getelementptr inbounds i8, ptr %1, i64 8
+  %462 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %463 = load ptr, ptr %462, align 8, !alias.scope !210, !nonnull !4, !noundef !4
   %464 = getelementptr inbounds i8, ptr %463, i64 %75
   store i8 59, ptr %464, align 1
@@ -1444,9 +1444,9 @@ _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.277294647238992513
   %467 = shl nuw nsw i8 %.sroa.413.0.copyload, 1
   %468 = or disjoint i8 %467, 80
   %469 = zext nneg i8 %468 to i64
-  %470 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %469
+  %470 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %469
   %471 = load i16, ptr %470, align 1, !noalias !216
-  %472 = getelementptr inbounds i8, ptr %1, i64 16
+  %472 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %473 = load i64, ptr %1, align 8, !alias.scope !219, !noundef !4
   %474 = sub i64 %473, %466
   %475 = icmp ult i64 %474, 2
@@ -1459,7 +1459,7 @@ _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.277294647238992513
 
 _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit149: ; preds = %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i141, %476
   %477 = phi i64 [ %.pre.i.i144, %476 ], [ %466, %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i141 ]
-  %478 = getelementptr inbounds i8, ptr %1, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %479 = load ptr, ptr %478, align 8, !alias.scope !219, !nonnull !4, !noundef !4
   %480 = getelementptr inbounds i8, ptr %479, i64 %477
   store i16 %471, ptr %480, align 1
@@ -1469,7 +1469,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit149: ; preds =
   br label %323
 
 483:                                              ; preds = %331
-  %484 = getelementptr inbounds i8, ptr %1, i64 16
+  %484 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %485 = load i64, ptr %1, align 8, !alias.scope !222, !noundef !4
   %486 = icmp eq i64 %75, %485
   br i1 %486, label %487, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit150
@@ -1479,7 +1479,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit149: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit150
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit150: ; preds = %483, %487
-  %488 = getelementptr inbounds i8, ptr %1, i64 8
+  %488 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %489 = load ptr, ptr %488, align 8, !alias.scope !222, !nonnull !4, !noundef !4
   %490 = getelementptr inbounds i8, ptr %489, i64 %75
   store i8 59, ptr %490, align 1
@@ -1521,7 +1521,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit152: ; preds =
   %508 = extractvalue { ptr, i64 } %506, 1
   %509 = icmp ne ptr %507, null
   call void @llvm.assume(i1 %509)
-  %510 = getelementptr inbounds i8, ptr %1, i64 16
+  %510 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %511 = load i64, ptr %1, align 8, !alias.scope !234, !noundef !4
   %512 = sub i64 %511, %75
   %513 = icmp ugt i64 %508, %512
@@ -1534,7 +1534,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit152: ; preds =
 
 _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit154: ; preds = %505, %514
   %515 = phi i64 [ %.pre.i.i153, %514 ], [ %75, %505 ]
-  %516 = getelementptr inbounds i8, ptr %1, i64 8
+  %516 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %517 = load ptr, ptr %516, align 8, !alias.scope !234, !nonnull !4, !noundef !4
   %518 = getelementptr inbounds i8, ptr %517, i64 %515
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %518, ptr nonnull align 1 %507, i64 %508, i1 false)
@@ -1547,7 +1547,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit154: ; preds =
 521:                                              ; preds = %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit152, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit154
   %522 = phi i64 [ %520, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit154 ], [ %504, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit152 ]
   %.sroa.017.15 = phi i8 [ 0, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit154 ], [ %.sroa.017.0, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit152 ]
-  %523 = getelementptr inbounds i8, ptr %1, i64 16
+  %523 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %524 = load i64, ptr %1, align 8, !alias.scope !237, !noundef !4
   %525 = icmp eq i64 %522, %524
   br i1 %525, label %526, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit155
@@ -1557,7 +1557,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit154: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit155
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit155: ; preds = %521, %526
-  %527 = getelementptr inbounds i8, ptr %1, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %528 = load ptr, ptr %527, align 8, !alias.scope !237, !nonnull !4, !noundef !4
   %529 = getelementptr inbounds i8, ptr %528, i64 %522
   store i8 59, ptr %529, align 1
@@ -1618,22 +1618,22 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %554 = shl nuw i8 %553, 1
   %555 = zext i8 %554 to i64
   %556 = udiv i8 %.sroa.413.0.copyload, 100
-  %557 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %555
-  %558 = getelementptr inbounds i8, ptr %14, i64 1
+  %557 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %555
+  %558 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %559 = load i16, ptr %557, align 1, !noalias !255
   store i16 %559, ptr %558, align 1, !alias.scope !252, !noalias !249
   br label %568
 
 560:                                              ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit158
-  %.sroa.07.017.i.sroa.gep1.i159 = getelementptr inbounds i8, ptr %14, i64 2
+  %.sroa.07.017.i.sroa.gep1.i159 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %561 = icmp samesign ult i8 %.sroa.413.0.copyload, 10
   br i1 %561, label %568, label %562
 
 562:                                              ; preds = %560
   %563 = shl nuw i8 %.sroa.413.0.copyload, 1
   %564 = zext i8 %563 to i64
-  %565 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %564
-  %566 = getelementptr inbounds i8, ptr %14, i64 1
+  %565 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %564
+  %566 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %567 = load i16, ptr %565, align 1, !noalias !255
   store i16 %567, ptr %566, align 1, !alias.scope !252, !noalias !249
   br label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i160
@@ -1683,22 +1683,22 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit168: ; preds =
   %583 = shl nuw i8 %582, 1
   %584 = zext i8 %583 to i64
   %585 = udiv i8 %.sroa.413.0.copyload, 100
-  %586 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %584
-  %587 = getelementptr inbounds i8, ptr %13, i64 1
+  %586 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %584
+  %587 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %588 = load i16, ptr %586, align 1, !noalias !265
   store i16 %588, ptr %587, align 1, !alias.scope !262, !noalias !259
   br label %597
 
 589:                                              ; preds = %580
-  %.sroa.07.017.i.sroa.gep1.i169 = getelementptr inbounds i8, ptr %13, i64 2
+  %.sroa.07.017.i.sroa.gep1.i169 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %590 = icmp samesign ult i8 %.sroa.413.0.copyload, 10
   br i1 %590, label %597, label %591
 
 591:                                              ; preds = %589
   %592 = shl nuw i8 %.sroa.413.0.copyload, 1
   %593 = zext i8 %592 to i64
-  %594 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %593
-  %595 = getelementptr inbounds i8, ptr %13, i64 1
+  %594 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %593
+  %595 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %596 = load i16, ptr %594, align 1, !noalias !265
   store i16 %596, ptr %595, align 1, !alias.scope !262, !noalias !259
   br label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i170
@@ -1764,22 +1764,22 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %619 = shl nuw i8 %618, 1
   %620 = zext i8 %619 to i64
   %621 = udiv i8 %.sroa.615.0.copyload, 100
-  %622 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %620
-  %623 = getelementptr inbounds i8, ptr %12, i64 1
+  %622 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %620
+  %623 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %624 = load i16, ptr %622, align 1, !noalias !278
   store i16 %624, ptr %623, align 1, !alias.scope !275, !noalias !272
   br label %633
 
 625:                                              ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit179
-  %.sroa.07.017.i.sroa.gep1.i180 = getelementptr inbounds i8, ptr %12, i64 2
+  %.sroa.07.017.i.sroa.gep1.i180 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %626 = icmp samesign ult i8 %.sroa.615.0.copyload, 10
   br i1 %626, label %633, label %627
 
 627:                                              ; preds = %625
   %628 = shl nuw i8 %.sroa.615.0.copyload, 1
   %629 = zext i8 %628 to i64
-  %630 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %629
-  %631 = getelementptr inbounds i8, ptr %12, i64 1
+  %630 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %629
+  %631 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %632 = load i16, ptr %630, align 1, !noalias !278
   store i16 %632, ptr %631, align 1, !alias.scope !275, !noalias !272
   br label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i181
@@ -1849,22 +1849,22 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %657 = shl nuw i8 %656, 1
   %658 = zext i8 %657 to i64
   %659 = udiv i8 %.sroa.716.0.copyload, 100
-  %660 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %658
-  %661 = getelementptr inbounds i8, ptr %11, i64 1
+  %660 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %658
+  %661 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %662 = load i16, ptr %660, align 1, !noalias !291
   store i16 %662, ptr %661, align 1, !alias.scope !288, !noalias !285
   br label %671
 
 663:                                              ; preds = %653
-  %.sroa.07.017.i.sroa.gep1.i201 = getelementptr inbounds i8, ptr %11, i64 2
+  %.sroa.07.017.i.sroa.gep1.i201 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %664 = icmp samesign ult i8 %.sroa.716.0.copyload, 10
   br i1 %664, label %671, label %665
 
 665:                                              ; preds = %663
   %666 = shl nuw i8 %.sroa.716.0.copyload, 1
   %667 = zext i8 %666 to i64
-  %668 = getelementptr inbounds i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %667
-  %669 = getelementptr inbounds i8, ptr %11, i64 1
+  %668 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %667
+  %669 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %670 = load i16, ptr %668, align 1, !noalias !291
   store i16 %670, ptr %669, align 1, !alias.scope !288, !noalias !285
   br label %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i202
@@ -1910,7 +1910,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit210: ; preds =
 686:                                              ; preds = %323, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit216, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit213
   %687 = phi i64 [ %324, %323 ], [ %744, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit216 ], [ %718, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit213 ]
   %.sroa.017.7 = phi i8 [ %.sroa.017.1, %323 ], [ %.sroa.017.22, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit216 ], [ %.sroa.017.21, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit213 ]
-  %688 = getelementptr inbounds i8, ptr %0, i64 1
+  %688 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %689 = load i8, ptr %688, align 1, !range !51, !noundef !4
   %690 = icmp eq i8 %689, 2
   br i1 %690, label %748, label %745
@@ -1922,7 +1922,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit210: ; preds =
   br i1 %685, label %728, label %719
 
 693:                                              ; preds = %691
-  %694 = getelementptr inbounds i8, ptr %1, i64 16
+  %694 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %695 = load i64, ptr %1, align 8, !alias.scope !295, !noundef !4
   %696 = icmp eq i64 %324, %695
   br i1 %696, label %697, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit211
@@ -1932,7 +1932,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit210: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit211
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit211: ; preds = %693, %697
-  %698 = getelementptr inbounds i8, ptr %1, i64 8
+  %698 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %699 = load ptr, ptr %698, align 8, !alias.scope !295, !nonnull !4, !noundef !4
   %700 = getelementptr inbounds i8, ptr %699, i64 %324
   store i8 59, ptr %700, align 1
@@ -1950,7 +1950,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %706 = extractvalue { ptr, i64 } %704, 1
   %707 = icmp ne ptr %705, null
   call void @llvm.assume(i1 %707)
-  %708 = getelementptr inbounds i8, ptr %1, i64 16
+  %708 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %709 = load i64, ptr %1, align 8, !alias.scope !301, !noundef !4
   %710 = sub i64 %709, %703
   %711 = icmp ugt i64 %706, %710
@@ -1963,7 +1963,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit213: ; preds = %702, %712
   %713 = phi i64 [ %.pre.i.i212, %712 ], [ %703, %702 ]
-  %714 = getelementptr inbounds i8, ptr %1, i64 8
+  %714 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %715 = load ptr, ptr %714, align 8, !alias.scope !301, !nonnull !4, !noundef !4
   %716 = getelementptr inbounds i8, ptr %715, i64 %713
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %716, ptr nonnull align 1 %705, i64 %706, i1 false)
@@ -1974,7 +1974,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit213: ; preds =
   br label %686
 
 719:                                              ; preds = %692
-  %720 = getelementptr inbounds i8, ptr %1, i64 16
+  %720 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %721 = load i64, ptr %1, align 8, !alias.scope !304, !noundef !4
   %722 = icmp eq i64 %324, %721
   br i1 %722, label %723, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit214
@@ -1984,7 +1984,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit213: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit214
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit214: ; preds = %719, %723
-  %724 = getelementptr inbounds i8, ptr %1, i64 8
+  %724 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %725 = load ptr, ptr %724, align 8, !alias.scope !304, !nonnull !4, !noundef !4
   %726 = getelementptr inbounds i8, ptr %725, i64 %324
   store i8 59, ptr %726, align 1
@@ -2002,7 +2002,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %732 = extractvalue { ptr, i64 } %730, 1
   %733 = icmp ne ptr %731, null
   call void @llvm.assume(i1 %733)
-  %734 = getelementptr inbounds i8, ptr %1, i64 16
+  %734 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %735 = load i64, ptr %1, align 8, !alias.scope !310, !noundef !4
   %736 = sub i64 %735, %729
   %737 = icmp ugt i64 %732, %736
@@ -2015,7 +2015,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit216: ; preds = %728, %738
   %739 = phi i64 [ %.pre.i.i215, %738 ], [ %729, %728 ]
-  %740 = getelementptr inbounds i8, ptr %1, i64 8
+  %740 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %741 = load ptr, ptr %740, align 8, !alias.scope !310, !nonnull !4, !noundef !4
   %742 = getelementptr inbounds i8, ptr %741, i64 %739
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %742, ptr nonnull align 1 %731, i64 %732, i1 false)
@@ -2033,7 +2033,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit216: ; preds =
 748:                                              ; preds = %686, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit222, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit219
   %749 = phi i64 [ %687, %686 ], [ %806, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit222 ], [ %780, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit219 ]
   %.sroa.017.20 = phi i8 [ %.sroa.017.7, %686 ], [ %.sroa.017.25, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit222 ], [ %.sroa.017.24, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit219 ]
-  %750 = getelementptr inbounds i8, ptr %0, i64 2
+  %750 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %751 = load i8, ptr %750, align 1, !range !51, !noundef !4
   %752 = icmp eq i8 %751, 2
   br i1 %752, label %810, label %807
@@ -2045,7 +2045,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit216: ; preds =
   br i1 %747, label %790, label %781
 
 755:                                              ; preds = %753
-  %756 = getelementptr inbounds i8, ptr %1, i64 16
+  %756 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %757 = load i64, ptr %1, align 8, !alias.scope !313, !noundef !4
   %758 = icmp eq i64 %687, %757
   br i1 %758, label %759, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit217
@@ -2055,7 +2055,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit216: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit217
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit217: ; preds = %755, %759
-  %760 = getelementptr inbounds i8, ptr %1, i64 8
+  %760 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %761 = load ptr, ptr %760, align 8, !alias.scope !313, !nonnull !4, !noundef !4
   %762 = getelementptr inbounds i8, ptr %761, i64 %687
   store i8 59, ptr %762, align 1
@@ -2073,7 +2073,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %768 = extractvalue { ptr, i64 } %766, 1
   %769 = icmp ne ptr %767, null
   call void @llvm.assume(i1 %769)
-  %770 = getelementptr inbounds i8, ptr %1, i64 16
+  %770 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %771 = load i64, ptr %1, align 8, !alias.scope !319, !noundef !4
   %772 = sub i64 %771, %765
   %773 = icmp ugt i64 %768, %772
@@ -2086,7 +2086,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit219: ; preds = %764, %774
   %775 = phi i64 [ %.pre.i.i218, %774 ], [ %765, %764 ]
-  %776 = getelementptr inbounds i8, ptr %1, i64 8
+  %776 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %777 = load ptr, ptr %776, align 8, !alias.scope !319, !nonnull !4, !noundef !4
   %778 = getelementptr inbounds i8, ptr %777, i64 %775
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %778, ptr nonnull align 1 %767, i64 %768, i1 false)
@@ -2097,7 +2097,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit219: ; preds =
   br label %748
 
 781:                                              ; preds = %754
-  %782 = getelementptr inbounds i8, ptr %1, i64 16
+  %782 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %783 = load i64, ptr %1, align 8, !alias.scope !322, !noundef !4
   %784 = icmp eq i64 %687, %783
   br i1 %784, label %785, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit220
@@ -2107,7 +2107,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit219: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit220
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit220: ; preds = %781, %785
-  %786 = getelementptr inbounds i8, ptr %1, i64 8
+  %786 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %787 = load ptr, ptr %786, align 8, !alias.scope !322, !nonnull !4, !noundef !4
   %788 = getelementptr inbounds i8, ptr %787, i64 %687
   store i8 59, ptr %788, align 1
@@ -2125,7 +2125,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %794 = extractvalue { ptr, i64 } %792, 1
   %795 = icmp ne ptr %793, null
   call void @llvm.assume(i1 %795)
-  %796 = getelementptr inbounds i8, ptr %1, i64 16
+  %796 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %797 = load i64, ptr %1, align 8, !alias.scope !328, !noundef !4
   %798 = sub i64 %797, %791
   %799 = icmp ugt i64 %794, %798
@@ -2138,7 +2138,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit222: ; preds = %790, %800
   %801 = phi i64 [ %.pre.i.i221, %800 ], [ %791, %790 ]
-  %802 = getelementptr inbounds i8, ptr %1, i64 8
+  %802 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %803 = load ptr, ptr %802, align 8, !alias.scope !328, !nonnull !4, !noundef !4
   %804 = getelementptr inbounds i8, ptr %803, i64 %801
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %804, ptr nonnull align 1 %793, i64 %794, i1 false)
@@ -2156,7 +2156,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit222: ; preds =
 810:                                              ; preds = %748, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit228, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit225
   %811 = phi i64 [ %749, %748 ], [ %868, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit228 ], [ %842, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit225 ]
   %.sroa.017.23 = phi i8 [ %.sroa.017.20, %748 ], [ %.sroa.017.27, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit228 ], [ %.sroa.017.26, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit225 ]
-  %812 = getelementptr inbounds i8, ptr %0, i64 3
+  %812 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %813 = load i8, ptr %812, align 1, !range !51, !noundef !4
   %814 = icmp eq i8 %813, 2
   br i1 %814, label %872, label %869
@@ -2168,7 +2168,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit222: ; preds =
   br i1 %809, label %852, label %843
 
 817:                                              ; preds = %815
-  %818 = getelementptr inbounds i8, ptr %1, i64 16
+  %818 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %819 = load i64, ptr %1, align 8, !alias.scope !331, !noundef !4
   %820 = icmp eq i64 %749, %819
   br i1 %820, label %821, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit223
@@ -2178,7 +2178,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit222: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit223
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit223: ; preds = %817, %821
-  %822 = getelementptr inbounds i8, ptr %1, i64 8
+  %822 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %823 = load ptr, ptr %822, align 8, !alias.scope !331, !nonnull !4, !noundef !4
   %824 = getelementptr inbounds i8, ptr %823, i64 %749
   store i8 59, ptr %824, align 1
@@ -2196,7 +2196,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %830 = extractvalue { ptr, i64 } %828, 1
   %831 = icmp ne ptr %829, null
   call void @llvm.assume(i1 %831)
-  %832 = getelementptr inbounds i8, ptr %1, i64 16
+  %832 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %833 = load i64, ptr %1, align 8, !alias.scope !337, !noundef !4
   %834 = sub i64 %833, %827
   %835 = icmp ugt i64 %830, %834
@@ -2209,7 +2209,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit225: ; preds = %826, %836
   %837 = phi i64 [ %.pre.i.i224, %836 ], [ %827, %826 ]
-  %838 = getelementptr inbounds i8, ptr %1, i64 8
+  %838 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %839 = load ptr, ptr %838, align 8, !alias.scope !337, !nonnull !4, !noundef !4
   %840 = getelementptr inbounds i8, ptr %839, i64 %837
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %840, ptr nonnull align 1 %829, i64 %830, i1 false)
@@ -2220,7 +2220,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit225: ; preds =
   br label %810
 
 843:                                              ; preds = %816
-  %844 = getelementptr inbounds i8, ptr %1, i64 16
+  %844 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %845 = load i64, ptr %1, align 8, !alias.scope !340, !noundef !4
   %846 = icmp eq i64 %749, %845
   br i1 %846, label %847, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit226
@@ -2230,7 +2230,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit225: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit226
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit226: ; preds = %843, %847
-  %848 = getelementptr inbounds i8, ptr %1, i64 8
+  %848 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %849 = load ptr, ptr %848, align 8, !alias.scope !340, !nonnull !4, !noundef !4
   %850 = getelementptr inbounds i8, ptr %849, i64 %749
   store i8 59, ptr %850, align 1
@@ -2248,7 +2248,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %856 = extractvalue { ptr, i64 } %854, 1
   %857 = icmp ne ptr %855, null
   call void @llvm.assume(i1 %857)
-  %858 = getelementptr inbounds i8, ptr %1, i64 16
+  %858 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %859 = load i64, ptr %1, align 8, !alias.scope !346, !noundef !4
   %860 = sub i64 %859, %853
   %861 = icmp ugt i64 %856, %860
@@ -2261,7 +2261,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit228: ; preds = %852, %862
   %863 = phi i64 [ %.pre.i.i227, %862 ], [ %853, %852 ]
-  %864 = getelementptr inbounds i8, ptr %1, i64 8
+  %864 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %865 = load ptr, ptr %864, align 8, !alias.scope !346, !nonnull !4, !noundef !4
   %866 = getelementptr inbounds i8, ptr %865, i64 %863
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %866, ptr nonnull align 1 %855, i64 %856, i1 false)
@@ -2278,7 +2278,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit228: ; preds =
 
 872:                                              ; preds = %810, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit235, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit232
   %873 = phi i64 [ %811, %810 ], [ %935, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit235 ], [ %909, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit232 ]
-  %874 = getelementptr inbounds i8, ptr %1, i64 16
+  %874 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %875 = load i64, ptr %1, align 8, !alias.scope !349, !noundef !4
   %876 = icmp eq i64 %873, %875
   br i1 %876, label %877, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit229
@@ -2288,7 +2288,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit228: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit229
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit229: ; preds = %872, %877
-  %878 = getelementptr inbounds i8, ptr %1, i64 8
+  %878 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %879 = load ptr, ptr %878, align 8, !alias.scope !349, !nonnull !4, !noundef !4
   %880 = getelementptr inbounds i8, ptr %879, i64 %873
   store i8 109, ptr %880, align 1
@@ -2303,7 +2303,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   br i1 %871, label %919, label %910
 
 884:                                              ; preds = %882
-  %885 = getelementptr inbounds i8, ptr %1, i64 16
+  %885 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %886 = load i64, ptr %1, align 8, !alias.scope !352, !noundef !4
   %887 = icmp eq i64 %811, %886
   br i1 %887, label %888, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit230
@@ -2313,7 +2313,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit230
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit230: ; preds = %884, %888
-  %889 = getelementptr inbounds i8, ptr %1, i64 8
+  %889 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %890 = load ptr, ptr %889, align 8, !alias.scope !352, !nonnull !4, !noundef !4
   %891 = getelementptr inbounds i8, ptr %890, i64 %811
   store i8 59, ptr %891, align 1
@@ -2330,7 +2330,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %897 = extractvalue { ptr, i64 } %895, 1
   %898 = icmp ne ptr %896, null
   call void @llvm.assume(i1 %898)
-  %899 = getelementptr inbounds i8, ptr %1, i64 16
+  %899 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %900 = load i64, ptr %1, align 8, !alias.scope !358, !noundef !4
   %901 = sub i64 %900, %894
   %902 = icmp ugt i64 %897, %901
@@ -2343,7 +2343,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit232: ; preds = %893, %903
   %904 = phi i64 [ %.pre.i.i231, %903 ], [ %894, %893 ]
-  %905 = getelementptr inbounds i8, ptr %1, i64 8
+  %905 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %906 = load ptr, ptr %905, align 8, !alias.scope !358, !nonnull !4, !noundef !4
   %907 = getelementptr inbounds i8, ptr %906, i64 %904
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %907, ptr nonnull align 1 %896, i64 %897, i1 false)
@@ -2354,7 +2354,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit232: ; preds =
   br label %872
 
 910:                                              ; preds = %883
-  %911 = getelementptr inbounds i8, ptr %1, i64 16
+  %911 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %912 = load i64, ptr %1, align 8, !alias.scope !361, !noundef !4
   %913 = icmp eq i64 %811, %912
   br i1 %913, label %914, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit233
@@ -2364,7 +2364,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit232: ; preds =
   br label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit233
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit233: ; preds = %910, %914
-  %915 = getelementptr inbounds i8, ptr %1, i64 8
+  %915 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %916 = load ptr, ptr %915, align 8, !alias.scope !361, !nonnull !4, !noundef !4
   %917 = getelementptr inbounds i8, ptr %916, i64 %811
   store i8 59, ptr %917, align 1
@@ -2381,7 +2381,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %923 = extractvalue { ptr, i64 } %921, 1
   %924 = icmp ne ptr %922, null
   call void @llvm.assume(i1 %924)
-  %925 = getelementptr inbounds i8, ptr %1, i64 16
+  %925 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %926 = load i64, ptr %1, align 8, !alias.scope !367, !noundef !4
   %927 = sub i64 %926, %920
   %928 = icmp ugt i64 %923, %927
@@ -2394,7 +2394,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit235: ; preds = %919, %929
   %930 = phi i64 [ %.pre.i.i234, %929 ], [ %920, %919 ]
-  %931 = getelementptr inbounds i8, ptr %1, i64 8
+  %931 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %932 = load ptr, ptr %931, align 8, !alias.scope !367, !nonnull !4, !noundef !4
   %933 = getelementptr inbounds i8, ptr %932, i64 %930
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %933, ptr nonnull align 1 %922, i64 %923, i1 false)
@@ -2428,7 +2428,7 @@ define void @_RNvXsb_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9MoveRightNtB5_8
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !370, !noundef !4
   %8 = load i64, ptr %1, align 8, !alias.scope !370, !noundef !4
   %9 = sub i64 %8, %7
@@ -2442,7 +2442,7 @@ define void @_RNvXsb_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9MoveRightNtB5_8
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %5, %11
   %12 = phi i64 [ %.pre.i, %11 ], [ %7, %5 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !370, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
   store i16 23323, ptr %15, align 1
@@ -2495,7 +2495,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   ret void
 
 38:                                               ; preds = %2
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load i64, ptr %39, align 8, !alias.scope !382, !noundef !4
   %41 = load i64, ptr %1, align 8, !alias.scope !382, !noundef !4
   %42 = sub i64 %41, %40
@@ -2509,7 +2509,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit2: ; preds = %38, %44
   %45 = phi i64 [ %.pre.i1, %44 ], [ %40, %38 ]
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !382, !nonnull !4, !noundef !4
   %48 = getelementptr inbounds i8, ptr %47, i64 %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %48, ptr noundef nonnull readonly align 1 dereferenceable(3) @anon.501b6e7c782e41b94b8f62820c9a442a.12.llvm.3209305459455205536, i64 3, i1 false)
@@ -2539,7 +2539,7 @@ define void @_RNvXse_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9EraseCharNtB5_8
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !385, !noundef !4
   %8 = load i64, ptr %1, align 8, !alias.scope !385, !noundef !4
   %9 = sub i64 %8, %7
@@ -2553,7 +2553,7 @@ define void @_RNvXse_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9EraseCharNtB5_8
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %5, %11
   %12 = phi i64 [ %.pre.i, %11 ], [ %7, %5 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !385, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
   store i16 23323, ptr %15, align 1
@@ -2606,7 +2606,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   ret void
 
 38:                                               ; preds = %2
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load i64, ptr %39, align 8, !alias.scope !397, !noundef !4
   %41 = load i64, ptr %1, align 8, !alias.scope !397, !noundef !4
   %42 = sub i64 %41, %40
@@ -2620,7 +2620,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit2: ; preds = %38, %44
   %45 = phi i64 [ %.pre.i1, %44 ], [ %40, %38 ]
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !397, !nonnull !4, !noundef !4
   %48 = getelementptr inbounds i8, ptr %47, i64 %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %48, ptr noundef nonnull readonly align 1 dereferenceable(3) @anon.501b6e7c782e41b94b8f62820c9a442a.13.llvm.3209305459455205536, i64 3, i1 false)
@@ -2639,7 +2639,7 @@ define hidden noundef zeroext i1 @_RNvMsf_NtCs8mTrBI1stz4_15turborepo_vt1004term
 define void @_RNvXsg_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10HideCursorNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = load i8, ptr %0, align 1, !range !400, !noundef !4
   %4 = trunc nuw i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = load i64, ptr %1, align 8, !noundef !4
   %8 = sub i64 %7, %6
@@ -2656,7 +2656,7 @@ define void @_RNvXsg_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10HideCursorNtB5
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %10, %11
   %12 = phi i64 [ %.pre.i, %11 ], [ %6, %10 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !401, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %15, ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.501b6e7c782e41b94b8f62820c9a442a.14.llvm.3209305459455205536, i64 6, i1 false)
@@ -2672,7 +2672,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit2: ; preds = %16, %17
   %18 = phi i64 [ %.pre.i1, %17 ], [ %6, %16 ]
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !404, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %21, ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.501b6e7c782e41b94b8f62820c9a442a.15.llvm.3209305459455205536, i64 6, i1 false)
@@ -2704,12 +2704,12 @@ define hidden i64 @_RNvMsh_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFrom
 define void @_RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef readonly align 2 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = alloca [4 x i8], align 2
   %4 = alloca [2 x i8], align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 2, !noundef !4
   %7 = load i16, ptr %0, align 2, !noundef !4
   %8 = add i16 %7, 1
   %9 = icmp eq i16 %6, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %11 = load i16, ptr %10, align 2
   %12 = icmp eq i16 %11, 0
   %or.cond = select i1 %9, i1 %12, i1 false
@@ -2720,7 +2720,7 @@ define void @_RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5
   br i1 %14, label %29, label %.critedge
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !407, !noundef !4
   %18 = load i64, ptr %1, align 8, !alias.scope !407, !noundef !4
   %19 = sub i64 %18, %17
@@ -2734,7 +2734,7 @@ define void @_RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5
 
 _RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf.exit: ; preds = %15, %21
   %22 = phi i64 [ %.pre.i.i, %21 ], [ %17, %15 ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !407, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds i8, ptr %24, i64 %22
   store i16 2573, ptr %25, align 1
@@ -2747,7 +2747,7 @@ _RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf
   ret void
 
 29:                                               ; preds = %13
-  %30 = getelementptr inbounds i8, ptr %0, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %31 = load i16, ptr %30, align 2, !noundef !4
   %32 = icmp ult i16 %31, %11
   br i1 %32, label %33, label %35
@@ -2767,7 +2767,7 @@ _RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf
 .critedge:                                        ; preds = %13, %35
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i16 %6, ptr %3, align 2
-  %36 = getelementptr inbounds i8, ptr %3, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %11, ptr %36, align 2
   call void @_RNvXs5_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_6MoveToNtB5_8BufWrite9write_buf(ptr noalias noundef nonnull readonly align 2 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -2777,19 +2777,19 @@ _RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_RNvMsj_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_11ChangeTitle3new(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %5, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %6, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %7, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %8, ptr %16, align 8
   ret void
 }
@@ -2797,16 +2797,16 @@ define hidden void @_RNvMsj_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_11ChangeT
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXsk_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_11ChangeTitleNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !412, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !412, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = tail call noundef zeroext i1 @_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpShINtB5_14SlicePartialEqhE5equalCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %5, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9)
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8
   br i1 %10, label %16, label %._crit_edge
 
@@ -2819,15 +2819,15 @@ define void @_RNvXsk_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_11ChangeTitleNtB
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !align !412, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i64, ptr %21, align 8, !noundef !4
   %23 = tail call noundef zeroext i1 @_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpShINtB5_14SlicePartialEqhE5equalCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %22)
   br i1 %23, label %._crit_edge, label %24
 
 24:                                               ; preds = %18, %16
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8, !alias.scope !413, !noundef !4
   %27 = load i64, ptr %1, align 8, !alias.scope !413, !noundef !4
   %28 = sub i64 %27, %26
@@ -2841,7 +2841,7 @@ define void @_RNvXsk_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_11ChangeTitleNtB
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %24, %30
   %31 = phi i64 [ %.pre.i, %30 ], [ %26, %24 ]
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !413, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds i8, ptr %33, i64 %31
   store i32 993025307, ptr %34, align 1
@@ -2883,15 +2883,15 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   br label %114
 
 52:                                               ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit7, %._crit_edge
-  %53 = getelementptr inbounds i8, ptr %0, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %54 = load ptr, ptr %53, align 8, !nonnull !4, !align !412, !noundef !4
-  %55 = getelementptr inbounds i8, ptr %0, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load i64, ptr %55, align 8, !noundef !4
   %57 = tail call noundef zeroext i1 @_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpShINtB5_14SlicePartialEqhE5equalCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %56)
   br i1 %57, label %114, label %86
 
 58:                                               ; preds = %._crit_edge
-  %59 = getelementptr inbounds i8, ptr %1, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !422, !noundef !4
   %61 = load i64, ptr %1, align 8, !alias.scope !422, !noundef !4
   %62 = sub i64 %61, %60
@@ -2905,7 +2905,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit4: ; preds = %58, %64
   %65 = phi i64 [ %.pre.i3, %64 ], [ %60, %58 ]
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8, !alias.scope !422, !nonnull !4, !noundef !4
   %68 = getelementptr inbounds i8, ptr %67, i64 %65
   store i32 993090843, ptr %68, align 1
@@ -2947,7 +2947,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   br label %52
 
 86:                                               ; preds = %52
-  %87 = getelementptr inbounds i8, ptr %1, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %88 = load i64, ptr %87, align 8, !alias.scope !431, !noundef !4
   %89 = load i64, ptr %1, align 8, !alias.scope !431, !noundef !4
   %90 = sub i64 %89, %88
@@ -2961,7 +2961,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit9: ; preds = %86, %92
   %93 = phi i64 [ %.pre.i8, %92 ], [ %88, %86 ]
-  %94 = getelementptr inbounds i8, ptr %1, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %95 = load ptr, ptr %94, align 8, !alias.scope !431, !nonnull !4, !noundef !4
   %96 = getelementptr inbounds i8, ptr %95, i64 %93
   store i32 993156379, ptr %96, align 1
@@ -3014,7 +3014,7 @@ define hidden noundef zeroext i1 @_RNvMsl_NtCs8mTrBI1stz4_15turborepo_vt1004term
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXsm_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_17ApplicationKeypadNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = load i8, ptr %0, align 1, !range !400, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = load i64, ptr %1, align 8, !noundef !4
   %7 = sub i64 %6, %5
@@ -3030,7 +3030,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   %.sink8 = phi i64 [ %.pre.i1, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit.sink.split ], [ %5, %2 ]
   %9 = trunc nuw i8 %3 to i1
   %. = select i1 %9, i16 15643, i16 15899
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 %.sink8
   store i16 %., ptr %12, align 1
@@ -3049,7 +3049,7 @@ define hidden noundef zeroext i1 @_RNvMsn_NtCs8mTrBI1stz4_15turborepo_vt1004term
 define void @_RNvXso_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_17ApplicationCursorNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = load i8, ptr %0, align 1, !range !400, !noundef !4
   %4 = trunc nuw i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = load i64, ptr %1, align 8, !noundef !4
   %8 = sub i64 %7, %6
@@ -3066,7 +3066,7 @@ define void @_RNvXso_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_17ApplicationCur
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %10, %11
   %12 = phi i64 [ %.pre.i, %11 ], [ %6, %10 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !440, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %15, ptr noundef nonnull readonly align 1 dereferenceable(5) @anon.501b6e7c782e41b94b8f62820c9a442a.21.llvm.3209305459455205536, i64 5, i1 false)
@@ -3082,7 +3082,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit2: ; preds = %16, %17
   %18 = phi i64 [ %.pre.i1, %17 ], [ %6, %16 ]
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !443, !nonnull !4, !noundef !4
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %21, ptr noundef nonnull readonly align 1 dereferenceable(5) @anon.501b6e7c782e41b94b8f62820c9a442a.22.llvm.3209305459455205536, i64 5, i1 false)
@@ -3103,7 +3103,7 @@ define hidden noundef zeroext i1 @_RNvMsp_NtCs8mTrBI1stz4_15turborepo_vt1004term
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXsq_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_14BracketedPasteNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = load i8, ptr %0, align 1, !range !400, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = load i64, ptr %1, align 8, !noundef !4
   %7 = sub i64 %6, %5
@@ -3119,7 +3119,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   %.sink8 = phi i64 [ %.pre.i1, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit.sink.split ], [ %5, %2 ]
   %9 = trunc nuw i8 %3 to i1
   %. = select i1 %9, i64 7508679462293035803, i64 7796909838444747547
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 %.sink8
   store i64 %., ptr %12, align 1
@@ -3139,7 +3139,7 @@ define hidden { i8, i8 } @_RNvMsr_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_17M
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXss_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_17MouseProtocolModeNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = load i8, ptr %0, align 1, !range !446, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !range !446, !noundef !4
   %6 = icmp eq i8 %3, %5
   br i1 %6, label %61, label %7
@@ -3166,7 +3166,7 @@ default.unreachable22:                            ; preds = %8, %7
   ]
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !447, !noundef !4
   %12 = load i64, ptr %1, align 8, !alias.scope !447, !noundef !4
   %13 = sub i64 %12, %11
@@ -3180,7 +3180,7 @@ default.unreachable22:                            ; preds = %8, %7
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %9, %15
   %16 = phi i64 [ %.pre.i, %15 ], [ %11, %9 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !447, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds i8, ptr %18, i64 %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %19, ptr noundef nonnull readonly align 1 dereferenceable(5) @anon.501b6e7c782e41b94b8f62820c9a442a.29.llvm.3209305459455205536, i64 5, i1 false)
@@ -3190,7 +3190,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   br label %61
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !450, !noundef !4
   %25 = load i64, ptr %1, align 8, !alias.scope !450, !noundef !4
   %26 = sub i64 %25, %24
@@ -3204,7 +3204,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit3: ; preds = %22, %28
   %29 = phi i64 [ %.pre.i2, %28 ], [ %24, %22 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !450, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds i8, ptr %31, i64 %29
   store i64 7507553562369415963, ptr %32, align 1
@@ -3214,7 +3214,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   br label %61
 
 35:                                               ; preds = %7
-  %36 = getelementptr inbounds i8, ptr %1, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load i64, ptr %36, align 8, !alias.scope !453, !noundef !4
   %38 = load i64, ptr %1, align 8, !alias.scope !453, !noundef !4
   %39 = sub i64 %38, %37
@@ -3228,7 +3228,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit5: ; preds = %35, %41
   %42 = phi i64 [ %.pre.i4, %41 ], [ %37, %35 ]
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8, !alias.scope !453, !nonnull !4, !noundef !4
   %45 = getelementptr inbounds i8, ptr %44, i64 %42
   store i64 7508116512322837275, ptr %45, align 1
@@ -3238,7 +3238,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   br label %61
 
 48:                                               ; preds = %7
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = load i64, ptr %49, align 8, !alias.scope !456, !noundef !4
   %51 = load i64, ptr %1, align 8, !alias.scope !456, !noundef !4
   %52 = sub i64 %51, %50
@@ -3252,7 +3252,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit7: ; preds = %48, %54
   %55 = phi i64 [ %.pre.i6, %54 ], [ %50, %48 ]
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8, !alias.scope !456, !nonnull !4, !noundef !4
   %58 = getelementptr inbounds i8, ptr %57, i64 %55
   store i64 7508397987299547931, ptr %58, align 1
@@ -3291,7 +3291,7 @@ define hidden { i8, i8 } @_RNvMst_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_21M
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXsu_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_21MouseProtocolEncodingNtB5_8BufWrite9write_buf(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = load i8, ptr %0, align 1, !range !51, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !range !51, !noundef !4
   %6 = icmp eq i8 %3, %5
   br i1 %6, label %35, label %7
@@ -3314,7 +3314,7 @@ default.unreachable14:                            ; preds = %8, %7
   ]
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !459, !noundef !4
   %12 = load i64, ptr %1, align 8, !alias.scope !459, !noundef !4
   %13 = sub i64 %12, %11
@@ -3328,7 +3328,7 @@ default.unreachable14:                            ; preds = %8, %7
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit: ; preds = %9, %15
   %16 = phi i64 [ %.pre.i, %15 ], [ %11, %9 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !459, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds i8, ptr %18, i64 %16
   store i64 7508960937252969243, ptr %19, align 1
@@ -3338,7 +3338,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   br label %35
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !462, !noundef !4
   %25 = load i64, ptr %1, align 8, !alias.scope !462, !noundef !4
   %26 = sub i64 %25, %24
@@ -3352,7 +3352,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit3: ; preds = %22, %28
   %29 = phi i64 [ %.pre.i2, %28 ], [ %24, %22 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !462, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds i8, ptr %31, i64 %29
   store i64 7509242412229679899, ptr %32, align 1
@@ -3365,7 +3365,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   ret void
 
 36:                                               ; preds = %8
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load i64, ptr %37, align 8, !alias.scope !465, !noundef !4
   %39 = load i64, ptr %1, align 8, !alias.scope !465, !noundef !4
   %40 = sub i64 %39, %38
@@ -3379,7 +3379,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit5: ; preds = %36, %42
   %43 = phi i64 [ %.pre.i4, %42 ], [ %38, %36 ]
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !465, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds i8, ptr %45, i64 %43
   store i64 7797191313404680987, ptr %46, align 1
@@ -3389,7 +3389,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   br label %35
 
 49:                                               ; preds = %8
-  %50 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load i64, ptr %50, align 8, !alias.scope !468, !noundef !4
   %52 = load i64, ptr %1, align 8, !alias.scope !468, !noundef !4
   %53 = sub i64 %52, %51
@@ -3403,7 +3403,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit7: ; preds = %49, %55
   %56 = phi i64 [ %.pre.i6, %55 ], [ %51, %49 ]
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8, !alias.scope !468, !nonnull !4, !noundef !4
   %59 = getelementptr inbounds i8, ptr %58, i64 %56
   store i64 7797472788381391643, ptr %59, align 1

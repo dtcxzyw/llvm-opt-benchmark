@@ -36,33 +36,33 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %state, ptr noundef nonnull align 8 dereferenceable(128) @__const.cmd_checkout__worker.state, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %checkout_worker_options, i8 0, i64 176, i1 false)
   store i32 10, ptr %checkout_worker_options, align 16
-  %long_name = getelementptr inbounds i8, ptr %checkout_worker_options, i64 8
+  %long_name = getelementptr inbounds nuw i8, ptr %checkout_worker_options, i64 8
   store ptr @.str.1, ptr %long_name, align 8
-  %value = getelementptr inbounds i8, ptr %checkout_worker_options, i64 16
-  %base_dir = getelementptr inbounds i8, ptr %state, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %checkout_worker_options, i64 16
+  %base_dir = getelementptr inbounds nuw i8, ptr %state, i64 8
   store ptr %base_dir, ptr %value, align 16
-  %argh = getelementptr inbounds i8, ptr %checkout_worker_options, i64 24
+  %argh = getelementptr inbounds nuw i8, ptr %checkout_worker_options, i64 24
   store ptr @.str.2, ptr %argh, align 8
-  %help = getelementptr inbounds i8, ptr %checkout_worker_options, i64 32
+  %help = getelementptr inbounds nuw i8, ptr %checkout_worker_options, i64 32
   store ptr @.str.3, ptr %help, align 16
   %cmp = icmp eq i32 %argc, 2
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %1, 45
   br i1 %.not, label %sub_1, label %if.end
 
 sub_1:                                            ; preds = %land.lhs.true
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %.not16 = icmp eq i8 %3, 104
   br i1 %.not16, label %land.lhs.true.tail, label %if.end
 
 land.lhs.true.tail:                               ; preds = %sub_1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %if.then, label %if.end
@@ -89,12 +89,12 @@ if.end11:                                         ; preds = %if.end
 if.then14:                                        ; preds = %if.end11
   %call16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #11
   %conv = trunc i64 %call16 to i32
-  %base_dir_len = getelementptr inbounds i8, ptr %state, i64 16
+  %base_dir_len = getelementptr inbounds nuw i8, ptr %state, i64 16
   store i32 %conv, ptr %base_dir_len, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %if.end11
-  %refresh_cache = getelementptr inbounds i8, ptr %state, i64 120
+  %refresh_cache = getelementptr inbounds nuw i8, ptr %state, i64 120
   %bf.load = load i8, ptr %refresh_cache, align 8
   %bf.set = or i8 %bf.load, 16
   store i8 %bf.set, ptr %refresh_cache, align 8
@@ -119,8 +119,8 @@ for.cond.preheader.i:                             ; preds = %if.else.i
   br i1 %cmp1842.not.i, label %worker_loop.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %8 = getelementptr inbounds i8, ptr %res.i.i, i64 8
-  %st.i.i = getelementptr inbounds i8, ptr %res.i.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %res.i.i, i64 8
+  %st.i.i = getelementptr inbounds nuw i8, ptr %res.i.i, i64 16
   br label %for.body.i
 
 do.body.i:                                        ; preds = %if.else.i
@@ -188,34 +188,34 @@ packet_to_pc_item.exit.i:                         ; preds = %if.then8.i.i, %if.e
   store ptr %call14.i.i, ptr %arrayidx.i, align 8
   %14 = load i64, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 64), align 16
   %conv16.i.i = trunc i64 %14 to i32
-  %ce_namelen.i.i = getelementptr inbounds i8, ptr %call14.i.i, i64 64
+  %ce_namelen.i.i = getelementptr inbounds nuw i8, ptr %call14.i.i, i64 64
   store i32 %conv16.i.i, ptr %ce_namelen.i.i, align 8
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 44), align 4
   %16 = load ptr, ptr %arrayidx.i, align 8
-  %ce_mode19.i.i = getelementptr inbounds i8, ptr %16, i64 52
+  %ce_mode19.i.i = getelementptr inbounds nuw i8, ptr %16, i64 52
   store i32 %15, ptr %ce_mode19.i.i, align 4
   %17 = load ptr, ptr %arrayidx.i, align 8
-  %name.i.i = getelementptr inbounds i8, ptr %17, i64 108
-  %ce_namelen22.i.i = getelementptr inbounds i8, ptr %17, i64 64
+  %name.i.i = getelementptr inbounds nuw i8, ptr %17, i64 108
+  %ce_namelen22.i.i = getelementptr inbounds nuw i8, ptr %17, i64 64
   %18 = load i32, ptr %ce_namelen22.i.i, align 8
   %conv23.i.i = zext i32 %18 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name.i.i, ptr nonnull align 1 %variant.0.i.i, i64 %conv23.i.i, i1 false)
   %19 = load ptr, ptr %arrayidx.i, align 8
-  %oid.i.i = getelementptr inbounds i8, ptr %19, i64 72
+  %oid.i.i = getelementptr inbounds nuw i8, ptr %19, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @packet_buffer, i64 8), i64 32, i1 false)
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 40), align 8
-  %algo3.i.i.i = getelementptr inbounds i8, ptr %19, i64 104
+  %algo3.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 104
   store i32 %20, ptr %algo3.i.i.i, align 4
   %21 = load i64, ptr @packet_buffer, align 16
-  %id26.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %id26.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   store i64 %21, ptr %id26.i.i, align 8
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 48), align 16
-  %crlf_action27.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %crlf_action27.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   store i32 %22, ptr %crlf_action27.i.i, align 4
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @packet_buffer, i64 52), align 4
-  %ident29.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %ident29.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   store i32 %23, ptr %ident29.i.i, align 8
-  %working_tree_encoding.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %working_tree_encoding.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   store ptr %encoding.0.i.i, ptr %working_tree_encoding.i.i, align 8
   %call.i = call i32 @packet_read(i32 noundef 0, ptr noundef nonnull @packet_buffer, i32 noundef 65520, i32 noundef 0) #10
   %cmp.i = icmp slt i32 %call.i, 0
@@ -227,17 +227,17 @@ for.body.i:                                       ; preds = %report_result.exit.
   call void @write_pc_item(ptr noundef %arrayidx19.i, ptr noundef nonnull %state) #10
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %res.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %8, i8 0, i64 152, i1 false)
-  %id.i.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 40
+  %id.i.i = getelementptr inbounds nuw i8, ptr %arrayidx19.i, i64 40
   %24 = load i64, ptr %id.i.i, align 8
   store i64 %24, ptr %res.i.i, align 8
-  %status.i.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 56
+  %status.i.i = getelementptr inbounds nuw i8, ptr %arrayidx19.i, i64 56
   %25 = load i32, ptr %status.i.i, align 8
   store i32 %25, ptr %8, align 8
   %cmp.i20.i = icmp eq i32 %25, 1
   br i1 %cmp.i20.i, label %if.then.i22.i, label %report_result.exit.i
 
 if.then.i22.i:                                    ; preds = %for.body.i
-  %st4.i.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 64
+  %st4.i.i = getelementptr inbounds nuw i8, ptr %arrayidx19.i, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %st.i.i, ptr noundef nonnull readonly align 8 dereferenceable(144) %st4.i.i, i64 144, i1 false)
   br label %report_result.exit.i
 
@@ -245,7 +245,7 @@ report_result.exit.i:                             ; preds = %if.then.i22.i, %for
   %size.0.i.i = phi i64 [ 160, %if.then.i22.i ], [ 16, %for.body.i ]
   call void @packet_write(i32 noundef 1, ptr noundef nonnull %res.i.i, i64 noundef %size.0.i.i) #10
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %res.i.i)
-  %working_tree_encoding.i23.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 32
+  %working_tree_encoding.i23.i = getelementptr inbounds nuw i8, ptr %arrayidx19.i, i64 32
   %26 = load ptr, ptr %working_tree_encoding.i23.i, align 8
   call void @free(ptr noundef %26) #10
   %27 = load ptr, ptr %arrayidx19.i, align 8

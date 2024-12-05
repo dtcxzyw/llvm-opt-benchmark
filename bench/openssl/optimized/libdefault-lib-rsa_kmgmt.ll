@@ -104,7 +104,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end10, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %nbits = getelementptr inbounds i8, ptr %genctx, i64 24
+  %nbits = getelementptr inbounds nuw i8, ptr %genctx, i64 24
   %call3 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call, ptr noundef nonnull %nbits) #5
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %return, label %if.end5
@@ -126,7 +126,7 @@ if.end10:                                         ; preds = %if.end5, %if.end
   br i1 %cmp12.not, label %if.end16, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end10
-  %primes = getelementptr inbounds i8, ptr %genctx, i64 40
+  %primes = getelementptr inbounds nuw i8, ptr %genctx, i64 40
   %call13 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call11, ptr noundef nonnull %primes) #5
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %return, label %if.end16
@@ -137,20 +137,20 @@ if.end16:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp18.not, label %if.end23, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %if.end16
-  %pub_exp = getelementptr inbounds i8, ptr %genctx, i64 32
+  %pub_exp = getelementptr inbounds nuw i8, ptr %genctx, i64 32
   %call20 = tail call i32 @OSSL_PARAM_get_BN(ptr noundef nonnull %call17, ptr noundef nonnull %pub_exp) #5
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %if.end23
 
 if.end23:                                         ; preds = %land.lhs.true19, %if.end16
-  %rsa_type = getelementptr inbounds i8, ptr %genctx, i64 16
+  %rsa_type = getelementptr inbounds nuw i8, ptr %genctx, i64 16
   %1 = load i32, ptr %rsa_type, align 8
   %cmp24 = icmp eq i32 %1, 4096
   br i1 %cmp24, label %land.lhs.true25, label %return
 
 land.lhs.true25:                                  ; preds = %if.end23
-  %pss_params = getelementptr inbounds i8, ptr %genctx, i64 48
-  %pss_defaults_set = getelementptr inbounds i8, ptr %genctx, i64 68
+  %pss_params = getelementptr inbounds nuw i8, ptr %genctx, i64 48
+  %pss_defaults_set = getelementptr inbounds nuw i8, ptr %genctx, i64 68
   %2 = load ptr, ptr %genctx, align 8
   %call.i = tail call i32 @ossl_rsa_pss_params_30_fromdata(ptr noundef nonnull %pss_params, ptr noundef nonnull %pss_defaults_set, ptr noundef nonnull %params, ptr noundef %2) #5
   %tobool.not.i = icmp ne i32 %call.i, 0
@@ -178,7 +178,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rsa_type = getelementptr inbounds i8, ptr %genctx, i64 16
+  %rsa_type = getelementptr inbounds nuw i8, ptr %genctx, i64 16
   %0 = load i32, ptr %rsa_type, align 8
   switch i32 %0, label %return [
     i32 0, label %sw.bb
@@ -186,7 +186,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %pss_params = getelementptr inbounds i8, ptr %genctx, i64 48
+  %pss_params = getelementptr inbounds nuw i8, ptr %genctx, i64 48
   %call1 = tail call i32 @ossl_rsa_pss_params_30_is_unrestricted(ptr noundef nonnull %pss_params) #5
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %err, label %sw.epilog
@@ -198,9 +198,9 @@ sw.epilog:                                        ; preds = %if.end, %sw.bb
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %sw.epilog
-  %cb = getelementptr inbounds i8, ptr %genctx, i64 72
+  %cb = getelementptr inbounds nuw i8, ptr %genctx, i64 72
   store ptr %osslcb, ptr %cb, align 8
-  %cbarg10 = getelementptr inbounds i8, ptr %genctx, i64 80
+  %cbarg10 = getelementptr inbounds nuw i8, ptr %genctx, i64 80
   store ptr %cbarg, ptr %cbarg10, align 8
   %call11 = tail call ptr @BN_GENCB_new() #5
   %cmp12.not = icmp eq ptr %call11, null
@@ -211,13 +211,13 @@ if.then13:                                        ; preds = %if.end9
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %if.end9
-  %nbits = getelementptr inbounds i8, ptr %genctx, i64 24
+  %nbits = getelementptr inbounds nuw i8, ptr %genctx, i64 24
   %2 = load i64, ptr %nbits, align 8
   %conv = trunc i64 %2 to i32
-  %primes = getelementptr inbounds i8, ptr %genctx, i64 40
+  %primes = getelementptr inbounds nuw i8, ptr %genctx, i64 40
   %3 = load i64, ptr %primes, align 8
   %conv15 = trunc i64 %3 to i32
-  %pub_exp = getelementptr inbounds i8, ptr %genctx, i64 32
+  %pub_exp = getelementptr inbounds nuw i8, ptr %genctx, i64 32
   %4 = load ptr, ptr %pub_exp, align 8
   %call16 = tail call i32 @RSA_generate_multi_prime_key(ptr noundef nonnull %call6, i32 noundef %conv, i32 noundef %conv15, ptr noundef %4, ptr noundef %call11) #5
   %tobool17.not = icmp eq i32 %call16, 0
@@ -225,7 +225,7 @@ if.end14:                                         ; preds = %if.then13, %if.end9
 
 if.end19:                                         ; preds = %if.end14
   %call20 = tail call ptr @ossl_rsa_get0_pss_params_30(ptr noundef nonnull %call6) #5
-  %pss_params21 = getelementptr inbounds i8, ptr %genctx, i64 48
+  %pss_params21 = getelementptr inbounds nuw i8, ptr %genctx, i64 48
   %call22 = tail call i32 @ossl_rsa_pss_params_30_copy(ptr noundef %call20, ptr noundef nonnull %pss_params21) #5
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %err, label %if.end25
@@ -256,7 +256,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pub_exp = getelementptr inbounds i8, ptr %genctx, i64 32
+  %pub_exp = getelementptr inbounds nuw i8, ptr %genctx, i64 32
   %0 = load ptr, ptr %pub_exp, align 8
   tail call void @BN_clear_free(ptr noundef %0) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %genctx, ptr noundef nonnull @.str, i32 noundef 650) #5
@@ -855,7 +855,7 @@ if.end3:                                          ; preds = %entry
 if.then6:                                         ; preds = %if.end3
   store ptr %call, ptr %call4, align 8
   %call8 = tail call ptr @BN_new() #5
-  %pub_exp = getelementptr inbounds i8, ptr %call4, i64 32
+  %pub_exp = getelementptr inbounds nuw i8, ptr %call4, i64 32
   store ptr %call8, ptr %pub_exp, align 8
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %if.then22, label %lor.lhs.false
@@ -866,11 +866,11 @@ lor.lhs.false:                                    ; preds = %if.then6
   br i1 %tobool12.not, label %if.then22, label %if.end14
 
 if.end14:                                         ; preds = %lor.lhs.false
-  %nbits = getelementptr inbounds i8, ptr %call4, i64 24
+  %nbits = getelementptr inbounds nuw i8, ptr %call4, i64 24
   store i64 2048, ptr %nbits, align 8
-  %primes = getelementptr inbounds i8, ptr %call4, i64 40
+  %primes = getelementptr inbounds nuw i8, ptr %call4, i64 40
   store i64 2, ptr %primes, align 8
-  %rsa_type15 = getelementptr inbounds i8, ptr %call4, i64 16
+  %rsa_type15 = getelementptr inbounds nuw i8, ptr %call4, i64 16
   store i32 %rsa_type, ptr %rsa_type15, align 8
   %call17 = tail call i32 @rsa_gen_set_params(ptr noundef nonnull %call4, ptr noundef %params)
   %tobool18.not = icmp eq i32 %call17, 0
@@ -933,14 +933,14 @@ entry:
   %call = tail call ptr @BN_GENCB_get_arg(ptr noundef %cb) #5
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.4, ptr noundef nonnull %p.addr) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx1 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.5, ptr noundef nonnull %n.addr) #5
-  %0 = getelementptr inbounds i8, ptr %params, i64 80
+  %0 = getelementptr inbounds nuw i8, ptr %params, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
-  %cb3 = getelementptr inbounds i8, ptr %call, i64 72
+  %cb3 = getelementptr inbounds nuw i8, ptr %call, i64 72
   %1 = load ptr, ptr %cb3, align 8
-  %cbarg = getelementptr inbounds i8, ptr %call, i64 80
+  %cbarg = getelementptr inbounds nuw i8, ptr %call, i64 80
   %2 = load ptr, ptr %cbarg, align 8
   %call4 = call i32 %1(ptr noundef nonnull %params, ptr noundef %2) #5
   ret i32 %call4

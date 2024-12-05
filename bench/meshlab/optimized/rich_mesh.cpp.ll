@@ -47,8 +47,8 @@ define noundef nonnull ptr @_ZNK8RichMesh5cloneEv(ptr noundef nonnull align 8 de
 
 3:                                                ; preds = %1
   store ptr getelementptr inbounds (i8, ptr @_ZTV8RichMesh, i64 16), ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret ptr %2
@@ -74,7 +74,7 @@ define noundef zeroext i1 @_ZN8RichMesheqERK13RichParameter(ptr noundef nonnull 
   br i1 %.not, label %20, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter4nameEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %7 = tail call noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
   br i1 %7, label %8, label %20
@@ -82,12 +82,12 @@ define noundef zeroext i1 @_ZN8RichMesheqERK13RichParameter(ptr noundef nonnull 
 8:                                                ; preds = %4
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(8) %9)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(8) %14)
   %19 = icmp eq i32 %13, %18
@@ -112,7 +112,7 @@ define void @_ZN8RichMeshC2ERK7QStringjPK12MeshDocumentS2_S2_bS2_(ptr noundef no
   call void @_ZN8IntValueC1Ei(ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef %2)
   call void @_ZN13RichParameterC2ERK7QStringRK5ValueS2_S2_bS2_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
   store ptr getelementptr inbounds (i8, ptr @_ZTV8RichMesh, i64 16), ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %3, ptr %10, align 8
   ret void
 }

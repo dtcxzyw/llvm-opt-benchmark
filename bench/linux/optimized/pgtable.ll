@@ -61,9 +61,9 @@ define dso_local ptr @pte_alloc_one(ptr nocapture noundef readnone %0) local_unn
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = load i32, ptr %8, align 16
   %10 = and i32 %9, -513
   store i32 %10, ptr %8, align 16
@@ -73,7 +73,7 @@ define dso_local ptr @pte_alloc_one(ptr nocapture noundef readnone %0) local_unn
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %4, i64 100
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 100
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   br label %18
@@ -113,7 +113,7 @@ define internal noundef range(i32 -22, 1) i32 @setup_userpte(ptr noundef readonl
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @___pte_free_tlb(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 16
   %5 = or i32 %4, 512
   store i32 %5, ptr %3, align 16
@@ -123,7 +123,7 @@ define dso_local void @___pte_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 100
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %11 = load i32, ptr %10, align 4
   br label %12
 
@@ -158,7 +158,7 @@ define dso_local void @___pmd_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %12 = add i64 %6, %11
   %13 = lshr i64 %12, 12
   %14 = getelementptr %struct.page, ptr %4, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load i32, ptr %15, align 16
   %17 = or i32 %16, 512
   store i32 %17, ptr %15, align 16
@@ -168,7 +168,7 @@ define dso_local void @___pmd_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %14, i64 100
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 100
   %23 = load i32, ptr %22, align 4
   br label %24
 
@@ -209,7 +209,7 @@ define dso_local void @___pud_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %12 = add i64 %11, %6
   %13 = lshr i64 %12, 12
   %14 = getelementptr %struct.page, ptr %4, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load i32, ptr %15, align 16
   %17 = or i32 %16, 512
   store i32 %17, ptr %15, align 16
@@ -219,7 +219,7 @@ define dso_local void @___pud_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %14, i64 100
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 100
   %23 = load i32, ptr %22, align 4
   br label %24
 
@@ -272,7 +272,7 @@ define dso_local void @___p4d_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local ptr @pgd_page_get_mm(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -285,7 +285,7 @@ define dso_local ptr @pgd_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
   br i1 %4, label %47, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %3, ptr %6, align 64
   tail call void @_raw_spin_lock(ptr noundef nonnull @pgd_lock) #14
   %7 = load i64, ptr @page_offset_base, align 8
@@ -334,10 +334,10 @@ define dso_local ptr @pgd_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %42 = lshr i64 %41, 12
   %43 = getelementptr %struct.page, ptr %36, i64 %42, i32 1
   %44 = load ptr, ptr @pgd_list, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %43, ptr %45, align 8
   store ptr %44, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr @pgd_list, ptr %46, align 8
   store volatile ptr %43, ptr @pgd_list, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @pgd_lock) #14
@@ -364,10 +364,10 @@ define dso_local void @pgd_free(ptr nocapture noundef readnone %0, ptr noundef %
   %13 = add i64 %7, %12
   %14 = lshr i64 %13, 12
   %15 = getelementptr %struct.page, ptr %5, i64 %14, i32 1
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %17, ptr %19, align 8
   store volatile ptr %18, ptr %17, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %15, align 8
@@ -781,7 +781,7 @@ define dso_local noundef range(i32 0, 2) i32 @pud_free_pmd_page(ptr noundef %0, 
   %53 = add i64 %47, %52
   %54 = lshr i64 %53, 12
   %55 = getelementptr %struct.page, ptr %46, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load i32, ptr %56, align 16
   %58 = or i32 %57, 512
   store i32 %58, ptr %56, align 16
@@ -791,7 +791,7 @@ define dso_local noundef range(i32 0, 2) i32 @pud_free_pmd_page(ptr noundef %0, 
   br i1 %61, label %65, label %62
 
 62:                                               ; preds = %44
-  %63 = getelementptr inbounds i8, ptr %55, i64 100
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 100
   %64 = load i32, ptr %63, align 4
   br label %65
 

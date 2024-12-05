@@ -24,7 +24,7 @@ define noalias noundef ptr @ARKodeSymplecticEuler() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0
   %2 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #13
-  %3 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
@@ -35,7 +35,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
@@ -46,7 +46,7 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 1, ptr %calloc.i, align 8
   store i32 1, ptr %8, align 4
   store double 1.000000e+00, ptr %5, align 8
@@ -68,7 +68,7 @@ define noalias noundef ptr @ARKodeSPRKTable_Alloc(i32 noundef %0) local_unnamed_
   %3 = sext i32 %0 to i64
   %4 = shl nsw i64 %3, 3
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #13
-  %6 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store ptr %5, ptr %6, align 8
   %.not14 = icmp eq ptr %5, null
   br i1 %.not14, label %ARKodeSPRKTable_Free.exit, label %7
@@ -79,7 +79,7 @@ ARKodeSPRKTable_Free.exit:                        ; preds = %2
 
 7:                                                ; preds = %2
   %8 = tail call noalias ptr @malloc(i64 noundef %4) #13
-  %9 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %8, ptr %9, align 8
   %.not15 = icmp eq ptr %8, null
   br i1 %.not15, label %ARKodeSPRKTable_Free.exit19, label %10
@@ -90,7 +90,7 @@ ARKodeSPRKTable_Free.exit19:                      ; preds = %7
   br label %12
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %calloc, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %calloc, i64 4
   store i32 %0, ptr %11, align 4
   br label %12
 
@@ -107,7 +107,7 @@ define noalias noundef ptr @ARKodeSymplecticLeapfrog2() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %3 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
@@ -118,7 +118,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
@@ -129,14 +129,14 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 2, ptr %calloc.i, align 8
   store i32 2, ptr %8, align 4
   store double 5.000000e-01, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double 5.000000e-01, ptr %9, align 8
   store double 0.000000e+00, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 1.000000e+00, ptr %10, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
@@ -153,7 +153,7 @@ define noalias noundef ptr @ARKodeSymplecticPseudoLeapfrog2() local_unnamed_addr
 
 1:                                                ; preds = %0
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %3 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
@@ -164,7 +164,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
@@ -175,14 +175,14 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 2, ptr %calloc.i, align 8
   store i32 2, ptr %8, align 4
   store double 1.000000e+00, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double 0.000000e+00, ptr %9, align 8
   store double 5.000000e-01, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 5.000000e-01, ptr %10, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
@@ -199,7 +199,7 @@ define noalias noundef ptr @ARKodeSymplecticCandyRozmus4() local_unnamed_addr #1
 
 1:                                                ; preds = %0
   %2 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
-  %3 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
@@ -210,7 +210,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
@@ -221,7 +221,7 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 4, ptr %calloc.i, align 8
   store i32 4, ptr %8, align 4
   %9 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0x3FD5555555555555) #14
@@ -235,26 +235,26 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %16 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0xBFD5555555555555) #14
   %17 = fsub double %15, %16
   %18 = fdiv double %17, 6.000000e+00
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %18, ptr %20, align 8
   %21 = load double, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double %21, ptr %22, align 8
   store double 0.000000e+00, ptr %2, align 8
   %23 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0x3FD5555555555555) #14
   %24 = fsub double 2.000000e+00, %23
   %25 = fdiv double 1.000000e+00, %24
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %25, ptr %26, align 8
   %27 = tail call double @SUNRpowerR(double noundef 2.000000e+00, double noundef 0x3FE5555555555555) #14
   %28 = fsub double 1.000000e+00, %27
   %29 = fdiv double 1.000000e+00, %28
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %29, ptr %30, align 8
   %31 = load double, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double %31, ptr %32, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
@@ -273,7 +273,7 @@ define noalias noundef ptr @ARKodeSymplecticRuth3() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0
   %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
-  %3 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
@@ -284,7 +284,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
@@ -295,18 +295,18 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 3, ptr %calloc.i, align 8
   store i32 3, ptr %8, align 4
   store double 0x3FE5555555555555, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double 0xBFE5555555555555, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 1.000000e+00, ptr %10, align 8
   store double 0x3FD2AAAAAAAAAAAB, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 7.500000e-01, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double 0xBFA5555555555555, ptr %12, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
@@ -323,7 +323,7 @@ define noalias noundef ptr @ARKodeSymplecticMcLachlan2() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %3 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
@@ -334,7 +334,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
@@ -345,13 +345,13 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 2, ptr %calloc.i, align 8
   store i32 2, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double 0x3FD2BEC333018866, ptr %9, align 8
   store double 0x3FE6A09E667F3BCD, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 0x3FE6A09E667F3BCC, ptr %10, align 8
   store double 0x3FD2BEC333018868, ptr %2, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
@@ -375,7 +375,7 @@ define noalias noundef ptr @ARKodeSymplecticMcLachlan3() local_unnamed_addr #1 {
 
 1:                                                ; preds = %0
   %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
-  %3 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
@@ -386,7 +386,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
@@ -397,7 +397,7 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 3, ptr %calloc.i, align 8
   store i32 3, ptr %8, align 4
   %9 = tail call double @SUNRpowerR(double noundef 0x3F84530EA9080FC8, double noundef 0x3FD5555555555555) #14
@@ -449,16 +449,16 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   %38 = fdiv double 2.500000e-01, %37
   %39 = fmul double %37, 5.000000e-01
   %40 = fsub double %38, %39
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %40, ptr %41, align 8
   %42 = fsub double 1.000000e+00, %37
   %43 = fsub double %42, %40
-  %44 = getelementptr inbounds i8, ptr %5, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %43, ptr %44, align 8
   store double %43, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %40, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %37, ptr %46, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
@@ -475,7 +475,7 @@ define noalias noundef ptr @ARKodeSymplecticMcLachlan4() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0
   %2 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
-  %3 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
@@ -486,7 +486,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
@@ -497,22 +497,22 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 4, ptr %calloc.i, align 8
   store i32 4, ptr %8, align 4
   store double 0x3FE07DC53BD55BFA, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double 0xBFB5F5CF77F6ABCC, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 0x3FDC42E57139B27E, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double 0x3FC07E07EA328101, ptr %11, align 8
   store double 0x3FC1372BE4AA9B55, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 0xBFCCC6E532DC111F, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double 0x3FE833C60070D0E2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double 0x3FD56050A6371920, ptr %14, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
@@ -529,7 +529,7 @@ define noalias noundef ptr @ARKodeSymplecticMcLachlan5() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0
   %2 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #13
-  %3 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
@@ -540,7 +540,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
@@ -551,30 +551,30 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 5, ptr %calloc.i, align 8
   store i32 6, ptr %8, align 4
   store double 0x3FD5BFEEB3B74962, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double 0xBFB6AE93C461609A, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 0x3FE2BF561503C0D5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double 0xBFE34C193150CDC1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store double 0x3FD4B58C3AB43A42, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double 0x3FDC4FB03B46EE5A, ptr %13, align 8
   store double 0x3FBE90584F423289, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 0x3FE65D9CEEC24DE8, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double 0xBFC5ED903816AD31, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double 0x3FD9AE664743500F, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store double 0x3F85EC8BC3836F1E, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store double 0xBFAE3293D549EB12, ptr %18, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
@@ -591,7 +591,7 @@ define noalias noundef ptr @ARKodeSymplecticYoshida6() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0
   %2 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
-  %3 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
@@ -602,7 +602,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
@@ -613,38 +613,38 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 6, ptr %calloc.i, align 8
   store i32 8, ptr %8, align 4
   store double 0x3FE91ABC49889363, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double 0x3FCE2743579895DD, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 0xBFF2D7C6F7933B97, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double 0x3FF50B00CFB7BE54, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store double 0xBFF2D7C6F7933B97, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double 0x3FCE2743579895DD, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store double 0x3FE91ABC49889363, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double 0.000000e+00, ptr %15, align 8
   store double 0x3FD91ABC49889363, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 0x3FE052468FB75C6D, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double 0xBFDE25BD194051B7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double 0x3FB199CEC12415E8, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store double 0x3FB199CEC12415E8, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store double 0xBFDE25BD194051B7, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store double 0x3FE052468FB75C6D, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store double 0x3FD91ABC49889363, ptr %22, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
@@ -661,7 +661,7 @@ define noalias noundef ptr @ARKodeSymplecticSuzukiUmeno816() local_unnamed_addr 
 
 1:                                                ; preds = %0
   %2 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #13
-  %3 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
@@ -672,7 +672,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
@@ -683,70 +683,70 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 8, ptr %calloc.i, align 8
   store i32 16, ptr %8, align 4
   store double 0x3FE7BBC37CE98B91, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double 0xBFDA2EB53AE4F982, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 0x3FC86AA67D23E0D1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double 0xBFE25D14D43B0CD8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store double 0x3FD323DE1786AB7D, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double 0x3FD56A7EA212931E, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store double 0x3FD42DC3141FECA6, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double 0xBFE9801B22C31F99, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store double 0x3FD42DC3141FECA6, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store double 0x3FD56A7EA212931E, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store double 0x3FD323DE1786AB7D, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store double 0xBFE25D14D43B0CD8, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store double 0x3FC86AA67D23E0D1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store double 0xBFDA2EB53AE4F982, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store double 0x3FE7BBC37CE98B91, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store double 0.000000e+00, ptr %23, align 8
   store double 0x3FD7BBC37CE98B91, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 0x3FC548D1BEEE1DA0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double 0xBFBBF2C3F8A61233, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double 0xBFC884D669E42948, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store double 0xBFC1964B90EF6E33, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store double 0x3FD4472E5CCC9F4E, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store double 0x3FD4CC20DB193FE2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store double 0xBFCED2733166528C, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store double 0xBFCED2733166528C, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store double 0x3FD4CC20DB193FE2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store double 0x3FD4472E5CCC9F4E, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store double 0xBFC1964B90EF6E33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store double 0xBFC884D669E42948, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store double 0xBFBBF2C3F8A61233, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store double 0x3FC548D1BEEE1DA0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store double 0x3FD7BBC37CE98B91, ptr %38, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
@@ -763,7 +763,7 @@ define noalias noundef ptr @ARKodeSymplecticSofroniou10() local_unnamed_addr #5 
 
 1:                                                ; preds = %0
   %2 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #13
-  %3 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %2, ptr %3, align 8
   %.not14.i = icmp eq ptr %2, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %4
@@ -774,7 +774,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %1
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(288) ptr @malloc(i64 noundef 288) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %5, ptr %6, align 8
   %.not15.i = icmp eq ptr %5, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %7
@@ -785,203 +785,203 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 10, ptr %calloc.i, align 8
   store i32 36, ptr %8, align 4
   store double 0x3FB42BF4DB4B9AFF, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double 0x3FD409C43D2B1134, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 0x3F9C96A2FBCEB312, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double 0xBFCD634C5905512A, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store double 0x3FC0C35D64ABED3F, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double 0xBFD1434FE6FB3055, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store double 0x3FB33173F8ED2490, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double 0x3FBCAB99DD723D33, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store double 0x3FD76EBAFDF17414, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store double 0xBFD98AF257455C19, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store double 0x3FBA63EF8D4E2209, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store double 0x3FDA54E2290D22C3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store double 0xBF73EEBFB8E1BA6F, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store double 0xBFD917131047AAF2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store double 0x3FAA98352EFE0164, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store double 0x3FA9F0C657B9BA0A, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store double 0x3FA96EEB4AB1ACEC, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store double 0x3FA9402C9C668451, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store double 0x3FA96EEB4AB1ACEC, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 152
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store double 0x3FA9F0C657B9BA0A, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 160
   store double 0x3FAA98352EFE0164, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 168
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store double 0xBFD917131047AAF2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 176
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 176
   store double 0xBF73EEBFB8E1BA6F, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 184
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 184
   store double 0x3FDA54E2290D22C3, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 192
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store double 0x3FBA63EF8D4E2209, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 200
   store double 0xBFD98AF257455C19, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 208
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 208
   store double 0x3FD76EBAFDF17414, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 216
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store double 0x3FBCAB99DD723D33, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 224
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 224
   store double 0x3FB33173F8ED2490, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 232
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 232
   store double 0xBFD1434FE6FB3055, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 240
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 240
   store double 0x3FC0C35D64ABED3F, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 248
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 248
   store double 0xBFCD634C5905512A, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 256
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 256
   store double 0x3F9C96A2FBCEB312, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 264
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 264
   store double 0x3FD409C43D2B1134, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 272
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 272
   store double 0x3FB42BF4DB4B9AFF, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %5, i64 280
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 280
   store double 0.000000e+00, ptr %43, align 8
   store double 0x3FA42BF4DB4B9AFF, ptr %2, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 0x3FC914C173FDF7F4, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double 0x3FC5D32E6CE7FC65, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double 0xBFB9D077F98B7AC8, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store double 0xBFA93FDDE8B2C7D6, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store double 0xBFB1C342694A736B, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store double 0xBFB8EDE5D17FCE62, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store double 0x3FB7EE86EB2FB0E2, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store double 0x3FCE99A1754E0361, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store double 0xBF90E1BACA9F4028, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store double 0xBFC2F1F673F1D397, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store double 0x3FD076EF063055A3, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store double 0x3FCA05272A299BD9, ptr %55, align 8
   %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 96
   %58 = load double, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %56, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 104
   %60 = load double, ptr %59, align 8
   %61 = fadd double %58, %60
   %62 = fmul double %61, 5.000000e-01
   %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 104
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 104
   store double %62, ptr %64, align 8
   %65 = load double, ptr %59, align 8
-  %66 = getelementptr inbounds i8, ptr %56, i64 112
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 112
   %67 = load double, ptr %66, align 8
   %68 = fadd double %65, %67
   %69 = fmul double %68, 5.000000e-01
-  %70 = getelementptr inbounds i8, ptr %63, i64 112
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 112
   store double %69, ptr %70, align 8
   %71 = load double, ptr %66, align 8
-  %72 = getelementptr inbounds i8, ptr %56, i64 120
+  %72 = getelementptr inbounds nuw i8, ptr %56, i64 120
   %73 = load double, ptr %72, align 8
   %74 = fadd double %71, %73
   %75 = fmul double %74, 5.000000e-01
-  %76 = getelementptr inbounds i8, ptr %63, i64 120
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 120
   store double %75, ptr %76, align 8
   %77 = load double, ptr %72, align 8
-  %78 = getelementptr inbounds i8, ptr %56, i64 128
+  %78 = getelementptr inbounds nuw i8, ptr %56, i64 128
   %79 = load double, ptr %78, align 8
   %80 = fadd double %77, %79
   %81 = fmul double %80, 5.000000e-01
-  %82 = getelementptr inbounds i8, ptr %63, i64 128
+  %82 = getelementptr inbounds nuw i8, ptr %63, i64 128
   store double %81, ptr %82, align 8
   %83 = load double, ptr %78, align 8
-  %84 = getelementptr inbounds i8, ptr %56, i64 136
+  %84 = getelementptr inbounds nuw i8, ptr %56, i64 136
   %85 = load double, ptr %84, align 8
   %86 = fadd double %83, %85
   %87 = fmul double %86, 5.000000e-01
-  %88 = getelementptr inbounds i8, ptr %63, i64 136
+  %88 = getelementptr inbounds nuw i8, ptr %63, i64 136
   store double %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %63, i64 144
+  %89 = getelementptr inbounds nuw i8, ptr %63, i64 144
   store double %87, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %63, i64 152
+  %90 = getelementptr inbounds nuw i8, ptr %63, i64 152
   store double %81, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %63, i64 160
+  %91 = getelementptr inbounds nuw i8, ptr %63, i64 160
   store double %75, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %63, i64 168
+  %92 = getelementptr inbounds nuw i8, ptr %63, i64 168
   store double %69, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %63, i64 176
+  %93 = getelementptr inbounds nuw i8, ptr %63, i64 176
   store double %62, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %63, i64 96
+  %94 = getelementptr inbounds nuw i8, ptr %63, i64 96
   %95 = load double, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %63, i64 184
+  %96 = getelementptr inbounds nuw i8, ptr %63, i64 184
   store double %95, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %63, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %63, i64 88
   %98 = load double, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %63, i64 192
+  %99 = getelementptr inbounds nuw i8, ptr %63, i64 192
   store double %98, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %63, i64 80
+  %100 = getelementptr inbounds nuw i8, ptr %63, i64 80
   %101 = load double, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %63, i64 200
+  %102 = getelementptr inbounds nuw i8, ptr %63, i64 200
   store double %101, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %63, i64 72
+  %103 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %104 = load double, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %63, i64 208
+  %105 = getelementptr inbounds nuw i8, ptr %63, i64 208
   store double %104, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %63, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %107 = load double, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %63, i64 216
+  %108 = getelementptr inbounds nuw i8, ptr %63, i64 216
   store double %107, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %63, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %110 = load double, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %63, i64 224
+  %111 = getelementptr inbounds nuw i8, ptr %63, i64 224
   store double %110, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %63, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %113 = load double, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %63, i64 232
+  %114 = getelementptr inbounds nuw i8, ptr %63, i64 232
   store double %113, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %63, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %116 = load double, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %63, i64 240
+  %117 = getelementptr inbounds nuw i8, ptr %63, i64 240
   store double %116, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %63, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %119 = load double, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %63, i64 248
+  %120 = getelementptr inbounds nuw i8, ptr %63, i64 248
   store double %119, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %63, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %122 = load double, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %63, i64 256
+  %123 = getelementptr inbounds nuw i8, ptr %63, i64 256
   store double %122, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %63, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %125 = load double, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %63, i64 264
+  %126 = getelementptr inbounds nuw i8, ptr %63, i64 264
   store double %125, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %63, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %128 = load double, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %63, i64 272
+  %129 = getelementptr inbounds nuw i8, ptr %63, i64 272
   store double %128, ptr %129, align 8
   %130 = load double, ptr %63, align 8
-  %131 = getelementptr inbounds i8, ptr %63, i64 280
+  %131 = getelementptr inbounds nuw i8, ptr %63, i64 280
   store double %130, ptr %131, align 8
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
@@ -997,7 +997,7 @@ define noalias noundef ptr @ARKodeSPRKTable_Create(i32 noundef %0, i32 noundef %
   br i1 %.not, label %.loopexit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %0, ptr %7, align 4
   store i32 %1, ptr %5, align 8
   %8 = icmp slt i32 %0, 1
@@ -1017,7 +1017,7 @@ define void @ARKodeSPRKTable_Free(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %.not, label %11, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %6, label %5
@@ -1027,7 +1027,7 @@ define void @ARKodeSPRKTable_Free(ptr noundef %0) local_unnamed_addr #5 {
   br label %6
 
 6:                                                ; preds = %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %10, label %9
@@ -1068,7 +1068,7 @@ define noalias noundef ptr @ARKodeSPRKTable_Load(i32 noundef %0) local_unnamed_a
 
 3:                                                ; preds = %2
   %4 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #13
-  %5 = getelementptr inbounds i8, ptr %calloc.i.i, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 16
   store ptr %4, ptr %5, align 8
   %.not14.i.i = icmp eq ptr %4, null
   br i1 %.not14.i.i, label %ARKodeSPRKTable_Free.exit.i.i, label %6
@@ -1079,7 +1079,7 @@ ARKodeSPRKTable_Free.exit.i.i:                    ; preds = %3
 
 6:                                                ; preds = %3
   %7 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #13
-  %8 = getelementptr inbounds i8, ptr %calloc.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 8
   store ptr %7, ptr %8, align 8
   %.not15.i.i = icmp eq ptr %7, null
   br i1 %.not15.i.i, label %ARKodeSPRKTable_Free.exit19.i.i, label %9
@@ -1090,7 +1090,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %6
   br label %ARKodeSymplecticEuler.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %calloc.i.i, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 4
   store i32 1, ptr %calloc.i.i, align 8
   store i32 1, ptr %10, align 4
   store double 1.000000e+00, ptr %7, align 8
@@ -1159,7 +1159,7 @@ define noalias noundef ptr @ARKodeSPRKTable_LoadByName(ptr nocapture noundef rea
 
 4:                                                ; preds = %3
   %5 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #13
-  %6 = getelementptr inbounds i8, ptr %calloc.i.i, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 16
   store ptr %5, ptr %6, align 8
   %.not14.i.i = icmp eq ptr %5, null
   br i1 %.not14.i.i, label %ARKodeSPRKTable_Free.exit.i.i, label %7
@@ -1170,7 +1170,7 @@ ARKodeSPRKTable_Free.exit.i.i:                    ; preds = %4
 
 7:                                                ; preds = %4
   %8 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #13
-  %9 = getelementptr inbounds i8, ptr %calloc.i.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 8
   store ptr %8, ptr %9, align 8
   %.not15.i.i = icmp eq ptr %8, null
   br i1 %.not15.i.i, label %ARKodeSPRKTable_Free.exit19.i.i, label %10
@@ -1181,7 +1181,7 @@ ARKodeSPRKTable_Free.exit19.i.i:                  ; preds = %7
   br label %ARKodeSymplecticEuler.exit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %calloc.i.i, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 4
   store i32 1, ptr %calloc.i.i, align 8
   store i32 1, ptr %11, align 4
   store double 1.000000e+00, ptr %8, align 8
@@ -1297,7 +1297,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @ARKodeSPRKTable_Copy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i = icmp eq ptr %calloc.i, null
@@ -1307,7 +1307,7 @@ define noalias noundef ptr @ARKodeSPRKTable_Copy(ptr nocapture noundef readonly 
   %5 = sext i32 %3 to i64
   %6 = shl nsw i64 %5, 3
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %7, ptr %8, align 8
   %.not14.i = icmp eq ptr %7, null
   br i1 %.not14.i, label %ARKodeSPRKTable_Free.exit.i, label %9
@@ -1318,7 +1318,7 @@ ARKodeSPRKTable_Free.exit.i:                      ; preds = %4
 
 9:                                                ; preds = %4
   %10 = tail call noalias ptr @malloc(i64 noundef %6) #13
-  %11 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %10, ptr %11, align 8
   %.not15.i = icmp eq ptr %10, null
   br i1 %.not15.i, label %ARKodeSPRKTable_Free.exit19.i, label %12
@@ -1329,7 +1329,7 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %9
   br label %ARKodeSPRKTable_Alloc.exit
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %calloc.i, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 %3, ptr %13, align 4
   br label %ARKodeSPRKTable_Alloc.exit
 
@@ -1337,17 +1337,17 @@ ARKodeSPRKTable_Alloc.exit:                       ; preds = %1, %ARKodeSPRKTable
   %.0.i = phi ptr [ %calloc.i, %12 ], [ null, %ARKodeSPRKTable_Free.exit19.i ], [ null, %ARKodeSPRKTable_Free.exit.i ], [ null, %1 ]
   %14 = load i32, ptr %0, align 8
   store i32 %14, ptr %.0.i, align 8
-  %15 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %ARKodeSPRKTable_Alloc.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %wide.trip.count = zext nneg i32 %16 to i64
   br label %24
@@ -1355,14 +1355,14 @@ ARKodeSPRKTable_Alloc.exit:                       ; preds = %1, %ARKodeSPRKTable
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
   %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
   store double %27, ptr %28, align 8
   %29 = load ptr, ptr %21, align 8
-  %30 = getelementptr inbounds double, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv
   %31 = load double, ptr %30, align 8
-  %32 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
   store double %31, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1375,7 +1375,7 @@ ARKodeSPRKTable_Alloc.exit:                       ; preds = %1, %ARKodeSPRKTable
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ARKodeSPRKTable_Space(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #9 {
   store i64 2, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = shl nsw i32 %5, 1
   %7 = sext i32 %6 to i64
@@ -1404,7 +1404,7 @@ define void @ARKodeSPRKTable_Write(ptr nocapture noundef readonly %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call ptr @ARKodeButcherTable_Alloc(i32 noundef %5, i32 noundef 0) #14
   %.not = icmp eq ptr %6, null
@@ -1422,16 +1422,16 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr nocapture noundef re
   br i1 %11, label %.lr.ph97, label %._crit_edge98
 
 .lr.ph97:                                         ; preds = %.preheader80
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 32
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
-  %19 = getelementptr inbounds i8, ptr %6, i64 24
-  %20 = getelementptr inbounds i8, ptr %6, i64 4
-  %21 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 4
   br label %.lr.ph.preheader
 
 22:                                               ; preds = %7
@@ -1459,12 +1459,12 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr nocapture noundef re
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %32 = load ptr, ptr %12, align 8
-  %33 = getelementptr inbounds double, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
   %34 = load double, ptr %33, align 8
   %35 = load ptr, ptr %14, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %24
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds double, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
   store double %34, ptr %38, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1482,10 +1482,10 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr nocapture noundef re
 40:                                               ; preds = %.preheader76, %40
   %indvars.iv103 = phi i64 [ 0, %.preheader76 ], [ %indvars.iv.next104, %40 ]
   %41 = load ptr, ptr %12, align 8
-  %42 = getelementptr inbounds double, ptr %41, i64 %indvars.iv103
+  %42 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv103
   %43 = load double, ptr %42, align 8
   %44 = load ptr, ptr %15, align 8
-  %45 = getelementptr inbounds double, ptr %44, i64 %indvars.iv112
+  %45 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv112
   %46 = load double, ptr %45, align 8
   %47 = fadd double %43, %46
   store double %47, ptr %45, align 8
@@ -1509,10 +1509,10 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr nocapture noundef re
 .lr.ph88:                                         ; preds = %.preheader78, %._crit_edge
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %._crit_edge ], [ 0, %.preheader78 ]
   %54 = load ptr, ptr %16, align 8
-  %55 = getelementptr inbounds double, ptr %54, i64 %indvars.iv122
+  %55 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv122
   %56 = load double, ptr %55, align 8
   %57 = load ptr, ptr %17, align 8
-  %58 = getelementptr inbounds double, ptr %57, i64 %indvars.iv122
+  %58 = getelementptr inbounds nuw double, ptr %57, i64 %indvars.iv122
   store double %56, ptr %58, align 8
   %.not99 = icmp eq i64 %indvars.iv122, 0
   br i1 %.not99, label %._crit_edge, label %.lr.ph86
@@ -1520,12 +1520,12 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr nocapture noundef re
 .lr.ph86:                                         ; preds = %.lr.ph88, %.lr.ph86
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph86 ], [ 0, %.lr.ph88 ]
   %59 = load ptr, ptr %16, align 8
-  %60 = getelementptr inbounds double, ptr %59, i64 %indvars.iv117
+  %60 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv117
   %61 = load double, ptr %60, align 8
   %62 = load ptr, ptr %18, align 8
-  %63 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv122
+  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv122
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds double, ptr %64, i64 %indvars.iv117
+  %65 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv117
   store double %61, ptr %65, align 8
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %indvars.iv122
@@ -1547,10 +1547,10 @@ define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr nocapture noundef re
 .lr.ph90:                                         ; preds = %.preheader, %.lr.ph90
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.lr.ph90 ], [ 0, %.preheader ]
   %70 = load ptr, ptr %16, align 8
-  %71 = getelementptr inbounds double, ptr %70, i64 %indvars.iv125
+  %71 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv125
   %72 = load double, ptr %71, align 8
   %73 = load ptr, ptr %19, align 8
-  %74 = getelementptr inbounds double, ptr %73, i64 %indvars.iv130
+  %74 = getelementptr inbounds nuw double, ptr %73, i64 %indvars.iv130
   %75 = load double, ptr %74, align 8
   %76 = fadd double %72, %75
   store double %76, ptr %74, align 8

@@ -5,26 +5,26 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef double @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES4_iii(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph25, label %._crit_edge26
 
 .lr.ph25:                                         ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %13, align 8
   %15 = mul nsw i32 %4, %3
   %16 = sext i32 %15 to i64
   %invariant.gep = getelementptr double, ptr %11, i64 %16
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph.us.preheader, label %._crit_edge26
@@ -48,9 +48,9 @@ define hidden noundef double @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES
 30:                                               ; preds = %.lr.ph.us, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %30 ]
   %.120.us = phi double [ %.01823.us, %.lr.ph.us ], [ %35, %30 ]
-  %31 = getelementptr inbounds double, ptr %gep.us, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw double, ptr %gep.us, i64 %indvars.iv
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds double, ptr %29, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv
   %34 = load double, ptr %33, align 8
   %35 = tail call double @llvm.fmuladd.f64(double %32, double %34, double %.120.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -72,21 +72,21 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES4_iRS2_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %4) local_unnamed_addr #2 align 2 {
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge42
 
 .lr.ph:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
-  %16 = getelementptr inbounds i8, ptr %2, i64 72
-  %17 = getelementptr inbounds i8, ptr %2, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %18 = load i32, ptr %11, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph.split.preheader, label %._crit_edge42
@@ -144,9 +144,9 @@ define hidden void @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES4_iRS2_(pt
 44:                                               ; preds = %.lr.ph.us, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %44 ]
   %.132.us = phi double [ %.03134.us, %.lr.ph.us ], [ %49, %44 ]
-  %45 = getelementptr inbounds double, ptr %gep.us, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw double, ptr %gep.us, i64 %indvars.iv
   %46 = load double, ptr %45, align 8
-  %47 = getelementptr inbounds double, ptr %43, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv
   %48 = load double, ptr %47, align 8
   %49 = tail call double @llvm.fmuladd.f64(double %46, double %48, double %.132.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -160,7 +160,7 @@ define hidden void @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES4_iRS2_(pt
 
 ._crit_edge37:                                    ; preds = %._crit_edge.us, %.lr.ph36, %.preheader
   %.031.lcssa = phi double [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph36 ], [ %49, %._crit_edge.us ]
-  %50 = getelementptr inbounds double, ptr %27, i64 %indvars.iv51
+  %50 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv51
   store double %.031.lcssa, ptr %50, align 8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %51 = load i32, ptr %11, align 4

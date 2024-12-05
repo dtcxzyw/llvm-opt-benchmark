@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Nwk_ManVerifyTopoOrder(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Nwk_ManIncrementTravId(ptr noundef %0) #9
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val72 = load i32, ptr %4, align 4
@@ -18,7 +18,7 @@ define range(i32 0, 2) i32 @Nwk_ManVerifyTopoOrder(ptr noundef %0) local_unnamed
   br i1 %5, label %.lr.ph74, label %.critedge
 
 .lr.ph74:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = getelementptr i8, ptr %0, i64 24
   br label %8
 
@@ -27,7 +27,7 @@ define range(i32 0, 2) i32 @Nwk_ManVerifyTopoOrder(ptr noundef %0) local_unnamed
   %indvars.iv89 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next90, %63 ]
   %10 = getelementptr i8, ptr %9, i64 8
   %.val50 = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val50, i64 %indvars.iv89
+  %11 = getelementptr inbounds nuw ptr, ptr %.val50, i64 %indvars.iv89
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %63, label %14
@@ -43,13 +43,13 @@ define range(i32 0, 2) i32 @Nwk_ManVerifyTopoOrder(ptr noundef %0) local_unnamed
   ]
 
 17:                                               ; preds = %14, %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 60
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph70, label %.critedge2
 
 .lr.ph70:                                         ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %12, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %22 = load ptr, ptr %21, align 8
   %wide.trip.count87 = zext nneg i32 %19 to i64
   br label %24
@@ -61,7 +61,7 @@ define range(i32 0, 2) i32 @Nwk_ManVerifyTopoOrder(ptr noundef %0) local_unnamed
 
 24:                                               ; preds = %.lr.ph70, %23
   %indvars.iv84 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next85, %23 ]
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv84
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv84
   %26 = load ptr, ptr %25, align 8
   %.not48 = icmp eq ptr %26, null
   br i1 %.not48, label %.critedge2, label %27
@@ -76,9 +76,9 @@ define range(i32 0, 2) i32 @Nwk_ManVerifyTopoOrder(ptr noundef %0) local_unnamed
   br i1 %.not60, label %23, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %12, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %26, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 36
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %32, i32 noundef %34)
   br label %.critedge
@@ -129,16 +129,16 @@ define range(i32 0, 2) i32 @Nwk_ManVerifyTopoOrder(ptr noundef %0) local_unnamed
   br i1 %.not62, label %50, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %52, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 36
   %57 = load i32, ptr %56, align 4
   %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %40, i32 noundef %57)
   br label %.critedge
 
 .critedge2:                                       ; preds = %50, %23, %24, %42, %17, %14, %38, %36
   %59 = load ptr, ptr %12, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 104
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %12, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 %61, ptr %62, align 8
   %.pre = load ptr, ptr %2, align 8
   br label %63
@@ -170,7 +170,7 @@ declare i32 @Tim_ManBoxInputNum(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val6785 = load i32, ptr %4, align 4
@@ -182,13 +182,13 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr nocapture noundef r
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val69 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val69, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val69, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %9, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 0, ptr %12, align 4
   %.pre = load ptr, ptr %2, align 8
   br label %13
@@ -203,7 +203,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr nocapture noundef r
   br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %13, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.thread, label %20
@@ -232,7 +232,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr nocapture noundef r
   %.05194 = phi i32 [ %.152, %63 ], [ 0, %.thread ]
   %28 = getelementptr i8, ptr %27, i64 8
   %.val68 = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds ptr, ptr %.val68, i64 %indvars.iv101
+  %29 = getelementptr inbounds nuw ptr, ptr %.val68, i64 %indvars.iv101
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %63, label %32
@@ -248,13 +248,13 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr nocapture noundef r
   ]
 
 .preheader:                                       ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %30, i64 60
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 60
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph89, label %.critedge4
 
 .lr.ph89:                                         ; preds = %.preheader
-  %38 = getelementptr inbounds i8, ptr %30, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %39 = load ptr, ptr %38, align 8
   %wide.trip.count = zext nneg i32 %36 to i64
   br label %56
@@ -270,7 +270,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr nocapture noundef r
 
 45:                                               ; preds = %40, %41
   %46 = phi i32 [ %44, %41 ], [ 0, %40 ]
-  %47 = getelementptr inbounds i8, ptr %30, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 44
   store i32 %46, ptr %47, align 4
   br label %63
 
@@ -289,7 +289,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr nocapture noundef r
   br label %54
 
 54:                                               ; preds = %51, %48
-  %55 = getelementptr inbounds i8, ptr %30, i64 44
+  %55 = getelementptr inbounds nuw i8, ptr %30, i64 44
   store i32 %.val74, ptr %55, align 4
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.05194, i32 %.val74)
   br label %63
@@ -297,7 +297,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr nocapture noundef r
 56:                                               ; preds = %.lr.ph89, %59
   %indvars.iv98 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next99, %59 ]
   %.088 = phi i32 [ 0, %.lr.ph89 ], [ %spec.select81, %59 ]
-  %57 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv98
+  %57 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv98
   %58 = load ptr, ptr %57, align 8
   %.not66 = icmp eq ptr %58, null
   br i1 %.not66, label %.critedge4.loopexit, label %59
@@ -317,7 +317,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr nocapture noundef r
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.preheader
   %.0.lcssa = phi i32 [ 1, %.preheader ], [ %61, %.critedge4.loopexit ]
-  %62 = getelementptr inbounds i8, ptr %30, i64 44
+  %62 = getelementptr inbounds nuw i8, ptr %30, i64 44
   store i32 %.0.lcssa, ptr %62, align 4
   br label %63
 
@@ -356,7 +356,7 @@ declare void @Tim_ManStop(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @Nwk_ManLevel_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 40
   %.val52 = load i32, ptr %5, align 8
@@ -421,8 +421,8 @@ define void @Nwk_ManLevel_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %._crit_edge
 
 28:                                               ; preds = %7, %7
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
-  %30 = getelementptr inbounds i8, ptr %0, i64 60
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph.preheader, label %.critedge
@@ -435,7 +435,7 @@ define void @Nwk_ManLevel_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph84
   %35 = load ptr, ptr %29, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv.next
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.next
   %37 = load ptr, ptr %36, align 8
   %.not46 = icmp eq ptr %37, null
   br i1 %.not46, label %.critedge.loopexit.loopexit, label %.lr.ph84, !llvm.loop !12
@@ -479,7 +479,7 @@ define void @Nwk_ManLevel_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %15, %._crit_edge.loopexit, %7, %46, %.critedge, %10, %11
   %.2 = phi i32 [ 0, %11 ], [ 0, %10 ], [ %.3.lcssa, %.critedge ], [ %spec.select, %46 ], [ 0, %7 ], [ 1, %15 ], [ %27, %._crit_edge.loopexit ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.2, ptr %47, align 4
   br label %48
 
@@ -489,7 +489,7 @@ define void @Nwk_ManLevel_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, -2147483648) i32 @Nwk_ManLevel(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val3648 = load i32, ptr %4, align 4
@@ -501,13 +501,13 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevel(ptr noundef %0) local_unnamed
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val39 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val39, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val39, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %9, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 0, ptr %12, align 4
   %.pre = load ptr, ptr %2, align 8
   br label %13
@@ -523,7 +523,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevel(ptr noundef %0) local_unnamed
 
 .critedge:                                        ; preds = %13, %1
   tail call void @Nwk_ManIncrementTravId(ptr noundef nonnull %0) #9
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 4
   %.val3550 = load i32, ptr %20, align 4
@@ -532,7 +532,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevel(ptr noundef %0) local_unnamed
 
 .critedge2.preheader:                             ; preds = %Nwk_ObjIsPo.exit.thread, %.critedge
   %.0.lcssa = phi i32 [ 0, %.critedge ], [ %.1, %Nwk_ObjIsPo.exit.thread ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 4
   %.val54 = load i32, ptr %24, align 4
@@ -545,7 +545,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevel(ptr noundef %0) local_unnamed
   %.052 = phi i32 [ %.1, %Nwk_ObjIsPo.exit.thread ], [ 0, %.critedge ]
   %27 = getelementptr i8, ptr %26, i64 8
   %.val38 = load ptr, ptr %27, align 8
-  %28 = getelementptr inbounds ptr, ptr %.val38, i64 %indvars.iv61
+  %28 = getelementptr inbounds nuw ptr, ptr %.val38, i64 %indvars.iv61
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 32
   %.val.i = load i32, ptr %30, align 8
@@ -555,7 +555,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevel(ptr noundef %0) local_unnamed
 
 32:                                               ; preds = %.lr.ph53
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %Nwk_ObjIsPo.exit.thread45, label %Nwk_ObjIsPo.exit
@@ -589,7 +589,7 @@ Nwk_ObjIsPo.exit.thread:                          ; preds = %Nwk_ObjIsPo.exit.th
   %.256 = phi i32 [ %spec.select47, %.critedge2 ], [ %.0.lcssa, %.critedge2.preheader ]
   %45 = getelementptr i8, ptr %44, i64 8
   %.val37 = load ptr, ptr %45, align 8
-  %46 = getelementptr inbounds ptr, ptr %.val37, i64 %indvars.iv64
+  %46 = getelementptr inbounds nuw ptr, ptr %.val37, i64 %indvars.iv64
   %47 = load ptr, ptr %46, align 8
   tail call void @Nwk_ManLevel_rec(ptr noundef %47)
   %48 = getelementptr i8, ptr %47, i64 44
@@ -610,7 +610,7 @@ Nwk_ObjIsPo.exit.thread:                          ; preds = %Nwk_ObjIsPo.exit.th
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, -2147483648) i32 @Nwk_ManLevelMax(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val16 = load i32, ptr %4, align 4
@@ -623,7 +623,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevelMax(ptr nocapture noundef read
   %.018 = phi i32 [ %.1, %Nwk_ObjIsPo.exit.thread ], [ 0, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val10 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val10, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 32
   %.val.i = load i32, ptr %10, align 8
@@ -633,7 +633,7 @@ define range(i32 0, -2147483648) i32 @Nwk_ManLevelMax(ptr nocapture noundef read
 
 12:                                               ; preds = %.lr.ph
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %Nwk_ObjIsPo.exit.thread14, label %Nwk_ObjIsPo.exit
@@ -667,7 +667,7 @@ Nwk_ObjIsPo.exit.thread:                          ; preds = %Nwk_ObjIsPo.exit.th
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Nwk_ManLevelize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val16.i = load i32, ptr %4, align 4
@@ -684,7 +684,7 @@ Nwk_ManLevelMax.exit.thread:                      ; preds = %1
   %.018.i = phi i32 [ %.1.i, %Nwk_ObjIsPo.exit.thread.i ], [ 0, %1 ]
   %8 = getelementptr i8, ptr %7, i64 8
   %.val10.i = load ptr, ptr %8, align 8
-  %9 = getelementptr inbounds ptr, ptr %.val10.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw ptr, ptr %.val10.i, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 32
   %.val.i.i = load i32, ptr %11, align 8
@@ -694,7 +694,7 @@ Nwk_ManLevelMax.exit.thread:                      ; preds = %1
 
 13:                                               ; preds = %.lr.ph.i
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %Nwk_ObjIsPo.exit.thread14.i, label %Nwk_ObjIsPo.exit.i
@@ -740,7 +740,7 @@ Nwk_ManLevelMax.exit:                             ; preds = %Nwk_ObjIsPo.exit.th
   br i1 %.not.i.i16, label %Vec_VecAlloc.exit.i.thread, label %Vec_VecAlloc.exit.i
 
 Vec_VecAlloc.exit.i.thread:                       ; preds = %28
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr null, ptr %29, align 8
   br label %Vec_VecStart.exit
 
@@ -751,7 +751,7 @@ Vec_VecAlloc.exit.i:                              ; preds = %28, %.thread
   %33 = sext i32 %30 to i64
   %34 = shl nsw i64 %33, 3
   %35 = tail call noalias ptr @malloc(i64 noundef %34) #10
-  %36 = getelementptr inbounds i8, ptr %32, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %35, ptr %36, align 8
   %37 = icmp sgt i32 %31, 0
   br i1 %37, label %.lr.ph.preheader.i, label %Vec_VecStart.exit
@@ -763,7 +763,7 @@ Vec_VecAlloc.exit.i:                              ; preds = %28, %.thread
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %.lr.ph.preheader.i
   %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i19, %.lr.ph.i17 ]
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %38 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv.i18
+  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i18
   store ptr %calloc.i, ptr %38, align 8
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i19, %wide.trip.count.i
@@ -773,9 +773,9 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i17, %Vec_Ve
   %39 = phi ptr [ %29, %Vec_VecAlloc.exit.i.thread ], [ %36, %Vec_VecAlloc.exit.i ], [ %36, %.lr.ph.i17 ]
   %40 = phi ptr [ %27, %Vec_VecAlloc.exit.i.thread ], [ %32, %Vec_VecAlloc.exit.i ], [ %32, %.lr.ph.i17 ]
   %41 = phi i32 [ 0, %Vec_VecAlloc.exit.i.thread ], [ %31, %Vec_VecAlloc.exit.i ], [ %31, %.lr.ph.i17 ]
-  %42 = getelementptr inbounds i8, ptr %40, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 %41, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr i8, ptr %44, i64 4
   %.val32 = load i32, ptr %45, align 4
@@ -787,7 +787,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i17, %Vec_Ve
   %indvars.iv = phi i64 [ %indvars.iv.next, %110 ], [ 0, %Vec_VecStart.exit ]
   %48 = getelementptr i8, ptr %47, i64 8
   %.val13 = load ptr, ptr %48, align 8
-  %49 = getelementptr inbounds ptr, ptr %.val13, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %110, label %52
@@ -857,14 +857,14 @@ Vec_PtrGrow.exit.i:                               ; preds = %69, %59
   %76 = sext i32 %.val15 to i64
   %77 = getelementptr inbounds ptr, ptr %.val.i26, i64 %76
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = load i32, ptr %78, align 8
   %82 = icmp eq i32 %80, %81
   br i1 %82, label %83, label %.Vec_PtrGrow.exit11_crit_edge.i.i
 
 .Vec_PtrGrow.exit11_crit_edge.i.i:                ; preds = %75
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %78, i64 8
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %78, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %Vec_VecPush.exit
 
@@ -873,7 +873,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %69, %59
   br i1 %84, label %85, label %93
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %78, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not9.i.i.i = icmp eq ptr %87, null
   br i1 %.not9.i.i.i, label %90, label %88
@@ -894,7 +894,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %90, %88
 
 93:                                               ; preds = %83
   %94 = shl nuw nsw i32 %80, 1
-  %95 = getelementptr inbounds i8, ptr %78, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %96 = load ptr, ptr %95, align 8
   %.not9.i10.i.i = icmp eq ptr %96, null
   %97 = zext nneg i32 %94 to i64
@@ -951,8 +951,8 @@ define void @Nwk_ManDfs_rec(ptr noundef %0, ptr nocapture noundef %1) local_unna
 
 5:                                                ; preds = %2
   store i32 %.val.val, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
-  %7 = getelementptr inbounds i8, ptr %0, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %.critedge
@@ -960,7 +960,7 @@ define void @Nwk_ManDfs_rec(ptr noundef %0, ptr nocapture noundef %1) local_unna
 .lr.ph:                                           ; preds = %5, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %5 ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %.critedge, label %13
@@ -974,14 +974,14 @@ define void @Nwk_ManDfs_rec(ptr noundef %0, ptr nocapture noundef %1) local_unna
   br i1 %16, label %.lr.ph, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph, %13, %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = load i32, ptr %1, align 8
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %.critedge
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -990,7 +990,7 @@ define void @Nwk_ManDfs_rec(ptr noundef %0, ptr nocapture noundef %1) local_unna
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not9.i.i = icmp eq ptr %25, null
   br i1 %.not9.i.i, label %28, label %26
@@ -1011,7 +1011,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %28, %26
 
 31:                                               ; preds = %21
   %32 = shl nuw nsw i32 %18, 1
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not9.i10.i = icmp eq ptr %34, null
   %35 = zext nneg i32 %32 to i64
@@ -1050,13 +1050,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 define noalias noundef ptr @Nwk_ManDfs(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Nwk_ManIncrementTravId(ptr noundef %0) #9
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
   store i32 100, ptr %2, align 8
   %4 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #10
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %.val20 = load i32, ptr %8, align 4
@@ -1068,7 +1068,7 @@ define noalias noundef ptr @Nwk_ManDfs(ptr noundef %0) local_unnamed_addr #0 {
   %10 = phi ptr [ %52, %51 ], [ %7, %1 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val16 = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds ptr, ptr %.val16, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %.val16, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %51, label %15
@@ -1084,9 +1084,9 @@ define noalias noundef ptr @Nwk_ManDfs(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 %21, ptr %22, align 8
   %23 = load i32, ptr %3, align 4
   %24 = load i32, ptr %2, align 8
@@ -1187,8 +1187,8 @@ define void @Nwk_ManDfsNodes_rec(ptr noundef %0, ptr nocapture noundef %1) local
   br i1 %.not16, label %50, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = getelementptr inbounds i8, ptr %0, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %.critedge
@@ -1196,7 +1196,7 @@ define void @Nwk_ManDfsNodes_rec(ptr noundef %0, ptr nocapture noundef %1) local
 .lr.ph:                                           ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.preheader ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %.critedge, label %15
@@ -1210,14 +1210,14 @@ define void @Nwk_ManDfsNodes_rec(ptr noundef %0, ptr nocapture noundef %1) local
   br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph, %15, %.preheader
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %1, align 8
   %22 = icmp eq i32 %20, %21
   br i1 %22, label %23, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %.critedge
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -1226,7 +1226,7 @@ define void @Nwk_ManDfsNodes_rec(ptr noundef %0, ptr nocapture noundef %1) local
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not9.i.i = icmp eq ptr %27, null
   br i1 %.not9.i.i, label %30, label %28
@@ -1247,7 +1247,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %30, %28
 
 33:                                               ; preds = %23
   %34 = shl nuw nsw i32 %20, 1
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not9.i10.i = icmp eq ptr %36, null
   %37 = zext nneg i32 %34 to i64
@@ -1286,11 +1286,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 define noalias noundef ptr @Nwk_ManDfsNodes(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @Nwk_ManIncrementTravId(ptr noundef %0) #9
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
   store i32 100, ptr %4, align 8
   %6 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #10
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
@@ -1301,7 +1301,7 @@ define noalias noundef ptr @Nwk_ManDfsNodes(ptr noundef %0, ptr nocapture nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 32
   %.val = load i32, ptr %11, align 8
@@ -1348,7 +1348,7 @@ define void @Nwk_ManDfsReverse_rec(ptr noundef %0, ptr noundef %1) local_unnamed
   ]
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %.val39, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %.val39, i64 72
   %10 = load ptr, ptr %9, align 8
   %.not37 = icmp eq ptr %10, null
   br i1 %.not37, label %.critedge, label %11
@@ -1361,11 +1361,11 @@ define void @Nwk_ManDfsReverse_rec(ptr noundef %0, ptr noundef %1) local_unnamed
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @Tim_ManBoxOutputFirst(ptr noundef %18, i32 noundef %13) #9
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @Tim_ManBoxOutputNum(ptr noundef %22, i32 noundef %13) #9
   %24 = icmp sgt i32 %23, 0
@@ -1392,14 +1392,14 @@ define void @Nwk_ManDfsReverse_rec(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %exitcond.not, label %.critedge, label %.lr.ph50, !llvm.loop !24
 
 32:                                               ; preds = %5, %5
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 60
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 60
   br label %38
 
 38:                                               ; preds = %.lr.ph, %45
@@ -1421,14 +1421,14 @@ define void @Nwk_ManDfsReverse_rec(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %48, label %38, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %38, %45, %.lr.ph50, %32, %15, %5, %8, %11
-  %49 = getelementptr inbounds i8, ptr %1, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %1, align 8
   %52 = icmp eq i32 %50, %51
   br i1 %52, label %53, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %.critedge
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -1437,7 +1437,7 @@ define void @Nwk_ManDfsReverse_rec(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %54, label %55, label %63
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not9.i.i = icmp eq ptr %57, null
   br i1 %.not9.i.i, label %60, label %58
@@ -1458,7 +1458,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %60, %58
 
 63:                                               ; preds = %53
   %64 = shl nuw nsw i32 %50, 1
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not9.i10.i = icmp eq ptr %66, null
   %67 = zext nneg i32 %64 to i64
@@ -1503,13 +1503,13 @@ declare i32 @Tim_ManBoxOutputNum(ptr noundef, i32 noundef) local_unnamed_addr #1
 define noundef ptr @Nwk_ManDfsReverse(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Nwk_ManIncrementTravId(ptr noundef %0) #9
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
   store i32 100, ptr %2, align 8
   %4 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #10
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %.val2537 = load i32, ptr %8, align 4
@@ -1517,7 +1517,7 @@ define noundef ptr @Nwk_ManDfsReverse(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %9, label %.lr.ph, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %Nwk_ObjIsPi.exit.thread, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 4
   %.val39 = load i32, ptr %12, align 4
@@ -1529,7 +1529,7 @@ define noundef ptr @Nwk_ManDfsReverse(ptr noundef %0) local_unnamed_addr #0 {
   %14 = phi ptr [ %27, %Nwk_ObjIsPi.exit.thread ], [ %7, %1 ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val27 = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val27, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %.val27, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 32
   %.val.i = load i32, ptr %18, align 8
@@ -1539,7 +1539,7 @@ define noundef ptr @Nwk_ManDfsReverse(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %.lr.ph
   %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %Nwk_ObjIsPi.exit.thread33, label %Nwk_ObjIsPi.exit
@@ -1568,7 +1568,7 @@ Nwk_ObjIsPi.exit.thread:                          ; preds = %.lr.ph, %Nwk_ObjIsP
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.critedge ], [ 0, %.critedge.preheader ]
   %32 = getelementptr i8, ptr %31, i64 8
   %.val26 = load ptr, ptr %32, align 8
-  %33 = getelementptr inbounds ptr, ptr %.val26, i64 %indvars.iv43
+  %33 = getelementptr inbounds nuw ptr, ptr %.val26, i64 %indvars.iv43
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.critedge, label %36
@@ -1693,21 +1693,21 @@ define void @Nwk_ManSupportNodes_rec(ptr noundef %0, ptr nocapture noundef %1) l
   br i1 %.not16, label %12, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = getelementptr inbounds i8, ptr %0, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %.critedge
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %1, align 8
   %16 = icmp eq i32 %14, %15
   br i1 %16, label %17, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %12
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -1716,7 +1716,7 @@ define void @Nwk_ManSupportNodes_rec(ptr noundef %0, ptr nocapture noundef %1) l
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not9.i.i = icmp eq ptr %21, null
   br i1 %.not9.i.i, label %24, label %22
@@ -1737,7 +1737,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %24, %22
 
 27:                                               ; preds = %17
   %28 = shl nuw nsw i32 %14, 1
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not9.i10.i = icmp eq ptr %30, null
   %31 = zext nneg i32 %28 to i64
@@ -1771,7 +1771,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 .lr.ph:                                           ; preds = %.preheader, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.preheader ]
   %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8
   %.not13 = icmp eq ptr %46, null
   br i1 %.not13, label %.critedge, label %47
@@ -1792,11 +1792,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 define noalias noundef ptr @Nwk_ManSupportNodes(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @Nwk_ManIncrementTravId(ptr noundef %0) #9
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
   store i32 100, ptr %4, align 8
   %6 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #10
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
@@ -1807,7 +1807,7 @@ define noalias noundef ptr @Nwk_ManSupportNodes(ptr noundef %0, ptr nocapture no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 32
   %.val = load i32, ptr %11, align 8
@@ -1834,7 +1834,7 @@ define noalias noundef ptr @Nwk_ManSupportNodes(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define void @Nwk_ManSupportSum(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val1013 = load i32, ptr %4, align 4
@@ -1847,15 +1847,15 @@ define void @Nwk_ManSupportSum(ptr noundef %0) local_unnamed_addr #0 {
   %.015 = phi i32 [ %18, %Vec_PtrFree.exit ], [ 0, %1 ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val11 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val11, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val11, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   tail call void @Nwk_ManIncrementTravId(ptr noundef nonnull %0) #9
   %10 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %11, align 4
   store i32 100, ptr %10, align 8
   %12 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #10
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8
   %14 = getelementptr i8, ptr %9, i64 32
   %.val.i = load i32, ptr %14, align 8
@@ -1907,8 +1907,8 @@ define i32 @Nwk_ObjDeref_rec(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
-  %5 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.critedge
@@ -1917,13 +1917,13 @@ define i32 @Nwk_ObjDeref_rec(ptr nocapture noundef readonly %0) local_unnamed_ad
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
   %.015 = phi i32 [ %.1, %19 ], [ 1, %.preheader ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not13 = icmp eq ptr %10, null
   br i1 %.not13, label %.critedge, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %10, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %13, -1
   store i32 %14, ptr %12, align 8
@@ -1957,8 +1957,8 @@ define i32 @Nwk_ObjRef_rec(ptr nocapture noundef readonly %0) local_unnamed_addr
   br i1 %.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
-  %5 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.critedge
@@ -1967,13 +1967,13 @@ define i32 @Nwk_ObjRef_rec(ptr nocapture noundef readonly %0) local_unnamed_addr
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
   %.015 = phi i32 [ %.1, %19 ], [ 1, %.preheader ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not13 = icmp eq ptr %10, null
   br i1 %.not13, label %.critedge, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %10, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr %12, align 8
@@ -2011,7 +2011,7 @@ define void @Nwk_ObjMffcLabel_rec(ptr nocapture noundef %0, i32 noundef %1) loca
   br i1 %.not16, label %.critedge, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.critedge, label %10
@@ -2027,8 +2027,8 @@ define void @Nwk_ObjMffcLabel_rec(ptr nocapture noundef %0, i32 noundef %1) loca
 
 13:                                               ; preds = %10
   store i32 %.val.val, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
-  %15 = getelementptr inbounds i8, ptr %0, i64 60
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %.critedge
@@ -2036,7 +2036,7 @@ define void @Nwk_ObjMffcLabel_rec(ptr nocapture noundef %0, i32 noundef %1) loca
 .lr.ph:                                           ; preds = %13, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %13 ]
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %.not13 = icmp eq ptr %20, null
   br i1 %.not13, label %.critedge, label %21

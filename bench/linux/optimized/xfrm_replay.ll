@@ -18,20 +18,20 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xfrm_init_re
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local i32 @xfrm_replay_seqhi(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 225
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 225
   %4 = load i8, ptr %3, align 1
   %5 = icmp sgt i8 %4, -1
   br i1 %5, label %27, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 432
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %13, 1
   %17 = sub i32 %16, %15
@@ -75,7 +75,7 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
   %5 = alloca %struct.km_event, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !7
-  %6 = getelementptr inbounds i8, ptr %0, i64 464
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %130 [
     i32 2, label %69
@@ -85,9 +85,9 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !7
-  %9 = getelementptr inbounds i8, ptr %0, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 456
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %12 = load ptr, ptr %11, align 8
   switch i32 %1, label %47 [
     i32 16, label %13
@@ -95,31 +95,31 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
   ]
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 476
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %31, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %10, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %12, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %21 = load i32, ptr %20, align 4
   %22 = sub i32 %19, %21
   %23 = icmp ult i32 %22, %15
   br i1 %23, label %24, label %47
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %10, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %12, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = sub i32 %26, %28
   %30 = icmp ult i32 %29, %15
   br i1 %30, label %31, label %47
 
 31:                                               ; preds = %24, %13
-  %32 = getelementptr inbounds i8, ptr %0, i64 468
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 1
   %35 = icmp eq i32 %34, 0
@@ -135,7 +135,7 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %0, i64 468
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %45 = load i32, ptr %44, align 4
   %46 = or i32 %45, 1
   store i32 %46, ptr %44, align 4
@@ -148,26 +148,26 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
   %51 = add i32 %50, 24
   %52 = zext i32 %51 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 %10, i64 %52, i1 false)
-  %53 = getelementptr inbounds i8, ptr %4, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 30, ptr %53, align 4
   store i32 %48, ptr %4, align 8
   call void @km_state_notify(ptr noundef %0, ptr noundef nonnull %4) #8
-  %54 = getelementptr inbounds i8, ptr %0, i64 472
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %68, label %57
 
 57:                                               ; preds = %47
-  %58 = getelementptr inbounds i8, ptr %0, i64 480
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %59 = load volatile i64, ptr @jiffies, align 64
   %60 = zext i32 %55 to i64
   %61 = add i64 %59, %60
-  %62 = call i32 @mod_timer(ptr noundef %58, i64 noundef %61) #8
+  %62 = call i32 @mod_timer(ptr noundef nonnull %58, i64 noundef %61) #8
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %0, i64 468
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, -2
   store i32 %67, ptr %65, align 4
@@ -180,9 +180,9 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
 69:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !7
-  %70 = getelementptr inbounds i8, ptr %0, i64 432
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 456
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %73 = load ptr, ptr %72, align 8
   switch i32 %1, label %108 [
     i32 16, label %74
@@ -190,20 +190,20 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
   ]
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %0, i64 476
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %92, label %78
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %71, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %73, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %82 = load i32, ptr %81, align 4
   %83 = sub i32 %80, %82
-  %84 = getelementptr inbounds i8, ptr %71, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %73, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = sub i32 %85, %87
   %89 = icmp ult i32 %83, %76
@@ -212,7 +212,7 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
   br i1 %91, label %92, label %108
 
 92:                                               ; preds = %78, %74
-  %93 = getelementptr inbounds i8, ptr %0, i64 468
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, 1
   %96 = icmp eq i32 %95, 0
@@ -228,7 +228,7 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %97
-  %105 = getelementptr inbounds i8, ptr %0, i64 468
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %106 = load i32, ptr %105, align 4
   %107 = or i32 %106, 1
   store i32 %107, ptr %105, align 4
@@ -241,26 +241,26 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
   %112 = add i32 %111, 24
   %113 = zext i32 %112 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %73, ptr align 4 %71, i64 %113, i1 false)
-  %114 = getelementptr inbounds i8, ptr %3, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 30, ptr %114, align 4
   store i32 %109, ptr %3, align 8
   call void @km_state_notify(ptr noundef %0, ptr noundef nonnull %3) #8
-  %115 = getelementptr inbounds i8, ptr %0, i64 472
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %116 = load i32, ptr %115, align 8
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %129, label %118
 
 118:                                              ; preds = %108
-  %119 = getelementptr inbounds i8, ptr %0, i64 480
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %120 = load volatile i64, ptr @jiffies, align 64
   %121 = zext i32 %116 to i64
   %122 = add i64 %120, %121
-  %123 = call i32 @mod_timer(ptr noundef %119, i64 noundef %122) #8
+  %123 = call i32 @mod_timer(ptr noundef nonnull %119, i64 noundef %122) #8
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %129
 
 125:                                              ; preds = %118
-  %126 = getelementptr inbounds i8, ptr %0, i64 468
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %127 = load i32, ptr %126, align 4
   %128 = and i32 %127, -2
   store i32 %128, ptr %126, align 4
@@ -277,23 +277,23 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
   ]
 
 131:                                              ; preds = %130
-  %132 = getelementptr inbounds i8, ptr %0, i64 476
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %133 = load i32, ptr %132, align 4
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %149, label %135
 
 135:                                              ; preds = %131
-  %136 = getelementptr inbounds i8, ptr %0, i64 424
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %137 = load i32, ptr %136, align 4
-  %138 = getelementptr inbounds i8, ptr %0, i64 444
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %139 = load i32, ptr %138, align 4
   %140 = sub i32 %137, %139
   %141 = icmp ult i32 %140, %133
   br i1 %141, label %142, label %163
 
 142:                                              ; preds = %135
-  %143 = getelementptr inbounds i8, ptr %0, i64 440
-  %144 = getelementptr inbounds i8, ptr %0, i64 420
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %145 = load i32, ptr %144, align 4
   %146 = load i32, ptr %143, align 8
   %147 = sub i32 %145, %146
@@ -301,21 +301,21 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
   br i1 %148, label %149, label %163
 
 149:                                              ; preds = %142, %131
-  %150 = getelementptr inbounds i8, ptr %0, i64 468
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %151 = load i32, ptr %150, align 4
   %152 = and i32 %151, 1
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %182, label %163
 
 154:                                              ; preds = %130
-  %155 = getelementptr inbounds i8, ptr %0, i64 420
-  %156 = getelementptr inbounds i8, ptr %0, i64 440
-  %157 = tail call i32 @bcmp(ptr noundef dereferenceable(12) %155, ptr noundef dereferenceable(12) %156, i64 12)
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %157 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %155, ptr noundef nonnull dereferenceable(12) %156, i64 12)
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %163
 
 159:                                              ; preds = %154
-  %160 = getelementptr inbounds i8, ptr %0, i64 468
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %161 = load i32, ptr %160, align 4
   %162 = or i32 %161, 1
   store i32 %162, ptr %160, align 4
@@ -323,29 +323,29 @@ define dso_local void @xfrm_replay_notify(ptr noundef %0, i32 noundef %1) local_
 
 163:                                              ; preds = %154, %149, %142, %135, %130
   %164 = phi i32 [ %1, %130 ], [ 32, %154 ], [ 16, %142 ], [ 16, %135 ], [ 32, %149 ]
-  %165 = getelementptr inbounds i8, ptr %0, i64 440
-  %166 = getelementptr inbounds i8, ptr %0, i64 420
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(12) %165, ptr noundef align 4 dereferenceable(12) %166, i64 12, i1 false)
-  %167 = getelementptr inbounds i8, ptr %5, i64 12
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %165, ptr noundef nonnull align 4 dereferenceable(12) %166, i64 12, i1 false)
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 30, ptr %167, align 4
   store i32 %164, ptr %5, align 8
   call void @km_state_notify(ptr noundef %0, ptr noundef nonnull %5) #8
-  %168 = getelementptr inbounds i8, ptr %0, i64 472
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %169 = load i32, ptr %168, align 8
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %182, label %171
 
 171:                                              ; preds = %163
-  %172 = getelementptr inbounds i8, ptr %0, i64 480
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %173 = load volatile i64, ptr @jiffies, align 64
   %174 = zext i32 %169 to i64
   %175 = add i64 %173, %174
-  %176 = call i32 @mod_timer(ptr noundef %172, i64 noundef %175) #8
+  %176 = call i32 @mod_timer(ptr noundef nonnull %172, i64 noundef %175) #8
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %178, label %182
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds i8, ptr %0, i64 468
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %180 = load i32, ptr %179, align 4
   %181 = and i32 %180, -2
   store i32 %181, ptr %179, align 4
@@ -370,7 +370,7 @@ declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 464
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %174 [
     i32 2, label %76
@@ -378,16 +378,16 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 432
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %9 = getelementptr inbounds i8, ptr %7, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %210, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, -1
   %16 = urem i32 %15, %10
@@ -404,7 +404,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   br i1 %22, label %23, label %.loopexit26
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %7, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %25
 
 25:                                               ; preds = %25, %23
@@ -426,12 +426,12 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
 
 39:                                               ; preds = %18
   %40 = add i32 %10, -1
-  %41 = getelementptr inbounds i8, ptr %7, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %42 = lshr i32 %40, 3
   %43 = and i32 %42, 536870908
   %44 = add nuw nsw i32 %43, 4
   %45 = zext nneg i32 %44 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 %41, i8 0, i64 %45, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %41, i8 0, i64 %45, i1 false)
   br label %.loopexit26
 
 .loopexit26:                                      ; preds = %25, %39, %21
@@ -460,7 +460,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   %59 = lshr i32 %58, 5
   %60 = and i32 %58, 31
   %61 = shl nuw i32 1, %60
-  %62 = getelementptr inbounds i8, ptr %7, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %63 = zext nneg i32 %59 to i64
   %64 = getelementptr [0 x i32], ptr %62, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
@@ -468,7 +468,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   store i32 %66, ptr %64, align 4
   %67 = load ptr, ptr %0, align 8
   tail call void @__rcu_read_lock() #8
-  %68 = getelementptr inbounds i8, ptr %67, i64 2936
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 2936
   %69 = load volatile ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %75, label %71
@@ -488,23 +488,23 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   br label %210
 
 76:                                               ; preds = %2
-  %77 = getelementptr inbounds i8, ptr %0, i64 432
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 20
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %210, label %82
 
 82:                                               ; preds = %76
   %83 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %84 = getelementptr inbounds i8, ptr %78, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, -1
   %87 = urem i32 %86, %80
-  %88 = getelementptr inbounds i8, ptr %0, i64 225
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 225
   %89 = load i8, ptr %88, align 1
   %90 = icmp sgt i8 %89, -1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %78, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %78, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br i1 %90, label %100, label %91
 
@@ -523,16 +523,16 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   br i1 %95, label %.thread, label %.thread28, !prof !6
 
 .thread:                                          ; preds = %96, %97
-  %98 = getelementptr inbounds i8, ptr %78, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %78, i64 16
   br label %104
 
 .thread28:                                        ; preds = %97, %96
   %.sink = phi i32 [ 1, %96 ], [ -1, %97 ]
-  %99 = getelementptr inbounds i8, ptr %78, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %78, i64 16
   br label %108
 
 100:                                              ; preds = %82
-  %101 = getelementptr inbounds i8, ptr %78, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %102 = sub i32 0, %.pre
   %103 = icmp eq i32 %.pre, 0
   br i1 %103, label %104, label %108
@@ -562,7 +562,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   br i1 %118, label %119, label %.loopexit
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %78, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %78, i64 24
   br label %121
 
 121:                                              ; preds = %121, %119
@@ -584,12 +584,12 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
 
 135:                                              ; preds = %112
   %136 = add i32 %80, -1
-  %137 = getelementptr inbounds i8, ptr %78, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %138 = lshr i32 %136, 3
   %139 = and i32 %138, 536870908
   %140 = add nuw nsw i32 %139, 4
   %141 = zext nneg i32 %140 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 %137, i8 0, i64 %141, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %137, i8 0, i64 %141, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %121, %135, %117
@@ -623,7 +623,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   %157 = lshr i32 %156, 5
   %158 = and i32 %156, 31
   %159 = shl nuw i32 1, %158
-  %160 = getelementptr inbounds i8, ptr %78, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %161 = zext nneg i32 %157 to i64
   %162 = getelementptr [0 x i32], ptr %160, i64 0, i64 %161
   %163 = load i32, ptr %162, align 4
@@ -631,7 +631,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   store i32 %164, ptr %162, align 4
   %165 = load ptr, ptr %0, align 8
   tail call void @__rcu_read_lock() #8
-  %166 = getelementptr inbounds i8, ptr %165, i64 2936
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 2936
   %167 = load volatile ptr, ptr %166, align 8
   %168 = icmp eq ptr %167, null
   br i1 %168, label %173, label %169
@@ -651,14 +651,14 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   br label %210
 
 174:                                              ; preds = %2
-  %175 = getelementptr inbounds i8, ptr %0, i64 221
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 221
   %176 = load i8, ptr %175, align 1
   %177 = icmp eq i8 %176, 0
   br i1 %177, label %210, label %178
 
 178:                                              ; preds = %174
   %179 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %180 = getelementptr inbounds i8, ptr %0, i64 424
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %181 = load i32, ptr %180, align 4
   %182 = icmp ugt i32 %179, %181
   br i1 %182, label %183, label %194
@@ -667,7 +667,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   %184 = sub nuw i32 %179, %181
   %185 = zext i8 %176 to i32
   %186 = icmp ult i32 %184, %185
-  %187 = getelementptr inbounds i8, ptr %0, i64 428
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 428
   br i1 %186, label %188, label %192
 
 188:                                              ; preds = %183
@@ -685,7 +685,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
 194:                                              ; preds = %178
   %195 = sub nuw i32 %181, %179
   %196 = shl nuw i32 1, %195
-  %197 = getelementptr inbounds i8, ptr %0, i64 428
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %198 = load i32, ptr %197, align 4
   %199 = or i32 %198, %196
   store i32 %199, ptr %197, align 4
@@ -694,7 +694,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
 200:                                              ; preds = %194, %192
   %201 = load ptr, ptr %0, align 8
   tail call void @__rcu_read_lock() #8
-  %202 = getelementptr inbounds i8, ptr %201, i64 2936
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 2936
   %203 = load volatile ptr, ptr %202, align 8
   %204 = icmp eq ptr %203, null
   br i1 %204, label %209, label %205
@@ -719,7 +719,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 464
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %54 [
     i32 2, label %52
@@ -727,13 +727,13 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 432
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @llvm.bswap.i32(i32 %2)
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = sub i32 %11, %9
-  %13 = getelementptr inbounds i8, ptr %8, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %84, label %16
@@ -751,7 +751,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 520
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 8
@@ -777,7 +777,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
   %37 = phi i32 [ %32, %30 ], [ %35, %33 ]
   %38 = lshr i32 %37, 5
   %39 = and i32 %37, 31
-  %40 = getelementptr inbounds i8, ptr %8, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %41 = zext nneg i32 %38 to i64
   %42 = getelementptr [0 x i32], ptr %40, i64 0, i64 %41
   %43 = load i32, ptr %42, align 4
@@ -787,7 +787,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
   br i1 %46, label %84, label %47
 
 47:                                               ; preds = %36
-  %48 = getelementptr inbounds i8, ptr %0, i64 524
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %49 = load i32, ptr %48, align 4
   %50 = add i32 %49, 1
   store i32 %50, ptr %48, align 4
@@ -803,7 +803,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
 
 54:                                               ; preds = %3
   %55 = tail call i32 @llvm.bswap.i32(i32 %2)
-  %56 = getelementptr inbounds i8, ptr %0, i64 221
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 221
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 0
   br i1 %58, label %84, label %59
@@ -813,7 +813,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
   br i1 %60, label %83, label %61, !prof !5
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 424
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %63 = load i32, ptr %62, align 4
   %64 = icmp ugt i32 %55, %63
   br i1 %64, label %84, label %65, !prof !6
@@ -825,14 +825,14 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
   br i1 %68, label %73, label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %0, i64 520
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %71 = load i32, ptr %70, align 8
   %72 = add i32 %71, 1
   store i32 %72, ptr %70, align 8
   br label %83
 
 73:                                               ; preds = %65
-  %74 = getelementptr inbounds i8, ptr %0, i64 428
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %75 = load i32, ptr %74, align 4
   %76 = shl nuw i32 1, %66
   %77 = and i32 %75, %76
@@ -840,7 +840,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
   br i1 %78, label %84, label %79
 
 79:                                               ; preds = %73
-  %80 = getelementptr inbounds i8, ptr %0, i64 524
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 4
@@ -857,12 +857,12 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -22, 1) i32 @xfrm_replay_check_esn(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 432
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @llvm.bswap.i32(i32 %2)
-  %7 = getelementptr inbounds i8, ptr %5, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 4
   %11 = sub i32 %10, %8
   %12 = add i32 %11, 1
@@ -878,7 +878,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @xfrm_replay_check_esn(ptr 
   br label %23
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   %20 = add i32 %8, -1
@@ -910,7 +910,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @xfrm_replay_check_esn(ptr 
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 520
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 8
@@ -936,7 +936,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @xfrm_replay_check_esn(ptr 
   %50 = phi i32 [ %45, %43 ], [ %48, %46 ]
   %51 = lshr i32 %50, 5
   %52 = and i32 %50, 31
-  %53 = getelementptr inbounds i8, ptr %5, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %54 = zext nneg i32 %51 to i64
   %55 = getelementptr [0 x i32], ptr %53, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
@@ -946,7 +946,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @xfrm_replay_check_esn(ptr 
   br i1 %59, label %65, label %60
 
 60:                                               ; preds = %49
-  %61 = getelementptr inbounds i8, ptr %0, i64 524
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 4
@@ -963,7 +963,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @xfrm_replay_check_esn(ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 464
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %89 [
     i32 2, label %52
@@ -971,13 +971,13 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 432
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @llvm.bswap.i32(i32 %2)
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = sub i32 %11, %9
-  %13 = getelementptr inbounds i8, ptr %8, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %119, label %16
@@ -995,7 +995,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 520
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 8
@@ -1021,7 +1021,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   %37 = phi i32 [ %32, %30 ], [ %35, %33 ]
   %38 = lshr i32 %37, 5
   %39 = and i32 %37, 31
-  %40 = getelementptr inbounds i8, ptr %8, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %41 = zext nneg i32 %38 to i64
   %42 = getelementptr [0 x i32], ptr %40, i64 0, i64 %41
   %43 = load i32, ptr %42, align 4
@@ -1031,7 +1031,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   br i1 %46, label %119, label %47
 
 47:                                               ; preds = %36
-  %48 = getelementptr inbounds i8, ptr %0, i64 524
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %49 = load i32, ptr %48, align 4
   %50 = add i32 %49, 1
   store i32 %50, ptr %48, align 4
@@ -1042,22 +1042,22 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   br label %119
 
 52:                                               ; preds = %3
-  %53 = getelementptr inbounds i8, ptr %1, i64 76
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 225
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 225
   %56 = load i8, ptr %55, align 1
   %57 = icmp sgt i8 %56, -1
   br i1 %57, label %79, label %58
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %0, i64 432
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 @llvm.bswap.i32(i32 %2)
-  %62 = getelementptr inbounds i8, ptr %60, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %60, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %60, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 20
   %67 = load i32, ptr %66, align 4
   %68 = add i32 %65, 1
   %69 = sub i32 %68, %67
@@ -1087,7 +1087,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   br i1 %82, label %87, label %83, !prof !6
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %0, i64 520
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %85 = load i32, ptr %84, align 8
   %86 = add i32 %85, 1
   store i32 %86, ptr %84, align 8
@@ -1099,7 +1099,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
 
 89:                                               ; preds = %3
   %90 = tail call i32 @llvm.bswap.i32(i32 %2)
-  %91 = getelementptr inbounds i8, ptr %0, i64 221
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 221
   %92 = load i8, ptr %91, align 1
   %93 = icmp eq i8 %92, 0
   br i1 %93, label %119, label %94
@@ -1109,7 +1109,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   br i1 %95, label %118, label %96, !prof !5
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds i8, ptr %0, i64 424
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %98 = load i32, ptr %97, align 4
   %99 = icmp ugt i32 %90, %98
   br i1 %99, label %119, label %100, !prof !6
@@ -1121,14 +1121,14 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   br i1 %103, label %108, label %104
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %0, i64 520
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %106 = load i32, ptr %105, align 8
   %107 = add i32 %106, 1
   store i32 %107, ptr %105, align 8
   br label %118
 
 108:                                              ; preds = %100
-  %109 = getelementptr inbounds i8, ptr %0, i64 428
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %110 = load i32, ptr %109, align 4
   %111 = shl nuw i32 1, %101
   %112 = and i32 %110, %111
@@ -1136,7 +1136,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   br i1 %113, label %119, label %114
 
 114:                                              ; preds = %108
-  %115 = getelementptr inbounds i8, ptr %0, i64 524
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %116 = load i32, ptr %115, align 4
   %117 = add i32 %116, 1
   store i32 %117, ptr %115, align 4
@@ -1153,12 +1153,12 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -75, 1) i32 @xfrm_replay_overflow(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 464
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 696
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 2
   %11 = icmp eq i8 %10, 0
@@ -1171,22 +1171,22 @@ define dso_local noundef range(i32 -75, 1) i32 @xfrm_replay_overflow(ptr noundef
   br i1 %11, label %91, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 432
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 76
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store i32 0, ptr %20, align 4
   %21 = load i32, ptr %16, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %29, !prof !5
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 252
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 2
   %27 = icmp eq i32 %26, 0
@@ -1199,7 +1199,7 @@ define dso_local noundef range(i32 -75, 1) i32 @xfrm_replay_overflow(ptr noundef
 
 29:                                               ; preds = %23, %13
   tail call void @__rcu_read_lock() #8
-  %30 = getelementptr inbounds i8, ptr %5, i64 2936
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 2936
   %31 = load volatile ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %37, label %33
@@ -1222,17 +1222,17 @@ define dso_local noundef range(i32 -75, 1) i32 @xfrm_replay_overflow(ptr noundef
   br i1 %11, label %91, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 432
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
-  %45 = getelementptr inbounds i8, ptr %1, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %41, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %1, i64 76
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store i32 %47, ptr %48, align 4
   %49 = load i32, ptr %42, align 4
   %50 = icmp eq i32 %49, 0
@@ -1256,7 +1256,7 @@ define dso_local noundef range(i32 -75, 1) i32 @xfrm_replay_overflow(ptr noundef
 
 58:                                               ; preds = %51, %39
   tail call void @__rcu_read_lock() #8
-  %59 = getelementptr inbounds i8, ptr %5, i64 2936
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 2936
   %60 = load volatile ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %66, label %62
@@ -1279,20 +1279,20 @@ define dso_local noundef range(i32 -75, 1) i32 @xfrm_replay_overflow(ptr noundef
   br i1 %11, label %91, label %68
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %0, i64 420
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 4
-  %72 = getelementptr inbounds i8, ptr %1, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 76
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store i32 0, ptr %73, align 4
   %74 = load i32, ptr %69, align 4
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %82, !prof !5
 
 76:                                               ; preds = %68
-  %77 = getelementptr inbounds i8, ptr %0, i64 252
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, 2
   %80 = icmp eq i32 %79, 0
@@ -1305,7 +1305,7 @@ define dso_local noundef range(i32 -75, 1) i32 @xfrm_replay_overflow(ptr noundef
 
 82:                                               ; preds = %76, %68
   tail call void @__rcu_read_lock() #8
-  %83 = getelementptr inbounds i8, ptr %5, i64 2936
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 2936
   %84 = load volatile ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %90, label %86
@@ -1331,13 +1331,13 @@ define dso_local noundef range(i32 -75, 1) i32 @xfrm_replay_overflow(ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @xfrm_init_replay(ptr nocapture noundef %0, ptr noundef writeonly %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 432
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %30, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
   %10 = load i32, ptr %4, align 4
@@ -1356,7 +1356,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_init_replay(ptr nocapture n
   br label %32
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 225
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 225
   %19 = load i8, ptr %18, align 1
   %20 = icmp sgt i8 %19, -1
   br i1 %20, label %28, label %21
@@ -1375,17 +1375,17 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_init_replay(ptr nocapture n
   br label %32
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 464
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i32 2, ptr %27, align 8
   br label %32
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %0, i64 464
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i32 1, ptr %29, align 8
   br label %32
 
 30:                                               ; preds = %2
-  %31 = getelementptr inbounds i8, ptr %0, i64 464
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i32 0, ptr %31, align 8
   br label %32
 

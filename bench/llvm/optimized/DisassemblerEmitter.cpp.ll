@@ -193,7 +193,7 @@ _ZNK4llvm13CodeGenTarget26getInstructionsByEnumValueEv.exit: ; preds = %_ZN4llvm
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %42 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = trunc i64 %indvars.iv to i16
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr12processInstrERNS0_18DisassemblerTablesERKNS_18CodeGenInstructionEt(ptr noundef nonnull align 8 dereferenceable(169) %10, ptr noundef nonnull align 8 dereferenceable(236) %43, i16 noundef zeroext %44) #6
@@ -390,9 +390,9 @@ define linkonce_odr hidden void @_ZN4llvm12function_refIFvRNS_12RecordKeeperERNS
 define internal void @_GLOBAL__sub_I_DisassemblerEmitter.cpp() #3 section ".text.startup" {
   %1 = alloca %"class.llvm::StringRef", align 8
   store ptr @.str, ptr @DisassemblerEmitterCat, align 8
-  store i64 29, ptr getelementptr inbounds (i8, ptr @DisassemblerEmitterCat, i64 8), align 8
+  store i64 29, ptr getelementptr inbounds nuw (i8, ptr @DisassemblerEmitterCat, i64 8), align 8
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @DisassemblerEmitterCat, i64 16), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @DisassemblerEmitterCat, i64 24), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @DisassemblerEmitterCat, i64 24), align 8
   tail call void @_ZN4llvm2cl14OptionCategory16registerCategoryEv(ptr noundef nonnull align 8 dereferenceable(32) @DisassemblerEmitterCat) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   store ptr @.str.4, ptr %1, align 8

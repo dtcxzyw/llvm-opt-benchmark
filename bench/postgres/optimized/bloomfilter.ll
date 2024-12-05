@@ -43,9 +43,9 @@ my_bloom_power.exit:                              ; preds = %my_bloom_power.exit
   %26 = tail call i32 @llvm.smin.i32(i32 %25, i32 10)
   %27 = tail call range(i32 1, 11) i32 @llvm.smax.i32(i32 %26, i32 1)
   store i32 %27, ptr %19, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %2, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %19, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %16, ptr %29, align 8
   ret ptr %19
 }
@@ -64,11 +64,11 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 define dso_local void @bloom_add_element(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [10 x i32], align 16
   %5 = trunc i64 %2 to i32
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @hash_bytes_extended(ptr noundef %1, i32 noundef %5, i64 noundef %7) #4
   %9 = trunc i64 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
   %13 = add i32 %12, -1
@@ -104,7 +104,7 @@ k_hashes.exit:                                    ; preds = %.lr.ph.i, %3
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %k_hashes.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %15 to i64
   br label %27
 
@@ -133,11 +133,11 @@ k_hashes.exit:                                    ; preds = %.lr.ph.i, %3
 define dso_local noundef zeroext i1 @bloom_lacks_element(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [10 x i32], align 16
   %5 = trunc i64 %2 to i32
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @hash_bytes_extended(ptr noundef %1, i32 noundef %5, i64 noundef %7) #4
   %9 = trunc i64 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
   %13 = add i32 %12, -1
@@ -169,7 +169,7 @@ define dso_local noundef zeroext i1 @bloom_lacks_element(ptr nocapture noundef r
   br i1 %exitcond.not, label %k_hashes.exit, label %.lr.ph.i, !llvm.loop !7
 
 k_hashes.exit:                                    ; preds = %.lr.ph.i, %3
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = icmp sgt i32 %15, 0
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
@@ -202,11 +202,11 @@ k_hashes.exit:                                    ; preds = %.lr.ph.i, %3
 
 ; Function Attrs: nounwind uwtable
 define dso_local double @bloom_prop_bits_set(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = lshr i64 %3, 3
   %5 = trunc i64 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = tail call i64 @pg_popcount(ptr noundef nonnull %6, i32 noundef %5) #4
   %8 = uitofp i64 %7 to double
   %9 = load i64, ptr %2, align 8

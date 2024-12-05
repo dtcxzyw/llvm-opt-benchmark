@@ -208,11 +208,11 @@ $_ZTIN6icu_756number4impl10MicroPropsE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -220,11 +220,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -285,7 +285,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -295,7 +295,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -307,7 +307,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity16 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -320,7 +320,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -344,7 +344,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -375,21 +375,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
-  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
-  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds nuw i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray6 = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -412,11 +412,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -424,7 +424,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -435,20 +435,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray4 = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -476,7 +476,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -492,7 +492,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -524,7 +524,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -536,7 +536,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -551,7 +551,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -565,7 +565,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
@@ -582,9 +582,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.0, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -602,7 +602,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -614,7 +614,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -630,7 +630,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity16.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -646,10 +646,10 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number4impl17touchRangeLocalesERNS1_15RangeMacroPropsE(ptr noundef nonnull align 8 dereferenceable(1208) %macros) local_unnamed_addr #1 {
 entry:
-  %locale = getelementptr inbounds i8, ptr %macros, i64 984
-  %locale1 = getelementptr inbounds i8, ptr %macros, i64 256
+  %locale = getelementptr inbounds nuw i8, ptr %macros, i64 984
+  %locale1 = getelementptr inbounds nuw i8, ptr %macros, i64 256
   %call = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1, ptr noundef nonnull align 8 dereferenceable(217) %locale)
-  %locale4 = getelementptr inbounds i8, ptr %macros, i64 736
+  %locale4 = getelementptr inbounds nuw i8, ptr %macros, i64 736
   %call5 = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4, ptr noundef nonnull align 8 dereferenceable(217) %locale)
   ret void
 }
@@ -660,20 +660,20 @@ declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERK
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE19numberFormatterBothERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -693,20 +693,20 @@ declare noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26Unl
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE19numberFormatterBothERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -724,17 +724,17 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE19numberFormatterBothEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -755,17 +755,17 @@ declare noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26Unl
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE19numberFormatterBothEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -783,20 +783,20 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE20numberFormatterFirstERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -814,20 +814,20 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE20numberFormatterFirstERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -845,17 +845,17 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE20numberFormatterFirstEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -873,17 +873,17 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE20numberFormatterFirstEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -901,20 +901,20 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE21numberFormatterSecondERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
+  %formatter2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 488
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -932,20 +932,20 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE21numberFormatterSecondERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
+  %formatter2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 488
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -963,17 +963,17 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE21numberFormatterSecondEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
+  %formatter2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 488
   %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -991,17 +991,17 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE21numberFormatterSecondEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
+  %formatter2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 488
   %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1019,7 +1019,7 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE8collapseE20UNumberRangeCollapse(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %collapse) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %collapse2 = getelementptr inbounds i8, ptr %agg.result, i64 972
+  %collapse2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 972
   store i32 %collapse, ptr %collapse2, align 4
   ret void
 }
@@ -1028,7 +1028,7 @@ entry:
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE8collapseE20UNumberRangeCollapse(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %collapse) local_unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %collapse2 = getelementptr inbounds i8, ptr %agg.result, i64 972
+  %collapse2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 972
   store i32 %collapse, ptr %collapse2, align 4
   ret void
 }
@@ -1037,7 +1037,7 @@ entry:
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE16identityFallbackE28UNumberRangeIdentityFallback(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %identityFallback) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %identityFallback2 = getelementptr inbounds i8, ptr %agg.result, i64 976
+  %identityFallback2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 976
   store i32 %identityFallback, ptr %identityFallback2, align 8
   ret void
 }
@@ -1046,7 +1046,7 @@ entry:
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEE16identityFallbackE28UNumberRangeIdentityFallback(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %identityFallback) local_unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %identityFallback2 = getelementptr inbounds i8, ptr %agg.result, i64 976
+  %identityFallback2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 976
   store i32 %identityFallback, ptr %identityFallback2, align 8
   ret void
 }
@@ -1103,13 +1103,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %formatter1.i = getelementptr inbounds i8, ptr %this, i64 8
+  %formatter1.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i = tail call noundef signext i8 @_ZNK6icu_756number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(472) %formatter1.i, ptr noundef nonnull align 4 dereferenceable(4) %outErrorCode)
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %lor.rhs.i, label %_ZNK6icu_756number4impl15RangeMacroProps11copyErrorToER10UErrorCode.exit
 
 lor.rhs.i:                                        ; preds = %if.end
-  %formatter2.i = getelementptr inbounds i8, ptr %this, i64 488
+  %formatter2.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   %call2.i = tail call noundef signext i8 @_ZNK6icu_756number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(472) %formatter2.i, ptr noundef nonnull align 4 dereferenceable(4) %outErrorCode)
   br label %_ZNK6icu_756number4impl15RangeMacroProps11copyErrorToER10UErrorCode.exit
 
@@ -1128,20 +1128,20 @@ return:                                           ; preds = %entry, %_ZNK6icu_75
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE19numberFormatterBothERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1159,20 +1159,20 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE19numberFormatterBothERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1190,17 +1190,17 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE19numberFormatterBothEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1218,17 +1218,17 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE19numberFormatterBothEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1246,20 +1246,20 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE20numberFormatterFirstERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1277,20 +1277,20 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE20numberFormatterFirstERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1308,17 +1308,17 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE20numberFormatterFirstEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1336,17 +1336,17 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE20numberFormatterFirstEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %formatter1 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1364,20 +1364,20 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE21numberFormatterSecondERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
+  %formatter2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 488
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1395,20 +1395,20 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE21numberFormatterSecondERKNS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
+  %formatter2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 488
   %call = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1426,17 +1426,17 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE21numberFormatterSecondEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
+  %formatter2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 488
   %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1454,17 +1454,17 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE21numberFormatterSecondEONS0_26UnlocalizedNumberFormatterE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(473) %formatter) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %formatter2 = getelementptr inbounds i8, ptr %agg.result, i64 488
+  %formatter2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 488
   %call = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2, ptr noundef nonnull align 8 dereferenceable(473) %formatter) #11
-  %singleFormatter = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 0, ptr %singleFormatter, align 8
-  %locale.i = getelementptr inbounds i8, ptr %agg.result, i64 984
-  %locale1.i = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %locale.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
+  %locale1.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  %locale4.i = getelementptr inbounds i8, ptr %agg.result, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 736
   %call5.i2 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -1482,7 +1482,7 @@ nrvo.skipdtor:                                    ; preds = %call.i.noexc
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE8collapseE20UNumberRangeCollapse(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %collapse) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %collapse2 = getelementptr inbounds i8, ptr %agg.result, i64 972
+  %collapse2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 972
   store i32 %collapse, ptr %collapse2, align 4
   ret void
 }
@@ -1491,7 +1491,7 @@ entry:
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE8collapseE20UNumberRangeCollapse(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %collapse) local_unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %collapse2 = getelementptr inbounds i8, ptr %agg.result, i64 972
+  %collapse2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 972
   store i32 %collapse, ptr %collapse2, align 4
   ret void
 }
@@ -1500,7 +1500,7 @@ entry:
 define weak_odr void @_ZNKR6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE16identityFallbackE28UNumberRangeIdentityFallback(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %identityFallback) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this)
-  %identityFallback2 = getelementptr inbounds i8, ptr %agg.result, i64 976
+  %identityFallback2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 976
   store i32 %identityFallback, ptr %identityFallback2, align 8
   ret void
 }
@@ -1509,7 +1509,7 @@ entry:
 define weak_odr void @_ZNO6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEE16identityFallbackE28UNumberRangeIdentityFallback(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %identityFallback) local_unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZN6icu_756number29LocalizedNumberRangeFormatterC1EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %agg.result, ptr noundef nonnull align 8 dereferenceable(1208) %this) #11
-  %identityFallback2 = getelementptr inbounds i8, ptr %agg.result, i64 976
+  %identityFallback2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 976
   store i32 %identityFallback, ptr %identityFallback2, align 8
   ret void
 }
@@ -1560,13 +1560,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %formatter1.i = getelementptr inbounds i8, ptr %this, i64 8
+  %formatter1.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i = tail call noundef signext i8 @_ZNK6icu_756number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(472) %formatter1.i, ptr noundef nonnull align 4 dereferenceable(4) %outErrorCode)
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %lor.rhs.i, label %_ZNK6icu_756number4impl15RangeMacroProps11copyErrorToER10UErrorCode.exit
 
 lor.rhs.i:                                        ; preds = %if.end
-  %formatter2.i = getelementptr inbounds i8, ptr %this, i64 488
+  %formatter2.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   %call2.i = tail call noundef signext i8 @_ZNK6icu_756number23NumberFormatterSettingsINS0_26UnlocalizedNumberFormatterEE11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(472) %formatter2.i, ptr noundef nonnull align 4 dereferenceable(4) %outErrorCode)
   br label %_ZNK6icu_756number4impl15RangeMacroProps11copyErrorToER10UErrorCode.exit
 
@@ -1584,20 +1584,20 @@ return:                                           ; preds = %entry, %_ZNK6icu_75
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number20NumberRangeFormatter4withEv(ptr noalias sret(%"class.icu_75::number::UnlocalizedNumberRangeFormatter") align 8 %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %formatter1.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %formatter1.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   tail call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i)
-  %formatter2.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 488
+  %formatter2.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 488
   invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
-  %singleFormatter.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 968
+  %singleFormatter.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 968
   store i8 1, ptr %singleFormatter.i.i.i, align 8
-  %collapse.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 972
+  %collapse.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 972
   store i32 0, ptr %collapse.i.i.i, align 4
-  %identityFallback.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 976
+  %identityFallback.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 976
   store i32 2, ptr %identityFallback.i.i.i, align 8
-  %locale.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 984
+  %locale.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 984
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i)
           to label %_ZN6icu_756number31UnlocalizedNumberRangeFormatterC2Ev.exit unwind label %lpad2.i.i.i
 
@@ -1625,20 +1625,20 @@ _ZN6icu_756number31UnlocalizedNumberRangeFormatterC2Ev.exit: ; preds = %invoke.c
 define void @_ZN6icu_756number20NumberRangeFormatter10withLocaleERKNS_6LocaleE(ptr noalias sret(%"class.icu_75::number::LocalizedNumberRangeFormatter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(217) %locale) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::number::UnlocalizedNumberRangeFormatter", align 8
-  %formatter1.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %formatter1.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i.i)
-  %formatter2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 488
+  %formatter2.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 488
   invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i.i)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %entry
-  %singleFormatter.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 968
+  %singleFormatter.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 968
   store i8 1, ptr %singleFormatter.i.i.i.i, align 8, !alias.scope !4
-  %collapse.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 972
+  %collapse.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 972
   store i32 0, ptr %collapse.i.i.i.i, align 4, !alias.scope !4
-  %identityFallback.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 976
+  %identityFallback.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 976
   store i32 2, ptr %identityFallback.i.i.i.i, align 8, !alias.scope !4
-  %locale.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 984
+  %locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 984
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i.i)
           to label %_ZN6icu_756number20NumberRangeFormatter4withEv.exit unwind label %lpad2.i.i.i.i
 
@@ -1687,20 +1687,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(1209) %this, ptr noundef nonnull align 8 dereferenceable(1209) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %formatter1.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %formatter12.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
+  %formatter1.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %formatter12.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i.i)
-  %formatter2.i.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  %formatter23.i.i.i = getelementptr inbounds i8, ptr %other, i64 488
+  %formatter2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
+  %formatter23.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 488
   invoke void @_ZN6icu_756number26UnlocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
-  %singleFormatter.i.i.i = getelementptr inbounds i8, ptr %this, i64 968
-  %singleFormatter4.i.i.i = getelementptr inbounds i8, ptr %other, i64 968
+  %singleFormatter.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
+  %singleFormatter4.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter4.i.i.i, i64 12, i1 false)
-  %locale.i.i.i = getelementptr inbounds i8, ptr %this, i64 984
-  %locale5.i.i.i = getelementptr inbounds i8, ptr %other, i64 984
+  %locale.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
+  %locale5.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 984
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i.i)
           to label %_ZN6icu_756number31UnlocalizedNumberRangeFormatterC2ERKNS0_28NumberRangeFormatterSettingsIS1_EE.exit unwind label %lpad6.i.i.i
 
@@ -1727,20 +1727,20 @@ _ZN6icu_756number31UnlocalizedNumberRangeFormatterC2ERKNS0_28NumberRangeFormatte
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC2ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %this, ptr noundef nonnull align 8 dereferenceable(1208) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %formatter12.i.i = getelementptr inbounds i8, ptr %other, i64 8
+  %formatter1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %formatter12.i.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i)
-  %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  %formatter23.i.i = getelementptr inbounds i8, ptr %other, i64 488
+  %formatter2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
+  %formatter23.i.i = getelementptr inbounds nuw i8, ptr %other, i64 488
   invoke void @_ZN6icu_756number26UnlocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry
-  %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
-  %singleFormatter4.i.i = getelementptr inbounds i8, ptr %other, i64 968
+  %singleFormatter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
+  %singleFormatter4.i.i = getelementptr inbounds nuw i8, ptr %other, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter4.i.i, i64 12, i1 false)
-  %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
-  %locale5.i.i = getelementptr inbounds i8, ptr %other, i64 984
+  %locale.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
+  %locale5.i.i = getelementptr inbounds nuw i8, ptr %other, i64 984
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i)
           to label %_ZN6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeFormatterEEC2ERKS3_.exit unwind label %lpad6.i.i
 
@@ -1767,17 +1767,17 @@ _ZN6icu_756number28NumberRangeFormatterSettingsINS0_31UnlocalizedNumberRangeForm
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC2EOS1_(ptr noundef nonnull align 8 dereferenceable(1209) %this, ptr noundef nonnull align 8 dereferenceable(1209) %src) unnamed_addr #0 align 2 {
 entry:
-  %formatter1.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %formatter12.i.i.i = getelementptr inbounds i8, ptr %src, i64 8
+  %formatter1.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %formatter12.i.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i.i) #11
-  %formatter2.i.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  %formatter23.i.i.i = getelementptr inbounds i8, ptr %src, i64 488
+  %formatter2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
+  %formatter23.i.i.i = getelementptr inbounds nuw i8, ptr %src, i64 488
   tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i.i) #11
-  %singleFormatter.i.i.i = getelementptr inbounds i8, ptr %this, i64 968
-  %singleFormatter4.i.i.i = getelementptr inbounds i8, ptr %src, i64 968
+  %singleFormatter.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
+  %singleFormatter4.i.i.i = getelementptr inbounds nuw i8, ptr %src, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter4.i.i.i, i64 12, i1 false)
-  %locale.i.i.i = getelementptr inbounds i8, ptr %this, i64 984
-  %locale5.i.i.i = getelementptr inbounds i8, ptr %src, i64 984
+  %locale.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
+  %locale5.i.i.i = getelementptr inbounds nuw i8, ptr %src, i64 984
   tail call void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i.i) #11
   ret void
 }
@@ -1785,17 +1785,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_756number31UnlocalizedNumberRangeFormatterC2EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1209) %this, ptr noundef nonnull align 8 dereferenceable(1208) %src) unnamed_addr #0 align 2 {
 entry:
-  %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %formatter12.i.i = getelementptr inbounds i8, ptr %src, i64 8
+  %formatter1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %formatter12.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i) #11
-  %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  %formatter23.i.i = getelementptr inbounds i8, ptr %src, i64 488
+  %formatter2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
+  %formatter23.i.i = getelementptr inbounds nuw i8, ptr %src, i64 488
   tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i) #11
-  %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
-  %singleFormatter4.i.i = getelementptr inbounds i8, ptr %src, i64 968
+  %singleFormatter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
+  %singleFormatter4.i.i = getelementptr inbounds nuw i8, ptr %src, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter4.i.i, i64 12, i1 false)
-  %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
-  %locale5.i.i = getelementptr inbounds i8, ptr %src, i64 984
+  %locale.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
+  %locale5.i.i = getelementptr inbounds nuw i8, ptr %src, i64 984
   tail call void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i) #11
   ret void
 }
@@ -1803,17 +1803,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(1209) ptr @_ZN6icu_756number31UnlocalizedNumberRangeFormatteraSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(1209) %this, ptr noundef nonnull align 8 dereferenceable(1209) %other) local_unnamed_addr #1 align 2 {
 entry:
-  %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %formatter12.i.i = getelementptr inbounds i8, ptr %other, i64 8
+  %formatter1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %formatter12.i.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i)
-  %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  %formatter23.i.i = getelementptr inbounds i8, ptr %other, i64 488
+  %formatter2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
+  %formatter23.i.i = getelementptr inbounds nuw i8, ptr %other, i64 488
   %call4.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i)
-  %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
-  %singleFormatter5.i.i = getelementptr inbounds i8, ptr %other, i64 968
+  %singleFormatter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
+  %singleFormatter5.i.i = getelementptr inbounds nuw i8, ptr %other, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter5.i.i, i64 12, i1 false)
-  %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
-  %locale6.i.i = getelementptr inbounds i8, ptr %other, i64 984
+  %locale.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
+  %locale6.i.i = getelementptr inbounds nuw i8, ptr %other, i64 984
   %call7.i.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale6.i.i)
   ret ptr %this
 }
@@ -1821,17 +1821,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(1209) ptr @_ZN6icu_756number31UnlocalizedNumberRangeFormatteraSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(1209) %this, ptr noundef nonnull align 8 dereferenceable(1209) %src) local_unnamed_addr #0 align 2 {
 entry:
-  %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %formatter12.i.i = getelementptr inbounds i8, ptr %src, i64 8
+  %formatter1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %formatter12.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i) #11
-  %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  %formatter23.i.i = getelementptr inbounds i8, ptr %src, i64 488
+  %formatter2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
+  %formatter23.i.i = getelementptr inbounds nuw i8, ptr %src, i64 488
   %call4.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i) #11
-  %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
-  %singleFormatter5.i.i = getelementptr inbounds i8, ptr %src, i64 968
+  %singleFormatter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
+  %singleFormatter5.i.i = getelementptr inbounds nuw i8, ptr %src, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter5.i.i, i64 12, i1 false)
-  %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
-  %locale6.i.i = getelementptr inbounds i8, ptr %src, i64 984
+  %locale.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
+  %locale6.i.i = getelementptr inbounds nuw i8, ptr %src, i64 984
   %call7.i.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale6.i.i) #11
   ret ptr %this
 }
@@ -1839,20 +1839,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number29LocalizedNumberRangeFormatterC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(1216) %this, ptr noundef nonnull align 8 dereferenceable(1216) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %formatter1.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %formatter12.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
+  %formatter1.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %formatter12.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i.i)
-  %formatter2.i.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  %formatter23.i.i.i = getelementptr inbounds i8, ptr %other, i64 488
+  %formatter2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
+  %formatter23.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 488
   invoke void @_ZN6icu_756number26UnlocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
-  %singleFormatter.i.i.i = getelementptr inbounds i8, ptr %this, i64 968
-  %singleFormatter4.i.i.i = getelementptr inbounds i8, ptr %other, i64 968
+  %singleFormatter.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
+  %singleFormatter4.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter4.i.i.i, i64 12, i1 false)
-  %locale.i.i.i = getelementptr inbounds i8, ptr %this, i64 984
-  %locale5.i.i.i = getelementptr inbounds i8, ptr %other, i64 984
+  %locale.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
+  %locale5.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 984
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i.i)
           to label %_ZN6icu_756number29LocalizedNumberRangeFormatterC2ERKNS0_28NumberRangeFormatterSettingsIS1_EE.exit unwind label %lpad6.i.i.i
 
@@ -1873,7 +1873,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad6.i.i.i, %lpad.
   resume { ptr, i32 } %.pn.i.i.i
 
 _ZN6icu_756number29LocalizedNumberRangeFormatterC2ERKNS0_28NumberRangeFormatterSettingsIS1_EE.exit: ; preds = %invoke.cont.i.i.i
-  %fAtomicFormatter.i = getelementptr inbounds i8, ptr %this, i64 1208
+  %fAtomicFormatter.i = getelementptr inbounds nuw i8, ptr %this, i64 1208
   store i64 0, ptr %fAtomicFormatter.i, align 8
   ret void
 }
@@ -1881,20 +1881,20 @@ _ZN6icu_756number29LocalizedNumberRangeFormatterC2ERKNS0_28NumberRangeFormatterS
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number29LocalizedNumberRangeFormatterC2ERKNS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %this, ptr noundef nonnull align 8 dereferenceable(1208) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %formatter12.i.i = getelementptr inbounds i8, ptr %other, i64 8
+  %formatter1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %formatter12.i.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i)
-  %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  %formatter23.i.i = getelementptr inbounds i8, ptr %other, i64 488
+  %formatter2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
+  %formatter23.i.i = getelementptr inbounds nuw i8, ptr %other, i64 488
   invoke void @_ZN6icu_756number26UnlocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry
-  %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
-  %singleFormatter4.i.i = getelementptr inbounds i8, ptr %other, i64 968
+  %singleFormatter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
+  %singleFormatter4.i.i = getelementptr inbounds nuw i8, ptr %other, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter4.i.i, i64 12, i1 false)
-  %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
-  %locale5.i.i = getelementptr inbounds i8, ptr %other, i64 984
+  %locale.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
+  %locale5.i.i = getelementptr inbounds nuw i8, ptr %other, i64 984
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i)
           to label %_ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2ERKS3_.exit unwind label %lpad6.i.i
 
@@ -1915,7 +1915,7 @@ ehcleanup.i.i:                                    ; preds = %lpad6.i.i, %lpad.i.
   resume { ptr, i32 } %.pn.i.i
 
 _ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2ERKS3_.exit: ; preds = %invoke.cont.i.i
-  %fAtomicFormatter = getelementptr inbounds i8, ptr %this, i64 1208
+  %fAtomicFormatter = getelementptr inbounds nuw i8, ptr %this, i64 1208
   store i64 0, ptr %fAtomicFormatter, align 8
   ret void
 }
@@ -1933,21 +1933,21 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_756number29LocalizedNumberRangeFormatterC2EONS0_28NumberRangeFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(1216) %this, ptr noundef nonnull align 8 dereferenceable(1208) %src) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %formatter12.i.i = getelementptr inbounds i8, ptr %src, i64 8
+  %formatter1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %formatter12.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i) #11
-  %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  %formatter23.i.i = getelementptr inbounds i8, ptr %src, i64 488
+  %formatter2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
+  %formatter23.i.i = getelementptr inbounds nuw i8, ptr %src, i64 488
   tail call void @_ZN6icu_756number26UnlocalizedNumberFormatterC1EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i) #11
-  %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
-  %singleFormatter4.i.i = getelementptr inbounds i8, ptr %src, i64 968
+  %singleFormatter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
+  %singleFormatter4.i.i = getelementptr inbounds nuw i8, ptr %src, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter4.i.i, i64 12, i1 false)
-  %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
-  %locale5.i.i = getelementptr inbounds i8, ptr %src, i64 984
+  %locale.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
+  %locale5.i.i = getelementptr inbounds nuw i8, ptr %src, i64 984
   tail call void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale5.i.i) #11
-  %fAtomicFormatter = getelementptr inbounds i8, ptr %this, i64 1208
+  %fAtomicFormatter = getelementptr inbounds nuw i8, ptr %this, i64 1208
   store i64 0, ptr %fAtomicFormatter, align 8
-  %fAtomicFormatter2 = getelementptr inbounds i8, ptr %src, i64 1208
+  %fAtomicFormatter2 = getelementptr inbounds nuw i8, ptr %src, i64 1208
   %0 = atomicrmw xchg ptr %fAtomicFormatter2, i64 0 seq_cst, align 8
   %1 = atomicrmw xchg ptr %fAtomicFormatter, i64 %0 seq_cst, align 8
   %atomic-temp.i.0.i2 = inttoptr i64 %1 to ptr
@@ -1955,13 +1955,13 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %needToRelease.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 1908
+  %needToRelease.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i2, i64 1908
   %2 = load i8, ptr %needToRelease.i.i.i.i, align 4
   %tobool.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull
-  %fPluralRanges.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 1896
+  %fPluralRanges.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i2, i64 1896
   %3 = load ptr, ptr %fPluralRanges.i, align 8
   invoke void @uprv_free_75(ptr noundef %3)
           to label %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -1974,13 +1974,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit: ; preds = %delete.notnull, %if.then.i.i.i.i
-  %fApproximatelyFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 1296
+  %fApproximatelyFormatter.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i2, i64 1296
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #11
-  %fRangeFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 1224
+  %fRangeFormatter.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i2, i64 1224
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #11
-  %formatterImpl2.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 608
+  %formatterImpl2.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i2, i64 608
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #11
-  %formatterImpl1.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 8
+  %formatterImpl1.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i2, i64 8
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %atomic-temp.i.0.i2) #11
   br label %delete.end
@@ -1992,13 +1992,13 @@ delete.end:                                       ; preds = %_ZN6icu_756number4i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(1960) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %this, i64 1908
+  %needToRelease.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1908
   %0 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_7520StandardPluralRangesD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %fPluralRanges = getelementptr inbounds i8, ptr %this, i64 1896
+  %fPluralRanges = getelementptr inbounds nuw i8, ptr %this, i64 1896
   %1 = load ptr, ptr %fPluralRanges, align 8
   invoke void @uprv_free_75(ptr noundef %1)
           to label %_ZN6icu_7520StandardPluralRangesD2Ev.exit unwind label %terminate.lpad.i.i
@@ -2011,13 +2011,13 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN6icu_7520StandardPluralRangesD2Ev.exit:        ; preds = %entry, %if.then.i.i.i
-  %fApproximatelyFormatter = getelementptr inbounds i8, ptr %this, i64 1296
+  %fApproximatelyFormatter = getelementptr inbounds nuw i8, ptr %this, i64 1296
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter) #11
-  %fRangeFormatter = getelementptr inbounds i8, ptr %this, i64 1224
+  %fRangeFormatter = getelementptr inbounds nuw i8, ptr %this, i64 1224
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter) #11
-  %formatterImpl2 = getelementptr inbounds i8, ptr %this, i64 608
+  %formatterImpl2 = getelementptr inbounds nuw i8, ptr %this, i64 608
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2) #11
-  %formatterImpl1 = getelementptr inbounds i8, ptr %this, i64 8
+  %formatterImpl1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1) #11
   ret void
 }
@@ -2029,32 +2029,32 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %formatter12.i.i = getelementptr inbounds i8, ptr %other, i64 8
+  %formatter1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %formatter12.i.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i)
-  %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  %formatter23.i.i = getelementptr inbounds i8, ptr %other, i64 488
+  %formatter2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
+  %formatter23.i.i = getelementptr inbounds nuw i8, ptr %other, i64 488
   %call4.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i)
-  %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
-  %singleFormatter5.i.i = getelementptr inbounds i8, ptr %other, i64 968
+  %singleFormatter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
+  %singleFormatter5.i.i = getelementptr inbounds nuw i8, ptr %other, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter5.i.i, i64 12, i1 false)
-  %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
-  %locale6.i.i = getelementptr inbounds i8, ptr %other, i64 984
+  %locale.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
+  %locale6.i.i = getelementptr inbounds nuw i8, ptr %other, i64 984
   %call7.i.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale6.i.i)
-  %fAtomicFormatter = getelementptr inbounds i8, ptr %this, i64 1208
+  %fAtomicFormatter = getelementptr inbounds nuw i8, ptr %this, i64 1208
   %0 = atomicrmw xchg ptr %fAtomicFormatter, i64 0 seq_cst, align 8
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
   %isnull = icmp eq i64 %0, 0
   br i1 %isnull, label %return, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end
-  %needToRelease.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 1908
+  %needToRelease.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 1908
   %1 = load i8, ptr %needToRelease.i.i.i.i, align 4
   %tobool.not.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull
-  %fPluralRanges.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 1896
+  %fPluralRanges.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 1896
   %2 = load ptr, ptr %fPluralRanges.i, align 8
   invoke void @uprv_free_75(ptr noundef %2)
           to label %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -2067,13 +2067,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit: ; preds = %delete.notnull, %if.then.i.i.i.i
-  %fApproximatelyFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 1296
+  %fApproximatelyFormatter.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 1296
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #11
-  %fRangeFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 1224
+  %fRangeFormatter.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 1224
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #11
-  %formatterImpl2.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 608
+  %formatterImpl2.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 608
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #11
-  %formatterImpl1.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 8
+  %formatterImpl1.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 8
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %atomic-temp.i.0.i) #11
   br label %return
@@ -2085,34 +2085,34 @@ return:                                           ; preds = %if.end, %_ZN6icu_75
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(1216) ptr @_ZN6icu_756number29LocalizedNumberRangeFormatteraSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(1216) %this, ptr noundef nonnull align 8 dereferenceable(1216) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %formatter12.i.i = getelementptr inbounds i8, ptr %src, i64 8
+  %formatter1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %formatter12.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i.i) #11
-  %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
-  %formatter23.i.i = getelementptr inbounds i8, ptr %src, i64 488
+  %formatter2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
+  %formatter23.i.i = getelementptr inbounds nuw i8, ptr %src, i64 488
   %call4.i.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i.i) #11
-  %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
-  %singleFormatter5.i.i = getelementptr inbounds i8, ptr %src, i64 968
+  %singleFormatter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
+  %singleFormatter5.i.i = getelementptr inbounds nuw i8, ptr %src, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter5.i.i, i64 12, i1 false)
-  %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
-  %locale6.i.i = getelementptr inbounds i8, ptr %src, i64 984
+  %locale.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
+  %locale6.i.i = getelementptr inbounds nuw i8, ptr %src, i64 984
   %call7.i.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale6.i.i) #11
-  %fAtomicFormatter = getelementptr inbounds i8, ptr %src, i64 1208
+  %fAtomicFormatter = getelementptr inbounds nuw i8, ptr %src, i64 1208
   %0 = atomicrmw xchg ptr %fAtomicFormatter, i64 0 seq_cst, align 8
-  %fAtomicFormatter3 = getelementptr inbounds i8, ptr %this, i64 1208
+  %fAtomicFormatter3 = getelementptr inbounds nuw i8, ptr %this, i64 1208
   %1 = atomicrmw xchg ptr %fAtomicFormatter3, i64 %0 seq_cst, align 8
   %atomic-temp.i.0.i2 = inttoptr i64 %1 to ptr
   %isnull = icmp eq i64 %1, 0
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %needToRelease.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 1908
+  %needToRelease.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i2, i64 1908
   %2 = load i8, ptr %needToRelease.i.i.i.i, align 4
   %tobool.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull
-  %fPluralRanges.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 1896
+  %fPluralRanges.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i2, i64 1896
   %3 = load ptr, ptr %fPluralRanges.i, align 8
   invoke void @uprv_free_75(ptr noundef %3)
           to label %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -2125,13 +2125,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit: ; preds = %delete.notnull, %if.then.i.i.i.i
-  %fApproximatelyFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 1296
+  %fApproximatelyFormatter.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i2, i64 1296
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #11
-  %fRangeFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 1224
+  %fRangeFormatter.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i2, i64 1224
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #11
-  %formatterImpl2.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 608
+  %formatterImpl2.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i2, i64 608
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #11
-  %formatterImpl1.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i2, i64 8
+  %formatterImpl1.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i2, i64 8
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %atomic-temp.i.0.i2) #11
   br label %delete.end
@@ -2143,20 +2143,20 @@ delete.end:                                       ; preds = %_ZN6icu_756number4i
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_756number29LocalizedNumberRangeFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fAtomicFormatter = getelementptr inbounds i8, ptr %this, i64 1208
+  %fAtomicFormatter = getelementptr inbounds nuw i8, ptr %this, i64 1208
   %0 = atomicrmw xchg ptr %fAtomicFormatter, i64 0 seq_cst, align 8
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
   %isnull = icmp eq i64 %0, 0
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %needToRelease.i.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 1908
+  %needToRelease.i.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 1908
   %1 = load i8, ptr %needToRelease.i.i.i.i, align 4
   %tobool.not.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull
-  %fPluralRanges.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 1896
+  %fPluralRanges.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 1896
   %2 = load ptr, ptr %fPluralRanges.i, align 8
   invoke void @uprv_free_75(ptr noundef %2)
           to label %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -2169,13 +2169,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit: ; preds = %delete.notnull, %if.then.i.i.i.i
-  %fApproximatelyFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 1296
+  %fApproximatelyFormatter.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 1296
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #11
-  %fRangeFormatter.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 1224
+  %fRangeFormatter.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 1224
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #11
-  %formatterImpl2.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 608
+  %formatterImpl2.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 608
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #11
-  %formatterImpl1.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 8
+  %formatterImpl1.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 8
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %atomic-temp.i.0.i) #11
   br label %delete.end
@@ -2188,20 +2188,20 @@ delete.end:                                       ; preds = %_ZN6icu_756number4i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number29LocalizedNumberRangeFormatterC2ERKNS0_4impl15RangeMacroPropsERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(1216) %this, ptr noundef nonnull align 8 dereferenceable(1208) %macros, ptr noundef nonnull align 8 dereferenceable(217) %locale) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %formatter1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i)
-  %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
+  %formatter2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry
-  %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
+  %singleFormatter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
   store i8 1, ptr %singleFormatter.i.i, align 8
-  %collapse.i.i = getelementptr inbounds i8, ptr %this, i64 972
+  %collapse.i.i = getelementptr inbounds nuw i8, ptr %this, i64 972
   store i32 0, ptr %collapse.i.i, align 4
-  %identityFallback.i.i = getelementptr inbounds i8, ptr %this, i64 976
+  %identityFallback.i.i = getelementptr inbounds nuw i8, ptr %this, i64 976
   store i32 2, ptr %identityFallback.i.i, align 8
-  %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
+  %locale.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i)
           to label %_ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2Ev.exit unwind label %lpad2.i.i
 
@@ -2226,21 +2226,21 @@ ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
   br label %common.resume
 
 _ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2Ev.exit: ; preds = %invoke.cont.i.i
-  %fAtomicFormatter = getelementptr inbounds i8, ptr %this, i64 1208
+  %fAtomicFormatter = getelementptr inbounds nuw i8, ptr %this, i64 1208
   store i64 0, ptr %fAtomicFormatter, align 8
-  %formatter12.i = getelementptr inbounds i8, ptr %macros, i64 8
+  %formatter12.i = getelementptr inbounds nuw i8, ptr %macros, i64 8
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2Ev.exit
-  %formatter23.i = getelementptr inbounds i8, ptr %macros, i64 488
+  %formatter23.i = getelementptr inbounds nuw i8, ptr %macros, i64 488
   %call4.i2 = invoke noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i)
           to label %call4.i.noexc unwind label %lpad
 
 call4.i.noexc:                                    ; preds = %call.i.noexc
-  %singleFormatter5.i = getelementptr inbounds i8, ptr %macros, i64 968
+  %singleFormatter5.i = getelementptr inbounds nuw i8, ptr %macros, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter5.i, i64 12, i1 false)
-  %locale6.i = getelementptr inbounds i8, ptr %macros, i64 984
+  %locale6.i = getelementptr inbounds nuw i8, ptr %macros, i64 984
   %call7.i3 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale6.i)
           to label %invoke.cont unwind label %lpad
 
@@ -2249,12 +2249,12 @@ invoke.cont:                                      ; preds = %call4.i.noexc
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %locale1.i = getelementptr inbounds i8, ptr %this, i64 256
+  %locale1.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   %call.i6 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i)
           to label %call.i.noexc5 unwind label %lpad
 
 call.i.noexc5:                                    ; preds = %invoke.cont4
-  %locale4.i = getelementptr inbounds i8, ptr %this, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   %call5.i7 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i)
           to label %invoke.cont7 unwind label %lpad
 
@@ -2271,20 +2271,20 @@ lpad:                                             ; preds = %call.i.noexc5, %inv
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number29LocalizedNumberRangeFormatterC2EONS0_4impl15RangeMacroPropsERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(1216) %this, ptr noundef nonnull align 8 dereferenceable(1208) %macros, ptr noundef nonnull align 8 dereferenceable(217) %locale) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %formatter1.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %formatter1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i)
-  %formatter2.i.i = getelementptr inbounds i8, ptr %this, i64 488
+  %formatter2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   invoke void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %entry
-  %singleFormatter.i.i = getelementptr inbounds i8, ptr %this, i64 968
+  %singleFormatter.i.i = getelementptr inbounds nuw i8, ptr %this, i64 968
   store i8 1, ptr %singleFormatter.i.i, align 8
-  %collapse.i.i = getelementptr inbounds i8, ptr %this, i64 972
+  %collapse.i.i = getelementptr inbounds nuw i8, ptr %this, i64 972
   store i32 0, ptr %collapse.i.i, align 4
-  %identityFallback.i.i = getelementptr inbounds i8, ptr %this, i64 976
+  %identityFallback.i.i = getelementptr inbounds nuw i8, ptr %this, i64 976
   store i32 2, ptr %identityFallback.i.i, align 8
-  %locale.i.i = getelementptr inbounds i8, ptr %this, i64 984
+  %locale.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i)
           to label %_ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2Ev.exit unwind label %lpad2.i.i
 
@@ -2309,26 +2309,26 @@ ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
   br label %common.resume
 
 _ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2Ev.exit: ; preds = %invoke.cont.i.i
-  %fAtomicFormatter = getelementptr inbounds i8, ptr %this, i64 1208
+  %fAtomicFormatter = getelementptr inbounds nuw i8, ptr %this, i64 1208
   store i64 0, ptr %fAtomicFormatter, align 8
-  %formatter12.i = getelementptr inbounds i8, ptr %macros, i64 8
+  %formatter12.i = getelementptr inbounds nuw i8, ptr %macros, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter1.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter12.i) #11
-  %formatter23.i = getelementptr inbounds i8, ptr %macros, i64 488
+  %formatter23.i = getelementptr inbounds nuw i8, ptr %macros, i64 488
   %call4.i = tail call noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull align 8 dereferenceable(473) %formatter2.i.i, ptr noundef nonnull align 8 dereferenceable(473) %formatter23.i) #11
-  %singleFormatter5.i = getelementptr inbounds i8, ptr %macros, i64 968
+  %singleFormatter5.i = getelementptr inbounds nuw i8, ptr %macros, i64 968
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter.i.i, ptr noundef nonnull align 8 dereferenceable(12) %singleFormatter5.i, i64 12, i1 false)
-  %locale6.i = getelementptr inbounds i8, ptr %macros, i64 984
+  %locale6.i = getelementptr inbounds nuw i8, ptr %macros, i64 984
   %call7.i = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale6.i) #11
   %call4 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i, ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6icu_756number28NumberRangeFormatterSettingsINS0_29LocalizedNumberRangeFormatterEEC2Ev.exit
-  %locale1.i = getelementptr inbounds i8, ptr %this, i64 256
+  %locale1.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   %call.i23 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale1.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i)
           to label %call.i2.noexc unwind label %lpad
 
 call.i2.noexc:                                    ; preds = %invoke.cont
-  %locale4.i = getelementptr inbounds i8, ptr %this, i64 736
+  %locale4.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   %call5.i4 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale4.i, ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i)
           to label %invoke.cont6 unwind label %lpad
 
@@ -2367,12 +2367,12 @@ new.notnull:                                      ; preds = %if.end
 
 .noexc:                                           ; preds = %new.notnull
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl25UFormattedNumberRangeDataE, i64 16), ptr %call2, align 8
-  %quantity1.i = getelementptr inbounds i8, ptr %call2, i64 304
+  %quantity1.i = getelementptr inbounds nuw i8, ptr %call2, i64 304
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity1.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  %quantity2.i = getelementptr inbounds i8, ptr %call2, i64 376
+  %quantity2.i = getelementptr inbounds nuw i8, ptr %call2, i64 376
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity2.i)
           to label %if.end4 unwind label %lpad2.i
 
@@ -2407,7 +2407,7 @@ lpad.body:                                        ; preds = %ehcleanup.i, %lpad
   resume { ptr, i32 } %eh.lpad-body
 
 if.end4:                                          ; preds = %invoke.cont.i
-  %identityResult.i = getelementptr inbounds i8, ptr %call2, i64 448
+  %identityResult.i = getelementptr inbounds nuw i8, ptr %call2, i64 448
   store i32 3, ptr %identityResult.i, align 8
   tail call void @_ZNK6icu_7511Formattable23populateDecimalQuantityERNS_6number4impl15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %first, ptr noundef nonnull align 8 dereferenceable(66) %quantity1.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %4 = load i32, ptr %status, align 4
@@ -2442,7 +2442,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp.i8.i, label %_ZNK6icu_756number29LocalizedNumberRangeFormatter10formatImplERNS0_4impl25UFormattedNumberRangeDataEbR10UErrorCode.exit, label %delete.notnull
 
 _ZNK6icu_756number29LocalizedNumberRangeFormatter10formatImplERNS0_4impl25UFormattedNumberRangeDataEbR10UErrorCode.exit: ; preds = %if.end4.i
-  %fString.i.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %fString.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   tail call void @_ZN6icu_7522FormattedStringBuilder15writeTerminatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %.pre = load i32, ptr %status, align 4
   %8 = icmp sgt i32 %.pre, 0
@@ -2450,7 +2450,7 @@ _ZNK6icu_756number29LocalizedNumberRangeFormatter10formatImplERNS0_4impl25UForma
 
 delete.notnull:                                   ; preds = %if.end4.i, %if.then3.i, %if.end12, %_ZNK6icu_756number29LocalizedNumberRangeFormatter10formatImplERNS0_4impl25UFormattedNumberRangeDataEbR10UErrorCode.exit
   %vtable = load ptr, ptr %call2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(452) %call2) #11
   %10 = load i32, ptr %status, align 4
@@ -2460,9 +2460,9 @@ return:                                           ; preds = %_ZNK6icu_756number2
   %.sink38 = phi ptr [ null, %delete.notnull ], [ null, %if.then3 ], [ null, %entry ], [ null, %if.end4 ], [ null, %if.end8 ], [ %call2, %_ZNK6icu_756number29LocalizedNumberRangeFormatter10formatImplERNS0_4impl25UFormattedNumberRangeDataEbR10UErrorCode.exit ]
   %.sink = phi i32 [ %10, %delete.notnull ], [ 7, %if.then3 ], [ 1, %entry ], [ %4, %if.end4 ], [ %5, %if.end8 ], [ 0, %_ZNK6icu_756number29LocalizedNumberRangeFormatter10formatImplERNS0_4impl25UFormattedNumberRangeDataEbR10UErrorCode.exit ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number20FormattedNumberRangeE, i64 16), ptr %agg.result, align 8
-  %fData.i34 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fData.i34 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %.sink38, ptr %fData.i34, align 8
-  %fErrorCode.i35 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %fErrorCode.i35 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 %.sink, ptr %fErrorCode.i35, align 8
   ret void
 }
@@ -2492,7 +2492,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp.i8, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end4
-  %fString.i = getelementptr inbounds i8, ptr %results, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %results, i64 8
   tail call void @_ZN6icu_7522FormattedStringBuilder15writeTerminatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
 
@@ -2510,7 +2510,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fAtomicFormatter = getelementptr inbounds i8, ptr %this, i64 1208
+  %fAtomicFormatter = getelementptr inbounds nuw i8, ptr %this, i64 1208
   %1 = load atomic i64, ptr %fAtomicFormatter seq_cst, align 8
   %atomic-temp.i.0.i = inttoptr i64 %1 to ptr
   %cmp.not = icmp eq i64 %1, 0
@@ -2536,13 +2536,13 @@ new.cont.thread:                                  ; preds = %if.end4
   br i1 %cmp.i810, label %if.then11, label %return
 
 delete.notnull:                                   ; preds = %new.cont
-  %needToRelease.i.i.i.i = getelementptr inbounds i8, ptr %call5, i64 1908
+  %needToRelease.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 1908
   %4 = load i8, ptr %needToRelease.i.i.i.i, align 4
   %tobool.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull
-  %fPluralRanges.i = getelementptr inbounds i8, ptr %call5, i64 1896
+  %fPluralRanges.i = getelementptr inbounds nuw i8, ptr %call5, i64 1896
   %5 = load ptr, ptr %fPluralRanges.i, align 8
   invoke void @uprv_free_75(ptr noundef %5)
           to label %_ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -2555,13 +2555,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN6icu_756number4impl24NumberRangeFormatterImplD2Ev.exit: ; preds = %delete.notnull, %if.then.i.i.i.i
-  %fApproximatelyFormatter.i = getelementptr inbounds i8, ptr %call5, i64 1296
+  %fApproximatelyFormatter.i = getelementptr inbounds nuw i8, ptr %call5, i64 1296
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %fApproximatelyFormatter.i) #11
-  %fRangeFormatter.i = getelementptr inbounds i8, ptr %call5, i64 1224
+  %fRangeFormatter.i = getelementptr inbounds nuw i8, ptr %call5, i64 1224
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fRangeFormatter.i) #11
-  %formatterImpl2.i = getelementptr inbounds i8, ptr %call5, i64 608
+  %formatterImpl2.i = getelementptr inbounds nuw i8, ptr %call5, i64 608
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl2.i) #11
-  %formatterImpl1.i = getelementptr inbounds i8, ptr %call5, i64 8
+  %formatterImpl1.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %formatterImpl1.i) #11
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call5) #11
   br label %return
@@ -2603,35 +2603,35 @@ declare void @_ZN6icu_756number4impl24NumberRangeFormatterImplC1ERKNS1_15RangeMa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl15RangeMacroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(1208) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %locale = getelementptr inbounds i8, ptr %this, i64 984
+  %locale = getelementptr inbounds nuw i8, ptr %this, i64 984
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #11
-  %locale.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
+  %locale.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i) #11
-  %unitDisplayCase.i.i.i = getelementptr inbounds i8, ptr %this, i64 696
+  %unitDisplayCase.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 696
   tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase.i.i.i) #11
-  %usage.i.i.i = getelementptr inbounds i8, ptr %this, i64 680
+  %usage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 680
   tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage.i.i.i) #11
-  %scale.i.i.i = getelementptr inbounds i8, ptr %this, i64 656
+  %scale.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 656
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale.i.i.i) #11
-  %symbols.i.i.i = getelementptr inbounds i8, ptr %this, i64 624
+  %symbols.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 624
   tail call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols.i.i.i) #11
-  %perUnit.i.i.i = getelementptr inbounds i8, ptr %this, i64 528
+  %perUnit.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit.i.i.i) #11
-  %unit.i.i.i = getelementptr inbounds i8, ptr %this, i64 504
+  %unit.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 504
   tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit.i.i.i) #11
-  %locale.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 256
+  %locale.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 256
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i.i1) #11
-  %unitDisplayCase.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 216
+  %unitDisplayCase.i.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 216
   tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase.i.i.i2) #11
-  %usage.i.i.i3 = getelementptr inbounds i8, ptr %this, i64 200
+  %usage.i.i.i3 = getelementptr inbounds nuw i8, ptr %this, i64 200
   tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage.i.i.i3) #11
-  %scale.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 176
+  %scale.i.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 176
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale.i.i.i4) #11
-  %symbols.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 144
+  %symbols.i.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 144
   tail call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols.i.i.i5) #11
-  %perUnit.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 48
+  %perUnit.i.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit.i.i.i6) #11
-  %unit.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 24
+  %unit.i.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit.i.i.i7) #11
   ret void
 }
@@ -2642,19 +2642,19 @@ declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number26UnlocalizedNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(473) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %locale.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %locale.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale.i.i) #11
-  %unitDisplayCase.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %unitDisplayCase.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %unitDisplayCase.i.i) #11
-  %usage.i.i = getelementptr inbounds i8, ptr %this, i64 192
+  %usage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   tail call void @_ZN6icu_756number4impl10StringPropD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %usage.i.i) #11
-  %scale.i.i = getelementptr inbounds i8, ptr %this, i64 168
+  %scale.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %scale.i.i) #11
-  %symbols.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %symbols.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   tail call void @_ZN6icu_756number4impl14SymbolsWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %symbols.i.i) #11
-  %perUnit.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %perUnit.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit.i.i) #11
-  %unit.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %unit.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit.i.i) #11
   ret void
 }
@@ -2678,64 +2678,64 @@ declare void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_756number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %notation = getelementptr inbounds i8, ptr %this, i64 4
+  %notation = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 2, ptr %notation, align 4
-  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %fUnion.i, align 8
-  %unit = getelementptr inbounds i8, ptr %this, i64 16
+  %unit = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6icu_7511MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(19) %unit)
-  %perUnit = getelementptr inbounds i8, ptr %this, i64 40
+  %perUnit = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @_ZN6icu_7511MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(19) %perUnit)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %precision = getelementptr inbounds i8, ptr %this, i64 64
+  %precision = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 0, ptr %precision, align 8
-  %fTrailingZeroDisplay.i = getelementptr inbounds i8, ptr %this, i64 88
+  %fTrailingZeroDisplay.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 0, ptr %fTrailingZeroDisplay.i, align 8
-  %roundingMode = getelementptr inbounds i8, ptr %this, i64 96
+  %roundingMode = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i32 4, ptr %roundingMode, align 8
-  %grouper = getelementptr inbounds i8, ptr %this, i64 100
+  %grouper = getelementptr inbounds nuw i8, ptr %this, i64 100
   store i16 -3, ptr %grouper, align 4
-  %padder = getelementptr inbounds i8, ptr %this, i64 112
+  %padder = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i32 -2, ptr %padder, align 8
-  %integerWidth = getelementptr inbounds i8, ptr %this, i64 124
-  %fHasError.i = getelementptr inbounds i8, ptr %this, i64 132
+  %integerWidth = getelementptr inbounds nuw i8, ptr %this, i64 124
+  %fHasError.i = getelementptr inbounds nuw i8, ptr %this, i64 132
   store i8 0, ptr %fHasError.i, align 4
   store i16 -1, ptr %integerWidth, align 4
-  %symbols = getelementptr inbounds i8, ptr %this, i64 136
+  %symbols = getelementptr inbounds nuw i8, ptr %this, i64 136
   store i32 0, ptr %symbols, align 8
-  %fPtr.i = getelementptr inbounds i8, ptr %this, i64 144
+  %fPtr.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr null, ptr %fPtr.i, align 8
-  %unitWidth = getelementptr inbounds i8, ptr %this, i64 152
+  %unitWidth = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i32 7, ptr %unitWidth, align 8
-  %sign = getelementptr inbounds i8, ptr %this, i64 156
+  %sign = getelementptr inbounds nuw i8, ptr %this, i64 156
   store i32 9, ptr %sign, align 4
-  %approximately = getelementptr inbounds i8, ptr %this, i64 160
+  %approximately = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i8 0, ptr %approximately, align 8
-  %decimal = getelementptr inbounds i8, ptr %this, i64 164
+  %decimal = getelementptr inbounds nuw i8, ptr %this, i64 164
   store i32 2, ptr %decimal, align 4
-  %scale = getelementptr inbounds i8, ptr %this, i64 168
+  %scale = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i32 0, ptr %scale, align 8
-  %fArbitrary.i = getelementptr inbounds i8, ptr %this, i64 176
+  %fArbitrary.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   store ptr null, ptr %fArbitrary.i, align 8
-  %fError.i = getelementptr inbounds i8, ptr %this, i64 184
+  %fError.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   store i32 0, ptr %fError.i, align 8
-  %usage = getelementptr inbounds i8, ptr %this, i64 192
+  %usage = getelementptr inbounds nuw i8, ptr %this, i64 192
   store ptr null, ptr %usage, align 8
-  %fLength.i = getelementptr inbounds i8, ptr %this, i64 200
+  %fLength.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   store i16 0, ptr %fLength.i, align 8
-  %fError.i2 = getelementptr inbounds i8, ptr %this, i64 204
+  %fError.i2 = getelementptr inbounds nuw i8, ptr %this, i64 204
   store i32 0, ptr %fError.i2, align 4
-  %unitDisplayCase = getelementptr inbounds i8, ptr %this, i64 208
+  %unitDisplayCase = getelementptr inbounds nuw i8, ptr %this, i64 208
   store ptr null, ptr %unitDisplayCase, align 8
-  %fLength.i3 = getelementptr inbounds i8, ptr %this, i64 216
+  %fLength.i3 = getelementptr inbounds nuw i8, ptr %this, i64 216
   store i16 0, ptr %fLength.i3, align 8
-  %fError.i4 = getelementptr inbounds i8, ptr %this, i64 220
-  %threshold = getelementptr inbounds i8, ptr %this, i64 240
+  %fError.i4 = getelementptr inbounds nuw i8, ptr %this, i64 220
+  %threshold = getelementptr inbounds nuw i8, ptr %this, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %fError.i4, i8 0, i64 20, i1 false)
   store i32 3, ptr %threshold, align 8
-  %locale = getelementptr inbounds i8, ptr %this, i64 248
+  %locale = getelementptr inbounds nuw i8, ptr %this, i64 248
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont15 unwind label %lpad14
 
@@ -2778,163 +2778,163 @@ declare void @_ZN6icu_756LocaleC1EOS0_(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl19NumberFormatterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %fCompactHandler = getelementptr inbounds i8, ptr %this, i64 592
+  %fCompactHandler = getelementptr inbounds nuw i8, ptr %this, i64 592
   %0 = load ptr, ptr %fCompactHandler, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN6icu_7512LocalPointerIKNS_6number4impl14CompactHandlerEED2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(2065) %0) #11
   br label %_ZN6icu_7512LocalPointerIKNS_6number4impl14CompactHandlerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_6number4impl14CompactHandlerEED2Ev.exit: ; preds = %entry, %delete.notnull.i
-  %fLongNameMultiplexer = getelementptr inbounds i8, ptr %this, i64 584
+  %fLongNameMultiplexer = getelementptr inbounds nuw i8, ptr %this, i64 584
   %2 = load ptr, ptr %fLongNameMultiplexer, align 8
   %isnull.i1 = icmp eq ptr %2, null
   br i1 %isnull.i1, label %_ZN6icu_7512LocalPointerIKNS_6number4impl19LongNameMultiplexerEED2Ev.exit, label %delete.notnull.i2
 
 delete.notnull.i2:                                ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl14CompactHandlerEED2Ev.exit
   %vtable.i3 = load ptr, ptr %2, align 8
-  %vfn.i4 = getelementptr inbounds i8, ptr %vtable.i3, i64 8
+  %vfn.i4 = getelementptr inbounds nuw i8, ptr %vtable.i3, i64 8
   %3 = load ptr, ptr %vfn.i4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(280) %2) #11
   br label %_ZN6icu_7512LocalPointerIKNS_6number4impl19LongNameMultiplexerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_6number4impl19LongNameMultiplexerEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl14CompactHandlerEED2Ev.exit, %delete.notnull.i2
-  %fMixedUnitLongNameHandler = getelementptr inbounds i8, ptr %this, i64 576
+  %fMixedUnitLongNameHandler = getelementptr inbounds nuw i8, ptr %this, i64 576
   %4 = load ptr, ptr %fMixedUnitLongNameHandler, align 8
   %isnull.i5 = icmp eq ptr %4, null
   br i1 %isnull.i5, label %_ZN6icu_7512LocalPointerINS_6number4impl24MixedUnitLongNameHandlerEED2Ev.exit, label %delete.notnull.i6
 
 delete.notnull.i6:                                ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl19LongNameMultiplexerEED2Ev.exit
   %vtable.i7 = load ptr, ptr %4, align 8
-  %vfn.i8 = getelementptr inbounds i8, ptr %vtable.i7, i64 8
+  %vfn.i8 = getelementptr inbounds nuw i8, ptr %vtable.i7, i64 8
   %5 = load ptr, ptr %vfn.i8, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(552) %4) #11
   br label %_ZN6icu_7512LocalPointerINS_6number4impl24MixedUnitLongNameHandlerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_6number4impl24MixedUnitLongNameHandlerEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl19LongNameMultiplexerEED2Ev.exit, %delete.notnull.i6
-  %fLongNameHandler = getelementptr inbounds i8, ptr %this, i64 568
+  %fLongNameHandler = getelementptr inbounds nuw i8, ptr %this, i64 568
   %6 = load ptr, ptr %fLongNameHandler, align 8
   %isnull.i9 = icmp eq ptr %6, null
   br i1 %isnull.i9, label %_ZN6icu_7512LocalPointerINS_6number4impl15LongNameHandlerEED2Ev.exit, label %delete.notnull.i10
 
 delete.notnull.i10:                               ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl24MixedUnitLongNameHandlerEED2Ev.exit
   %vtable.i11 = load ptr, ptr %6, align 8
-  %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 8
+  %vfn.i12 = getelementptr inbounds nuw i8, ptr %vtable.i11, i64 8
   %7 = load ptr, ptr %vfn.i12, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(872) %6) #11
   br label %_ZN6icu_7512LocalPointerINS_6number4impl15LongNameHandlerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_6number4impl15LongNameHandlerEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl24MixedUnitLongNameHandlerEED2Ev.exit, %delete.notnull.i10
-  %fImmutablePatternModifier = getelementptr inbounds i8, ptr %this, i64 560
+  %fImmutablePatternModifier = getelementptr inbounds nuw i8, ptr %this, i64 560
   %8 = load ptr, ptr %fImmutablePatternModifier, align 8
   %isnull.i13 = icmp eq ptr %8, null
   br i1 %isnull.i13, label %_ZN6icu_7512LocalPointerINS_6number4impl24ImmutablePatternModifierEED2Ev.exit, label %delete.notnull.i14
 
 delete.notnull.i14:                               ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl15LongNameHandlerEED2Ev.exit
   %vtable.i15 = load ptr, ptr %8, align 8
-  %vfn.i16 = getelementptr inbounds i8, ptr %vtable.i15, i64 8
+  %vfn.i16 = getelementptr inbounds nuw i8, ptr %vtable.i15, i64 8
   %9 = load ptr, ptr %vfn.i16, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
   br label %_ZN6icu_7512LocalPointerINS_6number4impl24ImmutablePatternModifierEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_6number4impl24ImmutablePatternModifierEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl15LongNameHandlerEED2Ev.exit, %delete.notnull.i14
-  %fPatternModifier = getelementptr inbounds i8, ptr %this, i64 552
+  %fPatternModifier = getelementptr inbounds nuw i8, ptr %this, i64 552
   %10 = load ptr, ptr %fPatternModifier, align 8
   %isnull.i17 = icmp eq ptr %10, null
   br i1 %isnull.i17, label %_ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEED2Ev.exit, label %delete.notnull.i18
 
 delete.notnull.i18:                               ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl24ImmutablePatternModifierEED2Ev.exit
   %vtable.i19 = load ptr, ptr %10, align 8
-  %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 8
+  %vfn.i20 = getelementptr inbounds nuw i8, ptr %vtable.i19, i64 8
   %11 = load ptr, ptr %vfn.i20, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(392) %10) #11
   br label %_ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl24ImmutablePatternModifierEED2Ev.exit, %delete.notnull.i18
-  %fScientificHandler = getelementptr inbounds i8, ptr %this, i64 544
+  %fScientificHandler = getelementptr inbounds nuw i8, ptr %this, i64 544
   %12 = load ptr, ptr %fScientificHandler, align 8
   %isnull.i21 = icmp eq ptr %12, null
   br i1 %isnull.i21, label %_ZN6icu_7512LocalPointerIKNS_6number4impl17ScientificHandlerEED2Ev.exit, label %delete.notnull.i22
 
 delete.notnull.i22:                               ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEED2Ev.exit
   %vtable.i23 = load ptr, ptr %12, align 8
-  %vfn.i24 = getelementptr inbounds i8, ptr %vtable.i23, i64 8
+  %vfn.i24 = getelementptr inbounds nuw i8, ptr %vtable.i23, i64 8
   %13 = load ptr, ptr %vfn.i24, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(40) %12) #11
   br label %_ZN6icu_7512LocalPointerIKNS_6number4impl17ScientificHandlerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_6number4impl17ScientificHandlerEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl22MutablePatternModifierEED2Ev.exit, %delete.notnull.i22
-  %fPatternInfo = getelementptr inbounds i8, ptr %this, i64 536
+  %fPatternInfo = getelementptr inbounds nuw i8, ptr %this, i64 536
   %14 = load ptr, ptr %fPatternInfo, align 8
   %isnull.i25 = icmp eq ptr %14, null
   br i1 %isnull.i25, label %_ZN6icu_7512LocalPointerIKNS_6number4impl17ParsedPatternInfoEED2Ev.exit, label %delete.notnull.i26
 
 delete.notnull.i26:                               ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl17ScientificHandlerEED2Ev.exit
   %vtable.i27 = load ptr, ptr %14, align 8
-  %vfn.i28 = getelementptr inbounds i8, ptr %vtable.i27, i64 8
+  %vfn.i28 = getelementptr inbounds nuw i8, ptr %vtable.i27, i64 8
   %15 = load ptr, ptr %vfn.i28, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(433) %14) #11
   br label %_ZN6icu_7512LocalPointerIKNS_6number4impl17ParsedPatternInfoEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_6number4impl17ParsedPatternInfoEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl17ScientificHandlerEED2Ev.exit, %delete.notnull.i26
-  %fRules = getelementptr inbounds i8, ptr %this, i64 528
+  %fRules = getelementptr inbounds nuw i8, ptr %this, i64 528
   %16 = load ptr, ptr %fRules, align 8
   %isnull.i29 = icmp eq ptr %16, null
   br i1 %isnull.i29, label %_ZN6icu_7512LocalPointerIKNS_11PluralRulesEED2Ev.exit, label %delete.notnull.i30
 
 delete.notnull.i30:                               ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl17ParsedPatternInfoEED2Ev.exit
   %vtable.i31 = load ptr, ptr %16, align 8
-  %vfn.i32 = getelementptr inbounds i8, ptr %vtable.i31, i64 8
+  %vfn.i32 = getelementptr inbounds nuw i8, ptr %vtable.i31, i64 8
   %17 = load ptr, ptr %vfn.i32, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(28) %16) #11
   br label %_ZN6icu_7512LocalPointerIKNS_11PluralRulesEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_11PluralRulesEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl17ParsedPatternInfoEED2Ev.exit, %delete.notnull.i30
-  %fSymbols = getelementptr inbounds i8, ptr %this, i64 520
+  %fSymbols = getelementptr inbounds nuw i8, ptr %this, i64 520
   %18 = load ptr, ptr %fSymbols, align 8
   %isnull.i33 = icmp eq ptr %18, null
   br i1 %isnull.i33, label %_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEED2Ev.exit, label %delete.notnull.i34
 
 delete.notnull.i34:                               ; preds = %_ZN6icu_7512LocalPointerIKNS_11PluralRulesEED2Ev.exit
   %vtable.i35 = load ptr, ptr %18, align 8
-  %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 8
+  %vfn.i36 = getelementptr inbounds nuw i8, ptr %vtable.i35, i64 8
   %19 = load ptr, ptr %vfn.i36, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(2883) %18) #11
   br label %_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_11PluralRulesEED2Ev.exit, %delete.notnull.i34
-  %fUnitConversionHandler = getelementptr inbounds i8, ptr %this, i64 512
+  %fUnitConversionHandler = getelementptr inbounds nuw i8, ptr %this, i64 512
   %20 = load ptr, ptr %fUnitConversionHandler, align 8
   %isnull.i37 = icmp eq ptr %20, null
   br i1 %isnull.i37, label %_ZN6icu_7512LocalPointerIKNS_6number4impl21UnitConversionHandlerEED2Ev.exit, label %delete.notnull.i38
 
 delete.notnull.i38:                               ; preds = %_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEED2Ev.exit
   %vtable.i39 = load ptr, ptr %20, align 8
-  %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 8
+  %vfn.i40 = getelementptr inbounds nuw i8, ptr %vtable.i39, i64 8
   %21 = load ptr, ptr %vfn.i40, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(48) %20) #11
   br label %_ZN6icu_7512LocalPointerIKNS_6number4impl21UnitConversionHandlerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_6number4impl21UnitConversionHandlerEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_20DecimalFormatSymbolsEED2Ev.exit, %delete.notnull.i38
-  %fUsagePrefsHandler = getelementptr inbounds i8, ptr %this, i64 504
+  %fUsagePrefsHandler = getelementptr inbounds nuw i8, ptr %this, i64 504
   %22 = load ptr, ptr %fUsagePrefsHandler, align 8
   %isnull.i41 = icmp eq ptr %22, null
   br i1 %isnull.i41, label %_ZN6icu_7512LocalPointerIKNS_6number4impl17UsagePrefsHandlerEED2Ev.exit, label %delete.notnull.i42
 
 delete.notnull.i42:                               ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl21UnitConversionHandlerEED2Ev.exit
   %vtable.i43 = load ptr, ptr %22, align 8
-  %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 8
+  %vfn.i44 = getelementptr inbounds nuw i8, ptr %vtable.i43, i64 8
   %23 = load ptr, ptr %vfn.i44, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(192) %22) #11
   br label %_ZN6icu_7512LocalPointerIKNS_6number4impl17UsagePrefsHandlerEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_6number4impl17UsagePrefsHandlerEED2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerIKNS_6number4impl21UnitConversionHandlerEED2Ev.exit, %delete.notnull.i42
-  %fMicros = getelementptr inbounds i8, ptr %this, i64 8
+  %fMicros = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_756number4impl10MicroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %fMicros) #11
   ret void
 }
@@ -2946,13 +2946,13 @@ declare void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 derefe
 define linkonce_odr void @_ZN6icu_756number4impl10MicroPropsD2Ev(ptr noundef nonnull align 8 dereferenceable(489) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl10MicroPropsE, i64 16), ptr %this, align 8
-  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %this, i64 452
+  %needToRelease.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 452
   %0 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_756number4impl11IntMeasuresD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %mixedMeasures = getelementptr inbounds i8, ptr %this, i64 440
+  %mixedMeasures = getelementptr inbounds nuw i8, ptr %this, i64 440
   %1 = load ptr, ptr %mixedMeasures, align 8
   invoke void @uprv_free_75(ptr noundef %1)
           to label %_ZN6icu_756number4impl11IntMeasuresD2Ev.exit unwind label %terminate.lpad.i.i
@@ -2965,24 +2965,24 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN6icu_756number4impl11IntMeasuresD2Ev.exit:     ; preds = %entry, %if.then.i.i.i
-  %outputUnit = getelementptr inbounds i8, ptr %this, i64 416
+  %outputUnit = getelementptr inbounds nuw i8, ptr %this, i64 416
   tail call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %outputUnit) #11
-  %helpers = getelementptr inbounds i8, ptr %this, i64 216
-  %mixedUnitModifier.i = getelementptr inbounds i8, ptr %this, i64 312
+  %helpers = getelementptr inbounds nuw i8, ptr %this, i64 216
+  %mixedUnitModifier.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14SimpleModifierE, i64 16), ptr %mixedUnitModifier.i, align 8
-  %fCompiledPattern.i.i = getelementptr inbounds i8, ptr %this, i64 320
+  %fCompiledPattern.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i.i) #11
   tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %mixedUnitModifier.i) #11
-  %multiplier.i = getelementptr inbounds i8, ptr %this, i64 272
+  %multiplier.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl23MultiplierFormatHandlerE, i64 16), ptr %multiplier.i, align 8
-  %fMultiplier.i.i = getelementptr inbounds i8, ptr %this, i64 280
+  %fMultiplier.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i.i) #11
-  %emptyStrongModifier.i = getelementptr inbounds i8, ptr %this, i64 256
+  %emptyStrongModifier.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyStrongModifier.i) #11
-  %emptyWeakModifier.i = getelementptr inbounds i8, ptr %this, i64 240
+  %emptyWeakModifier.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %emptyWeakModifier.i) #11
   tail call void @_ZN6icu_756number4impl8ModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %helpers) #11
-  %currencyAsDecimal.i = getelementptr inbounds i8, ptr %this, i64 32
+  %currencyAsDecimal.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %currencyAsDecimal.i) #11
   ret void
 }
@@ -3002,7 +3002,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %exhausted = getelementptr inbounds i8, ptr %micros, i64 488
+  %exhausted = getelementptr inbounds nuw i8, ptr %micros, i64 488
   store i8 1, ptr %exhausted, align 8
   br label %if.end
 
@@ -3026,61 +3026,61 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(489) ptr @_ZN6icu_756number4impl10MicroPropsaSERKS2_(ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef nonnull align 8 dereferenceable(489) %other) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %grouping.i = getelementptr inbounds i8, ptr %this, i64 12
-  %grouping2.i = getelementptr inbounds i8, ptr %other, i64 12
+  %grouping.i = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %grouping2.i = getelementptr inbounds nuw i8, ptr %other, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %grouping.i, ptr noundef nonnull align 4 dereferenceable(20) %grouping2.i, i64 20, i1 false)
-  %currencyAsDecimal.i = getelementptr inbounds i8, ptr %this, i64 32
-  %currencyAsDecimal3.i = getelementptr inbounds i8, ptr %other, i64 32
+  %currencyAsDecimal.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %currencyAsDecimal3.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %call.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %currencyAsDecimal.i, ptr noundef nonnull align 8 dereferenceable(64) %currencyAsDecimal3.i)
-  %symbols.i = getelementptr inbounds i8, ptr %other, i64 96
+  %symbols.i = getelementptr inbounds nuw i8, ptr %other, i64 96
   %0 = load ptr, ptr %symbols.i, align 8
-  %symbols4.i = getelementptr inbounds i8, ptr %this, i64 96
+  %symbols4.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store ptr %0, ptr %symbols4.i, align 8
-  %rounder = getelementptr inbounds i8, ptr %this, i64 104
-  %rounder4 = getelementptr inbounds i8, ptr %other, i64 104
+  %rounder = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %rounder4 = getelementptr inbounds nuw i8, ptr %other, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %rounder, ptr noundef nonnull align 8 dereferenceable(112) %rounder4, i64 112, i1 false)
-  %fExponent.i.i = getelementptr inbounds i8, ptr %this, i64 224
-  %fExponent2.i.i = getelementptr inbounds i8, ptr %other, i64 224
+  %fExponent.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
+  %fExponent2.i.i = getelementptr inbounds nuw i8, ptr %other, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fExponent.i.i, ptr noundef nonnull align 8 dereferenceable(16) %fExponent2.i.i, i64 16, i1 false)
-  %fStrong.i.i = getelementptr inbounds i8, ptr %other, i64 248
+  %fStrong.i.i = getelementptr inbounds nuw i8, ptr %other, i64 248
   %1 = load i8, ptr %fStrong.i.i, align 8
-  %fStrong2.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %fStrong2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   %frombool.i.i = and i8 %1, 1
   store i8 %frombool.i.i, ptr %fStrong2.i.i, align 8
-  %fStrong.i5.i = getelementptr inbounds i8, ptr %other, i64 264
+  %fStrong.i5.i = getelementptr inbounds nuw i8, ptr %other, i64 264
   %2 = load i8, ptr %fStrong.i5.i, align 8
-  %fStrong2.i6.i = getelementptr inbounds i8, ptr %this, i64 264
+  %fStrong2.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   %frombool.i7.i = and i8 %2, 1
   store i8 %frombool.i7.i, ptr %fStrong2.i6.i, align 8
-  %fMultiplier.i.i = getelementptr inbounds i8, ptr %this, i64 280
-  %fMultiplier2.i.i = getelementptr inbounds i8, ptr %other, i64 280
+  %fMultiplier.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
+  %fMultiplier2.i.i = getelementptr inbounds nuw i8, ptr %other, i64 280
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number5ScaleaSERKS1_(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i.i, ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier2.i.i)
-  %fParent.i.i = getelementptr inbounds i8, ptr %other, i64 304
+  %fParent.i.i = getelementptr inbounds nuw i8, ptr %other, i64 304
   %3 = load ptr, ptr %fParent.i.i, align 8
-  %fParent4.i.i = getelementptr inbounds i8, ptr %this, i64 304
+  %fParent4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   store ptr %3, ptr %fParent4.i.i, align 8
-  %fCompiledPattern.i.i = getelementptr inbounds i8, ptr %this, i64 320
-  %fCompiledPattern2.i.i = getelementptr inbounds i8, ptr %other, i64 320
+  %fCompiledPattern.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
+  %fCompiledPattern2.i.i = getelementptr inbounds nuw i8, ptr %other, i64 320
   %call3.i8.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern.i.i, ptr noundef nonnull align 8 dereferenceable(64) %fCompiledPattern2.i.i)
-  %fField.i.i = getelementptr inbounds i8, ptr %this, i64 384
-  %fField4.i.i = getelementptr inbounds i8, ptr %other, i64 384
+  %fField.i.i = getelementptr inbounds nuw i8, ptr %this, i64 384
+  %fField4.i.i = getelementptr inbounds nuw i8, ptr %other, i64 384
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fField.i.i, ptr noundef nonnull align 8 dereferenceable(32) %fField4.i.i, i64 32, i1 false)
-  %outputUnit = getelementptr inbounds i8, ptr %this, i64 416
-  %outputUnit7 = getelementptr inbounds i8, ptr %other, i64 416
+  %outputUnit = getelementptr inbounds nuw i8, ptr %this, i64 416
+  %outputUnit7 = getelementptr inbounds nuw i8, ptr %other, i64 416
   %call8 = tail call noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7511MeasureUnitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %outputUnit, ptr noundef nonnull align 8 dereferenceable(19) %outputUnit7)
-  %mixedMeasures = getelementptr inbounds i8, ptr %this, i64 440
-  %mixedMeasures9 = getelementptr inbounds i8, ptr %other, i64 440
+  %mixedMeasures = getelementptr inbounds nuw i8, ptr %this, i64 440
+  %mixedMeasures9 = getelementptr inbounds nuw i8, ptr %other, i64 440
   %cmp.i = icmp eq ptr %this, %other
   br i1 %cmp.i, label %_ZN6icu_756number4impl11IntMeasuresaSERKS2_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %status.i = getelementptr inbounds i8, ptr %this, i64 472
+  %status.i = getelementptr inbounds nuw i8, ptr %this, i64 472
   %4 = load i32, ptr %status.i, align 8
   %cmp.i.i.i = icmp slt i32 %4, 1
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN6icu_756number4impl11IntMeasuresaSERKS2_.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %capacity.i.i = getelementptr inbounds i8, ptr %other, i64 448
+  %capacity.i.i = getelementptr inbounds nuw i8, ptr %other, i64 448
   %5 = load i32, ptr %capacity.i.i, align 8
   %cmp.i3.i.i = icmp sgt i32 %5, 0
   br i1 %cmp.i3.i.i, label %if.then.i.i.i, label %if.then3.i.i
@@ -3093,7 +3093,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   br i1 %cmp2.not.i.i.i, label %if.then3.i.i, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  %needToRelease.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 452
+  %needToRelease.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 452
   %6 = load i8, ptr %needToRelease.i.i.i.i, align 4
   %tobool.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i.i.i.i, label %do.body.i.i, label %if.then.i.i.i.i
@@ -3109,7 +3109,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 do.body.i.i:                                      ; preds = %if.then.i.i.i.i, %if.then3.i.i.i
   store ptr %call.i.i.i, ptr %mixedMeasures, align 8
-  %capacity16.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
+  %capacity16.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 448
   store i32 %5, ptr %capacity16.i.i.i, align 8
   store i8 1, ptr %needToRelease.i.i.i.i, align 4
   %8 = load ptr, ptr %mixedMeasures9, align 8
@@ -3117,8 +3117,8 @@ do.body.i.i:                                      ; preds = %if.then.i.i.i.i, %i
   br label %_ZN6icu_756number4impl11IntMeasuresaSERKS2_.exit
 
 _ZN6icu_756number4impl11IntMeasuresaSERKS2_.exit: ; preds = %entry, %if.end.i, %if.then3.i.i, %do.body.i.i
-  %indexOfQuantity = getelementptr inbounds i8, ptr %this, i64 480
-  %indexOfQuantity11 = getelementptr inbounds i8, ptr %other, i64 480
+  %indexOfQuantity = getelementptr inbounds nuw i8, ptr %this, i64 480
+  %indexOfQuantity11 = getelementptr inbounds nuw i8, ptr %other, i64 480
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %indexOfQuantity, ptr noundef nonnull align 8 dereferenceable(9) %indexOfQuantity11, i64 9, i1 false)
   ret ptr %this
 }

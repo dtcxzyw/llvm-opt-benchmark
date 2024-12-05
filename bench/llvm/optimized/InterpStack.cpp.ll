@@ -74,7 +74,7 @@ define dso_local noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr nocapture
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = add i64 %1, 24
@@ -100,7 +100,7 @@ define dso_local noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr nocapture
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %3, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %20, ptr %19, align 8
   br i1 %.not, label %22, label %21
 
@@ -133,7 +133,7 @@ define dso_local noundef ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noca
   %.08 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.08, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %.08, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.08, i64 24
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -149,7 +149,7 @@ define dso_local noundef ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noca
   %.0 = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %.0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
@@ -169,7 +169,7 @@ define dso_local void @_ZN5clang6interp11InterpStack6shrinkEm(ptr nocapture noun
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -194,7 +194,7 @@ define dso_local void @_ZN5clang6interp11InterpStack6shrinkEm(ptr nocapture noun
 
 17:                                               ; preds = %15, %.lr.ph
   %18 = phi ptr [ %.pre, %15 ], [ %12, %.lr.ph ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %0, align 8
@@ -203,7 +203,7 @@ define dso_local void @_ZN5clang6interp11InterpStack6shrinkEm(ptr nocapture noun
   store ptr %23, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28

@@ -8,23 +8,23 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @ssl_read_buffer(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %read_buffer = getelementptr inbounds i8, ptr %0, i64 88
+  %read_buffer = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = load ptr, ptr %read_buffer, align 8
-  %offset = getelementptr inbounds i8, ptr %0, i64 96
+  %offset = getelementptr inbounds nuw i8, ptr %0, i64 96
   %2 = load i16, ptr %offset, align 8
   %idx.ext = zext i16 %2 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %idx.ext
   ret ptr %add.ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden range(i64 0, 65536) i64 @ssl_read_buffer_len(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %len = getelementptr inbounds i8, ptr %0, i64 98
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 98
   %1 = load i16, ptr %len, align 2
   %conv = zext i16 %1 to i64
   ret i64 %conv
@@ -33,15 +33,15 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @ssl_read_buffer_extend_to(ptr noundef %ssl, i64 noundef %len) local_unnamed_addr #1 {
 entry:
-  %s3.i = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3.i = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %0, i64 98
+  %len.i = getelementptr inbounds nuw i8, ptr %0, i64 98
   %1 = load i16, ptr %len.i, align 2
   %cmp.i = icmp eq i16 %1, 0
   br i1 %cmp.i, label %if.then.i, label %ssl_read_buffer_discard.exit
 
 if.then.i:                                        ; preds = %entry
-  %read_buffer.i.i = getelementptr inbounds i8, ptr %0, i64 88
+  %read_buffer.i.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %2 = load ptr, ptr %read_buffer.i.i, align 8
   tail call void @free(ptr noundef %2) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %read_buffer.i.i, i8 0, i64 16, i1 false)
@@ -50,14 +50,14 @@ if.then.i:                                        ; preds = %entry
 
 ssl_read_buffer_discard.exit:                     ; preds = %entry, %if.then.i
   %3 = phi ptr [ %0, %entry ], [ %.pre, %if.then.i ]
-  %read_buffer.i = getelementptr inbounds i8, ptr %3, i64 88
+  %read_buffer.i = getelementptr inbounds nuw i8, ptr %3, i64 88
   %4 = load ptr, ptr %read_buffer.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %ssl_read_buffer_discard.exit
   %call.i = tail call i64 @ssl_record_prefix_len(ptr noundef nonnull %ssl) #9
-  %method.i = getelementptr inbounds i8, ptr %ssl, i64 8
+  %method.i = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %5 = load ptr, ptr %method.i, align 8
   %6 = load i8, ptr %5, align 8
   %tobool.not.i = icmp eq i8 %6, 0
@@ -107,16 +107,16 @@ if.end.sink.split:                                ; preds = %if.end.i11.i, %if.e
   %10 = trunc i64 %9 to i16
   %11 = sub i16 0, %10
   %conv.i15.i = and i16 %11, 7
-  %offset.i16.i = getelementptr inbounds i8, ptr %3, i64 96
+  %offset.i16.i = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i16 %conv.i15.i, ptr %offset.i16.i, align 8
-  %len.i17.i = getelementptr inbounds i8, ptr %3, i64 98
+  %len.i17.i = getelementptr inbounds nuw i8, ptr %3, i64 98
   store i16 0, ptr %len.i17.i, align 2
-  %cap12.i18.i = getelementptr inbounds i8, ptr %3, i64 100
+  %cap12.i18.i = getelementptr inbounds nuw i8, ptr %3, i64 100
   store i16 %.sink, ptr %cap12.i18.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %ssl_read_buffer_discard.exit
-  %rbio = getelementptr inbounds i8, ptr %ssl, i64 16
+  %rbio = getelementptr inbounds nuw i8, ptr %ssl, i64 16
   %12 = load ptr, ptr %rbio, align 8
   %cmp = icmp eq ptr %12, null
   br i1 %cmp, label %if.then1, label %if.end2
@@ -127,7 +127,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end2:                                          ; preds = %if.end
   tail call void @ERR_clear_system_error() #9
-  %method = getelementptr inbounds i8, ptr %ssl, i64 8
+  %method = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %13 = load ptr, ptr %method, align 8
   %14 = load i8, ptr %13, align 8
   %tobool3.not = icmp eq i8 %14, 0
@@ -135,7 +135,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
-  %len.i10 = getelementptr inbounds i8, ptr %15, i64 98
+  %len.i10 = getelementptr inbounds nuw i8, ptr %15, i64 98
   %16 = load i16, ptr %len.i10, align 2
   %cmp.not.i11 = icmp eq i16 %16, 0
   br i1 %cmp.not.i11, label %if.end.i14, label %if.then.i12
@@ -145,14 +145,14 @@ if.then.i12:                                      ; preds = %if.then4
   br label %if.then9
 
 if.end.i14:                                       ; preds = %if.then4
-  %read_buffer.i15 = getelementptr inbounds i8, ptr %15, i64 88
+  %read_buffer.i15 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %17 = load ptr, ptr %rbio, align 8
   %18 = load ptr, ptr %read_buffer.i15, align 8
-  %offset.i = getelementptr inbounds i8, ptr %15, i64 96
+  %offset.i = getelementptr inbounds nuw i8, ptr %15, i64 96
   %19 = load i16, ptr %offset.i, align 8
   %idx.ext.i = zext i16 %19 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 %idx.ext.i
-  %cap.i = getelementptr inbounds i8, ptr %15, i64 100
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %18, i64 %idx.ext.i
+  %cap.i = getelementptr inbounds nuw i8, ptr %15, i64 100
   %20 = load i16, ptr %cap.i, align 4
   %conv4.i = zext i16 %20 to i32
   %call.i16 = tail call i32 @BIO_read(ptr noundef %17, ptr noundef %add.ptr.i, i32 noundef %conv4.i) #9
@@ -160,7 +160,7 @@ if.end.i14:                                       ; preds = %if.then4
   br i1 %cmp5.i, label %if.then7.i, label %if.end8.i
 
 if.then7.i:                                       ; preds = %if.end.i14
-  %rwstate.i = getelementptr inbounds i8, ptr %ssl, i64 144
+  %rwstate.i = getelementptr inbounds nuw i8, ptr %ssl, i64 144
   store i32 3, ptr %rwstate.i, align 8
   br label %if.then9
 
@@ -170,22 +170,22 @@ if.end8.i:                                        ; preds = %if.end.i14
   br label %return
 
 if.else:                                          ; preds = %if.end2
-  %read_buffer.i18 = getelementptr inbounds i8, ptr %15, i64 88
-  %cap.i19 = getelementptr inbounds i8, ptr %15, i64 100
+  %read_buffer.i18 = getelementptr inbounds nuw i8, ptr %15, i64 88
+  %cap.i19 = getelementptr inbounds nuw i8, ptr %15, i64 100
   %21 = load i16, ptr %cap.i19, align 4
   %conv.i = zext i16 %21 to i64
   %cmp.i20 = icmp ugt i64 %len, %conv.i
   br i1 %cmp.i20, label %if.then.i28, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.else
-  %len2.i = getelementptr inbounds i8, ptr %15, i64 98
+  %len2.i = getelementptr inbounds nuw i8, ptr %15, i64 98
   %22 = load i16, ptr %len2.i, align 2
   %conv313.i = zext i16 %22 to i64
   %cmp414.i = icmp samesign ugt i64 %len, %conv313.i
   br i1 %cmp414.i, label %while.body.lr.ph.i, label %return
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %offset.i23 = getelementptr inbounds i8, ptr %15, i64 96
+  %offset.i23 = getelementptr inbounds nuw i8, ptr %15, i64 96
   br label %while.body.i
 
 if.then.i28:                                      ; preds = %if.else
@@ -198,8 +198,8 @@ while.body.i:                                     ; preds = %if.end18.i, %while.
   %24 = load ptr, ptr %read_buffer.i18, align 8
   %25 = load i16, ptr %offset.i23, align 8
   %idx.ext.i24 = zext i16 %25 to i64
-  %add.ptr.i25 = getelementptr inbounds i8, ptr %24, i64 %idx.ext.i24
-  %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr.i25, i64 %conv315.i
+  %add.ptr.i25 = getelementptr inbounds nuw i8, ptr %24, i64 %idx.ext.i24
+  %add.ptr11.i = getelementptr inbounds nuw i8, ptr %add.ptr.i25, i64 %conv315.i
   %sub.i = sub nuw i64 %len, %conv315.i
   %conv14.i = trunc i64 %sub.i to i32
   %call.i26 = tail call i32 @BIO_read(ptr noundef %23, ptr noundef %add.ptr11.i, i32 noundef %conv14.i) #9
@@ -207,7 +207,7 @@ while.body.i:                                     ; preds = %if.end18.i, %while.
   br i1 %cmp15.i, label %if.then17.i, label %if.end18.i
 
 if.then17.i:                                      ; preds = %while.body.i
-  %rwstate.i27 = getelementptr inbounds i8, ptr %ssl, i64 144
+  %rwstate.i27 = getelementptr inbounds nuw i8, ptr %ssl, i64 144
   store i32 3, ptr %rwstate.i27, align 8
   br label %if.then9
 
@@ -223,13 +223,13 @@ if.end18.i:                                       ; preds = %while.body.i
 if.then9:                                         ; preds = %if.then.i12, %if.then7.i, %if.then.i28, %if.then17.i
   %ret.0.ph = phi i32 [ %call.i26, %if.then17.i ], [ -1, %if.then.i28 ], [ %call.i16, %if.then7.i ], [ -1, %if.then.i12 ]
   %28 = load ptr, ptr %s3.i, align 8
-  %len.i30 = getelementptr inbounds i8, ptr %28, i64 98
+  %len.i30 = getelementptr inbounds nuw i8, ptr %28, i64 98
   %29 = load i16, ptr %len.i30, align 2
   %cmp.i31 = icmp eq i16 %29, 0
   br i1 %cmp.i31, label %if.then.i33, label %return
 
 if.then.i33:                                      ; preds = %if.then9
-  %read_buffer.i.i34 = getelementptr inbounds i8, ptr %28, i64 88
+  %read_buffer.i.i34 = getelementptr inbounds nuw i8, ptr %28, i64 88
   %30 = load ptr, ptr %read_buffer.i.i34, align 8
   tail call void @free(ptr noundef %30) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %read_buffer.i.i34, i8 0, i64 16, i1 false)
@@ -243,15 +243,15 @@ return:                                           ; preds = %if.end18.i, %if.the
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @ssl_read_buffer_discard(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %len = getelementptr inbounds i8, ptr %0, i64 98
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 98
   %1 = load i16, ptr %len, align 2
   %cmp = icmp eq i16 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %read_buffer.i = getelementptr inbounds i8, ptr %0, i64 88
+  %read_buffer.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %2 = load ptr, ptr %read_buffer.i, align 8
   tail call void @free(ptr noundef %2) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %read_buffer.i, i8 0, i64 16, i1 false)
@@ -268,9 +268,9 @@ declare void @ERR_clear_system_error() local_unnamed_addr #3
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @ssl_read_buffer_consume(ptr nocapture noundef readonly %ssl, i64 noundef %len) local_unnamed_addr #4 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %len1.i = getelementptr inbounds i8, ptr %0, i64 98
+  %len1.i = getelementptr inbounds nuw i8, ptr %0, i64 98
   %1 = load i16, ptr %len1.i, align 2
   %conv.i = zext i16 %1 to i64
   %cmp.i = icmp ugt i64 %len, %conv.i
@@ -282,13 +282,13 @@ if.then.i:                                        ; preds = %entry
 
 consume_buffer.exit:                              ; preds = %entry
   %conv3.i = trunc i64 %len to i16
-  %offset.i = getelementptr inbounds i8, ptr %0, i64 96
+  %offset.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %2 = load i16, ptr %offset.i, align 8
   %conv6.i = add i16 %2, %conv3.i
   store i16 %conv6.i, ptr %offset.i, align 8
   %conv11.i = sub i16 %1, %conv3.i
   store i16 %conv11.i, ptr %len1.i, align 2
-  %cap.i = getelementptr inbounds i8, ptr %0, i64 100
+  %cap.i = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i16, ptr %cap.i, align 4
   %sub15.i = sub i16 %3, %conv3.i
   store i16 %sub15.i, ptr %cap.i, align 4
@@ -298,9 +298,9 @@ consume_buffer.exit:                              ; preds = %entry
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @ssl_read_buffer_clear(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %read_buffer = getelementptr inbounds i8, ptr %0, i64 88
+  %read_buffer = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = load ptr, ptr %read_buffer, align 8
   tail call void @free(ptr noundef %1) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %read_buffer, i8 0, i64 16, i1 false)
@@ -310,9 +310,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @ssl_write_buffer_is_pending(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %len = getelementptr inbounds i8, ptr %0, i64 114
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 114
   %1 = load i16, ptr %len, align 2
   %cmp = icmp ne i16 %1, 0
   %conv1 = zext i1 %cmp to i32
@@ -322,9 +322,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @ssl_write_buffer_init(ptr noundef %ssl, ptr nocapture noundef writeonly %out_ptr, i64 noundef %max_len) local_unnamed_addr #1 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %write_buffer = getelementptr inbounds i8, ptr %0, i64 104
+  %write_buffer = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1 = load ptr, ptr %write_buffer, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -335,14 +335,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call = tail call i64 @ssl_seal_prefix_len(ptr noundef nonnull %ssl) #9
-  %method = getelementptr inbounds i8, ptr %ssl, i64 8
+  %method = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %2 = load ptr, ptr %method, align 8
   %3 = load i8, ptr %2, align 8
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.else, label %if.end8
 
 if.else:                                          ; preds = %if.end
-  %mode = getelementptr inbounds i8, ptr %ssl, i64 268
+  %mode = getelementptr inbounds nuw i8, ptr %ssl, i64 268
   %4 = load i32, ptr %mode, align 4
   %5 = and i32 %4, 256
   %tobool4.not = icmp eq i32 %5, 0
@@ -384,15 +384,15 @@ if.end16:                                         ; preds = %if.end.i
   %9 = trunc i64 %8 to i16
   %10 = sub i16 0, %9
   %conv.i = and i16 %10, 7
-  %offset.i = getelementptr inbounds i8, ptr %0, i64 112
+  %offset.i = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i16 %conv.i, ptr %offset.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %0, i64 114
+  %len.i = getelementptr inbounds nuw i8, ptr %0, i64 114
   store i16 0, ptr %len.i, align 2
   %conv11.i = trunc nuw nsw i64 %cap.0 to i16
-  %cap12.i = getelementptr inbounds i8, ptr %0, i64 116
+  %cap12.i = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i16 %conv11.i, ptr %cap12.i, align 4
   %idx.ext = zext nneg i16 %conv.i to i64
-  %add.ptr = getelementptr inbounds i8, ptr %call.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call.i, i64 %idx.ext
   store ptr %add.ptr, ptr %out_ptr, align 8
   br label %return
 
@@ -406,9 +406,9 @@ declare i64 @ssl_seal_prefix_len(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @ssl_write_buffer_set_len(ptr nocapture noundef readonly %ssl, i64 noundef %len) local_unnamed_addr #4 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %cap = getelementptr inbounds i8, ptr %0, i64 116
+  %cap = getelementptr inbounds nuw i8, ptr %0, i64 116
   %1 = load i16, ptr %cap, align 4
   %conv = zext i16 %1 to i64
   %cmp = icmp ugt i64 %len, %conv
@@ -420,7 +420,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv2 = trunc nuw i64 %len to i16
-  %len3 = getelementptr inbounds i8, ptr %0, i64 114
+  %len3 = getelementptr inbounds nuw i8, ptr %0, i64 114
   store i16 %conv2, ptr %len3, align 2
   ret void
 }
@@ -431,7 +431,7 @@ declare void @abort() local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @ssl_write_buffer_flush(ptr nocapture noundef %ssl) local_unnamed_addr #1 {
 entry:
-  %wbio = getelementptr inbounds i8, ptr %ssl, i64 24
+  %wbio = getelementptr inbounds nuw i8, ptr %ssl, i64 24
   %0 = load ptr, ptr %wbio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -442,57 +442,57 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @ERR_clear_system_error() #9
-  %method = getelementptr inbounds i8, ptr %ssl, i64 8
+  %method = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   %1 = load ptr, ptr %method, align 8
   %2 = load i8, ptr %1, align 8
   %tobool.not = icmp eq i8 %2, 0
-  %s3.i4 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3.i4 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %3 = load ptr, ptr %s3.i4, align 8
   br i1 %tobool.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %len.i = getelementptr inbounds i8, ptr %3, i64 114
+  %len.i = getelementptr inbounds nuw i8, ptr %3, i64 114
   %4 = load i16, ptr %len.i, align 2
   %cmp.i = icmp eq i16 %4, 0
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then1
   %conv.i = zext i16 %4 to i32
-  %write_buffer.i = getelementptr inbounds i8, ptr %3, i64 104
+  %write_buffer.i = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %wbio, align 8
   %6 = load ptr, ptr %write_buffer.i, align 8
-  %offset.i = getelementptr inbounds i8, ptr %3, i64 112
+  %offset.i = getelementptr inbounds nuw i8, ptr %3, i64 112
   %7 = load i16, ptr %offset.i, align 8
   %idx.ext.i = zext i16 %7 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %idx.ext.i
   %call.i = tail call i32 @BIO_write(ptr noundef %5, ptr noundef %add.ptr.i, i32 noundef %conv.i) #9
   %cmp6.i = icmp slt i32 %call.i, 1
   br i1 %cmp6.i, label %if.then8.i, label %return.sink.split.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  %rwstate.i = getelementptr inbounds i8, ptr %ssl, i64 144
+  %rwstate.i = getelementptr inbounds nuw i8, ptr %ssl, i64 144
   store i32 2, ptr %rwstate.i, align 8
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then8.i, %if.end.i
   %retval.0.ph.i = phi i32 [ %call.i, %if.then8.i ], [ 1, %if.end.i ]
   %8 = load ptr, ptr %s3.i4, align 8
-  %write_buffer.i10.i = getelementptr inbounds i8, ptr %8, i64 104
+  %write_buffer.i10.i = getelementptr inbounds nuw i8, ptr %8, i64 104
   %9 = load ptr, ptr %write_buffer.i10.i, align 8
   tail call void @free(ptr noundef %9) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %write_buffer.i10.i, i8 0, i64 16, i1 false)
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %write_buffer.i5 = getelementptr inbounds i8, ptr %3, i64 104
-  %len.i6 = getelementptr inbounds i8, ptr %3, i64 114
+  %write_buffer.i5 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %len.i6 = getelementptr inbounds nuw i8, ptr %3, i64 114
   %10 = load i16, ptr %len.i6, align 2
   %cmp.not11.i = icmp eq i16 %10, 0
   br i1 %cmp.not11.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.else
-  %offset.i8 = getelementptr inbounds i8, ptr %3, i64 112
-  %cap.i.i = getelementptr inbounds i8, ptr %3, i64 116
+  %offset.i8 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %cap.i.i = getelementptr inbounds nuw i8, ptr %3, i64 116
   %.pre.i = load i16, ptr %offset.i8, align 8
   br label %while.body.i
 
@@ -503,13 +503,13 @@ while.body.i:                                     ; preds = %consume_buffer.exit
   %13 = load ptr, ptr %wbio, align 8
   %14 = load ptr, ptr %write_buffer.i5, align 8
   %idx.ext.i10 = zext i16 %11 to i64
-  %add.ptr.i11 = getelementptr inbounds i8, ptr %14, i64 %idx.ext.i10
+  %add.ptr.i11 = getelementptr inbounds nuw i8, ptr %14, i64 %idx.ext.i10
   %call.i12 = tail call i32 @BIO_write(ptr noundef %13, ptr noundef %add.ptr.i11, i32 noundef %conv.i9) #9
   %cmp6.i13 = icmp slt i32 %call.i12, 1
   br i1 %cmp6.i13, label %if.then.i, label %if.end.i14
 
 if.then.i:                                        ; preds = %while.body.i
-  %rwstate.i16 = getelementptr inbounds i8, ptr %ssl, i64 144
+  %rwstate.i16 = getelementptr inbounds nuw i8, ptr %ssl, i64 144
   store i32 2, ptr %rwstate.i16, align 8
   br label %return
 
@@ -542,7 +542,7 @@ while.end.loopexit.i:                             ; preds = %consume_buffer.exit
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %if.else
   %19 = phi ptr [ %.pre14.i, %while.end.loopexit.i ], [ %3, %if.else ]
-  %write_buffer.i.i = getelementptr inbounds i8, ptr %19, i64 104
+  %write_buffer.i.i = getelementptr inbounds nuw i8, ptr %19, i64 104
   %20 = load ptr, ptr %write_buffer.i.i, align 8
   tail call void @free(ptr noundef %20) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %write_buffer.i.i, i8 0, i64 16, i1 false)
@@ -556,9 +556,9 @@ return:                                           ; preds = %while.end.i, %if.th
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @ssl_write_buffer_clear(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %write_buffer = getelementptr inbounds i8, ptr %0, i64 104
+  %write_buffer = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1 = load ptr, ptr %write_buffer, align 8
   tail call void @free(ptr noundef %1) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %write_buffer, i8 0, i64 16, i1 false)

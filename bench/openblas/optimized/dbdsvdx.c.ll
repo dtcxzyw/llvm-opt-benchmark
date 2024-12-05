@@ -265,7 +265,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %168 = phi i64 [ 2, %164 ], [ %187, %167 ]
   %169 = phi double [ %159, %164 ], [ %183, %167 ]
   %170 = phi double [ %159, %164 ], [ %185, %167 ]
-  %171 = getelementptr inbounds double, ptr %32, i64 %168
+  %171 = getelementptr inbounds nuw double, ptr %32, i64 %168
   %172 = load double, ptr %171, align 8, !tbaa !7
   %173 = fcmp oge double %172, 0.000000e+00
   %174 = fneg double %172
@@ -302,7 +302,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 198:                                              ; preds = %215, %196
   %199 = phi i64 [ 1, %196 ], [ %216, %215 ]
-  %200 = getelementptr inbounds double, ptr %32, i64 %199
+  %200 = getelementptr inbounds nuw double, ptr %32, i64 %199
   %201 = load double, ptr %200, align 8, !tbaa !7
   %202 = fcmp oge double %201, 0.000000e+00
   %203 = fneg double %201
@@ -315,7 +315,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %207
 
 207:                                              ; preds = %206, %198
-  %208 = getelementptr inbounds double, ptr %33, i64 %199
+  %208 = getelementptr inbounds nuw double, ptr %33, i64 %199
   %209 = load double, ptr %208, align 8, !tbaa !7
   %210 = fcmp oge double %209, 0.000000e+00
   %211 = fneg double %209
@@ -1209,7 +1209,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %767 = phi i64 [ 2, %763 ], [ %776, %766 ]
   %768 = phi double [ %758, %763 ], [ %775, %766 ]
   %769 = phi i32 [ 1, %763 ], [ %774, %766 ]
-  %770 = getelementptr inbounds double, ptr %34, i64 %767
+  %770 = getelementptr inbounds nuw double, ptr %34, i64 %767
   %771 = load double, ptr %770, align 8, !tbaa !7
   %772 = fcmp ugt double %771, %768
   %773 = trunc i64 %767 to i32
@@ -1332,7 +1332,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %844, label %.loopexit, label %845
 
 845:                                              ; preds = %842
-  %846 = getelementptr inbounds i8, ptr %14, i64 8
+  %846 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %847 = sext i32 %35 to i64
   br label %848
 

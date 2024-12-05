@@ -55,7 +55,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN18cmHexFileConverter17Determine
   %14 = trunc i64 %13 to i32
   %15 = add i64 %13, 4294967295
   %16 = and i64 %15, 4294967295
-  %17 = getelementptr inbounds i8, ptr %2, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   %18 = load i8, ptr %17, align 1
   switch i8 %18, label %21 [
     i8 10, label %19
@@ -70,7 +70,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN18cmHexFileConverter17Determine
   %.0.i = phi i32 [ %20, %19 ], [ %14, %12 ]
   %22 = add i32 %.0.i, -1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %2, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 %23
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %_ZL11ChompStrlenPKc.exit [
     i8 10, label %26
@@ -98,7 +98,7 @@ _ZL11ChompStrlenPKc.exit:                         ; preds = %21, %26
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds [1024 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [1024 x i8], ptr %2, i64 0, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i32
   %33 = call i32 @isxdigit(i32 noundef %32) #9
@@ -143,13 +143,13 @@ define dso_local noundef zeroext i1 @_ZN18cmHexFileConverter10TryConvertERKNSt7_
   br i1 %or.cond, label %106, label %.preheader
 
 .preheader:                                       ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %9, i64 7
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 2
-  %20 = getelementptr inbounds i8, ptr %3, i64 1
-  %21 = getelementptr inbounds i8, ptr %9, i64 1
-  %22 = getelementptr inbounds i8, ptr %6, i64 2
-  %23 = getelementptr inbounds i8, ptr %6, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 7
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %switch = icmp eq i32 %10, 2
   %24 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 1024, ptr noundef nonnull %13)
   %.not.us60 = icmp eq ptr %24, null
@@ -168,7 +168,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread70: ; preds = %43, %43, 
   %27 = trunc i64 %26 to i32
   %28 = add i64 %26, 4294967295
   %29 = and i64 %28, 4294967295
-  %30 = getelementptr inbounds i8, ptr %9, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 %29
   %31 = load i8, ptr %30, align 1
   switch i8 %31, label %34 [
     i8 10, label %32
@@ -183,7 +183,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread70: ; preds = %43, %43, 
   %.0.i.i.us = phi i32 [ %33, %32 ], [ %27, %.lr.ph ]
   %35 = add i32 %.0.i.i.us, -1
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %9, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 %36
   %38 = load i8, ptr %37, align 1
   switch i8 %38, label %_ZL11ChompStrlenPKc.exit.i.us [
     i8 10, label %39
@@ -245,10 +245,10 @@ _ZL11ChompStrlenPKc.exit.i.us:                    ; preds = %39, %34
 55:                                               ; preds = %61, %.lr.ph.i.i.us
   %indvars.iv20.i.i.us = phi i64 [ 0, %.lr.ph.i.i.us ], [ %indvars.iv.next21.i.i.us, %61 ]
   %indvars.iv.i.i.us = phi i64 [ %50, %.lr.ph.i.i.us ], [ %indvars.iv.next.i.i.us, %61 ]
-  %56 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i.i.us
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i.i.us
   %57 = load i8, ptr %56, align 2
   store i8 %57, ptr %6, align 1
-  %58 = getelementptr inbounds i8, ptr %56, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %59 = load i8, ptr %58, align 1
   store i8 %59, ptr %23, align 1
   store i32 0, ptr %8, align 4
@@ -265,7 +265,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread73: ; preds = %55
 61:                                               ; preds = %55
   %62 = load i32, ptr %8, align 4
   %63 = trunc i32 %62 to i8
-  %64 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %indvars.iv20.i.i.us
+  %64 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %indvars.iv20.i.i.us
   store i8 %63, ptr %64, align 1
   %indvars.iv.next21.i.i.us = add nuw nsw i64 %indvars.iv20.i.i.us, 1
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 2
@@ -294,7 +294,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56.thread78: ; preds = %87, %87
   %69 = trunc i64 %68 to i32
   %70 = add i64 %68, 4294967295
   %71 = and i64 %70, 4294967295
-  %72 = getelementptr inbounds i8, ptr %9, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 %71
   %73 = load i8, ptr %72, align 1
   switch i8 %73, label %76 [
     i8 10, label %74
@@ -309,7 +309,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56.thread78: ; preds = %87, %87
   %.0.i.i28.us = phi i32 [ %75, %74 ], [ %69, %.lr.ph63 ]
   %77 = add i32 %.0.i.i28.us, -1
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %9, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 %78
   %80 = load i8, ptr %79, align 1
   switch i8 %80, label %_ZL11ChompStrlenPKc.exit.i29.us [
     i8 10, label %81
@@ -363,10 +363,10 @@ _ZL11ChompStrlenPKc.exit.i29.us:                  ; preds = %81, %76
 94:                                               ; preds = %100, %.lr.ph.i.i39.us
   %indvars.iv20.i.i41.us = phi i64 [ 0, %.lr.ph.i.i39.us ], [ %indvars.iv.next21.i.i44.us, %100 ]
   %indvars.iv.i.i42.us = phi i64 [ 9, %.lr.ph.i.i39.us ], [ %indvars.iv.next.i.i45.us, %100 ]
-  %95 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i.i42.us
+  %95 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i.i42.us
   %96 = load i8, ptr %95, align 1
   store i8 %96, ptr %3, align 1
-  %97 = getelementptr inbounds i8, ptr %95, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 1
   %98 = load i8, ptr %97, align 1
   store i8 %98, ptr %20, align 1
   store i32 0, ptr %5, align 4
@@ -383,7 +383,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us56.thread81: ; preds = %94
 100:                                              ; preds = %94
   %101 = load i32, ptr %5, align 4
   %102 = trunc i32 %101 to i8
-  %103 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %indvars.iv20.i.i41.us
+  %103 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv20.i.i41.us
   store i8 %102, ptr %103, align 1
   %indvars.iv.next21.i.i44.us = add nuw nsw i64 %indvars.iv20.i.i41.us, 1
   %indvars.iv.next.i.i45.us = add nuw nsw i64 %indvars.iv.i.i42.us, 2

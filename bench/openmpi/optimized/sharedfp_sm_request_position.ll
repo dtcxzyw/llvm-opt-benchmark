@@ -19,9 +19,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @mca_sharedfp_sm_request_position(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   store i64 0, ptr %2, align 8
   %8 = load i32, ptr @mca_sharedfp_sm_verbose, align 4
@@ -30,14 +30,14 @@ define noundef i32 @mca_sharedfp_sm_request_position(ptr nocapture noundef reado
 
 9:                                                ; preds = %3
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %10, ptr noundef nonnull @.str, i32 noundef %12) #3
   br label %13
 
 13:                                               ; preds = %9, %3
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @sem_wait(ptr noundef %16) #3
   %18 = load i32, ptr @mca_sharedfp_sm_verbose, align 4
@@ -45,17 +45,17 @@ define noundef i32 @mca_sharedfp_sm_request_position(ptr nocapture noundef reado
   br i1 %.not21, label %.thread, label %21
 
 .thread:                                          ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %14, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %20 = load i64, ptr %19, align 8
   br label %.thread30
 
 21:                                               ; preds = %13
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i32, ptr %23, align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %22, ptr noundef nonnull @.str.1, i32 noundef %24) #3
   %.pr = load i32, ptr @mca_sharedfp_sm_verbose, align 4
-  %25 = getelementptr inbounds i8, ptr %14, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %26 = load i64, ptr %25, align 8
   %.not22 = icmp eq i32 %.pr, 0
   br i1 %.not22, label %.thread30, label %29
@@ -92,7 +92,7 @@ define noundef i32 @mca_sharedfp_sm_request_position(ptr nocapture noundef reado
 
 40:                                               ; preds = %35
   %41 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %43 = load i32, ptr %42, align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %41, ptr noundef nonnull @.str.4, i32 noundef %43) #3
   br label %44
@@ -106,7 +106,7 @@ define noundef i32 @mca_sharedfp_sm_request_position(ptr nocapture noundef reado
 
 48:                                               ; preds = %44
   %49 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %51 = load i32, ptr %50, align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %49, ptr noundef nonnull @.str.5, i32 noundef %51) #3
   br label %52

@@ -92,7 +92,7 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
 .lr.ph:                                           ; preds = %.preheader, %31
   %.059 = phi i32 [ %32, %31 ], [ %23, %.preheader ]
   %27 = zext nneg i32 %.059 to i64
-  %28 = getelementptr inbounds i8, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = icmp slt i8 %29, -64
   br i1 %30, label %31, label %.critedge.thread
@@ -104,7 +104,7 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
 
 34:                                               ; preds = %25
   %35 = zext nneg i32 %23 to i64
-  %36 = getelementptr inbounds i8, ptr %3, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = icmp slt i8 %37, -64
   br i1 %38, label %39, label %40
@@ -142,7 +142,7 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
 48:                                               ; preds = %46
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, -1
   %49 = and i64 %indvars.iv.next71, 4294967295
-  %50 = getelementptr inbounds i8, ptr %3, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = icmp slt i8 %51, -64
   br i1 %52, label %46, label %.critedge2.split.loop.exit83, !llvm.loop !7
@@ -168,7 +168,7 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
 58:                                               ; preds = %.preheader47, %58
   %indvars.iv = phi i64 [ %57, %.preheader47 ], [ %indvars.iv.next, %58 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next
   %60 = load i8, ptr %59, align 1
   %61 = icmp slt i8 %60, -64
   br i1 %61, label %58, label %62, !llvm.loop !9
@@ -268,7 +268,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   %34 = add nsw i32 %reass.sub, 1
   call void @_Z15luaL_checkstackP9lua_StateiPKc(ptr noundef %0, i32 noundef %34, ptr noundef nonnull @.str.11)
   %35 = zext nneg i32 %.0.i35 to i64
-  %36 = getelementptr inbounds i8, ptr %3, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 %35
   %37 = zext nneg i32 %.0.i to i64
   %38 = getelementptr i8, ptr %3, i64 %37
   %39 = getelementptr i8, ptr %38, i64 -1
@@ -293,7 +293,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   %.144.i = phi i32 [ %52, %49 ], [ 0, %.preheader.i ]
   %.02843.i = phi i32 [ %53, %49 ], [ %42, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %45 = getelementptr inbounds i8, ptr %.03047, i64 %indvars.iv.next.i
+  %45 = getelementptr inbounds nuw i8, ptr %.03047, i64 %indvars.iv.next.i
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = and i32 %47, 192
@@ -328,7 +328,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
 
 62:                                               ; preds = %._crit_edge.i
   %63 = zext nneg i32 %.026.lcssa.i to i64
-  %64 = getelementptr inbounds [4 x i32], ptr @_ZZL11utf8_decodePKcPiE6limits, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i32], ptr @_ZZL11utf8_decodePKcPiE6limits, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %.not34.i = icmp ule i32 %59, %65
   %66 = and i32 %59, 2095104
@@ -337,7 +337,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   br i1 %or.cond38.i, label %.loopexit, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %.03047, i64 %63
+  %69 = getelementptr inbounds nuw i8, ptr %.03047, i64 %63
   br label %70
 
 .loopexit:                                        ; preds = %62, %._crit_edge.i, %.lr.ph.i
@@ -347,7 +347,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
 70:                                               ; preds = %68, %.lr.ph
   %.029.i = phi ptr [ %69, %68 ], [ %.03047, %.lr.ph ]
   %.027.i = phi i32 [ %59, %68 ], [ %42, %.lr.ph ]
-  %71 = getelementptr inbounds i8, ptr %.029.i, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
   call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %.027.i)
   %72 = add nuw nsw i32 %.02948, 1
   %73 = icmp ult ptr %71, %36
@@ -416,7 +416,7 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
   %.sink.i.i = trunc i64 %.sink.in.i.i to i8
   %29 = getelementptr inbounds i8, ptr %2, i64 %.sink26.i.i
   store i8 %.sink.i.i, ptr %29, align 1
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = sub nsw i64 0, %.014.i.i
   %32 = getelementptr inbounds i8, ptr %30, i64 %31
   call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %32, i64 noundef %.014.i.i)
@@ -428,7 +428,7 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %35
 
 35:                                               ; preds = %.lr.ph, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit23
@@ -588,7 +588,7 @@ _ZL10u_posrelatim.exit30:                         ; preds = %_ZL10u_posrelatim.e
   %.144.i = phi i32 [ %48, %45 ], [ 0, %.preheader.i ]
   %.02843.i = phi i32 [ %49, %45 ], [ %39, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %41 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv.next.i
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.next.i
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = and i32 %43, 192
@@ -623,7 +623,7 @@ _ZL10u_posrelatim.exit30:                         ; preds = %_ZL10u_posrelatim.e
 
 58:                                               ; preds = %._crit_edge.i
   %59 = zext nneg i32 %.026.lcssa.i to i64
-  %60 = getelementptr inbounds [4 x i32], ptr @_ZZL11utf8_decodePKcPiE6limits, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i32], ptr @_ZZL11utf8_decodePKcPiE6limits, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4
   %.not34.i = icmp ule i32 %55, %61
   %62 = and i32 %55, 2095104
@@ -632,7 +632,7 @@ _ZL10u_posrelatim.exit30:                         ; preds = %_ZL10u_posrelatim.e
   br i1 %or.cond38.i, label %.loopexit, label %64
 
 64:                                               ; preds = %58
-  %65 = getelementptr inbounds i8, ptr %36, i64 %59
+  %65 = getelementptr inbounds nuw i8, ptr %36, i64 %59
   br label %67
 
 .loopexit:                                        ; preds = %58, %._crit_edge.i, %.lr.ph.i
@@ -642,7 +642,7 @@ _ZL10u_posrelatim.exit30:                         ; preds = %_ZL10u_posrelatim.e
 
 67:                                               ; preds = %64, %34
   %.029.i = phi ptr [ %65, %64 ], [ %36, %34 ]
-  %68 = getelementptr inbounds i8, ptr %.029.i, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
   %69 = ptrtoint ptr %68 to i64
   %70 = sub i64 %69, %32
   %71 = trunc i64 %70 to i32
@@ -719,7 +719,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ %9, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = icmp slt i8 %11, -64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -753,7 +753,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
   %.144.i = phi i32 [ %28, %25 ], [ 0, %.preheader.i ]
   %.02843.i = phi i32 [ %29, %25 ], [ %18, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %21 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.next.i
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.next.i
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = and i32 %23, 192
@@ -788,7 +788,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
 
 38:                                               ; preds = %._crit_edge.i
   %39 = zext nneg i32 %.026.lcssa.i to i64
-  %40 = getelementptr inbounds [4 x i32], ptr @_ZZL11utf8_decodePKcPiE6limits, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i32], ptr @_ZZL11utf8_decodePKcPiE6limits, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %.not34.i = icmp ule i32 %35, %41
   %42 = and i32 %35, 2095104
@@ -797,13 +797,13 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
   br i1 %or.cond38.i, label %_ZL11utf8_decodePKcPi.exit.thread, label %44
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %16, i64 %39
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 %39
   br label %46
 
 46:                                               ; preds = %44, %14
   %.029.i = phi ptr [ %45, %44 ], [ %16, %14 ]
   %.027.i = phi i32 [ %35, %44 ], [ %18, %14 ]
-  %47 = getelementptr inbounds i8, ptr %.029.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = icmp slt i8 %48, -64
   br i1 %49, label %_ZL11utf8_decodePKcPi.exit.thread, label %50

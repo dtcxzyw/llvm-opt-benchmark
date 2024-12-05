@@ -35,13 +35,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %buf, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %0 = load ptr, ptr %data, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %max = getelementptr inbounds i8, ptr %buf, i64 16
+  %max = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %1 = load i64, ptr %max, align 8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %0, i64 noundef %1) #11
   %2 = load ptr, ptr %data, align 8
@@ -80,13 +80,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %max = getelementptr inbounds i8, ptr %buf, i64 16
+  %max = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %1 = load i64, ptr %max, align 8
   %cmp2.not = icmp ult i64 %1, %len
   br i1 %cmp2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %data = getelementptr inbounds i8, ptr %buf, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %2 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds i8, ptr %2, i64 %0
   %sub = sub i64 %len, %0
@@ -114,7 +114,7 @@ if.then13:                                        ; preds = %if.end10
   br label %return
 
 if.end14:                                         ; preds = %if.end10
-  %data15 = getelementptr inbounds i8, ptr %buf, i64 8
+  %data15 = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %3 = load ptr, ptr %data15, align 8
   %cmp16 = icmp eq ptr %3, null
   br i1 %cmp16, label %if.then17, label %if.else
@@ -321,8 +321,8 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   br i1 %tobool.not, label %if.then, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.019, i64 1
-  %incdec.ptr1 = getelementptr inbounds i8, ptr %dst.addr.018, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %src.addr.019, i64 1
+  %incdec.ptr1 = getelementptr inbounds nuw i8, ptr %dst.addr.018, i64 1
   store i8 %1, ptr %dst.addr.018, align 1
   %inc = add nuw i64 %l.021, 1
   %exitcond.not = icmp eq i64 %inc, %0
@@ -364,7 +364,7 @@ land.rhs:                                         ; preds = %entry, %for.body
 for.body:                                         ; preds = %land.rhs
   %inc = add nuw i64 %l.014, 1
   %dec = add i64 %dst_size.addr.013, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %dst.addr.012, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %dst.addr.012, i64 1
   %cmp.not = icmp eq i64 %dec, 0
   br i1 %cmp.not, label %BUF_strlcpy.exit, label %land.rhs, !llvm.loop !10
 
@@ -385,8 +385,8 @@ land.rhs.i:                                       ; preds = %for.body.i, %land.r
   br i1 %tobool.not.i, label %if.then.i, label %for.body.i
 
 for.body.i:                                       ; preds = %land.rhs.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.019.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.018.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %src.addr.019.i, i64 1
+  %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %dst.addr.018.i, i64 1
   store i8 %2, ptr %dst.addr.018.i, align 1
   %inc.i = add nuw i64 %l.021.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %1

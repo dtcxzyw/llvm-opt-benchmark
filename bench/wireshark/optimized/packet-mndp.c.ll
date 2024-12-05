@@ -164,7 +164,7 @@ test_mndp.exit.thread:                            ; preds = %4, %7, %test_mndp.e
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_mndp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 34, ptr noundef nonnull @.str.33) #3
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
@@ -180,7 +180,7 @@ define internal fastcc i32 @dissect_mndp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
 17:                                               ; preds = %.lr.ph, %dissect_tlv.exit
@@ -276,13 +276,13 @@ extval_to_str_idx.exit82.i:                       ; preds = %43, %.sink.split.i.
 53:                                               ; preds = %49
   %54 = sext i32 %.sink.i.i8.i to i64
   %55 = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8
   %.not65.i = icmp eq ptr %57, null
   br i1 %.not65.i, label %58, label %.thread11.i
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %55, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %60 = load ptr, ptr %59, align 8
   %.not66.i = icmp eq ptr %60, null
   br i1 %.not66.i, label %.thread11.i, label %.thread.i
@@ -302,7 +302,7 @@ extval_to_str_idx.exit82.i:                       ; preds = %43, %.sink.split.i.
   br i1 %.not65.i, label %dissect_tlv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.thread.i
-  %65 = getelementptr inbounds i8, ptr %55, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %55, i64 32
   br label %66
 
 66:                                               ; preds = %68, %.preheader.i

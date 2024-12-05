@@ -53,7 +53,7 @@ define hidden void @_ZN14ShenandoahLock14contended_lockEb(ptr noundef nonnull al
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(888) %4) #6
   br i1 %9, label %10, label %11
@@ -66,7 +66,7 @@ define hidden void @_ZN14ShenandoahLock14contended_lockEb(ptr noundef nonnull al
   %12 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %.not2.i = icmp eq i32 %12, 1
   %13 = select i1 %.not2.i, i32 0, i32 255
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %.outer
 
 .outer:                                           ; preds = %24, %11
@@ -110,11 +110,11 @@ define linkonce_odr hidden void @_ZN14ShenandoahLock23contended_lock_internalILb
   %3 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %.not10 = icmp eq i32 %3, 1
   %4 = select i1 %.not10, i32 0, i32 255
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
-  %6 = getelementptr inbounds i8, ptr %1, i64 928
-  %7 = getelementptr inbounds i8, ptr %1, i64 1092
-  %8 = getelementptr inbounds i8, ptr %1, i64 1096
-  %9 = getelementptr inbounds i8, ptr %1, i64 1384
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 928
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1092
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1096
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1384
   br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.outer
 
 _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.outer: ; preds = %18, %2
@@ -223,7 +223,7 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.backedge: ; preds = %4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahSimpleLockC2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20ShenandoahSimpleLock, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #6
   ret void
 }
@@ -232,14 +232,14 @@ declare void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahSimpleLock4lockEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahSimpleLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #6
   ret void
 }
@@ -247,12 +247,12 @@ define hidden void @_ZN20ShenandoahSimpleLock6unlockEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ShenandoahReentrantLockC2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20ShenandoahSimpleLock, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #6
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23ShenandoahReentrantLock, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store volatile ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %4, align 8
   ret void
 }
@@ -260,7 +260,7 @@ define hidden void @_ZN23ShenandoahReentrantLockC2Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ShenandoahReentrantLockD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20ShenandoahSimpleLock, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #6
   ret void
 }
@@ -269,19 +269,19 @@ define hidden void @_ZN23ShenandoahReentrantLockD2Ev(ptr noundef nonnull align 8
 define hidden void @_ZN23ShenandoahReentrantLock4lockEv(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load volatile ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, %3
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %7) #6
   store volatile ptr %3, ptr %4, align 8
   br label %9
 
 9:                                                ; preds = %6, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr %10, align 8
@@ -290,7 +290,7 @@ define hidden void @_ZN23ShenandoahReentrantLock4lockEv(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ShenandoahReentrantLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, -1
   store i64 %4, ptr %2, align 8
@@ -298,9 +298,9 @@ define hidden void @_ZN23ShenandoahReentrantLock6unlockEv(ptr noundef nonnull al
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store volatile ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #6
   br label %10
 
@@ -312,7 +312,7 @@ define hidden void @_ZN23ShenandoahReentrantLock6unlockEv(ptr noundef nonnull al
 define hidden noundef zeroext i1 @_ZNK23ShenandoahReentrantLock13owned_by_selfEv(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load volatile ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %3
   ret i1 %6

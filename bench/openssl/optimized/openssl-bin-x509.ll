@@ -2086,7 +2086,7 @@ if.end895:                                        ; preds = %if.end890
 for.body899:                                      ; preds = %if.end895, %for.body899
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body899 ], [ 0, %if.end895 ]
   %79 = phi i32 [ %82, %for.body899 ], [ %78, %if.end895 ]
-  %arrayidx = getelementptr inbounds [64 x i8], ptr %md, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %md, i64 0, i64 %indvars.iv
   %80 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %80 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2795,14 +2795,14 @@ if.end.us.i:                                      ; preds = %while.body.us.i, %w
   %cmp9.not.us.i = icmp ne ptr %q.0.ph23.us.i, %q.018.us.i
   %inc.us.i = zext i1 %cmp9.not.us.i to i32
   %spec.select.i = add nuw nsw i32 %cnt.0.ph24.us.i, %inc.us.i
-  %incdec.ptr17.us.i = getelementptr inbounds i8, ptr %q.018.us.i, i64 1
+  %incdec.ptr17.us.i = getelementptr inbounds nuw i8, ptr %q.018.us.i, i64 1
   %sub.ptr.lhs.cast15.us.i = ptrtoint ptr %incdec.ptr17.us.i to i64
   %sub.ptr.sub16.us.i = sub i64 %sub.ptr.lhs.cast15.us.i, %sub.ptr.rhs.cast.i
   %cmp.not17.us.i = icmp sgt i64 %sub.ptr.sub16.us.i, %conv1.i
   br i1 %cmp.not17.us.i, label %parse_ext_names.exit, label %while.body.lr.ph.us.i, !llvm.loop !16
 
 if.then.us.i:                                     ; preds = %while.body.us.i
-  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %q.018.us.i, i64 1
+  %incdec.ptr.us.i = getelementptr inbounds nuw i8, ptr %q.018.us.i, i64 1
   %sub.ptr.lhs.cast.us.i = ptrtoint ptr %incdec.ptr.us.i to i64
   %sub.ptr.sub.us.i = sub i64 %sub.ptr.lhs.cast.us.i, %sub.ptr.rhs.cast.i
   %cmp.not.us.i = icmp sgt i64 %sub.ptr.sub.us.i, %conv1.i
@@ -2846,7 +2846,7 @@ while.body.i:                                     ; preds = %if.then.i, %while.b
   ]
 
 if.then.i:                                        ; preds = %while.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %q.018.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %q.018.i, i64 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.not.i = icmp sgt i64 %sub.ptr.sub.i, %conv1.i25
@@ -2866,7 +2866,7 @@ if.then11.i:                                      ; preds = %if.end.i
 
 if.end16.i:                                       ; preds = %if.then11.i, %if.end.i
   %cnt.1.i = phi i32 [ %inc.i, %if.then11.i ], [ %cnt.0.ph24.i, %if.end.i ]
-  %incdec.ptr17.i = getelementptr inbounds i8, ptr %q.018.i, i64 1
+  %incdec.ptr17.i = getelementptr inbounds nuw i8, ptr %q.018.i, i64 1
   %sub.ptr.lhs.cast15.i = ptrtoint ptr %incdec.ptr17.i to i64
   %sub.ptr.sub16.i = sub i64 %sub.ptr.lhs.cast15.i, %sub.ptr.rhs.cast.i
   %cmp.not17.i = icmp sgt i64 %sub.ptr.sub16.i, %conv1.i25
@@ -2899,7 +2899,7 @@ lor.lhs.false.us:                                 ; preds = %for.body.us
 for.body36.us:                                    ; preds = %lor.lhs.false.us, %for.inc.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.us ], [ 0, %lor.lhs.false.us ]
   %exts2.359.us = phi ptr [ %exts2.5.us, %for.inc.us ], [ %exts2.162.us, %lor.lhs.false.us ]
-  %arrayidx.us = getelementptr inbounds ptr, ptr %call13, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw ptr, ptr %call13, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.us, align 8
   %call37.us = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call25.us, ptr noundef nonnull dereferenceable(1) %3) #8
   %cmp38.us = icmp eq i32 %call37.us, 0

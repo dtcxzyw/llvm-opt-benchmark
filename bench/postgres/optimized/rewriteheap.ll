@@ -59,37 +59,37 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   store ptr %10, ptr @CurrentMemoryContext, align 8
   %12 = tail call ptr @palloc0(i64 noundef 104) #13
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr null, ptr %14, align 8
   %15 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %1, i32 noundef 0) #13
-  %16 = getelementptr inbounds i8, ptr %12, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 44
   store i32 %3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %12, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 52
   store i32 %4, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %12, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %10, ptr %20, align 8
   %21 = tail call ptr @smgr_bulk_start_rel(ptr noundef %1, i32 noundef 0) #13
-  %22 = getelementptr inbounds i8, ptr %12, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 12, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 32, ptr %24, align 8
   %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr %25, ptr %26, align 8
   %27 = call ptr @hash_create(ptr noundef nonnull @.str.1, i64 noundef 128, ptr noundef nonnull %8, i32 noundef 1064) #13
-  %28 = getelementptr inbounds i8, ptr %12, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr %27, ptr %28, align 8
   store i64 20, ptr %24, align 8
   %29 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef 128, ptr noundef nonnull %8, i32 noundef 1064) #13
-  %30 = getelementptr inbounds i8, ptr %12, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store ptr %29, ptr %30, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
@@ -100,9 +100,9 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
 
 33:                                               ; preds = %5
   %34 = load ptr, ptr %12, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 114
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 114
   %38 = load i8, ptr %37, align 2
   %39 = icmp eq i8 %38, 112
   br i1 %39, label %40, label %.thread.i
@@ -112,21 +112,21 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   br i1 %41, label %.thread18.i, label %43
 
 .thread18.i:                                      ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %12, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 36
   store i8 1, ptr %42, align 4
   br label %58
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 296
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 296
   %46 = load ptr, ptr %45, align 8
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %.thread.i, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %44, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 115
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 115
   %51 = load i8, ptr %50, align 1
   switch i8 %51, label %.thread.i [
     i8 114, label %53
@@ -134,16 +134,16 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   ]
 
 .thread.i:                                        ; preds = %47, %43, %33, %5
-  %52 = getelementptr inbounds i8, ptr %12, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 36
   store i8 0, ptr %52, align 4
   br label %logical_begin_heap_rewrite.exit
 
 53:                                               ; preds = %47, %47
-  %54 = getelementptr inbounds i8, ptr %46, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 96
   %55 = load i8, ptr %54, align 8
   %56 = and i8 %55, 1
   %.not19.i = icmp eq i8 %56, 0
-  %57 = getelementptr inbounds i8, ptr %12, i64 36
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 36
   store i8 %56, ptr %57, align 4
   br i1 %.not19.i, label %logical_begin_heap_rewrite.exit, label %58
 
@@ -159,22 +159,22 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   br label %logical_begin_heap_rewrite.exit
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %12, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 %60, ptr %64, align 8
   %65 = call i64 @GetXLogInsertRecPtr() #13
-  %66 = getelementptr inbounds i8, ptr %12, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i64 %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %12, i64 96
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store i32 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 4, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 1064, ptr %69, align 8
   %70 = load ptr, ptr %20, align 8
-  %71 = getelementptr inbounds i8, ptr %6, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %70, ptr %71, align 8
   %72 = call ptr @hash_create(ptr noundef nonnull @.str.22, i64 noundef 128, ptr noundef nonnull %6, i32 noundef 1064) #13
-  %73 = getelementptr inbounds i8, ptr %12, i64 88
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %72, ptr %73, align 8
   br label %logical_begin_heap_rewrite.exit
 
@@ -198,7 +198,7 @@ declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) loc
 define dso_local void @end_heap_rewrite(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
   %3 = alloca %struct.HASH_SEQ_STATUS, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %5) #13
   %6 = call ptr @hash_seq_search(ptr noundef nonnull %3) #13
@@ -207,15 +207,15 @@ define dso_local void @end_heap_rewrite(ptr nocapture noundef %0) local_unnamed_
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %7 = phi ptr [ %16, %.lr.ph ], [ %6, %1 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i16 -1, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %11, i64 14
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 14
   store i16 -1, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i16 0, ptr %14, align 2
   %15 = load ptr, ptr %8, align 8
   call fastcc void @raw_heap_insert(ptr noundef %0, ptr noundef %15)
@@ -224,32 +224,32 @@ define dso_local void @end_heap_rewrite(ptr nocapture noundef %0) local_unnamed_
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not13 = icmp eq ptr %18, null
   br i1 %.not13, label %24, label %19
 
 19:                                               ; preds = %._crit_edge
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   call void @smgr_bulk_write(ptr noundef %21, i32 noundef %23, ptr noundef nonnull %18, i1 noundef zeroext true) #13
   store ptr null, ptr %17, align 8
   br label %24
 
 24:                                               ; preds = %19, %._crit_edge
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   call void @smgr_bulk_finish(ptr noundef %26) #13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %27 = getelementptr inbounds i8, ptr %0, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %28 = load i8, ptr %27, align 4
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %logical_end_heap_rewrite.exit
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %32 = load i32, ptr %31, align 8
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %34, label %33
@@ -259,7 +259,7 @@ define dso_local void @end_heap_rewrite(ptr nocapture noundef %0) local_unnamed_
   br label %34
 
 34:                                               ; preds = %33, %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %36 = load ptr, ptr %35, align 8
   call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %36) #13
   %37 = call ptr @hash_seq_search(ptr noundef nonnull %2) #13
@@ -268,7 +268,7 @@ define dso_local void @end_heap_rewrite(ptr nocapture noundef %0) local_unnamed_
 
 .lr.ph.i:                                         ; preds = %34, %49
   %38 = phi ptr [ %51, %49 ], [ %37, %34 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = call i32 @FileSync(i32 noundef %40, i32 noundef 167772193) #13
   %.not8.i = icmp eq i32 %41, 0
@@ -281,7 +281,7 @@ define dso_local void @end_heap_rewrite(ptr nocapture noundef %0) local_unnamed_
 
 45:                                               ; preds = %42
   %46 = call i32 @errcode_for_file_access() #13
-  %47 = getelementptr inbounds i8, ptr %38, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %47) #13
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 927, ptr noundef nonnull @__func__.logical_end_heap_rewrite) #13
   br label %49
@@ -295,7 +295,7 @@ define dso_local void @end_heap_rewrite(ptr nocapture noundef %0) local_unnamed_
 
 logical_end_heap_rewrite.exit:                    ; preds = %49, %24, %34
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load ptr, ptr %52, align 8
   call void @MemoryContextDelete(ptr noundef %53) #13
   ret void
@@ -307,19 +307,19 @@ declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @raw_heap_insert(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 115
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 115
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 116
   br i1 %9, label %21, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %14 = load i16, ptr %13, align 4
   %15 = and i16 %14, 4
   %.not = icmp eq i16 %15, 0
@@ -353,13 +353,13 @@ define internal fastcc void @raw_heap_insert(ptr nocapture noundef %0, ptr nound
 
 31:                                               ; preds = %21
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 296
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 296
   %34 = load ptr, ptr %33, align 8
   %.not52 = icmp eq ptr %34, null
   br i1 %.not52, label %42, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %34, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = shl i32 %37, 13
   %39 = sub i32 819200, %38
@@ -369,7 +369,7 @@ define internal fastcc void @raw_heap_insert(ptr nocapture noundef %0, ptr nound
 
 42:                                               ; preds = %31, %35
   %43 = phi i64 [ %41, %35 ], [ 0, %31 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
   %.not53 = icmp eq ptr %45, null
   br i1 %.not53, label %58, label %46
@@ -381,9 +381,9 @@ define internal fastcc void @raw_heap_insert(ptr nocapture noundef %0, ptr nound
   br i1 %49, label %50, label %62
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load i32, ptr %53, align 8
   %55 = load ptr, ptr %44, align 8
   tail call void @smgr_bulk_write(ptr noundef %52, i32 noundef %54, ptr noundef %55, i1 noundef zeroext true) #13
@@ -394,7 +394,7 @@ define internal fastcc void @raw_heap_insert(ptr nocapture noundef %0, ptr nound
   br label %58
 
 58:                                               ; preds = %50, %42
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr @smgr_bulk_get_buf(ptr noundef %60) #13
   store ptr %61, ptr %44, align 8
@@ -403,7 +403,7 @@ define internal fastcc void @raw_heap_insert(ptr nocapture noundef %0, ptr nound
 
 62:                                               ; preds = %46, %58
   %.1 = phi ptr [ %61, %58 ], [ %45, %46 ]
-  %63 = getelementptr inbounds i8, ptr %.046, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.046, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = load i32, ptr %.046, align 8
   %66 = zext i32 %65 to i64
@@ -419,26 +419,26 @@ define internal fastcc void @raw_heap_insert(ptr nocapture noundef %0, ptr nound
   unreachable
 
 72:                                               ; preds = %62
-  %73 = getelementptr inbounds i8, ptr %1, i64 4
-  %74 = getelementptr inbounds i8, ptr %0, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %75 = load i32, ptr %74, align 8
   %76 = lshr i32 %75, 16
   %77 = trunc nuw i32 %76 to i16
   store i16 %77, ptr %73, align 2
   %78 = trunc i32 %75 to i16
-  %79 = getelementptr inbounds i8, ptr %1, i64 6
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 %78, ptr %79, align 2
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 %67, ptr %80, align 2
-  %81 = getelementptr inbounds i8, ptr %1, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load i16, ptr %83, align 2
   %.not58 = icmp eq i16 %84, 0
   br i1 %.not58, label %85, label %94
 
 85:                                               ; preds = %72
-  %86 = getelementptr inbounds i8, ptr %.1, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %87 = zext i16 %67 to i64
   %88 = add nsw i64 %87, -1
   %89 = getelementptr [0 x %struct.ItemIdData], ptr %86, i64 0, i64 %88
@@ -446,7 +446,7 @@ define internal fastcc void @raw_heap_insert(ptr nocapture noundef %0, ptr nound
   %90 = and i32 %.val, 32767
   %91 = zext nneg i32 %90 to i64
   %92 = getelementptr i8, ptr %.1, i64 %91
-  %93 = getelementptr inbounds i8, ptr %92, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %93, ptr noundef nonnull align 4 dereferenceable(6) %73, i64 6, i1 false)
   br label %94
 
@@ -475,56 +475,56 @@ define dso_local void @rewrite_heap_tuple(ptr nocapture noundef %0, ptr noundef 
   %6 = alloca %struct.TidHashKey, align 4
   %7 = alloca i8, align 1
   %8 = alloca %struct.ItemPointerData, align 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false)
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %18 = load i16, ptr %17, align 4
   %19 = and i16 %18, 15
   store i16 %19, ptr %17, align 4
   %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 18
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 18
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8191
   store i16 %23, ptr %21, align 2
   %24 = load ptr, ptr %14, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %26 = load i16, ptr %25, align 4
   %27 = and i16 %26, -16
   %28 = load ptr, ptr %12, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %30 = load i16, ptr %29, align 4
   %31 = or i16 %30, %27
   store i16 %31, ptr %29, align 4
   %32 = load ptr, ptr %12, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 132
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 132
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %35, i64 136
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 136
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %43 = load i32, ptr %42, align 4
   %44 = tail call zeroext i1 @heap_freeze_tuple(ptr noundef %32, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43) #13
   %45 = load ptr, ptr %12, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i16 -1, ptr %46, align 2
-  %47 = getelementptr inbounds i8, ptr %45, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 14
   store i16 -1, ptr %47, align 2
-  %48 = getelementptr inbounds i8, ptr %45, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i16 0, ptr %48, align 2
   %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %51 = load i16, ptr %50, align 4
   %52 = and i16 %51, 2048
   %.not = icmp eq i16 %52, 0
@@ -536,7 +536,7 @@ define dso_local void @rewrite_heap_tuple(ptr nocapture noundef %0, ptr noundef 
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr %14, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %58 = getelementptr i8, ptr %56, i64 16
   %.val.i = load i16, ptr %58, align 2
   %59 = icmp eq i16 %.val.i, -3
@@ -554,14 +554,14 @@ ItemPointerIndicatesMovedPartitions.exit:         ; preds = %55
   br i1 %65, label %99, label %ItemPointerIndicatesMovedPartitions.exit.thread
 
 ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerIndicatesMovedPartitions.exit
-  %66 = getelementptr inbounds i8, ptr %1, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %67 = tail call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %66, ptr noundef nonnull %57) #13
   br i1 %67, label %99, label %68
 
 68:                                               ; preds = %ItemPointerIndicatesMovedPartitions.exit.thread
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false)
   %69 = load ptr, ptr %14, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 20
   %71 = load i16, ptr %70, align 4
   %72 = and i16 %71, 6272
   %or.cond71 = icmp eq i16 %72, 4096
@@ -573,7 +573,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
   br label %78
 
 75:                                               ; preds = %68
-  %76 = getelementptr inbounds i8, ptr %69, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %77 = load i32, ptr %76, align 4
   br label %78
 
@@ -581,10 +581,10 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
   %79 = phi ptr [ %.pre, %73 ], [ %69, %75 ]
   %80 = phi i32 [ %74, %73 ], [ %77, %75 ]
   store i32 %80, ptr %6, align 4
-  %81 = getelementptr inbounds i8, ptr %6, i64 4
-  %82 = getelementptr inbounds i8, ptr %79, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %81, ptr noundef nonnull align 4 dereferenceable(6) %82, i64 6, i1 false)
-  %83 = getelementptr inbounds i8, ptr %0, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %84 = load ptr, ptr %83, align 8
   %85 = call ptr @hash_search(ptr noundef %84, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #13
   %.not68 = icmp eq ptr %85, null
@@ -592,36 +592,36 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
 
 86:                                               ; preds = %78
   %87 = load ptr, ptr %12, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 12
-  %89 = getelementptr inbounds i8, ptr %85, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %88, ptr noundef nonnull align 4 dereferenceable(6) %89, i64 6, i1 false)
   %90 = load ptr, ptr %83, align 8
   %91 = call ptr @hash_search(ptr noundef %90, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %7) #13
   br label %99
 
 92:                                               ; preds = %78
-  %93 = getelementptr inbounds i8, ptr %0, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %94 = load ptr, ptr %93, align 8
   %95 = call ptr @hash_search(ptr noundef %94, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #13
-  %96 = getelementptr inbounds i8, ptr %95, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %96, ptr noundef nonnull align 4 dereferenceable(6) %66, i64 6, i1 false)
   %97 = call ptr @heap_copytuple(ptr noundef nonnull %2) #13
-  %98 = getelementptr inbounds i8, ptr %95, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 24
   store ptr %97, ptr %98, align 8
   br label %201
 
 99:                                               ; preds = %86, %ItemPointerIndicatesMovedPartitions.exit.thread, %ItemPointerIndicatesMovedPartitions.exit, %53, %3
-  %100 = getelementptr inbounds i8, ptr %1, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload = load i48, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %0, i64 48
-  %102 = getelementptr inbounds i8, ptr %0, i64 36
-  %103 = getelementptr inbounds i8, ptr %5, i64 24
-  %104 = getelementptr inbounds i8, ptr %5, i64 12
-  %105 = getelementptr inbounds i8, ptr %0, i64 8
-  %106 = getelementptr inbounds i8, ptr %5, i64 30
-  %107 = getelementptr inbounds i8, ptr %0, i64 40
-  %108 = getelementptr inbounds i8, ptr %6, i64 4
-  %109 = getelementptr inbounds i8, ptr %0, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 30
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %110
 
 110:                                              ; preds = %186, %99
@@ -629,7 +629,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
   %.sroa.0.0 = phi i48 [ %.sroa.0.0.copyload, %99 ], [ %.sroa.0.0.copyload11, %186 ]
   %.0 = phi ptr [ %2, %99 ], [ %188, %186 ]
   call fastcc void @raw_heap_insert(ptr noundef nonnull %0, ptr noundef nonnull %.0)
-  %111 = getelementptr inbounds i8, ptr %.0, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %8, ptr noundef nonnull align 4 dereferenceable(6) %111, i64 6, i1 false)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5)
@@ -640,9 +640,9 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
   br i1 %114, label %115, label %logical_rewrite_heap_tuple.exit
 
 115:                                              ; preds = %110
-  %116 = getelementptr inbounds i8, ptr %.0, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 20
   %119 = load i16, ptr %118, align 4
   %120 = and i16 %119, 768
   %121 = icmp eq i16 %120, 768
@@ -663,7 +663,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
   br label %132
 
 129:                                              ; preds = %124
-  %130 = getelementptr inbounds i8, ptr %117, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %131 = load i32, ptr %130, align 4
   br label %132
 
@@ -684,7 +684,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
 
 139:                                              ; preds = %137
   %140 = load ptr, ptr %116, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 20
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 20
   %142 = load i16, ptr %141, align 4
   %143 = zext i16 %142 to i32
   %144 = and i32 %143, 128
@@ -729,9 +729,9 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
 logical_rewrite_heap_tuple.exit:                  ; preds = %110, %149, %154, %156
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5)
-  %157 = getelementptr inbounds i8, ptr %.0, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 20
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 20
   %160 = load i16, ptr %159, align 4
   %161 = zext i16 %160 to i32
   %162 = and i32 %161, 8192
@@ -756,7 +756,7 @@ logical_rewrite_heap_tuple.exit:                  ; preds = %110, %149, %154, %1
 172:                                              ; preds = %168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false)
   %173 = load ptr, ptr %157, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 20
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 20
   %175 = load i16, ptr %174, align 4
   %176 = and i16 %175, 768
   %177 = icmp eq i16 %176, 768
@@ -783,23 +783,23 @@ logical_rewrite_heap_tuple.exit:                  ; preds = %110, %149, %154, %1
   br label %186
 
 186:                                              ; preds = %185, %184
-  %187 = getelementptr inbounds i8, ptr %183, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %183, i64 12
+  %189 = getelementptr inbounds nuw i8, ptr %183, i64 12
   %.sroa.0.0.copyload11 = load i48, ptr %189, align 4
-  %190 = getelementptr inbounds i8, ptr %188, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 12
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %192, ptr noundef nonnull align 2 dereferenceable(6) %8, i64 6, i1 false)
   %193 = load ptr, ptr %109, align 8
   %194 = call ptr @hash_search(ptr noundef %193, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %7) #13
   br label %110
 
 195:                                              ; preds = %180
-  %196 = getelementptr inbounds i8, ptr %0, i64 80
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %197 = load ptr, ptr %196, align 8
   %198 = call ptr @hash_search(ptr noundef %197, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #13
-  %199 = getelementptr inbounds i8, ptr %198, i64 12
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %199, ptr noundef nonnull align 2 dereferenceable(6) %8, i64 6, i1 false)
   br label %.loopexit
 
@@ -841,11 +841,11 @@ declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 define dso_local noundef zeroext i1 @rewrite_heap_dead_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.TidHashKey, align 4
   %4 = alloca i8, align 1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, 768
   %11 = icmp eq i16 %10, 768
@@ -858,17 +858,17 @@ define dso_local noundef zeroext i1 @rewrite_heap_dead_tuple(ptr nocapture nound
 14:                                               ; preds = %2, %12
   %15 = phi i32 [ %13, %12 ], [ 2, %2 ]
   store i32 %15, ptr %3, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %16, ptr noundef nonnull align 4 dereferenceable(6) %17, i64 6, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @hash_search(ptr noundef %19, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #13
   %.not = icmp ne ptr %20, null
   br i1 %.not, label %21, label %26
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %23 = load ptr, ptr %22, align 8
   call void @heap_freetuple(ptr noundef %23) #13
   %24 = load ptr, ptr %18, align 8
@@ -882,21 +882,21 @@ define dso_local noundef zeroext i1 @rewrite_heap_dead_tuple(ptr nocapture nound
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap_xlog_logical_rewrite(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 32
   %14 = trunc nuw i64 %13 to i32
   %15 = trunc i64 %12 to i32
   %16 = load i32, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %18 = load i32, ptr %17, align 4
   %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.3, i32 noundef %8, i32 noundef %10, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %18) #13
   %20 = call i32 @OpenTransientFile(ptr noundef nonnull %2, i32 noundef 65) #13
@@ -914,7 +914,7 @@ define dso_local void @heap_xlog_logical_rewrite(ptr nocapture noundef readonly 
 26:                                               ; preds = %1
   %27 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772194, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %6, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = call i32 @ftruncate(i32 noundef %20, i64 noundef %29) #13
   %.not = icmp eq i32 %30, 0
@@ -934,10 +934,10 @@ define dso_local void @heap_xlog_logical_rewrite(ptr nocapture noundef readonly 
   %38 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %38, align 4
   %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 40
-  %43 = getelementptr inbounds i8, ptr %6, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %44 = load i32, ptr %43, align 8
   %45 = mul i32 %44, 36
   %46 = tail call ptr @__errno_location() #15
@@ -1060,25 +1060,25 @@ sub_0.lr.ph:                                      ; preds = %0
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
   %13 = phi ptr [ %11, %sub_0.lr.ph ], [ %24, %.backedge ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 19
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 19
   %15 = load i8, ptr %14, align 1
   %.not41 = icmp eq i8 %15, 46
   br i1 %.not41, label %.tail, label %.tail33.thread
 
 .tail:                                            ; preds = %sub_0
-  %16 = getelementptr inbounds i8, ptr %13, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.backedge, label %sub_135
 
 sub_135:                                          ; preds = %.tail
-  %19 = getelementptr inbounds i8, ptr %13, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %20 = load i8, ptr %19, align 1
   %.not43 = icmp eq i8 %20, 46
   br i1 %.not43, label %.tail33, label %.tail33.thread
 
 .tail33:                                          ; preds = %sub_135
-  %21 = getelementptr inbounds i8, ptr %13, i64 21
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 21
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %.backedge, label %.tail33.thread
@@ -1245,7 +1245,7 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   %2 = alloca %struct.iovec, align 8
   %3 = alloca %struct.HASH_SEQ_STATUS, align 8
   %4 = alloca %struct.xl_heap_rewrite_mapping, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
@@ -1261,7 +1261,7 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   br label %13
 
 13:                                               ; preds = %8, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8
   call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %15) #13
   %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #13
@@ -1269,18 +1269,18 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   br i1 %.not57, label %.loopexit, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %24
 
 24:                                               ; preds = %.lr.ph59, %.backedge
   %25 = phi ptr [ %16, %.lr.ph59 ], [ %72, %.backedge ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = getelementptr i8, ptr %25, i64 32
   %.val = load i32, ptr %27, align 8
   %28 = icmp eq i32 %.val, 0
@@ -1288,21 +1288,21 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 113
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 113
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
   %36 = load i32, ptr @MyDatabaseId, align 4
   %.041 = select i1 %35, i32 0, i32 %36
   store i32 %.val, ptr %17, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %38 = load i32, ptr %37, align 8
   store i32 %38, ptr %18, align 8
   %39 = load i32, ptr %25, align 8
   store i32 %39, ptr %4, align 8
   store i32 %.041, ptr %19, align 4
-  %40 = getelementptr inbounds i8, ptr %25, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %41 = load i64, ptr %40, align 8
   store i64 %41, ptr %20, align 8
   %42 = load i64, ptr %21, align 8
@@ -1310,7 +1310,7 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   %43 = mul i32 %.val, 36
   %44 = zext i32 %43 to i64
   %45 = call ptr @palloc(i64 noundef %44) #13
-  %46 = getelementptr inbounds i8, ptr %25, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %47 = load ptr, ptr %46, align 8
   %.not48 = icmp eq ptr %47, null
   %.not495463 = icmp eq ptr %47, %26
@@ -1320,14 +1320,14 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %.sroa.0.056 = phi ptr [ %.sroa.6.0, %.lr.ph ], [ %47, %29 ]
   %.055 = phi ptr [ %49, %.lr.ph ], [ %45, %29 ]
-  %.sroa.6.0.in = getelementptr inbounds i8, ptr %.sroa.0.056, i64 8
+  %.sroa.6.0.in = getelementptr inbounds nuw i8, ptr %.sroa.0.056, i64 8
   %.sroa.6.0 = load ptr, ptr %.sroa.6.0.in, align 8
   %48 = getelementptr i8, ptr %.sroa.0.056, i64 -40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %.055, ptr noundef nonnull align 8 dereferenceable(36) %48, i64 36, i1 false)
   %49 = getelementptr i8, ptr %.055, i64 36
   %50 = load ptr, ptr %.sroa.6.0.in, align 8
   %51 = load ptr, ptr %.sroa.0.056, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %50, ptr %52, align 8
   %53 = load ptr, ptr %.sroa.0.056, align 8
   store ptr %53, ptr %50, align 8
@@ -1342,7 +1342,7 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
-  %58 = getelementptr inbounds i8, ptr %25, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = load i64, ptr %40, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -1358,7 +1358,7 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr nocapture n
   %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %64)
   %65 = call i32 @errcode_for_file_access() #13
-  %66 = getelementptr inbounds i8, ptr %25, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %66, i32 noundef %62, i32 noundef %43) #13
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 888, ptr noundef nonnull @__func__.logical_heap_rewrite_flush_mappings) #13
   unreachable
@@ -1406,9 +1406,9 @@ define internal fastcc void @logical_rewrite_log_mapping(ptr nocapture noundef %
   %6 = alloca [1024 x i8], align 16
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @hash_search(ptr noundef %11, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #13
   %13 = load i8, ptr %5, align 1
@@ -1417,14 +1417,14 @@ define internal fastcc void @logical_rewrite_log_mapping(ptr nocapture noundef %
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 113
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 113
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
   %22 = load i32, ptr @MyDatabaseId, align 4
   %.0 = select i1 %21, i32 0, i32 %22
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load i64, ptr %23, align 8
   %25 = lshr i64 %24, 32
   %26 = trunc nuw i64 %25 to i32
@@ -1432,18 +1432,18 @@ define internal fastcc void @logical_rewrite_log_mapping(ptr nocapture noundef %
   %28 = load i32, ptr %4, align 4
   %29 = call i32 @GetCurrentTransactionId() #13
   %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.3, i32 noundef %.0, i32 noundef %9, i32 noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29) #13
-  %31 = getelementptr inbounds i8, ptr %12, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %31, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %12, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %12, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %12, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %12, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %35, ptr noundef nonnull align 16 dereferenceable(1024) %6, i64 1024, i1 false)
   %36 = call i32 @PathNameOpenFile(ptr noundef nonnull %6, i32 noundef 193) #13
-  %37 = getelementptr inbounds i8, ptr %12, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %36, ptr %37, align 4
   %38 = icmp slt i32 %36, 0
   br i1 %38, label %39, label %43
@@ -1457,13 +1457,13 @@ define internal fastcc void @logical_rewrite_log_mapping(ptr nocapture noundef %
   unreachable
 
 43:                                               ; preds = %15, %3
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %45 = load ptr, ptr %44, align 8
   %46 = call ptr @MemoryContextAlloc(ptr noundef %45, i64 noundef 56) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %46, ptr noundef nonnull align 4 dereferenceable(36) %2, i64 36, i1 false)
-  %47 = getelementptr inbounds i8, ptr %12, i64 16
-  %48 = getelementptr inbounds i8, ptr %46, i64 40
-  %49 = getelementptr inbounds i8, ptr %12, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %dclist_push_tail.exit
@@ -1471,23 +1471,23 @@ define internal fastcc void @logical_rewrite_log_mapping(ptr nocapture noundef %
 52:                                               ; preds = %43
   store ptr %47, ptr %47, align 8
   store ptr %47, ptr %49, align 8
-  %53 = getelementptr inbounds i8, ptr %12, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 0, ptr %53, align 8
   br label %dclist_push_tail.exit
 
 dclist_push_tail.exit:                            ; preds = %43, %52
-  %54 = getelementptr inbounds i8, ptr %46, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 48
   store ptr %47, ptr %54, align 8
   %55 = load ptr, ptr %47, align 8
   store ptr %55, ptr %48, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %48, ptr %56, align 8
   store ptr %48, ptr %47, align 8
-  %57 = getelementptr inbounds i8, ptr %12, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %58 = load i32, ptr %57, align 8
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %61 = load i32, ptr %60, align 8
   %62 = add i32 %61, 1
   store i32 %62, ptr %60, align 8

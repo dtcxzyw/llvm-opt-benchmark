@@ -178,7 +178,7 @@ for.body41:                                       ; preds = %for.cond35.preheade
   %len.030 = phi i32 [ 0, %for.cond35.preheader ], [ %len.1, %for.inc ]
   %cmp39 = phi i1 [ true, %for.cond35.preheader ], [ false, %for.inc ]
   %6 = load ptr, ptr %clientssl, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %testdata, i64 %conv3631
+  %add.ptr = getelementptr inbounds nuw i8, ptr %testdata, i64 %conv3631
   %sub = sub i32 10, %len.030
   %call44 = call i32 @SSL_write(ptr noundef %6, ptr noundef nonnull %add.ptr, i32 noundef %sub) #5
   %cmp45 = icmp sgt i32 %call44, 0
@@ -215,7 +215,7 @@ for.body73:                                       ; preds = %for.end, %for.inc10
   %len.233 = phi i32 [ %len.3, %for.inc102 ], [ 0, %for.end ]
   %i.132 = phi i64 [ %inc103, %for.inc102 ], [ 0, %for.end ]
   %11 = load ptr, ptr %serverssl, align 8
-  %add.ptr76 = getelementptr inbounds i8, ptr %buf, i64 %conv6634
+  %add.ptr76 = getelementptr inbounds nuw i8, ptr %buf, i64 %conv6634
   %sub78 = sub i32 10, %len.233
   %call80 = call i32 @SSL_read(ptr noundef %11, ptr noundef nonnull %add.ptr76, i32 noundef %sub78) #5
   %cmp81 = icmp sgt i32 %call80, 0
@@ -394,7 +394,7 @@ entry:
 if.end3:                                          ; preds = %entry
   %call4 = tail call ptr @BIO_get_data(ptr noundef %bio) #5
   tail call void @BIO_clear_flags(ptr noundef %bio, i32 noundef 15) #5
-  %wctr = getelementptr inbounds i8, ptr %call4, i64 4
+  %wctr = getelementptr inbounds nuw i8, ptr %call4, i64 4
   %0 = load i32, ptr %wctr, align 4
   %cmp5.not = icmp eq i32 %0, 0
   br i1 %cmp5.not, label %if.else126, label %if.then6
@@ -406,9 +406,9 @@ if.then6:                                         ; preds = %if.end3
 
 if.then8:                                         ; preds = %if.then6
   %conv = zext nneg i32 %inl to i64
-  %arrayidx85 = getelementptr inbounds i8, ptr %smallrec, i64 1
-  %arrayidx87 = getelementptr inbounds i8, ptr %smallrec, i64 2
-  %arrayidx89 = getelementptr inbounds i8, ptr %smallrec, i64 5
+  %arrayidx85 = getelementptr inbounds nuw i8, ptr %smallrec, i64 1
+  %arrayidx87 = getelementptr inbounds nuw i8, ptr %smallrec, i64 2
+  %arrayidx89 = getelementptr inbounds nuw i8, ptr %smallrec, i64 5
   br label %while.cond
 
 while.cond:                                       ; preds = %while.end95, %if.then8
@@ -424,24 +424,24 @@ lor.lhs.false:                                    ; preds = %while.cond
   br i1 %tobool.not.i.i24, label %return, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0, i64 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0, i64 1
   %2 = load i8, ptr %add.ptr.i.i, align 1
   %tobool.not.i.i32 = icmp eq i64 %pkt.sroa.12.0, 2
   br i1 %tobool.not.i.i32, label %return, label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false20
-  %add.ptr.i.i27 = getelementptr inbounds i8, ptr %pkt.sroa.0.0, i64 2
+  %add.ptr.i.i27 = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0, i64 2
   %3 = load i8, ptr %add.ptr.i.i27, align 1
   %sub.i.i36 = add i64 %pkt.sroa.12.0, -3
   %cmp.i.i.i = icmp ult i64 %sub.i.i36, 2
   br i1 %cmp.i.i.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false23
-  %add.ptr.i.i35 = getelementptr inbounds i8, ptr %pkt.sroa.0.0, i64 3
+  %add.ptr.i.i35 = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0, i64 3
   %4 = load i8, ptr %add.ptr.i.i35, align 1
   %conv.i.i.i = zext i8 %4 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0, i64 4
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0, i64 4
   %5 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv2.i.i.i = zext i8 %5 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv2.i.i.i
@@ -450,8 +450,8 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false23
   br i1 %cmp.i.i4.i, label %return, label %if.end27
 
 if.end27:                                         ; preds = %lor.lhs.false.i
-  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.0, i64 5
-  %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
+  %add.ptr.i2.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0, i64 5
+  %add.ptr.i.i6.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
   %sub.i.i7.i = sub nuw i64 %sub.i.i.i, %or.i.i.i
   %add = add i64 %written.1, 5
   %cmp28 = icmp eq i8 %1, 22
@@ -474,11 +474,11 @@ if.then36:                                        ; preds = %if.end33
   br i1 %or.cond272, label %return, label %lor.lhs.false42
 
 lor.lhs.false42:                                  ; preds = %if.then36
-  %add.ptr.i.i51 = getelementptr inbounds i8, ptr %pkt.sroa.0.0, i64 9
+  %add.ptr.i.i51 = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0, i64 9
   %8 = load i8, ptr %add.ptr.i.i51, align 1
   %conv.i.i56 = zext i8 %8 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i56, 8
-  %add.ptr.i.i57 = getelementptr inbounds i8, ptr %pkt.sroa.0.0, i64 10
+  %add.ptr.i.i57 = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0, i64 10
   %9 = load i8, ptr %add.ptr.i.i57, align 1
   %conv2.i.i = zext i8 %9 to i32
   %or.i.i = or disjoint i32 %shl.i.i, %conv2.i.i
@@ -487,7 +487,7 @@ lor.lhs.false42:                                  ; preds = %if.then36
   br i1 %or.cond273, label %return, label %lor.lhs.false.i67
 
 lor.lhs.false.i67:                                ; preds = %lor.lhs.false42
-  %add.ptr.i.i63 = getelementptr inbounds i8, ptr %pkt.sroa.0.0, i64 43
+  %add.ptr.i.i63 = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0, i64 43
   %11 = load i8, ptr %add.ptr.i.i63, align 1
   %sub.i.i.i69 = add nsw i64 %or.i.i.i, -39
   %conv.i = zext i8 %11 to i64
@@ -500,18 +500,18 @@ lor.lhs.false48:                                  ; preds = %lor.lhs.false.i67
   br i1 %cmp.i76, label %return, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %lor.lhs.false48
-  %add.ptr.i.i.i72 = getelementptr inbounds i8, ptr %pkt.sroa.0.0, i64 44
-  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i72, i64 %conv.i
+  %add.ptr.i.i.i72 = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.0, i64 44
+  %add.ptr.i.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i72, i64 %conv.i
   %sub.i.i79 = add nsw i64 %sub.i.i6.i, -3
   %cmp.i.i.i84 = icmp samesign ult i64 %sub.i.i79, 2
   br i1 %cmp.i.i.i84, label %return, label %lor.lhs.false.i85
 
 lor.lhs.false.i85:                                ; preds = %lor.lhs.false51
-  %add.ptr.i.i78 = getelementptr inbounds i8, ptr %add.ptr.i.i5.i, i64 3
+  %add.ptr.i.i78 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i5.i, i64 3
   %12 = load i8, ptr %add.ptr.i.i78, align 1
   %conv.i.i.i87 = zext i8 %12 to i64
   %shl.i.i.i88 = shl nuw nsw i64 %conv.i.i.i87, 8
-  %add.ptr.i.i.i89 = getelementptr inbounds i8, ptr %add.ptr.i.i5.i, i64 4
+  %add.ptr.i.i.i89 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i5.i, i64 4
   %13 = load i8, ptr %add.ptr.i.i.i89, align 1
   %conv2.i.i.i90 = zext i8 %13 to i64
   %or.i.i.i91 = or disjoint i64 %shl.i.i.i88, %conv2.i.i.i90
@@ -520,7 +520,7 @@ lor.lhs.false.i85:                                ; preds = %lor.lhs.false51
   br i1 %cmp.i.i4.i93, label %return, label %PACKET_get_length_prefixed_2.exit100
 
 PACKET_get_length_prefixed_2.exit100:             ; preds = %lor.lhs.false.i85
-  %add.ptr.i2.i.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i5.i, i64 5
+  %add.ptr.i2.i.i95 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i5.i, i64 5
   br label %while.cond56.outer
 
 while.cond56.outer:                               ; preds = %lor.lhs.false72, %PACKET_get_length_prefixed_2.exit100
@@ -541,7 +541,7 @@ lor.lhs.false62:                                  ; preds = %while.cond56
   %14 = load i8, ptr %extensions.sroa.0.2, align 1
   %conv.i.i104 = zext i8 %14 to i32
   %shl.i.i105 = shl nuw nsw i32 %conv.i.i104, 8
-  %add.ptr.i.i106 = getelementptr inbounds i8, ptr %extensions.sroa.0.2, i64 1
+  %add.ptr.i.i106 = getelementptr inbounds nuw i8, ptr %extensions.sroa.0.2, i64 1
   %15 = load i8, ptr %add.ptr.i.i106, align 1
   %conv2.i.i107 = zext i8 %15 to i32
   %or.i.i108 = or disjoint i32 %shl.i.i105, %conv2.i.i107
@@ -550,11 +550,11 @@ lor.lhs.false62:                                  ; preds = %while.cond56
   br i1 %cmp.i.i.i115, label %return, label %lor.lhs.false.i116
 
 lor.lhs.false.i116:                               ; preds = %lor.lhs.false62
-  %add.ptr.i2.i109 = getelementptr inbounds i8, ptr %extensions.sroa.0.2, i64 2
+  %add.ptr.i2.i109 = getelementptr inbounds nuw i8, ptr %extensions.sroa.0.2, i64 2
   %17 = load i8, ptr %add.ptr.i2.i109, align 1
   %conv.i.i.i118 = zext i8 %17 to i64
   %shl.i.i.i119 = shl nuw nsw i64 %conv.i.i.i118, 8
-  %add.ptr.i.i.i120 = getelementptr inbounds i8, ptr %extensions.sroa.0.2, i64 3
+  %add.ptr.i.i.i120 = getelementptr inbounds nuw i8, ptr %extensions.sroa.0.2, i64 3
   %18 = load i8, ptr %add.ptr.i.i.i120, align 1
   %conv2.i.i.i121 = zext i8 %18 to i64
   %or.i.i.i122 = or disjoint i64 %shl.i.i.i119, %conv2.i.i.i121
@@ -563,8 +563,8 @@ lor.lhs.false.i116:                               ; preds = %lor.lhs.false62
   br i1 %cmp.i.i4.i124, label %return, label %if.end66
 
 if.end66:                                         ; preds = %lor.lhs.false.i116
-  %add.ptr.i2.i.i126 = getelementptr inbounds i8, ptr %extensions.sroa.0.2, i64 4
-  %add.ptr.i.i6.i127 = getelementptr inbounds i8, ptr %add.ptr.i2.i.i126, i64 %or.i.i.i122
+  %add.ptr.i2.i.i126 = getelementptr inbounds nuw i8, ptr %extensions.sroa.0.2, i64 4
+  %add.ptr.i.i6.i127 = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i.i126, i64 %or.i.i.i122
   %sub.i.i7.i128 = sub nuw i64 %sub.i.i.i123, %or.i.i.i122
   %cmp67 = icmp eq i32 %or.i.i108, 43
   br i1 %cmp67, label %land.lhs.true69, label %while.cond56, !llvm.loop !9
@@ -577,7 +577,7 @@ lor.lhs.false72:                                  ; preds = %land.lhs.true69
   %19 = load i8, ptr %add.ptr.i2.i.i126, align 1
   %conv.i.i135 = zext i8 %19 to i32
   %shl.i.i136 = shl nuw nsw i32 %conv.i.i135, 8
-  %add.ptr.i.i137 = getelementptr inbounds i8, ptr %extensions.sroa.0.2, i64 5
+  %add.ptr.i.i137 = getelementptr inbounds nuw i8, ptr %extensions.sroa.0.2, i64 5
   %20 = load i8, ptr %add.ptr.i.i137, align 1
   %conv2.i.i138 = zext i8 %20 to i32
   %or.i.i139 = or disjoint i32 %shl.i.i136, %conv2.i.i138
@@ -615,7 +615,7 @@ while.body82:                                     ; preds = %while.body82.prehea
 
 if.end94:                                         ; preds = %while.body82
   %sub.i.i149 = add nsw i64 %payload.sroa.5.1283, -1
-  %add.ptr.i.i148 = getelementptr inbounds i8, ptr %payload.sroa.0.1284, i64 1
+  %add.ptr.i.i148 = getelementptr inbounds nuw i8, ptr %payload.sroa.0.1284, i64 1
   %tobool.not.i.i145 = icmp eq i64 %sub.i.i149, 0
   br i1 %tobool.not.i.i145, label %while.end95, label %while.body82, !llvm.loop !10
 

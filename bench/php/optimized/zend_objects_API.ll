@@ -32,11 +32,11 @@ define void @zend_objects_store_init(ptr nocapture noundef writeonly initializes
   %4 = shl nuw nsw i64 %3, 3
   %5 = tail call noalias ptr @_emalloc(i64 noundef %4) #6
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %8, align 8
   store i64 0, ptr %5, align 8
   ret void
@@ -60,7 +60,7 @@ define void @zend_objects_store_call_destructors(ptr nocapture noundef readonly 
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 993), align 1
   %3 = or i8 %2, 2
   store i8 %3, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 993), align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ugt i32 %5, 1
   br i1 %6, label %7, label %41
@@ -74,7 +74,7 @@ define void @zend_objects_store_call_destructors(ptr nocapture noundef readonly 
 .lr.ph:                                           ; preds = %7, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 1, %7 ]
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -82,7 +82,7 @@ define void @zend_objects_store_call_destructors(ptr nocapture noundef readonly 
   br i1 %.not, label %15, label %37
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %12, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 256
   %.not18 = icmp eq i32 %18, 0
@@ -91,17 +91,17 @@ define void @zend_objects_store_call_destructors(ptr nocapture noundef readonly 
 19:                                               ; preds = %15
   %20 = or disjoint i32 %17, 256
   store i32 %20, ptr %16, align 4
-  %21 = getelementptr inbounds i8, ptr %12, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not19 = icmp eq ptr %24, @zend_objects_destroy_object
   br i1 %.not19, label %25, label %30
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %12, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 264
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 264
   %29 = load ptr, ptr %28, align 8
   %.not20 = icmp eq ptr %29, null
   br i1 %.not20, label %37, label %30
@@ -147,15 +147,15 @@ define void @zend_objects_store_mark_destructed(ptr nocapture noundef readonly %
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ugt i32 %5, 1
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %2, i64 %9
   br label %11
 
 11:                                               ; preds = %19, %7
@@ -167,14 +167,14 @@ define void @zend_objects_store_mark_destructed(ptr nocapture noundef readonly %
   br i1 %.not14, label %15, label %19
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %12, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 256
   store i32 %18, ptr %16, align 4
   br label %19
 
 19:                                               ; preds = %15, %11
-  %20 = getelementptr inbounds i8, ptr %.0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %.not15 = icmp eq ptr %20, %10
   br i1 %.not15, label %.loopexit, label %11
 
@@ -184,7 +184,7 @@ define void @zend_objects_store_mark_destructed(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define void @zend_objects_store_free_object_storage(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %4, 2
   br i1 %5, label %.loopexit, label %6
@@ -206,7 +206,7 @@ define void @zend_objects_store_free_object_storage(ptr nocapture noundef readon
   br i1 %.not35, label %12, label %26
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %9, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 512
   %.not36 = icmp eq i32 %15, 0
@@ -215,9 +215,9 @@ define void @zend_objects_store_free_object_storage(ptr nocapture noundef readon
 16:                                               ; preds = %12
   %17 = or disjoint i32 %14, 512
   store i32 %17, ptr %13, align 4
-  %18 = getelementptr inbounds i8, ptr %9, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not37 = icmp eq ptr %21, @zend_object_std_dtor
   br i1 %.not37, label %26, label %22
@@ -245,7 +245,7 @@ define void @zend_objects_store_free_object_storage(ptr nocapture noundef readon
   br i1 %.not, label %30, label %42
 
 30:                                               ; preds = %.preheader40
-  %31 = getelementptr inbounds i8, ptr %27, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 512
   %.not32 = icmp eq i32 %33, 0
@@ -257,9 +257,9 @@ define void @zend_objects_store_free_object_storage(ptr nocapture noundef readon
   %36 = load i32, ptr %27, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %27, align 4
-  %38 = getelementptr inbounds i8, ptr %27, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %27) #7
   br label %42
@@ -314,7 +314,7 @@ define void @zend_objects_store_put(ptr noundef initializes((8, 12)) %0) local_u
   %24 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 848), align 8
   %25 = add i32 %24, 1
   store i32 %25, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 848), align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %24, ptr %26, align 8
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
   %28 = sext i32 %24 to i64
@@ -331,7 +331,7 @@ define void @zend_objects_store_put(ptr noundef initializes((8, 12)) %0) local_u
 32:                                               ; preds = %30, %6
   %.pre-phi = phi i64 [ %.pre, %30 ], [ %8, %6 ]
   %.0 = phi i32 [ %15, %30 ], [ %2, %6 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %33, align 8
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
   %35 = getelementptr inbounds ptr, ptr %34, i64 %.pre-phi
@@ -344,7 +344,7 @@ define void @zend_objects_store_put(ptr noundef initializes((8, 12)) %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define void @zend_objects_store_del(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 15
   %5 = icmp eq i32 %4, 1
@@ -358,17 +358,17 @@ define void @zend_objects_store_del(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %6
   %9 = or disjoint i32 %3, 256
   store i32 %9, ptr %2, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not36 = icmp eq ptr %13, @zend_objects_destroy_object
   br i1 %.not36, label %14, label %19
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
   %.not37 = icmp eq ptr %18, null
   br i1 %.not37, label %26, label %19
@@ -377,7 +377,7 @@ define void @zend_objects_store_del(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @zend_fiber_switch_block() #7
   store i32 1, ptr %0, align 4
   %20 = load ptr, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull %0) #7
   %23 = load i32, ptr %0, align 4
@@ -394,11 +394,11 @@ define void @zend_objects_store_del(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %28, label %29, label %66
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8, !nonnull !4, !noundef !4
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = and i64 %36, 1
@@ -417,9 +417,9 @@ define void @zend_objects_store_del(ptr noundef %0) local_unnamed_addr #0 {
   %44 = or disjoint i32 %41, 512
   store i32 %44, ptr %2, align 4
   store i32 1, ptr %0, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull %0) #7
   %.pr = load i32, ptr %2, align 4
@@ -427,7 +427,7 @@ define void @zend_objects_store_del(ptr noundef %0) local_unnamed_addr #0 {
 
 49:                                               ; preds = %43, %29
   %50 = phi i32 [ %.pr, %43 ], [ %41, %29 ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %52, align 8
   %54 = sext i32 %53 to i64
@@ -448,7 +448,7 @@ define void @zend_objects_store_del(ptr noundef %0) local_unnamed_addr #0 {
   %62 = or disjoint i64 %61, 1
   %63 = inttoptr i64 %62 to ptr
   %64 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 840), align 8
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %33
+  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %33
   store ptr %63, ptr %65, align 8
   store i32 %31, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 856), align 8
   br label %66

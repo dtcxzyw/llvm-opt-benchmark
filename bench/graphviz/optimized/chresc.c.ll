@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @chresc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %0, align 1
   %5 = sext i8 %4 to i32
   switch i8 %4, label %.loopexit [
@@ -19,7 +19,7 @@ define i32 @chresc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr 
   br label %.loopexit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i8, ptr %3, align 1
   %10 = sext i8 %9 to i32
   switch i8 %9, label %.loopexit [
@@ -46,7 +46,7 @@ define i32 @chresc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr 
 
 11:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7
   %12 = add nsw i32 %10, -48
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %14
 
 14:                                               ; preds = %11, %14
@@ -61,7 +61,7 @@ define i32 @chresc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr 
   %19 = add i32 %17, -48
   %20 = add i32 %19, %18
   %.230.idx = zext i1 %switch to i64
-  %.230 = getelementptr inbounds i8, ptr %.12941, i64 %.230.idx
+  %.230 = getelementptr inbounds nuw i8, ptr %.12941, i64 %.230.idx
   %.125 = select i1 %switch, ptr %.02442, ptr %.12941
   %.2 = select i1 %switch, i32 %20, i32 %.143
   %21 = icmp ult ptr %.230, %.125
@@ -107,10 +107,10 @@ switch.hole_check:                                ; preds = %.preheader
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %32 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [55 x i32], ptr @switch.table.chresc, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw [55 x i32], ptr @switch.table.chresc, i64 0, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   %33 = shl i32 %.340, 4
-  %34 = getelementptr inbounds i8, ptr %.33138, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.33138, i64 1
   %35 = zext nneg i8 %30 to i32
   %36 = add i32 %33, %switch.load
   %37 = add i32 %36, %35

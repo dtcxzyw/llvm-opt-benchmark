@@ -75,7 +75,7 @@ define void @ompi_win_set_name_f(ptr nocapture noundef readonly %0, ptr noundef 
 23:                                               ; preds = %21, %.lr.ph.i
   %24 = phi i8 [ %17, %.lr.ph.i ], [ %.pre.i.i, %21 ]
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8
   %28 = trunc i8 %24 to i1
   br i1 %28, label %29, label %opal_pointer_array_get_item.exit.i
@@ -87,13 +87,13 @@ define void @ompi_win_set_name_f(ptr nocapture noundef readonly %0, ptr noundef 
 
 opal_pointer_array_get_item.exit.i:               ; preds = %29, %23
   %31 = phi i8 [ %24, %23 ], [ %.pre.i, %29 ]
-  %32 = getelementptr inbounds i8, ptr %27, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, %8
   br i1 %34, label %35, label %13
 
 35:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %36 = getelementptr inbounds i8, ptr %27, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %37 = load i32, ptr %36, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

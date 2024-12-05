@@ -118,7 +118,7 @@ define dso_local noundef i64 @rb_str_format(i32 noundef %0, ptr nocapture nounde
   %29 = load i64, ptr %28, align 8, !noalias !7
   %30 = and i64 %29, 8192
   %.not.i.i = icmp eq i64 %30, 0
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %32
 
 32:                                               ; preds = %3
@@ -127,7 +127,7 @@ define dso_local noundef i64 @rb_str_format(i32 noundef %0, ptr nocapture nounde
 
 RSTRING_PTR.exit:                                 ; preds = %3, %32
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %32 ], [ %31, %3 ]
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr i8, ptr %.sroa.2.0.i, i64 %34
   %36 = call i64 @rb_str_buf_new(i64 noundef 120) #18
@@ -136,7 +136,7 @@ RSTRING_PTR.exit:                                 ; preds = %3, %32
   %39 = load i64, ptr %38, align 8, !noalias !10
   %40 = and i64 %39, 8192
   %.not.i.i1204 = icmp eq i64 %40, 0
-  %41 = getelementptr inbounds i8, ptr %38, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
   br i1 %.not.i.i1204, label %RSTRING_PTR.exit1207, label %42
 
 42:                                               ; preds = %RSTRING_PTR.exit
@@ -155,12 +155,12 @@ RSTRING_PTR.exit1207:                             ; preds = %RSTRING_PTR.exit, %
 
 .preheader1626.lr.ph:                             ; preds = %RSTRING_PTR.exit1207
   %.not.i1214 = icmp eq i32 %20, 2
-  %47 = getelementptr inbounds i8, ptr %18, i64 29
-  %48 = getelementptr inbounds i8, ptr %18, i64 28
-  %49 = getelementptr inbounds i8, ptr %18, i64 27
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 16
-  %50 = getelementptr inbounds i8, ptr %13, i64 22
-  %51 = getelementptr inbounds i8, ptr %13, i64 21
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 29
+  %48 = getelementptr inbounds nuw i8, ptr %18, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 27
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 22
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 21
   %52 = ptrtoint ptr %50 to i64
   br label %.preheader1626
 
@@ -279,7 +279,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit121
   br i1 %.not1073, label %get_num.exit1246.preheader, label %.loopexit1627
 
 get_num.exit1246.preheader:                       ; preds = %99
-  %100 = getelementptr inbounds i8, ptr %.08673123, i64 88
+  %100 = getelementptr inbounds nuw i8, ptr %.08673123, i64 88
   br label %get_num.exit1246
 
 get_num.exit1246:                                 ; preds = %get_num.exit1246.backedge, %get_num.exit1246.preheader
@@ -1349,7 +1349,7 @@ rb_num2int_inline.exit1254:                       ; preds = %505, %507
 RSTRING_PTR.exit1258:                             ; preds = %536, %542
   %.sroa.2.0.i1257 = phi ptr [ %.sroa.2.0.copyload.i1256, %542 ], [ %41, %536 ]
   %543 = getelementptr i8, ptr %.sroa.2.0.i1257, i64 %84
-  %544 = getelementptr inbounds i8, ptr %.2, i64 48
+  %544 = getelementptr inbounds nuw i8, ptr %.2, i64 48
   %545 = load ptr, ptr %544, align 8
   %546 = call i32 %545(i32 noundef %509, ptr noundef %543, ptr noundef %.2) #18
   %547 = add i64 %84, %528
@@ -1400,7 +1400,7 @@ RSTRING_PTR.exit1258:                             ; preds = %536, %542
 RSTRING_PTR.exit1262:                             ; preds = %562, %569
   %.sroa.2.0.i1261 = phi ptr [ %.sroa.2.0.copyload.i1260, %569 ], [ %41, %562 ]
   %570 = getelementptr i8, ptr %.sroa.2.0.i1261, i64 %84
-  %571 = getelementptr inbounds i8, ptr %.2, i64 48
+  %571 = getelementptr inbounds nuw i8, ptr %.2, i64 48
   %572 = load ptr, ptr %571, align 8
   %573 = call i32 %572(i32 noundef %509, ptr noundef %570, ptr noundef %.2) #18
   %574 = zext nneg i32 %512 to i64
@@ -1459,7 +1459,7 @@ RSTRING_PTR.exit1266:                             ; preds = %586, %593
 598:                                              ; preds = %594, %RSTRING_PTR.exit1266
   %.3882 = phi i64 [ %597, %594 ], [ %84, %RSTRING_PTR.exit1266 ]
   %599 = getelementptr i8, ptr %.sroa.2.0.i1265, i64 %.3882
-  %600 = getelementptr inbounds i8, ptr %.2, i64 48
+  %600 = getelementptr inbounds nuw i8, ptr %.2, i64 48
   %601 = load ptr, ptr %600, align 8
   %602 = call i32 %601(i32 noundef %509, ptr noundef %599, ptr noundef %.2) #18
   %603 = zext nneg i32 %512 to i64
@@ -1530,7 +1530,7 @@ check_next_arg.exit1267:                          ; preds = %607
   %.8 = phi ptr [ %.4, %623 ], [ %.4, %625 ], [ %.1869, %501 ]
   store i64 %.sink, ptr %6, align 8
   %628 = inttoptr i64 %.sink to ptr
-  %629 = getelementptr inbounds i8, ptr %628, i64 16
+  %629 = getelementptr inbounds nuw i8, ptr %628, i64 16
   %630 = load i64, ptr %629, align 8
   call void @rb_str_set_len(i64 noundef %36, i64 noundef %84) #18
   %.not1155 = icmp eq i32 %.1913, 3145728
@@ -1577,7 +1577,7 @@ check_next_arg.exit1267:                          ; preds = %607
   %653 = load i64, ptr %652, align 8, !noalias !22
   %654 = and i64 %653, 8192
   %.not.i.i1268 = icmp eq i64 %654, 0
-  %655 = getelementptr inbounds i8, ptr %652, i64 24
+  %655 = getelementptr inbounds nuw i8, ptr %652, i64 24
   br i1 %.not.i.i1268, label %RSTRING_END.exit, label %656
 
 656:                                              ; preds = %650
@@ -1586,7 +1586,7 @@ check_next_arg.exit1267:                          ; preds = %607
 
 RSTRING_END.exit:                                 ; preds = %650, %656
   %.sroa.3.0.i = phi ptr [ %.sroa.2.0.copyload.i1269, %656 ], [ %655, %650 ]
-  %.sroa.1.0.in.i = getelementptr inbounds i8, ptr %652, i64 16
+  %.sroa.1.0.in.i = getelementptr inbounds nuw i8, ptr %652, i64 16
   %.sroa.1.0.i = load i64, ptr %.sroa.1.0.in.i, align 8
   %657 = getelementptr i8, ptr %.sroa.3.0.i, i64 %.sroa.1.0.i
   %658 = call i64 @rb_enc_strlen(ptr noundef %.sroa.3.0.i, ptr noundef %657, ptr noundef %648) #18
@@ -1612,7 +1612,7 @@ RSTRING_END.exit:                                 ; preds = %650, %656
   %669 = load i64, ptr %668, align 8, !noalias !25
   %670 = and i64 %669, 8192
   %.not.i.i1273 = icmp eq i64 %670, 0
-  %671 = getelementptr inbounds i8, ptr %668, i64 24
+  %671 = getelementptr inbounds nuw i8, ptr %668, i64 24
   br i1 %.not.i.i1273, label %RSTRING_END.exit1282, label %672
 
 672:                                              ; preds = %666
@@ -1621,7 +1621,7 @@ RSTRING_END.exit:                                 ; preds = %650, %656
 
 RSTRING_END.exit1282:                             ; preds = %666, %672
   %.sroa.3.0.i1279 = phi ptr [ %.sroa.2.0.copyload.i1274, %672 ], [ %671, %666 ]
-  %.sroa.1.0.in.i1280 = getelementptr inbounds i8, ptr %668, i64 16
+  %.sroa.1.0.in.i1280 = getelementptr inbounds nuw i8, ptr %668, i64 16
   %.sroa.1.0.i1281 = load i64, ptr %.sroa.1.0.in.i1280, align 8
   %673 = getelementptr i8, ptr %.sroa.3.0.i1279, i64 %.sroa.1.0.i1281
   %674 = call ptr @rb_enc_nth(ptr noundef %.sroa.3.0.i1279, ptr noundef %673, i64 noundef %664, ptr noundef %648) #18
@@ -1630,7 +1630,7 @@ RSTRING_END.exit1282:                             ; preds = %666, %672
   %677 = load i64, ptr %676, align 8, !noalias !28
   %678 = and i64 %677, 8192
   %.not.i.i1283 = icmp eq i64 %678, 0
-  %679 = getelementptr inbounds i8, ptr %676, i64 24
+  %679 = getelementptr inbounds nuw i8, ptr %676, i64 24
   br i1 %.not.i.i1283, label %RSTRING_PTR.exit1286, label %680
 
 680:                                              ; preds = %RSTRING_END.exit1282
@@ -1714,7 +1714,7 @@ RSTRING_PTR.exit1290:                             ; preds = %702, %708
   %717 = load i64, ptr %716, align 8, !noalias !32
   %718 = and i64 %717, 8192
   %.not.i.i1291 = icmp eq i64 %718, 0
-  %719 = getelementptr inbounds i8, ptr %716, i64 24
+  %719 = getelementptr inbounds nuw i8, ptr %716, i64 24
   br i1 %.not.i.i1291, label %RSTRING_PTR.exit1294, label %720
 
 720:                                              ; preds = %713
@@ -1794,7 +1794,7 @@ RSTRING_PTR.exit1300:                             ; preds = %741, %747
   %751 = load i64, ptr %750, align 8, !noalias !37
   %752 = and i64 %751, 8192
   %.not.i.i1301 = icmp eq i64 %752, 0
-  %753 = getelementptr inbounds i8, ptr %750, i64 24
+  %753 = getelementptr inbounds nuw i8, ptr %750, i64 24
   br i1 %.not.i.i1301, label %RSTRING_PTR.exit1304, label %754
 
 754:                                              ; preds = %RSTRING_PTR.exit1300
@@ -1975,7 +1975,7 @@ rb_type.exit.thread1516:                          ; preds = %797, %rb_type.exit
 
 813:                                              ; preds = %rb_type.exit.thread1516
   %814 = inttoptr i64 %.0..0..0..0.176 to ptr
-  %815 = getelementptr inbounds i8, ptr %814, i64 16
+  %815 = getelementptr inbounds nuw i8, ptr %814, i64 16
   %816 = load double, ptr %815, align 8
   br label %rb_float_value_inline.exit
 
@@ -2005,7 +2005,7 @@ rb_float_value_inline.exit.thread:                ; preds = %806, %rb_float_valu
 
 827:                                              ; preds = %rb_float_value_inline.exit.thread
   %828 = inttoptr i64 %.0..0..0..0.177 to ptr
-  %829 = getelementptr inbounds i8, ptr %828, i64 16
+  %829 = getelementptr inbounds nuw i8, ptr %828, i64 16
   %830 = load double, ptr %829, align 8
   br label %rb_float_value_inline.exit1315
 
@@ -2035,7 +2035,7 @@ rb_float_value_inline.exit1315.thread:            ; preds = %820, %rb_float_valu
 
 841:                                              ; preds = %rb_float_value_inline.exit1315.thread
   %842 = inttoptr i64 %.0..0..0..0.178 to ptr
-  %843 = getelementptr inbounds i8, ptr %842, i64 16
+  %843 = getelementptr inbounds nuw i8, ptr %842, i64 16
   %844 = load double, ptr %843, align 8
   br label %rb_float_value_inline.exit1319
 
@@ -2075,7 +2075,7 @@ rb_float_value_inline.exit1319:                   ; preds = %834, %835, %841
 
 858:                                              ; preds = %848
   %859 = inttoptr i64 %.0..0..0..0.179 to ptr
-  %860 = getelementptr inbounds i8, ptr %859, i64 16
+  %860 = getelementptr inbounds nuw i8, ptr %859, i64 16
   %861 = load double, ptr %860, align 8
   br label %rb_float_value_inline.exit1323
 
@@ -2147,7 +2147,7 @@ rb_type.exit.thread:                              ; preds = %797, %793, %793, %7
   %881 = load i64, ptr %880, align 8, !noalias !42
   %882 = and i64 %881, 8192
   %.not.i.i1324 = icmp eq i64 %882, 0
-  %883 = getelementptr inbounds i8, ptr %880, i64 24
+  %883 = getelementptr inbounds nuw i8, ptr %880, i64 24
   br i1 %.not.i.i1324, label %RSTRING_PTR.exit1327, label %884
 
 884:                                              ; preds = %878
@@ -2156,14 +2156,14 @@ rb_type.exit.thread:                              ; preds = %797, %793, %793, %7
 
 RSTRING_PTR.exit1327:                             ; preds = %878, %884
   %.sroa.2.0.i1326 = phi ptr [ %.sroa.2.0.copyload.i1325, %884 ], [ %883, %878 ]
-  %885 = getelementptr inbounds i8, ptr %880, i64 16
+  %885 = getelementptr inbounds nuw i8, ptr %880, i64 16
   %886 = load i64, ptr %885, align 8
   %887 = sub nuw nsw i32 8, %cttz
   %888 = zext nneg i32 %887 to i64
   %889 = call i32 @rb_integer_pack(i64 noundef %.0..0..0..0.185, ptr noundef %.sroa.2.0.i1326, i64 noundef %886, i64 noundef 1, i64 noundef %888, i32 noundef 17) #18
   %890 = load i64, ptr %5, align 8
   %891 = inttoptr i64 %890 to ptr
-  %892 = getelementptr inbounds i8, ptr %891, i64 16
+  %892 = getelementptr inbounds nuw i8, ptr %891, i64 16
   %893 = load i64, ptr %892, align 8
   %894 = icmp sgt i64 %893, 0
   br i1 %894, label %.lr.ph3108, label %._crit_edge
@@ -2174,7 +2174,7 @@ RSTRING_PTR.exit1327:                             ; preds = %878, %884
   %896 = load i64, ptr %895, align 8, !noalias !45
   %897 = and i64 %896, 8192
   %.not.i.i1328 = icmp eq i64 %897, 0
-  %898 = getelementptr inbounds i8, ptr %895, i64 24
+  %898 = getelementptr inbounds nuw i8, ptr %895, i64 24
   br i1 %.not.i.i1328, label %RSTRING_PTR.exit1335, label %899
 
 899:                                              ; preds = %.lr.ph3108
@@ -2192,7 +2192,7 @@ RSTRING_PTR.exit1335:                             ; preds = %.lr.ph3108, %899
   %901 = add nuw nsw i64 %.09893107, 1
   %902 = load i64, ptr %5, align 8
   %903 = inttoptr i64 %902 to ptr
-  %904 = getelementptr inbounds i8, ptr %903, i64 16
+  %904 = getelementptr inbounds nuw i8, ptr %903, i64 16
   %905 = load i64, ptr %904, align 8
   %906 = icmp slt i64 %901, %905
   br i1 %906, label %.lr.ph3108, label %._crit_edge, !llvm.loop !48
@@ -2203,7 +2203,7 @@ RSTRING_PTR.exit1335:                             ; preds = %.lr.ph3108, %899
   %908 = load i64, ptr %.lcssa2300, align 8, !noalias !49
   %909 = and i64 %908, 8192
   %.not.i.i1336 = icmp eq i64 %909, 0
-  %910 = getelementptr inbounds i8, ptr %.lcssa2300, i64 24
+  %910 = getelementptr inbounds nuw i8, ptr %.lcssa2300, i64 24
   br i1 %.not.i.i1336, label %RSTRING_PTR.exit1339, label %911
 
 911:                                              ; preds = %._crit_edge
@@ -2282,7 +2282,7 @@ RSTRING_PTR.exit1339:                             ; preds = %._crit_edge, %911
   %943 = load i64, ptr %942, align 8, !noalias !52
   %944 = and i64 %943, 8192
   %.not.i.i1341 = icmp eq i64 %944, 0
-  %945 = getelementptr inbounds i8, ptr %942, i64 24
+  %945 = getelementptr inbounds nuw i8, ptr %942, i64 24
   br i1 %.not.i.i1341, label %RSTRING_PTR.exit1344, label %946
 
 946:                                              ; preds = %940
@@ -2291,14 +2291,14 @@ RSTRING_PTR.exit1339:                             ; preds = %._crit_edge, %911
 
 RSTRING_PTR.exit1344:                             ; preds = %940, %946
   %.sroa.2.0.i1343 = phi ptr [ %.sroa.2.0.copyload.i1342, %946 ], [ %945, %940 ]
-  %947 = getelementptr inbounds i8, ptr %942, i64 16
+  %947 = getelementptr inbounds nuw i8, ptr %942, i64 16
   %948 = load i64, ptr %947, align 8
   %949 = sub nuw nsw i32 8, %cttz
   %950 = zext nneg i32 %949 to i64
   %951 = call i32 @rb_integer_pack(i64 noundef %.0..0..0..0.188, ptr noundef %.sroa.2.0.i1343, i64 noundef %948, i64 noundef 1, i64 noundef %950, i32 noundef 145) #18
   %952 = load i64, ptr %5, align 8
   %953 = inttoptr i64 %952 to ptr
-  %954 = getelementptr inbounds i8, ptr %953, i64 16
+  %954 = getelementptr inbounds nuw i8, ptr %953, i64 16
   %955 = load i64, ptr %954, align 8
   %956 = icmp sgt i64 %955, 0
   br i1 %956, label %.lr.ph3110, label %._crit_edge3111
@@ -2309,7 +2309,7 @@ RSTRING_PTR.exit1344:                             ; preds = %940, %946
   %958 = load i64, ptr %957, align 8, !noalias !55
   %959 = and i64 %958, 8192
   %.not.i.i1345 = icmp eq i64 %959, 0
-  %960 = getelementptr inbounds i8, ptr %957, i64 24
+  %960 = getelementptr inbounds nuw i8, ptr %957, i64 24
   br i1 %.not.i.i1345, label %RSTRING_PTR.exit1352, label %961
 
 961:                                              ; preds = %.lr.ph3110
@@ -2327,7 +2327,7 @@ RSTRING_PTR.exit1352:                             ; preds = %.lr.ph3110, %961
   %963 = add nuw nsw i64 %.19903109, 1
   %964 = load i64, ptr %5, align 8
   %965 = inttoptr i64 %964 to ptr
-  %966 = getelementptr inbounds i8, ptr %965, i64 16
+  %966 = getelementptr inbounds nuw i8, ptr %965, i64 16
   %967 = load i64, ptr %966, align 8
   %968 = icmp slt i64 %963, %967
   br i1 %968, label %.lr.ph3110, label %._crit_edge3111, !llvm.loop !58
@@ -2338,7 +2338,7 @@ RSTRING_PTR.exit1352:                             ; preds = %.lr.ph3110, %961
   %970 = load i64, ptr %.lcssa2301, align 8, !noalias !59
   %971 = and i64 %970, 8192
   %.not.i.i1353 = icmp eq i64 %971, 0
-  %972 = getelementptr inbounds i8, ptr %.lcssa2301, i64 24
+  %972 = getelementptr inbounds nuw i8, ptr %.lcssa2301, i64 24
   br i1 %.not.i.i1353, label %RSTRING_PTR.exit1356, label %973
 
 973:                                              ; preds = %._crit_edge3111
@@ -2361,7 +2361,7 @@ RSTRING_PTR.exit1356:                             ; preds = %._crit_edge3111, %9
   %978 = load i64, ptr %977, align 8, !noalias !62
   %979 = and i64 %978, 8192
   %.not.i.i1357 = icmp eq i64 %979, 0
-  %980 = getelementptr inbounds i8, ptr %977, i64 24
+  %980 = getelementptr inbounds nuw i8, ptr %977, i64 24
   br i1 %.not.i.i1357, label %RSTRING_END.exit1362, label %981
 
 981:                                              ; preds = %975
@@ -2370,7 +2370,7 @@ RSTRING_PTR.exit1356:                             ; preds = %._crit_edge3111, %9
 
 RSTRING_END.exit1362:                             ; preds = %975, %981
   %.sroa.3.0.i1359 = phi ptr [ %.sroa.3.0.copyload.i1358, %981 ], [ %980, %975 ]
-  %.sroa.1.0.in.i1360 = getelementptr inbounds i8, ptr %977, i64 16
+  %.sroa.1.0.in.i1360 = getelementptr inbounds nuw i8, ptr %977, i64 16
   %.sroa.1.0.i1361 = load i64, ptr %.sroa.1.0.in.i1360, align 8
   %982 = getelementptr i8, ptr %.sroa.3.0.i1359, i64 %.sroa.1.0.i1361
   %983 = ptrtoint ptr %982 to i64
@@ -2454,7 +2454,7 @@ ruby_ultoa.exit:                                  ; preds = %.preheader1619, %10
   %1017 = load i64, ptr %1016, align 8, !noalias !66
   %1018 = and i64 %1017, 8192
   %.not.i.i1364 = icmp eq i64 %1018, 0
-  %1019 = getelementptr inbounds i8, ptr %1016, i64 24
+  %1019 = getelementptr inbounds nuw i8, ptr %1016, i64 24
   br i1 %.not.i.i1364, label %RSTRING_PTR.exit1367, label %1020
 
 1020:                                             ; preds = %1014
@@ -2503,7 +2503,7 @@ RSTRING_PTR.exit1367:                             ; preds = %1014, %1020
 
 RSTRING_END.exit1373:                             ; preds = %1034, %1035
   %.sroa.3.0.i1370 = phi ptr [ %.sroa.3.0.copyload.i1369, %1035 ], [ %1019, %1034 ]
-  %.sroa.1.0.in.i1371 = getelementptr inbounds i8, ptr %1016, i64 16
+  %.sroa.1.0.in.i1371 = getelementptr inbounds nuw i8, ptr %1016, i64 16
   %.sroa.1.0.i1372 = load i64, ptr %.sroa.1.0.in.i1371, align 8
   %1036 = getelementptr i8, ptr %.sroa.3.0.i1370, i64 %.sroa.1.0.i1372
   %1037 = ptrtoint ptr %1036 to i64
@@ -3157,7 +3157,7 @@ rb_integer_type_p.exit.thread:                    ; preds = %1267, %rb_integer_t
   %1310 = call i64 @rb_int2str(i64 noundef %.2942, i32 noundef 10) #18
   store i64 %1310, ptr %16, align 8
   %1311 = inttoptr i64 %1310 to ptr
-  %1312 = getelementptr inbounds i8, ptr %1311, i64 16
+  %1312 = getelementptr inbounds nuw i8, ptr %1311, i64 16
   %1313 = load i64, ptr %1312, align 8
   %1314 = zext nneg i32 %.0937 to i64
   %1315 = add i64 %1313, %1314
@@ -3257,13 +3257,13 @@ RSTRING_PTR.exit1416:                             ; preds = %1336, %1342
   %.14 = phi i64 [ %1359, %1357 ], [ %.13, %1355 ]
   %1361 = load i64, ptr %16, align 8
   %1362 = inttoptr i64 %1361 to ptr
-  %1363 = getelementptr inbounds i8, ptr %1362, i64 16
+  %1363 = getelementptr inbounds nuw i8, ptr %1362, i64 16
   %1364 = load i64, ptr %1363, align 8
   %1365 = add i64 %1364, %1314
   %1366 = load i64, ptr %1362, align 8, !noalias !79
   %1367 = and i64 %1366, 8192
   %.not.i.i1417 = icmp eq i64 %1367, 0
-  %1368 = getelementptr inbounds i8, ptr %1362, i64 24
+  %1368 = getelementptr inbounds nuw i8, ptr %1362, i64 24
   br i1 %.not.i.i1417, label %RSTRING_PTR.exit1420, label %1369
 
 1369:                                             ; preds = %1360
@@ -3428,7 +3428,7 @@ check_next_arg.exit1427:                          ; preds = %1407
 
 1431:                                             ; preds = %1419
   %1432 = inttoptr i64 %1421 to ptr
-  %1433 = getelementptr inbounds i8, ptr %1432, i64 16
+  %1433 = getelementptr inbounds nuw i8, ptr %1432, i64 16
   %1434 = load double, ptr %1433, align 8
   br label %rb_float_value_inline.exit1431
 
@@ -3527,14 +3527,14 @@ RSTRING_PTR.exit1435:                             ; preds = %1458, %1464
   br i1 %.not1082, label %1479, label %1476
 
 1476:                                             ; preds = %1475
-  %1477 = add i64 %1466, -4
-  %1478 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %1477
+  %1477 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %1466
+  %1478 = getelementptr i8, ptr %1477, i64 -4
   store i8 %.0871, ptr %1478, align 1
   br label %1479
 
 1479:                                             ; preds = %1476, %1475
-  %1480 = add i64 %1466, -3
-  %1481 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %1480
+  %1480 = getelementptr i8, ptr %.sroa.2.0.i1434, i64 %1466
+  %1481 = getelementptr i8, ptr %1480, i64 -3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1481, ptr noundef nonnull readonly align 1 dereferenceable(3) %.str.30..str.29, i64 3, i1 false)
   br label %rbimpl_rstring_getmem.exit
 
@@ -3878,7 +3878,7 @@ define dso_local i64 @rb_enc_sprintf(ptr noundef %0, ptr noundef nonnull %1, ...
   %15 = load i64, ptr %14, align 8, !noalias !85
   %16 = and i64 %15, 8192
   %.not.i.i.i = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br i1 %.not.i.i.i, label %rb_enc_vsprintf.exit, label %18
 
 18:                                               ; preds = %13
@@ -3971,7 +3971,7 @@ define dso_local i64 @rb_str_catf(i64 noundef %0, ptr noundef nonnull %1, ...) l
   %9 = load i64, ptr %8, align 8, !noalias !88
   %10 = and i64 %9, 8192
   %.not.i.i.i = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br i1 %.not.i.i.i, label %rb_str_vcatf.exit, label %12
 
 12:                                               ; preds = %2
@@ -3980,7 +3980,7 @@ define dso_local i64 @rb_str_catf(i64 noundef %0, ptr noundef nonnull %1, ...) l
 
 rb_str_vcatf.exit:                                ; preds = %2, %12
   %.sroa.3.0.i.i = phi ptr [ %.sroa.3.0.copyload.i.i, %12 ], [ %11, %2 ]
-  %.sroa.1.0.in.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.1.0.in.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.1.0.i.i = load i64, ptr %.sroa.1.0.in.i.i, align 8
   %13 = getelementptr i8, ptr %.sroa.3.0.i.i, i64 %.sroa.1.0.i.i
   call fastcc void @ruby_vsprintf0(i64 noundef %7, ptr noundef %13, ptr noundef nonnull %1, ptr noundef nonnull %4)
@@ -4012,21 +4012,21 @@ define dso_local i32 @ruby_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i16 520, ptr %9, align 8
   store ptr %0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %10, align 8
   %.not.i = icmp eq ptr %0, null
   %11 = add i64 %1, -1
   %12 = select i1 %.not.i, i64 0, i64 %11
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr @BSD__sfvwrite, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr null, ptr %16, align 8
   %17 = call fastcc i64 @BSD_vfprintf(ptr noundef %5, ptr noundef nonnull %2, ptr noundef %3)
   br i1 %.not.i, label %ruby_do_vsnprintf.exit, label %18
@@ -4060,21 +4060,21 @@ define dso_local i32 @ruby_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef 
 8:                                                ; preds = %3
   call void @llvm.va_start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 520, ptr %9, align 8
   store ptr %0, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %10, align 8
   %.not.i = icmp eq ptr %0, null
   %11 = add i64 %1, -1
   %12 = select i1 %.not.i, i64 0, i64 %11
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @BSD__sfvwrite, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %16, align 8
   %17 = call fastcc i64 @BSD_vfprintf(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %5)
   br i1 %.not.i, label %ruby_do_vsnprintf.exit, label %18
@@ -4125,7 +4125,7 @@ define dso_local i64 @rb_enc_vsprintf(ptr noundef %0, ptr noundef nonnull %1, pt
   %15 = load i64, ptr %14, align 8, !noalias !91
   %16 = and i64 %15, 8192
   %.not.i.i = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %18
 
 18:                                               ; preds = %13
@@ -4143,7 +4143,7 @@ define internal fastcc void @ruby_vsprintf0(i64 noundef %0, ptr noundef %1, ptr 
   %5 = alloca %struct.rb_printf_buffer_extra, align 8
   %6 = alloca i32, align 4
   %7 = inttoptr i64 %0 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = load i64, ptr %7, align 8
   %11 = trunc i64 %10 to i32
@@ -4155,7 +4155,7 @@ define internal fastcc void @ruby_vsprintf0(i64 noundef %0, ptr noundef %1, ptr 
 13:                                               ; preds = %4
   %14 = and i64 %10, 8192
   %.not.i.i = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %16
 
 16:                                               ; preds = %13
@@ -4171,29 +4171,29 @@ RSTRING_PTR.exit:                                 ; preds = %13, %16
 
 20:                                               ; preds = %RSTRING_PTR.exit, %4
   %.0 = phi i64 [ %19, %RSTRING_PTR.exit ], [ 0, %4 ]
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i16 520, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 24
-  %23 = getelementptr inbounds i8, ptr %5, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 0, ptr %23, align 8
   %24 = tail call i64 @rb_str_capacity(i64 noundef %0) #19
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %24, ptr %25, align 8
   store ptr %7, ptr %22, align 8
   store ptr %1, ptr %5, align 8
   store i64 0, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr @ruby__sfvwrite, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr @ruby__sfvextra, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store volatile i64 0, ptr %28, align 8
   %29 = call fastcc i64 @BSD_vfprintf(ptr noundef %5, ptr noundef %2, ptr noundef %3)
   store i64 %9, ptr %8, align 8
   %30 = load i64, ptr %7, align 8, !noalias !94
   %31 = and i64 %30, 8192
   %.not.i.i24 = icmp eq i64 %31, 0
-  %32 = getelementptr inbounds i8, ptr %7, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %.not.i.i24, label %RSTRING_PTR.exit27, label %33
 
 33:                                               ; preds = %20
@@ -4234,7 +4234,7 @@ define dso_local i64 @rb_vsprintf(ptr noundef nonnull %0, ptr noundef %1) local_
   %5 = load i64, ptr %4, align 8, !noalias !97
   %6 = and i64 %5, 8192
   %.not.i.i.i = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %.not.i.i.i, label %rb_enc_vsprintf.exit, label %8
 
 8:                                                ; preds = %2
@@ -4256,7 +4256,7 @@ define dso_local i64 @rb_sprintf(ptr noundef nonnull %0, ...) local_unnamed_addr
   %5 = load i64, ptr %4, align 8, !noalias !100
   %6 = and i64 %5, 8192
   %.not.i.i.i.i = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %.not.i.i.i.i, label %rb_vsprintf.exit, label %8
 
 8:                                                ; preds = %1
@@ -4282,7 +4282,7 @@ define dso_local i64 @rb_str_vcatf(i64 noundef %0, ptr noundef nonnull %1, ptr n
   %9 = load i64, ptr %8, align 8, !noalias !103
   %10 = and i64 %9, 8192
   %.not.i.i = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br i1 %.not.i.i, label %RSTRING_END.exit, label %12
 
 12:                                               ; preds = %3
@@ -4291,7 +4291,7 @@ define dso_local i64 @rb_str_vcatf(i64 noundef %0, ptr noundef nonnull %1, ptr n
 
 RSTRING_END.exit:                                 ; preds = %3, %12
   %.sroa.3.0.i = phi ptr [ %.sroa.3.0.copyload.i, %12 ], [ %11, %3 ]
-  %.sroa.1.0.in.i = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.1.0.in.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.1.0.i = load i64, ptr %.sroa.1.0.in.i, align 8
   %13 = getelementptr i8, ptr %.sroa.3.0.i, i64 %.sroa.1.0.i
   call fastcc void @ruby_vsprintf0(i64 noundef %7, ptr noundef %13, ptr noundef %1, ptr noundef %2)
@@ -4322,13 +4322,13 @@ declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @BSD__sfvwrite(ptr nocapture noundef %0, ptr nocapture noundef %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i16, ptr %7, align 8
   %9 = and i16 %8, 3
   %or.cond = icmp eq i16 %9, 0
@@ -4337,10 +4337,10 @@ define internal noundef i32 @BSD__sfvwrite(ptr nocapture noundef %0, ptr nocaptu
 .preheader:                                       ; preds = %6
   %10 = load ptr, ptr %1, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr i8, ptr %10, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %16
 
 16:                                               ; preds = %.preheader, %35
@@ -4353,7 +4353,7 @@ define internal noundef i32 @BSD__sfvwrite(ptr nocapture noundef %0, ptr nocaptu
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
   %.13140 = phi ptr [ %21, %.lr.ph ], [ %.030, %16 ]
-  %19 = getelementptr inbounds i8, ptr %.13140, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.13140, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr i8, ptr %.13140, i64 16
   %22 = icmp eq i64 %20, 0
@@ -4424,43 +4424,43 @@ define internal fastcc i64 @BSD_vfprintf(ptr noundef nonnull %0, ptr noundef non
   %15 = alloca [1335 x i8], align 16
   %16 = alloca [4 x i8], align 1
   store i64 0, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 1335
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 1335
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i16, ptr %18, align 8
   %20 = and i16 %19, 26
   %21 = icmp eq i16 %20, 10
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %0, i64 18
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %24 = load i16, ptr %23, align 2
   %25 = icmp sgt i16 %24, -1
   br i1 %25, label %1452, label %26
 
 26:                                               ; preds = %22, %3
   store ptr %14, ptr %13, align 8
-  %27 = getelementptr inbounds i8, ptr %13, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %13, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
-  %32 = getelementptr inbounds i8, ptr %2, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %33 = ptrtoint ptr %15 to i64
-  %34 = getelementptr inbounds i8, ptr %10, i64 1
-  %.021.i761 = getelementptr inbounds i8, ptr %10, i64 2
-  %35 = getelementptr inbounds i8, ptr %4, i64 5
-  %36 = getelementptr inbounds i8, ptr %10, i64 3
-  %scevgep.i766 = getelementptr inbounds i8, ptr %10, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %.021.i761 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 3
+  %scevgep.i766 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %37 = ptrtoint ptr %10 to i64
-  %38 = getelementptr inbounds i8, ptr %5, i64 5
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
-  %40 = getelementptr inbounds i8, ptr %15, i64 1334
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 1334
   %41 = ptrtoint ptr %17 to i64
-  %42 = getelementptr inbounds i8, ptr %16, i64 1
-  %43 = getelementptr inbounds i8, ptr %16, i64 2
-  %44 = getelementptr inbounds i8, ptr %16, i64 3
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 3
   br label %.outer1036
 
 .outer1036:                                       ; preds = %1443, %26
@@ -4500,7 +4500,7 @@ define internal fastcc i64 @BSD_vfprintf(ptr noundef nonnull %0, ptr noundef non
 
 54:                                               ; preds = %50
   store ptr %.0491, ptr %.0548, align 8
-  %55 = getelementptr inbounds i8, ptr %.0548, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.0548, i64 8
   store i64 %53, ptr %55, align 8
   %56 = load i64, ptr %27, align 8
   %57 = add i64 %56, %53
@@ -6042,7 +6042,7 @@ BSD__ultoa.exit:                                  ; preds = %.preheader39.i, %69
   %.65541332 = phi ptr [ %.7555, %750 ], [ %.4552, %.preheader1032 ]
   %.25661331 = phi i32 [ %751, %750 ], [ %735, %.preheader1032 ]
   store ptr @BSD_vfprintf.blanks, ptr %.65541332, align 8
-  %739 = getelementptr inbounds i8, ptr %.65541332, i64 8
+  %739 = getelementptr inbounds nuw i8, ptr %.65541332, i64 8
   store i64 16, ptr %739, align 8
   %740 = load i64, ptr %27, align 8
   %741 = add i64 %740, 16
@@ -6081,7 +6081,7 @@ BSD__sprint.exit781:                              ; preds = %746
   %.6554.lcssa = phi ptr [ %.4552, %.preheader1032 ], [ %.7555, %750 ]
   store ptr @BSD_vfprintf.blanks, ptr %.6554.lcssa, align 8
   %753 = zext nneg i32 %.2566.lcssa to i64
-  %754 = getelementptr inbounds i8, ptr %.6554.lcssa, i64 8
+  %754 = getelementptr inbounds nuw i8, ptr %.6554.lcssa, i64 8
   store i64 %753, ptr %754, align 8
   %755 = load i64, ptr %27, align 8
   %756 = add i64 %755, %753
@@ -6117,7 +6117,7 @@ BSD__sprint.exit783:                              ; preds = %761
 
 767:                                              ; preds = %765
   store ptr %8, ptr %.5553, align 8
-  %768 = getelementptr inbounds i8, ptr %.5553, i64 8
+  %768 = getelementptr inbounds nuw i8, ptr %.5553, i64 8
   store i64 1, ptr %768, align 8
   %769 = load i64, ptr %27, align 8
   %770 = add i64 %769, 1
@@ -6154,7 +6154,7 @@ BSD__sprint.exit785:                              ; preds = %775
   %781 = trunc i32 %.4496 to i8
   store i8 %781, ptr %42, align 1
   store ptr %16, ptr %.8556, align 8
-  %782 = getelementptr inbounds i8, ptr %.8556, i64 8
+  %782 = getelementptr inbounds nuw i8, ptr %.8556, i64 8
   store i64 2, ptr %782, align 8
   %783 = load i64, ptr %27, align 8
   %784 = add i64 %783, 2
@@ -6209,7 +6209,7 @@ BSD__sprint.exit787:                              ; preds = %789
   %.115591338 = phi ptr [ %.12560, %815 ], [ %.9557, %.preheader1030 ]
   %.35671337 = phi i32 [ %816, %815 ], [ %800, %.preheader1030 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.115591338, align 8
-  %804 = getelementptr inbounds i8, ptr %.115591338, i64 8
+  %804 = getelementptr inbounds nuw i8, ptr %.115591338, i64 8
   store i64 16, ptr %804, align 8
   %805 = load i64, ptr %27, align 8
   %806 = add i64 %805, 16
@@ -6248,7 +6248,7 @@ BSD__sprint.exit789:                              ; preds = %811
   %.11559.lcssa = phi ptr [ %.9557, %.preheader1030 ], [ %.12560, %815 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.11559.lcssa, align 8
   %818 = zext nneg i32 %.3567.lcssa to i64
-  %819 = getelementptr inbounds i8, ptr %.11559.lcssa, i64 8
+  %819 = getelementptr inbounds nuw i8, ptr %.11559.lcssa, i64 8
   store i64 %818, ptr %819, align 8
   %820 = load i64, ptr %27, align 8
   %821 = add i64 %820, %818
@@ -6299,7 +6299,7 @@ BSD__sprint.exit791:                              ; preds = %826
   %.141344 = phi ptr [ %.15, %850 ], [ %.10558, %.preheader1028 ]
   %.45681343 = phi i32 [ %851, %850 ], [ %835, %.preheader1028 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.141344, align 8
-  %839 = getelementptr inbounds i8, ptr %.141344, i64 8
+  %839 = getelementptr inbounds nuw i8, ptr %.141344, i64 8
   store i64 16, ptr %839, align 8
   %840 = load i64, ptr %27, align 8
   %841 = add i64 %840, 16
@@ -6338,7 +6338,7 @@ BSD__sprint.exit793:                              ; preds = %846
   %.14.lcssa = phi ptr [ %.10558, %.preheader1028 ], [ %.15, %850 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.14.lcssa, align 8
   %853 = zext nneg i32 %.4568.lcssa to i64
-  %854 = getelementptr inbounds i8, ptr %.14.lcssa, i64 8
+  %854 = getelementptr inbounds nuw i8, ptr %.14.lcssa, i64 8
   store i64 %853, ptr %854, align 8
   %855 = load i64, ptr %27, align 8
   %856 = add i64 %855, %853
@@ -6375,7 +6375,7 @@ BSD__sprint.exit795:                              ; preds = %861
 868:                                              ; preds = %865
   store ptr %.1562, ptr %.13, align 8
   %869 = load i64, ptr %12, align 8
-  %870 = getelementptr inbounds i8, ptr %.13, i64 8
+  %870 = getelementptr inbounds nuw i8, ptr %.13, i64 8
   store i64 %869, ptr %870, align 8
   %871 = load i64, ptr %27, align 8
   %872 = add i64 %871, %869
@@ -6415,7 +6415,7 @@ BSD__sprint.exit797:                              ; preds = %877
   store i8 %887, ptr %43, align 1
   store i8 46, ptr %44, align 1
   store ptr %43, ptr %.13, align 8
-  %888 = getelementptr inbounds i8, ptr %.13, i64 8
+  %888 = getelementptr inbounds nuw i8, ptr %.13, i64 8
   store i64 2, ptr %888, align 8
   %889 = load i64, ptr %27, align 8
   %890 = add i64 %889, 2
@@ -6452,7 +6452,7 @@ BSD__sprint.exit799:                              ; preds = %895
   store ptr %886, ptr %.17, align 8
   %902 = add nsw i32 %.2897, -1
   %903 = zext nneg i32 %902 to i64
-  %904 = getelementptr inbounds i8, ptr %.17, i64 8
+  %904 = getelementptr inbounds nuw i8, ptr %.17, i64 8
   store i64 %903, ptr %904, align 8
   %905 = load i64, ptr %27, align 8
   %906 = add i64 %905, %903
@@ -6478,7 +6478,7 @@ BSD__sprint.exit801:                              ; preds = %911
 
 915:                                              ; preds = %882
   store ptr %.1562, ptr %.13, align 8
-  %916 = getelementptr inbounds i8, ptr %.13, i64 8
+  %916 = getelementptr inbounds nuw i8, ptr %.13, i64 8
   store i64 1, ptr %916, align 8
   %917 = load i64, ptr %27, align 8
   %918 = add i64 %917, 1
@@ -6520,7 +6520,7 @@ BSD__sprint.exit803:                              ; preds = %923
   %.201350 = phi ptr [ %.21, %942 ], [ %.18, %.preheader1026 ]
   %.55691349 = phi i32 [ %943, %942 ], [ %928, %.preheader1026 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.201350, align 8
-  %931 = getelementptr inbounds i8, ptr %.201350, i64 8
+  %931 = getelementptr inbounds nuw i8, ptr %.201350, i64 8
   store i64 16, ptr %931, align 8
   %932 = load i64, ptr %27, align 8
   %933 = add i64 %932, 16
@@ -6559,7 +6559,7 @@ BSD__sprint.exit805:                              ; preds = %938
   %.20.lcssa = phi ptr [ %.18, %.preheader1026 ], [ %.21, %942 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.20.lcssa, align 8
   %945 = zext nneg i32 %.5569.lcssa to i64
-  %946 = getelementptr inbounds i8, ptr %.20.lcssa, i64 8
+  %946 = getelementptr inbounds nuw i8, ptr %.20.lcssa, i64 8
   store i64 %945, ptr %946, align 8
   %947 = load i64, ptr %27, align 8
   %948 = add i64 %947, %945
@@ -6591,7 +6591,7 @@ BSD__sprint.exit807:                              ; preds = %953
   %.19 = phi ptr [ %949, %._crit_edge1352 ], [ %.18, %927 ], [ %14, %BSD__sprint.exit807 ], [ %14, %BSD__sprint.exit807.thread ]
   store ptr %10, ptr %.19, align 8
   %958 = sext i32 %.2523 to i64
-  %959 = getelementptr inbounds i8, ptr %.19, i64 8
+  %959 = getelementptr inbounds nuw i8, ptr %.19, i64 8
   store i64 %958, ptr %959, align 8
   %960 = load i64, ptr %27, align 8
   %961 = add i64 %960, %958
@@ -6628,7 +6628,7 @@ BSD__sprint.exit809:                              ; preds = %966
   %976 = and i32 %.5544, 1
   %977 = icmp eq i32 %976, 0
   %or.cond747 = and i1 %975, %977
-  %978 = getelementptr inbounds i8, ptr %.13, i64 8
+  %978 = getelementptr inbounds nuw i8, ptr %.13, i64 8
   %979 = getelementptr i8, ptr %.13, i64 16
   br i1 %or.cond747, label %980, label %990
 
@@ -6704,7 +6704,7 @@ BSD__sprint.exit813:                              ; preds = %996
   %.231392 = phi ptr [ %.24, %1018 ], [ %.22, %.preheader1012 ]
   %.65701391 = phi i32 [ %1019, %1018 ], [ %1004, %.preheader1012 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.231392, align 8
-  %1007 = getelementptr inbounds i8, ptr %.231392, i64 8
+  %1007 = getelementptr inbounds nuw i8, ptr %.231392, i64 8
   store i64 16, ptr %1007, align 8
   %1008 = load i64, ptr %27, align 8
   %1009 = add i64 %1008, 16
@@ -6743,7 +6743,7 @@ BSD__sprint.exit815:                              ; preds = %1014
   %.23.lcssa = phi ptr [ %.22, %.preheader1012 ], [ %.24, %1018 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.23.lcssa, align 8
   %1021 = zext nneg i32 %.6570.lcssa to i64
-  %1022 = getelementptr inbounds i8, ptr %.23.lcssa, i64 8
+  %1022 = getelementptr inbounds nuw i8, ptr %.23.lcssa, i64 8
   store i64 %1021, ptr %1022, align 8
   %1023 = load i64, ptr %27, align 8
   %1024 = add i64 %1023, %1021
@@ -6779,7 +6779,7 @@ BSD__sprint.exit817:                              ; preds = %1029
 
 1040:                                             ; preds = %1033
   store ptr @.str.22, ptr %.13, align 8
-  %1041 = getelementptr inbounds i8, ptr %.13, i64 8
+  %1041 = getelementptr inbounds nuw i8, ptr %.13, i64 8
   store i64 1, ptr %1041, align 8
   %1042 = load i64, ptr %27, align 8
   %1043 = add i64 %1042, 1
@@ -6809,7 +6809,7 @@ BSD__sprint.exit819:                              ; preds = %1048
 
 1054:                                             ; preds = %1052
   store ptr @.str.45, ptr %.13, align 8
-  %1055 = getelementptr inbounds i8, ptr %.13, i64 8
+  %1055 = getelementptr inbounds nuw i8, ptr %.13, i64 8
   store i64 2, ptr %1055, align 8
   %1056 = load i64, ptr %27, align 8
   %1057 = add i64 %1056, 2
@@ -6856,7 +6856,7 @@ BSD__sprint.exit821._crit_edge:                   ; preds = %BSD__sprint.exit821
   %.271380 = phi ptr [ %.28, %1082 ], [ %.25, %.preheader1016 ]
   %.75711379 = phi i32 [ %1083, %1082 ], [ %1068, %.preheader1016 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.271380, align 8
-  %1071 = getelementptr inbounds i8, ptr %.271380, i64 8
+  %1071 = getelementptr inbounds nuw i8, ptr %.271380, i64 8
   store i64 16, ptr %1071, align 8
   %1072 = load i64, ptr %27, align 8
   %1073 = add i64 %1072, 16
@@ -6895,7 +6895,7 @@ BSD__sprint.exit823:                              ; preds = %1078
   %.27.lcssa = phi ptr [ %.25, %.preheader1016 ], [ %.28, %1082 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.27.lcssa, align 8
   %1085 = zext nneg i32 %.7571.lcssa to i64
-  %1086 = getelementptr inbounds i8, ptr %.27.lcssa, i64 8
+  %1086 = getelementptr inbounds nuw i8, ptr %.27.lcssa, i64 8
   store i64 %1085, ptr %1086, align 8
   %1087 = load i64, ptr %27, align 8
   %1088 = add i64 %1087, %1085
@@ -6927,7 +6927,7 @@ BSD__sprint.exit825:                              ; preds = %1093
   %.26 = phi ptr [ %1089, %._crit_edge1382 ], [ %.25, %1066 ], [ %14, %BSD__sprint.exit825 ], [ %14, %BSD__sprint.exit825.thread ]
   store ptr %.1562, ptr %.26, align 8
   %1098 = sext i32 %.2897 to i64
-  %1099 = getelementptr inbounds i8, ptr %.26, i64 8
+  %1099 = getelementptr inbounds nuw i8, ptr %.26, i64 8
   store i64 %1098, ptr %1099, align 8
   %1100 = load i64, ptr %27, align 8
   %1101 = add i64 %1100, %1098
@@ -6977,7 +6977,7 @@ BSD__sprint.exit827:                              ; preds = %1106
   %.301386 = phi ptr [ %.31, %1130 ], [ %.29, %.preheader1014 ]
   %.85721385 = phi i32 [ %1131, %1130 ], [ %1116, %.preheader1014 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.301386, align 8
-  %1119 = getelementptr inbounds i8, ptr %.301386, i64 8
+  %1119 = getelementptr inbounds nuw i8, ptr %.301386, i64 8
   store i64 16, ptr %1119, align 8
   %1120 = load i64, ptr %27, align 8
   %1121 = add i64 %1120, 16
@@ -7016,7 +7016,7 @@ BSD__sprint.exit829:                              ; preds = %1126
   %.30.lcssa = phi ptr [ %.29, %.preheader1014 ], [ %.31, %1130 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.30.lcssa, align 8
   %1133 = zext nneg i32 %.8572.lcssa to i64
-  %1134 = getelementptr inbounds i8, ptr %.30.lcssa, i64 8
+  %1134 = getelementptr inbounds nuw i8, ptr %.30.lcssa, i64 8
   store i64 %1133, ptr %1134, align 8
   %1135 = load i64, ptr %27, align 8
   %1136 = add i64 %1135, %1133
@@ -7043,7 +7043,7 @@ BSD__sprint.exit831:                              ; preds = %1141
 1145:                                             ; preds = %1052
   %.not686 = icmp slt i32 %1034, %.2897
   store ptr %.1562, ptr %.13, align 8
-  %1146 = getelementptr inbounds i8, ptr %.13, i64 8
+  %1146 = getelementptr inbounds nuw i8, ptr %.13, i64 8
   %1147 = getelementptr i8, ptr %.13, i64 16
   br i1 %.not686, label %1203, label %1148
 
@@ -7095,7 +7095,7 @@ BSD__sprint.exit833._crit_edge:                   ; preds = %BSD__sprint.exit833
   %.341368 = phi ptr [ %.35, %1175 ], [ %.32, %.preheader1020 ]
   %.95731367 = phi i32 [ %1176, %1175 ], [ %1161, %.preheader1020 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.341368, align 8
-  %1164 = getelementptr inbounds i8, ptr %.341368, i64 8
+  %1164 = getelementptr inbounds nuw i8, ptr %.341368, i64 8
   store i64 16, ptr %1164, align 8
   %1165 = load i64, ptr %27, align 8
   %1166 = add i64 %1165, 16
@@ -7134,7 +7134,7 @@ BSD__sprint.exit835:                              ; preds = %1171
   %.34.lcssa = phi ptr [ %.32, %.preheader1020 ], [ %.35, %1175 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.34.lcssa, align 8
   %1178 = zext nneg i32 %.9573.lcssa to i64
-  %1179 = getelementptr inbounds i8, ptr %.34.lcssa, i64 8
+  %1179 = getelementptr inbounds nuw i8, ptr %.34.lcssa, i64 8
   store i64 %1178, ptr %1179, align 8
   %1180 = load i64, ptr %27, align 8
   %1181 = add i64 %1180, %1178
@@ -7169,7 +7169,7 @@ BSD__sprint.exit837:                              ; preds = %1186
 
 1191:                                             ; preds = %1190
   store ptr @.str.46, ptr %.33, align 8
-  %1192 = getelementptr inbounds i8, ptr %.33, i64 8
+  %1192 = getelementptr inbounds nuw i8, ptr %.33, i64 8
   store i64 1, ptr %1192, align 8
   %1193 = load i64, ptr %27, align 8
   %1194 = add i64 %1193, 1
@@ -7231,7 +7231,7 @@ BSD__sprint.exit841._crit_edge:                   ; preds = %BSD__sprint.exit841
   %1216 = sext i32 %1215 to i64
   %1217 = getelementptr i8, ptr %.1562, i64 %1216
   store ptr @.str.46, ptr %.36, align 8
-  %1218 = getelementptr inbounds i8, ptr %.36, i64 8
+  %1218 = getelementptr inbounds nuw i8, ptr %.36, i64 8
   store i64 1, ptr %1218, align 8
   %1219 = load i64, ptr %27, align 8
   %1220 = add i64 %1219, 1
@@ -7269,7 +7269,7 @@ BSD__sprint.exit843._crit_edge:                   ; preds = %BSD__sprint.exit843
   store ptr %1217, ptr %.37, align 8
   %1231 = sub i32 %.2897, %1230
   %1232 = sext i32 %1231 to i64
-  %1233 = getelementptr inbounds i8, ptr %.37, i64 8
+  %1233 = getelementptr inbounds nuw i8, ptr %.37, i64 8
   store i64 %1232, ptr %1233, align 8
   %1234 = load i64, ptr %27, align 8
   %1235 = add i64 %1234, %1232
@@ -7319,7 +7319,7 @@ BSD__sprint.exit845:                              ; preds = %1240
   %.391374 = phi ptr [ %.40, %1264 ], [ %.38, %.preheader1018 ]
   %.105741373 = phi i32 [ %1265, %1264 ], [ %1250, %.preheader1018 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.391374, align 8
-  %1253 = getelementptr inbounds i8, ptr %.391374, i64 8
+  %1253 = getelementptr inbounds nuw i8, ptr %.391374, i64 8
   store i64 16, ptr %1253, align 8
   %1254 = load i64, ptr %27, align 8
   %1255 = add i64 %1254, 16
@@ -7358,7 +7358,7 @@ BSD__sprint.exit847:                              ; preds = %1260
   %.39.lcssa = phi ptr [ %.38, %.preheader1018 ], [ %.40, %1264 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.39.lcssa, align 8
   %1267 = zext nneg i32 %.10574.lcssa to i64
-  %1268 = getelementptr inbounds i8, ptr %.39.lcssa, i64 8
+  %1268 = getelementptr inbounds nuw i8, ptr %.39.lcssa, i64 8
   store i64 %1267, ptr %1268, align 8
   %1269 = load i64, ptr %27, align 8
   %1270 = add i64 %1269, %1267
@@ -7395,7 +7395,7 @@ BSD__sprint.exit849:                              ; preds = %1275
   store i8 %1284, ptr %16, align 1
   store i8 46, ptr %42, align 1
   store ptr %16, ptr %.13, align 8
-  %1285 = getelementptr inbounds i8, ptr %.13, i64 8
+  %1285 = getelementptr inbounds nuw i8, ptr %.13, i64 8
   store i64 2, ptr %1285, align 8
   %1286 = load i64, ptr %27, align 8
   %1287 = add i64 %1286, 2
@@ -7432,7 +7432,7 @@ BSD__sprint.exit851:                              ; preds = %1292
   store ptr %1283, ptr %.41, align 8
   %1299 = add i32 %.2897, -1
   %1300 = sext i32 %1299 to i64
-  %1301 = getelementptr inbounds i8, ptr %.41, i64 8
+  %1301 = getelementptr inbounds nuw i8, ptr %.41, i64 8
   store i64 %1300, ptr %1301, align 8
   %1302 = load i64, ptr %27, align 8
   %1303 = add i64 %1302, %1300
@@ -7469,7 +7469,7 @@ BSD__sprint.exit853:                              ; preds = %1308
   %.431356 = phi ptr [ %.44, %1327 ], [ %.41, %.preheader1024 ]
   %.115751355 = phi i32 [ %1328, %1327 ], [ %1313, %.preheader1024 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.431356, align 8
-  %1316 = getelementptr inbounds i8, ptr %.431356, i64 8
+  %1316 = getelementptr inbounds nuw i8, ptr %.431356, i64 8
   store i64 16, ptr %1316, align 8
   %1317 = load i64, ptr %27, align 8
   %1318 = add i64 %1317, 16
@@ -7508,7 +7508,7 @@ BSD__sprint.exit855:                              ; preds = %1323
   %.43.lcssa = phi ptr [ %.41, %.preheader1024 ], [ %.44, %1327 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.43.lcssa, align 8
   %1330 = zext nneg i32 %.11575.lcssa to i64
-  %1331 = getelementptr inbounds i8, ptr %.43.lcssa, i64 8
+  %1331 = getelementptr inbounds nuw i8, ptr %.43.lcssa, i64 8
   store i64 %1330, ptr %1331, align 8
   %1332 = load i64, ptr %27, align 8
   %1333 = add i64 %1332, %1330
@@ -7554,7 +7554,7 @@ BSD__sprint.exit857:                              ; preds = %1338
   %.451362 = phi ptr [ %.46, %1359 ], [ %.42, %.preheader1022 ]
   %.125761361 = phi i32 [ %1360, %1359 ], [ %1345, %.preheader1022 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.451362, align 8
-  %1348 = getelementptr inbounds i8, ptr %.451362, i64 8
+  %1348 = getelementptr inbounds nuw i8, ptr %.451362, i64 8
   store i64 16, ptr %1348, align 8
   %1349 = load i64, ptr %27, align 8
   %1350 = add i64 %1349, 16
@@ -7593,7 +7593,7 @@ BSD__sprint.exit859:                              ; preds = %1355
   %.45.lcssa = phi ptr [ %.42, %.preheader1022 ], [ %.46, %1359 ]
   store ptr @BSD_vfprintf.zeroes, ptr %.45.lcssa, align 8
   %1362 = zext nneg i32 %.12576.lcssa to i64
-  %1363 = getelementptr inbounds i8, ptr %.45.lcssa, i64 8
+  %1363 = getelementptr inbounds nuw i8, ptr %.45.lcssa, i64 8
   store i64 %1362, ptr %1363, align 8
   %1364 = load i64, ptr %27, align 8
   %1365 = add i64 %1364, %1362
@@ -7619,7 +7619,7 @@ BSD__sprint.exit861:                              ; preds = %1370
 
 1374:                                             ; preds = %1279
   store ptr %.1562, ptr %.13, align 8
-  %1375 = getelementptr inbounds i8, ptr %.13, i64 8
+  %1375 = getelementptr inbounds nuw i8, ptr %.13, i64 8
   store i64 1, ptr %1375, align 8
   %1376 = load i64, ptr %27, align 8
   %1377 = add i64 %1376, 1
@@ -7651,7 +7651,7 @@ BSD__sprint.exit863:                              ; preds = %1382
   %.47 = phi ptr [ %1366, %._crit_edge1364 ], [ %.42, %1343 ], [ %.42, %1342 ], [ %1378, %1374 ], [ %14, %BSD__sprint.exit861 ], [ %14, %BSD__sprint.exit863 ], [ %14, %.sink.split2130 ]
   store ptr %10, ptr %.47, align 8
   %1387 = sext i32 %.2523 to i64
-  %1388 = getelementptr inbounds i8, ptr %.47, i64 8
+  %1388 = getelementptr inbounds nuw i8, ptr %.47, i64 8
   store i64 %1387, ptr %1388, align 8
   %1389 = load i64, ptr %27, align 8
   %1390 = add i64 %1389, %1387
@@ -7708,7 +7708,7 @@ BSD__sprint.exit865:                              ; preds = %1395
   %.481398 = phi ptr [ %.49, %1420 ], [ %.16, %.preheader1010 ]
   %.135771397 = phi i32 [ %1421, %1420 ], [ %1405, %.preheader1010 ]
   store ptr @BSD_vfprintf.blanks, ptr %.481398, align 8
-  %1409 = getelementptr inbounds i8, ptr %.481398, i64 8
+  %1409 = getelementptr inbounds nuw i8, ptr %.481398, i64 8
   store i64 16, ptr %1409, align 8
   %1410 = load i64, ptr %27, align 8
   %1411 = add i64 %1410, 16
@@ -7747,7 +7747,7 @@ BSD__sprint.exit867:                              ; preds = %1416
   %.48.lcssa = phi ptr [ %.16, %.preheader1010 ], [ %.49, %1420 ]
   store ptr @BSD_vfprintf.blanks, ptr %.48.lcssa, align 8
   %1423 = zext nneg i32 %.13577.lcssa to i64
-  %1424 = getelementptr inbounds i8, ptr %.48.lcssa, i64 8
+  %1424 = getelementptr inbounds nuw i8, ptr %.48.lcssa, i64 8
   store i64 %1423, ptr %1424, align 8
   %1425 = load i64, ptr %27, align 8
   %1426 = add i64 %1425, %1423
@@ -7843,14 +7843,14 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @ruby__sfvwrite(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = load ptr, ptr %0, align 8
   %7 = load i64, ptr %4, align 8, !noalias !127
   %8 = and i64 %7, 8192
   %.not.i.i = icmp eq i64 %8, 0
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %10
 
 10:                                               ; preds = %2
@@ -7862,9 +7862,9 @@ RSTRING_PTR.exit:                                 ; preds = %2, %10
   %11 = ptrtoint ptr %6 to i64
   %12 = ptrtoint ptr %.sroa.2.0.i to i64
   %13 = sub i64 %11, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load i64, ptr %16, align 8
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %20, label %18
@@ -7875,7 +7875,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %10
   unreachable
 
 20:                                               ; preds = %RSTRING_PTR.exit
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %60, label %24
@@ -7934,7 +7934,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %10
   %.04056 = phi ptr [ %52, %ruby_nonempty_memcpy.exit ], [ %44, %.lr.ph.preheader ]
   %.04155 = phi ptr [ %50, %ruby_nonempty_memcpy.exit ], [ %45, %.lr.ph.preheader ]
   %.04254 = phi i64 [ %51, %ruby_nonempty_memcpy.exit ], [ %22, %.lr.ph.preheader ]
-  %46 = getelementptr inbounds i8, ptr %.04056, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.04056, i64 8
   %47 = load i64, ptr %46, align 8
   %.not.i = icmp eq i64 %47, 0
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %48
@@ -7977,7 +7977,7 @@ RSTRING_PTR.exit52:                               ; preds = %._crit_edge, %56
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @ruby__sfvextra(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) #0 {
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %.not = icmp eq i64 %1, 8
@@ -7985,7 +7985,7 @@ define internal ptr @ruby__sfvextra(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 10:                                               ; preds = %5
   %11 = load i64, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8
   %.not22 = icmp eq i64 %13, 0
   br i1 %.not22, label %16, label %14
@@ -8096,7 +8096,7 @@ RB_SYMBOL_P.exit.thread25:                        ; preds = %27, %RB_SYMBOL_P.ex
   %59 = load i64, ptr %58, align 8, !noalias !135
   %60 = and i64 %59, 8192
   %.not.i = icmp eq i64 %60, 0
-  %61 = getelementptr inbounds i8, ptr %58, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 24
   br i1 %.not.i, label %rbimpl_rstring_getmem.exit, label %62
 
 62:                                               ; preds = %55
@@ -8105,10 +8105,10 @@ RB_SYMBOL_P.exit.thread25:                        ; preds = %27, %RB_SYMBOL_P.ex
 
 rbimpl_rstring_getmem.exit:                       ; preds = %55, %62
   %.sroa.3.0 = phi ptr [ %.sroa.3.0.copyload, %62 ], [ %61, %55 ]
-  %.sroa.1.0.in = getelementptr inbounds i8, ptr %58, i64 16
+  %.sroa.1.0.in = getelementptr inbounds nuw i8, ptr %58, i64 16
   %.sroa.1.0 = load i64, ptr %.sroa.1.0.in, align 8
   store i64 %.sroa.1.0, ptr %3, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store volatile i64 %57, ptr %63, align 8
   br label %64
 

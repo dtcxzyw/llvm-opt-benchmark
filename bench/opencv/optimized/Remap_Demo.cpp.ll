@@ -143,9 +143,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %113
 
 48:                                               ; preds = %30
-  %49 = getelementptr inbounds i8, ptr %7, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %50, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %53 to i64
@@ -159,7 +159,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 56:                                               ; preds = %48
   %57 = load ptr, ptr %49, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %57, align 4
   %.sroa.2.0.insert.ext.i43 = zext i32 %60 to i64
@@ -171,7 +171,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr %49, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = load i32, ptr %62, align 4
   %.sroa.2.0.insert.ext.i47 = zext i32 %65 to i64
@@ -194,20 +194,20 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #8
   store i32 0, ptr %14, align 4
-  %69 = getelementptr inbounds i8, ptr %15, i64 16
-  %70 = getelementptr inbounds i8, ptr %15, i64 20
-  %71 = getelementptr inbounds i8, ptr %15, i64 8
-  %72 = getelementptr inbounds i8, ptr %16, i64 8
-  %73 = getelementptr inbounds i8, ptr %16, i64 16
-  %74 = getelementptr inbounds i8, ptr %17, i64 16
-  %75 = getelementptr inbounds i8, ptr %17, i64 20
-  %76 = getelementptr inbounds i8, ptr %17, i64 8
-  %77 = getelementptr inbounds i8, ptr %18, i64 16
-  %78 = getelementptr inbounds i8, ptr %18, i64 20
-  %79 = getelementptr inbounds i8, ptr %18, i64 8
-  %80 = getelementptr inbounds i8, ptr %22, i64 16
-  %81 = getelementptr inbounds i8, ptr %22, i64 20
-  %82 = getelementptr inbounds i8, ptr %22, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %22, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br label %83
 
 83:                                               ; preds = %88, %68
@@ -386,17 +386,17 @@ declare void @_ZN2cv11namedWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.preheader.lr.ph, label %._crit_edge69
 
 .preheader.lr.ph:                                 ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 12
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 72
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %12 = load i32, ptr %7, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.preheader, label %._crit_edge69
@@ -457,7 +457,7 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr nocapture noundef nonnull 
   %46 = load i64, ptr %45, align 8
   %47 = mul i64 %46, %indvars.iv72
   %48 = getelementptr inbounds i8, ptr %44, i64 %47
-  %49 = getelementptr inbounds float, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv
   store float %43, ptr %49, align 4
   %50 = load i32, ptr %4, align 8
   %51 = sitofp i32 %50 to float
@@ -472,7 +472,7 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr nocapture noundef nonnull 
   %58 = load i64, ptr %57, align 8
   %59 = mul i64 %58, %indvars.iv72
   %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = getelementptr inbounds float, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv
   store float 0.000000e+00, ptr %61, align 4
   br label %.sink.split
 
@@ -484,7 +484,7 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr nocapture noundef nonnull 
   %67 = load i64, ptr %66, align 8
   %68 = mul i64 %67, %indvars.iv72
   %69 = getelementptr inbounds i8, ptr %65, i64 %68
-  %70 = getelementptr inbounds float, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv
   store float %64, ptr %70, align 4
   %71 = load i32, ptr %4, align 8
   %72 = sub nsw i32 %71, %17
@@ -500,7 +500,7 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr nocapture noundef nonnull 
   %80 = load i64, ptr %79, align 8
   %81 = mul i64 %80, %indvars.iv72
   %82 = getelementptr inbounds i8, ptr %78, i64 %81
-  %83 = getelementptr inbounds float, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv
   store float %77, ptr %83, align 4
   br label %.sink.split
 
@@ -513,7 +513,7 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr nocapture noundef nonnull 
   %90 = load i64, ptr %89, align 8
   %91 = mul i64 %90, %indvars.iv72
   %92 = getelementptr inbounds i8, ptr %88, i64 %91
-  %93 = getelementptr inbounds float, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv
   store float %87, ptr %93, align 4
   %94 = load i32, ptr %4, align 8
   %95 = sub nsw i32 %94, %17
@@ -527,7 +527,7 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr nocapture noundef nonnull 
   %99 = load i64, ptr %98, align 8
   %100 = mul i64 %99, %indvars.iv72
   %101 = getelementptr inbounds i8, ptr %97, i64 %100
-  %102 = getelementptr inbounds float, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv
   store float %.sink, ptr %102, align 4
   br label %103
 

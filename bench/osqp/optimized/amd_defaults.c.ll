@@ -9,10 +9,10 @@ define void @amd_l_defaults(ptr noundef writeonly %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %1
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 24, i1 false)
   store double 1.000000e+01, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 1.000000e+00, ptr %3, align 8
   br label %4
 

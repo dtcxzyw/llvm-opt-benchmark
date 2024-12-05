@@ -52,9 +52,9 @@ define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr nocapture no
 
 12:                                               ; preds = %11
   store ptr @mca_coll_ftagree_module_t_class, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store volatile i32 1, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_ftagree_module_t_class, i64 40), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_ftagree_module_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i.i = icmp eq ptr %15, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread30, label %.lr.ph.i.i
@@ -63,7 +63,7 @@ define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr nocapture no
   %16 = phi ptr [ %18, %.lr.ph.i.i ], [ %15, %12 ]
   %.07.i.i = phi ptr [ %17, %.lr.ph.i.i ], [ %14, %12 ]
   tail call void %16(ptr noundef nonnull %7) #4
-  %17 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %opal_obj_new.exit.thread30, label %.lr.ph.i.i, !llvm.loop !4
@@ -71,16 +71,16 @@ define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr nocapture no
 opal_obj_new.exit.thread30:                       ; preds = %.lr.ph.i.i, %12
   %19 = load i32, ptr @mca_coll_ftagree_priority, align 4
   store i32 %19, ptr %1, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 1
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %30, label %ompi_comm_remote_size.exit
 
 ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.thread30
-  %23 = getelementptr inbounds i8, ptr %0, i64 256
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %27, align 8
@@ -99,20 +99,20 @@ ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.t
 33:                                               ; preds = %30, %ompi_comm_remote_size.exit
   %.024 = phi i32 [ %29, %ompi_comm_remote_size.exit ], [ %.val28.val, %30 ]
   %34 = shl nsw i32 %.024, 1
-  %35 = getelementptr inbounds i8, ptr %7, i64 600
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 600
   store i32 %34, ptr %35, align 8
   %36 = sext i32 %34 to i64
   %37 = shl nsw i64 %36, 3
   %38 = tail call noalias ptr @malloc(i64 noundef %37) #5
-  %39 = getelementptr inbounds i8, ptr %7, i64 592
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 592
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 616
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 616
   store i32 %34, ptr %40, align 8
   %41 = mul nsw i64 %36, 24
   %42 = tail call noalias ptr @malloc(i64 noundef %41) #5
-  %43 = getelementptr inbounds i8, ptr %7, i64 608
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 608
   store ptr %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %7, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @mca_coll_ftagree_module_enable, ptr %44, align 8
   %45 = load i32, ptr @mca_coll_ftagree_algorithm, align 4
   switch i32 %45, label %49 [
@@ -124,7 +124,7 @@ ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.t
   br i1 %.not, label %47, label %opal_obj_new.exit.thread
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %7, i64 552
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 552
   store ptr @mca_coll_ftagree_eta_intra, ptr %48, align 8
   br label %opal_obj_new.exit.thread
 
@@ -133,7 +133,7 @@ ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.t
   %51 = load i32, ptr %20, align 8
   %52 = and i32 %51, 1
   %.not27 = icmp eq i32 %52, 0
-  %53 = getelementptr inbounds i8, ptr %7, i64 552
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 552
   br i1 %.not27, label %55, label %54
 
 54:                                               ; preds = %49
@@ -142,7 +142,7 @@ ompi_comm_remote_size.exit:                       ; preds = %opal_obj_new.exit.t
 
 55:                                               ; preds = %49
   store ptr @mca_coll_ftagree_era_intra, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %7, i64 560
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 560
   store ptr @mca_coll_ftagree_iera_intra, ptr %56, align 8
   br label %opal_obj_new.exit.thread
 

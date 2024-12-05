@@ -124,7 +124,7 @@ define dso_local noundef zeroext i1 @blkconf_blocksizes(ptr nocapture noundef %c
 entry:
   %blocksizes = alloca %struct.BlockSizes, align 4
   %0 = load ptr, ptr %conf, align 8
-  %backend_defaults = getelementptr inbounds i8, ptr %conf, i64 8
+  %backend_defaults = getelementptr inbounds nuw i8, ptr %conf, i64 8
   %1 = load i32, ptr %backend_defaults, align 8
   switch i32 %1, label %sw.default [
     i32 0, label %sw.bb
@@ -151,13 +151,13 @@ sw.epilog:                                        ; preds = %sw.bb2, %sw.bb
   %use_blocksizes.0.shrunk.in = phi i32 [ %call3, %sw.bb2 ], [ %call, %sw.bb ]
   %use_bs.0 = phi i1 [ %tobool8, %sw.bb2 ], [ false, %sw.bb ]
   %use_blocksizes.0.shrunk = icmp eq i32 %use_blocksizes.0.shrunk.in, 0
-  %physical_block_size = getelementptr inbounds i8, ptr %conf, i64 12
+  %physical_block_size = getelementptr inbounds nuw i8, ptr %conf, i64 12
   %2 = load i32, ptr %physical_block_size, align 4
   %tobool11.not = icmp eq i32 %2, 0
   br i1 %tobool11.not, label %if.then, label %if.end16
 
 sw.epilog.thread:                                 ; preds = %entry
-  %physical_block_size42 = getelementptr inbounds i8, ptr %conf, i64 12
+  %physical_block_size42 = getelementptr inbounds nuw i8, ptr %conf, i64 12
   %3 = load i32, ptr %physical_block_size42, align 4
   %tobool11.not43 = icmp eq i32 %3, 0
   br i1 %tobool11.not43, label %if.end16.thread97.thread, label %if.end16.thread
@@ -172,21 +172,21 @@ if.then13:                                        ; preds = %if.then
 
 if.end16:                                         ; preds = %if.then13, %sw.epilog
   %use_blocksizes.0.shrunk47 = phi i1 [ true, %if.then13 ], [ %use_blocksizes.0.shrunk, %sw.epilog ]
-  %logical_block_size = getelementptr inbounds i8, ptr %conf, i64 16
+  %logical_block_size = getelementptr inbounds nuw i8, ptr %conf, i64 16
   %5 = load i32, ptr %logical_block_size, align 8
   %tobool17.not = icmp eq i32 %5, 0
   br i1 %tobool17.not, label %if.then18, label %if.end25
 
 if.end16.thread97:                                ; preds = %if.then
   store i32 512, ptr %physical_block_size, align 4
-  %logical_block_size102 = getelementptr inbounds i8, ptr %conf, i64 16
+  %logical_block_size102 = getelementptr inbounds nuw i8, ptr %conf, i64 16
   %6 = load i32, ptr %logical_block_size102, align 8
   %tobool17.not103 = icmp eq i32 %6, 0
   br i1 %tobool17.not103, label %if.then18.thread, label %if.end25
 
 if.end16.thread97.thread:                         ; preds = %sw.epilog.thread
   store i32 512, ptr %physical_block_size42, align 4
-  %logical_block_size102126 = getelementptr inbounds i8, ptr %conf, i64 16
+  %logical_block_size102126 = getelementptr inbounds nuw i8, ptr %conf, i64 16
   %7 = load i32, ptr %logical_block_size102126, align 8
   %tobool17.not103127 = icmp eq i32 %7, 0
   br i1 %tobool17.not103127, label %if.then18.thread.thread, label %if.end49
@@ -200,7 +200,7 @@ if.then18.thread:                                 ; preds = %if.end16.thread97
   br i1 %use_bs.0, label %if.then27, label %if.end49
 
 if.end16.thread:                                  ; preds = %sw.epilog.thread
-  %logical_block_size64 = getelementptr inbounds i8, ptr %conf, i64 16
+  %logical_block_size64 = getelementptr inbounds nuw i8, ptr %conf, i64 16
   %8 = load i32, ptr %logical_block_size64, align 8
   %tobool17.not65 = icmp eq i32 %8, 0
   br i1 %tobool17.not65, label %if.else22.thread, label %if.end49
@@ -213,7 +213,7 @@ if.then18:                                        ; preds = %if.end16
   br i1 %use_blocksizes.0.shrunk47, label %if.then20, label %if.else22
 
 if.then20:                                        ; preds = %if.then18
-  %log = getelementptr inbounds i8, ptr %blocksizes, i64 4
+  %log = getelementptr inbounds nuw i8, ptr %blocksizes, i64 4
   %9 = load i32, ptr %log, align 4
   store i32 %9, ptr %logical_block_size, align 8
   br i1 %use_bs.0, label %if.then27, label %if.end49
@@ -228,25 +228,25 @@ if.end25:                                         ; preds = %if.end16.thread97, 
 
 if.then27:                                        ; preds = %if.then18.thread, %if.else22, %if.then20, %if.end25
   %11 = phi i32 [ 512, %if.else22 ], [ %9, %if.then20 ], [ %10, %if.end25 ], [ 512, %if.then18.thread ]
-  %opt_io_size = getelementptr inbounds i8, ptr %conf, i64 24
+  %opt_io_size = getelementptr inbounds nuw i8, ptr %conf, i64 24
   %12 = load i32, ptr %opt_io_size, align 8
   %tobool28.not = icmp eq i32 %12, 0
   br i1 %tobool28.not, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.then27
-  %opt_transfer = getelementptr inbounds i8, ptr %bs.0, i64 16500
+  %opt_transfer = getelementptr inbounds nuw i8, ptr %bs.0, i64 16500
   %13 = load i32, ptr %opt_transfer, align 4
   store i32 %13, ptr %opt_io_size, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then29, %if.then27
-  %discard_granularity = getelementptr inbounds i8, ptr %conf, i64 32
+  %discard_granularity = getelementptr inbounds nuw i8, ptr %conf, i64 32
   %14 = load i32, ptr %discard_granularity, align 8
   %cmp = icmp eq i32 %14, -1
   br i1 %cmp, label %if.then32, label %if.end49
 
 if.then32:                                        ; preds = %if.end31
-  %pdiscard_alignment = getelementptr inbounds i8, ptr %bs.0, i64 16480
+  %pdiscard_alignment = getelementptr inbounds nuw i8, ptr %bs.0, i64 16480
   %15 = load i32, ptr %pdiscard_alignment, align 8
   %tobool34.not = icmp eq i32 %15, 0
   br i1 %tobool34.not, label %if.else39, label %if.then35
@@ -256,7 +256,7 @@ if.then35:                                        ; preds = %if.then32
   br label %if.end49
 
 if.else39:                                        ; preds = %if.then32
-  %bl33 = getelementptr inbounds i8, ptr %bs.0, i64 16464
+  %bl33 = getelementptr inbounds nuw i8, ptr %bs.0, i64 16464
   %16 = load i32, ptr %bl33, align 8
   %cmp41.not = icmp eq i32 %16, 1
   br i1 %cmp41.not, label %if.end49, label %if.then42
@@ -277,7 +277,7 @@ if.then53:                                        ; preds = %if.end49
   br label %return
 
 if.end54:                                         ; preds = %if.end49
-  %min_io_size = getelementptr inbounds i8, ptr %conf, i64 20
+  %min_io_size = getelementptr inbounds nuw i8, ptr %conf, i64 20
   %19 = load i32, ptr %min_io_size, align 4
   %rem = urem i32 %19, %17
   %div = udiv i32 %19, %17
@@ -297,7 +297,7 @@ if.then62:                                        ; preds = %if.end58
   br label %return
 
 if.end63:                                         ; preds = %if.end58
-  %opt_io_size64 = getelementptr inbounds i8, ptr %conf, i64 24
+  %opt_io_size64 = getelementptr inbounds nuw i8, ptr %conf, i64 24
   %20 = load i32, ptr %opt_io_size64, align 8
   %rem66 = urem i32 %20, %17
   %cmp67 = icmp eq i32 %rem66, 0
@@ -308,7 +308,7 @@ if.then68:                                        ; preds = %if.end63
   br label %return
 
 if.end69:                                         ; preds = %if.end63
-  %discard_granularity70 = getelementptr inbounds i8, ptr %conf, i64 32
+  %discard_granularity70 = getelementptr inbounds nuw i8, ptr %conf, i64 32
   %21 = load i32, ptr %discard_granularity70, align 8
   %cmp71.not = icmp eq i32 %21, -1
   br i1 %cmp71.not, label %return, label %land.lhs.true
@@ -340,7 +340,7 @@ entry:
   %0 = load ptr, ptr %conf, align 8
   %spec.select = select i1 %readonly, i64 1, i64 3
   %shared_perm.0 = select i1 %resizable, i64 13, i64 5
-  %share_rw = getelementptr inbounds i8, ptr %conf, i64 64
+  %share_rw = getelementptr inbounds nuw i8, ptr %conf, i64 64
   %1 = load i8, ptr %share_rw, align 8
   %tobool7 = trunc i8 %1 to i1
   %or9 = or disjoint i64 %shared_perm.0, 2
@@ -350,7 +350,7 @@ entry:
   br i1 %cmp, label %if.end12, label %return
 
 if.end12:                                         ; preds = %entry
-  %wce13 = getelementptr inbounds i8, ptr %conf, i64 60
+  %wce13 = getelementptr inbounds nuw i8, ptr %conf, i64 60
   %2 = load i32, ptr %wce13, align 4
   switch i32 %2, label %sw.default [
     i32 1, label %sw.epilog
@@ -371,7 +371,7 @@ sw.default:                                       ; preds = %if.end12
 
 sw.epilog:                                        ; preds = %if.end12, %sw.bb15, %sw.bb14
   %wce.0 = phi i1 [ %call16, %sw.bb15 ], [ false, %sw.bb14 ], [ true, %if.end12 ]
-  %rerror18 = getelementptr inbounds i8, ptr %conf, i64 76
+  %rerror18 = getelementptr inbounds nuw i8, ptr %conf, i64 76
   %3 = load i32, ptr %rerror18, align 4
   %cmp19 = icmp eq i32 %3, 4
   br i1 %cmp19, label %if.then20, label %if.end22
@@ -382,7 +382,7 @@ if.then20:                                        ; preds = %sw.epilog
 
 if.end22:                                         ; preds = %if.then20, %sw.epilog
   %rerror.0 = phi i32 [ %call21, %if.then20 ], [ %3, %sw.epilog ]
-  %werror23 = getelementptr inbounds i8, ptr %conf, i64 80
+  %werror23 = getelementptr inbounds nuw i8, ptr %conf, i64 80
   %4 = load i32, ptr %werror23, align 8
   %cmp24 = icmp eq i32 %4, 4
   br i1 %cmp24, label %if.then25, label %if.end27
@@ -396,9 +396,9 @@ if.end27:                                         ; preds = %if.then25, %if.end2
   tail call void @blk_set_enable_write_cache(ptr noundef %0, i1 noundef zeroext %wce.0) #6
   tail call void @blk_set_on_error(ptr noundef %0, i32 noundef %rerror.0, i32 noundef %werror.0) #6
   %call29 = tail call ptr @blk_get_stats(ptr noundef %0) #6
-  %account_invalid = getelementptr inbounds i8, ptr %conf, i64 68
+  %account_invalid = getelementptr inbounds nuw i8, ptr %conf, i64 68
   %5 = load i32, ptr %account_invalid, align 4
-  %account_failed = getelementptr inbounds i8, ptr %conf, i64 72
+  %account_failed = getelementptr inbounds nuw i8, ptr %conf, i64 72
   %6 = load i32, ptr %account_failed, align 8
   tail call void @block_acct_setup(ptr noundef %call29, i32 noundef %5, i32 noundef %6) #6
   br label %return
@@ -424,19 +424,19 @@ declare ptr @blk_get_stats(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @blkconf_geometry(ptr noundef %conf, ptr noundef %ptrans, i32 noundef %cyls_max, i32 noundef %heads_max, i32 noundef %secs_max, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %cyls = getelementptr inbounds i8, ptr %conf, i64 36
+  %cyls = getelementptr inbounds nuw i8, ptr %conf, i64 36
   %0 = load i32, ptr %cyls, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %heads = getelementptr inbounds i8, ptr %conf, i64 40
+  %heads = getelementptr inbounds nuw i8, ptr %conf, i64 40
   %1 = load i32, ptr %heads, align 8
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %land.lhs.true2, label %if.else
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %secs = getelementptr inbounds i8, ptr %conf, i64 44
+  %secs = getelementptr inbounds nuw i8, ptr %conf, i64 44
   %2 = load i32, ptr %secs, align 4
   %tobool3.not = icmp eq i32 %2, 0
   br i1 %tobool3.not, label %if.then, label %if.else
@@ -456,9 +456,9 @@ land.lhs.true8:                                   ; preds = %if.else
   br i1 %cmp, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %land.lhs.true8
-  %heads11 = getelementptr inbounds i8, ptr %conf, i64 40
+  %heads11 = getelementptr inbounds nuw i8, ptr %conf, i64 40
   %5 = load i32, ptr %heads11, align 8
-  %secs12 = getelementptr inbounds i8, ptr %conf, i64 44
+  %secs12 = getelementptr inbounds nuw i8, ptr %conf, i64 44
   %6 = load i32, ptr %secs12, align 4
   %call = tail call i32 @hd_bios_chs_auto_trans(i32 noundef %0, i32 noundef %5, i32 noundef %6) #6
   store i32 %call, ptr %ptrans, align 4
@@ -470,13 +470,13 @@ if.end13:                                         ; preds = %if.else, %land.lhs.
   br i1 %tobool15.not, label %lor.lhs.false, label %if.then21
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %heads16 = getelementptr inbounds i8, ptr %conf, i64 40
+  %heads16 = getelementptr inbounds nuw i8, ptr %conf, i64 40
   %8 = load i32, ptr %heads16, align 8
   %tobool17.not = icmp eq i32 %8, 0
   br i1 %tobool17.not, label %lor.lhs.false18, label %if.then27
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false
-  %secs19 = getelementptr inbounds i8, ptr %conf, i64 44
+  %secs19 = getelementptr inbounds nuw i8, ptr %conf, i64 44
   %9 = load i32, ptr %secs19, align 4
   %tobool20.not = icmp eq i32 %9, 0
   br i1 %tobool20.not, label %return, label %if.then27
@@ -490,7 +490,7 @@ if.then27:                                        ; preds = %lor.lhs.false, %lor
   br label %return
 
 if.end28:                                         ; preds = %if.then21
-  %heads29 = getelementptr inbounds i8, ptr %conf, i64 40
+  %heads29 = getelementptr inbounds nuw i8, ptr %conf, i64 40
   %10 = load i32, ptr %heads29, align 8
   %11 = add i32 %10, -1
   %or.cond29.not = icmp ult i32 %11, %heads_max
@@ -501,7 +501,7 @@ if.then34:                                        ; preds = %if.end28
   br label %return
 
 if.end35:                                         ; preds = %if.end28
-  %secs36 = getelementptr inbounds i8, ptr %conf, i64 44
+  %secs36 = getelementptr inbounds nuw i8, ptr %conf, i64 44
   %12 = load i32, ptr %secs36, align 4
   %13 = add i32 %12, -1
   %or.cond30.not = icmp ult i32 %13, %secs_max

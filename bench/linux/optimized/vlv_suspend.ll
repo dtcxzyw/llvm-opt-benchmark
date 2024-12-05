@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 18874368
   %5 = icmp eq i32 %4, 0
@@ -52,7 +52,7 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -62,21 +62,21 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
   br label %16
 
 16:                                               ; preds = %14, %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 7368
-  %18 = getelementptr inbounds i8, ptr %0, i64 7512
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(ptr noundef %17, i32 1245328, i1 noundef zeroext true) #7
+  %20 = tail call i32 %19(ptr noundef nonnull %17, i32 1245328, i1 noundef zeroext true) #7
   %21 = and i32 %20, 50331648
   %22 = icmp eq i32 %21, 50331648
   br i1 %22, label %35, label %23, !prof !7
 
 23:                                               ; preds = %16
   tail call void asm sideeffect "842: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 842b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 842) #7, !srcloc !8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @dev_driver_string(ptr noundef %25) #7
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %33
@@ -96,7 +96,7 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
 
 35:                                               ; preds = %33, %16
   %36 = load ptr, ptr %18, align 8
-  %37 = tail call i32 %36(ptr noundef %17, i32 1245332, i1 noundef zeroext true) #7
+  %37 = tail call i32 %36(ptr noundef nonnull %17, i32 1245332, i1 noundef zeroext true) #7
   %38 = and i32 %37, 2
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %49, label %40
@@ -106,26 +106,26 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
   br label %45
 
 45:                                               ; preds = %42, %40
   %46 = phi ptr [ %44, %42 ], [ null, %40 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %46, i32 noundef 1, ptr noundef nonnull @.str.7) #7
-  %47 = getelementptr inbounds i8, ptr %0, i64 7544
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef %17, i32 1245332, i32 noundef 2, i1 noundef zeroext true) #7
+  tail call void %48(ptr noundef nonnull %17, i32 1245332, i32 noundef 2, i1 noundef zeroext true) #7
   br label %49
 
 49:                                               ; preds = %45, %35
   %50 = load ptr, ptr %18, align 8
-  %51 = tail call i32 %50(ptr noundef %17, i32 1245336, i1 noundef zeroext true) #7
+  %51 = tail call i32 %50(ptr noundef nonnull %17, i32 1245336, i1 noundef zeroext true) #7
   %52 = or i32 %51, 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 7544
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef %17, i32 1245336, i32 noundef %52, i1 noundef zeroext true) #7
-  %55 = tail call i32 @__intel_wait_for_register(ptr noundef %17, i32 1245336, i32 noundef 8, i32 noundef 8, i32 noundef 2, i32 noundef 20, ptr noundef null) #7
+  tail call void %54(ptr noundef nonnull %17, i32 1245336, i32 noundef %52, i1 noundef zeroext true) #7
+  %55 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %17, i32 1245336, i32 noundef 8, i32 noundef 8, i32 noundef 2, i32 noundef 20, ptr noundef null) #7
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %66, label %57
 
@@ -134,25 +134,25 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %0, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load ptr, ptr %60, align 8
   br label %62
 
 62:                                               ; preds = %59, %57
   %63 = phi ptr [ %61, %59 ], [ null, %57 ]
   %64 = load ptr, ptr %18, align 8
-  %65 = tail call i32 %64(ptr noundef %17, i32 1245336, i1 noundef zeroext true) #7
+  %65 = tail call i32 %64(ptr noundef nonnull %17, i32 1245336, i1 noundef zeroext true) #7
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %63, ptr noundef nonnull @.str.8, i32 noundef %65) #8
   br label %256
 
 66:                                               ; preds = %49
   %67 = load ptr, ptr %18, align 8
-  %68 = tail call i32 %67(ptr noundef %17, i32 1245328, i1 noundef zeroext true) #7
+  %68 = tail call i32 %67(ptr noundef nonnull %17, i32 1245328, i1 noundef zeroext true) #7
   %69 = and i32 %68, -2
   %70 = load ptr, ptr %53, align 8
-  tail call void %70(ptr noundef %17, i32 1245328, i32 noundef %69, i1 noundef zeroext true) #7
+  tail call void %70(ptr noundef nonnull %17, i32 1245328, i32 noundef %69, i1 noundef zeroext true) #7
   %71 = load ptr, ptr %18, align 8
-  %72 = tail call i32 %71(ptr noundef %17, i32 1245328, i1 noundef zeroext false) #7
+  %72 = tail call i32 %71(ptr noundef nonnull %17, i32 1245328, i1 noundef zeroext false) #7
   %73 = tail call fastcc i32 @vlv_wait_for_pw_status(ptr noundef %0, i32 noundef 1, i32 noundef 0), !range !6
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %90, label %75
@@ -162,7 +162,7 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
   br i1 %76, label %80, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load ptr, ptr %78, align 8
   br label %80
 
@@ -170,43 +170,43 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
   %81 = phi ptr [ %79, %77 ], [ null, %75 ]
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %81, ptr noundef nonnull @.str.9) #8
   %82 = load ptr, ptr %18, align 8
-  %83 = tail call i32 %82(ptr noundef %17, i32 1245328, i1 noundef zeroext true) #7
+  %83 = tail call i32 %82(ptr noundef nonnull %17, i32 1245328, i1 noundef zeroext true) #7
   %84 = or i32 %83, 1
   %85 = load ptr, ptr %53, align 8
-  tail call void %85(ptr noundef %17, i32 1245328, i32 noundef %84, i1 noundef zeroext true) #7
+  tail call void %85(ptr noundef nonnull %17, i32 1245328, i32 noundef %84, i1 noundef zeroext true) #7
   %86 = load ptr, ptr %18, align 8
-  %87 = tail call i32 %86(ptr noundef %17, i32 1245328, i1 noundef zeroext false) #7
+  %87 = tail call i32 %86(ptr noundef nonnull %17, i32 1245328, i1 noundef zeroext false) #7
   %88 = tail call fastcc i32 @vlv_wait_for_pw_status(ptr noundef %0, i32 noundef 1, i32 noundef 1), !range !6
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %256, label %250
 
 90:                                               ; preds = %66
-  %91 = getelementptr inbounds i8, ptr %0, i64 8904
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8904
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %256, label %94
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr %18, align 8
-  %96 = tail call i32 %95(ptr noundef %17, i32 16424, i1 noundef zeroext true) #7
+  %96 = tail call i32 %95(ptr noundef nonnull %17, i32 16424, i1 noundef zeroext true) #7
   store i32 %96, ptr %92, align 4
   %97 = load ptr, ptr %18, align 8
-  %98 = tail call i32 %97(ptr noundef %17, i32 16428, i1 noundef zeroext true) #7
-  %99 = getelementptr inbounds i8, ptr %92, i64 4
+  %98 = tail call i32 %97(ptr noundef nonnull %17, i32 16428, i1 noundef zeroext true) #7
+  %99 = getelementptr inbounds nuw i8, ptr %92, i64 4
   store i32 %98, ptr %99, align 4
   %100 = load ptr, ptr %18, align 8
-  %101 = tail call i32 %100(ptr noundef %17, i32 16432, i1 noundef zeroext true) #7
-  %102 = getelementptr inbounds i8, ptr %92, i64 8
+  %101 = tail call i32 %100(ptr noundef nonnull %17, i32 16432, i1 noundef zeroext true) #7
+  %102 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i32 %101, ptr %102, align 4
   %103 = load ptr, ptr %18, align 8
-  %104 = tail call i32 %103(ptr noundef %17, i32 16436, i1 noundef zeroext true) #7
-  %105 = getelementptr inbounds i8, ptr %92, i64 12
+  %104 = tail call i32 %103(ptr noundef nonnull %17, i32 16436, i1 noundef zeroext true) #7
+  %105 = getelementptr inbounds nuw i8, ptr %92, i64 12
   store i32 %104, ptr %105, align 4
   %106 = load ptr, ptr %18, align 8
-  %107 = tail call i32 %106(ptr noundef %17, i32 16440, i1 noundef zeroext true) #7
-  %108 = getelementptr inbounds i8, ptr %92, i64 16
+  %107 = tail call i32 %106(ptr noundef nonnull %17, i32 16440, i1 noundef zeroext true) #7
+  %108 = getelementptr inbounds nuw i8, ptr %92, i64 16
   store i32 %107, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %92, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %92, i64 20
   br label %110
 
 110:                                              ; preds = %110, %94
@@ -215,7 +215,7 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
   %113 = trunc i64 %111 to i32
   %114 = shl i32 %113, 2
   %115 = add i32 %114, 16444
-  %116 = tail call i32 %112(ptr noundef %17, i32 %115, i1 noundef zeroext true) #7
+  %116 = tail call i32 %112(ptr noundef nonnull %17, i32 %115, i1 noundef zeroext true) #7
   %117 = getelementptr [13 x i32], ptr %109, i64 0, i64 %111
   store i32 %116, ptr %117, align 4
   %118 = add nuw nsw i64 %111, 1
@@ -224,126 +224,126 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
 
 120:                                              ; preds = %110
   %121 = load ptr, ptr %18, align 8
-  %122 = tail call i32 %121(ptr noundef %17, i32 16496, i1 noundef zeroext true) #7
-  %123 = getelementptr inbounds i8, ptr %92, i64 72
+  %122 = tail call i32 %121(ptr noundef nonnull %17, i32 16496, i1 noundef zeroext true) #7
+  %123 = getelementptr inbounds nuw i8, ptr %92, i64 72
   store i32 %122, ptr %123, align 4
   %124 = load ptr, ptr %18, align 8
-  %125 = tail call i32 %124(ptr noundef %17, i32 16500, i1 noundef zeroext true) #7
-  %126 = getelementptr inbounds i8, ptr %92, i64 76
+  %125 = tail call i32 %124(ptr noundef nonnull %17, i32 16500, i1 noundef zeroext true) #7
+  %126 = getelementptr inbounds nuw i8, ptr %92, i64 76
   store i32 %125, ptr %126, align 4
   %127 = load ptr, ptr %18, align 8
-  %128 = tail call i32 %127(ptr noundef %17, i32 16512, i1 noundef zeroext true) #7
-  %129 = getelementptr inbounds i8, ptr %92, i64 80
+  %128 = tail call i32 %127(ptr noundef nonnull %17, i32 16512, i1 noundef zeroext true) #7
+  %129 = getelementptr inbounds nuw i8, ptr %92, i64 80
   store i32 %128, ptr %129, align 4
   %130 = load ptr, ptr %18, align 8
-  %131 = tail call i32 %130(ptr noundef %17, i32 16528, i1 noundef zeroext true) #7
-  %132 = getelementptr inbounds i8, ptr %92, i64 84
+  %131 = tail call i32 %130(ptr noundef nonnull %17, i32 16528, i1 noundef zeroext true) #7
+  %132 = getelementptr inbounds nuw i8, ptr %92, i64 84
   store i32 %131, ptr %132, align 4
   %133 = load ptr, ptr %18, align 8
-  %134 = tail call i32 %133(ptr noundef %17, i32 16768, i1 noundef zeroext true) #7
-  %135 = getelementptr inbounds i8, ptr %92, i64 88
+  %134 = tail call i32 %133(ptr noundef nonnull %17, i32 16768, i1 noundef zeroext true) #7
+  %135 = getelementptr inbounds nuw i8, ptr %92, i64 88
   store i32 %134, ptr %135, align 4
   %136 = load ptr, ptr %18, align 8
-  %137 = tail call i32 %136(ptr noundef %17, i32 17024, i1 noundef zeroext true) #7
-  %138 = getelementptr inbounds i8, ptr %92, i64 92
+  %137 = tail call i32 %136(ptr noundef nonnull %17, i32 17024, i1 noundef zeroext true) #7
+  %138 = getelementptr inbounds nuw i8, ptr %92, i64 92
   store i32 %137, ptr %138, align 4
   %139 = load ptr, ptr %18, align 8
-  %140 = tail call i32 %139(ptr noundef %17, i32 18176, i1 noundef zeroext true) #7
-  %141 = getelementptr inbounds i8, ptr %92, i64 96
+  %140 = tail call i32 %139(ptr noundef nonnull %17, i32 18176, i1 noundef zeroext true) #7
+  %141 = getelementptr inbounds nuw i8, ptr %92, i64 96
   store i32 %140, ptr %141, align 4
   %142 = load ptr, ptr %18, align 8
-  %143 = tail call i32 %142(ptr noundef %17, i32 36900, i1 noundef zeroext true) #7
-  %144 = getelementptr inbounds i8, ptr %92, i64 100
+  %143 = tail call i32 %142(ptr noundef nonnull %17, i32 36900, i1 noundef zeroext true) #7
+  %144 = getelementptr inbounds nuw i8, ptr %92, i64 100
   store i32 %143, ptr %144, align 4
   %145 = load ptr, ptr %18, align 8
-  %146 = tail call i32 %145(ptr noundef %17, i32 36904, i1 noundef zeroext true) #7
-  %147 = getelementptr inbounds i8, ptr %92, i64 104
+  %146 = tail call i32 %145(ptr noundef nonnull %17, i32 36904, i1 noundef zeroext true) #7
+  %147 = getelementptr inbounds nuw i8, ptr %92, i64 104
   store i32 %146, ptr %147, align 4
   %148 = load ptr, ptr %18, align 8
-  %149 = tail call i32 %148(ptr noundef %17, i32 36988, i1 noundef zeroext true) #7
-  %150 = getelementptr inbounds i8, ptr %92, i64 108
+  %149 = tail call i32 %148(ptr noundef nonnull %17, i32 36988, i1 noundef zeroext true) #7
+  %150 = getelementptr inbounds nuw i8, ptr %92, i64 108
   store i32 %149, ptr %150, align 4
   %151 = load ptr, ptr %18, align 8
-  %152 = tail call i32 %151(ptr noundef %17, i32 37888, i1 noundef zeroext true) #7
-  %153 = getelementptr inbounds i8, ptr %92, i64 112
+  %152 = tail call i32 %151(ptr noundef nonnull %17, i32 37888, i1 noundef zeroext true) #7
+  %153 = getelementptr inbounds nuw i8, ptr %92, i64 112
   store i32 %152, ptr %153, align 4
   %154 = load ptr, ptr %18, align 8
-  %155 = tail call i32 %154(ptr noundef %17, i32 37896, i1 noundef zeroext true) #7
-  %156 = getelementptr inbounds i8, ptr %92, i64 116
+  %155 = tail call i32 %154(ptr noundef nonnull %17, i32 37896, i1 noundef zeroext true) #7
+  %156 = getelementptr inbounds nuw i8, ptr %92, i64 116
   store i32 %155, ptr %156, align 4
   %157 = load ptr, ptr %18, align 8
-  %158 = tail call i32 %157(ptr noundef %17, i32 37904, i1 noundef zeroext true) #7
-  %159 = getelementptr inbounds i8, ptr %92, i64 120
+  %158 = tail call i32 %157(ptr noundef nonnull %17, i32 37904, i1 noundef zeroext true) #7
+  %159 = getelementptr inbounds nuw i8, ptr %92, i64 120
   store i32 %158, ptr %159, align 4
   %160 = load ptr, ptr %18, align 8
-  %161 = tail call i32 %160(ptr noundef %17, i32 37908, i1 noundef zeroext true) #7
-  %162 = getelementptr inbounds i8, ptr %92, i64 124
+  %161 = tail call i32 %160(ptr noundef nonnull %17, i32 37908, i1 noundef zeroext true) #7
+  %162 = getelementptr inbounds nuw i8, ptr %92, i64 124
   store i32 %161, ptr %162, align 4
   %163 = load ptr, ptr %18, align 8
-  %164 = tail call i32 %163(ptr noundef %17, i32 37920, i1 noundef zeroext true) #7
-  %165 = getelementptr inbounds i8, ptr %92, i64 128
+  %164 = tail call i32 %163(ptr noundef nonnull %17, i32 37920, i1 noundef zeroext true) #7
+  %165 = getelementptr inbounds nuw i8, ptr %92, i64 128
   store i32 %164, ptr %165, align 4
   %166 = load ptr, ptr %18, align 8
-  %167 = tail call i32 %166(ptr noundef %17, i32 37924, i1 noundef zeroext true) #7
-  %168 = getelementptr inbounds i8, ptr %92, i64 132
+  %167 = tail call i32 %166(ptr noundef nonnull %17, i32 37924, i1 noundef zeroext true) #7
+  %168 = getelementptr inbounds nuw i8, ptr %92, i64 132
   store i32 %167, ptr %168, align 4
   %169 = load ptr, ptr %18, align 8
-  %170 = tail call i32 %169(ptr noundef %17, i32 40960, i1 noundef zeroext true) #7
-  %171 = getelementptr inbounds i8, ptr %92, i64 136
+  %170 = tail call i32 %169(ptr noundef nonnull %17, i32 40960, i1 noundef zeroext true) #7
+  %171 = getelementptr inbounds nuw i8, ptr %92, i64 136
   store i32 %170, ptr %171, align 4
   %172 = load ptr, ptr %18, align 8
-  %173 = tail call i32 %172(ptr noundef %17, i32 41088, i1 noundef zeroext true) #7
-  %174 = getelementptr inbounds i8, ptr %92, i64 140
+  %173 = tail call i32 %172(ptr noundef nonnull %17, i32 41088, i1 noundef zeroext true) #7
+  %174 = getelementptr inbounds nuw i8, ptr %92, i64 140
   store i32 %173, ptr %174, align 4
   %175 = load ptr, ptr %18, align 8
-  %176 = tail call i32 %175(ptr noundef %17, i32 41092, i1 noundef zeroext true) #7
-  %177 = getelementptr inbounds i8, ptr %92, i64 144
+  %176 = tail call i32 %175(ptr noundef nonnull %17, i32 41092, i1 noundef zeroext true) #7
+  %177 = getelementptr inbounds nuw i8, ptr %92, i64 144
   store i32 %176, ptr %177, align 4
   %178 = load ptr, ptr %18, align 8
-  %179 = tail call i32 %178(ptr noundef %17, i32 41344, i1 noundef zeroext true) #7
-  %180 = getelementptr inbounds i8, ptr %92, i64 148
+  %179 = tail call i32 %178(ptr noundef nonnull %17, i32 41344, i1 noundef zeroext true) #7
+  %180 = getelementptr inbounds nuw i8, ptr %92, i64 148
   store i32 %179, ptr %180, align 4
   %181 = load ptr, ptr %18, align 8
-  %182 = tail call i32 %181(ptr noundef %17, i32 41620, i1 noundef zeroext true) #7
-  %183 = getelementptr inbounds i8, ptr %92, i64 152
+  %182 = tail call i32 %181(ptr noundef nonnull %17, i32 41620, i1 noundef zeroext true) #7
+  %183 = getelementptr inbounds nuw i8, ptr %92, i64 152
   store i32 %182, ptr %183, align 4
   %184 = load ptr, ptr %18, align 8
-  %185 = tail call i32 %184(ptr noundef %17, i32 40976, i1 noundef zeroext true) #7
-  %186 = getelementptr inbounds i8, ptr %92, i64 156
+  %185 = tail call i32 %184(ptr noundef nonnull %17, i32 40976, i1 noundef zeroext true) #7
+  %186 = getelementptr inbounds nuw i8, ptr %92, i64 156
   store i32 %185, ptr %186, align 4
   %187 = load ptr, ptr %18, align 8
-  %188 = tail call i32 %187(ptr noundef %17, i32 41096, i1 noundef zeroext true) #7
-  %189 = getelementptr inbounds i8, ptr %92, i64 160
+  %188 = tail call i32 %187(ptr noundef nonnull %17, i32 41096, i1 noundef zeroext true) #7
+  %189 = getelementptr inbounds nuw i8, ptr %92, i64 160
   store i32 %188, ptr %189, align 4
   %190 = load ptr, ptr %18, align 8
-  %191 = tail call i32 %190(ptr noundef %17, i32 41136, i1 noundef zeroext true) #7
-  %192 = getelementptr inbounds i8, ptr %92, i64 164
+  %191 = tail call i32 %190(ptr noundef nonnull %17, i32 41136, i1 noundef zeroext true) #7
+  %192 = getelementptr inbounds nuw i8, ptr %92, i64 164
   store i32 %191, ptr %192, align 4
   %193 = load ptr, ptr %18, align 8
-  %194 = tail call i32 %193(ptr noundef %17, i32 41148, i1 noundef zeroext true) #7
-  %195 = getelementptr inbounds i8, ptr %92, i64 168
+  %194 = tail call i32 %193(ptr noundef nonnull %17, i32 41148, i1 noundef zeroext true) #7
+  %195 = getelementptr inbounds nuw i8, ptr %92, i64 168
   store i32 %194, ptr %195, align 4
   %196 = load ptr, ptr %18, align 8
-  %197 = tail call i32 %196(ptr noundef %17, i32 41364, i1 noundef zeroext true) #7
-  %198 = getelementptr inbounds i8, ptr %92, i64 172
+  %197 = tail call i32 %196(ptr noundef nonnull %17, i32 41364, i1 noundef zeroext true) #7
+  %198 = getelementptr inbounds nuw i8, ptr %92, i64 172
   store i32 %197, ptr %198, align 4
   %199 = load ptr, ptr %18, align 8
-  %200 = tail call i32 %199(ptr noundef %17, i32 278548, i1 noundef zeroext true) #7
-  %201 = getelementptr inbounds i8, ptr %92, i64 176
+  %200 = tail call i32 %199(ptr noundef nonnull %17, i32 278548, i1 noundef zeroext true) #7
+  %201 = getelementptr inbounds nuw i8, ptr %92, i64 176
   store i32 %200, ptr %201, align 4
   %202 = load ptr, ptr %18, align 8
-  %203 = tail call i32 %202(ptr noundef %17, i32 278556, i1 noundef zeroext true) #7
-  %204 = getelementptr inbounds i8, ptr %92, i64 180
+  %203 = tail call i32 %202(ptr noundef nonnull %17, i32 278556, i1 noundef zeroext true) #7
+  %204 = getelementptr inbounds nuw i8, ptr %92, i64 180
   store i32 %203, ptr %204, align 4
   %205 = load ptr, ptr %18, align 8
-  %206 = tail call i32 %205(ptr noundef %17, i32 278564, i1 noundef zeroext true) #7
-  %207 = getelementptr inbounds i8, ptr %92, i64 184
+  %206 = tail call i32 %205(ptr noundef nonnull %17, i32 278564, i1 noundef zeroext true) #7
+  %207 = getelementptr inbounds nuw i8, ptr %92, i64 184
   store i32 %206, ptr %207, align 4
   %208 = load ptr, ptr %18, align 8
-  %209 = tail call i32 %208(ptr noundef %17, i32 278572, i1 noundef zeroext true) #7
-  %210 = getelementptr inbounds i8, ptr %92, i64 188
+  %209 = tail call i32 %208(ptr noundef nonnull %17, i32 278572, i1 noundef zeroext true) #7
+  %210 = getelementptr inbounds nuw i8, ptr %92, i64 188
   store i32 %209, ptr %210, align 4
-  %211 = getelementptr inbounds i8, ptr %92, i64 192
+  %211 = getelementptr inbounds nuw i8, ptr %92, i64 192
   br label %212
 
 212:                                              ; preds = %212, %120
@@ -352,7 +352,7 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
   %215 = trunc i64 %213 to i32
   %216 = shl i32 %215, 2
   %217 = add i32 %216, 323840
-  %218 = tail call i32 %214(ptr noundef %17, i32 %217, i1 noundef zeroext true) #7
+  %218 = tail call i32 %214(ptr noundef nonnull %17, i32 %217, i1 noundef zeroext true) #7
   %219 = getelementptr [8 x i32], ptr %211, i64 0, i64 %213
   store i32 %218, ptr %219, align 4
   %220 = add nuw nsw i64 %213, 1
@@ -361,40 +361,40 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
 
 222:                                              ; preds = %212
   %223 = load ptr, ptr %18, align 8
-  %224 = tail call i32 %223(ptr noundef %17, i32 1052672, i1 noundef zeroext true) #7
-  %225 = getelementptr inbounds i8, ptr %92, i64 224
+  %224 = tail call i32 %223(ptr noundef nonnull %17, i32 1052672, i1 noundef zeroext true) #7
+  %225 = getelementptr inbounds nuw i8, ptr %92, i64 224
   store i32 %224, ptr %225, align 4
   %226 = load ptr, ptr %18, align 8
-  %227 = tail call i32 %226(ptr noundef %17, i32 1179656, i1 noundef zeroext true) #7
-  %228 = getelementptr inbounds i8, ptr %92, i64 228
+  %227 = tail call i32 %226(ptr noundef nonnull %17, i32 1179656, i1 noundef zeroext true) #7
+  %228 = getelementptr inbounds nuw i8, ptr %92, i64 228
   store i32 %227, ptr %228, align 4
   %229 = load ptr, ptr %18, align 8
-  %230 = tail call i32 %229(ptr noundef %17, i32 1245328, i1 noundef zeroext true) #7
-  %231 = getelementptr inbounds i8, ptr %92, i64 232
+  %230 = tail call i32 %229(ptr noundef nonnull %17, i32 1245328, i1 noundef zeroext true) #7
+  %231 = getelementptr inbounds nuw i8, ptr %92, i64 232
   store i32 %230, ptr %231, align 4
   %232 = load ptr, ptr %18, align 8
-  %233 = tail call i32 %232(ptr noundef %17, i32 1245336, i1 noundef zeroext true) #7
-  %234 = getelementptr inbounds i8, ptr %92, i64 236
+  %233 = tail call i32 %232(ptr noundef nonnull %17, i32 1245336, i1 noundef zeroext true) #7
+  %234 = getelementptr inbounds nuw i8, ptr %92, i64 236
   store i32 %233, ptr %234, align 4
   %235 = load ptr, ptr %18, align 8
-  %236 = tail call i32 %235(ptr noundef %17, i32 1245348, i1 noundef zeroext true) #7
-  %237 = getelementptr inbounds i8, ptr %92, i64 240
+  %236 = tail call i32 %235(ptr noundef nonnull %17, i32 1245348, i1 noundef zeroext true) #7
+  %237 = getelementptr inbounds nuw i8, ptr %92, i64 240
   store i32 %236, ptr %237, align 4
   %238 = load ptr, ptr %18, align 8
-  %239 = tail call i32 %238(ptr noundef %17, i32 1581104, i1 noundef zeroext true) #7
-  %240 = getelementptr inbounds i8, ptr %92, i64 244
+  %239 = tail call i32 %238(ptr noundef nonnull %17, i32 1581104, i1 noundef zeroext true) #7
+  %240 = getelementptr inbounds nuw i8, ptr %92, i64 244
   store i32 %239, ptr %240, align 4
   %241 = load ptr, ptr %18, align 8
-  %242 = tail call i32 %241(ptr noundef %17, i32 1581108, i1 noundef zeroext true) #7
-  %243 = getelementptr inbounds i8, ptr %92, i64 248
+  %242 = tail call i32 %241(ptr noundef nonnull %17, i32 1581108, i1 noundef zeroext true) #7
+  %243 = getelementptr inbounds nuw i8, ptr %92, i64 248
   store i32 %242, ptr %243, align 4
   %244 = load ptr, ptr %18, align 8
-  %245 = tail call i32 %244(ptr noundef %17, i32 1581344, i1 noundef zeroext true) #7
-  %246 = getelementptr inbounds i8, ptr %92, i64 252
+  %245 = tail call i32 %244(ptr noundef nonnull %17, i32 1581344, i1 noundef zeroext true) #7
+  %246 = getelementptr inbounds nuw i8, ptr %92, i64 252
   store i32 %245, ptr %246, align 4
   %247 = load ptr, ptr %18, align 8
-  %248 = tail call i32 %247(ptr noundef %17, i32 1581156, i1 noundef zeroext true) #7
-  %249 = getelementptr inbounds i8, ptr %92, i64 256
+  %248 = tail call i32 %247(ptr noundef nonnull %17, i32 1581156, i1 noundef zeroext true) #7
+  %249 = getelementptr inbounds nuw i8, ptr %92, i64 256
   store i32 %248, ptr %249, align 4
   br label %256
 
@@ -402,7 +402,7 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
   br i1 %76, label %254, label %251
 
 251:                                              ; preds = %250
-  %252 = getelementptr inbounds i8, ptr %0, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %253 = load ptr, ptr %252, align 8
   br label %254
 
@@ -414,10 +414,10 @@ define dso_local i32 @vlv_suspend_complete(ptr noundef %0) local_unnamed_addr #0
 256:                                              ; preds = %62, %254, %80, %222, %90
   %257 = phi i32 [ 0, %90 ], [ 0, %222 ], [ %55, %62 ], [ %73, %80 ], [ %73, %254 ]
   %258 = load ptr, ptr %18, align 8
-  %259 = tail call i32 %258(ptr noundef %17, i32 1245336, i1 noundef zeroext true) #7
+  %259 = tail call i32 %258(ptr noundef nonnull %17, i32 1245336, i1 noundef zeroext true) #7
   %260 = and i32 %259, -5
   %261 = load ptr, ptr %53, align 8
-  tail call void %261(ptr noundef %17, i32 1245336, i32 noundef %260, i1 noundef zeroext true) #7
+  tail call void %261(ptr noundef nonnull %17, i32 1245336, i32 noundef %260, i1 noundef zeroext true) #7
   br label %262
 
 262:                                              ; preds = %256, %1
@@ -433,22 +433,22 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @vlv_resume_prepare(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 7184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 18874368
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %233, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 7368
-  %9 = getelementptr inbounds i8, ptr %0, i64 7512
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %8, i32 1245336, i1 noundef zeroext true) #7
+  %11 = tail call i32 %10(ptr noundef nonnull %8, i32 1245336, i1 noundef zeroext true) #7
   %12 = or i32 %11, 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 7544
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef %8, i32 1245336, i32 noundef %12, i1 noundef zeroext true) #7
-  %15 = tail call i32 @__intel_wait_for_register(ptr noundef %8, i32 1245336, i32 noundef 8, i32 noundef 8, i32 noundef 2, i32 noundef 20, ptr noundef null) #7
+  tail call void %14(ptr noundef nonnull %8, i32 1245336, i32 noundef %12, i1 noundef zeroext true) #7
+  %15 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %8, i32 1245336, i32 noundef 8, i32 noundef 8, i32 noundef 2, i32 noundef 20, ptr noundef null) #7
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %26, label %17
 
@@ -457,19 +457,19 @@ define dso_local i32 @vlv_resume_prepare(ptr noundef %0, i1 noundef zeroext %1) 
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   br label %22
 
 22:                                               ; preds = %19, %17
   %23 = phi ptr [ %21, %19 ], [ null, %17 ]
   %24 = load ptr, ptr %9, align 8
-  %25 = tail call i32 %24(ptr noundef %8, i32 1245336, i1 noundef zeroext true) #7
+  %25 = tail call i32 %24(ptr noundef nonnull %8, i32 1245336, i1 noundef zeroext true) #7
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %23, ptr noundef nonnull @.str.8, i32 noundef %25) #8
   br label %26
 
 26:                                               ; preds = %22, %7
-  %27 = getelementptr inbounds i8, ptr %0, i64 8904
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8904
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %197, label %30
@@ -477,25 +477,25 @@ define dso_local i32 @vlv_resume_prepare(ptr noundef %0, i1 noundef zeroext %1) 
 30:                                               ; preds = %26
   %31 = load i32, ptr %28, align 4
   %32 = load ptr, ptr %13, align 8
-  tail call void %32(ptr noundef %8, i32 16424, i32 noundef %31, i1 noundef zeroext true) #7
-  %33 = getelementptr inbounds i8, ptr %28, i64 4
+  tail call void %32(ptr noundef nonnull %8, i32 16424, i32 noundef %31, i1 noundef zeroext true) #7
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = load ptr, ptr %13, align 8
-  tail call void %35(ptr noundef %8, i32 16428, i32 noundef %34, i1 noundef zeroext true) #7
-  %36 = getelementptr inbounds i8, ptr %28, i64 8
+  tail call void %35(ptr noundef nonnull %8, i32 16428, i32 noundef %34, i1 noundef zeroext true) #7
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %37 = load i32, ptr %36, align 4
   %38 = or i32 %37, -65536
   %39 = load ptr, ptr %13, align 8
-  tail call void %39(ptr noundef %8, i32 16432, i32 noundef %38, i1 noundef zeroext true) #7
-  %40 = getelementptr inbounds i8, ptr %28, i64 12
+  tail call void %39(ptr noundef nonnull %8, i32 16432, i32 noundef %38, i1 noundef zeroext true) #7
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %13, align 8
-  tail call void %42(ptr noundef %8, i32 16436, i32 noundef %41, i1 noundef zeroext true) #7
-  %43 = getelementptr inbounds i8, ptr %28, i64 16
+  tail call void %42(ptr noundef nonnull %8, i32 16436, i32 noundef %41, i1 noundef zeroext true) #7
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %13, align 8
-  tail call void %45(ptr noundef %8, i32 16440, i32 noundef %44, i1 noundef zeroext true) #7
-  %46 = getelementptr inbounds i8, ptr %28, i64 20
+  tail call void %45(ptr noundef nonnull %8, i32 16440, i32 noundef %44, i1 noundef zeroext true) #7
+  %46 = getelementptr inbounds nuw i8, ptr %28, i64 20
   br label %47
 
 47:                                               ; preds = %47, %30
@@ -506,133 +506,133 @@ define dso_local i32 @vlv_resume_prepare(ptr noundef %0, i1 noundef zeroext %1) 
   %52 = trunc i64 %48 to i32
   %53 = shl i32 %52, 2
   %54 = add i32 %53, 16444
-  tail call void %51(ptr noundef %8, i32 %54, i32 noundef %50, i1 noundef zeroext true) #7
+  tail call void %51(ptr noundef nonnull %8, i32 %54, i32 noundef %50, i1 noundef zeroext true) #7
   %55 = add nuw nsw i64 %48, 1
   %56 = icmp eq i64 %55, 13
   br i1 %56, label %57, label %47, !llvm.loop !17
 
 57:                                               ; preds = %47
-  %58 = getelementptr inbounds i8, ptr %28, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %59 = load i32, ptr %58, align 4
   %60 = load ptr, ptr %13, align 8
-  tail call void %60(ptr noundef %8, i32 16496, i32 noundef %59, i1 noundef zeroext true) #7
-  %61 = getelementptr inbounds i8, ptr %28, i64 76
+  tail call void %60(ptr noundef nonnull %8, i32 16496, i32 noundef %59, i1 noundef zeroext true) #7
+  %61 = getelementptr inbounds nuw i8, ptr %28, i64 76
   %62 = load i32, ptr %61, align 4
   %63 = load ptr, ptr %13, align 8
-  tail call void %63(ptr noundef %8, i32 16500, i32 noundef %62, i1 noundef zeroext true) #7
-  %64 = getelementptr inbounds i8, ptr %28, i64 80
+  tail call void %63(ptr noundef nonnull %8, i32 16500, i32 noundef %62, i1 noundef zeroext true) #7
+  %64 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %65 = load i32, ptr %64, align 4
   %66 = load ptr, ptr %13, align 8
-  tail call void %66(ptr noundef %8, i32 16512, i32 noundef %65, i1 noundef zeroext true) #7
-  %67 = getelementptr inbounds i8, ptr %28, i64 84
+  tail call void %66(ptr noundef nonnull %8, i32 16512, i32 noundef %65, i1 noundef zeroext true) #7
+  %67 = getelementptr inbounds nuw i8, ptr %28, i64 84
   %68 = load i32, ptr %67, align 4
   %69 = load ptr, ptr %13, align 8
-  tail call void %69(ptr noundef %8, i32 16528, i32 noundef %68, i1 noundef zeroext true) #7
-  %70 = getelementptr inbounds i8, ptr %28, i64 88
+  tail call void %69(ptr noundef nonnull %8, i32 16528, i32 noundef %68, i1 noundef zeroext true) #7
+  %70 = getelementptr inbounds nuw i8, ptr %28, i64 88
   %71 = load i32, ptr %70, align 4
   %72 = load ptr, ptr %13, align 8
-  tail call void %72(ptr noundef %8, i32 16768, i32 noundef %71, i1 noundef zeroext true) #7
-  %73 = getelementptr inbounds i8, ptr %28, i64 92
+  tail call void %72(ptr noundef nonnull %8, i32 16768, i32 noundef %71, i1 noundef zeroext true) #7
+  %73 = getelementptr inbounds nuw i8, ptr %28, i64 92
   %74 = load i32, ptr %73, align 4
   %75 = load ptr, ptr %13, align 8
-  tail call void %75(ptr noundef %8, i32 17024, i32 noundef %74, i1 noundef zeroext true) #7
-  %76 = getelementptr inbounds i8, ptr %28, i64 96
+  tail call void %75(ptr noundef nonnull %8, i32 17024, i32 noundef %74, i1 noundef zeroext true) #7
+  %76 = getelementptr inbounds nuw i8, ptr %28, i64 96
   %77 = load i32, ptr %76, align 4
   %78 = load ptr, ptr %13, align 8
-  tail call void %78(ptr noundef %8, i32 18176, i32 noundef %77, i1 noundef zeroext true) #7
-  %79 = getelementptr inbounds i8, ptr %28, i64 100
+  tail call void %78(ptr noundef nonnull %8, i32 18176, i32 noundef %77, i1 noundef zeroext true) #7
+  %79 = getelementptr inbounds nuw i8, ptr %28, i64 100
   %80 = load i32, ptr %79, align 4
   %81 = load ptr, ptr %13, align 8
-  tail call void %81(ptr noundef %8, i32 36900, i32 noundef %80, i1 noundef zeroext true) #7
-  %82 = getelementptr inbounds i8, ptr %28, i64 104
+  tail call void %81(ptr noundef nonnull %8, i32 36900, i32 noundef %80, i1 noundef zeroext true) #7
+  %82 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %83 = load i32, ptr %82, align 4
   %84 = load ptr, ptr %13, align 8
-  tail call void %84(ptr noundef %8, i32 36904, i32 noundef %83, i1 noundef zeroext true) #7
-  %85 = getelementptr inbounds i8, ptr %28, i64 108
+  tail call void %84(ptr noundef nonnull %8, i32 36904, i32 noundef %83, i1 noundef zeroext true) #7
+  %85 = getelementptr inbounds nuw i8, ptr %28, i64 108
   %86 = load i32, ptr %85, align 4
   %87 = load ptr, ptr %13, align 8
-  tail call void %87(ptr noundef %8, i32 36988, i32 noundef %86, i1 noundef zeroext true) #7
-  %88 = getelementptr inbounds i8, ptr %28, i64 112
+  tail call void %87(ptr noundef nonnull %8, i32 36988, i32 noundef %86, i1 noundef zeroext true) #7
+  %88 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %89 = load i32, ptr %88, align 4
   %90 = load ptr, ptr %13, align 8
-  tail call void %90(ptr noundef %8, i32 37888, i32 noundef %89, i1 noundef zeroext true) #7
-  %91 = getelementptr inbounds i8, ptr %28, i64 116
+  tail call void %90(ptr noundef nonnull %8, i32 37888, i32 noundef %89, i1 noundef zeroext true) #7
+  %91 = getelementptr inbounds nuw i8, ptr %28, i64 116
   %92 = load i32, ptr %91, align 4
   %93 = load ptr, ptr %13, align 8
-  tail call void %93(ptr noundef %8, i32 37896, i32 noundef %92, i1 noundef zeroext true) #7
-  %94 = getelementptr inbounds i8, ptr %28, i64 120
+  tail call void %93(ptr noundef nonnull %8, i32 37896, i32 noundef %92, i1 noundef zeroext true) #7
+  %94 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %95 = load i32, ptr %94, align 4
   %96 = load ptr, ptr %13, align 8
-  tail call void %96(ptr noundef %8, i32 37904, i32 noundef %95, i1 noundef zeroext true) #7
-  %97 = getelementptr inbounds i8, ptr %28, i64 124
+  tail call void %96(ptr noundef nonnull %8, i32 37904, i32 noundef %95, i1 noundef zeroext true) #7
+  %97 = getelementptr inbounds nuw i8, ptr %28, i64 124
   %98 = load i32, ptr %97, align 4
   %99 = load ptr, ptr %13, align 8
-  tail call void %99(ptr noundef %8, i32 37908, i32 noundef %98, i1 noundef zeroext true) #7
-  %100 = getelementptr inbounds i8, ptr %28, i64 128
+  tail call void %99(ptr noundef nonnull %8, i32 37908, i32 noundef %98, i1 noundef zeroext true) #7
+  %100 = getelementptr inbounds nuw i8, ptr %28, i64 128
   %101 = load i32, ptr %100, align 4
   %102 = load ptr, ptr %13, align 8
-  tail call void %102(ptr noundef %8, i32 37920, i32 noundef %101, i1 noundef zeroext true) #7
-  %103 = getelementptr inbounds i8, ptr %28, i64 132
+  tail call void %102(ptr noundef nonnull %8, i32 37920, i32 noundef %101, i1 noundef zeroext true) #7
+  %103 = getelementptr inbounds nuw i8, ptr %28, i64 132
   %104 = load i32, ptr %103, align 4
   %105 = load ptr, ptr %13, align 8
-  tail call void %105(ptr noundef %8, i32 37924, i32 noundef %104, i1 noundef zeroext true) #7
-  %106 = getelementptr inbounds i8, ptr %28, i64 136
+  tail call void %105(ptr noundef nonnull %8, i32 37924, i32 noundef %104, i1 noundef zeroext true) #7
+  %106 = getelementptr inbounds nuw i8, ptr %28, i64 136
   %107 = load i32, ptr %106, align 4
   %108 = load ptr, ptr %13, align 8
-  tail call void %108(ptr noundef %8, i32 40960, i32 noundef %107, i1 noundef zeroext true) #7
-  %109 = getelementptr inbounds i8, ptr %28, i64 140
+  tail call void %108(ptr noundef nonnull %8, i32 40960, i32 noundef %107, i1 noundef zeroext true) #7
+  %109 = getelementptr inbounds nuw i8, ptr %28, i64 140
   %110 = load i32, ptr %109, align 4
   %111 = load ptr, ptr %13, align 8
-  tail call void %111(ptr noundef %8, i32 41088, i32 noundef %110, i1 noundef zeroext true) #7
-  %112 = getelementptr inbounds i8, ptr %28, i64 144
+  tail call void %111(ptr noundef nonnull %8, i32 41088, i32 noundef %110, i1 noundef zeroext true) #7
+  %112 = getelementptr inbounds nuw i8, ptr %28, i64 144
   %113 = load i32, ptr %112, align 4
   %114 = load ptr, ptr %13, align 8
-  tail call void %114(ptr noundef %8, i32 41092, i32 noundef %113, i1 noundef zeroext true) #7
-  %115 = getelementptr inbounds i8, ptr %28, i64 148
+  tail call void %114(ptr noundef nonnull %8, i32 41092, i32 noundef %113, i1 noundef zeroext true) #7
+  %115 = getelementptr inbounds nuw i8, ptr %28, i64 148
   %116 = load i32, ptr %115, align 4
   %117 = load ptr, ptr %13, align 8
-  tail call void %117(ptr noundef %8, i32 41344, i32 noundef %116, i1 noundef zeroext true) #7
-  %118 = getelementptr inbounds i8, ptr %28, i64 152
+  tail call void %117(ptr noundef nonnull %8, i32 41344, i32 noundef %116, i1 noundef zeroext true) #7
+  %118 = getelementptr inbounds nuw i8, ptr %28, i64 152
   %119 = load i32, ptr %118, align 4
   %120 = load ptr, ptr %13, align 8
-  tail call void %120(ptr noundef %8, i32 41620, i32 noundef %119, i1 noundef zeroext true) #7
-  %121 = getelementptr inbounds i8, ptr %28, i64 156
+  tail call void %120(ptr noundef nonnull %8, i32 41620, i32 noundef %119, i1 noundef zeroext true) #7
+  %121 = getelementptr inbounds nuw i8, ptr %28, i64 156
   %122 = load i32, ptr %121, align 4
   %123 = load ptr, ptr %13, align 8
-  tail call void %123(ptr noundef %8, i32 40976, i32 noundef %122, i1 noundef zeroext true) #7
-  %124 = getelementptr inbounds i8, ptr %28, i64 160
+  tail call void %123(ptr noundef nonnull %8, i32 40976, i32 noundef %122, i1 noundef zeroext true) #7
+  %124 = getelementptr inbounds nuw i8, ptr %28, i64 160
   %125 = load i32, ptr %124, align 4
   %126 = load ptr, ptr %13, align 8
-  tail call void %126(ptr noundef %8, i32 41096, i32 noundef %125, i1 noundef zeroext true) #7
-  %127 = getelementptr inbounds i8, ptr %28, i64 164
+  tail call void %126(ptr noundef nonnull %8, i32 41096, i32 noundef %125, i1 noundef zeroext true) #7
+  %127 = getelementptr inbounds nuw i8, ptr %28, i64 164
   %128 = load i32, ptr %127, align 4
   %129 = load ptr, ptr %13, align 8
-  tail call void %129(ptr noundef %8, i32 41136, i32 noundef %128, i1 noundef zeroext true) #7
-  %130 = getelementptr inbounds i8, ptr %28, i64 168
+  tail call void %129(ptr noundef nonnull %8, i32 41136, i32 noundef %128, i1 noundef zeroext true) #7
+  %130 = getelementptr inbounds nuw i8, ptr %28, i64 168
   %131 = load i32, ptr %130, align 4
   %132 = load ptr, ptr %13, align 8
-  tail call void %132(ptr noundef %8, i32 41148, i32 noundef %131, i1 noundef zeroext true) #7
-  %133 = getelementptr inbounds i8, ptr %28, i64 172
+  tail call void %132(ptr noundef nonnull %8, i32 41148, i32 noundef %131, i1 noundef zeroext true) #7
+  %133 = getelementptr inbounds nuw i8, ptr %28, i64 172
   %134 = load i32, ptr %133, align 4
   %135 = load ptr, ptr %13, align 8
-  tail call void %135(ptr noundef %8, i32 41364, i32 noundef %134, i1 noundef zeroext true) #7
-  %136 = getelementptr inbounds i8, ptr %28, i64 176
+  tail call void %135(ptr noundef nonnull %8, i32 41364, i32 noundef %134, i1 noundef zeroext true) #7
+  %136 = getelementptr inbounds nuw i8, ptr %28, i64 176
   %137 = load i32, ptr %136, align 4
   %138 = load ptr, ptr %13, align 8
-  tail call void %138(ptr noundef %8, i32 278548, i32 noundef %137, i1 noundef zeroext true) #7
-  %139 = getelementptr inbounds i8, ptr %28, i64 180
+  tail call void %138(ptr noundef nonnull %8, i32 278548, i32 noundef %137, i1 noundef zeroext true) #7
+  %139 = getelementptr inbounds nuw i8, ptr %28, i64 180
   %140 = load i32, ptr %139, align 4
   %141 = load ptr, ptr %13, align 8
-  tail call void %141(ptr noundef %8, i32 278556, i32 noundef %140, i1 noundef zeroext true) #7
-  %142 = getelementptr inbounds i8, ptr %28, i64 184
+  tail call void %141(ptr noundef nonnull %8, i32 278556, i32 noundef %140, i1 noundef zeroext true) #7
+  %142 = getelementptr inbounds nuw i8, ptr %28, i64 184
   %143 = load i32, ptr %142, align 4
   %144 = load ptr, ptr %13, align 8
-  tail call void %144(ptr noundef %8, i32 278564, i32 noundef %143, i1 noundef zeroext true) #7
-  %145 = getelementptr inbounds i8, ptr %28, i64 188
+  tail call void %144(ptr noundef nonnull %8, i32 278564, i32 noundef %143, i1 noundef zeroext true) #7
+  %145 = getelementptr inbounds nuw i8, ptr %28, i64 188
   %146 = load i32, ptr %145, align 4
   %147 = load ptr, ptr %13, align 8
-  tail call void %147(ptr noundef %8, i32 278572, i32 noundef %146, i1 noundef zeroext true) #7
-  %148 = getelementptr inbounds i8, ptr %28, i64 192
+  tail call void %147(ptr noundef nonnull %8, i32 278572, i32 noundef %146, i1 noundef zeroext true) #7
+  %148 = getelementptr inbounds nuw i8, ptr %28, i64 192
   br label %149
 
 149:                                              ; preds = %149, %57
@@ -643,68 +643,68 @@ define dso_local i32 @vlv_resume_prepare(ptr noundef %0, i1 noundef zeroext %1) 
   %154 = trunc i64 %150 to i32
   %155 = shl i32 %154, 2
   %156 = add i32 %155, 323840
-  tail call void %153(ptr noundef %8, i32 %156, i32 noundef %152, i1 noundef zeroext true) #7
+  tail call void %153(ptr noundef nonnull %8, i32 %156, i32 noundef %152, i1 noundef zeroext true) #7
   %157 = add nuw nsw i64 %150, 1
   %158 = icmp eq i64 %157, 8
   br i1 %158, label %159, label %149, !llvm.loop !18
 
 159:                                              ; preds = %149
-  %160 = getelementptr inbounds i8, ptr %28, i64 224
+  %160 = getelementptr inbounds nuw i8, ptr %28, i64 224
   %161 = load i32, ptr %160, align 4
   %162 = load ptr, ptr %13, align 8
-  tail call void %162(ptr noundef %8, i32 1052672, i32 noundef %161, i1 noundef zeroext true) #7
-  %163 = getelementptr inbounds i8, ptr %28, i64 228
+  tail call void %162(ptr noundef nonnull %8, i32 1052672, i32 noundef %161, i1 noundef zeroext true) #7
+  %163 = getelementptr inbounds nuw i8, ptr %28, i64 228
   %164 = load i32, ptr %163, align 4
   %165 = load ptr, ptr %13, align 8
-  tail call void %165(ptr noundef %8, i32 1179656, i32 noundef %164, i1 noundef zeroext true) #7
-  %166 = getelementptr inbounds i8, ptr %28, i64 232
+  tail call void %165(ptr noundef nonnull %8, i32 1179656, i32 noundef %164, i1 noundef zeroext true) #7
+  %166 = getelementptr inbounds nuw i8, ptr %28, i64 232
   %167 = load i32, ptr %166, align 4
   %168 = and i32 %167, -2
   %169 = load ptr, ptr %9, align 8
-  %170 = tail call i32 %169(ptr noundef %8, i32 1245328, i1 noundef zeroext true) #7
+  %170 = tail call i32 %169(ptr noundef nonnull %8, i32 1245328, i1 noundef zeroext true) #7
   %171 = and i32 %170, 1
   %172 = or disjoint i32 %171, %168
   %173 = load ptr, ptr %13, align 8
-  tail call void %173(ptr noundef %8, i32 1245328, i32 noundef %172, i1 noundef zeroext true) #7
-  %174 = getelementptr inbounds i8, ptr %28, i64 236
+  tail call void %173(ptr noundef nonnull %8, i32 1245328, i32 noundef %172, i1 noundef zeroext true) #7
+  %174 = getelementptr inbounds nuw i8, ptr %28, i64 236
   %175 = load i32, ptr %174, align 4
   %176 = and i32 %175, -5
   %177 = load ptr, ptr %9, align 8
-  %178 = tail call i32 %177(ptr noundef %8, i32 1245336, i1 noundef zeroext true) #7
+  %178 = tail call i32 %177(ptr noundef nonnull %8, i32 1245336, i1 noundef zeroext true) #7
   %179 = and i32 %178, 4
   %180 = or disjoint i32 %179, %176
   %181 = load ptr, ptr %13, align 8
-  tail call void %181(ptr noundef %8, i32 1245336, i32 noundef %180, i1 noundef zeroext true) #7
-  %182 = getelementptr inbounds i8, ptr %28, i64 240
+  tail call void %181(ptr noundef nonnull %8, i32 1245336, i32 noundef %180, i1 noundef zeroext true) #7
+  %182 = getelementptr inbounds nuw i8, ptr %28, i64 240
   %183 = load i32, ptr %182, align 4
   %184 = load ptr, ptr %13, align 8
-  tail call void %184(ptr noundef %8, i32 1245348, i32 noundef %183, i1 noundef zeroext true) #7
-  %185 = getelementptr inbounds i8, ptr %28, i64 244
+  tail call void %184(ptr noundef nonnull %8, i32 1245348, i32 noundef %183, i1 noundef zeroext true) #7
+  %185 = getelementptr inbounds nuw i8, ptr %28, i64 244
   %186 = load i32, ptr %185, align 4
   %187 = load ptr, ptr %13, align 8
-  tail call void %187(ptr noundef %8, i32 1581104, i32 noundef %186, i1 noundef zeroext true) #7
-  %188 = getelementptr inbounds i8, ptr %28, i64 248
+  tail call void %187(ptr noundef nonnull %8, i32 1581104, i32 noundef %186, i1 noundef zeroext true) #7
+  %188 = getelementptr inbounds nuw i8, ptr %28, i64 248
   %189 = load i32, ptr %188, align 4
   %190 = load ptr, ptr %13, align 8
-  tail call void %190(ptr noundef %8, i32 1581108, i32 noundef %189, i1 noundef zeroext true) #7
-  %191 = getelementptr inbounds i8, ptr %28, i64 252
+  tail call void %190(ptr noundef nonnull %8, i32 1581108, i32 noundef %189, i1 noundef zeroext true) #7
+  %191 = getelementptr inbounds nuw i8, ptr %28, i64 252
   %192 = load i32, ptr %191, align 4
   %193 = load ptr, ptr %13, align 8
-  tail call void %193(ptr noundef %8, i32 1581344, i32 noundef %192, i1 noundef zeroext true) #7
-  %194 = getelementptr inbounds i8, ptr %28, i64 256
+  tail call void %193(ptr noundef nonnull %8, i32 1581344, i32 noundef %192, i1 noundef zeroext true) #7
+  %194 = getelementptr inbounds nuw i8, ptr %28, i64 256
   %195 = load i32, ptr %194, align 4
   %196 = load ptr, ptr %13, align 8
-  tail call void %196(ptr noundef %8, i32 1581156, i32 noundef %195, i1 noundef zeroext true) #7
+  tail call void %196(ptr noundef nonnull %8, i32 1581156, i32 noundef %195, i1 noundef zeroext true) #7
   br label %197
 
 197:                                              ; preds = %159, %26
   %198 = load ptr, ptr %9, align 8
-  %199 = tail call i32 %198(ptr noundef %8, i32 1245328, i1 noundef zeroext true) #7
+  %199 = tail call i32 %198(ptr noundef nonnull %8, i32 1245328, i1 noundef zeroext true) #7
   %200 = or i32 %199, 1
   %201 = load ptr, ptr %13, align 8
-  tail call void %201(ptr noundef %8, i32 1245328, i32 noundef %200, i1 noundef zeroext true) #7
+  tail call void %201(ptr noundef nonnull %8, i32 1245328, i32 noundef %200, i1 noundef zeroext true) #7
   %202 = load ptr, ptr %9, align 8
-  %203 = tail call i32 %202(ptr noundef %8, i32 1245328, i1 noundef zeroext false) #7
+  %203 = tail call i32 %202(ptr noundef nonnull %8, i32 1245328, i1 noundef zeroext false) #7
   %204 = tail call fastcc i32 @vlv_wait_for_pw_status(ptr noundef %0, i32 noundef 1, i32 noundef 1), !range !6
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %213, label %206
@@ -714,7 +714,7 @@ define dso_local i32 @vlv_resume_prepare(ptr noundef %0, i1 noundef zeroext %1) 
   br i1 %207, label %211, label %208
 
 208:                                              ; preds = %206
-  %209 = getelementptr inbounds i8, ptr %0, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %210 = load ptr, ptr %209, align 8
   br label %211
 
@@ -726,12 +726,12 @@ define dso_local i32 @vlv_resume_prepare(ptr noundef %0, i1 noundef zeroext %1) 
 213:                                              ; preds = %211, %197
   %214 = select i1 %16, i32 %204, i32 %15
   %215 = load ptr, ptr %9, align 8
-  %216 = tail call i32 %215(ptr noundef %8, i32 1245336, i1 noundef zeroext true) #7
+  %216 = tail call i32 %215(ptr noundef nonnull %8, i32 1245336, i1 noundef zeroext true) #7
   %217 = and i32 %216, -5
   %218 = load ptr, ptr %13, align 8
-  tail call void %218(ptr noundef %8, i32 1245336, i32 noundef %217, i1 noundef zeroext true) #7
+  tail call void %218(ptr noundef nonnull %8, i32 1245336, i32 noundef %217, i1 noundef zeroext true) #7
   %219 = load ptr, ptr %9, align 8
-  %220 = tail call i32 %219(ptr noundef %8, i32 1245332, i1 noundef zeroext true) #7
+  %220 = tail call i32 %219(ptr noundef nonnull %8, i32 1245332, i1 noundef zeroext true) #7
   %221 = and i32 %220, 2
   %222 = icmp eq i32 %221, 0
   br i1 %222, label %231, label %223
@@ -741,7 +741,7 @@ define dso_local i32 @vlv_resume_prepare(ptr noundef %0, i1 noundef zeroext %1) 
   br i1 %224, label %228, label %225
 
 225:                                              ; preds = %223
-  %226 = getelementptr inbounds i8, ptr %0, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %227 = load ptr, ptr %226, align 8
   br label %228
 
@@ -749,7 +749,7 @@ define dso_local i32 @vlv_resume_prepare(ptr noundef %0, i1 noundef zeroext %1) 
   %229 = phi ptr [ %227, %225 ], [ null, %223 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %229, i32 noundef 1, ptr noundef nonnull @.str.7) #7
   %230 = load ptr, ptr %13, align 8
-  tail call void %230(ptr noundef %8, i32 1245332, i32 noundef 2, i1 noundef zeroext true) #7
+  tail call void %230(ptr noundef nonnull %8, i32 1245332, i32 noundef 2, i1 noundef zeroext true) #7
   br label %231
 
 231:                                              ; preds = %228, %213
@@ -769,7 +769,7 @@ declare dso_local void @intel_clock_gating_init(ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @vlv_suspend_init(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2097152
   %5 = icmp eq i32 %4, 0
@@ -778,7 +778,7 @@ define dso_local noundef range(i32 -12, 1) i32 @vlv_suspend_init(ptr nocapture n
 6:                                                ; preds = %1
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(260) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3264, i64 noundef 260) #9
-  %9 = getelementptr inbounds i8, ptr %0, i64 8904
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8904
   store ptr %8, ptr %9, align 8
   %10 = icmp eq ptr %8, null
   %11 = select i1 %10, i32 -12, i32 0
@@ -791,7 +791,7 @@ define dso_local noundef range(i32 -12, 1) i32 @vlv_suspend_init(ptr nocapture n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @vlv_suspend_cleanup(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8904
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8904
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -813,13 +813,13 @@ define internal fastcc range(i32 -110, 1) i32 @vlv_wait_for_pw_status(ptr nounde
   %4 = tail call i64 @ktime_get_raw() #7
   %5 = add i64 %4, 3000000
   %6 = tail call i32 @__SCT__might_resched() #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 7368
-  %8 = getelementptr inbounds i8, ptr %0, i64 7512
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %9 = tail call i64 @ktime_get_raw() #7
   %10 = icmp sle i64 %9, %5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
   %11 = load ptr, ptr %8, align 8
-  %12 = tail call i32 %11(ptr noundef %7, i32 1245332, i1 noundef zeroext false) #7
+  %12 = tail call i32 %11(ptr noundef nonnull %7, i32 1245332, i1 noundef zeroext false) #7
   %13 = and i32 %12, %1
   %14 = icmp ne i32 %13, %2
   %15 = select i1 %14, i1 %10, i1 false
@@ -835,7 +835,7 @@ define internal fastcc range(i32 -110, 1) i32 @vlv_wait_for_pw_status(ptr nounde
   %21 = icmp sle i64 %20, %5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
   %22 = load ptr, ptr %8, align 8
-  %23 = tail call i32 %22(ptr noundef %7, i32 1245332, i1 noundef zeroext false) #7
+  %23 = tail call i32 %22(ptr noundef nonnull %7, i32 1245332, i1 noundef zeroext false) #7
   %24 = and i32 %23, %1
   %25 = icmp ne i32 %24, %2
   %26 = select i1 %25, i1 %21, i1 false
@@ -865,7 +865,7 @@ define internal fastcc range(i32 -110, 1) i32 @vlv_wait_for_pw_status(ptr nounde
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %39, i1 noundef zeroext false, i32 1245332, i64 noundef %27, i32 noundef 4, i1 noundef zeroext true) #7
   br label %41

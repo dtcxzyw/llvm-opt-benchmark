@@ -23,7 +23,7 @@ define hidden void @initAlphaTables() local_unnamed_addr #0 {
   %.03137 = phi i32 [ %4, %1 ], [ %10, %6 ]
   %7 = lshr i32 %.03137, 24
   %8 = trunc nuw i32 %7 to i8
-  %9 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %indvars.iv44, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %indvars.iv44, i64 %indvars.iv
   store i8 %8, ptr %9, align 1
   %10 = add i32 %.03137, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -52,7 +52,7 @@ define hidden void @initAlphaTables() local_unnamed_addr #0 {
   %.040 = phi i32 [ 8388608, %.preheader35 ], [ %22, %18 ]
   %19 = lshr i32 %.040, 24
   %20 = trunc nuw i32 %19 to i8
-  %21 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %indvars.iv52, i64 %indvars.iv48
+  %21 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %indvars.iv52, i64 %indvars.iv48
   store i8 %20, ptr %21, align 1
   %22 = add i32 %.040, %17
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1

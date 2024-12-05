@@ -16,9 +16,9 @@ define dso_local noundef i32 @acpi_ut_verify_checksum(ptr noundef %0, i32 nounde
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %8 = load i8, ptr %7, align 1
   %9 = zext i32 %6 to i64
   %10 = getelementptr i8, ptr %0, i64 %9
@@ -78,7 +78,7 @@ declare dso_local void @acpi_bios_warning(ptr noundef, i32 noundef, ptr noundef,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @acpi_ut_verify_cdat_checksum(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr %0, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %5 = load i8, ptr %4, align 1
   %6 = zext i32 %3 to i64
   %7 = getelementptr i8, ptr %0, i64 %6

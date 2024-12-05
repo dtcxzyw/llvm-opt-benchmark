@@ -2574,7 +2574,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_openflow_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i8 %5 to i32
   %9 = tail call ptr @val_to_str_ext_const(i32 noundef %8, ptr noundef nonnull @openflow_v6_type_values_ext, ptr noundef nonnull @.str.1508) #4
@@ -2755,7 +2755,7 @@ dissect_openflow_hello_element_v6.exit.i:         ; preds = %61, %60
 
 switch.lookup:                                    ; preds = %67
   %73 = zext nneg i32 %71 to i64
-  %switch.gep = getelementptr inbounds [18 x ptr], ptr @switch.table.dissect_openflow_message_v6, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds nuw [18 x ptr], ptr @switch.table.dissect_openflow_message_v6, i64 0, i64 %73
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %74
 
@@ -2795,12 +2795,12 @@ switch.lookup:                                    ; preds = %67
   %86 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %77, i32 noundef %85, i32 noundef 0) #4
   %87 = load i32, ptr @ett_openflow_v6_error_data, align 4
   %88 = call ptr @proto_item_add_subtree(ptr noundef %86, i32 noundef %87) #4
-  %89 = getelementptr inbounds i8, ptr %1, i64 276
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %90 = load i8, ptr %89, align 4
   %91 = and i8 %90, 1
   %92 = or i8 %90, 1
   store i8 %92, ptr %89, align 4
-  %93 = getelementptr inbounds i8, ptr %1, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %94 = load ptr, ptr %93, align 8
   call void @col_set_writable(ptr noundef %94, i32 noundef -1, i32 noundef 0) #4
   %95 = call fastcc i32 @dissect_openflow_message_v6(ptr noundef %0, ptr noundef %1, ptr noundef %88, i32 noundef %77)
@@ -2938,47 +2938,47 @@ dissect_openflow_error_v6.exit:                   ; preds = %79, %83, %100, %106
   %201 = sub i32 %24, %198
   %202 = load i32, ptr @ett_openflow_v6_packet_in_data, align 4
   %203 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %198, i32 noundef %201, i32 noundef %202, ptr noundef null, ptr noundef nonnull @.str.318) #4
-  %204 = getelementptr inbounds i8, ptr %1, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %205 = load ptr, ptr %204, align 8
   %206 = tail call i32 @col_get_writable(ptr noundef %205, i32 noundef -1) #4
-  %207 = getelementptr inbounds i8, ptr %1, i64 276
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %208 = load i8, ptr %207, align 4
   %209 = and i8 %208, 1
-  %210 = getelementptr inbounds i8, ptr %1, i64 112
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %211 = load i32, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %1, i64 116
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %213 = load i32, ptr %212, align 4
-  %214 = getelementptr inbounds i8, ptr %1, i64 120
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %1, i64 136
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %217 = load i32, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %1, i64 140
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %219 = load i32, ptr %218, align 4
-  %220 = getelementptr inbounds i8, ptr %1, i64 144
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %1, i64 160
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %223 = load i32, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %1, i64 164
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %225 = load i32, ptr %224, align 4
-  %226 = getelementptr inbounds i8, ptr %1, i64 168
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds i8, ptr %1, i64 184
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %229 = load i32, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %1, i64 188
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %231 = load i32, ptr %230, align 4
-  %232 = getelementptr inbounds i8, ptr %1, i64 192
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %1, i64 208
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %235 = load i32, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %1, i64 212
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %237 = load i32, ptr %236, align 4
-  %238 = getelementptr inbounds i8, ptr %1, i64 216
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds i8, ptr %1, i64 232
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %241 = load i32, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %1, i64 236
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %243 = load i32, ptr %242, align 4
-  %244 = getelementptr inbounds i8, ptr %1, i64 240
+  %244 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %245 = load ptr, ptr %244, align 8
   %246 = load ptr, ptr %204, align 8
   tail call void @col_set_writable(ptr noundef %246, i32 noundef -1, i32 noundef 0) #4
@@ -2994,32 +2994,32 @@ dissect_openflow_error_v6.exit:                   ; preds = %79, %83, %100, %106
   store i32 %211, ptr %210, align 8
   store i32 %213, ptr %212, align 4
   store ptr %215, ptr %214, align 8
-  %254 = getelementptr inbounds i8, ptr %1, i64 128
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %254, align 8
   store i32 %217, ptr %216, align 8
   store i32 %219, ptr %218, align 4
   store ptr %221, ptr %220, align 8
-  %255 = getelementptr inbounds i8, ptr %1, i64 152
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %255, align 8
   store i32 %223, ptr %222, align 8
   store i32 %225, ptr %224, align 4
   store ptr %227, ptr %226, align 8
-  %256 = getelementptr inbounds i8, ptr %1, i64 176
+  %256 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr null, ptr %256, align 8
   store i32 %229, ptr %228, align 8
   store i32 %231, ptr %230, align 4
   store ptr %233, ptr %232, align 8
-  %257 = getelementptr inbounds i8, ptr %1, i64 200
+  %257 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %257, align 8
   store i32 %235, ptr %234, align 8
   store i32 %237, ptr %236, align 4
   store ptr %239, ptr %238, align 8
-  %258 = getelementptr inbounds i8, ptr %1, i64 224
+  %258 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %258, align 8
   store i32 %241, ptr %240, align 8
   store i32 %243, ptr %242, align 4
   store ptr %245, ptr %244, align 8
-  %259 = getelementptr inbounds i8, ptr %1, i64 248
+  %259 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %259, align 8
   br label %dissect_openflow_hello_v6.exit
 
@@ -3088,47 +3088,47 @@ dissect_openflow_error_v6.exit:                   ; preds = %79, %83, %100, %106
   %307 = sub i32 %24, %.0.lcssa.i
   %308 = load i32, ptr @ett_openflow_v6_packet_out_data, align 4
   %309 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %307, i32 noundef %308, ptr noundef null, ptr noundef nonnull @.str.318) #4
-  %310 = getelementptr inbounds i8, ptr %1, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %311 = load ptr, ptr %310, align 8
   %312 = call i32 @col_get_writable(ptr noundef %311, i32 noundef -1) #4
-  %313 = getelementptr inbounds i8, ptr %1, i64 276
+  %313 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %314 = load i8, ptr %313, align 4
   %315 = and i8 %314, 1
-  %316 = getelementptr inbounds i8, ptr %1, i64 112
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %317 = load i32, ptr %316, align 8
-  %318 = getelementptr inbounds i8, ptr %1, i64 116
+  %318 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %319 = load i32, ptr %318, align 4
-  %320 = getelementptr inbounds i8, ptr %1, i64 120
+  %320 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %321 = load ptr, ptr %320, align 8
-  %322 = getelementptr inbounds i8, ptr %1, i64 136
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %323 = load i32, ptr %322, align 8
-  %324 = getelementptr inbounds i8, ptr %1, i64 140
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %325 = load i32, ptr %324, align 4
-  %326 = getelementptr inbounds i8, ptr %1, i64 144
+  %326 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds i8, ptr %1, i64 160
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %329 = load i32, ptr %328, align 8
-  %330 = getelementptr inbounds i8, ptr %1, i64 164
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %331 = load i32, ptr %330, align 4
-  %332 = getelementptr inbounds i8, ptr %1, i64 168
+  %332 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds i8, ptr %1, i64 184
+  %334 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %335 = load i32, ptr %334, align 8
-  %336 = getelementptr inbounds i8, ptr %1, i64 188
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %337 = load i32, ptr %336, align 4
-  %338 = getelementptr inbounds i8, ptr %1, i64 192
+  %338 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %339 = load ptr, ptr %338, align 8
-  %340 = getelementptr inbounds i8, ptr %1, i64 208
+  %340 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %341 = load i32, ptr %340, align 8
-  %342 = getelementptr inbounds i8, ptr %1, i64 212
+  %342 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %343 = load i32, ptr %342, align 4
-  %344 = getelementptr inbounds i8, ptr %1, i64 216
+  %344 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %345 = load ptr, ptr %344, align 8
-  %346 = getelementptr inbounds i8, ptr %1, i64 232
+  %346 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %347 = load i32, ptr %346, align 8
-  %348 = getelementptr inbounds i8, ptr %1, i64 236
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %349 = load i32, ptr %348, align 4
-  %350 = getelementptr inbounds i8, ptr %1, i64 240
+  %350 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %351 = load ptr, ptr %350, align 8
   %352 = load ptr, ptr %310, align 8
   call void @col_set_writable(ptr noundef %352, i32 noundef -1, i32 noundef 0) #4
@@ -3144,32 +3144,32 @@ dissect_openflow_error_v6.exit:                   ; preds = %79, %83, %100, %106
   store i32 %317, ptr %316, align 8
   store i32 %319, ptr %318, align 4
   store ptr %321, ptr %320, align 8
-  %360 = getelementptr inbounds i8, ptr %1, i64 128
+  %360 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %360, align 8
   store i32 %323, ptr %322, align 8
   store i32 %325, ptr %324, align 4
   store ptr %327, ptr %326, align 8
-  %361 = getelementptr inbounds i8, ptr %1, i64 152
+  %361 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %361, align 8
   store i32 %329, ptr %328, align 8
   store i32 %331, ptr %330, align 4
   store ptr %333, ptr %332, align 8
-  %362 = getelementptr inbounds i8, ptr %1, i64 176
+  %362 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr null, ptr %362, align 8
   store i32 %335, ptr %334, align 8
   store i32 %337, ptr %336, align 4
   store ptr %339, ptr %338, align 8
-  %363 = getelementptr inbounds i8, ptr %1, i64 200
+  %363 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %363, align 8
   store i32 %341, ptr %340, align 8
   store i32 %343, ptr %342, align 4
   store ptr %345, ptr %344, align 8
-  %364 = getelementptr inbounds i8, ptr %1, i64 224
+  %364 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %364, align 8
   store i32 %347, ptr %346, align 8
   store i32 %349, ptr %348, align 4
   store ptr %351, ptr %350, align 8
-  %365 = getelementptr inbounds i8, ptr %1, i64 248
+  %365 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %365, align 8
   br label %dissect_openflow_packet_out_v6.exit
 
@@ -5558,7 +5558,7 @@ define internal fastcc i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef 
   %7 = add i32 %3, 3
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #4
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %5, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %9, ptr %10, align 4
   %11 = add nuw nsw i32 %9, 4
   %12 = load i32, ptr @ett_openflow_v6_oxm, align 4
@@ -5567,7 +5567,7 @@ define internal fastcc i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef 
   %15 = add i32 %14, 4
   %16 = load i32, ptr %10, align 4
   %17 = add i32 %15, %16
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
@@ -5580,7 +5580,7 @@ define internal fastcc i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef 
   ]
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = load i32, ptr %25, align 4
   switch i32 %26, label %94 [
     i32 0, label %27
@@ -5829,13 +5829,13 @@ define internal fastcc noundef i32 @dissect_openflow_oxm_header_v6(ptr noundef %
   %30 = load i32, ptr %5, align 4
   store i32 %30, ptr %3, align 4
   %31 = load i32, ptr %6, align 4
-  %32 = getelementptr inbounds i8, ptr %3, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %31, ptr %32, align 4
   %33 = load i32, ptr %7, align 4
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %33, ptr %34, align 4
   %35 = load i32, ptr %8, align 4
-  %36 = getelementptr inbounds i8, ptr %3, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %35, ptr %36, align 4
   br label %37
 
@@ -6000,7 +6000,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @dissect_openflow_port_v6(p
   %21 = add i32 %3, 8
   %22 = load i32, ptr @hf_openflow_v6_port_hw_addr, align 4
   %23 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 6, i32 noundef 0) #4
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @tvb_address_to_str(ptr noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef %21) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.1525, ptr noundef %26) #4

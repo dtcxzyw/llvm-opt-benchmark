@@ -81,7 +81,7 @@ define hidden void @_ZN13MethodMatcherD2Ev(ptr nocapture noundef nonnull readonl
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not3 = icmp eq ptr %6, null
   br i1 %.not3, label %8, label %7
@@ -91,7 +91,7 @@ define hidden void @_ZN13MethodMatcherD2Ev(ptr nocapture noundef nonnull readonl
   br label %8
 
 8:                                                ; preds = %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not4 = icmp eq ptr %10, null
   br i1 %.not4, label %12, label %11
@@ -108,14 +108,14 @@ declare void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 deref
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13MethodMatcher4initEP6SymbolNS_4ModeES1_S2_S1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %4, ptr %8, align 4
   store ptr %1, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %10, align 8
   ret void
 }
@@ -127,7 +127,7 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %6 = load i8, ptr %5, align 1
   %.not51 = icmp eq i8 %6, 0
   br i1 %.not51, label %9, label %7
@@ -143,7 +143,7 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
 
 .preheader69:                                     ; preds = %9, %.preheader69
   %.pn55 = phi ptr [ %.040, %.preheader69 ], [ %0, %9 ]
-  %.040 = getelementptr inbounds i8, ptr %.pn55, i64 1
+  %.040 = getelementptr inbounds nuw i8, ptr %.pn55, i64 1
   %10 = load i8, ptr %.040, align 1
   switch i8 %10, label %.preheader69 [
     i8 0, label %.loopexit68
@@ -159,7 +159,7 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
 .preheader:                                       ; preds = %11, %.thread60
   %.038 = phi i1 [ %.15964, %.thread60 ], [ false, %11 ]
   %.pn = phi ptr [ %.037, %.thread60 ], [ %12, %11 ]
-  %.037 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %.037 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %13 = load i8, ptr %.037, align 1
   switch i8 %13, label %14 [
     i8 0, label %.loopexit68
@@ -216,7 +216,7 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
   br label %.thread66.us
 
 .thread66.us:                                     ; preds = %21, %.lr.ph.split.us
-  %22 = getelementptr inbounds i8, ptr %.072.us, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.072.us, i64 1
   %23 = load i8, ptr %22, align 1
   %.not56.us = icmp eq i8 %23, 0
   br i1 %.not56.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !9
@@ -239,7 +239,7 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
   br label %.thread66
 
 .thread66:                                        ; preds = %.thread66.sink.split, %.lr.ph.split
-  %25 = getelementptr inbounds i8, ptr %.072, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.072, i64 1
   %26 = load i8, ptr %25, align 1
   %.not56 = icmp eq i8 %26, 0
   br i1 %.not56, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
@@ -274,15 +274,15 @@ define hidden noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE
 7:                                                ; preds = %4
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 800
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 800
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #14
   %21 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2) #14
@@ -382,7 +382,7 @@ define hidden void @_ZN13MethodMatcher20parse_method_patternERPcRPKcPS_(ptr noca
 
 18:                                               ; preds = %13
   %19 = zext nneg i32 %16 to i64
-  %20 = getelementptr inbounds i8, ptr %.pre, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 %19
   store ptr %20, ptr %0, align 8
   store i32 %16, ptr %9, align 4
   br label %_ZL19skip_leading_spacesRPcPi.exit
@@ -414,7 +414,7 @@ _ZL19skip_leading_spacesRPcPi.exit:               ; preds = %13, %18
   br i1 %33, label %_ZL10check_modePcRPKc.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %5, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #15
   %37 = add i64 %36, 1
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %35, i64 %37, i1 false)
@@ -467,7 +467,7 @@ _ZL10check_modePcRPKc.exit:                       ; preds = %31, %49, %.sink.spl
   br i1 %54, label %_ZL10check_modePcRPKc.exit48, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %6, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #15
   %58 = add i64 %57, 1
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %56, i64 %58, i1 false)
@@ -596,10 +596,10 @@ _ZL10check_modePcRPKc.exit48:                     ; preds = %52, %70, %.sink.spl
   br i1 %110, label %111, label %128
 
 111:                                              ; preds = %103
-  %112 = getelementptr inbounds i8, ptr %108, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 1
   store ptr %112, ptr %0, align 8
   store i8 40, ptr %7, align 16
-  %113 = getelementptr inbounds i8, ptr %7, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %114 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %112, ptr noundef nonnull @.str.13, ptr noundef nonnull %113, ptr noundef nonnull %8) #14
   %115 = icmp eq i32 %114, 1
   br i1 %115, label %116, label %124
@@ -635,14 +635,14 @@ _ZL10check_modePcRPKc.exit48:                     ; preds = %52, %70, %.sink.spl
   %132 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
   %133 = trunc i64 %132 to i32
   %134 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %6, i32 noundef %133) #14
-  %135 = getelementptr inbounds i8, ptr %2, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %.018.i, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %2, i64 28
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %.018.i47, ptr %136, align 4
   store ptr %131, ptr %2, align 8
-  %137 = getelementptr inbounds i8, ptr %2, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %134, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %2, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0, ptr %138, align 8
   br label %139
 
@@ -674,7 +674,7 @@ define internal fastcc void @_ZL19skip_leading_spacesRPcPi(ptr nocapture noundef
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
   %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr inbounds i8, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
   store ptr %11, ptr %0, align 8
   %12 = load i32, ptr %1, align 4
   %13 = add nsw i32 %12, %6
@@ -696,14 +696,14 @@ declare noundef i32 @_ZN14CompilerOracle17parse_option_nameEPKc(ptr noundef) loc
 define linkonce_odr hidden noundef zeroext i1 @_ZNK6Symbol6equalsEPKc(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %4 = trunc i64 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
   %.not.i = icmp eq i32 %4, %7
   br i1 %.not.i, label %_ZNK6Symbol16contains_utf8_atEiPKci.exit.i, label %_ZNK6Symbol6equalsEPKci.exit
 
 _ZNK6Symbol16contains_utf8_atEiPKci.exit.i:       ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %9 = and i64 %3, 4294967295
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %8, ptr %1, i64 %9)
   %10 = icmp eq i32 %bcmp.i.i, 0
@@ -722,41 +722,41 @@ declare void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK13MethodMatcher7matchesERK12methodHandle(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %13 = load i16, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %7, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %15 = zext i16 %13 to i64
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 38
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 38
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds i64, ptr %14, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = tail call noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE(ptr nonnull align 8 poison, ptr noundef %11, ptr noundef %23, i32 noundef %25)
   br i1 %26, label %27, label %39
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = tail call noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE(ptr nonnull align 8 poison, ptr noundef %17, ptr noundef %29, i32 noundef %31)
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %40, label %37
@@ -806,18 +806,18 @@ declare void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnull ali
 define hidden void @_ZN13MethodMatcher10print_baseEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 800
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i32, ptr %16, align 8
   %.off.i = add i32 %17, -2
   %switch.i = icmp ult i32 %.off.i, 3
@@ -840,9 +840,9 @@ define hidden void @_ZN13MethodMatcher10print_baseEP12outputStream(ptr nocapture
 
 _ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit: ; preds = %18, %19, %21
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.17) #14
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 4
   %.off.i5 = add i32 %25, -2
   %switch.i6 = icmp ult i32 %.off.i5, 3
@@ -864,7 +864,7 @@ _ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit: ; preds 
   br label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9
 
 _ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9: ; preds = %26, %27, %29
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %33, label %32
@@ -920,7 +920,7 @@ define hidden noundef ptr @_ZN12BasicMatcher20parse_method_patternEPcRPKcb(ptr n
   br label %11
 
 11:                                               ; preds = %10, %8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not3.i.i = icmp eq ptr %13, null
   br i1 %.not3.i.i, label %15, label %14
@@ -930,7 +930,7 @@ define hidden noundef ptr @_ZN12BasicMatcher20parse_method_patternEPcRPKcb(ptr n
   br label %15
 
 15:                                               ; preds = %14, %11
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not4.i.i = icmp eq ptr %17, null
   br i1 %.not4.i.i, label %_ZN12BasicMatcherD2Ev.exit, label %18
@@ -968,7 +968,7 @@ _ZN12BasicMatcherD2Ev.exit:                       ; preds = %15, %18
   br label %30
 
 30:                                               ; preds = %29, %27
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not3.i.i13 = icmp eq ptr %32, null
   br i1 %.not3.i.i13, label %34, label %33
@@ -978,7 +978,7 @@ _ZN12BasicMatcherD2Ev.exit:                       ; preds = %15, %18
   br label %34
 
 34:                                               ; preds = %33, %30
-  %35 = getelementptr inbounds i8, ptr %6, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not4.i.i14 = icmp eq ptr %36, null
   br i1 %.not4.i.i14, label %_ZN12BasicMatcherD2Ev.exit15, label %37
@@ -1003,41 +1003,41 @@ define hidden noundef zeroext i1 @_ZN12BasicMatcher5matchERK12methodHandle(ptr n
 3:                                                ; preds = %2, %_ZNK13MethodMatcher7matchesERK12methodHandle.exit
   %.08 = phi ptr [ %0, %2 ], [ %41, %_ZNK13MethodMatcher7matchesERK12methodHandle.exit ]
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %14 = load i16, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %8, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %16 = zext i16 %14 to i64
-  %17 = getelementptr inbounds i64, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 38
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 38
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds i64, ptr %15, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr %15, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %.08, align 8
-  %25 = getelementptr inbounds i8, ptr %.08, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.08, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = tail call noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE(ptr nonnull readonly align 8 poison, ptr noundef %12, ptr noundef %24, i32 noundef %26)
   br i1 %27, label %28, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit
 
 28:                                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %.08, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.08, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %.08, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = tail call noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE(ptr nonnull readonly align 8 poison, ptr noundef %18, ptr noundef %30, i32 noundef %32)
   br i1 %33, label %34, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %.08, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.08, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit.thread, label %38
@@ -1047,7 +1047,7 @@ define hidden noundef zeroext i1 @_ZN12BasicMatcher5matchERK12methodHandle(ptr n
   br i1 %39, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit.thread, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit
 
 _ZNK13MethodMatcher7matchesERK12methodHandle.exit: ; preds = %38, %28, %3
-  %40 = getelementptr inbounds i8, ptr %.08, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %.08, i64 32
   %41 = load ptr, ptr %40, align 8
   %.not.not = icmp eq ptr %41, null
   br i1 %.not.not, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit.thread, label %3, !llvm.loop !10
@@ -1059,7 +1059,7 @@ _ZNK13MethodMatcher7matchesERK12methodHandle.exit.thread: ; preds = %34, %38, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13InlineMatcher5printEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 2
   %.str.20..str.21 = select i1 %5, ptr @.str.20, ptr @.str.21
@@ -1073,7 +1073,7 @@ define hidden noundef ptr @_ZN13InlineMatcher20parse_method_patternEPcRPKc(ptr n
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 7, i32 noundef 0) #14
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr null, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 36, i1 false)
   call void @_ZN13MethodMatcher20parse_method_patternERPcRPKcPS_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4)
@@ -1091,7 +1091,7 @@ define hidden noundef ptr @_ZN13InlineMatcher20parse_method_patternEPcRPKc(ptr n
   br label %10
 
 10:                                               ; preds = %9, %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not3.i.i = icmp eq ptr %12, null
   br i1 %.not3.i.i, label %14, label %13
@@ -1101,7 +1101,7 @@ define hidden noundef ptr @_ZN13InlineMatcher20parse_method_patternEPcRPKc(ptr n
   br label %14
 
 14:                                               ; preds = %13, %10
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not4.i.i = icmp eq ptr %16, null
   br i1 %.not4.i.i, label %_ZN13InlineMatcherD2Ev.exit, label %17
@@ -1126,41 +1126,41 @@ define hidden noundef zeroext i1 @_ZN13InlineMatcher5matchERK12methodHandlei(ptr
 4:                                                ; preds = %3, %_ZNK13MethodMatcher7matchesERK12methodHandle.exit
   %.010 = phi ptr [ %0, %3 ], [ %46, %_ZNK13MethodMatcher7matchesERK12methodHandle.exit ]
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %15 = load i16, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %9, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %17 = zext i16 %15 to i64
-  %18 = getelementptr inbounds i64, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 38
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 38
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i64
-  %23 = getelementptr inbounds i64, ptr %16, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %.010, align 8
-  %26 = getelementptr inbounds i8, ptr %.010, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.010, i64 24
   %27 = load i32, ptr %26, align 8
   %28 = tail call noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE(ptr nonnull readonly align 8 poison, ptr noundef %13, ptr noundef %25, i32 noundef %27)
   br i1 %28, label %29, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit
 
 29:                                               ; preds = %4
-  %30 = getelementptr inbounds i8, ptr %.010, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.010, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %.010, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = tail call noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE(ptr nonnull readonly align 8 poison, ptr noundef %19, ptr noundef %31, i32 noundef %33)
   br i1 %34, label %35, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %.010, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %41, label %39
@@ -1170,13 +1170,13 @@ define hidden noundef zeroext i1 @_ZN13InlineMatcher5matchERK12methodHandlei(ptr
   br i1 %40, label %41, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit
 
 41:                                               ; preds = %39, %35
-  %42 = getelementptr inbounds i8, ptr %.010, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %.010, i64 32
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, %2
   br label %.loopexit
 
 _ZNK13MethodMatcher7matchesERK12methodHandle.exit: ; preds = %39, %29, %4
-  %45 = getelementptr inbounds i8, ptr %.010, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.010, i64 40
   %46 = load ptr, ptr %45, align 8
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %.loopexit, label %4, !llvm.loop !11
@@ -1203,13 +1203,13 @@ define hidden noundef ptr @_ZN13InlineMatcher20parse_inline_patternEPcRPKc(ptr n
 
 6:                                                ; preds = %2, %4
   %.09 = phi i32 [ 2, %4 ], [ 1, %2 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = tail call noundef ptr @_ZN13InlineMatcher20parse_method_patternEPcRPKc(ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %.09, ptr %11, align 8
   br label %12
 
@@ -1221,20 +1221,20 @@ define hidden noundef ptr @_ZN13InlineMatcher20parse_inline_patternEPcRPKc(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN13InlineMatcher5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 7, i32 noundef 0) #14
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr null, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 36, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
   store ptr %13, ptr %2, align 8
@@ -1246,9 +1246,9 @@ define hidden noundef ptr @_ZN13InlineMatcher5cloneEv(ptr nocapture noundef nonn
   br label %15
 
 15:                                               ; preds = %14, %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %17, ptr %18, align 8
   %.not12 = icmp eq ptr %17, null
   br i1 %.not12, label %20, label %19
@@ -1258,9 +1258,9 @@ define hidden noundef ptr @_ZN13InlineMatcher5cloneEv(ptr nocapture noundef nonn
   br label %20
 
 20:                                               ; preds = %19, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %22, ptr %23, align 8
   %.not13 = icmp eq ptr %22, null
   br i1 %.not13, label %25, label %24

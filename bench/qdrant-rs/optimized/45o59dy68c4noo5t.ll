@@ -103,7 +103,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   store ptr %24, ptr %17, align 8
-  %53 = getelementptr inbounds i8, ptr %17, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %25, ptr %53, align 8
   %54 = load i8, ptr %24, align 1, !noundef !3
   store i8 %54, ptr %16, align 1
@@ -114,12 +114,12 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
 57:                                               ; preds = %50
   %58 = call i64 @llvm.usub.sat.i64(i64 range(i64 2, 33) %25, i64 4)
   store i64 %58, ptr %14, align 8
-  %59 = getelementptr inbounds i8, ptr %14, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %25, ptr %59, align 8
   store ptr %24, ptr %7, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %25, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.sroa.32.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %16, ptr %.sroa.32.0..sroa_idx.i.i, align 8
   %60 = call { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hb7e75b65f9662916E(ptr nonnull align 8 %14, ptr nonnull align 8 %7)
   %61 = extractvalue { i64, i64 } %60, 0
@@ -150,22 +150,22 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   %73 = load <1 x i8>, ptr %72, align 1, !noundef !3
   %74 = shufflevector <1 x i8> %73, <1 x i8> poison, <16 x i32> zeroinitializer
   store <16 x i8> %74, ptr %11, align 16
-  %75 = getelementptr inbounds i8, ptr %24, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %1, ptr %10, align 8
-  %76 = getelementptr inbounds i8, ptr %10, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %2, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %10, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %75, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %10, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %55, ptr %78, align 8
   store ptr %1, ptr %9, align 8
-  %79 = getelementptr inbounds i8, ptr %9, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %2, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %9, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %15, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %9, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %12, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %9, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %11, ptr %82, align 8
   %83 = add nuw nsw i64 %25, 63
   %84 = icmp ult i64 %83, %2
@@ -198,7 +198,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   %91 = shl nuw nsw i64 %.sroa.020.080.i.i, 4
   %92 = or disjoint i64 %91, %.06084.i.i
   %93 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr nonnull align 8 %9, i64 %92)
-  %94 = getelementptr inbounds [4 x i16], ptr %8, i64 0, i64 %.sroa.020.080.i.i
+  %94 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.020.080.i.i
   store i16 %93, ptr %94, align 2
   %95 = icmp ugt i64 %90, 3
   br i1 %95, label %.preheader.i.i, label %89
@@ -213,7 +213,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   %.sroa.025.082.i.i = phi i64 [ %100, %104 ], [ 0, %89 ]
   %.281.i.i = phi i8 [ %.3.i.i, %104 ], [ %.06183.i.i, %89 ]
   %100 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h3a214a5ecf7f8240E"(i64 %.sroa.025.082.i.i, i64 1)
-  %101 = getelementptr inbounds [4 x i16], ptr %8, i64 0, i64 %.sroa.025.082.i.i
+  %101 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.025.082.i.i
   %102 = load i16, ptr %101, align 2, !noundef !3
   %103 = icmp eq i16 %102, 0
   br i1 %103, label %104, label %106
@@ -272,9 +272,9 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
 
 133:                                              ; preds = %63
   store ptr %1, ptr %13, align 8
-  %134 = getelementptr inbounds i8, ptr %13, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %2, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %13, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %25, ptr %135, align 8
   %136 = call zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1651a4b0bb9cf37bE(ptr nonnull align 8 %13, ptr nonnull align 8 %17)
   %137 = zext i1 %136 to i8
@@ -310,17 +310,17 @@ _ZN4core3str7pattern13simd_contains17hf79408dc36f91aefE.exit.i: ; preds = %57
   br i1 %144, label %.preheader.i32.i, label %213
 
 .preheader.i32.i:                                 ; preds = %140
-  %145 = getelementptr inbounds i8, ptr %18, i64 40
-  %146 = getelementptr inbounds i8, ptr %18, i64 72
-  %147 = getelementptr inbounds i8, ptr %18, i64 80
-  %148 = getelementptr inbounds i8, ptr %18, i64 8
-  %149 = getelementptr inbounds i8, ptr %18, i64 56
-  %150 = getelementptr inbounds i8, ptr %18, i64 88
-  %151 = getelementptr inbounds i8, ptr %18, i64 96
-  %152 = getelementptr inbounds i8, ptr %4, i64 16
-  %153 = getelementptr inbounds i8, ptr %18, i64 26
-  %154 = getelementptr inbounds i8, ptr %18, i64 24
-  %155 = getelementptr inbounds i8, ptr %5, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  %147 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %148 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %150 = getelementptr inbounds nuw i8, ptr %18, i64 88
+  %151 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %18, i64 26
+  %154 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %156
 
 156:                                              ; preds = %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17he48b8abb1e9c2651E.exit.thread5.i.i", %.preheader.i32.i
@@ -446,17 +446,17 @@ _ZN4core3str7pattern13simd_contains17hf79408dc36f91aefE.exit.i: ; preds = %57
   br i1 %switch.i.i, label %226, label %227
 
 213:                                              ; preds = %140
-  %214 = getelementptr inbounds i8, ptr %18, i64 8
-  %215 = getelementptr inbounds i8, ptr %18, i64 56
+  %214 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %216 = load i64, ptr %215, align 8, !noalias !5, !noundef !3
   %217 = icmp eq i64 %216, -1
-  %218 = getelementptr inbounds i8, ptr %18, i64 72
+  %218 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %219 = load ptr, ptr %218, align 8, !noalias !5, !nonnull !3, !align !13, !noundef !3
-  %220 = getelementptr inbounds i8, ptr %18, i64 80
+  %220 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %221 = load i64, ptr %220, align 8, !noalias !5, !noundef !3
-  %222 = getelementptr inbounds i8, ptr %18, i64 88
+  %222 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %223 = load ptr, ptr %222, align 8, !noalias !5, !nonnull !3, !align !13, !noundef !3
-  %224 = getelementptr inbounds i8, ptr %18, i64 96
+  %224 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %225 = load i64, ptr %224, align 8, !noalias !5, !noundef !3
   br i1 %217, label %229, label %228
 

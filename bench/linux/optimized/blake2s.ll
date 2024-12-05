@@ -19,7 +19,7 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @blake2s_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load i32, ptr %4, align 4
   %6 = sub i32 64, %5
   %7 = zext i32 %6 to i64
@@ -31,11 +31,11 @@ define dso_local void @blake2s_update(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = zext i32 %5 to i64
   %14 = getelementptr i8, ptr %12, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %1, i64 %7, i1 false)
-  tail call void @blake2s_compress(ptr noundef %0, ptr noundef %12, i64 noundef 1, i32 noundef 64) #5
+  tail call void @blake2s_compress(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 1, i32 noundef 64) #5
   store i32 0, ptr %4, align 4
   %15 = getelementptr i8, ptr %1, i64 %7
   %16 = sub nuw i64 %2, %7
@@ -63,7 +63,7 @@ define dso_local void @blake2s_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %30 = phi i32 [ %.pre, %22 ], [ %18, %17 ]
   %31 = phi i64 [ %28, %22 ], [ %19, %17 ]
   %32 = phi ptr [ %27, %22 ], [ %20, %17 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = zext i32 %30 to i64
   %35 = getelementptr i8, ptr %33, i64 %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %32, i64 %31, i1 false)
@@ -85,10 +85,10 @@ declare dso_local void @blake2s_compress(ptr noundef, ptr noundef, i64 noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @blake2s_final(ptr noundef initializes((40, 44)) %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 -1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
@@ -96,8 +96,8 @@ define dso_local void @blake2s_final(ptr noundef initializes((40, 44)) %0, ptr n
   %10 = zext i32 %9 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 0, i64 %10, i1 false)
   %11 = load i32, ptr %5, align 4
-  tail call void @blake2s_compress(ptr noundef %0, ptr noundef %4, i64 noundef 1, i32 noundef %11) #5
-  %12 = getelementptr inbounds i8, ptr %0, i64 116
+  tail call void @blake2s_compress(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 1, i32 noundef %11) #5
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 4 %0, i64 %14, i1 false)

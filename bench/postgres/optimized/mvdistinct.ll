@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @statext_ndistinct_build(double noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = shl nuw i32 1, %4
   %.neg.i = xor i32 %4, -1
@@ -39,19 +39,19 @@ define dso_local noundef ptr @statext_ndistinct_build(double noundef %0, ptr noc
   %9 = add nsw i64 %8, 16
   %10 = tail call ptr @palloc(i64 noundef %9) #9
   store i32 -1554858076, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %6, ptr %12, align 8
   %.not53 = icmp slt i32 %4, 2
   br i1 %.not53, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %18
 
 18:                                               ; preds = %.lr.ph57, %generator_next.exit.thread
@@ -81,19 +81,19 @@ define dso_local noundef ptr @statext_ndistinct_build(double noundef %0, ptr noc
 
 generator_init.exit:                              ; preds = %.lr.ph.i.i, %18
   %.0.lcssa.i.i = phi i32 [ 1, %18 ], [ %25, %.lr.ph.i.i ]
-  %27 = getelementptr inbounds i8, ptr %19, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 %.0.lcssa.i.i, ptr %27, align 4
   %28 = sext i32 %.03455 to i64
   %29 = shl nsw i64 %28, 2
   %30 = sext i32 %.0.lcssa.i.i to i64
   %31 = mul i64 %29, %30
   %32 = tail call ptr @palloc(i64 noundef %31) #9
-  %33 = getelementptr inbounds i8, ptr %19, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %19, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 0, ptr %34, align 8
   store i32 %.03455, ptr %19, align 8
-  %35 = getelementptr inbounds i8, ptr %19, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %4, ptr %35, align 4
   %36 = tail call ptr @palloc0(i64 noundef %29) #9
   tail call fastcc void @generate_combinations_recurse(ptr noundef nonnull %19, i32 noundef 0, i32 noundef 0, ptr noundef %36)
@@ -127,9 +127,9 @@ generator_next.exit:                              ; preds = %generator_next.exit
   %50 = sext i32 %.151 to i64
   %51 = getelementptr [0 x %struct.MVNDistinctItem], ptr %13, i64 0, i64 %50
   %52 = tail call ptr @palloc(i64 noundef %39) #9
-  %53 = getelementptr inbounds i8, ptr %51, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 %.03455, ptr %54, align 8
   br i1 %40, label %.lr.ph, label %._crit_edge
 
@@ -184,12 +184,12 @@ generator_next.exit:                              ; preds = %generator_next.exit
   %76 = sext i32 %75 to i64
   %77 = getelementptr ptr, ptr %73, i64 %76
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %78, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %82 = load i32, ptr %81, align 8
   %83 = tail call ptr @lookup_type_cache(i32 noundef %80, i32 noundef 2) #9
-  %84 = getelementptr inbounds i8, ptr %83, i64 52
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 52
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %.split.us.i, label %.lr.ph85.us.i
@@ -219,7 +219,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr i8, ptr %103, i64 %indvars.iv109.i
   %105 = load i8, ptr %104, align 1
-  %106 = getelementptr inbounds i8, ptr %96, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr i8, ptr %107, i64 %indvars.iv114.i
   %109 = and i8 %105, 1
@@ -242,7 +242,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
   %114 = getelementptr %struct.SortItem, ptr %67, i64 %indvars.iv.i
   store ptr %113, ptr %114, align 8
   %115 = getelementptr i8, ptr %71, i64 %112
-  %116 = getelementptr inbounds i8, ptr %114, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store ptr %115, ptr %116, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -256,12 +256,12 @@ generator_next.exit:                              ; preds = %generator_next.exit
   %120 = sext i32 %119 to i64
   %121 = getelementptr ptr, ptr %117, i64 %120
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds i8, ptr %122, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %126 = load i32, ptr %125, align 8
   %127 = tail call ptr @lookup_type_cache(i32 noundef %124, i32 noundef 2) #9
-  %128 = getelementptr inbounds i8, ptr %127, i64 52
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 52
   %129 = load i32, ptr %128, align 4
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %.split.us.i, label %133
@@ -419,7 +419,7 @@ define dso_local noundef ptr @statext_ndistinct_deserialize(ptr noundef readonly
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 18
   %11 = select i1 %10, i64 16, i64 0
@@ -459,7 +459,7 @@ define dso_local noundef ptr @statext_ndistinct_deserialize(ptr noundef readonly
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %.thread
-  %31 = getelementptr inbounds i8, ptr %0, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 1
   %34 = and i8 %32, -2
@@ -497,8 +497,8 @@ define dso_local noundef ptr @statext_ndistinct_deserialize(ptr noundef readonly
 53:                                               ; preds = %23
   %54 = and i32 %5, 1
   %.not81 = icmp eq i32 %54, 0
-  %55 = getelementptr inbounds i8, ptr %0, i64 1
-  %56 = getelementptr inbounds i8, ptr %0, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %57 = select i1 %.not81, ptr %56, ptr %55
   %.sroa.0.0.copyload = load i32, ptr %57, align 1
   %58 = getelementptr i8, ptr %57, i64 4
@@ -624,11 +624,11 @@ define dso_local noundef ptr @statext_ndistinct_deserialize(ptr noundef readonly
   %126 = add nuw nsw i64 %125, 16
   %127 = tail call ptr @palloc0(i64 noundef %126) #9
   store i32 -1554858076, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   store i32 1, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store i32 %.sroa.8.8.copyload, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %127, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 16
   br label %131
 
 131:                                              ; preds = %.lr.ph, %131
@@ -639,14 +639,14 @@ define dso_local noundef ptr @statext_ndistinct_deserialize(ptr noundef readonly
   %134 = load i64, ptr %.06994, align 1
   store i64 %134, ptr %133, align 8
   %135 = getelementptr i8, ptr %.06994, i64 8
-  %136 = getelementptr inbounds i8, ptr %133, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %137 = load i32, ptr %135, align 1
   store i32 %137, ptr %136, align 8
   %138 = getelementptr i8, ptr %.06994, i64 12
   %139 = sext i32 %137 to i64
   %140 = shl nsw i64 %139, 1
   %141 = tail call ptr @palloc(i64 noundef %140) #9
-  %142 = getelementptr inbounds i8, ptr %133, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %141, ptr %142, align 8
   %143 = load i32, ptr %136, align 8
   %144 = sext i32 %143 to i64
@@ -672,7 +672,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @statext_ndistinct_serialize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -702,11 +702,11 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr nocapture noundef 
   %15 = trunc i64 %.036.lcssa to i32
   %16 = shl i32 %15, 2
   store i32 %16, ptr %14, align 4
-  %17 = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = load i32, ptr %0, align 8
   store i32 %18, ptr %17, align 1
   %19 = getelementptr i8, ptr %14, i64 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
   store i32 %21, ptr %19, align 1
   %22 = getelementptr i8, ptr %14, i64 12
@@ -718,7 +718,7 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr nocapture noundef 
 
 .lr.ph42:                                         ; preds = %._crit_edge
   %25 = getelementptr i8, ptr %14, i64 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %27
 
 27:                                               ; preds = %.lr.ph42, %27
@@ -727,9 +727,9 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr nocapture noundef 
   %28 = sext i32 %.140 to i64
   %29 = getelementptr [0 x %struct.MVNDistinctItem], ptr %26, i64 0, i64 %28
   %.sroa.0.0.copyload = load double, ptr %29, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 16
+  %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
   %.sroa.33.0.copyload = load ptr, ptr %.sroa.33.0..sroa_idx, align 8
   store double %.sroa.0.0.copyload, ptr %.03539, align 1
   %30 = getelementptr i8, ptr %.03539, i64 8
@@ -770,20 +770,20 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_ndistinct_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #9
   %7 = tail call ptr @statext_ndistinct_deserialize(ptr noundef %6)
   call void @initStringInfo(ptr noundef nonnull %2) #9
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 123) #9
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %._crit_edge18, label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %11
 
 11:                                               ; preds = %.lr.ph17, %._crit_edge
@@ -791,9 +791,9 @@ define dso_local i64 @pg_ndistinct_out(ptr nocapture noundef readonly %0) local_
   %12 = sext i32 %.015 to i64
   %13 = getelementptr [0 x %struct.MVNDistinctItem], ptr %10, i64 0, i64 %12
   %.sroa.0.0.copyload = load double, ptr %13, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.31.0.copyload = load ptr, ptr %.sroa.31.0..sroa_idx, align 8
   %14 = icmp sgt i32 %.015, 0
   br i1 %14, label %15, label %16
@@ -883,7 +883,7 @@ define internal fastcc void @generate_combinations_recurse(ptr nocapture noundef
   br i1 %6, label %.preheader, label %17
 
 .preheader:                                       ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %2, %8
   br i1 %9, label %.lr.ph, label %.loopexit
@@ -904,9 +904,9 @@ define internal fastcc void @generate_combinations_recurse(ptr nocapture noundef
   br i1 %16, label %13, label %.loopexit, !llvm.loop !19
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = mul i32 %21, %5
   %23 = sext i32 %22 to i64

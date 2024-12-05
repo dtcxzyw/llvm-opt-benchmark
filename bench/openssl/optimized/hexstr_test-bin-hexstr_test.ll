@@ -48,7 +48,7 @@ entry:
   %idxprom = sext i32 %test_index to i64
   %arrayidx = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
-  %sep = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %sep = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %1 = load i8, ptr %sep, align 8
   %call = call ptr @ossl_hexstr2buf_sep(ptr noundef %0, ptr noundef nonnull %len, i8 noundef signext %1) #2
   %call1 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 71, ptr noundef nonnull @.str.4, ptr noundef %call) #2
@@ -57,9 +57,9 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %2 = load i64, ptr %len, align 8
-  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %expected = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load ptr, ptr %expected, align 8
-  %expected_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %expected_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %4 = load i64, ptr %expected_len, align 16
   %call2 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 72, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef %call, i64 noundef %2, ptr noundef %3, i64 noundef %4) #2
   %tobool3.not = icmp eq i32 %call2, 0
@@ -93,7 +93,7 @@ entry:
   store i64 0, ptr %len, align 8
   %idxprom = sext i32 %test_index to i64
   %arrayidx = getelementptr inbounds [6 x %struct.testdata], ptr @tbl_testdata, i64 0, i64 %idxprom
-  %sep = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %sep = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %0 = load i8, ptr %sep, align 8
   %cmp.not = icmp eq i8 %0, 95
   %1 = load ptr, ptr %arrayidx, align 16
@@ -107,9 +107,9 @@ if.then:                                          ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.then
   %2 = load i64, ptr %len, align 8
-  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %expected = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load ptr, ptr %expected, align 8
-  %expected_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %expected_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %4 = load i64, ptr %expected_len, align 16
   %call3 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef %call28, i64 noundef %2, ptr noundef %3, i64 noundef %4) #2
   %tobool4.not = icmp eq i32 %call3, 0
@@ -172,9 +172,9 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %1 = load i64, ptr %len, align 8
-  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %expected = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %expected, align 8
-  %expected_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %expected_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %3 = load i64, ptr %expected_len, align 16
   %call3 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 122, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %buf, i64 noundef %1, ptr noundef %2, i64 noundef %3) #2
   %tobool4.not = icmp eq i32 %call3, 0

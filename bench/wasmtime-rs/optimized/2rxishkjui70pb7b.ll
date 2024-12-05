@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 8 ptr @"_ZN125_$LT$core..slice..sort..merge_sort..RunVec$LT$RunAllocF$C$RunDeallocF$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h70048ee4e94ca740E"(ptr nocapture readonly align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp ult i64 %1, %6
   br i1 %7, label %8, label %11
@@ -38,13 +38,13 @@ define nonnull align 8 ptr @"_ZN125_$LT$core..slice..sort..merge_sort..RunVec$LT
 
 11:                                               ; preds = %3
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.1, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %15, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %4, ptr align 8 %2) #7
   unreachable
@@ -53,7 +53,7 @@ define nonnull align 8 ptr @"_ZN125_$LT$core..slice..sort..merge_sort..RunVec$LT
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 8 ptr @"_ZN125_$LT$core..slice..sort..merge_sort..RunVec$LT$RunAllocF$C$RunDeallocF$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h7831a6bf62c85ac1E"(ptr nocapture readonly align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp ult i64 %1, %6
   br i1 %7, label %8, label %11
@@ -65,13 +65,13 @@ define nonnull align 8 ptr @"_ZN125_$LT$core..slice..sort..merge_sort..RunVec$LT
 
 11:                                               ; preds = %3
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.1, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %15, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %4, ptr align 8 %2) #7
   unreachable
@@ -80,7 +80,7 @@ define nonnull align 8 ptr @"_ZN125_$LT$core..slice..sort..merge_sort..RunVec$LT
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 8 ptr @"_ZN128_$LT$core..slice..sort..merge_sort..RunVec$LT$RunAllocF$C$RunDeallocF$GT$$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb2cfb8e4f36a6c7dE"(ptr nocapture readonly align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp ult i64 %1, %6
   br i1 %7, label %8, label %11
@@ -92,13 +92,13 @@ define nonnull align 8 ptr @"_ZN128_$LT$core..slice..sort..merge_sort..RunVec$LT
 
 11:                                               ; preds = %3
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.1, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %15, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %4, ptr align 8 %2) #7
   unreachable
@@ -107,7 +107,7 @@ define nonnull align 8 ptr @"_ZN128_$LT$core..slice..sort..merge_sort..RunVec$LT
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 8 ptr @"_ZN128_$LT$core..slice..sort..merge_sort..RunVec$LT$RunAllocF$C$RunDeallocF$GT$$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hed4b8c3ed5deb4ddE"(ptr nocapture readonly align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp ult i64 %1, %6
   br i1 %7, label %8, label %11
@@ -119,13 +119,13 @@ define nonnull align 8 ptr @"_ZN128_$LT$core..slice..sort..merge_sort..RunVec$LT
 
 11:                                               ; preds = %3
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.1, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %15, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %4, ptr align 8 %2) #7
   unreachable
@@ -144,22 +144,22 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   %12 = alloca { ptr, i64, {} }, align 8
   %13 = freeze i64 %1
   %14 = icmp ult i64 %13, 21
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
-  %.sink.sroa.gep80 = getelementptr inbounds i8, ptr %9, i64 8
-  %.sink.sroa.gep81 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sink.sroa.gep82 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink.sroa.gep84 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sink.sroa.gep85 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sink.sroa.gep86 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sink.sroa.gep87 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink.sroa.gep89 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sink.sroa.gep90 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sink.sroa.gep91 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sink.sroa.gep92 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink.sroa.gep94 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sink.sroa.gep95 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sink.sroa.gep96 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sink.sroa.gep97 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink.sroa.gep80 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink.sroa.gep81 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink.sroa.gep82 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink.sroa.gep84 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink.sroa.gep85 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink.sroa.gep86 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink.sroa.gep87 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.sroa.gep89 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink.sroa.gep90 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink.sroa.gep91 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink.sroa.gep92 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink.sroa.gep94 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink.sroa.gep95 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink.sroa.gep96 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink.sroa.gep97 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %14, label %28, label %15
 
 15:                                               ; preds = %3
@@ -176,7 +176,7 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
 "_ZN4core5slice4sort10merge_sort32BufGuard$LT$T$C$ElemDeallocF$GT$3new17h64d4f0818350a76cE.exit": ; preds = %15
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   store ptr %17, ptr %12, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %16, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   %21 = invoke ptr @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$17h0d259120302f52feE"(ptr nonnull align 1 %4, i64 16)
@@ -195,15 +195,15 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17h19174d80d08005e7E.exit": ; preds = %.noexc
   store ptr %21, ptr %11, align 8
-  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 16, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %25, align 8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   %26 = icmp ne ptr %0, null
-  %27 = getelementptr inbounds i8, ptr %11, i64 24
-  %.sroa.212.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.313.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.313.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %37
 
 28:                                               ; preds = %3
@@ -243,7 +243,7 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   br i1 %40, label %.thread, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %39, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   call void @llvm.assume(i1 %26)
   %43 = invoke zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h303458ac15427077E(ptr align 1 %2, ptr nonnull align 8 %42, ptr nonnull align 8 %39)
           to label %.noexc35 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -389,7 +389,7 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   %75 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %76 = getelementptr inbounds { i64, i64 }, ptr %75, i64 %74
   store i64 %62, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 %.067, ptr %77, align 8
   %78 = load i64, ptr %25, align 8, !noundef !3
   %79 = add i64 %78, 1
@@ -419,7 +419,7 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   %93 = getelementptr inbounds { i64, i64 }, ptr %92, i64 %86
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   %94 = load i64, ptr %93, align 8, !noundef !3
-  %95 = getelementptr inbounds i8, ptr %93, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %96 = load i64, ptr %95, align 8, !noundef !3
   %97 = add nuw i64 %86, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
@@ -430,7 +430,7 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   %100 = getelementptr inbounds { i64, i64 }, ptr %92, i64 %97
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   %101 = load i64, ptr %100, align 8, !noundef !3
-  %102 = getelementptr inbounds i8, ptr %100, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %103 = load i64, ptr %102, align 8, !noundef !3
   %104 = add i64 %103, %101
   %105 = invoke { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hedffe7cf43052bdbE"(i64 %96, i64 %104, ptr align 8 %0, i64 %13, ptr nonnull align 8 @anon.c1c48a1fef5800bfd07888450020b215.12)
@@ -528,13 +528,13 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   %.029.i = select i1 %138, ptr %.02838.i, ptr %140
   %141 = load ptr, ptr %.sroa.313.0..sroa_idx.i, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef nonnull align 8 dereferenceable(16) %.029.i, i64 16, i1 false)
-  %142 = getelementptr inbounds i8, ptr %141, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   store ptr %142, ptr %.sroa.313.0..sroa_idx.i, align 8
   %143 = zext i1 %138 to i64
-  %144 = getelementptr inbounds { ptr, i64 }, ptr %.02838.i, i64 %143
+  %144 = getelementptr inbounds nuw { ptr, i64 }, ptr %.02838.i, i64 %143
   %145 = xor i1 %138, true
   %146 = zext i1 %145 to i64
-  %147 = getelementptr inbounds { ptr, i64 }, ptr %140, i64 %146
+  %147 = getelementptr inbounds nuw { ptr, i64 }, ptr %140, i64 %146
   store ptr %147, ptr %8, align 8
   %148 = load ptr, ptr %.sroa.212.0..sroa_idx.i, align 8, !noundef !3
   %149 = icmp ult ptr %147, %148
@@ -561,7 +561,7 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   %159 = add i64 %101, %94
   store i64 %159, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %158, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i64 %96, ptr %160, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   %161 = load i64, ptr %25, align 8, !noundef !3
@@ -589,7 +589,7 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h9a0d72cb9830bfeeE.exit": ; preds = %156
   %163 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %164 = getelementptr inbounds { i64, i64 }, ptr %163, i64 %86
-  %165 = getelementptr inbounds i8, ptr %164, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %166 = xor i64 %86, -1
   %167 = add i64 %161, %166
   %168 = shl i64 %167, 4
@@ -608,8 +608,8 @@ define void @_ZN4core5slice4sort10merge_sort17h51051a8ed1a40f2aE(ptr align 8 %0,
 
 .preheader.i50:                                   ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %173 = getelementptr inbounds i8, ptr %5, i64 8
-  %174 = getelementptr inbounds i8, ptr %5, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %175
 
 175:                                              ; preds = %175, %.preheader.i50
@@ -646,22 +646,22 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   %12 = alloca { ptr, i64, {} }, align 8
   %13 = freeze i64 %1
   %14 = icmp ult i64 %13, 21
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
-  %.sink.sroa.gep80 = getelementptr inbounds i8, ptr %9, i64 8
-  %.sink.sroa.gep81 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sink.sroa.gep82 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink.sroa.gep84 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sink.sroa.gep85 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sink.sroa.gep86 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sink.sroa.gep87 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink.sroa.gep89 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sink.sroa.gep90 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sink.sroa.gep91 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sink.sroa.gep92 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink.sroa.gep94 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sink.sroa.gep95 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sink.sroa.gep96 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sink.sroa.gep97 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink.sroa.gep80 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink.sroa.gep81 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink.sroa.gep82 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink.sroa.gep84 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink.sroa.gep85 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink.sroa.gep86 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink.sroa.gep87 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.sroa.gep89 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink.sroa.gep90 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink.sroa.gep91 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink.sroa.gep92 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink.sroa.gep94 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink.sroa.gep95 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink.sroa.gep96 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink.sroa.gep97 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %14, label %28, label %15
 
 15:                                               ; preds = %3
@@ -678,7 +678,7 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
 "_ZN4core5slice4sort10merge_sort32BufGuard$LT$T$C$ElemDeallocF$GT$3new17h06d8b2ff0c5b5a12E.exit": ; preds = %15
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   store ptr %17, ptr %12, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %16, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   %21 = invoke ptr @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$17h63498c3ed9546b13E"(ptr nonnull align 1 %4, i64 16)
@@ -697,15 +697,15 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
 
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$3new17he6cb7f09dfdbc425E.exit": ; preds = %.noexc
   store ptr %21, ptr %11, align 8
-  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 16, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %25, align 8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   %26 = icmp ne ptr %0, null
-  %27 = getelementptr inbounds i8, ptr %11, i64 24
-  %.sroa.212.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.313.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.313.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %37
 
 28:                                               ; preds = %3
@@ -745,7 +745,7 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   br i1 %40, label %.thread, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %39, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   call void @llvm.assume(i1 %26)
   %43 = invoke zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h4e87bdcfa1871ad7E(ptr align 1 %2, ptr nonnull align 8 %42, ptr nonnull align 8 %39)
           to label %.noexc35 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -891,7 +891,7 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   %75 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %76 = getelementptr inbounds { i64, i64 }, ptr %75, i64 %74
   store i64 %62, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 %.067, ptr %77, align 8
   %78 = load i64, ptr %25, align 8, !noundef !3
   %79 = add i64 %78, 1
@@ -921,7 +921,7 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   %93 = getelementptr inbounds { i64, i64 }, ptr %92, i64 %86
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   %94 = load i64, ptr %93, align 8, !noundef !3
-  %95 = getelementptr inbounds i8, ptr %93, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %96 = load i64, ptr %95, align 8, !noundef !3
   %97 = add nuw i64 %86, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
@@ -932,7 +932,7 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   %100 = getelementptr inbounds { i64, i64 }, ptr %92, i64 %97
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   %101 = load i64, ptr %100, align 8, !noundef !3
-  %102 = getelementptr inbounds i8, ptr %100, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %103 = load i64, ptr %102, align 8, !noundef !3
   %104 = add i64 %103, %101
   %105 = invoke { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hff23b2a88fba2f45E"(i64 %96, i64 %104, ptr align 8 %0, i64 %13, ptr nonnull align 8 @anon.c1c48a1fef5800bfd07888450020b215.12)
@@ -1030,13 +1030,13 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   %.029.i = select i1 %138, ptr %.02838.i, ptr %140
   %141 = load ptr, ptr %.sroa.313.0..sroa_idx.i, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef nonnull align 8 dereferenceable(16) %.029.i, i64 16, i1 false)
-  %142 = getelementptr inbounds i8, ptr %141, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   store ptr %142, ptr %.sroa.313.0..sroa_idx.i, align 8
   %143 = zext i1 %138 to i64
-  %144 = getelementptr inbounds { ptr, ptr }, ptr %.02838.i, i64 %143
+  %144 = getelementptr inbounds nuw { ptr, ptr }, ptr %.02838.i, i64 %143
   %145 = xor i1 %138, true
   %146 = zext i1 %145 to i64
-  %147 = getelementptr inbounds { ptr, ptr }, ptr %140, i64 %146
+  %147 = getelementptr inbounds nuw { ptr, ptr }, ptr %140, i64 %146
   store ptr %147, ptr %8, align 8
   %148 = load ptr, ptr %.sroa.212.0..sroa_idx.i, align 8, !noundef !3
   %149 = icmp ult ptr %147, %148
@@ -1063,7 +1063,7 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   %159 = add i64 %101, %94
   store i64 %159, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %158, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i64 %96, ptr %160, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   %161 = load i64, ptr %25, align 8, !noundef !3
@@ -1091,7 +1091,7 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
 "_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17hcd090d4ee9ba524aE.exit": ; preds = %156
   %163 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %164 = getelementptr inbounds { i64, i64 }, ptr %163, i64 %86
-  %165 = getelementptr inbounds i8, ptr %164, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %166 = xor i64 %86, -1
   %167 = add i64 %161, %166
   %168 = shl i64 %167, 4
@@ -1110,8 +1110,8 @@ define void @_ZN4core5slice4sort10merge_sort17hb580c1ca536573f3E(ptr align 8 %0,
 
 .preheader.i50:                                   ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %173 = getelementptr inbounds i8, ptr %5, i64 8
-  %174 = getelementptr inbounds i8, ptr %5, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %175
 
 175:                                              ; preds = %175, %.preheader.i50
@@ -1182,9 +1182,9 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
 
 6:                                                ; preds = %1
   store ptr %3, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 16, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %8, align 8
   ret void
 }
@@ -1202,18 +1202,18 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
 
 6:                                                ; preds = %1
   store ptr %3, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 16, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$4push17hb84f007f30becfccE"(ptr align 8 %0, i64 %1, i64 %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
   %8 = icmp eq i64 %5, %7
   br i1 %8, label %9, label %15
@@ -1222,7 +1222,7 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
   %10 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %11 = shl i64 %5, 1
   store i64 %11, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = tail call ptr @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$17h0d259120302f52feE"(ptr nonnull align 1 %12, i64 %11)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %22, label %23
@@ -1232,7 +1232,7 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
   %17 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds { i64, i64 }, ptr %17, i64 %16
   store i64 %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %2, ptr %19, align 8
   %20 = load i64, ptr %4, align 8, !noundef !3
   %21 = add i64 %20, 1
@@ -1254,9 +1254,9 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$4push17hd78eeab4afb3f6d0E"(ptr align 8 %0, i64 %1, i64 %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
   %8 = icmp eq i64 %5, %7
   br i1 %8, label %9, label %15
@@ -1265,7 +1265,7 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
   %10 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %11 = shl i64 %5, 1
   store i64 %11, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = tail call ptr @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$17h63498c3ed9546b13E"(ptr nonnull align 1 %12, i64 %11)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %22, label %23
@@ -1275,7 +1275,7 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
   %17 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds { i64, i64 }, ptr %17, i64 %16
   store i64 %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %2, ptr %19, align 8
   %20 = load i64, ptr %4, align 8, !noundef !3
   %21 = add i64 %20, 1
@@ -1298,7 +1298,7 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h9a0d72cb9830bfeeE"(ptr nocapture align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %.not = icmp ult i64 %1, %5
   br i1 %.not, label %6, label %15
@@ -1306,7 +1306,7 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds { i64, i64 }, ptr %7, i64 %1
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = xor i64 %1, -1
   %11 = add i64 %5, %10
   %12 = shl i64 %11, 4
@@ -1318,13 +1318,13 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
 
 15:                                               ; preds = %2
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.1, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.c1c48a1fef5800bfd07888450020b215.18) #7
   unreachable
@@ -1333,7 +1333,7 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17hcd090d4ee9ba524aE"(ptr nocapture align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %.not = icmp ult i64 %1, %5
   br i1 %.not, label %6, label %15
@@ -1341,7 +1341,7 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds { i64, i64 }, ptr %7, i64 %1
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = xor i64 %1, -1
   %11 = add i64 %5, %10
   %12 = shl i64 %11, 4
@@ -1353,13 +1353,13 @@ define void @"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF
 
 15:                                               ; preds = %2
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.1, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @anon.c1c48a1fef5800bfd07888450020b215.2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.c1c48a1fef5800bfd07888450020b215.18) #7
   unreachable
@@ -1371,7 +1371,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h3687dac1023cdbf9E(ptr ali
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %7)
   %8 = tail call zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h303458ac15427077E(ptr align 1 %2, ptr nonnull align 8 %6, ptr nonnull align 8 %0)
@@ -1430,7 +1430,7 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17h56153c933b45d413E(ptr ali
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %7)
   %8 = tail call zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17h4e87bdcfa1871ad7E(ptr align 1 %2, ptr nonnull align 8 %6, ptr nonnull align 8 %0)
@@ -1501,15 +1501,15 @@ define void @_ZN4core5slice4sort11insert_tail17h73187370c48906b8E(ptr align 8 %0
   %14 = getelementptr i8, ptr %7, i64 -8
   %15 = load i64, ptr %14, align 8, !noundef !3
   store ptr %13, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %15, ptr %16, align 8
   store ptr %6, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   %18 = add i64 %1, -2
   store i64 0, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %18, ptr %19, align 8
   br label %21
 
@@ -1578,15 +1578,15 @@ define void @_ZN4core5slice4sort11insert_tail17hfc70d5a514b13f7eE(ptr align 8 %0
   %14 = getelementptr i8, ptr %7, i64 -8
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !align !5, !noundef !3
   store ptr %13, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %15, ptr %16, align 8
   store ptr %6, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   %18 = add i64 %1, -2
   store i64 0, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %18, ptr %19, align 8
   br label %21
 
@@ -1678,8 +1678,8 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h279888418f85ae35E(ptr al
   br i1 %.not7.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17hc506d4c0aa10d8ddE.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %26
 
 25:                                               ; preds = %15
@@ -1745,8 +1745,8 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h27a25b38ac57070bE(ptr al
   br i1 %.not7.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17h807b915980c0fd1cE.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %26
 
 25:                                               ; preds = %15
@@ -1784,8 +1784,8 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17h807b915980c0fd1cE(
   br i1 %.not7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %11
 
 10:                                               ; preds = %4
@@ -1822,8 +1822,8 @@ define void @_ZN4core5slice4sort25insertion_sort_shift_left17hc506d4c0aa10d8ddE(
   br i1 %.not7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %11
 
 10:                                               ; preds = %4
@@ -1854,8 +1854,8 @@ define void @_ZN4core5slice4sort5merge17h590e809771c3e77eE(ptr align 8 %0, i64 %
   %8 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %1
   %9 = sub i64 %1, %2
   %.not = icmp ugt i64 %2, %9
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.313.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = icmp sgt i64 %2, 0
   br i1 %.not, label %11, label %15
 
@@ -1940,13 +1940,13 @@ define void @_ZN4core5slice4sort5merge17h590e809771c3e77eE(ptr align 8 %0, i64 %
   %.029 = select i1 %36, ptr %.02838, ptr %38
   %39 = load ptr, ptr %.sroa.313.0..sroa_idx, align 8, !noundef !3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %.029, i64 16, i1 false)
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %40, ptr %.sroa.313.0..sroa_idx, align 8
   %41 = zext i1 %36 to i64
-  %42 = getelementptr inbounds { ptr, i64 }, ptr %.02838, i64 %41
+  %42 = getelementptr inbounds nuw { ptr, i64 }, ptr %.02838, i64 %41
   %43 = xor i1 %36, true
   %44 = zext i1 %43 to i64
-  %45 = getelementptr inbounds { ptr, i64 }, ptr %38, i64 %44
+  %45 = getelementptr inbounds nuw { ptr, i64 }, ptr %38, i64 %44
   store ptr %45, ptr %6, align 8
   %46 = load ptr, ptr %.sroa.212.0..sroa_idx, align 8, !noundef !3
   %47 = icmp ult ptr %45, %46
@@ -1971,8 +1971,8 @@ define void @_ZN4core5slice4sort5merge17hd119892f395674a3E(ptr align 8 %0, i64 %
   %8 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %1
   %9 = sub i64 %1, %2
   %.not = icmp ugt i64 %2, %9
-  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.313.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = icmp sgt i64 %2, 0
   br i1 %.not, label %11, label %15
 
@@ -2057,13 +2057,13 @@ define void @_ZN4core5slice4sort5merge17hd119892f395674a3E(ptr align 8 %0, i64 %
   %.029 = select i1 %36, ptr %.02838, ptr %38
   %39 = load ptr, ptr %.sroa.313.0..sroa_idx, align 8, !noundef !3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %.029, i64 16, i1 false)
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %40, ptr %.sroa.313.0..sroa_idx, align 8
   %41 = zext i1 %36 to i64
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %.02838, i64 %41
+  %42 = getelementptr inbounds nuw { ptr, ptr }, ptr %.02838, i64 %41
   %43 = xor i1 %36, true
   %44 = zext i1 %43 to i64
-  %45 = getelementptr inbounds { ptr, ptr }, ptr %38, i64 %44
+  %45 = getelementptr inbounds nuw { ptr, ptr }, ptr %38, i64 %44
   store ptr %45, ptr %6, align 8
   %46 = load ptr, ptr %.sroa.212.0..sroa_idx, align 8, !noundef !3
   %47 = icmp ult ptr %45, %46

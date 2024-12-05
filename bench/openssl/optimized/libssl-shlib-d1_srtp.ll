@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_CTX_set_tlsext_use_srtp(ptr nocapture noundef %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
-  %method = getelementptr inbounds i8, ptr %ctx, i64 8
+  %method = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %method, align 8
   %call = tail call ptr @OSSL_QUIC_client_method() #5
   %cmp = icmp eq ptr %0, %call
@@ -37,7 +37,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %srtp_profiles = getelementptr inbounds i8, ptr %ctx, i64 960
+  %srtp_profiles = getelementptr inbounds nuw i8, ptr %ctx, i64 960
   %call4 = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles)
   br label %return
 
@@ -98,7 +98,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   br i1 %cmp4.i, label %if.then5, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %while.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.08.i, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.08.i, i64 16
   %2 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %err, label %while.body.i, !llvm.loop !4
@@ -114,7 +114,7 @@ if.end11:                                         ; preds = %if.then5
   br i1 %tobool15.not, label %err, label %if.end18
 
 if.end18:                                         ; preds = %if.end11
-  %add.ptr = getelementptr inbounds i8, ptr %call1, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call1, i64 1
   br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !6
 
 do.end:                                           ; preds = %if.end18
@@ -149,7 +149,7 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp1, label %if.end, label %return
 
 if.end:                                           ; preds = %cond.false
-  %srtp_profiles = getelementptr inbounds i8, ptr %s, i64 2800
+  %srtp_profiles = getelementptr inbounds nuw i8, ptr %s, i64 2800
   %call = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles)
   br label %return
 
@@ -170,19 +170,19 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp1, label %if.then, label %if.end18
 
 if.then:                                          ; preds = %cond.false
-  %srtp_profiles = getelementptr inbounds i8, ptr %s, i64 2800
+  %srtp_profiles = getelementptr inbounds nuw i8, ptr %s, i64 2800
   %1 = load ptr, ptr %srtp_profiles, align 8
   %cmp7.not = icmp eq ptr %1, null
   br i1 %cmp7.not, label %if.else, label %return
 
 if.else:                                          ; preds = %if.then
-  %ctx = getelementptr inbounds i8, ptr %s, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %s, i64 8
   %2 = load ptr, ptr %ctx, align 8
   %cmp10.not = icmp eq ptr %2, null
   br i1 %cmp10.not, label %if.end18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %srtp_profiles12 = getelementptr inbounds i8, ptr %2, i64 960
+  %srtp_profiles12 = getelementptr inbounds nuw i8, ptr %2, i64 960
   %3 = load ptr, ptr %srtp_profiles12, align 8
   %cmp13.not = icmp eq ptr %3, null
   br i1 %cmp13.not, label %if.end18, label %return
@@ -207,7 +207,7 @@ cond.false:                                       ; preds = %entry
   br i1 %cmp1, label %if.end, label %return
 
 if.end:                                           ; preds = %cond.false
-  %srtp_profile = getelementptr inbounds i8, ptr %s, i64 2808
+  %srtp_profile = getelementptr inbounds nuw i8, ptr %s, i64 2808
   %1 = load ptr, ptr %srtp_profile, align 8
   br label %return
 

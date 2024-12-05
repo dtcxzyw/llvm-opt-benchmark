@@ -50,7 +50,7 @@ define dso_local range(i32 0, 2) i32 @nc_send(i32 noundef %0, ptr noundef %1, i6
   br i1 %.not75, label %.loopexit38, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = srem i32 %0, 64
   %9 = zext nneg i32 %8 to i64
   %10 = shl nuw i64 1, %9
@@ -177,23 +177,23 @@ define dso_local i32 @nc_sendmsg(i32 noundef %0, i32 noundef %1) local_unnamed_a
   %7 = alloca [256 x i8], align 16
   store i8 0, ptr %6, align 1
   store ptr %6, ptr %3, align 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 20, ptr %12, align 8
   store i64 20, ptr %5, align 16
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %1, ptr %15, align 16
   %16 = call i64 @sendmsg(i32 noundef %0, ptr noundef nonnull %4, i32 noundef 0) #13
   %17 = trunc i64 %16 to i32
@@ -226,7 +226,7 @@ define dso_local noalias noundef ptr @nc_recv(i32 noundef %0) local_unnamed_addr
   %6 = tail call i64 @time(ptr noundef null) #13
   %7 = load i64, ptr @readtimeout, align 8
   %8 = add nsw i64 %7, %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = srem i32 %0, 64
   %11 = zext nneg i32 %10 to i64
   %12 = shl nuw i64 1, %11
@@ -248,7 +248,7 @@ define dso_local noalias noundef ptr @nc_recv(i32 noundef %0) local_unnamed_addr
 .outer51:                                         ; preds = %.outer, %59
   %.036.ph52 = phi i32 [ %.036.ph, %.outer ], [ %52, %59 ]
   %17 = zext nneg i32 %.036.ph52 to i64
-  %18 = getelementptr inbounds [128 x i8], ptr %2, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [128 x i8], ptr %2, i64 0, i64 %17
   %19 = sub nuw nsw i64 128, %17
   br label %20
 
@@ -323,7 +323,7 @@ define dso_local noalias noundef ptr @nc_recv(i32 noundef %0) local_unnamed_addr
 53:                                               ; preds = %51
   %54 = add i32 %52, -1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds [128 x i8], ptr %2, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [128 x i8], ptr %2, i64 0, i64 %55
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 10
   br i1 %58, label %64, label %59
@@ -352,7 +352,7 @@ define dso_local noalias noundef ptr @nc_recv(i32 noundef %0) local_unnamed_addr
 71:                                               ; preds = %64
   %72 = zext i32 %52 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 16 %2, i64 %72, i1 false)
-  %73 = getelementptr inbounds i8, ptr %67, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 %72
   store i8 0, ptr %73, align 1
   br label %74
 
@@ -433,7 +433,7 @@ nc_socket.exit.thread:                            ; preds = %11, %19, %29
   %36 = tail call i64 @time(ptr noundef null) #13
   %37 = add nsw i64 %36, 30
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = tail call i32 @connect(i32 noundef range(i32 0, -1) %9, ptr %38, i32 noundef %40) #13
   %.not.i = icmp eq i32 %41, 0
@@ -452,7 +452,7 @@ nc_socket.exit.thread:                            ; preds = %11, %19, %29
 
 48:                                               ; preds = %42
   store i64 30, ptr %2, align 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = srem i32 %9, 64
   %51 = zext nneg i32 %50 to i64
   %52 = shl nuw i64 1, %51
@@ -556,7 +556,7 @@ define dso_local void @nc_ping_entry(ptr nocapture noundef %0) local_unnamed_add
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(6) @.str.10) #16
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %0, i64 33
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 %11, ptr %12, align 1
   tail call void @free(ptr noundef nonnull %7) #13
   %13 = tail call i32 @close(i32 noundef %2) #13
@@ -567,7 +567,7 @@ define dso_local void @nc_ping_entry(ptr nocapture noundef %0) local_unnamed_add
   br label %16
 
 16:                                               ; preds = %14, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 33
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 1, ptr %17, align 1
   br label %18
 
@@ -674,9 +674,9 @@ define dso_local range(i32 0, 2) i32 @islocalnet_name(ptr noundef %0) local_unna
   br i1 %.not.i, label %islocalnet.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %15 = load i32, ptr %2, align 16
   %16 = load i32, ptr %12, align 4
   %17 = load i32, ptr %13, align 8
@@ -685,42 +685,42 @@ define dso_local range(i32 0, 2) i32 @islocalnet_name(ptr noundef %0) local_unna
 
 19:                                               ; preds = %51, %.preheader.i
   %.020.i = phi ptr [ %11, %.preheader.i ], [ %52, %51 ]
-  %20 = getelementptr inbounds i8, ptr %.020.i, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %.020.i, i64 40
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %10
   br i1 %22, label %23, label %51
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.020.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.020.i, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.020.i, i64 24
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, %15
   %29 = icmp eq i32 %25, %28
   br i1 %29, label %30, label %51
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %.020.i, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %.020.i, i64 12
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %.020.i, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %.020.i, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, %16
   %36 = icmp eq i32 %32, %35
   br i1 %36, label %37, label %51
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %.020.i, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.020.i, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %.020.i, i64 32
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, %17
   %43 = icmp eq i32 %39, %42
   br i1 %43, label %44, label %51
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %.020.i, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %.020.i, i64 20
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %.020.i, i64 36
+  %47 = getelementptr inbounds nuw i8, ptr %.020.i, i64 36
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, %18
   %50 = icmp eq i32 %46, %49
@@ -748,7 +748,7 @@ define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr nocaptur
   br label %48
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   store i32 1, ptr %8, align 8
   %9 = call i32 @getaddrinfo(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
@@ -761,7 +761,7 @@ define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr nocaptur
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %.thread [
     i32 16, label %16
@@ -769,7 +769,7 @@ define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr nocaptur
   ]
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = load i16, ptr %18, align 2
   %20 = icmp eq i16 %19, 2
@@ -777,14 +777,14 @@ define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr nocaptur
 
 21:                                               ; preds = %16
   store i32 1, ptr %1, align 4
-  %22 = getelementptr inbounds i8, ptr %18, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = call i32 @htonl(i32 noundef %23) #14
   store i32 %24, ptr %2, align 4
   br label %.loopexit
 
 25:                                               ; preds = %12
-  %26 = getelementptr inbounds i8, ptr %13, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = load i16, ptr %27, align 2
   %29 = icmp eq i16 %28, 10
@@ -792,14 +792,14 @@ define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr nocaptur
 
 30:                                               ; preds = %25
   store i32 2, ptr %1, align 4
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   br label %32
 
 32:                                               ; preds = %30, %45
   %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %45 ]
   %.028 = phi i32 [ 0, %30 ], [ %.1, %45 ]
   %.01927 = phi i32 [ 0, %30 ], [ %.120, %45 ]
-  %33 = getelementptr inbounds [16 x i8], ptr %31, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 0, i64 %indvars.iv
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl i32 %.01927, 3
@@ -812,7 +812,7 @@ define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr nocaptur
 41:                                               ; preds = %32
   %42 = lshr i64 %indvars.iv, 2
   %43 = and i64 %42, 1073741823
-  %44 = getelementptr inbounds i32, ptr %2, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %2, i64 %43
   store i32 %38, ptr %44, align 4
   br label %45
 
@@ -854,45 +854,45 @@ define dso_local range(i32 0, 2) i32 @islocalnet_sock(ptr nocapture noundef read
   ]
 
 .preheader:                                       ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %76
 
 .preheader.i:                                     ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @htonl(i32 noundef %8) #14
   br label %10
 
 10:                                               ; preds = %33, %.preheader.i
   %.020.i = phi ptr [ %3, %.preheader.i ], [ %34, %33 ]
-  %11 = getelementptr inbounds i8, ptr %.020.i, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.020.i, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %14, label %33
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.020.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %.020.i, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.020.i, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, %9
   %20 = icmp eq i32 %16, %19
   br i1 %20, label %21, label %33
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %.020.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.020.i, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %.020.i, i64 20
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %islocalnet.exit, label %33
@@ -903,9 +903,9 @@ define dso_local range(i32 0, 2) i32 @islocalnet_sock(ptr nocapture noundef read
   br i1 %.not19.i, label %islocalnet.exit, label %10
 
 .preheader.i25:                                   ; preds = %89
-  %35 = getelementptr inbounds i8, ptr %2, i64 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %38 = load i32, ptr %2, align 16
   %39 = load i32, ptr %35, align 4
   %40 = load i32, ptr %36, align 8
@@ -914,42 +914,42 @@ define dso_local range(i32 0, 2) i32 @islocalnet_sock(ptr nocapture noundef read
 
 42:                                               ; preds = %74, %.preheader.i25
   %.020.i26 = phi ptr [ %3, %.preheader.i25 ], [ %75, %74 ]
-  %43 = getelementptr inbounds i8, ptr %.020.i26, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %.020.i26, i64 40
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 2
   br i1 %45, label %46, label %74
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %.020.i26, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.020.i26, i64 8
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.020.i26, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.020.i26, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, %38
   %52 = icmp eq i32 %48, %51
   br i1 %52, label %53, label %74
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i8, ptr %.020.i26, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.020.i26, i64 12
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %.020.i26, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %.020.i26, i64 28
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, %39
   %59 = icmp eq i32 %55, %58
   br i1 %59, label %60, label %74
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds i8, ptr %.020.i26, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.020.i26, i64 16
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %.020.i26, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.020.i26, i64 32
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, %40
   %66 = icmp eq i32 %62, %65
   br i1 %66, label %67, label %74
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %.020.i26, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.020.i26, i64 20
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %.020.i26, i64 36
+  %70 = getelementptr inbounds nuw i8, ptr %.020.i26, i64 36
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, %41
   %73 = icmp eq i32 %69, %72
@@ -964,7 +964,7 @@ define dso_local range(i32 0, 2) i32 @islocalnet_sock(ptr nocapture noundef read
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %89 ]
   %.034 = phi i32 [ 0, %.preheader ], [ %.1, %89 ]
   %.01533 = phi i32 [ 0, %.preheader ], [ %.116, %89 ]
-  %77 = getelementptr inbounds [16 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %indvars.iv
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = shl i32 %.01533, 3
@@ -977,7 +977,7 @@ define dso_local range(i32 0, 2) i32 @islocalnet_sock(ptr nocapture noundef read
 85:                                               ; preds = %76
   %86 = lshr i64 %indvars.iv, 2
   %87 = and i64 %86, 1073741823
-  %88 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %87
   store i32 %82, ptr %88, align 4
   br label %89
 
@@ -1017,7 +1017,7 @@ define dso_local void @localnets_free() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.17) #13
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp ne i32 %4, 0
   %6 = icmp ne ptr %2, null
@@ -1026,7 +1026,7 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
 
 .preheader:                                       ; preds = %1, %localnet.exit
   %.015 = phi ptr [ %75, %localnet.exit ], [ %2, %1 ]
-  %7 = getelementptr inbounds i8, ptr %.015, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 47) #16
   %.not = icmp eq ptr %9, null
@@ -1034,7 +1034,7 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
 
 10:                                               ; preds = %.preheader
   store i8 0, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %9, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %12
 
 12:                                               ; preds = %10, %.preheader
@@ -1051,8 +1051,8 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
   br label %70
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %14, i64 40
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %20 = tail call fastcc i32 @resolve(ptr noundef %spec.store.select, ptr noundef %18, ptr noundef %19)
   %.not48.i = icmp eq i32 %20, 0
   br i1 %.not48.i, label %22, label %21
@@ -1067,7 +1067,7 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %14, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   br label %localnet.exit
 
@@ -1105,10 +1105,10 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
   br label %70
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %14, i64 24
-  %43 = getelementptr inbounds i8, ptr %14, i64 36
-  %44 = getelementptr inbounds i8, ptr %14, i64 32
-  %45 = getelementptr inbounds i8, ptr %14, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %.not55.i = icmp eq i32 %.04453.i, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   br i1 %.not55.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1120,7 +1120,7 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
   %48 = shl nuw i32 1, %47
   %49 = lshr i32 %.054.i, 5
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds [4 x i32], ptr %42, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i32], ptr %42, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = or i32 %48, %52
   store i32 %53, ptr %51, align 4
@@ -1143,15 +1143,15 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
   %59 = load i32, ptr %19, align 8
   %60 = and i32 %59, %58
   store i32 %60, ptr %19, align 8
-  %61 = getelementptr inbounds i8, ptr %14, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, %57
   store i32 %63, ptr %61, align 4
-  %64 = getelementptr inbounds i8, ptr %14, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %65 = load i32, ptr %64, align 8
   %66 = and i32 %65, %56
   store i32 %66, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %14, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, %55
   store i32 %69, ptr %67, align 4
@@ -1174,7 +1174,7 @@ localnet.exit:                                    ; preds = %._crit_edge.i, %25
   %73 = load ptr, ptr @lnet, align 8
   store ptr %73, ptr %14, align 8
   store ptr %14, ptr @lnet, align 8
-  %74 = getelementptr inbounds i8, ptr %.015, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %.015, i64 48
   %75 = load ptr, ptr %74, align 8
   %.old1.not = icmp eq ptr %75, null
   br i1 %.old1.not, label %localnets_free.exit, label %.preheader

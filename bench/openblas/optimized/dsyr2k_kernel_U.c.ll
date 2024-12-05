@@ -65,7 +65,7 @@ define noundef i32 @dsyr2k_kernel_U(i64 noundef %0, i64 noundef %1, i64 noundef 
   %48 = mul i64 %2, %30
   %49 = sub i64 0, %48
   %50 = getelementptr inbounds double, ptr %4, i64 %49
-  %51 = getelementptr inbounds double, ptr %29, i64 %46
+  %51 = getelementptr inbounds nuw double, ptr %29, i64 %46
   %52 = icmp slt i64 %32, 1
   br i1 %52, label %.loopexit10, label %53
 
@@ -97,8 +97,8 @@ define noundef i32 @dsyr2k_kernel_U(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %72, label %.split.us, label %.loopexit10, !llvm.loop !3
 
 .split:                                           ; preds = %57, %.loopexit
-  %73 = phi i64 [ %121, %.loopexit ], [ %43, %57 ]
-  %74 = phi i64 [ %119, %.loopexit ], [ 0, %57 ]
+  %73 = phi i64 [ %120, %.loopexit ], [ %43, %57 ]
+  %74 = phi i64 [ %118, %.loopexit ], [ 0, %57 ]
   %75 = call i64 @llvm.smin.i64(i64 %73, i64 32)
   %76 = shl i64 %75, 32
   %77 = ashr exact i64 %76, 32
@@ -119,45 +119,48 @@ define noundef i32 @dsyr2k_kernel_U(i64 noundef %0, i64 noundef %1, i64 noundef 
   %92 = icmp sgt i64 %83, 0
   br i1 %92, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.split, %115
-  %93 = phi i64 [ %117, %115 ], [ 1, %.split ]
-  %94 = phi i64 [ %116, %115 ], [ 0, %.split ]
-  %95 = mul nuw nsw i64 %94, %83
-  %96 = add nuw nsw i64 %94, %74
-  %97 = mul nsw i64 %96, %7
-  %98 = add i64 %97, %74
+.preheader:                                       ; preds = %.split
+  %invariant.gep = getelementptr double, ptr %54, i64 %74
+  br label %93
+
+93:                                               ; preds = %.preheader, %114
+  %94 = phi i64 [ %116, %114 ], [ 1, %.preheader ]
+  %95 = phi i64 [ %115, %114 ], [ 0, %.preheader ]
+  %96 = mul nuw nsw i64 %95, %83
+  %97 = add nuw nsw i64 %95, %74
+  %98 = mul nsw i64 %97, %7
+  %gep = getelementptr double, ptr %invariant.gep, i64 %98
   br label %99
 
-99:                                               ; preds = %99, %.preheader
-  %100 = phi i64 [ 0, %.preheader ], [ %113, %99 ]
-  %101 = add nuw nsw i64 %100, %95
-  %102 = getelementptr inbounds [1024 x double], ptr %11, i64 0, i64 %101
+99:                                               ; preds = %99, %93
+  %100 = phi i64 [ 0, %93 ], [ %112, %99 ]
+  %101 = add nuw nsw i64 %100, %96
+  %102 = getelementptr inbounds nuw [1024 x double], ptr %11, i64 0, i64 %101
   %103 = load double, ptr %102, align 8, !tbaa !6
   %104 = mul nuw nsw i64 %100, %83
-  %105 = add nuw nsw i64 %104, %94
-  %106 = getelementptr inbounds [1024 x double], ptr %11, i64 0, i64 %105
+  %105 = add nuw nsw i64 %104, %95
+  %106 = getelementptr inbounds nuw [1024 x double], ptr %11, i64 0, i64 %105
   %107 = load double, ptr %106, align 8, !tbaa !6
   %108 = fadd double %103, %107
-  %109 = add i64 %98, %100
-  %110 = getelementptr inbounds double, ptr %54, i64 %109
-  %111 = load double, ptr %110, align 8, !tbaa !6
-  %112 = fadd double %111, %108
-  store double %112, ptr %110, align 8, !tbaa !6
-  %113 = add nuw nsw i64 %100, 1
-  %114 = icmp eq i64 %113, %93
-  br i1 %114, label %115, label %99, !llvm.loop !10
+  %109 = getelementptr double, ptr %gep, i64 %100
+  %110 = load double, ptr %109, align 8, !tbaa !6
+  %111 = fadd double %110, %108
+  store double %111, ptr %109, align 8, !tbaa !6
+  %112 = add nuw nsw i64 %100, 1
+  %113 = icmp eq i64 %112, %94
+  br i1 %113, label %114, label %99, !llvm.loop !10
 
-115:                                              ; preds = %99
+114:                                              ; preds = %99
+  %115 = add nuw nsw i64 %95, 1
   %116 = add nuw nsw i64 %94, 1
-  %117 = add nuw nsw i64 %93, 1
-  %118 = icmp eq i64 %116, %77
-  br i1 %118, label %.loopexit, label %.preheader, !llvm.loop !11
+  %117 = icmp eq i64 %115, %77
+  br i1 %117, label %.loopexit, label %93, !llvm.loop !11
 
-.loopexit:                                        ; preds = %115, %.split
-  %119 = add nuw nsw i64 %74, 32
-  %120 = icmp slt i64 %119, %43
-  %121 = add i64 %73, -32
-  br i1 %120, label %.split, label %.loopexit10, !llvm.loop !3
+.loopexit:                                        ; preds = %114, %.split
+  %118 = add nuw nsw i64 %74, 32
+  %119 = icmp slt i64 %118, %43
+  %120 = add i64 %73, -32
+  br i1 %119, label %.split, label %.loopexit10, !llvm.loop !3
 
 .loopexit10:                                      ; preds = %.loopexit, %.split.us, %53, %45, %34, %20, %16, %14
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %11) #4

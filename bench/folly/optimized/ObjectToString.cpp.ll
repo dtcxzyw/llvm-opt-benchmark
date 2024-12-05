@@ -30,14 +30,14 @@ entry:
   %buffer.i = alloca [20 x i8], align 16
   %ref.tmp = alloca %"class.folly::basic_fbstring", align 8
   %tobool.not = icmp eq ptr %type, null
-  %_M_string_length.i.i.i37 = getelementptr inbounds i8, ptr %result, i64 8
+  %_M_string_length.i.i.i37 = getelementptr inbounds nuw i8, ptr %result, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i37, align 8, !tbaa !7
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %add.i = add i64 %0, 1
   %1 = load ptr, ptr %result, align 8, !tbaa !14
-  %2 = getelementptr inbounds i8, ptr %result, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %result, i64 16
   %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
@@ -66,19 +66,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %add.i
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #9
-  %__name.i.i = getelementptr inbounds i8, ptr %type, i64 8
+  %__name.i.i = getelementptr inbounds nuw i8, ptr %type, i64 8
   %6 = load ptr, ptr %__name.i.i, align 8, !tbaa !16, !noalias !18
   %7 = load i8, ptr %6, align 1, !tbaa !15, !noalias !18
   %cmp.i.i = icmp eq i8 %7, 42
   %cond.idx.i.i = zext i1 %cmp.i.i to i64
-  %cond.i.i26 = getelementptr inbounds i8, ptr %6, i64 %cond.idx.i.i
+  %cond.i.i26 = getelementptr inbounds nuw i8, ptr %6, i64 %cond.idx.i.i
   invoke void @_ZN5folly8demangleEPKc(ptr dead_on_unwind nonnull writable sret(%"class.folly::basic_fbstring") align 8 %ref.tmp, ptr noundef nonnull %cond.i.i26)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 23
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 23
   %8 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !15
-  %size_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %size_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %9 = load i64, ptr %size_.i.i.i, align 8, !tbaa !15
   %conv.i.i.i = zext i8 %8 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -238,7 +238,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit55: ; preds
   br i1 %cmp39.not.i, label %_ZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit55
-  %28 = getelementptr inbounds i8, ptr %result, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %result, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit38.i, %for.body.lr.ph.i
@@ -277,7 +277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
   %34 = load i8, ptr %arrayidx.i62, align 1, !tbaa !15
   %35 = lshr i8 %34, 4
   %idxprom.i = zext nneg i8 %35 to i64
-  %arrayidx1.i = getelementptr inbounds [17 x i8], ptr @_ZZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmE12nibbleToChar.const, i64 0, i64 %idxprom.i
+  %arrayidx1.i = getelementptr inbounds nuw [17 x i8], ptr @_ZZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmE12nibbleToChar.const, i64 0, i64 %idxprom.i
   %36 = load i8, ptr %arrayidx1.i, align 1, !tbaa !15
   %37 = load i64, ptr %_M_string_length.i.i.i37, align 8, !tbaa !7
   %add.i14.i = add i64 %37, 1
@@ -312,7 +312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit25.i: ; pr
   %42 = load i8, ptr %arrayidx.i62, align 1, !tbaa !15
   %43 = and i8 %42, 15
   %idxprom5.i = zext nneg i8 %43 to i64
-  %arrayidx6.i = getelementptr inbounds [17 x i8], ptr @_ZZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmE12nibbleToChar.const, i64 0, i64 %idxprom5.i
+  %arrayidx6.i = getelementptr inbounds nuw [17 x i8], ptr @_ZZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhmE12nibbleToChar.const, i64 0, i64 %idxprom5.i
   %44 = load i8, ptr %arrayidx6.i, align 1, !tbaa !15
   %45 = load i64, ptr %_M_string_length.i.i.i37, align 8, !tbaa !7
   %add.i27.i = add i64 %45, 1
@@ -352,7 +352,7 @@ _ZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %50 = load i64, ptr %_M_string_length.i.i.i37, align 8, !tbaa !7
   %add.i65 = add i64 %50, 1
   %51 = load ptr, ptr %result, align 8, !tbaa !14
-  %52 = getelementptr inbounds i8, ptr %result, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %result, i64 16
   %cmp.i.i.i66 = icmp eq ptr %51, %52
   br i1 %cmp.i.i.i66, label %if.then.i.i.i74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i67
 
@@ -550,7 +550,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %sub.i = add i64 %pos.0.i8, -2
   %div.i = udiv i64 %v.addr.0.i9, 100
   %rem.i = urem i64 %v.addr.0.i9, 100
-  %arrayidx.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i
+  %arrayidx.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i
   %20 = load i16, ptr %arrayidx.i, align 2, !tbaa !26
   %add.ptr.i = getelementptr inbounds i8, ptr %out, i64 %sub.i
   store i16 %20, ptr %add.ptr.i, align 1

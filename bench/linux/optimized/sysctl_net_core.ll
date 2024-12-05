@@ -268,9 +268,9 @@ define internal i32 @proc_do_rss_key(ptr nocapture readnone %0, i32 noundef %1, 
   call void @llvm.lifetime.start.p0(i64 156, ptr nonnull %7) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(156) %7, i8 0, i64 156, i1 false), !annotation !5
   %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 156, ptr noundef nonnull @.str.32, i32 noundef 52, ptr noundef nonnull @netdev_rss_key) #14
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 156, ptr %10, align 8
   %11 = call i32 @proc_dostring(ptr noundef nonnull %6, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #14
   call void @llvm.lifetime.end.p0(i64 156, ptr nonnull %7) #14
@@ -288,13 +288,13 @@ define internal i32 @rps_sock_flow_sysctl(ptr nocapture noundef readonly %0, i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
   store i32 0, ptr %6, align 4, !annotation !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #14
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   store ptr %6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 20
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i16, ptr %11, align 4
   store i16 %12, ptr %10, align 4
   call void @mutex_lock(ptr noundef nonnull @rps_sock_flow_sysctl.sock_flow_mutex) #14
@@ -366,7 +366,7 @@ define internal i32 @rps_sock_flow_sysctl(ptr nocapture noundef readonly %0, i32
   br i1 %57, label %.loopexit, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %56, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 64
   br label %60
 
 60:                                               ; preds = %60, %58
@@ -454,7 +454,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr nocapture readnone %0, i32 nounde
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, ptrtoint (ptr @softnet_data to i64)
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %34 = load ptr, ptr %33, align 64
   %35 = icmp eq ptr %34, null
   %36 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %28) #14
@@ -485,7 +485,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr nocapture readnone %0, i32 nounde
 
 49:                                               ; preds = %42
   %50 = load i32, ptr @netdev_flow_limit_table_len, align 4
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 %50, ptr %51, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
   store volatile ptr %47, ptr %33, align 64
@@ -527,7 +527,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr nocapture readnone %0, i32 nounde
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, ptrtoint (ptr @softnet_data to i64)
   %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds i8, ptr %73, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
   %75 = load volatile ptr, ptr %74, align 64
   %76 = icmp eq ptr %75, null
   br i1 %76, label %78, label %77
@@ -607,7 +607,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr nocapture readnone %0, i32 nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @flow_limit_table_len_sysctl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #4 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @flow_limit_update_mutex) #14
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @proc_dointvec(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #14
@@ -639,10 +639,10 @@ define internal i32 @set_default_qdisc(ptr nocapture readnone %0, i32 noundef %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #14
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   store ptr %6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 16, ptr %9, align 8
   call void @qdisc_get_default(ptr noundef nonnull %6, i64 noundef 16) #14
   %10 = call i32 @proc_dostring(ptr noundef nonnull %7, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #14
@@ -747,7 +747,7 @@ define internal noundef range(i32 -12, 1) i32 @sysctl_core_net_init(ptr noundef 
 
 12:                                               ; preds = %12, %9
   %13 = phi ptr [ %4, %9 ], [ %17, %12 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 %11
   store ptr %16, ptr %14, align 8
@@ -759,7 +759,7 @@ define internal noundef range(i32 -12, 1) i32 @sysctl_core_net_init(ptr noundef 
 .loopexit:                                        ; preds = %12, %6, %1
   %20 = phi ptr [ @netns_core_table, %1 ], [ %4, %6 ], [ %4, %12 ]
   %21 = tail call ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %20, i64 noundef 5) #14
-  %22 = getelementptr inbounds i8, ptr %0, i64 368
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %21, ptr %22, align 16
   %23 = icmp eq ptr %21, null
   br i1 %23, label %24, label %27
@@ -779,9 +779,9 @@ define internal noundef range(i32 -12, 1) i32 @sysctl_core_net_init(ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @sysctl_core_net_exit(ptr nocapture noundef readonly %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 368
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load ptr, ptr %2, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call void @unregister_net_sysctl_table(ptr noundef %3) #14
   %6 = icmp eq ptr %5, @netns_core_table
@@ -793,7 +793,7 @@ define internal void @sysctl_core_net_exit(ptr nocapture noundef readonly %0) #4
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 400
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %10 = load ptr, ptr %9, align 16
   tail call void @kfree(ptr noundef %10) #14
   tail call void @kfree(ptr noundef %5) #14
@@ -809,11 +809,11 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rps_default_mask_sysctl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #4 align 16 {
   %6 = alloca [128 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @rtnl_lock() #14
   %9 = icmp eq i32 %1, 0
-  %10 = getelementptr inbounds i8, ptr %8, i64 400
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %11 = load ptr, ptr %10, align 16
   %12 = icmp eq ptr %11, null
   br i1 %9, label %25, label %13

@@ -2700,7 +2700,7 @@ define hidden i32 @dissect_inap_HighLayerCompatibility(i1 noundef zeroext %0, pt
   br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_inap_HighLayerCompatibility, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #4
@@ -2728,7 +2728,7 @@ define hidden i32 @dissect_inap_RedirectionInformation(i1 noundef zeroext %0, pt
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_inap_RedirectionInformation, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #4
@@ -2843,7 +2843,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal range(i32 0, 256) i32 @dissect_inap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.1278) #4
   %.not = icmp eq ptr %2, null
@@ -2975,7 +2975,7 @@ define internal i32 @dissect_inap_Code(i1 zeroext %0, ptr noundef %1, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_inap_T_argument(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @opcode, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
   switch i32 %7, label %180 [
     i32 42, label %10
@@ -3448,18 +3448,18 @@ define internal i32 @dissect_inap_T_code_local(i1 noundef zeroext %0, ptr nounde
 11:                                               ; preds = %8
   %12 = load i32, ptr @opcode, align 4
   store i32 %12, ptr @errorCode, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @inap_err_code_string_vals, ptr noundef nonnull @.str.1420) #4
   tail call void @col_append_str(ptr noundef %16, i32 noundef 25, ptr noundef %17) #4
   br label %.sink.split
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr @opcode, align 4
   %24 = tail call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @inap_opr_code_strings, ptr noundef nonnull @.str.1422) #4
@@ -3469,11 +3469,11 @@ define internal i32 @dissect_inap_T_code_local(i1 noundef zeroext %0, ptr nounde
 .sink.split:                                      ; preds = %18, %11
   %.sink15.in = phi ptr [ %19, %18 ], [ %13, %11 ]
   %.sink15 = load ptr, ptr %.sink15.in, align 8
-  %25 = getelementptr inbounds i8, ptr %.sink15, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @col_append_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1421) #4
   %.sink = load ptr, ptr %.sink15.in, align 8
-  %27 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_fence(ptr noundef %28, i32 noundef 25) #4
   br label %29
@@ -4405,7 +4405,7 @@ define internal i32 @dissect_inap_Cause(i1 noundef zeroext %0, ptr noundef %1, i
   br i1 %.not, label %19, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_inap_cause, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #4
@@ -4548,7 +4548,7 @@ define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, 
   %20 = load i32, ptr @ett_inap_correlationID, align 4
   %21 = load i32, ptr @opcode, align 4
   %.not32.not = icmp eq i32 %21, 16
-  %22 = getelementptr inbounds i8, ptr %3, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %20) #4
   br i1 %.not32.not, label %73, label %70
@@ -4611,7 +4611,7 @@ define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, 
 .thread:                                          ; preds = %52, %49, %46, %43, %40, %37, %34
   %.029.ph.in = phi ptr [ @ett_inap_dialledNumber, %34 ], [ @ett_inap_callingLineID, %37 ], [ @ett_inap_iNServiceControlCode, %40 ], [ @ett_inap_iNServiceControlCodeLow, %43 ], [ @ett_inap_iNServiceControlCodeHigh, %46 ], [ @ett_inap_lineID, %49 ], [ @ett_inap_prefix, %52 ]
   %.029.ph = load i32, ptr %.029.ph.in, align 4
-  %58 = getelementptr inbounds i8, ptr %3, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %.029.ph) #4
   br label %70
@@ -4619,7 +4619,7 @@ define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, 
 .thread39:                                        ; preds = %55, %31, %28, %25, %13, %10
   %.029.ph38.in = phi ptr [ @ett_inap_additionalCallingPartyNumber, %10 ], [ @ett_inap_assistingSSPIPRoutingAddress, %13 ], [ @ett_inap_calledAddressValue, %25 ], [ @ett_inap_callingAddressValue, %28 ], [ @ett_inap_number, %31 ], [ @ett_inap_iPAddressValue, %55 ]
   %.029.ph38 = load i32, ptr %.029.ph38.in, align 4
-  %61 = getelementptr inbounds i8, ptr %3, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %.029.ph38) #4
   br label %73
@@ -4629,7 +4629,7 @@ define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, 
   %.not42 = icmp eq i32 %5, %65
   %66 = load i32, ptr @ett_inap_digitsResponse, align 4
   %spec.select = select i1 %.not42, i32 %66, i32 -1
-  %67 = getelementptr inbounds i8, ptr %3, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %68 = load ptr, ptr %67, align 8
   %69 = call ptr @proto_item_add_subtree(ptr noundef %68, i32 noundef %spec.select) #4
   br i1 %.not42, label %70, label %73
@@ -4643,7 +4643,7 @@ define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, 
 73:                                               ; preds = %19, %.thread39, %64
   %74 = phi ptr [ %63, %.thread39 ], [ %69, %64 ], [ %24, %19 ]
   %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds i8, ptr %3, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %77 = load ptr, ptr %76, align 8
   call void @dissect_isup_generic_number_parameter(ptr noundef %75, ptr noundef %77, ptr noundef %74, ptr noundef null) #4
   br label %78
@@ -4710,7 +4710,7 @@ define internal i32 @dissect_inap_T_value(i1 zeroext %0, ptr noundef %1, i32 nou
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.1442) #4
   %9 = load ptr, ptr @obj_id, align 8
   %.not = icmp eq ptr %9, null
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
   br i1 %.not, label %14, label %12
 
@@ -4751,7 +4751,7 @@ define internal i32 @dissect_inap_CalledPartyNumber(i1 noundef zeroext %0, ptr n
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   call void @dissect_isup_called_party_number_parameter(ptr noundef nonnull %9, ptr noundef %12, ptr noundef %4, ptr noundef null) #4
   br label %13
@@ -4794,7 +4794,7 @@ define internal i32 @dissect_inap_OriginalCalledPartyID(i1 noundef zeroext %0, p
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   call void @dissect_isup_original_called_number_parameter(ptr noundef nonnull %9, ptr noundef %12, ptr noundef %4, ptr noundef null) #4
   br label %13
@@ -4812,7 +4812,7 @@ define internal i32 @dissect_inap_RedirectingPartyID(i1 noundef zeroext %0, ptr 
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   call void @dissect_isup_redirecting_number_parameter(ptr noundef nonnull %9, ptr noundef %12, ptr noundef %4, ptr noundef null) #4
   br label %13
@@ -4894,7 +4894,7 @@ define internal i32 @dissect_inap_CallingPartyNumber(i1 noundef zeroext %0, ptr 
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   call void @dissect_isup_calling_party_number_parameter(ptr noundef nonnull %9, ptr noundef %12, ptr noundef %4, ptr noundef null) #4
   br label %13
@@ -5518,7 +5518,7 @@ define internal i32 @dissect_inap_IPRoutingAddress(i1 noundef zeroext %0, ptr no
   br i1 %.not.i, label %dissect_inap_CalledPartyNumber.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   call void @dissect_isup_called_party_number_parameter(ptr noundef nonnull %9, ptr noundef %12, ptr noundef %4, ptr noundef null) #4
   br label %dissect_inap_CalledPartyNumber.exit
@@ -6412,7 +6412,7 @@ define internal i32 @dissect_inap_ResultArgument(i1 zeroext %0, ptr noundef %1, 
   %11 = alloca %struct._asn1_ctx_t, align 8
   %12 = alloca %struct._asn1_ctx_t, align 8
   %13 = load i32, ptr @opcode, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
   switch i32 %13, label %40 [
     i32 89, label %16
@@ -6559,7 +6559,7 @@ define internal i32 @dissect_inap_T_parameter(i1 zeroext %0, ptr noundef %1, i32
   %11 = alloca %struct._asn1_ctx_t, align 8
   %12 = alloca %struct._asn1_ctx_t, align 8
   %13 = load i32, ptr @errorCode, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
   switch i32 %13, label %37 [
     i32 1, label %16

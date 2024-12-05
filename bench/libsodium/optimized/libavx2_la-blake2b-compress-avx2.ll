@@ -29,11 +29,11 @@ entry:
   %shuffle.i968 = shufflevector <2 x i64> %8, <2 x i64> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
   %add.ptr24 = getelementptr i8, ptr %block, i64 112
   %9 = load <2 x i64>, ptr %add.ptr24, align 1
-  %f = getelementptr inbounds i8, ptr %S, i64 80
+  %f = getelementptr inbounds nuw i8, ptr %S, i64 80
   %arrayidx29 = getelementptr i8, ptr %S, i64 88
   %10 = load i64, ptr %arrayidx29, align 1
   %11 = load i64, ptr %f, align 1
-  %t = getelementptr inbounds i8, ptr %S, i64 64
+  %t = getelementptr inbounds nuw i8, ptr %S, i64 64
   %arrayidx32 = getelementptr i8, ptr %S, i64 72
   %12 = load i64, ptr %arrayidx32, align 1
   %13 = load i64, ptr %t, align 1

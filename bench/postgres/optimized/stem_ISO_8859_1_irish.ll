@@ -104,9 +104,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @irish_ISO_8859_1_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %3, ptr %4, align 4
   %5 = tail call i32 @find_among(ptr noundef %0, ptr noundef nonnull @a_0, i32 noundef 24) #2
   %.not.i = icmp eq i32 %5, 0
@@ -114,7 +114,7 @@ define hidden range(i32 -2147483648, 2) i32 @irish_ISO_8859_1_stem(ptr noundef i
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %7, ptr %8, align 8
   switch i32 %5, label %r_initial_morph.exit [
     i32 1, label %9
@@ -181,9 +181,9 @@ define hidden range(i32 -2147483648, 2) i32 @irish_ISO_8859_1_stem(ptr noundef i
 
 r_initial_morph.exit:                             ; preds = %6, %9, %12, %15, %18, %21, %24, %27, %30, %33, %36, %1
   store i32 %3, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr i8, ptr %42, i64 8
   store i32 %40, ptr %43, align 4
@@ -236,11 +236,11 @@ r_initial_morph.exit:                             ; preds = %6, %9, %12, %15, %1
   br label %r_mark_regions.exit
 
 r_mark_regions.exit:                              ; preds = %r_initial_morph.exit, %51, %58, %65, %70
-  %74 = getelementptr inbounds i8, ptr %0, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %48, ptr %74, align 8
   %75 = load i32, ptr %39, align 4
   store i32 %75, ptr %2, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %75, ptr %76, align 8
   %77 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 16) #2
   %.not.i44 = icmp eq i32 %77, 0

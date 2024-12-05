@@ -253,7 +253,7 @@ entry:
   %busy_poll_.addr.i = alloca i32, align 4
   %bufsize_.addr.i39 = alloca i32, align 4
   %bufsize_.addr.i = alloca i32, align 4
-  %ipv6 = getelementptr inbounds i8, ptr %options_, i64 360
+  %ipv6 = getelementptr inbounds nuw i8, ptr %options_, i64 360
   %0 = load i8, ptr %ipv6, align 8
   %tobool2 = trunc i8 %0 to i1
   %call = tail call noundef i32 @_ZN3zmq13tcp_address_t7resolveEPKcbb(ptr noundef nonnull align 4 dereferenceable(57) %out_tcp_addr_, ptr noundef %address_, i1 noundef zeroext %local_, i1 noundef zeroext %tobool2)
@@ -308,7 +308,7 @@ if.then31:                                        ; preds = %if.end27
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then31, %if.end27
-  %tos = getelementptr inbounds i8, ptr %options_, i64 300
+  %tos = getelementptr inbounds nuw i8, ptr %options_, i64 300
   %3 = load i32, ptr %tos, align 4
   %cmp33.not = icmp eq i32 %3, 0
   br i1 %cmp33.not, label %if.end36, label %if.then34
@@ -318,7 +318,7 @@ if.then34:                                        ; preds = %if.end32
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then34, %if.end32
-  %priority = getelementptr inbounds i8, ptr %options_, i64 304
+  %priority = getelementptr inbounds nuw i8, ptr %options_, i64 304
   %4 = load i32, ptr %priority, align 8
   %cmp37.not = icmp eq i32 %4, 0
   br i1 %cmp37.not, label %if.end43, label %if.then38
@@ -328,7 +328,7 @@ if.then38:                                        ; preds = %if.end36
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end36, %if.then38
-  %bound_device = getelementptr inbounds i8, ptr %options_, i64 960
+  %bound_device = getelementptr inbounds nuw i8, ptr %options_, i64 960
   %call44 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %bound_device) #7
   br i1 %call44, label %if.end51, label %if.then45
 
@@ -338,7 +338,7 @@ if.then45:                                        ; preds = %if.end43
   br i1 %cmp48, label %setsockopt_error, label %if.end51
 
 if.end51:                                         ; preds = %if.then45, %if.end43
-  %sndbuf = getelementptr inbounds i8, ptr %options_, i64 292
+  %sndbuf = getelementptr inbounds nuw i8, ptr %options_, i64 292
   %5 = load i32, ptr %sndbuf, align 4
   %cmp52 = icmp sgt i32 %5, -1
   br i1 %cmp52, label %if.then53, label %if.end56
@@ -352,7 +352,7 @@ if.then53:                                        ; preds = %if.end51
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then53, %if.end51
-  %rcvbuf = getelementptr inbounds i8, ptr %options_, i64 296
+  %rcvbuf = getelementptr inbounds nuw i8, ptr %options_, i64 296
   %6 = load i32, ptr %rcvbuf, align 8
   %cmp57 = icmp sgt i32 %6, -1
   br i1 %cmp57, label %if.then58, label %if.end61
@@ -366,7 +366,7 @@ if.then58:                                        ; preds = %if.end56
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then58, %if.end56
-  %busy_poll = getelementptr inbounds i8, ptr %options_, i64 1332
+  %busy_poll = getelementptr inbounds nuw i8, ptr %options_, i64 1332
   %7 = load i32, ptr %busy_poll, align 4
   %tobool62.not = icmp eq i32 %7, 0
   br i1 %tobool62.not, label %return, label %if.then63

@@ -128,7 +128,7 @@ define hidden noundef i32 @_ZNK4ncnn5Split7forwardERKSt6vectorINS_3MatESaIS2_EER
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %36, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %37)
   br label %44

@@ -17,36 +17,36 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @make_placeholder_expr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 303, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %14, align 4
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %6 = load i32, ptr %5, align 8
   %7 = icmp ult i32 %4, %6
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %4 to i64
   %12 = getelementptr ptr, ptr %10, i64 %11
@@ -55,7 +55,7 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not, label %.thread, label %97
 
 .thread:                                          ; preds = %2, %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 593
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 593
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %20
@@ -71,24 +71,24 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %21 = tail call noundef ptr @palloc0(i64 noundef 48) #4
   store i32 308, ptr %21, align 4
   %22 = load i32, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %22, ptr %23, align 4
   %24 = tail call ptr @copyObjectImpl(ptr noundef nonnull %1) #4
-  %25 = getelementptr inbounds i8, ptr %21, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @pull_varnos(ptr noundef nonnull %0, ptr noundef %28) #4
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @bms_difference(ptr noundef %29, ptr noundef %31) #4
-  %33 = getelementptr inbounds i8, ptr %21, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %32, ptr %33, align 8
   %34 = load ptr, ptr %30, align 8
   %35 = tail call ptr @bms_int_members(ptr noundef %29, ptr noundef %34) #4
-  %36 = getelementptr inbounds i8, ptr %21, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %35, ptr %36, align 8
   %37 = icmp eq ptr %35, null
   br i1 %37, label %38, label %41
@@ -100,16 +100,16 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   br label %41
 
 41:                                               ; preds = %38, %20
-  %42 = getelementptr inbounds i8, ptr %21, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %42, align 8
   %43 = load ptr, ptr %27, align 8
   %44 = tail call i32 @exprType(ptr noundef %43) #4
   %45 = load ptr, ptr %27, align 8
   %46 = tail call i32 @exprTypmod(ptr noundef %45) #4
   %47 = tail call i32 @get_typavgwidth(i32 noundef %44, i32 noundef %46) #4
-  %48 = getelementptr inbounds i8, ptr %21, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 280
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr @lappend(ptr noundef %50, ptr noundef nonnull %21) #4
   store ptr %51, ptr %49, align 8
@@ -119,7 +119,7 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not57, label %._crit_edge, label %54
 
 ._crit_edge:                                      ; preds = %41
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 288
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 288
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %72
 
@@ -136,7 +136,7 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not59, label %58, label %56, !llvm.loop !5
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 288
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %60 = load ptr, ptr %59, align 8
   %.not60 = icmp eq ptr %60, null
   br i1 %.not60, label %67, label %61
@@ -169,15 +169,15 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %76 = getelementptr ptr, ptr %74, i64 %75
   store ptr %21, ptr %76, align 8
   %77 = load ptr, ptr %25, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = tail call ptr @pull_var_clause(ptr noundef %79, i32 noundef 26) #4
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %.not.i = icmp eq ptr %80, null
   br i1 %.not.i, label %find_placeholders_in_expr.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %72
-  %82 = getelementptr inbounds i8, ptr %80, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %83 = load i32, ptr %81, align 4
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %.lr.ph69, label %find_placeholders_in_expr.exit
@@ -244,17 +244,17 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @find_placeholders_in_jointree(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @find_placeholders_recurse(ptr noundef nonnull %0, ptr noundef %10)
   br label %11
@@ -277,14 +277,14 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i32, ptr %9, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph38, label %._crit_edge
@@ -302,15 +302,15 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   br i1 %18, label %.lr.ph38, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph38, %.lr.ph, %6
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @pull_var_clause(ptr noundef %20, i32 noundef 26) #4
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load i32, ptr %22, align 4
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph18.i, label %.sink.split
@@ -338,21 +338,21 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   br i1 %37, label %.lr.ph18.i, label %.sink.split
 
 38:                                               ; preds = %4
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load ptr, ptr %39, align 8
   tail call fastcc void @find_placeholders_recurse(ptr noundef %0, ptr noundef %40)
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8
   tail call fastcc void @find_placeholders_recurse(ptr noundef %0, ptr noundef %42)
-  %43 = getelementptr inbounds i8, ptr %1, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @pull_var_clause(ptr noundef %44, i32 noundef 26) #4
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %.not.i26 = icmp eq ptr %45, null
   br i1 %.not.i26, label %.sink.split, label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = load i32, ptr %46, align 4
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph18.i28, label %.sink.split
@@ -398,14 +398,14 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @fix_placeholder_input_needed_levels(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph18, label %._crit_edge
@@ -415,12 +415,12 @@ define dso_local void @fix_placeholder_input_needed_levels(ptr noundef %0) local
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @pull_var_clause(ptr noundef %14, i32 noundef 26) #4
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void @add_vars_to_targetlist(ptr noundef %0, ptr noundef %15, ptr noundef %17) #4
   tail call void @list_free(ptr noundef %15) #4
@@ -443,14 +443,14 @@ declare void @list_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @add_placeholders_to_base_rels(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph21, label %._crit_edge
@@ -460,13 +460,13 @@ define dso_local void @add_placeholders_to_base_rels(ptr noundef %0) local_unnam
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = call zeroext i1 @bms_get_singleton_member(ptr noundef %13, ptr noundef nonnull %2) #4
   br i1 %14, label %15, label %32
 
 15:                                               ; preds = %.lr.ph21
-  %16 = getelementptr inbounds i8, ptr %11, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = call zeroext i1 @bms_nonempty_difference(ptr noundef %17, ptr noundef %13) #4
   br i1 %18, label %19, label %32
@@ -474,16 +474,16 @@ define dso_local void @add_placeholders_to_base_rels(ptr noundef %0) local_unnam
 19:                                               ; preds = %15
   %20 = load i32, ptr %2, align 4
   %21 = call ptr @find_base_rel(ptr noundef %0, i32 noundef %20) #4
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @copyObjectImpl(ptr noundef %27) #4
   %29 = call ptr @lappend(ptr noundef %25, ptr noundef %28) #4
   %30 = load ptr, ptr %22, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %29, ptr %31, align 8
   br label %32
 
@@ -507,25 +507,25 @@ declare ptr @find_base_rel(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 {
   %6 = alloca %struct.QualCost, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 280
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %15, i64 16
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %22 = load i32, ptr %16, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph42, label %._crit_edge
@@ -536,13 +536,13 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr nocapture
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr %union.ListCell, ptr %24, i64 %indvars.iv40
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = call zeroext i1 @bms_is_subset(ptr noundef %28, ptr noundef %8) #4
   br i1 %29, label %30, label %73
 
 30:                                               ; preds = %.lr.ph42
-  %31 = getelementptr inbounds i8, ptr %26, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = call zeroext i1 @bms_nonempty_difference(ptr noundef %32, ptr noundef %8) #4
   br i1 %33, label %34, label %68
@@ -560,32 +560,32 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr nocapture
   br i1 %41, label %68, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %26, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = call ptr @copyObjectImpl(ptr noundef %44) #4
   %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = call ptr @lappend(ptr noundef %48, ptr noundef %45) #4
   %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %49, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %45, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %53 = load ptr, ptr %52, align 8
   call void @cost_qual_eval_node(ptr noundef nonnull %6, ptr noundef %53, ptr noundef %0) #4
   %54 = load double, ptr %6, align 8
   %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load double, ptr %56, align 8
   %58 = fadd double %54, %57
   store double %58, ptr %56, align 8
   %59 = load double, ptr %20, align 8
   %60 = load ptr, ptr %9, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load double, ptr %61, align 8
   %63 = fadd double %59, %62
   store double %63, ptr %61, align 8
-  %64 = getelementptr inbounds i8, ptr %26, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
   %67 = add i64 %.03641, %66
@@ -594,7 +594,7 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr nocapture
 68:                                               ; preds = %34, %38, %42, %30
   %.1 = phi i64 [ %.03641, %34 ], [ %.03641, %38 ], [ %67, %42 ], [ %.03641, %30 ]
   %69 = load ptr, ptr %21, align 8
-  %70 = getelementptr inbounds i8, ptr %26, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = call ptr @bms_add_members(ptr noundef %69, ptr noundef %71) #4
   store ptr %72, ptr %21, align 8
@@ -612,7 +612,7 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr nocapture
   %.0.lcssa = phi i64 [ %13, %5 ], [ %13, %.lr.ph ], [ %.2, %73 ]
   %77 = call i32 @clamp_width_est(i64 noundef %.0.lcssa) #4
   %78 = load ptr, ptr %9, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
   store i32 %77, ptr %79, align 8
   ret void
 }
@@ -628,16 +628,16 @@ declare i32 @clamp_width_est(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @contain_placeholder_references_to(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.contain_placeholder_references_context, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %contain_placeholder_references_walker.exit, label %10
 
 10:                                               ; preds = %3
   store i32 %2, ptr %4, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %11, align 4
   %12 = icmp eq ptr %1, null
   br i1 %12, label %contain_placeholder_references_walker.exit, label %13
@@ -650,13 +650,13 @@ define dso_local zeroext i1 @contain_placeholder_references_to(ptr nocapture nou
   ]
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @bms_is_member(i32 noundef %2, ptr noundef %21) #4
   br label %contain_placeholder_references_walker.exit
@@ -688,22 +688,22 @@ define internal zeroext i1 @contain_placeholder_references_walker(ptr noundef %0
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %24
 
 12:                                               ; preds = %6
   %13 = load i32, ptr %1, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @bms_is_member(i32 noundef %13, ptr noundef %15) #4
   br label %26
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %1, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4

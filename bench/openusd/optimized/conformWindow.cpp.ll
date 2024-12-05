@@ -56,7 +56,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
 define { double, double } @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_7GfVec2dENS_29CameraUtilConformWindowPolicyEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i32 %1, 4
   %.sroa.0.0.copyload = load double, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   br i1 %4, label %16, label %5
 
@@ -112,11 +112,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERK
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload2.i.i = load double, ptr %8, align 8
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %9 = load double, ptr %1, align 8
   %10 = fsub double %.sroa.0.0.copyload2.i.i, %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load double, ptr %11, align 8
   %13 = fsub double %.sroa.4.0.copyload.i.i, %12
   %14 = fadd double %.sroa.0.0.copyload2.i.i, %9
@@ -149,11 +149,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2
   %27 = fsub double %17, %26
   %28 = fadd double %17, %26
   store double %9, ptr %0, align 8
-  %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %27, ptr %.sroa.232.0..sroa_idx, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sroa.0.0.copyload2.i.i, ptr %29, align 8
-  %.sroa.230.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %28, ptr %.sroa.230.0..sroa_idx, align 8
   br label %36
 
@@ -163,11 +163,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2
   %33 = fsub double %16, %32
   %34 = fadd double %16, %32
   store double %33, ptr %0, align 8
-  %.sroa.228.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %12, ptr %.sroa.228.0..sroa_idx, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %34, ptr %35, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %.sroa.4.0.copyload.i.i, ptr %.sroa.2.0..sroa_idx, align 8
   br label %36
 
@@ -186,11 +186,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERK
 
 7:                                                ; preds = %4
   %8 = load double, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load double, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load double, ptr %13, align 8
   %15 = fsub double %12, %8
   %16 = fsub double %14, %10
@@ -238,11 +238,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_9GfRange2d
   %.sroa.4.0 = phi double [ %10, %32 ], [ %30, %26 ]
   %.sroa.0.0 = phi double [ %35, %32 ], [ %8, %26 ]
   store double %.sroa.0.0, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.7.0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sroa.4.0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %.sroa.10.0, ptr %39, align 8
   br label %40
 
@@ -257,7 +257,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERK
   br i1 %5, label %39, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load double, ptr %7, align 8
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = load double, ptr %1, align 8
@@ -285,7 +285,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2
   %19 = fneg double %11
   %20 = select i1 %18, double %19, double %11
   %21 = fmul double %3, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %21, ptr %22, align 8
   %23 = fcmp une double %8, 0.000000e+00
   %24 = fdiv double %21, %8
@@ -309,11 +309,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2
   %.sink29 = phi i64 [ 72, %17 ], [ 64, %25 ]
   %.0.i19.sink27 = phi double [ %.0.i19, %17 ], [ %.0.i22, %25 ]
   %.sink25 = phi i64 [ 104, %17 ], [ 96, %25 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 %.sink29
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink29
   %34 = load double, ptr %33, align 8
   %35 = fmul double %.0.i19.sink27, %34
   store double %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 %.sink25
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink25
   %37 = load double, ptr %36, align 8
   %38 = fmul double %.0.i19.sink27, %37
   store double %38, ptr %36, align 8
@@ -392,13 +392,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23CameraUtilConformWindowEPNS_
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload2.i.i.i = load double, ptr %7, align 8, !noalias !4
-  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !4
   %8 = load double, ptr %6, align 8, !noalias !4
   %9 = fsub double %.sroa.0.0.copyload2.i.i.i, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load double, ptr %10, align 8, !noalias !4
   %12 = fsub double %.sroa.4.0.copyload.i.i.i, %11
   %13 = fadd double %.sroa.0.0.copyload2.i.i.i, %8

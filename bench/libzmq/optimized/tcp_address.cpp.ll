@@ -39,7 +39,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq13tcp_address_tC2EPK8sockaddrj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(57) initializes((0, 57)) %this, ptr noundef readonly %sa_, i32 noundef %sa_len_) unnamed_addr #2 align 2 {
 entry:
-  %_has_src_addr = getelementptr inbounds i8, ptr %this, i64 56
+  %_has_src_addr = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i8 0, ptr %_has_src_addr, align 4
   %tobool = icmp eq ptr %sa_, null
   %cmp = icmp eq i32 %sa_len_, 0
@@ -143,7 +143,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont16 unwind label %lpad3
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  %_source_address = getelementptr inbounds i8, ptr %this, i64 28
+  %_source_address = getelementptr inbounds nuw i8, ptr %this, i64 28
   %call17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %src_name) #16
   %call20 = invoke noundef i32 @_ZN3zmq13ip_resolver_t7resolveEPNS_9ip_addr_tEPKc(ptr noundef nonnull align 8 dereferenceable(14) %src_resolver, ptr noundef nonnull %_source_address, ptr noundef %call17)
           to label %invoke.cont19 unwind label %lpad18
@@ -169,8 +169,8 @@ lpad18:                                           ; preds = %invoke.cont16
   br label %ehcleanup
 
 cleanup.thread:                                   ; preds = %invoke.cont19
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 1
-  %_has_src_addr = getelementptr inbounds i8, ptr %this, i64 56
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
+  %_has_src_addr = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i8 1, ptr %_has_src_addr, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %src_name) #16
   br label %if.end23
@@ -278,7 +278,7 @@ if.then9:                                         ; preds = %if.end
 if.end10:                                         ; preds = %if.end
   %call12 = call noundef i32 @_ZNK3zmq9ip_addr_t6familyEv(ptr noundef nonnull align 4 dereferenceable(28) %this)
   %cmp13 = icmp eq i32 %call12, 10
-  %sin6_port = getelementptr inbounds i8, ptr %this, i64 2
+  %sin6_port = getelementptr inbounds nuw i8, ptr %this, i64 2
   %0 = load i16, ptr %sin6_port, align 2
   %call5.i = call zeroext i16 @ntohs(i16 noundef zeroext %0) #17
   %conv.i = zext i16 %call5.i to i32
@@ -288,12 +288,12 @@ if.then14:                                        ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 1041, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store i56 25666102771082100, ptr %buf.i, align 16, !noalias !4
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 7
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 7
   %call.i6 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hbuf) #15, !noalias !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 16 %hbuf, i64 %call.i6, i1 false), !noalias !4
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call.i6
   store i16 14941, ptr %add.ptr2.i, align 1, !noalias !4
-  %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 2
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 2
   %call6.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %add.ptr4.i, i64 noundef 6, ptr noundef nonnull @.str.7, i32 noundef %conv.i) #16, !noalias !4
   %1 = add i32 %call6.i, -6
   %2 = icmp ult i32 %1, -5
@@ -340,12 +340,12 @@ if.else:                                          ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 1039, ptr nonnull %buf.i7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %buf.i7, ptr noundef nonnull readonly align 1 dereferenceable(7) @__const._ZNK3zmq13tcp_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ipv4_prefix, i64 6, i1 false), !noalias !7
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %buf.i7, i64 6
+  %add.ptr.i9 = getelementptr inbounds nuw i8, ptr %buf.i7, i64 6
   %call.i10 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %hbuf) #15, !noalias !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr.i9, ptr nonnull readonly align 16 %hbuf, i64 %call.i10, i1 false), !noalias !7
   %add.ptr2.i11 = getelementptr inbounds i8, ptr %add.ptr.i9, i64 %call.i10
   store i8 58, ptr %add.ptr2.i11, align 1, !noalias !7
-  %add.ptr4.i12 = getelementptr inbounds i8, ptr %add.ptr2.i11, i64 1
+  %add.ptr4.i12 = getelementptr inbounds nuw i8, ptr %add.ptr2.i11, i64 1
   %call6.i15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %add.ptr4.i12, i64 noundef 6, ptr noundef nonnull @.str.7, i32 noundef %conv.i) #16, !noalias !7
   %6 = add i32 %call6.i15, -6
   %7 = icmp ult i32 %6, -5
@@ -418,7 +418,7 @@ declare noundef i32 @_ZNK3zmq9ip_addr_t12sockaddr_lenEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK3zmq13tcp_address_t8src_addrEv(ptr noundef nonnull align 4 dereferenceable(57) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %_source_address = getelementptr inbounds i8, ptr %this, i64 28
+  %_source_address = getelementptr inbounds nuw i8, ptr %this, i64 28
   %call = tail call noundef ptr @_ZNK3zmq9ip_addr_t11as_sockaddrEv(ptr noundef nonnull align 4 dereferenceable(28) %_source_address)
   ret ptr %call
 }
@@ -426,7 +426,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK3zmq13tcp_address_t11src_addrlenEv(ptr noundef nonnull align 4 dereferenceable(57) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %_source_address = getelementptr inbounds i8, ptr %this, i64 28
+  %_source_address = getelementptr inbounds nuw i8, ptr %this, i64 28
   %call = tail call noundef i32 @_ZNK3zmq9ip_addr_t12sockaddr_lenEv(ptr noundef nonnull align 4 dereferenceable(28) %_source_address)
   ret i32 %call
 }
@@ -434,7 +434,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3zmq13tcp_address_t12has_src_addrEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(57) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %_has_src_addr = getelementptr inbounds i8, ptr %this, i64 56
+  %_has_src_addr = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i8, ptr %_has_src_addr, align 4
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -451,7 +451,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq18tcp_address_mask_tC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #0 align 2 {
 entry:
-  %_address_mask = getelementptr inbounds i8, ptr %this, i64 28
+  %_address_mask = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 -1, ptr %_address_mask, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %this, i8 0, i64 28, i1 false)
   ret void
@@ -478,7 +478,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
   %call4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKc(ptr noundef nonnull align 8 dereferenceable(32) %mask_str, ptr noundef nonnull %add.ptr)
           to label %invoke.cont3 unwind label %lpad
 
@@ -554,7 +554,7 @@ if.then31:                                        ; preds = %if.end29
 invoke.cont33:                                    ; preds = %if.then31
   %cmp35 = icmp eq i32 %call34, 10
   %cond = select i1 %cmp35, i32 128, i32 32
-  %_address_mask = getelementptr inbounds i8, ptr %this, i64 28
+  %_address_mask = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %cond, ptr %_address_mask, align 4
   br label %cleanup63
 
@@ -564,7 +564,7 @@ if.else36:                                        ; preds = %if.end29
   br i1 %cmp.i, label %if.then39, label %if.else41
 
 if.then39:                                        ; preds = %if.else36
-  %_address_mask40 = getelementptr inbounds i8, ptr %this, i64 28
+  %_address_mask40 = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %_address_mask40, align 4
   br label %cleanup63
 
@@ -601,7 +601,7 @@ if.then57:                                        ; preds = %invoke.cont52, %inv
 
 if.end59:                                         ; preds = %invoke.cont52
   %conv = trunc i64 %call43 to i32
-  %_address_mask60 = getelementptr inbounds i8, ptr %this, i64 28
+  %_address_mask60 = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %conv, ptr %_address_mask60, align 4
   br label %cleanup63
 
@@ -637,7 +637,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK3zmq18tcp_address_mask_t13match_addressEPK8sockaddrj(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %this, ptr noundef readonly %ss_, i32 noundef %ss_len_) local_unnamed_addr #2 align 2 {
 entry:
-  %_address_mask = getelementptr inbounds i8, ptr %this, i64 28
+  %_address_mask = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %_address_mask, align 4
   %cmp = icmp eq i32 %0, -1
   %cmp2 = icmp eq ptr %ss_, null
@@ -699,8 +699,8 @@ if.end41.sink.split:                              ; preds = %if.then22, %if.then
 if.end41:                                         ; preds = %if.end41.sink.split, %do.body29, %do.body17
   %.sink16 = phi i64 [ 8, %do.body17 ], [ 4, %do.body29 ], [ %.sink16.ph, %if.end41.sink.split ]
   %mask.0 = phi i32 [ 128, %do.body17 ], [ 32, %do.body29 ], [ %mask.0.ph, %if.end41.sink.split ]
-  %sin_addr = getelementptr inbounds i8, ptr %ss_, i64 %.sink16
-  %sin_addr40 = getelementptr inbounds i8, ptr %this, i64 %.sink16
+  %sin_addr = getelementptr inbounds nuw i8, ptr %ss_, i64 %.sink16
+  %sin_addr40 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink16
   %9 = load i32, ptr %_address_mask, align 4
   %spec.select15 = tail call i32 @llvm.smin.i32(i32 %9, i32 %mask.0)
   %div = sdiv i32 %spec.select15, 8

@@ -11,25 +11,25 @@ define void @jpeg_fdct_ifast(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %.0145 = phi i32 [ 7, %1 ], [ %68, %2 ]
   %.0141144 = phi ptr [ %0, %1 ], [ %67, %2 ]
   %3 = load i16, ptr %.0141144, align 2
-  %4 = getelementptr inbounds i8, ptr %.0141144, i64 14
+  %4 = getelementptr inbounds nuw i8, ptr %.0141144, i64 14
   %5 = load i16, ptr %4, align 2
   %6 = add i16 %5, %3
   %7 = sub i16 %3, %5
-  %8 = getelementptr inbounds i8, ptr %.0141144, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.0141144, i64 2
   %9 = load i16, ptr %8, align 2
-  %10 = getelementptr inbounds i8, ptr %.0141144, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %.0141144, i64 12
   %11 = load i16, ptr %10, align 2
   %12 = add i16 %11, %9
   %13 = sub i16 %9, %11
-  %14 = getelementptr inbounds i8, ptr %.0141144, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.0141144, i64 4
   %15 = load i16, ptr %14, align 2
-  %16 = getelementptr inbounds i8, ptr %.0141144, i64 10
+  %16 = getelementptr inbounds nuw i8, ptr %.0141144, i64 10
   %17 = load i16, ptr %16, align 2
   %18 = add i16 %17, %15
   %19 = sub i16 %15, %17
-  %20 = getelementptr inbounds i8, ptr %.0141144, i64 6
+  %20 = getelementptr inbounds nuw i8, ptr %.0141144, i64 6
   %21 = load i16, ptr %20, align 2
-  %22 = getelementptr inbounds i8, ptr %.0141144, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0141144, i64 8
   %23 = load i16, ptr %22, align 2
   %24 = add i16 %23, %21
   %25 = add i16 %24, %6
@@ -82,7 +82,7 @@ define void @jpeg_fdct_ifast(ptr nocapture noundef %0) local_unnamed_addr #0 {
   store i16 %65, ptr %8, align 2
   %66 = sub i16 %54, %64
   store i16 %66, ptr %4, align 2
-  %67 = getelementptr inbounds i8, ptr %.0141144, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.0141144, i64 16
   %68 = add nsw i32 %.0145, -1
   %.not = icmp eq i32 %.0145, 0
   br i1 %.not, label %.preheader, label %2, !llvm.loop !4
@@ -91,25 +91,25 @@ define void @jpeg_fdct_ifast(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %.1147 = phi i32 [ %134, %.preheader ], [ 7, %2 ]
   %.1142146 = phi ptr [ %133, %.preheader ], [ %0, %2 ]
   %69 = load i16, ptr %.1142146, align 2
-  %70 = getelementptr inbounds i8, ptr %.1142146, i64 112
+  %70 = getelementptr inbounds nuw i8, ptr %.1142146, i64 112
   %71 = load i16, ptr %70, align 2
   %72 = add i16 %71, %69
   %73 = sub i16 %69, %71
-  %74 = getelementptr inbounds i8, ptr %.1142146, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.1142146, i64 16
   %75 = load i16, ptr %74, align 2
-  %76 = getelementptr inbounds i8, ptr %.1142146, i64 96
+  %76 = getelementptr inbounds nuw i8, ptr %.1142146, i64 96
   %77 = load i16, ptr %76, align 2
   %78 = add i16 %77, %75
   %79 = sub i16 %75, %77
-  %80 = getelementptr inbounds i8, ptr %.1142146, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %.1142146, i64 32
   %81 = load i16, ptr %80, align 2
-  %82 = getelementptr inbounds i8, ptr %.1142146, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %.1142146, i64 80
   %83 = load i16, ptr %82, align 2
   %84 = add i16 %83, %81
   %85 = sub i16 %81, %83
-  %86 = getelementptr inbounds i8, ptr %.1142146, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %.1142146, i64 48
   %87 = load i16, ptr %86, align 2
-  %88 = getelementptr inbounds i8, ptr %.1142146, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %.1142146, i64 64
   %89 = load i16, ptr %88, align 2
   %90 = add i16 %89, %87
   %91 = add i16 %90, %72
@@ -162,7 +162,7 @@ define void @jpeg_fdct_ifast(ptr nocapture noundef %0) local_unnamed_addr #0 {
   store i16 %131, ptr %74, align 2
   %132 = sub i16 %120, %130
   store i16 %132, ptr %70, align 2
-  %133 = getelementptr inbounds i8, ptr %.1142146, i64 2
+  %133 = getelementptr inbounds nuw i8, ptr %.1142146, i64 2
   %134 = add nsw i32 %.1147, -1
   %.not148 = icmp eq i32 %.1147, 0
   br i1 %.not148, label %135, label %.preheader, !llvm.loop !6

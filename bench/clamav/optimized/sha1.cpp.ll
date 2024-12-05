@@ -14,13 +14,13 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
 6:                                                ; preds = %4, %5
   %.0 = phi ptr [ %1, %5 ], [ %2, %4 ]
   %7 = load i32, ptr %0, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 4
   %16 = xor i32 %13, %11
   %17 = and i32 %16, %9
@@ -36,7 +36,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %27 = xor i32 %26, %11
   %28 = and i32 %27, %7
   %29 = xor i32 %28, %11
-  %30 = getelementptr inbounds i8, ptr %.0, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = tail call noundef i32 @llvm.bswap.i32(i32 %31)
   %33 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 5)
@@ -48,7 +48,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %39 = xor i32 %26, %38
   %40 = and i32 %25, %39
   %41 = xor i32 %40, %26
-  %42 = getelementptr inbounds i8, ptr %.0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %43 = load i32, ptr %42, align 4
   %44 = tail call noundef i32 @llvm.bswap.i32(i32 %43)
   %45 = tail call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 5)
@@ -60,7 +60,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %51 = xor i32 %50, %38
   %52 = and i32 %37, %51
   %53 = xor i32 %52, %38
-  %54 = getelementptr inbounds i8, ptr %.0, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = tail call noundef i32 @llvm.bswap.i32(i32 %55)
   %57 = tail call i32 @llvm.fshl.i32(i32 %49, i32 %49, i32 5)
@@ -72,7 +72,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %63 = xor i32 %62, %50
   %64 = and i32 %49, %63
   %65 = xor i32 %64, %50
-  %66 = getelementptr inbounds i8, ptr %.0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %67 = load i32, ptr %66, align 4
   %68 = tail call noundef i32 @llvm.bswap.i32(i32 %67)
   %69 = tail call i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 5)
@@ -84,7 +84,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %75 = xor i32 %74, %62
   %76 = and i32 %61, %75
   %77 = xor i32 %76, %62
-  %78 = getelementptr inbounds i8, ptr %.0, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   %79 = load i32, ptr %78, align 4
   %80 = tail call noundef i32 @llvm.bswap.i32(i32 %79)
   %81 = tail call i32 @llvm.fshl.i32(i32 %73, i32 %73, i32 5)
@@ -96,7 +96,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %87 = xor i32 %86, %74
   %88 = and i32 %73, %87
   %89 = xor i32 %88, %74
-  %90 = getelementptr inbounds i8, ptr %.0, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %91 = load i32, ptr %90, align 4
   %92 = tail call noundef i32 @llvm.bswap.i32(i32 %91)
   %93 = tail call i32 @llvm.fshl.i32(i32 %85, i32 %85, i32 5)
@@ -108,7 +108,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %99 = xor i32 %98, %86
   %100 = and i32 %85, %99
   %101 = xor i32 %100, %86
-  %102 = getelementptr inbounds i8, ptr %.0, i64 28
+  %102 = getelementptr inbounds nuw i8, ptr %.0, i64 28
   %103 = load i32, ptr %102, align 4
   %104 = tail call noundef i32 @llvm.bswap.i32(i32 %103)
   %105 = tail call i32 @llvm.fshl.i32(i32 %97, i32 %97, i32 5)
@@ -120,7 +120,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %111 = xor i32 %110, %98
   %112 = and i32 %97, %111
   %113 = xor i32 %112, %98
-  %114 = getelementptr inbounds i8, ptr %.0, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %115 = load i32, ptr %114, align 4
   %116 = tail call noundef i32 @llvm.bswap.i32(i32 %115)
   %117 = tail call i32 @llvm.fshl.i32(i32 %109, i32 %109, i32 5)
@@ -132,7 +132,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %123 = xor i32 %122, %110
   %124 = and i32 %109, %123
   %125 = xor i32 %124, %110
-  %126 = getelementptr inbounds i8, ptr %.0, i64 36
+  %126 = getelementptr inbounds nuw i8, ptr %.0, i64 36
   %127 = load i32, ptr %126, align 4
   %128 = tail call noundef i32 @llvm.bswap.i32(i32 %127)
   %129 = tail call i32 @llvm.fshl.i32(i32 %121, i32 %121, i32 5)
@@ -144,7 +144,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %135 = xor i32 %134, %122
   %136 = and i32 %121, %135
   %137 = xor i32 %136, %122
-  %138 = getelementptr inbounds i8, ptr %.0, i64 40
+  %138 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %139 = load i32, ptr %138, align 4
   %140 = tail call noundef i32 @llvm.bswap.i32(i32 %139)
   %141 = tail call i32 @llvm.fshl.i32(i32 %133, i32 %133, i32 5)
@@ -156,7 +156,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %147 = xor i32 %146, %134
   %148 = and i32 %133, %147
   %149 = xor i32 %148, %134
-  %150 = getelementptr inbounds i8, ptr %.0, i64 44
+  %150 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   %151 = load i32, ptr %150, align 4
   %152 = tail call noundef i32 @llvm.bswap.i32(i32 %151)
   %153 = tail call i32 @llvm.fshl.i32(i32 %145, i32 %145, i32 5)
@@ -168,7 +168,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %159 = xor i32 %158, %146
   %160 = and i32 %145, %159
   %161 = xor i32 %160, %146
-  %162 = getelementptr inbounds i8, ptr %.0, i64 48
+  %162 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %163 = load i32, ptr %162, align 4
   %164 = tail call noundef i32 @llvm.bswap.i32(i32 %163)
   %165 = tail call i32 @llvm.fshl.i32(i32 %157, i32 %157, i32 5)
@@ -180,7 +180,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %171 = xor i32 %170, %158
   %172 = and i32 %157, %171
   %173 = xor i32 %172, %158
-  %174 = getelementptr inbounds i8, ptr %.0, i64 52
+  %174 = getelementptr inbounds nuw i8, ptr %.0, i64 52
   %175 = load i32, ptr %174, align 4
   %176 = tail call noundef i32 @llvm.bswap.i32(i32 %175)
   %177 = tail call i32 @llvm.fshl.i32(i32 %169, i32 %169, i32 5)
@@ -192,7 +192,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %183 = xor i32 %182, %170
   %184 = and i32 %169, %183
   %185 = xor i32 %184, %170
-  %186 = getelementptr inbounds i8, ptr %.0, i64 56
+  %186 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %187 = load i32, ptr %186, align 4
   %188 = tail call noundef i32 @llvm.bswap.i32(i32 %187)
   %189 = tail call i32 @llvm.fshl.i32(i32 %181, i32 %181, i32 5)
@@ -204,7 +204,7 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
   %195 = xor i32 %194, %182
   %196 = and i32 %181, %195
   %197 = xor i32 %196, %182
-  %198 = getelementptr inbounds i8, ptr %.0, i64 60
+  %198 = getelementptr inbounds nuw i8, ptr %.0, i64 60
   %199 = load i32, ptr %198, align 4
   %200 = tail call noundef i32 @llvm.bswap.i32(i32 %199)
   %201 = tail call i32 @llvm.fshl.i32(i32 %193, i32 %193, i32 5)
@@ -1064,16 +1064,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z9sha1_initP12sha1_context(ptr nocapture noundef writeonly initializes((0, 20), (24, 32)) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %2, align 8
   store i32 1732584193, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1732584194, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 271733878, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1009589776, ptr %6, align 8
   ret void
 }
@@ -1081,7 +1081,7 @@ define void @_Z9sha1_initP12sha1_context(ptr nocapture noundef writeonly initial
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z12sha1_processP12sha1_contextPKhm(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [16 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 63
   %8 = add i64 %6, %2
@@ -1091,8 +1091,8 @@ define void @_Z12sha1_processP12sha1_contextPKhm(ptr nocapture noundef %0, ptr n
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %12, i64 %7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %7
   %14 = sub nuw nsw i64 64, %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %14, i1 false)
   call void @_Z13SHA1TransformPjS_PKhb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %12, i1 noundef zeroext true)
@@ -1116,8 +1116,8 @@ define void @_Z12sha1_processP12sha1_contextPKhm(ptr nocapture noundef %0, ptr n
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %.loopexit
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  %24 = getelementptr inbounds i8, ptr %23, i64 %.0
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.0
   %25 = getelementptr inbounds i8, ptr %1, i64 %.1
   %26 = sub nuw i64 %2, %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %25, i64 %26, i1 false)
@@ -1130,7 +1130,7 @@ define void @_Z12sha1_processP12sha1_contextPKhm(ptr nocapture noundef %0, ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [16 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 63
   %8 = add i64 %6, %2
@@ -1140,8 +1140,8 @@ define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr nocapture noundef %0,
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %12, i64 %7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %7
   %14 = sub nuw nsw i64 64, %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %14, i1 false)
   call void @_Z13SHA1TransformPjS_PKhb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %12, i1 noundef zeroext true)
@@ -1166,8 +1166,8 @@ define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr nocapture noundef %0,
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %.loopexit
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = getelementptr inbounds i8, ptr %22, i64 %.030
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.030
   %24 = getelementptr inbounds i8, ptr %1, i64 %.1
   %25 = sub nuw i64 %2, %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %24, i64 %25, i1 false)
@@ -1180,15 +1180,15 @@ define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr nocapture noundef %0,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z9sha1_doneP12sha1_contextPj(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = alloca [16 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = shl i64 %5, 3
   %7 = trunc i64 %5 to i32
   %8 = and i32 %7, 63
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = add nuw nsw i32 %8, 1
   %11 = and i64 %5, 63
-  %12 = getelementptr inbounds [64 x i8], ptr %9, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %11
   store i8 -128, ptr %12, align 1
   %.not = icmp eq i32 %10, 56
   br i1 %.not, label %23, label %13
@@ -1217,7 +1217,7 @@ define void @_Z9sha1_doneP12sha1_contextPj(ptr nocapture noundef %0, ptr nocaptu
 18:                                               ; preds = %13, %._crit_edge
   %.02730 = phi i32 [ 0, %._crit_edge ], [ %10, %13 ]
   %19 = zext nneg i32 %.02730 to i64
-  %20 = getelementptr inbounds i8, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 %19
   %21 = sub nuw nsw i32 56, %.02730
   %22 = zext nneg i32 %21 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %22, i1 false)
@@ -1226,11 +1226,11 @@ define void @_Z9sha1_doneP12sha1_contextPj(ptr nocapture noundef %0, ptr nocaptu
 23:                                               ; preds = %18, %2
   %24 = lshr i64 %6, 32
   %25 = trunc nuw i64 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %0, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = tail call i32 @llvm.bswap.i32(i32 %25)
   store i32 %27, ptr %26, align 4
   %28 = trunc i64 %6 to i32
-  %29 = getelementptr inbounds i8, ptr %0, i64 92
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %30 = tail call i32 @llvm.bswap.i32(i32 %28)
   store i32 %30, ptr %29, align 4
   call void @_Z13SHA1TransformPjS_PKhb(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %9, i1 noundef zeroext true)
@@ -1238,9 +1238,9 @@ define void @_Z9sha1_doneP12sha1_contextPj(ptr nocapture noundef %0, ptr nocaptu
 
 31:                                               ; preds = %23, %31
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds [5 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [5 x i32], ptr %0, i64 0, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %33, ptr %34, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -1249,13 +1249,13 @@ define void @_Z9sha1_doneP12sha1_contextPj(ptr nocapture noundef %0, ptr nocaptu
 35:                                               ; preds = %31
   store i64 0, ptr %4, align 8
   store i32 1732584193, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1732584194, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 271733878, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1009589776, ptr %39, align 8
   ret void
 }

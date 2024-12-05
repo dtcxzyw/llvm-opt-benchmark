@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @Dch_ManSweepNode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 256
   %.val = load ptr, ptr %5, align 8
@@ -15,7 +15,7 @@ define void @Dch_ManSweepNode(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not.i, label %Aig_ObjRepr.exit.thread, label %Aig_ObjRepr.exit
 
 Aig_ObjRepr.exit:                                 ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds ptr, ptr %.val, i64 %8
@@ -44,7 +44,7 @@ Aig_ObjRepr.exit:                                 ; preds = %2
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds ptr, ptr %26, i64 %8
   store ptr %10, ptr %27, align 8
@@ -64,9 +64,9 @@ Aig_ObjRepr.exit:                                 ; preds = %2
   br label %Aig_ObjRepr.exit.thread
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %10, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = xor i64 %37, %35
   %39 = lshr i64 %38, 3
@@ -74,7 +74,7 @@ Aig_ObjRepr.exit:                                 ; preds = %2
   %41 = xor i64 %40, %21
   %42 = inttoptr i64 %41 to ptr
   store ptr %42, ptr %13, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %6, align 4
   %46 = sext i32 %45 to i64
@@ -84,7 +84,7 @@ Aig_ObjRepr.exit:                                 ; preds = %2
 
 48:                                               ; preds = %28
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %51 = load i32, ptr %50, align 4
   %.not = icmp eq i32 %51, 0
   br i1 %.not, label %53, label %52
@@ -109,14 +109,14 @@ declare void @Dch_ManResimulateCex2(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define void @Dch_ManSweep(ptr noundef initializes((16, 24)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 32
   %.val48 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val48, i64 4
   %.val48.val = load i32, ptr %5, align 4
   %6 = tail call ptr @Aig_ManStart(i32 noundef %.val48.val) #3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %7, align 8
   %8 = load ptr, ptr %2, align 8
   tail call void @Aig_ManCleanData(ptr noundef %8) #3
@@ -126,10 +126,10 @@ define void @Dch_ManSweep(ptr noundef initializes((16, 24)) %0) local_unnamed_ad
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr i8, ptr %11, i64 48
   %.val51 = load ptr, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.val51, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.val51, i64 40
   store ptr %.val50, ptr %13, align 8
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 4
   %.val4662 = load i32, ptr %17, align 4
@@ -141,15 +141,15 @@ define void @Dch_ManSweep(ptr noundef initializes((16, 24)) %0) local_unnamed_ad
   %19 = phi ptr [ %28, %.lr.ph ], [ %16, %1 ]
   %20 = getelementptr i8, ptr %19, i64 8
   %.val52 = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds ptr, ptr %.val52, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %.val52, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
   %24 = tail call ptr @Aig_ObjCreateCi(ptr noundef %23) #3
-  %25 = getelementptr inbounds i8, ptr %22, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store ptr %24, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 4
   %.val46 = load i32, ptr %29, align 4
@@ -166,7 +166,7 @@ define void @Dch_ManSweep(ptr noundef initializes((16, 24)) %0) local_unnamed_ad
   %.val49.val = load i32, ptr %34, align 4
   %35 = tail call ptr @Bar_ProgressStart(ptr noundef %32, i32 noundef %.val49.val) #3
   %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 4
   %.val4764 = load i32, ptr %39, align 4
@@ -182,7 +182,7 @@ define void @Dch_ManSweep(ptr noundef initializes((16, 24)) %0) local_unnamed_ad
   %42 = phi ptr [ %38, %.lr.ph67 ], [ %90, %87 ]
   %43 = getelementptr i8, ptr %42, i64 8
   %.val53 = load ptr, ptr %43, align 8
-  %44 = getelementptr inbounds ptr, ptr %.val53, i64 %indvars.iv70
+  %44 = getelementptr inbounds nuw ptr, ptr %.val53, i64 %indvars.iv70
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %87, label %47
@@ -251,7 +251,7 @@ Dch_ObjChild0Fra.exit:                            ; preds = %65
   br i1 %84, label %87, label %85
 
 85:                                               ; preds = %Dch_ObjChild0Fra.exit
-  %86 = getelementptr inbounds i8, ptr %45, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store ptr %83, ptr %86, align 8
   tail call void @Dch_ManSweepNode(ptr noundef nonnull %0, ptr noundef nonnull %45)
   br label %87
@@ -259,7 +259,7 @@ Dch_ObjChild0Fra.exit:                            ; preds = %65
 87:                                               ; preds = %85, %47, %41, %Dch_ObjChild0Fra.exit, %Bar_ProgressUpdate.exit, %65
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %88 = load ptr, ptr %2, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr i8, ptr %90, i64 4
   %.val47 = load i32, ptr %91, align 4
@@ -270,7 +270,7 @@ Dch_ObjChild0Fra.exit:                            ; preds = %65
 .critedge2:                                       ; preds = %87, %.critedge
   tail call void @Bar_ProgressStop(ptr noundef %35) #3
   %94 = load ptr, ptr %2, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 256
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 256
   %96 = load ptr, ptr %95, align 8
   %.not = icmp eq ptr %96, null
   br i1 %.not, label %100, label %97
@@ -278,16 +278,16 @@ Dch_ObjChild0Fra.exit:                            ; preds = %65
 97:                                               ; preds = %.critedge2
   tail call void @free(ptr noundef nonnull %96) #3
   %98 = load ptr, ptr %2, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 256
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 256
   store ptr null, ptr %99, align 8
   %.pre = load ptr, ptr %2, align 8
   br label %100
 
 100:                                              ; preds = %.critedge2, %97
   %101 = phi ptr [ %94, %.critedge2 ], [ %.pre, %97 ]
-  %102 = getelementptr inbounds i8, ptr %0, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %101, i64 256
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 256
   store ptr %103, ptr %104, align 8
   store ptr null, ptr %102, align 8
   %105 = load ptr, ptr %2, align 8

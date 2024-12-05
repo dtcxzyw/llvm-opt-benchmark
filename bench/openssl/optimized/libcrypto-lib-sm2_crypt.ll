@@ -77,7 +77,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %C2 = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %C2 = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   %0 = load ptr, ptr %C2, align 8
   %1 = load i32, ptr %0, align 8
   %conv = sext i32 %1 to i64
@@ -179,8 +179,8 @@ entry:
   %call4 = tail call i32 @EVP_MD_get_size(ptr noundef %digest) #4
   %call5 = tail call ptr @ossl_ec_key_get_libctx(ptr noundef %key) #4
   %call6 = tail call ptr @ossl_ec_key_get0_propq(ptr noundef %key) #4
-  %C2 = getelementptr inbounds i8, ptr %ctext_struct, i64 24
-  %C37 = getelementptr inbounds i8, ptr %ctext_struct, i64 16
+  %C2 = getelementptr inbounds nuw i8, ptr %ctext_struct, i64 24
+  %C37 = getelementptr inbounds nuw i8, ptr %ctext_struct, i64 16
   %cmp = icmp eq ptr %call, null
   %cmp8 = icmp slt i32 %call4, 1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp8
@@ -389,7 +389,7 @@ if.then110:                                       ; preds = %lor.lhs.false106, %
 
 if.end111:                                        ; preds = %lor.lhs.false106
   store ptr %call25, ptr %ctext_struct, align 8
-  %C1y = getelementptr inbounds i8, ptr %ctext_struct, i64 8
+  %C1y = getelementptr inbounds nuw i8, ptr %ctext_struct, i64 8
   store ptr %call27, ptr %C1y, align 8
   %call112 = tail call ptr @ASN1_OCTET_STRING_new() #4
   store ptr %call112, ptr %C37, align 8
@@ -545,18 +545,18 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %if.then121.sink.split, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %C310 = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %C310 = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   %1 = load ptr, ptr %C310, align 8
   %2 = load i32, ptr %1, align 8
   %cmp11.not = icmp eq i32 %2, %call2
   br i1 %cmp11.not, label %if.end13, label %if.then121.sink.split
 
 if.end13:                                         ; preds = %if.end9
-  %C214 = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %C214 = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   %3 = load ptr, ptr %C214, align 8
-  %data = getelementptr inbounds i8, ptr %3, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %data, align 8
-  %data16 = getelementptr inbounds i8, ptr %1, i64 8
+  %data16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %data16, align 8
   %6 = load i32, ptr %3, align 8
   %7 = load i64, ptr %ptext_len, align 8
@@ -596,7 +596,7 @@ if.end48:                                         ; preds = %if.end33
 
 if.end53:                                         ; preds = %if.end48
   %8 = load ptr, ptr %call1.i, align 8
-  %C1y = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %C1y = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   %9 = load ptr, ptr %C1y, align 8
   %call54 = call i32 @EC_POINT_set_affine_coordinates(ptr noundef %call, ptr noundef nonnull %call49, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %call23) #4
   %tobool.not = icmp eq i32 %call54, 0
@@ -640,12 +640,12 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %11 = load i8, ptr %arrayidx, align 1
-  %arrayidx84 = getelementptr inbounds i8, ptr %call35, i64 %indvars.iv
+  %arrayidx84 = getelementptr inbounds nuw i8, ptr %call35, i64 %indvars.iv
   %12 = load i8, ptr %arrayidx84, align 1
   %xor80 = xor i8 %12, %11
-  %arrayidx88 = getelementptr inbounds i8, ptr %ptext_buf, i64 %indvars.iv
+  %arrayidx88 = getelementptr inbounds nuw i8, ptr %ptext_buf, i64 %indvars.iv
   store i8 %xor80, ptr %arrayidx88, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp80.not = icmp eq i64 %indvars.iv.next, %10

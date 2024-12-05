@@ -17,7 +17,7 @@ define ptr @Dec_GraphDeriveBdd(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   br label %69
 
@@ -45,7 +45,7 @@ define ptr @Dec_GraphDeriveBdd(ptr noundef %0, ptr nocapture noundef readonly %1
 .critedge.preheader:                              ; preds = %19, %.preheader
   %.049.lcssa = phi ptr [ null, %.preheader ], [ %20, %19 ]
   %.lcssa67 = phi i32 [ 0, %.preheader ], [ %24, %19 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp slt i32 %.lcssa67, %15
   br i1 %16, label %.lr.ph71, label %.critedge2
@@ -58,10 +58,10 @@ define ptr @Dec_GraphDeriveBdd(ptr noundef %0, ptr nocapture noundef readonly %1
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.val59 = load ptr, ptr %11, align 8
-  %20 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val59, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val59, i64 %indvars.iv
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %21) #3
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %22, ptr %23, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %8, align 4
@@ -77,19 +77,19 @@ define ptr @Dec_GraphDeriveBdd(ptr noundef %0, ptr nocapture noundef readonly %1
   %29 = lshr i32 %28, 1
   %30 = and i32 %29, 1073741823
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val60, i64 %31, i32 2
+  %32 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val60, i64 %31, i32 2
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = and i32 %28, 1
   %36 = zext nneg i32 %35 to i64
   %37 = xor i64 %34, %36
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %27, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = lshr i32 %40, 1
   %42 = and i32 %41, 1073741823
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val60, i64 %43, i32 2
+  %44 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val60, i64 %43, i32 2
   %45 = load ptr, ptr %44, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = and i32 %40, 1
@@ -97,7 +97,7 @@ define ptr @Dec_GraphDeriveBdd(ptr noundef %0, ptr nocapture noundef readonly %1
   %49 = xor i64 %46, %48
   %50 = inttoptr i64 %49 to ptr
   %51 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %38, ptr noundef %50) #3
-  %52 = getelementptr inbounds i8, ptr %27, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %51, ptr %52, align 8
   tail call void @Cudd_Ref(ptr noundef %51) #3
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, 1
@@ -108,7 +108,7 @@ define ptr @Dec_GraphDeriveBdd(ptr noundef %0, ptr nocapture noundef readonly %1
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.150.lcssa = phi ptr [ %.049.lcssa, %.critedge.preheader ], [ %27, %.critedge ]
-  %56 = getelementptr inbounds i8, ptr %.150.lcssa, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.150.lcssa, i64 8
   %57 = load ptr, ptr %56, align 8
   tail call void @Cudd_Ref(ptr noundef %57) #3
   %58 = load i32, ptr %8, align 4
@@ -191,7 +191,7 @@ define i32 @Dec_GraphDeriveTruth(ptr nocapture noundef readonly %0) local_unname
 
 11:                                               ; preds = %5
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds [5 x i32], ptr @__const.Dec_GraphDeriveTruth.uTruths, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [5 x i32], ptr @__const.Dec_GraphDeriveTruth.uTruths, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %.val54, 1
   %sext77 = sub nsw i32 0, %15
@@ -200,7 +200,7 @@ define i32 @Dec_GraphDeriveTruth(ptr nocapture noundef readonly %0) local_unname
 
 .critedge.preheader:                              ; preds = %21, %.preheader
   %.lcssa = phi i32 [ 0, %.preheader ], [ %27, %21 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp slt i32 %.lcssa, %17
   br i1 %18, label %.lr.ph66, label %.critedge2
@@ -213,11 +213,11 @@ define i32 @Dec_GraphDeriveTruth(ptr nocapture noundef readonly %0) local_unname
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.val58 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds [5 x i32], ptr @__const.Dec_GraphDeriveTruth.uTruths, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [5 x i32], ptr @__const.Dec_GraphDeriveTruth.uTruths, i64 0, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val58, i64 %indvars.iv, i32 2
+  %26 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val58, i64 %indvars.iv, i32 2
   store ptr %25, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %6, align 4
@@ -233,16 +233,16 @@ define i32 @Dec_GraphDeriveTruth(ptr nocapture noundef readonly %0) local_unname
   %32 = lshr i32 %31, 1
   %33 = and i32 %32, 1073741823
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val57, i64 %34, i32 2
+  %35 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val57, i64 %34, i32 2
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = trunc i64 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %30, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = lshr i32 %40, 1
   %42 = and i32 %41, 1073741823
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val57, i64 %43, i32 2
+  %44 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val57, i64 %43, i32 2
   %45 = load ptr, ptr %44, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = trunc i64 %46 to i32
@@ -255,7 +255,7 @@ define i32 @Dec_GraphDeriveTruth(ptr nocapture noundef readonly %0) local_unname
   %52 = and i32 %51, %49
   %53 = zext i32 %52 to i64
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds i8, ptr %30, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %54, ptr %55, align 8
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, 1
   %56 = load i32, ptr %16, align 8

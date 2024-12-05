@@ -103,7 +103,7 @@ declare void @g_free(ptr noundef) #2
 define internal void @free_plugin(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @g_module_close(ptr noundef %2) #11
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #11
   tail call void @g_free(ptr noundef nonnull %0) #11
@@ -130,7 +130,7 @@ define internal fastcc void @scan_plugins_dir(ptr noundef %0, ptr noundef %1, i3
 
 switch.lookup:                                    ; preds = %4
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.plugins_pers_type_folder, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.plugins_pers_type_folder, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %1, ptr noundef nonnull %switch.load, ptr noundef null) #11
   %13 = tail call ptr @g_dir_open(ptr noundef %12, i32 noundef 0, ptr noundef null) #11
@@ -154,7 +154,7 @@ switch.lookup:                                    ; preds = %4
   %switch.tableidx75 = add nsw i32 %2, -1
   %20 = icmp ult i32 %switch.tableidx75, 3
   %21 = zext nneg i32 %switch.tableidx75 to i64
-  %switch.gep76 = getelementptr inbounds [3 x ptr], ptr @switch.table.scan_plugins_dir.2, i64 0, i64 %21
+  %switch.gep76 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.scan_plugins_dir.2, i64 0, i64 %21
   br label %22
 
 22:                                               ; preds = %.lr.ph, %.backedge
@@ -223,7 +223,7 @@ type_to_name.exit:                                ; preds = %42, %switch.lookup7
 
 switch.lookup78:                                  ; preds = %type_to_name.exit
   %44 = zext nneg i32 %switch.tableidx79 to i64
-  %switch.gep80 = getelementptr inbounds [3 x ptr], ptr @switch.table.scan_plugins_dir.2, i64 0, i64 %44
+  %switch.gep80 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.scan_plugins_dir.2, i64 0, i64 %44
   %switch.load81 = load ptr, ptr %switch.gep80, align 8
   br label %type_to_name.exit67
 
@@ -259,18 +259,18 @@ pass_plugin_compatibility.exit:                   ; preds = %53, %49
 
 55:                                               ; preds = %50
   %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load ptr, ptr %57, align 8
   call void %58() #11
   %59 = call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #14
   store ptr %31, ptr %59, align 8
   %60 = call noalias ptr @g_strdup(ptr noundef nonnull %23) #11
-  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %60, ptr %61, align 8
   %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds i8, ptr %59, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %59, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i32 %3, ptr %64, align 8
   %65 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %60, i32 noundef 46) #12
   %.not63 = icmp eq ptr %65, null
@@ -341,14 +341,14 @@ define void @plugins_get_descriptions(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph27
-  %10 = getelementptr inbounds i8, ptr %.025, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge28, label %.lr.ph27, !llvm.loop !7
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %2
   call void @g_ptr_array_sort(ptr noundef %5, ptr noundef nonnull @compare_plugins) #11
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i32, ptr %11, align 8
   %.not33 = icmp eq i32 %12, 0
   br i1 %.not33, label %._crit_edge32, label %.lr.ph31
@@ -358,22 +358,22 @@ define void @plugins_get_descriptions(ptr nocapture noundef readonly %0, ptr nou
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %15, align 8
   %30 = call ptr @g_module_name(ptr noundef %29) #11
-  %31 = getelementptr inbounds i8, ptr %15, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %32 = load i32, ptr %31, align 8
   call void %0(ptr noundef %17, ptr noundef %21, i32 noundef %22, ptr noundef %24, ptr noundef %26, ptr noundef %28, ptr noundef %30, i32 noundef %32, ptr noundef %1) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -400,10 +400,10 @@ declare void @g_ptr_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @compare_plugins(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @g_strcmp0(ptr noundef %5, ptr noundef %8) #11
   ret i32 %9
@@ -473,7 +473,7 @@ define i32 @plugins_get_count() local_unnamed_addr #0 {
   %1 = load ptr, ptr %.08, align 8
   %2 = tail call i32 @g_hash_table_size(ptr noundef %1) #11
   %3 = add i32 %2, %.047
-  %4 = getelementptr inbounds i8, ptr %.08, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %.0 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -601,7 +601,7 @@ define noalias ptr @plugins_pers_type_folder(i32 noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.plugins_pers_type_folder, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.plugins_pers_type_folder, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %2, ptr noundef nonnull %switch.load, ptr noundef null) #11
   ret ptr %6

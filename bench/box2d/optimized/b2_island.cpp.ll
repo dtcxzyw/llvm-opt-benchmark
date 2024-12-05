@@ -24,46 +24,46 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8b2IslandC2EiiiP16b2StackAllocatorP17b2ContactListener(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %this, i32 noundef %bodyCapacity, i32 noundef %contactCapacity, i32 noundef %jointCapacity, ptr noundef nonnull %allocator, ptr noundef %listener) unnamed_addr #0 align 2 {
 entry:
-  %m_bodyCapacity = getelementptr inbounds i8, ptr %this, i64 68
+  %m_bodyCapacity = getelementptr inbounds nuw i8, ptr %this, i64 68
   store i32 %bodyCapacity, ptr %m_bodyCapacity, align 4
-  %m_contactCapacity = getelementptr inbounds i8, ptr %this, i64 72
+  %m_contactCapacity = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 %contactCapacity, ptr %m_contactCapacity, align 8
-  %m_jointCapacity = getelementptr inbounds i8, ptr %this, i64 76
+  %m_jointCapacity = getelementptr inbounds nuw i8, ptr %this, i64 76
   store i32 %jointCapacity, ptr %m_jointCapacity, align 4
-  %m_bodyCount = getelementptr inbounds i8, ptr %this, i64 56
+  %m_bodyCount = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %m_bodyCount, align 8
-  %m_contactCount = getelementptr inbounds i8, ptr %this, i64 64
+  %m_contactCount = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 0, ptr %m_contactCount, align 8
-  %m_jointCount = getelementptr inbounds i8, ptr %this, i64 60
+  %m_jointCount = getelementptr inbounds nuw i8, ptr %this, i64 60
   store i32 0, ptr %m_jointCount, align 4
   store ptr %allocator, ptr %this, align 8
-  %m_listener = getelementptr inbounds i8, ptr %this, i64 8
+  %m_listener = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %listener, ptr %m_listener, align 8
   %mul = shl i32 %bodyCapacity, 3
   %call = tail call noundef ptr @_ZN16b2StackAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(102932) %allocator, i32 noundef %mul)
-  %m_bodies = getelementptr inbounds i8, ptr %this, i64 16
+  %m_bodies = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call, ptr %m_bodies, align 8
   %0 = load ptr, ptr %this, align 8
   %mul6 = shl i32 %contactCapacity, 3
   %call8 = tail call noundef ptr @_ZN16b2StackAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(102932) %0, i32 noundef %mul6)
-  %m_contacts = getelementptr inbounds i8, ptr %this, i64 24
+  %m_contacts = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %call8, ptr %m_contacts, align 8
   %1 = load ptr, ptr %this, align 8
   %mul11 = shl i32 %jointCapacity, 3
   %call13 = tail call noundef ptr @_ZN16b2StackAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(102932) %1, i32 noundef %mul11)
-  %m_joints = getelementptr inbounds i8, ptr %this, i64 32
+  %m_joints = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %call13, ptr %m_joints, align 8
   %2 = load ptr, ptr %this, align 8
   %3 = load i32, ptr %m_bodyCapacity, align 4
   %mul17 = mul i32 %3, 12
   %call19 = tail call noundef ptr @_ZN16b2StackAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(102932) %2, i32 noundef %mul17)
-  %m_velocities = getelementptr inbounds i8, ptr %this, i64 48
+  %m_velocities = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %call19, ptr %m_velocities, align 8
   %4 = load ptr, ptr %this, align 8
   %5 = load i32, ptr %m_bodyCapacity, align 4
   %mul23 = mul i32 %5, 12
   %call25 = tail call noundef ptr @_ZN16b2StackAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(102932) %4, i32 noundef %mul23)
-  %m_positions = getelementptr inbounds i8, ptr %this, i64 40
+  %m_positions = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %call25, ptr %m_positions, align 8
   ret void
 }
@@ -74,35 +74,35 @@ declare noundef ptr @_ZN16b2StackAllocator8AllocateEi(ptr noundef nonnull align 
 define hidden void @_ZN8b2IslandD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_positions = getelementptr inbounds i8, ptr %this, i64 40
+  %m_positions = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %m_positions, align 8
   invoke void @_ZN16b2StackAllocator4FreeEPv(ptr noundef nonnull align 8 dereferenceable(102932) %0, ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %m_velocities = getelementptr inbounds i8, ptr %this, i64 48
+  %m_velocities = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load ptr, ptr %m_velocities, align 8
   invoke void @_ZN16b2StackAllocator4FreeEPv(ptr noundef nonnull align 8 dereferenceable(102932) %2, ptr noundef %3)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %4 = load ptr, ptr %this, align 8
-  %m_joints = getelementptr inbounds i8, ptr %this, i64 32
+  %m_joints = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %m_joints, align 8
   invoke void @_ZN16b2StackAllocator4FreeEPv(ptr noundef nonnull align 8 dereferenceable(102932) %4, ptr noundef %5)
           to label %invoke.cont5 unwind label %terminate.lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %6 = load ptr, ptr %this, align 8
-  %m_contacts = getelementptr inbounds i8, ptr %this, i64 24
+  %m_contacts = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load ptr, ptr %m_contacts, align 8
   invoke void @_ZN16b2StackAllocator4FreeEPv(ptr noundef nonnull align 8 dereferenceable(102932) %6, ptr noundef %7)
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %8 = load ptr, ptr %this, align 8
-  %m_bodies = getelementptr inbounds i8, ptr %this, i64 16
+  %m_bodies = getelementptr inbounds nuw i8, ptr %this, i64 16
   %9 = load ptr, ptr %m_bodies, align 8
   invoke void @_ZN16b2StackAllocator4FreeEPv(ptr noundef nonnull align 8 dereferenceable(102932) %8, ptr noundef %9)
           to label %invoke.cont9 unwind label %terminate.lpad
@@ -144,77 +144,77 @@ entry:
   %contactSolver = alloca %class.b2ContactSolver, align 8
   call void @_ZN7b2TimerC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %timer)
   %0 = load float, ptr %step, align 4
-  %m_bodyCount = getelementptr inbounds i8, ptr %this, i64 56
+  %m_bodyCount = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load i32, ptr %m_bodyCount, align 8
   %cmp165 = icmp sgt i32 %1, 0
   br i1 %cmp165, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_bodies = getelementptr inbounds i8, ptr %this, i64 16
-  %y.i = getelementptr inbounds i8, ptr %gravity, i64 4
-  %m_positions = getelementptr inbounds i8, ptr %this, i64 40
-  %m_velocities = getelementptr inbounds i8, ptr %this, i64 48
+  %m_bodies = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %y.i = getelementptr inbounds nuw i8, ptr %gravity, i64 4
+  %m_positions = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_velocities = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
   %2 = load ptr, ptr %m_bodies, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
-  %c2 = getelementptr inbounds i8, ptr %3, i64 44
+  %c2 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %4 = load i64, ptr %c2, align 4
-  %a4 = getelementptr inbounds i8, ptr %3, i64 56
+  %a4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load float, ptr %a4, align 4
-  %m_linearVelocity = getelementptr inbounds i8, ptr %3, i64 64
+  %m_linearVelocity = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = load float, ptr %m_linearVelocity, align 8
-  %m_linearVelocity.sroa_idx = getelementptr inbounds i8, ptr %3, i64 68
+  %m_linearVelocity.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 68
   %7 = load float, ptr %m_linearVelocity.sroa_idx, align 4
-  %m_angularVelocity = getelementptr inbounds i8, ptr %3, i64 72
+  %m_angularVelocity = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = load float, ptr %m_angularVelocity, align 8
-  %c0 = getelementptr inbounds i8, ptr %3, i64 36
+  %c0 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i64 %4, ptr %c0, align 4
-  %a0 = getelementptr inbounds i8, ptr %3, i64 52
+  %a0 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store float %5, ptr %a0, align 4
   %9 = load i32, ptr %3, align 8
   %cmp11 = icmp eq i32 %9, 2
   br i1 %cmp11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %m_invMass = getelementptr inbounds i8, ptr %3, i64 148
+  %m_invMass = getelementptr inbounds nuw i8, ptr %3, i64 148
   %10 = load float, ptr %m_invMass, align 4
   %mul = fmul float %0, %10
-  %m_gravityScale = getelementptr inbounds i8, ptr %3, i64 168
+  %m_gravityScale = getelementptr inbounds nuw i8, ptr %3, i64 168
   %11 = load float, ptr %m_gravityScale, align 8
-  %m_mass = getelementptr inbounds i8, ptr %3, i64 144
+  %m_mass = getelementptr inbounds nuw i8, ptr %3, i64 144
   %12 = load float, ptr %m_mass, align 8
   %mul14 = fmul float %11, %12
   %13 = load float, ptr %gravity, align 4
   %mul.i = fmul float %mul14, %13
   %14 = load float, ptr %y.i, align 4
   %mul1.i = fmul float %mul14, %14
-  %m_force = getelementptr inbounds i8, ptr %3, i64 76
+  %m_force = getelementptr inbounds nuw i8, ptr %3, i64 76
   %15 = load float, ptr %m_force, align 4
   %add.i = fadd float %mul.i, %15
-  %y2.i = getelementptr inbounds i8, ptr %3, i64 80
+  %y2.i = getelementptr inbounds nuw i8, ptr %3, i64 80
   %16 = load float, ptr %y2.i, align 4
   %add3.i = fadd float %mul1.i, %16
   %mul.i91 = fmul float %mul, %add.i
   %mul1.i93 = fmul float %mul, %add3.i
   %add.i96 = fadd float %6, %mul.i91
   %add4.i = fadd float %7, %mul1.i93
-  %m_invI = getelementptr inbounds i8, ptr %3, i64 156
+  %m_invI = getelementptr inbounds nuw i8, ptr %3, i64 156
   %17 = load float, ptr %m_invI, align 4
   %mul17 = fmul float %0, %17
-  %m_torque = getelementptr inbounds i8, ptr %3, i64 84
+  %m_torque = getelementptr inbounds nuw i8, ptr %3, i64 84
   %18 = load float, ptr %m_torque, align 4
   %19 = call float @llvm.fmuladd.f32(float %mul17, float %18, float %8)
-  %m_linearDamping = getelementptr inbounds i8, ptr %3, i64 160
+  %m_linearDamping = getelementptr inbounds nuw i8, ptr %3, i64 160
   %20 = load float, ptr %m_linearDamping, align 8
   %21 = call float @llvm.fmuladd.f32(float %0, float %20, float 1.000000e+00)
   %div = fdiv float 1.000000e+00, %21
   %mul.i98 = fmul float %add.i96, %div
   %mul2.i = fmul float %add4.i, %div
-  %m_angularDamping = getelementptr inbounds i8, ptr %3, i64 164
+  %m_angularDamping = getelementptr inbounds nuw i8, ptr %3, i64 164
   %22 = load float, ptr %m_angularDamping, align 4
   %23 = call float @llvm.fmuladd.f32(float %0, float %22, float 1.000000e+00)
   %div21 = fdiv float 1.000000e+00, %23
@@ -226,18 +226,18 @@ if.end:                                           ; preds = %if.then, %for.body
   %v.sroa.6.0 = phi float [ %mul2.i, %if.then ], [ %7, %for.body ]
   %w.0 = phi float [ %mul22, %if.then ], [ %8, %for.body ]
   %24 = load ptr, ptr %m_positions, align 8
-  %arrayidx24 = getelementptr inbounds %struct.b2Position, ptr %24, i64 %indvars.iv
+  %arrayidx24 = getelementptr inbounds nuw %struct.b2Position, ptr %24, i64 %indvars.iv
   store i64 %4, ptr %arrayidx24, align 4
   %25 = load ptr, ptr %m_positions, align 8
-  %a29 = getelementptr inbounds %struct.b2Position, ptr %25, i64 %indvars.iv, i32 1
+  %a29 = getelementptr inbounds nuw %struct.b2Position, ptr %25, i64 %indvars.iv, i32 1
   store float %5, ptr %a29, align 4
   %26 = load ptr, ptr %m_velocities, align 8
-  %arrayidx31 = getelementptr inbounds %struct.b2Velocity, ptr %26, i64 %indvars.iv
+  %arrayidx31 = getelementptr inbounds nuw %struct.b2Velocity, ptr %26, i64 %indvars.iv
   store float %v.sroa.0.0, ptr %arrayidx31, align 4
-  %arrayidx31.sroa_idx = getelementptr inbounds i8, ptr %arrayidx31, i64 4
+  %arrayidx31.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx31, i64 4
   store float %v.sroa.6.0, ptr %arrayidx31.sroa_idx, align 4
   %27 = load ptr, ptr %m_velocities, align 8
-  %w36 = getelementptr inbounds %struct.b2Velocity, ptr %27, i64 %indvars.iv, i32 1
+  %w36 = getelementptr inbounds nuw %struct.b2Velocity, ptr %27, i64 %indvars.iv, i32 1
   store float %w.0, ptr %w36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %m_bodyCount, align 8
@@ -248,36 +248,36 @@ if.end:                                           ; preds = %if.then, %for.body
 for.end:                                          ; preds = %if.end, %entry
   call void @_ZN7b2Timer5ResetEv(ptr noundef nonnull align 8 dereferenceable(16) %timer)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %solverData, ptr noundef nonnull align 4 dereferenceable(24) %step, i64 24, i1 false)
-  %m_positions38 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_positions38 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %30 = load ptr, ptr %m_positions38, align 8
-  %positions = getelementptr inbounds i8, ptr %solverData, i64 24
+  %positions = getelementptr inbounds nuw i8, ptr %solverData, i64 24
   store ptr %30, ptr %positions, align 8
-  %m_velocities39 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_velocities39 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %31 = load ptr, ptr %m_velocities39, align 8
-  %velocities = getelementptr inbounds i8, ptr %solverData, i64 32
+  %velocities = getelementptr inbounds nuw i8, ptr %solverData, i64 32
   store ptr %31, ptr %velocities, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contactSolverDef, ptr noundef nonnull align 4 dereferenceable(24) %step, i64 24, i1 false)
-  %m_contacts = getelementptr inbounds i8, ptr %this, i64 24
+  %m_contacts = getelementptr inbounds nuw i8, ptr %this, i64 24
   %32 = load ptr, ptr %m_contacts, align 8
-  %contacts = getelementptr inbounds i8, ptr %contactSolverDef, i64 24
+  %contacts = getelementptr inbounds nuw i8, ptr %contactSolverDef, i64 24
   store ptr %32, ptr %contacts, align 8
-  %m_contactCount = getelementptr inbounds i8, ptr %this, i64 64
+  %m_contactCount = getelementptr inbounds nuw i8, ptr %this, i64 64
   %33 = load i32, ptr %m_contactCount, align 8
-  %count = getelementptr inbounds i8, ptr %contactSolverDef, i64 32
+  %count = getelementptr inbounds nuw i8, ptr %contactSolverDef, i64 32
   store i32 %33, ptr %count, align 8
-  %positions42 = getelementptr inbounds i8, ptr %contactSolverDef, i64 40
+  %positions42 = getelementptr inbounds nuw i8, ptr %contactSolverDef, i64 40
   store ptr %30, ptr %positions42, align 8
-  %velocities44 = getelementptr inbounds i8, ptr %contactSolverDef, i64 48
+  %velocities44 = getelementptr inbounds nuw i8, ptr %contactSolverDef, i64 48
   store ptr %31, ptr %velocities44, align 8
   %34 = load ptr, ptr %this, align 8
-  %allocator = getelementptr inbounds i8, ptr %contactSolverDef, i64 56
+  %allocator = getelementptr inbounds nuw i8, ptr %contactSolverDef, i64 56
   store ptr %34, ptr %allocator, align 8
   call void @_ZN15b2ContactSolverC1EP18b2ContactSolverDef(ptr noundef nonnull align 8 dereferenceable(76) %contactSolver, ptr noundef nonnull %contactSolverDef)
   invoke void @_ZN15b2ContactSolver29InitializeVelocityConstraintsEv(ptr noundef nonnull align 8 dereferenceable(76) %contactSolver)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %for.end
-  %warmStarting = getelementptr inbounds i8, ptr %step, i64 20
+  %warmStarting = getelementptr inbounds nuw i8, ptr %step, i64 20
   %35 = load i8, ptr %warmStarting, align 4
   %tobool = trunc i8 %35 to i1
   br i1 %tobool, label %if.then45, label %if.end47
@@ -327,22 +327,22 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end47:                                         ; preds = %if.then45, %invoke.cont
-  %m_jointCount = getelementptr inbounds i8, ptr %this, i64 60
+  %m_jointCount = getelementptr inbounds nuw i8, ptr %this, i64 60
   %36 = load i32, ptr %m_jointCount, align 4
   %cmp50167 = icmp sgt i32 %36, 0
   br i1 %cmp50167, label %for.body51.lr.ph, label %for.end57
 
 for.body51.lr.ph:                                 ; preds = %if.end47
-  %m_joints = getelementptr inbounds i8, ptr %this, i64 32
+  %m_joints = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.body51
 
 for.body51:                                       ; preds = %for.body51.lr.ph, %for.inc55
   %indvars.iv194 = phi i64 [ 0, %for.body51.lr.ph ], [ %indvars.iv.next195, %for.inc55 ]
   %37 = load ptr, ptr %m_joints, align 8
-  %arrayidx53 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv194
+  %arrayidx53 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv194
   %38 = load ptr, ptr %arrayidx53, align 8
   %vtable = load ptr, ptr %38, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %39 = load ptr, ptr %vfn, align 8
   invoke void %39(ptr noundef nonnull align 8 dereferenceable(128) %38, ptr noundef nonnull align 8 dereferenceable(40) %solverData)
           to label %for.inc55 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -359,19 +359,19 @@ for.end57:                                        ; preds = %for.inc55, %if.end4
           to label %invoke.cont58 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont58:                                    ; preds = %for.end57
-  %solveInit = getelementptr inbounds i8, ptr %profile, i64 12
+  %solveInit = getelementptr inbounds nuw i8, ptr %profile, i64 12
   store float %call59, ptr %solveInit, align 4
   invoke void @_ZN7b2Timer5ResetEv(ptr noundef nonnull align 8 dereferenceable(16) %timer)
           to label %for.cond62.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond62.preheader:                             ; preds = %invoke.cont58
-  %velocityIterations = getelementptr inbounds i8, ptr %step, i64 12
+  %velocityIterations = getelementptr inbounds nuw i8, ptr %step, i64 12
   %42 = load i32, ptr %velocityIterations, align 4
   %cmp63171 = icmp sgt i32 %42, 0
   br i1 %cmp63171, label %for.cond65.preheader.lr.ph, label %for.end81
 
 for.cond65.preheader.lr.ph:                       ; preds = %for.cond62.preheader
-  %m_joints69 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_joints69 = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.cond65.preheader
 
 for.cond65.preheader:                             ; preds = %for.cond65.preheader.lr.ph, %for.inc79
@@ -383,10 +383,10 @@ for.cond65.preheader:                             ; preds = %for.cond65.preheade
 for.body68:                                       ; preds = %for.cond65.preheader, %for.inc75
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %for.inc75 ], [ 0, %for.cond65.preheader ]
   %44 = load ptr, ptr %m_joints69, align 8
-  %arrayidx71 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv197
+  %arrayidx71 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv197
   %45 = load ptr, ptr %arrayidx71, align 8
   %vtable72 = load ptr, ptr %45, align 8
-  %vfn73 = getelementptr inbounds i8, ptr %vtable72, i64 80
+  %vfn73 = getelementptr inbounds nuw i8, ptr %vtable72, i64 80
   %46 = load ptr, ptr %vfn73, align 8
   invoke void %46(ptr noundef nonnull align 8 dereferenceable(128) %45, ptr noundef nonnull align 8 dereferenceable(40) %solverData)
           to label %for.inc75 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -417,7 +417,7 @@ invoke.cont82:                                    ; preds = %for.end81
           to label %invoke.cont83 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont83:                                    ; preds = %invoke.cont82
-  %solveVelocity = getelementptr inbounds i8, ptr %profile, i64 16
+  %solveVelocity = getelementptr inbounds nuw i8, ptr %profile, i64 16
   store float %call84, ptr %solveVelocity, align 4
   %50 = load i32, ptr %m_bodyCount, align 8
   %cmp88173 = icmp sgt i32 %50, 0
@@ -426,18 +426,18 @@ invoke.cont83:                                    ; preds = %invoke.cont82
 invoke.cont110:                                   ; preds = %invoke.cont83, %invoke.cont132
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %invoke.cont132 ], [ 0, %invoke.cont83 ]
   %51 = load ptr, ptr %m_positions38, align 8
-  %arrayidx93 = getelementptr inbounds %struct.b2Position, ptr %51, i64 %indvars.iv200
+  %arrayidx93 = getelementptr inbounds nuw %struct.b2Position, ptr %51, i64 %indvars.iv200
   %52 = load float, ptr %arrayidx93, align 4
-  %arrayidx93.sroa_idx = getelementptr inbounds i8, ptr %arrayidx93, i64 4
+  %arrayidx93.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx93, i64 4
   %53 = load float, ptr %arrayidx93.sroa_idx, align 4
-  %a99 = getelementptr inbounds %struct.b2Position, ptr %51, i64 %indvars.iv200, i32 1
+  %a99 = getelementptr inbounds nuw %struct.b2Position, ptr %51, i64 %indvars.iv200, i32 1
   %54 = load float, ptr %a99, align 4
   %55 = load ptr, ptr %m_velocities39, align 8
-  %arrayidx103 = getelementptr inbounds %struct.b2Velocity, ptr %55, i64 %indvars.iv200
+  %arrayidx103 = getelementptr inbounds nuw %struct.b2Velocity, ptr %55, i64 %indvars.iv200
   %56 = load float, ptr %arrayidx103, align 4
-  %arrayidx103.sroa_idx = getelementptr inbounds i8, ptr %arrayidx103, i64 4
+  %arrayidx103.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx103, i64 4
   %57 = load float, ptr %arrayidx103.sroa_idx, align 4
-  %w109 = getelementptr inbounds %struct.b2Velocity, ptr %55, i64 %indvars.iv200, i32 1
+  %w109 = getelementptr inbounds nuw %struct.b2Velocity, ptr %55, i64 %indvars.iv200, i32 1
   %58 = load float, ptr %w109, align 4
   %mul.i100 = fmul float %0, %56
   %mul1.i102 = fmul float %0, %57
@@ -479,15 +479,15 @@ invoke.cont132:                                   ; preds = %if.end120, %if.then
   store float %add.i116, ptr %arrayidx93, align 4
   store float %add4.i119, ptr %arrayidx93.sroa_idx, align 4
   %61 = load ptr, ptr %m_positions38, align 8
-  %a143 = getelementptr inbounds %struct.b2Position, ptr %61, i64 %indvars.iv200, i32 1
+  %a143 = getelementptr inbounds nuw %struct.b2Position, ptr %61, i64 %indvars.iv200, i32 1
   store float %60, ptr %a143, align 4
   %62 = load ptr, ptr %m_velocities39, align 8
-  %arrayidx146 = getelementptr inbounds %struct.b2Velocity, ptr %62, i64 %indvars.iv200
+  %arrayidx146 = getelementptr inbounds nuw %struct.b2Velocity, ptr %62, i64 %indvars.iv200
   store float %v100.sroa.0.0, ptr %arrayidx146, align 4
-  %arrayidx146.sroa_idx = getelementptr inbounds i8, ptr %arrayidx146, i64 4
+  %arrayidx146.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx146, i64 4
   store float %v100.sroa.6.0, ptr %arrayidx146.sroa_idx, align 4
   %63 = load ptr, ptr %m_velocities39, align 8
-  %w151 = getelementptr inbounds %struct.b2Velocity, ptr %63, i64 %indvars.iv200, i32 1
+  %w151 = getelementptr inbounds nuw %struct.b2Velocity, ptr %63, i64 %indvars.iv200, i32 1
   store float %w105.0, ptr %w151, align 4
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %64 = load i32, ptr %m_bodyCount, align 8
@@ -500,13 +500,13 @@ for.end154:                                       ; preds = %invoke.cont132, %in
           to label %for.cond157.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond157.preheader:                            ; preds = %for.end154
-  %positionIterations = getelementptr inbounds i8, ptr %step, i64 16
+  %positionIterations = getelementptr inbounds nuw i8, ptr %step, i64 16
   %66 = load i32, ptr %positionIterations, align 4
   %cmp158178 = icmp slt i32 %66, 1
   br i1 %cmp158178, label %for.end188, label %for.body159.lr.ph
 
 for.body159.lr.ph:                                ; preds = %for.cond157.preheader
-  %m_joints168 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_joints168 = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.body159
 
 for.cond157:                                      ; preds = %for.end181
@@ -529,10 +529,10 @@ for.body167:                                      ; preds = %for.cond164.prehead
   %indvars.iv203 = phi i64 [ %indvars.iv.next204, %invoke.cont173 ], [ 0, %for.cond164.preheader ]
   %jointsOkay.0176 = phi i1 [ %72, %invoke.cont173 ], [ true, %for.cond164.preheader ]
   %69 = load ptr, ptr %m_joints168, align 8
-  %arrayidx170 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv203
+  %arrayidx170 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv203
   %70 = load ptr, ptr %arrayidx170, align 8
   %vtable171 = load ptr, ptr %70, align 8
-  %vfn172 = getelementptr inbounds i8, ptr %vtable171, i64 88
+  %vfn172 = getelementptr inbounds nuw i8, ptr %vtable171, i64 88
   %71 = load ptr, ptr %vfn172, align 8
   %call174 = invoke noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(128) %70, ptr noundef nonnull align 8 dereferenceable(40) %solverData)
           to label %invoke.cont173 unwind label %lpad.loopexit.split-lp.loopexit
@@ -557,45 +557,45 @@ for.end188:                                       ; preds = %for.cond157, %for.e
   br i1 %cmp192183, label %for.inc220.lr.ph, label %for.end222
 
 for.inc220.lr.ph:                                 ; preds = %for.end188
-  %m_bodies194 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_bodies194 = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %for.inc220
 
 for.inc220:                                       ; preds = %for.inc220.lr.ph, %for.inc220
   %indvars.iv205 = phi i64 [ 0, %for.inc220.lr.ph ], [ %indvars.iv.next206, %for.inc220 ]
   %77 = load ptr, ptr %m_bodies194, align 8
-  %arrayidx196 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv205
+  %arrayidx196 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv205
   %78 = load ptr, ptr %arrayidx196, align 8
   %79 = load ptr, ptr %m_positions38, align 8
-  %arrayidx199 = getelementptr inbounds %struct.b2Position, ptr %79, i64 %indvars.iv205
-  %c202 = getelementptr inbounds i8, ptr %78, i64 44
+  %arrayidx199 = getelementptr inbounds nuw %struct.b2Position, ptr %79, i64 %indvars.iv205
+  %c202 = getelementptr inbounds nuw i8, ptr %78, i64 44
   %80 = load i64, ptr %arrayidx199, align 4
   store i64 %80, ptr %c202, align 4
   %81 = load ptr, ptr %m_positions38, align 8
-  %a206 = getelementptr inbounds %struct.b2Position, ptr %81, i64 %indvars.iv205, i32 1
+  %a206 = getelementptr inbounds nuw %struct.b2Position, ptr %81, i64 %indvars.iv205, i32 1
   %82 = load float, ptr %a206, align 4
-  %a208 = getelementptr inbounds i8, ptr %78, i64 56
+  %a208 = getelementptr inbounds nuw i8, ptr %78, i64 56
   store float %82, ptr %a208, align 4
   %83 = load ptr, ptr %m_velocities39, align 8
-  %arrayidx211 = getelementptr inbounds %struct.b2Velocity, ptr %83, i64 %indvars.iv205
-  %m_linearVelocity213 = getelementptr inbounds i8, ptr %78, i64 64
+  %arrayidx211 = getelementptr inbounds nuw %struct.b2Velocity, ptr %83, i64 %indvars.iv205
+  %m_linearVelocity213 = getelementptr inbounds nuw i8, ptr %78, i64 64
   %84 = load i64, ptr %arrayidx211, align 4
   store i64 %84, ptr %m_linearVelocity213, align 8
   %85 = load ptr, ptr %m_velocities39, align 8
-  %w217 = getelementptr inbounds %struct.b2Velocity, ptr %85, i64 %indvars.iv205, i32 1
+  %w217 = getelementptr inbounds nuw %struct.b2Velocity, ptr %85, i64 %indvars.iv205, i32 1
   %86 = load float, ptr %w217, align 4
-  %m_angularVelocity218 = getelementptr inbounds i8, ptr %78, i64 72
+  %m_angularVelocity218 = getelementptr inbounds nuw i8, ptr %78, i64 72
   store float %86, ptr %m_angularVelocity218, align 8
-  %m_xf.i = getelementptr inbounds i8, ptr %78, i64 12
-  %q.i = getelementptr inbounds i8, ptr %78, i64 20
-  %m_sweep.i = getelementptr inbounds i8, ptr %78, i64 28
+  %m_xf.i = getelementptr inbounds nuw i8, ptr %78, i64 12
+  %q.i = getelementptr inbounds nuw i8, ptr %78, i64 20
+  %m_sweep.i = getelementptr inbounds nuw i8, ptr %78, i64 28
   %call.i.i = call float @sinf(float noundef %82) #14
   store float %call.i.i, ptr %q.i, align 4
   %call2.i.i = call float @cosf(float noundef %82) #14
-  %c.i.i = getelementptr inbounds i8, ptr %78, i64 24
+  %c.i.i = getelementptr inbounds nuw i8, ptr %78, i64 24
   store float %call2.i.i, ptr %c.i.i, align 4
   %87 = load float, ptr %m_sweep.i, align 4
   %88 = load float, ptr %q.i, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %78, i64 32
+  %y.i.i = getelementptr inbounds nuw i8, ptr %78, i64 32
   %89 = load float, ptr %y.i.i, align 4
   %90 = fneg float %89
   %neg.i.i = fmul float %88, %90
@@ -604,7 +604,7 @@ for.inc220:                                       ; preds = %for.inc220.lr.ph, %
   %92 = call float @llvm.fmuladd.f32(float %88, float %87, float %mul6.i.i)
   %93 = load float, ptr %c202, align 4
   %sub.i.i = fsub float %93, %91
-  %y.i2.i = getelementptr inbounds i8, ptr %78, i64 48
+  %y.i2.i = getelementptr inbounds nuw i8, ptr %78, i64 48
   %94 = load float, ptr %y.i2.i, align 4
   %sub3.i.i = fsub float %94, %92
   %retval.sroa.0.0.vec.insert.i3.i = insertelement <2 x float> poison, float %sub.i.i, i64 0
@@ -621,12 +621,12 @@ for.end222:                                       ; preds = %for.inc220, %for.en
           to label %invoke.cont223 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont223:                                   ; preds = %for.end222
-  %solvePosition = getelementptr inbounds i8, ptr %profile, i64 20
+  %solvePosition = getelementptr inbounds nuw i8, ptr %profile, i64 20
   store float %call224, ptr %solvePosition, align 4
-  %m_velocityConstraints = getelementptr inbounds i8, ptr %contactSolver, i64 56
+  %m_velocityConstraints = getelementptr inbounds nuw i8, ptr %contactSolver, i64 56
   %97 = load ptr, ptr %m_velocityConstraints, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %impulse.i)
-  %m_listener.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_listener.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %98 = load ptr, ptr %m_listener.i, align 8
   %cmp.i120 = icmp ne ptr %98, null
   %99 = load i32, ptr %m_contactCount, align 8
@@ -635,17 +635,17 @@ invoke.cont223:                                   ; preds = %for.end222
   br i1 %or.cond, label %for.body.lr.ph.i, label %invoke.cont225
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont223
-  %count.i = getelementptr inbounds i8, ptr %impulse.i, i64 16
-  %tangentImpulses.i = getelementptr inbounds i8, ptr %impulse.i, i64 8
+  %count.i = getelementptr inbounds nuw i8, ptr %impulse.i, i64 16
+  %tangentImpulses.i = getelementptr inbounds nuw i8, ptr %impulse.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc, %for.body.lr.ph.i
   %indvars.iv17.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next18.i, %.noexc ]
   %100 = load ptr, ptr %m_contacts, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %100, i64 %indvars.iv17.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv17.i
   %101 = load ptr, ptr %arrayidx.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %97, i64 %indvars.iv17.i
-  %pointCount.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 152
+  %add.ptr.i = getelementptr inbounds nuw %struct.b2ContactVelocityConstraint, ptr %97, i64 %indvars.iv17.i
+  %pointCount.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 152
   %102 = load i32, ptr %pointCount.i, align 4
   store i32 %102, ptr %count.i, align 4
   %cmp512.i = icmp sgt i32 %102, 0
@@ -657,14 +657,14 @@ for.body6.preheader.i:                            ; preds = %for.body.i
 
 for.body6.i:                                      ; preds = %for.body6.i, %for.body6.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body6.preheader.i ], [ %indvars.iv.next.i, %for.body6.i ]
-  %arrayidx8.i = getelementptr inbounds [2 x %struct.b2VelocityConstraintPoint], ptr %add.ptr.i, i64 0, i64 %indvars.iv.i
-  %normalImpulse.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 16
+  %arrayidx8.i = getelementptr inbounds nuw [2 x %struct.b2VelocityConstraintPoint], ptr %add.ptr.i, i64 0, i64 %indvars.iv.i
+  %normalImpulse.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 16
   %103 = load float, ptr %normalImpulse.i, align 4
-  %arrayidx10.i = getelementptr inbounds [2 x float], ptr %impulse.i, i64 0, i64 %indvars.iv.i
+  %arrayidx10.i = getelementptr inbounds nuw [2 x float], ptr %impulse.i, i64 0, i64 %indvars.iv.i
   store float %103, ptr %arrayidx10.i, align 4
-  %tangentImpulse.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 20
+  %tangentImpulse.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 20
   %104 = load float, ptr %tangentImpulse.i, align 4
-  %arrayidx15.i = getelementptr inbounds [2 x float], ptr %tangentImpulses.i, i64 0, i64 %indvars.iv.i
+  %arrayidx15.i = getelementptr inbounds nuw [2 x float], ptr %tangentImpulses.i, i64 0, i64 %indvars.iv.i
   store float %104, ptr %arrayidx15.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -673,7 +673,7 @@ for.body6.i:                                      ; preds = %for.body6.i, %for.b
 for.end.i:                                        ; preds = %for.body6.i, %for.body.i
   %105 = load ptr, ptr %m_listener.i, align 8
   %vtable.i = load ptr, ptr %105, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
   %106 = load ptr, ptr %vfn.i, align 8
   invoke void %106(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef %101, ptr noundef nonnull %impulse.i)
           to label %.noexc unwind label %lpad.loopexit
@@ -693,37 +693,37 @@ invoke.cont225:                                   ; preds = %.noexc, %invoke.con
   br i1 %or.cond219, label %for.body232.lr.ph, label %if.end280
 
 for.body232.lr.ph:                                ; preds = %invoke.cont225
-  %m_bodies234 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_bodies234 = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %for.body232
 
 for.body232:                                      ; preds = %for.body232.lr.ph, %for.inc259
   %indvars.iv208 = phi i64 [ 0, %for.body232.lr.ph ], [ %indvars.iv.next209, %for.inc259 ]
   %minSleepTime.0186 = phi float [ 0x47EFFFFFE0000000, %for.body232.lr.ph ], [ %minSleepTime.1, %for.inc259 ]
   %110 = load ptr, ptr %m_bodies234, align 8
-  %arrayidx236 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv208
+  %arrayidx236 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv208
   %111 = load ptr, ptr %arrayidx236, align 8
   %112 = load i32, ptr %111, align 8
   %cmp239 = icmp eq i32 %112, 0
   br i1 %cmp239, label %for.inc259, label %if.end241
 
 if.end241:                                        ; preds = %for.body232
-  %m_flags = getelementptr inbounds i8, ptr %111, i64 4
+  %m_flags = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load i16, ptr %m_flags, align 4
   %114 = and i16 %113, 4
   %cmp242 = icmp eq i16 %114, 0
   br i1 %cmp242, label %if.then253, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end241
-  %m_angularVelocity243 = getelementptr inbounds i8, ptr %111, i64 72
+  %m_angularVelocity243 = getelementptr inbounds nuw i8, ptr %111, i64 72
   %115 = load float, ptr %m_angularVelocity243, align 8
   %mul245 = fmul float %115, %115
   %cmp246 = fcmp ogt float %mul245, 0x3F53F6A220000000
   br i1 %cmp246, label %if.then253, label %lor.lhs.false247
 
 lor.lhs.false247:                                 ; preds = %lor.lhs.false
-  %m_linearVelocity248 = getelementptr inbounds i8, ptr %111, i64 64
+  %m_linearVelocity248 = getelementptr inbounds nuw i8, ptr %111, i64 64
   %116 = load float, ptr %m_linearVelocity248, align 4
-  %y.i121 = getelementptr inbounds i8, ptr %111, i64 68
+  %y.i121 = getelementptr inbounds nuw i8, ptr %111, i64 68
   %117 = load float, ptr %y.i121, align 4
   %mul3.i123 = fmul float %117, %117
   %118 = call noundef float @llvm.fmuladd.f32(float %116, float %116, float %mul3.i123)
@@ -731,12 +731,12 @@ lor.lhs.false247:                                 ; preds = %lor.lhs.false
   br i1 %cmp252, label %if.then253, label %if.else
 
 if.then253:                                       ; preds = %lor.lhs.false247, %lor.lhs.false, %if.end241
-  %m_sleepTime = getelementptr inbounds i8, ptr %111, i64 172
+  %m_sleepTime = getelementptr inbounds nuw i8, ptr %111, i64 172
   store float 0.000000e+00, ptr %m_sleepTime, align 4
   br label %for.inc259
 
 if.else:                                          ; preds = %lor.lhs.false247
-  %m_sleepTime254 = getelementptr inbounds i8, ptr %111, i64 172
+  %m_sleepTime254 = getelementptr inbounds nuw i8, ptr %111, i64 172
   %119 = load float, ptr %m_sleepTime254, align 4
   %add = fadd float %0, %119
   store float %add, ptr %m_sleepTime254, align 4
@@ -760,27 +760,27 @@ for.end261:                                       ; preds = %for.inc259
   br i1 %or.cond191, label %for.body270.lr.ph, label %if.end280
 
 for.body270.lr.ph:                                ; preds = %for.end261
-  %m_bodies272 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_bodies272 = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %for.body270
 
 for.body270:                                      ; preds = %for.body270.lr.ph, %for.inc276
   %123 = phi i32 [ %120, %for.body270.lr.ph ], [ %129, %for.inc276 ]
   %indvars.iv211 = phi i64 [ 0, %for.body270.lr.ph ], [ %indvars.iv.next212, %for.inc276 ]
   %124 = load ptr, ptr %m_bodies272, align 8
-  %arrayidx274 = getelementptr inbounds ptr, ptr %124, i64 %indvars.iv211
+  %arrayidx274 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv211
   %125 = load ptr, ptr %arrayidx274, align 8
   %126 = load i32, ptr %125, align 8
   %cmp.i126 = icmp eq i32 %126, 0
   br i1 %cmp.i126, label %for.inc276, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body270
-  %m_flags.i = getelementptr inbounds i8, ptr %125, i64 4
+  %m_flags.i = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = load i16, ptr %m_flags.i, align 4
-  %m_sleepTime.i = getelementptr inbounds i8, ptr %125, i64 172
+  %m_sleepTime.i = getelementptr inbounds nuw i8, ptr %125, i64 172
   %128 = and i16 %127, -3
   store i16 %128, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
-  %m_linearVelocity.i = getelementptr inbounds i8, ptr %125, i64 64
+  %m_linearVelocity.i = getelementptr inbounds nuw i8, ptr %125, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_linearVelocity.i, i8 0, i64 24, i1 false)
   %.pre = load i32, ptr %m_bodyCount, align 8
   br label %for.inc276
@@ -825,30 +825,30 @@ declare noundef zeroext i1 @_ZN15b2ContactSolver24SolvePositionConstraintsEv(ptr
 define hidden void @_ZN8b2Island6ReportEPK27b2ContactVelocityConstraint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %constraints) local_unnamed_addr #0 align 2 {
 entry:
   %impulse = alloca %struct.b2ContactImpulse, align 4
-  %m_listener = getelementptr inbounds i8, ptr %this, i64 8
+  %m_listener = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_listener, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %for.end19, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %m_contactCount = getelementptr inbounds i8, ptr %this, i64 64
+  %m_contactCount = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load i32, ptr %m_contactCount, align 8
   %cmp214 = icmp sgt i32 %1, 0
   br i1 %cmp214, label %for.body.lr.ph, label %for.end19
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %m_contacts = getelementptr inbounds i8, ptr %this, i64 24
-  %count = getelementptr inbounds i8, ptr %impulse, i64 16
-  %tangentImpulses = getelementptr inbounds i8, ptr %impulse, i64 8
+  %m_contacts = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %count = getelementptr inbounds nuw i8, ptr %impulse, i64 16
+  %tangentImpulses = getelementptr inbounds nuw i8, ptr %impulse, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
   %indvars.iv17 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next18, %for.end ]
   %2 = load ptr, ptr %m_contacts, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv17
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv17
   %3 = load ptr, ptr %arrayidx, align 8
-  %add.ptr = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %constraints, i64 %indvars.iv17
-  %pointCount = getelementptr inbounds i8, ptr %add.ptr, i64 152
+  %add.ptr = getelementptr inbounds nuw %struct.b2ContactVelocityConstraint, ptr %constraints, i64 %indvars.iv17
+  %pointCount = getelementptr inbounds nuw i8, ptr %add.ptr, i64 152
   %4 = load i32, ptr %pointCount, align 4
   store i32 %4, ptr %count, align 4
   %cmp512 = icmp sgt i32 %4, 0
@@ -860,14 +860,14 @@ for.body6.preheader:                              ; preds = %for.body
 
 for.body6:                                        ; preds = %for.body6.preheader, %for.body6
   %indvars.iv = phi i64 [ 0, %for.body6.preheader ], [ %indvars.iv.next, %for.body6 ]
-  %arrayidx8 = getelementptr inbounds [2 x %struct.b2VelocityConstraintPoint], ptr %add.ptr, i64 0, i64 %indvars.iv
-  %normalImpulse = getelementptr inbounds i8, ptr %arrayidx8, i64 16
+  %arrayidx8 = getelementptr inbounds nuw [2 x %struct.b2VelocityConstraintPoint], ptr %add.ptr, i64 0, i64 %indvars.iv
+  %normalImpulse = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 16
   %5 = load float, ptr %normalImpulse, align 4
-  %arrayidx10 = getelementptr inbounds [2 x float], ptr %impulse, i64 0, i64 %indvars.iv
+  %arrayidx10 = getelementptr inbounds nuw [2 x float], ptr %impulse, i64 0, i64 %indvars.iv
   store float %5, ptr %arrayidx10, align 4
-  %tangentImpulse = getelementptr inbounds i8, ptr %arrayidx8, i64 20
+  %tangentImpulse = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 20
   %6 = load float, ptr %tangentImpulse, align 4
-  %arrayidx15 = getelementptr inbounds [2 x float], ptr %tangentImpulses, i64 0, i64 %indvars.iv
+  %arrayidx15 = getelementptr inbounds nuw [2 x float], ptr %tangentImpulses, i64 0, i64 %indvars.iv
   store float %6, ptr %arrayidx15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -876,7 +876,7 @@ for.body6:                                        ; preds = %for.body6.preheader
 for.end:                                          ; preds = %for.body6, %for.body
   %7 = load ptr, ptr %m_listener, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %8 = load ptr, ptr %vfn, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %3, ptr noundef nonnull %impulse)
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
@@ -898,41 +898,41 @@ entry:
   %impulse.i = alloca %struct.b2ContactImpulse, align 4
   %contactSolverDef = alloca %struct.b2ContactSolverDef, align 8
   %contactSolver = alloca %class.b2ContactSolver, align 8
-  %m_bodyCount = getelementptr inbounds i8, ptr %this, i64 56
+  %m_bodyCount = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i32, ptr %m_bodyCount, align 8
   %cmp87 = icmp sgt i32 %0, 0
   br i1 %cmp87, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_bodies = getelementptr inbounds i8, ptr %this, i64 16
-  %m_positions = getelementptr inbounds i8, ptr %this, i64 40
-  %m_velocities = getelementptr inbounds i8, ptr %this, i64 48
+  %m_bodies = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_positions = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_velocities = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %1 = load ptr, ptr %m_bodies, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %c = getelementptr inbounds i8, ptr %2, i64 44
+  %c = getelementptr inbounds nuw i8, ptr %2, i64 44
   %3 = load ptr, ptr %m_positions, align 8
-  %arrayidx3 = getelementptr inbounds %struct.b2Position, ptr %3, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw %struct.b2Position, ptr %3, i64 %indvars.iv
   %4 = load i64, ptr %c, align 4
   store i64 %4, ptr %arrayidx3, align 4
-  %a = getelementptr inbounds i8, ptr %2, i64 56
+  %a = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load float, ptr %a, align 4
   %6 = load ptr, ptr %m_positions, align 8
-  %a9 = getelementptr inbounds %struct.b2Position, ptr %6, i64 %indvars.iv, i32 1
+  %a9 = getelementptr inbounds nuw %struct.b2Position, ptr %6, i64 %indvars.iv, i32 1
   store float %5, ptr %a9, align 4
-  %m_linearVelocity = getelementptr inbounds i8, ptr %2, i64 64
+  %m_linearVelocity = getelementptr inbounds nuw i8, ptr %2, i64 64
   %7 = load ptr, ptr %m_velocities, align 8
-  %arrayidx11 = getelementptr inbounds %struct.b2Velocity, ptr %7, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds nuw %struct.b2Velocity, ptr %7, i64 %indvars.iv
   %8 = load i64, ptr %m_linearVelocity, align 8
   store i64 %8, ptr %arrayidx11, align 4
-  %m_angularVelocity = getelementptr inbounds i8, ptr %2, i64 72
+  %m_angularVelocity = getelementptr inbounds nuw i8, ptr %2, i64 72
   %9 = load float, ptr %m_angularVelocity, align 8
   %10 = load ptr, ptr %m_velocities, align 8
-  %w = getelementptr inbounds %struct.b2Velocity, ptr %10, i64 %indvars.iv, i32 1
+  %w = getelementptr inbounds nuw %struct.b2Velocity, ptr %10, i64 %indvars.iv, i32 1
   store float %9, ptr %w, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %m_bodyCount, align 8
@@ -941,28 +941,28 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %entry
-  %m_contacts = getelementptr inbounds i8, ptr %this, i64 24
+  %m_contacts = getelementptr inbounds nuw i8, ptr %this, i64 24
   %13 = load ptr, ptr %m_contacts, align 8
-  %contacts = getelementptr inbounds i8, ptr %contactSolverDef, i64 24
+  %contacts = getelementptr inbounds nuw i8, ptr %contactSolverDef, i64 24
   store ptr %13, ptr %contacts, align 8
-  %m_contactCount = getelementptr inbounds i8, ptr %this, i64 64
+  %m_contactCount = getelementptr inbounds nuw i8, ptr %this, i64 64
   %14 = load i32, ptr %m_contactCount, align 8
-  %count = getelementptr inbounds i8, ptr %contactSolverDef, i64 32
+  %count = getelementptr inbounds nuw i8, ptr %contactSolverDef, i64 32
   store i32 %14, ptr %count, align 8
   %15 = load ptr, ptr %this, align 8
-  %allocator = getelementptr inbounds i8, ptr %contactSolverDef, i64 56
+  %allocator = getelementptr inbounds nuw i8, ptr %contactSolverDef, i64 56
   store ptr %15, ptr %allocator, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contactSolverDef, ptr noundef nonnull align 4 dereferenceable(24) %subStep, i64 24, i1 false)
-  %m_positions15 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_positions15 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %16 = load ptr, ptr %m_positions15, align 8
-  %positions = getelementptr inbounds i8, ptr %contactSolverDef, i64 40
+  %positions = getelementptr inbounds nuw i8, ptr %contactSolverDef, i64 40
   store ptr %16, ptr %positions, align 8
-  %m_velocities16 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_velocities16 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %17 = load ptr, ptr %m_velocities16, align 8
-  %velocities = getelementptr inbounds i8, ptr %contactSolverDef, i64 48
+  %velocities = getelementptr inbounds nuw i8, ptr %contactSolverDef, i64 48
   store ptr %17, ptr %velocities, align 8
   call void @_ZN15b2ContactSolverC1EP18b2ContactSolverDef(ptr noundef nonnull align 8 dereferenceable(76) %contactSolver, ptr noundef nonnull %contactSolverDef)
-  %positionIterations = getelementptr inbounds i8, ptr %subStep, i64 16
+  %positionIterations = getelementptr inbounds nuw i8, ptr %subStep, i64 16
   %18 = load i32, ptr %positionIterations, align 4
   %cmp1989 = icmp sgt i32 %18, 0
   br i1 %cmp1989, label %for.body20, label %for.end23
@@ -1010,11 +1010,11 @@ for.end23:                                        ; preds = %for.cond18, %invoke
   %20 = load ptr, ptr %m_positions15, align 8
   %idxprom25 = sext i32 %toiIndexA to i64
   %arrayidx26 = getelementptr inbounds %struct.b2Position, ptr %20, i64 %idxprom25
-  %m_bodies28 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_bodies28 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %21 = load ptr, ptr %m_bodies28, align 8
   %arrayidx30 = getelementptr inbounds ptr, ptr %21, i64 %idxprom25
   %22 = load ptr, ptr %arrayidx30, align 8
-  %c0 = getelementptr inbounds i8, ptr %22, i64 36
+  %c0 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %23 = load i64, ptr %arrayidx26, align 4
   store i64 %23, ptr %c0, align 4
   %24 = load ptr, ptr %m_positions15, align 8
@@ -1023,7 +1023,7 @@ for.end23:                                        ; preds = %for.cond18, %invoke
   %26 = load ptr, ptr %m_bodies28, align 8
   %arrayidx38 = getelementptr inbounds ptr, ptr %26, i64 %idxprom25
   %27 = load ptr, ptr %arrayidx38, align 8
-  %a0 = getelementptr inbounds i8, ptr %27, i64 52
+  %a0 = getelementptr inbounds nuw i8, ptr %27, i64 52
   store float %25, ptr %a0, align 4
   %28 = load ptr, ptr %m_positions15, align 8
   %idxprom41 = sext i32 %toiIndexB to i64
@@ -1031,7 +1031,7 @@ for.end23:                                        ; preds = %for.cond18, %invoke
   %29 = load ptr, ptr %m_bodies28, align 8
   %arrayidx46 = getelementptr inbounds ptr, ptr %29, i64 %idxprom41
   %30 = load ptr, ptr %arrayidx46, align 8
-  %c048 = getelementptr inbounds i8, ptr %30, i64 36
+  %c048 = getelementptr inbounds nuw i8, ptr %30, i64 36
   %31 = load i64, ptr %arrayidx42, align 4
   store i64 %31, ptr %c048, align 4
   %32 = load ptr, ptr %m_positions15, align 8
@@ -1040,13 +1040,13 @@ for.end23:                                        ; preds = %for.cond18, %invoke
   %34 = load ptr, ptr %m_bodies28, align 8
   %arrayidx55 = getelementptr inbounds ptr, ptr %34, i64 %idxprom41
   %35 = load ptr, ptr %arrayidx55, align 8
-  %a057 = getelementptr inbounds i8, ptr %35, i64 52
+  %a057 = getelementptr inbounds nuw i8, ptr %35, i64 52
   store float %33, ptr %a057, align 4
   invoke void @_ZN15b2ContactSolver29InitializeVelocityConstraintsEv(ptr noundef nonnull align 8 dereferenceable(76) %contactSolver)
           to label %for.cond60.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond60.preheader:                             ; preds = %for.end23
-  %velocityIterations = getelementptr inbounds i8, ptr %subStep, i64 12
+  %velocityIterations = getelementptr inbounds nuw i8, ptr %subStep, i64 12
   %36 = load i32, ptr %velocityIterations, align 4
   %cmp6191 = icmp sgt i32 %36, 0
   br i1 %cmp6191, label %for.body62, label %for.end66
@@ -1071,18 +1071,18 @@ for.end66:                                        ; preds = %for.inc64, %for.con
 invoke.cont92:                                    ; preds = %for.end66, %for.inc141
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %for.inc141 ], [ 0, %for.end66 ]
   %40 = load ptr, ptr %m_positions15, align 8
-  %arrayidx75 = getelementptr inbounds %struct.b2Position, ptr %40, i64 %indvars.iv96
+  %arrayidx75 = getelementptr inbounds nuw %struct.b2Position, ptr %40, i64 %indvars.iv96
   %41 = load float, ptr %arrayidx75, align 4
-  %arrayidx75.sroa_idx = getelementptr inbounds i8, ptr %arrayidx75, i64 4
+  %arrayidx75.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx75, i64 4
   %42 = load float, ptr %arrayidx75.sroa_idx, align 4
-  %a81 = getelementptr inbounds %struct.b2Position, ptr %40, i64 %indvars.iv96, i32 1
+  %a81 = getelementptr inbounds nuw %struct.b2Position, ptr %40, i64 %indvars.iv96, i32 1
   %43 = load float, ptr %a81, align 4
   %44 = load ptr, ptr %m_velocities16, align 8
-  %arrayidx85 = getelementptr inbounds %struct.b2Velocity, ptr %44, i64 %indvars.iv96
+  %arrayidx85 = getelementptr inbounds nuw %struct.b2Velocity, ptr %44, i64 %indvars.iv96
   %45 = load float, ptr %arrayidx85, align 4
-  %arrayidx85.sroa_idx = getelementptr inbounds i8, ptr %arrayidx85, i64 4
+  %arrayidx85.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx85, i64 4
   %46 = load float, ptr %arrayidx85.sroa_idx, align 4
-  %w91 = getelementptr inbounds %struct.b2Velocity, ptr %44, i64 %indvars.iv96, i32 1
+  %w91 = getelementptr inbounds nuw %struct.b2Velocity, ptr %44, i64 %indvars.iv96, i32 1
   %47 = load float, ptr %w91, align 4
   %mul.i = fmul float %38, %45
   %mul1.i = fmul float %38, %46
@@ -1124,42 +1124,42 @@ for.inc141:                                       ; preds = %if.then104, %if.end
   store float %add.i, ptr %arrayidx75, align 4
   store float %add4.i, ptr %arrayidx75.sroa_idx, align 4
   %50 = load ptr, ptr %m_positions15, align 8
-  %a122 = getelementptr inbounds %struct.b2Position, ptr %50, i64 %indvars.iv96, i32 1
+  %a122 = getelementptr inbounds nuw %struct.b2Position, ptr %50, i64 %indvars.iv96, i32 1
   store float %49, ptr %a122, align 4
   %51 = load ptr, ptr %m_velocities16, align 8
-  %arrayidx125 = getelementptr inbounds %struct.b2Velocity, ptr %51, i64 %indvars.iv96
+  %arrayidx125 = getelementptr inbounds nuw %struct.b2Velocity, ptr %51, i64 %indvars.iv96
   store float %v82.sroa.0.0, ptr %arrayidx125, align 4
-  %arrayidx125.sroa_idx = getelementptr inbounds i8, ptr %arrayidx125, i64 4
+  %arrayidx125.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx125, i64 4
   store float %v82.sroa.7.0, ptr %arrayidx125.sroa_idx, align 4
   %52 = load ptr, ptr %m_velocities16, align 8
-  %w130 = getelementptr inbounds %struct.b2Velocity, ptr %52, i64 %indvars.iv96, i32 1
+  %w130 = getelementptr inbounds nuw %struct.b2Velocity, ptr %52, i64 %indvars.iv96, i32 1
   store float %w87.0, ptr %w130, align 4
   %53 = load ptr, ptr %m_bodies28, align 8
-  %arrayidx133 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv96
+  %arrayidx133 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv96
   %54 = load ptr, ptr %arrayidx133, align 8
-  %c135 = getelementptr inbounds i8, ptr %54, i64 44
+  %c135 = getelementptr inbounds nuw i8, ptr %54, i64 44
   store float %add.i, ptr %c135, align 4
-  %c135.sroa_idx = getelementptr inbounds i8, ptr %54, i64 48
+  %c135.sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 48
   store float %add4.i, ptr %c135.sroa_idx, align 4
-  %a137 = getelementptr inbounds i8, ptr %54, i64 56
+  %a137 = getelementptr inbounds nuw i8, ptr %54, i64 56
   store float %49, ptr %a137, align 4
-  %m_linearVelocity138 = getelementptr inbounds i8, ptr %54, i64 64
+  %m_linearVelocity138 = getelementptr inbounds nuw i8, ptr %54, i64 64
   store float %v82.sroa.0.0, ptr %m_linearVelocity138, align 8
-  %m_linearVelocity138.sroa_idx = getelementptr inbounds i8, ptr %54, i64 68
+  %m_linearVelocity138.sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 68
   store float %v82.sroa.7.0, ptr %m_linearVelocity138.sroa_idx, align 4
-  %m_angularVelocity139 = getelementptr inbounds i8, ptr %54, i64 72
+  %m_angularVelocity139 = getelementptr inbounds nuw i8, ptr %54, i64 72
   store float %w87.0, ptr %m_angularVelocity139, align 8
-  %m_xf.i = getelementptr inbounds i8, ptr %54, i64 12
-  %q.i = getelementptr inbounds i8, ptr %54, i64 20
-  %m_sweep.i = getelementptr inbounds i8, ptr %54, i64 28
+  %m_xf.i = getelementptr inbounds nuw i8, ptr %54, i64 12
+  %q.i = getelementptr inbounds nuw i8, ptr %54, i64 20
+  %m_sweep.i = getelementptr inbounds nuw i8, ptr %54, i64 28
   %call.i.i = call float @sinf(float noundef %49) #14
   store float %call.i.i, ptr %q.i, align 4
   %call2.i.i = call float @cosf(float noundef %49) #14
-  %c.i.i = getelementptr inbounds i8, ptr %54, i64 24
+  %c.i.i = getelementptr inbounds nuw i8, ptr %54, i64 24
   store float %call2.i.i, ptr %c.i.i, align 4
   %55 = load float, ptr %m_sweep.i, align 4
   %56 = load float, ptr %q.i, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %54, i64 32
+  %y.i.i = getelementptr inbounds nuw i8, ptr %54, i64 32
   %57 = load float, ptr %y.i.i, align 4
   %58 = fneg float %57
   %neg.i.i = fmul float %56, %58
@@ -1180,10 +1180,10 @@ for.inc141:                                       ; preds = %if.then104, %if.end
   br i1 %cmp70, label %invoke.cont92, label %for.end143, !llvm.loop !20
 
 for.end143:                                       ; preds = %for.inc141, %for.end66
-  %m_velocityConstraints = getelementptr inbounds i8, ptr %contactSolver, i64 56
+  %m_velocityConstraints = getelementptr inbounds nuw i8, ptr %contactSolver, i64 56
   %65 = load ptr, ptr %m_velocityConstraints, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %impulse.i)
-  %m_listener.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_listener.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %66 = load ptr, ptr %m_listener.i, align 8
   %cmp.i58 = icmp ne ptr %66, null
   %67 = load i32, ptr %m_contactCount, align 8
@@ -1192,17 +1192,17 @@ for.end143:                                       ; preds = %for.inc141, %for.en
   br i1 %or.cond, label %for.body.lr.ph.i, label %invoke.cont144
 
 for.body.lr.ph.i:                                 ; preds = %for.end143
-  %count.i = getelementptr inbounds i8, ptr %impulse.i, i64 16
-  %tangentImpulses.i = getelementptr inbounds i8, ptr %impulse.i, i64 8
+  %count.i = getelementptr inbounds nuw i8, ptr %impulse.i, i64 16
+  %tangentImpulses.i = getelementptr inbounds nuw i8, ptr %impulse.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc, %for.body.lr.ph.i
   %indvars.iv17.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next18.i, %.noexc ]
   %68 = load ptr, ptr %m_contacts, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv17.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv17.i
   %69 = load ptr, ptr %arrayidx.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %65, i64 %indvars.iv17.i
-  %pointCount.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 152
+  %add.ptr.i = getelementptr inbounds nuw %struct.b2ContactVelocityConstraint, ptr %65, i64 %indvars.iv17.i
+  %pointCount.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 152
   %70 = load i32, ptr %pointCount.i, align 4
   store i32 %70, ptr %count.i, align 4
   %cmp512.i = icmp sgt i32 %70, 0
@@ -1214,14 +1214,14 @@ for.body6.preheader.i:                            ; preds = %for.body.i
 
 for.body6.i:                                      ; preds = %for.body6.i, %for.body6.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body6.preheader.i ], [ %indvars.iv.next.i, %for.body6.i ]
-  %arrayidx8.i = getelementptr inbounds [2 x %struct.b2VelocityConstraintPoint], ptr %add.ptr.i, i64 0, i64 %indvars.iv.i
-  %normalImpulse.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 16
+  %arrayidx8.i = getelementptr inbounds nuw [2 x %struct.b2VelocityConstraintPoint], ptr %add.ptr.i, i64 0, i64 %indvars.iv.i
+  %normalImpulse.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 16
   %71 = load float, ptr %normalImpulse.i, align 4
-  %arrayidx10.i = getelementptr inbounds [2 x float], ptr %impulse.i, i64 0, i64 %indvars.iv.i
+  %arrayidx10.i = getelementptr inbounds nuw [2 x float], ptr %impulse.i, i64 0, i64 %indvars.iv.i
   store float %71, ptr %arrayidx10.i, align 4
-  %tangentImpulse.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 20
+  %tangentImpulse.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i, i64 20
   %72 = load float, ptr %tangentImpulse.i, align 4
-  %arrayidx15.i = getelementptr inbounds [2 x float], ptr %tangentImpulses.i, i64 0, i64 %indvars.iv.i
+  %arrayidx15.i = getelementptr inbounds nuw [2 x float], ptr %tangentImpulses.i, i64 0, i64 %indvars.iv.i
   store float %72, ptr %arrayidx15.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1230,7 +1230,7 @@ for.body6.i:                                      ; preds = %for.body6.i, %for.b
 for.end.i:                                        ; preds = %for.body6.i, %for.body.i
   %73 = load ptr, ptr %m_listener.i, align 8
   %vtable.i = load ptr, ptr %73, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
   %74 = load ptr, ptr %vfn.i, align 8
   invoke void %74(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef %69, ptr noundef nonnull %impulse.i)
           to label %.noexc unwind label %lpad.loopexit

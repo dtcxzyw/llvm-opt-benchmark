@@ -55,7 +55,7 @@ $_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE13shrink_to_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10StoredEdgeC2EPK4Edge13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 %2) unnamed_addr #0 align 2 {
   tail call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 %2) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   ret void
 }
@@ -68,7 +68,7 @@ declare void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN10StoredEdgeC2ERK4Edge(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret void
 }
@@ -76,12 +76,12 @@ define hidden void @_ZN10StoredEdgeC2ERK4Edge(ptr nocapture noundef nonnull writ
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN10StoredEdgeC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %6, align 8
   ret void
@@ -90,7 +90,7 @@ define hidden void @_ZN10StoredEdgeC2ERKS_(ptr nocapture noundef nonnull writeon
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK9EdgeStore8is_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   ret i1 %.not
@@ -101,7 +101,7 @@ define hidden void @_ZN9EdgeStore7on_linkEP17JfrHashtableEntryI10StoredEdgemE(pt
   %3 = load i64, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
   %4 = add i64 %3, 1
   store i64 %4, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %4, ptr %5, align 8
   ret void
 }
@@ -121,11 +121,11 @@ define hidden noundef ptr @_ZNK9EdgeStore3getE13UnifiedOopRef(ptr nocapture noun
   %3 = load ptr, ptr %0, align 8
   %4 = lshr i64 %1, 1
   %5 = and i64 %4, 9223372036854775804
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = urem i64 %5, %7
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %class.JfrHashtableBucket, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %9, i64 %8
   %11 = load volatile ptr, ptr %10, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %.not11.i = icmp eq ptr %11, null
@@ -133,7 +133,7 @@ define hidden noundef ptr @_ZNK9EdgeStore3getE13UnifiedOopRef(ptr nocapture noun
 
 .lr.ph.i:                                         ; preds = %2, %15
   %.012.i = phi ptr [ %16, %15 ], [ %11, %2 ]
-  %12 = getelementptr inbounds i8, ptr %.012.i, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %.012.i, i64 40
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, %5
   br i1 %14, label %_ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_onlyEm.exit, label %15
@@ -144,7 +144,7 @@ define hidden noundef ptr @_ZNK9EdgeStore3getE13UnifiedOopRef(ptr nocapture noun
   br i1 %.not.i, label %_ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_onlyEm.exit.thread, label %.lr.ph.i, !llvm.loop !7
 
 _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_onlyEm.exit: ; preds = %.lr.ph.i
-  %17 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   br label %_ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_onlyEm.exit.thread
 
 _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_onlyEm.exit.thread: ; preds = %15, %2, %_ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_onlyEm.exit
@@ -156,7 +156,7 @@ _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_on
 define hidden noundef ptr @_ZN9EdgeStore3putE13UnifiedOopRef(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i64 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.StoredEdge, align 8
   call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef null, i64 %1) #14
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %0, align 8
   %6 = lshr i64 %1, 1
@@ -167,64 +167,64 @@ define hidden noundef ptr @_ZN9EdgeStore3putE13UnifiedOopRef(ptr nocapture nound
 
 10:                                               ; preds = %2
   store ptr null, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 16, i1 false)
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load i64, ptr %4, align 8
   store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 %7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 0, ptr %18, align 8
   br label %_ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE3putEmRKS0_.exit
 
 _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE3putEmRKS0_.exit: ; preds = %2, %10
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = urem i64 %7, %20
   %22 = load i64, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
   %23 = add i64 %22, 1
   store i64 %23, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 %23, ptr %24, align 8
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %class.JfrHashtableBucket, ptr %25, i64 %21
+  %26 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %25, i64 %21
   %27 = load volatile ptr, ptr %26, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   store ptr %27, ptr %8, align 8
   %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %class.JfrHashtableBucket, ptr %28, i64 %21
+  %29 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %28, i64 %21
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   store volatile ptr %8, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, 1
   store i64 %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
   ret ptr %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK9EdgeStore6get_idEPK4Edge(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8
   %5 = lshr i64 %.sroa.0.0.copyload.i, 1
   %6 = and i64 %5, 9223372036854775804
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = urem i64 %6, %8
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %class.JfrHashtableBucket, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %10, i64 %9
   %12 = load volatile ptr, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %.not11.i = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %.not11.i)
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, %6
   br i1 %15, label %_ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_onlyEm.exit, label %.lr.ph.i
@@ -232,21 +232,21 @@ define hidden noundef i64 @_ZNK9EdgeStore6get_idEPK4Edge(ptr nocapture noundef n
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.012.i3 = phi ptr [ %16, %.lr.ph.i ], [ %12, %2 ]
   %16 = load ptr, ptr %.012.i3, align 8, !nonnull !9, !noundef !9
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %6
   br i1 %19, label %_ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_onlyEm.exit, label %.lr.ph.i
 
 _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_onlyEm.exit: ; preds = %.lr.ph.i, %2
   %.012.i.lcssa = phi ptr [ %12, %2 ], [ %16, %.lr.ph.i ]
-  %20 = getelementptr inbounds i8, ptr %.012.i.lcssa, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %.012.i.lcssa, i64 48
   %21 = load i64, ptr %20, align 8
   ret i64 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK9EdgeStore10gc_root_idEPK4Edge(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %26
@@ -254,20 +254,20 @@ define hidden noundef i64 @_ZNK9EdgeStore10gc_root_idEPK4Edge(ptr nocapture noun
 5:                                                ; preds = %2
   %6 = tail call noundef ptr @_ZN9EdgeUtils4rootERK4Edge(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %8, align 8
   %9 = lshr i64 %.sroa.0.0.copyload.i.i, 1
   %10 = and i64 %9, 9223372036854775804
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = urem i64 %10, %12
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds %class.JfrHashtableBucket, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %14, i64 %13
   %16 = load volatile ptr, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %.not11.i.i = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %.not11.i.i)
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %10
   br i1 %19, label %_ZNK9EdgeStore6get_idEPK4Edge.exit, label %.lr.ph.i.i
@@ -275,14 +275,14 @@ define hidden noundef i64 @_ZNK9EdgeStore10gc_root_idEPK4Edge(ptr nocapture noun
 .lr.ph.i.i:                                       ; preds = %5, %.lr.ph.i.i
   %.012.i3.i = phi ptr [ %20, %.lr.ph.i.i ], [ %16, %5 ]
   %20 = load ptr, ptr %.012.i3.i, align 8, !nonnull !9, !noundef !9
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, %10
   br i1 %23, label %_ZNK9EdgeStore6get_idEPK4Edge.exit, label %.lr.ph.i.i
 
 _ZNK9EdgeStore6get_idEPK4Edge.exit:               ; preds = %.lr.ph.i.i, %5
   %.012.i.lcssa.i = phi ptr [ %16, %5 ], [ %20, %.lr.ph.i.i ]
-  %24 = getelementptr inbounds i8, ptr %.012.i.lcssa.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.012.i.lcssa.i, i64 48
   %25 = load i64, ptr %24, align 8
   br label %26
 
@@ -304,18 +304,18 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore13put_skip_edgeEPP10StoredEdgePPK
   %9 = load ptr, ptr %2, align 8
   %10 = tail call noundef ptr @_ZN9EdgeUtils8ancestorERK4Edgem(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %8) #14
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %13, align 8
   %14 = load ptr, ptr %0, align 8
   %15 = lshr i64 %.sroa.0.0.copyload.i, 1
   %16 = and i64 %15, 9223372036854775804
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = urem i64 %16, %18
   %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds %class.JfrHashtableBucket, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %20, i64 %19
   %22 = load volatile ptr, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %.not11.i.i = icmp eq ptr %22, null
@@ -323,7 +323,7 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore13put_skip_edgeEPP10StoredEdgePPK
 
 .lr.ph.i.i:                                       ; preds = %7, %26
   %.012.i.i = phi ptr [ %27, %26 ], [ %22, %7 ]
-  %23 = getelementptr inbounds i8, ptr %.012.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 40
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, %16
   br i1 %25, label %28, label %26
@@ -334,7 +334,7 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore13put_skip_edgeEPP10StoredEdgePPK
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !7
 
 28:                                               ; preds = %.lr.ph.i.i
-  %29 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   %30 = load ptr, ptr %1, align 8
   store ptr %29, ptr %30, align 8
   br label %63
@@ -343,7 +343,7 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore13put_skip_edgeEPP10StoredEdgePPK
   %.sroa.0.0.copyload.i19 = load i64, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 %.sroa.0.0.copyload.i19) #14
-  %31 = getelementptr inbounds i8, ptr %5, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %32 = load ptr, ptr %0, align 8
   %33 = lshr i64 %.sroa.0.0.copyload.i19, 1
@@ -354,44 +354,44 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore13put_skip_edgeEPP10StoredEdgePPK
 
 37:                                               ; preds = %.loopexit
   store ptr null, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 16, i1 false)
-  %39 = getelementptr inbounds i8, ptr %35, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %40 = load i64, ptr %31, align 8
   store i64 %40, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %35, i64 32
-  %42 = getelementptr inbounds i8, ptr %5, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %43 = load i64, ptr %42, align 8
   store i64 %43, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %35, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i64 %34, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %35, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store i64 0, ptr %45, align 8
   br label %_ZN9EdgeStore3putE13UnifiedOopRef.exit
 
 _ZN9EdgeStore3putE13UnifiedOopRef.exit:           ; preds = %.loopexit, %37
-  %46 = getelementptr inbounds i8, ptr %32, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %47 = load i64, ptr %46, align 8
   %48 = urem i64 %34, %47
   %49 = load i64, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
   %50 = add i64 %49, 1
   store i64 %50, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
-  %51 = getelementptr inbounds i8, ptr %35, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store i64 %50, ptr %51, align 8
   %52 = load ptr, ptr %32, align 8
-  %53 = getelementptr inbounds %class.JfrHashtableBucket, ptr %52, i64 %48
+  %53 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %52, i64 %48
   %54 = load volatile ptr, ptr %53, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   store ptr %54, ptr %35, align 8
   %55 = load ptr, ptr %32, align 8
-  %56 = getelementptr inbounds %class.JfrHashtableBucket, ptr %55, i64 %48
+  %56 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %55, i64 %48
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   store volatile ptr %35, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %32, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %58 = load i64, ptr %57, align 8
   %59 = add i64 %58, 1
   store i64 %59, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %35, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %35, i64 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %61 = load ptr, ptr %1, align 8
   store ptr %60, ptr %61, align 8
@@ -415,7 +415,7 @@ define hidden void @_ZN9EdgeStore24link_with_existing_chainEPK10StoredEdgePPS0_m
 .lr.ph.i:                                         ; preds = %4, %8
   %.0 = phi i64 [ %9, %8 ], [ 1, %4 ]
   %.09.i = phi ptr [ %10, %8 ], [ %1, %4 ]
-  %6 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %7 = load i64, ptr %6, align 8
   %.not7.i = icmp eq i64 %7, 0
   br i1 %.not7.i, label %8, label %_ZL22find_closest_skip_edgePK10StoredEdgePm.exit
@@ -454,7 +454,7 @@ _ZL22find_closest_skip_edgePK10StoredEdgePm.exit: ; preds = %.lr.ph.i
 
 20:                                               ; preds = %_ZL22find_closest_skip_edgePK10StoredEdgePm.exit
   %21 = add i64 %7, %.0
-  %22 = getelementptr inbounds i8, ptr %.val10, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.val10, i64 24
   store i64 %21, ptr %22, align 8
   %23 = load ptr, ptr %2, align 8
   %24 = load ptr, ptr %.09.i, align 8
@@ -469,11 +469,11 @@ _ZL22find_closest_skip_edgePK10StoredEdgePm.exit: ; preds = %.lr.ph.i
 define hidden noundef ptr @_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.StoredEdge, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef null, i64 %.sroa.0.0.copyload.i) #14
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %0, align 8
   %9 = lshr i64 %.sroa.0.0.copyload.i, 1
@@ -484,44 +484,44 @@ define hidden noundef ptr @_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge(p
 
 13:                                               ; preds = %3
   store ptr null, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load i64, ptr %7, align 8
   store i64 %16, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 32
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 %10, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 0, ptr %21, align 8
   br label %_ZN9EdgeStore3putE13UnifiedOopRef.exit
 
 _ZN9EdgeStore3putE13UnifiedOopRef.exit:           ; preds = %3, %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = urem i64 %10, %23
   %25 = load i64, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
   %26 = add i64 %25, 1
   store i64 %26, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 %26, ptr %27, align 8
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %class.JfrHashtableBucket, ptr %28, i64 %24
+  %29 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %28, i64 %24
   %30 = load volatile ptr, ptr %29, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   store ptr %30, ptr %11, align 8
   %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %class.JfrHashtableBucket, ptr %31, i64 %24
+  %32 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %31, i64 %24
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   store volatile ptr %11, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 1
   store i64 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %11, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %.val = load ptr, ptr %1, align 8
   store ptr %36, ptr %.val, align 8
@@ -539,23 +539,23 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore9put_edgesEPP10StoredEdgePPK4Edge
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge.exit
   %14 = phi ptr [ %7, %.lr.ph ], [ %82, %_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge.exit ]
   %.01732 = phi i64 [ 1, %.lr.ph ], [ %83, %_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge.exit ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
   %17 = lshr i64 %.sroa.0.0.copyload.i, 1
   %18 = and i64 %17, 9223372036854775804
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = urem i64 %18, %20
   %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds %class.JfrHashtableBucket, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %22, i64 %21
   %24 = load volatile ptr, ptr %23, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %.not11.i.i = icmp eq ptr %24, null
@@ -563,7 +563,7 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore9put_edgesEPP10StoredEdgePPK4Edge
 
 .lr.ph.i.i:                                       ; preds = %13, %28
   %.012.i.i = phi ptr [ %29, %28 ], [ %24, %13 ]
-  %25 = getelementptr inbounds i8, ptr %.012.i.i, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 40
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, %18
   br i1 %27, label %30, label %28
@@ -574,7 +574,7 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore9put_edgesEPP10StoredEdgePPK4Edge
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !7
 
 30:                                               ; preds = %.lr.ph.i.i
-  %31 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %31, ptr %6, align 8
   br label %.lr.ph.i.i20
@@ -582,7 +582,7 @@ define hidden noundef zeroext i1 @_ZN9EdgeStore9put_edgesEPP10StoredEdgePPK4Edge
 .lr.ph.i.i20:                                     ; preds = %30, %34
   %.0.i = phi i64 [ %35, %34 ], [ 1, %30 ]
   %.09.i.i = phi ptr [ %36, %34 ], [ %31, %30 ]
-  %32 = getelementptr inbounds i8, ptr %.09.i.i, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 24
   %33 = load i64, ptr %32, align 8
   %.not7.i.i = icmp eq i64 %33, 0
   br i1 %.not7.i.i, label %34, label %_ZL22find_closest_skip_edgePK10StoredEdgePm.exit.i
@@ -620,7 +620,7 @@ _ZL22find_closest_skip_edgePK10StoredEdgePm.exit.i: ; preds = %.lr.ph.i.i20
 
 46:                                               ; preds = %_ZL22find_closest_skip_edgePK10StoredEdgePm.exit.i
   %47 = add i64 %33, %.0.i
-  %48 = getelementptr inbounds i8, ptr %.val10.i, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %.val10.i, i64 24
   store i64 %47, ptr %48, align 8
   %49 = load ptr, ptr %1, align 8
   %50 = load ptr, ptr %.09.i.i, align 8
@@ -633,7 +633,7 @@ _ZN9EdgeStore24link_with_existing_chainEPK10StoredEdgePPS0_m.exit: ; preds = %39
 
 .loopexit:                                        ; preds = %28, %13
   %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 %.sroa.0.0.copyload.i.i) #14
@@ -647,43 +647,43 @@ _ZN9EdgeStore24link_with_existing_chainEPK10StoredEdgePPS0_m.exit: ; preds = %39
 
 58:                                               ; preds = %.loopexit
   store ptr null, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %56, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 16, i1 false)
-  %60 = getelementptr inbounds i8, ptr %56, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %61 = load i64, ptr %11, align 8
   store i64 %61, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %56, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %63 = load i64, ptr %12, align 8
   store i64 %63, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %56, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store i64 %55, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %56, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %56, i64 48
   store i64 0, ptr %65, align 8
   br label %_ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge.exit
 
 _ZN9EdgeStore13link_new_edgeEPP10StoredEdgePPK4Edge.exit: ; preds = %.loopexit, %58
-  %66 = getelementptr inbounds i8, ptr %53, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %67 = load i64, ptr %66, align 8
   %68 = urem i64 %55, %67
   %69 = load i64, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
   %70 = add i64 %69, 1
   store i64 %70, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
-  %71 = getelementptr inbounds i8, ptr %56, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %56, i64 48
   store i64 %70, ptr %71, align 8
   %72 = load ptr, ptr %53, align 8
-  %73 = getelementptr inbounds %class.JfrHashtableBucket, ptr %72, i64 %68
+  %73 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %72, i64 %68
   %74 = load volatile ptr, ptr %73, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   store ptr %74, ptr %56, align 8
   %75 = load ptr, ptr %53, align 8
-  %76 = getelementptr inbounds %class.JfrHashtableBucket, ptr %75, i64 %68
+  %76 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %75, i64 %68
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   store volatile ptr %56, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %53, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, 1
   store i64 %79, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %56, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %56, i64 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %.val.i22 = load ptr, ptr %1, align 8
   store ptr %80, ptr %.val.i22, align 8
@@ -713,11 +713,11 @@ define hidden void @_ZN9EdgeStoreC2Ev(ptr noundef nonnull align 8 dereferenceabl
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 16, i32 noundef 0) #14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1009, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 56, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %6, align 8
   %7 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %8 = icmp eq i32 %7, 3
@@ -732,7 +732,7 @@ _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EEC2EPS2_m.ex
   store ptr %10, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8072) %10, i8 0, i64 8072, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %0, ptr %11, align 8
   store ptr %3, ptr %0, align 8
   ret void
@@ -745,13 +745,13 @@ define hidden void @_ZN9EdgeStoreD2Ev(ptr nocapture noundef nonnull readonly ali
   br i1 %3, label %19, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %.not16.i.i = icmp eq i64 %6, 0
   br i1 %.not16.i.i, label %_ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EED2Ev.exit, label %.lr.ph14.i.i
 
 .lr.ph14.i.i:                                     ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %8
 
 8:                                                ; preds = %._crit_edge.i.i, %.lr.ph14.i.i
@@ -792,7 +792,7 @@ _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EED2Ev.exit: 
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 1
   %.not.i = icmp eq i64 %25, 0
@@ -840,10 +840,10 @@ define hidden noundef ptr @_ZNK9EdgeStore3getEPK12ObjectSample(ptr nocapture nou
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr @_ZL19_leak_context_edges, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %_ZNK9EdgeStore3getE13UnifiedOopRef.exit
 
@@ -852,11 +852,11 @@ define hidden noundef ptr @_ZNK9EdgeStore3getEPK12ObjectSample(ptr nocapture nou
   %19 = ptrtoint ptr %18 to i64
   %20 = load ptr, ptr %0, align 8
   %21 = and i64 %19, 9223372036854775804
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = urem i64 %21, %23
   %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds %class.JfrHashtableBucket, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %25, i64 %24
   %27 = load volatile ptr, ptr %26, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %.not11.i.i = icmp eq ptr %27, null
@@ -864,7 +864,7 @@ define hidden noundef ptr @_ZNK9EdgeStore3getEPK12ObjectSample(ptr nocapture nou
 
 .lr.ph.i.i:                                       ; preds = %17, %31
   %.012.i.i = phi ptr [ %32, %31 ], [ %27, %17 ]
-  %28 = getelementptr inbounds i8, ptr %.012.i.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 40
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, %21
   br i1 %30, label %_ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_onlyEm.exit.i, label %31
@@ -875,7 +875,7 @@ define hidden noundef ptr @_ZNK9EdgeStore3getEPK12ObjectSample(ptr nocapture nou
   br i1 %.not.i.i, label %_ZNK9EdgeStore3getE13UnifiedOopRef.exit, label %.lr.ph.i.i, !llvm.loop !7
 
 _ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_onlyEm.exit.i: ; preds = %.lr.ph.i.i
-  %33 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   br label %_ZNK9EdgeStore3getE13UnifiedOopRef.exit
 
 _ZNK9EdgeStore3getE13UnifiedOopRef.exit:          ; preds = %31, %_ZN13HashTableHostI10StoredEdgem17JfrHashtableEntry9EdgeStoreLm1009EE11lookup_onlyEm.exit.i, %17, %10
@@ -888,11 +888,11 @@ declare noundef ptr @_ZNK12ObjectSample11object_addrEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN9EdgeStore37associate_leak_context_with_candidateEPK4Edge(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.StoredEdge, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef null, i64 %.sroa.0.0.copyload.i) #14
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %0, align 8
   %7 = lshr i64 %.sroa.0.0.copyload.i, 1
@@ -903,44 +903,44 @@ define hidden noundef ptr @_ZN9EdgeStore37associate_leak_context_with_candidateE
 
 11:                                               ; preds = %2
   store ptr null, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly align 8 dereferenceable(32) %3, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %14 = load i64, ptr %5, align 8
   store i64 %14, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 32
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 %8, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i64 0, ptr %19, align 8
   br label %_ZN9EdgeStore3putE13UnifiedOopRef.exit
 
 _ZN9EdgeStore3putE13UnifiedOopRef.exit:           ; preds = %2, %11
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = urem i64 %8, %21
   %23 = load i64, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
   %24 = add i64 %23, 1
   store i64 %24, ptr @_ZN9EdgeStore16_edge_id_counterE, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i64 %24, ptr %25, align 8
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %class.JfrHashtableBucket, ptr %26, i64 %22
+  %27 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %26, i64 %22
   %28 = load volatile ptr, ptr %27, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   store ptr %28, ptr %9, align 8
   %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %class.JfrHashtableBucket, ptr %29, i64 %22
+  %30 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %29, i64 %22
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   store volatile ptr %9, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, 1
   store i64 %33, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %9, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %35 = call noundef ptr @_ZNK4Edge7pointeeEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #14
   %36 = load ptr, ptr @_ZL19_leak_context_edges, align 8
@@ -953,12 +953,12 @@ _ZN9EdgeStore3putE13UnifiedOopRef.exit:           ; preds = %2, %11
   call void @llvm.assume(i1 %40)
   %41 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 64, i32 noundef 8, i8 noundef zeroext 16) #14
   store i32 0, ptr %39, align 4
-  %42 = getelementptr inbounds i8, ptr %39, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 64, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %41, ptr %43, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %41, i8 0, i64 512, i1 false)
-  %44 = getelementptr inbounds i8, ptr %39, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 33, ptr %44, align 8
   store ptr %39, ptr @_ZL19_leak_context_edges, align 8
   %45 = load i32, ptr %39, align 8
@@ -995,7 +995,7 @@ _ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_
 61:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_.exit.i.i, %_ZN9EdgeStore3putE13UnifiedOopRef.exit
   %62 = phi ptr [ %.pre.i.i, %_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE6appendERKS2_.exit.i.i ], [ %36, %_ZN9EdgeStore3putE13UnifiedOopRef.exit ]
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %62, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %63, %65
   br i1 %66, label %67, label %_ZL24associate_with_candidatePK10StoredEdge.exit
@@ -1018,7 +1018,7 @@ _ZL24associate_with_candidatePK10StoredEdge.exit: ; preds = %61, %67
   %75 = phi i32 [ %.pre.i3.i.i, %67 ], [ %63, %61 ]
   %76 = add nsw i32 %75, 1
   store i32 %76, ptr %62, align 8
-  %77 = getelementptr inbounds i8, ptr %62, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = sext i32 %75 to i64
   %80 = getelementptr inbounds ptr, ptr %78, i64 %79
@@ -1040,27 +1040,27 @@ define hidden void @_ZN9EdgeStore9put_chainEPK4Edgem(ptr nocapture noundef nonnu
   br i1 %7, label %8, label %32
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %_ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10StoredEdgePK4Edge.exit
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %14, align 8
   %15 = lshr i64 %.sroa.0.0.copyload.i.i.i, 1
   %16 = and i64 %15, 9223372036854775804
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = urem i64 %16, %18
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %class.JfrHashtableBucket, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %20, i64 %19
   %22 = load volatile ptr, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %.not11.i.i.i = icmp ne ptr %22, null
   tail call void @llvm.assume(i1 %.not11.i.i.i)
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, %16
   br i1 %25, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i, label %.lr.ph.i.i.i
@@ -1068,14 +1068,14 @@ define hidden void @_ZN9EdgeStore9put_chainEPK4Edgem(ptr nocapture noundef nonnu
 .lr.ph.i.i.i:                                     ; preds = %12, %.lr.ph.i.i.i
   %.012.i3.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %22, %12 ]
   %26 = load ptr, ptr %.012.i3.i.i, align 8, !nonnull !9, !noundef !9
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, %16
   br i1 %29, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i, label %.lr.ph.i.i.i
 
 _ZNK9EdgeStore6get_idEPK4Edge.exit.i:             ; preds = %.lr.ph.i.i.i, %12
   %.012.i.lcssa.i.i = phi ptr [ %22, %12 ], [ %26, %.lr.ph.i.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.012.i.lcssa.i.i, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.012.i.lcssa.i.i, i64 48
   %31 = load i64, ptr %30, align 8
   br label %_ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10StoredEdgePK4Edge.exit
 
@@ -1094,27 +1094,27 @@ _ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10StoredEdgePK4Edge.exit:
 35:                                               ; preds = %32
   %36 = load ptr, ptr %5, align 8
   %37 = tail call noundef ptr @_ZN9EdgeUtils4rootERK4Edge(ptr noundef nonnull align 8 dereferenceable(16) %36) #14
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %41, label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %37, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %43, align 8
   %44 = lshr i64 %.sroa.0.0.copyload.i.i.i.i, 1
   %45 = and i64 %44, 9223372036854775804
-  %46 = getelementptr inbounds i8, ptr %42, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %47 = load i64, ptr %46, align 8
   %48 = urem i64 %45, %47
   %49 = load ptr, ptr %42, align 8
-  %50 = getelementptr inbounds %class.JfrHashtableBucket, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %49, i64 %48
   %51 = load volatile ptr, ptr %50, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %.not11.i.i.i.i = icmp ne ptr %51, null
   tail call void @llvm.assume(i1 %.not11.i.i.i.i)
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, %45
   br i1 %54, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i, label %.lr.ph.i.i.i.i
@@ -1122,21 +1122,21 @@ _ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10StoredEdgePK4Edge.exit:
 .lr.ph.i.i.i.i:                                   ; preds = %41, %.lr.ph.i.i.i.i
   %.012.i3.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i ], [ %51, %41 ]
   %55 = load ptr, ptr %.012.i3.i.i.i, align 8, !nonnull !9, !noundef !9
-  %56 = getelementptr inbounds i8, ptr %55, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load i64, ptr %56, align 8
   %58 = icmp eq i64 %57, %45
   br i1 %58, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i, label %.lr.ph.i.i.i.i
 
 _ZNK9EdgeStore6get_idEPK4Edge.exit.i.i:           ; preds = %.lr.ph.i.i.i.i, %41
   %.012.i.lcssa.i.i.i = phi ptr [ %51, %41 ], [ %55, %.lr.ph.i.i.i.i ]
-  %59 = getelementptr inbounds i8, ptr %.012.i.lcssa.i.i.i, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %.012.i.lcssa.i.i.i, i64 48
   %60 = load i64, ptr %59, align 8
   store i64 %60, ptr %38, align 8
   br label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit
 
 _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit: ; preds = %35, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i
   %.0.i.i = phi i64 [ %60, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i ], [ %39, %35 ]
-  %61 = getelementptr inbounds i8, ptr %6, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.0.i.i, ptr %61, align 8
   br label %122
 
@@ -1151,27 +1151,27 @@ _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit: ; preds = %35, %_Z
   %67 = load ptr, ptr %5, align 8
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noundef ptr @_ZN9EdgeUtils4rootERK4Edge(ptr noundef nonnull align 8 dereferenceable(16) %68) #14
-  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %73, label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit20
 
 73:                                               ; preds = %66
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %69, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.0.0.copyload.i.i.i.i14 = load i64, ptr %75, align 8
   %76 = lshr i64 %.sroa.0.0.copyload.i.i.i.i14, 1
   %77 = and i64 %76, 9223372036854775804
-  %78 = getelementptr inbounds i8, ptr %74, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %79 = load i64, ptr %78, align 8
   %80 = urem i64 %77, %79
   %81 = load ptr, ptr %74, align 8
-  %82 = getelementptr inbounds %class.JfrHashtableBucket, ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %81, i64 %80
   %83 = load volatile ptr, ptr %82, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %.not11.i.i.i.i15 = icmp ne ptr %83, null
   tail call void @llvm.assume(i1 %.not11.i.i.i.i15)
-  %84 = getelementptr inbounds i8, ptr %83, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = load i64, ptr %84, align 8
   %86 = icmp eq i64 %85, %77
   br i1 %86, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i18, label %.lr.ph.i.i.i.i16
@@ -1179,21 +1179,21 @@ _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit: ; preds = %35, %_Z
 .lr.ph.i.i.i.i16:                                 ; preds = %73, %.lr.ph.i.i.i.i16
   %.012.i3.i.i.i17 = phi ptr [ %87, %.lr.ph.i.i.i.i16 ], [ %83, %73 ]
   %87 = load ptr, ptr %.012.i3.i.i.i17, align 8, !nonnull !9, !noundef !9
-  %88 = getelementptr inbounds i8, ptr %87, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %89 = load i64, ptr %88, align 8
   %90 = icmp eq i64 %89, %77
   br i1 %90, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i18, label %.lr.ph.i.i.i.i16
 
 _ZNK9EdgeStore6get_idEPK4Edge.exit.i.i18:         ; preds = %.lr.ph.i.i.i.i16, %73
   %.012.i.lcssa.i.i.i19 = phi ptr [ %83, %73 ], [ %87, %.lr.ph.i.i.i.i16 ]
-  %91 = getelementptr inbounds i8, ptr %.012.i.lcssa.i.i.i19, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %.012.i.lcssa.i.i.i19, i64 48
   %92 = load i64, ptr %91, align 8
   store i64 %92, ptr %70, align 8
   br label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit20
 
 _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit20: ; preds = %66, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i18
   %.0.i.i13 = phi i64 [ %92, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i18 ], [ %71, %66 ]
-  %93 = getelementptr inbounds i8, ptr %6, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.0.i.i13, ptr %93, align 8
   br label %122
 
@@ -1201,27 +1201,27 @@ _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit20: ; preds = %66, %
   %95 = call noundef zeroext i1 @_ZN9EdgeStore9put_edgesEPP10StoredEdgePPK4Edgem(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef 100)
   %96 = load ptr, ptr %5, align 8
   %97 = tail call noundef ptr @_ZN9EdgeUtils4rootERK4Edge(ptr noundef nonnull align 8 dereferenceable(16) %96) #14
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i64, ptr %98, align 8
   %100 = icmp eq i64 %99, 0
   br i1 %100, label %101, label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit28
 
 101:                                              ; preds = %94
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %97, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %.sroa.0.0.copyload.i.i.i.i22 = load i64, ptr %103, align 8
   %104 = lshr i64 %.sroa.0.0.copyload.i.i.i.i22, 1
   %105 = and i64 %104, 9223372036854775804
-  %106 = getelementptr inbounds i8, ptr %102, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %107 = load i64, ptr %106, align 8
   %108 = urem i64 %105, %107
   %109 = load ptr, ptr %102, align 8
-  %110 = getelementptr inbounds %class.JfrHashtableBucket, ptr %109, i64 %108
+  %110 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %109, i64 %108
   %111 = load volatile ptr, ptr %110, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %.not11.i.i.i.i23 = icmp ne ptr %111, null
   tail call void @llvm.assume(i1 %.not11.i.i.i.i23)
-  %112 = getelementptr inbounds i8, ptr %111, i64 40
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 40
   %113 = load i64, ptr %112, align 8
   %114 = icmp eq i64 %113, %105
   br i1 %114, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i26, label %.lr.ph.i.i.i.i24
@@ -1229,21 +1229,21 @@ _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit20: ; preds = %66, %
 .lr.ph.i.i.i.i24:                                 ; preds = %101, %.lr.ph.i.i.i.i24
   %.012.i3.i.i.i25 = phi ptr [ %115, %.lr.ph.i.i.i.i24 ], [ %111, %101 ]
   %115 = load ptr, ptr %.012.i3.i.i.i25, align 8, !nonnull !9, !noundef !9
-  %116 = getelementptr inbounds i8, ptr %115, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %117 = load i64, ptr %116, align 8
   %118 = icmp eq i64 %117, %105
   br i1 %118, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i26, label %.lr.ph.i.i.i.i24
 
 _ZNK9EdgeStore6get_idEPK4Edge.exit.i.i26:         ; preds = %.lr.ph.i.i.i.i24, %101
   %.012.i.lcssa.i.i.i27 = phi ptr [ %111, %101 ], [ %115, %.lr.ph.i.i.i.i24 ]
-  %119 = getelementptr inbounds i8, ptr %.012.i.lcssa.i.i.i27, i64 48
+  %119 = getelementptr inbounds nuw i8, ptr %.012.i.lcssa.i.i.i27, i64 48
   %120 = load i64, ptr %119, align 8
   store i64 %120, ptr %98, align 8
   br label %_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit28
 
 _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit28: ; preds = %94, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i26
   %.0.i.i21 = phi i64 [ %120, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i.i26 ], [ %99, %94 ]
-  %121 = getelementptr inbounds i8, ptr %6, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.0.i.i21, ptr %121, align 8
   br label %122
 
@@ -1253,27 +1253,27 @@ _ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge.exit28: ; preds = %94, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10StoredEdgePK4Edge(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %27
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %9, align 8
   %10 = lshr i64 %.sroa.0.0.copyload.i.i, 1
   %11 = and i64 %10, 9223372036854775804
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds %class.JfrHashtableBucket, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %15, i64 %14
   %17 = load volatile ptr, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %.not11.i.i = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %.not11.i.i)
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, %11
   br i1 %20, label %_ZNK9EdgeStore6get_idEPK4Edge.exit, label %.lr.ph.i.i
@@ -1281,48 +1281,48 @@ define hidden void @_ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10Sto
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
   %.012.i3.i = phi ptr [ %21, %.lr.ph.i.i ], [ %17, %7 ]
   %21 = load ptr, ptr %.012.i3.i, align 8, !nonnull !9, !noundef !9
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, %11
   br i1 %24, label %_ZNK9EdgeStore6get_idEPK4Edge.exit, label %.lr.ph.i.i
 
 _ZNK9EdgeStore6get_idEPK4Edge.exit:               ; preds = %.lr.ph.i.i, %7
   %.012.i.lcssa.i = phi ptr [ %17, %7 ], [ %21, %.lr.ph.i.i ]
-  %25 = getelementptr inbounds i8, ptr %.012.i.lcssa.i, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.012.i.lcssa.i, i64 48
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %4, align 8
   br label %27
 
 27:                                               ; preds = %_ZNK9EdgeStore6get_idEPK4Edge.exit, %3
   %.0 = phi i64 [ %26, %_ZNK9EdgeStore6get_idEPK4Edge.exit ], [ %5, %3 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.0, ptr %28, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %_ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10StoredEdgePK4Edge.exit
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %9, align 8
   %10 = lshr i64 %.sroa.0.0.copyload.i.i.i, 1
   %11 = and i64 %10, 9223372036854775804
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds %class.JfrHashtableBucket, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %15, i64 %14
   %17 = load volatile ptr, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %.not11.i.i.i = icmp ne ptr %17, null
   tail call void @llvm.assume(i1 %.not11.i.i.i)
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, %11
   br i1 %20, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i, label %.lr.ph.i.i.i
@@ -1330,21 +1330,21 @@ define hidden void @_ZNK9EdgeStore18put_chain_epilogueEP10StoredEdgePK4Edge(ptr 
 .lr.ph.i.i.i:                                     ; preds = %7, %.lr.ph.i.i.i
   %.012.i3.i.i = phi ptr [ %21, %.lr.ph.i.i.i ], [ %17, %7 ]
   %21 = load ptr, ptr %.012.i3.i.i, align 8, !nonnull !9, !noundef !9
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, %11
   br i1 %24, label %_ZNK9EdgeStore6get_idEPK4Edge.exit.i, label %.lr.ph.i.i.i
 
 _ZNK9EdgeStore6get_idEPK4Edge.exit.i:             ; preds = %.lr.ph.i.i.i, %7
   %.012.i.lcssa.i.i = phi ptr [ %17, %7 ], [ %21, %.lr.ph.i.i.i ]
-  %25 = getelementptr inbounds i8, ptr %.012.i.lcssa.i.i, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.012.i.lcssa.i.i, i64 48
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %4, align 8
   br label %_ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10StoredEdgePK4Edge.exit
 
 _ZNK9EdgeStore37store_gc_root_id_in_leak_context_edgeEP10StoredEdgePK4Edge.exit: ; preds = %3, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i
   %.0.i = phi i64 [ %26, %_ZNK9EdgeStore6get_idEPK4Edge.exit.i ], [ %5, %3 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.0.i, ptr %27, align 8
   ret void
 }
@@ -1448,9 +1448,9 @@ declare noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -1482,7 +1482,7 @@ _ZN13GrowableArrayIPK10StoredEdgeE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIPK10StoredEdgeE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -1501,9 +1501,9 @@ _ZN13GrowableArrayIPK10StoredEdgeE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1513,14 +1513,14 @@ _ZN13GrowableArrayIPK10StoredEdgeE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !14
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIPK10StoredEdgeE10deallocateEPS2_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4
@@ -1573,21 +1573,21 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPK10StoredEdge13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, %3
   br i1 %5, label %32, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   store i32 %4, ptr %2, align 4
   %9 = icmp sgt i32 %4, 0
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %16
@@ -1619,8 +1619,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPK10StoredEdge1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
-  %26 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1633,7 +1633,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPK10StoredEdge1
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
   %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
   %.not.i22 = icmp eq i64 %30, 0

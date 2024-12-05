@@ -90,7 +90,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %.1242 = phi ptr [ %574, %596 ], [ %.2243, %69 ]
   %.1.shrunk = phi i8 [ %.in, %596 ], [ %71, %69 ]
   %.1 = zext i8 %.1.shrunk to i32
-  %9 = getelementptr inbounds i8, ptr %.1242, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.1242, i64 1
   br label %10
 
 10:                                               ; preds = %8, %0
@@ -156,7 +156,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 37:                                               ; preds = %35
   %38 = zext nneg i32 %.0232 to i64
-  %39 = getelementptr inbounds [137 x i16], ptr @yypact, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [137 x i16], ptr @yypact, i64 0, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = sext i16 %40 to i32
   %42 = icmp eq i16 %40, -25
@@ -195,7 +195,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 57:                                               ; preds = %55
   %58 = zext nneg i32 %49 to i64
-  %59 = getelementptr inbounds [317 x i8], ptr @yytranslate, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [317 x i8], ptr @yytranslate, i64 0, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = sext i8 %60 to i32
   br label %62
@@ -208,23 +208,23 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 64:                                               ; preds = %62
   %65 = zext nneg i32 %63 to i64
-  %66 = getelementptr inbounds [207 x i8], ptr @yycheck, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [207 x i8], ptr @yycheck, i64 0, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = sext i8 %67 to i32
   %.not287 = icmp eq i32 %.0256, %68
   br i1 %.not287, label %69, label %74
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds [207 x i8], ptr @yytable, i64 0, i64 %65
+  %70 = getelementptr inbounds nuw [207 x i8], ptr @yytable, i64 0, i64 %65
   %71 = load i8, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %.2249, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.2249, i64 8
   %73 = load i64, ptr @H5LTyylval, align 8
   store i64 %73, ptr %72, align 8
   store i32 -2, ptr @H5LTyychar, align 4
   br label %8
 
 74:                                               ; preds = %62, %64, %37
-  %75 = getelementptr inbounds [137 x i8], ptr @yydefact, i64 0, i64 %38
+  %75 = getelementptr inbounds nuw [137 x i8], ptr @yydefact, i64 0, i64 %38
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %597, label %78
@@ -614,7 +614,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %294 = sext i32 %293 to i64
   %295 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %294
   %296 = load i64, ptr %295, align 16
-  %297 = getelementptr inbounds i8, ptr %295, i64 9
+  %297 = getelementptr inbounds nuw i8, ptr %295, i64 9
   %298 = load i8, ptr %297, align 1
   %299 = trunc i8 %298 to i1
   br i1 %299, label %300, label %318
@@ -730,7 +730,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %374 = load i32, ptr @asindex, align 4
   %375 = sext i32 %374 to i64
   %376 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %375
-  %377 = getelementptr inbounds i8, ptr %376, i64 256
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 256
   %378 = load i32, ptr %377, align 8
   %379 = call i64 @H5Tarray_create2(i64 noundef %373, i32 noundef %378, ptr noundef nonnull %376) #9
   %380 = inttoptr i64 %379 to ptr
@@ -755,12 +755,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %392 = load i32, ptr @asindex, align 4
   %393 = sext i32 %392 to i64
   %394 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %393
-  %395 = getelementptr inbounds i8, ptr %394, i64 256
+  %395 = getelementptr inbounds nuw i8, ptr %394, i64 256
   %396 = load i32, ptr %395, align 8
   %397 = load i32, ptr @H5LTyylval, align 8
   %398 = sext i32 %397 to i64
   %399 = zext i32 %396 to i64
-  %400 = getelementptr inbounds [32 x i64], ptr %394, i64 0, i64 %399
+  %400 = getelementptr inbounds nuw [32 x i64], ptr %394, i64 0, i64 %399
   store i64 %398, ptr %400, align 8
   %401 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %393, i32 1
   %402 = load i32, ptr %401, align 8
@@ -1119,7 +1119,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %572 = sub nsw i64 0, %82
   %573 = getelementptr inbounds %union.YYSTYPE, ptr %.2249, i64 %572
   %574 = getelementptr inbounds i8, ptr %.2243, i64 %572
-  %575 = getelementptr inbounds i8, ptr %573, i64 8
+  %575 = getelementptr inbounds nuw i8, ptr %573, i64 8
   store ptr %.sroa.0.0, ptr %575, align 8
   %576 = getelementptr inbounds [96 x i8], ptr @yyr1, i64 0, i64 %79
   %577 = load i8, ptr %576, align 1
@@ -1136,14 +1136,14 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 586:                                              ; preds = %571
   %587 = zext nneg i32 %585 to i64
-  %588 = getelementptr inbounds [207 x i8], ptr @yycheck, i64 0, i64 %587
+  %588 = getelementptr inbounds nuw [207 x i8], ptr @yycheck, i64 0, i64 %587
   %589 = load i8, ptr %588, align 1
   %590 = sext i8 %589 to i32
   %591 = icmp eq i32 %590, %584
   br i1 %591, label %592, label %594
 
 592:                                              ; preds = %586
-  %593 = getelementptr inbounds [207 x i8], ptr @yytable, i64 0, i64 %587
+  %593 = getelementptr inbounds nuw [207 x i8], ptr @yytable, i64 0, i64 %587
   br label %596
 
 594:                                              ; preds = %586, %571

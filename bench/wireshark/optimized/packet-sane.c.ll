@@ -382,8 +382,8 @@ define internal i32 @get_sane_pdu_len(ptr noundef %0, ptr noundef %1, i32 nounde
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   store ptr %1, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %12, align 4
   %13 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %0) #4
   %14 = load i32, ptr @proto_sane, align 4
@@ -401,7 +401,7 @@ define internal i32 @get_sane_pdu_len(ptr noundef %0, ptr noundef %1, i32 nounde
 20:                                               ; preds = %16, %4
   %.055 = phi ptr [ %15, %4 ], [ %18, %16 ]
   %21 = load ptr, ptr @sane_server_ports, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 288
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %23 = load i32, ptr %22, align 8
   %24 = tail call i32 @value_is_in_range(ptr noundef %21, i32 noundef %23) #4
   %.not57 = icmp eq i32 %24, 0
@@ -417,11 +417,11 @@ define internal i32 @get_sane_pdu_len(ptr noundef %0, ptr noundef %1, i32 nounde
   %30 = add i32 %2, 4
   store i32 %30, ptr %11, align 8
   store i32 4, ptr %12, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 50
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 50
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 8
   %.not58 = icmp eq i16 %37, 0
@@ -433,18 +433,18 @@ define internal i32 @get_sane_pdu_len(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %39, label %.thread, label %41
 
 .thread:                                          ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %.055, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.055, i64 16
   store i8 1, ptr %40, align 4
   br label %107
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %.055, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.055, i64 4
   store i8 1, ptr %42, align 4
-  %.sroa.225.0..sroa_idx = getelementptr inbounds i8, ptr %.055, i64 8
+  %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.055, i64 8
   store i32 %29, ptr %.sroa.225.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.055, i64 12
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.055, i64 12
   store i32 %32, ptr %.sroa.3.0..sroa_idx, align 4
-  %43 = getelementptr inbounds i8, ptr %.055, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.055, i64 16
   store i8 0, ptr %43, align 4
   br label %44
 
@@ -1113,9 +1113,9 @@ define internal i32 @dissect_sane_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %6 = alloca i32, align 4
   %7 = alloca %struct.tvb_sane_reader, align 8
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %9, align 4
   %10 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #4
   %11 = load i32, ptr @proto_sane, align 4
@@ -1128,7 +1128,7 @@ define internal i32 @dissect_sane_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.127) #4
   %17 = load ptr, ptr %15, align 8
@@ -1138,7 +1138,7 @@ define internal i32 @dissect_sane_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %20 = load i32, ptr @ett_sane, align 4
   %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #4
   %22 = load ptr, ptr @sane_server_ports, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 288
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %24 = load i32, ptr %23, align 8
   %25 = tail call i32 @value_is_in_range(ptr noundef %22, i32 noundef %24) #4
   %.not17 = icmp eq i32 %25, 0
@@ -2710,7 +2710,7 @@ declare i32 @value_is_in_range(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 5) i32 @tvb_read_sane_word(ptr nocapture noundef nonnull %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %3, i32 noundef %5) #4
   %7 = icmp slt i32 %6, 4
@@ -2731,7 +2731,7 @@ define internal fastcc range(i32 0, 5) i32 @tvb_read_sane_word(ptr nocapture nou
   %14 = load i32, ptr %4, align 8
   %15 = add i32 %14, 4
   store i32 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, 4
   store i32 %18, ptr %16, align 4
@@ -2745,7 +2745,7 @@ define internal fastcc range(i32 0, 5) i32 @tvb_read_sane_word(ptr nocapture nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @tvb_read_sane_string(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = tail call i32 @tvb_captured_length_remaining(ptr noundef %4, i32 noundef %6) #4
   %8 = icmp slt i32 %7, 4
@@ -2758,7 +2758,7 @@ define internal fastcc i32 @tvb_read_sane_string(ptr nocapture noundef nonnull %
   %13 = load i32, ptr %5, align 8
   %14 = add i32 %13, 4
   store i32 %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, 4
   store i32 %17, ptr %15, align 4
@@ -2795,9 +2795,9 @@ tvb_read_sane_word.exit.thread:                   ; preds = %3, %9, %26
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @get_sane_expected_response_type(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 50
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 50
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 8
   %.not = icmp eq i16 %7, 0
@@ -2824,7 +2824,7 @@ define internal fastcc i32 @get_sane_expected_response_type(ptr nocapture nounde
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i8, ptr %22, align 4
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %26
@@ -2834,7 +2834,7 @@ define internal fastcc i32 @get_sane_expected_response_type(ptr nocapture nounde
   br label %29
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i32, ptr %27, align 4
   br label %29
 
@@ -2888,7 +2888,7 @@ define internal fastcc void @dissect_control_option_value(ptr nocapture noundef 
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_sane_option_value_type, align 4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %6, i32 noundef %8, i32 noundef 4, i32 noundef 0) #4
   %10 = load ptr, ptr %0, align 8
@@ -2904,7 +2904,7 @@ define internal fastcc void @dissect_control_option_value(ptr nocapture noundef 
   %17 = load i32, ptr %7, align 8
   %18 = add i32 %17, 4
   store i32 %18, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, 4
   store i32 %21, ptr %19, align 4
@@ -2935,7 +2935,7 @@ dissect_sane_word.exit:                           ; preds = %3, %14
   %40 = load i32, ptr %7, align 8
   %41 = add i32 %40, 4
   store i32 %41, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, 4
   store i32 %44, ptr %42, align 4
@@ -2991,7 +2991,7 @@ dissect_sane_word.exit24:                         ; preds = %dissect_sane_word.e
   %78 = load i32, ptr %7, align 8
   %79 = add i32 %78, 4
   store i32 %79, ptr %7, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, 4
   store i32 %82, ptr %80, align 4
@@ -3003,7 +3003,7 @@ dissect_sane_word.exit25:                         ; preds = %64, %74
   br i1 %83, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %dissect_sane_word.exit25
-  %84 = getelementptr inbounds i8, ptr %0, i64 12
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 12
   switch i32 %.037, label %.loopexit [
     i32 2, label %.lr.ph.split.us
     i32 1, label %.lr.ph.split.us39
@@ -3106,7 +3106,7 @@ dissect_sane_word.exit28.us44:                    ; preds = %129, %.lr.ph.split.
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_sane_status(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i32 @tvb_captured_length_remaining(ptr noundef %7, i32 noundef %6) #4
@@ -3120,7 +3120,7 @@ define internal fastcc void @dissect_sane_status(ptr nocapture noundef nonnull %
   %14 = load i32, ptr %5, align 8
   %15 = add i32 %14, 4
   store i32 %15, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, 4
   store i32 %18, ptr %16, align 4
@@ -3130,7 +3130,7 @@ tvb_read_sane_word.exit:                          ; preds = %4, %10
   %.0 = phi i32 [ -1, %4 ], [ %13, %10 ]
   %19 = tail call ptr @val_to_str(i32 noundef %.0, ptr noundef nonnull @status_values, ptr noundef nonnull @.str.187) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.186, ptr noundef %19) #4
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @val_to_str(i32 noundef %.0, ptr noundef nonnull @status_values, ptr noundef nonnull @.str.188) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.186, ptr noundef %22) #4

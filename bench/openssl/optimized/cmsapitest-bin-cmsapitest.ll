@@ -268,7 +268,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
   br i1 %tobool8.not, label %land.end20.critedge, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true5
-  %d = getelementptr inbounds i8, ptr %call2, i64 8
+  %d = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %0 = load ptr, ptr %d, align 8
   %call9 = tail call ptr @CMS_SignedData_verify(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 32, ptr noundef null, ptr noundef null) #4
   %call10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 311, ptr noundef nonnull @.str.50, ptr noundef %call9) #4
@@ -332,7 +332,7 @@ for.cond.i:                                       ; preds = %if.end, %if.end4.i
   br i1 %cmp.i, label %for.end.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.cond.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %buf_len.0
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %buf_len.0
   %call1.i = tail call i32 @BIO_read(ptr noundef %call, ptr noundef nonnull %add.ptr.i, i32 noundef 256) #4
   %cmp2.i = icmp slt i32 %call1.i, 0
   br i1 %cmp2.i, label %for.end.i, label %if.end4.i
@@ -440,7 +440,7 @@ if.end22:                                         ; preds = %if.end17
   br i1 %tobool26.not, label %land.end.critedge, label %if.end28
 
 if.end28:                                         ; preds = %if.end22
-  %d = getelementptr inbounds i8, ptr %call18, i64 8
+  %d = getelementptr inbounds nuw i8, ptr %call18, i64 8
   %3 = load ptr, ptr %d, align 8
   %4 = load ptr, ptr @privkey, align 8
   %5 = load ptr, ptr @cert, align 8

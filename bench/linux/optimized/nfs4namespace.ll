@@ -49,13 +49,13 @@ define dso_local i64 @nfs_parse_server_name(ptr noundef %0, i64 noundef %1, ptr 
 
 20:                                               ; preds = %17
   %21 = tail call i16 @llvm.bswap.i16(i16 %18)
-  %22 = getelementptr inbounds i8, ptr %2, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %21, ptr %22, align 2
   br label %26
 
 23:                                               ; preds = %17
   %24 = tail call i16 @llvm.bswap.i16(i16 %18)
-  %25 = getelementptr inbounds i8, ptr %2, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %24, ptr %25, align 2
   br label %26
 
@@ -108,12 +108,12 @@ define dso_local ptr @nfs4_negotiate_security(ptr noundef %0, ptr noundef %1, pt
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 872
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 872
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %13, i64 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 228
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 228
   br label %29
 
 29:                                               ; preds = %.thread, %22
@@ -127,13 +127,13 @@ define dso_local ptr @nfs4_negotiate_security(ptr noundef %0, ptr noundef %1, pt
   ]
 
 33:                                               ; preds = %29, %29, %29
-  %34 = getelementptr inbounds i8, ptr %31, i64 4
-  %35 = tail call i32 @rpcauth_get_pseudoflavor(i32 noundef %32, ptr noundef %34) #9
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %35 = tail call i32 @rpcauth_get_pseudoflavor(i32 noundef %32, ptr noundef nonnull %34) #9
   %36 = icmp eq i32 %35, 8
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33
-  %38 = tail call zeroext i1 @nfs_auth_info_match(ptr noundef %28, i32 noundef %35) #9
+  %38 = tail call zeroext i1 @nfs_auth_info_match(ptr noundef nonnull %28, i32 noundef %35) #9
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %37
@@ -142,7 +142,7 @@ define dso_local ptr @nfs4_negotiate_security(ptr noundef %0, ptr noundef %1, pt
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %40, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @rpcauth_lookupcred(ptr noundef %44, i32 noundef 0) #9
   %46 = icmp ugt ptr %45, inttoptr (i64 -4096 to ptr)
@@ -165,7 +165,7 @@ define dso_local ptr @nfs4_negotiate_security(ptr noundef %0, ptr noundef %1, pt
 
 .loopexit:                                        ; preds = %.thread, %48, %19, %16
   %53 = phi ptr [ %18, %16 ], [ inttoptr (i64 -1 to ptr), %19 ], [ %40, %48 ], [ inttoptr (i64 -1 to ptr), %.thread ]
-  %54 = getelementptr inbounds i8, ptr %4, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %55 = load volatile i64, ptr %54, align 8
   %56 = and i64 %55, 1
   %57 = icmp eq i64 %56, 0
@@ -205,8 +205,8 @@ define dso_local ptr @nfs4_negotiate_security(ptr noundef %0, ptr noundef %1, pt
 
 77:                                               ; preds = %76, %69, %61, %58
   %78 = phi ptr [ %60, %58 ], [ %75, %69 ], [ %4, %76 ], [ %4, %61 ]
-  %79 = getelementptr inbounds i8, ptr %78, i64 52
-  %80 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %79, ptr elementtype(i32) %79) #9, !srcloc !10
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 52
+  %80 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %79, ptr nonnull elementtype(i32) %79) #9, !srcloc !10
   %81 = icmp ult i8 %80, 2
   tail call void @llvm.assume(i1 %81)
   %82 = icmp eq i8 %80, 0
@@ -230,16 +230,16 @@ declare dso_local i32 @nfs4_proc_secinfo(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @nfs4_submount(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 16 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 512
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 512
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @dget_parent(ptr noundef %7) #9
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 480
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 520
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 520
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @nfs4_proc_lookup_mountpoint(ptr noundef %10, ptr noundef %7, ptr noundef %12, ptr noundef %14) #9
   tail call void @dput(ptr noundef %8) #9
@@ -252,11 +252,11 @@ define dso_local i32 @nfs4_submount(ptr noundef %0, ptr nocapture noundef readno
   br label %309
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %15, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 %24, ptr %25, align 8
   %26 = load ptr, ptr %13, align 8
   %27 = load i32, ptr %26, align 8
@@ -282,32 +282,32 @@ define dso_local i32 @nfs4_submount(ptr noundef %0, ptr nocapture noundef readno
   br i1 %39, label %301, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %31, i64 512
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 512
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @dget_parent(ptr noundef %42) #9
-  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %42, i64 32
-  %47 = tail call i32 @nfs4_proc_fs_locations(ptr noundef %15, ptr noundef %45, ptr noundef %46, ptr noundef nonnull %35, ptr noundef nonnull %32) #9
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %47 = tail call i32 @nfs4_proc_fs_locations(ptr noundef %15, ptr noundef %45, ptr noundef nonnull %46, ptr noundef nonnull %35, ptr noundef nonnull %32) #9
   tail call void @dput(ptr noundef %43) #9
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %.thread44
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %35, i64 8216
+  %50 = getelementptr inbounds nuw i8, ptr %35, i64 8216
   %51 = load i32, ptr %50, align 8
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %.thread44, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %35, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %55 = load i32, ptr %54, align 16
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %.thread44, label %57
 
 57:                                               ; preds = %53
   %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 512
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %62 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %61, i32 noundef 3264, i64 noundef 4096) #11
@@ -371,7 +371,7 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %94, label %.loopexit70, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %35, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %35, i64 24
   br label %100
 
 97:                                               ; preds = %100
@@ -406,7 +406,7 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %117, label %.loopexit69, label %118
 
 118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %35, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %35, i64 24
   br label %120
 
 120:                                              ; preds = %120, %118
@@ -416,7 +416,7 @@ select.unfold:                                    ; preds = %81, %77
   %124 = getelementptr [512 x %struct.nfs4_string], ptr %119, i64 0, i64 %123
   %125 = getelementptr i8, ptr %122, i64 1
   store i8 47, ptr %122, align 1
-  %126 = getelementptr inbounds i8, ptr %124, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %127 = load ptr, ptr %126, align 16
   %128 = load i32, ptr %124, align 8
   %129 = zext i32 %128 to i64
@@ -453,9 +453,9 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %141, label %142, label %.thread44
 
 142:                                              ; preds = %.thread45
-  %143 = getelementptr inbounds i8, ptr %35, i64 8224
-  %144 = getelementptr inbounds i8, ptr %0, i64 112
-  %145 = getelementptr inbounds i8, ptr %0, i64 80
+  %143 = getelementptr inbounds nuw i8, ptr %35, i64 8224
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %146
 
 146:                                              ; preds = %.thread56, %142
@@ -471,14 +471,14 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %153, label %.thread56, label %154
 
 154:                                              ; preds = %151
-  %155 = getelementptr inbounds i8, ptr %149, i64 168
+  %155 = getelementptr inbounds nuw i8, ptr %149, i64 168
   %156 = load i32, ptr %155, align 8
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %.thread56, label %158
 
 158:                                              ; preds = %154
   %159 = load ptr, ptr %4, align 8
-  %160 = getelementptr inbounds i8, ptr %149, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %161 = zext i32 %152 to i64
   br label %162
 
@@ -493,8 +493,8 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %169, label %170, label %162, !llvm.loop !14
 
 170:                                              ; preds = %162
-  %171 = getelementptr inbounds i8, ptr %159, i64 312
-  %172 = getelementptr inbounds i8, ptr %159, i64 448
+  %171 = getelementptr inbounds nuw i8, ptr %159, i64 312
+  %172 = getelementptr inbounds nuw i8, ptr %159, i64 448
   %173 = load ptr, ptr %172, align 8
   call void @kfree(ptr noundef %173) #9
   %174 = add i32 %167, 1
@@ -505,13 +505,13 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %177, label %.thread56, label %178
 
 178:                                              ; preds = %170
-  %179 = getelementptr inbounds i8, ptr %159, i64 474
+  %179 = getelementptr inbounds nuw i8, ptr %159, i64 474
   %180 = load i32, ptr %155, align 8
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %.loopexit65, label %182
 
 182:                                              ; preds = %178
-  %183 = getelementptr inbounds i8, ptr %149, i64 176
+  %183 = getelementptr inbounds nuw i8, ptr %149, i64 176
   br label %187
 
 184:                                              ; preds = %187
@@ -548,7 +548,7 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %205, label %.loopexit64, label %206
 
 206:                                              ; preds = %203
-  %207 = getelementptr inbounds i8, ptr %149, i64 176
+  %207 = getelementptr inbounds nuw i8, ptr %149, i64 176
   br label %208
 
 208:                                              ; preds = %208, %206
@@ -558,7 +558,7 @@ select.unfold:                                    ; preds = %81, %77
   %212 = getelementptr [512 x %struct.nfs4_string], ptr %207, i64 0, i64 %211
   %213 = getelementptr i8, ptr %210, i64 1
   store i8 47, ptr %210, align 1
-  %214 = getelementptr inbounds i8, ptr %212, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %215 = load ptr, ptr %214, align 8
   %216 = load i32, ptr %212, align 16
   %217 = zext i32 %216 to i64
@@ -581,7 +581,7 @@ select.unfold:                                    ; preds = %81, %77
   br label %.loopexit
 
 226:                                              ; preds = %.loopexit64
-  %227 = getelementptr inbounds i8, ptr %159, i64 456
+  %227 = getelementptr inbounds nuw i8, ptr %159, i64 456
   %228 = load ptr, ptr %227, align 8
   call void @kfree(ptr noundef %228) #9
   store ptr %201, ptr %227, align 8
@@ -603,15 +603,15 @@ select.unfold:                                    ; preds = %81, %77
   br i1 %239, label %.thread56, label %240
 
 240:                                              ; preds = %236
-  %241 = getelementptr inbounds i8, ptr %159, i64 440
-  %242 = getelementptr inbounds i8, ptr %159, i64 314
+  %241 = getelementptr inbounds nuw i8, ptr %159, i64 440
+  %242 = getelementptr inbounds nuw i8, ptr %159, i64 314
   br label %243
 
 243:                                              ; preds = %.thread54, %240
   %244 = phi i64 [ 0, %240 ], [ %289, %.thread54 ]
   %245 = phi i32 [ -2, %240 ], [ %288, %.thread54 ]
   %246 = getelementptr [10 x %struct.nfs4_string], ptr %160, i64 0, i64 %244
-  %247 = getelementptr inbounds i8, ptr %246, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %248 = load ptr, ptr %247, align 16
   %249 = load i32, ptr %246, align 8
   %250 = zext i32 %249 to i64
@@ -621,12 +621,12 @@ select.unfold:                                    ; preds = %81, %77
 
 253:                                              ; preds = %243
   %254 = load ptr, ptr %145, align 8
-  %255 = call i64 @rpc_pton(ptr noundef %254, ptr noundef %248, i64 noundef %250, ptr noundef %171, i64 noundef 128) #9
+  %255 = call i64 @rpc_pton(ptr noundef %254, ptr noundef %248, i64 noundef %250, ptr noundef nonnull %171, i64 noundef 128) #9
   %256 = icmp eq i64 %255, 0
   br i1 %256, label %257, label %.thread52
 
 257:                                              ; preds = %253
-  %258 = call i64 @rpc_uaddr2sockaddr(ptr noundef %254, ptr noundef %248, i64 noundef %250, ptr noundef %171, i64 noundef 128) #9
+  %258 = call i64 @rpc_uaddr2sockaddr(ptr noundef %254, ptr noundef %248, i64 noundef %250, ptr noundef nonnull %171, i64 noundef 128) #9
   %259 = icmp eq i64 %258, 0
   br i1 %259, label %260, label %.thread52
 
@@ -636,7 +636,7 @@ select.unfold:                                    ; preds = %81, %77
   br label %264
 
 260:                                              ; preds = %257
-  %261 = call i64 @nfs_dns_resolve_name(ptr noundef %254, ptr noundef %248, i64 noundef %250, ptr noundef %171, i64 noundef 128) #9
+  %261 = call i64 @nfs_dns_resolve_name(ptr noundef %254, ptr noundef %248, i64 noundef %250, ptr noundef nonnull %171, i64 noundef 128) #9
   %262 = call i64 @llvm.smax.i64(i64 %261, i64 0)
   store i64 %262, ptr %241, align 8
   %263 = icmp slt i64 %261, 1
@@ -755,7 +755,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8216
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8216
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %.loopexit, label %8
@@ -776,8 +776,8 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 8224
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8224
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %25
 
 .thread17:                                        ; preds = %25, %30, %33, %37, %.thread20, %89
@@ -801,7 +801,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   br i1 %32, label %.thread17, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %28, i64 168
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 168
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %.thread17, label %37
@@ -820,8 +820,8 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   br i1 %45, label %.thread20, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %28, i64 8
-  %48 = getelementptr inbounds i8, ptr %41, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 2
   br label %54
 
 .thread13:                                        ; preds = %74, %63, %54, %60, %86
@@ -846,7 +846,7 @@ define dso_local i32 @nfs4_replace_transport(ptr noundef %0, ptr noundef readonl
   br i1 %62, label %.thread13, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %57, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr @memchr(ptr noundef %65, i32 noundef 37, i64 noundef %61) #9
   %67 = icmp eq ptr %66, null

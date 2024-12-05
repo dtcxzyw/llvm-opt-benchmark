@@ -112,7 +112,7 @@ define internal i32 @dissect_pn532_hci(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %9, label %135, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.29) #2
   %13 = load ptr, ptr %11, align 8

@@ -44,13 +44,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bit_in(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %4, align 1
   switch i8 %10, label %.thread [
@@ -121,9 +121,9 @@ define dso_local noundef i64 @bit_in(ptr nocapture noundef readonly %0) local_un
   %39 = tail call ptr @palloc0(i64 noundef %38) #13
   %40 = shl nsw i32 %narrow, 2
   store i32 %40, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %39, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %.071, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   br i1 %.081104, label %.preheader, label %.preheader106
 
 .preheader106:                                    ; preds = %35
@@ -257,16 +257,16 @@ declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bit_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 1
   %9 = sext i32 %8 to i64
   %10 = tail call ptr @palloc(i64 noundef %9) #13
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = add i32 %7, -8
   %.not38.i = icmp slt i32 %12, 0
   br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i
@@ -330,16 +330,16 @@ varbit_out.exit:                                  ; preds = %25, %._crit_edge.i
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @varbit_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 1
   %9 = sext i32 %8 to i64
   %10 = tail call ptr @palloc(i64 noundef %9) #13
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = add i32 %7, -8
   %.not38 = icmp slt i32 %12, 0
   br i1 %.not38, label %._crit_edge, label %.lr.ph
@@ -403,7 +403,7 @@ define dso_local i64 @varbit_out(ptr nocapture noundef readonly %0) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bit_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 64
@@ -443,9 +443,9 @@ define dso_local noundef i64 @bit_recv(ptr nocapture noundef readonly %0) local_
   %23 = tail call ptr @palloc(i64 noundef %22) #13
   %24 = shl nuw nsw i32 %narrow, 2
   store i32 %24, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %23, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %8, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   tail call void @pq_copymsgbytes(ptr noundef %4, ptr noundef nonnull %26, i32 noundef %21) #13
   %27 = load i32, ptr %23, align 4
   %28 = lshr i32 %27, 2
@@ -489,25 +489,25 @@ declare void @pq_copymsgbytes(ptr noundef, ptr noundef, i32 noundef) local_unnam
 define dso_local i64 @bit_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #13
   call void @pq_begintypsend(ptr noundef nonnull %2) #13
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #13
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %9 = call i32 @llvm.bswap.i32(i32 %8)
   %10 = load ptr, ptr %2, align 8, !alias.scope !11
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !alias.scope !11
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %10, i64 %13
   store i32 %9, ptr %14, align 1, !noalias !11
   %15 = add i32 %12, 4
   store i32 %15, ptr %11, align 8, !alias.scope !11
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %6, align 4
   %18 = lshr i32 %17, 2
   %19 = add nsw i32 %18, -8
@@ -521,25 +521,25 @@ define dso_local i64 @bit_send(ptr nocapture noundef readonly %0) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @varbit_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #13
   call void @pq_begintypsend(ptr noundef nonnull %2) #13
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #13
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %9 = call i32 @llvm.bswap.i32(i32 %8)
   %10 = load ptr, ptr %2, align 8, !alias.scope !14
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !alias.scope !14
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %10, i64 %13
   store i32 %9, ptr %14, align 1, !noalias !14
   %15 = add i32 %12, 4
   store i32 %15, ptr %11, align 8, !alias.scope !14
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %6, align 4
   %18 = lshr i32 %17, 2
   %19 = add nsw i32 %18, -8
@@ -551,7 +551,7 @@ define dso_local i64 @varbit_send(ptr nocapture noundef readonly %0) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -566,7 +566,7 @@ define dso_local i64 @bit(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %or.cond, label %47, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, %8
   br i1 %15, label %47, label %16
@@ -591,10 +591,10 @@ define dso_local i64 @bit(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %26 = tail call ptr @palloc0(i64 noundef %25) #13
   %27 = shl nuw nsw i32 %narrow, 2
   store i32 %27, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 %8, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = zext nneg i32 %24 to i64
   %32 = load i32, ptr %5, align 4
   %33 = lshr i32 %32, 2
@@ -629,7 +629,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 1, 83886081) i64 @bittypmodin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -687,7 +687,7 @@ define internal fastcc range(i32 1, 83886081) i32 @anybit_typmodin(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bittypmodout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @palloc(i64 noundef 64) #13
@@ -709,13 +709,13 @@ anybit_typmodout.exit:                            ; preds = %7, %9
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @varbit_in(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %4, align 1
   switch i8 %10, label %.thread [
@@ -787,9 +787,9 @@ define dso_local noundef i64 @varbit_in(ptr nocapture noundef readonly %0) local
   %41 = shl nsw i32 %narrow, 2
   store i32 %41, ptr %40, align 4
   %42 = tail call i32 @llvm.smin.i32(i32 %.084, i32 %.073)
-  %43 = getelementptr inbounds i8, ptr %40, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %40, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
   br i1 %.083105, label %.preheader, label %.preheader107
 
 .preheader107:                                    ; preds = %36
@@ -908,7 +908,7 @@ define dso_local noundef i64 @varbit_in(ptr nocapture noundef readonly %0) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @varbit_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 64
@@ -948,9 +948,9 @@ define dso_local noundef i64 @varbit_recv(ptr nocapture noundef readonly %0) loc
   %24 = tail call ptr @palloc(i64 noundef %23) #13
   %25 = shl nuw nsw i32 %narrow, 2
   store i32 %25, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %8, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   tail call void @pq_copymsgbytes(ptr noundef %4, ptr noundef nonnull %27, i32 noundef %22) #13
   %28 = load i32, ptr %24, align 4
   %29 = lshr i32 %28, 2
@@ -987,7 +987,7 @@ declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @varbit_support(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = load i32, ptr %4, align 4
@@ -995,9 +995,9 @@ define dso_local i64 @varbit_support(ptr nocapture noundef readonly %0) local_un
   br i1 %6, label %7, label %33
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 16
   %.val = load ptr, ptr %12, align 8
@@ -1008,14 +1008,14 @@ define dso_local i64 @varbit_support(ptr nocapture noundef readonly %0) local_un
   br i1 %16, label %17, label %33
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %33, label %21
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %.val, align 8
-  %23 = getelementptr inbounds i8, ptr %14, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = trunc i64 %24 to i32
   %26 = tail call i32 @exprTypmod(ptr noundef %22) #13
@@ -1044,7 +1044,7 @@ declare ptr @relabel_to_typmod(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @varbit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1058,7 +1058,7 @@ define dso_local i64 @varbit(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %11, label %43, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %14 = load i32, ptr %13, align 4
   %.not = icmp sgt i32 %14, %8
   br i1 %.not, label %15, label %43
@@ -1082,10 +1082,10 @@ define dso_local i64 @varbit(ptr nocapture noundef readonly %0) local_unnamed_ad
   %24 = tail call ptr @palloc(i64 noundef %23) #13
   %25 = shl nsw i32 %narrow, 2
   store i32 %25, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %8, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = and i32 %narrow, 1073741823
   %30 = add nsw i32 %29, -4
   %31 = zext i32 %30 to i64
@@ -1115,7 +1115,7 @@ define dso_local i64 @varbit(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 1, 83886081) i64 @varbittypmodin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1126,7 +1126,7 @@ define dso_local range(i64 1, 83886081) i64 @varbittypmodin(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @varbittypmodout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @palloc(i64 noundef 64) #13
@@ -1148,7 +1148,7 @@ anybit_typmodout.exit:                            ; preds = %7, %9
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @biteq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1156,9 +1156,9 @@ define dso_local range(i64 0, 2) i64 @biteq(ptr nocapture noundef readonly %0) l
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #13
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %11, %13
   br i1 %.not, label %bit_cmp.exit, label %25
@@ -1168,8 +1168,8 @@ bit_cmp.exit:                                     ; preds = %1
   %15 = lshr i32 %14, 2
   %16 = load i32, ptr %9, align 4
   %17 = lshr i32 %16, 2
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %20 = tail call i32 @llvm.umin.i32(i32 %15, i32 %17)
   %21 = add nsw i32 %20, -8
   %22 = sext i32 %21 to i64
@@ -1207,7 +1207,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bitne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1215,9 +1215,9 @@ define dso_local range(i64 0, 2) i64 @bitne(ptr nocapture noundef readonly %0) l
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #13
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %11, %13
   br i1 %.not, label %bit_cmp.exit, label %25
@@ -1227,8 +1227,8 @@ bit_cmp.exit:                                     ; preds = %1
   %15 = lshr i32 %14, 2
   %16 = load i32, ptr %9, align 4
   %17 = lshr i32 %16, 2
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %20 = tail call i32 @llvm.umin.i32(i32 %15, i32 %17)
   %21 = add nsw i32 %20, -8
   %22 = sext i32 %21 to i64
@@ -1264,7 +1264,7 @@ bit_cmp.exit:                                     ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bitlt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1276,8 +1276,8 @@ define dso_local range(i64 0, 2) i64 @bitlt(ptr nocapture noundef readonly %0) l
   %11 = lshr i32 %10, 2
   %12 = load i32, ptr %9, align 4
   %13 = lshr i32 %12, 2
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = tail call i32 @llvm.umin.i32(i32 %11, i32 %13)
   %17 = add nsw i32 %16, -8
   %18 = sext i32 %17 to i64
@@ -1286,9 +1286,9 @@ define dso_local range(i64 0, 2) i64 @bitlt(ptr nocapture noundef readonly %0) l
   br i1 %20, label %21, label %bit_cmp.exit
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %25 = load i32, ptr %24, align 4
   %.not.i = icmp eq i32 %23, %25
   br i1 %.not.i, label %bit_cmp.exit, label %26
@@ -1327,7 +1327,7 @@ bit_cmp.exit:                                     ; preds = %1, %21, %26
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bitle(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1339,8 +1339,8 @@ define dso_local range(i64 0, 2) i64 @bitle(ptr nocapture noundef readonly %0) l
   %11 = lshr i32 %10, 2
   %12 = load i32, ptr %9, align 4
   %13 = lshr i32 %12, 2
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = tail call i32 @llvm.umin.i32(i32 %11, i32 %13)
   %17 = add nsw i32 %16, -8
   %18 = sext i32 %17 to i64
@@ -1349,9 +1349,9 @@ define dso_local range(i64 0, 2) i64 @bitle(ptr nocapture noundef readonly %0) l
   br i1 %20, label %21, label %bit_cmp.exit
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %25 = load i32, ptr %24, align 4
   %.not.i = icmp eq i32 %23, %25
   br i1 %.not.i, label %bit_cmp.exit, label %26
@@ -1390,7 +1390,7 @@ bit_cmp.exit:                                     ; preds = %1, %21, %26
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bitgt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1402,8 +1402,8 @@ define dso_local range(i64 0, 2) i64 @bitgt(ptr nocapture noundef readonly %0) l
   %11 = lshr i32 %10, 2
   %12 = load i32, ptr %9, align 4
   %13 = lshr i32 %12, 2
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = tail call i32 @llvm.umin.i32(i32 %11, i32 %13)
   %17 = add nsw i32 %16, -8
   %18 = sext i32 %17 to i64
@@ -1412,9 +1412,9 @@ define dso_local range(i64 0, 2) i64 @bitgt(ptr nocapture noundef readonly %0) l
   br i1 %20, label %21, label %bit_cmp.exit
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %25 = load i32, ptr %24, align 4
   %.not.i = icmp eq i32 %23, %25
   br i1 %.not.i, label %bit_cmp.exit, label %26
@@ -1453,7 +1453,7 @@ bit_cmp.exit:                                     ; preds = %1, %21, %26
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bitge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1465,8 +1465,8 @@ define dso_local range(i64 0, 2) i64 @bitge(ptr nocapture noundef readonly %0) l
   %11 = lshr i32 %10, 2
   %12 = load i32, ptr %9, align 4
   %13 = lshr i32 %12, 2
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = tail call i32 @llvm.umin.i32(i32 %11, i32 %13)
   %17 = add nsw i32 %16, -8
   %18 = sext i32 %17 to i64
@@ -1475,9 +1475,9 @@ define dso_local range(i64 0, 2) i64 @bitge(ptr nocapture noundef readonly %0) l
   br i1 %20, label %21, label %bit_cmp.exit
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %25 = load i32, ptr %24, align 4
   %.not.i = icmp eq i32 %23, %25
   br i1 %.not.i, label %bit_cmp.exit, label %26
@@ -1516,7 +1516,7 @@ bit_cmp.exit:                                     ; preds = %1, %21, %26
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @bitcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1528,8 +1528,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitcmp(ptr nocapture no
   %11 = lshr i32 %10, 2
   %12 = load i32, ptr %9, align 4
   %13 = lshr i32 %12, 2
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = tail call i32 @llvm.umin.i32(i32 %11, i32 %13)
   %17 = add nsw i32 %16, -8
   %18 = sext i32 %17 to i64
@@ -1538,9 +1538,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitcmp(ptr nocapture no
   br i1 %20, label %21, label %bit_cmp.exit
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %25 = load i32, ptr %24, align 4
   %.not.i = icmp eq i32 %23, %25
   br i1 %.not.i, label %bit_cmp.exit, label %26
@@ -1578,7 +1578,7 @@ bit_cmp.exit:                                     ; preds = %1, %21, %26
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bitcat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1593,9 +1593,9 @@ define dso_local noundef i64 @bitcat(ptr nocapture noundef readonly %0) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @bit_catenate(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 2147483640, %6
   %8 = icmp sgt i32 %4, %7
@@ -1618,10 +1618,10 @@ define internal fastcc noundef ptr @bit_catenate(ptr nocapture noundef readonly 
   %18 = tail call ptr @palloc(i64 noundef %17) #13
   %19 = shl nsw i32 %narrow, 2
   store i32 %19, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %14, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %0, align 4
   %24 = lshr i32 %23, 2
   %25 = add nsw i32 %24, -4
@@ -1642,7 +1642,7 @@ define internal fastcc noundef ptr @bit_catenate(ptr nocapture noundef readonly 
 
 37:                                               ; preds = %13
   %38 = getelementptr i8, ptr %21, i64 %32
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load i32, ptr %1, align 4
   %41 = lshr i32 %40, 2
   %42 = add nsw i32 %41, -4
@@ -1657,7 +1657,7 @@ define internal fastcc noundef ptr @bit_catenate(ptr nocapture noundef readonly 
 
 47:                                               ; preds = %45
   %48 = sub i32 8, %35
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load i32, ptr %1, align 4
   %51 = lshr i32 %50, 2
   %52 = zext nneg i32 %51 to i64
@@ -1711,7 +1711,7 @@ define internal fastcc noundef ptr @bit_catenate(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bitsubstr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1728,7 +1728,7 @@ define dso_local noundef i64 @bitsubstr(ptr nocapture noundef readonly %0) local
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   br i1 %3, label %8, label %10
@@ -1774,7 +1774,7 @@ define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly %0, i32 no
 27:                                               ; preds = %25
   %28 = tail call ptr @palloc(i64 noundef 8) #13
   store i32 32, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 0, ptr %29, align 4
   br label %93
 
@@ -1787,7 +1787,7 @@ define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly %0, i32 no
   %35 = tail call ptr @palloc(i64 noundef %34) #13
   %36 = shl nsw i32 %narrow, 2
   store i32 %36, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %35, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %31, ptr %37, align 4
   %38 = add nsw i32 %7, -1
   %39 = and i32 %38, 7
@@ -1795,8 +1795,8 @@ define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly %0, i32 no
   br i1 %40, label %41, label %48
 
 41:                                               ; preds = %30
-  %42 = getelementptr inbounds i8, ptr %35, i64 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = lshr exact i32 %38, 3
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr i8, ptr %43, i64 %45
@@ -1809,11 +1809,11 @@ define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly %0, i32 no
   br i1 %49, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = lshr i32 %38, 3
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr i8, ptr %50, i64 %52
-  %54 = getelementptr inbounds i8, ptr %35, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %55 = sub nuw nsw i32 8, %39
   br label %56
 
@@ -1869,7 +1869,7 @@ define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly %0, i32 no
 
 85:                                               ; preds = %.loopexit
   %86 = shl i32 255, %83
-  %87 = getelementptr inbounds i8, ptr %35, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %88 = getelementptr i8, ptr %87, i64 %81
   %89 = getelementptr i8, ptr %88, i64 -1
   %90 = load i8, ptr %89, align 1
@@ -1885,7 +1885,7 @@ define internal fastcc noundef ptr @bitsubstring(ptr noundef readonly %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bitsubstr_no_len(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1899,7 +1899,7 @@ define dso_local noundef i64 @bitsubstr_no_len(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bitoverlay(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1956,7 +1956,7 @@ define internal fastcc noundef ptr @bit_overlay(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bitoverlay_no_len(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -1967,7 +1967,7 @@ define dso_local noundef i64 @bitoverlay_no_len(ptr nocapture noundef readonly %
   %10 = getelementptr i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %9, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = tail call fastcc ptr @bit_overlay(ptr noundef %5, ptr noundef %9, i32 noundef %12, i32 noundef %14)
   %16 = ptrtoint ptr %15 to i64
@@ -1976,11 +1976,11 @@ define dso_local noundef i64 @bitoverlay_no_len(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bit_bit_count(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %5, align 4
   %8 = lshr i32 %7, 2
   %9 = add nsw i32 %8, -8
@@ -1992,11 +1992,11 @@ declare i64 @pg_popcount(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @bitlength(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   ret i64 %8
@@ -2004,7 +2004,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitlength(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -8, 1073741816) i64 @bitoctetlength(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -2017,7 +2017,7 @@ define dso_local range(i64 -8, 1073741816) i64 @bitoctetlength(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bit_and(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -2025,9 +2025,9 @@ define dso_local noundef i64 @bit_and(ptr nocapture noundef readonly %0) local_u
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #13
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %11, %13
   br i1 %.not, label %18, label %14
@@ -2047,7 +2047,7 @@ define dso_local noundef i64 @bit_and(ptr nocapture noundef readonly %0) local_u
   %22 = tail call ptr @palloc(i64 noundef %21) #13
   %23 = and i32 %19, -4
   store i32 %23, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %11, ptr %24, align 4
   %25 = load i32, ptr %5, align 4
   %.mask = and i32 %25, -4
@@ -2055,9 +2055,9 @@ define dso_local noundef i64 @bit_and(ptr nocapture noundef readonly %0) local_u
   br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %22, i64 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2089,7 +2089,7 @@ define dso_local noundef i64 @bit_and(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bit_or(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -2097,9 +2097,9 @@ define dso_local noundef i64 @bit_or(ptr nocapture noundef readonly %0) local_un
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #13
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %11, %13
   br i1 %.not, label %18, label %14
@@ -2119,7 +2119,7 @@ define dso_local noundef i64 @bit_or(ptr nocapture noundef readonly %0) local_un
   %22 = tail call ptr @palloc(i64 noundef %21) #13
   %23 = and i32 %19, -4
   store i32 %23, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %11, ptr %24, align 4
   %25 = load i32, ptr %5, align 4
   %.mask = and i32 %25, -4
@@ -2127,9 +2127,9 @@ define dso_local noundef i64 @bit_or(ptr nocapture noundef readonly %0) local_un
   br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %22, i64 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2161,7 +2161,7 @@ define dso_local noundef i64 @bit_or(ptr nocapture noundef readonly %0) local_un
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bitxor(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -2169,9 +2169,9 @@ define dso_local noundef i64 @bitxor(ptr nocapture noundef readonly %0) local_un
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #13
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %11, %13
   br i1 %.not, label %18, label %14
@@ -2191,7 +2191,7 @@ define dso_local noundef i64 @bitxor(ptr nocapture noundef readonly %0) local_un
   %22 = tail call ptr @palloc(i64 noundef %21) #13
   %23 = and i32 %19, -4
   store i32 %23, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %11, ptr %24, align 4
   %25 = load i32, ptr %5, align 4
   %.mask = and i32 %25, -4
@@ -2199,9 +2199,9 @@ define dso_local noundef i64 @bitxor(ptr nocapture noundef readonly %0) local_un
   br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %22, i64 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2233,7 +2233,7 @@ define dso_local noundef i64 @bitxor(ptr nocapture noundef readonly %0) local_un
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bitnot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -2244,12 +2244,12 @@ define dso_local noundef i64 @bitnot(ptr nocapture noundef readonly %0) local_un
   %10 = load i32, ptr %5, align 4
   %11 = and i32 %10, -4
   store i32 %11, ptr %9, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load i32, ptr %5, align 4
   %18 = lshr i32 %17, 2
   %19 = zext nneg i32 %18 to i64
@@ -2304,7 +2304,7 @@ define dso_local noundef i64 @bitnot(ptr nocapture noundef readonly %0) local_un
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bitshiftleft(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -2331,9 +2331,9 @@ define dso_local i64 @bitshiftleft(ptr nocapture noundef readonly %0) #0 {
   %22 = load i32, ptr %5, align 4
   %23 = and i32 %22, -4
   store i32 %23, ptr %20, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %20, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %25, ptr %26, align 4
   %27 = getelementptr i8, ptr %20, i64 8
   %.not = icmp sgt i32 %25, %8
@@ -2381,7 +2381,7 @@ define dso_local i64 @bitshiftleft(ptr nocapture noundef readonly %0) #0 {
 52:                                               ; preds = %16
   %53 = lshr i32 %8, 3
   %54 = and i32 %8, 7
-  %55 = getelementptr inbounds i8, ptr %5, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %56 = zext nneg i32 %53 to i64
   %57 = getelementptr i8, ptr %55, i64 %56
   %58 = icmp eq i32 %54, 0
@@ -2509,7 +2509,7 @@ declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bitshiftright(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -2536,9 +2536,9 @@ define dso_local i64 @bitshiftright(ptr nocapture noundef readonly %0) #0 {
   %22 = load i32, ptr %5, align 4
   %23 = and i32 %22, -4
   store i32 %23, ptr %20, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %20, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %25, ptr %26, align 4
   %27 = getelementptr i8, ptr %20, i64 8
   %.not = icmp sgt i32 %25, %8
@@ -2586,7 +2586,7 @@ define dso_local i64 @bitshiftright(ptr nocapture noundef readonly %0) #0 {
 52:                                               ; preds = %16
   %53 = lshr i32 %8, 3
   %54 = and i32 %8, 7
-  %55 = getelementptr inbounds i8, ptr %5, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %56 = zext nneg i32 %53 to i64
   %57 = ptrtoint ptr %27 to i64
   %58 = and i64 %57, 7
@@ -2716,7 +2716,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bitfromint4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 48
@@ -2732,7 +2732,7 @@ define dso_local noundef i64 @bitfromint4(ptr nocapture noundef readonly %0) loc
   %12 = tail call ptr @palloc(i64 noundef %11) #13
   %13 = shl nsw i32 %narrow, 2
   store i32 %13, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %spec.store.select, ptr %14, align 4
   %15 = getelementptr i8, ptr %12, i64 8
   %16 = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 32)
@@ -2812,11 +2812,11 @@ define dso_local noundef i64 @bitfromint4(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @bittoint4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %7, 32
   br i1 %8, label %9, label %13
@@ -2830,7 +2830,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bittoint4(ptr nocapture
   unreachable
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load i32, ptr %5, align 4
   %16 = lshr i32 %15, 2
   %17 = zext nneg i32 %16 to i64
@@ -2861,7 +2861,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bittoint4(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bitfromint8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -2876,7 +2876,7 @@ define dso_local noundef i64 @bitfromint8(ptr nocapture noundef readonly %0) loc
   %11 = tail call ptr @palloc(i64 noundef %10) #13
   %12 = shl nsw i32 %narrow, 2
   store i32 %12, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %spec.store.select, ptr %13, align 4
   %14 = getelementptr i8, ptr %11, i64 8
   %15 = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 64)
@@ -2967,11 +2967,11 @@ define dso_local noundef i64 @bitfromint8(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bittoint8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %7, 64
   br i1 %8, label %9, label %13
@@ -2985,7 +2985,7 @@ define dso_local i64 @bittoint8(ptr nocapture noundef readonly %0) local_unnamed
   unreachable
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load i32, ptr %5, align 4
   %16 = lshr i32 %15, 2
   %17 = zext nneg i32 %16 to i64
@@ -3018,7 +3018,7 @@ define dso_local i64 @bittoint8(ptr nocapture noundef readonly %0) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -3026,9 +3026,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr nocaptu
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #13
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   %15 = icmp sgt i32 %11, %13
@@ -3064,8 +3064,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr nocaptu
   %reass.sub106 = sub i32 %33, %13
   %34 = add i32 %reass.sub106, -64
   %35 = shl i32 255, %34
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
-  %37 = getelementptr inbounds i8, ptr %9, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %invariant.gep = getelementptr i8, ptr %5, i64 -1
   %38 = zext nneg i32 %28 to i64
   %39 = getelementptr i8, ptr %9, i64 %38
@@ -3204,7 +3204,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @bitsetbit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
@@ -3214,7 +3214,7 @@ define dso_local noundef i64 @bitsetbit(ptr nocapture noundef readonly %0) local
   %9 = getelementptr i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %5, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %8, -1
   %.not = icmp sgt i32 %13, %8
@@ -3249,10 +3249,10 @@ define dso_local noundef i64 @bitsetbit(ptr nocapture noundef readonly %0) local
   %29 = tail call ptr @palloc(i64 noundef %28) #13
   %30 = and i32 %26, -4
   store i32 %30, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %29, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %13, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load i32, ptr %5, align 4
   %35 = lshr i32 %34, 2
   %36 = add nsw i32 %35, -4
@@ -3279,14 +3279,14 @@ define dso_local noundef i64 @bitsetbit(ptr nocapture noundef readonly %0) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @bitgetbit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #13
   %6 = getelementptr i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %8, -1
   %.not = icmp sgt i32 %10, %8
@@ -3303,7 +3303,7 @@ define dso_local range(i64 0, 2) i64 @bitgetbit(ptr nocapture noundef readonly %
   unreachable
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = lshr i64 %7, 3
   %20 = and i32 %8, 7
   %21 = xor i32 %20, 7

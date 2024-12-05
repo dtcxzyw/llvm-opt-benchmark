@@ -42,45 +42,45 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal void @opal_convertor_construct(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %2, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 5, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %5, align 8
   %6 = load i32, ptr @opal_local_arch, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 134217760, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 264
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr @opal_convertor_accelerator_memcpy, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @opal_convertor_destruct(ptr noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 5
   br i1 %4, label %5, label %opal_convertor_cleanup.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %7) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %8, ptr %6, align 8
   store i32 5, ptr %2, align 8
   br label %opal_convertor_cleanup.exit
 
 opal_convertor_cleanup.exit:                      ; preds = %1, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 134217760, ptr %11, align 4
   ret void
 }
@@ -96,7 +96,7 @@ define void @opal_convertor_destroy_masters() local_unnamed_addr #2 {
   %1 = load ptr, ptr %.012, align 8
   store ptr %1, ptr @opal_convertor_master_list, align 8
   store ptr null, ptr %.012, align 8
-  %2 = getelementptr inbounds i8, ptr %.012, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %.012, i64 248
   %3 = load ptr, ptr %2, align 8
   %.not8 = icmp eq ptr %3, @opal_datatype_heterogeneous_copy_functions
   %.not9 = icmp eq ptr %3, @opal_datatype_copy_functions
@@ -131,7 +131,7 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %.060, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.060, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %.loopexit, label %2, !llvm.loop !6
@@ -141,20 +141,20 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
   %9 = load ptr, ptr @opal_convertor_master_list, align 8
   store ptr %9, ptr %8, align 8
   store ptr %8, ptr @opal_convertor_master_list, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %13, ptr noundef nonnull align 16 dereferenceable(224) @opal_datatype_local_sizes, i64 224, i1 false)
   %14 = load i32, ptr @opal_local_arch, align 4
   %15 = icmp eq i32 %0, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %8, i64 248
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 248
   store ptr @opal_datatype_copy_functions, ptr %17, align 8
   store i32 524288, ptr %11, align 4
   br label %.loopexit
@@ -165,7 +165,7 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
   br i1 %.not61, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %8, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store i64 1, ptr %21, align 8
   br label %31
 
@@ -175,7 +175,7 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
   br i1 %.not62, label %26, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %8, i64 208
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store i64 2, ptr %25, align 8
   br label %31
 
@@ -185,7 +185,7 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
   br i1 %.not63, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %8, i64 208
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store i64 4, ptr %29, align 8
   br label %31
 
@@ -197,17 +197,17 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
   %32 = tail call i32 @opal_arch_checkmask(ptr noundef nonnull %10, i32 noundef 16384) #11
   %.not64 = icmp eq i32 %32, 0
   %spec.select = select i1 %.not64, i64 4, i64 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 224
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 224
   store i64 %spec.select, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 232
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 232
   store i64 %spec.select, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %31, %45
   %indvars.iv = phi i64 [ 4, %31 ], [ %indvars.iv.next, %45 ]
-  %36 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds [28 x i64], ptr @opal_datatype_local_sizes, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [28 x i64], ptr @opal_datatype_local_sizes, i64 0, i64 %indvars.iv
   %39 = load i64, ptr %38, align 8
   %.not67 = icmp eq i64 %37, %39
   br i1 %.not67, label %45, label %40
@@ -234,7 +234,7 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
 .preheader:                                       ; preds = %46, %.preheader
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %.preheader ], [ 4, %46 ]
   %.072 = phi i32 [ %.1, %.preheader ], [ 0, %46 ]
-  %49 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv77
+  %49 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv77
   %50 = load i64, ptr %49, align 8
   %51 = icmp ugt i64 %50, 1
   %52 = trunc nuw nsw i64 %indvars.iv77 to i32
@@ -254,7 +254,7 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
 
 59:                                               ; preds = %55, %46
   %60 = tail call noalias dereferenceable_or_null(224) ptr @malloc(i64 noundef 224) #12
-  %61 = getelementptr inbounds i8, ptr %8, i64 248
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 248
   store ptr %60, ptr %61, align 8
   br label %62
 
@@ -266,9 +266,9 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
   %66 = and i32 %63, %65
   %.not66 = icmp eq i32 %66, 0
   %67 = load ptr, ptr %61, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv81
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv81
   %opal_datatype_copy_functions.opal_datatype_heterogeneous_copy_functions = select i1 %.not66, ptr @opal_datatype_copy_functions, ptr @opal_datatype_heterogeneous_copy_functions
-  %69 = getelementptr inbounds [28 x ptr], ptr %opal_datatype_copy_functions.opal_datatype_heterogeneous_copy_functions, i64 0, i64 %indvars.iv81
+  %69 = getelementptr inbounds nuw [28 x ptr], ptr %opal_datatype_copy_functions.opal_datatype_heterogeneous_copy_functions, i64 0, i64 %indvars.iv81
   %70 = load ptr, ptr %69, align 8
   store ptr %70, ptr %68, align 8
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
@@ -309,9 +309,9 @@ define noundef ptr @opal_convertor_create(i32 noundef %0, i32 noundef %1) local_
 
 9:                                                ; preds = %8
   store ptr @opal_convertor_t_class, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile i32 1, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i.i = icmp eq ptr %12, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -320,52 +320,52 @@ define noundef ptr @opal_convertor_create(i32 noundef %0, i32 noundef %1) local_
   %13 = phi ptr [ %15, %.lr.ph.i.i ], [ %12, %9 ]
   %.07.i.i = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %9 ]
   tail call void %13(ptr noundef nonnull %4) #11
-  %14 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !10
 
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %8, %9
   %16 = tail call ptr @opal_convertor_find_or_create_master(i32 noundef %0)
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %4, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %16, ptr %22, align 8
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @opal_convertor_pack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 134217728
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %9, align 8
   store i32 0, ptr %2, align 4
   store i64 0, ptr %3, align 8
   br label %69
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = and i32 %6, 1048576
   %.not66 = icmp eq i32 %12, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br i1 %.not66, label %65, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load i64, ptr %16, align 8
   %18 = sub i64 %15, %17
   store i64 %18, ptr %3, align 8
@@ -374,24 +374,24 @@ define i32 @opal_convertor_pack(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not80, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %16, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %23, i64 %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 264
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %30
 
 30:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %.079 = phi i64 [ %18, %.lr.ph ], [ %43, %41 ]
   %.07277 = phi ptr [ %28, %.lr.ph ], [ %44, %41 ]
-  %31 = getelementptr inbounds %struct.iovec, ptr %1, i64 %indvars.iv
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %31 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8
   %.not67 = icmp ult i64 %33, %.079
   br i1 %.not67, label %34, label %52
@@ -462,7 +462,7 @@ define i32 @opal_convertor_pack(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %69
 
 65:                                               ; preds = %10
-  %66 = getelementptr inbounds i8, ptr %0, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i32 %67(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #11
   br label %69
@@ -474,30 +474,30 @@ define i32 @opal_convertor_pack(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 ; Function Attrs: nounwind uwtable
 define i32 @opal_convertor_unpack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 134217728
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %9, align 8
   store i32 0, ptr %2, align 4
   store i64 0, ptr %3, align 8
   br label %61
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = and i32 %6, 1048576
   %.not56 = icmp eq i32 %12, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br i1 %.not56, label %57, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load i64, ptr %16, align 8
   %18 = sub i64 %15, %17
   store i64 %18, ptr %3, align 8
@@ -506,24 +506,24 @@ define i32 @opal_convertor_unpack(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not68, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %16, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %23, i64 %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 264
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %30
 
 30:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %.067 = phi i64 [ %18, %.lr.ph ], [ %39, %34 ]
   %.06065 = phi ptr [ %28, %.lr.ph ], [ %40, %34 ]
-  %31 = getelementptr inbounds %struct.iovec, ptr %1, i64 %indvars.iv
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %31 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8
   %.not57 = icmp ult i64 %33, %.067
   br i1 %.not57, label %34, label %48
@@ -571,7 +571,7 @@ define i32 @opal_convertor_unpack(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %61
 
 57:                                               ; preds = %10
-  %58 = getelementptr inbounds i8, ptr %0, i64 88
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 %59(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #11
   br label %61
@@ -583,7 +583,7 @@ define i32 @opal_convertor_unpack(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 ; Function Attrs: nounwind uwtable
 define i32 @opal_convertor_set_position_nocheck(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 16
   %.not = icmp eq i32 %5, 0
@@ -591,32 +591,32 @@ define i32 @opal_convertor_set_position_nocheck(ptr noundef %0, ptr noundef %1) 
   br i1 %.not, label %49, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = udiv i64 %6, %17
-  %19 = getelementptr inbounds i8, ptr %9, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %22 = load i64, ptr %21, align 8
   %23 = sub nsw i64 %20, %22
-  %24 = getelementptr inbounds i8, ptr %11, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i16 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load i64, ptr %25, align 8
   %27 = sub i64 %26, %18
-  %28 = getelementptr inbounds i8, ptr %11, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %27, ptr %28, align 8
   store i32 -1, ptr %11, align 8
   %29 = mul i64 %23, %18
-  %30 = getelementptr inbounds i8, ptr %11, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %29, ptr %30, align 8
   %31 = load i64, ptr %16, align 8
   %32 = urem i64 %6, %31
@@ -624,16 +624,16 @@ define i32 @opal_convertor_set_position_nocheck(ptr noundef %0, ptr noundef %1) 
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %7
-  %35 = getelementptr inbounds i8, ptr %15, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %36 = load i16, ptr %35, align 2
-  %37 = getelementptr inbounds i8, ptr %11, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i16 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %15, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %39 = load i64, ptr %38, align 8
   br label %opal_convertor_create_stack_with_pos_contig.exit
 
 40:                                               ; preds = %7
-  %41 = getelementptr inbounds i8, ptr %11, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i16 9, ptr %41, align 4
   %42 = load i64, ptr %16, align 8
   %43 = sub i64 %42, %32
@@ -641,15 +641,15 @@ define i32 @opal_convertor_set_position_nocheck(ptr noundef %0, ptr noundef %1) 
 
 opal_convertor_create_stack_with_pos_contig.exit: ; preds = %34, %40
   %.sink.i = phi i64 [ %39, %34 ], [ %43, %40 ]
-  %44 = getelementptr inbounds i8, ptr %11, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i64 %.sink.i, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %11, i64 24
-  %46 = getelementptr inbounds i8, ptr %11, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 %32, ptr %46, align 8
   store i32 0, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 120
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %6, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 1, ptr %48, align 8
   br label %101
 
@@ -658,63 +658,63 @@ opal_convertor_create_stack_with_pos_contig.exit: ; preds = %34, %40
   br i1 %50, label %55, label %51
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %0, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %53 = load i64, ptr %52, align 8
   %54 = icmp ult i64 %6, %53
   br i1 %54, label %55, label %91
 
 55:                                               ; preds = %51, %49
-  %56 = getelementptr inbounds i8, ptr %0, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 104
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 1, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   store i32 -1, ptr %57, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %57, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i64 %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %57, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %57, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i16 0, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %57, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i32 0, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %57, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %57, i64 40
   store i64 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %61, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %72 = load i16, ptr %71, align 2
   %73 = icmp eq i16 %72, 0
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %55
-  %75 = getelementptr inbounds i8, ptr %61, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %76 = load i32, ptr %75, align 8
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %57, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store i64 %77, ptr %78, align 8
   br label %opal_convertor_create_stack_at_begining.exit
 
 79:                                               ; preds = %55
-  %80 = getelementptr inbounds i8, ptr %61, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds i8, ptr %61, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = mul i64 %84, %82
-  %86 = getelementptr inbounds i8, ptr %57, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store i64 %85, ptr %86, align 8
   %87 = load i16, ptr %71, align 2
   br label %opal_convertor_create_stack_at_begining.exit
 
 opal_convertor_create_stack_at_begining.exit:     ; preds = %74, %79
   %.sink.i21 = phi i16 [ 0, %74 ], [ %87, %79 ]
-  %88 = getelementptr inbounds i8, ptr %57, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %57, i64 28
   store i16 %.sink.i21, ptr %88, align 4
   %89 = load i64, ptr %1, align 8
   %90 = icmp eq i64 %89, 0
@@ -728,14 +728,14 @@ opal_convertor_create_stack_at_begining.exit:     ; preds = %74, %79
   br i1 %.not20, label %._crit_edge, label %95
 
 ._crit_edge:                                      ; preds = %91
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 120
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %101
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %0, i64 112
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 120
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %99 = load i64, ptr %98, align 8
   %100 = sub i64 %99, %97
   store i64 %100, ptr %98, align 8
@@ -757,24 +757,24 @@ declare i32 @opal_convertor_generic_simple_position(ptr noundef, ptr noundef) lo
 
 ; Function Attrs: nounwind uwtable
 define i64 @opal_convertor_compute_remote_size(ptr nocapture noundef initializes((32, 40)) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, %8
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %31, label %14
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, -524289
   store i32 %17, ptr %15, align 4
@@ -783,8 +783,8 @@ define i64 @opal_convertor_compute_remote_size(ptr nocapture noundef initializes
   br i1 %.not17, label %22, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %3, i64 144
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %20, ptr %21, align 8
   br label %22
 
@@ -794,9 +794,9 @@ define i64 @opal_convertor_compute_remote_size(ptr nocapture noundef initializes
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %10, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %27 = tail call i64 @opal_datatype_compute_remote_size(ptr noundef nonnull %3, ptr noundef nonnull %26) #11
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load i64, ptr %28, align 8
   %30 = mul i64 %29, %27
   store i64 %30, ptr %6, align 8
@@ -804,7 +804,7 @@ define i64 @opal_convertor_compute_remote_size(ptr nocapture noundef initializes
 
 31:                                               ; preds = %22, %25, %1
   %32 = phi i64 [ %5, %22 ], [ %30, %25 ], [ %5, %1 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load i32, ptr %33, align 4
   %35 = or i32 %34, 536870912
   store i32 %35, ptr %33, align 4
@@ -817,7 +817,7 @@ declare i64 @opal_datatype_compute_remote_size(ptr noundef, ptr noundef) local_u
 define noundef i32 @opal_convertor_prepare_for_recv(ptr nocapture noundef initializes((24, 64), (72, 80), (120, 128)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = or i32 %8, 131072
   store i32 %9, ptr %7, align 4
@@ -829,7 +829,7 @@ define noundef i32 @opal_convertor_prepare_for_recv(ptr nocapture noundef initia
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i64 0, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 264
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr @opal_convertor_accelerator_memcpy, ptr %12, align 8
   %13 = load ptr, ptr @opal_accelerator, align 8
   %14 = call i32 %13(ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
@@ -860,21 +860,21 @@ opal_convertor_accelerator_init.exit:             ; preds = %19, %22
   br label %25
 
 25:                                               ; preds = %opal_convertor_accelerator_init.exit, %4
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = mul i64 %27, %2
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %3, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %2, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 168
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %34, ptr %35, align 8
   %36 = icmp eq i64 %2, 0
   br i1 %36, label %..critedge_crit_edge, label %37
@@ -899,15 +899,15 @@ opal_convertor_accelerator_init.exit:             ; preds = %19, %22
 42:                                               ; preds = %37
   %43 = and i32 %.pre60, 285147136
   store i32 %43, ptr %7, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load i16, ptr %44, align 8
   %46 = zext i16 %45 to i32
   %47 = or disjoint i32 %43, %46
   %48 = or i32 %47, 1572864
   store i32 %48, ptr %7, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %28, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = load i32, ptr @opal_local_arch, align 4
   %53 = icmp eq i32 %51, %52
@@ -929,11 +929,11 @@ opal_convertor_accelerator_init.exit:             ; preds = %19, %22
   br i1 %or.cond, label %138, label %61
 
 61:                                               ; preds = %57, %42
-  %62 = getelementptr inbounds i8, ptr %1, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, %63
   %.not.i56 = icmp eq i32 %68, 0
@@ -947,12 +947,12 @@ opal_convertor_accelerator_init.exit:             ; preds = %19, %22
   br i1 %.not17.i, label %74, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %1, i64 144
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %73, ptr %35, align 8
   br label %74
 
 74:                                               ; preds = %72, %69
-  %75 = getelementptr inbounds i8, ptr %65, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %76 = call i64 @opal_datatype_compute_remote_size(ptr noundef nonnull %1, ptr noundef nonnull %75) #11
   %77 = load i64, ptr %31, align 8
   %78 = mul i64 %77, %76
@@ -971,16 +971,16 @@ opal_convertor_compute_remote_size.exit:          ; preds = %61, %74
 82:                                               ; preds = %opal_convertor_compute_remote_size.exit
   %83 = and i32 %80, -1048577
   store i32 %83, ptr %7, align 4
-  %84 = getelementptr inbounds i8, ptr %1, i64 76
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, 1
-  %87 = getelementptr inbounds i8, ptr %0, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %88 = load i32, ptr %87, align 8
   %89 = icmp ugt i32 %86, %88
   br i1 %89, label %90, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %82
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 80
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre58 = load ptr, ptr %.phi.trans.insert, align 8
   br label %95
 
@@ -989,59 +989,59 @@ opal_convertor_compute_remote_size.exit:          ; preds = %61, %74
   %91 = zext i32 %86 to i64
   %92 = mul nuw nsw i64 %91, 24
   %93 = call noalias ptr @malloc(i64 noundef %92) #12
-  %94 = getelementptr inbounds i8, ptr %0, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %93, ptr %94, align 8
   br label %95
 
 95:                                               ; preds = %._crit_edge, %90
   %96 = phi ptr [ %.pre58, %._crit_edge ], [ %93, %90 ]
   %97 = load ptr, ptr %35, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 104
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 1, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 112
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
   store i32 -1, ptr %96, align 8
   %102 = load i64, ptr %31, align 8
-  %103 = getelementptr inbounds i8, ptr %96, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 %102, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %96, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store i64 0, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %96, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i16 0, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %96, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %96, i64 24
   store i32 0, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %96, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %96, i64 40
   store i64 0, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %99, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 2
   %109 = load i16, ptr %108, align 2
   %110 = icmp eq i16 %109, 0
   br i1 %110, label %111, label %116
 
 111:                                              ; preds = %95
-  %112 = getelementptr inbounds i8, ptr %99, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %113 = load i32, ptr %112, align 8
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr %96, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store i64 %114, ptr %115, align 8
   br label %opal_convertor_create_stack_at_begining.exit
 
 116:                                              ; preds = %95
-  %117 = getelementptr inbounds i8, ptr %99, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %118 = load i32, ptr %117, align 4
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds i8, ptr %99, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %121 = load i64, ptr %120, align 8
   %122 = mul i64 %121, %119
-  %123 = getelementptr inbounds i8, ptr %96, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store i64 %122, ptr %123, align 8
   %124 = load i16, ptr %108, align 2
   br label %opal_convertor_create_stack_at_begining.exit
 
 opal_convertor_create_stack_at_begining.exit:     ; preds = %111, %116
   %.sink.i = phi i16 [ 0, %111 ], [ %124, %116 ]
-  %125 = getelementptr inbounds i8, ptr %96, i64 28
+  %125 = getelementptr inbounds nuw i8, ptr %96, i64 28
   store i16 %.sink.i, ptr %125, align 4
   %126 = load i32, ptr %7, align 4
   %127 = and i32 %126, 524288
@@ -1049,17 +1049,17 @@ opal_convertor_create_stack_at_begining.exit:     ; preds = %111, %116
   br i1 %.not52, label %128, label %130
 
 128:                                              ; preds = %opal_convertor_create_stack_at_begining.exit
-  %129 = getelementptr inbounds i8, ptr %0, i64 88
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @opal_unpack_general, ptr %129, align 8
   br label %138
 
 130:                                              ; preds = %opal_convertor_create_stack_at_begining.exit
   %131 = load ptr, ptr %32, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load i16, ptr %132, align 8
   %134 = and i16 %133, 16
   %.not53 = icmp eq i16 %134, 0
-  %135 = getelementptr inbounds i8, ptr %0, i64 88
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br i1 %.not53, label %137, label %136
 
 136:                                              ; preds = %130
@@ -1084,7 +1084,7 @@ declare i32 @opal_generic_simple_unpack(ptr noundef, ptr noundef, ptr noundef, p
 define noundef i32 @opal_convertor_prepare_for_send(ptr nocapture noundef initializes((24, 64), (72, 80), (120, 128)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = or i32 %8, 262144
   store i32 %9, ptr %7, align 4
@@ -1096,7 +1096,7 @@ define noundef i32 @opal_convertor_prepare_for_send(ptr nocapture noundef initia
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i64 0, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 264
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr @opal_convertor_accelerator_memcpy, ptr %12, align 8
   %13 = load ptr, ptr @opal_accelerator, align 8
   %14 = call i32 %13(ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
@@ -1127,21 +1127,21 @@ opal_convertor_accelerator_init.exit:             ; preds = %19, %22
   br label %25
 
 25:                                               ; preds = %opal_convertor_accelerator_init.exit, %4
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = mul i64 %27, %2
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %3, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %2, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 168
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %34, ptr %35, align 8
   %36 = icmp eq i64 %2, 0
   br i1 %36, label %..critedge_crit_edge, label %37
@@ -1166,15 +1166,15 @@ opal_convertor_accelerator_init.exit:             ; preds = %19, %22
 42:                                               ; preds = %37
   %43 = and i32 %.pre64, 285147136
   store i32 %43, ptr %7, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load i16, ptr %44, align 8
   %46 = zext i16 %45 to i32
   %47 = or disjoint i32 %43, %46
   %48 = or i32 %47, 1572864
   store i32 %48, ptr %7, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %28, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = load i32, ptr @opal_local_arch, align 4
   %53 = icmp eq i32 %51, %52
@@ -1196,11 +1196,11 @@ opal_convertor_accelerator_init.exit:             ; preds = %19, %22
   br i1 %or.cond, label %151, label %61
 
 61:                                               ; preds = %57, %42
-  %62 = getelementptr inbounds i8, ptr %1, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, %63
   %.not.i60 = icmp eq i32 %68, 0
@@ -1214,12 +1214,12 @@ opal_convertor_accelerator_init.exit:             ; preds = %19, %22
   br i1 %.not17.i, label %74, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %1, i64 144
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %73, ptr %35, align 8
   br label %74
 
 74:                                               ; preds = %72, %69
-  %75 = getelementptr inbounds i8, ptr %65, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %76 = call i64 @opal_datatype_compute_remote_size(ptr noundef nonnull %1, ptr noundef nonnull %75) #11
   %77 = load i64, ptr %31, align 8
   %78 = mul i64 %77, %76
@@ -1238,16 +1238,16 @@ opal_convertor_compute_remote_size.exit:          ; preds = %61, %74
 82:                                               ; preds = %opal_convertor_compute_remote_size.exit
   %83 = and i32 %80, -1048577
   store i32 %83, ptr %7, align 4
-  %84 = getelementptr inbounds i8, ptr %1, i64 76
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, 1
-  %87 = getelementptr inbounds i8, ptr %0, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %88 = load i32, ptr %87, align 8
   %89 = icmp ugt i32 %86, %88
   br i1 %89, label %90, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %82
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 80
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre62 = load ptr, ptr %.phi.trans.insert, align 8
   br label %95
 
@@ -1256,59 +1256,59 @@ opal_convertor_compute_remote_size.exit:          ; preds = %61, %74
   %91 = zext i32 %86 to i64
   %92 = mul nuw nsw i64 %91, 24
   %93 = call noalias ptr @malloc(i64 noundef %92) #12
-  %94 = getelementptr inbounds i8, ptr %0, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %93, ptr %94, align 8
   br label %95
 
 95:                                               ; preds = %._crit_edge, %90
   %96 = phi ptr [ %.pre62, %._crit_edge ], [ %93, %90 ]
   %97 = load ptr, ptr %35, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 104
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 1, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 112
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
   store i32 -1, ptr %96, align 8
   %102 = load i64, ptr %31, align 8
-  %103 = getelementptr inbounds i8, ptr %96, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 %102, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %96, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store i64 0, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %96, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i16 0, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %96, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %96, i64 24
   store i32 0, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %96, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %96, i64 40
   store i64 0, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %99, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 2
   %109 = load i16, ptr %108, align 2
   %110 = icmp eq i16 %109, 0
   br i1 %110, label %111, label %116
 
 111:                                              ; preds = %95
-  %112 = getelementptr inbounds i8, ptr %99, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %113 = load i32, ptr %112, align 8
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr %96, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store i64 %114, ptr %115, align 8
   br label %opal_convertor_create_stack_at_begining.exit
 
 116:                                              ; preds = %95
-  %117 = getelementptr inbounds i8, ptr %99, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %118 = load i32, ptr %117, align 4
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds i8, ptr %99, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %121 = load i64, ptr %120, align 8
   %122 = mul i64 %121, %119
-  %123 = getelementptr inbounds i8, ptr %96, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store i64 %122, ptr %123, align 8
   %124 = load i16, ptr %108, align 2
   br label %opal_convertor_create_stack_at_begining.exit
 
 opal_convertor_create_stack_at_begining.exit:     ; preds = %111, %116
   %.sink.i = phi i16 [ 0, %111 ], [ %124, %116 ]
-  %125 = getelementptr inbounds i8, ptr %96, i64 28
+  %125 = getelementptr inbounds nuw i8, ptr %96, i64 28
   store i16 %.sink.i, ptr %125, align 4
   %126 = load i32, ptr %7, align 4
   %127 = and i32 %126, 589824
@@ -1316,7 +1316,7 @@ opal_convertor_create_stack_at_begining.exit:     ; preds = %111, %116
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %opal_convertor_create_stack_at_begining.exit
-  %130 = getelementptr inbounds i8, ptr %0, i64 88
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @opal_pack_general, ptr %130, align 8
   br label %151
 
@@ -1327,9 +1327,9 @@ opal_convertor_create_stack_at_begining.exit:     ; preds = %111, %116
   br i1 %.not57, label %149, label %134
 
 134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %1, i64 56
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %136 = load i64, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %1, i64 48
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %138 = load i64, ptr %137, align 8
   %139 = sub nsw i64 %136, %138
   %140 = load i64, ptr %26, align 8
@@ -1342,17 +1342,17 @@ opal_convertor_create_stack_at_begining.exit:     ; preds = %111, %116
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %142, %134
-  %146 = getelementptr inbounds i8, ptr %0, i64 88
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @opal_pack_homogeneous_contig, ptr %146, align 8
   br label %151
 
 147:                                              ; preds = %142
-  %148 = getelementptr inbounds i8, ptr %0, i64 88
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @opal_pack_homogeneous_contig_with_gaps, ptr %148, align 8
   br label %151
 
 149:                                              ; preds = %131
-  %150 = getelementptr inbounds i8, ptr %0, i64 88
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @opal_generic_simple_pack, ptr %150, align 8
   br label %151
 
@@ -1370,47 +1370,47 @@ declare i32 @opal_generic_simple_pack(ptr noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noundef i32 @opal_convertor_clone(ptr nocapture noundef readonly %0, ptr noundef initializes((16, 64), (72, 80), (88, 104)) %1, i32 noundef %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load i32, ptr %34, align 8
   %36 = icmp ugt i32 %35, 5
   br i1 %36, label %37, label %41
@@ -1422,70 +1422,70 @@ define noundef i32 @opal_convertor_clone(ptr nocapture noundef readonly %0, ptr 
   br label %43
 
 41:                                               ; preds = %3
-  %42 = getelementptr inbounds i8, ptr %1, i64 144
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 144
   br label %43
 
 43:                                               ; preds = %41, %37
   %44 = phi ptr [ %40, %37 ], [ %42, %41 ]
-  %45 = getelementptr inbounds i8, ptr %1, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %44, ptr %45, align 8
   %46 = load i32, ptr %34, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %46, ptr %47, align 8
   %48 = icmp eq i32 %2, 0
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %1, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 -1, ptr %50, align 8
   br label %63
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %0, i64 80
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %55 = load i32, ptr %54, align 8
   %56 = add i32 %55, 1
   %57 = zext i32 %56 to i64
   %58 = mul nuw nsw i64 %57, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %53, i64 %58, i1 false)
-  %59 = getelementptr inbounds i8, ptr %0, i64 120
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 120
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 %60, ptr %61, align 8
   %62 = load i32, ptr %54, align 8
   br label %63
 
 63:                                               ; preds = %51, %49
   %.sink38 = phi i32 [ -1, %49 ], [ %62, %51 ]
-  %64 = getelementptr inbounds i8, ptr %1, i64 104
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i32 %.sink38, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 264
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 264
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store ptr %66, ptr %67, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define void @opal_convertor_dump(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = load i32, ptr @opal_local_arch, align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %0, i64 noundef %3, i32 noundef %5, i64 noundef %7, i64 noundef %9, i64 noundef %11, i32 noundef %13, i32 noundef %15, i64 noundef %17, i32 noundef %19, i32 noundef %20) #11
@@ -1581,7 +1581,7 @@ define void @opal_convertor_dump(ptr noundef %0) local_unnamed_addr #2 {
   br label %54
 
 54:                                               ; preds = %53, %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load ptr, ptr %55, align 8
   tail call void @opal_datatype_dump(ptr noundef %56) #11
   %57 = load i32, ptr %4, align 8
@@ -1589,25 +1589,25 @@ define void @opal_convertor_dump(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %58, label %59, label %68
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %0, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %61, align 8
   %63 = sext i32 %62 to i64
   %64 = load ptr, ptr %55, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 144
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 144
   %66 = load i64, ptr %65, align 8
   %67 = icmp ult i64 %66, %63
   br i1 %67, label %76, label %68
 
 68:                                               ; preds = %59, %54
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.13) #11
-  %69 = getelementptr inbounds i8, ptr %0, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %4, align 8
   %72 = load ptr, ptr %55, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 160
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 160
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 80
   tail call void @opal_datatype_dump_stack(ptr noundef %70, i32 noundef %71, ptr noundef %74, ptr noundef nonnull %75)
   br label %76
 
@@ -1629,11 +1629,11 @@ define void @opal_datatype_dump_stack(ptr noundef %0, i32 noundef %1, ptr nocapt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %7 = getelementptr inbounds %struct.dt_stack_t, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.dt_stack_t, ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.15, i32 noundef %13, i32 noundef %8, i64 noundef %10, i64 noundef %12) #11
@@ -1645,12 +1645,12 @@ define void @opal_datatype_dump_stack(ptr noundef %0, i32 noundef %1, ptr nocapt
   %16 = load i32, ptr %7, align 8
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds %union.dt_elem_desc, ptr %2, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %25 = load i64, ptr %24, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.16, i64 noundef %21, i64 noundef %23, i64 noundef %25) #11
   br label %27
@@ -1671,7 +1671,7 @@ define void @opal_datatype_dump_stack(ptr noundef %0, i32 noundef %1, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @opal_convertor_accelerator_memcpy(ptr noundef returned %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 4194304
   %.not = icmp eq i32 %7, 0

@@ -27,7 +27,7 @@ $_ZNSt6vectorIcSaIcEE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKcS1_EEOc 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5boost6nowide6detail26console_output_buffer_base4syncEv(ptr noundef nonnull align 8 dereferenceable(5184) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %2, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(5184) %0, i32 noundef -1)
   ret i32 %5
@@ -52,7 +52,7 @@ define noundef range(i32 -1, 1) i32 @_ZN5boost6nowide6detail26console_output_buf
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %8, ptr %3, align 8, !tbaa !12
   %15 = and i64 %11, 2147483647
-  %16 = getelementptr inbounds i8, ptr %8, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %15
   %17 = icmp samesign ugt i32 %12, 1024
   br i1 %17, label %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit.thread, label %18
 
@@ -90,7 +90,7 @@ define noundef range(i32 -1, 1) i32 @_ZN5boost6nowide6detail26console_output_buf
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 2
   %34 = load ptr, ptr %0, align 8, !tbaa !3
-  %35 = getelementptr inbounds i8, ptr %34, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(5184) %0, ptr noundef nonnull %19, i64 noundef %33, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
@@ -118,7 +118,7 @@ _ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit: ; preds = %
 41:                                               ; preds = %39
   %42 = load ptr, ptr %7, align 8, !tbaa !11
   %43 = zext nneg i32 %.0 to i64
-  %44 = getelementptr inbounds i8, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 %43
   %45 = sub nsw i32 %12, %.0
   %46 = sext i32 %45 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %42, ptr align 1 %44, i64 %46, i1 false)
@@ -127,8 +127,8 @@ _ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit: ; preds = %
 47:                                               ; preds = %._crit_edge, %41
   %.pre-phi19 = phi i64 [ %.pre18, %._crit_edge ], [ %46, %41 ]
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %45, %41 ]
-  %.ptr = getelementptr inbounds i8, ptr %0, i64 64
-  %48 = getelementptr inbounds i8, ptr %0, i64 1088
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store ptr %.ptr, ptr %7, align 8, !tbaa !11
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %48, ptr %49, align 8, !tbaa !19
@@ -146,14 +146,14 @@ _ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit: ; preds = %
   %54 = trunc i32 %1 to i8
   store i8 %54, ptr %.ptr15, align 1, !tbaa !21
   %55 = load ptr, ptr %5, align 8, !tbaa !6
-  %56 = getelementptr inbounds i8, ptr %55, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   store ptr %56, ptr %5, align 8, !tbaa !6
   br label %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
 
 57:                                               ; preds = %51
   %58 = and i32 %1, 255
   %59 = load ptr, ptr %0, align 8, !tbaa !3
-  %60 = getelementptr inbounds i8, ptr %59, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 104
   %61 = load ptr, ptr %60, align 8
   %62 = call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %58)
   br label %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
@@ -211,7 +211,7 @@ define noundef i32 @_ZN5boost6nowide6detail26console_output_buffer_base5writeEPK
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 2
   %26 = load ptr, ptr %0, align 8, !tbaa !3
-  %27 = getelementptr inbounds i8, ptr %26, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 112
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(5184) %0, ptr noundef nonnull %10, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %.1 = select i1 %29, i32 %.0.lcssa, i32 -1
@@ -511,7 +511,7 @@ define noundef range(i64 -9223372036854775808, 9223372036854775744) i64 @_ZN5boo
   %5 = getelementptr inbounds nuw i32, ptr %.ptr56, i64 %4
   %6 = sub i64 1024, %4
   %7 = load ptr, ptr %0, align 8, !tbaa !3
-  %8 = getelementptr inbounds i8, ptr %7, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load ptr, ptr %8, align 8
   %10 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8289) %0, ptr noundef nonnull %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br i1 %10, label %11, label %90
@@ -522,8 +522,8 @@ define noundef range(i64 -9223372036854775808, 9223372036854775744) i64 @_ZN5boo
   %14 = add i64 %13, %12
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.idx = shl nuw nsw i64 %14, 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %.ptr57 = getelementptr inbounds i8, ptr %15, i64 4160
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %.ptr57 = getelementptr inbounds nuw i8, ptr %15, i64 4160
   %.not50 = icmp eq i64 %14, 0
   br i1 %.not50, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit
 
@@ -640,7 +640,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread: ; preds =
 
 75:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread
   %76 = load ptr, ptr %0, align 8, !tbaa !3
-  %77 = getelementptr inbounds i8, ptr %76, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %78 = load ptr, ptr %77, align 8
   %79 = call noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(8289) %0)
   br label %90

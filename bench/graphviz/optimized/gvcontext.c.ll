@@ -25,11 +25,11 @@ define noalias noundef ptr @gvNEWcontext(ptr noundef %0, i32 noundef %1) local_u
 
 gv_alloc.exit:                                    ; preds = %2
   store ptr @LibInfo, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @agerrorf, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 %1, ptr %10, align 8
   ret ptr %3
 }
@@ -38,7 +38,7 @@ declare void @agerrorf(ptr noundef, ...) #1
 
 ; Function Attrs: nounwind uwtable
 define void @gvFinalize(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 352
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -56,21 +56,21 @@ declare void @gvrender_end_job(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @gvFreeContext(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @emit_once_reset() #12
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not28 = icmp eq ptr %3, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.02329 = phi ptr [ %5, %.lr.ph ], [ %3, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.02329, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.02329, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef nonnull %.02329) #12
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   %.not2630 = icmp eq ptr %7, null
   br i1 %.not2630, label %._crit_edge34, label %.lr.ph33
@@ -78,10 +78,10 @@ define i32 @gvFreeContext(ptr noundef %0) local_unnamed_addr #2 {
 .lr.ph33:                                         ; preds = %._crit_edge, %.lr.ph33
   %.02531 = phi ptr [ %8, %.lr.ph33 ], [ %7, %._crit_edge ]
   %8 = load ptr, ptr %.02531, align 8
-  %9 = getelementptr inbounds i8, ptr %.02531, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.02531, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #12
-  %11 = getelementptr inbounds i8, ptr %.02531, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.02531, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void @free(ptr noundef %12) #12
   tail call void @free(ptr noundef nonnull %.02531) #12
@@ -90,19 +90,19 @@ define i32 @gvFreeContext(ptr noundef %0) local_unnamed_addr #2 {
 
 ._crit_edge34:                                    ; preds = %.lr.ph33, %._crit_edge
   tail call void @gvjobs_delete(ptr noundef %0) #12
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #12
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #12
   tail call void @textfont_dict_close(ptr noundef %0) #12
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %18
 
 18:                                               ; preds = %._crit_edge34, %._crit_edge39
   %.040 = phi i64 [ 0, %._crit_edge34 ], [ %24, %._crit_edge39 ]
-  %19 = getelementptr inbounds [5 x ptr], ptr %17, i64 0, i64 %.040
+  %19 = getelementptr inbounds nuw [5 x ptr], ptr %17, i64 0, i64 %.040
   %20 = load ptr, ptr %19, align 8
   %.not2735 = icmp eq ptr %20, null
   br i1 %.not2735, label %._crit_edge39, label %.lr.ph38
@@ -110,7 +110,7 @@ define i32 @gvFreeContext(ptr noundef %0) local_unnamed_addr #2 {
 .lr.ph38:                                         ; preds = %18, %.lr.ph38
   %.02436 = phi ptr [ %21, %.lr.ph38 ], [ %20, %18 ]
   %21 = load ptr, ptr %.02436, align 8
-  %22 = getelementptr inbounds i8, ptr %.02436, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.02436, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @free(ptr noundef %23) #12
   tail call void @free(ptr noundef nonnull %.02436) #12
@@ -155,15 +155,15 @@ define noalias noundef ptr @gvCloneGVC(ptr nocapture noundef readonly %0) local_
 
 gv_alloc.exit:                                    ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false)
-  %7 = getelementptr inbounds i8, ptr %2, i64 120
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
-  %9 = getelementptr inbounds i8, ptr %2, i64 160
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 200
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store ptr %12, ptr %13, align 8
   ret ptr %2
 }

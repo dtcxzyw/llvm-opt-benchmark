@@ -21,16 +21,16 @@ define i32 @ADIOI_Calc_aggregator(ptr nocapture noundef readonly %0, i64 noundef
   %10 = sdiv i64 %9, %4
   %11 = trunc i64 %10 to i32
   %12 = add i32 %11, -1
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %7, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %7 ]
-  %18 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
   %20 = icmp sgt i64 %1, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -42,7 +42,7 @@ define i32 @ADIOI_Calc_aggregator(ptr nocapture noundef readonly %0, i64 noundef
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %7
   %.0 = phi i32 [ %12, %7 ], [ %21, %.loopexit.loopexit ]
-  %22 = getelementptr inbounds i8, ptr %14, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = icmp sge i32 %.0, %23
   %25 = icmp slt i32 %.0, 0
@@ -71,7 +71,7 @@ define i32 @ADIOI_Calc_aggregator(ptr nocapture noundef readonly %0, i64 noundef
 
 38:                                               ; preds = %37, %30
   %39 = load ptr, ptr %13, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 88
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i32, ptr %41, i64 %31
   %43 = load i32, ptr %42, align 4
@@ -98,10 +98,10 @@ define void @ADIOI_Calc_file_domains(ptr nocapture noundef readonly %0, ptr noca
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0113127 = phi i64 [ %11, %.lr.ph.preheader ], [ %.0113., %.lr.ph ]
   %.0114126 = phi i64 [ %12, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %14 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
   %.0113. = tail call i64 @llvm.smin.i64(i64 %.0113127, i64 %15)
-  %16 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8
   %18 = tail call i64 @llvm.smax.i64(i64 %.0114126, i64 %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -155,7 +155,7 @@ define void @ADIOI_Calc_file_domains(ptr nocapture noundef readonly %0, ptr noca
   %store_forwarded = phi i64 [ %42, %.lr.ph135.preheader ], [ %.1, %57 ]
   %indvars.iv147 = phi i64 [ 1, %.lr.ph135.preheader ], [ %indvars.iv.next148, %57 ]
   %43 = getelementptr i64, ptr %28, i64 %indvars.iv147
-  %44 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv147
+  %44 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv147
   store i64 %store_forwarded, ptr %44, align 8
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %45 = mul nsw i64 %spec.select, %indvars.iv.next148
@@ -207,7 +207,7 @@ define void @ADIOI_Calc_file_domains(ptr nocapture noundef readonly %0, ptr noca
   %indvars.iv142 = phi i64 [ 1, %.lr.ph132.preheader ], [ %indvars.iv.next143, %.lr.ph132 ]
   %65 = getelementptr i64, ptr %28, i64 %indvars.iv142
   %66 = add nsw i64 %store_forwarded158, 1
-  %67 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv142
+  %67 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv142
   store i64 %66, ptr %67, align 8
   %68 = add i64 %store_forwarded158, %spec.select
   store i64 %68, ptr %65, align 8
@@ -225,19 +225,19 @@ define void @ADIOI_Calc_file_domains(ptr nocapture noundef readonly %0, ptr noca
 
 .lr.ph139:                                        ; preds = %.lr.ph139.preheader, %80
   %indvars.iv152 = phi i64 [ 0, %.lr.ph139.preheader ], [ %indvars.iv.next153, %80 ]
-  %70 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv152
+  %70 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv152
   %71 = load i64, ptr %70, align 8
   %72 = icmp sgt i64 %71, %.0114.lcssa
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %.lr.ph139
-  %74 = getelementptr inbounds i64, ptr %28, i64 %indvars.iv152
+  %74 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv152
   store i64 -1, ptr %74, align 8
   store i64 -1, ptr %70, align 8
   br label %75
 
 75:                                               ; preds = %73, %.lr.ph139
-  %76 = getelementptr inbounds i64, ptr %28, i64 %indvars.iv152
+  %76 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv152
   %77 = load i64, ptr %76, align 8
   %78 = icmp sgt i64 %77, %.0114.lcssa
   br i1 %78, label %79, label %80
@@ -281,33 +281,33 @@ define void @ADIOI_Calc_my_req(ptr nocapture noundef readonly %0, ptr nocapture 
 
 .lr.ph213:                                        ; preds = %.preheader205
   %22 = sub i64 %7, %4
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %24
 
 24:                                               ; preds = %.lr.ph213, %.loopexit204
   %indvars.iv = phi i64 [ 0, %.lr.ph213 ], [ %indvars.iv.next, %.loopexit204 ]
-  %25 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %.loopexit204, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %22, %30
   %32 = sdiv i64 %31, %7
   %33 = trunc i64 %32 to i32
   %34 = add i32 %33, -1
   %35 = load ptr, ptr %23, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %28, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %28 ]
-  %39 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i
   %40 = load i64, ptr %39, align 8
   %41 = icmp sgt i64 %30, %40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -319,7 +319,7 @@ define void @ADIOI_Calc_my_req(ptr nocapture noundef readonly %0, ptr nocapture 
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %28
   %.0.i = phi i32 [ %34, %28 ], [ %42, %.loopexit.loopexit.i ]
-  %43 = getelementptr inbounds i8, ptr %35, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %44 = load i32, ptr %43, align 4
   %45 = icmp sge i32 %.0.i, %44
   %46 = icmp slt i32 %.0.i, 0
@@ -341,7 +341,7 @@ ADIOI_Calc_aggregator.exit:                       ; preds = %47, %.loopexit.i
   %reass.sub = sub i64 %54, %30
   %55 = add i64 %reass.sub, 1
   %spec.select = tail call i64 @llvm.smin.i64(i64 %55, i64 %26)
-  %56 = getelementptr inbounds i8, ptr %51, i64 88
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 88
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i32, ptr %57, i64 %52
   %59 = load i32, ptr %58, align 4
@@ -365,14 +365,14 @@ ADIOI_Calc_aggregator.exit:                       ; preds = %47, %.loopexit.i
   %69 = trunc i64 %68 to i32
   %70 = add i32 %69, -1
   %71 = load ptr, ptr %23, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.preheader.i158, label %.loopexit.i154
 
 .preheader.i158:                                  ; preds = %.lr.ph211, %.preheader.i158
   %indvars.iv.i159 = phi i64 [ %indvars.iv.next.i160, %.preheader.i158 ], [ 0, %.lr.ph211 ]
-  %75 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i159
+  %75 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i159
   %76 = load i64, ptr %75, align 8
   %77 = icmp sgt i64 %66, %76
   %indvars.iv.next.i160 = add nuw nsw i64 %indvars.iv.i159, 1
@@ -384,7 +384,7 @@ ADIOI_Calc_aggregator.exit:                       ; preds = %47, %.loopexit.i
 
 .loopexit.i154:                                   ; preds = %.loopexit.loopexit.i161, %.lr.ph211
   %.0.i155 = phi i32 [ %70, %.lr.ph211 ], [ %78, %.loopexit.loopexit.i161 ]
-  %79 = getelementptr inbounds i8, ptr %71, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 20
   %80 = load i32, ptr %79, align 4
   %81 = icmp sge i32 %.0.i155, %80
   %82 = icmp slt i32 %.0.i155, 0
@@ -406,7 +406,7 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
   %reass.sub237 = sub i64 %90, %66
   %91 = add i64 %reass.sub237, 1
   %spec.select197 = tail call i64 @llvm.smin.i64(i64 %91, i64 %.0142209)
-  %92 = getelementptr inbounds i8, ptr %87, i64 88
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 88
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i32, ptr %93, i64 %88
   %95 = load i32, ptr %94, align 4
@@ -442,7 +442,7 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
 .lr.ph217:                                        ; preds = %.lr.ph217.preheader, %.lr.ph217
   %indvars.iv243 = phi i64 [ 0, %.lr.ph217.preheader ], [ %indvars.iv.next244, %.lr.ph217 ]
   %.0144215 = phi i64 [ 0, %.lr.ph217.preheader ], [ %107, %.lr.ph217 ]
-  %104 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv243
+  %104 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv243
   %105 = load i32, ptr %104, align 4
   %106 = sext i32 %105 to i64
   %107 = add i64 %.0144215, %106
@@ -463,7 +463,7 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
 
 .lr.ph235:                                        ; preds = %.preheader
   %110 = sub i64 %7, %4
-  %111 = getelementptr inbounds i8, ptr %0, i64 136
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %wide.trip.count256 = zext nneg i32 %3 to i64
   br label %126
 
@@ -471,18 +471,18 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
   %indvars.iv248 = phi i64 [ 0, %._crit_edge218 ], [ %indvars.iv.next249, %124 ]
   %.0221 = phi i32 [ 0, %._crit_edge218 ], [ %.1, %124 ]
   %.0136220 = phi ptr [ %109, %._crit_edge218 ], [ %.1137, %124 ]
-  %112 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv248
+  %112 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv248
   %113 = load i32, ptr %112, align 4
   %.not152 = icmp eq i32 %113, 0
   br i1 %.not152, label %124, label %114
 
 114:                                              ; preds = %.lr.ph223
-  %115 = getelementptr inbounds %struct.ADIOI_Access, ptr %102, i64 %indvars.iv248
+  %115 = getelementptr inbounds nuw %struct.ADIOI_Access, ptr %102, i64 %indvars.iv248
   store ptr %.0136220, ptr %115, align 8
   %116 = load i32, ptr %112, align 4
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds i64, ptr %.0136220, i64 %117
-  %119 = getelementptr inbounds i8, ptr %115, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr %118, ptr %119, align 8
   %120 = load i32, ptr %112, align 4
   %121 = sext i32 %120 to i64
@@ -493,7 +493,7 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
 124:                                              ; preds = %114, %.lr.ph223
   %.1137 = phi ptr [ %122, %114 ], [ %.0136220, %.lr.ph223 ]
   %.1 = phi i32 [ %123, %114 ], [ %.0221, %.lr.ph223 ]
-  %125 = getelementptr inbounds %struct.ADIOI_Access, ptr %102, i64 %indvars.iv248, i32 3
+  %125 = getelementptr inbounds nuw %struct.ADIOI_Access, ptr %102, i64 %indvars.iv248, i32 3
   store i32 0, ptr %125, align 8
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
@@ -502,27 +502,27 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
 126:                                              ; preds = %.lr.ph235, %.loopexit
   %indvars.iv253 = phi i64 [ 0, %.lr.ph235 ], [ %indvars.iv.next254, %.loopexit ]
   %.0140234 = phi i64 [ 0, %.lr.ph235 ], [ %.1141, %.loopexit ]
-  %127 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv253
+  %127 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv253
   %128 = load i64, ptr %127, align 8
   %129 = icmp eq i64 %128, 0
   br i1 %129, label %.loopexit, label %130
 
 130:                                              ; preds = %126
-  %131 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv253
+  %131 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv253
   %132 = load i64, ptr %131, align 8
   %133 = add i64 %110, %132
   %134 = sdiv i64 %133, %7
   %135 = trunc i64 %134 to i32
   %136 = add i32 %135, -1
   %137 = load ptr, ptr %111, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load i32, ptr %138, align 8
   %140 = icmp sgt i32 %139, 0
   br i1 %140, label %.preheader.i167, label %.loopexit.i163
 
 .preheader.i167:                                  ; preds = %130, %.preheader.i167
   %indvars.iv.i168 = phi i64 [ %indvars.iv.next.i169, %.preheader.i167 ], [ 0, %130 ]
-  %141 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i168
+  %141 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i168
   %142 = load i64, ptr %141, align 8
   %143 = icmp sgt i64 %132, %142
   %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i168, 1
@@ -534,7 +534,7 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
 
 .loopexit.i163:                                   ; preds = %.loopexit.loopexit.i170, %130
   %.0.i164 = phi i32 [ %136, %130 ], [ %144, %.loopexit.loopexit.i170 ]
-  %145 = getelementptr inbounds i8, ptr %137, i64 20
+  %145 = getelementptr inbounds nuw i8, ptr %137, i64 20
   %146 = load i32, ptr %145, align 4
   %147 = icmp sge i32 %.0.i164, %146
   %148 = icmp slt i32 %.0.i164, 0
@@ -556,7 +556,7 @@ ADIOI_Calc_aggregator.exit171:                    ; preds = %149, %.loopexit.i16
   %reass.sub238 = sub i64 %156, %132
   %157 = add i64 %reass.sub238, 1
   %spec.select198 = tail call i64 @llvm.smin.i64(i64 %157, i64 %128)
-  %158 = getelementptr inbounds i8, ptr %153, i64 88
+  %158 = getelementptr inbounds nuw i8, ptr %153, i64 88
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds i32, ptr %159, i64 %154
   %161 = load i32, ptr %160, align 4
@@ -572,7 +572,7 @@ ADIOI_Calc_aggregator.exit171:                    ; preds = %149, %.loopexit.i16
 
 167:                                              ; preds = %166, %ADIOI_Calc_aggregator.exit171
   %168 = getelementptr inbounds %struct.ADIOI_Access, ptr %102, i64 %162
-  %169 = getelementptr inbounds i8, ptr %168, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %170 = load i32, ptr %169, align 8
   %171 = add nsw i64 %spec.select198, %.0140234
   %172 = load i64, ptr %127, align 8
@@ -581,7 +581,7 @@ ADIOI_Calc_aggregator.exit171:                    ; preds = %149, %.loopexit.i16
   %175 = sext i32 %170 to i64
   %176 = getelementptr inbounds i64, ptr %174, i64 %175
   store i64 %132, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %168, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds i64, ptr %178, i64 %175
   store i64 %spec.select198, ptr %179, align 8
@@ -602,14 +602,14 @@ ADIOI_Calc_aggregator.exit171:                    ; preds = %149, %.loopexit.i16
   %185 = trunc i64 %184 to i32
   %186 = add i32 %185, -1
   %187 = load ptr, ptr %111, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load i32, ptr %188, align 8
   %190 = icmp sgt i32 %189, 0
   br i1 %190, label %.preheader.i176, label %.loopexit.i172
 
 .preheader.i176:                                  ; preds = %.lr.ph231, %.preheader.i176
   %indvars.iv.i177 = phi i64 [ %indvars.iv.next.i178, %.preheader.i176 ], [ 0, %.lr.ph231 ]
-  %191 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i177
+  %191 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i177
   %192 = load i64, ptr %191, align 8
   %193 = icmp sgt i64 %182, %192
   %indvars.iv.next.i178 = add nuw nsw i64 %indvars.iv.i177, 1
@@ -621,7 +621,7 @@ ADIOI_Calc_aggregator.exit171:                    ; preds = %149, %.loopexit.i16
 
 .loopexit.i172:                                   ; preds = %.loopexit.loopexit.i179, %.lr.ph231
   %.0.i173 = phi i32 [ %186, %.lr.ph231 ], [ %194, %.loopexit.loopexit.i179 ]
-  %195 = getelementptr inbounds i8, ptr %187, i64 20
+  %195 = getelementptr inbounds nuw i8, ptr %187, i64 20
   %196 = load i32, ptr %195, align 4
   %197 = icmp sge i32 %.0.i173, %196
   %198 = icmp slt i32 %.0.i173, 0
@@ -643,7 +643,7 @@ ADIOI_Calc_aggregator.exit180:                    ; preds = %199, %.loopexit.i17
   %reass.sub239 = sub i64 %206, %182
   %207 = add i64 %reass.sub239, 1
   %spec.select199 = tail call i64 @llvm.smin.i64(i64 %207, i64 %.1143227)
-  %208 = getelementptr inbounds i8, ptr %203, i64 88
+  %208 = getelementptr inbounds nuw i8, ptr %203, i64 88
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds i32, ptr %209, i64 %204
   %211 = load i32, ptr %210, align 4
@@ -659,7 +659,7 @@ ADIOI_Calc_aggregator.exit180:                    ; preds = %199, %.loopexit.i17
 
 217:                                              ; preds = %216, %ADIOI_Calc_aggregator.exit180
   %218 = getelementptr inbounds %struct.ADIOI_Access, ptr %102, i64 %212
-  %219 = getelementptr inbounds i8, ptr %218, i64 24
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %220 = load i32, ptr %219, align 8
   %221 = add nsw i64 %spec.select199, %.2228
   %222 = sub nsw i64 %.1143227, %spec.select199
@@ -667,7 +667,7 @@ ADIOI_Calc_aggregator.exit180:                    ; preds = %199, %.loopexit.i17
   %224 = sext i32 %220 to i64
   %225 = getelementptr inbounds i64, ptr %223, i64 %224
   store i64 %182, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %218, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %227 = load ptr, ptr %226, align 8
   %228 = getelementptr inbounds i64, ptr %227, i64 %224
   store i64 %spec.select199, ptr %228, align 8
@@ -696,7 +696,7 @@ define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 nounde
   %9 = sext i32 %4 to i64
   %10 = shl nsw i64 %9, 2
   %11 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %10, i32 noundef 449, ptr noundef nonnull @.str.1) #6
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @PMPI_Alltoall(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef %11, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef %13) #6
   %15 = shl nsw i64 %9, 5
@@ -712,7 +712,7 @@ define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.089106 = phi i64 [ 0, %.lr.ph.preheader ], [ %21, %.lr.ph ]
-  %18 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = add i64 %.089106, %20
@@ -727,7 +727,7 @@ define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 nounde
   %24 = shl i64 %.089.lcssa, 3
   %25 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %24, i32 noundef 461, ptr noundef nonnull @.str.1) #6
   store ptr %23, ptr %16, align 8
-  %26 = getelementptr inbounds i8, ptr %16, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %25, ptr %26, align 8
   br i1 %17, label %.lr.ph112.preheader, label %._crit_edge113
 
@@ -740,25 +740,25 @@ define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 nounde
   %.0110 = phi ptr [ %25, %.lr.ph112.preheader ], [ %.1, %46 ]
   %.087109 = phi ptr [ %23, %.lr.ph112.preheader ], [ %.188, %46 ]
   %.090108 = phi i32 [ 0, %.lr.ph112.preheader ], [ %.191, %46 ]
-  %27 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv126
+  %27 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv126
   %28 = load i32, ptr %27, align 4
   %.not104 = icmp eq i32 %28, 0
   br i1 %.not104, label %44, label %29
 
 29:                                               ; preds = %.lr.ph112
-  %30 = getelementptr inbounds %struct.ADIOI_Access, ptr %16, i64 %indvars.iv126
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %30 = getelementptr inbounds nuw %struct.ADIOI_Access, ptr %16, i64 %indvars.iv126
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i32 %28, ptr %31, align 8
   store ptr %.087109, ptr %30, align 8
   %32 = load i32, ptr %27, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i64, ptr %.087109, i64 %33
-  %35 = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %34, ptr %35, align 8
   %36 = load i32, ptr %27, align 4
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i64, ptr %34, i64 %37
-  %39 = getelementptr inbounds i8, ptr %30, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %.0110, ptr %39, align 8
   %40 = load i32, ptr %27, align 4
   %41 = sext i32 %40 to i64
@@ -767,7 +767,7 @@ define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 nounde
   br label %46
 
 44:                                               ; preds = %.lr.ph112
-  %45 = getelementptr inbounds %struct.ADIOI_Access, ptr %16, i64 %indvars.iv126, i32 3
+  %45 = getelementptr inbounds nuw %struct.ADIOI_Access, ptr %16, i64 %indvars.iv126, i32 3
   store i32 0, ptr %45, align 8
   br label %46
 
@@ -800,8 +800,8 @@ define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 nounde
 .lr.ph118:                                        ; preds = %.lr.ph118.preheader, %64
   %indvars.iv131 = phi i64 [ 0, %.lr.ph118.preheader ], [ %indvars.iv.next132, %64 ]
   %.094115 = phi i32 [ 0, %.lr.ph118.preheader ], [ %.195, %64 ]
-  %52 = getelementptr inbounds %struct.ADIOI_Access, ptr %16, i64 %indvars.iv131
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %52 = getelementptr inbounds nuw %struct.ADIOI_Access, ptr %16, i64 %indvars.iv131
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load i32, ptr %53, align 8
   %.not103 = icmp eq i32 %54, 0
   br i1 %.not103, label %64, label %55
@@ -827,8 +827,8 @@ define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 nounde
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %77
   %indvars.iv136 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next137, %77 ]
   %.296120 = phi i32 [ %.195, %.lr.ph122.preheader ], [ %.397, %77 ]
-  %65 = getelementptr inbounds %struct.ADIOI_Access, ptr %3, i64 %indvars.iv136
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %65 = getelementptr inbounds nuw %struct.ADIOI_Access, ptr %3, i64 %indvars.iv136
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load i32, ptr %66, align 8
   %.not102 = icmp eq i32 %67, 0
   br i1 %.not102, label %77, label %68
@@ -877,27 +877,27 @@ declare i32 @PMPI_Waitall(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @ADIOI_Icalc_others_req(ptr nocapture noundef initializes((24, 28)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 2
   %9 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %8, i32 noundef 535, ptr noundef nonnull @.str.1) #6
-  %10 = getelementptr inbounds i8, ptr %4, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @MPI_Ialltoall(ptr noundef %12, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef %9, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef %16, ptr noundef %4) #6
   store i32 %17, ptr %1, align 4
   %18 = load i32, ptr %0, align 8
   %19 = icmp eq i32 %18, 26
   %spec.select = select i1 %19, i32 2, i32 3
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %spec.select, ptr %20, align 8
   ret void
 }
@@ -906,21 +906,21 @@ declare i32 @MPI_Ialltoall(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i
 
 ; Function Attrs: nounwind uwtable
 define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 60
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %12 to i64
   %20 = shl nsw i64 %19, 5
@@ -936,7 +936,7 @@ define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.094110 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %.lr.ph ]
-  %23 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = add i64 %.094110, %25
@@ -951,7 +951,7 @@ define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture
   %29 = shl i64 %.094.lcssa, 3
   %30 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %29, i32 noundef 582, ptr noundef nonnull @.str.1) #6
   store ptr %28, ptr %21, align 8
-  %31 = getelementptr inbounds i8, ptr %21, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %30, ptr %31, align 8
   br i1 %22, label %.lr.ph116.preheader, label %._crit_edge117
 
@@ -964,25 +964,25 @@ define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture
   %.0114 = phi ptr [ %30, %.lr.ph116.preheader ], [ %.1, %51 ]
   %.092113 = phi ptr [ %28, %.lr.ph116.preheader ], [ %.193, %51 ]
   %.095112 = phi i32 [ 0, %.lr.ph116.preheader ], [ %.196, %51 ]
-  %32 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv130
+  %32 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv130
   %33 = load i32, ptr %32, align 4
   %.not108 = icmp eq i32 %33, 0
   br i1 %.not108, label %49, label %34
 
 34:                                               ; preds = %.lr.ph116
-  %35 = getelementptr inbounds %struct.ADIOI_Access, ptr %21, i64 %indvars.iv130
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %35 = getelementptr inbounds nuw %struct.ADIOI_Access, ptr %21, i64 %indvars.iv130
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i32 %33, ptr %36, align 8
   store ptr %.092113, ptr %35, align 8
   %37 = load i32, ptr %32, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i64, ptr %.092113, i64 %38
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %39, ptr %40, align 8
   %41 = load i32, ptr %32, align 4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i64, ptr %39, i64 %42
-  %44 = getelementptr inbounds i8, ptr %35, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %.0114, ptr %44, align 8
   %45 = load i32, ptr %32, align 4
   %46 = sext i32 %45 to i64
@@ -991,7 +991,7 @@ define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture
   br label %51
 
 49:                                               ; preds = %.lr.ph116
-  %50 = getelementptr inbounds %struct.ADIOI_Access, ptr %21, i64 %indvars.iv130, i32 3
+  %50 = getelementptr inbounds nuw %struct.ADIOI_Access, ptr %21, i64 %indvars.iv130, i32 3
   store i32 0, ptr %50, align 8
   br label %51
 
@@ -1005,7 +1005,7 @@ define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture
 
 ._crit_edge117:                                   ; preds = %51, %._crit_edge
   %.095.lcssa = phi i32 [ 0, %._crit_edge ], [ %.196, %51 ]
-  %52 = getelementptr inbounds i8, ptr %4, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i32 %.095.lcssa, ptr %52, align 8
   %53 = add nsw i32 %.095.lcssa, %8
   %54 = shl nsw i32 %53, 1
@@ -1013,25 +1013,25 @@ define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture
   %56 = shl nsw i64 %55, 3
   %57 = or disjoint i64 %56, 1
   %58 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %57, i32 noundef 606, ptr noundef nonnull @.str.1) #6
-  %59 = getelementptr inbounds i8, ptr %4, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %58, ptr %59, align 8
   br i1 %22, label %.lr.ph122, label %._crit_edge127
 
 .lr.ph122:                                        ; preds = %._crit_edge117
-  %60 = getelementptr inbounds i8, ptr %6, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %wide.trip.count138 = zext nneg i32 %12 to i64
   br label %62
 
 .lr.ph126:                                        ; preds = %76
-  %61 = getelementptr inbounds i8, ptr %6, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %wide.trip.count143 = zext nneg i32 %12 to i64
   br label %77
 
 62:                                               ; preds = %.lr.ph122, %76
   %indvars.iv135 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next136, %76 ]
   %.097120 = phi i32 [ 0, %.lr.ph122 ], [ %.198, %76 ]
-  %63 = getelementptr inbounds %struct.ADIOI_Access, ptr %21, i64 %indvars.iv135
-  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %63 = getelementptr inbounds nuw %struct.ADIOI_Access, ptr %21, i64 %indvars.iv135
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i32, ptr %64, align 8
   %.not107 = icmp eq i32 %65, 0
   br i1 %.not107, label %76, label %66
@@ -1058,8 +1058,8 @@ define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture
 77:                                               ; preds = %.lr.ph126, %91
   %indvars.iv140 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next141, %91 ]
   %.2125 = phi i32 [ %.198, %.lr.ph126 ], [ %.3, %91 ]
-  %78 = getelementptr inbounds %struct.ADIOI_Access, ptr %10, i64 %indvars.iv140
-  %79 = getelementptr inbounds i8, ptr %78, i64 24
+  %78 = getelementptr inbounds nuw %struct.ADIOI_Access, ptr %10, i64 %indvars.iv140
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = load i32, ptr %79, align 8
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %91, label %81
@@ -1085,32 +1085,32 @@ define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture
 
 ._crit_edge127:                                   ; preds = %91, %._crit_edge117
   %.2.lcssa = phi i32 [ 0, %._crit_edge117 ], [ %.3, %91 ]
-  %92 = getelementptr inbounds i8, ptr %4, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %.2.lcssa, ptr %92, align 8
   %93 = load i32, ptr %0, align 8
   %94 = icmp eq i32 %93, 26
   %spec.select = select i1 %94, i32 3, i32 4
-  %95 = getelementptr inbounds i8, ptr %0, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %spec.select, ptr %95, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @ADIOI_Icalc_others_req_fini(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @ADIOI_Free_fn(ptr noundef %6, i32 noundef 640, ptr noundef nonnull @.str.1) #6
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %8 = load ptr, ptr %7, align 8
   tail call void @ADIOI_Free_fn(ptr noundef %8, i32 noundef 641, ptr noundef nonnull @.str.1) #6
-  %9 = getelementptr inbounds i8, ptr %4, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %12 = load ptr, ptr %11, align 8
   store i32 %10, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %14 = load ptr, ptr %13, align 8
   tail call void @ADIOI_Free_fn(ptr noundef %4, i32 noundef 652, ptr noundef nonnull @.str.1) #6
   store ptr null, ptr %3, align 8

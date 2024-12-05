@@ -29,44 +29,44 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #9
   store i64 %addr, ptr %call, align 8
-  %len2 = getelementptr inbounds i8, ptr %call, i64 8
+  %len2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %len, ptr %len2, align 8
-  %flags3 = getelementptr inbounds i8, ptr %call, i64 28
+  %flags3 = getelementptr inbounds nuw i8, ptr %call, i64 28
   store i32 %flags, ptr %flags3, align 4
   %and = and i32 %flags, 16
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %do.body20, label %do.body
 
 do.body:                                          ; preds = %if.end
-  %watchpoints = getelementptr inbounds i8, ptr %cpu, i64 600
+  %watchpoints = getelementptr inbounds nuw i8, ptr %cpu, i64 600
   %1 = load ptr, ptr %watchpoints, align 8
-  %entry5 = getelementptr inbounds i8, ptr %call, i64 32
+  %entry5 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %1, ptr %entry5, align 8
   %cmp6.not = icmp eq ptr %1, null
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %do.body
-  %tql_prev = getelementptr inbounds i8, ptr %1, i64 40
+  %tql_prev = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %entry5, ptr %tql_prev, align 8
   br label %if.end14
 
 if.else:                                          ; preds = %do.body
-  %tql_prev13 = getelementptr inbounds i8, ptr %cpu, i64 608
+  %tql_prev13 = getelementptr inbounds nuw i8, ptr %cpu, i64 608
   store ptr %entry5, ptr %tql_prev13, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then7
   store ptr %call, ptr %watchpoints, align 8
-  %tql_prev18 = getelementptr inbounds i8, ptr %call, i64 40
+  %tql_prev18 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %watchpoints, ptr %tql_prev18, align 8
   br label %if.end32
 
 do.body20:                                        ; preds = %if.end
-  %entry21 = getelementptr inbounds i8, ptr %call, i64 32
+  %entry21 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %entry21, align 8
-  %tql_prev23 = getelementptr inbounds i8, ptr %cpu, i64 608
+  %tql_prev23 = getelementptr inbounds nuw i8, ptr %cpu, i64 608
   %2 = load ptr, ptr %tql_prev23, align 8
-  %tql_prev25 = getelementptr inbounds i8, ptr %call, i64 40
+  %tql_prev25 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %2, ptr %tql_prev25, align 8
   store ptr %call, ptr %2, align 8
   store ptr %entry21, ptr %tql_prev23, align 8
@@ -111,7 +111,7 @@ declare void @tlb_flush(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -2, 1) i32 @cpu_watchpoint_remove(ptr noundef %cpu, i64 noundef %addr, i64 noundef %len, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %watchpoints = getelementptr inbounds i8, ptr %cpu, i64 600
+  %watchpoints = getelementptr inbounds nuw i8, ptr %cpu, i64 600
   %wp.08 = load ptr, ptr %watchpoints, align 8
   %tobool.not9 = icmp eq ptr %wp.08, null
   br i1 %tobool.not9, label %return, label %for.body
@@ -123,33 +123,33 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %len1 = getelementptr inbounds i8, ptr %wp.010, i64 8
+  %len1 = getelementptr inbounds nuw i8, ptr %wp.010, i64 8
   %1 = load i64, ptr %len1, align 8
   %cmp2 = icmp eq i64 %len, %1
   br i1 %cmp2, label %land.lhs.true3, label %for.inc
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %flags4 = getelementptr inbounds i8, ptr %wp.010, i64 28
+  %flags4 = getelementptr inbounds nuw i8, ptr %wp.010, i64 28
   %2 = load i32, ptr %flags4, align 4
   %and = and i32 %2, -193
   %cmp5 = icmp eq i32 %flags, %and
   br i1 %cmp5, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true3
-  %entry1.i = getelementptr inbounds i8, ptr %wp.010, i64 32
+  %entry1.i = getelementptr inbounds nuw i8, ptr %wp.010, i64 32
   %3 = load ptr, ptr %entry1.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
-  %tql_prev7.i = getelementptr inbounds i8, ptr %wp.010, i64 40
+  %tql_prev7.i = getelementptr inbounds nuw i8, ptr %wp.010, i64 40
   %4 = load ptr, ptr %tql_prev7.i, align 8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %tql_prev5.i = getelementptr inbounds i8, ptr %3, i64 40
+  %tql_prev5.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %4, ptr %tql_prev5.i, align 8
   br label %cpu_watchpoint_remove_by_ref.exit
 
 if.else.i:                                        ; preds = %if.then
-  %tql_prev8.i = getelementptr inbounds i8, ptr %cpu, i64 608
+  %tql_prev8.i = getelementptr inbounds nuw i8, ptr %cpu, i64 608
   store ptr %4, ptr %tql_prev8.i, align 8
   br label %cpu_watchpoint_remove_by_ref.exit
 
@@ -163,7 +163,7 @@ cpu_watchpoint_remove_by_ref.exit:                ; preds = %if.then.i, %if.else
   br label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true3
-  %entry6 = getelementptr inbounds i8, ptr %wp.010, i64 32
+  %entry6 = getelementptr inbounds nuw i8, ptr %wp.010, i64 32
   %wp.0 = load ptr, ptr %entry6, align 8
   %tobool.not = icmp eq ptr %wp.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
@@ -176,20 +176,20 @@ return:                                           ; preds = %for.inc, %entry, %c
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_watchpoint_remove_by_ref(ptr noundef %cpu, ptr noundef %watchpoint) local_unnamed_addr #0 {
 entry:
-  %entry1 = getelementptr inbounds i8, ptr %watchpoint, i64 32
+  %entry1 = getelementptr inbounds nuw i8, ptr %watchpoint, i64 32
   %0 = load ptr, ptr %entry1, align 8
   %cmp.not = icmp eq ptr %0, null
-  %tql_prev7 = getelementptr inbounds i8, ptr %watchpoint, i64 40
+  %tql_prev7 = getelementptr inbounds nuw i8, ptr %watchpoint, i64 40
   %1 = load ptr, ptr %tql_prev7, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tql_prev5 = getelementptr inbounds i8, ptr %0, i64 40
+  %tql_prev5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %tql_prev5, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %tql_prev8 = getelementptr inbounds i8, ptr %cpu, i64 608
+  %tql_prev8 = getelementptr inbounds nuw i8, ptr %cpu, i64 608
   store ptr %1, ptr %tql_prev8, align 8
   br label %if.end
 
@@ -208,20 +208,20 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_watchpoint_remove_all(ptr noundef %cpu, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
-  %watchpoints = getelementptr inbounds i8, ptr %cpu, i64 600
+  %watchpoints = getelementptr inbounds nuw i8, ptr %cpu, i64 600
   %0 = load ptr, ptr %watchpoints, align 8
   %tobool.not5 = icmp eq ptr %0, null
   br i1 %tobool.not5, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %tql_prev8.i = getelementptr inbounds i8, ptr %cpu, i64 608
+  %tql_prev8.i = getelementptr inbounds nuw i8, ptr %cpu, i64 608
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %wp.06 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %for.inc ]
-  %entry1 = getelementptr inbounds i8, ptr %wp.06, i64 32
+  %entry1 = getelementptr inbounds nuw i8, ptr %wp.06, i64 32
   %1 = load ptr, ptr %entry1, align 8
-  %flags = getelementptr inbounds i8, ptr %wp.06, i64 28
+  %flags = getelementptr inbounds nuw i8, ptr %wp.06, i64 28
   %2 = load i32, ptr %flags, align 4
   %and = and i32 %2, %mask
   %tobool2.not = icmp eq i32 %and, 0
@@ -229,12 +229,12 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
 
 if.then:                                          ; preds = %land.rhs
   %cmp.not.i = icmp eq ptr %1, null
-  %tql_prev7.i = getelementptr inbounds i8, ptr %wp.06, i64 40
+  %tql_prev7.i = getelementptr inbounds nuw i8, ptr %wp.06, i64 40
   %3 = load ptr, ptr %tql_prev7.i, align 8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %tql_prev5.i = getelementptr inbounds i8, ptr %1, i64 40
+  %tql_prev5.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %3, ptr %tql_prev5.i, align 8
   br label %cpu_watchpoint_remove_by_ref.exit
 
@@ -262,7 +262,7 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @cpu_watchpoint_address_matches(ptr nocapture noundef readonly %cpu, i64 noundef %addr, i64 noundef %len) local_unnamed_addr #3 {
 entry:
-  %watchpoints = getelementptr inbounds i8, ptr %cpu, i64 600
+  %watchpoints = getelementptr inbounds nuw i8, ptr %cpu, i64 600
   %wp.06 = load ptr, ptr %watchpoints, align 8
   %tobool.not7 = icmp eq ptr %wp.06, null
   br i1 %tobool.not7, label %for.end, label %for.body.lr.ph
@@ -286,14 +286,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %lnot.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %flags = getelementptr inbounds i8, ptr %wp.09, i64 28
+  %flags = getelementptr inbounds nuw i8, ptr %wp.09, i64 28
   %1 = load i32, ptr %flags, align 4
   %or = or i32 %1, %ret.08
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
   %ret.1 = phi i32 [ %or, %if.then ], [ %ret.08, %for.body ]
-  %entry1 = getelementptr inbounds i8, ptr %wp.09, i64 32
+  %entry1 = getelementptr inbounds nuw i8, ptr %wp.09, i64 32
   %wp.0 = load ptr, ptr %entry1, align 8
   %tobool.not = icmp eq ptr %wp.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
@@ -317,7 +317,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %watchpoint_hit = getelementptr inbounds i8, ptr %cpu, i64 616
+  %watchpoint_hit = getelementptr inbounds nuw i8, ptr %cpu, i64 616
   %1 = load ptr, ptr %watchpoint_hit, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end3, label %if.then2
@@ -329,9 +329,9 @@ if.then2:                                         ; preds = %if.end
   br label %for.end
 
 if.end3:                                          ; preds = %if.end
-  %tcg_ops = getelementptr inbounds i8, ptr %call1.i, i64 328
+  %tcg_ops = getelementptr inbounds nuw i8, ptr %call1.i, i64 328
   %2 = load ptr, ptr %tcg_ops, align 8
-  %adjust_watchpoint_address = getelementptr inbounds i8, ptr %2, i64 88
+  %adjust_watchpoint_address = getelementptr inbounds nuw i8, ptr %2, i64 88
   %3 = load ptr, ptr %adjust_watchpoint_address, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end9, label %if.then5
@@ -351,7 +351,7 @@ if.else12:                                        ; preds = %if.end9
   unreachable
 
 if.end13:                                         ; preds = %if.end9
-  %watchpoints = getelementptr inbounds i8, ptr %cpu, i64 600
+  %watchpoints = getelementptr inbounds nuw i8, ptr %cpu, i64 600
   %wp.046 = load ptr, ptr %watchpoints, align 8
   %tobool14.not47 = icmp eq ptr %wp.046, null
   br i1 %tobool14.not47, label %for.end, label %for.body.lr.ph
@@ -363,7 +363,7 @@ for.body.lr.ph:                                   ; preds = %if.end13
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %wp.048 = phi ptr [ %wp.046, %for.body.lr.ph ], [ %wp.0, %for.inc ]
-  %flags15 = getelementptr inbounds i8, ptr %wp.048, i64 28
+  %flags15 = getelementptr inbounds nuw i8, ptr %wp.048, i64 28
   %4 = load i32, ptr %flags15, align 4
   %and16 = and i32 %4, %flags
   %tobool17.not = icmp eq i32 %and16, 0
@@ -385,7 +385,7 @@ if.then20:                                        ; preds = %land.lhs.true
   br i1 %call21, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %if.then20
-  %can_do_io = getelementptr inbounds i8, ptr %cpu, i64 10164
+  %can_do_io = getelementptr inbounds nuw i8, ptr %cpu, i64 10164
   %6 = load i8, ptr %can_do_io, align 4
   %tobool23 = trunc i8 %6 to i1
   br i1 %tobool23, label %if.end26, label %if.then24
@@ -393,7 +393,7 @@ if.then22:                                        ; preds = %if.then20
 if.then24:                                        ; preds = %if.then22
   %call25 = tail call i32 @curr_cflags(ptr noundef nonnull %cpu) #8
   %or = or i32 %call25, 65537
-  %cflags_next_tb = getelementptr inbounds i8, ptr %cpu, i64 212
+  %cflags_next_tb = getelementptr inbounds nuw i8, ptr %cpu, i64 212
   store i32 %or, ptr %cflags_next_tb, align 4
   tail call void @cpu_loop_exit_restore(ptr noundef nonnull %cpu, i64 noundef %ra) #10
   unreachable
@@ -409,9 +409,9 @@ if.end27:                                         ; preds = %if.then20
   store i32 %or29, ptr %flags15, align 4
   %8 = load i64, ptr %wp.048, align 8
   %cond = tail call i64 @llvm.umax.i64(i64 %addr.addr.0, i64 %8)
-  %hitaddr = getelementptr inbounds i8, ptr %wp.048, i64 16
+  %hitaddr = getelementptr inbounds nuw i8, ptr %wp.048, i64 16
   store i64 %cond, ptr %hitaddr, align 8
-  %hitattrs = getelementptr inbounds i8, ptr %wp.048, i64 24
+  %hitattrs = getelementptr inbounds nuw i8, ptr %wp.048, i64 24
   store i32 %attrs.coerce, ptr %hitattrs, align 8
   %and33 = and i32 %7, 32
   %tobool34.not = icmp eq i32 %and33, 0
@@ -419,7 +419,7 @@ if.end27:                                         ; preds = %if.then20
 
 land.lhs.true35:                                  ; preds = %if.end27
   %9 = load ptr, ptr %tcg_ops, align 8
-  %debug_check_watchpoint = getelementptr inbounds i8, ptr %9, i64 96
+  %debug_check_watchpoint = getelementptr inbounds nuw i8, ptr %9, i64 96
   %10 = load ptr, ptr %debug_check_watchpoint, align 8
   %tobool37.not = icmp eq ptr %10, null
   br i1 %tobool37.not, label %if.end45, label %land.lhs.true38
@@ -441,7 +441,7 @@ if.end45:                                         ; preds = %land.lhs.true38, %l
   br i1 %tobool49.not, label %if.else51, label %if.then50
 
 if.then50:                                        ; preds = %if.end45
-  %exception_index = getelementptr inbounds i8, ptr %cpu, i64 728
+  %exception_index = getelementptr inbounds nuw i8, ptr %cpu, i64 728
   store i32 65538, ptr %exception_index, align 8
   tail call void @cpu_loop_exit(ptr noundef nonnull %cpu) #10
   unreachable
@@ -449,7 +449,7 @@ if.then50:                                        ; preds = %if.end45
 if.else51:                                        ; preds = %if.end45
   %call52 = tail call i32 @curr_cflags(ptr noundef nonnull %cpu) #8
   %or53 = or i32 %call52, 65537
-  %cflags_next_tb54 = getelementptr inbounds i8, ptr %cpu, i64 212
+  %cflags_next_tb54 = getelementptr inbounds nuw i8, ptr %cpu, i64 212
   store i32 %or53, ptr %cflags_next_tb54, align 4
   tail call void @cpu_loop_exit_noexc(ptr noundef nonnull %cpu) #10
   unreachable
@@ -458,7 +458,7 @@ for.inc:                                          ; preds = %land.lhs.true38.for
   %storemerge.in = phi i32 [ %storemerge.in.pre, %land.lhs.true38.for.inc_crit_edge ], [ %4, %for.body ], [ %4, %land.lhs.true ]
   %storemerge = and i32 %storemerge.in, -193
   store i32 %storemerge, ptr %flags15, align 4
-  %entry59 = getelementptr inbounds i8, ptr %wp.048, i64 32
+  %entry59 = getelementptr inbounds nuw i8, ptr %wp.048, i64 32
   %wp.0 = load ptr, ptr %entry59, align 8
   %tobool14.not = icmp eq ptr %wp.0, null
   br i1 %tobool14.not, label %for.end, label %for.body, !llvm.loop !9

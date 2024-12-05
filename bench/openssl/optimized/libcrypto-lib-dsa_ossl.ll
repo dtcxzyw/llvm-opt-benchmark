@@ -38,25 +38,25 @@ define ptr @ossl_dsa_do_sign_int(ptr noundef %dgst, i32 noundef %dlen, ptr nound
 entry:
   %kinv = alloca ptr, align 8
   store ptr null, ptr %kinv, align 8
-  %params = getelementptr inbounds i8, ptr %dsa, i64 8
+  %params = getelementptr inbounds nuw i8, ptr %dsa, i64 8
   %0 = load ptr, ptr %params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then123, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %q = getelementptr inbounds i8, ptr %dsa, i64 16
+  %q = getelementptr inbounds nuw i8, ptr %dsa, i64 16
   %1 = load ptr, ptr %q, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then123, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %g = getelementptr inbounds i8, ptr %dsa, i64 24
+  %g = getelementptr inbounds nuw i8, ptr %dsa, i64 24
   %2 = load ptr, ptr %g, align 8
   %cmp5 = icmp eq ptr %2, null
   br i1 %cmp5, label %if.then123, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %priv_key = getelementptr inbounds i8, ptr %dsa, i64 112
+  %priv_key = getelementptr inbounds nuw i8, ptr %dsa, i64 112
   %3 = load ptr, ptr %priv_key, align 8
   %cmp6 = icmp eq ptr %3, null
   br i1 %cmp6, label %if.then123, label %if.end8
@@ -70,7 +70,7 @@ if.end11:                                         ; preds = %if.end8
   %call12 = tail call ptr @BN_new() #7
   store ptr %call12, ptr %call, align 8
   %call13 = tail call ptr @BN_new() #7
-  %s = getelementptr inbounds i8, ptr %call, i64 8
+  %s = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call13, ptr %s, align 8
   %4 = load ptr, ptr %call, align 8
   %cmp15 = icmp eq ptr %4, null
@@ -79,7 +79,7 @@ if.end11:                                         ; preds = %if.end8
   br i1 %or.cond, label %if.then123, label %if.end20
 
 if.end20:                                         ; preds = %if.end11
-  %libctx21 = getelementptr inbounds i8, ptr %dsa, i64 184
+  %libctx21 = getelementptr inbounds nuw i8, ptr %dsa, i64 184
   %5 = load ptr, ptr %libctx21, align 8
   %call22 = tail call ptr @BN_CTX_new_ex(ptr noundef %5) #7
   %cmp23 = icmp eq ptr %call22, null
@@ -234,19 +234,19 @@ declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dsa_sign_setup(ptr noundef %dsa, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr %rp.0.val, ptr noundef %dgst, i32 noundef %dlen, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #3 {
 entry:
-  %params = getelementptr inbounds i8, ptr %dsa, i64 8
+  %params = getelementptr inbounds nuw i8, ptr %dsa, i64 8
   %0 = load ptr, ptr %params, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %q = getelementptr inbounds i8, ptr %dsa, i64 16
+  %q = getelementptr inbounds nuw i8, ptr %dsa, i64 16
   %1 = load ptr, ptr %q, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %g = getelementptr inbounds i8, ptr %dsa, i64 24
+  %g = getelementptr inbounds nuw i8, ptr %dsa, i64 24
   %2 = load ptr, ptr %g, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.then, label %if.end
@@ -299,7 +299,7 @@ if.then34:                                        ; preds = %lor.lhs.false29, %l
   br label %return
 
 if.end35:                                         ; preds = %lor.lhs.false29
-  %priv_key = getelementptr inbounds i8, ptr %dsa, i64 112
+  %priv_key = getelementptr inbounds nuw i8, ptr %dsa, i64 112
   %8 = load ptr, ptr %priv_key, align 8
   %cmp = icmp eq ptr %8, null
   br i1 %cmp, label %if.then36, label %if.end37
@@ -394,15 +394,15 @@ do.cond:                                          ; preds = %do.body
 do.end:                                           ; preds = %do.cond, %do.cond.us9, %do.cond.us
   tail call void @BN_set_flags(ptr noundef %call38, i32 noundef 4) #7
   tail call void @BN_set_flags(ptr noundef %call39, i32 noundef 4) #7
-  %flags = getelementptr inbounds i8, ptr %dsa, i64 120
+  %flags = getelementptr inbounds nuw i8, ptr %dsa, i64 120
   %16 = load i32, ptr %flags, align 8
   %and = and i32 %16, 1
   %tobool99.not = icmp eq i32 %and, 0
   br i1 %tobool99.not, label %if.end107, label %if.then100
 
 if.then100:                                       ; preds = %do.end
-  %method_mont_p = getelementptr inbounds i8, ptr %dsa, i64 128
-  %lock = getelementptr inbounds i8, ptr %dsa, i64 176
+  %method_mont_p = getelementptr inbounds nuw i8, ptr %dsa, i64 128
+  %lock = getelementptr inbounds nuw i8, ptr %dsa, i64 176
   %17 = load ptr, ptr %lock, align 8
   %18 = load ptr, ptr %params, align 8
   %call103 = tail call ptr @BN_MONT_CTX_set_locked(ptr noundef nonnull %method_mont_p, ptr noundef %17, ptr noundef %18, ptr noundef nonnull %ctx.1) #7
@@ -425,14 +425,14 @@ if.end118:                                        ; preds = %lor.lhs.false112
   %call119 = tail call i32 @BN_is_bit_set(ptr noundef %call39, i32 noundef %call54) #7
   %conv120 = sext i32 %call119 to i64
   tail call void @BN_consttime_swap(i64 noundef %conv120, ptr noundef %call38, ptr noundef %call39, i32 noundef %add) #7
-  %meth = getelementptr inbounds i8, ptr %dsa, i64 160
+  %meth = getelementptr inbounds nuw i8, ptr %dsa, i64 160
   %21 = load ptr, ptr %meth, align 8
-  %bn_mod_exp = getelementptr inbounds i8, ptr %21, i64 40
+  %bn_mod_exp = getelementptr inbounds nuw i8, ptr %21, i64 40
   %22 = load ptr, ptr %bn_mod_exp, align 8
   %cmp122.not = icmp eq ptr %22, null
   %23 = load ptr, ptr %g, align 8
   %24 = load ptr, ptr %params, align 8
-  %method_mont_p141 = getelementptr inbounds i8, ptr %dsa, i64 128
+  %method_mont_p141 = getelementptr inbounds nuw i8, ptr %dsa, i64 128
   %25 = load ptr, ptr %method_mont_p141, align 8
   br i1 %cmp122.not, label %if.else136, label %if.then124
 
@@ -539,19 +539,19 @@ define internal range(i32 -1, 2) i32 @dsa_do_verify(ptr noundef %dgst, i32 nound
 entry:
   %r = alloca ptr, align 8
   %s = alloca ptr, align 8
-  %params = getelementptr inbounds i8, ptr %dsa, i64 8
+  %params = getelementptr inbounds nuw i8, ptr %dsa, i64 8
   %0 = load ptr, ptr %params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %q = getelementptr inbounds i8, ptr %dsa, i64 16
+  %q = getelementptr inbounds nuw i8, ptr %dsa, i64 16
   %1 = load ptr, ptr %q, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %g = getelementptr inbounds i8, ptr %dsa, i64 24
+  %g = getelementptr inbounds nuw i8, ptr %dsa, i64 24
   %2 = load ptr, ptr %g, align 8
   %cmp5 = icmp eq ptr %2, null
   br i1 %cmp5, label %if.then, label %if.end
@@ -669,15 +669,15 @@ if.end75:                                         ; preds = %if.end69
   br i1 %tobool79.not, label %if.then123, label %if.end81
 
 if.end81:                                         ; preds = %if.end75
-  %flags = getelementptr inbounds i8, ptr %dsa, i64 120
+  %flags = getelementptr inbounds nuw i8, ptr %dsa, i64 120
   %17 = load i32, ptr %flags, align 8
   %and = and i32 %17, 1
   %tobool82.not = icmp eq i32 %and, 0
   br i1 %tobool82.not, label %if.end90, label %if.then83
 
 if.then83:                                        ; preds = %if.end81
-  %method_mont_p = getelementptr inbounds i8, ptr %dsa, i64 128
-  %lock = getelementptr inbounds i8, ptr %dsa, i64 176
+  %method_mont_p = getelementptr inbounds nuw i8, ptr %dsa, i64 128
+  %lock = getelementptr inbounds nuw i8, ptr %dsa, i64 176
   %18 = load ptr, ptr %lock, align 8
   %19 = load ptr, ptr %params, align 8
   %call86 = call ptr @BN_MONT_CTX_set_locked(ptr noundef nonnull %method_mont_p, ptr noundef %18, ptr noundef %19, ptr noundef nonnull %call23) #7
@@ -686,13 +686,13 @@ if.then83:                                        ; preds = %if.end81
 
 if.end90:                                         ; preds = %if.then83, %if.end81
   %mont.0 = phi ptr [ %call86, %if.then83 ], [ null, %if.end81 ]
-  %meth = getelementptr inbounds i8, ptr %dsa, i64 160
+  %meth = getelementptr inbounds nuw i8, ptr %dsa, i64 160
   %20 = load ptr, ptr %meth, align 8
-  %dsa_mod_exp = getelementptr inbounds i8, ptr %20, i64 32
+  %dsa_mod_exp = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = load ptr, ptr %dsa_mod_exp, align 8
   %cmp91.not = icmp eq ptr %21, null
   %22 = load ptr, ptr %g, align 8
-  %pub_key105 = getelementptr inbounds i8, ptr %dsa, i64 104
+  %pub_key105 = getelementptr inbounds nuw i8, ptr %dsa, i64 104
   %23 = load ptr, ptr %pub_key105, align 8
   %24 = load ptr, ptr %params, align 8
   br i1 %cmp91.not, label %if.else, label %if.then92
@@ -742,11 +742,11 @@ return:                                           ; preds = %if.end124, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @dsa_init(ptr nocapture noundef %dsa) #5 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %dsa, i64 120
+  %flags = getelementptr inbounds nuw i8, ptr %dsa, i64 120
   %0 = load i32, ptr %flags, align 8
   %or = or i32 %0, 1
   store i32 %or, ptr %flags, align 8
-  %dirty_cnt = getelementptr inbounds i8, ptr %dsa, i64 192
+  %dirty_cnt = getelementptr inbounds nuw i8, ptr %dsa, i64 192
   %1 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %dirty_cnt, align 8
@@ -756,7 +756,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dsa_finish(ptr nocapture noundef readonly %dsa) #3 {
 entry:
-  %method_mont_p = getelementptr inbounds i8, ptr %dsa, i64 128
+  %method_mont_p = getelementptr inbounds nuw i8, ptr %dsa, i64 128
   %0 = load ptr, ptr %method_mont_p, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %0) #7
   ret i32 1

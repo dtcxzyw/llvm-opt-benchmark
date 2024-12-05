@@ -259,7 +259,7 @@ define internal i32 @dissect_otrxd(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = alloca %struct.otrxd_pdu_info, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.56) #7
   %10 = load ptr, ptr %8, align 8
@@ -322,13 +322,13 @@ otrxcd_guess_dir.exit.thread72:                   ; preds = %21, %21, %21, %21, 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %29
 
 29:                                               ; preds = %otrxcd_guess_dir.exit.thread72
-  %30 = getelementptr inbounds i8, ptr %28, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not5.i = icmp eq ptr %31, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %31, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = or i32 %34, 2
   store i32 %35, ptr %33, align 4
@@ -343,15 +343,15 @@ proto_item_set_generated.exit:                    ; preds = %otrxcd_guess_dir.ex
 
 39:                                               ; preds = %proto_item_set_generated.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %40 = getelementptr inbounds i8, ptr %7, i64 24
-  %41 = getelementptr inbounds i8, ptr %7, i64 4
-  %42 = getelementptr inbounds i8, ptr %7, i64 16
-  %43 = getelementptr inbounds i8, ptr %7, i64 12
-  %44 = getelementptr inbounds i8, ptr %7, i64 20
-  %45 = getelementptr inbounds i8, ptr %7, i64 28
-  %46 = getelementptr inbounds i8, ptr %7, i64 40
-  %47 = getelementptr inbounds i8, ptr %7, i64 48
-  %48 = getelementptr inbounds i8, ptr %7, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %49
 
 49:                                               ; preds = %dissect_otrxd_tx_burst_v0.exit.i, %39
@@ -505,16 +505,16 @@ dissect_otrxd_tx.exit:                            ; preds = %dissect_otrxd_tx_bu
 
 131:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %132 = getelementptr inbounds i8, ptr %7, i64 24
-  %133 = getelementptr inbounds i8, ptr %7, i64 4
-  %134 = getelementptr inbounds i8, ptr %7, i64 8
-  %135 = getelementptr inbounds i8, ptr %7, i64 16
-  %136 = getelementptr inbounds i8, ptr %7, i64 12
-  %137 = getelementptr inbounds i8, ptr %7, i64 20
-  %138 = getelementptr inbounds i8, ptr %7, i64 28
-  %139 = getelementptr inbounds i8, ptr %7, i64 40
-  %140 = getelementptr inbounds i8, ptr %7, i64 48
-  %141 = getelementptr inbounds i8, ptr %7, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %138 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %140 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %141 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %142
 
 142:                                              ; preds = %264, %131
@@ -716,7 +716,7 @@ dissect_otrxd_rx.exit:                            ; preds = %264, %262
 
 272:                                              ; preds = %dissect_otrxd_rx.exit, %270, %dissect_otrxd_tx.exit
   %.054 = phi i32 [ %.0.i63, %dissect_otrxd_tx.exit ], [ %.0.i66, %dissect_otrxd_rx.exit ], [ 1, %270 ]
-  %273 = getelementptr inbounds i8, ptr %7, i64 12
+  %273 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %274 = load i32, ptr %273, align 4
   switch i32 %274, label %294 [
     i32 1, label %275
@@ -725,12 +725,12 @@ dissect_otrxd_rx.exit:                            ; preds = %264, %262
 
 275:                                              ; preds = %272
   %276 = load ptr, ptr %8, align 8
-  %277 = getelementptr inbounds i8, ptr %7, i64 20
+  %277 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %278 = load i32, ptr %277, align 4
-  %279 = getelementptr inbounds i8, ptr %7, i64 24
+  %279 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %280 = load i32, ptr %279, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %276, i32 noundef 25, ptr noundef nonnull @.str.99, i32 noundef %278, i32 noundef %280) #7
-  %281 = getelementptr inbounds i8, ptr %7, i64 40
+  %281 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %282 = load ptr, ptr %281, align 8
   %.not58 = icmp eq ptr %282, null
   br i1 %.not58, label %285, label %283
@@ -741,7 +741,7 @@ dissect_otrxd_rx.exit:                            ; preds = %264, %262
   br label %300
 
 285:                                              ; preds = %275
-  %286 = getelementptr inbounds i8, ptr %7, i64 28
+  %286 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %287 = load i32, ptr %286, align 4
   %288 = icmp ne i32 %287, 0
   %or.cond = and i1 %25, %288
@@ -763,7 +763,7 @@ dissect_otrxd_rx.exit:                            ; preds = %264, %262
 
 294:                                              ; preds = %272
   %295 = load ptr, ptr %8, align 8
-  %296 = getelementptr inbounds i8, ptr %7, i64 20
+  %296 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %297 = load i32, ptr %296, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %295, i32 noundef 25, ptr noundef nonnull @.str.103, i32 noundef %297) #7
   %298 = load ptr, ptr %8, align 8
@@ -789,13 +789,13 @@ dissect_otrxd_rx.exit:                            ; preds = %264, %262
 define internal i32 @dissect_otrxc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.59) #7
   %9 = load ptr, ptr %7, align 8
   tail call void @col_clear(ptr noundef %9, i32 noundef 25) #7
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @tvb_get_string_enc(ptr noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef %10, i32 noundef 0) #7
   %14 = load ptr, ptr %7, align 8
@@ -855,13 +855,13 @@ otrxcd_guess_dir.exit.thread:                     ; preds = %26, %26, %26, %26, 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %33
 
 33:                                               ; preds = %otrxcd_guess_dir.exit.thread
-  %34 = getelementptr inbounds i8, ptr %32, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not5.i = icmp eq ptr %35, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %35, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %38 = load i32, ptr %37, align 4
   %39 = or i32 %38, 2
   store i32 %39, ptr %37, align 4
@@ -889,13 +889,13 @@ proto_item_set_generated.exit:                    ; preds = %otrxcd_guess_dir.ex
   br i1 %.not.i107, label %proto_item_set_hidden.exit, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %51, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %54 = load ptr, ptr %53, align 8
   %.not5.i108 = icmp eq ptr %54, null
   br i1 %.not5.i108, label %proto_item_set_hidden.exit, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %54, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 28
   %57 = load i32, ptr %56, align 4
   %58 = or i32 %57, 1
   store i32 %58, ptr %56, align 4
@@ -941,13 +941,13 @@ proto_item_set_hidden.exit:                       ; preds = %49, %52, %55
   br i1 %.not.i109, label %proto_item_set_hidden.exit111, label %80
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %79, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8
   %.not5.i110 = icmp eq ptr %82, null
   br i1 %.not5.i110, label %proto_item_set_hidden.exit111, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %82, i64 28
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 28
   %85 = load i32, ptr %84, align 4
   %86 = or i32 %85, 1
   store i32 %86, ptr %84, align 4
@@ -975,13 +975,13 @@ proto_item_set_hidden.exit111:                    ; preds = %75, %80, %83
   br i1 %.not.i112, label %proto_item_set_hidden.exit114, label %100
 
 100:                                              ; preds = %94
-  %101 = getelementptr inbounds i8, ptr %99, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %102 = load ptr, ptr %101, align 8
   %.not5.i113 = icmp eq ptr %102, null
   br i1 %.not5.i113, label %proto_item_set_hidden.exit114, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %102, i64 28
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 28
   %105 = load i32, ptr %104, align 4
   %106 = or i32 %105, 1
   store i32 %106, ptr %104, align 4
@@ -1077,7 +1077,7 @@ declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_otrxd_nope_ind, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %7 = tail call ptr @proto_tree_add_item_ret_boolean(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #7
   %8 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %8, 0
@@ -1098,10 +1098,10 @@ define internal fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %1, p
   br i1 %or.cond, label %18, label %24
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %2, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %15, ptr %19, align 8
   %20 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @otrxd_mod_2b_vals, ptr noundef nonnull @.str.111) #7
-  %21 = getelementptr inbounds i8, ptr %2, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %20, ptr %21, align 8
   %22 = load i32, ptr @hf_otrxd_mod_2b, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #7
@@ -1113,10 +1113,10 @@ define internal fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %1, p
   br i1 %.not44, label %32, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %2, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %25, ptr %27, align 8
   %28 = tail call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull @otrxd_mod_3b_vals, ptr noundef nonnull @.str.111) #7
-  %29 = getelementptr inbounds i8, ptr %2, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %28, ptr %29, align 8
   %30 = load i32, ptr @hf_otrxd_mod_3b, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #7
@@ -1124,10 +1124,10 @@ define internal fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %1, p
 
 32:                                               ; preds = %24
   %33 = lshr i32 %14, 3
-  %34 = getelementptr inbounds i8, ptr %2, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %33, ptr %34, align 8
   %35 = tail call ptr @val_to_str(i32 noundef %33, ptr noundef nonnull @otrxd_mod_4b_vals, ptr noundef nonnull @.str.111) #7
-  %36 = getelementptr inbounds i8, ptr %2, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %35, ptr %36, align 8
   br label %37
 
@@ -1136,7 +1136,7 @@ define internal fastcc void @dissect_otrxd_mts(ptr noundef %0, ptr noundef %1, p
   %38 = load i32, ptr %hf_otrxd_tsc_set_x2.sink, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %38, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #7
   %40 = load i32, ptr @hf_otrxd_tsc, align 4
-  %41 = getelementptr inbounds i8, ptr %2, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %42 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %40, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %41) #7
   br label %43
 

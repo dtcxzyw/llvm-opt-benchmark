@@ -542,7 +542,7 @@ define void @lv_binfont_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %26 = getelementptr inbounds %struct.lv_font_fmt_txt_cmap_t, ptr %23, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %struct.lv_font_fmt_txt_cmap_t, ptr %23, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !41
   tail call void @lv_free(ptr noundef %28) #3
@@ -850,7 +850,7 @@ read_label.exit:                                  ; preds = %15
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 31
   %32 = add i32 %4, -1
   %33 = zext i32 %32 to i64
-  %invariant.gep404 = getelementptr inbounds i8, ptr %3, i64 4
+  %invariant.gep404 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %34
 
 34:                                               ; preds = %.lr.ph, %200
@@ -1190,7 +1190,7 @@ read_bits.exit205:                                ; preds = %162
   br i1 %183, label %184, label %186
 
 184:                                              ; preds = %.loopexit300
-  %gep405 = getelementptr inbounds i32, ptr %invariant.gep404, i64 %indvars.iv
+  %gep405 = getelementptr inbounds nuw i32, ptr %invariant.gep404, i64 %indvars.iv
   %185 = load i32, ptr %gep405, align 4, !tbaa !27
   br label %186
 
@@ -1253,7 +1253,7 @@ read_bits.exit205:                                ; preds = %162
   %210 = getelementptr inbounds nuw i8, ptr %10, i64 9
   %211 = add i32 %4, -1
   %212 = zext i32 %211 to i64
-  %invariant.gep408 = getelementptr inbounds i8, ptr %3, i64 4
+  %invariant.gep408 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %213
 
 213:                                              ; preds = %.lr.ph336, %313
@@ -1328,7 +1328,7 @@ read_bits.exit205:                                ; preds = %162
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %248
-  %gep409 = getelementptr inbounds i32, ptr %invariant.gep408, i64 %indvars.iv366
+  %gep409 = getelementptr inbounds nuw i32, ptr %invariant.gep408, i64 %indvars.iv366
   %251 = load i32, ptr %gep409, align 4, !tbaa !27
   br label %252
 

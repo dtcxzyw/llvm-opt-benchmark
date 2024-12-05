@@ -139,7 +139,7 @@ define internal void @key_garbage_collector(ptr nocapture readnone %0) #0 align 
 54:                                               ; preds = %50
   %55 = getelementptr i8, ptr %26, i64 144
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 2
   %60 = icmp eq i32 %59, 0
@@ -295,10 +295,10 @@ define internal void @key_garbage_collector(ptr nocapture readnone %0) #0 align 
   %155 = getelementptr i8, ptr %154, i64 -8
   %156 = getelementptr i8, ptr %154, i64 112
   %157 = load i16, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %154, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %159 = load ptr, ptr %158, align 8
   %160 = load ptr, ptr %154, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store ptr %159, ptr %161, align 8
   store volatile ptr %160, ptr %159, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %154, align 8
@@ -309,7 +309,7 @@ define internal void @key_garbage_collector(ptr nocapture readnone %0) #0 align 
 163:                                              ; preds = %.preheader.i
   %164 = getelementptr i8, ptr %154, i64 144
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 88
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 88
   %167 = load ptr, ptr %166, align 8
   %168 = icmp eq ptr %167, null
   br i1 %168, label %170, label %169
@@ -329,10 +329,10 @@ define internal void @key_garbage_collector(ptr nocapture readnone %0) #0 align 
 175:                                              ; preds = %170
   %176 = getelementptr i8, ptr %154, i64 64
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 56
-  tail call void @_raw_spin_lock(ptr noundef %178) #4
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 56
+  tail call void @_raw_spin_lock(ptr noundef nonnull %178) #4
   %179 = load ptr, ptr %176, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 76
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 76
   %181 = load i32, ptr %180, align 4
   %182 = add i32 %181, -1
   store i32 %182, ptr %180, align 4
@@ -340,27 +340,27 @@ define internal void @key_garbage_collector(ptr nocapture readnone %0) #0 align 
   %184 = load i16, ptr %183, align 4
   %185 = zext i16 %184 to i32
   %186 = load ptr, ptr %176, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 80
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 80
   %188 = load i32, ptr %187, align 8
   %189 = sub i32 %188, %185
   store i32 %189, ptr %187, align 8
   %190 = load ptr, ptr %176, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 56
-  tail call void @_raw_spin_unlock(ptr noundef %191) #4
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 56
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %191) #4
   br label %192
 
 192:                                              ; preds = %175, %170
   %193 = getelementptr i8, ptr %154, i64 64
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %195, ptr elementtype(i32) %195) #4, !srcloc !13
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 64
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %195, ptr nonnull elementtype(i32) %195) #4, !srcloc !13
   %196 = icmp eq i16 %157, 0
   br i1 %196, label %200, label %197
 
 197:                                              ; preds = %192
   %198 = load ptr, ptr %193, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 68
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %199, ptr elementtype(i32) %199) #4, !srcloc !13
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 68
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %199, ptr nonnull elementtype(i32) %199) #4, !srcloc !13
   br label %200
 
 200:                                              ; preds = %197, %192
@@ -428,7 +428,7 @@ key_gc_unused_keys.exit:                          ; preds = %200, %151, %148
   %233 = load ptr, ptr getelementptr inbounds (i8, ptr @key_garbage_collector.graveyard, i64 8), align 8
   store ptr %26, ptr getelementptr inbounds (i8, ptr @key_garbage_collector.graveyard, i64 8), align 8
   store ptr @key_garbage_collector.graveyard, ptr %26, align 8
-  %234 = getelementptr inbounds i8, ptr %26, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %233, ptr %234, align 8
   store volatile ptr %26, ptr %233, align 8
   %235 = load i8, ptr @key_garbage_collector.gc_state, align 1
@@ -456,7 +456,7 @@ key_gc_unused_keys.exit:                          ; preds = %200, %151, %148
   tail call void @down_write(ptr noundef %244) #4
   store ptr @key_type_dead, ptr %243, align 8
   %245 = load ptr, ptr @key_gc_dead_keytype, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 88
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 88
   %247 = load ptr, ptr %246, align 8
   %248 = icmp eq ptr %247, null
   br i1 %248, label %251, label %249
@@ -516,15 +516,15 @@ declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @key_set_expiry(ptr nocapture noundef initializes((88, 96)) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %1, ptr %3, align 8
   %4 = icmp eq i64 %1, 9223372036854775807
   br i1 %4, label %34, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2
   %11 = icmp eq i32 %10, 0

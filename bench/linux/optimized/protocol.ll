@@ -17,7 +17,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_usb_stor_set
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @usb_stor_pad12_command(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 156
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i16, ptr %3, align 4
   %5 = icmp ult i16 %4, 12
   br i1 %5, label %6, label %11
@@ -42,7 +42,7 @@ declare dso_local void @usb_stor_invoke_transport(ptr noundef, ptr noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @usb_stor_ufi_command(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 156
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i16, ptr %3, align 4
   %5 = icmp ult i16 %4, 12
   br i1 %5, label %6, label %11
@@ -58,7 +58,7 @@ define dso_local void @usb_stor_ufi_command(ptr noundef %0, ptr noundef %1) loca
 
 11:                                               ; preds = %6, %2
   store i16 12, ptr %3, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 164
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %13 = load i8, ptr %12, align 4
   switch i8 %13, label %21 [
     i8 18, label %17
@@ -105,9 +105,9 @@ define dso_local i32 @usb_stor_access_xfer_buf(ptr nocapture noundef %0, i32 nou
   br label %17
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 208
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 200
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -130,9 +130,9 @@ define dso_local i32 @usb_stor_access_xfer_buf(ptr nocapture noundef %0, i32 nou
   br i1 %28, label %29, label %.loopexit
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %7, i64 16
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br i1 %20, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %29, %51
@@ -149,7 +149,7 @@ define dso_local i32 @usb_stor_access_xfer_buf(ptr nocapture noundef %0, i32 nou
   %42 = load i32, ptr %4, align 4
   %43 = add i32 %42, %37
   %44 = load ptr, ptr %32, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = icmp ult i32 %43, %46
   br i1 %47, label %50, label %48
@@ -186,7 +186,7 @@ define dso_local i32 @usb_stor_access_xfer_buf(ptr nocapture noundef %0, i32 nou
   %66 = load i32, ptr %4, align 4
   %67 = add i32 %66, %61
   %68 = load ptr, ptr %32, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = icmp ult i32 %67, %70
   br i1 %71, label %72, label %73
@@ -258,7 +258,7 @@ define dso_local void @usb_stor_set_xfer_buf(ptr nocapture noundef %0, i32 nound
   store i32 0, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 %1)
   %9 = call i32 @usb_stor_access_xfer_buf(ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 0)
@@ -268,7 +268,7 @@ define dso_local void @usb_stor_set_xfer_buf(ptr nocapture noundef %0, i32 nound
 
 12:                                               ; preds = %3
   %13 = sub nuw i32 %10, %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 240
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 240
   store i32 %13, ptr %14, align 8
   br label %15
 

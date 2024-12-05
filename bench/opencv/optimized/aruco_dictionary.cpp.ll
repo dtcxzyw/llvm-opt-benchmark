@@ -118,7 +118,7 @@ $_ZN2cv7MatExprD2Ev = comdat any
 @__func__._ZN2cvlsIiEERNS_11FileStorageES2_RKT_ = private unnamed_addr constant [11 x i8] c"operator<<\00", align 1
 @.str.18 = private unnamed_addr constant [141 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencv/opencv/modules/core/include/opencv2/core/persistence.hpp\00", align 1
 @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE = private unnamed_addr constant [22 x ptr] [ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_4X4_100_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_4X4_250_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_4X4_1000_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_5X5_50_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_5X5_100_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_5X5_250_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_5X5_1000_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_6X6_50_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_6X6_100_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_6X6_250_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_6X6_1000_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_7X7_50_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_7X7_100_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_7X7_250_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_7X7_1000_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE15DICT_ARUCO_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE23DICT_APRILTAG_16h5_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE23DICT_APRILTAG_25h9_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE24DICT_APRILTAG_36h10_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE24DICT_APRILTAG_36h11_DATA, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE25DICT_ARUCO_MIP_36h12_DATA], align 8
-@switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE.1 = private unnamed_addr constant [22 x ptr] [ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_4X4_100_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_4X4_250_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_4X4_1000_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_5X5_50_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_5X5_100_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_5X5_250_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_5X5_1000_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_6X6_50_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_6X6_100_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_6X6_250_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_6X6_1000_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_7X7_50_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_7X7_100_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_7X7_250_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_7X7_1000_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE15DICT_ARUCO_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE23DICT_APRILTAG_16h5_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE23DICT_APRILTAG_25h9_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE24DICT_APRILTAG_36h10_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE24DICT_APRILTAG_36h11_DATA, i64 96), ptr getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE25DICT_ARUCO_MIP_36h12_DATA, i64 96)], align 8
+@switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE.1 = private unnamed_addr constant [22 x ptr] [ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_4X4_100_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_4X4_250_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_4X4_1000_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_5X5_50_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_5X5_100_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_5X5_250_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_5X5_1000_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_6X6_50_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_6X6_100_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_6X6_250_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_6X6_1000_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_7X7_50_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_7X7_100_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE17DICT_7X7_250_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE18DICT_7X7_1000_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE15DICT_ARUCO_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE23DICT_APRILTAG_16h5_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE23DICT_APRILTAG_25h9_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE24DICT_APRILTAG_36h10_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE24DICT_APRILTAG_36h11_DATA, i64 96), ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE25DICT_ARUCO_MIP_36h12_DATA, i64 96)], align 8
 
 @_ZN2cv5aruco10DictionaryC1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv5aruco10DictionaryC2Ev
 @_ZN2cv5aruco10DictionaryC1ERKNS_3MatEii = unnamed_addr alias void (ptr, ptr, i32, i32), ptr @_ZN2cv5aruco10DictionaryC2ERKNS_3MatEii
@@ -126,9 +126,9 @@ $_ZN2cv7MatExprD2Ev = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv5aruco10DictionaryC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #11
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 0, ptr %3, align 4
   ret void
 }
@@ -139,9 +139,9 @@ declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv5aruco10DictionaryC2ERKNS_3MatEii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #11
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 100
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %3, ptr %6, align 4
   %7 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
           to label %8 unwind label %9
@@ -323,10 +323,10 @@ define noundef zeroext i1 @_ZN2cv5aruco10Dictionary14readDictionaryERKNS_8FileNo
   br i1 %53, label %._crit_edge102, label %.lr.ph101
 
 .lr.ph101:                                        ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %16, i64 64
-  %55 = getelementptr inbounds i8, ptr %16, i64 12
-  %56 = getelementptr inbounds i8, ptr %16, i64 16
-  %57 = getelementptr inbounds i8, ptr %16, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %16, i64 72
   br label %58
 
 58:                                               ; preds = %.lr.ph101, %118
@@ -423,11 +423,11 @@ define noundef zeroext i1 @_ZN2cv5aruco10Dictionary14readDictionaryERKNS_8FileNo
 
 86:                                               ; preds = %82, %78
   %87 = load ptr, ptr %56, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIhEERT_i.exit
 
 89:                                               ; preds = %82
-  %90 = getelementptr inbounds i8, ptr %83, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 1
   br i1 %92, label %93, label %99
@@ -544,8 +544,8 @@ _ZN2cv3Mat2atIhEERT_i.exit:                       ; preds = %99, %93, %86
           to label %134 unwind label %143
 
 134:                                              ; preds = %132
-  %135 = getelementptr inbounds i8, ptr %0, i64 96
-  %136 = getelementptr inbounds i8, ptr %25, i64 96
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %136 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %137 = load i64, ptr %136, align 8
   store i64 %137, ptr %135, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %25) #11
@@ -683,16 +683,16 @@ declare void @_ZN2cv3Mat9push_backERKS0_(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv5aruco10Dictionary19getByteListFromBitsERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable sret(%"class.cv::Mat") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Scalar_", align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = mul nsw i32 %7, %5
   %9 = add nsw i32 %8, 7
   %10 = sdiv i32 %9, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   call void @_ZN2cv3MatC1EiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 1, i32 noundef %10, i32 noundef 24, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %10 to i64
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
@@ -707,8 +707,8 @@ define void @_ZN2cv5aruco10Dictionary19getByteListFromBitsERKNS_3MatE(ptr dead_o
   br i1 %22, label %.preheader.lr.ph, label %._crit_edge60
 
 .preheader.lr.ph:                                 ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %25 = load i32, ptr %4, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.preheader, label %._crit_edge60
@@ -753,7 +753,7 @@ define void @_ZN2cv5aruco10Dictionary19getByteListFromBitsERKNS_3MatE(ptr dead_o
   %48 = load i64, ptr %47, align 8
   %49 = mul i64 %48, %indvars.iv62
   %50 = getelementptr inbounds i8, ptr %46, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv
   %52 = load i8, ptr %51, align 1
   %53 = load i8, ptr %34, align 1
   %54 = or i8 %53, %52
@@ -797,7 +797,7 @@ define void @_ZN2cv5aruco10Dictionary19getByteListFromBitsERKNS_3MatE(ptr dead_o
   %89 = sext i32 %85 to i64
   %90 = mul i64 %88, %89
   %91 = getelementptr inbounds i8, ptr %86, i64 %90
-  %92 = getelementptr inbounds i8, ptr %91, i64 %indvars.iv62
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %indvars.iv62
   %93 = load i8, ptr %92, align 1
   %94 = load i8, ptr %43, align 1
   %95 = or i8 %94, %93
@@ -863,7 +863,7 @@ define void @_ZN2cv5aruco10Dictionary15writeDictionaryERNS_11FileStorageERKNSt7_
   %22 = alloca %"class.std::__cxx11::basic_string", align 8
   %23 = alloca %"class.std::__cxx11::basic_string", align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %27, label %36, label %28
@@ -971,7 +971,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit33:            ; preds = %48
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 4 dereferenceable(4) %55)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
@@ -1004,7 +1004,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit35:            ; preds = %57
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  %64 = getelementptr inbounds i8, ptr %0, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %65 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %58, ptr noundef nonnull align 4 dereferenceable(4) %64)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
@@ -1037,18 +1037,18 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit37:            ; preds = %66
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  %73 = getelementptr inbounds i8, ptr %0, i64 100
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %74 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %67, ptr noundef nonnull align 4 dereferenceable(4) %73)
   %75 = load i32, ptr %55, align 8
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %.lr.ph42, label %._crit_edge43
 
 .lr.ph42:                                         ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit37
-  %77 = getelementptr inbounds i8, ptr %6, i64 4
-  %78 = getelementptr inbounds i8, ptr %19, i64 64
-  %79 = getelementptr inbounds i8, ptr %19, i64 12
-  %80 = getelementptr inbounds i8, ptr %19, i64 16
-  %81 = getelementptr inbounds i8, ptr %19, i64 72
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %19, i64 72
   br label %82
 
 82:                                               ; preds = %.lr.ph42, %144
@@ -1105,11 +1105,11 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit37:            ; preds = %66
 
 99:                                               ; preds = %95, %.lr.ph
   %100 = load ptr, ptr %80, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIhEERT_i.exit
 
 102:                                              ; preds = %95
-  %103 = getelementptr inbounds i8, ptr %96, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = icmp eq i32 %104, 1
   br i1 %105, label %106, label %112
@@ -1278,13 +1278,13 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(64) %0)
   br i1 %8, label %9, label %27
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 6
   br i1 %12, label %13, label %21
@@ -1318,7 +1318,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
   resume { ptr, i32 } %.pn
 
 21:                                               ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %1, align 4
   tail call void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %23)
   %24 = load i32, ptr %10, align 8
@@ -1389,16 +1389,16 @@ define void @_ZN2cv5aruco10Dictionary19getBitsFromByteListERKNS_3MatEi(ptr dead_
 25:                                               ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   call void @_ZN2cv3MatC1EiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %2, i32 noundef %2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.preheader.lr.ph, label %._crit_edge63
 
 .preheader.lr.ph:                                 ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 12
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load i32, ptr %30, align 4
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.preheader.preheader, label %._crit_edge63
@@ -1435,7 +1435,7 @@ define void @_ZN2cv5aruco10Dictionary19getBitsFromByteListERKNS_3MatEi(ptr dead_
   %46 = load i64, ptr %45, align 8
   %47 = mul i64 %46, %indvars.iv65
   %48 = getelementptr inbounds i8, ptr %44, i64 %47
-  %49 = getelementptr inbounds i8, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv
   store i8 1, ptr %49, align 1
   %50 = sub nuw i8 %.13254, %42
   br label %53
@@ -1517,12 +1517,12 @@ define noundef zeroext i1 @_ZNK2cv5aruco10Dictionary8identifyERKNS_3MatERiS5_d(p
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.cv::Mat", align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %10, %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %12
   %or.cond = select i1 %13, i1 %16, i1 false
@@ -1557,23 +1557,23 @@ define noundef zeroext i1 @_ZNK2cv5aruco10Dictionary8identifyERKNS_3MatERiS5_d(p
   br label %68
 
 25:                                               ; preds = %5
-  %26 = getelementptr inbounds i8, ptr %0, i64 100
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %27 = load i32, ptr %26, align 4
   %28 = sitofp i32 %27 to double
   %29 = fmul double %4, %28
   %30 = fptosi double %29 to i32
   call void @_ZN2cv5aruco10Dictionary19getByteListFromBitsERKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %8, ptr noundef nonnull align 8 dereferenceable(96) %1)
   store i32 -1, ptr %2, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
-  %36 = getelementptr inbounds i8, ptr %8, i64 12
-  %37 = getelementptr inbounds i8, ptr %8, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %38
 
 38:                                               ; preds = %.lr.ph, %62
@@ -1595,7 +1595,7 @@ define noundef zeroext i1 @_ZNK2cv5aruco10Dictionary8identifyERKNS_3MatERiS5_d(p
   %48 = load i32, ptr %36, align 4
   %49 = mul i32 %48, %.02446
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %47, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %50
   %52 = load ptr, ptr %37, align 8
   %53 = invoke noundef i32 @_ZN2cv3hal11normHammingEPKhS2_i(ptr noundef %51, ptr noundef %52, i32 noundef %48)
           to label %54 unwind label %57
@@ -1651,7 +1651,7 @@ define noundef i32 @_ZNK2cv5aruco10Dictionary15getDistanceToIdERKNS_11_InputArra
   %7 = alloca %"class.cv::Mat", align 8
   %8 = alloca %"class.cv::Mat", align 8
   %9 = icmp sgt i32 %2, -1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp slt i32 %2, %11
   %or.cond = select i1 %9, i1 %12, i1 false
@@ -1691,7 +1691,7 @@ define noundef i32 @_ZNK2cv5aruco10Dictionary15getDistanceToIdERKNS_11_InputArra
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !noalias !19
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %26)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
@@ -1716,11 +1716,11 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %24, %27
 32:                                               ; preds = %30
   %33 = mul i64 %31, %29
   %34 = trunc i64 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = zext nneg i32 %2 to i64
-  %38 = getelementptr inbounds i8, ptr %7, i64 12
-  %39 = getelementptr inbounds i8, ptr %7, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %40
 
 40:                                               ; preds = %32, %52
@@ -1734,7 +1734,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %24, %27
   %46 = load i32, ptr %38, align 4
   %47 = mul i32 %46, %.01731
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %45, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 %48
   %50 = load ptr, ptr %39, align 8
   %51 = invoke noundef i32 @_ZN2cv3hal11normHammingEPKhS2_i(ptr noundef %49, ptr noundef %50, i32 noundef %46)
           to label %52 unwind label %.loopexit
@@ -1807,7 +1807,7 @@ define void @_ZNK2cv5aruco10Dictionary19generateImageMarkerEiiRKNS_12_OutputArra
   %30 = alloca %"class.cv::_OutputArray", align 8
   %31 = alloca %"class.cv::Mat", align 8
   %32 = alloca %"class.cv::Mat", align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load i32, ptr %33, align 8
   %35 = shl nsw i32 %4, 1
   %36 = add nsw i32 %34, %35
@@ -1843,7 +1843,7 @@ define void @_ZNK2cv5aruco10Dictionary19generateImageMarkerEiiRKNS_12_OutputArra
   br label %162
 
 45:                                               ; preds = %5
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = icmp slt i32 %1, %47
   br i1 %48, label %57, label %49
@@ -1914,13 +1914,13 @@ define void @_ZNK2cv5aruco10Dictionary19generateImageMarkerEiiRKNS_12_OutputArra
   %69 = add nsw i32 %68, %35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   call void @_ZN2cv3MatC1EiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %18, i32 noundef %69, i32 noundef %69, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %19)
-  %70 = getelementptr inbounds i8, ptr %18, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = sub nsw i32 %71, %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i32 %4, ptr %10, align 4, !noalias !23
-  %73 = getelementptr inbounds i8, ptr %10, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %72, ptr %73, align 4, !noalias !23
   store i64 9223372034707292160, ptr %11, align 8, !noalias !23
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
@@ -1929,14 +1929,14 @@ define void @_ZNK2cv5aruco10Dictionary19generateImageMarkerEiiRKNS_12_OutputArra
 74:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %75 = getelementptr inbounds i8, ptr %18, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = sub nsw i32 %76, %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 9223372034707292160, ptr %8, align 8, !noalias !26
   store i32 %4, ptr %9, align 4, !noalias !26
-  %78 = getelementptr inbounds i8, ptr %9, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %77, ptr %78, align 4, !noalias !26
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
           to label %79 unwind label %101
@@ -1949,7 +1949,7 @@ define void @_ZNK2cv5aruco10Dictionary19generateImageMarkerEiiRKNS_12_OutputArra
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i32 %1, ptr %6, align 4, !noalias !29
-  %81 = getelementptr inbounds i8, ptr %6, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %80, ptr %81, align 4, !noalias !29
   store i64 9223372034707292160, ptr %7, align 8, !noalias !29
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
@@ -1970,7 +1970,7 @@ define void @_ZNK2cv5aruco10Dictionary19generateImageMarkerEiiRKNS_12_OutputArra
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #11
   %86 = load ptr, ptr %23, align 8, !noalias !32
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load ptr, ptr %88, align 8
   invoke void %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull align 8 dereferenceable(352) %23, ptr noundef nonnull align 8 dereferenceable(96) %22, i32 noundef -1)
           to label %_ZNK2cv7MatExprcvNS_3MatEEv.exit unwind label %.body
@@ -1983,11 +1983,11 @@ define void @_ZNK2cv5aruco10Dictionary19generateImageMarkerEiiRKNS_12_OutputArra
   br label %109
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %23, i64 208
+  %91 = getelementptr inbounds nuw i8, ptr %23, i64 208
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %91) #11
-  %92 = getelementptr inbounds i8, ptr %23, i64 112
+  %92 = getelementptr inbounds nuw i8, ptr %23, i64 112
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %92) #11
-  %93 = getelementptr inbounds i8, ptr %23, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %23, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %93) #11
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #11
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #11
@@ -2072,8 +2072,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %85
   br label %159
 
 121:                                              ; preds = %97
-  %122 = getelementptr inbounds i8, ptr %28, i64 8
-  %123 = getelementptr inbounds i8, ptr %28, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 0, ptr %123, align 8
   store i32 33619968, ptr %28, align 8
   store ptr %20, ptr %122, align 8
@@ -2081,12 +2081,12 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %85
           to label %124 unwind label %150
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %29, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 0, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %29, i64 20
+  %126 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i32 0, ptr %126, align 4
   store i32 16842752, ptr %29, align 8
-  %127 = getelementptr inbounds i8, ptr %29, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %18, ptr %127, align 8
   %128 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %.noexc unwind label %152
@@ -2096,7 +2096,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %85
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %.noexc
-  %131 = getelementptr inbounds i8, ptr %3, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %132 = load ptr, ptr %131, align 8, !noalias !35
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %31, ptr noundef nonnull align 8 dereferenceable(96) %132)
           to label %134 unwind label %152
@@ -2106,8 +2106,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %85
           to label %134 unwind label %152
 
 134:                                              ; preds = %133, %130
-  %135 = getelementptr inbounds i8, ptr %30, i64 8
-  %136 = getelementptr inbounds i8, ptr %30, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 0, ptr %136, align 8
   store i32 -1040121856, ptr %30, align 8
   store ptr %31, ptr %135, align 8
@@ -2119,7 +2119,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %85
   br i1 %138, label %139, label %142
 
 139:                                              ; preds = %.noexc56
-  %140 = getelementptr inbounds i8, ptr %3, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %141 = load ptr, ptr %140, align 8, !noalias !38
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %32, ptr noundef nonnull align 8 dereferenceable(96) %141)
           to label %143 unwind label %154
@@ -2129,9 +2129,9 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %85
           to label %143 unwind label %154
 
 143:                                              ; preds = %142, %139
-  %144 = getelementptr inbounds i8, ptr %32, i64 64
+  %144 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %147 = load i32, ptr %146, align 4
   %148 = load i32, ptr %145, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %148 to i64
@@ -2203,11 +2203,11 @@ declare void @_ZN2cvmlEdRKNS_3MatE(ptr dead_on_unwind writable sret(%"class.cv::
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #11
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #11
   ret void
 }
@@ -3017,19 +3017,19 @@ define void @_ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTyp
 
 switch.lookup:                                    ; preds = %222
   %312 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [22 x ptr], ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE, i64 0, i64 %312
+  %switch.gep = getelementptr inbounds nuw [22 x ptr], ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE, i64 0, i64 %312
   %switch.load = load ptr, ptr %switch.gep, align 8
   %313 = zext nneg i32 %1 to i64
-  %switch.gep97 = getelementptr inbounds [22 x ptr], ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE.1, i64 0, i64 %313
+  %switch.gep97 = getelementptr inbounds nuw [22 x ptr], ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE.1, i64 0, i64 %313
   %switch.load98 = load ptr, ptr %switch.gep97, align 8
   br label %314
 
 314:                                              ; preds = %222, %switch.lookup
   %_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA.sink = phi ptr [ %switch.load, %switch.lookup ], [ @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, %222 ]
-  %.sink.in = phi ptr [ %switch.load98, %switch.lookup ], [ getelementptr inbounds (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, i64 96), %222 ]
+  %.sink.in = phi ptr [ %switch.load98, %switch.lookup ], [ getelementptr inbounds nuw (i8, ptr @_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA, i64 96), %222 ]
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(96) %_ZZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeEE16DICT_4X4_50_DATA.sink)
   %.sink = load i64, ptr %.sink.in, align 8
-  %315 = getelementptr inbounds i8, ptr %0, i64 96
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %.sink, ptr %315, align 8
   ret void
 
@@ -3125,7 +3125,7 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
 
 40:                                               ; preds = %37
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #11
-  %41 = getelementptr inbounds i8, ptr %0, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %2, ptr %41, align 8
   %42 = mul nsw i32 %2, %2
   %43 = uitofp nneg i32 %42 to float
@@ -3138,13 +3138,13 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
   %50 = call noundef float @llvm.floor.f32(float %49)
   %51 = fptosi float %50 to i32
   %52 = shl nsw i32 %51, 1
-  %53 = getelementptr inbounds i8, ptr %3, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %56, label %.loopexit120
 
 56:                                               ; preds = %40
-  %57 = getelementptr inbounds i8, ptr %3, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, %2
   br i1 %59, label %70, label %62
@@ -3198,7 +3198,7 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store i32 0, ptr %11, align 4, !noalias !42
-  %71 = getelementptr inbounds i8, ptr %11, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %.sroa.speculated112, ptr %71, align 4, !noalias !42
   store i64 9223372034707292160, ptr %12, align 8, !noalias !42
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %12)
@@ -3218,18 +3218,18 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #11
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #11
   %76 = add nuw nsw i32 %42, 1
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %.lr.ph141, label %.loopexit120
 
 .lr.ph141:                                        ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %9, i64 4
-  %81 = getelementptr inbounds i8, ptr %8, i64 16
-  %82 = getelementptr inbounds i8, ptr %8, i64 12
-  %83 = getelementptr inbounds i8, ptr %22, i64 16
-  %84 = getelementptr inbounds i8, ptr %22, i64 20
-  %85 = getelementptr inbounds i8, ptr %22, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %22, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br label %86
 
 86:                                               ; preds = %.lr.ph141, %._crit_edge
@@ -3373,21 +3373,21 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
 .loopexit120:                                     ; preds = %._crit_edge, %75, %40
   %.055 = phi i32 [ %52, %40 ], [ %76, %75 ], [ %.1118.lcssa, %._crit_edge ]
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #11
-  %126 = getelementptr inbounds i8, ptr %0, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %127 = load i32, ptr %126, align 8
   %128 = icmp slt i32 %127, %1
   br i1 %128, label %.lr.ph154, label %._crit_edge155
 
 .lr.ph154:                                        ; preds = %.loopexit120
   %129 = icmp sgt i32 %2, 0
-  %130 = getelementptr inbounds i8, ptr %24, i64 16
-  %131 = getelementptr inbounds i8, ptr %24, i64 72
+  %130 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %wide.trip.count23.i = zext nneg i32 %2 to i64
-  %132 = getelementptr inbounds i8, ptr %6, i64 16
-  %133 = getelementptr inbounds i8, ptr %6, i64 12
-  %134 = getelementptr inbounds i8, ptr %25, i64 16
-  %135 = getelementptr inbounds i8, ptr %25, i64 20
-  %136 = getelementptr inbounds i8, ptr %25, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %134 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  %136 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %137
 
 137:                                              ; preds = %.lr.ph154, %194
@@ -3423,7 +3423,7 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
   %147 = load i64, ptr %146, align 8
   %148 = mul i64 %147, %indvars.iv20.i
   %149 = getelementptr inbounds i8, ptr %145, i64 %148
-  %150 = getelementptr inbounds i8, ptr %149, i64 %indvars.iv.i
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %indvars.iv.i
   store i8 %144, ptr %150, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count23.i
@@ -3596,7 +3596,7 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
   %.156.lcssa = phi i32 [ %.055, %.loopexit120 ], [ %.257, %194 ]
   %197 = add nsw i32 %.156.lcssa, -1
   %198 = sdiv i32 %197, 2
-  %199 = getelementptr inbounds i8, ptr %0, i64 100
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %198, ptr %199, align 4
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #11
   ret void

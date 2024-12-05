@@ -41,10 +41,10 @@ define dso_local ptr @i128_to_string(i64 %0, i64 %1, i64 noundef %2, i1 noundef 
 i128_neg.exit:                                    ; preds = %13, %12, %4
   %.sroa.018.0 = phi i64 [ %0, %4 ], [ %19, %13 ], [ %0, %12 ]
   %.sroa.8.0 = phi i64 [ %1, %4 ], [ %16, %13 ], [ 0, %12 ]
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
 
 24:                                               ; preds = %i128_udiv.exit, %i128_neg.exit
@@ -134,7 +134,7 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %61 = getelementptr inbounds [16 x i8], ptr @i128_to_string.digits, i64 0, i64 %.sroa.3.0.i
   %62 = load i8, ptr %61, align 1
-  %63 = getelementptr inbounds i8, ptr %.026, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   store i8 %62, ptr %.026, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -238,7 +238,7 @@ i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
   br i1 %11, label %114, label %116
 
 114:                                              ; preds = %109
-  %115 = getelementptr inbounds i8, ptr %113, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 1
   store i8 45, ptr %113, align 1
   br label %116
 
@@ -252,7 +252,7 @@ i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
   %.12747 = phi ptr [ %118, %.lr.ph ], [ %63, %116 ]
   %118 = getelementptr inbounds i8, ptr %.12747, i64 -1
   %119 = load i8, ptr %118, align 1
-  %120 = getelementptr inbounds i8, ptr %.148, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %.148, i64 1
   store i8 %119, ptr %.148, align 1
   %121 = icmp ugt ptr %118, %9
   br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !10
@@ -295,10 +295,10 @@ define dso_local { i64, i64 } @i128_urem(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i64 %0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %7, align 8
   store i64 %2, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %3, ptr %8, align 8
   %9 = call i32 @i128_clz(ptr noundef nonnull %6)
   %10 = call i32 @i128_clz(ptr noundef nonnull %5)
@@ -390,10 +390,10 @@ define dso_local { i64, i64 } @i128_udiv(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i64 %0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %7, align 8
   store i64 %2, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %3, ptr %8, align 8
   %9 = call i32 @i128_clz(ptr noundef nonnull %6)
   %10 = call i32 @i128_clz(ptr noundef nonnull %5)
@@ -497,12 +497,12 @@ declare ptr @calloc_string(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @int_to_str(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -3
   %7 = icmp ult i32 %6, 5
   %8 = load i64, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = tail call ptr @i128_to_string(i64 %8, i64 %10, i64 noundef %3, i1 noundef zeroext %7)
   ret ptr %11
@@ -516,9 +516,9 @@ define dso_local void @int_from_real(ptr dead_on_unwind noalias nocapture writab
   %7 = fptosi double %1 to i64
   %.sink = select i1 %5, i64 %6, i64 %7
   store i64 0, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %9, align 8
   ret void
 }
@@ -555,7 +555,7 @@ define dso_local { i64, i64 } @i128_from_str(ptr nocapture noundef readonly %0) 
   %.sroa.4.011 = phi i64 [ %19, %.lr.ph ], [ 0, %1 ]
   %.010 = phi ptr [ %5, %.lr.ph ], [ %0, %1 ]
   %4 = sext i8 %3 to i64
-  %5 = getelementptr inbounds i8, ptr %.010, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   %6 = and i64 %.sroa.4.011, 4294967295
   %7 = mul nuw nsw i64 %6, 10
   %8 = and i64 %7, 4294967294
@@ -636,7 +636,7 @@ define dso_local { i64, i64 } @i128_from_strl(ptr noundef readonly %0, ptr nound
   %.sroa.05.013 = phi i64 [ %22, %.lr.ph ], [ 0, %2 ]
   %.sroa.4.012 = phi i64 [ %19, %.lr.ph ], [ 0, %2 ]
   %.011 = phi ptr [ %3, %.lr.ph ], [ %0, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.011, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   %4 = load i8, ptr %.011, align 1
   %5 = and i64 %.sroa.4.012, 4294967295
   %6 = mul nuw nsw i64 %5, 10
@@ -676,13 +676,13 @@ define dso_local { i64, i64 } @i128_from_hexstrl(ptr noundef readonly %0, ptr no
   %.sroa.05.013 = phi i64 [ %16, %.lr.ph ], [ 0, %2 ]
   %.sroa.4.012 = phi i64 [ %13, %.lr.ph ], [ 0, %2 ]
   %.011 = phi ptr [ %3, %.lr.ph ], [ %0, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.011, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   %4 = load i8, ptr %.011, align 1
   %5 = tail call i64 @llvm.fshl.i64(i64 %.sroa.05.013, i64 %.sroa.4.012, i64 4)
   %6 = shl i64 %.sroa.4.012, 4
   %7 = sext i8 %4 to i64
   %8 = and i64 %7, 4294967295
-  %9 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = sext i8 %10 to i64
   %12 = add i64 %6, -1
@@ -1198,7 +1198,7 @@ define dso_local zeroext i1 @i128_get_bit(ptr nocapture noundef readonly %0, i32
   %5 = add nsw i32 %1, -64
   %.sink8 = select i1 %3, i32 %5, i32 %4
   %.sink.in.idx = select i1 %3, i64 0, i64 8
-  %.sink.in = getelementptr inbounds i8, ptr %0, i64 %.sink.in.idx
+  %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.in.idx
   %.sink = load i64, ptr %.sink.in, align 8
   %6 = zext nneg i32 %.sink8 to i64
   %7 = shl nuw i64 1, %6
@@ -1443,7 +1443,7 @@ define dso_local range(i32 -1, 2) i32 @i128_comp(i64 %0, i64 %1, i64 %2, i64 %3,
   br i1 %.not, label %9, label %.critedge16
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %4, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, -3
@@ -1511,7 +1511,7 @@ define dso_local range(i32 0, 129) i32 @i128_popcnt(i64 %0, i64 %1) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 129) i32 @i128_ctz(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %48
@@ -1656,7 +1656,7 @@ define dso_local range(i32 0, 129) i32 @i128_clz(ptr nocapture noundef readonly 
   br label %85
 
 41:                                               ; preds = %1
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %43, 0
   %45 = lshr i64 %43, 32
@@ -1789,12 +1789,12 @@ define dso_local void @i128_udivrem(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocaptur
   %7 = alloca %struct.Int128_, align 8
   %8 = alloca %struct.Int128_, align 8
   store i64 %0, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %1, ptr %9, align 8
   store i64 %2, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %3, ptr %10, align 8
-  %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %11 = call i32 @i128_clz(ptr noundef nonnull %8)
   %12 = call i32 @i128_clz(ptr noundef nonnull %7)
@@ -1883,7 +1883,7 @@ i128_ucomp.exit:                                  ; preds = %43, %select.unfold
   store i64 %40, ptr %4, align 8
   store i64 %52, ptr %.sroa.210.0..sroa_idx, align 8
   store i64 %51, ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %50, ptr %57, align 8
   br label %58
 
@@ -1938,10 +1938,10 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i64 %.sroa.011.0, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.514.0, ptr %25, align 8
   store i64 %.sroa.07.0, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.5.0, ptr %26, align 8
   %27 = call i32 @i128_clz(ptr noundef nonnull %6)
   %28 = call i32 @i128_clz(ptr noundef nonnull %5)
@@ -2106,10 +2106,10 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i64 %.sroa.011.0, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.514.0, ptr %25, align 8
   store i64 %.sroa.07.0, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.5.0, ptr %26, align 8
   %27 = call i32 @i128_clz(ptr noundef nonnull %6)
   %28 = call i32 @i128_clz(ptr noundef nonnull %5)
@@ -2278,11 +2278,11 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @int_comp(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -3
   %7 = icmp ult i32 %6, 5
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8
   br i1 %7, label %10, label %48
 
@@ -2293,10 +2293,10 @@ define dso_local zeroext i1 @int_comp(ptr nocapture noundef readonly byval(%stru
   br i1 %12, label %14, label %32
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = load i64, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i64, ptr %18, align 8
   %.not.unshifted.i.i = xor i64 %17, %13
   %.not.i.i = icmp sgt i64 %.not.unshifted.i.i, -1
@@ -2329,10 +2329,10 @@ define dso_local zeroext i1 @int_comp(ptr nocapture noundef readonly byval(%stru
   br i1 %33, label %int_compare.exit, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = load i64, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = icmp ugt i64 %13, %37
   br i1 %40, label %int_compare.exit, label %41
@@ -2360,9 +2360,9 @@ define dso_local zeroext i1 @int_comp(ptr nocapture noundef readonly byval(%stru
 
 53:                                               ; preds = %48
   %54 = load i64, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = icmp ugt i64 %54, %51
   br i1 %59, label %int_compare.exit, label %60
@@ -2426,7 +2426,7 @@ binary_op_matches_res.exit:                       ; preds = %67, %69, %71, %73, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @int_icomp(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -3
   %7 = icmp ult i32 %6, 5
@@ -2435,7 +2435,7 @@ define dso_local zeroext i1 @int_icomp(ptr nocapture noundef readonly byval(%str
 8:                                                ; preds = %3
   %.lobit.i.i = ashr i64 %1, 63
   %9 = load i64, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %.not.unshifted.i.i = xor i64 %9, %.lobit.i.i
   %.not.i.i = icmp sgt i64 %.not.unshifted.i.i, -1
@@ -2471,7 +2471,7 @@ define dso_local zeroext i1 @int_icomp(ptr nocapture noundef readonly byval(%str
   br i1 %or.cond.i, label %int_signed_compare.exit, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp ugt i64 %30, %1
   br i1 %31, label %int_signed_compare.exit, label %32
@@ -2527,7 +2527,7 @@ binary_op_matches_res.exit:                       ; preds = %34, %36, %38, %40, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @int_ucomp(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -3
   %7 = icmp ult i32 %6, 5
@@ -2541,7 +2541,7 @@ thread-pre-split.i:                               ; preds = %3
   br i1 %.not.i, label %10, label %int_unsigned_compare.exit
 
 10:                                               ; preds = %thread-pre-split.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ugt i64 %12, %1
   br i1 %13, label %int_unsigned_compare.exit, label %14
@@ -2643,7 +2643,7 @@ define dso_local zeroext i1 @int_fits(ptr nocapture noundef readonly byval(%stru
   %.sroa.14.0.ph = phi i64 [ -1, %2 ], [ 9223372036854775807, %3 ], [ 2147483647, %4 ], [ 32767, %5 ], [ 127, %6 ]
   %.sroa.038.0.ph = phi i64 [ -9223372036854775808, %2 ], [ -1, %3 ], [ -1, %4 ], [ -1, %5 ], [ -1, %6 ]
   %.sroa.6.0.ph = phi i64 [ 0, %2 ], [ -9223372036854775808, %3 ], [ -2147483648, %4 ], [ -32768, %5 ], [ -128, %6 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = add i32 %14, -3
   %16 = icmp ult i32 %15, 5
@@ -2651,7 +2651,7 @@ define dso_local zeroext i1 @int_fits(ptr nocapture noundef readonly byval(%stru
   br i1 %16, label %18, label %29
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8
   %.not.i = icmp sgt i64 %17, -1
   %21 = icmp ugt i64 %17, %.sroa.038.0.ph
@@ -2685,7 +2685,7 @@ i128_scomp.exit47.thread:                         ; preds = %22, %select.unfold6
   br i1 %30, label %i128_scomp.exit, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = icmp samesign ult i64 %17, %.sroa.031.0.ph
   %35 = icmp ule i64 %33, %.sroa.14.0.ph
@@ -2695,7 +2695,7 @@ i128_scomp.exit47.thread:                         ; preds = %22, %select.unfold6
 36:                                               ; preds = %2, %7, %8, %9, %10
   %.sroa.031.0 = phi i64 [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ -1, %2 ]
   %.sroa.14.0 = phi i64 [ 255, %10 ], [ 65535, %9 ], [ 4294967295, %8 ], [ -1, %7 ], [ -1, %2 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, -3
   %40 = icmp ult i32 %39, 5
@@ -2709,7 +2709,7 @@ i128_scomp.exit47.thread:                         ; preds = %22, %select.unfold6
   br i1 %or.cond82, label %i128_scomp.exit, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i64, ptr %46, align 8
   %48 = icmp ult i64 %41, %.sroa.031.0
   %49 = icmp ule i64 %47, %.sroa.14.0
@@ -2721,7 +2721,7 @@ i128_scomp.exit47.thread:                         ; preds = %22, %select.unfold6
   br i1 %51, label %i128_scomp.exit, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load i64, ptr %53, align 8
   %55 = icmp ult i64 %41, %.sroa.031.0
   %56 = icmp ule i64 %54, %.sroa.14.0
@@ -2735,14 +2735,14 @@ i128_scomp.exit:                                  ; preds = %52, %31, %50, %29, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @int_to_u64(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @int_to_i64(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -2751,7 +2751,7 @@ define dso_local i64 @int_to_i64(ptr nocapture noundef readonly byval(%struct.In
 define dso_local zeroext i1 @int_is_zero(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not1 = icmp eq i64 %4, 0
   %5 = select i1 %.not, i1 %.not1, i1 false
@@ -2761,7 +2761,7 @@ define dso_local zeroext i1 @int_is_zero(ptr nocapture noundef readonly byval(%s
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local range(i32 0, 130) i32 @int_bits_needed(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #15 {
   %2 = alloca %struct.Int128_, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %5 = add i32 %4, -3
@@ -2770,7 +2770,7 @@ define dso_local range(i32 0, 130) i32 @int_bits_needed(ptr nocapture noundef re
 
 7:                                                ; preds = %1
   %8 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = icmp slt i64 %8, 0
   br i1 %10, label %11, label %24
 
@@ -2809,25 +2809,25 @@ i128_neg.exit:                                    ; preds = %11, %13
 ; Function Attrs: nounwind uwtable
 define dso_local void @int_add(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %6
   %11 = add i64 %7, %4
   %12 = icmp ult i64 %10, %6
   %13 = zext i1 %12 to i64
   %spec.select.i = add i64 %11, %13
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = tail call { i64, i64 } @i128_extend(i64 %spec.select.i, i64 %10, i32 noundef %15)
   %17 = extractvalue { i64, i64 } %16, 0
   store i64 %17, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = extractvalue { i64, i64 } %16, 1
   store i64 %19, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %15, ptr %20, align 8
   ret void
 }
@@ -2835,21 +2835,21 @@ define dso_local void @int_add(ptr dead_on_unwind noalias nocapture writable wri
 ; Function Attrs: nounwind uwtable
 define dso_local void @int_add64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %2
   %8 = icmp ult i64 %7, %6
   %9 = zext i1 %8 to i64
   %10 = add i64 %4, %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = tail call { i64, i64 } @i128_extend(i64 %10, i64 %7, i32 noundef %12)
   %14 = extractvalue { i64, i64 } %13, 0
   store i64 %14, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = extractvalue { i64, i64 } %13, 1
   store i64 %16, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %12, ptr %17, align 8
   ret void
 }
@@ -2857,25 +2857,25 @@ define dso_local void @int_add64(ptr dead_on_unwind noalias nocapture writable w
 ; Function Attrs: nounwind uwtable
 define dso_local void @int_sub(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = sub i64 %4, %7
   %11 = icmp ugt i64 %9, %6
   %12 = sext i1 %11 to i64
   %spec.select.i = add i64 %10, %12
   %13 = sub i64 %6, %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = tail call { i64, i64 } @i128_extend(i64 %spec.select.i, i64 %13, i32 noundef %15)
   %17 = extractvalue { i64, i64 } %16, 0
   store i64 %17, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = extractvalue { i64, i64 } %16, 1
   store i64 %19, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %15, ptr %20, align 8
   ret void
 }
@@ -2883,21 +2883,21 @@ define dso_local void @int_sub(ptr dead_on_unwind noalias nocapture writable wri
 ; Function Attrs: nounwind uwtable
 define dso_local void @int_sub64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %6, %2
   %8 = icmp ugt i64 %2, %6
   %9 = sext i1 %8 to i64
   %10 = add i64 %4, %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = tail call { i64, i64 } @i128_extend(i64 %10, i64 %7, i32 noundef %12)
   %14 = extractvalue { i64, i64 } %13, 0
   store i64 %14, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = extractvalue { i64, i64 } %13, 1
   store i64 %16, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %12, ptr %17, align 8
   ret void
 }
@@ -2905,10 +2905,10 @@ define dso_local void @int_sub64(ptr dead_on_unwind noalias nocapture writable w
 ; Function Attrs: nounwind uwtable
 define dso_local void @int_mul(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %6, 4294967295
   %11 = and i64 %9, 4294967295
@@ -2933,22 +2933,22 @@ define dso_local void @int_mul(ptr dead_on_unwind noalias nocapture writable wri
   %30 = add i64 %29, %23
   %31 = add i64 %30, %19
   %32 = add i64 %31, %24
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = tail call { i64, i64 } @i128_extend(i64 %32, i64 %26, i32 noundef %34)
   %36 = extractvalue { i64, i64 } %35, 0
   store i64 %36, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = extractvalue { i64, i64 } %35, 1
   store i64 %38, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %34, ptr %39, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @int_conv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @type_kind_bitsize(i32 noundef %5) #19
   %7 = tail call i32 @type_kind_bitsize(i32 noundef %2) #19
@@ -2979,7 +2979,7 @@ define dso_local void @int_conv(ptr dead_on_unwind noalias nocapture writable wr
   %19 = sub nsw i32 128, %7
   %20 = sext i32 %19 to i64
   %21 = load i64, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = icmp ugt i32 %19, 127
   br i1 %24, label %i128_lshr64.exit, label %25
@@ -3014,7 +3014,7 @@ i128_lshr64.exit:                                 ; preds = %18, %25, %29, %33
   %.sroa.015.0.i = phi i64 [ 0, %29 ], [ %42, %33 ], [ 0, %25 ], [ 0, %18 ]
   %.sroa.6.0.i33 = phi i64 [ %32, %29 ], [ %41, %33 ], [ %23, %25 ], [ 0, %18 ]
   store i64 %.sroa.015.0.i, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.0.i33, ptr %43, align 8
   br label %98
 
@@ -3022,7 +3022,7 @@ i128_lshr64.exit:                                 ; preds = %18, %25, %29, %33
   %45 = sub nsw i32 128, %7
   %46 = sext i32 %45 to i64
   %47 = load i64, ptr %1, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = icmp ugt i32 %45, 127
   br i1 %50, label %i128_lshr64.exit45.thread, label %51
@@ -3117,7 +3117,7 @@ i128_ashr64.exit:                                 ; preds = %i128_lshr64.exit45.
   %.sroa.015.0.i51 = phi i64 [ -1, %89 ], [ %91, %.thread164 ], [ 0, %82 ], [ %88, %.thread159 ], [ %.sroa.6.0.i42.lobit, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ]
   %.sroa.7.0.i = phi i64 [ %90, %89 ], [ %95, %.thread164 ], [ %83, %82 ], [ %87, %.thread159 ], [ %.sroa.6.0.i42, %.thread126 ], [ 0, %i128_lshr64.exit45.thread ]
   store i64 %.sroa.015.0.i51, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7.0.i, ptr %96, align 8
   br label %98
 
@@ -3125,12 +3125,12 @@ i128_ashr64.exit:                                 ; preds = %i128_lshr64.exit45.
   %.sroa.6.0.i42148 = phi i64 [ 0, %i128_lshr64.exit45.thread ], [ %.sroa.6.0.i42, %i128_lshr64.exit45 ]
   %.sroa.015.0.i41146 = phi i64 [ 0, %i128_lshr64.exit45.thread ], [ %.sroa.015.0.i41, %i128_lshr64.exit45 ]
   store i64 %.sroa.015.0.i41146, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.0.i42148, ptr %.sroa.3.0..sroa_idx, align 8
   br label %98
 
 98:                                               ; preds = %97, %i128_ashr64.exit, %i128_lshr64.exit, %17, %9
-  %99 = getelementptr inbounds i8, ptr %0, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %99, align 8
   ret void
 }
@@ -3139,15 +3139,15 @@ i128_ashr64.exit:                                 ; preds = %i128_lshr64.exit45.
 define dso_local void @int_div(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #13 {
   %4 = alloca %struct.Int128_, align 8
   %5 = alloca %struct.Int128_, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, -3
   %9 = icmp ult i32 %8, 5
   %10 = load i64, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i64, ptr %14, align 8
   br i1 %9, label %16, label %18
 
@@ -3159,10 +3159,10 @@ define dso_local void @int_div(ptr dead_on_unwind noalias nocapture writable wri
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 %10, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %19, align 8
   store i64 %13, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %15, ptr %20, align 8
   %21 = call i32 @i128_clz(ptr noundef nonnull %5)
   %22 = call i32 @i128_clz(ptr noundef nonnull %4)
@@ -3257,9 +3257,9 @@ i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
   %.sroa.3.0 = extractvalue { i64, i64 } %.pn, 1
   %.sroa.03.0 = extractvalue { i64, i64 } %.pn, 0
   store i64 %.sroa.03.0, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %7, ptr %66, align 8
   ret void
 }
@@ -3268,15 +3268,15 @@ i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
 define dso_local void @int_rem(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #13 {
   %4 = alloca %struct.Int128_, align 8
   %5 = alloca %struct.Int128_, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, -3
   %9 = icmp ult i32 %8, 5
   %10 = load i64, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i64, ptr %14, align 8
   br i1 %9, label %16, label %18
 
@@ -3288,10 +3288,10 @@ define dso_local void @int_rem(ptr dead_on_unwind noalias nocapture writable wri
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 %10, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %19, align 8
   store i64 %13, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %15, ptr %20, align 8
   %21 = call i32 @i128_clz(ptr noundef nonnull %5)
   %22 = call i32 @i128_clz(ptr noundef nonnull %4)
@@ -3380,9 +3380,9 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
   %.sroa.3.0 = extractvalue { i64, i64 } %.pn, 1
   %.sroa.03.0 = extractvalue { i64, i64 } %.pn, 0
   store i64 %.sroa.03.0, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %7, ptr %60, align 8
   ret void
 }
@@ -3390,18 +3390,18 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @int_and(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %7, %4
   %11 = and i64 %9, %6
   store i64 %10, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %13, align 8
   ret void
@@ -3410,18 +3410,18 @@ define dso_local void @int_and(ptr dead_on_unwind noalias nocapture writable wri
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @int_or(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = or i64 %7, %4
   %11 = or i64 %9, %6
   store i64 %10, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %13, align 8
   ret void
@@ -3430,18 +3430,18 @@ define dso_local void @int_or(ptr dead_on_unwind noalias nocapture writable writ
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @int_xor(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, ptr nocapture noundef readonly byval(%struct.Int) align 8 %2) local_unnamed_addr #15 {
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = xor i64 %7, %4
   %11 = xor i64 %9, %6
   store i64 %10, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %13, align 8
   ret void
@@ -3449,11 +3449,11 @@ define dso_local void @int_xor(ptr dead_on_unwind noalias nocapture writable wri
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @int_neg(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.42.0.copyload = load i64, ptr %.sroa.42.0..sroa_idx, align 8
   %5 = icmp ne i64 %.sroa.42.0.copyload, 0
   %6 = sext i1 %5 to i64
@@ -3462,10 +3462,10 @@ define dso_local void @int_neg(ptr dead_on_unwind noalias nocapture writable wri
   %8 = tail call { i64, i64 } @i128_extend(i64 %spec.select.i.i, i64 %7, i32 noundef %4), !noalias !14
   %9 = extractvalue { i64, i64 } %8, 0
   store i64 %9, ptr %0, align 8, !alias.scope !14
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = extractvalue { i64, i64 } %8, 1
   store i64 %11, ptr %10, align 8, !alias.scope !14
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %4, ptr %12, align 8, !alias.scope !14
   ret void
 }
@@ -3473,31 +3473,31 @@ define dso_local void @int_neg(ptr dead_on_unwind noalias nocapture writable wri
 ; Function Attrs: nounwind uwtable
 define dso_local void @int_not(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = xor i64 %3, -1
   %7 = xor i64 %5, -1
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = tail call { i64, i64 } @i128_extend(i64 %6, i64 %7, i32 noundef %9)
   %11 = extractvalue { i64, i64 } %10, 0
   store i64 %11, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = extractvalue { i64, i64 } %10, 1
   store i64 %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %9, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @int_shr64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -8
   %7 = icmp ult i32 %6, 5
   %8 = load i64, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %2, 0
   br i1 %7, label %12, label %29
@@ -3602,22 +3602,22 @@ i128_ashr64.exit:                                 ; preds = %29, %32, %33, %37, 
   %.sink11 = phi { i64, i64 } [ %60, %i128_ashr64.exit ], [ %28, %i128_lshr64.exit ]
   %62 = extractvalue { i64, i64 } %.sink11, 0
   store i64 %62, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = extractvalue { i64, i64 } %.sink11, 1
   store i64 %64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %5, ptr %65, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @int_shl64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Int) align 8 initializes((0, 20)) %0, ptr nocapture noundef readonly byval(%struct.Int) align 8 %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -8
   %7 = icmp ult i32 %6, 5
   %8 = load i64, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %2, 0
   br i1 %7, label %12, label %29
@@ -3694,22 +3694,22 @@ i128_shl64.exit10:                                ; preds = %29, %30, %32, %36, 
   %.sink13 = phi { i64, i64 } [ %45, %i128_shl64.exit10 ], [ %28, %i128_shl64.exit ]
   %47 = extractvalue { i64, i64 } %.sink13, 0
   store i64 %47, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = extractvalue { i64, i64 } %.sink13, 1
   store i64 %49, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %5, ptr %50, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local double @int_to_real(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -3
   %5 = icmp ult i32 %4, 5
   %6 = load i64, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br i1 %5, label %9, label %11
 
@@ -3731,7 +3731,7 @@ define dso_local double @int_to_real(ptr nocapture noundef readonly byval(%struc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @int_is_neg(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -13
   %5 = icmp ult i32 %4, -5

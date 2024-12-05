@@ -182,13 +182,13 @@ sub_0:                                            ; preds = %28
   br i1 %.not55, label %sub_1, label %.tail.thread.thread
 
 sub_1:                                            ; preds = %sub_0
-  %34 = getelementptr inbounds i8, ptr %30, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %35 = load i8, ptr %34, align 1
   %.not56 = icmp eq i8 %35, 63
   br i1 %.not56, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %36 = getelementptr inbounds i8, ptr %30, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %.thread
@@ -214,13 +214,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %45, label %51, label %sub_152
 
 sub_152:                                          ; preds = %.tail.thread, %.thread
-  %46 = getelementptr inbounds i8, ptr %30, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %47 = load i8, ptr %46, align 1
   %.not58 = icmp eq i8 %47, 86
   br i1 %.not58, label %.tail50, label %.tail50.thread
 
 .tail50:                                          ; preds = %sub_152
-  %48 = getelementptr inbounds i8, ptr %30, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 0
   br i1 %50, label %51, label %.tail50.thread
@@ -737,10 +737,10 @@ define dso_local void @adjust_data_dir(ptr noundef initializes((144, 152)) %0) l
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @pg_strdup(ptr noundef %6) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %7, ptr %8, align 8
   %9 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.53, ptr noundef %7) #12
   %10 = call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.54)
@@ -763,7 +763,7 @@ define dso_local void @adjust_data_dir(ptr noundef initializes((144, 152)) %0) l
   %20 = icmp eq ptr %0, @old_cluster
   %.str.56..str.57 = select i1 %20, ptr @.str.56, ptr @.str.57
   call void (ptr, ...) @prep_status(ptr noundef nonnull %.str.56..str.57) #12
-  %21 = getelementptr inbounds i8, ptr %0, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %8, align 8
   %24 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.58, ptr noundef %22, ptr noundef %23) #12
@@ -846,14 +846,14 @@ define dso_local void @get_sock_dir(ptr nocapture noundef %0, i1 noundef zeroext
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @user_opts, i64 16), align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %6, ptr %7, align 8
   br label %41
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %10 = load i16, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.60, ptr noundef %12) #12
   %14 = call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull @.str.54)
@@ -861,7 +861,7 @@ define dso_local void @get_sock_dir(ptr nocapture noundef %0, i1 noundef zeroext
   br i1 %15, label %19, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %17 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %14)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %._crit_edge, label %.lr.ph

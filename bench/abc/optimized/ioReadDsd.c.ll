@@ -41,7 +41,7 @@ define noundef ptr @Io_ReadDsdFindEnd(ptr noundef readonly %0) local_unnamed_add
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %.09, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.09, i64 1
   br label %2, !llvm.loop !4
 
 12:                                               ; preds = %2, %8
@@ -60,12 +60,12 @@ define i32 @Io_ReadDsdStrSplit(ptr noundef %0, ptr nocapture noundef writeonly %
   %.037 = phi i32 [ %31, %25 ], [ 0, %3 ]
   %.036 = phi i32 [ %34, %25 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store ptr %.040, ptr %5, align 8
   %6 = load i8, ptr %.040, align 1
   %7 = icmp eq i8 %6, 33
   %spec.select.idx = zext i1 %7 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.040, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.040, i64 %spec.select.idx
   %8 = load i8, ptr %spec.select, align 1
   %9 = add i8 %8, -97
   %or.cond = icmp ult i8 %9, 26
@@ -81,7 +81,7 @@ define i32 @Io_ReadDsdStrSplit(ptr noundef %0, ptr nocapture noundef writeonly %
 
 .critedge:                                        ; preds = %.preheader56, %.critedge
   %.377 = phi ptr [ %12, %.critedge ], [ %spec.select, %.preheader56 ]
-  %12 = getelementptr inbounds i8, ptr %.377, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.377, i64 1
   %.pr = load i8, ptr %12, align 1
   %13 = add i8 %.pr, -48
   %or.cond52 = icmp ult i8 %13, 10
@@ -120,13 +120,13 @@ define i32 @Io_ReadDsdStrSplit(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %21, label %Io_ReadDsdFindEnd.exit, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %.09.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %.pre = load i8, ptr %23, align 1
   br label %.preheader, !llvm.loop !4
 
 Io_ReadDsdFindEnd.exit:                           ; preds = %20, %4
   %.1.pn = phi ptr [ %spec.select, %4 ], [ %.09.i, %20 ]
-  %.2 = getelementptr inbounds i8, ptr %.1.pn, i64 1
+  %.2 = getelementptr inbounds nuw i8, ptr %.1.pn, i64 1
   %24 = load i8, ptr %.2, align 1
   switch i8 %24, label %.loopexit.sink.split [
     i8 0, label %.loopexit
@@ -145,7 +145,7 @@ Io_ReadDsdFindEnd.exit:                           ; preds = %20, %4
   %32 = icmp eq i8 %24, 44
   %33 = zext i1 %32 to i32
   %34 = or i32 %.036, %33
-  %35 = getelementptr inbounds i8, ptr %.1.pn, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.1.pn, i64 2
   store i8 0, ptr %.2, align 1
   br label %4
 
@@ -189,7 +189,7 @@ common.ret110:                                    ; preds = %61, %58, %.loopexit
   ret ptr %common.ret110.op
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %9 = tail call ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef nonnull %8, ptr noundef null)
   %10 = tail call ptr @Abc_NtkCreateNodeInv(ptr noundef %0, ptr noundef %9) #9
   br label %common.ret110
@@ -199,7 +199,7 @@ common.ret110:                                    ; preds = %61, %58, %.loopexit
   %13 = getelementptr i8, ptr %1, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1
   store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = call i32 @Io_ReadDsdStrSplit(ptr noundef nonnull %15, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %19
@@ -230,7 +230,7 @@ common.ret110:                                    ; preds = %61, %58, %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
-  %22 = getelementptr inbounds [32 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [32 x ptr], ptr %4, i64 0, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %23, ptr noundef null)
   %25 = icmp eq ptr %24, null
@@ -244,7 +244,7 @@ common.ret110:                                    ; preds = %61, %58, %.loopexit
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %31
   %indvars.iv94 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next95, %31 ]
-  %27 = getelementptr inbounds [32 x ptr], ptr %4, i64 0, i64 %indvars.iv94
+  %27 = getelementptr inbounds nuw [32 x ptr], ptr %4, i64 0, i64 %indvars.iv94
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef %28, ptr noundef null)
   %30 = icmp eq ptr %29, null
@@ -260,19 +260,19 @@ common.ret110:                                    ; preds = %61, %58, %.loopexit
   br i1 %.not73, label %.loopexit.thread, label %.loopexit.thread99
 
 .loopexit.thread99:                               ; preds = %.preheader79, %.loopexit
-  %32 = getelementptr inbounds i8, ptr %0, i64 256
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @Abc_SopRegister(ptr noundef %33, ptr noundef nonnull %2) #9
-  %35 = getelementptr inbounds i8, ptr %20, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store ptr %34, ptr %35, align 8
   br label %common.ret110
 
 .loopexit.thread:                                 ; preds = %.preheader78, %.loopexit
   %36 = load i32, ptr %5, align 4
   %.not74 = icmp eq i32 %36, 0
-  %37 = getelementptr inbounds i8, ptr %0, i64 256
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %20, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 56
   br i1 %.not74, label %42, label %40
 
 40:                                               ; preds = %.loopexit.thread
@@ -304,13 +304,13 @@ common.ret110:                                    ; preds = %61, %58, %.loopexit
   %50 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %50, align 8
   %51 = zext nneg i8 %45 to i64
-  %52 = getelementptr inbounds ptr, ptr %.val.val, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %51
   %53 = load ptr, ptr %52, align 8
   br label %common.ret110
 
 .critedge:                                        ; preds = %.preheader, %.critedge
   %.06388 = phi ptr [ %54, %.critedge ], [ %1, %.preheader ]
-  %54 = getelementptr inbounds i8, ptr %.06388, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.06388, i64 1
   %.pr = load i8, ptr %54, align 1
   %55 = add i8 %.pr, -48
   %or.cond75 = icmp ult i8 %55, 10
@@ -377,7 +377,7 @@ define ptr @Io_ReadDsd(ptr nocapture noundef readonly %0) local_unnamed_addr #2 
   %5 = zext nneg i8 %4 to i32
   %6 = tail call range(i32 0, 26) i32 @llvm.umax.i32(i32 range(i32 0, 26) %.062, i32 range(i32 0, 26) %5)
   %.1 = select i1 %or.cond, i32 %6, i32 %.062
-  %7 = getelementptr inbounds i8, ptr %.04861, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.04861, i64 1
   %8 = load i8, ptr %7, align 1
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
@@ -390,7 +390,7 @@ define ptr @Io_ReadDsd(ptr nocapture noundef readonly %0) local_unnamed_addr #2 
   %.0.lcssa = phi i32 [ 1, %1 ], [ %9, %._crit_edge.loopexit ]
   %10 = tail call ptr @Abc_NtkAlloc(i32 noundef 2, i32 noundef 1, i32 noundef 1) #9
   %11 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @.str.5) #9
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %11, ptr %12, align 8
   %13 = tail call ptr @Abc_NodeGetFakeNames(i32 noundef %.0.lcssa) #9
   %14 = getelementptr i8, ptr %13, i64 8
@@ -401,7 +401,7 @@ define ptr @Io_ReadDsd(ptr nocapture noundef readonly %0) local_unnamed_addr #2 
   %indvars.iv = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next, %15 ]
   %16 = tail call ptr @Abc_NtkCreateObj(ptr noundef %10, i32 noundef 2) #9
   %.val = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @Abc_ObjAssignName(ptr noundef %16, ptr noundef %18, ptr noundef null) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -414,7 +414,7 @@ define ptr @Io_ReadDsd(ptr nocapture noundef readonly %0) local_unnamed_addr #2 
   %21 = mul i64 %20, 3
   %22 = add i64 %21, 10
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #11
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 40, ptr %23, align 1
   br label %25
 
@@ -422,7 +422,7 @@ define ptr @Io_ReadDsd(ptr nocapture noundef readonly %0) local_unnamed_addr #2 
   %.051 = phi ptr [ %0, %._crit_edge67 ], [ %37, %36 ]
   %.149 = phi ptr [ %24, %._crit_edge67 ], [ %.2, %36 ]
   %26 = load i8, ptr %.051, align 1
-  %27 = getelementptr inbounds i8, ptr %.149, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.149, i64 1
   switch i8 %26, label %35 [
     i8 0, label %38
     i8 40, label %28
@@ -432,21 +432,21 @@ define ptr @Io_ReadDsd(ptr nocapture noundef readonly %0) local_unnamed_addr #2 
 
 28:                                               ; preds = %25
   store i8 40, ptr %.149, align 1
-  %29 = getelementptr inbounds i8, ptr %.149, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.149, i64 2
   store i8 40, ptr %27, align 1
   br label %36
 
 30:                                               ; preds = %25
   store i8 41, ptr %.149, align 1
-  %31 = getelementptr inbounds i8, ptr %.149, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.149, i64 2
   store i8 41, ptr %27, align 1
   br label %36
 
 32:                                               ; preds = %25
   store i8 41, ptr %.149, align 1
-  %33 = getelementptr inbounds i8, ptr %.149, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.149, i64 2
   store i8 44, ptr %27, align 1
-  %34 = getelementptr inbounds i8, ptr %.149, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %.149, i64 3
   store i8 40, ptr %33, align 1
   br label %36
 
@@ -456,7 +456,7 @@ define ptr @Io_ReadDsd(ptr nocapture noundef readonly %0) local_unnamed_addr #2 
 
 36:                                               ; preds = %28, %32, %35, %30
   %.2 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %34, %32 ], [ %27, %35 ]
-  %37 = getelementptr inbounds i8, ptr %.051, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.051, i64 1
   br label %25, !llvm.loop !12
 
 38:                                               ; preds = %25

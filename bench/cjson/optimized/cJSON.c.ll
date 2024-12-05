@@ -36,14 +36,14 @@ define ptr @cJSON_GetStringValue(ptr noundef readonly %0) local_unnamed_addr #1 
   br i1 %2, label %cJSON_IsString.exit.thread, label %cJSON_IsString.exit
 
 cJSON_IsString.exit:                              ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
   %.not = icmp eq i32 %5, 16
   br i1 %.not, label %6, label %cJSON_IsString.exit.thread
 
 6:                                                ; preds = %cJSON_IsString.exit
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   br label %cJSON_IsString.exit.thread
 
@@ -58,7 +58,7 @@ define range(i32 0, 2) i32 @cJSON_IsString(ptr noundef readonly %0) local_unname
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 16
@@ -76,14 +76,14 @@ define double @cJSON_GetNumberValue(ptr noundef readonly %0) local_unnamed_addr 
   br i1 %2, label %cJSON_IsNumber.exit.thread, label %cJSON_IsNumber.exit
 
 cJSON_IsNumber.exit:                              ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
   %.not = icmp eq i32 %5, 8
   br i1 %.not, label %6, label %cJSON_IsNumber.exit.thread
 
 6:                                                ; preds = %cJSON_IsNumber.exit
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load double, ptr %7, align 8
   br label %cJSON_IsNumber.exit.thread
 
@@ -98,7 +98,7 @@ define range(i32 0, 2) i32 @cJSON_IsNumber(ptr noundef readonly %0) local_unname
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 8
@@ -130,7 +130,7 @@ define void @cJSON_InitHooks(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %4, null
   %spec.store.select = select i1 %.not, ptr @malloc, ptr %4
   store ptr @free, ptr getelementptr inbounds (i8, ptr @global_hooks, i64 8), align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
   %spec.store.select11 = select i1 %.not9, ptr @free, ptr %6
@@ -167,14 +167,14 @@ define void @cJSON_Delete(ptr noundef %0) local_unnamed_addr #8 {
 .lr.ph:                                           ; preds = %1, %26
   %.023 = phi ptr [ %2, %26 ], [ %0, %1 ]
   %2 = load ptr, ptr %.023, align 8
-  %3 = getelementptr inbounds i8, ptr %.023, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.023, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 256
   %.not16 = icmp eq i32 %5, 0
   br i1 %.not16, label %6, label %10
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.023, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not17 = icmp eq ptr %8, null
   br i1 %.not17, label %10, label %9
@@ -191,7 +191,7 @@ define void @cJSON_Delete(ptr noundef %0) local_unnamed_addr #8 {
   br i1 %.not18, label %13, label %18
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.023, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.023, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not19 = icmp eq ptr %15, null
   br i1 %.not19, label %18, label %16
@@ -209,7 +209,7 @@ define void @cJSON_Delete(ptr noundef %0) local_unnamed_addr #8 {
   br i1 %.not20, label %21, label %26
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %.023, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %.023, i64 56
   %23 = load ptr, ptr %22, align 8
   %.not21 = icmp eq ptr %23, null
   br i1 %.not21, label %26, label %24
@@ -244,9 +244,9 @@ define noundef double @cJSON_SetNumberHelper(ptr nocapture noundef writeonly ini
 
 8:                                                ; preds = %4, %2, %6
   %.sink = phi i32 [ %7, %6 ], [ 2147483647, %2 ], [ -2147483648, %4 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sink, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %1, ptr %10, align 8
   ret double %1
 }
@@ -257,14 +257,14 @@ define ptr @cJSON_SetValuestring(ptr noundef %0, ptr noundef readonly %1) local_
   br i1 %3, label %cJSON_strdup.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 272
   %or.cond = icmp eq i32 %7, 16
   br i1 %or.cond, label %8, label %cJSON_strdup.exit.thread
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %cJSON_strdup.exit.thread, label %12
@@ -349,14 +349,14 @@ define ptr @cJSON_ParseWithLengthOpts(ptr noundef %0, i64 noundef %1, ptr nounde
   %6 = icmp eq ptr %0, null
   %7 = icmp eq i64 %1, 0
   %or.cond = or i1 %6, %7
-  %.0.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 16
-  %.0.i.sroa.gep48 = getelementptr inbounds i8, ptr %5, i64 8
+  %.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.0.i.sroa.gep48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %or.cond, label %.thread, label %8
 
 8:                                                ; preds = %4
   store ptr %0, ptr %5, align 8
   store i64 %1, ptr %.0.i.sroa.gep48, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @global_hooks, i64 24, i1 false)
   %global_hooks.val = load ptr, ptr @global_hooks, align 8
   %10 = tail call ptr %global_hooks.val(i64 noundef 64) #31
@@ -374,13 +374,13 @@ sub_0.i:                                          ; preds = %11
   br i1 %.not14.i, label %sub_1.i, label %20
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1
   %.not15.i = icmp eq i8 %15, -69
   br i1 %.not15.i, label %.tail.i, label %20
 
 .tail.i:                                          ; preds = %sub_1.i
-  %16 = getelementptr inbounds i8, ptr %0, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, -65
   br i1 %18, label %19, label %20
@@ -396,7 +396,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 .lr.ph.i.preheader:                               ; preds = %20
   %.0.i.sroa.gep.promoted = load i64, ptr %.0.i.sroa.gep, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %21
   %24 = load i8, ptr %23, align 1
   %25 = icmp ult i8 %24, 33
   br i1 %25, label %.lr.ph, label %.critedge.i
@@ -541,10 +541,10 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr nocapture noundef no
   br i1 %8, label %parse_array.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   %.not = icmp ugt i64 %12, %14
   br i1 %.not, label %23, label %15
@@ -556,7 +556,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr nocapture noundef no
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 4, ptr %20, align 8
   %21 = load i64, ptr %10, align 8
   %22 = add i64 %21, 4
@@ -575,7 +575,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr nocapture noundef no
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %30, align 8
   %31 = load i64, ptr %10, align 8
   %32 = add i64 %31, 5
@@ -592,9 +592,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr nocapture noundef no
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %40, align 8
   %41 = load i64, ptr %10, align 8
   %42 = add i64 %41, 4
@@ -646,7 +646,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr nocapture noundef no
   br i1 %65, label %66, label %.critedge.i
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %62, i64 %.033.i
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 %.033.i
   %68 = load i8, ptr %67, align 1
   switch i8 %68, label %.critedge.i [
     i8 48, label %70
@@ -671,7 +671,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr nocapture noundef no
 
 70:                                               ; preds = %69, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66, %66
   %.sink.i = phi i8 [ %57, %69 ], [ %68, %66 ], [ %68, %66 ], [ %68, %66 ], [ %68, %66 ], [ %68, %66 ], [ %68, %66 ], [ %68, %66 ], [ %68, %66 ], [ %68, %66 ], [ %68, %66 ], [ %68, %66 ], [ %68, %66 ], [ %68, %66 ], [ %68, %66 ]
-  %71 = getelementptr inbounds [64 x i8], ptr %4, i64 0, i64 %.033.i
+  %71 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %.033.i
   store i8 %.sink.i, ptr %71, align 1
   %72 = add nuw nsw i64 %.033.i, 1
   %exitcond.not.i = icmp eq i64 %72, 63
@@ -679,7 +679,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr nocapture noundef no
 
 .critedge.i:                                      ; preds = %70, %66, %63
   %.0.lcssa.i = phi i64 [ %.033.i, %63 ], [ 63, %70 ], [ %.033.i, %66 ]
-  %73 = getelementptr inbounds [64 x i8], ptr %4, i64 0, i64 %.0.lcssa.i
+  %73 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %.0.lcssa.i
   store i8 0, ptr %73, align 1
   %74 = call double @strtod(ptr noundef nonnull %4, ptr noundef nonnull %3) #31
   %75 = load ptr, ptr %3, align 8
@@ -687,7 +687,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr nocapture noundef no
   br i1 %76, label %parse_number.exit, label %77
 
 77:                                               ; preds = %.critedge.i
-  %78 = getelementptr inbounds i8, ptr %0, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %74, ptr %78, align 8
   %79 = fcmp ult double %74, 0x41DFFFFFFFC00000
   br i1 %79, label %80, label %84
@@ -702,9 +702,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr nocapture noundef no
 
 84:                                               ; preds = %82, %80, %77
   %.sink35.i = phi i32 [ %83, %82 ], [ 2147483647, %77 ], [ -2147483648, %80 ]
-  %85 = getelementptr inbounds i8, ptr %0, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sink35.i, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 8, ptr %86, align 8
   %87 = ptrtoint ptr %75 to i64
   %88 = ptrtoint ptr %4 to i64
@@ -727,7 +727,7 @@ parse_number.exit:                                ; preds = %54, %.critedge.i, %
   ]
 
 93:                                               ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %1, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %95 = load i64, ptr %94, align 8
   %96 = icmp ugt i64 %95, 999
   br i1 %96, label %parse_array.exit, label %97
@@ -769,7 +769,7 @@ parse_number.exit:                                ; preds = %54, %.critedge.i, %
 114:                                              ; preds = %105
   %115 = add i64 %102, -1
   store i64 %115, ptr %10, align 8
-  %116 = getelementptr inbounds i8, ptr %1, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %117
 
 117:                                              ; preds = %131, %114
@@ -787,7 +787,7 @@ parse_number.exit:                                ; preds = %54, %.critedge.i, %
 
 121:                                              ; preds = %119
   store ptr %118, ptr %.1.i, align 8
-  %122 = getelementptr inbounds i8, ptr %118, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store ptr %.1.i, ptr %122, align 8
   br label %123
 
@@ -821,15 +821,15 @@ parse_number.exit:                                ; preds = %54, %.critedge.i, %
   %136 = load i64, ptr %94, align 8
   %137 = add i64 %136, -1
   store i64 %137, ptr %94, align 8
-  %138 = getelementptr inbounds i8, ptr %.3.i, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %.3.i, i64 8
   store ptr %118, ptr %138, align 8
   br label %139
 
 139:                                              ; preds = %.thread69, %135
   %.152.i73 = phi ptr [ null, %.thread69 ], [ %.3.i, %135 ]
-  %140 = getelementptr inbounds i8, ptr %0, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 32, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.152.i73, ptr %141, align 8
   %142 = load i64, ptr %10, align 8
   %143 = add i64 %142, 1
@@ -865,9 +865,9 @@ define internal fastcc void @buffer_skip_whitespace(ptr noundef %0) unnamed_addr
   br i1 %5, label %20, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp ult i64 %8, %10
   br i1 %11, label %.lr.ph, label %20
@@ -929,16 +929,16 @@ define ptr @cJSON_Print(ptr noundef %0) local_unnamed_addr #8 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @print(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #8 {
   %3 = alloca [1 x %struct.printbuffer], align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 32, i1 false)
   %5 = load ptr, ptr @global_hooks, align 8
   %6 = tail call ptr %5(i64 noundef 256) #31
   store ptr %6, ptr %3, align 16
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 256, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @global_hooks, i64 24, i1 false)
   %10 = icmp eq ptr %6, null
   br i1 %10, label %46, label %11
@@ -954,7 +954,7 @@ define internal fastcc ptr @print(ptr noundef %0, i32 noundef range(i32 0, 2) %1
   br i1 %15, label %update_offset.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 16
   %19 = getelementptr inbounds i8, ptr %14, i64 %18
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #32
@@ -968,7 +968,7 @@ update_offset.exit:                               ; preds = %13, %16
   br i1 %.not24, label %29, label %23
 
 23:                                               ; preds = %update_offset.exit
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load i64, ptr %24, align 16
   %26 = add i64 %25, 1
   %27 = call ptr %22(ptr noundef %14, i64 noundef %26) #31
@@ -977,7 +977,7 @@ update_offset.exit:                               ; preds = %13, %16
 
 29:                                               ; preds = %update_offset.exit
   %30 = load ptr, ptr @global_hooks, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %32 = load i64, ptr %31, align 16
   %33 = add i64 %32, 1
   %34 = call ptr %30(i64 noundef %33) #31
@@ -1023,7 +1023,7 @@ define ptr @cJSON_PrintUnformatted(ptr noundef %0) local_unnamed_addr #8 {
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_PrintBuffered(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = alloca %struct.printbuffer, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %5, align 8
   %6 = icmp slt i32 %1, 0
   br i1 %6, label %23, label %7
@@ -1037,15 +1037,15 @@ define ptr @cJSON_PrintBuffered(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   br i1 %.not, label %23, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %9, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %2, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %4, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) @global_hooks, i64 24, i1 false)
   %17 = call fastcc i32 @print_value(ptr noundef %0, ptr noundef %4)
   %.not6 = icmp eq i32 %17, 0
@@ -1074,7 +1074,7 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly %0,
   br i1 %5, label %print_array.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %trunc = trunc i32 %8 to i8
   switch i8 %trunc, label %print_array.exit [
@@ -1094,9 +1094,9 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly %0,
   br i1 %11, label %print_array.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   %15 = freeze i64 %.pre.i
   %16 = add i64 %14, -1
@@ -1104,7 +1104,7 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly %0,
   br i1 %or.cond.not, label %print_array.exit, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = add i64 %15, 6
   %.not53.i = icmp ugt i64 %19, %14
   br i1 %.not53.i, label %22, label %20
@@ -1114,7 +1114,7 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly %0,
   br label %ensure.exit
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i32, ptr %23, align 8
   %.not54.i = icmp eq i32 %24, 0
   br i1 %.not54.i, label %25, label %print_array.exit
@@ -1133,7 +1133,7 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly %0,
 
 31:                                               ; preds = %29, %27
   %.0.i = phi i64 [ %30, %29 ], [ 2147483647, %27 ]
-  %32 = getelementptr inbounds i8, ptr %1, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %33 = load ptr, ptr %32, align 8
   %.not55.i = icmp eq ptr %33, null
   br i1 %.not55.i, label %41, label %34
@@ -1144,7 +1144,7 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly %0,
   br i1 %36, label %37, label %56
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %1, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %1, align 8
   tail call void %39(ptr noundef %40) #31
@@ -1152,14 +1152,14 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly %0,
   br label %print_array.exit
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %1, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr %43(i64 noundef %.0.i) #31
   %.not56.i = icmp eq ptr %44, null
   br i1 %.not56.i, label %45, label %49
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %1, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %1, align 8
   tail call void %47(ptr noundef %48) #31
@@ -1171,7 +1171,7 @@ define internal fastcc range(i32 0, 2) i32 @print_value(ptr noundef readonly %0,
   %51 = load i64, ptr %18, align 8
   %52 = add i64 %51, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %50, i64 %52, i1 false)
-  %53 = getelementptr inbounds i8, ptr %1, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %1, align 8
   tail call void %54(ptr noundef %55) #31
@@ -1196,9 +1196,9 @@ ensure.exit:                                      ; preds = %56, %20
   br i1 %61, label %print_array.exit, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load i64, ptr %63, align 8
-  %.phi.trans.insert.i45 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert.i45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre.i46 = load i64, ptr %.phi.trans.insert.i45, align 8
   %65 = freeze i64 %.pre.i46
   %66 = add i64 %64, -1
@@ -1206,7 +1206,7 @@ ensure.exit:                                      ; preds = %56, %20
   br i1 %or.cond111.not, label %print_array.exit, label %67
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %1, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %69 = add i64 %65, 7
   %.not53.i38 = icmp ugt i64 %69, %64
   br i1 %.not53.i38, label %72, label %70
@@ -1216,7 +1216,7 @@ ensure.exit:                                      ; preds = %56, %20
   br label %ensure.exit47
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %1, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %74 = load i32, ptr %73, align 8
   %.not54.i40 = icmp eq i32 %74, 0
   br i1 %.not54.i40, label %75, label %print_array.exit
@@ -1235,7 +1235,7 @@ ensure.exit:                                      ; preds = %56, %20
 
 81:                                               ; preds = %79, %77
   %.0.i41 = phi i64 [ %80, %79 ], [ 2147483647, %77 ]
-  %82 = getelementptr inbounds i8, ptr %1, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %83 = load ptr, ptr %82, align 8
   %.not55.i42 = icmp eq ptr %83, null
   br i1 %.not55.i42, label %91, label %84
@@ -1246,7 +1246,7 @@ ensure.exit:                                      ; preds = %56, %20
   br i1 %86, label %87, label %106
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %1, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr %1, align 8
   tail call void %89(ptr noundef %90) #31
@@ -1254,14 +1254,14 @@ ensure.exit:                                      ; preds = %56, %20
   br label %print_array.exit
 
 91:                                               ; preds = %81
-  %92 = getelementptr inbounds i8, ptr %1, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %93 = load ptr, ptr %92, align 8
   %94 = tail call ptr %93(i64 noundef %.0.i41) #31
   %.not56.i44 = icmp eq ptr %94, null
   br i1 %.not56.i44, label %95, label %99
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %1, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %1, align 8
   tail call void %97(ptr noundef %98) #31
@@ -1273,7 +1273,7 @@ ensure.exit:                                      ; preds = %56, %20
   %101 = load i64, ptr %68, align 8
   %102 = add i64 %101, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr align 1 %100, i64 %102, i1 false)
-  %103 = getelementptr inbounds i8, ptr %1, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %1, align 8
   tail call void %104(ptr noundef %105) #31
@@ -1298,9 +1298,9 @@ ensure.exit47:                                    ; preds = %106, %70
   br i1 %111, label %print_array.exit, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %1, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %114 = load i64, ptr %113, align 8
-  %.phi.trans.insert.i57 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert.i57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre.i58 = load i64, ptr %.phi.trans.insert.i57, align 8
   %115 = freeze i64 %.pre.i58
   %116 = add i64 %114, -1
@@ -1308,7 +1308,7 @@ ensure.exit47:                                    ; preds = %106, %70
   br i1 %or.cond112.not, label %print_array.exit, label %117
 
 117:                                              ; preds = %112
-  %118 = getelementptr inbounds i8, ptr %1, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %119 = add i64 %115, 6
   %.not53.i50 = icmp ugt i64 %119, %114
   br i1 %.not53.i50, label %122, label %120
@@ -1318,7 +1318,7 @@ ensure.exit47:                                    ; preds = %106, %70
   br label %ensure.exit59
 
 122:                                              ; preds = %117
-  %123 = getelementptr inbounds i8, ptr %1, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %124 = load i32, ptr %123, align 8
   %.not54.i52 = icmp eq i32 %124, 0
   br i1 %.not54.i52, label %125, label %print_array.exit
@@ -1337,7 +1337,7 @@ ensure.exit47:                                    ; preds = %106, %70
 
 131:                                              ; preds = %129, %127
   %.0.i53 = phi i64 [ %130, %129 ], [ 2147483647, %127 ]
-  %132 = getelementptr inbounds i8, ptr %1, i64 56
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %133 = load ptr, ptr %132, align 8
   %.not55.i54 = icmp eq ptr %133, null
   br i1 %.not55.i54, label %141, label %134
@@ -1348,7 +1348,7 @@ ensure.exit47:                                    ; preds = %106, %70
   br i1 %136, label %137, label %156
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %1, i64 48
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %1, align 8
   tail call void %139(ptr noundef %140) #31
@@ -1356,14 +1356,14 @@ ensure.exit47:                                    ; preds = %106, %70
   br label %print_array.exit
 
 141:                                              ; preds = %131
-  %142 = getelementptr inbounds i8, ptr %1, i64 40
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %143 = load ptr, ptr %142, align 8
   %144 = tail call ptr %143(i64 noundef %.0.i53) #31
   %.not56.i56 = icmp eq ptr %144, null
   br i1 %.not56.i56, label %145, label %149
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %1, i64 48
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %147 = load ptr, ptr %146, align 8
   %148 = load ptr, ptr %1, align 8
   tail call void %147(ptr noundef %148) #31
@@ -1375,7 +1375,7 @@ ensure.exit47:                                    ; preds = %106, %70
   %151 = load i64, ptr %118, align 8
   %152 = add i64 %151, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %144, ptr align 1 %150, i64 %152, i1 false)
-  %153 = getelementptr inbounds i8, ptr %1, i64 48
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %1, align 8
   tail call void %154(ptr noundef %155) #31
@@ -1397,7 +1397,7 @@ ensure.exit59:                                    ; preds = %156, %120
 159:                                              ; preds = %6
   call void @llvm.lifetime.start.p0(i64 26, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %160 = getelementptr inbounds i8, ptr %0, i64 48
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %161 = load double, ptr %160, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %3, i8 0, i64 26, i1 false)
   %162 = tail call ptr @localeconv() #31
@@ -1413,7 +1413,7 @@ ensure.exit59:                                    ; preds = %156, %120
   br label %188
 
 166:                                              ; preds = %159
-  %167 = getelementptr inbounds i8, ptr %0, i64 40
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %168 = load i32, ptr %167, align 8
   %169 = sitofp i32 %168 to double
   %170 = fcmp oeq double %161, %169
@@ -1464,20 +1464,20 @@ ensure.exit59:                                    ; preds = %156, %120
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.03648.i = phi i64 [ %197, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %193 = getelementptr inbounds [26 x i8], ptr %3, i64 0, i64 %.03648.i
+  %193 = getelementptr inbounds nuw [26 x i8], ptr %3, i64 0, i64 %.03648.i
   %194 = load i8, ptr %193, align 1
   %195 = icmp eq i8 %194, %164
   %spec.select.i = select i1 %195, i8 46, i8 %194
-  %196 = getelementptr inbounds i8, ptr %191, i64 %.03648.i
+  %196 = getelementptr inbounds nuw i8, ptr %191, i64 %.03648.i
   store i8 %spec.select.i, ptr %196, align 1
   %197 = add nuw nsw i64 %.03648.i, 1
   %exitcond.not.i = icmp eq i64 %197, %189
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %198 = getelementptr inbounds i8, ptr %191, i64 %189
+  %198 = getelementptr inbounds nuw i8, ptr %191, i64 %189
   store i8 0, ptr %198, align 1
-  %199 = getelementptr inbounds i8, ptr %1, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %200 = load i64, ptr %199, align 8
   %201 = add i64 %200, %189
   store i64 %201, ptr %199, align 8
@@ -1490,7 +1490,7 @@ print_number.exit:                                ; preds = %187, %188, %._crit_
   br label %print_array.exit
 
 202:                                              ; preds = %6
-  %203 = getelementptr inbounds i8, ptr %0, i64 32
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %204, null
   br i1 %205, label %print_array.exit, label %206
@@ -1514,16 +1514,16 @@ print_number.exit:                                ; preds = %187, %188, %._crit_
   br label %print_array.exit
 
 216:                                              ; preds = %6
-  %217 = getelementptr inbounds i8, ptr %0, i64 16
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %218 = load ptr, ptr %217, align 8
   %219 = load ptr, ptr %1, align 8
   %220 = icmp eq ptr %219, null
   br i1 %220, label %print_array.exit, label %221
 
 221:                                              ; preds = %216
-  %222 = getelementptr inbounds i8, ptr %1, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %223 = load i64, ptr %222, align 8
-  %.phi.trans.insert.i77 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert.i77 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre.i78 = load i64, ptr %.phi.trans.insert.i77, align 8
   %224 = freeze i64 %.pre.i78
   %225 = add i64 %223, -1
@@ -1531,7 +1531,7 @@ print_number.exit:                                ; preds = %187, %188, %._crit_
   br i1 %or.cond113.not, label %print_array.exit, label %226
 
 226:                                              ; preds = %221
-  %227 = getelementptr inbounds i8, ptr %1, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %228 = add i64 %224, 2
   %.not53.i69 = icmp ugt i64 %228, %223
   br i1 %.not53.i69, label %231, label %229
@@ -1541,7 +1541,7 @@ print_number.exit:                                ; preds = %187, %188, %._crit_
   br label %ensure.exit79
 
 231:                                              ; preds = %226
-  %232 = getelementptr inbounds i8, ptr %1, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %233 = load i32, ptr %232, align 8
   %.not54.i71 = icmp eq i32 %233, 0
   br i1 %.not54.i71, label %234, label %print_array.exit
@@ -1560,7 +1560,7 @@ print_number.exit:                                ; preds = %187, %188, %._crit_
 
 240:                                              ; preds = %238, %236
   %.0.i72 = phi i64 [ %239, %238 ], [ 2147483647, %236 ]
-  %241 = getelementptr inbounds i8, ptr %1, i64 56
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %242 = load ptr, ptr %241, align 8
   %.not55.i73 = icmp eq ptr %242, null
   br i1 %.not55.i73, label %250, label %243
@@ -1571,7 +1571,7 @@ print_number.exit:                                ; preds = %187, %188, %._crit_
   br i1 %245, label %246, label %265
 
 246:                                              ; preds = %243
-  %247 = getelementptr inbounds i8, ptr %1, i64 48
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %248 = load ptr, ptr %247, align 8
   %249 = load ptr, ptr %1, align 8
   tail call void %248(ptr noundef %249) #31
@@ -1579,14 +1579,14 @@ print_number.exit:                                ; preds = %187, %188, %._crit_
   br label %print_array.exit
 
 250:                                              ; preds = %240
-  %251 = getelementptr inbounds i8, ptr %1, i64 40
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %252 = load ptr, ptr %251, align 8
   %253 = tail call ptr %252(i64 noundef %.0.i72) #31
   %.not56.i75 = icmp eq ptr %253, null
   br i1 %.not56.i75, label %254, label %258
 
 254:                                              ; preds = %250
-  %255 = getelementptr inbounds i8, ptr %1, i64 48
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %256 = load ptr, ptr %255, align 8
   %257 = load ptr, ptr %1, align 8
   tail call void %256(ptr noundef %257) #31
@@ -1598,7 +1598,7 @@ print_number.exit:                                ; preds = %187, %188, %._crit_
   %260 = load i64, ptr %227, align 8
   %261 = add i64 %260, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %253, ptr align 1 %259, i64 %261, i1 false)
-  %262 = getelementptr inbounds i8, ptr %1, i64 48
+  %262 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %263 = load ptr, ptr %262, align 8
   %264 = load ptr, ptr %1, align 8
   tail call void %263(ptr noundef %264) #31
@@ -1618,7 +1618,7 @@ ensure.exit79:                                    ; preds = %265, %229
   %268 = load i64, ptr %227, align 8
   %269 = add i64 %268, 1
   store i64 %269, ptr %227, align 8
-  %270 = getelementptr inbounds i8, ptr %1, i64 24
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %271 = load i64, ptr %270, align 8
   %272 = add i64 %271, 1
   store i64 %272, ptr %270, align 8
@@ -1626,7 +1626,7 @@ ensure.exit79:                                    ; preds = %265, %229
   br i1 %.not.i6399, label %._crit_edge102, label %.lr.ph101
 
 .lr.ph101:                                        ; preds = %ensure.exit79
-  %273 = getelementptr inbounds i8, ptr %1, i64 36
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %274
 
 274:                                              ; preds = %.lr.ph101, %296
@@ -1663,14 +1663,14 @@ update_offset.exit:                               ; preds = %276, %279
   br i1 %290, label %print_array.exit, label %291
 
 291:                                              ; preds = %285
-  %292 = getelementptr inbounds i8, ptr %289, i64 1
+  %292 = getelementptr inbounds nuw i8, ptr %289, i64 1
   store i8 44, ptr %289, align 1
   %293 = load i32, ptr %273, align 4
   %.not37.i = icmp eq i32 %293, 0
   br i1 %.not37.i, label %296, label %294
 
 294:                                              ; preds = %291
-  %295 = getelementptr inbounds i8, ptr %289, i64 2
+  %295 = getelementptr inbounds nuw i8, ptr %289, i64 2
   store i8 32, ptr %292, align 1
   br label %296
 
@@ -1690,7 +1690,7 @@ update_offset.exit:                               ; preds = %276, %279
   br i1 %300, label %print_array.exit, label %301
 
 301:                                              ; preds = %._crit_edge102
-  %302 = getelementptr inbounds i8, ptr %299, i64 1
+  %302 = getelementptr inbounds nuw i8, ptr %299, i64 1
   store i8 93, ptr %299, align 1
   store i8 0, ptr %302, align 1
   %303 = load i64, ptr %270, align 8
@@ -1699,9 +1699,9 @@ update_offset.exit:                               ; preds = %276, %279
   br label %print_array.exit
 
 305:                                              ; preds = %6
-  %306 = getelementptr inbounds i8, ptr %0, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds i8, ptr %1, i64 36
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %309 = load i32, ptr %308, align 4
   %.not.i64 = icmp eq i32 %309, 0
   %310 = select i1 %.not.i64, i64 1, i64 2
@@ -1712,7 +1712,7 @@ update_offset.exit:                               ; preds = %276, %279
 
 314:                                              ; preds = %305
   store i8 123, ptr %312, align 1
-  %315 = getelementptr inbounds i8, ptr %1, i64 24
+  %315 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %316 = load i64, ptr %315, align 8
   %317 = add i64 %316, 1
   store i64 %317, ptr %315, align 8
@@ -1721,12 +1721,12 @@ update_offset.exit:                               ; preds = %276, %279
   br i1 %.not74.i, label %321, label %319
 
 319:                                              ; preds = %314
-  %320 = getelementptr inbounds i8, ptr %312, i64 1
+  %320 = getelementptr inbounds nuw i8, ptr %312, i64 1
   store i8 10, ptr %320, align 1
   br label %321
 
 321:                                              ; preds = %319, %314
-  %322 = getelementptr inbounds i8, ptr %1, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %323 = load i64, ptr %322, align 8
   %324 = add i64 %323, %310
   store i64 %324, ptr %322, align 8
@@ -1753,7 +1753,7 @@ update_offset.exit:                               ; preds = %276, %279
 .lr.ph:                                           ; preds = %.preheader86, %.lr.ph
   %.063.i89 = phi i64 [ %332, %.lr.ph ], [ 0, %.preheader86 ]
   %.065.i88 = phi ptr [ %331, %.lr.ph ], [ %328, %.preheader86 ]
-  %331 = getelementptr inbounds i8, ptr %.065.i88, i64 1
+  %331 = getelementptr inbounds nuw i8, ptr %.065.i88, i64 1
   store i8 9, ptr %.065.i88, align 1
   %332 = add nuw i64 %.063.i89, 1
   %333 = load i64, ptr %315, align 8
@@ -1768,7 +1768,7 @@ update_offset.exit:                               ; preds = %276, %279
   br label %337
 
 337:                                              ; preds = %._crit_edge, %.lr.ph93
-  %338 = getelementptr inbounds i8, ptr %.064.i91, i64 56
+  %338 = getelementptr inbounds nuw i8, ptr %.064.i91, i64 56
   %339 = load ptr, ptr %338, align 8
   %340 = tail call fastcc i32 @print_string_ptr(ptr noundef %339, ptr noundef nonnull %1)
   %.not79.i = icmp eq i32 %340, 0
@@ -1802,7 +1802,7 @@ update_offset.exit81:                             ; preds = %341, %344
   br i1 %.not81.i, label %357, label %355
 
 355:                                              ; preds = %353
-  %356 = getelementptr inbounds i8, ptr %351, i64 1
+  %356 = getelementptr inbounds nuw i8, ptr %351, i64 1
   store i8 9, ptr %356, align 1
   br label %357
 
@@ -1846,7 +1846,7 @@ update_offset.exit80:                             ; preds = %361, %364
   br i1 %.not85.i, label %381, label %379
 
 379:                                              ; preds = %377
-  %380 = getelementptr inbounds i8, ptr %375, i64 1
+  %380 = getelementptr inbounds nuw i8, ptr %375, i64 1
   store i8 44, ptr %375, align 1
   br label %381
 
@@ -1857,7 +1857,7 @@ update_offset.exit80:                             ; preds = %361, %364
   br i1 %.not86.i, label %385, label %383
 
 383:                                              ; preds = %381
-  %384 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %384 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   store i8 10, ptr %.1.i, align 1
   br label %385
 
@@ -1900,7 +1900,7 @@ update_offset.exit80:                             ; preds = %361, %364
 .lr.ph97:                                         ; preds = %.preheader, %.lr.ph97
   %.0.i6596 = phi i64 [ %401, %.lr.ph97 ], [ 0, %.preheader ]
   %.4.i95 = phi ptr [ %400, %.lr.ph97 ], [ %395, %.preheader ]
-  %400 = getelementptr inbounds i8, ptr %.4.i95, i64 1
+  %400 = getelementptr inbounds nuw i8, ptr %.4.i95, i64 1
   store i8 9, ptr %.4.i95, align 1
   %401 = add nuw i64 %.0.i6596, 1
   %402 = load i64, ptr %315, align 8
@@ -1910,7 +1910,7 @@ update_offset.exit80:                             ; preds = %361, %364
 
 .loopexit:                                        ; preds = %.lr.ph97, %.preheader, %397
   %.3.i = phi ptr [ %395, %397 ], [ %395, %.preheader ], [ %400, %.lr.ph97 ]
-  %405 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %405 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   store i8 125, ptr %.3.i, align 1
   store i8 0, ptr %405, align 1
   %406 = load i64, ptr %315, align 8
@@ -1926,7 +1926,7 @@ print_array.exit:                                 ; preds = %update_offset.exit8
 ; Function Attrs: nounwind sspstrong uwtable
 define range(i32 0, 2) i32 @cJSON_PrintPreallocated(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
   %5 = alloca %struct.printbuffer, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %6, align 8
   %7 = icmp slt i32 %2, 0
   %8 = icmp eq ptr %1, null
@@ -1936,15 +1936,15 @@ define range(i32 0, 2) i32 @cJSON_PrintPreallocated(ptr noundef %0, ptr noundef 
 9:                                                ; preds = %4
   store ptr %1, ptr %5, align 8
   %10 = zext nneg i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %3, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) @global_hooks, i64 24, i1 false)
   %16 = call fastcc i32 @print_value(ptr noundef %0, ptr noundef %5)
   br label %17
@@ -1960,7 +1960,7 @@ define i32 @cJSON_GetArraySize(ptr noundef readonly %0) local_unnamed_addr #15 {
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -1985,7 +1985,7 @@ define ptr @cJSON_GetArrayItem(ptr noundef readonly %0, i32 noundef %1) local_un
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %8
 
 8:                                                ; preds = %8, %5
@@ -2011,14 +2011,14 @@ define ptr @cJSON_GetObjectItem(ptr noundef readonly %0, ptr noundef readonly %1
   br i1 %or.cond.i, label %get_object_item.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not2350.i = icmp eq ptr %7, null
   br i1 %.not2350.i, label %get_object_item.exit, label %.lr.ph52.i
 
 .lr.ph52.i:                                       ; preds = %5, %case_insensitive_strcmp.exit.thread30.i
   %.251.i = phi ptr [ %32, %case_insensitive_strcmp.exit.thread30.i ], [ %7, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.251.i, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.251.i, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %case_insensitive_strcmp.exit.thread30.i, label %11
@@ -2045,8 +2045,8 @@ define ptr @cJSON_GetObjectItem(ptr noundef readonly %0, ptr noundef readonly %1
   br i1 %21, label %get_object_item.exit, label %22
 
 22:                                               ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.01221.i.i, i64 1
-  %24 = getelementptr inbounds i8, ptr %.022.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.01221.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 1
   %25 = load i8, ptr %23, align 1
   %26 = zext i8 %25 to i32
   %27 = tail call i32 @tolower(i32 noundef %26) #32
@@ -2080,7 +2080,7 @@ define internal fastcc ptr @get_object_item(ptr noundef readonly %0, ptr noundef
   br i1 %or.cond, label %.critedge.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq i32 %2, 0
   %.not2350 = icmp eq ptr %8, null
@@ -2094,7 +2094,7 @@ define internal fastcc ptr @get_object_item(ptr noundef readonly %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.preheader41, %13
   %.049 = phi ptr [ %14, %13 ], [ %8, %.preheader41 ]
-  %9 = getelementptr inbounds i8, ptr %.049, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %.049, i64 56
   %10 = load ptr, ptr %9, align 8
   %.not26 = icmp eq ptr %10, null
   br i1 %.not26, label %.critedge.thread35.loopexit54, label %11
@@ -2111,7 +2111,7 @@ define internal fastcc ptr @get_object_item(ptr noundef readonly %0, ptr noundef
 
 .lr.ph52:                                         ; preds = %.preheader, %case_insensitive_strcmp.exit.thread30
   %.251 = phi ptr [ %39, %case_insensitive_strcmp.exit.thread30 ], [ %8, %.preheader ]
-  %15 = getelementptr inbounds i8, ptr %.251, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %.251, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %case_insensitive_strcmp.exit.thread30, label %18
@@ -2138,8 +2138,8 @@ define internal fastcc ptr @get_object_item(ptr noundef readonly %0, ptr noundef
   br i1 %28, label %.critedge.thread, label %29
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds i8, ptr %.01221.i, i64 1
-  %31 = getelementptr inbounds i8, ptr %.022.i, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.01221.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.022.i, i64 1
   %32 = load i8, ptr %30, align 1
   %33 = zext i8 %32 to i32
   %34 = tail call i32 @tolower(i32 noundef %33) #32
@@ -2178,14 +2178,14 @@ define ptr @cJSON_GetObjectItemCaseSensitive(ptr noundef readonly %0, ptr nounde
   br i1 %or.cond.i, label %get_object_item.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not2350.i = icmp eq ptr %7, null
   br i1 %.not2350.i, label %get_object_item.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %12
   %.049.i = phi ptr [ %13, %12 ], [ %7, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.049.i, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.049.i, i64 56
   %9 = load ptr, ptr %8, align 8
   %.not26.i = icmp eq ptr %9, null
   br i1 %.not26.i, label %get_object_item.exit, label %10
@@ -2213,14 +2213,14 @@ define range(i32 0, 2) i32 @cJSON_HasObjectItem(ptr noundef readonly %0, ptr nou
   br i1 %or.cond.i.i, label %cJSON_GetObjectItem.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not2350.i.i = icmp eq ptr %7, null
   br i1 %.not2350.i.i, label %cJSON_GetObjectItem.exit, label %.lr.ph52.i.i
 
 .lr.ph52.i.i:                                     ; preds = %5, %case_insensitive_strcmp.exit.thread30.i.i
   %.251.i.i = phi ptr [ %32, %case_insensitive_strcmp.exit.thread30.i.i ], [ %7, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.251.i.i, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.251.i.i, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %case_insensitive_strcmp.exit.thread30.i.i, label %11
@@ -2247,8 +2247,8 @@ define range(i32 0, 2) i32 @cJSON_HasObjectItem(ptr noundef readonly %0, ptr nou
   br i1 %21, label %cJSON_GetObjectItem.exit, label %22
 
 22:                                               ; preds = %.lr.ph.i.i.i
-  %23 = getelementptr inbounds i8, ptr %.01221.i.i.i, i64 1
-  %24 = getelementptr inbounds i8, ptr %.022.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.01221.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.022.i.i.i, i64 1
   %25 = load i8, ptr %23, align 1
   %26 = zext i8 %25 to i32
   %27 = tail call i32 @tolower(i32 noundef %26) #32
@@ -2284,30 +2284,30 @@ define range(i32 0, 2) i32 @cJSON_AddItemToArray(ptr noundef %0, ptr noundef %1)
   br i1 %or.cond21.i, label %add_item_to_array.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6
   store ptr %1, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %1, ptr %11, align 8
   store ptr null, ptr %1, align 8
   br label %add_item_to_array.exit
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %add_item_to_array.exit, label %15
 
 15:                                               ; preds = %12
   store ptr %1, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %14, ptr %16, align 8
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %1, ptr %18, align 8
   br label %add_item_to_array.exit
 
@@ -2337,7 +2337,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObject(ptr noundef %0, ptr noundef re
 
 14:                                               ; preds = %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %1, i64 %10, i1 false)
-  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, -513
   %18 = and i32 %16, 512
@@ -2345,7 +2345,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObject(ptr noundef %0, ptr noundef re
   br i1 %.not32.i, label %19, label %24
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %2, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %21 = load ptr, ptr %20, align 8
   %.not33.i = icmp eq ptr %21, null
   br i1 %.not33.i, label %24, label %22
@@ -2356,33 +2356,33 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObject(ptr noundef %0, ptr noundef re
   br label %24
 
 24:                                               ; preds = %22, %19, %14
-  %25 = getelementptr inbounds i8, ptr %2, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %12, ptr %25, align 8
   store i32 %17, ptr %15, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %24
   store ptr %2, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %30, align 8
   store ptr null, ptr %2, align 8
   br label %add_item_to_object.exit
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %add_item_to_object.exit, label %34
 
 34:                                               ; preds = %31
   store ptr %2, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %33, ptr %35, align 8
   %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %2, ptr %37, align 8
   br label %add_item_to_object.exit
 
@@ -2403,7 +2403,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObjectCS(ptr noundef %0, ptr noundef 
   br i1 %or.cond34.i, label %add_item_to_object.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = or i32 %10, 512
   %12 = and i32 %10, 512
@@ -2411,7 +2411,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObjectCS(ptr noundef %0, ptr noundef 
   br i1 %.not32.i, label %13, label %18
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %2, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %15 = load ptr, ptr %14, align 8
   %.not33.i = icmp eq ptr %15, null
   br i1 %.not33.i, label %18, label %16
@@ -2422,33 +2422,33 @@ define range(i32 0, 2) i32 @cJSON_AddItemToObjectCS(ptr noundef %0, ptr noundef 
   br label %18
 
 18:                                               ; preds = %16, %13, %8
-  %19 = getelementptr inbounds i8, ptr %2, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %1, ptr %19, align 8
   store i32 %11, ptr %9, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %18
   store ptr %2, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %24, align 8
   store ptr null, ptr %2, align 8
   br label %add_item_to_object.exit
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %21, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %add_item_to_object.exit, label %28
 
 28:                                               ; preds = %25
   store ptr %2, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %27, ptr %29, align 8
   %30 = load ptr, ptr %20, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %2, ptr %31, align 8
   br label %add_item_to_object.exit
 
@@ -2473,7 +2473,7 @@ define range(i32 0, 2) i32 @cJSON_AddItemReferenceToArray(ptr noundef %0, ptr no
 create_reference.exit:                            ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull readonly align 8 dereferenceable(64) %1, i64 56, i1 false)
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = or i32 %8, 256
   store i32 %9, ptr %7, align 8
@@ -2482,30 +2482,30 @@ create_reference.exit:                            ; preds = %5
   br i1 %10, label %add_item_to_array.exit, label %11
 
 11:                                               ; preds = %create_reference.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
   store ptr %6, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %6, ptr %16, align 8
   store ptr null, ptr %6, align 8
   br label %add_item_to_array.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %add_item_to_array.exit, label %20
 
 20:                                               ; preds = %17
   store ptr %6, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %19, ptr %21, align 8
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %6, ptr %23, align 8
   br label %add_item_to_array.exit
 
@@ -2532,8 +2532,8 @@ define range(i32 0, 2) i32 @cJSON_AddItemReferenceToObject(ptr noundef %0, ptr n
 create_reference.exit:                            ; preds = %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull readonly align 8 dereferenceable(64) %2, i64 56, i1 false)
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = or i32 %11, 256
   store i32 %12, ptr %10, align 8
@@ -2570,30 +2570,30 @@ create_reference.exit:                            ; preds = %7
 28:                                               ; preds = %26, %24, %20
   store ptr %18, ptr %9, align 8
   store i32 %22, ptr %10, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28
   store ptr %8, ptr %29, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %8, ptr %33, align 8
   store ptr null, ptr %8, align 8
   br label %add_item_to_object.exit
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i.i9 = icmp eq ptr %36, null
   br i1 %.not.i.i9, label %add_item_to_object.exit, label %37
 
 37:                                               ; preds = %34
   store ptr %8, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %8, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %36, ptr %38, align 8
   %39 = load ptr, ptr %29, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %8, ptr %40, align 8
   br label %add_item_to_object.exit
 
@@ -2611,7 +2611,7 @@ define ptr @cJSON_AddNullToObject(ptr noundef %0, ptr noundef readonly %1) local
 
 cJSON_CreateNull.exit:                            ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 4, ptr %4, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
@@ -2637,7 +2637,7 @@ cJSON_CreateNull.exit:                            ; preds = %2
   br i1 %.not32.i, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %20 = load ptr, ptr %19, align 8
   %.not33.i = icmp eq ptr %20, null
   br i1 %.not33.i, label %23, label %21
@@ -2648,33 +2648,33 @@ cJSON_CreateNull.exit:                            ; preds = %2
   br label %23
 
 23:                                               ; preds = %21, %18, %14
-  %24 = getelementptr inbounds i8, ptr %3, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %12, ptr %24, align 8
   store i32 %16, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23
   store ptr %3, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %29, align 8
   store ptr null, ptr %3, align 8
   br label %add_item_to_object.exit
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i6 = icmp eq ptr %32, null
   br i1 %.not.i.i6, label %add_item_to_object.exit, label %33
 
 33:                                               ; preds = %30
   store ptr %3, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %32, ptr %34, align 8
   %35 = load ptr, ptr %25, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %3, ptr %36, align 8
   br label %add_item_to_object.exit
 
@@ -2696,7 +2696,7 @@ define ptr @cJSON_CreateNull() local_unnamed_addr #8 {
 
 2:                                                ; preds = %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 4, ptr %3, align 8
   br label %cJSON_New_Item.exit.thread
 
@@ -2713,7 +2713,7 @@ define ptr @cJSON_AddTrueToObject(ptr noundef %0, ptr noundef readonly %1) local
 
 cJSON_CreateTrue.exit:                            ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 2, ptr %4, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
@@ -2739,7 +2739,7 @@ cJSON_CreateTrue.exit:                            ; preds = %2
   br i1 %.not32.i, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %20 = load ptr, ptr %19, align 8
   %.not33.i = icmp eq ptr %20, null
   br i1 %.not33.i, label %23, label %21
@@ -2750,33 +2750,33 @@ cJSON_CreateTrue.exit:                            ; preds = %2
   br label %23
 
 23:                                               ; preds = %21, %18, %14
-  %24 = getelementptr inbounds i8, ptr %3, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %12, ptr %24, align 8
   store i32 %16, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23
   store ptr %3, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %29, align 8
   store ptr null, ptr %3, align 8
   br label %add_item_to_object.exit
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i6 = icmp eq ptr %32, null
   br i1 %.not.i.i6, label %add_item_to_object.exit, label %33
 
 33:                                               ; preds = %30
   store ptr %3, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %32, ptr %34, align 8
   %35 = load ptr, ptr %25, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %3, ptr %36, align 8
   br label %add_item_to_object.exit
 
@@ -2798,7 +2798,7 @@ define ptr @cJSON_CreateTrue() local_unnamed_addr #8 {
 
 2:                                                ; preds = %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 2, ptr %3, align 8
   br label %cJSON_New_Item.exit.thread
 
@@ -2815,7 +2815,7 @@ define ptr @cJSON_AddFalseToObject(ptr noundef %0, ptr noundef readonly %1) loca
 
 cJSON_CreateFalse.exit:                           ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %4, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
@@ -2841,7 +2841,7 @@ cJSON_CreateFalse.exit:                           ; preds = %2
   br i1 %.not32.i, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %20 = load ptr, ptr %19, align 8
   %.not33.i = icmp eq ptr %20, null
   br i1 %.not33.i, label %23, label %21
@@ -2852,33 +2852,33 @@ cJSON_CreateFalse.exit:                           ; preds = %2
   br label %23
 
 23:                                               ; preds = %21, %18, %14
-  %24 = getelementptr inbounds i8, ptr %3, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %12, ptr %24, align 8
   store i32 %16, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23
   store ptr %3, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %29, align 8
   store ptr null, ptr %3, align 8
   br label %add_item_to_object.exit
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i6 = icmp eq ptr %32, null
   br i1 %.not.i.i6, label %add_item_to_object.exit, label %33
 
 33:                                               ; preds = %30
   store ptr %3, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %32, ptr %34, align 8
   %35 = load ptr, ptr %25, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %3, ptr %36, align 8
   br label %add_item_to_object.exit
 
@@ -2900,7 +2900,7 @@ define ptr @cJSON_CreateFalse() local_unnamed_addr #8 {
 
 2:                                                ; preds = %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 1, ptr %3, align 8
   br label %cJSON_New_Item.exit.thread
 
@@ -2919,7 +2919,7 @@ cJSON_CreateBool.exit:                            ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %.not3.i = icmp eq i32 %2, 0
   %5 = select i1 %.not3.i, i32 1, i32 2
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %5, ptr %6, align 8
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
@@ -2945,7 +2945,7 @@ cJSON_CreateBool.exit:                            ; preds = %3
   br i1 %.not32.i, label %20, label %25
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %4, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %22 = load ptr, ptr %21, align 8
   %.not33.i = icmp eq ptr %22, null
   br i1 %.not33.i, label %25, label %23
@@ -2956,33 +2956,33 @@ cJSON_CreateBool.exit:                            ; preds = %3
   br label %25
 
 25:                                               ; preds = %23, %20, %16
-  %26 = getelementptr inbounds i8, ptr %4, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %14, ptr %26, align 8
   store i32 %18, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %25
   store ptr %4, ptr %27, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %4, ptr %31, align 8
   store ptr null, ptr %4, align 8
   br label %add_item_to_object.exit
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i.i6 = icmp eq ptr %34, null
   br i1 %.not.i.i6, label %add_item_to_object.exit, label %35
 
 35:                                               ; preds = %32
   store ptr %4, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %34, ptr %36, align 8
   %37 = load ptr, ptr %27, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %4, ptr %38, align 8
   br label %add_item_to_object.exit
 
@@ -3006,7 +3006,7 @@ define ptr @cJSON_CreateBool(i32 noundef %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %.not3 = icmp eq i32 %0, 0
   %4 = select i1 %.not3, i32 1, i32 2
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %4, ptr %5, align 8
   br label %cJSON_New_Item.exit.thread
 
@@ -3023,9 +3023,9 @@ define ptr @cJSON_AddNumberToObject(ptr noundef %0, ptr noundef readonly %1, dou
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 8, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store double %2, ptr %7, align 8
   %8 = fcmp ult double %2, 0x41DFFFFFFFC00000
   br i1 %8, label %9, label %cJSON_CreateNumber.exit
@@ -3040,7 +3040,7 @@ define ptr @cJSON_AddNumberToObject(ptr noundef %0, ptr noundef readonly %1, dou
 
 cJSON_CreateNumber.exit:                          ; preds = %5, %9, %11
   %.sink.i = phi i32 [ %12, %11 ], [ 2147483647, %5 ], [ -2147483648, %9 ]
-  %13 = getelementptr inbounds i8, ptr %4, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %.sink.i, ptr %13, align 8
   %14 = icmp eq ptr %0, null
   %15 = icmp eq ptr %1, null
@@ -3066,7 +3066,7 @@ cJSON_CreateNumber.exit:                          ; preds = %5, %9, %11
   br i1 %.not32.i, label %27, label %32
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %4, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %29 = load ptr, ptr %28, align 8
   %.not33.i = icmp eq ptr %29, null
   br i1 %.not33.i, label %32, label %30
@@ -3077,33 +3077,33 @@ cJSON_CreateNumber.exit:                          ; preds = %5, %9, %11
   br label %32
 
 32:                                               ; preds = %30, %27, %23
-  %33 = getelementptr inbounds i8, ptr %4, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %21, ptr %33, align 8
   store i32 %25, ptr %6, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %32
   store ptr %4, ptr %34, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %4, ptr %38, align 8
   store ptr null, ptr %4, align 8
   br label %add_item_to_object.exit
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not.i.i7 = icmp eq ptr %41, null
   br i1 %.not.i.i7, label %add_item_to_object.exit, label %42
 
 42:                                               ; preds = %39
   store ptr %4, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %41, ptr %43, align 8
   %44 = load ptr, ptr %34, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %4, ptr %45, align 8
   br label %add_item_to_object.exit
 
@@ -3125,9 +3125,9 @@ define ptr @cJSON_CreateNumber(double noundef %0) local_unnamed_addr #8 {
 
 3:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 8, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store double %0, ptr %5, align 8
   %6 = fcmp ult double %0, 0x41DFFFFFFFC00000
   br i1 %6, label %7, label %cJSON_New_Item.exit.thread.sink.split
@@ -3142,7 +3142,7 @@ define ptr @cJSON_CreateNumber(double noundef %0) local_unnamed_addr #8 {
 
 cJSON_New_Item.exit.thread.sink.split:            ; preds = %7, %3, %9
   %.sink = phi i32 [ %10, %9 ], [ 2147483647, %3 ], [ -2147483648, %7 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %.sink, ptr %11, align 8
   br label %cJSON_New_Item.exit.thread
 
@@ -3159,7 +3159,7 @@ define ptr @cJSON_AddStringToObject(ptr noundef %0, ptr noundef readonly %1, ptr
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 16, ptr %6, align 8
   %7 = icmp eq ptr %2, null
   br i1 %7, label %15, label %8
@@ -3174,12 +3174,12 @@ define ptr @cJSON_AddStringToObject(ptr noundef %0, ptr noundef readonly %1, ptr
 
 cJSON_strdup.exit.i:                              ; preds = %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %2, i64 %10, i1 false)
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %12, ptr %14, align 8
   br label %cJSON_CreateString.exit
 
 15:                                               ; preds = %8, %5
-  %16 = getelementptr inbounds i8, ptr %4, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %16, align 8
   tail call void @cJSON_Delete(ptr noundef nonnull %4)
   br label %cJSON_CreateString.exit
@@ -3205,7 +3205,7 @@ cJSON_CreateString.exit:                          ; preds = %3, %cJSON_strdup.ex
 
 27:                                               ; preds = %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %1, i64 %23, i1 false)
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, -513
   %31 = and i32 %29, 512
@@ -3213,7 +3213,7 @@ cJSON_CreateString.exit:                          ; preds = %3, %cJSON_strdup.ex
   br i1 %.not32.i, label %32, label %37
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   %34 = load ptr, ptr %33, align 8
   %.not33.i = icmp eq ptr %34, null
   br i1 %.not33.i, label %37, label %35
@@ -3224,33 +3224,33 @@ cJSON_CreateString.exit:                          ; preds = %3, %cJSON_strdup.ex
   br label %37
 
 37:                                               ; preds = %35, %32, %27
-  %38 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   store ptr %25, ptr %38, align 8
   store i32 %30, ptr %28, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %37
   store ptr %.0.i, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr %.0.i, ptr %43, align 8
   store ptr null, ptr %.0.i, align 8
   br label %add_item_to_object.exit.thread
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %40, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not.i.i8 = icmp eq ptr %46, null
   br i1 %.not.i.i8, label %add_item_to_object.exit.thread, label %47
 
 47:                                               ; preds = %44
   store ptr %.0.i, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr %46, ptr %48, align 8
   %49 = load ptr, ptr %39, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %.0.i, ptr %50, align 8
   br label %add_item_to_object.exit.thread
 
@@ -3272,7 +3272,7 @@ define ptr @cJSON_CreateString(ptr noundef readonly %0) local_unnamed_addr #8 {
 
 3:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 16, ptr %4, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %13, label %6
@@ -3287,12 +3287,12 @@ define ptr @cJSON_CreateString(ptr noundef readonly %0) local_unnamed_addr #8 {
 
 cJSON_strdup.exit:                                ; preds = %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %0, i64 %8, i1 false)
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %10, ptr %12, align 8
   br label %cJSON_New_Item.exit.thread
 
 13:                                               ; preds = %3, %6
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %14, align 8
   tail call void @cJSON_Delete(ptr noundef nonnull %2)
   br label %cJSON_New_Item.exit.thread
@@ -3311,7 +3311,7 @@ define ptr @cJSON_AddRawToObject(ptr noundef %0, ptr noundef readonly %1, ptr no
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 128, ptr %6, align 8
   %7 = icmp eq ptr %2, null
   br i1 %7, label %15, label %8
@@ -3326,12 +3326,12 @@ define ptr @cJSON_AddRawToObject(ptr noundef %0, ptr noundef readonly %1, ptr no
 
 cJSON_strdup.exit.i:                              ; preds = %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %2, i64 %10, i1 false)
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %12, ptr %14, align 8
   br label %cJSON_CreateRaw.exit
 
 15:                                               ; preds = %8, %5
-  %16 = getelementptr inbounds i8, ptr %4, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %16, align 8
   tail call void @cJSON_Delete(ptr noundef nonnull %4)
   br label %cJSON_CreateRaw.exit
@@ -3357,7 +3357,7 @@ cJSON_CreateRaw.exit:                             ; preds = %3, %cJSON_strdup.ex
 
 27:                                               ; preds = %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull readonly align 1 %1, i64 %23, i1 false)
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, -513
   %31 = and i32 %29, 512
@@ -3365,7 +3365,7 @@ cJSON_CreateRaw.exit:                             ; preds = %3, %cJSON_strdup.ex
   br i1 %.not32.i, label %32, label %37
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   %34 = load ptr, ptr %33, align 8
   %.not33.i = icmp eq ptr %34, null
   br i1 %.not33.i, label %37, label %35
@@ -3376,33 +3376,33 @@ cJSON_CreateRaw.exit:                             ; preds = %3, %cJSON_strdup.ex
   br label %37
 
 37:                                               ; preds = %35, %32, %27
-  %38 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   store ptr %25, ptr %38, align 8
   store i32 %30, ptr %28, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %37
   store ptr %.0.i, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr %.0.i, ptr %43, align 8
   store ptr null, ptr %.0.i, align 8
   br label %add_item_to_object.exit.thread
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %40, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not.i.i8 = icmp eq ptr %46, null
   br i1 %.not.i.i8, label %add_item_to_object.exit.thread, label %47
 
 47:                                               ; preds = %44
   store ptr %.0.i, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr %46, ptr %48, align 8
   %49 = load ptr, ptr %39, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %.0.i, ptr %50, align 8
   br label %add_item_to_object.exit.thread
 
@@ -3424,7 +3424,7 @@ define ptr @cJSON_CreateRaw(ptr noundef readonly %0) local_unnamed_addr #8 {
 
 3:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 128, ptr %4, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %13, label %6
@@ -3439,12 +3439,12 @@ define ptr @cJSON_CreateRaw(ptr noundef readonly %0) local_unnamed_addr #8 {
 
 cJSON_strdup.exit:                                ; preds = %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull readonly align 1 %0, i64 %8, i1 false)
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %10, ptr %12, align 8
   br label %cJSON_New_Item.exit.thread
 
 13:                                               ; preds = %3, %6
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %14, align 8
   tail call void @cJSON_Delete(ptr noundef nonnull %2)
   br label %cJSON_New_Item.exit.thread
@@ -3463,7 +3463,7 @@ define ptr @cJSON_AddObjectToObject(ptr noundef %0, ptr noundef readonly %1) loc
 
 cJSON_CreateObject.exit:                          ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 64, ptr %4, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
@@ -3489,7 +3489,7 @@ cJSON_CreateObject.exit:                          ; preds = %2
   br i1 %.not32.i, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %20 = load ptr, ptr %19, align 8
   %.not33.i = icmp eq ptr %20, null
   br i1 %.not33.i, label %23, label %21
@@ -3500,33 +3500,33 @@ cJSON_CreateObject.exit:                          ; preds = %2
   br label %23
 
 23:                                               ; preds = %21, %18, %14
-  %24 = getelementptr inbounds i8, ptr %3, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %12, ptr %24, align 8
   store i32 %16, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23
   store ptr %3, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %29, align 8
   store ptr null, ptr %3, align 8
   br label %add_item_to_object.exit
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i6 = icmp eq ptr %32, null
   br i1 %.not.i.i6, label %add_item_to_object.exit, label %33
 
 33:                                               ; preds = %30
   store ptr %3, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %32, ptr %34, align 8
   %35 = load ptr, ptr %25, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %3, ptr %36, align 8
   br label %add_item_to_object.exit
 
@@ -3548,7 +3548,7 @@ define ptr @cJSON_CreateObject() local_unnamed_addr #8 {
 
 2:                                                ; preds = %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 64, ptr %3, align 8
   br label %cJSON_New_Item.exit.thread
 
@@ -3565,7 +3565,7 @@ define ptr @cJSON_AddArrayToObject(ptr noundef %0, ptr noundef readonly %1) loca
 
 cJSON_CreateArray.exit:                           ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 32, ptr %4, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
@@ -3591,7 +3591,7 @@ cJSON_CreateArray.exit:                           ; preds = %2
   br i1 %.not32.i, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %20 = load ptr, ptr %19, align 8
   %.not33.i = icmp eq ptr %20, null
   br i1 %.not33.i, label %23, label %21
@@ -3602,33 +3602,33 @@ cJSON_CreateArray.exit:                           ; preds = %2
   br label %23
 
 23:                                               ; preds = %21, %18, %14
-  %24 = getelementptr inbounds i8, ptr %3, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %12, ptr %24, align 8
   store i32 %16, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23
   store ptr %3, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %29, align 8
   store ptr null, ptr %3, align 8
   br label %add_item_to_object.exit
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i6 = icmp eq ptr %32, null
   br i1 %.not.i.i6, label %add_item_to_object.exit, label %33
 
 33:                                               ; preds = %30
   store ptr %3, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %32, ptr %34, align 8
   %35 = load ptr, ptr %25, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %3, ptr %36, align 8
   br label %add_item_to_object.exit
 
@@ -3650,7 +3650,7 @@ define ptr @cJSON_CreateArray() local_unnamed_addr #8 {
 
 2:                                                ; preds = %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 32, ptr %3, align 8
   br label %cJSON_New_Item.exit.thread
 
@@ -3666,14 +3666,14 @@ define noundef ptr @cJSON_DetachItemViaPointer(ptr noundef %0, ptr noundef %1) l
   br i1 %or.cond, label %28, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %1, %7
   %.pre = load ptr, ptr %1, align 8
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %.pre, ptr %10, align 8
   br label %11
@@ -3683,9 +3683,9 @@ define noundef ptr @cJSON_DetachItemViaPointer(ptr noundef %0, ptr noundef %1) l
   br i1 %.not25, label %16, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   store ptr %14, ptr %15, align 8
   br label %16
 
@@ -3704,9 +3704,9 @@ define noundef ptr @cJSON_DetachItemViaPointer(ptr noundef %0, ptr noundef %1) l
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %25, ptr %26, align 8
   br label %27
 
@@ -3728,7 +3728,7 @@ define ptr @cJSON_DetachItemFromArray(ptr noundef %0, i32 noundef %1) local_unna
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %8
 
 8:                                                ; preds = %8, %5
@@ -3752,7 +3752,7 @@ get_array_item.exit:                              ; preds = %8
   br i1 %.not.i, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %18 = load ptr, ptr %17, align 8
   store ptr %.pre.i, ptr %18, align 8
   br label %19
@@ -3762,9 +3762,9 @@ get_array_item.exit:                              ; preds = %8
   br i1 %.not25.i, label %24, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   store ptr %22, ptr %23, align 8
   br label %24
 
@@ -3783,9 +3783,9 @@ get_array_item.exit:                              ; preds = %8
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %25, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %33, ptr %34, align 8
   br label %35
 
@@ -3807,7 +3807,7 @@ define void @cJSON_DeleteItemFromArray(ptr noundef %0, i32 noundef %1) local_unn
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %8
 
 8:                                                ; preds = %8, %5
@@ -3831,7 +3831,7 @@ get_array_item.exit.i:                            ; preds = %8
   br i1 %.not.i.i, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   store ptr %.pre.i.i, ptr %18, align 8
   br label %19
@@ -3841,9 +3841,9 @@ get_array_item.exit.i:                            ; preds = %8
   br i1 %.not25.i.i, label %24, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
   store ptr %22, ptr %23, align 8
   br label %24
 
@@ -3862,9 +3862,9 @@ get_array_item.exit.i:                            ; preds = %8
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %25, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %33, ptr %34, align 8
   br label %35
 
@@ -3886,14 +3886,14 @@ define ptr @cJSON_DetachItemFromObject(ptr noundef %0, ptr noundef readonly %1) 
   br i1 %or.cond.i.i, label %cJSON_DetachItemViaPointer.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not2350.i.i = icmp eq ptr %7, null
   br i1 %.not2350.i.i, label %cJSON_DetachItemViaPointer.exit, label %.lr.ph52.i.i
 
 .lr.ph52.i.i:                                     ; preds = %5, %case_insensitive_strcmp.exit.thread30.i.i
   %.251.i.i = phi ptr [ %32, %case_insensitive_strcmp.exit.thread30.i.i ], [ %7, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.251.i.i, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.251.i.i, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %case_insensitive_strcmp.exit.thread30.i.i, label %11
@@ -3920,8 +3920,8 @@ define ptr @cJSON_DetachItemFromObject(ptr noundef %0, ptr noundef readonly %1) 
   br i1 %21, label %cJSON_GetObjectItem.exit, label %22
 
 22:                                               ; preds = %.lr.ph.i.i.i
-  %23 = getelementptr inbounds i8, ptr %.01221.i.i.i, i64 1
-  %24 = getelementptr inbounds i8, ptr %.022.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.01221.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.022.i.i.i, i64 1
   %25 = load i8, ptr %23, align 1
   %26 = zext i8 %25 to i32
   %27 = tail call i32 @tolower(i32 noundef %26) #32
@@ -3948,7 +3948,7 @@ cJSON_GetObjectItem.exit:                         ; preds = %case_insensitive_st
   br i1 %.not.i, label %36, label %33
 
 33:                                               ; preds = %cJSON_GetObjectItem.exit
-  %34 = getelementptr inbounds i8, ptr %.251.i.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.251.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   store ptr %.pre.i, ptr %35, align 8
   br label %36
@@ -3958,9 +3958,9 @@ cJSON_GetObjectItem.exit:                         ; preds = %case_insensitive_st
   br i1 %.not25.i, label %41, label %37
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %.251.i.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.251.i.i, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   store ptr %39, ptr %40, align 8
   br label %41
 
@@ -3979,9 +3979,9 @@ cJSON_GetObjectItem.exit:                         ; preds = %case_insensitive_st
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %.251.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.251.i.i, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %42, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %50, ptr %51, align 8
   br label %52
 
@@ -4002,14 +4002,14 @@ define ptr @cJSON_DetachItemFromObjectCaseSensitive(ptr noundef %0, ptr noundef 
   br i1 %or.cond.i.i, label %cJSON_DetachItemViaPointer.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not2350.i.i = icmp eq ptr %7, null
   br i1 %.not2350.i.i, label %cJSON_DetachItemViaPointer.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %5, %12
   %.049.i.i = phi ptr [ %13, %12 ], [ %7, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.049.i.i, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.049.i.i, i64 56
   %9 = load ptr, ptr %8, align 8
   %.not26.i.i = icmp eq ptr %9, null
   br i1 %.not26.i.i, label %cJSON_DetachItemViaPointer.exit, label %10
@@ -4030,7 +4030,7 @@ cJSON_GetObjectItemCaseSensitive.exit:            ; preds = %10
   br i1 %.not.i, label %17, label %14
 
 14:                                               ; preds = %cJSON_GetObjectItemCaseSensitive.exit
-  %15 = getelementptr inbounds i8, ptr %.049.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.049.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   store ptr %.pre.i, ptr %16, align 8
   br label %17
@@ -4040,9 +4040,9 @@ cJSON_GetObjectItemCaseSensitive.exit:            ; preds = %10
   br i1 %.not25.i, label %22, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %.049.i.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.049.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   store ptr %20, ptr %21, align 8
   br label %22
 
@@ -4061,9 +4061,9 @@ cJSON_GetObjectItemCaseSensitive.exit:            ; preds = %10
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.049.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.049.i.i, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %23, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %31, ptr %32, align 8
   br label %33
 
@@ -4091,14 +4091,14 @@ define void @cJSON_DeleteItemFromObjectCaseSensitive(ptr noundef %0, ptr noundef
   br i1 %or.cond.i.i.i, label %cJSON_DetachItemFromObjectCaseSensitive.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not2350.i.i.i = icmp eq ptr %7, null
   br i1 %.not2350.i.i.i, label %cJSON_DetachItemFromObjectCaseSensitive.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %5, %12
   %.049.i.i.i = phi ptr [ %13, %12 ], [ %7, %5 ]
-  %8 = getelementptr inbounds i8, ptr %.049.i.i.i, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.049.i.i.i, i64 56
   %9 = load ptr, ptr %8, align 8
   %.not26.i.i.i = icmp eq ptr %9, null
   br i1 %.not26.i.i.i, label %cJSON_DetachItemFromObjectCaseSensitive.exit, label %10
@@ -4119,7 +4119,7 @@ cJSON_GetObjectItemCaseSensitive.exit.i:          ; preds = %10
   br i1 %.not.i.i, label %17, label %14
 
 14:                                               ; preds = %cJSON_GetObjectItemCaseSensitive.exit.i
-  %15 = getelementptr inbounds i8, ptr %.049.i.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.049.i.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   store ptr %.pre.i.i, ptr %16, align 8
   br label %17
@@ -4129,9 +4129,9 @@ cJSON_GetObjectItemCaseSensitive.exit.i:          ; preds = %10
   br i1 %.not25.i.i, label %22, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %.049.i.i.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.049.i.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
   store ptr %20, ptr %21, align 8
   br label %22
 
@@ -4150,9 +4150,9 @@ cJSON_GetObjectItemCaseSensitive.exit.i:          ; preds = %10
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.049.i.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.049.i.i.i, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %23, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %31, ptr %32, align 8
   br label %33
 
@@ -4177,7 +4177,7 @@ define range(i32 0, 2) i32 @cJSON_InsertItemInArray(ptr noundef %0, i32 noundef 
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %10
 
 10:                                               ; preds = %10, %7
@@ -4205,23 +4205,23 @@ get_array_item.exit:                              ; preds = %10
 
 21:                                               ; preds = %18
   store ptr %2, ptr %9, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %22, align 8
   store ptr null, ptr %2, align 8
   br label %add_item_to_array.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %add_item_to_array.exit, label %26
 
 26:                                               ; preds = %23
   store ptr %2, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %25, ptr %27, align 8
   %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %2, ptr %29, align 8
   br label %add_item_to_array.exit
 
@@ -4231,16 +4231,16 @@ get_array_item.exit:                              ; preds = %10
   br i1 %.not, label %36, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %add_item_to_array.exit, label %36
 
 36:                                               ; preds = %32, %30
   store ptr %.0.i, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %38, ptr %39, align 8
   store ptr %2, ptr %37, align 8
   %40 = load ptr, ptr %9, align 8
@@ -4267,7 +4267,7 @@ define range(i32 0, 2) i32 @cJSON_ReplaceItemViaPointer(ptr noundef %0, ptr noun
   br i1 %4, label %39, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = icmp eq ptr %2, null
@@ -4283,15 +4283,15 @@ define range(i32 0, 2) i32 @cJSON_ReplaceItemViaPointer(ptr noundef %0, ptr noun
 13:                                               ; preds = %11
   %14 = load ptr, ptr %1, align 8
   store ptr %14, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %16, ptr %17, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %2, ptr %19, align 8
   br label %20
 
@@ -4301,7 +4301,7 @@ define range(i32 0, 2) i32 @cJSON_ReplaceItemViaPointer(ptr noundef %0, ptr noun
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %1
   br i1 %26, label %27, label %28
@@ -4330,7 +4330,7 @@ define range(i32 0, 2) i32 @cJSON_ReplaceItemViaPointer(ptr noundef %0, ptr noun
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %2, ptr %37, align 8
   br label %38
 
@@ -4353,7 +4353,7 @@ define range(i32 0, 2) i32 @cJSON_ReplaceItemInArray(ptr noundef %0, i32 noundef
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %9
 
 9:                                                ; preds = %9, %6
@@ -4382,15 +4382,15 @@ get_array_item.exit:                              ; preds = %9
 20:                                               ; preds = %18
   %21 = load ptr, ptr %.0.i, align 8
   store ptr %21, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %23, ptr %24, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %27, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %21, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %2, ptr %26, align 8
   br label %27
 
@@ -4400,7 +4400,7 @@ get_array_item.exit:                              ; preds = %9
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %.0.i
   br i1 %33, label %34, label %35
@@ -4429,7 +4429,7 @@ get_array_item.exit:                              ; preds = %9
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %8, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %2, ptr %44, align 8
   br label %45
 
@@ -4457,14 +4457,14 @@ define internal fastcc range(i32 0, 2) i32 @replace_item_in_object(ptr noundef %
   br i1 %or.cond, label %cJSON_ReplaceItemViaPointer.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 512
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %16
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %2, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %13 = load ptr, ptr %12, align 8
   %.not18 = icmp eq ptr %13, null
   br i1 %.not18, label %16, label %14
@@ -4483,13 +4483,13 @@ define internal fastcc range(i32 0, 2) i32 @replace_item_in_object(ptr noundef %
   br i1 %21, label %cJSON_strdup.exit.thread, label %23
 
 cJSON_strdup.exit.thread:                         ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %2, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr null, ptr %22, align 8
   br label %cJSON_ReplaceItemViaPointer.exit
 
 23:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %1, i64 %18, i1 false)
-  %24 = getelementptr inbounds i8, ptr %2, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %20, ptr %24, align 8
   %25 = load i32, ptr %8, align 8
   %26 = and i32 %25, -513
@@ -4499,7 +4499,7 @@ cJSON_strdup.exit.thread:                         ; preds = %16
   br i1 %28, label %cJSON_ReplaceItemViaPointer.exit, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   %33 = icmp eq ptr %27, null
@@ -4513,15 +4513,15 @@ cJSON_strdup.exit.thread:                         ; preds = %16
 36:                                               ; preds = %34
   %37 = load ptr, ptr %27, align 8
   store ptr %37, ptr %2, align 8
-  %38 = getelementptr inbounds i8, ptr %27, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %39, ptr %40, align 8
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %43, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %2, ptr %42, align 8
   br label %43
 
@@ -4531,7 +4531,7 @@ cJSON_strdup.exit.thread:                         ; preds = %16
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %44, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, %27
   br i1 %49, label %50, label %51
@@ -4560,7 +4560,7 @@ cJSON_strdup.exit.thread:                         ; preds = %16
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %30, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %2, ptr %60, align 8
   br label %61
 
@@ -4589,9 +4589,9 @@ define ptr @cJSON_CreateStringReference(ptr noundef %0) local_unnamed_addr #8 {
 
 3:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 272, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %0, ptr %5, align 8
   br label %cJSON_New_Item.exit.thread
 
@@ -4608,9 +4608,9 @@ define ptr @cJSON_CreateObjectReference(ptr noundef %0) local_unnamed_addr #8 {
 
 3:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 320, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %5, align 8
   br label %cJSON_New_Item.exit.thread
 
@@ -4627,9 +4627,9 @@ define ptr @cJSON_CreateArrayReference(ptr noundef %0) local_unnamed_addr #8 {
 
 3:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 288, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %5, align 8
   br label %cJSON_New_Item.exit.thread
 
@@ -4653,20 +4653,20 @@ define noundef ptr @cJSON_CreateIntArray(ptr noundef readonly %0, i32 noundef %1
 
 cJSON_CreateArray.exit:                           ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.fr42, i8 0, i64 64, i1 false)
-  %7 = getelementptr inbounds i8, ptr %.fr42, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.fr42, i64 24
   store i32 32, ptr %7, align 8
   %8 = zext nneg i32 %1 to i64
   %.not52 = icmp eq i32 %1, 0
   br i1 %.not52, label %._crit_edge.thread, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %cJSON_CreateArray.exit
-  %9 = getelementptr inbounds i8, ptr %.fr42, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.fr42, i64 16
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %21
   %.039 = phi ptr [ %12, %21 ], [ null, %.lr.ph.split.preheader ]
   %.02338 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.split.preheader ]
-  %10 = getelementptr inbounds i32, ptr %0, i64 %.02338
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %.02338
   %11 = load i32, ptr %10, align 4
   %global_hooks.val.i32 = load ptr, ptr @global_hooks, align 8
   %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #31
@@ -4676,11 +4676,11 @@ cJSON_CreateArray.exit:                           ; preds = %5
 13:                                               ; preds = %.lr.ph.split
   %14 = sitofp i32 %11 to double
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 8, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store double %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 %11, ptr %17, align 8
   %.not31 = icmp eq i64 %.02338, 0
   br i1 %.not31, label %18, label %19
@@ -4695,7 +4695,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 19:                                               ; preds = %13
   store ptr %12, ptr %.039, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.039, ptr %20, align 8
   br label %21
 
@@ -4706,13 +4706,13 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 ._crit_edge.thread:                               ; preds = %21, %cJSON_CreateArray.exit
   %.0.lcssa47 = phi ptr [ null, %cJSON_CreateArray.exit ], [ %12, %21 ]
-  %23 = getelementptr inbounds i8, ptr %.fr42, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.fr42, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %._crit_edge.thread48, label %25
 
 25:                                               ; preds = %._crit_edge.thread
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %.0.lcssa47, ptr %26, align 8
   br label %._crit_edge.thread48
 
@@ -4737,20 +4737,20 @@ define noundef ptr @cJSON_CreateFloatArray(ptr noundef readonly %0, i32 noundef 
 
 cJSON_CreateArray.exit:                           ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.fr40, i8 0, i64 64, i1 false)
-  %7 = getelementptr inbounds i8, ptr %.fr40, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.fr40, i64 24
   store i32 32, ptr %7, align 8
   %8 = zext nneg i32 %1 to i64
   %.not50 = icmp eq i32 %1, 0
   br i1 %.not50, label %._crit_edge.thread, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %cJSON_CreateArray.exit
-  %9 = getelementptr inbounds i8, ptr %.fr40, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.fr40, i64 16
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %27
   %.037 = phi ptr [ %12, %27 ], [ null, %.lr.ph.split.preheader ]
   %.02336 = phi i64 [ %28, %27 ], [ 0, %.lr.ph.split.preheader ]
-  %10 = getelementptr inbounds float, ptr %0, i64 %.02336
+  %10 = getelementptr inbounds nuw float, ptr %0, i64 %.02336
   %11 = load float, ptr %10, align 4
   %global_hooks.val.i32 = load ptr, ptr @global_hooks, align 8
   %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #31
@@ -4760,9 +4760,9 @@ cJSON_CreateArray.exit:                           ; preds = %5
 13:                                               ; preds = %.lr.ph.split
   %14 = fpext float %11 to double
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 8, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store double %14, ptr %16, align 8
   %17 = fcmp ult double %14, 0x41DFFFFFFFC00000
   br i1 %17, label %18, label %22
@@ -4781,7 +4781,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 22:                                               ; preds = %20, %18, %13
   %.sink.i = phi i32 [ %21, %20 ], [ 2147483647, %13 ], [ -2147483648, %18 ]
-  %23 = getelementptr inbounds i8, ptr %12, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 %.sink.i, ptr %23, align 8
   %.not31 = icmp eq i64 %.02336, 0
   br i1 %.not31, label %24, label %25
@@ -4792,7 +4792,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 25:                                               ; preds = %22
   store ptr %12, ptr %.037, align 8
-  %26 = getelementptr inbounds i8, ptr %12, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.037, ptr %26, align 8
   br label %27
 
@@ -4803,13 +4803,13 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 ._crit_edge.thread:                               ; preds = %27, %cJSON_CreateArray.exit
   %.0.lcssa45 = phi ptr [ null, %cJSON_CreateArray.exit ], [ %12, %27 ]
-  %29 = getelementptr inbounds i8, ptr %.fr40, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.fr40, i64 16
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %._crit_edge.thread46, label %31
 
 31:                                               ; preds = %._crit_edge.thread
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %.0.lcssa45, ptr %32, align 8
   br label %._crit_edge.thread46
 
@@ -4834,20 +4834,20 @@ define noundef ptr @cJSON_CreateDoubleArray(ptr noundef readonly %0, i32 noundef
 
 cJSON_CreateArray.exit:                           ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.fr40, i8 0, i64 64, i1 false)
-  %7 = getelementptr inbounds i8, ptr %.fr40, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.fr40, i64 24
   store i32 32, ptr %7, align 8
   %8 = zext nneg i32 %1 to i64
   %.not50 = icmp eq i32 %1, 0
   br i1 %.not50, label %._crit_edge.thread, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %cJSON_CreateArray.exit
-  %9 = getelementptr inbounds i8, ptr %.fr40, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.fr40, i64 16
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %26
   %.037 = phi ptr [ %12, %26 ], [ null, %.lr.ph.split.preheader ]
   %.02336 = phi i64 [ %27, %26 ], [ 0, %.lr.ph.split.preheader ]
-  %10 = getelementptr inbounds double, ptr %0, i64 %.02336
+  %10 = getelementptr inbounds nuw double, ptr %0, i64 %.02336
   %11 = load double, ptr %10, align 8
   %global_hooks.val.i32 = load ptr, ptr @global_hooks, align 8
   %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #31
@@ -4856,9 +4856,9 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 13:                                               ; preds = %.lr.ph.split
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
-  %14 = getelementptr inbounds i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 8, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store double %11, ptr %15, align 8
   %16 = fcmp ult double %11, 0x41DFFFFFFFC00000
   br i1 %16, label %17, label %21
@@ -4877,7 +4877,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 21:                                               ; preds = %19, %17, %13
   %.sink.i = phi i32 [ %20, %19 ], [ 2147483647, %13 ], [ -2147483648, %17 ]
-  %22 = getelementptr inbounds i8, ptr %12, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 %.sink.i, ptr %22, align 8
   %.not31 = icmp eq i64 %.02336, 0
   br i1 %.not31, label %23, label %24
@@ -4888,7 +4888,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 24:                                               ; preds = %21
   store ptr %12, ptr %.037, align 8
-  %25 = getelementptr inbounds i8, ptr %12, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.037, ptr %25, align 8
   br label %26
 
@@ -4899,13 +4899,13 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 ._crit_edge.thread:                               ; preds = %26, %cJSON_CreateArray.exit
   %.0.lcssa45 = phi ptr [ null, %cJSON_CreateArray.exit ], [ %12, %26 ]
-  %28 = getelementptr inbounds i8, ptr %.fr40, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.fr40, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %._crit_edge.thread46, label %30
 
 30:                                               ; preds = %._crit_edge.thread
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %.0.lcssa45, ptr %31, align 8
   br label %._crit_edge.thread46
 
@@ -4930,20 +4930,20 @@ define noundef ptr @cJSON_CreateStringArray(ptr noundef readonly %0, i32 noundef
 
 cJSON_CreateArray.exit:                           ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.fr47, i8 0, i64 64, i1 false)
-  %7 = getelementptr inbounds i8, ptr %.fr47, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.fr47, i64 24
   store i32 32, ptr %7, align 8
   %8 = zext nneg i32 %1 to i64
   %.not60 = icmp eq i32 %1, 0
   br i1 %.not60, label %._crit_edge.thread, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %cJSON_CreateArray.exit
-  %9 = getelementptr inbounds i8, ptr %.fr47, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.fr47, i64 16
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %28
   %.043 = phi ptr [ %12, %28 ], [ null, %.lr.ph.split.preheader ]
   %.02342 = phi i64 [ %29, %28 ], [ 0, %.lr.ph.split.preheader ]
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %.02342
+  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %.02342
   %11 = load ptr, ptr %10, align 8
   %global_hooks.val.i32 = load ptr, ptr @global_hooks, align 8
   %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #31
@@ -4952,7 +4952,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 13:                                               ; preds = %.lr.ph.split
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
-  %14 = getelementptr inbounds i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 16, ptr %14, align 8
   %15 = icmp eq ptr %11, null
   br i1 %15, label %.split.us, label %16
@@ -4966,7 +4966,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br i1 %21, label %.split.us, label %23
 
 .split.us:                                        ; preds = %13, %16
-  %22 = getelementptr inbounds i8, ptr %12, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %22, align 8
   tail call void @cJSON_Delete(ptr noundef nonnull %12)
   br label %.loopexit
@@ -4977,7 +4977,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 23:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %11, i64 %18, i1 false)
-  %24 = getelementptr inbounds i8, ptr %12, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %20, ptr %24, align 8
   %.not31 = icmp eq i64 %.02342, 0
   br i1 %.not31, label %25, label %26
@@ -4988,7 +4988,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 26:                                               ; preds = %23
   store ptr %12, ptr %.043, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.043, ptr %27, align 8
   br label %28
 
@@ -4999,13 +4999,13 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 ._crit_edge.thread:                               ; preds = %28, %cJSON_CreateArray.exit
   %.0.lcssa54 = phi ptr [ null, %cJSON_CreateArray.exit ], [ %12, %28 ]
-  %30 = getelementptr inbounds i8, ptr %.fr47, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.fr47, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %._crit_edge.thread55, label %32
 
 32:                                               ; preds = %._crit_edge.thread
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %.0.lcssa54, ptr %33, align 8
   br label %._crit_edge.thread55
 
@@ -5027,20 +5027,20 @@ define ptr @cJSON_Duplicate(ptr noundef readonly %0, i32 noundef %1) local_unnam
 
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, -257
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store double %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not52 = icmp eq ptr %17, null
   br i1 %.not52, label %25, label %18
@@ -5055,12 +5055,12 @@ define ptr @cJSON_Duplicate(ptr noundef readonly %0, i32 noundef %1) local_unnam
 
 cJSON_strdup.exit:                                ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %17, i64 %20, i1 false)
-  %24 = getelementptr inbounds i8, ptr %4, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %22, ptr %24, align 8
   br label %25
 
 25:                                               ; preds = %cJSON_strdup.exit, %5
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load ptr, ptr %26, align 8
   %.not54 = icmp eq ptr %27, null
   br i1 %.not54, label %39, label %28
@@ -5085,7 +5085,7 @@ cJSON_strdup.exit:                                ; preds = %18
 
 cJSON_strdup.exit64.thread:                       ; preds = %28, %37
   %.ph = phi ptr [ %35, %37 ], [ %27, %28 ]
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %.ph, ptr %38, align 8
   br label %39
 
@@ -5094,13 +5094,13 @@ cJSON_strdup.exit64.thread:                       ; preds = %28, %37
   br i1 %.not57, label %.thread, label %40
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.04276 = load ptr, ptr %41, align 8
   %.not5877 = icmp eq ptr %.04276, null
   br i1 %.not5877, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %4, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %43
 
 43:                                               ; preds = %.lr.ph, %49
@@ -5116,7 +5116,7 @@ cJSON_strdup.exit64.thread:                       ; preds = %28, %37
 
 46:                                               ; preds = %45
   store ptr %44, ptr %.078, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %.078, ptr %47, align 8
   br label %49
 
@@ -5131,19 +5131,19 @@ cJSON_strdup.exit64.thread:                       ; preds = %28, %37
 
 ._crit_edge:                                      ; preds = %49, %40
   %.0.lcssa = phi ptr [ null, %40 ], [ %44, %49 ]
-  %50 = getelementptr inbounds i8, ptr %4, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %51 = load ptr, ptr %50, align 8
   %.not59 = icmp eq ptr %51, null
   br i1 %.not59, label %.thread, label %52
 
 52:                                               ; preds = %._crit_edge
-  %53 = getelementptr inbounds i8, ptr %51, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %.0.lcssa, ptr %53, align 8
   br label %.thread
 
 .thread71.sink.split:                             ; preds = %31, %18
   %.sink82 = phi i64 [ 32, %18 ], [ 56, %31 ]
-  %54 = getelementptr inbounds i8, ptr %4, i64 %.sink82
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink82
   store ptr null, ptr %54, align 8
   br label %.thread71
 
@@ -5176,11 +5176,11 @@ define void @cJSON_Minify(ptr noundef %0) local_unnamed_addr #23 {
   ]
 
 4:                                                ; preds = %.preheader, %.preheader, %.preheader, %.preheader
-  %5 = getelementptr inbounds i8, ptr %.022, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.022, i64 1
   br label %.preheader.backedge
 
 6:                                                ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %.022, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.022, i64 1
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %.preheader.backedge [
     i8 47, label %9
@@ -5188,7 +5188,7 @@ define void @cJSON_Minify(ptr noundef %0) local_unnamed_addr #23 {
   ]
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %.022, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.022, i64 2
   br label %11
 
 11:                                               ; preds = %15, %9
@@ -5200,15 +5200,15 @@ define void @cJSON_Minify(ptr noundef %0) local_unnamed_addr #23 {
   ]
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %storemerge.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
   br label %.preheader.backedge
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %storemerge.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
   br label %11
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %.022, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %.022, i64 2
   br label %19
 
 19:                                               ; preds = %27, %17
@@ -5220,23 +5220,23 @@ define void @cJSON_Minify(ptr noundef %0) local_unnamed_addr #23 {
   ]
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %storemerge.i2, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %storemerge.i2, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 47
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %storemerge.i2, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %storemerge.i2, i64 2
   br label %.preheader.backedge
 
 27:                                               ; preds = %21, %19
-  %28 = getelementptr inbounds i8, ptr %storemerge.i2, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %storemerge.i2, i64 1
   br label %19
 
 29:                                               ; preds = %.preheader
   store i8 34, ptr %.0, align 1
-  %storemerge1922.i = getelementptr inbounds i8, ptr %.022, i64 1
-  %storemerge24.i = getelementptr inbounds i8, ptr %.0, i64 1
+  %storemerge1922.i = getelementptr inbounds nuw i8, ptr %.022, i64 1
+  %storemerge24.i = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %30 = load i8, ptr %storemerge1922.i, align 1
   %.not25.i = icmp eq i8 %30, 0
   br i1 %.not25.i, label %.preheader.backedge, label %.lr.ph.i
@@ -5254,8 +5254,8 @@ define void @cJSON_Minify(ptr noundef %0) local_unnamed_addr #23 {
 
 33:                                               ; preds = %.lr.ph.i
   store i8 34, ptr %.2, align 1
-  %34 = getelementptr inbounds i8, ptr %.426, i64 1
-  %35 = getelementptr inbounds i8, ptr %.2, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.426, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %42, %19, %11, %33, %29, %6, %25, %13, %44, %4
@@ -5264,29 +5264,29 @@ define void @cJSON_Minify(ptr noundef %0) local_unnamed_addr #23 {
   br label %.preheader
 
 36:                                               ; preds = %.lr.ph.i
-  %37 = getelementptr inbounds i8, ptr %.426, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.426, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 34
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %.2, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i8 34, ptr %41, align 1
   br label %42
 
 42:                                               ; preds = %40, %36, %.lr.ph.i
   %.3 = phi ptr [ %.2, %.lr.ph.i ], [ %41, %40 ], [ %.2, %36 ]
   %.pn20.i = phi ptr [ %.426, %.lr.ph.i ], [ %37, %40 ], [ %.426, %36 ]
-  %storemerge19.i = getelementptr inbounds i8, ptr %.pn20.i, i64 1
-  %storemerge.i3 = getelementptr inbounds i8, ptr %.3, i64 1
+  %storemerge19.i = getelementptr inbounds nuw i8, ptr %.pn20.i, i64 1
+  %storemerge.i3 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %43 = load i8, ptr %storemerge19.i, align 1
   %.not.i = icmp eq i8 %43, 0
   br i1 %.not.i, label %.preheader.backedge, label %.lr.ph.i
 
 44:                                               ; preds = %.preheader
   store i8 %3, ptr %.0, align 1
-  %45 = getelementptr inbounds i8, ptr %.022, i64 1
-  %46 = getelementptr inbounds i8, ptr %.0, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.022, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.preheader.backedge
 
 47:                                               ; preds = %.preheader
@@ -5303,7 +5303,7 @@ define range(i32 0, 2) i32 @cJSON_IsInvalid(ptr noundef readonly %0) local_unnam
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 0
@@ -5321,7 +5321,7 @@ define range(i32 0, 2) i32 @cJSON_IsFalse(ptr noundef readonly %0) local_unnamed
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 1
@@ -5339,7 +5339,7 @@ define range(i32 0, 2) i32 @cJSON_IsTrue(ptr noundef readonly %0) local_unnamed_
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 2
@@ -5357,7 +5357,7 @@ define range(i32 0, 2) i32 @cJSON_IsBool(ptr noundef readonly %0) local_unnamed_
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 3
   %7 = icmp ne i32 %6, 0
@@ -5375,7 +5375,7 @@ define range(i32 0, 2) i32 @cJSON_IsNull(ptr noundef readonly %0) local_unnamed_
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 4
@@ -5393,7 +5393,7 @@ define range(i32 0, 2) i32 @cJSON_IsArray(ptr noundef readonly %0) local_unnamed
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 32
@@ -5411,7 +5411,7 @@ define range(i32 0, 2) i32 @cJSON_IsObject(ptr noundef readonly %0) local_unname
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 64
@@ -5429,7 +5429,7 @@ define range(i32 0, 2) i32 @cJSON_IsRaw(ptr noundef readonly %0) local_unnamed_a
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 128
@@ -5449,9 +5449,9 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly %0, ptr noundef r
   br i1 %or.cond, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = xor i32 %10, %8
   %12 = and i32 %11, 255
@@ -5488,9 +5488,9 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly %0, ptr noundef r
   ]
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %21 = load double, ptr %20, align 8
   %22 = tail call double @llvm.fabs.f64(double %19)
   %23 = tail call double @llvm.fabs.f64(double %21)
@@ -5503,13 +5503,13 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly %0, ptr noundef r
   br label %.loopexit
 
 29:                                               ; preds = %16, %16
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit, label %37
@@ -5520,8 +5520,8 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly %0, ptr noundef r
   br label %.loopexit
 
 40:                                               ; preds = %16
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %43
 
 43:                                               ; preds = %47, %40
@@ -5544,7 +5544,7 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly %0, ptr noundef r
   br label %.loopexit
 
 50:                                               ; preds = %16
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %52
 
 52:                                               ; preds = %58, %50
@@ -5554,7 +5554,7 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly %0, ptr noundef r
   br i1 %.not60, label %60, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %.048, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.048, i64 56
   %55 = load ptr, ptr %54, align 8
   %56 = tail call fastcc ptr @get_object_item(ptr noundef %1, ptr noundef %55, i32 noundef %2)
   %57 = icmp eq ptr %56, null
@@ -5566,7 +5566,7 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly %0, ptr noundef r
   br i1 %.not63, label %.loopexit, label %52
 
 60:                                               ; preds = %52
-  %61 = getelementptr inbounds i8, ptr %1, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %62
 
 62:                                               ; preds = %68, %60
@@ -5576,7 +5576,7 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly %0, ptr noundef r
   br i1 %.not61, label %.loopexit, label %63
 
 63:                                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %.0, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %65 = load ptr, ptr %64, align 8
   %66 = tail call fastcc ptr @get_object_item(ptr noundef %0, ptr noundef %65, i32 noundef %2)
   %67 = icmp eq ptr %66, null
@@ -5612,17 +5612,17 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_string(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #8 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
-  %.ptr = getelementptr inbounds i8, ptr %6, i64 1
+  %.ptr = getelementptr inbounds nuw i8, ptr %6, i64 1
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 34
   br i1 %.not, label %.preheader95, label %.critedge.thread88
 
 .preheader95:                                     ; preds = %2
   %8 = ptrtoint ptr %3 to i64
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = ptrtoint ptr %.ptr to i64
   %12 = sub i64 %11, %8
@@ -5633,7 +5633,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr nocapture noundef n
   %14 = phi i64 [ %22, %21 ], [ %11, %.preheader95 ]
   %.056103 = phi i64 [ %.1, %21 ], [ 0, %.preheader95 ]
   %.058102.idx = phi i64 [ %.159.add, %21 ], [ 1, %.preheader95 ]
-  %.058102.ptr = getelementptr inbounds i8, ptr %6, i64 %.058102.idx
+  %.058102.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.058102.idx
   %15 = load i8, ptr %.058102.ptr, align 1
   switch i8 %15, label %21 [
     i8 34, label %25
@@ -5641,8 +5641,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr nocapture noundef n
   ]
 
 16:                                               ; preds = %.lr.ph
-  %.058102.add = add nsw i64 %.058102.idx, 1
-  %.ptr111 = getelementptr inbounds i8, ptr %6, i64 %.058102.add
+  %.058102.add = add nuw nsw i64 %.058102.idx, 1
+  %.ptr111 = getelementptr inbounds nuw i8, ptr %6, i64 %.058102.add
   %17 = ptrtoint ptr %.ptr111 to i64
   %18 = sub i64 %17, %8
   %.not71 = icmp ult i64 %18, %10
@@ -5655,17 +5655,17 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr nocapture noundef n
 21:                                               ; preds = %.lr.ph, %19
   %.159.idx = phi i64 [ %.058102.add, %19 ], [ %.058102.idx, %.lr.ph ]
   %.1 = phi i64 [ %20, %19 ], [ %.056103, %.lr.ph ]
-  %.159.add = add nsw i64 %.159.idx, 1
-  %.ptr110 = getelementptr inbounds i8, ptr %6, i64 %.159.add
+  %.159.add = add nuw nsw i64 %.159.idx, 1
+  %.ptr110 = getelementptr inbounds nuw i8, ptr %6, i64 %.159.add
   %22 = ptrtoint ptr %.ptr110 to i64
   %23 = sub i64 %22, %8
   %24 = icmp ult i64 %23, %10
   br i1 %24, label %.lr.ph, label %.critedge.thread88
 
 25:                                               ; preds = %.lr.ph
-  %.058102.ptr.le = getelementptr inbounds i8, ptr %6, i64 %.058102.idx
+  %.058102.ptr.le = getelementptr inbounds nuw i8, ptr %6, i64 %.058102.idx
   %26 = ptrtoint ptr %6 to i64
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = add i64 %.056103, %26
   %reass.sub = sub i64 %14, %29
@@ -5686,8 +5686,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr nocapture noundef n
   br i1 %.not70, label %38, label %35
 
 35:                                               ; preds = %.lr.ph109
-  %36 = getelementptr inbounds i8, ptr %.161106, i64 1
-  %37 = getelementptr inbounds i8, ptr %.083105, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.161106, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.083105, i64 1
   store i8 %34, ptr %.083105, align 1
   br label %119
 
@@ -5698,7 +5698,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr nocapture noundef n
   br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %.161106, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.161106, i64 1
   %44 = load i8, ptr %43, align 1
   switch i8 %44, label %.critedge [
     i8 98, label %45
@@ -5713,32 +5713,32 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr nocapture noundef n
   ]
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %.083105, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.083105, i64 1
   store i8 8, ptr %.083105, align 1
   br label %117
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %.083105, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.083105, i64 1
   store i8 12, ptr %.083105, align 1
   br label %117
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %.083105, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.083105, i64 1
   store i8 10, ptr %.083105, align 1
   br label %117
 
 51:                                               ; preds = %42
-  %52 = getelementptr inbounds i8, ptr %.083105, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.083105, i64 1
   store i8 13, ptr %.083105, align 1
   br label %117
 
 53:                                               ; preds = %42
-  %54 = getelementptr inbounds i8, ptr %.083105, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.083105, i64 1
   store i8 9, ptr %.083105, align 1
   br label %117
 
 55:                                               ; preds = %42, %42, %42
-  %56 = getelementptr inbounds i8, ptr %.083105, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.083105, i64 1
   store i8 %44, ptr %.083105, align 1
   br label %117
 
@@ -5747,13 +5747,13 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr nocapture noundef n
   br i1 %58, label %.critedge, label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %.161106, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.161106, i64 2
   br label %61
 
 61:                                               ; preds = %70, %59
   %.034.i.i = phi i64 [ 0, %59 ], [ %73, %70 ]
   %.02633.i.i = phi i32 [ 0, %59 ], [ %spec.select.i.i, %70 ]
-  %62 = getelementptr inbounds i8, ptr %60, i64 %.034.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %.034.i.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = add i8 %63, -48
@@ -5789,7 +5789,7 @@ parse_hex4.exit.i:                                ; preds = %70
   ]
 
 75:                                               ; preds = %parse_hex4.exit.i
-  %76 = getelementptr inbounds i8, ptr %.161106, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %.161106, i64 6
   %77 = ptrtoint ptr %76 to i64
   %78 = sub i64 %14, %77
   %79 = icmp slt i64 %78, 6
@@ -5801,13 +5801,13 @@ parse_hex4.exit.i:                                ; preds = %70
   br i1 %.not.i, label %82, label %.critedge
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %.161106, i64 7
+  %83 = getelementptr inbounds nuw i8, ptr %.161106, i64 7
   %84 = load i8, ptr %83, align 1
   %.not51.i = icmp eq i8 %84, 117
   br i1 %.not51.i, label %85, label %.critedge
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %.161106, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.161106, i64 8
   %87 = tail call fastcc i32 @parse_hex4(ptr noundef nonnull %86)
   %88 = add i32 %87, -57344
   %or.cond5.i = icmp ult i32 %88, -1024
@@ -5854,7 +5854,7 @@ parse_hex4.exit.i:                                ; preds = %70
   %104 = trunc i64 %.191.i to i8
   %105 = and i8 %104, 63
   %106 = or disjoint i8 %105, -128
-  %107 = getelementptr inbounds i8, ptr %.083105, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw i8, ptr %.083105, i64 %indvars.iv.i
   store i8 %106, ptr %107, align 1
   %108 = lshr i64 %.191.i, 6
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -5879,13 +5879,13 @@ utf16_literal_to_utf8.exit:                       ; preds = %110, %.loopexit.i
   %.04563102116.i = phi i64 [ 6, %.loopexit.i ], [ %.04563.ph.i, %110 ]
   %.047104114.i = phi i64 [ 1, %.loopexit.i ], [ %113, %110 ]
   store i8 %.sink.i, ptr %.083105, align 1
-  %116 = getelementptr inbounds i8, ptr %.083105, i64 %.047104114.i
+  %116 = getelementptr inbounds nuw i8, ptr %.083105, i64 %.047104114.i
   br label %117
 
 117:                                              ; preds = %utf16_literal_to_utf8.exit, %55, %53, %51, %49, %47, %45
   %.285 = phi ptr [ %116, %utf16_literal_to_utf8.exit ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ]
   %.0 = phi i64 [ %.04563102116.i, %utf16_literal_to_utf8.exit ], [ 2, %55 ], [ 2, %53 ], [ 2, %51 ], [ 2, %49 ], [ 2, %47 ], [ 2, %45 ]
-  %118 = getelementptr inbounds i8, ptr %.161106, i64 %.0
+  %118 = getelementptr inbounds nuw i8, ptr %.161106, i64 %.0
   br label %119
 
 119:                                              ; preds = %117, %35
@@ -5897,9 +5897,9 @@ utf16_literal_to_utf8.exit:                       ; preds = %110, %.loopexit.i
 ._crit_edge:                                      ; preds = %119, %.preheader
   %.083.lcssa = phi ptr [ %31, %.preheader ], [ %.184, %119 ]
   store i8 0, ptr %.083.lcssa, align 1
-  %121 = getelementptr inbounds i8, ptr %0, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 16, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %31, ptr %122, align 8
   %123 = load ptr, ptr %1, align 8
   %124 = ptrtoint ptr %123 to i64
@@ -5908,7 +5908,7 @@ utf16_literal_to_utf8.exit:                       ; preds = %110, %.loopexit.i
   br label %133
 
 .critedge:                                        ; preds = %38, %42, %100, %85, %80, %82, %75, %parse_hex4.exit.i, %57
-  %127 = getelementptr inbounds i8, ptr %1, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %128 = load ptr, ptr %127, align 8
   tail call void %128(ptr noundef nonnull %31) #31
   br label %.critedge.thread88
@@ -5930,7 +5930,7 @@ utf16_literal_to_utf8.exit:                       ; preds = %110, %.loopexit.i
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_object(ptr nocapture noundef nonnull writeonly %0, ptr noundef nonnull %1) unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %4, 999
   br i1 %5, label %.critedge.thread119, label %6
@@ -5938,9 +5938,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_object(ptr nocapture noundef n
 6:                                                ; preds = %2
   %7 = add nuw nsw i64 %4, 1
   store i64 %7, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp ult i64 %9, %11
   br i1 %12, label %13, label %.critedge.thread119
@@ -6003,7 +6003,7 @@ buffer_skip_whitespace.exit:                      ; preds = %17, %.critedge.i, %
 36:                                               ; preds = %30
   %37 = add i64 %28, -1
   store i64 %37, ptr %8, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %39
 
 39:                                               ; preds = %113, %36
@@ -6021,7 +6021,7 @@ buffer_skip_whitespace.exit:                      ; preds = %17, %.critedge.i, %
 
 43:                                               ; preds = %41
   store ptr %40, ptr %.1, align 8
-  %44 = getelementptr inbounds i8, ptr %40, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %.1, ptr %44, align 8
   br label %45
 
@@ -6100,9 +6100,9 @@ buffer_skip_whitespace.exit90:                    ; preds = %45, %50, %.critedge
   br label %buffer_skip_whitespace.exit96
 
 buffer_skip_whitespace.exit96:                    ; preds = %62, %65, %.critedge.i93, %.critedge.thread.i94
-  %77 = getelementptr inbounds i8, ptr %40, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %40, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %40, i64 56
   store ptr %78, ptr %79, align 8
   store ptr null, ptr %77, align 8
   %80 = load i64, ptr %8, align 8
@@ -6198,15 +6198,15 @@ buffer_skip_whitespace.exit108:                   ; preds = %99, %.critedge.i105
   %117 = load i64, ptr %3, align 8
   %118 = add i64 %117, -1
   store i64 %118, ptr %3, align 8
-  %119 = getelementptr inbounds i8, ptr %.3, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr %40, ptr %119, align 8
   br label %120
 
 120:                                              ; preds = %.thread109, %116
   %.168113 = phi ptr [ null, %.thread109 ], [ %.3, %116 ]
-  %121 = getelementptr inbounds i8, ptr %0, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 64, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.168113, ptr %122, align 8
   %123 = load i64, ptr %8, align 8
   %124 = add i64 %123, 1
@@ -6234,7 +6234,7 @@ define internal fastcc i32 @parse_hex4(ptr nocapture noundef readonly %0) unname
 2:                                                ; preds = %1, %11
   %.034 = phi i64 [ 0, %1 ], [ %14, %11 ]
   %.02633 = phi i32 [ 0, %1 ], [ %spec.select, %11 ]
-  %3 = getelementptr inbounds i8, ptr %0, i64 %.034
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.034
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   %6 = add i8 %4, -48
@@ -6280,13 +6280,13 @@ define internal fastcc ptr @ensure(ptr nocapture noundef nonnull %0, i64 noundef
   br i1 %4, label %57, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %.not52 = icmp uge i64 %10, %7
   %11 = icmp ugt i64 %1, 2147483647
@@ -6298,13 +6298,13 @@ define internal fastcc ptr @ensure(ptr nocapture noundef nonnull %0, i64 noundef
   br i1 %.old, label %57, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %13
 
 13:                                               ; preds = %._crit_edge, %8
   %14 = phi i64 [ %.pre, %._crit_edge ], [ %10, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = add nuw nsw i64 %1, 1
   %17 = add i64 %16, %14
   %.not53 = icmp ugt i64 %17, %7
@@ -6315,7 +6315,7 @@ define internal fastcc ptr @ensure(ptr nocapture noundef nonnull %0, i64 noundef
   br label %57
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i32, ptr %21, align 8
   %.not54 = icmp eq i32 %22, 0
   br i1 %.not54, label %23, label %57
@@ -6334,7 +6334,7 @@ define internal fastcc ptr @ensure(ptr nocapture noundef nonnull %0, i64 noundef
 
 29:                                               ; preds = %25, %27
   %.0 = phi i64 [ %28, %27 ], [ 2147483647, %25 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load ptr, ptr %30, align 8
   %.not55 = icmp eq ptr %31, null
   br i1 %.not55, label %39, label %32
@@ -6345,7 +6345,7 @@ define internal fastcc ptr @ensure(ptr nocapture noundef nonnull %0, i64 noundef
   br i1 %34, label %35, label %54
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %0, align 8
   tail call void %37(ptr noundef %38) #31
@@ -6353,14 +6353,14 @@ define internal fastcc ptr @ensure(ptr nocapture noundef nonnull %0, i64 noundef
   br label %57
 
 39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(i64 noundef %.0) #31
   %.not56 = icmp eq ptr %42, null
   br i1 %.not56, label %43, label %47
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %0, align 8
   tail call void %45(ptr noundef %46) #31
@@ -6372,7 +6372,7 @@ define internal fastcc ptr @ensure(ptr nocapture noundef nonnull %0, i64 noundef
   %49 = load i64, ptr %15, align 8
   %50 = add i64 %49, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %48, i64 %50, i1 false)
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %0, align 8
   tail call void %52(ptr noundef %53) #31
@@ -6405,9 +6405,9 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
   br i1 %6, label %ensure.exit.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   %10 = freeze i64 %.pre.i
   %11 = add i64 %9, -1
@@ -6415,7 +6415,7 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
   br i1 %or.cond.not, label %ensure.exit.thread, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = add i64 %10, 4
   %.not53.i = icmp ugt i64 %14, %9
   br i1 %.not53.i, label %17, label %15
@@ -6425,7 +6425,7 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
   br label %ensure.exit
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i32, ptr %18, align 8
   %.not54.i = icmp eq i32 %19, 0
   br i1 %.not54.i, label %20, label %ensure.exit.thread
@@ -6444,7 +6444,7 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
 
 26:                                               ; preds = %24, %22
   %.0.i = phi i64 [ %25, %24 ], [ 2147483647, %22 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load ptr, ptr %27, align 8
   %.not55.i = icmp eq ptr %28, null
   br i1 %.not55.i, label %36, label %29
@@ -6455,7 +6455,7 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
   br i1 %31, label %32, label %51
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %1, align 8
   tail call void %34(ptr noundef %35) #31
@@ -6463,14 +6463,14 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
   br label %ensure.exit.thread
 
 36:                                               ; preds = %26
-  %37 = getelementptr inbounds i8, ptr %1, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(i64 noundef %.0.i) #31
   %.not56.i = icmp eq ptr %39, null
   br i1 %.not56.i, label %40, label %44
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %1, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %1, align 8
   tail call void %42(ptr noundef %43) #31
@@ -6482,7 +6482,7 @@ define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr
   %46 = load i64, ptr %13, align 8
   %47 = add i64 %46, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %45, i64 %47, i1 false)
-  %48 = getelementptr inbounds i8, ptr %1, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %1, align 8
   tail call void %49(ptr noundef %50) #31
@@ -6528,7 +6528,7 @@ ensure.exit:                                      ; preds = %51, %15
 
 60:                                               ; preds = %57, %55
   %.1 = phi i64 [ %56, %55 ], [ %spec.select, %57 ]
-  %61 = getelementptr inbounds i8, ptr %.056, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.056, i64 1
   br label %.preheader
 
 62:                                               ; preds = %.preheader
@@ -6547,7 +6547,7 @@ ensure.exit:                                      ; preds = %51, %15
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %68, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %0, i64 %66, i1 false)
   %74 = getelementptr i8, ptr %68, i64 %66
   %75 = getelementptr i8, ptr %74, i64 1
@@ -6566,7 +6566,7 @@ ensure.exit:                                      ; preds = %51, %15
   %.fr76 = phi i8 [ %.fr, %95 ], [ %.fr71, %77 ]
   %.pn74 = phi ptr [ %.155, %95 ], [ %68, %77 ]
   %.15773 = phi ptr [ %96, %95 ], [ %0, %77 ]
-  %.05475 = getelementptr inbounds i8, ptr %.pn74, i64 1
+  %.05475 = getelementptr inbounds nuw i8, ptr %.pn74, i64 1
   %79 = icmp ult i8 %.fr76, 32
   br i1 %79, label %81, label %switch.early.test
 
@@ -6581,7 +6581,7 @@ switch.early.test:                                ; preds = %.lr.ph
   br label %95
 
 81:                                               ; preds = %switch.early.test, %switch.early.test, %.lr.ph
-  %82 = getelementptr inbounds i8, ptr %.pn74, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.pn74, i64 2
   store i8 92, ptr %.05475, align 1
   %83 = load i8, ptr %.15773, align 1
   switch i8 %83, label %91 [
@@ -6625,12 +6625,12 @@ switch.early.test:                                ; preds = %.lr.ph
 91:                                               ; preds = %81
   %92 = zext i8 %83 to i32
   %93 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %92) #31
-  %94 = getelementptr inbounds i8, ptr %.pn74, i64 6
+  %94 = getelementptr inbounds nuw i8, ptr %.pn74, i64 6
   br label %95
 
 95:                                               ; preds = %80, %91, %90, %89, %88, %87, %86, %85, %84
   %.155 = phi ptr [ %.05475, %80 ], [ %94, %91 ], [ %82, %90 ], [ %82, %89 ], [ %82, %88 ], [ %82, %87 ], [ %82, %86 ], [ %82, %85 ], [ %82, %84 ]
-  %96 = getelementptr inbounds i8, ptr %.15773, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.15773, i64 1
   %97 = load i8, ptr %96, align 1
   %.fr = freeze i8 %97
   %.not65 = icmp eq i8 %.fr, 0

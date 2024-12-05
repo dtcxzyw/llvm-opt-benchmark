@@ -56,23 +56,23 @@ if.end6:                                          ; preds = %if.end
   %cmp8 = icmp eq i32 %bits, 16
   store i32 %freq, ptr %as, align 4
   %shl = shl nuw nsw i32 1, %conv
-  %nchannels11 = getelementptr inbounds i8, ptr %as, i64 4
+  %nchannels11 = getelementptr inbounds nuw i8, ptr %as, i64 4
   store i32 %shl, ptr %nchannels11, align 4
   %cond = select i1 %cmp8, i32 3, i32 0
-  %fmt = getelementptr inbounds i8, ptr %as, i64 8
+  %fmt = getelementptr inbounds nuw i8, ptr %as, i64 8
   store i32 %cond, ptr %fmt, align 4
-  %endianness = getelementptr inbounds i8, ptr %as, i64 12
+  %endianness = getelementptr inbounds nuw i8, ptr %as, i64 12
   store i32 0, ptr %endianness, align 4
   store ptr @wav_notify, ptr %ops, align 8
-  %capture = getelementptr inbounds i8, ptr %ops, i64 8
+  %capture = getelementptr inbounds nuw i8, ptr %ops, i64 8
   store ptr @wav_capture, ptr %capture, align 8
-  %destroy = getelementptr inbounds i8, ptr %ops, i64 16
+  %destroy = getelementptr inbounds nuw i8, ptr %ops, i64 16
   store ptr @wav_destroy, ptr %destroy, align 8
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #9
   %conv14 = select i1 %cmp8, i8 16, i8 8
-  %arrayidx = getelementptr inbounds i8, ptr %hdr, i64 34
+  %arrayidx = getelementptr inbounds nuw i8, ptr %hdr, i64 34
   store i8 %conv14, ptr %arrayidx, align 2
-  %add.ptr = getelementptr inbounds i8, ptr %hdr, i64 22
+  %add.ptr = getelementptr inbounds nuw i8, ptr %hdr, i64 22
   %1 = trunc nuw nsw i32 %shl to i8
   br label %for.body.i
 
@@ -87,7 +87,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 
 le_store.exit:                                    ; preds = %for.body.i
   %conv9 = zext i1 %cmp8 to i32
-  %add.ptr17 = getelementptr inbounds i8, ptr %hdr, i64 24
+  %add.ptr17 = getelementptr inbounds nuw i8, ptr %hdr, i64 24
   br label %for.body.i34
 
 for.body.i34:                                     ; preds = %for.body.i34, %le_store.exit
@@ -103,7 +103,7 @@ for.body.i34:                                     ; preds = %for.body.i34, %le_s
 
 le_store.exit42:                                  ; preds = %for.body.i34
   %add = add nuw nsw i32 %conv, %conv9
-  %add.ptr19 = getelementptr inbounds i8, ptr %hdr, i64 28
+  %add.ptr19 = getelementptr inbounds nuw i8, ptr %hdr, i64 28
   %shl20 = shl i32 %freq, %add
   br label %for.body.i43
 
@@ -119,7 +119,7 @@ for.body.i43:                                     ; preds = %for.body.i43, %le_s
   br i1 %exitcond.not.i50, label %le_store.exit51, label %for.body.i43, !llvm.loop !5
 
 le_store.exit51:                                  ; preds = %for.body.i43
-  %add.ptr22 = getelementptr inbounds i8, ptr %hdr, i64 32
+  %add.ptr22 = getelementptr inbounds nuw i8, ptr %hdr, i64 32
   %shl23 = shl nuw nsw i32 1, %add
   %2 = trunc nuw nsw i32 %shl23 to i8
   br label %for.body.i52
@@ -149,13 +149,13 @@ if.then27:                                        ; preds = %le_store.exit60
 
 if.end30:                                         ; preds = %le_store.exit60
   %call31 = tail call noalias ptr @g_strdup(ptr noundef %path) #8
-  %path32 = getelementptr inbounds i8, ptr %call, i64 16
+  %path32 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call31, ptr %path32, align 8
-  %bits33 = getelementptr inbounds i8, ptr %call, i64 28
+  %bits33 = getelementptr inbounds nuw i8, ptr %call, i64 28
   store i32 %bits, ptr %bits33, align 4
-  %nchannels34 = getelementptr inbounds i8, ptr %call, i64 32
+  %nchannels34 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i32 %nchannels, ptr %nchannels34, align 8
-  %freq35 = getelementptr inbounds i8, ptr %call, i64 24
+  %freq35 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 %freq, ptr %freq35, align 8
   %4 = load ptr, ptr %call, align 8
   %call38 = call i64 @fwrite(ptr noundef nonnull %hdr, i64 noundef 44, i64 noundef 1, ptr noundef %4)
@@ -179,10 +179,10 @@ if.then47:                                        ; preds = %if.end44
   br label %error_free
 
 if.end48:                                         ; preds = %if.end44
-  %cap49 = getelementptr inbounds i8, ptr %call, i64 40
+  %cap49 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %call45, ptr %cap49, align 8
   store ptr %call, ptr %s, align 8
-  %ops50 = getelementptr inbounds i8, ptr %s, i64 8
+  %ops50 = getelementptr inbounds nuw i8, ptr %s, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ops50, ptr noundef nonnull align 8 dereferenceable(16) @wav_capture_ops, i64 16, i1 false)
   br label %return
 
@@ -238,7 +238,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %2 = load i32, ptr %bytes, align 8
   %add = add i32 %2, %size
   store i32 %add, ptr %bytes, align 8
@@ -255,7 +255,7 @@ entry:
   br i1 %tobool.not, label %if.end36, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %1 = load i32, ptr %bytes, align 8
   %add = add i32 %1, 36
   br label %for.body.i
@@ -327,7 +327,7 @@ if.then32:                                        ; preds = %doclose
   br label %if.end36
 
 if.end36:                                         ; preds = %doclose, %if.then32, %entry
-  %path = getelementptr inbounds i8, ptr %opaque, i64 16
+  %path = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %8 = load ptr, ptr %path, align 8
   tail call void @g_free(ptr noundef %8) #8
   ret void
@@ -363,17 +363,17 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @wav_capture_info(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %path1 = getelementptr inbounds i8, ptr %opaque, i64 16
+  %path1 = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %path1, align 8
-  %freq = getelementptr inbounds i8, ptr %opaque, i64 24
+  %freq = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %1 = load i32, ptr %freq, align 8
-  %bits = getelementptr inbounds i8, ptr %opaque, i64 28
+  %bits = getelementptr inbounds nuw i8, ptr %opaque, i64 28
   %2 = load i32, ptr %bits, align 4
-  %nchannels = getelementptr inbounds i8, ptr %opaque, i64 32
+  %nchannels = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %3 = load i32, ptr %nchannels, align 8
   %tobool.not = icmp eq ptr %0, null
   %cond = select i1 %tobool.not, ptr @.str.14, ptr %0
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %4 = load i32, ptr %bytes, align 8
   %call = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.13, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %cond, i32 noundef %4) #8
   ret void
@@ -382,7 +382,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @wav_capture_destroy(ptr noundef %opaque) #0 {
 entry:
-  %cap = getelementptr inbounds i8, ptr %opaque, i64 40
+  %cap = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %cap, align 8
   tail call void @AUD_del_capture(ptr noundef %0, ptr noundef %opaque) #8
   tail call void @g_free(ptr noundef %opaque) #8

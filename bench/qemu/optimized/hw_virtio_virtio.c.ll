@@ -283,13 +283,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_init_region_cache(ptr noundef %vdev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
-  %vq1 = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq1 = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq1, align 8
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom
-  %caches = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %caches = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   %1 = load ptr, ptr %caches, align 8
-  %desc = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %desc = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %2 = load i64, ptr %desc, align 8
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %out_no_cache, label %if.end
@@ -301,14 +301,14 @@ if.end:                                           ; preds = %entry
   %4 = load i32, ptr %arrayidx.i, align 8
   %conv.i = zext i32 %4 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 4
-  %vdev4 = getelementptr inbounds i8, ptr %arrayidx, i64 96
+  %vdev4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 96
   %5 = load ptr, ptr %vdev4, align 8
   %6 = getelementptr i8, ptr %5, i64 184
   %.val = load i64, ptr %6, align 8
   %and.i.i = and i64 %.val, 17179869184
   %tobool.i.i = icmp ne i64 %and.i.i, 0
-  %desc7 = getelementptr inbounds i8, ptr %call, i64 16
-  %dma_as = getelementptr inbounds i8, ptr %vdev, i64 472
+  %desc7 = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %dma_as = getelementptr inbounds nuw i8, ptr %vdev, i64 472
   %7 = load ptr, ptr %dma_as, align 8
   %call9 = tail call i64 @address_space_cache_init(ptr noundef nonnull %desc7, ptr noundef %7, i64 noundef %2, i64 noundef %mul.i, i1 noundef zeroext %tobool.i.i) #23
   %cmp = icmp ult i64 %call9, %mul.i
@@ -339,9 +339,9 @@ if.end.i:                                         ; preds = %if.end11
 
 virtio_queue_get_used_size.exit:                  ; preds = %if.end11, %if.end.i
   %retval.0.i = phi i64 [ %add3.i, %if.end.i ], [ 4, %if.end11 ]
-  %used = getelementptr inbounds i8, ptr %call, i64 240
+  %used = getelementptr inbounds nuw i8, ptr %call, i64 240
   %11 = load ptr, ptr %dma_as, align 8
-  %used15 = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %used15 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %12 = load i64, ptr %used15, align 8
   %call16 = tail call i64 @address_space_cache_init(ptr noundef nonnull %used, ptr noundef %11, i64 noundef %12, i64 noundef %retval.0.i, i1 noundef zeroext true) #23
   %cmp17 = icmp ult i64 %call16, %retval.0.i
@@ -371,9 +371,9 @@ if.end.i45:                                       ; preds = %if.end19
 
 virtio_queue_get_avail_size.exit:                 ; preds = %if.end19, %if.end.i45
   %retval.0.i44 = phi i64 [ %add3.i54, %if.end.i45 ], [ 4, %if.end19 ]
-  %avail = getelementptr inbounds i8, ptr %call, i64 128
+  %avail = getelementptr inbounds nuw i8, ptr %call, i64 128
   %15 = load ptr, ptr %dma_as, align 8
-  %avail23 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %avail23 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %16 = load i64, ptr %avail23, align 8
   %call24 = tail call i64 @address_space_cache_init(ptr noundef nonnull %avail, ptr noundef %15, i64 noundef %16, i64 noundef %retval.0.i44, i1 noundef zeroext false) #23
   %cmp25 = icmp ult i64 %call24, %retval.0.i44
@@ -425,7 +425,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 68719476721) i64 @virtio_queue_get_desc_size(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom
@@ -451,7 +451,7 @@ entry:
   br i1 %tobool.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %status = getelementptr inbounds i8, ptr %vdev, i64 168
+  %status = getelementptr inbounds nuw i8, ptr %vdev, i64 168
   %1 = load i8, ptr %status, align 8
   %2 = or i8 %1, 64
   store i8 %2, ptr %status, align 8
@@ -459,7 +459,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %broken = getelementptr inbounds i8, ptr %vdev, i64 435
+  %broken = getelementptr inbounds nuw i8, ptr %vdev, i64 435
   store i8 1, ptr %broken, align 1
   ret void
 }
@@ -474,7 +474,7 @@ entry:
   br i1 %tobool.i.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %1 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr %struct.VirtQueue, ptr %1, i64 %idxprom
@@ -502,7 +502,7 @@ entry:
   br i1 %tobool.i.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %1 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr %struct.VirtQueue, ptr %1, i64 %idxprom
@@ -533,11 +533,11 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %desc = getelementptr inbounds i8, ptr %caches, i64 16
+  %desc = getelementptr inbounds nuw i8, ptr %caches, i64 16
   tail call void @address_space_cache_destroy(ptr noundef nonnull %desc) #23
-  %avail = getelementptr inbounds i8, ptr %caches, i64 128
+  %avail = getelementptr inbounds nuw i8, ptr %caches, i64 128
   tail call void @address_space_cache_destroy(ptr noundef nonnull %avail) #23
-  %used = getelementptr inbounds i8, ptr %caches, i64 240
+  %used = getelementptr inbounds nuw i8, ptr %caches, i64 240
   tail call void @address_space_cache_destroy(ptr noundef nonnull %used) #23
   tail call void @g_free(ptr noundef nonnull %caches) #23
   ret void
@@ -550,7 +550,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_queue_update_rings(ptr noundef %vdev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom
@@ -559,13 +559,13 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %desc = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %desc = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %2 = load i64, ptr %desc, align 8
   %tobool2.not = icmp eq i64 %2, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %align = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %align = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load i32, ptr %align, align 8
   %tobool4.not = icmp eq i32 %3, 0
   br i1 %tobool4.not, label %return, label %if.end
@@ -574,7 +574,7 @@ if.end:                                           ; preds = %lor.lhs.false3
   %conv = zext i32 %1 to i64
   %mul = shl nuw nsw i64 %conv, 4
   %add = add i64 %2, %mul
-  %avail = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %avail = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   store i64 %add, ptr %avail, align 8
   %4 = shl nuw nsw i64 %conv, 1
   %conv12 = zext i32 %3 to i64
@@ -583,7 +583,7 @@ if.end:                                           ; preds = %lor.lhs.false3
   %sub.i = add i64 %add.i, %conv12
   %5 = urem i64 %sub.i, %conv12
   %mul.i = sub nuw i64 %sub.i, %5
-  %used = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %used = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   store i64 %mul.i, ptr %used, align 8
   tail call void @virtio_init_region_cache(ptr noundef nonnull %vdev, i32 noundef %n)
   br label %return
@@ -595,7 +595,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @virtio_queue_get_notification(ptr nocapture noundef readonly %vq) local_unnamed_addr #4 {
 entry:
-  %notification = getelementptr inbounds i8, ptr %vq, i64 71
+  %notification = getelementptr inbounds nuw i8, ptr %vq, i64 71
   %0 = load i8, ptr %notification, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -605,23 +605,23 @@ entry:
 define dso_local void @virtio_queue_set_notification(ptr nocapture noundef initializes((71, 72)) %vq, i32 noundef %enable) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne i32 %enable, 0
-  %notification = getelementptr inbounds i8, ptr %vq, i64 71
+  %notification = getelementptr inbounds nuw i8, ptr %vq, i64 71
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %notification, align 1
-  %desc = getelementptr inbounds i8, ptr %vq, i64 16
+  %desc = getelementptr inbounds nuw i8, ptr %vq, i64 16
   %0 = load i64, ptr %desc, align 8
   %tobool1.not = icmp eq i64 %0, 0
   br i1 %tobool1.not, label %if.end3, label %if.end
 
 if.end:                                           ; preds = %entry
-  %vdev = getelementptr inbounds i8, ptr %vq, i64 96
+  %vdev = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %1 = load ptr, ptr %vdev, align 8
   %2 = getelementptr i8, ptr %1, i64 184
   %.val = load i64, ptr %2, align 8
   %and.i.i = and i64 %.val, 17179869184
   %tobool.i.i.not = icmp eq i64 %and.i.i, 0
   %call.i.i.i7 = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i8 = getelementptr inbounds i8, ptr %call.i.i.i7, i64 12
+  %depth.i.i.i8 = getelementptr inbounds nuw i8, ptr %call.i.i.i7, i64 12
   %3 = load i32, ptr %depth.i.i.i8, align 4
   %inc.i.i.i9 = add i32 %3, 1
   store i32 %inc.i.i.i9, ptr %depth.i.i.i8, align 4
@@ -640,7 +640,7 @@ while.end.i.i.i:                                  ; preds = %if.then2
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %if.then2
-  %caches.i.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %5 = load atomic i64, ptr %caches.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i = icmp eq i64 %5, 0
@@ -648,8 +648,8 @@ rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %i
 
 if.end.i:                                         ; preds = %rcu_read_auto_lock.exit.i
   %6 = inttoptr i64 %5 to ptr
-  %used.i = getelementptr inbounds i8, ptr %6, i64 240
-  %len.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 256
+  %used.i = getelementptr inbounds nuw i8, ptr %6, i64 240
+  %len.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 256
   %7 = load i64, ptr %len.i.i.i.i.i, align 16
   %switch.i.i = icmp ult i64 %7, 4
   br i1 %switch.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -700,9 +700,9 @@ if.else.i:                                        ; preds = %vring_packed_event_
   br i1 %tobool.i.i.not.i, label %if.end16.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %shadow_avail_idx.i = getelementptr inbounds i8, ptr %vq, i64 60
+  %shadow_avail_idx.i = getelementptr inbounds nuw i8, ptr %vq, i64 60
   %13 = load i16, ptr %shadow_avail_idx.i, align 4
-  %shadow_avail_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 62
+  %shadow_avail_wrap_counter.i = getelementptr inbounds nuw i8, ptr %vq, i64 62
   %14 = load i8, ptr %shadow_avail_wrap_counter.i, align 2
   %conv8.i = zext i8 %14 to i16
   %shl.i = shl i16 %conv8.i, 15
@@ -769,7 +769,7 @@ if.then21.i:                                      ; preds = %vring_packed_flags_
 
 if.then.i.i.i:                                    ; preds = %if.then21.i, %vring_packed_flags_write.exit.i, %rcu_read_auto_lock.exit.i
   %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
+  %depth.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 12
   %19 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %19, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i25.i, label %if.end.i.i.i.i24.i
@@ -788,7 +788,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i24.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
+  %waiting.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 8
   %20 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %20 to i1
   br i1 %tobool.i.i.i.i.i, label %while.end21.i.i.i.i.i, label %if.end3
@@ -817,7 +817,7 @@ rcu_read_auto_lock.exit.i11:                      ; preds = %while.end.i.i.i39, 
   br i1 %tobool.i.i.not.i15, label %if.else.i37, label %if.then.i
 
 if.then.i:                                        ; preds = %rcu_read_auto_lock.exit.i11
-  %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %24 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i = icmp eq i64 %24, 0
@@ -825,8 +825,8 @@ if.then.i:                                        ; preds = %rcu_read_auto_lock.
 
 if.end.i.i:                                       ; preds = %if.then.i
   %25 = inttoptr i64 %24 to ptr
-  %avail.i.i = getelementptr inbounds i8, ptr %25, i64 128
-  %len.i.i.i.i.i16 = getelementptr inbounds i8, ptr %25, i64 144
+  %avail.i.i = getelementptr inbounds nuw i8, ptr %25, i64 128
+  %len.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %25, i64 144
   %26 = load i64, ptr %len.i.i.i.i.i16, align 16
   %switch.i.i17 = icmp ult i64 %26, 4
   br i1 %switch.i.i17, label %if.else.i.i.i.i.i36, label %if.end.i.i.i.i.i18
@@ -851,7 +851,7 @@ if.else8.i.i.i.i.i34:                             ; preds = %if.end.i.i.i.i.i18
 
 virtio_lduw_phys_cached.exit.i.i20:               ; preds = %if.else8.i.i.i.i.i34, %if.then5.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi i16 [ %add.ptr.val.i.i.i.i.i, %if.then5.i.i.i.i.i ], [ %call10.i.i.i.i.i35, %if.else8.i.i.i.i.i34 ]
-  %shadow_avail_idx.i.i = getelementptr inbounds i8, ptr %vq, i64 60
+  %shadow_avail_idx.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 60
   store i16 %retval.0.i.i.i.i.i, ptr %shadow_avail_idx.i.i, align 4
   br label %vring_avail_idx.exit.i
 
@@ -873,8 +873,8 @@ if.end3.i.i:                                      ; preds = %if.end.i6.i
   %conv.i.i = zext i32 %31 to i64
   %32 = shl nuw nsw i64 %conv.i.i, 3
   %33 = or disjoint i64 %32, 4
-  %used.i.i = getelementptr inbounds i8, ptr %30, i64 240
-  %len.i.i.i.i8.i = getelementptr inbounds i8, ptr %30, i64 256
+  %used.i.i = getelementptr inbounds nuw i8, ptr %30, i64 240
+  %len.i.i.i.i8.i = getelementptr inbounds nuw i8, ptr %30, i64 256
   %34 = load i64, ptr %len.i.i.i.i8.i, align 16
   %cmp.i.i.i.i.i = icmp ult i64 %33, %34
   %sub.i.i.i.i.i = sub nuw i64 %34, %33
@@ -906,7 +906,7 @@ virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i3
 
 if.else.i37:                                      ; preds = %rcu_read_auto_lock.exit.i11
   %tobool.not.i38 = icmp eq i32 %enable, 0
-  %caches.i.i28.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i28.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %36 = load atomic i64, ptr %caches.i.i28.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23
   %tobool.not.i29.i = icmp eq i64 %36, 0
@@ -917,8 +917,8 @@ if.then3.i:                                       ; preds = %if.else.i37
 
 if.end.i16.i:                                     ; preds = %if.then3.i
   %37 = inttoptr i64 %36 to ptr
-  %used.i17.i = getelementptr inbounds i8, ptr %37, i64 240
-  %len.i.i.i.i18.i = getelementptr inbounds i8, ptr %37, i64 256
+  %used.i17.i = getelementptr inbounds nuw i8, ptr %37, i64 240
+  %len.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %37, i64 256
   %38 = load i64, ptr %len.i.i.i.i18.i, align 16
   %cmp2.i.i.i.i19.i = icmp ugt i64 %38, 1
   br i1 %cmp2.i.i.i.i19.i, label %if.end.i.i.i.i21.i, label %if.else.i.i.i.i20.i
@@ -972,8 +972,8 @@ if.else4.i:                                       ; preds = %if.else.i37
 
 if.end.i30.i:                                     ; preds = %if.else4.i
   %44 = inttoptr i64 %36 to ptr
-  %used.i31.i = getelementptr inbounds i8, ptr %44, i64 240
-  %len.i.i.i.i32.i = getelementptr inbounds i8, ptr %44, i64 256
+  %used.i31.i = getelementptr inbounds nuw i8, ptr %44, i64 240
+  %len.i.i.i.i32.i = getelementptr inbounds nuw i8, ptr %44, i64 256
   %45 = load i64, ptr %len.i.i.i.i32.i, align 16
   %cmp2.i.i.i.i33.i = icmp ugt i64 %45, 1
   br i1 %cmp2.i.i.i.i33.i, label %if.end.i.i.i.i35.i, label %if.else.i.i.i.i34.i
@@ -1033,7 +1033,7 @@ if.then7.i:                                       ; preds = %if.end5.i, %virtio_
 
 if.then.i.i.i22:                                  ; preds = %if.then7.i, %if.end5.i, %virtio_stw_phys_cached.exit.i40.i, %if.else4.i
   %call.i.i.i.i.i23 = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i.i.i24 = getelementptr inbounds i8, ptr %call.i.i.i.i.i23, i64 12
+  %depth.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i23, i64 12
   %51 = load i32, ptr %depth.i.i.i.i.i24, align 4
   %cmp.not.i.i.i.i.i25 = icmp eq i32 %51, 0
   br i1 %cmp.not.i.i.i.i.i25, label %if.else.i.i.i.i51.i, label %if.end.i.i.i.i50.i
@@ -1052,7 +1052,7 @@ while.end.i.i.i.i.i28:                            ; preds = %if.end.i.i.i.i50.i
   store atomic i64 0, ptr %call.i.i.i.i.i23 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i.i29 = getelementptr inbounds i8, ptr %call.i.i.i.i.i23, i64 8
+  %waiting.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i23, i64 8
   %52 = load atomic i8, ptr %waiting.i.i.i.i.i29 monotonic, align 8
   %tobool.i.i.i.i.i30 = trunc i8 %52 to i1
   br i1 %tobool.i.i.i.i.i30, label %while.end21.i.i.i.i.i31, label %if.end3
@@ -1072,7 +1072,7 @@ if.end3:                                          ; preds = %if.end3.sink.split,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @virtio_queue_ready(ptr nocapture noundef readonly %vq) local_unnamed_addr #4 {
 entry:
-  %avail = getelementptr inbounds i8, ptr %vq, i64 24
+  %avail = getelementptr inbounds nuw i8, ptr %vq, i64 24
   %0 = load i64, ptr %avail, align 8
   %cmp = icmp ne i64 %0, 0
   %conv = zext i1 %cmp to i32
@@ -1082,7 +1082,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 2) i32 @virtio_queue_empty(ptr nocapture noundef %vq) local_unnamed_addr #0 {
 entry:
-  %vdev = getelementptr inbounds i8, ptr %vq, i64 96
+  %vdev = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %0 = load ptr, ptr %vdev, align 8
   %1 = getelementptr i8, ptr %0, i64 184
   %.val = load i64, ptr %1, align 8
@@ -1092,7 +1092,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
+  %depth.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   %2 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %2, 1
   store i32 %inc.i.i.i, ptr %depth.i.i.i, align 4
@@ -1108,13 +1108,13 @@ while.end.i.i.i:                                  ; preds = %if.then
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %if.then
-  %desc1.i.i = getelementptr inbounds i8, ptr %vq, i64 16
+  %desc1.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 16
   %4 = load i64, ptr %desc1.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i.i, label %if.then.i.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %rcu_read_auto_lock.exit.i
-  %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %5 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool5.not.i.i = icmp eq i64 %5, 0
@@ -1122,13 +1122,13 @@ if.end.i.i:                                       ; preds = %rcu_read_auto_lock.
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   %6 = inttoptr i64 %5 to ptr
-  %desc8.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %last_avail_idx.i.i = getelementptr inbounds i8, ptr %vq, i64 56
+  %desc8.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %last_avail_idx.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 56
   %7 = load i16, ptr %last_avail_idx.i.i, align 8
   %conv.i.i.i = zext i16 %7 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 4
   %add.i.i.i = or disjoint i64 %mul.i.i.i, 14
-  %len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
+  %len.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i64, ptr %len.i.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i.i = icmp ult i64 %add.i.i.i, %8
   %sub.i.i.i.i.i.i = sub nuw i64 %8, %add.i.i.i
@@ -1156,7 +1156,7 @@ if.else8.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
 
 vring_packed_desc_read_flags.exit.i.i:            ; preds = %if.else8.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi i16 [ %add.ptr.val.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i ], [ %call10.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i ]
-  %last_avail_wrap_counter.i.i = getelementptr inbounds i8, ptr %vq, i64 58
+  %last_avail_wrap_counter.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 58
   %10 = load i8, ptr %last_avail_wrap_counter.i.i, align 2
   %tobool11.i.i = trunc i8 %10 to i1
   %11 = lshr i16 %retval.0.i.i.i.i.i.i, 7
@@ -1172,7 +1172,7 @@ vring_packed_desc_read_flags.exit.i.i:            ; preds = %if.else8.i.i.i.i.i.
 if.then.i.i.i:                                    ; preds = %vring_packed_desc_read_flags.exit.i.i, %if.end.i.i, %rcu_read_auto_lock.exit.i
   %retval.0.i.i = phi i32 [ %lnot.ext14.i.i, %vring_packed_desc_read_flags.exit.i.i ], [ 1, %rcu_read_auto_lock.exit.i ], [ 1, %if.end.i.i ]
   %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
+  %depth.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 12
   %14 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %14, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -1191,7 +1191,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
+  %waiting.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 8
   %15 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %15 to i1
   br i1 %tobool.i.i.i.i.i, label %while.end21.i.i.i.i.i, label %return
@@ -1202,34 +1202,34 @@ while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
   br label %return
 
 if.else:                                          ; preds = %entry
-  %disabled.i.i = getelementptr inbounds i8, ptr %0, i64 437
+  %disabled.i.i = getelementptr inbounds nuw i8, ptr %0, i64 437
   %16 = load i8, ptr %disabled.i.i, align 1
   %tobool.i.i3 = trunc i8 %16 to i1
   br i1 %tobool.i.i3, label %virtio_queue_split_empty.exit, label %virtio_device_disabled.exit.i
 
 virtio_device_disabled.exit.i:                    ; preds = %if.else
-  %broken.i.i = getelementptr inbounds i8, ptr %0, i64 435
+  %broken.i.i = getelementptr inbounds nuw i8, ptr %0, i64 435
   %17 = load i8, ptr %broken.i.i, align 1
   %tobool1.i.i = trunc i8 %17 to i1
   br i1 %tobool1.i.i, label %virtio_queue_split_empty.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %virtio_device_disabled.exit.i
-  %avail.i = getelementptr inbounds i8, ptr %vq, i64 24
+  %avail.i = getelementptr inbounds nuw i8, ptr %vq, i64 24
   %18 = load i64, ptr %avail.i, align 8
   %tobool.not.i = icmp eq i64 %18, 0
   br i1 %tobool.not.i, label %virtio_queue_split_empty.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %shadow_avail_idx.i = getelementptr inbounds i8, ptr %vq, i64 60
+  %shadow_avail_idx.i = getelementptr inbounds nuw i8, ptr %vq, i64 60
   %19 = load i16, ptr %shadow_avail_idx.i, align 4
-  %last_avail_idx.i = getelementptr inbounds i8, ptr %vq, i64 56
+  %last_avail_idx.i = getelementptr inbounds nuw i8, ptr %vq, i64 56
   %20 = load i16, ptr %last_avail_idx.i, align 8
   %cmp.not.i = icmp eq i16 %19, %20
   br i1 %cmp.not.i, label %if.end10.i, label %virtio_queue_split_empty.exit
 
 if.end10.i:                                       ; preds = %if.end5.i
   %call.i.i.i4 = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i5 = getelementptr inbounds i8, ptr %call.i.i.i4, i64 12
+  %depth.i.i.i5 = getelementptr inbounds nuw i8, ptr %call.i.i.i4, i64 12
   %21 = load i32, ptr %depth.i.i.i5, align 4
   %inc.i.i.i6 = add i32 %21, 1
   store i32 %inc.i.i.i6, ptr %depth.i.i.i5, align 4
@@ -1245,7 +1245,7 @@ while.end.i.i.i25:                                ; preds = %if.end10.i
   br label %rcu_read_auto_lock.exit.i8
 
 rcu_read_auto_lock.exit.i8:                       ; preds = %while.end.i.i.i25, %if.end10.i
-  %caches.i.i.i9 = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i.i9 = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %23 = load atomic i64, ptr %caches.i.i.i9 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i10 = icmp eq i64 %23, 0
@@ -1253,8 +1253,8 @@ rcu_read_auto_lock.exit.i8:                       ; preds = %while.end.i.i.i25, 
 
 if.end.i.i11:                                     ; preds = %rcu_read_auto_lock.exit.i8
   %24 = inttoptr i64 %23 to ptr
-  %avail.i.i = getelementptr inbounds i8, ptr %24, i64 128
-  %len.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 144
+  %avail.i.i = getelementptr inbounds nuw i8, ptr %24, i64 128
+  %len.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 144
   %25 = load i64, ptr %len.i.i.i.i.i, align 16
   %switch.i.i = icmp ult i64 %25, 4
   br i1 %switch.i.i, label %if.else.i.i.i.i.i24, label %if.end.i.i.i.i.i12
@@ -1287,7 +1287,7 @@ if.then.i.i.i13:                                  ; preds = %virtio_lduw_phys_ca
   %27 = load i16, ptr %last_avail_idx.i, align 8
   %cmp16.i = icmp eq i16 %retval.0.i.i14, %27
   %call.i.i.i.i.i15 = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i.i.i.i.i15, i64 12
+  %depth.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i15, i64 12
   %28 = load i32, ptr %depth.i.i.i.i.i16, align 4
   %cmp.not.i.i.i.i.i17 = icmp eq i32 %28, 0
   br i1 %cmp.not.i.i.i.i.i17, label %if.else.i.i.i.i7.i, label %if.end.i.i.i.i6.i
@@ -1306,7 +1306,7 @@ while.end.i.i.i.i.i20:                            ; preds = %if.end.i.i.i.i6.i
   store atomic i64 0, ptr %call.i.i.i.i.i15 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i.i21 = getelementptr inbounds i8, ptr %call.i.i.i.i.i15, i64 8
+  %waiting.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i15, i64 8
   %29 = load atomic i8, ptr %waiting.i.i.i.i.i21 monotonic, align 8
   %tobool.i.i.i.i.i22 = trunc i8 %29 to i1
   br i1 %tobool.i.i.i.i.i22, label %while.end21.i.i.i.i.i23, label %virtio_queue_split_empty.exit
@@ -1329,9 +1329,9 @@ return:                                           ; preds = %while.end21.i.i.i.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtqueue_detach_element(ptr nocapture noundef %vq, ptr nocapture noundef readonly %elem, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %ndescs = getelementptr inbounds i8, ptr %elem, i64 8
+  %ndescs = getelementptr inbounds nuw i8, ptr %elem, i64 8
   %0 = load i32, ptr %ndescs, align 8
-  %inuse = getelementptr inbounds i8, ptr %vq, i64 76
+  %inuse = getelementptr inbounds nuw i8, ptr %vq, i64 76
   %1 = load i32, ptr %inuse, align 4
   %sub = sub i32 %1, %0
   store i32 %sub, ptr %inuse, align 4
@@ -1339,23 +1339,23 @@ entry:
   %vq.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %vq.val, i64 472
   %vq.val.val = load ptr, ptr %3, align 8
-  %in_num.i = getelementptr inbounds i8, ptr %elem, i64 16
+  %in_num.i = getelementptr inbounds nuw i8, ptr %elem, i64 16
   %4 = load i32, ptr %in_num.i, align 8
   %cmp1.not.i = icmp eq i32 %4, 0
   br i1 %cmp1.not.i, label %for.cond13.preheader.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %in_sg.i = getelementptr inbounds i8, ptr %elem, i64 40
+  %in_sg.i = getelementptr inbounds nuw i8, ptr %elem, i64 40
   br label %for.body.i
 
 for.cond13.preheader.i:                           ; preds = %for.body.i, %entry
-  %out_num.i = getelementptr inbounds i8, ptr %elem, i64 12
+  %out_num.i = getelementptr inbounds nuw i8, ptr %elem, i64 12
   %5 = load i32, ptr %out_num.i, align 4
   %cmp144.not.i = icmp eq i32 %5, 0
   br i1 %cmp144.not.i, label %virtqueue_unmap_sg.exit, label %for.body16.lr.ph.i
 
 for.body16.lr.ph.i:                               ; preds = %for.cond13.preheader.i
-  %out_sg.i = getelementptr inbounds i8, ptr %elem, i64 48
+  %out_sg.i = getelementptr inbounds nuw i8, ptr %elem, i64 48
   br label %for.body16.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1366,7 +1366,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %6 = load ptr, ptr %in_sg.i, align 8
   %idxprom.i = sext i32 %i.02.i to i64
   %arrayidx.i = getelementptr %struct.iovec, ptr %6, i64 %idxprom.i
-  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %7 = load i64, ptr %iov_len.i, align 8
   %cond.i = tail call i64 @llvm.umin.i64(i64 %7, i64 %conv.i)
   %8 = load ptr, ptr %arrayidx.i, align 8
@@ -1384,7 +1384,7 @@ for.body16.i:                                     ; preds = %for.body16.i, %for.
   %idxprom17.i = sext i32 %i.15.i to i64
   %arrayidx18.i = getelementptr %struct.iovec, ptr %11, i64 %idxprom17.i
   %12 = load ptr, ptr %arrayidx18.i, align 8
-  %iov_len23.i = getelementptr inbounds i8, ptr %arrayidx18.i, i64 8
+  %iov_len23.i = getelementptr inbounds nuw i8, ptr %arrayidx18.i, i64 8
   %13 = load i64, ptr %iov_len23.i, align 8
   tail call void @address_space_unmap(ptr noundef %vq.val.val, ptr noundef %12, i64 noundef %13, i1 noundef zeroext false, i64 noundef %13) #23
   %inc29.i = add nuw i32 %i.15.i, 1
@@ -1399,13 +1399,13 @@ virtqueue_unmap_sg.exit:                          ; preds = %for.body16.i, %for.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtqueue_unpop(ptr nocapture noundef %vq, ptr nocapture noundef readonly %elem, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %vdev = getelementptr inbounds i8, ptr %vq, i64 96
+  %vdev = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %0 = load ptr, ptr %vdev, align 8
   %1 = getelementptr i8, ptr %0, i64 184
   %.val = load i64, ptr %1, align 8
   %and.i.i = and i64 %.val, 17179869184
   %tobool.i.i.not = icmp ne i64 %and.i.i, 0
-  %last_avail_idx.i4 = getelementptr inbounds i8, ptr %vq, i64 56
+  %last_avail_idx.i4 = getelementptr inbounds nuw i8, ptr %vq, i64 56
   %2 = load i16, ptr %last_avail_idx.i4, align 8
   %cmp.i = icmp eq i16 %2, 0
   %or.cond = select i1 %tobool.i.i.not, i1 %cmp.i, i1 false
@@ -1414,7 +1414,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %3 = load i32, ptr %vq, align 8
   %4 = trunc i32 %3 to i16
-  %last_avail_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 58
+  %last_avail_wrap_counter.i = getelementptr inbounds nuw i8, ptr %vq, i64 58
   %5 = load i8, ptr %last_avail_wrap_counter.i, align 2
   %6 = and i8 %5, 1
   %frombool.i = xor i8 %6, 1
@@ -1425,31 +1425,31 @@ if.end:                                           ; preds = %entry, %if.then.i
   %.sink = phi i16 [ %4, %if.then.i ], [ %2, %entry ]
   %conv1.i = add i16 %.sink, -1
   store i16 %conv1.i, ptr %last_avail_idx.i4, align 8
-  %ndescs.i = getelementptr inbounds i8, ptr %elem, i64 8
+  %ndescs.i = getelementptr inbounds nuw i8, ptr %elem, i64 8
   %7 = load i32, ptr %ndescs.i, align 8
-  %inuse.i = getelementptr inbounds i8, ptr %vq, i64 76
+  %inuse.i = getelementptr inbounds nuw i8, ptr %vq, i64 76
   %8 = load i32, ptr %inuse.i, align 4
   %sub.i5 = sub i32 %8, %7
   store i32 %sub.i5, ptr %inuse.i, align 4
   %9 = getelementptr i8, ptr %0, i64 472
   %vq.val.val.i = load ptr, ptr %9, align 8
-  %in_num.i.i = getelementptr inbounds i8, ptr %elem, i64 16
+  %in_num.i.i = getelementptr inbounds nuw i8, ptr %elem, i64 16
   %10 = load i32, ptr %in_num.i.i, align 8
   %cmp1.not.i.i = icmp eq i32 %10, 0
   br i1 %cmp1.not.i.i, label %for.cond13.preheader.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end
-  %in_sg.i.i = getelementptr inbounds i8, ptr %elem, i64 40
+  %in_sg.i.i = getelementptr inbounds nuw i8, ptr %elem, i64 40
   br label %for.body.i.i
 
 for.cond13.preheader.i.i:                         ; preds = %for.body.i.i, %if.end
-  %out_num.i.i = getelementptr inbounds i8, ptr %elem, i64 12
+  %out_num.i.i = getelementptr inbounds nuw i8, ptr %elem, i64 12
   %11 = load i32, ptr %out_num.i.i, align 4
   %cmp144.not.i.i = icmp eq i32 %11, 0
   br i1 %cmp144.not.i.i, label %virtqueue_detach_element.exit, label %for.body16.lr.ph.i.i
 
 for.body16.lr.ph.i.i:                             ; preds = %for.cond13.preheader.i.i
-  %out_sg.i.i = getelementptr inbounds i8, ptr %elem, i64 48
+  %out_sg.i.i = getelementptr inbounds nuw i8, ptr %elem, i64 48
   br label %for.body16.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -1460,7 +1460,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %12 = load ptr, ptr %in_sg.i.i, align 8
   %idxprom.i.i = sext i32 %i.02.i.i to i64
   %arrayidx.i.i = getelementptr %struct.iovec, ptr %12, i64 %idxprom.i.i
-  %iov_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %13 = load i64, ptr %iov_len.i.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %conv.i.i)
   %14 = load ptr, ptr %arrayidx.i.i, align 8
@@ -1478,7 +1478,7 @@ for.body16.i.i:                                   ; preds = %for.body16.i.i, %fo
   %idxprom17.i.i = sext i32 %i.15.i.i to i64
   %arrayidx18.i.i = getelementptr %struct.iovec, ptr %17, i64 %idxprom17.i.i
   %18 = load ptr, ptr %arrayidx18.i.i, align 8
-  %iov_len23.i.i = getelementptr inbounds i8, ptr %arrayidx18.i.i, i64 8
+  %iov_len23.i.i = getelementptr inbounds nuw i8, ptr %arrayidx18.i.i, i64 8
   %19 = load i64, ptr %iov_len23.i.i, align 8
   tail call void @address_space_unmap(ptr noundef %vq.val.val.i, ptr noundef %18, i64 noundef %19, i1 noundef zeroext false, i64 noundef %19) #23
   %inc29.i.i = add nuw i32 %i.15.i.i, 1
@@ -1493,7 +1493,7 @@ virtqueue_detach_element.exit:                    ; preds = %for.body16.i.i, %fo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @virtqueue_rewind(ptr nocapture noundef %vq, i32 noundef %num) local_unnamed_addr #5 {
 entry:
-  %inuse = getelementptr inbounds i8, ptr %vq, i64 76
+  %inuse = getelementptr inbounds nuw i8, ptr %vq, i64 76
   %0 = load i32, ptr %inuse, align 4
   %cmp = icmp ule i32 %num, %0
   br i1 %cmp, label %if.end, label %return
@@ -1501,13 +1501,13 @@ entry:
 if.end:                                           ; preds = %entry
   %sub = sub nuw i32 %0, %num
   store i32 %sub, ptr %inuse, align 4
-  %vdev = getelementptr inbounds i8, ptr %vq, i64 96
+  %vdev = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %1 = load ptr, ptr %vdev, align 8
   %2 = getelementptr i8, ptr %1, i64 184
   %.val = load i64, ptr %2, align 8
   %and.i.i = and i64 %.val, 17179869184
   %tobool.i.i.not = icmp eq i64 %and.i.i, 0
-  %last_avail_idx.i8 = getelementptr inbounds i8, ptr %vq, i64 56
+  %last_avail_idx.i8 = getelementptr inbounds nuw i8, ptr %vq, i64 56
   %3 = load i16, ptr %last_avail_idx.i8, align 8
   br i1 %tobool.i.i.not, label %if.else, label %if.then2
 
@@ -1521,7 +1521,7 @@ if.then.i:                                        ; preds = %if.then2
   %add.i = sub i32 %conv.i, %num
   %sub.i = add i32 %add.i, %4
   %conv5.i = trunc i32 %sub.i to i16
-  %last_avail_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 58
+  %last_avail_wrap_counter.i = getelementptr inbounds nuw i8, ptr %vq, i64 58
   %5 = load i8, ptr %last_avail_wrap_counter.i, align 2
   %6 = and i8 %5, 1
   %frombool.i = xor i8 %6, 1
@@ -1575,7 +1575,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
   %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %vq, ptr noundef %elem, i32 noundef %len, i32 noundef %idx) #23
   br label %trace_virtqueue_fill.exit
@@ -1590,23 +1590,23 @@ trace_virtqueue_fill.exit:                        ; preds = %entry, %land.lhs.tr
   %vq.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %vq.val, i64 472
   %vq.val.val = load ptr, ptr %7, align 8
-  %in_num.i = getelementptr inbounds i8, ptr %elem, i64 16
+  %in_num.i = getelementptr inbounds nuw i8, ptr %elem, i64 16
   %8 = load i32, ptr %in_num.i, align 8
   %cmp1.not.i = icmp eq i32 %8, 0
   br i1 %cmp1.not.i, label %for.cond13.preheader.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %trace_virtqueue_fill.exit
-  %in_sg.i = getelementptr inbounds i8, ptr %elem, i64 40
+  %in_sg.i = getelementptr inbounds nuw i8, ptr %elem, i64 40
   br label %for.body.i
 
 for.cond13.preheader.i:                           ; preds = %for.body.i, %trace_virtqueue_fill.exit
-  %out_num.i = getelementptr inbounds i8, ptr %elem, i64 12
+  %out_num.i = getelementptr inbounds nuw i8, ptr %elem, i64 12
   %9 = load i32, ptr %out_num.i, align 4
   %cmp144.not.i = icmp eq i32 %9, 0
   br i1 %cmp144.not.i, label %virtqueue_unmap_sg.exit, label %for.body16.lr.ph.i
 
 for.body16.lr.ph.i:                               ; preds = %for.cond13.preheader.i
-  %out_sg.i = getelementptr inbounds i8, ptr %elem, i64 48
+  %out_sg.i = getelementptr inbounds nuw i8, ptr %elem, i64 48
   br label %for.body16.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1617,7 +1617,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %10 = load ptr, ptr %in_sg.i, align 8
   %idxprom.i = sext i32 %i.02.i to i64
   %arrayidx.i = getelementptr %struct.iovec, ptr %10, i64 %idxprom.i
-  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %11 = load i64, ptr %iov_len.i, align 8
   %cond.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %conv.i)
   %12 = load ptr, ptr %arrayidx.i, align 8
@@ -1635,7 +1635,7 @@ for.body16.i:                                     ; preds = %for.body16.i, %for.
   %idxprom17.i = sext i32 %i.15.i to i64
   %arrayidx18.i = getelementptr %struct.iovec, ptr %15, i64 %idxprom17.i
   %16 = load ptr, ptr %arrayidx18.i, align 8
-  %iov_len23.i = getelementptr inbounds i8, ptr %arrayidx18.i, i64 8
+  %iov_len23.i = getelementptr inbounds nuw i8, ptr %arrayidx18.i, i64 8
   %17 = load i64, ptr %iov_len23.i, align 8
   tail call void @address_space_unmap(ptr noundef %vq.val.val, ptr noundef %16, i64 noundef %17, i1 noundef zeroext false, i64 noundef %17) #23
   %inc29.i = add nuw i32 %i.15.i, 1
@@ -1645,13 +1645,13 @@ for.body16.i:                                     ; preds = %for.body16.i, %for.
 
 virtqueue_unmap_sg.exit:                          ; preds = %for.body16.i, %for.cond13.preheader.i
   %19 = load ptr, ptr %6, align 8
-  %disabled.i = getelementptr inbounds i8, ptr %19, i64 437
+  %disabled.i = getelementptr inbounds nuw i8, ptr %19, i64 437
   %20 = load i8, ptr %disabled.i, align 1
   %tobool.i = trunc i8 %20 to i1
   br i1 %tobool.i, label %if.end4, label %virtio_device_disabled.exit
 
 virtio_device_disabled.exit:                      ; preds = %virtqueue_unmap_sg.exit
-  %broken.i = getelementptr inbounds i8, ptr %19, i64 435
+  %broken.i = getelementptr inbounds nuw i8, ptr %19, i64 435
   %21 = load i8, ptr %broken.i, align 1
   %tobool1.i = trunc i8 %21 to i1
   br i1 %tobool1.i, label %if.end4, label %if.end
@@ -1665,7 +1665,7 @@ if.end:                                           ; preds = %virtio_device_disab
 
 if.then3:                                         ; preds = %if.end
   %23 = load i32, ptr %elem, align 8
-  %used_elems.i = getelementptr inbounds i8, ptr %vq, i64 48
+  %used_elems.i = getelementptr inbounds nuw i8, ptr %vq, i64 48
   %24 = load ptr, ptr %used_elems.i, align 8
   %idxprom.i15 = zext i32 %idx to i64
   %arrayidx.i16 = getelementptr %struct.VirtQueueElement, ptr %24, i64 %idxprom.i15
@@ -1673,7 +1673,7 @@ if.then3:                                         ; preds = %if.end
   %25 = load ptr, ptr %used_elems.i, align 8
   %len5.i = getelementptr %struct.VirtQueueElement, ptr %25, i64 %idxprom.i15, i32 1
   store i32 %len, ptr %len5.i, align 4
-  %ndescs.i = getelementptr inbounds i8, ptr %elem, i64 8
+  %ndescs.i = getelementptr inbounds nuw i8, ptr %elem, i64 8
   %26 = load i32, ptr %ndescs.i, align 8
   %27 = load ptr, ptr %used_elems.i, align 8
   %ndescs9.i = getelementptr %struct.VirtQueueElement, ptr %27, i64 %idxprom.i15, i32 2
@@ -1682,20 +1682,20 @@ if.then3:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %uelem.i)
-  %used.i = getelementptr inbounds i8, ptr %vq, i64 32
+  %used.i = getelementptr inbounds nuw i8, ptr %vq, i64 32
   %28 = load i64, ptr %used.i, align 8
   %tobool.not.i = icmp eq i64 %28, 0
   br i1 %tobool.not.i, label %virtqueue_split_fill.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %used_idx.i = getelementptr inbounds i8, ptr %vq, i64 64
+  %used_idx.i = getelementptr inbounds nuw i8, ptr %vq, i64 64
   %29 = load i16, ptr %used_idx.i, align 8
   %30 = load i32, ptr %vq, align 8
   %31 = load i32, ptr %elem, align 8
   store i32 %31, ptr %uelem.i, align 8
-  %len6.i = getelementptr inbounds i8, ptr %uelem.i, i64 4
+  %len6.i = getelementptr inbounds nuw i8, ptr %uelem.i, i64 4
   store i32 %len, ptr %len6.i, align 4
-  %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %32 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i = icmp eq i64 %32, 0
@@ -1709,8 +1709,8 @@ if.end.i.i:                                       ; preds = %if.end.i
   %conv.i.i = sext i32 %rem.i to i64
   %34 = shl nsw i64 %conv.i.i, 3
   %35 = or disjoint i64 %34, 4
-  %used.i.i = getelementptr inbounds i8, ptr %33, i64 240
-  %len1.i.i.i = getelementptr inbounds i8, ptr %33, i64 256
+  %used.i.i = getelementptr inbounds nuw i8, ptr %33, i64 240
+  %len1.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 256
   %36 = load i64, ptr %len1.i.i.i, align 16
   %cmp.i.i.i = icmp uge i64 %35, %36
   %sub.i.i.i = sub nuw i64 %36, %35
@@ -1753,21 +1753,21 @@ if.end4:                                          ; preds = %virtqueue_unmap_sg.
 define dso_local void @virtqueue_flush(ptr noundef %vq, i32 noundef %count) local_unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %vdev = getelementptr inbounds i8, ptr %vq, i64 96
+  %vdev = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %0 = load ptr, ptr %vdev, align 8
-  %disabled.i = getelementptr inbounds i8, ptr %0, i64 437
+  %disabled.i = getelementptr inbounds nuw i8, ptr %0, i64 437
   %1 = load i8, ptr %disabled.i, align 1
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %if.then, label %virtio_device_disabled.exit
 
 virtio_device_disabled.exit:                      ; preds = %entry
-  %broken.i = getelementptr inbounds i8, ptr %0, i64 435
+  %broken.i = getelementptr inbounds nuw i8, ptr %0, i64 435
   %2 = load i8, ptr %broken.i, align 1
   %tobool1.i = trunc i8 %2 to i1
   br i1 %tobool1.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %virtio_device_disabled.exit
-  %inuse = getelementptr inbounds i8, ptr %vq, i64 76
+  %inuse = getelementptr inbounds nuw i8, ptr %vq, i64 76
   %3 = load i32, ptr %inuse, align 4
   %sub = sub i32 %3, %count
   store i32 %sub, ptr %inuse, align 4
@@ -1781,14 +1781,14 @@ if.end:                                           ; preds = %virtio_device_disab
   br i1 %tobool.i.i.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %desc.i = getelementptr inbounds i8, ptr %vq, i64 16
+  %desc.i = getelementptr inbounds nuw i8, ptr %vq, i64 16
   %5 = load i64, ptr %desc.i, align 8
   %tobool.not.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i, label %if.end4, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then3
   %cmp24.i = icmp ugt i32 %count, 1
-  %used_elems.i = getelementptr inbounds i8, ptr %vq, i64 48
+  %used_elems.i = getelementptr inbounds nuw i8, ptr %vq, i64 48
   br i1 %cmp24.i, label %for.body.lr.ph.i, label %for.cond.preheader.for.end_crit_edge.i
 
 for.cond.preheader.for.end_crit_edge.i:           ; preds = %for.cond.preheader.i
@@ -1826,14 +1826,14 @@ for.end.i:                                        ; preds = %for.body.i, %for.co
   %.val23.i = load i32, ptr %12, align 4
   tail call fastcc void @virtqueue_packed_fill_desc(ptr noundef nonnull %vq, i32 %.val.i, i32 %.val23.i, i32 noundef 0, i1 noundef zeroext true)
   %13 = load ptr, ptr %used_elems.i, align 8
-  %ndescs13.i = getelementptr inbounds i8, ptr %13, i64 8
+  %ndescs13.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load i32, ptr %ndescs13.i, align 8
   %add14.i = add i32 %14, %ndescs.0.lcssa.i
-  %inuse.i = getelementptr inbounds i8, ptr %vq, i64 76
+  %inuse.i = getelementptr inbounds nuw i8, ptr %vq, i64 76
   %15 = load i32, ptr %inuse.i, align 4
   %sub.i = sub i32 %15, %add14.i
   store i32 %sub.i, ptr %inuse.i, align 4
-  %used_idx.i = getelementptr inbounds i8, ptr %vq, i64 64
+  %used_idx.i = getelementptr inbounds nuw i8, ptr %vq, i64 64
   %16 = load i16, ptr %used_idx.i, align 8
   %17 = trunc i32 %add14.i to i16
   %conv17.i = add i16 %16, %17
@@ -1847,17 +1847,17 @@ if.then23.i:                                      ; preds = %for.end.i
   %19 = trunc i32 %18 to i16
   %conv29.i = sub i16 %conv17.i, %19
   store i16 %conv29.i, ptr %used_idx.i, align 8
-  %used_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 66
+  %used_wrap_counter.i = getelementptr inbounds nuw i8, ptr %vq, i64 66
   %20 = load i8, ptr %used_wrap_counter.i, align 2
   %21 = and i8 %20, 1
   %frombool.i = xor i8 %21, 1
   store i8 %frombool.i, ptr %used_wrap_counter.i, align 2
-  %signalled_used_valid.i = getelementptr inbounds i8, ptr %vq, i64 70
+  %signalled_used_valid.i = getelementptr inbounds nuw i8, ptr %vq, i64 70
   store i8 0, ptr %signalled_used_valid.i, align 2
   br label %if.end4
 
 if.else:                                          ; preds = %if.end
-  %used.i = getelementptr inbounds i8, ptr %vq, i64 32
+  %used.i = getelementptr inbounds nuw i8, ptr %vq, i64 32
   %22 = load i64, ptr %used.i, align 8
   %tobool.not.i7 = icmp eq i64 %22, 0
   br i1 %tobool.not.i7, label %if.end4, label %if.end.i
@@ -1888,7 +1888,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #23
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #23
   %27 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %28 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i.i, i64 noundef %27, i64 noundef %28, ptr noundef nonnull %vq, i32 noundef %count) #23
   br label %trace_virtqueue_flush.exit.i
@@ -1899,11 +1899,11 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_virtqueue_flush.exit.i:                     ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %used_idx.i8 = getelementptr inbounds i8, ptr %vq, i64 64
+  %used_idx.i8 = getelementptr inbounds nuw i8, ptr %vq, i64 64
   %29 = load i16, ptr %used_idx.i8, align 8
   %30 = trunc i32 %count to i16
   %conv5.i = add i16 %29, %30
-  %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %31 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i = icmp eq i64 %31, 0
@@ -1911,8 +1911,8 @@ trace_virtqueue_flush.exit.i:                     ; preds = %if.else.i.i.i, %if.
 
 if.then.i.i:                                      ; preds = %trace_virtqueue_flush.exit.i
   %32 = inttoptr i64 %31 to ptr
-  %used.i.i = getelementptr inbounds i8, ptr %32, i64 240
-  %len.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 256
+  %used.i.i = getelementptr inbounds nuw i8, ptr %32, i64 240
+  %len.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 256
   %33 = load i64, ptr %len.i.i.i.i.i, align 16
   %switch.i.i = icmp ult i64 %33, 4
   br i1 %switch.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -1941,11 +1941,11 @@ virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i,
 
 vring_used_idx_set.exit.i:                        ; preds = %virtio_stw_phys_cached.exit.i.i, %trace_virtqueue_flush.exit.i
   store i16 %conv5.i, ptr %used_idx.i8, align 8
-  %inuse.i9 = getelementptr inbounds i8, ptr %vq, i64 76
+  %inuse.i9 = getelementptr inbounds nuw i8, ptr %vq, i64 76
   %35 = load i32, ptr %inuse.i9, align 4
   %sub.i10 = sub i32 %35, %count
   store i32 %sub.i10, ptr %inuse.i9, align 4
-  %signalled_used.i = getelementptr inbounds i8, ptr %vq, i64 68
+  %signalled_used.i = getelementptr inbounds nuw i8, ptr %vq, i64 68
   %36 = load i16, ptr %signalled_used.i, align 4
   %sub8.i = sub i16 %conv5.i, %36
   %conv10.i = sext i16 %sub8.i to i32
@@ -1954,7 +1954,7 @@ vring_used_idx_set.exit.i:                        ; preds = %virtio_stw_phys_cac
   br i1 %cmp.i, label %if.then23.i11, label %if.end4
 
 if.then23.i11:                                    ; preds = %vring_used_idx_set.exit.i
-  %signalled_used_valid.i12 = getelementptr inbounds i8, ptr %vq, i64 70
+  %signalled_used_valid.i12 = getelementptr inbounds nuw i8, ptr %vq, i64 70
   store i8 0, ptr %signalled_used_valid.i12, align 2
   br label %if.end4
 
@@ -1966,7 +1966,7 @@ if.end4:                                          ; preds = %if.then23.i11, %vri
 define dso_local void @virtqueue_push(ptr noundef %vq, ptr noundef %elem, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -1985,7 +1985,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i, %ent
   tail call void @virtqueue_fill(ptr noundef %vq, ptr noundef %elem, i32 noundef %len, i32 noundef 0)
   tail call void @virtqueue_flush(ptr noundef %vq, i32 noundef 1)
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
+  %depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   %2 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -2004,7 +2004,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %waiting.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   %3 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
@@ -2022,7 +2022,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 define internal fastcc void @rcu_read_auto_lock() unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %depth.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   %0 = load i32, ptr %depth.i, align 4
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %depth.i, align 4
@@ -2049,7 +2049,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
+  %depth.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   %0 = load i32, ptr %depth.i.i.i, align 4
   %cmp.not.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
@@ -2068,7 +2068,7 @@ while.end.i.i.i:                                  ; preds = %if.end.i.i.i
   store atomic i64 0, ptr %call.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %waiting.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   %1 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i.i, label %while.end21.i.i.i, label %glib_autoptr_clear_RCUReadAuto.exit
@@ -2090,7 +2090,7 @@ entry:
   %indirect_desc_cache.i = alloca %struct.MemoryRegionCache, align 16
   %desc.i = alloca %struct.VRingPackedDesc, align 8
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -2106,13 +2106,13 @@ while.end.i.i:                                    ; preds = %entry
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %desc = getelementptr inbounds i8, ptr %vq, i64 16
+  %desc = getelementptr inbounds nuw i8, ptr %vq, i64 16
   %2 = load i64, ptr %desc, align 8
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %rcu_read_auto_lock.exit
-  %caches.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %3 = load atomic i64, ptr %caches.i monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
@@ -2120,9 +2120,9 @@ if.end:                                           ; preds = %rcu_read_auto_lock.
   br i1 %tobool5.not, label %err, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %vdev = getelementptr inbounds i8, ptr %vq, i64 96
+  %vdev = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %5 = load ptr, ptr %vdev, align 8
-  %len = getelementptr inbounds i8, ptr %4, i64 32
+  %len = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i64, ptr %len, align 16
   %7 = load i32, ptr %vq, align 8
   %mul = shl i32 %7, 4
@@ -2139,23 +2139,23 @@ if.end18:                                         ; preds = %if.end7
   %.val19 = load i64, ptr %8, align 8
   %and.i.i = and i64 %.val19, 17179869184
   %tobool.i.i21.not = icmp eq i64 %and.i.i, 0
-  %last_avail_idx.i27 = getelementptr inbounds i8, ptr %vq, i64 56
+  %last_avail_idx.i27 = getelementptr inbounds nuw i8, ptr %vq, i64 56
   br i1 %tobool.i.i21.not, label %if.else, label %if.then21
 
 if.then21:                                        ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %indirect_desc_cache.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %desc.i)
-  %mr.i.i = getelementptr inbounds i8, ptr %indirect_desc_cache.i, i64 48
+  %mr.i.i = getelementptr inbounds nuw i8, ptr %indirect_desc_cache.i, i64 48
   store ptr null, ptr %mr.i.i, align 16
-  %fv.i.i = getelementptr inbounds i8, ptr %indirect_desc_cache.i, i64 24
+  %fv.i.i = getelementptr inbounds nuw i8, ptr %indirect_desc_cache.i, i64 24
   store ptr null, ptr %fv.i.i, align 8
   %9 = load i16, ptr %last_avail_idx.i27, align 8
   %conv.i = zext i16 %9 to i32
-  %last_avail_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 58
+  %last_avail_wrap_counter.i = getelementptr inbounds nuw i8, ptr %vq, i64 58
   %10 = load i8, ptr %last_avail_wrap_counter.i, align 2
-  %desc2.i = getelementptr inbounds i8, ptr %4, i64 16
+  %desc2.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc2.i, i32 noundef %conv.i, i1 noundef zeroext true)
-  %flags.i = getelementptr inbounds i8, ptr %desc.i, i64 14
+  %flags.i = getelementptr inbounds nuw i8, ptr %desc.i, i64 14
   %11 = load i16, ptr %flags.i, align 2
   %tobool383.i = trunc i8 %10 to i1
   %12 = lshr i16 %11, 7
@@ -2168,8 +2168,8 @@ if.then21:                                        ; preds = %if.end18
   br i1 %.not87.i, label %for.end.i, label %if.end.lr.ph.i
 
 if.end.lr.ph.i:                                   ; preds = %if.then21
-  %len8.i = getelementptr inbounds i8, ptr %desc.i, i64 8
-  %dma_as.i = getelementptr inbounds i8, ptr %5, i64 472
+  %len8.i = getelementptr inbounds nuw i8, ptr %desc.i, i64 8
+  %dma_as.i = getelementptr inbounds nuw i8, ptr %5, i64 472
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end60.i, %if.end.lr.ph.i
@@ -2350,9 +2350,9 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %out_total.0.lcssa.i = phi i32 [ 0, %if.then21 ], [ %out_total.250.i, %for.end.loopexit.i ]
   %wrap_counter.0.lcssa.i = phi i8 [ %10, %if.then21 ], [ %wrap_counter.1.i, %for.end.loopexit.i ]
   %idx.0.lcssa.i = phi i16 [ %9, %if.then21 ], [ %35, %for.end.loopexit.i ]
-  %shadow_avail_idx.i = getelementptr inbounds i8, ptr %vq, i64 60
+  %shadow_avail_idx.i = getelementptr inbounds nuw i8, ptr %vq, i64 60
   store i16 %idx.0.lcssa.i, ptr %shadow_avail_idx.i, align 4
-  %shadow_avail_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 62
+  %shadow_avail_wrap_counter.i = getelementptr inbounds nuw i8, ptr %vq, i64 62
   %frombool76.i = and i8 %wrap_counter.0.lcssa.i, 1
   store i8 %frombool76.i, ptr %shadow_avail_wrap_counter.i, align 2
   br label %done.i
@@ -2384,19 +2384,19 @@ virtqueue_packed_get_avail_bytes.exit:            ; preds = %if.end79.i, %if.the
 if.else:                                          ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %indirect_desc_cache.i23)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %desc3.i)
-  %mr.i.i25 = getelementptr inbounds i8, ptr %indirect_desc_cache.i23, i64 48
+  %mr.i.i25 = getelementptr inbounds nuw i8, ptr %indirect_desc_cache.i23, i64 48
   store ptr null, ptr %mr.i.i25, align 16
-  %fv.i.i26 = getelementptr inbounds i8, ptr %indirect_desc_cache.i23, i64 24
+  %fv.i.i26 = getelementptr inbounds nuw i8, ptr %indirect_desc_cache.i23, i64 24
   store ptr null, ptr %fv.i.i26, align 8
   %36 = load i16, ptr %last_avail_idx.i27, align 8
   %conv.i28 = zext i16 %36 to i32
-  %shadow_avail_idx.i.i = getelementptr inbounds i8, ptr %vq, i64 60
-  %desc.i29 = getelementptr inbounds i8, ptr %4, i64 16
-  %flags.i30 = getelementptr inbounds i8, ptr %desc3.i, i64 12
-  %len7.i = getelementptr inbounds i8, ptr %desc3.i, i64 8
-  %dma_as.i31 = getelementptr inbounds i8, ptr %5, i64 472
-  %len1.i.i50.i = getelementptr inbounds i8, ptr %indirect_desc_cache.i23, i64 16
-  %next.i.i = getelementptr inbounds i8, ptr %desc3.i, i64 14
+  %shadow_avail_idx.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 60
+  %desc.i29 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %flags.i30 = getelementptr inbounds nuw i8, ptr %desc3.i, i64 12
+  %len7.i = getelementptr inbounds nuw i8, ptr %desc3.i, i64 8
+  %dma_as.i31 = getelementptr inbounds nuw i8, ptr %5, i64 472
+  %len1.i.i50.i = getelementptr inbounds nuw i8, ptr %indirect_desc_cache.i23, i64 16
+  %next.i.i = getelementptr inbounds nuw i8, ptr %desc3.i, i64 14
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.backedge, %if.else
@@ -2417,8 +2417,8 @@ cond.false.i.i:                                   ; preds = %while.cond.i
 
 if.end.i.i.i:                                     ; preds = %cond.false.i.i
   %39 = inttoptr i64 %38 to ptr
-  %avail.i.i.i = getelementptr inbounds i8, ptr %39, i64 128
-  %len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 144
+  %avail.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 128
+  %len.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 144
   %40 = load i64, ptr %len.i.i.i.i.i.i, align 16
   %switch.i.i.i = icmp ult i64 %40, 4
   br i1 %switch.i.i.i, label %if.else.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
@@ -2482,8 +2482,8 @@ if.end.i.i32.i:                                   ; preds = %virtqueue_num_heads
   %conv.i.i.i = sext i32 %rem.i.i to i64
   %49 = shl nsw i64 %conv.i.i.i, 1
   %50 = add nsw i64 %49, 4
-  %avail.i.i33.i = getelementptr inbounds i8, ptr %48, i64 128
-  %len.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %48, i64 144
+  %avail.i.i33.i = getelementptr inbounds nuw i8, ptr %48, i64 128
+  %len.i.i.i.i.i34.i = getelementptr inbounds nuw i8, ptr %48, i64 144
   %51 = load i64, ptr %len.i.i.i.i.i34.i, align 16
   %cmp.i.i.i.i.i.i = icmp ult i64 %50, %51
   %sub.i.i.i.i.i.i = sub nuw i64 %51, %50
@@ -2623,7 +2623,7 @@ if.end30.i:                                       ; preds = %if.else8.i.i59.i, %
   br i1 %cmp32153.i, label %if.then34.i, label %if.end35.lr.ph.i
 
 if.end35.lr.ph.i:                                 ; preds = %if.end30.i
-  %len1.i.i.i.i = getelementptr inbounds i8, ptr %desc_cache.0.i40, i64 16
+  %len1.i.i.i.i = getelementptr inbounds nuw i8, ptr %desc_cache.0.i40, i64 16
   br label %if.end35.i
 
 if.then34.i:                                      ; preds = %if.end30.i, %virtqueue_split_read_next_desc.exit.i
@@ -2750,7 +2750,7 @@ if.then27:                                        ; preds = %if.end25
 
 if.then.i.i:                                      ; preds = %virtqueue_split_get_avail_bytes.exit, %virtqueue_packed_get_avail_bytes.exit, %if.then27, %if.end25
   %call.i.i.i.i49 = call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i49, i64 12
+  %depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i49, i64 12
   %72 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %72, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i51, label %if.end.i.i.i.i50
@@ -2769,7 +2769,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i50
   store atomic i64 0, ptr %call.i.i.i.i49 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i49, i64 8
+  %waiting.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i49, i64 8
   %73 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %73 to i1
   br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
@@ -2803,17 +2803,17 @@ define dso_local void @virtqueue_map(ptr nocapture noundef readonly %vdev, ptr n
 entry:
   %xlen.i.i7 = alloca i64, align 8
   %xlen.i.i = alloca i64, align 8
-  %in_sg = getelementptr inbounds i8, ptr %elem, i64 40
+  %in_sg = getelementptr inbounds nuw i8, ptr %elem, i64 40
   %0 = load ptr, ptr %in_sg, align 8
-  %in_addr = getelementptr inbounds i8, ptr %elem, i64 24
+  %in_addr = getelementptr inbounds nuw i8, ptr %elem, i64 24
   %1 = load ptr, ptr %in_addr, align 8
-  %in_num = getelementptr inbounds i8, ptr %elem, i64 16
+  %in_num = getelementptr inbounds nuw i8, ptr %elem, i64 16
   %2 = load i32, ptr %in_num, align 8
   %cmp21.not.i = icmp eq i32 %2, 0
   br i1 %cmp21.not.i, label %virtqueue_map_iovec.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %dma_as.i = getelementptr inbounds i8, ptr %vdev, i64 472
+  %dma_as.i = getelementptr inbounds nuw i8, ptr %vdev, i64 472
   %wide.trip.count.i = zext i32 %2 to i64
   br label %for.body.i
 
@@ -2825,7 +2825,7 @@ for.cond.i:                                       ; preds = %if.end.i
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i = getelementptr %struct.iovec, ptr %0, i64 %indvars.iv.i
-  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %3 = load i64, ptr %iov_len.i, align 8
   %4 = load ptr, ptr %dma_as.i, align 8
   %arrayidx2.i = getelementptr i64, ptr %1, i64 %indvars.iv.i
@@ -2855,17 +2855,17 @@ if.then40.i:                                      ; preds = %if.end.i
   unreachable
 
 virtqueue_map_iovec.exit:                         ; preds = %for.cond.i, %entry
-  %out_sg = getelementptr inbounds i8, ptr %elem, i64 48
+  %out_sg = getelementptr inbounds nuw i8, ptr %elem, i64 48
   %8 = load ptr, ptr %out_sg, align 8
-  %out_addr = getelementptr inbounds i8, ptr %elem, i64 32
+  %out_addr = getelementptr inbounds nuw i8, ptr %elem, i64 32
   %9 = load ptr, ptr %out_addr, align 8
-  %out_num = getelementptr inbounds i8, ptr %elem, i64 12
+  %out_num = getelementptr inbounds nuw i8, ptr %elem, i64 12
   %10 = load i32, ptr %out_num, align 4
   %cmp21.not.i8 = icmp eq i32 %10, 0
   br i1 %cmp21.not.i8, label %virtqueue_map_iovec.exit26, label %for.body.lr.ph.i9
 
 for.body.lr.ph.i9:                                ; preds = %virtqueue_map_iovec.exit
-  %dma_as.i10 = getelementptr inbounds i8, ptr %vdev, i64 472
+  %dma_as.i10 = getelementptr inbounds nuw i8, ptr %vdev, i64 472
   %wide.trip.count.i11 = zext i32 %10 to i64
   br label %for.body.i12
 
@@ -2877,7 +2877,7 @@ for.cond.i22:                                     ; preds = %if.end.i19
 for.body.i12:                                     ; preds = %for.cond.i22, %for.body.lr.ph.i9
   %indvars.iv.i13 = phi i64 [ 0, %for.body.lr.ph.i9 ], [ %indvars.iv.next.i23, %for.cond.i22 ]
   %arrayidx.i14 = getelementptr %struct.iovec, ptr %8, i64 %indvars.iv.i13
-  %iov_len.i15 = getelementptr inbounds i8, ptr %arrayidx.i14, i64 8
+  %iov_len.i15 = getelementptr inbounds nuw i8, ptr %arrayidx.i14, i64 8
   %11 = load i64, ptr %iov_len.i15, align 8
   %12 = load ptr, ptr %dma_as.i10, align 8
   %arrayidx2.i16 = getelementptr i64, ptr %9, i64 %indvars.iv.i13
@@ -2925,15 +2925,15 @@ entry:
   %addr.i = alloca [1024 x i64], align 16
   %iov.i = alloca [1024 x %struct.iovec], align 16
   %desc.i = alloca %struct.VRingPackedDesc, align 8
-  %vdev = getelementptr inbounds i8, ptr %vq, i64 96
+  %vdev = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %0 = load ptr, ptr %vdev, align 8
-  %disabled.i = getelementptr inbounds i8, ptr %0, i64 437
+  %disabled.i = getelementptr inbounds nuw i8, ptr %0, i64 437
   %1 = load i8, ptr %disabled.i, align 1
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %return, label %virtio_device_disabled.exit
 
 virtio_device_disabled.exit:                      ; preds = %entry
-  %broken.i = getelementptr inbounds i8, ptr %0, i64 435
+  %broken.i = getelementptr inbounds nuw i8, ptr %0, i64 435
   %2 = load i8, ptr %broken.i, align 1
   %tobool1.i = trunc i8 %2 to i1
   br i1 %tobool1.i, label %return, label %if.end
@@ -2952,12 +2952,12 @@ if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %addr.i)
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %iov.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %desc.i)
-  %mr.i.i = getelementptr inbounds i8, ptr %indirect_desc_cache.i, i64 48
+  %mr.i.i = getelementptr inbounds nuw i8, ptr %indirect_desc_cache.i, i64 48
   store ptr null, ptr %mr.i.i, align 16
-  %fv.i.i = getelementptr inbounds i8, ptr %indirect_desc_cache.i, i64 24
+  %fv.i.i = getelementptr inbounds nuw i8, ptr %indirect_desc_cache.i, i64 24
   store ptr null, ptr %fv.i.i, align 8
   %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
+  %depth.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   %4 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %4, 1
   store i32 %inc.i.i.i, ptr %depth.i.i.i, align 4
@@ -2973,13 +2973,13 @@ while.end.i.i.i:                                  ; preds = %if.then3
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %if.then3
-  %desc1.i.i = getelementptr inbounds i8, ptr %vq, i64 16
+  %desc1.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 16
   %6 = load i64, ptr %desc1.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i.i, label %if.then.i.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %rcu_read_auto_lock.exit.i
-  %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %7 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool5.not.i.i = icmp eq i64 %7, 0
@@ -2987,13 +2987,13 @@ if.end.i.i:                                       ; preds = %rcu_read_auto_lock.
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   %8 = inttoptr i64 %7 to ptr
-  %desc8.i.i = getelementptr inbounds i8, ptr %8, i64 16
-  %last_avail_idx.i.i = getelementptr inbounds i8, ptr %vq, i64 56
+  %desc8.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %last_avail_idx.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 56
   %9 = load i16, ptr %last_avail_idx.i.i, align 8
   %conv.i.i.i = zext i16 %9 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 4
   %add.i.i.i = or disjoint i64 %mul.i.i.i, 14
-  %len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
+  %len.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i64, ptr %len.i.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i.i = icmp ult i64 %add.i.i.i, %10
   %sub.i.i.i.i.i.i = sub nuw i64 %10, %add.i.i.i
@@ -3021,7 +3021,7 @@ if.else8.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
 
 virtio_queue_packed_empty_rcu.exit.i:             ; preds = %if.else8.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi i16 [ %add.ptr.val.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i ], [ %call10.i.i.i.i.i.i, %if.else8.i.i.i.i.i.i ]
-  %last_avail_wrap_counter.i.i = getelementptr inbounds i8, ptr %vq, i64 58
+  %last_avail_wrap_counter.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 58
   %12 = load i8, ptr %last_avail_wrap_counter.i.i, align 2
   %tobool11.i.i = trunc i8 %12 to i1
   %13 = lshr i16 %retval.0.i.i.i.i.i.i, 7
@@ -3037,7 +3037,7 @@ if.end.i:                                         ; preds = %virtio_queue_packed
   store i32 0, ptr %in_num.i, align 4
   store i32 0, ptr %out_num.i, align 4
   %16 = load i32, ptr %vq, align 8
-  %inuse.i = getelementptr inbounds i8, ptr %vq, i64 76
+  %inuse.i = getelementptr inbounds nuw i8, ptr %vq, i64 76
   %17 = load i32, ptr %inuse.i, align 4
   %cmp.not.i = icmp ult i32 %17, %16
   br i1 %cmp.not.i, label %if.end6.i, label %if.then5.i
@@ -3060,7 +3060,7 @@ if.then9.i:                                       ; preds = %if.end6.i
   br label %if.then.i.i.i
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %len12.i = getelementptr inbounds i8, ptr %20, i64 32
+  %len12.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = load i64, ptr %len12.i, align 16
   %conv13.i = zext i32 %16 to i64
   %mul.i = shl nuw nsw i64 %conv13.i, 4
@@ -3072,18 +3072,18 @@ if.then16.i:                                      ; preds = %if.end10.i
   br label %if.then.i.i.i
 
 if.end17.i:                                       ; preds = %if.end10.i
-  %desc11.i = getelementptr inbounds i8, ptr %20, i64 16
+  %desc11.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc11.i, i32 noundef %conv.i, i1 noundef zeroext true)
-  %id19.i = getelementptr inbounds i8, ptr %desc.i, i64 12
+  %id19.i = getelementptr inbounds nuw i8, ptr %desc.i, i64 12
   %22 = load i16, ptr %id19.i, align 4
-  %flags.i = getelementptr inbounds i8, ptr %desc.i, i64 14
+  %flags.i = getelementptr inbounds nuw i8, ptr %desc.i, i64 14
   %23 = load i16, ptr %flags.i, align 2
   %24 = and i16 %23, 4
   %tobool21.not.i = icmp eq i16 %24, 0
   br i1 %tobool21.not.i, label %if.end41.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.end17.i
-  %len23.i = getelementptr inbounds i8, ptr %desc.i, i64 8
+  %len23.i = getelementptr inbounds nuw i8, ptr %desc.i, i64 8
   %25 = load i32, ptr %len23.i, align 8
   %conv24.i = zext i32 %25 to i64
   %rem.i = and i64 %conv24.i, 15
@@ -3095,7 +3095,7 @@ if.then26.i:                                      ; preds = %if.then22.i
   br label %if.then.i.i.i
 
 if.end27.i:                                       ; preds = %if.then22.i
-  %dma_as.i = getelementptr inbounds i8, ptr %0, i64 472
+  %dma_as.i = getelementptr inbounds nuw i8, ptr %0, i64 472
   %26 = load ptr, ptr %dma_as.i, align 8
   %27 = load i64, ptr %desc.i, align 8
   %call31.i = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache.i, ptr noundef %26, i64 noundef %27, i64 noundef %conv24.i, i1 noundef zeroext false) #23
@@ -3117,7 +3117,7 @@ if.end41.i:                                       ; preds = %if.end37.i, %if.end
   %i.0.i = phi i32 [ %conv.i, %if.end17.i ], [ 0, %if.end37.i ]
   %desc_cache.0.i = phi ptr [ %desc11.i, %if.end17.i ], [ %indirect_desc_cache.i, %if.end37.i ]
   %max.0.i = phi i32 [ %16, %if.end17.i ], [ %div54.i, %if.end37.i ]
-  %len51.i = getelementptr inbounds i8, ptr %desc.i, i64 8
+  %len51.i = getelementptr inbounds nuw i8, ptr %desc.i, i64 8
   %cmp72.i = icmp eq ptr %desc_cache.0.i, %indirect_desc_cache.i
   br label %do.body.i
 
@@ -3195,8 +3195,8 @@ do.end.i:                                         ; preds = %if.end.i59.i, %land
   br i1 %cmp7872.not.i, label %for.cond87.preheader.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %do.end.i
-  %out_addr.i = getelementptr inbounds i8, ptr %call77.i, i64 32
-  %out_sg.i = getelementptr inbounds i8, ptr %call77.i, i64 48
+  %out_addr.i = getelementptr inbounds nuw i8, ptr %call77.i, i64 32
+  %out_sg.i = getelementptr inbounds nuw i8, ptr %call77.i, i64 48
   %wide.trip.count.i = zext i32 %40 to i64
   br label %for.body.i
 
@@ -3205,8 +3205,8 @@ for.cond87.preheader.i:                           ; preds = %for.body.i, %do.end
   br i1 %cmp8874.not.i, label %for.end102.i, label %for.body90.lr.ph.i
 
 for.body90.lr.ph.i:                               ; preds = %for.cond87.preheader.i
-  %in_addr.i = getelementptr inbounds i8, ptr %call77.i, i64 24
-  %in_sg.i = getelementptr inbounds i8, ptr %call77.i, i64 40
+  %in_addr.i = getelementptr inbounds nuw i8, ptr %call77.i, i64 24
+  %in_sg.i = getelementptr inbounds nuw i8, ptr %call77.i, i64 40
   %wide.trip.count81.i = zext i32 %41 to i64
   br label %for.body90.i
 
@@ -3247,7 +3247,7 @@ for.end102.i:                                     ; preds = %for.body90.i, %for.
   %conv103.i = zext i16 %22 to i32
   store i32 %conv103.i, ptr %call77.i, align 8
   %cond.i = select i1 %cmp72.i, i32 1, i32 %inc.i
-  %ndescs.i = getelementptr inbounds i8, ptr %call77.i, i64 8
+  %ndescs.i = getelementptr inbounds nuw i8, ptr %call77.i, i64 8
   store i32 %cond.i, ptr %ndescs.i, align 8
   %49 = load i16, ptr %last_avail_idx.i.i, align 8
   %50 = trunc i32 %cond.i to i16
@@ -3275,14 +3275,14 @@ if.then120.i:                                     ; preds = %for.end102.i
 if.end131.i:                                      ; preds = %if.then120.i, %for.end102.i
   %56 = phi i8 [ %frombool130.i, %if.then120.i ], [ %.pre.i, %for.end102.i ]
   %57 = phi i16 [ %conv126.i, %if.then120.i ], [ %conv110.i, %for.end102.i ]
-  %shadow_avail_idx.i = getelementptr inbounds i8, ptr %vq, i64 60
+  %shadow_avail_idx.i = getelementptr inbounds nuw i8, ptr %vq, i64 60
   store i16 %57, ptr %shadow_avail_idx.i, align 4
-  %shadow_avail_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 62
+  %shadow_avail_wrap_counter.i = getelementptr inbounds nuw i8, ptr %vq, i64 62
   %frombool135.i = and i8 %56, 1
   store i8 %frombool135.i, ptr %shadow_avail_wrap_counter.i, align 2
-  %in_num136.i = getelementptr inbounds i8, ptr %call77.i, i64 16
+  %in_num136.i = getelementptr inbounds nuw i8, ptr %call77.i, i64 16
   %58 = load i32, ptr %in_num136.i, align 8
-  %out_num137.i = getelementptr inbounds i8, ptr %call77.i, i64 12
+  %out_num137.i = getelementptr inbounds nuw i8, ptr %call77.i, i64 12
   %59 = load i32, ptr %out_num137.i, align 4
   call fastcc void @trace_virtqueue_pop(ptr noundef nonnull %vq, ptr noundef nonnull %call77.i, i32 noundef %58, i32 noundef %59)
   br label %if.then.i.i.i
@@ -3291,7 +3291,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i, %err_
   %elem.0.i = phi ptr [ null, %virtio_queue_packed_empty_rcu.exit.i ], [ null, %if.then5.i ], [ null, %if.then16.i ], [ null, %if.then26.i ], [ null, %if.then36.i ], [ %call77.i, %if.end131.i ], [ null, %if.then9.i ], [ null, %err_undo_map.i ], [ null, %rcu_read_auto_lock.exit.i ], [ null, %if.end.i.i ], [ null, %for.body.i.i ]
   call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i) #23
   %call.i.i.i.i.i = call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
+  %depth.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 12
   %60 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %60, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -3310,7 +3310,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
+  %waiting.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 8
   %61 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %61 to i1
   br i1 %tobool.i.i.i.i.i, label %while.end21.i.i.i.i.i, label %virtqueue_packed_pop.exit
@@ -3337,7 +3337,7 @@ for.body.i.i:                                     ; preds = %err_undo_map.i, %fo
   %i.07.i.i = phi i32 [ %inc.i60.i, %for.body.i.i ], [ 0, %err_undo_map.i ]
   %cmp1.i.i = icmp uge i32 %i.07.i.i, %62
   %64 = load ptr, ptr %iov.addr.08.i.i, align 8
-  %iov_len.i.i = getelementptr inbounds i8, ptr %iov.addr.08.i.i, i64 8
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %iov.addr.08.i.i, i64 8
   %65 = load i64, ptr %iov_len.i.i, align 8
   call void @cpu_physical_memory_unmap(ptr noundef %64, i64 noundef %65, i1 noundef zeroext %cmp1.i.i, i64 noundef 0) #23
   %incdec.ptr.i.i = getelementptr i8, ptr %iov.addr.08.i.i, i64 16
@@ -3361,12 +3361,12 @@ if.else:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %addr.i8)
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %iov.i9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %desc.i10)
-  %mr.i.i12 = getelementptr inbounds i8, ptr %indirect_desc_cache.i5, i64 48
+  %mr.i.i12 = getelementptr inbounds nuw i8, ptr %indirect_desc_cache.i5, i64 48
   store ptr null, ptr %mr.i.i12, align 16
-  %fv.i.i13 = getelementptr inbounds i8, ptr %indirect_desc_cache.i5, i64 24
+  %fv.i.i13 = getelementptr inbounds nuw i8, ptr %indirect_desc_cache.i5, i64 24
   store ptr null, ptr %fv.i.i13, align 8
   %call.i.i.i14 = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i.i14, i64 12
+  %depth.i.i.i15 = getelementptr inbounds nuw i8, ptr %call.i.i.i14, i64 12
   %66 = load i32, ptr %depth.i.i.i15, align 4
   %inc.i.i.i16 = add i32 %66, 1
   store i32 %inc.i.i.i16, ptr %depth.i.i.i15, align 4
@@ -3383,33 +3383,33 @@ while.end.i.i.i90:                                ; preds = %if.else
 
 rcu_read_auto_lock.exit.i18:                      ; preds = %while.end.i.i.i90, %if.else
   %68 = load ptr, ptr %vdev, align 8
-  %disabled.i.i.i = getelementptr inbounds i8, ptr %68, i64 437
+  %disabled.i.i.i = getelementptr inbounds nuw i8, ptr %68, i64 437
   %69 = load i8, ptr %disabled.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %69 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i26, label %virtio_device_disabled.exit.i.i
 
 virtio_device_disabled.exit.i.i:                  ; preds = %rcu_read_auto_lock.exit.i18
-  %broken.i.i.i = getelementptr inbounds i8, ptr %68, i64 435
+  %broken.i.i.i = getelementptr inbounds nuw i8, ptr %68, i64 435
   %70 = load i8, ptr %broken.i.i.i, align 1
   %tobool1.i.i.i = trunc i8 %70 to i1
   br i1 %tobool1.i.i.i, label %if.then.i.i.i26, label %if.end.i.i19
 
 if.end.i.i19:                                     ; preds = %virtio_device_disabled.exit.i.i
-  %avail.i.i = getelementptr inbounds i8, ptr %vq, i64 24
+  %avail.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 24
   %71 = load i64, ptr %avail.i.i, align 8
   %tobool.not.i.i20 = icmp eq i64 %71, 0
   br i1 %tobool.not.i.i20, label %if.then.i.i.i26, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i19
-  %shadow_avail_idx.i.i = getelementptr inbounds i8, ptr %vq, i64 60
+  %shadow_avail_idx.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 60
   %72 = load i16, ptr %shadow_avail_idx.i.i, align 4
-  %last_avail_idx.i.i21 = getelementptr inbounds i8, ptr %vq, i64 56
+  %last_avail_idx.i.i21 = getelementptr inbounds nuw i8, ptr %vq, i64 56
   %73 = load i16, ptr %last_avail_idx.i.i21, align 8
   %cmp.not.i.i = icmp eq i16 %72, %73
   br i1 %cmp.not.i.i, label %if.end10.i.i, label %if.end.i22
 
 if.end10.i.i:                                     ; preds = %if.end5.i.i
-  %caches.i.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %74 = load atomic i64, ptr %caches.i.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i.i = icmp eq i64 %74, 0
@@ -3417,8 +3417,8 @@ if.end10.i.i:                                     ; preds = %if.end5.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end10.i.i
   %75 = inttoptr i64 %74 to ptr
-  %avail.i.i.i = getelementptr inbounds i8, ptr %75, i64 128
-  %len.i.i.i.i.i.i80 = getelementptr inbounds i8, ptr %75, i64 144
+  %avail.i.i.i = getelementptr inbounds nuw i8, ptr %75, i64 128
+  %len.i.i.i.i.i.i80 = getelementptr inbounds nuw i8, ptr %75, i64 144
   %76 = load i64, ptr %len.i.i.i.i.i.i80, align 16
   %switch.i.i.i = icmp ult i64 %76, 4
   br i1 %switch.i.i.i, label %if.else.i.i.i.i.i.i89, label %if.end.i.i.i.i.i.i81
@@ -3458,7 +3458,7 @@ if.end.i22:                                       ; preds = %virtio_queue_empty_
   store i32 0, ptr %in_num.i7, align 4
   store i32 0, ptr %out_num.i6, align 4
   %79 = load i32, ptr %vq, align 8
-  %inuse.i23 = getelementptr inbounds i8, ptr %vq, i64 76
+  %inuse.i23 = getelementptr inbounds nuw i8, ptr %vq, i64 76
   %80 = load i32, ptr %inuse.i23, align 4
   %cmp.not.i24 = icmp ult i32 %80, %79
   br i1 %cmp.not.i24, label %if.end6.i37, label %if.then5.i25
@@ -3471,7 +3471,7 @@ if.end6.i37:                                      ; preds = %if.end.i22
   %81 = load i16, ptr %last_avail_idx.i.i21, align 8
   %inc.i38 = add i16 %81, 1
   store i16 %inc.i38, ptr %last_avail_idx.i.i21, align 8
-  %caches.i.i.i56.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i.i56.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %82 = load atomic i64, ptr %caches.i.i.i56.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i57.i = icmp eq i64 %82, 0
@@ -3484,8 +3484,8 @@ if.end.i.i58.i:                                   ; preds = %if.end6.i37
   %84 = shl nuw nsw i32 %rem.i.i, 1
   %narrow.i = add nuw nsw i32 %84, 4
   %85 = zext nneg i32 %narrow.i to i64
-  %avail.i.i59.i = getelementptr inbounds i8, ptr %83, i64 128
-  %len.i.i.i.i.i60.i = getelementptr inbounds i8, ptr %83, i64 144
+  %avail.i.i59.i = getelementptr inbounds nuw i8, ptr %83, i64 128
+  %len.i.i.i.i.i60.i = getelementptr inbounds nuw i8, ptr %83, i64 144
   %86 = load i64, ptr %len.i.i.i.i.i60.i, align 16
   %cmp.i.i.i.i.i.i40 = icmp ugt i64 %86, %85
   %sub.i.i.i.i.i.i41 = sub nuw i64 %86, %85
@@ -3531,7 +3531,7 @@ if.end9.i:                                        ; preds = %vring_avail_ring.ex
 
 if.then11.i:                                      ; preds = %if.end9.i
   %90 = load i16, ptr %last_avail_idx.i.i21, align 8
-  %notification.i.i = getelementptr inbounds i8, ptr %vq, i64 71
+  %notification.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 71
   %91 = load i8, ptr %notification.i.i, align 1
   %tobool.i.i44 = trunc i8 %91 to i1
   br i1 %tobool.i.i44, label %if.end.i73.i, label %if.end13.i
@@ -3548,8 +3548,8 @@ if.end3.i.i:                                      ; preds = %if.end.i73.i
   %conv.i74.i = zext i32 %94 to i64
   %95 = shl nuw nsw i64 %conv.i74.i, 3
   %96 = or disjoint i64 %95, 4
-  %used.i.i = getelementptr inbounds i8, ptr %93, i64 240
-  %len.i.i.i.i.i = getelementptr inbounds i8, ptr %93, i64 256
+  %used.i.i = getelementptr inbounds nuw i8, ptr %93, i64 240
+  %len.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %93, i64 256
   %97 = load i64, ptr %len.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i = icmp ult i64 %96, %97
   %sub.i.i.i.i.i = sub nuw i64 %97, %96
@@ -3591,7 +3591,7 @@ if.then16.i76:                                    ; preds = %if.end13.i
   br label %if.then.i.i.i26
 
 if.end17.i45:                                     ; preds = %if.end13.i
-  %len19.i = getelementptr inbounds i8, ptr %100, i64 32
+  %len19.i = getelementptr inbounds nuw i8, ptr %100, i64 32
   %101 = load i64, ptr %len19.i, align 16
   %conv20.i = zext i32 %79 to i64
   %mul.i46 = shl nuw nsw i64 %conv20.i, 4
@@ -3603,7 +3603,7 @@ if.then23.i:                                      ; preds = %if.end17.i45
   br label %if.then.i.i.i26
 
 if.end24.i:                                       ; preds = %if.end17.i45
-  %desc18.i = getelementptr inbounds i8, ptr %100, i64 16
+  %desc18.i = getelementptr inbounds nuw i8, ptr %100, i64 16
   %conv.i75.i = zext i16 %retval.0.i.i67.i to i64
   %mul.i.i = shl nuw nsw i64 %conv.i75.i, 4
   %cmp.i.i.i = icmp uge i64 %mul.i.i, %101
@@ -3631,14 +3631,14 @@ if.else8.i.i.i:                                   ; preds = %if.end.i.i76.i
   br label %vring_split_desc_read.exit.i
 
 vring_split_desc_read.exit.i:                     ; preds = %if.else8.i.i.i, %if.then6.i.i.i
-  %flags.i47 = getelementptr inbounds i8, ptr %desc.i10, i64 12
+  %flags.i47 = getelementptr inbounds nuw i8, ptr %desc.i10, i64 12
   %103 = load i16, ptr %flags.i47, align 4
   %104 = and i16 %103, 4
   %tobool27.not.i = icmp eq i16 %104, 0
   br i1 %tobool27.not.i, label %if.end49.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %vring_split_desc_read.exit.i
-  %len29.i = getelementptr inbounds i8, ptr %desc.i10, i64 8
+  %len29.i = getelementptr inbounds nuw i8, ptr %desc.i10, i64 8
   %105 = load i32, ptr %len29.i, align 8
   %tobool30.not.i = icmp eq i32 %105, 0
   br i1 %tobool30.not.i, label %if.then34.i, label %lor.lhs.false.i
@@ -3654,7 +3654,7 @@ if.then34.i:                                      ; preds = %lor.lhs.false.i, %i
   br label %if.then.i.i.i26
 
 if.end35.i:                                       ; preds = %lor.lhs.false.i
-  %dma_as.i49 = getelementptr inbounds i8, ptr %0, i64 472
+  %dma_as.i49 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %106 = load ptr, ptr %dma_as.i49, align 8
   %107 = load i64, ptr %desc.i10, align 8
   %call39.i = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache.i5, ptr noundef %106, i64 noundef %107, i64 noundef %conv32.i, i1 noundef zeroext false) #23
@@ -3675,9 +3675,9 @@ if.end45.i:                                       ; preds = %if.end35.i
 if.end49.i:                                       ; preds = %if.end45.i, %vring_split_desc_read.exit.i
   %desc_cache.0.i50 = phi ptr [ %indirect_desc_cache.i5, %if.end45.i ], [ %desc18.i, %vring_split_desc_read.exit.i ]
   %max.0.i51 = phi i32 [ %div55.i, %if.end45.i ], [ %79, %vring_split_desc_read.exit.i ]
-  %len59.i = getelementptr inbounds i8, ptr %desc.i10, i64 8
-  %next.i.i = getelementptr inbounds i8, ptr %desc.i10, i64 14
-  %len1.i.i.i.i = getelementptr inbounds i8, ptr %desc_cache.0.i50, i64 16
+  %len59.i = getelementptr inbounds nuw i8, ptr %desc.i10, i64 8
+  %next.i.i = getelementptr inbounds nuw i8, ptr %desc.i10, i64 14
+  %len1.i.i.i.i = getelementptr inbounds nuw i8, ptr %desc_cache.0.i50, i64 16
   br label %do.body.i52
 
 do.body.i52:                                      ; preds = %do.body.i52.backedge, %if.end49.i
@@ -3776,14 +3776,14 @@ if.end87.i:                                       ; preds = %if.end80.i
   %123 = load i32, ptr %in_num.i7, align 4
   %call88.i = call fastcc ptr @virtqueue_alloc_element(i64 noundef %sz, i32 noundef %122, i32 noundef %123)
   store i32 %conv.i.i, ptr %call88.i, align 8
-  %ndescs.i59 = getelementptr inbounds i8, ptr %call88.i, i64 8
+  %ndescs.i59 = getelementptr inbounds nuw i8, ptr %call88.i, i64 8
   store i32 1, ptr %ndescs.i59, align 8
   %cmp8997.not.i = icmp eq i32 %122, 0
   br i1 %cmp8997.not.i, label %for.cond98.preheader.i, label %for.body.lr.ph.i60
 
 for.body.lr.ph.i60:                               ; preds = %if.end87.i
-  %out_addr.i61 = getelementptr inbounds i8, ptr %call88.i, i64 32
-  %out_sg.i62 = getelementptr inbounds i8, ptr %call88.i, i64 48
+  %out_addr.i61 = getelementptr inbounds nuw i8, ptr %call88.i, i64 32
+  %out_sg.i62 = getelementptr inbounds nuw i8, ptr %call88.i, i64 48
   %wide.trip.count.i63 = zext i32 %122 to i64
   br label %for.body.i64
 
@@ -3792,8 +3792,8 @@ for.cond98.preheader.i:                           ; preds = %for.body.i64, %if.e
   br i1 %cmp9999.not.i, label %for.end113.i, label %for.body101.lr.ph.i
 
 for.body101.lr.ph.i:                              ; preds = %for.cond98.preheader.i
-  %in_addr.i72 = getelementptr inbounds i8, ptr %call88.i, i64 24
-  %in_sg.i73 = getelementptr inbounds i8, ptr %call88.i, i64 40
+  %in_addr.i72 = getelementptr inbounds nuw i8, ptr %call88.i, i64 24
+  %in_sg.i73 = getelementptr inbounds nuw i8, ptr %call88.i, i64 40
   %wide.trip.count106.i = zext i32 %123 to i64
   br label %for.body101.i
 
@@ -3834,9 +3834,9 @@ for.end113.i:                                     ; preds = %for.body101.i, %for
   %131 = load i32, ptr %inuse.i23, align 4
   %inc115.i = add i32 %131, 1
   store i32 %inc115.i, ptr %inuse.i23, align 4
-  %in_num116.i = getelementptr inbounds i8, ptr %call88.i, i64 16
+  %in_num116.i = getelementptr inbounds nuw i8, ptr %call88.i, i64 16
   %132 = load i32, ptr %in_num116.i, align 8
-  %out_num117.i = getelementptr inbounds i8, ptr %call88.i, i64 12
+  %out_num117.i = getelementptr inbounds nuw i8, ptr %call88.i, i64 12
   %133 = load i32, ptr %out_num117.i, align 4
   call fastcc void @trace_virtqueue_pop(ptr noundef nonnull %vq, ptr noundef nonnull %call88.i, i32 noundef %132, i32 noundef %133)
   br label %if.then.i.i.i26
@@ -3845,7 +3845,7 @@ if.then.i.i.i26:                                  ; preds = %err_undo_map.i57, %
   %elem.0.i27 = phi ptr [ null, %virtio_queue_empty_rcu.exit.i ], [ null, %if.then5.i25 ], [ null, %if.then23.i ], [ null, %if.then34.i ], [ null, %if.then44.i ], [ null, %err_undo_map.i57 ], [ %call88.i, %for.end113.i ], [ null, %if.then16.i76 ], [ null, %virtqueue_get_head.exit.i ], [ null, %virtio_device_disabled.exit.i.i ], [ null, %if.end.i.i19 ], [ null, %rcu_read_auto_lock.exit.i18 ]
   call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i5) #23
   %call.i.i.i.i.i28 = call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i.i.i29 = getelementptr inbounds i8, ptr %call.i.i.i.i.i28, i64 12
+  %depth.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i28, i64 12
   %134 = load i32, ptr %depth.i.i.i.i.i29, align 4
   %cmp.not.i.i.i.i.i30 = icmp eq i32 %134, 0
   br i1 %cmp.not.i.i.i.i.i30, label %if.else.i.i.i.i86.i, label %if.end.i.i.i.i85.i
@@ -3864,7 +3864,7 @@ while.end.i.i.i.i.i33:                            ; preds = %if.end.i.i.i.i85.i
   store atomic i64 0, ptr %call.i.i.i.i.i28 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i.i34 = getelementptr inbounds i8, ptr %call.i.i.i.i.i28, i64 8
+  %waiting.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i28, i64 8
   %135 = load atomic i8, ptr %waiting.i.i.i.i.i34 monotonic, align 8
   %tobool.i.i.i.i.i35 = trunc i8 %135 to i1
   br i1 %tobool.i.i.i.i.i35, label %while.end21.i.i.i.i.i36, label %virtqueue_split_pop.exit
@@ -3900,15 +3900,15 @@ entry:
   %elem.i4 = alloca %struct.VirtQueueElement, align 8
   %elem.i = alloca %struct.VirtQueueElement, align 8
   %desc.i = alloca %struct.VRingPackedDesc, align 8
-  %vdev1 = getelementptr inbounds i8, ptr %vq, i64 96
+  %vdev1 = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %0 = load ptr, ptr %vdev1, align 8
-  %disabled.i = getelementptr inbounds i8, ptr %0, i64 437
+  %disabled.i = getelementptr inbounds nuw i8, ptr %0, i64 437
   %1 = load i8, ptr %disabled.i, align 1
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %return, label %virtio_device_disabled.exit
 
 virtio_device_disabled.exit:                      ; preds = %entry
-  %broken.i = getelementptr inbounds i8, ptr %0, i64 435
+  %broken.i = getelementptr inbounds nuw i8, ptr %0, i64 435
   %2 = load i8, ptr %broken.i, align 1
   %tobool1.i = trunc i8 %2 to i1
   br i1 %tobool1.i, label %return, label %if.end
@@ -3925,7 +3925,7 @@ if.then4:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %desc.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %elem.i, i8 0, i64 56, i1 false)
   %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
+  %depth.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   %4 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %4, 1
   store i32 %inc.i.i.i, ptr %depth.i.i.i, align 4
@@ -3941,7 +3941,7 @@ while.end.i.i.i:                                  ; preds = %if.then4
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %if.then4
-  %caches.i.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %6 = load atomic i64, ptr %caches.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i = icmp eq i64 %6, 0
@@ -3949,20 +3949,20 @@ rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %i
 
 if.end.i:                                         ; preds = %rcu_read_auto_lock.exit.i
   %7 = inttoptr i64 %6 to ptr
-  %desc3.i = getelementptr inbounds i8, ptr %7, i64 16
+  %desc3.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @virtio_queue_set_notification(ptr noundef nonnull %vq, i32 noundef 0)
-  %inuse.i = getelementptr inbounds i8, ptr %vq, i64 76
+  %inuse.i = getelementptr inbounds nuw i8, ptr %vq, i64 76
   %8 = load i32, ptr %inuse.i, align 4
   %9 = load i32, ptr %vq, align 8
   %cmp26.i = icmp ult i32 %8, %9
   br i1 %cmp26.i, label %while.body.lr.ph.i, label %if.then.i.i.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
-  %last_avail_idx.i = getelementptr inbounds i8, ptr %vq, i64 56
-  %flags.i = getelementptr inbounds i8, ptr %desc.i, i64 14
-  %last_avail_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 58
-  %id.i = getelementptr inbounds i8, ptr %desc.i, i64 12
-  %ndescs.i = getelementptr inbounds i8, ptr %elem.i, i64 8
+  %last_avail_idx.i = getelementptr inbounds nuw i8, ptr %vq, i64 56
+  %flags.i = getelementptr inbounds nuw i8, ptr %desc.i, i64 14
+  %last_avail_wrap_counter.i = getelementptr inbounds nuw i8, ptr %vq, i64 58
+  %id.i = getelementptr inbounds nuw i8, ptr %desc.i, i64 12
+  %ndescs.i = getelementptr inbounds nuw i8, ptr %elem.i, i64 8
   %.pre.i = load i16, ptr %last_avail_idx.i, align 8
   br label %while.body.i
 
@@ -4039,7 +4039,7 @@ if.end39.i:                                       ; preds = %if.then29.i, %while
 if.then.i.i.i:                                    ; preds = %if.end39.i, %while.body.i, %if.end.i, %rcu_read_auto_lock.exit.i
   %retval.0.i = phi i32 [ 0, %rcu_read_auto_lock.exit.i ], [ 0, %if.end.i ], [ %dropped.027.i, %while.body.i ], [ %inc18.i, %if.end39.i ]
   %call.i.i.i.i.i = call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
+  %depth.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 12
   %31 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -4058,7 +4058,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
+  %waiting.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 8
   %32 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %32 to i1
   br i1 %tobool.i.i.i.i.i, label %while.end21.i.i.i.i.i, label %virtqueue_packed_drop_all.exit
@@ -4083,10 +4083,10 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool.not19.i, label %land.rhs.lr.ph.i, label %virtqueue_split_drop_all.exit
 
 land.rhs.lr.ph.i:                                 ; preds = %if.else
-  %inuse.i6 = getelementptr inbounds i8, ptr %vq, i64 76
-  %last_avail_idx.i7 = getelementptr inbounds i8, ptr %vq, i64 56
-  %caches.i.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
-  %notification.i.i = getelementptr inbounds i8, ptr %vq, i64 71
+  %inuse.i6 = getelementptr inbounds nuw i8, ptr %vq, i64 76
+  %last_avail_idx.i7 = getelementptr inbounds nuw i8, ptr %vq, i64 56
+  %caches.i.i.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
+  %notification.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 71
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end10.i, %land.rhs.lr.ph.i
@@ -4113,8 +4113,8 @@ if.end.i.i.i:                                     ; preds = %while.body.i9
   %39 = shl nuw nsw i32 %rem.i.i, 1
   %narrow.i = add nuw nsw i32 %39, 4
   %40 = zext nneg i32 %narrow.i to i64
-  %avail.i.i.i = getelementptr inbounds i8, ptr %38, i64 128
-  %len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 144
+  %avail.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 128
+  %len.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 144
   %41 = load i64, ptr %len.i.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i.i = icmp ugt i64 %41, %40
   %sub.i.i.i.i.i.i = sub nuw i64 %41, %40
@@ -4179,8 +4179,8 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   %conv.i12.i = zext i32 %50 to i64
   %51 = shl nuw nsw i64 %conv.i12.i, 3
   %52 = or disjoint i64 %51, 4
-  %used.i.i = getelementptr inbounds i8, ptr %49, i64 240
-  %len.i.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 256
+  %used.i.i = getelementptr inbounds nuw i8, ptr %49, i64 240
+  %len.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %49, i64 256
   %53 = load i64, ptr %len.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i = icmp ult i64 %52, %53
   %sub.i.i.i.i.i = sub nuw i64 %53, %52
@@ -4232,7 +4232,7 @@ define dso_local noundef ptr @qemu_get_virtqueue_element(ptr nocapture noundef r
 entry:
   %data = alloca %struct.VirtQueueElementOld, align 8
   %call = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef nonnull %data, i64 noundef 49168) #23
-  %in_num = getelementptr inbounds i8, ptr %data, i64 8
+  %in_num = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load i32, ptr %in_num, align 8
   %cmp = icmp ult i32 %0, 1025
   br i1 %cmp, label %if.end, label %if.else
@@ -4242,7 +4242,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %out_num = getelementptr inbounds i8, ptr %data, i64 4
+  %out_num = getelementptr inbounds nuw i8, ptr %data, i64 4
   %1 = load i32, ptr %out_num, align 4
   %cmp3 = icmp ult i32 %1, 1025
   br i1 %cmp3, label %if.end7, label %if.else6
@@ -4255,26 +4255,26 @@ if.end7:                                          ; preds = %if.end
   %call10 = call fastcc ptr @virtqueue_alloc_element(i64 noundef %sz, i32 noundef %1, i32 noundef %0)
   %2 = load i32, ptr %data, align 8
   store i32 %2, ptr %call10, align 8
-  %in_num12 = getelementptr inbounds i8, ptr %call10, i64 16
+  %in_num12 = getelementptr inbounds nuw i8, ptr %call10, i64 16
   %3 = load i32, ptr %in_num12, align 8
   %cmp1333.not = icmp eq i32 %3, 0
   br i1 %cmp1333.not, label %for.cond18.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end7
-  %in_addr = getelementptr inbounds i8, ptr %data, i64 16
-  %in_addr15 = getelementptr inbounds i8, ptr %call10, i64 24
+  %in_addr = getelementptr inbounds nuw i8, ptr %data, i64 16
+  %in_addr15 = getelementptr inbounds nuw i8, ptr %call10, i64 24
   br label %for.body
 
 for.cond18.preheader:                             ; preds = %for.body, %if.end7
   %4 = phi i32 [ 0, %if.end7 ], [ %8, %for.body ]
-  %out_num19 = getelementptr inbounds i8, ptr %call10, i64 12
+  %out_num19 = getelementptr inbounds nuw i8, ptr %call10, i64 12
   %5 = load i32, ptr %out_num19, align 4
   %cmp2035.not = icmp eq i32 %5, 0
   br i1 %cmp2035.not, label %for.cond31.preheader, label %for.body22.lr.ph
 
 for.body22.lr.ph:                                 ; preds = %for.cond18.preheader
-  %out_addr = getelementptr inbounds i8, ptr %data, i64 8208
-  %out_addr25 = getelementptr inbounds i8, ptr %call10, i64 32
+  %out_addr = getelementptr inbounds nuw i8, ptr %data, i64 8208
+  %out_addr25 = getelementptr inbounds nuw i8, ptr %call10, i64 32
   br label %for.body22
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -4301,8 +4301,8 @@ for.cond31.preheader:                             ; preds = %for.cond31.preheade
   br i1 %cmp3337.not, label %for.cond48.preheader, label %for.body35.lr.ph
 
 for.body35.lr.ph:                                 ; preds = %for.cond31.preheader
-  %in_sg = getelementptr inbounds i8, ptr %call10, i64 40
-  %11 = getelementptr inbounds i8, ptr %data, i64 16408
+  %in_sg = getelementptr inbounds nuw i8, ptr %call10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %data, i64 16408
   br label %for.body35
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.body22
@@ -4328,8 +4328,8 @@ for.cond48.preheader:                             ; preds = %for.cond48.preheade
   br i1 %cmp5039.not, label %for.end66, label %for.body52.lr.ph
 
 for.body52.lr.ph:                                 ; preds = %for.cond48.preheader
-  %out_sg = getelementptr inbounds i8, ptr %call10, i64 48
-  %16 = getelementptr inbounds i8, ptr %data, i64 32792
+  %out_sg = getelementptr inbounds nuw i8, ptr %call10, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %data, i64 32792
   br label %for.body52
 
 for.body35:                                       ; preds = %for.body35.lr.ph, %for.body35
@@ -4374,7 +4374,7 @@ for.end66:                                        ; preds = %for.body52, %for.co
   br i1 %tobool.i.i.not, label %if.end69, label %if.then68
 
 if.then68:                                        ; preds = %for.end66
-  %ndescs = getelementptr inbounds i8, ptr %call10, i64 8
+  %ndescs = getelementptr inbounds nuw i8, ptr %call10, i64 8
   %call.i = call i32 @qemu_get_be32(ptr noundef %f) #23
   store i32 %call.i, ptr %ndescs, align 4
   br label %if.end69
@@ -4436,7 +4436,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
   %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %call, i64 noundef range(i64 56, 0) %sz, i32 noundef %in_num, i32 noundef %out_num) #23
   br label %trace_virtqueue_alloc_element.exit
@@ -4448,22 +4448,22 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_virtqueue_alloc_element.exit:               ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   %mul1 = shl nuw nsw i64 %conv, 3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %out_num17 = getelementptr inbounds i8, ptr %call, i64 12
+  %out_num17 = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i32 %out_num, ptr %out_num17, align 4
-  %in_num18 = getelementptr inbounds i8, ptr %call, i64 16
+  %in_num18 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 %in_num, ptr %in_num18, align 8
   %add.ptr = getelementptr i8, ptr %call, i64 %div24
-  %in_addr = getelementptr inbounds i8, ptr %call, i64 24
+  %in_addr = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %add.ptr, ptr %in_addr, align 8
   %9 = getelementptr i8, ptr %call, i64 %mul1
   %add.ptr19 = getelementptr i8, ptr %9, i64 %div24
-  %out_addr = getelementptr inbounds i8, ptr %call, i64 32
+  %out_addr = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %add.ptr19, ptr %out_addr, align 8
   %add.ptr20 = getelementptr i8, ptr %call, i64 %2
-  %in_sg = getelementptr inbounds i8, ptr %call, i64 40
+  %in_sg = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %add.ptr20, ptr %in_sg, align 8
   %add.ptr21 = getelementptr i8, ptr %call, i64 %add12
-  %out_sg = getelementptr inbounds i8, ptr %call, i64 48
+  %out_sg = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %add.ptr21, ptr %out_sg, align 8
   ret ptr %call
 }
@@ -4472,25 +4472,25 @@ trace_virtqueue_alloc_element.exit:               ; preds = %if.end, %land.lhs.t
 define dso_local void @qemu_put_virtqueue_element(ptr nocapture noundef readonly %vdev, ptr noundef %f, ptr nocapture noundef readonly %elem) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.VirtQueueElementOld, align 8
-  %0 = getelementptr inbounds i8, ptr %data, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %data, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49168) %0, i8 0, i64 49160, i1 false)
   %1 = load i32, ptr %elem, align 8
   store i32 %1, ptr %data, align 8
-  %in_num = getelementptr inbounds i8, ptr %elem, i64 16
+  %in_num = getelementptr inbounds nuw i8, ptr %elem, i64 16
   %2 = load i32, ptr %in_num, align 8
-  %in_num2 = getelementptr inbounds i8, ptr %data, i64 8
+  %in_num2 = getelementptr inbounds nuw i8, ptr %data, i64 8
   store i32 %2, ptr %in_num2, align 8
-  %out_num = getelementptr inbounds i8, ptr %elem, i64 12
+  %out_num = getelementptr inbounds nuw i8, ptr %elem, i64 12
   %3 = load i32, ptr %out_num, align 4
-  %out_num3 = getelementptr inbounds i8, ptr %data, i64 4
+  %out_num3 = getelementptr inbounds nuw i8, ptr %data, i64 4
   store i32 %3, ptr %out_num3, align 4
   %cmp28.not = icmp eq i32 %2, 0
   br i1 %cmp28.not, label %for.cond8.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %in_addr = getelementptr inbounds i8, ptr %elem, i64 24
+  %in_addr = getelementptr inbounds nuw i8, ptr %elem, i64 24
   %4 = load ptr, ptr %in_addr, align 8
-  %in_addr5 = getelementptr inbounds i8, ptr %data, i64 16
+  %in_addr5 = getelementptr inbounds nuw i8, ptr %data, i64 16
   br label %for.body
 
 for.cond8.preheader:                              ; preds = %for.body, %entry
@@ -4498,9 +4498,9 @@ for.cond8.preheader:                              ; preds = %for.body, %entry
   br i1 %cmp1030.not, label %for.cond20.preheader, label %for.body11.lr.ph
 
 for.body11.lr.ph:                                 ; preds = %for.cond8.preheader
-  %out_addr = getelementptr inbounds i8, ptr %elem, i64 32
+  %out_addr = getelementptr inbounds nuw i8, ptr %elem, i64 32
   %5 = load ptr, ptr %out_addr, align 8
-  %out_addr14 = getelementptr inbounds i8, ptr %data, i64 8208
+  %out_addr14 = getelementptr inbounds nuw i8, ptr %data, i64 8208
   br label %for.body11
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -4518,9 +4518,9 @@ for.cond20.preheader:                             ; preds = %for.body11, %for.co
   br i1 %cmp28.not, label %for.cond33.preheader, label %for.body23.lr.ph
 
 for.body23.lr.ph:                                 ; preds = %for.cond20.preheader
-  %in_sg = getelementptr inbounds i8, ptr %elem, i64 40
+  %in_sg = getelementptr inbounds nuw i8, ptr %elem, i64 40
   %7 = load ptr, ptr %in_sg, align 8
-  %8 = getelementptr inbounds i8, ptr %data, i64 16408
+  %8 = getelementptr inbounds nuw i8, ptr %data, i64 16408
   br label %for.body23
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.body11
@@ -4538,9 +4538,9 @@ for.cond33.preheader:                             ; preds = %for.body23, %for.co
   br i1 %cmp1030.not, label %for.end46, label %for.body36.lr.ph
 
 for.body36.lr.ph:                                 ; preds = %for.cond33.preheader
-  %out_sg = getelementptr inbounds i8, ptr %elem, i64 48
+  %out_sg = getelementptr inbounds nuw i8, ptr %elem, i64 48
   %10 = load ptr, ptr %out_sg, align 8
-  %11 = getelementptr inbounds i8, ptr %data, i64 32792
+  %11 = getelementptr inbounds nuw i8, ptr %data, i64 32792
   br label %for.body36
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.body23
@@ -4575,7 +4575,7 @@ for.end46:                                        ; preds = %for.body36, %for.co
   br i1 %tobool.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end46
-  %ndescs = getelementptr inbounds i8, ptr %elem, i64 8
+  %ndescs = getelementptr inbounds nuw i8, ptr %elem, i64 8
   %ndescs.val = load i32, ptr %ndescs, align 4
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %ndescs.val) #23
   br label %if.end
@@ -4597,25 +4597,25 @@ entry:
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i4.i = tail call ptr @object_get_class(ptr noundef %call1.i) #23
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
-  %disabled.i.i = getelementptr inbounds i8, ptr %vdev, i64 437
+  %disabled.i.i = getelementptr inbounds nuw i8, ptr %vdev, i64 437
   %0 = load i8, ptr %disabled.i.i, align 1
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %virtio_notify_vector.exit, label %virtio_device_disabled.exit.i
 
 virtio_device_disabled.exit.i:                    ; preds = %entry
-  %broken.i.i = getelementptr inbounds i8, ptr %vdev, i64 435
+  %broken.i.i = getelementptr inbounds nuw i8, ptr %vdev, i64 435
   %1 = load i8, ptr %broken.i.i, align 1
   %tobool1.i.i = trunc i8 %1 to i1
   br i1 %tobool1.i.i, label %virtio_notify_vector.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %virtio_device_disabled.exit.i
-  %notify.i = getelementptr inbounds i8, ptr %call1.i.i, i64 160
+  %notify.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 160
   %2 = load ptr, ptr %notify.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %virtio_notify_vector.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %parent.i = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %parent.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   %3 = load ptr, ptr %parent.i, align 8
   tail call void %2(ptr noundef %3, i16 noundef zeroext -1) #23
   br label %virtio_notify_vector.exit
@@ -4653,7 +4653,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
   %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %val to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %vdev, i32 noundef %conv11.i.i) #23
@@ -4673,7 +4673,7 @@ trace_virtio_set_status.exit:                     ; preds = %entry, %land.lhs.tr
   br i1 %tobool.i.i16.not, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %trace_virtio_set_status.exit
-  %status = getelementptr inbounds i8, ptr %vdev, i64 168
+  %status = getelementptr inbounds nuw i8, ptr %vdev, i64 168
   %7 = load i8, ptr %status, align 8
   %8 = and i8 %7, 8
   %tobool.not = icmp ne i8 %8, 0
@@ -4698,7 +4698,7 @@ land.lhs.true.i:                                  ; preds = %if.then5
   br i1 %tobool.i.i7.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.then5
-  %validate_features.i = getelementptr inbounds i8, ptr %call1.i.i, i64 216
+  %validate_features.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 216
   %11 = load ptr, ptr %validate_features.i, align 8
   %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %if.end10, label %virtio_validate_features.exit
@@ -4709,7 +4709,7 @@ virtio_validate_features.exit:                    ; preds = %if.end.i
   br i1 %tobool7.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end.i, %if.then, %virtio_validate_features.exit, %trace_virtio_set_status.exit
-  %status11 = getelementptr inbounds i8, ptr %vdev, i64 168
+  %status11 = getelementptr inbounds nuw i8, ptr %vdev, i64 168
   %12 = load i8, ptr %status11, align 8
   %13 = and i8 %12, 4
   %14 = and i8 %val, 4
@@ -4722,23 +4722,23 @@ if.then17:                                        ; preds = %if.end10
   br i1 %tobool20.not, label %if.end.i18, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then17
-  %start_on_kick.i = getelementptr inbounds i8, ptr %vdev, i64 440
+  %start_on_kick.i = getelementptr inbounds nuw i8, ptr %vdev, i64 440
   store i8 0, ptr %start_on_kick.i, align 8
   br label %if.end.i18
 
 if.end.i18:                                       ; preds = %if.then.i, %if.then17
-  %use_started.i = getelementptr inbounds i8, ptr %vdev, i64 438
+  %use_started.i = getelementptr inbounds nuw i8, ptr %vdev, i64 438
   %15 = load i8, ptr %use_started.i, align 2
   %tobool1.i = trunc i8 %15 to i1
   br i1 %tobool1.i, label %if.then2.i, label %if.end21
 
 if.then2.i:                                       ; preds = %if.end.i18
-  %started4.i = getelementptr inbounds i8, ptr %vdev, i64 439
+  %started4.i = getelementptr inbounds nuw i8, ptr %vdev, i64 439
   store i8 %.lobit, ptr %started4.i, align 1
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then2.i, %if.end.i18, %if.end10
-  %set_status = getelementptr inbounds i8, ptr %call1.i, i64 248
+  %set_status = getelementptr inbounds nuw i8, ptr %call1.i, i64 248
   %16 = load ptr, ptr %set_status, align 8
   %tobool22.not = icmp eq ptr %16, null
   br i1 %tobool22.not, label %if.end25, label %if.then23
@@ -4761,7 +4761,7 @@ define dso_local void @virtio_queue_reset(ptr noundef %vdev, i32 noundef %queue_
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
-  %queue_reset = getelementptr inbounds i8, ptr %call1.i, i64 256
+  %queue_reset = getelementptr inbounds nuw i8, ptr %call1.i, i64 256
   %0 = load ptr, ptr %queue_reset, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4778,7 +4778,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @__virtio_queue_reset(ptr nocapture noundef readonly %vdev, i32 noundef %i) unnamed_addr #0 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = zext i32 %i to i64
   %desc = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom, i32 0, i32 3
@@ -4814,27 +4814,27 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %virtio_queue_set_vector.exit
 
 if.then.i:                                        ; preds = %entry
-  %vector_queues.i = getelementptr inbounds i8, ptr %vdev, i64 480
+  %vector_queues.i = getelementptr inbounds nuw i8, ptr %vdev, i64 480
   %10 = load ptr, ptr %vector_queues.i, align 8
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %if.end25.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %vector5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 80
+  %vector5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 80
   %11 = load i16, ptr %vector5.i, align 8
   %cmp6.not.i = icmp eq i16 %11, -1
   br i1 %cmp6.not.i, label %if.end25.i, label %do.body.i
 
 do.body.i:                                        ; preds = %land.lhs.true.i
-  %node.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 136
+  %node.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 136
   %12 = load ptr, ptr %node.i, align 8
   %cmp9.not.i = icmp eq ptr %12, null
-  %le_prev20.phi.trans.insert.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 144
+  %le_prev20.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 144
   %.pre28.i = load ptr, ptr %le_prev20.phi.trans.insert.i, align 8
   br i1 %cmp9.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %do.body.i
-  %le_prev16.i = getelementptr inbounds i8, ptr %12, i64 144
+  %le_prev16.i = getelementptr inbounds nuw i8, ptr %12, i64 144
   store ptr %.pre28.i, ptr %le_prev16.i, align 8
   %.pre.i = load ptr, ptr %node.i, align 8
   br label %if.end.i
@@ -4865,7 +4865,7 @@ virtio_queue_set_vector.exit:                     ; preds = %entry, %if.end25.i
   store i8 1, ptr %notification, align 1
   %18 = load ptr, ptr %vq, align 8
   %arrayidx38 = getelementptr %struct.VirtQueue, ptr %18, i64 %idxprom
-  %num_default = getelementptr inbounds i8, ptr %arrayidx38, i64 4
+  %num_default = getelementptr inbounds nuw i8, ptr %arrayidx38, i64 4
   %19 = load i32, ptr %num_default, align 4
   store i32 %19, ptr %arrayidx38, align 8
   %20 = load ptr, ptr %vq, align 8
@@ -4892,7 +4892,7 @@ define dso_local void @virtio_queue_enable(ptr noundef %vdev, i32 noundef %queue
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
-  %queue_enable = getelementptr inbounds i8, ptr %call1.i, i64 264
+  %queue_enable = getelementptr inbounds nuw i8, ptr %call1.i, i64 264
   %0 = load ptr, ptr %queue_enable, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4927,15 +4927,15 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %call.i26.sink = phi i1 [ %call.i26, %if.else ], [ %call.i25, %if.then ]
   %conv4 = select i1 %call.i26.sink, i8 2, i8 1
-  %2 = getelementptr inbounds i8, ptr %opaque, i64 464
+  %2 = getelementptr inbounds nuw i8, ptr %opaque, i64 464
   store i8 %conv4, ptr %2, align 8
-  %vhost_started = getelementptr inbounds i8, ptr %opaque, i64 442
+  %vhost_started = getelementptr inbounds nuw i8, ptr %opaque, i64 442
   %3 = load i8, ptr %vhost_started, align 2
   %tobool6 = trunc i8 %3 to i1
   br i1 %tobool6, label %land.lhs.true, label %if.end13
 
 land.lhs.true:                                    ; preds = %if.end
-  %get_vhost = getelementptr inbounds i8, ptr %call1.i, i64 352
+  %get_vhost = getelementptr inbounds nuw i8, ptr %call1.i, i64 352
   %4 = load ptr, ptr %get_vhost, align 8
   %tobool8.not = icmp eq ptr %4, null
   br i1 %tobool8.not, label %if.end13, label %if.then9
@@ -4946,7 +4946,7 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then9, %land.lhs.true, %if.end
-  %reset = getelementptr inbounds i8, ptr %call1.i, i64 240
+  %reset = getelementptr inbounds nuw i8, ptr %call1.i, i64 240
   %5 = load ptr, ptr %reset, align 8
   %tobool14.not = icmp eq ptr %5, null
   br i1 %tobool14.not, label %if.end17, label %if.then15
@@ -4956,23 +4956,23 @@ if.then15:                                        ; preds = %if.end13
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.end13
-  %start_on_kick = getelementptr inbounds i8, ptr %opaque, i64 440
+  %start_on_kick = getelementptr inbounds nuw i8, ptr %opaque, i64 440
   store i8 0, ptr %start_on_kick, align 8
-  %started = getelementptr inbounds i8, ptr %opaque, i64 439
+  %started = getelementptr inbounds nuw i8, ptr %opaque, i64 439
   store i8 0, ptr %started, align 1
-  %broken = getelementptr inbounds i8, ptr %opaque, i64 435
+  %broken = getelementptr inbounds nuw i8, ptr %opaque, i64 435
   store i8 0, ptr %broken, align 1
-  %guest_features = getelementptr inbounds i8, ptr %opaque, i64 184
+  %guest_features = getelementptr inbounds nuw i8, ptr %opaque, i64 184
   store i64 0, ptr %guest_features, align 8
-  %queue_sel = getelementptr inbounds i8, ptr %opaque, i64 170
+  %queue_sel = getelementptr inbounds nuw i8, ptr %opaque, i64 170
   store i16 0, ptr %queue_sel, align 2
-  %status = getelementptr inbounds i8, ptr %opaque, i64 168
+  %status = getelementptr inbounds nuw i8, ptr %opaque, i64 168
   store i8 0, ptr %status, align 8
-  %disabled = getelementptr inbounds i8, ptr %opaque, i64 437
+  %disabled = getelementptr inbounds nuw i8, ptr %opaque, i64 437
   store i8 0, ptr %disabled, align 1
-  %isr = getelementptr inbounds i8, ptr %opaque, i64 169
+  %isr = getelementptr inbounds nuw i8, ptr %opaque, i64 169
   store atomic i8 0, ptr %isr monotonic, align 1
-  %config_vector = getelementptr inbounds i8, ptr %opaque, i64 216
+  %config_vector = getelementptr inbounds nuw i8, ptr %opaque, i64 216
   store i16 -1, ptr %config_vector, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i28 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
@@ -4988,13 +4988,13 @@ virtio_device_disabled.exit.i:                    ; preds = %if.end17
   br i1 %tobool1.i.i, label %for.body.preheader, label %if.end.i
 
 if.end.i:                                         ; preds = %virtio_device_disabled.exit.i
-  %notify.i = getelementptr inbounds i8, ptr %call1.i.i, i64 160
+  %notify.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 160
   %8 = load ptr, ptr %notify.i, align 8
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %for.body.preheader, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %parent.i = getelementptr inbounds i8, ptr %call1.i28, i64 40
+  %parent.i = getelementptr inbounds nuw i8, ptr %call1.i28, i64 40
   %9 = load ptr, ptr %parent.i, align 8
   tail call void %8(ptr noundef %9, i16 noundef zeroext -1) #23
   br label %for.body.preheader
@@ -5021,7 +5021,7 @@ declare i32 @vhost_reset_device(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_queue_set_addr(ptr noundef %vdev, i32 noundef %n, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom
@@ -5030,7 +5030,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %desc = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %desc = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   store i64 %addr, ptr %desc, align 8
   %2 = load ptr, ptr %vq, align 8
   %arrayidx.i = getelementptr %struct.VirtQueue, ptr %2, i64 %idxprom
@@ -5039,13 +5039,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %desc.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %desc.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %4 = load i64, ptr %desc.i, align 8
   %tobool2.not.i = icmp eq i64 %4, 0
   br i1 %tobool2.not.i, label %return, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %align.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %align.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %5 = load i32, ptr %align.i, align 8
   %tobool4.not.i = icmp eq i32 %5, 0
   br i1 %tobool4.not.i, label %return, label %if.end.i
@@ -5054,7 +5054,7 @@ if.end.i:                                         ; preds = %lor.lhs.false3.i
   %conv.i = zext i32 %3 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 4
   %add.i = add i64 %4, %mul.i
-  %avail.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %avail.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   store i64 %add.i, ptr %avail.i, align 8
   %6 = shl nuw nsw i64 %conv.i, 1
   %conv12.i = zext i32 %5 to i64
@@ -5063,7 +5063,7 @@ if.end.i:                                         ; preds = %lor.lhs.false3.i
   %sub.i.i = add i64 %add.i.i, %conv12.i
   %7 = urem i64 %sub.i.i, %conv12.i
   %mul.i.i = sub nuw i64 %sub.i.i, %7
-  %used.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %used.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   store i64 %mul.i.i, ptr %used.i, align 8
   tail call void @virtio_init_region_cache(ptr noundef nonnull %vdev, i32 noundef %n)
   br label %return
@@ -5075,7 +5075,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @virtio_queue_get_addr(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %desc = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom, i32 0, i32 3
@@ -5086,7 +5086,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_queue_set_rings(ptr noundef %vdev, i32 noundef %n, i64 noundef %desc, i64 noundef %avail, i64 noundef %used) local_unnamed_addr #0 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom
@@ -5095,7 +5095,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %desc5 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %desc5 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   store i64 %desc, ptr %desc5, align 8
   %2 = load ptr, ptr %vq, align 8
   %avail10 = getelementptr %struct.VirtQueue, ptr %2, i64 %idxprom, i32 0, i32 4
@@ -5114,7 +5114,7 @@ return:                                           ; preds = %entry, %if.end
 define dso_local void @virtio_queue_set_num(ptr nocapture noundef readonly %vdev, i32 noundef %n, i32 noundef %num) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne i32 %num, 0
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom
@@ -5136,7 +5136,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @virtio_vector_first_queue(ptr nocapture noundef readonly %vdev, i16 noundef zeroext %vector) local_unnamed_addr #2 {
 entry:
-  %vector_queues = getelementptr inbounds i8, ptr %vdev, i64 480
+  %vector_queues = getelementptr inbounds nuw i8, ptr %vdev, i64 480
   %0 = load ptr, ptr %vector_queues, align 8
   %idxprom = zext i16 %vector to i64
   %arrayidx = getelementptr %struct.anon.2, ptr %0, i64 %idxprom
@@ -5147,7 +5147,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @virtio_vector_next_queue(ptr nocapture noundef readonly %vq) local_unnamed_addr #4 {
 entry:
-  %node = getelementptr inbounds i8, ptr %vq, i64 136
+  %node = getelementptr inbounds nuw i8, ptr %vq, i64 136
   %0 = load ptr, ptr %node, align 8
   ret ptr %0
 }
@@ -5155,7 +5155,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @virtio_queue_get_num(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom
@@ -5166,7 +5166,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @virtio_queue_get_max_num(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %num_default = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom, i32 0, i32 1
@@ -5177,7 +5177,7 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @virtio_get_num_queues(ptr nocapture noundef readonly %vdev) local_unnamed_addr #10 {
 entry:
-  %vq.i = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq.i = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq.i, align 8
   br label %for.body
 
@@ -5220,7 +5220,7 @@ if.then:                                          ; preds = %entry
   br label %if.end9
 
 if.end:                                           ; preds = %entry
-  %has_variable_vring_alignment = getelementptr inbounds i8, ptr %call1.i, i64 320
+  %has_variable_vring_alignment = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
   %1 = load i8, ptr %has_variable_vring_alignment, align 8
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.end5, label %if.else
@@ -5234,7 +5234,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %2 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %align8 = getelementptr %struct.VirtQueue, ptr %2, i64 %idxprom, i32 0, i32 2
@@ -5246,13 +5246,13 @@ if.then7:                                         ; preds = %if.end5
   br i1 %tobool.not.i, label %if.end9, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then7
-  %desc.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %desc.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %5 = load i64, ptr %desc.i, align 8
   %tobool2.not.i = icmp eq i64 %5, 0
   br i1 %tobool2.not.i, label %if.end9, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %align.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %align.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %6 = load i32, ptr %align.i, align 8
   %tobool4.not.i = icmp eq i32 %6, 0
   br i1 %tobool4.not.i, label %if.end9, label %if.end.i
@@ -5261,7 +5261,7 @@ if.end.i:                                         ; preds = %lor.lhs.false3.i
   %conv.i = zext i32 %4 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 4
   %add.i = add i64 %5, %mul.i
-  %avail.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %avail.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   store i64 %add.i, ptr %avail.i, align 8
   %7 = shl nuw nsw i64 %conv.i, 1
   %conv12.i = zext i32 %6 to i64
@@ -5270,7 +5270,7 @@ if.end.i:                                         ; preds = %lor.lhs.false3.i
   %sub.i.i = add i64 %add.i.i, %conv12.i
   %8 = urem i64 %sub.i.i, %conv12.i
   %mul.i.i = sub nuw i64 %sub.i.i, %8
-  %used.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %used.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   store i64 %mul.i.i, ptr %used.i, align 8
   tail call void @virtio_init_region_cache(ptr noundef nonnull %vdev, i32 noundef %n)
   br label %if.end9
@@ -5287,17 +5287,17 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 define dso_local void @virtio_queue_notify(ptr noundef %vdev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vq1 = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq1 = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq1, align 8
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom
-  %desc = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %desc = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %1 = load i64, ptr %desc, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.end22, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %broken = getelementptr inbounds i8, ptr %vdev, i64 435
+  %broken = getelementptr inbounds nuw i8, ptr %vdev, i64 435
   %2 = load i8, ptr %broken, align 1
   %tobool2 = trunc i8 %2 to i1
   br i1 %tobool2, label %if.end22, label %if.end
@@ -5326,7 +5326,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
   %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %vdev, i32 noundef %n, ptr noundef %arrayidx) #23
   br label %trace_virtio_queue_notify.exit
@@ -5337,38 +5337,38 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_virtio_queue_notify.exit:                   ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %host_notifier_enabled = getelementptr inbounds i8, ptr %arrayidx, i64 128
+  %host_notifier_enabled = getelementptr inbounds nuw i8, ptr %arrayidx, i64 128
   %9 = load i8, ptr %host_notifier_enabled, align 8
   %tobool7 = trunc i8 %9 to i1
   br i1 %tobool7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %trace_virtio_queue_notify.exit
-  %host_notifier = getelementptr inbounds i8, ptr %arrayidx, i64 116
+  %host_notifier = getelementptr inbounds nuw i8, ptr %arrayidx, i64 116
   %call = tail call i32 @event_notifier_set(ptr noundef nonnull %host_notifier) #23
   br label %if.end22
 
 if.else:                                          ; preds = %trace_virtio_queue_notify.exit
-  %handle_output = getelementptr inbounds i8, ptr %arrayidx, i64 88
+  %handle_output = getelementptr inbounds nuw i8, ptr %arrayidx, i64 88
   %10 = load ptr, ptr %handle_output, align 8
   %tobool9.not = icmp eq ptr %10, null
   br i1 %tobool9.not, label %if.end22, label %if.then10
 
 if.then10:                                        ; preds = %if.else
   tail call void %10(ptr noundef nonnull %vdev, ptr noundef %arrayidx) #23
-  %start_on_kick = getelementptr inbounds i8, ptr %vdev, i64 440
+  %start_on_kick = getelementptr inbounds nuw i8, ptr %vdev, i64 440
   %11 = load i8, ptr %start_on_kick, align 8
   %tobool12 = trunc i8 %11 to i1
   br i1 %tobool12, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %if.then10
   store i8 0, ptr %start_on_kick, align 8
-  %use_started.i = getelementptr inbounds i8, ptr %vdev, i64 438
+  %use_started.i = getelementptr inbounds nuw i8, ptr %vdev, i64 438
   %12 = load i8, ptr %use_started.i, align 2
   %tobool1.i = trunc i8 %12 to i1
   br i1 %tobool1.i, label %if.then2.i, label %if.end22
 
 if.then2.i:                                       ; preds = %if.then19
-  %started4.i = getelementptr inbounds i8, ptr %vdev, i64 439
+  %started4.i = getelementptr inbounds nuw i8, ptr %vdev, i64 439
   store i8 1, ptr %started4.i, align 1
   br label %if.end22
 
@@ -5385,7 +5385,7 @@ entry:
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %vector = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom, i32 13
@@ -5400,7 +5400,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @virtio_queue_set_vector(ptr nocapture noundef readonly %vdev, i32 noundef %n, i16 noundef zeroext %vector) local_unnamed_addr #9 {
 entry:
-  %vq1 = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq1 = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq1, align 8
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom
@@ -5408,27 +5408,27 @@ entry:
   br i1 %cmp, label %if.then, label %if.end67
 
 if.then:                                          ; preds = %entry
-  %vector_queues = getelementptr inbounds i8, ptr %vdev, i64 480
+  %vector_queues = getelementptr inbounds nuw i8, ptr %vdev, i64 480
   %1 = load ptr, ptr %vector_queues, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end25, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %vector5 = getelementptr inbounds i8, ptr %arrayidx, i64 80
+  %vector5 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 80
   %2 = load i16, ptr %vector5, align 8
   %cmp6.not = icmp eq i16 %2, -1
   br i1 %cmp6.not, label %if.end25, label %do.body
 
 do.body:                                          ; preds = %land.lhs.true
-  %node = getelementptr inbounds i8, ptr %arrayidx, i64 136
+  %node = getelementptr inbounds nuw i8, ptr %arrayidx, i64 136
   %3 = load ptr, ptr %node, align 8
   %cmp9.not = icmp eq ptr %3, null
-  %le_prev20.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx, i64 144
+  %le_prev20.phi.trans.insert = getelementptr inbounds nuw i8, ptr %arrayidx, i64 144
   %.pre28 = load ptr, ptr %le_prev20.phi.trans.insert, align 8
   br i1 %cmp9.not, label %if.end, label %if.then11
 
 if.then11:                                        ; preds = %do.body
-  %le_prev16 = getelementptr inbounds i8, ptr %3, i64 144
+  %le_prev16 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr %.pre28, ptr %le_prev16, align 8
   %.pre = load ptr, ptr %node, align 8
   br label %if.end
@@ -5454,7 +5454,7 @@ do.body37:                                        ; preds = %if.end25
   %idxprom39 = zext i16 %vector to i64
   %arrayidx40 = getelementptr %struct.anon.2, ptr %6, i64 %idxprom39
   %7 = load ptr, ptr %arrayidx40, align 8
-  %node41 = getelementptr inbounds i8, ptr %arrayidx, i64 136
+  %node41 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 136
   store ptr %7, ptr %node41, align 8
   %cmp43.not = icmp eq ptr %7, null
   br i1 %cmp43.not, label %if.end54, label %if.then45
@@ -5463,7 +5463,7 @@ if.then45:                                        ; preds = %do.body37
   %8 = load ptr, ptr %vector_queues, align 8
   %arrayidx50 = getelementptr %struct.anon.2, ptr %8, i64 %idxprom39
   %9 = load ptr, ptr %arrayidx50, align 8
-  %le_prev53 = getelementptr inbounds i8, ptr %9, i64 144
+  %le_prev53 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store ptr %node41, ptr %le_prev53, align 8
   br label %if.end54
 
@@ -5473,7 +5473,7 @@ if.end54:                                         ; preds = %if.then45, %do.body
   store ptr %arrayidx, ptr %arrayidx57, align 8
   %11 = load ptr, ptr %vector_queues, align 8
   %arrayidx61 = getelementptr %struct.anon.2, ptr %11, i64 %idxprom39
-  %le_prev64 = getelementptr inbounds i8, ptr %arrayidx, i64 144
+  %le_prev64 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 144
   store ptr %arrayidx61, ptr %le_prev64, align 8
   br label %if.end67
 
@@ -5484,7 +5484,7 @@ if.end67:                                         ; preds = %if.end25, %if.end54
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @virtio_add_queue(ptr nocapture noundef readonly %vdev, i32 noundef %queue_size, ptr noundef %handle_output) local_unnamed_addr #0 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   br label %for.body
 
@@ -5540,15 +5540,15 @@ declare void @abort() local_unnamed_addr #11
 define dso_local void @virtio_delete_queue(ptr nocapture noundef initializes((0, 8), (88, 96)) %vq) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %vq, align 8
-  %num_default = getelementptr inbounds i8, ptr %vq, i64 4
+  %num_default = getelementptr inbounds nuw i8, ptr %vq, i64 4
   store i32 0, ptr %num_default, align 4
-  %handle_output = getelementptr inbounds i8, ptr %vq, i64 88
+  %handle_output = getelementptr inbounds nuw i8, ptr %vq, i64 88
   store ptr null, ptr %handle_output, align 8
-  %used_elems = getelementptr inbounds i8, ptr %vq, i64 48
+  %used_elems = getelementptr inbounds nuw i8, ptr %vq, i64 48
   %0 = load ptr, ptr %used_elems, align 8
   tail call void @g_free(ptr noundef %0) #23
   store ptr null, ptr %used_elems, align 8
-  %caches1.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches1.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %1 = load atomic i64, ptr %caches1.i monotonic, align 8
   store atomic i64 0, ptr %caches1.i release, align 8
   %tobool.not.i = icmp eq i64 %1, 0
@@ -5574,20 +5574,20 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = zext nneg i32 %n to i64
   %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom
   store i32 0, ptr %arrayidx, align 8
-  %num_default.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %num_default.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   store i32 0, ptr %num_default.i, align 4
-  %handle_output.i = getelementptr inbounds i8, ptr %arrayidx, i64 88
+  %handle_output.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 88
   store ptr null, ptr %handle_output.i, align 8
-  %used_elems.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %used_elems.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   %1 = load ptr, ptr %used_elems.i, align 8
   tail call void @g_free(ptr noundef %1) #23
   store ptr null, ptr %used_elems.i, align 8
-  %caches1.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %caches1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   %2 = load atomic i64, ptr %caches1.i.i monotonic, align 8
   store atomic i64 0, ptr %caches1.i.i release, align 8
   %tobool.not.i.i = icmp eq i64 %2, 0
@@ -5607,7 +5607,7 @@ define dso_local void @virtio_notify_irqfd(ptr noundef %vdev, ptr noundef %vq) l
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -5625,7 +5625,7 @@ while.end.i.i:                                    ; preds = %entry
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   %call1 = tail call fastcc zeroext i1 @virtio_should_notify(ptr noundef %vdev, ptr noundef %vq)
   %call.i.i5 = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i6 = getelementptr inbounds i8, ptr %call.i.i5, i64 12
+  %depth.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i5, i64 12
   %2 = load i32, ptr %depth.i.i6, align 4
   %cmp.not.i.i7 = icmp eq i32 %2, 0
   br i1 %call1, label %for.inc, label %if.then.i.i
@@ -5647,7 +5647,7 @@ while.end.i.i8:                                   ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i5 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i5, i64 8
+  %waiting.i.i = getelementptr inbounds nuw i8, ptr %call.i.i5, i64 8
   %3 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %while.end21.i.i, label %for.end
@@ -5674,7 +5674,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i5 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i5, i64 8
+  %waiting.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i5, i64 8
   %4 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %return
@@ -5708,7 +5708,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i10
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
   %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %vdev, ptr noundef %vq) #23
   br label %trace_virtio_notify_irqfd.exit
@@ -5719,9 +5719,9 @@ if.else.i.i11:                                    ; preds = %if.then.i.i10
 
 trace_virtio_notify_irqfd.exit:                   ; preds = %for.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vdev2 = getelementptr inbounds i8, ptr %vq, i64 96
+  %vdev2 = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %11 = load ptr, ptr %vdev2, align 8
-  %isr.i = getelementptr inbounds i8, ptr %11, i64 169
+  %isr.i = getelementptr inbounds nuw i8, ptr %11, i64 169
   %12 = load atomic i8, ptr %isr.i monotonic, align 1
   %13 = and i8 %12, 1
   %cmp.not.i.not = icmp eq i8 %13, 0
@@ -5732,7 +5732,7 @@ if.then.i:                                        ; preds = %trace_virtio_notify
   br label %virtio_set_isr.exit
 
 virtio_set_isr.exit:                              ; preds = %trace_virtio_notify_irqfd.exit, %if.then.i
-  %guest_notifier = getelementptr inbounds i8, ptr %vq, i64 104
+  %guest_notifier = getelementptr inbounds nuw i8, ptr %vq, i64 104
   tail call void @defer_call(ptr noundef nonnull @virtio_notify_irqfd_deferred_fn, ptr noundef nonnull %guest_notifier) #23
   br label %return
 
@@ -5750,7 +5750,7 @@ entry:
   br i1 %tobool.i.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %caches.i.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %1 = load atomic i64, ptr %caches.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i = icmp eq i64 %1, 0
@@ -5758,8 +5758,8 @@ if.then:                                          ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then
   %2 = inttoptr i64 %1 to ptr
-  %avail.i = getelementptr inbounds i8, ptr %2, i64 128
-  %len.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 144
+  %avail.i = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %len.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 144
   %3 = load i64, ptr %len.i.i.i.i.i, align 16
   %switch.i.i = icmp ult i64 %3, 4
   br i1 %switch.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -5809,12 +5809,12 @@ if.else8.i.i.i18.i.i:                             ; preds = %if.end.i.i.i12.i.i
 
 vring_packed_event_read.exit.i:                   ; preds = %if.else8.i.i.i18.i.i, %if.then5.i.i.i14.i.i
   %retval.0.i.i.i17.i.i = phi i16 [ %add.ptr.val.i.i.i16.i.i, %if.then5.i.i.i14.i.i ], [ %call10.i.i.i19.i.i, %if.else8.i.i.i18.i.i ]
-  %signalled_used.i = getelementptr inbounds i8, ptr %vq, i64 68
+  %signalled_used.i = getelementptr inbounds nuw i8, ptr %vq, i64 68
   %7 = load i16, ptr %signalled_used.i, align 4
-  %used_idx.i = getelementptr inbounds i8, ptr %vq, i64 64
+  %used_idx.i = getelementptr inbounds nuw i8, ptr %vq, i64 64
   %8 = load i16, ptr %used_idx.i, align 8
   store i16 %8, ptr %signalled_used.i, align 4
-  %signalled_used_valid.i = getelementptr inbounds i8, ptr %vq, i64 70
+  %signalled_used_valid.i = getelementptr inbounds nuw i8, ptr %vq, i64 70
   %9 = load i8, ptr %signalled_used_valid.i, align 2
   store i8 1, ptr %signalled_used_valid.i, align 2
   switch i16 %retval.0.i.i.i.i.i, label %if.end12.i [
@@ -5830,7 +5830,7 @@ if.end12.i:                                       ; preds = %vring_packed_event_
   br i1 %tobool2.i, label %lor.rhs.i, label %return
 
 lor.rhs.i:                                        ; preds = %if.end12.i
-  %used_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 66
+  %used_wrap_counter.i = getelementptr inbounds nuw i8, ptr %vq, i64 66
   %10 = load i8, ptr %used_wrap_counter.i, align 2
   %conv.i.i = zext i16 %retval.0.i.i.i17.i.i to i32
   %and.i.i4 = and i32 %conv.i.i, 32767
@@ -5863,7 +5863,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.i.i.not.i, label %if.end.i6, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else
-  %inuse.i = getelementptr inbounds i8, ptr %vq, i64 76
+  %inuse.i = getelementptr inbounds nuw i8, ptr %vq, i64 76
   %14 = load i32, ptr %inuse.i, align 4
   %tobool.not.i5 = icmp eq i32 %14, 0
   br i1 %tobool.not.i5, label %land.lhs.true1.i, label %if.end.i6
@@ -5884,7 +5884,7 @@ if.end.i6:                                        ; preds = %land.lhs.true1.if.e
   br i1 %tobool.i.i12.not.i, label %if.then5.i, label %if.end8.i
 
 if.then5.i:                                       ; preds = %if.end.i6
-  %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %15 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i = icmp eq i64 %15, 0
@@ -5892,8 +5892,8 @@ if.then5.i:                                       ; preds = %if.end.i6
 
 if.end.i.i:                                       ; preds = %if.then5.i
   %16 = inttoptr i64 %15 to ptr
-  %avail.i.i = getelementptr inbounds i8, ptr %16, i64 128
-  %len.i.i.i.i.i12 = getelementptr inbounds i8, ptr %16, i64 144
+  %avail.i.i = getelementptr inbounds nuw i8, ptr %16, i64 128
+  %len.i.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %16, i64 144
   %17 = load i64, ptr %len.i.i.i.i.i12, align 16
   %cmp2.i.i.i.i.i = icmp ugt i64 %17, 1
   br i1 %cmp2.i.i.i.i.i, label %if.end.i.i.i.i.i14, label %if.else.i.i.i.i.i13
@@ -5922,20 +5922,20 @@ vring_avail_flags.exit.i:                         ; preds = %if.else8.i.i.i.i.i1
   br label %return
 
 if.end8.i:                                        ; preds = %if.end.i6
-  %signalled_used_valid.i7 = getelementptr inbounds i8, ptr %vq, i64 70
+  %signalled_used_valid.i7 = getelementptr inbounds nuw i8, ptr %vq, i64 70
   %20 = load i8, ptr %signalled_used_valid.i7, align 2
   %tobool9.i = trunc i8 %20 to i1
   store i8 1, ptr %signalled_used_valid.i7, align 2
-  %signalled_used.i8 = getelementptr inbounds i8, ptr %vq, i64 68
+  %signalled_used.i8 = getelementptr inbounds nuw i8, ptr %vq, i64 68
   %21 = load i16, ptr %signalled_used.i8, align 4
-  %used_idx.i9 = getelementptr inbounds i8, ptr %vq, i64 64
+  %used_idx.i9 = getelementptr inbounds nuw i8, ptr %vq, i64 64
   %22 = load i16, ptr %used_idx.i9, align 8
   store i16 %22, ptr %signalled_used.i8, align 4
   br i1 %tobool9.i, label %lor.rhs.i11, label %return
 
 lor.rhs.i11:                                      ; preds = %if.end8.i
   %23 = load i32, ptr %vq, align 8
-  %caches.i.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i.i.i.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %24 = load atomic i64, ptr %caches.i.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i.i = icmp eq i64 %24, 0
@@ -5946,8 +5946,8 @@ if.end.i.i.i:                                     ; preds = %lor.rhs.i11
   %conv.i.i.i = sext i32 %23 to i64
   %26 = shl nsw i64 %conv.i.i.i, 1
   %27 = add nsw i64 %26, 4
-  %avail.i.i.i = getelementptr inbounds i8, ptr %25, i64 128
-  %len.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 144
+  %avail.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 128
+  %len.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 144
   %28 = load i64, ptr %len.i.i.i.i.i.i, align 16
   %cmp.i.i.i.i.i.i = icmp ult i64 %27, %28
   %sub.i.i.i.i.i.i = sub nuw i64 %28, %27
@@ -6018,7 +6018,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
   %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0, ptr noundef %add.ptr) #23
   br label %trace_virtio_notify_irqfd_deferred_fn.exit
@@ -6038,7 +6038,7 @@ define dso_local void @virtio_notify(ptr noundef %vdev, ptr noundef %vq) local_u
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -6056,7 +6056,7 @@ while.end.i.i:                                    ; preds = %entry
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   %call1 = tail call fastcc zeroext i1 @virtio_should_notify(ptr noundef %vdev, ptr noundef %vq)
   %call.i.i4 = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i5 = getelementptr inbounds i8, ptr %call.i.i4, i64 12
+  %depth.i.i5 = getelementptr inbounds nuw i8, ptr %call.i.i4, i64 12
   %2 = load i32, ptr %depth.i.i5, align 4
   %cmp.not.i.i6 = icmp eq i32 %2, 0
   br i1 %call1, label %for.inc, label %if.then.i.i
@@ -6078,7 +6078,7 @@ while.end.i.i7:                                   ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i4 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i4, i64 8
+  %waiting.i.i = getelementptr inbounds nuw i8, ptr %call.i.i4, i64 8
   %3 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %while.end21.i.i, label %for.end
@@ -6105,7 +6105,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i4 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i4, i64 8
+  %waiting.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i4, i64 8
   %4 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %return
@@ -6139,7 +6139,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i9
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
   %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %vdev, ptr noundef %vq) #23
   br label %trace_virtio_notify.exit
@@ -6150,9 +6150,9 @@ if.else.i.i10:                                    ; preds = %if.then.i.i9
 
 trace_virtio_notify.exit:                         ; preds = %for.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vdev.i = getelementptr inbounds i8, ptr %vq, i64 96
+  %vdev.i = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %11 = load ptr, ptr %vdev.i, align 8
-  %isr.i.i = getelementptr inbounds i8, ptr %11, i64 169
+  %isr.i.i = getelementptr inbounds nuw i8, ptr %11, i64 169
   %12 = load atomic i8, ptr %isr.i.i monotonic, align 1
   %13 = and i8 %12, 1
   %cmp.not.i.not.i = icmp eq i8 %13, 0
@@ -6165,31 +6165,31 @@ if.then.i.i13:                                    ; preds = %trace_virtio_notify
 
 virtio_set_isr.exit.i:                            ; preds = %if.then.i.i13, %trace_virtio_notify.exit
   %15 = phi ptr [ %11, %trace_virtio_notify.exit ], [ %.pre.i, %if.then.i.i13 ]
-  %vector.i = getelementptr inbounds i8, ptr %vq, i64 80
+  %vector.i = getelementptr inbounds nuw i8, ptr %vq, i64 80
   %16 = load i16, ptr %vector.i, align 8
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %15, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #23
   %call.i4.i.i = tail call ptr @object_get_class(ptr noundef %call1.i.i) #23
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
-  %disabled.i.i.i = getelementptr inbounds i8, ptr %15, i64 437
+  %disabled.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 437
   %17 = load i8, ptr %disabled.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %17 to i1
   br i1 %tobool.i.i.i, label %return, label %virtio_device_disabled.exit.i.i
 
 virtio_device_disabled.exit.i.i:                  ; preds = %virtio_set_isr.exit.i
-  %broken.i.i.i = getelementptr inbounds i8, ptr %15, i64 435
+  %broken.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 435
   %18 = load i8, ptr %broken.i.i.i, align 1
   %tobool1.i.i.i = trunc i8 %18 to i1
   br i1 %tobool1.i.i.i, label %return, label %if.end.i.i11
 
 if.end.i.i11:                                     ; preds = %virtio_device_disabled.exit.i.i
-  %notify.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 160
+  %notify.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 160
   %19 = load ptr, ptr %notify.i.i, align 8
   %tobool.not.i.i12 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i12, label %return, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i11
-  %parent.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 40
+  %parent.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 40
   %20 = load ptr, ptr %parent.i.i, align 8
   tail call void %19(ptr noundef %20, i16 noundef zeroext %16) #23
   br label %return
@@ -6201,14 +6201,14 @@ return:                                           ; preds = %while.end21.i.i.i.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_notify_config(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
-  %status = getelementptr inbounds i8, ptr %vdev, i64 168
+  %status = getelementptr inbounds nuw i8, ptr %vdev, i64 168
   %0 = load i8, ptr %status, align 8
   %1 = and i8 %0, 4
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %isr.i = getelementptr inbounds i8, ptr %vdev, i64 169
+  %isr.i = getelementptr inbounds nuw i8, ptr %vdev, i64 169
   %2 = load atomic i8, ptr %isr.i monotonic, align 1
   %3 = and i8 %2, 3
   %cmp.not.i = icmp eq i8 %3, 3
@@ -6219,35 +6219,35 @@ if.then.i:                                        ; preds = %if.end
   br label %virtio_set_isr.exit
 
 virtio_set_isr.exit:                              ; preds = %if.end, %if.then.i
-  %generation = getelementptr inbounds i8, ptr %vdev, i64 220
+  %generation = getelementptr inbounds nuw i8, ptr %vdev, i64 220
   %5 = load i32, ptr %generation, align 4
   %inc = add i32 %5, 1
   store i32 %inc, ptr %generation, align 4
-  %config_vector = getelementptr inbounds i8, ptr %vdev, i64 216
+  %config_vector = getelementptr inbounds nuw i8, ptr %vdev, i64 216
   %6 = load i16, ptr %config_vector, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i4.i = tail call ptr @object_get_class(ptr noundef %call1.i) #23
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
-  %disabled.i.i = getelementptr inbounds i8, ptr %vdev, i64 437
+  %disabled.i.i = getelementptr inbounds nuw i8, ptr %vdev, i64 437
   %7 = load i8, ptr %disabled.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %return, label %virtio_device_disabled.exit.i
 
 virtio_device_disabled.exit.i:                    ; preds = %virtio_set_isr.exit
-  %broken.i.i = getelementptr inbounds i8, ptr %vdev, i64 435
+  %broken.i.i = getelementptr inbounds nuw i8, ptr %vdev, i64 435
   %8 = load i8, ptr %broken.i.i, align 1
   %tobool1.i.i = trunc i8 %8 to i1
   br i1 %tobool1.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %virtio_device_disabled.exit.i
-  %notify.i = getelementptr inbounds i8, ptr %call1.i.i, i64 160
+  %notify.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 160
   %9 = load ptr, ptr %notify.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %return, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %parent.i = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %parent.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   %10 = load ptr, ptr %parent.i, align 8
   tail call void %9(ptr noundef %10, i16 noundef zeroext %6) #23
   br label %return
@@ -6265,43 +6265,43 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i58, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %call.i59 = tail call ptr @object_get_class(ptr noundef %vdev) #23
   %call1.i60 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i59, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
-  %guest_features = getelementptr inbounds i8, ptr %vdev, i64 184
+  %guest_features = getelementptr inbounds nuw i8, ptr %vdev, i64 184
   %0 = load i64, ptr %guest_features, align 8
   %conv = trunc i64 %0 to i32
-  %save_config = getelementptr inbounds i8, ptr %call1.i, i64 168
+  %save_config = getelementptr inbounds nuw i8, ptr %call1.i, i64 168
   %1 = load ptr, ptr %save_config, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %parent = getelementptr inbounds i8, ptr %call1, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %2 = load ptr, ptr %parent, align 8
   tail call void %1(ptr noundef %2, ptr noundef %f) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %status = getelementptr inbounds i8, ptr %vdev, i64 168
+  %status = getelementptr inbounds nuw i8, ptr %vdev, i64 168
   %status.val = load i8, ptr %status, align 1
   %conv.i = zext i8 %status.val to i32
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv.i) #23
-  %isr = getelementptr inbounds i8, ptr %vdev, i64 169
+  %isr = getelementptr inbounds nuw i8, ptr %vdev, i64 169
   %isr.val = load i8, ptr %isr, align 1
   %conv.i61 = zext i8 %isr.val to i32
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv.i61) #23
-  %queue_sel = getelementptr inbounds i8, ptr %vdev, i64 170
+  %queue_sel = getelementptr inbounds nuw i8, ptr %vdev, i64 170
   %queue_sel.val = load i16, ptr %queue_sel, align 2
   %conv.i62 = zext i16 %queue_sel.val to i32
   tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %conv.i62) #23
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %conv) #23
-  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
+  %config_len = getelementptr inbounds nuw i8, ptr %vdev, i64 200
   %3 = load i64, ptr %config_len, align 8
   %conv5 = trunc i64 %3 to i32
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %conv5) #23
-  %config = getelementptr inbounds i8, ptr %vdev, i64 208
+  %config = getelementptr inbounds nuw i8, ptr %vdev, i64 208
   %4 = load ptr, ptr %config, align 8
   %5 = load i64, ptr %config_len, align 8
   tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %4, i64 noundef %5) #23
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %6 = load ptr, ptr %vq, align 8
   br label %for.body
 
@@ -6324,9 +6324,9 @@ for.end.split.loop.exit:                          ; preds = %for.body
 for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit
   %i.0.lcssa = phi i32 [ %8, %for.end.split.loop.exit ], [ 1024, %for.inc ]
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %i.0.lcssa) #23
-  %has_variable_vring_alignment = getelementptr inbounds i8, ptr %call1.i, i64 320
-  %save_queue = getelementptr inbounds i8, ptr %call1.i, i64 176
-  %parent47 = getelementptr inbounds i8, ptr %call1, i64 40
+  %has_variable_vring_alignment = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
+  %save_queue = getelementptr inbounds nuw i8, ptr %call1.i, i64 176
+  %parent47 = getelementptr inbounds nuw i8, ptr %call1, i64 40
   br label %for.body15
 
 for.body15:                                       ; preds = %for.end, %for.inc49
@@ -6376,7 +6376,7 @@ for.inc49:                                        ; preds = %if.end36, %if.then4
   br i1 %exitcond70.not, label %for.end51, label %for.body15, !llvm.loop !45
 
 for.end51:                                        ; preds = %for.body15, %for.inc49
-  %save = getelementptr inbounds i8, ptr %call1.i60, i64 312
+  %save = getelementptr inbounds nuw i8, ptr %call1.i60, i64 312
   %20 = load ptr, ptr %save, align 8
   %cmp52.not = icmp eq ptr %20, null
   br i1 %cmp52.not, label %if.end56, label %if.then54
@@ -6386,7 +6386,7 @@ if.then54:                                        ; preds = %for.end51
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then54, %for.end51
-  %vmsd = getelementptr inbounds i8, ptr %call1.i60, i64 336
+  %vmsd = getelementptr inbounds nuw i8, ptr %call1.i60, i64 336
   %21 = load ptr, ptr %vmsd, align 8
   %tobool57.not = icmp eq ptr %21, null
   br i1 %tobool57.not, label %if.end64, label %if.then58
@@ -6418,9 +6418,9 @@ entry:
   %call.i2 = tail call ptr @object_get_class(ptr noundef %call.i) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i2, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #23
-  %vmsd = getelementptr inbounds i8, ptr %call.i3, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i3, i64 160
   %0 = load ptr, ptr %vmsd, align 8
-  %version_id = getelementptr inbounds i8, ptr %0, i64 12
+  %version_id = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1 = load i32, ptr %version_id, align 4
   %call3 = tail call i32 @virtio_load(ptr noundef %call.i, ptr noundef %f, i32 noundef %1)
   ret i32 %call3
@@ -6437,7 +6437,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -22, 1) i32 @virtio_set_features(ptr noundef %vdev, i64 noundef %val) local_unnamed_addr #0 {
 entry:
-  %status = getelementptr inbounds i8, ptr %vdev, i64 168
+  %status = getelementptr inbounds nuw i8, ptr %vdev, i64 168
   %0 = load i8, ptr %status, align 8
   %1 = and i8 %0, 8
   %tobool.not = icmp eq i8 %1, 0
@@ -6455,7 +6455,7 @@ do.body:                                          ; preds = %if.end
   br i1 %cmp.i.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %do.body
-  %name = getelementptr inbounds i8, ptr %vdev, i64 160
+  %name = getelementptr inbounds nuw i8, ptr %vdev, i64 160
   %3 = load ptr, ptr %name, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.virtio_set_features, ptr noundef %3) #23
   br label %if.end9
@@ -6463,10 +6463,10 @@ if.then7:                                         ; preds = %do.body
 if.end9:                                          ; preds = %if.then7, %do.body, %if.end
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %vdev) #23
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
-  %host_features.i = getelementptr inbounds i8, ptr %vdev, i64 176
+  %host_features.i = getelementptr inbounds nuw i8, ptr %vdev, i64 176
   %4 = load i64, ptr %host_features.i, align 8
   %and2.i = and i64 %4, %val
-  %set_features.i = getelementptr inbounds i8, ptr %call1.i.i, i64 208
+  %set_features.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 208
   %5 = load ptr, ptr %set_features.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %virtio_set_features_nocheck.exit, label %if.then.i
@@ -6479,14 +6479,14 @@ virtio_set_features_nocheck.exit:                 ; preds = %if.end9, %if.then.i
   %not.i = xor i64 %4, -1
   %and.i16 = and i64 %val, %not.i
   %cmp.not.i.not = icmp eq i64 %and.i16, 0
-  %guest_features.i = getelementptr inbounds i8, ptr %vdev, i64 184
+  %guest_features.i = getelementptr inbounds nuw i8, ptr %vdev, i64 184
   store i64 %and2.i, ptr %guest_features.i, align 8
   %and.i.i = and i64 %and2.i, 536870912
   %tobool.i.i.not = icmp eq i64 %and.i.i, 0
   br i1 %tobool.i.i.not, label %if.end18, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %virtio_set_features_nocheck.exit
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -6511,13 +6511,13 @@ if.end18:                                         ; preds = %for.inc, %virtio_se
   br i1 %cmp.not.i.not, label %if.then20, label %return
 
 if.then20:                                        ; preds = %if.end18
-  %use_started.i = getelementptr inbounds i8, ptr %vdev, i64 438
+  %use_started.i = getelementptr inbounds nuw i8, ptr %vdev, i64 438
   %9 = load i8, ptr %use_started.i, align 2
   %tobool.i = trunc i8 %9 to i1
   br i1 %tobool.i, label %if.then.i17, label %virtio_device_started.exit
 
 if.then.i17:                                      ; preds = %if.then20
-  %started.i = getelementptr inbounds i8, ptr %vdev, i64 439
+  %started.i = getelementptr inbounds nuw i8, ptr %vdev, i64 439
   %10 = load i8, ptr %started.i, align 1
   %tobool1.i = trunc i8 %10 to i1
   br i1 %tobool1.i, label %return, label %land.lhs.true
@@ -6535,7 +6535,7 @@ land.lhs.true:                                    ; preds = %if.then.i17, %virti
   br i1 %tobool.i.i19.not, label %if.then24, label %return
 
 if.then24:                                        ; preds = %land.lhs.true
-  %start_on_kick = getelementptr inbounds i8, ptr %vdev, i64 440
+  %start_on_kick = getelementptr inbounds nuw i8, ptr %vdev, i64 440
   store i8 1, ptr %start_on_kick, align 8
   br label %return
 
@@ -6550,7 +6550,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 define dso_local i64 @virtio_get_config_size(ptr nocapture noundef readonly %params, i64 noundef %host_features) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %params, align 8
-  %feature_sizes1 = getelementptr inbounds i8, ptr %params, i64 16
+  %feature_sizes1 = getelementptr inbounds nuw i8, ptr %params, i64 16
   %1 = load ptr, ptr %feature_sizes1, align 8
   %2 = load i64, ptr %1, align 8
   %cmp.not12 = icmp eq i64 %2, 0
@@ -6580,7 +6580,7 @@ for.inc:                                          ; preds = %for.body, %if.then
 
 for.end:                                          ; preds = %for.inc, %entry
   %config_size.0.lcssa = phi i64 [ %0, %entry ], [ %config_size.1, %for.inc ]
-  %max_size = getelementptr inbounds i8, ptr %params, i64 8
+  %max_size = getelementptr inbounds nuw i8, ptr %params, i64 8
   %6 = load i64, ptr %max_size, align 8
   %cmp6.not = icmp ugt i64 %config_size.0.lcssa, %6
   br i1 %cmp6.not, label %if.else, label %if.end8
@@ -6602,30 +6602,30 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i168, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %call.i169 = tail call ptr @object_get_class(ptr noundef %vdev) #23
   %call1.i170 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i169, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
-  %device_endian = getelementptr inbounds i8, ptr %vdev, i64 464
+  %device_endian = getelementptr inbounds nuw i8, ptr %vdev, i64 464
   store i8 0, ptr %device_endian, align 8
-  %load_config = getelementptr inbounds i8, ptr %call1.i, i64 192
+  %load_config = getelementptr inbounds nuw i8, ptr %call1.i, i64 192
   %0 = load ptr, ptr %load_config, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %parent = getelementptr inbounds i8, ptr %call1, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call5 = tail call i32 %0(ptr noundef %1, ptr noundef %f) #23
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then, %entry
-  %status = getelementptr inbounds i8, ptr %vdev, i64 168
+  %status = getelementptr inbounds nuw i8, ptr %vdev, i64 168
   %call.i171 = tail call i32 @qemu_get_byte(ptr noundef %f) #23
   %conv.i = trunc i32 %call.i171 to i8
   store i8 %conv.i, ptr %status, align 1
-  %isr = getelementptr inbounds i8, ptr %vdev, i64 169
+  %isr = getelementptr inbounds nuw i8, ptr %vdev, i64 169
   %call.i172 = tail call i32 @qemu_get_byte(ptr noundef %f) #23
   %conv.i173 = trunc i32 %call.i172 to i8
   store i8 %conv.i173, ptr %isr, align 1
-  %queue_sel = getelementptr inbounds i8, ptr %vdev, i64 170
+  %queue_sel = getelementptr inbounds nuw i8, ptr %vdev, i64 170
   %call.i174 = tail call i32 @qemu_get_be16(ptr noundef %f) #23
   %conv.i175 = trunc i32 %call.i174 to i16
   store i16 %conv.i175, ptr %queue_sel, align 2
@@ -6635,13 +6635,13 @@ if.end8:                                          ; preds = %if.then, %entry
 if.end12:                                         ; preds = %if.end8
   %call.i176 = tail call i32 @qemu_get_be32(ptr noundef %f) #23
   %conv13 = zext i32 %call.i176 to i64
-  %guest_features = getelementptr inbounds i8, ptr %vdev, i64 184
+  %guest_features = getelementptr inbounds nuw i8, ptr %vdev, i64 184
   store i64 %conv13, ptr %guest_features, align 8
   %call14 = tail call i32 @qemu_get_be32(ptr noundef %f) #23
-  %config = getelementptr inbounds i8, ptr %vdev, i64 208
+  %config = getelementptr inbounds nuw i8, ptr %vdev, i64 208
   %2 = load ptr, ptr %config, align 8
   %conv15 = sext i32 %call14 to i64
-  %config_len16 = getelementptr inbounds i8, ptr %vdev, i64 200
+  %config_len16 = getelementptr inbounds nuw i8, ptr %vdev, i64 200
   %3 = load i64, ptr %config_len16, align 8
   %cond = tail call i64 @llvm.umin.i64(i64 %3, i64 %conv15)
   %call19 = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %2, i64 noundef %cond) #23
@@ -6668,10 +6668,10 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp30260.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
-  %has_variable_vring_alignment = getelementptr inbounds i8, ptr %call1.i, i64 320
-  %load_queue = getelementptr inbounds i8, ptr %call1.i, i64 200
-  %parent78 = getelementptr inbounds i8, ptr %call1, i64 40
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
+  %has_variable_vring_alignment = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
+  %load_queue = getelementptr inbounds nuw i8, ptr %call1.i, i64 200
+  %parent78 = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %wide.trip.count = zext nneg i32 %call25 to i64
   br label %for.body
 
@@ -6714,13 +6714,13 @@ if.end41:                                         ; preds = %if.then35, %for.bod
   store i8 1, ptr %notification, align 1
   %13 = load ptr, ptr %vq, align 8
   %arrayidx58 = getelementptr %struct.VirtQueue, ptr %13, i64 %indvars.iv
-  %desc60 = getelementptr inbounds i8, ptr %arrayidx58, i64 16
+  %desc60 = getelementptr inbounds nuw i8, ptr %arrayidx58, i64 16
   %14 = load i64, ptr %desc60, align 8
   %tobool61.not = icmp eq i64 %14, 0
   br i1 %tobool61.not, label %land.lhs.true, label %if.end74
 
 land.lhs.true:                                    ; preds = %if.end41
-  %last_avail_idx65 = getelementptr inbounds i8, ptr %arrayidx58, i64 56
+  %last_avail_idx65 = getelementptr inbounds nuw i8, ptr %arrayidx58, i64 56
   %15 = load i16, ptr %last_avail_idx65, align 8
   %tobool67.not = icmp eq i16 %15, 0
   br i1 %tobool67.not, label %if.end74, label %if.then68
@@ -6753,31 +6753,31 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %call1.i179 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i4.i = tail call ptr @object_get_class(ptr noundef %call1.i179) #23
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
-  %disabled.i.i = getelementptr inbounds i8, ptr %vdev, i64 437
+  %disabled.i.i = getelementptr inbounds nuw i8, ptr %vdev, i64 437
   %20 = load i8, ptr %disabled.i.i, align 1
   %tobool.i.i = trunc i8 %20 to i1
   br i1 %tobool.i.i, label %virtio_notify_vector.exit, label %virtio_device_disabled.exit.i
 
 virtio_device_disabled.exit.i:                    ; preds = %for.end
-  %broken.i.i = getelementptr inbounds i8, ptr %vdev, i64 435
+  %broken.i.i = getelementptr inbounds nuw i8, ptr %vdev, i64 435
   %21 = load i8, ptr %broken.i.i, align 1
   %tobool1.i.i = trunc i8 %21 to i1
   br i1 %tobool1.i.i, label %virtio_notify_vector.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %virtio_device_disabled.exit.i
-  %notify.i = getelementptr inbounds i8, ptr %call1.i.i, i64 160
+  %notify.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 160
   %22 = load ptr, ptr %notify.i, align 8
   %tobool.not.i = icmp eq ptr %22, null
   br i1 %tobool.not.i, label %virtio_notify_vector.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %parent.i = getelementptr inbounds i8, ptr %call1.i179, i64 40
+  %parent.i = getelementptr inbounds nuw i8, ptr %call1.i179, i64 40
   %23 = load ptr, ptr %parent.i, align 8
   tail call void %22(ptr noundef %23, i16 noundef zeroext -1) #23
   br label %virtio_notify_vector.exit
 
 virtio_notify_vector.exit:                        ; preds = %for.end, %virtio_device_disabled.exit.i, %if.end.i, %if.then4.i
-  %load = getelementptr inbounds i8, ptr %call1.i170, i64 320
+  %load = getelementptr inbounds nuw i8, ptr %call1.i170, i64 320
   %24 = load ptr, ptr %load, align 8
   %cmp84.not = icmp eq ptr %24, null
   br i1 %cmp84.not, label %if.end92, label %if.then86
@@ -6788,7 +6788,7 @@ if.then86:                                        ; preds = %virtio_notify_vecto
   br i1 %tobool89.not, label %if.end92, label %return
 
 if.end92:                                         ; preds = %if.then86, %virtio_notify_vector.exit
-  %vmsd = getelementptr inbounds i8, ptr %call1.i170, i64 336
+  %vmsd = getelementptr inbounds nuw i8, ptr %call1.i170, i64 336
   %25 = load ptr, ptr %vmsd, align 8
   %tobool93.not = icmp eq ptr %25, null
   br i1 %tobool93.not, label %if.end100, label %if.then94
@@ -6815,7 +6815,7 @@ if.then109:                                       ; preds = %if.end104
   br label %if.end113
 
 if.end113:                                        ; preds = %if.then109, %if.end104
-  %host_features.i = getelementptr inbounds i8, ptr %vdev, i64 176
+  %host_features.i = getelementptr inbounds nuw i8, ptr %vdev, i64 176
   %27 = load i64, ptr %host_features.i, align 8
   %cmp.i = icmp ugt i64 %27, 4294967295
   br i1 %cmp.i, label %if.then115, label %if.else
@@ -6842,13 +6842,13 @@ if.then126:                                       ; preds = %if.else
   br label %return
 
 if.end129:                                        ; preds = %if.else, %if.then115
-  %use_started.i = getelementptr inbounds i8, ptr %vdev, i64 438
+  %use_started.i = getelementptr inbounds nuw i8, ptr %vdev, i64 438
   %31 = load i8, ptr %use_started.i, align 2
   %tobool.i = trunc i8 %31 to i1
   br i1 %tobool.i, label %if.then.i, label %virtio_device_started.exit
 
 if.then.i:                                        ; preds = %if.end129
-  %started.i = getelementptr inbounds i8, ptr %vdev, i64 439
+  %started.i = getelementptr inbounds nuw i8, ptr %vdev, i64 439
   %32 = load i8, ptr %started.i, align 1
   %tobool1.i = trunc i8 %32 to i1
   br i1 %tobool1.i, label %if.end135, label %land.lhs.true132
@@ -6866,7 +6866,7 @@ land.lhs.true132:                                 ; preds = %if.then.i, %virtio_
   br i1 %tobool.i.i182.not, label %if.then134, label %if.end135
 
 if.then134:                                       ; preds = %land.lhs.true132
-  %start_on_kick = getelementptr inbounds i8, ptr %vdev, i64 440
+  %start_on_kick = getelementptr inbounds nuw i8, ptr %vdev, i64 440
   store i8 1, ptr %start_on_kick, align 8
   br label %if.end135
 
@@ -6875,7 +6875,7 @@ if.end135:                                        ; preds = %if.then.i, %if.then
   br i1 %cmp30260.not, label %for.end280, label %for.body140.lr.ph
 
 for.body140.lr.ph:                                ; preds = %if.end135
-  %vq141 = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq141 = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %wide.trip.count276 = zext nneg i32 %call25 to i64
   br label %for.body140
 
@@ -6900,7 +6900,7 @@ if.else150:                                       ; preds = %if.then147
   br i1 %tobool.not.i185, label %if.end151, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %if.else150
-  %align.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %align.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %38 = load i32, ptr %align.i, align 8
   %tobool4.not.i = icmp eq i32 %38, 0
   br i1 %tobool4.not.i, label %if.end151, label %if.end.i186
@@ -6909,7 +6909,7 @@ if.end.i186:                                      ; preds = %lor.lhs.false3.i
   %conv.i187 = zext i32 %37 to i64
   %mul.i = shl nuw nsw i64 %conv.i187, 4
   %add.i = add i64 %36, %mul.i
-  %avail.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %avail.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   store i64 %add.i, ptr %avail.i, align 8
   %39 = shl nuw nsw i64 %conv.i187, 1
   %conv12.i = zext i32 %38 to i64
@@ -6918,7 +6918,7 @@ if.end.i186:                                      ; preds = %lor.lhs.false3.i
   %sub.i.i = add i64 %add.i.i, %conv12.i
   %40 = urem i64 %sub.i.i, %conv12.i
   %mul.i.i = sub nuw i64 %sub.i.i, %40
-  %used.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %used.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   store i64 %mul.i.i, ptr %used.i, align 8
   br label %if.end151.sink.split
 
@@ -6936,21 +6936,21 @@ if.end151:                                        ; preds = %if.end151.sink.spli
   br i1 %tobool.i.i189.not, label %if.end168, label %if.then153
 
 if.then153:                                       ; preds = %if.end151
-  %last_avail_idx157 = getelementptr inbounds i8, ptr %arrayidx171, i64 56
+  %last_avail_idx157 = getelementptr inbounds nuw i8, ptr %arrayidx171, i64 56
   %43 = load i16, ptr %last_avail_idx157, align 8
-  %shadow_avail_idx = getelementptr inbounds i8, ptr %arrayidx171, i64 60
+  %shadow_avail_idx = getelementptr inbounds nuw i8, ptr %arrayidx171, i64 60
   store i16 %43, ptr %shadow_avail_idx, align 4
   %44 = load ptr, ptr %vq141, align 8
   %arrayidx163 = getelementptr %struct.VirtQueue, ptr %44, i64 %indvars.iv273
-  %last_avail_wrap_counter = getelementptr inbounds i8, ptr %arrayidx163, i64 58
+  %last_avail_wrap_counter = getelementptr inbounds nuw i8, ptr %arrayidx163, i64 58
   %45 = load i8, ptr %last_avail_wrap_counter, align 2
-  %shadow_avail_wrap_counter = getelementptr inbounds i8, ptr %arrayidx163, i64 62
+  %shadow_avail_wrap_counter = getelementptr inbounds nuw i8, ptr %arrayidx163, i64 62
   %frombool = and i8 %45, 1
   store i8 %frombool, ptr %shadow_avail_wrap_counter, align 2
   br label %for.inc278
 
 if.end168:                                        ; preds = %if.end151
-  %caches.i.i = getelementptr inbounds i8, ptr %arrayidx171, i64 40
+  %caches.i.i = getelementptr inbounds nuw i8, ptr %arrayidx171, i64 40
   %46 = load atomic i64, ptr %caches.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i190 = icmp eq i64 %46, 0
@@ -6958,8 +6958,8 @@ if.end168:                                        ; preds = %if.end151
 
 if.end.i191:                                      ; preds = %if.end168
   %47 = inttoptr i64 %46 to ptr
-  %avail.i192 = getelementptr inbounds i8, ptr %47, i64 128
-  %len.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 144
+  %avail.i192 = getelementptr inbounds nuw i8, ptr %47, i64 128
+  %len.i.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 144
   %48 = load i64, ptr %len.i.i.i.i, align 16
   %switch.i = icmp ult i64 %48, 4
   br i1 %switch.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -6984,7 +6984,7 @@ if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 
 virtio_lduw_phys_cached.exit.i:                   ; preds = %if.else8.i.i.i.i, %if.then5.i.i.i.i
   %retval.0.i.i.i.i = phi i16 [ %add.ptr.val.i.i.i.i, %if.then5.i.i.i.i ], [ %call10.i.i.i.i, %if.else8.i.i.i.i ]
-  %shadow_avail_idx.i = getelementptr inbounds i8, ptr %arrayidx171, i64 60
+  %shadow_avail_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx171, i64 60
   store i16 %retval.0.i.i.i.i, ptr %shadow_avail_idx.i, align 4
   br label %vring_avail_idx.exit
 
@@ -6992,13 +6992,13 @@ vring_avail_idx.exit:                             ; preds = %if.end168, %virtio_
   %retval.0.i193 = phi i16 [ %retval.0.i.i.i.i, %virtio_lduw_phys_cached.exit.i ], [ 0, %if.end168 ]
   %50 = load ptr, ptr %vq141, align 8
   %arrayidx176 = getelementptr %struct.VirtQueue, ptr %50, i64 %indvars.iv273
-  %last_avail_idx177 = getelementptr inbounds i8, ptr %arrayidx176, i64 56
+  %last_avail_idx177 = getelementptr inbounds nuw i8, ptr %arrayidx176, i64 56
   %51 = load i16, ptr %last_avail_idx177, align 8
   %sub = sub i16 %retval.0.i193, %51
   %conv180 = zext i16 %sub to i32
   %52 = load i32, ptr %arrayidx176, align 8
   %cmp186 = icmp ult i32 %52, %conv180
-  %caches.i.i194 = getelementptr inbounds i8, ptr %arrayidx176, i64 40
+  %caches.i.i194 = getelementptr inbounds nuw i8, ptr %arrayidx176, i64 40
   %53 = load atomic i64, ptr %caches.i.i194 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23
   %tobool.not.i195 = icmp eq i64 %53, 0
@@ -7009,8 +7009,8 @@ if.then188:                                       ; preds = %vring_avail_idx.exi
 
 if.end.i196:                                      ; preds = %if.then188
   %54 = inttoptr i64 %53 to ptr
-  %avail.i197 = getelementptr inbounds i8, ptr %54, i64 128
-  %len.i.i.i.i198 = getelementptr inbounds i8, ptr %54, i64 144
+  %avail.i197 = getelementptr inbounds nuw i8, ptr %54, i64 128
+  %len.i.i.i.i198 = getelementptr inbounds nuw i8, ptr %54, i64 144
   %55 = load i64, ptr %len.i.i.i.i198, align 16
   %switch.i199 = icmp ult i64 %55, 4
   br i1 %switch.i199, label %if.else.i.i.i.i211, label %if.end.i.i.i.i200
@@ -7035,7 +7035,7 @@ if.else8.i.i.i.i209:                              ; preds = %if.end.i.i.i.i200
 
 virtio_lduw_phys_cached.exit.i205:                ; preds = %if.else8.i.i.i.i209, %if.then5.i.i.i.i202
   %retval.0.i.i.i.i206 = phi i16 [ %add.ptr.val.i.i.i.i204, %if.then5.i.i.i.i202 ], [ %call10.i.i.i.i210, %if.else8.i.i.i.i209 ]
-  %shadow_avail_idx.i207 = getelementptr inbounds i8, ptr %arrayidx176, i64 60
+  %shadow_avail_idx.i207 = getelementptr inbounds nuw i8, ptr %arrayidx176, i64 60
   store i16 %retval.0.i.i.i.i206, ptr %shadow_avail_idx.i207, align 4
   %57 = zext i16 %retval.0.i.i.i.i206 to i32
   br label %vring_avail_idx.exit212
@@ -7064,8 +7064,8 @@ if.end215:                                        ; preds = %vring_avail_idx.exi
 
 if.end.i215:                                      ; preds = %if.end215
   %64 = inttoptr i64 %53 to ptr
-  %used.i216 = getelementptr inbounds i8, ptr %64, i64 240
-  %len.i.i.i.i217 = getelementptr inbounds i8, ptr %64, i64 256
+  %used.i216 = getelementptr inbounds nuw i8, ptr %64, i64 240
+  %len.i.i.i.i217 = getelementptr inbounds nuw i8, ptr %64, i64 256
   %65 = load i64, ptr %len.i.i.i.i217, align 16
   %switch.i218 = icmp ult i64 %65, 4
   br i1 %switch.i218, label %if.else.i.i.i.i227, label %if.end.i.i.i.i219
@@ -7095,7 +7095,7 @@ vring_used_idx.exit:                              ; preds = %if.end215, %if.then
   store i16 %retval.0.i224, ptr %used_idx223, align 8
   %68 = load ptr, ptr %vq141, align 8
   %arrayidx226 = getelementptr %struct.VirtQueue, ptr %68, i64 %indvars.iv273
-  %caches.i.i228 = getelementptr inbounds i8, ptr %arrayidx226, i64 40
+  %caches.i.i228 = getelementptr inbounds nuw i8, ptr %arrayidx226, i64 40
   %69 = load atomic i64, ptr %caches.i.i228 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i229 = icmp eq i64 %69, 0
@@ -7103,8 +7103,8 @@ vring_used_idx.exit:                              ; preds = %if.end215, %if.then
 
 if.end.i230:                                      ; preds = %vring_used_idx.exit
   %70 = inttoptr i64 %69 to ptr
-  %avail.i231 = getelementptr inbounds i8, ptr %70, i64 128
-  %len.i.i.i.i232 = getelementptr inbounds i8, ptr %70, i64 144
+  %avail.i231 = getelementptr inbounds nuw i8, ptr %70, i64 128
+  %len.i.i.i.i232 = getelementptr inbounds nuw i8, ptr %70, i64 144
   %71 = load i64, ptr %len.i.i.i.i232, align 16
   %switch.i233 = icmp ult i64 %71, 4
   br i1 %switch.i233, label %if.else.i.i.i.i245, label %if.end.i.i.i.i234
@@ -7129,7 +7129,7 @@ if.else8.i.i.i.i243:                              ; preds = %if.end.i.i.i.i234
 
 virtio_lduw_phys_cached.exit.i239:                ; preds = %if.else8.i.i.i.i243, %if.then5.i.i.i.i236
   %retval.0.i.i.i.i240 = phi i16 [ %add.ptr.val.i.i.i.i238, %if.then5.i.i.i.i236 ], [ %call10.i.i.i.i244, %if.else8.i.i.i.i243 ]
-  %shadow_avail_idx.i241 = getelementptr inbounds i8, ptr %arrayidx226, i64 60
+  %shadow_avail_idx.i241 = getelementptr inbounds nuw i8, ptr %arrayidx226, i64 60
   store i16 %retval.0.i.i.i.i240, ptr %shadow_avail_idx.i241, align 4
   br label %vring_avail_idx.exit246
 
@@ -7140,17 +7140,17 @@ vring_avail_idx.exit246:                          ; preds = %vring_used_idx.exit
   store i16 %retval.0.i242, ptr %shadow_avail_idx231, align 4
   %74 = load ptr, ptr %vq141, align 8
   %arrayidx234 = getelementptr %struct.VirtQueue, ptr %74, i64 %indvars.iv273
-  %last_avail_idx235 = getelementptr inbounds i8, ptr %arrayidx234, i64 56
+  %last_avail_idx235 = getelementptr inbounds nuw i8, ptr %arrayidx234, i64 56
   %75 = load i16, ptr %last_avail_idx235, align 8
-  %used_idx240 = getelementptr inbounds i8, ptr %arrayidx234, i64 64
+  %used_idx240 = getelementptr inbounds nuw i8, ptr %arrayidx234, i64 64
   %76 = load i16, ptr %used_idx240, align 8
   %sub242 = sub i16 %75, %76
   %conv244 = zext i16 %sub242 to i32
-  %inuse248 = getelementptr inbounds i8, ptr %arrayidx234, i64 76
+  %inuse248 = getelementptr inbounds nuw i8, ptr %arrayidx234, i64 76
   store i32 %conv244, ptr %inuse248, align 4
   %77 = load ptr, ptr %vq141, align 8
   %arrayidx251 = getelementptr %struct.VirtQueue, ptr %77, i64 %indvars.iv273
-  %inuse252 = getelementptr inbounds i8, ptr %arrayidx251, i64 76
+  %inuse252 = getelementptr inbounds nuw i8, ptr %arrayidx251, i64 76
   %78 = load i32, ptr %inuse252, align 4
   %79 = load i32, ptr %arrayidx251, align 8
   %cmp258 = icmp ugt i32 %78, %79
@@ -7158,10 +7158,10 @@ vring_avail_idx.exit246:                          ; preds = %vring_used_idx.exit
 
 if.then260:                                       ; preds = %vring_avail_idx.exit246
   %80 = trunc nuw nsw i64 %indvars.iv273 to i32
-  %last_avail_idx269 = getelementptr inbounds i8, ptr %arrayidx251, i64 56
+  %last_avail_idx269 = getelementptr inbounds nuw i8, ptr %arrayidx251, i64 56
   %81 = load i16, ptr %last_avail_idx269, align 8
   %conv270 = zext i16 %81 to i32
-  %used_idx274 = getelementptr inbounds i8, ptr %arrayidx251, i64 64
+  %used_idx274 = getelementptr inbounds nuw i8, ptr %arrayidx251, i64 64
   %82 = load i16, ptr %used_idx274, align 8
   %conv275 = zext i16 %82 to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.56, i32 noundef %80, i32 noundef %79, i32 noundef %conv270, i32 noundef %conv275) #23
@@ -7173,7 +7173,7 @@ for.inc278:                                       ; preds = %for.body140, %vring
   br i1 %exitcond277.not, label %for.end280, label %for.body140, !llvm.loop !50
 
 for.end280:                                       ; preds = %for.inc278, %if.end135
-  %post_load = getelementptr inbounds i8, ptr %call1.i170, i64 328
+  %post_load = getelementptr inbounds nuw i8, ptr %call1.i170, i64 328
   %83 = load ptr, ptr %post_load, align 8
   %tobool281.not = icmp eq ptr %83, null
   br i1 %tobool281.not, label %if.end288, label %if.then282
@@ -7207,7 +7207,7 @@ declare i32 @vmstate_load_state(ptr noundef, ptr noundef, ptr noundef, i32 nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @virtio_64bit_features_needed(ptr nocapture noundef readonly %opaque) #4 {
 entry:
-  %host_features = getelementptr inbounds i8, ptr %opaque, i64 176
+  %host_features = getelementptr inbounds nuw i8, ptr %opaque, i64 176
   %0 = load i64, ptr %host_features, align 8
   %cmp = icmp ugt i64 %0, 4294967295
   ret i1 %cmp
@@ -7223,11 +7223,11 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @qemu_coroutine_self() #23
   store ptr %call1, ptr %data, align 8
-  %vdev2 = getelementptr inbounds i8, ptr %data, i64 8
+  %vdev2 = getelementptr inbounds nuw i8, ptr %data, i64 8
   store ptr %vdev, ptr %vdev2, align 8
-  %val3 = getelementptr inbounds i8, ptr %data, i64 16
+  %val3 = getelementptr inbounds nuw i8, ptr %data, i64 16
   store i64 %val, ptr %val3, align 8
-  %ret = getelementptr inbounds i8, ptr %data, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %data, i64 24
   store i32 0, ptr %ret, align 8
   %call4 = tail call ptr @qemu_get_current_aio_context() #23
   call void @aio_bh_schedule_oneshot_full(ptr noundef %call4, ptr noundef nonnull @virtio_set_features_nocheck_bh, ptr noundef nonnull %data, ptr noundef nonnull @.str.151) #23
@@ -7238,10 +7238,10 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call.i.i = tail call ptr @object_get_class(ptr noundef %vdev) #23
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
-  %host_features.i = getelementptr inbounds i8, ptr %vdev, i64 176
+  %host_features.i = getelementptr inbounds nuw i8, ptr %vdev, i64 176
   %1 = load i64, ptr %host_features.i, align 8
   %and2.i = and i64 %1, %val
-  %set_features.i = getelementptr inbounds i8, ptr %call1.i.i, i64 208
+  %set_features.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 208
   %2 = load ptr, ptr %set_features.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %virtio_set_features_nocheck.exit, label %if.then.i
@@ -7254,7 +7254,7 @@ virtio_set_features_nocheck.exit:                 ; preds = %if.else, %if.then.i
   %not.i = xor i64 %1, -1
   %and.i = and i64 %val, %not.i
   %cmp.not.i = icmp ne i64 %and.i, 0
-  %guest_features.i = getelementptr inbounds i8, ptr %vdev, i64 184
+  %guest_features.i = getelementptr inbounds nuw i8, ptr %vdev, i64 184
   store i64 %and2.i, ptr %guest_features.i, align 8
   %cond.i = sext i1 %cmp.not.i to i32
   br label %return
@@ -7267,7 +7267,7 @@ return:                                           ; preds = %virtio_set_features
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_cleanup(ptr nocapture noundef readonly %vdev) local_unnamed_addr #0 {
 entry:
-  %vmstate = getelementptr inbounds i8, ptr %vdev, i64 448
+  %vmstate = getelementptr inbounds nuw i8, ptr %vdev, i64 448
   %0 = load ptr, ptr %vmstate, align 8
   tail call void @qemu_del_vm_change_state_handler(ptr noundef %0) #23
   ret void
@@ -7294,13 +7294,13 @@ entry:
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
   %call.i39 = tail call ptr @object_get_class(ptr noundef %call1) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i39, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
-  %query_nvectors = getelementptr inbounds i8, ptr %call1.i, i64 288
+  %query_nvectors = getelementptr inbounds nuw i8, ptr %call1.i, i64 288
   %0 = load ptr, ptr %query_nvectors, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %parent = getelementptr inbounds i8, ptr %call1, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call4 = tail call i32 %0(ptr noundef %1) #23
   %tobool5.not = icmp eq i32 %call4, 0
@@ -7310,35 +7310,35 @@ if.then:                                          ; preds = %cond.end
   %conv = sext i32 %call4 to i64
   %mul = shl nsw i64 %conv, 3
   %call6 = tail call noalias ptr @g_malloc0(i64 noundef %mul) #26
-  %vector_queues = getelementptr inbounds i8, ptr %vdev, i64 480
+  %vector_queues = getelementptr inbounds nuw i8, ptr %vdev, i64 480
   store ptr %call6, ptr %vector_queues, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %cond.end
-  %start_on_kick = getelementptr inbounds i8, ptr %vdev, i64 440
+  %start_on_kick = getelementptr inbounds nuw i8, ptr %vdev, i64 440
   store i8 0, ptr %start_on_kick, align 8
-  %started = getelementptr inbounds i8, ptr %vdev, i64 439
+  %started = getelementptr inbounds nuw i8, ptr %vdev, i64 439
   store i8 0, ptr %started, align 1
-  %vhost_started = getelementptr inbounds i8, ptr %vdev, i64 442
+  %vhost_started = getelementptr inbounds nuw i8, ptr %vdev, i64 442
   store i8 0, ptr %vhost_started, align 2
-  %device_id7 = getelementptr inbounds i8, ptr %vdev, i64 432
+  %device_id7 = getelementptr inbounds nuw i8, ptr %vdev, i64 432
   store i16 %device_id, ptr %device_id7, align 8
-  %status = getelementptr inbounds i8, ptr %vdev, i64 168
+  %status = getelementptr inbounds nuw i8, ptr %vdev, i64 168
   store i8 0, ptr %status, align 8
-  %isr = getelementptr inbounds i8, ptr %vdev, i64 169
+  %isr = getelementptr inbounds nuw i8, ptr %vdev, i64 169
   store atomic i8 0, ptr %isr monotonic, align 1
-  %queue_sel = getelementptr inbounds i8, ptr %vdev, i64 170
+  %queue_sel = getelementptr inbounds nuw i8, ptr %vdev, i64 170
   store i16 0, ptr %queue_sel, align 2
-  %config_vector = getelementptr inbounds i8, ptr %vdev, i64 216
+  %config_vector = getelementptr inbounds nuw i8, ptr %vdev, i64 216
   store i16 -1, ptr %config_vector, align 8
   %call10 = tail call noalias dereferenceable_or_null(155648) ptr @g_malloc0_n(i64 noundef 1024, i64 noundef 152) #22
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   store ptr %call10, ptr %vq, align 8
   %call11 = tail call zeroext i1 @runstate_is_running() #23
-  %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
+  %vm_running = getelementptr inbounds nuw i8, ptr %vdev, i64 434
   %frombool = zext i1 %call11 to i8
   store i8 %frombool, ptr %vm_running, align 2
-  %broken = getelementptr inbounds i8, ptr %vdev, i64 435
+  %broken = getelementptr inbounds nuw i8, ptr %vdev, i64 435
   store i8 0, ptr %broken, align 1
   br label %for.body
 
@@ -7381,9 +7381,9 @@ if.else5.i:                                       ; preds = %if.end.i
   unreachable
 
 virtio_id_to_name.exit:                           ; preds = %if.end.i
-  %name = getelementptr inbounds i8, ptr %vdev, i64 160
+  %name = getelementptr inbounds nuw i8, ptr %vdev, i64 160
   store ptr %6, ptr %name, align 8
-  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
+  %config_len = getelementptr inbounds nuw i8, ptr %vdev, i64 200
   store i64 %config_size, ptr %config_len, align 8
   %tobool27.not = icmp eq i64 %config_size, 0
   br i1 %tobool27.not, label %if.end31, label %if.then28
@@ -7394,17 +7394,17 @@ if.then28:                                        ; preds = %virtio_id_to_name.e
 
 if.end31:                                         ; preds = %virtio_id_to_name.exit, %if.then28
   %call29.sink = phi ptr [ %call29, %if.then28 ], [ null, %virtio_id_to_name.exit ]
-  %7 = getelementptr inbounds i8, ptr %vdev, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %vdev, i64 208
   store ptr %call29.sink, ptr %7, align 8
   %call.i40 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call33 = tail call ptr @qdev_add_vm_change_state_handler(ptr noundef %call.i40, ptr noundef nonnull @virtio_vmstate_change, ptr noundef nonnull %vdev) #23
-  %vmstate = getelementptr inbounds i8, ptr %vdev, i64 448
+  %vmstate = getelementptr inbounds nuw i8, ptr %vdev, i64 448
   store ptr %call33, ptr %vmstate, align 8
   %call.i41 = tail call zeroext i1 @target_words_bigendian() #23
   %conv35 = select i1 %call.i41, i8 2, i8 1
-  %device_endian = getelementptr inbounds i8, ptr %vdev, i64 464
+  %device_endian = getelementptr inbounds nuw i8, ptr %vdev, i64 464
   store i8 %conv35, ptr %device_endian, align 8
-  %use_guest_notifier_mask = getelementptr inbounds i8, ptr %vdev, i64 465
+  %use_guest_notifier_mask = getelementptr inbounds nuw i8, ptr %vdev, i64 465
   store i8 1, ptr %use_guest_notifier_mask, align 1
   ret void
 }
@@ -7427,35 +7427,35 @@ entry:
   br i1 %running, label %land.rhs, label %land.end.thread
 
 land.end.thread:                                  ; preds = %entry
-  %vm_running14 = getelementptr inbounds i8, ptr %opaque, i64 434
+  %vm_running14 = getelementptr inbounds nuw i8, ptr %opaque, i64 434
   store i8 %frombool, ptr %vm_running14, align 2
   br label %if.end
 
 land.rhs:                                         ; preds = %entry
-  %use_started.i = getelementptr inbounds i8, ptr %opaque, i64 438
+  %use_started.i = getelementptr inbounds nuw i8, ptr %opaque, i64 438
   %0 = load i8, ptr %use_started.i, align 2
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %land.end
 
 if.then.i:                                        ; preds = %land.rhs
-  %started.i = getelementptr inbounds i8, ptr %opaque, i64 439
+  %started.i = getelementptr inbounds nuw i8, ptr %opaque, i64 439
   %1 = load i8, ptr %started.i, align 1
   %tobool1.i = trunc i8 %1 to i1
-  %vm_running15 = getelementptr inbounds i8, ptr %opaque, i64 434
+  %vm_running15 = getelementptr inbounds nuw i8, ptr %opaque, i64 434
   store i8 %frombool, ptr %vm_running15, align 2
   br i1 %tobool1.i, label %if.then.i.if.then_crit_edge, label %if.end
 
 if.then.i.if.then_crit_edge:                      ; preds = %if.then.i
-  %status8.phi.trans.insert = getelementptr inbounds i8, ptr %opaque, i64 168
+  %status8.phi.trans.insert = getelementptr inbounds nuw i8, ptr %opaque, i64 168
   %.pre = load i8, ptr %status8.phi.trans.insert, align 8
   br label %if.then
 
 land.end:                                         ; preds = %land.rhs
-  %status = getelementptr inbounds i8, ptr %opaque, i64 168
+  %status = getelementptr inbounds nuw i8, ptr %opaque, i64 168
   %2 = load i8, ptr %status, align 8
   %3 = and i8 %2, 4
   %tobool2.i.not = icmp eq i8 %3, 0
-  %vm_running = getelementptr inbounds i8, ptr %opaque, i64 434
+  %vm_running = getelementptr inbounds nuw i8, ptr %opaque, i64 434
   store i8 %frombool, ptr %vm_running, align 2
   br i1 %tobool2.i.not, label %if.end, label %if.then
 
@@ -7466,13 +7466,13 @@ if.then:                                          ; preds = %if.then.i.if.then_c
 
 if.end:                                           ; preds = %if.then.i, %land.end.thread, %if.then, %land.end
   %5 = phi i1 [ false, %land.end.thread ], [ true, %if.then ], [ false, %land.end ], [ false, %if.then.i ]
-  %vmstate_change = getelementptr inbounds i8, ptr %call1.i, i64 256
+  %vmstate_change = getelementptr inbounds nuw i8, ptr %call1.i, i64 256
   %6 = load ptr, ptr %vmstate_change, align 8
   %tobool10.not = icmp eq ptr %6, null
   br i1 %tobool10.not, label %if.end14, label %if.then11
 
 if.then11:                                        ; preds = %if.end
-  %parent = getelementptr inbounds i8, ptr %call1, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %7 = load ptr, ptr %parent, align 8
   tail call void %6(ptr noundef %7, i1 noundef zeroext %5) #23
   br label %if.end14
@@ -7481,7 +7481,7 @@ if.end14:                                         ; preds = %if.then11, %if.end
   br i1 %5, label %if.end19, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %status17 = getelementptr inbounds i8, ptr %opaque, i64 168
+  %status17 = getelementptr inbounds nuw i8, ptr %opaque, i64 168
   %8 = load i8, ptr %status17, align 8
   %call18 = tail call i32 @virtio_set_status(ptr noundef nonnull %opaque, i8 noundef zeroext %8)
   br label %if.end19
@@ -7493,7 +7493,7 @@ if.end19:                                         ; preds = %if.then16, %if.end1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @virtio_legacy_allowed(ptr nocapture noundef readonly %vdev) local_unnamed_addr #4 {
 entry:
-  %device_id = getelementptr inbounds i8, ptr %vdev, i64 432
+  %device_id = getelementptr inbounds nuw i8, ptr %vdev, i64 432
   %0 = load i16, ptr %device_id, align 8
   %1 = icmp ult i16 %0, 13
   %switch.cast = trunc i16 %0 to i13
@@ -7506,7 +7506,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @virtio_legacy_check_disabled(ptr nocapture noundef readonly %vdev) local_unnamed_addr #4 {
 entry:
-  %disable_legacy_check = getelementptr inbounds i8, ptr %vdev, i64 441
+  %disable_legacy_check = getelementptr inbounds nuw i8, ptr %vdev, i64 441
   %0 = load i8, ptr %disable_legacy_check, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -7515,7 +7515,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @virtio_queue_get_desc_addr(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %desc = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom, i32 0, i32 3
@@ -7526,7 +7526,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @virtio_queue_enabled_legacy(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
-  %vq.i = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq.i = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq.i, align 8
   %idxprom.i = sext i32 %n to i64
   %desc.i = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom.i, i32 0, i32 3
@@ -7542,19 +7542,19 @@ entry:
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
   %call.i5 = tail call ptr @object_get_class(ptr noundef %call1) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i5, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
-  %queue_enabled = getelementptr inbounds i8, ptr %call1.i, i64 312
+  %queue_enabled = getelementptr inbounds nuw i8, ptr %call1.i, i64 312
   %0 = load ptr, ptr %queue_enabled, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %parent = getelementptr inbounds i8, ptr %call1, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call4 = tail call zeroext i1 %0(ptr noundef %1, i32 noundef %n) #23
   br label %return
 
 if.end:                                           ; preds = %entry
-  %vq.i.i = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq.i.i = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %2 = load ptr, ptr %vq.i.i, align 8
   %idxprom.i.i = sext i32 %n to i64
   %desc.i.i = getelementptr %struct.VirtQueue, ptr %2, i64 %idxprom.i.i, i32 0, i32 3
@@ -7570,7 +7570,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @virtio_queue_get_avail_addr(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %avail = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom, i32 0, i32 4
@@ -7581,7 +7581,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @virtio_queue_get_used_addr(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %used = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom, i32 0, i32 5
@@ -7603,18 +7603,18 @@ entry:
 
 if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr %struct.VirtQueue, ptr %vdev.val5, i64 %idxprom.i6
-  %last_avail_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
+  %last_avail_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 56
   %2 = load i16, ptr %last_avail_idx.i, align 8
   %conv.i = zext i16 %2 to i32
-  %last_avail_wrap_counter.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 58
+  %last_avail_wrap_counter.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 58
   %3 = load i8, ptr %last_avail_wrap_counter.i, align 2
   %4 = and i8 %3, 1
   %conv5.i = zext nneg i8 %4 to i32
   %shl.i = shl nuw nsw i32 %conv5.i, 15
-  %used_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
+  %used_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 64
   %5 = load i16, ptr %used_idx.i, align 8
   %conv9.i = zext i16 %5 to i32
-  %used_wrap_counter.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 66
+  %used_wrap_counter.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 66
   %6 = load i8, ptr %used_wrap_counter.i, align 2
   %conv15.i = zext i8 %6 to i32
   %7 = shl i32 %conv15.i, 31
@@ -7651,23 +7651,23 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr %struct.VirtQueue, ptr %vdev.val5, i64 %idxprom.i
   %2 = trunc i32 %idx to i16
   %conv.i = and i16 %2, 32767
-  %shadow_avail_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 60
+  %shadow_avail_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 60
   store i16 %conv.i, ptr %shadow_avail_idx.i, align 4
-  %last_avail_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
+  %last_avail_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 56
   store i16 %conv.i, ptr %last_avail_idx.i, align 8
-  %shadow_avail_wrap_counter.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 62
+  %shadow_avail_wrap_counter.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 62
   %and2.i = lshr i32 %idx, 15
   %3 = trunc i32 %and2.i to i8
   %frombool.i = and i8 %3, 1
   store i8 %frombool.i, ptr %shadow_avail_wrap_counter.i, align 2
-  %last_avail_wrap_counter.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 58
+  %last_avail_wrap_counter.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 58
   store i8 %frombool.i, ptr %last_avail_wrap_counter.i, align 2
   %shr.i = lshr i32 %idx, 16
   %4 = trunc nuw i32 %shr.i to i16
   %conv6.i = and i16 %4, 32767
-  %used_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
+  %used_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 64
   store i16 %conv6.i, ptr %used_idx.i, align 8
-  %used_wrap_counter.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 66
+  %used_wrap_counter.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 66
   %idx.lobit.i = lshr i32 %idx, 31
   %frombool11.i = trunc nuw nsw i32 %idx.lobit.i to i8
   store i8 %frombool11.i, ptr %used_wrap_counter.i, align 2
@@ -7675,7 +7675,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %conv.i6 = trunc i32 %idx to i16
-  %vq.i = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq.i = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %5 = load ptr, ptr %vq.i, align 8
   %idxprom.i7 = sext i32 %n to i64
   %last_avail_idx.i8 = getelementptr %struct.VirtQueue, ptr %5, i64 %idxprom.i7, i32 2
@@ -7700,7 +7700,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
+  %depth.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   %1 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %1, 1
   store i32 %inc.i.i.i, ptr %depth.i.i.i, align 4
@@ -7716,17 +7716,17 @@ while.end.i.i.i:                                  ; preds = %if.else
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %if.else
-  %vq.i = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq.i = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %3 = load ptr, ptr %vq.i, align 8
   %idxprom.i = sext i32 %n to i64
   %arrayidx.i = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i
-  %desc.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %desc.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %4 = load i64, ptr %desc.i, align 8
   %tobool.not.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i, label %if.then.i.i.i, label %if.then.i
 
 if.then.i:                                        ; preds = %rcu_read_auto_lock.exit.i
-  %caches.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %caches.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %5 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i = icmp eq i64 %5, 0
@@ -7734,8 +7734,8 @@ if.then.i:                                        ; preds = %rcu_read_auto_lock.
 
 if.end.i.i:                                       ; preds = %if.then.i
   %6 = inttoptr i64 %5 to ptr
-  %used.i.i = getelementptr inbounds i8, ptr %6, i64 240
-  %len.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 256
+  %used.i.i = getelementptr inbounds nuw i8, ptr %6, i64 240
+  %len.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 256
   %7 = load i64, ptr %len.i.i.i.i.i, align 16
   %switch.i.i = icmp ult i64 %7, 4
   br i1 %switch.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -7765,15 +7765,15 @@ vring_used_idx.exit.i:                            ; preds = %if.else8.i.i.i.i.i,
   store i16 %retval.0.i.i, ptr %last_avail_idx.i, align 8
   %10 = load ptr, ptr %vq.i, align 8
   %arrayidx10.i = getelementptr %struct.VirtQueue, ptr %10, i64 %idxprom.i
-  %last_avail_idx11.i = getelementptr inbounds i8, ptr %arrayidx10.i, i64 56
+  %last_avail_idx11.i = getelementptr inbounds nuw i8, ptr %arrayidx10.i, i64 56
   %11 = load i16, ptr %last_avail_idx11.i, align 8
-  %shadow_avail_idx.i = getelementptr inbounds i8, ptr %arrayidx10.i, i64 60
+  %shadow_avail_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx10.i, i64 60
   store i16 %11, ptr %shadow_avail_idx.i, align 4
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %vring_used_idx.exit.i, %rcu_read_auto_lock.exit.i
   %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
+  %depth.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 12
   %12 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %12, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i10.i, label %if.end.i.i.i.i9.i
@@ -7792,7 +7792,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i9.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
+  %waiting.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 8
   %13 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i.i.i.i, label %while.end21.i.i.i.i.i, label %if.end
@@ -7817,7 +7817,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
+  %depth.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 12
   %1 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %1, 1
   store i32 %inc.i.i.i, ptr %depth.i.i.i, align 4
@@ -7833,17 +7833,17 @@ while.end.i.i.i:                                  ; preds = %if.else
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %if.else
-  %vq.i = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq.i = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %3 = load ptr, ptr %vq.i, align 8
   %idxprom.i = sext i32 %n to i64
   %arrayidx.i = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i
-  %desc.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %desc.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %4 = load i64, ptr %desc.i, align 8
   %tobool.not.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i, label %if.then.i.i.i, label %if.then.i
 
 if.then.i:                                        ; preds = %rcu_read_auto_lock.exit.i
-  %caches.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %caches.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %5 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i = icmp eq i64 %5, 0
@@ -7851,8 +7851,8 @@ if.then.i:                                        ; preds = %rcu_read_auto_lock.
 
 if.end.i.i:                                       ; preds = %if.then.i
   %6 = inttoptr i64 %5 to ptr
-  %used.i.i = getelementptr inbounds i8, ptr %6, i64 240
-  %len.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 256
+  %used.i.i = getelementptr inbounds nuw i8, ptr %6, i64 240
+  %len.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 256
   %7 = load i64, ptr %len.i.i.i.i.i, align 16
   %switch.i.i = icmp ult i64 %7, 4
   br i1 %switch.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -7884,7 +7884,7 @@ vring_used_idx.exit.i:                            ; preds = %if.else8.i.i.i.i.i,
 
 if.then.i.i.i:                                    ; preds = %vring_used_idx.exit.i, %rcu_read_auto_lock.exit.i
   %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
+  %depth.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 12
   %10 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %10, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i6.i, label %if.end.i.i.i.i5.i
@@ -7903,7 +7903,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i5.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
+  %waiting.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 8
   %11 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool.i.i.i.i.i, label %while.end21.i.i.i.i.i, label %return
@@ -7920,7 +7920,7 @@ return:                                           ; preds = %while.end21.i.i.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @virtio_queue_invalidate_signalled_used(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #13 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idxprom = sext i32 %n to i64
   %signalled_used_valid = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom, i32 9
@@ -7931,7 +7931,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @virtio_get_queue(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #4 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
   %idx.ext = sext i32 %n to i64
   %add.ptr = getelementptr %struct.VirtQueue, ptr %0, i64 %idx.ext
@@ -7941,7 +7941,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i16 @virtio_get_queue_index(ptr nocapture noundef readonly %vq) local_unnamed_addr #4 {
 entry:
-  %queue_index = getelementptr inbounds i8, ptr %vq, i64 72
+  %queue_index = getelementptr inbounds nuw i8, ptr %vq, i64 72
   %0 = load i16, ptr %queue_index, align 8
   ret i16 %0
 }
@@ -7951,13 +7951,13 @@ define dso_local void @virtio_queue_set_guest_notifier_fd_handler(ptr noundef %v
 entry:
   %assign.not = xor i1 %assign, true
   %brmerge = or i1 %with_irqfd, %assign.not
-  %guest_notifier3 = getelementptr inbounds i8, ptr %vq, i64 104
+  %guest_notifier3 = getelementptr inbounds nuw i8, ptr %vq, i64 104
   %.virtio_queue_guest_notifier_read = select i1 %brmerge, ptr null, ptr @virtio_queue_guest_notifier_read
   tail call void @event_notifier_set_handler(ptr noundef nonnull %guest_notifier3, ptr noundef %.virtio_queue_guest_notifier_read) #23
   br i1 %assign, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %entry
-  %guest_notifier6 = getelementptr inbounds i8, ptr %vq, i64 104
+  %guest_notifier6 = getelementptr inbounds nuw i8, ptr %vq, i64 104
   tail call void @virtio_queue_guest_notifier_read(ptr noundef nonnull %guest_notifier6)
   br label %if.end7
 
@@ -7977,7 +7977,7 @@ entry:
 if.then:                                          ; preds = %entry
   %vdev.i = getelementptr i8, ptr %n, i64 -8
   %0 = load ptr, ptr %vdev.i, align 8
-  %isr.i.i = getelementptr inbounds i8, ptr %0, i64 169
+  %isr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 169
   %1 = load atomic i8, ptr %isr.i.i monotonic, align 1
   %2 = and i8 %1, 1
   %cmp.not.i.not.i = icmp eq i8 %2, 0
@@ -7996,25 +7996,25 @@ virtio_set_isr.exit.i:                            ; preds = %if.then.i.i, %if.th
   %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #23
   %call.i4.i.i = tail call ptr @object_get_class(ptr noundef %call1.i.i) #23
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
-  %disabled.i.i.i = getelementptr inbounds i8, ptr %4, i64 437
+  %disabled.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 437
   %6 = load i8, ptr %disabled.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i.i, label %if.end, label %virtio_device_disabled.exit.i.i
 
 virtio_device_disabled.exit.i.i:                  ; preds = %virtio_set_isr.exit.i
-  %broken.i.i.i = getelementptr inbounds i8, ptr %4, i64 435
+  %broken.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 435
   %7 = load i8, ptr %broken.i.i.i, align 1
   %tobool1.i.i.i = trunc i8 %7 to i1
   br i1 %tobool1.i.i.i, label %if.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %virtio_device_disabled.exit.i.i
-  %notify.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 160
+  %notify.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 160
   %8 = load ptr, ptr %notify.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i, label %if.end, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %parent.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 40
+  %parent.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 40
   %9 = load ptr, ptr %parent.i.i, align 8
   tail call void %8(ptr noundef %9, i16 noundef zeroext %5) #23
   br label %if.end
@@ -8026,7 +8026,7 @@ if.end:                                           ; preds = %if.then4.i.i, %if.e
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_config_set_guest_notifier_fd_handler(ptr noundef %vdev, i1 noundef zeroext %assign, i1 noundef zeroext %with_irqfd) local_unnamed_addr #0 {
 entry:
-  %config_notifier = getelementptr inbounds i8, ptr %vdev, i64 504
+  %config_notifier = getelementptr inbounds nuw i8, ptr %vdev, i64 504
   %assign.not = xor i1 %assign, true
   %brmerge = or i1 %with_irqfd, %assign.not
   %.virtio_config_guest_notifier_read = select i1 %brmerge, ptr null, ptr @virtio_config_guest_notifier_read
@@ -8065,14 +8065,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local nonnull ptr @virtio_queue_get_guest_notifier(ptr noundef readnone %vq) local_unnamed_addr #14 {
 entry:
-  %guest_notifier = getelementptr inbounds i8, ptr %vq, i64 104
+  %guest_notifier = getelementptr inbounds nuw i8, ptr %vq, i64 104
   ret ptr %guest_notifier
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_queue_aio_attach_host_notifier(ptr noundef %vq, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %host_notifier = getelementptr inbounds i8, ptr %vq, i64 116
+  %host_notifier = getelementptr inbounds nuw i8, ptr %vq, i64 116
   tail call void @aio_set_event_notifier(ptr noundef %ctx, ptr noundef nonnull %host_notifier, ptr noundef nonnull @virtio_queue_host_notifier_read, ptr noundef nonnull @virtio_queue_host_notifier_aio_poll, ptr noundef nonnull @virtio_queue_host_notifier_aio_poll_ready) #23
   tail call void @aio_set_event_notifier_poll(ptr noundef %ctx, ptr noundef nonnull %host_notifier, ptr noundef nonnull @virtio_queue_host_notifier_aio_poll_begin, ptr noundef nonnull @virtio_queue_host_notifier_aio_poll_end) #23
   ret void
@@ -8144,7 +8144,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_queue_aio_attach_host_notifier_no_poll(ptr noundef %vq, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %host_notifier = getelementptr inbounds i8, ptr %vq, i64 116
+  %host_notifier = getelementptr inbounds nuw i8, ptr %vq, i64 116
   tail call void @aio_set_event_notifier(ptr noundef %ctx, ptr noundef nonnull %host_notifier, ptr noundef nonnull @virtio_queue_host_notifier_read, ptr noundef null, ptr noundef null) #23
   ret void
 }
@@ -8152,7 +8152,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_queue_aio_detach_host_notifier(ptr noundef %vq, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %host_notifier = getelementptr inbounds i8, ptr %vq, i64 116
+  %host_notifier = getelementptr inbounds nuw i8, ptr %vq, i64 116
   tail call void @aio_set_event_notifier(ptr noundef %ctx, ptr noundef nonnull %host_notifier, ptr noundef null, ptr noundef null, ptr noundef null) #23
   ret void
 }
@@ -8163,27 +8163,27 @@ declare i32 @event_notifier_test_and_clear(ptr noundef) local_unnamed_addr #3
 define internal fastcc void @virtio_queue_notify_vq(ptr noundef %vq) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %desc = getelementptr inbounds i8, ptr %vq, i64 16
+  %desc = getelementptr inbounds nuw i8, ptr %vq, i64 16
   %0 = load i64, ptr %desc, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end19, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %handle_output = getelementptr inbounds i8, ptr %vq, i64 88
+  %handle_output = getelementptr inbounds nuw i8, ptr %vq, i64 88
   %1 = load ptr, ptr %handle_output, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end19, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %vdev2 = getelementptr inbounds i8, ptr %vq, i64 96
+  %vdev2 = getelementptr inbounds nuw i8, ptr %vq, i64 96
   %2 = load ptr, ptr %vdev2, align 8
-  %broken = getelementptr inbounds i8, ptr %2, i64 435
+  %broken = getelementptr inbounds nuw i8, ptr %2, i64 435
   %3 = load i8, ptr %broken, align 1
   %tobool3 = trunc i8 %3 to i1
   br i1 %tobool3, label %if.end19, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %vq7 = getelementptr inbounds i8, ptr %2, i64 232
+  %vq7 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %4 = load ptr, ptr %vq7, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %vq to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %4 to i64
@@ -8213,7 +8213,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
   %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %2, i32 noundef %conv8, ptr noundef nonnull %vq) #23
   br label %trace_virtio_queue_notify.exit
@@ -8226,20 +8226,20 @@ trace_virtio_queue_notify.exit:                   ; preds = %if.end, %land.lhs.t
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %11 = load ptr, ptr %handle_output, align 8
   tail call void %11(ptr noundef nonnull %2, ptr noundef nonnull %vq) #23
-  %start_on_kick = getelementptr inbounds i8, ptr %2, i64 440
+  %start_on_kick = getelementptr inbounds nuw i8, ptr %2, i64 440
   %12 = load i8, ptr %start_on_kick, align 8
   %tobool10 = trunc i8 %12 to i1
   br i1 %tobool10, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %trace_virtio_queue_notify.exit
   store i8 0, ptr %start_on_kick, align 8
-  %use_started.i = getelementptr inbounds i8, ptr %2, i64 438
+  %use_started.i = getelementptr inbounds nuw i8, ptr %2, i64 438
   %13 = load i8, ptr %use_started.i, align 2
   %tobool1.i = trunc i8 %13 to i1
   br i1 %tobool1.i, label %if.then2.i, label %if.end19
 
 if.then2.i:                                       ; preds = %if.then17
-  %started4.i = getelementptr inbounds i8, ptr %2, i64 439
+  %started4.i = getelementptr inbounds nuw i8, ptr %2, i64 439
   store i8 1, ptr %started4.i, align 1
   br label %if.end19
 
@@ -8250,14 +8250,14 @@ if.end19:                                         ; preds = %if.then2.i, %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local nonnull ptr @virtio_queue_get_host_notifier(ptr noundef readnone %vq) local_unnamed_addr #14 {
 entry:
-  %host_notifier = getelementptr inbounds i8, ptr %vq, i64 116
+  %host_notifier = getelementptr inbounds nuw i8, ptr %vq, i64 116
   ret ptr %host_notifier
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local nonnull ptr @virtio_config_get_guest_notifier(ptr noundef readnone %vdev) local_unnamed_addr #14 {
 entry:
-  %config_notifier = getelementptr inbounds i8, ptr %vdev, i64 504
+  %config_notifier = getelementptr inbounds nuw i8, ptr %vdev, i64 504
   ret ptr %config_notifier
 }
 
@@ -8265,7 +8265,7 @@ entry:
 define dso_local void @virtio_queue_set_host_notifier_enabled(ptr nocapture noundef writeonly initializes((128, 129)) %vq, i1 noundef zeroext %enabled) local_unnamed_addr #15 {
 entry:
   %frombool = zext i1 %enabled to i8
-  %host_notifier_enabled = getelementptr inbounds i8, ptr %vq, i64 128
+  %host_notifier_enabled = getelementptr inbounds nuw i8, ptr %vq, i64 128
   store i8 %frombool, ptr %host_notifier_enabled, align 8
   ret void
 }
@@ -8277,13 +8277,13 @@ entry:
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
   %call.i3 = tail call ptr @object_get_class(ptr noundef %call1) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
-  %set_host_notifier_mr = getelementptr inbounds i8, ptr %call1.i, i64 248
+  %set_host_notifier_mr = getelementptr inbounds nuw i8, ptr %call1.i, i64 248
   %0 = load ptr, ptr %set_host_notifier_mr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %parent = getelementptr inbounds i8, ptr %call1, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call5 = tail call i32 %0(ptr noundef %1, i32 noundef %n, ptr noundef %mr, i1 noundef zeroext %assign) #23
   br label %return
@@ -8296,7 +8296,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_device_set_child_bus_name(ptr nocapture noundef %vdev, ptr noundef %bus_name) local_unnamed_addr #0 {
 entry:
-  %bus_name1 = getelementptr inbounds i8, ptr %vdev, i64 456
+  %bus_name1 = getelementptr inbounds nuw i8, ptr %vdev, i64 456
   %0 = load ptr, ptr %bus_name1, align 8
   tail call void @g_free(ptr noundef %0) #23
   %call = tail call noalias ptr @g_strdup(ptr noundef %bus_name) #23
@@ -8374,7 +8374,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %vq.i = getelementptr inbounds i8, ptr %call, i64 232
+  %vq.i = getelementptr inbounds nuw i8, ptr %call, i64 232
   %0 = load ptr, ptr %vq.i, align 8
   %idxprom.i = zext nneg i16 %queue to i64
   %arrayidx.i = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom.i
@@ -8388,57 +8388,57 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
 
 if.end7:                                          ; preds = %lor.lhs.false
   %call8 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #22
-  %name = getelementptr inbounds i8, ptr %call, i64 160
+  %name = getelementptr inbounds nuw i8, ptr %call, i64 160
   %2 = load ptr, ptr %name, align 8
   %call9 = tail call noalias ptr @g_strdup(ptr noundef %2) #23
   store ptr %call9, ptr %call8, align 8
   %3 = load ptr, ptr %vq.i, align 8
   %queue_index = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 11
   %4 = load i16, ptr %queue_index, align 8
-  %queue_index11 = getelementptr inbounds i8, ptr %call8, i64 8
+  %queue_index11 = getelementptr inbounds nuw i8, ptr %call8, i64 8
   store i16 %4, ptr %queue_index11, align 8
   %inuse = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 12
   %5 = load i32, ptr %inuse, align 4
-  %inuse15 = getelementptr inbounds i8, ptr %call8, i64 12
+  %inuse15 = getelementptr inbounds nuw i8, ptr %call8, i64 12
   store i32 %5, ptr %inuse15, align 4
   %arrayidx18 = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i
   %6 = load i32, ptr %arrayidx18, align 8
-  %vring_num = getelementptr inbounds i8, ptr %call8, i64 16
+  %vring_num = getelementptr inbounds nuw i8, ptr %call8, i64 16
   store i32 %6, ptr %vring_num, align 8
   %num_default = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 0, i32 1
   %7 = load i32, ptr %num_default, align 4
-  %vring_num_default = getelementptr inbounds i8, ptr %call8, i64 20
+  %vring_num_default = getelementptr inbounds nuw i8, ptr %call8, i64 20
   store i32 %7, ptr %vring_num_default, align 4
   %align = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 0, i32 2
   %8 = load i32, ptr %align, align 8
-  %vring_align = getelementptr inbounds i8, ptr %call8, i64 24
+  %vring_align = getelementptr inbounds nuw i8, ptr %call8, i64 24
   store i32 %8, ptr %vring_align, align 8
   %desc = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 0, i32 3
   %9 = load i64, ptr %desc, align 8
-  %vring_desc = getelementptr inbounds i8, ptr %call8, i64 32
+  %vring_desc = getelementptr inbounds nuw i8, ptr %call8, i64 32
   store i64 %9, ptr %vring_desc, align 8
   %avail = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 0, i32 4
   %10 = load i64, ptr %avail, align 8
-  %vring_avail = getelementptr inbounds i8, ptr %call8, i64 40
+  %vring_avail = getelementptr inbounds nuw i8, ptr %call8, i64 40
   store i64 %10, ptr %vring_avail, align 8
   %used = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 0, i32 5
   %11 = load i64, ptr %used, align 8
-  %vring_used = getelementptr inbounds i8, ptr %call8, i64 48
+  %vring_used = getelementptr inbounds nuw i8, ptr %call8, i64 48
   store i64 %11, ptr %vring_used, align 8
   %used_idx = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 6
   %12 = load i16, ptr %used_idx, align 8
-  %used_idx42 = getelementptr inbounds i8, ptr %call8, i64 64
+  %used_idx42 = getelementptr inbounds nuw i8, ptr %call8, i64 64
   store i16 %12, ptr %used_idx42, align 8
   %signalled_used = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 8
   %13 = load i16, ptr %signalled_used, align 4
-  %signalled_used46 = getelementptr inbounds i8, ptr %call8, i64 66
+  %signalled_used46 = getelementptr inbounds nuw i8, ptr %call8, i64 66
   store i16 %13, ptr %signalled_used46, align 2
   %signalled_used_valid = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 9
   %14 = load i8, ptr %signalled_used_valid, align 2
-  %signalled_used_valid51 = getelementptr inbounds i8, ptr %call8, i64 68
+  %signalled_used_valid51 = getelementptr inbounds nuw i8, ptr %call8, i64 68
   %frombool = and i8 %14, 1
   store i8 %frombool, ptr %signalled_used_valid51, align 4
-  %vhost_started = getelementptr inbounds i8, ptr %call, i64 442
+  %vhost_started = getelementptr inbounds nuw i8, ptr %call, i64 442
   %15 = load i8, ptr %vhost_started, align 2
   %tobool52 = trunc i8 %15 to i1
   br i1 %tobool52, label %if.then53, label %if.else
@@ -8446,53 +8446,53 @@ if.end7:                                          ; preds = %lor.lhs.false
 if.then53:                                        ; preds = %if.end7
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
-  %get_vhost = getelementptr inbounds i8, ptr %call1.i, i64 352
+  %get_vhost = getelementptr inbounds nuw i8, ptr %call1.i, i64 352
   %16 = load ptr, ptr %get_vhost, align 8
   %call55 = tail call ptr %16(ptr noundef nonnull %call) #23
-  %vq_index = getelementptr inbounds i8, ptr %call55, i64 444
+  %vq_index = getelementptr inbounds nuw i8, ptr %call55, i64 444
   %17 = load i32, ptr %vq_index, align 4
   %cmp57.not = icmp sgt i32 %17, %conv
   br i1 %cmp57.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then53
-  %nvqs = getelementptr inbounds i8, ptr %call55, i64 440
+  %nvqs = getelementptr inbounds nuw i8, ptr %call55, i64 440
   %18 = load i32, ptr %nvqs, align 8
   %add = add i32 %18, %17
   %cmp61 = icmp ugt i32 %add, %conv
   br i1 %cmp61, label %if.then63, label %return
 
 if.then63:                                        ; preds = %land.lhs.true
-  %has_last_avail_idx = getelementptr inbounds i8, ptr %call8, i64 56
+  %has_last_avail_idx = getelementptr inbounds nuw i8, ptr %call8, i64 56
   store i8 1, ptr %has_last_avail_idx, align 8
-  %vhost_ops = getelementptr inbounds i8, ptr %call55, i64 528
+  %vhost_ops = getelementptr inbounds nuw i8, ptr %call55, i64 528
   %19 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vq_index = getelementptr inbounds i8, ptr %19, i64 208
+  %vhost_get_vq_index = getelementptr inbounds nuw i8, ptr %19, i64 208
   %20 = load ptr, ptr %vhost_get_vq_index, align 8
   %call65 = tail call i32 %20(ptr noundef nonnull %call55, i32 noundef %conv) #23
   store i32 %call65, ptr %state, align 4
-  %num66 = getelementptr inbounds i8, ptr %state, i64 4
+  %num66 = getelementptr inbounds nuw i8, ptr %state, i64 4
   store i32 0, ptr %num66, align 4
   %21 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vring_base = getelementptr inbounds i8, ptr %21, i64 128
+  %vhost_get_vring_base = getelementptr inbounds nuw i8, ptr %21, i64 128
   %22 = load ptr, ptr %vhost_get_vring_base, align 8
   %call68 = call i32 %22(ptr noundef nonnull %call55, ptr noundef nonnull %state) #23
   %conv69 = trunc i32 %call68 to i16
-  %last_avail_idx = getelementptr inbounds i8, ptr %call8, i64 58
+  %last_avail_idx = getelementptr inbounds nuw i8, ptr %call8, i64 58
   store i16 %conv69, ptr %last_avail_idx, align 2
   br label %return
 
 if.else:                                          ; preds = %if.end7
-  %has_shadow_avail_idx = getelementptr inbounds i8, ptr %call8, i64 60
+  %has_shadow_avail_idx = getelementptr inbounds nuw i8, ptr %call8, i64 60
   store i8 1, ptr %has_shadow_avail_idx, align 4
-  %has_last_avail_idx71 = getelementptr inbounds i8, ptr %call8, i64 56
+  %has_last_avail_idx71 = getelementptr inbounds nuw i8, ptr %call8, i64 56
   store i8 1, ptr %has_last_avail_idx71, align 8
   %last_avail_idx75 = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 2
   %23 = load i16, ptr %last_avail_idx75, align 8
-  %last_avail_idx76 = getelementptr inbounds i8, ptr %call8, i64 58
+  %last_avail_idx76 = getelementptr inbounds nuw i8, ptr %call8, i64 58
   store i16 %23, ptr %last_avail_idx76, align 2
   %shadow_avail_idx = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 4
   %24 = load i16, ptr %shadow_avail_idx, align 4
-  %shadow_avail_idx80 = getelementptr inbounds i8, ptr %call8, i64 62
+  %shadow_avail_idx80 = getelementptr inbounds nuw i8, ptr %call8, i64 62
   store i16 %24, ptr %shadow_avail_idx80, align 2
   br label %return
 
@@ -8524,7 +8524,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %vq.i = getelementptr inbounds i8, ptr %call, i64 232
+  %vq.i = getelementptr inbounds nuw i8, ptr %call, i64 232
   %0 = load ptr, ptr %vq.i, align 8
   %idxprom.i = zext nneg i16 %queue to i64
   %arrayidx.i = getelementptr %struct.VirtQueue, ptr %0, i64 %idxprom.i
@@ -8548,12 +8548,12 @@ if.then10:                                        ; preds = %if.end7
   br label %return
 
 if.else:                                          ; preds = %if.end7
-  %mr.i = getelementptr inbounds i8, ptr %indirect_desc_cache, i64 48
+  %mr.i = getelementptr inbounds nuw i8, ptr %indirect_desc_cache, i64 48
   store ptr null, ptr %mr.i, align 16
-  %fv.i = getelementptr inbounds i8, ptr %indirect_desc_cache, i64 24
+  %fv.i = getelementptr inbounds nuw i8, ptr %indirect_desc_cache, i64 24
   store ptr null, ptr %fv.i, align 8
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %3 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %3, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -8573,9 +8573,9 @@ rcu_read_auto_lock.exit:                          ; preds = %if.else, %while.end
   br i1 %has_index, label %if.else19, label %if.then13
 
 if.then13:                                        ; preds = %rcu_read_auto_lock.exit
-  %last_avail_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
+  %last_avail_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 56
   %6 = load i16, ptr %last_avail_idx, align 8
-  %caches.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %caches.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %7 = load atomic i64, ptr %caches.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i = icmp eq i64 %7, 0
@@ -8588,8 +8588,8 @@ if.end.i:                                         ; preds = %if.then13
   %9 = shl nuw nsw i32 %rem, 1
   %narrow = add nuw nsw i32 %9, 4
   %10 = zext nneg i32 %narrow to i64
-  %avail.i = getelementptr inbounds i8, ptr %8, i64 128
-  %len.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 144
+  %avail.i = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %len.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 144
   %11 = load i64, ptr %len.i.i.i.i, align 16
   %cmp.i.i.i.i = icmp ugt i64 %11, %10
   %sub.i.i.i.i = sub nuw i64 %11, %10
@@ -8616,7 +8616,7 @@ if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %if.end26
 
 if.else19:                                        ; preds = %rcu_read_auto_lock.exit
-  %caches.i.i55 = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %caches.i.i55 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %13 = load atomic i64, ptr %caches.i.i55 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i56 = icmp eq i64 %13, 0
@@ -8629,8 +8629,8 @@ if.end.i57:                                       ; preds = %if.else19
   %15 = shl nuw nsw i32 %rem23, 1
   %narrow143 = add nuw nsw i32 %15, 4
   %16 = zext nneg i32 %narrow143 to i64
-  %avail.i59 = getelementptr inbounds i8, ptr %14, i64 128
-  %len.i.i.i.i60 = getelementptr inbounds i8, ptr %14, i64 144
+  %avail.i59 = getelementptr inbounds nuw i8, ptr %14, i64 128
+  %len.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %17 = load i64, ptr %len.i.i.i.i60, align 16
   %cmp.i.i.i.i61 = icmp ugt i64 %17, %16
   %sub.i.i.i.i62 = sub nuw i64 %17, %16
@@ -8659,7 +8659,7 @@ if.else8.i.i.i.i72:                               ; preds = %if.end.i.i.i.i66
 if.end26:                                         ; preds = %if.else8.i.i.i.i72, %if.then5.i.i.i.i68, %if.else19, %if.else8.i.i.i.i, %if.then5.i.i.i.i, %if.then13
   %head.0.in = phi i16 [ 0, %if.then13 ], [ %add.ptr.val.i.i.i.i, %if.then5.i.i.i.i ], [ %call10.i.i.i.i, %if.else8.i.i.i.i ], [ 0, %if.else19 ], [ %add.ptr.val.i.i.i.i70, %if.then5.i.i.i.i68 ], [ %call10.i.i.i.i73, %if.else8.i.i.i.i72 ]
   %head.0 = zext i16 %head.0.in to i32
-  %caches.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %caches.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %19 = load atomic i64, ptr %caches.i monotonic, align 8
   %20 = inttoptr i64 %19 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
@@ -8671,7 +8671,7 @@ if.then29:                                        ; preds = %if.end26
   br label %if.then.i.i
 
 if.end30:                                         ; preds = %if.end26
-  %len = getelementptr inbounds i8, ptr %20, i64 32
+  %len = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = load i64, ptr %len, align 16
   %conv32 = zext i32 %5 to i64
   %mul = shl nuw nsw i64 %conv32, 4
@@ -8683,7 +8683,7 @@ if.then35:                                        ; preds = %if.end30
   br label %if.then.i.i
 
 if.end36:                                         ; preds = %if.end30
-  %desc31 = getelementptr inbounds i8, ptr %20, i64 16
+  %desc31 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %conv.i75 = zext i16 %head.0.in to i64
   %mul.i = shl nuw nsw i64 %conv.i75, 4
   %cmp.i.i = icmp uge i64 %mul.i, %21
@@ -8711,17 +8711,17 @@ if.else8.i.i:                                     ; preds = %if.end.i.i
   br label %vring_split_desc_read.exit
 
 vring_split_desc_read.exit:                       ; preds = %if.then6.i.i, %if.else8.i.i
-  %flags = getelementptr inbounds i8, ptr %desc, i64 12
+  %flags = getelementptr inbounds nuw i8, ptr %desc, i64 12
   %23 = load i16, ptr %flags, align 4
   %24 = and i16 %23, 4
   %tobool39.not = icmp eq i16 %24, 0
   br i1 %tobool39.not, label %if.end54, label %if.then40
 
 if.then40:                                        ; preds = %vring_split_desc_read.exit
-  %dma_as = getelementptr inbounds i8, ptr %call, i64 472
+  %dma_as = getelementptr inbounds nuw i8, ptr %call, i64 472
   %25 = load ptr, ptr %dma_as, align 8
   %26 = load i64, ptr %desc, align 8
-  %len42 = getelementptr inbounds i8, ptr %desc, i64 8
+  %len42 = getelementptr inbounds nuw i8, ptr %desc, i64 8
   %27 = load i32, ptr %len42, align 8
   %conv43 = zext i32 %27 to i64
   %call44 = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache, ptr noundef %25, i64 noundef %26, i64 noundef %conv43, i1 noundef zeroext false) #23
@@ -8744,16 +8744,16 @@ if.end54:                                         ; preds = %if.end50, %vring_sp
   %desc_cache.0 = phi ptr [ %indirect_desc_cache, %if.end50 ], [ %desc31, %vring_split_desc_read.exit ]
   %call55 = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #22
   %call56 = call noalias dereferenceable_or_null(6) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 6) #22
-  %avail = getelementptr inbounds i8, ptr %call55, i64 24
+  %avail = getelementptr inbounds nuw i8, ptr %call55, i64 24
   store ptr %call56, ptr %avail, align 8
   %call57 = call noalias dereferenceable_or_null(4) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 4) #22
-  %used = getelementptr inbounds i8, ptr %call55, i64 32
+  %used = getelementptr inbounds nuw i8, ptr %call55, i64 32
   store ptr %call57, ptr %used, align 8
-  %name = getelementptr inbounds i8, ptr %call, i64 160
+  %name = getelementptr inbounds nuw i8, ptr %call, i64 160
   %29 = load ptr, ptr %name, align 8
   %call58 = call noalias ptr @g_strdup(ptr noundef %29) #23
   store ptr %call58, ptr %call55, align 8
-  %index60 = getelementptr inbounds i8, ptr %call55, i64 8
+  %index60 = getelementptr inbounds nuw i8, ptr %call55, i64 8
   store i32 %head.0, ptr %index60, align 8
   %30 = load atomic i64, ptr %caches.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
@@ -8762,8 +8762,8 @@ if.end54:                                         ; preds = %if.end50, %vring_sp
 
 if.end.i79:                                       ; preds = %if.end54
   %31 = inttoptr i64 %30 to ptr
-  %avail.i80 = getelementptr inbounds i8, ptr %31, i64 128
-  %len.i.i.i.i81 = getelementptr inbounds i8, ptr %31, i64 144
+  %avail.i80 = getelementptr inbounds nuw i8, ptr %31, i64 128
+  %len.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %31, i64 144
   %32 = load i64, ptr %len.i.i.i.i81, align 16
   %cmp2.i.i.i.i82 = icmp ugt i64 %32, 1
   br i1 %cmp2.i.i.i.i82, label %if.end.i.i.i.i84, label %if.else.i.i.i.i83
@@ -8795,8 +8795,8 @@ vring_avail_flags.exit:                           ; preds = %if.end54, %if.then5
 
 if.end.i93:                                       ; preds = %vring_avail_flags.exit
   %35 = inttoptr i64 %34 to ptr
-  %avail.i94 = getelementptr inbounds i8, ptr %35, i64 128
-  %len.i.i.i.i95 = getelementptr inbounds i8, ptr %35, i64 144
+  %avail.i94 = getelementptr inbounds nuw i8, ptr %35, i64 128
+  %len.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %35, i64 144
   %36 = load i64, ptr %len.i.i.i.i95, align 16
   %switch.i = icmp ult i64 %36, 4
   br i1 %switch.i, label %if.else.i.i.i.i104, label %if.end.i.i.i.i96
@@ -8821,15 +8821,15 @@ if.else8.i.i.i.i102:                              ; preds = %if.end.i.i.i.i96
 
 virtio_lduw_phys_cached.exit.i:                   ; preds = %if.else8.i.i.i.i102, %if.then5.i.i.i.i98
   %retval.0.i.i.i.i = phi i16 [ %add.ptr.val.i.i.i.i100, %if.then5.i.i.i.i98 ], [ %call10.i.i.i.i103, %if.else8.i.i.i.i102 ]
-  %shadow_avail_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 60
+  %shadow_avail_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 60
   store i16 %retval.0.i.i.i.i, ptr %shadow_avail_idx.i, align 4
   br label %vring_avail_idx.exit
 
 vring_avail_idx.exit:                             ; preds = %vring_avail_flags.exit, %virtio_lduw_phys_cached.exit.i
   %retval.0.i101 = phi i16 [ %retval.0.i.i.i.i, %virtio_lduw_phys_cached.exit.i ], [ 0, %vring_avail_flags.exit ]
-  %idx = getelementptr inbounds i8, ptr %call56, i64 2
+  %idx = getelementptr inbounds nuw i8, ptr %call56, i64 2
   store i16 %retval.0.i101, ptr %idx, align 2
-  %ring = getelementptr inbounds i8, ptr %call56, i64 4
+  %ring = getelementptr inbounds nuw i8, ptr %call56, i64 4
   store i16 %head.0.in, ptr %ring, align 2
   %38 = load atomic i64, ptr %caches.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
@@ -8838,8 +8838,8 @@ vring_avail_idx.exit:                             ; preds = %vring_avail_flags.e
 
 if.end.i107:                                      ; preds = %vring_avail_idx.exit
   %39 = inttoptr i64 %38 to ptr
-  %used.i = getelementptr inbounds i8, ptr %39, i64 240
-  %len.i.i.i.i108 = getelementptr inbounds i8, ptr %39, i64 256
+  %used.i = getelementptr inbounds nuw i8, ptr %39, i64 240
+  %len.i.i.i.i108 = getelementptr inbounds nuw i8, ptr %39, i64 256
   %40 = load i64, ptr %len.i.i.i.i108, align 16
   %cmp2.i.i.i.i109 = icmp ugt i64 %40, 1
   br i1 %cmp2.i.i.i.i109, label %if.end.i.i.i.i111, label %if.else.i.i.i.i110
@@ -8871,8 +8871,8 @@ vring_used_flags.exit:                            ; preds = %vring_avail_idx.exi
 
 if.end.i120:                                      ; preds = %vring_used_flags.exit
   %43 = inttoptr i64 %42 to ptr
-  %used.i121 = getelementptr inbounds i8, ptr %43, i64 240
-  %len.i.i.i.i122 = getelementptr inbounds i8, ptr %43, i64 256
+  %used.i121 = getelementptr inbounds nuw i8, ptr %43, i64 240
+  %len.i.i.i.i122 = getelementptr inbounds nuw i8, ptr %43, i64 256
   %44 = load i64, ptr %len.i.i.i.i122, align 16
   %switch.i123 = icmp ult i64 %44, 4
   br i1 %switch.i123, label %if.else.i.i.i.i132, label %if.end.i.i.i.i124
@@ -8897,15 +8897,15 @@ if.else8.i.i.i.i130:                              ; preds = %if.end.i.i.i.i124
 
 vring_used_idx.exit:                              ; preds = %vring_used_flags.exit, %if.then5.i.i.i.i126, %if.else8.i.i.i.i130
   %retval.0.i129 = phi i16 [ 0, %vring_used_flags.exit ], [ %add.ptr.val.i.i.i.i128, %if.then5.i.i.i.i126 ], [ %call10.i.i.i.i131, %if.else8.i.i.i.i130 ]
-  %idx73 = getelementptr inbounds i8, ptr %call57, i64 2
+  %idx73 = getelementptr inbounds nuw i8, ptr %call57, i64 2
   store i16 %retval.0.i129, ptr %idx73, align 2
   %cmp74.not146.not = icmp eq i32 %max.0, 0
   br i1 %cmp74.not146.not, label %do.end, label %if.end77.lr.ph
 
 if.end77.lr.ph:                                   ; preds = %vring_used_idx.exit
-  %len83 = getelementptr inbounds i8, ptr %desc, i64 8
-  %next.i = getelementptr inbounds i8, ptr %desc, i64 14
-  %len1.i.i.i = getelementptr inbounds i8, ptr %desc_cache.0, i64 16
+  %len83 = getelementptr inbounds nuw i8, ptr %desc, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %desc, i64 14
+  %len1.i.i.i = getelementptr inbounds nuw i8, ptr %desc_cache.0, i64 16
   br label %if.end77
 
 if.end77:                                         ; preds = %if.end77.lr.ph, %virtqueue_split_read_next_desc.exit
@@ -8913,12 +8913,12 @@ if.end77:                                         ; preds = %if.end77.lr.ph, %vi
   %list.0147 = phi ptr [ null, %if.end77.lr.ph ], [ %call78, %virtqueue_split_read_next_desc.exit ]
   %call78 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #22
   %call79 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #22
-  %value = getelementptr inbounds i8, ptr %call78, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %call78, i64 8
   store ptr %call79, ptr %value, align 8
   %46 = load i64, ptr %desc, align 8
   store i64 %46, ptr %call79, align 8
   %47 = load i32, ptr %len83, align 8
-  %len85 = getelementptr inbounds i8, ptr %call79, i64 8
+  %len85 = getelementptr inbounds nuw i8, ptr %call79, i64 8
   store i32 %47, ptr %len85, align 8
   %48 = load i16, ptr %flags, align 4
   br label %for.body.i
@@ -8934,10 +8934,10 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end7
 
 if.end.i133:                                      ; preds = %for.body.i
   %call.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #26
-  %value.i = getelementptr inbounds i8, ptr %arrayidx10.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %arrayidx10.i, i64 8
   %50 = load ptr, ptr %value.i, align 8
   %call8.i = call noalias ptr @g_strdup(ptr noundef %50) #23
-  %value9.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %value9.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call8.i, ptr %value9.i, align 8
   store ptr %list.08.i, ptr %call.i, align 8
   br label %for.inc.i
@@ -8952,7 +8952,7 @@ for.inc.i:                                        ; preds = %if.end.i133, %for.b
 
 qmp_decode_vring_desc_flags.exit:                 ; preds = %for.inc.i
   %52 = load ptr, ptr %value, align 8
-  %flags89 = getelementptr inbounds i8, ptr %52, i64 16
+  %flags89 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr %list.1.i, ptr %flags89, align 8
   store ptr %list.0147, ptr %call78, align 8
   %inc = add nuw i32 %ndescs.0148, 1
@@ -9005,7 +9005,7 @@ virtqueue_split_read_next_desc.exit:              ; preds = %if.then6.i.i.i, %if
 
 do.end:                                           ; preds = %virtqueue_split_read_next_desc.exit, %qmp_decode_vring_desc_flags.exit, %vring_used_idx.exit, %if.then3.i
   %list.1 = phi ptr [ %call78, %if.then3.i ], [ null, %vring_used_idx.exit ], [ %call78, %qmp_decode_vring_desc_flags.exit ], [ %call78, %virtqueue_split_read_next_desc.exit ]
-  %descs = getelementptr inbounds i8, ptr %call55, i64 16
+  %descs = getelementptr inbounds nuw i8, ptr %call55, i64 16
   store ptr %list.1, ptr %descs, align 8
   br label %done
 
@@ -9017,7 +9017,7 @@ done:                                             ; preds = %do.end, %if.then49
 if.then.i.i:                                      ; preds = %if.then29, %if.then35, %done
   %switch = phi ptr [ null, %if.then35 ], [ %element.1, %done ], [ null, %if.then29 ]
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #23
-  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
+  %depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   %58 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %58, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i140, label %if.end.i.i.i.i139
@@ -9036,7 +9036,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i139
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %waiting.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   %59 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %59 to i1
   br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %return
@@ -9056,7 +9056,7 @@ define internal fastcc void @vring_split_desc_read(ptr noundef nonnull %desc, pt
 entry:
   %conv = sext i32 %i to i64
   %mul = shl nsw i64 %conv, 4
-  %len1.i = getelementptr inbounds i8, ptr %cache, i64 16
+  %len1.i = getelementptr inbounds nuw i8, ptr %cache, i64 16
   %0 = load i64, ptr %len1.i, align 16
   %cmp.i = icmp uge i64 %mul, %0
   %sub.i = sub nuw i64 %0, %mul
@@ -9125,21 +9125,21 @@ define internal fastcc void @virtqueue_packed_fill_desc(ptr nocapture noundef re
 entry:
   %desc = alloca %struct.VRingPackedDesc, align 8
   store i64 0, ptr %desc, align 8
-  %len = getelementptr inbounds i8, ptr %desc, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %desc, i64 8
   store i32 %elem.4.val, ptr %len, align 8
-  %id = getelementptr inbounds i8, ptr %desc, i64 12
+  %id = getelementptr inbounds nuw i8, ptr %desc, i64 12
   %conv = trunc i32 %elem.0.val to i16
   store i16 %conv, ptr %id, align 4
-  %flags = getelementptr inbounds i8, ptr %desc, i64 14
-  %desc3 = getelementptr inbounds i8, ptr %vq, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %desc, i64 14
+  %desc3 = getelementptr inbounds nuw i8, ptr %vq, i64 16
   %0 = load i64, ptr %desc3, align 8
   %tobool4.not = icmp eq i64 %0, 0
   br i1 %tobool4.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %used_wrap_counter = getelementptr inbounds i8, ptr %vq, i64 66
+  %used_wrap_counter = getelementptr inbounds nuw i8, ptr %vq, i64 66
   %1 = load i8, ptr %used_wrap_counter, align 2
-  %used_idx = getelementptr inbounds i8, ptr %vq, i64 64
+  %used_idx = getelementptr inbounds nuw i8, ptr %vq, i64 64
   %2 = load i16, ptr %used_idx, align 8
   %3 = trunc i32 %idx to i16
   %conv10 = add i16 %2, %3
@@ -9150,7 +9150,7 @@ if.end:                                           ; preds = %entry
   %tobool24 = xor i1 %cmp.not, %5
   %storemerge = select i1 %tobool24, i16 -32640, i16 0
   store i16 %storemerge, ptr %flags, align 2
-  %caches.i = getelementptr inbounds i8, ptr %vq, i64 40
+  %caches.i = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %6 = load atomic i64, ptr %caches.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool41.not = icmp eq i64 %6, 0
@@ -9161,13 +9161,13 @@ if.end43:                                         ; preds = %if.end
   %8 = trunc i32 %4 to i16
   %conv18 = select i1 %cmp.not, i16 %8, i16 0
   %head.0 = sub i16 %conv10, %conv18
-  %desc44 = getelementptr inbounds i8, ptr %7, i64 16
+  %desc44 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %conv45 = zext i16 %head.0 to i32
   %9 = shl nuw nsw i32 %conv45, 4
   %mul.i.i = zext nneg i32 %9 to i64
   %add.i.i = or disjoint i64 %mul.i.i, 12
   %add3.i.i = or disjoint i64 %mul.i.i, 8
-  %len1.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %len1.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load i64, ptr %len1.i.i.i, align 16
   %cmp.i.i.i = icmp uge i64 %add.i.i, %10
   %sub.i.i.i = sub nuw i64 %10, %add.i.i
@@ -9272,11 +9272,11 @@ declare ptr @get_ptr_rcu_reader() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc, ptr noundef nonnull %cache, i32 noundef %i, i1 noundef zeroext %strict_order) unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %desc, i64 14
+  %flags = getelementptr inbounds nuw i8, ptr %desc, i64 14
   %conv.i = sext i32 %i to i64
   %mul.i = shl nsw i64 %conv.i, 4
   %add.i = or disjoint i64 %mul.i, 14
-  %len.i.i.i.i = getelementptr inbounds i8, ptr %cache, i64 16
+  %len.i.i.i.i = getelementptr inbounds nuw i8, ptr %cache, i64 16
   %0 = load i64, ptr %len.i.i.i.i, align 16
   %cmp.i.i.i.i = icmp ult i64 %add.i, %0
   %sub.i.i.i.i = sub nuw i64 %0, %add.i
@@ -9341,7 +9341,7 @@ if.else8.i:                                       ; preds = %if.end.i
 
 address_space_read_cached.exit:                   ; preds = %if.then6.i, %if.else8.i
   %add1 = or disjoint i64 %mul.i, 12
-  %id = getelementptr inbounds i8, ptr %desc, i64 12
+  %id = getelementptr inbounds nuw i8, ptr %desc, i64 12
   %5 = load i64, ptr %len.i.i.i.i, align 16
   %cmp.i17 = icmp uge i64 %add1, %5
   %sub.i18 = sub nuw i64 %5, %add1
@@ -9370,7 +9370,7 @@ if.else8.i26:                                     ; preds = %if.end.i21
 
 address_space_read_cached.exit29:                 ; preds = %if.then6.i23, %if.else8.i26
   %add3 = or disjoint i64 %mul.i, 8
-  %len = getelementptr inbounds i8, ptr %desc, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %desc, i64 8
   %8 = load i64, ptr %len.i.i.i.i, align 16
   %cmp.i31 = icmp uge i64 %add3, %8
   %sub.i32 = sub nuw i64 %8, %add3
@@ -9425,7 +9425,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %dma_as = getelementptr inbounds i8, ptr %vdev, i64 472
+  %dma_as = getelementptr inbounds nuw i8, ptr %vdev, i64 472
   br label %while.body
 
 if.then1:                                         ; preds = %if.end
@@ -9461,7 +9461,7 @@ if.then39:                                        ; preds = %if.end6
   br label %out
 
 if.end40:                                         ; preds = %if.end6
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store i64 %2, ptr %iov_len, align 8
   %arrayidx44 = getelementptr i64, ptr %addr, i64 %idxprom
   store i64 %pa.addr.033, ptr %arrayidx44, align 8
@@ -9505,7 +9505,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #23
   %call10.i = tail call i32 @qemu_get_thread_id() #23
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %vq, ptr noundef %elem, i32 noundef %in_num, i32 noundef %out_num) #23
   br label %_nocheck__trace_virtqueue_pop.exit
@@ -9531,7 +9531,7 @@ for.body:                                         ; preds = %entry, %for.body
   %i.07 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
   %cmp1 = icmp uge i32 %i.07, %out_num
   %0 = load ptr, ptr %iov.addr.08, align 8
-  %iov_len = getelementptr inbounds i8, ptr %iov.addr.08, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %iov.addr.08, i64 8
   %1 = load i64, ptr %iov_len, align 8
   tail call void @cpu_physical_memory_unmap(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %cmp1, i64 noundef 0) #23
   %incdec.ptr = getelementptr i8, ptr %iov.addr.08, i64 16
@@ -9567,7 +9567,7 @@ declare void @qemu_put_be16(ptr noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @virtio_device_endian_needed(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %device_endian = getelementptr inbounds i8, ptr %opaque, i64 464
+  %device_endian = getelementptr inbounds nuw i8, ptr %opaque, i64 464
   %0 = load i8, ptr %device_endian, align 8
   %cmp.not = icmp eq i8 %0, 0
   br i1 %cmp.not, label %if.else, label %if.end
@@ -9612,7 +9612,7 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define internal zeroext i1 @virtio_ringsize_needed(ptr nocapture noundef readonly %opaque) #10 {
 entry:
-  %vq = getelementptr inbounds i8, ptr %opaque, i64 232
+  %vq = getelementptr inbounds nuw i8, ptr %opaque, i64 232
   %0 = load ptr, ptr %vq, align 8
   br label %for.body
 
@@ -9620,7 +9620,7 @@ for.body:                                         ; preds = %for.body, %entry
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr %struct.VirtQueue, ptr %0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
-  %num_default = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %num_default = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %2 = load i32, ptr %num_default, align 4
   %cmp5.not.not = icmp ne i32 %1, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9635,7 +9635,7 @@ return:                                           ; preds = %for.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @virtio_broken_needed(ptr nocapture noundef readonly %opaque) #4 {
 entry:
-  %broken = getelementptr inbounds i8, ptr %opaque, i64 435
+  %broken = getelementptr inbounds nuw i8, ptr %opaque, i64 435
   %0 = load i8, ptr %broken, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -9648,13 +9648,13 @@ entry:
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
   %call.i3 = tail call ptr @object_get_class(ptr noundef %call1) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
-  %has_extra_state = getelementptr inbounds i8, ptr %call1.i, i64 224
+  %has_extra_state = getelementptr inbounds nuw i8, ptr %call1.i, i64 224
   %0 = load ptr, ptr %has_extra_state, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %parent = getelementptr inbounds i8, ptr %call1, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call4 = tail call zeroext i1 %0(ptr noundef %1) #23
   br label %land.end
@@ -9671,13 +9671,13 @@ entry:
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
   %call.i3 = tail call ptr @object_get_class(ptr noundef %call1) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
-  %load_extra_state = getelementptr inbounds i8, ptr %call1.i, i64 216
+  %load_extra_state = getelementptr inbounds nuw i8, ptr %call1.i, i64 216
   %0 = load ptr, ptr %load_extra_state, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %parent = getelementptr inbounds i8, ptr %call1, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call4 = tail call i32 %0(ptr noundef %1, ptr noundef %f) #23
   br label %return
@@ -9694,9 +9694,9 @@ entry:
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
   %call.i2 = tail call ptr @object_get_class(ptr noundef %call1) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i2, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
-  %save_extra_state = getelementptr inbounds i8, ptr %call1.i, i64 184
+  %save_extra_state = getelementptr inbounds nuw i8, ptr %call1.i, i64 184
   %0 = load ptr, ptr %save_extra_state, align 8
-  %parent = getelementptr inbounds i8, ptr %call1, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
   tail call void %0(ptr noundef %1, ptr noundef %f) #23
   ret i32 0
@@ -9705,7 +9705,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @virtio_started_needed(ptr nocapture noundef readonly %opaque) #4 {
 entry:
-  %started = getelementptr inbounds i8, ptr %opaque, i64 439
+  %started = getelementptr inbounds nuw i8, ptr %opaque, i64 439
   %0 = load i8, ptr %started, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -9724,7 +9724,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @virtio_disabled_needed(ptr nocapture noundef readonly %opaque) #4 {
 entry:
-  %disabled = getelementptr inbounds i8, ptr %opaque, i64 437
+  %disabled = getelementptr inbounds nuw i8, ptr %opaque, i64 437
   %0 = load i8, ptr %disabled, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -9743,16 +9743,16 @@ declare ptr @qemu_get_current_aio_context() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_set_features_nocheck_bh(ptr nocapture noundef initializes((24, 28)) %opaque) #0 {
 entry:
-  %vdev = getelementptr inbounds i8, ptr %opaque, i64 8
+  %vdev = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %vdev, align 8
-  %val = getelementptr inbounds i8, ptr %opaque, i64 16
+  %val = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %1 = load i64, ptr %val, align 8
   %call.i.i = tail call ptr @object_get_class(ptr noundef %0) #23
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
-  %host_features.i = getelementptr inbounds i8, ptr %0, i64 176
+  %host_features.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   %2 = load i64, ptr %host_features.i, align 8
   %and2.i = and i64 %2, %1
-  %set_features.i = getelementptr inbounds i8, ptr %call1.i.i, i64 208
+  %set_features.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 208
   %3 = load ptr, ptr %set_features.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %virtio_set_features_nocheck.exit, label %if.then.i
@@ -9765,10 +9765,10 @@ virtio_set_features_nocheck.exit:                 ; preds = %entry, %if.then.i
   %not.i = xor i64 %2, -1
   %and.i = and i64 %1, %not.i
   %cmp.not.i = icmp ne i64 %and.i, 0
-  %guest_features.i = getelementptr inbounds i8, ptr %0, i64 184
+  %guest_features.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 %and2.i, ptr %guest_features.i, align 8
   %cond.i = sext i1 %cmp.not.i to i32
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %cond.i, ptr %ret, align 8
   %4 = load ptr, ptr %opaque, align 8
   tail call void @aio_co_wake(ptr noundef %4) #23
@@ -9785,7 +9785,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #3
 define internal void @virtio_device_instance_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #23
-  %vq.i = getelementptr inbounds i8, ptr %call.i, i64 232
+  %vq.i = getelementptr inbounds nuw i8, ptr %call.i, i64 232
   %0 = load ptr, ptr %vq.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %virtio_device_free_virtqueues.exit, label %for.body.i
@@ -9799,7 +9799,7 @@ for.body.i:                                       ; preds = %entry, %virtio_virt
   br i1 %cmp2.i, label %for.end.i, label %if.end4.i
 
 if.end4.i:                                        ; preds = %for.body.i
-  %caches1.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %caches1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %3 = load atomic i64, ptr %caches1.i.i monotonic, align 8
   store atomic i64 0, ptr %caches1.i.i release, align 8
   %tobool.not.i.i = icmp eq i64 %3, 0
@@ -9825,10 +9825,10 @@ for.end.i:                                        ; preds = %for.body.i, %virtio
   br label %virtio_device_free_virtqueues.exit
 
 virtio_device_free_virtqueues.exit:               ; preds = %entry, %for.end.i
-  %config = getelementptr inbounds i8, ptr %call.i, i64 208
+  %config = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   %6 = load ptr, ptr %config, align 8
   tail call void @g_free(ptr noundef %6) #23
-  %vector_queues = getelementptr inbounds i8, ptr %call.i, i64 480
+  %vector_queues = getelementptr inbounds nuw i8, ptr %call.i, i64 480
   %7 = load ptr, ptr %vector_queues, align 8
   tail call void @g_free(ptr noundef %7) #23
   ret void
@@ -9839,18 +9839,18 @@ define internal void @virtio_device_class_init(ptr noundef %klass, ptr nocapture
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #23
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #23
-  %realize = getelementptr inbounds i8, ptr %call.i7, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call.i7, i64 144
   store ptr @virtio_device_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds i8, ptr %call.i7, i64 152
+  %unrealize = getelementptr inbounds nuw i8, ptr %call.i7, i64 152
   store ptr @virtio_device_unrealize, ptr %unrealize, align 8
-  %bus_type = getelementptr inbounds i8, ptr %call.i7, i64 168
+  %bus_type = getelementptr inbounds nuw i8, ptr %call.i7, i64 168
   store ptr @.str.98, ptr %bus_type, align 8
   tail call void @device_class_set_props(ptr noundef %call.i7, ptr noundef nonnull @virtio_properties) #23
-  %start_ioeventfd = getelementptr inbounds i8, ptr %call.i, i64 296
+  %start_ioeventfd = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   store ptr @virtio_device_start_ioeventfd_impl, ptr %start_ioeventfd, align 8
-  %stop_ioeventfd = getelementptr inbounds i8, ptr %call.i, i64 304
+  %stop_ioeventfd = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   store ptr @virtio_device_stop_ioeventfd_impl, ptr %stop_ioeventfd, align 8
-  %legacy_features = getelementptr inbounds i8, ptr %call.i, i64 272
+  %legacy_features = getelementptr inbounds nuw i8, ptr %call.i, i64 272
   %0 = load i64, ptr %legacy_features, align 8
   %or = or i64 %0, 1224736768
   store i64 %or, ptr %legacy_features, align 8
@@ -9865,13 +9865,13 @@ entry:
   %call.i15 = tail call ptr @object_get_class(ptr noundef %dev) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i15, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   store ptr null, ptr %err, align 8
-  %vmsd = getelementptr inbounds i8, ptr %call1.i, i64 336
+  %vmsd = getelementptr inbounds nuw i8, ptr %call1.i, i64 336
   %0 = load ptr, ptr %vmsd, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %load = getelementptr inbounds i8, ptr %call1.i, i64 320
+  %load = getelementptr inbounds nuw i8, ptr %call1.i, i64 320
   %1 = load ptr, ptr %load, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.else
@@ -9881,7 +9881,7 @@ if.else:                                          ; preds = %lor.lhs.false
   unreachable
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
-  %realize = getelementptr inbounds i8, ptr %call1.i, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call1.i, i64 176
   %2 = load ptr, ptr %realize, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end8, label %if.then3
@@ -9904,18 +9904,18 @@ if.end8:                                          ; preds = %if.then3, %if.end
 
 if.then10:                                        ; preds = %if.end8
   call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #23
-  %unrealize = getelementptr inbounds i8, ptr %call1.i, i64 184
+  %unrealize = getelementptr inbounds nuw i8, ptr %call1.i, i64 184
   %5 = load ptr, ptr %unrealize, align 8
   call void %5(ptr noundef %dev) #23
   br label %return
 
 if.end11:                                         ; preds = %if.end8
-  %listener = getelementptr inbounds i8, ptr %call.i, i64 240
-  %commit = getelementptr inbounds i8, ptr %call.i, i64 248
+  %listener = getelementptr inbounds nuw i8, ptr %call.i, i64 240
+  %commit = getelementptr inbounds nuw i8, ptr %call.i, i64 248
   store ptr @virtio_memory_listener_commit, ptr %commit, align 8
-  %name = getelementptr inbounds i8, ptr %call.i, i64 384
+  %name = getelementptr inbounds nuw i8, ptr %call.i, i64 384
   store ptr @.str.48, ptr %name, align 8
-  %dma_as = getelementptr inbounds i8, ptr %call.i, i64 472
+  %dma_as = getelementptr inbounds nuw i8, ptr %call.i, i64 472
   %6 = load ptr, ptr %dma_as, align 8
   call void @memory_listener_register(ptr noundef nonnull %listener, ptr noundef %6) #23
   br label %return
@@ -9930,10 +9930,10 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #23
   %call.i7 = tail call ptr @object_get_class(ptr noundef %dev) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i7, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
-  %listener = getelementptr inbounds i8, ptr %call.i, i64 240
+  %listener = getelementptr inbounds nuw i8, ptr %call.i, i64 240
   tail call void @memory_listener_unregister(ptr noundef nonnull %listener) #23
   tail call void @virtio_bus_device_unplugged(ptr noundef %call.i) #23
-  %unrealize = getelementptr inbounds i8, ptr %call1.i, i64 184
+  %unrealize = getelementptr inbounds nuw i8, ptr %call1.i, i64 184
   %0 = load ptr, ptr %unrealize, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9943,7 +9943,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %bus_name = getelementptr inbounds i8, ptr %call.i, i64 456
+  %bus_name = getelementptr inbounds nuw i8, ptr %call.i, i64 456
   %1 = load ptr, ptr %bus_name, align 8
   tail call void @g_free(ptr noundef %1) #23
   store ptr null, ptr %bus_name, align 8
@@ -9959,7 +9959,7 @@ entry:
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
   %call.i26 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #23
   tail call void @memory_region_transaction_begin() #23
-  %vq3 = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq3 = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -10001,7 +10001,7 @@ for.body11:                                       ; preds = %for.inc, %for.inc21
   br i1 %tobool16.not, label %for.inc21, label %if.end18
 
 if.end18:                                         ; preds = %for.body11
-  %host_notifier19 = getelementptr inbounds i8, ptr %arrayidx15, i64 116
+  %host_notifier19 = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 116
   %call20 = tail call i32 @event_notifier_set(ptr noundef nonnull %host_notifier19) #23
   br label %for.inc21
 
@@ -10075,7 +10075,7 @@ entry:
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
   %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #23
   tail call void @memory_region_transaction_begin() #23
-  %vq3 = getelementptr inbounds i8, ptr %vdev, i64 232
+  %vq3 = getelementptr inbounds nuw i8, ptr %vdev, i64 232
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc

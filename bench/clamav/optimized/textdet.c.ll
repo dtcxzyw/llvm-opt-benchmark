@@ -27,10 +27,10 @@ define range(i32 500, 505) i32 @cli_texttype(ptr nocapture noundef readonly %0, 
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %3 ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %.lr.ph.i11, label %3
@@ -43,7 +43,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr nocapture noundef readonly %0, 
   %.03046.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %.lr.ph.i ]
   %.03245.i = phi i32 [ %45, %.loopexit.i ], [ 0, %.lr.ph.i ]
   %10 = zext i32 %.03245.i to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = icmp sgt i8 %12, -1
@@ -51,7 +51,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr nocapture noundef readonly %0, 
 
 15:                                               ; preds = %.lr.ph.i11
   %16 = zext nneg i8 %12 to i64
-  %17 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   %.not38.i = icmp eq i8 %18, 1
   br i1 %.not38.i, label %.loopexit.i, label %td_isutf8.exit.thread
@@ -103,7 +103,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr nocapture noundef readonly %0, 
   br i1 %.not.i12, label %42, label %td_isutf8.exit
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %44 = load i8, ptr %43, align 1
   %or.cond.i = icmp slt i8 %44, -64
   br i1 %or.cond.i, label %40, label %td_isutf8.exit.thread.thread23
@@ -136,13 +136,13 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   ]
 
 50:                                               ; preds = %td_isutf8.exit.thread.thread23
-  %51 = getelementptr inbounds i8, ptr %0, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, -2
   br i1 %53, label %.thread62.i, label %.thread
 
 54:                                               ; preds = %td_isutf8.exit.thread.thread23
-  %55 = getelementptr inbounds i8, ptr %0, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, -1
   br i1 %57, label %58, label %.thread
@@ -164,11 +164,11 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   %.02844.us.us.i = phi i32 [ %.129.us.us.i, %81 ], [ 0, %.thread62.i ]
   %.03143.us.us.i = phi i32 [ %82, %81 ], [ 2, %.thread62.i ]
   %63 = zext i32 %.03143.us.us.i to i64
-  %64 = getelementptr inbounds i8, ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = zext i32 %62 to i64
-  %68 = getelementptr inbounds i8, ptr %0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 8
@@ -182,7 +182,7 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
 
 76:                                               ; preds = %74
   %77 = zext nneg i32 %72 to i64
-  %78 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %77
   %79 = load i8, ptr %78, align 1
   %.not39.us.us.i = icmp ne i8 %79, 1
   %80 = zext i1 %.not39.us.us.i to i32
@@ -201,11 +201,11 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   %.02844.us47.i = phi i32 [ %.129.us51.i, %104 ], [ 0, %58 ]
   %.03143.us48.i = phi i32 [ %105, %104 ], [ 2, %58 ]
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = zext i32 %.03143.us48.i to i64
-  %91 = getelementptr inbounds i8, ptr %0, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
   %94 = shl nuw nsw i32 %93, 8
@@ -219,7 +219,7 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
 
 99:                                               ; preds = %97
   %100 = zext nneg i32 %95 to i64
-  %101 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %100
   %102 = load i8, ptr %101, align 1
   %.not39.us49.i = icmp ne i8 %102, 1
   %103 = zext i1 %.not39.us49.i to i32
@@ -237,11 +237,11 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   %108 = phi i32 [ %128, %126 ], [ 3, %.thread ]
   %.03143.i = phi i32 [ %127, %126 ], [ 2, %.thread ]
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr %0, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
   %113 = zext i32 %.03143.i to i64
-  %114 = getelementptr inbounds i8, ptr %0, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   %117 = shl nuw nsw i32 %116, 8
@@ -255,7 +255,7 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
 
 122:                                              ; preds = %120
   %123 = zext nneg i32 %118 to i64
-  %124 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %123
   %125 = load i8, ptr %124, align 1
   %.not39.i = icmp eq i8 %125, 1
   br i1 %.not39.i, label %126, label %select.unfold

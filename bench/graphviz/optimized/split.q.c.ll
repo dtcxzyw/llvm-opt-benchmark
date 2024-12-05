@@ -11,32 +11,32 @@ define void @SplitNode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
   %5 = alloca [65 x i64], align 16
   %6 = alloca %struct.Rect, align 8
   %7 = alloca %struct.Rect, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %12
 
 12:                                               ; preds = %12, %4
   %.019.i = phi i64 [ 0, %4 ], [ %15, %12 ]
-  %13 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %.019.i
-  %14 = getelementptr inbounds [64 x %struct.Branch], ptr %11, i64 0, i64 %.019.i
+  %13 = getelementptr inbounds nuw [65 x %struct.Branch], ptr %10, i64 0, i64 %.019.i
+  %14 = getelementptr inbounds nuw [64 x %struct.Branch], ptr %11, i64 0, i64 %.019.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   %15 = add nuw nsw i64 %.019.i, 1
   %exitcond.not.i = icmp eq i64 %15, 64
   br i1 %exitcond.not.i, label %16, label %12
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 1544
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1544
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull readonly align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 1568
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 1576
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1576
   br label %19
 
 19:                                               ; preds = %19, %16
   %.01820.i = phi i64 [ 1, %16 ], [ %24, %19 ]
-  %20 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %.01820.i
+  %20 = getelementptr inbounds nuw [65 x %struct.Branch], ptr %10, i64 0, i64 %.01820.i
   %21 = tail call { i64, i64 } @CombineRect(ptr noundef nonnull %18, ptr noundef nonnull %20) #6
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = extractvalue { i64, i64 } %21, 1
@@ -48,26 +48,26 @@ define void @SplitNode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
 
 GetBranches.exit:                                 ; preds = %19
   %25 = tail call i64 @RectArea(ptr noundef nonnull %18) #6
-  %26 = getelementptr inbounds i8, ptr %0, i64 1584
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store i64 %25, ptr %26, align 8
   tail call void @InitNode(ptr noundef %1) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %27 = getelementptr i8, ptr %0, i64 1592
-  %28 = getelementptr inbounds i8, ptr %0, i64 2112
-  %29 = getelementptr inbounds i8, ptr %0, i64 2116
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2112
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2116
   store i32 0, ptr %29, align 4
   store i32 0, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 2120
-  %31 = getelementptr inbounds i8, ptr %0, i64 2136
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2136
   %32 = tail call { i64, i64 } @NullRect() #6
   %33 = extractvalue { i64, i64 } %32, 0
   %34 = extractvalue { i64, i64 } %32, 1
   store i64 %33, ptr %31, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 2144
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2144
   store i64 %34, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
-  %35 = getelementptr inbounds i8, ptr %0, i64 2152
-  %36 = getelementptr inbounds i8, ptr %0, i64 1852
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 2152
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1852
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %27, i8 -1, i64 260, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %36, i8 0, i64 260, i1 false)
@@ -76,14 +76,14 @@ GetBranches.exit:                                 ; preds = %19
   br label %38
 
 .preheader.i.i:                                   ; preds = %38
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %.lr.ph.i.i
 
 38:                                               ; preds = %38, %GetBranches.exit
   %indvars.iv.i.i = phi i64 [ 0, %GetBranches.exit ], [ %indvars.iv.next.i.i, %38 ]
-  %39 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv.i.i
   %40 = tail call i64 @RectArea(ptr noundef nonnull %39) #6
-  %41 = getelementptr inbounds [65 x i64], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw [65 x i64], ptr %5, i64 0, i64 %indvars.iv.i.i
   store i64 %40, ptr %41, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i77.i = icmp eq i64 %indvars.iv.next.i.i, 65
@@ -101,8 +101,8 @@ GetBranches.exit:                                 ; preds = %19
   %.048.i.i = phi i32 [ 0, %.preheader.i.i ], [ %.2.i.i, %.loopexit.i.i ]
   %.02646.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.228.i.i, %.loopexit.i.i ]
   %.03045.i.i = phi i32 [ 0, %.preheader.i.i ], [ %.232.i.i, %.loopexit.i.i ]
-  %42 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv56.i.i
-  %43 = getelementptr inbounds [65 x i64], ptr %5, i64 0, i64 %indvars.iv56.i.i
+  %42 = getelementptr inbounds nuw [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv56.i.i
+  %43 = getelementptr inbounds nuw [65 x i64], ptr %5, i64 0, i64 %indvars.iv56.i.i
   %44 = trunc nuw nsw i64 %indvars.iv56.i.i to i32
   br label %45
 
@@ -111,7 +111,7 @@ GetBranches.exit:                                 ; preds = %19
   %.142.i.i = phi i32 [ %.048.i.i, %.lr.ph.i.i ], [ %.2.i.i, %45 ]
   %.12740.i.i = phi i64 [ %.02646.i.i, %.lr.ph.i.i ], [ %.228.i.i, %45 ]
   %.13139.i.i = phi i32 [ %.03045.i.i, %.lr.ph.i.i ], [ %.232.i.i, %45 ]
-  %46 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv52.i.i
+  %46 = getelementptr inbounds nuw [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv52.i.i
   %47 = call { i64, i64 } @CombineRect(ptr noundef nonnull %42, ptr noundef nonnull %46) #6
   %48 = extractvalue { i64, i64 } %47, 0
   store i64 %48, ptr %6, align 8
@@ -119,7 +119,7 @@ GetBranches.exit:                                 ; preds = %19
   store i64 %49, ptr %37, align 8
   %50 = call i64 @RectArea(ptr noundef nonnull %6) #6
   %51 = load i64, ptr %43, align 8
-  %52 = getelementptr inbounds [65 x i64], ptr %5, i64 0, i64 %indvars.iv52.i.i
+  %52 = getelementptr inbounds nuw [65 x i64], ptr %5, i64 0, i64 %indvars.iv52.i.i
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %51, %53
   %55 = sub i64 %50, %54
@@ -152,7 +152,7 @@ GetBranches.exit:                                 ; preds = %19
   %68 = extractvalue { i64, i64 } %67, 0
   %69 = extractvalue { i64, i64 } %67, 1
   store i64 %68, ptr %30, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 2128
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2128
   store i64 %69, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   br label %Classify.exit.i.i
 
@@ -186,7 +186,7 @@ Classify.exit.i.i:                                ; preds = %66, %65
 
 PickSeeds.exit.i:                                 ; preds = %80, %79
   %84 = call i64 @RectArea(ptr noundef nonnull %31) #6
-  %85 = getelementptr inbounds i8, ptr %0, i64 2160
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 2160
   store i64 %84, ptr %85, align 8
   %86 = load i32, ptr %29, align 4
   %87 = add nsw i32 %86, 1
@@ -199,8 +199,8 @@ PickSeeds.exit.i:                                 ; preds = %80, %79
   br i1 %90, label %.lr.ph.i, label %MethodZero.exit
 
 .lr.ph.i:                                         ; preds = %PickSeeds.exit.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 2168
-  %92 = getelementptr inbounds i8, ptr %7, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 2168
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %93
 
 93:                                               ; preds = %Classify.exit.i, %.lr.ph.i
@@ -221,13 +221,13 @@ PickSeeds.exit.i:                                 ; preds = %80, %79
   %.15889.i = phi i32 [ %.259.i, %130 ], [ %.05791.i, %93 ]
   %.06088.i = phi i1 [ %.161.i, %130 ], [ false, %93 ]
   %.06287.i = phi i64 [ %.163.i, %130 ], [ 0, %93 ]
-  %100 = getelementptr inbounds [65 x i32], ptr %36, i64 0, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [65 x i32], ptr %36, i64 0, i64 %indvars.iv.i
   %101 = load i32, ptr %100, align 4
   %.not71.i = icmp eq i32 %101, 0
   br i1 %.not71.i, label %102, label %130
 
 102:                                              ; preds = %.preheader.i
-  %103 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv.i
+  %103 = getelementptr inbounds nuw [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv.i
   %104 = call { i64, i64 } @CombineRect(ptr noundef nonnull %103, ptr noundef nonnull %30) #6
   %105 = extractvalue { i64, i64 } %104, 0
   store i64 %105, ptr %7, align 8
@@ -260,10 +260,10 @@ PickSeeds.exit.i:                                 ; preds = %80, %79
 
 122:                                              ; preds = %120
   %123 = zext i1 %.not72.i to i64
-  %124 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw [2 x i32], ptr %28, i64 0, i64 %123
   %125 = load i32, ptr %124, align 4
   %126 = zext nneg i32 %.15889.i to i64
-  %127 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i32], ptr %28, i64 0, i64 %126
   %128 = load i32, ptr %127, align 4
   %129 = icmp slt i32 %125, %128
   %spec.select.i = select i1 %129, i32 %.054.i, i32 %.15889.i
@@ -286,10 +286,10 @@ PickSeeds.exit.i:                                 ; preds = %80, %79
   %134 = getelementptr inbounds [65 x i32], ptr %36, i64 0, i64 %132
   store i32 1, ptr %134, align 4
   %135 = zext nneg i32 %.259.i to i64
-  %136 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw [2 x i32], ptr %28, i64 0, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = icmp eq i32 %137, 0
-  %139 = getelementptr inbounds [2 x %struct.Rect], ptr %30, i64 0, i64 %135
+  %139 = getelementptr inbounds nuw [2 x %struct.Rect], ptr %30, i64 0, i64 %135
   %140 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %132
   br i1 %138, label %141, label %142
 
@@ -302,13 +302,13 @@ PickSeeds.exit.i:                                 ; preds = %80, %79
   %144 = extractvalue { i64, i64 } %143, 0
   %145 = extractvalue { i64, i64 } %143, 1
   store i64 %144, ptr %139, align 8
-  %.sroa.2.0..sroa_idx.i78.i = getelementptr inbounds i8, ptr %139, i64 8
+  %.sroa.2.0..sroa_idx.i78.i = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i64 %145, ptr %.sroa.2.0..sroa_idx.i78.i, align 8
   br label %Classify.exit.i
 
 Classify.exit.i:                                  ; preds = %142, %141
   %146 = call i64 @RectArea(ptr noundef nonnull %139) #6
-  %147 = getelementptr inbounds [2 x i64], ptr %35, i64 0, i64 %135
+  %147 = getelementptr inbounds nuw [2 x i64], ptr %35, i64 0, i64 %135
   store i64 %146, ptr %147, align 8
   %148 = load i32, ptr %136, align 4
   %149 = add nsw i32 %148, 1
@@ -323,26 +323,26 @@ Classify.exit.i:                                  ; preds = %142, %141
   %.not.i = icmp sge i32 %95, %97
   %spec.select76.i = zext i1 %.not.i to i32
   %155 = zext i1 %.not.i to i64
-  %156 = getelementptr inbounds [2 x i32], ptr %28, i64 0, i64 %155
-  %157 = getelementptr inbounds [2 x %struct.Rect], ptr %30, i64 0, i64 %155
-  %.sroa.2.0..sroa_idx.i79.i = getelementptr inbounds i8, ptr %157, i64 8
-  %158 = getelementptr inbounds [2 x i64], ptr %35, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [2 x i32], ptr %28, i64 0, i64 %155
+  %157 = getelementptr inbounds nuw [2 x %struct.Rect], ptr %30, i64 0, i64 %155
+  %.sroa.2.0..sroa_idx.i79.i = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %158 = getelementptr inbounds nuw [2 x i64], ptr %35, i64 0, i64 %155
   br label %159
 
 159:                                              ; preds = %175, %154
   %indvars.iv96.i = phi i64 [ 0, %154 ], [ %indvars.iv.next97.i, %175 ]
-  %160 = getelementptr inbounds [65 x i32], ptr %36, i64 0, i64 %indvars.iv96.i
+  %160 = getelementptr inbounds nuw [65 x i32], ptr %36, i64 0, i64 %indvars.iv96.i
   %161 = load i32, ptr %160, align 4
   %.not70.i = icmp eq i32 %161, 0
   br i1 %.not70.i, label %162, label %175
 
 162:                                              ; preds = %159
-  %163 = getelementptr inbounds [65 x i32], ptr %27, i64 0, i64 %indvars.iv96.i
+  %163 = getelementptr inbounds nuw [65 x i32], ptr %27, i64 0, i64 %indvars.iv96.i
   store i32 %spec.select76.i, ptr %163, align 4
   store i32 1, ptr %160, align 4
   %164 = load i32, ptr %156, align 4
   %165 = icmp eq i32 %164, 0
-  %166 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv96.i
+  %166 = getelementptr inbounds nuw [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv96.i
   br i1 %165, label %167, label %168
 
 167:                                              ; preds = %162
@@ -376,14 +376,14 @@ MethodZero.exit:                                  ; preds = %Classify.exit.i, %1
   store ptr %176, ptr %3, align 8
   store i32 %9, ptr %8, align 4
   %177 = load ptr, ptr %3, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 4
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   store i32 %9, ptr %178, align 4
   %179 = load ptr, ptr %3, align 8
   br label %180
 
 180:                                              ; preds = %186, %MethodZero.exit
   %.01.i = phi i64 [ 0, %MethodZero.exit ], [ %187, %186 ]
-  %181 = getelementptr inbounds [65 x i32], ptr %27, i64 0, i64 %.01.i
+  %181 = getelementptr inbounds nuw [65 x i32], ptr %27, i64 0, i64 %.01.i
   %182 = load i32, ptr %181, align 4
   switch i32 %182, label %186 [
     i32 0, label %.sink.split.i
@@ -395,7 +395,7 @@ MethodZero.exit:                                  ; preds = %Classify.exit.i, %1
 
 .sink.split.i:                                    ; preds = %183, %180
   %.sink2.i = phi ptr [ %179, %183 ], [ %1, %180 ]
-  %184 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %.01.i
+  %184 = getelementptr inbounds nuw [65 x %struct.Branch], ptr %10, i64 0, i64 %.01.i
   %185 = call i32 @AddBranch(ptr noundef nonnull %0, ptr noundef nonnull %184, ptr noundef %.sink2.i, ptr noundef null) #6
   br label %186
 

@@ -2897,7 +2897,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_bitmap_security_GroupAttrs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -2922,7 +2922,7 @@ declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -2969,7 +2969,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DrsMoreOptions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -3012,7 +3012,7 @@ define hidden i32 @drsuapi_dissect_bitmap_DrsMoreOptions(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DrsUpdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -3055,7 +3055,7 @@ define hidden i32 @drsuapi_dissect_bitmap_DrsUpdate(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -3098,7 +3098,7 @@ define hidden i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -3140,7 +3140,7 @@ define hidden i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsBindInfo24(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3169,9 +3169,9 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo24(ptr noundef %0, i32 nound
   %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = sub i32 %24, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #5
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0
@@ -3201,7 +3201,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsBindInfo28(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3232,9 +3232,9 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo28(ptr noundef %0, i32 nound
   %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
   %27 = sub i32 %26, %.0
   tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %27) #5
-  %28 = getelementptr inbounds i8, ptr %4, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 1
   %.not46 = icmp eq i32 %32, 0
@@ -3260,7 +3260,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo28(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsBindInfo32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3293,9 +3293,9 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo32(ptr noundef %0, i32 nound
   %28 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
   %29 = sub i32 %28, %.0
   tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %29) #5
-  %30 = getelementptr inbounds i8, ptr %4, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 1
   %.not52 = icmp eq i32 %34, 0
@@ -3321,7 +3321,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo32(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsBindInfo48(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3356,9 +3356,9 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo48(ptr noundef %0, i32 nound
   %30 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
   %31 = sub i32 %30, %.0
   tail call void @proto_item_set_len(ptr noundef %.054, i32 noundef %31) #5
-  %32 = getelementptr inbounds i8, ptr %4, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 1
   %.not58 = icmp eq i32 %36, 0
@@ -3384,7 +3384,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo48(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsBindInfo52(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3421,9 +3421,9 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo52(ptr noundef %0, i32 nound
   %32 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
   %33 = sub i32 %32, %.0
   tail call void @proto_item_set_len(ptr noundef %.060, i32 noundef %33) #5
-  %34 = getelementptr inbounds i8, ptr %4, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not64 = icmp eq i32 %38, 0
@@ -3449,7 +3449,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo52(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsBindInfoFallBack(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3474,9 +3474,9 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfoFallBack(ptr noundef %0, i32
   %20 = tail call i32 @dissect_ndr_datablob(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 1) #5
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -3504,7 +3504,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfoFallBack(ptr noundef %0, i32
 define hidden i32 @drsuapi_dissect_struct_DsBindInfoCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = load i32, ptr %11, align 8
   store i32 1, ptr %11, align 8
   %.not = icmp eq ptr %3, null
@@ -3521,7 +3521,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfoCtr(ptr noundef %0, i32 noun
   %.0 = phi ptr [ %14, %13 ], [ null, %8 ]
   %18 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfoCtr_length, align 4
   %19 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef null) #5
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %drsuapi_dissect_element_DsBindInfoCtr_info.exit
@@ -3610,7 +3610,7 @@ drsuapi_dissect_element_DsBindInfoCtr_info.exit:  ; preds = %17, %drsuapi_dissec
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3644,9 +3644,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier(ptr noundef 
   %29 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectIdentifier_dn_) #5
   %30 = sub i32 %29, %.0
   tail call void @proto_item_set_len(ptr noundef %.054, i32 noundef %30) #5
-  %31 = getelementptr inbounds i8, ptr %4, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 1
   %.not58 = icmp eq i32 %35, 0
@@ -3672,13 +3672,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaSyncRequest1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3730,14 +3730,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaSyncRequest1(ptr noundef %0, 
   %40 = sub i32 %39, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %52, label %45
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not58 = icmp ne i32 %47, 0
   %48 = and i32 %39, 7
@@ -3757,7 +3757,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaSyncRequest1(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -3786,9 +3786,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0,
   %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
   %25 = sub i32 %24, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #5
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0
@@ -3814,7 +3814,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -3841,9 +3841,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor(ptr noundef %0, i32 no
   %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -3869,7 +3869,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaCursorCtrEx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -3901,9 +3901,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursorCtrEx(ptr noundef %0, i
   %27 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursorCtrEx_cursors_) #5
   %28 = sub i32 %27, %.0
   tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %28) #5
-  %29 = getelementptr inbounds i8, ptr %4, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 1
   %.not52 = icmp eq i32 %33, 0
@@ -3978,7 +3978,7 @@ define hidden i32 @drsuapi_dissect_enum_DsExtendedError(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest5(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 7
@@ -4024,9 +4024,9 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest5(ptr noundef %0,
   %39 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.077, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef null) #5
   %40 = sub i32 %39, %.0
   call void @proto_item_set_len(ptr noundef %.078, i32 noundef %40) #5
-  %41 = getelementptr inbounds i8, ptr %4, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 1
   %.not82 = icmp eq i32 %45, 0
@@ -4052,13 +4052,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest5(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaOID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4106,14 +4106,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOID(ptr noundef %0, i32 nound
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4133,13 +4133,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOID(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaOIDMapping(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4187,14 +4187,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOIDMapping(ptr noundef %0, i3
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4214,13 +4214,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOIDMapping(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4268,14 +4268,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4343,7 +4343,7 @@ define hidden i32 @drsuapi_dissect_enum_DsAttributeId(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsPartialAttributeSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -4373,9 +4373,9 @@ define hidden i32 @drsuapi_dissect_struct_DsPartialAttributeSet(ptr noundef %0, 
   %25 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsPartialAttributeSet_attids_) #5
   %26 = sub i32 %25, %.0
   tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %26) #5
-  %27 = getelementptr inbounds i8, ptr %4, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 96
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 1
   %.not46 = icmp eq i32 %31, 0
@@ -4402,7 +4402,7 @@ define hidden i32 @drsuapi_dissect_struct_DsPartialAttributeSet(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 7
@@ -4454,9 +4454,9 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest8(ptr noundef %0,
   %45 = call i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
   %46 = sub i32 %45, %.0
   call void @proto_item_set_len(ptr noundef %.096, i32 noundef %46) #5
-  %47 = getelementptr inbounds i8, ptr %4, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 1
   %.not100 = icmp eq i32 %51, 0
@@ -4483,7 +4483,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest8(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest10(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 7
@@ -4537,9 +4537,9 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest10(ptr noundef %0
   %47 = call i32 @drsuapi_dissect_bitmap_DrsMoreOptions(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 poison)
   %48 = sub i32 %47, %.0
   call void @proto_item_set_len(ptr noundef %.0102, i32 noundef %48) #5
-  %49 = getelementptr inbounds i8, ptr %4, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 96
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 1
   %.not106 = icmp eq i32 %53, 0
@@ -4565,7 +4565,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest10(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -4594,9 +4594,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor2(ptr noundef %0, i32 n
   %24 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23) #5
   %25 = sub i32 %24, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #5
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0
@@ -4622,7 +4622,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor2(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor2CtrEx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -4654,9 +4654,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor2CtrEx(ptr noundef %0, 
   %27 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursor2CtrEx_cursors_) #5
   %28 = sub i32 %27, %.0
   tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %28) #5
-  %29 = getelementptr inbounds i8, ptr %4, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 1
   %.not52 = icmp eq i32 %33, 0
@@ -4682,13 +4682,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor2CtrEx(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsAttributeValue(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4736,14 +4736,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAttributeValue(ptr noundef %0, i32 n
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4763,13 +4763,13 @@ define hidden i32 @drsuapi_dissect_struct_DsAttributeValue(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsAttributeValueCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4817,14 +4817,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAttributeValueCtr(ptr noundef %0, i3
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4844,13 +4844,13 @@ define hidden i32 @drsuapi_dissect_struct_DsAttributeValueCtr(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not64 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4906,14 +4906,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier3(ptr noundef
   %44 = sub i32 %43, %.0
   tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %44) #5
   %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 1
   %.not69 = icmp eq i32 %48, 0
   br i1 %.not69, label %56, label %49
 
 49:                                               ; preds = %31
-  %50 = getelementptr inbounds i8, ptr %4, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %51 = load i32, ptr %50, align 4
   %.not70 = icmp ne i32 %51, 0
   %52 = and i32 %43, 7
@@ -4933,13 +4933,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier3(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier3Binary(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not76 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4999,14 +4999,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier3Binary(ptr n
   %48 = sub i32 %47, %.0
   tail call void @proto_item_set_len(ptr noundef %.074, i32 noundef %48) #5
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 96
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 1
   %.not81 = icmp eq i32 %52, 0
   br i1 %.not81, label %60, label %53
 
 53:                                               ; preds = %31
-  %54 = getelementptr inbounds i8, ptr %4, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %55 = load i32, ptr %54, align 4
   %.not82 = icmp ne i32 %55, 0
   %56 = and i32 %47, 7
@@ -5027,13 +5027,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier3Binary(ptr n
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaAttribute(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not40 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -5084,14 +5084,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttribute(ptr noundef %0, i32
   %37 = sub i32 %36, %.0
   call void @proto_item_set_len(ptr noundef %.038, i32 noundef %37) #5
   %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 1
   %.not45 = icmp eq i32 %41, 0
   br i1 %.not45, label %49, label %42
 
 42:                                               ; preds = %32
-  %43 = getelementptr inbounds i8, ptr %4, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %44 = load i32, ptr %43, align 4
   %.not46 = icmp ne i32 %44, 0
   %45 = and i32 %36, 7
@@ -5111,13 +5111,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttribute(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaAttributeCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5165,14 +5165,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttributeCtr(ptr noundef %0, 
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -5193,7 +5193,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttributeCtr(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DsReplicaObjectFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -5235,13 +5235,13 @@ define hidden i32 @drsuapi_dissect_bitmap_DsReplicaObjectFlags(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaObject(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5291,14 +5291,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObject(ptr noundef %0, i32 no
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -5318,7 +5318,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObject(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaMetaData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -5349,9 +5349,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaMetaData(ptr noundef %0, i32 
   %26 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
   %27 = sub i32 %26, %.0
   tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %27) #5
-  %28 = getelementptr inbounds i8, ptr %4, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 1
   %.not46 = icmp eq i32 %32, 0
@@ -5377,7 +5377,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaMetaData(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaMetaDataCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -5403,9 +5403,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaMetaDataCtr(ptr noundef %0, i
   %21 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaMetaDataCtr_meta_data_) #5
   %22 = sub i32 %21, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %22) #5
-  %23 = getelementptr inbounds i8, ptr %4, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 1
   %.not34 = icmp eq i32 %27, 0
@@ -5431,13 +5431,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaMetaDataCtr(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectListItemEx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not58 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5491,14 +5491,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectListItemEx(ptr noundef 
   %42 = sub i32 %41, %.0
   tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not63 = icmp eq i32 %46, 0
   br i1 %.not63, label %54, label %47
 
 47:                                               ; preds = %31
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not64 = icmp ne i32 %49, 0
   %50 = and i32 %41, 7
@@ -5519,7 +5519,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectListItemEx(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 7
@@ -5569,9 +5569,9 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %0, i32
   %43 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #5
   %44 = sub i32 %43, %.0
   call void @proto_item_set_len(ptr noundef %.090, i32 noundef %44) #5
-  %45 = getelementptr inbounds i8, ptr %4, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 96
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 1
   %.not94 = icmp eq i32 %49, 0
@@ -5598,7 +5598,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DsLinkedAttributeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -5641,7 +5641,7 @@ define hidden i32 @drsuapi_dissect_bitmap_DsLinkedAttributeFlags(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaLinkedAttribute(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 7
@@ -5679,9 +5679,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaLinkedAttribute(ptr noundef %
   %31 = call i32 @drsuapi_dissect_struct_DsReplicaMetaData(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 poison)
   %32 = sub i32 %31, %.0
   call void @proto_item_set_len(ptr noundef %.054, i32 noundef %32) #5
-  %33 = getelementptr inbounds i8, ptr %4, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 1
   %.not58 = icmp eq i32 %37, 0
@@ -5708,7 +5708,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaLinkedAttribute(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 7
@@ -5768,9 +5768,9 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %0, i32
   %53 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #5
   %54 = sub i32 %53, %.0
   call void @proto_item_set_len(ptr noundef %.0120, i32 noundef %54) #5
-  %55 = getelementptr inbounds i8, ptr %4, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 96
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not124 = icmp eq i32 %59, 0
@@ -5796,7 +5796,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1TS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -5821,9 +5821,9 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1TS(ptr noundef %0, i
   %20 = tail call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -5849,7 +5849,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1TS(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6TS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -5874,9 +5874,9 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6TS(ptr noundef %0, i
   %20 = tail call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -5902,13 +5902,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6TS(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesMSZIPCtr1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5958,14 +5958,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesMSZIPCtr1(ptr noundef %0
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -5985,13 +5985,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesMSZIPCtr1(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesMSZIPCtr6(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6041,14 +6041,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesMSZIPCtr6(ptr noundef %0
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -6068,13 +6068,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesMSZIPCtr6(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6124,14 +6124,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1(
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -6151,13 +6151,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1(
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6207,14 +6207,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6(
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -6260,13 +6260,13 @@ declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6312,14 +6312,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr2(ptr noundef %0, i32
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -6341,13 +6341,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr2(ptr noundef %0, i32
 define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr7(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i16, align 2
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4
   %.not46 = icmp ne i32 %17, 0
   br i1 %.not, label %23, label %18
@@ -6413,14 +6413,14 @@ drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit: ; preds = %33, %38
   %42 = sub i32 %37, %.0
   call void @proto_item_set_len(ptr noundef %.044, i32 noundef %42) #5
   %43 = load ptr, ptr %11, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not51 = icmp eq i32 %46, 0
   br i1 %.not51, label %54, label %47
 
 47:                                               ; preds = %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not52 = icmp ne i32 %49, 0
   %50 = and i32 %37, 7
@@ -6440,13 +6440,13 @@ drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit: ; preds = %33, %38
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaUpdateRefsRequest1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6498,14 +6498,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaUpdateRefsRequest1(ptr nounde
   %40 = sub i32 %39, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %52, label %45
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not58 = icmp ne i32 %47, 0
   %48 = and i32 %39, 7
@@ -6525,13 +6525,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaUpdateRefsRequest1(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaAddRequest1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6593,14 +6593,14 @@ drsuapi_dissect_element_DsReplicaAddRequest1_schedule.exit: ; preds = %36
   %42 = sub i32 %41, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not57 = icmp eq i32 %46, 0
   br i1 %.not57, label %54, label %47
 
 47:                                               ; preds = %drsuapi_dissect_element_DsReplicaAddRequest1_schedule.exit
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not58 = icmp ne i32 %49, 0
   %50 = and i32 %41, 7
@@ -6620,13 +6620,13 @@ drsuapi_dissect_element_DsReplicaAddRequest1_schedule.exit: ; preds = %36
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaAddRequest2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not64 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6692,14 +6692,14 @@ drsuapi_dissect_element_DsReplicaAddRequest2_schedule.exit: ; preds = %40
   %46 = sub i32 %45, %.0
   tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %46) #5
   %47 = load ptr, ptr %9, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 1
   %.not69 = icmp eq i32 %50, 0
   br i1 %.not69, label %58, label %51
 
 51:                                               ; preds = %drsuapi_dissect_element_DsReplicaAddRequest2_schedule.exit
-  %52 = getelementptr inbounds i8, ptr %4, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %53 = load i32, ptr %52, align 4
   %.not70 = icmp ne i32 %53, 0
   %54 = and i32 %45, 7
@@ -6719,13 +6719,13 @@ drsuapi_dissect_element_DsReplicaAddRequest2_schedule.exit: ; preds = %40
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaDelRequest1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6775,14 +6775,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaDelRequest1(ptr noundef %0, i
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -6802,13 +6802,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaDelRequest1(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaModRequest1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not70 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6876,14 +6876,14 @@ drsuapi_dissect_element_DsReplicaModRequest1_schedule.exit: ; preds = %38
   %48 = sub i32 %47, %.0
   tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %48) #5
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 96
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 1
   %.not75 = icmp eq i32 %52, 0
   br i1 %.not75, label %60, label %53
 
 53:                                               ; preds = %drsuapi_dissect_element_DsReplicaModRequest1_schedule.exit
-  %54 = getelementptr inbounds i8, ptr %4, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %55 = load i32, ptr %54, align 4
   %.not76 = icmp ne i32 %55, 0
   %56 = and i32 %47, 7
@@ -6927,13 +6927,13 @@ define hidden i32 @drsuapi_dissect_enum_DsMembershipType(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetMembershipsCtr1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not64 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6989,14 +6989,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMembershipsCtr1(ptr noundef %0, i
   %44 = sub i32 %43, %.0
   tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %44) #5
   %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 1
   %.not69 = icmp eq i32 %48, 0
   br i1 %.not69, label %56, label %49
 
 49:                                               ; preds = %31
-  %50 = getelementptr inbounds i8, ptr %4, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %51 = load i32, ptr %50, align 4
   %.not70 = icmp ne i32 %51, 0
   %52 = and i32 %43, 7
@@ -7017,13 +7017,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMembershipsCtr1(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetMembershipsRequest1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not58 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -7080,14 +7080,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMembershipsRequest1(ptr noundef %
   %43 = sub i32 %42, %.0
   call void @proto_item_set_len(ptr noundef %.056, i32 noundef %43) #5
   %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 1
   %.not63 = icmp eq i32 %47, 0
   br i1 %.not63, label %55, label %48
 
 48:                                               ; preds = %32
-  %49 = getelementptr inbounds i8, ptr %4, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %50 = load i32, ptr %49, align 4
   %.not64 = icmp ne i32 %50, 0
   %51 = and i32 %42, 7
@@ -7108,7 +7108,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMembershipsRequest1(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DsGetNT4ChangeLogFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -7150,13 +7150,13 @@ define hidden i32 @drsuapi_dissect_bitmap_DsGetNT4ChangeLogFlags(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogRequest1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -7208,14 +7208,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogRequest1(ptr noundef 
   %40 = sub i32 %39, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %52, label %45
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not58 = icmp ne i32 %47, 0
   %48 = and i32 %39, 7
@@ -7235,7 +7235,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogRequest1(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogInfo1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -7280,9 +7280,9 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogInfo1(ptr noundef %0,
   %40 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNT4ChangeLogInfo1_log_data_, i32 noundef 2, ptr noundef nonnull @.str.1465, i32 noundef %39) #5
   %41 = sub i32 %40, %.0
   tail call void @proto_item_set_len(ptr noundef %.084, i32 noundef %41) #5
-  %42 = getelementptr inbounds i8, ptr %4, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not88 = icmp eq i32 %46, 0
@@ -7380,13 +7380,13 @@ define hidden i32 @drsuapi_dissect_enum_DsNameFormat(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsNameString(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -7432,14 +7432,14 @@ define hidden i32 @drsuapi_dissect_struct_DsNameString(ptr noundef %0, i32 nound
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -7462,13 +7462,13 @@ define hidden i32 @drsuapi_dissect_struct_DsNameRequest1(ptr noundef %0, i32 nou
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1
   %.not = icmp eq i32 %16, 0
-  %17 = getelementptr inbounds i8, ptr %4, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %18 = load i32, ptr %17, align 4
   %.not70 = icmp ne i32 %18, 0
   br i1 %.not, label %24, label %19
@@ -7535,14 +7535,14 @@ define hidden i32 @drsuapi_dissect_struct_DsNameRequest1(ptr noundef %0, i32 nou
   %49 = sub i32 %48, %.0
   call void @proto_item_set_len(ptr noundef %.068, i32 noundef %49) #5
   %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 96
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 1
   %.not75 = icmp eq i32 %53, 0
   br i1 %.not75, label %61, label %54
 
 54:                                               ; preds = %34
-  %55 = getelementptr inbounds i8, ptr %4, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %56 = load i32, ptr %55, align 4
   %.not76 = icmp ne i32 %56, 0
   %57 = and i32 %48, 7
@@ -7563,13 +7563,13 @@ define hidden i32 @drsuapi_dissect_struct_DsNameRequest1(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsNameInfo1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not46 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -7622,14 +7622,14 @@ define hidden i32 @drsuapi_dissect_struct_DsNameInfo1(ptr noundef %0, i32 nounde
   %39 = sub i32 %38, %.0
   call void @proto_item_set_len(ptr noundef %.044, i32 noundef %39) #5
   %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 1
   %.not51 = icmp eq i32 %43, 0
   br i1 %.not51, label %51, label %44
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %4, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %46 = load i32, ptr %45, align 4
   %.not52 = icmp ne i32 %46, 0
   %47 = and i32 %38, 7
@@ -7649,13 +7649,13 @@ define hidden i32 @drsuapi_dissect_struct_DsNameInfo1(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsNameCtr1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -7703,14 +7703,14 @@ define hidden i32 @drsuapi_dissect_struct_DsNameCtr1(ptr noundef %0, i32 noundef
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -7755,13 +7755,13 @@ define hidden i32 @drsuapi_dissect_enum_DsSpnOperation(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsWriteAccountSpnRequest1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not58 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -7818,14 +7818,14 @@ define hidden i32 @drsuapi_dissect_struct_DsWriteAccountSpnRequest1(ptr noundef 
   %43 = sub i32 %42, %.0
   call void @proto_item_set_len(ptr noundef %.056, i32 noundef %43) #5
   %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 1
   %.not63 = icmp eq i32 %47, 0
   br i1 %.not63, label %55, label %48
 
 48:                                               ; preds = %32
-  %49 = getelementptr inbounds i8, ptr %4, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %50 = load i32, ptr %49, align 4
   %.not64 = icmp ne i32 %50, 0
   %51 = and i32 %42, 7
@@ -7845,7 +7845,7 @@ define hidden i32 @drsuapi_dissect_struct_DsWriteAccountSpnRequest1(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsWriteAccountSpnResult1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -7870,9 +7870,9 @@ define hidden i32 @drsuapi_dissect_struct_DsWriteAccountSpnResult1(ptr noundef %
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -7898,13 +7898,13 @@ define hidden i32 @drsuapi_dissect_struct_DsWriteAccountSpnResult1(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsRemoveDSServerRequest1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -7954,14 +7954,14 @@ define hidden i32 @drsuapi_dissect_struct_DsRemoveDSServerRequest1(ptr noundef %
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -7981,7 +7981,7 @@ define hidden i32 @drsuapi_dissect_struct_DsRemoveDSServerRequest1(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsRemoveDSServerResult1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -8006,9 +8006,9 @@ define hidden i32 @drsuapi_dissect_struct_DsRemoveDSServerResult1(ptr noundef %0
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -8059,13 +8059,13 @@ define hidden i32 @drsuapi_dissect_enum_DsGetDCInfoCtrLevels(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoRequest1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not40 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -8116,14 +8116,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoRequest1(ptr noundef %0, i3
   %37 = sub i32 %36, %.0
   call void @proto_item_set_len(ptr noundef %.038, i32 noundef %37) #5
   %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 1
   %.not45 = icmp eq i32 %41, 0
   br i1 %.not45, label %49, label %42
 
 42:                                               ; preds = %32
-  %43 = getelementptr inbounds i8, ptr %4, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %44 = load i32, ptr %43, align 4
   %.not46 = icmp ne i32 %44, 0
   %45 = and i32 %36, 7
@@ -8143,13 +8143,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoRequest1(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not70 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -8207,14 +8207,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo1(ptr noundef %0, i32 nound
   %46 = sub i32 %45, %.0
   tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %46) #5
   %47 = load ptr, ptr %9, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 1
   %.not75 = icmp eq i32 %50, 0
   br i1 %.not75, label %58, label %51
 
 51:                                               ; preds = %31
-  %52 = getelementptr inbounds i8, ptr %4, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %53 = load i32, ptr %52, align 4
   %.not76 = icmp ne i32 %53, 0
   %54 = and i32 %45, 7
@@ -8234,13 +8234,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo1(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -8288,14 +8288,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr1(ptr noundef %0, i32 no
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -8315,13 +8315,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr1(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not112 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -8393,14 +8393,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo2(ptr noundef %0, i32 nound
   %60 = sub i32 %59, %.0
   tail call void @proto_item_set_len(ptr noundef %.0110, i32 noundef %60) #5
   %61 = load ptr, ptr %9, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 96
   %63 = load i32, ptr %62, align 8
   %64 = and i32 %63, 1
   %.not117 = icmp eq i32 %64, 0
   br i1 %.not117, label %72, label %65
 
 65:                                               ; preds = %31
-  %66 = getelementptr inbounds i8, ptr %4, i64 28
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %67 = load i32, ptr %66, align 4
   %.not118 = icmp ne i32 %67, 0
   %68 = and i32 %59, 7
@@ -8420,13 +8420,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo2(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -8474,14 +8474,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr2(ptr noundef %0, i32 no
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -8501,13 +8501,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr2(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not118 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -8581,14 +8581,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo3(ptr noundef %0, i32 nound
   %62 = sub i32 %61, %.0
   tail call void @proto_item_set_len(ptr noundef %.0116, i32 noundef %62) #5
   %63 = load ptr, ptr %9, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 96
   %65 = load i32, ptr %64, align 8
   %66 = and i32 %65, 1
   %.not123 = icmp eq i32 %66, 0
   br i1 %.not123, label %74, label %67
 
 67:                                               ; preds = %31
-  %68 = getelementptr inbounds i8, ptr %4, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %69 = load i32, ptr %68, align 4
   %.not124 = icmp ne i32 %69, 0
   %70 = and i32 %61, 7
@@ -8608,13 +8608,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo3(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -8662,14 +8662,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr3(ptr noundef %0, i32 no
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -8689,13 +8689,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr3(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetDCConnection01(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not70 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -8754,14 +8754,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCConnection01(ptr noundef %0, i3
   %47 = sub i32 %46, %.0
   tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %47) #5
   %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 1
   %.not75 = icmp eq i32 %51, 0
   br i1 %.not75, label %59, label %52
 
 52:                                               ; preds = %31
-  %53 = getelementptr inbounds i8, ptr %4, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %54 = load i32, ptr %53, align 4
   %.not76 = icmp ne i32 %54, 0
   %55 = and i32 %46, 7
@@ -8781,13 +8781,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCConnection01(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetDCConnectionCtr01(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -8835,14 +8835,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCConnectionCtr01(ptr noundef %0,
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -8862,13 +8862,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCConnectionCtr01(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectListItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -8916,14 +8916,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectListItem(ptr noundef %0
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -8967,13 +8967,13 @@ define hidden i32 @drsuapi_dissect_enum_DsAddEntry_DirErr(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsAddEntryRequest2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -9019,14 +9019,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryRequest2(ptr noundef %0, i32
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -9071,13 +9071,13 @@ define hidden i32 @drsuapi_dissect_enum_SecBufferType(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_SecBuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not46 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -9130,14 +9130,14 @@ define hidden i32 @drsuapi_dissect_struct_SecBuffer(ptr noundef %0, i32 noundef 
   %39 = sub i32 %38, %.0
   call void @proto_item_set_len(ptr noundef %.044, i32 noundef %39) #5
   %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 1
   %.not51 = icmp eq i32 %43, 0
   br i1 %.not51, label %51, label %44
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %4, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %46 = load i32, ptr %45, align 4
   %.not52 = icmp ne i32 %46, 0
   %47 = and i32 %38, 7
@@ -9157,13 +9157,13 @@ define hidden i32 @drsuapi_dissect_struct_SecBuffer(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_SecBufferDesc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -9213,14 +9213,14 @@ define hidden i32 @drsuapi_dissect_struct_SecBufferDesc(ptr noundef %0, i32 noun
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -9240,13 +9240,13 @@ define hidden i32 @drsuapi_dissect_struct_SecBufferDesc(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsAddEntryRequest3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -9294,14 +9294,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryRequest3(ptr noundef %0, i32
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -9321,7 +9321,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryRequest3(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -9352,9 +9352,9 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i
   %26 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
   %27 = sub i32 %26, %.0
   tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %27) #5
-  %28 = getelementptr inbounds i8, ptr %4, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 1
   %.not46 = icmp eq i32 %32, 0
@@ -9381,13 +9381,13 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsAddEntry_AttrErr_V1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not70 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -9448,14 +9448,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_AttrErr_V1(ptr noundef %0, 
   %47 = sub i32 %46, %.0
   call void @proto_item_set_len(ptr noundef %.068, i32 noundef %47) #5
   %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 1
   %.not75 = icmp eq i32 %51, 0
   br i1 %.not75, label %59, label %52
 
 52:                                               ; preds = %32
-  %53 = getelementptr inbounds i8, ptr %4, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %54 = load i32, ptr %53, align 4
   %.not76 = icmp ne i32 %54, 0
   %55 = and i32 %46, 7
@@ -9475,13 +9475,13 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_AttrErr_V1(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsAddEntry_AttrErrListItem_V1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -9529,14 +9529,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_AttrErrListItem_V1(ptr noun
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -9556,13 +9556,13 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_AttrErrListItem_V1(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Attr_V1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -9612,14 +9612,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Attr_V1(ptr nounde
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -9639,13 +9639,13 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Attr_V1(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Name_V1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not58 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -9699,14 +9699,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Name_V1(ptr nounde
   %42 = sub i32 %41, %.0
   tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not63 = icmp eq i32 %46, 0
   br i1 %.not63, label %54, label %47
 
 47:                                               ; preds = %31
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not64 = icmp ne i32 %49, 0
   %50 = and i32 %41, 7
@@ -9726,7 +9726,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Name_V1(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_NameResOp_V1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 1
@@ -9755,9 +9755,9 @@ define hidden i32 @drsuapi_dissect_struct_NameResOp_V1(ptr noundef %0, i32 nound
   %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = sub i32 %24, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #5
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0
@@ -9833,13 +9833,13 @@ declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsaAddressListItem_V1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -9887,14 +9887,14 @@ define hidden i32 @drsuapi_dissect_struct_DsaAddressListItem_V1(ptr noundef %0, 
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -9916,13 +9916,13 @@ define hidden i32 @drsuapi_dissect_struct_DsaAddressListItem_V1(ptr noundef %0, 
 define hidden i32 @drsuapi_dissect_struct_DsAddEntry_RefErrListItem_V1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i16, align 2
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4
   %.not88 = icmp ne i32 %17, 0
   br i1 %.not, label %23, label %18
@@ -9992,14 +9992,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_RefErrListItem_V1(ptr nound
   %54 = sub i32 %53, %.0
   call void @proto_item_set_len(ptr noundef %.086, i32 noundef %54) #5
   %55 = load ptr, ptr %11, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 96
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not93 = icmp eq i32 %58, 0
   br i1 %.not93, label %66, label %59
 
 59:                                               ; preds = %33
-  %60 = getelementptr inbounds i8, ptr %4, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %61 = load i32, ptr %60, align 4
   %.not94 = icmp ne i32 %61, 0
   %62 = and i32 %53, 7
@@ -10019,13 +10019,13 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_RefErrListItem_V1(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Referr_V1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -10077,14 +10077,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Referr_V1(ptr noun
   %40 = sub i32 %39, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %52, label %45
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not58 = icmp ne i32 %47, 0
   %48 = and i32 %39, 7
@@ -10107,13 +10107,13 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, 
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1
   %.not = icmp eq i32 %16, 0
-  %17 = getelementptr inbounds i8, ptr %4, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %18 = load i32, ptr %17, align 4
   %.not46 = icmp ne i32 %18, 0
   br i1 %.not, label %24, label %19
@@ -10177,11 +10177,11 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, 
   %.063.i.i = phi ptr [ %42, %40 ], [ null, %34 ]
   %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %10) #5
   %45 = load ptr, ptr %12, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 1
   %.not65.i.i = icmp eq i32 %48, 0
-  %49 = getelementptr inbounds i8, ptr %4, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %50 = load i32, ptr %49, align 4
   %.not66.i.i = icmp ne i32 %50, 0
   br i1 %.not65.i.i, label %56, label %51
@@ -10266,7 +10266,7 @@ drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit: ; preds = %61, %63, %66
   %86 = sub i32 %.1.i.i, %.0
   call void @proto_item_set_len(ptr noundef %.044, i32 noundef %86) #5
   %87 = load ptr, ptr %12, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 96
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 96
   %89 = load i32, ptr %88, align 8
   %90 = and i32 %89, 1
   %.not51 = icmp eq i32 %90, 0
@@ -10292,7 +10292,7 @@ drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit: ; preds = %61, %63, %66
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -10319,9 +10319,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier2(ptr noundef
   %22 = tail call i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -10348,13 +10348,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier2(ptr noundef
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not76 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -10417,14 +10417,14 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr2(ptr noundef %0, i32 nou
   %49 = sub i32 %48, %.0
   call void @proto_item_set_len(ptr noundef %.074, i32 noundef %49) #5
   %50 = load ptr, ptr %10, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 96
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 1
   %.not81 = icmp eq i32 %53, 0
   br i1 %.not81, label %61, label %54
 
 54:                                               ; preds = %32
-  %55 = getelementptr inbounds i8, ptr %4, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %56 = load i32, ptr %55, align 4
   %.not82 = icmp ne i32 %56, 0
   %57 = and i32 %48, 7
@@ -10446,13 +10446,13 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr2(ptr noundef %0, i32 nou
 define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4
   %.not58 = icmp ne i32 %17, 0
   br i1 %.not, label %23, label %18
@@ -10513,11 +10513,11 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr3(ptr noundef %0, i32 nou
   %.027.i.i = phi ptr [ %41, %39 ], [ null, %33 ]
   %43 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %10) #5
   %44 = load ptr, ptr %11, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 1
   %.not29.i.i = icmp eq i32 %47, 0
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not30.i.i = icmp ne i32 %49, 0
   br i1 %.not29.i.i, label %55, label %50
@@ -10569,7 +10569,7 @@ drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit: ; preds = %60, %62
   %71 = sub i32 %70, %.0
   call void @proto_item_set_len(ptr noundef %.056, i32 noundef %71) #5
   %72 = load ptr, ptr %11, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 96
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 96
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 1
   %.not63 = icmp eq i32 %75, 0
@@ -10596,7 +10596,7 @@ drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit: ; preds = %60, %62
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_bitmap_DsExecuteKCCFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -10638,7 +10638,7 @@ define hidden i32 @drsuapi_dissect_bitmap_DsExecuteKCCFlags(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsExecuteKCC1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -10665,9 +10665,9 @@ define hidden i32 @drsuapi_dissect_struct_DsExecuteKCC1(ptr noundef %0, i32 noun
   %22 = tail call i32 @drsuapi_dissect_bitmap_DsExecuteKCCFlags(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -10742,13 +10742,13 @@ define hidden i32 @drsuapi_dissect_enum_DsReplicaInfoType(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not46 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -10801,14 +10801,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest1(ptr noundef %
   %39 = sub i32 %38, %.0
   call void @proto_item_set_len(ptr noundef %.044, i32 noundef %39) #5
   %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 1
   %.not51 = icmp eq i32 %43, 0
   br i1 %.not51, label %51, label %44
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %4, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %46 = load i32, ptr %45, align 4
   %.not52 = icmp ne i32 %46, 0
   %47 = and i32 %38, 7
@@ -10829,13 +10829,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest1(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not70 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -10896,14 +10896,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest2(ptr noundef %
   %47 = sub i32 %46, %.0
   call void @proto_item_set_len(ptr noundef %.068, i32 noundef %47) #5
   %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 1
   %.not75 = icmp eq i32 %51, 0
   br i1 %.not75, label %59, label %52
 
 52:                                               ; preds = %32
-  %53 = getelementptr inbounds i8, ptr %4, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %54 = load i32, ptr %53, align 4
   %.not76 = icmp ne i32 %54, 0
   %55 = and i32 %46, 7
@@ -10923,7 +10923,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest2(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaNeighbour(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -10978,9 +10978,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaNeighbour(ptr noundef %0, i32
   %50 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 noundef 0) #5
   %51 = sub i32 %50, %.0
   tail call void @proto_item_set_len(ptr noundef %.0114, i32 noundef %51) #5
-  %52 = getelementptr inbounds i8, ptr %4, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 96
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 1
   %.not118 = icmp eq i32 %56, 0
@@ -11006,7 +11006,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaNeighbour(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaNeighbourCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -11034,9 +11034,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaNeighbourCtr(ptr noundef %0, 
   %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaNeighbourCtr_array_) #5
   %24 = sub i32 %23, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not40 = icmp eq i32 %29, 0
@@ -11062,7 +11062,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaNeighbourCtr(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaCursorCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -11090,9 +11090,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursorCtr(ptr noundef %0, i32
   %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursorCtr_array_) #5
   %24 = sub i32 %23, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not40 = icmp eq i32 %29, 0
@@ -11118,7 +11118,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursorCtr(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -11153,9 +11153,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaData(ptr noundef %0, i
   %30 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
   %31 = sub i32 %30, %.0
   tail call void @proto_item_set_len(ptr noundef %.054, i32 noundef %31) #5
-  %32 = getelementptr inbounds i8, ptr %4, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 1
   %.not58 = icmp eq i32 %36, 0
@@ -11181,7 +11181,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaData(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaDataCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -11209,9 +11209,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaDataCtr(ptr noundef %0
   %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaDataCtr_array_) #5
   %24 = sub i32 %23, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not40 = icmp eq i32 %29, 0
@@ -11237,13 +11237,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaDataCtr(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaKccDsaFailure(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not58 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -11297,14 +11297,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaKccDsaFailure(ptr noundef %0,
   %42 = sub i32 %41, %.0
   tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not63 = icmp eq i32 %46, 0
   br i1 %.not63, label %54, label %47
 
 47:                                               ; preds = %31
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not64 = icmp ne i32 %49, 0
   %50 = and i32 %41, 7
@@ -11324,13 +11324,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaKccDsaFailure(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaKccDsaFailuresCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -11379,14 +11379,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaKccDsaFailuresCtr(ptr noundef
   %37 = sub i32 %36, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %37) #5
   %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 1
   %.not51 = icmp eq i32 %41, 0
   br i1 %.not51, label %49, label %42
 
 42:                                               ; preds = %31
-  %43 = getelementptr inbounds i8, ptr %4, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %44 = load i32, ptr %43, align 4
   %.not52 = icmp ne i32 %44, 0
   %45 = and i32 %36, 7
@@ -11433,13 +11433,13 @@ declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaOp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not88 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -11506,14 +11506,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOp(ptr noundef %0, i32 nounde
   %53 = sub i32 %52, %.0
   call void @proto_item_set_len(ptr noundef %.086, i32 noundef %53) #5
   %54 = load ptr, ptr %10, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 96
   %56 = load i32, ptr %55, align 8
   %57 = and i32 %56, 1
   %.not93 = icmp eq i32 %57, 0
   br i1 %.not93, label %65, label %58
 
 58:                                               ; preds = %32
-  %59 = getelementptr inbounds i8, ptr %4, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %60 = load i32, ptr %59, align 4
   %.not94 = icmp ne i32 %60, 0
   %61 = and i32 %52, 7
@@ -11533,13 +11533,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOp(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaOpCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -11588,14 +11588,14 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOpCtr(ptr noundef %0, i32 nou
   %37 = sub i32 %36, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %37) #5
   %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 1
   %.not51 = icmp eq i32 %41, 0
   br i1 %.not51, label %49, label %42
 
 42:                                               ; preds = %31
-  %43 = getelementptr inbounds i8, ptr %4, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %44 = load i32, ptr %43, align 4
   %.not52 = icmp ne i32 %44, 0
   %45 = and i32 %36, 7
@@ -11615,7 +11615,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOpCtr(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -11660,9 +11660,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaData(ptr noundef %
   %40 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #5
   %41 = sub i32 %40, %.0
   tail call void @proto_item_set_len(ptr noundef %.084, i32 noundef %41) #5
-  %42 = getelementptr inbounds i8, ptr %4, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not88 = icmp eq i32 %46, 0
@@ -11688,7 +11688,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaData(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaDataCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -11716,9 +11716,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaDataCtr(ptr nounde
   %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaDataCtr_array_) #5
   %24 = sub i32 %23, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not40 = icmp eq i32 %29, 0
@@ -11744,7 +11744,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaDataCtr(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor2Ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -11772,9 +11772,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor2Ctr(ptr noundef %0, i3
   %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursor2Ctr_array_) #5
   %24 = sub i32 %23, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not40 = icmp eq i32 %29, 0
@@ -11800,7 +11800,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor2Ctr(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -11831,9 +11831,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor3(ptr noundef %0, i32 n
   %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursor3_source_dsa_obj_dn_, i32 noundef 2, ptr noundef nonnull @.str.1505, i32 noundef %25) #5
   %27 = sub i32 %26, %.0
   tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %27) #5
-  %28 = getelementptr inbounds i8, ptr %4, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 1
   %.not46 = icmp eq i32 %32, 0
@@ -11859,7 +11859,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor3(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor3Ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -11887,9 +11887,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor3Ctr(ptr noundef %0, i3
   %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursor3Ctr_array_) #5
   %24 = sub i32 %23, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not40 = icmp eq i32 %29, 0
@@ -11915,7 +11915,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor3Ctr(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaData2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -11952,9 +11952,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaData2(ptr noundef %0, 
   %32 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaData2_originating_dsa_dn_, i32 noundef 2, ptr noundef nonnull @.str.1512, i32 noundef %31) #5
   %33 = sub i32 %32, %.0
   tail call void @proto_item_set_len(ptr noundef %.060, i32 noundef %33) #5
-  %34 = getelementptr inbounds i8, ptr %4, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not64 = icmp eq i32 %38, 0
@@ -11980,7 +11980,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaData2(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaData2Ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -12008,9 +12008,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaData2Ctr(ptr noundef %
   %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaData2Ctr_array_) #5
   %24 = sub i32 %23, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not40 = icmp eq i32 %29, 0
@@ -12036,7 +12036,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaData2Ctr(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaData2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -12083,9 +12083,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaData2(ptr noundef 
   %42 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData2_originating_dsa_dn_, i32 noundef 2, ptr noundef nonnull @.str.1512, i32 noundef %41) #5
   %43 = sub i32 %42, %.0
   tail call void @proto_item_set_len(ptr noundef %.090, i32 noundef %43) #5
-  %44 = getelementptr inbounds i8, ptr %4, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 1
   %.not94 = icmp eq i32 %48, 0
@@ -12111,7 +12111,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaData2(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaData2Ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -12139,9 +12139,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaData2Ctr(ptr nound
   %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData2Ctr_array_) #5
   %24 = sub i32 %23, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not40 = icmp eq i32 %29, 0
@@ -12167,7 +12167,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaData2Ctr(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaConnection04(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -12205,9 +12205,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaConnection04(ptr noundef %0, 
   %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.060, i32 noundef %34) #5
-  %35 = getelementptr inbounds i8, ptr %4, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 1
   %.not64 = icmp eq i32 %39, 0
@@ -12233,7 +12233,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaConnection04(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplicaConnection04Ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -12261,9 +12261,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaConnection04Ctr(ptr noundef %
   %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaConnection04Ctr_array_) #5
   %24 = sub i32 %23, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not40 = icmp eq i32 %29, 0
@@ -12289,7 +12289,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaConnection04Ctr(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplica06(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -12328,9 +12328,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplica06(ptr noundef %0, i32 nounde
   %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
   %35 = sub i32 %34, %.0
   tail call void @proto_item_set_len(ptr noundef %.066, i32 noundef %35) #5
-  %36 = getelementptr inbounds i8, ptr %4, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not70 = icmp eq i32 %40, 0
@@ -12356,7 +12356,7 @@ define hidden i32 @drsuapi_dissect_struct_DsReplica06(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsReplica06Ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -12384,9 +12384,9 @@ define hidden i32 @drsuapi_dissect_struct_DsReplica06Ctr(ptr noundef %0, i32 nou
   %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplica06Ctr_array_) #5
   %24 = sub i32 %23, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not40 = icmp eq i32 %29, 0
@@ -12412,13 +12412,13 @@ define hidden i32 @drsuapi_dissect_struct_DsReplica06Ctr(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetMemberships2Ctr1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -12466,14 +12466,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMemberships2Ctr1(ptr noundef %0, 
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -12493,13 +12493,13 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMemberships2Ctr1(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsGetMemberships2Request1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -12547,14 +12547,14 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMemberships2Request1(ptr noundef 
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -12574,7 +12574,7 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMemberships2Request1(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_DsSiteCostInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -12601,9 +12601,9 @@ define hidden i32 @drsuapi_dissect_struct_DsSiteCostInfo(ptr noundef %0, i32 nou
   %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -12629,13 +12629,13 @@ define hidden i32 @drsuapi_dissect_struct_DsSiteCostInfo(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_QuerySitesByCostCtr1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -12685,14 +12685,14 @@ define hidden i32 @drsuapi_dissect_struct_QuerySitesByCostCtr1(ptr noundef %0, i
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -12712,13 +12712,13 @@ define hidden i32 @drsuapi_dissect_struct_QuerySitesByCostCtr1(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_QuerySitesByCostRequest1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -12770,14 +12770,14 @@ define hidden i32 @drsuapi_dissect_struct_QuerySitesByCostRequest1(ptr noundef %
   %40 = sub i32 %39, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %52, label %45
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not58 = icmp ne i32 %47, 0
   %48 = and i32 %39, 7
@@ -12797,13 +12797,13 @@ define hidden i32 @drsuapi_dissect_struct_QuerySitesByCostRequest1(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_ReadNgcKeyReqV1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -12849,14 +12849,14 @@ define hidden i32 @drsuapi_dissect_struct_ReadNgcKeyReqV1(ptr noundef %0, i32 no
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -12876,13 +12876,13 @@ define hidden i32 @drsuapi_dissect_struct_ReadNgcKeyReqV1(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @drsuapi_dissect_struct_ReadNgcKeyReplyV1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -12932,14 +12932,14 @@ define hidden i32 @drsuapi_dissect_struct_ReadNgcKeyReplyV1(ptr noundef %0, i32 
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -13315,20 +13315,20 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChangesCtr6_linked_attribute
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_element_DsGetNCChangesMSZIPCtr1_ts_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %36
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesMSZIPCtr1_ts_, align 4
   %16 = call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, -2
   store i32 %20, ptr %18, align 8
@@ -13352,7 +13352,7 @@ drsuapi_dissect_element_DsGetNCChangesMSZIPCtr1_ts__.exit: ; preds = %24, %10
   %30 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %23, i32 noundef 0, ptr noundef %2, ptr noundef %.023.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
   call void @proto_item_set_len(ptr noundef %.024.i.i, i32 noundef %30) #5
   %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load i64, ptr %7, align 8
   %34 = trunc i64 %33 to i32
   %35 = add i32 %16, %34
@@ -13369,20 +13369,20 @@ declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef,
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_element_DsGetNCChangesMSZIPCtr6_ts_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %36
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesMSZIPCtr6_ts_, align 4
   %16 = call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, -2
   store i32 %20, ptr %18, align 8
@@ -13406,7 +13406,7 @@ drsuapi_dissect_element_DsGetNCChangesMSZIPCtr6_ts__.exit: ; preds = %24, %10
   %30 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %23, i32 noundef 0, ptr noundef %2, ptr noundef %.023.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
   call void @proto_item_set_len(ptr noundef %.024.i.i, i32 noundef %30) #5
   %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load i64, ptr %7, align 8
   %34 = trunc i64 %33 to i32
   %35 = add i32 %16, %34
@@ -13421,20 +13421,20 @@ drsuapi_dissect_element_DsGetNCChangesMSZIPCtr6_ts__.exit: ; preds = %24, %10
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %36
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts_, align 4
   %16 = call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, -2
   store i32 %20, ptr %18, align 8
@@ -13458,7 +13458,7 @@ drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts__.exit: ; preds
   %30 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %23, i32 noundef 0, ptr noundef %2, ptr noundef %.023.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
   call void @proto_item_set_len(ptr noundef %.024.i.i, i32 noundef %30) #5
   %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load i64, ptr %7, align 8
   %34 = trunc i64 %33 to i32
   %35 = add i32 %16, %34
@@ -13473,20 +13473,20 @@ drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts__.exit: ; preds
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_ts_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %36
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_ts_, align 4
   %16 = call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, -2
   store i32 %20, ptr %18, align 8
@@ -13510,7 +13510,7 @@ drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_ts__.exit: ; preds
   %30 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %23, i32 noundef 0, ptr noundef %2, ptr noundef %.023.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
   call void @proto_item_set_len(ptr noundef %.024.i.i, i32 noundef %30) #5
   %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load i64, ptr %7, align 8
   %34 = trunc i64 %33 to i32
   %35 = add i32 %16, %34
@@ -13652,7 +13652,7 @@ define internal i32 @drsuapi_dissect_element_DsGetMembershipsCtr1_group_attrs__(
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsCtr1_group_attrs, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not.i = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -14682,7 +14682,7 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKeyReplyV1_pNgcKey_(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsBind_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1697, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsBind_bind_guid, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsBind_bind_guid_, i32 noundef 2, ptr noundef nonnull @.str.1728, i32 noundef %8) #5
@@ -14696,7 +14696,7 @@ define internal i32 @drsuapi_dissect_DsBind_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsBind_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1697, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsBind_bind_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsBind_bind_info_, i32 noundef 2, ptr noundef nonnull @.str.1729, i32 noundef %9) #5
@@ -14711,7 +14711,7 @@ define internal i32 @drsuapi_dissect_DsBind_response(ptr noundef %0, i32 noundef
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -14723,7 +14723,7 @@ define internal i32 @drsuapi_dissect_DsBind_response(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsUnbind_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1698, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsUnbind_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsUnbind_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -14734,7 +14734,7 @@ define internal i32 @drsuapi_dissect_DsUnbind_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsUnbind_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1698, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsUnbind_bind_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsUnbind_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %9) #5
@@ -14746,7 +14746,7 @@ define internal i32 @drsuapi_dissect_DsUnbind_response(ptr noundef %0, i32 nound
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %18) #5
@@ -14758,7 +14758,7 @@ define internal i32 @drsuapi_dissect_DsUnbind_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsReplicaSync_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1699, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaSync_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaSync_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -14775,7 +14775,7 @@ define internal i32 @drsuapi_dissect_DsReplicaSync_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsReplicaSync_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1699, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -14784,7 +14784,7 @@ define internal i32 @drsuapi_dissect_DsReplicaSync_response(ptr noundef %0, i32 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -14796,7 +14796,7 @@ define internal i32 @drsuapi_dissect_DsReplicaSync_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsGetNCChanges_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1700, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChanges_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChanges_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -14813,7 +14813,7 @@ define internal i32 @drsuapi_dissect_DsGetNCChanges_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsGetNCChanges_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1700, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChanges_level_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChanges_level_out_, i32 noundef 1, ptr noundef nonnull @.str.1737, i32 noundef %9) #5
@@ -14828,7 +14828,7 @@ define internal i32 @drsuapi_dissect_DsGetNCChanges_response(ptr noundef %0, i32
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -14842,7 +14842,7 @@ define internal i32 @drsuapi_dissect_DsGetNCChanges_response(ptr noundef %0, i32
 define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1701, ptr %9, align 8
   %10 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaUpdateRefs_bind_handle, align 4
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaUpdateRefs_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %10) #5
@@ -14865,13 +14865,13 @@ define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_request(ptr noundef %0,
 20:                                               ; preds = %17, %6
   %.027.i.i = phi ptr [ %19, %17 ], [ null, %6 ]
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not29.i.i = icmp eq i32 %26, 0
-  %27 = getelementptr inbounds i8, ptr %4, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %28 = load i32, ptr %27, align 4
   %.not30.i.i = icmp ne i32 %28, 0
   br i1 %.not29.i.i, label %34, label %29
@@ -14923,7 +14923,7 @@ drsuapi_dissect_element_DsReplicaUpdateRefs_req.exit: ; preds = %39, %41
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1701, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -14932,7 +14932,7 @@ define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_response(ptr noundef %0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -14946,7 +14946,7 @@ define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_response(ptr noundef %0
 define internal i32 @drsuapi_dissect_DsReplicaAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1702, ptr %9, align 8
   %10 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAdd_bind_handle, align 4
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAdd_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %10) #5
@@ -14969,13 +14969,13 @@ define internal i32 @drsuapi_dissect_DsReplicaAdd_request(ptr noundef %0, i32 no
 20:                                               ; preds = %17, %6
   %.033.i.i = phi ptr [ %19, %17 ], [ null, %6 ]
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not35.i.i = icmp eq i32 %26, 0
-  %27 = getelementptr inbounds i8, ptr %4, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %28 = load i32, ptr %27, align 4
   %.not36.i.i = icmp ne i32 %28, 0
   br i1 %.not35.i.i, label %34, label %29
@@ -15034,7 +15034,7 @@ drsuapi_dissect_element_DsReplicaAdd_req.exit:    ; preds = %39, %41, %44
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsReplicaAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1702, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15043,7 +15043,7 @@ define internal i32 @drsuapi_dissect_DsReplicaAdd_response(ptr noundef %0, i32 n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -15057,7 +15057,7 @@ define internal i32 @drsuapi_dissect_DsReplicaAdd_response(ptr noundef %0, i32 n
 define internal i32 @drsuapi_dissect_DsReplicaDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1703, ptr %9, align 8
   %10 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaDel_bind_handle, align 4
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaDel_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %10) #5
@@ -15080,13 +15080,13 @@ define internal i32 @drsuapi_dissect_DsReplicaDel_request(ptr noundef %0, i32 no
 20:                                               ; preds = %17, %6
   %.027.i.i = phi ptr [ %19, %17 ], [ null, %6 ]
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not29.i.i = icmp eq i32 %26, 0
-  %27 = getelementptr inbounds i8, ptr %4, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %28 = load i32, ptr %27, align 4
   %.not30.i.i = icmp ne i32 %28, 0
   br i1 %.not29.i.i, label %34, label %29
@@ -15138,7 +15138,7 @@ drsuapi_dissect_element_DsReplicaDel_req.exit:    ; preds = %39, %41
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsReplicaDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1703, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15147,7 +15147,7 @@ define internal i32 @drsuapi_dissect_DsReplicaDel_response(ptr noundef %0, i32 n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -15161,7 +15161,7 @@ define internal i32 @drsuapi_dissect_DsReplicaDel_response(ptr noundef %0, i32 n
 define internal i32 @drsuapi_dissect_DsReplicaMod_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1704, ptr %9, align 8
   %10 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaMod_bind_handle, align 4
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaMod_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %10) #5
@@ -15184,13 +15184,13 @@ define internal i32 @drsuapi_dissect_DsReplicaMod_request(ptr noundef %0, i32 no
 20:                                               ; preds = %17, %6
   %.027.i.i = phi ptr [ %19, %17 ], [ null, %6 ]
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not29.i.i = icmp eq i32 %26, 0
-  %27 = getelementptr inbounds i8, ptr %4, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %28 = load i32, ptr %27, align 4
   %.not30.i.i = icmp ne i32 %28, 0
   br i1 %.not29.i.i, label %34, label %29
@@ -15242,7 +15242,7 @@ drsuapi_dissect_element_DsReplicaMod_req.exit:    ; preds = %39, %41
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsReplicaMod_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1704, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15251,7 +15251,7 @@ define internal i32 @drsuapi_dissect_DsReplicaMod_response(ptr noundef %0, i32 n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -15263,7 +15263,7 @@ define internal i32 @drsuapi_dissect_DsReplicaMod_response(ptr noundef %0, i32 n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1705, ptr %7, align 8
   ret i32 %1
 }
@@ -15271,7 +15271,7 @@ define internal noundef i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_request(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1705, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15280,7 +15280,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_response(ptr noundef %
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -15292,7 +15292,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_response(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsGetMemberships_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1706, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMemberships_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -15309,7 +15309,7 @@ define internal i32 @drsuapi_dissect_DsGetMemberships_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsGetMemberships_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1706, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships_level_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMemberships_level_out_, i32 noundef 1, ptr noundef nonnull @.str.1737, i32 noundef %9) #5
@@ -15324,7 +15324,7 @@ define internal i32 @drsuapi_dissect_DsGetMemberships_response(ptr noundef %0, i
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -15336,7 +15336,7 @@ define internal i32 @drsuapi_dissect_DsGetMemberships_response(ptr noundef %0, i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1707, ptr %7, align 8
   ret i32 %1
 }
@@ -15344,7 +15344,7 @@ define internal noundef i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_request(p
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1707, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15353,7 +15353,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_response(ptr noun
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -15365,7 +15365,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_response(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1708, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLog_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNT4ChangeLog_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -15382,7 +15382,7 @@ define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1708, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLog_level_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNT4ChangeLog_level_out_, i32 noundef 1, ptr noundef nonnull @.str.1737, i32 noundef %9) #5
@@ -15397,7 +15397,7 @@ define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_response(ptr noundef %0, 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -15409,7 +15409,7 @@ define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsCrackNames_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1709, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsCrackNames_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsCrackNames_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -15426,7 +15426,7 @@ define internal i32 @drsuapi_dissect_DsCrackNames_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsCrackNames_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1709, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsCrackNames_level_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsCrackNames_level_out_, i32 noundef 1, ptr noundef nonnull @.str.1737, i32 noundef %9) #5
@@ -15441,7 +15441,7 @@ define internal i32 @drsuapi_dissect_DsCrackNames_response(ptr noundef %0, i32 n
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -15453,7 +15453,7 @@ define internal i32 @drsuapi_dissect_DsCrackNames_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsWriteAccountSpn_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1710, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpn_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsWriteAccountSpn_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -15470,7 +15470,7 @@ define internal i32 @drsuapi_dissect_DsWriteAccountSpn_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsWriteAccountSpn_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1710, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpn_level_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsWriteAccountSpn_level_out_, i32 noundef 1, ptr noundef nonnull @.str.1737, i32 noundef %9) #5
@@ -15485,7 +15485,7 @@ define internal i32 @drsuapi_dissect_DsWriteAccountSpn_response(ptr noundef %0, 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -15497,7 +15497,7 @@ define internal i32 @drsuapi_dissect_DsWriteAccountSpn_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsRemoveDSServer_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1711, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServer_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsRemoveDSServer_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -15514,7 +15514,7 @@ define internal i32 @drsuapi_dissect_DsRemoveDSServer_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsRemoveDSServer_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1711, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServer_level_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsRemoveDSServer_level_out_, i32 noundef 1, ptr noundef nonnull @.str.1737, i32 noundef %9) #5
@@ -15529,7 +15529,7 @@ define internal i32 @drsuapi_dissect_DsRemoveDSServer_response(ptr noundef %0, i
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -15541,7 +15541,7 @@ define internal i32 @drsuapi_dissect_DsRemoveDSServer_response(ptr noundef %0, i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1712, ptr %7, align 8
   ret i32 %1
 }
@@ -15549,7 +15549,7 @@ define internal noundef i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_request(pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1712, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15558,7 +15558,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_response(ptr nound
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -15570,7 +15570,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_response(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1713, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDomainControllerInfo_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDomainControllerInfo_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -15587,7 +15587,7 @@ define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_request(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1713, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDomainControllerInfo_level_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDomainControllerInfo_level_out_, i32 noundef 1, ptr noundef nonnull @.str.1767, i32 noundef %9) #5
@@ -15602,7 +15602,7 @@ define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_response(ptr noun
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -15614,7 +15614,7 @@ define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_response(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsAddEntry_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1714, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntry_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -15631,7 +15631,7 @@ define internal i32 @drsuapi_dissect_DsAddEntry_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsAddEntry_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1714, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_level_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntry_level_out_, i32 noundef 1, ptr noundef nonnull @.str.1737, i32 noundef %9) #5
@@ -15646,7 +15646,7 @@ define internal i32 @drsuapi_dissect_DsAddEntry_response(ptr noundef %0, i32 nou
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -15658,7 +15658,7 @@ define internal i32 @drsuapi_dissect_DsAddEntry_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsExecuteKCC_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1715, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsExecuteKCC_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsExecuteKCC_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -15675,7 +15675,7 @@ define internal i32 @drsuapi_dissect_DsExecuteKCC_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsExecuteKCC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1715, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15684,7 +15684,7 @@ define internal i32 @drsuapi_dissect_DsExecuteKCC_response(ptr noundef %0, i32 n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -15697,7 +15697,7 @@ define internal i32 @drsuapi_dissect_DsExecuteKCC_response(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsReplicaGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1716, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfo_bind_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfo_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %9) #5
@@ -15717,7 +15717,7 @@ define internal i32 @drsuapi_dissect_DsReplicaGetInfo_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsReplicaGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1716, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfo_info_type, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfo_info_type_, i32 noundef 1, ptr noundef nonnull @.str.1778, i32 noundef %9) #5
@@ -15732,7 +15732,7 @@ define internal i32 @drsuapi_dissect_DsReplicaGetInfo_response(ptr noundef %0, i
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -15744,7 +15744,7 @@ define internal i32 @drsuapi_dissect_DsReplicaGetInfo_response(ptr noundef %0, i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1717, ptr %7, align 8
   ret i32 %1
 }
@@ -15752,7 +15752,7 @@ define internal noundef i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_request(ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1717, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15761,7 +15761,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_response(ptr nounde
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -15773,7 +15773,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_response(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsGetMemberships2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1718, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships2_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMemberships2_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -15790,7 +15790,7 @@ define internal i32 @drsuapi_dissect_DsGetMemberships2_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DsGetMemberships2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1718, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships2_level_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMemberships2_level_out_, i32 noundef 1, ptr noundef nonnull @.str.1737, i32 noundef %9) #5
@@ -15805,7 +15805,7 @@ define internal i32 @drsuapi_dissect_DsGetMemberships2_response(ptr noundef %0, 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -15817,7 +15817,7 @@ define internal i32 @drsuapi_dissect_DsGetMemberships2_response(ptr noundef %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1719, ptr %7, align 8
   ret i32 %1
 }
@@ -15825,7 +15825,7 @@ define internal noundef i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_requ
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1719, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15834,7 +15834,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_response(ptr
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -15846,7 +15846,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_response(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1720, ptr %7, align 8
   ret i32 %1
 }
@@ -15854,7 +15854,7 @@ define internal noundef i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_reques
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1720, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15863,7 +15863,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_response(ptr n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -15875,7 +15875,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_response(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_QuerySitesByCost_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1721, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCost_bind_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_QuerySitesByCost_bind_handle_, i32 noundef 1, ptr noundef nonnull @.str.1732, i32 noundef %8) #5
@@ -15892,7 +15892,7 @@ define internal i32 @drsuapi_dissect_QuerySitesByCost_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_QuerySitesByCost_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1721, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCost_level_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_QuerySitesByCost_level_out_, i32 noundef 1, ptr noundef nonnull @.str.1737, i32 noundef %9) #5
@@ -15907,7 +15907,7 @@ define internal i32 @drsuapi_dissect_QuerySitesByCost_response(ptr noundef %0, i
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -15919,7 +15919,7 @@ define internal i32 @drsuapi_dissect_QuerySitesByCost_response(ptr noundef %0, i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @drsuapi_dissect_InitDemotion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1722, ptr %7, align 8
   ret i32 %1
 }
@@ -15927,7 +15927,7 @@ define internal noundef i32 @drsuapi_dissect_InitDemotion_request(ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_InitDemotion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1722, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15936,7 +15936,7 @@ define internal i32 @drsuapi_dissect_InitDemotion_response(ptr noundef %0, i32 n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -15948,7 +15948,7 @@ define internal i32 @drsuapi_dissect_InitDemotion_response(ptr noundef %0, i32 n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @drsuapi_dissect_ReplicaDemotion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1723, ptr %7, align 8
   ret i32 %1
 }
@@ -15956,7 +15956,7 @@ define internal noundef i32 @drsuapi_dissect_ReplicaDemotion_request(ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_ReplicaDemotion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1723, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15965,7 +15965,7 @@ define internal i32 @drsuapi_dissect_ReplicaDemotion_response(ptr noundef %0, i3
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -15977,7 +15977,7 @@ define internal i32 @drsuapi_dissect_ReplicaDemotion_response(ptr noundef %0, i3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @drsuapi_dissect_FinishDemotion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1724, ptr %7, align 8
   ret i32 %1
 }
@@ -15985,7 +15985,7 @@ define internal noundef i32 @drsuapi_dissect_FinishDemotion_request(ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_FinishDemotion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1724, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -15994,7 +15994,7 @@ define internal i32 @drsuapi_dissect_FinishDemotion_response(ptr noundef %0, i32
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -16006,7 +16006,7 @@ define internal i32 @drsuapi_dissect_FinishDemotion_response(ptr noundef %0, i32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @drsuapi_dissect_AddCloneDC_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1725, ptr %7, align 8
   ret i32 %1
 }
@@ -16014,7 +16014,7 @@ define internal noundef i32 @drsuapi_dissect_AddCloneDC_request(ptr nocapture re
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_AddCloneDC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1725, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -16023,7 +16023,7 @@ define internal i32 @drsuapi_dissect_AddCloneDC_response(ptr noundef %0, i32 nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -16035,7 +16035,7 @@ define internal i32 @drsuapi_dissect_AddCloneDC_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @drsuapi_dissect_WriteNgcKey_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1726, ptr %7, align 8
   ret i32 %1
 }
@@ -16043,7 +16043,7 @@ define internal noundef i32 @drsuapi_dissect_WriteNgcKey_request(ptr nocapture r
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_WriteNgcKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1726, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -16052,7 +16052,7 @@ define internal i32 @drsuapi_dissect_WriteNgcKey_response(ptr noundef %0, i32 no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %15) #5
@@ -16064,7 +16064,7 @@ define internal i32 @drsuapi_dissect_WriteNgcKey_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_ReadNgcKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1727, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKey_hDrs, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_ReadNgcKey_hDrs_, i32 noundef 1, ptr noundef nonnull @.str.1804, i32 noundef %8) #5
@@ -16081,7 +16081,7 @@ define internal i32 @drsuapi_dissect_ReadNgcKey_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @drsuapi_dissect_ReadNgcKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1727, ptr %8, align 8
   %9 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKey_pOutVersion, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_ReadNgcKey_pOutVersion_, i32 noundef 1, ptr noundef nonnull @.str.1807, i32 noundef %9) #5
@@ -16096,7 +16096,7 @@ define internal i32 @drsuapi_dissect_ReadNgcKey_response(ptr noundef %0, i32 nou
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.1731) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1730, ptr noundef %21) #5
@@ -16170,13 +16170,13 @@ define internal i32 @drsuapi_dissect_element_DsReplicaSync_req_(ptr noundef %0, 
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -16250,7 +16250,7 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChanges_req_(ptr noundef %0,
 13:                                               ; preds = %10, %6
   %.035.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.035.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not37.i = icmp ne i32 %16, 0
   %17 = and i32 %14, 7
@@ -16317,7 +16317,7 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChanges_ctr_(ptr noundef %0,
 13:                                               ; preds = %10, %6
   %.041.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.041.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not43.i = icmp ne i32 %16, 0
   %17 = and i32 %14, 7
@@ -16418,13 +16418,13 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships_req_(ptr noundef %
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -16498,13 +16498,13 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships_ctr_(ptr noundef %
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -16578,13 +16578,13 @@ define internal i32 @drsuapi_dissect_element_DsGetNT4ChangeLog_req_(ptr noundef 
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -16658,7 +16658,7 @@ define internal i32 @drsuapi_dissect_element_DsGetNT4ChangeLog_info_(ptr noundef
 13:                                               ; preds = %10, %6
   %.023.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not25.i = icmp ne i32 %16, 0
   %17 = and i32 %14, 7
@@ -16712,13 +16712,13 @@ define internal i32 @drsuapi_dissect_element_DsCrackNames_req_(ptr noundef %0, i
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -16777,13 +16777,13 @@ define internal i32 @drsuapi_dissect_element_DsCrackNames_level_out_(ptr noundef
 define internal i32 @drsuapi_dissect_element_DsCrackNames_ctr_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not13 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -16828,11 +16828,11 @@ define internal i32 @drsuapi_dissect_element_DsCrackNames_ctr_(ptr noundef %0, i
   %.027.i = phi ptr [ %30, %28 ], [ null, %26 ]
   %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %8) #5
   %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 1
   %.not29.i = icmp eq i32 %36, 0
-  %37 = getelementptr inbounds i8, ptr %4, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %38 = load i32, ptr %37, align 4
   %.not30.i = icmp ne i32 %38, 0
   br i1 %.not29.i, label %44, label %39
@@ -16913,13 +16913,13 @@ define internal i32 @drsuapi_dissect_element_DsWriteAccountSpn_req_(ptr noundef 
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -16993,7 +16993,7 @@ define internal i32 @drsuapi_dissect_element_DsWriteAccountSpn_res_(ptr noundef 
 13:                                               ; preds = %10, %6
   %.023.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not25.i = icmp ne i32 %16, 0
   %17 = and i32 %14, 3
@@ -17047,13 +17047,13 @@ define internal i32 @drsuapi_dissect_element_DsRemoveDSServer_req_(ptr noundef %
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -17127,7 +17127,7 @@ define internal i32 @drsuapi_dissect_element_DsRemoveDSServer_res_(ptr noundef %
 13:                                               ; preds = %10, %6
   %.023.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not25.i = icmp ne i32 %16, 0
   %17 = and i32 %14, 3
@@ -17181,13 +17181,13 @@ define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_req_(ptr 
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -17265,13 +17265,13 @@ define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_ctr_(ptr 
 13:                                               ; preds = %10, %6
   %.045.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.045.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not47.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not48.i = icmp ne i32 %21, 0
   br i1 %.not47.i, label %27, label %22
@@ -17364,13 +17364,13 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_req_(ptr noundef %0, i32
 13:                                               ; preds = %10, %6
   %.033.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.033.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not35.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not36.i = icmp ne i32 %21, 0
   br i1 %.not35.i, label %27, label %22
@@ -17451,13 +17451,13 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_ctr_(ptr noundef %0, i32
 13:                                               ; preds = %10, %6
   %.033.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.033.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not35.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not36.i = icmp ne i32 %21, 0
   br i1 %.not35.i, label %27, label %22
@@ -17538,7 +17538,7 @@ define internal i32 @drsuapi_dissect_element_DsExecuteKCC_req_(ptr noundef %0, i
 13:                                               ; preds = %10, %6
   %.023.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not25.i = icmp ne i32 %16, 0
   %17 = and i32 %14, 3
@@ -17592,13 +17592,13 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_req_(ptr noundef %
 13:                                               ; preds = %10, %6
   %.033.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.033.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not35.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not36.i = icmp ne i32 %21, 0
   br i1 %.not35.i, label %27, label %22
@@ -17683,13 +17683,13 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_info_(ptr noundef 
 13:                                               ; preds = %10, %6
   %.0111.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0111.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not113.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not114.i = icmp ne i32 %21, 0
   br i1 %.not113.i, label %27, label %22
@@ -17953,13 +17953,13 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships2_req_(ptr noundef 
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -18033,13 +18033,13 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships2_ctr_(ptr noundef 
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -18113,13 +18113,13 @@ define internal i32 @drsuapi_dissect_element_QuerySitesByCost_req_(ptr noundef %
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -18193,13 +18193,13 @@ define internal i32 @drsuapi_dissect_element_QuerySitesByCost_ctr_(ptr noundef %
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -18273,13 +18273,13 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKey_ngcReq_(ptr noundef %0, 
 13:                                               ; preds = %10, %6
   %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not29.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not30.i = icmp ne i32 %21, 0
   br i1 %.not29.i, label %27, label %22
@@ -18342,13 +18342,13 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKey_ngcReply_(ptr noundef %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store ptr null, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not.i = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not36.i = icmp ne i32 %16, 0
   br i1 %.not.i, label %22, label %17
@@ -18389,7 +18389,7 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKey_ngcReply_(ptr noundef %0
   %.034.i = phi ptr [ %30, %28 ], [ null, %27 ]
   %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.034.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 1
   %.not41.i = icmp eq i32 %36, 0

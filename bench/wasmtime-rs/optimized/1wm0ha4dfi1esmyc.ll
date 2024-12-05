@@ -13,7 +13,7 @@ define zeroext i1 @"_ZN75_$LT$cranelift_codegen_meta..error..Error$u20$as$u20$co
   %5 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %5)
   store ptr %0, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h2bde85fda5992a3bE", ptr %6, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %4, ptr nonnull align 8 @anon.ce28cfa96f43d20d8aa175647d59591d.1, i64 1, ptr nonnull align 8 %3, i64 1)
   %7 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr align 8 %1, ptr nonnull align 8 %4)
@@ -23,7 +23,7 @@ define zeroext i1 @"_ZN75_$LT$cranelift_codegen_meta..error..Error$u20$as$u20$co
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 8 ptr @"_ZN105_$LT$cranelift_codegen_meta..error..Error$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h95dbd1d5419d433cE"(ptr %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [2 x i64] }, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
   store i64 -9223372036854775808, ptr %2, align 8
   %4 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hb7db822585aad40aE(i64 24, i64 8)
@@ -66,16 +66,16 @@ define zeroext i1 @"_ZN80_$LT$cranelift_codegen_meta..error..ErrorInner$u20$as$u
 10:                                               ; preds = %2
   store ptr %0, ptr %8, align 8
   store ptr %8, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h16c70913dcbae640E", ptr %11, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %7, ptr nonnull align 8 @anon.ce28cfa96f43d20d8aa175647d59591d.1, i64 1, ptr nonnull align 8 %6, i64 1)
   br label %15
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %5, align 8
   store ptr %5, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h110325bb1ad087e9E", ptr %14, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %4, ptr nonnull align 8 @anon.ce28cfa96f43d20d8aa175647d59591d.1, i64 1, ptr nonnull align 8 %3, i64 1)
   br label %15

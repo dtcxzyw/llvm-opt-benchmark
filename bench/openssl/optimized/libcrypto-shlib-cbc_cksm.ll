@@ -8,13 +8,13 @@ define i32 @DES_cbc_cksum(ptr nocapture noundef readonly %in, ptr noundef writeo
 entry:
   %tin = alloca [2 x i32], align 4
   %0 = load i32, ptr %ivec, align 1
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %ivec, i64 4
+  %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %ivec, i64 4
   %1 = load i32, ptr %incdec.ptr8, align 1
   %cmp71 = icmp sgt i64 %length, 0
   br i1 %cmp71, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx94 = getelementptr inbounds i8, ptr %tin, i64 4
+  %arrayidx94 = getelementptr inbounds nuw i8, ptr %tin, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -27,13 +27,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.then:                                          ; preds = %for.body
   %2 = load i32, ptr %in.addr.075, align 1
-  %incdec.ptr39 = getelementptr inbounds i8, ptr %in.addr.075, i64 4
+  %incdec.ptr39 = getelementptr inbounds nuw i8, ptr %in.addr.075, i64 4
   %3 = load i32, ptr %incdec.ptr39, align 1
-  %incdec.ptr53 = getelementptr inbounds i8, ptr %in.addr.075, i64 8
+  %incdec.ptr53 = getelementptr inbounds nuw i8, ptr %in.addr.075, i64 8
   br label %if.end
 
 if.else:                                          ; preds = %for.body
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.075, i64 %l.074
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.075, i64 %l.074
   switch i64 %l.074, label %default.unreachable [
     i64 1, label %sw.bb88
     i64 7, label %sw.bb60
@@ -137,30 +137,30 @@ for.end:                                          ; preds = %if.end, %entry
 
 if.then99:                                        ; preds = %for.end
   %conv100 = trunc i32 %tout0.0.lcssa to i8
-  %incdec.ptr101 = getelementptr inbounds i8, ptr %output, i64 1
+  %incdec.ptr101 = getelementptr inbounds nuw i8, ptr %output, i64 1
   store i8 %conv100, ptr %output, align 1
   %shr = lshr i32 %tout0.0.lcssa, 8
   %conv103 = trunc i32 %shr to i8
-  %incdec.ptr104 = getelementptr inbounds i8, ptr %output, i64 2
+  %incdec.ptr104 = getelementptr inbounds nuw i8, ptr %output, i64 2
   store i8 %conv103, ptr %incdec.ptr101, align 1
   %shr105 = lshr i32 %tout0.0.lcssa, 16
   %conv107 = trunc i32 %shr105 to i8
-  %incdec.ptr108 = getelementptr inbounds i8, ptr %output, i64 3
+  %incdec.ptr108 = getelementptr inbounds nuw i8, ptr %output, i64 3
   store i8 %conv107, ptr %incdec.ptr104, align 1
   %shr109 = lshr i32 %tout0.0.lcssa, 24
   %conv111 = trunc nuw i32 %shr109 to i8
-  %incdec.ptr112 = getelementptr inbounds i8, ptr %output, i64 4
+  %incdec.ptr112 = getelementptr inbounds nuw i8, ptr %output, i64 4
   store i8 %conv111, ptr %incdec.ptr108, align 1
   %conv114 = trunc i32 %tout1.0.lcssa to i8
-  %incdec.ptr115 = getelementptr inbounds i8, ptr %output, i64 5
+  %incdec.ptr115 = getelementptr inbounds nuw i8, ptr %output, i64 5
   store i8 %conv114, ptr %incdec.ptr112, align 1
   %shr116 = lshr i32 %tout1.0.lcssa, 8
   %conv118 = trunc i32 %shr116 to i8
-  %incdec.ptr119 = getelementptr inbounds i8, ptr %output, i64 6
+  %incdec.ptr119 = getelementptr inbounds nuw i8, ptr %output, i64 6
   store i8 %conv118, ptr %incdec.ptr115, align 1
   %shr120 = lshr i32 %tout1.0.lcssa, 16
   %conv122 = trunc i32 %shr120 to i8
-  %incdec.ptr123 = getelementptr inbounds i8, ptr %output, i64 7
+  %incdec.ptr123 = getelementptr inbounds nuw i8, ptr %output, i64 7
   store i8 %conv122, ptr %incdec.ptr119, align 1
   %shr124 = lshr i32 %tout1.0.lcssa, 24
   %conv126 = trunc nuw i32 %shr124 to i8

@@ -422,7 +422,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @isa_ext_is_enabled(ptr nocapture noundef readonly %cpu, i32 noundef %ext_offset) local_unnamed_addr #0 {
 entry:
-  %cfg = getelementptr inbounds i8, ptr %cpu, i64 15312
+  %cfg = getelementptr inbounds nuw i8, ptr %cpu, i64 15312
   %idx.ext = zext i32 %ext_offset to i64
   %add.ptr = getelementptr i8, ptr %cfg, i64 %idx.ext
   %0 = load i8, ptr %add.ptr, align 1
@@ -434,7 +434,7 @@ entry:
 define dso_local void @isa_ext_update_enabled(ptr nocapture noundef writeonly %cpu, i32 noundef %ext_offset, i1 noundef zeroext %en) local_unnamed_addr #1 {
 entry:
   %frombool = zext i1 %en to i8
-  %cfg = getelementptr inbounds i8, ptr %cpu, i64 15312
+  %cfg = getelementptr inbounds nuw i8, ptr %cpu, i64 15312
   %idx.ext = zext i32 %ext_offset to i64
   %add.ptr = getelementptr i8, ptr %cfg, i64 %idx.ext
   store i8 %frombool, ptr %add.ptr, align 1
@@ -472,13 +472,13 @@ return:                                           ; preds = %cond.true2, %if.els
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @riscv_cpu_set_misa(ptr nocapture noundef writeonly initializes((5008, 5024)) %env, i32 noundef %mxl, i32 noundef %ext) local_unnamed_addr #1 {
 entry:
-  %misa_mxl = getelementptr inbounds i8, ptr %env, i64 5008
+  %misa_mxl = getelementptr inbounds nuw i8, ptr %env, i64 5008
   store i32 %mxl, ptr %misa_mxl, align 16
-  %misa_mxl_max = getelementptr inbounds i8, ptr %env, i64 5012
+  %misa_mxl_max = getelementptr inbounds nuw i8, ptr %env, i64 5012
   store i32 %mxl, ptr %misa_mxl_max, align 4
-  %misa_ext = getelementptr inbounds i8, ptr %env, i64 5016
+  %misa_ext = getelementptr inbounds nuw i8, ptr %env, i64 5016
   store i32 %ext, ptr %misa_ext, align 8
-  %misa_ext_mask = getelementptr inbounds i8, ptr %env, i64 5020
+  %misa_ext_mask = getelementptr inbounds nuw i8, ptr %env, i64 5020
   store i32 %ext, ptr %misa_ext_mask, align 4
   ret void
 }
@@ -636,7 +636,7 @@ define internal void @prop_pmu_num_get(ptr noundef %obj, ptr noundef %v, ptr nou
 entry:
   %pmu_num = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %pmu_mask = getelementptr inbounds i8, ptr %call.i, i64 15428
+  %pmu_mask = getelementptr inbounds nuw i8, ptr %call.i, i64 15428
   %0 = load i32, ptr %pmu_mask, align 4
   %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   %conv = trunc nuw nsw i32 %1 to i8
@@ -667,7 +667,7 @@ if.end:                                           ; preds = %entry
   %shr.tr = trunc i64 %shr to i32
   %conv8 = shl nuw i32 %shr.tr, 3
   %conv8.sink = select i1 %cmp4, i32 0, i32 %conv8
-  %1 = getelementptr inbounds i8, ptr %call.i, i64 15428
+  %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 15428
   store i32 %conv8.sink, ptr %1, align 4
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.312) #14
   br label %return
@@ -683,7 +683,7 @@ entry:
   %call1 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %call, i64 noundef 18, ptr noundef nonnull @.str.249, i32 noundef 64) #14
   %idx.ext = sext i32 %call1 to i64
   %add.ptr = getelementptr i8, ptr %call, i64 %idx.ext
-  %misa_ext = getelementptr inbounds i8, ptr %cpu, i64 15192
+  %misa_ext = getelementptr inbounds nuw i8, ptr %cpu, i64 15192
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -717,13 +717,13 @@ for.inc:                                          ; preds = %for.body, %if.then
 
 for.end:                                          ; preds = %for.inc
   store i8 0, ptr %p.1, align 1
-  %short_isa_string = getelementptr inbounds i8, ptr %cpu, i64 15476
+  %short_isa_string = getelementptr inbounds nuw i8, ptr %cpu, i64 15476
   %2 = load i8, ptr %short_isa_string, align 4
   %tobool10 = trunc i8 %2 to i1
   br i1 %tobool10, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %for.end
-  %cfg.i.i = getelementptr inbounds i8, ptr %cpu, i64 15312
+  %cfg.i.i = getelementptr inbounds nuw i8, ptr %cpu, i64 15312
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.then11, %for.inc.i
@@ -731,7 +731,7 @@ for.body.i:                                       ; preds = %if.then11, %for.inc
   %edata.09.i12 = phi ptr [ @isa_edata_arr, %if.then11 ], [ %incdec.ptr.i, %for.inc.i ]
   %old.010.i11 = phi ptr [ %call, %if.then11 ], [ %old.1.i, %for.inc.i ]
   %new.011.i10 = phi ptr [ %call, %if.then11 ], [ %new.1.i, %for.inc.i ]
-  %ext_enable_offset.i = getelementptr inbounds i8, ptr %edata.09.i12, i64 12
+  %ext_enable_offset.i = getelementptr inbounds nuw i8, ptr %edata.09.i12, i64 12
   %4 = load i32, ptr %ext_enable_offset.i, align 4
   %idx.ext.i.i = zext i32 %4 to i64
   %add.ptr.i.i = getelementptr i8, ptr %cfg.i.i, i64 %idx.ext.i.i
@@ -853,10 +853,10 @@ declare void @type_register_static_array(ptr noundef, i32 noundef) local_unnamed
 define internal void @riscv_cpu_init(ptr noundef %obj) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %ext_zicntr = getelementptr inbounds i8, ptr %call.i, i64 15337
+  %ext_zicntr = getelementptr inbounds nuw i8, ptr %call.i, i64 15337
   store i8 1, ptr %ext_zicntr, align 1
   %call.i2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %ext_zihpm = getelementptr inbounds i8, ptr %call.i2, i64 15344
+  %ext_zihpm = getelementptr inbounds nuw i8, ptr %call.i2, i64 15344
   store i8 1, ptr %ext_zihpm, align 16
   ret void
 }
@@ -875,33 +875,33 @@ entry:
   %call.i20 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %c, ptr noundef nonnull @.str.315, ptr noundef nonnull @.str.331, i32 noundef 64, ptr noundef nonnull @__func__.CPU_CLASS) #14
   %call.i21 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %c, ptr noundef nonnull @.str.332, ptr noundef nonnull @.str.333, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %call.i22 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %c, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #14
-  %parent_realize = getelementptr inbounds i8, ptr %call.i, i64 360
+  %parent_realize = getelementptr inbounds nuw i8, ptr %call.i, i64 360
   tail call void @device_class_set_parent_realize(ptr noundef %call.i21, ptr noundef nonnull @riscv_cpu_realize, ptr noundef nonnull %parent_realize) #14
-  %parent_phases = getelementptr inbounds i8, ptr %call.i, i64 368
+  %parent_phases = getelementptr inbounds nuw i8, ptr %call.i, i64 368
   tail call void @resettable_class_set_parent_phases(ptr noundef %call.i22, ptr noundef null, ptr noundef nonnull @riscv_cpu_reset_hold, ptr noundef null, ptr noundef nonnull %parent_phases) #14
-  %class_by_name = getelementptr inbounds i8, ptr %call.i20, i64 176
+  %class_by_name = getelementptr inbounds nuw i8, ptr %call.i20, i64 176
   store ptr @riscv_cpu_class_by_name, ptr %class_by_name, align 8
-  %has_work = getelementptr inbounds i8, ptr %call.i20, i64 192
+  %has_work = getelementptr inbounds nuw i8, ptr %call.i20, i64 192
   store ptr @riscv_cpu_has_work, ptr %has_work, align 8
-  %dump_state = getelementptr inbounds i8, ptr %call.i20, i64 208
+  %dump_state = getelementptr inbounds nuw i8, ptr %call.i20, i64 208
   store ptr @riscv_cpu_dump_state, ptr %dump_state, align 8
-  %set_pc = getelementptr inbounds i8, ptr %call.i20, i64 232
+  %set_pc = getelementptr inbounds nuw i8, ptr %call.i20, i64 232
   store ptr @riscv_cpu_set_pc, ptr %set_pc, align 8
-  %get_pc = getelementptr inbounds i8, ptr %call.i20, i64 240
+  %get_pc = getelementptr inbounds nuw i8, ptr %call.i20, i64 240
   store ptr @riscv_cpu_get_pc, ptr %get_pc, align 8
-  %gdb_read_register = getelementptr inbounds i8, ptr %call.i20, i64 248
+  %gdb_read_register = getelementptr inbounds nuw i8, ptr %call.i20, i64 248
   store ptr @riscv_cpu_gdb_read_register, ptr %gdb_read_register, align 8
-  %gdb_write_register = getelementptr inbounds i8, ptr %call.i20, i64 256
+  %gdb_write_register = getelementptr inbounds nuw i8, ptr %call.i20, i64 256
   store ptr @riscv_cpu_gdb_write_register, ptr %gdb_write_register, align 8
-  %gdb_num_core_regs = getelementptr inbounds i8, ptr %call.i20, i64 348
+  %gdb_num_core_regs = getelementptr inbounds nuw i8, ptr %call.i20, i64 348
   store i32 33, ptr %gdb_num_core_regs, align 4
-  %gdb_stop_before_watchpoint = getelementptr inbounds i8, ptr %call.i20, i64 352
+  %gdb_stop_before_watchpoint = getelementptr inbounds nuw i8, ptr %call.i20, i64 352
   store i8 1, ptr %gdb_stop_before_watchpoint, align 8
-  %disas_set_info = getelementptr inbounds i8, ptr %call.i20, i64 296
+  %disas_set_info = getelementptr inbounds nuw i8, ptr %call.i20, i64 296
   store ptr @riscv_cpu_disas_set_info, ptr %disas_set_info, align 8
-  %gdb_arch_name = getelementptr inbounds i8, ptr %call.i20, i64 280
+  %gdb_arch_name = getelementptr inbounds nuw i8, ptr %call.i20, i64 280
   store ptr @riscv_gdb_arch_name, ptr %gdb_arch_name, align 8
-  %gdb_get_dynamic_xml = getelementptr inbounds i8, ptr %call.i20, i64 288
+  %gdb_get_dynamic_xml = getelementptr inbounds nuw i8, ptr %call.i20, i64 288
   store ptr @riscv_gdb_get_dynamic_xml, ptr %gdb_get_dynamic_xml, align 8
   %call4 = tail call ptr @object_class_property_add(ptr noundef %c, ptr noundef nonnull @.str.326, ptr noundef nonnull @.str.327, ptr noundef nonnull @cpu_get_mvendorid, ptr noundef nonnull @cpu_set_mvendorid, ptr noundef null, ptr noundef null) #14
   %call5 = tail call ptr @object_class_property_add(ptr noundef %c, ptr noundef nonnull @.str.328, ptr noundef nonnull @.str.329, ptr noundef nonnull @cpu_get_mimpid, ptr noundef nonnull @cpu_set_mimpid, ptr noundef null, ptr noundef null) #14
@@ -914,23 +914,23 @@ entry:
 define internal void @riscv_any_cpu_init(ptr noundef %obj) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %misa_mxl.i = getelementptr inbounds i8, ptr %call.i, i64 15184
+  %misa_mxl.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15184
   store i32 2, ptr %misa_mxl.i, align 16
-  %misa_mxl_max.i = getelementptr inbounds i8, ptr %call.i, i64 15188
+  %misa_mxl_max.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15188
   store i32 2, ptr %misa_mxl_max.i, align 4
-  %misa_ext.i = getelementptr inbounds i8, ptr %call.i, i64 15192
+  %misa_ext.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15192
   store i32 1052973, ptr %misa_ext.i, align 8
-  %misa_ext_mask.i = getelementptr inbounds i8, ptr %call.i, i64 15196
+  %misa_ext_mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15196
   store i32 1052973, ptr %misa_ext_mask.i, align 4
-  %priv_ver = getelementptr inbounds i8, ptr %call.i, i64 15160
+  %priv_ver = getelementptr inbounds nuw i8, ptr %call.i, i64 15160
   store i64 2, ptr %priv_ver, align 8
-  %ext_zifencei = getelementptr inbounds i8, ptr %call.i, i64 15336
+  %ext_zifencei = getelementptr inbounds nuw i8, ptr %call.i, i64 15336
   store i8 1, ptr %ext_zifencei, align 8
-  %ext_zicsr = getelementptr inbounds i8, ptr %call.i, i64 15338
+  %ext_zicsr = getelementptr inbounds nuw i8, ptr %call.i, i64 15338
   store i8 1, ptr %ext_zicsr, align 2
-  %mmu = getelementptr inbounds i8, ptr %call.i, i64 15472
+  %mmu = getelementptr inbounds nuw i8, ptr %call.i, i64 15472
   store i8 1, ptr %mmu, align 16
-  %pmp = getelementptr inbounds i8, ptr %call.i, i64 15473
+  %pmp = getelementptr inbounds nuw i8, ptr %call.i, i64 15473
   store i8 1, ptr %pmp, align 1
   ret void
 }
@@ -939,15 +939,15 @@ entry:
 define internal void @riscv_max_cpu_init(ptr noundef %obj) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %misa_mxl.i = getelementptr inbounds i8, ptr %call.i, i64 15184
+  %misa_mxl.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15184
   store i32 2, ptr %misa_mxl.i, align 16
-  %misa_mxl_max.i = getelementptr inbounds i8, ptr %call.i, i64 15188
+  %misa_mxl_max.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15188
   store i32 2, ptr %misa_mxl_max.i, align 4
-  %misa_ext.i = getelementptr inbounds i8, ptr %call.i, i64 15192
+  %misa_ext.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15192
   store i32 0, ptr %misa_ext.i, align 8
-  %misa_ext_mask.i = getelementptr inbounds i8, ptr %call.i, i64 15196
+  %misa_ext_mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15196
   store i32 0, ptr %misa_ext_mask.i, align 4
-  %priv_ver = getelementptr inbounds i8, ptr %call.i, i64 15160
+  %priv_ver = getelementptr inbounds nuw i8, ptr %call.i, i64 15160
   store i64 2, ptr %priv_ver, align 8
   ret void
 }
@@ -956,15 +956,15 @@ entry:
 define internal void @rv64_base_cpu_init(ptr noundef %obj) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %misa_mxl.i = getelementptr inbounds i8, ptr %call.i, i64 15184
+  %misa_mxl.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15184
   store i32 2, ptr %misa_mxl.i, align 16
-  %misa_mxl_max.i = getelementptr inbounds i8, ptr %call.i, i64 15188
+  %misa_mxl_max.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15188
   store i32 2, ptr %misa_mxl_max.i, align 4
-  %misa_ext.i = getelementptr inbounds i8, ptr %call.i, i64 15192
+  %misa_ext.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15192
   store i32 0, ptr %misa_ext.i, align 8
-  %misa_ext_mask.i = getelementptr inbounds i8, ptr %call.i, i64 15196
+  %misa_ext_mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15196
   store i32 0, ptr %misa_ext_mask.i, align 4
-  %priv_ver = getelementptr inbounds i8, ptr %call.i, i64 15160
+  %priv_ver = getelementptr inbounds nuw i8, ptr %call.i, i64 15160
   store i64 2, ptr %priv_ver, align 8
   ret void
 }
@@ -974,21 +974,21 @@ define internal void @rv64_sifive_e_cpu_init(ptr noundef %obj) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %misa_mxl.i = getelementptr inbounds i8, ptr %call.i, i64 15184
+  %misa_mxl.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15184
   store i32 2, ptr %misa_mxl.i, align 16
-  %misa_mxl_max.i = getelementptr inbounds i8, ptr %call.i, i64 15188
+  %misa_mxl_max.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15188
   store i32 2, ptr %misa_mxl_max.i, align 4
-  %misa_ext.i = getelementptr inbounds i8, ptr %call.i, i64 15192
+  %misa_ext.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15192
   store i32 1052933, ptr %misa_ext.i, align 8
-  %misa_ext_mask.i = getelementptr inbounds i8, ptr %call.i, i64 15196
+  %misa_ext_mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15196
   store i32 1052933, ptr %misa_ext_mask.i, align 4
-  %priv_ver = getelementptr inbounds i8, ptr %call.i, i64 15160
+  %priv_ver = getelementptr inbounds nuw i8, ptr %call.i, i64 15160
   store i64 0, ptr %priv_ver, align 8
-  %ext_zifencei = getelementptr inbounds i8, ptr %call.i5, i64 15336
+  %ext_zifencei = getelementptr inbounds nuw i8, ptr %call.i5, i64 15336
   store i8 1, ptr %ext_zifencei, align 8
-  %ext_zicsr = getelementptr inbounds i8, ptr %call.i5, i64 15338
+  %ext_zicsr = getelementptr inbounds nuw i8, ptr %call.i5, i64 15338
   store i8 1, ptr %ext_zicsr, align 2
-  %pmp = getelementptr inbounds i8, ptr %call.i5, i64 15473
+  %pmp = getelementptr inbounds nuw i8, ptr %call.i5, i64 15473
   store i8 1, ptr %pmp, align 1
   ret void
 }
@@ -997,23 +997,23 @@ entry:
 define internal void @rv64_sifive_u_cpu_init(ptr noundef %obj) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %misa_mxl.i = getelementptr inbounds i8, ptr %call.i, i64 15184
+  %misa_mxl.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15184
   store i32 2, ptr %misa_mxl.i, align 16
-  %misa_mxl_max.i = getelementptr inbounds i8, ptr %call.i, i64 15188
+  %misa_mxl_max.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15188
   store i32 2, ptr %misa_mxl_max.i, align 4
-  %misa_ext.i = getelementptr inbounds i8, ptr %call.i, i64 15192
+  %misa_ext.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15192
   store i32 1315117, ptr %misa_ext.i, align 8
-  %misa_ext_mask.i = getelementptr inbounds i8, ptr %call.i, i64 15196
+  %misa_ext_mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15196
   store i32 1315117, ptr %misa_ext_mask.i, align 4
-  %priv_ver = getelementptr inbounds i8, ptr %call.i, i64 15160
+  %priv_ver = getelementptr inbounds nuw i8, ptr %call.i, i64 15160
   store i64 0, ptr %priv_ver, align 8
-  %ext_zifencei = getelementptr inbounds i8, ptr %call.i, i64 15336
+  %ext_zifencei = getelementptr inbounds nuw i8, ptr %call.i, i64 15336
   store i8 1, ptr %ext_zifencei, align 8
-  %ext_zicsr = getelementptr inbounds i8, ptr %call.i, i64 15338
+  %ext_zicsr = getelementptr inbounds nuw i8, ptr %call.i, i64 15338
   store i8 1, ptr %ext_zicsr, align 2
-  %mmu = getelementptr inbounds i8, ptr %call.i, i64 15472
+  %mmu = getelementptr inbounds nuw i8, ptr %call.i, i64 15472
   store i8 1, ptr %mmu, align 16
-  %pmp = getelementptr inbounds i8, ptr %call.i, i64 15473
+  %pmp = getelementptr inbounds nuw i8, ptr %call.i, i64 15473
   store i8 1, ptr %pmp, align 1
   ret void
 }
@@ -1023,29 +1023,29 @@ define internal void @rv64_thead_c906_cpu_init(ptr noundef %obj) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
   %call.i17 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %misa_mxl.i = getelementptr inbounds i8, ptr %call.i, i64 15184
+  %misa_mxl.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15184
   store i32 2, ptr %misa_mxl.i, align 16
-  %misa_mxl_max.i = getelementptr inbounds i8, ptr %call.i, i64 15188
+  %misa_mxl_max.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15188
   store i32 2, ptr %misa_mxl_max.i, align 4
-  %misa_ext.i = getelementptr inbounds i8, ptr %call.i, i64 15192
+  %misa_ext.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15192
   store i32 1310788, ptr %misa_ext.i, align 8
-  %misa_ext_mask.i = getelementptr inbounds i8, ptr %call.i, i64 15196
+  %misa_ext_mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15196
   store i32 1310788, ptr %misa_ext_mask.i, align 4
-  %priv_ver = getelementptr inbounds i8, ptr %call.i, i64 15160
+  %priv_ver = getelementptr inbounds nuw i8, ptr %call.i, i64 15160
   store i64 1, ptr %priv_ver, align 8
-  %ext_zfa = getelementptr inbounds i8, ptr %call.i17, i64 15353
+  %ext_zfa = getelementptr inbounds nuw i8, ptr %call.i17, i64 15353
   store i8 1, ptr %ext_zfa, align 1
-  %ext_zfh = getelementptr inbounds i8, ptr %call.i17, i64 15355
+  %ext_zfh = getelementptr inbounds nuw i8, ptr %call.i17, i64 15355
   store i8 1, ptr %ext_zfh, align 1
-  %mmu = getelementptr inbounds i8, ptr %call.i17, i64 15472
+  %mmu = getelementptr inbounds nuw i8, ptr %call.i17, i64 15472
   store i8 1, ptr %mmu, align 16
-  %ext_xtheadba = getelementptr inbounds i8, ptr %call.i17, i64 15416
-  %ext_xtheadmac = getelementptr inbounds i8, ptr %call.i17, i64 15423
-  %mvendorid = getelementptr inbounds i8, ptr %call.i17, i64 15392
+  %ext_xtheadba = getelementptr inbounds nuw i8, ptr %call.i17, i64 15416
+  %ext_xtheadmac = getelementptr inbounds nuw i8, ptr %call.i17, i64 15423
+  %mvendorid = getelementptr inbounds nuw i8, ptr %call.i17, i64 15392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %ext_xtheadba, i8 1, i64 6, i1 false)
   store i32 16843009, ptr %ext_xtheadmac, align 1
   store i32 1463, ptr %mvendorid, align 16
-  %pmp = getelementptr inbounds i8, ptr %call.i17, i64 15473
+  %pmp = getelementptr inbounds nuw i8, ptr %call.i17, i64 15473
   store i8 1, ptr %pmp, align 1
   ret void
 }
@@ -1055,63 +1055,63 @@ define internal void @rv64_veyron_v1_cpu_init(ptr noundef %obj) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
   %call.i26 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %misa_mxl.i = getelementptr inbounds i8, ptr %call.i, i64 15184
+  %misa_mxl.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15184
   store i32 2, ptr %misa_mxl.i, align 16
-  %misa_mxl_max.i = getelementptr inbounds i8, ptr %call.i, i64 15188
+  %misa_mxl_max.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15188
   store i32 2, ptr %misa_mxl_max.i, align 4
-  %misa_ext.i = getelementptr inbounds i8, ptr %call.i, i64 15192
+  %misa_ext.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15192
   store i32 1310916, ptr %misa_ext.i, align 8
-  %misa_ext_mask.i = getelementptr inbounds i8, ptr %call.i, i64 15196
+  %misa_ext_mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15196
   store i32 1310916, ptr %misa_ext_mask.i, align 4
-  %priv_ver = getelementptr inbounds i8, ptr %call.i, i64 15160
+  %priv_ver = getelementptr inbounds nuw i8, ptr %call.i, i64 15160
   store i64 2, ptr %priv_ver, align 8
-  %cfg = getelementptr inbounds i8, ptr %call.i26, i64 15312
-  %mmu = getelementptr inbounds i8, ptr %call.i26, i64 15472
+  %cfg = getelementptr inbounds nuw i8, ptr %call.i26, i64 15312
+  %mmu = getelementptr inbounds nuw i8, ptr %call.i26, i64 15472
   store i8 1, ptr %mmu, align 16
-  %ext_zifencei = getelementptr inbounds i8, ptr %call.i26, i64 15336
+  %ext_zifencei = getelementptr inbounds nuw i8, ptr %call.i26, i64 15336
   store i8 1, ptr %ext_zifencei, align 8
-  %ext_zicsr = getelementptr inbounds i8, ptr %call.i26, i64 15338
+  %ext_zicsr = getelementptr inbounds nuw i8, ptr %call.i26, i64 15338
   store i8 1, ptr %ext_zicsr, align 2
-  %pmp = getelementptr inbounds i8, ptr %call.i26, i64 15473
+  %pmp = getelementptr inbounds nuw i8, ptr %call.i26, i64 15473
   store i8 1, ptr %pmp, align 1
-  %ext_zicbom = getelementptr inbounds i8, ptr %call.i26, i64 15339
+  %ext_zicbom = getelementptr inbounds nuw i8, ptr %call.i26, i64 15339
   store i8 1, ptr %ext_zicbom, align 1
-  %cbom_blocksize = getelementptr inbounds i8, ptr %call.i26, i64 15468
+  %cbom_blocksize = getelementptr inbounds nuw i8, ptr %call.i26, i64 15468
   store i16 64, ptr %cbom_blocksize, align 4
-  %cboz_blocksize = getelementptr inbounds i8, ptr %call.i26, i64 15470
+  %cboz_blocksize = getelementptr inbounds nuw i8, ptr %call.i26, i64 15470
   store i16 64, ptr %cboz_blocksize, align 2
-  %ext_zicboz = getelementptr inbounds i8, ptr %call.i26, i64 15340
+  %ext_zicboz = getelementptr inbounds nuw i8, ptr %call.i26, i64 15340
   store i8 1, ptr %ext_zicboz, align 4
-  %ext_smaia = getelementptr inbounds i8, ptr %call.i26, i64 15384
+  %ext_smaia = getelementptr inbounds nuw i8, ptr %call.i26, i64 15384
   store i8 1, ptr %ext_smaia, align 8
-  %ext_ssaia = getelementptr inbounds i8, ptr %call.i26, i64 15385
+  %ext_ssaia = getelementptr inbounds nuw i8, ptr %call.i26, i64 15385
   store i8 1, ptr %ext_ssaia, align 1
-  %ext_sscofpmf = getelementptr inbounds i8, ptr %call.i26, i64 15386
+  %ext_sscofpmf = getelementptr inbounds nuw i8, ptr %call.i26, i64 15386
   store i8 1, ptr %ext_sscofpmf, align 2
-  %ext_sstc = getelementptr inbounds i8, ptr %call.i26, i64 15346
+  %ext_sstc = getelementptr inbounds nuw i8, ptr %call.i26, i64 15346
   store i8 1, ptr %ext_sstc, align 2
-  %ext_svinval = getelementptr inbounds i8, ptr %call.i26, i64 15348
+  %ext_svinval = getelementptr inbounds nuw i8, ptr %call.i26, i64 15348
   store i8 1, ptr %ext_svinval, align 4
-  %ext_svnapot = getelementptr inbounds i8, ptr %call.i26, i64 15349
+  %ext_svnapot = getelementptr inbounds nuw i8, ptr %call.i26, i64 15349
   store i8 1, ptr %ext_svnapot, align 1
-  %ext_svpbmt = getelementptr inbounds i8, ptr %call.i26, i64 15350
+  %ext_svpbmt = getelementptr inbounds nuw i8, ptr %call.i26, i64 15350
   store i8 1, ptr %ext_svpbmt, align 2
-  %ext_smstateen = getelementptr inbounds i8, ptr %call.i26, i64 15345
+  %ext_smstateen = getelementptr inbounds nuw i8, ptr %call.i26, i64 15345
   store i8 1, ptr %ext_smstateen, align 1
   store i8 1, ptr %cfg, align 16
-  %ext_zbb = getelementptr inbounds i8, ptr %call.i26, i64 15313
+  %ext_zbb = getelementptr inbounds nuw i8, ptr %call.i26, i64 15313
   store i8 1, ptr %ext_zbb, align 1
-  %ext_zbc = getelementptr inbounds i8, ptr %call.i26, i64 15314
+  %ext_zbc = getelementptr inbounds nuw i8, ptr %call.i26, i64 15314
   store i8 1, ptr %ext_zbc, align 2
-  %ext_zbs = getelementptr inbounds i8, ptr %call.i26, i64 15318
+  %ext_zbs = getelementptr inbounds nuw i8, ptr %call.i26, i64 15318
   store i8 1, ptr %ext_zbs, align 2
-  %ext_XVentanaCondOps = getelementptr inbounds i8, ptr %call.i26, i64 15427
+  %ext_XVentanaCondOps = getelementptr inbounds nuw i8, ptr %call.i26, i64 15427
   store i8 1, ptr %ext_XVentanaCondOps, align 1
-  %mvendorid = getelementptr inbounds i8, ptr %call.i26, i64 15392
+  %mvendorid = getelementptr inbounds nuw i8, ptr %call.i26, i64 15392
   store i32 1567, ptr %mvendorid, align 16
-  %marchid = getelementptr inbounds i8, ptr %call.i26, i64 15400
+  %marchid = getelementptr inbounds nuw i8, ptr %call.i26, i64 15400
   store i64 -9223372036854710272, ptr %marchid, align 8
-  %mimpid = getelementptr inbounds i8, ptr %call.i26, i64 15408
+  %mimpid = getelementptr inbounds nuw i8, ptr %call.i26, i64 15408
   store i64 273, ptr %mimpid, align 16
   ret void
 }
@@ -1130,15 +1130,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %misa_mxl.i = getelementptr inbounds i8, ptr %call.i, i64 15184
+  %misa_mxl.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15184
   store i32 3, ptr %misa_mxl.i, align 16
-  %misa_mxl_max.i = getelementptr inbounds i8, ptr %call.i, i64 15188
+  %misa_mxl_max.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15188
   store i32 3, ptr %misa_mxl_max.i, align 4
-  %misa_ext.i = getelementptr inbounds i8, ptr %call.i, i64 15192
+  %misa_ext.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15192
   store i32 0, ptr %misa_ext.i, align 8
-  %misa_ext_mask.i = getelementptr inbounds i8, ptr %call.i, i64 15196
+  %misa_ext_mask.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15196
   store i32 0, ptr %misa_ext_mask.i, align 4
-  %priv_ver = getelementptr inbounds i8, ptr %call.i, i64 15160
+  %priv_ver = getelementptr inbounds nuw i8, ptr %call.i, i64 15160
   store i64 2, ptr %priv_ver, align 8
   ret void
 }
@@ -1205,7 +1205,7 @@ if.end9:                                          ; preds = %riscv_cpu_finalize_
   call void @riscv_cpu_register_gdb_regs_for_features(ptr noundef %dev) #14
   call void @qemu_init_vcpu(ptr noundef %dev) #14
   call void @cpu_reset(ptr noundef %dev) #14
-  %parent_realize = getelementptr inbounds i8, ptr %call1.i, i64 360
+  %parent_realize = getelementptr inbounds nuw i8, ptr %call1.i, i64 360
   %4 = load ptr, ptr %parent_realize, align 8
   call void %4(ptr noundef %dev, ptr noundef %errp) #14
   br label %return
@@ -1222,7 +1222,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
   %call.i9 = tail call ptr @object_get_class(ptr noundef %call.i) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i9, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU_GET_CLASS) #14
-  %hold = getelementptr inbounds i8, ptr %call1.i, i64 376
+  %hold = getelementptr inbounds nuw i8, ptr %call1.i, i64 376
   %0 = load ptr, ptr %hold, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1232,17 +1232,17 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %env2 = getelementptr inbounds i8, ptr %call.i, i64 10176
+  %env2 = getelementptr inbounds nuw i8, ptr %call.i, i64 10176
   %1 = getelementptr i8, ptr %call.i, i64 15184
   %env2.val = load i32, ptr %1, align 16
-  %xl = getelementptr inbounds i8, ptr %call.i, i64 15200
+  %xl = getelementptr inbounds nuw i8, ptr %call.i, i64 15200
   store i32 %env2.val, ptr %xl, align 16
   tail call void @riscv_cpu_update_mask(ptr noundef nonnull %env2) #14
-  %exception_index = getelementptr inbounds i8, ptr %obj, i64 728
+  %exception_index = getelementptr inbounds nuw i8, ptr %obj, i64 728
   store i32 -1, ptr %exception_index, align 8
-  %load_res = getelementptr inbounds i8, ptr %call.i, i64 14840
+  %load_res = getelementptr inbounds nuw i8, ptr %call.i, i64 14840
   store i64 -1, ptr %load_res, align 8
-  %default_nan_mode.i = getelementptr inbounds i8, ptr %call.i, i64 15127
+  %default_nan_mode.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15127
   store i8 1, ptr %default_nan_mode.i, align 1
   ret void
 }
@@ -1281,8 +1281,8 @@ define internal void @riscv_cpu_dump_state(ptr noundef %cs, ptr noundef %f, i32 
 entry:
   %val = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
-  %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
+  %env1 = getelementptr inbounds nuw i8, ptr %call.i, i64 10176
+  %pc = getelementptr inbounds nuw i8, ptr %call.i, i64 14832
   %0 = load i64, ptr %pc, align 16
   %call2 = tail call i32 (ptr, ptr, ...) @qemu_fprintf(ptr noundef %f, ptr noundef nonnull @.str.339, ptr noundef nonnull @.str.340, i64 noundef %0) #14
   br label %for.body
@@ -1313,7 +1313,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %tobool.not, label %if.end26, label %for.cond10.preheader
 
 for.cond10.preheader:                             ; preds = %for.end
-  %fpr = getelementptr inbounds i8, ptr %call.i, i64 14856
+  %fpr = getelementptr inbounds nuw i8, ptr %call.i, i64 14856
   br label %for.body12
 
 for.body12:                                       ; preds = %for.cond10.preheader, %for.inc23
@@ -1369,10 +1369,10 @@ for.inc46:                                        ; preds = %for.body35, %if.the
   br i1 %exitcond51.not, label %for.end48, label %for.body35, !llvm.loop !9
 
 for.end48:                                        ; preds = %for.inc46
-  %vlen = getelementptr inbounds i8, ptr %call.i, i64 15464
+  %vlen = getelementptr inbounds nuw i8, ptr %call.i, i64 15464
   %10 = load i16, ptr %vlen, align 8
   %.fr = freeze i16 %10
-  %vreg = getelementptr inbounds i8, ptr %call.i, i64 10688
+  %vreg = getelementptr inbounds nuw i8, ptr %call.i, i64 10688
   %cmp6039 = icmp ugt i16 %.fr, 7
   br i1 %cmp6039, label %for.body54.us.preheader, label %for.body54
 
@@ -1426,13 +1426,13 @@ if.end74:                                         ; preds = %for.body54, %for.co
 define internal void @riscv_cpu_set_pc(ptr noundef %cs, i64 noundef %value) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %xl = getelementptr inbounds i8, ptr %call.i, i64 15200
+  %xl = getelementptr inbounds nuw i8, ptr %call.i, i64 15200
   %0 = load i32, ptr %xl, align 16
   %cmp = icmp eq i32 %0, 1
   %sext = shl i64 %value, 32
   %conv2 = ashr exact i64 %sext, 32
   %value.sink = select i1 %cmp, i64 %conv2, i64 %value
-  %1 = getelementptr inbounds i8, ptr %call.i, i64 14832
+  %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 14832
   store i64 %value.sink, ptr %1, align 16
   ret void
 }
@@ -1441,10 +1441,10 @@ entry:
 define internal i64 @riscv_cpu_get_pc(ptr noundef %cs) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %xl = getelementptr inbounds i8, ptr %call.i, i64 15200
+  %xl = getelementptr inbounds nuw i8, ptr %call.i, i64 15200
   %0 = load i32, ptr %xl, align 16
   %cmp = icmp eq i32 %0, 1
-  %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
+  %pc = getelementptr inbounds nuw i8, ptr %call.i, i64 14832
   %1 = load i64, ptr %pc, align 16
   %and = and i64 %1, 4294967295
   %retval.0 = select i1 %cmp, i64 %and, i64 %1
@@ -1459,10 +1459,10 @@ declare i32 @riscv_cpu_gdb_write_register(ptr noundef, ptr noundef, i32 noundef)
 define internal void @riscv_cpu_disas_set_info(ptr noundef %s, ptr nocapture noundef writeonly initializes((184, 192)) %info) #3 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %cfg = getelementptr inbounds i8, ptr %call.i, i64 15312
-  %target_info = getelementptr inbounds i8, ptr %info, i64 184
+  %cfg = getelementptr inbounds nuw i8, ptr %call.i, i64 15312
+  %target_info = getelementptr inbounds nuw i8, ptr %info, i64 184
   store ptr %cfg, ptr %target_info, align 8
-  %xl = getelementptr inbounds i8, ptr %call.i, i64 15200
+  %xl = getelementptr inbounds nuw i8, ptr %call.i, i64 15200
   %0 = load i32, ptr %xl, align 16
   %switch.tableidx = add i32 %0, -1
   %1 = icmp ult i32 %switch.tableidx, 3
@@ -1474,9 +1474,9 @@ do.body:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.riscv_cpu_disas_set_info, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.riscv_cpu_disas_set_info, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %print_insn5 = getelementptr inbounds i8, ptr %info, i64 104
+  %print_insn5 = getelementptr inbounds nuw i8, ptr %info, i64 104
   store ptr %switch.load, ptr %print_insn5, align 8
   ret void
 }
@@ -1497,7 +1497,7 @@ do.body:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.riscv_gdb_arch_name, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.riscv_gdb_arch_name, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -1511,7 +1511,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %dyn_csr_xml = getelementptr inbounds i8, ptr %call.i, i64 15296
+  %dyn_csr_xml = getelementptr inbounds nuw i8, ptr %call.i, i64 15296
   %0 = load ptr, ptr %dyn_csr_xml, align 16
   br label %return
 
@@ -1521,7 +1521,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.else
-  %dyn_vreg_xml = getelementptr inbounds i8, ptr %call.i, i64 15304
+  %dyn_vreg_xml = getelementptr inbounds nuw i8, ptr %call.i, i64 15304
   %1 = load ptr, ptr %dyn_vreg_xml, align 8
   br label %return
 
@@ -1537,7 +1537,7 @@ define internal void @cpu_get_mvendorid(ptr noundef %obj, ptr noundef %v, ptr no
 entry:
   %value = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %mvendorid = getelementptr inbounds i8, ptr %call.i, i64 15392
+  %mvendorid = getelementptr inbounds nuw i8, ptr %call.i, i64 15392
   %0 = load i32, ptr %mvendorid, align 16
   %tobool = icmp ne i32 %0, 0
   %frombool = zext i1 %tobool to i8
@@ -1552,7 +1552,7 @@ entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.316) #14
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %mvendorid = getelementptr inbounds i8, ptr %call.i6, i64 15392
+  %mvendorid = getelementptr inbounds nuw i8, ptr %call.i6, i64 15392
   %0 = load i32, ptr %mvendorid, align 16
   %call2 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #14
   br i1 %call2, label %if.end, label %return
@@ -1582,7 +1582,7 @@ define internal void @cpu_get_mimpid(ptr noundef %obj, ptr noundef %v, ptr nound
 entry:
   %value = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %mimpid = getelementptr inbounds i8, ptr %call.i, i64 15408
+  %mimpid = getelementptr inbounds nuw i8, ptr %call.i, i64 15408
   %0 = load i64, ptr %mimpid, align 16
   %tobool = icmp ne i64 %0, 0
   %frombool = zext i1 %tobool to i8
@@ -1597,7 +1597,7 @@ entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.316) #14
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %mimpid = getelementptr inbounds i8, ptr %call.i6, i64 15408
+  %mimpid = getelementptr inbounds nuw i8, ptr %call.i6, i64 15408
   %0 = load i64, ptr %mimpid, align 16
   %call2 = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #14
   br i1 %call2, label %if.end, label %return
@@ -1627,7 +1627,7 @@ define internal void @cpu_get_marchid(ptr noundef %obj, ptr noundef %v, ptr noun
 entry:
   %value = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %marchid = getelementptr inbounds i8, ptr %call.i, i64 15400
+  %marchid = getelementptr inbounds nuw i8, ptr %call.i, i64 15400
   %0 = load i64, ptr %marchid, align 8
   %tobool = icmp ne i64 %0, 0
   %frombool = zext i1 %tobool to i8
@@ -1642,7 +1642,7 @@ entry:
   %value = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.316) #14
   %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.282, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #14
-  %marchid = getelementptr inbounds i8, ptr %call.i10, i64 15400
+  %marchid = getelementptr inbounds nuw i8, ptr %call.i10, i64 15400
   %0 = load i64, ptr %marchid, align 8
   %call2 = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #14
   br i1 %call2, label %if.end, label %return
@@ -1672,7 +1672,7 @@ do.body:                                          ; preds = %if.end5
 
 switch.lookup:                                    ; preds = %if.end5
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.cpu_set_marchid, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.cpu_set_marchid, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %sub = add nsw i32 %switch.load, -1
   %sh_prom = zext nneg i32 %sub to i64

@@ -44,7 +44,7 @@ define internal noundef i32 @none_init() #0 {
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
+  %4 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %8
@@ -65,7 +65,7 @@ define internal void @none_finalize() #0 {
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
+  %4 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %8
@@ -92,7 +92,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, 
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %9, i32 2
+  %10 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %9, i32 2
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 1
   br i1 %12, label %13, label %14
@@ -115,7 +115,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, 
   br i1 %19, label %20, label %33
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %17, i64 528
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 528
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @PMIx_Argv_split(ptr noundef %22, i32 noundef 44) #3
   %24 = load ptr, ptr %23, align 8

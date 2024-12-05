@@ -314,7 +314,7 @@ define hidden void @igmp_checksum(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 12:                                               ; preds = %10, %7
   %.0 = phi i32 [ %11, %10 ], [ %6, %7 ]
-  %13 = getelementptr inbounds i8, ptr %5, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %22
@@ -325,7 +325,7 @@ define hidden void @igmp_checksum(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not19, label %22, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %.0, ptr %18, align 8
   %19 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef 0, i32 noundef %.0) #4
   store ptr %19, ptr %8, align 16
@@ -402,7 +402,7 @@ define internal i32 @dissect_igmp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %9, label %26
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.124) #4
   %12 = load ptr, ptr %10, align 8
@@ -523,16 +523,16 @@ define internal noundef i32 @dissect_igmp_v2(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %21, label %24
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @col_append_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.191) #4
   br label %34
 
 24:                                               ; preds = %4
   %25 = load i8, ptr %6, align 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @tvb_address_to_str(ptr noundef %29, ptr noundef %0, i32 noundef 2, i32 noundef %17) #4
   switch i8 %25, label %33 [
@@ -655,7 +655,7 @@ dissect_v3_max_resp.exit.i:                       ; preds = %30, %25
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef 0) #4
   %42 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %39) #4
   %.not.i = icmp eq i32 %42, 0
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   br i1 %.not.i, label %45, label %46
 
@@ -664,7 +664,7 @@ dissect_v3_max_resp.exit.i:                       ; preds = %30, %25
   br label %50
 
 46:                                               ; preds = %dissect_v3_max_resp.exit.i
-  %47 = getelementptr inbounds i8, ptr %1, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr @tvb_address_to_str(ptr noundef %48, ptr noundef %0, i32 noundef 2, i32 noundef %39) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.193, ptr noundef %49) #4
@@ -692,7 +692,7 @@ dissect_v3_max_resp.exit.i:                       ; preds = %30, %25
   %60 = select i1 %.not33.i, ptr @.str.197, ptr @.str.196
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %59, i32 noundef 25, ptr noundef nonnull @.str.195, ptr noundef nonnull %60) #4
   %61 = add i32 %13, 11
-  %62 = getelementptr inbounds i8, ptr %1, i64 408
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %63
 
 63:                                               ; preds = %63, %.lr.ph.i
@@ -769,7 +769,7 @@ define internal i32 @dissect_igmp_v3_report(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %19, label %22
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @col_append_str(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.201) #4
   br label %22
@@ -782,8 +782,8 @@ define internal i32 @dissect_igmp_v3_report(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %29
 
 29:                                               ; preds = %.lr.ph, %dissect_v3_group_record.exit
@@ -888,7 +888,7 @@ define internal i32 @dissect_igmp_v3_report(ptr noundef %0, ptr noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %58
   %83 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_igmp_v3_report, i64 0, i64 %83
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dissect_igmp_v3_report, i64 0, i64 %83
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %._crit_edge.sink.split.i
 
@@ -931,7 +931,7 @@ define internal noundef i32 @dissect_igmp_mtrace(ptr noundef %0, ptr noundef %1,
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %8 = load i32, ptr @ett_igmp, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.124) #4
   %12 = load ptr, ptr %10, align 8
@@ -993,7 +993,7 @@ define internal noundef i32 @dissect_igmp_mtrace(ptr noundef %0, ptr noundef %1,
   br i1 %49, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %50 = getelementptr inbounds i8, ptr %1, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %51
 
 51:                                               ; preds = %.lr.ph, %51
@@ -1078,7 +1078,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %4, i32 noundef range(i32 0, 4) %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.189, i32 noundef %5) #4
   %9 = load ptr, ptr %7, align 8
@@ -1099,13 +1099,13 @@ define internal fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr nocapture no
   br i1 %.not.i, label %proto_item_set_generated.exit, label %20
 
 20:                                               ; preds = %6
-  %21 = getelementptr inbounds i8, ptr %19, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not5.i = icmp eq ptr %22, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, 2
   store i32 %26, ptr %24, align 4

@@ -72,11 +72,11 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 define internal noundef nonnull ptr @_ZL40initializeX86FixupInstTuningPassPassOnceRN4llvm12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #12
   store ptr @.str, ptr %2, align 8
-  %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 21, ptr %.sroa.25.0..sroa_idx.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 21, ptr %.sroa.2.0..sroa_idx.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN12_GLOBAL__N_122X86FixupInstTuningPass2IDE, ptr %4, align 8
@@ -150,19 +150,19 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_122X86FixupInstTuningPass11getPas
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -304,8 +304,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 91:                                               ; preds = %.lr.ph694, %._crit_edge
   %.sroa.0265.0692 = phi ptr [ %.sroa.0265.0689, %.lr.ph694 ], [ %.sroa.0265.0, %._crit_edge ]
   %.0691 = phi i1 [ false, %.lr.ph694 ], [ %.1.lcssa, %._crit_edge ]
-  %92 = getelementptr inbounds i8, ptr %.sroa.0265.0692, i64 56
-  %93 = getelementptr inbounds i8, ptr %.sroa.0265.0692, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0265.0692, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0265.0692, i64 48
   %.sroa.0263.0685 = load ptr, ptr %92, align 8
   %.not684686 = icmp eq ptr %.sroa.0263.0685, %93
   br i1 %.not684686, label %._crit_edge, label %.lr.ph
@@ -939,7 +939,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i238.thread": ; preds = %282
   %284 = load ptr, ptr %39, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %286 = load ptr, ptr %285, align 8
   %287 = getelementptr inbounds i8, ptr %286, i64 -145952
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %287) #10
@@ -983,7 +983,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i234.thread": ; preds = %299
   %301 = load ptr, ptr %39, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
   %303 = load ptr, ptr %302, align 8
   %304 = getelementptr inbounds i8, ptr %303, i64 -685440
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %304) #10
@@ -1027,7 +1027,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i230.thread": ; preds = %316
   %318 = load ptr, ptr %39, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 8
   %320 = load ptr, ptr %319, align 8
   %321 = getelementptr inbounds i8, ptr %320, i64 -684512
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %321) #10
@@ -1071,7 +1071,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i226.thread": ; preds = %333
   %335 = load ptr, ptr %39, align 8
-  %336 = getelementptr inbounds i8, ptr %335, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 8
   %337 = load ptr, ptr %336, align 8
   %338 = getelementptr inbounds i8, ptr %337, i64 -684736
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %338) #10
@@ -1115,7 +1115,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i222.thread": ; preds = %350
   %352 = load ptr, ptr %39, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 8
   %354 = load ptr, ptr %353, align 8
   %355 = getelementptr inbounds i8, ptr %354, i64 -685024
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %355) #10
@@ -1159,7 +1159,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i218.thread": ; preds = %367
   %369 = load ptr, ptr %39, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
   %371 = load ptr, ptr %370, align 8
   %372 = getelementptr inbounds i8, ptr %371, i64 -685312
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %372) #10
@@ -1203,7 +1203,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i214.thread": ; preds = %384
   %386 = load ptr, ptr %39, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 8
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
   %388 = load ptr, ptr %387, align 8
   %389 = getelementptr inbounds i8, ptr %388, i64 -684768
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %389) #10
@@ -1247,7 +1247,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i210.thread": ; preds = %401
   %403 = load ptr, ptr %39, align 8
-  %404 = getelementptr inbounds i8, ptr %403, i64 8
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 8
   %405 = load ptr, ptr %404, align 8
   %406 = getelementptr inbounds i8, ptr %405, i64 -685056
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %406) #10
@@ -1291,7 +1291,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i206.thread": ; preds = %418
   %420 = load ptr, ptr %39, align 8
-  %421 = getelementptr inbounds i8, ptr %420, i64 8
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 8
   %422 = load ptr, ptr %421, align 8
   %423 = getelementptr inbounds i8, ptr %422, i64 -685344
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %423) #10
@@ -1335,7 +1335,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i202.thread": ; preds = %435
   %437 = load ptr, ptr %39, align 8
-  %438 = getelementptr inbounds i8, ptr %437, i64 8
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 8
   %439 = load ptr, ptr %438, align 8
   %440 = getelementptr inbounds i8, ptr %439, i64 -684800
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %440) #10
@@ -1379,7 +1379,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i198.thread": ; preds = %452
   %454 = load ptr, ptr %39, align 8
-  %455 = getelementptr inbounds i8, ptr %454, i64 8
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %456 = load ptr, ptr %455, align 8
   %457 = getelementptr inbounds i8, ptr %456, i64 -685088
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %457) #10
@@ -1423,7 +1423,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i195.thread": ; preds = %469
   %471 = load ptr, ptr %39, align 8
-  %472 = getelementptr inbounds i8, ptr %471, i64 8
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 8
   %473 = load ptr, ptr %472, align 8
   %474 = getelementptr inbounds i8, ptr %473, i64 -685376
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %474) #10
@@ -1467,7 +1467,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i191.thread": ; preds = %486
   %488 = load ptr, ptr %39, align 8
-  %489 = getelementptr inbounds i8, ptr %488, i64 8
+  %489 = getelementptr inbounds nuw i8, ptr %488, i64 8
   %490 = load ptr, ptr %489, align 8
   %491 = getelementptr inbounds i8, ptr %490, i64 -145952
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %491) #10
@@ -1512,7 +1512,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i187.thread": ; preds = %503
   %505 = load ptr, ptr %39, align 8
-  %506 = getelementptr inbounds i8, ptr %505, i64 8
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 8
   %507 = load ptr, ptr %506, align 8
   %508 = getelementptr inbounds i8, ptr %507, i64 -685440
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %508) #10
@@ -1557,7 +1557,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i183.thread": ; preds = %520
   %522 = load ptr, ptr %39, align 8
-  %523 = getelementptr inbounds i8, ptr %522, i64 8
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
   %524 = load ptr, ptr %523, align 8
   %525 = getelementptr inbounds i8, ptr %524, i64 -684512
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %525) #10
@@ -1602,7 +1602,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i179.thread": ; preds = %537
   %539 = load ptr, ptr %39, align 8
-  %540 = getelementptr inbounds i8, ptr %539, i64 8
+  %540 = getelementptr inbounds nuw i8, ptr %539, i64 8
   %541 = load ptr, ptr %540, align 8
   %542 = getelementptr inbounds i8, ptr %541, i64 -684736
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %542) #10
@@ -1647,7 +1647,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i175.thread": ; preds = %554
   %556 = load ptr, ptr %39, align 8
-  %557 = getelementptr inbounds i8, ptr %556, i64 8
+  %557 = getelementptr inbounds nuw i8, ptr %556, i64 8
   %558 = load ptr, ptr %557, align 8
   %559 = getelementptr inbounds i8, ptr %558, i64 -685024
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %559) #10
@@ -1692,7 +1692,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i171.thread": ; preds = %571
   %573 = load ptr, ptr %39, align 8
-  %574 = getelementptr inbounds i8, ptr %573, i64 8
+  %574 = getelementptr inbounds nuw i8, ptr %573, i64 8
   %575 = load ptr, ptr %574, align 8
   %576 = getelementptr inbounds i8, ptr %575, i64 -685312
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %576) #10
@@ -1737,7 +1737,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i167.thread": ; preds = %588
   %590 = load ptr, ptr %39, align 8
-  %591 = getelementptr inbounds i8, ptr %590, i64 8
+  %591 = getelementptr inbounds nuw i8, ptr %590, i64 8
   %592 = load ptr, ptr %591, align 8
   %593 = getelementptr inbounds i8, ptr %592, i64 -684768
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %593) #10
@@ -1782,7 +1782,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i163.thread": ; preds = %605
   %607 = load ptr, ptr %39, align 8
-  %608 = getelementptr inbounds i8, ptr %607, i64 8
+  %608 = getelementptr inbounds nuw i8, ptr %607, i64 8
   %609 = load ptr, ptr %608, align 8
   %610 = getelementptr inbounds i8, ptr %609, i64 -685056
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %610) #10
@@ -1827,7 +1827,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i159.thread": ; preds = %622
   %624 = load ptr, ptr %39, align 8
-  %625 = getelementptr inbounds i8, ptr %624, i64 8
+  %625 = getelementptr inbounds nuw i8, ptr %624, i64 8
   %626 = load ptr, ptr %625, align 8
   %627 = getelementptr inbounds i8, ptr %626, i64 -685344
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %627) #10
@@ -1872,7 +1872,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i155.thread": ; preds = %639
   %641 = load ptr, ptr %39, align 8
-  %642 = getelementptr inbounds i8, ptr %641, i64 8
+  %642 = getelementptr inbounds nuw i8, ptr %641, i64 8
   %643 = load ptr, ptr %642, align 8
   %644 = getelementptr inbounds i8, ptr %643, i64 -684800
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %644) #10
@@ -1917,7 +1917,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 "_ZZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEEENK4$_12clEjj.exit.i151.thread": ; preds = %656
   %658 = load ptr, ptr %39, align 8
-  %659 = getelementptr inbounds i8, ptr %658, i64 8
+  %659 = getelementptr inbounds nuw i8, ptr %658, i64 8
   %660 = load ptr, ptr %659, align 8
   %661 = getelementptr inbounds i8, ptr %660, i64 -685088
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %661) #10
@@ -1962,7 +1962,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
 
 _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread683: ; preds = %673
   %675 = load ptr, ptr %39, align 8
-  %676 = getelementptr inbounds i8, ptr %675, i64 8
+  %676 = getelementptr inbounds nuw i8, ptr %675, i64 8
   %677 = load ptr, ptr %676, align 8
   %678 = getelementptr inbounds i8, ptr %677, i64 -685376
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %678) #10
@@ -3067,7 +3067,7 @@ _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFu
 _ZN12_GLOBAL__N_122X86FixupInstTuningPass18processInstructionERN4llvm15MachineFunctionERNS1_17MachineBasicBlockERNS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.thread681: ; preds = %1469, %1458, %1447, %1436, %1425, %1414, %1403, %1392, %1381, %1370, %1359, %1348, %1337, %1326, %1315, %1304, %1293, %1282, %1271, %1260, %1249, %1238, %1227, %1216, %1205, %1194, %1183, %1172, %1161, %1150, %1139, %1128, %1117, %1106, %1095, %1084, %1073, %1062, %1051, %1040, %1029, %1018, %1007, %996, %985, %974, %963, %952, %941, %930, %919, %908, %897, %886, %875, %864, %853, %842, %831, %820, %809, %798, %787, %776, %765, %754, %743, %732, %721, %710, %699, %688, %671, %654, %637, %620, %603, %586, %569, %552, %535, %518, %501, %484, %467, %450, %433, %416, %399, %382, %365, %348, %331, %314, %297, %280, %269, %258, %247, %236, %225, %214, %203, %192, %181, %170, %155
   %.sink698 = phi i64 [ -608000, %155 ], [ -607072, %170 ], [ -607232, %181 ], [ -607520, %192 ], [ -607808, %203 ], [ -607296, %214 ], [ -607584, %225 ], [ -607872, %236 ], [ -607264, %247 ], [ -607552, %258 ], [ -607840, %269 ], [ -109088, %280 ], [ -649504, %297 ], [ -648576, %314 ], [ -648800, %331 ], [ -649088, %348 ], [ -649376, %365 ], [ -648832, %382 ], [ -649120, %399 ], [ -649408, %416 ], [ -648864, %433 ], [ -649152, %450 ], [ -649440, %467 ], [ -108832, %484 ], [ -646112, %501 ], [ -645184, %518 ], [ -645408, %535 ], [ -645696, %552 ], [ -645984, %569 ], [ -645440, %586 ], [ -645728, %603 ], [ -646016, %620 ], [ -645472, %637 ], [ -645760, %654 ], [ -646048, %671 ], [ -109056, %688 ], [ -649472, %699 ], [ -648544, %710 ], [ -648608, %721 ], [ -648896, %732 ], [ -649184, %743 ], [ -648736, %754 ], [ -649024, %765 ], [ -649312, %776 ], [ -648768, %787 ], [ -649056, %798 ], [ -649344, %809 ], [ -108800, %820 ], [ -646080, %831 ], [ -645152, %842 ], [ -645216, %853 ], [ -645504, %864 ], [ -645792, %875 ], [ -645344, %886 ], [ -645632, %897 ], [ -645920, %908 ], [ -645376, %919 ], [ -645664, %930 ], [ -645952, %941 ], [ -109024, %952 ], [ -648512, %963 ], [ -647584, %974 ], [ -647808, %985 ], [ -648096, %996 ], [ -648384, %1007 ], [ -647840, %1018 ], [ -648128, %1029 ], [ -648416, %1040 ], [ -647872, %1051 ], [ -648160, %1062 ], [ -648448, %1073 ], [ -108768, %1084 ], [ -645120, %1095 ], [ -644192, %1106 ], [ -644416, %1117 ], [ -644704, %1128 ], [ -644992, %1139 ], [ -644448, %1150 ], [ -644736, %1161 ], [ -645024, %1172 ], [ -644480, %1183 ], [ -644768, %1194 ], [ -645056, %1205 ], [ -108992, %1216 ], [ -648480, %1227 ], [ -647552, %1238 ], [ -647616, %1249 ], [ -647904, %1260 ], [ -648192, %1271 ], [ -647744, %1282 ], [ -648032, %1293 ], [ -648320, %1304 ], [ -647776, %1315 ], [ -648064, %1326 ], [ -648352, %1337 ], [ -108736, %1348 ], [ -645088, %1359 ], [ -644160, %1370 ], [ -644224, %1381 ], [ -644512, %1392 ], [ -644800, %1403 ], [ -644352, %1414 ], [ -644640, %1425 ], [ -644928, %1436 ], [ -644384, %1447 ], [ -644672, %1458 ], [ -644960, %1469 ]
   %1471 = load ptr, ptr %39, align 8
-  %1472 = getelementptr inbounds i8, ptr %1471, i64 8
+  %1472 = getelementptr inbounds nuw i8, ptr %1471, i64 8
   %1473 = load ptr, ptr %1472, align 8
   %1474 = getelementptr inbounds i8, ptr %1473, i64 %.sink698
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0263.0688, ptr noundef nonnull align 8 dereferenceable(32) %1474) #10
@@ -3182,7 +3182,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %16, i64 %17, i32 3
+  %18 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %16, i64 %17, i32 3
   %19 = load i64, ptr %18, align 8
   tail call void @_ZN4llvm12MachineInstr13removeOperandEj(ptr noundef nonnull align 8 dereferenceable(70) %10, i32 noundef %14) #10
   %20 = load ptr, ptr %9, align 8
@@ -3192,12 +3192,12 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %25, i64 %26
   tail call void @_ZN4llvm12MachineInstr10addOperandERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %20, ptr noundef nonnull align 8 dereferenceable(32) %27) #10
   %28 = load ptr, ptr %9, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = zext nneg i32 %1 to i64
   %34 = sub nsw i64 0, %33
@@ -3236,7 +3236,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %16, i64 %17, i32 3
+  %18 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %16, i64 %17, i32 3
   %19 = load i64, ptr %18, align 8
   tail call void @_ZN4llvm12MachineInstr13removeOperandEj(ptr noundef nonnull align 8 dereferenceable(70) %10, i32 noundef %14) #10
   %20 = load ptr, ptr %9, align 8
@@ -3246,12 +3246,12 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %25, i64 %26
   tail call void @_ZN4llvm12MachineInstr10addOperandERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %20, ptr noundef nonnull align 8 dereferenceable(32) %27) #10
   %28 = load ptr, ptr %9, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = zext nneg i32 %1 to i64
   %34 = sub nsw i64 0, %33
@@ -3291,7 +3291,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %1 to i64
   %21 = sub nsw i64 0, %20
@@ -3300,7 +3300,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = zext i16 %23 to i64
-  %27 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %25, i64 %26
   %28 = tail call noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughputERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef nonnull align 2 dereferenceable(14) %27) #10
   %29 = load ptr, ptr %10, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3313,7 +3313,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.val16, i64 56
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = zext i32 %32 to i64
   %42 = sub nsw i64 0, %41
@@ -3322,7 +3322,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = zext i16 %44 to i64
-  %48 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %46, i64 %47
   %49 = tail call noundef double @_ZN4llvm12MCSchedModel23getReciprocalThroughputERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE(ptr noundef nonnull align 8 dereferenceable(288) %34, ptr noundef nonnull align 2 dereferenceable(14) %48) #10
   %50 = fcmp une double %28, %49
   br i1 %50, label %51, label %53
@@ -3341,14 +3341,14 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.val17, i64 56
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %63, i64 %21, i32 4
   %65 = load i16, ptr %64, align 2
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %67 = load ptr, ptr %66, align 8
   %68 = zext i16 %65 to i64
-  %69 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %67, i64 %68
   %70 = tail call noundef i32 @_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE(ptr noundef nonnull align 8 dereferenceable(288) %57, ptr noundef nonnull align 2 dereferenceable(14) %69) #10
   %71 = load ptr, ptr %54, align 8
   %72 = load ptr, ptr %30, align 8
@@ -3360,7 +3360,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %.val18, i64 56
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = zext i32 %73 to i64
   %83 = sub nsw i64 0, %82
@@ -3369,7 +3369,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %86 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %87 = load ptr, ptr %86, align 8
   %88 = zext i16 %85 to i64
-  %89 = getelementptr inbounds %"struct.llvm::MCSchedClassDesc", ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %87, i64 %88
   %90 = tail call noundef i32 @_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE(ptr noundef nonnull align 8 dereferenceable(288) %75, ptr noundef nonnull align 2 dereferenceable(14) %89) #10
   %.not49 = icmp eq i32 %70, %90
   br i1 %.not49, label %93, label %91

@@ -16,7 +16,7 @@ define hidden noundef i64 @_ZNK9metaspace13MetachunkList24calc_committed_word_si
   br i1 %cond, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 25
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 2
   br i1 %6, label %.loopexit, label %.lr.ph
@@ -24,10 +24,10 @@ define hidden noundef i64 @_ZNK9metaspace13MetachunkList24calc_committed_word_si
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.012 = phi ptr [ %11, %.lr.ph ], [ %2, %3 ]
   %.0611 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.012, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %.0611
-  %10 = getelementptr inbounds i8, ptr %.012, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %.012, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not9 = icmp eq ptr %11, null
   br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !6
@@ -44,7 +44,7 @@ define hidden noundef i64 @_ZNK9metaspace13MetachunkList14calc_word_sizeEv(ptr n
   br i1 %cond, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 25
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 2
   br i1 %6, label %.loopexit, label %.lr.ph
@@ -52,10 +52,10 @@ define hidden noundef i64 @_ZNK9metaspace13MetachunkList14calc_word_sizeEv(ptr n
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.012 = phi ptr [ %11, %.lr.ph ], [ %2, %3 ]
   %.0611 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.012, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %.0611
-  %10 = getelementptr inbounds i8, ptr %.012, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %.012, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not9 = icmp eq ptr %11, null
   br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !8
@@ -67,7 +67,7 @@ define hidden noundef i64 @_ZNK9metaspace13MetachunkList14calc_word_sizeEv(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK9metaspace13MetachunkList8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %.preheader
@@ -82,7 +82,7 @@ define hidden void @_ZNK9metaspace13MetachunkList8print_onEP12outputStream(ptr n
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #3
   tail call void @_ZNK9metaspace9Metachunk8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(72) %.012, ptr noundef nonnull %1) #3
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4) #3
-  %5 = getelementptr inbounds i8, ptr %.012, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %.012, i64 48
   %.0 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %.0, null
   br i1 %.not9, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9

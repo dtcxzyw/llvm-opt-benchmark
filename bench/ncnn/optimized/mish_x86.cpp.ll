@@ -178,7 +178,7 @@ define hidden noundef i32 @_ZNK4ncnn8Mish_x8615forward_inplaceERNS_3MatERKNS_6Op
   %130 = fadd fast <4 x float> %129, splat (float -1.000000e+00)
   %131 = fmul fast <4 x float> %130, %30
   store <4 x float> %131, ptr %.0417541, align 1
-  %132 = getelementptr inbounds i8, ptr %.0417541, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %.0417541, i64 16
   %133 = add nuw nsw i32 %.0542, 4
   %134 = or disjoint i32 %133, 3
   %135 = icmp slt i32 %134, %16
@@ -194,7 +194,7 @@ define hidden noundef i32 @_ZNK4ncnn8Mish_x8615forward_inplaceERNS_3MatERKNS_6Op
   %140 = tail call fast float @llvm.tanh.f32(float %139)
   %141 = fmul fast float %140, %136
   store float %141, ptr %.1418544, align 4
-  %142 = getelementptr inbounds i8, ptr %.1418544, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %.1418544, i64 4
   %143 = add nuw nsw i32 %.1545, 1
   %exitcond.not = icmp eq i32 %143, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph546, !llvm.loop !6

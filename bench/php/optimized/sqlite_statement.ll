@@ -27,9 +27,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @pdo_sqlite_stmt_dtor(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -46,33 +46,33 @@ define internal noundef i32 @pdo_sqlite_stmt_dtor(ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_execute(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, 2
   %.not18 = icmp eq i8 %10, 0
   br i1 %.not18, label %11, label %15
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @sqlite3_reset(ptr noundef %13) #5
   br label %15
 
 15:                                               ; preds = %11, %7, %1
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i8, ptr %16, align 8
   %18 = and i8 %17, -3
   store i8 %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @sqlite3_step(ptr noundef %20) #5
   switch i32 %21, label %42 [
@@ -98,7 +98,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_execute(ptr noundef %0) #0 
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @sqlite3_changes(ptr noundef %31) #5
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %0, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %33, ptr %34, align 8
   %35 = load ptr, ptr %19, align 8
   %36 = tail call i32 @sqlite3_reset(ptr noundef %35) #5
@@ -113,7 +113,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_execute(ptr noundef %0) #0 
   br label %42
 
 42:                                               ; preds = %39, %15
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @_pdo_sqlite_error(ptr noundef %44, ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 70) #5
   br label %46
@@ -125,15 +125,15 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_execute(ptr noundef %0) #0 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_fetch(ptr noundef %0, i32 %1, i64 %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %30, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
   %.not13 = icmp eq i8 %11, 0
@@ -171,7 +171,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_fetch(ptr noundef %0, i32 %
   br label %26
 
 26:                                               ; preds = %23, %16
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @_pdo_sqlite_error(ptr noundef %28, ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 231) #5
   br label %30
@@ -183,16 +183,16 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_fetch(ptr noundef %0, i32 %
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_describe(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @sqlite3_column_count(ptr noundef %6) #5
   %.not = icmp slt i32 %1, %7
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @_pdo_sqlite_error(ptr noundef %10, ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 243) #5
   br label %32
@@ -205,17 +205,17 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_describe(ptr noundef %0, i3
   %17 = add i64 %16, 32
   %18 = tail call noalias ptr @_emalloc(i64 noundef %17) #7
   store i32 1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 22, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 %15, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 1 %14, i64 %15, i1 false)
   %23 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %15
   store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %1 to i64
   %27 = getelementptr inbounds %struct.pdo_column_data, ptr %25, i64 %26
@@ -235,9 +235,9 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_describe(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %90, label %9
@@ -248,7 +248,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32
   br i1 %.not169, label %15, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @_pdo_sqlite_error(ptr noundef %13, ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 264) #5
   br label %90
@@ -264,7 +264,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32
   ]
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %19, align 8
   br label %90
 
@@ -272,7 +272,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32
   %21 = load ptr, ptr %7, align 8
   %22 = tail call i64 @sqlite3_column_int64(ptr noundef %21, i32 noundef %1) #5
   store i64 %22, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 4, ptr %23, align 8
   br label %90
 
@@ -280,7 +280,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32
   %25 = load ptr, ptr %7, align 8
   %26 = tail call double @sqlite3_column_double(ptr noundef %25, i32 noundef %1) #5
   store double %26, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 5, ptr %27, align 8
   br label %90
 
@@ -298,13 +298,13 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32
   %37 = add nsw i64 %36, 32
   %38 = tail call noalias ptr @_emalloc(i64 noundef %37) #7
   store i32 1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 22, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i64 %35, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr align 1 %30, i64 %35, i1 false)
   %43 = getelementptr inbounds [1 x i8], ptr %42, i64 0, i64 %35
   store i8 0, ptr %43, align 1
@@ -321,19 +321,19 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32
 48:                                               ; preds = %44
   %49 = load i8, ptr %30, align 1
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %50
   %52 = load ptr, ptr %51, align 8
   br label %53
 
 53:                                               ; preds = %48, %46, %34
   %.0 = phi ptr [ %38, %34 ], [ %47, %46 ], [ %52, %48 ]
   store ptr %.0, ptr %2, align 8
-  %54 = getelementptr inbounds i8, ptr %.0, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 64
   %.not170 = icmp eq i32 %56, 0
   %57 = select i1 %.not170, i32 262, i32 6
-  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %57, ptr %58, align 8
   br label %90
 
@@ -351,13 +351,13 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32
   %68 = add nsw i64 %67, 32
   %69 = tail call noalias ptr @_emalloc(i64 noundef %68) #7
   store i32 1, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 22, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 0, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i64 %66, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %69, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %73, ptr align 1 %61, i64 %66, i1 false)
   %74 = getelementptr inbounds [1 x i8], ptr %73, i64 0, i64 %66
   store i8 0, ptr %74, align 1
@@ -374,19 +374,19 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32
 79:                                               ; preds = %75
   %80 = load i8, ptr %61, align 1
   %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %81
   %83 = load ptr, ptr %82, align 8
   br label %84
 
 84:                                               ; preds = %79, %77, %65
   %.0160 = phi ptr [ %69, %65 ], [ %78, %77 ], [ %83, %79 ]
   store ptr %.0160, ptr %2, align 8
-  %85 = getelementptr inbounds i8, ptr %.0160, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.0160, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 64
   %.not171 = icmp eq i32 %87, 0
   %88 = select i1 %.not171, i32 262, i32 6
-  %89 = getelementptr inbounds i8, ptr %2, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %88, ptr %89, align 8
   br label %90
 
@@ -397,27 +397,27 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %cond = icmp eq i32 %2, 2
   br i1 %cond, label %6, label %165
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 1
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %20, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = and i8 %12, 2
   %.not90 = icmp eq i8 %13, 0
   br i1 %.not90, label %14, label %20
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @sqlite3_reset(ptr noundef %16) #5
   %18 = load i8, ptr %11, align 8
@@ -426,23 +426,23 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   br label %20
 
 20:                                               ; preds = %14, %10, %6
-  %21 = getelementptr inbounds i8, ptr %1, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %22 = load i32, ptr %21, align 4
   %.not91 = icmp eq i32 %22, 0
   br i1 %.not91, label %165, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, -1
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = tail call i32 @sqlite3_bind_parameter_index(ptr noundef %29, ptr noundef nonnull %32) #5
   %34 = add nsw i32 %33, -1
   %35 = sext i32 %34 to i64
@@ -451,7 +451,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
 
 36:                                               ; preds = %27, %23
   %37 = phi i64 [ %35, %27 ], [ %25, %23 ]
-  %38 = getelementptr inbounds i8, ptr %1, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %39 = load i32, ptr %38, align 8
   %trunc = trunc i32 %39 to i16
   switch i16 %trunc, label %131 [
@@ -463,7 +463,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   ]
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = trunc i64 %37 to i32
   %44 = add i32 %43, 1
@@ -472,21 +472,21 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   br i1 %46, label %165, label %47
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @_pdo_sqlite_error(ptr noundef %49, ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 102) #5
   br label %165
 
 51:                                               ; preds = %36, %36
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load i8, ptr %52, align 8
   %54 = icmp eq i8 %53, 10
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %1, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
-  %.phi.trans.insert97 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %.phi.trans.insert97 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %.pre98 = load i8, ptr %.phi.trans.insert97, align 8
   br label %58
 
@@ -497,7 +497,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   br i1 %60, label %61, label %68
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %5, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = trunc i64 %37 to i32
   %65 = add i32 %64, 1
@@ -507,7 +507,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
 
 68:                                               ; preds = %58
   tail call void @convert_to_long(ptr noundef nonnull %.086) #5
-  %69 = getelementptr inbounds i8, ptr %5, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = load i64, ptr %24, align 8
   %72 = trunc i64 %71 to i32
@@ -518,28 +518,28 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   br i1 %76, label %165, label %77
 
 77:                                               ; preds = %68, %61
-  %78 = getelementptr inbounds i8, ptr %0, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %79 = load ptr, ptr %78, align 8
   %80 = tail call i32 @_pdo_sqlite_error(ptr noundef %79, ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 128) #5
   br label %165
 
 81:                                               ; preds = %36
-  %82 = getelementptr inbounds i8, ptr %1, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %83 = load i8, ptr %82, align 8
   %84 = icmp eq i8 %83, 10
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr %1, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %86, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %86, i64 16
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   br label %88
 
 88:                                               ; preds = %81, %85
   %89 = phi i8 [ %.pre, %85 ], [ %83, %81 ]
   %.1 = phi ptr [ %87, %85 ], [ %1, %81 ]
-  %90 = getelementptr inbounds i8, ptr %.1, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   switch i8 %89, label %117 [
     i8 9, label %91
     i8 1, label %106
@@ -560,7 +560,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   %97 = load ptr, ptr @zend_empty_string, align 8
   %98 = select i1 %.not93, ptr %97, ptr %96
   store ptr %98, ptr %.1, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, 64
   %.not94 = icmp eq i32 %101, 0
@@ -569,13 +569,13 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   br label %.critedge
 
 103:                                              ; preds = %91
-  %104 = getelementptr inbounds i8, ptr %0, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %105 = load ptr, ptr %104, align 8
   tail call void @pdo_raise_impl_error(ptr noundef %105, ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #5
   br label %165
 
 106:                                              ; preds = %88
-  %107 = getelementptr inbounds i8, ptr %5, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = trunc i64 %37 to i32
   %110 = add i32 %109, 1
@@ -584,7 +584,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   br i1 %112, label %165, label %113
 
 113:                                              ; preds = %106
-  %114 = getelementptr inbounds i8, ptr %0, i64 48
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %115 = load ptr, ptr %114, align 8
   %116 = tail call i32 @_pdo_sqlite_error(ptr noundef %115, ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 152) #5
   br label %165
@@ -594,14 +594,14 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   br i1 %118, label %.critedge, label %165
 
 .critedge:                                        ; preds = %88, %117, %95
-  %119 = getelementptr inbounds i8, ptr %5, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = load i64, ptr %24, align 8
   %122 = trunc i64 %121 to i32
   %123 = add i32 %122, 1
   %124 = load ptr, ptr %.1, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 24
-  %126 = getelementptr inbounds i8, ptr %124, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %127 = load i64, ptr %126, align 8
   %128 = trunc i64 %127 to i32
   %129 = tail call i32 @sqlite3_bind_blob(ptr noundef %120, i32 noundef %123, ptr noundef nonnull %125, i32 noundef %128, ptr noundef null) #5
@@ -610,15 +610,15 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   br label %165
 
 131:                                              ; preds = %36
-  %132 = getelementptr inbounds i8, ptr %1, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %133 = load i8, ptr %132, align 8
   %134 = icmp eq i8 %133, 10
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %131
   %136 = load ptr, ptr %1, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 8
-  %.phi.trans.insert99 = getelementptr inbounds i8, ptr %136, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %.phi.trans.insert99 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %.pre100 = load i8, ptr %.phi.trans.insert99, align 8
   br label %138
 
@@ -631,7 +631,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   ]
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds i8, ptr %5, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %142 = load ptr, ptr %141, align 8
   %143 = trunc i64 %37 to i32
   %144 = add i32 %143, 1
@@ -649,13 +649,13 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
 
 .critedge96:                                      ; preds = %..critedge96_crit_edge, %138
   %149 = phi i64 [ %.pre101, %..critedge96_crit_edge ], [ %37, %138 ]
-  %150 = getelementptr inbounds i8, ptr %5, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %151 = load ptr, ptr %150, align 8
   %152 = trunc i64 %149 to i32
   %153 = add i32 %152, 1
   %154 = load ptr, ptr %.2, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 24
-  %156 = getelementptr inbounds i8, ptr %154, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %157 = load i64, ptr %156, align 8
   %158 = trunc i64 %157 to i32
   %159 = tail call i32 @sqlite3_bind_text(ptr noundef %151, i32 noundef %153, ptr noundef nonnull %155, i32 noundef %158, ptr noundef null) #5
@@ -663,7 +663,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   br i1 %160, label %165, label %161
 
 161:                                              ; preds = %.critedge96, %140
-  %162 = getelementptr inbounds i8, ptr %0, i64 48
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %163 = load ptr, ptr %162, align 8
   %164 = tail call i32 @_pdo_sqlite_error(ptr noundef %163, ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 190) #5
   br label %165
@@ -679,11 +679,11 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_attribute(ptr nocapture
   br i1 %cond, label %4, label %12
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @sqlite3_stmt_readonly(ptr noundef %9) #5
   %.not = icmp eq i32 %10, 0
@@ -701,9 +701,9 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_attribute(ptr nocapture
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @pdo_sqlite_stmt_col_meta(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %51, label %9
@@ -715,7 +715,7 @@ define internal range(i32 -1, 1) i32 @pdo_sqlite_stmt_col_meta(ptr noundef %0, i
   br i1 %.not82, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @_pdo_sqlite_error(ptr noundef %14, ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 313) #5
   br label %51
@@ -723,11 +723,11 @@ define internal range(i32 -1, 1) i32 @pdo_sqlite_stmt_col_meta(ptr noundef %0, i
 16:                                               ; preds = %9
   %17 = tail call ptr @_zend_new_array_0() #5
   store ptr %17, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 775, ptr %18, align 8
   %19 = tail call ptr @_zend_new_array_0() #5
   store ptr %19, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 775, ptr %20, align 8
   %21 = load ptr, ptr %7, align 8
   %22 = trunc i64 %1 to i32
@@ -742,7 +742,7 @@ define internal range(i32 -1, 1) i32 @pdo_sqlite_stmt_col_meta(ptr noundef %0, i
 
 24:                                               ; preds = %16
   %25 = load ptr, ptr @zend_known_strings, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 456
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 456
   %27 = load ptr, ptr %26, align 8
   tail call void @add_assoc_str_ex(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i64 noundef 11, ptr noundef %27) #5
   tail call void @add_assoc_long_ex(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, i64 noundef 8, i64 noundef 0) #5
@@ -750,7 +750,7 @@ define internal range(i32 -1, 1) i32 @pdo_sqlite_stmt_col_meta(ptr noundef %0, i
 
 28:                                               ; preds = %16
   %29 = load ptr, ptr @zend_known_strings, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 320
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 320
   %31 = load ptr, ptr %30, align 8
   tail call void @add_assoc_str_ex(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i64 noundef 11, ptr noundef %31) #5
   tail call void @add_assoc_long_ex(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, i64 noundef 8, i64 noundef 2) #5
@@ -762,7 +762,7 @@ define internal range(i32 -1, 1) i32 @pdo_sqlite_stmt_col_meta(ptr noundef %0, i
 
 34:                                               ; preds = %32, %16
   %35 = load ptr, ptr @zend_known_strings, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 216
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 216
   %37 = load ptr, ptr %36, align 8
   call void @add_assoc_str_ex(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i64 noundef 11, ptr noundef %37) #5
   call void @add_assoc_long_ex(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, i64 noundef 8, i64 noundef 2) #5
@@ -770,7 +770,7 @@ define internal range(i32 -1, 1) i32 @pdo_sqlite_stmt_col_meta(ptr noundef %0, i
 
 38:                                               ; preds = %16
   %39 = load ptr, ptr @zend_known_strings, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 312
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 312
   %41 = load ptr, ptr %40, align 8
   tail call void @add_assoc_str_ex(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i64 noundef 11, ptr noundef %41) #5
   tail call void @add_assoc_long_ex(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, i64 noundef 8, i64 noundef 1) #5
@@ -807,9 +807,9 @@ define internal range(i32 -1, 1) i32 @pdo_sqlite_stmt_col_meta(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @pdo_sqlite_stmt_cursor_closer(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @sqlite3_reset(ptr noundef %5) #5
   ret i32 1

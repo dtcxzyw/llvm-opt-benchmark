@@ -24,14 +24,14 @@ define hidden void @sync_pipe_write_string_msg(i32 noundef %0, i8 noundef signex
   store i8 %1, ptr %4, align 1
   %10 = lshr i32 %.0, 16
   %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %4, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %11, ptr %12, align 1
   %13 = lshr i32 %.0, 8
   %14 = trunc i32 %13 to i8
-  %15 = getelementptr inbounds i8, ptr %4, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %14, ptr %15, align 1
   %16 = trunc i32 %.0 to i8
-  %17 = getelementptr inbounds i8, ptr %4, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %16, ptr %17, align 1
   %18 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -67,14 +67,14 @@ define hidden void @sync_pipe_write_uint_msg(i32 noundef %0, i8 noundef signext 
   store i8 %1, ptr %4, align 1
   %10 = lshr i32 %9, 16
   %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %4, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %11, ptr %12, align 1
   %13 = lshr i32 %9, 8
   %14 = trunc i32 %13 to i8
-  %15 = getelementptr inbounds i8, ptr %4, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %14, ptr %15, align 1
   %16 = trunc i32 %9 to i8
-  %17 = getelementptr inbounds i8, ptr %4, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %16, ptr %17, align 1
   %18 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -107,14 +107,14 @@ define hidden void @sync_pipe_write_int_msg(i32 noundef %0, i8 noundef signext %
   store i8 %1, ptr %4, align 1
   %10 = lshr i32 %9, 16
   %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %4, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %11, ptr %12, align 1
   %13 = lshr i32 %9, 8
   %14 = trunc i32 %13 to i8
-  %15 = getelementptr inbounds i8, ptr %4, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %14, ptr %15, align 1
   %16 = trunc i32 %9 to i8
-  %17 = getelementptr inbounds i8, ptr %4, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %16, ptr %17, align 1
   %18 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -147,14 +147,14 @@ define hidden void @sync_pipe_write_errmsgs_to_parent(i32 noundef %0, ptr nounde
   store i8 69, ptr %6, align 1
   %13 = lshr i32 %12, 16
   %14 = trunc i32 %13 to i8
-  %15 = getelementptr inbounds i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %14, ptr %15, align 1
   %16 = lshr i32 %12, 8
   %17 = trunc i32 %16 to i8
-  %18 = getelementptr inbounds i8, ptr %6, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 %17, ptr %18, align 1
   %19 = trunc i32 %12 to i8
-  %20 = getelementptr inbounds i8, ptr %6, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 %19, ptr %20, align 1
   %21 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -173,14 +173,14 @@ define hidden void @sync_pipe_write_errmsgs_to_parent(i32 noundef %0, ptr nounde
   store i8 69, ptr %5, align 1
   %27 = lshr i32 %.0.i, 16
   %28 = trunc i32 %27 to i8
-  %29 = getelementptr inbounds i8, ptr %5, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %28, ptr %29, align 1
   %30 = lshr i32 %.0.i, 8
   %31 = trunc i32 %30 to i8
-  %32 = getelementptr inbounds i8, ptr %5, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %31, ptr %32, align 1
   %33 = trunc i32 %.0.i to i8
-  %34 = getelementptr inbounds i8, ptr %5, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %33, ptr %34, align 1
   %35 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -210,14 +210,14 @@ sync_pipe_write_string_msg.exit:                  ; preds = %26, %38
   store i8 69, ptr %4, align 1
   %46 = lshr i32 %.0.i7, 16
   %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds i8, ptr %4, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %47, ptr %48, align 1
   %49 = lshr i32 %.0.i7, 8
   %50 = trunc i32 %49 to i8
-  %51 = getelementptr inbounds i8, ptr %4, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %50, ptr %51, align 1
   %52 = trunc i32 %.0.i7 to i8
-  %53 = getelementptr inbounds i8, ptr %4, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %52, ptr %53, align 1
   %54 = call noundef i64 @write(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)

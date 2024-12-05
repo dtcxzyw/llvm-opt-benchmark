@@ -77,7 +77,7 @@ define noundef i32 @_ZN10open_spiel6bridge5ScoreENS0_8ContractEib(i64 %0, i64 %1
   br label %_ZN10open_spiel6bridge12_GLOBAL__N_116ScoreUndertricksEibNS0_12DoubleStatusE.exit
 
 22:                                               ; preds = %6
-  %23 = getelementptr inbounds [5 x i32], ptr @_ZN10open_spiel6bridge12_GLOBAL__N_116kBaseTrickScoresE, i64 0, i64 %.sroa.5.0.extract.shift
+  %23 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel6bridge12_GLOBAL__N_116kBaseTrickScoresE, i64 0, i64 %.sroa.5.0.extract.shift
   %24 = load i32, ptr %23, align 4
   %25 = mul nsw i32 %24, %.sroa.011.0.extract.trunc
   %26 = icmp eq i64 %.sroa.5.0.extract.shift, 4
@@ -191,7 +191,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds [6 x i8], ptr @_ZN10open_spiel6bridgeL17kDenominationCharE, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [6 x i8], ptr @_ZN10open_spiel6bridgeL17kDenominationCharE, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   store i8 %37, ptr %7, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #9

@@ -42,13 +42,13 @@ define void @_ZN3gmx21repartitionAtomMassesEP10gmx_mtop_tbfP14WarningHandler(ptr
 .lr.ph12.i:                                       ; preds = %4, %._crit_edge.i
   %.0510.i = phi float [ %.1.lcssa.i, %._crit_edge.i ], [ 0x47EFFFFFE0000000, %4 ]
   %.sroa.01.09.i = phi ptr [ %20, %._crit_edge.i ], [ %.val, %4 ]
-  %9 = getelementptr inbounds i8, ptr %.sroa.01.09.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.01.09.i, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph12.i
-  %12 = getelementptr inbounds i8, ptr %.sroa.01.09.i, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.01.09.i, i64 16
   %13 = load ptr, ptr %12, align 8
   %wide.trip.count.i = zext nneg i32 %10 to i64
   br label %14
@@ -56,7 +56,7 @@ define void @_ZN3gmx21repartitionAtomMassesEP10gmx_mtop_tbfP14WarningHandler(ptr
 14:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
   %.16.i = phi float [ %.0510.i, %.lr.ph.i ], [ %.2.i, %14 ]
-  %15 = getelementptr inbounds %struct.t_atom, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw %struct.t_atom, ptr %13, i64 %indvars.iv.i
   %16 = load float, ptr %15, align 4
   %17 = fcmp ogt float %16, 0.000000e+00
   %18 = fcmp olt float %16, %.16.i
@@ -68,7 +68,7 @@ define void @_ZN3gmx21repartitionAtomMassesEP10gmx_mtop_tbfP14WarningHandler(ptr
 
 ._crit_edge.i:                                    ; preds = %14, %.lr.ph12.i
   %.1.lcssa.i = phi float [ %.0510.i, %.lr.ph12.i ], [ %.2.i, %14 ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.01.09.i, i64 2384
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.01.09.i, i64 2384
   %.not.i = icmp eq ptr %20, %.val142
   br i1 %.not.i, label %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit, label %.lr.ph12.i
 
@@ -84,7 +84,7 @@ _ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit:   ; preds = %._crit_edge.i, %4
   br i1 %.not196264, label %.loopexit200, label %.lr.ph269
 
 27:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %28 = getelementptr inbounds i8, ptr %.sroa.0191.0265, i64 2384
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0191.0265, i64 2384
   %.not196 = icmp eq ptr %28, %26
   br i1 %.not196, label %._crit_edge270, label %.lr.ph269
 
@@ -93,7 +93,7 @@ _ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit:   ; preds = %._crit_edge.i, %4
   %.0115267 = phi i32 [ %.1116321, %27 ], [ 0, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
   %.0119266 = phi i32 [ %.1120319, %27 ], [ 0, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
   %.sroa.0191.0265 = phi ptr [ %28, %27 ], [ %25, %_ZN3gmxL16smallestAtomMassERK10gmx_mtop_t.exit ]
-  %29 = getelementptr inbounds i8, ptr %.sroa.0191.0265, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0191.0265, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %32 = icmp slt i32 %30, 0
@@ -115,12 +115,12 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.lr.ph269
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.0176.1 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %34, %.noexc143 ]
-  %35 = getelementptr inbounds i8, ptr %.sroa.0191.0265, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0191.0265, i64 80
   br label %36
 
 36:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, %.loopexit
   %indvars.iv290 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ %indvars.iv.next291, %.loopexit ]
-  %37 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv290, i32 5
+  %37 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv290, i32 5
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 8
   %40 = icmp eq i32 %39, 0
@@ -129,7 +129,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6v
   br i1 %or.cond, label %.loopexit, label %42
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv290, i32 2
+  %43 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv290, i32 2
   %44 = load i32, ptr %43, align 16
   %45 = icmp eq i32 %44, 2
   br i1 %45, label %47, label %46
@@ -142,22 +142,22 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6v
   unreachable
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds [94 x %struct.InteractionList], ptr %35, i64 0, i64 %indvars.iv290
+  %48 = getelementptr inbounds nuw [94 x %struct.InteractionList], ptr %35, i64 0, i64 %indvars.iv290
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = ptrtoint ptr %49 to i64
   %54 = sub i64 %52, %53
   %55 = ashr exact i64 %54, 2
-  %invariant.gep = getelementptr inbounds i8, ptr %49, i64 4
-  %invariant.gep238 = getelementptr inbounds i8, ptr %49, i64 8
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %invariant.gep238 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %47, %74
   %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %47 ]
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %57 = load i32, ptr %gep, align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i32, ptr %.sroa.0176.1, i64 %58
@@ -166,7 +166,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6v
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %.lr.ph
-  %gep239 = getelementptr inbounds i32, ptr %invariant.gep238, i64 %indvars.iv
+  %gep239 = getelementptr inbounds nuw i32, ptr %invariant.gep238, i64 %indvars.iv
   %63 = load i32, ptr %gep239, align 4
   br label %66
 
@@ -178,7 +178,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6v
 66:                                               ; preds = %.lr.ph, %62
   %storemerge140 = phi i32 [ %63, %62 ], [ -2, %.lr.ph ]
   store i32 %storemerge140, ptr %59, align 4
-  %gep241 = getelementptr inbounds i32, ptr %invariant.gep238, i64 %indvars.iv
+  %gep241 = getelementptr inbounds nuw i32, ptr %invariant.gep238, i64 %indvars.iv
   %67 = load i32, ptr %gep241, align 4
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i32, ptr %.sroa.0176.1, i64 %68
@@ -203,9 +203,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc143, %_ZNSt6v
   br i1 %exitcond.not, label %76, label %36, !llvm.loop !8
 
 76:                                               ; preds = %.loopexit
-  %77 = getelementptr inbounds i8, ptr %.sroa.0191.0265, i64 1616
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0191.0265, i64 1616
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.sroa.0191.0265, i64 1624
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0191.0265, i64 1624
   %80 = load ptr, ptr %79, align 8
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %78 to i64
@@ -304,7 +304,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %.not197252, label %.lr.ph255, label %.loopexit198
 
 .lr.ph255:                                        ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
-  %120 = getelementptr inbounds i8, ptr %.sroa.0191.0265, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0191.0265, i64 16
   br label %123
 
 .preheader:                                       ; preds = %._crit_edge300
@@ -312,19 +312,19 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %121, label %.lr.ph260, label %.loopexit198
 
 .lr.ph260:                                        ; preds = %.preheader
-  %122 = getelementptr inbounds i8, ptr %.sroa.0191.0265, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.0191.0265, i64 16
   br label %149
 
 123:                                              ; preds = %.lr.ph255, %._crit_edge300
   %indvars.iv293 = phi i64 [ 0, %.lr.ph255 ], [ %indvars.iv.next294, %._crit_edge300 ]
   %.pre299 = load ptr, ptr %120, align 8
-  %124 = getelementptr inbounds %struct.t_atom, ptr %.pre299, i64 %indvars.iv293
+  %124 = getelementptr inbounds nuw %struct.t_atom, ptr %.pre299, i64 %indvars.iv293
   %125 = load float, ptr %124, align 4
   br i1 %1, label %126, label %._crit_edge300
 
 126:                                              ; preds = %123
   %127 = fcmp olt float %125, %21
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %124, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %124, i64 8
   %.pre = load float, ptr %.phi.trans.insert, align 4
   %128 = fcmp olt float %.pre, %21
   %or.cond352 = select i1 %127, i1 true, i1 %128
@@ -335,16 +335,16 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %129, label %141, label %130
 
 130:                                              ; preds = %._crit_edge298
-  %131 = getelementptr inbounds i32, ptr %.sroa.0176.1, i64 %indvars.iv293
+  %131 = getelementptr inbounds nuw i32, ptr %.sroa.0176.1, i64 %indvars.iv293
   %132 = load i32, ptr %131, align 4
   %133 = icmp sgt i32 %132, -1
   br i1 %133, label %134, label %._crit_edge300
 
 134:                                              ; preds = %130
   %135 = zext nneg i32 %132 to i64
-  %136 = getelementptr inbounds %struct.t_atom, ptr %.pre299, i64 %135
+  %136 = getelementptr inbounds nuw %struct.t_atom, ptr %.pre299, i64 %135
   %137 = load float, ptr %136, align 4
-  %138 = getelementptr inbounds %struct.t_atom, ptr %.pre299, i64 %135, i32 2
+  %138 = getelementptr inbounds nuw %struct.t_atom, ptr %.pre299, i64 %135, i32 2
   %139 = load float, ptr %138, align 4
   %140 = fcmp une float %137, %139
   br i1 %140, label %141, label %._crit_edge300
@@ -374,7 +374,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 ._crit_edge300:                                   ; preds = %126, %123, %134, %130
-  %146 = getelementptr inbounds float, ptr %116, i64 %indvars.iv293
+  %146 = getelementptr inbounds nuw float, ptr %116, i64 %indvars.iv293
   store float %125, ptr %146, align 4
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %147 = load i32, ptr %29, align 8
@@ -387,7 +387,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %.2259 = phi i1 [ %.0268, %.lr.ph260 ], [ %.3, %194 ]
   %.2117258 = phi i32 [ %.0115267, %.lr.ph260 ], [ %.3118, %194 ]
   %.2121257 = phi i32 [ %.0119266, %.lr.ph260 ], [ %.3122, %194 ]
-  %150 = getelementptr inbounds float, ptr %116, i64 %indvars.iv296
+  %150 = getelementptr inbounds nuw float, ptr %116, i64 %indvars.iv296
   %151 = load float, ptr %150, align 4
   %152 = fcmp ogt float %151, 0.000000e+00
   %153 = fcmp olt float %151, %21
@@ -395,14 +395,14 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %or.cond195, label %154, label %194
 
 154:                                              ; preds = %149
-  %155 = getelementptr inbounds i32, ptr %.sroa.0176.1, i64 %indvars.iv296
+  %155 = getelementptr inbounds nuw i32, ptr %.sroa.0176.1, i64 %indvars.iv296
   %156 = load i32, ptr %155, align 4
   %157 = icmp sgt i32 %156, -1
   br i1 %157, label %158, label %188
 
 158:                                              ; preds = %154
   %159 = load ptr, ptr %122, align 8
-  %160 = getelementptr inbounds %struct.t_atom, ptr %159, i64 %indvars.iv296
+  %160 = getelementptr inbounds nuw %struct.t_atom, ptr %159, i64 %indvars.iv296
   %161 = load float, ptr %160, align 4
   %162 = fcmp oeq float %161, %151
   br i1 %162, label %165, label %163
@@ -422,7 +422,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 165:                                              ; preds = %158
   %166 = fsub float %21, %161
   %167 = zext nneg i32 %156 to i64
-  %168 = getelementptr inbounds float, ptr %116, i64 %167
+  %168 = getelementptr inbounds nuw float, ptr %116, i64 %167
   %169 = load float, ptr %168, align 4
   %170 = fsub float %169, %166
   %171 = fcmp olt float %170, %21
@@ -431,20 +431,20 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 172:                                              ; preds = %165
   store float %21, ptr %160, align 4
   %173 = load ptr, ptr %122, align 8
-  %174 = getelementptr inbounds %struct.t_atom, ptr %173, i64 %indvars.iv296, i32 2
+  %174 = getelementptr inbounds nuw %struct.t_atom, ptr %173, i64 %indvars.iv296, i32 2
   store float %21, ptr %174, align 4
   %175 = load ptr, ptr %122, align 8
-  %176 = getelementptr inbounds %struct.t_atom, ptr %175, i64 %167
+  %176 = getelementptr inbounds nuw %struct.t_atom, ptr %175, i64 %167
   %177 = load float, ptr %176, align 4
   %178 = fsub float %177, %166
   store float %178, ptr %176, align 4
   %179 = load ptr, ptr %122, align 8
-  %180 = getelementptr inbounds %struct.t_atom, ptr %179, i64 %167, i32 2
+  %180 = getelementptr inbounds nuw %struct.t_atom, ptr %179, i64 %167, i32 2
   %181 = load float, ptr %180, align 4
   %182 = fsub float %181, %166
   store float %182, ptr %180, align 4
   %183 = load ptr, ptr %122, align 8
-  %184 = getelementptr inbounds %struct.t_atom, ptr %183, i64 %167
+  %184 = getelementptr inbounds nuw %struct.t_atom, ptr %183, i64 %167
   %185 = load float, ptr %184, align 4
   %186 = fcmp olt float %185, %21
   br i1 %186, label %187, label %194

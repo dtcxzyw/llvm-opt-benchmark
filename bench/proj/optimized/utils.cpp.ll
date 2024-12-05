@@ -133,7 +133,7 @@ define hidden noundef zeroext i1 @_Z32validate_form_string_for_numbersPKc(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %10 [
     i8 46, label %12
@@ -179,13 +179,13 @@ define hidden void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr nocapture n
   br i1 %.not, label %5, label %.sink.split
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 43
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.pr = load i8, ptr %10, align 1
   br label %11
 
@@ -212,7 +212,7 @@ define hidden void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr nocapture n
   br i1 %21, label %.sink.split, label %22
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds i8, ptr %17, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = add i8 %24, -48
   %or.cond.i = icmp ult i8 %25, 10
@@ -229,7 +229,7 @@ _ZL8parseIntRPKc.exit:                            ; preds = %22
   ]
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %17, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = add i8 %30, -48
   %or.cond379 = icmp ult i8 %31, 10
@@ -247,7 +247,7 @@ _ZL8parseIntRPKc.exit:                            ; preds = %22
   br i1 %37, label %.sink.split, label %38
 
 38:                                               ; preds = %.lr.ph.i384
-  %39 = getelementptr inbounds i8, ptr %33, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = add i8 %40, -48
   %or.cond.i387 = icmp ult i8 %41, 10
@@ -293,7 +293,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
 52:                                               ; preds = %46, %47, %49, %51, %50, %48
   %.str.2.sink = phi ptr [ @.str.2, %47 ], [ @.str.4, %49 ], [ @.str.6, %51 ], [ @.str.5, %50 ], [ @.str.3, %48 ], [ @.str.1, %46 ]
   %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.2.sink, i32 noundef %20, i32 noundef %36, double noundef %2) #5
-  %54 = getelementptr inbounds i8, ptr %33, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %33, i64 2
   br label %236
 
 55:                                               ; preds = %45
@@ -324,7 +324,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
 61:                                               ; preds = %55, %56, %58, %60, %59, %57
   %.str.8.sink = phi ptr [ @.str.8, %56 ], [ @.str.10, %58 ], [ @.str.12, %60 ], [ @.str.11, %59 ], [ @.str.9, %57 ], [ @.str.7, %55 ]
   %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.8.sink, i32 noundef %20, i32 noundef %36, double noundef %2) #5
-  %63 = getelementptr inbounds i8, ptr %33, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %33, i64 2
   br label %236
 
 64:                                               ; preds = %44
@@ -358,7 +358,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
 71:                                               ; preds = %65, %66, %68, %70, %69, %67
   %.str.14.sink = phi ptr [ @.str.14, %66 ], [ @.str.16, %68 ], [ @.str.18, %70 ], [ @.str.17, %69 ], [ @.str.15, %67 ], [ @.str.13, %65 ]
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.14.sink, i32 noundef %20, i32 noundef %36, double noundef %2) #5
-  %73 = getelementptr inbounds i8, ptr %33, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %33, i64 2
   br label %236
 
 74:                                               ; preds = %64
@@ -389,7 +389,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
 80:                                               ; preds = %74, %75, %77, %79, %78, %76
   %.str.20.sink = phi ptr [ @.str.20, %75 ], [ @.str.22, %77 ], [ @.str.24, %79 ], [ @.str.23, %78 ], [ @.str.21, %76 ], [ @.str.19, %74 ]
   %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.20.sink, i32 noundef %20, i32 noundef %36, double noundef %2) #5
-  %82 = getelementptr inbounds i8, ptr %33, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %33, i64 2
   br label %236
 
 83:                                               ; preds = %28
@@ -426,7 +426,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
 91:                                               ; preds = %85, %86, %88, %90, %89, %87
   %.str.26.sink = phi ptr [ @.str.26, %86 ], [ @.str.28, %88 ], [ @.str.30, %90 ], [ @.str.29, %89 ], [ @.str.27, %87 ], [ @.str.25, %85 ]
   %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.26.sink, i32 noundef %20, double noundef %2) #5
-  %93 = getelementptr inbounds i8, ptr %17, i64 3
+  %93 = getelementptr inbounds nuw i8, ptr %17, i64 3
   br label %236
 
 94:                                               ; preds = %84
@@ -457,7 +457,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
 100:                                              ; preds = %94, %95, %97, %99, %98, %96
   %.str.32.sink = phi ptr [ @.str.32, %95 ], [ @.str.34, %97 ], [ @.str.36, %99 ], [ @.str.35, %98 ], [ @.str.33, %96 ], [ @.str.31, %94 ]
   %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.32.sink, i32 noundef %20, double noundef %2) #5
-  %102 = getelementptr inbounds i8, ptr %17, i64 3
+  %102 = getelementptr inbounds nuw i8, ptr %17, i64 3
   br label %236
 
 103:                                              ; preds = %83
@@ -491,7 +491,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
 110:                                              ; preds = %104, %105, %107, %109, %108, %106
   %.str.38.sink = phi ptr [ @.str.38, %105 ], [ @.str.40, %107 ], [ @.str.42, %109 ], [ @.str.41, %108 ], [ @.str.39, %106 ], [ @.str.37, %104 ]
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.38.sink, i32 noundef %20, double noundef %2) #5
-  %112 = getelementptr inbounds i8, ptr %17, i64 3
+  %112 = getelementptr inbounds nuw i8, ptr %17, i64 3
   br label %236
 
 113:                                              ; preds = %103
@@ -522,7 +522,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
 119:                                              ; preds = %113, %114, %116, %118, %117, %115
   %.str.44.sink = phi ptr [ @.str.44, %114 ], [ @.str.46, %116 ], [ @.str.48, %118 ], [ @.str.47, %117 ], [ @.str.45, %115 ], [ @.str.43, %113 ]
   %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.44.sink, i32 noundef %20, double noundef %2) #5
-  %121 = getelementptr inbounds i8, ptr %17, i64 3
+  %121 = getelementptr inbounds nuw i8, ptr %17, i64 3
   br label %236
 
 122:                                              ; preds = %27
@@ -559,7 +559,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
 130:                                              ; preds = %124, %125, %127, %129, %128, %126
   %.str.50.sink = phi ptr [ @.str.50, %125 ], [ @.str.52, %127 ], [ @.str.54, %129 ], [ @.str.53, %128 ], [ @.str.51, %126 ], [ @.str.49, %124 ]
   %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.50.sink, i32 noundef %20, double noundef %2) #5
-  %132 = getelementptr inbounds i8, ptr %17, i64 2
+  %132 = getelementptr inbounds nuw i8, ptr %17, i64 2
   br label %236
 
 133:                                              ; preds = %123
@@ -590,7 +590,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
 139:                                              ; preds = %133, %134, %136, %138, %137, %135
   %.str.56.sink = phi ptr [ @.str.56, %134 ], [ @.str.58, %136 ], [ @.str.60, %138 ], [ @.str.59, %137 ], [ @.str.57, %135 ], [ @.str.55, %133 ]
   %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.56.sink, i32 noundef %20, double noundef %2) #5
-  %141 = getelementptr inbounds i8, ptr %17, i64 2
+  %141 = getelementptr inbounds nuw i8, ptr %17, i64 2
   br label %236
 
 142:                                              ; preds = %122
@@ -624,7 +624,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
 149:                                              ; preds = %143, %144, %146, %148, %147, %145
   %.str.62.sink = phi ptr [ @.str.62, %144 ], [ @.str.64, %146 ], [ @.str.66, %148 ], [ @.str.65, %147 ], [ @.str.63, %145 ], [ @.str.61, %143 ]
   %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.62.sink, i32 noundef %20, double noundef %2) #5
-  %151 = getelementptr inbounds i8, ptr %17, i64 2
+  %151 = getelementptr inbounds nuw i8, ptr %17, i64 2
   br label %236
 
 152:                                              ; preds = %142
@@ -655,7 +655,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
 158:                                              ; preds = %152, %153, %155, %157, %156, %154
   %.str.68.sink = phi ptr [ @.str.68, %153 ], [ @.str.70, %155 ], [ @.str.72, %157 ], [ @.str.71, %156 ], [ @.str.69, %154 ], [ @.str.67, %152 ]
   %159 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.68.sink, i32 noundef %20, double noundef %2) #5
-  %160 = getelementptr inbounds i8, ptr %17, i64 2
+  %160 = getelementptr inbounds nuw i8, ptr %17, i64 2
   br label %236
 
 161:                                              ; preds = %11
@@ -663,7 +663,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
   br i1 %162, label %163, label %217
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %.0, i64 1
+  %164 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %165 = load i8, ptr %164, align 1
   %166 = add i8 %165, -48
   %or.cond380 = icmp ult i8 %166, 10
@@ -681,7 +681,7 @@ _ZL8parseIntRPKc.exit388:                         ; preds = %38
   br i1 %172, label %.sink.split, label %173
 
 173:                                              ; preds = %.lr.ph.i392
-  %174 = getelementptr inbounds i8, ptr %168, i64 1
+  %174 = getelementptr inbounds nuw i8, ptr %168, i64 1
   %175 = load i8, ptr %174, align 1
   %176 = add i8 %175, -48
   %or.cond.i395 = icmp ult i8 %176, 10
@@ -724,7 +724,7 @@ _ZL8parseIntRPKc.exit396:                         ; preds = %173
 186:                                              ; preds = %180, %181, %183, %185, %184, %182
   %.str.74.sink = phi ptr [ @.str.74, %181 ], [ @.str.76, %183 ], [ @.str.78, %185 ], [ @.str.77, %184 ], [ @.str.75, %182 ], [ @.str.73, %180 ]
   %187 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.74.sink, i32 noundef %171, double noundef %2) #5
-  %188 = getelementptr inbounds i8, ptr %168, i64 2
+  %188 = getelementptr inbounds nuw i8, ptr %168, i64 2
   br label %236
 
 189:                                              ; preds = %179
@@ -755,7 +755,7 @@ _ZL8parseIntRPKc.exit396:                         ; preds = %173
 195:                                              ; preds = %189, %190, %192, %194, %193, %191
   %.str.80.sink = phi ptr [ @.str.80, %190 ], [ @.str.82, %192 ], [ @.str.84, %194 ], [ @.str.83, %193 ], [ @.str.81, %191 ], [ @.str.79, %189 ]
   %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.80.sink, i32 noundef %171, double noundef %2) #5
-  %197 = getelementptr inbounds i8, ptr %168, i64 2
+  %197 = getelementptr inbounds nuw i8, ptr %168, i64 2
   br label %236
 
 198:                                              ; preds = %163
@@ -789,7 +789,7 @@ _ZL8parseIntRPKc.exit396:                         ; preds = %173
 205:                                              ; preds = %199, %200, %202, %204, %203, %201
   %.str.86.sink = phi ptr [ @.str.86, %200 ], [ @.str.88, %202 ], [ @.str.90, %204 ], [ @.str.89, %203 ], [ @.str.87, %201 ], [ @.str.85, %199 ]
   %206 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.86.sink, double noundef %2) #5
-  %207 = getelementptr inbounds i8, ptr %.0, i64 2
+  %207 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   br label %236
 
 208:                                              ; preds = %198
@@ -820,7 +820,7 @@ _ZL8parseIntRPKc.exit396:                         ; preds = %173
 214:                                              ; preds = %208, %209, %211, %213, %212, %210
   %.str.92.sink = phi ptr [ @.str.92, %209 ], [ @.str.94, %211 ], [ @.str.96, %213 ], [ @.str.95, %212 ], [ @.str.93, %210 ], [ @.str.91, %208 ]
   %215 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.92.sink, double noundef %2) #5
-  %216 = getelementptr inbounds i8, ptr %.0, i64 2
+  %216 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   br label %236
 
 217:                                              ; preds = %161
@@ -854,7 +854,7 @@ _ZL8parseIntRPKc.exit396:                         ; preds = %173
 224:                                              ; preds = %218, %219, %221, %223, %222, %220
   %.str.98.sink = phi ptr [ @.str.98, %219 ], [ @.str.100, %221 ], [ @.str.102, %223 ], [ @.str.101, %222 ], [ @.str.99, %220 ], [ @.str.97, %218 ]
   %225 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.98.sink, double noundef %2) #5
-  %226 = getelementptr inbounds i8, ptr %.0, i64 1
+  %226 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %236
 
 227:                                              ; preds = %217
@@ -885,7 +885,7 @@ _ZL8parseIntRPKc.exit396:                         ; preds = %173
 233:                                              ; preds = %227, %228, %230, %232, %231, %229
   %.str.104.sink = phi ptr [ @.str.104, %228 ], [ @.str.106, %230 ], [ @.str.108, %232 ], [ @.str.107, %231 ], [ @.str.105, %229 ], [ @.str.103, %227 ]
   %234 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %.str.104.sink, double noundef %2) #5
-  %235 = getelementptr inbounds i8, ptr %.0, i64 1
+  %235 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %236
 
 236:                                              ; preds = %214, %205, %195, %186, %224, %233, %91, %100, %110, %119, %52, %61, %71, %80, %158, %149, %139, %130

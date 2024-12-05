@@ -24,11 +24,11 @@ define internal void @mca_rcache_base_vma_module_construct(ptr noundef initializ
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1400
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   store ptr @opal_recursive_mutex_t_class, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1408
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_recursive_mutex_t_class, i64 40), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_recursive_mutex_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -37,7 +37,7 @@ define internal void @mca_rcache_base_vma_module_construct(ptr noundef initializ
   %10 = phi ptr [ %12, %.lr.ph.i ], [ %9, %5 ]
   %.07.i = phi ptr [ %11, %.lr.ph.i ], [ %8, %5 ]
   tail call void %10(ptr noundef nonnull %6) #3
-  %11 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -49,9 +49,9 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @mca_rcache_base_vma_module_destruct(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1400
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
@@ -61,7 +61,7 @@ define internal void @mca_rcache_base_vma_module_destruct(ptr noundef %0) #0 {
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %1 ]
   %.07.i = phi ptr [ %8, %.lr.ph.i ], [ %5, %1 ]
   tail call void %7(ptr noundef nonnull %2) #3
-  %8 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
@@ -90,9 +90,9 @@ define noundef ptr @mca_rcache_base_vma_module_alloc() local_unnamed_addr #0 {
 
 7:                                                ; preds = %6
   store ptr @mca_rcache_base_vma_module_t_class, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store volatile i32 1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_rcache_base_vma_module_t_class, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_rcache_base_vma_module_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i.i = icmp eq ptr %10, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -101,7 +101,7 @@ define noundef ptr @mca_rcache_base_vma_module_alloc() local_unnamed_addr #0 {
   %11 = phi ptr [ %13, %.lr.ph.i.i ], [ %10, %7 ]
   %.07.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %9, %7 ]
   tail call void %11(ptr noundef nonnull %2) #3
-  %12 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
@@ -153,9 +153,9 @@ declare i32 @mca_rcache_base_vma_tree_find_all(ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_rcache_base_vma_insert(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -173,7 +173,7 @@ define i32 @mca_rcache_base_vma_insert(ptr noundef %0, ptr noundef %1, i64 nound
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @opal_memory, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 288
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 288
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %6, align 8
   %21 = ptrtoint ptr %1 to i64
@@ -190,11 +190,11 @@ declare i32 @mca_rcache_base_vma_tree_insert(ptr noundef, ptr noundef, i64 nound
 ; Function Attrs: nounwind uwtable
 define i32 @mca_rcache_base_vma_delete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @opal_memory, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 296
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %7 to i64

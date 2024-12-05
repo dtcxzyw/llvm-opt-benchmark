@@ -16,7 +16,7 @@ define dso_local range(i32 0, 2) i32 @cmd_get_tar_commit_id(i32 noundef %argc, p
 entry:
   %buffer = alloca [1024 x i8], align 16
   %end = alloca ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 512
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 512
   %tobool.not = icmp eq ptr %prefix, null
   br i1 %tobool.not, label %do.end, label %if.then
 
@@ -50,7 +50,7 @@ if.then9:                                         ; preds = %if.end7
   unreachable
 
 if.end10:                                         ; preds = %if.end7
-  %typeflag = getelementptr inbounds i8, ptr %buffer, i64 156
+  %typeflag = getelementptr inbounds nuw i8, ptr %buffer, i64 156
   %0 = load i8, ptr %typeflag, align 4
   %cmp11.not = icmp eq i8 %0, 103
   br i1 %cmp11.not, label %if.end14, label %return
@@ -76,13 +76,13 @@ if.end25:                                         ; preds = %lor.lhs.false
 do.body.i:                                        ; preds = %do.cond.i, %if.end25
   %str.addr.0.i = phi ptr [ %2, %if.end25 ], [ %incdec.ptr.i, %do.cond.i ]
   %prefix.addr.0.idx.i = phi i64 [ 0, %if.end25 ], [ %prefix.addr.0.add.i, %do.cond.i ]
-  %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.4, i64 %prefix.addr.0.idx.i
+  %prefix.addr.0.ptr.i = getelementptr inbounds nuw i8, ptr @.str.4, i64 %prefix.addr.0.idx.i
   %3 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 9
   br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i, i64 1
   %4 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %4, %3

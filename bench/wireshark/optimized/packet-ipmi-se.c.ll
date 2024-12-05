@@ -1844,13 +1844,13 @@ define internal void @rs13(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %.not.i, label %proto_item_set_generated.exit, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %39, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not5.i = icmp eq ptr %42, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %42, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = or i32 %45, 2
   store i32 %46, ptr %44, align 4
@@ -2316,7 +2316,7 @@ define internal void @rq2e(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
   br i1 %10, label %11, label %6
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %get_sensor_info.exit
 
 13:                                               ; preds = %6
@@ -2329,7 +2329,7 @@ get_sensor_info.exit:                             ; preds = %11, %13
   %15 = load i32, ptr @hf_ipmi_se_2e_sensor, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
   %17 = load i32, ptr @hf_ipmi_se_2e_stype, align 4
-  %18 = getelementptr inbounds i8, ptr %.08.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %5, ptr noundef nonnull @.str.755, ptr noundef %19, i32 noundef %5) #2
   %21 = load i32, ptr @hf_ipmi_se_2e_evtype, align 4
@@ -2363,7 +2363,7 @@ define internal void @rs2f(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
   br i1 %10, label %11, label %6
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %get_sensor_info.exit
 
 13:                                               ; preds = %6
@@ -2374,7 +2374,7 @@ define internal void @rs2f(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 get_sensor_info.exit:                             ; preds = %11, %13
   %.08.i = phi ptr [ %12, %11 ], [ %get_sensor_info.si_oem.get_sensor_info.si_rsrv.i, %13 ]
   %15 = load i32, ptr @hf_ipmi_se_2f_stype, align 4
-  %16 = getelementptr inbounds i8, ptr %.08.i, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %5, ptr noundef nonnull @.str.755, ptr noundef %17, i32 noundef %5) #2
   %19 = load i32, ptr @hf_ipmi_se_2f_evtype, align 4
@@ -2405,7 +2405,7 @@ define internal fastcc void @parse_platform_event(ptr noundef %0, ptr noundef %1
   br i1 %9, label %10, label %5
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %get_sensor_info.exit
 
 12:                                               ; preds = %5
@@ -2433,7 +2433,7 @@ get_sensor_info.exit:                             ; preds = %10, %12
   br i1 %21, label %22, label %17
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %get_evtype_info.exit
 
 24:                                               ; preds = %17
@@ -2447,7 +2447,7 @@ get_evtype_info.exit:                             ; preds = %22, %24
   %26 = load i32, ptr @hf_ipmi_se_evt_rev, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
   %28 = load i32, ptr @hf_ipmi_se_evt_sensor_type, align 4
-  %29 = getelementptr inbounds i8, ptr %.08.i, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %4, ptr noundef nonnull @.str.755, ptr noundef %30, i32 noundef %4) #2
   %32 = load i32, ptr @hf_ipmi_se_evt_sensor_num, align 4
@@ -2465,7 +2465,7 @@ get_evtype_info.exit:                             ; preds = %22, %24
   %44 = lshr i32 %43, 6
   %45 = lshr i32 %43, 4
   %46 = and i32 %45, 3
-  %47 = getelementptr inbounds i8, ptr %.08.i113, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.08.i113, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %49, label %51
@@ -2487,7 +2487,7 @@ get_evtype_info.exit:                             ; preds = %22, %24
   %59 = tail call ptr @val_to_str_const(i32 noundef %44, ptr noundef %58, ptr noundef nonnull @.str.507) #2
   %60 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %56, i32 noundef %57, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %43, ptr noundef nonnull @.str.755, ptr noundef %59, i32 noundef %44) #2
   %61 = load i32, ptr @hf_ipmi_se_evt_data1_b3, align 4
-  %62 = getelementptr inbounds i8, ptr %.08.i113, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.08.i113, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = tail call ptr @val_to_str_const(i32 noundef %46, ptr noundef %63, ptr noundef nonnull @.str.507) #2
   %65 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %56, i32 noundef %61, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %43, ptr noundef nonnull @.str.755, ptr noundef %64, i32 noundef %46) #2
@@ -2505,7 +2505,7 @@ get_evtype_info.exit:                             ; preds = %22, %24
   %73 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 5, i32 noundef 1) #2
   %74 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %73, i32 noundef 0) #2
   %75 = zext i8 %74 to i32
-  %76 = getelementptr inbounds i8, ptr %.08.i113, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.08.i113, i64 24
   %77 = load ptr, ptr %76, align 8
   %.not102 = icmp eq ptr %77, null
   br i1 %.not102, label %80, label %78
@@ -2516,7 +2516,7 @@ get_evtype_info.exit:                             ; preds = %22, %24
   br i1 %.not103, label %80, label %85
 
 80:                                               ; preds = %78, %72
-  %81 = getelementptr inbounds i8, ptr %.08.i, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not104 = icmp eq ptr %82, null
   br i1 %.not104, label %95, label %83
@@ -2533,13 +2533,13 @@ get_evtype_info.exit:                             ; preds = %22, %24
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %87, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %90 = load ptr, ptr %89, align 8
   %.not5.i = icmp eq ptr %90, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %91
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %90, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 28
   %93 = load i32, ptr %92, align 4
   %94 = or i32 %93, 1
   store i32 %94, ptr %92, align 4
@@ -2559,7 +2559,7 @@ proto_item_set_hidden.exit:                       ; preds = %91, %88, %85, %95
   %101 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 6, i32 noundef 1) #2
   %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %101, i32 noundef 0) #2
   %103 = zext i8 %102 to i32
-  %104 = getelementptr inbounds i8, ptr %.08.i113, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %.08.i113, i64 32
   %105 = load ptr, ptr %104, align 8
   %.not106 = icmp eq ptr %105, null
   br i1 %.not106, label %108, label %106
@@ -2570,7 +2570,7 @@ proto_item_set_hidden.exit:                       ; preds = %91, %88, %85, %95
   br i1 %.not107, label %108, label %113
 
 108:                                              ; preds = %106, %100
-  %109 = getelementptr inbounds i8, ptr %.08.i, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
   %110 = load ptr, ptr %109, align 8
   %.not108 = icmp eq ptr %110, null
   br i1 %.not108, label %123, label %111
@@ -2587,13 +2587,13 @@ proto_item_set_hidden.exit:                       ; preds = %91, %88, %85, %95
   br i1 %.not.i114, label %proto_item_set_hidden.exit116, label %116
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %115, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %118 = load ptr, ptr %117, align 8
   %.not5.i115 = icmp eq ptr %118, null
   br i1 %.not5.i115, label %proto_item_set_hidden.exit116, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %118, i64 28
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 28
   %121 = load i32, ptr %120, align 4
   %122 = or i32 %121, 1
   store i32 %122, ptr %120, align 4
@@ -2718,7 +2718,7 @@ define internal range(i32 0, 2) i32 @ssi_10_2(ptr noundef %0, ptr noundef %1, pt
   br i1 %14, label %15, label %11
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %get_evtype_info.exit
 
 17:                                               ; preds = %11
@@ -2756,7 +2756,7 @@ define internal range(i32 0, 2) i32 @ssi_10_3(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not, label %29, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not24 = icmp eq ptr %13, null
   %spec.select = select i1 %.not24, ptr @et_empty, ptr %13

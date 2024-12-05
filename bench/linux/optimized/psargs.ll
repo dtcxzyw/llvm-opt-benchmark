@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local ptr @acpi_ps_get_next_package_end(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
   %5 = lshr i8 %4, 6
@@ -60,7 +60,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local ptr @acpi_ps_get_next_namestring(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   br label %4
 
@@ -108,7 +108,7 @@ define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr nocapture no
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   store ptr null, ptr %5, align 8, !annotation !9
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -157,12 +157,12 @@ define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr nocapture no
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %.thread, %.loopexit
-  %26 = getelementptr inbounds i8, ptr %2, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr null, ptr %26, align 8
   br label %93
 
 27:                                               ; preds = %.loopexit
-  %28 = getelementptr inbounds i8, ptr %0, i64 1080
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 @acpi_ns_lookup(ptr noundef %29, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 3, i32 noundef 3, ptr noundef null, ptr noundef nonnull %5) #4
   %31 = icmp eq i32 %30, 0
@@ -172,22 +172,22 @@ define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr nocapture no
 
 34:                                               ; preds = %27
   %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 9
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 9
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 8
   br i1 %38, label %39, label %.thread8
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 30
   %43 = icmp eq i32 %42, 12
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %7, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 140
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 1, ptr %46, align 4
   call void @acpi_ps_init_op(ptr noundef %2, i16 noundef zeroext 53) #4
   %.pre = load ptr, ptr %5, align 8
@@ -202,10 +202,10 @@ define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr nocapture no
 
 52:                                               ; preds = %47
   call void @acpi_ps_init_op(ptr noundef %2, i16 noundef zeroext 53) #4
-  %53 = getelementptr inbounds i8, ptr %50, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 40
   store ptr %7, ptr %53, align 8
   %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds i8, ptr %50, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr %54, ptr %55, align 8
   call void @acpi_ps_append_arg(ptr noundef %2, ptr noundef nonnull %50) #4
   %56 = icmp eq ptr %49, null
@@ -217,10 +217,10 @@ define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr nocapture no
   br label %93
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %49, i64 14
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 14
   %61 = load i8, ptr %60, align 2
   %62 = zext i8 %61 to i32
-  %63 = getelementptr inbounds i8, ptr %0, i64 140
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %62, ptr %63, align 4
   br label %93
 
@@ -231,16 +231,16 @@ define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr nocapture no
   ]
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %0, i64 52
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 48
   %69 = icmp eq i32 %68, 48
   br i1 %69, label %70, label %.thread8
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %0, i64 1032
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 10
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 10
   %74 = load i16, ptr %73, align 2
   %75 = icmp eq i16 %74, 23314
   br i1 %75, label %.thread8, label %76
@@ -251,7 +251,7 @@ define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr nocapture no
   br i1 %78, label %.thread10, label %79
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %77, i64 10
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 10
   %81 = load i16, ptr %80, align 2
   %82 = and i16 %81, -2
   %83 = icmp eq i16 %82, 18
@@ -260,7 +260,7 @@ define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr nocapture no
 .thread10:                                        ; preds = %64, %79, %76
   %84 = load ptr, ptr %28, align 8
   call void @acpi_ut_prefixed_namespace_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 330, ptr noundef %84, ptr noundef nonnull %7, i32 noundef %30) #4
-  %85 = getelementptr inbounds i8, ptr %0, i64 52
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 48
   %88 = icmp eq i32 %87, 48
@@ -272,7 +272,7 @@ define dso_local i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr nocapture no
 
 .thread8:                                         ; preds = %64, %79, %34, %70, %65, %89, %.thread10
   %91 = phi i32 [ %90, %89 ], [ %30, %.thread10 ], [ 0, %65 ], [ 0, %70 ], [ 0, %34 ], [ 0, %79 ], [ %30, %64 ]
-  %92 = getelementptr inbounds i8, ptr %2, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %7, ptr %92, align 8
   br label %93
 
@@ -308,7 +308,7 @@ declare dso_local i32 @acpi_ds_method_error(i32 noundef, ptr noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_ps_get_next_simple_arg(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   switch i32 %1, label %52 [
     i32 1, label %6
@@ -323,32 +323,32 @@ define dso_local void @acpi_ps_get_next_simple_arg(ptr nocapture noundef %0, i32
 6:                                                ; preds = %3
   %7 = load i8, ptr %5, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %8, ptr %9, align 8
   br label %53
 
 10:                                               ; preds = %3
   %11 = load i16, ptr %5, align 2
   %12 = zext i16 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %12, ptr %13, align 8
   br label %53
 
 14:                                               ; preds = %3
   %15 = load i32, ptr %5, align 4
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %16, ptr %17, align 8
   br label %53
 
 18:                                               ; preds = %3
   %19 = load i64, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %19, ptr %20, align 8
   br label %53
 
 21:                                               ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %2, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %5, ptr %22, align 8
   br label %23
 
@@ -406,7 +406,7 @@ define dso_local void @acpi_ps_get_next_simple_arg(ptr nocapture noundef %0, i32
   %49 = phi ptr [ %41, %39 ], [ %33, %42 ], [ %33, %.loopexit.loopexit ], [ %33, %34 ]
   %50 = getelementptr i8, ptr %35, i64 %48
   store ptr %50, ptr %4, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %49, ptr %51, align 8
   br label %58
 
@@ -451,7 +451,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   ]
 
 5:                                                ; preds = %4, %4, %4, %4, %4, %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @acpi_ps_alloc_op(i16 noundef zeroext 10, ptr noundef %7) #4
   %9 = icmp eq ptr %8, null
@@ -462,7 +462,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   br label %323
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr %13, align 1
   %15 = lshr i8 %14, 6
@@ -501,14 +501,14 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   %40 = or i32 %39, %35
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr i8, ptr %13, i64 %41
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %42, ptr %43, align 8
   br label %323
 
 44:                                               ; preds = %4
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = icmp ult ptr %46, %48
   br i1 %49, label %.preheader, label %323
@@ -599,7 +599,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   %96 = zext i8 %95 to i32
   %97 = and i32 %94, %96
   %98 = or i32 %97, %93
-  %99 = getelementptr inbounds i8, ptr %64, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %64, i64 40
   store i32 %98, ptr %99, align 8
   br label %.thread17
 
@@ -640,7 +640,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   %126 = zext i8 %125 to i32
   %127 = and i32 %124, %126
   %128 = or i32 %127, %123
-  %129 = getelementptr inbounds i8, ptr %64, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %64, i64 40
   store i32 %128, ptr %129, align 8
   br label %.thread17
 
@@ -653,7 +653,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   %135 = getelementptr i8, ptr %131, i64 2
   store ptr %135, ptr %45, align 8
   %136 = zext i8 %132 to i64
-  %137 = getelementptr inbounds i8, ptr %64, i64 40
+  %137 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %138 = zext i8 %134 to i64
   %139 = shl nuw nsw i64 %138, 8
   %140 = or disjoint i64 %139, %136
@@ -764,10 +764,10 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
 
 205:                                              ; preds = %201, %189
   %206 = phi i32 [ 0, %189 ], [ %203, %201 ]
-  %207 = getelementptr inbounds i8, ptr %186, i64 40
+  %207 = getelementptr inbounds nuw i8, ptr %186, i64 40
   store i32 %206, ptr %207, align 8
   %208 = load ptr, ptr %45, align 8
-  %209 = getelementptr inbounds i8, ptr %186, i64 64
+  %209 = getelementptr inbounds nuw i8, ptr %186, i64 64
   store ptr %208, ptr %209, align 8
   br label %210
 
@@ -825,7 +825,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   %233 = phi ptr [ %217, %226 ], [ %225, %223 ], [ %217, %.loopexit21.loopexit ], [ %217, %218 ]
   %234 = getelementptr i8, ptr %219, i64 %232
   store ptr %234, ptr %45, align 8
-  %235 = getelementptr inbounds i8, ptr %213, i64 40
+  %235 = getelementptr inbounds nuw i8, ptr %213, i64 40
   store ptr %233, ptr %235, align 8
   br label %236
 
@@ -839,7 +839,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %238, label %241, label %239
 
 239:                                              ; preds = %.thread17
-  %240 = getelementptr inbounds i8, ptr %51, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store ptr %64, ptr %240, align 8
   br label %241
 
@@ -855,9 +855,9 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   br label %323
 
 247:                                              ; preds = %4
-  %248 = getelementptr inbounds i8, ptr %1, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %1, i64 32
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %251 = load ptr, ptr %250, align 8
   %252 = icmp ult ptr %249, %251
   br i1 %252, label %253, label %323
@@ -874,10 +874,10 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   %260 = ptrtoint ptr %259 to i64
   %261 = sub i64 %258, %260
   %262 = trunc i64 %261 to i32
-  %263 = getelementptr inbounds i8, ptr %254, i64 40
+  %263 = getelementptr inbounds nuw i8, ptr %254, i64 40
   store i32 %262, ptr %263, align 8
   %264 = load ptr, ptr %248, align 8
-  %265 = getelementptr inbounds i8, ptr %254, i64 64
+  %265 = getelementptr inbounds nuw i8, ptr %254, i64 64
   store ptr %264, ptr %265, align 8
   %266 = load ptr, ptr %250, align 8
   store ptr %266, ptr %248, align 8
@@ -898,7 +898,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %276, label %277, label %284
 
 277:                                              ; preds = %270, %267
-  %278 = getelementptr inbounds i8, ptr %1, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %279 = load ptr, ptr %278, align 8
   %280 = tail call ptr @acpi_ps_alloc_op(i16 noundef zeroext 45, ptr noundef %279) #4
   %281 = icmp eq ptr %280, null
@@ -909,7 +909,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   br label %323
 
 284:                                              ; preds = %270
-  %285 = getelementptr inbounds i8, ptr %0, i64 140
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 1, ptr %285, align 4
   br label %323
 
@@ -928,7 +928,7 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %295, label %296, label %310
 
 296:                                              ; preds = %289, %286
-  %297 = getelementptr inbounds i8, ptr %1, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %298 = load ptr, ptr %297, align 8
   %299 = tail call ptr @acpi_ps_alloc_op(i16 noundef zeroext 45, ptr noundef %298) #4
   %300 = icmp eq ptr %299, null
@@ -936,40 +936,40 @@ define dso_local i32 @acpi_ps_get_next_arg(ptr noundef %0, ptr noundef %1, i32 n
 
 301:                                              ; preds = %296
   %302 = tail call i32 @acpi_ps_get_next_namepath(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %299, i8 noundef zeroext 1)
-  %303 = getelementptr inbounds i8, ptr %299, i64 10
+  %303 = getelementptr inbounds nuw i8, ptr %299, i64 10
   %304 = load i16, ptr %303, align 2
   %305 = icmp eq i16 %304, 53
   br i1 %305, label %306, label %323
 
 306:                                              ; preds = %301
-  %307 = getelementptr inbounds i8, ptr %299, i64 40
+  %307 = getelementptr inbounds nuw i8, ptr %299, i64 40
   %308 = load ptr, ptr %307, align 8
   tail call void @acpi_ps_free_op(ptr noundef %308) #4
   tail call void @acpi_ps_free_op(ptr noundef nonnull %299) #4
-  %309 = getelementptr inbounds i8, ptr %0, i64 140
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 1, ptr %309, align 4
   br label %323
 
 310:                                              ; preds = %289
-  %311 = getelementptr inbounds i8, ptr %0, i64 140
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 1, ptr %311, align 4
   br label %323
 
 312:                                              ; preds = %4, %4
-  %313 = getelementptr inbounds i8, ptr %0, i64 140
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 1, ptr %313, align 4
   br label %323
 
 314:                                              ; preds = %4, %4, %4
-  %315 = getelementptr inbounds i8, ptr %1, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %316 = load ptr, ptr %315, align 8
-  %317 = getelementptr inbounds i8, ptr %1, i64 32
+  %317 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %318 = load ptr, ptr %317, align 8
   %319 = icmp ult ptr %316, %318
   br i1 %319, label %320, label %323
 
 320:                                              ; preds = %314
-  %321 = getelementptr inbounds i8, ptr %0, i64 140
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 -1, ptr %321, align 4
   br label %323
 

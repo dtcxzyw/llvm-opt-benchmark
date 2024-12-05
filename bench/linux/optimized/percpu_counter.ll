@@ -51,7 +51,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @percpu_counter_set(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %5
 
 5:                                                ; preds = %2, %15
@@ -83,7 +83,7 @@ define dso_local void @percpu_counter_set(ptr noundef %0, i64 noundef %1) #0 ali
   br i1 %25, label %.thread, label %5, !prof !6, !llvm.loop !7
 
 .thread:                                          ; preds = %5, %15, %11
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %26, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %3) #7
   ret void
@@ -110,7 +110,7 @@ define dso_local void @percpu_counter_add_batch(ptr noundef %0, i64 noundef %1, 
   %5 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #8, !srcloc !13
   %9 = sext i32 %8 to i64
@@ -122,7 +122,7 @@ define dso_local void @percpu_counter_add_batch(ptr noundef %0, i64 noundef %1, 
 
 14:                                               ; preds = %3
   call void @_raw_spin_lock(ptr noundef %0) #7
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %10
   store i64 %17, ptr %15, align 8
@@ -159,11 +159,11 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 sect
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @percpu_counter_sync(ptr noundef %0) #0 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #8, !srcloc !17
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %6
   store i64 %9, ptr %7, align 8
@@ -176,12 +176,12 @@ define dso_local void @percpu_counter_sync(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @__percpu_counter_sum(ptr noundef %0) #0 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr @__cpu_online_mask, align 8
   %6 = load i64, ptr @__cpu_dying_mask, align 8
   %7 = or i64 %6, %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %9
 
 9:                                                ; preds = %1, %19
@@ -237,7 +237,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr n
   br label %.loopexit
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %14, align 8
   br label %36
 
@@ -245,15 +245,15 @@ define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr n
   %15 = phi i64 [ %23, %.preheader ], [ 0, %10 ]
   %16 = getelementptr %struct.percpu_counter, ptr %0, i64 %15
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store volatile ptr %17, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store volatile ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %1, ptr %19, align 8
   %20 = shl nuw nsw i64 %15, 2
   %21 = getelementptr i8, ptr %8, i64 %20
-  %22 = getelementptr inbounds i8, ptr %16, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %21, ptr %22, align 8
   %23 = add nuw nsw i64 %15, 1
   %24 = icmp eq i64 %23, %6
@@ -268,10 +268,10 @@ define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr n
   %28 = phi ptr [ %30, %27 ], [ %.pre, %25 ]
   %29 = phi i64 [ %33, %27 ], [ 0, %25 ]
   %30 = getelementptr %struct.percpu_counter, ptr %0, i64 %29, i32 2
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %30, ptr %31, align 8
   store ptr %28, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr @percpu_counters, ptr %32, align 8
   store volatile ptr %30, ptr @percpu_counters, align 8
   %33 = add nuw nsw i64 %29, 1
@@ -303,7 +303,7 @@ define dso_local void @percpu_counter_destroy_many(ptr noundef %0, i32 noundef %
   br label %.loopexit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
@@ -320,10 +320,10 @@ define dso_local void @percpu_counter_destroy_many(ptr noundef %0, i32 noundef %
 14:                                               ; preds = %14, %12
   %15 = phi i64 [ 0, %12 ], [ %21, %14 ]
   %16 = getelementptr %struct.percpu_counter, ptr %0, i64 %15, i32 2
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %18, ptr %20, align 8
   store volatile ptr %19, ptr %18, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %16, align 8
@@ -361,7 +361,7 @@ declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -1, 2) i32 @__percpu_counter_compare(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %5, %1
   %7 = tail call i64 @llvm.abs.i64(i64 %6, i1 false)
@@ -382,7 +382,7 @@ define dso_local range(i32 -1, 2) i32 @__percpu_counter_compare(ptr noundef %0, 
   %18 = load i64, ptr @__cpu_online_mask, align 8
   %19 = load i64, ptr @__cpu_dying_mask, align 8
   %20 = or i64 %19, %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %22
 
 22:                                               ; preds = %15, %32
@@ -447,7 +447,7 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
   %9 = load volatile i32, ptr @__num_online_cpus, align 4
   %10 = mul i32 %9, %3
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #8, !srcloc !28
   %15 = sext i32 %14 to i64
@@ -459,7 +459,7 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
 
 20:                                               ; preds = %7
   %21 = icmp sgt i64 %2, 0
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
   br i1 %21, label %24, label %27
 
@@ -486,7 +486,7 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
 
 35:                                               ; preds = %24, %27, %7
   call void @_raw_spin_lock(ptr noundef %0) #7
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, %2
   %39 = icmp sgt i64 %2, 0

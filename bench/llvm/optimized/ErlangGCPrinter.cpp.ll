@@ -108,7 +108,7 @@ define internal void @_ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm
   %23 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %19, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %24 = load ptr, ptr %14, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 168
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 168
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(288) %14, ptr noundef %23, i32 noundef 0) #11
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -169,7 +169,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   store ptr @.str.3, ptr %7, align 8
   store i8 3, ptr %33, align 8
   %62 = load ptr, ptr %14, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 120
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 120
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(288) %14, ptr noundef nonnull align 8 dereferenceable(34) %7, i1 noundef zeroext true) #11
   %65 = getelementptr inbounds nuw i8, ptr %48, i64 48
@@ -193,12 +193,12 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   store ptr @.str.4, ptr %8, align 8
   store i8 3, ptr %35, align 8
   %76 = load ptr, ptr %14, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 120
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 120
   %78 = load ptr, ptr %77, align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(288) %14, ptr noundef nonnull align 8 dereferenceable(34) %8, i1 noundef zeroext true) #11
   %79 = load ptr, ptr %.sroa.045.058, align 8
   call void @_ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb(ptr noundef nonnull align 8 dereferenceable(785) %3, ptr noundef %79, i64 noundef 0, i32 noundef 4, i1 noundef zeroext false) #11
-  %80 = getelementptr inbounds i8, ptr %.sroa.045.058, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.045.058, i64 16
   %.not55 = icmp eq ptr %80, %75
   br i1 %.not55, label %._crit_edge, label %.lr.ph
 
@@ -207,7 +207,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   store ptr @.str.5, ptr %9, align 8
   store i8 3, ptr %37, align 8
   %81 = load ptr, ptr %14, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 120
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 120
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(288) %14, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext true) #11
   %84 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -226,7 +226,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   store ptr @.str.6, ptr %10, align 8
   store i8 3, ptr %41, align 8
   %95 = load ptr, ptr %14, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 120
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 120
   %97 = load ptr, ptr %96, align 8
   call void %97(ptr noundef nonnull align 8 dereferenceable(288) %14, ptr noundef nonnull align 8 dereferenceable(34) %10, i1 noundef zeroext true) #11
   call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(785) %3, i32 noundef %94) #11
@@ -234,7 +234,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   store ptr @.str.7, ptr %11, align 8
   store i8 3, ptr %43, align 8
   %98 = load ptr, ptr %14, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 120
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 120
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull align 8 dereferenceable(288) %14, ptr noundef nonnull align 8 dereferenceable(34) %11, i1 noundef zeroext true) #11
   %101 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -258,19 +258,19 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   store ptr @.str.8, ptr %12, align 8
   store i8 3, ptr %45, align 8
   %112 = load ptr, ptr %14, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 120
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 120
   %114 = load ptr, ptr %113, align 8
   call void %114(ptr noundef nonnull align 8 dereferenceable(288) %14, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext true) #11
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.040.060, i64 4
   %116 = load i32, ptr %115, align 4
   %117 = udiv i32 %116, %16
   call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(785) %3, i32 noundef %117) #11
-  %118 = getelementptr inbounds i8, ptr %.sroa.040.060, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.040.060, i64 16
   %.not56 = icmp eq ptr %118, %111
   br i1 %.not56, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %.lr.ph62, !llvm.loop !7
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %.lr.ph62, %._crit_edge, %47, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %119 = getelementptr inbounds i8, ptr %.sroa.050.064, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.050.064, i64 8
   %.not = icmp eq ptr %119, %30
   br i1 %.not, label %._crit_edge67, label %47, !llvm.loop !9
 
@@ -310,9 +310,9 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_ErlangGCPrinter.cpp() #7 section ".text.startup" {
   store ptr @.str, ptr @_ZL1X, align 8
-  store i64 6, ptr getelementptr inbounds (i8, ptr @_ZL1X, i64 8), align 8
+  store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 8), align 8
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 16), align 8
-  store i64 35, ptr getelementptr inbounds (i8, ptr @_ZL1X, i64 24), align 8
+  store i64 35, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 24), align 8
   store ptr @_ZN4llvm8RegistryINS_17GCMetadataPrinterEE3AddIN12_GLOBAL__N_115ErlangGCPrinterEE6CtorFnEv, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 32), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 40), align 8
   store ptr @_ZL1X, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 48), align 8

@@ -34,30 +34,30 @@ define noundef i32 @daxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 
 .preheader11:                                     ; preds = %19, %.preheader11
   %27 = phi i64 [ %51, %.preheader11 ], [ 0, %19 ]
-  %28 = getelementptr inbounds double, ptr %6, i64 %27
+  %28 = getelementptr inbounds nuw double, ptr %6, i64 %27
   %29 = load <8 x double>, ptr %28, align 1, !tbaa !3
-  %30 = getelementptr inbounds double, ptr %4, i64 %27
+  %30 = getelementptr inbounds nuw double, ptr %4, i64 %27
   %31 = load <8 x double>, ptr %30, align 1, !tbaa !3
   %32 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %22, <8 x double> %31, <8 x double> %29)
   store <8 x double> %32, ptr %28, align 1, !tbaa !3
   %33 = or disjoint i64 %27, 8
-  %34 = getelementptr inbounds double, ptr %6, i64 %33
+  %34 = getelementptr inbounds nuw double, ptr %6, i64 %33
   %35 = load <8 x double>, ptr %34, align 1, !tbaa !3
-  %36 = getelementptr inbounds double, ptr %4, i64 %33
+  %36 = getelementptr inbounds nuw double, ptr %4, i64 %33
   %37 = load <8 x double>, ptr %36, align 1, !tbaa !3
   %38 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %22, <8 x double> %37, <8 x double> %35)
   store <8 x double> %38, ptr %34, align 1, !tbaa !3
   %39 = or disjoint i64 %27, 16
-  %40 = getelementptr inbounds double, ptr %6, i64 %39
+  %40 = getelementptr inbounds nuw double, ptr %6, i64 %39
   %41 = load <8 x double>, ptr %40, align 1, !tbaa !3
-  %42 = getelementptr inbounds double, ptr %4, i64 %39
+  %42 = getelementptr inbounds nuw double, ptr %4, i64 %39
   %43 = load <8 x double>, ptr %42, align 1, !tbaa !3
   %44 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %22, <8 x double> %43, <8 x double> %41)
   store <8 x double> %44, ptr %40, align 1, !tbaa !3
   %45 = or disjoint i64 %27, 24
-  %46 = getelementptr inbounds double, ptr %6, i64 %45
+  %46 = getelementptr inbounds nuw double, ptr %6, i64 %45
   %47 = load <8 x double>, ptr %46, align 1, !tbaa !3
-  %48 = getelementptr inbounds double, ptr %4, i64 %45
+  %48 = getelementptr inbounds nuw double, ptr %4, i64 %45
   %49 = load <8 x double>, ptr %48, align 1, !tbaa !3
   %50 = tail call <8 x double> @llvm.fmuladd.v8f64(<8 x double> %22, <8 x double> %49, <8 x double> %47)
   store <8 x double> %50, ptr %46, align 1, !tbaa !3
@@ -104,9 +104,9 @@ define noundef i32 @daxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 
 .preheader:                                       ; preds = %.loopexit10, %.preheader
   %80 = phi i64 [ %86, %.preheader ], [ %17, %.loopexit10 ]
-  %81 = getelementptr inbounds double, ptr %4, i64 %80
+  %81 = getelementptr inbounds nuw double, ptr %4, i64 %80
   %82 = load double, ptr %81, align 8, !tbaa !10
-  %83 = getelementptr inbounds double, ptr %6, i64 %80
+  %83 = getelementptr inbounds nuw double, ptr %6, i64 %80
   %84 = load double, ptr %83, align 8, !tbaa !10
   %85 = tail call double @llvm.fmuladd.f64(double %3, double %82, double %84)
   store double %85, ptr %83, align 8, !tbaa !10

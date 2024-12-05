@@ -32,14 +32,14 @@ define zeroext i1 @ompi_request_is_failed_fn(ptr noundef %0) local_unnamed_addr 
   br i1 %3, label %4, label %130
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
   %cond = icmp eq i32 %6, 0
   br i1 %cond, label %7, label %130
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 76
   br i1 %11, label %12, label %13
@@ -49,13 +49,13 @@ define zeroext i1 @ompi_request_is_failed_fn(ptr noundef %0) local_unnamed_addr 
   br label %13
 
 13:                                               ; preds = %7, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, inttoptr (i64 1 to ptr)
   br i1 %16, label %130, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 361
   %.val = load i8, ptr %20, align 1
@@ -63,7 +63,7 @@ define zeroext i1 @ompi_request_is_failed_fn(ptr noundef %0) local_unnamed_addr 
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 492
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, 26
   %26 = icmp ult i32 %25, -4
@@ -78,11 +78,11 @@ define zeroext i1 @ompi_request_is_failed_fn(ptr noundef %0) local_unnamed_addr 
 30:                                               ; preds = %27
   %31 = load i32, ptr @ompi_ftmpi_output_handle, align 4
   %32 = tail call ptr @ompi_pmix_print_name(ptr noundef nonnull @opal_process_info) #3
-  %33 = getelementptr inbounds i8, ptr %0, i64 488
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %34 = load i32, ptr %33, align 8
   %35 = load i32, ptr %23, align 4
   %36 = load ptr, ptr %18, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 160
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 160
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @ompi_comm_print_cid(ptr noundef %36) #3
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %31, ptr noundef nonnull @.str, ptr noundef %32, ptr noundef nonnull %0, i32 noundef %34, i32 noundef %35, ptr noundef %38, ptr noundef %39) #3
@@ -95,7 +95,7 @@ define zeroext i1 @ompi_request_is_failed_fn(ptr noundef %0) local_unnamed_addr 
   br i1 %41, label %42, label %.critedge63
 
 42:                                               ; preds = %.critedge
-  %43 = getelementptr inbounds i8, ptr %0, i64 492
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, 2147483647
   %or.cond.i = icmp ult i32 %45, 2147483641
@@ -113,7 +113,7 @@ define zeroext i1 @ompi_request_is_failed_fn(ptr noundef %0) local_unnamed_addr 
 52:                                               ; preds = %49
   %53 = load i32, ptr @ompi_ftmpi_output_handle, align 4
   %54 = tail call ptr @ompi_pmix_print_name(ptr noundef nonnull @opal_process_info) #3
-  %55 = getelementptr inbounds i8, ptr %0, i64 488
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %56 = load i32, ptr %55, align 8
   %57 = load i32, ptr %43, align 4
   %58 = load i32, ptr %8, align 8
@@ -121,22 +121,22 @@ define zeroext i1 @ompi_request_is_failed_fn(ptr noundef %0) local_unnamed_addr 
   br label %119
 
 .critedge63:                                      ; preds = %.critedge, %42
-  %59 = getelementptr inbounds i8, ptr %0, i64 488
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, -2
   br i1 %61, label %130, label %62
 
 62:                                               ; preds = %.critedge63
-  %63 = getelementptr inbounds i8, ptr %19, i64 224
+  %63 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 1
   %.not = icmp eq i32 %65, 0
   br i1 %.not, label %66, label %72
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %19, i64 248
+  %67 = getelementptr inbounds nuw i8, ptr %19, i64 248
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 20
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %60, %70
   br i1 %71, label %130, label %72
@@ -152,7 +152,7 @@ define zeroext i1 @ompi_request_is_failed_fn(ptr noundef %0) local_unnamed_addr 
   br i1 %76, label %.critedge65, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %0, i64 492
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %79 = load i32, ptr %78, align 4
   %80 = add i32 %79, 30
   %81 = icmp ult i32 %80, 4
@@ -160,7 +160,7 @@ define zeroext i1 @ompi_request_is_failed_fn(ptr noundef %0) local_unnamed_addr 
 
 82:                                               ; preds = %77
   store i32 76, ptr %9, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 168
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %84 = load i32, ptr %83, align 8
   switch i32 %84, label %86 [
     i32 6, label %85
@@ -182,7 +182,7 @@ define zeroext i1 @ompi_request_is_failed_fn(ptr noundef %0) local_unnamed_addr 
   %92 = load i32, ptr %59, align 8
   %93 = load i32, ptr %78, align 4
   %94 = load ptr, ptr %18, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 160
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 160
   %96 = load ptr, ptr %95, align 8
   %97 = tail call ptr @ompi_comm_print_cid(ptr noundef %94) #3
   %98 = load i32, ptr %9, align 8
@@ -207,10 +207,10 @@ define zeroext i1 @ompi_request_is_failed_fn(ptr noundef %0) local_unnamed_addr 
   %107 = load i32, ptr @ompi_ftmpi_output_handle, align 4
   %108 = tail call ptr @ompi_pmix_print_name(ptr noundef nonnull @opal_process_info) #3
   %109 = load i32, ptr %59, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 492
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %111 = load i32, ptr %110, align 4
   %112 = load ptr, ptr %18, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 160
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 160
   %114 = load ptr, ptr %113, align 8
   %115 = tail call ptr @ompi_comm_print_cid(ptr noundef %112) #3
   %116 = load i32, ptr %8, align 8
@@ -225,9 +225,9 @@ define zeroext i1 @ompi_request_is_failed_fn(ptr noundef %0) local_unnamed_addr 
   br i1 %.not61, label %130, label %121
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %0, i64 76
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %0, i64 128
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %125 = load ptr, ptr %124, align 8
   %.not.i = icmp eq ptr %125, null
   br i1 %.not.i, label %ompi_request_cancel.exit, label %126
@@ -286,7 +286,7 @@ define internal fastcc nonnull ptr @ompi_mpi_errnum_get_string(i32 noundef %0) u
   %15 = phi i8 [ %10, %9 ], [ %.pre.i, %12 ]
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_errcodes, i64 112), align 8
   %17 = zext nneg i32 %0 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = trunc i8 %15 to i1
   br i1 %20, label %21, label %opal_pointer_array_get_item.exit
@@ -298,7 +298,7 @@ define internal fastcc nonnull ptr @ompi_mpi_errnum_get_string(i32 noundef %0) u
 opal_pointer_array_get_item.exit:                 ; preds = %21, %14, %6
   %.0 = phi ptr [ null, %6 ], [ %19, %14 ], [ %19, %21 ]
   %.not = icmp eq ptr %.0, null
-  %23 = getelementptr inbounds i8, ptr %.0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %.04 = select i1 %.not, ptr @.str.4, ptr %23
   ret ptr %.04
 }

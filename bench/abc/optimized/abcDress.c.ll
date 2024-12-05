@@ -55,7 +55,7 @@ define void @Abc_NtkDress(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 .split:                                           ; preds = %20
   %22 = tail call ptr @stmm_init_table(ptr noundef nonnull @stmm_ptrcmp, ptr noundef nonnull @stmm_ptrhash) #4
-  %23 = getelementptr inbounds i8, ptr %5, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 4
   %.val19.i = load i32, ptr %25, align 4
@@ -67,7 +67,7 @@ define void @Abc_NtkDress(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %27 = phi ptr [ %51, %50 ], [ %24, %.split ]
   %28 = getelementptr i8, ptr %27, i64 8
   %.val17.val.i = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds ptr, ptr %.val17.val.i, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw ptr, ptr %.val17.val.i, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %50, label %32
@@ -80,7 +80,7 @@ define void @Abc_NtkDress(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   br i1 %.not.i, label %35, label %50
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %30, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, -2
@@ -123,7 +123,7 @@ Abc_NtkDressDeriveMapping.exit:                   ; preds = %50, %.split
   %59 = tail call i32 @Abc_NtkCountCopy(ptr noundef nonnull %5) #4
   %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.val42, i32 noundef %59)
   %61 = tail call ptr @stmm_init_table(ptr noundef nonnull @stmm_ptrcmp, ptr noundef nonnull @stmm_ptrhash) #4
-  %62 = getelementptr inbounds i8, ptr %5, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i8, ptr %63, i64 4
   %.val19.i43 = load i32, ptr %64, align 4
@@ -135,7 +135,7 @@ Abc_NtkDressDeriveMapping.exit:                   ; preds = %50, %.split
   %66 = phi ptr [ %90, %89 ], [ %63, %.split36 ]
   %67 = getelementptr i8, ptr %66, i64 8
   %.val17.val.i46 = load ptr, ptr %67, align 8
-  %68 = getelementptr inbounds ptr, ptr %.val17.val.i46, i64 %indvars.iv.i45
+  %68 = getelementptr inbounds nuw ptr, ptr %.val17.val.i46, i64 %indvars.iv.i45
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %89, label %71
@@ -148,7 +148,7 @@ Abc_NtkDressDeriveMapping.exit:                   ; preds = %50, %.split
   br i1 %.not.i48, label %74, label %89
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %69, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %76 = load ptr, ptr %75, align 8
   %77 = ptrtoint ptr %76 to i64
   %78 = and i64 %77, -2
@@ -225,9 +225,9 @@ declare ptr @Abc_NtkIvyFraig(ptr noundef, i32 noundef, i32 noundef, i32 noundef,
 define internal fastcc void @Abc_NtkDressTransferNames(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
   %.val42 = load i32, ptr %10, align 4
@@ -235,7 +235,7 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr nocapture noundef rea
   br i1 %11, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %13
 
 13:                                               ; preds = %.lr.ph, %67
@@ -245,7 +245,7 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr nocapture noundef rea
   %.02844 = phi i32 [ 0, %.lr.ph ], [ %.129, %67 ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val37.val = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val37.val, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %.val37.val, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %67, label %19
@@ -259,14 +259,14 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr nocapture noundef rea
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = call ptr @Nm_ManFindNameById(ptr noundef %23, i32 noundef %25) #4
   %.not34 = icmp eq ptr %26, null
   br i1 %.not34, label %27, label %67
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %17, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, -2
@@ -299,9 +299,9 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr nocapture noundef rea
   %48 = getelementptr inbounds ptr, ptr %.val39.val.val, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %49, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %54 = load i32, ptr %53, align 8
   %55 = call ptr @Nm_ManFindNameById(ptr noundef %52, i32 noundef %54) #4
   %56 = load ptr, ptr %4, align 8

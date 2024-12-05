@@ -13,7 +13,7 @@ define void @Java_sun_font_X11TextRenderer_doDrawGlyphList(ptr noundef %0, ptr n
   %7 = alloca %struct.SurfaceDataBounds, align 4
   call void @Region_GetBounds(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %7) #3
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 800
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 800
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 248), align 8
   %12 = call i32 %10(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %11) #3
@@ -27,7 +27,7 @@ define void @Java_sun_font_X11TextRenderer_doDrawGlyphList(ptr noundef %0, ptr n
   br i1 %.not, label %.sink.split, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %13, align 8
   call void @AWTDrawGlyphList(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull %7, ptr noundef %19, i32 noundef %20) #3

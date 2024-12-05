@@ -40,9 +40,9 @@ define hidden void @_ZN17FreeListAllocator8NodeListC2Ev(ptr nocapture noundef no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17FreeListAllocator8NodeListC2EPNS_8FreeNodeES2_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %3, ptr %6, align 8
   ret void
 }
@@ -50,16 +50,16 @@ define hidden void @_ZN17FreeListAllocator8NodeListC2EPNS_8FreeNodeES2_m(ptr noc
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN17FreeListAllocator11PendingListC2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile i64 0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr nonnull %3) #12, !srcloc !6
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -73,7 +73,7 @@ define hidden noundef i64 @_ZN17FreeListAllocator11PendingList3addEPNS_8FreeNode
   br label %7
 
 7:                                                ; preds = %6, %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %8) #12, !srcloc !7
   %10 = add i64 %9, 1
   ret i64 %10
@@ -81,15 +81,15 @@ define hidden noundef i64 @_ZN17FreeListAllocator11PendingList3addEPNS_8FreeNode
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN17FreeListAllocator11PendingList8take_allEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.FreeListAllocator::NodeList") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load volatile i64, ptr %6, align 8
   store ptr %4, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %7, ptr %9, align 8
   store volatile ptr null, ptr %3, align 8
   store ptr null, ptr %1, align 8
@@ -99,7 +99,7 @@ define hidden void @_ZN17FreeListAllocator11PendingList8take_allEv(ptr dead_on_u
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef i64 @_ZNK17FreeListAllocator11PendingList5countEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load volatile i64, ptr %2, align 8
   ret i64 %3
 }
@@ -107,32 +107,32 @@ define hidden noundef i64 @_ZNK17FreeListAllocator11PendingList5countEv(ptr noun
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN17FreeListAllocatorC2EPKcP14FreeListConfig(ptr noundef nonnull align 8 dereferenceable(568) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #4 align 2 {
   store ptr %2, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store volatile i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store volatile ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store volatile i8 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 512
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store volatile i32 0, ptr %7, align 8
   br label %8
 
 8:                                                ; preds = %8, %3
   %.idx = phi i64 [ 520, %3 ], [ %.add, %8 ]
-  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store ptr null, ptr %.ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %.ptr, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
   store volatile ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.ptr, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.ptr, i64 16
   store volatile i64 0, ptr %10, align 8
   %.add = add nuw nsw i64 %.idx, 24
   %11 = icmp eq i64 %.add, 568
   br i1 %11, label %12, label %8
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 119) #12
-  %15 = getelementptr inbounds i8, ptr %0, i64 127
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 127
   store i8 0, ptr %15, align 1
   ret void
 }
@@ -150,7 +150,7 @@ define hidden void @_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE(ptr nocap
   %3 = load volatile ptr, ptr %.06, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %.06) #12
   %.not = icmp eq ptr %3, null
@@ -163,15 +163,15 @@ define hidden void @_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE(ptr nocap
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17FreeListAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %0) unnamed_addr #2 align 2 {
   %.sroa.0 = alloca ptr, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 512
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load volatile i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 520
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = zext i32 %3 to i64
-  %6 = getelementptr inbounds [2 x %"class.FreeListAllocator::PendingList"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [2 x %"class.FreeListAllocator::PendingList"], ptr %4, i64 0, i64 %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load volatile ptr, ptr %7, align 8, !noalias !10
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load volatile i64, ptr %9, align 8, !noalias !10
   store ptr %8, ptr %.sroa.0, align 8, !alias.scope !10
   store volatile ptr null, ptr %7, align 8, !noalias !10
@@ -186,14 +186,14 @@ define hidden void @_ZN17FreeListAllocatorD2Ev(ptr noundef nonnull align 8 deref
   %11 = load volatile ptr, ptr %.06.i, align 8
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %.06.i) #12
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit: ; preds = %.lr.ph.i, %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 256
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %17 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %16) #12, !srcloc !6
   %.not5.i1 = icmp eq ptr %17, null
   br i1 %.not5.i1, label %_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit5, label %.lr.ph.i2
@@ -203,7 +203,7 @@ _ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit: ; preds = %.lr.ph.i, %1
   %18 = load volatile ptr, ptr %.06.i3, align 8
   %19 = load ptr, ptr %0, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %.06.i3) #12
   %.not.i4 = icmp eq ptr %18, null
@@ -215,39 +215,39 @@ _ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE.exit5: ; preds = %.lr.ph.i2, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17FreeListAllocator5resetEv(ptr noundef nonnull align 8 dereferenceable(568) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 512
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load volatile i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 520
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = zext i32 %3 to i64
-  %6 = getelementptr inbounds [2 x %"class.FreeListAllocator::PendingList"], ptr %4, i64 0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %6 = getelementptr inbounds nuw [2 x %"class.FreeListAllocator::PendingList"], ptr %4, i64 0, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load volatile ptr, ptr %7, align 8, !noalias !13
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load volatile i64, ptr %9, align 8, !noalias !13
   store volatile ptr null, ptr %7, align 8, !noalias !13
   store ptr null, ptr %6, align 8, !noalias !13
   store volatile i64 0, ptr %9, align 8, !noalias !13
-  %11 = getelementptr inbounds i8, ptr %0, i64 256
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %11) #12, !srcloc !6
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store volatile i64 0, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef i64 @_ZNK17FreeListAllocator10free_countEv(ptr noundef nonnull align 8 dereferenceable(568) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load volatile i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef i64 @_ZNK17FreeListAllocator13pending_countEv(ptr noundef nonnull align 8 dereferenceable(568) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 512
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load volatile i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
   %.idx = mul nuw nsw i64 %4, 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 536
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %6 = getelementptr i8, ptr %5, i64 %.idx
   %7 = load volatile i64, ptr %6, align 8
   ret i64 %7
@@ -255,7 +255,7 @@ define hidden noundef i64 @_ZNK17FreeListAllocator13pending_countEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN17FreeListAllocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(568) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load volatile i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %.thread, label %4
@@ -263,7 +263,7 @@ define hidden noundef ptr @_ZN17FreeListAllocator8allocateEv(ptr noundef nonnull
 4:                                                ; preds = %1
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 424
   %8 = load volatile i64, ptr %7, align 8
   %9 = and i64 %8, 1
   %10 = icmp eq i64 %9, 0
@@ -277,7 +277,7 @@ define hidden noundef ptr @_ZN17FreeListAllocator8allocateEv(ptr noundef nonnull
 _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %4, %11
   %.0.i.i = phi i64 [ %13, %11 ], [ %8, %4 ]
   %14 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i, ptr nonnull %7) #12, !srcloc !16
-  %15 = getelementptr inbounds i8, ptr %0, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %16 = load volatile ptr, ptr %15, align 8
   br label %.backedge.i
 
@@ -330,7 +330,7 @@ define hidden void @_ZN17FreeListAllocator7releaseEPv(ptr noundef nonnull align 
   store volatile ptr null, ptr %1, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 424
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 424
   %6 = load volatile i64, ptr %5, align 8
   %7 = and i64 %6, 1
   %8 = icmp eq i64 %7, 0
@@ -344,13 +344,13 @@ define hidden void @_ZN17FreeListAllocator7releaseEPv(ptr noundef nonnull align 
 _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %2, %9
   %.0.i.i = phi i64 [ %11, %9 ], [ %6, %2 ]
   %12 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i, ptr nonnull %5) #12, !srcloc !16
-  %13 = getelementptr inbounds i8, ptr %0, i64 512
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %14 = load volatile i32, ptr %13, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !19
-  %15 = getelementptr inbounds i8, ptr %0, i64 520
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds [2 x %"class.FreeListAllocator::PendingList"], ptr %15, i64 0, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %17 = getelementptr inbounds nuw [2 x %"class.FreeListAllocator::PendingList"], ptr %15, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr nonnull %18) #12, !srcloc !6
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %21, label %20
@@ -364,11 +364,11 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %2, %9
   br label %_ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit
 
 _ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit: ; preds = %20, %21
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %23 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %22) #12, !srcloc !7
   %24 = add i64 %23, 1
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %26, align 8
   %.not.not = icmp ugt i64 %24, %27
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !19
@@ -376,7 +376,7 @@ _ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit: ; preds = %20, %21
   br i1 %.not.not, label %28, label %_ZN17FreeListAllocator20try_transfer_pendingEv.exit
 
 28:                                               ; preds = %_ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 384
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %30 = load volatile i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %_ZN17FreeListAllocator20try_transfer_pendingEv.exit, label %32
@@ -394,11 +394,11 @@ _ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit: ; preds = %20, %21
   store volatile i32 %38, ptr %13, align 8
   tail call void @_ZN13GlobalCounter17write_synchronizeEv() #12
   %39 = zext i32 %36 to i64
-  %40 = getelementptr inbounds [2 x %"class.FreeListAllocator::PendingList"], ptr %15, i64 0, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %40 = getelementptr inbounds nuw [2 x %"class.FreeListAllocator::PendingList"], ptr %15, i64 0, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load volatile ptr, ptr %41, align 8, !noalias !21
   %43 = load ptr, ptr %40, align 8, !noalias !21
-  %44 = getelementptr inbounds i8, ptr %40, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %45 = load volatile i64, ptr %44, align 8, !noalias !21
   store volatile ptr null, ptr %41, align 8, !noalias !21
   store ptr null, ptr %40, align 8, !noalias !21
@@ -407,9 +407,9 @@ _ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit: ; preds = %20, %21
   br i1 %.not.i5, label %56, label %46
 
 46:                                               ; preds = %35
-  %47 = getelementptr inbounds i8, ptr %0, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %48 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %45, ptr nonnull %47) #12, !srcloc !7
-  %49 = getelementptr inbounds i8, ptr %0, i64 256
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %50 = load volatile ptr, ptr %49, align 8
   br label %51
 
@@ -421,12 +421,12 @@ _ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit: ; preds = %20, %21
   br i1 %.not.i.i.i, label %_ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit.i, label %51, !llvm.loop !24
 
 _ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit.i: ; preds = %51
-  %53 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_48ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %53 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_48ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not8.i = icmp eq ptr %53, null
   br i1 %.not8.i, label %56, label %54
 
 54:                                               ; preds = %_ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_48ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str, ptr noundef nonnull %55, i64 noundef %45)
   br label %56
 
@@ -441,7 +441,7 @@ _ZN17FreeListAllocator20try_transfer_pendingEv.exit: ; preds = %56, %32, %28, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN17FreeListAllocator20try_transfer_pendingEv(ptr noundef nonnull align 8 dereferenceable(568) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 384
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load volatile i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %32, label %5
@@ -452,20 +452,20 @@ define hidden noundef zeroext i1 @_ZN17FreeListAllocator20try_transfer_pendingEv
   br i1 %7, label %32, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 512
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %10 = load volatile i32, ptr %9, align 8
   %11 = and i32 %10, 1
   %12 = xor i32 %11, 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !19
   store volatile i32 %12, ptr %9, align 8
   tail call void @_ZN13GlobalCounter17write_synchronizeEv() #12
-  %13 = getelementptr inbounds i8, ptr %0, i64 520
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %14 = zext i32 %10 to i64
-  %15 = getelementptr inbounds [2 x %"class.FreeListAllocator::PendingList"], ptr %13, i64 0, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %15 = getelementptr inbounds nuw [2 x %"class.FreeListAllocator::PendingList"], ptr %13, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load volatile ptr, ptr %16, align 8, !noalias !25
   %18 = load ptr, ptr %15, align 8, !noalias !25
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = load volatile i64, ptr %19, align 8, !noalias !25
   store volatile ptr null, ptr %16, align 8, !noalias !25
   store ptr null, ptr %15, align 8, !noalias !25
@@ -474,9 +474,9 @@ define hidden noundef zeroext i1 @_ZN17FreeListAllocator20try_transfer_pendingEv
   br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %23 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %20, ptr nonnull %22) #12, !srcloc !7
-  %24 = getelementptr inbounds i8, ptr %0, i64 256
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %25 = load volatile ptr, ptr %24, align 8
   br label %26
 
@@ -488,12 +488,12 @@ define hidden noundef zeroext i1 @_ZN17FreeListAllocator20try_transfer_pendingEv
   br i1 %.not.i.i, label %_ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit, label %26, !llvm.loop !24
 
 _ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit: ; preds = %26
-  %28 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_48ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_48ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not8 = icmp eq ptr %28, null
   br i1 %.not8, label %31, label %29
 
 29:                                               ; preds = %_ZN13LockFreeStackIN17FreeListAllocator8FreeNodeEXadL_ZNS0_8next_ptrERS1_EEE7prependES2_S2_.exit
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_48ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str, ptr noundef nonnull %30, i64 noundef %20)
   br label %31
 

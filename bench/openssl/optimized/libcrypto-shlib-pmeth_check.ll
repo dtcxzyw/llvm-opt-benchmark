@@ -21,7 +21,7 @@ entry:
 define internal fastcc i32 @evp_pkey_public_check_combined(ptr nocapture noundef readonly %ctx, i32 noundef range(i32 0, 2) %checktype) unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
-  %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 136
+  %pkey1 = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %pkey1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -34,7 +34,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %keymgmt.i)
-  %keymgmt1.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %keymgmt1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt1.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %try_provided_check.exit.thread, label %if.end.i
@@ -45,9 +45,9 @@ try_provided_check.exit.thread:                   ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   store ptr %1, ptr %keymgmt.i, align 8
-  %libctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %libctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %libctx.i, align 8
-  %propquery.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %propquery.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %propquery.i, align 8
   %call.i = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %keymgmt.i, ptr noundef %3) #3
   %cmp3.i = icmp eq ptr %call.i, null
@@ -73,9 +73,9 @@ if.end4:                                          ; preds = %try_provided_check.
   br i1 %cmp5, label %not_supported, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
+  %pmeth = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %6 = load ptr, ptr %pmeth, align 8
-  %public_check = getelementptr inbounds i8, ptr %6, i64 232
+  %public_check = getelementptr inbounds nuw i8, ptr %6, i64 232
   %7 = load ptr, ptr %public_check, align 8
   %cmp8.not = icmp eq ptr %7, null
   br i1 %cmp8.not, label %if.end13, label %if.then9
@@ -85,13 +85,13 @@ if.then9:                                         ; preds = %if.end7
   br label %return
 
 if.end13:                                         ; preds = %if.end7
-  %ameth = getelementptr inbounds i8, ptr %0, i64 8
+  %ameth = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %ameth, align 8
   %cmp14 = icmp eq ptr %8, null
   br i1 %cmp14, label %not_supported, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %pkey_public_check = getelementptr inbounds i8, ptr %8, i64 232
+  %pkey_public_check = getelementptr inbounds nuw i8, ptr %8, i64 232
   %9 = load ptr, ptr %pkey_public_check, align 8
   %cmp16 = icmp eq ptr %9, null
   br i1 %cmp16, label %not_supported, label %if.end18
@@ -129,7 +129,7 @@ entry:
 define internal fastcc i32 @evp_pkey_param_check_combined(ptr nocapture noundef readonly %ctx, i32 noundef range(i32 0, 2) %checktype) unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
-  %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 136
+  %pkey1 = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %pkey1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -142,7 +142,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %keymgmt.i)
-  %keymgmt1.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %keymgmt1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt1.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %try_provided_check.exit.thread, label %if.end.i
@@ -153,9 +153,9 @@ try_provided_check.exit.thread:                   ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   store ptr %1, ptr %keymgmt.i, align 8
-  %libctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %libctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %libctx.i, align 8
-  %propquery.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %propquery.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %propquery.i, align 8
   %call.i = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %keymgmt.i, ptr noundef %3) #3
   %cmp3.i = icmp eq ptr %call.i, null
@@ -181,9 +181,9 @@ if.end4:                                          ; preds = %try_provided_check.
   br i1 %cmp5, label %not_supported, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
+  %pmeth = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %6 = load ptr, ptr %pmeth, align 8
-  %param_check = getelementptr inbounds i8, ptr %6, i64 240
+  %param_check = getelementptr inbounds nuw i8, ptr %6, i64 240
   %7 = load ptr, ptr %param_check, align 8
   %cmp8.not = icmp eq ptr %7, null
   br i1 %cmp8.not, label %if.end13, label %if.then9
@@ -193,13 +193,13 @@ if.then9:                                         ; preds = %if.end7
   br label %return
 
 if.end13:                                         ; preds = %if.end7
-  %ameth = getelementptr inbounds i8, ptr %0, i64 8
+  %ameth = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %ameth, align 8
   %cmp14 = icmp eq ptr %8, null
   br i1 %cmp14, label %not_supported, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %pkey_param_check = getelementptr inbounds i8, ptr %8, i64 240
+  %pkey_param_check = getelementptr inbounds nuw i8, ptr %8, i64 240
   %9 = load ptr, ptr %pkey_param_check, align 8
   %cmp16 = icmp eq ptr %9, null
   br i1 %cmp16, label %not_supported, label %if.end18
@@ -230,7 +230,7 @@ entry:
 define range(i32 0, -1) i32 @EVP_PKEY_private_check(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
-  %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 136
+  %pkey1 = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %pkey1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -243,7 +243,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %keymgmt.i)
-  %keymgmt1.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %keymgmt1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt1.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %try_provided_check.exit.thread, label %if.end.i
@@ -254,9 +254,9 @@ try_provided_check.exit.thread:                   ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   store ptr %1, ptr %keymgmt.i, align 8
-  %libctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %libctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %libctx.i, align 8
-  %propquery.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %propquery.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %propquery.i, align 8
   %call.i = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %keymgmt.i, ptr noundef %3) #3
   %cmp3.i = icmp eq ptr %call.i, null
@@ -304,7 +304,7 @@ entry:
 define i32 @EVP_PKEY_pairwise_check(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
-  %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 136
+  %pkey1 = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %pkey1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -317,7 +317,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %keymgmt.i)
-  %keymgmt1.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %keymgmt1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt1.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %try_provided_check.exit.thread, label %if.end.i
@@ -328,9 +328,9 @@ try_provided_check.exit.thread:                   ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   store ptr %1, ptr %keymgmt.i, align 8
-  %libctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %libctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %libctx.i, align 8
-  %propquery.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %propquery.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %propquery.i, align 8
   %call.i = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %keymgmt.i, ptr noundef %3) #3
   %cmp3.i = icmp eq ptr %call.i, null
@@ -356,9 +356,9 @@ if.end4:                                          ; preds = %try_provided_check.
   br i1 %cmp5, label %not_supported, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
+  %pmeth = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %6 = load ptr, ptr %pmeth, align 8
-  %check = getelementptr inbounds i8, ptr %6, i64 224
+  %check = getelementptr inbounds nuw i8, ptr %6, i64 224
   %7 = load ptr, ptr %check, align 8
   %cmp8.not = icmp eq ptr %7, null
   br i1 %cmp8.not, label %if.end13, label %if.then9
@@ -368,13 +368,13 @@ if.then9:                                         ; preds = %if.end7
   br label %return
 
 if.end13:                                         ; preds = %if.end7
-  %ameth = getelementptr inbounds i8, ptr %0, i64 8
+  %ameth = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %ameth, align 8
   %cmp14 = icmp eq ptr %8, null
   br i1 %cmp14, label %not_supported, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %pkey_check = getelementptr inbounds i8, ptr %8, i64 224
+  %pkey_check = getelementptr inbounds nuw i8, ptr %8, i64 224
   %9 = load ptr, ptr %pkey_check, align 8
   %cmp16 = icmp eq ptr %9, null
   br i1 %cmp16, label %not_supported, label %if.end18

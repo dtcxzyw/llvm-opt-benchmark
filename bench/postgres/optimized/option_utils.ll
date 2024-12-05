@@ -30,13 +30,13 @@ sub_0:                                            ; preds = %6
   br i1 %.not, label %sub_1, label %.tail.thread.thread
 
 sub_1:                                            ; preds = %sub_0
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %13 = load i8, ptr %12, align 1
   %.not12 = icmp eq i8 %13, 63
   br i1 %.not12, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %14 = getelementptr inbounds i8, ptr %8, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %17, label %.thread
@@ -64,13 +64,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %25, label %31, label %sub_19
 
 sub_19:                                           ; preds = %.tail.thread, %.thread
-  %26 = getelementptr inbounds i8, ptr %8, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %27 = load i8, ptr %26, align 1
   %.not14 = icmp eq i8 %27, 86
   br i1 %.not14, label %.tail7, label %.tail7.thread
 
 .tail7:                                           ; preds = %sub_19
-  %28 = getelementptr inbounds i8, ptr %8, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %31, label %.tail7.thread

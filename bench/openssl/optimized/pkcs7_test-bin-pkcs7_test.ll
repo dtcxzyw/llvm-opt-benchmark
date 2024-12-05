@@ -47,7 +47,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %i.012 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr @__const.pkcs7_verify_test.sig, i64 0, i64 %i.012
+  %arrayidx = getelementptr inbounds nuw [8 x ptr], ptr @__const.pkcs7_verify_test.sig, i64 0, i64 %i.012
   %0 = load ptr, ptr %arrayidx, align 8
   %call3 = tail call i32 @BIO_puts(ptr noundef %call1, ptr noundef %0) #2
   %inc = add nuw nsw i64 %i.012, 1

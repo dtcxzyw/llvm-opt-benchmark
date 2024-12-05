@@ -26,9 +26,9 @@ declare void @ossl_ec_GFp_simple_group_clear_finish(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ec_GFp_nist_group_copy(ptr noundef initializes((136, 144)) %dest, ptr noundef %src) #2 {
 entry:
-  %field_mod_func = getelementptr inbounds i8, ptr %src, i64 136
+  %field_mod_func = getelementptr inbounds nuw i8, ptr %src, i64 136
   %0 = load ptr, ptr %field_mod_func, align 8
-  %field_mod_func1 = getelementptr inbounds i8, ptr %dest, i64 136
+  %field_mod_func1 = getelementptr inbounds nuw i8, ptr %dest, i64 136
   store ptr %0, ptr %field_mod_func1, align 8
   %call = tail call i32 @ossl_ec_GFp_simple_group_copy(ptr noundef %dest, ptr noundef %src) #3
   ret i32 %call
@@ -41,7 +41,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %libctx = getelementptr inbounds i8, ptr %group, i64 168
+  %libctx = getelementptr inbounds nuw i8, ptr %group, i64 168
   %0 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #3
   %cmp1 = icmp eq ptr %call, null
@@ -88,7 +88,7 @@ if.else31:                                        ; preds = %if.else25
 
 if.end36:                                         ; preds = %if.else25, %if.else19, %if.else13, %if.else, %if.end3
   %BN_nist_mod_224.sink = phi ptr [ @BN_nist_mod_192, %if.end3 ], [ @BN_nist_mod_224, %if.else ], [ @BN_nist_mod_256, %if.else13 ], [ @BN_nist_mod_384, %if.else19 ], [ @BN_nist_mod_521, %if.else25 ]
-  %field_mod_func12 = getelementptr inbounds i8, ptr %group, i64 136
+  %field_mod_func12 = getelementptr inbounds nuw i8, ptr %group, i64 136
   store ptr %BN_nist_mod_224.sink, ptr %field_mod_func12, align 8
   %call37 = tail call i32 @ossl_ec_GFp_simple_group_set_curve(ptr noundef nonnull %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef nonnull %ctx.addr.0) #3
   br label %err
@@ -165,7 +165,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool6.not, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.end
-  %libctx = getelementptr inbounds i8, ptr %group, i64 168
+  %libctx = getelementptr inbounds nuw i8, ptr %group, i64 168
   %0 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #3
   %cmp = icmp eq ptr %call, null
@@ -179,9 +179,9 @@ if.end10:                                         ; preds = %if.then7, %if.end
   br i1 %tobool12.not, label %err, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
-  %field_mod_func = getelementptr inbounds i8, ptr %group, i64 136
+  %field_mod_func = getelementptr inbounds nuw i8, ptr %group, i64 136
   %1 = load ptr, ptr %field_mod_func, align 8
-  %field = getelementptr inbounds i8, ptr %group, i64 64
+  %field = getelementptr inbounds nuw i8, ptr %group, i64 64
   %2 = load ptr, ptr %field, align 8
   %call15 = tail call i32 %1(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %2, ptr noundef nonnull %ctx.addr.0) #3
   %tobool16.not = icmp ne i32 %call15, 0
@@ -216,7 +216,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.end
-  %libctx = getelementptr inbounds i8, ptr %group, i64 168
+  %libctx = getelementptr inbounds nuw i8, ptr %group, i64 168
   %0 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #3
   %cmp = icmp eq ptr %call, null
@@ -230,9 +230,9 @@ if.end8:                                          ; preds = %if.then5, %if.end
   br i1 %tobool10.not, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %field_mod_func = getelementptr inbounds i8, ptr %group, i64 136
+  %field_mod_func = getelementptr inbounds nuw i8, ptr %group, i64 136
   %1 = load ptr, ptr %field_mod_func, align 8
-  %field = getelementptr inbounds i8, ptr %group, i64 64
+  %field = getelementptr inbounds nuw i8, ptr %group, i64 64
   %2 = load ptr, ptr %field, align 8
   %call13 = tail call i32 %1(ptr noundef nonnull %r, ptr noundef nonnull %r, ptr noundef %2, ptr noundef nonnull %ctx.addr.0) #3
   %tobool14.not = icmp ne i32 %call13, 0

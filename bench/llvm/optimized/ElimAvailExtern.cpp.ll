@@ -98,7 +98,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #9
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -407,7 +407,7 @@ _ZL28eliminateAvailableExternallyRN4llvm6ModuleE.exit: ; preds = %115, %._crit_e
   br label %123
 
 120:                                              ; preds = %_ZL28eliminateAvailableExternallyRN4llvm6ModuleE.exit
-  %121 = getelementptr inbounds i8, ptr %0, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %121, i8 0, i64 72, i1 false), !alias.scope !18
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %123
@@ -508,7 +508,7 @@ declare void @_ZN4llvm8FunctionC1EPNS_12FunctionTypeENS_11GlobalValue12LinkageTy
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_3UseEEE11callback_fnIZL18convertToLocalCopyRNS_6ModuleERNS_8FunctionEE3$_1EEblS2_"(i64 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val = load ptr, ptr %3, align 8
   %4 = load i8, ptr %.val, align 8
   %5 = icmp ugt i8 %4, 28
@@ -551,7 +551,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -661,9 +661,9 @@ declare void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull al
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_ElimAvailExtern.cpp() #7 section ".text.startup" {
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @ConvertToLocal, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @ConvertToLocal, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @ConvertToLocal, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @ConvertToLocal, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ConvertToLocal, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @ConvertToLocal, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @ConvertToLocal, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @ConvertToLocal, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @ConvertToLocal, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @ConvertToLocal) #9
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @ConvertToLocal, i64 152), align 8
@@ -676,7 +676,7 @@ define internal void @_GLOBAL__sub_I_ElimAvailExtern.cpp() #7 section ".text.sta
   %3 = or disjoint i16 %2, 32
   store i16 %3, ptr getelementptr inbounds nuw (i8, ptr @ConvertToLocal, i64 10), align 2
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @ConvertToLocal, i64 32), align 8
-  store i64 83, ptr getelementptr inbounds (i8, ptr @ConvertToLocal, i64 40), align 8
+  store i64 83, ptr getelementptr inbounds nuw (i8, ptr @ConvertToLocal, i64 40), align 8
   tail call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @ConvertToLocal) #9
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev, ptr nonnull @ConvertToLocal, ptr nonnull @__dso_handle) #9
   ret void

@@ -58,7 +58,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i64 16), ptr %this, align 8
-  %_typeName = getelementptr inbounds i8, ptr %this, i64 8
+  %_typeName = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_typeName)
           to label %call.i.noexc unwind label %lpad
@@ -92,7 +92,7 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
-  %_dataSize = getelementptr inbounds i8, ptr %this, i64 40
+  %_dataSize = getelementptr inbounds nuw i8, ptr %this, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_dataSize, i8 0, i64 24, i1 false)
   ret void
 
@@ -129,22 +129,22 @@ define void @_ZN7Imf_3_215OpaqueAttributeC2ERKS0_(ptr noundef nonnull align 8 de
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i64 16), ptr %this, align 8
-  %_typeName = getelementptr inbounds i8, ptr %this, i64 8
-  %_typeName2 = getelementptr inbounds i8, ptr %other, i64 8
+  %_typeName = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_typeName2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_typeName, ptr noundef nonnull align 8 dereferenceable(32) %_typeName2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_dataSize = getelementptr inbounds i8, ptr %this, i64 40
-  %_dataSize3 = getelementptr inbounds i8, ptr %other, i64 40
+  %_dataSize = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_dataSize3 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %0 = load i64, ptr %_dataSize3, align 8
   store i64 %0, ptr %_dataSize, align 8
-  %_data = getelementptr inbounds i8, ptr %this, i64 48
+  %_data = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call.i8 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %0) #19
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  %_data.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_data.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %call.i8, ptr %_data.i, align 8
   store i64 %0, ptr %_data, align 8
   %1 = load i64, ptr %_dataSize3, align 8
@@ -155,7 +155,7 @@ invoke.cont10:                                    ; preds = %invoke.cont6
   tail call void @_ZdaPv(ptr noundef nonnull %call.i8) #20
   store i64 %1, ptr %_data, align 8
   store ptr %call.i10, ptr %_data.i, align 8
-  %_data.i12 = getelementptr inbounds i8, ptr %other, i64 56
+  %_data.i12 = getelementptr inbounds nuw i8, ptr %other, i64 56
   %2 = load ptr, ptr %_data.i12, align 8
   %3 = load i64, ptr %_dataSize3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i10, ptr align 1 %2, i64 %3, i1 false)
@@ -197,7 +197,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN7Imf_3_215OpaqueAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_215OpaqueAttributeE, i64 16), ptr %this, align 8
-  %_data.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_data.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_data.i, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN7Imf_3_25ArrayIcED2Ev.exit, label %delete.notnull.i
@@ -207,7 +207,7 @@ delete.notnull.i:                                 ; preds = %entry
   br label %_ZN7Imf_3_25ArrayIcED2Ev.exit
 
 _ZN7Imf_3_25ArrayIcED2Ev.exit:                    ; preds = %entry, %delete.notnull.i
-  %_typeName = getelementptr inbounds i8, ptr %this, i64 8
+  %_typeName = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_typeName) #17
   tail call void @_ZN7Imf_3_29AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #17
   ret void
@@ -227,7 +227,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZNK7Imf_3_215OpaqueAttribute8typeNameEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 align 2 {
 entry:
-  %_typeName = getelementptr inbounds i8, ptr %this, i64 8
+  %_typeName = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_typeName) #17
   ret ptr %call
 }
@@ -258,13 +258,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_215OpaqueAttribute12writeValueToERNS_7OStreamEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(40) %os, i32 %version) unnamed_addr #3 align 2 {
 entry:
-  %_data.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_data.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_data.i, align 8
-  %_dataSize = getelementptr inbounds i8, ptr %this, i64 40
+  %_dataSize = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i64, ptr %_dataSize, align 8
   %conv = trunc i64 %1 to i32
   %vtable.i.i = load ptr, ptr %os, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef %0, i32 noundef %conv)
   ret void
@@ -275,7 +275,7 @@ define void @_ZN7Imf_3_215OpaqueAttribute13readValueFromERNS_7IStreamEii(ptr noc
 entry:
   %conv = sext i32 %size to i64
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #19
-  %_data.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_data.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_data.i, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN7Imf_3_25ArrayIcE11resizeEraseEl.exit, label %delete.notnull.i
@@ -285,13 +285,13 @@ delete.notnull.i:                                 ; preds = %entry
   br label %_ZN7Imf_3_25ArrayIcE11resizeEraseEl.exit
 
 _ZN7Imf_3_25ArrayIcE11resizeEraseEl.exit:         ; preds = %entry, %delete.notnull.i
-  %_data = getelementptr inbounds i8, ptr %this, i64 48
+  %_data = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 %conv, ptr %_data, align 8
   store ptr %call.i, ptr %_data.i, align 8
-  %_dataSize = getelementptr inbounds i8, ptr %this, i64 40
+  %_dataSize = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 %conv, ptr %_dataSize, align 8
   %vtable.i.i = load ptr, ptr %is, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 24
   %1 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %call.i, i32 noundef %size)
   ret void
@@ -306,8 +306,8 @@ entry:
   br i1 %cmp, label %do.body, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %_typeName = getelementptr inbounds i8, ptr %this, i64 8
-  %_typeName2 = getelementptr inbounds i8, ptr %0, i64 8
+  %_typeName = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_typeName2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_typeName) #17
   %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_typeName2) #17
   %cmp.i.i = icmp eq i64 %call.i.i, %call1.i.i
@@ -328,13 +328,13 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 do.body:                                          ; preds = %lor.lhs.false, %entry, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
   tail call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s)
-  %add.ptr = getelementptr inbounds i8, ptr %_iex_throw_s, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %_iex_throw_s, i64 16
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %do.body
   %vtable = load ptr, ptr %other, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call5 = invoke noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %other)
           to label %invoke.cont4 unwind label %lpad
@@ -348,7 +348,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %_typeName10 = getelementptr inbounds i8, ptr %this, i64 8
+  %_typeName10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull align 8 dereferenceable(32) %_typeName10)
           to label %invoke.cont11 unwind label %lpad
 
@@ -382,10 +382,10 @@ ehcleanup:                                        ; preds = %lpad15, %lpad
   resume { ptr, i32 } %.pn
 
 if.end:                                           ; preds = %land.rhs.i.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %_dataSize = getelementptr inbounds i8, ptr %0, i64 40
+  %_dataSize = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %_dataSize, align 8
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #19
-  %_data.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_data.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %5 = load ptr, ptr %_data.i, align 8
   %isnull.i = icmp eq ptr %5, null
   br i1 %isnull.i, label %_ZN7Imf_3_25ArrayIcE11resizeEraseEl.exit, label %delete.notnull.i
@@ -395,13 +395,13 @@ delete.notnull.i:                                 ; preds = %if.end
   br label %_ZN7Imf_3_25ArrayIcE11resizeEraseEl.exit
 
 _ZN7Imf_3_25ArrayIcE11resizeEraseEl.exit:         ; preds = %if.end, %delete.notnull.i
-  %_data = getelementptr inbounds i8, ptr %this, i64 48
+  %_data = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 %4, ptr %_data, align 8
   store ptr %call.i, ptr %_data.i, align 8
   %6 = load i64, ptr %_dataSize, align 8
-  %_dataSize18 = getelementptr inbounds i8, ptr %this, i64 40
+  %_dataSize18 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 %6, ptr %_dataSize18, align 8
-  %_data.i9 = getelementptr inbounds i8, ptr %0, i64 56
+  %_data.i9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %_data.i9, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %7, i64 %6, i1 false)
   ret void

@@ -170,7 +170,7 @@ define void @_ZN5boost4urls12ipv4_addressC2ENS_4core17basic_string_viewIcEE(ptr 
 
 _ZN5boost6system6resultINS_4urls12ipv4_addressENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i.i: ; preds = %13
   %16 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !28, !noalias !25
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8, !noalias !25
   %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 4) #21, !noalias !25
   %spec.select.i.i = select i1 %19, i64 3, i64 2
@@ -180,7 +180,7 @@ _ZN5boost4urls18parse_ipv4_addressENS_4core17basic_string_viewIcEE.exit.thread: 
   %20 = phi i64 [ %spec.select.i.i, %_ZN5boost6system6resultINS_4urls12ipv4_addressENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i.i ], [ 3, %13 ]
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 4, ptr %6, align 8, !alias.scope !15
-  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !8, !alias.scope !15
   store i64 %20, ptr %21, align 8, !tbaa !30, !alias.scope !15
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -252,7 +252,7 @@ define void @_ZN5boost4urls18parse_ipv4_addressENS_4core17basic_string_viewIcEE(
 
 _ZN5boost6system6resultINS_4urls12ipv4_addressENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i: ; preds = %11
   %14 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !28, !noalias !41
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !noalias !41
   %17 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 4) #21, !noalias !41
   %spec.select.i = select i1 %17, i64 3, i64 2
@@ -262,7 +262,7 @@ _ZN5boost6system6resultINS_4urls12ipv4_addressENS0_10error_codeEEC2INS2_7grammar
   %18 = phi i64 [ %spec.select.i, %_ZN5boost6system6resultINS_4urls12ipv4_addressENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i ], [ 3, %11 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 4, ptr %0, align 8, !alias.scope !38
-  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !8, !alias.scope !38
   store i64 %18, ptr %19, align 8, !tbaa !30, !alias.scope !38
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -614,7 +614,7 @@ define linkonce_odr hidden void @_ZN5boost6detail19with_throw_locationINS_6syste
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !48
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !49
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6detail19with_throw_locationINS_6system12system_errorEEE, i64 16), ptr %0, align 8, !tbaa !28
   ret void
@@ -900,7 +900,7 @@ define linkonce_odr hidden void @_ZNK5boost6system10error_code7messageB5cxx11Ev(
   %9 = load ptr, ptr %8, align 8, !tbaa !52, !noalias !54
   %10 = load i32, ptr %1, align 8, !tbaa !57, !noalias !54
   %11 = load ptr, ptr %9, align 8, !tbaa !28, !noalias !54
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !54
   tail call void %13(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %10)
   br label %37
@@ -966,7 +966,7 @@ _ZNK5boost6system10error_code8categoryEv.exit.thread: ; preds = %2
   %32 = load ptr, ptr %31, align 8, !tbaa !8
   %33 = load i32, ptr %1, align 8, !tbaa !8
   %34 = load ptr, ptr %32, align 8, !tbaa !28
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %32, i32 noundef %33)
   br label %37
@@ -998,7 +998,7 @@ define linkonce_odr hidden void @_ZNK5boost6system10error_code9to_stringB5cxx11E
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = load ptr, ptr %12, align 8, !tbaa !28
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %12) #21
   %17 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #21

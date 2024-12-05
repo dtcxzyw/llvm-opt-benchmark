@@ -332,9 +332,9 @@ declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 50
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 50
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 8
   %11 = icmp eq i16 %10, 0
@@ -344,13 +344,13 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %14, label %44
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %3, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %16 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %44, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %21, label %44
@@ -361,9 +361,9 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
   br i1 %23, label %24, label %44
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 232
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %28 = tail call ptr @address_to_str(ptr noundef %26, ptr noundef nonnull %27) #3
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #4
   %30 = trunc i64 %29 to i32
@@ -381,7 +381,7 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
   %40 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %38, i32 noundef 4, i64 noundef %39) #3
   %41 = getelementptr i8, ptr %38, i64 %39
   store i8 0, ptr %41, align 1
-  %42 = getelementptr inbounds i8, ptr %3, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %43 = load i32, ptr %42, align 4
   tail call void @nfs_name_snoop_add_name(i32 noundef %43, ptr noundef %0, i32 noundef -1, i32 noundef %32, i32 noundef 0, i32 noundef 0, ptr noundef %35) #3
   br label %44
@@ -389,7 +389,7 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
 44:                                               ; preds = %14, %17, %24, %21, %4
   %45 = load i32, ptr @hf_mount_path, align 4
   %46 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %45, i32 noundef 0, ptr noundef nonnull %5) #3
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.180, ptr noundef %49) #3
@@ -409,7 +409,7 @@ define internal i32 @dissect_mount1_mnt_reply(ptr noundef %0, ptr noundef %1, pt
   br label %dissect_fhstatus.exit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @val_to_str(i32 noundef %5, ptr noundef nonnull @mount3_mountstat3, ptr noundef nonnull @.str.183) #3
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.182, ptr noundef %13) #3
@@ -514,7 +514,7 @@ define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noun
   %16 = call ptr @proto_tree_add_item(ptr noundef %.037, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef -1, i32 noundef 0) #3
   %17 = load i32, ptr @ett_mount_groups, align 4
   %18 = call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #3
-  %19 = getelementptr inbounds i8, ptr %2, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = call noalias ptr @wmem_strbuf_new(ptr noundef %20, ptr noundef nonnull @.str.185) #3
   %22 = call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %2, ptr noundef %18, i32 noundef %14, ptr noundef nonnull @dissect_group, ptr noundef %21) #3
@@ -690,7 +690,7 @@ define internal i32 @dissect_mount3_mnt_reply(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not.i, label %11, label %dissect_mountstat3.exit
 
 dissect_mountstat3.exit:                          ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @mount3_mountstat3, ptr noundef nonnull @.str.183) #3
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.182, ptr noundef %9) #3

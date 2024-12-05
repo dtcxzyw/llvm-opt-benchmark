@@ -1961,15 +1961,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @kerberos_is_win2k_pkinit(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %kerberos_get_private_data.exit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @wmem_alloc0(ptr noundef %8, i64 noundef 256) #16
   %10 = icmp eq ptr %9, null
@@ -1978,15 +1978,15 @@ define hidden i32 @kerberos_is_win2k_pkinit(ptr nocapture noundef %0) local_unna
 11:                                               ; preds = %4
   %12 = load ptr, ptr %7, align 8
   %13 = tail call noalias ptr @wmem_list_new(ptr noundef %12) #16
-  %14 = getelementptr inbounds i8, ptr %9, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = tail call noalias ptr @wmem_list_new(ptr noundef %15) #16
-  %17 = getelementptr inbounds i8, ptr %9, i64 152
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 152
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr %7, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %9, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 160
   store ptr %19, ptr %20, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -1996,7 +1996,7 @@ kerberos_new_private_data.exit.i:                 ; preds = %11, %4
 
 kerberos_get_private_data.exit:                   ; preds = %1, %kerberos_new_private_data.exit.i
   %21 = phi ptr [ %9, %kerberos_new_private_data.exit.i ], [ %3, %1 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   ret i32 %23
 }
@@ -2090,10 +2090,10 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %25, label %.lr.ph84, label %.critedge
 
 .lr.ph84:                                         ; preds = %.preheader
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 28
-  %28 = getelementptr inbounds i8, ptr %3, i64 32
-  %29 = getelementptr inbounds i8, ptr %3, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %33
 
 30:                                               ; preds = %18
@@ -2104,22 +2104,22 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 33:                                               ; preds = %.lr.ph84, %106
   %34 = call ptr @wmem_epan_scope() #16
   %35 = call noalias ptr @wmem_alloc0(ptr noundef %34, i64 noundef 392) #16
-  %36 = getelementptr inbounds i8, ptr %35, i64 308
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 308
   store i32 -1, ptr %36, align 4
   %37 = load i32, ptr @kerberos_longterm_ids, align 4
   %38 = add i32 %37, 1
   store i32 %38, ptr @kerberos_longterm_ids, align 4
-  %39 = getelementptr inbounds i8, ptr %35, i64 312
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 312
   store i32 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 316
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 316
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %40, i64 noundef 42, ptr noundef nonnull @.str.2, i32 noundef %38) #16
   %42 = load ptr, ptr @enc_key_list, align 8
   store ptr %42, ptr %35, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %43, ptr noundef nonnull align 1 dereferenceable(18) @.str.3, i64 18, i1 false)
   %44 = getelementptr i8, ptr %35, i64 65
   %45 = load ptr, ptr %26, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load i32, ptr %46, align 8
   %48 = icmp sgt i32 %47, 0
   %49 = ptrtoint ptr %43 to i64
@@ -2134,7 +2134,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %52 = add i64 %.neg77, 256
   %.not78 = icmp eq i64 %indvars.iv, 0
   %53 = select i1 %.not78, ptr @.str.6, ptr @.str.5
-  %54 = getelementptr inbounds i8, ptr %50, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr %struct._krb5_data, ptr %55, i64 %indvars.iv, i32 2
   %57 = load ptr, ptr %56, align 8
@@ -2145,7 +2145,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 
 61:                                               ; preds = %.lr.ph
   %62 = load ptr, ptr %26, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr %struct._krb5_data, ptr %64, i64 %indvars.iv, i32 2
   %66 = load ptr, ptr %65, align 8
@@ -2158,7 +2158,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %71 = getelementptr i8, ptr %.081, i64 %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load ptr, ptr %26, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load i32, ptr %73, align 8
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next, %75
@@ -2170,7 +2170,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %77 = ptrtoint ptr %.0.lcssa to i64
   %.neg = sub i64 %49, %77
   %78 = add i64 %.neg, 256
-  %79 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %80 = load ptr, ptr %79, align 8
   %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0.lcssa, i64 noundef %78, ptr noundef nonnull @.str.7, ptr noundef %80) #16
   %82 = sext i32 %81 to i64
@@ -2179,7 +2179,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 
 84:                                               ; preds = %._crit_edge
   %85 = load ptr, ptr %26, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
   %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0.lcssa, i64 noundef %78, ptr noundef nonnull @.str.7, ptr noundef %87) #16
   %89 = sext i32 %88 to i64
@@ -2190,12 +2190,12 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %92 = getelementptr i8, ptr %.0.lcssa, i64 %91
   store i8 0, ptr %92, align 1
   %93 = load i32, ptr %27, align 4
-  %94 = getelementptr inbounds i8, ptr %35, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %93, ptr %94, align 8
   %95 = load i32, ptr %28, align 8
-  %96 = getelementptr inbounds i8, ptr %35, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 %95, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %35, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %98 = load ptr, ptr %29, align 8
   %99 = call i32 @llvm.umin.i32(i32 %95, i32 32)
   %100 = zext nneg i32 %99 to i64
@@ -2287,10 +2287,10 @@ define internal fastcc void @kerberos_key_map_insert(ptr noundef %0, ptr noundef
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 308
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 308
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, -1
-  %13 = getelementptr inbounds i8, ptr %1, i64 308
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %14 = load i32, ptr %13, align 4
   br i1 %12, label %15, label %22
 
@@ -2299,12 +2299,12 @@ define internal fastcc void @kerberos_key_map_insert(ptr noundef %0, ptr noundef
   br i1 %.not46, label %.thread83, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 360
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 360
   store ptr %3, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 368
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 368
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, 1
-  %21 = getelementptr inbounds i8, ptr %1, i64 368
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 368
   store i32 %20, ptr %21, align 8
   br label %.loopexit
 
@@ -2318,9 +2318,9 @@ define internal fastcc void @kerberos_key_map_insert(ptr noundef %0, ptr noundef
 
 .thread83:                                        ; preds = %15, %24
   %26 = phi i32 [ %14, %24 ], [ -1, %15 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 312
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 312
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %30 = load i32, ptr %29, align 8
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %39, label %enc_key_cmp_id.exit
@@ -2331,31 +2331,31 @@ enc_key_cmp_id.exit:                              ; preds = %.thread83
 
 enc_key_cmp_id.exit.thread:                       ; preds = %24, %enc_key_cmp_id.exit
   %32 = phi i32 [ %14, %24 ], [ %26, %enc_key_cmp_id.exit ]
-  %33 = getelementptr inbounds i8, ptr %3, i64 360
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %34 = load ptr, ptr %33, align 8
   %.not4772 = icmp eq ptr %34, null
   br i1 %.not4772, label %.loopexit62, label %.lr.ph
 
 .lr.ph:                                           ; preds = %enc_key_cmp_id.exit.thread
-  %35 = getelementptr inbounds i8, ptr %1, i64 312
-  %36 = getelementptr inbounds i8, ptr %34, i64 308
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 308
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %32, %37
   br i1 %38, label %._crit_edge, label %.lr.ph95
 
 39:                                               ; preds = %.thread83, %22
-  %40 = getelementptr inbounds i8, ptr %1, i64 360
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 360
   store ptr %3, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 368
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 368
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, 1
-  %44 = getelementptr inbounds i8, ptr %1, i64 368
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 368
   store i32 %43, ptr %44, align 8
   %45 = tail call ptr @wmem_map_insert(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %1) #16
   br label %.loopexit
 
 46:                                               ; preds = %.thread
-  %47 = getelementptr inbounds i8, ptr %63, i64 308
+  %47 = getelementptr inbounds nuw i8, ptr %63, i64 308
   %48 = load i32, ptr %47, align 4
   %49 = icmp slt i32 %32, %48
   br i1 %49, label %._crit_edge, label %.lr.ph95, !llvm.loop !7
@@ -2369,7 +2369,7 @@ enc_key_cmp_id.exit.thread:                       ; preds = %24, %enc_key_cmp_id
 
 53:                                               ; preds = %.lr.ph95
   %54 = load i32, ptr %35, align 8
-  %55 = getelementptr inbounds i8, ptr %51, i64 312
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 312
   %56 = load i32, ptr %55, align 8
   %57 = icmp ult i32 %54, %56
   br i1 %57, label %._crit_edge, label %enc_key_cmp_id.exit51
@@ -2381,34 +2381,34 @@ enc_key_cmp_id.exit51:                            ; preds = %53
 ._crit_edge:                                      ; preds = %46, %53, %.lr.ph
   %.lcssa = phi ptr [ %34, %.lr.ph ], [ %63, %46 ], [ %51, %53 ]
   %.073.lcssa = phi ptr [ %3, %.lr.ph ], [ %51, %46 ], [ %.07394, %53 ]
-  %58 = getelementptr inbounds i8, ptr %1, i64 360
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 360
   store ptr %.lcssa, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %.073.lcssa, i64 368
+  %59 = getelementptr inbounds nuw i8, ptr %.073.lcssa, i64 368
   %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 368
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 368
   store i32 %60, ptr %61, align 8
   br label %.loopexit62
 
 .thread:                                          ; preds = %enc_key_cmp_id.exit51, %.lr.ph95
-  %62 = getelementptr inbounds i8, ptr %51, i64 360
+  %62 = getelementptr inbounds nuw i8, ptr %51, i64 360
   %63 = load ptr, ptr %62, align 8
   %.not47 = icmp eq ptr %63, null
   br i1 %.not47, label %.loopexit62, label %46, !llvm.loop !7
 
 .loopexit62:                                      ; preds = %.thread, %enc_key_cmp_id.exit.thread, %._crit_edge
   %.0.lcssa71.pn = phi ptr [ %.073.lcssa, %._crit_edge ], [ %3, %enc_key_cmp_id.exit.thread ], [ %51, %.thread ]
-  %64 = getelementptr inbounds i8, ptr %.0.lcssa71.pn, i64 360
+  %64 = getelementptr inbounds nuw i8, ptr %.0.lcssa71.pn, i64 360
   store ptr %1, ptr %64, align 8
   %.not4874 = icmp eq ptr %3, %1
   br i1 %.not4874, label %.loopexit, label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.loopexit62, %.lr.ph76
   %.175 = phi ptr [ %69, %.lr.ph76 ], [ %3, %.loopexit62 ]
-  %65 = getelementptr inbounds i8, ptr %.175, i64 368
+  %65 = getelementptr inbounds nuw i8, ptr %.175, i64 368
   %66 = load i32, ptr %65, align 8
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 8
-  %68 = getelementptr inbounds i8, ptr %.175, i64 360
+  %68 = getelementptr inbounds nuw i8, ptr %.175, i64 360
   %69 = load ptr, ptr %68, align 8
   %.not48 = icmp eq ptr %69, %1
   br i1 %.not48, label %.loopexit, label %.lr.ph76, !llvm.loop !8
@@ -2423,7 +2423,7 @@ declare i32 @krb5_kt_close(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @decrypt_krb5_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @wmem_alloc0(ptr noundef %8, i64 noundef 256) #16
   %10 = icmp eq ptr %9, null
@@ -2432,15 +2432,15 @@ define hidden ptr @decrypt_krb5_data(ptr noundef %0, ptr noundef %1, i32 noundef
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
   %13 = tail call noalias ptr @wmem_list_new(ptr noundef %12) #16
-  %14 = getelementptr inbounds i8, ptr %9, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = tail call noalias ptr @wmem_list_new(ptr noundef %15) #16
-  %17 = getelementptr inbounds i8, ptr %9, i64 152
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 152
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr %7, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %9, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 160
   store ptr %19, ptr %20, align 8
   br label %kerberos_new_private_data.exit
 
@@ -2468,17 +2468,17 @@ define internal fastcc ptr @decrypt_krb5_data_private(ptr noundef %0, ptr nounde
 
 18:                                               ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false)
-  %19 = getelementptr inbounds i8, ptr %8, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %9, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %8, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %9 to i64
   %24 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %8, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %9, ptr %26, align 4
   %27 = call fastcc i32 @decrypt_krb5_with_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %5, ptr noundef %4, ptr noundef nonnull @decrypt_krb5_data_cb, ptr noundef %8)
   %.not = icmp eq i32 %27, 0
@@ -2505,7 +2505,7 @@ define internal fastcc ptr @decrypt_krb5_data_private(ptr noundef %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define hidden ptr @decrypt_krb5_krb_cfx_dce(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.decrypt_krb5_krb_cfx_dce_state, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noalias ptr @wmem_alloc0(ptr noundef %11, i64 noundef 256) #16
   %13 = icmp eq ptr %12, null
@@ -2514,15 +2514,15 @@ define hidden ptr @decrypt_krb5_krb_cfx_dce(ptr noundef %0, ptr noundef %1, i32 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %10, align 8
   %16 = tail call noalias ptr @wmem_list_new(ptr noundef %15) #16
-  %17 = getelementptr inbounds i8, ptr %12, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 144
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr %10, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %12, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %10, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %12, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 160
   store ptr %22, ptr %23, align 8
   br label %kerberos_new_private_data.exit
 
@@ -2544,7 +2544,7 @@ kerberos_new_private_data.exit:                   ; preds = %8, %14
 
 30:                                               ; preds = %26
   %31 = tail call i32 @tvb_captured_length(ptr noundef nonnull %4) #16
-  %32 = getelementptr inbounds i8, ptr %9, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %31, ptr %32, align 8
   %33 = tail call ptr @tvb_get_ptr(ptr noundef nonnull %4, i32 noundef 0, i32 noundef %31) #16
   store ptr %33, ptr %9, align 8
@@ -2561,15 +2561,15 @@ kerberos_new_private_data.exit:                   ; preds = %8, %14
   br i1 %39, label %85, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %9, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %5, ptr %41, align 8
   %42 = tail call i32 @tvb_captured_length(ptr noundef nonnull %5) #16
-  %43 = getelementptr inbounds i8, ptr %9, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %42, ptr %43, align 8
   %44 = load ptr, ptr %10, align 8
   %45 = zext i32 %42 to i64
   %46 = tail call noalias ptr @wmem_alloc0(ptr noundef %44, i64 noundef %45) #16
-  %47 = getelementptr inbounds i8, ptr %9, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %46, ptr %47, align 8
   %48 = icmp eq ptr %46, null
   br i1 %48, label %85, label %49
@@ -2586,10 +2586,10 @@ kerberos_new_private_data.exit:                   ; preds = %8, %14
 
 54:                                               ; preds = %50
   %55 = tail call i32 @tvb_captured_length(ptr noundef nonnull %6) #16
-  %56 = getelementptr inbounds i8, ptr %9, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %55, ptr %56, align 8
   %57 = tail call ptr @tvb_get_ptr(ptr noundef nonnull %6, i32 noundef 0, i32 noundef %55) #16
-  %58 = getelementptr inbounds i8, ptr %9, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %57, ptr %58, align 8
   br label %59
 
@@ -2604,15 +2604,15 @@ kerberos_new_private_data.exit:                   ; preds = %8, %14
   br i1 %64, label %85, label %65
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %9, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %7, ptr %66, align 8
   %67 = tail call i32 @tvb_captured_length(ptr noundef nonnull %7) #16
-  %68 = getelementptr inbounds i8, ptr %9, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store i32 %67, ptr %68, align 8
   %69 = load ptr, ptr %10, align 8
   %70 = zext i32 %67 to i64
   %71 = tail call noalias ptr @wmem_alloc0(ptr noundef %69, i64 noundef %70) #16
-  %72 = getelementptr inbounds i8, ptr %9, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %71, ptr %72, align 8
   %73 = icmp eq ptr %71, null
   br i1 %73, label %85, label %74
@@ -2657,23 +2657,23 @@ define internal fastcc range(i32 -1, 1) i32 @decrypt_krb5_with_cb(ptr noundef %0
   %9 = alloca %struct.insert_longterm_keys_into_key_map_state, align 8
   %10 = alloca %struct.decrypt_krb5_with_cb_state, align 8
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %4, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %5, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %6, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr null, ptr %19, align 8
   %20 = load i32, ptr @krb_decrypt, align 4
   %21 = icmp eq i32 %20, 0
@@ -2740,13 +2740,13 @@ insert_longterm_keys_into_key_map.exit:           ; preds = %33, %39
   br i1 %.not, label %136, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %42, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %42, i64 48
-  %49 = getelementptr inbounds i8, ptr %42, i64 316
-  %50 = getelementptr inbounds i8, ptr %42, i64 368
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 316
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 368
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %42, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %53 = load i8, ptr %52, align 8
   %54 = zext i8 %53 to i32
   %55 = getelementptr i8, ptr %42, i64 17
@@ -2760,19 +2760,19 @@ insert_longterm_keys_into_key_map.exit:           ; preds = %33, %39
   %63 = zext i8 %62 to i32
   %64 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_kerberos_decrypted_keytype, ptr noundef %5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.800, i32 noundef %47, i32 noundef %3, ptr noundef nonnull %48, ptr noundef nonnull %49, i32 noundef %51, i32 noundef %54, i32 noundef %57, i32 noundef %60, i32 noundef %63) #16
   %65 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %64, ptr noundef nonnull @ei_kerberos_decrypted_keytype, ptr noundef nonnull @.str.801, ptr noundef nonnull %.026, i32 noundef %43, i32 noundef %44) #16
-  %66 = getelementptr inbounds i8, ptr %42, i64 376
+  %66 = getelementptr inbounds nuw i8, ptr %42, i64 376
   %67 = load ptr, ptr %66, align 8
   %.not.i29 = icmp eq ptr %67, null
   br i1 %.not.i29, label %88, label %68
 
 68:                                               ; preds = %45
-  %69 = getelementptr inbounds i8, ptr %67, i64 48
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %67, i64 316
-  %73 = getelementptr inbounds i8, ptr %67, i64 368
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 316
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 368
   %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %67, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %76 = load i8, ptr %75, align 8
   %77 = zext i8 %76 to i32
   %78 = getelementptr i8, ptr %67, i64 17
@@ -2788,19 +2788,19 @@ insert_longterm_keys_into_key_map.exit:           ; preds = %33, %39
   br label %88
 
 88:                                               ; preds = %68, %45
-  %89 = getelementptr inbounds i8, ptr %42, i64 384
+  %89 = getelementptr inbounds nuw i8, ptr %42, i64 384
   %90 = load ptr, ptr %89, align 8
   %.not60.i = icmp eq ptr %90, null
   br i1 %.not60.i, label %111, label %91
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %90, i64 48
-  %93 = getelementptr inbounds i8, ptr %90, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %94 = load i32, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %90, i64 316
-  %96 = getelementptr inbounds i8, ptr %90, i64 368
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 316
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 368
   %97 = load i32, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %90, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %99 = load i8, ptr %98, align 8
   %100 = zext i8 %99 to i32
   %101 = getelementptr i8, ptr %90, i64 17
@@ -2816,20 +2816,20 @@ insert_longterm_keys_into_key_map.exit:           ; preds = %33, %39
   br label %111
 
 111:                                              ; preds = %91, %88
-  %.0.in62.i = getelementptr inbounds i8, ptr %42, i64 360
+  %.0.in62.i = getelementptr inbounds nuw i8, ptr %42, i64 360
   %.063.i = load ptr, ptr %.0.in62.i, align 8
   %.not6164.i = icmp eq ptr %.063.i, null
   br i1 %.not6164.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %111, %.lr.ph.i
   %.065.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.063.i, %111 ]
-  %112 = getelementptr inbounds i8, ptr %.065.i, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.065.i, i64 8
   %113 = load i32, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %.065.i, i64 48
-  %115 = getelementptr inbounds i8, ptr %.065.i, i64 316
-  %116 = getelementptr inbounds i8, ptr %.065.i, i64 368
+  %114 = getelementptr inbounds nuw i8, ptr %.065.i, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %.065.i, i64 316
+  %116 = getelementptr inbounds nuw i8, ptr %.065.i, i64 368
   %117 = load i32, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %.065.i, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %.065.i, i64 16
   %119 = load i8, ptr %118, align 8
   %120 = zext i8 %119 to i32
   %121 = getelementptr i8, ptr %.065.i, i64 17
@@ -2842,13 +2842,13 @@ insert_longterm_keys_into_key_map.exit:           ; preds = %33, %39
   %128 = load i8, ptr %127, align 1
   %129 = zext i8 %128 to i32
   %130 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %64, ptr noundef nonnull @ei_kerberos_decrypted_keytype, ptr noundef nonnull @.str.800, i32 noundef %113, i32 noundef %3, ptr noundef nonnull %114, ptr noundef nonnull %115, i32 noundef %117, i32 noundef %120, i32 noundef %123, i32 noundef %126, i32 noundef %129) #16
-  %.0.in.i = getelementptr inbounds i8, ptr %.065.i, i64 360
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.065.i, i64 360
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not61.i = icmp eq ptr %.0.i, null
   br i1 %.not61.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %111
-  %131 = getelementptr inbounds i8, ptr %2, i64 144
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %132 = load ptr, ptr %131, align 8
   %133 = call ptr @wmem_list_find(ptr noundef %132, ptr noundef nonnull %42) #16
   %.not.i.i = icmp eq ptr %133, null
@@ -2859,34 +2859,34 @@ insert_longterm_keys_into_key_map.exit:           ; preds = %33, %39
   br label %used_encryption_key.exit
 
 used_encryption_key.exit:                         ; preds = %._crit_edge.i, %134
-  %135 = getelementptr inbounds i8, ptr %2, i64 96
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %42, ptr %135, align 8
   br label %missing_encryption_key.exit
 
 136:                                              ; preds = %41
-  %137 = getelementptr inbounds i8, ptr %1, i64 408
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %138 = load ptr, ptr %137, align 8
   %139 = call noalias ptr @wmem_alloc0(ptr noundef %138, i64 noundef 392) #16
-  %140 = getelementptr inbounds i8, ptr %139, i64 48
-  %141 = getelementptr inbounds i8, ptr %1, i64 20
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 48
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %142 = load i32, ptr %141, align 4
   %143 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %140, i64 noundef 256, ptr noundef nonnull @.str.802, i32 noundef %4, i32 noundef %3, i32 noundef %142) #16
   %144 = load i32, ptr %141, align 4
-  %145 = getelementptr inbounds i8, ptr %139, i64 308
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 308
   store i32 %144, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %2, i64 140
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %147 = load i32, ptr %146, align 4
   %148 = add i32 %147, 1
   store i32 %148, ptr %146, align 4
-  %149 = getelementptr inbounds i8, ptr %139, i64 312
+  %149 = getelementptr inbounds nuw i8, ptr %139, i64 312
   store i32 %148, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %139, i64 316
+  %150 = getelementptr inbounds nuw i8, ptr %139, i64 316
   %151 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %150, i64 noundef 42, ptr noundef nonnull @.str.803, i32 noundef %148) #16
-  %152 = getelementptr inbounds i8, ptr %139, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i32 %4, ptr %152, align 8
   %153 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_kerberos_missing_keytype, ptr noundef %5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.804, i32 noundef %4, i32 noundef %3, ptr noundef nonnull %150) #16
   %154 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %153, ptr noundef nonnull @ei_kerberos_missing_keytype, ptr noundef nonnull @.str.801, ptr noundef nonnull %.026, i32 noundef %43, i32 noundef %44) #16
-  %155 = getelementptr inbounds i8, ptr %2, i64 160
+  %155 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %156 = load ptr, ptr %155, align 8
   %157 = call ptr @wmem_list_find(ptr noundef %156, ptr noundef %139) #16
   %.not.i.i30 = icmp eq ptr %157, null
@@ -2910,11 +2910,11 @@ define internal i32 @decrypt_krb5_krb_cfx_dce_cb(ptr noundef %0, i32 noundef %1,
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
   store i64 0, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %9 = load i32, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %7, i8 0, i64 144, i1 false)
   %10 = load ptr, ptr @krb5_ctx, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = call i32 @krb5_c_crypto_length(ptr noundef %10, i32 noundef %12, i32 noundef 1, ptr noundef nonnull %4) #16
   %.not = icmp eq i32 %13, 0
@@ -2956,17 +2956,17 @@ define internal i32 @decrypt_krb5_krb_cfx_dce_cb(ptr noundef %0, i32 noundef %1,
   br i1 %or.cond, label %91, label %36
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
   %44 = call ptr @tvb_memcpy(ptr noundef %38, ptr noundef %40, i32 noundef 0, i64 noundef %43) #16
-  %45 = getelementptr inbounds i8, ptr %2, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %8, align 8
   %50 = zext i32 %49 to i64
@@ -2975,68 +2975,68 @@ define internal i32 @decrypt_krb5_krb_cfx_dce_cb(ptr noundef %0, i32 noundef %1,
   %52 = load ptr, ptr %47, align 8
   %53 = zext i32 %18 to i64
   %54 = getelementptr i8, ptr %52, i64 %53
-  %55 = getelementptr inbounds i8, ptr %7, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %54, ptr %55, align 16
   %56 = load i32, ptr %4, align 4
-  %57 = getelementptr inbounds i8, ptr %7, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %56, ptr %57, align 4
   %58 = load ptr, ptr %2, align 8
   %.not56 = icmp eq ptr %58, null
   br i1 %.not56, label %64, label %59
 
 59:                                               ; preds = %36
-  %60 = getelementptr inbounds i8, ptr %7, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %58, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %7, i64 36
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 %62, ptr %63, align 4
   br label %64
 
 64:                                               ; preds = %36, %59
   %.sink = phi i32 [ 3, %59 ], [ 0, %36 ]
-  %65 = getelementptr inbounds i8, ptr %7, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %.sink, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %7, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 2, ptr %66, align 16
   %67 = load ptr, ptr %39, align 8
-  %68 = getelementptr inbounds i8, ptr %7, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %67, ptr %68, align 16
   %69 = load i32, ptr %41, align 8
-  %70 = getelementptr inbounds i8, ptr %7, i64 60
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 60
   store i32 %69, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %2, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %72 = load ptr, ptr %71, align 8
   %.not57 = icmp eq ptr %72, null
   br i1 %.not57, label %78, label %73
 
 73:                                               ; preds = %64
-  %74 = getelementptr inbounds i8, ptr %7, i64 88
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr %72, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %2, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %7, i64 84
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 84
   store i32 %76, ptr %77, align 4
   br label %78
 
 78:                                               ; preds = %64, %73
   %.sink59 = phi i32 [ 3, %73 ], [ 0, %64 ]
-  %79 = getelementptr inbounds i8, ptr %7, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i32 %.sink59, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %7, i64 96
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i32 2, ptr %80, align 16
-  %81 = getelementptr inbounds i8, ptr %7, i64 112
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store ptr %52, ptr %81, align 16
-  %82 = getelementptr inbounds i8, ptr %7, i64 108
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 108
   store i32 %26, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %7, i64 120
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store i32 5, ptr %83, align 8
   %84 = zext i32 %26 to i64
   %85 = getelementptr i8, ptr %52, i64 %84
-  %86 = getelementptr inbounds i8, ptr %7, i64 136
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store ptr %85, ptr %86, align 8
   %87 = load i32, ptr %5, align 4
-  %88 = getelementptr inbounds i8, ptr %7, i64 132
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 132
   store i32 %87, ptr %88, align 4
   %89 = load ptr, ptr @krb5_ctx, align 8
   %90 = call i32 @krb5_c_decrypt_iov(ptr noundef %89, ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %7, i64 noundef 6) #16
@@ -3273,7 +3273,7 @@ define internal fastcc i32 @dissect_kerberos_common(ptr noundef %0, ptr noundef 
   br i1 %4, label %28, label %31
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   call void @col_set_str(ptr noundef %30, i32 noundef 34, ptr noundef nonnull @.str.767) #16
   br label %31
@@ -3348,7 +3348,7 @@ show_krb_recordmark.exit:                         ; preds = %37, %39
   br i1 %4, label %56, label %59
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8
   call void @col_set_str(ptr noundef %58, i32 noundef 34, ptr noundef nonnull @.str.767) #16
   br label %59
@@ -3359,7 +3359,7 @@ show_krb_recordmark.exit:                         ; preds = %37, %39
   br i1 %.not67, label %64, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = load ptr, ptr %62, align 8
   call void @col_clear(ptr noundef %63, i32 noundef 25) #16
   br label %64
@@ -3380,11 +3380,11 @@ show_krb_recordmark.exit:                         ; preds = %37, %39
 
 70:                                               ; preds = %show_krb_recordmark.exit, %65, %64
   call void @asn1_ctx_init(ptr noundef nonnull %11, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #16
-  %71 = getelementptr inbounds i8, ptr %11, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr null, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %11, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 408
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 408
   %75 = load ptr, ptr %74, align 8
   %76 = call noalias ptr @wmem_alloc0(ptr noundef %75, i64 noundef 256) #16
   %77 = icmp eq ptr %76, null
@@ -3393,28 +3393,28 @@ show_krb_recordmark.exit:                         ; preds = %37, %39
 78:                                               ; preds = %70
   %79 = load ptr, ptr %74, align 8
   %80 = call noalias ptr @wmem_list_new(ptr noundef %79) #16
-  %81 = getelementptr inbounds i8, ptr %76, i64 144
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 144
   store ptr %80, ptr %81, align 8
   %82 = load ptr, ptr %74, align 8
   %83 = call noalias ptr @wmem_list_new(ptr noundef %82) #16
-  %84 = getelementptr inbounds i8, ptr %76, i64 152
+  %84 = getelementptr inbounds nuw i8, ptr %76, i64 152
   store ptr %83, ptr %84, align 8
   %85 = load ptr, ptr %74, align 8
   %86 = call noalias ptr @wmem_list_new(ptr noundef %85) #16
-  %87 = getelementptr inbounds i8, ptr %76, i64 160
+  %87 = getelementptr inbounds nuw i8, ptr %76, i64 160
   store ptr %86, ptr %87, align 8
   br label %kerberos_get_private_data.exit
 
 kerberos_get_private_data.exit:                   ; preds = %70, %78
   store ptr %76, ptr %71, align 8
-  %88 = getelementptr inbounds i8, ptr %76, i64 72
+  %88 = getelementptr inbounds nuw i8, ptr %76, i64 72
   store ptr %6, ptr %88, align 8
   store volatile i32 0, ptr %16, align 4
   call void @except_setup_try(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull @dissect_kerberos_common.catch_spec, i64 noundef 1) #16
-  %89 = getelementptr inbounds i8, ptr %18, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %90 = call i32 @_setjmp(ptr noundef nonnull %89) #19
   %.not70 = icmp eq i32 %90, 0
-  %91 = getelementptr inbounds i8, ptr %18, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sink = select i1 %.not70, ptr null, ptr %91
   store volatile ptr %.sink, ptr %15, align 8
   %.0..0..0..0. = load volatile i32, ptr %16, align 4
@@ -3461,35 +3461,35 @@ kerberos_get_private_data.exit:                   ; preds = %70, %78
 
 106:                                              ; preds = %105
   %.0..0..0..0.9 = load volatile ptr, ptr %15, align 8
-  %107 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %108 = load volatile i64, ptr %107, align 8
   %109 = icmp eq i64 %108, 1
   br i1 %109, label %126, label %110
 
 110:                                              ; preds = %106
   %.0..0..0..0.10 = load volatile ptr, ptr %15, align 8
-  %111 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %112 = load volatile i64, ptr %111, align 8
   %113 = icmp eq i64 %112, 4
   br i1 %113, label %126, label %114
 
 114:                                              ; preds = %110
   %.0..0..0..0.11 = load volatile ptr, ptr %15, align 8
-  %115 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %116 = load volatile i64, ptr %115, align 8
   %117 = icmp eq i64 %116, 3
   br i1 %117, label %126, label %118
 
 118:                                              ; preds = %114
   %.0..0..0..0.12 = load volatile ptr, ptr %15, align 8
-  %119 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %120 = load volatile i64, ptr %119, align 8
   %121 = icmp eq i64 %120, 2
   br i1 %121, label %126, label %122
 
 122:                                              ; preds = %118
   %.0..0..0..0.13 = load volatile ptr, ptr %15, align 8
-  %123 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %124 = load volatile i64, ptr %123, align 8
   %125 = icmp eq i64 %124, 7
   br i1 %125, label %126, label %128
@@ -3518,7 +3518,7 @@ kerberos_get_private_data.exit:                   ; preds = %70, %78
   unreachable
 
 132:                                              ; preds = %130, %128
-  %133 = getelementptr inbounds i8, ptr %18, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %134 = load volatile ptr, ptr %133, align 8
   call void @except_free(ptr noundef %134) #16
   %135 = call ptr @except_pop() #16
@@ -3529,19 +3529,19 @@ kerberos_get_private_data.exit:                   ; preds = %70, %78
 136:                                              ; preds = %132
   %.0..0..0..0.28 = load volatile ptr, ptr %9, align 8
   store ptr %.0..0..0..0.28, ptr %19, align 8
-  %137 = getelementptr inbounds i8, ptr %19, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %1, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %19, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr @ei_kerberos_learnt_keytype, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %19, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr @.str.964, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %19, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %0, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %19, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 0, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %19, i64 44
+  %142 = getelementptr inbounds nuw i8, ptr %19, i64 44
   store i32 0, ptr %142, align 4
-  %143 = getelementptr inbounds i8, ptr %76, i64 152
+  %143 = getelementptr inbounds nuw i8, ptr %76, i64 152
   %144 = load ptr, ptr %143, align 8
   call void @wmem_list_foreach(ptr noundef %144, ptr noundef nonnull @kerberos_display_key, ptr noundef nonnull %19) #16
   br label %145
@@ -3554,19 +3554,19 @@ kerberos_get_private_data.exit:                   ; preds = %70, %78
 146:                                              ; preds = %145
   %.0..0..0..0.30 = load volatile ptr, ptr %9, align 8
   store ptr %.0..0..0..0.30, ptr %20, align 8
-  %147 = getelementptr inbounds i8, ptr %20, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %1, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %20, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr @ei_kerberos_missing_keytype, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %20, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr @.str.965, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %20, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %0, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %20, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i32 0, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %20, i64 44
+  %152 = getelementptr inbounds nuw i8, ptr %20, i64 44
   store i32 0, ptr %152, align 4
-  %153 = getelementptr inbounds i8, ptr %76, i64 160
+  %153 = getelementptr inbounds nuw i8, ptr %76, i64 160
   %154 = load ptr, ptr %153, align 8
   call void @wmem_list_foreach(ptr noundef %154, ptr noundef nonnull @kerberos_display_key, ptr noundef nonnull %20) #16
   br label %155
@@ -3579,19 +3579,19 @@ kerberos_get_private_data.exit:                   ; preds = %70, %78
 156:                                              ; preds = %155
   %.0..0..0..0.32 = load volatile ptr, ptr %9, align 8
   store ptr %.0..0..0..0.32, ptr %21, align 8
-  %157 = getelementptr inbounds i8, ptr %21, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %1, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %21, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr @ei_kerberos_decrypted_keytype, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %21, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr @.str.966, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %21, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %0, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %21, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 0, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %21, i64 44
+  %162 = getelementptr inbounds nuw i8, ptr %21, i64 44
   store i32 0, ptr %162, align 4
-  %163 = getelementptr inbounds i8, ptr %76, i64 144
+  %163 = getelementptr inbounds nuw i8, ptr %76, i64 144
   %164 = load ptr, ptr %163, align 8
   call void @wmem_list_foreach(ptr noundef %164, ptr noundef nonnull @kerberos_display_key, ptr noundef nonnull %21) #16
   br label %165
@@ -3703,7 +3703,7 @@ define internal i32 @dissect_kerberos_udp(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.767) #16
   %7 = load ptr, ptr %5, align 8
@@ -3738,12 +3738,12 @@ declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @enc_key_content_hash(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call i32 @wmem_strong_hash(ptr noundef nonnull %2, i64 noundef 4) #16
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = tail call i32 @wmem_strong_hash(ptr noundef nonnull %4, i64 noundef 4) #16
   %6 = add i32 %5, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %4, align 4
   %9 = sext i32 %8 to i64
   %10 = tail call i32 @wmem_strong_hash(ptr noundef nonnull %7, i64 noundef %9) #16
@@ -3753,24 +3753,24 @@ define internal i32 @enc_key_content_hash(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @enc_key_content_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %16
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = load i32, ptr %10, align 4
   %.not11 = icmp eq i32 %9, %11
   br i1 %.not11, label %12, label %16
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = sext i32 %9 to i64
   %bcmp = tail call i32 @bcmp(ptr nonnull %13, ptr nonnull %14, i64 %15)
   %.not12 = icmp eq i32 %bcmp, 0
@@ -3819,14 +3819,14 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 define internal i32 @decrypt_krb5_data_cb(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct._krb5_enc_data, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %9 = load ptr, ptr @krb5_ctx, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = call i32 @krb5_c_decrypt(ptr noundef %9, ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %10) #16
   ret i32 %11
 }
@@ -3844,13 +3844,13 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
   %8 = alloca %struct._krb5_keyblock, align 8
   %9 = alloca %struct._krb5_keyblock, align 8
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 240
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 240
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 248
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %191
@@ -3862,21 +3862,21 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
   br i1 %or.cond, label %34, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %22, %24
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %1, i64 308
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %2, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, -2
   %switch = icmp ne i32 %33, 54
@@ -3892,21 +3892,21 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
   br i1 %or.cond103, label %55, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %16, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %37, %39
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %37, %43
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %2, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %47 = load i32, ptr %46, align 8
   switch i32 %47, label %55 [
     i32 3, label %48
@@ -3915,13 +3915,13 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
   ]
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %1, i64 308
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %50 = load i32, ptr %49, align 4
   %51 = icmp ne i32 %50, -1
   br label %55
 
 52:                                               ; preds = %45, %45
-  %53 = getelementptr inbounds i8, ptr %1, i64 308
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %54 = load i32, ptr %53, align 4
   %.not94 = icmp eq i32 %54, -1
   br label %55
@@ -3933,30 +3933,30 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
 56:                                               ; preds = %55
   store ptr null, ptr %7, align 8
   store i32 -1760647421, ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %14, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %58, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %14, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %5, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %14, i64 16
-  %64 = getelementptr inbounds i8, ptr %5, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %63, ptr %64, align 8
   store i32 -1760647421, ptr %6, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %66, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %1, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %6, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 16
-  %72 = getelementptr inbounds i8, ptr %6, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %2, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %74 = load i32, ptr %73, align 8
   switch i32 %74, label %191 [
     i32 54, label %76
@@ -3974,40 +3974,40 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
   br i1 %.not101, label %79, label %191
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %2, i64 56
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %81 = load i32, ptr %80, align 8
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %2, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %7, align 8
   %86 = load i32, ptr %73, align 8
-  %87 = getelementptr inbounds i8, ptr %2, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %88 = load ptr, ptr %87, align 8
   %89 = call i32 %84(ptr noundef %85, i32 noundef %86, ptr noundef %88) #16
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %110
 
 91:                                               ; preds = %79
-  %92 = getelementptr inbounds i8, ptr %2, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %11, align 8
   %95 = load ptr, ptr %2, align 8
-  %96 = getelementptr inbounds i8, ptr %2, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %7, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %98, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %98, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %104 = load ptr, ptr %103, align 8
   call fastcc void @add_encryption_key(ptr noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef null, ptr noundef %97, i32 noundef %100, i32 noundef %102, ptr noundef %104, ptr noundef nonnull %.0, ptr noundef nonnull %14, ptr noundef nonnull %1)
   %105 = load ptr, ptr @krb5_ctx, align 8
   %106 = load ptr, ptr %7, align 8
   call void @krb5_free_keyblock(ptr noundef %105, ptr noundef %106) #16
   %107 = load ptr, ptr %11, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 104
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 104
   %109 = load ptr, ptr %108, align 8
   store ptr %109, ptr %17, align 8
   br label %191
@@ -4024,28 +4024,28 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
 114:                                              ; preds = %113
   store ptr null, ptr %10, align 8
   store i32 -1760647421, ptr %8, align 8
-  %115 = getelementptr inbounds i8, ptr %16, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %116 = load i32, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %8, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %116, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %16, i64 12
+  %118 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %119 = load i32, ptr %118, align 4
-  %120 = getelementptr inbounds i8, ptr %8, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %119, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %16, i64 16
-  %122 = getelementptr inbounds i8, ptr %8, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %121, ptr %122, align 8
   store i32 -1760647421, ptr %9, align 8
-  %123 = getelementptr inbounds i8, ptr %1, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %124 = load i32, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %9, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %124, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %1, i64 12
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %9, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %127, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 16
-  %130 = getelementptr inbounds i8, ptr %9, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %129, ptr %130, align 8
   %131 = load ptr, ptr @krb5_ctx, align 8
   %132 = call i32 @krb5_c_fx_cf2_simple(ptr noundef %131, ptr noundef nonnull %8, ptr noundef nonnull @.str.788, ptr noundef nonnull %9, ptr noundef nonnull @.str.789, ptr noundef nonnull %10) #16
@@ -4053,41 +4053,41 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
   br i1 %.not100, label %133, label %191
 
 133:                                              ; preds = %114
-  %134 = getelementptr inbounds i8, ptr %2, i64 56
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %135 = load i32, ptr %134, align 8
   %136 = add i32 %135, 1
   store i32 %136, ptr %134, align 8
-  %137 = getelementptr inbounds i8, ptr %2, i64 40
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %10, align 8
-  %140 = getelementptr inbounds i8, ptr %2, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %141 = load i32, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %2, i64 48
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %143 = load ptr, ptr %142, align 8
   %144 = call i32 %138(ptr noundef %139, i32 noundef %141, ptr noundef %143) #16
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %165
 
 146:                                              ; preds = %133
-  %147 = getelementptr inbounds i8, ptr %2, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %11, align 8
   %150 = load ptr, ptr %2, align 8
-  %151 = getelementptr inbounds i8, ptr %2, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %10, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %155 = load i32, ptr %154, align 4
-  %156 = getelementptr inbounds i8, ptr %153, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = load i32, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %153, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %159 = load ptr, ptr %158, align 8
   call fastcc void @add_encryption_key(ptr noundef %148, ptr noundef %149, ptr noundef %150, ptr noundef null, ptr noundef %152, i32 noundef %155, i32 noundef %157, ptr noundef %159, ptr noundef nonnull @.str.790, ptr noundef nonnull %16, ptr noundef nonnull %1)
   %160 = load ptr, ptr @krb5_ctx, align 8
   %161 = load ptr, ptr %10, align 8
   call void @krb5_free_keyblock(ptr noundef %160, ptr noundef %161) #16
   %162 = load ptr, ptr %11, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 104
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 104
   %164 = load ptr, ptr %163, align 8
   store ptr %164, ptr %17, align 8
   br label %191
@@ -4099,10 +4099,10 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
   br label %191
 
 168:                                              ; preds = %113
-  %169 = getelementptr inbounds i8, ptr %2, i64 28
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %170 = load i32, ptr %169, align 4
   %.not97 = icmp eq i32 %170, -1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %.not97, label %._crit_edge, label %171
 
@@ -4112,25 +4112,25 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
 
 ._crit_edge:                                      ; preds = %168, %171
   %172 = phi i32 [ %170, %171 ], [ %.pre, %168 ]
-  %173 = getelementptr inbounds i8, ptr %4, i64 24
-  %174 = getelementptr inbounds i8, ptr %4, i64 28
+  %173 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %174 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %172, ptr %174, align 4
-  %175 = getelementptr inbounds i8, ptr %1, i64 12
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %176 = load i32, ptr %175, align 4
-  %177 = getelementptr inbounds i8, ptr %4, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %176, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %1, i64 16
-  %179 = getelementptr inbounds i8, ptr %4, i64 40
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %178, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %2, i64 56
+  %180 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %181 = load i32, ptr %180, align 8
   %182 = add i32 %181, 1
   store i32 %182, ptr %180, align 8
-  %183 = getelementptr inbounds i8, ptr %2, i64 40
+  %183 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %2, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %186 = load i32, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %2, i64 48
+  %187 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %188 = load ptr, ptr %187, align 8
   %189 = call i32 %184(ptr noundef nonnull %173, i32 noundef %186, ptr noundef %188) #16
   %.not99 = icmp eq i32 %189, 0
@@ -4158,23 +4158,23 @@ declare i32 @krb5_c_fx_cf2_simple(ptr noundef, ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_encryption_key(ptr noundef %0, ptr nocapture noundef initializes((104, 112)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
   %12 = alloca %struct.insert_longterm_keys_into_key_map_state, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %13, align 8
   %14 = icmp ne ptr %9, null
   %15 = icmp ne ptr %10, null
   %or.cond = and i1 %14, %15
   %spec.select = select i1 %or.cond, ptr @.str.793, ptr @.str.791
   %spec.select88 = select i1 %or.cond, ptr @.str.794, ptr @.str.792
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 50
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 8
   %.not = icmp eq i16 %20, 0
   br i1 %.not, label %24, label %21
 
 21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %0, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %23 = load ptr, ptr %22, align 8
   br label %26
 
@@ -4185,35 +4185,35 @@ define internal fastcc void @add_encryption_key(ptr noundef %0, ptr nocapture no
 26:                                               ; preds = %24, %21
   %.0 = phi ptr [ %23, %21 ], [ %25, %24 ]
   %27 = tail call noalias ptr @wmem_alloc0(ptr noundef %.0, i64 noundef 392) #16
-  %28 = getelementptr inbounds i8, ptr %27, i64 48
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %28, i64 noundef 256, ptr noundef nonnull @.str.795, ptr noundef nonnull %spec.select, ptr noundef %8, i32 noundef %30) #16
   %32 = load i32, ptr %29, align 4
-  %33 = getelementptr inbounds i8, ptr %27, i64 308
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 308
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 136
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %35 = load i32, ptr %34, align 8
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %27, i64 312
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 312
   store i32 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %27, i64 316
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 316
   %39 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %38, i64 noundef 42, ptr noundef nonnull @.str.796, i32 noundef %32, i32 noundef %36) #16
-  %40 = getelementptr inbounds i8, ptr %27, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %5, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %27, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 %6, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %27, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %43 = tail call i32 @llvm.smin.i32(i32 %6, i32 32)
   %44 = sext i32 %43 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr align 1 %7, i64 %44, i1 false)
-  %45 = getelementptr inbounds i8, ptr %27, i64 376
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 376
   store ptr %9, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %27, i64 384
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 384
   store ptr %10, ptr %46, align 8
   %47 = load ptr, ptr %16, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 50
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 50
   %49 = load i16, ptr %48, align 2
   %50 = and i16 %49, 8
   %.not87 = icmp eq i16 %50, 0
@@ -4271,13 +4271,13 @@ insert_longterm_keys_into_key_map.exit:           ; preds = %51, %58
   br i1 %14, label %80, label %100
 
 80:                                               ; preds = %79
-  %81 = getelementptr inbounds i8, ptr %9, i64 48
-  %82 = getelementptr inbounds i8, ptr %9, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %9, i64 316
-  %85 = getelementptr inbounds i8, ptr %9, i64 368
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 316
+  %85 = getelementptr inbounds nuw i8, ptr %9, i64 368
   %86 = load i32, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %9, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %88 = load i8, ptr %87, align 8
   %89 = zext i8 %88 to i32
   %90 = getelementptr i8, ptr %9, i64 17
@@ -4296,13 +4296,13 @@ insert_longterm_keys_into_key_map.exit:           ; preds = %51, %58
   br i1 %15, label %101, label %121
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %10, i64 48
-  %103 = getelementptr inbounds i8, ptr %10, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %104 = load i32, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %10, i64 316
-  %106 = getelementptr inbounds i8, ptr %10, i64 368
+  %105 = getelementptr inbounds nuw i8, ptr %10, i64 316
+  %106 = getelementptr inbounds nuw i8, ptr %10, i64 368
   %107 = load i32, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %10, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %109 = load i8, ptr %108, align 8
   %110 = zext i8 %109 to i32
   %111 = getelementptr i8, ptr %10, i64 17
@@ -4318,7 +4318,7 @@ insert_longterm_keys_into_key_map.exit:           ; preds = %51, %58
   br label %121
 
 121:                                              ; preds = %101, %100
-  %122 = getelementptr inbounds i8, ptr %1, i64 152
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %123 = load ptr, ptr %122, align 8
   %124 = call ptr @wmem_list_find(ptr noundef %123, ptr noundef nonnull %27) #16
   %.not.i = icmp eq ptr %124, null
@@ -4362,15 +4362,15 @@ define internal i32 @dissect_kerberos_INTEGER_5(i1 noundef zeroext %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_MESSAGE_TYPE(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -4379,15 +4379,15 @@ define internal i32 @dissect_kerberos_MESSAGE_TYPE(i1 noundef zeroext %0, ptr no
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -4403,9 +4403,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not, label %37, label %30
 
 30:                                               ; preds = %kerberos_get_private_data.exit
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %7, align 4
   %36 = call ptr @val_to_str(i32 noundef %35, ptr noundef nonnull @krb5_msg_types, ptr noundef nonnull @.str.805) #16
@@ -4443,15 +4443,15 @@ declare i32 @dissect_ber_octet_string(i1 noundef zeroext, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_CKSUMTYPE(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -4460,15 +4460,15 @@ define internal i32 @dissect_kerberos_CKSUMTYPE(i1 noundef zeroext %0, ptr nound
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -4478,7 +4478,7 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 88
   %28 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %27) #16
   ret i32 %28
 }
@@ -4486,15 +4486,15 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_checksum(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -4503,15 +4503,15 @@ define internal i32 @dissect_kerberos_T_checksum(i1 zeroext %0, ptr noundef %1, 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -4521,7 +4521,7 @@ kerberos_new_private_data.exit.i:                 ; preds = %17, %10
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %27 = phi ptr [ %15, %kerberos_new_private_data.exit.i ], [ %9, %6 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %29 = load i32, ptr %28, align 8
   %cond = icmp eq i32 %29, 32771
   br i1 %cond, label %30, label %77
@@ -4573,7 +4573,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not.i14, label %74, label %69
 
 69:                                               ; preds = %62
-  %70 = getelementptr inbounds i8, ptr %3, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = call i32 @tvb_captured_length_remaining(ptr noundef %32, i32 noundef %66) #16
   %73 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %71, ptr noundef nonnull @ei_krb_gssapi_dlglen, ptr noundef %32, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.825, i32 noundef %67, i32 noundef %72) #16
@@ -4728,15 +4728,15 @@ define internal i32 @dissect_kerberos_Microseconds(i1 noundef zeroext %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_authenticator_subkey(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -4745,15 +4745,15 @@ define internal i32 @dissect_kerberos_T_authenticator_subkey(i1 noundef zeroext 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -4763,9 +4763,9 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @hf_kerberos_authenticator, align 4
   store i32 %31, ptr %27, align 8
@@ -4814,15 +4814,15 @@ declare i32 @dissect_ber_restricted_string(i1 noundef zeroext, i32 noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @save_Authenticator_subkey(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4, i32 noundef %5, i32 noundef %6) #0 {
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -4831,15 +4831,15 @@ define internal void @save_Authenticator_subkey(ptr nocapture noundef readnone %
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -4850,40 +4850,40 @@ kerberos_new_private_data.exit.i:                 ; preds = %17, %10
 kerberos_get_private_data.exit:                   ; preds = %7, %kerberos_new_private_data.exit.i
   %27 = phi ptr [ %15, %kerberos_new_private_data.exit.i ], [ %9, %7 ]
   tail call void @save_encryption_key(ptr poison, i32 poison, i32 poison, ptr noundef nonnull %3, ptr poison, i32 noundef %5, i32 noundef %6)
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %47, label %31
 
 31:                                               ; preds = %kerberos_get_private_data.exit
-  %32 = getelementptr inbounds i8, ptr %27, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 104
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %47, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %27, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 168
   %37 = load i32, ptr %36, align 8
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %41, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %27, i64 200
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 200
   store ptr %29, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %27, i64 208
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 208
   store ptr %33, ptr %40, align 8
   br label %41
 
 41:                                               ; preds = %38, %35
-  %42 = getelementptr inbounds i8, ptr %27, i64 220
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 220
   %43 = load i32, ptr %42, align 4
   %.not19 = icmp eq i32 %43, 0
   br i1 %.not19, label %47, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %27, i64 224
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 224
   store ptr %29, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %27, i64 232
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 232
   store ptr %33, ptr %46, align 8
   br label %47
 
@@ -4893,15 +4893,15 @@ kerberos_get_private_data.exit:                   ; preds = %7, %kerberos_new_pr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_kerberos_EncryptionKey(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -4910,15 +4910,15 @@ define internal fastcc i32 @dissect_kerberos_EncryptionKey(i1 noundef zeroext %0
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -4930,24 +4930,24 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
   %27 = load i32, ptr @ett_kerberos_EncryptionKey, align 4
   %28 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @EncryptionKey_sequence, i32 noundef %5, i32 noundef %27) #16
-  %29 = getelementptr inbounds i8, ptr %26, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %30 = load i32, ptr %29, align 8
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %42, label %31
 
 31:                                               ; preds = %kerberos_get_private_data.exit
-  %32 = getelementptr inbounds i8, ptr %26, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 36
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %42
 
 35:                                               ; preds = %31
   %36 = sub i32 %28, %2
-  %37 = getelementptr inbounds i8, ptr %26, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 104
   store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %26, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %26, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %41 = load i32, ptr %40, align 8
   tail call void %39(ptr noundef %1, i32 noundef %2, i32 noundef %36, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %41, i32 noundef %5) #16
   store ptr null, ptr %37, align 8
@@ -4960,15 +4960,15 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 ; Function Attrs: nounwind uwtable
 define internal void @save_encryption_key(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca [256 x i8], align 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %11, label %kerberos_get_private_data.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 256) #16
   %17 = icmp eq ptr %16, null
@@ -4977,15 +4977,15 @@ define internal void @save_encryption_key(ptr nocapture readnone %0, i32 %1, i32
 18:                                               ; preds = %11
   %19 = load ptr, ptr %14, align 8
   %20 = tail call noalias ptr @wmem_list_new(ptr noundef %19) #16
-  %21 = getelementptr inbounds i8, ptr %16, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 144
   store ptr %20, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = tail call noalias ptr @wmem_list_new(ptr noundef %22) #16
-  %24 = getelementptr inbounds i8, ptr %16, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 152
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %14, align 8
   %26 = tail call noalias ptr @wmem_list_new(ptr noundef %25) #16
-  %27 = getelementptr inbounds i8, ptr %16, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 160
   store ptr %26, ptr %27, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -4999,19 +4999,19 @@ kerberos_get_private_data.exit:                   ; preds = %7, %kerberos_new_pr
   %30 = tail call ptr @proto_registrar_get_name(i32 noundef %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull @.str.826, ptr noundef %29, ptr noundef %30) #16
-  %32 = getelementptr inbounds i8, ptr %3, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %28, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %28, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %28, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %28, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %28, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %28, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %45 = load ptr, ptr %44, align 8
   call fastcc void @add_encryption_key(ptr noundef %33, ptr noundef %28, ptr noundef %35, ptr noundef %37, ptr noundef %39, i32 noundef %41, i32 noundef %43, ptr noundef %45, ptr noundef nonnull %8, ptr noundef null, ptr noundef null)
   ret void
@@ -5021,15 +5021,15 @@ declare ptr @proto_registrar_get_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_keytype(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -5038,15 +5038,15 @@ define internal i32 @dissect_kerberos_T_keytype(i1 noundef zeroext %0, ptr nound
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -5058,7 +5058,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
   %27 = load i32, ptr @hf_krb_key_hidden_item, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %27, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
-  %29 = getelementptr inbounds i8, ptr %26, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 56
   store ptr %28, ptr %29, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %proto_item_set_hidden.exit, label %30
@@ -5070,7 +5070,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not.i13, label %proto_item_set_hidden.exit, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %.val, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %.val, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = or i32 %34, 1
   store i32 %35, ptr %33, align 4
@@ -5079,7 +5079,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 proto_item_set_hidden.exit:                       ; preds = %32, %30, %kerberos_get_private_data.exit
   %36 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @gbl_keytype) #16
   %37 = load i32, ptr @gbl_keytype, align 4
-  %38 = getelementptr inbounds i8, ptr %26, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i32 %37, ptr %38, align 8
   ret i32 %36
 }
@@ -5087,15 +5087,15 @@ proto_item_set_hidden.exit:                       ; preds = %32, %30, %kerberos_
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_keyvalue(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -5104,15 +5104,15 @@ define internal i32 @dissect_kerberos_T_keyvalue(i1 noundef zeroext %0, ptr noun
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -5125,16 +5125,16 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %28 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #16
   %29 = load ptr, ptr %7, align 8
   %30 = call i32 @tvb_reported_length(ptr noundef %29) #16
-  %31 = getelementptr inbounds i8, ptr %27, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 36
   store i32 %30, ptr %31, align 4
   %32 = load ptr, ptr %7, align 8
   %33 = call ptr @tvb_get_ptr(ptr noundef %32, i32 noundef 0, i32 noundef %30) #16
-  %34 = getelementptr inbounds i8, ptr %27, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %27, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr %4, ptr %35, align 8
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %27, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store ptr %36, ptr %37, align 8
   ret i32 %28
 }
@@ -5148,15 +5148,15 @@ define internal i32 @dissect_kerberos_AuthorizationData_item(i1 noundef zeroext 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_AUTHDATA_TYPE(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -5165,15 +5165,15 @@ define internal i32 @dissect_kerberos_AUTHDATA_TYPE(i1 noundef zeroext %0, ptr n
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -5183,22 +5183,22 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %28 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %27) #16
   ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_ad_data(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -5207,15 +5207,15 @@ define internal i32 @dissect_kerberos_T_ad_data(i1 noundef zeroext %0, ptr nound
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -5225,7 +5225,7 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %28 = load i32, ptr %27, align 8
   switch i32 %28, label %43 [
     i32 128, label %29
@@ -5308,15 +5308,15 @@ define internal noundef i32 @dissect_krb5_AD_WIN2K_PAC(i1 zeroext %0, ptr nounde
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %32)
-  %33 = getelementptr inbounds i8, ptr %3, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %34 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %35, label %kerberos_get_private_data.exit.i
 
 35:                                               ; preds = %6
-  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noalias ptr @wmem_alloc0(ptr noundef %39, i64 noundef 256) #16
   %41 = icmp eq ptr %40, null
@@ -5325,15 +5325,15 @@ define internal noundef i32 @dissect_krb5_AD_WIN2K_PAC(i1 zeroext %0, ptr nounde
 42:                                               ; preds = %35
   %43 = load ptr, ptr %38, align 8
   %44 = tail call noalias ptr @wmem_list_new(ptr noundef %43) #16
-  %45 = getelementptr inbounds i8, ptr %40, i64 144
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 144
   store ptr %44, ptr %45, align 8
   %46 = load ptr, ptr %38, align 8
   %47 = tail call noalias ptr @wmem_list_new(ptr noundef %46) #16
-  %48 = getelementptr inbounds i8, ptr %40, i64 152
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 152
   store ptr %47, ptr %48, align 8
   %49 = load ptr, ptr %38, align 8
   %50 = tail call noalias ptr @wmem_list_new(ptr noundef %49) #16
-  %51 = getelementptr inbounds i8, ptr %40, i64 160
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 160
   store ptr %50, ptr %51, align 8
   br label %kerberos_new_private_data.exit.i.i
 
@@ -5363,19 +5363,19 @@ kerberos_get_private_data.exit.i:                 ; preds = %kerberos_new_privat
 61:                                               ; preds = %57
   %62 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef 0, i32 noundef %53) #16
   store i32 %53, ptr %32, align 8
-  %63 = getelementptr inbounds i8, ptr %32, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %62, ptr %63, align 8
   %64 = load ptr, ptr @krb5_ctx, align 8
   %65 = zext nneg i32 %53 to i64
-  %66 = getelementptr inbounds i8, ptr %32, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %67 = call i32 @krb5_pac_parse(ptr noundef %64, ptr noundef %62, i64 noundef %65, ptr noundef nonnull %66) #16
   %.not.i = icmp eq i32 %67, 0
   br i1 %.not.i, label %75, label %68
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %3, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 80
   %72 = load ptr, ptr %71, align 8
   %73 = load i32, ptr %72, align 8
   %74 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %70, ptr noundef nonnull @ei_kerberos_decrypted_keytype, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.827, i32 noundef %67, i32 noundef %73) #16
@@ -5389,10 +5389,10 @@ kerberos_get_private_data.exit.i:                 ; preds = %kerberos_new_privat
   br i1 %79, label %80, label %86
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %29, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = load i32, ptr %82, align 1
-  %84 = getelementptr inbounds i8, ptr %32, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i32 %83, ptr %84, align 8
   %85 = load ptr, ptr @krb5_ctx, align 8
   call void @krb5_free_data_contents(ptr noundef %85, ptr noundef nonnull %29) #16
@@ -5406,10 +5406,10 @@ kerberos_get_private_data.exit.i:                 ; preds = %kerberos_new_privat
   br i1 %90, label %91, label %97
 
 91:                                               ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %29, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = load i32, ptr %93, align 1
-  %95 = getelementptr inbounds i8, ptr %32, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 %94, ptr %95, align 8
   %96 = load ptr, ptr @krb5_ctx, align 8
   call void @krb5_free_data_contents(ptr noundef %96, ptr noundef nonnull %29) #16
@@ -5423,12 +5423,12 @@ kerberos_get_private_data.exit.i:                 ; preds = %kerberos_new_privat
   br i1 %101, label %102, label %108
 
 102:                                              ; preds = %97
-  %103 = getelementptr inbounds i8, ptr %32, i64 64
+  %103 = getelementptr inbounds nuw i8, ptr %32, i64 64
   store ptr %30, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %30, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = load i32, ptr %105, align 1
-  %107 = getelementptr inbounds i8, ptr %32, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %32, i64 56
   store i32 %106, ptr %107, align 8
   br label %108
 
@@ -5440,12 +5440,12 @@ kerberos_get_private_data.exit.i:                 ; preds = %kerberos_new_privat
   br i1 %112, label %113, label %119
 
 113:                                              ; preds = %108
-  %114 = getelementptr inbounds i8, ptr %32, i64 80
+  %114 = getelementptr inbounds nuw i8, ptr %32, i64 80
   store ptr %31, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %31, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %116 = load ptr, ptr %115, align 8
   %117 = load i32, ptr %116, align 1
-  %118 = getelementptr inbounds i8, ptr %32, i64 72
+  %118 = getelementptr inbounds nuw i8, ptr %32, i64 72
   store i32 %117, ptr %118, align 8
   br label %119
 
@@ -5478,25 +5478,25 @@ kerberos_get_private_data.exit.i:                 ; preds = %kerberos_new_privat
 read_keytab_file_from_preferences.exit.i:         ; preds = %128, %126, %119
   %131 = load ptr, ptr @kerberos_all_keys, align 8
   call void @wmem_map_foreach(ptr noundef %131, ptr noundef nonnull @verify_krb5_pac_try_server_key, ptr noundef nonnull %32) #16
-  %132 = getelementptr inbounds i8, ptr %32, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %133 = load ptr, ptr %132, align 8
   %.not48.i = icmp eq ptr %133, null
   br i1 %.not48.i, label %143, label %134
 
 134:                                              ; preds = %read_keytab_file_from_preferences.exit.i
-  %135 = getelementptr inbounds i8, ptr %3, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %32, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %138 = load i32, ptr %137, align 8
   %139 = load ptr, ptr @kerberos_all_keys, align 8
   %140 = call i32 @wmem_map_size(ptr noundef %139) #16
-  %141 = getelementptr inbounds i8, ptr %32, i64 28
+  %141 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %142 = load i32, ptr %141, align 4
   call fastcc void @used_signing_key(ptr noundef %4, ptr noundef %136, ptr noundef %52, ptr noundef nonnull %133, ptr noundef %1, i32 noundef %138, ptr noundef nonnull @.str.828, ptr noundef nonnull @.str.784, i32 noundef %140, i32 noundef %142)
   br label %161
 
 143:                                              ; preds = %read_keytab_file_from_preferences.exit.i
-  %144 = getelementptr inbounds i8, ptr %32, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %145 = load i32, ptr %144, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   br label %147
@@ -5522,12 +5522,12 @@ read_keytab_file_from_preferences.exit.i:         ; preds = %128, %126, %119
 keytype_for_cksumtype.exit.i:                     ; preds = %147, %146
   %.0.i.i = phi i32 [ -1, %146 ], [ %150, %147 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
-  %154 = getelementptr inbounds i8, ptr %3, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %155 = load ptr, ptr %154, align 8
   %156 = load i32, ptr %144, align 8
   %157 = load ptr, ptr @kerberos_all_keys, align 8
   %158 = call i32 @wmem_map_size(ptr noundef %157) #16
-  %159 = getelementptr inbounds i8, ptr %32, i64 28
+  %159 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %160 = load i32, ptr %159, align 4
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %155, ptr noundef %52, ptr noundef %1, i32 noundef %156, i32 noundef %.0.i.i, ptr noundef nonnull @.str.829, ptr noundef nonnull @.str.784, i32 noundef %158, i32 noundef %160)
   br label %161
@@ -5535,25 +5535,25 @@ keytype_for_cksumtype.exit.i:                     ; preds = %147, %146
 161:                                              ; preds = %keytype_for_cksumtype.exit.i, %134
   %162 = load ptr, ptr @kerberos_longterm_keys, align 8
   call void @wmem_map_foreach(ptr noundef %162, ptr noundef nonnull @verify_krb5_pac_try_kdc_key, ptr noundef nonnull %32) #16
-  %163 = getelementptr inbounds i8, ptr %32, i64 48
+  %163 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %164 = load ptr, ptr %163, align 8
   %.not49.i = icmp eq ptr %164, null
   br i1 %.not49.i, label %174, label %165
 
 165:                                              ; preds = %161
-  %166 = getelementptr inbounds i8, ptr %3, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %32, i64 40
+  %168 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %169 = load i32, ptr %168, align 8
   %170 = load ptr, ptr @kerberos_longterm_keys, align 8
   %171 = call i32 @wmem_map_size(ptr noundef %170) #16
-  %172 = getelementptr inbounds i8, ptr %32, i64 44
+  %172 = getelementptr inbounds nuw i8, ptr %32, i64 44
   %173 = load i32, ptr %172, align 4
   call fastcc void @used_signing_key(ptr noundef %4, ptr noundef %167, ptr noundef %52, ptr noundef nonnull %164, ptr noundef %1, i32 noundef %169, ptr noundef nonnull @.str.830, ptr noundef nonnull @.str.831, i32 noundef %171, i32 noundef %173)
   br label %192
 
 174:                                              ; preds = %161
-  %175 = getelementptr inbounds i8, ptr %32, i64 40
+  %175 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %176 = load i32, ptr %175, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
   br label %178
@@ -5579,18 +5579,18 @@ keytype_for_cksumtype.exit.i:                     ; preds = %147, %146
 keytype_for_cksumtype.exit63.i:                   ; preds = %178, %177
   %.0.i62.i = phi i32 [ -1, %177 ], [ %181, %178 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
-  %185 = getelementptr inbounds i8, ptr %3, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %186 = load ptr, ptr %185, align 8
   %187 = load i32, ptr %175, align 8
   %188 = load ptr, ptr @kerberos_longterm_keys, align 8
   %189 = call i32 @wmem_map_size(ptr noundef %188) #16
-  %190 = getelementptr inbounds i8, ptr %32, i64 44
+  %190 = getelementptr inbounds nuw i8, ptr %32, i64 44
   %191 = load i32, ptr %190, align 4
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %186, ptr noundef %52, ptr noundef %1, i32 noundef %187, i32 noundef %.0.i62.i, ptr noundef nonnull @.str.832, ptr noundef nonnull @.str.831, i32 noundef %189, i32 noundef %191)
   br label %192
 
 192:                                              ; preds = %keytype_for_cksumtype.exit63.i, %165
-  %193 = getelementptr inbounds i8, ptr %32, i64 56
+  %193 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %194 = load i32, ptr %193, align 8
   %.not50.i = icmp eq i32 %194, 0
   br i1 %.not50.i, label %401, label %195
@@ -5610,9 +5610,9 @@ keytype_for_cksumtype.exit63.i:                   ; preds = %178, %177
   br i1 %.not.i.i.i, label %197, label %kerberos_get_private_data.exit.i.i
 
 197:                                              ; preds = %195
-  %198 = getelementptr inbounds i8, ptr %3, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 408
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 408
   %201 = load ptr, ptr %200, align 8
   %202 = call noalias ptr @wmem_alloc0(ptr noundef %201, i64 noundef 256) #16
   %203 = icmp eq ptr %202, null
@@ -5621,15 +5621,15 @@ keytype_for_cksumtype.exit63.i:                   ; preds = %178, %177
 204:                                              ; preds = %197
   %205 = load ptr, ptr %200, align 8
   %206 = call noalias ptr @wmem_list_new(ptr noundef %205) #16
-  %207 = getelementptr inbounds i8, ptr %202, i64 144
+  %207 = getelementptr inbounds nuw i8, ptr %202, i64 144
   store ptr %206, ptr %207, align 8
   %208 = load ptr, ptr %200, align 8
   %209 = call noalias ptr @wmem_list_new(ptr noundef %208) #16
-  %210 = getelementptr inbounds i8, ptr %202, i64 152
+  %210 = getelementptr inbounds nuw i8, ptr %202, i64 152
   store ptr %209, ptr %210, align 8
   %211 = load ptr, ptr %200, align 8
   %212 = call noalias ptr @wmem_list_new(ptr noundef %211) #16
-  %213 = getelementptr inbounds i8, ptr %202, i64 160
+  %213 = getelementptr inbounds nuw i8, ptr %202, i64 160
   store ptr %212, ptr %213, align 8
   br label %kerberos_new_private_data.exit.i.i.i
 
@@ -5639,7 +5639,7 @@ kerberos_new_private_data.exit.i.i.i:             ; preds = %204, %197
 
 kerberos_get_private_data.exit.i.i:               ; preds = %kerberos_new_private_data.exit.i.i.i, %195
   %214 = phi ptr [ %202, %kerberos_new_private_data.exit.i.i.i ], [ %196, %195 ]
-  %215 = getelementptr inbounds i8, ptr %214, i64 112
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 112
   %216 = load ptr, ptr %215, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store ptr null, ptr %19, align 8
@@ -5679,7 +5679,7 @@ kerberos_get_private_data.exit.i.i:               ; preds = %kerberos_new_privat
 keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
   %.0.i.i.i = phi i32 [ -1, %221 ], [ %225, %222 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
-  %229 = getelementptr inbounds i8, ptr %3, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %230 = load ptr, ptr %229, align 8
   %231 = load i32, ptr %193, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %230, ptr noundef %214, ptr noundef %1, i32 noundef %231, i32 noundef %.0.i.i.i, ptr noundef nonnull @.str.836, ptr noundef nonnull @.str.837, i32 noundef 0, i32 noundef 0)
@@ -5703,27 +5703,27 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
 241:                                              ; preds = %238
   store i32 -1760647421, ptr %22, align 8
   %242 = load ptr, ptr %163, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load i32, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %22, i64 4
+  %245 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %244, ptr %245, align 4
-  %246 = getelementptr inbounds i8, ptr %242, i64 12
+  %246 = getelementptr inbounds nuw i8, ptr %242, i64 12
   %247 = load i32, ptr %246, align 4
-  %248 = getelementptr inbounds i8, ptr %22, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %247, ptr %248, align 8
-  %249 = getelementptr inbounds i8, ptr %242, i64 16
-  %250 = getelementptr inbounds i8, ptr %22, i64 16
+  %249 = getelementptr inbounds nuw i8, ptr %242, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %249, ptr %250, align 8
   %251 = load i32, ptr %193, align 8
-  %252 = getelementptr inbounds i8, ptr %24, i64 4
+  %252 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %251, ptr %252, align 4
-  %253 = getelementptr inbounds i8, ptr %32, i64 64
+  %253 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 4
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 4
   %256 = load i32, ptr %255, align 4
-  %257 = getelementptr inbounds i8, ptr %254, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %24, i64 16
+  %259 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %260 = icmp ugt i32 %256, 3
   %storemerge.i.idx.i = select i1 %260, i64 4, i64 0
   %storemerge.i.i = getelementptr i8, ptr %258, i64 %storemerge.i.idx.i
@@ -5734,11 +5734,11 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
   br i1 %.not.i64.i, label %270, label %263
 
 263:                                              ; preds = %241
-  %264 = getelementptr inbounds i8, ptr %3, i64 16
+  %264 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %265 = load ptr, ptr %264, align 8
   %266 = load i32, ptr %193, align 8
   %267 = load ptr, ptr %163, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %269 = load i32, ptr %268, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %265, ptr noundef nonnull %214, ptr noundef %1, i32 noundef %266, i32 noundef %269, ptr noundef nonnull @.str.838, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_ticket_checksum.exit.i
@@ -5746,14 +5746,14 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
 270:                                              ; preds = %241
   %271 = add i32 %256, -4
   %272 = select i1 %260, i32 %271, i32 %256
-  %273 = getelementptr inbounds i8, ptr %24, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %274 = load i64, ptr %23, align 8
   %275 = trunc i64 %274 to i32
   %276 = call i32 @llvm.umin.i32(i32 %272, i32 %275)
   store i32 %276, ptr %273, align 8
-  %277 = getelementptr inbounds i8, ptr %18, i64 8
+  %277 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %239, ptr %277, align 8
-  %278 = getelementptr inbounds i8, ptr %18, i64 4
+  %278 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %235, ptr %278, align 4
   %279 = call i32 @decode_krb5_enc_tkt_part(ptr noundef nonnull %18, ptr noundef nonnull %19) #16
   %.not108.i.i = icmp eq i32 %279, 0
@@ -5761,18 +5761,18 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
 
 .preheader125.i.i:                                ; preds = %270
   %280 = load ptr, ptr %19, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 72
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 72
   %282 = load ptr, ptr %281, align 8
   %283 = load ptr, ptr %282, align 8
   %.not109136.i.i = icmp eq ptr %283, null
   br i1 %.not109136.i.i, label %.thread121.i.i, label %.lr.ph138.i.i
 
 284:                                              ; preds = %270
-  %285 = getelementptr inbounds i8, ptr %3, i64 16
+  %285 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %286 = load ptr, ptr %285, align 8
   %287 = load i32, ptr %193, align 8
   %288 = load ptr, ptr %163, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %290 = load i32, ptr %289, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %286, ptr noundef nonnull %214, ptr noundef %1, i32 noundef %287, i32 noundef %290, ptr noundef nonnull @.str.839, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_ticket_checksum.exit.i
@@ -5788,7 +5788,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
   %295 = phi i64 [ %344, %339 ], [ 0, %.preheader125.i.i ]
   %.098137.i.i = phi i32 [ %341, %339 ], [ 0, %.preheader125.i.i ]
   store ptr null, ptr %26, align 8
-  %296 = getelementptr inbounds i8, ptr %294, i64 4
+  %296 = getelementptr inbounds nuw i8, ptr %294, i64 4
   %297 = load i32, ptr %296, align 4
   %.not110.i.i = icmp eq i32 %297, 1
   br i1 %.not110.i.i, label %298, label %339
@@ -5806,11 +5806,11 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
   br i1 %.not112134.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 303:                                              ; preds = %298
-  %304 = getelementptr inbounds i8, ptr %3, i64 16
+  %304 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %305 = load ptr, ptr %304, align 8
   %306 = load i32, ptr %193, align 8
   %307 = load ptr, ptr %163, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %309 = load i32, ptr %308, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %305, ptr noundef %214, ptr noundef %1, i32 noundef %306, i32 noundef %309, ptr noundef nonnull @.str.840, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   %310 = load ptr, ptr @krb5_ctx, align 8
@@ -5829,7 +5829,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %312
   %317 = phi ptr [ %316, %312 ], [ %302, %.preheader.i.i ]
   %.0135.i.i = phi i32 [ %313, %312 ], [ 0, %.preheader.i.i ]
-  %318 = getelementptr inbounds i8, ptr %317, i64 4
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 4
   %319 = load i32, ptr %318, align 4
   %.not113.i.i = icmp eq i32 %319, 128
   br i1 %.not113.i.i, label %321, label %312
@@ -5841,9 +5841,9 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
   br label %339
 
 321:                                              ; preds = %.lr.ph.i.i
-  %322 = getelementptr inbounds i8, ptr %317, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %317, i64 8
   store i32 1, ptr %322, align 8
-  %323 = getelementptr inbounds i8, ptr %317, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %317, i64 16
   %324 = load ptr, ptr %323, align 8
   store i8 0, ptr %324, align 1
   %325 = load ptr, ptr @krb5_ctx, align 8
@@ -5857,11 +5857,11 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
   br i1 %.not114.i.i, label %347, label %330
 
 330:                                              ; preds = %321
-  %331 = getelementptr inbounds i8, ptr %3, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %332 = load ptr, ptr %331, align 8
   %333 = load i32, ptr %193, align 8
   %334 = load ptr, ptr %163, align 8
-  %335 = getelementptr inbounds i8, ptr %334, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
   %336 = load i32, ptr %335, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %332, ptr noundef %214, ptr noundef %1, i32 noundef %333, i32 noundef %336, ptr noundef nonnull @.str.841, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   %337 = load ptr, ptr @krb5_ctx, align 8
@@ -5872,7 +5872,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
 339:                                              ; preds = %._crit_edge.i.i, %.lr.ph138.i.i
   %340 = phi ptr [ %293, %.lr.ph138.i.i ], [ %.pre.i.i, %._crit_edge.i.i ]
   %341 = add i32 %.098137.i.i, 1
-  %342 = getelementptr inbounds i8, ptr %340, i64 72
+  %342 = getelementptr inbounds nuw i8, ptr %340, i64 72
   %343 = load ptr, ptr %342, align 8
   %344 = sext i32 %341 to i64
   %345 = getelementptr ptr, ptr %343, i64 %344
@@ -5884,14 +5884,14 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
   %348 = load ptr, ptr %21, align 8
   %349 = load ptr, ptr %348, align 8
   %350 = load ptr, ptr %19, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 72
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 72
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr ptr, ptr %352, i64 %295
   store ptr %349, ptr %353, align 8
   %354 = load ptr, ptr %19, align 8
   %355 = call i32 @encode_krb5_enc_tkt_part(ptr noundef %354, ptr noundef nonnull %20) #16
   %356 = load ptr, ptr %19, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 72
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 72
   %358 = load ptr, ptr %357, align 8
   %359 = getelementptr ptr, ptr %358, i64 %295
   store ptr %294, ptr %359, align 8
@@ -5918,11 +5918,11 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
   br i1 %.not117.i.i, label %375, label %368
 
 368:                                              ; preds = %367
-  %369 = getelementptr inbounds i8, ptr %3, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %370 = load ptr, ptr %369, align 8
   %371 = load i32, ptr %193, align 8
   %372 = load ptr, ptr %163, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %374 = load i32, ptr %373, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %370, ptr noundef %214, ptr noundef %1, i32 noundef %371, i32 noundef %374, ptr noundef nonnull @.str.842, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_ticket_checksum.exit.i
@@ -5939,11 +5939,11 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
   br i1 %.not118.i.i, label %388, label %381
 
 381:                                              ; preds = %375
-  %382 = getelementptr inbounds i8, ptr %3, i64 16
+  %382 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %383 = load ptr, ptr %382, align 8
   %384 = load i32, ptr %193, align 8
   %385 = load ptr, ptr %163, align 8
-  %386 = getelementptr inbounds i8, ptr %385, i64 8
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %387 = load i32, ptr %386, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %383, ptr noundef %214, ptr noundef %1, i32 noundef %384, i32 noundef %387, ptr noundef nonnull @.str.843, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
   br label %verify_krb5_pac_ticket_checksum.exit.i
@@ -5951,14 +5951,14 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %222, %221
 388:                                              ; preds = %375
   %389 = load i32, ptr %25, align 4
   %390 = icmp eq i32 %389, 0
-  %391 = getelementptr inbounds i8, ptr %3, i64 16
+  %391 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %392 = load ptr, ptr %391, align 8
   br i1 %390, label %393, label %398
 
 393:                                              ; preds = %388
   %394 = load i32, ptr %193, align 8
   %395 = load ptr, ptr %163, align 8
-  %396 = getelementptr inbounds i8, ptr %395, i64 8
+  %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
   %397 = load i32, ptr %396, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %392, ptr noundef %214, ptr noundef %1, i32 noundef %394, i32 noundef %397, ptr noundef nonnull @.str.844, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
   br label %verify_krb5_pac_ticket_checksum.exit.i
@@ -5982,7 +5982,7 @@ verify_krb5_pac_ticket_checksum.exit.i:           ; preds = %398, %393, %381, %3
   br label %401
 
 401:                                              ; preds = %verify_krb5_pac_ticket_checksum.exit.i, %192
-  %402 = getelementptr inbounds i8, ptr %32, i64 64
+  %402 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %403 = load ptr, ptr %402, align 8
   %.not51.i = icmp eq ptr %403, null
   br i1 %.not51.i, label %406, label %404
@@ -5993,7 +5993,7 @@ verify_krb5_pac_ticket_checksum.exit.i:           ; preds = %398, %393, %381, %3
   br label %406
 
 406:                                              ; preds = %404, %401
-  %407 = getelementptr inbounds i8, ptr %32, i64 72
+  %407 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %408 = load i32, ptr %407, align 8
   %.not52.i = icmp eq i32 %408, 0
   br i1 %.not52.i, label %604, label %409
@@ -6009,9 +6009,9 @@ verify_krb5_pac_ticket_checksum.exit.i:           ; preds = %398, %393, %381, %3
   br i1 %.not.i.i65.i, label %411, label %kerberos_get_private_data.exit.i66.i
 
 411:                                              ; preds = %409
-  %412 = getelementptr inbounds i8, ptr %3, i64 16
+  %412 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr inbounds i8, ptr %413, i64 408
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 408
   %415 = load ptr, ptr %414, align 8
   %416 = call noalias ptr @wmem_alloc0(ptr noundef %415, i64 noundef 256) #16
   %417 = icmp eq ptr %416, null
@@ -6020,15 +6020,15 @@ verify_krb5_pac_ticket_checksum.exit.i:           ; preds = %398, %393, %381, %3
 418:                                              ; preds = %411
   %419 = load ptr, ptr %414, align 8
   %420 = call noalias ptr @wmem_list_new(ptr noundef %419) #16
-  %421 = getelementptr inbounds i8, ptr %416, i64 144
+  %421 = getelementptr inbounds nuw i8, ptr %416, i64 144
   store ptr %420, ptr %421, align 8
   %422 = load ptr, ptr %414, align 8
   %423 = call noalias ptr @wmem_list_new(ptr noundef %422) #16
-  %424 = getelementptr inbounds i8, ptr %416, i64 152
+  %424 = getelementptr inbounds nuw i8, ptr %416, i64 152
   store ptr %423, ptr %424, align 8
   %425 = load ptr, ptr %414, align 8
   %426 = call noalias ptr @wmem_list_new(ptr noundef %425) #16
-  %427 = getelementptr inbounds i8, ptr %416, i64 160
+  %427 = getelementptr inbounds nuw i8, ptr %416, i64 160
   store ptr %426, ptr %427, align 8
   br label %kerberos_new_private_data.exit.i.i78.i
 
@@ -6073,7 +6073,7 @@ kerberos_get_private_data.exit.i66.i:             ; preds = %kerberos_new_privat
 keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
   %.0.i.i77.i = phi i32 [ -1, %433 ], [ %437, %434 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  %441 = getelementptr inbounds i8, ptr %3, i64 16
+  %441 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %442 = load ptr, ptr %441, align 8
   %443 = load i32, ptr %407, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %442, ptr noundef %428, ptr noundef %1, i32 noundef %443, i32 noundef %.0.i.i77.i, ptr noundef nonnull @.str.846, ptr noundef nonnull @.str.837, i32 noundef 0, i32 noundef 0)
@@ -6081,16 +6081,16 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
 
 444:                                              ; preds = %kerberos_get_private_data.exit.i66.i
   store i32 -1760647421, ptr %12, align 8
-  %445 = getelementptr inbounds i8, ptr %429, i64 8
+  %445 = getelementptr inbounds nuw i8, ptr %429, i64 8
   %446 = load i32, ptr %445, align 8
-  %447 = getelementptr inbounds i8, ptr %12, i64 4
+  %447 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %446, ptr %447, align 4
-  %448 = getelementptr inbounds i8, ptr %429, i64 12
+  %448 = getelementptr inbounds nuw i8, ptr %429, i64 12
   %449 = load i32, ptr %448, align 4
-  %450 = getelementptr inbounds i8, ptr %12, i64 8
+  %450 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %449, ptr %450, align 8
-  %451 = getelementptr inbounds i8, ptr %429, i64 16
-  %452 = getelementptr inbounds i8, ptr %12, i64 16
+  %451 = getelementptr inbounds nuw i8, ptr %429, i64 16
+  %452 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %451, ptr %452, align 8
   %453 = load ptr, ptr @krb5_ctx, align 8
   %454 = load i32, ptr %407, align 8
@@ -6099,44 +6099,44 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
   br i1 %.not.i67.i, label %463, label %456
 
 456:                                              ; preds = %444
-  %457 = getelementptr inbounds i8, ptr %3, i64 16
+  %457 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %458 = load ptr, ptr %457, align 8
   %459 = load i32, ptr %407, align 8
   %460 = load ptr, ptr %163, align 8
-  %461 = getelementptr inbounds i8, ptr %460, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 8
   %462 = load i32, ptr %461, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %458, ptr noundef %428, ptr noundef %1, i32 noundef %459, i32 noundef %462, ptr noundef nonnull @.str.847, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
 463:                                              ; preds = %444
-  %464 = getelementptr inbounds i8, ptr %32, i64 80
+  %464 = getelementptr inbounds nuw i8, ptr %32, i64 80
   %465 = load ptr, ptr %464, align 8
-  %466 = getelementptr inbounds i8, ptr %465, i64 4
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 4
   %467 = load i32, ptr %466, align 4
   %468 = zext i32 %467 to i64
   %469 = load i64, ptr %13, align 8
   %470 = add i64 %469, 4
   %471 = icmp ugt i64 %470, %468
-  %472 = getelementptr inbounds i8, ptr %3, i64 16
+  %472 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %473 = load ptr, ptr %472, align 8
   br i1 %471, label %474, label %479
 
 474:                                              ; preds = %463
   %475 = load i32, ptr %407, align 8
   %476 = load ptr, ptr %163, align 8
-  %477 = getelementptr inbounds i8, ptr %476, i64 8
+  %477 = getelementptr inbounds nuw i8, ptr %476, i64 8
   %478 = load i32, ptr %477, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %473, ptr noundef %428, ptr noundef %1, i32 noundef %475, i32 noundef %478, ptr noundef nonnull @.str.848, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
 479:                                              ; preds = %463
-  %480 = getelementptr inbounds i8, ptr %473, i64 408
+  %480 = getelementptr inbounds nuw i8, ptr %473, i64 408
   %481 = load ptr, ptr %480, align 8
   %482 = load ptr, ptr %63, align 8
   %483 = load i32, ptr %32, align 8
   %484 = sext i32 %483 to i64
   %485 = call noalias ptr @wmem_memdup(ptr noundef %481, ptr noundef %482, i64 noundef %484) #16
-  %486 = getelementptr inbounds i8, ptr %15, i64 8
+  %486 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %485, ptr %486, align 8
   %487 = icmp eq ptr %485, null
   br i1 %487, label %488, label %494
@@ -6145,14 +6145,14 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
   %489 = load ptr, ptr %472, align 8
   %490 = load i32, ptr %407, align 8
   %491 = load ptr, ptr %163, align 8
-  %492 = getelementptr inbounds i8, ptr %491, i64 8
+  %492 = getelementptr inbounds nuw i8, ptr %491, i64 8
   %493 = load i32, ptr %492, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %489, ptr noundef %428, ptr noundef %1, i32 noundef %490, i32 noundef %493, ptr noundef nonnull @.str.849, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
 
 494:                                              ; preds = %479
   %495 = load i32, ptr %32, align 8
-  %496 = getelementptr inbounds i8, ptr %15, i64 4
+  %496 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %495, ptr %496, align 4
   %497 = call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %485, i32 noundef %495, i32 noundef %495) #16
   %498 = icmp eq ptr %497, null
@@ -6162,7 +6162,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
   %500 = load ptr, ptr %472, align 8
   %501 = load i32, ptr %407, align 8
   %502 = load ptr, ptr %163, align 8
-  %503 = getelementptr inbounds i8, ptr %502, i64 8
+  %503 = getelementptr inbounds nuw i8, ptr %502, i64 8
   %504 = load i32, ptr %503, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %500, ptr noundef %428, ptr noundef %1, i32 noundef %501, i32 noundef %504, ptr noundef nonnull @.str.850, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
@@ -6176,7 +6176,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
   %509 = load ptr, ptr %472, align 8
   %510 = load i32, ptr %407, align 8
   %511 = load ptr, ptr %163, align 8
-  %512 = getelementptr inbounds i8, ptr %511, i64 8
+  %512 = getelementptr inbounds nuw i8, ptr %511, i64 8
   %513 = load i32, ptr %512, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %509, ptr noundef %428, ptr noundef %1, i32 noundef %510, i32 noundef %513, ptr noundef nonnull @.str.851, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
@@ -6200,7 +6200,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
   %517 = load ptr, ptr %472, align 8
   %518 = load i32, ptr %407, align 8
   %519 = load ptr, ptr %163, align 8
-  %520 = getelementptr inbounds i8, ptr %519, i64 8
+  %520 = getelementptr inbounds nuw i8, ptr %519, i64 8
   %521 = load i32, ptr %520, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %517, ptr noundef %428, ptr noundef %1, i32 noundef %518, i32 noundef %521, ptr noundef nonnull @.str.852, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
@@ -6216,7 +6216,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
   %527 = load ptr, ptr %472, align 8
   %528 = load i32, ptr %407, align 8
   %529 = load ptr, ptr %163, align 8
-  %530 = getelementptr inbounds i8, ptr %529, i64 8
+  %530 = getelementptr inbounds nuw i8, ptr %529, i64 8
   %531 = load i32, ptr %530, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %527, ptr noundef %428, ptr noundef %1, i32 noundef %528, i32 noundef %531, ptr noundef nonnull @.str.852, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
@@ -6238,7 +6238,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
   %544 = load ptr, ptr %472, align 8
   %545 = load i32, ptr %407, align 8
   %546 = load ptr, ptr %163, align 8
-  %547 = getelementptr inbounds i8, ptr %546, i64 8
+  %547 = getelementptr inbounds nuw i8, ptr %546, i64 8
   %548 = load i32, ptr %547, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %544, ptr noundef %428, ptr noundef %1, i32 noundef %545, i32 noundef %548, ptr noundef nonnull @.str.853, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
@@ -6251,7 +6251,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
   %552 = load ptr, ptr %472, align 8
   %553 = load i32, ptr %407, align 8
   %554 = load ptr, ptr %163, align 8
-  %555 = getelementptr inbounds i8, ptr %554, i64 8
+  %555 = getelementptr inbounds nuw i8, ptr %554, i64 8
   %556 = load i32, ptr %555, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %552, ptr noundef %428, ptr noundef %1, i32 noundef %553, i32 noundef %556, ptr noundef nonnull @.str.853, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
@@ -6265,7 +6265,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
   %561 = load ptr, ptr %472, align 8
   %562 = load i32, ptr %407, align 8
   %563 = load ptr, ptr %163, align 8
-  %564 = getelementptr inbounds i8, ptr %563, i64 8
+  %564 = getelementptr inbounds nuw i8, ptr %563, i64 8
   %565 = load i32, ptr %564, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %561, ptr noundef %428, ptr noundef %1, i32 noundef %562, i32 noundef %565, ptr noundef nonnull @.str.853, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 0)
   br label %verify_krb5_pac_full_checksum.exit.i
@@ -6295,17 +6295,17 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
 
 ._crit_edge.i71.i:                                ; preds = %572, %514
   %574 = load i32, ptr %407, align 8
-  %575 = getelementptr inbounds i8, ptr %14, i64 4
+  %575 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %574, ptr %575, align 4
   %576 = load ptr, ptr %464, align 8
-  %577 = getelementptr inbounds i8, ptr %576, i64 8
+  %577 = getelementptr inbounds nuw i8, ptr %576, i64 8
   %578 = load ptr, ptr %577, align 8
   %579 = getelementptr i8, ptr %578, i64 4
-  %580 = getelementptr inbounds i8, ptr %14, i64 16
+  %580 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %579, ptr %580, align 8
   %581 = load i64, ptr %13, align 8
   %582 = trunc i64 %581 to i32
-  %583 = getelementptr inbounds i8, ptr %14, i64 8
+  %583 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %582, ptr %583, align 8
   %584 = load ptr, ptr @krb5_ctx, align 8
   %585 = call i32 @krb5_c_verify_checksum(ptr noundef %584, ptr noundef nonnull %12, i32 noundef 17, ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef nonnull %16) #16
@@ -6316,7 +6316,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
   %587 = load ptr, ptr %472, align 8
   %588 = load i32, ptr %407, align 8
   %589 = load ptr, ptr %163, align 8
-  %590 = getelementptr inbounds i8, ptr %589, i64 8
+  %590 = getelementptr inbounds nuw i8, ptr %589, i64 8
   %591 = load i32, ptr %590, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %587, ptr noundef %428, ptr noundef %1, i32 noundef %588, i32 noundef %591, ptr noundef nonnull @.str.854, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
   br label %verify_krb5_pac_full_checksum.exit.i
@@ -6330,7 +6330,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %434, %433
 596:                                              ; preds = %592
   %597 = load i32, ptr %407, align 8
   %598 = load ptr, ptr %163, align 8
-  %599 = getelementptr inbounds i8, ptr %598, i64 8
+  %599 = getelementptr inbounds nuw i8, ptr %598, i64 8
   %600 = load i32, ptr %599, align 8
   call fastcc void @missing_signing_key(ptr noundef %4, ptr noundef %595, ptr noundef %428, ptr noundef %1, i32 noundef %597, i32 noundef %600, ptr noundef nonnull @.str.855, ptr noundef nonnull @.str.837, i32 noundef 1, i32 noundef 1)
   br label %verify_krb5_pac_full_checksum.exit.i
@@ -6350,7 +6350,7 @@ verify_krb5_pac_full_checksum.exit.i:             ; preds = %601, %596, %586, %5
   br label %604
 
 604:                                              ; preds = %verify_krb5_pac_full_checksum.exit.i, %406
-  %605 = getelementptr inbounds i8, ptr %32, i64 80
+  %605 = getelementptr inbounds nuw i8, ptr %32, i64 80
   %606 = load ptr, ptr %605, align 8
   %.not53.i = icmp eq ptr %606, null
   br i1 %.not53.i, label %609, label %607
@@ -6383,7 +6383,7 @@ verify_krb5_pac.exit:                             ; preds = %kerberos_get_privat
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %verify_krb5_pac.exit
-  %620 = getelementptr inbounds i8, ptr %3, i64 16
+  %620 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %621
 
 621:                                              ; preds = %.lr.ph, %dissect_krb5_AD_WIN2K_PAC_struct.exit
@@ -6451,7 +6451,7 @@ verify_krb5_pac.exit:                             ; preds = %kerberos_get_privat
   %653 = call ptr @tvb_new_subset_remaining(ptr noundef %635, i32 noundef 8) #16
   %654 = call i32 @tvb_captured_length_remaining(ptr noundef %635, i32 noundef 8) #16
   %655 = load ptr, ptr %620, align 8
-  %656 = getelementptr inbounds i8, ptr %655, i64 408
+  %656 = getelementptr inbounds nuw i8, ptr %655, i64 408
   %657 = load ptr, ptr %656, align 8
   %658 = call noalias ptr @wmem_alloc0(ptr noundef %657, i64 noundef 256) #16
   %659 = icmp eq ptr %658, null
@@ -6460,15 +6460,15 @@ verify_krb5_pac.exit:                             ; preds = %kerberos_get_privat
 660:                                              ; preds = %643
   %661 = load ptr, ptr %656, align 8
   %662 = call noalias ptr @wmem_list_new(ptr noundef %661) #16
-  %663 = getelementptr inbounds i8, ptr %658, i64 144
+  %663 = getelementptr inbounds nuw i8, ptr %658, i64 144
   store ptr %662, ptr %663, align 8
   %664 = load ptr, ptr %656, align 8
   %665 = call noalias ptr @wmem_list_new(ptr noundef %664) #16
-  %666 = getelementptr inbounds i8, ptr %658, i64 152
+  %666 = getelementptr inbounds nuw i8, ptr %658, i64 152
   store ptr %665, ptr %666, align 8
   %667 = load ptr, ptr %656, align 8
   %668 = call noalias ptr @wmem_list_new(ptr noundef %667) #16
-  %669 = getelementptr inbounds i8, ptr %658, i64 160
+  %669 = getelementptr inbounds nuw i8, ptr %658, i64 160
   store ptr %668, ptr %669, align 8
   br label %decrypt_krb5_data.exit.i.i
 
@@ -6743,7 +6743,7 @@ define internal noundef i32 @dissect_kerberos_AD_AP_OPTIONS(i1 zeroext %0, ptr n
   %7 = load i32, ptr @hf_krb_ad_ap_options, align 4
   %8 = load i32, ptr @ett_krb_ad_ap_options, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @hf_krb_ad_ap_options_fields, i32 noundef -2147483648) #16
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %9, ptr %10, align 8
   %11 = add i32 %2, 4
   ret i32 %11
@@ -6769,20 +6769,20 @@ define internal void @verify_krb5_pac_try_server_key(ptr nocapture readnone %0, 
   %4 = alloca %struct._krb5_keyblock, align 8
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %38, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %38
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @krb5_ctx, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %13, i32 noundef %15, ptr noundef nonnull %5) #16
   %.not14 = icmp eq i32 %16, 0
@@ -6791,14 +6791,14 @@ define internal void @verify_krb5_pac_try_server_key(ptr nocapture readnone %0, 
 17:                                               ; preds = %12
   store i32 -1760647421, ptr %4, align 8
   %18 = load i32, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %23, ptr %24, align 8
   %25 = load i32, ptr %5, align 4
   %26 = load i32, ptr %6, align 8
@@ -6806,12 +6806,12 @@ define internal void @verify_krb5_pac_try_server_key(ptr nocapture readnone %0, 
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %2, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %30, 1
   store i32 %31, ptr %29, align 4
   %32 = load ptr, ptr @krb5_ctx, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @krb5_pac_verify(ptr noundef %32, ptr noundef %34, i32 noundef 0, ptr noundef null, ptr noundef nonnull %4, ptr noundef null) #16
   %36 = icmp eq i32 %35, 0
@@ -6827,13 +6827,13 @@ define internal void @verify_krb5_pac_try_server_key(ptr nocapture readnone %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @used_signing_key(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 48
-  %14 = getelementptr inbounds i8, ptr %3, i64 316
-  %15 = getelementptr inbounds i8, ptr %3, i64 368
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 316
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 368
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = zext i8 %18 to i32
   %20 = getelementptr i8, ptr %3, i64 17
@@ -6847,20 +6847,20 @@ define internal fastcc void @used_signing_key(ptr noundef %0, ptr noundef %1, pt
   %28 = zext i8 %27 to i32
   %29 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_kerberos_decrypted_keytype, ptr noundef %4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.833, ptr noundef %6, i32 noundef %5, i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %16, i32 noundef %19, i32 noundef %22, i32 noundef %25, i32 noundef %28) #16
   %30 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %29, ptr noundef nonnull @ei_kerberos_decrypted_keytype, ptr noundef nonnull @.str.801, ptr noundef %7, i32 noundef %8, i32 noundef %9) #16
-  %.0.in34 = getelementptr inbounds i8, ptr %3, i64 360
+  %.0.in34 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %.035 = load ptr, ptr %.0.in34, align 8
   %.not36 = icmp eq ptr %.035, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.037 = phi ptr [ %.0, %.lr.ph ], [ %.035, %10 ]
-  %31 = getelementptr inbounds i8, ptr %.037, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.037, i64 48
-  %34 = getelementptr inbounds i8, ptr %.037, i64 316
-  %35 = getelementptr inbounds i8, ptr %.037, i64 368
+  %33 = getelementptr inbounds nuw i8, ptr %.037, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.037, i64 316
+  %35 = getelementptr inbounds nuw i8, ptr %.037, i64 368
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %.037, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %38 = load i8, ptr %37, align 8
   %39 = zext i8 %38 to i32
   %40 = getelementptr i8, ptr %.037, i64 17
@@ -6873,13 +6873,13 @@ define internal fastcc void @used_signing_key(ptr noundef %0, ptr noundef %1, pt
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %29, ptr noundef nonnull @ei_kerberos_decrypted_keytype, ptr noundef nonnull @.str.833, ptr noundef %6, i32 noundef %5, i32 noundef %32, ptr noundef nonnull %33, ptr noundef nonnull %34, i32 noundef %36, i32 noundef %39, i32 noundef %42, i32 noundef %45, i32 noundef %48) #16
-  %.0.in = getelementptr inbounds i8, ptr %.037, i64 360
+  %.0.in = getelementptr inbounds nuw i8, ptr %.037, i64 360
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
-  %50 = getelementptr inbounds i8, ptr %2, i64 144
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %51 = load ptr, ptr %50, align 8
   %52 = tail call ptr @wmem_list_find(ptr noundef %51, ptr noundef %3) #16
   %.not.i = icmp eq ptr %52, null
@@ -6895,29 +6895,29 @@ kerberos_key_list_append.exit:                    ; preds = %._crit_edge, %53
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @missing_signing_key(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @wmem_alloc0(ptr noundef %12, i64 noundef 392) #16
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
-  %15 = getelementptr inbounds i8, ptr %1, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 256, ptr noundef nonnull @.str.834, i32 noundef %4, i32 noundef %5, i32 noundef %16) #16
   %18 = load i32, ptr %15, align 4
-  %19 = getelementptr inbounds i8, ptr %13, i64 308
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 308
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 140
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %21 = load i32, ptr %20, align 4
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 4
-  %23 = getelementptr inbounds i8, ptr %13, i64 312
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 312
   store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 316
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 316
   %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %24, i64 noundef 42, ptr noundef nonnull @.str.803, i32 noundef %22) #16
-  %26 = getelementptr inbounds i8, ptr %13, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %5, ptr %26, align 8
   %27 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_kerberos_missing_keytype, ptr noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.835, ptr noundef %6, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %24) #16
   %28 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %27, ptr noundef nonnull @ei_kerberos_missing_keytype, ptr noundef nonnull @.str.801, ptr noundef %7, i32 noundef %8, i32 noundef %9) #16
-  %29 = getelementptr inbounds i8, ptr %2, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @wmem_list_find(ptr noundef %30, ptr noundef %13) #16
   %.not.i = icmp eq ptr %31, null
@@ -6936,20 +6936,20 @@ define internal void @verify_krb5_pac_try_kdc_key(ptr nocapture readnone %0, ptr
   %4 = alloca %struct._krb5_keyblock, align 8
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %38, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %38
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @krb5_ctx, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %13, i32 noundef %15, ptr noundef nonnull %5) #16
   %.not14 = icmp eq i32 %16, 0
@@ -6958,14 +6958,14 @@ define internal void @verify_krb5_pac_try_kdc_key(ptr nocapture readnone %0, ptr
 17:                                               ; preds = %12
   store i32 -1760647421, ptr %4, align 8
   %18 = load i32, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %23, ptr %24, align 8
   %25 = load i32, ptr %5, align 4
   %26 = load i32, ptr %6, align 8
@@ -6973,12 +6973,12 @@ define internal void @verify_krb5_pac_try_kdc_key(ptr nocapture readnone %0, ptr
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %2, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %30, 1
   store i32 %31, ptr %29, align 4
   %32 = load ptr, ptr @krb5_ctx, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @krb5_pac_verify(ptr noundef %32, ptr noundef %34, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %4) #16
   %36 = icmp eq i32 %35, 0
@@ -7073,15 +7073,15 @@ declare i32 @netlogon_dissect_PAC_DEVICE_INFO(ptr noundef, i32 noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_PADATA_TYPE(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -7090,15 +7090,15 @@ define internal i32 @dissect_kerberos_PADATA_TYPE(i1 noundef zeroext %0, ptr nou
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -7108,7 +7108,7 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %28 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %27) #16
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %32, label %29
@@ -7127,15 +7127,15 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_ENCTYPE(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -7144,15 +7144,15 @@ define internal i32 @dissect_kerberos_ENCTYPE(i1 noundef zeroext %0, ptr noundef
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -7162,7 +7162,7 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %27) #16
   ret i32 %28
 }
@@ -7196,15 +7196,15 @@ define internal i32 @dissect_kerberos_TicketFlags(i1 noundef zeroext %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_encTicketPart_key(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -7213,15 +7213,15 @@ define internal i32 @dissect_kerberos_T_encTicketPart_key(i1 noundef zeroext %0,
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -7231,9 +7231,9 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @hf_kerberos_encTicketPart, align 4
   store i32 %31, ptr %27, align 8
@@ -7275,15 +7275,15 @@ define internal i32 @dissect_kerberos_HostAddress(i1 noundef zeroext %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_ADDR_TYPE(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -7292,15 +7292,15 @@ define internal i32 @dissect_kerberos_ADDR_TYPE(i1 noundef zeroext %0, ptr nound
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -7310,7 +7310,7 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 84
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 84
   %28 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %27) #16
   ret i32 %28
 }
@@ -7322,15 +7322,15 @@ define internal i32 @dissect_kerberos_T_address(i1 zeroext %0, ptr noundef %1, i
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca [61 x i8], align 16
-  %12 = getelementptr inbounds i8, ptr %3, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %14, label %kerberos_get_private_data.exit
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noalias ptr @wmem_alloc0(ptr noundef %18, i64 noundef 256) #16
   %20 = icmp eq ptr %19, null
@@ -7339,15 +7339,15 @@ define internal i32 @dissect_kerberos_T_address(i1 zeroext %0, ptr noundef %1, i
 21:                                               ; preds = %14
   %22 = load ptr, ptr %17, align 8
   %23 = tail call noalias ptr @wmem_list_new(ptr noundef %22) #16
-  %24 = getelementptr inbounds i8, ptr %19, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 144
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %17, align 8
   %26 = tail call noalias ptr @wmem_list_new(ptr noundef %25) #16
-  %27 = getelementptr inbounds i8, ptr %19, i64 152
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 152
   store ptr %26, ptr %27, align 8
   %28 = load ptr, ptr %17, align 8
   %29 = tail call noalias ptr @wmem_list_new(ptr noundef %28) #16
-  %30 = getelementptr inbounds i8, ptr %19, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 160
   store ptr %29, ptr %30, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -7357,12 +7357,12 @@ kerberos_new_private_data.exit.i:                 ; preds = %21, %14
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %31 = phi ptr [ %19, %kerberos_new_private_data.exit.i ], [ %13, %6 ]
-  %32 = getelementptr inbounds i8, ptr %3, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = call i32 @dissect_ber_identifier(ptr noundef %33, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   %35 = load ptr, ptr %32, align 8
   %36 = call i32 @dissect_ber_length(ptr noundef %35, ptr noundef %4, ptr noundef %1, i32 noundef %34, ptr noundef nonnull %10, ptr noundef null) #16
-  %37 = getelementptr inbounds i8, ptr %31, i64 84
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 84
   %38 = load i32, ptr %37, align 4
   switch i32 %38, label %.thread [
     i32 2, label %39
@@ -7374,7 +7374,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %40 = load i32, ptr @hf_krb_address_ip, align 4
   %41 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %40, ptr noundef %1, i32 noundef %36, i32 noundef 4, i32 noundef 0) #16
   %42 = load ptr, ptr %32, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 408
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 408
   %44 = load ptr, ptr %43, align 8
   %45 = call ptr @tvb_address_to_str(ptr noundef %44, ptr noundef %1, i32 noundef 2, i32 noundef %36) #16
   br label %66
@@ -7383,7 +7383,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %47 = call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef %36, i32 noundef 16) #16
   %48 = call i32 @process_netbios_name(ptr noundef %47, ptr noundef nonnull %11, i32 noundef 61) #16
   %49 = load ptr, ptr %32, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 408
   %51 = load ptr, ptr %50, align 8
   %52 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %51, ptr noundef nonnull @.str.867, ptr noundef nonnull %11, i32 noundef %48) #16
   %53 = load i32, ptr @hf_krb_address_netbios, align 4
@@ -7395,7 +7395,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %57 = load i32, ptr @hf_krb_address_ipv6, align 4
   %58 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %57, ptr noundef %1, i32 noundef %36, i32 noundef 16, i32 noundef 0) #16
   %59 = load ptr, ptr %32, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 408
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 408
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr @tvb_address_to_str(ptr noundef %61, ptr noundef %1, i32 noundef 3, i32 noundef %36) #16
   br label %66
@@ -7457,15 +7457,15 @@ define internal i32 @dissect_kerberos_KDC_REQ(i1 noundef zeroext %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_rEQ_SEQUENCE_OF_PA_DATA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca %struct._kerberos_PA_FX_FAST_REQUEST, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -7474,15 +7474,15 @@ define internal i32 @dissect_kerberos_T_rEQ_SEQUENCE_OF_PA_DATA(i1 noundef zeroe
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -7492,20 +7492,20 @@ kerberos_new_private_data.exit.i:                 ; preds = %17, %10
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %27 = phi ptr [ %15, %kerberos_new_private_data.exit.i ], [ %9, %6 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   store i32 1, ptr %28, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 180
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 180
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3.0..sroa_idx, i8 0, i64 20, i1 false)
   %29 = load i32, ptr @ett_kerberos_T_rEQ_SEQUENCE_OF_PA_DATA, align 4
   %30 = tail call i32 @dissect_ber_sequence_of(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @T_rEQ_SEQUENCE_OF_PA_DATA_sequence_of, i32 noundef %5, i32 noundef %29) #16
-  %31 = getelementptr inbounds i8, ptr %27, i64 184
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 184
   %32 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %36, label %33
 
 33:                                               ; preds = %kerberos_get_private_data.exit
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 192
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 192
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %34 = load i32, ptr @ett_kerberos_PA_FX_FAST_REQUEST, align 4
@@ -7519,25 +7519,25 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_KDC_REQ_BODY(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 288
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 88
   br i1 %11, label %12, label %35
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %8, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 3
   br i1 %15, label %16, label %35
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %8, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %8, i64 208
-  %20 = getelementptr inbounds i8, ptr %8, i64 232
-  %21 = getelementptr inbounds i8, ptr %8, i64 284
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 208
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 232
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 284
   %22 = load i32, ptr %21, align 4
   %23 = tail call ptr @find_conversation(i32 noundef %18, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef 3, i32 noundef %22, i32 noundef 0, i32 noundef 131072) #16
   %24 = icmp eq ptr %23, null
@@ -7545,11 +7545,11 @@ define internal i32 @dissect_kerberos_KDC_REQ_BODY(i1 noundef zeroext %0, ptr no
 
 25:                                               ; preds = %16
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %26, i64 208
-  %30 = getelementptr inbounds i8, ptr %26, i64 232
-  %31 = getelementptr inbounds i8, ptr %26, i64 284
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 208
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 232
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 284
   %32 = load i32, ptr %31, align 4
   %33 = tail call nonnull ptr @conversation_new(i32 noundef %28, ptr noundef nonnull %29, ptr noundef nonnull %30, i32 noundef 3, i32 noundef %32, i32 noundef 0, i32 noundef 2) #16
   %34 = load ptr, ptr @kerberos_handle_udp, align 8
@@ -7571,15 +7571,15 @@ define internal i32 @dissect_kerberos_PA_DATA(i1 noundef zeroext %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_padata_value(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -7588,15 +7588,15 @@ define internal i32 @dissect_kerberos_T_padata_value(i1 zeroext %0, ptr noundef 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -7606,7 +7606,7 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %32, label %29
@@ -7618,7 +7618,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 
 32:                                               ; preds = %29, %kerberos_get_private_data.exit
   %.0147 = phi ptr [ %31, %29 ], [ %4, %kerberos_get_private_data.exit ]
-  %33 = getelementptr inbounds i8, ptr %26, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %34 = load i32, ptr %33, align 4
   switch i32 %34, label %103 [
     i32 1, label %35
@@ -7646,7 +7646,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   ]
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %26, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 168
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 8
@@ -7657,7 +7657,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br label %105
 
 42:                                               ; preds = %32
-  %43 = getelementptr inbounds i8, ptr %26, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 1, ptr %43, align 4
   %.val = load i32, ptr %26, align 8
   %44 = add i32 %.val, -10
@@ -7699,7 +7699,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br label %105
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %26, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %64 = load i32, ptr %63, align 8
   %.not149 = icmp eq i32 %64, 0
   br i1 %.not149, label %67, label %65
@@ -7853,15 +7853,15 @@ define internal i32 @dissect_kerberos_ETYPE_INFO2(i1 noundef zeroext %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_krb5_PW_SALT(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -7870,15 +7870,15 @@ define internal i32 @dissect_krb5_PW_SALT(i1 zeroext %0, ptr noundef %1, i32 nou
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -7897,13 +7897,13 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not, label %30, label %59
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %59, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %26, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %36 = load i32, ptr %35, align 4
   %.not44 = icmp eq i32 %36, 0
   br i1 %.not44, label %59, label %37
@@ -7924,9 +7924,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 46:                                               ; preds = %37
   %47 = load i32, ptr @hf_krb_ext_error_nt_status, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %47, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #16
-  %49 = getelementptr inbounds i8, ptr %3, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = tail call ptr @val_to_str(i32 noundef %38, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.871) #16
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.870, ptr noundef %53) #16
@@ -7950,15 +7950,15 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_defer_PA_FX_FAST_REQUEST(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -7967,15 +7967,15 @@ define internal i32 @dissect_kerberos_defer_PA_FX_FAST_REQUEST(i1 zeroext %0, pt
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -7985,15 +7985,15 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 176
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 176
   %28 = load i32, ptr %27, align 8
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %33, label %29
 
 29:                                               ; preds = %kerberos_get_private_data.exit
-  %30 = getelementptr inbounds i8, ptr %26, i64 184
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 184
   store ptr %1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 192
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 192
   store ptr %4, ptr %31, align 8
   store i32 0, ptr %27, align 8
   %32 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
@@ -8042,7 +8042,7 @@ define internal noundef i32 @dissect_kerberos_PA_SUPPORTED_ENCTYPES(i1 zeroext %
   %7 = load i32, ptr @hf_krb_pa_supported_enctypes, align 4
   %8 = load i32, ptr @ett_krb_pa_supported_enctypes, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @hf_krb_pa_supported_enctypes_fields, i32 noundef -2147483648) #16
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %9, ptr %10, align 8
   %11 = add i32 %2, 4
   ret i32 %11
@@ -8057,15 +8057,15 @@ define internal i32 @dissect_kerberos_PA_PAC_OPTIONS(i1 noundef zeroext %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_PA_SPAKE(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -8074,15 +8074,15 @@ define internal i32 @dissect_kerberos_PA_SPAKE(i1 zeroext %0, ptr noundef %1, i3
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -8093,7 +8093,7 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
   %27 = load i32, ptr @ett_kerberos_PA_SPAKE, align 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %29 = tail call i32 @dissect_ber_choice(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @PA_SPAKE_choice, i32 noundef %5, i32 noundef %27, ptr noundef nonnull %28) #16
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %33, label %30
@@ -8155,15 +8155,15 @@ define internal i32 @dissect_krb5_decrypt_PA_ENC_TIMESTAMP(i1 zeroext %0, ptr no
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2) #16
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #16
   store i32 %9, ptr %7, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %12, label %decrypt_krb5_data_asn1.exit
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noalias ptr @wmem_alloc0(ptr noundef %16, i64 noundef 256) #16
   %18 = icmp eq ptr %17, null
@@ -8172,15 +8172,15 @@ define internal i32 @dissect_krb5_decrypt_PA_ENC_TIMESTAMP(i1 zeroext %0, ptr no
 19:                                               ; preds = %12
   %20 = load ptr, ptr %15, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %17, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 144
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %15, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %17, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 152
   store ptr %24, ptr %25, align 8
   %26 = load ptr, ptr %15, align 8
   %27 = tail call noalias ptr @wmem_list_new(ptr noundef %26) #16
-  %28 = getelementptr inbounds i8, ptr %17, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 160
   store ptr %27, ptr %28, align 8
   br label %kerberos_new_private_data.exit.i.i
 
@@ -8190,9 +8190,9 @@ kerberos_new_private_data.exit.i.i:               ; preds = %19, %12
 
 decrypt_krb5_data_asn1.exit:                      ; preds = %6, %kerberos_new_private_data.exit.i.i
   %29 = phi ptr [ %17, %kerberos_new_private_data.exit.i.i ], [ %11, %6 ]
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %31, ptr noundef %29, i32 noundef 1, ptr noundef %8, i32 noundef %33, ptr noundef nonnull %7)
   %.not = icmp eq ptr %34, null
@@ -8257,15 +8257,15 @@ define internal i32 @dissect_kerberos_T_encryptedKrbFastResponse_cipher(i1 zeroe
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_krb5_decrypt_KrbFastResponse(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -8274,15 +8274,15 @@ define internal i32 @dissect_krb5_decrypt_KrbFastResponse(i1 zeroext %0, ptr nou
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -8300,9 +8300,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not.i.i, label %31, label %decrypt_krb5_data_asn1.exit
 
 31:                                               ; preds = %kerberos_get_private_data.exit
-  %32 = getelementptr inbounds i8, ptr %3, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noalias ptr @wmem_alloc0(ptr noundef %35, i64 noundef 256) #16
   %37 = icmp eq ptr %36, null
@@ -8311,15 +8311,15 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 38:                                               ; preds = %31
   %39 = load ptr, ptr %34, align 8
   %40 = tail call noalias ptr @wmem_list_new(ptr noundef %39) #16
-  %41 = getelementptr inbounds i8, ptr %36, i64 144
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 144
   store ptr %40, ptr %41, align 8
   %42 = load ptr, ptr %34, align 8
   %43 = tail call noalias ptr @wmem_list_new(ptr noundef %42) #16
-  %44 = getelementptr inbounds i8, ptr %36, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 152
   store ptr %43, ptr %44, align 8
   %45 = load ptr, ptr %34, align 8
   %46 = tail call noalias ptr @wmem_list_new(ptr noundef %45) #16
-  %47 = getelementptr inbounds i8, ptr %36, i64 160
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 160
   store ptr %46, ptr %47, align 8
   br label %kerberos_new_private_data.exit.i.i
 
@@ -8329,9 +8329,9 @@ kerberos_new_private_data.exit.i.i:               ; preds = %38, %31
 
 decrypt_krb5_data_asn1.exit:                      ; preds = %kerberos_get_private_data.exit, %kerberos_new_private_data.exit.i.i
   %48 = phi ptr [ %36, %kerberos_new_private_data.exit.i.i ], [ %30, %kerberos_get_private_data.exit ]
-  %49 = getelementptr inbounds i8, ptr %3, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %48, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %52 = load i32, ptr %51, align 8
   %53 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %50, ptr noundef %48, i32 noundef 52, ptr noundef %28, i32 noundef %52, ptr noundef nonnull %7)
   %.not = icmp eq ptr %53, null
@@ -8342,9 +8342,9 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %kerberos_get_privat
   %56 = call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %53, i32 noundef %55, i32 noundef %55) #16
   %57 = load ptr, ptr %49, align 8
   call void @add_new_data_source(ptr noundef %57, ptr noundef %56, ptr noundef nonnull @.str.872) #16
-  %58 = getelementptr inbounds i8, ptr %27, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %27, i64 240
+  %60 = getelementptr inbounds nuw i8, ptr %27, i64 240
   store ptr %59, ptr %60, align 8
   %61 = load i32, ptr @ett_kerberos_KrbFastResponse, align 4
   %62 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %56, i32 noundef 0, ptr noundef nonnull @KrbFastResponse_sequence, i32 noundef -1, i32 noundef %61) #16
@@ -8364,15 +8364,15 @@ define internal i32 @dissect_kerberos_T_rEP_SEQUENCE_OF_PA_DATA(i1 noundef zeroe
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_strengthen_key(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -8381,15 +8381,15 @@ define internal i32 @dissect_kerberos_T_strengthen_key(i1 noundef zeroext %0, pt
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -8399,9 +8399,9 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @hf_kerberos_KrbFastResponse, align 4
   store i32 %31, ptr %27, align 8
@@ -8421,15 +8421,15 @@ define internal i32 @dissect_kerberos_KrbFastFinished(i1 noundef zeroext %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @save_KrbFastResponse_strengthen_key(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5, i32 noundef %6) #0 {
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -8438,15 +8438,15 @@ define internal void @save_KrbFastResponse_strengthen_key(ptr nocapture readnone
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -8457,9 +8457,9 @@ kerberos_new_private_data.exit.i:                 ; preds = %17, %10
 kerberos_get_private_data.exit:                   ; preds = %7, %kerberos_new_private_data.exit.i
   %27 = phi ptr [ %15, %kerberos_new_private_data.exit.i ], [ %9, %7 ]
   tail call void @save_encryption_key(ptr poison, i32 poison, i32 poison, ptr noundef nonnull %3, ptr poison, i32 noundef %5, i32 noundef %6)
-  %28 = getelementptr inbounds i8, ptr %27, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 104
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 248
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 248
   store ptr %29, ptr %30, align 8
   ret void
 }
@@ -8473,15 +8473,15 @@ define internal i32 @dissect_kerberos_T_encryptedChallenge_cipher(i1 zeroext %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_krb5_decrypt_EncryptedChallenge(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -8490,15 +8490,15 @@ define internal i32 @dissect_krb5_decrypt_EncryptedChallenge(i1 zeroext %0, ptr 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -8523,9 +8523,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not.i.i, label %32, label %decrypt_krb5_data_asn1.exit
 
 32:                                               ; preds = %.split22
-  %33 = getelementptr inbounds i8, ptr %3, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noalias ptr @wmem_alloc0(ptr noundef %36, i64 noundef 256) #16
   %38 = icmp eq ptr %37, null
@@ -8534,15 +8534,15 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 39:                                               ; preds = %32
   %40 = load ptr, ptr %35, align 8
   %41 = tail call noalias ptr @wmem_list_new(ptr noundef %40) #16
-  %42 = getelementptr inbounds i8, ptr %37, i64 144
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 144
   store ptr %41, ptr %42, align 8
   %43 = load ptr, ptr %35, align 8
   %44 = tail call noalias ptr @wmem_list_new(ptr noundef %43) #16
-  %45 = getelementptr inbounds i8, ptr %37, i64 152
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 152
   store ptr %44, ptr %45, align 8
   %46 = load ptr, ptr %35, align 8
   %47 = tail call noalias ptr @wmem_list_new(ptr noundef %46) #16
-  %48 = getelementptr inbounds i8, ptr %37, i64 160
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 160
   store ptr %47, ptr %48, align 8
   br label %kerberos_new_private_data.exit.i.i
 
@@ -8552,9 +8552,9 @@ kerberos_new_private_data.exit.i.i:               ; preds = %39, %32
 
 decrypt_krb5_data_asn1.exit:                      ; preds = %.split22, %kerberos_new_private_data.exit.i.i
   %49 = phi ptr [ %37, %kerberos_new_private_data.exit.i.i ], [ %31, %.split22 ]
-  %50 = getelementptr inbounds i8, ptr %3, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %53 = load i32, ptr %52, align 8
   %54 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %51, ptr noundef %49, i32 noundef 54, ptr noundef %28, i32 noundef %53, ptr noundef nonnull %7)
   br label %78
@@ -8563,9 +8563,9 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %.split22, %kerberos
   br i1 %.not.i.i, label %55, label %decrypt_krb5_data_asn1.exit25
 
 55:                                               ; preds = %.split
-  %56 = getelementptr inbounds i8, ptr %3, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 408
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = tail call noalias ptr @wmem_alloc0(ptr noundef %59, i64 noundef 256) #16
   %61 = icmp eq ptr %60, null
@@ -8574,15 +8574,15 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %.split22, %kerberos
 62:                                               ; preds = %55
   %63 = load ptr, ptr %58, align 8
   %64 = tail call noalias ptr @wmem_list_new(ptr noundef %63) #16
-  %65 = getelementptr inbounds i8, ptr %60, i64 144
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 144
   store ptr %64, ptr %65, align 8
   %66 = load ptr, ptr %58, align 8
   %67 = tail call noalias ptr @wmem_list_new(ptr noundef %66) #16
-  %68 = getelementptr inbounds i8, ptr %60, i64 152
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 152
   store ptr %67, ptr %68, align 8
   %69 = load ptr, ptr %58, align 8
   %70 = tail call noalias ptr @wmem_list_new(ptr noundef %69) #16
-  %71 = getelementptr inbounds i8, ptr %60, i64 160
+  %71 = getelementptr inbounds nuw i8, ptr %60, i64 160
   store ptr %70, ptr %71, align 8
   br label %kerberos_new_private_data.exit.i.i24
 
@@ -8592,9 +8592,9 @@ kerberos_new_private_data.exit.i.i24:             ; preds = %62, %55
 
 decrypt_krb5_data_asn1.exit25:                    ; preds = %.split, %kerberos_new_private_data.exit.i.i24
   %72 = phi ptr [ %60, %kerberos_new_private_data.exit.i.i24 ], [ %31, %.split ]
-  %73 = getelementptr inbounds i8, ptr %3, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load i32, ptr %75, align 8
   %77 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %74, ptr noundef %72, i32 noundef 55, ptr noundef %28, i32 noundef %76, ptr noundef nonnull %7)
   br label %78
@@ -8608,7 +8608,7 @@ decrypt_krb5_data_asn1.exit25:                    ; preds = %.split, %kerberos_n
 79:                                               ; preds = %78
   %80 = load i32, ptr %7, align 4
   %81 = call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %phi.call, i32 noundef %80, i32 noundef %80) #16
-  %82 = getelementptr inbounds i8, ptr %3, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %83 = load ptr, ptr %82, align 8
   call void @add_new_data_source(ptr noundef %83, ptr noundef %81, ptr noundef nonnull %.019) #16
   %84 = load i32, ptr @ett_krb_pa_enc_ts_enc, align 4
@@ -8622,15 +8622,15 @@ decrypt_krb5_data_asn1.exit25:                    ; preds = %.split, %kerberos_n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_PA_KERB_KEY_LIST_REP_item(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -8639,15 +8639,15 @@ define internal i32 @dissect_kerberos_PA_KERB_KEY_LIST_REP_item(i1 noundef zeroe
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -8657,9 +8657,9 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @hf_kerberos_kerbKeyListRep_key, align 4
   store i32 %31, ptr %27, align 8
@@ -8768,15 +8768,15 @@ define internal i32 @dissect_kerberos_EncryptedKrbFastReq(i1 noundef zeroext %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_KrbFastArmorTypes(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -8785,15 +8785,15 @@ define internal i32 @dissect_kerberos_KrbFastArmorTypes(i1 noundef zeroext %0, p
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -8803,22 +8803,22 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 216
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 216
   %28 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %27) #16
   ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_armor_value(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -8827,15 +8827,15 @@ define internal i32 @dissect_kerberos_T_armor_value(i1 noundef zeroext %0, ptr n
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -8845,13 +8845,13 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 216
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 216
   %28 = load i32, ptr %27, align 8
   %cond = icmp eq i32 %28, 1
   br i1 %cond, label %29, label %36
 
 29:                                               ; preds = %kerberos_get_private_data.exit
-  %30 = getelementptr inbounds i8, ptr %26, i64 220
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 220
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 4
@@ -8880,15 +8880,15 @@ define internal i32 @dissect_kerberos_T_encryptedKrbFastReq_cipher(i1 zeroext %0
 define internal i32 @dissect_krb5_decrypt_KrbFastReq(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca %struct._kerberos_PA_FX_FAST_REQUEST, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %11, label %kerberos_get_private_data.exit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 256) #16
   %17 = icmp eq ptr %16, null
@@ -8897,15 +8897,15 @@ define internal i32 @dissect_krb5_decrypt_KrbFastReq(i1 zeroext %0, ptr noundef 
 18:                                               ; preds = %11
   %19 = load ptr, ptr %14, align 8
   %20 = tail call noalias ptr @wmem_list_new(ptr noundef %19) #16
-  %21 = getelementptr inbounds i8, ptr %16, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 144
   store ptr %20, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = tail call noalias ptr @wmem_list_new(ptr noundef %22) #16
-  %24 = getelementptr inbounds i8, ptr %16, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 152
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %14, align 8
   %26 = tail call noalias ptr @wmem_list_new(ptr noundef %25) #16
-  %27 = getelementptr inbounds i8, ptr %16, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 160
   store ptr %26, ptr %27, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -8918,42 +8918,42 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %29 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2) #16
   %30 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #16
   store i32 %30, ptr %8, align 4
-  %31 = getelementptr inbounds i8, ptr %28, i64 240
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 240
   store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 232
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 232
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %42, label %34
 
 34:                                               ; preds = %kerberos_get_private_data.exit
-  %35 = getelementptr inbounds i8, ptr %28, i64 224
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 224
   %36 = load ptr, ptr %35, align 8
   tail call fastcc void @krb5_fast_key(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, ptr noundef nonnull %33, ptr noundef nonnull @.str.875, ptr noundef %36, ptr noundef nonnull @.str.876, ptr noundef nonnull @.str.877)
-  %37 = getelementptr inbounds i8, ptr %28, i64 208
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 208
   %38 = load ptr, ptr %37, align 8
   %.not45 = icmp eq ptr %38, null
   br i1 %.not45, label %.sink.split, label %39
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %28, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %41 = load ptr, ptr %40, align 8
   tail call fastcc void @krb5_fast_key(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, ptr noundef %41, ptr noundef nonnull @.str.878, ptr noundef nonnull %38, ptr noundef nonnull @.str.879, ptr noundef nonnull @.str.880)
   br label %.sink.split
 
 42:                                               ; preds = %kerberos_get_private_data.exit
-  %43 = getelementptr inbounds i8, ptr %28, i64 208
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 208
   %44 = load ptr, ptr %43, align 8
   %.not44 = icmp eq ptr %44, null
   br i1 %.not44, label %50, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %28, i64 200
+  %46 = getelementptr inbounds nuw i8, ptr %28, i64 200
   %47 = load ptr, ptr %46, align 8
   tail call fastcc void @krb5_fast_key(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, ptr noundef nonnull %44, ptr noundef nonnull @.str.875, ptr noundef %47, ptr noundef nonnull @.str.876, ptr noundef nonnull @.str.881)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %34, %39, %45
-  %48 = getelementptr inbounds i8, ptr %28, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %31, align 8
   br label %50
@@ -8964,9 +8964,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not.i.i, label %52, label %decrypt_krb5_data_asn1.exit
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %3, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 408
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 408
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noalias ptr @wmem_alloc0(ptr noundef %56, i64 noundef 256) #16
   %58 = icmp eq ptr %57, null
@@ -8975,15 +8975,15 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 59:                                               ; preds = %52
   %60 = load ptr, ptr %55, align 8
   %61 = tail call noalias ptr @wmem_list_new(ptr noundef %60) #16
-  %62 = getelementptr inbounds i8, ptr %57, i64 144
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 144
   store ptr %61, ptr %62, align 8
   %63 = load ptr, ptr %55, align 8
   %64 = tail call noalias ptr @wmem_list_new(ptr noundef %63) #16
-  %65 = getelementptr inbounds i8, ptr %57, i64 152
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 152
   store ptr %64, ptr %65, align 8
   %66 = load ptr, ptr %55, align 8
   %67 = tail call noalias ptr @wmem_list_new(ptr noundef %66) #16
-  %68 = getelementptr inbounds i8, ptr %57, i64 160
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 160
   store ptr %67, ptr %68, align 8
   br label %kerberos_new_private_data.exit.i.i
 
@@ -8993,9 +8993,9 @@ kerberos_new_private_data.exit.i.i:               ; preds = %59, %52
 
 decrypt_krb5_data_asn1.exit:                      ; preds = %50, %kerberos_new_private_data.exit.i.i
   %69 = phi ptr [ %57, %kerberos_new_private_data.exit.i.i ], [ %51, %50 ]
-  %70 = getelementptr inbounds i8, ptr %3, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %71, ptr noundef %69, i32 noundef 51, ptr noundef %29, i32 noundef %73, ptr noundef nonnull %8)
   %.not46 = icmp eq ptr %74, null
@@ -9013,7 +9013,7 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %50, %kerberos_new_p
 
 80:                                               ; preds = %75
   %81 = load ptr, ptr %70, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 408
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = call noalias ptr @wmem_alloc0(ptr noundef %83, i64 noundef 256) #16
   %85 = icmp eq ptr %84, null
@@ -9022,15 +9022,15 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %50, %kerberos_new_p
 86:                                               ; preds = %80
   %87 = load ptr, ptr %82, align 8
   %88 = call noalias ptr @wmem_list_new(ptr noundef %87) #16
-  %89 = getelementptr inbounds i8, ptr %84, i64 144
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 144
   store ptr %88, ptr %89, align 8
   %90 = load ptr, ptr %82, align 8
   %91 = call noalias ptr @wmem_list_new(ptr noundef %90) #16
-  %92 = getelementptr inbounds i8, ptr %84, i64 152
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 152
   store ptr %91, ptr %92, align 8
   %93 = load ptr, ptr %82, align 8
   %94 = call noalias ptr @wmem_list_new(ptr noundef %93) #16
-  %95 = getelementptr inbounds i8, ptr %84, i64 160
+  %95 = getelementptr inbounds nuw i8, ptr %84, i64 160
   store ptr %94, ptr %95, align 8
   br label %kerberos_new_private_data.exit.i.i48
 
@@ -9040,7 +9040,7 @@ kerberos_new_private_data.exit.i.i48:             ; preds = %86, %80
 
 dissect_kerberos_KrbFastReq.exit:                 ; preds = %75, %kerberos_new_private_data.exit.i.i48
   %96 = phi ptr [ %84, %kerberos_new_private_data.exit.i.i48 ], [ %79, %75 ]
-  %97 = getelementptr inbounds i8, ptr %96, i64 176
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %97, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
   %98 = load i32, ptr @ett_kerberos_KrbFastReq, align 4
@@ -9059,15 +9059,15 @@ define internal fastcc void @krb5_fast_key(ptr nocapture noundef %0, ptr noundef
   %9 = alloca %struct._krb5_keyblock, align 8
   %10 = alloca %struct._krb5_keyblock, align 8
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %14, label %kerberos_get_private_data.exit
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noalias ptr @wmem_alloc0(ptr noundef %18, i64 noundef 256) #16
   %20 = icmp eq ptr %19, null
@@ -9076,15 +9076,15 @@ define internal fastcc void @krb5_fast_key(ptr nocapture noundef %0, ptr noundef
 21:                                               ; preds = %14
   %22 = load ptr, ptr %17, align 8
   %23 = tail call noalias ptr @wmem_list_new(ptr noundef %22) #16
-  %24 = getelementptr inbounds i8, ptr %19, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 144
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %17, align 8
   %26 = tail call noalias ptr @wmem_list_new(ptr noundef %25) #16
-  %27 = getelementptr inbounds i8, ptr %19, i64 152
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 152
   store ptr %26, ptr %27, align 8
   %28 = load ptr, ptr %17, align 8
   %29 = tail call noalias ptr @wmem_list_new(ptr noundef %28) #16
-  %30 = getelementptr inbounds i8, ptr %19, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 160
   store ptr %29, ptr %30, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -9105,28 +9105,28 @@ kerberos_get_private_data.exit:                   ; preds = %8, %kerberos_new_pr
 
 36:                                               ; preds = %kerberos_get_private_data.exit
   store i32 -1760647421, ptr %9, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %9, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %3, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %9, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 16
-  %44 = getelementptr inbounds i8, ptr %9, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %43, ptr %44, align 8
   store i32 -1760647421, ptr %10, align 8
-  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %10, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %46, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %5, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %10, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 16
-  %52 = getelementptr inbounds i8, ptr %10, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %51, ptr %52, align 8
   %53 = load ptr, ptr @krb5_ctx, align 8
   %54 = call i32 @krb5_c_fx_cf2_simple(ptr noundef %53, ptr noundef nonnull %9, ptr noundef %4, ptr noundef nonnull %10, ptr noundef %6, ptr noundef nonnull %11) #16
@@ -9134,14 +9134,14 @@ kerberos_get_private_data.exit:                   ; preds = %8, %kerberos_new_pr
   br i1 %.not, label %55, label %67
 
 55:                                               ; preds = %36
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %58, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %64 = load ptr, ptr %63, align 8
   call fastcc void @add_encryption_key(ptr noundef %57, ptr noundef %31, ptr noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %60, i32 noundef %62, ptr noundef %64, ptr noundef %7, ptr noundef nonnull %3, ptr noundef nonnull %5)
   %65 = load ptr, ptr @krb5_ctx, align 8
@@ -9216,15 +9216,15 @@ define internal i32 @dissect_kerberos_T_encryptedAuthorizationData_cipher(i1 zer
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_krb5_decrypt_authorization_data(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -9233,15 +9233,15 @@ define internal i32 @dissect_krb5_decrypt_authorization_data(i1 zeroext %0, ptr 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -9254,7 +9254,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %28 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2) #16
   %29 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #16
   store i32 %29, ptr %7, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 208
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 208
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   %32 = load ptr, ptr %8, align 8
@@ -9265,9 +9265,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not.i.i22, label %34, label %decrypt_krb5_data_asn1.exit
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %3, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noalias ptr @wmem_alloc0(ptr noundef %38, i64 noundef 256) #16
   %40 = icmp eq ptr %39, null
@@ -9276,15 +9276,15 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 41:                                               ; preds = %34
   %42 = load ptr, ptr %37, align 8
   %43 = tail call noalias ptr @wmem_list_new(ptr noundef %42) #16
-  %44 = getelementptr inbounds i8, ptr %39, i64 144
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 144
   store ptr %43, ptr %44, align 8
   %45 = load ptr, ptr %37, align 8
   %46 = tail call noalias ptr @wmem_list_new(ptr noundef %45) #16
-  %47 = getelementptr inbounds i8, ptr %39, i64 152
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 152
   store ptr %46, ptr %47, align 8
   %48 = load ptr, ptr %37, align 8
   %49 = tail call noalias ptr @wmem_list_new(ptr noundef %48) #16
-  %50 = getelementptr inbounds i8, ptr %39, i64 160
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 160
   store ptr %49, ptr %50, align 8
   br label %kerberos_new_private_data.exit.i.i
 
@@ -9294,9 +9294,9 @@ kerberos_new_private_data.exit.i.i:               ; preds = %41, %34
 
 decrypt_krb5_data_asn1.exit:                      ; preds = %33, %kerberos_new_private_data.exit.i.i
   %51 = phi ptr [ %39, %kerberos_new_private_data.exit.i.i ], [ %32, %33 ]
-  %52 = getelementptr inbounds i8, ptr %3, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %55 = load i32, ptr %54, align 8
   %56 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %53, ptr noundef %51, i32 noundef 5, ptr noundef %28, i32 noundef %55, ptr noundef nonnull %7)
   br label %81
@@ -9305,9 +9305,9 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %33, %kerberos_new_p
   br i1 %.not.i.i22, label %58, label %decrypt_krb5_data_asn1.exit24
 
 58:                                               ; preds = %57
-  %59 = getelementptr inbounds i8, ptr %3, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 408
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 408
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noalias ptr @wmem_alloc0(ptr noundef %62, i64 noundef 256) #16
   %64 = icmp eq ptr %63, null
@@ -9316,15 +9316,15 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %33, %kerberos_new_p
 65:                                               ; preds = %58
   %66 = load ptr, ptr %61, align 8
   %67 = tail call noalias ptr @wmem_list_new(ptr noundef %66) #16
-  %68 = getelementptr inbounds i8, ptr %63, i64 144
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 144
   store ptr %67, ptr %68, align 8
   %69 = load ptr, ptr %61, align 8
   %70 = tail call noalias ptr @wmem_list_new(ptr noundef %69) #16
-  %71 = getelementptr inbounds i8, ptr %63, i64 152
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 152
   store ptr %70, ptr %71, align 8
   %72 = load ptr, ptr %61, align 8
   %73 = tail call noalias ptr @wmem_list_new(ptr noundef %72) #16
-  %74 = getelementptr inbounds i8, ptr %63, i64 160
+  %74 = getelementptr inbounds nuw i8, ptr %63, i64 160
   store ptr %73, ptr %74, align 8
   br label %kerberos_new_private_data.exit.i.i23
 
@@ -9334,9 +9334,9 @@ kerberos_new_private_data.exit.i.i23:             ; preds = %65, %58
 
 decrypt_krb5_data_asn1.exit24:                    ; preds = %57, %kerberos_new_private_data.exit.i.i23
   %75 = phi ptr [ %63, %kerberos_new_private_data.exit.i.i23 ], [ %32, %57 ]
-  %76 = getelementptr inbounds i8, ptr %3, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %75, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %79 = load i32, ptr %78, align 8
   %80 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %77, ptr noundef %75, i32 noundef 4, ptr noundef %28, i32 noundef %79, ptr noundef nonnull %7)
   br label %81
@@ -9349,7 +9349,7 @@ decrypt_krb5_data_asn1.exit24:                    ; preds = %57, %kerberos_new_p
 82:                                               ; preds = %81
   %83 = load i32, ptr %7, align 4
   %84 = call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %.020, i32 noundef %83, i32 noundef %83) #16
-  %85 = getelementptr inbounds i8, ptr %3, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %86 = load ptr, ptr %85, align 8
   call void @add_new_data_source(ptr noundef %86, ptr noundef %84, ptr noundef nonnull @.str.883) #16
   %87 = load i32, ptr @ett_kerberos_AuthorizationData, align 4
@@ -9384,15 +9384,15 @@ define internal i32 @dissect_kerberos_T_encryptedKDCREPData_cipher(i1 zeroext %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_krb5_decrypt_KDC_REP_data(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -9401,15 +9401,15 @@ define internal i32 @dissect_krb5_decrypt_KDC_REP_data(i1 zeroext %0, ptr nounde
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -9434,9 +9434,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not.i.i, label %33, label %decrypt_krb5_data_asn1.exit
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noalias ptr @wmem_alloc0(ptr noundef %37, i64 noundef 256) #16
   %39 = icmp eq ptr %38, null
@@ -9445,15 +9445,15 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 40:                                               ; preds = %33
   %41 = load ptr, ptr %36, align 8
   %42 = tail call noalias ptr @wmem_list_new(ptr noundef %41) #16
-  %43 = getelementptr inbounds i8, ptr %38, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 144
   store ptr %42, ptr %43, align 8
   %44 = load ptr, ptr %36, align 8
   %45 = tail call noalias ptr @wmem_list_new(ptr noundef %44) #16
-  %46 = getelementptr inbounds i8, ptr %38, i64 152
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 152
   store ptr %45, ptr %46, align 8
   %47 = load ptr, ptr %36, align 8
   %48 = tail call noalias ptr @wmem_list_new(ptr noundef %47) #16
-  %49 = getelementptr inbounds i8, ptr %38, i64 160
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 160
   store ptr %48, ptr %49, align 8
   br label %kerberos_new_private_data.exit.i.i
 
@@ -9463,15 +9463,15 @@ kerberos_new_private_data.exit.i.i:               ; preds = %40, %33
 
 decrypt_krb5_data_asn1.exit:                      ; preds = %31, %kerberos_new_private_data.exit.i.i
   %50 = phi ptr [ %38, %kerberos_new_private_data.exit.i.i ], [ %32, %31 ]
-  %51 = getelementptr inbounds i8, ptr %3, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %54 = load i32, ptr %53, align 8
   %55 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %52, ptr noundef %50, i32 noundef 3, ptr noundef %28, i32 noundef %54, ptr noundef nonnull %7)
   br label %131
 
 56:                                               ; preds = %kerberos_get_private_data.exit
-  %57 = getelementptr inbounds i8, ptr %27, i64 248
+  %57 = getelementptr inbounds nuw i8, ptr %27, i64 248
   %58 = load ptr, ptr %57, align 8
   %.not = icmp eq ptr %58, null
   %59 = load ptr, ptr %8, align 8
@@ -9482,9 +9482,9 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %31, %kerberos_new_p
   br i1 %.not.i.i35, label %61, label %decrypt_krb5_data_asn1.exit34
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %3, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 408
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 408
   %65 = load ptr, ptr %64, align 8
   %66 = tail call noalias ptr @wmem_alloc0(ptr noundef %65, i64 noundef 256) #16
   %67 = icmp eq ptr %66, null
@@ -9493,15 +9493,15 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %31, %kerberos_new_p
 68:                                               ; preds = %61
   %69 = load ptr, ptr %64, align 8
   %70 = tail call noalias ptr @wmem_list_new(ptr noundef %69) #16
-  %71 = getelementptr inbounds i8, ptr %66, i64 144
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 144
   store ptr %70, ptr %71, align 8
   %72 = load ptr, ptr %64, align 8
   %73 = tail call noalias ptr @wmem_list_new(ptr noundef %72) #16
-  %74 = getelementptr inbounds i8, ptr %66, i64 152
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 152
   store ptr %73, ptr %74, align 8
   %75 = load ptr, ptr %64, align 8
   %76 = tail call noalias ptr @wmem_list_new(ptr noundef %75) #16
-  %77 = getelementptr inbounds i8, ptr %66, i64 160
+  %77 = getelementptr inbounds nuw i8, ptr %66, i64 160
   store ptr %76, ptr %77, align 8
   br label %kerberos_new_private_data.exit.i.i33
 
@@ -9511,9 +9511,9 @@ kerberos_new_private_data.exit.i.i33:             ; preds = %68, %61
 
 decrypt_krb5_data_asn1.exit34:                    ; preds = %60, %kerberos_new_private_data.exit.i.i33
   %78 = phi ptr [ %66, %kerberos_new_private_data.exit.i.i33 ], [ %59, %60 ]
-  %79 = getelementptr inbounds i8, ptr %3, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %78, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %82 = load i32, ptr %81, align 8
   %83 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %80, ptr noundef %78, i32 noundef 9, ptr noundef %28, i32 noundef %82, ptr noundef nonnull %7)
   br label %131
@@ -9522,9 +9522,9 @@ decrypt_krb5_data_asn1.exit34:                    ; preds = %60, %kerberos_new_p
   br i1 %.not.i.i35, label %85, label %decrypt_krb5_data_asn1.exit37
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %3, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 408
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 408
   %89 = load ptr, ptr %88, align 8
   %90 = tail call noalias ptr @wmem_alloc0(ptr noundef %89, i64 noundef 256) #16
   %91 = icmp eq ptr %90, null
@@ -9533,15 +9533,15 @@ decrypt_krb5_data_asn1.exit34:                    ; preds = %60, %kerberos_new_p
 92:                                               ; preds = %85
   %93 = load ptr, ptr %88, align 8
   %94 = tail call noalias ptr @wmem_list_new(ptr noundef %93) #16
-  %95 = getelementptr inbounds i8, ptr %90, i64 144
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 144
   store ptr %94, ptr %95, align 8
   %96 = load ptr, ptr %88, align 8
   %97 = tail call noalias ptr @wmem_list_new(ptr noundef %96) #16
-  %98 = getelementptr inbounds i8, ptr %90, i64 152
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 152
   store ptr %97, ptr %98, align 8
   %99 = load ptr, ptr %88, align 8
   %100 = tail call noalias ptr @wmem_list_new(ptr noundef %99) #16
-  %101 = getelementptr inbounds i8, ptr %90, i64 160
+  %101 = getelementptr inbounds nuw i8, ptr %90, i64 160
   store ptr %100, ptr %101, align 8
   br label %kerberos_new_private_data.exit.i.i36
 
@@ -9551,9 +9551,9 @@ kerberos_new_private_data.exit.i.i36:             ; preds = %92, %85
 
 decrypt_krb5_data_asn1.exit37:                    ; preds = %84, %kerberos_new_private_data.exit.i.i36
   %102 = phi ptr [ %90, %kerberos_new_private_data.exit.i.i36 ], [ %59, %84 ]
-  %103 = getelementptr inbounds i8, ptr %3, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %102, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %106 = load i32, ptr %105, align 8
   %107 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %104, ptr noundef %102, i32 noundef 8, ptr noundef %28, i32 noundef %106, ptr noundef nonnull %7)
   %.not30 = icmp eq ptr %107, null
@@ -9566,7 +9566,7 @@ decrypt_krb5_data_asn1.exit37:                    ; preds = %84, %kerberos_new_p
 
 110:                                              ; preds = %108
   %111 = load ptr, ptr %103, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 408
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 408
   %113 = load ptr, ptr %112, align 8
   %114 = call noalias ptr @wmem_alloc0(ptr noundef %113, i64 noundef 256) #16
   %115 = icmp eq ptr %114, null
@@ -9575,15 +9575,15 @@ decrypt_krb5_data_asn1.exit37:                    ; preds = %84, %kerberos_new_p
 116:                                              ; preds = %110
   %117 = load ptr, ptr %112, align 8
   %118 = call noalias ptr @wmem_list_new(ptr noundef %117) #16
-  %119 = getelementptr inbounds i8, ptr %114, i64 144
+  %119 = getelementptr inbounds nuw i8, ptr %114, i64 144
   store ptr %118, ptr %119, align 8
   %120 = load ptr, ptr %112, align 8
   %121 = call noalias ptr @wmem_list_new(ptr noundef %120) #16
-  %122 = getelementptr inbounds i8, ptr %114, i64 152
+  %122 = getelementptr inbounds nuw i8, ptr %114, i64 152
   store ptr %121, ptr %122, align 8
   %123 = load ptr, ptr %112, align 8
   %124 = call noalias ptr @wmem_list_new(ptr noundef %123) #16
-  %125 = getelementptr inbounds i8, ptr %114, i64 160
+  %125 = getelementptr inbounds nuw i8, ptr %114, i64 160
   store ptr %124, ptr %125, align 8
   br label %kerberos_new_private_data.exit.i.i39
 
@@ -9594,7 +9594,7 @@ kerberos_new_private_data.exit.i.i39:             ; preds = %116, %110
 decrypt_krb5_data_asn1.exit40:                    ; preds = %108, %kerberos_new_private_data.exit.i.i39
   %126 = phi ptr [ %114, %kerberos_new_private_data.exit.i.i39 ], [ %109, %108 ]
   %127 = load ptr, ptr %103, align 8
-  %128 = getelementptr inbounds i8, ptr %126, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %129 = load i32, ptr %128, align 8
   %130 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %127, ptr noundef %126, i32 noundef 9, ptr noundef %28, i32 noundef %129, ptr noundef nonnull %7)
   br label %131
@@ -9608,7 +9608,7 @@ decrypt_krb5_data_asn1.exit40:                    ; preds = %108, %kerberos_new_
   %.02846 = phi ptr [ %.028, %131 ], [ %107, %decrypt_krb5_data_asn1.exit37 ]
   %132 = load i32, ptr %7, align 4
   %133 = call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %.02846, i32 noundef %132, i32 noundef %132) #16
-  %134 = getelementptr inbounds i8, ptr %3, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %135 = load ptr, ptr %134, align 8
   call void @add_new_data_source(ptr noundef %135, ptr noundef %133, ptr noundef nonnull @.str.884) #16
   %136 = load i32, ptr @ett_kerberos_Applications, align 4
@@ -9650,15 +9650,15 @@ define internal i32 @dissect_kerberos_T_encryptedAuthenticator_cipher(i1 zeroext
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_krb5_decrypt_authenticator_data(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -9667,15 +9667,15 @@ define internal i32 @dissect_krb5_decrypt_authenticator_data(i1 zeroext %0, ptr 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -9688,7 +9688,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %28 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2) #16
   %29 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #16
   store i32 %29, ptr %7, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 168
   %31 = load i32, ptr %30, align 8
   %.not = icmp eq i32 %31, 0
   %32 = load ptr, ptr %8, align 8
@@ -9699,9 +9699,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not.i.i22, label %34, label %decrypt_krb5_data_asn1.exit
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %3, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noalias ptr @wmem_alloc0(ptr noundef %38, i64 noundef 256) #16
   %40 = icmp eq ptr %39, null
@@ -9710,15 +9710,15 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 41:                                               ; preds = %34
   %42 = load ptr, ptr %37, align 8
   %43 = tail call noalias ptr @wmem_list_new(ptr noundef %42) #16
-  %44 = getelementptr inbounds i8, ptr %39, i64 144
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 144
   store ptr %43, ptr %44, align 8
   %45 = load ptr, ptr %37, align 8
   %46 = tail call noalias ptr @wmem_list_new(ptr noundef %45) #16
-  %47 = getelementptr inbounds i8, ptr %39, i64 152
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 152
   store ptr %46, ptr %47, align 8
   %48 = load ptr, ptr %37, align 8
   %49 = tail call noalias ptr @wmem_list_new(ptr noundef %48) #16
-  %50 = getelementptr inbounds i8, ptr %39, i64 160
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 160
   store ptr %49, ptr %50, align 8
   br label %kerberos_new_private_data.exit.i.i
 
@@ -9728,9 +9728,9 @@ kerberos_new_private_data.exit.i.i:               ; preds = %41, %34
 
 decrypt_krb5_data_asn1.exit:                      ; preds = %33, %kerberos_new_private_data.exit.i.i
   %51 = phi ptr [ %39, %kerberos_new_private_data.exit.i.i ], [ %32, %33 ]
-  %52 = getelementptr inbounds i8, ptr %3, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %55 = load i32, ptr %54, align 8
   %56 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %53, ptr noundef %51, i32 noundef 7, ptr noundef %28, i32 noundef %55, ptr noundef nonnull %7)
   br label %81
@@ -9739,9 +9739,9 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %33, %kerberos_new_p
   br i1 %.not.i.i22, label %58, label %decrypt_krb5_data_asn1.exit24
 
 58:                                               ; preds = %57
-  %59 = getelementptr inbounds i8, ptr %3, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 408
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 408
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noalias ptr @wmem_alloc0(ptr noundef %62, i64 noundef 256) #16
   %64 = icmp eq ptr %63, null
@@ -9750,15 +9750,15 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %33, %kerberos_new_p
 65:                                               ; preds = %58
   %66 = load ptr, ptr %61, align 8
   %67 = tail call noalias ptr @wmem_list_new(ptr noundef %66) #16
-  %68 = getelementptr inbounds i8, ptr %63, i64 144
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 144
   store ptr %67, ptr %68, align 8
   %69 = load ptr, ptr %61, align 8
   %70 = tail call noalias ptr @wmem_list_new(ptr noundef %69) #16
-  %71 = getelementptr inbounds i8, ptr %63, i64 152
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 152
   store ptr %70, ptr %71, align 8
   %72 = load ptr, ptr %61, align 8
   %73 = tail call noalias ptr @wmem_list_new(ptr noundef %72) #16
-  %74 = getelementptr inbounds i8, ptr %63, i64 160
+  %74 = getelementptr inbounds nuw i8, ptr %63, i64 160
   store ptr %73, ptr %74, align 8
   br label %kerberos_new_private_data.exit.i.i23
 
@@ -9768,9 +9768,9 @@ kerberos_new_private_data.exit.i.i23:             ; preds = %65, %58
 
 decrypt_krb5_data_asn1.exit24:                    ; preds = %57, %kerberos_new_private_data.exit.i.i23
   %75 = phi ptr [ %63, %kerberos_new_private_data.exit.i.i23 ], [ %32, %57 ]
-  %76 = getelementptr inbounds i8, ptr %3, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %75, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %79 = load i32, ptr %78, align 8
   %80 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %77, ptr noundef %75, i32 noundef 11, ptr noundef %28, i32 noundef %79, ptr noundef nonnull %7)
   br label %81
@@ -9783,7 +9783,7 @@ decrypt_krb5_data_asn1.exit24:                    ; preds = %57, %kerberos_new_p
 82:                                               ; preds = %81
   %83 = load i32, ptr %7, align 4
   %84 = call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %.020, i32 noundef %83, i32 noundef %83) #16
-  %85 = getelementptr inbounds i8, ptr %3, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %86 = load ptr, ptr %85, align 8
   call void @add_new_data_source(ptr noundef %86, ptr noundef %84, ptr noundef nonnull @.str.885) #16
   %87 = load i32, ptr @ett_kerberos_Applications, align 4
@@ -9821,15 +9821,15 @@ define internal i32 @dissect_krb5_decrypt_AP_REP_data(i1 zeroext %0, ptr noundef
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2) #16
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #16
   store i32 %9, ptr %7, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %12, label %decrypt_krb5_data_asn1.exit
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noalias ptr @wmem_alloc0(ptr noundef %16, i64 noundef 256) #16
   %18 = icmp eq ptr %17, null
@@ -9838,15 +9838,15 @@ define internal i32 @dissect_krb5_decrypt_AP_REP_data(i1 zeroext %0, ptr noundef
 19:                                               ; preds = %12
   %20 = load ptr, ptr %15, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %17, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 144
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %15, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %17, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 152
   store ptr %24, ptr %25, align 8
   %26 = load ptr, ptr %15, align 8
   %27 = tail call noalias ptr @wmem_list_new(ptr noundef %26) #16
-  %28 = getelementptr inbounds i8, ptr %17, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 160
   store ptr %27, ptr %28, align 8
   br label %kerberos_new_private_data.exit.i.i
 
@@ -9856,9 +9856,9 @@ kerberos_new_private_data.exit.i.i:               ; preds = %19, %12
 
 decrypt_krb5_data_asn1.exit:                      ; preds = %6, %kerberos_new_private_data.exit.i.i
   %29 = phi ptr [ %17, %kerberos_new_private_data.exit.i.i ], [ %11, %6 ]
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %31, ptr noundef %29, i32 noundef 12, ptr noundef %8, i32 noundef %33, ptr noundef nonnull %7)
   %.not = icmp eq ptr %34, null
@@ -9895,15 +9895,15 @@ define internal i32 @dissect_kerberos_KRB_SAFE_BODY(i1 noundef zeroext %0, ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_kRB_SAFE_BODY_user_data(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -9912,15 +9912,15 @@ define internal i32 @dissect_kerberos_T_kRB_SAFE_BODY_user_data(i1 zeroext %0, p
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -9936,9 +9936,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not, label %call_kerberos_callbacks.exit, label %30
 
 30:                                               ; preds = %kerberos_get_private_data.exit
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 72
   %34 = load ptr, ptr %33, align 8
   %.not.i9 = icmp eq ptr %34, null
   br i1 %.not.i9, label %call_kerberos_callbacks.exit, label %.preheader.i
@@ -9955,7 +9955,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %.lr.ph.i
-  %39 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 %40(ptr noundef %32, ptr noundef nonnull %29, ptr noundef %4) #16
   br label %call_kerberos_callbacks.exit
@@ -9996,15 +9996,15 @@ define internal i32 @dissect_krb5_decrypt_PRIV_data(i1 zeroext %0, ptr noundef %
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2) #16
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #16
   store i32 %9, ptr %7, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %12, label %decrypt_krb5_data_asn1.exit
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noalias ptr @wmem_alloc0(ptr noundef %16, i64 noundef 256) #16
   %18 = icmp eq ptr %17, null
@@ -10013,15 +10013,15 @@ define internal i32 @dissect_krb5_decrypt_PRIV_data(i1 zeroext %0, ptr noundef %
 19:                                               ; preds = %12
   %20 = load ptr, ptr %15, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %17, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 144
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %15, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %17, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 152
   store ptr %24, ptr %25, align 8
   %26 = load ptr, ptr %15, align 8
   %27 = tail call noalias ptr @wmem_list_new(ptr noundef %26) #16
-  %28 = getelementptr inbounds i8, ptr %17, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 160
   store ptr %27, ptr %28, align 8
   br label %kerberos_new_private_data.exit.i.i
 
@@ -10031,9 +10031,9 @@ kerberos_new_private_data.exit.i.i:               ; preds = %19, %12
 
 decrypt_krb5_data_asn1.exit:                      ; preds = %6, %kerberos_new_private_data.exit.i.i
   %29 = phi ptr [ %17, %kerberos_new_private_data.exit.i.i ], [ %11, %6 ]
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %31, ptr noundef %29, i32 noundef 13, ptr noundef %8, i32 noundef %33, ptr noundef nonnull %7)
   %.not = icmp eq ptr %34, null
@@ -10062,15 +10062,15 @@ define internal i32 @dissect_kerberos_EncKDCRepPart(i1 noundef zeroext %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_encKDCRepPart_key(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -10079,15 +10079,15 @@ define internal i32 @dissect_kerberos_T_encKDCRepPart_key(i1 noundef zeroext %0,
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -10097,9 +10097,9 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %26, align 8
   switch i32 %31, label %36 [
@@ -10134,15 +10134,15 @@ define internal i32 @dissect_kerberos_LastReq(i1 noundef zeroext %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_encrypted_pa_data(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -10151,15 +10151,15 @@ define internal i32 @dissect_kerberos_T_encrypted_pa_data(i1 noundef zeroext %0,
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -10169,7 +10169,7 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 1, ptr %27, align 8
   %28 = load i32, ptr @ett_kerberos_METHOD_DATA, align 4
   %29 = tail call i32 @dissect_ber_sequence_of(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @METHOD_DATA_sequence_of, i32 noundef %5, i32 noundef %28) #16
@@ -10205,15 +10205,15 @@ define internal i32 @dissect_kerberos_EncAPRepPart_U(i1 noundef zeroext %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_encAPRepPart_subkey(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -10222,15 +10222,15 @@ define internal i32 @dissect_kerberos_T_encAPRepPart_subkey(i1 noundef zeroext %
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -10240,9 +10240,9 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @hf_kerberos_encAPRepPart, align 4
   store i32 %31, ptr %27, align 8
@@ -10255,15 +10255,15 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 
 ; Function Attrs: nounwind uwtable
 define internal void @save_EncAPRepPart_subkey(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5, i32 noundef %6) #0 {
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -10272,15 +10272,15 @@ define internal void @save_EncAPRepPart_subkey(ptr nocapture readnone %0, i32 %1
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -10291,18 +10291,18 @@ kerberos_new_private_data.exit.i:                 ; preds = %17, %10
 kerberos_get_private_data.exit:                   ; preds = %7, %kerberos_new_private_data.exit.i
   %27 = phi ptr [ %15, %kerberos_new_private_data.exit.i ], [ %9, %7 ]
   tail call void @save_encryption_key(ptr poison, i32 poison, i32 poison, ptr noundef nonnull %3, ptr poison, i32 noundef %5, i32 noundef %6)
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 50
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 50
   %33 = load i16, ptr %32, align 2
   %34 = and i16 %33, 8
   %.not = icmp eq i16 %34, 0
   br i1 %.not, label %35, label %41
 
 35:                                               ; preds = %kerberos_get_private_data.exit
-  %36 = getelementptr inbounds i8, ptr %27, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 104
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %41, label %39
@@ -10326,15 +10326,15 @@ define internal i32 @dissect_kerberos_EncKrbPrivPart(i1 noundef zeroext %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_encKrbPrivPart_user_data(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -10343,15 +10343,15 @@ define internal i32 @dissect_kerberos_T_encKrbPrivPart_user_data(i1 zeroext %0, 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -10367,9 +10367,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not, label %call_kerberos_callbacks.exit, label %30
 
 30:                                               ; preds = %kerberos_get_private_data.exit
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 72
   %34 = load ptr, ptr %33, align 8
   %.not.i9 = icmp eq ptr %34, null
   br i1 %.not.i9, label %call_kerberos_callbacks.exit, label %.preheader.i
@@ -10386,7 +10386,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %.lr.ph.i
-  %39 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 %40(ptr noundef %32, ptr noundef nonnull %29, ptr noundef %4) #16
   br label %call_kerberos_callbacks.exit
@@ -10424,15 +10424,15 @@ define internal i32 @dissect_kerberos_KrbCredInfo(i1 noundef zeroext %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_krbCredInfo_key(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -10441,15 +10441,15 @@ define internal i32 @dissect_kerberos_T_krbCredInfo_key(i1 noundef zeroext %0, p
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -10459,9 +10459,9 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @hf_kerberos_ticket_info_item, align 4
   store i32 %31, ptr %27, align 8
@@ -10487,15 +10487,15 @@ define internal i32 @dissect_kerberos_KRB_ERROR_U(i1 noundef zeroext %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_ERROR_CODE(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -10504,15 +10504,15 @@ define internal i32 @dissect_kerberos_ERROR_CODE(i1 noundef zeroext %0, ptr noun
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -10522,16 +10522,16 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %27) #16
   %29 = load i32, ptr %27, align 8
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %36, label %30
 
 30:                                               ; preds = %kerberos_get_private_data.exit
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @val_to_str(i32 noundef %29, ptr noundef nonnull @krb5_error_codes, ptr noundef nonnull @.str.871) #16
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.888, ptr noundef %35) #16
@@ -10543,15 +10543,15 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_T_e_data(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %kerberos_get_private_data.exit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 256) #16
   %15 = icmp eq ptr %14, null
@@ -10560,15 +10560,15 @@ define internal i32 @dissect_kerberos_T_e_data(i1 zeroext %0, ptr noundef %1, i3
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #16
-  %19 = getelementptr inbounds i8, ptr %14, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %12, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %14, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 160
   store ptr %24, ptr %25, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -10578,7 +10578,7 @@ kerberos_new_private_data.exit.i:                 ; preds = %16, %9
 
 kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_private_data.exit.i
   %26 = phi ptr [ %14, %kerberos_new_private_data.exit.i ], [ %8, %6 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
   switch i32 %28, label %36 [
     i32 13, label %29
@@ -10596,7 +10596,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   ]
 
 29:                                               ; preds = %kerberos_get_private_data.exit, %kerberos_get_private_data.exit, %kerberos_get_private_data.exit, %kerberos_get_private_data.exit
-  %30 = getelementptr inbounds i8, ptr %26, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 1, ptr %30, align 4
   %31 = load i32, ptr @hf_kerberos_e_data, align 4
   %32 = tail call i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %31, ptr noundef nonnull @dissect_kerberos_PA_DATA) #16
@@ -10654,15 +10654,15 @@ define internal i32 @dissect_krb5_decrypt_ticket_data(i1 zeroext %0, ptr noundef
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2) #16
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #16
   store i32 %9, ptr %7, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %12, label %decrypt_krb5_data_asn1.exit
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noalias ptr @wmem_alloc0(ptr noundef %16, i64 noundef 256) #16
   %18 = icmp eq ptr %17, null
@@ -10671,15 +10671,15 @@ define internal i32 @dissect_krb5_decrypt_ticket_data(i1 zeroext %0, ptr noundef
 19:                                               ; preds = %12
   %20 = load ptr, ptr %15, align 8
   %21 = tail call noalias ptr @wmem_list_new(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %17, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 144
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %15, align 8
   %24 = tail call noalias ptr @wmem_list_new(ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %17, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 152
   store ptr %24, ptr %25, align 8
   %26 = load ptr, ptr %15, align 8
   %27 = tail call noalias ptr @wmem_list_new(ptr noundef %26) #16
-  %28 = getelementptr inbounds i8, ptr %17, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 160
   store ptr %27, ptr %28, align 8
   br label %kerberos_new_private_data.exit.i.i
 
@@ -10689,9 +10689,9 @@ kerberos_new_private_data.exit.i.i:               ; preds = %19, %12
 
 decrypt_krb5_data_asn1.exit:                      ; preds = %6, %kerberos_new_private_data.exit.i.i
   %29 = phi ptr [ %17, %kerberos_new_private_data.exit.i.i ], [ %11, %6 ]
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %31, ptr noundef %29, i32 noundef 2, ptr noundef %8, i32 noundef %33, ptr noundef nonnull %7)
   %.not = icmp eq ptr %34, null
@@ -10704,7 +10704,7 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %6, %kerberos_new_pr
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %30, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 408
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 408
   %40 = load ptr, ptr %39, align 8
   %41 = call noalias ptr @wmem_alloc0(ptr noundef %40, i64 noundef 256) #16
   %42 = icmp eq ptr %41, null
@@ -10713,15 +10713,15 @@ decrypt_krb5_data_asn1.exit:                      ; preds = %6, %kerberos_new_pr
 43:                                               ; preds = %37
   %44 = load ptr, ptr %39, align 8
   %45 = call noalias ptr @wmem_list_new(ptr noundef %44) #16
-  %46 = getelementptr inbounds i8, ptr %41, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 144
   store ptr %45, ptr %46, align 8
   %47 = load ptr, ptr %39, align 8
   %48 = call noalias ptr @wmem_list_new(ptr noundef %47) #16
-  %49 = getelementptr inbounds i8, ptr %41, i64 152
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 152
   store ptr %48, ptr %49, align 8
   %50 = load ptr, ptr %39, align 8
   %51 = call noalias ptr @wmem_list_new(ptr noundef %50) #16
-  %52 = getelementptr inbounds i8, ptr %41, i64 160
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 160
   store ptr %51, ptr %52, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -10731,7 +10731,7 @@ kerberos_new_private_data.exit.i:                 ; preds = %43, %37
 
 kerberos_get_private_data.exit:                   ; preds = %35, %kerberos_new_private_data.exit.i
   %53 = phi ptr [ %41, %kerberos_new_private_data.exit.i ], [ %36, %35 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 112
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr %7, align 4
   %57 = call ptr @tvb_new_child_real_data(ptr noundef %1, ptr noundef nonnull %34, i32 noundef %56, i32 noundef %56) #16
@@ -10771,15 +10771,15 @@ define internal i32 @dissect_kerberos_T_encryptedKrbCredData_cipher(i1 zeroext %
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_krb5_decrypt_CRED_data(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %kerberos_get_private_data.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 256) #16
   %16 = icmp eq ptr %15, null
@@ -10788,15 +10788,15 @@ define internal i32 @dissect_krb5_decrypt_CRED_data(i1 zeroext %0, ptr noundef %
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #16
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
   %22 = tail call noalias ptr @wmem_list_new(ptr noundef %21) #16
-  %23 = getelementptr inbounds i8, ptr %15, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %13, align 8
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %15, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store ptr %25, ptr %26, align 8
   br label %kerberos_new_private_data.exit.i
 
@@ -10809,7 +10809,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   %28 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2) #16
   %29 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %2) #16
   store i32 %29, ptr %7, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %36
@@ -10825,9 +10825,9 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
   br i1 %.not.i.i, label %38, label %decrypt_krb5_data_asn1.exit
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %3, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 408
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 408
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noalias ptr @wmem_alloc0(ptr noundef %42, i64 noundef 256) #16
   %44 = icmp eq ptr %43, null
@@ -10836,15 +10836,15 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 45:                                               ; preds = %38
   %46 = load ptr, ptr %41, align 8
   %47 = tail call noalias ptr @wmem_list_new(ptr noundef %46) #16
-  %48 = getelementptr inbounds i8, ptr %43, i64 144
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 144
   store ptr %47, ptr %48, align 8
   %49 = load ptr, ptr %41, align 8
   %50 = tail call noalias ptr @wmem_list_new(ptr noundef %49) #16
-  %51 = getelementptr inbounds i8, ptr %43, i64 152
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 152
   store ptr %50, ptr %51, align 8
   %52 = load ptr, ptr %41, align 8
   %53 = tail call noalias ptr @wmem_list_new(ptr noundef %52) #16
-  %54 = getelementptr inbounds i8, ptr %43, i64 160
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 160
   store ptr %53, ptr %54, align 8
   br label %kerberos_new_private_data.exit.i.i
 
@@ -10854,9 +10854,9 @@ kerberos_new_private_data.exit.i.i:               ; preds = %45, %38
 
 decrypt_krb5_data_asn1.exit:                      ; preds = %36, %kerberos_new_private_data.exit.i.i
   %55 = phi ptr [ %43, %kerberos_new_private_data.exit.i.i ], [ %37, %36 ]
-  %56 = getelementptr inbounds i8, ptr %3, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = call fastcc ptr @decrypt_krb5_data_private(ptr noundef %4, ptr noundef %57, ptr noundef %55, i32 noundef 14, ptr noundef %28, i32 noundef %59, ptr noundef nonnull %7)
   %.not = icmp eq ptr %60, null
@@ -10904,25 +10904,25 @@ declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal void @kerberos_display_key(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 316
-  %20 = getelementptr inbounds i8, ptr %0, i64 368
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 316
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i8, ptr %22, align 8
   %24 = zext i8 %23 to i32
   %25 = getelementptr i8, ptr %0, i64 17
@@ -10935,7 +10935,7 @@ define internal void @kerberos_display_key(ptr noundef %0, ptr nocapture noundef
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %5, ptr noundef %7, ptr noundef %9, i32 noundef %11, i32 noundef %13, ptr noundef nonnull @.str.967, ptr noundef %15, ptr noundef nonnull %16, i32 noundef %18, ptr noundef nonnull %19, i32 noundef %21, i32 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33) #16
-  %35 = getelementptr inbounds i8, ptr %0, i64 376
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %59, label %37
@@ -10943,13 +10943,13 @@ define internal void @kerberos_display_key(ptr noundef %0, ptr nocapture noundef
 37:                                               ; preds = %2
   %38 = load ptr, ptr %4, align 8
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 48
-  %41 = getelementptr inbounds i8, ptr %36, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %36, i64 316
-  %44 = getelementptr inbounds i8, ptr %36, i64 368
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 316
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 368
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %36, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %47 = load i8, ptr %46, align 8
   %48 = zext i8 %47 to i32
   %49 = getelementptr i8, ptr %36, i64 17
@@ -10965,7 +10965,7 @@ define internal void @kerberos_display_key(ptr noundef %0, ptr nocapture noundef
   br label %59
 
 59:                                               ; preds = %37, %2
-  %60 = getelementptr inbounds i8, ptr %0, i64 384
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %61 = load ptr, ptr %60, align 8
   %.not60 = icmp eq ptr %61, null
   br i1 %.not60, label %84, label %62
@@ -10973,13 +10973,13 @@ define internal void @kerberos_display_key(ptr noundef %0, ptr nocapture noundef
 62:                                               ; preds = %59
   %63 = load ptr, ptr %4, align 8
   %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds i8, ptr %61, i64 48
-  %66 = getelementptr inbounds i8, ptr %61, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %61, i64 316
-  %69 = getelementptr inbounds i8, ptr %61, i64 368
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 316
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 368
   %70 = load i32, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %61, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %72 = load i8, ptr %71, align 8
   %73 = zext i8 %72 to i32
   %74 = getelementptr i8, ptr %61, i64 17
@@ -10995,7 +10995,7 @@ define internal void @kerberos_display_key(ptr noundef %0, ptr nocapture noundef
   br label %84
 
 84:                                               ; preds = %62, %59
-  %.0.in62 = getelementptr inbounds i8, ptr %0, i64 360
+  %.0.in62 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %.063 = load ptr, ptr %.0.in62, align 8
   %.not6164 = icmp eq ptr %.063, null
   br i1 %.not6164, label %._crit_edge, label %.lr.ph
@@ -11005,13 +11005,13 @@ define internal void @kerberos_display_key(ptr noundef %0, ptr nocapture noundef
   %85 = load ptr, ptr %4, align 8
   %86 = load ptr, ptr %6, align 8
   %87 = load ptr, ptr %14, align 8
-  %88 = getelementptr inbounds i8, ptr %.065, i64 48
-  %89 = getelementptr inbounds i8, ptr %.065, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.065, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %.065, i64 8
   %90 = load i32, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %.065, i64 316
-  %92 = getelementptr inbounds i8, ptr %.065, i64 368
+  %91 = getelementptr inbounds nuw i8, ptr %.065, i64 316
+  %92 = getelementptr inbounds nuw i8, ptr %.065, i64 368
   %93 = load i32, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %.065, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.065, i64 16
   %95 = load i8, ptr %94, align 8
   %96 = zext i8 %95 to i32
   %97 = getelementptr i8, ptr %.065, i64 17
@@ -11024,7 +11024,7 @@ define internal void @kerberos_display_key(ptr noundef %0, ptr nocapture noundef
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
   %106 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %85, ptr noundef %34, ptr noundef %86, ptr noundef nonnull @.str.967, ptr noundef %87, ptr noundef nonnull %88, i32 noundef %90, ptr noundef nonnull %91, i32 noundef %93, i32 noundef %96, i32 noundef %99, i32 noundef %102, i32 noundef %105) #16
-  %.0.in = getelementptr inbounds i8, ptr %.065, i64 360
+  %.0.in = getelementptr inbounds nuw i8, ptr %.065, i64 360
   %.0 = load ptr, ptr %.0.in, align 8
   %.not61 = icmp eq ptr %.0, null
   br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -11041,14 +11041,14 @@ declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kerberos_tcp_pdu(ptr noundef %0, ptr noundef initializes((272, 276)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 272
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 1, ptr %5, align 8
   %6 = tail call fastcc i32 @dissect_kerberos_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.1283) #16
   br label %11

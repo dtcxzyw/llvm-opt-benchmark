@@ -61,28 +61,28 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind no
 4:                                                ; preds = %25, %2
   %5 = phi i64 [ %27, %25 ], [ 5, %2 ]
   %6 = phi i64 [ %26, %25 ], [ 0, %2 ]
-  %7 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL5NAMESE, i64 %6
   %8 = load i32, ptr %7, align 16, !tbaa !3
   %9 = icmp eq i32 %8, %1
   br i1 %9, label %35, label %10
 
 10:                                               ; preds = %4
   %11 = or disjoint i64 %6, 24
-  %12 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL5NAMESE, i64 %11
   %13 = load i32, ptr %12, align 8, !tbaa !3
   %14 = icmp eq i32 %13, %1
   br i1 %14, label %35, label %15
 
 15:                                               ; preds = %10
   %16 = add nuw nsw i64 %6, 48
-  %17 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL5NAMESE, i64 %16
   %18 = load i32, ptr %17, align 16, !tbaa !3
   %19 = icmp eq i32 %18, %1
   br i1 %19, label %38, label %20
 
 20:                                               ; preds = %15
   %21 = add nuw nsw i64 %6, 72
-  %22 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL5NAMESE, i64 %21
   %23 = load i32, ptr %22, align 8, !tbaa !3
   %24 = icmp eq i32 %23, %1
   br i1 %24, label %35, label %25
@@ -109,24 +109,24 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind no
   br label %44
 
 38:                                               ; preds = %15
-  %39 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %16
+  %39 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL5NAMESE, i64 %16
   %40 = icmp eq i64 %16, 528
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %38, %32
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %42, ptr %0, align 8, !tbaa !13
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %43, align 8, !tbaa !15
   store i8 0, ptr %42, align 8, !tbaa !17
   br label %50
 
 44:                                               ; preds = %38, %35, %32, %29
   %45 = phi ptr [ %39, %38 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL5NAMESE, i64 480), %29 ], [ getelementptr inbounds (i8, ptr @_ZN5ZXingL5NAMESE, i64 504), %32 ], [ %37, %35 ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
   %47 = load i64, ptr %46, align 8, !tbaa !18
-  %48 = getelementptr inbounds i8, ptr %45, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %49, i64 noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %3) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
@@ -158,9 +158,9 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %9, ptr %3, align 8, !tbaa !13
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %10, align 8, !tbaa !15
   store i8 0, ptr %9, align 8, !tbaa !17
   %11 = call noundef i32 @llvm.cttz.i32(i32 %1, i1 true), !range !20
@@ -170,10 +170,10 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = xor i32 %12, 31
   br label %26
 
@@ -202,12 +202,12 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
 31:                                               ; preds = %29
   store ptr %16, ptr %4, align 8, !tbaa !13, !alias.scope !21
   %32 = load ptr, ptr %30, align 8, !tbaa !24
-  %33 = getelementptr inbounds i8, ptr %30, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = icmp eq ptr %32, %33
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %30, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !15
   %38 = icmp ult i64 %37, 16
   call void @llvm.assume(i1 %38)
@@ -219,13 +219,13 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_5FlagsINS_13BarcodeFormatEEE(ptr dead_
   store ptr %32, ptr %4, align 8, !tbaa !24, !alias.scope !21
   %41 = load i64, ptr %33, align 8, !tbaa !17
   store i64 %41, ptr %16, align 8, !tbaa !17, !alias.scope !21
-  %42 = getelementptr inbounds i8, ptr %30, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !15
   br label %44
 
 44:                                               ; preds = %40, %35
   %45 = phi i64 [ %37, %35 ], [ %43, %40 ]
-  %46 = getelementptr inbounds i8, ptr %30, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %45, ptr %17, align 8, !tbaa !15, !alias.scope !21
   store ptr %33, ptr %30, align 8, !tbaa !24
   store i64 0, ptr %46, align 8, !tbaa !15
@@ -396,14 +396,14 @@ define noundef i32 @_ZN5ZXing23BarcodeFormatFromStringESt17basic_string_viewIcSt
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
   call fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 %0, ptr %1) #15
   %.val = load ptr, ptr %3, align 8, !tbaa !24
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val2 = load i64, ptr %4, align 8, !tbaa !15
   %5 = invoke fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.val, i64 %.val2) #15
           to label %6 unwind label %15
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %3, align 8, !tbaa !24
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %10, label %13
 
@@ -425,7 +425,7 @@ define noundef i32 @_ZN5ZXing23BarcodeFormatFromStringESt17basic_string_viewIcSt
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load ptr, ptr %3, align 8, !tbaa !24
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = icmp eq ptr %17, %18
   br i1 %19, label %20, label %23
 
@@ -452,15 +452,15 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   %4 = alloca %class.anon.2, align 8
   %5 = alloca %class.anon.2, align 8
   %6 = alloca %class.anon.2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %7, ptr %6, align 8, !tbaa !13
   %8 = getelementptr inbounds i8, ptr %.0.val, i64 %.8.val
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %.0.val, ptr noundef %8) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %9, ptr %5, align 8, !tbaa !13
   %10 = load ptr, ptr %6, align 8, !tbaa !24
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %10, ptr noundef %13) #15
@@ -469,10 +469,10 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
 14:                                               ; preds = %0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %15, ptr %4, align 8, !tbaa !13
   %16 = load ptr, ptr %5, align 8, !tbaa !24
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !15
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %16, ptr noundef %19) #15
@@ -481,20 +481,20 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
 20:                                               ; preds = %14
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %21, ptr %2, align 8, !tbaa !13, !noalias !26
   %22 = load ptr, ptr %4, align 8, !tbaa !24, !noalias !26
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !15, !noalias !26
   %25 = getelementptr inbounds i8, ptr %22, i64 %24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %22, ptr noundef %25) #15
           to label %26 unwind label %142
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %27, ptr %3, align 8, !tbaa !13, !alias.scope !26
   %28 = load ptr, ptr %2, align 8, !tbaa !24, !noalias !26
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !15, !noalias !26
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %28, ptr noundef %31) #15
@@ -535,10 +535,10 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
 47:                                               ; preds = %38, %35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
-  %48 = getelementptr inbounds i8, ptr %1, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %48, ptr %1, align 8, !tbaa !13
   %49 = load ptr, ptr %3, align 8, !tbaa !24
-  %50 = getelementptr inbounds i8, ptr %3, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !15
   %52 = getelementptr inbounds i8, ptr %49, i64 %51
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %49, ptr noundef %52) #15
@@ -591,7 +591,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br i1 %72, label %.loopexit.split.loop.exit8, label %74
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %54, i64 96
+  %75 = getelementptr inbounds nuw i8, ptr %54, i64 96
   %76 = add nsw i64 %53, -1
   %77 = icmp ugt i64 %53, 1
   br i1 %77, label %.preheader, label %78, !llvm.loop !29
@@ -618,7 +618,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br i1 %85, label %.loopexit, label %87
 
 87:                                               ; preds = %86
-  %88 = getelementptr inbounds i8, ptr %54, i64 120
+  %88 = getelementptr inbounds nuw i8, ptr %54, i64 120
   br label %89
 
 89:                                               ; preds = %87, %78
@@ -634,7 +634,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br i1 %93, label %.loopexit, label %95
 
 95:                                               ; preds = %94
-  %96 = getelementptr inbounds i8, ptr %90, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 24
   br label %97
 
 97:                                               ; preds = %95, %78
@@ -653,15 +653,15 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br label %.loopexit
 
 .loopexit.split.loop.exit4:                       ; preds = %63
-  %104 = getelementptr inbounds i8, ptr %54, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %54, i64 24
   br label %.loopexit
 
 .loopexit.split.loop.exit6:                       ; preds = %68
-  %105 = getelementptr inbounds i8, ptr %54, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %54, i64 48
   br label %.loopexit
 
 .loopexit.split.loop.exit8:                       ; preds = %73
-  %106 = getelementptr inbounds i8, ptr %54, i64 72
+  %106 = getelementptr inbounds nuw i8, ptr %54, i64 72
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %.loopexit.split.loop.exit4, %.loopexit.split.loop.exit6, %.loopexit.split.loop.exit8, %103, %102, %94, %86
@@ -671,7 +671,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br i1 %109, label %110, label %114
 
 110:                                              ; preds = %.loopexit
-  %111 = getelementptr inbounds i8, ptr %1, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %112 = load i64, ptr %111, align 8, !tbaa !15
   %113 = icmp ult i64 %112, 16
   call void @llvm.assume(i1 %113)
@@ -698,7 +698,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL17ParseFormatStringERKNSt7__cxx111
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %119
-  %124 = getelementptr inbounds i8, ptr %1, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %125 = load i64, ptr %124, align 8, !tbaa !15
   %126 = icmp ult i64 %125, 16
   call void @llvm.assume(i1 %126)
@@ -879,7 +879,7 @@ define internal fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %2, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   %5 = load ptr, ptr %0, align 8, !tbaa !24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds i8, ptr %5, i64 %7
   %9 = icmp eq i64 %7, 0
@@ -919,7 +919,7 @@ define internal fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_
   br i1 %32, label %33, label %.loopexit
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %28, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %35 = load i8, ptr %34, align 1, !tbaa !17
   %36 = sext i8 %35 to i32
   %37 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.24, i32 %36, i64 5)
@@ -927,7 +927,7 @@ define internal fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_
   br i1 %38, label %39, label %.loopexit.loopexit.split.loop.exit
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %28, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %41 = load i8, ptr %40, align 1, !tbaa !17
   %42 = sext i8 %41 to i32
   %43 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.24, i32 %42, i64 5)
@@ -935,7 +935,7 @@ define internal fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_
   br i1 %44, label %45, label %.loopexit.loopexit.split.loop.exit20
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %28, i64 3
+  %46 = getelementptr inbounds nuw i8, ptr %28, i64 3
   %47 = load i8, ptr %46, align 1, !tbaa !17
   %48 = sext i8 %47 to i32
   %49 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.24, i32 %48, i64 5)
@@ -943,7 +943,7 @@ define internal fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_
   br i1 %50, label %51, label %.loopexit.loopexit.split.loop.exit22
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %28, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %53 = add nsw i64 %27, -1
   %54 = icmp sgt i64 %27, 1
   br i1 %54, label %26, label %.loopexit4, !llvm.loop !31
@@ -969,7 +969,7 @@ define internal fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_
   br i1 %65, label %66, label %.loopexit
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %57, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 1
   br label %68
 
 68:                                               ; preds = %66, %.loopexit4
@@ -981,7 +981,7 @@ define internal fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_
   br i1 %73, label %74, label %.loopexit
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds i8, ptr %69, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 1
   br label %76
 
 76:                                               ; preds = %74, %.loopexit4
@@ -994,15 +994,15 @@ define internal fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %33
-  %83 = getelementptr inbounds i8, ptr %28, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %28, i64 1
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit20:             ; preds = %39
-  %84 = getelementptr inbounds i8, ptr %28, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %28, i64 2
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit22:             ; preds = %45
-  %85 = getelementptr inbounds i8, ptr %28, i64 3
+  %85 = getelementptr inbounds nuw i8, ptr %28, i64 3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit20, %.loopexit.loopexit.split.loop.exit22, %76, %68, %61
@@ -1010,7 +1010,7 @@ define internal fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_
   %87 = phi ptr [ %56, %61 ], [ %56, %68 ], [ %56, %76 ], [ %18, %.loopexit.loopexit.split.loop.exit22 ], [ %18, %.loopexit.loopexit.split.loop.exit20 ], [ %18, %.loopexit.loopexit.split.loop.exit ], [ %18, %26 ]
   %88 = phi ptr [ %57, %61 ], [ %69, %68 ], [ %82, %76 ], [ %85, %.loopexit.loopexit.split.loop.exit22 ], [ %84, %.loopexit.loopexit.split.loop.exit20 ], [ %83, %.loopexit.loopexit.split.loop.exit ], [ %28, %26 ]
   %89 = icmp eq ptr %88, %86
-  %90 = getelementptr inbounds i8, ptr %88, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 1
   %91 = icmp eq ptr %90, %86
   %92 = select i1 %89, i1 true, i1 %91
   br i1 %92, label %107, label %.preheader
@@ -1026,12 +1026,12 @@ define internal fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_
 
 99:                                               ; preds = %.preheader
   store i8 %95, ptr %94, align 1, !tbaa !17
-  %100 = getelementptr inbounds i8, ptr %94, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 1
   br label %101
 
 101:                                              ; preds = %99, %.preheader
   %102 = phi ptr [ %94, %.preheader ], [ %100, %99 ]
-  %103 = getelementptr inbounds i8, ptr %93, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %93, i64 1
   %104 = icmp eq ptr %103, %86
   br i1 %104, label %105, label %.preheader, !llvm.loop !32
 
@@ -1063,7 +1063,7 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
   call fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 %0, ptr %1) #15
   %7 = load ptr, ptr %3, align 8, !tbaa !24
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !15
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
   %11 = icmp eq i64 %9, 0
@@ -1083,7 +1083,7 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   br label %.split.thread
 
 .split.thread:                                    ; preds = %.preheader, %.split
-  %14 = getelementptr inbounds i8, ptr %12, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %15 = icmp eq ptr %14, %10
   br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !33
 
@@ -1094,9 +1094,9 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
 
 16:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %17, ptr %5, align 8, !tbaa !13
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %18, align 8, !tbaa !15
   store i8 0, ptr %17, align 8, !tbaa !17
   br label %19
@@ -1114,7 +1114,7 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %22, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load i32, ptr %28, align 8, !tbaa !36
   %30 = and i32 %29, 5
   %31 = icmp eq i32 %30, 0
@@ -1138,11 +1138,11 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
 39:                                               ; preds = %38, %35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE) #18
-  %40 = getelementptr inbounds i8, ptr %4, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %40) #18
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #14
   %41 = load ptr, ptr %3, align 8, !tbaa !24
-  %42 = getelementptr inbounds i8, ptr %3, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %43 = icmp eq ptr %41, %42
   br i1 %43, label %44, label %47
 
@@ -1215,12 +1215,12 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   %71 = landingpad { ptr, i32 }
           cleanup
   %72 = load ptr, ptr %6, align 8, !tbaa !24
-  %73 = getelementptr inbounds i8, ptr %6, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %74 = icmp eq ptr %72, %73
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %6, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %77 = load i64, ptr %76, align 8, !tbaa !15
   %78 = icmp ult i64 %77, 16
   call void @llvm.assume(i1 %78)
@@ -1256,7 +1256,7 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
 90:                                               ; preds = %89, %86
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE) #18
-  %91 = getelementptr inbounds i8, ptr %4, i64 120
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %91) #18
   br label %92
 
@@ -1264,7 +1264,7 @@ define i32 @_ZN5ZXing24BarcodeFormatsFromStringESt17basic_string_viewIcSt11char_
   %93 = phi { ptr, i32 } [ %83, %90 ], [ %50, %49 ]
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #14
   %94 = load ptr, ptr %3, align 8, !tbaa !24
-  %95 = getelementptr inbounds i8, ptr %3, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %96 = icmp eq ptr %94, %95
   br i1 %96, label %97, label %100
 
@@ -1297,12 +1297,12 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %0, align 8, !tbaa !13
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8, !tbaa !15
   store i8 0, ptr %5, align 8, !tbaa !17
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !15
   %9 = add i64 %8, %4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %9) #15
@@ -1358,9 +1358,9 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5Z
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
   call fastcc void @_ZN5ZXingL21NormalizeFormatStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, i64 %.8.val, ptr %.16.val) #15
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !15
   %7 = icmp eq i64 %4, %6
   br i1 %7, label %10, label %8
@@ -1383,7 +1383,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5Z
 17:                                               ; preds = %13, %10, %8
   %18 = phi ptr [ %9, %8 ], [ %12, %13 ], [ %12, %10 ]
   %19 = phi i1 [ false, %8 ], [ %16, %13 ], [ true, %10 ]
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = icmp eq ptr %18, %20
   br i1 %21, label %22, label %24
 
@@ -1420,7 +1420,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #15
   store ptr %12, ptr %0, align 8, !tbaa !24
   %13 = load i64, ptr %4, align 8, !tbaa !18
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %13, ptr %14, align 8, !tbaa !17
   br label %15
 
@@ -1442,7 +1442,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
 
 20:                                               ; preds = %19, %17, %15
   %21 = load i64, ptr %4, align 8, !tbaa !18
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %21, ptr %22, align 8, !tbaa !15
   %23 = load ptr, ptr %0, align 8, !tbaa !24
   %24 = getelementptr inbounds i8, ptr %23, i64 %21

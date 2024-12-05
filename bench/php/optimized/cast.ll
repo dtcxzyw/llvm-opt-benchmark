@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @php_stream_mode_sanitize_fdopen_fopencookie(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 98
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %6 [
     i8 114, label %5
@@ -40,7 +40,7 @@ define hidden void @php_stream_mode_sanitize_fdopen_fopencookie(ptr nocapture no
   %indvars.iv = phi i64 [ 1, %6 ], [ %indvars.iv.next, %11 ]
   %.02534 = phi i32 [ 0, %6 ], [ %.126, %11 ]
   %.02733 = phi i32 [ 0, %6 ], [ %.128, %11 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %.fold.split [
     i8 0, label %.critedge
@@ -68,7 +68,7 @@ define hidden void @php_stream_mode_sanitize_fdopen_fopencookie(ptr nocapture no
   br i1 %.not31, label %14, label %12
 
 12:                                               ; preds = %.critedge
-  %13 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 98, ptr %13, align 1
   br label %14
 
@@ -80,14 +80,14 @@ define hidden void @php_stream_mode_sanitize_fdopen_fopencookie(ptr nocapture no
 15:                                               ; preds = %14
   %16 = add nuw nsw i32 %.1, 1
   %17 = zext nneg i32 %.1 to i64
-  %18 = getelementptr inbounds i8, ptr %1, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
   store i8 43, ptr %18, align 1
   br label %19
 
 19:                                               ; preds = %15, %14
   %.2 = phi i32 [ %16, %15 ], [ %.1, %14 ]
   %20 = zext nneg i32 %.2 to i64
-  %21 = getelementptr inbounds i8, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %20
   store i8 0, ptr %21, align 1
   ret void
 }
@@ -105,23 +105,23 @@ define range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noundef %1, pt
 10:                                               ; preds = %4
   %11 = tail call i32 @_php_stream_flush(ptr noundef %0, i32 noundef 0) #7
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %25, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 116
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 1
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %22 = load i64, ptr %21, align 8
   %23 = call i32 %14(ptr noundef nonnull %0, i64 noundef %22, i32 noundef 0, ptr noundef nonnull %5) #7
-  %24 = getelementptr inbounds i8, ptr %0, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   br label %25
 
@@ -130,7 +130,7 @@ define range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noundef %1, pt
   br i1 %26, label %27, label %79
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not78 = icmp eq ptr %29, null
   br i1 %.not78, label %32, label %30
@@ -153,13 +153,13 @@ define range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not79, label %47, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not80 = icmp eq ptr %39, null
   br i1 %.not80, label %40, label %47
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8
   %.not81 = icmp eq ptr %42, null
   br i1 %.not81, label %43, label %47
@@ -176,7 +176,7 @@ define range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noundef %1, pt
   br i1 %.old4, label %102, label %48
 
 48:                                               ; preds = %43, %47
-  %49 = getelementptr inbounds i8, ptr %0, i64 98
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %50 = load i8, ptr %49, align 1
   switch i8 %50, label %52 [
     i8 114, label %51
@@ -196,7 +196,7 @@ define range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noundef %1, pt
   %indvars.iv.i = phi i64 [ 1, %52 ], [ %indvars.iv.next.i, %57 ]
   %.02534.i = phi i32 [ 0, %52 ], [ %.126.i, %57 ]
   %.02733.i = phi i32 [ 0, %52 ], [ %.128.i, %57 ]
-  %54 = getelementptr inbounds i8, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv.i
   %55 = load i8, ptr %54, align 1
   switch i8 %55, label %.fold.split.i [
     i8 0, label %.critedge.i
@@ -224,7 +224,7 @@ define range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not31.i, label %60, label %58
 
 58:                                               ; preds = %.critedge.i
-  %59 = getelementptr inbounds i8, ptr %6, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 98, ptr %59, align 1
   br label %60
 
@@ -236,14 +236,14 @@ define range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noundef %1, pt
 61:                                               ; preds = %60
   %62 = add nuw nsw i32 %.1.i, 1
   %63 = zext nneg i32 %.1.i to i64
-  %64 = getelementptr inbounds i8, ptr %6, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 %63
   store i8 43, ptr %64, align 1
   br label %php_stream_mode_sanitize_fdopen_fopencookie.exit
 
 php_stream_mode_sanitize_fdopen_fopencookie.exit: ; preds = %60, %61
   %.2.i = phi i32 [ %62, %61 ], [ %.1.i, %60 ]
   %65 = zext nneg i32 %.2.i to i64
-  %66 = getelementptr inbounds i8, ptr %6, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 %65
   store i8 0, ptr %66, align 1
   %67 = call noalias ptr @fopencookie(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull byval(%struct._IO_cookie_io_functions_t) align 8 @stream_cookie_functions) #7
   store ptr %67, ptr %2, align 8
@@ -251,7 +251,7 @@ php_stream_mode_sanitize_fdopen_fopencookie.exit: ; preds = %60, %61
   br i1 %.not82, label %78, label %68
 
 68:                                               ; preds = %php_stream_mode_sanitize_fdopen_fopencookie.exit
-  %69 = getelementptr inbounds i8, ptr %0, i64 96
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %70 = load i16, ptr %69, align 8
   %71 = and i16 %70, -97
   %72 = or disjoint i16 %71, 64
@@ -270,13 +270,13 @@ php_stream_mode_sanitize_fdopen_fopencookie.exit: ; preds = %60, %61
   br label %124
 
 79:                                               ; preds = %25
-  %80 = getelementptr inbounds i8, ptr %0, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %81 = load ptr, ptr %80, align 8
   %.not73 = icmp eq ptr %81, null
   br i1 %.not73, label %82, label %85
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %0, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %84 = load ptr, ptr %83, align 8
   %.not74 = icmp eq ptr %84, null
   br i1 %.not74, label %87, label %85
@@ -291,7 +291,7 @@ php_stream_mode_sanitize_fdopen_fopencookie.exit: ; preds = %60, %61
 
 87:                                               ; preds = %82
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %90 = load ptr, ptr %89, align 8
   %.not75 = icmp eq ptr %90, null
   br i1 %.not75, label %94, label %91
@@ -307,25 +307,25 @@ php_stream_mode_sanitize_fdopen_fopencookie.exit: ; preds = %60, %61
 
 95:                                               ; preds = %94
   %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load ptr, ptr %97, align 8
   %99 = zext nneg i32 %7 to i64
-  %100 = getelementptr inbounds [4 x ptr], ptr @_php_stream_cast.cast_names, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [4 x ptr], ptr @_php_stream_cast.cast_names, i64 0, i64 %99
   %101 = load ptr, ptr %100, align 8
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef %98, ptr noundef %101) #7
   br label %124
 
 102:                                              ; preds = %91, %68, %75, %47, %43, %30, %31
-  %103 = getelementptr inbounds i8, ptr %0, i64 184
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %104 = load i64, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 176
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %106 = load i64, ptr %105, align 8
   %107 = sub nsw i64 %104, %106
   %108 = icmp sgt i64 %107, 0
   br i1 %108, label %109, label %116
 
 109:                                              ; preds = %102
-  %110 = getelementptr inbounds i8, ptr %0, i64 96
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %111 = load i16, ptr %110, align 8
   %112 = and i16 %111, 96
   %.not83 = icmp ne i16 %112, 64
@@ -344,7 +344,7 @@ php_stream_mode_sanitize_fdopen_fopencookie.exit: ; preds = %60, %61
 
 117:                                              ; preds = %116
   %118 = load ptr, ptr %2, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 128
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %118, ptr %119, align 8
   br label %120
 
@@ -401,7 +401,7 @@ define ptr @_php_stream_open_wrapper_as_file(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not21, label %28, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 64
   %.not22 = icmp eq i32 %19, 0
@@ -444,7 +444,7 @@ define range(i32 0, 4) i32 @_php_stream_make_seekable(ptr noundef %0, ptr nounde
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %12
@@ -527,7 +527,7 @@ define internal range(i32 -1, 1) i32 @stream_cookie_seeker(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @stream_cookie_closer(ptr noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, -97
   store i16 %4, ptr %2, align 8

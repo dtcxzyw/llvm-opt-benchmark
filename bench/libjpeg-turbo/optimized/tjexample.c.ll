@@ -151,12 +151,12 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 
 .lr.ph323:                                        ; preds = %.preheader277
   %20 = add nsw i32 %0, -1
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 12
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
-  %24 = getelementptr inbounds i8, ptr %3, i64 20
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %29
 
 27:                                               ; preds = %18
@@ -219,10 +219,10 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 
 53:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %54 = getelementptr inbounds %struct.tjscalingfactor, ptr %49, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %49, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   %56 = sitofp i32 %55 to double
-  %57 = getelementptr inbounds i8, ptr %54, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = sitofp i32 %58 to double
   %60 = fdiv double %56, %59
@@ -453,10 +453,10 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %.0206.lcssa = phi i32 [ -1, %.preheader277 ], [ %.1, %.thread ]
   %.sroa.0.0.lcssa = phi i32 [ 1, %.preheader277 ], [ %.sroa.0.2, %.thread ]
   %.sroa.7.0.lcssa = phi i32 [ 1, %.preheader277 ], [ %.sroa.7.2, %.thread ]
-  %151 = getelementptr inbounds i8, ptr %1, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %152, i32 noundef 46) #14
-  %154 = getelementptr inbounds i8, ptr %1, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %155 = load ptr, ptr %154, align 8
   %156 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %155, i32 noundef 46) #14
   %157 = icmp eq ptr %153, null
@@ -480,7 +480,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   unreachable
 
 167:                                              ; preds = %162
-  %168 = getelementptr inbounds i8, ptr %156, i64 1
+  %168 = getelementptr inbounds nuw i8, ptr %156, i64 1
   %169 = call ptr @tj3Init(i32 noundef 2) #13
   %170 = icmp eq ptr %169, null
   br i1 %170, label %171, label %174
@@ -491,23 +491,23 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   br label %414
 
 174:                                              ; preds = %167
-  %175 = getelementptr inbounds i8, ptr %153, i64 1
+  %175 = getelementptr inbounds nuw i8, ptr %153, i64 1
   %176 = call i32 @strcasecmp(ptr noundef nonnull %175, ptr noundef nonnull @.str.26) #14
   %.not = icmp eq i32 %176, 0
   br i1 %.not, label %177, label %334
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %3, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %179 = load i32, ptr %178, align 8
   %180 = icmp ne i32 %179, 0
-  %181 = getelementptr inbounds i8, ptr %3, i64 20
+  %181 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %182 = load i32, ptr %181, align 4
   %183 = icmp ne i32 %182, 0
   %or.cond22 = select i1 %180, i1 true, i1 %183
   br i1 %or.cond22, label %188, label %184
 
 184:                                              ; preds = %177
-  %185 = getelementptr inbounds i8, ptr %3, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %186 = load ptr, ptr %185, align 8
   %187 = icmp ne ptr %186, null
   br label %188
@@ -937,9 +937,9 @@ define internal fastcc void @usage(ptr noundef %0) unnamed_addr #4 {
 .lr.ph:                                           ; preds = %1, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %1 ]
   %8 = load ptr, ptr @scalingFactors, align 8
-  %9 = getelementptr inbounds %struct.tjscalingfactor, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %10, i32 noundef %12)
   %14 = load i32, ptr @numScalingFactors, align 4
@@ -1032,7 +1032,7 @@ define internal noundef i32 @customFilter(ptr nocapture noundef %0, i64 %1, i64 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2
   %13 = sub i16 0, %12
   store i16 %13, ptr %11, align 2

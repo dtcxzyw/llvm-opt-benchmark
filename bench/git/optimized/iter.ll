@@ -29,7 +29,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @iterator_from_filtering_ref_iterator(ptr nocapture noundef writeonly initializes((0, 16)) %it, ptr noundef %fri) local_unnamed_addr #1 {
 entry:
-  %iter_arg = getelementptr inbounds i8, ptr %it, i64 8
+  %iter_arg = getelementptr inbounds nuw i8, ptr %it, i64 8
   store ptr %fri, ptr %iter_arg, align 8
   store ptr @filtering_ref_iterator_vtable, ptr %it, align 8
   ret void
@@ -41,26 +41,26 @@ entry:
   %call = tail call ptr @reftable_calloc(i64 noundef 184) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %call, ptr noundef nonnull align 8 dereferenceable(184) @__const.new_indexed_table_ref_iter.empty, i64 184, i1 false)
   store ptr %r, ptr %call, align 8
-  %oid2 = getelementptr inbounds i8, ptr %call, i64 8
+  %oid2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %conv = sext i32 %oid_len to i64
   tail call void @strbuf_add(ptr noundef nonnull %oid2, ptr noundef %oid, i64 noundef %conv) #7
-  %offsets3 = getelementptr inbounds i8, ptr %call, i64 32
+  %offsets3 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %offsets, ptr %offsets3, align 8
-  %offset_len4 = getelementptr inbounds i8, ptr %call, i64 44
+  %offset_len4 = getelementptr inbounds nuw i8, ptr %call, i64 44
   store i32 %offset_len, ptr %offset_len4, align 4
-  %offset_idx.i = getelementptr inbounds i8, ptr %call, i64 40
+  %offset_idx.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   %0 = load i32, ptr %offset_idx.i, align 8
   %cmp.i = icmp eq i32 %0, %offset_len
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %is_finished.i = getelementptr inbounds i8, ptr %call, i64 176
+  %is_finished.i = getelementptr inbounds nuw i8, ptr %call, i64 176
   store i32 1, ptr %is_finished.i, align 8
   br label %if.else
 
 if.end.i:                                         ; preds = %entry
-  %block_reader.i = getelementptr inbounds i8, ptr %call, i64 48
-  %block.i = getelementptr inbounds i8, ptr %call, i64 56
+  %block_reader.i = getelementptr inbounds nuw i8, ptr %call, i64 48
+  %block.i = getelementptr inbounds nuw i8, ptr %call, i64 56
   tail call void @reftable_block_done(ptr noundef nonnull %block.i) #7
   %1 = load ptr, ptr %offsets3, align 8
   %2 = load i32, ptr %offset_idx.i, align 8
@@ -79,7 +79,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp6.not.i, label %if.end8.i, label %if.then
 
 if.end8.i:                                        ; preds = %if.end5.i
-  %cur.i = getelementptr inbounds i8, ptr %call, i64 112
+  %cur.i = getelementptr inbounds nuw i8, ptr %call, i64 112
   tail call void @block_reader_start(ptr noundef nonnull %block_reader.i, ptr noundef nonnull %cur.i) #7
   br label %if.else
 
@@ -110,7 +110,7 @@ declare void @reftable_free(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @iterator_from_indexed_table_ref_iter(ptr nocapture noundef writeonly initializes((0, 16)) %it, ptr noundef %itr) local_unnamed_addr #1 {
 entry:
-  %iter_arg = getelementptr inbounds i8, ptr %it, i64 8
+  %iter_arg = getelementptr inbounds nuw i8, ptr %it, i64 8
   store ptr %itr, ptr %iter_arg, align 8
   store ptr @indexed_table_ref_iter_vtable, ptr %it, align 8
   ret void
@@ -120,19 +120,19 @@ entry:
 define internal i32 @filtering_ref_iterator_next(ptr noundef %iter_arg, ptr noundef %rec) #2 {
 entry:
   %it2 = alloca %struct.reftable_iterator, align 8
-  %u = getelementptr inbounds i8, ptr %rec, i64 8
-  %it = getelementptr inbounds i8, ptr %iter_arg, i64 48
+  %u = getelementptr inbounds nuw i8, ptr %rec, i64 8
+  %it = getelementptr inbounds nuw i8, ptr %iter_arg, i64 48
   %call24 = tail call i32 @reftable_iterator_next_ref(ptr noundef nonnull %it, ptr noundef nonnull %u) #7
   %cmp.not25 = icmp eq i32 %call24, 0
   br i1 %cmp.not25, label %if.end.lr.ph, label %while.end
 
 if.end.lr.ph:                                     ; preds = %entry
-  %tab = getelementptr inbounds i8, ptr %iter_arg, i64 8
-  %value_type = getelementptr inbounds i8, ptr %rec, i64 24
-  %buf34 = getelementptr inbounds i8, ptr %iter_arg, i64 40
-  %value35 = getelementptr inbounds i8, ptr %rec, i64 32
-  %len38 = getelementptr inbounds i8, ptr %iter_arg, i64 32
-  %target_value = getelementptr inbounds i8, ptr %rec, i64 64
+  %tab = getelementptr inbounds nuw i8, ptr %iter_arg, i64 8
+  %value_type = getelementptr inbounds nuw i8, ptr %rec, i64 24
+  %buf34 = getelementptr inbounds nuw i8, ptr %iter_arg, i64 40
+  %value35 = getelementptr inbounds nuw i8, ptr %rec, i64 32
+  %len38 = getelementptr inbounds nuw i8, ptr %iter_arg, i64 32
+  %target_value = getelementptr inbounds nuw i8, ptr %rec, i64 64
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %while.body.backedge
@@ -205,9 +205,9 @@ return:                                           ; preds = %land.lhs.true32, %l
 ; Function Attrs: nounwind uwtable
 define internal void @filtering_ref_iterator_close(ptr noundef %iter_arg) #2 {
 entry:
-  %oid = getelementptr inbounds i8, ptr %iter_arg, i64 24
+  %oid = getelementptr inbounds nuw i8, ptr %iter_arg, i64 24
   tail call void @strbuf_release(ptr noundef nonnull %oid) #7
-  %it = getelementptr inbounds i8, ptr %iter_arg, i64 48
+  %it = getelementptr inbounds nuw i8, ptr %iter_arg, i64 48
   tail call void @reftable_iterator_destroy(ptr noundef nonnull %it) #7
   ret void
 }
@@ -234,22 +234,22 @@ declare void @block_reader_start(ptr noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 2) i32 @indexed_table_ref_iter_next(ptr noundef %p, ptr noundef %rec) #2 {
 entry:
-  %block_reader.i = getelementptr inbounds i8, ptr %p, i64 48
-  %block.i = getelementptr inbounds i8, ptr %p, i64 56
-  %buf = getelementptr inbounds i8, ptr %p, i64 24
-  %value = getelementptr inbounds i8, ptr %rec, i64 32
-  %cur = getelementptr inbounds i8, ptr %p, i64 112
+  %block_reader.i = getelementptr inbounds nuw i8, ptr %p, i64 48
+  %block.i = getelementptr inbounds nuw i8, ptr %p, i64 56
+  %buf = getelementptr inbounds nuw i8, ptr %p, i64 24
+  %value = getelementptr inbounds nuw i8, ptr %rec, i64 32
+  %cur = getelementptr inbounds nuw i8, ptr %p, i64 112
   %call16 = tail call i32 @block_iter_next(ptr noundef nonnull %cur, ptr noundef %rec) #7
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %offset_idx.i = getelementptr inbounds i8, ptr %p, i64 40
-  %offset_len.i = getelementptr inbounds i8, ptr %p, i64 44
-  %offsets.i = getelementptr inbounds i8, ptr %p, i64 32
-  %is_finished.i = getelementptr inbounds i8, ptr %p, i64 176
-  %target_value = getelementptr inbounds i8, ptr %rec, i64 64
-  %len = getelementptr inbounds i8, ptr %p, i64 16
+  %offset_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 40
+  %offset_len.i = getelementptr inbounds nuw i8, ptr %p, i64 44
+  %offsets.i = getelementptr inbounds nuw i8, ptr %p, i64 32
+  %is_finished.i = getelementptr inbounds nuw i8, ptr %p, i64 176
+  %target_value = getelementptr inbounds nuw i8, ptr %rec, i64 64
+  %len = getelementptr inbounds nuw i8, ptr %p, i64 16
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %while.body.backedge
@@ -316,14 +316,14 @@ return:                                           ; preds = %while.body.backedge
 ; Function Attrs: nounwind uwtable
 define internal void @indexed_table_ref_iter_close(ptr noundef %p) #2 {
 entry:
-  %cur = getelementptr inbounds i8, ptr %p, i64 112
+  %cur = getelementptr inbounds nuw i8, ptr %p, i64 112
   tail call void @block_iter_close(ptr noundef nonnull %cur) #7
-  %block = getelementptr inbounds i8, ptr %p, i64 56
+  %block = getelementptr inbounds nuw i8, ptr %p, i64 56
   tail call void @reftable_block_done(ptr noundef nonnull %block) #7
-  %offsets = getelementptr inbounds i8, ptr %p, i64 32
+  %offsets = getelementptr inbounds nuw i8, ptr %p, i64 32
   %0 = load ptr, ptr %offsets, align 8
   tail call void @reftable_free(ptr noundef %0) #7
-  %oid = getelementptr inbounds i8, ptr %p, i64 8
+  %oid = getelementptr inbounds nuw i8, ptr %p, i64 8
   tail call void @strbuf_release(ptr noundef nonnull %oid) #7
   ret void
 }

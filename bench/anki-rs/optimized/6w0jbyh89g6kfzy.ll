@@ -26,7 +26,7 @@ define void @"_ZN4core3ptr100drop_in_place$LT$anki_io..error..FileIoSnafu$LT$$RF
   br i1 %cond.i, label %3, label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17h1f9e756bd6025d1aE.exit"
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h0a3720e4bc5f4896E"(ptr nonnull align 8 %4)
   br label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17h1f9e756bd6025d1aE.exit"
 
@@ -44,7 +44,7 @@ define void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..resu
   ret void
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !4
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %8, label %7
@@ -54,7 +54,7 @@ define void @"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..resu
   br label %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$17hfff3c447b2602998E.exit"
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7e2ef6e409dafe86E"(ptr nonnull align 8 %9)
   br label %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$17hfff3c447b2602998E.exit"
 }
@@ -74,7 +74,7 @@ define void @"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17h1f9e75
   ret void
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h0a3720e4bc5f4896E"(ptr nonnull align 8 %5)
   br label %3
 }
@@ -87,12 +87,12 @@ define void @"_ZN4core3ptr49drop_in_place$LT$tempfile..file..PersistError$GT$17h
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @"_ZN4core3ptr50drop_in_place$LT$tempfile..file..NamedTempFile$GT$17h560f14ccc226b14bE"(ptr nonnull align 8 %4) #5
           to label %9 unwind label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr50drop_in_place$LT$tempfile..file..NamedTempFile$GT$17h560f14ccc226b14bE"(ptr nonnull align 8 %6)
   ret void
 
@@ -128,12 +128,12 @@ define void @"_ZN4core3ptr53drop_in_place$LT$tempfile..file..PathPersistError$GT
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
           cleanup
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$tempfile..file..TempPath$GT$17haefefe3117b52df0E"(ptr nonnull align 8 %4) #5
           to label %9 unwind label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr45drop_in_place$LT$tempfile..file..TempPath$GT$17haefefe3117b52df0E"(ptr nonnull align 8 %6)
   ret void
 
@@ -158,7 +158,7 @@ define void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Di
   br label %6
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7e2ef6e409dafe86E"(ptr nonnull align 8 %5)
   br label %6
 
@@ -168,7 +168,7 @@ define void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Di
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr99drop_in_place$LT$anki_io..error..FileIoSnafu$LT$std..path..PathBuf$C$anki_io..error..FileOp$GT$$GT$17h619a24c299d94231E"(ptr align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h0a3720e4bc5f4896E"(ptr nonnull align 8 %2)
           to label %8 unwind label %3
 
@@ -180,7 +180,7 @@ define void @"_ZN4core3ptr99drop_in_place$LT$anki_io..error..FileIoSnafu$LT$std.
   br i1 %cond.i, label %6, label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17h1f9e756bd6025d1aE.exit"
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h0a3720e4bc5f4896E"(ptr nonnull align 8 %7)
           to label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17h1f9e756bd6025d1aE.exit" unwind label %12
 
@@ -190,7 +190,7 @@ define void @"_ZN4core3ptr99drop_in_place$LT$anki_io..error..FileIoSnafu$LT$std.
   br i1 %cond.i1, label %10, label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17h1f9e756bd6025d1aE.exit2"
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h0a3720e4bc5f4896E"(ptr nonnull align 8 %11)
   br label %"_ZN4core3ptr43drop_in_place$LT$anki_io..error..FileOp$GT$17h1f9e756bd6025d1aE.exit2"
 

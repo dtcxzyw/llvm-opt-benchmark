@@ -14,13 +14,13 @@ define void @irq_dispatch(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds [48 x %struct.irq_info_s], ptr @g_irqvector, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [48 x %struct.irq_info_s], ptr @g_irqvector, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 16
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   br label %11
 

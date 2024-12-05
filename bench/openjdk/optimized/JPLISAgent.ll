@@ -83,7 +83,7 @@ define hidden ptr @getJPLISEnvironment(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1168
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1168
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef nonnull %0, ptr noundef nonnull %2) #10
   %7 = icmp eq i32 %6, 0
@@ -117,7 +117,7 @@ define hidden range(i32 0, 4) i32 @createNewJPLISAgent(ptr noundef %0, ptr nocap
   store ptr null, ptr %5, align 8
   store ptr null, ptr %1, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 %8(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 805372160) #10
   %.not = icmp eq i32 %9, 0
@@ -148,7 +148,7 @@ define hidden range(i32 0, 4) i32 @createNewJPLISAgent(ptr noundef %0, ptr nocap
   %.1.ph = phi i32 [ 3, %10 ], [ %16, %18 ]
   %22 = load ptr, ptr %5, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1008
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1008
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 %25(ptr noundef nonnull %22) #10
   %27 = icmp eq i32 %26, 0
@@ -173,30 +173,30 @@ define hidden range(i32 0, 3) i32 @initializeJPLISAgent(ptr noundef initializes(
   %7 = alloca i32, align 4
   %8 = alloca %struct.jvmtiEventCallbacks, align 8
   store ptr %1, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
-  %17 = getelementptr inbounds i8, ptr %0, i64 90
-  %18 = getelementptr inbounds i8, ptr %0, i64 96
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 90
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store ptr %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 %4, ptr %20, align 8
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1176
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1176
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %2, ptr noundef nonnull %9) #10
   %25 = icmp eq i32 %24, 0
@@ -206,7 +206,7 @@ define hidden range(i32 0, 3) i32 @initializeJPLISAgent(ptr noundef initializes(
   %27 = load ptr, ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1112
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1112
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 %30(ptr noundef nonnull %27, ptr noundef nonnull %6) #10
   %32 = icmp eq i32 %31, 112
@@ -240,7 +240,7 @@ define hidden range(i32 0, 3) i32 @initializeJPLISAgent(ptr noundef initializes(
 checkCapabilities.exit:                           ; preds = %5, %33, %40, %42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1056
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1056
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 %45(ptr noundef nonnull %2, ptr noundef nonnull %7) #10
   %47 = icmp eq i32 %46, 0
@@ -259,11 +259,11 @@ checkCapabilities.exit:                           ; preds = %5, %33, %40, %42
   br i1 %47, label %52, label %.critedge
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %8, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %53, i8 0, i64 304, i1 false)
   store ptr @eventHandlerVMInit, ptr %8, align 8
   %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 968
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 968
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 %56(ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef 312) #10
   %58 = icmp eq i32 %57, 112
@@ -277,7 +277,7 @@ checkCapabilities.exit:                           ; preds = %5, %33, %40, %42
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %2, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = call i32 (ptr, i32, i32, ptr, ...) %65(ptr noundef nonnull %2, i32 noundef 1, i32 noundef 50, ptr noundef null) #10
   %67 = icmp eq i32 %66, 112
@@ -306,11 +306,11 @@ declare ptr @allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @checkCapabilities(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.jvmtiCapabilities, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1112
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1112
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 %7(ptr noundef nonnull %4, ptr noundef nonnull %2) #10
   %9 = icmp eq i32 %8, 112
@@ -329,7 +329,7 @@ define hidden void @checkCapabilities(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 1, ptr %17, align 8
   br label %18
 
@@ -339,7 +339,7 @@ define hidden void @checkCapabilities(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %.not7, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 90
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i8 1, ptr %21, align 2
   br label %22
 
@@ -365,7 +365,7 @@ define hidden range(i32 0, 5) i32 @recordCommandLineData(ptr nocapture noundef %
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %12 = add i64 %11, 1
@@ -401,9 +401,9 @@ define hidden range(i32 0, 5) i32 @recordCommandLineData(ptr nocapture noundef %
 
 28:                                               ; preds = %.thread34, %25
   %.041 = phi ptr [ null, %.thread34 ], [ %21, %25 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %13, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %.041, ptr %30, align 8
   br label %.thread
 
@@ -434,13 +434,13 @@ define hidden zeroext range(i8 0, 2) i8 @processJavaStart(ptr noundef %0, ptr no
 
 .critedge:                                        ; preds = %5
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %3)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %3, i8 0, i64 312, i1 false)
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @eventHandlerClassFileLoadHook, ptr %10, align 8
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 968
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 968
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 %13(ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef 312) #10
   %15 = icmp eq i32 %14, 112
@@ -454,7 +454,7 @@ define hidden zeroext range(i8 0, 2) i8 @processJavaStart(ptr noundef %0, ptr no
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 (ptr, i32, i32, ptr, ...) %22(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 50, ptr noundef null) #10
   %24 = icmp eq i32 %23, 112
@@ -474,11 +474,11 @@ setLivePhaseEventHandlers.exit:                   ; preds = %19
   br i1 %25, label %.critedge22, label %.critedge22.thread
 
 .critedge22:                                      ; preds = %setLivePhaseEventHandlers.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load ptr, ptr %31, align 8
   %33 = call zeroext i8 @startJavaAgent(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %28, ptr noundef %30, ptr noundef %32)
   call void @JPLISAssertConditionWithMessage(i8 noundef zeroext %33, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 429) #10
@@ -507,7 +507,7 @@ declare void @JPLISAssertConditionWithMessage(i8 noundef zeroext, ptr noundef, p
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @createInstrumentationImpl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #10
   %7 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #10
@@ -520,7 +520,7 @@ define hidden zeroext range(i8 0, 2) i8 @createInstrumentationImpl(ptr noundef %
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 264
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 264
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #10
   %16 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #10
@@ -534,15 +534,15 @@ define hidden zeroext range(i8 0, 2) i8 @createInstrumentationImpl(ptr noundef %
 20:                                               ; preds = %11
   %21 = ptrtoint ptr %1 to i64
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 224
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 224
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 89
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 89
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %1, i64 91
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 91
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %1, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %32 = load i8, ptr %31, align 8
   %33 = zext i8 %32 to i32
   %34 = tail call ptr (ptr, ptr, ptr, ...) %24(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %15, i64 noundef %21, i32 noundef %27, i32 noundef %30, i32 noundef %33) #10
@@ -556,7 +556,7 @@ define hidden zeroext range(i8 0, 2) i8 @createInstrumentationImpl(ptr noundef %
 
 39:                                               ; preds = %20
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 168
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 168
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr %42(ptr noundef nonnull %0, ptr noundef nonnull %34) #10
   %44 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #10
@@ -567,7 +567,7 @@ define hidden zeroext range(i8 0, 2) i8 @createInstrumentationImpl(ptr noundef %
 
 46:                                               ; preds = %39
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 264
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 264
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr %49(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #10
   %51 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #10
@@ -580,7 +580,7 @@ define hidden zeroext range(i8 0, 2) i8 @createInstrumentationImpl(ptr noundef %
 
 55:                                               ; preds = %46
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 264
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 264
   %58 = load ptr, ptr %57, align 8
   %59 = tail call ptr %58(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.21) #10
   %60 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #10
@@ -593,7 +593,7 @@ define hidden zeroext range(i8 0, 2) i8 @createInstrumentationImpl(ptr noundef %
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 264
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 264
   %67 = load ptr, ptr %66, align 8
   %68 = tail call ptr %67(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #10
   %69 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #10
@@ -605,13 +605,13 @@ define hidden zeroext range(i8 0, 2) i8 @createInstrumentationImpl(ptr noundef %
   br i1 %.not86, label %73, label %.thread120
 
 73:                                               ; preds = %64
-  %74 = getelementptr inbounds i8, ptr %1, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %43, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %50, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %59, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 80
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %68, ptr %77, align 8
   br label %.thread120
 
@@ -623,13 +623,13 @@ define hidden zeroext range(i8 0, 2) i8 @createInstrumentationImpl(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @setLivePhaseEventHandlers(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.jvmtiEventCallbacks, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %2, i8 0, i64 312, i1 false)
-  %5 = getelementptr inbounds i8, ptr %2, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @eventHandlerClassFileLoadHook, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 968
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 968
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 %8(ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 312) #10
   %10 = icmp eq i32 %9, 112
@@ -643,7 +643,7 @@ define hidden zeroext range(i8 0, 2) i8 @setLivePhaseEventHandlers(ptr nocapture
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 (ptr, i32, i32, ptr, ...) %17(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 50, ptr noundef null) #10
   %19 = icmp eq i32 %18, 112
@@ -663,7 +663,7 @@ define hidden zeroext range(i8 0, 2) i8 @setLivePhaseEventHandlers(ptr nocapture
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @startJavaAgent(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1336
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1336
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %1, ptr noundef %2) #10
   %10 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %1) #10
@@ -678,7 +678,7 @@ define hidden zeroext range(i8 0, 2) i8 @startJavaAgent(ptr nocapture noundef re
 
 13:                                               ; preds = %12
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1336
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1336
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %1, ptr noundef nonnull %3) #10
   %18 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %1) #10
@@ -694,7 +694,7 @@ commandStringIntoJavaStrings.exit.thread:         ; preds = %5, %13
 .thread.i:                                        ; preds = %13, %12
   %.013 = phi ptr [ null, %12 ], [ %17, %13 ]
   tail call void @JPLISAssertConditionWithMessage(i8 noundef zeroext 1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 458) #10
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = icmp ne ptr %4, null
   %23 = zext i1 %22 to i8
@@ -703,7 +703,7 @@ commandStringIntoJavaStrings.exit.thread:         ; preds = %5, %13
 
 24:                                               ; preds = %.thread.i
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 488
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 488
   %27 = load ptr, ptr %26, align 8
   tail call void (ptr, ptr, ptr, ...) %27(ptr noundef nonnull %1, ptr noundef %21, ptr noundef nonnull %4, ptr noundef %9, ptr noundef %.013) #10
   %28 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %1) #10
@@ -732,13 +732,13 @@ invokeJavaAgentMainMethod.exit:                   ; preds = %.thread.i, %30
 
 ; Function Attrs: nounwind uwtable
 define hidden void @deallocateCommandLineData(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   tail call void @deallocate(ptr noundef %3, ptr noundef %5) #10
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
   tail call void @deallocate(ptr noundef %6, ptr noundef %8) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -748,7 +748,7 @@ define hidden void @deallocateCommandLineData(ptr nocapture noundef %0) local_un
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @commandStringIntoJavaStrings(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1336
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1336
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef %1) #10
   %10 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #10
@@ -763,7 +763,7 @@ define hidden zeroext range(i8 0, 2) i8 @commandStringIntoJavaStrings(ptr nounde
 
 13:                                               ; preds = %12
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1336
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1336
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef nonnull %2) #10
   %18 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #10
@@ -792,7 +792,7 @@ define hidden zeroext range(i8 0, 2) i8 @invokeJavaAgentMainMethod(ptr noundef %
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 488
   %11 = load ptr, ptr %10, align 8
   tail call void (ptr, ptr, ptr, ...) %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #10
   %12 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
@@ -826,7 +826,7 @@ declare void @eventHandlerClassFileLoadHook(ptr noundef, ptr noundef, ptr nounde
 define hidden void @enableNativeMethodPrefixCapability(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.jvmtiCapabilities, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 704
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 704
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef nonnull %0, ptr noundef nonnull %2) #10
   %7 = icmp eq i32 %6, 0
@@ -836,7 +836,7 @@ define hidden void @enableNativeMethodPrefixCapability(ptr noundef %0) local_unn
   %10 = or i64 %9, 68719476736
   store i64 %10, ptr %2, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1128
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1128
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %2) #10
   %15 = icmp eq i32 %14, 112
@@ -856,23 +856,23 @@ define hidden void @enableNativeMethodPrefixCapability(ptr noundef %0) local_unn
 define hidden void @addNativeMethodPrefixCapability(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.jvmtiCapabilities, align 8
   %3 = alloca %struct.jvmtiCapabilities, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 90
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %5 = load i8, ptr %4, align 2
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %48, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 91
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 91
   %8 = load i8, ptr %7, align 1
   %.not8 = icmp eq i8 %8, 0
   br i1 %.not8, label %9, label %48
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 704
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 704
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 %14(ptr noundef nonnull %11, ptr noundef nonnull %3) #10
   %16 = icmp eq i32 %15, 0
@@ -882,7 +882,7 @@ define hidden void @addNativeMethodPrefixCapability(ptr nocapture noundef %0) lo
   %19 = or i64 %18, 68719476736
   store i64 %19, ptr %3, align 8
   %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1128
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1128
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 %22(ptr noundef nonnull %11, ptr noundef nonnull %3) #10
   %24 = icmp eq i32 %23, 112
@@ -896,7 +896,7 @@ define hidden void @addNativeMethodPrefixCapability(ptr nocapture noundef %0) lo
 
 enableNativeMethodPrefixCapability.exit:          ; preds = %9, %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not9 = icmp eq ptr %29, null
   br i1 %.not9, label %47, label %30
@@ -904,7 +904,7 @@ enableNativeMethodPrefixCapability.exit:          ; preds = %9, %25
 30:                                               ; preds = %enableNativeMethodPrefixCapability.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %31 = load ptr, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 704
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 704
   %33 = load ptr, ptr %32, align 8
   %34 = call i32 %33(ptr noundef nonnull %29, ptr noundef nonnull %2) #10
   %35 = icmp eq i32 %34, 0
@@ -914,7 +914,7 @@ enableNativeMethodPrefixCapability.exit:          ; preds = %9, %25
   %38 = or i64 %37, 68719476736
   store i64 %38, ptr %2, align 8
   %39 = load ptr, ptr %29, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1128
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1128
   %41 = load ptr, ptr %40, align 8
   %42 = call i32 %41(ptr noundef nonnull %29, ptr noundef nonnull %2) #10
   %43 = icmp eq i32 %42, 112
@@ -941,10 +941,10 @@ enableNativeMethodPrefixCapability.exit10:        ; preds = %30, %44
 ; Function Attrs: nounwind uwtable
 define hidden void @addOriginalMethodOrderCapability(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.jvmtiCapabilities, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 704
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 704
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 %7(ptr noundef nonnull %4, ptr noundef nonnull %2) #10
   %9 = icmp eq i32 %8, 0
@@ -954,7 +954,7 @@ define hidden void @addOriginalMethodOrderCapability(ptr nocapture noundef reado
   %12 = or i64 %11, 32768
   store i64 %12, ptr %2, align 8
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1128
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 %15(ptr noundef nonnull %4, ptr noundef nonnull %2) #10
   %17 = icmp eq i32 %16, 112
@@ -973,22 +973,22 @@ define hidden void @addOriginalMethodOrderCapability(ptr nocapture noundef reado
 ; Function Attrs: nounwind uwtable
 define hidden void @addRedefineClassesCapability(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.jvmtiCapabilities, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %30, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 89
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %9 = load i8, ptr %8, align 1
   %.not12 = icmp eq i8 %9, 0
   br i1 %.not12, label %10, label %30
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 704
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 704
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 %13(ptr noundef nonnull %4, ptr noundef nonnull %2) #10
   %15 = icmp eq i32 %14, 0
@@ -998,7 +998,7 @@ define hidden void @addRedefineClassesCapability(ptr nocapture noundef %0) local
   %18 = or i64 %17, 512
   store i64 %18, ptr %2, align 8
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1128
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1128
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 %21(ptr noundef nonnull %4, ptr noundef nonnull %2) #10
   %23 = icmp eq i32 %22, 112
@@ -1025,7 +1025,7 @@ define hidden void @transformClassFile(ptr nocapture noundef readonly %0, ptr no
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i8 @tryToAcquireReentrancyToken(ptr noundef %15, ptr noundef null) #10
   %.not = icmp eq i8 %16, 0
@@ -1033,7 +1033,7 @@ define hidden void @transformClassFile(ptr nocapture noundef readonly %0, ptr no
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1336
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1336
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %1, ptr noundef %3) #10
   %22 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %1) #10
@@ -1044,7 +1044,7 @@ define hidden void @transformClassFile(ptr nocapture noundef readonly %0, ptr no
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1408
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1408
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %1, i32 noundef %6) #10
   %29 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %1) #10
@@ -1055,7 +1055,7 @@ define hidden void @transformClassFile(ptr nocapture noundef readonly %0, ptr no
 
 31:                                               ; preds = %24
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1664
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1664
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull %1, ptr noundef %28, i32 noundef 0, i32 noundef %6, ptr noundef %7) #10
   %35 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %1) #10
@@ -1112,7 +1112,7 @@ define hidden void @transformClassFile(ptr nocapture noundef readonly %0, ptr no
   %65 = getelementptr inbounds i8, ptr %54, i64 %64
   store i8 0, ptr %65, align 1
   %66 = load ptr, ptr %40, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 312
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 312
   %68 = load ptr, ptr %67, align 8
   %69 = call i32 %68(ptr noundef nonnull %40, ptr noundef %2, ptr noundef nonnull %54, ptr noundef nonnull %12) #10
   call void @free(ptr noundef nonnull %54) #10
@@ -1133,18 +1133,18 @@ getModuleObject.exit:                             ; preds = %56, %63, %71
 
 .critedge:                                        ; preds = %getModuleObject.exit, %37
   %.069 = phi ptr [ %.0.i, %getModuleObject.exit ], [ null, %37 ]
-  %75 = getelementptr inbounds i8, ptr %0, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %76 = load ptr, ptr %75, align 8
   %77 = icmp ne ptr %76, null
   %78 = zext i1 %77 to i8
   call void @JPLISAssertCondition(i8 noundef zeroext %78, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.1, i32 noundef 870) #10
-  %79 = getelementptr inbounds i8, ptr %0, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %80 = load ptr, ptr %79, align 8
   %81 = icmp ne ptr %80, null
   %82 = zext i1 %81 to i8
   call void @JPLISAssertCondition(i8 noundef zeroext %82, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.1, i32 noundef 871) #10
   %83 = load ptr, ptr %1, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 272
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 272
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %75, align 8
   %87 = load ptr, ptr %79, align 8
@@ -1160,7 +1160,7 @@ getModuleObject.exit:                             ; preds = %56, %63, %71
 
 93:                                               ; preds = %.critedge
   %94 = load ptr, ptr %1, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 1368
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1368
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 %96(ptr noundef nonnull %1, ptr noundef nonnull %89) #10
   %98 = call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %1) #10
@@ -1172,7 +1172,7 @@ getModuleObject.exit:                             ; preds = %56, %63, %71
 100:                                              ; preds = %93
   %101 = load ptr, ptr %14, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 360
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 360
   %104 = load ptr, ptr %103, align 8
   %105 = sext i32 %97 to i64
   %106 = call i32 %104(ptr noundef nonnull %101, i64 noundef %105, ptr noundef nonnull %13) #10
@@ -1183,7 +1183,7 @@ getModuleObject.exit:                             ; preds = %56, %63, %71
 
 108:                                              ; preds = %100
   %109 = load ptr, ptr %1, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 1600
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1600
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %13, align 8
   call void %111(ptr noundef nonnull %1, ptr noundef nonnull %89, i32 noundef 0, i32 noundef %97, ptr noundef %112) #10
@@ -1260,7 +1260,7 @@ declare ptr @createInternalError(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @getObjectArrayFromClasses(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef nonnull @.str.46) #10
   %8 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
@@ -1272,7 +1272,7 @@ define hidden ptr @getObjectArrayFromClasses(ptr noundef %0, ptr nocapture nound
   %11 = zext i1 %10 to i8
   tail call void @JPLISAssertConditionWithMessage(i8 noundef zeroext %11, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 989) #10
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1376
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1376
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, i32 noundef %2, ptr noundef %7, ptr noundef null) #10
   %16 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
@@ -1298,9 +1298,9 @@ define hidden ptr @getObjectArrayFromClasses(ptr noundef %0, ptr nocapture nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1392
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1392
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void %24(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %27, ptr noundef %26) #10
@@ -1319,7 +1319,7 @@ define hidden ptr @retransformableEnvironment(ptr noundef %0) local_unnamed_addr
   %3 = alloca %struct.jvmtiCapabilities, align 8
   %4 = alloca %struct.jvmtiEventCallbacks, align 8
   store ptr null, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %60
@@ -1327,7 +1327,7 @@ define hidden ptr @retransformableEnvironment(ptr noundef %0) local_unnamed_addr
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = call i32 %11(ptr noundef nonnull %8, ptr noundef nonnull %2, i32 noundef 805372160) #10
   %.not17 = icmp eq i32 %12, 0
@@ -1336,7 +1336,7 @@ define hidden ptr @retransformableEnvironment(ptr noundef %0) local_unnamed_addr
 13:                                               ; preds = %7
   %14 = load ptr, ptr %2, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 704
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 704
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 %17(ptr noundef nonnull %14, ptr noundef nonnull %3) #10
   %19 = icmp eq i32 %18, 0
@@ -1345,7 +1345,7 @@ define hidden ptr @retransformableEnvironment(ptr noundef %0) local_unnamed_addr
   %21 = load i64, ptr %3, align 8
   %22 = or i64 %21, 137438953472
   store i64 %22, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 91
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 91
   %24 = load i8, ptr %23, align 1
   %.not18 = icmp eq i8 %24, 0
   br i1 %.not18, label %27, label %25
@@ -1358,7 +1358,7 @@ define hidden ptr @retransformableEnvironment(ptr noundef %0) local_unnamed_addr
 27:                                               ; preds = %25, %13
   %28 = load ptr, ptr %2, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1128
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1128
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 %31(ptr noundef nonnull %28, ptr noundef nonnull %3) #10
   %.not19 = icmp eq i32 %32, 0
@@ -1367,7 +1367,7 @@ define hidden ptr @retransformableEnvironment(ptr noundef %0) local_unnamed_addr
 33:                                               ; preds = %27
   %34 = load ptr, ptr %2, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1008
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1008
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 %37(ptr noundef nonnull %34) #10
   %39 = icmp eq i32 %38, 98
@@ -1377,11 +1377,11 @@ define hidden ptr @retransformableEnvironment(ptr noundef %0) local_unnamed_addr
 
 41:                                               ; preds = %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %4, i8 0, i64 312, i1 false)
-  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr @eventHandlerClassFileLoadHook, ptr %42, align 8
   %43 = load ptr, ptr %2, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 968
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 968
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 %46(ptr noundef nonnull %43, ptr noundef nonnull %4, i32 noundef 312) #10
   %48 = icmp eq i32 %47, 0
@@ -1392,10 +1392,10 @@ define hidden ptr @retransformableEnvironment(ptr noundef %0) local_unnamed_addr
 50:                                               ; preds = %41
   %51 = load ptr, ptr %2, align 8
   store ptr %51, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %52, align 8
   %53 = load ptr, ptr %51, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1176
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1176
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 %55(ptr noundef nonnull %51, ptr noundef nonnull %5) #10
   %57 = icmp eq i32 %56, 0
@@ -1413,11 +1413,11 @@ define hidden ptr @retransformableEnvironment(ptr noundef %0) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i8 @isModifiableClass(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   store i8 0, ptr %4, align 1
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 352
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 352
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 %9(ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull %4) #10
   %11 = icmp eq i32 %10, 112
@@ -1437,20 +1437,20 @@ define hidden zeroext i8 @isModifiableClass(ptr nocapture noundef readnone %0, p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i8 @isRetransformClassesSupported(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i8, ptr %3, align 8
   ret i8 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @setHasTransformers(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   %7 = zext i1 %6 to i8
   tail call void @JPLISAssertCondition(i8 noundef zeroext %7, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.1, i32 noundef 1105) #10
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp ne i8 %2, 0
   %11 = zext i1 %.not to i32
@@ -1475,7 +1475,7 @@ define hidden void @setHasRetransformableTransformers(ptr nocapture noundef read
   %6 = zext i1 %5 to i8
   tail call void @JPLISAssertCondition(i8 noundef zeroext %6, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1, i32 noundef 1120) #10
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp ne i8 %2, 0
   %10 = zext i1 %.not to i32
@@ -1513,7 +1513,7 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1368
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1368
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull %0, ptr noundef nonnull %2) #10
   %13 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
@@ -1557,11 +1557,11 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1384
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1384
   %28 = load ptr, ptr %27, align 8
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %29) #10
-  %31 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   store ptr %30, ptr %31, align 8
   %32 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
   %.not71 = icmp eq i8 %32, 0
@@ -1581,7 +1581,7 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
 
 .thread105:                                       ; preds = %25, %.preheader
   %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1208
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1208
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef nonnull %4, i32 noundef %12, ptr noundef nonnull %21) #10
   br label %.thread113
@@ -1613,13 +1613,13 @@ declare void @mapThrownThrowableIfNecessary(ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %2, null
   %7 = zext i1 %6 to i8
   tail call void @JPLISAssertCondition(i8 noundef zeroext %7, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1, i32 noundef 1230) #10
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef %2) #10
   %12 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
@@ -1633,7 +1633,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readon
   %16 = zext i1 %15 to i8
   tail call void @JPLISAssertCondition(i8 noundef zeroext %16, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1, i32 noundef 1237) #10
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef nonnull @.str.60) #10
   %21 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
@@ -1644,7 +1644,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readon
 
 23:                                               ; preds = %14
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 264
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 264
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62) #10
   %28 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
@@ -1655,7 +1655,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readon
 
 30:                                               ; preds = %23
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 264
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 264
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64) #10
   %35 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
@@ -1701,7 +1701,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readon
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %92 ]
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1384
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1384
   %53 = load ptr, ptr %52, align 8
   %54 = trunc nuw nsw i64 %indvars.iv to i32
   %55 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %54) #10
@@ -1713,10 +1713,10 @@ define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readon
 
 58:                                               ; preds = %.lr.ph
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 272
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 272
   %61 = load ptr, ptr %60, align 8
   %62 = tail call ptr (ptr, ptr, ptr, ...) %61(ptr noundef nonnull %0, ptr noundef %55, ptr noundef %27) #10
-  %63 = getelementptr inbounds %struct.jvmtiClassDefinition, ptr %40, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw %struct.jvmtiClassDefinition, ptr %40, i64 %indvars.iv
   store ptr %62, ptr %63, align 8
   %64 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
   %.not140 = icmp eq i8 %64, 0
@@ -1726,10 +1726,10 @@ define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readon
 
 66:                                               ; preds = %58
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 272
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 272
   %69 = load ptr, ptr %68, align 8
   %70 = tail call ptr (ptr, ptr, ptr, ...) %69(ptr noundef nonnull %0, ptr noundef %55, ptr noundef %34) #10
-  %71 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   store ptr %70, ptr %71, align 8
   %72 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
   %.not141 = icmp eq i8 %72, 0
@@ -1739,11 +1739,11 @@ define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readon
 
 74:                                               ; preds = %66
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 1368
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1368
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %71, align 8
   %79 = tail call i32 %77(ptr noundef nonnull %0, ptr noundef %78) #10
-  %80 = getelementptr inbounds i8, ptr %63, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 %79, ptr %80, align 8
   %81 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
   %.not142 = icmp eq i8 %81, 0
@@ -1753,11 +1753,11 @@ define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readon
 
 83:                                               ; preds = %74
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 1472
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1472
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr %71, align 8
   %88 = tail call ptr %86(ptr noundef nonnull %0, ptr noundef %87, ptr noundef null) #10
-  %89 = getelementptr inbounds i8, ptr %63, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %88, ptr %89, align 8
   %90 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
   %.not143 = icmp eq i8 %90, 0
@@ -1773,7 +1773,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readon
 ._crit_edge:                                      ; preds = %92, %50
   %.0116.lcssa = phi i32 [ 0, %50 ], [ %11, %92 ]
   %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 688
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 688
   %95 = load ptr, ptr %94, align 8
   %96 = tail call i32 %95(ptr noundef nonnull %5, i32 noundef %11, ptr noundef nonnull %40) #10
   switch i32 %96, label %97 [
@@ -1798,16 +1798,16 @@ define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readon
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %109
   %indvars.iv176 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next177, %109 ]
   %.6169 = phi i8 [ %.5, %.lr.ph171.preheader ], [ %.7, %109 ]
-  %98 = getelementptr inbounds %struct.jvmtiClassDefinition, ptr %40, i64 %indvars.iv176, i32 2
+  %98 = getelementptr inbounds nuw %struct.jvmtiClassDefinition, ptr %40, i64 %indvars.iv176, i32 2
   %99 = load ptr, ptr %98, align 8
   %.not146 = icmp eq ptr %99, null
   br i1 %.not146, label %109, label %100
 
 100:                                              ; preds = %.lr.ph171
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1536
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1536
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv176
+  %104 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv176
   %105 = load ptr, ptr %104, align 8
   tail call void %103(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %99, i32 noundef 0) #10
   %.not147 = icmp eq i8 %.6169, 0
@@ -1840,7 +1840,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr nocapture noundef readon
 define hidden ptr @commonGetClassList(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %5, align 4
   store ptr null, ptr %6, align 8
@@ -1885,7 +1885,7 @@ declare ptr @mapAllCheckedToInternalErrorMapper(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @getAllLoadedClassesClassListFetcher(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 616
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 616
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3) #10
   ret i32 %8
@@ -1897,12 +1897,12 @@ define hidden ptr @getAllLoadedClasses(ptr noundef %0, ptr nocapture noundef rea
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %3, align 4
   store ptr null, ptr %4, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 616
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 616
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 %9(ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %11 = icmp eq i32 %10, 112
@@ -1945,7 +1945,7 @@ commonGetClassList.exit:                          ; preds = %2, %22
 ; Function Attrs: nounwind uwtable
 define hidden i32 @getInitiatedClassesClassListFetcher(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 624
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 624
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #10
   ret i32 %8
@@ -1957,12 +1957,12 @@ define hidden ptr @getInitiatedClasses(ptr noundef %0, ptr nocapture noundef rea
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   store i32 0, ptr %4, align 4
   store ptr null, ptr %5, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 624
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 624
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 %10(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %12 = icmp eq i32 %11, 112
@@ -2005,11 +2005,11 @@ commonGetClassList.exit:                          ; preds = %3, %23
 ; Function Attrs: nounwind uwtable
 define hidden i64 @getObjectSize(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   store i64 -1, ptr %4, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1224
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1224
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 %9(ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull %4) #10
   %11 = icmp eq i32 %10, 112
@@ -2039,10 +2039,10 @@ define hidden i64 @getObjectSize(ptr noundef %0, ptr nocapture noundef readonly 
 define hidden void @appendToClassLoaderSearch(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca [4096 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1344
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1344
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull %0, ptr noundef %2) #10
   %13 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #10
@@ -2051,7 +2051,7 @@ define hidden void @appendToClassLoaderSearch(ptr noundef %0, ptr nocapture noun
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1352
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1352
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr %17(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %5) #10
   %19 = call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #10
@@ -2068,14 +2068,14 @@ define hidden void @appendToClassLoaderSearch(ptr noundef %0, ptr nocapture noun
 25:                                               ; preds = %22
   call void @createAndThrowInternalError(ptr noundef nonnull %0) #10
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1360
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1360
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %18) #10
   br label %41
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1360
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1360
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %18) #10
   %33 = call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %0) #10
@@ -2086,7 +2086,7 @@ define hidden void @appendToClassLoaderSearch(ptr noundef %0, ptr nocapture noun
   %.not38 = icmp eq i8 %3, 0
   %35 = load ptr, ptr %8, align 8
   %. = select i1 %.not38, i64 1200, i64 1184
-  %36 = getelementptr inbounds i8, ptr %35, i64 %.
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 %37(ptr noundef nonnull %8, ptr noundef nonnull %6) #10
   switch i32 %38, label %39 [
@@ -2118,10 +2118,10 @@ define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr nocapture nounde
   tail call void @JPLISAssertCondition(i8 noundef zeroext %7, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.1, i32 noundef 1541) #10
   %.not = icmp eq i8 %3, 0
   %.0.in.v = select i1 %.not, i64 8, i64 32
-  %.0.in = getelementptr inbounds i8, ptr %1, i64 %.0.in.v
+  %.0.in = getelementptr inbounds nuw i8, ptr %1, i64 %.0.in.v
   %.0 = load ptr, ptr %.0.in, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef %2) #10
   %12 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
@@ -2154,7 +2154,7 @@ define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr nocapture nounde
   %.06982 = phi i32 [ %55, %54 ], [ 0, %.preheader ]
   %.07081 = phi i32 [ %.171, %54 ], [ 0, %.preheader ]
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1384
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1384
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr %26(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %.06982) #10
   %28 = call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
@@ -2169,7 +2169,7 @@ define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr nocapture nounde
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1344
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1344
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 %35(ptr noundef nonnull %0, ptr noundef nonnull %27) #10
   %37 = call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
@@ -2184,7 +2184,7 @@ define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr nocapture nounde
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1352
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1352
   %44 = load ptr, ptr %43, align 8
   %45 = call ptr %44(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %5) #10
   %46 = call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
@@ -2213,7 +2213,7 @@ define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr nocapture nounde
 ._crit_edge:                                      ; preds = %54, %.lr.ph, %32, %.preheader
   %.070.lcssa = phi i32 [ 0, %.preheader ], [ %.07081, %32 ], [ %.07081, %.lr.ph ], [ %.171, %54 ]
   %56 = load ptr, ptr %.0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 584
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 584
   %58 = load ptr, ptr %57, align 8
   %59 = call i32 %58(ptr noundef nonnull %.0, i32 noundef %.070.lcssa, ptr noundef nonnull %17) #10
   %60 = icmp eq i32 %59, 0
@@ -2229,11 +2229,11 @@ define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr nocapture nounde
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
   %indvars.iv = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next, %.lr.ph89 ]
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1360
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1360
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8
   call void %65(ptr noundef nonnull %0, ptr noundef %67, ptr noundef %69) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2252,9 +2252,9 @@ define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr nocapture nounde
 ; Function Attrs: nounwind uwtable
 define hidden ptr @jarFile(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1336
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1336
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %7) #10
   ret ptr %8

@@ -71,13 +71,13 @@ sub_0.i:                                          ; preds = %12
   br i1 %.not.i, label %sub_1.i, label %.tail.thread.thread.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %18 = getelementptr inbounds i8, ptr %14, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %19 = load i8, ptr %18, align 1
   %.not22.i = icmp eq i8 %19, 63
   br i1 %.not22.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %20 = getelementptr inbounds i8, ptr %14, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %.thread.i
@@ -107,7 +107,7 @@ sub_119.i:                                        ; preds = %.tail.thread.i
   br i1 %.not24.i, label %.tail17.i, label %.tail17.thread.i.preheader
 
 .tail17.i:                                        ; preds = %sub_119.i
-  %31 = getelementptr inbounds i8, ptr %14, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %.tail17.thread.i.preheader
@@ -208,7 +208,7 @@ handle_args.exit:                                 ; preds = %66
   %86 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #10
   %87 = load i64, ptr %5, align 8
   %88 = mul i64 %87, 1000000000
-  %89 = getelementptr inbounds i8, ptr %5, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %90 = load i64, ptr %89, align 8
   %91 = add i64 %88, %90
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -217,7 +217,7 @@ handle_args.exit:                                 ; preds = %66
 
 .lr.ph38.i:                                       ; preds = %handle_args.exit
   %92 = sdiv i64 %91, 1000
-  %93 = getelementptr inbounds i8, ptr %4, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %94
 
 94:                                               ; preds = %.preheader.i, %.lr.ph38.i
@@ -270,7 +270,7 @@ test_timing.exit:                                 ; preds = %test_timing.exit.lo
   %119 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #10
   %120 = load i64, ptr %3, align 8
   %121 = mul i64 %120, 1000000000
-  %122 = getelementptr inbounds i8, ptr %3, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %123 = load i64, ptr %122, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %124 = sub i64 %123, %91

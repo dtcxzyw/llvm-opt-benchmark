@@ -63,7 +63,7 @@ define void @Java_sun_java2d_opengl_OGLMaskFill_maskFill(ptr noundef %0, ptr noc
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1776
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1776
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef null) #2
   br label %17
@@ -122,7 +122,7 @@ OGLMaskFill_MaskFill.exit.thread:                 ; preds = %17, %OGLMaskFill_Ma
 
 40:                                               ; preds = %OGLMaskFill_MaskFill.exit.thread
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1784
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1784
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %.0, i32 noundef 2) #2
   br label %44

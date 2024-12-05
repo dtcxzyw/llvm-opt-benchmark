@@ -135,14 +135,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
-  %m_test_dir = getelementptr inbounds i8, ptr %this, i64 16
+  %m_test_dir = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !7
-  %1 = getelementptr inbounds i8, ptr %this, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -171,9 +171,9 @@ entry:
   %ref.tmp35 = alloca %"class.std::function", align 8
   %ref.tmp39 = alloca %"class.std::function", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #22
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   %1 = ptrtoint ptr %this to i64
   store i64 %1, ptr %ref.tmp, align 8, !tbaa !14
@@ -201,9 +201,9 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %if.then.i, %invoke.cont
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3) #22
-  %_M_manager.i.i45 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
-  %_M_invoker.i46 = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
-  %5 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %_M_manager.i.i45 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 16
+  %_M_invoker.i46 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   store i64 0, ptr %5, align 8
   store i64 %1, ptr %ref.tmp3, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9TestNoise8runTestsEP8IGameDefE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i46, align 8, !tbaa !15
@@ -230,9 +230,9 @@ terminate.lpad.i52:                               ; preds = %if.then.i50
 _ZNSt14_Function_baseD2Ev.exit53:                 ; preds = %if.then.i50, %invoke.cont6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp7) #22
-  %_M_manager.i.i54 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
-  %_M_invoker.i55 = getelementptr inbounds i8, ptr %ref.tmp7, i64 24
-  %9 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
+  %_M_manager.i.i54 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 16
+  %_M_invoker.i55 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
   store i64 0, ptr %9, align 8
   store i64 %1, ptr %ref.tmp7, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9TestNoise8runTestsEP8IGameDefE3$_2E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i55, align 8, !tbaa !15
@@ -259,9 +259,9 @@ terminate.lpad.i61:                               ; preds = %if.then.i59
 _ZNSt14_Function_baseD2Ev.exit62:                 ; preds = %if.then.i59, %invoke.cont10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11) #22
-  %_M_manager.i.i63 = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
-  %_M_invoker.i64 = getelementptr inbounds i8, ptr %ref.tmp11, i64 24
-  %13 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  %_M_manager.i.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
+  %_M_invoker.i64 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %13, align 8
   store i64 %1, ptr %ref.tmp11, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9TestNoise8runTestsEP8IGameDefE3$_3E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i64, align 8, !tbaa !15
@@ -288,9 +288,9 @@ terminate.lpad.i70:                               ; preds = %if.then.i68
 _ZNSt14_Function_baseD2Ev.exit71:                 ; preds = %if.then.i68, %invoke.cont14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp15) #22
-  %_M_manager.i.i72 = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
-  %_M_invoker.i73 = getelementptr inbounds i8, ptr %ref.tmp15, i64 24
-  %17 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
+  %_M_manager.i.i72 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 16
+  %_M_invoker.i73 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 8
   store i64 0, ptr %17, align 8
   store i64 %1, ptr %ref.tmp15, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9TestNoise8runTestsEP8IGameDefE3$_4E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i73, align 8, !tbaa !15
@@ -317,9 +317,9 @@ terminate.lpad.i79:                               ; preds = %if.then.i77
 _ZNSt14_Function_baseD2Ev.exit80:                 ; preds = %if.then.i77, %invoke.cont18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp15) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp19) #22
-  %_M_manager.i.i81 = getelementptr inbounds i8, ptr %ref.tmp19, i64 16
-  %_M_invoker.i82 = getelementptr inbounds i8, ptr %ref.tmp19, i64 24
-  %21 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
+  %_M_manager.i.i81 = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 16
+  %_M_invoker.i82 = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 8
   store i64 0, ptr %21, align 8
   store i64 %1, ptr %ref.tmp19, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9TestNoise8runTestsEP8IGameDefE3$_5E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i82, align 8, !tbaa !15
@@ -346,9 +346,9 @@ terminate.lpad.i88:                               ; preds = %if.then.i86
 _ZNSt14_Function_baseD2Ev.exit89:                 ; preds = %if.then.i86, %invoke.cont22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp19) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp23) #22
-  %_M_manager.i.i90 = getelementptr inbounds i8, ptr %ref.tmp23, i64 16
-  %_M_invoker.i91 = getelementptr inbounds i8, ptr %ref.tmp23, i64 24
-  %25 = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  %_M_manager.i.i90 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 16
+  %_M_invoker.i91 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 8
   store i64 0, ptr %25, align 8
   store i64 %1, ptr %ref.tmp23, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9TestNoise8runTestsEP8IGameDefE3$_6E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i91, align 8, !tbaa !15
@@ -375,9 +375,9 @@ terminate.lpad.i97:                               ; preds = %if.then.i95
 _ZNSt14_Function_baseD2Ev.exit98:                 ; preds = %if.then.i95, %invoke.cont26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp23) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp27) #22
-  %_M_manager.i.i99 = getelementptr inbounds i8, ptr %ref.tmp27, i64 16
-  %_M_invoker.i100 = getelementptr inbounds i8, ptr %ref.tmp27, i64 24
-  %29 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
+  %_M_manager.i.i99 = getelementptr inbounds nuw i8, ptr %ref.tmp27, i64 16
+  %_M_invoker.i100 = getelementptr inbounds nuw i8, ptr %ref.tmp27, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %ref.tmp27, i64 8
   store i64 0, ptr %29, align 8
   store i64 %1, ptr %ref.tmp27, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9TestNoise8runTestsEP8IGameDefE3$_7E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i100, align 8, !tbaa !15
@@ -404,9 +404,9 @@ terminate.lpad.i106:                              ; preds = %if.then.i104
 _ZNSt14_Function_baseD2Ev.exit107:                ; preds = %if.then.i104, %invoke.cont30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp27) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp31) #22
-  %_M_manager.i.i108 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
-  %_M_invoker.i109 = getelementptr inbounds i8, ptr %ref.tmp31, i64 24
-  %33 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
+  %_M_manager.i.i108 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 16
+  %_M_invoker.i109 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 8
   store i64 0, ptr %33, align 8
   store i64 %1, ptr %ref.tmp31, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9TestNoise8runTestsEP8IGameDefE3$_8E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i109, align 8, !tbaa !15
@@ -433,9 +433,9 @@ terminate.lpad.i115:                              ; preds = %if.then.i113
 _ZNSt14_Function_baseD2Ev.exit116:                ; preds = %if.then.i113, %invoke.cont34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp31) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp35) #22
-  %_M_manager.i.i117 = getelementptr inbounds i8, ptr %ref.tmp35, i64 16
-  %_M_invoker.i118 = getelementptr inbounds i8, ptr %ref.tmp35, i64 24
-  %37 = getelementptr inbounds i8, ptr %ref.tmp35, i64 8
+  %_M_manager.i.i117 = getelementptr inbounds nuw i8, ptr %ref.tmp35, i64 16
+  %_M_invoker.i118 = getelementptr inbounds nuw i8, ptr %ref.tmp35, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %ref.tmp35, i64 8
   store i64 0, ptr %37, align 8
   store i64 %1, ptr %ref.tmp35, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9TestNoise8runTestsEP8IGameDefE3$_9E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i118, align 8, !tbaa !15
@@ -462,9 +462,9 @@ terminate.lpad.i124:                              ; preds = %if.then.i122
 _ZNSt14_Function_baseD2Ev.exit125:                ; preds = %if.then.i122, %invoke.cont38
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp39) #22
-  %_M_manager.i.i126 = getelementptr inbounds i8, ptr %ref.tmp39, i64 16
-  %_M_invoker.i127 = getelementptr inbounds i8, ptr %ref.tmp39, i64 24
-  %41 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
+  %_M_manager.i.i126 = getelementptr inbounds nuw i8, ptr %ref.tmp39, i64 16
+  %_M_invoker.i127 = getelementptr inbounds nuw i8, ptr %ref.tmp39, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %ref.tmp39, i64 8
   store i64 0, ptr %41, align 8
   store i64 %1, ptr %ref.tmp39, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9TestNoise8runTestsEP8IGameDefE4$_10E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i127, align 8, !tbaa !15
@@ -786,12 +786,12 @@ lpad3:                                            ; preds = %invoke.cont4, %invo
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %agg.tmp, align 8, !tbaa !7
-  %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad3
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -827,7 +827,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i = alloca i64, align 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %this, align 8, !tbaa !19
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
@@ -868,7 +868,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
 
 invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
   %4 = load i64, ptr %__dnew.i, align 8, !tbaa !20
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %5 = load ptr, ptr %this, align 8, !tbaa !7
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %4
@@ -881,15 +881,15 @@ invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if
 define linkonce_odr dso_local void @_ZN19TestFailedExceptionC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef %in_message, ptr noundef %in_file, i32 noundef %in_line) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %this, align 8, !tbaa !19
   %1 = load ptr, ptr %in_message, align 8, !tbaa !7
-  %2 = getelementptr inbounds i8, ptr %in_message, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %in_message, i64 16
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %in_message, i64 8
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %in_message, i64 8
   %3 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !13
   %cmp3.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
@@ -904,9 +904,9 @@ if.else.i:                                        ; preds = %entry
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if.else.i, %if.then.i
-  %_M_string_length.i28.i = getelementptr inbounds i8, ptr %in_message, i64 8
+  %_M_string_length.i28.i = getelementptr inbounds nuw i8, ptr %in_message, i64 8
   %5 = load i64, ptr %_M_string_length.i28.i, align 8, !tbaa !13
-  %_M_string_length.i29.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_string_length.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %5, ptr %_M_string_length.i29.i, align 8, !tbaa !13
   store ptr %2, ptr %in_message, align 8, !tbaa !7
   store i64 0, ptr %_M_string_length.i28.i, align 8, !tbaa !13
@@ -915,8 +915,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
-  %file = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = getelementptr inbounds i8, ptr %this, i64 48
+  %file = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %6, ptr %file, align 8, !tbaa !19
   %cmp.i = icmp eq ptr %call, null
   br i1 %cmp.i, label %if.then.i7, label %if.end.i
@@ -963,13 +963,13 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
 
 invoke.cont3:                                     ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i
   %10 = load i64, ptr %__dnew.i.i, align 8, !tbaa !20
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 %10, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !13
   %11 = load ptr, ptr %file, align 8, !tbaa !7
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %11, i64 %10
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #22
-  %line = getelementptr inbounds i8, ptr %this, i64 64
+  %line = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 %in_line, ptr %line, align 8, !tbaa !22
   ret void
 
@@ -1006,14 +1006,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19TestFailedExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %file = getelementptr inbounds i8, ptr %this, i64 32
+  %file = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %file, align 8, !tbaa !7
-  %1 = getelementptr inbounds i8, ptr %this, i64 48
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1025,12 +1025,12 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   %3 = load ptr, ptr %this, align 8, !tbaa !7
-  %4 = getelementptr inbounds i8, ptr %this, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp.i.i.i2 = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i2, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, label %if.then.i.i3
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %_M_string_length.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_string_length.i.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i5, align 8, !tbaa !13
   %cmp3.i.i.i6 = icmp ult i64 %5, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i6)
@@ -1086,12 +1086,12 @@ lpad3:                                            ; preds = %invoke.cont4, %invo
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %agg.tmp, align 8, !tbaa !7
-  %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad3
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1156,12 +1156,12 @@ lpad3:                                            ; preds = %invoke.cont4, %invo
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %agg.tmp, align 8, !tbaa !7
-  %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad3
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1196,11 +1196,11 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %np_normal) #22
-  %Z.i.i = getelementptr inbounds i8, ptr %np_normal, i64 16
-  %seed.i = getelementptr inbounds i8, ptr %np_normal, i64 20
-  %octaves.i = getelementptr inbounds i8, ptr %np_normal, i64 24
-  %persist.i = getelementptr inbounds i8, ptr %np_normal, i64 28
-  %flags.i = getelementptr inbounds i8, ptr %np_normal, i64 36
+  %Z.i.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 16
+  %seed.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 20
+  %octaves.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 24
+  %persist.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 28
+  %flags.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 36
   store <4 x float> <float 2.000000e+01, float 4.000000e+01, float 5.000000e+01, float 5.000000e+01>, ptr %np_normal, align 16, !tbaa !25
   store float 5.000000e+01, ptr %Z.i.i, align 16, !tbaa !25
   store i32 9, ptr %seed.i, align 4, !tbaa !27
@@ -1215,7 +1215,7 @@ for.cond2.preheader:                              ; preds = %if.end.9, %entry
   %conv6 = uitofp nneg i32 %y.039 to float
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 10
   %call = call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %np_normal, float noundef 0.000000e+00, float noundef %conv6, i32 noundef 1337)
-  %arrayidx = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 8, !tbaa !25
   %sub = fsub nsz float %call, %0
   %1 = call nsz noundef float @llvm.fabs.f32(float %sub)
@@ -1252,12 +1252,12 @@ lpad11:                                           ; preds = %invoke.cont12, %inv
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = load ptr, ptr %agg.tmp, align 8, !tbaa !7
-  %5 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad11
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %cmp3.i.i.i = icmp ult i64 %6, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1282,7 +1282,7 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 if.end:                                           ; preds = %for.cond2.preheader
   %7 = or disjoint i64 %indvars.iv, 1
   %call.1 = call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %np_normal, float noundef 1.000000e+00, float noundef %conv6, i32 noundef 1337)
-  %arrayidx.1 = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %7
+  %arrayidx.1 = getelementptr inbounds nuw [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %7
   %8 = load float, ptr %arrayidx.1, align 4, !tbaa !25
   %sub.1 = fsub nsz float %call.1, %8
   %9 = call nsz noundef float @llvm.fabs.f32(float %sub.1)
@@ -1293,7 +1293,7 @@ if.end:                                           ; preds = %for.cond2.preheader
 if.end.1:                                         ; preds = %if.end
   %10 = add nuw nsw i64 %indvars.iv, 2
   %call.2 = call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %np_normal, float noundef 2.000000e+00, float noundef %conv6, i32 noundef 1337)
-  %arrayidx.2 = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %10
+  %arrayidx.2 = getelementptr inbounds nuw [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %10
   %11 = load float, ptr %arrayidx.2, align 8, !tbaa !25
   %sub.2 = fsub nsz float %call.2, %11
   %12 = call nsz noundef float @llvm.fabs.f32(float %sub.2)
@@ -1304,7 +1304,7 @@ if.end.1:                                         ; preds = %if.end
 if.end.2:                                         ; preds = %if.end.1
   %13 = add nuw nsw i64 %indvars.iv, 3
   %call.3 = call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %np_normal, float noundef 3.000000e+00, float noundef %conv6, i32 noundef 1337)
-  %arrayidx.3 = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %13
+  %arrayidx.3 = getelementptr inbounds nuw [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %13
   %14 = load float, ptr %arrayidx.3, align 4, !tbaa !25
   %sub.3 = fsub nsz float %call.3, %14
   %15 = call nsz noundef float @llvm.fabs.f32(float %sub.3)
@@ -1315,7 +1315,7 @@ if.end.2:                                         ; preds = %if.end.1
 if.end.3:                                         ; preds = %if.end.2
   %16 = add nuw nsw i64 %indvars.iv, 4
   %call.4 = call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %np_normal, float noundef 4.000000e+00, float noundef %conv6, i32 noundef 1337)
-  %arrayidx.4 = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %16
+  %arrayidx.4 = getelementptr inbounds nuw [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %16
   %17 = load float, ptr %arrayidx.4, align 8, !tbaa !25
   %sub.4 = fsub nsz float %call.4, %17
   %18 = call nsz noundef float @llvm.fabs.f32(float %sub.4)
@@ -1326,7 +1326,7 @@ if.end.3:                                         ; preds = %if.end.2
 if.end.4:                                         ; preds = %if.end.3
   %19 = add nuw nsw i64 %indvars.iv, 5
   %call.5 = call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %np_normal, float noundef 5.000000e+00, float noundef %conv6, i32 noundef 1337)
-  %arrayidx.5 = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %19
+  %arrayidx.5 = getelementptr inbounds nuw [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %19
   %20 = load float, ptr %arrayidx.5, align 4, !tbaa !25
   %sub.5 = fsub nsz float %call.5, %20
   %21 = call nsz noundef float @llvm.fabs.f32(float %sub.5)
@@ -1337,7 +1337,7 @@ if.end.4:                                         ; preds = %if.end.3
 if.end.5:                                         ; preds = %if.end.4
   %22 = add nuw nsw i64 %indvars.iv, 6
   %call.6 = call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %np_normal, float noundef 6.000000e+00, float noundef %conv6, i32 noundef 1337)
-  %arrayidx.6 = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %22
+  %arrayidx.6 = getelementptr inbounds nuw [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %22
   %23 = load float, ptr %arrayidx.6, align 8, !tbaa !25
   %sub.6 = fsub nsz float %call.6, %23
   %24 = call nsz noundef float @llvm.fabs.f32(float %sub.6)
@@ -1348,7 +1348,7 @@ if.end.5:                                         ; preds = %if.end.4
 if.end.6:                                         ; preds = %if.end.5
   %25 = add nuw nsw i64 %indvars.iv, 7
   %call.7 = call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %np_normal, float noundef 7.000000e+00, float noundef %conv6, i32 noundef 1337)
-  %arrayidx.7 = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %25
+  %arrayidx.7 = getelementptr inbounds nuw [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %25
   %26 = load float, ptr %arrayidx.7, align 4, !tbaa !25
   %sub.7 = fsub nsz float %call.7, %26
   %27 = call nsz noundef float @llvm.fabs.f32(float %sub.7)
@@ -1359,7 +1359,7 @@ if.end.6:                                         ; preds = %if.end.5
 if.end.7:                                         ; preds = %if.end.6
   %28 = add nuw nsw i64 %indvars.iv, 8
   %call.8 = call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %np_normal, float noundef 8.000000e+00, float noundef %conv6, i32 noundef 1337)
-  %arrayidx.8 = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %28
+  %arrayidx.8 = getelementptr inbounds nuw [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %28
   %29 = load float, ptr %arrayidx.8, align 8, !tbaa !25
   %sub.8 = fsub nsz float %call.8, %29
   %30 = call nsz noundef float @llvm.fabs.f32(float %sub.8)
@@ -1370,7 +1370,7 @@ if.end.7:                                         ; preds = %if.end.6
 if.end.8:                                         ; preds = %if.end.7
   %31 = add nuw nsw i64 %indvars.iv, 9
   %call.9 = call nsz noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef nonnull %np_normal, float noundef 9.000000e+00, float noundef %conv6, i32 noundef 1337)
-  %arrayidx.9 = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %31
+  %arrayidx.9 = getelementptr inbounds nuw [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %31
   %32 = load float, ptr %arrayidx.9, align 4, !tbaa !25
   %sub.9 = fsub nsz float %call.9, %32
   %33 = call nsz noundef float @llvm.fabs.f32(float %sub.9)
@@ -1397,11 +1397,11 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %np_normal) #22
-  %Z.i.i = getelementptr inbounds i8, ptr %np_normal, i64 16
-  %seed.i = getelementptr inbounds i8, ptr %np_normal, i64 20
-  %octaves.i = getelementptr inbounds i8, ptr %np_normal, i64 24
-  %persist.i = getelementptr inbounds i8, ptr %np_normal, i64 28
-  %flags.i = getelementptr inbounds i8, ptr %np_normal, i64 36
+  %Z.i.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 16
+  %seed.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 20
+  %octaves.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 24
+  %persist.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 28
+  %flags.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 36
   store <4 x float> <float 2.000000e+01, float 4.000000e+01, float 5.000000e+01, float 5.000000e+01>, ptr %np_normal, align 16, !tbaa !25
   store float 5.000000e+01, ptr %Z.i.i, align 16, !tbaa !25
   store i32 9, ptr %seed.i, align 4, !tbaa !27
@@ -1415,9 +1415,9 @@ entry:
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = or disjoint i64 %indvars.iv, 1
-  %arrayidx.1 = getelementptr inbounds float, ptr %call, i64 %indvars.iv.next
+  %arrayidx.1 = getelementptr inbounds nuw float, ptr %call, i64 %indvars.iv.next
   %0 = load float, ptr %arrayidx.1, align 4, !tbaa !25
-  %arrayidx3.1 = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %indvars.iv.next
+  %arrayidx3.1 = getelementptr inbounds nuw [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %indvars.iv.next
   %1 = load float, ptr %arrayidx3.1, align 4, !tbaa !25
   %sub.1 = fsub nsz float %0, %1
   %2 = call nsz noundef float @llvm.fabs.f32(float %sub.1)
@@ -1443,9 +1443,9 @@ lpad:                                             ; preds = %entry
 
 for.body:                                         ; preds = %entry, %for.cond.1
   %indvars.iv = phi i64 [ %indvars.iv.next.1, %for.cond.1 ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds float, ptr %call, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %call, i64 %indvars.iv
   %4 = load float, ptr %arrayidx, align 4, !tbaa !25
-  %arrayidx3 = getelementptr inbounds [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw [100 x float], ptr @_ZN9TestNoise19expected_2d_resultsE, i64 0, i64 %indvars.iv
   %5 = load float, ptr %arrayidx3, align 8, !tbaa !25
   %sub = fsub nsz float %4, %5
   %6 = call nsz noundef float @llvm.fabs.f32(float %sub)
@@ -1478,12 +1478,12 @@ lpad11:                                           ; preds = %invoke.cont12, %inv
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %agg.tmp, align 8, !tbaa !7
-  %10 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad11
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %11 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %cmp3.i.i.i = icmp ult i64 %11, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1555,12 +1555,12 @@ lpad3:                                            ; preds = %invoke.cont4, %invo
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %agg.tmp, align 8, !tbaa !7
-  %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad3
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1625,12 +1625,12 @@ lpad3:                                            ; preds = %invoke.cont4, %invo
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %agg.tmp, align 8, !tbaa !7
-  %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad3
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1697,12 +1697,12 @@ lpad3:                                            ; preds = %invoke.cont4, %invo
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %agg.tmp, align 8, !tbaa !7
-  %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad3
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1737,11 +1737,11 @@ entry:
   %np_normal = alloca %struct.NoiseParams, align 16
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %np_normal) #22
-  %Z.i.i = getelementptr inbounds i8, ptr %np_normal, i64 16
-  %seed.i = getelementptr inbounds i8, ptr %np_normal, i64 20
-  %octaves.i = getelementptr inbounds i8, ptr %np_normal, i64 24
-  %persist.i = getelementptr inbounds i8, ptr %np_normal, i64 28
-  %flags.i = getelementptr inbounds i8, ptr %np_normal, i64 36
+  %Z.i.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 16
+  %seed.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 20
+  %octaves.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 24
+  %persist.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 28
+  %flags.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 36
   store <4 x float> <float 2.000000e+01, float 4.000000e+01, float 5.000000e+01, float 5.000000e+01>, ptr %np_normal, align 16, !tbaa !25
   store float 5.000000e+01, ptr %Z.i.i, align 16, !tbaa !25
   store i32 9, ptr %seed.i, align 4, !tbaa !27
@@ -1767,7 +1767,7 @@ for.cond6.preheader:                              ; preds = %if.end.9, %for.cond
   %conv10 = uitofp nneg i32 %y.053 to float
   %indvars.iv.next2 = add nuw nsw i64 %indvars.iv1, 10
   %call = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 0.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %arrayidx = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %indvars.iv1
+  %arrayidx = getelementptr inbounds nuw [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %indvars.iv1
   %0 = load float, ptr %arrayidx, align 8, !tbaa !25
   %sub = fsub nsz float %call, %0
   %1 = call nsz noundef float @llvm.fabs.f32(float %sub)
@@ -1782,7 +1782,7 @@ for.cond.cleanup4:                                ; preds = %if.end.9
 
 if.then:                                          ; preds = %if.end.8, %if.end.7, %if.end.6, %if.end.5, %if.end.4, %if.end.3, %if.end.2, %if.end.1, %if.end, %for.cond6.preheader
   %exception = call ptr @__cxa_allocate_exception(i64 72) #22
-  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   store ptr %2, ptr %agg.tmp, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #22
   store i64 39, ptr %__dnew.i.i, align 8, !tbaa !20
@@ -1794,7 +1794,7 @@ call2.i11.i.noexc:                                ; preds = %if.then
   %3 = load i64, ptr %__dnew.i.i, align 8, !tbaa !20
   store i64 %3, ptr %2, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %call2.i11.i43, ptr noundef nonnull align 1 dereferenceable(39) @.str.12, i64 39, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store i64 %3, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !13
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call2.i11.i43, i64 %3
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !21
@@ -1842,7 +1842,7 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
 if.end:                                           ; preds = %for.cond6.preheader
   %8 = or disjoint i64 %indvars.iv1, 1
   %call.1 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 1.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %arrayidx.1 = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %8
+  %arrayidx.1 = getelementptr inbounds nuw [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %8
   %9 = load float, ptr %arrayidx.1, align 4, !tbaa !25
   %sub.1 = fsub nsz float %call.1, %9
   %10 = call nsz noundef float @llvm.fabs.f32(float %sub.1)
@@ -1853,7 +1853,7 @@ if.end:                                           ; preds = %for.cond6.preheader
 if.end.1:                                         ; preds = %if.end
   %11 = add nuw nsw i64 %indvars.iv1, 2
   %call.2 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 2.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %arrayidx.2 = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %11
+  %arrayidx.2 = getelementptr inbounds nuw [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %11
   %12 = load float, ptr %arrayidx.2, align 8, !tbaa !25
   %sub.2 = fsub nsz float %call.2, %12
   %13 = call nsz noundef float @llvm.fabs.f32(float %sub.2)
@@ -1864,7 +1864,7 @@ if.end.1:                                         ; preds = %if.end
 if.end.2:                                         ; preds = %if.end.1
   %14 = add nuw nsw i64 %indvars.iv1, 3
   %call.3 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 3.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %arrayidx.3 = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %14
+  %arrayidx.3 = getelementptr inbounds nuw [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %14
   %15 = load float, ptr %arrayidx.3, align 4, !tbaa !25
   %sub.3 = fsub nsz float %call.3, %15
   %16 = call nsz noundef float @llvm.fabs.f32(float %sub.3)
@@ -1875,7 +1875,7 @@ if.end.2:                                         ; preds = %if.end.1
 if.end.3:                                         ; preds = %if.end.2
   %17 = add nuw nsw i64 %indvars.iv1, 4
   %call.4 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 4.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %arrayidx.4 = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %17
+  %arrayidx.4 = getelementptr inbounds nuw [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %17
   %18 = load float, ptr %arrayidx.4, align 8, !tbaa !25
   %sub.4 = fsub nsz float %call.4, %18
   %19 = call nsz noundef float @llvm.fabs.f32(float %sub.4)
@@ -1886,7 +1886,7 @@ if.end.3:                                         ; preds = %if.end.2
 if.end.4:                                         ; preds = %if.end.3
   %20 = add nuw nsw i64 %indvars.iv1, 5
   %call.5 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 5.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %arrayidx.5 = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %20
+  %arrayidx.5 = getelementptr inbounds nuw [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %20
   %21 = load float, ptr %arrayidx.5, align 4, !tbaa !25
   %sub.5 = fsub nsz float %call.5, %21
   %22 = call nsz noundef float @llvm.fabs.f32(float %sub.5)
@@ -1897,7 +1897,7 @@ if.end.4:                                         ; preds = %if.end.3
 if.end.5:                                         ; preds = %if.end.4
   %23 = add nuw nsw i64 %indvars.iv1, 6
   %call.6 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 6.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %arrayidx.6 = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %23
+  %arrayidx.6 = getelementptr inbounds nuw [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %23
   %24 = load float, ptr %arrayidx.6, align 8, !tbaa !25
   %sub.6 = fsub nsz float %call.6, %24
   %25 = call nsz noundef float @llvm.fabs.f32(float %sub.6)
@@ -1908,7 +1908,7 @@ if.end.5:                                         ; preds = %if.end.4
 if.end.6:                                         ; preds = %if.end.5
   %26 = add nuw nsw i64 %indvars.iv1, 7
   %call.7 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 7.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %arrayidx.7 = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %26
+  %arrayidx.7 = getelementptr inbounds nuw [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %26
   %27 = load float, ptr %arrayidx.7, align 4, !tbaa !25
   %sub.7 = fsub nsz float %call.7, %27
   %28 = call nsz noundef float @llvm.fabs.f32(float %sub.7)
@@ -1919,7 +1919,7 @@ if.end.6:                                         ; preds = %if.end.5
 if.end.7:                                         ; preds = %if.end.6
   %29 = add nuw nsw i64 %indvars.iv1, 8
   %call.8 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 8.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %arrayidx.8 = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %29
+  %arrayidx.8 = getelementptr inbounds nuw [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %29
   %30 = load float, ptr %arrayidx.8, align 8, !tbaa !25
   %sub.8 = fsub nsz float %call.8, %30
   %31 = call nsz noundef float @llvm.fabs.f32(float %sub.8)
@@ -1930,7 +1930,7 @@ if.end.7:                                         ; preds = %if.end.6
 if.end.8:                                         ; preds = %if.end.7
   %32 = add nuw nsw i64 %indvars.iv1, 9
   %call.9 = call nsz noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef nonnull %np_normal, float noundef 9.000000e+00, float noundef %conv10, float noundef %conv11, i32 noundef 1337)
-  %arrayidx.9 = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %32
+  %arrayidx.9 = getelementptr inbounds nuw [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %32
   %33 = load float, ptr %arrayidx.9, align 4, !tbaa !25
   %sub.9 = fsub nsz float %call.9, %33
   %34 = call nsz noundef float @llvm.fabs.f32(float %sub.9)
@@ -1957,11 +1957,11 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %np_normal) #22
-  %Z.i.i = getelementptr inbounds i8, ptr %np_normal, i64 16
-  %seed.i = getelementptr inbounds i8, ptr %np_normal, i64 20
-  %octaves.i = getelementptr inbounds i8, ptr %np_normal, i64 24
-  %persist.i = getelementptr inbounds i8, ptr %np_normal, i64 28
-  %flags.i = getelementptr inbounds i8, ptr %np_normal, i64 36
+  %Z.i.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 16
+  %seed.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 20
+  %octaves.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 24
+  %persist.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 28
+  %flags.i = getelementptr inbounds nuw i8, ptr %np_normal, i64 36
   store <4 x float> <float 2.000000e+01, float 4.000000e+01, float 5.000000e+01, float 5.000000e+01>, ptr %np_normal, align 16, !tbaa !25
   store float 5.000000e+01, ptr %Z.i.i, align 16, !tbaa !25
   store i32 9, ptr %seed.i, align 4, !tbaa !27
@@ -1975,9 +1975,9 @@ entry:
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = or disjoint i64 %indvars.iv, 1
-  %arrayidx.1 = getelementptr inbounds float, ptr %call, i64 %indvars.iv.next
+  %arrayidx.1 = getelementptr inbounds nuw float, ptr %call, i64 %indvars.iv.next
   %0 = load float, ptr %arrayidx.1, align 4, !tbaa !25
-  %arrayidx3.1 = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %indvars.iv.next
+  %arrayidx3.1 = getelementptr inbounds nuw [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %indvars.iv.next
   %1 = load float, ptr %arrayidx3.1, align 4, !tbaa !25
   %sub.1 = fsub nsz float %0, %1
   %2 = call nsz noundef float @llvm.fabs.f32(float %sub.1)
@@ -2003,9 +2003,9 @@ lpad:                                             ; preds = %entry
 
 for.body:                                         ; preds = %entry, %for.cond.1
   %indvars.iv = phi i64 [ %indvars.iv.next.1, %for.cond.1 ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds float, ptr %call, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %call, i64 %indvars.iv
   %4 = load float, ptr %arrayidx, align 4, !tbaa !25
-  %arrayidx3 = getelementptr inbounds [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw [1000 x float], ptr @_ZN9TestNoise19expected_3d_resultsE, i64 0, i64 %indvars.iv
   %5 = load float, ptr %arrayidx3, align 8, !tbaa !25
   %sub = fsub nsz float %4, %5
   %6 = call nsz noundef float @llvm.fabs.f32(float %sub)
@@ -2038,12 +2038,12 @@ lpad11:                                           ; preds = %invoke.cont12, %inv
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %agg.tmp, align 8, !tbaa !7
-  %10 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad11
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %11 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %cmp3.i.i.i = icmp ult i64 %11, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -2081,11 +2081,11 @@ invoke.cont2:
   %noise_highmem_3d = alloca %class.Noise, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %np_highmem) #22
-  %Z.i.i = getelementptr inbounds i8, ptr %np_highmem, i64 16
-  %seed.i = getelementptr inbounds i8, ptr %np_highmem, i64 20
-  %octaves.i = getelementptr inbounds i8, ptr %np_highmem, i64 24
-  %persist.i = getelementptr inbounds i8, ptr %np_highmem, i64 28
-  %flags.i = getelementptr inbounds i8, ptr %np_highmem, i64 36
+  %Z.i.i = getelementptr inbounds nuw i8, ptr %np_highmem, i64 16
+  %seed.i = getelementptr inbounds nuw i8, ptr %np_highmem, i64 20
+  %octaves.i = getelementptr inbounds nuw i8, ptr %np_highmem, i64 24
+  %persist.i = getelementptr inbounds nuw i8, ptr %np_highmem, i64 28
+  %flags.i = getelementptr inbounds nuw i8, ptr %np_highmem, i64 36
   store <4 x float> <float 4.000000e+00, float 7.000000e+01, float 1.000000e+00, float 1.000000e+00>, ptr %np_highmem, align 16, !tbaa !25
   store float 1.000000e+00, ptr %Z.i.i, align 16, !tbaa !25
   store i32 5, ptr %seed.i, align 4, !tbaa !27
@@ -2105,7 +2105,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %noise_highmem_3d) #22
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %np_highmem) #22
   %exception = call ptr @__cxa_allocate_exception(i64 72) #22
-  %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   store ptr %0, ptr %agg.tmp, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #22
   store i64 16, ptr %__dnew.i.i, align 8, !tbaa !20
@@ -2117,7 +2117,7 @@ call2.i11.i.noexc:                                ; preds = %invoke.cont6
   %1 = load i64, ptr %__dnew.i.i, align 8, !tbaa !20
   store i64 %1, ptr %0, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call2.i11.i26, ptr noundef nonnull align 1 dereferenceable(16) @.str.14, i64 16, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store i64 %1, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !13
   %2 = load ptr, ptr %agg.tmp, align 8, !tbaa !7
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %2, i64 %1
@@ -2231,7 +2231,7 @@ _ZN11TestManager14getTestModulesEv.exit:          ; preds = %init.i, %init.check
 if.then.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
   store ptr %module, ptr %3, align 8, !tbaa !14
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !42
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !42
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
@@ -2254,28 +2254,21 @@ _ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %7 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %7
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #25
-  br label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i31.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i31.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store ptr %module, ptr %add.ptr.i.i, align 8, !tbaa !14
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i31.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+if.then.i.i.i.i.i:                                ; preds = %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
 
-_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i31.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
+_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i39.i.i
 
@@ -2284,9 +2277,9 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
-  store ptr %cond.i31.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !43
+  store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !43
   store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !42
-  %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i31.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !40
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 

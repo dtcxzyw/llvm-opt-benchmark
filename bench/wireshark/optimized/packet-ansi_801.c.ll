@@ -484,9 +484,9 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @proto_register_ansi_801() local_unnamed_addr #0 {
   %1 = alloca [49 x ptr], align 16
   store ptr @ett_ansi_801, ptr %1, align 16
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @ett_gps, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @ett_loc, ptr %3, align 16
   br label %4
 
@@ -566,7 +566,7 @@ define internal i32 @dissect_ansi_801(ptr noundef %0, ptr noundef %1, ptr nounde
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.250) #6
   %.not = icmp eq ptr %2, null
@@ -574,7 +574,7 @@ define internal i32 @dissect_ansi_801(ptr noundef %0, ptr noundef %1, ptr nounde
 
 11:                                               ; preds = %4
   %12 = load i32, ptr @proto_ansi_801, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 292
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   %16 = select i1 %15, ptr @.str.248, ptr @.str.249
@@ -600,13 +600,13 @@ define internal i32 @dissect_ansi_801(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i.i, label %proto_item_set_hidden.exit.i, label %33
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %32, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not5.i.i = icmp eq ptr %35, null
   br i1 %.not5.i.i, label %proto_item_set_hidden.exit.i, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %35, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %38 = load i32, ptr %37, align 4
   %39 = or i32 %38, 1
   store i32 %39, ptr %37, align 4
@@ -864,13 +864,13 @@ for_response.exit.i:                              ; preds = %164, %.lr.ph116.i
   br i1 %.not.i.i14, label %proto_item_set_hidden.exit.i16, label %181
 
 181:                                              ; preds = %176
-  %182 = getelementptr inbounds i8, ptr %180, i64 32
+  %182 = getelementptr inbounds nuw i8, ptr %180, i64 32
   %183 = load ptr, ptr %182, align 8
   %.not5.i.i15 = icmp eq ptr %183, null
   br i1 %.not5.i.i15, label %proto_item_set_hidden.exit.i16, label %184
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i8, ptr %183, i64 28
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 28
   %186 = load i32, ptr %185, align 4
   %187 = or i32 %186, 1
   store i32 %187, ptr %185, align 4
@@ -1664,7 +1664,7 @@ define internal fastcc void @pr_loc_response(ptr noundef %0, ptr noundef %1, ptr
   %.not = icmp eq i32 %62, 0
   %63 = fmul float %61, 1.500000e+00
   %.0181 = select i1 %.not, float %61, float %63
-  %64 = getelementptr inbounds i8, ptr %1, i64 408
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %65 = load ptr, ptr %64, align 8
   %66 = fpext float %.0181 to double
   %67 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %65, ptr noundef nonnull @.str.282, double noundef %66) #6
@@ -1694,7 +1694,7 @@ define internal fastcc void @pr_loc_response(ptr noundef %0, ptr noundef %1, ptr
   %.not191 = icmp eq i32 %80, 0
   %81 = fmul float %79, 1.500000e+00
   %.1182 = select i1 %.not191, float %79, float %81
-  %82 = getelementptr inbounds i8, ptr %1, i64 408
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = fpext float %.1182 to double
   %85 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %83, ptr noundef nonnull @.str.282, double noundef %84) #6
@@ -1808,7 +1808,7 @@ define internal fastcc void @pr_loc_response(ptr noundef %0, ptr noundef %1, ptr
   %.not196 = icmp eq i32 %164, 0
   %165 = fmul float %163, 1.500000e+00
   %.2183 = select i1 %.not196, float %163, float %165
-  %166 = getelementptr inbounds i8, ptr %1, i64 408
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %167 = load ptr, ptr %166, align 8
   %168 = fpext float %.2183 to double
   %169 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %167, ptr noundef nonnull @.str.282, double noundef %168) #6
@@ -2137,7 +2137,7 @@ define internal void @rev_pr_ms_information(ptr noundef %0, ptr noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %9
   %18 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.rev_pr_ms_information, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.rev_pr_ms_information, i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %19
 

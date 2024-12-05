@@ -61,7 +61,7 @@ define void @slarft_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %indvar232 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvar.next233, %.loopexit207 ]
   %.0193.neg218 = phi i32 [ -1, %.lr.ph.preheader ], [ %78, %.loopexit207 ]
   %indvars238 = trunc i64 %indvars.iv to i32
-  %34 = getelementptr inbounds float, ptr %19, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
   %35 = load float, ptr %34, align 4
   %36 = call noundef float @llvm.fabs.f32(float %35)
   %37 = fcmp olt float %36, 0x3810000000000000
@@ -182,7 +182,7 @@ define void @slarft_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %94 = shl nsw i64 %93, 2
   %scevgep240 = getelementptr i8, ptr %scevgep239, i64 %94
   %95 = sub i32 %90, %80
-  %96 = getelementptr inbounds float, ptr %19, i64 %indvars.iv241
+  %96 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv241
   %97 = load float, ptr %96, align 4
   %98 = call noundef float @llvm.fabs.f32(float %97)
   %99 = fcmp olt float %98, 0x3810000000000000

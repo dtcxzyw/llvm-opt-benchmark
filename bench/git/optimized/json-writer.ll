@@ -48,7 +48,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @jw_release(ptr noundef %jw) local_unnamed_addr #2 {
 entry:
   tail call void @strbuf_release(ptr noundef %jw) #8
-  %open_stack = getelementptr inbounds i8, ptr %jw, i64 24
+  %open_stack = getelementptr inbounds nuw i8, ptr %jw, i64 24
   tail call void @strbuf_release(ptr noundef nonnull %open_stack) #8
   ret void
 }
@@ -58,7 +58,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @jw_object_begin(ptr noundef %jw, i32 noundef %pretty) local_unnamed_addr #2 {
 entry:
-  %pretty1.i = getelementptr inbounds i8, ptr %jw, i64 48
+  %pretty1.i = getelementptr inbounds nuw i8, ptr %jw, i64 48
   %0 = trunc i32 %pretty to i8
   %bf.load.i = load i8, ptr %pretty1.i, align 8
   %bf.value.i = shl i8 %0, 1
@@ -71,7 +71,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %entry
-  %len.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %2 = load i64, ptr %len.i.i.i, align 8
   %.neg.i.i = add i64 %2, 1
   %tobool.not.i.i = icmp eq i64 %1, %.neg.i.i
@@ -79,7 +79,7 @@ strbuf_avail.exit.i.i:                            ; preds = %entry
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %entry
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
@@ -87,9 +87,9 @@ if.then.i.i:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %3 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %2, %strbuf_avail.exit.i.i ]
-  %buf.i.i = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %4 = load ptr, ptr %buf.i.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i.i, ptr %len.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 %3
   store i8 123, ptr %arrayidx.i.i, align 1
@@ -97,13 +97,13 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbu
   %6 = load i64, ptr %len.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %5, i64 %6
   store i8 0, ptr %arrayidx3.i.i, align 1
-  %open_stack.i = getelementptr inbounds i8, ptr %jw, i64 24
+  %open_stack.i = getelementptr inbounds nuw i8, ptr %jw, i64 24
   %7 = load i64, ptr %open_stack.i, align 8
   %tobool.not.i.i5.i = icmp eq i64 %7, 0
   br i1 %tobool.not.i.i5.i, label %if.then.i15.i, label %strbuf_avail.exit.i6.i
 
 strbuf_avail.exit.i6.i:                           ; preds = %strbuf_addch.exit.i
-  %len.i.i7.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i.i7.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %8 = load i64, ptr %len.i.i7.i, align 8
   %.neg.i8.i = add i64 %8, 1
   %tobool.not.i9.i = icmp eq i64 %7, %.neg.i8.i
@@ -111,7 +111,7 @@ strbuf_avail.exit.i6.i:                           ; preds = %strbuf_addch.exit.i
 
 if.then.i15.i:                                    ; preds = %strbuf_avail.exit.i6.i, %strbuf_addch.exit.i
   tail call void @strbuf_grow(ptr noundef nonnull %open_stack.i, i64 noundef 1) #8
-  %len.phi.trans.insert.i16.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.phi.trans.insert.i16.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %.pre.i17.i = load i64, ptr %len.phi.trans.insert.i16.i, align 8
   %.pre8.i18.i = add i64 %.pre.i17.i, 1
   br label %begin.exit
@@ -119,9 +119,9 @@ if.then.i15.i:                                    ; preds = %strbuf_avail.exit.i
 begin.exit:                                       ; preds = %strbuf_avail.exit.i6.i, %if.then.i15.i
   %inc.pre-phi.i10.i = phi i64 [ %.pre8.i18.i, %if.then.i15.i ], [ %.neg.i8.i, %strbuf_avail.exit.i6.i ]
   %9 = phi i64 [ %.pre.i17.i, %if.then.i15.i ], [ %8, %strbuf_avail.exit.i6.i ]
-  %buf.i11.i = getelementptr inbounds i8, ptr %jw, i64 40
+  %buf.i11.i = getelementptr inbounds nuw i8, ptr %jw, i64 40
   %10 = load ptr, ptr %buf.i11.i, align 8
-  %len.i12.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i12.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   store i64 %inc.pre-phi.i10.i, ptr %len.i12.i, align 8
   %arrayidx.i13.i = getelementptr inbounds i8, ptr %10, i64 %9
   store i8 123, ptr %arrayidx.i13.i, align 1
@@ -146,7 +146,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @object_common(ptr noundef %jw, ptr noundef %key) unnamed_addr #2 {
 entry:
-  %len.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %0 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -156,7 +156,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %buf.i = getelementptr inbounds i8, ptr %jw, i64 40
+  %buf.i = getelementptr inbounds nuw i8, ptr %jw, i64 40
   %1 = load ptr, ptr %buf.i, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx.i = getelementptr i8, ptr %2, i64 -1
@@ -169,7 +169,7 @@ if.then5.i:                                       ; preds = %if.end.i
   unreachable
 
 assert_in_object.exit:                            ; preds = %if.end.i
-  %need_comma.i = getelementptr inbounds i8, ptr %jw, i64 48
+  %need_comma.i = getelementptr inbounds nuw i8, ptr %jw, i64 48
   %bf.load.i = load i8, ptr %need_comma.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i10 = icmp eq i8 %bf.clear.i, 0
@@ -181,7 +181,7 @@ if.then.i11:                                      ; preds = %assert_in_object.ex
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %if.then.i11
-  %len.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %5 = load i64, ptr %len.i.i.i, align 8
   %.neg.i.i = add i64 %5, 1
   %tobool.not.i.i = icmp eq i64 %4, %.neg.i.i
@@ -189,7 +189,7 @@ strbuf_avail.exit.i.i:                            ; preds = %if.then.i11
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.then.i11
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
@@ -197,9 +197,9 @@ if.then.i.i:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %6 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %5, %strbuf_avail.exit.i.i ]
-  %buf.i.i = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %7 = load ptr, ptr %buf.i.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i.i, ptr %len.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 %6
   store i8 44, ptr %arrayidx.i.i, align 1
@@ -227,7 +227,7 @@ if.then:                                          ; preds = %maybe_add_comma.exi
   br i1 %tobool.not.i.i13, label %if.then.i20, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.then
-  %len.i.i14 = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i14 = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %12 = load i64, ptr %len.i.i14, align 8
   %.neg.i = add i64 %12, 1
   %tobool.not.i15 = icmp eq i64 %11, %.neg.i
@@ -235,7 +235,7 @@ strbuf_avail.exit.i:                              ; preds = %if.then
 
 if.then.i20:                                      ; preds = %strbuf_avail.exit.i, %if.then
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -243,9 +243,9 @@ if.then.i20:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i20
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i20 ], [ %.neg.i, %strbuf_avail.exit.i ]
   %13 = phi i64 [ %.pre.i, %if.then.i20 ], [ %12, %strbuf_avail.exit.i ]
-  %buf.i17 = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i17 = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %14 = load ptr, ptr %buf.i17, align 8
-  %len.i18 = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i18 = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i18, align 8
   %arrayidx.i19 = getelementptr inbounds i8, ptr %14, i64 %13
   store i8 10, ptr %arrayidx.i19, align 1
@@ -272,7 +272,7 @@ if.end:                                           ; preds = %for.body.i, %strbuf
   br i1 %tobool.not.i.i22, label %if.then.i33, label %strbuf_avail.exit.i23
 
 strbuf_avail.exit.i23:                            ; preds = %if.end
-  %len.i.i24 = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i24 = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %20 = load i64, ptr %len.i.i24, align 8
   %.neg.i25 = add i64 %20, 1
   %tobool.not.i26 = icmp eq i64 %19, %.neg.i25
@@ -280,7 +280,7 @@ strbuf_avail.exit.i23:                            ; preds = %if.end
 
 if.then.i33:                                      ; preds = %strbuf_avail.exit.i23, %if.end
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i34 = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i34 = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i35 = load i64, ptr %len.phi.trans.insert.i34, align 8
   %.pre8.i36 = add i64 %.pre.i35, 1
   br label %strbuf_addch.exit37
@@ -288,9 +288,9 @@ if.then.i33:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit37:                              ; preds = %strbuf_avail.exit.i23, %if.then.i33
   %inc.pre-phi.i28 = phi i64 [ %.pre8.i36, %if.then.i33 ], [ %.neg.i25, %strbuf_avail.exit.i23 ]
   %21 = phi i64 [ %.pre.i35, %if.then.i33 ], [ %20, %strbuf_avail.exit.i23 ]
-  %buf.i29 = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i29 = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %22 = load ptr, ptr %buf.i29, align 8
-  %len.i30 = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i30 = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i28, ptr %len.i30, align 8
   %arrayidx.i31 = getelementptr inbounds i8, ptr %22, i64 %21
   store i8 58, ptr %arrayidx.i31, align 1
@@ -345,7 +345,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %entry
-  %len.i.i = getelementptr inbounds i8, ptr %out, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %1 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %1, 1
   %tobool.not.i = icmp eq i64 %0, %.neg.i
@@ -353,7 +353,7 @@ strbuf_avail.exit.i:                              ; preds = %entry
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %entry
   tail call void @strbuf_grow(ptr noundef nonnull %out, i64 noundef 1) #8
-  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %out, i64 8
+  %len.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -361,9 +361,9 @@ if.then.i:                                        ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %2 = phi i64 [ %.pre.i, %if.then.i ], [ %1, %strbuf_avail.exit.i ]
-  %buf.i = getelementptr inbounds i8, ptr %out, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %out, i64 16
   %3 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %out, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %2
   store i8 34, ptr %arrayidx.i, align 1
@@ -375,7 +375,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 while.cond:                                       ; preds = %while.cond.backedge, %strbuf_addch.exit
   %in.addr.0 = phi ptr [ %in, %strbuf_addch.exit ], [ %incdec.ptr, %while.cond.backedge ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %in.addr.0, i64 1
   %6 = load i8, ptr %in.addr.0, align 1
   %conv = zext i8 %6 to i32
   switch i8 %6, label %if.else34 [
@@ -515,7 +515,7 @@ if.then.i:                                        ; preds = %entry
 if.else.i:                                        ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fmt.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.append_sub_jw.sb.19, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %fmt.i, ptr noundef nonnull @.str.17, i32 noundef %precision) #8
-  %buf.i = getelementptr inbounds i8, ptr %fmt.i, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %fmt.i, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %jw, ptr noundef %0, double noundef %value) #8
   call void @strbuf_release(ptr noundef nonnull %fmt.i) #8
@@ -572,13 +572,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @jw_object_sub_jw(ptr noundef %jw, ptr noundef %key, ptr noundef %value) local_unnamed_addr #2 {
 entry:
-  %len.i = getelementptr inbounds i8, ptr %value, i64 32
+  %len.i = getelementptr inbounds nuw i8, ptr %value, i64 32
   %0 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %assert_is_terminated.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %buf.i = getelementptr inbounds i8, ptr %value, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %value, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 150, ptr noundef nonnull @.str.18, ptr noundef %1) #9
   unreachable
@@ -594,20 +594,20 @@ define internal fastcc void @append_sub_jw(ptr noundef %jw, ptr noundef %value) 
 entry:
   %sb = alloca %struct.strbuf, align 8
   %sb25 = alloca %struct.strbuf, align 8
-  %pretty = getelementptr inbounds i8, ptr %jw, i64 48
+  %pretty = getelementptr inbounds nuw i8, ptr %jw, i64 48
   %bf.load = load i8, ptr %pretty, align 8
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %land.lhs.true17, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %len = getelementptr inbounds i8, ptr %jw, i64 32
+  %len = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %1 = load i64, ptr %len, align 8
   %tobool1.not = icmp eq i64 %1, 0
   br i1 %tobool1.not, label %if.end27, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %pretty3 = getelementptr inbounds i8, ptr %value, i64 48
+  %pretty3 = getelementptr inbounds nuw i8, ptr %value, i64 48
   %bf.load4 = load i8, ptr %pretty3, align 8
   %2 = and i8 %bf.load4, 2
   %tobool8.not = icmp eq i8 %2, 0
@@ -615,10 +615,10 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
 
 strbuf_setlen.exit.i:                             ; preds = %land.lhs.true2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.append_sub_jw.sb.19, i64 24, i1 false)
-  %len2.i.i = getelementptr inbounds i8, ptr %sb, i64 8
+  %len2.i.i = getelementptr inbounds nuw i8, ptr %sb, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds i8, ptr %sb, i64 16
-  %len.i = getelementptr inbounds i8, ptr %value, i64 8
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %sb, i64 16
+  %len.i = getelementptr inbounds nuw i8, ptr %value, i64 8
   %3 = load i64, ptr %len.i, align 8
   %cmp8.not.i = icmp eq i64 %3, 0
   br i1 %cmp8.not.i, label %increase_indent.exit, label %for.body.lr.ph.i
@@ -626,14 +626,14 @@ strbuf_setlen.exit.i:                             ; preds = %land.lhs.true2
 for.body.lr.ph.i:                                 ; preds = %strbuf_setlen.exit.i
   %.tr = trunc i64 %1 to i32
   %conv = shl i32 %.tr, 1
-  %buf.i = getelementptr inbounds i8, ptr %value, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %value, i64 16
   %conv7.i = sext i32 %conv to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %4 = load ptr, ptr %buf.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %5 = load i8, ptr %arrayidx.i, align 1
   %6 = load i64, ptr %sb, align 8
   %tobool.not.i.i.i = icmp eq i64 %6, 0
@@ -681,7 +681,7 @@ increase_indent.exit:                             ; preds = %for.inc.i, %strbuf_
   br label %return
 
 land.lhs.true17:                                  ; preds = %entry
-  %pretty18 = getelementptr inbounds i8, ptr %value, i64 48
+  %pretty18 = getelementptr inbounds nuw i8, ptr %value, i64 48
   %bf.load19 = load i8, ptr %pretty18, align 8
   %13 = and i8 %bf.load19, 2
   %tobool23.not = icmp eq i8 %13, 0
@@ -689,16 +689,16 @@ land.lhs.true17:                                  ; preds = %entry
 
 strbuf_setlen.exit.i15:                           ; preds = %land.lhs.true17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb25, ptr noundef nonnull align 8 dereferenceable(24) @__const.append_sub_jw.sb.19, i64 24, i1 false)
-  %len2.i.i11 = getelementptr inbounds i8, ptr %sb25, i64 8
+  %len2.i.i11 = getelementptr inbounds nuw i8, ptr %sb25, i64 8
   store i64 0, ptr %len2.i.i11, align 8
-  %buf.i.i12 = getelementptr inbounds i8, ptr %sb25, i64 16
-  %len.i16 = getelementptr inbounds i8, ptr %value, i64 8
+  %buf.i.i12 = getelementptr inbounds nuw i8, ptr %sb25, i64 16
+  %len.i16 = getelementptr inbounds nuw i8, ptr %value, i64 8
   %14 = load i64, ptr %len.i16, align 8
   %cmp9.not.i = icmp eq i64 %14, 0
   br i1 %cmp9.not.i, label %kill_indent.exit, label %for.body.lr.ph.i17
 
 for.body.lr.ph.i17:                               ; preds = %strbuf_setlen.exit.i15
-  %buf.i18 = getelementptr inbounds i8, ptr %value, i64 16
+  %buf.i18 = getelementptr inbounds nuw i8, ptr %value, i64 16
   br label %for.body.i19
 
 for.body.i19:                                     ; preds = %for.inc.i30, %for.body.lr.ph.i17
@@ -706,7 +706,7 @@ for.body.i19:                                     ; preds = %for.inc.i30, %for.b
   %indvars.iv.i20 = phi i64 [ 0, %for.body.lr.ph.i17 ], [ %indvars.iv.next.i31, %for.inc.i30 ]
   %eat_it.010.i = phi i32 [ 0, %for.body.lr.ph.i17 ], [ %eat_it.1.i, %for.inc.i30 ]
   %16 = load ptr, ptr %buf.i18, align 8
-  %arrayidx.i21 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i20
+  %arrayidx.i21 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i20
   %17 = load i8, ptr %arrayidx.i21, align 1
   %tobool.i = icmp ne i32 %eat_it.010.i, 0
   %cmp4.i = icmp eq i8 %17, 32
@@ -775,7 +775,7 @@ entry:
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i, label %strbuf_avail.exit.i.i.i
 
 strbuf_avail.exit.i.i.i:                          ; preds = %entry
-  %len.i.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %1 = load i64, ptr %len.i.i.i.i, align 8
   %.neg.i.i.i = add i64 %1, 1
   %tobool.not.i.i.i = icmp eq i64 %0, %.neg.i.i.i
@@ -783,7 +783,7 @@ strbuf_avail.exit.i.i.i:                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %strbuf_avail.exit.i.i.i, %entry
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i.i.i = load i64, ptr %len.phi.trans.insert.i.i.i, align 8
   %.pre8.i.i.i = add i64 %.pre.i.i.i, 1
   br label %strbuf_addch.exit.i.i
@@ -791,9 +791,9 @@ if.then.i.i.i:                                    ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %strbuf_avail.exit.i.i.i
   %inc.pre-phi.i.i.i = phi i64 [ %.pre8.i.i.i, %if.then.i.i.i ], [ %.neg.i.i.i, %strbuf_avail.exit.i.i.i ]
   %2 = phi i64 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %strbuf_avail.exit.i.i.i ]
-  %buf.i.i.i = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %3 = load ptr, ptr %buf.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i.i.i, ptr %len.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %2
   store i8 123, ptr %arrayidx.i.i.i, align 1
@@ -801,13 +801,13 @@ strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %str
   %5 = load i64, ptr %len.i.i.i, align 8
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %4, i64 %5
   store i8 0, ptr %arrayidx3.i.i.i, align 1
-  %open_stack.i.i = getelementptr inbounds i8, ptr %jw, i64 24
+  %open_stack.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 24
   %6 = load i64, ptr %open_stack.i.i, align 8
   %tobool.not.i.i5.i.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i.i5.i.i, label %if.then.i15.i.i, label %strbuf_avail.exit.i6.i.i
 
 strbuf_avail.exit.i6.i.i:                         ; preds = %strbuf_addch.exit.i.i
-  %len.i.i7.i.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i.i7.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %7 = load i64, ptr %len.i.i7.i.i, align 8
   %.neg.i8.i.i = add i64 %7, 1
   %tobool.not.i9.i.i = icmp eq i64 %6, %.neg.i8.i.i
@@ -815,7 +815,7 @@ strbuf_avail.exit.i6.i.i:                         ; preds = %strbuf_addch.exit.i
 
 if.then.i15.i.i:                                  ; preds = %strbuf_avail.exit.i6.i.i, %strbuf_addch.exit.i.i
   tail call void @strbuf_grow(ptr noundef nonnull %open_stack.i.i, i64 noundef 1) #8
-  %len.phi.trans.insert.i16.i.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.phi.trans.insert.i16.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %.pre.i17.i.i = load i64, ptr %len.phi.trans.insert.i16.i.i, align 8
   %.pre8.i18.i.i = add i64 %.pre.i17.i.i, 1
   br label %jw_object_begin.exit
@@ -823,10 +823,10 @@ if.then.i15.i.i:                                  ; preds = %strbuf_avail.exit.i
 jw_object_begin.exit:                             ; preds = %strbuf_avail.exit.i6.i.i, %if.then.i15.i.i
   %inc.pre-phi.i10.i.i = phi i64 [ %.pre8.i18.i.i, %if.then.i15.i.i ], [ %.neg.i8.i.i, %strbuf_avail.exit.i6.i.i ]
   %8 = phi i64 [ %.pre.i17.i.i, %if.then.i15.i.i ], [ %7, %strbuf_avail.exit.i6.i.i ]
-  %pretty = getelementptr inbounds i8, ptr %jw, i64 48
-  %buf.i11.i.i = getelementptr inbounds i8, ptr %jw, i64 40
+  %pretty = getelementptr inbounds nuw i8, ptr %jw, i64 48
+  %buf.i11.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 40
   %9 = load ptr, ptr %buf.i11.i.i, align 8
-  %len.i12.i.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i12.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   store i64 %inc.pre-phi.i10.i.i, ptr %len.i12.i.i, align 8
   %arrayidx.i13.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 123, ptr %arrayidx.i13.i.i, align 1
@@ -849,7 +849,7 @@ entry:
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i, label %strbuf_avail.exit.i.i.i
 
 strbuf_avail.exit.i.i.i:                          ; preds = %entry
-  %len.i.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %1 = load i64, ptr %len.i.i.i.i, align 8
   %.neg.i.i.i = add i64 %1, 1
   %tobool.not.i.i.i = icmp eq i64 %0, %.neg.i.i.i
@@ -857,7 +857,7 @@ strbuf_avail.exit.i.i.i:                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %strbuf_avail.exit.i.i.i, %entry
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i.i.i = load i64, ptr %len.phi.trans.insert.i.i.i, align 8
   %.pre8.i.i.i = add i64 %.pre.i.i.i, 1
   br label %strbuf_addch.exit.i.i
@@ -865,9 +865,9 @@ if.then.i.i.i:                                    ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %strbuf_avail.exit.i.i.i
   %inc.pre-phi.i.i.i = phi i64 [ %.pre8.i.i.i, %if.then.i.i.i ], [ %.neg.i.i.i, %strbuf_avail.exit.i.i.i ]
   %2 = phi i64 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %strbuf_avail.exit.i.i.i ]
-  %buf.i.i.i = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %3 = load ptr, ptr %buf.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i.i.i, ptr %len.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %2
   store i8 91, ptr %arrayidx.i.i.i, align 1
@@ -875,13 +875,13 @@ strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %str
   %5 = load i64, ptr %len.i.i.i, align 8
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %4, i64 %5
   store i8 0, ptr %arrayidx3.i.i.i, align 1
-  %open_stack.i.i = getelementptr inbounds i8, ptr %jw, i64 24
+  %open_stack.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 24
   %6 = load i64, ptr %open_stack.i.i, align 8
   %tobool.not.i.i5.i.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i.i5.i.i, label %if.then.i15.i.i, label %strbuf_avail.exit.i6.i.i
 
 strbuf_avail.exit.i6.i.i:                         ; preds = %strbuf_addch.exit.i.i
-  %len.i.i7.i.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i.i7.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %7 = load i64, ptr %len.i.i7.i.i, align 8
   %.neg.i8.i.i = add i64 %7, 1
   %tobool.not.i9.i.i = icmp eq i64 %6, %.neg.i8.i.i
@@ -889,7 +889,7 @@ strbuf_avail.exit.i6.i.i:                         ; preds = %strbuf_addch.exit.i
 
 if.then.i15.i.i:                                  ; preds = %strbuf_avail.exit.i6.i.i, %strbuf_addch.exit.i.i
   tail call void @strbuf_grow(ptr noundef nonnull %open_stack.i.i, i64 noundef 1) #8
-  %len.phi.trans.insert.i16.i.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.phi.trans.insert.i16.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %.pre.i17.i.i = load i64, ptr %len.phi.trans.insert.i16.i.i, align 8
   %.pre8.i18.i.i = add i64 %.pre.i17.i.i, 1
   br label %jw_array_begin.exit
@@ -897,10 +897,10 @@ if.then.i15.i.i:                                  ; preds = %strbuf_avail.exit.i
 jw_array_begin.exit:                              ; preds = %strbuf_avail.exit.i6.i.i, %if.then.i15.i.i
   %inc.pre-phi.i10.i.i = phi i64 [ %.pre8.i18.i.i, %if.then.i15.i.i ], [ %.neg.i8.i.i, %strbuf_avail.exit.i6.i.i ]
   %8 = phi i64 [ %.pre.i17.i.i, %if.then.i15.i.i ], [ %7, %strbuf_avail.exit.i6.i.i ]
-  %pretty = getelementptr inbounds i8, ptr %jw, i64 48
-  %buf.i11.i.i = getelementptr inbounds i8, ptr %jw, i64 40
+  %pretty = getelementptr inbounds nuw i8, ptr %jw, i64 48
+  %buf.i11.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 40
   %9 = load ptr, ptr %buf.i11.i.i, align 8
-  %len.i12.i.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i12.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   store i64 %inc.pre-phi.i10.i.i, ptr %len.i12.i.i, align 8
   %arrayidx.i13.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 91, ptr %arrayidx.i13.i.i, align 1
@@ -917,7 +917,7 @@ jw_array_begin.exit:                              ; preds = %strbuf_avail.exit.i
 ; Function Attrs: nounwind uwtable
 define dso_local void @jw_array_begin(ptr noundef %jw, i32 noundef %pretty) local_unnamed_addr #2 {
 entry:
-  %pretty1.i = getelementptr inbounds i8, ptr %jw, i64 48
+  %pretty1.i = getelementptr inbounds nuw i8, ptr %jw, i64 48
   %0 = trunc i32 %pretty to i8
   %bf.load.i = load i8, ptr %pretty1.i, align 8
   %bf.value.i = shl i8 %0, 1
@@ -930,7 +930,7 @@ entry:
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %entry
-  %len.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %2 = load i64, ptr %len.i.i.i, align 8
   %.neg.i.i = add i64 %2, 1
   %tobool.not.i.i = icmp eq i64 %1, %.neg.i.i
@@ -938,7 +938,7 @@ strbuf_avail.exit.i.i:                            ; preds = %entry
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %entry
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
@@ -946,9 +946,9 @@ if.then.i.i:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %3 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %2, %strbuf_avail.exit.i.i ]
-  %buf.i.i = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %4 = load ptr, ptr %buf.i.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i.i, ptr %len.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 %3
   store i8 91, ptr %arrayidx.i.i, align 1
@@ -956,13 +956,13 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbu
   %6 = load i64, ptr %len.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %5, i64 %6
   store i8 0, ptr %arrayidx3.i.i, align 1
-  %open_stack.i = getelementptr inbounds i8, ptr %jw, i64 24
+  %open_stack.i = getelementptr inbounds nuw i8, ptr %jw, i64 24
   %7 = load i64, ptr %open_stack.i, align 8
   %tobool.not.i.i5.i = icmp eq i64 %7, 0
   br i1 %tobool.not.i.i5.i, label %if.then.i15.i, label %strbuf_avail.exit.i6.i
 
 strbuf_avail.exit.i6.i:                           ; preds = %strbuf_addch.exit.i
-  %len.i.i7.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i.i7.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %8 = load i64, ptr %len.i.i7.i, align 8
   %.neg.i8.i = add i64 %8, 1
   %tobool.not.i9.i = icmp eq i64 %7, %.neg.i8.i
@@ -970,7 +970,7 @@ strbuf_avail.exit.i6.i:                           ; preds = %strbuf_addch.exit.i
 
 if.then.i15.i:                                    ; preds = %strbuf_avail.exit.i6.i, %strbuf_addch.exit.i
   tail call void @strbuf_grow(ptr noundef nonnull %open_stack.i, i64 noundef 1) #8
-  %len.phi.trans.insert.i16.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.phi.trans.insert.i16.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %.pre.i17.i = load i64, ptr %len.phi.trans.insert.i16.i, align 8
   %.pre8.i18.i = add i64 %.pre.i17.i, 1
   br label %begin.exit
@@ -978,9 +978,9 @@ if.then.i15.i:                                    ; preds = %strbuf_avail.exit.i
 begin.exit:                                       ; preds = %strbuf_avail.exit.i6.i, %if.then.i15.i
   %inc.pre-phi.i10.i = phi i64 [ %.pre8.i18.i, %if.then.i15.i ], [ %.neg.i8.i, %strbuf_avail.exit.i6.i ]
   %9 = phi i64 [ %.pre.i17.i, %if.then.i15.i ], [ %8, %strbuf_avail.exit.i6.i ]
-  %buf.i11.i = getelementptr inbounds i8, ptr %jw, i64 40
+  %buf.i11.i = getelementptr inbounds nuw i8, ptr %jw, i64 40
   %10 = load ptr, ptr %buf.i11.i, align 8
-  %len.i12.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i12.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   store i64 %inc.pre-phi.i10.i, ptr %len.i12.i, align 8
   %arrayidx.i13.i = getelementptr inbounds i8, ptr %10, i64 %9
   store i8 91, ptr %arrayidx.i13.i, align 1
@@ -1005,7 +1005,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @array_common(ptr noundef %jw) unnamed_addr #2 {
 entry:
-  %len.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %0 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -1015,7 +1015,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %buf.i = getelementptr inbounds i8, ptr %jw, i64 40
+  %buf.i = getelementptr inbounds nuw i8, ptr %jw, i64 40
   %1 = load ptr, ptr %buf.i, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx.i = getelementptr i8, ptr %2, i64 -1
@@ -1028,7 +1028,7 @@ if.then5.i:                                       ; preds = %if.end.i
   unreachable
 
 assert_in_array.exit:                             ; preds = %if.end.i
-  %need_comma.i = getelementptr inbounds i8, ptr %jw, i64 48
+  %need_comma.i = getelementptr inbounds nuw i8, ptr %jw, i64 48
   %bf.load.i = load i8, ptr %need_comma.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i5 = icmp eq i8 %bf.clear.i, 0
@@ -1040,7 +1040,7 @@ if.then.i6:                                       ; preds = %assert_in_array.exi
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %if.then.i6
-  %len.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %5 = load i64, ptr %len.i.i.i, align 8
   %.neg.i.i = add i64 %5, 1
   %tobool.not.i.i = icmp eq i64 %4, %.neg.i.i
@@ -1048,7 +1048,7 @@ strbuf_avail.exit.i.i:                            ; preds = %if.then.i6
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.then.i6
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i.i = load i64, ptr %len.phi.trans.insert.i.i, align 8
   %.pre8.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
@@ -1056,9 +1056,9 @@ if.then.i.i:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
   %6 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %5, %strbuf_avail.exit.i.i ]
-  %buf.i.i = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %7 = load ptr, ptr %buf.i.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i.i, ptr %len.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 %6
   store i8 44, ptr %arrayidx.i.i, align 1
@@ -1086,7 +1086,7 @@ if.then:                                          ; preds = %maybe_add_comma.exi
   br i1 %tobool.not.i.i8, label %if.then.i15, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.then
-  %len.i.i9 = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i9 = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %12 = load i64, ptr %len.i.i9, align 8
   %.neg.i = add i64 %12, 1
   %tobool.not.i10 = icmp eq i64 %11, %.neg.i
@@ -1094,7 +1094,7 @@ strbuf_avail.exit.i:                              ; preds = %if.then
 
 if.then.i15:                                      ; preds = %strbuf_avail.exit.i, %if.then
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -1102,9 +1102,9 @@ if.then.i15:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i15
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i15 ], [ %.neg.i, %strbuf_avail.exit.i ]
   %13 = phi i64 [ %.pre.i, %if.then.i15 ], [ %12, %strbuf_avail.exit.i ]
-  %buf.i12 = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i12 = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %14 = load ptr, ptr %buf.i12, align 8
-  %len.i13 = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i13 = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i13, align 8
   %arrayidx.i14 = getelementptr inbounds i8, ptr %14, i64 %13
   store i8 10, ptr %arrayidx.i14, align 1
@@ -1152,7 +1152,7 @@ if.then.i:                                        ; preds = %entry
 if.else.i:                                        ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fmt.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.append_sub_jw.sb.19, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %fmt.i, ptr noundef nonnull @.str.17, i32 noundef %precision) #8
-  %buf.i = getelementptr inbounds i8, ptr %fmt.i, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %fmt.i, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %jw, ptr noundef %0, double noundef %value) #8
   call void @strbuf_release(ptr noundef nonnull %fmt.i) #8
@@ -1209,13 +1209,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @jw_array_sub_jw(ptr noundef %jw, ptr noundef %value) local_unnamed_addr #2 {
 entry:
-  %len.i = getelementptr inbounds i8, ptr %value, i64 32
+  %len.i = getelementptr inbounds nuw i8, ptr %value, i64 32
   %0 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %assert_is_terminated.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %buf.i = getelementptr inbounds i8, ptr %value, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %value, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 150, ptr noundef nonnull @.str.18, ptr noundef %1) #9
   unreachable
@@ -1238,7 +1238,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   tail call fastcc void @array_common(ptr noundef %jw)
   tail call fastcc void @append_quoted_string(ptr noundef %jw, ptr noundef readonly %0)
@@ -1260,7 +1260,7 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %1 = phi ptr [ %2, %while.body ], [ %0, %entry ]
   %argv.addr.03 = phi ptr [ %incdec.ptr, %while.body ], [ %argv, %entry ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.03, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %argv.addr.03, i64 8
   tail call fastcc void @array_common(ptr noundef %jw)
   tail call fastcc void @append_quoted_string(ptr noundef %jw, ptr noundef nonnull readonly %1)
   %2 = load ptr, ptr %incdec.ptr, align 8
@@ -1280,7 +1280,7 @@ entry:
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i, label %strbuf_avail.exit.i.i.i
 
 strbuf_avail.exit.i.i.i:                          ; preds = %entry
-  %len.i.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %1 = load i64, ptr %len.i.i.i.i, align 8
   %.neg.i.i.i = add i64 %1, 1
   %tobool.not.i.i.i = icmp eq i64 %0, %.neg.i.i.i
@@ -1288,7 +1288,7 @@ strbuf_avail.exit.i.i.i:                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %strbuf_avail.exit.i.i.i, %entry
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i.i.i = load i64, ptr %len.phi.trans.insert.i.i.i, align 8
   %.pre8.i.i.i = add i64 %.pre.i.i.i, 1
   br label %strbuf_addch.exit.i.i
@@ -1296,9 +1296,9 @@ if.then.i.i.i:                                    ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %strbuf_avail.exit.i.i.i
   %inc.pre-phi.i.i.i = phi i64 [ %.pre8.i.i.i, %if.then.i.i.i ], [ %.neg.i.i.i, %strbuf_avail.exit.i.i.i ]
   %2 = phi i64 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %strbuf_avail.exit.i.i.i ]
-  %buf.i.i.i = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %3 = load ptr, ptr %buf.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i.i.i, ptr %len.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %2
   store i8 123, ptr %arrayidx.i.i.i, align 1
@@ -1306,13 +1306,13 @@ strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %str
   %5 = load i64, ptr %len.i.i.i, align 8
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %4, i64 %5
   store i8 0, ptr %arrayidx3.i.i.i, align 1
-  %open_stack.i.i = getelementptr inbounds i8, ptr %jw, i64 24
+  %open_stack.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 24
   %6 = load i64, ptr %open_stack.i.i, align 8
   %tobool.not.i.i5.i.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i.i5.i.i, label %if.then.i15.i.i, label %strbuf_avail.exit.i6.i.i
 
 strbuf_avail.exit.i6.i.i:                         ; preds = %strbuf_addch.exit.i.i
-  %len.i.i7.i.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i.i7.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %7 = load i64, ptr %len.i.i7.i.i, align 8
   %.neg.i8.i.i = add i64 %7, 1
   %tobool.not.i9.i.i = icmp eq i64 %6, %.neg.i8.i.i
@@ -1320,7 +1320,7 @@ strbuf_avail.exit.i6.i.i:                         ; preds = %strbuf_addch.exit.i
 
 if.then.i15.i.i:                                  ; preds = %strbuf_avail.exit.i6.i.i, %strbuf_addch.exit.i.i
   tail call void @strbuf_grow(ptr noundef nonnull %open_stack.i.i, i64 noundef 1) #8
-  %len.phi.trans.insert.i16.i.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.phi.trans.insert.i16.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %.pre.i17.i.i = load i64, ptr %len.phi.trans.insert.i16.i.i, align 8
   %.pre8.i18.i.i = add i64 %.pre.i17.i.i, 1
   br label %jw_object_begin.exit
@@ -1328,10 +1328,10 @@ if.then.i15.i.i:                                  ; preds = %strbuf_avail.exit.i
 jw_object_begin.exit:                             ; preds = %strbuf_avail.exit.i6.i.i, %if.then.i15.i.i
   %inc.pre-phi.i10.i.i = phi i64 [ %.pre8.i18.i.i, %if.then.i15.i.i ], [ %.neg.i8.i.i, %strbuf_avail.exit.i6.i.i ]
   %8 = phi i64 [ %.pre.i17.i.i, %if.then.i15.i.i ], [ %7, %strbuf_avail.exit.i6.i.i ]
-  %pretty = getelementptr inbounds i8, ptr %jw, i64 48
-  %buf.i11.i.i = getelementptr inbounds i8, ptr %jw, i64 40
+  %pretty = getelementptr inbounds nuw i8, ptr %jw, i64 48
+  %buf.i11.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 40
   %9 = load ptr, ptr %buf.i11.i.i, align 8
-  %len.i12.i.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i12.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   store i64 %inc.pre-phi.i10.i.i, ptr %len.i12.i.i, align 8
   %arrayidx.i13.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 123, ptr %arrayidx.i13.i.i, align 1
@@ -1354,7 +1354,7 @@ entry:
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i, label %strbuf_avail.exit.i.i.i
 
 strbuf_avail.exit.i.i.i:                          ; preds = %entry
-  %len.i.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %1 = load i64, ptr %len.i.i.i.i, align 8
   %.neg.i.i.i = add i64 %1, 1
   %tobool.not.i.i.i = icmp eq i64 %0, %.neg.i.i.i
@@ -1362,7 +1362,7 @@ strbuf_avail.exit.i.i.i:                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %strbuf_avail.exit.i.i.i, %entry
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i.i.i = load i64, ptr %len.phi.trans.insert.i.i.i, align 8
   %.pre8.i.i.i = add i64 %.pre.i.i.i, 1
   br label %strbuf_addch.exit.i.i
@@ -1370,9 +1370,9 @@ if.then.i.i.i:                                    ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %strbuf_avail.exit.i.i.i
   %inc.pre-phi.i.i.i = phi i64 [ %.pre8.i.i.i, %if.then.i.i.i ], [ %.neg.i.i.i, %strbuf_avail.exit.i.i.i ]
   %2 = phi i64 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %strbuf_avail.exit.i.i.i ]
-  %buf.i.i.i = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %3 = load ptr, ptr %buf.i.i.i, align 8
-  %len.i.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i.i.i, ptr %len.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %2
   store i8 91, ptr %arrayidx.i.i.i, align 1
@@ -1380,13 +1380,13 @@ strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %str
   %5 = load i64, ptr %len.i.i.i, align 8
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %4, i64 %5
   store i8 0, ptr %arrayidx3.i.i.i, align 1
-  %open_stack.i.i = getelementptr inbounds i8, ptr %jw, i64 24
+  %open_stack.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 24
   %6 = load i64, ptr %open_stack.i.i, align 8
   %tobool.not.i.i5.i.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i.i5.i.i, label %if.then.i15.i.i, label %strbuf_avail.exit.i6.i.i
 
 strbuf_avail.exit.i6.i.i:                         ; preds = %strbuf_addch.exit.i.i
-  %len.i.i7.i.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i.i7.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %7 = load i64, ptr %len.i.i7.i.i, align 8
   %.neg.i8.i.i = add i64 %7, 1
   %tobool.not.i9.i.i = icmp eq i64 %6, %.neg.i8.i.i
@@ -1394,7 +1394,7 @@ strbuf_avail.exit.i6.i.i:                         ; preds = %strbuf_addch.exit.i
 
 if.then.i15.i.i:                                  ; preds = %strbuf_avail.exit.i6.i.i, %strbuf_addch.exit.i.i
   tail call void @strbuf_grow(ptr noundef nonnull %open_stack.i.i, i64 noundef 1) #8
-  %len.phi.trans.insert.i16.i.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.phi.trans.insert.i16.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %.pre.i17.i.i = load i64, ptr %len.phi.trans.insert.i16.i.i, align 8
   %.pre8.i18.i.i = add i64 %.pre.i17.i.i, 1
   br label %jw_array_begin.exit
@@ -1402,10 +1402,10 @@ if.then.i15.i.i:                                  ; preds = %strbuf_avail.exit.i
 jw_array_begin.exit:                              ; preds = %strbuf_avail.exit.i6.i.i, %if.then.i15.i.i
   %inc.pre-phi.i10.i.i = phi i64 [ %.pre8.i18.i.i, %if.then.i15.i.i ], [ %.neg.i8.i.i, %strbuf_avail.exit.i6.i.i ]
   %8 = phi i64 [ %.pre.i17.i.i, %if.then.i15.i.i ], [ %7, %strbuf_avail.exit.i6.i.i ]
-  %pretty = getelementptr inbounds i8, ptr %jw, i64 48
-  %buf.i11.i.i = getelementptr inbounds i8, ptr %jw, i64 40
+  %pretty = getelementptr inbounds nuw i8, ptr %jw, i64 48
+  %buf.i11.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 40
   %9 = load ptr, ptr %buf.i11.i.i, align 8
-  %len.i12.i.i = getelementptr inbounds i8, ptr %jw, i64 32
+  %len.i12.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 32
   store i64 %inc.pre-phi.i10.i.i, ptr %len.i12.i.i, align 8
   %arrayidx.i13.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 91, ptr %arrayidx.i13.i.i, align 1
@@ -1422,7 +1422,7 @@ jw_array_begin.exit:                              ; preds = %strbuf_avail.exit.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @jw_is_terminated(ptr nocapture noundef readonly %jw) local_unnamed_addr #4 {
 entry:
-  %len = getelementptr inbounds i8, ptr %jw, i64 32
+  %len = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %0 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %0, 0
   %lnot.ext = zext i1 %tobool.not to i32
@@ -1432,20 +1432,20 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @jw_end(ptr noundef %jw) local_unnamed_addr #2 {
 entry:
-  %len1 = getelementptr inbounds i8, ptr %jw, i64 32
+  %len1 = getelementptr inbounds nuw i8, ptr %jw, i64 32
   %0 = load i64, ptr %len1, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %buf = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %1 = load ptr, ptr %buf, align 8
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 395, ptr noundef nonnull @.str.5, ptr noundef %1) #9
   unreachable
 
 if.end:                                           ; preds = %entry
-  %open_stack = getelementptr inbounds i8, ptr %jw, i64 24
-  %buf5 = getelementptr inbounds i8, ptr %jw, i64 40
+  %open_stack = getelementptr inbounds nuw i8, ptr %jw, i64 24
+  %buf5 = getelementptr inbounds nuw i8, ptr %jw, i64 40
   %2 = load ptr, ptr %buf5, align 8
   %conv = shl i64 %0, 32
   %sext = add i64 %conv, -4294967296
@@ -1471,7 +1471,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4.i
-  %need_comma = getelementptr inbounds i8, ptr %jw, i64 48
+  %need_comma = getelementptr inbounds nuw i8, ptr %jw, i64 48
   %bf.load = load i8, ptr %need_comma, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %need_comma, align 8
@@ -1485,7 +1485,7 @@ if.then11:                                        ; preds = %strbuf_setlen.exit
   br i1 %tobool.not.i.i, label %if.then.i15, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.then11
-  %len.i.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %7 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %7, 1
   %tobool.not.i = icmp eq i64 %6, %.neg.i
@@ -1493,7 +1493,7 @@ strbuf_avail.exit.i:                              ; preds = %if.then11
 
 if.then.i15:                                      ; preds = %strbuf_avail.exit.i, %if.then11
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -1501,9 +1501,9 @@ if.then.i15:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i15
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i15 ], [ %.neg.i, %strbuf_avail.exit.i ]
   %8 = phi i64 [ %.pre.i, %if.then.i15 ], [ %7, %strbuf_avail.exit.i ]
-  %buf.i13 = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i13 = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %9 = load ptr, ptr %buf.i13, align 8
-  %len.i = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i14 = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 10, ptr %arrayidx.i14, align 1
@@ -1533,7 +1533,7 @@ if.then16:                                        ; preds = %if.end13
   br i1 %tobool.not.i.i19, label %if.end19.sink.split, label %strbuf_avail.exit.i20
 
 strbuf_avail.exit.i20:                            ; preds = %if.then16
-  %len.i.i21 = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i21 = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %15 = load i64, ptr %len.i.i21, align 8
   %.neg.i22 = add i64 %15, 1
   %tobool.not.i23 = icmp eq i64 %14, %.neg.i22
@@ -1543,7 +1543,7 @@ if.else:                                          ; preds = %if.end13
   br i1 %tobool.not.i.i19, label %if.end19.sink.split, label %strbuf_avail.exit.i36
 
 strbuf_avail.exit.i36:                            ; preds = %if.else
-  %len.i.i37 = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i.i37 = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %16 = load i64, ptr %len.i.i37, align 8
   %.neg.i38 = add i64 %16, 1
   %tobool.not.i39 = icmp eq i64 %14, %.neg.i38
@@ -1552,7 +1552,7 @@ strbuf_avail.exit.i36:                            ; preds = %if.else
 if.end19.sink.split:                              ; preds = %if.else, %strbuf_avail.exit.i36, %if.then16, %strbuf_avail.exit.i20
   %.sink.ph = phi i8 [ 125, %strbuf_avail.exit.i20 ], [ 125, %if.then16 ], [ 93, %strbuf_avail.exit.i36 ], [ 93, %if.else ]
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i47 = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.phi.trans.insert.i47 = getelementptr inbounds nuw i8, ptr %jw, i64 8
   %.pre.i48 = load i64, ptr %len.phi.trans.insert.i47, align 8
   %.pre8.i49 = add i64 %.pre.i48, 1
   br label %if.end19
@@ -1561,9 +1561,9 @@ if.end19:                                         ; preds = %if.end19.sink.split
   %inc.pre-phi.i41.sink = phi i64 [ %.neg.i22, %strbuf_avail.exit.i20 ], [ %.neg.i38, %strbuf_avail.exit.i36 ], [ %.pre8.i49, %if.end19.sink.split ]
   %.sink53 = phi i64 [ %15, %strbuf_avail.exit.i20 ], [ %16, %strbuf_avail.exit.i36 ], [ %.pre.i48, %if.end19.sink.split ]
   %.sink = phi i8 [ 125, %strbuf_avail.exit.i20 ], [ 93, %strbuf_avail.exit.i36 ], [ %.sink.ph, %if.end19.sink.split ]
-  %buf.i42 = getelementptr inbounds i8, ptr %jw, i64 16
+  %buf.i42 = getelementptr inbounds nuw i8, ptr %jw, i64 16
   %17 = load ptr, ptr %buf.i42, align 8
-  %len.i43 = getelementptr inbounds i8, ptr %jw, i64 8
+  %len.i43 = getelementptr inbounds nuw i8, ptr %jw, i64 8
   store i64 %inc.pre-phi.i41.sink, ptr %len.i43, align 8
   %arrayidx.i44 = getelementptr inbounds i8, ptr %17, i64 %.sink53
   store i8 %.sink, ptr %arrayidx.i44, align 1

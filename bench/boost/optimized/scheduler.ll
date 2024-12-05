@@ -76,14 +76,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost6fibers9scheduler19release_terminated_Ev(ptr noundef nonnull align 8 dereferenceable(137) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %.not.i.i3 = icmp eq ptr %3, null
   br i1 %.not.i.i3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZN5boost6fibers21intrusive_ptr_releaseEPNS0_7contextE.exit
@@ -164,14 +164,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 define void @_ZN5boost6fibers9scheduler19remote_ready2ready_Ev(ptr noundef nonnull align 8 dereferenceable(137) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::intrusive::slist", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #21
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 16, i1 false)
   store ptr %3, ptr %4, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5boost6fibers6detail13spinlock_ttas4lockEv(ptr noundef nonnull align 4 dereferenceable(4) %5) #21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %.not.i.i.i.i = icmp eq ptr %8, null
   %9 = load ptr, ptr %3, align 8, !tbaa !3
@@ -187,11 +187,11 @@ define void @_ZN5boost6fibers9scheduler19remote_ready2ready_Ev(ptr noundef nonnu
   %.023.i.i = phi i1 [ true, %10 ], [ %.not.i.i24.i.i, %1 ]
   %.022.i.i = phi ptr [ %6, %10 ], [ %2, %1 ]
   %.0.i.i = phi ptr [ %2, %10 ], [ %6, %1 ]
-  %14 = getelementptr inbounds i8, ptr %.022.i.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !11
-  %16 = getelementptr inbounds i8, ptr %.022.i.i, i64 8
-  %17 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %18 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.022.i.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %.not.i.i.i = icmp eq ptr %2, %6
   %.not17.i.i.i = icmp eq ptr %16, %19
@@ -276,7 +276,7 @@ _ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers7contextENS0_17slist_mem
 _ZN5boost6fibers9scheduler8scheduleEPNS0_7contextE.exit: ; preds = %_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers7contextENS0_17slist_member_hookIJNS0_3tagINS3_6detail16remote_ready_tagEEENS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_18remote_ready_hook_EEEEEmLm7EvE9pop_frontEv.exit, %43
   %44 = load ptr, ptr %31, align 8, !tbaa !20
   %45 = load ptr, ptr %44, align 8, !tbaa !15
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull %36) #21
   %48 = load ptr, ptr %3, align 8, !tbaa !3
@@ -315,7 +315,7 @@ define void @_ZN5boost6fibers9scheduler8scheduleEPNS0_7contextE(ptr nocapture no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = load ptr, ptr %7, align 8, !tbaa !15
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %1) #21
   ret void
@@ -444,8 +444,8 @@ define void @_ZN5boost6fibers9schedulerC2ENS_13intrusive_ptrINS0_4algo9algorithm
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %3, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
   store ptr %5, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -471,8 +471,8 @@ define void @_ZN5boost6fibers9schedulerC2ENS_13intrusive_ptrINS0_4algo9algorithm
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %16, ptr %17, align 8, !tbaa !48
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 16, i1 false)
   store ptr %19, ptr %20, align 8, !tbaa !11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -591,7 +591,7 @@ _ZN5boost13intrusive_ptrINS_6fibers7contextEE5resetEv.exit: ; preds = %7, %17, %
 
 _ZN5boost13intrusive_ptrINS_6fibers7contextEED2Ev.exit: ; preds = %_ZN5boost13intrusive_ptrINS_6fibers7contextEE5resetEv.exit.thread, %_ZN5boost13intrusive_ptrINS_6fibers7contextEE5resetEv.exit, %28, %38, %40
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %49 = getelementptr inbounds i8, ptr %0, i64 104
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %50 = load ptr, ptr %49, align 8, !tbaa !3
   %.not11.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not11.i.i.i.i.i, label %_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers7contextENS0_17slist_member_hookIJNS0_3tagINS3_6detail14terminated_tagEEENS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_16terminated_hook_EEEEEmLm7EvED2Ev.exit, label %.lr.ph.i.i.i.i.i
@@ -604,7 +604,7 @@ _ZN5boost13intrusive_ptrINS_6fibers7contextEED2Ev.exit: ; preds = %_ZN5boost13in
   br i1 %.not.i.i.i.i.i, label %_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers7contextENS0_17slist_member_hookIJNS0_3tagINS3_6detail14terminated_tagEEENS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_16terminated_hook_EEEEEmLm7EvED2Ev.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !78
 
 _ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers7contextENS0_17slist_member_hookIJNS0_3tagINS3_6detail14terminated_tagEEENS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_16terminated_hook_EEEEEmLm7EvED2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5boost13intrusive_ptrINS_6fibers7contextEED2Ev.exit
-  %52 = getelementptr inbounds i8, ptr %0, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %48, align 8
   store ptr %49, ptr %52, align 8, !tbaa !11
   store ptr null, ptr %49, align 8, !tbaa !3
@@ -668,13 +668,13 @@ _ZN5boost9intrusive7bstbaseINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_ho
 73:                                               ; preds = %69
   fence acquire
   %74 = load ptr, ptr %68, align 8, !tbaa !15
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
   tail call void %76(ptr noundef nonnull align 8 dereferenceable(16) %68) #21
   br label %_ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEED2Ev.exit
 
 _ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEED2Ev.exit: ; preds = %_ZN5boost9intrusive7bstbaseINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessELb0EmLNS0_10algo_typesE5EvED2Ev.exit, %69, %73
-  %77 = getelementptr inbounds i8, ptr %0, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %78 = load ptr, ptr %77, align 8, !tbaa !3
   %.not11.i.i.i.i.i6 = icmp eq ptr %78, null
   br i1 %.not11.i.i.i.i.i6, label %_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers7contextENS0_17slist_member_hookIJNS0_3tagINS3_6detail16remote_ready_tagEEENS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_18remote_ready_hook_EEEEEmLm7EvED2Ev.exit, label %.lr.ph.i.i.i.i.i7
@@ -688,7 +688,7 @@ _ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEED2Ev.exit: ; preds = %_ZN5bo
 
 _ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers7contextENS0_17slist_member_hookIJNS0_3tagINS3_6detail16remote_ready_tagEEENS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_18remote_ready_hook_EEEEEmLm7EvED2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i7, %_ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEED2Ev.exit
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %81 = getelementptr inbounds i8, ptr %0, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %80, align 8
   store ptr %77, ptr %81, align 8, !tbaa !11
   store ptr null, ptr %77, align 8, !tbaa !3
@@ -724,11 +724,11 @@ define void @_ZN5boost6fibers9scheduler8dispatchEv(ptr dead_on_unwind noalias wr
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %13 = getelementptr inbounds i8, ptr %1, i64 112
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -736,7 +736,7 @@ define void @_ZN5boost6fibers9scheduler8dispatchEv(ptr dead_on_unwind noalias wr
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5boost6fibers6detail13spinlock_ttas4lockEvE9generator)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.not.i.i.i.i = icmp eq ptr %6, %22
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -752,7 +752,7 @@ define void @_ZN5boost6fibers9scheduler8dispatchEv(ptr dead_on_unwind noalias wr
 31:                                               ; preds = %28
   %32 = load ptr, ptr %9, align 8, !tbaa !20
   %33 = load ptr, ptr %32, align 8, !tbaa !15
-  %34 = getelementptr inbounds i8, ptr %33, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(16) %32) #21
   %36 = load ptr, ptr %10, align 8, !tbaa !46
@@ -1012,11 +1012,11 @@ _ZN5boost6fibers6detail13spinlock_ttas4lockEv.exit: ; preds = %._crit_edge.i
   %.023.i.i.i = phi i1 [ true, %121 ], [ %.not.i.i24.i.i.i, %_ZN5boost6fibers6detail13spinlock_ttas4lockEv.exit ]
   %.022.i.i.i = phi ptr [ %22, %121 ], [ %6, %_ZN5boost6fibers6detail13spinlock_ttas4lockEv.exit ]
   %.0.i.i.i = phi ptr [ %6, %121 ], [ %22, %_ZN5boost6fibers6detail13spinlock_ttas4lockEv.exit ]
-  %125 = getelementptr inbounds i8, ptr %.022.i.i.i, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.022.i.i.i, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !11
-  %127 = getelementptr inbounds i8, ptr %.022.i.i.i, i64 8
-  %128 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
-  %129 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %.022.i.i.i, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %130 = load ptr, ptr %129, align 8, !tbaa !11
   %.not17.i.i.i.i = icmp eq ptr %127, %130
   %or.cond.i.i.i.i = or i1 %.not.i.i.i.i, %.not17.i.i.i.i
@@ -1096,7 +1096,7 @@ _ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers7contextENS0_17slist_mem
 _ZN5boost6fibers9scheduler8scheduleEPNS0_7contextE.exit.i: ; preds = %152, %_ZN5boost9intrusive10slist_implINS0_8mhtraitsINS_6fibers7contextENS0_17slist_member_hookIJNS0_3tagINS3_6detail16remote_ready_tagEEENS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_18remote_ready_hook_EEEEEmLm7EvE9pop_frontEv.exit.i
   %153 = load ptr, ptr %9, align 8, !tbaa !20
   %154 = load ptr, ptr %153, align 8, !tbaa !15
-  %155 = getelementptr inbounds i8, ptr %154, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %156 = load ptr, ptr %155, align 8
   call void %156(ptr noundef nonnull align 8 dereferenceable(16) %153, ptr noundef nonnull %145) #21
   %157 = load ptr, ptr %14, align 8, !tbaa !3
@@ -1356,7 +1356,7 @@ _ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_memb
 _ZN5boost6fibers9scheduler12sleep2ready_Ev.exit:  ; preds = %.lr.ph.i6, %_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i, %_ZN5boost6fibers9scheduler19remote_ready2ready_Ev.exit
   %235 = load ptr, ptr %9, align 8, !tbaa !20
   %236 = load ptr, ptr %235, align 8, !tbaa !15
-  %237 = getelementptr inbounds i8, ptr %236, i64 24
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %238 = load ptr, ptr %237, align 8
   %239 = call noundef ptr %238(ptr noundef nonnull align 8 dereferenceable(16) %235) #21
   %.not = icmp eq ptr %239, null
@@ -1386,7 +1386,7 @@ _ZN5boost6fibers9scheduler12sleep2ready_Ev.exit:  ; preds = %.lr.ph.i6, %_ZN5boo
 250:                                              ; preds = %244, %242
   %251 = load ptr, ptr %9, align 8, !tbaa !20
   %252 = load ptr, ptr %251, align 8, !tbaa !15
-  %253 = getelementptr inbounds i8, ptr %252, i64 40
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 40
   %254 = load ptr, ptr %253, align 8
   call void %254(ptr noundef nonnull align 8 dereferenceable(16) %251, ptr noundef nonnull align 8 dereferenceable(8) %7) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
@@ -1421,8 +1421,8 @@ _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5boost6fibers6detail13spinlock_ttas4lockEv(ptr noundef nonnull align 4 dereferenceable(4) %2) #21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %7, ptr %4, align 8, !tbaa !3
@@ -1435,7 +1435,7 @@ _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit:
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = load ptr, ptr %11, align 8, !tbaa !15
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
   ret void
@@ -1444,8 +1444,8 @@ _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost6fibers9scheduler9terminateERSt11unique_lockINS0_6detail13spinlock_ttasEEPNS0_7contextE(ptr dead_on_unwind noalias writable sret(%"class.boost::context::fiber") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(137) %1, ptr nocapture noundef nonnull align 8 dereferenceable(9) %2, ptr noundef nonnull initializes((176, 184)) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %6 = getelementptr inbounds i8, ptr %3, i64 176
-  %7 = getelementptr inbounds i8, ptr %1, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   store ptr %9, ptr %6, align 8, !tbaa !3
@@ -1481,7 +1481,7 @@ _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEE6unlockEv.exit: ; preds
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !20
   %21 = load ptr, ptr %20, align 8, !tbaa !15
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   tail call void @_ZN5boost6fibers7context15suspend_with_ccEv(ptr dead_on_unwind writable sret(%"class.boost::context::fiber") align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %24) #21
@@ -1503,7 +1503,7 @@ define void @_ZN5boost6fibers9scheduler5yieldEPNS0_7contextE(ptr nocapture nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = load ptr, ptr %4, align 8, !tbaa !15
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   tail call void @_ZN5boost6fibers7context6resumeEPS1_(ptr noundef nonnull align 8 dereferenceable(232) %8, ptr noundef %1) #21
@@ -1517,13 +1517,13 @@ define noundef zeroext i1 @_ZN5boost6fibers9scheduler10wait_untilEPNS0_7contextE
   %6 = add i64 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %1, ptr %7, align 8, !tbaa !14
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 152
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 152
   store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %9 = load i64, ptr %2, align 8, !tbaa !29
   store i64 %9, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = getelementptr inbounds i8, ptr %1, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %storemerge20.i.i.i.i.i.i = load ptr, ptr %10, align 8, !tbaa !14, !noalias !117
   %.not21.i.i.i.i.i.i = icmp eq ptr %storemerge20.i.i.i.i.i.i, null
   br i1 %.not21.i.i.i.i.i.i, label %._crit_edge.i.i.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -1593,13 +1593,13 @@ define noundef zeroext i1 @_ZN5boost6fibers9scheduler10wait_untilEPNS0_7contextE
 38:                                               ; preds = %37, %32, %31, %26, %._crit_edge.i.i.thread.i.i.i.i
   %.019.lcssa.i.i6.i.i.i.i = phi ptr [ %.019.lcssa.i.i7.i.i.i.i, %._crit_edge.i.i.thread.i.i.i.i ], [ %storemerge23.i.i.i.i.i.i, %26 ], [ %storemerge23.i.i.i.i.i.i, %31 ], [ %storemerge23.i.i.i.i.i.i, %32 ], [ %storemerge23.i.i.i.i.i.i, %37 ]
   store ptr %.019.lcssa.i.i6.i.i.i.i, ptr %11, align 8, !tbaa !35, !noalias !117
-  %39 = getelementptr inbounds i8, ptr %1, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !noalias !117
   tail call void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_11rbtree_nodeIS3_EES8_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %11) #21, !noalias !117
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !20
   %42 = load ptr, ptr %41, align 8, !tbaa !15
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(16) %41) #21
   tail call void @_ZN5boost6fibers7context6resumeEv(ptr noundef nonnull align 8 dereferenceable(232) %45) #21
@@ -1620,7 +1620,7 @@ define noundef zeroext i1 @_ZN5boost6fibers9scheduler10wait_untilEPNS0_7contextE
   %8 = load i64, ptr %2, align 8, !tbaa !29
   store i64 %8, ptr %7, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %1, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %storemerge20.i.i.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !14, !noalias !124
   %.not21.i.i.i.i.i.i = icmp eq ptr %storemerge20.i.i.i.i.i.i, null
   br i1 %.not21.i.i.i.i.i.i, label %._crit_edge.i.i.thread.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -1690,13 +1690,13 @@ define noundef zeroext i1 @_ZN5boost6fibers9scheduler10wait_untilEPNS0_7contextE
 37:                                               ; preds = %36, %31, %30, %25, %._crit_edge.i.i.thread.i.i.i.i
   %.019.lcssa.i.i6.i.i.i.i = phi ptr [ %.019.lcssa.i.i7.i.i.i.i, %._crit_edge.i.i.thread.i.i.i.i ], [ %storemerge23.i.i.i.i.i.i, %25 ], [ %storemerge23.i.i.i.i.i.i, %30 ], [ %storemerge23.i.i.i.i.i.i, %31 ], [ %storemerge23.i.i.i.i.i.i, %36 ]
   store ptr %.019.lcssa.i.i6.i.i.i.i, ptr %10, align 8, !tbaa !35, !noalias !124
-  %38 = getelementptr inbounds i8, ptr %1, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false), !noalias !124
   tail call void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_11rbtree_nodeIS3_EES8_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %10) #21, !noalias !124
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !20
   %41 = load ptr, ptr %40, align 8, !tbaa !15
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(16) %40) #21
   tail call void @_ZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEE(ptr noundef nonnull align 8 dereferenceable(232) %44, ptr noundef nonnull align 8 dereferenceable(9) %3) #21
@@ -1714,7 +1714,7 @@ define void @_ZN5boost6fibers9scheduler7suspendEv(ptr nocapture noundef nonnull 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   tail call void @_ZN5boost6fibers7context6resumeEv(ptr noundef nonnull align 8 dereferenceable(232) %7) #21
@@ -1726,7 +1726,7 @@ define void @_ZN5boost6fibers9scheduler7suspendERSt11unique_lockINS0_6detail13sp
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = load ptr, ptr %4, align 8, !tbaa !15
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   tail call void @_ZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEE(ptr noundef nonnull align 8 dereferenceable(232) %8, ptr noundef nonnull align 8 dereferenceable(9) %1) #21
@@ -1738,7 +1738,7 @@ define noundef zeroext i1 @_ZNK5boost6fibers9scheduler16has_ready_fibersEv(ptr n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   ret i1 %7
@@ -1749,7 +1749,7 @@ define void @_ZN5boost6fibers9scheduler8set_algoENS_13intrusive_ptrINS0_4algo9al
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = load ptr, ptr %4, align 8, !tbaa !15
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -1758,16 +1758,16 @@ define void @_ZN5boost6fibers9scheduler8set_algoENS_13intrusive_ptrINS0_4algo9al
   %9 = load ptr, ptr %1, align 8, !tbaa !20
   %10 = load ptr, ptr %3, align 8, !tbaa !20
   %11 = load ptr, ptr %10, align 8, !tbaa !15
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
   %15 = load ptr, ptr %9, align 8, !tbaa !15
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %14) #21
   %18 = load ptr, ptr %3, align 8, !tbaa !20
   %19 = load ptr, ptr %18, align 8, !tbaa !15
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %18) #21
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !129
@@ -1789,7 +1789,7 @@ define void @_ZN5boost6fibers9scheduler8set_algoENS_13intrusive_ptrINS0_4algo9al
 29:                                               ; preds = %25
   fence acquire
   %30 = load ptr, ptr %24, align 8, !tbaa !15
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %24) #21
   br label %_ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEEaSEOS4_.exit
@@ -1820,7 +1820,7 @@ define void @_ZN5boost6fibers9scheduler25attach_dispatcher_contextENS_13intrusiv
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = load ptr, ptr %9, align 8, !tbaa !15
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %6) #21
   ret void
@@ -1829,10 +1829,10 @@ define void @_ZN5boost6fibers9scheduler25attach_dispatcher_contextENS_13intrusiv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5boost6fibers9scheduler21attach_worker_contextEPNS0_7contextE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef initializes((184, 200)) %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = getelementptr inbounds i8, ptr %1, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !48
-  %7 = getelementptr inbounds i8, ptr %1, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store ptr %6, ptr %7, align 8, !tbaa !48
   store ptr %3, ptr %4, align 8, !tbaa !46
   store ptr %4, ptr %5, align 8, !tbaa !48

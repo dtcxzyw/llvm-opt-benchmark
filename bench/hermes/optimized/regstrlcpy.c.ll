@@ -18,9 +18,9 @@ while.cond:                                       ; preds = %entry, %while.body
   br i1 %cmp1.not, label %if.then12, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.1, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.1, i64 1
   %0 = load i8, ptr %s.1, align 1
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %d.1, i64 1
+  %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %d.1, i64 1
   store i8 %0, ptr %d.1, align 1
   %cmp3 = icmp eq i8 %0, 0
   br i1 %cmp3, label %if.end18, label %while.cond, !llvm.loop !4
@@ -35,7 +35,7 @@ while.cond14.preheader:                           ; preds = %entry, %if.then12
 
 while.cond14:                                     ; preds = %while.cond14.preheader, %while.cond14
   %s.3 = phi ptr [ %incdec.ptr15, %while.cond14 ], [ %s.3.ph, %while.cond14.preheader ]
-  %incdec.ptr15 = getelementptr inbounds i8, ptr %s.3, i64 1
+  %incdec.ptr15 = getelementptr inbounds nuw i8, ptr %s.3, i64 1
   %1 = load i8, ptr %s.3, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end18, label %while.cond14, !llvm.loop !6

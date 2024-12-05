@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(ptr %0, i64 %1, ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(8) %3) local_unnamed_addr #0 {
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %2, align 1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %.0.copyload.i.i.i.i.i.i160.i = load i64, ptr %5, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 %1
@@ -63,7 +63,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 
 34:                                               ; preds = %18
   %35 = xor i64 %27, %.0.copyload.i.i.i.i.i.i161.i
-  %36 = getelementptr inbounds i8, ptr %.0140172.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0140172.i, i64 8
   %.not.i = icmp eq ptr %36, %9
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
@@ -85,7 +85,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
   ]
 
 37:                                               ; preds = %._crit_edge.i
-  %38 = getelementptr inbounds i8, ptr %.0140.lcssa.i, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 6
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i64
   %41 = shl nuw nsw i64 %40, 48
@@ -94,7 +94,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 
 43:                                               ; preds = %37, %._crit_edge.i
   %.1.i = phi i64 [ %12, %._crit_edge.i ], [ %42, %37 ]
-  %44 = getelementptr inbounds i8, ptr %.0140.lcssa.i, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 5
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
   %47 = shl nuw nsw i64 %46, 40
@@ -103,7 +103,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 
 49:                                               ; preds = %43, %._crit_edge.i
   %.2.i = phi i64 [ %12, %._crit_edge.i ], [ %48, %43 ]
-  %50 = getelementptr inbounds i8, ptr %.0140.lcssa.i, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 4
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 32
@@ -112,7 +112,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 
 55:                                               ; preds = %49, %._crit_edge.i
   %.3.i = phi i64 [ %12, %._crit_edge.i ], [ %54, %49 ]
-  %56 = getelementptr inbounds i8, ptr %.0140.lcssa.i, i64 3
+  %56 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 3
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i64
   %59 = shl nuw nsw i64 %58, 24
@@ -121,7 +121,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 
 61:                                               ; preds = %55, %._crit_edge.i
   %.4.i = phi i64 [ %12, %._crit_edge.i ], [ %60, %55 ]
-  %62 = getelementptr inbounds i8, ptr %.0140.lcssa.i, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 2
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
   %65 = shl nuw nsw i64 %64, 16
@@ -130,7 +130,7 @@ define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(
 
 67:                                               ; preds = %61, %._crit_edge.i
   %.5.i = phi i64 [ %12, %._crit_edge.i ], [ %66, %61 ]
-  %68 = getelementptr inbounds i8, ptr %.0140.lcssa.i, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.0140.lcssa.i, i64 1
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i64
   %71 = shl nuw nsw i64 %70, 8
@@ -215,7 +215,7 @@ _ZN12_GLOBAL__N_17siphashILi2ELi4ELm8EEEvPKhmRA16_S1_RAT1__h.exit: ; preds = %98
 define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_h(ptr %0, i64 %1, ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(16) %3) local_unnamed_addr #0 {
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %2, align 1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   %.0.copyload.i.i.i.i.i.i203.i = load i64, ptr %5, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 %1
@@ -267,7 +267,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 
 34:                                               ; preds = %18
   %35 = xor i64 %27, %.0.copyload.i.i.i.i.i.i204.i
-  %36 = getelementptr inbounds i8, ptr %.0178215.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0178215.i, i64 8
   %.not.i = icmp eq ptr %36, %9
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
@@ -289,7 +289,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
   ]
 
 37:                                               ; preds = %._crit_edge.i
-  %38 = getelementptr inbounds i8, ptr %.0178.lcssa.i, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 6
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i64
   %41 = shl nuw nsw i64 %40, 48
@@ -298,7 +298,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 
 43:                                               ; preds = %37, %._crit_edge.i
   %.1.i = phi i64 [ %12, %._crit_edge.i ], [ %42, %37 ]
-  %44 = getelementptr inbounds i8, ptr %.0178.lcssa.i, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 5
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
   %47 = shl nuw nsw i64 %46, 40
@@ -307,7 +307,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 
 49:                                               ; preds = %43, %._crit_edge.i
   %.2.i = phi i64 [ %12, %._crit_edge.i ], [ %48, %43 ]
-  %50 = getelementptr inbounds i8, ptr %.0178.lcssa.i, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 4
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 32
@@ -316,7 +316,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 
 55:                                               ; preds = %49, %._crit_edge.i
   %.3.i = phi i64 [ %12, %._crit_edge.i ], [ %54, %49 ]
-  %56 = getelementptr inbounds i8, ptr %.0178.lcssa.i, i64 3
+  %56 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 3
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i64
   %59 = shl nuw nsw i64 %58, 24
@@ -325,7 +325,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 
 61:                                               ; preds = %55, %._crit_edge.i
   %.4.i = phi i64 [ %12, %._crit_edge.i ], [ %60, %55 ]
-  %62 = getelementptr inbounds i8, ptr %.0178.lcssa.i, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 2
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
   %65 = shl nuw nsw i64 %64, 16
@@ -334,7 +334,7 @@ define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_
 
 67:                                               ; preds = %61, %._crit_edge.i
   %.5.i = phi i64 [ %12, %._crit_edge.i ], [ %66, %61 ]
-  %68 = getelementptr inbounds i8, ptr %.0178.lcssa.i, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.0178.lcssa.i, i64 1
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i64
   %71 = shl nuw nsw i64 %70, 8
@@ -442,7 +442,7 @@ default.unreachable:                              ; preds = %._crit_edge.i
 _ZN12_GLOBAL__N_17siphashILi2ELi4ELm16EEEvPKhmRA16_S1_RAT1__h.exit: ; preds = %118
   %134 = xor i64 %131, %132
   %135 = xor i64 %134, %127
-  %136 = getelementptr inbounds i8, ptr %3, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %136, i64 1) ]
   store i64 %135, ptr %136, align 1
   ret void

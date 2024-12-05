@@ -96,7 +96,7 @@ define internal noundef range(i32 -19, 1) i32 @via_rng_init(ptr nocapture readno
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %4, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %9 = load i8, ptr %8, align 2
   %10 = icmp ugt i8 %9, 14
   br i1 %10, label %13, label %17
@@ -130,13 +130,13 @@ define internal noundef range(i32 -19, 1) i32 @via_rng_init(ptr nocapture readno
   %27 = trunc nuw i64 %26 to i32
   %28 = and i32 %25, -8380752
   %29 = or disjoint i32 %28, 320
-  %30 = getelementptr inbounds i8, ptr %4, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %31 = load i8, ptr %30, align 2
   %32 = icmp eq i8 %31, 9
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %4, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %35 = load i8, ptr %34, align 1
   %36 = icmp ugt i8 %35, 7
   %37 = or i32 %28, 832
@@ -226,7 +226,7 @@ define internal range(i32 0, 2) i32 @via_rng_data_present(ptr nocapture noundef 
   %.us-phi = phi i32 [ %8, %.split.us ], [ 0, %14 ], [ 1, %.split ]
   %17 = load i32, ptr %3, align 16
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %18, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   ret i32 %.us-phi
@@ -234,7 +234,7 @@ define internal range(i32 0, 2) i32 @via_rng_data_present(ptr nocapture noundef 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @via_rng_data_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   store i32 %5, ptr %1, align 4

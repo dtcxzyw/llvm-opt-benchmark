@@ -50,10 +50,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @netfs_alloc_request(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4) local_unnamed_addr #0 align 16 {
   %6 = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %8 = select i1 %6, ptr %0, ptr %7
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 600
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 600
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
@@ -64,60 +64,60 @@ define dso_local ptr @netfs_alloc_request(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %17, label %83, label %18
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %16, i64 296
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 296
   store i64 %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 256
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 256
   store i64 %3, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 264
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 264
   store i64 %3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 282
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 282
   store i8 %4, ptr %22, align 2
   %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %16, i64 328
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 328
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %16, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %16, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %9, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %16, i64 288
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 288
   store i64 %28, ptr %29, align 8
   %30 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @netfs_alloc_request.debug_ids, i32 1, ptr nonnull elementtype(i32) @netfs_alloc_request.debug_ids) #7, !srcloc !6
   %31 = add i32 %30, 1
-  %32 = getelementptr inbounds i8, ptr %16, i64 220
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 220
   store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %16, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 104
   store volatile ptr %33, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %16, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store volatile ptr %33, ptr %34, align 8
   store i64 68719476704, ptr %16, align 8
-  %35 = getelementptr inbounds i8, ptr %16, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store volatile ptr %35, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %16, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store volatile ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %16, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %16, i64 312
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 312
   store volatile i32 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %16, i64 320
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %39, i64 5) #7, !srcloc !7
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 320
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %39, i64 5) #7, !srcloc !7
   br i1 %6, label %46, label %40
 
 40:                                               ; preds = %18
-  %41 = getelementptr inbounds i8, ptr %1, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 2048
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %40
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %39, i64 9) #7, !srcloc !7
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %39, i64 9) #7, !srcloc !7
   br label %46
 
 46:                                               ; preds = %45, %40, %18
   %47 = load ptr, ptr %24, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %57, label %51
@@ -155,7 +155,7 @@ define dso_local ptr @netfs_alloc_request(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %67, label %72, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @__SCT__tp_func_netfs_rreq_ref(ptr noundef %70, i32 noundef %58, i32 noundef 1, i8 noundef signext 10) #7
   br label %72
@@ -176,10 +176,10 @@ define dso_local ptr @netfs_alloc_request(ptr noundef %0, ptr noundef %1, i64 no
 
 79:                                               ; preds = %76, %72, %59, %57
   tail call void @_raw_spin_lock(ptr noundef nonnull @netfs_proc_lock) #7
-  %80 = getelementptr inbounds i8, ptr %16, i64 88
+  %80 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %81 = load ptr, ptr getelementptr inbounds (i8, ptr @netfs_io_requests, i64 8), align 8
   store ptr @netfs_io_requests, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %16, i64 96
+  %82 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %81, ptr %82, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
   store volatile ptr %80, ptr %81, align 8
@@ -197,8 +197,8 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @netfs_get_request(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 312
-  %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 1, ptr elementtype(i32) %3) #7, !srcloc !18
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, i32 1, ptr nonnull elementtype(i32) %3) #7, !srcloc !18
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %._crit_edge, label %6, !prof !19
 
@@ -211,12 +211,12 @@ define dso_local void @netfs_get_request(ptr noundef %0, i8 noundef signext %1) 
 ._crit_edge:                                      ; preds = %2, %6
   %.pre.pre-phi = phi i32 [ %7, %6 ], [ 1, %2 ]
   %10 = phi i32 [ 1, %6 ], [ 2, %2 ]
-  tail call void @refcount_warn_saturate(ptr noundef %3, i32 noundef %10) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %3, i32 noundef %10) #7
   br label %11
 
 11:                                               ; preds = %._crit_edge, %6
   %.pre-phi = phi i32 [ %.pre.pre-phi, %._crit_edge ], [ %7, %6 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 220
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %13 = load i32, ptr %12, align 4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_netfs_rreq_ref, i64 8), i32 2) #7
           to label %34 [label %14], !srcloc !8
@@ -238,7 +238,7 @@ define dso_local void @netfs_get_request(ptr noundef %0, i8 noundef signext %1) 
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @__SCT__tp_func_netfs_rreq_ref(ptr noundef %25, i32 noundef %13, i32 noundef %.pre-phi, i8 noundef signext %1) #7
   br label %27
@@ -263,7 +263,7 @@ define dso_local void @netfs_get_request(ptr noundef %0, i8 noundef signext %1) 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @netfs_clear_subrequests(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %.loopexit, label %.preheader
@@ -271,10 +271,10 @@ define dso_local void @netfs_clear_subrequests(ptr noundef %0, i1 noundef zeroex
 .preheader:                                       ; preds = %2, %49
   %6 = phi ptr [ %50, %49 ], [ %4, %2 ]
   %7 = getelementptr i8, ptr %6, i64 -40
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %9, ptr %11, align 8
   store volatile ptr %10, ptr %9, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
@@ -283,7 +283,7 @@ define dso_local void @netfs_clear_subrequests(ptr noundef %0, i1 noundef zeroex
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 220
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 220
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr i8, ptr %6, i64 80
   %19 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18, i32 -1, ptr elementtype(i32) %18) #7, !srcloc !20
@@ -324,7 +324,7 @@ define dso_local void @netfs_clear_subrequests(ptr noundef %0, i1 noundef zeroex
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @__SCT__tp_func_netfs_sreq_ref(ptr noundef %38, i32 noundef %17, i32 noundef %14, i32 noundef %26, i8 noundef signext 4) #7
   br label %40
@@ -361,14 +361,14 @@ define dso_local void @netfs_clear_subrequests(ptr noundef %0, i1 noundef zeroex
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @netfs_put_subrequest(ptr noundef %0, i1 noundef zeroext %1, i8 noundef signext %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 126
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 220
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 220
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
-  %11 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 -1, ptr elementtype(i32) %10) #7, !srcloc !20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %11 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 -1, ptr nonnull elementtype(i32) %10) #7, !srcloc !20
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %14
 
@@ -381,7 +381,7 @@ define dso_local void @netfs_put_subrequest(ptr noundef %0, i1 noundef zeroext %
   br i1 %15, label %17, label %16, !prof !15
 
 16:                                               ; preds = %14
-  tail call void @refcount_warn_saturate(ptr noundef %10, i32 noundef 3) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %10, i32 noundef 3) #7
   br label %17
 
 17:                                               ; preds = %16, %14, %13
@@ -406,7 +406,7 @@ define dso_local void @netfs_put_subrequest(ptr noundef %0, i1 noundef zeroext %
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @__SCT__tp_func_netfs_sreq_ref(ptr noundef %30, i32 noundef %9, i32 noundef %6, i32 noundef %18, i8 noundef signext %2) #7
   br label %32
@@ -442,10 +442,10 @@ define dso_local void @netfs_put_request(ptr noundef %0, i1 noundef zeroext %1, 
   br i1 %4, label %45, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 220
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 312
-  %9 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8, i32 -1, ptr elementtype(i32) %8) #7, !srcloc !20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %9 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8, i32 -1, ptr nonnull elementtype(i32) %8) #7, !srcloc !20
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %12
 
@@ -458,7 +458,7 @@ define dso_local void @netfs_put_request(ptr noundef %0, i1 noundef zeroext %1, 
   br i1 %13, label %15, label %14, !prof !15
 
 14:                                               ; preds = %12
-  tail call void @refcount_warn_saturate(ptr noundef %8, i32 noundef 3) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %8, i32 noundef 3) #7
   br label %15
 
 15:                                               ; preds = %14, %12, %11
@@ -483,7 +483,7 @@ define dso_local void @netfs_put_request(ptr noundef %0, i1 noundef zeroext %1, 
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @__SCT__tp_func_netfs_rreq_ref(ptr noundef %28, i32 noundef %7, i32 noundef %16, i8 noundef signext %2) #7
   br label %30
@@ -509,7 +509,7 @@ define dso_local void @netfs_put_request(ptr noundef %0, i1 noundef zeroext %1, 
   br i1 %1, label %39, label %44
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @netfs_free_request, ptr %40, align 8
   %41 = load ptr, ptr @system_unbound_wq, align 8
   %42 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %41, ptr noundef nonnull %0) #7
@@ -550,7 +550,7 @@ define internal void @netfs_free_request(ptr noundef %0) #0 align 16 {
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @__SCT__tp_func_netfs_rreq(ptr noundef %13, ptr noundef %0, i8 noundef signext 3) #7
   br label %15
@@ -570,17 +570,17 @@ define internal void @netfs_free_request(ptr noundef %0) #0 align 16 {
   br label %22
 
 22:                                               ; preds = %19, %15, %2, %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = load volatile ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %23
   br i1 %25, label %31, label %26
 
 26:                                               ; preds = %22
   tail call void @_raw_spin_lock(ptr noundef nonnull @netfs_proc_lock) #7
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %28, ptr %30, align 8
   store volatile ptr %29, ptr %28, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %27, align 8
@@ -588,7 +588,7 @@ define internal void @netfs_free_request(ptr noundef %0) #0 align 16 {
   br label %31
 
 31:                                               ; preds = %26, %22
-  %32 = getelementptr inbounds i8, ptr %0, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %33 = load volatile ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %32
   br i1 %34, label %.loopexit11, label %.preheader
@@ -596,10 +596,10 @@ define internal void @netfs_free_request(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %31, %78
   %35 = phi ptr [ %79, %78 ], [ %33, %31 ]
   %36 = getelementptr i8, ptr %35, i64 -40
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %35, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %38, ptr %40, align 8
   store volatile ptr %39, ptr %38, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %35, align 8
@@ -608,7 +608,7 @@ define internal void @netfs_free_request(ptr noundef %0) #0 align 16 {
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
   %44 = load ptr, ptr %36, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 220
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 220
   %46 = load i32, ptr %45, align 4
   %47 = getelementptr i8, ptr %35, i64 80
   %48 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %47, i32 -1, ptr elementtype(i32) %47) #7, !srcloc !20
@@ -649,7 +649,7 @@ define internal void @netfs_free_request(ptr noundef %0) #0 align 16 {
   br i1 %64, label %69, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %63, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i32 @__SCT__tp_func_netfs_sreq_ref(ptr noundef %67, i32 noundef %46, i32 noundef %43, i32 noundef %55, i8 noundef signext 4) #7
   br label %69
@@ -681,9 +681,9 @@ define internal void @netfs_free_request(ptr noundef %0) #0 align 16 {
   br i1 %80, label %.loopexit11, label %.preheader, !llvm.loop !26
 
 .loopexit11:                                      ; preds = %78, %31
-  %81 = getelementptr inbounds i8, ptr %0, i64 328
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %87, label %86
@@ -693,30 +693,30 @@ define internal void @netfs_free_request(ptr noundef %0) #0 align 16 {
   br label %87
 
 87:                                               ; preds = %86, %.loopexit11
-  %88 = getelementptr inbounds i8, ptr %0, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %93, label %91
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr %89, align 8
-  tail call void %92(ptr noundef %88) #7
+  tail call void %92(ptr noundef nonnull %88) #7
   br label %93
 
 93:                                               ; preds = %91, %87
-  %94 = getelementptr inbounds i8, ptr %0, i64 208
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %120, label %97
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %0, i64 216
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %99 = load i32, ptr %98, align 8
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %.loopexit, label %101
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %0, i64 283
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 283
   br label %103
 
 103:                                              ; preds = %114, %101
@@ -768,9 +768,9 @@ define internal void @netfs_free_request(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @netfs_alloc_subrequest(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 328
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   %7 = select i1 %6, i32 144, i32 %5
@@ -780,23 +780,23 @@ define dso_local ptr @netfs_alloc_subrequest(ptr noundef %0) local_unnamed_addr 
   br i1 %10, label %netfs_get_request.exit, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 68719476704, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store volatile ptr %13, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store volatile ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store volatile ptr %16, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store volatile ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store volatile i32 2, ptr %18, align 8
   store ptr %0, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 312
-  %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 1, ptr elementtype(i32) %19) #7, !srcloc !18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 1, ptr nonnull elementtype(i32) %19) #7, !srcloc !18
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %._crit_edge.i, label %22, !prof !19
 
@@ -809,12 +809,12 @@ define dso_local ptr @netfs_alloc_subrequest(ptr noundef %0) local_unnamed_addr 
 ._crit_edge.i:                                    ; preds = %22, %11
   %.pre.pre-phi.i = phi i32 [ %23, %22 ], [ 1, %11 ]
   %26 = phi i32 [ 1, %22 ], [ 2, %11 ]
-  tail call void @refcount_warn_saturate(ptr noundef %19, i32 noundef %26) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %19, i32 noundef %26) #7
   br label %27
 
 27:                                               ; preds = %._crit_edge.i, %22
   %.pre-phi.i = phi i32 [ %.pre.pre-phi.i, %._crit_edge.i ], [ %23, %22 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 220
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %29 = load i32, ptr %28, align 4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_netfs_rreq_ref, i64 8), i32 2) #7
           to label %netfs_get_request.exit [label %30], !srcloc !8
@@ -836,7 +836,7 @@ define dso_local ptr @netfs_alloc_subrequest(ptr noundef %0) local_unnamed_addr 
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @__SCT__tp_func_netfs_rreq_ref(ptr noundef %41, i32 noundef %29, i32 noundef %.pre-phi.i, i8 noundef signext 1) #7
   br label %43
@@ -861,8 +861,8 @@ netfs_get_request.exit:                           ; preds = %47, %43, %30, %27, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @netfs_get_subrequest(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
-  %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 1, ptr elementtype(i32) %3) #7, !srcloc !18
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, i32 1, ptr nonnull elementtype(i32) %3) #7, !srcloc !18
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %._crit_edge, label %6, !prof !19
 
@@ -875,15 +875,15 @@ define dso_local void @netfs_get_subrequest(ptr noundef %0, i8 noundef signext %
 ._crit_edge:                                      ; preds = %2, %6
   %.pre.pre-phi = phi i32 [ %7, %6 ], [ 1, %2 ]
   %10 = phi i32 [ 1, %6 ], [ 2, %2 ]
-  tail call void @refcount_warn_saturate(ptr noundef %3, i32 noundef %10) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %3, i32 noundef %10) #7
   br label %11
 
 11:                                               ; preds = %._crit_edge, %6
   %.pre-phi = phi i32 [ %.pre.pre-phi, %._crit_edge ], [ %7, %6 ]
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 220
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 220
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 126
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_netfs_sreq_ref, i64 8), i32 2) #7
@@ -906,7 +906,7 @@ define dso_local void @netfs_get_subrequest(ptr noundef %0, i8 noundef signext %
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @__SCT__tp_func_netfs_sreq_ref(ptr noundef %29, i32 noundef %14, i32 noundef %17, i32 noundef %.pre-phi, i8 noundef signext %1) #7
   br label %31
@@ -952,7 +952,7 @@ define internal fastcc void @netfs_free_subrequest(ptr noundef %0, i1 noundef ze
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @__SCT__tp_func_netfs_sreq(ptr noundef %15, ptr noundef %0, i8 noundef signext 1) #7
   br label %17
@@ -972,9 +972,9 @@ define internal fastcc void @netfs_free_subrequest(ptr noundef %0, i1 noundef ze
   br label %24
 
 24:                                               ; preds = %21, %17, %4, %2
-  %25 = getelementptr inbounds i8, ptr %3, i64 328
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %31, label %30
@@ -989,10 +989,10 @@ define internal fastcc void @netfs_free_subrequest(ptr noundef %0, i1 noundef ze
   br i1 %32, label %73, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %3, i64 220
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 220
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %3, i64 312
-  %37 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %36, i32 -1, ptr elementtype(i32) %36) #7, !srcloc !20
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 312
+  %37 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %36, i32 -1, ptr nonnull elementtype(i32) %36) #7, !srcloc !20
   %38 = icmp eq i32 %37, 1
   br i1 %38, label %39, label %40
 
@@ -1005,7 +1005,7 @@ define internal fastcc void @netfs_free_subrequest(ptr noundef %0, i1 noundef ze
   br i1 %41, label %43, label %42, !prof !15
 
 42:                                               ; preds = %40
-  tail call void @refcount_warn_saturate(ptr noundef %36, i32 noundef 3) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %36, i32 noundef 3) #7
   br label %43
 
 43:                                               ; preds = %42, %40, %39
@@ -1030,7 +1030,7 @@ define internal fastcc void @netfs_free_subrequest(ptr noundef %0, i1 noundef ze
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i32 @__SCT__tp_func_netfs_rreq_ref(ptr noundef %56, i32 noundef %35, i32 noundef %44, i8 noundef signext 7) #7
   br label %58
@@ -1056,7 +1056,7 @@ define internal fastcc void @netfs_free_subrequest(ptr noundef %0, i1 noundef ze
   br i1 %1, label %67, label %72
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %3, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @netfs_free_request, ptr %68, align 8
   %69 = load ptr, ptr @system_unbound_wq, align 8
   %70 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %69, ptr noundef nonnull %3) #7

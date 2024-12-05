@@ -20,15 +20,15 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   %11 = alloca { ptr, ptr }, align 8
   %12 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !3
   %18 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %15, i64 %17
   store ptr %15, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %18, ptr %19, align 8
   %20 = call { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hede510da3d923204E"(ptr nonnull align 8 %11, ptr nonnull align 8 %12)
   %.fca.0.extract = extractvalue { i64, i64 } %20, 0
@@ -42,7 +42,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
           to label %29 unwind label %25
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %24, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %82
@@ -65,7 +65,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %10, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
   %36 = load i64, ptr %9, align 8, !range !5, !noundef !3
   %.not.i = icmp eq i64 %36, -9223372036854775807
@@ -76,14 +76,14 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
           to label %40 unwind label %25
 
 .thread:                                          ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %9, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %39 = load ptr, ptr %38, align 8, !nonnull !3, !align !6, !noundef !3
   br label %45
 
 40:                                               ; preds = %31, %37
   %.1.ph = phi i8 [ 0, %37 ], [ 1, %31 ]
   store ptr %12, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb0ca04e7b67dfadE", ptr %41, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117hb9667a5a8d4aec3cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.35627bd746950b698b589b3f6d6bf3b0.4, i64 2, ptr nonnull align 8 %5, i64 1)
           to label %42 unwind label %25
@@ -94,7 +94,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
 
 43:                                               ; preds = %42
   %.sroa.09.0.copyload = load i64, ptr %7, align 8
-  %.sroa.411.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.411.0.copyload = load ptr, ptr %.sroa.411.0..sroa_idx, align 8
   %44 = icmp eq i64 %.sroa.09.0.copyload, -9223372036854775808
   br i1 %44, label %45, label %47
@@ -102,18 +102,18 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
 45:                                               ; preds = %.thread, %43
   %.sroa.411.057 = phi ptr [ %39, %.thread ], [ %.sroa.411.0.copyload, %43 ]
   %.14856 = phi i8 [ 0, %.thread ], [ %.1.ph, %43 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.411.057, ptr %46, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %48
 
 47:                                               ; preds = %43
-  %.sroa.614.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.614.0.copyload = load i64, ptr %.sroa.614.0..sroa_idx, align 8
   store i64 %.sroa.09.0.copyload, ptr %0, align 8
-  %.sroa.240.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.411.0.copyload, ptr %.sroa.240.0..sroa_idx, align 8
-  %.sroa.341.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.614.0.copyload, ptr %.sroa.341.0..sroa_idx, align 8
   br label %48
 
@@ -124,7 +124,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %10, i64 176
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 176
   invoke void @"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h2495f8b9eeaa6c26E"(ptr nonnull align 8 %52)
           to label %58 unwind label %54
 
@@ -145,7 +145,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %10, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$syn..attr..Attribute$GT$$GT$17h78578bc7b7ee0514E"(ptr nonnull align 8 %62)
           to label %67 unwind label %64
 
@@ -164,12 +164,12 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   br i1 %68, label %69, label %82
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %10, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h96472c433cc50927E"(ptr nonnull align 8 %70)
   br label %82
 
 71:                                               ; preds = %64
-  %72 = getelementptr inbounds i8, ptr %10, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 32
   invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h96472c433cc50927E"(ptr nonnull align 8 %72) #4
           to label %96 unwind label %73
 
@@ -180,7 +180,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   unreachable
 
 75:                                               ; preds = %54
-  %76 = getelementptr inbounds i8, ptr %10, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 8
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$syn..attr..Attribute$GT$$GT$17h78578bc7b7ee0514E"(ptr nonnull align 8 %76) #4
           to label %78 unwind label %73
 
@@ -193,7 +193,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   br i1 %79, label %80, label %96
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %10, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 32
   invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h96472c433cc50927E"(ptr nonnull align 8 %81) #4
           to label %96 unwind label %73
 
@@ -201,7 +201,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   ret void
 
 83:                                               ; preds = %25
-  %84 = getelementptr inbounds i8, ptr %10, i64 176
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 176
   invoke void @"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h2495f8b9eeaa6c26E"(ptr nonnull align 8 %84) #4
           to label %86 unwind label %73
 
@@ -215,7 +215,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %10, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 8
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$syn..attr..Attribute$GT$$GT$17h78578bc7b7ee0514E"(ptr nonnull align 8 %90) #4
           to label %92 unwind label %73
 
@@ -228,7 +228,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %10, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %10, i64 32
   invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h96472c433cc50927E"(ptr nonnull align 8 %95) #4
           to label %96 unwind label %73
 
@@ -248,15 +248,15 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   %11 = alloca { ptr, ptr }, align 8
   %12 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !3
   %18 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %15, i64 %17
   store ptr %15, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %18, ptr %19, align 8
   %20 = call { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h186c7c255e1ccc8bE"(ptr nonnull align 8 %11, ptr nonnull align 8 %12)
   %.fca.0.extract = extractvalue { i64, i64 } %20, 0
@@ -270,7 +270,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
           to label %29 unwind label %25
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %24, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %82
@@ -293,7 +293,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %10, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
   %36 = load i64, ptr %9, align 8, !range !5, !noundef !3
   %.not.i = icmp eq i64 %36, -9223372036854775803
@@ -304,14 +304,14 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
           to label %40 unwind label %25
 
 .thread:                                          ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %9, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %39 = load ptr, ptr %38, align 8, !nonnull !3, !align !6, !noundef !3
   br label %45
 
 40:                                               ; preds = %31, %37
   %.1.ph = phi i8 [ 0, %37 ], [ 1, %31 ]
   store ptr %12, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb0ca04e7b67dfadE", ptr %41, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117hb9667a5a8d4aec3cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.35627bd746950b698b589b3f6d6bf3b0.4, i64 2, ptr nonnull align 8 %5, i64 1)
           to label %42 unwind label %25
@@ -322,7 +322,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
 
 43:                                               ; preds = %42
   %.sroa.09.0.copyload = load i64, ptr %7, align 8
-  %.sroa.411.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.411.0.copyload = load ptr, ptr %.sroa.411.0..sroa_idx, align 8
   %44 = icmp eq i64 %.sroa.09.0.copyload, -9223372036854775808
   br i1 %44, label %45, label %47
@@ -330,18 +330,18 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
 45:                                               ; preds = %.thread, %43
   %.sroa.411.057 = phi ptr [ %39, %.thread ], [ %.sroa.411.0.copyload, %43 ]
   %.14856 = phi i8 [ 0, %.thread ], [ %.1.ph, %43 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.411.057, ptr %46, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %48
 
 47:                                               ; preds = %43
-  %.sroa.614.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.614.0.copyload = load i64, ptr %.sroa.614.0..sroa_idx, align 8
   store i64 %.sroa.09.0.copyload, ptr %0, align 8
-  %.sroa.240.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.411.0.copyload, ptr %.sroa.240.0..sroa_idx, align 8
-  %.sroa.341.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.614.0.copyload, ptr %.sroa.341.0..sroa_idx, align 8
   br label %48
 
@@ -352,7 +352,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %10, i64 176
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 176
   invoke void @"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h2495f8b9eeaa6c26E"(ptr nonnull align 8 %52)
           to label %58 unwind label %54
 
@@ -373,7 +373,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %10, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$syn..attr..Attribute$GT$$GT$17h78578bc7b7ee0514E"(ptr nonnull align 8 %62)
           to label %67 unwind label %64
 
@@ -392,12 +392,12 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   br i1 %68, label %69, label %82
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %10, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h96472c433cc50927E"(ptr nonnull align 8 %70)
   br label %82
 
 71:                                               ; preds = %64
-  %72 = getelementptr inbounds i8, ptr %10, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 32
   invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h96472c433cc50927E"(ptr nonnull align 8 %72) #4
           to label %96 unwind label %73
 
@@ -408,7 +408,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   unreachable
 
 75:                                               ; preds = %54
-  %76 = getelementptr inbounds i8, ptr %10, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 8
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$syn..attr..Attribute$GT$$GT$17h78578bc7b7ee0514E"(ptr nonnull align 8 %76) #4
           to label %78 unwind label %73
 
@@ -421,7 +421,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   br i1 %79, label %80, label %96
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %10, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 32
   invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h96472c433cc50927E"(ptr nonnull align 8 %81) #4
           to label %96 unwind label %73
 
@@ -429,7 +429,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   ret void
 
 83:                                               ; preds = %25
-  %84 = getelementptr inbounds i8, ptr %10, i64 176
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 176
   invoke void @"_ZN4core3ptr36drop_in_place$LT$syn..path..Path$GT$17h2495f8b9eeaa6c26E"(ptr nonnull align 8 %84) #4
           to label %86 unwind label %73
 
@@ -443,7 +443,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %10, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 8
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$syn..attr..Attribute$GT$$GT$17h78578bc7b7ee0514E"(ptr nonnull align 8 %90) #4
           to label %92 unwind label %73
 
@@ -456,7 +456,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %10, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %10, i64 32
   invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..lit..Lit$GT$17h96472c433cc50927E"(ptr nonnull align 8 %95) #4
           to label %96 unwind label %73
 
@@ -472,7 +472,7 @@ define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$c
   %5 = add nsw i64 %4, -39
   %switch = icmp ult i64 %5, 2
   %. = select i1 %switch, i64 8, i64 176
-  %6 = getelementptr inbounds i8, ptr %1, i64 %.
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.
   %7 = tail call align 8 ptr @_ZN3syn4path4Path9get_ident17h8ea14c0e29950935E(ptr nonnull align 8 %6)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9
@@ -480,10 +480,10 @@ define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$c
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !align !8, !noundef !3
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !3
   store ptr %11, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %13, ptr %14, align 8
   %15 = call zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1668ce3aa363a8c3E"(ptr nonnull align 8 %7, ptr nonnull align 8 %3)
   br label %16
@@ -500,7 +500,7 @@ define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$c
   %5 = add nsw i64 %4, -39
   %switch = icmp ult i64 %5, 2
   %. = select i1 %switch, i64 8, i64 176
-  %6 = getelementptr inbounds i8, ptr %1, i64 %.
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.
   %7 = tail call align 8 ptr @_ZN3syn4path4Path9get_ident17h8ea14c0e29950935E(ptr nonnull align 8 %6)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9
@@ -508,10 +508,10 @@ define hidden zeroext i1 @"_ZN25diesel_table_macro_syntax8take_lit28_$u7b$$u7b$c
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !align !8, !noundef !3
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !3
   store ptr %11, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %13, ptr %14, align 8
   %15 = call zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1668ce3aa363a8c3E"(ptr nonnull align 8 %7, ptr nonnull align 8 %3)
   br label %16

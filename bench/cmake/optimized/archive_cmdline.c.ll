@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -30, 1) i32 @__archive_cmdline_parse(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.archive_string, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   br label %5
 
@@ -16,7 +16,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_cmdline_parse(ptr nocapture no
   %.026.i = phi ptr [ %1, %2 ], [ %7, %5 ]
   %6 = load i8, ptr %.026.i, align 1
   %cond.i = icmp eq i8 %6, 32
-  %7 = getelementptr inbounds i8, ptr %.026.i, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.026.i, i64 1
   br i1 %cond.i, label %5, label %.critedge.i, !llvm.loop !5
 
 .critedge.i:                                      ; preds = %5, %28
@@ -30,13 +30,13 @@ define dso_local range(i32 -30, 1) i32 @__archive_cmdline_parse(ptr nocapture no
   ]
 
 9:                                                ; preds = %.critedge.i
-  %10 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %11 = load i8, ptr %10, align 1
   %.not32.i = icmp eq i8 %11, 0
   br i1 %.not32.i, label %get_argument.exit.split.loop.exit90, label %.sink.split.i
 
 12:                                               ; preds = %.critedge.i
-  %13 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   br label %14
 
 14:                                               ; preds = %.backedge107, %12
@@ -49,7 +49,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_cmdline_parse(ptr nocapture no
   ]
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %18 = load i8, ptr %17, align 1
   %.not19.i.i = icmp eq i8 %18, 0
   br i1 %.not19.i.i, label %.backedge107, label %.sink.split.i.i
@@ -58,7 +58,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_cmdline_parse(ptr nocapture no
   %.sink20.i.i = phi i8 [ %18, %16 ], [ %15, %14 ]
   %.sink.i.i = phi i64 [ 2, %16 ], [ 1, %14 ]
   %19 = call ptr @archive_strappend_char(ptr noundef nonnull %3, i8 noundef signext %.sink20.i.i) #10
-  %20 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.sink.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.sink.i.i
   br label %.backedge107
 
 .backedge107:                                     ; preds = %.sink.split.i.i, %16
@@ -67,7 +67,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_cmdline_parse(ptr nocapture no
 
 extract_quotation.exit.i:                         ; preds = %14, %14
   %.not18.i.i = icmp ne i8 %15, 34
-  %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %.1.i to i64
   %24 = sub i64 %22, %23
@@ -83,12 +83,12 @@ extract_quotation.exit.i:                         ; preds = %14, %14
 
 28:                                               ; preds = %.sink.split.i, %extract_quotation.exit.i
   %.015.i.sink.i = phi i64 [ %24, %extract_quotation.exit.i ], [ %.015.i.sink.ph.i, %.sink.split.i ]
-  %29 = getelementptr inbounds i8, ptr %.1.i, i64 %.015.i.sink.i
+  %29 = getelementptr inbounds nuw i8, ptr %.1.i, i64 %.015.i.sink.i
   %.pr.i = load i8, ptr %29, align 1
   br label %.critedge.i, !llvm.loop !8
 
 get_argument.exit.split.loop.exit90:              ; preds = %9
-  %30 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   br label %get_argument.exit
 
 get_argument.exit:                                ; preds = %.critedge.i, %.critedge.i, %get_argument.exit.split.loop.exit90
@@ -116,9 +116,9 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   %45 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull readonly dereferenceable(1) %38) #10
   %46 = load ptr, ptr %3, align 8
   %47 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %46, i32 noundef 47) #11
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = add nsw i32 %51, 2
   %53 = sext i32 %52 to i64
@@ -129,7 +129,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
 
 57:                                               ; preds = %44
   %58 = icmp eq ptr %47, null
-  %59 = getelementptr inbounds i8, ptr %47, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %.019 = select i1 %58, ptr %46, ptr %59
   store ptr %55, ptr %48, align 8
   %60 = call noalias ptr @strdup(ptr noundef readonly %.019) #10
@@ -146,7 +146,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds ptr, ptr %55, i64 %67
   store ptr null, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 %33
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 %33
   br label %70
 
 70:                                               ; preds = %cmdline_add_arg.exit57, %65
@@ -158,7 +158,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   %.026.i32 = phi ptr [ %.020, %70 ], [ %73, %71 ]
   %72 = load i8, ptr %.026.i32, align 1
   %cond.i33 = icmp eq i8 %72, 32
-  %73 = getelementptr inbounds i8, ptr %.026.i32, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.026.i32, i64 1
   br i1 %cond.i33, label %71, label %.critedge.i34, !llvm.loop !5
 
 .critedge.i34:                                    ; preds = %71, %94
@@ -172,13 +172,13 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   ]
 
 75:                                               ; preds = %.critedge.i34
-  %76 = getelementptr inbounds i8, ptr %.1.i35, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.1.i35, i64 1
   %77 = load i8, ptr %76, align 1
   %.not32.i48 = icmp eq i8 %77, 0
   br i1 %.not32.i48, label %get_argument.exit55.split.loop.exit92, label %.sink.split.i49
 
 78:                                               ; preds = %.critedge.i34
-  %79 = getelementptr inbounds i8, ptr %.1.i35, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.1.i35, i64 1
   br label %80
 
 80:                                               ; preds = %.backedge, %78
@@ -191,7 +191,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   ]
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %.0.i.i36, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 1
   %84 = load i8, ptr %83, align 1
   %.not19.i.i43 = icmp eq i8 %84, 0
   br i1 %.not19.i.i43, label %.backedge, label %.sink.split.i.i44
@@ -200,7 +200,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   %.sink20.i.i45 = phi i8 [ %84, %82 ], [ %81, %80 ]
   %.sink.i.i46 = phi i64 [ 2, %82 ], [ 1, %80 ]
   %85 = call ptr @archive_strappend_char(ptr noundef nonnull %3, i8 noundef signext %.sink20.i.i45) #10
-  %86 = getelementptr inbounds i8, ptr %.0.i.i36, i64 %.sink.i.i46
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 %.sink.i.i46
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split.i.i44, %82
@@ -209,7 +209,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
 
 extract_quotation.exit.i37:                       ; preds = %80, %80
   %.not18.i.i38 = icmp ne i8 %81, 34
-  %87 = getelementptr inbounds i8, ptr %.0.i.i36, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 1
   %88 = ptrtoint ptr %87 to i64
   %89 = ptrtoint ptr %.1.i35 to i64
   %90 = sub i64 %88, %89
@@ -225,12 +225,12 @@ extract_quotation.exit.i37:                       ; preds = %80, %80
 
 94:                                               ; preds = %.sink.split.i49, %extract_quotation.exit.i37
   %.015.i.sink.i40 = phi i64 [ %90, %extract_quotation.exit.i37 ], [ %.015.i.sink.ph.i51, %.sink.split.i49 ]
-  %95 = getelementptr inbounds i8, ptr %.1.i35, i64 %.015.i.sink.i40
+  %95 = getelementptr inbounds nuw i8, ptr %.1.i35, i64 %.015.i.sink.i40
   %.pr.i41 = load i8, ptr %95, align 1
   br label %.critedge.i34, !llvm.loop !8
 
 get_argument.exit55.split.loop.exit92:            ; preds = %75
-  %96 = getelementptr inbounds i8, ptr %.1.i35, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.1.i35, i64 1
   br label %get_argument.exit55
 
 get_argument.exit55:                              ; preds = %.critedge.i34, %.critedge.i34, %get_argument.exit55.split.loop.exit92
@@ -246,7 +246,7 @@ get_argument.exit55:                              ; preds = %.critedge.i34, %.cr
   br i1 %102, label %cmdline_set_path.exit, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %.020, i64 %99
+  %104 = getelementptr inbounds nuw i8, ptr %.020, i64 %99
   %105 = load i64, ptr %4, align 8
   %106 = icmp eq i64 %105, 0
   br i1 %106, label %107, label %110
@@ -318,7 +318,7 @@ define dso_local noundef i32 @__archive_cmdline_free(ptr noundef %0) local_unnam
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %3) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not11 = icmp eq ptr %5, null
   br i1 %.not11, label %11, label %.preheader
@@ -334,7 +334,7 @@ define dso_local noundef i32 @__archive_cmdline_free(ptr noundef %0) local_unnam
   tail call void @free(ptr noundef nonnull %7) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
   %10 = load ptr, ptr %9, align 8
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !9

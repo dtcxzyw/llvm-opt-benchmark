@@ -72,8 +72,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt3__16vectorIfNS_9allocatorIfEEEC2B8ne190000ESt16initializer_listIfE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq i64 %2, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br i1 %.not, label %_ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destroy_vectorEED2B8ne190000Ev.exit4, label %6
@@ -97,10 +97,10 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 _ZNSt3__16vectorIfNS_9allocatorIfEEE18__construct_at_endIPKfS6_EEvT_T0_m.exit: ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i
   store ptr %10, ptr %0, align 8
   store ptr %10, ptr %4, align 8
-  %11 = getelementptr inbounds float, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw float, ptr %10, i64 %2
   store ptr %11, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %10, ptr align 4 %1, i64 %9, i1 false)
-  %12 = getelementptr inbounds i8, ptr %10, i64 %9
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   store ptr %12, ptr %4, align 8
   br label %_ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destroy_vectorEED2B8ne190000Ev.exit4
 
@@ -132,7 +132,7 @@ define linkonce_odr hidden void @_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne19000
   br i1 %.not.i, label %_ZNSt3__16vectorIfNS_9allocatorIfEEE16__destroy_vectorclB8ne190000Ev.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %2) #14
   br label %_ZNSt3__16vectorIfNS_9allocatorIfEEE16__destroy_vectorclB8ne190000Ev.exit

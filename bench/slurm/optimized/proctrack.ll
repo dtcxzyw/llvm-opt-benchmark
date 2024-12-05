@@ -143,8 +143,8 @@ define i32 @proctrack_g_add(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %9
 
 7:                                                ; preds = %16
@@ -222,7 +222,7 @@ define i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %16 ]
   %.230 = phi i32 [ %.3, %39 ], [ 0, %16 ]
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %.not25 = icmp eq i32 %22, 0
   br i1 %.not25, label %39, label %23
@@ -240,7 +240,7 @@ define i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.7, i32 noundef %32) #10
   br label %33
@@ -251,7 +251,7 @@ define i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
 
 35:                                               ; preds = %23
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   store i32 0, ptr %37, align 4
   br label %38
 
@@ -292,7 +292,7 @@ define i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %49 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 350, ptr noundef nonnull @__func__._spawn_signal_thread) #10
   store i64 %0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 9, ptr %50, align 8
   %51 = call i32 @pthread_attr_init(ptr noundef nonnull %4) #10
   %.not.i = icmp eq i32 %51, 0
@@ -444,7 +444,7 @@ define internal fastcc zeroext i1 @_test_core_dumping(ptr noundef %0) unnamed_ad
 
 48:                                               ; preds = %41
   %49 = and i64 %43, 2147483647
-  %50 = getelementptr inbounds i8, ptr %46, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 %49
   store i8 0, ptr %50, align 1
   %51 = and i64 %43, 2147483647
   %52 = icmp samesign ugt i64 %indvars.iv, %51
@@ -488,7 +488,7 @@ define internal fastcc zeroext i1 @_test_core_dumping(ptr noundef %0) unnamed_ad
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %71 = load ptr, ptr %36, align 8
   %72 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %71, ptr noundef nonnull @.str.19, ptr noundef nonnull %2, ptr noundef nonnull %8) #10
-  %73 = getelementptr inbounds i8, ptr %66, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %74 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %73, ptr noundef nonnull @.str.20, ptr noundef nonnull %9, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %23, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35) #10
   %75 = icmp slt i32 %74, 13
   br i1 %75, label %76, label %79
@@ -610,13 +610,13 @@ define internal noundef ptr @_sig_agent(ptr noundef %0) #0 {
   br i1 %11, label %.lr.ph19, label %._crit_edge
 
 .lr.ph19:                                         ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %35
 
 .lr.ph:                                           ; preds = %.preheader16, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader16 ]
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, i32 noundef %15) #10
   %16 = load ptr, ptr %4, align 8
@@ -630,7 +630,7 @@ define internal noundef ptr @_sig_agent(ptr noundef %0) #0 {
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.7, i32 noundef %24) #10
   br label %29
@@ -659,7 +659,7 @@ define internal noundef ptr @_sig_agent(ptr noundef %0) #0 {
 35:                                               ; preds = %.lr.ph19, %35
   %indvars.iv23 = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next24, %35 ]
   %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv23
+  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv23
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr %12, align 8
   %40 = call i32 @kill(i32 noundef %38, i32 noundef %39) #10
@@ -676,7 +676,7 @@ define internal noundef ptr @_sig_agent(ptr noundef %0) #0 {
 .loopexit:                                        ; preds = %29, %.critedge, %._crit_edge
   %44 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   %45 = load i64, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = call i32 %44(i64 noundef %45, i32 noundef %47) #10
   call void @slurm_xfree(ptr noundef nonnull %1) #10

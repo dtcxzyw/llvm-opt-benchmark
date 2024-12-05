@@ -48,7 +48,7 @@ define ptr @memory_usage_get(i32 noundef %0, ptr noundef writeonly %1) local_unn
 5:                                                ; preds = %4
   %6 = getelementptr [16 x ptr], ptr @memory_components, i64 0, i64 %.pre
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9() #5
   store i64 %10, ptr %1, align 8
@@ -76,7 +76,7 @@ define void @memory_usage_gc() local_unnamed_addr #1 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %0 ]
   %3 = getelementptr [16 x ptr], ptr @memory_components, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7

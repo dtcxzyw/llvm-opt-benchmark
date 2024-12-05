@@ -89,11 +89,11 @@ define internal i32 @dissect_wimax_fch_decoder(ptr noundef %0, ptr nocapture nou
   br i1 %.not, label %6, label %copy_address.exit
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 212
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 216
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %12 = load ptr, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @bs_address, i8 0, i64 24, i1 false)
   store i32 %8, ptr @bs_address, align 8
@@ -109,7 +109,7 @@ define internal i32 @dissect_wimax_fch_decoder(ptr noundef %0, ptr nocapture nou
   br label %copy_address.exit
 
 copy_address.exit:                                ; preds = %14, %6, %4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_append_sep_str(ptr noundef %18, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.34) #3
   %.not40 = icmp eq ptr %2, null

@@ -153,7 +153,7 @@ if.end155:                                        ; preds = %if.then140
 
 for.body:                                         ; preds = %if.end155, %for.body
   %i.0175 = phi i64 [ 0, %if.end155 ], [ %inc, %for.body ]
-  %arrayidx = getelementptr inbounds [128 x i8], ptr %hmac_pad, i64 0, i64 %i.0175
+  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr %hmac_pad, i64 0, i64 %i.0175
   %2 = load i8, ptr %arrayidx, align 1
   %3 = xor i8 %2, 54
   store i8 %3, ptr %arrayidx, align 1
@@ -223,7 +223,7 @@ if.then204:                                       ; preds = %if.then202
 if.end208:                                        ; preds = %if.then204
   %sub209 = sub nuw i64 %add109, %md_block_size.0
   call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef %header) #6, !callees !6
-  %add.ptr = getelementptr inbounds i8, ptr %header, i64 %md_block_size.0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %header, i64 %md_block_size.0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %first_block, ptr nonnull align 1 %add.ptr, i64 %sub209, i1 false)
   %add.ptr213 = getelementptr inbounds i8, ptr %first_block, i64 %sub209
   %sub214 = sub i64 %md_block_size.0, %sub209
@@ -250,7 +250,7 @@ for.body222:                                      ; preds = %for.body222.lr.ph, 
 
 if.else230:                                       ; preds = %if.then202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(13) %first_block, ptr noundef nonnull align 1 dereferenceable(13) %header, i64 13, i1 false)
-  %add.ptr233 = getelementptr inbounds i8, ptr %first_block, i64 13
+  %add.ptr233 = getelementptr inbounds nuw i8, ptr %first_block, i64 13
   %sub234 = add nsw i64 %md_block_size.0, -13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr233, ptr noundef nonnull align 1 dereferenceable(1) %data, i64 %sub234, i1 false)
   call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef nonnull %first_block) #6, !callees !6
@@ -335,7 +335,7 @@ if.end275:                                        ; preds = %if.else267, %if.the
 
 if.then301:                                       ; preds = %if.end275
   %sub303 = sub nuw nsw i64 %j.0183, %sub298
-  %arrayidx304 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub303
+  %arrayidx304 = getelementptr inbounds nuw [16 x i8], ptr %length_bytes, i64 0, i64 %sub303
   %12 = load i8, ptr %arrayidx304, align 1
   %conv1.i = zext i8 %12 to i32
   %conv2.i165 = zext i8 %and296 to i32
@@ -349,7 +349,7 @@ if.then301:                                       ; preds = %if.end275
 
 if.end306:                                        ; preds = %if.then301, %if.end275
   %b.1 = phi i8 [ %conv3.i170, %if.then301 ], [ %and296, %if.end275 ]
-  %arrayidx307 = getelementptr inbounds [128 x i8], ptr %block, i64 0, i64 %j.0183
+  %arrayidx307 = getelementptr inbounds nuw [128 x i8], ptr %block, i64 0, i64 %j.0183
   store i8 %b.1, ptr %arrayidx307, align 1
   %inc309 = add nuw nsw i64 %j.0183, 1
   %exitcond193.not = icmp eq i64 %inc309, %md_block_size.0
@@ -362,9 +362,9 @@ for.end310:                                       ; preds = %if.end306
 
 for.body318.us:                                   ; preds = %for.end310, %for.body318.us
   %j.1184.us = phi i64 [ %inc328.us, %for.body318.us ], [ 0, %for.end310 ]
-  %arrayidx319.us = getelementptr inbounds [128 x i8], ptr %block, i64 0, i64 %j.1184.us
+  %arrayidx319.us = getelementptr inbounds nuw [128 x i8], ptr %block, i64 0, i64 %j.1184.us
   %15 = load i8, ptr %arrayidx319.us, align 1
-  %arrayidx323.us = getelementptr inbounds [64 x i8], ptr %mac_out, i64 0, i64 %j.1184.us
+  %arrayidx323.us = getelementptr inbounds nuw [64 x i8], ptr %mac_out, i64 0, i64 %j.1184.us
   %16 = load i8, ptr %arrayidx323.us, align 1
   %or325157.us = or i8 %16, %15
   store i8 %or325157.us, ptr %arrayidx323.us, align 1
@@ -408,7 +408,7 @@ lor.lhs.false354:                                 ; preds = %lor.lhs.false349
 
 for.body365:                                      ; preds = %if.end342, %for.body365
   %i.4188 = phi i64 [ %inc371, %for.body365 ], [ 0, %if.end342 ]
-  %arrayidx366 = getelementptr inbounds [128 x i8], ptr %hmac_pad, i64 0, i64 %i.4188
+  %arrayidx366 = getelementptr inbounds nuw [128 x i8], ptr %hmac_pad, i64 0, i64 %i.4188
   %17 = load i8, ptr %arrayidx366, align 1
   %18 = xor i8 %17, 106
   store i8 %18, ptr %arrayidx366, align 1
@@ -458,77 +458,77 @@ define internal void @tls1_md5_final_raw(ptr nocapture noundef readonly %ctx, pt
 entry:
   %0 = load i32, ptr %ctx, align 4
   %conv = trunc i32 %0 to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %md_out, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %md_out, i64 1
   store i8 %conv, ptr %md_out, align 1
   %1 = load i32, ptr %ctx, align 4
   %shr = lshr i32 %1, 8
   %conv2 = trunc i32 %shr to i8
-  %incdec.ptr3 = getelementptr inbounds i8, ptr %md_out, i64 2
+  %incdec.ptr3 = getelementptr inbounds nuw i8, ptr %md_out, i64 2
   store i8 %conv2, ptr %incdec.ptr, align 1
   %2 = load i32, ptr %ctx, align 4
   %shr5 = lshr i32 %2, 16
   %conv6 = trunc i32 %shr5 to i8
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %md_out, i64 3
+  %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %md_out, i64 3
   store i8 %conv6, ptr %incdec.ptr3, align 1
   %3 = load i32, ptr %ctx, align 4
   %shr9 = lshr i32 %3, 24
   %conv10 = trunc nuw i32 %shr9 to i8
-  %incdec.ptr11 = getelementptr inbounds i8, ptr %md_out, i64 4
+  %incdec.ptr11 = getelementptr inbounds nuw i8, ptr %md_out, i64 4
   store i8 %conv10, ptr %incdec.ptr7, align 1
-  %B = getelementptr inbounds i8, ptr %ctx, i64 4
+  %B = getelementptr inbounds nuw i8, ptr %ctx, i64 4
   %4 = load i32, ptr %B, align 4
   %conv12 = trunc i32 %4 to i8
-  %incdec.ptr13 = getelementptr inbounds i8, ptr %md_out, i64 5
+  %incdec.ptr13 = getelementptr inbounds nuw i8, ptr %md_out, i64 5
   store i8 %conv12, ptr %incdec.ptr11, align 1
   %5 = load i32, ptr %B, align 4
   %shr15 = lshr i32 %5, 8
   %conv16 = trunc i32 %shr15 to i8
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %md_out, i64 6
+  %incdec.ptr17 = getelementptr inbounds nuw i8, ptr %md_out, i64 6
   store i8 %conv16, ptr %incdec.ptr13, align 1
   %6 = load i32, ptr %B, align 4
   %shr19 = lshr i32 %6, 16
   %conv20 = trunc i32 %shr19 to i8
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %md_out, i64 7
+  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %md_out, i64 7
   store i8 %conv20, ptr %incdec.ptr17, align 1
   %7 = load i32, ptr %B, align 4
   %shr23 = lshr i32 %7, 24
   %conv24 = trunc nuw i32 %shr23 to i8
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %md_out, i64 8
+  %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %md_out, i64 8
   store i8 %conv24, ptr %incdec.ptr21, align 1
-  %C = getelementptr inbounds i8, ptr %ctx, i64 8
+  %C = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %8 = load i32, ptr %C, align 4
   %conv26 = trunc i32 %8 to i8
-  %incdec.ptr27 = getelementptr inbounds i8, ptr %md_out, i64 9
+  %incdec.ptr27 = getelementptr inbounds nuw i8, ptr %md_out, i64 9
   store i8 %conv26, ptr %incdec.ptr25, align 1
   %9 = load i32, ptr %C, align 4
   %shr29 = lshr i32 %9, 8
   %conv30 = trunc i32 %shr29 to i8
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %md_out, i64 10
+  %incdec.ptr31 = getelementptr inbounds nuw i8, ptr %md_out, i64 10
   store i8 %conv30, ptr %incdec.ptr27, align 1
   %10 = load i32, ptr %C, align 4
   %shr33 = lshr i32 %10, 16
   %conv34 = trunc i32 %shr33 to i8
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %md_out, i64 11
+  %incdec.ptr35 = getelementptr inbounds nuw i8, ptr %md_out, i64 11
   store i8 %conv34, ptr %incdec.ptr31, align 1
   %11 = load i32, ptr %C, align 4
   %shr37 = lshr i32 %11, 24
   %conv38 = trunc nuw i32 %shr37 to i8
-  %incdec.ptr39 = getelementptr inbounds i8, ptr %md_out, i64 12
+  %incdec.ptr39 = getelementptr inbounds nuw i8, ptr %md_out, i64 12
   store i8 %conv38, ptr %incdec.ptr35, align 1
-  %D = getelementptr inbounds i8, ptr %ctx, i64 12
+  %D = getelementptr inbounds nuw i8, ptr %ctx, i64 12
   %12 = load i32, ptr %D, align 4
   %conv40 = trunc i32 %12 to i8
-  %incdec.ptr41 = getelementptr inbounds i8, ptr %md_out, i64 13
+  %incdec.ptr41 = getelementptr inbounds nuw i8, ptr %md_out, i64 13
   store i8 %conv40, ptr %incdec.ptr39, align 1
   %13 = load i32, ptr %D, align 4
   %shr43 = lshr i32 %13, 8
   %conv44 = trunc i32 %shr43 to i8
-  %incdec.ptr45 = getelementptr inbounds i8, ptr %md_out, i64 14
+  %incdec.ptr45 = getelementptr inbounds nuw i8, ptr %md_out, i64 14
   store i8 %conv44, ptr %incdec.ptr41, align 1
   %14 = load i32, ptr %D, align 4
   %shr47 = lshr i32 %14, 16
   %conv48 = trunc i32 %shr47 to i8
-  %incdec.ptr49 = getelementptr inbounds i8, ptr %md_out, i64 15
+  %incdec.ptr49 = getelementptr inbounds nuw i8, ptr %md_out, i64 15
   store i8 %conv48, ptr %incdec.ptr45, align 1
   %15 = load i32, ptr %D, align 4
   %shr51 = lshr i32 %15, 24
@@ -547,97 +547,97 @@ entry:
   %0 = load i32, ptr %ctx, align 4
   %shr = lshr i32 %0, 24
   %conv = trunc nuw i32 %shr to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %md_out, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %md_out, i64 1
   store i8 %conv, ptr %md_out, align 1
   %1 = load i32, ptr %ctx, align 4
   %shr2 = lshr i32 %1, 16
   %conv4 = trunc i32 %shr2 to i8
-  %incdec.ptr5 = getelementptr inbounds i8, ptr %md_out, i64 2
+  %incdec.ptr5 = getelementptr inbounds nuw i8, ptr %md_out, i64 2
   store i8 %conv4, ptr %incdec.ptr, align 1
   %2 = load i32, ptr %ctx, align 4
   %shr7 = lshr i32 %2, 8
   %conv9 = trunc i32 %shr7 to i8
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %md_out, i64 3
+  %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %md_out, i64 3
   store i8 %conv9, ptr %incdec.ptr5, align 1
   %3 = load i32, ptr %ctx, align 4
   %conv13 = trunc i32 %3 to i8
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %md_out, i64 4
+  %incdec.ptr14 = getelementptr inbounds nuw i8, ptr %md_out, i64 4
   store i8 %conv13, ptr %incdec.ptr10, align 1
-  %h1 = getelementptr inbounds i8, ptr %ctx, i64 4
+  %h1 = getelementptr inbounds nuw i8, ptr %ctx, i64 4
   %4 = load i32, ptr %h1, align 4
   %shr15 = lshr i32 %4, 24
   %conv17 = trunc nuw i32 %shr15 to i8
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %md_out, i64 5
+  %incdec.ptr18 = getelementptr inbounds nuw i8, ptr %md_out, i64 5
   store i8 %conv17, ptr %incdec.ptr14, align 1
   %5 = load i32, ptr %h1, align 4
   %shr20 = lshr i32 %5, 16
   %conv22 = trunc i32 %shr20 to i8
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %md_out, i64 6
+  %incdec.ptr23 = getelementptr inbounds nuw i8, ptr %md_out, i64 6
   store i8 %conv22, ptr %incdec.ptr18, align 1
   %6 = load i32, ptr %h1, align 4
   %shr25 = lshr i32 %6, 8
   %conv27 = trunc i32 %shr25 to i8
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %md_out, i64 7
+  %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %md_out, i64 7
   store i8 %conv27, ptr %incdec.ptr23, align 1
   %7 = load i32, ptr %h1, align 4
   %conv31 = trunc i32 %7 to i8
-  %incdec.ptr32 = getelementptr inbounds i8, ptr %md_out, i64 8
+  %incdec.ptr32 = getelementptr inbounds nuw i8, ptr %md_out, i64 8
   store i8 %conv31, ptr %incdec.ptr28, align 1
-  %h2 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %h2 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %8 = load i32, ptr %h2, align 4
   %shr33 = lshr i32 %8, 24
   %conv35 = trunc nuw i32 %shr33 to i8
-  %incdec.ptr36 = getelementptr inbounds i8, ptr %md_out, i64 9
+  %incdec.ptr36 = getelementptr inbounds nuw i8, ptr %md_out, i64 9
   store i8 %conv35, ptr %incdec.ptr32, align 1
   %9 = load i32, ptr %h2, align 4
   %shr38 = lshr i32 %9, 16
   %conv40 = trunc i32 %shr38 to i8
-  %incdec.ptr41 = getelementptr inbounds i8, ptr %md_out, i64 10
+  %incdec.ptr41 = getelementptr inbounds nuw i8, ptr %md_out, i64 10
   store i8 %conv40, ptr %incdec.ptr36, align 1
   %10 = load i32, ptr %h2, align 4
   %shr43 = lshr i32 %10, 8
   %conv45 = trunc i32 %shr43 to i8
-  %incdec.ptr46 = getelementptr inbounds i8, ptr %md_out, i64 11
+  %incdec.ptr46 = getelementptr inbounds nuw i8, ptr %md_out, i64 11
   store i8 %conv45, ptr %incdec.ptr41, align 1
   %11 = load i32, ptr %h2, align 4
   %conv49 = trunc i32 %11 to i8
-  %incdec.ptr50 = getelementptr inbounds i8, ptr %md_out, i64 12
+  %incdec.ptr50 = getelementptr inbounds nuw i8, ptr %md_out, i64 12
   store i8 %conv49, ptr %incdec.ptr46, align 1
-  %h3 = getelementptr inbounds i8, ptr %ctx, i64 12
+  %h3 = getelementptr inbounds nuw i8, ptr %ctx, i64 12
   %12 = load i32, ptr %h3, align 4
   %shr51 = lshr i32 %12, 24
   %conv53 = trunc nuw i32 %shr51 to i8
-  %incdec.ptr54 = getelementptr inbounds i8, ptr %md_out, i64 13
+  %incdec.ptr54 = getelementptr inbounds nuw i8, ptr %md_out, i64 13
   store i8 %conv53, ptr %incdec.ptr50, align 1
   %13 = load i32, ptr %h3, align 4
   %shr56 = lshr i32 %13, 16
   %conv58 = trunc i32 %shr56 to i8
-  %incdec.ptr59 = getelementptr inbounds i8, ptr %md_out, i64 14
+  %incdec.ptr59 = getelementptr inbounds nuw i8, ptr %md_out, i64 14
   store i8 %conv58, ptr %incdec.ptr54, align 1
   %14 = load i32, ptr %h3, align 4
   %shr61 = lshr i32 %14, 8
   %conv63 = trunc i32 %shr61 to i8
-  %incdec.ptr64 = getelementptr inbounds i8, ptr %md_out, i64 15
+  %incdec.ptr64 = getelementptr inbounds nuw i8, ptr %md_out, i64 15
   store i8 %conv63, ptr %incdec.ptr59, align 1
   %15 = load i32, ptr %h3, align 4
   %conv67 = trunc i32 %15 to i8
-  %incdec.ptr68 = getelementptr inbounds i8, ptr %md_out, i64 16
+  %incdec.ptr68 = getelementptr inbounds nuw i8, ptr %md_out, i64 16
   store i8 %conv67, ptr %incdec.ptr64, align 1
-  %h4 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %h4 = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %16 = load i32, ptr %h4, align 4
   %shr69 = lshr i32 %16, 24
   %conv71 = trunc nuw i32 %shr69 to i8
-  %incdec.ptr72 = getelementptr inbounds i8, ptr %md_out, i64 17
+  %incdec.ptr72 = getelementptr inbounds nuw i8, ptr %md_out, i64 17
   store i8 %conv71, ptr %incdec.ptr68, align 1
   %17 = load i32, ptr %h4, align 4
   %shr74 = lshr i32 %17, 16
   %conv76 = trunc i32 %shr74 to i8
-  %incdec.ptr77 = getelementptr inbounds i8, ptr %md_out, i64 18
+  %incdec.ptr77 = getelementptr inbounds nuw i8, ptr %md_out, i64 18
   store i8 %conv76, ptr %incdec.ptr72, align 1
   %18 = load i32, ptr %h4, align 4
   %shr79 = lshr i32 %18, 8
   %conv81 = trunc i32 %shr79 to i8
-  %incdec.ptr82 = getelementptr inbounds i8, ptr %md_out, i64 19
+  %incdec.ptr82 = getelementptr inbounds nuw i8, ptr %md_out, i64 19
   store i8 %conv81, ptr %incdec.ptr77, align 1
   %19 = load i32, ptr %h4, align 4
   %conv85 = trunc i32 %19 to i8
@@ -657,25 +657,25 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %md_out.addr.012 = phi ptr [ %md_out, %entry ], [ %incdec.ptr20, %for.body ]
-  %arrayidx = getelementptr inbounds [8 x i32], ptr %ctx, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i32], ptr %ctx, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %shr = lshr i32 %0, 24
   %conv = trunc nuw i32 %shr to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %md_out.addr.012, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %md_out.addr.012, i64 1
   store i8 %conv, ptr %md_out.addr.012, align 1
   %1 = load i32, ptr %arrayidx, align 4
   %shr4 = lshr i32 %1, 16
   %conv6 = trunc i32 %shr4 to i8
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %md_out.addr.012, i64 2
+  %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %md_out.addr.012, i64 2
   store i8 %conv6, ptr %incdec.ptr, align 1
   %2 = load i32, ptr %arrayidx, align 4
   %shr11 = lshr i32 %2, 8
   %conv13 = trunc i32 %shr11 to i8
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %md_out.addr.012, i64 3
+  %incdec.ptr14 = getelementptr inbounds nuw i8, ptr %md_out.addr.012, i64 3
   store i8 %conv13, ptr %incdec.ptr7, align 1
   %3 = load i32, ptr %arrayidx, align 4
   %conv19 = trunc i32 %3 to i8
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %md_out.addr.012, i64 4
+  %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %md_out.addr.012, i64 4
   store i8 %conv19, ptr %incdec.ptr14, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -699,45 +699,45 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %md_out.addr.024 = phi ptr [ %md_out, %entry ], [ %incdec.ptr48, %for.body ]
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %ctx, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i64], ptr %ctx, i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
   %shr = lshr i64 %0, 56
   %conv = trunc nuw i64 %shr to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %md_out.addr.024, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %md_out.addr.024, i64 1
   store i8 %conv, ptr %md_out.addr.024, align 1
   %1 = load i64, ptr %arrayidx, align 8
   %shr4 = lshr i64 %1, 48
   %conv6 = trunc i64 %shr4 to i8
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %md_out.addr.024, i64 2
+  %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %md_out.addr.024, i64 2
   store i8 %conv6, ptr %incdec.ptr, align 1
   %2 = load i64, ptr %arrayidx, align 8
   %shr11 = lshr i64 %2, 40
   %conv13 = trunc i64 %shr11 to i8
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %md_out.addr.024, i64 3
+  %incdec.ptr14 = getelementptr inbounds nuw i8, ptr %md_out.addr.024, i64 3
   store i8 %conv13, ptr %incdec.ptr7, align 1
   %3 = load i64, ptr %arrayidx, align 8
   %shr18 = lshr i64 %3, 32
   %conv20 = trunc i64 %shr18 to i8
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %md_out.addr.024, i64 4
+  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %md_out.addr.024, i64 4
   store i8 %conv20, ptr %incdec.ptr14, align 1
   %4 = load i64, ptr %arrayidx, align 8
   %shr25 = lshr i64 %4, 24
   %conv27 = trunc i64 %shr25 to i8
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %md_out.addr.024, i64 5
+  %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %md_out.addr.024, i64 5
   store i8 %conv27, ptr %incdec.ptr21, align 1
   %5 = load i64, ptr %arrayidx, align 8
   %shr32 = lshr i64 %5, 16
   %conv34 = trunc i64 %shr32 to i8
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %md_out.addr.024, i64 6
+  %incdec.ptr35 = getelementptr inbounds nuw i8, ptr %md_out.addr.024, i64 6
   store i8 %conv34, ptr %incdec.ptr28, align 1
   %6 = load i64, ptr %arrayidx, align 8
   %shr39 = lshr i64 %6, 8
   %conv41 = trunc i64 %shr39 to i8
-  %incdec.ptr42 = getelementptr inbounds i8, ptr %md_out.addr.024, i64 7
+  %incdec.ptr42 = getelementptr inbounds nuw i8, ptr %md_out.addr.024, i64 7
   store i8 %conv41, ptr %incdec.ptr35, align 1
   %7 = load i64, ptr %arrayidx, align 8
   %conv47 = trunc i64 %7 to i8
-  %incdec.ptr48 = getelementptr inbounds i8, ptr %md_out.addr.024, i64 8
+  %incdec.ptr48 = getelementptr inbounds nuw i8, ptr %md_out.addr.024, i64 8
   store i8 %conv47, ptr %incdec.ptr42, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

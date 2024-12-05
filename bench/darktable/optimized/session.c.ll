@@ -63,10 +63,10 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 416
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %2, ptr %3, align 8, !tbaa !6
   %4 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %4, ptr %5, align 8, !tbaa !13
   %6 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #8
   store ptr %6, ptr %3, align 8, !tbaa !6
@@ -91,7 +91,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %22 = tail call ptr @gtk_entry_new() #8
   %23 = tail call i64 @gtk_entry_get_type() #10
   %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %22, i64 noundef %23) #8
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %24, ptr %25, align 8, !tbaa !18
   %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %23) #8
   tail call void @gtk_entry_set_width_chars(ptr noundef %26, i32 noundef 0) #8
@@ -102,7 +102,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %30 = tail call ptr @gtk_button_new_with_label(ptr noundef %29) #8
   %31 = tail call i64 @gtk_button_get_type() #10
   %32 = tail call ptr @g_type_check_instance_cast(ptr noundef %30, i64 noundef %31) #8
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %32, ptr %33, align 8, !tbaa !19
   %34 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %8) #8
   %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %18) #8
@@ -166,9 +166,9 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @create_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = tail call ptr @gtk_entry_get_text(ptr noundef %6) #8
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.4, ptr noundef %7) #8
@@ -185,7 +185,7 @@ declare void @gtk_entry_set_text(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   tail call void @free(ptr noundef %3) #8
   store ptr null, ptr %2, align 8, !tbaa !13

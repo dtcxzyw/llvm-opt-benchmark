@@ -19,8 +19,8 @@ define noundef ptr @strncat(ptr noundef returned %0, ptr nocapture noundef reado
   br i1 %.not11, label %.critedge, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.01013, i64 1
-  %9 = getelementptr inbounds i8, ptr %.015, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.01013, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   store i8 %6, ptr %.015, align 1
   %10 = add i64 %.0914, -1
   %.not = icmp eq i64 %10, 0

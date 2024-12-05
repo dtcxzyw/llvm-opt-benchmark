@@ -75,14 +75,14 @@ define dso_local void @_ZN4llvm22RopePieceBTreeIterator15MoveToNextPieceEv(ptr n
   %7 = add nuw nsw i64 %6, 4294967295
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = and i64 %7, 4294967295
-  %10 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %8, i64 0, i64 %9
   %.not = icmp eq ptr %3, %10
   br i1 %.not, label %.preheader, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %13, ptr %2, align 8
   br label %20
 
@@ -123,7 +123,7 @@ define dso_local void @_ZN4llvm14RopePieceBTreeC2Ev(ptr nocapture noundef nonnul
   store i8 1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 0, ptr %4, align 1
-  %scevgep.i = getelementptr inbounds i8, ptr %2, i64 8
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %scevgep.i, i8 0, i64 272, i1 false)
   store ptr %2, ptr %0, align 8
   ret void
@@ -140,7 +140,7 @@ define dso_local void @_ZN4llvm14RopePieceBTreeC2ERKS0_(ptr nocapture noundef no
   store i8 1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 0, ptr %5, align 1
-  %scevgep.i = getelementptr inbounds i8, ptr %3, i64 8
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %scevgep.i, i8 0, i64 272, i1 false)
   store ptr %3, ptr %0, align 8
   ret void
@@ -155,7 +155,7 @@ define dso_local void @_ZN4llvm14RopePieceBTreeD2Ev(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode7DestroyEv(ptr noundef nonnull align 4 dereferenceable(5) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val.val.i.i = load i8, ptr %2, align 4
   %3 = trunc i8 %.val.val.i.i to i1
   %spec.select.i.i = select i1 %3, ptr %0, ptr null
@@ -206,7 +206,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf21removeFromLeafInOrderEv.exit.i: ; preds =
   %20 = add i8 %19, -1
   store i8 %20, ptr %15, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %17, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %17, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   store ptr null, ptr %22, align 8
   %.not.i.i.i.i.i = icmp eq ptr %23, null
@@ -262,7 +262,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeafD2Ev.exit:   ; preds = %_ZN4llvm9RopePieceD
   br label %44
 
 37:                                               ; preds = %1
-  %38 = getelementptr inbounds i8, ptr %0, i64 5
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %.val.i = load i8, ptr %38, align 1
   %.not.i45 = icmp eq i8 %.val.i, 0
   br i1 %.not.i45, label %_ZN12_GLOBAL__N_122RopePieceBTreeInteriorD2Ev.exit, label %.lr.ph
@@ -274,7 +274,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeafD2Ev.exit:   ; preds = %_ZN4llvm9RopePieceD
 
 41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds [16 x ptr], ptr %39, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [16 x ptr], ptr %39, i64 0, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   tail call fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode7DestroyEv(ptr noundef nonnull align 4 dereferenceable(5) %43)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -321,7 +321,7 @@ define dso_local void @_ZN4llvm14RopePieceBTree5clearEv(ptr nocapture noundef no
   %11 = add i8 %10, -1
   store i8 %11, ptr %6, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %8, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %8, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   store ptr null, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %14, null
@@ -357,7 +357,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5clearEv.exit: ; preds = %_ZN4llvm9RopePiec
   store i8 1, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 5
   store i8 0, ptr %24, align 1
-  %scevgep.i = getelementptr inbounds i8, ptr %22, i64 8
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %scevgep.i, i8 0, i64 272, i1 false)
   store ptr %22, ptr %0, align 8
   br label %25
@@ -386,7 +386,7 @@ define dso_local void @_ZN4llvm14RopePieceBTree6insertEjRKNS_9RopePieceE(ptr noc
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %5, ptr %12, align 8
   store i8 2, ptr %10, align 1
   %.val5.i = load i32, ptr %8, align 4
@@ -410,7 +410,7 @@ define dso_local void @_ZN4llvm14RopePieceBTree6insertEjRKNS_9RopePieceE(ptr noc
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 5
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %19, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %16, ptr %23, align 8
   store i8 2, ptr %21, align 1
   %.val5.i9 = load i32, ptr %19, align 4
@@ -427,7 +427,7 @@ define dso_local void @_ZN4llvm14RopePieceBTree6insertEjRKNS_9RopePieceE(ptr noc
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode5splitEj(ptr noundef nonnull align 4 dereferenceable(5) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = alloca %"struct.llvm::RopePiece", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val.val.i.i = load i8, ptr %4, align 4
   %5 = trunc i8 %.val.val.i.i to i1
   %spec.select.i.i = select i1 %5, ptr %0, ptr null
@@ -449,7 +449,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode5splitE
   %.024.i = phi i32 [ %18, %10 ], [ 0, %.preheader.i ]
   %.023.i = phi i32 [ %19, %10 ], [ 0, %.preheader.i ]
   %11 = zext i32 %.023.i to i64
-  %12 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %9, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %9, i64 0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -530,7 +530,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit: ; preds = %6, %20, %_ZN4llvm
   %.018.i = phi i32 [ %51, %47 ], [ 0, %.preheader ]
   %.017.i = phi i32 [ %52, %47 ], [ 0, %.preheader ]
   %48 = zext i32 %.017.i to i64
-  %49 = getelementptr inbounds [16 x ptr], ptr %46, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [16 x ptr], ptr %46, i64 0, i64 %48
   %50 = load ptr, ptr %49, align 8
   %.val22.i = load i32, ptr %50, align 4
   %51 = add i32 %.val22.i, %.018.i
@@ -559,7 +559,7 @@ _ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit: ; preds = %58, %55, %53,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode6insertEjRKN4llvm9RopePieceE(ptr noundef nonnull align 4 dereferenceable(5) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val.val.i.i = load i8, ptr %4, align 4
   %5 = trunc i8 %.val.val.i.i to i1
   br i1 %5, label %6, label %8
@@ -578,13 +578,13 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode6insert
   br label %20
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 5
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %.val.i = load i8, ptr %12, align 1
   %13 = zext i8 %.val.i to i32
   %14 = add nsw i32 %13, -1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds [16 x ptr], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x ptr], ptr %15, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.val24.i = load i32, ptr %18, align 4
   %19 = sub i32 %1, %.val24.i
@@ -594,7 +594,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode6insert
   %.120.i = phi i32 [ %26, %20 ], [ 0, %.preheader ]
   %.1.i = phi i32 [ %24, %20 ], [ 0, %.preheader ]
   %21 = zext i32 %.120.i to i64
-  %22 = getelementptr inbounds [16 x ptr], ptr %10, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x ptr], ptr %10, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.val23.i = load i32, ptr %23, align 4
   %24 = add i32 %.val23.i, %.1.i
@@ -614,7 +614,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode6insert
   %32 = sub i32 %31, %30
   store i32 %32, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = getelementptr inbounds [16 x ptr], ptr %33, i64 0, i64 %.pre-phi
+  %34 = getelementptr inbounds nuw [16 x ptr], ptr %33, i64 0, i64 %.pre-phi
   %35 = load ptr, ptr %34, align 8
   %36 = sub i32 %1, %.018.i
   %37 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode6insertEjRKN4llvm9RopePieceE(ptr noundef nonnull align 4 dereferenceable(5) %35, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -650,7 +650,7 @@ define dso_local void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr nocapture noundef n
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %5, ptr %12, align 8
   store i8 2, ptr %10, align 1
   %.val5.i = load i32, ptr %8, align 4
@@ -668,7 +668,7 @@ define dso_local void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr nocapture noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode5eraseEjj(ptr noundef nonnull align 4 dereferenceable(5) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val.val.i.i41 = load i8, ptr %4, align 4
   %5 = trunc i8 %.val.val.i.i41 to i1
   br i1 %5, label %tailrecurse._crit_edge, label %.lr.ph45.preheader
@@ -678,7 +678,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode5eraseEjj(ptr 
   br label %.lr.ph45
 
 tailrecurse.loopexit:                             ; preds = %98
-  %6 = getelementptr inbounds i8, ptr %99, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %.val.val.i.i = load i8, ptr %6, align 4
   %7 = trunc i8 %.val.val.i.i to i1
   br i1 %7, label %tailrecurse._crit_edge, label %.lr.ph45
@@ -705,7 +705,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.loopexi
   %.04061.i = phi i32 [ 0, %.lr.ph.i ], [ %19, %11 ]
   %.04160.i = phi i32 [ 0, %.lr.ph.i ], [ %20, %11 ]
   %12 = zext i32 %.04160.i to i64
-  %13 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %8, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %8, i64 0, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -720,7 +720,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.loopexi
   %.142.i = phi i32 [ %32, %22 ], [ %.041.lcssa.i, %.preheader.i ]
   %.1.i = phi i32 [ %30, %22 ], [ %.040.lcssa.i, %.preheader.i ]
   %23 = zext i32 %.142.i to i64
-  %24 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %10, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %10, i64 0, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -741,7 +741,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.loopexi
 
 36:                                               ; preds = %33
   %37 = sub i32 %spec.select.i, %.041.lcssa.i
-  %38 = getelementptr inbounds i8, ptr %.tr.lcssa, i64 5
+  %38 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 5
   %.val4863.i = load i8, ptr %38, align 1
   %39 = zext i8 %.val4863.i to i32
   %.not4664.i = icmp eq i32 %spec.select.i, %39
@@ -750,10 +750,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.loopexi
 .lr.ph66.i:                                       ; preds = %36, %_ZN4llvm9RopePieceaSERKS0_.exit.i
   %.365.i = phi i32 [ %57, %_ZN4llvm9RopePieceaSERKS0_.exit.i ], [ %spec.select.i, %36 ]
   %40 = zext i32 %.365.i to i64
-  %41 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %10, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %10, i64 0, i64 %40
   %42 = sub i32 %.365.i, %37
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %10, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %10, i64 0, i64 %43
   %45 = load ptr, ptr %41, align 8
   %.not.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i, label %46
@@ -798,12 +798,12 @@ _ZN4llvm9RopePieceaSERKS0_.exit.i:                ; preds = %53, %50, %_ZN4llvm1
   %59 = sub i32 %.lcssa.i, %37
   %60 = zext i32 %59 to i64
   %61 = zext i8 %.val48.lcssa.i to i64
-  %62 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %10, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %10, i64 0, i64 %61
   %.not5.i.i.i.i = icmp eq i64 %60, %61
   br i1 %.not5.i.i.i.i, label %_ZN4llvm9RopePieceD2Ev.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.preheader.i
 
 _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.preheader.i: ; preds = %._crit_edge.i
-  %63 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %10, i64 0, i64 %60
+  %63 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %10, i64 0, i64 %60
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.i: ; preds = %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.preheader.i
@@ -827,7 +827,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.i: ;
 _ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i:          ; preds = %68, %65, %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.i
   %69 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
   store i64 0, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 16
   %.not.i.i.i49.i = icmp eq ptr %70, %62
   br i1 %.not.i.i.i49.i, label %_ZN4llvm9RopePieceD2Ev.exit.loopexit.i, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.i, !llvm.loop !16
 
@@ -855,7 +855,7 @@ _ZN4llvm9RopePieceD2Ev.exit.i:                    ; preds = %_ZN4llvm9RopePieceD
 80:                                               ; preds = %78
   %81 = zext i32 %.041.lcssa.i to i64
   %.idx.i = shl nuw nsw i64 %81, 4
-  %82 = getelementptr inbounds i8, ptr %.tr.lcssa, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 16
   %83 = getelementptr i8, ptr %82, i64 %.idx.i
   %84 = load i32, ptr %83, align 8
   %85 = add i32 %84, %.0.i
@@ -895,7 +895,7 @@ _ZN4llvm9RopePieceD2Ev.exit.i:                    ; preds = %_ZN4llvm9RopePieceD
   %93 = sub nuw i32 %.0.i628, %.val41.i29
   %94 = add i32 %.031.i27, 1
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds [16 x ptr], ptr %90, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [16 x ptr], ptr %90, i64 0, i64 %95
   %97 = load ptr, ptr %96, align 8
   %.val41.i = load i32, ptr %97, align 4
   %.not.i7 = icmp ult i32 %93, %.val41.i
@@ -926,10 +926,10 @@ _ZN4llvm9RopePieceD2Ev.exit.i:                    ; preds = %_ZN4llvm9RopePieceD
   %.030.i.ph38 = phi i32 [ %.tr1044, %.lr.ph35.lr.ph ], [ %104, %.outer ]
   %.132.i.ph37 = phi i32 [ %.031.i.lcssa, %.lr.ph35.lr.ph ], [ %107, %.outer ]
   %105 = zext i32 %.132.i.ph37 to i64
-  %106 = getelementptr inbounds [16 x ptr], ptr %90, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw [16 x ptr], ptr %90, i64 0, i64 %105
   %107 = add i32 %.132.i.ph37, 1
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds [16 x ptr], ptr %90, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [16 x ptr], ptr %90, i64 0, i64 %108
   br label %98
 
 110:                                              ; preds = %102
@@ -974,7 +974,7 @@ define dso_local void @_ZN4llvm11RewriteRope14MakeRopeStringEPKcS2_(ptr dead_on_
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = zext i32 %10 to i64
-  %18 = getelementptr inbounds i8, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = and i64 %7, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %2, i64 %19, i1 false)
   %20 = load i32, ptr %9, align 8
@@ -1079,7 +1079,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeLeaf6insertEjRKN4llvm9RopePieceE(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %.val367185 = load i8, ptr %4, align 1
   %5 = icmp eq i8 %.val367185, 16
   br i1 %5, label %.lr.ph, label %tailrecurse.outer._crit_edge
@@ -1090,7 +1090,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeLeaf6insert
   %ret.tr.ph88 = phi ptr [ %current.ret.tr61, %tailrecurse.outer ], [ poison, %3 ]
   %.tr59.ph87 = phi i32 [ %115, %tailrecurse.outer ], [ %1, %3 ]
   %.tr.ph86 = phi ptr [ %66, %tailrecurse.outer ], [ %0, %3 ]
-  %.ptr58 = getelementptr inbounds i8, ptr %.tr.ph86, i64 136
+  %.ptr58 = getelementptr inbounds nuw i8, ptr %.tr.ph86, i64 136
   %7 = getelementptr inbounds nuw i8, ptr %.tr.ph86, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %.tr.ph86, i64 272
   br label %65
@@ -1118,7 +1118,7 @@ tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer, 
   %.02797 = phi i32 [ 0, %.lr.ph98 ], [ %20, %12 ]
   %.196 = phi i32 [ 0, %.lr.ph98 ], [ %21, %12 ]
   %13 = zext i32 %.196 to i64
-  %14 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %11, i64 0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1142,9 +1142,9 @@ tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer, 
   %.028101 = phi i32 [ %9, %.lr.ph102 ], [ %25, %_ZN4llvm9RopePieceaSERKS0_.exit ]
   %25 = add i32 %.028101, -1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %23, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %23, i64 0, i64 %26
   %28 = zext i32 %.028101 to i64
-  %29 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %23, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %23, i64 0, i64 %28
   %30 = load ptr, ptr %27, align 8
   %.not.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i, label %31
@@ -1184,7 +1184,7 @@ _ZN4llvm9RopePieceaSERKS0_.exit:                  ; preds = %_ZN4llvm18Intrusive
   %.029121 = phi i32 [ %.029, %.loopexit ], [ %9, %tailrecurse.outer._crit_edge ], [ %.029, %_ZN4llvm9RopePieceaSERKS0_.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %.tr.ph.lcssa, i64 8
   %43 = zext i32 %.029121 to i64
-  %44 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %42, i64 0, i64 %43
   %45 = load ptr, ptr %2, align 8
   %.not.i.i.i37 = icmp eq ptr %45, null
   br i1 %.not.i.i.i37, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i38, label %46
@@ -1236,9 +1236,9 @@ _ZN4llvm9RopePieceaSERKS0_.exit41:                ; preds = %_ZN4llvm18Intrusive
   store i32 0, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i8 1, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %66, i64 5
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 5
   store i8 0, ptr %68, align 1
-  %scevgep.i = getelementptr inbounds i8, ptr %66, i64 8
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %scevgep.i, i8 0, i64 272, i1 false)
   br label %.lr.ph.i.i.i.i.i
 
@@ -1278,15 +1278,15 @@ _ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i.i:        ; preds = %77, %74, %_ZN4llvm1
   %79 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
   %80 = load i64, ptr %79, align 8
   store i64 %80, ptr %78, align 8
-  %81 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 16
-  %82 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   %83 = add nsw i64 %.012.i.i.i.i.i, -1
   %84 = icmp ugt i64 %.012.i.i.i.i.i, 1
   br i1 %84, label %.lr.ph.i.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i, !llvm.loop !21
 
 _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i: ; preds = %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i.i, %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i
   %.06.i.i.i.idx = phi i64 [ %.06.i.i.i.add, %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i ], [ 136, %_ZN4llvm9RopePieceaSERKS0_.exit.i.i.i.i.i ]
-  %.06.i.i.i.ptr = getelementptr inbounds i8, ptr %.tr.ph86, i64 %.06.i.i.i.idx
+  %.06.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %.tr.ph86, i64 %.06.i.i.i.idx
   %85 = load ptr, ptr %.06.i.i.i.ptr, align 8
   store ptr null, ptr %.06.i.i.i.ptr, align 8
   %.not.i.i3.i.i.i.i = icmp eq ptr %85, null
@@ -1318,7 +1318,7 @@ _ZN4llvm9RopePieceaSERKS0_.exit.i.i.i:            ; preds = %89, %86, %_ZN4llvm1
 91:                                               ; preds = %91, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %91 ]
   %92 = phi i32 [ 0, %.lr.ph.i ], [ %99, %91 ]
-  %93 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %scevgep.i, i64 0, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %scevgep.i, i64 0, i64 %indvars.iv.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %95 = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -1336,7 +1336,7 @@ _ZN4llvm9RopePieceaSERKS0_.exit.i.i.i:            ; preds = %89, %86, %_ZN4llvm1
 100:                                              ; preds = %100, %.lr.ph.i48
   %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.i48 ], [ %indvars.iv.next.i50, %100 ]
   %101 = phi i32 [ 0, %.lr.ph.i48 ], [ %108, %100 ]
-  %102 = getelementptr inbounds [16 x %"struct.llvm::RopePiece"], ptr %7, i64 0, i64 %indvars.iv.i49
+  %102 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %7, i64 0, i64 %indvars.iv.i49
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 12
   %104 = load i32, ptr %103, align 4
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -1384,10 +1384,10 @@ tailrecurse.outer:                                ; preds = %_ZN12_GLOBAL__N_118
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noalias noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %.val20 = load i8, ptr %4, align 1
   %5 = icmp eq i8 %.val20, 16
-  br i1 %5, label %25, label %6
+  br i1 %5, label %24, label %6
 
 6:                                                ; preds = %3
   %7 = add i32 %1, 1
@@ -1396,105 +1396,103 @@ define internal fastcc noalias noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInt
   br i1 %.not, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %6
-  %.pre32 = zext nneg i32 %7 to i64
+  %.pre = zext nneg i32 %7 to i64
   br label %20
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = add i32 %1, 2
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds [16 x ptr], ptr %10, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [16 x ptr], ptr %10, i64 0, i64 %12
   %14 = zext i32 %7 to i64
-  %15 = getelementptr inbounds [16 x ptr], ptr %10, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [16 x ptr], ptr %10, i64 0, i64 %14
   %16 = xor i32 %1, -1
   %17 = add i32 %8, %16
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %15, i64 %19, i1 false)
-  %.pre = load i8, ptr %4, align 1
   br label %20
 
 20:                                               ; preds = %._crit_edge, %9
-  %.pre-phi = phi i64 [ %.pre32, %._crit_edge ], [ %14, %9 ]
-  %21 = phi i8 [ %.val20, %._crit_edge ], [ %.pre, %9 ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = getelementptr inbounds [16 x ptr], ptr %22, i64 0, i64 %.pre-phi
-  store ptr %2, ptr %23, align 8
-  %24 = add i8 %21, 1
-  store i8 %24, ptr %4, align 1
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %14, %9 ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw [16 x ptr], ptr %21, i64 0, i64 %.pre-phi
+  store ptr %2, ptr %22, align 8
+  %23 = add i8 %.val20, 1
+  store i8 %23, ptr %4, align 1
   br label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit28
 
-25:                                               ; preds = %3
-  %26 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #8
-  store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i8 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 5
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(64) %30, i64 64, i1 false)
+24:                                               ; preds = %3
+  %25 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #8
+  store i32 0, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store i8 0, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 5
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 64, i1 false)
   store i8 8, ptr %4, align 1
-  store i8 8, ptr %28, align 1
-  %31 = icmp ult i32 %1, 8
-  br i1 %31, label %.thread, label %33
+  store i8 8, ptr %27, align 1
+  %30 = icmp ult i32 %1, 8
+  br i1 %30, label %.thread, label %32
 
-.thread:                                          ; preds = %25
-  %32 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noundef %2)
+.thread:                                          ; preds = %24
+  %31 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noundef %2)
   br label %.lr.ph.i
 
-33:                                               ; preds = %25
-  %34 = add i32 %1, -8
-  %35 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr noundef nonnull align 8 dereferenceable(136) %26, i32 noundef %34, ptr noundef %2)
-  %.val.i.pr = load i8, ptr %28, align 1
-  store i32 0, ptr %26, align 8
+32:                                               ; preds = %24
+  %33 = add i32 %1, -8
+  %34 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr noundef nonnull align 8 dereferenceable(136) %25, i32 noundef %33, ptr noundef %2)
+  %.val.i.pr = load i8, ptr %27, align 1
+  store i32 0, ptr %25, align 8
   %.not5.i = icmp eq i8 %.val.i.pr, 0
   br i1 %.not5.i, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.thread, %33
-  %.val.i31 = phi i8 [ 8, %.thread ], [ %.val.i.pr, %33 ]
-  %36 = zext i8 %.val.i31 to i64
-  br label %37
+.lr.ph.i:                                         ; preds = %.thread, %32
+  %.val.i31 = phi i8 [ 8, %.thread ], [ %.val.i.pr, %32 ]
+  %35 = zext i8 %.val.i31 to i64
+  br label %36
 
-37:                                               ; preds = %37, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
-  %38 = phi i32 [ 0, %.lr.ph.i ], [ %41, %37 ]
-  %39 = getelementptr inbounds [16 x ptr], ptr %29, i64 0, i64 %indvars.iv.i
-  %40 = load ptr, ptr %39, align 8
-  %.val4.i = load i32, ptr %40, align 4
-  %41 = add i32 %.val4.i, %38
+36:                                               ; preds = %36, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
+  %37 = phi i32 [ 0, %.lr.ph.i ], [ %40, %36 ]
+  %38 = getelementptr inbounds nuw [16 x ptr], ptr %28, i64 0, i64 %indvars.iv.i
+  %39 = load ptr, ptr %38, align 8
+  %.val4.i = load i32, ptr %39, align 4
+  %40 = add i32 %.val4.i, %37
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.not.i = icmp eq i64 %indvars.iv.next.i, %36
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit.loopexit, label %37, !llvm.loop !23
+  %.not.i = icmp eq i64 %indvars.iv.next.i, %35
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit.loopexit, label %36, !llvm.loop !23
 
-_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit.loopexit: ; preds = %37
-  store i32 %41, ptr %26, align 8
+_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit.loopexit: ; preds = %36
+  store i32 %40, ptr %25, align 8
   br label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit
 
-_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit: ; preds = %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit.loopexit, %33
+_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit: ; preds = %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit.loopexit, %32
   store i32 0, ptr %0, align 8
   %.val.i21 = load i8, ptr %4, align 1
   %.not5.i22 = icmp eq i8 %.val.i21, 0
   br i1 %.not5.i22, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit28, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = zext i8 %.val.i21 to i64
-  br label %44
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = zext i8 %.val.i21 to i64
+  br label %43
 
-44:                                               ; preds = %44, %.lr.ph.i23
-  %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.i23 ], [ %indvars.iv.next.i26, %44 ]
-  %45 = phi i32 [ 0, %.lr.ph.i23 ], [ %48, %44 ]
-  %46 = getelementptr inbounds [16 x ptr], ptr %42, i64 0, i64 %indvars.iv.i24
-  %47 = load ptr, ptr %46, align 8
-  %.val4.i25 = load i32, ptr %47, align 4
-  %48 = add i32 %.val4.i25, %45
-  store i32 %48, ptr %0, align 8
+43:                                               ; preds = %43, %.lr.ph.i23
+  %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.i23 ], [ %indvars.iv.next.i26, %43 ]
+  %44 = phi i32 [ 0, %.lr.ph.i23 ], [ %47, %43 ]
+  %45 = getelementptr inbounds nuw [16 x ptr], ptr %41, i64 0, i64 %indvars.iv.i24
+  %46 = load ptr, ptr %45, align 8
+  %.val4.i25 = load i32, ptr %46, align 4
+  %47 = add i32 %.val4.i25, %44
+  store i32 %47, ptr %0, align 8
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i24, 1
-  %.not.i27 = icmp eq i64 %indvars.iv.next.i26, %43
-  br i1 %.not.i27, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit28, label %44, !llvm.loop !23
+  %.not.i27 = icmp eq i64 %indvars.iv.next.i26, %42
+  br i1 %.not.i27, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit28, label %43, !llvm.loop !23
 
-_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit28: ; preds = %44, %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit, %20
-  %.0 = phi ptr [ null, %20 ], [ %26, %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit ], [ %26, %44 ]
+_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit28: ; preds = %43, %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit, %20
+  %.0 = phi ptr [ null, %20 ], [ %25, %_ZN12_GLOBAL__N_122RopePieceBTreeInterior24FullRecomputeSizeLocallyEv.exit ], [ %25, %43 ]
   ret ptr %.0
 }
 

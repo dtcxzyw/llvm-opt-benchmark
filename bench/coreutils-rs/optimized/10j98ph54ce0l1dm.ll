@@ -41,8 +41,8 @@ define hidden { ptr, ptr } @"_ZN48_$LT$$u5b$u8$u5d$$u20$as$u20$rand..rng..Fill$G
   br i1 %.not.i, label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17h761f90944a5db47dE.llvm.15424224493582452841.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 256
-  %5 = getelementptr inbounds i8, ptr %2, i64 272
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %.pre.i = load i64, ptr %4, align 16, !alias.scope !4, !noalias !7
   br label %6
 
@@ -59,7 +59,7 @@ define hidden { ptr, ptr } @"_ZN48_$LT$$u5b$u8$u5d$$u20$as$u20$rand..rng..Fill$G
 
 10:                                               ; preds = %9, %6
   %11 = phi i64 [ %7, %6 ], [ 0, %9 ]
-  %12 = getelementptr inbounds i32, ptr %2, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %11
   %13 = sub nuw nsw i64 64, %11
   %14 = sub nuw i64 %1, %.020.i
   %15 = getelementptr inbounds i8, ptr %0, i64 %.020.i
@@ -198,8 +198,8 @@ define hidden { ptr, ptr } @"_ZN62_$LT$rand..rngs..std..StdRng$u20$as$u20$rand_c
   br i1 %.not.i, label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17h761f90944a5db47dE.llvm.15424224493582452841.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 256
-  %5 = getelementptr inbounds i8, ptr %0, i64 272
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.pre.i = load i64, ptr %4, align 16, !alias.scope !19, !noalias !22
   br label %6
 
@@ -216,7 +216,7 @@ define hidden { ptr, ptr } @"_ZN62_$LT$rand..rngs..std..StdRng$u20$as$u20$rand_c
 
 10:                                               ; preds = %9, %6
   %11 = phi i64 [ %7, %6 ], [ 0, %9 ]
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %11
   %13 = sub nuw nsw i64 64, %11
   %14 = sub nuw i64 %2, %.020.i
   %15 = getelementptr inbounds i8, ptr %1, i64 %.020.i
@@ -241,8 +241,8 @@ define hidden void @"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$ra
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split
-  %3 = getelementptr inbounds i8, ptr %0, i64 256
-  %4 = getelementptr inbounds i8, ptr %0, i64 272
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.pre = load i64, ptr %3, align 16
   br label %5
 
@@ -262,7 +262,7 @@ define hidden void @"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$ra
 
 9:                                                ; preds = %8, %5
   %10 = phi i64 [ %6, %5 ], [ 0, %8 ]
-  %11 = getelementptr inbounds i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
   %12 = sub nuw nsw i64 64, %10
   %13 = sub nuw i64 %2, %.020
   %14 = getelementptr inbounds i8, ptr %1, i64 %.020
@@ -286,7 +286,7 @@ define hidden { ptr, i64 } @"_ZN86_$LT$clap_builder..builder..str..Str$u20$as$u2
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17hcf6e0908d24d950aE.llvm.15424224493582452841"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %3 = load i64, ptr %0, align 8, !alias.scope !30, !noalias !33, !noundef !12

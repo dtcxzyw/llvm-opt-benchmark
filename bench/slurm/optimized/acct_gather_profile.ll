@@ -296,8 +296,8 @@ define void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %13, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %13 ]
-  %17 = getelementptr inbounds [4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 %indvars.iv
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %17 = getelementptr inbounds nuw [4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #14
   %.not47 = icmp eq i32 %19, 0
   br i1 %.not47, label %22, label %20
@@ -309,7 +309,7 @@ define void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
   unreachable
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %17, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %24 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %23) #14
   %.not48 = icmp eq i32 %24, 0
   br i1 %.not48, label %28, label %25
@@ -572,7 +572,7 @@ define noundef nonnull ptr @acct_gather_profile_type_to_string(i32 noundef %0) l
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.acct_gather_profile_type_to_string, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.acct_gather_profile_type_to_string, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -621,7 +621,7 @@ define noundef nonnull ptr @acct_gather_profile_type_t_name(i32 noundef %0) loca
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.acct_gather_profile_type_t_name, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.acct_gather_profile_type_t_name, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -635,7 +635,7 @@ define noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly %0, ptr
   %.035 = phi i32 [ %.1, %29 ], [ 0, %4 ]
   %.02434 = phi ptr [ %30, %29 ], [ %0, %4 ]
   %.02533 = phi ptr [ %.126, %29 ], [ %1, %4 ]
-  %5 = getelementptr inbounds i8, ptr %.02434, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.02434, i64 8
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %29 [
     i32 0, label %.critedge
@@ -654,7 +654,7 @@ define noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly %0, ptr
   %14 = load i64, ptr %.02533, align 8
   %15 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %9, i64 noundef %11, ptr noundef nonnull @.str.23, ptr noundef nonnull %12, ptr noundef %13, i64 noundef %14) #14
   %16 = add nsw i32 %15, %.035
-  %17 = getelementptr inbounds i8, ptr %.02533, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.02533, i64 8
   br label %29
 
 18:                                               ; preds = %.lr.ph
@@ -668,14 +668,14 @@ define noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly %0, ptr
   %25 = load double, ptr %.02533, align 8
   %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %20, i64 noundef %22, ptr noundef nonnull @.str.26, ptr noundef nonnull %23, ptr noundef %24, double noundef %25) #14
   %27 = add nsw i32 %26, %.035
-  %28 = getelementptr inbounds i8, ptr %.02533, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02533, i64 8
   br label %29
 
 29:                                               ; preds = %.lr.ph, %18, %7
   %.126 = phi ptr [ %28, %18 ], [ %17, %7 ], [ %.02533, %.lr.ph ]
   %.1 = phi i32 [ %27, %18 ], [ %16, %7 ], [ %.035, %.lr.ph ]
   %.not31 = icmp slt i32 %.1, %3
-  %30 = getelementptr inbounds i8, ptr %.02434, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.02434, i64 16
   br i1 %.not31, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %29, %.lr.ph, %4
@@ -750,9 +750,9 @@ define noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1
 
 26:                                               ; preds = %.preheader, %81
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 0, %.preheader ]
-  %27 = getelementptr inbounds [4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %27, i8 0, i64 104, i1 false)
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = call i32 @pthread_cond_init(ptr noundef nonnull %28, ptr noundef null) #14
   %.not60 = icmp eq i32 %29, 0
   br i1 %.not60, label %32, label %30
@@ -764,7 +764,7 @@ define noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1
   unreachable
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %27, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %34 = call i32 @pthread_mutex_init(ptr noundef nonnull %33, ptr noundef null) #14
   %.not61 = icmp eq i32 %34, 0
   br i1 %.not61, label %37, label %35
@@ -996,10 +996,10 @@ define internal noalias noundef ptr @_timer_thread(ptr nocapture readnone %0) #0
   %9 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %10 = load i64, ptr %2, align 8
   store i64 %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = mul nsw i64 %12, 1000
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %13, ptr %14, align 8
   br label %15
 
@@ -1054,7 +1054,7 @@ acct_gather_profile_test.exit:                    ; preds = %21
 32:                                               ; preds = %29, %79
   %indvars.iv = phi i64 [ 0, %29 ], [ %indvars.iv.next, %79 ]
   %33 = call zeroext i1 @acct_gather_suspend_test() #14
-  %34 = getelementptr inbounds [4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 %indvars.iv
   br i1 %33, label %35, label %43
 
 35:                                               ; preds = %32
@@ -1063,7 +1063,7 @@ acct_gather_profile_test.exit:                    ; preds = %21
   br i1 %.not54, label %79, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load i64, ptr %38, align 8
   %.not55 = icmp eq i64 %39, 0
   br i1 %.not55, label %42, label %40
@@ -1078,7 +1078,7 @@ acct_gather_profile_test.exit:                    ; preds = %21
   br label %79
 
 43:                                               ; preds = %32
-  %44 = getelementptr inbounds i8, ptr %34, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %45 = load i32, ptr %34, align 8
   %.not47 = icmp eq i32 %45, 0
   br i1 %.not47, label %79, label %46
@@ -1130,7 +1130,7 @@ switch.lookup:                                    ; preds = %59
   br label %63
 
 63:                                               ; preds = %59, %switch.lookup
-  %64 = getelementptr inbounds i8, ptr %34, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %65 = call i32 @pthread_mutex_lock(ptr noundef nonnull %64) #14
   %.not51 = icmp eq i32 %65, 0
   br i1 %.not51, label %68, label %66
@@ -1142,7 +1142,7 @@ switch.lookup:                                    ; preds = %59
   unreachable
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %34, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %70 = call i32 @pthread_cond_signal(ptr noundef nonnull %69) #14
   %.not52 = icmp eq i32 %70, 0
   br i1 %.not52, label %74, label %71

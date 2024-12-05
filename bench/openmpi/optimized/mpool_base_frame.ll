@@ -70,7 +70,7 @@ define internal range(i32 -1, 1) i32 @mca_mpool_base_open(i32 noundef %0) #0 {
 11:                                               ; preds = %10, %7
   store ptr @opal_list_t_class, ptr @mca_mpool_base_modules, align 8
   store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_modules, i64 8), align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not1.i = icmp eq ptr %13, null
   br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -79,7 +79,7 @@ define internal range(i32 -1, 1) i32 @mca_mpool_base_open(i32 noundef %0) #0 {
   %14 = phi ptr [ %16, %.lr.ph.i ], [ %13, %11 ]
   %.02.i = phi ptr [ %15, %.lr.ph.i ], [ %12, %11 ]
   tail call void %14(ptr noundef nonnull @mca_mpool_base_modules) #3
-  %15 = getelementptr inbounds i8, ptr %.02.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -104,17 +104,17 @@ define internal noundef i32 @mca_mpool_base_close() #0 {
   %4 = add i64 %3, -1
   store volatile i64 %4, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_modules, i64 56), align 8
   %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_modules, i64 32), align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load volatile ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store volatile ptr %7, ptr %10, align 8
   %11 = load volatile ptr, ptr %8, align 8
   store volatile ptr %11, ptr getelementptr inbounds (i8, ptr @mca_mpool_base_modules, i64 32), align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   %.not9 = icmp eq ptr %15, null
   br i1 %.not9, label %17, label %16
@@ -124,7 +124,7 @@ define internal noundef i32 @mca_mpool_base_close() #0 {
   br label %17
 
 17:                                               ; preds = %.lr.ph, %16
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load i8, ptr @opal_uses_threads, align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %24
@@ -148,7 +148,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %21, %24
 
 29:                                               ; preds = %opal_thread_add_fetch_32.exit
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %.not6.i = icmp eq ptr %33, null
@@ -158,7 +158,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %21, %24
   %34 = phi ptr [ %36, %.lr.ph.i ], [ %33, %29 ]
   %.07.i = phi ptr [ %35, %.lr.ph.i ], [ %32, %29 ]
   tail call void %34(ptr noundef nonnull %5) #3
-  %35 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6

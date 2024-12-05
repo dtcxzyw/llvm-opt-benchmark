@@ -32,7 +32,7 @@ define void @Java_com_sun_security_auth_module_UnixSystem_getUnixInfo(ptr nounde
   br i1 %11, label %13, label %22
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %12, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef nonnull @.str) #6
   %.not90 = icmp eq ptr %16, null
@@ -40,17 +40,17 @@ define void @Java_com_sun_security_auth_module_UnixSystem_getUnixInfo(ptr nounde
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef null) #6
   br label %114
 
 22:                                               ; preds = %8
-  %23 = getelementptr inbounds i8, ptr %12, i64 248
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, ptr noundef %1) #6
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 752
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 752
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef %25, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #6
   %30 = icmp eq ptr %29, null
@@ -63,7 +63,7 @@ define void @Java_com_sun_security_auth_module_UnixSystem_getUnixInfo(ptr nounde
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1440
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1440
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %0, i32 noundef %6) #6
   %38 = icmp eq ptr %37, null
@@ -71,7 +71,7 @@ define void @Java_com_sun_security_auth_module_UnixSystem_getUnixInfo(ptr nounde
 
 39:                                               ; preds = %33
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1504
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1504
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr %42(ptr noundef nonnull %0, ptr noundef nonnull %37, ptr noundef null) #6
   %44 = icmp eq ptr %43, null
@@ -87,10 +87,10 @@ define void @Java_com_sun_security_auth_module_UnixSystem_getUnixInfo(ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %46 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds i64, ptr %43, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
   store i64 %48, ptr %49, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -98,18 +98,18 @@ define void @Java_com_sun_security_auth_module_UnixSystem_getUnixInfo(ptr nounde
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1568
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1568
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull %0, ptr noundef nonnull %37, ptr noundef nonnull %43, i32 noundef 0) #6
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 832
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 832
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %29, ptr noundef nonnull %37) #6
   br label %56
 
 56:                                               ; preds = %._crit_edge, %31
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 752
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 752
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef %25, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #6
   %61 = icmp eq ptr %60, null
@@ -117,7 +117,7 @@ define void @Java_com_sun_security_auth_module_UnixSystem_getUnixInfo(ptr nounde
 
 62:                                               ; preds = %56
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 752
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 752
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef %25, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #6
   %67 = icmp eq ptr %66, null
@@ -125,7 +125,7 @@ define void @Java_com_sun_security_auth_module_UnixSystem_getUnixInfo(ptr nounde
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 752
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 752
   %71 = load ptr, ptr %70, align 8
   %72 = tail call ptr %71(ptr noundef nonnull %0, ptr noundef %25, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6) #6
   %73 = icmp eq ptr %72, null
@@ -140,25 +140,25 @@ define void @Java_com_sun_security_auth_module_UnixSystem_getUnixInfo(ptr nounde
   %79 = icmp ne ptr %78, null
   %or.cond = select i1 %77, i1 %79, i1 false
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 880
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 880
   %82 = load ptr, ptr %81, align 8
   br i1 %or.cond, label %83, label %105
 
 83:                                               ; preds = %74
-  %84 = getelementptr inbounds i8, ptr %78, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %85 = load i32, ptr %84, align 8
   %86 = zext i32 %85 to i64
   call void %82(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %66, i64 noundef %86) #6
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 880
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 880
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 20
   %92 = load i32, ptr %91, align 4
   %93 = zext i32 %92 to i64
   call void %89(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %72, i64 noundef %93) #6
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 1336
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1336
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr %4, align 8
   %98 = load ptr, ptr %97, align 8
@@ -168,7 +168,7 @@ define void @Java_com_sun_security_auth_module_UnixSystem_getUnixInfo(ptr nounde
 
 101:                                              ; preds = %83
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 832
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 832
   %104 = load ptr, ptr %103, align 8
   call void %104(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %60, ptr noundef nonnull %99) #6
   br label %113
@@ -178,7 +178,7 @@ define void @Java_com_sun_security_auth_module_UnixSystem_getUnixInfo(ptr nounde
   %107 = zext i32 %106 to i64
   call void %82(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %66, i64 noundef %107) #6
   %108 = load ptr, ptr %0, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 880
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 880
   %110 = load ptr, ptr %109, align 8
   %111 = call i32 @getgid() #6
   %112 = zext i32 %111 to i64

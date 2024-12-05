@@ -112,41 +112,41 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local noundef range(i32 -22, 1) i32 @ipv4_skb_to_auditdata(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 180
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 %11, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %16 = load i32, ptr %15, align 4
   %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %16, ptr %18, align 8
   %19 = icmp eq ptr %2, null
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %9, i64 9
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %22 = load i8, ptr %21, align 1
   store i8 %22, ptr %2, align 1
   br label %23
 
 23:                                               ; preds = %20, %3
-  %24 = getelementptr inbounds i8, ptr %9, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, -225
   %27 = icmp eq i16 %26, 0
   br i1 %27, label %28, label %44
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %9, i64 9
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %30 = load i8, ptr %29, align 1
   switch i8 %30, label %44 [
     i8 6, label %31
@@ -157,18 +157,18 @@ define dso_local noundef range(i32 -22, 1) i32 @ipv4_skb_to_auditdata(ptr nocapt
 
 31:                                               ; preds = %28, %28, %28, %28
   %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 178
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i64
   %36 = getelementptr i8, ptr %32, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = load ptr, ptr %12, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i16 %37, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %36, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %41 = load i16, ptr %40, align 2
   %42 = load ptr, ptr %12, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 18
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 18
   store i16 %41, ptr %43, align 2
   br label %44
 
@@ -197,33 +197,33 @@ define dso_local noundef range(i32 -22, 1) i32 @ipv6_skb_to_auditdata(ptr nounde
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #8
   store i16 0, ptr %5, align 2, !annotation !5
-  %10 = getelementptr inbounds i8, ptr %0, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 180
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %13 = load i16, ptr %12, align 4
   %14 = zext i16 %13 to i64
   %15 = getelementptr i8, ptr %11, i64 %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %18, ptr noundef align 4 dereferenceable(16) %19, i64 16, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %19, i64 16, i1 false)
   %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
-  %22 = getelementptr inbounds i8, ptr %15, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %21, ptr noundef align 4 dereferenceable(16) %22, i64 16, i1 false)
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false)
   %23 = load ptr, ptr %10, align 8
   %24 = load i16, ptr %12, align 4
   %25 = zext i16 %24 to i64
   %26 = getelementptr i8, ptr %23, i64 %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 200
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %26 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = trunc i64 %31 to i32
   %33 = add i32 %32, 40
-  %34 = getelementptr inbounds i8, ptr %15, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %35 = load i8, ptr %34, align 2
   store i8 %35, ptr %4, align 1
   %36 = call i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef %33, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -250,9 +250,9 @@ thread-pre-split:                                 ; preds = %38, %40
 41:                                               ; preds = %thread-pre-split
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !5
-  %42 = getelementptr inbounds i8, ptr %0, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 116
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %36, %45
   %47 = sub i32 %43, %46
@@ -279,12 +279,12 @@ thread-pre-split:                                 ; preds = %38, %40
   %59 = phi ptr [ %57, %54 ], [ %6, %51 ]
   %60 = load i16, ptr %59, align 4
   %61 = load ptr, ptr %16, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 20
   store i16 %60, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %59, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %64 = load i16, ptr %63, align 2
   %65 = load ptr, ptr %16, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 18
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 18
   store i16 %64, ptr %66, align 2
   br label %.thread
 
@@ -295,9 +295,9 @@ thread-pre-split:                                 ; preds = %38, %40
 67:                                               ; preds = %thread-pre-split
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   store i64 0, ptr %7, align 8, !annotation !5
-  %68 = getelementptr inbounds i8, ptr %0, i64 112
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 116
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %71 = load i32, ptr %70, align 4
   %72 = add i32 %36, %71
   %73 = sub i32 %69, %72
@@ -324,12 +324,12 @@ thread-pre-split:                                 ; preds = %38, %40
   %85 = phi ptr [ %83, %80 ], [ %7, %77 ]
   %86 = load i16, ptr %85, align 2
   %87 = load ptr, ptr %16, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 20
   store i16 %86, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %85, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 2
   %90 = load i16, ptr %89, align 2
   %91 = load ptr, ptr %16, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 18
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 18
   store i16 %90, ptr %92, align 2
   br label %.thread10
 
@@ -340,9 +340,9 @@ thread-pre-split:                                 ; preds = %38, %40
 93:                                               ; preds = %thread-pre-split
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %8, i8 0, i64 12, i1 false), !annotation !5
-  %94 = getelementptr inbounds i8, ptr %0, i64 112
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 116
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %36, %97
   %99 = sub i32 %95, %98
@@ -369,12 +369,12 @@ thread-pre-split:                                 ; preds = %38, %40
   %111 = phi ptr [ %109, %106 ], [ %8, %103 ]
   %112 = load i16, ptr %111, align 2
   %113 = load ptr, ptr %16, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 20
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 20
   store i16 %112, ptr %114, align 4
-  %115 = getelementptr inbounds i8, ptr %111, i64 2
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 2
   %116 = load i16, ptr %115, align 2
   %117 = load ptr, ptr %16, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 18
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 18
   store i16 %116, ptr %118, align 2
   br label %.thread14
 
@@ -385,9 +385,9 @@ thread-pre-split:                                 ; preds = %38, %40
 119:                                              ; preds = %thread-pre-split
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !5
-  %120 = getelementptr inbounds i8, ptr %0, i64 112
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 116
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %123 = load i32, ptr %122, align 4
   %124 = add i32 %36, %123
   %125 = sub i32 %121, %124
@@ -414,12 +414,12 @@ thread-pre-split:                                 ; preds = %38, %40
   %137 = phi ptr [ %135, %132 ], [ %9, %129 ]
   %138 = load i16, ptr %137, align 4
   %139 = load ptr, ptr %16, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 20
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 20
   store i16 %138, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %137, i64 2
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 2
   %142 = load i16, ptr %141, align 2
   %143 = load ptr, ptr %16, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 18
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 18
   store i16 %142, ptr %144, align 2
   br label %.thread18
 
@@ -456,7 +456,7 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
 10:                                               ; preds = %3
   %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !7
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 1976
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1976
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @audit_log_start(ptr noundef %14, i32 noundef 10272, i32 noundef 1400) #8
   %16 = icmp eq ptr %15, null
@@ -472,11 +472,11 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
 
 20:                                               ; preds = %19, %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
-  %21 = getelementptr inbounds i8, ptr %12, i64 1324
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 1324
   %22 = load i32, ptr %21, align 4
   tail call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str, i32 noundef %22) #8
-  %23 = getelementptr inbounds i8, ptr %12, i64 1800
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef align 8 dereferenceable(16) %23, i64 16, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 1800
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
   call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef nonnull %6) #8
   %24 = load i8, ptr %0, align 8
   switch i8 %24, label %273 [
@@ -498,79 +498,79 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
   ]
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.1, i32 noundef %27) #8
   br label %273
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i32, ptr %29, align 8
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.2, i32 noundef %30) #8
   br label %273
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @audit_log_d_path(ptr noundef nonnull %15, ptr noundef nonnull @.str.3, ptr noundef %32) #8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @audit_log_d_path(ptr noundef nonnull %15, ptr noundef nonnull @.str.3, ptr noundef nonnull %32) #8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %273, label %38
 
 38:                                               ; preds = %31
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.4) #8
-  %39 = getelementptr inbounds i8, ptr %36, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 920
-  call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef %41) #8
-  %42 = getelementptr inbounds i8, ptr %36, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 920
+  call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef nonnull %41) #8
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %43 = load i64, ptr %42, align 8
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.5, i64 noundef %43) #8
   br label %273
 
 44:                                               ; preds = %20
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 152
-  call void @audit_log_d_path(ptr noundef nonnull %15, ptr noundef nonnull @.str.3, ptr noundef %47) #8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 152
+  call void @audit_log_d_path(ptr noundef nonnull %15, ptr noundef nonnull @.str.3, ptr noundef nonnull %47) #8
   %48 = load ptr, ptr %45, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 168
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 168
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %273, label %52
 
 52:                                               ; preds = %44
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.4) #8
-  %53 = getelementptr inbounds i8, ptr %50, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 920
-  call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef %55) #8
-  %56 = getelementptr inbounds i8, ptr %50, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 920
+  call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef nonnull %55) #8
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %57 = load i64, ptr %56, align 8
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.5, i64 noundef %57) #8
   br label %273
 
 58:                                               ; preds = %20
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   call void @audit_log_d_path(ptr noundef nonnull %15, ptr noundef nonnull @.str.3, ptr noundef %60) #8
   %61 = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %73, label %67
 
 67:                                               ; preds = %58
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.4) #8
-  %68 = getelementptr inbounds i8, ptr %65, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 920
-  call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef %70) #8
-  %71 = getelementptr inbounds i8, ptr %65, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 920
+  call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef nonnull %70) #8
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 64
   %72 = load i64, ptr %71, align 8
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.5, i64 noundef %72) #8
   %.pre = load ptr, ptr %59, align 8
@@ -578,7 +578,7 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
 
 73:                                               ; preds = %67, %58
   %74 = phi ptr [ %.pre, %67 ], [ %61, %58 ]
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i16, ptr %75, align 8
   %77 = zext i16 %76 to i32
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.6, i32 noundef %77) #8
@@ -586,37 +586,37 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
 
 78:                                               ; preds = %20
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.7) #8
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 96
-  call void @_raw_spin_lock(ptr noundef %81) #8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 96
+  call void @_raw_spin_lock(ptr noundef nonnull %81) #8
   %82 = load ptr, ptr %79, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %84 = load ptr, ptr %83, align 8
   call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef %84) #8
   %85 = load ptr, ptr %79, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 96
-  call void @_raw_spin_unlock(ptr noundef %86) #8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 96
+  call void @_raw_spin_unlock(ptr noundef nonnull %86) #8
   %87 = load ptr, ptr %79, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 48
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %273, label %91
 
 91:                                               ; preds = %78
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.4) #8
-  %92 = getelementptr inbounds i8, ptr %89, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 920
-  call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef %94) #8
-  %95 = getelementptr inbounds i8, ptr %89, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 920
+  call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef nonnull %94) #8
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 64
   %96 = load i64, ptr %95, align 8
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.5, i64 noundef %96) #8
   br label %273
 
 97:                                               ; preds = %20
   call void @__rcu_read_lock() #8
-  %98 = getelementptr inbounds i8, ptr %0, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = call ptr @d_find_alias_rcu(ptr noundef %99) #8
   %101 = icmp eq ptr %100, null
@@ -624,34 +624,34 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
 
 102:                                              ; preds = %97
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.7) #8
-  %103 = getelementptr inbounds i8, ptr %100, i64 96
-  call void @_raw_spin_lock(ptr noundef %103) #8
-  %104 = getelementptr inbounds i8, ptr %100, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 96
+  call void @_raw_spin_lock(ptr noundef nonnull %103) #8
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %105 = load ptr, ptr %104, align 8
   call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef %105) #8
-  call void @_raw_spin_unlock(ptr noundef %103) #8
+  call void @_raw_spin_unlock(ptr noundef nonnull %103) #8
   br label %106
 
 106:                                              ; preds = %102, %97
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.4) #8
-  %107 = getelementptr inbounds i8, ptr %99, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %99, i64 40
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 920
-  call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef %109) #8
-  %110 = getelementptr inbounds i8, ptr %99, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 920
+  call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef nonnull %109) #8
+  %110 = getelementptr inbounds nuw i8, ptr %99, i64 64
   %111 = load i64, ptr %110, align 8
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.5, i64 noundef %111) #8
   call void @__rcu_read_unlock() #8
   br label %273
 
 112:                                              ; preds = %20
-  %113 = getelementptr inbounds i8, ptr %0, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, null
   br i1 %115, label %273, label %116
 
 116:                                              ; preds = %112
-  %117 = getelementptr inbounds i8, ptr %114, i64 1324
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 1324
   %118 = load i32, ptr %117, align 4
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %273, label %120
@@ -659,22 +659,22 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
 120:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.8, i32 noundef %118) #8
-  %121 = getelementptr inbounds i8, ptr %114, i64 1800
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef align 8 dereferenceable(16) %121, i64 16, i1 false)
+  %121 = getelementptr inbounds nuw i8, ptr %114, i64 1800
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %121, i64 16, i1 false)
   call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
   br label %273
 
 122:                                              ; preds = %20
-  %123 = getelementptr inbounds i8, ptr %0, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
   br i1 %127, label %166, label %128
 
 128:                                              ; preds = %122
-  %129 = getelementptr inbounds i8, ptr %126, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %130 = load i16, ptr %129, align 8
   switch i16 %130, label %166 [
     i16 2, label %131
@@ -683,68 +683,68 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
   ]
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %126, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %133 = load i32, ptr %132, align 4
-  %134 = getelementptr inbounds i8, ptr %126, i64 766
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 766
   %135 = load i16, ptr %134, align 2
   call fastcc void @print_ipv4_addr(ptr noundef %15, i32 noundef %133, i16 noundef zeroext %135, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   %136 = load i32, ptr %126, align 8
-  %137 = getelementptr inbounds i8, ptr %126, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %126, i64 12
   %138 = load i16, ptr %137, align 4
   call fastcc void @print_ipv4_addr(ptr noundef %15, i32 noundef %136, i16 noundef zeroext %138, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   br label %166
 
 139:                                              ; preds = %128
-  %140 = getelementptr inbounds i8, ptr %126, i64 72
-  %141 = getelementptr inbounds i8, ptr %126, i64 766
+  %140 = getelementptr inbounds nuw i8, ptr %126, i64 72
+  %141 = getelementptr inbounds nuw i8, ptr %126, i64 766
   %142 = load i16, ptr %141, align 2
-  call fastcc void @print_ipv6_addr(ptr noundef %15, ptr noundef %140, i16 noundef zeroext %142, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
-  %143 = getelementptr inbounds i8, ptr %126, i64 56
-  %144 = getelementptr inbounds i8, ptr %126, i64 12
+  call fastcc void @print_ipv6_addr(ptr noundef %15, ptr noundef nonnull %140, i16 noundef zeroext %142, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  %143 = getelementptr inbounds nuw i8, ptr %126, i64 56
+  %144 = getelementptr inbounds nuw i8, ptr %126, i64 12
   %145 = load i16, ptr %144, align 4
-  call fastcc void @print_ipv6_addr(ptr noundef %15, ptr noundef %143, i16 noundef zeroext %145, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
+  call fastcc void @print_ipv6_addr(ptr noundef %15, ptr noundef nonnull %143, i16 noundef zeroext %145, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   br label %166
 
 146:                                              ; preds = %128
-  %147 = getelementptr inbounds i8, ptr %126, i64 744
+  %147 = getelementptr inbounds nuw i8, ptr %126, i64 744
   %148 = load volatile ptr, ptr %147, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %149 = icmp eq ptr %148, null
   br i1 %149, label %166, label %150
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %126, i64 760
+  %151 = getelementptr inbounds nuw i8, ptr %126, i64 760
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
   br i1 %153, label %156, label %154
 
 154:                                              ; preds = %150
-  %155 = getelementptr inbounds i8, ptr %126, i64 752
-  call void @audit_log_d_path(ptr noundef nonnull %15, ptr noundef nonnull @.str.3, ptr noundef %155) #8
+  %155 = getelementptr inbounds nuw i8, ptr %126, i64 752
+  call void @audit_log_d_path(ptr noundef nonnull %15, ptr noundef nonnull @.str.3, ptr noundef nonnull %155) #8
   br label %166
 
 156:                                              ; preds = %150
-  %157 = getelementptr inbounds i8, ptr %148, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %158 = load i32, ptr %157, align 4
-  %159 = getelementptr inbounds i8, ptr %148, i64 10
+  %159 = getelementptr inbounds nuw i8, ptr %148, i64 10
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.3) #8
   %160 = load i8, ptr %159, align 1
   %161 = icmp eq i8 %160, 0
   br i1 %161, label %163, label %162
 
 162:                                              ; preds = %156
-  call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef %159) #8
+  call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef nonnull %159) #8
   br label %166
 
 163:                                              ; preds = %156
   %164 = add i32 %158, -2
   %165 = sext i32 %164 to i64
-  call void @audit_log_n_hex(ptr noundef nonnull %15, ptr noundef %159, i64 noundef %165) #8
+  call void @audit_log_n_hex(ptr noundef nonnull %15, ptr noundef nonnull %159, i64 noundef %165) #8
   br label %166
 
 166:                                              ; preds = %163, %162, %154, %146, %139, %131, %128, %122
   %167 = load ptr, ptr %123, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load i16, ptr %168, align 8
   switch i16 %169, label %227 [
     i16 2, label %170
@@ -752,9 +752,9 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
   ]
 
 170:                                              ; preds = %166
-  %171 = getelementptr inbounds i8, ptr %167, i64 28
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 28
   %172 = load i32, ptr %171, align 4
-  %173 = getelementptr inbounds i8, ptr %167, i64 20
+  %173 = getelementptr inbounds nuw i8, ptr %167, i64 20
   %174 = load i16, ptr %173, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %172, ptr %5, align 4
@@ -778,9 +778,9 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
 182:                                              ; preds = %179, %177
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %183 = load ptr, ptr %123, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %185 = load i32, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %183, i64 18
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 18
   %187 = load i16, ptr %186, align 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %185, ptr %4, align 4
@@ -806,8 +806,8 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
   br label %227
 
 196:                                              ; preds = %166
-  %197 = getelementptr inbounds i8, ptr %167, i64 40
-  %198 = getelementptr inbounds i8, ptr %167, i64 20
+  %197 = getelementptr inbounds nuw i8, ptr %167, i64 40
+  %198 = getelementptr inbounds nuw i8, ptr %167, i64 20
   %199 = load i16, ptr %198, align 4
   %200 = load i64, ptr %197, align 8
   %201 = getelementptr i8, ptr %167, i64 48
@@ -817,7 +817,7 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
   br i1 %204, label %206, label %205
 
 205:                                              ; preds = %196
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.13, ptr noundef %197) #8
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.13, ptr noundef nonnull %197) #8
   br label %206
 
 206:                                              ; preds = %205, %196
@@ -832,8 +832,8 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
 
 211:                                              ; preds = %208, %206
   %212 = load ptr, ptr %123, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 24
-  %214 = getelementptr inbounds i8, ptr %212, i64 18
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 18
   %215 = load i16, ptr %214, align 2
   %216 = load i64, ptr %213, align 8
   %217 = getelementptr i8, ptr %212, i64 32
@@ -843,7 +843,7 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
   br i1 %220, label %222, label %221
 
 221:                                              ; preds = %211
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.15, ptr noundef %213) #8
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.15, ptr noundef nonnull %213) #8
   br label %222
 
 222:                                              ; preds = %221, %211
@@ -868,18 +868,18 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
   br i1 %233, label %273, label %234
 
 234:                                              ; preds = %231
-  %235 = getelementptr inbounds i8, ptr %232, i64 296
-  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.17, ptr noundef %235) #8
-  %236 = getelementptr inbounds i8, ptr %232, i64 1280
+  %235 = getelementptr inbounds nuw i8, ptr %232, i64 296
+  call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.17, ptr noundef nonnull %235) #8
+  %236 = getelementptr inbounds nuw i8, ptr %232, i64 1280
   %237 = load ptr, ptr %236, align 8
   call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %237, ptr elementtype(i32) %237) #8, !srcloc !9
   br label %273
 
 238:                                              ; preds = %20
-  %239 = getelementptr inbounds i8, ptr %0, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %240 = load i32, ptr %239, align 8
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.18, i32 noundef %240) #8
-  %241 = getelementptr inbounds i8, ptr %0, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %242 = load ptr, ptr %241, align 8
   %243 = icmp eq ptr %242, null
   br i1 %243, label %273, label %244
@@ -892,20 +892,20 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
 
 246:                                              ; preds = %20
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.20) #8
-  %247 = getelementptr inbounds i8, ptr %0, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %248 = load ptr, ptr %247, align 8
   call void @audit_log_untrustedstring(ptr noundef nonnull %15, ptr noundef %248) #8
   br label %273
 
 249:                                              ; preds = %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  %250 = getelementptr inbounds i8, ptr %0, i64 8
-  %251 = getelementptr inbounds i8, ptr %8, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %251, align 8
   %252 = load ptr, ptr %250, align 8
   %253 = load i64, ptr %252, align 8
   store i64 %253, ptr %8, align 8
-  %254 = getelementptr inbounds i8, ptr %252, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %255 = load i16, ptr %254, align 8
   %256 = zext i16 %255 to i32
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.21, i32 noundef %256, ptr noundef nonnull %8) #8
@@ -913,17 +913,17 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
   br label %273
 
 257:                                              ; preds = %20
-  %258 = getelementptr inbounds i8, ptr %0, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %259 = load ptr, ptr %258, align 8
   %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds i8, ptr %259, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %262 = load i8, ptr %261, align 8
   %263 = zext i8 %262 to i32
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.22, ptr noundef %260, i32 noundef %263) #8
   br label %273
 
 264:                                              ; preds = %20
-  %265 = getelementptr inbounds i8, ptr %0, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %266 = load i32, ptr %265, align 8
   %267 = sext i32 %266 to i64
   %268 = getelementptr [30 x ptr], ptr @lockdown_reasons, i64 0, i64 %267
@@ -932,7 +932,7 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly %1,
   br label %273
 
 270:                                              ; preds = %20
-  %271 = getelementptr inbounds i8, ptr %0, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %272 = load ptr, ptr %271, align 8
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.24, ptr noundef %272) #8
   br label %273

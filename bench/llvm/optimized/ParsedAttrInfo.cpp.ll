@@ -101,7 +101,7 @@ _ZN4llvm13ManagedStaticINSt7__cxx114listISt10unique_ptrIN5clang14ParsedAttrInfoE
 
 _ZNKSt14default_deleteIN5clang14ParsedAttrInfoEEclEPS1_.exit.i: ; preds = %_ZN4llvm13ManagedStaticINSt7__cxx114listISt10unique_ptrIN5clang14ParsedAttrInfoESt14default_deleteIS5_EESaIS8_EEENS_14object_creatorISA_EENS_14object_deleterISA_EEEptEv.exit6
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(48) %20) #5
   br label %_ZNSt10unique_ptrIN5clang14ParsedAttrInfoESt14default_deleteIS1_EED2Ev.exit
@@ -169,7 +169,7 @@ define linkonce_odr hidden void @_ZN4llvm14object_deleterINSt7__cxx114listISt10u
 
 _ZNKSt14default_deleteIN5clang14ParsedAttrInfoEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(48) %7) #5
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt10unique_ptrIN5clang14ParsedAttrInfoESt14default_deleteIS3_EEEEE7destroyIS6_EEvRS8_PT_.exit.i.i.i

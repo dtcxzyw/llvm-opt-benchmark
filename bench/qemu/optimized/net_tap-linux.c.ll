@@ -69,7 +69,7 @@ if.then:                                          ; preds = %land.rhs, %do.end.i
 
 if.end:                                           ; preds = %do.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ifr, i8 0, i64 40, i1 false)
-  %ifr_ifru = getelementptr inbounds i8, ptr %ifr, i64 16
+  %ifr_ifru = getelementptr inbounds nuw i8, ptr %ifr, i64 16
   store i16 4098, ptr %ifr_ifru, align 8
   %call5 = call i32 (i32, i64, ...) @ioctl(i32 noundef %call, i64 noundef 2147767503, ptr noundef nonnull %features) #8
   %cmp6 = icmp eq i32 %call5, -1
@@ -216,13 +216,13 @@ declare i32 @g_unix_set_fd_nonblocking(i32 noundef, i32 noundef, ptr noundef) lo
 define dso_local void @tap_set_sndbuf(i32 noundef %fd, ptr nocapture noundef readonly %tap, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sndbuf = alloca i32, align 4
-  %has_sndbuf = getelementptr inbounds i8, ptr %tap, i64 56
+  %has_sndbuf = getelementptr inbounds nuw i8, ptr %tap, i64 56
   %0 = load i8, ptr %has_sndbuf, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %cond.false, label %cond.end5.thread
 
 cond.false:                                       ; preds = %entry
-  %sndbuf1 = getelementptr inbounds i8, ptr %tap, i64 64
+  %sndbuf1 = getelementptr inbounds nuw i8, ptr %tap, i64 64
   %1 = load i64, ptr %sndbuf1, align 8
   %.fr = freeze i64 %1
   %cmp = icmp ugt i64 %.fr, 2147483647
@@ -274,7 +274,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ifr_ifru = getelementptr inbounds i8, ptr %ifr, i64 16
+  %ifr_ifru = getelementptr inbounds nuw i8, ptr %ifr, i64 16
   %1 = load i16, ptr %ifr_ifru, align 8
   %2 = and i16 %1, 16384
   %and = zext nneg i16 %2 to i32
@@ -498,7 +498,7 @@ define dso_local i32 @tap_fd_enable(i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %ifr = alloca %struct.ifreq, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ifr, i8 0, i64 40, i1 false)
-  %ifr_ifru = getelementptr inbounds i8, ptr %ifr, i64 16
+  %ifr_ifru = getelementptr inbounds nuw i8, ptr %ifr, i64 16
   store i16 512, ptr %ifr_ifru, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 1074025689, ptr noundef nonnull %ifr) #8
   %cmp.not = icmp eq i32 %call, 0
@@ -517,7 +517,7 @@ define dso_local i32 @tap_fd_disable(i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %ifr = alloca %struct.ifreq, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ifr, i8 0, i64 40, i1 false)
-  %ifr_ifru = getelementptr inbounds i8, ptr %ifr, i64 16
+  %ifr_ifru = getelementptr inbounds nuw i8, ptr %ifr, i64 16
   store i16 1024, ptr %ifr_ifru, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 1074025689, ptr noundef nonnull %ifr) #8
   %cmp.not = icmp eq i32 %call, 0

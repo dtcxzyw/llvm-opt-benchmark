@@ -8,7 +8,7 @@ define align 4 ptr @_ZN4core4iter6traits8iterator8Iterator4fold17h9f063d7114f82e
   %4 = alloca [0 x i8], align 1
   %5 = alloca [16 x i8], align 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %6, align 8
   %7 = call align 4 ptr @"_ZN94_$LT$regex_syntax..hir..ClassUnicodeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c7df3bdf2d4535dE"(ptr nonnull align 8 %5)
   %.not8 = icmp eq ptr %7, null

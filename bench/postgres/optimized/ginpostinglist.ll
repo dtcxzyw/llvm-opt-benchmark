@@ -13,7 +13,7 @@ define dso_local noundef ptr @ginCompressPostingList(ptr nocapture noundef reado
   %7 = sext i32 %6 to i64
   %8 = tail call ptr @palloc(i64 noundef %7) #3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %8, ptr noundef nonnull align 2 dereferenceable(6) %0, i64 6, i1 false)
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = icmp sgt i32 %1, 1
   br i1 %10, label %.lr.ph, label %encode_varbyte.exit43._crit_edge
 
@@ -131,7 +131,7 @@ encode_varbyte.exit43._crit_edge:                 ; preds = %62, %encode_varbyte
   %65 = ptrtoint ptr %9 to i64
   %66 = sub i64 %64, %65
   %67 = trunc i64 %66 to i16
-  %68 = getelementptr inbounds i8, ptr %8, i64 6
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 6
   store i16 %67, ptr %68, align 2
   %69 = and i64 %66, 65535
   %70 = add nuw nsw i64 %69, 1
@@ -163,7 +163,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginPostingListDecode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 6
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
   %6 = add nuw nsw i32 %5, 1
@@ -177,7 +177,7 @@ define dso_local ptr @ginPostingListDecode(ptr noundef %0, ptr noundef %1) local
 define dso_local ptr @ginPostingListDecodeAllSegments(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr i8, ptr %0, i64 %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 1
@@ -209,8 +209,8 @@ define dso_local ptr @ginPostingListDecodeAllSegments(ptr noundef readonly %0, i
   %20 = sext i32 %.03558 to i64
   %21 = getelementptr %struct.ItemPointerData, ptr %.137, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %21, ptr noundef nonnull align 2 dereferenceable(6) %.059, i64 6, i1 false)
-  %22 = getelementptr inbounds i8, ptr %.059, i64 8
-  %23 = getelementptr inbounds i8, ptr %.059, i64 6
+  %22 = getelementptr inbounds nuw i8, ptr %.059, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.059, i64 6
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
   %26 = getelementptr i8, ptr %22, i64 %25
@@ -325,14 +325,14 @@ decode_varbyte.exit:                              ; preds = %42, %47, %54, %61, 
   %90 = getelementptr %struct.ItemPointerData, ptr %.3, i64 %89
   %91 = trunc i64 %88 to i16
   %92 = and i16 %91, 2047
-  %93 = getelementptr inbounds i8, ptr %90, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i16 %92, ptr %93, align 2
   %94 = lshr i64 %88, 11
   %95 = lshr i64 %88, 27
   %96 = trunc i64 %95 to i16
   store i16 %96, ptr %90, align 2
   %97 = trunc i64 %94 to i16
-  %98 = getelementptr inbounds i8, ptr %90, i64 2
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 2
   store i16 %97, ptr %98, align 2
   %.1 = add i32 %.153, 1
   %99 = icmp ult ptr %.0.i, %26
@@ -350,8 +350,8 @@ decode_varbyte.exit:                              ; preds = %42, %47, %54, %61, 
   %.1.lcssa = phi i32 [ %.1, %._crit_edge.loopexit ], [ %.148, %19 ]
   %100 = add nuw nsw i64 %.pre-phi, 1
   %101 = and i64 %100, 131070
-  %102 = add nuw nsw i64 %101, 8
-  %103 = getelementptr i8, ptr %.059, i64 %102
+  %102 = getelementptr i8, ptr %.059, i64 %101
+  %103 = getelementptr i8, ptr %102, i64 8
   %104 = icmp ult ptr %103, %5
   br i1 %104, label %.lr.ph61, label %._crit_edge62, !llvm.loop !9
 

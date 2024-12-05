@@ -136,7 +136,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %data_size = getelementptr inbounds i8, ptr %call1, i64 24
+  %data_size = getelementptr inbounds nuw i8, ptr %call1, i64 24
   %0 = load i64, ptr %data_size, align 8
   %cmp4 = icmp ugt i64 %sz, %0
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -219,7 +219,7 @@ land.rhs12.preheader:                             ; preds = %for.cond10.preheade
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds ptr, ptr %names, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %names, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %return, label %for.body
@@ -243,7 +243,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
 
 land.rhs12:                                       ; preds = %land.rhs12.preheader, %for.inc31
   %indvars.iv37 = phi i64 [ 0, %land.rhs12.preheader ], [ %indvars.iv.next38, %for.inc31 ]
-  %arrayidx14 = getelementptr inbounds ptr, ptr %names, i64 %indvars.iv37
+  %arrayidx14 = getelementptr inbounds nuw ptr, ptr %names, i64 %indvars.iv37
   %3 = load ptr, ptr %arrayidx14, align 8
   %cmp15.not = icmp eq ptr %3, null
   br i1 %cmp15.not, label %return, label %for.body17

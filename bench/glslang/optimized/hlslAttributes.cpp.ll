@@ -77,14 +77,14 @@ $_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_s
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef range(i32 0, 78) i32 @_ZNK7glslang16HlslParseContext17attributeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEES9_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2489) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %cond = icmp eq i64 %5, 0
   br i1 %cond, label %104, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %3
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %5, i64 2)
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %7, ptr nonnull @.str, i64 %.sroa.speculated.i.i)
   %.not.i.i = icmp eq i32 %bcmp.i, 0
@@ -93,14 +93,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %3
   br i1 %or.cond, label %9, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i106
 
 9:                                                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8
   %cond201 = icmp eq i64 %11, 0
   br i1 %cond201, label %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit104.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i71
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i71: ; preds = %9
   %.sroa.speculated.i.i70 = tail call i64 @llvm.umin.i64(i64 %11, i64 22)
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %bcmp.i72 = tail call i32 @bcmp(ptr %13, ptr nonnull @.str.1, i64 %.sroa.speculated.i.i70)
   %.not.i.i73 = icmp eq i32 %bcmp.i72, 0
@@ -153,14 +153,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i106: ; preds = %_ZNSt11char_traits
   br i1 %or.cond186, label %21, label %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit111.thread
 
 21:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i106
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load i64, ptr %22, align 8
   %cond206 = icmp eq i64 %23, 0
   br i1 %cond206, label %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit139.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i113
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i113: ; preds = %21
   %.sroa.speculated.i.i112 = tail call i64 @llvm.umin.i64(i64 %23, i64 14)
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   %bcmp.i114 = tail call i32 @bcmp(ptr %25, ptr nonnull @.str.9, i64 %.sroa.speculated.i.i112)
   %.not.i.i115 = icmp eq i32 %bcmp.i114, 0
@@ -343,14 +343,14 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   br i1 %103, label %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit111.thread, label %104
 
 104:                                              ; preds = %3, %102, %18
-  %105 = getelementptr inbounds i8, ptr %2, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %106 = load i64, ptr %105, align 8
   %cond209 = icmp eq i64 %106, 0
   br i1 %cond209, label %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit160.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i141
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i141: ; preds = %104
   %.sroa.speculated.i.i140 = tail call i64 @llvm.umin.i64(i64 %106, i64 19)
-  %107 = getelementptr inbounds i8, ptr %2, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %108 = load ptr, ptr %107, align 8
   %bcmp.i142 = tail call i32 @bcmp(ptr %108, ptr nonnull @.str.51, i64 %.sroa.speculated.i.i140)
   %.not.i.i143 = icmp eq i32 %bcmp.i142, 0
@@ -442,7 +442,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 comdat {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #4
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %4)
@@ -450,7 +450,7 @@ define linkonce_odr noundef zeroext i1 @_ZSteqIcSt11char_traitsIcEN7glslang14poo
   br i1 %6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %bcmp = tail call i32 @bcmp(ptr %8, ptr %1, i64 %.sroa.speculated.i)
   %.not.i = icmp eq i32 %bcmp, 0

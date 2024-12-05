@@ -16,14 +16,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @job_state_set(ptr nocapture noundef writeonly initializes((448, 452)) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @job_state_set_flag(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, %1
   store i32 %5, ptr %3, align 8
@@ -32,7 +32,7 @@ define dso_local void @job_state_set_flag(ptr nocapture noundef %0, i32 noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @job_state_unset_flag(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = xor i32 %1, -1
   %6 = and i32 %4, %5
@@ -46,8 +46,8 @@ define dso_local i32 @dump_job_state(i32 noundef %0, ptr nocapture noundef reado
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) @__const.dump_job_state.args, i64 32, i1 false)
   %6 = trunc i32 %0 to i16
   call fastcc void @_dump_job_state_locked(ptr noundef %5, i16 noundef zeroext %6, ptr noundef %1)
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = call ptr @slurm_xrecalloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str, i32 noundef 328, ptr noundef nonnull @__func__.dump_job_state) #6
@@ -55,7 +55,7 @@ define dso_local i32 @dump_job_state(i32 noundef %0, ptr nocapture noundef reado
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 0, ptr %13, align 8
   store i32 0, ptr %8, align 8
   call fastcc void @_dump_job_state_locked(ptr noundef %5, i16 noundef zeroext %6, ptr noundef %1)
@@ -63,7 +63,7 @@ define dso_local i32 @dump_job_state(i32 noundef %0, ptr nocapture noundef reado
   store ptr %14, ptr %3, align 8
   %15 = load i32, ptr %8, align 8
   store i32 %15, ptr %2, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -82,16 +82,16 @@ define internal fastcc void @_dump_job_state_locked(ptr noundef nonnull %0, i16 
   br i1 %.not, label %12, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.not1011 = icmp eq i32 %6, 0
   br i1 %.not1011, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = zext i16 %1 to i64
   br label %15
 
@@ -102,7 +102,7 @@ define internal fastcc void @_dump_job_state_locked(ptr noundef nonnull %0, i16 
 
 15:                                               ; preds = %.lr.ph, %_add_job_state_by_job_id.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_add_job_state_by_job_id.exit ]
-  %16 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %18 = call ptr @find_job_record(i32 noundef %17) #6
@@ -110,7 +110,7 @@ define internal fastcc void @_dump_job_state_locked(ptr noundef nonnull %0, i16 
   br i1 %.not.i, label %_add_job_state_by_job_id.exit, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %18, i64 384
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 384
   %21 = load ptr, ptr %20, align 8
   %.not27.i = icmp eq ptr %21, null
   br i1 %.not27.i, label %24, label %22
@@ -123,13 +123,13 @@ define internal fastcc void @_dump_job_state_locked(ptr noundef nonnull %0, i16 
   br label %_add_job_state_by_job_id.exit
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %18, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 52
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, -2
   br i1 %27, label %28, label %66
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %18, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %30 = load ptr, ptr %29, align 8
   %.not28.i = icmp eq ptr %30, null
   br i1 %.not28.i, label %31, label %66
@@ -150,22 +150,22 @@ define internal fastcc void @_dump_job_state_locked(ptr noundef nonnull %0, i16 
   br i1 %.not.i.i, label %_add_job_state_by_job_id.exit.thread, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %18, i64 392
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 392
   %42 = load i32, ptr %41, align 8
   store i32 %42, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %18, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %39, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %44, ptr %45, align 4
   %46 = load i32, ptr %25, align 4
-  %47 = getelementptr inbounds i8, ptr %39, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %46, ptr %47, align 8
   %48 = load ptr, ptr %29, align 8
   %.not.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i, label %_job_state_array_bitmap.exit.i.i, label %49
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not7.i.i.i = icmp eq ptr %51, null
   br i1 %.not7.i.i.i, label %_job_state_array_bitmap.exit.i.i, label %52
@@ -177,22 +177,22 @@ define internal fastcc void @_dump_job_state_locked(ptr noundef nonnull %0, i16 
 
 54:                                               ; preds = %52
   %55 = load ptr, ptr %29, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = call ptr @bit_copy(ptr noundef %57) #6
   br label %_job_state_array_bitmap.exit.i.i
 
 _job_state_array_bitmap.exit.i.i:                 ; preds = %54, %52, %49, %40
   %.0.i16.i.i = phi ptr [ %58, %54 ], [ null, %40 ], [ null, %52 ], [ null, %49 ]
-  %59 = getelementptr inbounds i8, ptr %39, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %.0.i16.i.i, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %18, i64 360
+  %60 = getelementptr inbounds nuw i8, ptr %18, i64 360
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %39, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i32 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %18, i64 448
+  %63 = getelementptr inbounds nuw i8, ptr %18, i64 448
   %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %39, i64 28
+  %65 = getelementptr inbounds nuw i8, ptr %39, i64 28
   store i32 %64, ptr %65, align 4
   br label %_add_job_state_by_job_id.exit
 
@@ -212,23 +212,23 @@ _job_state_array_bitmap.exit.i.i:                 ; preds = %54, %52, %49, %40
   br i1 %.not.i32.i, label %_add_job_state_by_job_id.exit.thread, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %18, i64 392
+  %76 = getelementptr inbounds nuw i8, ptr %18, i64 392
   %77 = load i32, ptr %76, align 8
   store i32 %77, ptr %74, align 8
-  %78 = getelementptr inbounds i8, ptr %18, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %79 = load i32, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %74, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 %79, ptr %80, align 4
   %81 = load i32, ptr %25, align 4
-  %82 = getelementptr inbounds i8, ptr %74, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %18, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %84 = load ptr, ptr %83, align 8
   %.not.i.i33.i = icmp eq ptr %84, null
   br i1 %.not.i.i33.i, label %_job_state_array_bitmap.exit.i36.i, label %85
 
 85:                                               ; preds = %75
-  %86 = getelementptr inbounds i8, ptr %84, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not7.i.i34.i = icmp eq ptr %87, null
   br i1 %.not7.i.i34.i, label %_job_state_array_bitmap.exit.i36.i, label %88
@@ -240,34 +240,34 @@ _job_state_array_bitmap.exit.i.i:                 ; preds = %54, %52, %49, %40
 
 90:                                               ; preds = %88
   %91 = load ptr, ptr %83, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = call ptr @bit_copy(ptr noundef %93) #6
   br label %_job_state_array_bitmap.exit.i36.i
 
 _job_state_array_bitmap.exit.i36.i:               ; preds = %90, %88, %85, %75
   %.0.i16.i37.i = phi ptr [ %94, %90 ], [ null, %75 ], [ null, %88 ], [ null, %85 ]
-  %95 = getelementptr inbounds i8, ptr %74, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store ptr %.0.i16.i37.i, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %18, i64 360
+  %96 = getelementptr inbounds nuw i8, ptr %18, i64 360
   %97 = load i32, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %74, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store i32 %97, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %18, i64 448
+  %99 = getelementptr inbounds nuw i8, ptr %18, i64 448
   %100 = load i32, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %74, i64 28
+  %101 = getelementptr inbounds nuw i8, ptr %74, i64 28
   store i32 %100, ptr %101, align 4
   br label %_add_job_state_job.exit39.i
 
 _add_job_state_job.exit39.i:                      ; preds = %_job_state_array_bitmap.exit.i36.i, %66
-  %102 = getelementptr inbounds i8, ptr %18, i64 416
+  %102 = getelementptr inbounds nuw i8, ptr %18, i64 416
   %103 = load ptr, ptr %102, align 8
   %.not3052.i = icmp eq ptr %103, null
   br i1 %.not3052.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_add_job_state_job.exit39.i, %_add_job_state_job.exit47.thread.i
   %104 = phi ptr [ %145, %_add_job_state_job.exit47.thread.i ], [ %103, %_add_job_state_job.exit39.i ]
-  %105 = getelementptr inbounds i8, ptr %104, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 48
   %106 = load i32, ptr %105, align 8
   %107 = icmp eq i32 %106, %17
   br i1 %107, label %108, label %_add_job_state_job.exit47.thread.i
@@ -288,23 +288,23 @@ _add_job_state_job.exit39.i:                      ; preds = %_job_state_array_bi
   br i1 %.not.i40.i, label %_add_job_state_by_job_id.exit.thread, label %117
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %104, i64 392
+  %118 = getelementptr inbounds nuw i8, ptr %104, i64 392
   %119 = load i32, ptr %118, align 8
   store i32 %119, ptr %116, align 8
   %120 = load i32, ptr %105, align 8
-  %121 = getelementptr inbounds i8, ptr %116, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 %120, ptr %121, align 4
-  %122 = getelementptr inbounds i8, ptr %104, i64 52
+  %122 = getelementptr inbounds nuw i8, ptr %104, i64 52
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %116, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i32 %123, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %104, i64 56
+  %125 = getelementptr inbounds nuw i8, ptr %104, i64 56
   %126 = load ptr, ptr %125, align 8
   %.not.i.i41.i = icmp eq ptr %126, null
   br i1 %.not.i.i41.i, label %_job_state_array_bitmap.exit.i44.i, label %127
 
 127:                                              ; preds = %117
-  %128 = getelementptr inbounds i8, ptr %126, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %129 = load ptr, ptr %128, align 8
   %.not7.i.i42.i = icmp eq ptr %129, null
   br i1 %.not7.i.i42.i, label %_job_state_array_bitmap.exit.i44.i, label %130
@@ -316,27 +316,27 @@ _add_job_state_job.exit39.i:                      ; preds = %_job_state_array_bi
 
 132:                                              ; preds = %130
   %133 = load ptr, ptr %125, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = call ptr @bit_copy(ptr noundef %135) #6
   br label %_job_state_array_bitmap.exit.i44.i
 
 _job_state_array_bitmap.exit.i44.i:               ; preds = %132, %130, %127, %117
   %.0.i16.i45.i = phi ptr [ %136, %132 ], [ null, %117 ], [ null, %130 ], [ null, %127 ]
-  %137 = getelementptr inbounds i8, ptr %116, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store ptr %.0.i16.i45.i, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %104, i64 360
+  %138 = getelementptr inbounds nuw i8, ptr %104, i64 360
   %139 = load i32, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %116, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %116, i64 24
   store i32 %139, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %104, i64 448
+  %141 = getelementptr inbounds nuw i8, ptr %104, i64 448
   %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %116, i64 28
+  %143 = getelementptr inbounds nuw i8, ptr %116, i64 28
   store i32 %142, ptr %143, align 4
   br label %_add_job_state_job.exit47.thread.i
 
 _add_job_state_job.exit47.thread.i:               ; preds = %_job_state_array_bitmap.exit.i44.i, %108, %.lr.ph.i
-  %144 = getelementptr inbounds i8, ptr %104, i64 416
+  %144 = getelementptr inbounds nuw i8, ptr %104, i64 416
   %145 = load ptr, ptr %144, align 8
   %.not30.i = icmp eq ptr %145, null
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
@@ -370,17 +370,17 @@ declare i32 @list_for_each_ro(ptr noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_foreach_job_state_filter(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
   store i32 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %_add_job_state_job.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %4 to i64
   %13 = getelementptr inbounds %struct.job_state_response_job_t, ptr %11, i64 %12
@@ -388,24 +388,24 @@ define internal range(i32 -1, 1) i32 @_foreach_job_state_filter(ptr nocapture no
   br i1 %.not.i, label %_add_job_state_job.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 392
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %13, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %_job_state_array_bitmap.exit.i, label %25
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not7.i.i = icmp eq ptr %27, null
   br i1 %.not7.i.i, label %_job_state_array_bitmap.exit.i, label %28
@@ -417,28 +417,28 @@ define internal range(i32 -1, 1) i32 @_foreach_job_state_filter(ptr nocapture no
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %23, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @bit_copy(ptr noundef %33) #6
   br label %_job_state_array_bitmap.exit.i
 
 _job_state_array_bitmap.exit.i:                   ; preds = %30, %28, %25, %14
   %.0.i16.i = phi ptr [ %34, %30 ], [ null, %14 ], [ null, %28 ], [ null, %25 ]
-  %35 = getelementptr inbounds i8, ptr %13, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %.0.i16.i, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 360
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %13, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 448
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %13, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 %40, ptr %41, align 4
   br label %_add_job_state_job.exit
 
 _add_job_state_job.exit:                          ; preds = %2, %_job_state_array_bitmap.exit.i, %9
   %.sink = phi i32 [ -1, %9 ], [ 0, %_job_state_array_bitmap.exit.i ], [ 0, %2 ]
-  %42 = getelementptr inbounds i8, ptr %1, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.sink, ptr %42, align 4
   ret i32 %.sink
 }
@@ -453,28 +453,28 @@ declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_foreach_add_job_state_het_job(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 360
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 360
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %4, %7
   br i1 %8, label %9, label %50
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, 1
   store i32 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %_add_job_state_job.exit, label %18
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %11, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = sext i32 %13 to i64
   %22 = getelementptr inbounds %struct.job_state_response_job_t, ptr %20, i64 %21
@@ -482,24 +482,24 @@ define internal range(i32 -1, 1) i32 @_foreach_add_job_state_het_job(ptr nocaptu
   br i1 %.not.i, label %_add_job_state_job.exit, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 392
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %25 = load i32, ptr %24, align 8
   store i32 %25, ptr %22, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %22, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %22, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_job_state_array_bitmap.exit.i, label %34
 
 34:                                               ; preds = %23
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not7.i.i = icmp eq ptr %36, null
   br i1 %.not7.i.i, label %_job_state_array_bitmap.exit.i, label %37
@@ -511,21 +511,21 @@ define internal range(i32 -1, 1) i32 @_foreach_add_job_state_het_job(ptr nocaptu
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @bit_copy(ptr noundef %42) #6
   br label %_job_state_array_bitmap.exit.i
 
 _job_state_array_bitmap.exit.i:                   ; preds = %39, %37, %34, %23
   %.0.i16.i = phi ptr [ %43, %39 ], [ null, %23 ], [ null, %37 ], [ null, %34 ]
-  %44 = getelementptr inbounds i8, ptr %22, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %.0.i16.i, ptr %44, align 8
   %45 = load i32, ptr %3, align 8
-  %46 = getelementptr inbounds i8, ptr %22, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 448
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %22, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 28
   store i32 %48, ptr %49, align 4
   br label %_add_job_state_job.exit
 

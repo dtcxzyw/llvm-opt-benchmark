@@ -57,9 +57,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %hw = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %hw, align 8
-  %copyctx = getelementptr inbounds i8, ptr %0, i64 16
+  %copyctx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %copyctx, align 8
   tail call void %1(ptr noundef nonnull %call1, ptr noundef %ctx) #4
   br label %return
@@ -98,11 +98,11 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %num = getelementptr inbounds i8, ptr %vctx, i64 160
+  %num = getelementptr inbounds nuw i8, ptr %vctx, i64 160
   store i32 0, ptr %num, align 8
-  %bufsz = getelementptr inbounds i8, ptr %vctx, i64 96
+  %bufsz = getelementptr inbounds nuw i8, ptr %vctx, i64 96
   store i64 0, ptr %bufsz, align 8
-  %enc1 = getelementptr inbounds i8, ptr %vctx, i64 108
+  %enc1 = getelementptr inbounds nuw i8, ptr %vctx, i64 108
   %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 4
   %bf.shl = shl nuw nsw i8 %0, 1
@@ -123,15 +123,15 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool9.not, label %if.end21, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %mode = getelementptr inbounds i8, ptr %vctx, i64 64
+  %mode = getelementptr inbounds nuw i8, ptr %vctx, i64 64
   %2 = load i32, ptr %mode, align 8
   %.off = add i32 %2, -2
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %if.then16, label %if.end21
 
 if.then16:                                        ; preds = %land.lhs.true
-  %iv17 = getelementptr inbounds i8, ptr %vctx, i64 32
-  %ivlen19 = getelementptr inbounds i8, ptr %vctx, i64 80
+  %iv17 = getelementptr inbounds nuw i8, ptr %vctx, i64 32
+  %ivlen19 = getelementptr inbounds nuw i8, ptr %vctx, i64 80
   %3 = load i64, ptr %ivlen19, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %iv17, ptr nonnull align 8 %vctx, i64 %3, i1 false)
   br label %if.end21
@@ -141,7 +141,7 @@ if.end21:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp22.not, label %if.end36, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  %keylen24 = getelementptr inbounds i8, ptr %vctx, i64 72
+  %keylen24 = getelementptr inbounds nuw i8, ptr %vctx, i64 72
   %4 = load i64, ptr %keylen24, align 8
   %cmp25.not = icmp eq i64 %keylen, %4
   br i1 %cmp25.not, label %if.end27, label %if.then26
@@ -153,7 +153,7 @@ if.then26:                                        ; preds = %if.then23
   br label %return
 
 if.end27:                                         ; preds = %if.then23
-  %hw = getelementptr inbounds i8, ptr %vctx, i64 168
+  %hw = getelementptr inbounds nuw i8, ptr %vctx, i64 168
   %5 = load ptr, ptr %hw, align 8
   %6 = load ptr, ptr %5, align 8
   %call29 = tail call i32 %6(ptr noundef nonnull %vctx, ptr noundef nonnull %key, i64 noundef %keylen) #4
@@ -201,15 +201,15 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %data = getelementptr inbounds i8, ptr %call1, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call1, i64 16
   %0 = load ptr, ptr %data, align 8
-  %keylen.i = getelementptr inbounds i8, ptr %vctx, i64 72
+  %keylen.i = getelementptr inbounds nuw i8, ptr %vctx, i64 72
   %1 = load i64, ptr %keylen.i, align 8
   %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %if.then4, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true
-  %libctx.i = getelementptr inbounds i8, ptr %vctx, i64 184
+  %libctx.i = getelementptr inbounds nuw i8, ptr %vctx, i64 184
   %2 = load ptr, ptr %libctx.i, align 8
   %call.i = tail call i32 @RAND_priv_bytes_ex(ptr noundef %2, ptr noundef %0, i64 noundef %1, i32 noundef 0) #4
   %cmp1.i = icmp slt i32 %call.i, 1
@@ -221,13 +221,13 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %cmp2.i, label %if.then3.i, label %return
 
 if.then3.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @DES_set_odd_parity(ptr noundef nonnull %add.ptr.i) #4
   %cmp4.i = icmp ugt i64 %1, 23
   br i1 %cmp4.i, label %if.then5.i, label %return
 
 if.then5.i:                                       ; preds = %if.then3.i
-  %add.ptr6.i = getelementptr inbounds i8, ptr %0, i64 16
+  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @DES_set_odd_parity(ptr noundef nonnull %add.ptr6.i) #4
   br label %return
 

@@ -129,7 +129,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 %i.06
   %0 = load i8, ptr %arrayidx, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx1 = getelementptr inbounds [256 x i8], ptr @DOWNCASE_TBL, i64 0, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds nuw [256 x i8], ptr @DOWNCASE_TBL, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx1, align 1
   store i8 %1, ptr %arrayidx, align 1
   %inc = add nuw i64 %i.06, 1
@@ -465,7 +465,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp4, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.then3
-  %incdec.ptr = getelementptr inbounds i8, ptr %name, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %name, i64 1
   %dec = add i64 %len, -1
   br label %for.body.preheader
 
@@ -476,7 +476,7 @@ for.body.preheader:                               ; preds = %if.end, %if.end7
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr13 = getelementptr inbounds i8, ptr %name.addr.110, i64 1
+  %incdec.ptr13 = getelementptr inbounds nuw i8, ptr %name.addr.110, i64 1
   %cmp9.not = icmp eq ptr %incdec.ptr13, %add.ptr
   br i1 %cmp9.not, label %return, label %for.body, !llvm.loop !6
 
@@ -484,7 +484,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %name.addr.110 = phi ptr [ %incdec.ptr13, %for.cond ], [ %name.addr.0, %for.body.preheader ]
   %1 = load i8, ptr %name.addr.110, align 1
   %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr inbounds [256 x i32], ptr @VALID_HD_NAME_CHARS, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_NAME_CHARS, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %return, label %for.cond
@@ -502,7 +502,7 @@ entry:
   br i1 %cmp.not4, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %value.addr.05, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %value.addr.05, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !7
 
@@ -510,7 +510,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %value.addr.05 = phi ptr [ %incdec.ptr, %for.cond ], [ %value, %entry ]
   %0 = load i8, ptr %value.addr.05, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx = getelementptr inbounds [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %return, label %for.cond
@@ -543,7 +543,7 @@ lor.lhs.false6:                                   ; preds = %if.end
   ]
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %value.addr.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %value.addr.05.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !7
 
@@ -551,7 +551,7 @@ for.body.i:                                       ; preds = %lor.lhs.false6, %fo
   %value.addr.05.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %value, %lor.lhs.false6 ]
   %2 = load i8, ptr %value.addr.05.i, align 1
   %idxprom.i = zext i8 %2 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %return, label %for.cond.i
@@ -572,7 +572,7 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %value.addr.06, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %value.addr.06, i64 1
   %cmp1.not = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !8
 
@@ -580,7 +580,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %value.addr.06 = phi ptr [ %incdec.ptr, %for.cond ], [ %value, %for.body.preheader ]
   %0 = load i8, ptr %value.addr.06, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @VALID_METHOD_CHARS, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @VALID_METHOD_CHARS, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %for.cond
@@ -598,7 +598,7 @@ entry:
   br i1 %cmp.not4, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %value.addr.05, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %value.addr.05, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !9
 
@@ -606,7 +606,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %value.addr.05 = phi ptr [ %incdec.ptr, %for.cond ], [ %value, %entry ]
   %0 = load i8, ptr %value.addr.05, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @VALID_PATH_CHARS, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @VALID_PATH_CHARS, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %for.cond
@@ -624,7 +624,7 @@ entry:
   br i1 %cmp.not4, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %value.addr.05, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %value.addr.05, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !10
 
@@ -632,7 +632,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %value.addr.05 = phi ptr [ %incdec.ptr, %for.cond ], [ %value, %entry ]
   %0 = load i8, ptr %value.addr.05, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @VALID_AUTHORITY_CHARS, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @VALID_AUTHORITY_CHARS, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %for.cond
@@ -666,7 +666,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %error_code to i64
-  %switch.gep = getelementptr inbounds [14 x ptr], ptr @switch.table.nghttp2_http2_strerror, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table.nghttp2_http2_strerror, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 

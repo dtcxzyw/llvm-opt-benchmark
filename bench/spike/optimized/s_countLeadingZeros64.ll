@@ -24,7 +24,7 @@ define zeroext i8 @softfloat_countLeadingZeros64(i64 noundef %0) local_unnamed_a
   %.2 = select i1 %6, i32 %8, i32 %.1
   %9 = lshr i32 %.2, 24
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = add i8 %12, %.214
   ret i8 %13

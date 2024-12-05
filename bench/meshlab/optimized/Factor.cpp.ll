@@ -13,7 +13,7 @@ define noundef range(i32 0, 2) i32 @_Z6FactorddPA2_dd(double noundef %0, double 
   %8 = fneg double %1
   %9 = fdiv double %8, %0
   store double %9, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 0.000000e+00, ptr %10, align 8
   br label %11
 
@@ -40,7 +40,7 @@ define noundef range(i32 0, 3) i32 @_Z6FactordddPA2_dd(double noundef %0, double
   %12 = fneg double %2
   %13 = fdiv double %12, %1
   store double %13, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double 0.000000e+00, ptr %14, align 8
   br label %_Z6FactorddPA2_dd.exit
 
@@ -59,23 +59,23 @@ define noundef range(i32 0, 3) i32 @_Z6FactordddPA2_dd(double noundef %0, double
   %25 = tail call double @sqrt(double noundef %24) #12
   %26 = fdiv double %25, %20
   %27 = fneg double %21
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %27, ptr %28, align 8
   store double %27, ptr %3, align 8
   %29 = fneg double %26
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %26, ptr %31, align 8
   br label %_Z6FactorddPA2_dd.exit
 
 32:                                               ; preds = %15
   %33 = tail call double @sqrt(double noundef %19) #12
   %34 = fdiv double %33, %20
-  %35 = getelementptr inbounds i8, ptr %3, i64 16
-  %36 = getelementptr inbounds i8, ptr %3, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double 0.000000e+00, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double 0.000000e+00, ptr %37, align 8
   %38 = fneg double %21
   %39 = fsub double %38, %34
@@ -115,7 +115,7 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
   %16 = fneg double %3
   %17 = fdiv double %16, %2
   store double %17, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double 0.000000e+00, ptr %18, align 8
   br label %_Z6FactordddPA2_dd.exit
 
@@ -134,23 +134,23 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
   %29 = tail call double @sqrt(double noundef %28) #12
   %30 = fdiv double %29, %24
   %31 = fneg double %25
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %31, ptr %32, align 8
   store double %31, ptr %4, align 8
   %33 = fneg double %30
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double %30, ptr %35, align 8
   br label %_Z6FactordddPA2_dd.exit
 
 36:                                               ; preds = %19
   %37 = tail call double @sqrt(double noundef %23) #12
   %38 = fdiv double %37, %24
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
-  %40 = getelementptr inbounds i8, ptr %4, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double 0.000000e+00, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double 0.000000e+00, ptr %41, align 8
   %42 = fneg double %25
   %43 = fsub double %42, %38
@@ -192,11 +192,11 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
   %73 = fmul double %65, %72
   %74 = fmul double %73, 0x3FFBB67AE8584CAA
   %75 = fmul double %74, 5.000000e-01
-  %76 = getelementptr inbounds i8, ptr %4, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store double 0.000000e+00, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %4, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double 0.000000e+00, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %4, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double 0.000000e+00, ptr %78, align 8
   %79 = fmul double %71, -2.000000e+00
   %80 = fneg double %71
@@ -243,7 +243,7 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
 
 107:                                              ; preds = %105, %101
   %.081 = phi double [ %104, %101 ], [ %106, %105 ]
-  %108 = getelementptr inbounds i8, ptr %4, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double 0.000000e+00, ptr %108, align 8
   %109 = fadd double %.082, %.081
   %110 = fmul double %.082, 5.000000e-01
@@ -252,10 +252,10 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
   %113 = fsub double %112, %111
   %114 = fsub double %110, %111
   %115 = fmul double %114, 0x3FFBB67AE8584CAA
-  %116 = getelementptr inbounds i8, ptr %4, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double %115, ptr %116, align 8
   %117 = fneg double %115
-  %118 = getelementptr inbounds i8, ptr %4, i64 40
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store double %117, ptr %118, align 8
   br label %119
 
@@ -266,10 +266,10 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
   %123 = fdiv double %46, 3.000000e+00
   %124 = fsub double %122, %123
   store double %124, ptr %4, align 8
-  %125 = getelementptr inbounds i8, ptr %4, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %126 = fsub double %121, %123
   store double %126, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %4, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %128 = fsub double %120, %123
   store double %128, ptr %127, align 8
   br label %_Z6FactordddPA2_dd.exit
@@ -340,7 +340,7 @@ declare double @atan(double noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define noundef double @_Z5AnglePKd(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = load double, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
   %5 = fmul double %4, %4
   %6 = tail call double @llvm.fmuladd.f64(double %2, double %2, double %5)
@@ -392,7 +392,7 @@ _Z7ArcTan2dd.exit:                                ; preds = %25, %23, %16, %12, 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define void @_Z4SqrtPKdPd(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #4 {
   %3 = load double, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fmul double %5, %5
   %7 = tail call double @llvm.fmuladd.f64(double %3, double %3, double %6)
@@ -450,7 +450,7 @@ _Z5AnglePKd.exit:                                 ; preds = %2, %14, %18, %22, %
   store double %35, ptr %1, align 8
   %36 = tail call double @sin(double noundef %33) #12
   %37 = fmul double %8, %36
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %37, ptr %38, align 8
   ret void
 }
@@ -461,12 +461,12 @@ define void @_Z3AddPKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocapture nou
   %5 = load double, ptr %1, align 8
   %6 = fadd double %4, %5
   store double %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load double, ptr %9, align 8
   %11 = fadd double %8, %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %11, ptr %12, align 8
   ret void
 }
@@ -477,12 +477,12 @@ define void @_Z8SubtractPKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocaptur
   %5 = load double, ptr %1, align 8
   %6 = fsub double %4, %5
   store double %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load double, ptr %9, align 8
   %11 = fsub double %8, %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %11, ptr %12, align 8
   ret void
 }
@@ -491,9 +491,9 @@ define void @_Z8SubtractPKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocaptur
 define void @_Z8MultiplyPKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) local_unnamed_addr #5 {
   %4 = load double, ptr %0, align 8
   %5 = load double, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fneg double %9
   %11 = fmul double %7, %10
@@ -505,7 +505,7 @@ define void @_Z8MultiplyPKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocaptur
   %16 = load double, ptr %1, align 8
   %17 = fmul double %15, %16
   %18 = tail call double @llvm.fmuladd.f64(double %13, double %14, double %17)
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %18, ptr %19, align 8
   ret void
 }
@@ -513,7 +513,7 @@ define void @_Z8MultiplyPKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocaptur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_Z6DividePKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) local_unnamed_addr #5 {
   %4 = load double, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
   %7 = fmul double %6, %6
   %8 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %7)
@@ -521,7 +521,7 @@ define void @_Z6DividePKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocapture 
   %10 = fneg double %6
   %11 = fdiv double %10, %8
   %12 = load double, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load double, ptr %13, align 8
   %15 = fneg double %11
   %16 = fmul double %14, %15
@@ -531,7 +531,7 @@ define void @_Z6DividePKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocapture 
   %19 = load double, ptr %13, align 8
   %20 = fmul double %9, %19
   %21 = tail call double @llvm.fmuladd.f64(double %18, double %11, double %20)
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %21, ptr %22, align 8
   ret void
 }
@@ -877,29 +877,29 @@ _Z4SqrtPKdPd.exit88:                              ; preds = %_Z4SqrtPKdPd.exit83
   %209 = fmul double %.sroa.8.0, 5.000000e-01
   %210 = fmul double %.sroa.4131.0, 5.000000e-01
   %211 = fadd double %210, %209
-  %212 = getelementptr inbounds i8, ptr %5, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %211, ptr %212, align 8
   %213 = fsub double %206, %207
-  %214 = getelementptr inbounds i8, ptr %5, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %213, ptr %214, align 8
   %215 = fsub double %209, %210
-  %216 = getelementptr inbounds i8, ptr %5, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double %215, ptr %216, align 8
   %217 = fsub double %205, %.sroa.0133.0
   %218 = fmul double %.sroa.0125.0, 5.000000e-01
   %219 = fadd double %218, %217
-  %220 = getelementptr inbounds i8, ptr %5, i64 32
+  %220 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store double %219, ptr %220, align 8
   %221 = fmul double %.sroa.8.0, -5.000000e-01
   %222 = fmul double %.sroa.4127.0, 5.000000e-01
   %223 = fadd double %222, %221
-  %224 = getelementptr inbounds i8, ptr %5, i64 40
+  %224 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double %223, ptr %224, align 8
   %225 = fsub double %217, %218
-  %226 = getelementptr inbounds i8, ptr %5, i64 48
+  %226 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store double %225, ptr %226, align 8
   %227 = fsub double %221, %222
-  %228 = getelementptr inbounds i8, ptr %5, i64 56
+  %228 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double %227, ptr %228, align 8
   br label %229
 
@@ -944,7 +944,7 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr nocapture noundef read
 
 .lr.ph128.preheader:                              ; preds = %._crit_edge140, %.preheader119.lr.ph
   %indvars.iv164 = phi i64 [ 0, %.preheader119.lr.ph ], [ %indvars.iv.next165, %._crit_edge140 ]
-  %invariant.gep = getelementptr inbounds double, ptr %14, i64 %indvars.iv164
+  %invariant.gep = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv164
   br label %.lr.ph128
 
 .lr.ph143.preheader:                              ; preds = %._crit_edge140
@@ -955,14 +955,14 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr nocapture noundef read
   %indvars.iv = phi i64 [ 0, %.lr.ph128.preheader ], [ %indvars.iv.next, %35 ]
   %.0112126 = phi i32 [ -1, %.lr.ph128.preheader ], [ %.1113, %35 ]
   %.0114125 = phi double [ -1.000000e+00, %.lr.ph128.preheader ], [ %.1115, %35 ]
-  %24 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %35
 
 26:                                               ; preds = %.lr.ph128
   %27 = mul nuw nsw i64 %indvars.iv, %23
-  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %27
+  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %27
   %28 = load double, ptr %gep, align 8
   %29 = fcmp une double %28, 0.000000e+00
   br i1 %29, label %30, label %35
@@ -988,7 +988,7 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr nocapture noundef read
   br i1 %36, label %._crit_edge144, label %.lr.ph131.preheader
 
 .lr.ph131.preheader:                              ; preds = %._crit_edge
-  %37 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv164
+  %37 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv164
   store i32 %.1113, ptr %37, align 4
   %38 = sext i32 %.1113 to i64
   %39 = getelementptr inbounds i32, ptr %10, i64 %38
@@ -1048,7 +1048,7 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr nocapture noundef read
 
 ._crit_edge136:                                   ; preds = %54
   %59 = load double, ptr %47, align 8
-  %60 = getelementptr inbounds double, ptr %17, i64 %indvars.iv159
+  %60 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv159
   %61 = load double, ptr %60, align 8
   %62 = fneg double %59
   %63 = tail call double @llvm.fmuladd.f64(double %62, double %53, double %61)
@@ -1067,12 +1067,12 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr nocapture noundef read
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv169 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next170, %.lr.ph143 ]
-  %65 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv169
+  %65 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv169
   %66 = load i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds double, ptr %17, i64 %67
   %69 = load double, ptr %68, align 8
-  %70 = getelementptr inbounds double, ptr %2, i64 %indvars.iv169
+  %70 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv169
   store double %69, ptr %70, align 8
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172

@@ -5,14 +5,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lib_rawoutstream(ptr nocapture noundef writeonly initializes((0, 4), (8, 36)) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @rawoutstream_putc, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @rawoutstream_puts, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @lib_noflush, ptr %5, align 8
   store i32 0, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %6, align 8
   ret void
 }
@@ -22,7 +22,7 @@ define internal void @rawoutstream_putc(ptr nocapture noundef %0, i32 noundef %1
   %3 = alloca i8, align 1
   %4 = trunc i32 %1 to i8
   store i8 %4, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %6
 
 6:                                                ; preds = %14, %2
@@ -50,7 +50,7 @@ rawoutstream_puts.exit:                           ; preds = %14, %11
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483647, -2147483648) i32 @rawoutstream_puts(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = sext i32 %2 to i64
   br label %6
 

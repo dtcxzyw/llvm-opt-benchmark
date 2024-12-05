@@ -72,15 +72,15 @@ declare i64 @ZSTD_freeDCtx(ptr noundef) local_unnamed_addr #1
 define void @_ZN8proxygen22ZstdStreamDecompressorC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 12), (16, 33)) %this, i1 noundef zeroext %reuseOutBuf) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i64 16), ptr %this, align 8
-  %status_ = getelementptr inbounds i8, ptr %this, i64 8
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %status_, align 8
   %call = tail call ptr @ZSTD_createDCtx()
-  %dctx_ = getelementptr inbounds i8, ptr %this, i64 16
+  %dctx_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %frombool = zext i1 %reuseOutBuf to i8
   store ptr %call, ptr %dctx_, align 8
-  %cachedIOBuf_ = getelementptr inbounds i8, ptr %this, i64 24
+  %cachedIOBuf_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %cachedIOBuf_, align 8
-  %reuseOutBuf_ = getelementptr inbounds i8, ptr %this, i64 32
+  %reuseOutBuf_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 %frombool, ptr %reuseOutBuf_, align 8
   ret void
 }
@@ -98,19 +98,19 @@ entry:
   %__end1 = alloca %"class.folly::IOBuf::Iterator", align 8
   %ibuf = alloca %struct.ZSTD_inBuffer_s, align 8
   %obuf = alloca %struct.ZSTD_outBuffer_s, align 8
-  %dctx_ = getelementptr inbounds i8, ptr %this, i64 16
+  %dctx_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %dctx_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %status_ = getelementptr inbounds i8, ptr %this, i64 8
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 2, ptr %status_, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(33) %this)
   br i1 %call2, label %if.then3, label %if.end4
@@ -121,13 +121,13 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %call5 = tail call i64 @ZSTD_DStreamOutSize()
-  %reuseOutBuf_ = getelementptr inbounds i8, ptr %this, i64 32
+  %reuseOutBuf_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i8, ptr %reuseOutBuf_, align 8
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %land.lhs.true, label %cond.false
 
 land.lhs.true:                                    ; preds = %if.end4
-  %cachedIOBuf_ = getelementptr inbounds i8, ptr %this, i64 24
+  %cachedIOBuf_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %cachedIOBuf_, align 8
   %cmp.i.i.not = icmp eq ptr %3, null
   br i1 %cmp.i.i.not, label %cond.false, label %cond.true
@@ -146,11 +146,11 @@ cond.false:                                       ; preds = %land.lhs.true, %if.
 invoke.cont:                                      ; preds = %cond.true, %cond.false
   %5 = phi ptr [ %3, %cond.true ], [ %.pre, %cond.false ]
   store ptr %5, ptr %appender, align 8
-  %crtBuf_.i = getelementptr inbounds i8, ptr %appender, i64 8
-  %prev_.i.i = getelementptr inbounds i8, ptr %5, i64 40
+  %crtBuf_.i = getelementptr inbounds nuw i8, ptr %appender, i64 8
+  %prev_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 40
   %6 = load ptr, ptr %prev_.i.i, align 8
   store ptr %6, ptr %crtBuf_.i, align 8
-  %growth_.i = getelementptr inbounds i8, ptr %appender, i64 16
+  %growth_.i = getelementptr inbounds nuw i8, ptr %appender, i64 16
   store i64 %call5, ptr %growth_.i, align 8
   invoke void @_ZNK5folly5IOBuf6cbeginEv(ptr nonnull sret(%"class.folly::IOBuf::Iterator") align 8 %__begin1, ptr noundef nonnull align 8 dereferenceable(56) %in)
           to label %invoke.cont9 unwind label %lpad.loopexit.split-lp
@@ -160,8 +160,8 @@ invoke.cont9:                                     ; preds = %invoke.cont
           to label %invoke.cont11.preheader unwind label %lpad.loopexit.split-lp
 
 invoke.cont11.preheader:                          ; preds = %invoke.cont9
-  %end_.i.i.i.i = getelementptr inbounds i8, ptr %__begin1, i64 8
-  %end_3.i.i.i.i = getelementptr inbounds i8, ptr %__end1, i64 8
+  %end_.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 8
+  %end_3.i.i.i.i = getelementptr inbounds nuw i8, ptr %__end1, i64 8
   %7 = load ptr, ptr %__begin1, align 8
   %8 = load ptr, ptr %__end1, align 8
   %cmp.i.i.i.i15 = icmp ne ptr %7, %8
@@ -172,13 +172,13 @@ invoke.cont11.preheader:                          ; preds = %invoke.cont9
   br i1 %.not.i17, label %invoke.cont13.lr.ph, label %for.end
 
 invoke.cont13.lr.ph:                              ; preds = %invoke.cont11.preheader
-  %val_.i.i = getelementptr inbounds i8, ptr %__begin1, i64 16
-  %size = getelementptr inbounds i8, ptr %ibuf, i64 8
-  %e_.i = getelementptr inbounds i8, ptr %__begin1, i64 24
-  %pos = getelementptr inbounds i8, ptr %ibuf, i64 16
-  %status_26 = getelementptr inbounds i8, ptr %this, i64 8
-  %size52 = getelementptr inbounds i8, ptr %obuf, i64 8
-  %pos55 = getelementptr inbounds i8, ptr %obuf, i64 16
+  %val_.i.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %ibuf, i64 8
+  %e_.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 24
+  %pos = getelementptr inbounds nuw i8, ptr %ibuf, i64 16
+  %status_26 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %size52 = getelementptr inbounds nuw i8, ptr %obuf, i64 8
+  %pos55 = getelementptr inbounds nuw i8, ptr %obuf, i64 16
   %.pre18 = load ptr, ptr %val_.i.i, align 8
   br label %invoke.cont13
 
@@ -222,14 +222,14 @@ while.body:                                       ; preds = %if.end18, %if.end69
 
 invoke.cont53:                                    ; preds = %while.body
   %15 = load ptr, ptr %crtBuf_.i, align 8
-  %data_.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load ptr, ptr %data_.i.i, align 8
   %17 = load i64, ptr %15, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 %17
   store ptr %add.ptr.i.i, ptr %obuf, align 8
-  %buf_.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
+  %buf_.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   %18 = load ptr, ptr %buf_.i.i.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
+  %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i64, ptr %capacity_.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 %19
   %20 = load i64, ptr %15, align 8
@@ -282,7 +282,7 @@ for.inc.loopexit:                                 ; preds = %if.end69
 for.inc:                                          ; preds = %for.inc.loopexit, %if.end18, %invoke.cont13
   %27 = phi ptr [ %.pre20, %for.inc.loopexit ], [ %11, %if.end18 ], [ %11, %invoke.cont13 ]
   %28 = phi ptr [ %.pre19, %for.inc.loopexit ], [ %12, %if.end18 ], [ %12, %invoke.cont13 ]
-  %next_.i.i.i = getelementptr inbounds i8, ptr %28, i64 32
+  %next_.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 32
   %29 = load ptr, ptr %next_.i.i.i, align 8
   store ptr %29, ptr %__begin1, align 8
   %cmp.i.i.i = icmp eq ptr %29, %27
@@ -293,7 +293,7 @@ if.then.i.i.i:                                    ; preds = %for.inc
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 if.else.i.i.i:                                    ; preds = %for.inc
-  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
+  %data_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   %30 = load ptr, ptr %data_.i.i.i.i.i, align 8
   %31 = load i64, ptr %29, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 %31
@@ -327,7 +327,7 @@ invoke.cont79:                                    ; preds = %land.lhs.true77
   br i1 %cmp81, label %if.then82, label %cleanup.thread
 
 if.then82:                                        ; preds = %invoke.cont79
-  %cachedIOBuf_83 = getelementptr inbounds i8, ptr %this, i64 24
+  %cachedIOBuf_83 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call84 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(8) %cachedIOBuf_83, ptr noundef nonnull align 8 dereferenceable(8) %out) #11
   br label %cleanup
 
@@ -359,14 +359,14 @@ declare void @_ZN5folly5IOBuf6createEm(ptr sret(%"class.std::unique_ptr.2") alig
 define linkonce_odr void @_ZN5folly2io8Appender6ensureEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.2", align 8
-  %crtBuf_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %crtBuf_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %crtBuf_.i, align 8
-  %buf_.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %buf_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %buf_.i.i.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %capacity_.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %2
-  %data_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %data_.i.i.i, align 8
   %4 = load i64, ptr %0, align 8
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %3, i64 %4
@@ -377,7 +377,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %growth_ = getelementptr inbounds i8, ptr %this, i64 16
+  %growth_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load i64, ptr %growth_, align 8
   %cmp2 = icmp eq i64 %5, 0
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -405,7 +405,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %invoke.cont
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   %8 = load ptr, ptr %this, align 8
-  %prev_.i = getelementptr inbounds i8, ptr %8, i64 40
+  %prev_.i = getelementptr inbounds nuw i8, ptr %8, i64 40
   %9 = load ptr, ptr %prev_.i, align 8
   store ptr %9, ptr %crtBuf_.i, align 8
   br label %return
@@ -466,7 +466,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 define linkonce_odr void @_ZN8proxygen22ZstdStreamDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i64 16), ptr %this, align 8
-  %cachedIOBuf_ = getelementptr inbounds i8, ptr %this, i64 24
+  %cachedIOBuf_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %cachedIOBuf_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -478,7 +478,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %cachedIOBuf_, align 8
-  %dctx_ = getelementptr inbounds i8, ptr %this, i64 16
+  %dctx_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %dctx_, align 8
   %cmp.not.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrI11ZSTD_DCtx_sN5folly23static_function_deleterIS0_XadL_ZN8proxygen22ZstdStreamDecompressor8freeDCtxEPS0_EEEEED2Ev.exit, label %if.then.i
@@ -503,7 +503,7 @@ _ZNSt10unique_ptrI11ZSTD_DCtx_sN5folly23static_function_deleterIS0_XadL_ZN8proxy
 define linkonce_odr void @_ZN8proxygen22ZstdStreamDecompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i64 16), ptr %this, align 8
-  %cachedIOBuf_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %cachedIOBuf_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %cachedIOBuf_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -515,7 +515,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i, %entry
   store ptr null, ptr %cachedIOBuf_.i, align 8
-  %dctx_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %dctx_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %dctx_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen22ZstdStreamDecompressorD2Ev.exit, label %if.then.i.i
@@ -539,7 +539,7 @@ _ZN8proxygen22ZstdStreamDecompressorD2Ev.exit:    ; preds = %_ZNSt10unique_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN8proxygen22ZstdStreamDecompressor8hasErrorEv(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %status_ = getelementptr inbounds i8, ptr %this, i64 8
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %status_, align 8
   %cmp = icmp eq i32 %0, 2
   ret i1 %cmp
@@ -548,7 +548,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN8proxygen22ZstdStreamDecompressor8finishedEv(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %status_ = getelementptr inbounds i8, ptr %this, i64 8
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %status_, align 8
   %cmp = icmp eq i32 %0, 3
   ret i1 %cmp

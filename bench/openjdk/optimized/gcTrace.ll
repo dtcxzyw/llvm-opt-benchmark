@@ -36,9 +36,9 @@ declare noundef zeroext i1 @_ZNK8GCTracer26should_send_cpu_time_eventEv(ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN8GCTracer20report_gc_start_implEN7GCCause5CauseERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((12, 32)) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   ret void
 }
@@ -53,23 +53,23 @@ define hidden void @_ZN8GCTracer15report_gc_startEN7GCCause5CauseERK11TimeInstan
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8GCTracer18report_gc_end_implERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(80) initializes((32, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 48
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.0.0.copyload.i, ptr %5, align 8
-  %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.211.0..sroa_idx, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.0.0.copyload.i5 = load i64, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds i8, ptr %2, i64 64
+  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.sroa.2.0.copyload.i7 = load i64, ptr %.sroa.2.0..sroa_idx.i6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sroa.0.0.copyload.i5, ptr %7, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %.sroa.2.0.copyload.i7, ptr %.sroa.2.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   tail call void @_ZNK8GCTracer17send_phase_eventsEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %2) #7
   tail call void @_ZNK8GCTracer29send_garbage_collection_eventEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #7
@@ -83,7 +83,7 @@ declare void @_ZNK8GCTracer29send_garbage_collection_eventEv(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8GCTracer13report_gc_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) #7
   ret void
@@ -101,13 +101,13 @@ declare void @_ZNK8GCTracer19send_cpu_time_eventEddd(ptr noundef nonnull align 8
 define hidden void @_ZNK8GCTracer25report_gc_reference_statsERK23ReferenceProcessorStats(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 8
   tail call void @_ZNK8GCTracer26send_reference_stats_eventE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 1, i64 noundef %3) #7
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   tail call void @_ZNK8GCTracer26send_reference_stats_eventE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 2, i64 noundef %5) #7
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
   tail call void @_ZNK8GCTracer26send_reference_stats_eventE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 3, i64 noundef %7) #7
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   tail call void @_ZNK8GCTracer26send_reference_stats_eventE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef 4, i64 noundef %9) #7
   ret void
@@ -126,18 +126,18 @@ define hidden void @_ZN8GCTracer28report_object_count_after_gcEP17BoolObjectClos
 8:                                                ; preds = %3
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 800
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 800
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %20 = load i64, ptr %19, align 8
   call void @_ZN14KlassInfoTableC1Eb(ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext false) #7
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %35, label %24
@@ -149,15 +149,15 @@ define hidden void @_ZN8GCTracer28report_object_count_after_gcEP17BoolObjectClos
   %28 = extractvalue { i64, i64 } %27, 0
   %29 = extractvalue { i64, i64 } %27, 1
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV29ObjectCountEventSenderClosure, i64 16), ptr %6, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %31 = load double, ptr @ObjectCountCutOffPercent, align 8
   %32 = fdiv double %31, 1.000000e+02
   store double %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %26, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %28, ptr %34, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %29, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZN14KlassInfoTable7iterateEP16KlassInfoClosure(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %6) #7
   br label %35
@@ -212,14 +212,14 @@ declare void @_ZNK8GCTracer26send_gc_heap_summary_eventEN6GCWhen4TypeERK13GCHeap
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK8GCTracer24report_metaspace_summaryEN6GCWhen4TypeERK16MetaspaceSummary(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK8GCTracer29send_meta_space_summary_eventEN6GCWhen4TypeERK16MetaspaceSummary(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2) #7
-  %4 = getelementptr inbounds i8, ptr %2, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 80
   tail call void @_ZNK8GCTracer38send_metaspace_chunk_free_list_summaryEN6GCWhen4TypeEN9Metaspace12MetadataTypeERK29MetaspaceChunkFreeListSummary(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(64) %4) #7
   %5 = load i8, ptr @UseCompressedClassPointers, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 144
   tail call void @_ZNK8GCTracer38send_metaspace_chunk_free_list_summaryEN6GCWhen4TypeEN9Metaspace12MetadataTypeERK29MetaspaceChunkFreeListSummary(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(64) %8) #7
   br label %9
 
@@ -233,28 +233,28 @@ declare void @_ZNK8GCTracer38send_metaspace_chunk_free_list_summaryEN6GCWhen4Typ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13YoungGCTracer18report_gc_end_implERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(84) initializes((32, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 48
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.0.0.copyload.i.i, ptr %5, align 8
-  %.sroa.211.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.211.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.211.0..sroa_idx.i, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.0.0.copyload.i5.i = load i64, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %2, i64 64
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.sroa.2.0.copyload.i7.i = load i64, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sroa.0.0.copyload.i5.i, ptr %7, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %.sroa.2.0.copyload.i7.i, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   tail call void @_ZNK8GCTracer17send_phase_eventsEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %2) #7
   tail call void @_ZNK8GCTracer29send_garbage_collection_eventEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #7
   tail call void @_ZNK13YoungGCTracer19send_young_gc_eventEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 -1, ptr %9, align 8
   ret void
 }
@@ -271,7 +271,7 @@ declare void @_ZNK13YoungGCTracer27send_promotion_failed_eventERK19PromotionFail
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13YoungGCTracer25report_tenuring_thresholdEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   ret void
 }
@@ -324,23 +324,23 @@ declare void @_ZNK13YoungGCTracer33send_promotion_outside_plab_eventEP5Klassmjb(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11OldGCTracer18report_gc_end_implERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(80) initializes((32, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 48
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.0.0.copyload.i.i, ptr %5, align 8
-  %.sroa.211.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.211.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.211.0..sroa_idx.i, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.0.0.copyload.i5.i = load i64, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %2, i64 64
+  %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.sroa.2.0.copyload.i7.i = load i64, ptr %.sroa.2.0..sroa_idx.i6.i, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sroa.0.0.copyload.i5.i, ptr %7, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %.sroa.2.0.copyload.i7.i, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   tail call void @_ZNK8GCTracer17send_phase_eventsEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %2) #7
   tail call void @_ZNK8GCTracer29send_garbage_collection_eventEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #7
@@ -352,23 +352,23 @@ declare void @_ZNK11OldGCTracer17send_old_gc_eventEv(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17ParallelOldTracer18report_gc_end_implERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(88) initializes((32, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %5, align 8
-  %.sroa.211.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.211.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.sroa.2.0.copyload.i.i.i, ptr %.sroa.211.0..sroa_idx.i.i, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.0.0.copyload.i5.i.i = load i64, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i6.i.i = getelementptr inbounds i8, ptr %2, i64 64
+  %.sroa.2.0..sroa_idx.i6.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.sroa.2.0.copyload.i7.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i6.i.i, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sroa.0.0.copyload.i5.i.i, ptr %7, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %.sroa.2.0.copyload.i7.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   tail call void @_ZNK8GCTracer17send_phase_eventsEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %2) #7
   tail call void @_ZNK8GCTracer29send_garbage_collection_eventEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #7
@@ -381,7 +381,7 @@ declare void @_ZNK17ParallelOldTracer23send_parallel_old_eventEv(ptr noundef non
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17ParallelOldTracer19report_dense_prefixEPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -402,20 +402,20 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN29ObjectCountEventSenderClosure8do_cinfoEP14KlassInfoEntry(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = uitofp i64 %4 to double
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = uitofp i64 %7 to double
   %9 = fdiv double %5, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load double, ptr %10, align 8
   %12 = fcmp ult double %9, %11
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN22ObjectCountEventSender4sendEPK14KlassInfoEntryRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %14) #7
   br label %15
 

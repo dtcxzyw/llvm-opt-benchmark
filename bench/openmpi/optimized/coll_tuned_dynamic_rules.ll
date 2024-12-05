@@ -22,7 +22,7 @@ define noalias noundef ptr @ompi_coll_tuned_mk_alg_rules(i32 noundef %0) local_u
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds %struct.alg_rule_s, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.alg_rule_s, ptr %3, i64 %indvars.iv
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %6, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -51,16 +51,16 @@ define noalias noundef ptr @ompi_coll_tuned_mk_com_rules(i32 noundef %0, i32 nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds %struct.com_rule_s, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.com_rule_s, ptr %4, i64 %indvars.iv
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -85,13 +85,13 @@ define noalias noundef ptr @ompi_coll_tuned_mk_msg_rules(i32 noundef %0, i32 nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds %struct.msg_rule_s, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.msg_rule_s, ptr %6, i64 %indvars.iv
   store i32 %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %12, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -139,13 +139,13 @@ define range(i32 -1, 1) i32 @ompi_coll_tuned_free_msg_rules_in_com_rule(ptr noun
   br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %9, label %8
@@ -169,13 +169,13 @@ define range(i32 -1, 1) i32 @ompi_coll_tuned_free_coms_in_alg_rule(ptr noundef %
   br i1 %.not, label %23, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not15 = icmp eq i32 %4, 0
   br i1 %.not15, label %23, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not16 = icmp eq ptr %7, null
   br i1 %.not16, label %23, label %.preheader
@@ -188,18 +188,18 @@ define range(i32 -1, 1) i32 @ompi_coll_tuned_free_coms_in_alg_rule(ptr noundef %
   %9 = phi ptr [ %.pr, %ompi_coll_tuned_free_msg_rules_in_com_rule.exit ], [ %7, %.preheader ]
   %10 = phi i32 [ %19, %ompi_coll_tuned_free_msg_rules_in_com_rule.exit ], [ %4, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %ompi_coll_tuned_free_msg_rules_in_com_rule.exit ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds %struct.com_rule_s, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %struct.com_rule_s, ptr %9, i64 %indvars.iv
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %ompi_coll_tuned_free_msg_rules_in_com_rule.exit, label %12
 
 12:                                               ; preds = %.lr.ph.split
-  %13 = getelementptr inbounds i8, ptr %11, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %14 = load i32, ptr %13, align 4
   %.not10.i = icmp eq i32 %14, 0
   br i1 %.not10.i, label %ompi_coll_tuned_free_msg_rules_in_com_rule.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %ompi_coll_tuned_free_msg_rules_in_com_rule.exit, label %18
@@ -248,14 +248,14 @@ ompi_coll_tuned_free_coms_in_alg_rule.exit.us.preheader: ; preds = %.lr.ph
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %ompi_coll_tuned_free_coms_in_alg_rule.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %ompi_coll_tuned_free_coms_in_alg_rule.exit ]
-  %5 = getelementptr inbounds %struct.alg_rule_s, ptr %0, i64 %indvars.iv
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %5 = getelementptr inbounds nuw %struct.alg_rule_s, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %.not15.i = icmp eq i32 %7, 0
   br i1 %.not15.i, label %ompi_coll_tuned_free_coms_in_alg_rule.exit, label %8
 
 8:                                                ; preds = %.lr.ph.split
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not16.i = icmp eq ptr %10, null
   br i1 %.not16.i, label %ompi_coll_tuned_free_coms_in_alg_rule.exit, label %.preheader.i
@@ -268,18 +268,18 @@ ompi_coll_tuned_free_coms_in_alg_rule.exit.us.preheader: ; preds = %.lr.ph
   %.pr.i12 = phi ptr [ %.pr.i, %ompi_coll_tuned_free_msg_rules_in_com_rule.exit.i ], [ %10, %.preheader.i ]
   %12 = phi i32 [ %21, %ompi_coll_tuned_free_msg_rules_in_com_rule.exit.i ], [ %7, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %ompi_coll_tuned_free_msg_rules_in_com_rule.exit.i ], [ 0, %.preheader.i ]
-  %13 = getelementptr inbounds %struct.com_rule_s, ptr %.pr.i12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw %struct.com_rule_s, ptr %.pr.i12, i64 %indvars.iv.i
   %.not.i.i = icmp eq ptr %.pr.i12, null
   br i1 %.not.i.i, label %ompi_coll_tuned_free_msg_rules_in_com_rule.exit.i, label %14
 
 14:                                               ; preds = %.lr.ph.split.i
-  %15 = getelementptr inbounds i8, ptr %13, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %16 = load i32, ptr %15, align 4
   %.not10.i.i = icmp eq i32 %16, 0
   br i1 %.not10.i.i, label %ompi_coll_tuned_free_msg_rules_in_com_rule.exit.i, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %13, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not11.i.i = icmp eq ptr %19, null
   br i1 %.not11.i.i, label %ompi_coll_tuned_free_msg_rules_in_com_rule.exit.i, label %20
@@ -324,13 +324,13 @@ define ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef readonly %0, i32 nounde
 4:                                                ; preds = %3
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %struct.alg_rule_s, ptr %0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %.not18 = icmp eq i32 %8, 0
   br i1 %.not18, label %.loopexit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp sgt i32 %8, 0
   br i1 %12, label %.lr.ph.preheader, label %.loopexit
@@ -345,7 +345,7 @@ define ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef readonly %0, i32 nounde
   br i1 %17, label %.loopexit, label %.lr.ph26
 
 .lr.ph:                                           ; preds = %.lr.ph26
-  %18 = getelementptr inbounds i8, ptr %.0151925, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.0151925, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, %2
   br i1 %20, label %.loopexit, label %.lr.ph26, !llvm.loop !11
@@ -368,13 +368,13 @@ define i32 @ompi_coll_tuned_get_target_method_params(ptr noundef readonly %0, i6
   br i1 %6, label %33, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %33, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp sgt i32 %9, 0
   br i1 %14, label %.lr.ph.preheader, label %._crit_edge
@@ -384,14 +384,14 @@ define i32 @ompi_coll_tuned_get_target_method_params(ptr noundef readonly %0, i6
   %16 = zext nneg i32 %15 to i64
   %17 = mul nuw nsw i64 %16, 48
   %scevgep = getelementptr i8, ptr %13, i64 %17
-  %18 = getelementptr inbounds i8, ptr %13, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %19 = load i64, ptr %18, align 8
   %.not27 = icmp ugt i64 %19, %1
   br i1 %.not27, label %._crit_edge, label %.lr.ph30
 
 .lr.ph:                                           ; preds = %.lr.ph30
-  %20 = getelementptr inbounds i8, ptr %.0192229, i64 48
-  %21 = getelementptr inbounds i8, ptr %.0192229, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %.0192229, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.0192229, i64 64
   %22 = load i64, ptr %21, align 8
   %.not = icmp ugt i64 %22, %1
   br i1 %.not, label %._crit_edge, label %.lr.ph30, !llvm.loop !12
@@ -405,17 +405,17 @@ define i32 @ompi_coll_tuned_get_target_method_params(ptr noundef readonly %0, i6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph30, %.lr.ph.preheader, %11
   %.018.lcssa = phi ptr [ %13, %11 ], [ %13, %.lr.ph.preheader ], [ %scevgep, %.lr.ph30 ], [ %.0192229, %.lr.ph ]
-  %24 = getelementptr inbounds i8, ptr %.018.lcssa, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %.018.lcssa, i64 28
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %2, align 4
-  %26 = getelementptr inbounds i8, ptr %.018.lcssa, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.018.lcssa, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = trunc i64 %27 to i32
   store i32 %28, ptr %3, align 4
-  %29 = getelementptr inbounds i8, ptr %.018.lcssa, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.018.lcssa, i64 40
   %30 = load i32, ptr %29, align 8
   store i32 %30, ptr %4, align 4
-  %31 = getelementptr inbounds i8, ptr %.018.lcssa, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.018.lcssa, i64 24
   %32 = load i32, ptr %31, align 8
   br label %33
 

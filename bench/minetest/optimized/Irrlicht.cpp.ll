@@ -31,97 +31,97 @@ entry:
   %frombool1 = zext i1 %stencilbuffer to i8
   %frombool2 = zext i1 %vsync to i8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %p) #11
-  %DriverType.i = getelementptr inbounds i8, ptr %p, i64 4
-  %WindowSize.i = getelementptr inbounds i8, ptr %p, i64 8
+  %DriverType.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %WindowSize.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store <4 x i32> <i32 4, i32 1, i32 800, i32 600>, ptr %p, align 16, !tbaa !3
-  %WindowPosition.i = getelementptr inbounds i8, ptr %p, i64 16
+  %WindowPosition.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i32 -1, ptr %WindowPosition.i, align 16, !tbaa !6
-  %Y.i.i = getelementptr inbounds i8, ptr %p, i64 20
+  %Y.i.i = getelementptr inbounds nuw i8, ptr %p, i64 20
   store i32 -1, ptr %Y.i.i, align 4, !tbaa !9
-  %Bits.i = getelementptr inbounds i8, ptr %p, i64 24
-  %Fullscreen.i = getelementptr inbounds i8, ptr %p, i64 26
-  %Stencilbuffer.i = getelementptr inbounds i8, ptr %p, i64 29
-  %Vsync.i = getelementptr inbounds i8, ptr %p, i64 30
+  %Bits.i = getelementptr inbounds nuw i8, ptr %p, i64 24
+  %Fullscreen.i = getelementptr inbounds nuw i8, ptr %p, i64 26
+  %Stencilbuffer.i = getelementptr inbounds nuw i8, ptr %p, i64 29
+  %Vsync.i = getelementptr inbounds nuw i8, ptr %p, i64 30
   store <8 x i8> <i8 32, i8 24, i8 0, i8 0, i8 2, i8 1, i8 0, i8 0>, ptr %Bits.i, align 8, !tbaa !3
-  %WithAlphaChannel.i = getelementptr inbounds i8, ptr %p, i64 32
+  %WithAlphaChannel.i = getelementptr inbounds nuw i8, ptr %p, i64 32
   store i8 0, ptr %WithAlphaChannel.i, align 16, !tbaa !10
-  %Doublebuffer.i = getelementptr inbounds i8, ptr %p, i64 33
+  %Doublebuffer.i = getelementptr inbounds nuw i8, ptr %p, i64 33
   store i8 1, ptr %Doublebuffer.i, align 1, !tbaa !22
-  %Stereobuffer.i = getelementptr inbounds i8, ptr %p, i64 34
+  %Stereobuffer.i = getelementptr inbounds nuw i8, ptr %p, i64 34
   store i8 0, ptr %Stereobuffer.i, align 2, !tbaa !23
-  %EventReceiver.i = getelementptr inbounds i8, ptr %p, i64 40
-  %LoggingLevel.i = getelementptr inbounds i8, ptr %p, i64 56
+  %EventReceiver.i = getelementptr inbounds nuw i8, ptr %p, i64 40
+  %LoggingLevel.i = getelementptr inbounds nuw i8, ptr %p, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %EventReceiver.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %LoggingLevel.i, align 8, !tbaa !24
-  %SDK_version_do_not_use.i = getelementptr inbounds i8, ptr %p, i64 64
+  %SDK_version_do_not_use.i = getelementptr inbounds nuw i8, ptr %p, i64 64
   store ptr @.str.2, ptr %SDK_version_do_not_use.i, align 16, !tbaa !25
-  %PrivateData.i = getelementptr inbounds i8, ptr %p, i64 72
+  %PrivateData.i = getelementptr inbounds nuw i8, ptr %p, i64 72
   store ptr null, ptr %PrivateData.i, align 8, !tbaa !26
-  %OGLES2ShaderPath.i = getelementptr inbounds i8, ptr %p, i64 80
-  %0 = getelementptr inbounds i8, ptr %p, i64 96
+  %OGLES2ShaderPath.i = getelementptr inbounds nuw i8, ptr %p, i64 80
+  %0 = getelementptr inbounds nuw i8, ptr %p, i64 96
   store ptr %0, ptr %OGLES2ShaderPath.i, align 16, !tbaa !27
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 88
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 88
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !28
   store i8 0, ptr %0, align 16, !tbaa !3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %OGLES2ShaderPath.i, i64 noundef 20, i8 noundef signext 0) #11
   %1 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
   store i8 46, ptr %1, align 1, !tbaa !3
   %2 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.1.i = getelementptr inbounds i8, ptr %2, i64 1
+  %arrayidx.i.i.i.1.i = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 46, ptr %arrayidx.i.i.i.1.i, align 1, !tbaa !3
   %3 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.2.i = getelementptr inbounds i8, ptr %3, i64 2
+  %arrayidx.i.i.i.2.i = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 47, ptr %arrayidx.i.i.i.2.i, align 1, !tbaa !3
   %4 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.3.i = getelementptr inbounds i8, ptr %4, i64 3
+  %arrayidx.i.i.i.3.i = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 46, ptr %arrayidx.i.i.i.3.i, align 1, !tbaa !3
   %5 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.4.i = getelementptr inbounds i8, ptr %5, i64 4
+  %arrayidx.i.i.i.4.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 46, ptr %arrayidx.i.i.i.4.i, align 1, !tbaa !3
   %6 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.5.i = getelementptr inbounds i8, ptr %6, i64 5
+  %arrayidx.i.i.i.5.i = getelementptr inbounds nuw i8, ptr %6, i64 5
   store i8 47, ptr %arrayidx.i.i.i.5.i, align 1, !tbaa !3
   %7 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.6.i = getelementptr inbounds i8, ptr %7, i64 6
+  %arrayidx.i.i.i.6.i = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i8 109, ptr %arrayidx.i.i.i.6.i, align 1, !tbaa !3
   %8 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.7.i = getelementptr inbounds i8, ptr %8, i64 7
+  %arrayidx.i.i.i.7.i = getelementptr inbounds nuw i8, ptr %8, i64 7
   store i8 101, ptr %arrayidx.i.i.i.7.i, align 1, !tbaa !3
   %9 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.8.i = getelementptr inbounds i8, ptr %9, i64 8
+  %arrayidx.i.i.i.8.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 100, ptr %arrayidx.i.i.i.8.i, align 1, !tbaa !3
   %10 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.9.i = getelementptr inbounds i8, ptr %10, i64 9
+  %arrayidx.i.i.i.9.i = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 105, ptr %arrayidx.i.i.i.9.i, align 1, !tbaa !3
   %11 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.10.i = getelementptr inbounds i8, ptr %11, i64 10
+  %arrayidx.i.i.i.10.i = getelementptr inbounds nuw i8, ptr %11, i64 10
   store i8 97, ptr %arrayidx.i.i.i.10.i, align 1, !tbaa !3
   %12 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.11.i = getelementptr inbounds i8, ptr %12, i64 11
+  %arrayidx.i.i.i.11.i = getelementptr inbounds nuw i8, ptr %12, i64 11
   store i8 47, ptr %arrayidx.i.i.i.11.i, align 1, !tbaa !3
   %13 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.12.i = getelementptr inbounds i8, ptr %13, i64 12
+  %arrayidx.i.i.i.12.i = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i8 83, ptr %arrayidx.i.i.i.12.i, align 1, !tbaa !3
   %14 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.13.i = getelementptr inbounds i8, ptr %14, i64 13
+  %arrayidx.i.i.i.13.i = getelementptr inbounds nuw i8, ptr %14, i64 13
   store i8 104, ptr %arrayidx.i.i.i.13.i, align 1, !tbaa !3
   %15 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.14.i = getelementptr inbounds i8, ptr %15, i64 14
+  %arrayidx.i.i.i.14.i = getelementptr inbounds nuw i8, ptr %15, i64 14
   store i8 97, ptr %arrayidx.i.i.i.14.i, align 1, !tbaa !3
   %16 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.15.i = getelementptr inbounds i8, ptr %16, i64 15
+  %arrayidx.i.i.i.15.i = getelementptr inbounds nuw i8, ptr %16, i64 15
   store i8 100, ptr %arrayidx.i.i.i.15.i, align 1, !tbaa !3
   %17 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.16.i = getelementptr inbounds i8, ptr %17, i64 16
+  %arrayidx.i.i.i.16.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i8 101, ptr %arrayidx.i.i.i.16.i, align 1, !tbaa !3
   %18 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.17.i = getelementptr inbounds i8, ptr %18, i64 17
+  %arrayidx.i.i.i.17.i = getelementptr inbounds nuw i8, ptr %18, i64 17
   store i8 114, ptr %arrayidx.i.i.i.17.i, align 1, !tbaa !3
   %19 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.18.i = getelementptr inbounds i8, ptr %19, i64 18
+  %arrayidx.i.i.i.18.i = getelementptr inbounds nuw i8, ptr %19, i64 18
   store i8 115, ptr %arrayidx.i.i.i.18.i, align 1, !tbaa !3
   %20 = load ptr, ptr %OGLES2ShaderPath.i, align 16, !tbaa !29
-  %arrayidx.i.i.i.19.i = getelementptr inbounds i8, ptr %20, i64 19
+  %arrayidx.i.i.i.19.i = getelementptr inbounds nuw i8, ptr %20, i64 19
   store i8 47, ptr %arrayidx.i.i.i.19.i, align 1, !tbaa !3
   store i32 %driverType, ptr %DriverType.i, align 4, !tbaa !30
   %21 = load i64, ptr %windowSize, align 4, !tbaa.struct !31
@@ -141,7 +141,7 @@ land.lhs.true4.i:                                 ; preds = %entry
   %call.i = call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #12
   call void @_ZN3irr13CIrrDeviceSDLC1ERKNS_27SIrrlichtCreationParametersE(ptr noundef nonnull align 8 dereferenceable(452) %call.i, ptr noundef nonnull align 8 dereferenceable(112) %p) #11
   %vtable.i = load ptr, ptr %call.i, align 8, !tbaa !39
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %23 = load ptr, ptr %vfn.i, align 8
   %call5.i = call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %call.i) #11
   %tobool6.not.i = icmp ne ptr %call5.i, null
@@ -152,7 +152,7 @@ land.lhs.true4.i:                                 ; preds = %entry
 
 if.then9.i:                                       ; preds = %land.lhs.true4.i
   %vtable10.i = load ptr, ptr %call.i, align 8, !tbaa !39
-  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 168
+  %vfn11.i = getelementptr inbounds nuw i8, ptr %vtable10.i, i64 168
   %25 = load ptr, ptr %vfn11.i, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %call.i) #11
   %vtable12.i = load ptr, ptr %call.i, align 8, !tbaa !39
@@ -162,7 +162,7 @@ if.then9.i:                                       ; preds = %land.lhs.true4.i
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable15.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %vbase.offset.i
-  %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
+  %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %27 = load i32, ptr %ReferenceCounter.i.i, align 8, !tbaa !41
   %dec.i.i = add nsw i32 %27, -1
   store i32 %dec.i.i, ptr %ReferenceCounter.i.i, align 8, !tbaa !41
@@ -171,7 +171,7 @@ if.then9.i:                                       ; preds = %land.lhs.true4.i
 
 delete.notnull.i.i:                               ; preds = %if.then9.i
   %vtable.i.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !39
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %28 = load ptr, ptr %vfn.i.i, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr.i) #11
   br label %createDeviceEx.exit
@@ -212,11 +212,11 @@ land.lhs.true4:                                   ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #12
   tail call void @_ZN3irr13CIrrDeviceSDLC1ERKNS_27SIrrlichtCreationParametersE(ptr noundef nonnull align 8 dereferenceable(452) %call, ptr noundef nonnull align 8 dereferenceable(112) %params) #11
   %vtable = load ptr, ptr %call, align 8, !tbaa !39
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %call) #11
   %tobool6.not = icmp ne ptr %call5, null
-  %DriverType = getelementptr inbounds i8, ptr %params, i64 4
+  %DriverType = getelementptr inbounds nuw i8, ptr %params, i64 4
   %2 = load i32, ptr %DriverType, align 4
   %cmp8.not = icmp eq i32 %2, 0
   %or.cond = select i1 %tobool6.not, i1 true, i1 %cmp8.not
@@ -224,7 +224,7 @@ land.lhs.true4:                                   ; preds = %entry
 
 if.then9:                                         ; preds = %land.lhs.true4
   %vtable10 = load ptr, ptr %call, align 8, !tbaa !39
-  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 168
+  %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 168
   %3 = load ptr, ptr %vfn11, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %call) #11
   %vtable12 = load ptr, ptr %call, align 8, !tbaa !39
@@ -234,7 +234,7 @@ if.then9:                                         ; preds = %land.lhs.true4
   %vbase.offset.ptr = getelementptr i8, ptr %vtable15, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %vbase.offset
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %5 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !41
   %dec.i = add nsw i32 %5, -1
   store i32 %dec.i, ptr %ReferenceCounter.i, align 8, !tbaa !41
@@ -243,7 +243,7 @@ if.then9:                                         ; preds = %land.lhs.true4
 
 delete.notnull.i:                                 ; preds = %if.then9
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !39
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #11
   br label %if.end17
@@ -267,7 +267,7 @@ declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video9SMaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %TextureMatrix.i = getelementptr inbounds i8, ptr %this, i64 120
+  %TextureMatrix.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %TextureMatrix.i, align 8, !tbaa !43
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN3irr5video14SMaterialLayerD2Ev.exit, label %delete.notnull.i
@@ -277,7 +277,7 @@ delete.notnull.i:                                 ; preds = %entry
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit:           ; preds = %delete.notnull.i, %entry
-  %TextureMatrix.i.1 = getelementptr inbounds i8, ptr %this, i64 88
+  %TextureMatrix.i.1 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %1 = load ptr, ptr %TextureMatrix.i.1, align 8, !tbaa !43
   %tobool.not.i.1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.1, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1, label %delete.notnull.i.1
@@ -287,7 +287,7 @@ delete.notnull.i.1:                               ; preds = %_ZN3irr5video14SMat
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.1
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.1:         ; preds = %delete.notnull.i.1, %_ZN3irr5video14SMaterialLayerD2Ev.exit
-  %TextureMatrix.i.2 = getelementptr inbounds i8, ptr %this, i64 56
+  %TextureMatrix.i.2 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load ptr, ptr %TextureMatrix.i.2, align 8, !tbaa !43
   %tobool.not.i.2 = icmp eq ptr %2, null
   br i1 %tobool.not.i.2, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2, label %delete.notnull.i.2
@@ -297,7 +297,7 @@ delete.notnull.i.2:                               ; preds = %_ZN3irr5video14SMat
   br label %_ZN3irr5video14SMaterialLayerD2Ev.exit.2
 
 _ZN3irr5video14SMaterialLayerD2Ev.exit.2:         ; preds = %delete.notnull.i.2, %_ZN3irr5video14SMaterialLayerD2Ev.exit.1
-  %TextureMatrix.i.3 = getelementptr inbounds i8, ptr %this, i64 24
+  %TextureMatrix.i.3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %TextureMatrix.i.3, align 8, !tbaa !43
   %tobool.not.i.3 = icmp eq ptr %3, null
   br i1 %tobool.not.i.3, label %_ZN3irr5video14SMaterialLayerD2Ev.exit.3, label %delete.notnull.i.3

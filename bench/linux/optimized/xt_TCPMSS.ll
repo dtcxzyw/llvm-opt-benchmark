@@ -63,9 +63,9 @@ define internal i32 @tcpmss_tg_init() #0 section ".init.text" align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -1, 1) i32 @tcpmss_tg4(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 180
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
@@ -86,13 +86,13 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg4(ptr noundef %0, ptr noc
   %19 = load i16, ptr %5, align 4
   %20 = zext i16 %19 to i64
   %21 = getelementptr i8, ptr %18, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %23 = load i16, ptr %22, align 2
   %24 = tail call i16 @llvm.bswap.i16(i16 %23)
   %25 = trunc nuw nsw i32 %13 to i16
   %26 = add i16 %24, %25
   %27 = tail call i16 @llvm.bswap.i16(i16 %26)
-  %28 = getelementptr inbounds i8, ptr %21, i64 10
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 10
   %29 = load i16, ptr %28, align 2
   %30 = xor i16 %23, -1
   %31 = add i16 %23, %29
@@ -116,16 +116,16 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg4(ptr noundef %0, ptr noc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @tcpmss_tg4_check(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %3, align 2
   %7 = icmp eq i16 %6, -1
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, -29
   %12 = icmp eq i32 %11, 0
@@ -137,14 +137,14 @@ define internal noundef range(i32 -22, 1) i32 @tcpmss_tg4_check(ptr nocapture no
   br i1 %15, label %.loopexit, label %50
 
 16:                                               ; preds = %8, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 45
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %18 = load i8, ptr %17, align 1, !range !6, !noundef !7
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %.loopexit
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %5, i64 112
-  %22 = getelementptr inbounds i8, ptr %5, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %23 = load i16, ptr %22, align 8
   %24 = zext i16 %23 to i64
   %25 = getelementptr i8, ptr %5, i64 %24
@@ -153,22 +153,22 @@ define internal noundef range(i32 -22, 1) i32 @tcpmss_tg4_check(ptr nocapture no
 
 .preheader:                                       ; preds = %20, %43
   %27 = phi ptr [ %46, %43 ], [ %21, %20 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
-  %31 = tail call i32 @strcmp(ptr noundef %30, ptr noundef nonnull dereferenceable(4) @.str.5) #10
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(4) @.str.5) #10
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %.preheader
-  %34 = getelementptr inbounds i8, ptr %27, i64 42
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 42
   %35 = load i8, ptr %34, align 2
   %36 = and i8 %35, 2
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %43, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %27, i64 43
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 43
   %40 = load i8, ptr %39, align 1
   %41 = and i8 %40, 4
   %42 = icmp eq i8 %41, 0
@@ -200,16 +200,16 @@ define internal noundef range(i32 -22, 1) i32 @tcpmss_tg4_check(ptr nocapture no
 define internal noundef range(i32 -1, 1) i32 @tcpmss_tg6(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i16, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 180
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i64
   %10 = getelementptr i8, ptr %6, i64 %9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #10
   store i16 0, ptr %4, align 2, !annotation !11
-  %11 = getelementptr inbounds i8, ptr %10, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %12 = load i8, ptr %11, align 2
   store i8 %12, ptr %3, align 1
   %13 = call i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef 40, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
@@ -230,20 +230,20 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg6(ptr noundef %0, ptr noc
   %22 = load i16, ptr %7, align 4
   %23 = zext i16 %22 to i64
   %24 = getelementptr i8, ptr %21, i64 %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i16, ptr %25, align 4
   %27 = call i16 @llvm.bswap.i16(i16 %26)
   %28 = trunc nuw nsw i32 %16 to i16
   %29 = add i16 %27, %28
   %30 = call i16 @llvm.bswap.i16(i16 %29)
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %32 = load i8, ptr %31, align 8
   %33 = and i8 %32, 96
   %34 = icmp eq i8 %33, 64
   br i1 %34, label %35, label %43
 
 35:                                               ; preds = %20
-  %36 = getelementptr inbounds i8, ptr %0, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = load i32, ptr %36, align 8
   %38 = zext i16 %26 to i32
   %39 = xor i32 %38, -1
@@ -266,16 +266,16 @@ define internal noundef range(i32 -1, 1) i32 @tcpmss_tg6(ptr noundef %0, ptr noc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @tcpmss_tg6_check(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %3, align 2
   %7 = icmp eq i16 %6, -1
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, -29
   %12 = icmp eq i32 %11, 0
@@ -287,14 +287,14 @@ define internal noundef range(i32 -22, 1) i32 @tcpmss_tg6_check(ptr nocapture no
   br i1 %15, label %.loopexit, label %50
 
 16:                                               ; preds = %8, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 45
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %18 = load i8, ptr %17, align 1, !range !6, !noundef !7
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %.loopexit
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %5, i64 168
-  %22 = getelementptr inbounds i8, ptr %5, i64 140
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 140
   %23 = load i16, ptr %22, align 4
   %24 = zext i16 %23 to i64
   %25 = getelementptr i8, ptr %5, i64 %24
@@ -303,22 +303,22 @@ define internal noundef range(i32 -22, 1) i32 @tcpmss_tg6_check(ptr nocapture no
 
 .preheader:                                       ; preds = %20, %43
   %27 = phi ptr [ %46, %43 ], [ %21, %20 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
-  %31 = tail call i32 @strcmp(ptr noundef %30, ptr noundef nonnull dereferenceable(4) @.str.5) #10
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(4) @.str.5) #10
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %.preheader
-  %34 = getelementptr inbounds i8, ptr %27, i64 42
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 42
   %35 = load i8, ptr %34, align 2
   %36 = and i8 %35, 2
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %43, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %27, i64 43
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 43
   %40 = load i8, ptr %39, align 1
   %41 = and i8 %40, 4
   %42 = icmp eq i8 %41, 0
@@ -351,15 +351,15 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 2, 11) %2, i32 noundef range(i32 0, -2147483648) %3, i32 noundef range(i32 40, 61) %4) unnamed_addr #2 align 16 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i16, ptr %8, align 4
   %10 = icmp eq i16 %9, 0
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load i32, ptr %12, align 8
   %14 = tail call i32 @skb_ensure_writable(ptr noundef %0, i32 noundef %13) #10
   %15 = icmp eq i32 %14, 0
@@ -372,15 +372,15 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 180
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %24 = load i16, ptr %23, align 4
   %25 = zext i16 %24 to i64
   %26 = getelementptr i8, ptr %22, i64 %25
   %27 = zext nneg i32 %3 to i64
   %28 = getelementptr i8, ptr %26, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i16, ptr %29, align 4
   %31 = lshr i16 %30, 2
   %32 = and i16 %31, 60
@@ -396,12 +396,12 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
   br i1 %39, label %40, label %61
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = tail call fastcc i32 @tcpmss_reverse_mtu(ptr noundef %44, ptr noundef %0, i32 noundef %2)
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load i64, ptr %46, align 8
   %48 = and i64 %47, -2
   %49 = inttoptr i64 %48 to ptr
@@ -468,7 +468,7 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
   store i8 %92, ptr %79, align 1
   %93 = trunc i16 %62 to i8
   store i8 %93, ptr %85, align 1
-  %94 = getelementptr inbounds i8, ptr %28, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %95 = tail call i16 @llvm.bswap.i16(i16 %88)
   %96 = tail call i16 @llvm.bswap.i16(i16 %62)
   br label %171
@@ -503,15 +503,15 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
   br i1 %109, label %.thread, label %110
 
 110:                                              ; preds = %.loopexit
-  %111 = getelementptr inbounds i8, ptr %0, i64 116
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %112 = load i32, ptr %111, align 4
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %123
 
 114:                                              ; preds = %110
-  %115 = getelementptr inbounds i8, ptr %0, i64 188
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %116 = load i32, ptr %115, align 4
-  %117 = getelementptr inbounds i8, ptr %0, i64 184
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %118 = load i32, ptr %117, align 8
   %119 = sub i32 %116, %118
   %120 = icmp slt i32 %119, 4
@@ -539,9 +539,9 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
 133:                                              ; preds = %127, %114
   %134 = phi ptr [ %132, %127 ], [ %28, %114 ]
   %135 = tail call ptr @skb_put(ptr noundef %0, i32 noundef 4) #10
-  %136 = getelementptr inbounds i8, ptr %1, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %139 = load i8, ptr %138, align 1
   %140 = icmp eq i8 %139, 2
   br i1 %140, label %141, label %143
@@ -561,14 +561,14 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
   %149 = zext nneg i32 %18 to i64
   %150 = add nsw i64 %149, -20
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %148, ptr align 1 %147, i64 %150, i1 false)
-  %151 = getelementptr inbounds i8, ptr %134, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %152 = trunc nuw nsw i32 %18 to i16
   %153 = tail call i16 @llvm.bswap.i16(i16 %152)
   %154 = add nuw nsw i16 %152, 4
   %155 = tail call i16 @llvm.bswap.i16(i16 %154)
   %156 = zext i16 %153 to i32
   %157 = zext i16 %155 to i32
-  tail call void @inet_proto_csum_replace4(ptr noundef %151, ptr noundef %0, i32 noundef %156, i32 noundef %157, i1 noundef zeroext true) #10
+  tail call void @inet_proto_csum_replace4(ptr noundef nonnull %151, ptr noundef %0, i32 noundef %156, i32 noundef %157, i1 noundef zeroext true) #10
   store i8 2, ptr %147, align 1
   %158 = getelementptr i8, ptr %134, i64 21
   store i8 4, ptr %158, align 1
@@ -580,7 +580,7 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
   %163 = getelementptr i8, ptr %134, i64 23
   store i8 %162, ptr %163, align 1
   %164 = load i32, ptr %147, align 4
-  tail call void @inet_proto_csum_replace4(ptr noundef %151, ptr noundef %0, i32 noundef 0, i32 noundef %164, i1 noundef zeroext false) #10
+  tail call void @inet_proto_csum_replace4(ptr noundef nonnull %151, ptr noundef %0, i32 noundef 0, i32 noundef %164, i1 noundef zeroext false) #10
   %165 = getelementptr i8, ptr %134, i64 12
   %166 = load i16, ptr %165, align 2
   %167 = add i16 %166, 16
@@ -597,7 +597,7 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
   %175 = phi i32 [ 0, %90 ], [ 4, %145 ]
   %176 = zext i16 %172 to i32
   %177 = zext i16 %173 to i32
-  tail call void @inet_proto_csum_replace4(ptr noundef %174, ptr noundef %0, i32 noundef %176, i32 noundef %177, i1 noundef zeroext false) #10
+  tail call void @inet_proto_csum_replace4(ptr noundef nonnull %174, ptr noundef %0, i32 noundef %176, i32 noundef %177, i1 noundef zeroext false) #10
   br label %.thread
 
 .thread:                                          ; preds = %53, %56, %171, %123, %.loopexit, %76, %20, %16, %11, %5
@@ -619,7 +619,7 @@ define internal fastcc i32 @tcpmss_reverse_mtu(ptr noundef %0, ptr nocapture nou
   %4 = alloca %struct.flowi, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #10
-  %6 = getelementptr inbounds i8, ptr %4, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 32, i1 false), !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   store ptr null, ptr %5, align 8
@@ -628,29 +628,29 @@ define internal fastcc i32 @tcpmss_reverse_mtu(ptr noundef %0, ptr nocapture nou
 
 8:                                                ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
-  %9 = getelementptr inbounds i8, ptr %1, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 180
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 180
   %12 = load i16, ptr %11, align 4
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %10, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %16, ptr %17, align 4
   br label %27
 
 18:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
-  %19 = getelementptr inbounds i8, ptr %4, i64 40
-  %20 = getelementptr inbounds i8, ptr %1, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 180
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 180
   %23 = load i16, ptr %22, align 4
   %24 = zext i16 %23 to i64
   %25 = getelementptr i8, ptr %21, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %19, ptr noundef align 4 dereferenceable(16) %26, i64 16, i1 false)
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false)
   br label %27
 
 27:                                               ; preds = %18, %8
@@ -661,9 +661,9 @@ define internal fastcc i32 @tcpmss_reverse_mtu(ptr noundef %0, ptr nocapture nou
   br i1 %31, label %49, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 32
   %37 = icmp eq ptr %36, @ip6_mtu
   br i1 %37, label %38, label %40, !prof !15
@@ -699,9 +699,9 @@ define internal fastcc i32 @tcpmss_reverse_mtu(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc i32 @dst_mtu(ptr noundef %0) unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 32
   %6 = icmp eq ptr %5, @ip6_mtu
   br i1 %6, label %7, label %9, !prof !15

@@ -132,16 +132,16 @@ declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @vm_readbuf(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.BufferManagerRelation, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %RelationGetSmgr.exit
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   %11 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %10) #7
   store ptr %11, ptr %5, align 8
@@ -181,9 +181,9 @@ RelationGetSmgr.exit:                             ; preds = %3, %8
   %24 = add i32 %1, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr %0, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 0, ptr %26, align 8
   %27 = tail call i32 @ExtendBufferedRelTo(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %4, i32 noundef 2, ptr noundef null, i32 noundef 20, i32 noundef %24, i32 noundef 3) #7
   %28 = load ptr, ptr %5, align 8
@@ -191,10 +191,10 @@ RelationGetSmgr.exit:                             ; preds = %3, %8
   br i1 %29, label %30, label %vm_extend.exit
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %32 = load i32, ptr %31, align 4
   %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %33 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i.i, i32 %.sroa.2.0.copyload.i.i, i32 noundef %32) #7
   store ptr %33, ptr %5, align 8
@@ -205,7 +205,7 @@ RelationGetSmgr.exit:                             ; preds = %3, %8
 vm_extend.exit:                                   ; preds = %23, %30
   %34 = phi ptr [ %.pre.i.i, %30 ], [ %28, %23 ]
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i64, ptr %36, align 8
   tail call void @CacheInvalidateSmgr(i64 %35, i64 %37) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -373,9 +373,9 @@ BufferGetPage.exit:                               ; preds = %26, %32
   %52 = or i8 %50, %51
   store i8 %52, ptr %41, align 1
   tail call void @MarkBufferDirty(i32 noundef %4) #7
-  %53 = getelementptr inbounds i8, ptr %0, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 114
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 114
   %56 = load i8, ptr %55, align 2
   %57 = icmp eq i8 %56, 112
   br i1 %57, label %58, label %100
@@ -386,13 +386,13 @@ BufferGetPage.exit:                               ; preds = %26, %32
   br i1 %60, label %69, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %0, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %100
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %0, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %100
@@ -437,7 +437,7 @@ BufferGetPage.exit40:                             ; preds = %79, %85
   %92 = trunc nuw i64 %91 to i32
   store i32 %92, ptr %.0.i.i39, align 4
   %93 = trunc i64 %72 to i32
-  %94 = getelementptr inbounds i8, ptr %.0.i.i39, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i39, i64 4
   store i32 %93, ptr %94, align 4
   br label %95
 
@@ -447,7 +447,7 @@ BufferGetPage.exit40:                             ; preds = %79, %85
   %97 = trunc nuw i64 %96 to i32
   store i32 %97, ptr %.0.i.i, align 4
   %98 = trunc i64 %.0 to i32
-  %99 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %98, ptr %99, align 4
   br label %100
 
@@ -670,16 +670,16 @@ define dso_local range(i32 -1, 131459) i32 @visibilitymap_prepare_truncate(ptr n
   %4 = urem i32 %1, 32672
   %5 = urem i32 %1, 32672
   %6 = lshr i32 %5, 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %RelationGetSmgr.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   %13 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %12) #7
   store ptr %13, ptr %7, align 8
@@ -789,9 +789,9 @@ BufferGetPage.exit:                               ; preds = %26, %32
   br i1 %73, label %98, label %74
 
 74:                                               ; preds = %.loopexit
-  %75 = getelementptr inbounds i8, ptr %0, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 114
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 114
   %78 = load i8, ptr %77, align 2
   %79 = icmp eq i8 %78, 112
   br i1 %79, label %80, label %98
@@ -802,13 +802,13 @@ BufferGetPage.exit:                               ; preds = %26, %32
   br i1 %82, label %91, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %0, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %85 = load i32, ptr %84, align 8
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %98
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %0, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %89 = load i32, ptr %88, align 8
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %98
@@ -840,10 +840,10 @@ BufferGetPage.exit:                               ; preds = %26, %32
   br i1 %103, label %104, label %RelationGetSmgr.exit55
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %0, i64 28
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %106 = load i32, ptr %105, align 4
   %.sroa.0.0.copyload.i51 = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i52 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i53 = load i32, ptr %.sroa.2.0..sroa_idx.i52, align 8
   %107 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i51, i32 %.sroa.2.0.copyload.i53, i32 noundef %106) #7
   store ptr %107, ptr %7, align 8

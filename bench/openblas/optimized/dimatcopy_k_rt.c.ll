@@ -13,7 +13,7 @@ define noundef i32 @dimatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
 .preheader1:                                      ; preds = %5, %.loopexit
   %9 = phi i64 [ %16, %.loopexit ], [ 0, %5 ]
   %10 = phi ptr [ %28, %.loopexit ], [ %3, %5 ]
-  %11 = getelementptr inbounds double, ptr %3, i64 %9
+  %11 = getelementptr inbounds nuw double, ptr %3, i64 %9
   %12 = mul nsw i64 %9, %4
   %13 = getelementptr inbounds double, ptr %11, i64 %12
   %14 = load double, ptr %13, align 8, !tbaa !3
@@ -28,7 +28,7 @@ define noundef i32 @dimatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %19 = mul nsw i64 %18, %4
   %20 = getelementptr inbounds double, ptr %11, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !3
-  %22 = getelementptr inbounds double, ptr %10, i64 %18
+  %22 = getelementptr inbounds nuw double, ptr %10, i64 %18
   %23 = load double, ptr %22, align 8, !tbaa !3
   %24 = fmul double %2, %23
   store double %24, ptr %20, align 8, !tbaa !3

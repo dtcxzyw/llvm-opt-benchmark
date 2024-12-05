@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @dtextract(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 12
@@ -13,7 +13,7 @@ define ptr @dtextract(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %.loopexit
 
@@ -25,14 +25,14 @@ define ptr @dtextract(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %9
   %12 = tail call ptr @dtflatten(ptr noundef nonnull %0) #4
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %11
   %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds i8, ptr %13, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = shl nuw nsw i64 %17, 3
@@ -47,7 +47,7 @@ define ptr @dtextract(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 28:                                               ; preds = %9
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load ptr, ptr %29, align 8
   store ptr null, ptr %29, align 8
   br label %.loopexit
@@ -59,10 +59,10 @@ define ptr @dtextract(ptr noundef %0) local_unnamed_addr #0 {
   %33 = and i32 %32, -4097
   store i32 %33, ptr %31, align 8
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 28
   store i32 0, ptr %35, align 4
   %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr null, ptr %37, align 8
   ret ptr %.0
 }

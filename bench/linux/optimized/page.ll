@@ -55,7 +55,7 @@ define dso_local range(i64 0, 1099511627776) i64 @stable_page_flags(ptr noundef 
 
 3:                                                ; preds = %1
   %4 = load i64, ptr %0, align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load volatile i64, ptr %5, align 8
   %7 = and i64 %6, 1
   %8 = icmp eq i64 %7, 0
@@ -114,7 +114,7 @@ define dso_local range(i64 0, 1099511627776) i64 @stable_page_flags(ptr noundef 
   br i1 %41, label %42, label %44, !prof !6
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %75
 
 44:                                               ; preds = %38, %34
@@ -158,13 +158,13 @@ define dso_local range(i64 0, 1099511627776) i64 @stable_page_flags(ptr noundef 
 
 68:                                               ; preds = %51, %60, %67, %48
   %69 = phi ptr [ %50, %48 ], [ %66, %60 ], [ %0, %67 ], [ %0, %51 ]
-  %70 = getelementptr inbounds i8, ptr %69, i64 92
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 92
   %71 = load volatile i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %80, label %73
 
 73:                                               ; preds = %68
-  %74 = getelementptr inbounds i8, ptr %69, i64 88
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 88
   br label %75
 
 75:                                               ; preds = %73, %42
@@ -216,7 +216,7 @@ define dso_local range(i64 0, 1099511627776) i64 @stable_page_flags(ptr noundef 
 
 105:                                              ; preds = %88, %97, %104, %85
   %106 = phi ptr [ %87, %85 ], [ %103, %97 ], [ %0, %104 ], [ %0, %88 ]
-  %107 = getelementptr inbounds i8, ptr %106, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = load ptr, ptr %107, align 8
   %109 = ptrtoint ptr %108 to i64
   %110 = shl i64 %109, 12
@@ -333,7 +333,7 @@ define dso_local range(i64 0, 1099511627776) i64 @stable_page_flags(ptr noundef 
 
 174:                                              ; preds = %165, %163
   %175 = phi i64 [ %164, %163 ], [ %173, %165 ]
-  %176 = getelementptr inbounds i8, ptr %0, i64 48
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %177 = load i32, ptr %176, align 16
   %178 = and i32 %177, -268435328
   %179 = icmp eq i32 %178, -268435456
@@ -384,7 +384,7 @@ define dso_local range(i64 0, 1099511627776) i64 @stable_page_flags(ptr noundef 
 
 206:                                              ; preds = %205, %198, %189, %186
   %207 = phi ptr [ %188, %186 ], [ %204, %198 ], [ %0, %205 ], [ %0, %189 ]
-  %208 = getelementptr inbounds i8, ptr %207, i64 52
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 52
   %209 = load volatile i32, ptr %208, align 4
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %211, label %215
@@ -741,12 +741,12 @@ define internal i64 @kpagecount_read(ptr nocapture readnone %0, ptr noundef %1, 
   br i1 %63, label %64, label %73
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %48, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %66 = load volatile ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = lshr i64 %23, 9
   %69 = and i64 %68, 63
-  %70 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %67, i64 %69) #7, !srcloc !14
+  %70 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %67, i64 %69) #7, !srcloc !14
   %71 = icmp ult i8 %70, 2
   tail call void @llvm.assume(i1 %71)
   %72 = zext nneg i8 %70 to i32
@@ -783,7 +783,7 @@ define internal i64 @kpagecount_read(ptr nocapture readnone %0, ptr noundef %1, 
   br i1 %91, label %.thread, label %92
 
 92:                                               ; preds = %84
-  %93 = getelementptr inbounds i8, ptr %89, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %94 = load volatile i64, ptr %93, align 8
   %95 = and i64 %94, 1
   %96 = icmp eq i64 %95, 0
@@ -830,7 +830,7 @@ define internal i64 @kpagecount_read(ptr nocapture readnone %0, ptr noundef %1, 
   br i1 %121, label %122, label %.thread
 
 122:                                              ; preds = %117
-  %123 = getelementptr inbounds i8, ptr %89, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %89, i64 48
   %124 = load i32, ptr %123, align 16
   %125 = icmp sgt i32 %124, -129
   br i1 %125, label %126, label %.thread
@@ -890,7 +890,7 @@ define internal i64 @kpagecount_read(ptr nocapture readnone %0, ptr noundef %1, 
 
 160:                                              ; preds = %143, %152, %159, %140
   %161 = phi ptr [ %142, %140 ], [ %158, %152 ], [ %89, %159 ], [ %89, %143 ]
-  %162 = getelementptr inbounds i8, ptr %161, i64 88
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 88
   %163 = load volatile i32, ptr %162, align 4
   %164 = add i32 %127, 2
   %165 = add i32 %164, %163
@@ -1070,12 +1070,12 @@ define internal i64 @kpageflags_read(ptr nocapture readnone %0, ptr noundef %1, 
   br i1 %63, label %64, label %73
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %48, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %66 = load volatile ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = lshr i64 %23, 9
   %69 = and i64 %68, 63
-  %70 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %67, i64 %69) #7, !srcloc !14
+  %70 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %67, i64 %69) #7, !srcloc !14
   %71 = icmp ult i8 %70, 2
   tail call void @llvm.assume(i1 %71)
   %72 = zext nneg i8 %70 to i32

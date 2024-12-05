@@ -83,7 +83,7 @@ define dso_local void @_ZN4llvm6object12Decompressor23consumeCompressedHeaderEbb
   %.sroa.02.0.copyload = load ptr, ptr %1, align 8
   %22 = zext i1 %3 to i8
   store ptr %.sroa.02.0.copyload, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %14, ptr %.sroa.2.0..sroa_idx.i, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 %22, ptr %23, align 8
@@ -166,7 +166,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %45, %46
   %52 = load i64, ptr %13, align 8
   %.sroa.speculated5.i = call i64 @llvm.umin.i64(i64 %52, i64 %12)
   %53 = load ptr, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 %.sroa.speculated5.i
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.sroa.speculated5.i
   %55 = sub i64 %52, %.sroa.speculated5.i
   store ptr %54, ptr %1, align 8
   store i64 %55, ptr %13, align 8
@@ -181,7 +181,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %45, %46
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm6object12DecompressorC2ENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %0, ptr %1, i64 %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %4, align 8
@@ -199,7 +199,7 @@ define dso_local void @_ZN4llvm6object12Decompressor10decompressENS_15MutableArr
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @_ZN4llvm11compression10decompressENS_20DebugCompressionTypeENS_8ArrayRefIhEEPhm(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, i32 noundef %6, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef %2, i64 noundef %3) #6
   ret void

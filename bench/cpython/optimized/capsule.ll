@@ -53,15 +53,15 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %pointer3 = getelementptr inbounds i8, ptr %call, i64 16
+  %pointer3 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %pointer, ptr %pointer3, align 8
-  %name4 = getelementptr inbounds i8, ptr %call, i64 24
+  %name4 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %name, ptr %name4, align 8
-  %context = getelementptr inbounds i8, ptr %call, i64 32
+  %context = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %context, align 8
-  %destructor5 = getelementptr inbounds i8, ptr %call, i64 40
+  %destructor5 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %destructor, ptr %destructor5, align 8
-  %traverse_func = getelementptr inbounds i8, ptr %call, i64 48
+  %traverse_func = getelementptr inbounds nuw i8, ptr %call, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %traverse_func, i8 0, i64 16, i1 false)
   br label %return
 
@@ -87,13 +87,13 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.not, label %land.lhs.true1, label %land.end
 
 land.lhs.true1:                                   ; preds = %land.lhs.true
-  %pointer = getelementptr inbounds i8, ptr %op, i64 16
+  %pointer = getelementptr inbounds nuw i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true1
-  %name3 = getelementptr inbounds i8, ptr %op, i64 24
+  %name3 = getelementptr inbounds nuw i8, ptr %op, i64 24
   %2 = load ptr, ptr %name3, align 8
   %tobool.i = icmp ne ptr %2, null
   %tobool1.i = icmp ne ptr %name, null
@@ -132,13 +132,13 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %return.sink.split
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
+  %pointer.i = getelementptr inbounds nuw i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %if.end.i
-  %name1 = getelementptr inbounds i8, ptr %op, i64 24
+  %name1 = getelementptr inbounds nuw i8, ptr %op, i64 24
   %2 = load ptr, ptr %name1, align 8
   %tobool.i = icmp ne ptr %name, null
   %tobool1.i = icmp ne ptr %2, null
@@ -178,7 +178,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
+  %pointer.i = getelementptr inbounds nuw i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -189,7 +189,7 @@ _is_legal_capsule.exit.thread:                    ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %name = getelementptr inbounds i8, ptr %op, i64 24
+  %name = getelementptr inbounds nuw i8, ptr %op, i64 24
   %3 = load ptr, ptr %name, align 8
   br label %return
 
@@ -211,7 +211,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
+  %pointer.i = getelementptr inbounds nuw i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -222,7 +222,7 @@ _is_legal_capsule.exit.thread:                    ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %destructor = getelementptr inbounds i8, ptr %op, i64 40
+  %destructor = getelementptr inbounds nuw i8, ptr %op, i64 40
   %3 = load ptr, ptr %destructor, align 8
   br label %return
 
@@ -244,7 +244,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
+  %pointer.i = getelementptr inbounds nuw i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -255,7 +255,7 @@ _is_legal_capsule.exit.thread:                    ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %context = getelementptr inbounds i8, ptr %op, i64 32
+  %context = getelementptr inbounds nuw i8, ptr %op, i64 32
   %3 = load ptr, ptr %context, align 8
   br label %return
 
@@ -277,7 +277,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
+  %pointer.i = getelementptr inbounds nuw i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -318,7 +318,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
+  %pointer.i = getelementptr inbounds nuw i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -329,7 +329,7 @@ _is_legal_capsule.exit.thread:                    ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %name1 = getelementptr inbounds i8, ptr %op, i64 24
+  %name1 = getelementptr inbounds nuw i8, ptr %op, i64 24
   store ptr %name, ptr %name1, align 8
   br label %return
 
@@ -351,7 +351,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
+  %pointer.i = getelementptr inbounds nuw i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -362,7 +362,7 @@ _is_legal_capsule.exit.thread:                    ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %destructor1 = getelementptr inbounds i8, ptr %op, i64 40
+  %destructor1 = getelementptr inbounds nuw i8, ptr %op, i64 40
   store ptr %destructor, ptr %destructor1, align 8
   br label %return
 
@@ -384,7 +384,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
+  %pointer.i = getelementptr inbounds nuw i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -395,7 +395,7 @@ _is_legal_capsule.exit.thread:                    ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %context1 = getelementptr inbounds i8, ptr %op, i64 32
+  %context1 = getelementptr inbounds nuw i8, ptr %op, i64 32
   store ptr %context, ptr %context1, align 8
   br label %return
 
@@ -417,7 +417,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %_is_legal_capsule.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %pointer.i = getelementptr inbounds i8, ptr %op, i64 16
+  %pointer.i = getelementptr inbounds nuw i8, ptr %op, i64 16
   %1 = load ptr, ptr %pointer.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_is_legal_capsule.exit.thread, label %if.end
@@ -447,11 +447,11 @@ if.end3:                                          ; preds = %if.end
 if.then6:                                         ; preds = %if.end3
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8
-  %interp.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %interp.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds i8, ptr %7, i64 1096
+  %generation03.i = getelementptr inbounds nuw i8, ptr %7, i64 1096
   %8 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_gc_prev.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i64, ptr %_gc_prev.i, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = ptrtoint ptr %4 to i64
@@ -467,9 +467,9 @@ if.then6:                                         ; preds = %if.end3
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end3
-  %traverse_func8 = getelementptr inbounds i8, ptr %op, i64 48
+  %traverse_func8 = getelementptr inbounds nuw i8, ptr %op, i64 48
   store ptr %traverse_func, ptr %traverse_func8, align 8
-  %clear_func9 = getelementptr inbounds i8, ptr %op, i64 56
+  %clear_func9 = getelementptr inbounds nuw i8, ptr %op, i64 56
   store ptr %clear_func, ptr %clear_func9, align 8
   br label %return
 
@@ -559,13 +559,13 @@ land.lhs.true.i:                                  ; preds = %while.end
   br i1 %cmp.i.not.i, label %land.lhs.true1.i, label %if.then.i.sink.split
 
 land.lhs.true1.i:                                 ; preds = %land.lhs.true.i
-  %pointer.i = getelementptr inbounds i8, ptr %object.0, i64 16
+  %pointer.i = getelementptr inbounds nuw i8, ptr %object.0, i64 16
   %4 = load ptr, ptr %pointer.i, align 8
   %cmp2.not.i = icmp eq ptr %4, null
   br i1 %cmp2.not.i, label %if.then.i.sink.split, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true1.i
-  %name3.i = getelementptr inbounds i8, ptr %object.0, i64 24
+  %name3.i = getelementptr inbounds nuw i8, ptr %object.0, i64 24
   %5 = load ptr, ptr %name3.i, align 8
   %tobool.i.i = icmp ne ptr %5, null
   %tobool1.i.i = icmp ne ptr %name, null
@@ -643,7 +643,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 define internal void @capsule_dealloc(ptr noundef %op) #0 {
 entry:
   tail call void @PyObject_GC_UnTrack(ptr noundef %op) #7
-  %destructor = getelementptr inbounds i8, ptr %op, i64 40
+  %destructor = getelementptr inbounds nuw i8, ptr %op, i64 40
   %0 = load ptr, ptr %destructor, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -660,7 +660,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal ptr @capsule_repr(ptr noundef %o) #0 {
 entry:
-  %name1 = getelementptr inbounds i8, ptr %o, i64 24
+  %name1 = getelementptr inbounds nuw i8, ptr %o, i64 24
   %0 = load ptr, ptr %name1, align 8
   %tobool.not = icmp eq ptr %0, null
   %.str.18. = select i1 %tobool.not, ptr @.str.18, ptr %0
@@ -672,7 +672,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @capsule_traverse(ptr noundef %capsule, ptr noundef %visit, ptr noundef %arg) #0 {
 entry:
-  %traverse_func = getelementptr inbounds i8, ptr %capsule, i64 48
+  %traverse_func = getelementptr inbounds nuw i8, ptr %capsule, i64 48
   %0 = load ptr, ptr %traverse_func, align 8
   %call = tail call i32 %0(ptr noundef %capsule, ptr noundef %visit, ptr noundef %arg) #7
   ret i32 %call
@@ -681,7 +681,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @capsule_clear(ptr noundef %capsule) #0 {
 entry:
-  %clear_func = getelementptr inbounds i8, ptr %capsule, i64 56
+  %clear_func = getelementptr inbounds nuw i8, ptr %capsule, i64 56
   %0 = load ptr, ptr %clear_func, align 8
   %call = tail call i32 %0(ptr noundef %capsule) #7
   ret i32 %call

@@ -102,23 +102,23 @@ declare void @llvm.trap() #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZNK5ceres11TrivialLoss8EvaluateEdPd(ptr nocapture nonnull readnone align 8 %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #3 align 2 {
   store double %1, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 1.000000e+00, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double 0.000000e+00, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK5ceres9HuberLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load double, ptr %4, align 8
   %6 = fcmp ogt double %1, %5
   br i1 %6, label %7, label %21
 
 7:                                                ; preds = %3
   %8 = tail call double @sqrt(double noundef %1) #16
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load double, ptr %9, align 8
   %11 = fmul double %10, 2.000000e+00
   %12 = load double, ptr %4, align 8
@@ -141,9 +141,9 @@ define hidden void @_ZNK5ceres9HuberLoss8EvaluateEdPd(ptr nocapture noundef nonn
 22:                                               ; preds = %21, %7
   %.sink14 = phi double [ %.sroa.speculated, %7 ], [ 1.000000e+00, %21 ]
   %.sink = phi double [ %20, %7 ], [ 0.000000e+00, %21 ]
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %.sink14, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %.sink, ptr %24, align 8
   ret void
 }
@@ -156,11 +156,11 @@ declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK5ceres12SoftLOneLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load double, ptr %4, align 8
   %6 = tail call double @llvm.fmuladd.f64(double %1, double %5, double 1.000000e+00)
   %7 = tail call double @sqrt(double noundef %6) #16
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fmul double %9, 2.000000e+00
   %11 = fadd double %7, -1.000000e+00
@@ -169,38 +169,38 @@ define hidden void @_ZNK5ceres12SoftLOneLoss8EvaluateEdPd(ptr nocapture noundef 
   %13 = fdiv double 1.000000e+00, %7
   %14 = fcmp ogt double %13, 0x10000000000000
   %.sroa.speculated = select i1 %14, double %13, double 0x10000000000000
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %.sroa.speculated, ptr %15, align 8
   %16 = load double, ptr %4, align 8
   %17 = fneg double %.sroa.speculated
   %18 = fmul double %16, %17
   %19 = fmul double %6, 2.000000e+00
   %20 = fdiv double %18, %19
-  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %20, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK5ceres10CauchyLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load double, ptr %4, align 8
   %6 = tail call double @llvm.fmuladd.f64(double %1, double %5, double 1.000000e+00)
   %7 = fdiv double 1.000000e+00, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load double, ptr %8, align 8
   %10 = tail call double @log(double noundef %6) #16
   %11 = fmul double %9, %10
   store double %11, ptr %2, align 8
   %12 = fcmp ogt double %7, 0x10000000000000
   %.sroa.speculated = select i1 %12, double %7, double 0x10000000000000
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %.sroa.speculated, ptr %13, align 8
   %14 = load double, ptr %4, align 8
   %15 = fneg double %14
   %16 = fmul double %7, %7
   %17 = fmul double %16, %15
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %17, ptr %18, align 8
   ret void
 }
@@ -211,25 +211,25 @@ declare double @log(double noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK5ceres10ArctanLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #4 align 2 {
   %4 = fmul double %1, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load double, ptr %5, align 8
   %7 = tail call double @llvm.fmuladd.f64(double %4, double %6, double 1.000000e+00)
   %8 = fdiv double 1.000000e+00, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load double, ptr %9, align 8
   %11 = tail call double @atan2(double noundef %1, double noundef %10) #16
   %12 = fmul double %10, %11
   store double %12, ptr %2, align 8
   %13 = fcmp ogt double %8, 0x10000000000000
   %.sroa.speculated = select i1 %13, double %8, double 0x10000000000000
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %.sroa.speculated, ptr %14, align 8
   %15 = fmul double %1, -2.000000e+00
   %16 = load double, ptr %5, align 8
   %17 = fmul double %15, %16
   %18 = fmul double %8, %8
   %19 = fmul double %18, %17
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %19, ptr %20, align 8
   ret void
 }
@@ -246,11 +246,11 @@ define hidden void @_ZN5ceres12TolerantLossC2Edd(ptr nocapture noundef nonnull w
   %8 = alloca %"struct.google::CheckOpString", align 8
   %9 = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres12TolerantLossE, i64 16), ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = fneg double %1
   %14 = fdiv double %13, %2
   %15 = tail call double @exp(double noundef %14) #16
@@ -381,21 +381,21 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden void @_ZNK5ceres12TolerantLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fsub double %1, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load double, ptr %7, align 8
   %9 = fdiv double %6, %8
   %10 = fcmp ogt double %9, 3.670000e+01
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load double, ptr %12, align 8
   %14 = fsub double %6, %13
   store double %14, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 1.000000e+00, ptr %15, align 8
   br label %33
 
@@ -404,7 +404,7 @@ define hidden void @_ZNK5ceres12TolerantLoss8EvaluateEdPd(ptr nocapture noundef 
   %18 = load double, ptr %7, align 8
   %19 = fadd double %17, 1.000000e+00
   %20 = tail call double @log(double noundef %19) #16
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load double, ptr %21, align 8
   %23 = fneg double %22
   %24 = tail call double @llvm.fmuladd.f64(double %18, double %20, double %23)
@@ -412,7 +412,7 @@ define hidden void @_ZNK5ceres12TolerantLoss8EvaluateEdPd(ptr nocapture noundef 
   %25 = fdiv double %17, %19
   %26 = fcmp ogt double %25, 0x10000000000000
   %.sroa.speculated = select i1 %26, double %25, double 0x10000000000000
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %.sroa.speculated, ptr %27, align 8
   %28 = load double, ptr %7, align 8
   %29 = tail call double @cosh(double noundef %9) #16
@@ -423,7 +423,7 @@ define hidden void @_ZNK5ceres12TolerantLoss8EvaluateEdPd(ptr nocapture noundef 
 
 33:                                               ; preds = %16, %11
   %.sink = phi double [ 0.000000e+00, %11 ], [ %32, %16 ]
-  %34 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %.sink, ptr %34, align 8
   ret void
 }
@@ -433,7 +433,7 @@ declare double @cosh(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK5ceres9TukeyLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #10 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fcmp ugt double %1, %5
   br i1 %6, label %19, label %7
@@ -447,7 +447,7 @@ define hidden void @_ZNK5ceres9TukeyLoss8EvaluateEdPd(ptr nocapture noundef nonn
   %13 = tail call double @llvm.fmuladd.f64(double %12, double %9, double 1.000000e+00)
   %14 = fmul double %11, %13
   store double %14, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %10, ptr %15, align 8
   %16 = load double, ptr %4, align 8
   %17 = fdiv double -2.000000e+00, %16
@@ -457,13 +457,13 @@ define hidden void @_ZNK5ceres9TukeyLoss8EvaluateEdPd(ptr nocapture noundef nonn
 19:                                               ; preds = %3
   %20 = fdiv double %5, 3.000000e+00
   store double %20, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 0.000000e+00, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %19, %7
   %.sink = phi double [ 0.000000e+00, %19 ], [ %18, %7 ]
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %.sink, ptr %23, align 8
   ret void
 }
@@ -473,13 +473,13 @@ define hidden void @_ZN5ceres12ComposedLossC2EPKNS_12LossFunctionENS_9OwnershipE
   %6 = alloca %"class.google::LogMessageFatal", align 8
   %7 = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres12ComposedLossE, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %4, ptr %11, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %.critedge
@@ -509,7 +509,7 @@ define hidden void @_ZN5ceres12ComposedLossC2EPKNS_12LossFunctionENS_9OwnershipE
 
 _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i: ; preds = %18
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20) #16
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit
@@ -522,7 +522,7 @@ _ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit: ; pr
 
 _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i16: ; preds = %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(8) %24) #16
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit17
@@ -573,32 +573,32 @@ declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ceres12ComposedLossD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %6, align 8
   br label %7
 
 7:                                                ; preds = %5, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %10, label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit, label %12
 
 12:                                               ; preds = %7
   %.pre = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i: ; preds = %12
   %14 = load ptr, ptr %.pre, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %.pre) #16
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit
@@ -606,14 +606,14 @@ _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i: ; preds = %12
 _ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit: ; preds = %7, %12, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i
   %17 = phi ptr [ %13, %12 ], [ %13, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i ], [ %11, %7 ]
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i1 = icmp eq ptr %19, null
   br i1 %.not.i1, label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit3, label %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i2
 
 _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i2: ; preds = %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %19) #16
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit3
@@ -625,21 +625,21 @@ _ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit3: ; p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ceres12ComposedLossD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %6, align 8
   br label %7
 
 7:                                                ; preds = %5, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %10, label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit.i, label %12
 
 12:                                               ; preds = %7
@@ -649,21 +649,21 @@ define hidden void @_ZN5ceres12ComposedLossD0Ev(ptr noundef nonnull align 8 dere
 
 _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i.i: ; preds = %12
   %13 = load ptr, ptr %.pre.i, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i) #16
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i.i, %12, %7
   store ptr null, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i1.i = icmp eq ptr %17, null
   br i1 %.not.i1.i, label %_ZN5ceres12ComposedLossD2Ev.exit, label %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i2.i
 
 _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i2.i: ; preds = %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit.i
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %17) #16
   br label %_ZN5ceres12ComposedLossD2Ev.exit
@@ -680,76 +680,76 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 define hidden void @_ZNK5ceres12ComposedLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #7 align 2 {
   %4 = alloca [3 x double], align 16
   %5 = alloca [3 x double], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef %1, ptr noundef nonnull %5)
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load double, ptr %5, align 16
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %12, double noundef %13, ptr noundef nonnull %4)
   %17 = load double, ptr %4, align 16
   store double %17, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load double, ptr %20, align 8
   %22 = fmul double %19, %21
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %25 = load double, ptr %24, align 16
   %26 = fmul double %21, %25
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = load double, ptr %27, align 16
   %29 = fmul double %19, %28
   %30 = call double @llvm.fmuladd.f64(double %26, double %21, double %29)
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %30, ptr %31, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK5ceres10ScaledLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, double noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load double, ptr %8, align 8
   %10 = fmul double %1, %9
   store double %10, ptr %2, align 8
   %11 = load double, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double 0.000000e+00, ptr %13, align 8
   br label %30
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef %1, ptr noundef %2)
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load double, ptr %18, align 8
   %20 = load double, ptr %2, align 8
   %21 = fmul double %19, %20
   store double %21, ptr %2, align 8
   %22 = load double, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load double, ptr %23, align 8
   %25 = fmul double %22, %24
   store double %25, ptr %23, align 8
   %26 = load double, ptr %18, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load double, ptr %27, align 8
   %29 = fmul double %26, %28
   store double %29, ptr %27, align 8
@@ -818,46 +818,46 @@ define linkonce_odr hidden void @_ZN5ceres9TukeyLossD0Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ceres10ScaledLossD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i: ; preds = %5
   %6 = load ptr, ptr %.pre, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %.pre) #16
   br label %_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %5, %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5ceres10ScaledLossD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %_ZN5ceres10ScaledLossD2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.not.i.i = icmp eq ptr %.pre.i, null
   br i1 %.not.i.i, label %_ZN5ceres10ScaledLossD2Ev.exit, label %_ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIKN5ceres12LossFunctionEEclEPS2_.exit.i.i: ; preds = %5
   %6 = load ptr, ptr %.pre.i, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i) #16
   br label %_ZN5ceres10ScaledLossD2Ev.exit

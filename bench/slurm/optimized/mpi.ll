@@ -191,7 +191,7 @@ define internal fastcc void @_log_env(ptr noundef readonly %0) unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %17, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %17 ]
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %20 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %21 = and i64 %20, 128
   %.not9 = icmp eq i64 %21, 0
@@ -209,7 +209,7 @@ define internal fastcc void @_log_env(ptr noundef readonly %0) unnamed_addr #0 {
 
 27:                                               ; preds = %25, %22, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next
+  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %29 = load ptr, ptr %28, align 8
   %.not7 = icmp eq ptr %29, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -302,7 +302,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 112
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.22, ptr noundef nonnull %33) #8
   br label %34
 
@@ -318,11 +318,11 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %39, label %40, label %47
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 136
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 132
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 140
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %46 = load i32, ptr %45, align 4
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.23, i32 noundef %42, i32 noundef %44, i32 noundef %46) #8
   br label %47
@@ -339,29 +339,29 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %0, i64 144
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %55 = load i32, ptr %54, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.24, i32 noundef %55) #8
   br label %56
 
 56:                                               ; preds = %53, %50, %47
-  %57 = getelementptr inbounds i8, ptr %0, i64 144
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %58 = load i32, ptr %57, align 8
   %.not54.i = icmp eq i32 %58, 0
   br i1 %.not54.i, label %.preheader.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 472
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 472
   br label %63
 
 .preheader.i:                                     ; preds = %76, %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 132
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %61 = load i32, ptr %60, align 4
   %.not55.i = icmp eq i32 %61, 0
   br i1 %.not55.i, label %._crit_edge.i, label %.lr.ph49.i
 
 .lr.ph49.i:                                       ; preds = %.preheader.i
-  %62 = getelementptr inbounds i8, ptr %0, i64 232
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 232
   br label %80
 
 63:                                               ; preds = %76, %.lr.ph.i
@@ -378,9 +378,9 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
 
 69:                                               ; preds = %66
   %70 = load ptr, ptr %59, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv.i
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 60
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 60
   %74 = load i32, ptr %73, align 4
   %75 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.25, i32 noundef %75, i32 noundef %74) #8
@@ -407,7 +407,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %62, align 8
-  %88 = getelementptr inbounds i16, ptr %87, i64 %indvars.iv58.i
+  %88 = getelementptr inbounds nuw i16, ptr %87, i64 %indvars.iv58.i
   %89 = load i16, ptr %88, align 2
   %90 = zext i16 %89 to i32
   %91 = trunc nuw nsw i64 %indvars.iv58.i to i32
@@ -422,7 +422,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %95, label %80, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %92, %.preheader.i
-  %96 = getelementptr inbounds i8, ptr %0, i64 168
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %97 = load i32, ptr %96, align 8
   switch i32 %97, label %98 [
     i32 0, label %106
@@ -446,7 +446,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   br label %106
 
 106:                                              ; preds = %104, %101, %98, %._crit_edge.i, %._crit_edge.i
-  %107 = getelementptr inbounds i8, ptr %0, i64 192
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %108 = load i32, ptr %107, align 8
   %.not39.i = icmp eq i32 %108, -2
   br i1 %.not39.i, label %158, label %109
@@ -463,9 +463,9 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %0, i64 188
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %117 = load i32, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %0, i64 172
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %119 = load i32, ptr %118, align 4
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.28, i32 noundef %117, i32 noundef %119) #8
   br label %120
@@ -483,19 +483,19 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
 
 126:                                              ; preds = %123
   %127 = load i32, ptr %107, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 200
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %129 = load i32, ptr %128, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.29, i32 noundef %127, i32 noundef %129) #8
   br label %130
 
 130:                                              ; preds = %126, %123, %120
-  %131 = getelementptr inbounds i8, ptr %0, i64 172
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %132 = load i32, ptr %131, align 4
   %.not56.i = icmp eq i32 %132, 0
   br i1 %.not56.i, label %._crit_edge53.i, label %.lr.ph52.i
 
 .lr.ph52.i:                                       ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %0, i64 208
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 208
   br label %134
 
 134:                                              ; preds = %146, %.lr.ph52.i
@@ -512,7 +512,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr %133, align 8
-  %142 = getelementptr inbounds i16, ptr %141, i64 %indvars.iv61.i
+  %142 = getelementptr inbounds nuw i16, ptr %141, i64 %indvars.iv61.i
   %143 = load i16, ptr %142, align 2
   %144 = zext i16 %143 to i32
   %145 = trunc nuw nsw i64 %indvars.iv61.i to i32
@@ -538,7 +538,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %154, label %155, label %158
 
 155:                                              ; preds = %152
-  %156 = getelementptr inbounds i8, ptr %0, i64 176
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %157 = load ptr, ptr %156, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef %157) #8
   br label %158
@@ -560,7 +560,7 @@ define i32 @mpi_g_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
 
 _log_step_rec.exit:                               ; preds = %11, %158, %161, %164
   %165 = load ptr, ptr @ops, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 56
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 56
   %167 = load ptr, ptr %166, align 8
   %168 = tail call i32 %167(ptr noundef %0, ptr noundef nonnull %1) #8
   br label %169
@@ -635,7 +635,7 @@ define i32 @mpi_g_slurmstepd_task(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.22, ptr noundef nonnull %33) #8
   br label %34
 
@@ -651,9 +651,9 @@ define i32 @mpi_g_slurmstepd_task(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load i32, ptr %43, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.34, i32 noundef %42, i32 noundef %44) #8
   br label %45
@@ -670,9 +670,9 @@ define i32 @mpi_g_slurmstepd_task(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %0, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load i32, ptr %54, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.35, i32 noundef %53, i32 noundef %55) #8
   br label %56
@@ -689,9 +689,9 @@ define i32 @mpi_g_slurmstepd_task(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %66 = load i32, ptr %65, align 4
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.36, i32 noundef %64, i32 noundef %66) #8
   br label %67
@@ -713,7 +713,7 @@ define i32 @mpi_g_slurmstepd_task(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 _log_task_rec.exit:                               ; preds = %11, %67, %70, %73
   %74 = load ptr, ptr @ops, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 64
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i32 %76(ptr noundef %0, ptr noundef nonnull %1) #8
   br label %78
@@ -841,7 +841,7 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.22, ptr noundef nonnull %33) #8
   br label %34
 
@@ -869,7 +869,7 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %44
 
 44:                                               ; preds = %42, %39, %36, %34, %34
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = load ptr, ptr %45, align 8
   %.not32.i = icmp eq ptr %46, null
   br i1 %.not32.i, label %.loopexit.i, label %47
@@ -886,9 +886,9 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %46, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %46, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %57 = load i32, ptr %56, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.39, i32 noundef %55, i32 noundef %57) #8
   br label %58
@@ -905,7 +905,7 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %46, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %66 = load ptr, ptr %65, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.40, ptr noundef %66) #8
   br label %67
@@ -922,23 +922,23 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %72, label %73, label %79
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %46, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %75 = load i16, ptr %74, align 8
   %76 = zext i16 %75 to i32
-  %77 = getelementptr inbounds i8, ptr %46, i64 76
+  %77 = getelementptr inbounds nuw i8, ptr %46, i64 76
   %78 = load i32, ptr %77, align 4
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef %76, i32 noundef %78) #8
   br label %79
 
 79:                                               ; preds = %73, %70, %67
-  %80 = getelementptr inbounds i8, ptr %46, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %81 = load i32, ptr %80, align 8
   %.not43.i = icmp eq i32 %81, 0
   br i1 %.not43.i, label %.loopexit.i, label %.lr.ph42.i
 
 .lr.ph42.i:                                       ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %46, i64 64
-  %83 = getelementptr inbounds i8, ptr %46, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %46, i64 80
   br label %84
 
 84:                                               ; preds = %._crit_edge.i, %.lr.ph42.i
@@ -955,7 +955,7 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
 
 90:                                               ; preds = %87
   %91 = load ptr, ptr %82, align 8
-  %92 = getelementptr inbounds i16, ptr %91, i64 %indvars.iv46.i
+  %92 = getelementptr inbounds nuw i16, ptr %91, i64 %indvars.iv46.i
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i32
   %95 = trunc nuw nsw i64 %indvars.iv46.i to i32
@@ -964,7 +964,7 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
 
 96:                                               ; preds = %90, %87, %84
   %97 = load ptr, ptr %82, align 8
-  %98 = getelementptr inbounds i16, ptr %97, i64 %indvars.iv46.i
+  %98 = getelementptr inbounds nuw i16, ptr %97, i64 %indvars.iv46.i
   %99 = load i16, ptr %98, align 2
   %.not44.i = icmp eq i16 %99, 0
   br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.preheader.i
@@ -987,9 +987,9 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
 
 106:                                              ; preds = %103
   %107 = load ptr, ptr %83, align 8
-  %108 = getelementptr inbounds ptr, ptr %107, i64 %indvars.iv46.i
+  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv46.i
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i32, ptr %109, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.i
   %111 = load i32, ptr %110, align 4
   %112 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.43, i32 noundef %100, i32 noundef %112, i32 noundef %111) #8
@@ -998,7 +998,7 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
 113:                                              ; preds = %106, %103, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %114 = load ptr, ptr %82, align 8
-  %115 = getelementptr inbounds i16, ptr %114, i64 %indvars.iv46.i
+  %115 = getelementptr inbounds nuw i16, ptr %114, i64 %indvars.iv46.i
   %116 = load i16, ptr %115, align 2
   %117 = zext i16 %116 to i64
   %118 = icmp samesign ult i64 %indvars.iv.next.i, %117
@@ -1028,7 +1028,7 @@ define ptr @mpi_g_client_prelaunch(ptr noundef %0, ptr noundef %1) local_unnamed
 
 _log_mpi_rec.exit:                                ; preds = %11, %.loopexit.i, %124, %127
   %128 = load ptr, ptr @ops, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = load ptr, ptr %129, align 8
   %131 = tail call ptr %130(ptr noundef %0, ptr noundef nonnull %1) #8
   %132 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -1078,7 +1078,7 @@ define i32 @mpi_g_client_fini(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %3, %6, %9
   %11 = load ptr, ptr @ops, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0) #8
   br label %15
@@ -1115,7 +1115,7 @@ define ptr @mpi_g_conf_get_printable() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %4, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %4 ]
   %8 = load ptr, ptr @ops, align 8
-  %9 = getelementptr inbounds %struct.slurm_mpi_ops, ptr %8, i64 %indvars.iv, i32 4
+  %9 = getelementptr inbounds nuw %struct.slurm_mpi_ops, ptr %8, i64 %indvars.iv, i32 4
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10() #8
   %.not24 = icmp eq ptr %11, null
@@ -1249,7 +1249,7 @@ define range(i32 -1, 1) i32 @mpi_conf_send_stepd(i32 noundef %0, i32 noundef %1)
   %.us-phi216 = phi i64 [ %7, %.lr.ph213.split.us ], [ %14, %13 ]
   %.us-phi217 = phi i32 [ %8, %.lr.ph213.split.us ], [ %15, %13 ]
   %20 = and i64 %.us-phi216, 2147483647
-  %21 = getelementptr inbounds i8, ptr %.080.ph227, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.080.ph227, i64 %20
   %22 = sub nsw i32 %.077.ph229, %.us-phi217
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %.loopexit
@@ -1289,7 +1289,7 @@ define range(i32 -1, 1) i32 @mpi_conf_send_stepd(i32 noundef %0, i32 noundef %1)
 
 36:                                               ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
-  %37 = getelementptr inbounds %struct.slurm_mpi_ops, ptr %35, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw %struct.slurm_mpi_ops, ptr %35, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, %1
@@ -1307,12 +1307,12 @@ _plugin_idx.exit.thread:                          ; preds = %41, %32
 _plugin_idx.exit:                                 ; preds = %36
   %43 = load ptr, ptr @g_context, align 8
   %44 = and i64 %indvars.iv.i, 4294967295
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr @slurm_xstrchr(ptr noundef %48, i32 noundef 47) #8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #11
   %52 = trunc i64 %51 to i32
   store i32 %52, ptr %3, align 4
@@ -1361,7 +1361,7 @@ _plugin_idx.exit:                                 ; preds = %36
   %.us-phi = phi i64 [ %54, %.lr.ph.split.us ], [ %61, %60 ]
   %.us-phi145 = phi i32 [ %55, %.lr.ph.split.us ], [ %62, %60 ]
   %68 = and i64 %.us-phi, 2147483647
-  %69 = getelementptr inbounds i8, ptr %.086.ph154, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr %.086.ph154, i64 %68
   %70 = sub nsw i32 %.083.ph156, %.us-phi145
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %72, label %.preheader117
@@ -1391,7 +1391,7 @@ _plugin_idx.exit:                                 ; preds = %36
   %.us-phi161 = phi i64 [ %88, %.lr.ph158.split.us ], [ %95, %94 ]
   %.us-phi162 = phi i32 [ %89, %.lr.ph158.split.us ], [ %96, %94 ]
   %79 = and i64 %.us-phi161, 2147483647
-  %80 = getelementptr inbounds i8, ptr %.084.ph174, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %.084.ph174, i64 %79
   %81 = sub nsw i32 %.085.ph172, %.us-phi162
   %82 = icmp sgt i32 %81, 0
   br i1 %82, label %83, label %.outer118._crit_edge
@@ -1440,13 +1440,13 @@ _plugin_idx.exit:                                 ; preds = %36
   br i1 %.not109, label %.critedge, label %99
 
 99:                                               ; preds = %.outer118._crit_edge
-  %100 = getelementptr inbounds ptr, ptr %98, i64 %44
+  %100 = getelementptr inbounds nuw ptr, ptr %98, i64 %44
   %101 = load ptr, ptr %100, align 8
   %.not113 = icmp eq ptr %101, null
   br i1 %.not113, label %.critedge, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %101, i64 20
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 20
   %104 = load i32, ptr %103, align 4
   br label %.critedge
 
@@ -1496,7 +1496,7 @@ _plugin_idx.exit:                                 ; preds = %36
   %.us-phi180 = phi i64 [ %107, %.lr.ph176.split.us ], [ %114, %113 ]
   %.us-phi181 = phi i32 [ %108, %.lr.ph176.split.us ], [ %115, %113 ]
   %120 = and i64 %.us-phi180, 2147483647
-  %121 = getelementptr inbounds i8, ptr %.081.ph193, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr %.081.ph193, i64 %120
   %122 = sub nsw i32 %.082.ph191, %.us-phi181
   %123 = icmp sgt i32 %122, 0
   br i1 %123, label %124, label %.outer116._crit_edge
@@ -1520,9 +1520,9 @@ _plugin_idx.exit:                                 ; preds = %36
 
 .lr.ph195.preheader:                              ; preds = %.outer116._crit_edge
   %129 = load ptr, ptr @mpi_confs, align 8
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %44
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %44
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
   br label %.lr.ph195.split.us
 
@@ -1565,7 +1565,7 @@ _plugin_idx.exit:                                 ; preds = %36
   %.us-phi198 = phi i64 [ %135, %.lr.ph195.split.us ], [ %142, %141 ]
   %.us-phi199 = phi i32 [ %136, %.lr.ph195.split.us ], [ %143, %141 ]
   %148 = and i64 %.us-phi198, 2147483647
-  %149 = getelementptr inbounds i8, ptr %.078.ph211, i64 %148
+  %149 = getelementptr inbounds nuw i8, ptr %.078.ph211, i64 %148
   %150 = sub nsw i32 %.079.ph209, %.us-phi199
   %151 = icmp sgt i32 %150, 0
   br i1 %151, label %152, label %.loopexit114
@@ -1723,7 +1723,7 @@ define range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_a
   %.us-phi160 = phi i64 [ %6, %.lr.ph184.preheader.preheader ], [ %6, %.lr.ph200.preheader ], [ %22, %.lr.ph184.preheader ], [ %14, %.lr.ph200 ]
   %.us-phi161 = phi i32 [ %7, %.lr.ph184.preheader.preheader ], [ %7, %.lr.ph200.preheader ], [ %23, %.lr.ph184.preheader ], [ %15, %.lr.ph200 ]
   %34 = and i64 %.us-phi160, 2147483647
-  %35 = getelementptr inbounds i8, ptr %.082.ph202, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %.082.ph202, i64 %34
   %36 = sub nsw i32 %.079.ph204, %.us-phi161
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %.outer117._crit_edge
@@ -1854,7 +1854,7 @@ define range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_a
   %.us-phi212 = phi i64 [ %50, %.lr.ph237.preheader.preheader ], [ %50, %.lr.ph253.preheader ], [ %66, %.lr.ph237.preheader ], [ %58, %.lr.ph253 ]
   %.us-phi213 = phi i32 [ %51, %.lr.ph237.preheader.preheader ], [ %51, %.lr.ph253.preheader ], [ %67, %.lr.ph237.preheader ], [ %59, %.lr.ph253 ]
   %78 = and i64 %.us-phi212, 2147483647
-  %79 = getelementptr inbounds i8, ptr %.086.ph256, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %.086.ph256, i64 %78
   %80 = sub nsw i32 %.085.ph258, %.us-phi213
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %82, label %.lr.ph260.preheader
@@ -1903,7 +1903,7 @@ define range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_a
   %.us-phi267 = phi i64 [ %105, %.lr.ph292.preheader.preheader ], [ %105, %.lr.ph308.preheader ], [ %121, %.lr.ph292.preheader ], [ %113, %.lr.ph308 ]
   %.us-phi268 = phi i32 [ %106, %.lr.ph292.preheader.preheader ], [ %106, %.lr.ph308.preheader ], [ %122, %.lr.ph292.preheader ], [ %114, %.lr.ph308 ]
   %95 = and i64 %.us-phi267, 2147483647
-  %96 = getelementptr inbounds i8, ptr %.083.ph313, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %.083.ph313, i64 %95
   %97 = sub nsw i32 %.084.ph311, %.us-phi268
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %99, label %.outer115._crit_edge
@@ -1998,7 +1998,7 @@ define range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_a
   br i1 %128, label %.lr.ph315.preheader, label %.outer._crit_edge
 
 .lr.ph315.preheader:                              ; preds = %126
-  %129 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = load ptr, ptr %129, align 8
   br label %.lr.ph315
 
@@ -2100,7 +2100,7 @@ define range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_a
   %.us-phi322 = phi i64 [ %133, %.lr.ph347.preheader.preheader ], [ %133, %.lr.ph363.preheader ], [ %149, %.lr.ph347.preheader ], [ %141, %.lr.ph363 ]
   %.us-phi323 = phi i32 [ %134, %.lr.ph347.preheader.preheader ], [ %134, %.lr.ph363.preheader ], [ %150, %.lr.ph347.preheader ], [ %142, %.lr.ph363 ]
   %161 = and i64 %.us-phi322, 2147483647
-  %162 = getelementptr inbounds i8, ptr %.080.ph368, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr %.080.ph368, i64 %161
   %163 = sub nsw i32 %.081.ph366, %.us-phi323
   %164 = icmp sgt i32 %163, 0
   br i1 %164, label %165, label %.outer._crit_edge
@@ -2323,7 +2323,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr @ops, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %62 = load ptr, ptr %61, align 8
   tail call void %62(ptr noundef nonnull %58) #8
   tail call void @slurm_s_p_hashtbl_destroy(ptr noundef nonnull %58) #8
@@ -2363,26 +2363,26 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
 .lr.ph:                                           ; preds = %.critedge, %99
   %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %.critedge ]
   %82 = load ptr, ptr @ops, align 8
-  %83 = getelementptr inbounds %struct.slurm_mpi_ops, ptr %82, i64 %indvars.iv, i32 5
+  %83 = getelementptr inbounds nuw %struct.slurm_mpi_ops, ptr %82, i64 %indvars.iv, i32 5
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv
-  %86 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv
   tail call void %84(ptr noundef %85, ptr noundef %86) #8
   %87 = load ptr, ptr %85, align 8
   %.not97 = icmp eq ptr %87, null
   br i1 %.not97, label %99, label %88
 
 88:                                               ; preds = %.lr.ph
-  %89 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4
   %91 = add nsw i32 %90, 1
   %92 = sext i32 %91 to i64
   %93 = mul nsw i64 %92, 56
   %94 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %85, i64 noundef 1, i64 noundef %93, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.8, i32 noundef 378, ptr noundef nonnull @__func__._mpi_init_locked) #8
-  %95 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8
   %97 = tail call ptr @slurm_s_p_hashtbl_create(ptr noundef %96) #8
-  %98 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv
   store ptr %97, ptr %98, align 8
   br label %99
 
@@ -2430,7 +2430,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
 .lr.ph110:                                        ; preds = %114, %123
   %117 = phi i32 [ %124, %123 ], [ %115, %114 ]
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %123 ], [ 0, %114 ]
-  %118 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv123
+  %118 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv123
   %119 = load ptr, ptr %118, align 8
   %.not91 = icmp eq ptr %119, null
   br i1 %.not91, label %123, label %120
@@ -2469,35 +2469,35 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %161 ], [ 0, %.loopexit ]
   %.1111 = phi i32 [ %.3, %161 ], [ 0, %.loopexit ]
   %132 = load ptr, ptr @ops, align 8
-  %133 = getelementptr inbounds %struct.slurm_mpi_ops, ptr %132, i64 %indvars.iv126, i32 6
+  %133 = getelementptr inbounds nuw %struct.slurm_mpi_ops, ptr %132, i64 %indvars.iv126, i32 6
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv126
+  %135 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv126
   %136 = load ptr, ptr %135, align 8
   call void %134(ptr noundef %136) #8
   %137 = load ptr, ptr @ops, align 8
-  %138 = getelementptr inbounds %struct.slurm_mpi_ops, ptr %137, i64 %indvars.iv126, i32 3
+  %138 = getelementptr inbounds nuw %struct.slurm_mpi_ops, ptr %137, i64 %indvars.iv126, i32 3
   %139 = load ptr, ptr %138, align 8
   %140 = call ptr %139() #8
   %.not94 = icmp eq ptr %140, null
   br i1 %.not94, label %161, label %141
 
 141:                                              ; preds = %.lr.ph114
-  %142 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv126
+  %142 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv126
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv126
+  %144 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv126
   %145 = load i32, ptr %144, align 4
   %146 = call ptr @s_p_pack_hashtbl(ptr noundef nonnull %140, ptr noundef %143, i32 noundef %145) #8
   %147 = load ptr, ptr @mpi_confs, align 8
-  %148 = getelementptr inbounds ptr, ptr %147, i64 %indvars.iv126
+  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv126
   store ptr %146, ptr %148, align 8
   %149 = load ptr, ptr @mpi_confs, align 8
-  %150 = getelementptr inbounds ptr, ptr %149, i64 %indvars.iv126
+  %150 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv126
   %151 = load ptr, ptr %150, align 8
   %.not95 = icmp eq ptr %151, null
   br i1 %.not95, label %160, label %152
 
 152:                                              ; preds = %141
-  %153 = getelementptr inbounds i8, ptr %151, i64 20
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 20
   %154 = load i32, ptr %153, align 4
   %.not96 = icmp eq i32 %154, 0
   br i1 %.not96, label %157, label %155
@@ -2509,7 +2509,7 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
 157:                                              ; preds = %152
   call void @slurm_free_buf(ptr noundef nonnull %151) #8
   %158 = load ptr, ptr @mpi_confs, align 8
-  %159 = getelementptr inbounds ptr, ptr %158, i64 %indvars.iv126
+  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv126
   store ptr null, ptr %159, align 8
   br label %160
 
@@ -2542,20 +2542,20 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
 
 .preheader:                                       ; preds = %166, %._crit_edge118
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %._crit_edge118 ], [ 0, %166 ]
-  %169 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv132
+  %169 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv132
   %170 = load i32, ptr %169, align 4
   %171 = icmp sgt i32 %170, 0
   br i1 %171, label %.lr.ph117.preheader, label %._crit_edge118
 
 .lr.ph117.preheader:                              ; preds = %.preheader
-  %172 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv132
-  %173 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv132
+  %172 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv132
+  %173 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv132
   br label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
   %indvars.iv129 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next130, %.lr.ph117 ]
   %174 = load ptr, ptr %172, align 8
-  %175 = getelementptr inbounds %struct.conf_file_options, ptr %174, i64 %indvars.iv129
+  %175 = getelementptr inbounds nuw %struct.conf_file_options, ptr %174, i64 %indvars.iv129
   call void @slurm_xfree(ptr noundef %175) #8
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %176 = load i32, ptr %173, align 4
@@ -2564,9 +2564,9 @@ _is_none_plugin.exit.thread:                      ; preds = %14, %.thread, %_is_
   br i1 %178, label %.lr.ph117, label %._crit_edge118, !llvm.loop !27
 
 ._crit_edge118:                                   ; preds = %.lr.ph117, %.preheader
-  %179 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv132
+  %179 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv132
   call void @slurm_xfree(ptr noundef %179) #8
-  %180 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv132
+  %180 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv132
   %181 = load ptr, ptr %180, align 8
   call void @slurm_s_p_hashtbl_destroy(ptr noundef %181) #8
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
@@ -2624,12 +2624,12 @@ _is_none_plugin.exit:                             ; preds = %2
 .lr.ph:                                           ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader ]
   %11 = load ptr, ptr @g_context, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @slurm_xstrchr(ptr noundef %15, i32 noundef 47) #8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %18 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull %17, ptr noundef nonnull %0) #8
   %.not15 = icmp eq i32 %18, 0
   br i1 %.not15, label %19, label %25
@@ -2637,7 +2637,7 @@ _is_none_plugin.exit:                             ; preds = %2
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr @ops, align 8
   %21 = and i64 %indvars.iv, 4294967295
-  %22 = getelementptr inbounds %struct.slurm_mpi_ops, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw %struct.slurm_mpi_ops, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 4
   br label %.loopexit
@@ -2718,7 +2718,7 @@ define internal fastcc i32 @_mpi_fini_locked() unnamed_addr #0 {
   %4 = phi i32 [ %10, %9 ], [ %2, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.preheader ]
   %5 = load ptr, ptr @mpi_confs, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %.not13 = icmp eq ptr %7, null
   br i1 %.not13, label %9, label %8
@@ -2732,7 +2732,7 @@ define internal fastcc i32 @_mpi_fini_locked() unnamed_addr #0 {
 9:                                                ; preds = %8, %.lr.ph
   %10 = phi i32 [ %.pre23, %8 ], [ %4, %.lr.ph ]
   %11 = phi ptr [ %.pre, %8 ], [ %5, %.lr.ph ]
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   store ptr null, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = sext i32 %10 to i64
@@ -2751,7 +2751,7 @@ define internal fastcc i32 @_mpi_fini_locked() unnamed_addr #0 {
 .lr.ph17:                                         ; preds = %15, %24
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %24 ], [ 0, %15 ]
   %18 = load ptr, ptr @g_context, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv20
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv20
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @plugin_context_destroy(ptr noundef %20) #8
   %.not12 = icmp eq i32 %21, 0

@@ -16,7 +16,7 @@ define noundef ptr @wmemchr(ptr noundef readonly %0, i32 noundef %1, i64 noundef
   br i1 %5, label %._crit_edge, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.089, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.089, i64 4
   %8 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %8, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6

@@ -259,7 +259,7 @@ define hidden void @_ZN4cvc58internal3smt19InterpolationSolverC2ERNS0_3EnvE(ptr 
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt19InterpolationSolverE, i64 16), ptr %this, align 8
-  %d_subsolver = getelementptr inbounds i8, ptr %this, i64 16
+  %d_subsolver = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %d_subsolver, align 8
   ret void
 }
@@ -270,14 +270,14 @@ declare void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 
 define hidden void @_ZN4cvc58internal3smt19InterpolationSolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt19InterpolationSolverE, i64 16), ptr %this, align 8
-  %d_subsolver = getelementptr inbounds i8, ptr %this, i64 16
+  %d_subsolver = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_subsolver, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers13SygusInterpolESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers13SygusInterpolEEclEPS4_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers13SygusInterpolEEclEPS4_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers13SygusInterpolESt14default_deleteIS4_EED2Ev.exit
@@ -291,14 +291,14 @@ _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers13SygusInterpolESt14default
 define hidden void @_ZN4cvc58internal3smt19InterpolationSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt19InterpolationSolverE, i64 16), ptr %this, align 8
-  %d_subsolver.i = getelementptr inbounds i8, ptr %this, i64 16
+  %d_subsolver.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_subsolver.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4cvc58internal3smt19InterpolationSolverD2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers13SygusInterpolEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers13SygusInterpolEEclEPS4_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
   br label %_ZN4cvc58internal3smt19InterpolationSolverD2Ev.exit
@@ -322,9 +322,9 @@ entry:
   %ref.tmp19 = alloca %"class.std::allocator", align 1
   %agg.tmp38 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %smt = getelementptr inbounds i8, ptr %call, i64 352
+  %smt = getelementptr inbounds nuw i8, ptr %call, i64 352
   %0 = load ptr, ptr %smt, align 8
-  %produceInterpolants = getelementptr inbounds i8, ptr %0, i64 107
+  %produceInterpolants = getelementptr inbounds nuw i8, ptr %0, i64 107
   %1 = load i8, ptr %produceInterpolants, align 1
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %cond.end, label %if.then
@@ -345,7 +345,7 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 cond.end:                                         ; preds = %entry
-  %d_env = getelementptr inbounds i8, ptr %this, i64 8
+  %d_env = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %d_env, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(608) ptr @_ZN4cvc58internal3Env24getTopLevelSubstitutionsEv(ptr noundef nonnull align 8 dereferenceable(576) %3)
   %4 = load ptr, ptr %conj, align 8
@@ -528,7 +528,7 @@ lpad.i89:                                         ; preds = %call.i88.noexc
   br label %ehcleanup45
 
 invoke.cont26:                                    ; preds = %call.i88.noexc
-  %d_subsolver = getelementptr inbounds i8, ptr %this, i64 16
+  %d_subsolver = getelementptr inbounds nuw i8, ptr %this, i64 16
   %23 = load ptr, ptr %d_subsolver, align 8
   store ptr %call.i8890, ptr %d_subsolver, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %23, null
@@ -536,7 +536,7 @@ invoke.cont26:                                    ; preds = %call.i88.noexc
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers13SygusInterpolEEclEPS4_.exit.i.i.i.i: ; preds = %invoke.cont26
   %vtable.i.i.i.i.i = load ptr, ptr %23, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 8
   %24 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(248) %23) #15
   %.pre = load ptr, ptr %d_subsolver, align 8
@@ -555,9 +555,9 @@ if.then32:                                        ; preds = %invoke.cont30
           to label %invoke.cont33 unwind label %lpad25
 
 invoke.cont33:                                    ; preds = %if.then32
-  %smt35 = getelementptr inbounds i8, ptr %call34, i64 352
+  %smt35 = getelementptr inbounds nuw i8, ptr %call34, i64 352
   %26 = load ptr, ptr %smt35, align 8
-  %checkInterpolants = getelementptr inbounds i8, ptr %26, i64 19
+  %checkInterpolants = getelementptr inbounds nuw i8, ptr %26, i64 19
   %27 = load i8, ptr %checkInterpolants, align 1
   %tobool36 = trunc i8 %27 to i1
   br i1 %tobool36, label %if.then37, label %cleanup
@@ -725,7 +725,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define linkonce_odr hidden void @_ZN4cvc58internal14ModalExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #15
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #15
   ret void
@@ -812,7 +812,7 @@ if.then:                                          ; preds = %cond.end
 
 if.end:                                           ; preds = %if.then, %cond.end
   call void @_ZN4cvc58internal7OptionsC1Ev(ptr noundef nonnull align 8 dereferenceable(392) %subOptions)
-  %d_env = getelementptr inbounds i8, ptr %this, i64 8
+  %d_env = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_env, align 8
   %call10 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal3Env10getOptionsEv(ptr noundef nonnull align 8 dereferenceable(576) %0)
           to label %invoke.cont unwind label %lpad
@@ -826,7 +826,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont11
-  %produceInterpolants = getelementptr inbounds i8, ptr %call13, i64 107
+  %produceInterpolants = getelementptr inbounds nuw i8, ptr %call13, i64 107
   store i8 0, ptr %produceInterpolants, align 1
   invoke void @_ZN4cvc58internal3smt11SetDefaults15disableCheckingERNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(392) %subOptions)
           to label %invoke.cont14 unwind label %lpad
@@ -837,9 +837,9 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %for.cond.preheader unwind label %lpad
 
 for.cond.preheader:                               ; preds = %invoke.cont14
-  %_M_finish.i = getelementptr inbounds i8, ptr %easserts, i64 8
-  %add.ptr158 = getelementptr inbounds i8, ptr %serr, i64 16
-  %d_inputName.i = getelementptr inbounds i8, ptr %r, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %easserts, i64 8
+  %add.ptr158 = getelementptr inbounds nuw i8, ptr %serr, i64 16
+  %d_inputName.i = getelementptr inbounds nuw i8, ptr %r, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %_ZNSt10unique_ptrIN4cvc58internal12SolverEngineESt14default_deleteIS2_EED2Ev.exit
@@ -869,7 +869,7 @@ for.body85:                                       ; preds = %if.then79, %for.inc
           to label %for.inc unwind label %lpad57.loopexit
 
 for.inc:                                          ; preds = %for.body85
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.0650, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.0650, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %for.end, label %for.body85
 
@@ -1183,7 +1183,7 @@ ehcleanup197:                                     ; preds = %lpad57.loopexit, %l
   br label %ehcleanup201
 
 for.end199:                                       ; preds = %_ZNSt10unique_ptrIN4cvc58internal12SolverEngineESt14default_deleteIS2_EED2Ev.exit
-  %d_sepDataType.i = getelementptr inbounds i8, ptr %ssi, i64 24
+  %d_sepDataType.i = getelementptr inbounds nuw i8, ptr %ssi, i64 24
   %35 = load ptr, ptr %d_sepDataType.i, align 8
   %bf.load.i.i.i = load i64, ptr %35, align 8
   %36 = and i64 %bf.load.i.i.i, 1152920405095219200
@@ -1211,7 +1211,7 @@ terminate.lpad.i.i:                               ; preds = %if.then13.i.i.i
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit.i:            ; preds = %if.then13.i.i.i, %if.then.i.i.i, %for.end199
-  %d_sepLocType.i = getelementptr inbounds i8, ptr %ssi, i64 16
+  %d_sepLocType.i = getelementptr inbounds nuw i8, ptr %ssi, i64 16
   %39 = load ptr, ptr %d_sepLocType.i, align 8
   %bf.load.i.i1.i = load i64, ptr %39, align 8
   %40 = and i64 %bf.load.i.i1.i, 1152920405095219200
@@ -1254,7 +1254,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internal3smt19InterpolationSolver18getInterpolantNextERNS0_12NodeTemplateILb1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %interpol) local_unnamed_addr #3 align 2 {
 entry:
-  %d_subsolver = getelementptr inbounds i8, ptr %this, i64 16
+  %d_subsolver = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_subsolver, align 8
   %call2 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13SygusInterpol22solveInterpolationNextERNS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(8) %interpol)
   ret i1 %call2
@@ -1326,7 +1326,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory18SubsolverSetupInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_sepDataType = getelementptr inbounds i8, ptr %this, i64 24
+  %d_sepDataType = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_sepDataType, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -1354,7 +1354,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %entry, %if.then.i.i, %if.then13.i.i
-  %d_sepLocType = getelementptr inbounds i8, ptr %this, i64 16
+  %d_sepLocType = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %d_sepLocType, align 8
   %bf.load.i.i1 = load i64, ptr %4, align 8
   %5 = and i64 %bf.load.i.i1, 1152920405095219200
@@ -1405,7 +1405,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9ExceptionC2EPKc(ptr noundef n
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg)
           to label %call.i.noexc unwind label %lpad
@@ -1457,7 +1457,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define linkonce_odr hidden void @_ZN4cvc58internal14ModalExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #15
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -1467,7 +1467,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #15
   ret ptr %call
 }

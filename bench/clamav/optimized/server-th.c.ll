@@ -371,26 +371,26 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   store ptr %2, ptr %7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %21, i8 0, i64 128, i1 false)
   store ptr %15, ptr %17, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %16, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 136
-  %24 = getelementptr inbounds i8, ptr %17, i64 140
-  %25 = getelementptr inbounds i8, ptr %17, i64 144
-  %26 = getelementptr inbounds i8, ptr %17, i64 148
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 140
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 148
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 -1, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %10, i8 0, i64 152, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   %27 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.2) #15
-  %28 = getelementptr inbounds i8, ptr %27, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 36
   %29 = load i32, ptr %28, align 4
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %38, label %30
 
 30:                                               ; preds = %5
-  %31 = getelementptr inbounds i8, ptr %27, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 31, i64 noundef %32) #15
   %.not356 = icmp eq i32 %33, 0
@@ -417,13 +417,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 44:                                               ; preds = %42, %40
   %45 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.6) #15
-  %46 = getelementptr inbounds i8, ptr %45, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 36
   %47 = load i32, ptr %46, align 4
   %.not358 = icmp eq i32 %47, 0
   br i1 %.not358, label %56, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %45, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %50 = load i64, ptr %49, align 8
   %51 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 0, i64 noundef %50) #15
   %.not359 = icmp eq i32 %51, 0
@@ -450,13 +450,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 62:                                               ; preds = %60, %58
   %63 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.10) #15
-  %64 = getelementptr inbounds i8, ptr %63, i64 36
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 36
   %65 = load i32, ptr %64, align 4
   %.not361 = icmp eq i32 %65, 0
   br i1 %.not361, label %74, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %63, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %68 = load i64, ptr %67, align 8
   %69 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 1, i64 noundef %68) #15
   %.not362 = icmp eq i32 %69, 0
@@ -509,13 +509,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 94:                                               ; preds = %.sink.split, %89
   %95 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.17) #15
-  %96 = getelementptr inbounds i8, ptr %95, i64 36
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 36
   %97 = load i32, ptr %96, align 4
   %.not364 = icmp eq i32 %97, 0
   br i1 %.not364, label %106, label %98
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %95, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %100 = load i64, ptr %99, align 8
   %101 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 2, i64 noundef %100) #15
   %.not365 = icmp eq i32 %101, 0
@@ -543,13 +543,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 113:                                              ; preds = %111, %108
   %114 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.21) #15
-  %115 = getelementptr inbounds i8, ptr %114, i64 36
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 36
   %116 = load i32, ptr %115, align 4
   %.not367 = icmp eq i32 %116, 0
   br i1 %.not367, label %125, label %117
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %114, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %119 = load i64, ptr %118, align 8
   %120 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 3, i64 noundef %119) #15
   %.not368 = icmp eq i32 %120, 0
@@ -587,13 +587,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 138:                                              ; preds = %135, %132
   %139 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.26) #15
-  %140 = getelementptr inbounds i8, ptr %139, i64 36
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 36
   %141 = load i32, ptr %140, align 4
   %.not370 = icmp eq i32 %141, 0
   br i1 %.not370, label %150, label %142
 
 142:                                              ; preds = %138
-  %143 = getelementptr inbounds i8, ptr %139, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %144 = load i64, ptr %143, align 8
   %145 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 18, i64 noundef %144) #15
   %.not371 = icmp eq i32 %145, 0
@@ -609,13 +609,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %151 = call i64 @cl_engine_get_num(ptr noundef %2, i32 noundef 18, ptr noundef null) #15
   %152 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.28, i64 noundef %151) #15
   %153 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.29) #15
-  %154 = getelementptr inbounds i8, ptr %153, i64 36
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 36
   %155 = load i32, ptr %154, align 4
   %.not372 = icmp eq i32 %155, 0
   br i1 %.not372, label %164, label %156
 
 156:                                              ; preds = %150
-  %157 = getelementptr inbounds i8, ptr %153, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %158 = load i64, ptr %157, align 8
   %159 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 19, i64 noundef %158) #15
   %.not373 = icmp eq i32 %159, 0
@@ -631,13 +631,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %165 = call i64 @cl_engine_get_num(ptr noundef %2, i32 noundef 19, ptr noundef null) #15
   %166 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.31, i64 noundef %165) #15
   %167 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.32) #15
-  %168 = getelementptr inbounds i8, ptr %167, i64 36
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 36
   %169 = load i32, ptr %168, align 4
   %.not374 = icmp eq i32 %169, 0
   br i1 %.not374, label %178, label %170
 
 170:                                              ; preds = %164
-  %171 = getelementptr inbounds i8, ptr %167, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %172 = load i64, ptr %171, align 8
   %173 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 20, i64 noundef %172) #15
   %.not375 = icmp eq i32 %173, 0
@@ -653,13 +653,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %179 = call i64 @cl_engine_get_num(ptr noundef %2, i32 noundef 20, ptr noundef null) #15
   %180 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.34, i64 noundef %179) #15
   %181 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.35) #15
-  %182 = getelementptr inbounds i8, ptr %181, i64 36
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 36
   %183 = load i32, ptr %182, align 4
   %.not376 = icmp eq i32 %183, 0
   br i1 %.not376, label %192, label %184
 
 184:                                              ; preds = %178
-  %185 = getelementptr inbounds i8, ptr %181, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %181, i64 24
   %186 = load i64, ptr %185, align 8
   %187 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 21, i64 noundef %186) #15
   %.not377 = icmp eq i32 %187, 0
@@ -675,13 +675,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %193 = call i64 @cl_engine_get_num(ptr noundef %2, i32 noundef 21, ptr noundef null) #15
   %194 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.37, i64 noundef %193) #15
   %195 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.38) #15
-  %196 = getelementptr inbounds i8, ptr %195, i64 36
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 36
   %197 = load i32, ptr %196, align 4
   %.not378 = icmp eq i32 %197, 0
   br i1 %.not378, label %206, label %198
 
 198:                                              ; preds = %192
-  %199 = getelementptr inbounds i8, ptr %195, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 24
   %200 = load i64, ptr %199, align 8
   %201 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 22, i64 noundef %200) #15
   %.not379 = icmp eq i32 %201, 0
@@ -697,13 +697,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %207 = call i64 @cl_engine_get_num(ptr noundef %2, i32 noundef 22, ptr noundef null) #15
   %208 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.40, i64 noundef %207) #15
   %209 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.41) #15
-  %210 = getelementptr inbounds i8, ptr %209, i64 36
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 36
   %211 = load i32, ptr %210, align 4
   %.not380 = icmp eq i32 %211, 0
   br i1 %.not380, label %220, label %212
 
 212:                                              ; preds = %206
-  %213 = getelementptr inbounds i8, ptr %209, i64 24
+  %213 = getelementptr inbounds nuw i8, ptr %209, i64 24
   %214 = load i64, ptr %213, align 8
   %215 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 28, i64 noundef %214) #15
   %.not381 = icmp eq i32 %215, 0
@@ -719,13 +719,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %221 = call i64 @cl_engine_get_num(ptr noundef %2, i32 noundef 28, ptr noundef null) #15
   %222 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.43, i64 noundef %221) #15
   %223 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.44) #15
-  %224 = getelementptr inbounds i8, ptr %223, i64 36
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 36
   %225 = load i32, ptr %224, align 4
   %.not382 = icmp eq i32 %225, 0
   br i1 %.not382, label %234, label %226
 
 226:                                              ; preds = %220
-  %227 = getelementptr inbounds i8, ptr %223, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %223, i64 24
   %228 = load i64, ptr %227, align 8
   %229 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 29, i64 noundef %228) #15
   %.not383 = icmp eq i32 %229, 0
@@ -741,13 +741,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %235 = call i64 @cl_engine_get_num(ptr noundef %2, i32 noundef 29, ptr noundef null) #15
   %236 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.46, i64 noundef %235) #15
   %237 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.47) #15
-  %238 = getelementptr inbounds i8, ptr %237, i64 36
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 36
   %239 = load i32, ptr %238, align 4
   %.not384 = icmp eq i32 %239, 0
   br i1 %.not384, label %248, label %240
 
 240:                                              ; preds = %234
-  %241 = getelementptr inbounds i8, ptr %237, i64 24
+  %241 = getelementptr inbounds nuw i8, ptr %237, i64 24
   %242 = load i64, ptr %241, align 8
   %243 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 30, i64 noundef %242) #15
   %.not385 = icmp eq i32 %243, 0
@@ -767,13 +767,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %253 = call i64 @cl_engine_get_num(ptr noundef %2, i32 noundef 33, ptr noundef null) #15
   %254 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.51, i64 noundef %253) #15
   %255 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.52) #15
-  %256 = getelementptr inbounds i8, ptr %255, i64 36
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 36
   %257 = load i32, ptr %256, align 4
   %.not386 = icmp eq i32 %257, 0
   br i1 %.not386, label %266, label %258
 
 258:                                              ; preds = %248
-  %259 = getelementptr inbounds i8, ptr %255, i64 24
+  %259 = getelementptr inbounds nuw i8, ptr %255, i64 24
   %260 = load i64, ptr %259, align 8
   %261 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 34, i64 noundef %260) #15
   %.not387 = icmp eq i32 %261, 0
@@ -789,14 +789,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %267 = call i64 @cl_engine_get_num(ptr noundef %2, i32 noundef 34, ptr noundef null) #15
   %268 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.54, i64 noundef %267) #15
   %269 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.55) #15
-  %270 = getelementptr inbounds i8, ptr %269, i64 32
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   %271 = load i32, ptr %270, align 8
   %.not388 = icmp eq i32 %271, 0
   br i1 %.not388, label %277, label %272
 
 272:                                              ; preds = %266
   %273 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.56) #15
-  %274 = getelementptr inbounds i8, ptr %8, i64 4
+  %274 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %275 = load i32, ptr %274, align 4
   %276 = or i32 %275, 1
   store i32 %276, ptr %274, align 4
@@ -808,14 +808,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 279:                                              ; preds = %277, %272
   %280 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.58) #15
-  %281 = getelementptr inbounds i8, ptr %280, i64 32
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 32
   %282 = load i32, ptr %281, align 8
   %.not389 = icmp eq i32 %282, 0
   br i1 %.not389, label %288, label %283
 
 283:                                              ; preds = %279
   %284 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.59) #15
-  %285 = getelementptr inbounds i8, ptr %8, i64 4
+  %285 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %286 = load i32, ptr %285, align 4
   %287 = or i32 %286, 2048
   store i32 %287, ptr %285, align 4
@@ -827,14 +827,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 290:                                              ; preds = %288, %283
   %291 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.61) #15
-  %292 = getelementptr inbounds i8, ptr %291, i64 32
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 32
   %293 = load i32, ptr %292, align 8
   %.not390 = icmp eq i32 %293, 0
   br i1 %.not390, label %299, label %294
 
 294:                                              ; preds = %290
   %295 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.62) #15
-  %296 = getelementptr inbounds i8, ptr %8, i64 4
+  %296 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %297 = load i32, ptr %296, align 4
   %298 = or i32 %297, 4096
   store i32 %298, ptr %296, align 4
@@ -846,17 +846,17 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 301:                                              ; preds = %299, %294
   %302 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.64) #15
-  %303 = getelementptr inbounds i8, ptr %302, i64 32
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 32
   %304 = load i32, ptr %303, align 8
   %.not391 = icmp eq i32 %304, 0
   br i1 %.not391, label %312, label %.sink.split799
 
 .sink.split799:                                   ; preds = %301
-  %305 = getelementptr inbounds i8, ptr %8, i64 4
+  %305 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %306 = load i32, ptr %305, align 4
   %307 = and i32 %306, 1
   %.not392 = icmp eq i32 %307, 0
-  %308 = getelementptr inbounds i8, ptr %8, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.str.66..str.65 = select i1 %.not392, ptr @.str.66, ptr @.str.65
   %. = select i1 %.not392, i32 128, i32 192
   %309 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull %.str.66..str.65) #15
@@ -867,17 +867,17 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 312:                                              ; preds = %.sink.split799, %301
   %313 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.67) #15
-  %314 = getelementptr inbounds i8, ptr %313, i64 32
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 32
   %315 = load i32, ptr %314, align 8
   %.not393 = icmp eq i32 %315, 0
   br i1 %.not393, label %323, label %.sink.split802
 
 .sink.split802:                                   ; preds = %312
-  %316 = getelementptr inbounds i8, ptr %8, i64 4
+  %316 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %317 = load i32, ptr %316, align 4
   %318 = and i32 %317, 1
   %.not394 = icmp eq i32 %318, 0
-  %319 = getelementptr inbounds i8, ptr %8, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.str.69..str.68 = select i1 %.not394, ptr @.str.69, ptr @.str.68
   %.807 = select i1 %.not394, i32 128, i32 192
   %320 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull %.str.69..str.68) #15
@@ -888,13 +888,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 323:                                              ; preds = %.sink.split802, %312
   %324 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.70) #15
-  %325 = getelementptr inbounds i8, ptr %324, i64 32
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 32
   %326 = load i32, ptr %325, align 8
   %.not395 = icmp eq i32 %326, 0
   br i1 %.not395, label %338, label %327
 
 327:                                              ; preds = %323
-  %328 = getelementptr inbounds i8, ptr %8, i64 4
+  %328 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %329 = load i32, ptr %328, align 4
   %330 = and i32 %329, 1
   %.not396 = icmp eq i32 %330, 0
@@ -902,7 +902,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 331:                                              ; preds = %327
   %332 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.71) #15
-  %333 = getelementptr inbounds i8, ptr %8, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %334 = load i32, ptr %333, align 4
   %335 = or i32 %334, 64
   store i32 %335, ptr %333, align 4
@@ -914,14 +914,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 338:                                              ; preds = %331, %336, %323
   %339 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.73) #15
-  %340 = getelementptr inbounds i8, ptr %339, i64 32
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 32
   %341 = load i32, ptr %340, align 8
   %.not397 = icmp eq i32 %341, 0
   br i1 %.not397, label %347, label %342
 
 342:                                              ; preds = %338
   %343 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.69) #15
-  %344 = getelementptr inbounds i8, ptr %8, i64 8
+  %344 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %345 = load i32, ptr %344, align 4
   %346 = or i32 %345, 128
   store i32 %346, ptr %344, align 4
@@ -929,14 +929,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 347:                                              ; preds = %342, %338
   %348 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.74) #15
-  %349 = getelementptr inbounds i8, ptr %348, i64 32
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 32
   %350 = load i32, ptr %349, align 8
   %.not398 = icmp eq i32 %350, 0
   br i1 %.not398, label %356, label %351
 
 351:                                              ; preds = %347
   %352 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.75) #15
-  %353 = getelementptr inbounds i8, ptr %8, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %354 = load i32, ptr %353, align 4
   %355 = or i32 %354, 4
   store i32 %355, ptr %353, align 4
@@ -944,14 +944,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 356:                                              ; preds = %347
   %357 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.76) #15
-  %358 = getelementptr inbounds i8, ptr %357, i64 32
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 32
   %359 = load i32, ptr %358, align 8
   %.not399 = icmp eq i32 %359, 0
   br i1 %.not399, label %365, label %360
 
 360:                                              ; preds = %356
   %361 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.77) #15
-  %362 = getelementptr inbounds i8, ptr %8, i64 8
+  %362 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %363 = load i32, ptr %362, align 4
   %364 = or i32 %363, 4
   store i32 %364, ptr %362, align 4
@@ -963,7 +963,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 367:                                              ; preds = %360, %365, %351
   %368 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.79) #15
-  %369 = getelementptr inbounds i8, ptr %368, i64 32
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 32
   %370 = load i32, ptr %369, align 8
   %.not400 = icmp eq i32 %370, 0
   br i1 %.not400, label %371, label %373
@@ -974,7 +974,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 373:                                              ; preds = %367
   %374 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.81) #15
-  %375 = getelementptr inbounds i8, ptr %374, i64 32
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 32
   %376 = load i32, ptr %375, align 8
   %.not401 = icmp eq i32 %376, 0
   br i1 %.not401, label %377, label %379
@@ -992,14 +992,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 383:                                              ; preds = %377, %379, %371
   %384 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.84) #15
-  %385 = getelementptr inbounds i8, ptr %384, i64 32
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 32
   %386 = load i32, ptr %385, align 8
   %.not402 = icmp eq i32 %386, 0
   br i1 %.not402, label %392, label %387
 
 387:                                              ; preds = %383
   %388 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.85) #15
-  %389 = getelementptr inbounds i8, ptr %8, i64 4
+  %389 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %390 = load i32, ptr %389, align 4
   %391 = or i32 %390, 512
   store i32 %391, ptr %389, align 4
@@ -1011,14 +1011,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 394:                                              ; preds = %392, %387
   %395 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.87) #15
-  %396 = getelementptr inbounds i8, ptr %395, i64 32
+  %396 = getelementptr inbounds nuw i8, ptr %395, i64 32
   %397 = load i32, ptr %396, align 8
   %.not403 = icmp eq i32 %397, 0
   br i1 %.not403, label %403, label %398
 
 398:                                              ; preds = %394
   %399 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.88) #15
-  %400 = getelementptr inbounds i8, ptr %8, i64 4
+  %400 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %401 = load i32, ptr %400, align 4
   %402 = or i32 %401, 2
   store i32 %402, ptr %400, align 4
@@ -1030,35 +1030,35 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 405:                                              ; preds = %403, %398
   %406 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.84) #15
-  %407 = getelementptr inbounds i8, ptr %406, i64 32
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 32
   %408 = load i32, ptr %407, align 8
   %.not404 = icmp eq i32 %408, 0
   br i1 %.not404, label %409, label %413
 
 409:                                              ; preds = %405
   %410 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.87) #15
-  %411 = getelementptr inbounds i8, ptr %410, i64 32
+  %411 = getelementptr inbounds nuw i8, ptr %410, i64 32
   %412 = load i32, ptr %411, align 8
   %.not405 = icmp eq i32 %412, 0
   br i1 %.not405, label %426, label %413
 
 413:                                              ; preds = %409, %405
   %414 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.90) #15
-  %415 = getelementptr inbounds i8, ptr %414, i64 32
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 32
   %416 = load i32, ptr %415, align 8
   %.not406 = icmp eq i32 %416, 0
   br i1 %.not406, label %417, label %421
 
 417:                                              ; preds = %413
   %418 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.91) #15
-  %419 = getelementptr inbounds i8, ptr %418, i64 32
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 32
   %420 = load i32, ptr %419, align 8
   %.not407 = icmp eq i32 %420, 0
   br i1 %.not407, label %426, label %421
 
 421:                                              ; preds = %417, %413
   %422 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.92) #15
-  %423 = getelementptr inbounds i8, ptr %8, i64 8
+  %423 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %424 = load i32, ptr %423, align 4
   %425 = or i32 %424, 2
   store i32 %425, ptr %423, align 4
@@ -1066,13 +1066,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 426:                                              ; preds = %417, %421, %409
   %427 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.93) #15
-  %428 = getelementptr inbounds i8, ptr %427, i64 32
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 32
   %429 = load i32, ptr %428, align 8
   %.not408 = icmp eq i32 %429, 0
   br i1 %.not408, label %435, label %430
 
 430:                                              ; preds = %426
-  %431 = getelementptr inbounds i8, ptr %8, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %432 = load i32, ptr %431, align 4
   %433 = or i32 %432, 8192
   store i32 %433, ptr %431, align 4
@@ -1081,26 +1081,26 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 435:                                              ; preds = %430, %426
   %436 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.95) #15
-  %437 = getelementptr inbounds i8, ptr %436, i64 32
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 32
   %438 = load i32, ptr %437, align 8
   %.not409 = icmp eq i32 %438, 0
   br i1 %.not409, label %452, label %439
 
 439:                                              ; preds = %435
   %440 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.96) #15
-  %441 = getelementptr inbounds i8, ptr %8, i64 4
+  %441 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %442 = load i32, ptr %441, align 4
   %443 = or i32 %442, 64
   store i32 %443, ptr %441, align 4
   %444 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.97) #15
-  %445 = getelementptr inbounds i8, ptr %444, i64 32
+  %445 = getelementptr inbounds nuw i8, ptr %444, i64 32
   %446 = load i32, ptr %445, align 8
   %.not410 = icmp eq i32 %446, 0
   br i1 %.not410, label %454, label %447
 
 447:                                              ; preds = %439
   %448 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.98) #15
-  %449 = getelementptr inbounds i8, ptr %8, i64 12
+  %449 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %450 = load i32, ptr %449, align 4
   %451 = or i32 %450, 1
   store i32 %451, ptr %449, align 4
@@ -1112,33 +1112,33 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 454:                                              ; preds = %439, %447, %452
   %455 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.100) #15
-  %456 = getelementptr inbounds i8, ptr %455, i64 32
+  %456 = getelementptr inbounds nuw i8, ptr %455, i64 32
   %457 = load i32, ptr %456, align 8
   %.not411 = icmp eq i32 %457, 0
   br i1 %.not411, label %475, label %458
 
 458:                                              ; preds = %454
   %459 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.101) #15
-  %460 = getelementptr inbounds i8, ptr %8, i64 4
+  %460 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %461 = load i32, ptr %460, align 4
   %462 = or i32 %461, 128
   store i32 %462, ptr %460, align 4
   %463 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.102) #15
-  %464 = getelementptr inbounds i8, ptr %463, i64 32
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 32
   %465 = load i32, ptr %464, align 8
   %.not412 = icmp eq i32 %465, 0
   br i1 %.not412, label %466, label %470
 
 466:                                              ; preds = %458
   %467 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.103) #15
-  %468 = getelementptr inbounds i8, ptr %467, i64 32
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 32
   %469 = load i32, ptr %468, align 8
   %.not413 = icmp eq i32 %469, 0
   br i1 %.not413, label %477, label %470
 
 470:                                              ; preds = %466, %458
   %471 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.104) #15
-  %472 = getelementptr inbounds i8, ptr %8, i64 8
+  %472 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %473 = load i32, ptr %472, align 4
   %474 = or i32 %473, 32
   store i32 %474, ptr %472, align 4
@@ -1150,14 +1150,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 477:                                              ; preds = %466, %470, %475
   %478 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.106) #15
-  %479 = getelementptr inbounds i8, ptr %478, i64 32
+  %479 = getelementptr inbounds nuw i8, ptr %478, i64 32
   %480 = load i32, ptr %479, align 8
   %.not414 = icmp eq i32 %480, 0
   br i1 %.not414, label %486, label %481
 
 481:                                              ; preds = %477
   %482 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.107) #15
-  %483 = getelementptr inbounds i8, ptr %8, i64 4
+  %483 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %484 = load i32, ptr %483, align 4
   %485 = or i32 %484, 4
   store i32 %485, ptr %483, align 4
@@ -1169,14 +1169,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 488:                                              ; preds = %486, %481
   %489 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.109) #15
-  %490 = getelementptr inbounds i8, ptr %489, i64 32
+  %490 = getelementptr inbounds nuw i8, ptr %489, i64 32
   %491 = load i32, ptr %490, align 8
   %.not415 = icmp eq i32 %491, 0
   br i1 %.not415, label %497, label %492
 
 492:                                              ; preds = %488
   %493 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.110) #15
-  %494 = getelementptr inbounds i8, ptr %8, i64 4
+  %494 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %495 = load i32, ptr %494, align 4
   %496 = or i32 %495, 8
   store i32 %496, ptr %494, align 4
@@ -1188,14 +1188,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 499:                                              ; preds = %497, %492
   %500 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.112) #15
-  %501 = getelementptr inbounds i8, ptr %500, i64 32
+  %501 = getelementptr inbounds nuw i8, ptr %500, i64 32
   %502 = load i32, ptr %501, align 8
   %.not416 = icmp eq i32 %502, 0
   br i1 %.not416, label %508, label %503
 
 503:                                              ; preds = %499
   %504 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.113) #15
-  %505 = getelementptr inbounds i8, ptr %8, i64 4
+  %505 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %506 = load i32, ptr %505, align 4
   %507 = or i32 %506, 256
   store i32 %507, ptr %505, align 4
@@ -1207,14 +1207,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 510:                                              ; preds = %508, %503
   %511 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.115) #15
-  %512 = getelementptr inbounds i8, ptr %511, i64 32
+  %512 = getelementptr inbounds nuw i8, ptr %511, i64 32
   %513 = load i32, ptr %512, align 8
   %.not417 = icmp eq i32 %513, 0
   br i1 %.not417, label %519, label %514
 
 514:                                              ; preds = %510
   %515 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.116) #15
-  %516 = getelementptr inbounds i8, ptr %8, i64 4
+  %516 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %517 = load i32, ptr %516, align 4
   %518 = or i32 %517, 32
   store i32 %518, ptr %516, align 4
@@ -1226,14 +1226,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 521:                                              ; preds = %519, %514
   %522 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.118) #15
-  %523 = getelementptr inbounds i8, ptr %522, i64 32
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 32
   %524 = load i32, ptr %523, align 8
   %.not418 = icmp eq i32 %524, 0
   br i1 %.not418, label %530, label %525
 
 525:                                              ; preds = %521
   %526 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.119) #15
-  %527 = getelementptr inbounds i8, ptr %8, i64 4
+  %527 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %528 = load i32, ptr %527, align 4
   %529 = or i32 %528, 16
   store i32 %529, ptr %527, align 4
@@ -1245,14 +1245,14 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 532:                                              ; preds = %530, %525
   %533 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.121) #15
-  %534 = getelementptr inbounds i8, ptr %533, i64 32
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 32
   %535 = load i32, ptr %534, align 8
   %.not419 = icmp eq i32 %535, 0
   br i1 %.not419, label %541, label %536
 
 536:                                              ; preds = %532
   %537 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.122) #15
-  %538 = getelementptr inbounds i8, ptr %8, i64 4
+  %538 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %539 = load i32, ptr %538, align 4
   %540 = or i32 %539, 1024
   store i32 %540, ptr %538, align 4
@@ -1264,27 +1264,27 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 543:                                              ; preds = %541, %536
   %544 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.124) #15
-  %545 = getelementptr inbounds i8, ptr %544, i64 32
+  %545 = getelementptr inbounds nuw i8, ptr %544, i64 32
   %546 = load i32, ptr %545, align 8
   %.not420 = icmp eq i32 %546, 0
   br i1 %.not420, label %573, label %547
 
 547:                                              ; preds = %543
   %548 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.125) #15
-  %549 = getelementptr inbounds i8, ptr %548, i64 32
+  %549 = getelementptr inbounds nuw i8, ptr %548, i64 32
   %550 = load i32, ptr %549, align 8
   %.not421 = icmp eq i32 %550, 0
   br i1 %.not421, label %551, label %555
 
 551:                                              ; preds = %547
   %552 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.126) #15
-  %553 = getelementptr inbounds i8, ptr %552, i64 32
+  %553 = getelementptr inbounds nuw i8, ptr %552, i64 32
   %554 = load i32, ptr %553, align 8
   %.not422 = icmp eq i32 %554, 0
   br i1 %.not422, label %560, label %555
 
 555:                                              ; preds = %551, %547
-  %556 = getelementptr inbounds i8, ptr %8, i64 8
+  %556 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %557 = load i32, ptr %556, align 4
   %558 = or i32 %557, 16
   store i32 %558, ptr %556, align 4
@@ -1293,20 +1293,20 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 560:                                              ; preds = %555, %551
   %561 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.128) #15
-  %562 = getelementptr inbounds i8, ptr %561, i64 32
+  %562 = getelementptr inbounds nuw i8, ptr %561, i64 32
   %563 = load i32, ptr %562, align 8
   %.not423 = icmp eq i32 %563, 0
   br i1 %.not423, label %564, label %568
 
 564:                                              ; preds = %560
   %565 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.129) #15
-  %566 = getelementptr inbounds i8, ptr %565, i64 32
+  %566 = getelementptr inbounds nuw i8, ptr %565, i64 32
   %567 = load i32, ptr %566, align 8
   %.not424 = icmp eq i32 %567, 0
   br i1 %.not424, label %573, label %568
 
 568:                                              ; preds = %564, %560
-  %569 = getelementptr inbounds i8, ptr %8, i64 8
+  %569 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %570 = load i32, ptr %569, align 4
   %571 = or i32 %570, 8
   store i32 %571, ptr %569, align 4
@@ -1315,20 +1315,20 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 573:                                              ; preds = %564, %568, %543
   %574 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.131) #15
-  %575 = getelementptr inbounds i8, ptr %574, i64 32
+  %575 = getelementptr inbounds nuw i8, ptr %574, i64 32
   %576 = load i32, ptr %575, align 8
   %.not425 = icmp eq i32 %576, 0
   br i1 %.not425, label %577, label %581
 
 577:                                              ; preds = %573
   %578 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.132) #15
-  %579 = getelementptr inbounds i8, ptr %578, i64 32
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 32
   %580 = load i32, ptr %579, align 8
   %.not426 = icmp eq i32 %580, 0
   br i1 %.not426, label %586, label %581
 
 581:                                              ; preds = %577, %573
-  %582 = getelementptr inbounds i8, ptr %8, i64 8
+  %582 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %583 = load i32, ptr %582, align 4
   %584 = or i32 %583, 256
   store i32 %584, ptr %582, align 4
@@ -1337,7 +1337,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 586:                                              ; preds = %581, %577
   %587 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.134) #15
-  %588 = getelementptr inbounds i8, ptr %587, i64 32
+  %588 = getelementptr inbounds nuw i8, ptr %587, i64 32
   %589 = load i32, ptr %588, align 8
   %.not427 = icmp eq i32 %589, 0
   br i1 %.not427, label %594, label %590
@@ -1351,24 +1351,24 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 594:                                              ; preds = %590, %586
   %595 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.136) #15
-  %596 = getelementptr inbounds i8, ptr %595, i64 32
+  %596 = getelementptr inbounds nuw i8, ptr %595, i64 32
   %597 = load i32, ptr %596, align 8
   %.not428 = icmp eq i32 %597, 0
   br i1 %.not428, label %652, label %598
 
 598:                                              ; preds = %594
-  %599 = getelementptr inbounds i8, ptr %8, i64 8
+  %599 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %600 = load i32, ptr %599, align 4
   %601 = or i32 %600, 512
   store i32 %601, ptr %599, align 4
   %602 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.137) #15
-  %603 = getelementptr inbounds i8, ptr %602, i64 32
+  %603 = getelementptr inbounds nuw i8, ptr %602, i64 32
   %604 = load i32, ptr %603, align 8
   %.not429 = icmp eq i32 %604, 0
   br i1 %.not429, label %613, label %605
 
 605:                                              ; preds = %598
-  %606 = getelementptr inbounds i8, ptr %602, i64 24
+  %606 = getelementptr inbounds nuw i8, ptr %602, i64 24
   %607 = load i64, ptr %606, align 8
   %608 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 4, i64 noundef %607) #15
   %.not430 = icmp eq i32 %608, 0
@@ -1385,7 +1385,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %615 = trunc i64 %614 to i32
   %616 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.139, i32 noundef %615) #15
   %617 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.140) #15
-  %618 = getelementptr inbounds i8, ptr %617, i64 32
+  %618 = getelementptr inbounds nuw i8, ptr %617, i64 32
   %619 = load i32, ptr %618, align 8
   %.not431 = icmp eq i32 %619, 0
   br i1 %.not431, label %623, label %620
@@ -1398,13 +1398,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 623:                                              ; preds = %620, %613
   %624 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.141) #15
-  %625 = getelementptr inbounds i8, ptr %624, i64 32
+  %625 = getelementptr inbounds nuw i8, ptr %624, i64 32
   %626 = load i32, ptr %625, align 8
   %.not432 = icmp eq i32 %626, 0
   br i1 %.not432, label %635, label %627
 
 627:                                              ; preds = %623
-  %628 = getelementptr inbounds i8, ptr %624, i64 24
+  %628 = getelementptr inbounds nuw i8, ptr %624, i64 24
   %629 = load i64, ptr %628, align 8
   %630 = call i32 @cl_engine_set_num(ptr noundef %2, i32 noundef 5, i64 noundef %629) #15
   %.not433 = icmp eq i32 %630, 0
@@ -1421,7 +1421,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %637 = trunc i64 %636 to i32
   %638 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.143, i32 noundef %637) #15
   %639 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.144) #15
-  %640 = getelementptr inbounds i8, ptr %639, i64 32
+  %640 = getelementptr inbounds nuw i8, ptr %639, i64 32
   %641 = load i32, ptr %640, align 8
   %.not434 = icmp eq i32 %641, 0
   br i1 %.not434, label %645, label %642
@@ -1434,7 +1434,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 645:                                              ; preds = %642, %635
   %646 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.145) #15
-  %647 = getelementptr inbounds i8, ptr %646, i64 32
+  %647 = getelementptr inbounds nuw i8, ptr %646, i64 32
   %648 = load i32, ptr %647, align 8
   %.not435 = icmp eq i32 %648, 0
   br i1 %.not435, label %652, label %649
@@ -1447,7 +1447,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 652:                                              ; preds = %645, %649, %594
   %653 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.146) #15
-  %654 = getelementptr inbounds i8, ptr %653, i64 32
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 32
   %655 = load i32, ptr %654, align 8
   %.not436 = icmp eq i32 %655, 0
   br i1 %.not436, label %659, label %656
@@ -1460,7 +1460,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 659:                                              ; preds = %656, %652
   %660 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.147) #15
-  %661 = getelementptr inbounds i8, ptr %660, i64 24
+  %661 = getelementptr inbounds nuw i8, ptr %660, i64 24
   %662 = load i64, ptr %661, align 8
   %663 = trunc i64 %662 to i32
   %.not437 = icmp eq i32 %663, 0
@@ -1478,21 +1478,21 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %669 = call i32 @getpid() #15
   %670 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.150, i32 noundef %669) #15
   %671 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.151) #15
-  %672 = getelementptr inbounds i8, ptr %671, i64 24
+  %672 = getelementptr inbounds nuw i8, ptr %671, i64 24
   %673 = load i64, ptr %672, align 8
   %674 = trunc i64 %673 to i32
   %675 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.152) #15
-  %676 = getelementptr inbounds i8, ptr %675, i64 24
+  %676 = getelementptr inbounds nuw i8, ptr %675, i64 24
   %677 = load i64, ptr %676, align 8
   %678 = trunc i64 %677 to i32
   %679 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.153) #15
-  %680 = getelementptr inbounds i8, ptr %679, i64 24
+  %680 = getelementptr inbounds nuw i8, ptr %679, i64 24
   %681 = load i64, ptr %680, align 8
   %682 = trunc i64 %681 to i32
-  %683 = getelementptr inbounds i8, ptr %17, i64 132
+  %683 = getelementptr inbounds nuw i8, ptr %17, i64 132
   store i32 %682, ptr %683, align 4
   %684 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.154) #15
-  %685 = getelementptr inbounds i8, ptr %684, i64 24
+  %685 = getelementptr inbounds nuw i8, ptr %684, i64 24
   %686 = load i64, ptr %685, align 8
   %687 = call i32 @getrlimit(i32 noundef 7, ptr noundef nonnull %12) #15
   %688 = icmp eq i32 %687, 0
@@ -1500,10 +1500,10 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 689:                                              ; preds = %668
   %690 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.152) #15
-  %691 = getelementptr inbounds i8, ptr %690, i64 36
+  %691 = getelementptr inbounds nuw i8, ptr %690, i64 36
   %692 = load i32, ptr %691, align 4
   %693 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.17) #15
-  %694 = getelementptr inbounds i8, ptr %693, i64 24
+  %694 = getelementptr inbounds nuw i8, ptr %693, i64 24
   %695 = load i64, ptr %694, align 8
   %696 = trunc i64 %695 to i32
   %697 = load i64, ptr %12, align 8
@@ -1561,7 +1561,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 723:                                              ; preds = %715, %714, %721, %717, %668
   %.0287 = phi i32 [ %.0297, %715 ], [ %.0297, %714 ], [ %spec.select, %721 ], [ %.1, %717 ], [ %678, %668 ]
   %724 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.159, i32 noundef %.0287) #15
-  %725 = getelementptr inbounds i8, ptr %17, i64 128
+  %725 = getelementptr inbounds nuw i8, ptr %17, i64 128
   store i32 %.0287, ptr %725, align 8
   %726 = call i32 @sigfillset(ptr noundef nonnull %11) #15
   %727 = call i32 @sigdelset(ptr noundef nonnull %11, i32 noundef 2) #15
@@ -1578,7 +1578,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %738 = call i32 @sigdelset(ptr noundef nonnull %11, i32 noundef 18) #15
   %739 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %11, ptr noundef null) #15
   store ptr @sighandler_th, ptr %10, align 8
-  %740 = getelementptr inbounds i8, ptr %10, i64 8
+  %740 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %741 = call i32 @sigemptyset(ptr noundef nonnull %740) #15
   %742 = call i32 @sigaddset(ptr noundef nonnull %740, i32 noundef 2) #15
   %743 = call i32 @sigaddset(ptr noundef nonnull %740, i32 noundef 15) #15
@@ -1591,7 +1591,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %750 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %10, ptr noundef null) #15
   %751 = call i32 @sigaction(i32 noundef 12, ptr noundef nonnull %10, ptr noundef null) #15
   %752 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.160) #15
-  %753 = getelementptr inbounds i8, ptr %752, i64 24
+  %753 = getelementptr inbounds nuw i8, ptr %752, i64 24
   %754 = load i64, ptr %753, align 8
   %755 = trunc i64 %754 to i32
   %756 = zext i32 %1 to i64
@@ -1600,7 +1600,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 .lr.ph:                                           ; preds = %723, %764
   %.0291625 = phi i64 [ %765, %764 ], [ 0, %723 ]
-  %757 = getelementptr inbounds i32, ptr %0, i64 %.0291625
+  %757 = getelementptr inbounds nuw i32, ptr %0, i64 %.0291625
   %758 = load i32, ptr %757, align 4
   %759 = call i32 @fds_add(ptr noundef nonnull %17, i32 noundef %758, i32 noundef 1, i32 noundef 0) #15
   %760 = icmp eq i32 %759, -1
@@ -1672,23 +1672,23 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 792:                                              ; preds = %788
   %793 = call i64 @time(ptr noundef nonnull %18) #15
-  %794 = getelementptr inbounds i8, ptr %17, i64 56
+  %794 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %795 = zext i32 %.0287 to i64
-  %796 = getelementptr inbounds i8, ptr %17, i64 80
+  %796 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %797 = select i1 %.not437, i32 -1, i32 %663
-  %798 = getelementptr inbounds i8, ptr %17, i64 48
-  %799 = getelementptr inbounds i8, ptr %20, i64 16
-  %800 = getelementptr inbounds i8, ptr %20, i64 20
-  %801 = getelementptr inbounds i8, ptr %20, i64 24
-  %802 = getelementptr inbounds i8, ptr %20, i64 32
-  %803 = getelementptr inbounds i8, ptr %20, i64 64
-  %804 = getelementptr inbounds i8, ptr %20, i64 40
-  %805 = getelementptr inbounds i8, ptr %20, i64 88
-  %806 = getelementptr inbounds i8, ptr %20, i64 72
-  %807 = getelementptr inbounds i8, ptr %20, i64 80
-  %808 = getelementptr inbounds i8, ptr %20, i64 8
-  %809 = getelementptr inbounds i8, ptr %20, i64 96
-  %810 = getelementptr inbounds i8, ptr %20, i64 56
+  %798 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %799 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %800 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  %801 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %802 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %803 = getelementptr inbounds nuw i8, ptr %20, i64 64
+  %804 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %805 = getelementptr inbounds nuw i8, ptr %20, i64 88
+  %806 = getelementptr inbounds nuw i8, ptr %20, i64 72
+  %807 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  %808 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %809 = getelementptr inbounds nuw i8, ptr %20, i64 96
+  %810 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %sext = shl i64 %686, 32
   %811 = ashr exact i64 %sext, 32
   %812 = and i64 %662, 4294967295
@@ -1753,13 +1753,13 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %.1300643 = phi i64 [ %.2301, %.critedge.thread ], [ %.0299, %.lr.ph650.preheader ]
   %840 = load ptr, ptr %798, align 8
   %841 = getelementptr inbounds %struct.fd_buf, ptr %840, i64 %.3294645
-  %842 = getelementptr inbounds i8, ptr %841, i64 32
+  %842 = getelementptr inbounds nuw i8, ptr %841, i64 32
   %843 = load i32, ptr %842, align 8
   %.not460 = icmp eq i32 %843, 0
   br i1 %.not460, label %.critedge.thread, label %844
 
 844:                                              ; preds = %.lr.ph650
-  %845 = getelementptr inbounds i8, ptr %841, i64 24
+  %845 = getelementptr inbounds nuw i8, ptr %841, i64 24
   %846 = load i32, ptr %845, align 8
   %847 = load i32, ptr %23, align 8
   %848 = icmp eq i32 %846, %847
@@ -1779,7 +1779,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   br i1 %855, label %856, label %868
 
 856:                                              ; preds = %854
-  %857 = getelementptr inbounds i8, ptr %841, i64 40
+  %857 = getelementptr inbounds nuw i8, ptr %841, i64 40
   %858 = load i32, ptr %857, align 8
   %859 = icmp eq i32 %858, 2
   br i1 %859, label %860, label %866
@@ -1787,7 +1787,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 860:                                              ; preds = %856
   %861 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.169) #15
   store i32 -1, ptr %845, align 8
-  %862 = getelementptr inbounds i8, ptr %841, i64 80
+  %862 = getelementptr inbounds nuw i8, ptr %841, i64 80
   %863 = load ptr, ptr %862, align 8
   call void @thrmgr_group_terminate(ptr noundef %863) #15
   %864 = load ptr, ptr %862, align 8
@@ -1818,7 +1818,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
 
 877:                                              ; preds = %873, %870, %868
   %.1487 = phi i32 [ %.0486, %868 ], [ 1, %873 ], [ %.0486, %870 ]
-  %878 = getelementptr inbounds i8, ptr %841, i64 40
+  %878 = getelementptr inbounds nuw i8, ptr %841, i64 40
   %879 = load i32, ptr %878, align 8
   %880 = icmp eq i32 %879, 3
   br i1 %880, label %881, label %883
@@ -1833,16 +1833,16 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   br i1 %.old4.not641, label %.preheader537.lr.ph, label %.critedge.thread524
 
 .preheader537.lr.ph:                              ; preds = %883
-  %884 = getelementptr inbounds i8, ptr %841, i64 16
-  %885 = getelementptr inbounds i8, ptr %841, i64 36
-  %886 = getelementptr inbounds i8, ptr %841, i64 80
-  %887 = getelementptr inbounds i8, ptr %841, i64 44
-  %888 = getelementptr inbounds i8, ptr %841, i64 56
-  %889 = getelementptr inbounds i8, ptr %841, i64 64
-  %890 = getelementptr inbounds i8, ptr %841, i64 28
-  %891 = getelementptr inbounds i8, ptr %841, i64 72
-  %892 = getelementptr inbounds i8, ptr %841, i64 48
-  %893 = getelementptr inbounds i8, ptr %841, i64 52
+  %884 = getelementptr inbounds nuw i8, ptr %841, i64 16
+  %885 = getelementptr inbounds nuw i8, ptr %841, i64 36
+  %886 = getelementptr inbounds nuw i8, ptr %841, i64 80
+  %887 = getelementptr inbounds nuw i8, ptr %841, i64 44
+  %888 = getelementptr inbounds nuw i8, ptr %841, i64 56
+  %889 = getelementptr inbounds nuw i8, ptr %841, i64 64
+  %890 = getelementptr inbounds nuw i8, ptr %841, i64 28
+  %891 = getelementptr inbounds nuw i8, ptr %841, i64 72
+  %892 = getelementptr inbounds nuw i8, ptr %841, i64 48
+  %893 = getelementptr inbounds nuw i8, ptr %841, i64 52
   br label %.preheader537
 
 .preheader537:                                    ; preds = %.preheader537.backedge, %.preheader537.lr.ph
@@ -1946,7 +1946,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr nocapture noundef readonly %0
   %934 = phi ptr [ %924, %929 ], [ %.pre.i, %925 ]
   %storemerge.i.i = phi i64 [ %933, %929 ], [ %928, %925 ]
   %935 = getelementptr inbounds i8, ptr %934, i64 %.090172.i629
-  %936 = getelementptr inbounds i8, ptr %935, i64 1
+  %936 = getelementptr inbounds nuw i8, ptr %935, i64 1
   br label %954
 
 937:                                              ; preds = %.lr.ph630
@@ -2006,7 +2006,7 @@ get_cmd.exit.i:                                   ; preds = %944, %940
   %962 = load ptr, ptr %841, align 8
   %963 = load i64, ptr %884, align 8
   %964 = getelementptr inbounds i8, ptr %962, i64 %963
-  %965 = getelementptr inbounds i8, ptr %.0.i141147.i, i64 7
+  %965 = getelementptr inbounds nuw i8, ptr %.0.i141147.i, i64 7
   %.not100.i = icmp ugt ptr %964, %965
   br i1 %.not100.i, label %971, label %966
 
@@ -2041,7 +2041,7 @@ get_cmd.exit.i:                                   ; preds = %944, %940
 
 981:                                              ; preds = %978
   %982 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.212) #15
-  %983 = getelementptr inbounds i8, ptr %982, i64 32
+  %983 = getelementptr inbounds nuw i8, ptr %982, i64 32
   %984 = load i32, ptr %983, align 8
   %.not101.i = icmp eq i32 %984, 0
   br i1 %.not101.i, label %988, label %985
@@ -2310,7 +2310,7 @@ parse_dispatch_cmd.exit.thread:                   ; preds = %1038
 
 1105:                                             ; preds = %1102
   %1106 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.212) #15
-  %1107 = getelementptr inbounds i8, ptr %1106, i64 32
+  %1107 = getelementptr inbounds nuw i8, ptr %1106, i64 32
   %1108 = load i32, ptr %1107, align 8
   %.not97.i = icmp eq i32 %1108, 0
   br i1 %.not97.i, label %1112, label %1109
@@ -2430,14 +2430,14 @@ handle_stream.exit:                               ; preds = %1078, %1113
   br i1 %.not467, label %.critedge.thread, label %.critedge.thread524
 
 .critedge.thread524:                              ; preds = %.thread518, %parse_dispatch_cmd.exit.thread, %handle_stream.exit, %1061, %883, %.critedge.thread528, %.critedge
-  %1158 = getelementptr inbounds i8, ptr %841, i64 48
+  %1158 = getelementptr inbounds nuw i8, ptr %841, i64 48
   %1159 = load i32, ptr %1158, align 8
   %.not468 = icmp eq i32 %1159, -1
   br i1 %.not468, label %1168, label %1160
 
 1160:                                             ; preds = %.critedge.thread524
   %1161 = call i32 @close(i32 noundef %1159) #15
-  %1162 = getelementptr inbounds i8, ptr %841, i64 64
+  %1162 = getelementptr inbounds nuw i8, ptr %841, i64 64
   %1163 = load ptr, ptr %1162, align 8
   %.not469 = icmp eq ptr %1163, null
   br i1 %.not469, label %1167, label %1164
@@ -2453,7 +2453,7 @@ handle_stream.exit:                               ; preds = %1078, %1113
   br label %1168
 
 1168:                                             ; preds = %1167, %.critedge.thread524
-  %1169 = getelementptr inbounds i8, ptr %841, i64 80
+  %1169 = getelementptr inbounds nuw i8, ptr %841, i64 80
   %1170 = load ptr, ptr %1169, align 8
   call void @thrmgr_group_terminate(ptr noundef %1170) #15
   %1171 = load ptr, ptr %1169, align 8
@@ -2519,13 +2519,13 @@ handle_stream.exit:                               ; preds = %1078, %1113
   %.4295654 = phi i64 [ %1231, %1230 ], [ 0, %1197 ]
   %1203 = load ptr, ptr %798, align 8
   %1204 = getelementptr inbounds %struct.fd_buf, ptr %1203, i64 %.4295654
-  %1205 = getelementptr inbounds i8, ptr %1204, i64 24
+  %1205 = getelementptr inbounds nuw i8, ptr %1204, i64 24
   %1206 = load i32, ptr %1205, align 8
   %1207 = icmp eq i32 %1206, -1
   br i1 %1207, label %1230, label %1208
 
 1208:                                             ; preds = %.lr.ph655
-  %1209 = getelementptr inbounds i8, ptr %1204, i64 80
+  %1209 = getelementptr inbounds nuw i8, ptr %1204, i64 80
   %1210 = load ptr, ptr %1209, align 8
   call void @thrmgr_group_terminate(ptr noundef %1210) #15
   %1211 = load ptr, ptr %798, align 8
@@ -2574,13 +2574,13 @@ handle_stream.exit:                               ; preds = %1078, %1113
 
 1239:                                             ; preds = %1236
   %1240 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.182) #15
-  %1241 = getelementptr inbounds i8, ptr %1240, i64 32
+  %1241 = getelementptr inbounds nuw i8, ptr %1240, i64 32
   %1242 = load i32, ptr %1241, align 8
   %.not449 = icmp eq i32 %1242, 0
   br i1 %.not449, label %1246, label %1243
 
 1243:                                             ; preds = %1239
-  %1244 = getelementptr inbounds i8, ptr %1240, i64 16
+  %1244 = getelementptr inbounds nuw i8, ptr %1240, i64 16
   %1245 = load ptr, ptr %1244, align 8
   store ptr %1245, ptr @logg_file, align 8
   br label %1246
@@ -2664,7 +2664,7 @@ handle_stream.exit:                               ; preds = %1078, %1113
   %1285 = load ptr, ptr @g_newengine, align 8
   call void @thrmgr_setactiveengine(ptr noundef %1285) #15
   %1286 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.185) #15
-  %1287 = getelementptr inbounds i8, ptr %1286, i64 32
+  %1287 = getelementptr inbounds nuw i8, ptr %1286, i64 32
   %1288 = load i32, ptr %1287, align 8
   %.not455 = icmp eq i32 %1288, 0
   br i1 %.not455, label %1292, label %1289
@@ -2756,7 +2756,7 @@ handle_stream.exit:                               ; preds = %1078, %1113
 
 .lr.ph658:                                        ; preds = %1333, %.lr.ph658
   %.5296656 = phi i64 [ %1340, %.lr.ph658 ], [ 0, %1333 ]
-  %1337 = getelementptr inbounds i32, ptr %0, i64 %.5296656
+  %1337 = getelementptr inbounds nuw i32, ptr %0, i64 %.5296656
   %1338 = load i32, ptr %1337, align 4
   %1339 = call i32 @shutdown(i32 noundef %1338, i32 noundef 2) #15
   %1340 = add nuw nsw i64 %.5296656, 1
@@ -2765,13 +2765,13 @@ handle_stream.exit:                               ; preds = %1078, %1113
 
 .loopexit:                                        ; preds = %.lr.ph658, %1333, %1330
   %1341 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.191) #15
-  %1342 = getelementptr inbounds i8, ptr %1341, i64 32
+  %1342 = getelementptr inbounds nuw i8, ptr %1341, i64 32
   %1343 = load i32, ptr %1342, align 8
   %.not458 = icmp eq i32 %1343, 0
   br i1 %.not458, label %1354, label %1344
 
 1344:                                             ; preds = %.loopexit
-  %1345 = getelementptr inbounds i8, ptr %1341, i64 16
+  %1345 = getelementptr inbounds nuw i8, ptr %1341, i64 16
   %1346 = load ptr, ptr %1345, align 8
   %1347 = call i32 @unlink(ptr noundef %1346) #15
   %1348 = icmp eq i32 %1347, -1
@@ -2872,7 +2872,7 @@ define internal void @scanner_thread(ptr noundef %0) #0 {
 20:                                               ; preds = %17, %14
   %.013 = phi i32 [ 1, %14 ], [ %19, %17 ]
   call void @thrmgr_setactiveengine(ptr noundef null) #15
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %24, label %23
@@ -2886,14 +2886,14 @@ define internal void @scanner_thread(ptr noundef %0) #0 {
   %26 = load i32, ptr %3, align 4
   %.not16 = icmp eq i32 %26, 0
   %.0 = select i1 %.not16, i32 %.013, i32 2
-  %27 = getelementptr inbounds i8, ptr %0, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 @thrmgr_group_finished(ptr noundef %28, i32 noundef %.0) #15
   %.not18 = icmp eq i32 %29, 0
   br i1 %.not18, label %38, label %30
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.196, i32 noundef %32) #15
   %34 = load i32, ptr %31, align 4
@@ -2903,7 +2903,7 @@ define internal void @scanner_thread(ptr noundef %0) #0 {
   br label %38
 
 38:                                               ; preds = %30, %24
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 @cl_engine_free(ptr noundef %40) #15
   call void @free(ptr noundef nonnull %0) #15
@@ -2916,27 +2916,27 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @acceptloop_th(ptr noundef %0) #0 {
   %2 = alloca [1025 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 132
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %0, align 8
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef %8) #15
   %10 = load ptr, ptr @event_wake_accept, align 8
   %11 = tail call i32 @fds_poll_recv(ptr noundef nonnull %0, i32 noundef -1, i32 noundef 0, ptr noundef %10) #15
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %.not85 = icmp eq i64 %13, 0
   br i1 %.not85, label %._crit_edge, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 144
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = zext i32 %5 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
-  %19 = getelementptr inbounds i8, ptr %0, i64 140
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 140
   br label %21
 
 ._crit_edge:                                      ; preds = %118, %1
@@ -2969,13 +2969,13 @@ define internal noalias noundef ptr @acceptloop_th(ptr noundef %0) #0 {
   %.083 = phi i64 [ %112, %111 ], [ 0, %31 ]
   %33 = load ptr, ptr %14, align 8
   %34 = getelementptr inbounds %struct.fd_buf, ptr %33, i64 %.083
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load i32, ptr %35, align 8
   %.not71 = icmp eq i32 %36, 0
   br i1 %.not71, label %111, label %37
 
 37:                                               ; preds = %.lr.ph84
-  %38 = getelementptr inbounds i8, ptr %34, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %39 = load i32, ptr %38, align 8
   %40 = load i32, ptr %15, align 8
   %41 = icmp eq i32 %39, %40
@@ -3128,7 +3128,7 @@ define internal noalias noundef ptr @acceptloop_th(ptr noundef %0) #0 {
   br i1 %.not89, label %.loopexit, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %.preheader
-  %127 = getelementptr inbounds i8, ptr %0, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %128
 
 128:                                              ; preds = %.lr.ph88, %144
@@ -3166,7 +3166,7 @@ define internal noalias noundef ptr @acceptloop_th(ptr noundef %0) #0 {
   %150 = call i32 @pthread_mutex_lock(ptr noundef nonnull @exit_mutex) #15
   store i32 1, ptr @progexit, align 4
   %151 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @exit_mutex) #15
-  %152 = getelementptr inbounds i8, ptr %0, i64 140
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %153 = load i32, ptr %152, align 4
   %154 = call i64 @write(i32 noundef %153, ptr noundef nonnull @.str, i64 noundef 1) #15
   %155 = icmp slt i64 %154, 0
@@ -3265,7 +3265,7 @@ define internal fastcc range(i32 0, 21) i32 @reload_db(ptr nocapture noundef non
   br label %.thread
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store i32 %1, ptr %14, align 8
   %15 = load ptr, ptr %0, align 8
   %.not45 = icmp eq ptr %15, null
@@ -3283,10 +3283,10 @@ define internal fastcc range(i32 0, 21) i32 @reload_db(ptr nocapture noundef non
 
 20:                                               ; preds = %16, %13
   %21 = tail call ptr @optget(ptr noundef nonnull %2, ptr noundef nonnull @.str.237) #15
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noalias ptr @strdup(ptr noundef %23) #15
-  %25 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %24, ptr %25, align 8
   %.not47 = icmp eq ptr %24, null
   br i1 %.not47, label %26, label %28
@@ -3322,7 +3322,7 @@ define internal fastcc range(i32 0, 21) i32 @reload_db(ptr nocapture noundef non
 
 39:                                               ; preds = %37
   %40 = tail call ptr @optget(ptr noundef nonnull %2, ptr noundef nonnull @.str.185) #15
-  %41 = getelementptr inbounds i8, ptr %40, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load i32, ptr %41, align 8
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %43, label %46
@@ -3346,7 +3346,7 @@ define internal fastcc range(i32 0, 21) i32 @reload_db(ptr nocapture noundef non
 
 50:                                               ; preds = %46
   %51 = call ptr @optget(ptr noundef nonnull %2, ptr noundef nonnull @.str.185) #15
-  %52 = getelementptr inbounds i8, ptr %51, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load i32, ptr %52, align 8
   %.not53 = icmp eq i32 %53, 0
   br i1 %.not53, label %56, label %54
@@ -3375,7 +3375,7 @@ define internal fastcc range(i32 0, 21) i32 @reload_db(ptr nocapture noundef non
 
 64:                                               ; preds = %61
   %65 = call ptr @optget(ptr noundef nonnull %2, ptr noundef nonnull @.str.185) #15
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load i32, ptr %66, align 8
   %.not56 = icmp eq i32 %67, 0
   br i1 %.not56, label %68, label %.thread
@@ -3420,7 +3420,7 @@ define internal fastcc range(i32 0, 21) i32 @reload_db(ptr nocapture noundef non
   br label %85
 
 85:                                               ; preds = %83, %81
-  %86 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not58 = icmp eq ptr %87, null
   br i1 %.not58, label %89, label %88
@@ -3514,7 +3514,7 @@ define internal noalias noundef ptr @reload_th(ptr noundef %0) #0 {
   br i1 %3, label %.thread51, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread50, label %8
@@ -3547,7 +3547,7 @@ define internal noalias noundef ptr @reload_th(ptr noundef %0) #0 {
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = call i32 @cl_load(ptr noundef %24, ptr noundef nonnull %13, ptr noundef nonnull %2, i32 noundef %26) #15
   %.not39 = icmp eq i32 %27, 0

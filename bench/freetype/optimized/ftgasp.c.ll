@@ -11,24 +11,24 @@ define range(i32 -1, 65536) i32 @FT_Get_Gasp(ptr noundef readonly %0, i32 nounde
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 8
   %.not19 = icmp eq i64 %6, 0
   br i1 %.not19, label %.loopexit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 928
-  %9 = getelementptr inbounds i8, ptr %0, i64 930
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 930
   %10 = load i16, ptr %9, align 2
   %.not20 = icmp eq i16 %10, 0
   br i1 %.not20, label %.loopexit, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 936
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %13 = load ptr, ptr %12, align 8
   %14 = zext i16 %10 to i64
-  %15 = getelementptr inbounds %struct.TT_GaspRangeRec_, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw %struct.TT_GaspRangeRec_, ptr %13, i64 %14
   br label %16
 
 16:                                               ; preds = %20, %11
@@ -39,12 +39,12 @@ define range(i32 -1, 65536) i32 @FT_Get_Gasp(ptr noundef readonly %0, i32 nounde
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.015, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.015, i64 4
   %.not21 = icmp ult ptr %21, %15
   br i1 %.not21, label %16, label %.loopexit, !llvm.loop !4
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %.015, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.015, i64 2
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
   %26 = load i16, ptr %8, align 8

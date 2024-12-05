@@ -155,7 +155,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @g_pubkey_lock) #5
-  %pkey = getelementptr inbounds i8, ptr %key, i64 16
+  %pkey = getelementptr inbounds nuw i8, ptr %key, i64 16
   %0 = load ptr, ptr %pkey, align 8
   %cmp1.not = icmp eq ptr %0, null
   tail call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_pubkey_lock) #5
@@ -570,9 +570,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %public_key = getelementptr inbounds i8, ptr %pub, i64 8
+  %public_key = getelementptr inbounds nuw i8, ptr %pub, i64 8
   %1 = load ptr, ptr %public_key, align 8
-  %data = getelementptr inbounds i8, ptr %1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end7, label %if.then4
@@ -584,17 +584,17 @@ if.then4:                                         ; preds = %if.then2
 
 if.end7:                                          ; preds = %if.then4, %if.then2
   %3 = phi ptr [ %.pre, %if.then4 ], [ %1, %if.then2 ]
-  %data9 = getelementptr inbounds i8, ptr %3, i64 8
+  %data9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %penc, ptr %data9, align 8
   %4 = load ptr, ptr %public_key, align 8
   store i32 %penclen, ptr %4, align 8
   %5 = load ptr, ptr %public_key, align 8
-  %flags = getelementptr inbounds i8, ptr %5, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load i64, ptr %flags, align 8
   %and = and i64 %6, -16
   store i64 %and, ptr %flags, align 8
   %7 = load ptr, ptr %public_key, align 8
-  %flags13 = getelementptr inbounds i8, ptr %7, i64 16
+  %flags13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load i64, ptr %flags13, align 8
   %or = or i64 %8, 8
   store i64 %or, ptr %flags13, align 8
@@ -624,9 +624,9 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %public_key = getelementptr inbounds i8, ptr %pub, i64 8
+  %public_key = getelementptr inbounds nuw i8, ptr %pub, i64 8
   %2 = load ptr, ptr %public_key, align 8
-  %data = getelementptr inbounds i8, ptr %2, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %data, align 8
   store ptr %3, ptr %pk, align 8
   %4 = load ptr, ptr %public_key, align 8
@@ -655,7 +655,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pval, align 8
-  %pkey = getelementptr inbounds i8, ptr %0, i64 16
+  %pkey = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef %1) #5
   br label %if.end

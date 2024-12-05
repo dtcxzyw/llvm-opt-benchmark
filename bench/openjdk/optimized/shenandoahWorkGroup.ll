@@ -54,11 +54,11 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21ShenandoahWorkerScopeC2EP13WorkerThreadsjPKcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i1 zeroext %4) unnamed_addr #0 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = tail call noundef i32 @_ZN13WorkerThreads18set_active_workersEj(ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2) #6
   store i32 %7, ptr %0, align 8
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
 
@@ -92,11 +92,11 @@ define hidden void @_ZN21ShenandoahWorkerScopeD2Ev(ptr nocapture nonnull readnon
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN25ShenandoahPushWorkerScopeC2EP13WorkerThreadsjb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull %1, i32 noundef %2, i1 zeroext %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %8, align 8
   %9 = tail call noundef i32 @_ZN13WorkerThreads18set_active_workersEj(ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2) #6
   store i32 %9, ptr %0, align 8
@@ -105,9 +105,9 @@ define hidden void @_ZN25ShenandoahPushWorkerScopeC2EP13WorkerThreadsjb(ptr noca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN25ShenandoahPushWorkerScopeD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call noundef i32 @_ZN13WorkerThreads18set_active_workersEj(ptr noundef nonnull align 8 dereferenceable(120) %3, i32 noundef %5) #6
   ret void
@@ -115,19 +115,19 @@ define hidden void @_ZN25ShenandoahPushWorkerScopeD2Ev(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ShenandoahWorkerThreads16on_create_workerEP12WorkerThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %0, ptr noundef initializes((40, 43)) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 41
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 41
   store i8 0, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 42
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 42
   store i8 0, ptr %5, align 2
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 664
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 664
   tail call void @_ZN13SATBMarkQueueC1EP16SATBMarkQueueSet(ptr noundef nonnull align 8 dereferenceable(17) %6, ptr noundef nonnull %8) #6
-  %9 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %17
@@ -137,7 +137,7 @@ define hidden void @_ZN23ShenandoahWorkerThreads16on_create_workerEP12WorkerThre
   %15 = tail call noundef i64 @_ZN4PLAB8min_sizeEv() #6
   tail call void @_ZN4PLABC1Em(ptr noundef nonnull align 8 dereferenceable(128) %14, i64 noundef %15) #6
   store ptr %14, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 0, ptr %16, align 8
   br label %17
 

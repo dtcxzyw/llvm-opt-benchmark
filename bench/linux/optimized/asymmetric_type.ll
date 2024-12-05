@@ -91,7 +91,7 @@ define dso_local ptr @find_asymmetric_key(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %20, label %60, label %21
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %14, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %23 = getelementptr i8, ptr %19, i64 1
   %24 = select i1 %4, i8 105, i8 101
   %25 = select i1 %4, i8 100, i8 120
@@ -102,7 +102,7 @@ define dso_local ptr @find_asymmetric_key(ptr noundef %0, ptr noundef %1, ptr no
   %28 = getelementptr i8, ptr %19, i64 2
   %29 = getelementptr i8, ptr %19, i64 3
   store i8 58, ptr %28, align 2
-  %30 = tail call ptr @bin2hex(ptr noundef %29, ptr noundef %22, i64 noundef %16) #17
+  %30 = tail call ptr @bin2hex(ptr noundef %29, ptr noundef nonnull %22, i64 noundef %16) #17
   store i8 0, ptr %30, align 1
   %31 = ptrtoint ptr %0 to i64
   %32 = or i64 %31, 1
@@ -144,10 +144,10 @@ define dso_local ptr @find_asymmetric_key(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %52, label %53, label %59
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %2, i64 2
-  %55 = getelementptr inbounds i8, ptr %47, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 2
   %56 = zext i16 %50 to i64
-  %57 = tail call i32 @bcmp(ptr %54, ptr %55, i64 %56)
+  %57 = tail call i32 @bcmp(ptr nonnull %54, ptr nonnull %55, i64 %56)
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %60, label %59
 
@@ -189,10 +189,10 @@ define dso_local zeroext i1 @asymmetric_key_id_same(ptr noundef readonly %0, ptr
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 2
-  %12 = getelementptr inbounds i8, ptr %1, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %13 = zext i16 %7 to i64
-  %14 = tail call i32 @bcmp(ptr %11, ptr %12, i64 %13)
+  %14 = tail call i32 @bcmp(ptr nonnull %11, ptr nonnull %12, i64 %13)
   %15 = icmp eq i32 %14, 0
   br label %16
 
@@ -215,8 +215,8 @@ define dso_local ptr @asymmetric_key_generate_id(ptr nocapture noundef readonly 
 9:                                                ; preds = %4
   %10 = trunc i64 %5 to i16
   store i16 %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %11, ptr align 1 %0, i64 %1, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %11, ptr align 1 %0, i64 %1, i1 false)
   %12 = getelementptr i8, ptr %11, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %2, i64 %3, i1 false)
   br label %13
@@ -244,12 +244,12 @@ define dso_local zeroext i1 @asymmetric_key_id_partial(ptr noundef readonly %0, 
 
 10:                                               ; preds = %6
   %11 = zext i16 %8 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %narrow = sub nuw i16 %7, %8
   %13 = zext i16 %narrow to i64
   %14 = getelementptr i8, ptr %12, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 2
-  %16 = tail call i32 @bcmp(ptr %14, ptr %15, i64 %11)
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %16 = tail call i32 @bcmp(ptr %14, ptr nonnull %15, i64 %11)
   %17 = icmp eq i32 %16, 0
   br label %18
 
@@ -262,8 +262,8 @@ define dso_local zeroext i1 @asymmetric_key_id_partial(ptr noundef readonly %0, 
 define dso_local i32 @__asymmetric_key_hex_to_key_id(ptr noundef %0, ptr noundef initializes((0, 2)) %1, i64 noundef %2) local_unnamed_addr #5 align 16 {
   %4 = trunc i64 %2 to i16
   store i16 %4, ptr %1, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 2
-  %6 = tail call i32 @hex2bin(ptr noundef %5, ptr noundef %0, i64 noundef %2) #17
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %6 = tail call i32 @hex2bin(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %2) #17
   ret i32 %6
 }
 
@@ -292,8 +292,8 @@ define dso_local ptr @asymmetric_key_hex_to_key_id(ptr noundef %0) local_unnamed
 13:                                               ; preds = %8
   %14 = trunc i64 %9 to i16
   store i16 %14, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 2
-  %16 = tail call i32 @hex2bin(ptr noundef %15, ptr noundef %0, i64 noundef %9) #17
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  %16 = tail call i32 @hex2bin(ptr noundef nonnull %15, ptr noundef %0, i64 noundef %9) #17
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %19
 
@@ -312,7 +312,7 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @asymmetric_key_eds_op(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, @key_type_asymmetric
   br i1 %7, label %8, label %22
@@ -324,13 +324,13 @@ define dso_local i32 @asymmetric_key_eds_op(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %11, label %22, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %10, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %22, label %20
@@ -346,7 +346,7 @@ define dso_local i32 @asymmetric_key_eds_op(ptr noundef %0, ptr noundef %1, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @asymmetric_key_preparse(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %17, label %5
@@ -362,7 +362,7 @@ define internal i32 @asymmetric_key_preparse(ptr noundef %0) #0 align 16 {
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %0) #17
   %14 = icmp eq i32 %13, -74
@@ -388,8 +388,8 @@ define internal void @asymmetric_key_free_preparse(ptr nocapture noundef readonl
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr i8, ptr %0, i64 40
@@ -417,7 +417,7 @@ define internal void @asymmetric_key_free_preparse(ptr nocapture noundef readonl
   br label %23
 
 23:                                               ; preds = %22, %15
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @kfree(ptr noundef %25) #17
   ret void
@@ -428,7 +428,7 @@ declare dso_local i32 @generic_key_instantiate(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @asymmetric_key_match_preparse(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %60, label %5
@@ -501,8 +501,8 @@ define internal i32 @asymmetric_key_match_preparse(ptr nocapture noundef %0) #0 
 45:                                               ; preds = %40
   %46 = trunc i64 %41 to i16
   store i16 %46, ptr %43, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 2
-  %48 = tail call i32 @hex2bin(ptr noundef %47, ptr noundef %33, i64 noundef %41) #17
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 2
+  %48 = tail call i32 @hex2bin(ptr noundef nonnull %47, ptr noundef %33, i64 noundef %41) #17
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %50, label %51
 
@@ -521,10 +521,10 @@ define internal i32 @asymmetric_key_match_preparse(ptr nocapture noundef %0) #0 
   br label %60
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %0, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %43, ptr %57, align 8
   store ptr %32, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %58, align 8
   br label %60
 
@@ -538,7 +538,7 @@ define internal i32 @asymmetric_key_match_preparse(ptr nocapture noundef %0) #0 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @asymmetric_key_match_free(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #17
   ret void
@@ -548,18 +548,18 @@ define internal void @asymmetric_key_match_free(ptr nocapture noundef readonly %
 define internal void @asymmetric_key_destroy(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = getelementptr i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr i8, ptr %0, i64 200
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %3, null
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef %7, ptr noundef %9) #17
   %14 = load ptr, ptr %3, align 8
@@ -593,7 +593,7 @@ define internal void @asymmetric_key_describe(ptr noundef %0, ptr noundef %1) #0
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load ptr, ptr %7, align 8
   tail call void @seq_puts(ptr noundef %1, ptr noundef %8) #17
   %9 = icmp eq ptr %4, null
@@ -601,7 +601,7 @@ define internal void @asymmetric_key_describe(ptr noundef %0, ptr noundef %1) #0
 
 10:                                               ; preds = %2
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.12) #17
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef %0, ptr noundef %1) #17
   %13 = icmp eq ptr %6, null
@@ -616,7 +616,7 @@ define internal void @asymmetric_key_describe(ptr noundef %0, ptr noundef %1) #0
 18:                                               ; preds = %14
   tail call void @seq_putc(ptr noundef %1, i8 noundef zeroext 32) #17
   %19 = load i16, ptr %16, align 2
-  %20 = getelementptr inbounds i8, ptr %16, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %21 = icmp ugt i16 %19, 4
   %22 = zext i16 %19 to i64
   %23 = getelementptr i8, ptr %20, i64 %22
@@ -653,9 +653,9 @@ define internal ptr @asymmetric_lookup_restriction(ptr noundef %0) #0 align 16 {
 
 10:                                               ; preds = %6
   store ptr @restrict_link_by_builtin_trusted, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @key_type_asymmetric, ptr %12, align 8
   br label %65
 
@@ -672,9 +672,9 @@ define internal ptr @asymmetric_lookup_restriction(ptr noundef %0) #0 align 16 {
 
 20:                                               ; preds = %16
   store ptr @restrict_link_by_builtin_trusted, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr @key_type_asymmetric, ptr %22, align 8
   br label %65
 
@@ -732,9 +732,9 @@ define internal ptr @asymmetric_lookup_restriction(ptr noundef %0) #0 align 16 {
 
 56:                                               ; preds = %51
   store ptr %41, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %52, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr @key_type_asymmetric, ptr %58, align 8
   %59 = icmp ugt ptr %54, inttoptr (i64 -4096 to ptr)
   br i1 %59, label %.thread, label %61
@@ -767,27 +767,27 @@ declare dso_local i32 @query_asymmetric_key(ptr noundef, ptr noundef) #2
 define internal i32 @asymmetric_key_verify_signature(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.public_key_signature, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 24, i1 false)
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 44
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   store i32 %12, ptr %10, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 56
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 64
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %17, align 8
   %20 = load ptr, ptr %0, align 8
@@ -799,7 +799,7 @@ define internal i32 @asymmetric_key_verify_signature(ptr nocapture noundef reado
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -17, 1) i32 @register_asymmetric_key_parser(ptr noundef %0) #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @asymmetric_key_parsers_sem) #17
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %3
 
 3:                                                ; preds = %7, %1
@@ -809,7 +809,7 @@ define dso_local noundef range(i32 -17, 1) i32 @register_asymmetric_key_parser(p
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %11 = tail call i32 @strcmp(ptr noundef %9, ptr noundef %10) #17
@@ -824,7 +824,7 @@ define dso_local noundef range(i32 -17, 1) i32 @register_asymmetric_key_parser(p
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @asymmetric_key_parsers, i64 8), align 8
   store ptr %0, ptr getelementptr inbounds (i8, ptr @asymmetric_key_parsers, i64 8), align 8
   store ptr @asymmetric_key_parsers, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %17, align 8
   store volatile ptr %0, ptr %16, align 8
   %18 = load ptr, ptr %2, align 8
@@ -852,16 +852,16 @@ declare dso_local void @up_write(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @unregister_asymmetric_key_parser(ptr nocapture noundef %0) #8 align 16 {
   tail call void @down_write(ptr noundef nonnull @asymmetric_key_parsers_sem) #17
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
   store volatile ptr %4, ptr %3, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %2, align 8
   tail call void @up_write(ptr noundef nonnull @asymmetric_key_parsers_sem) #17
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef %7) #20
   ret void
@@ -901,7 +901,7 @@ declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 define internal zeroext i1 @asymmetric_key_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 align 16 {
   %3 = getelementptr i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %4, null
   %8 = icmp ne ptr %6, null
@@ -909,7 +909,7 @@ define internal zeroext i1 @asymmetric_key_cmp(ptr nocapture noundef readonly %0
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %12
 
 12:                                               ; preds = %27, %10
@@ -927,9 +927,9 @@ define internal zeroext i1 @asymmetric_key_cmp(ptr nocapture noundef readonly %0
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %16, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %24 = zext i16 %19 to i64
-  %25 = tail call i32 @bcmp(ptr %23, ptr %11, i64 %24)
+  %25 = tail call i32 @bcmp(ptr nonnull %23, ptr nonnull %11, i64 %24)
   %26 = icmp eq i32 %25, 0
   br label %27
 
@@ -947,7 +947,7 @@ define internal zeroext i1 @asymmetric_key_cmp(ptr nocapture noundef readonly %0
 define internal zeroext i1 @asymmetric_key_cmp_partial(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 align 16 {
   %3 = getelementptr i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %4, null
   %8 = icmp ne ptr %6, null
@@ -955,7 +955,7 @@ define internal zeroext i1 @asymmetric_key_cmp_partial(ptr nocapture noundef rea
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %12
 
 12:                                               ; preds = %29, %10
@@ -974,11 +974,11 @@ define internal zeroext i1 @asymmetric_key_cmp_partial(ptr nocapture noundef rea
 
 22:                                               ; preds = %18
   %23 = zext i16 %20 to i64
-  %24 = getelementptr inbounds i8, ptr %16, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %narrow = sub nuw i16 %19, %20
   %25 = zext i16 %narrow to i64
   %26 = getelementptr i8, ptr %24, i64 %25
-  %27 = tail call i32 @bcmp(ptr %26, ptr %11, i64 %23)
+  %27 = tail call i32 @bcmp(ptr %26, ptr nonnull %11, i64 %23)
   %28 = icmp eq i32 %27, 0
   br label %29
 
@@ -1000,7 +1000,7 @@ define internal zeroext i1 @asymmetric_key_cmp_name(ptr nocapture noundef readon
   br i1 %5, label %24, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -1016,10 +1016,10 @@ define internal zeroext i1 @asymmetric_key_cmp_name(ptr nocapture noundef readon
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %10, i64 2
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %21 = zext i16 %15 to i64
-  %22 = tail call i32 @bcmp(ptr %19, ptr %20, i64 %21)
+  %22 = tail call i32 @bcmp(ptr nonnull %19, ptr nonnull %20, i64 %21)
   %23 = icmp eq i32 %22, 0
   br label %24
 

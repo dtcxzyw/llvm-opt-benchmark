@@ -64,49 +64,49 @@ $_ZTV18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE = co
 define hidden void @_ZN14DumpAllocStats11print_statsEii(ptr nocapture noundef nonnull align 4 dereferenceable(436) initializes((96, 112), (280, 296)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogMessageTemplate, align 8
   %5 = load i32, ptr %0, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %5, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 216
-  %11 = getelementptr inbounds i8, ptr %0, i64 280
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 %9, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 100
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 284
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 288
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 108
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 292
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store i32 %28, ptr %29, align 4
   call void @_ZN16LogMessageBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(81) %4) #4
-  %30 = getelementptr inbounds i8, ptr %4, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i8 0, ptr %31, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE, i64 16), ptr %4, align 8
   %32 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str.5) #4
   %33 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4) #4
   %34 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str) #4
-  %35 = getelementptr inbounds i8, ptr %0, i64 124
-  %36 = getelementptr inbounds i8, ptr %0, i64 308
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %.not.i = icmp eq i32 %1, 0
   %37 = sitofp i32 %1 to double
   %.not.i63 = icmp eq i32 %2, 0
@@ -126,13 +126,13 @@ switch.lookup:                                    ; preds = %3, %switch.lookup
   %41 = ashr exact i64 %sext, 32
   %switch.gep = getelementptr inbounds [23 x ptr], ptr @switch.table._ZN14DumpAllocStats11print_statsEii, i64 0, i64 %41
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %42 = getelementptr inbounds [23 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [23 x i32], ptr %6, i64 0, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds [23 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [23 x i32], ptr %10, i64 0, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds [23 x i32], ptr %35, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [23 x i32], ptr %35, i64 0, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds [23 x i32], ptr %36, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [23 x i32], ptr %36, i64 0, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
   %50 = add nsw i32 %47, %43
   %51 = add nsw i32 %49, %45
@@ -178,9 +178,9 @@ switch.lookup:                                    ; preds = %3, %switch.lookup
   call void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %86, ptr noundef nonnull align 8 dereferenceable(81) %4) #4
   store i8 0, ptr %31, align 8
   call void @_ZN16LogMessageBuffer5resetEv(ptr noundef nonnull align 8 dereferenceable(81) %4) #4
-  %87 = getelementptr inbounds i8, ptr %0, i64 412
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %0, i64 416
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %90 = load i32, ptr %89, align 4
   %.not.i68 = icmp eq i32 %88, 0
   %91 = sitofp i32 %90 to double
@@ -188,12 +188,12 @@ switch.lookup:                                    ; preds = %3, %switch.lookup
   %93 = fdiv double %91, %92
   %94 = fmul double %93, 1.000000e+02
   %95 = select i1 %.not.i68, double 0.000000e+00, double %94
-  %96 = getelementptr inbounds i8, ptr %0, i64 420
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %97 = load i32, ptr %96, align 4
   %98 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str.9, i32 noundef %88, i32 noundef %90, double noundef %95, i32 noundef %97) #4
-  %99 = getelementptr inbounds i8, ptr %0, i64 400
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %0, i64 404
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %102 = load i32, ptr %101, align 4
   %.not.i69 = icmp eq i32 %100, 0
   %103 = sitofp i32 %102 to double
@@ -201,12 +201,12 @@ switch.lookup:                                    ; preds = %3, %switch.lookup
   %105 = fdiv double %103, %104
   %106 = fmul double %105, 1.000000e+02
   %107 = select i1 %.not.i69, double 0.000000e+00, double %106
-  %108 = getelementptr inbounds i8, ptr %0, i64 408
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %109 = load i32, ptr %108, align 4
   %110 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str.10, i32 noundef %100, i32 noundef %102, double noundef %107, i32 noundef %109) #4
-  %111 = getelementptr inbounds i8, ptr %0, i64 424
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %112 = load i32, ptr %111, align 4
-  %113 = getelementptr inbounds i8, ptr %0, i64 428
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %114 = load i32, ptr %113, align 4
   %.not.i70 = icmp eq i32 %112, 0
   %115 = sitofp i32 %114 to double
@@ -214,7 +214,7 @@ switch.lookup:                                    ; preds = %3, %switch.lookup
   %117 = fdiv double %115, %116
   %118 = fmul double %117, 1.000000e+02
   %119 = select i1 %.not.i70, double 0.000000e+00, double %118
-  %120 = getelementptr inbounds i8, ptr %0, i64 432
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %121 = load i32, ptr %120, align 4
   %122 = call noundef nonnull align 8 dereferenceable(72) ptr (ptr, ptr, ...) @_ZN16LogMessageBuffer4infoEPKcz(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str.11, i32 noundef %112, i32 noundef %114, double noundef %119, i32 noundef %121) #4
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14LogMessageImpl, i64 16), ptr %4, align 8
@@ -269,18 +269,18 @@ declare void @_ZN16LogMessageBufferD2Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14LogMessageImpl6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(81) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %4
   store i8 1, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %12, ptr %13, align 8
   br label %14
 

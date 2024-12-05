@@ -58,7 +58,7 @@ define hidden noundef zeroext i1 @_ZN19LogFileStreamOutput10set_optionEPKcS1_P12
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 156
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i8 1, ptr %11, align 4
   br label %18
 
@@ -68,7 +68,7 @@ define hidden noundef zeroext i1 @_ZN19LogFileStreamOutput10set_optionEPKcS1_P12
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 156
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i8 0, ptr %16, align 4
   br label %18
 
@@ -89,9 +89,9 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, -2147483648) i32 @_ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [256 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %7
 
 7:                                                ; preds = %2, %27
@@ -106,7 +106,7 @@ define hidden noundef range(i32 -1, -2147483648) i32 @_ZN19LogFileStreamOutput17
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds [12 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [12 x i64], ptr %6, i64 0, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
   %16 = call noundef ptr @_ZNK14LogDecorations10decorationEN13LogDecorators9DecoratorEPcm(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %9, ptr noundef nonnull %3, i64 noundef 256) #10
   %17 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %13, ptr noundef nonnull @.str.7, i64 noundef %15, ptr noundef %16) #10
@@ -145,14 +145,14 @@ declare noundef ptr @_ZNK14LogDecorations10decorationEN13LogDecorators9Decorator
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN19LogFileStreamOutput5flushEv(ptr noundef nonnull align 8 dereferenceable(264) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @fflush(ptr noundef %3)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %27, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 157
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %27, label %9
@@ -164,7 +164,7 @@ define hidden noundef zeroext i1 @_ZN19LogFileStreamOutput5flushEv(ptr noundef n
   %13 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %14 = select i1 %11, ptr %12, ptr %13
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(156) %0) #10
   %19 = tail call ptr @__errno_location() #11
@@ -193,15 +193,15 @@ declare ptr @__errno_location() local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN19LogFileStreamOutput14write_internalERK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [256 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %73, label %8
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
-  %10 = getelementptr inbounds i8, ptr %0, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %11
 
 11:                                               ; preds = %31, %8
@@ -216,7 +216,7 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput14write_internalERK14LogDecor
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds [12 x i64], ptr %10, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [12 x i64], ptr %10, i64 0, i64 %indvars.iv.i
   %19 = load i64, ptr %18, align 8
   %20 = call noundef ptr @_ZNK14LogDecorations10decorationEN13LogDecorators9DecoratorEPcm(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %13, ptr noundef nonnull %4, i64 noundef 256) #10
   %21 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, i64 noundef %19, ptr noundef %20) #10
@@ -255,7 +255,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
 
 33:                                               ; preds = %_ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit.thread, %_ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit
   %.0.i38 = phi i32 [ -1, %_ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit.thread ], [ %.1.i, %_ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 157
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %35 = load i8, ptr %34, align 1
   %36 = trunc i8 %35 to i1
   br i1 %36, label %50, label %37
@@ -267,7 +267,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   %41 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %42 = select i1 %39, ptr %40, ptr %41
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(156) %0) #10
   %47 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %42, ptr noundef nonnull @.str.10, ptr noundef %46) #10
@@ -284,7 +284,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   br i1 %53, label %54, label %71
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 157
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %56 = load i8, ptr %55, align 1
   %57 = trunc i8 %56 to i1
   br i1 %57, label %71, label %58
@@ -296,7 +296,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   %62 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %63 = select i1 %60, ptr %61, ptr %62
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
   %67 = call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(156) %0) #10
   %68 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %63, ptr noundef nonnull @.str.10, ptr noundef %67) #10
@@ -311,20 +311,20 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
 
 73:                                               ; preds = %71, %3
   %.032 = phi i32 [ %72, %71 ], [ 0, %3 ]
-  %74 = getelementptr inbounds i8, ptr %0, i64 156
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %75 = load i8, ptr %74, align 4
   %76 = trunc i8 %75 to i1
   br i1 %76, label %101, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %0, i64 160
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %79 = load ptr, ptr %78, align 8
   %80 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %79, ptr noundef nonnull @.str.13, ptr noundef %2) #10
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %99
 
 82:                                               ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %0, i64 157
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %84 = load i8, ptr %83, align 1
   %85 = trunc i8 %84 to i1
   br i1 %85, label %99, label %86
@@ -336,7 +336,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   %90 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %91 = select i1 %88, ptr %89, ptr %90
   %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8
   %95 = call noundef ptr %94(ptr noundef nonnull align 8 dereferenceable(156) %0) #10
   %96 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %91, ptr noundef nonnull @.str.10, ptr noundef %95) #10
@@ -356,21 +356,21 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   br i1 %104, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %0, i64 160
-  %106 = getelementptr inbounds i8, ptr %0, i64 157
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 157
   br label %128
 
 ._crit_edge:                                      ; preds = %151, %101
   %.033.lcssa = phi ptr [ %102, %101 ], [ %152, %151 ]
   %.2.lcssa = phi i32 [ %.032, %101 ], [ %.3, %151 ]
-  %107 = getelementptr inbounds i8, ptr %0, i64 160
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %108 = load ptr, ptr %107, align 8
   %109 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %108, ptr noundef nonnull @.str.13, ptr noundef %.033.lcssa) #10
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %155
 
 111:                                              ; preds = %._crit_edge
-  %112 = getelementptr inbounds i8, ptr %0, i64 157
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %113 = load i8, ptr %112, align 1
   %114 = trunc i8 %113 to i1
   br i1 %114, label %155, label %115
@@ -382,7 +382,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   %119 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %120 = select i1 %117, ptr %118, ptr %119
   %121 = load ptr, ptr %0, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 32
   %123 = load ptr, ptr %122, align 8
   %124 = call noundef ptr %123(ptr noundef nonnull align 8 dereferenceable(156) %0) #10
   %125 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %120, ptr noundef nonnull @.str.10, ptr noundef %124) #10
@@ -416,7 +416,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   %142 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %143 = select i1 %140, ptr %141, ptr %142
   %144 = load ptr, ptr %0, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %146 = load ptr, ptr %145, align 8
   %147 = call noundef ptr %146(ptr noundef nonnull align 8 dereferenceable(156) %0) #10
   %148 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %143, ptr noundef nonnull @.str.10, ptr noundef %147) #10
@@ -426,7 +426,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   br label %156
 
 151:                                              ; preds = %128, %135
-  %152 = getelementptr inbounds i8, ptr %129, i64 1
+  %152 = getelementptr inbounds nuw i8, ptr %129, i64 1
   %.3 = add nsw i32 %133, %.247
   %153 = call noundef ptr @strpbrk(ptr noundef nonnull %152, ptr noundef nonnull @.str.14) #9
   %154 = icmp eq ptr %153, null
@@ -468,7 +468,7 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput5writeERK14LogDecorationsPKc(
   br label %12
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN2os9flockfileEP8_IO_FILE(ptr noundef %8) #10
   %9 = tail call noundef i32 @_ZN19LogFileStreamOutput14write_internalERK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2)
@@ -497,19 +497,19 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput5writeEN16LogMessageBuffer8It
   br label %45
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN2os9flockfileEP8_IO_FILE(ptr noundef %7) #10
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %9, %12
   br i1 %13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
@@ -517,17 +517,17 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput5writeEN16LogMessageBuffer8It
   %17 = phi i64 [ %9, %.lr.ph ], [ %38, %15 ]
   %.07 = phi i32 [ 0, %.lr.ph ], [ %35, %15 ]
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds %"struct.LogMessageBuffer::LogLine", ptr %20, i64 %17
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i32 %22, ptr %23, align 8
   %24 = load ptr, ptr %14, align 8
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = load i64, ptr %8, align 8
   %31 = getelementptr inbounds %"struct.LogMessageBuffer::LogLine", ptr %29, i64 %30, i32 1
@@ -541,7 +541,7 @@ define hidden noundef i32 @_ZN19LogFileStreamOutput5writeEN16LogMessageBuffer8It
   call void @_ZN16LogMessageBuffer8Iterator30skip_messages_with_finer_levelEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #10
   %38 = load i64, ptr %8, align 8
   %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %38, %41
   br i1 %42, label %._crit_edge, label %15, !llvm.loop !9
@@ -564,7 +564,7 @@ declare void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMessageBuf
 define hidden void @_ZN19LogFileStreamOutput8describeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN9LogOutput8describeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef %1) #10
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 156
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   %6 = select i1 %5, ptr @.str.4, ptr @.str.5
@@ -579,7 +579,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19LogFileStreamOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV9LogOutput, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #10
   ret void
 }

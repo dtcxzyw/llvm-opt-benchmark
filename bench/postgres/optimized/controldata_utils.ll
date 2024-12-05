@@ -27,7 +27,7 @@ define dso_local ptr @get_controlfile(ptr noundef %0, ptr nocapture noundef writ
   br i1 %7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 288
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 288
   br label %9
 
 ._crit_edge:                                      ; preds = %33, %2
@@ -97,7 +97,7 @@ define dso_local ptr @get_controlfile(ptr noundef %0, ptr nocapture noundef writ
   br i1 %36, label %._crit_edge, label %9
 
 37:                                               ; preds = %30, %21
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 65535
   %41 = icmp ne i32 %40, 0
@@ -137,15 +137,15 @@ define dso_local void @update_controlfile(ptr noundef %0, ptr noundef initialize
   %4 = alloca [8192 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = tail call i64 @time(ptr noundef null) #8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 288
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 -1, ptr %8, align 8
   %9 = load ptr, ptr @pg_comp_crc32c, align 8
   %10 = tail call i32 %9(i32 noundef -1, ptr noundef %1, i64 noundef 288) #8
   %11 = xor i32 %10, -1
   store i32 %11, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 296
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 296
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7896) %12, i8 0, i64 7896, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(296) %4, ptr noundef nonnull align 8 dereferenceable(296) %1, i64 296, i1 false)
   %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef nonnull @.str.7) #8

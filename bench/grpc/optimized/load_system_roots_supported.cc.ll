@@ -59,7 +59,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %path_buffer, i64 noundef 4096, ptr noundef nonnull @.str, ptr noundef nonnull %valid_file_dir, ptr noundef nonnull %file_entry_name) #15
+  %call = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %path_buffer, i64 noundef 4096, ptr noundef nonnull @.str, ptr noundef nonnull %valid_file_dir, ptr noundef nonnull %file_entry_name) #16
   %cmp2 = icmp eq i32 %call, 0
   br i1 %cmp2, label %if.then3, label %if.end4
 
@@ -92,9 +92,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %st_mode = getelementptr inbounds i8, ptr %dir_entry_stat, i64 24
-  %st_size = getelementptr inbounds i8, ptr %dir_entry_stat, i64 48
-  %size = getelementptr inbounds i8, ptr %file_data, i64 4096
+  %st_mode = getelementptr inbounds nuw i8, ptr %dir_entry_stat, i64 24
+  %st_size = getelementptr inbounds nuw i8, ptr %dir_entry_stat, i64 48
+  %size = getelementptr inbounds nuw i8, ptr %file_data, i64 4096
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.preheader, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE9push_backERKS3_.exit
@@ -113,8 +113,8 @@ invoke.cont:                                      ; preds = %while.cond
   br i1 %cmp5.not, label %while.end, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %d_name = getelementptr inbounds i8, ptr %call4, i64 19
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %file_data, i64 noundef 4096, ptr noundef nonnull @.str, ptr noundef nonnull %certs_directory, ptr noundef nonnull %d_name) #15
+  %d_name = getelementptr inbounds nuw i8, ptr %call4, i64 19
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %file_data, i64 noundef 4096, ptr noundef nonnull @.str, ptr noundef nonnull %certs_directory, ptr noundef nonnull %d_name) #16
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %if.then3.i, label %invoke.cont7
 
@@ -123,7 +123,7 @@ if.then3.i:                                       ; preds = %if.then.i
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp.loopexit.loopexit
 
 invoke.cont7:                                     ; preds = %if.then.i, %if.then3.i
-  %call10 = call i32 @stat(ptr noundef nonnull %file_data, ptr noundef nonnull %dir_entry_stat) #15
+  %call10 = call i32 @stat(ptr noundef nonnull %file_data, ptr noundef nonnull %dir_entry_stat) #16
   %cmp11 = icmp eq i32 %call10, -1
   br i1 %cmp11, label %if.then15, label %lor.lhs.false
 
@@ -155,7 +155,7 @@ lpad.loopexit.split-lp.loopexit.loopexit:         ; preds = %while.cond, %if.the
           cleanup
   br label %lpad
 
-lpad.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %cond.true.i.i.i
+lpad.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
   %lpad.loopexit.split-lp47 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -172,7 +172,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 
 if.then.i.i.i:                                    ; preds = %lpad.thread, %lpad
   %lpad.phi39 = phi { ptr, i32 } [ %lpad.thr_comm35, %lpad.thread ], [ %lpad.phi, %lpad ]
-  call void @_ZdlPv(ptr noundef nonnull %roots_filenames.sroa.0.0.ph) #16
+  call void @_ZdlPv(ptr noundef nonnull %roots_filenames.sroa.0.0.ph) #17
   br label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EED2Ev.exit
 
 _ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i
@@ -198,7 +198,7 @@ if.else.i:                                        ; preds = %if.end20
   br i1 %cmp.i.i.i, label %if.then.i.i.i26, label %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
 
 if.then.i.i.i26:                                  ; preds = %if.else.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.15) #17
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.15) #18
           to label %.noexc27 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 .noexc27:                                         ; preds = %if.then.i.i.i26
@@ -212,43 +212,39 @@ _ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_chec
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %2 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 2247410340364224)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 2247410340364224, i64 %2
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 4104
-  %call5.i.i.i.i.i28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #18
-          to label %_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i unwind label %lpad.loopexit.split-lp.loopexit.loopexit.split-lp
+  %call5.i.i.i.i.i28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #19
+          to label %call5.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.loopexit.split-lp
 
-_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
-  %cond.i12.i.i = phi ptr [ null, %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i ], [ %call5.i.i.i.i.i28, %cond.true.i.i.i ]
-  %add.ptr.i.i = getelementptr inbounds %struct.FileData, ptr %cond.i12.i.i, i64 %sub.ptr.div.i.i.i.i
+call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE12_M_check_lenEmS2_.exit.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i28, i64 %sub.ptr.sub.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4104) %add.ptr.i.i, ptr noundef nonnull readonly align 8 dereferenceable(4104) %file_data, i64 4104, i1 false)
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i12.i.i, ptr align 8 %roots_filenames.sroa.0.0.ph, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+if.then.i.i.i.i.i:                                ; preds = %call5.i.i.i.i.i.noexc
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i28, ptr align 8 %roots_filenames.sroa.0.0.ph, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
 
-_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_M_allocateEm.exit.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i12.i.i, i64 %sub.ptr.sub.i.i.i.i
+_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i: ; preds = %if.then.i.i.i.i.i, %call5.i.i.i.i.i.noexc
   %tobool.not.i.i.i25 = icmp eq ptr %roots_filenames.sroa.0.0.ph, null
   br i1 %tobool.not.i.i.i25, label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
-  call void @_ZdlPv(ptr noundef nonnull %roots_filenames.sroa.0.0.ph) #16
+  call void @_ZdlPv(ptr noundef nonnull %roots_filenames.sroa.0.0.ph) #17
   br label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
-  %add.ptr19.i.i = getelementptr inbounds %struct.FileData, ptr %cond.i12.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw %struct.FileData, ptr %call5.i.i.i.i.i28, i64 %cond.i.i.i
   br label %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE9push_backERKS3_.exit: ; preds = %if.then.i24, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
-  %roots_filenames.sroa.0.1 = phi ptr [ %cond.i12.i.i, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %roots_filenames.sroa.0.0.ph, %if.then.i24 ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %roots_filenames.sroa.9.0.ph, %if.then.i24 ]
+  %roots_filenames.sroa.0.1 = phi ptr [ %call5.i.i.i.i.i28, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %roots_filenames.sroa.0.0.ph, %if.then.i24 ]
+  %add.ptr.i.i.pn = phi ptr [ %add.ptr.i.i, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %roots_filenames.sroa.9.0.ph, %if.then.i24 ]
   %roots_filenames.sroa.14.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %roots_filenames.sroa.14.0.ph, %if.then.i24 ]
-  %roots_filenames.sroa.9.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 4104
+  %roots_filenames.sroa.9.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.pn, i64 4104
   br label %while.cond.outer
 
 while.end:                                        ; preds = %invoke.cont
@@ -281,7 +277,7 @@ invoke.cont33:                                    ; preds = %for.body
   br i1 %cmp35.not, label %for.inc, label %if.then36
 
 if.then36:                                        ; preds = %invoke.cont33
-  %size38 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4096
+  %size38 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4096
   %3 = load i64, ptr %size38, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call27, i64 %bytes_read.067
   %call40 = invoke i64 @read(i32 noundef %call34, ptr noundef %add.ptr, i64 noundef %3)
@@ -319,7 +315,7 @@ invoke.cont51:                                    ; preds = %for.end
   br i1 %tobool.not.i.i.i31, label %return, label %if.then.i.i.i32
 
 if.then.i.i.i32:                                  ; preds = %invoke.cont51
-  call void @_ZdlPv(ptr noundef nonnull %roots_filenames.sroa.0.0.ph) #16
+  call void @_ZdlPv(ptr noundef nonnull %roots_filenames.sroa.0.0.ph) #17
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i32, %invoke.cont51, %if.end, %entry
@@ -379,7 +375,7 @@ if.end.i:                                         ; preds = %entry
 _ZN9grpc_core10ConfigVars3GetEv.exit:             ; preds = %entry, %if.end.i
   %retval.0.i = phi ptr [ %call1.i, %if.end.i ], [ %atomic-temp.i.0.i.i, %entry ]
   call void @_ZNK9grpc_core10ConfigVars17SystemSslRootsDirB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %custom_dir, ptr noundef nonnull align 8 dereferenceable(312) %retval.0.i)
-  %call1 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %custom_dir) #15
+  %call1 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %custom_dir) #16
   br i1 %call1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN9grpc_core10ConfigVars3GetEv.exit
@@ -387,13 +383,13 @@ if.then:                                          ; preds = %_ZN9grpc_core10Conf
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
-  %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
+  %call3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #16
   invoke void @_ZN9grpc_core21CreateRootCertsBundleEPKc(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp, ptr noundef %call3)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #16
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %for.body
@@ -414,13 +410,13 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %for.end.i, %if.then
 lpad4:                                            ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #16
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont5, %_ZN9grpc_core10ConfigVars3GetEv.exit
   %2 = load ptr, ptr %agg.result, align 8
   %tobool.not = icmp eq ptr %2, null
-  %data = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %3 = load i64, ptr %data, align 8
   %conv = and i64 %3, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %3
@@ -435,7 +431,7 @@ if.then8:                                         ; preds = %if.end
 
 invoke.cont.i:                                    ; preds = %if.then8, %for.inc.i
   %i.06.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.then8 ]
-  %arrayidx.i = getelementptr inbounds [5 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_110kCertFilesE, i64 0, i64 %i.06.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_110kCertFilesE, i64 0, i64 %i.06.i
   %4 = load ptr, ptr %arrayidx.i, align 8, !noalias !7
   invoke void @_Z14grpc_load_filePKciP10grpc_slice(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %error.i, ptr noundef %4, i32 noundef 1, ptr noundef nonnull %valid_bundle_slice.i)
           to label %.noexc4 unwind label %lpad.loopexit.split-lp.loopexit
@@ -458,7 +454,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #19
+  call void @__clang_call_terminate(ptr %7) #20
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %.noexc4
@@ -494,7 +490,7 @@ if.end11:                                         ; preds = %invoke.cont10, %if.
 
 for.body:                                         ; preds = %if.end11, %invoke.cont27
   %i.011 = phi i64 [ %inc, %invoke.cont27 ], [ 0, %if.end11 ]
-  %arrayidx = getelementptr inbounds [5 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_116kCertDirectoriesE, i64 0, i64 %i.011
+  %arrayidx = getelementptr inbounds nuw [5 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_116kCertDirectoriesE, i64 0, i64 %i.011
   %10 = load ptr, ptr %arrayidx, align 8
   invoke void @_ZN9grpc_core21CreateRootCertsBundleEPKc(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp26, ptr noundef %10)
           to label %invoke.cont27 unwind label %lpad.loopexit
@@ -513,12 +509,12 @@ invoke.cont27:                                    ; preds = %for.body
   br i1 %or.cond, label %if.end42, label %for.body, !llvm.loop !11
 
 if.end42:                                         ; preds = %invoke.cont27, %if.end11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %custom_dir) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %custom_dir) #16
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad4
   %.pn = phi { ptr, i32 } [ %1, %lpad4 ], [ %lpad.loopexit6, %lpad.loopexit ], [ %lpad.loopexit8, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %custom_dir) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %custom_dir) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -539,8 +535,8 @@ declare noundef nonnull align 8 dereferenceable(312) ptr @_ZN9grpc_core10ConfigV
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
@@ -569,21 +565,24 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define internal void @_GLOBAL__sub_I_load_system_roots_supported.cc() #12 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #14
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -599,12 +598,13 @@ attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { builtin nounwind }
-attributes #17 = { noreturn }
-attributes #18 = { builtin allocsize(0) }
-attributes #19 = { noreturn nounwind }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { builtin nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

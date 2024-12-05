@@ -332,9 +332,9 @@ define internal fastcc ptr @H5T__get_native_type(ptr noundef nonnull %0, i32 nou
   br label %.sink.split
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %37 = load i64, ptr %36, align 8
   %or.cond.i = icmp ult i32 %1, 2
   br i1 %or.cond.i, label %38, label %58
@@ -644,15 +644,15 @@ H5T__get_native_float.exit:                       ; preds = %154, %147
   br label %.sink.split
 
 189:                                              ; preds = %182
-  %190 = getelementptr inbounds i8, ptr %0, i64 40
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 12
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 12
   %193 = load i32, ptr %192, align 4
   %194 = icmp eq i32 %193, 9
   br i1 %194, label %195, label %201
 
 195:                                              ; preds = %189
-  %196 = getelementptr inbounds i8, ptr %191, i64 48
+  %196 = getelementptr inbounds nuw i8, ptr %191, i64 48
   %197 = load i32, ptr %196, align 8
   %198 = icmp eq i32 %197, 1
   br i1 %198, label %199, label %201
@@ -674,9 +674,9 @@ H5T__get_native_float.exit:                       ; preds = %154, %147
   br label %.sink.split
 
 207:                                              ; preds = %25
-  %208 = getelementptr inbounds i8, ptr %0, i64 40
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 56
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 56
   %211 = load i64, ptr %210, align 8
   %or.cond.i334 = icmp ult i32 %1, 2
   br i1 %or.cond.i334, label %212, label %239
@@ -1019,7 +1019,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %278, %271
 
 395:                                              ; preds = %.preheader462
   %396 = call noalias ptr @H5T__get_member_name(ptr noundef nonnull %0, i32 noundef %388) #7
-  %397 = getelementptr inbounds ptr, ptr %385, i64 %indvars.iv491
+  %397 = getelementptr inbounds nuw ptr, ptr %385, i64 %indvars.iv491
   store ptr %396, ptr %397, align 8
   %398 = icmp eq ptr %396, null
   br i1 %398, label %399, label %403
@@ -1031,9 +1031,9 @@ H5T__get_native_bitfield.exit:                    ; preds = %278, %271
   br label %H5T__get_native_integer.exit.thread349.thread
 
 403:                                              ; preds = %395
-  %404 = getelementptr inbounds i64, ptr %382, i64 %indvars.iv491
+  %404 = getelementptr inbounds nuw i64, ptr %382, i64 %indvars.iv491
   %405 = call fastcc ptr @H5T__get_native_type(ptr noundef %389, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %404, ptr noundef %6)
-  %406 = getelementptr inbounds ptr, ptr %375, i64 %indvars.iv491
+  %406 = getelementptr inbounds nuw ptr, ptr %375, i64 %indvars.iv491
   store ptr %405, ptr %406, align 8
   %407 = icmp eq ptr %405, null
   br i1 %407, label %408, label %412
@@ -1096,11 +1096,11 @@ H5T__get_native_bitfield.exit:                    ; preds = %278, %271
 
 .preheader461:                                    ; preds = %.preheader461.preheader, %434
   %indvars.iv496 = phi i64 [ 0, %.preheader461.preheader ], [ %indvars.iv.next497, %434 ]
-  %435 = getelementptr inbounds ptr, ptr %385, i64 %indvars.iv496
+  %435 = getelementptr inbounds nuw ptr, ptr %385, i64 %indvars.iv496
   %436 = load ptr, ptr %435, align 8
-  %437 = getelementptr inbounds i64, ptr %382, i64 %indvars.iv496
+  %437 = getelementptr inbounds nuw i64, ptr %382, i64 %indvars.iv496
   %438 = load i64, ptr %437, align 8
-  %439 = getelementptr inbounds ptr, ptr %375, i64 %indvars.iv496
+  %439 = getelementptr inbounds nuw ptr, ptr %375, i64 %indvars.iv496
   %440 = load ptr, ptr %439, align 8
   %441 = call i32 @H5T__insert(ptr noundef nonnull %428, ptr noundef %436, i64 noundef %438, ptr noundef %440) #7
   %442 = icmp slt i32 %441, 0
@@ -1119,7 +1119,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %278, %271
 
 449:                                              ; preds = %447, %458
   %indvars.iv501 = phi i64 [ 0, %447 ], [ %indvars.iv.next502, %458 ]
-  %450 = getelementptr inbounds ptr, ptr %375, i64 %indvars.iv501
+  %450 = getelementptr inbounds nuw ptr, ptr %375, i64 %indvars.iv501
   %451 = load ptr, ptr %450, align 8
   %452 = call i32 @H5T_close_real(ptr noundef %451) #7
   %453 = icmp slt i32 %452, 0
@@ -1132,7 +1132,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %278, %271
   br label %H5T__get_native_integer.exit.thread349.thread404
 
 458:                                              ; preds = %449
-  %459 = getelementptr inbounds ptr, ptr %385, i64 %indvars.iv501
+  %459 = getelementptr inbounds nuw ptr, ptr %385, i64 %indvars.iv501
   %460 = load ptr, ptr %459, align 8
   %461 = call ptr @H5MM_xfree(ptr noundef %460) #7
   store ptr %461, ptr %459, align 8
@@ -1398,7 +1398,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %278, %271
 .preheader464:                                    ; preds = %615, %.preheader464
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader464 ], [ 0, %615 ]
   %.0473 = phi i64 [ %624, %.preheader464 ], [ 1, %615 ]
-  %622 = getelementptr inbounds i64, ptr %574, i64 %indvars.iv
+  %622 = getelementptr inbounds nuw i64, ptr %574, i64 %indvars.iv
   %623 = load i64, ptr %622, align 8
   %624 = mul i64 %623, %.0473
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1545,7 +1545,7 @@ H5T__get_native_integer.exit.thread349.thread:    ; preds = %391, %399, %H5T__ge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %688
   %indvars.iv506 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next507, %688 ]
-  %679 = getelementptr inbounds ptr, ptr %.0264366393537551, i64 %indvars.iv506
+  %679 = getelementptr inbounds nuw ptr, ptr %.0264366393537551, i64 %indvars.iv506
   %680 = load ptr, ptr %679, align 8
   %.not325 = icmp eq ptr %680, null
   br i1 %.not325, label %688, label %681
@@ -1600,7 +1600,7 @@ H5T__get_native_integer.exit.thread349.thread:    ; preds = %391, %399, %H5T__ge
 
 .lr.ph480:                                        ; preds = %.lr.ph480.preheader, %696
   %indvars.iv511 = phi i64 [ 0, %.lr.ph480.preheader ], [ %indvars.iv.next512, %696 ]
-  %692 = getelementptr inbounds ptr, ptr %.0271360399526, i64 %indvars.iv511
+  %692 = getelementptr inbounds nuw ptr, ptr %.0271360399526, i64 %indvars.iv511
   %693 = load ptr, ptr %692, align 8
   %.not324 = icmp eq ptr %693, null
   br i1 %.not324, label %696, label %694
@@ -1653,7 +1653,7 @@ define range(i32 -1, 1) i32 @H5T__init_native_internal() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %32
   %.02428 = phi i64 [ 0, %0 ], [ %33, %32 ]
-  %2 = getelementptr inbounds [3 x %struct.native_int_table_t], ptr @H5T__init_native_internal.table_table, i64 0, i64 %.02428
+  %2 = getelementptr inbounds nuw [3 x %struct.native_int_table_t], ptr @H5T__init_native_internal.table_table, i64 0, i64 %.02428
   %3 = load ptr, ptr %2, align 16
   br label %6
 
@@ -1669,32 +1669,32 @@ define range(i32 -1, 1) i32 @H5T__init_native_internal() local_unnamed_addr #0 {
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 2, ptr %12, align 8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds %struct.native_int_t, ptr %3, i64 %.02527
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %15 = getelementptr inbounds nuw %struct.native_int_t, ptr %3, i64 %.02527
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 %17, ptr %19, align 8
   %20 = load ptr, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
-  %22 = getelementptr inbounds i8, ptr %15, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %21, ptr noundef nonnull align 8 dereferenceable(88) %22, i64 88, i1 false)
   %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %15, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = load ptr, ptr %15, align 8
   store i64 %26, ptr %27, align 8
   %28 = tail call i64 @H5I_register(i32 noundef 3, ptr noundef nonnull %7, i1 noundef zeroext false) #7
-  %29 = getelementptr inbounds i8, ptr %15, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %30 = load ptr, ptr %29, align 8
   store i64 %28, ptr %30, align 8
   %31 = icmp slt i64 %28, 0

@@ -13,27 +13,27 @@ define i32 @cli_scanxdp(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef %6, i64 noundef 0, i64 noundef %8, i32 noundef 0) #8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %95, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
   %.not64 = icmp eq i32 %16, 0
   br i1 %.not64, label %47, label %17
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %21, align 8
@@ -102,7 +102,7 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
 
 47:                                               ; preds = %dump_xdp.exit.thread, %dump_xdp.exit, %46, %12
   %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 88
   %50 = load i64, ptr %49, align 8
   %51 = trunc i64 %50 to i32
   %52 = call ptr @xmlReaderForMemory(ptr noundef nonnull %11, i32 noundef %51, ptr noundef nonnull @.str, ptr noundef null, i32 noundef 2080) #8
@@ -152,7 +152,7 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %86
   %.05186 = phi i64 [ %87, %86 ], [ 0, %.lr.ph.preheader ]
-  %71 = getelementptr inbounds i8, ptr %65, i64 %.05186
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 %.05186
   %72 = load i8, ptr %71, align 1
   %.not71 = icmp eq i8 %72, 37
   br i1 %.not71, label %73, label %86

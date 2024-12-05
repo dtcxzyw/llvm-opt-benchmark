@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_horizontal_line_5_4_scale_c(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -14,16 +14,16 @@ define hidden void @aom_horizontal_line_5_4_scale_c(ptr noundef readonly %0, i32
   %.023 = phi ptr [ %40, %.lr.ph ], [ %0, %4 ]
   %.02122 = phi ptr [ %41, %.lr.ph ], [ %2, %4 ]
   %7 = load i8, ptr %.023, align 1
-  %8 = getelementptr inbounds i8, ptr %.023, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.023, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %.023, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.023, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %.023, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %.023, i64 3
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %.023, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.023, i64 4
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   store i8 %7, ptr %.02122, align 1
@@ -33,14 +33,14 @@ define hidden void @aom_horizontal_line_5_4_scale_c(ptr noundef readonly %0, i32
   %23 = add nuw nsw i32 %22, %21
   %24 = lshr i32 %23, 8
   %25 = trunc nuw i32 %24 to i8
-  %26 = getelementptr inbounds i8, ptr %.02122, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.02122, i64 1
   store i8 %25, ptr %26, align 1
   %27 = add nuw nsw i32 %16, %13
   %28 = shl nuw nsw i32 %27, 7
   %29 = add nuw nsw i32 %28, 128
   %30 = lshr i32 %29, 8
   %31 = trunc nuw i32 %30 to i8
-  %32 = getelementptr inbounds i8, ptr %.02122, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.02122, i64 2
   store i8 %31, ptr %32, align 1
   %33 = shl nuw nsw i32 %16, 6
   %34 = mul nuw nsw i32 %19, 192
@@ -48,10 +48,10 @@ define hidden void @aom_horizontal_line_5_4_scale_c(ptr noundef readonly %0, i32
   %36 = add nuw nsw i32 %35, %34
   %37 = lshr i32 %36, 8
   %38 = trunc nuw i32 %37 to i8
-  %39 = getelementptr inbounds i8, ptr %.02122, i64 3
+  %39 = getelementptr inbounds nuw i8, ptr %.02122, i64 3
   store i8 %38, ptr %39, align 1
-  %40 = getelementptr inbounds i8, ptr %.023, i64 5
-  %41 = getelementptr inbounds i8, ptr %.02122, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.023, i64 5
+  %41 = getelementptr inbounds nuw i8, ptr %.02122, i64 4
   %42 = icmp ult ptr %40, %6
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
@@ -62,7 +62,7 @@ define hidden void @aom_horizontal_line_5_4_scale_c(ptr noundef readonly %0, i32
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_vertical_band_5_4_scale_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds i8, ptr %2, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -121,8 +121,8 @@ define hidden void @aom_vertical_band_5_4_scale_c(ptr nocapture noundef readonly
   %52 = trunc nuw i32 %51 to i8
   %53 = getelementptr inbounds i8, ptr %.03031, i64 %19
   store i8 %52, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %.032, i64 1
-  %55 = getelementptr inbounds i8, ptr %.03031, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.032, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.03031, i64 1
   %56 = icmp ult ptr %55, %7
   br i1 %56, label %20, label %._crit_edge, !llvm.loop !6
 
@@ -133,7 +133,7 @@ define hidden void @aom_vertical_band_5_4_scale_c(ptr nocapture noundef readonly
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_horizontal_line_5_3_scale_c(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -141,16 +141,16 @@ define hidden void @aom_horizontal_line_5_3_scale_c(ptr noundef readonly %0, i32
   %.020 = phi ptr [ %34, %.lr.ph ], [ %0, %4 ]
   %.01819 = phi ptr [ %35, %.lr.ph ], [ %2, %4 ]
   %7 = load i8, ptr %.020, align 1
-  %8 = getelementptr inbounds i8, ptr %.020, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.020, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %.020, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.020, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %.020, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %.020, i64 3
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %.020, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.020, i64 4
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   store i8 %7, ptr %.01819, align 1
@@ -160,7 +160,7 @@ define hidden void @aom_horizontal_line_5_3_scale_c(ptr noundef readonly %0, i32
   %23 = add nuw nsw i32 %22, %21
   %24 = lshr i32 %23, 8
   %25 = trunc nuw i32 %24 to i8
-  %26 = getelementptr inbounds i8, ptr %.01819, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.01819, i64 1
   store i8 %25, ptr %26, align 1
   %27 = mul nuw nsw i32 %16, 171
   %28 = mul nuw nsw i32 %19, 85
@@ -168,10 +168,10 @@ define hidden void @aom_horizontal_line_5_3_scale_c(ptr noundef readonly %0, i32
   %30 = add nuw nsw i32 %29, %28
   %31 = lshr i32 %30, 8
   %32 = trunc nuw i32 %31 to i8
-  %33 = getelementptr inbounds i8, ptr %.01819, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.01819, i64 2
   store i8 %32, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %.020, i64 5
-  %35 = getelementptr inbounds i8, ptr %.01819, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %.020, i64 5
+  %35 = getelementptr inbounds nuw i8, ptr %.01819, i64 3
   %36 = icmp ult ptr %34, %6
   br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
@@ -182,7 +182,7 @@ define hidden void @aom_horizontal_line_5_3_scale_c(ptr noundef readonly %0, i32
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_vertical_band_5_3_scale_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds i8, ptr %2, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -232,8 +232,8 @@ define hidden void @aom_vertical_band_5_3_scale_c(ptr nocapture noundef readonly
   %44 = trunc nuw i32 %43 to i8
   %45 = getelementptr inbounds i8, ptr %.02627, i64 %17
   store i8 %44, ptr %45, align 1
-  %46 = getelementptr inbounds i8, ptr %.028, i64 1
-  %47 = getelementptr inbounds i8, ptr %.02627, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.028, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.02627, i64 1
   %48 = icmp ult ptr %47, %7
   br i1 %48, label %18, label %._crit_edge, !llvm.loop !8
 
@@ -244,7 +244,7 @@ define hidden void @aom_vertical_band_5_3_scale_c(ptr nocapture noundef readonly
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_horizontal_line_2_1_scale_c(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -253,8 +253,8 @@ define hidden void @aom_horizontal_line_2_1_scale_c(ptr noundef readonly %0, i32
   %.078 = phi ptr [ %9, %.lr.ph ], [ %2, %4 ]
   %7 = load i8, ptr %.09, align 1
   store i8 %7, ptr %.078, align 1
-  %8 = getelementptr inbounds i8, ptr %.09, i64 2
-  %9 = getelementptr inbounds i8, ptr %.078, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.09, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %.078, i64 1
   %10 = icmp ult ptr %8, %6
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
@@ -275,7 +275,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_vertical_band_2_1_scale_i_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds i8, ptr %2, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -304,8 +304,8 @@ define hidden void @aom_vertical_band_2_1_scale_i_c(ptr nocapture noundef readon
   %23 = lshr i16 %22, 4
   %24 = trunc nuw i16 %23 to i8
   store i8 %24, ptr %.01415, align 1
-  %25 = getelementptr inbounds i8, ptr %.016, i64 1
-  %26 = getelementptr inbounds i8, ptr %.01415, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.016, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.01415, i64 1
   %27 = icmp ult ptr %26, %7
   br i1 %27, label %11, label %._crit_edge, !llvm.loop !10
 

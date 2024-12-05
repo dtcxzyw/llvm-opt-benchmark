@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @have_free_buffer() local_unnamed_addr #0 {
   %1 = load ptr, ptr @StrategyControl, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, -1
   ret i1 %4
@@ -53,15 +53,15 @@ define dso_local ptr @StrategyGetBuffer(ptr noundef %0, ptr nocapture noundef wr
   br i1 %.not, label %GetBufferFromRing.exit.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %.not.i = icmp slt i32 %7, %9
   %spec.store.select.i = select i1 %.not.i, i32 %7, i32 0
   store i32 %spec.store.select.i, ptr %5, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = sext i32 %spec.store.select.i to i64
   %12 = getelementptr [0 x i32], ptr %10, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
@@ -80,7 +80,7 @@ define dso_local ptr @StrategyGetBuffer(ptr noundef %0, ptr nocapture noundef wr
 
 22:                                               ; preds = %15
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !5
-  %23 = getelementptr inbounds i8, ptr %19, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %24 = and i32 %20, -4194305
   store volatile i32 %24, ptr %23, align 4
   br label %GetBufferFromRing.exit.thread
@@ -96,7 +96,7 @@ GetBufferFromRing.exit:                           ; preds = %15
 
 GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferFromRing.exit, %3
   %26 = load ptr, ptr @StrategyControl, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load volatile i32, ptr %27, align 4
   %.not46 = icmp eq i32 %28, -1
   br i1 %.not46, label %34, label %29
@@ -113,10 +113,10 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
 
 34:                                               ; preds = %29, %GetBufferFromRing.exit.thread
   %35 = phi ptr [ %.pre, %29 ], [ %26, %GetBufferFromRing.exit.thread ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %37 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %36, i32 1, ptr nonnull elementtype(i32) %36) #8, !srcloc !6
   %38 = load ptr, ptr @StrategyControl, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, -1
   br i1 %41, label %.preheader, label %76
@@ -134,7 +134,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
 
 47:                                               ; preds = %.preheader, %44
   %48 = load ptr, ptr @StrategyControl, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %54
@@ -149,7 +149,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %55 = load ptr, ptr @BufferDescriptors, align 8
   %56 = zext nneg i32 %50 to i64
   %57 = getelementptr %union.BufferDescPadded, ptr %55, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %59 = load i32, ptr %58, align 4
   store i32 %59, ptr %49, align 4
   store i32 -2, ptr %58, align 4
@@ -168,8 +168,8 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %65 = getelementptr i8, ptr %57, i64 20
   %.val = load i32, ptr %65, align 4
   %66 = add i32 %.val, 1
-  %67 = getelementptr inbounds i8, ptr %0, i64 12
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr [0 x i32], ptr %67, i64 0, i64 %70
@@ -182,7 +182,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
 
 73:                                               ; preds = %54
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !5
-  %74 = getelementptr inbounds i8, ptr %57, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %75 = and i32 %61, -4194305
   store volatile i32 %75, ptr %74, align 4
   %.pre65 = load ptr, ptr @StrategyControl, align 8
@@ -196,7 +196,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
 79:                                               ; preds = %138, %76
   %80 = phi ptr [ %77, %76 ], [ %.pre66, %138 ]
   %.037 = phi i32 [ %78, %76 ], [ %.1, %138 ]
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %81, i32 1, ptr nonnull elementtype(i32) %81) #8, !srcloc !6
   %83 = load i32, ptr @NBuffers, align 4
   %.not.i51 = icmp ult i32 %82, %83
@@ -235,7 +235,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %97 = load i32, ptr @NBuffers, align 4
   %98 = urem i32 %.0.i52, %97
   %99 = load ptr, ptr @StrategyControl, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %100, i32 %.0.i52, i32 %98, ptr nonnull elementtype(i32) %100) #8, !srcloc !11
   %102 = extractvalue { i32, i8 } %101, 1
   %.not18.i = icmp eq i8 %102, 0
@@ -243,7 +243,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
 
 103:                                              ; preds = %96
   %104 = load ptr, ptr @StrategyControl, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, 1
   store i32 %107, ptr %105, align 4
@@ -279,8 +279,8 @@ ClockSweepTick.exit:                              ; preds = %79, %84, %103
   %122 = getelementptr i8, ptr %111, i64 20
   %.val50 = load i32, ptr %122, align 4
   %123 = add i32 %.val50, 1
-  %124 = getelementptr inbounds i8, ptr %0, i64 12
-  %125 = getelementptr inbounds i8, ptr %0, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %126 = load i32, ptr %125, align 4
   %127 = sext i32 %126 to i64
   %128 = getelementptr [0 x i32], ptr %124, i64 0, i64 %127
@@ -298,7 +298,7 @@ ClockSweepTick.exit:                              ; preds = %79, %84, %103
 
 133:                                              ; preds = %130
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !5
-  %134 = getelementptr inbounds i8, ptr %111, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %135 = and i32 %112, -4194305
   store volatile i32 %135, ptr %134, align 4
   %136 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -311,7 +311,7 @@ ClockSweepTick.exit:                              ; preds = %79, %84, %103
   %.1 = phi i32 [ %119, %117 ], [ %131, %130 ]
   %.0 = phi i32 [ %118, %117 ], [ %112, %130 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !5
-  %139 = getelementptr inbounds i8, ptr %111, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %140 = and i32 %.0, -4194305
   store volatile i32 %140, ptr %139, align 4
   %.pre66 = load ptr, ptr @StrategyControl, align 8
@@ -348,23 +348,23 @@ define dso_local void @StrategyFreeBuffer(ptr nocapture noundef %0) local_unname
   br label %7
 
 7:                                                ; preds = %1, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, -2
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @StrategyControl, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %8, align 4
   %15 = icmp slt i32 %14, 0
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   br i1 %15, label %18, label %._crit_edge
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %12, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %17, ptr %19, align 4
   br label %._crit_edge
 
@@ -393,14 +393,14 @@ define dso_local range(i32 0, -1) i32 @StrategySyncStart(ptr noundef writeonly %
 
 8:                                                ; preds = %2, %5
   %9 = load ptr, ptr @StrategyControl, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load volatile i32, ptr %10, align 4
   %12 = load i32, ptr @NBuffers, align 4
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %19, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %0, align 4
   %16 = load i32, ptr @NBuffers, align 4
@@ -414,7 +414,7 @@ define dso_local range(i32 0, -1) i32 @StrategySyncStart(ptr noundef writeonly %
   br i1 %.not9, label %23, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %9, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %22 = atomicrmw volatile xchg ptr %21, i32 0 seq_cst, align 4
   store i32 %22, ptr %1, align 4
   br label %23
@@ -441,7 +441,7 @@ define dso_local void @StrategyNotifyBgWriter(i32 noundef %0) local_unnamed_addr
 
 7:                                                ; preds = %1, %4
   %8 = load ptr, ptr @StrategyControl, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %0, ptr %9, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
   %10 = load ptr, ptr @StrategyControl, align 8
@@ -479,19 +479,19 @@ define dso_local void @StrategyInitialize(i1 noundef zeroext %0) local_unnamed_a
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !15
   %9 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %10, align 4
   %11 = load i32, ptr @NBuffers, align 4
   %12 = add i32 %11, -1
-  %13 = getelementptr inbounds i8, ptr %9, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store volatile i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %9, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store volatile i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %9, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 -1, ptr %17, align 4
   br label %18
 
@@ -532,7 +532,7 @@ GetAccessStrategyWithSize.exit:                   ; preds = %1, %1, %2
   %10 = add nsw i64 %9, 12
   %11 = tail call ptr @palloc0(i64 noundef %10) #8
   store i32 %0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %..i, ptr %12, align 4
   br label %13
 
@@ -557,7 +557,7 @@ define dso_local noundef ptr @GetAccessStrategyWithSize(i32 noundef %0, i32 noun
   %10 = add nsw i64 %9, 12
   %11 = tail call ptr @palloc0(i64 noundef %10) #8
   store i32 %0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %., ptr %12, align 4
   br label %13
 
@@ -574,7 +574,7 @@ define dso_local i32 @GetAccessStrategyBufferCount(ptr noundef readonly %0) loca
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   br label %6
 
@@ -619,7 +619,7 @@ define dso_local range(i32 0, 4) i32 @IOContextForStrategy(ptr noundef readonly 
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.IOContextForStrategy, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.IOContextForStrategy, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 
@@ -636,8 +636,8 @@ define dso_local noundef zeroext i1 @StrategyRejectBuffer(ptr nocapture noundef 
   br i1 %brmerge.not, label %5, label %15
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr [0 x i32], ptr %6, i64 0, i64 %9

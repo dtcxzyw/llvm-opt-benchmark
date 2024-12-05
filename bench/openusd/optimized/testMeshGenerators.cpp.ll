@@ -310,7 +310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   store ptr %59, ptr %15, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %16, align 8
-  %61 = getelementptr inbounds i8, ptr %16, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %15, ptr %62, align 8
@@ -358,7 +358,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__28GeomUtilCapsuleMeshGenerator14GeneratePoi
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   store ptr %72, ptr %13, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %14, align 8
-  %74 = getelementptr inbounds i8, ptr %14, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %13, ptr %75, align 8
@@ -469,7 +469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit85: ; 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   store ptr %114, ptr %11, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %12, align 8
-  %116 = getelementptr inbounds i8, ptr %12, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %11, ptr %117, align 8
@@ -573,7 +573,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit98: ; 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   store ptr %152, ptr %9, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %10, align 8
-  %154 = getelementptr inbounds i8, ptr %10, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %9, ptr %155, align 8
@@ -684,7 +684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit111: ;
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store ptr %195, ptr %7, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %8, align 8
-  %197 = getelementptr inbounds i8, ptr %8, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %198, align 8
@@ -801,7 +801,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__29GeomUtilCylinderMeshGenerator14GeneratePo
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %227, ptr %5, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %6, align 8
-  %229 = getelementptr inbounds i8, ptr %6, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %229, align 8
   %230 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %230, align 8
@@ -910,7 +910,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit125: ;
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store ptr %267, ptr %3, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %4, align 8
-  %269 = getelementptr inbounds i8, ptr %4, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %269, align 8
   %270 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %270, align 8
@@ -1311,7 +1311,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__25Geom
   %5 = load ptr, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store ptr %7, ptr %4, align 8
   ret void
 }

@@ -19,7 +19,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @do_sigver_init(ptr noundef %ctx, ptr noundef writeonly %pctx, ptr noundef %type, ptr noundef %e, ptr noundef %pkey, i32 noundef range(i32 0, 2) %is_verify) unnamed_addr #0 {
 entry:
-  %pctx1 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %pctx1 = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pctx1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end, label %if.end6
@@ -32,7 +32,7 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %entry, %if.end
   %1 = phi ptr [ %call, %if.end ], [ %0, %entry ]
-  %pctx_ops = getelementptr inbounds i8, ptr %ctx, i64 24
+  %pctx_ops = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store ptr @md_pctx_ops, ptr %pctx_ops, align 8
   %cmp7 = icmp eq ptr %type, null
   br i1 %cmp7, label %if.then8, label %if.end9
@@ -125,7 +125,7 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %tobool3.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %pctx = getelementptr inbounds i8, ptr %ctx, i64 16
+  %pctx = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pctx, align 8
   %1 = load i32, ptr %mdlen, align 4
   %conv = zext i32 %1 to i64
@@ -142,7 +142,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 if.else:                                          ; preds = %entry
   %3 = load ptr, ptr %ctx, align 8
   %call8 = tail call i64 @EVP_MD_size(ptr noundef %3) #2
-  %pctx9 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %pctx9 = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %4 = load ptr, ptr %pctx9, align 8
   %call10 = tail call i32 @EVP_PKEY_sign(ptr noundef %4, ptr noundef null, ptr noundef %out_sig_len, ptr noundef null, i64 noundef %call8) #2
   br label %return
@@ -181,7 +181,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %pctx = getelementptr inbounds i8, ptr %ctx, i64 16
+  %pctx = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pctx, align 8
   %1 = load i32, ptr %mdlen, align 4
   %conv = zext i32 %1 to i64

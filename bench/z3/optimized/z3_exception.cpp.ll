@@ -82,7 +82,7 @@ entry:
 define hidden noundef zeroext i1 @_ZNK12z3_exception14has_error_codeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %cmp = icmp ne i32 %call, 0
@@ -93,7 +93,7 @@ entry:
 define hidden void @_ZN8z3_errorC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, i32 noundef %error_code) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV8z3_error, i64 16), ptr %this, align 8
-  %m_error_code = getelementptr inbounds i8, ptr %this, i64 8
+  %m_error_code = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %error_code, ptr %m_error_code, align 8
   ret void
 }
@@ -101,7 +101,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull ptr @_ZNK8z3_error3msgEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) unnamed_addr #6 align 2 {
 entry:
-  %m_error_code = getelementptr inbounds i8, ptr %this, i64 8
+  %m_error_code = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_error_code, align 8
   %switch.tableidx = add i32 %0, -101
   %1 = icmp ult i32 %switch.tableidx, 14
@@ -109,7 +109,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [14 x ptr], ptr @switch.table._ZNK8z3_error3msgEv, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZNK8z3_error3msgEv, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -121,7 +121,7 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK8z3_error10error_codeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) unnamed_addr #6 align 2 {
 entry:
-  %m_error_code = getelementptr inbounds i8, ptr %this, i64 8
+  %m_error_code = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_error_code, align 8
   ret i32 %0
 }
@@ -133,14 +133,14 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
-  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %m_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #12
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %out)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @llvm.va_start.p0(ptr nonnull %args)
-  %add.ptr = getelementptr inbounds i8, ptr %out, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 16
   invoke void @_Z14format2ostreamRSoPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %msg, ptr noundef nonnull %args)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -195,7 +195,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK17default_exception3msgEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 {
 entry:
-  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %m_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #12
   ret ptr %call
 }
@@ -222,7 +222,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
-  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %m_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #12
   ret void
 }
@@ -231,7 +231,7 @@ entry:
 define linkonce_odr hidden void @_ZN17default_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
-  %m_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void

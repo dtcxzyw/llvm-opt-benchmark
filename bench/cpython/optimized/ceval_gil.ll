@@ -901,9 +901,9 @@ define hidden void @_PyEval_SetSwitchInterval(i64 noundef %microseconds) local_u
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
+  %interp.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %gil1 = getelementptr inbounds i8, ptr %2, i64 72
+  %gil1 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3 = load ptr, ptr %gil1, align 8
   store i64 %microseconds, ptr %3, align 8
   ret void
@@ -914,9 +914,9 @@ define hidden i64 @_PyEval_GetSwitchInterval() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
+  %interp.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %gil1 = getelementptr inbounds i8, ptr %2, i64 72
+  %gil1 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3 = load ptr, ptr %gil1, align 8
   %4 = load i64, ptr %3, align 8
   ret i64 %4
@@ -930,13 +930,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %gil1 = getelementptr inbounds i8, ptr %0, i64 72
+  %gil1 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %gil1, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %locked.i = getelementptr inbounds i8, ptr %1, i64 16
+  %locked.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load atomic i32, ptr %locked.i acquire, align 4
   %cmp1.i = icmp sgt i32 %2, -1
   %conv.i = zext i1 %cmp1.i to i32
@@ -955,13 +955,13 @@ entry:
   br i1 %cmp.i, label %_PyEval_ThreadsInitialized.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %gil1.i = getelementptr inbounds i8, ptr %0, i64 72
+  %gil1.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %gil1.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %_PyEval_ThreadsInitialized.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %locked.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %locked.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load atomic i32, ptr %locked.i.i acquire, align 4
   %cmp1.i.i = icmp sgt i32 %2, -1
   %conv.i.i = zext i1 %cmp1.i.i to i32
@@ -980,17 +980,17 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
-  %gil1 = getelementptr inbounds i8, ptr %0, i64 72
+  %gil1 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %gil1, align 8
-  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %2 = load ptr, ptr %interp, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   tail call void @PyThread_init_thread() #15
-  %interp2 = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp2 = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %3 = load ptr, ptr %interp2, align 8
-  %_gil = getelementptr inbounds i8, ptr %3, i64 1352
+  %_gil = getelementptr inbounds nuw i8, ptr %3, i64 1352
   tail call fastcc void @create_gil(ptr noundef nonnull %_gil)
   br label %if.end
 
@@ -998,9 +998,9 @@ if.end:                                           ; preds = %if.else, %if.then
   %.sink7 = phi ptr [ %3, %if.else ], [ %2, %if.then ]
   %_gil.sink = phi ptr [ %_gil, %if.else ], [ %1, %if.then ]
   %.sink = phi i32 [ 1, %if.else ], [ 0, %if.then ]
-  %gil1.i4 = getelementptr inbounds i8, ptr %.sink7, i64 72
+  %gil1.i4 = getelementptr inbounds nuw i8, ptr %.sink7, i64 72
   store ptr %_gil.sink, ptr %gil1.i4, align 8
-  %own_gil.i5 = getelementptr inbounds i8, ptr %.sink7, i64 80
+  %own_gil.i5 = getelementptr inbounds nuw i8, ptr %.sink7, i64 80
   store i32 %.sink, ptr %own_gil.i5, align 8
   tail call void @_PyThreadState_Attach(ptr noundef nonnull %tstate) #15
   ret void
@@ -1013,25 +1013,25 @@ declare void @_PyThreadState_Attach(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyEval_FiniGIL(ptr nocapture noundef %interp) local_unnamed_addr #3 {
 entry:
-  %gil1 = getelementptr inbounds i8, ptr %interp, i64 72
+  %gil1 = getelementptr inbounds nuw i8, ptr %interp, i64 72
   %0 = load ptr, ptr %gil1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %own_gil = getelementptr inbounds i8, ptr %interp, i64 80
+  %own_gil = getelementptr inbounds nuw i8, ptr %interp, i64 80
   %1 = load i32, ptr %own_gil, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %return.sink.split, label %gil_created.exit
 
 gil_created.exit:                                 ; preds = %if.else
-  %locked.i = getelementptr inbounds i8, ptr %0, i64 16
+  %locked.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load atomic i32, ptr %locked.i acquire, align 4
   %cmp1.i = icmp slt i32 %2, 0
   br i1 %cmp1.i, label %return, label %if.end9
 
 if.end9:                                          ; preds = %gil_created.exit
-  %cond.i = getelementptr inbounds i8, ptr %0, i64 32
+  %cond.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %call.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond.i) #15
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i6, label %if.then.i
@@ -1041,7 +1041,7 @@ if.then.i:                                        ; preds = %if.end9
   unreachable
 
 if.end.i6:                                        ; preds = %if.end9
-  %mutex.i = getelementptr inbounds i8, ptr %0, i64 80
+  %mutex.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %call1.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex.i) #15
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
@@ -1051,7 +1051,7 @@ if.then3.i:                                       ; preds = %if.end.i6
   unreachable
 
 if.end4.i:                                        ; preds = %if.end.i6
-  %switch_cond.i = getelementptr inbounds i8, ptr %0, i64 120
+  %switch_cond.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %call5.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %switch_cond.i) #15
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.end8.i, label %if.then7.i
@@ -1061,7 +1061,7 @@ if.then7.i:                                       ; preds = %if.end4.i
   unreachable
 
 if.end8.i:                                        ; preds = %if.end4.i
-  %switch_mutex.i = getelementptr inbounds i8, ptr %0, i64 168
+  %switch_mutex.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %call9.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %switch_mutex.i) #15
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %destroy_gil.exit, label %if.then11.i
@@ -1126,24 +1126,24 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %interp2 = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp2 = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %1 = load ptr, ptr %interp2, align 8
-  %gil3 = getelementptr inbounds i8, ptr %1, i64 72
+  %gil3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %2 = load ptr, ptr %gil3, align 8
-  %mutex = getelementptr inbounds i8, ptr %2, i64 80
+  %mutex = getelementptr inbounds nuw i8, ptr %2, i64 80
   %call4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex) #15
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %while.cond.preheader, label %if.then6
 
 while.cond.preheader:                             ; preds = %if.end
-  %locked = getelementptr inbounds i8, ptr %2, i64 16
+  %locked = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load atomic i32, ptr %locked monotonic, align 4
   %tobool9.not53 = icmp eq i32 %3, 0
   br i1 %tobool9.not53, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %switch_number = getelementptr inbounds i8, ptr %2, i64 24
-  %cond12 = getelementptr inbounds i8, ptr %2, i64 32
+  %switch_number = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %cond12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %while.body
 
 if.then6:                                         ; preds = %if.end
@@ -1247,7 +1247,7 @@ if.end41:                                         ; preds = %_Py_atomic_compare_
   br i1 %tobool9.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end41, %while.cond.preheader
-  %switch_mutex = getelementptr inbounds i8, ptr %2, i64 168
+  %switch_mutex = getelementptr inbounds nuw i8, ptr %2, i64 168
   %call42 = call i32 @pthread_mutex_lock(ptr noundef nonnull %switch_mutex) #15
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.end45, label %if.then44
@@ -1258,7 +1258,7 @@ if.then44:                                        ; preds = %while.end
 
 if.end45:                                         ; preds = %while.end
   store atomic i32 1, ptr %locked monotonic, align 4
-  %last_holder = getelementptr inbounds i8, ptr %2, i64 8
+  %last_holder = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load atomic i64, ptr %last_holder monotonic, align 8
   %24 = inttoptr i64 %23 to ptr
   %cmp48.not = icmp eq ptr %tstate, %24
@@ -1267,14 +1267,14 @@ if.end45:                                         ; preds = %while.end
 if.then49:                                        ; preds = %if.end45
   %25 = ptrtoint ptr %tstate to i64
   store atomic i64 %25, ptr %last_holder monotonic, align 8
-  %switch_number51 = getelementptr inbounds i8, ptr %2, i64 24
+  %switch_number51 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %switch_number51, align 8
   %inc = add i64 %26, 1
   store i64 %inc, ptr %switch_number51, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then49, %if.end45
-  %switch_cond = getelementptr inbounds i8, ptr %2, i64 120
+  %switch_cond = getelementptr inbounds nuw i8, ptr %2, i64 120
   %call53 = call i32 @pthread_cond_signal(ptr noundef nonnull %switch_cond) #15
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %if.end56, label %if.then55
@@ -1401,7 +1401,7 @@ _Py_atomic_compare_exchange_uintptr.exit.i11.i:   ; preds = %do.body.preheader.i
   br i1 %52, label %if.end14.i, label %_Py_atomic_compare_exchange_uintptr.exit.i11.i
 
 if.end14.i:                                       ; preds = %_Py_atomic_compare_exchange_uintptr.exit.i11.i, %do.body.preheader.i8.i, %if.then11.i, %if.then8.i, %if.end5.i, %if.end.i
-  %async_exc.i = getelementptr inbounds i8, ptr %tstate, i64 136
+  %async_exc.i = getelementptr inbounds nuw i8, ptr %tstate, i64 136
   %53 = load ptr, ptr %async_exc.i, align 8
   %cmp15.not.i = icmp eq ptr %53, null
   br i1 %cmp15.not.i, label %update_eval_breaker_from_thread.exit, label %if.then16.i
@@ -1445,7 +1445,7 @@ define dso_local void @PyEval_ReleaseLock() local_unnamed_addr #3 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp = getelementptr inbounds i8, ptr %1, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp, align 8
   tail call fastcc void @drop_gil(ptr noundef %2, ptr noundef %1)
   ret void
@@ -1454,9 +1454,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @drop_gil(ptr nocapture noundef readonly %interp, ptr noundef %tstate) unnamed_addr #3 {
 entry:
-  %gil2 = getelementptr inbounds i8, ptr %interp, i64 72
+  %gil2 = getelementptr inbounds nuw i8, ptr %interp, i64 72
   %0 = load ptr, ptr %gil2, align 8
-  %locked = getelementptr inbounds i8, ptr %0, i64 16
+  %locked = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load atomic i64, ptr %locked monotonic, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1470,13 +1470,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %last_holder = getelementptr inbounds i8, ptr %0, i64 8
+  %last_holder = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = ptrtoint ptr %tstate to i64
   store atomic i64 %2, ptr %last_holder monotonic, align 8
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %mutex = getelementptr inbounds i8, ptr %0, i64 80
+  %mutex = getelementptr inbounds nuw i8, ptr %0, i64 80
   %call5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex) #15
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end8, label %if.then7
@@ -1487,7 +1487,7 @@ if.then7:                                         ; preds = %if.end4
 
 if.end8:                                          ; preds = %if.end4
   store atomic i32 0, ptr %locked monotonic, align 4
-  %cond = getelementptr inbounds i8, ptr %0, i64 32
+  %cond = getelementptr inbounds nuw i8, ptr %0, i64 32
   %call10 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond) #15
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end13, label %if.then12
@@ -1515,7 +1515,7 @@ land.lhs.true:                                    ; preds = %if.end18
   br i1 %tobool.i.not, label %if.end42, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true
-  %switch_mutex = getelementptr inbounds i8, ptr %0, i64 168
+  %switch_mutex = getelementptr inbounds nuw i8, ptr %0, i64 168
   %call22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %switch_mutex) #15
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.end25, label %if.then24
@@ -1525,14 +1525,14 @@ if.then24:                                        ; preds = %if.then21
   unreachable
 
 if.end25:                                         ; preds = %if.then21
-  %last_holder26 = getelementptr inbounds i8, ptr %0, i64 8
+  %last_holder26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load atomic i64, ptr %last_holder26 monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
   %cmp28 = icmp eq ptr %tstate, %5
   br i1 %cmp28, label %if.then29, label %if.end36
 
 if.then29:                                        ; preds = %if.end25
-  %interp30 = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp30 = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %6 = load ptr, ptr %interp30, align 8
   %7 = load atomic i64, ptr %6 seq_cst, align 8
   %and.i.i = and i64 %7, 1
@@ -1554,7 +1554,7 @@ _Py_atomic_compare_exchange_uintptr.exit.i.i:     ; preds = %do.body.preheader.i
   br i1 %13, label %RESET_GIL_DROP_REQUEST.exit, label %_Py_atomic_compare_exchange_uintptr.exit.i.i
 
 RESET_GIL_DROP_REQUEST.exit:                      ; preds = %_Py_atomic_compare_exchange_uintptr.exit.i.i, %if.then29, %do.body.preheader.i.i
-  %switch_cond = getelementptr inbounds i8, ptr %0, i64 120
+  %switch_cond = getelementptr inbounds nuw i8, ptr %0, i64 120
   %call32 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %switch_cond, ptr noundef nonnull %switch_mutex) #15
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %if.end36, label %if.then34
@@ -1625,15 +1625,15 @@ declare void @_PyThreadState_Detach(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyEval_ReInitThreads(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 32)) %agg.result, ptr noundef %tstate) local_unnamed_addr #3 {
 entry:
-  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
-  %gil1 = getelementptr inbounds i8, ptr %0, i64 72
+  %gil1 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %gil1, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %return, label %gil_created.exit
 
 gil_created.exit:                                 ; preds = %entry
-  %locked.i = getelementptr inbounds i8, ptr %1, i64 16
+  %locked.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load atomic i32, ptr %locked.i acquire, align 4
   %cmp1.i = icmp slt i32 %2, 0
   br i1 %cmp1.i, label %return, label %if.end
@@ -1642,7 +1642,7 @@ if.end:                                           ; preds = %gil_created.exit
   tail call fastcc void @create_gil(ptr noundef nonnull %1)
   tail call fastcc void @take_gil(ptr noundef nonnull %tstate)
   %3 = load ptr, ptr %interp, align 8
-  %mutex = getelementptr inbounds i8, ptr %3, i64 92
+  %mutex = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i8 0, ptr %mutex, align 1
   tail call void @_PyThreadState_DeleteExcept(ptr noundef nonnull %tstate) #15
   br label %return
@@ -1746,11 +1746,11 @@ if.end:                                           ; preds = %_Py_atomic_compare_
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @_PyEval_AddPendingCall(ptr noundef %interp, ptr noundef %func, ptr noundef %arg, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
-  %pending1 = getelementptr inbounds i8, ptr %interp, i64 88
+  %pending1 = getelementptr inbounds nuw i8, ptr %interp, i64 88
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
   %spec.select = select i1 %tobool.not, ptr %pending1, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2312)
-  %mutex = getelementptr inbounds i8, ptr %spec.select, i64 4
+  %mutex = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
   %0 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
@@ -1760,26 +1760,26 @@ if.then.i:                                        ; preds = %entry
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
-  %last.i = getelementptr inbounds i8, ptr %spec.select, i64 788
+  %last.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 788
   %2 = load i32, ptr %last.i, align 4
   %add.i = add i32 %2, 1
   %rem.i = srem i32 %add.i, 32
-  %first.i = getelementptr inbounds i8, ptr %spec.select, i64 784
+  %first.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 784
   %3 = load i32, ptr %first.i, align 8
   %cmp.i = icmp eq i32 %rem.i, %3
   br i1 %cmp.i, label %_push_pending_call.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %PyMutex_Lock.exit
-  %calls.i = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %calls.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr [32 x %struct._pending_call], ptr %calls.i, i64 0, i64 %idxprom.i
   store ptr %func, ptr %arrayidx.i, align 8
-  %arg5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %arg5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store ptr %arg, ptr %arg5.i, align 8
-  %flags9.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %flags9.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   store i32 %flags, ptr %flags9.i, align 8
   store i32 %rem.i, ptr %last.i, align 4
-  %calls_to_do.i = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %calls_to_do.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %4 = load i32, ptr %calls_to_do.i, align 8
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %calls_to_do.i, align 8
@@ -1843,9 +1843,9 @@ if.end.i.i:                                       ; preds = %PyMutex_Lock.exit.i
   %idxprom.i.i = sext i32 %3 to i64
   %arrayidx.i.i = getelementptr [32 x %struct._pending_call], ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2328), i64 0, i64 %idxprom.i.i
   store ptr %func, ptr %arrayidx.i.i, align 8
-  %arg5.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %arg5.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   store ptr %arg, ptr %arg5.i.i, align 8
-  %flags9.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
+  %flags9.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   store i32 1, ptr %flags9.i.i, align 8
   store i32 %rem.i.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3100), align 4
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2320), align 8
@@ -1890,7 +1890,7 @@ _PyEval_AddPendingCall.exit:                      ; preds = %_Py_atomic_compare_
 ; Function Attrs: nounwind uwtable
 define hidden void @_Py_FinishPendingCalls(ptr noundef %tstate) local_unnamed_addr #3 {
 entry:
-  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %call = tail call fastcc i32 @make_pending_calls(ptr noundef %0)
   %cmp = icmp slt i32 %call, 0
@@ -1910,8 +1910,8 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @make_pending_calls(ptr noundef %interp) unnamed_addr #3 {
 entry:
-  %pending1 = getelementptr inbounds i8, ptr %interp, i64 88
-  %mutex = getelementptr inbounds i8, ptr %interp, i64 92
+  %pending1 = getelementptr inbounds nuw i8, ptr %interp, i64 88
+  %mutex = getelementptr inbounds nuw i8, ptr %interp, i64 92
   %0 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
@@ -2051,7 +2051,7 @@ entry:
   br i1 %cmp.i.not, label %land.lhs.true, label %if.end5
 
 land.lhs.true:                                    ; preds = %entry
-  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %1 = load ptr, ptr %interp, align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i6.not = icmp eq ptr %1, %2
@@ -2114,7 +2114,7 @@ _Py_atomic_compare_exchange_uintptr.exit.i8.i:    ; preds = %do.body.preheader.i
   br i1 %20, label %return, label %_Py_atomic_compare_exchange_uintptr.exit.i8.i
 
 if.end5:                                          ; preds = %if.end.i, %_Py_set_eval_breaker_bit.exit.i, %land.lhs.true, %entry
-  %interp6 = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp6 = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %21 = load ptr, ptr %interp6, align 8
   %call7 = tail call fastcc i32 @make_pending_calls(ptr noundef %21)
   %cmp8.not = icmp ne i32 %call7, 0
@@ -2137,7 +2137,7 @@ entry:
   br i1 %cmp.i.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %interp = getelementptr inbounds i8, ptr %1, i64 16
+  %interp = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load ptr, ptr %interp, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i2.not = icmp eq ptr %3, %4
@@ -2155,8 +2155,8 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_PyEval_InitState(ptr nocapture noundef writeonly initializes((1352, 1360), (1368, 1372)) %interp) local_unnamed_addr #8 {
 entry:
-  %_gil = getelementptr inbounds i8, ptr %interp, i64 1352
-  %locked.i = getelementptr inbounds i8, ptr %interp, i64 1368
+  %_gil = getelementptr inbounds nuw i8, ptr %interp, i64 1352
+  %locked.i = getelementptr inbounds nuw i8, ptr %interp, i64 1368
   store i32 -1, ptr %locked.i, align 8
   store i64 5000, ptr %_gil, align 8
   ret void
@@ -2165,7 +2165,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @_Py_HandlePending(ptr noundef %tstate) local_unnamed_addr #3 {
 entry:
-  %interp1 = getelementptr inbounds i8, ptr %tstate, i64 16
+  %interp1 = getelementptr inbounds nuw i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp1, align 8
   %1 = load atomic i64, ptr %0 monotonic, align 8
   %and.i = and i64 %1, 2
@@ -2307,7 +2307,7 @@ _Py_atomic_compare_exchange_uintptr.exit.i35:     ; preds = %do.body.preheader.i
   br i1 %37, label %_Py_set_eval_breaker_bit.exit37, label %_Py_atomic_compare_exchange_uintptr.exit.i35
 
 _Py_set_eval_breaker_bit.exit37:                  ; preds = %_Py_atomic_compare_exchange_uintptr.exit.i35, %if.then19, %do.body.preheader.i33
-  %async_exc = getelementptr inbounds i8, ptr %tstate, i64 136
+  %async_exc = getelementptr inbounds nuw i8, ptr %tstate, i64 136
   %38 = load ptr, ptr %async_exc, align 8
   %cmp20.not = icmp eq ptr %38, null
   br i1 %cmp20.not, label %return, label %if.then21
@@ -2342,7 +2342,7 @@ declare void @_PyErr_SetNone(ptr noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @create_gil(ptr noundef %gil) unnamed_addr #3 {
 entry:
-  %mutex = getelementptr inbounds i8, ptr %gil, i64 80
+  %mutex = getelementptr inbounds nuw i8, ptr %gil, i64 80
   %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mutex, ptr noundef null) #15
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2352,7 +2352,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %switch_mutex = getelementptr inbounds i8, ptr %gil, i64 168
+  %switch_mutex = getelementptr inbounds nuw i8, ptr %gil, i64 168
   %call1 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %switch_mutex, ptr noundef null) #15
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
@@ -2362,7 +2362,7 @@ if.then3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %cond = getelementptr inbounds i8, ptr %gil, i64 32
+  %cond = getelementptr inbounds nuw i8, ptr %gil, i64 32
   %call5 = tail call i32 @_PyThread_cond_init(ptr noundef nonnull %cond) #15
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end8, label %if.then7
@@ -2372,7 +2372,7 @@ if.then7:                                         ; preds = %if.end4
   unreachable
 
 if.end8:                                          ; preds = %if.end4
-  %switch_cond = getelementptr inbounds i8, ptr %gil, i64 120
+  %switch_cond = getelementptr inbounds nuw i8, ptr %gil, i64 120
   %call9 = tail call i32 @_PyThread_cond_init(ptr noundef nonnull %switch_cond) #15
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.end12, label %if.then11
@@ -2382,9 +2382,9 @@ if.then11:                                        ; preds = %if.end8
   unreachable
 
 if.end12:                                         ; preds = %if.end8
-  %last_holder = getelementptr inbounds i8, ptr %gil, i64 8
+  %last_holder = getelementptr inbounds nuw i8, ptr %gil, i64 8
   store atomic i64 0, ptr %last_holder monotonic, align 8
-  %locked = getelementptr inbounds i8, ptr %gil, i64 16
+  %locked = getelementptr inbounds nuw i8, ptr %gil, i64 16
   store atomic i32 0, ptr %locked release, align 4
   ret void
 }
@@ -2436,11 +2436,11 @@ declare void @_PyMutex_UnlockSlow(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @_make_pending_calls(ptr noundef %pending) unnamed_addr #3 {
 entry:
-  %mutex = getelementptr inbounds i8, ptr %pending, i64 4
-  %first.i.i = getelementptr inbounds i8, ptr %pending, i64 784
-  %last.i.i = getelementptr inbounds i8, ptr %pending, i64 788
-  %calls.i.i = getelementptr inbounds i8, ptr %pending, i64 16
-  %calls_to_do.i = getelementptr inbounds i8, ptr %pending, i64 8
+  %mutex = getelementptr inbounds nuw i8, ptr %pending, i64 4
+  %first.i.i = getelementptr inbounds nuw i8, ptr %pending, i64 784
+  %last.i.i = getelementptr inbounds nuw i8, ptr %pending, i64 788
+  %calls.i.i = getelementptr inbounds nuw i8, ptr %pending, i64 16
+  %calls_to_do.i = getelementptr inbounds nuw i8, ptr %pending, i64 8
   br label %for.body
 
 for.cond:                                         ; preds = %if.end5
@@ -2468,9 +2468,9 @@ _next_pending_call.exit.i:                        ; preds = %PyMutex_Lock.exit
   %idxprom.i.i = sext i32 %2 to i64
   %arrayidx.i.i = getelementptr [32 x %struct._pending_call], ptr %calls.i.i, i64 0, i64 %idxprom.i.i
   %4 = load ptr, ptr %arrayidx.i.i, align 8
-  %arg5.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %arg5.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %5 = load ptr, ptr %arg5.i.i, align 8
-  %flags9.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
+  %flags9.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %6 = load i32, ptr %flags9.i.i, align 8
   %cmp.i = icmp sgt i32 %2, -1
   br i1 %cmp.i, label %if.then.i5, label %_pop_pending_call.exit

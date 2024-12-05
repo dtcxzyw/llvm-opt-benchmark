@@ -255,8 +255,8 @@ _ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread31: ; preds = %16, %_ZN11Strin
   %35 = getelementptr inbounds i8, ptr %.021.i35, i64 %34
   %36 = icmp ne ptr %strchr, null
   %37 = zext i1 %36 to i64
-  %38 = add i64 %34, %37
-  %39 = getelementptr inbounds i8, ptr %.02145, i64 %38
+  %38 = getelementptr i8, ptr %.02145, i64 %34
+  %39 = getelementptr i8, ptr %38, i64 %37
   %char0 = load i8, ptr %39, align 1
   %.not = icmp eq i8 %char0, 0
   br i1 %.not, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.lr.ph, !llvm.loop !12
@@ -273,7 +273,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringUtils28CommaSeparatedStringIteratorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #11
   ret void
@@ -290,7 +290,7 @@ define hidden noundef ptr @_ZN11StringUtils28CommaSeparatedStringIterator12canon
 
 6:                                                ; preds = %10, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %2 ]
-  %7 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %9 [
     i8 0, label %12
@@ -303,13 +303,13 @@ define hidden noundef ptr @_ZN11StringUtils28CommaSeparatedStringIterator12canon
 
 10:                                               ; preds = %6, %6, %9
   %.sink = phi i8 [ %8, %9 ], [ 44, %6 ], [ 44, %6 ]
-  %11 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %.sink, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %6, !llvm.loop !13
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 0, ptr %13, align 1
   ret ptr %5
 }

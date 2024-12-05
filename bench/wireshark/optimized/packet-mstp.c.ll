@@ -100,7 +100,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dissect_mstp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.1) #4
   %8 = load ptr, ptr %6, align 8
@@ -182,7 +182,7 @@ define hidden void @dissect_mstp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond, label %64, label %162
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %1, i64 408
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %66 = load ptr, ptr %65, align 8
   %67 = zext i16 %11 to i32
   %68 = add nuw nsw i32 %67, 2
@@ -572,41 +572,41 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mstp_wtap(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %6 = load i32, ptr @mstp_address_type, align 4
   %7 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 3, i32 noundef 1) #4
   store i32 %6, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 140
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store i32 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 232
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 236
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 240
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %16 = load i32, ptr @mstp_address_type, align 4
   %17 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 4, i32 noundef 1) #4
   store i32 %16, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 116
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %17, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 %16, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 212
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 216
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %17, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 224
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %24, align 8
   %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #4
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #4
@@ -638,7 +638,7 @@ define internal noundef i32 @mstp_to_str(ptr nocapture noundef readonly %0, ptr 
   store i8 48, ptr %1, align 1
   %5 = getelementptr i8, ptr %1, i64 2
   store i8 120, ptr %4, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @bytes_to_hexstr(ptr noundef %5, ptr noundef %7, i64 noundef 1) #4
   store i8 0, ptr %8, align 1

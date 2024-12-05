@@ -14,11 +14,11 @@ define dso_local i32 @mls_compute_context_len(ptr nocapture noundef readonly %0,
   br i1 %4, label %.thread9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = getelementptr i8, ptr %0, i64 248
   %8 = getelementptr i8, ptr %0, i64 256
   %9 = getelementptr i8, ptr %1, i64 40
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = getelementptr i8, ptr %1, i64 48
   br label %12
 
@@ -36,15 +36,15 @@ define dso_local i32 @mls_compute_context_len(ptr nocapture noundef readonly %0,
   %23 = tail call i64 @strlen(ptr noundef %22) #10
   %24 = trunc i64 %23 to i32
   %25 = add i32 %15, %24
-  %26 = getelementptr inbounds i8, ptr %16, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %.preheader11
 
 .preheader11:                                     ; preds = %12, %34
   %29 = phi ptr [ %35, %34 ], [ %27, %12 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  %31 = tail call i64 @_find_first_bit(ptr noundef %30, i64 noundef 384) #10
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = tail call i64 @_find_first_bit(ptr noundef nonnull %30, i64 noundef 384) #10
   %32 = and i64 %31, 4294967168
   %33 = icmp samesign ult i64 %32, 384
   br i1 %33, label %37, label %34
@@ -56,12 +56,12 @@ define dso_local i32 @mls_compute_context_len(ptr nocapture noundef readonly %0,
 
 37:                                               ; preds = %.preheader11
   %38 = trunc i64 %31 to i32
-  %39 = getelementptr inbounds i8, ptr %29, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %40 = load i32, ptr %39, align 8
   %41 = add i32 %40, %38
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %16, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %42 = getelementptr inbounds i8, ptr %16, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %43 = icmp ult i32 %41, %.pre
   br i1 %43, label %.preheader10, label %.thread
 
@@ -104,13 +104,13 @@ define dso_local i32 @mls_compute_context_len(ptr nocapture noundef readonly %0,
 70:                                               ; preds = %61, %.preheader10
   %71 = phi i32 [ %69, %61 ], [ %46, %.preheader10 ]
   %72 = phi i32 [ %47, %61 ], [ %45, %.preheader10 ]
-  %73 = getelementptr inbounds i8, ptr %48, i64 8
-  %74 = getelementptr inbounds i8, ptr %48, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %75 = load i32, ptr %74, align 8
   %76 = add nuw i32 %47, 1
   %77 = sub i32 %76, %75
   %78 = zext i32 %77 to i64
-  %79 = tail call i64 @_find_next_bit(ptr noundef %73, i64 noundef 384, i64 noundef %78) #10
+  %79 = tail call i64 @_find_next_bit(ptr noundef nonnull %73, i64 noundef 384, i64 noundef %78) #10
   %80 = and i64 %79, 4294967168
   %81 = icmp samesign ult i64 %80, 384
   br i1 %81, label %82, label %.preheader
@@ -128,15 +128,15 @@ define dso_local i32 @mls_compute_context_len(ptr nocapture noundef readonly %0,
   br i1 %88, label %99, label %89
 
 89:                                               ; preds = %.preheader
-  %90 = getelementptr inbounds i8, ptr %87, i64 8
-  %91 = tail call i64 @_find_first_bit(ptr noundef %90, i64 noundef 384) #10
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %91 = tail call i64 @_find_first_bit(ptr noundef nonnull %90, i64 noundef 384) #10
   %92 = and i64 %91, 4294967168
   %93 = icmp samesign ult i64 %92, 384
   br i1 %93, label %94, label %.preheader, !llvm.loop !8
 
 94:                                               ; preds = %89
   %95 = trunc i64 %91 to i32
-  %96 = getelementptr inbounds i8, ptr %87, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %97 = load i32, ptr %96, align 8
   %98 = add i32 %97, %95
   br label %101
@@ -178,7 +178,7 @@ define dso_local i32 @mls_compute_context_len(ptr nocapture noundef readonly %0,
   br i1 %121, label %122, label %126
 
 122:                                              ; preds = %118
-  %123 = tail call i32 @ebitmap_cmp(ptr noundef %10, ptr noundef %11) #10
+  %123 = tail call i32 @ebitmap_cmp(ptr noundef nonnull %10, ptr noundef %11) #10
   %124 = icmp ne i32 %123, 0
   %125 = zext i1 %124 to i32
   br label %126
@@ -213,11 +213,11 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8
   store i8 58, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = getelementptr i8, ptr %0, i64 248
   %10 = getelementptr i8, ptr %0, i64 256
   %11 = getelementptr i8, ptr %1, i64 40
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = getelementptr i8, ptr %1, i64 48
   br label %14
 
@@ -236,15 +236,15 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %25 = tail call ptr @strcpy(ptr noundef %17, ptr noundef %24) #10
   %26 = tail call i64 @strlen(ptr noundef %17) #10
   %27 = getelementptr i8, ptr %17, i64 %26
-  %28 = getelementptr inbounds i8, ptr %18, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread, label %.preheader13
 
 .preheader13:                                     ; preds = %14, %36
   %31 = phi ptr [ %37, %36 ], [ %29, %14 ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = tail call i64 @_find_first_bit(ptr noundef %32, i64 noundef 384) #10
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = tail call i64 @_find_first_bit(ptr noundef nonnull %32, i64 noundef 384) #10
   %34 = and i64 %33, 4294967168
   %35 = icmp samesign ult i64 %34, 384
   br i1 %35, label %39, label %36
@@ -256,12 +256,12 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
 
 39:                                               ; preds = %.preheader13
   %40 = trunc i64 %33 to i32
-  %41 = getelementptr inbounds i8, ptr %31, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, %40
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %18, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %44 = getelementptr inbounds i8, ptr %18, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %45 = icmp ult i32 %43, %.pre
   br i1 %45, label %.preheader12, label %.thread
 
@@ -312,13 +312,13 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
 79:                                               ; preds = %67, %.preheader12
   %80 = phi ptr [ %78, %67 ], [ %49, %.preheader12 ]
   %81 = phi i32 [ %48, %67 ], [ %47, %.preheader12 ]
-  %82 = getelementptr inbounds i8, ptr %50, i64 8
-  %83 = getelementptr inbounds i8, ptr %50, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %84 = load i32, ptr %83, align 8
   %85 = add nuw i32 %48, 1
   %86 = sub i32 %85, %84
   %87 = zext i32 %86 to i64
-  %88 = tail call i64 @_find_next_bit(ptr noundef %82, i64 noundef 384, i64 noundef %87) #10
+  %88 = tail call i64 @_find_next_bit(ptr noundef nonnull %82, i64 noundef 384, i64 noundef %87) #10
   %89 = and i64 %88, 4294967168
   %90 = icmp samesign ult i64 %89, 384
   br i1 %90, label %91, label %.preheader
@@ -336,15 +336,15 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   br i1 %97, label %108, label %98
 
 98:                                               ; preds = %.preheader
-  %99 = getelementptr inbounds i8, ptr %96, i64 8
-  %100 = tail call i64 @_find_first_bit(ptr noundef %99, i64 noundef 384) #10
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %100 = tail call i64 @_find_first_bit(ptr noundef nonnull %99, i64 noundef 384) #10
   %101 = and i64 %100, 4294967168
   %102 = icmp samesign ult i64 %101, 384
   br i1 %102, label %103, label %.preheader, !llvm.loop !8
 
 103:                                              ; preds = %98
   %104 = trunc i64 %100 to i32
-  %105 = getelementptr inbounds i8, ptr %96, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %96, i64 56
   %106 = load i32, ptr %105, align 8
   %107 = add i32 %106, %104
   br label %110
@@ -390,7 +390,7 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %130
-  %135 = tail call i32 @ebitmap_cmp(ptr noundef %12, ptr noundef %13) #10
+  %135 = tail call i32 @ebitmap_cmp(ptr noundef nonnull %12, ptr noundef %13) #10
   %.not = icmp eq i32 %135, 0
   br i1 %.not, label %136, label %.thread11
 
@@ -435,11 +435,11 @@ define dso_local i32 @mls_level_isvalid(ptr noundef %0, ptr noundef %1) local_un
 
 19:                                               ; preds = %9
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = getelementptr i8, ptr %0, i64 192
   %24 = load i32, ptr %23, align 8
-  %25 = tail call i32 @ebitmap_contains(ptr noundef %21, ptr noundef %22, i32 noundef %24) #10
+  %25 = tail call i32 @ebitmap_contains(ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef %24) #10
   br label %26
 
 26:                                               ; preds = %19, %9, %5, %2
@@ -479,11 +479,11 @@ define dso_local range(i32 0, 2) i32 @mls_range_isvalid(ptr noundef %0, ptr noun
 
 19:                                               ; preds = %9
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = getelementptr i8, ptr %0, i64 192
   %24 = load i32, ptr %23, align 8
-  %25 = tail call i32 @ebitmap_contains(ptr noundef %21, ptr noundef %22, i32 noundef %24) #10
+  %25 = tail call i32 @ebitmap_contains(ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef %24) #10
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %57, label %27
 
@@ -510,10 +510,10 @@ define dso_local range(i32 0, 2) i32 @mls_range_isvalid(ptr noundef %0, ptr noun
 
 42:                                               ; preds = %34
   %43 = load ptr, ptr %40, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = getelementptr i8, ptr %1, i64 32
   %46 = load i32, ptr %23, align 8
-  %47 = tail call i32 @ebitmap_contains(ptr noundef %44, ptr noundef %45, i32 noundef %46) #10
+  %47 = tail call i32 @ebitmap_contains(ptr noundef nonnull %44, ptr noundef %45, i32 noundef %46) #10
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %57, label %49
 
@@ -524,7 +524,7 @@ define dso_local range(i32 0, 2) i32 @mls_range_isvalid(ptr noundef %0, ptr noun
   br i1 %52, label %57, label %53
 
 53:                                               ; preds = %49
-  %54 = tail call i32 @ebitmap_contains(ptr noundef %45, ptr noundef %22, i32 noundef 0) #10
+  %54 = tail call i32 @ebitmap_contains(ptr noundef %45, ptr noundef nonnull %22, i32 noundef 0) #10
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
   br label %57
@@ -541,13 +541,13 @@ define dso_local range(i32 0, 2) i32 @mls_context_isvalid(ptr noundef %0, ptr no
   br i1 %4, label %48, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = tail call i32 @mls_range_isvalid(ptr noundef %0, ptr noundef %6), !range !13
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = tail call i32 @mls_range_isvalid(ptr noundef %0, ptr noundef nonnull %6), !range !13
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %48, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %48, label %13
@@ -564,22 +564,22 @@ define dso_local range(i32 0, 2) i32 @mls_context_isvalid(ptr noundef %0, ptr no
   br i1 %19, label %48, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 280
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %22 = load ptr, ptr %21, align 8
   %23 = add i32 %14, -1
   %24 = zext i32 %23 to i64
   %25 = getelementptr ptr, ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %6, align 8
   %29 = load i32, ptr %27, align 8
   %30 = icmp ult i32 %28, %29
   br i1 %30, label %48, label %31
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
-  %33 = getelementptr inbounds i8, ptr %26, i64 32
-  %34 = tail call i32 @ebitmap_contains(ptr noundef %32, ptr noundef %33, i32 noundef 0) #10
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %34 = tail call i32 @ebitmap_contains(ptr noundef nonnull %32, ptr noundef nonnull %33, i32 noundef 0) #10
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %48, label %36
 
@@ -631,13 +631,13 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
-  %26 = getelementptr inbounds i8, ptr %19, i64 32
-  %27 = tail call i32 @ebitmap_cpy(ptr noundef %25, ptr noundef %26) #10
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %27 = tail call i32 @ebitmap_cpy(ptr noundef nonnull %25, ptr noundef nonnull %26) #10
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %.loopexit
 
@@ -653,7 +653,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %29
-  tail call void @ebitmap_destroy(ptr noundef %25) #10
+  tail call void @ebitmap_destroy(ptr noundef nonnull %25) #10
   br label %.loopexit
 
 38:                                               ; preds = %14
@@ -669,7 +669,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
 43:                                               ; preds = %41, %38
   %.sroa.5.0 = phi ptr [ null, %38 ], [ %42, %41 ]
   %44 = getelementptr i8, ptr %0, i64 152
-  %45 = getelementptr inbounds i8, ptr %3, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %46 = getelementptr i8, ptr %0, i64 176
   br label %47
 
@@ -705,7 +705,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   br i1 %64, label %.loopexit22, label %65
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %63, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   br label %67
 
 67:                                               ; preds = %.loopexit20, %65
@@ -740,7 +740,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   %84 = load i32, ptr %81, align 4
   %85 = add i32 %84, -1
   %86 = zext i32 %85 to i64
-  %87 = tail call i32 @ebitmap_set_bit(ptr noundef %66, i64 noundef %86, i32 noundef 1) #10
+  %87 = tail call i32 @ebitmap_set_bit(ptr noundef nonnull %66, i64 noundef %86, i32 noundef 1) #10
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %.loopexit
 
@@ -776,7 +776,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
 
 106:                                              ; preds = %101, %99
   %107 = phi i64 [ %100, %99 ], [ %102, %101 ]
-  %108 = tail call i32 @ebitmap_set_bit(ptr noundef %66, i64 noundef %107, i32 noundef 1) #10
+  %108 = tail call i32 @ebitmap_set_bit(ptr noundef nonnull %66, i64 noundef %107, i32 noundef 1) #10
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %101, label %.loopexit
 
@@ -792,8 +792,8 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
   %114 = getelementptr i8, ptr %3, i64 40
   store i32 %113, ptr %114, align 8
   %115 = getelementptr i8, ptr %3, i64 48
-  %116 = getelementptr inbounds i8, ptr %3, i64 24
-  %117 = tail call i32 @ebitmap_cpy(ptr noundef %115, ptr noundef %116) #10
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %117 = tail call i32 @ebitmap_cpy(ptr noundef %115, ptr noundef nonnull %116) #10
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %.loopexit
 
@@ -810,13 +810,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc i32 @mls_context_cpy(ptr noundef initializes((16, 20)) %0, ptr noundef %1) unnamed_addr #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
-  %8 = tail call i32 @ebitmap_cpy(ptr noundef %6, ptr noundef %7) #10
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %8 = tail call i32 @ebitmap_cpy(ptr noundef nonnull %6, ptr noundef nonnull %7) #10
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %19
 
@@ -832,7 +832,7 @@ define internal fastcc i32 @mls_context_cpy(ptr noundef initializes((16, 20)) %0
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %10
-  tail call void @ebitmap_destroy(ptr noundef %6) #10
+  tail call void @ebitmap_destroy(ptr noundef nonnull %6) #10
   br label %19
 
 19:                                               ; preds = %18, %10, %2
@@ -878,7 +878,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @mls_range_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -888,9 +888,9 @@ define dso_local i32 @mls_range_set(ptr noundef %0, ptr noundef %1) local_unname
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr [2 x %struct.mls_level], ptr %3, i64 0, i64 %6
   store i32 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
-  %12 = tail call i32 @ebitmap_cpy(ptr noundef %10, ptr noundef %11) #10
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %12 = tail call i32 @ebitmap_cpy(ptr noundef nonnull %10, ptr noundef nonnull %11) #10
   %13 = icmp eq i32 %12, 0
   %or.cond = and i1 %5, %13
   br i1 %or.cond, label %4, label %14, !llvm.loop !17
@@ -906,12 +906,12 @@ define dso_local noundef range(i32 -22, 1) i32 @mls_setup_user_range(ptr nocaptu
   br i1 %6, label %85, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = getelementptr i8, ptr %1, i64 40
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = getelementptr i8, ptr %2, i64 48
-  %12 = getelementptr inbounds i8, ptr %2, i64 72
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = getelementptr i8, ptr %3, i64 40
   %15 = load i32, ptr %12, align 8
   %16 = load i32, ptr %8, align 8
@@ -919,9 +919,9 @@ define dso_local noundef range(i32 -22, 1) i32 @mls_setup_user_range(ptr nocaptu
   br i1 %17, label %30, label %18
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %2, i64 80
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
-  %21 = tail call i32 @ebitmap_contains(ptr noundef %19, ptr noundef %20, i32 noundef 0) #10
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %21 = tail call i32 @ebitmap_contains(ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef 0) #10
   %22 = icmp eq i32 %21, 0
   %.pre1 = load i32, ptr %12, align 8
   br i1 %22, label %30, label %23
@@ -933,7 +933,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mls_setup_user_range(ptr nocaptu
 
 26:                                               ; preds = %23
   %27 = getelementptr i8, ptr %1, i64 48
-  %28 = tail call i32 @ebitmap_contains(ptr noundef %27, ptr noundef %19, i32 noundef 0) #10
+  %28 = tail call i32 @ebitmap_contains(ptr noundef %27, ptr noundef nonnull %19, i32 noundef 0) #10
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %._crit_edge, label %64
 
@@ -948,9 +948,9 @@ define dso_local noundef range(i32 -22, 1) i32 @mls_setup_user_range(ptr nocaptu
   br i1 %33, label %47, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
-  %36 = getelementptr inbounds i8, ptr %2, i64 80
-  %37 = tail call i32 @ebitmap_contains(ptr noundef %35, ptr noundef %36, i32 noundef 0) #10
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %37 = tail call i32 @ebitmap_contains(ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef 0) #10
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %47, label %39
 
@@ -962,7 +962,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mls_setup_user_range(ptr nocaptu
 
 43:                                               ; preds = %39
   %44 = getelementptr i8, ptr %2, i64 56
-  %45 = tail call i32 @ebitmap_contains(ptr noundef %44, ptr noundef %35, i32 noundef 0) #10
+  %45 = tail call i32 @ebitmap_contains(ptr noundef %44, ptr noundef nonnull %35, i32 noundef 0) #10
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %64
 
@@ -974,8 +974,8 @@ define dso_local noundef range(i32 -22, 1) i32 @mls_setup_user_range(ptr nocaptu
 
 51:                                               ; preds = %47
   %52 = getelementptr i8, ptr %1, i64 48
-  %53 = getelementptr inbounds i8, ptr %2, i64 32
-  %54 = tail call i32 @ebitmap_contains(ptr noundef %52, ptr noundef %53, i32 noundef 0) #10
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %54 = tail call i32 @ebitmap_contains(ptr noundef %52, ptr noundef nonnull %53, i32 noundef 0) #10
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %85, label %56
 
@@ -986,14 +986,14 @@ define dso_local noundef range(i32 -22, 1) i32 @mls_setup_user_range(ptr nocaptu
   br i1 %59, label %85, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %2, i64 80
-  %62 = tail call i32 @ebitmap_contains(ptr noundef %61, ptr noundef %52, i32 noundef 0) #10
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %62 = tail call i32 @ebitmap_contains(ptr noundef nonnull %61, ptr noundef %52, i32 noundef 0) #10
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %85, label %64
 
 64:                                               ; preds = %60, %43, %26
   %65 = phi ptr [ %12, %26 ], [ %8, %43 ], [ %10, %60 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %13, ptr noundef align 8 dereferenceable(24) %65, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
   %66 = load i32, ptr %11, align 8
   %67 = load i32, ptr %9, align 8
   %68 = icmp ult i32 %66, %67
@@ -1049,10 +1049,10 @@ define dso_local i32 @mls_convert_context(ptr nocapture noundef readonly %0, ptr
   br i1 %9, label %.thread11, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = getelementptr i8, ptr %0, i64 248
   %13 = getelementptr i8, ptr %1, i64 152
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = getelementptr i8, ptr %1, i64 176
   %16 = getelementptr i8, ptr %0, i64 256
   br label %17
@@ -1079,15 +1079,15 @@ define dso_local i32 @mls_convert_context(ptr nocapture noundef readonly %0, ptr
   %31 = load i32, ptr %30, align 8
   %32 = getelementptr [2 x %struct.mls_level], ptr %14, i64 0, i64 %19
   store i32 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %20, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.loopexit, label %.preheader12
 
 .preheader12:                                     ; preds = %29, %41
   %36 = phi ptr [ %42, %41 ], [ %34, %29 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  %38 = tail call i64 @_find_first_bit(ptr noundef %37, i64 noundef 384) #10
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = tail call i64 @_find_first_bit(ptr noundef nonnull %37, i64 noundef 384) #10
   %39 = and i64 %38, 4294967168
   %40 = icmp samesign ult i64 %39, 384
   br i1 %40, label %44, label %41
@@ -1099,17 +1099,17 @@ define dso_local i32 @mls_convert_context(ptr nocapture noundef readonly %0, ptr
 
 44:                                               ; preds = %.preheader12
   %45 = trunc i64 %38 to i32
-  %46 = getelementptr inbounds i8, ptr %36, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, %45
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %20, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %49 = getelementptr inbounds i8, ptr %20, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %50 = icmp ult i32 %48, %.pre
   br i1 %50, label %51, label %.loopexit
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %32, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %32, i64 8
   br label %53
 
 53:                                               ; preds = %97, %51
@@ -1127,18 +1127,18 @@ define dso_local i32 @mls_convert_context(ptr nocapture noundef readonly %0, ptr
   %63 = load i32, ptr %60, align 4
   %64 = add i32 %63, -1
   %65 = zext i32 %64 to i64
-  %66 = tail call i32 @ebitmap_set_bit(ptr noundef %52, i64 noundef %65, i32 noundef 1) #10
+  %66 = tail call i32 @ebitmap_set_bit(ptr noundef nonnull %52, i64 noundef %65, i32 noundef 1) #10
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %.thread11
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %55, i64 8
-  %70 = getelementptr inbounds i8, ptr %55, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %71 = load i32, ptr %70, align 8
   %72 = add nuw i32 %54, 1
   %73 = sub i32 %72, %71
   %74 = zext i32 %73 to i64
-  %75 = tail call i64 @_find_next_bit(ptr noundef %69, i64 noundef 384, i64 noundef %74) #10
+  %75 = tail call i64 @_find_next_bit(ptr noundef nonnull %69, i64 noundef 384, i64 noundef %74) #10
   %76 = and i64 %75, 4294967168
   %77 = icmp samesign ult i64 %76, 384
   br i1 %77, label %78, label %.preheader
@@ -1156,15 +1156,15 @@ define dso_local i32 @mls_convert_context(ptr nocapture noundef readonly %0, ptr
   br i1 %84, label %95, label %85
 
 85:                                               ; preds = %.preheader
-  %86 = getelementptr inbounds i8, ptr %83, i64 8
-  %87 = tail call i64 @_find_first_bit(ptr noundef %86, i64 noundef 384) #10
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %87 = tail call i64 @_find_first_bit(ptr noundef nonnull %86, i64 noundef 384) #10
   %88 = and i64 %87, 4294967168
   %89 = icmp samesign ult i64 %88, 384
   br i1 %89, label %90, label %.preheader, !llvm.loop !8
 
 90:                                               ; preds = %85
   %91 = trunc i64 %87 to i32
-  %92 = getelementptr inbounds i8, ptr %83, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %83, i64 56
   %93 = load i32, ptr %92, align 8
   %94 = add i32 %93, %91
   br label %97
@@ -1202,22 +1202,22 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
   store i32 %14, ptr %8, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %16, ptr %17, align 4
   %18 = zext i16 %3 to i32
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %18, ptr %19, align 4
   %20 = call ptr @policydb_rangetr_search(ptr noundef %0, ptr noundef nonnull %8) #10
   %21 = icmp eq ptr %20, null
   br i1 %21, label %33, label %22
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -1227,9 +1227,9 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr [2 x %struct.mls_level], ptr %23, i64 0, i64 %25
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
-  %31 = call i32 @ebitmap_cpy(ptr noundef %29, ptr noundef %30) #10
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %31 = call i32 @ebitmap_cpy(ptr noundef nonnull %29, ptr noundef nonnull %30) #10
   %32 = icmp ne i32 %31, 0
   %brmerge = or i1 %.not9, %32
   br i1 %brmerge, label %.loopexit, label %24
@@ -1245,7 +1245,7 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 264
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %41 = load ptr, ptr %40, align 8
   %42 = zext i16 %3 to i64
   %43 = getelementptr ptr, ptr %41, i64 %42
@@ -1255,7 +1255,7 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %45, i64 67
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 67
   %49 = load i8, ptr %48, align 1
   switch i8 %49, label %.thread [
     i8 1, label %50
@@ -1296,17 +1296,17 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit
 
 .thread:                                          ; preds = %33, %35, %39, %47, %11
-  %64 = getelementptr inbounds i8, ptr %0, i64 582
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 582
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, %3
   %67 = or i1 %6, %66
-  %68 = getelementptr inbounds i8, ptr %1, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %5, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %5, i64 24
-  %72 = getelementptr inbounds i8, ptr %1, i64 24
-  %73 = call i32 @ebitmap_cpy(ptr noundef %71, ptr noundef %72) #10
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %73 = call i32 @ebitmap_cpy(ptr noundef nonnull %71, ptr noundef nonnull %72) #10
   %74 = icmp eq i32 %73, 0
   br i1 %67, label %75, label %85
 
@@ -1325,7 +1325,7 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %83, label %.loopexit, label %84
 
 84:                                               ; preds = %76
-  call void @ebitmap_destroy(ptr noundef %71) #10
+  call void @ebitmap_destroy(ptr noundef nonnull %71) #10
   br label %.loopexit
 
 85:                                               ; preds = %.thread
@@ -1336,22 +1336,22 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
   %88 = getelementptr i8, ptr %5, i64 40
   store i32 %87, ptr %88, align 8
   %89 = getelementptr i8, ptr %5, i64 48
-  %90 = call i32 @ebitmap_cpy(ptr noundef %89, ptr noundef %72) #10
+  %90 = call i32 @ebitmap_cpy(ptr noundef %89, ptr noundef nonnull %72) #10
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %.loopexit, label %92
 
 92:                                               ; preds = %86
-  call void @ebitmap_destroy(ptr noundef %71) #10
+  call void @ebitmap_destroy(ptr noundef nonnull %71) #10
   br label %.loopexit
 
 93:                                               ; preds = %11
-  %94 = getelementptr inbounds i8, ptr %1, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %5, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %95, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %5, i64 24
-  %98 = getelementptr inbounds i8, ptr %1, i64 24
-  %99 = tail call i32 @ebitmap_cpy(ptr noundef %97, ptr noundef %98) #10
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %99 = tail call i32 @ebitmap_cpy(ptr noundef nonnull %97, ptr noundef nonnull %98) #10
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %.loopexit
 
@@ -1360,12 +1360,12 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
   %103 = getelementptr i8, ptr %5, i64 40
   store i32 %102, ptr %103, align 8
   %104 = getelementptr i8, ptr %5, i64 48
-  %105 = tail call i32 @ebitmap_cpy(ptr noundef %104, ptr noundef %98) #10
+  %105 = tail call i32 @ebitmap_cpy(ptr noundef %104, ptr noundef nonnull %98) #10
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %.loopexit, label %107
 
 107:                                              ; preds = %101
-  tail call void @ebitmap_destroy(ptr noundef %97) #10
+  tail call void @ebitmap_destroy(ptr noundef nonnull %97) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %107, %101, %93, %92, %86, %85, %84, %76, %75, %62, %60, %58, %56, %54, %52, %50, %11, %7
@@ -1379,13 +1379,13 @@ declare dso_local ptr @policydb_rangetr_search(ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc i32 @mls_context_cpy_low(ptr noundef initializes((16, 20)) %0, ptr noundef %1) unnamed_addr #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
-  %8 = tail call i32 @ebitmap_cpy(ptr noundef %6, ptr noundef %7) #10
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %8 = tail call i32 @ebitmap_cpy(ptr noundef nonnull %6, ptr noundef nonnull %7) #10
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %17
 
@@ -1394,12 +1394,12 @@ define internal fastcc i32 @mls_context_cpy_low(ptr noundef initializes((16, 20)
   %12 = getelementptr i8, ptr %0, i64 40
   store i32 %11, ptr %12, align 8
   %13 = getelementptr i8, ptr %0, i64 48
-  %14 = tail call i32 @ebitmap_cpy(ptr noundef %13, ptr noundef %7) #10
+  %14 = tail call i32 @ebitmap_cpy(ptr noundef %13, ptr noundef nonnull %7) #10
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %10
-  tail call void @ebitmap_destroy(ptr noundef %6) #10
+  tail call void @ebitmap_destroy(ptr noundef nonnull %6) #10
   br label %17
 
 17:                                               ; preds = %16, %10, %2
@@ -1411,11 +1411,11 @@ define internal fastcc i32 @mls_context_cpy_low(ptr noundef initializes((16, 20)
 define internal fastcc i32 @mls_context_cpy_high(ptr noundef initializes((16, 20)) %0, ptr noundef %1) unnamed_addr #6 align 16 {
   %3 = getelementptr i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr i8, ptr %1, i64 48
-  %8 = tail call i32 @ebitmap_cpy(ptr noundef %6, ptr noundef %7) #10
+  %8 = tail call i32 @ebitmap_cpy(ptr noundef nonnull %6, ptr noundef %7) #10
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %17
 
@@ -1429,7 +1429,7 @@ define internal fastcc i32 @mls_context_cpy_high(ptr noundef initializes((16, 20
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %10
-  tail call void @ebitmap_destroy(ptr noundef %6) #10
+  tail call void @ebitmap_destroy(ptr noundef nonnull %6) #10
   br label %17
 
 17:                                               ; preds = %16, %10, %2
@@ -1439,8 +1439,8 @@ define internal fastcc i32 @mls_context_cpy_high(ptr noundef initializes((16, 20
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc i32 @mls_context_glblub(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = getelementptr i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = load i32, ptr %5, align 8
@@ -1448,7 +1448,7 @@ define internal fastcc i32 @mls_context_glblub(ptr noundef %0, ptr noundef %1, p
   br i1 %9, label %32, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr i8, ptr %2, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = load i32, ptr %11, align 8
@@ -1463,10 +1463,10 @@ define internal fastcc i32 @mls_context_glblub(ptr noundef %0, ptr noundef %1, p
   %20 = tail call i32 @llvm.umin.i32(i32 %18, i32 %19)
   %21 = getelementptr i8, ptr %0, i64 40
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
-  %25 = tail call i32 @ebitmap_and(ptr noundef %22, ptr noundef %23, ptr noundef %24) #10
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %25 = tail call i32 @ebitmap_and(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24) #10
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %32
 
@@ -1489,10 +1489,10 @@ define dso_local void @mls_export_netlbl_lvl(ptr nocapture noundef readonly %0, 
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, -1
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %9, ptr %10, align 8
   %11 = load i32, ptr %2, align 8
   %12 = or i32 %11, 4
@@ -1510,10 +1510,10 @@ define dso_local void @mls_import_netlbl_lvl(ptr nocapture noundef readonly %0, 
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %9, ptr %10, align 8
   %11 = getelementptr i8, ptr %1, i64 40
   store i32 %9, ptr %11, align 8
@@ -1530,9 +1530,9 @@ define dso_local i32 @mls_export_netlbl_cat(ptr nocapture noundef readonly %0, p
   br i1 %5, label %17, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
-  %9 = tail call i32 @ebitmap_netlbl_export(ptr noundef %7, ptr noundef %8) #10
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %9 = tail call i32 @ebitmap_netlbl_export(ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %17
 
@@ -1562,20 +1562,20 @@ define dso_local i32 @mls_import_netlbl_cat(ptr nocapture noundef readonly %0, p
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @ebitmap_netlbl_import(ptr noundef %7, ptr noundef %9) #10
+  %10 = tail call i32 @ebitmap_netlbl_import(ptr noundef nonnull %7, ptr noundef %9) #10
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %6
   %13 = getelementptr i8, ptr %1, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %13, ptr noundef align 8 dereferenceable(16) %7, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   br label %15
 
 14:                                               ; preds = %6
-  tail call void @ebitmap_destroy(ptr noundef %7) #10
+  tail call void @ebitmap_destroy(ptr noundef nonnull %7) #10
   br label %15
 
 15:                                               ; preds = %14, %12, %3

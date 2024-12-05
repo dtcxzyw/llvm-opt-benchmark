@@ -549,10 +549,10 @@ X509at_get_attr.exit:                             ; preds = %if.end5, %lor.lhs.f
   br i1 %cmp7, label %land.lhs.true8, label %if.end12
 
 land.lhs.true8:                                   ; preds = %X509at_get_attr.exit
-  %single.i = getelementptr inbounds i8, ptr %retval.0.i27, i64 8
+  %single.i = getelementptr inbounds nuw i8, ptr %retval.0.i27, i64 8
   %7 = load i32, ptr %single.i, align 8
   %tobool.not.i = icmp eq i32 %7, 0
-  %value.i = getelementptr inbounds i8, ptr %retval.0.i27, i64 16
+  %value.i = getelementptr inbounds nuw i8, ptr %retval.0.i27, i64 16
   %8 = load ptr, ptr %value.i, align 8
   br i1 %tobool.not.i, label %if.then.i, label %X509_ATTRIBUTE_count.exit
 
@@ -571,10 +571,10 @@ if.end12:                                         ; preds = %X509at_get_attr.exi
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i, %X509_ATTRIBUTE_count.exit, %if.end12
-  %single.i.i.i = getelementptr inbounds i8, ptr %retval.0.i27, i64 8
+  %single.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i27, i64 8
   %11 = load i32, ptr %single.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %11, 0
-  %value.i.i.i = getelementptr inbounds i8, ptr %retval.0.i27, i64 16
+  %value.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i27, i64 16
   %12 = load ptr, ptr %value.i.i.i, align 8
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %X509_ATTRIBUTE_count.exit.i.i
 
@@ -613,7 +613,7 @@ if.then2.i:                                       ; preds = %if.end.i34
   br label %return
 
 if.end3.i:                                        ; preds = %if.end.i34
-  %value.i35 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %value.i35 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
   %16 = load ptr, ptr %value.i35, align 8
   br label %return
 
@@ -625,10 +625,10 @@ return:                                           ; preds = %for.cond.i, %if.the
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_ATTRIBUTE_count(ptr nocapture noundef readonly %attr) local_unnamed_addr #0 {
 entry:
-  %single = getelementptr inbounds i8, ptr %attr, i64 8
+  %single = getelementptr inbounds nuw i8, ptr %attr, i64 8
   %0 = load i32, ptr %single, align 8
   %tobool.not = icmp eq i32 %0, 0
-  %value = getelementptr inbounds i8, ptr %attr, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %attr, i64 16
   %1 = load ptr, ptr %value, align 8
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -654,10 +654,10 @@ entry:
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %single.i.i = getelementptr inbounds i8, ptr %attr, i64 8
+  %single.i.i = getelementptr inbounds nuw i8, ptr %attr, i64 8
   %0 = load i32, ptr %single.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %0, 0
-  %value.i.i = getelementptr inbounds i8, ptr %attr, i64 16
+  %value.i.i = getelementptr inbounds nuw i8, ptr %attr, i64 16
   %1 = load ptr, ptr %value.i.i, align 8
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -702,7 +702,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %value = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   %4 = load ptr, ptr %value, align 8
   br label %return
 
@@ -758,7 +758,7 @@ if.then5:                                         ; preds = %if.then2
   br label %return
 
 if.end6:                                          ; preds = %if.then2
-  %type = getelementptr inbounds i8, ptr %call3, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %call3, i64 4
   %1 = load i32, ptr %type, align 4
   br label %if.end17
 
@@ -780,13 +780,13 @@ if.end17:                                         ; preds = %if.end11, %if.else,
   %stmp.0 = phi ptr [ %call3, %if.end6 ], [ null, %if.else ], [ %call8, %if.end11 ]
   %atype.0 = phi i32 [ %1, %if.end6 ], [ 0, %if.else ], [ %attrtype, %if.end11 ]
   %call18 = tail call ptr @sk_new_null() #4
-  %value = getelementptr inbounds i8, ptr %attr, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %attr, i64 16
   store ptr %call18, ptr %value, align 8
   %tobool19.not = icmp eq ptr %call18, null
   br i1 %tobool19.not, label %err, label %if.end21
 
 if.end21:                                         ; preds = %if.end17
-  %single = getelementptr inbounds i8, ptr %attr, i64 8
+  %single = getelementptr inbounds nuw i8, ptr %attr, i64 8
   store i32 0, ptr %single, align 8
   %cmp22 = icmp eq i32 %attrtype, 0
   br i1 %cmp22, label %return, label %if.end24
@@ -869,10 +869,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %single.i = getelementptr inbounds i8, ptr %attr, i64 8
+  %single.i = getelementptr inbounds nuw i8, ptr %attr, i64 8
   %0 = load i32, ptr %single.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
-  %value.i = getelementptr inbounds i8, ptr %attr, i64 16
+  %value.i = getelementptr inbounds nuw i8, ptr %attr, i64 16
   %1 = load ptr, ptr %value.i, align 8
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 

@@ -71,7 +71,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %count.023 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %copy_key_value.exit19 ]
   %up.022 = phi ptr [ null, %for.body.lr.ph ], [ %call2, %copy_key_value.exit19 ]
   %p.021 = phi ptr [ %keys, %for.body.lr.ph ], [ %6, %copy_key_value.exit19 ]
-  %value = getelementptr inbounds i8, ptr %p.021, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %p.021, i64 8
   %0 = load ptr, ptr %value, align 8
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 16, i1 false)
@@ -80,7 +80,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   br i1 %cmp.i, label %if.then.i, label %copy_key_value.exit
 
 if.then.i:                                        ; preds = %for.body
-  %u.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %u.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %2 = load i64, ptr %u.i, align 8
   %conv.i = trunc i64 %2 to i32
   %call1.i = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef %conv.i) #6
@@ -103,7 +103,7 @@ copy_key_value.exit:                              ; preds = %for.body, %if.then.
   br i1 %cmp.i14, label %if.then.i15, label %copy_key_value.exit19
 
 if.then.i15:                                      ; preds = %copy_key_value.exit
-  %u.i16 = getelementptr inbounds i8, ptr %call.i13, i64 8
+  %u.i16 = getelementptr inbounds nuw i8, ptr %call.i13, i64 8
   %5 = load i64, ptr %u.i16, align 8
   %conv.i17 = trunc i64 %5 to i32
   %call1.i18 = tail call i32 @qemu_input_key_number_to_qcode(i32 noundef %conv.i17) #6
@@ -149,10 +149,10 @@ define dso_local noundef ptr @qemu_add_kbd_event_handler(ptr noundef %func, ptr 
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #8
   store ptr %func, ptr %call, align 8
-  %opaque2 = getelementptr inbounds i8, ptr %call, i64 8
+  %opaque2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %opaque, ptr %opaque2, align 8
   %call3 = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %call, ptr noundef nonnull @legacy_kbd_handler) #6
-  %s = getelementptr inbounds i8, ptr %call, i64 16
+  %s = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call3, ptr %s, align 8
   tail call void @qemu_input_handler_activate(ptr noundef %call3) #6
   ret ptr %call
@@ -170,22 +170,22 @@ define dso_local noundef ptr @qemu_add_mouse_event_handler(ptr noundef %func, pt
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #8
   store ptr %func, ptr %call, align 8
-  %qemu_put_mouse_event_opaque = getelementptr inbounds i8, ptr %call, i64 8
+  %qemu_put_mouse_event_opaque = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %opaque, ptr %qemu_put_mouse_event_opaque, align 8
-  %qemu_put_mouse_event_absolute = getelementptr inbounds i8, ptr %call, i64 16
+  %qemu_put_mouse_event_absolute = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 %absolute, ptr %qemu_put_mouse_event_absolute, align 8
-  %h = getelementptr inbounds i8, ptr %call, i64 24
+  %h = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %name, ptr %h, align 8
   %tobool.not = icmp eq i32 %absolute, 0
   %or = select i1 %tobool.not, i32 6, i32 10
-  %mask = getelementptr inbounds i8, ptr %call, i64 32
+  %mask = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i32 %or, ptr %mask, align 8
-  %event = getelementptr inbounds i8, ptr %call, i64 40
+  %event = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr @legacy_mouse_event, ptr %event, align 8
-  %sync = getelementptr inbounds i8, ptr %call, i64 48
+  %sync = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr @legacy_mouse_sync, ptr %sync, align 8
   %call6 = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %call, ptr noundef nonnull %h) #6
-  %s7 = getelementptr inbounds i8, ptr %call, i64 56
+  %s7 = getelementptr inbounds nuw i8, ptr %call, i64 56
   store ptr %call6, ptr %s7, align 8
   ret ptr %call
 }
@@ -201,9 +201,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %u = getelementptr inbounds i8, ptr %evt, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %evt, i64 8
   %1 = load ptr, ptr %u, align 8
-  %down = getelementptr inbounds i8, ptr %1, i64 4
+  %down = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2 = load i8, ptr %down, align 4
   %tobool = trunc i8 %2 to i1
   %3 = load i32, ptr %1, align 4
@@ -213,7 +213,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.bb
-  %buttons = getelementptr inbounds i8, ptr %dev, i64 72
+  %buttons = getelementptr inbounds nuw i8, ptr %dev, i64 72
   %5 = load i32, ptr %buttons, align 8
   %or = or i32 %5, %4
   store i32 %or, ptr %buttons, align 8
@@ -221,7 +221,7 @@ if.then:                                          ; preds = %sw.bb
 
 if.else:                                          ; preds = %sw.bb
   %not = xor i32 %4, -1
-  %buttons4 = getelementptr inbounds i8, ptr %dev, i64 72
+  %buttons4 = getelementptr inbounds nuw i8, ptr %dev, i64 72
   %6 = load i32, ptr %buttons4, align 8
   %and = and i32 %6, %not
   store i32 %and, ptr %buttons4, align 8
@@ -240,9 +240,9 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then8:                                         ; preds = %land.lhs.true
   %10 = load ptr, ptr %dev, align 8
-  %qemu_put_mouse_event_opaque = getelementptr inbounds i8, ptr %dev, i64 8
+  %qemu_put_mouse_event_opaque = getelementptr inbounds nuw i8, ptr %dev, i64 8
   %11 = load ptr, ptr %qemu_put_mouse_event_opaque, align 8
-  %axis = getelementptr inbounds i8, ptr %dev, i64 64
+  %axis = getelementptr inbounds nuw i8, ptr %dev, i64 64
   %12 = load i32, ptr %axis, align 8
   %arrayidx11 = getelementptr i8, ptr %dev, i64 68
   %13 = load i32, ptr %arrayidx11, align 4
@@ -262,13 +262,13 @@ land.lhs.true16:                                  ; preds = %if.end13
 
 if.then19:                                        ; preds = %land.lhs.true16
   %16 = load ptr, ptr %dev, align 8
-  %qemu_put_mouse_event_opaque21 = getelementptr inbounds i8, ptr %dev, i64 8
+  %qemu_put_mouse_event_opaque21 = getelementptr inbounds nuw i8, ptr %dev, i64 8
   %17 = load ptr, ptr %qemu_put_mouse_event_opaque21, align 8
-  %axis22 = getelementptr inbounds i8, ptr %dev, i64 64
+  %axis22 = getelementptr inbounds nuw i8, ptr %dev, i64 64
   %18 = load i32, ptr %axis22, align 8
   %arrayidx25 = getelementptr i8, ptr %dev, i64 68
   %19 = load i32, ptr %arrayidx25, align 4
-  %buttons26 = getelementptr inbounds i8, ptr %dev, i64 72
+  %buttons26 = getelementptr inbounds nuw i8, ptr %dev, i64 72
   %20 = load i32, ptr %buttons26, align 8
   tail call void %16(ptr noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef 1, i32 noundef %20) #6
   %.pre40 = load i8, ptr %down, align 4
@@ -286,13 +286,13 @@ land.lhs.true30:                                  ; preds = %if.end27
 
 if.then33:                                        ; preds = %land.lhs.true30
   %23 = load ptr, ptr %dev, align 8
-  %qemu_put_mouse_event_opaque35 = getelementptr inbounds i8, ptr %dev, i64 8
+  %qemu_put_mouse_event_opaque35 = getelementptr inbounds nuw i8, ptr %dev, i64 8
   %24 = load ptr, ptr %qemu_put_mouse_event_opaque35, align 8
-  %axis36 = getelementptr inbounds i8, ptr %dev, i64 64
+  %axis36 = getelementptr inbounds nuw i8, ptr %dev, i64 64
   %25 = load i32, ptr %axis36, align 8
   %arrayidx39 = getelementptr i8, ptr %dev, i64 68
   %26 = load i32, ptr %arrayidx39, align 4
-  %buttons40 = getelementptr inbounds i8, ptr %dev, i64 72
+  %buttons40 = getelementptr inbounds nuw i8, ptr %dev, i64 72
   %27 = load i32, ptr %buttons40, align 8
   tail call void %23(ptr noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef -2, i32 noundef %27) #6
   %.pre41 = load i8, ptr %down, align 4
@@ -310,24 +310,24 @@ land.lhs.true44:                                  ; preds = %if.end41
 
 if.then47:                                        ; preds = %land.lhs.true44
   %30 = load ptr, ptr %dev, align 8
-  %qemu_put_mouse_event_opaque49 = getelementptr inbounds i8, ptr %dev, i64 8
+  %qemu_put_mouse_event_opaque49 = getelementptr inbounds nuw i8, ptr %dev, i64 8
   %31 = load ptr, ptr %qemu_put_mouse_event_opaque49, align 8
-  %axis50 = getelementptr inbounds i8, ptr %dev, i64 64
+  %axis50 = getelementptr inbounds nuw i8, ptr %dev, i64 64
   %32 = load i32, ptr %axis50, align 8
   %arrayidx53 = getelementptr i8, ptr %dev, i64 68
   %33 = load i32, ptr %arrayidx53, align 4
-  %buttons54 = getelementptr inbounds i8, ptr %dev, i64 72
+  %buttons54 = getelementptr inbounds nuw i8, ptr %dev, i64 72
   %34 = load i32, ptr %buttons54, align 8
   tail call void %30(ptr noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef 2, i32 noundef %34) #6
   br label %sw.epilog
 
 sw.bb56:                                          ; preds = %entry
-  %u57 = getelementptr inbounds i8, ptr %evt, i64 8
+  %u57 = getelementptr inbounds nuw i8, ptr %evt, i64 8
   %35 = load ptr, ptr %u57, align 8
-  %value = getelementptr inbounds i8, ptr %35, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %35, i64 8
   %36 = load i64, ptr %value, align 8
   %conv = trunc i64 %36 to i32
-  %axis59 = getelementptr inbounds i8, ptr %dev, i64 64
+  %axis59 = getelementptr inbounds nuw i8, ptr %dev, i64 64
   %37 = load i32, ptr %35, align 8
   %idxprom61 = zext i32 %37 to i64
   %arrayidx62 = getelementptr [2 x i32], ptr %axis59, i64 0, i64 %idxprom61
@@ -335,11 +335,11 @@ sw.bb56:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %entry
-  %u64 = getelementptr inbounds i8, ptr %evt, i64 8
+  %u64 = getelementptr inbounds nuw i8, ptr %evt, i64 8
   %38 = load ptr, ptr %u64, align 8
-  %value66 = getelementptr inbounds i8, ptr %38, i64 8
+  %value66 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %39 = load i64, ptr %value66, align 8
-  %axis67 = getelementptr inbounds i8, ptr %dev, i64 64
+  %axis67 = getelementptr inbounds nuw i8, ptr %dev, i64 64
   %40 = load i32, ptr %38, align 8
   %idxprom69 = zext i32 %40 to i64
   %arrayidx70 = getelementptr [2 x i32], ptr %axis67, i64 0, i64 %idxprom69
@@ -357,16 +357,16 @@ sw.epilog:                                        ; preds = %entry, %if.end41, %
 define internal void @legacy_mouse_sync(ptr nocapture noundef %dev) #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
-  %qemu_put_mouse_event_opaque = getelementptr inbounds i8, ptr %dev, i64 8
+  %qemu_put_mouse_event_opaque = getelementptr inbounds nuw i8, ptr %dev, i64 8
   %1 = load ptr, ptr %qemu_put_mouse_event_opaque, align 8
-  %axis = getelementptr inbounds i8, ptr %dev, i64 64
+  %axis = getelementptr inbounds nuw i8, ptr %dev, i64 64
   %2 = load i32, ptr %axis, align 8
   %arrayidx2 = getelementptr i8, ptr %dev, i64 68
   %3 = load i32, ptr %arrayidx2, align 4
-  %buttons = getelementptr inbounds i8, ptr %dev, i64 72
+  %buttons = getelementptr inbounds nuw i8, ptr %dev, i64 72
   %4 = load i32, ptr %buttons, align 8
   tail call void %0(ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef %4) #6
-  %qemu_put_mouse_event_absolute = getelementptr inbounds i8, ptr %dev, i64 16
+  %qemu_put_mouse_event_absolute = getelementptr inbounds nuw i8, ptr %dev, i64 16
   %5 = load i32, ptr %qemu_put_mouse_event_absolute, align 8
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -383,7 +383,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_activate_mouse_event_handler(ptr nocapture noundef readonly %entry1) local_unnamed_addr #0 {
 entry:
-  %s = getelementptr inbounds i8, ptr %entry1, i64 56
+  %s = getelementptr inbounds nuw i8, ptr %entry1, i64 56
   %0 = load ptr, ptr %s, align 8
   tail call void @qemu_input_handler_activate(ptr noundef %0) #6
   ret void
@@ -392,7 +392,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_remove_mouse_event_handler(ptr noundef %entry1) local_unnamed_addr #0 {
 entry:
-  %s = getelementptr inbounds i8, ptr %entry1, i64 56
+  %s = getelementptr inbounds nuw i8, ptr %entry1, i64 56
   %0 = load ptr, ptr %s, align 8
   tail call void @qemu_input_handler_unregister(ptr noundef %0) #6
   tail call void @g_free(ptr noundef %entry1) #6
@@ -406,12 +406,12 @@ define dso_local noundef ptr @qemu_add_led_event_handler(ptr noundef %func, ptr 
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #8
   store ptr %func, ptr %call, align 8
-  %opaque1 = getelementptr inbounds i8, ptr %call, i64 8
+  %opaque1 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %opaque, ptr %opaque1, align 8
-  %next = getelementptr inbounds i8, ptr %call, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %next, align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @led_handlers, i64 8), align 8
-  %tql_prev = getelementptr inbounds i8, ptr %call, i64 24
+  %tql_prev = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %0, ptr %tql_prev, align 8
   store ptr %call, ptr %0, align 8
   store ptr %next, ptr getelementptr inbounds (i8, ptr @led_handlers, i64 8), align 8
@@ -425,15 +425,15 @@ entry:
   br i1 %cmp, label %return, label %do.body
 
 do.body:                                          ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %entry1, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %entry1, i64 16
   %0 = load ptr, ptr %next, align 8
   %cmp2.not = icmp eq ptr %0, null
-  %tql_prev9 = getelementptr inbounds i8, ptr %entry1, i64 24
+  %tql_prev9 = getelementptr inbounds nuw i8, ptr %entry1, i64 24
   %1 = load ptr, ptr %tql_prev9, align 8
   br i1 %cmp2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %do.body
-  %tql_prev7 = getelementptr inbounds i8, ptr %0, i64 24
+  %tql_prev7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %tql_prev7, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end10
@@ -463,10 +463,10 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %cursor.06 = phi ptr [ %cursor.0, %for.body ], [ %cursor.04, %entry ]
   %0 = load ptr, ptr %cursor.06, align 8
-  %opaque = getelementptr inbounds i8, ptr %cursor.06, i64 8
+  %opaque = getelementptr inbounds nuw i8, ptr %cursor.06, i64 8
   %1 = load ptr, ptr %opaque, align 8
   tail call void %0(ptr noundef %1, i32 noundef %ledstate) #6
-  %next = getelementptr inbounds i8, ptr %cursor.06, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %cursor.06, i64 16
   %cursor.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %cursor.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
@@ -487,7 +487,7 @@ declare i32 @qemu_input_key_number_to_qcode(i32 noundef) local_unnamed_addr #2
 define internal void @legacy_kbd_event(ptr noundef readonly %dev, ptr nocapture readnone %src, ptr nocapture noundef readonly %evt) #0 {
 entry:
   %scancodes = alloca [3 x i32], align 4
-  %u = getelementptr inbounds i8, ptr %evt, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %evt, i64 8
   %0 = load ptr, ptr %u, align 8
   %tobool.not = icmp eq ptr %dev, null
   br i1 %tobool.not, label %for.end, label %lor.lhs.false
@@ -499,7 +499,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %2 = load ptr, ptr %0, align 8
-  %down = getelementptr inbounds i8, ptr %0, i64 8
+  %down = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %down, align 8
   %tobool4 = trunc i8 %3 to i1
   %call = call i32 @qemu_input_key_value_to_scancode(ptr noundef %2, i1 noundef zeroext %tobool4, ptr noundef nonnull %scancodes) #6
@@ -507,7 +507,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %opaque = getelementptr inbounds i8, ptr %dev, i64 8
+  %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 8
   %wide.trip.count = zext nneg i32 %call to i64
   br label %for.body
 

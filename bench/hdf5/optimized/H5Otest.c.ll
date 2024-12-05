@@ -87,9 +87,9 @@ define range(i32 -1, 2) i32 @H5O__is_attr_dense_test(i64 noundef %0) local_unnam
   br i1 %18, label %41, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 -1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 288
   %22 = load i8, ptr %21, align 8
   %23 = icmp ugt i8 %22, 1
   br i1 %23, label %24, label %34
@@ -193,7 +193,7 @@ define range(i32 -1, 2) i32 @H5O__is_attr_empty_test(i64 noundef %0) local_unnam
   br i1 %20, label %80, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 288
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 288
   %23 = load i8, ptr %22, align 8
   %24 = icmp ugt i8 %23, 1
   br i1 %24, label %25, label %33
@@ -219,7 +219,7 @@ define range(i32 -1, 2) i32 @H5O__is_attr_empty_test(i64 noundef %0) local_unnam
   %37 = icmp ugt i8 %36, 1
   %38 = icmp ne i32 %.032, 0
   %or.cond = and i1 %38, %37
-  %39 = getelementptr inbounds i8, ptr %2, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = icmp ne i64 %40, -1
   %or.cond4 = select i1 %or.cond, i1 %41, i1 false
@@ -232,11 +232,11 @@ define range(i32 -1, 2) i32 @H5O__is_attr_empty_test(i64 noundef %0) local_unnam
 
 44:                                               ; preds = %33
   store i64 -1, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %46 = load i64, ptr %45, align 8
   call void @H5AC_tag(i64 noundef %46, ptr noundef nonnull %4) #2
   %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %49 = load i64, ptr %48, align 8
   %50 = call ptr @H5B2_open(ptr noundef %47, i64 noundef %49, ptr noundef null) #2
   %51 = icmp eq ptr %50, null
@@ -356,9 +356,9 @@ define range(i32 -1, 1) i32 @H5O__num_attrs_test(i64 noundef %0, ptr nocapture n
   br i1 %21, label %76, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 -1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 288
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 288
   %25 = load i8, ptr %24, align 8
   %26 = icmp ugt i8 %25, 1
   br i1 %26, label %27, label %35
@@ -392,11 +392,11 @@ define range(i32 -1, 1) i32 @H5O__num_attrs_test(i64 noundef %0, ptr nocapture n
 
 42:                                               ; preds = %35
   store i64 -1, ptr %5, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %44 = load i64, ptr %43, align 8
   call void @H5AC_tag(i64 noundef %44, ptr noundef nonnull %5) #2
   %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds i8, ptr %3, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %47 = load i64, ptr %46, align 8
   %48 = call ptr @H5B2_open(ptr noundef %45, i64 noundef %47, ptr noundef null) #2
   %49 = icmp eq ptr %48, null
@@ -500,7 +500,7 @@ define range(i32 -1, 1) i32 @H5O__attr_dense_info_test(i64 noundef %0, ptr nound
 
 19:                                               ; preds = %12
   store i64 -1, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i64, ptr %20, align 8
   call void @H5AC_tag(i64 noundef %21, ptr noundef nonnull %5) #2
   %22 = call ptr @H5O_protect(ptr noundef nonnull %6, i32 noundef 128, i1 noundef zeroext false) #2
@@ -516,9 +516,9 @@ define range(i32 -1, 1) i32 @H5O__attr_dense_info_test(i64 noundef %0, ptr nound
   br label %111
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %4, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 -1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %22, i64 288
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 288
   %32 = load i8, ptr %31, align 8
   %33 = icmp ugt i8 %32, 1
   br i1 %33, label %34, label %.thread
@@ -548,7 +548,7 @@ define range(i32 -1, 1) i32 @H5O__attr_dense_info_test(i64 noundef %0, ptr nound
   br label %.thread72
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %4, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %47 = load i64, ptr %46, align 8
   %.not47 = icmp eq i64 %47, -1
   br i1 %.not47, label %48, label %50
@@ -586,7 +586,7 @@ define range(i32 -1, 1) i32 @H5O__attr_dense_info_test(i64 noundef %0, ptr nound
   br label %90
 
 67:                                               ; preds = %59
-  %68 = getelementptr inbounds i8, ptr %4, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %69 = load i64, ptr %68, align 8
   %.not48 = icmp eq i64 %69, -1
   br i1 %.not48, label %87, label %70
@@ -710,13 +710,13 @@ define range(i32 -1, 1) i32 @H5O__check_msg_marked_test(i64 noundef %0, i1 nound
   br label %51
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %10, i64 336
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 336
   %18 = load i64, ptr %17, align 8
   %.not39 = icmp eq i64 %18, 0
   br i1 %.not39, label %.loopexit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %10, i64 352
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 352
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 8
@@ -724,7 +724,7 @@ define range(i32 -1, 1) i32 @H5O__check_msg_marked_test(i64 noundef %0, i1 nound
   br i1 %23, label %.lr.ph._crit_edge, label %.lr.ph51
 
 .lr.ph:                                           ; preds = %.lr.ph51
-  %24 = getelementptr inbounds i8, ptr %.0213650, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.0213650, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 25
@@ -733,7 +733,7 @@ define range(i32 -1, 1) i32 @H5O__check_msg_marked_test(i64 noundef %0, i1 nound
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %37, %.lr.ph ]
   %.02136.lcssa = phi ptr [ %20, %.lr.ph.preheader ], [ %24, %.lr.ph ]
-  %28 = getelementptr inbounds i8, ptr %.02136.lcssa, i64 9
+  %28 = getelementptr inbounds nuw i8, ptr %.02136.lcssa, i64 9
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, 32
   %31 = icmp eq i8 %30, 0
@@ -796,13 +796,13 @@ define range(i32 -1, 1) i32 @H5O__expunge_chunks_test(ptr noundef %0) local_unna
   br label %.loopexit
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 376
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 376
   %11 = load i64, ptr %10, align 8
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %3, i64 392
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 392
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -869,7 +869,7 @@ define range(i32 -1, 1) i32 @H5O__get_rc_test(ptr noundef %0, ptr nocapture noun
   br label %17
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 284
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 284
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %1, align 4
   %11 = tail call i32 @H5O_unprotect(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #2
@@ -916,13 +916,13 @@ define range(i32 -1, 1) i32 @H5O__msg_get_chunkno_test(i64 noundef %0, i32 nound
   br i1 %19, label %50, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %18, i64 336
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 336
   %22 = load i64, ptr %21, align 8
   %.not = icmp eq i64 %22, 0
   br i1 %.not, label %.loopexit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %18, i64 352
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 8
@@ -930,7 +930,7 @@ define range(i32 -1, 1) i32 @H5O__msg_get_chunkno_test(i64 noundef %0, i32 nound
   br i1 %27, label %.lr.ph._crit_edge, label %.lr.ph60
 
 .lr.ph:                                           ; preds = %.lr.ph60
-  %28 = getelementptr inbounds i8, ptr %.0254759, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %.0254759, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, %1
@@ -939,7 +939,7 @@ define range(i32 -1, 1) i32 @H5O__msg_get_chunkno_test(i64 noundef %0, i32 nound
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %.02547.lcssa = phi ptr [ %24, %.lr.ph.preheader ], [ %28, %.lr.ph ]
-  %32 = getelementptr inbounds i8, ptr %.02547.lcssa, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.02547.lcssa, i64 16
   %33 = load i32, ptr %32, align 8
   store i32 %33, ptr %2, align 4
   %.pre = load i64, ptr %21, align 8
@@ -1031,9 +1031,9 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   br i1 %20, label %125, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 352
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 352
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 336
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 336
   %25 = load i64, ptr %24, align 8
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %.thread84, label %.lr.ph
@@ -1047,36 +1047,36 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   br i1 %28, label %29, label %114
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.068111, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.068111, i64 16
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %19, i64 392
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 392
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds %struct.H5O_chunk_t, ptr %33, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %35 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %33, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %37, i64 %39
-  %41 = getelementptr inbounds i8, ptr %19, i64 288
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 288
   %42 = load i8, ptr %41, align 8
   %.fr115 = freeze i8 %42
   %43 = icmp eq i8 %.fr115, 1
   %.neg = select i1 %43, i64 0, i64 -4
-  %44 = getelementptr inbounds i8, ptr %35, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %45 = load i64, ptr %44, align 8
   %.neg76 = sub i64 %.neg, %45
   %46 = getelementptr inbounds i8, ptr %40, i64 %.neg76
-  %47 = getelementptr inbounds i8, ptr %.068111, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %.068111, i64 32
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.068111, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %.068111, i64 40
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %48, i64 %50
   %52 = icmp eq ptr %51, %46
   br i1 %52, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %29
-  %53 = getelementptr inbounds i8, ptr %19, i64 289
+  %53 = getelementptr inbounds nuw i8, ptr %19, i64 289
   br i1 %43, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %62
@@ -1088,7 +1088,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %.preheader.split.us
-  %58 = getelementptr inbounds i8, ptr %.063112.us, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %.063112.us, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 -8
   %61 = icmp eq ptr %60, %51
@@ -1096,7 +1096,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
 
 62:                                               ; preds = %57, %.preheader.split.us
   %63 = add i32 %.0113.us, 1
-  %64 = getelementptr inbounds i8, ptr %.063112.us, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %.063112.us, i64 48
   %65 = zext i32 %63 to i64
   %66 = icmp ugt i64 %25, %65
   br i1 %66, label %.preheader.split.us, label %.loopexit
@@ -1110,7 +1110,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   br i1 %69, label %.thread, label %84
 
 .thread:                                          ; preds = %.preheader.split
-  %70 = getelementptr inbounds i8, ptr %.063112, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.063112, i64 32
   %71 = load ptr, ptr %70, align 8
   %72 = load i8, ptr %53, align 1
   %73 = lshr i8 %72, 1
@@ -1126,14 +1126,14 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %.063106 = phi ptr [ %.063112.us, %57 ], [ %.063112, %.thread ]
   %.0103 = phi i32 [ %.0113.us, %57 ], [ %.0113, %.thread ]
   %80 = phi i64 [ 8, %57 ], [ %76, %.thread ]
-  %81 = getelementptr inbounds i8, ptr %.063106, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %.063106, i64 40
   %82 = load i64, ptr %81, align 8
   %83 = add i64 %82, %80
   br label %.loopexit
 
 84:                                               ; preds = %.thread, %.preheader.split
   %85 = add i32 %.0113, 1
-  %86 = getelementptr inbounds i8, ptr %.063112, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %.063112, i64 48
   %87 = zext i32 %85 to i64
   %88 = icmp ugt i64 %25, %87
   br i1 %88, label %.preheader.split, label %.loopexit
@@ -1145,23 +1145,23 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %89 = add i64 %.067, %50
   %90 = add i64 %89, %.066
   store i32 %.069110, ptr %3, align 8
-  %91 = getelementptr inbounds i8, ptr %3, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %1, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %3, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %31, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %3, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.067, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %3, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.066, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %3, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %90, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %3, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %.065, ptr %96, align 8
   %97 = load ptr, ptr %5, align 8
   br i1 %43, label %105, label %98
 
 98:                                               ; preds = %.loopexit
-  %99 = getelementptr inbounds i8, ptr %19, i64 289
+  %99 = getelementptr inbounds nuw i8, ptr %19, i64 289
   %100 = load i8, ptr %99, align 1
   %101 = lshr i8 %100, 1
   %102 = and i8 %101, 2
@@ -1184,7 +1184,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
 
 114:                                              ; preds = %.lr.ph
   %115 = add i32 %.069110, 1
-  %116 = getelementptr inbounds i8, ptr %.068111, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %.068111, i64 48
   %117 = zext i32 %115 to i64
   %118 = icmp ugt i64 %25, %117
   br i1 %118, label %.lr.ph, label %.thread84

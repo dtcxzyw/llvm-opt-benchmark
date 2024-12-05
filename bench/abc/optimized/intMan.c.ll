@@ -30,7 +30,7 @@ define noalias noundef ptr @Inter_ManCreate(ptr noundef %0, ptr nocapture nounde
   %5 = add i32 %.val, -1
   %or.cond.i = icmp ult i32 %5, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %.val
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4
   store i32 %spec.store.select.i, ptr %4, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -44,36 +44,36 @@ define noalias noundef ptr @Inter_ManCreate(ptr noundef %0, ptr nocapture nounde
 
 Vec_IntAlloc.exit:                                ; preds = %2, %7
   %11 = phi ptr [ %10, %7 ], [ null, %2 ]
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %calloc, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
   store ptr %4, ptr %13, align 8
   %14 = load i32, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %calloc, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %calloc, i64 88
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %calloc, i64 92
+  %18 = getelementptr inbounds nuw i8, ptr %calloc, i64 92
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %calloc, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %calloc, i64 96
   store ptr %20, ptr %21, align 8
   store ptr %0, ptr %calloc, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 60
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %23 = load i32, ptr %22, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %30, label %24
 
 24:                                               ; preds = %Vec_IntAlloc.exit
   %25 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 0, ptr %26, align 4
   store i32 100, ptr %25, align 8
   %27 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #10
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %calloc, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
   store ptr %25, ptr %29, align 8
   br label %30
 
@@ -86,7 +86,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Inter_ManClean(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %.preheader
@@ -102,7 +102,7 @@ define void @Inter_ManClean(ptr nocapture noundef readonly %0) local_unnamed_add
   %6 = phi ptr [ %10, %.lr.ph ], [ %3, %.preheader ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val23 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val23, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val23, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   tail call void @Aig_ManStop(ptr noundef %9) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -120,7 +120,7 @@ define void @Inter_ManClean(ptr nocapture noundef readonly %0) local_unnamed_add
   br label %15
 
 15:                                               ; preds = %.critedge, %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not19 = icmp eq ptr %17, null
   br i1 %.not19, label %19, label %18
@@ -130,7 +130,7 @@ define void @Inter_ManClean(ptr nocapture noundef readonly %0) local_unnamed_add
   br label %19
 
 19:                                               ; preds = %18, %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %.not20 = icmp eq ptr %21, null
   br i1 %.not20, label %23, label %22
@@ -140,7 +140,7 @@ define void @Inter_ManClean(ptr nocapture noundef readonly %0) local_unnamed_add
   br label %23
 
 23:                                               ; preds = %22, %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not21 = icmp eq ptr %25, null
   br i1 %.not21, label %27, label %26
@@ -150,7 +150,7 @@ define void @Inter_ManClean(ptr nocapture noundef readonly %0) local_unnamed_add
   br label %27
 
 27:                                               ; preds = %26, %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
   %.not22 = icmp eq ptr %29, null
   br i1 %.not22, label %31, label %30
@@ -169,11 +169,11 @@ declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @Inter_ManInterDump(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %spec.select = select i1 %.not, ptr @.str, ptr %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @Aig_ManDupArray(ptr noundef %6) #11
   tail call void @Ioa_WriteAiger(ptr noundef %7, ptr noundef nonnull %spec.select, i32 noundef 0, i32 noundef 0) #11
@@ -193,30 +193,30 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @Inter_ManStop(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %78, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %9, %11
   %19 = add i64 %18, %13
   %20 = add i64 %19, %15
   %21 = add i64 %20, %17
   %22 = sub i64 %7, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %22, ptr %23, align 8
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
@@ -297,13 +297,13 @@ define void @Inter_ManStop(ptr nocapture noundef %0, i32 noundef %1) local_unnam
   br label %78
 
 78:                                               ; preds = %5, %2
-  %79 = getelementptr inbounds i8, ptr %0, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %80 = load ptr, ptr %79, align 8
   %.not66 = icmp eq ptr %80, null
   br i1 %.not66, label %86, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %0, i64 96
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %83 = load ptr, ptr %82, align 8
   %.not.i = icmp eq ptr %83, null
   %spec.select.i = select i1 %.not.i, ptr @.str, ptr %83
@@ -316,7 +316,7 @@ define void @Inter_ManStop(ptr nocapture noundef %0, i32 noundef %1) local_unnam
   br label %86
 
 86:                                               ; preds = %81, %78
-  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %88 = load ptr, ptr %87, align 8
   %.not67 = icmp eq ptr %88, null
   br i1 %.not67, label %90, label %89
@@ -326,7 +326,7 @@ define void @Inter_ManStop(ptr nocapture noundef %0, i32 noundef %1) local_unnam
   br label %90
 
 90:                                               ; preds = %89, %86
-  %91 = getelementptr inbounds i8, ptr %0, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load ptr, ptr %91, align 8
   %.not68 = icmp eq ptr %92, null
   br i1 %.not68, label %94, label %93
@@ -336,7 +336,7 @@ define void @Inter_ManStop(ptr nocapture noundef %0, i32 noundef %1) local_unnam
   br label %94
 
 94:                                               ; preds = %93, %90
-  %95 = getelementptr inbounds i8, ptr %0, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %96 = load ptr, ptr %95, align 8
   %.not69 = icmp eq ptr %96, null
   br i1 %.not69, label %98, label %97
@@ -352,7 +352,7 @@ define void @Inter_ManStop(ptr nocapture noundef %0, i32 noundef %1) local_unnam
   br i1 %100, label %Vec_PtrFreeP.exit, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %99, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %103 = load ptr, ptr %102, align 8
   %.not.i71 = icmp eq ptr %103, null
   br i1 %.not.i71, label %.thread.i, label %104
@@ -360,7 +360,7 @@ define void @Inter_ManStop(ptr nocapture noundef %0, i32 noundef %1) local_unnam
 104:                                              ; preds = %101
   tail call void @free(ptr noundef nonnull %103) #11
   %105 = load ptr, ptr %79, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr null, ptr %106, align 8
   %.pre.i = load ptr, ptr %79, align 8
   %.not9.i = icmp eq ptr %.pre.i, null
@@ -373,13 +373,13 @@ define void @Inter_ManStop(ptr nocapture noundef %0, i32 noundef %1) local_unnam
   br label %Vec_PtrFreeP.exit
 
 Vec_PtrFreeP.exit:                                ; preds = %98, %104, %.thread.i
-  %108 = getelementptr inbounds i8, ptr %0, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, null
   br i1 %110, label %118, label %111
 
 111:                                              ; preds = %Vec_PtrFreeP.exit
-  %112 = getelementptr inbounds i8, ptr %109, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %113 = load ptr, ptr %112, align 8
   %.not.i72 = icmp eq ptr %113, null
   br i1 %.not.i72, label %.thread.i75, label %114
@@ -387,7 +387,7 @@ Vec_PtrFreeP.exit:                                ; preds = %98, %104, %.thread.
 114:                                              ; preds = %111
   tail call void @free(ptr noundef nonnull %113) #11
   %115 = load ptr, ptr %108, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr null, ptr %116, align 8
   %.pre.i73 = load ptr, ptr %108, align 8
   %.not9.i74 = icmp eq ptr %.pre.i73, null

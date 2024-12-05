@@ -863,12 +863,12 @@ checkControlFile.exit:                            ; preds = %129
 
 234:                                              ; preds = %227
   %235 = load ptr, ptr %6, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 4
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %.not101 = icmp eq ptr %235, null
   br i1 %.not101, label %._crit_edge138.thread, label %.lr.ph137
 
 .lr.ph137:                                        ; preds = %234
-  %237 = getelementptr inbounds i8, ptr %235, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %235, i64 16
   %238 = load i32, ptr %236, align 4
   %239 = icmp sgt i32 %238, 0
   br i1 %239, label %sub_0, label %._crit_edge138
@@ -885,7 +885,7 @@ sub_0:                                            ; preds = %.lr.ph137, %261
   br i1 %.not, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %244 = getelementptr inbounds i8, ptr %242, i64 1
+  %244 = getelementptr inbounds nuw i8, ptr %242, i64 1
   %245 = load i8, ptr %244, align 1
   %246 = icmp eq i8 %245, 0
   br i1 %246, label %247, label %.tail.thread
@@ -977,12 +977,12 @@ sub_0:                                            ; preds = %.lr.ph137, %261
 
 281:                                              ; preds = %274
   %282 = load ptr, ptr %7, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 4
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 4
   %.not104 = icmp eq ptr %282, null
   br i1 %.not104, label %._crit_edge147.thread, label %.lr.ph146
 
 .lr.ph146:                                        ; preds = %281
-  %284 = getelementptr inbounds i8, ptr %282, i64 16
+  %284 = getelementptr inbounds nuw i8, ptr %282, i64 16
   %285 = load i32, ptr %283, align 4
   %286 = icmp sgt i32 %285, 0
   br i1 %286, label %.lr.ph154, label %._crit_edge147
@@ -1613,7 +1613,7 @@ define internal fastcc void @maybe_start_bgworkers() unnamed_addr #1 {
   br i1 %.b21, label %.loopexit, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @BackgroundWorkerList, ptr %3, align 8
   %4 = load ptr, ptr @BackgroundWorkerList, align 8
   store ptr %4, ptr %1, align 8
@@ -1621,7 +1621,7 @@ define internal fastcc void @maybe_start_bgworkers() unnamed_addr #1 {
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %bgworker_should_start_now.exit, %.lr.ph.preheader
@@ -1733,7 +1733,7 @@ define internal fastcc void @maybe_start_bgworkers() unnamed_addr #1 {
   %50 = xor i8 %49, 1
   %51 = zext nneg i8 %50 to i32
   %spec.select21.i.i.i.i = add i32 %.019.us.i.i.i.i, %51
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.020.us.i.i.i.i, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.us.i.i.i.i, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not15.us.i.i.i.i = icmp eq ptr %53, @BackendList
   br i1 %.not15.us.i.i.i.i, label %canAcceptConnections.exit.i.i, label %.lr.ph.split.us.i.i.i.i, !llvm.loop !10
@@ -1784,17 +1784,17 @@ canAcceptConnections.exit.i.i:                    ; preds = %.lr.ph.split.us.i.i
 
 76:                                               ; preds = %69
   %77 = load i32, ptr @MyCancelKey, align 4
-  %78 = getelementptr inbounds i8, ptr %70, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i32 %77, ptr %78, align 4
   %79 = call i32 @AssignPostmasterChildSlot() #25
   store i32 %79, ptr @MyPMChildSlot, align 4
-  %80 = getelementptr inbounds i8, ptr %70, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %70, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 8, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %70, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i8 0, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %70, i64 17
+  %83 = getelementptr inbounds nuw i8, ptr %70, i64 17
   store i8 0, ptr %83, align 1
   %84 = getelementptr i8, ptr %6, i64 -32
   store ptr %70, ptr %84, align 8
@@ -1856,7 +1856,7 @@ canAcceptConnections.exit.i.i:                    ; preds = %.lr.ph.split.us.i.i
   store i32 %91, ptr %107, align 8
   call void @ReportBackgroundWorkerPID(ptr noundef nonnull %7) #25
   %108 = load ptr, ptr %84, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
   %111 = icmp eq ptr %110, null
   br i1 %111, label %112, label %115
@@ -1872,7 +1872,7 @@ canAcceptConnections.exit.i.i:                    ; preds = %.lr.ph.split.us.i.i
 
 115:                                              ; preds = %112, %106
   %116 = phi ptr [ @BackendList, %112 ], [ %110, %106 ]
-  %117 = getelementptr inbounds i8, ptr %108, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %108, i64 32
   store ptr %116, ptr %117, align 8
   store ptr @BackendList, ptr %109, align 8
   store ptr %109, ptr %116, align 8
@@ -1945,10 +1945,10 @@ define internal fastcc void @ServerLoop() unnamed_addr #0 {
 
 ConfigurePostmasterWaitSet.exit:                  ; preds = %.lr.ph.i, %12
   %28 = tail call i64 @time(ptr noundef null) #25
-  %29 = getelementptr inbounds i8, ptr %8, i64 16
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %1172, %ConfigurePostmasterWaitSet.exit
@@ -2067,7 +2067,7 @@ DetermineSleepTime.exit:                          ; preds = %37, %39, %41, %48, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %979
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %979 ]
   %80 = getelementptr [64 x %struct.WaitEvent], ptr %9, i64 0, i64 %indvars.iv
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %82, 1
   %.not53 = icmp eq i32 %83, 0
@@ -2281,7 +2281,7 @@ process_pm_shutdown_request.exit:                 ; preds = %.sink.split14.i, %1
   br label %select.unfold.us.i.i
 
 select.unfold.us.i.i:                             ; preds = %164, %162, %158, %.lr.ph.split.us.i.i
-  %167 = getelementptr inbounds i8, ptr %.sroa.0.023.us.i.i, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.us.i.i, i64 8
   %168 = load ptr, ptr %167, align 8
   %.not18.us.i.i = icmp eq ptr %168, @BackendList
   br i1 %.not18.us.i.i, label %SignalSomeChildren.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !14
@@ -3019,7 +3019,7 @@ signal_child.exit.i69:                            ; preds = %454, %452, %449, %4
   br label %select.unfold.us.i.i75
 
 select.unfold.us.i.i75:                           ; preds = %473, %471, %467, %.lr.ph.split.us.i.i73
-  %476 = getelementptr inbounds i8, ptr %.sroa.0.023.us.i.i74, i64 8
+  %476 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.us.i.i74, i64 8
   %477 = load ptr, ptr %476, align 8
   %.not18.us.i.i76 = icmp eq ptr %477, @BackendList
   br i1 %.not18.us.i.i76, label %SignalSomeChildren.exit.i77, label %.lr.ph.split.us.i.i73, !llvm.loop !14
@@ -3311,16 +3311,16 @@ LogChildExit.exit150:                             ; preds = %.thread.i147, %557,
 595:                                              ; preds = %590
   %596 = getelementptr i8, ptr %storemerge3840.i.i, i64 -32
   %597 = load ptr, ptr %596, align 8
-  %598 = getelementptr inbounds i8, ptr %597, i64 24
-  %599 = getelementptr inbounds i8, ptr %597, i64 32
+  %598 = getelementptr inbounds nuw i8, ptr %597, i64 24
+  %599 = getelementptr inbounds nuw i8, ptr %597, i64 32
   %600 = load ptr, ptr %599, align 8
   %601 = load ptr, ptr %598, align 8
-  %602 = getelementptr inbounds i8, ptr %601, i64 8
+  %602 = getelementptr inbounds nuw i8, ptr %601, i64 8
   store ptr %600, ptr %602, align 8
   %603 = load ptr, ptr %598, align 8
   store ptr %603, ptr %600, align 8
   %604 = load ptr, ptr %596, align 8
-  %605 = getelementptr inbounds i8, ptr %604, i64 17
+  %605 = getelementptr inbounds nuw i8, ptr %604, i64 17
   %606 = load i8, ptr %605, align 1
   %607 = trunc i8 %606 to i1
   br i1 %607, label %608, label %610
@@ -3492,7 +3492,7 @@ select.unfold.i:                                  ; preds = %select.unfold.prehe
   br i1 %.not24.i, label %.backedge.i, label %661
 
 661:                                              ; preds = %select.unfold.i
-  %.sroa.7.0.in.i = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
+  %.sroa.7.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
   %.sroa.7.0.i = load ptr, ptr %.sroa.7.0.in.i, align 8
   %662 = getelementptr i8, ptr %.sroa.0.0.i, i64 -24
   %663 = load i32, ptr %662, align 8
@@ -3500,7 +3500,7 @@ select.unfold.i:                                  ; preds = %select.unfold.prehe
   br i1 %664, label %665, label %select.unfold.i, !llvm.loop !17
 
 665:                                              ; preds = %661
-  %.sroa.7.0.in.i.le = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
+  %.sroa.7.0.in.i.le = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
   %666 = getelementptr i8, ptr %.sroa.0.0.i, i64 -24
   %667 = getelementptr i8, ptr %.sroa.0.0.i, i64 -8
   %668 = load i8, ptr %667, align 8
@@ -3531,7 +3531,7 @@ select.unfold.i:                                  ; preds = %select.unfold.prehe
 681:                                              ; preds = %679, %675
   %682 = load ptr, ptr %.sroa.7.0.in.i.le, align 8
   %683 = load ptr, ptr %.sroa.0.0.i, align 8
-  %684 = getelementptr inbounds i8, ptr %683, i64 8
+  %684 = getelementptr inbounds nuw i8, ptr %683, i64 8
   store ptr %682, ptr %684, align 8
   %685 = load ptr, ptr %.sroa.0.0.i, align 8
   store ptr %685, ptr %682, align 8
@@ -3764,7 +3764,7 @@ signal_child.exit23.i88:                          ; preds = %756, %754, %750, %7
   %777 = xor i8 %776, 1
   %778 = zext nneg i8 %777 to i32
   %spec.select21.i.i.i.i = add i32 %.019.us.i.i.i.i, %778
-  %779 = getelementptr inbounds i8, ptr %.sroa.0.020.us.i.i.i.i, i64 8
+  %779 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.us.i.i.i.i, i64 8
   %780 = load ptr, ptr %779, align 8
   %.not15.us.i.i.i.i = icmp eq ptr %780, @BackendList
   br i1 %.not15.us.i.i.i.i, label %CountChildren.exit.i.i.i, label %.lr.ph.split.us.i.i.i.i, !llvm.loop !10
@@ -3804,15 +3804,15 @@ canAcceptConnections.exit.i.i:                    ; preds = %CountChildren.exit.
 
 798:                                              ; preds = %796
   %799 = load i32, ptr @MyCancelKey, align 4
-  %800 = getelementptr inbounds i8, ptr %797, i64 4
+  %800 = getelementptr inbounds nuw i8, ptr %797, i64 4
   store i32 %799, ptr %800, align 4
-  %801 = getelementptr inbounds i8, ptr %797, i64 16
+  %801 = getelementptr inbounds nuw i8, ptr %797, i64 16
   store i8 0, ptr %801, align 8
   %802 = call i32 @AssignPostmasterChildSlot() #25
   store i32 %802, ptr @MyPMChildSlot, align 4
-  %803 = getelementptr inbounds i8, ptr %797, i64 8
+  %803 = getelementptr inbounds nuw i8, ptr %797, i64 8
   store i32 %802, ptr %803, align 8
-  %804 = getelementptr inbounds i8, ptr %797, i64 17
+  %804 = getelementptr inbounds nuw i8, ptr %797, i64 17
   store i8 0, ptr %804, align 1
   %805 = call i32 @StartAutoVacWorker() #25
   store i32 %805, ptr %797, align 8
@@ -3820,9 +3820,9 @@ canAcceptConnections.exit.i.i:                    ; preds = %CountChildren.exit.
   br i1 %806, label %807, label %815
 
 807:                                              ; preds = %798
-  %808 = getelementptr inbounds i8, ptr %797, i64 12
+  %808 = getelementptr inbounds nuw i8, ptr %797, i64 12
   store i32 2, ptr %808, align 4
-  %809 = getelementptr inbounds i8, ptr %797, i64 24
+  %809 = getelementptr inbounds nuw i8, ptr %797, i64 24
   %810 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
   %811 = icmp eq ptr %810, null
   br i1 %811, label %812, label %dlist_push_head.exit.i.i
@@ -3833,7 +3833,7 @@ canAcceptConnections.exit.i.i:                    ; preds = %CountChildren.exit.
 
 dlist_push_head.exit.i.i:                         ; preds = %812, %807
   %813 = phi ptr [ @BackendList, %812 ], [ %810, %807 ]
-  %814 = getelementptr inbounds i8, ptr %797, i64 32
+  %814 = getelementptr inbounds nuw i8, ptr %797, i64 32
   store ptr %813, ptr %814, align 8
   store ptr @BackendList, ptr %809, align 8
   store ptr %809, ptr %813, align 8
@@ -3969,7 +3969,7 @@ process_pm_pmsignal.exit:                         ; preds = %861, %859, %855, %8
   br i1 %.not58, label %979, label %866
 
 866:                                              ; preds = %process_pm_pmsignal.exit
-  %867 = getelementptr inbounds i8, ptr %80, i64 8
+  %867 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %868 = load i32, ptr %867, align 8
   %869 = call noalias dereferenceable_or_null(448) ptr @calloc(i64 noundef 1, i64 noundef 448) #31
   %.not.i98 = icmp eq ptr %869, null
@@ -4031,7 +4031,7 @@ ConnCreate.exit:                                  ; preds = %876
 
 893:                                              ; preds = %886
   %894 = load i32, ptr @MyCancelKey, align 4
-  %895 = getelementptr inbounds i8, ptr %880, i64 4
+  %895 = getelementptr inbounds nuw i8, ptr %880, i64 4
   store i32 %894, ptr %895, align 4
   %896 = load i32, ptr @pmState, align 4
   %897 = add i32 %896, -5
@@ -4075,7 +4075,7 @@ ConnCreate.exit:                                  ; preds = %876
   %911 = xor i8 %910, 1
   %912 = zext nneg i8 %911 to i32
   %spec.select21.i.i.i = add i32 %.019.us.i.i.i, %912
-  %913 = getelementptr inbounds i8, ptr %.sroa.0.020.us.i.i.i, i64 8
+  %913 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.us.i.i.i, i64 8
   %914 = load ptr, ptr %913, align 8
   %.not15.us.i.i.i = icmp eq ptr %914, @BackendList
   br i1 %.not15.us.i.i.i, label %CountChildren.exit.i.i, label %.lr.ph.split.us.i.i.i, !llvm.loop !10
@@ -4095,9 +4095,9 @@ CountChildren.exit.i.i:                           ; preds = %.lr.ph.split.us.i.i
   br i1 %.not18.i.i, label %924, label %928
 
 924:                                              ; preds = %CountChildren.exit.i.i
-  %925 = getelementptr inbounds i8, ptr %869, i64 320
+  %925 = getelementptr inbounds nuw i8, ptr %869, i64 320
   store i32 0, ptr %925, align 8
-  %926 = getelementptr inbounds i8, ptr %880, i64 16
+  %926 = getelementptr inbounds nuw i8, ptr %880, i64 16
   store i8 0, ptr %926, align 8
   %927 = call i32 @AssignPostmasterChildSlot() #25
   store i32 %927, ptr @MyPMChildSlot, align 4
@@ -4105,18 +4105,18 @@ CountChildren.exit.i.i:                           ; preds = %.lr.ph.split.us.i.i
 
 928:                                              ; preds = %CountChildren.exit.i.i, %905, %903, %901, %898
   %.015.i.ph.i = phi i32 [ 2, %905 ], [ %..i.i, %903 ], [ 1, %901 ], [ 2, %898 ], [ 5, %CountChildren.exit.i.i ]
-  %929 = getelementptr inbounds i8, ptr %869, i64 320
+  %929 = getelementptr inbounds nuw i8, ptr %869, i64 320
   store i32 %.015.i.ph.i, ptr %929, align 8
-  %930 = getelementptr inbounds i8, ptr %880, i64 16
+  %930 = getelementptr inbounds nuw i8, ptr %880, i64 16
   store i8 1, ptr %930, align 8
   br label %931
 
 931:                                              ; preds = %928, %924
   %.sink.i103 = phi i32 [ 0, %928 ], [ %927, %924 ]
   %932 = phi ptr [ %930, %928 ], [ %926, %924 ]
-  %933 = getelementptr inbounds i8, ptr %880, i64 8
+  %933 = getelementptr inbounds nuw i8, ptr %880, i64 8
   store i32 %.sink.i103, ptr %933, align 8
-  %934 = getelementptr inbounds i8, ptr %880, i64 17
+  %934 = getelementptr inbounds nuw i8, ptr %880, i64 17
   store i8 0, ptr %934, align 1
   %935 = call i32 @fork_process() #25
   %936 = icmp eq i32 %935, 0
@@ -4194,9 +4194,9 @@ report_fork_failure_to_client.exit.i:             ; preds = %962, %.preheader.i.
 
 970:                                              ; preds = %967, %965
   store i32 %935, ptr %880, align 8
-  %971 = getelementptr inbounds i8, ptr %880, i64 12
+  %971 = getelementptr inbounds nuw i8, ptr %880, i64 12
   store i32 1, ptr %971, align 4
-  %972 = getelementptr inbounds i8, ptr %880, i64 24
+  %972 = getelementptr inbounds nuw i8, ptr %880, i64 24
   %973 = load ptr, ptr getelementptr inbounds (i8, ptr @BackendList, i64 8), align 8
   %974 = icmp eq ptr %973, null
   br i1 %974, label %975, label %dlist_push_head.exit.i
@@ -4207,7 +4207,7 @@ report_fork_failure_to_client.exit.i:             ; preds = %962, %.preheader.i.
 
 dlist_push_head.exit.i:                           ; preds = %975, %970
   %976 = phi ptr [ @BackendList, %975 ], [ %973, %970 ]
-  %977 = getelementptr inbounds i8, ptr %880, i64 32
+  %977 = getelementptr inbounds nuw i8, ptr %880, i64 32
   store ptr %976, ptr %977, align 8
   store ptr @BackendList, ptr %972, align 8
   store ptr %972, ptr %976, align 8
@@ -4825,7 +4825,7 @@ define dso_local range(i32 0, -1) i32 @MaxLivePostmasterChildren() local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local void @BackgroundWorkerInitializeConnection(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr @MyBgworkerEntry, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 2
   %.not8 = icmp eq i32 %7, 0
@@ -4864,7 +4864,7 @@ declare void @InitPostgres(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i
 ; Function Attrs: nounwind uwtable
 define dso_local void @BackgroundWorkerInitializeConnectionByOid(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr @MyBgworkerEntry, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 2
   %.not8 = icmp eq i32 %7, 0
@@ -4931,7 +4931,7 @@ define dso_local noundef zeroext i1 @PostmasterMarkPIDForWorkerNotify(i32 nounde
   br label %.loopexit
 
 select.unfold:                                    ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not9.not = icmp eq ptr %9, @BackendList
   br i1 %.not9.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
@@ -5005,7 +5005,7 @@ define internal fastcc void @TerminateChildren(i32 noundef range(i32 3, 16) %0) 
   br label %select.unfold.us.i
 
 select.unfold.us.i:                               ; preds = %12, %.lr.ph.split.us.i
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.023.us.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.us.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not18.us.i = icmp eq ptr %15, @BackendList
   br i1 %.not18.us.i, label %SignalSomeChildren.exit, label %.lr.ph.split.us.i, !llvm.loop !14
@@ -5173,7 +5173,7 @@ define internal fastcc void @PostmasterStateMachine() unnamed_addr #1 {
 
 select.unfold.i:                                  ; preds = %18, %.lr.ph.split.i
   %.1.i = phi i32 [ %.019.i, %.lr.ph.split.i ], [ %spec.select22.i, %18 ]
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.020.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not15.i = icmp eq ptr %22, @BackendList
   br i1 %.not15.i, label %CountChildren.exit, label %.lr.ph.split.i, !llvm.loop !10
@@ -5311,7 +5311,7 @@ thread-pre-split:                                 ; preds = %CountChildren.exit
 
 select.unfold.i63:                                ; preds = %60, %.lr.ph.split.i58
   %.1.i64 = phi i32 [ %.019.i60, %.lr.ph.split.i58 ], [ %spec.select22.i62, %60 ]
-  %64 = getelementptr inbounds i8, ptr %.sroa.0.020.i59, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i59, i64 8
   %65 = load ptr, ptr %64, align 8
   %.not15.i65 = icmp eq ptr %65, @BackendList
   br i1 %.not15.i65, label %CountChildren.exit69.loopexit, label %.lr.ph.split.i58, !llvm.loop !10
@@ -5425,7 +5425,7 @@ thread-pre-split86.thread:                        ; preds = %93, %thread-pre-spl
   %107 = xor i8 %106, 1
   %108 = zext nneg i8 %107 to i32
   %spec.select21.i = add i32 %.019.us.i, %108
-  %109 = getelementptr inbounds i8, ptr %.sroa.0.020.us.i, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.us.i, i64 8
   %110 = load ptr, ptr %109, align 8
   %.not15.us.i = icmp eq ptr %110, @BackendList
   br i1 %.not15.us.i, label %CountChildren.exit75, label %.lr.ph.split.us.i, !llvm.loop !10
@@ -5653,7 +5653,7 @@ define internal fastcc void @SignalSomeChildren(i32 noundef range(i32 1, 16) %0,
   br label %select.unfold.us
 
 select.unfold.us:                                 ; preds = %13, %.lr.ph.split.us
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.023.us, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.us, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not18.us = icmp eq ptr %16, @BackendList
   br i1 %.not18.us, label %select.unfold._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
@@ -5708,7 +5708,7 @@ select.unfold.us:                                 ; preds = %13, %.lr.ph.split.u
   br label %select.unfold
 
 select.unfold:                                    ; preds = %30, %.lr.ph.split, %38
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.023, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.023, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not18 = icmp eq ptr %41, @BackendList
   br i1 %.not18, label %select.unfold._crit_edge, label %.lr.ph.split, !llvm.loop !14
@@ -5877,11 +5877,11 @@ define internal fastcc void @HandleChildCrash(i32 noundef range(i32 1, -21474836
   %17 = tail call zeroext i1 @ReleasePostmasterChildSlot(i32 noundef %16) #25
   %18 = getelementptr i8, ptr %.sroa.0.0103.us, i64 -32
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
-  %21 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %22, ptr %24, align 8
   %25 = load ptr, ptr %20, align 8
   store ptr %25, ptr %22, align 8
@@ -5912,11 +5912,11 @@ define internal fastcc void @HandleChildCrash(i32 noundef range(i32 1, -21474836
   %36 = tail call zeroext i1 @ReleasePostmasterChildSlot(i32 noundef %35) #25
   %37 = getelementptr i8, ptr %.sroa.0.0103, i64 -32
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
-  %40 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %41, ptr %43, align 8
   %44 = load ptr, ptr %39, align 8
   store ptr %44, ptr %41, align 8
@@ -5964,12 +5964,12 @@ sigquit_child.exit:                               ; preds = %46, %48
   br i1 %.not71106123, label %select.unfold._crit_edge, label %.lr.ph111.thread
 
 .lr.ph111.thread:                                 ; preds = %._crit_edge.thread
-  %.sroa.7.0.in104124 = getelementptr inbounds i8, ptr %58, i64 8
+  %.sroa.7.0.in104124 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %.sroa.7.0105125 = load ptr, ptr %.sroa.7.0.in104124, align 8
   br label %.lr.ph111.split.preheader
 
 .lr.ph111:                                        ; preds = %._crit_edge
-  %.sroa.7.0.in104 = getelementptr inbounds i8, ptr %57, i64 8
+  %.sroa.7.0.in104 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.7.0105 = load ptr, ptr %.sroa.7.0.in104, align 8
   br i1 %.not69, label %.lr.ph111.split.us, label %.lr.ph111.split.preheader
 
@@ -6004,7 +6004,7 @@ sigquit_child.exit:                               ; preds = %46, %48
 70:                                               ; preds = %66, %62
   %71 = phi ptr [ %.pre115, %66 ], [ %.sroa.7.0109.us, %62 ]
   %72 = load ptr, ptr %.sroa.035.0107.us, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %71, ptr %73, align 8
   %74 = load ptr, ptr %.sroa.035.0107.us, align 8
   store ptr %74, ptr %71, align 8
@@ -6012,7 +6012,7 @@ sigquit_child.exit:                               ; preds = %46, %48
   br label %select.unfold.us
 
 select.unfold.us:                                 ; preds = %.lr.ph111.split.us, %70
-  %.sroa.7.0.in.us = getelementptr inbounds i8, ptr %.sroa.7.0109.us, i64 8
+  %.sroa.7.0.in.us = getelementptr inbounds nuw i8, ptr %.sroa.7.0109.us, i64 8
   %.sroa.7.0.us = load ptr, ptr %.sroa.7.0.in.us, align 8
   %.not71.us = icmp eq ptr %.sroa.7.0109.us, @BackendList
   br i1 %.not71.us, label %select.unfold._crit_edge, label %.lr.ph111.split.us, !llvm.loop !23
@@ -6042,7 +6042,7 @@ select.unfold.us:                                 ; preds = %.lr.ph111.split.us,
 86:                                               ; preds = %82, %78
   %87 = phi ptr [ %.pre, %82 ], [ %.sroa.7.0109, %78 ]
   %88 = load ptr, ptr %.sroa.035.0107, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr %87, ptr %89, align 8
   %90 = load ptr, ptr %.sroa.035.0107, align 8
   store ptr %90, ptr %87, align 8
@@ -6075,7 +6075,7 @@ sigquit_child.exit91:                             ; preds = %95, %97
   br label %select.unfold
 
 select.unfold:                                    ; preds = %91, %86, %sigquit_child.exit91
-  %.sroa.7.0.in = getelementptr inbounds i8, ptr %.sroa.7.0109, i64 8
+  %.sroa.7.0.in = getelementptr inbounds nuw i8, ptr %.sroa.7.0109, i64 8
   %.sroa.7.0 = load ptr, ptr %.sroa.7.0.in, align 8
   %.not71 = icmp eq ptr %.sroa.7.0109, @BackendList
   br i1 %.not71, label %select.unfold._crit_edge, label %.lr.ph111.split, !llvm.loop !23
@@ -6471,9 +6471,9 @@ define internal fastcc void @BackendInitialize(ptr noundef nonnull %0) unnamed_a
 
 10:                                               ; preds = %7, %1
   store i8 1, ptr @ClientAuthInProgress, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr @.str.29, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 312
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr @.str.29, ptr %12, align 8
   tail call void @pq_init() #25
   store i32 2, ptr @whereToSendOutput, align 4
@@ -6482,8 +6482,8 @@ define internal fastcc void @BackendInitialize(ptr noundef nonnull %0) unnamed_a
   %14 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @StartupBlockSig, ptr noundef null) #25
   store i8 0, ptr %2, align 16
   store i8 0, ptr %3, align 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 152
-  %16 = getelementptr inbounds i8, ptr %0, i64 280
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %17 = load i32, ptr %16, align 8
   %18 = load i8, ptr @log_hostname, align 1
   %19 = and i8 %18, 1
@@ -6556,7 +6556,7 @@ define internal fastcc void @BackendInitialize(ptr noundef nonnull %0) unnamed_a
 
 52:                                               ; preds = %49
   %53 = call noalias ptr @strdup(ptr noundef nonnull %2) #25
-  %54 = getelementptr inbounds i8, ptr %0, i64 296
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %53, ptr %54, align 8
   br label %55
 
@@ -6570,7 +6570,7 @@ define internal fastcc void @BackendInitialize(ptr noundef nonnull %0) unnamed_a
   br i1 %60, label %61, label %.critedge
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %0, i64 320
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %63 = load i32, ptr %62, align 8
   switch i32 %63, label %91 [
     i32 1, label %64
@@ -6654,10 +6654,10 @@ define internal fastcc void @BackendInitialize(ptr noundef nonnull %0) unnamed_a
   br label %98
 
 98:                                               ; preds = %96, %91
-  %99 = getelementptr inbounds i8, ptr %0, i64 336
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %100 = load ptr, ptr %99, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.130, ptr noundef %100) #25
-  %101 = getelementptr inbounds i8, ptr %0, i64 328
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %102 = load ptr, ptr %101, align 8
   %103 = load i8, ptr %102, align 1
   %.not24 = icmp eq i8 %103, 0
@@ -6693,9 +6693,9 @@ define internal fastcc void @BackendRun(ptr nocapture noundef nonnull readonly %
   tail call void @InitProcess() #25
   %2 = load ptr, ptr @TopMemoryContext, align 8
   store ptr %2, ptr @CurrentMemoryContext, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 336
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %6 = load ptr, ptr %5, align 8
   tail call void @PostgresMain(ptr noundef %4, ptr noundef %6) #30
   unreachable
@@ -6748,7 +6748,7 @@ define internal fastcc range(i32 -1, 1) i32 @ProcessStartupPacket(ptr noundef no
   br i1 %9, label %258, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %12 = call i32 @pq_getbytes(ptr noundef nonnull %11, i64 noundef 3) #25
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %20
@@ -6814,7 +6814,7 @@ define internal fastcc range(i32 -1, 1) i32 @ProcessStartupPacket(ptr noundef no
   call void @pq_endmsgread() #25
   %47 = load i32, ptr %33, align 4
   %48 = call i32 @llvm.bswap.i32(i32 %47)
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %48, ptr %49, align 8
   switch i32 %47, label %110 [
     i32 773247492, label %50
@@ -6961,17 +6961,17 @@ define internal fastcc range(i32 -1, 1) i32 @ProcessStartupPacket(ptr noundef no
   %119 = load ptr, ptr @TopMemoryContext, align 8
   %120 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %119, ptr @CurrentMemoryContext, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 352
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr null, ptr %121, align 8
   %122 = load i32, ptr %5, align 4
   %123 = icmp sgt i32 %122, 4
   br i1 %123, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %118
-  %124 = getelementptr inbounds i8, ptr %0, i64 360
-  %125 = getelementptr inbounds i8, ptr %0, i64 344
-  %126 = getelementptr inbounds i8, ptr %0, i64 336
-  %127 = getelementptr inbounds i8, ptr %0, i64 328
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 328
   br label %128
 
 128:                                              ; preds = %.lr.ph, %186
@@ -7118,7 +7118,7 @@ define internal fastcc range(i32 -1, 1) i32 @ProcessStartupPacket(ptr noundef no
   call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef 4) #25
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %203 = load ptr, ptr %4, align 8, !alias.scope !26
-  %204 = getelementptr inbounds i8, ptr %4, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %205 = load i32, ptr %204, align 8, !alias.scope !26
   %206 = sext i32 %205 to i64
   %207 = getelementptr i8, ptr %203, i64 %206
@@ -7129,7 +7129,7 @@ define internal fastcc range(i32 -1, 1) i32 @ProcessStartupPacket(ptr noundef no
   br i1 %.not.i.i, label %list_length.exit.i, label %209
 
 209:                                              ; preds = %202
-  %210 = getelementptr inbounds i8, ptr %.075.lcssa, i64 4
+  %210 = getelementptr inbounds nuw i8, ptr %.075.lcssa, i64 4
   %211 = load i32, ptr %210, align 4
   br label %list_length.exit.i
 
@@ -7145,11 +7145,11 @@ list_length.exit.i:                               ; preds = %209, %202
   store i32 %213, ptr %217, align 1, !noalias !29
   %218 = add i32 %215, 4
   store i32 %218, ptr %204, align 8, !alias.scope !29
-  %219 = getelementptr inbounds i8, ptr %.075.lcssa, i64 4
+  %219 = getelementptr inbounds nuw i8, ptr %.075.lcssa, i64 4
   br i1 %.not.i.i, label %SendNegotiateProtocolVersion.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %list_length.exit.i
-  %220 = getelementptr inbounds i8, ptr %.075.lcssa, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %.075.lcssa, i64 16
   %221 = load i32, ptr %219, align 4
   %222 = icmp sgt i32 %221, 0
   br i1 %222, label %.lr.ph14.i, label %SendNegotiateProtocolVersion.exit
@@ -7172,7 +7172,7 @@ SendNegotiateProtocolVersion.exit:                ; preds = %.lr.ph14.i, %list_l
   br label %229
 
 229:                                              ; preds = %198, %SendNegotiateProtocolVersion.exit
-  %230 = getelementptr inbounds i8, ptr %0, i64 336
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %231 = load ptr, ptr %230, align 8
   %232 = icmp eq ptr %231, null
   br i1 %232, label %236, label %233
@@ -7191,7 +7191,7 @@ SendNegotiateProtocolVersion.exit:                ; preds = %.lr.ph14.i, %list_l
   unreachable
 
 240:                                              ; preds = %233
-  %241 = getelementptr inbounds i8, ptr %0, i64 328
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %242 = load ptr, ptr %241, align 8
   %243 = icmp eq ptr %242, null
   br i1 %243, label %247, label %244
@@ -7309,7 +7309,7 @@ define internal fastcc void @processCancelRequest(i32 %.4.val, i32 %.8.val) unna
   br label %27
 
 select.unfold:                                    ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.sroa.0.03, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.03, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not16 = icmp eq ptr %23, @BackendList
   br i1 %.not16, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !32

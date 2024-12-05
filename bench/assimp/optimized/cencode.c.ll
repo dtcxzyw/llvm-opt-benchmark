@@ -9,9 +9,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @base64_init_encodestate(ptr nocapture noundef writeonly initializes((0, 5), (8, 12)) %state_in) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %state_in, align 4
-  %result = getelementptr inbounds i8, ptr %state_in, i64 4
+  %result = getelementptr inbounds nuw i8, ptr %state_in, i64 4
   store i8 0, ptr %result, align 4
-  %stepcount = getelementptr inbounds i8, ptr %state_in, i64 8
+  %stepcount = getelementptr inbounds nuw i8, ptr %state_in, i64 8
   store i32 0, ptr %stepcount, align 4
   ret void
 }
@@ -38,7 +38,7 @@ define i32 @base64_encode_block(ptr noundef readonly %plaintext_in, i32 noundef 
 entry:
   %idx.ext = sext i32 %length_in to i64
   %add.ptr = getelementptr inbounds i8, ptr %plaintext_in, i64 %idx.ext
-  %result1 = getelementptr inbounds i8, ptr %state_in, i64 4
+  %result1 = getelementptr inbounds nuw i8, ptr %state_in, i64 4
   %0 = load i8, ptr %result1, align 4
   %1 = load i32, ptr %state_in, align 4
   switch i32 %1, label %return [
@@ -55,13 +55,13 @@ sw.bb:                                            ; preds = %base64_encode_value
   br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %sw.bb
-  %incdec.ptr = getelementptr inbounds i8, ptr %plainchar.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %plainchar.0, i64 1
   %2 = load i8, ptr %plainchar.0, align 1
   %3 = lshr i8 %2, 2
   %idxprom.i = zext nneg i8 %3 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr @.str, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @.str, i64 %idxprom.i
   %4 = load i8, ptr %arrayidx.i, align 1
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %codechar.0, i64 1
+  %incdec.ptr6 = getelementptr inbounds nuw i8, ptr %codechar.0, i64 1
   store i8 %4, ptr %codechar.0, align 1
   %5 = shl i8 %2, 4
   %6 = and i8 %5, 48
@@ -75,7 +75,7 @@ sw.bb10:                                          ; preds = %if.end, %entry
   br i1 %cmp11, label %return.sink.split, label %if.end20
 
 if.end20:                                         ; preds = %sw.bb10
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %plainchar.1, i64 1
+  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %plainchar.1, i64 1
   %7 = load i8, ptr %plainchar.1, align 1
   %8 = lshr i8 %7, 4
   %conv26 = or i8 %8, %result.1
@@ -90,7 +90,7 @@ if.end.i:                                         ; preds = %if.end20
 
 base64_encode_value.exit:                         ; preds = %if.end20, %if.end.i
   %retval.0.i = phi i8 [ %9, %if.end.i ], [ 61, %if.end20 ]
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %codechar.1, i64 1
+  %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %codechar.1, i64 1
   store i8 %retval.0.i, ptr %codechar.1, align 1
   %10 = shl i8 %7, 2
   %11 = and i8 %10, 60
@@ -104,7 +104,7 @@ sw.bb33:                                          ; preds = %base64_encode_value
   br i1 %cmp34, label %return.sink.split, label %if.end43
 
 if.end43:                                         ; preds = %sw.bb33
-  %incdec.ptr44 = getelementptr inbounds i8, ptr %plainchar.2, i64 1
+  %incdec.ptr44 = getelementptr inbounds nuw i8, ptr %plainchar.2, i64 1
   %12 = load i8, ptr %plainchar.2, align 1
   %13 = lshr i8 %12, 6
   %conv50 = or i8 %13, %result.2
@@ -119,15 +119,15 @@ if.end.i47:                                       ; preds = %if.end43
 
 base64_encode_value.exit51:                       ; preds = %if.end43, %if.end.i47
   %retval.0.i50 = phi i8 [ %14, %if.end.i47 ], [ 61, %if.end43 ]
-  %incdec.ptr52 = getelementptr inbounds i8, ptr %codechar.2, i64 1
+  %incdec.ptr52 = getelementptr inbounds nuw i8, ptr %codechar.2, i64 1
   store i8 %retval.0.i50, ptr %codechar.2, align 1
   %15 = and i8 %12, 63
   %idxprom.i54 = zext nneg i8 %15 to i64
-  %arrayidx.i55 = getelementptr inbounds i8, ptr @.str, i64 %idxprom.i54
+  %arrayidx.i55 = getelementptr inbounds nuw i8, ptr @.str, i64 %idxprom.i54
   %16 = load i8, ptr %arrayidx.i55, align 1
-  %incdec.ptr58 = getelementptr inbounds i8, ptr %codechar.2, i64 2
+  %incdec.ptr58 = getelementptr inbounds nuw i8, ptr %codechar.2, i64 2
   store i8 %16, ptr %incdec.ptr52, align 1
-  %stepcount = getelementptr inbounds i8, ptr %state_in, i64 8
+  %stepcount = getelementptr inbounds nuw i8, ptr %state_in, i64 8
   %17 = load i32, ptr %stepcount, align 4
   %inc = add nsw i32 %17, 1
   store i32 %inc, ptr %stepcount, align 4
@@ -135,7 +135,7 @@ base64_encode_value.exit51:                       ; preds = %if.end43, %if.end.i
   br i1 %cmp60, label %if.then62, label %sw.bb
 
 if.then62:                                        ; preds = %base64_encode_value.exit51
-  %incdec.ptr63 = getelementptr inbounds i8, ptr %codechar.2, i64 3
+  %incdec.ptr63 = getelementptr inbounds nuw i8, ptr %codechar.2, i64 3
   store i8 10, ptr %incdec.ptr58, align 1
   store i32 0, ptr %stepcount, align 4
   br label %sw.bb
@@ -167,7 +167,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %result = getelementptr inbounds i8, ptr %state_in, i64 4
+  %result = getelementptr inbounds nuw i8, ptr %state_in, i64 4
   %1 = load i8, ptr %result, align 4
   %cmp.i = icmp sgt i8 %1, 63
   br i1 %cmp.i, label %base64_encode_value.exit, label %if.end.i
@@ -180,16 +180,16 @@ if.end.i:                                         ; preds = %sw.bb
 
 base64_encode_value.exit:                         ; preds = %sw.bb, %if.end.i
   %retval.0.i = phi i8 [ %2, %if.end.i ], [ 61, %sw.bb ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %code_out, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %code_out, i64 1
   store i8 %retval.0.i, ptr %code_out, align 1
-  %incdec.ptr1 = getelementptr inbounds i8, ptr %code_out, i64 2
+  %incdec.ptr1 = getelementptr inbounds nuw i8, ptr %code_out, i64 2
   store i8 61, ptr %incdec.ptr, align 1
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %code_out, i64 3
+  %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %code_out, i64 3
   store i8 61, ptr %incdec.ptr1, align 1
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %result4 = getelementptr inbounds i8, ptr %state_in, i64 4
+  %result4 = getelementptr inbounds nuw i8, ptr %state_in, i64 4
   %3 = load i8, ptr %result4, align 4
   %cmp.i10 = icmp sgt i8 %3, 63
   br i1 %cmp.i10, label %base64_encode_value.exit15, label %if.end.i11
@@ -202,15 +202,15 @@ if.end.i11:                                       ; preds = %sw.bb3
 
 base64_encode_value.exit15:                       ; preds = %sw.bb3, %if.end.i11
   %retval.0.i14 = phi i8 [ %4, %if.end.i11 ], [ 61, %sw.bb3 ]
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %code_out, i64 1
+  %incdec.ptr6 = getelementptr inbounds nuw i8, ptr %code_out, i64 1
   store i8 %retval.0.i14, ptr %code_out, align 1
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %code_out, i64 2
+  %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %code_out, i64 2
   store i8 61, ptr %incdec.ptr6, align 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %base64_encode_value.exit15, %base64_encode_value.exit, %entry
   %codechar.0 = phi ptr [ %code_out, %entry ], [ %incdec.ptr7, %base64_encode_value.exit15 ], [ %incdec.ptr2, %base64_encode_value.exit ]
-  %incdec.ptr9 = getelementptr inbounds i8, ptr %codechar.0, i64 1
+  %incdec.ptr9 = getelementptr inbounds nuw i8, ptr %codechar.0, i64 1
   store i8 10, ptr %codechar.0, align 1
   %sub.ptr.lhs.cast = ptrtoint ptr %incdec.ptr9 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %code_out to i64

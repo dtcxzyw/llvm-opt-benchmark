@@ -60,7 +60,7 @@ define noundef zeroext i1 @_Z12ReadTextFilePKwP10StringListbb11RAR_CHARSETbbb(pt
   br label %_ZN5ArrayIhED2Ev.exit184
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds i8, ptr %10, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 1, ptr %26, align 4
   br label %27
 
@@ -87,7 +87,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
   %.sroa.27.0 = phi i64 [ %37, %34 ], [ %.sroa.27.0.ph, %_ZN5ArrayIhEC2Em.exit.outer ]
   %.097 = phi i32 [ %35, %34 ], [ %.097.ph, %_ZN5ArrayIhEC2Em.exit.outer ]
   %30 = zext i32 %.097 to i64
-  %31 = getelementptr inbounds i8, ptr %.sroa.0208.0.ph, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0208.0.ph, i64 %30
   %32 = invoke noundef i32 @_ZN4File4ReadEPvm(ptr noundef nonnull align 8 dereferenceable(8256) %10, ptr noundef nonnull %31, i64 noundef 4096)
           to label %33 unwind label %.loopexit311.loopexit
 
@@ -166,13 +166,13 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %46, %54, %48
   ]
 
 .thread344:                                       ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %.sroa.0208.8, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0208.8, i64 1
   %59 = load i8, ptr %58, align 1
   %60 = icmp eq i8 %59, -2
   br label %65
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %.sroa.0208.8, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0208.8, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, -1
   br label %65
@@ -186,13 +186,13 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %46, %54, %48
   br i1 %or.cond, label %68, label %.thread260
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %.sroa.0208.8, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0208.8, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, -69
   br i1 %71, label %72, label %.thread260
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %.sroa.0208.8, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0208.8, i64 2
   %74 = load i8, ptr %73, align 1
   %75 = icmp eq i8 %74, -65
   %76 = select i1 %75, i64 3, i64 0
@@ -220,19 +220,19 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %46, %54, %48
   br i1 %84, label %85, label %.thread.i
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %.sroa.0208.8, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0208.8, i64 1
   %87 = load i8, ptr %86, align 1
   %88 = icmp eq i8 %87, -69
   br i1 %88, label %89, label %.threadthread-pre-split.i
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %.sroa.0208.8, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0208.8, i64 2
   %91 = load i8, ptr %90, align 1
   %92 = icmp eq i8 %91, -65
   br i1 %92, label %93, label %.threadthread-pre-split.i
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %.sroa.0208.8, i64 3
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0208.8, i64 3
   %95 = add nsw i64 %30, -3
   %96 = invoke noundef zeroext i1 @_Z10IsTextUtf8PKhm(ptr noundef nonnull %94, i64 noundef %95)
           to label %.noexc127 unwind label %.loopexit.split-lp312
@@ -256,13 +256,13 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %46, %54, %48
   ]
 
 100:                                              ; preds = %.thread.i
-  %101 = getelementptr inbounds i8, ptr %.sroa.0208.8, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.0208.8, i64 1
   %102 = load i8, ptr %101, align 1
   %103 = icmp eq i8 %102, -1
   br i1 %103, label %.critedge.preheader.i, label %_Z18DetectTextEncodingPKhm.exit.thread
 
 104:                                              ; preds = %.thread.i
-  %105 = getelementptr inbounds i8, ptr %.sroa.0208.8, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.0208.8, i64 1
   %106 = load i8, ptr %105, align 1
   %.fr.i = freeze i8 %106
   %107 = icmp eq i8 %.fr.i, -2
@@ -275,7 +275,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %46, %54, %48
 
 .lr.ph.i:                                         ; preds = %.critedge.preheader.i, %.critedge.i
   %.042.i = phi i64 [ %112, %.critedge.i ], [ %.0.ph.i, %.critedge.preheader.i ]
-  %109 = getelementptr inbounds i8, ptr %.sroa.0208.8, i64 %.042.i
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.0208.8, i64 %.042.i
   %110 = load i8, ptr %109, align 1
   %.fr40.i = freeze i8 %110
   %111 = icmp ugt i8 %.fr40.i, 31
@@ -388,18 +388,18 @@ _ZN5ArrayIwE5AllocEm.exit156:                     ; preds = %135, %.thread278
 139:                                              ; preds = %.lr.ph, %139
   %.093322 = phi i64 [ %spec.select120287, %.lr.ph ], [ %153, %139 ]
   %140 = or disjoint i64 %.093322, %138
-  %141 = getelementptr inbounds i8, ptr %.sroa.0208.8, i64 %140
+  %141 = getelementptr inbounds nuw i8, ptr %.sroa.0208.8, i64 %140
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i32
   %144 = or disjoint i64 %.093322, %spec.select286
-  %145 = getelementptr inbounds i8, ptr %.sroa.0208.8, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.0208.8, i64 %144
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = shl nuw nsw i32 %147, 8
   %149 = or disjoint i32 %148, %143
   %150 = sub nuw nsw i64 %.093322, %spec.select120287
   %151 = lshr exact i64 %150, 1
-  %152 = getelementptr inbounds i32, ptr %malloc, i64 %151
+  %152 = getelementptr inbounds nuw i32, ptr %malloc, i64 %151
   store i32 %149, ptr %152, align 4
   %153 = add nuw nsw i64 %.093322, 2
   %154 = icmp samesign ult i64 %153, %136
@@ -408,7 +408,7 @@ _ZN5ArrayIwE5AllocEm.exit156:                     ; preds = %135, %.thread278
 ._crit_edge:                                      ; preds = %139, %_ZN5ArrayIwE5AllocEm.exit156
   %155 = sub nsw i64 %30, %spec.select120287
   %156 = lshr i64 %155, 1
-  %157 = getelementptr inbounds i32, ptr %malloc, i64 %156
+  %157 = getelementptr inbounds nuw i32, ptr %malloc, i64 %156
   store i32 0, ptr %157, align 4
   br label %174
 
@@ -446,7 +446,7 @@ _Z18DetectTextEncodingPKhm.exit.thread266:        ; preds = %.thread260, %.noexc
           to label %_ZN5ArrayIwE5AllocEm.exit179 unwind label %.loopexit.split-lp
 
 _ZN5ArrayIwE5AllocEm.exit179:                     ; preds = %171, %166
-  %172 = getelementptr inbounds i8, ptr %.sroa.0208.10, i64 %79
+  %172 = getelementptr inbounds nuw i8, ptr %.sroa.0208.10, i64 %79
   %173 = invoke noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef %172, ptr noundef nonnull %malloc308, i64 noundef %158)
           to label %174 unwind label %.loopexit.split-lp
 
@@ -475,7 +475,7 @@ unreachable:                                      ; preds = %.thread260
   ]
 
 177:                                              ; preds = %.preheader309.split.us
-  %178 = getelementptr inbounds i8, ptr %.090.us, i64 4
+  %178 = getelementptr inbounds nuw i8, ptr %.090.us, i64 4
   %.pre = load i32, ptr %178, align 4
   br label %.preheader309.split.us, !llvm.loop !7
 
@@ -491,12 +491,12 @@ unreachable:                                      ; preds = %.thread260
   ]
 
 .preheader309.split._crit_edge:                   ; preds = %.preheader309.split
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.090, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.090, i64 4
   %.pre342.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %185
 
 180:                                              ; preds = %.preheader309.split
-  %181 = getelementptr inbounds i8, ptr %.090, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %.090, i64 4
   %182 = load i32, ptr %181, align 4
   %183 = icmp eq i32 %182, 47
   br i1 %183, label %184, label %185
@@ -508,7 +508,7 @@ unreachable:                                      ; preds = %.thread260
 185:                                              ; preds = %.preheader309.split._crit_edge, %184, %180
   %.pre342 = phi i32 [ 47, %184 ], [ %182, %180 ], [ %.pre342.pre, %.preheader309.split._crit_edge ]
   %.189 = phi ptr [ %.090, %184 ], [ %.088, %180 ], [ %.088, %.preheader309.split._crit_edge ]
-  %186 = getelementptr inbounds i8, ptr %.090, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %.090, i64 4
   br label %.preheader309.split, !llvm.loop !7
 
 .critedge:                                        ; preds = %.preheader309.split.us, %.preheader309.split.us, %.preheader309.split.us, %.preheader309.split, %.preheader309.split, %.preheader309.split
@@ -547,15 +547,15 @@ unreachable:                                      ; preds = %.thread260
 
 194:                                              ; preds = %191
   %195 = call i64 @wcslen(ptr noundef nonnull %.091332) #10
-  %196 = add i64 %195, -1
-  %197 = getelementptr inbounds i32, ptr %.091332, i64 %196
+  %196 = getelementptr i32, ptr %.091332, i64 %195
+  %197 = getelementptr i8, ptr %196, i64 -4
   %198 = load i32, ptr %197, align 4
   %199 = icmp eq i32 %198, 34
   br i1 %199, label %200, label %thread-pre-split
 
 200:                                              ; preds = %194
   store i32 0, ptr %197, align 4
-  %201 = getelementptr inbounds i8, ptr %.091332, i64 4
+  %201 = getelementptr inbounds nuw i8, ptr %.091332, i64 4
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %194, %200, %._crit_edge329
@@ -578,7 +578,7 @@ thread-pre-split:                                 ; preds = %194, %200, %._crit_
 
 .preheader:                                       ; preds = %205, %.preheader.backedge
   %.090.pn = phi ptr [ %.2, %.preheader.backedge ], [ %.us-phi, %205 ]
-  %.2 = getelementptr inbounds i8, ptr %.090.pn, i64 4
+  %.2 = getelementptr inbounds nuw i8, ptr %.090.pn, i64 4
   %206 = load i32, ptr %.2, align 4
   switch i32 %206, label %.preheader309 [
     i32 13, label %.preheader.backedge
@@ -646,19 +646,19 @@ define noundef range(i32 0, 5) i32 @_Z18DetectTextEncodingPKhm(ptr noundef %0, i
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, -69
   br i1 %10, label %11, label %.threadthread-pre-split
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, -65
   br i1 %14, label %15, label %.threadthread-pre-split
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %17 = add i64 %1, -3
   %18 = tail call noundef zeroext i1 @_Z10IsTextUtf8PKhm(ptr noundef nonnull %16, i64 noundef %17)
   br i1 %18, label %.thread38, label %.threadthread-pre-split
@@ -679,13 +679,13 @@ define noundef range(i32 0, 5) i32 @_Z18DetectTextEncodingPKhm(ptr noundef %0, i
   ]
 
 22:                                               ; preds = %.thread
-  %23 = getelementptr inbounds i8, ptr %0, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, -1
   br i1 %25, label %.critedge.preheader, label %.thread38
 
 26:                                               ; preds = %.thread
-  %27 = getelementptr inbounds i8, ptr %0, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %28 = load i8, ptr %27, align 1
   %.fr = freeze i8 %28
   %29 = icmp eq i8 %.fr, -2

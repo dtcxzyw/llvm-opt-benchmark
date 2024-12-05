@@ -63,7 +63,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %17, %15
-  %23 = getelementptr inbounds i8, ptr %14, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %24 = tail call i32 @atoi(ptr nocapture noundef nonnull %.019) #12
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
   br label %25
@@ -126,25 +126,25 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %.013.val.i.i = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %.01216.i.i, i64 16
   %.012.val.i.i = load ptr, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %.012.val.i.i, i64 176
+  %47 = getelementptr inbounds nuw i8, ptr %.012.val.i.i, i64 176
   %48 = load ptr, ptr %47, align 8
   %49 = load double, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.013.val.i.i, i64 176
+  %50 = getelementptr inbounds nuw i8, ptr %.013.val.i.i, i64 176
   %51 = load ptr, ptr %50, align 8
   %52 = load double, ptr %51, align 8
   %53 = fsub double %49, %52
   %54 = tail call double @llvm.fabs.f64(double %53)
-  %55 = getelementptr inbounds i8, ptr %48, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %51, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %58 = load double, ptr %57, align 8
   %59 = fsub double %56, %58
   %60 = tail call double @llvm.fabs.f64(double %59)
   %61 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
   %62 = trunc i8 %61 to i1
-  %63 = getelementptr inbounds i8, ptr %.013.val.i.i, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %.013.val.i.i, i64 48
   %64 = load double, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.012.val.i.i, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %.012.val.i.i, i64 48
   %66 = load double, ptr %65, align 8
   br i1 %62, label %67, label %.thread3.i.i.i
 
@@ -171,26 +171,26 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   br i1 %83, label %overlap.exit.i.i, label %.thread4.i.i.i
 
 84:                                               ; preds = %67
-  %85 = getelementptr inbounds i8, ptr %.013.val.i.i, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %.013.val.i.i, i64 56
   %86 = load double, ptr %85, align 8
   %87 = fmul double %86, 5.000000e-01
   %88 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
   %89 = fpext float %88 to double
   %90 = fadd double %87, %89
-  %91 = getelementptr inbounds i8, ptr %.012.val.i.i, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %.012.val.i.i, i64 56
   %92 = load double, ptr %91, align 8
   %93 = fmul double %92, 5.000000e-01
   %94 = fadd double %93, %89
   br label %105
 
 .thread4.i.i.i:                                   ; preds = %.thread3.i.i.i
-  %95 = getelementptr inbounds i8, ptr %.013.val.i.i, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %.013.val.i.i, i64 56
   %96 = load double, ptr %95, align 8
   %97 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
   %98 = fpext float %97 to double
   %99 = fmul double %96, %98
   %100 = fmul double %99, 5.000000e-01
-  %101 = getelementptr inbounds i8, ptr %.012.val.i.i, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %.012.val.i.i, i64 56
   %102 = load double, ptr %101, align 8
   %103 = fmul double %102, %98
   %104 = fmul double %103, 5.000000e-01
@@ -223,13 +223,13 @@ cntOverlaps.exit.i:                               ; preds = %._crit_edge.i.i
 
 .lr.ph59.i:                                       ; preds = %cntOverlaps.exit.i
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 8
-  %.sroa.238.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.238.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.238.0.copyload.i = load double, ptr %.sroa.238.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.3.0.copyload.i = load double, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.7.0.copyload.i = load double, ptr %.sroa.7.0..sroa_idx.i, align 8
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.8.0.copyload.i = load i32, ptr %.sroa.8.0..sroa_idx.i, align 8
   %116 = fcmp ogt double %.sroa.7.0.copyload.i, 0.000000e+00
   %117 = fcmp oeq double %.sroa.238.0.copyload.i, 0.000000e+00
@@ -310,16 +310,16 @@ xinit_params.exit.i:                              ; preds = %127, %125
 
 .lr.ph.i34.i:                                     ; preds = %.lr.ph, %.lr.ph.i34.i
   %.05769.i.i = phi ptr [ %164, %.lr.ph.i34.i ], [ %154, %.lr.ph ]
-  %155 = getelementptr inbounds i8, ptr %.05769.i.i, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %.05769.i.i, i64 16
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 152
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 152
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
   store double 0.000000e+00, ptr %159, align 8
   %160 = load ptr, ptr %155, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 152
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 152
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store double 0.000000e+00, ptr %163, align 8
   %164 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.05769.i.i) #10
   %.not.i35.i = icmp eq ptr %164, null
@@ -338,25 +338,25 @@ xinit_params.exit.i:                              ; preds = %127, %125
   br i1 %.not6470.i.i, label %._crit_edge75.i.i, label %.lr.ph74.i.i
 
 .lr.ph74.i.i:                                     ; preds = %.lr.ph85.i.i
-  %167 = getelementptr inbounds i8, ptr %.15882.i.i, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %.15882.i.i, i64 16
   br label %168
 
 168:                                              ; preds = %applyRep.exit.i.i, %.lr.ph74.i.i
   %.172.i.i = phi i32 [ %.05683.i.i, %.lr.ph74.i.i ], [ %276, %applyRep.exit.i.i ]
   %.05971.i.i = phi ptr [ %166, %.lr.ph74.i.i ], [ %277, %applyRep.exit.i.i ]
-  %169 = getelementptr inbounds i8, ptr %.05971.i.i, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %.05971.i.i, i64 16
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 176
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 176
   %172 = load ptr, ptr %171, align 8
   %173 = load double, ptr %172, align 8
   %174 = load ptr, ptr %167, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 176
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 176
   %176 = load ptr, ptr %175, align 8
   %177 = load double, ptr %176, align 8
   %178 = fsub double %173, %177
-  %179 = getelementptr inbounds i8, ptr %172, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %180 = load double, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %176, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %182 = load double, ptr %181, align 8
   %183 = fsub double %180, %182
   %184 = fmul double %183, %183
@@ -381,15 +381,15 @@ xinit_params.exit.i:                              ; preds = %127, %125
 ._crit_edge.i.loopexit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
   %.val.i.pre.i.i.i = load ptr, ptr %167, align 8
   %.val24.i.pre.i.i.i = load ptr, ptr %169, align 8
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.val24.i.pre.i.i.i, i64 176
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.val24.i.pre.i.i.i, i64 176
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre18.i.i.i = load double, ptr %.pre.i.i.i, align 8
-  %.phi.trans.insert19.i.i.i = getelementptr inbounds i8, ptr %.val.i.pre.i.i.i, i64 176
+  %.phi.trans.insert19.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i.pre.i.i.i, i64 176
   %.pre20.i.i.i = load ptr, ptr %.phi.trans.insert19.i.i.i, align 8
   %.pre21.i.i.i = load double, ptr %.pre20.i.i.i, align 8
-  %.phi.trans.insert22.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 8
+  %.phi.trans.insert22.i.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 8
   %.pre23.i.i.i = load double, ptr %.phi.trans.insert22.i.i.i, align 8
-  %.phi.trans.insert24.i.i.i = getelementptr inbounds i8, ptr %.pre20.i.i.i, i64 8
+  %.phi.trans.insert24.i.i.i = getelementptr inbounds nuw i8, ptr %.pre20.i.i.i, i64 8
   %.pre25.i.i.i = load double, ptr %.phi.trans.insert24.i.i.i, align 8
   %.pre26.i.i.i = fsub double %.pre18.i.i.i, %.pre21.i.i.i
   %.pre27.i.i.i = fsub double %.pre23.i.i.i, %.pre25.i.i.i
@@ -407,9 +407,9 @@ xinit_params.exit.i:                              ; preds = %127, %125
   %199 = tail call double @llvm.fabs.f64(double %.pre-phi28.i.i.i)
   %200 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
   %201 = trunc i8 %200 to i1
-  %202 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 48
+  %202 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 48
   %203 = load double, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %.val24.i.i.i.i, i64 48
+  %204 = getelementptr inbounds nuw i8, ptr %.val24.i.i.i.i, i64 48
   %205 = load double, ptr %204, align 8
   br i1 %201, label %206, label %.thread3.i.i.i.i.i
 
@@ -436,26 +436,26 @@ xinit_params.exit.i:                              ; preds = %127, %125
   br i1 %222, label %applyRep.exit.i.i, label %.thread4.i.i.i.i.i
 
 223:                                              ; preds = %206
-  %224 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 56
+  %224 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 56
   %225 = load double, ptr %224, align 8
   %226 = fmul double %225, 5.000000e-01
   %227 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
   %228 = fpext float %227 to double
   %229 = fadd double %226, %228
-  %230 = getelementptr inbounds i8, ptr %.val24.i.i.i.i, i64 56
+  %230 = getelementptr inbounds nuw i8, ptr %.val24.i.i.i.i, i64 56
   %231 = load double, ptr %230, align 8
   %232 = fmul double %231, 5.000000e-01
   %233 = fadd double %232, %228
   br label %overlap.exit.i.i.i.i
 
 .thread4.i.i.i.i.i:                               ; preds = %.thread3.i.i.i.i.i
-  %234 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 56
+  %234 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 56
   %235 = load double, ptr %234, align 8
   %236 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
   %237 = fpext float %236 to double
   %238 = fmul double %235, %237
   %239 = fmul double %238, 5.000000e-01
-  %240 = getelementptr inbounds i8, ptr %.val24.i.i.i.i, i64 56
+  %240 = getelementptr inbounds nuw i8, ptr %.val24.i.i.i.i, i64 56
   %241 = load double, ptr %240, align 8
   %242 = fmul double %241, %237
   %243 = fmul double %242, 5.000000e-01
@@ -476,31 +476,31 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
   %250 = phi ptr [ @X_nonov, %206 ], [ @X_nonov, %.thread3.i.i.i.i.i ], [ %spec.select.i.i.i.i, %overlap.exit.i.i.i.i ]
   %.pn.i.i.i.i = load double, ptr %250, align 8
   %.0.i.i.i.i = fdiv double %.pn.i.i.i.i, %.022.lcssa.i.i.i.i
-  %251 = getelementptr inbounds i8, ptr %.val24.i.i.i.i, i64 152
+  %251 = getelementptr inbounds nuw i8, ptr %.val24.i.i.i.i, i64 152
   %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 16
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %254 = load double, ptr %253, align 8
   %255 = tail call double @llvm.fmuladd.f64(double %.021.lcssa.i.i.i.i, double %.0.i.i.i.i, double %254)
   store double %255, ptr %253, align 8
   %256 = load ptr, ptr %169, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 152
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 152
   %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 24
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
   %260 = load double, ptr %259, align 8
   %261 = tail call double @llvm.fmuladd.f64(double %.023.lcssa.i.i.i.i, double %.0.i.i.i.i, double %260)
   store double %261, ptr %259, align 8
   %262 = load ptr, ptr %167, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 152
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 152
   %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 16
   %266 = load double, ptr %265, align 8
   %267 = fneg double %.021.lcssa.i.i.i.i
   %268 = tail call double @llvm.fmuladd.f64(double %267, double %.0.i.i.i.i, double %266)
   store double %268, ptr %265, align 8
   %269 = load ptr, ptr %167, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 152
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 152
   %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 24
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 24
   %273 = load double, ptr %272, align 8
   %274 = fneg double %.023.lcssa.i.i.i.i
   %275 = tail call double @llvm.fmuladd.f64(double %274, double %.0.i.i.i.i, double %273)
@@ -527,30 +527,30 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
   %283 = icmp eq i32 %282, 2
   %.idx.i.i = select i1 %283, i64 0, i64 -64
   %284 = getelementptr inbounds i8, ptr %.06077.i.i, i64 %.idx.i.i
-  %285 = getelementptr inbounds i8, ptr %284, i64 56
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 56
   %286 = load ptr, ptr %285, align 8
   %.val.i.i.i = load ptr, ptr %279, align 8
   %287 = getelementptr i8, ptr %286, i64 16
   %.val28.i.i.i = load ptr, ptr %287, align 8
-  %288 = getelementptr inbounds i8, ptr %.val28.i.i.i, i64 176
+  %288 = getelementptr inbounds nuw i8, ptr %.val28.i.i.i, i64 176
   %289 = load ptr, ptr %288, align 8
   %290 = load double, ptr %289, align 8
-  %291 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 176
+  %291 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 176
   %292 = load ptr, ptr %291, align 8
   %293 = load double, ptr %292, align 8
   %294 = fsub double %290, %293
   %295 = tail call double @llvm.fabs.f64(double %294)
-  %296 = getelementptr inbounds i8, ptr %289, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %297 = load double, ptr %296, align 8
-  %298 = getelementptr inbounds i8, ptr %292, i64 8
+  %298 = getelementptr inbounds nuw i8, ptr %292, i64 8
   %299 = load double, ptr %298, align 8
   %300 = fsub double %297, %299
   %301 = tail call double @llvm.fabs.f64(double %300)
   %302 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
   %303 = trunc i8 %302 to i1
-  %304 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 48
+  %304 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 48
   %305 = load double, ptr %304, align 8
-  %306 = getelementptr inbounds i8, ptr %.val28.i.i.i, i64 48
+  %306 = getelementptr inbounds nuw i8, ptr %.val28.i.i.i, i64 48
   %307 = load double, ptr %306, align 8
   br i1 %303, label %308, label %.thread3.i.i.i.i
 
@@ -577,26 +577,26 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
   br i1 %324, label %overlap.exit.thread.i.i.i, label %.thread4.i.i.i.i
 
 325:                                              ; preds = %308
-  %326 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 56
+  %326 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 56
   %327 = load double, ptr %326, align 8
   %328 = fmul double %327, 5.000000e-01
   %329 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
   %330 = fpext float %329 to double
   %331 = fadd double %328, %330
-  %332 = getelementptr inbounds i8, ptr %.val28.i.i.i, i64 56
+  %332 = getelementptr inbounds nuw i8, ptr %.val28.i.i.i, i64 56
   %333 = load double, ptr %332, align 8
   %334 = fmul double %333, 5.000000e-01
   %335 = fadd double %334, %330
   br label %overlap.exit.i.i.i
 
 .thread4.i.i.i.i:                                 ; preds = %.thread3.i.i.i.i
-  %336 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 56
+  %336 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 56
   %337 = load double, ptr %336, align 8
   %338 = load float, ptr getelementptr inbounds (i8, ptr @X_marg, i64 4), align 4
   %339 = fpext float %338 to double
   %340 = fmul double %337, %339
   %341 = fmul double %340, 5.000000e-01
-  %342 = getelementptr inbounds i8, ptr %.val28.i.i.i, i64 56
+  %342 = getelementptr inbounds nuw i8, ptr %.val28.i.i.i, i64 56
   %343 = load double, ptr %342, align 8
   %344 = fmul double %343, %339
   %345 = fmul double %344, 5.000000e-01
@@ -614,9 +614,9 @@ overlap.exit.thread.i.i.i:                        ; preds = %overlap.exit.i.i.i,
   %351 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
   %352 = trunc i8 %351 to i1
   %353 = load ptr, ptr %279, align 8
-  %354 = getelementptr inbounds i8, ptr %353, i64 48
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 48
   %355 = load double, ptr %354, align 8
-  %356 = getelementptr inbounds i8, ptr %353, i64 56
+  %356 = getelementptr inbounds nuw i8, ptr %353, i64 56
   %357 = load double, ptr %356, align 8
   br i1 %352, label %358, label %367
 
@@ -649,9 +649,9 @@ RAD.exit.i.i.i:                                   ; preds = %367, %358
   %379 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
   %380 = trunc i8 %379 to i1
   %381 = load ptr, ptr %287, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 48
+  %382 = getelementptr inbounds nuw i8, ptr %381, i64 48
   %383 = load double, ptr %382, align 8
-  %384 = getelementptr inbounds i8, ptr %381, i64 56
+  %384 = getelementptr inbounds nuw i8, ptr %381, i64 56
   %385 = load double, ptr %384, align 8
   br i1 %380, label %386, label %395
 
@@ -689,32 +689,32 @@ RAD.exit29.i.i.i:                                 ; preds = %395, %386
   %412 = fmul double %350, %411
   %413 = fdiv double %409, %412
   %414 = load ptr, ptr %287, align 8
-  %415 = getelementptr inbounds i8, ptr %414, i64 152
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 152
   %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds i8, ptr %416, i64 16
+  %417 = getelementptr inbounds nuw i8, ptr %416, i64 16
   %418 = load double, ptr %417, align 8
   %419 = fneg double %294
   %420 = tail call double @llvm.fmuladd.f64(double %419, double %413, double %418)
   store double %420, ptr %417, align 8
   %421 = load ptr, ptr %287, align 8
-  %422 = getelementptr inbounds i8, ptr %421, i64 152
+  %422 = getelementptr inbounds nuw i8, ptr %421, i64 152
   %423 = load ptr, ptr %422, align 8
-  %424 = getelementptr inbounds i8, ptr %423, i64 24
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 24
   %425 = load double, ptr %424, align 8
   %426 = fneg double %300
   %427 = tail call double @llvm.fmuladd.f64(double %426, double %413, double %425)
   store double %427, ptr %424, align 8
   %428 = load ptr, ptr %279, align 8
-  %429 = getelementptr inbounds i8, ptr %428, i64 152
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 152
   %430 = load ptr, ptr %429, align 8
-  %431 = getelementptr inbounds i8, ptr %430, i64 16
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 16
   %432 = load double, ptr %431, align 8
   %433 = tail call double @llvm.fmuladd.f64(double %294, double %413, double %432)
   store double %433, ptr %431, align 8
   %434 = load ptr, ptr %279, align 8
-  %435 = getelementptr inbounds i8, ptr %434, i64 152
+  %435 = getelementptr inbounds nuw i8, ptr %434, i64 152
   %436 = load ptr, ptr %435, align 8
-  %437 = getelementptr inbounds i8, ptr %436, i64 24
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 24
   %438 = load double, ptr %437, align 8
   %439 = tail call double @llvm.fmuladd.f64(double %300, double %413, double %438)
   store double %439, ptr %437, align 8
@@ -742,19 +742,19 @@ applyAttr.exit.i.i:                               ; preds = %RAD.exit29.i.i.i, %
 
 .lr.ph91.i.i:                                     ; preds = %443, %481
   %.289.i.i = phi ptr [ %482, %481 ], [ %445, %443 ]
-  %446 = getelementptr inbounds i8, ptr %.289.i.i, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %.289.i.i, i64 16
   %447 = load ptr, ptr %446, align 8
-  %448 = getelementptr inbounds i8, ptr %447, i64 163
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 163
   %449 = load i8, ptr %448, align 1
   %450 = icmp eq i8 %449, 3
   br i1 %450, label %481, label %451
 
 451:                                              ; preds = %.lr.ph91.i.i
-  %452 = getelementptr inbounds i8, ptr %447, i64 152
+  %452 = getelementptr inbounds nuw i8, ptr %447, i64 152
   %453 = load ptr, ptr %452, align 8
-  %454 = getelementptr inbounds i8, ptr %453, i64 16
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 16
   %455 = load double, ptr %454, align 8
-  %456 = getelementptr inbounds i8, ptr %453, i64 24
+  %456 = getelementptr inbounds nuw i8, ptr %453, i64 24
   %457 = load double, ptr %456, align 8
   %458 = fmul double %457, %457
   %459 = tail call double @llvm.fmuladd.f64(double %455, double %455, double %458)
@@ -762,7 +762,7 @@ applyAttr.exit.i.i:                               ; preds = %RAD.exit29.i.i.i, %
   br i1 %460, label %461, label %466
 
 461:                                              ; preds = %451
-  %462 = getelementptr inbounds i8, ptr %447, i64 176
+  %462 = getelementptr inbounds nuw i8, ptr %447, i64 176
   %463 = load ptr, ptr %462, align 8
   %464 = load double, ptr %463, align 8
   %465 = fadd double %455, %464
@@ -773,7 +773,7 @@ applyAttr.exit.i.i:                               ; preds = %RAD.exit29.i.i.i, %
   %sqrt.i.i = tail call double @llvm.sqrt.f64(double %459)
   %467 = fmul double %153, %455
   %468 = fdiv double %467, %sqrt.i.i
-  %469 = getelementptr inbounds i8, ptr %447, i64 176
+  %469 = getelementptr inbounds nuw i8, ptr %447, i64 176
   %470 = load ptr, ptr %469, align 8
   %471 = load double, ptr %470, align 8
   %472 = fadd double %468, %471
@@ -785,9 +785,9 @@ applyAttr.exit.i.i:                               ; preds = %RAD.exit29.i.i.i, %
 .sink.split.i.i:                                  ; preds = %466, %461
   %.sink101.i.i = phi double [ %457, %461 ], [ %474, %466 ]
   %475 = load ptr, ptr %446, align 8
-  %476 = getelementptr inbounds i8, ptr %475, i64 176
+  %476 = getelementptr inbounds nuw i8, ptr %475, i64 176
   %477 = load ptr, ptr %476, align 8
-  %478 = getelementptr inbounds i8, ptr %477, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 8
   %479 = load double, ptr %478, align 8
   %480 = fadd double %.sink101.i.i, %479
   store double %480, ptr %478, align 8

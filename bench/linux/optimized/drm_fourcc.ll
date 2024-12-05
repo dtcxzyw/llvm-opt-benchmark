@@ -154,7 +154,7 @@ define dso_local range(i32 0, 909199187) i32 @drm_driver_legacy_fb_format(ptr no
 
 28:                                               ; preds = %27, %26, %25, %24, %21, %16, %13, %10, %7, %4, %3
   %29 = phi i32 [ 0, %3 ], [ 0, %24 ], [ 875713089, %27 ], [ 808669784, %26 ], [ 875713112, %25 ], [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %20, %16 ], [ %23, %21 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 1416
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   %31 = load i8, ptr %30, align 8, !range !5, !noundef !6
   %32 = icmp ne i8 %31, 0
   %33 = icmp eq i32 %29, 808669784
@@ -217,9 +217,9 @@ define dso_local noundef ptr @drm_format_info(i32 noundef %0) #3 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @drm_get_format_info(ptr nocapture noundef readonly %0, ptr noundef %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 800
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %8
@@ -230,7 +230,7 @@ define dso_local ptr @drm_get_format_info(ptr nocapture noundef readonly %0, ptr
   br i1 %10, label %.thread, label %23
 
 .thread:                                          ; preds = %2, %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4
   br label %16
 
@@ -269,14 +269,14 @@ define dso_local range(i32 0, 256) i32 @drm_format_info_block_width(ptr noundef 
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = icmp samesign ult i32 %1, %9
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %13 = zext nneg i32 %1 to i64
   %14 = getelementptr [4 x i8], ptr %12, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -297,14 +297,14 @@ define dso_local range(i32 0, 256) i32 @drm_format_info_block_height(ptr noundef
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = icmp samesign ult i32 %1, %9
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 14
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %13 = zext nneg i32 %1 to i64
   %14 = getelementptr [4 x i8], ptr %12, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
@@ -325,25 +325,25 @@ define dso_local range(i32 0, 2041) i32 @drm_format_info_bpp(ptr noundef readonl
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = icmp samesign ult i32 %1, %9
   br i1 %10, label %11, label %28
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %13 = zext nneg i32 %1 to i64
   %14 = getelementptr [4 x i8], ptr %12, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i16
   %.lhs.trunc = shl nuw nsw i16 %16, 3
-  %17 = getelementptr inbounds i8, ptr %0, i64 10
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %18 = getelementptr [4 x i8], ptr %17, i64 0, i64 %13
   %19 = load i8, ptr %18, align 1
   %20 = tail call i8 @llvm.umax.i8(i8 %19, i8 1)
   %21 = zext i8 %20 to i16
-  %22 = getelementptr inbounds i8, ptr %0, i64 14
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %23 = getelementptr [4 x i8], ptr %22, i64 0, i64 %13
   %24 = load i8, ptr %23, align 1
   %25 = tail call i8 @llvm.umax.i8(i8 %24, i8 1)
@@ -366,7 +366,7 @@ define dso_local range(i64 0, 1095216725250) i64 @drm_format_info_min_pitch(ptr 
   br i1 %6, label %34, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = icmp samesign ult i32 %1, %10
@@ -374,18 +374,18 @@ define dso_local range(i64 0, 1095216725250) i64 @drm_format_info_min_pitch(ptr 
 
 12:                                               ; preds = %7
   %13 = zext i32 %2 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %15 = zext nneg i32 %1 to i64
   %16 = getelementptr [4 x i8], ptr %14, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
   %19 = mul nuw nsw i64 %18, %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %21 = getelementptr [4 x i8], ptr %20, i64 0, i64 %15
   %22 = load i8, ptr %21, align 1
   %23 = tail call i8 @llvm.umax.i8(i8 %22, i8 1)
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 14
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %26 = getelementptr [4 x i8], ptr %25, i64 0, i64 %15
   %27 = load i8, ptr %26, align 1
   %28 = tail call i8 @llvm.umax.i8(i8 %27, i8 1)

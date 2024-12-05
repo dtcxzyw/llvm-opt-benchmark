@@ -161,19 +161,19 @@ define hidden range(i32 -17536, 1) i32 @mbedtls_pk_psa_rsa_sign_ext(i32 noundef 
 
 15:                                               ; preds = %7
   store ptr %12, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %16, align 8
   %17 = call i32 @mbedtls_pk_write_key_der(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef 5679) #10
   %18 = icmp slt i32 %17, 1
   br i1 %18, label %mbedtls_pk_error_from_psa.exit32, label %psa_set_key_type.exit
 
 psa_set_key_type.exit:                            ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %8, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 5120, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %0, ptr %20, align 8
   store i16 28673, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 5679
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 5679
   %22 = zext nneg i32 %17 to i64
   %23 = sub nsw i64 0, %22
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
@@ -247,7 +247,7 @@ mbedtls_pk_error_from_psa.exit:                   ; preds = %psa_set_key_type.ex
 
 switch.lookup:                                    ; preds = %44
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [20 x i32], ptr @switch.table.mbedtls_pk_psa_rsa_sign_ext, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw [20 x i32], ptr @switch.table.mbedtls_pk_psa_rsa_sign_ext, i64 0, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %mbedtls_pk_error_from_psa.exit32
 
@@ -400,24 +400,24 @@ define internal void @rsa_free_wrap(ptr noundef %0) #1 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @rsa_debug(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 28), (32, 48)) %1) #5 {
   store i32 1, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str.5, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr @.str.6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %8, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @eckey_get_bitlen(ptr nocapture noundef readonly %0) #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -500,10 +500,10 @@ define internal void @eckey_free_wrap(ptr noundef %0) #1 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @eckey_debug(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 24)) %1) #5 {
   store i32 2, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str.7, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 272
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %4, ptr %5, align 8
   ret void
 }
@@ -560,7 +560,7 @@ define internal void @ecdsa_free_wrap(ptr noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, -7) i64 @rsa_alt_get_bitlen(ptr nocapture noundef readonly %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i64 %3(ptr noundef %4) #10
@@ -581,7 +581,7 @@ define internal i32 @rsa_alt_sign_wrap(ptr nocapture noundef readonly %0, i32 no
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %0, align 8
   %15 = tail call i64 %13(ptr noundef %14) #10
@@ -594,7 +594,7 @@ define internal i32 @rsa_alt_sign_wrap(ptr nocapture noundef readonly %0, i32 no
   br i1 %18, label %25, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %0, align 8
   %23 = trunc nuw i64 %3 to i32
@@ -608,7 +608,7 @@ define internal i32 @rsa_alt_sign_wrap(ptr nocapture noundef readonly %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsa_alt_decrypt_wrap(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture readnone %6, ptr nocapture readnone %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = tail call i64 %10(ptr noundef %11) #10
@@ -616,7 +616,7 @@ define internal i32 @rsa_alt_decrypt_wrap(ptr nocapture noundef readonly %0, ptr
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %0, align 8
   %17 = tail call i32 %15(ptr noundef %16, ptr noundef %4, ptr noundef %1, ptr noundef %3, i64 noundef %5) #10
@@ -631,7 +631,7 @@ define internal i32 @rsa_alt_decrypt_wrap(ptr nocapture noundef readonly %0, ptr
 define internal i32 @rsa_alt_check_pair(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [32 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %1, align 8
   %10 = tail call i64 %8(ptr noundef %9) #10
@@ -650,7 +650,7 @@ define internal i32 @rsa_alt_check_pair(ptr noundef %0, ptr nocapture noundef re
   br i1 %16, label %rsa_verify_wrap.exit, label %rsa_alt_sign_wrap.exit
 
 rsa_alt_sign_wrap.exit:                           ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %1, align 8
   %20 = call i32 %18(ptr noundef %19, ptr noundef %2, ptr noundef %3, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %6, ptr noundef nonnull %5) #10

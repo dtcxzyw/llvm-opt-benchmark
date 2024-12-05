@@ -31,21 +31,21 @@ $_ZN4Luau6FValueIbE4listE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA64C2ERNS0_10IrFunctionEPNS0_13LoweringStatsESt16initializer_listISt4pairINS1_11RegisterA64ES9_EE(ptr nocapture noundef nonnull align 8 dereferenceable(325) initializes((0, 28), (156, 168), (296, 325)) %0, ptr noundef nonnull align 8 dereferenceable(616) %1, ptr noundef %2, ptr readonly %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 156
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 164
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %14 = getelementptr inbounds %"struct.std::pair", ptr %3, i64 %4
   %.not20 = icmp eq i64 %4, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %13, i8 0, i64 29, i1 false)
@@ -58,9 +58,9 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA64C2ERNS0_10IrFunctionEP
   %.off.i = add nsw i8 %16, -1
   %switch.i = icmp ult i8 %.off.i, 2
   %.0.v.i = select i1 %switch.i, i64 16, i64 156
-  %.0.i = getelementptr inbounds i8, ptr %0, i64 %.0.v.i
+  %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i
   %17 = lshr i8 %15, 3
-  %18 = getelementptr inbounds i8, ptr %.01521, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01521, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = lshr i8 %19, 3
   %.not1618 = icmp samesign ugt i8 %17, %20
@@ -85,7 +85,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA64C2ERNS0_10IrFunctionEP
   br i1 %.not16.not, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph23
-  %29 = getelementptr inbounds i8, ptr %.01521, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.01521, i64 2
   %.not = icmp eq ptr %29, %14
   br i1 %.not, label %._crit_edge24.loopexit, label %.lr.ph23
 
@@ -97,12 +97,12 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA64C2ERNS0_10IrFunctionEP
 ._crit_edge24:                                    ; preds = %._crit_edge24.loopexit, %5
   %30 = phi i32 [ %.pre26, %._crit_edge24.loopexit ], [ 0, %5 ]
   %31 = phi i32 [ %.pre25, %._crit_edge24.loopexit ], [ 0, %5 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 320
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 %31, ptr %8, align 4
   store i32 %30, ptr %11, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %33, i8 -1, i64 128, i1 false)
-  %34 = getelementptr inbounds i8, ptr %0, i64 168
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %34, i8 -1, i64 128, i1 false)
   store i32 4194303, ptr %32, align 8
   ret void
@@ -113,7 +113,7 @@ define dso_local noundef nonnull align 4 dereferenceable(140) ptr @_ZN4Luau7Code
   %.off = add i8 %1, -1
   %switch = icmp ult i8 %.off, 2
   %.0.v = select i1 %switch, i64 16, i64 156
-  %.0 = getelementptr inbounds i8, ptr %0, i64 %.0.v
+  %.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v
   ret ptr %.0
 }
 
@@ -127,14 +127,14 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej
   %.off.i = add i8 %1, -1
   %switch.i = icmp ult i8 %.off.i, 2
   %.0.v.i = select i1 %switch.i, i64 16, i64 156
-  %.0.i = getelementptr inbounds i8, ptr %0, i64 %.0.v.i
-  %4 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i
+  %4 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 324
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i8 1, ptr %8, align 4
   %9 = and i8 %1, 7
   br label %26
@@ -150,9 +150,9 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej
   %17 = xor i32 %16, -1
   %18 = and i32 %5, %17
   store i32 %18, ptr %4, align 4
-  %19 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %20 = zext nneg i32 %.0 to i64
-  %21 = getelementptr inbounds [32 x i32], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [32 x i32], ptr %19, i64 0, i64 %20
   store i32 %2, ptr %21, align 4
   %22 = and i8 %1, 7
   %23 = trunc nuw nsw i32 %.0 to i8
@@ -170,14 +170,14 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E
   %.off.i = add i8 %1, -1
   %switch.i = icmp ult i8 %.off.i, 2
   %.0.v.i = select i1 %switch.i, i64 16, i64 156
-  %.0.i = getelementptr inbounds i8, ptr %0, i64 %.0.v.i
-  %3 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i
+  %3 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 324
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i8 1, ptr %7, align 4
   %8 = and i8 %1, 7
   br label %25
@@ -193,7 +193,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E
   %16 = xor i32 %15, -1
   %17 = and i32 %4, %16
   store i32 %17, ptr %3, align 4
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %15, %19
   store i32 %20, ptr %18, align 4
@@ -216,7 +216,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA6
 
 .lr.ph:                                           ; preds = %5
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %9
 
 9:                                                ; preds = %.lr.ph, %33
@@ -230,42 +230,42 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA6
   %12 = lshr i32 %.sroa.07.0.copyload, 4
   %13 = zext nneg i32 %12 to i64
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %14, i64 %13
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %15 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %14, i64 %13
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %2
   br i1 %18, label %19, label %33
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %15, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load i8, ptr %20, align 4
   %22 = trunc i8 %21 to i1
   br i1 %22, label %33, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %15, i64 39
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 39
   %25 = load i8, ptr %24, align 1
   %.not25 = icmp eq i8 %25, 0
   br i1 %.not25, label %33, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %15, i64 40
-  %28 = getelementptr inbounds i8, ptr %15, i64 39
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 39
   %.off.i = add i8 %1, -1
   %switch.i = icmp ult i8 %.off.i, 2
   %.0.v.i = select i1 %switch.i, i64 16, i64 156
-  %.0.i = getelementptr inbounds i8, ptr %0, i64 %.0.v.i
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %30 = lshr i8 %25, 3
   %31 = zext nneg i8 %30 to i64
-  %32 = getelementptr inbounds [32 x i32], ptr %29, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i32], ptr %29, i64 0, i64 %31
   store i32 %2, ptr %32, align 4
   store i8 1, ptr %27, align 4
   %.sroa.020.0.copyload = load i8, ptr %28, align 1
   br label %_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej.exit
 
 33:                                               ; preds = %11, %19, %23, %9
-  %34 = getelementptr inbounds i8, ptr %.031, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.031, i64 4
   %.not = icmp eq ptr %34, %6
   br i1 %.not, label %._crit_edge, label %9
 
@@ -273,14 +273,14 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA6
   %.off.i.i = add i8 %1, -1
   %switch.i.i = icmp ult i8 %.off.i.i, 2
   %.0.v.i.i = select i1 %switch.i.i, i64 16, i64 156
-  %.0.i.i = getelementptr inbounds i8, ptr %0, i64 %.0.v.i.i
-  %35 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %.0.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %._crit_edge
-  %39 = getelementptr inbounds i8, ptr %0, i64 324
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i8 1, ptr %39, align 4
   %40 = and i8 %1, 7
   br label %_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej.exit
@@ -296,9 +296,9 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA6
   %48 = xor i32 %47, -1
   %49 = and i32 %36, %48
   store i32 %49, ptr %35, align 4
-  %50 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %51 = zext nneg i32 %.0.i23 to i64
-  %52 = getelementptr inbounds [32 x i32], ptr %50, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [32 x i32], ptr %50, i64 0, i64 %51
   store i32 %2, ptr %52, align 4
   %53 = and i8 %1, 7
   %54 = trunc nuw nsw i32 %.0.i23 to i8
@@ -317,18 +317,18 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA
   %.off.i = add nsw i8 %4, -1
   %switch.i = icmp ult i8 %.off.i, 2
   %.0.v.i = select i1 %switch.i, i64 16, i64 156
-  %.0.i = getelementptr inbounds i8, ptr %0, i64 %.0.v.i
+  %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i
   %5 = lshr i8 %1, 3
   %6 = zext nneg i8 %5 to i32
   %7 = shl nuw i32 1, %6
   %8 = xor i32 %7, -1
-  %9 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, %8
   store i32 %11, ptr %9, align 4
-  %12 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %13 = zext nneg i8 %5 to i64
-  %14 = getelementptr inbounds [32 x i32], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %13
   store i32 %2, ptr %14, align 4
   ret i8 %1
 }
@@ -339,36 +339,36 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA647freeRegENS1_11Registe
   %.off.i = add nsw i8 %3, -1
   %switch.i = icmp ult i8 %.off.i, 2
   %.0.v.i = select i1 %switch.i, i64 16, i64 156
-  %.0.i = getelementptr inbounds i8, ptr %0, i64 %.0.v.i
+  %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i
   %4 = lshr i8 %1, 3
   %5 = zext nneg i8 %4 to i32
   %6 = shl nuw i32 1, %5
-  %7 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = or i32 %8, %6
   store i32 %9, ptr %7, align 4
-  %10 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %11 = zext nneg i8 %4 to i64
-  %12 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %11
   store i32 -1, ptr %12, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6414freeLastUseRegERNS0_6IrInstEj(ptr nocapture noundef nonnull align 8 dereferenceable(325) %0, ptr nocapture noundef nonnull align 4 dereferenceable(43) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, %2
   br i1 %6, label %7, label %26
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %26, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 39
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 39
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %26, label %15
@@ -378,17 +378,17 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6414freeLastUseRegERNS0_
   %.off.i.i = add nsw i8 %16, -1
   %switch.i.i = icmp ult i8 %.off.i.i, 2
   %.0.v.i.i = select i1 %switch.i.i, i64 16, i64 156
-  %.0.i.i = getelementptr inbounds i8, ptr %0, i64 %.0.v.i.i
+  %.0.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i
   %17 = lshr i8 %13, 3
   %18 = zext nneg i8 %17 to i32
   %19 = shl nuw i32 1, %18
-  %20 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, %19
   store i32 %22, ptr %20, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %24 = zext nneg i8 %17 to i64
-  %25 = getelementptr inbounds [32 x i32], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i32], ptr %23, i64 0, i64 %24
   store i32 -1, ptr %25, align 4
   store i8 0, ptr %12, align 1
   br label %26
@@ -399,7 +399,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6414freeLastUseRegERNS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEj(ptr nocapture noundef nonnull align 8 dereferenceable(325) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(43) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.06.0.copyload = load i32, ptr %4, align 4
   %5 = and i32 %.sroa.06.0.copyload, 15
   %6 = icmp eq i32 %5, 4
@@ -407,24 +407,24 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = lshr i32 %.sroa.06.0.copyload, 4
   %11 = zext nneg i32 %10 to i64
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %12, i64 %11
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %13 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %12, i64 %11
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %2
   br i1 %16, label %17, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit"
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %13, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load i8, ptr %18, align 4
   %20 = trunc i8 %19 to i1
   br i1 %20, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit", label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %13, i64 39
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 39
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit", label %25
@@ -434,23 +434,23 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %.off.i.i.i.i = add nsw i8 %26, -1
   %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, 2
   %.0.v.i.i.i.i = select i1 %switch.i.i.i.i, i64 16, i64 156
-  %.0.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %.0.v.i.i.i.i
+  %.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i
   %27 = lshr i8 %23, 3
   %28 = zext nneg i8 %27 to i32
   %29 = shl nuw i32 1, %28
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = or i32 %31, %29
   store i32 %32, ptr %30, align 4
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
   %34 = zext nneg i8 %27 to i64
-  %35 = getelementptr inbounds [32 x i32], ptr %33, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i32], ptr %33, i64 0, i64 %34
   store i32 -1, ptr %35, align 4
   store i8 0, ptr %22, align 1
   br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit"
 
 "_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit": ; preds = %3, %7, %17, %21, %25
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.05.0.copyload = load i32, ptr %36, align 4
   %37 = and i32 %.sroa.05.0.copyload, 15
   %38 = icmp eq i32 %37, 4
@@ -458,24 +458,24 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
 
 39:                                               ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit"
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = lshr i32 %.sroa.05.0.copyload, 4
   %43 = zext nneg i32 %42 to i64
   %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %44, i64 %43
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %45 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %44, i64 %43
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, %2
   br i1 %48, label %49, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32"
 
 49:                                               ; preds = %39
-  %50 = getelementptr inbounds i8, ptr %45, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
   br i1 %52, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32", label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %45, i64 39
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 39
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32", label %57
@@ -485,23 +485,23 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %.off.i.i.i.i28 = add nsw i8 %58, -1
   %switch.i.i.i.i29 = icmp ult i8 %.off.i.i.i.i28, 2
   %.0.v.i.i.i.i30 = select i1 %switch.i.i.i.i29, i64 16, i64 156
-  %.0.i.i.i.i31 = getelementptr inbounds i8, ptr %0, i64 %.0.v.i.i.i.i30
+  %.0.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i30
   %59 = lshr i8 %55, 3
   %60 = zext nneg i8 %59 to i32
   %61 = shl nuw i32 1, %60
-  %62 = getelementptr inbounds i8, ptr %.0.i.i.i.i31, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i31, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = or i32 %63, %61
   store i32 %64, ptr %62, align 4
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i31, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i31, i64 12
   %66 = zext nneg i8 %59 to i64
-  %67 = getelementptr inbounds [32 x i32], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [32 x i32], ptr %65, i64 0, i64 %66
   store i32 -1, ptr %67, align 4
   store i8 0, ptr %54, align 1
   br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32"
 
 "_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit", %39, %49, %53, %57
-  %68 = getelementptr inbounds i8, ptr %1, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.04.0.copyload = load i32, ptr %68, align 4
   %69 = and i32 %.sroa.04.0.copyload, 15
   %70 = icmp eq i32 %69, 4
@@ -509,24 +509,24 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
 
 71:                                               ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32"
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = lshr i32 %.sroa.04.0.copyload, 4
   %75 = zext nneg i32 %74 to i64
   %76 = load ptr, ptr %73, align 8
-  %77 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %76, i64 %75
-  %78 = getelementptr inbounds i8, ptr %77, i64 32
+  %77 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %76, i64 %75
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, %2
   br i1 %80, label %81, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37"
 
 81:                                               ; preds = %71
-  %82 = getelementptr inbounds i8, ptr %77, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %83 = load i8, ptr %82, align 4
   %84 = trunc i8 %83 to i1
   br i1 %84, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37", label %85
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %77, i64 39
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 39
   %87 = load i8, ptr %86, align 1
   %88 = icmp eq i8 %87, 0
   br i1 %88, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37", label %89
@@ -536,23 +536,23 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %.off.i.i.i.i33 = add nsw i8 %90, -1
   %switch.i.i.i.i34 = icmp ult i8 %.off.i.i.i.i33, 2
   %.0.v.i.i.i.i35 = select i1 %switch.i.i.i.i34, i64 16, i64 156
-  %.0.i.i.i.i36 = getelementptr inbounds i8, ptr %0, i64 %.0.v.i.i.i.i35
+  %.0.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i35
   %91 = lshr i8 %87, 3
   %92 = zext nneg i8 %91 to i32
   %93 = shl nuw i32 1, %92
-  %94 = getelementptr inbounds i8, ptr %.0.i.i.i.i36, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i36, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = or i32 %95, %93
   store i32 %96, ptr %94, align 4
-  %97 = getelementptr inbounds i8, ptr %.0.i.i.i.i36, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i36, i64 12
   %98 = zext nneg i8 %91 to i64
-  %99 = getelementptr inbounds [32 x i32], ptr %97, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [32 x i32], ptr %97, i64 0, i64 %98
   store i32 -1, ptr %99, align 4
   store i8 0, ptr %86, align 1
   br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37"
 
 "_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32", %71, %81, %85, %89
-  %100 = getelementptr inbounds i8, ptr %1, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.03.0.copyload = load i32, ptr %100, align 4
   %101 = and i32 %.sroa.03.0.copyload, 15
   %102 = icmp eq i32 %101, 4
@@ -560,24 +560,24 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
 
 103:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37"
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = lshr i32 %.sroa.03.0.copyload, 4
   %107 = zext nneg i32 %106 to i64
   %108 = load ptr, ptr %105, align 8
-  %109 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %108, i64 %107
-  %110 = getelementptr inbounds i8, ptr %109, i64 32
+  %109 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %108, i64 %107
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load i32, ptr %110, align 4
   %112 = icmp eq i32 %111, %2
   br i1 %112, label %113, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42"
 
 113:                                              ; preds = %103
-  %114 = getelementptr inbounds i8, ptr %109, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %115 = load i8, ptr %114, align 4
   %116 = trunc i8 %115 to i1
   br i1 %116, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42", label %117
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %109, i64 39
+  %118 = getelementptr inbounds nuw i8, ptr %109, i64 39
   %119 = load i8, ptr %118, align 1
   %120 = icmp eq i8 %119, 0
   br i1 %120, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42", label %121
@@ -587,23 +587,23 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %.off.i.i.i.i38 = add nsw i8 %122, -1
   %switch.i.i.i.i39 = icmp ult i8 %.off.i.i.i.i38, 2
   %.0.v.i.i.i.i40 = select i1 %switch.i.i.i.i39, i64 16, i64 156
-  %.0.i.i.i.i41 = getelementptr inbounds i8, ptr %0, i64 %.0.v.i.i.i.i40
+  %.0.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i40
   %123 = lshr i8 %119, 3
   %124 = zext nneg i8 %123 to i32
   %125 = shl nuw i32 1, %124
-  %126 = getelementptr inbounds i8, ptr %.0.i.i.i.i41, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i41, i64 4
   %127 = load i32, ptr %126, align 4
   %128 = or i32 %127, %125
   store i32 %128, ptr %126, align 4
-  %129 = getelementptr inbounds i8, ptr %.0.i.i.i.i41, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i41, i64 12
   %130 = zext nneg i8 %123 to i64
-  %131 = getelementptr inbounds [32 x i32], ptr %129, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw [32 x i32], ptr %129, i64 0, i64 %130
   store i32 -1, ptr %131, align 4
   store i8 0, ptr %118, align 1
   br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42"
 
 "_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37", %103, %113, %117, %121
-  %132 = getelementptr inbounds i8, ptr %1, i64 20
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sroa.02.0.copyload = load i32, ptr %132, align 4
   %133 = and i32 %.sroa.02.0.copyload, 15
   %134 = icmp eq i32 %133, 4
@@ -611,24 +611,24 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
 
 135:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42"
   %136 = load ptr, ptr %0, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %138 = lshr i32 %.sroa.02.0.copyload, 4
   %139 = zext nneg i32 %138 to i64
   %140 = load ptr, ptr %137, align 8
-  %141 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %140, i64 %139
-  %142 = getelementptr inbounds i8, ptr %141, i64 32
+  %141 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %140, i64 %139
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %143 = load i32, ptr %142, align 4
   %144 = icmp eq i32 %143, %2
   br i1 %144, label %145, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47"
 
 145:                                              ; preds = %135
-  %146 = getelementptr inbounds i8, ptr %141, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %141, i64 40
   %147 = load i8, ptr %146, align 4
   %148 = trunc i8 %147 to i1
   br i1 %148, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47", label %149
 
 149:                                              ; preds = %145
-  %150 = getelementptr inbounds i8, ptr %141, i64 39
+  %150 = getelementptr inbounds nuw i8, ptr %141, i64 39
   %151 = load i8, ptr %150, align 1
   %152 = icmp eq i8 %151, 0
   br i1 %152, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47", label %153
@@ -638,23 +638,23 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %.off.i.i.i.i43 = add nsw i8 %154, -1
   %switch.i.i.i.i44 = icmp ult i8 %.off.i.i.i.i43, 2
   %.0.v.i.i.i.i45 = select i1 %switch.i.i.i.i44, i64 16, i64 156
-  %.0.i.i.i.i46 = getelementptr inbounds i8, ptr %0, i64 %.0.v.i.i.i.i45
+  %.0.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i45
   %155 = lshr i8 %151, 3
   %156 = zext nneg i8 %155 to i32
   %157 = shl nuw i32 1, %156
-  %158 = getelementptr inbounds i8, ptr %.0.i.i.i.i46, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i46, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = or i32 %159, %157
   store i32 %160, ptr %158, align 4
-  %161 = getelementptr inbounds i8, ptr %.0.i.i.i.i46, i64 12
+  %161 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i46, i64 12
   %162 = zext nneg i8 %155 to i64
-  %163 = getelementptr inbounds [32 x i32], ptr %161, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [32 x i32], ptr %161, i64 0, i64 %162
   store i32 -1, ptr %163, align 4
   store i8 0, ptr %150, align 1
   br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47"
 
 "_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42", %135, %145, %149, %153
-  %164 = getelementptr inbounds i8, ptr %1, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.01.0.copyload = load i32, ptr %164, align 4
   %165 = and i32 %.sroa.01.0.copyload, 15
   %166 = icmp eq i32 %165, 4
@@ -662,24 +662,24 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
 
 167:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47"
   %168 = load ptr, ptr %0, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %170 = lshr i32 %.sroa.01.0.copyload, 4
   %171 = zext nneg i32 %170 to i64
   %172 = load ptr, ptr %169, align 8
-  %173 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %172, i64 %171
-  %174 = getelementptr inbounds i8, ptr %173, i64 32
+  %173 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %172, i64 %171
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
   %175 = load i32, ptr %174, align 4
   %176 = icmp eq i32 %175, %2
   br i1 %176, label %177, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52"
 
 177:                                              ; preds = %167
-  %178 = getelementptr inbounds i8, ptr %173, i64 40
+  %178 = getelementptr inbounds nuw i8, ptr %173, i64 40
   %179 = load i8, ptr %178, align 4
   %180 = trunc i8 %179 to i1
   br i1 %180, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52", label %181
 
 181:                                              ; preds = %177
-  %182 = getelementptr inbounds i8, ptr %173, i64 39
+  %182 = getelementptr inbounds nuw i8, ptr %173, i64 39
   %183 = load i8, ptr %182, align 1
   %184 = icmp eq i8 %183, 0
   br i1 %184, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52", label %185
@@ -689,17 +689,17 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %.off.i.i.i.i48 = add nsw i8 %186, -1
   %switch.i.i.i.i49 = icmp ult i8 %.off.i.i.i.i48, 2
   %.0.v.i.i.i.i50 = select i1 %switch.i.i.i.i49, i64 16, i64 156
-  %.0.i.i.i.i51 = getelementptr inbounds i8, ptr %0, i64 %.0.v.i.i.i.i50
+  %.0.i.i.i.i51 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i50
   %187 = lshr i8 %183, 3
   %188 = zext nneg i8 %187 to i32
   %189 = shl nuw i32 1, %188
-  %190 = getelementptr inbounds i8, ptr %.0.i.i.i.i51, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i51, i64 4
   %191 = load i32, ptr %190, align 4
   %192 = or i32 %191, %189
   store i32 %192, ptr %190, align 4
-  %193 = getelementptr inbounds i8, ptr %.0.i.i.i.i51, i64 12
+  %193 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i51, i64 12
   %194 = zext nneg i8 %187 to i64
-  %195 = getelementptr inbounds [32 x i32], ptr %193, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw [32 x i32], ptr %193, i64 0, i64 %194
   store i32 -1, ptr %195, align 4
   store i8 0, ptr %182, align 1
   br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52"
@@ -710,7 +710,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   br i1 %197, label %198, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit57"
 
 198:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52"
-  %199 = getelementptr inbounds i8, ptr %1, i64 28
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %.sroa.0.0.copyload = load i32, ptr %199, align 4
   %200 = and i32 %.sroa.0.0.copyload, 15
   %201 = icmp eq i32 %200, 4
@@ -718,24 +718,24 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
 
 202:                                              ; preds = %198
   %203 = load ptr, ptr %0, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 24
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 24
   %205 = lshr i32 %.sroa.0.0.copyload, 4
   %206 = zext nneg i32 %205 to i64
   %207 = load ptr, ptr %204, align 8
-  %208 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %207, i64 %206
-  %209 = getelementptr inbounds i8, ptr %208, i64 32
+  %208 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %207, i64 %206
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load i32, ptr %209, align 4
   %211 = icmp eq i32 %210, %2
   br i1 %211, label %212, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit57"
 
 212:                                              ; preds = %202
-  %213 = getelementptr inbounds i8, ptr %208, i64 40
+  %213 = getelementptr inbounds nuw i8, ptr %208, i64 40
   %214 = load i8, ptr %213, align 4
   %215 = trunc i8 %214 to i1
   br i1 %215, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit57", label %216
 
 216:                                              ; preds = %212
-  %217 = getelementptr inbounds i8, ptr %208, i64 39
+  %217 = getelementptr inbounds nuw i8, ptr %208, i64 39
   %218 = load i8, ptr %217, align 1
   %219 = icmp eq i8 %218, 0
   br i1 %219, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit57", label %220
@@ -745,17 +745,17 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %.off.i.i.i.i53 = add nsw i8 %221, -1
   %switch.i.i.i.i54 = icmp ult i8 %.off.i.i.i.i53, 2
   %.0.v.i.i.i.i55 = select i1 %switch.i.i.i.i54, i64 16, i64 156
-  %.0.i.i.i.i56 = getelementptr inbounds i8, ptr %0, i64 %.0.v.i.i.i.i55
+  %.0.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i55
   %222 = lshr i8 %218, 3
   %223 = zext nneg i8 %222 to i32
   %224 = shl nuw i32 1, %223
-  %225 = getelementptr inbounds i8, ptr %.0.i.i.i.i56, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i56, i64 4
   %226 = load i32, ptr %225, align 4
   %227 = or i32 %226, %224
   store i32 %227, ptr %225, align 4
-  %228 = getelementptr inbounds i8, ptr %.0.i.i.i.i56, i64 12
+  %228 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i56, i64 12
   %229 = zext nneg i8 %222 to i64
-  %230 = getelementptr inbounds [32 x i32], ptr %228, i64 0, i64 %229
+  %230 = getelementptr inbounds nuw [32 x i32], ptr %228, i64 0, i64 %229
   store i32 -1, ptr %230, align 4
   store i8 0, ptr %217, align 1
   br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit57"
@@ -766,16 +766,16 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6412freeTempRegsEv(ptr nocapture noundef nonnull align 8 dereferenceable(325) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = or i32 %5, %3
   store i32 %6, ptr %4, align 4
   store i32 0, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 164
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = load i32, ptr %9, align 8
   %11 = or i32 %10, %8
   store i32 %11, ptr %9, align 8
@@ -785,36 +785,36 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6412freeTempRegsEv(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr nocapture noundef nonnull align 8 dereferenceable(325) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef %2, ptr readonly %3, i64 %4) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 296
-  %7 = getelementptr inbounds i8, ptr %0, i64 304
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, align 8
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %.loopexit165
+  br i1 %11, label %12, label %.loopexit164
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = xor i32 %16, -1
   %18 = and i32 %14, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 156
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 160
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %22 = load i32, ptr %21, align 8
   %23 = xor i32 %22, -1
   %24 = and i32 %20, %23
   %25 = getelementptr inbounds %"struct.Luau::CodeGen::A64::RegisterA64", ptr %3, i64 %4
-  %.not166 = icmp eq i64 %4, 0
-  br i1 %.not166, label %.loopexit165, label %.cont
+  %.not165 = icmp eq i64 %4, 0
+  br i1 %.not165, label %.loopexit164, label %.cont
 
 .cont:                                            ; preds = %12, %.cont
-  %.1169 = phi i32 [ %.1., %.cont ], [ %18, %12 ]
-  %.177168 = phi i32 [ %..177, %.cont ], [ %24, %12 ]
-  %.080167 = phi ptr [ %33, %.cont ], [ %3, %12 ]
-  %.sroa.054.0.copyload = load i8, ptr %.080167, align 1
+  %.1168 = phi i32 [ %.1., %.cont ], [ %18, %12 ]
+  %.177167 = phi i32 [ %..177, %.cont ], [ %24, %12 ]
+  %.080166 = phi ptr [ %33, %.cont ], [ %3, %12 ]
+  %.sroa.054.0.copyload = load i8, ptr %.080166, align 1
   %26 = and i8 %.sroa.054.0.copyload, 7
   %27 = add nsw i8 %26, -3
   %switch.i = icmp ult i8 %27, -2
@@ -822,72 +822,72 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
   %29 = zext nneg i8 %28 to i32
   %30 = shl nuw i32 1, %29
   %31 = xor i32 %30, -1
-  %.sroa.speculated = select i1 %switch.i, i32 %.177168, i32 %.1169
+  %.sroa.speculated = select i1 %switch.i, i32 %.177167, i32 %.1168
   %32 = and i32 %.sroa.speculated, %31
-  %..177 = select i1 %switch.i, i32 %32, i32 %.177168
-  %.1. = select i1 %switch.i, i32 %.1169, i32 %32
-  %33 = getelementptr inbounds i8, ptr %.080167, i64 1
+  %..177 = select i1 %switch.i, i32 %32, i32 %.177167
+  %.1. = select i1 %switch.i, i32 %.1168, i32 %32
+  %33 = getelementptr inbounds nuw i8, ptr %.080166, i64 1
   %.not = icmp eq ptr %33, %25
-  br i1 %.not, label %.loopexit165, label %.cont
+  br i1 %.not, label %.loopexit164, label %.cont
 
-.loopexit165:                                     ; preds = %.cont, %12, %5
+.loopexit164:                                     ; preds = %.cont, %12, %5
   %.076 = phi i32 [ 0, %5 ], [ %24, %12 ], [ %..177, %.cont ]
   %.075 = phi i32 [ 0, %5 ], [ %18, %12 ], [ %.1., %.cont ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 312
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 320
-  %37 = getelementptr inbounds i8, ptr %0, i64 324
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 324
   br label %38
 
-38:                                               ; preds = %.loopexit165, %.loopexit164
-  %.081.idx173 = phi i64 [ 0, %.loopexit165 ], [ %.081.add, %.loopexit164 ]
-  %.081.ptr = getelementptr inbounds i8, ptr @_ZZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EEE4sets, i64 %.081.idx173
+38:                                               ; preds = %.loopexit164, %.loopexit163
+  %.081.idx172 = phi i64 [ 0, %.loopexit164 ], [ %.081.add, %.loopexit163 ]
+  %.081.ptr = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EEE4sets, i64 %.081.idx172
   %39 = load i8, ptr %.081.ptr, align 1
   %.off.i96 = add i8 %39, -1
   %switch.i97 = icmp ult i8 %.off.i96, 2
   %.0.v.i98 = select i1 %switch.i97, i64 16, i64 156
-  %.0.i99 = getelementptr inbounds i8, ptr %0, i64 %.0.v.i98
-  %40 = getelementptr inbounds i8, ptr %.0.i99, i64 4
+  %.0.i99 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i98
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i99, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %.0.i99, align 4
   %43 = icmp eq i32 %41, %42
-  br i1 %43, label %.loopexit164, label %44
+  br i1 %43, label %.loopexit163, label %44
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %.0.i99, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i99, i64 8
   %46 = load i32, ptr %45, align 4
   %47 = or i32 %46, %41
   store i32 %47, ptr %40, align 4
   store i32 0, ptr %45, align 4
   %48 = xor i32 %47, -1
   %49 = and i32 %42, %48
-  %.not91171 = icmp eq i32 %49, 0
-  br i1 %.not91171, label %.loopexit164, label %.lr.ph
+  %.not91170 = icmp eq i32 %49, 0
+  br i1 %.not91170, label %.loopexit163, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %.0.i99, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i99, i64 12
   br label %51
 
-51:                                               ; preds = %.lr.ph, %194
-  %.082172 = phi i32 [ %49, %.lr.ph ], [ %198, %194 ]
-  %52 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.082172, i1 true)
+51:                                               ; preds = %.lr.ph, %188
+  %.082171 = phi i32 [ %49, %.lr.ph ], [ %192, %188 ]
+  %52 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.082171, i1 true)
   %53 = xor i32 %52, 31
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds [32 x i32], ptr %50, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i32], ptr %50, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = zext i32 %56 to i64
   %60 = load ptr, ptr %58, align 8
-  %61 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %60, i64 %59
-  %62 = getelementptr inbounds i8, ptr %61, i64 32
+  %61 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %60, i64 %59
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, %2
-  br i1 %64, label %194, label %65
+  br i1 %64, label %188, label %65
 
 65:                                               ; preds = %51
-  %66 = getelementptr inbounds i8, ptr %57, i64 152
-  %67 = getelementptr inbounds i8, ptr %57, i64 160
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 152
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 160
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %66, align 8
   %70 = ptrtoint ptr %68 to i64
@@ -898,9 +898,9 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
   br i1 %.not.i.i.i, label %74, label %.critedge
 
 74:                                               ; preds = %65
-  %75 = getelementptr inbounds i8, ptr %57, i64 176
+  %75 = getelementptr inbounds nuw i8, ptr %57, i64 176
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %57, i64 184
+  %77 = getelementptr inbounds nuw i8, ptr %57, i64 184
   %78 = load ptr, ptr %77, align 8
   %.not1819.i.i.i = icmp eq ptr %76, %78
   br i1 %.not1819.i.i.i, label %.critedge, label %.lr.ph.i.i.i
@@ -913,25 +913,25 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
   %.sroa.014.020.i.i.i = phi ptr [ %76, %.lr.ph.i.i.i ], [ %90, %89 ]
   %81 = load i32, ptr %.sroa.014.020.i.i.i, align 4
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds %"struct.Luau::CodeGen::IrBlock", ptr %79, i64 %82
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %83 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %79, i64 %82
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
   %.not12.i.i.i = icmp ugt i32 %85, %56
   br i1 %.not12.i.i.i, label %89, label %86
 
 86:                                               ; preds = %80
-  %87 = getelementptr inbounds i8, ptr %83, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %88 = load i32, ptr %87, align 4
   %.not13.i.i.i = icmp ult i32 %88, %56
   br i1 %.not13.i.i.i, label %89, label %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i
 
 89:                                               ; preds = %86, %80
-  %90 = getelementptr inbounds i8, ptr %.sroa.014.020.i.i.i, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i.i.i, i64 4
   %.not18.i.i.i = icmp eq ptr %90, %78
   br i1 %.not18.i.i.i, label %.critedge, label %80
 
 _ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i: ; preds = %86
-  %91 = getelementptr inbounds %"struct.Luau::CodeGen::IrOp", ptr %69, i64 %59
+  %91 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %69, i64 %59
   %92 = load i32, ptr %91, align 4
   %93 = and i32 %92, 15
   switch i32 %93, label %.critedge [
@@ -947,7 +947,7 @@ _ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i: ; preds = %
 _ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i: ; preds = %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i, %94
   %97 = load i8, ptr %61, align 4
   %98 = tail call noundef zeroext i8 @_ZN4Luau7CodeGen15getCmdValueKindENS0_5IrCmdE(i8 noundef zeroext %97)
-  %99 = getelementptr inbounds i8, ptr %61, i64 39
+  %99 = getelementptr inbounds nuw i8, ptr %61, i64 39
   %100 = load i8, ptr %99, align 1
   %101 = load ptr, ptr %7, align 8
   %102 = load ptr, ptr %34, align 8
@@ -955,13 +955,13 @@ _ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.sp
   br i1 %.not.i, label %106, label %103
 
 103:                                              ; preds = %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i
-  %.sroa.3139.0.insert.ext = zext i8 %100 to i64
-  %.sroa.3139.0.insert.shift = shl nuw nsw i64 %.sroa.3139.0.insert.ext, 32
-  %.sroa.3139.0.insert.insert = or disjoint i64 %.sroa.3139.0.insert.shift, %59
-  %.sroa.0134.0.insert.insert = or disjoint i64 %.sroa.3139.0.insert.insert, 280375465082880
-  store i64 %.sroa.0134.0.insert.insert, ptr %101, align 4
+  %.sroa.3138.0.insert.ext = zext i8 %100 to i64
+  %.sroa.3138.0.insert.shift = shl nuw nsw i64 %.sroa.3138.0.insert.ext, 32
+  %.sroa.3138.0.insert.insert = or disjoint i64 %.sroa.3138.0.insert.shift, %59
+  %.sroa.0133.0.insert.insert = or disjoint i64 %.sroa.3138.0.insert.insert, 280375465082880
+  store i64 %.sroa.0133.0.insert.insert, ptr %101, align 4
   %104 = load ptr, ptr %7, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr %105, ptr %7, align 8
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit
 
@@ -984,260 +984,246 @@ _ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPK
   %115 = icmp ult i64 %114, %113
   %116 = tail call i64 @llvm.umin.i64(i64 %114, i64 1152921504606846975)
   %117 = select i1 %115, i64 1152921504606846975, i64 %116
-  %.not.i.i.i100 = icmp eq i64 %117, 0
-  br i1 %.not.i.i.i100, label %_ZNSt12_Vector_baseIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_M_allocateEm.exit.i.i, label %118
+  %.not.i.i.i100 = icmp ne i64 %117, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i100)
+  %118 = shl nuw nsw i64 %117, 3
+  %119 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %118) #18
+  %120 = getelementptr inbounds i8, ptr %119, i64 %110
+  %.sroa.3138.0.insert.ext140 = zext i8 %100 to i64
+  %.sroa.3138.0.insert.shift141 = shl nuw nsw i64 %.sroa.3138.0.insert.ext140, 32
+  %.sroa.3138.0.insert.insert143 = or disjoint i64 %.sroa.3138.0.insert.shift141, %59
+  %.sroa.0133.0.insert.insert137 = or disjoint i64 %.sroa.3138.0.insert.insert143, 280375465082880
+  store i64 %.sroa.0133.0.insert.insert137, ptr %120, align 4
+  %121 = icmp sgt i64 %110, 0
+  br i1 %121, label %122, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
 
-118:                                              ; preds = %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i
-  %119 = shl nuw nsw i64 %117, 3
-  %120 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %119) #18
-  br label %_ZNSt12_Vector_baseIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_M_allocateEm.exit.i.i: ; preds = %118, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i
-  %121 = phi ptr [ %120, %118 ], [ null, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i ]
-  %122 = getelementptr inbounds %"struct.Luau::CodeGen::A64::IrRegAllocA64::Spill", ptr %121, i64 %113
-  %.sroa.3139.0.insert.ext141 = zext i8 %100 to i64
-  %.sroa.3139.0.insert.shift142 = shl nuw nsw i64 %.sroa.3139.0.insert.ext141, 32
-  %.sroa.3139.0.insert.insert144 = or disjoint i64 %.sroa.3139.0.insert.shift142, %59
-  %.sroa.0134.0.insert.insert138 = or disjoint i64 %.sroa.3139.0.insert.insert144, 280375465082880
-  store i64 %.sroa.0134.0.insert.insert138, ptr %122, align 4
-  %123 = icmp sgt i64 %110, 0
-  br i1 %123, label %124, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
-
-124:                                              ; preds = %_ZNSt12_Vector_baseIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %121, ptr align 4 %107, i64 %110, i1 false)
+122:                                              ; preds = %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %119, ptr align 4 %107, i64 %110, i1 false)
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
 
-_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i: ; preds = %124, %_ZNSt12_Vector_baseIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_M_allocateEm.exit.i.i
-  %125 = getelementptr inbounds i8, ptr %121, i64 %110
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
+_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i: ; preds = %122, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %.not.i17.i.i = icmp eq ptr %107, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %127
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %124
 
-127:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
+124:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef %110) #19
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
-_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %127, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
-  store ptr %121, ptr %6, align 8
-  store ptr %126, ptr %7, align 8
-  %128 = getelementptr inbounds %"struct.Luau::CodeGen::A64::IrRegAllocA64::Spill", ptr %121, i64 %117
-  store ptr %128, ptr %34, align 8
+_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %124, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
+  store ptr %119, ptr %6, align 8
+  store ptr %123, ptr %7, align 8
+  %125 = getelementptr inbounds nuw %"struct.Luau::CodeGen::A64::IrRegAllocA64::Spill", ptr %119, i64 %117
+  store ptr %125, ptr %34, align 8
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit
 
 _ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit: ; preds = %103, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
-  %129 = getelementptr inbounds i8, ptr %61, i64 42
-  store i8 1, ptr %129, align 2
-  %130 = load ptr, ptr %35, align 8
-  %.not95 = icmp eq ptr %130, null
-  br i1 %.not95, label %194, label %131
+  %126 = getelementptr inbounds nuw i8, ptr %61, i64 42
+  store i8 1, ptr %126, align 2
+  %127 = load ptr, ptr %35, align 8
+  %.not95 = icmp eq ptr %127, null
+  br i1 %.not95, label %188, label %128
 
-131:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit
-  %132 = getelementptr inbounds i8, ptr %130, i64 12
-  %133 = load i32, ptr %132, align 4
-  %134 = add nsw i32 %133, 1
-  store i32 %134, ptr %132, align 4
-  br label %194
+128:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 12
+  %130 = load i32, ptr %129, align 4
+  %131 = add nsw i32 %130, 1
+  store i32 %131, ptr %129, align 4
+  br label %188
 
 .critedge:                                        ; preds = %89, %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i, %94, %65, %74
-  %135 = getelementptr inbounds i8, ptr %61, i64 39
-  %136 = load i8, ptr %135, align 1
-  %137 = and i8 %136, 7
-  %138 = icmp eq i8 %137, 5
-  %139 = load i32, ptr %36, align 8
-  %140 = lshr i32 %139, 1
-  %141 = select i1 %138, i32 %140, i32 -1
-  %142 = and i32 %141, %139
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %149, label %_ZN4Luau7CodeGen3A64L10allocSpillERjNS1_7KindA64E.exit
+  %132 = getelementptr inbounds nuw i8, ptr %61, i64 39
+  %133 = load i8, ptr %132, align 1
+  %134 = and i8 %133, 7
+  %135 = icmp eq i8 %134, 5
+  %136 = load i32, ptr %36, align 8
+  %137 = lshr i32 %136, 1
+  %138 = select i1 %135, i32 %137, i32 -1
+  %139 = and i32 %138, %136
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %146, label %_ZN4Luau7CodeGen3A64L10allocSpillERjNS1_7KindA64E.exit
 
 _ZN4Luau7CodeGen3A64L10allocSpillERjNS1_7KindA64E.exit: ; preds = %.critedge
-  %144 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %142, i1 true)
-  %145 = select i1 %138, i32 3, i32 1
-  %146 = shl i32 %145, %144
-  %147 = xor i32 %146, -1
-  %148 = and i32 %139, %147
-  store i32 %148, ptr %36, align 8
-  br label %150
+  %141 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %139, i1 true)
+  %142 = select i1 %135, i32 3, i32 1
+  %143 = shl i32 %142, %141
+  %144 = xor i32 %143, -1
+  %145 = and i32 %136, %144
+  store i32 %145, ptr %36, align 8
+  br label %147
 
-149:                                              ; preds = %.critedge
+146:                                              ; preds = %.critedge
   store i8 1, ptr %37, align 4
-  br label %150
+  br label %147
 
-150:                                              ; preds = %_ZN4Luau7CodeGen3A64L10allocSpillERjNS1_7KindA64E.exit, %149
-  %.079 = phi i32 [ 64, %149 ], [ %144, %_ZN4Luau7CodeGen3A64L10allocSpillERjNS1_7KindA64E.exit ]
-  %.sroa.012.0.copyload = load i8, ptr %135, align 1
-  %151 = shl nuw nsw i32 %.079, 3
-  %152 = add nuw nsw i32 %151, 80
-  %.sroa.4133.0.insert.ext = zext nneg i32 %152 to i64
-  %.sroa.4133.0.insert.shift = shl nuw nsw i64 %.sroa.4133.0.insert.ext, 32
-  %.sroa.0130.0.insert.insert = or disjoint i64 %.sroa.4133.0.insert.shift, 16447489
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1, i8 %.sroa.012.0.copyload, i64 %.sroa.0130.0.insert.insert)
-  %153 = load i8, ptr %135, align 1
-  %.sroa.4.0.insert.ext121 = zext nneg i32 %.079 to i64
-  %154 = load ptr, ptr %7, align 8
-  %155 = load ptr, ptr %34, align 8
-  %.not.i102 = icmp eq ptr %154, %155
-  br i1 %.not.i102, label %159, label %156
+147:                                              ; preds = %_ZN4Luau7CodeGen3A64L10allocSpillERjNS1_7KindA64E.exit, %146
+  %.079 = phi i32 [ 64, %146 ], [ %141, %_ZN4Luau7CodeGen3A64L10allocSpillERjNS1_7KindA64E.exit ]
+  %.sroa.012.0.copyload = load i8, ptr %132, align 1
+  %148 = shl nuw nsw i32 %.079, 3
+  %149 = add nuw nsw i32 %148, 80
+  %.sroa.4132.0.insert.ext = zext nneg i32 %149 to i64
+  %.sroa.4132.0.insert.shift = shl nuw nsw i64 %.sroa.4132.0.insert.ext, 32
+  %.sroa.0129.0.insert.insert = or disjoint i64 %.sroa.4132.0.insert.shift, 16447489
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1, i8 %.sroa.012.0.copyload, i64 %.sroa.0129.0.insert.insert)
+  %150 = load i8, ptr %132, align 1
+  %.sroa.4.0.insert.ext120 = zext nneg i32 %.079 to i64
+  %151 = load ptr, ptr %7, align 8
+  %152 = load ptr, ptr %34, align 8
+  %.not.i102 = icmp eq ptr %151, %152
+  br i1 %.not.i102, label %156, label %153
 
-156:                                              ; preds = %150
-  %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext121, 40
-  %.sroa.3.0.insert.ext = zext i8 %153 to i64
+153:                                              ; preds = %147
+  %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext120, 40
+  %.sroa.3.0.insert.ext = zext i8 %150 to i64
   %.sroa.3.0.insert.shift = shl nuw nsw i64 %.sroa.3.0.insert.ext, 32
   %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.4.0.insert.shift
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %59
-  store i64 %.sroa.0.0.insert.insert, ptr %154, align 4
-  %157 = load ptr, ptr %7, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 8
-  store ptr %158, ptr %7, align 8
-  br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit110
+  store i64 %.sroa.0.0.insert.insert, ptr %151, align 4
+  %154 = load ptr, ptr %7, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  store ptr %155, ptr %7, align 8
+  br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit109
 
-159:                                              ; preds = %150
-  %160 = load ptr, ptr %6, align 8
-  %161 = ptrtoint ptr %154 to i64
-  %162 = ptrtoint ptr %160 to i64
-  %163 = sub i64 %161, %162
-  %164 = icmp eq i64 %163, 9223372036854775800
-  br i1 %164, label %165, label %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i103
+156:                                              ; preds = %147
+  %157 = load ptr, ptr %6, align 8
+  %158 = ptrtoint ptr %151 to i64
+  %159 = ptrtoint ptr %157 to i64
+  %160 = sub i64 %158, %159
+  %161 = icmp eq i64 %160, 9223372036854775800
+  br i1 %161, label %162, label %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i103
 
-165:                                              ; preds = %159
+162:                                              ; preds = %156
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #17
   unreachable
 
-_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i103: ; preds = %159
-  %166 = ashr exact i64 %163, 3
-  %.sroa.speculated.i.i.i104 = tail call i64 @llvm.umax.i64(i64 %166, i64 1)
-  %167 = add nsw i64 %.sroa.speculated.i.i.i104, %166
-  %168 = icmp ult i64 %167, %166
-  %169 = tail call i64 @llvm.umin.i64(i64 %167, i64 1152921504606846975)
-  %170 = select i1 %168, i64 1152921504606846975, i64 %169
-  %.not.i.i.i105 = icmp eq i64 %170, 0
-  br i1 %.not.i.i.i105, label %_ZNSt12_Vector_baseIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_M_allocateEm.exit.i.i106, label %171
+_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i103: ; preds = %156
+  %163 = ashr exact i64 %160, 3
+  %.sroa.speculated.i.i.i104 = tail call i64 @llvm.umax.i64(i64 %163, i64 1)
+  %164 = add nsw i64 %.sroa.speculated.i.i.i104, %163
+  %165 = icmp ult i64 %164, %163
+  %166 = tail call i64 @llvm.umin.i64(i64 %164, i64 1152921504606846975)
+  %167 = select i1 %165, i64 1152921504606846975, i64 %166
+  %.not.i.i.i105 = icmp ne i64 %167, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i105)
+  %168 = shl nuw nsw i64 %167, 3
+  %169 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %168) #18
+  %170 = getelementptr inbounds i8, ptr %169, i64 %160
+  %.sroa.4.0.insert.shift121 = shl nuw nsw i64 %.sroa.4.0.insert.ext120, 40
+  %.sroa.3.0.insert.ext115 = zext i8 %150 to i64
+  %.sroa.3.0.insert.shift116 = shl nuw nsw i64 %.sroa.3.0.insert.ext115, 32
+  %.sroa.3.0.insert.insert118 = or disjoint i64 %.sroa.3.0.insert.shift116, %.sroa.4.0.insert.shift121
+  %.sroa.0.0.insert.insert113 = or disjoint i64 %.sroa.3.0.insert.insert118, %59
+  store i64 %.sroa.0.0.insert.insert113, ptr %170, align 4
+  %171 = icmp sgt i64 %160, 0
+  br i1 %171, label %172, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i106
 
-171:                                              ; preds = %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i103
-  %172 = shl nuw nsw i64 %170, 3
-  %173 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %172) #18
-  br label %_ZNSt12_Vector_baseIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_M_allocateEm.exit.i.i106
+172:                                              ; preds = %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i103
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %169, ptr align 4 %157, i64 %160, i1 false)
+  br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i106
 
-_ZNSt12_Vector_baseIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_M_allocateEm.exit.i.i106: ; preds = %171, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i103
-  %174 = phi ptr [ %173, %171 ], [ null, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i103 ]
-  %175 = getelementptr inbounds %"struct.Luau::CodeGen::A64::IrRegAllocA64::Spill", ptr %174, i64 %166
-  %.sroa.4.0.insert.shift122 = shl nuw nsw i64 %.sroa.4.0.insert.ext121, 40
-  %.sroa.3.0.insert.ext116 = zext i8 %153 to i64
-  %.sroa.3.0.insert.shift117 = shl nuw nsw i64 %.sroa.3.0.insert.ext116, 32
-  %.sroa.3.0.insert.insert119 = or disjoint i64 %.sroa.3.0.insert.shift117, %.sroa.4.0.insert.shift122
-  %.sroa.0.0.insert.insert114 = or disjoint i64 %.sroa.3.0.insert.insert119, %59
-  store i64 %.sroa.0.0.insert.insert114, ptr %175, align 4
-  %176 = icmp sgt i64 %163, 0
-  br i1 %176, label %177, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i107
+_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i106: ; preds = %172, %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit.i.i103
+  %173 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %.not.i17.i.i107 = icmp eq ptr %157, null
+  br i1 %.not.i17.i.i107, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i108, label %174
 
-177:                                              ; preds = %_ZNSt12_Vector_baseIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_M_allocateEm.exit.i.i106
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %174, ptr align 4 %160, i64 %163, i1 false)
-  br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i107
+174:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i106
+  tail call void @_ZdlPvm(ptr noundef nonnull %157, i64 noundef %160) #19
+  br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i108
 
-_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i107: ; preds = %177, %_ZNSt12_Vector_baseIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_M_allocateEm.exit.i.i106
-  %178 = getelementptr inbounds i8, ptr %174, i64 %163
-  %179 = getelementptr inbounds i8, ptr %178, i64 8
-  %.not.i17.i.i108 = icmp eq ptr %160, null
-  br i1 %.not.i17.i.i108, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i109, label %180
+_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i108: ; preds = %174, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i106
+  store ptr %169, ptr %6, align 8
+  store ptr %173, ptr %7, align 8
+  %175 = getelementptr inbounds nuw %"struct.Luau::CodeGen::A64::IrRegAllocA64::Spill", ptr %169, i64 %167
+  store ptr %175, ptr %34, align 8
+  br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit109
 
-180:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i107
-  tail call void @_ZdlPvm(ptr noundef nonnull %160, i64 noundef %163) #19
-  br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i109
+_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit109: ; preds = %153, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i108
+  %176 = getelementptr inbounds nuw i8, ptr %61, i64 41
+  store i8 1, ptr %176, align 1
+  %177 = load ptr, ptr %35, align 8
+  %.not92 = icmp eq ptr %177, null
+  br i1 %.not92, label %188, label %178
 
-_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i109: ; preds = %180, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i107
-  store ptr %174, ptr %6, align 8
-  store ptr %179, ptr %7, align 8
-  %181 = getelementptr inbounds %"struct.Luau::CodeGen::A64::IrRegAllocA64::Spill", ptr %174, i64 %170
-  store ptr %181, ptr %34, align 8
-  br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit110
-
-_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit110: ; preds = %156, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i109
-  %182 = getelementptr inbounds i8, ptr %61, i64 41
-  store i8 1, ptr %182, align 1
-  %183 = load ptr, ptr %35, align 8
-  %.not92 = icmp eq ptr %183, null
-  br i1 %.not92, label %194, label %184
-
-184:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit110
-  %185 = getelementptr inbounds i8, ptr %183, i64 8
-  %186 = load i32, ptr %185, align 8
-  %187 = add nsw i32 %186, 1
-  store i32 %187, ptr %185, align 8
+178:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit109
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %180 = load i32, ptr %179, align 8
+  %181 = add nsw i32 %180, 1
+  store i32 %181, ptr %179, align 8
   %.not93 = icmp eq i32 %.079, 64
-  br i1 %.not93, label %194, label %188
+  br i1 %.not93, label %188, label %182
 
-188:                                              ; preds = %184
-  %189 = load ptr, ptr %35, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 16
-  %191 = load i32, ptr %190, align 8
-  %.not94 = icmp ult i32 %.079, %191
-  br i1 %.not94, label %194, label %192
+182:                                              ; preds = %178
+  %183 = load ptr, ptr %35, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %185 = load i32, ptr %184, align 8
+  %.not94 = icmp ult i32 %.079, %185
+  br i1 %.not94, label %188, label %186
 
-192:                                              ; preds = %188
-  %193 = add nuw nsw i32 %.079, 1
-  store i32 %193, ptr %190, align 8
-  br label %194
+186:                                              ; preds = %182
+  %187 = add nuw nsw i32 %.079, 1
+  store i32 %187, ptr %184, align 8
+  br label %188
 
-194:                                              ; preds = %131, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit, %184, %188, %192, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit110, %51
-  %195 = getelementptr inbounds i8, ptr %61, i64 39
-  store i8 0, ptr %195, align 1
-  %196 = lshr exact i32 -2147483648, %52
-  %197 = xor i32 %196, -1
-  %198 = and i32 %.082172, %197
-  %199 = load i32, ptr %40, align 4
-  %200 = or i32 %199, %196
-  store i32 %200, ptr %40, align 4
+188:                                              ; preds = %128, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit, %178, %182, %186, %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit109, %51
+  %189 = getelementptr inbounds nuw i8, ptr %61, i64 39
+  store i8 0, ptr %189, align 1
+  %190 = lshr exact i32 -2147483648, %52
+  %191 = xor i32 %190, -1
+  %192 = and i32 %.082171, %191
+  %193 = load i32, ptr %40, align 4
+  %194 = or i32 %193, %190
+  store i32 %194, ptr %40, align 4
   store i32 -1, ptr %55, align 4
-  %.not91 = icmp eq i32 %198, 0
-  br i1 %.not91, label %.loopexit164, label %51, !llvm.loop !7
+  %.not91 = icmp eq i32 %192, 0
+  br i1 %.not91, label %.loopexit163, label %51, !llvm.loop !7
 
-.loopexit164:                                     ; preds = %194, %44, %38
-  %.081.add = add nuw nsw i64 %.081.idx173, 1
+.loopexit163:                                     ; preds = %188, %44, %38
+  %.081.add = add nuw nsw i64 %.081.idx172, 1
   %.not88 = icmp eq i64 %.081.add, 2
-  br i1 %.not88, label %201, label %38
+  br i1 %.not88, label %195, label %38
 
-201:                                              ; preds = %.loopexit164
-  %202 = load i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, align 8
-  %203 = trunc i8 %202 to i1
-  br i1 %203, label %.preheader, label %.loopexit
+195:                                              ; preds = %.loopexit163
+  %196 = load i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, align 8
+  %197 = trunc i8 %196 to i1
+  br i1 %197, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %201, %216
-  %.0174 = phi i32 [ %217, %216 ], [ 0, %201 ]
-  %204 = shl nuw i32 1, %.0174
-  %205 = and i32 %204, %.075
-  %.not89 = icmp eq i32 %205, 0
-  br i1 %.not89, label %210, label %206
+.preheader:                                       ; preds = %195, %210
+  %.0173 = phi i32 [ %211, %210 ], [ 0, %195 ]
+  %198 = shl nuw i32 1, %.0173
+  %199 = and i32 %198, %.075
+  %.not89 = icmp eq i32 %199, 0
+  br i1 %.not89, label %204, label %200
 
-206:                                              ; preds = %.preheader
-  %207 = trunc nuw i32 %.0174 to i8
+200:                                              ; preds = %.preheader
+  %201 = trunc nuw i32 %.0173 to i8
+  %202 = shl nuw i8 %201, 3
+  %203 = or disjoint i8 %202, 2
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1, i8 %203, i32 noundef 57005)
+  br label %204
+
+204:                                              ; preds = %200, %.preheader
+  %205 = and i32 %198, %.076
+  %.not90 = icmp eq i32 %205, 0
+  br i1 %.not90, label %210, label %206
+
+206:                                              ; preds = %204
+  %207 = trunc nuw i32 %.0173 to i8
   %208 = shl nuw i8 %207, 3
-  %209 = or disjoint i8 %208, 2
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1, i8 %209, i32 noundef 57005)
+  %209 = or disjoint i8 %208, 4
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %1, i8 %209, double noundef -1.250000e-01)
   br label %210
 
-210:                                              ; preds = %206, %.preheader
-  %211 = and i32 %204, %.076
-  %.not90 = icmp eq i32 %211, 0
-  br i1 %.not90, label %216, label %212
-
-212:                                              ; preds = %210
-  %213 = trunc nuw i32 %.0174 to i8
-  %214 = shl nuw i8 %213, 3
-  %215 = or disjoint i8 %214, 4
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %1, i8 %215, double noundef -1.250000e-01)
-  br label %216
-
-216:                                              ; preds = %210, %212
-  %217 = add nuw nsw i32 %.0174, 1
-  %exitcond.not = icmp eq i32 %217, 32
+210:                                              ; preds = %204, %206
+  %211 = add nuw nsw i32 %.0173, 1
+  %exitcond.not = icmp eq i32 %211, 32
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
-.loopexit:                                        ; preds = %216, %201
-  %218 = ptrtoint ptr %8 to i64
-  %219 = ptrtoint ptr %9 to i64
-  %220 = sub i64 %218, %219
-  %221 = ashr exact i64 %220, 3
-  ret i64 %221
+.loopexit:                                        ; preds = %210, %195
+  %212 = ptrtoint ptr %8 to i64
+  %213 = ptrtoint ptr %9 to i64
+  %214 = sub i64 %212, %213
+  %215 = ashr exact i64 %214, 3
+  ret i64 %215
 }
 
 declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #8
@@ -1248,8 +1234,8 @@ declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, i64 noundef %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 296
-  %5 = getelementptr inbounds i8, ptr %0, i64 304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -1260,7 +1246,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18Assemb
   br i1 %12, label %.lr.ph, label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE6resizeEm.exit
 
 .lr.ph:                                           ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 320
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
@@ -1277,18 +1263,18 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18Assemb
   %.off.i.i = add nsw i8 %18, -1
   %switch.i.i = icmp ult i8 %.off.i.i, 2
   %.0.v.i.i = select i1 %switch.i.i, i64 16, i64 156
-  %.0.i.i = getelementptr inbounds i8, ptr %0, i64 %.0.v.i.i
+  %.0.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i
   %19 = lshr i8 %.sroa.3.0.extract.trunc, 3
   %20 = zext nneg i8 %19 to i32
   %21 = shl nuw i32 1, %20
   %22 = xor i32 %21, -1
-  %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, %22
   store i32 %25, ptr %23, align 4
-  %26 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %27 = zext nneg i8 %19 to i64
-  %28 = getelementptr inbounds [32 x i32], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i32], ptr %26, i64 0, i64 %27
   store i32 %.sroa.0.0.extract.trunc, ptr %28, align 4
   %29 = load ptr, ptr %0, align 8
   tail call fastcc void @_ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyBuilderA64ERjRNS0_10IrFunctionERKNS1_13IrRegAllocA645SpillENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(616) %29, i32 %.sroa.0.0.extract.trunc, i8 %.sroa.4.0.extract.trunc, i8 %.sroa.3.0.extract.trunc)
@@ -1330,10 +1316,10 @@ _ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE6resizeEm.exit: ; p
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyBuilderA64ERjRNS0_10IrFunctionERKNS1_13IrRegAllocA645SpillENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %2, i32 %.0.val, i8 %.5.val, i8 %3) unnamed_addr #7 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = zext i32 %.0.val to i64
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %6
   %9 = icmp sgt i8 %.5.val, -1
   br i1 %9, label %10, label %21
 
@@ -1359,8 +1345,8 @@ define internal fastcc void @_ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyB
   br label %45
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %2, i64 152
-  %23 = getelementptr inbounds i8, ptr %2, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %22, align 8
   %26 = ptrtoint ptr %24 to i64
@@ -1371,7 +1357,7 @@ define internal fastcc void @_ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyB
   br i1 %.not.i.i.i, label %30, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds %"struct.Luau::CodeGen::IrOp", ptr %25, i64 %6
+  %31 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %25, i64 %6
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 15
   switch i32 %33, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit [
@@ -1410,11 +1396,11 @@ _ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit:
   br label %45
 
 45:                                               ; preds = %10, %14, %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
-  %46 = getelementptr inbounds i8, ptr %8, i64 41
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 41
   store i8 0, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %8, i64 42
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 42
   store i8 0, ptr %47, align 2
-  %48 = getelementptr inbounds i8, ptr %8, i64 39
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 39
   store i8 %3, ptr %48, align 1
   ret void
 }
@@ -1422,15 +1408,15 @@ _ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18AssemblyBuilderA64ERNS0_6IrInstE(ptr nocapture noundef nonnull align 8 dereferenceable(325) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 4 dereferenceable(43) %2) local_unnamed_addr #7 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %2 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 44
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 296
-  %13 = getelementptr inbounds i8, ptr %0, i64 304
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %14, %15
@@ -1463,14 +1449,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18As
   %.off.i.i = add nsw i8 %26, -1
   %switch.i.i = icmp ult i8 %.off.i.i, 2
   %.0.v.i.i = select i1 %switch.i.i, i64 16, i64 156
-  %.0.i.i = getelementptr inbounds i8, ptr %0, i64 %.0.v.i.i
-  %27 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %.0.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 324
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i8 1, ptr %31, align 4
   br label %_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej.exit
 
@@ -1485,9 +1471,9 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18As
   %39 = xor i32 %38, -1
   %40 = and i32 %28, %39
   store i32 %40, ptr %27, align 4
-  %41 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %42 = zext nneg i32 %.0.i to i64
-  %43 = getelementptr inbounds [32 x i32], ptr %41, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i32], ptr %41, i64 0, i64 %42
   store i32 %11, ptr %43, align 4
   %44 = trunc nuw nsw i32 %.0.i to i8
   %45 = shl nuw i8 %44, 3
@@ -1496,7 +1482,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18As
 
 _ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej.exit: ; preds = %30, %32
   %.sroa.0.0.i = phi i8 [ %26, %30 ], [ %46, %32 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 320
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 320
   tail call fastcc void @_ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyBuilderA64ERjRNS0_10IrFunctionERKNS1_13IrRegAllocA645SpillENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 4 dereferenceable(4) %47, ptr noundef nonnull align 8 dereferenceable(616) %4, i32 %.sroa.0.0.extract.trunc, i8 %.sroa.3.0.extract.trunc, i8 %.sroa.0.0.i)
   %48 = load ptr, ptr %13, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 -8
@@ -1546,14 +1532,14 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA
   br i1 %.not, label %46, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -1568,7 +1554,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA
 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = icmp eq i64 %1, 1
   br i1 %21, label %_ZSt27__uninitialized_default_n_aIPN4Luau7CodeGen3A6413IrRegAllocA645SpillEmS4_ET_S6_T0_RSaIT1_E.exit, label %22
 
@@ -1580,7 +1566,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA
   %.06.i.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %22 ]
   %24 = load i64, ptr %5, align 4
   store i64 %24, ptr %.06.i.i.i.i.i.i.i, align 4
-  %25 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %25, %23
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN4Luau7CodeGen3A6413IrRegAllocA645SpillEmS4_ET_S6_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !11
 
@@ -1609,7 +1595,7 @@ _ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPK
   br i1 %34, label %_ZSt27__uninitialized_default_n_aIPN4Luau7CodeGen3A6413IrRegAllocA645SpillEmS4_ET_S6_T0_RSaIT1_E.exit34, label %35
 
 35:                                               ; preds = %_ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPKc.exit
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = getelementptr %"struct.Luau::CodeGen::A64::IrRegAllocA64::Spill", ptr %33, i64 %1
   br label %.lr.ph.i.i.i.i.i.i.i30
 
@@ -1617,7 +1603,7 @@ _ZNKSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE12_M_check_lenEmPK
   %.06.i.i.i.i.i.i.i31 = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i30 ], [ %36, %35 ]
   %38 = load i64, ptr %33, align 4
   store i64 %38, ptr %.06.i.i.i.i.i.i.i31, align 4
-  %39 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i31, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i31, i64 8
   %.not.i.i.i.i.i.i.i32 = icmp eq ptr %39, %37
   br i1 %.not.i.i.i.i.i.i.i32, label %_ZSt27__uninitialized_default_n_aIPN4Luau7CodeGen3A6413IrRegAllocA645SpillEmS4_ET_S6_T0_RSaIT1_E.exit34, label %.lr.ph.i.i.i.i.i.i.i30, !llvm.loop !11
 
@@ -1642,7 +1628,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE13_M_dealloc
   store ptr %32, ptr %0, align 8
   %44 = getelementptr inbounds %"struct.Luau::CodeGen::A64::IrRegAllocA64::Spill", ptr %33, i64 %1
   store ptr %44, ptr %4, align 8
-  %45 = getelementptr inbounds %"struct.Luau::CodeGen::A64::IrRegAllocA64::Spill", ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw %"struct.Luau::CodeGen::A64::IrRegAllocA64::Spill", ptr %32, i64 %30
   store ptr %45, ptr %11, align 8
   br label %46
 
@@ -1653,10 +1639,10 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE13_M_dealloc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_IrRegAllocA64.cpp() #14 section ".text.startup" {
   store i8 0, ptr @_ZN5FFlag20DebugCodegenChaosA64E, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, i64 1), align 1
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, i64 1), align 1
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, i64 8), align 8
   %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, i64 16), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, i64 16), align 8
   store ptr @_ZN5FFlag20DebugCodegenChaosA64E, ptr @_ZN4Luau6FValueIbE4listE, align 8
   ret void
 }

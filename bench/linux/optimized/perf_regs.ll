@@ -21,7 +21,7 @@ define dso_local i64 @perf_reg_value(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %4, label %5, label %14
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %29, label %9
@@ -76,7 +76,7 @@ define dso_local noundef range(i32 -22, 1) i32 @perf_reg_validate(i64 noundef %0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local range(i64 1, 3) i64 @perf_reg_abi(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 32
   %4 = ptrtoint ptr %3 to i64
   %5 = add i64 %4, 16384
@@ -94,7 +94,7 @@ define dso_local void @perf_get_regs_user(ptr nocapture noundef writeonly initia
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !10
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 32
   %9 = ptrtoint ptr %8 to i64
   %10 = add i64 %9, 16384
@@ -106,7 +106,7 @@ define dso_local void @perf_get_regs_user(ptr nocapture noundef writeonly initia
 
 15:                                               ; preds = %2
   %16 = getelementptr i8, ptr %11, i64 -168
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr %7, align 32
   %19 = ptrtoint ptr %18 to i64
@@ -120,7 +120,7 @@ define dso_local void @perf_get_regs_user(ptr nocapture noundef writeonly initia
   br label %88
 
 26:                                               ; preds = %2
-  %27 = getelementptr inbounds i8, ptr %1, i64 152
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr i8, ptr %11, i64 -120
   %30 = ptrtoint ptr %29 to i64
@@ -136,75 +136,75 @@ define dso_local void @perf_get_regs_user(ptr nocapture noundef writeonly initia
 35:                                               ; preds = %26
   %36 = getelementptr i8, ptr %11, i64 -40
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store i64 %37, ptr %38, align 8
   %39 = getelementptr i8, ptr %11, i64 -88
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 %40, ptr %41, align 8
   %42 = getelementptr i8, ptr %11, i64 -80
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i64 %43, ptr %44, align 8
   %45 = getelementptr i8, ptr %11, i64 -72
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store i64 %46, ptr %47, align 8
   %48 = getelementptr i8, ptr %11, i64 -64
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %4, i64 104
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i64 %49, ptr %50, align 8
   %51 = getelementptr i8, ptr %11, i64 -56
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %4, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i64 %52, ptr %53, align 8
   %54 = getelementptr i8, ptr %11, i64 -96
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i64 %55, ptr %56, align 8
   %57 = getelementptr i8, ptr %11, i64 -104
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %4, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i64 %58, ptr %59, align 8
   %60 = getelementptr i8, ptr %11, i64 -112
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %4, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %61, ptr %62, align 8
   %63 = load i64, ptr %29, align 8
-  %64 = getelementptr inbounds i8, ptr %4, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %63, ptr %64, align 8
   %65 = getelementptr i8, ptr %11, i64 -48
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %4, i64 120
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i64 %66, ptr %67, align 8
   %68 = getelementptr i8, ptr %11, i64 -24
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %4, i64 144
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i64 %69, ptr %70, align 8
   %71 = getelementptr i8, ptr %11, i64 -16
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %4, i64 152
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 %72, ptr %73, align 8
   %74 = getelementptr i8, ptr %11, i64 -32
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %4, i64 136
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i64 %75, ptr %76, align 8
   %77 = getelementptr i8, ptr %11, i64 -8
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %4, i64 160
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store i64 %78, ptr %79, align 8
   %80 = getelementptr i8, ptr %11, i64 -136
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %4, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %4, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 -1, ptr %83, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %4, i8 -1, i64 32, i1 false)
   %84 = load i64, ptr %74, align 8
   %85 = icmp eq i64 %84, 51
   %86 = select i1 %85, i64 2, i64 1
   store i64 %86, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %87, align 8
   br label %88
 

@@ -174,7 +174,7 @@ define internal i32 @dissect_udt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %7 = load i32, ptr @proto_udt, align 4
   %8 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %6, i32 noundef %7) #3
   %.fr = freeze ptr %8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.52) #3
   %11 = load ptr, ptr %9, align 8
@@ -201,7 +201,7 @@ define internal i32 @dissect_udt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i, label %get_sqn.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %.fr, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.fr, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = sub i32 %20, %23
   br label %get_sqn.exit
@@ -217,7 +217,7 @@ get_sqn.exit:                                     ; preds = %18, %21
   br label %86
 
 27:                                               ; preds = %16
-  %28 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %29, ptr noundef nonnull @.str.75) #3
   %31 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
@@ -229,7 +229,7 @@ get_sqn.exit:                                     ; preds = %18, %21
 
 .lr.ph:                                           ; preds = %27
   %.not.i231 = icmp eq ptr %.fr, null
-  %34 = getelementptr inbounds i8, ptr %.fr, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.fr, i64 4
   br i1 %.not.i231, label %get_sqn.exit233.us, label %get_sqn.exit233
 
 get_sqn.exit233.us:                               ; preds = %.lr.ph, %48
@@ -330,7 +330,7 @@ get_sqn.exit236:                                  ; preds = %55
   br i1 %.not.i237, label %get_sqn.exit239, label %80
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %.fr, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.fr, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = sub i32 %79, %82
   br label %get_sqn.exit239
@@ -386,7 +386,7 @@ get_sqn.exit239:                                  ; preds = %76, %80
 
 .lr.ph261:                                        ; preds = %.preheader
   %.not.i243 = icmp eq ptr %.fr, null
-  %107 = getelementptr inbounds i8, ptr %.fr, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %.fr, i64 4
   br label %157
 
 108:                                              ; preds = %104
@@ -424,7 +424,7 @@ get_sqn.exit239:                                  ; preds = %76, %80
   br i1 %.not.i240, label %get_sqn.exit242.thread, label %get_sqn.exit242
 
 get_sqn.exit242:                                  ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %.fr, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %.fr, i64 4
   %133 = load i32, ptr %132, align 4
   %.not230 = icmp eq i32 %133, 0
   br i1 %.not230, label %get_sqn.exit242.thread, label %134
@@ -551,7 +551,7 @@ get_sqn.exit248:                                  ; preds = %168, %172
   br i1 %.not.i249, label %get_sqn.exit251.thread, label %get_sqn.exit251
 
 get_sqn.exit251:                                  ; preds = %190
-  %192 = getelementptr inbounds i8, ptr %.fr, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %.fr, i64 4
   %193 = load i32, ptr %192, align 4
   %.not223 = icmp eq i32 %193, 0
   br i1 %.not223, label %get_sqn.exit251.thread, label %194
@@ -717,7 +717,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_udt_heur(ptr noundef %0, ptr
 
 27:                                               ; preds = %22
   %28 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 24) #3
-  %29 = getelementptr inbounds i8, ptr %24, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %28, ptr %29, align 4
   br label %30
 

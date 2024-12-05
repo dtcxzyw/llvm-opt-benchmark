@@ -19,7 +19,7 @@ entry:
   %conv = zext i32 %call to i64
   %0 = load i64, ptr %this, align 8
   %div.i = udiv i64 %conv, %0
-  %max_shards_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %max_shards_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %max_shards_.i, align 8
   %cmp.i.i = icmp ugt i64 %0, %conv
   %max.val.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %div.i)
@@ -32,7 +32,7 @@ define noundef i64 @_ZN9grpc_core13PerCpuOptions17ShardsForCpuCountEm(ptr nocapt
 entry:
   %0 = load i64, ptr %this, align 8
   %div = udiv i64 %cpu_count, %0
-  %max_shards_ = getelementptr inbounds i8, ptr %this, i64 8
+  %max_shards_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %max_shards_, align 8
   %cmp.i = icmp ugt i64 %0, %cpu_count
   %max.val.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %div)
@@ -55,7 +55,7 @@ init:                                             ; preds = %entry
   %call.i.i = tail call i32 @gpr_cpu_current_cpu()
   %conv.i.i = trunc i32 %call.i.i to i16
   store i16 %conv.i.i, ptr @_ZN9grpc_core20PerCpuShardingHelper6state_E, align 2
-  store i16 -1, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core20PerCpuShardingHelper6state_E, i64 2), align 2
+  store i16 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core20PerCpuShardingHelper6state_E, i64 2), align 2
   br label %exit
 
 exit:                                             ; preds = %init, %entry

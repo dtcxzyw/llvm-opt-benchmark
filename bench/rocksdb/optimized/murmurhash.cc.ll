@@ -20,7 +20,7 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %h.033 = phi i64 [ %mul6, %while.body ], [ %xor, %entry ]
   %data.032 = phi ptr [ %incdec.ptr, %while.body ], [ %key, %entry ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %data.032, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %data.032, i64 8
   %0 = load i64, ptr %data.032, align 8
   %mul2 = mul i64 %0, -4132994306676758123
   %shr = lshr i64 %mul2, 47
@@ -47,7 +47,7 @@ while.end:                                        ; preds = %while.body, %entry
   ]
 
 sw.bb:                                            ; preds = %while.end
-  %arrayidx = getelementptr inbounds i8, ptr %data.0.lcssa, i64 6
+  %arrayidx = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 6
   %1 = load i8, ptr %arrayidx, align 1
   %conv7 = zext i8 %1 to i64
   %shl = shl nuw nsw i64 %conv7, 48
@@ -56,7 +56,7 @@ sw.bb:                                            ; preds = %while.end
 
 sw.bb9:                                           ; preds = %while.end, %sw.bb
   %h.2 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor8, %sw.bb ]
-  %arrayidx10 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 5
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 5
   %2 = load i8, ptr %arrayidx10, align 1
   %conv11 = zext i8 %2 to i64
   %shl12 = shl nuw nsw i64 %conv11, 40
@@ -65,7 +65,7 @@ sw.bb9:                                           ; preds = %while.end, %sw.bb
 
 sw.bb14:                                          ; preds = %while.end, %sw.bb9
   %h.3 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor13, %sw.bb9 ]
-  %arrayidx15 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 4
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 4
   %3 = load i8, ptr %arrayidx15, align 1
   %conv16 = zext i8 %3 to i64
   %shl17 = shl nuw nsw i64 %conv16, 32
@@ -74,7 +74,7 @@ sw.bb14:                                          ; preds = %while.end, %sw.bb9
 
 sw.bb19:                                          ; preds = %while.end, %sw.bb14
   %h.4 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor18, %sw.bb14 ]
-  %arrayidx20 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 3
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 3
   %4 = load i8, ptr %arrayidx20, align 1
   %conv21 = zext i8 %4 to i64
   %shl22 = shl nuw nsw i64 %conv21, 24
@@ -83,7 +83,7 @@ sw.bb19:                                          ; preds = %while.end, %sw.bb14
 
 sw.bb24:                                          ; preds = %while.end, %sw.bb19
   %h.5 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor23, %sw.bb19 ]
-  %arrayidx25 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 2
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 2
   %5 = load i8, ptr %arrayidx25, align 1
   %conv26 = zext i8 %5 to i64
   %shl27 = shl nuw nsw i64 %conv26, 16
@@ -92,7 +92,7 @@ sw.bb24:                                          ; preds = %while.end, %sw.bb19
 
 sw.bb29:                                          ; preds = %while.end, %sw.bb24
   %h.6 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor28, %sw.bb24 ]
-  %arrayidx30 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 1
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 1
   %6 = load i8, ptr %arrayidx30, align 1
   %conv31 = zext i8 %6 to i64
   %shl32 = shl nuw nsw i64 %conv31, 8

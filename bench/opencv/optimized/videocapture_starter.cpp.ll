@@ -268,12 +268,12 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 73:                                               ; preds = %72
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #10
-  %74 = getelementptr inbounds i8, ptr %7, i64 16
-  %75 = getelementptr inbounds i8, ptr %7, i64 20
-  %76 = getelementptr inbounds i8, ptr %7, i64 8
-  %77 = getelementptr inbounds i8, ptr %10, i64 16
-  %78 = getelementptr inbounds i8, ptr %10, i64 20
-  %79 = getelementptr inbounds i8, ptr %10, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %110, %73
@@ -282,7 +282,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 80:                                               ; preds = %.outer, %95
   %81 = load ptr, ptr %20, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 80
   %83 = load ptr, ptr %82, align 8
   %84 = invoke noundef nonnull align 8 dereferenceable(41) ptr %83(ptr noundef nonnull align 8 dereferenceable(41) %20, ptr noundef nonnull align 8 dereferenceable(96) %6)
           to label %85 unwind label %.loopexit

@@ -68,7 +68,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %call3 = tail call ptr @ASN1_INTEGER_new() #7
-  %saltLength = getelementptr inbounds i8, ptr %call, i64 16
+  %saltLength = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call3, ptr %saltLength, align 8
   %cmp5 = icmp eq ptr %call3, null
   br i1 %cmp5, label %err, label %if.end7
@@ -87,13 +87,13 @@ if.end12:                                         ; preds = %if.end7, %if.end
 if.end16:                                         ; preds = %if.end12
   %cmp17 = icmp eq ptr %mgf1md, null
   %spec.select = select i1 %cmp17, ptr %sigmd, ptr %mgf1md
-  %maskGenAlgorithm = getelementptr inbounds i8, ptr %call, i64 8
+  %maskGenAlgorithm = getelementptr inbounds nuw i8, ptr %call, i64 8
   %call21 = tail call i32 @ossl_x509_algor_md_to_mgf1(ptr noundef nonnull %maskGenAlgorithm, ptr noundef %spec.select) #7
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %err, label %if.end24
 
 if.end24:                                         ; preds = %if.end16
-  %maskHash = getelementptr inbounds i8, ptr %call, i64 32
+  %maskHash = getelementptr inbounds nuw i8, ptr %call, i64 32
   %call25 = tail call i32 @ossl_x509_algor_new_from_md(ptr noundef nonnull %maskHash, ptr noundef %spec.select) #7
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %err, label %return
@@ -439,7 +439,7 @@ if.end4:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end4
   call void @RSA_clear_flags(ptr noundef nonnull %call1, i32 noundef 61440) #7
-  %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
+  %ameth = getelementptr inbounds nuw i8, ptr %pkey, i64 8
   %2 = load ptr, ptr %ameth, align 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %sw.epilog [
@@ -485,7 +485,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %pss.i = getelementptr inbounds i8, ptr %pkey.val, i64 128
+  %pss.i = getelementptr inbounds nuw i8, ptr %pkey.val, i64 128
   %1 = load ptr, ptr %pss.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %if.end, label %if.end4.i
@@ -504,7 +504,7 @@ if.end:                                           ; preds = %if.end4.i, %if.end.
   br i1 %cmp, label %return.sink.split, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
+  %ameth = getelementptr inbounds nuw i8, ptr %pkey, i64 8
   %3 = load ptr, ptr %ameth, align 8
   %4 = load i32, ptr %3, align 8
   %call5 = call ptr @OBJ_nid2obj(i32 noundef %4) #7
@@ -532,7 +532,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @rsa_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
-  %pkey = getelementptr inbounds i8, ptr %a, i64 32
+  %pkey = getelementptr inbounds nuw i8, ptr %a, i64 32
   %0 = load ptr, ptr %pkey, align 8
   %call = tail call i32 @RSA_flags(ptr noundef %0) #7
   %and = and i32 %call, 1
@@ -540,7 +540,7 @@ entry:
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %pkey1 = getelementptr inbounds i8, ptr %b, i64 32
+  %pkey1 = getelementptr inbounds nuw i8, ptr %b, i64 32
   %1 = load ptr, ptr %pkey1, align 8
   %call2 = tail call i32 @RSA_flags(ptr noundef %1) #7
   %and3 = and i32 %call2, 1
@@ -549,10 +549,10 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %2 = load ptr, ptr %pkey1, align 8
-  %n = getelementptr inbounds i8, ptr %2, i64 40
+  %n = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3 = load ptr, ptr %n, align 8
   %4 = load ptr, ptr %pkey, align 8
-  %n7 = getelementptr inbounds i8, ptr %4, i64 40
+  %n7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %5 = load ptr, ptr %n7, align 8
   %call8 = tail call i32 @BN_cmp(ptr noundef %3, ptr noundef %5) #7
   %cmp.not = icmp eq i32 %call8, 0
@@ -560,10 +560,10 @@ if.end:                                           ; preds = %lor.lhs.false
 
 lor.lhs.false9:                                   ; preds = %if.end
   %6 = load ptr, ptr %pkey1, align 8
-  %e = getelementptr inbounds i8, ptr %6, i64 48
+  %e = getelementptr inbounds nuw i8, ptr %6, i64 48
   %7 = load ptr, ptr %e, align 8
   %8 = load ptr, ptr %pkey, align 8
-  %e12 = getelementptr inbounds i8, ptr %8, i64 48
+  %e12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %9 = load ptr, ptr %e12, align 8
   %call13 = tail call i32 @BN_cmp(ptr noundef %7, ptr noundef %9) #7
   %cmp14.not = icmp eq i32 %call13, 0
@@ -590,7 +590,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
+  %ameth = getelementptr inbounds nuw i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %ameth, align 8
   %1 = load i32, ptr %0, align 8
   %call1 = tail call i32 @EVP_PKEY_assign(ptr noundef %pkey, i32 noundef %1, ptr noundef nonnull %call) #7
@@ -615,7 +615,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %pss.i = getelementptr inbounds i8, ptr %pkey.val, i64 128
+  %pss.i = getelementptr inbounds nuw i8, ptr %pkey.val, i64 128
   %1 = load ptr, ptr %pss.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %if.end, label %if.end4.i
@@ -642,7 +642,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
+  %ameth = getelementptr inbounds nuw i8, ptr %pkey, i64 8
   %4 = load ptr, ptr %ameth, align 8
   %5 = load i32, ptr %4, align 8
   %call5 = call ptr @OBJ_nid2obj(i32 noundef %5) #7
@@ -678,7 +678,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @int_rsa_size(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
+  %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @RSA_size(ptr noundef %0) #7
   ret i32 %call
@@ -687,9 +687,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsa_bits(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
+  %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
-  %n = getelementptr inbounds i8, ptr %0, i64 40
+  %n = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %n, align 8
   %call = tail call i32 @BN_num_bits(ptr noundef %1) #7
   ret i32 %call
@@ -698,7 +698,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsa_security_bits(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
+  %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @RSA_security_bits(ptr noundef %0) #7
   ret i32 %call
@@ -740,7 +740,7 @@ return:                                           ; preds = %if.end8, %if.else, 
 ; Function Attrs: nounwind uwtable
 define internal void @int_rsa_free(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
+  %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   tail call void @RSA_free(ptr noundef %0) #7
   ret void
@@ -757,9 +757,9 @@ entry:
   br i1 %cond, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %entry
-  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
+  %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
-  %pss = getelementptr inbounds i8, ptr %0, i64 128
+  %pss = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1 = load ptr, ptr %pss, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end6, label %if.then
@@ -821,7 +821,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
+  %ameth = getelementptr inbounds nuw i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %ameth, align 8
   %1 = load i32, ptr %0, align 8
   %call2 = tail call i32 @EVP_PKEY_assign(ptr noundef %pkey, i32 noundef %1, ptr noundef nonnull %call) #7
@@ -835,7 +835,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @old_rsa_priv_encode(ptr nocapture noundef readonly %pkey, ptr noundef %pder) #0 {
 entry:
-  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
+  %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @i2d_RSAPrivateKey(ptr noundef %0, ptr noundef %pder) #7
   ret i32 %call
@@ -891,7 +891,7 @@ if.end:                                           ; preds = %entry
   br i1 %cond, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
-  %keymgmt = getelementptr inbounds i8, ptr %call, i64 32
+  %keymgmt = getelementptr inbounds nuw i8, ptr %call, i64 32
   %1 = load ptr, ptr %keymgmt, align 8
   %cmp7 = icmp eq ptr %1, null
   br i1 %cmp7, label %if.then8, label %if.end29
@@ -938,7 +938,7 @@ if.then27:                                        ; preds = %if.end23
 if.end29:                                         ; preds = %if.then6
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.37, ptr noundef nonnull %aid, i64 noundef 128) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx30 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp31) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx30, ptr noundef nonnull align 8 dereferenceable(40) %tmp31, i64 40, i1 false)
   %call33 = call i32 @EVP_PKEY_CTX_get_params(ptr noundef nonnull %call, ptr noundef nonnull %params) #7
@@ -946,7 +946,7 @@ if.end29:                                         ; preds = %if.then6
   br i1 %cmp34, label %return, label %if.end36
 
 if.end36:                                         ; preds = %if.end29
-  %return_size = getelementptr inbounds i8, ptr %params, i64 32
+  %return_size = getelementptr inbounds nuw i8, ptr %params, i64 32
   %2 = load i64, ptr %return_size, align 16
   %cmp38 = icmp eq i64 %2, 0
   br i1 %cmp38, label %return, label %if.end40
@@ -1085,7 +1085,7 @@ return:                                           ; preds = %entry, %err
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsa_pkey_check(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
+  %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @RSA_check_key_ex(ptr noundef %0, ptr noundef null) #7
   ret i32 %call
@@ -1094,9 +1094,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i64 -2147483648, 2147483648) i64 @rsa_pkey_dirty_cnt(ptr nocapture noundef readonly %pkey) #2 {
 entry:
-  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
+  %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
-  %dirty_cnt = getelementptr inbounds i8, ptr %0, i64 216
+  %dirty_cnt = getelementptr inbounds nuw i8, ptr %0, i64 216
   %1 = load i32, ptr %dirty_cnt, align 8
   %conv = sext i32 %1 to i64
   ret i64 %conv
@@ -1121,7 +1121,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsa_pkey_copy(ptr noundef %to, ptr nocapture noundef readonly %from) #0 {
 entry:
-  %pkey = getelementptr inbounds i8, ptr %from, i64 32
+  %pkey = getelementptr inbounds nuw i8, ptr %from, i64 32
   %0 = load ptr, ptr %pkey, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end3, label %if.then
@@ -1208,9 +1208,9 @@ declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %off, i32 noundef range(i32 0, 2) %priv) unnamed_addr #0 {
 entry:
-  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
+  %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
-  %n = getelementptr inbounds i8, ptr %0, i64 40
+  %n = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %n, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1221,7 +1221,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %mod_len.0 = phi i32 [ %call, %if.then ], [ 0, %entry ]
-  %prime_infos = getelementptr inbounds i8, ptr %0, i64 136
+  %prime_infos = getelementptr inbounds nuw i8, ptr %0, i64 136
   %2 = load ptr, ptr %prime_infos, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #7
   %call4 = tail call i32 @BIO_indent(ptr noundef %bp, i32 noundef %off, i32 noundef 128) #7
@@ -1229,7 +1229,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not, label %err, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
+  %ameth = getelementptr inbounds nuw i8, ptr %pkey, i64 8
   %3 = load ptr, ptr %ameth, align 8
   %4 = load i32, ptr %3, align 8
   %cmp7 = icmp eq i32 %4, 912
@@ -1243,7 +1243,7 @@ if.end11:                                         ; preds = %if.end6
   br i1 %tobool12.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end11
-  %d = getelementptr inbounds i8, ptr %0, i64 56
+  %d = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %d, align 8
   %tobool13.not = icmp eq ptr %5, null
   br i1 %tobool13.not, label %if.else, label %if.then14
@@ -1269,7 +1269,7 @@ if.end25:                                         ; preds = %if.else, %if.then14
   br i1 %tobool28.not, label %err, label %if.end30
 
 if.end30:                                         ; preds = %if.end25
-  %e = getelementptr inbounds i8, ptr %0, i64 48
+  %e = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %e, align 8
   %call31 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull %s.0, ptr noundef %8, ptr noundef null, i32 noundef %off) #7
   %tobool32.not = icmp eq i32 %call31, 0
@@ -1279,42 +1279,42 @@ if.end34:                                         ; preds = %if.end30
   br i1 %tobool12.not, label %if.end99, label %if.then36
 
 if.then36:                                        ; preds = %if.end34
-  %d37 = getelementptr inbounds i8, ptr %0, i64 56
+  %d37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %d37, align 8
   %call38 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.12, ptr noundef %9, ptr noundef null, i32 noundef %off) #7
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %err, label %if.end41
 
 if.end41:                                         ; preds = %if.then36
-  %p = getelementptr inbounds i8, ptr %0, i64 64
+  %p = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %p, align 8
   %call42 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.13, ptr noundef %10, ptr noundef null, i32 noundef %off) #7
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %err, label %if.end45
 
 if.end45:                                         ; preds = %if.end41
-  %q = getelementptr inbounds i8, ptr %0, i64 72
+  %q = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %q, align 8
   %call46 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.14, ptr noundef %11, ptr noundef null, i32 noundef %off) #7
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %err, label %if.end49
 
 if.end49:                                         ; preds = %if.end45
-  %dmp1 = getelementptr inbounds i8, ptr %0, i64 80
+  %dmp1 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %dmp1, align 8
   %call50 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.15, ptr noundef %12, ptr noundef null, i32 noundef %off) #7
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %err, label %if.end53
 
 if.end53:                                         ; preds = %if.end49
-  %dmq1 = getelementptr inbounds i8, ptr %0, i64 88
+  %dmq1 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load ptr, ptr %dmq1, align 8
   %call54 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.16, ptr noundef %13, ptr noundef null, i32 noundef %off) #7
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %err, label %if.end57
 
 if.end57:                                         ; preds = %if.end53
-  %iqmp = getelementptr inbounds i8, ptr %0, i64 96
+  %iqmp = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load ptr, ptr %iqmp, align 8
   %call58 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.17, ptr noundef %14, ptr noundef null, i32 noundef %off) #7
   %tobool59.not = icmp eq i32 %call58, 0
@@ -1331,8 +1331,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   %16 = load ptr, ptr %prime_infos, align 8
   %call.i58 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef %i.062) #7
   %add87 = add nuw nsw i32 %i.062, 3
-  %t = getelementptr inbounds i8, ptr %call.i58, i64 16
-  %d85 = getelementptr inbounds i8, ptr %call.i58, i64 8
+  %t = getelementptr inbounds nuw i8, ptr %call.i58, i64 16
+  %d85 = getelementptr inbounds nuw i8, ptr %call.i58, i64 8
   br label %for.body69
 
 for.cond67:                                       ; preds = %sw.epilog
@@ -1392,7 +1392,7 @@ if.end99:                                         ; preds = %for.inc96, %for.con
   br i1 %cmp102, label %land.lhs.true103, label %if.end107
 
 land.lhs.true103:                                 ; preds = %if.end99
-  %pss = getelementptr inbounds i8, ptr %0, i64 128
+  %pss = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %pss, align 8
   %call104 = tail call fastcc i32 @rsa_pss_param_print(ptr noundef %bp, i32 noundef 1, ptr noundef %20, i32 noundef %off)
   %tobool105.not = icmp eq i32 %call104, 0
@@ -1498,7 +1498,7 @@ if.end57:                                         ; preds = %if.end53
   br i1 %cmp59, label %err, label %if.end61
 
 if.end61:                                         ; preds = %if.end57
-  %maskGenAlgorithm = getelementptr inbounds i8, ptr %pss, i64 8
+  %maskGenAlgorithm = getelementptr inbounds nuw i8, ptr %pss, i64 8
   %2 = load ptr, ptr %maskGenAlgorithm, align 8
   %tobool62.not = icmp eq ptr %2, null
   br i1 %tobool62.not, label %if.else89, label %if.then63
@@ -1550,7 +1550,7 @@ if.end99:                                         ; preds = %if.end94
   br i1 %cmp102, label %err, label %if.end104
 
 if.end104:                                        ; preds = %if.end99
-  %saltLength = getelementptr inbounds i8, ptr %pss, i64 16
+  %saltLength = getelementptr inbounds nuw i8, ptr %pss, i64 16
   %6 = load ptr, ptr %saltLength, align 8
   %tobool105.not = icmp eq ptr %6, null
   br i1 %tobool105.not, label %if.else112, label %if.then106
@@ -1577,7 +1577,7 @@ if.end122:                                        ; preds = %if.end117
   br i1 %cmp124, label %err, label %if.end126
 
 if.end126:                                        ; preds = %if.end122
-  %trailerField = getelementptr inbounds i8, ptr %pss, i64 24
+  %trailerField = getelementptr inbounds nuw i8, ptr %pss, i64 24
   %7 = load ptr, ptr %trailerField, align 8
   %tobool127.not = icmp eq ptr %7, null
   br i1 %tobool127.not, label %if.else134, label %if.then128
@@ -1691,7 +1691,7 @@ if.end9:                                          ; preds = %if.end6
   %call10 = tail call ptr @RSA_get0_d(ptr noundef %from.32.val) #7
   %cmp11.not = icmp eq ptr %call10, null
   %spec.select = select i1 %cmp11.not, i32 2, i32 3
-  %pss = getelementptr inbounds i8, ptr %from.32.val, i64 128
+  %pss = getelementptr inbounds nuw i8, ptr %from.32.val, i64 128
   %0 = load ptr, ptr %pss, align 8
   %cmp15.not = icmp eq ptr %0, null
   br i1 %cmp15.not, label %if.end41, label %if.then16
@@ -1791,7 +1791,7 @@ entry:
   %rsa_pss_params = alloca %struct.rsa_pss_params_30_st, align 4
   %pss_defaults_set = alloca i32, align 4
   %call = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %vpctx) #7
-  %libctx = getelementptr inbounds i8, ptr %vpctx, i64 8
+  %libctx = getelementptr inbounds nuw i8, ptr %vpctx, i64 8
   %0 = load ptr, ptr %libctx, align 8
   %call1 = tail call ptr @ossl_rsa_new_with_ctx(ptr noundef %0) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %rsa_pss_params, i8 0, i64 20, i1 false)
@@ -1838,7 +1838,7 @@ if.then13:                                        ; preds = %sw.bb10
   %call19 = call ptr @OBJ_nid2sn(i32 noundef %call15) #7
   %call20 = call ptr @EVP_get_digestbyname(ptr noundef %call19) #7
   %call21 = call ptr @ossl_rsa_pss_params_create(ptr noundef %call18, ptr noundef %call20, i32 noundef %call16)
-  %pss = getelementptr inbounds i8, ptr %call1, i64 128
+  %pss = getelementptr inbounds nuw i8, ptr %call1, i64 128
   store ptr %call21, ptr %pss, align 8
   %cmp22 = icmp eq ptr %call21, null
   br i1 %cmp22, label %if.then36, label %sw.epilog

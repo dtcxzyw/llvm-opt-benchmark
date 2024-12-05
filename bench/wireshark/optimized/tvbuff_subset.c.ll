@@ -18,7 +18,7 @@ define ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %.not17 = icmp eq i32 %9, 0
   br i1 %.not17, label %10, label %11
@@ -41,7 +41,7 @@ define ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %18 = load i32, ptr %17, align 4
   %19 = load i32, ptr %5, align 4
   %20 = sub i32 %18, %19
@@ -61,29 +61,29 @@ define ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 nou
   %26 = phi i32 [ %.0, %24 ], [ %22, %21 ]
   %27 = load i32, ptr %5, align 4
   %28 = call ptr @tvb_new(ptr noundef nonnull @tvb_subset_ops) #5
-  %29 = getelementptr inbounds i8, ptr %28, i64 56
-  %30 = getelementptr inbounds i8, ptr %28, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 64
   store i32 %27, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 68
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 68
   store i32 %26, ptr %31, align 4
   store ptr %0, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store i32 %26, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = sub i32 %34, %27
   %..i = call i32 @llvm.umin.i32(i32 %.0, i32 %35)
-  %36 = getelementptr inbounds i8, ptr %28, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i32 %..i, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %28, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %28, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 44
   store i32 %.0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %28, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %tvb_new_with_subset.exit, label %44
@@ -91,14 +91,14 @@ define ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 nou
 44:                                               ; preds = %25
   %45 = zext i32 %27 to i64
   %46 = getelementptr i8, ptr %43, i64 %45
-  %47 = getelementptr inbounds i8, ptr %28, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr %46, ptr %47, align 8
   br label %tvb_new_with_subset.exit
 
 tvb_new_with_subset.exit:                         ; preds = %25, %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %28, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %49, ptr %50, align 8
   call void @tvb_add_to_chain(ptr noundef nonnull %0, ptr noundef nonnull %28) #5
   ret ptr %28
@@ -122,7 +122,7 @@ define ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %.not27 = icmp eq i32 %8, 0
   br i1 %.not27, label %9, label %10
@@ -144,7 +144,7 @@ define ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -165,7 +165,7 @@ define ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %14, label %23, label %30
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %25 = load i32, ptr %24, align 4
   %26 = icmp ult i32 %25, %.pre
   br i1 %26, label %27, label %28
@@ -182,29 +182,29 @@ define ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %.1 = phi i32 [ %29, %28 ], [ %.022, %22 ]
   %31 = load i32, ptr %5, align 4
   %32 = call ptr @tvb_new(ptr noundef nonnull @tvb_subset_ops) #5
-  %33 = getelementptr inbounds i8, ptr %32, i64 56
-  %34 = getelementptr inbounds i8, ptr %32, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
   store i32 %.pre, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 68
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 68
   store i32 %31, ptr %35, align 4
   store ptr %0, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 %31, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load i32, ptr %37, align 8
   %39 = sub i32 %38, %.pre
   %..i = call i32 @llvm.umin.i32(i32 %.1, i32 %39)
-  %40 = getelementptr inbounds i8, ptr %32, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 48
   store i32 %..i, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %32, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %32, i64 44
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 44
   store i32 %.1, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %32, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 1, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load ptr, ptr %46, align 8
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %tvb_new_with_subset.exit, label %48
@@ -212,14 +212,14 @@ define ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %2
 48:                                               ; preds = %30
   %49 = zext i32 %.pre to i64
   %50 = getelementptr i8, ptr %47, i64 %49
-  %51 = getelementptr inbounds i8, ptr %32, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %50, ptr %51, align 8
   br label %tvb_new_with_subset.exit
 
 tvb_new_with_subset.exit:                         ; preds = %30, %48
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %32, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %53, ptr %54, align 8
   call void @tvb_add_to_chain(ptr noundef nonnull %0, ptr noundef nonnull %32) #5
   ret ptr %32
@@ -232,7 +232,7 @@ define ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) local_unnam
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @tvb_check_offset_length(ptr noundef %0, i32 noundef %1, i32 noundef -1, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %3, align 4
   %8 = icmp ult i32 %6, %7
@@ -246,29 +246,29 @@ define ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) local_unnam
   %11 = sub nuw i32 %6, %7
   %12 = load i32, ptr %4, align 4
   %13 = call ptr @tvb_new(ptr noundef nonnull @tvb_subset_ops) #5
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
-  %15 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store i32 %7, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 68
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 68
   store i32 %12, ptr %16, align 4
   store ptr %0, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 %12, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8
   %20 = sub i32 %19, %7
   %..i = call i32 @llvm.umin.i32(i32 %11, i32 %20)
-  %21 = getelementptr inbounds i8, ptr %13, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i32 %..i, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %13, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %13, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 44
   store i32 %11, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %13, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %tvb_new_with_subset.exit, label %29
@@ -276,14 +276,14 @@ define ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) local_unnam
 29:                                               ; preds = %10
   %30 = zext i32 %7 to i64
   %31 = getelementptr i8, ptr %28, i64 %30
-  %32 = getelementptr inbounds i8, ptr %13, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %31, ptr %32, align 8
   br label %tvb_new_with_subset.exit
 
 tvb_new_with_subset.exit:                         ; preds = %10, %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %13, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %34, ptr %35, align 8
   call void @tvb_add_to_chain(ptr noundef nonnull %0, ptr noundef nonnull %13) #5
   ret ptr %13
@@ -295,46 +295,46 @@ define hidden ptr @tvb_new_proxy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %27, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = tail call ptr @tvb_new(ptr noundef nonnull @tvb_subset_ops) #5
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
-  %9 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 68
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 68
   store i32 %6, ptr %10, align 4
   store ptr %0, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8
   %..i = tail call i32 @llvm.umin.i32(i32 %4, i32 %13)
-  %14 = getelementptr inbounds i8, ptr %7, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 %..i, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %7, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 %4, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %tvb_new_with_subset.exit, label %22
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %7, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %21, ptr %23, align 8
   br label %tvb_new_with_subset.exit
 
 tvb_new_with_subset.exit:                         ; preds = %2, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %25, ptr %26, align 8
   br label %29
 
@@ -344,7 +344,7 @@ tvb_new_with_subset.exit:                         ; preds = %2, %22
 
 29:                                               ; preds = %27, %tvb_new_with_subset.exit
   %.0 = phi ptr [ %7, %tvb_new_with_subset.exit ], [ %28, %27 ]
-  %30 = getelementptr inbounds i8, ptr %.0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store ptr %.0, ptr %30, align 8
   ret ptr %.0
 }
@@ -355,9 +355,9 @@ declare ptr @tvb_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @subset_offset(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, %1
   %8 = tail call i32 @tvb_offset_from_real_beginning_counter(ptr noundef %4, i32 noundef %7) #5
@@ -366,9 +366,9 @@ define internal i32 @subset_offset(ptr nocapture noundef readonly %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @subset_get_ptr(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, %1
   %9 = tail call ptr @tvb_get_ptr(ptr noundef %5, i32 noundef %8, i32 noundef %2) #5
@@ -377,9 +377,9 @@ define internal ptr @subset_get_ptr(ptr nocapture noundef readonly %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @subset_memcpy(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, %2
   %10 = zext i32 %3 to i64
@@ -389,9 +389,9 @@ define internal ptr @subset_memcpy(ptr nocapture noundef readonly %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @subset_find_guint8(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, %1
   %10 = tail call i32 @tvb_find_guint8(ptr noundef %6, i32 noundef %9, i32 noundef %2, i8 noundef zeroext %3) #5
@@ -410,9 +410,9 @@ define internal i32 @subset_find_guint8(ptr nocapture noundef readonly %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @subset_pbrk_guint8(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, %1
   %11 = tail call i32 @tvb_ws_mempbrk_pattern_guint8(ptr noundef %7, i32 noundef %10, i32 noundef %2, ptr noundef %3, ptr noundef %4) #5
@@ -431,9 +431,9 @@ define internal i32 @subset_pbrk_guint8(ptr nocapture noundef readonly %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @subset_clone(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, %1
   %9 = tail call ptr @tvb_clone_offset_len(ptr noundef %5, i32 noundef %8, i32 noundef %2) #5

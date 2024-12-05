@@ -46,7 +46,7 @@ define void @_ZN5alloc3str17join_generic_copy17hc2e2daecda533996E(ptr nocapture 
   %28 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %28)
   store ptr %1, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %27, ptr %29, align 8
   %30 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h91478b1c38e07aacE"(ptr nonnull align 8 %26)
   %31 = icmp eq ptr %30, null
@@ -54,9 +54,9 @@ define void @_ZN5alloc3str17join_generic_copy17hc2e2daecda533996E(ptr nocapture 
 
 32:                                               ; preds = %5
   store i64 0, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %34, align 8
   br label %44
 
@@ -78,9 +78,9 @@ define void @_ZN5alloc3str17join_generic_copy17hc2e2daecda533996E(ptr nocapture 
   %46 = extractvalue { i64, i1 } %42, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %1, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %27, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %49 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h64ae9c9cab62eaa6E(ptr nonnull align 8 %6, i64 %46, ptr nonnull align 1 %48)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %50 = extractvalue { i64, i64 } %49, 0
@@ -97,9 +97,9 @@ define void @_ZN5alloc3str17join_generic_copy17hc2e2daecda533996E(ptr nocapture 
   %55 = extractvalue { i64, ptr } %54, 0
   %56 = extractvalue { i64, ptr } %54, 1
   store i64 %55, ptr %25, align 8
-  %57 = getelementptr inbounds i8, ptr %25, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %25, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 0, ptr %58, align 8
   %59 = invoke { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17hc83ccc9b92b1040eE"(ptr nonnull align 8 %30)
           to label %60 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -176,74 +176,74 @@ define void @_ZN5alloc3str17join_generic_copy17hc2e2daecda533996E(ptr nocapture 
 
 75:                                               ; preds = %70
   store ptr %73, ptr %9, align 8
-  %76 = getelementptr inbounds i8, ptr %9, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %74, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %8, i64 8
-  %78 = getelementptr inbounds i8, ptr %8, i64 16
-  %79 = getelementptr inbounds i8, ptr %8, i64 24
-  %80 = getelementptr inbounds i8, ptr %7, i64 8
-  %81 = getelementptr inbounds i8, ptr %7, i64 16
-  %82 = getelementptr inbounds i8, ptr %7, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %219
 
 83:                                               ; preds = %70
   store ptr %73, ptr %24, align 8
-  %84 = getelementptr inbounds i8, ptr %24, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %74, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %23, i64 8
-  %86 = getelementptr inbounds i8, ptr %23, i64 16
-  %87 = getelementptr inbounds i8, ptr %23, i64 24
-  %88 = getelementptr inbounds i8, ptr %22, i64 8
-  %89 = getelementptr inbounds i8, ptr %22, i64 16
-  %90 = getelementptr inbounds i8, ptr %22, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %123
 
 91:                                               ; preds = %70
   store ptr %73, ptr %21, align 8
-  %92 = getelementptr inbounds i8, ptr %21, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %74, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %20, i64 8
-  %94 = getelementptr inbounds i8, ptr %20, i64 16
-  %95 = getelementptr inbounds i8, ptr %20, i64 24
-  %96 = getelementptr inbounds i8, ptr %19, i64 8
-  %97 = getelementptr inbounds i8, ptr %19, i64 16
-  %98 = getelementptr inbounds i8, ptr %19, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %143
 
 99:                                               ; preds = %70
   store ptr %73, ptr %18, align 8
-  %100 = getelementptr inbounds i8, ptr %18, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %74, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %17, i64 8
-  %102 = getelementptr inbounds i8, ptr %17, i64 16
-  %103 = getelementptr inbounds i8, ptr %17, i64 24
-  %104 = getelementptr inbounds i8, ptr %16, i64 8
-  %105 = getelementptr inbounds i8, ptr %16, i64 16
-  %106 = getelementptr inbounds i8, ptr %16, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br label %162
 
 107:                                              ; preds = %70
   store ptr %73, ptr %15, align 8
-  %108 = getelementptr inbounds i8, ptr %15, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %74, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %14, i64 8
-  %110 = getelementptr inbounds i8, ptr %14, i64 16
-  %111 = getelementptr inbounds i8, ptr %14, i64 24
-  %112 = getelementptr inbounds i8, ptr %13, i64 8
-  %113 = getelementptr inbounds i8, ptr %13, i64 16
-  %114 = getelementptr inbounds i8, ptr %13, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %181
 
 115:                                              ; preds = %70
   store ptr %73, ptr %12, align 8
-  %116 = getelementptr inbounds i8, ptr %12, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %74, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %11, i64 8
-  %118 = getelementptr inbounds i8, ptr %11, i64 16
-  %119 = getelementptr inbounds i8, ptr %11, i64 24
-  %120 = getelementptr inbounds i8, ptr %10, i64 8
-  %121 = getelementptr inbounds i8, ptr %10, i64 16
-  %122 = getelementptr inbounds i8, ptr %10, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br label %200
 
 123:                                              ; preds = %138, %83
@@ -507,9 +507,9 @@ define { i64, i64 } @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$
   %6 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %6)
   store ptr %0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h64ae9c9cab62eaa6E(ptr nonnull align 8 %4, i64 %2, ptr nonnull align 1 %8)
   ret { i64, i64 } %9
 }
@@ -531,9 +531,9 @@ define void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17he77739d3fe5e764dE"(
   %9 = alloca { { { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 } } }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   store i64 0, ptr %10, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h7e72ee91bcb5da42E"(ptr nonnull sret({ { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }) align 8 %7, i32 %3, ptr align 1 %1, i64 %2)
           to label %14 unwind label %12
@@ -550,8 +550,8 @@ define void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17he77739d3fe5e764dE"(
 
 14:                                               ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %17
 
 17:                                               ; preds = %33, %14

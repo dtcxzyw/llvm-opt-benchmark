@@ -10,7 +10,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mpi_sub_ui: 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @mpi_sub_ui(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %17
@@ -21,14 +21,14 @@ define dso_local noundef range(i32 -12, 1) i32 @mpi_sub_ui(ptr noundef %0, ptr n
   br i1 %9, label %127, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   store i64 %2, ptr %12, align 8
   %13 = icmp ne i64 %2, 0
   %14 = zext i1 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %14, ptr %16, align 4
   br label %127
 
@@ -39,15 +39,15 @@ define dso_local noundef range(i32 -12, 1) i32 @mpi_sub_ui(ptr noundef %0, ptr n
   br i1 %20, label %21, label %127
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %1, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
   br i1 %24, label %71, label %27
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %4, align 4
   %31 = getelementptr i8, ptr %26, i64 8
@@ -123,13 +123,13 @@ define dso_local noundef range(i32 -12, 1) i32 @mpi_sub_ui(ptr noundef %0, ptr n
 
 76:                                               ; preds = %71
   %77 = sub nuw i64 %2, %74
-  %78 = getelementptr inbounds i8, ptr %0, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %79 = load ptr, ptr %78, align 8
   store i64 %77, ptr %79, align 8
   br label %122
 
 ._crit_edge:                                      ; preds = %71
-  %80 = getelementptr inbounds i8, ptr %0, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr i8, ptr %26, i64 8
   %83 = sub i64 %74, %2
@@ -196,9 +196,9 @@ define dso_local noundef range(i32 -12, 1) i32 @mpi_sub_ui(ptr noundef %0, ptr n
 122:                                              ; preds = %.loopexit, %76, %.loopexit13
   %123 = phi i32 [ 1, %76 ], [ %121, %.loopexit ], [ %70, %.loopexit13 ]
   %124 = phi i32 [ 1, %76 ], [ 0, %.loopexit ], [ 1, %.loopexit13 ]
-  %125 = getelementptr inbounds i8, ptr %0, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %123, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %0, i64 12
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %124, ptr %126, align 4
   tail call void @mpi_normalize(ptr noundef %0) #2
   br label %127

@@ -3448,7 +3448,7 @@ RB_SYMBOL_P.exit.thread10:                        ; preds = %7, %RB_SYMBOL_P.exi
   %21 = load i64, ptr %20, align 8, !noalias !6
   %22 = and i64 %21, 8192
   %.not.i.i = icmp eq i64 %22, 0
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %24
 
 24:                                               ; preds = %19
@@ -3457,7 +3457,7 @@ RB_SYMBOL_P.exit.thread10:                        ; preds = %7, %RB_SYMBOL_P.exi
 
 RSTRING_PTR.exit:                                 ; preds = %19, %24
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %24 ], [ %23, %19 ]
-  %25 = getelementptr inbounds i8, ptr %20, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = call i32 %1(ptr noundef %.sroa.2.0.i, i64 noundef %26, ptr noundef nonnull %4) #5
   %28 = icmp eq i32 %27, -1

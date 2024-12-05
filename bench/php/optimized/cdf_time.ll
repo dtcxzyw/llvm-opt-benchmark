@@ -16,7 +16,7 @@ define hidden range(i32 -1, 1) i32 @cdf_timestamp_to_timespec(ptr nocapture noun
   %3 = alloca %struct.tm, align 8
   %4 = srem i64 %1, 10000000
   %5 = mul nsw i64 %4, 100
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %5, ptr %6, align 8
   %7 = sdiv i64 %1, 10000000
   %8 = srem i64 %7, 60
@@ -25,18 +25,18 @@ define hidden range(i32 -1, 1) i32 @cdf_timestamp_to_timespec(ptr nocapture noun
   %10 = sdiv i64 %1, 600000000
   %11 = srem i64 %10, 60
   %12 = trunc nsw i64 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %12, ptr %13, align 4
   %14 = sdiv i64 %1, 36000000000
   %.lhs.trunc = trunc nsw i64 %14 to i32
   %15 = srem i32 %.lhs.trunc, 24
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %15, ptr %16, align 8
   %17 = sdiv i64 %1, 864000000000
   %18 = sdiv i64 %1, 315360000000000
   %19 = trunc nsw i64 %18 to i32
   %20 = add nsw i32 %19, 1601
-  %21 = getelementptr inbounds i8, ptr %3, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %22 = icmp sgt i64 %1, 315359999999999
   br i1 %22, label %.lr.ph.i, label %cdf_getdays.exit
 
@@ -79,7 +79,7 @@ cdf_getdays.exit:                                 ; preds = %31, %2
 .split.us.i:                                      ; preds = %cdf_getdays.exit, %44
   %.01418.us.i = phi i64 [ %46, %44 ], [ 0, %cdf_getdays.exit ]
   %.01517.us.i = phi i32 [ %45, %44 ], [ %36, %cdf_getdays.exit ]
-  %41 = getelementptr inbounds [12 x i32], ptr @mdays, i64 0, i64 %.01418.us.i
+  %41 = getelementptr inbounds nuw [12 x i32], ptr @mdays, i64 0, i64 %.01418.us.i
   %42 = load i32, ptr %41, align 4
   %43 = icmp slt i32 %.01517.us.i, %42
   br i1 %43, label %cdf_getday.exit.loopexit35, label %44
@@ -98,7 +98,7 @@ cdf_getdays.exit:                                 ; preds = %31, %2
 .split.split.us.i:                                ; preds = %.split.i, %53
   %.01418.us21.i = phi i64 [ %55, %53 ], [ 0, %.split.i ]
   %.01517.us22.i = phi i32 [ %54, %53 ], [ %36, %.split.i ]
-  %48 = getelementptr inbounds [12 x i32], ptr @mdays, i64 0, i64 %.01418.us21.i
+  %48 = getelementptr inbounds nuw [12 x i32], ptr @mdays, i64 0, i64 %.01418.us21.i
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i64 %.01418.us21.i, 1
   %narrow.i = and i1 %40, %50
@@ -116,7 +116,7 @@ cdf_getdays.exit:                                 ; preds = %31, %2
 .split.split.i:                                   ; preds = %.split.i, %61
   %.01418.i = phi i64 [ %63, %61 ], [ 0, %.split.i ]
   %.01517.i = phi i32 [ %62, %61 ], [ %36, %.split.i ]
-  %56 = getelementptr inbounds [12 x i32], ptr @mdays, i64 0, i64 %.01418.i
+  %56 = getelementptr inbounds nuw [12 x i32], ptr @mdays, i64 0, i64 %.01418.i
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i64 %.01418.i, 1
   %spec.select25.i = zext i1 %58 to i32
@@ -139,7 +139,7 @@ cdf_getday.exit.loopexit35:                       ; preds = %44, %.split.us.i
 cdf_getday.exit:                                  ; preds = %.split.split.i, %61, %.split.split.us.i, %53, %cdf_getday.exit.loopexit35
   %.pre-phi = phi i1 [ %64, %cdf_getday.exit.loopexit35 ], [ false, %53 ], [ false, %.split.split.us.i ], [ true, %61 ], [ true, %.split.split.i ]
   %.us-phi.i = phi i32 [ %.us-phi.i.ph36, %cdf_getday.exit.loopexit35 ], [ %.01517.us22.i, %.split.split.us.i ], [ %54, %53 ], [ %.01517.i, %.split.split.i ], [ %62, %61 ]
-  %65 = getelementptr inbounds i8, ptr %3, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %.us-phi.i, ptr %65, align 4
   %or.cond17.i = or i1 %.pre-phi, %40
   br i1 %38, label %.split.i22, label %.split.us.i19
@@ -147,7 +147,7 @@ cdf_getday.exit:                                  ; preds = %.split.split.i, %61
 .split.us.i19:                                    ; preds = %cdf_getday.exit, %70
   %.019.us.i = phi i64 [ %71, %70 ], [ 0, %cdf_getday.exit ]
   %.01318.us.i = phi i32 [ %68, %70 ], [ %36, %cdf_getday.exit ]
-  %66 = getelementptr inbounds [12 x i32], ptr @mdays, i64 0, i64 %.019.us.i
+  %66 = getelementptr inbounds nuw [12 x i32], ptr @mdays, i64 0, i64 %.019.us.i
   %67 = load i32, ptr %66, align 4
   %68 = sub nsw i32 %.01318.us.i, %67
   %69 = icmp slt i32 %68, 1
@@ -161,7 +161,7 @@ cdf_getday.exit:                                  ; preds = %.split.split.i, %61
 .split.i22:                                       ; preds = %cdf_getday.exit, %77
   %.019.i = phi i64 [ %78, %77 ], [ 0, %cdf_getday.exit ]
   %.01318.i = phi i32 [ %spec.select22.i, %77 ], [ %36, %cdf_getday.exit ]
-  %72 = getelementptr inbounds [12 x i32], ptr @mdays, i64 0, i64 %.019.i
+  %72 = getelementptr inbounds nuw [12 x i32], ptr @mdays, i64 0, i64 %.019.i
   %73 = load i32, ptr %72, align 4
   %74 = sub nsw i32 %.01318.i, %73
   %75 = icmp eq i64 %.019.i, 1
@@ -179,17 +179,17 @@ cdf_getday.exit:                                  ; preds = %.split.split.i, %61
 cdf_getmonth.exit:                                ; preds = %.split.us.i19, %70, %.split.i22, %77
   %.us-phi.i21 = phi i64 [ %.019.i, %.split.i22 ], [ 12, %77 ], [ %.019.us.i, %.split.us.i19 ], [ 12, %70 ]
   %.014.i = trunc i64 %.us-phi.i21 to i32
-  %79 = getelementptr inbounds i8, ptr %3, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %.014.i, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %3, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 0, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %3, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 0, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %3, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 0, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %3, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %3, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr @cdf_timestamp_to_timespec.UTC, ptr %84, align 8
   %85 = add nsw i32 %19, -299
   store i32 %85, ptr %21, align 4

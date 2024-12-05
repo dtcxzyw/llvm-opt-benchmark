@@ -12,7 +12,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %str, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %str, i64 1
   %1 = load i8, ptr %add.ptr, align 1
   %2 = xor i8 %1, -128
   %xor = zext i8 %2 to i32
@@ -35,7 +35,7 @@ if.end8:                                          ; preds = %if.then5
   br i1 %cmp10, label %bad, label %return
 
 if.end13:                                         ; preds = %if.end3
-  %add.ptr14 = getelementptr inbounds i8, ptr %str, i64 2
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %str, i64 2
   %3 = load i8, ptr %add.ptr14, align 1
   %4 = xor i8 %3, -128
   %xor16 = zext i8 %4 to i32
@@ -59,7 +59,7 @@ if.end30:                                         ; preds = %if.then22
   br label %return
 
 if.end31:                                         ; preds = %if.end20
-  %add.ptr32 = getelementptr inbounds i8, ptr %str, i64 3
+  %add.ptr32 = getelementptr inbounds nuw i8, ptr %str, i64 3
   %7 = load i8, ptr %add.ptr32, align 1
   %8 = xor i8 %7, -128
   %tobool36 = icmp ult i8 %8, 64
@@ -116,7 +116,7 @@ if.then2:                                         ; preds = %if.end
   %2 = trunc i32 %0 to i8
   %3 = and i8 %2, 63
   %conv8 = or disjoint i8 %3, -128
-  %arrayidx9 = getelementptr inbounds i8, ptr %str, i64 1
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %str, i64 1
   store i8 %conv8, ptr %arrayidx9, align 1
   br label %return
 
@@ -124,7 +124,7 @@ if.end10:                                         ; preds = %if.end
   %cmp11 = icmp ugt i32 %0, 1114111
   %spec.store.select = select i1 %cmp11, i32 65533, i32 %0
   %cmp14 = icmp ult i32 %spec.store.select, 65536
-  %arrayidx26 = getelementptr inbounds i8, ptr %str, i64 1
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %str, i64 1
   br i1 %cmp14, label %if.then15, label %if.end31
 
 if.then15:                                        ; preds = %if.end10
@@ -140,7 +140,7 @@ if.then15:                                        ; preds = %if.end10
   %7 = trunc i32 %spec.store.select to i8
   %8 = and i8 %7, 63
   %conv29 = or disjoint i8 %8, -128
-  %arrayidx30 = getelementptr inbounds i8, ptr %str, i64 2
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %str, i64 2
   store i8 %conv29, ptr %arrayidx30, align 1
   br label %return
 
@@ -158,12 +158,12 @@ if.end31:                                         ; preds = %if.end10
   %13 = trunc i32 %shr43 to i8
   %14 = and i8 %13, 63
   %conv46 = or disjoint i8 %14, -128
-  %arrayidx47 = getelementptr inbounds i8, ptr %str, i64 2
+  %arrayidx47 = getelementptr inbounds nuw i8, ptr %str, i64 2
   store i8 %conv46, ptr %arrayidx47, align 1
   %15 = trunc i32 %spec.store.select to i8
   %16 = and i8 %15, 63
   %conv50 = or disjoint i8 %16, -128
-  %arrayidx51 = getelementptr inbounds i8, ptr %str, i64 3
+  %arrayidx51 = getelementptr inbounds nuw i8, ptr %str, i64 3
   store i8 %conv50, ptr %arrayidx51, align 1
   br label %return
 
@@ -251,7 +251,7 @@ if.then2:                                         ; preds = %if.then
 
 if.end.i:                                         ; preds = %for.cond
   %conv.i = zext i8 %0 to i32
-  %add.ptr.i = getelementptr inbounds i8, ptr %s.addr.0, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 1
   %1 = load i8, ptr %add.ptr.i, align 1
   %2 = xor i8 %1, -128
   %xor.i = zext i8 %2 to i32
@@ -274,7 +274,7 @@ if.end8.i:                                        ; preds = %if.then5.i
   br i1 %cmp10.i, label %bad.i, label %if.end3
 
 if.end13.i:                                       ; preds = %if.end3.i
-  %add.ptr14.i = getelementptr inbounds i8, ptr %s.addr.0, i64 2
+  %add.ptr14.i = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 2
   %3 = load i8, ptr %add.ptr14.i, align 1
   %tobool18.not.i = icmp slt i8 %3, -64
   br i1 %tobool18.not.i, label %if.end20.i, label %bad.i
@@ -292,7 +292,7 @@ if.then22.i:                                      ; preds = %if.end20.i
   br i1 %cmp28.i, label %bad.i, label %if.end3
 
 if.end31.i:                                       ; preds = %if.end20.i
-  %add.ptr32.i = getelementptr inbounds i8, ptr %s.addr.0, i64 3
+  %add.ptr32.i = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 3
   %6 = load i8, ptr %add.ptr32.i, align 1
   %tobool36.i = icmp slt i8 %6, -64
   %cmp39.i = icmp samesign ult i8 %0, -8
@@ -312,7 +312,7 @@ bad.i:                                            ; preds = %if.then40.i, %if.en
 
 if.end3:                                          ; preds = %bad.i, %if.end8.i, %if.then22.i, %if.then40.i, %if.then
   %retval.0.i.sink = phi i64 [ 1, %if.then ], [ 1, %bad.i ], [ 2, %if.end8.i ], [ 3, %if.then22.i ], [ 4, %if.then40.i ]
-  %add.ptr = getelementptr inbounds i8, ptr %s.addr.0, i64 %retval.0.i.sink
+  %add.ptr = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 %retval.0.i.sink
   %inc = add nuw nsw i32 %n.0, 1
   br label %for.cond, !llvm.loop !4
 }
@@ -344,11 +344,11 @@ if.end5:                                          ; preds = %if.then2
 
 for.cond.backedge:                                ; preds = %if.end5, %_ZN3re210chartoruneEPiPKc.exit
   %.sink = phi i64 [ %retval.0.i, %_ZN3re210chartoruneEPiPKc.exit ], [ 1, %if.end5 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.0, i64 %.sink
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 %.sink
   br label %for.cond, !llvm.loop !6
 
 if.end.i:                                         ; preds = %for.cond
-  %add.ptr.i = getelementptr inbounds i8, ptr %s.addr.0, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 1
   %1 = load i8, ptr %add.ptr.i, align 1
   %2 = xor i8 %1, -128
   %xor.i = zext i8 %2 to i32
@@ -371,7 +371,7 @@ if.end8.i:                                        ; preds = %if.then5.i
   br i1 %cmp10.i, label %bad.i, label %_ZN3re210chartoruneEPiPKc.exit
 
 if.end13.i:                                       ; preds = %if.end3.i
-  %add.ptr14.i = getelementptr inbounds i8, ptr %s.addr.0, i64 2
+  %add.ptr14.i = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 2
   %3 = load i8, ptr %add.ptr14.i, align 1
   %4 = xor i8 %3, -128
   %xor16.i = zext i8 %4 to i32
@@ -395,7 +395,7 @@ if.end30.i:                                       ; preds = %if.then22.i
   br label %_ZN3re210chartoruneEPiPKc.exit
 
 if.end31.i:                                       ; preds = %if.end20.i
-  %add.ptr32.i = getelementptr inbounds i8, ptr %s.addr.0, i64 3
+  %add.ptr32.i = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 3
   %7 = load i8, ptr %add.ptr32.i, align 1
   %8 = xor i8 %7, -128
   %tobool36.i = icmp ult i8 %8, 64

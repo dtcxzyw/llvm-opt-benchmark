@@ -270,7 +270,7 @@ define dso_local noundef i32 @__traceiter_azx_pcm_trigger(ptr nocapture readnone
 .preheader:                                       ; preds = %4, %.preheader
   %7 = phi ptr [ %11, %.preheader ], [ %5, %4 ]
   %8 = load volatile ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %8(ptr noundef %10, ptr noundef %1, ptr noundef %2, i32 noundef %3) #15
   %11 = getelementptr i8, ptr %7, i64 24
@@ -305,7 +305,7 @@ define dso_local noundef i32 @__traceiter_azx_get_position(ptr nocapture readnon
 .preheader:                                       ; preds = %5, %.preheader
   %8 = phi ptr [ %12, %.preheader ], [ %6, %5 ]
   %9 = load volatile ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %9(ptr noundef %11, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #15
   %12 = getelementptr i8, ptr %8, i64 24
@@ -334,7 +334,7 @@ define dso_local noundef i32 @__traceiter_azx_pcm_open(ptr nocapture readnone %0
 .preheader:                                       ; preds = %3, %.preheader
   %6 = phi ptr [ %10, %.preheader ], [ %4, %3 ]
   %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %9, ptr noundef %1, ptr noundef %2) #15
   %10 = getelementptr i8, ptr %6, i64 24
@@ -363,7 +363,7 @@ define dso_local noundef i32 @__traceiter_azx_pcm_close(ptr nocapture readnone %
 .preheader:                                       ; preds = %3, %.preheader
   %6 = phi ptr [ %10, %.preheader ], [ %4, %3 ]
   %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %9, ptr noundef %1, ptr noundef %2) #15
   %10 = getelementptr i8, ptr %6, i64 24
@@ -392,7 +392,7 @@ define dso_local noundef i32 @__traceiter_azx_pcm_hw_params(ptr nocapture readno
 .preheader:                                       ; preds = %3, %.preheader
   %6 = phi ptr [ %10, %.preheader ], [ %4, %3 ]
   %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %9, ptr noundef %1, ptr noundef %2) #15
   %10 = getelementptr i8, ptr %6, i64 24
@@ -421,7 +421,7 @@ define dso_local noundef i32 @__traceiter_azx_pcm_prepare(ptr nocapture readnone
 .preheader:                                       ; preds = %3, %.preheader
   %6 = phi ptr [ %10, %.preheader ], [ %4, %3 ]
   %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %9, ptr noundef %1, ptr noundef %2) #15
   %10 = getelementptr i8, ptr %6, i64 24
@@ -442,7 +442,7 @@ define dso_local void @__probestub_azx_pcm_prepare(ptr nocapture readnone %0, pt
 define internal void @trace_event_raw_event_azx_pcm_trigger(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #15
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
@@ -464,17 +464,17 @@ define internal void @trace_event_raw_event_azx_pcm_trigger(ptr noundef %0, ptr 
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 1400
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1400
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %2, i64 165
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 165
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %16, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %16, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %3, ptr %27, align 4
   call void @trace_event_buffer_commit(ptr noundef nonnull %5) #15
   br label %28
@@ -491,11 +491,11 @@ define internal void @perf_trace_azx_pcm_trigger(ptr noundef %0, ptr nocapture n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   store ptr null, ptr %5, align 8, !annotation !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #16, !srcloc !17
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
@@ -515,27 +515,27 @@ define internal void @perf_trace_azx_pcm_trigger(ptr noundef %0, ptr nocapture n
   %21 = load ptr, ptr %5, align 8
   %22 = call ptr @llvm.returnaddress(i32 0)
   %23 = ptrtoint ptr %22 to i64
-  %24 = getelementptr inbounds i8, ptr %21, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 128
   store i64 %23, ptr %24, align 8
   %25 = call ptr @llvm.frameaddress.p0(i32 0)
   %26 = ptrtoint ptr %25 to i64
-  %27 = getelementptr inbounds i8, ptr %21, i64 152
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 152
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 136
   store i64 16, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %21, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 144
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 1400
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1400
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %18, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %2, i64 165
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 165
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %18, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %18, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 %3, ptr %38, align 4
   %39 = load i32, ptr %6, align 4
   call void @perf_trace_run_bpf_submit(ptr noundef nonnull %18, i32 noundef 20, i32 noundef %39, ptr noundef %0, i64 noundef 1, ptr noundef %21, ptr noundef %10, ptr noundef null) #15
@@ -557,7 +557,7 @@ declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 define internal void @trace_event_raw_event_azx_get_position(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #15
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 704
   %10 = icmp eq i64 %9, 0
@@ -579,19 +579,19 @@ define internal void @trace_event_raw_event_azx_get_position(ptr noundef %0, ptr
   br i1 %18, label %30, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 1400
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1400
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %2, i64 165
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 165
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %17, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %17, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %3, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %17, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 %4, ptr %29, align 4
   call void @trace_event_buffer_commit(ptr noundef nonnull %6) #15
   br label %30
@@ -608,11 +608,11 @@ define internal void @perf_trace_azx_get_position(ptr noundef %0, ptr nocapture 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
   store ptr null, ptr %6, align 8, !annotation !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %9) #16, !srcloc !18
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
@@ -632,29 +632,29 @@ define internal void @perf_trace_azx_get_position(ptr noundef %0, ptr nocapture 
   %22 = load ptr, ptr %6, align 8
   %23 = call ptr @llvm.returnaddress(i32 0)
   %24 = ptrtoint ptr %23 to i64
-  %25 = getelementptr inbounds i8, ptr %22, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 128
   store i64 %24, ptr %25, align 8
   %26 = call ptr @llvm.frameaddress.p0(i32 0)
   %27 = ptrtoint ptr %26 to i64
-  %28 = getelementptr inbounds i8, ptr %22, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 152
   store i64 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %22, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 136
   store i64 16, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %22, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 144
   store i64 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 1400
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1400
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %19, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 165
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 165
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %19, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %19, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %3, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %19, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 %4, ptr %40, align 4
   %41 = load i32, ptr %7, align 4
   call void @perf_trace_run_bpf_submit(ptr noundef nonnull %19, i32 noundef 28, i32 noundef %41, ptr noundef %0, i64 noundef 1, ptr noundef %22, ptr noundef %11, ptr noundef null) #15
@@ -670,7 +670,7 @@ define internal void @perf_trace_azx_get_position(ptr noundef %0, ptr nocapture 
 define internal void @trace_event_raw_event_azx_pcm(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
@@ -692,9 +692,9 @@ define internal void @trace_event_raw_event_azx_pcm(ptr noundef %0, ptr nocaptur
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %2, i64 164
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %19 = load i8, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 %19, ptr %20, align 4
   call void @trace_event_buffer_commit(ptr noundef nonnull %4) #15
   br label %21
@@ -711,11 +711,11 @@ define internal void @perf_trace_azx_pcm(ptr noundef %0, ptr nocapture readnone 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   store ptr null, ptr %4, align 8, !annotation !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #16, !srcloc !19
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %16
@@ -735,19 +735,19 @@ define internal void @perf_trace_azx_pcm(ptr noundef %0, ptr nocapture readnone 
   %20 = load ptr, ptr %4, align 8
   %21 = call ptr @llvm.returnaddress(i32 0)
   %22 = ptrtoint ptr %21 to i64
-  %23 = getelementptr inbounds i8, ptr %20, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 128
   store i64 %22, ptr %23, align 8
   %24 = call ptr @llvm.frameaddress.p0(i32 0)
   %25 = ptrtoint ptr %24 to i64
-  %26 = getelementptr inbounds i8, ptr %20, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 152
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 136
   store i64 16, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %20, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 144
   store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 164
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %30 = load i8, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %17, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 %30, ptr %31, align 4
   %32 = load i32, ptr %5, align 4
   call void @perf_trace_run_bpf_submit(ptr noundef nonnull %17, i32 noundef 12, i32 noundef %32, ptr noundef %0, i64 noundef 1, ptr noundef %20, ptr noundef %9, ptr noundef null) #15
@@ -761,7 +761,7 @@ define internal void @perf_trace_azx_pcm(ptr noundef %0, ptr nocapture readnone 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @azx_get_pos_lpib(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #15, !srcloc !20
@@ -770,7 +770,7 @@ define dso_local i32 @azx_get_pos_lpib(ptr nocapture readnone %0, ptr nocapture 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local i32 @azx_get_pos_posbuf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
   ret i32 %5
@@ -778,11 +778,11 @@ define dso_local i32 @azx_get_pos_posbuf(ptr nocapture readnone %0, ptr nocaptur
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @azx_get_position(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 60
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 1464
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %8 = sext i32 %6 to i64
   %9 = getelementptr [2 x ptr], ptr %7, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
@@ -794,32 +794,32 @@ define dso_local i32 @azx_get_position(ptr noundef %0, ptr noundef %1) #1 align 
   br label %18
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
   br label %18
 
 18:                                               ; preds = %14, %12
   %19 = phi i32 [ %13, %12 ], [ %17, %14 ]
-  %20 = getelementptr inbounds i8, ptr %1, i64 76
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %21 = load i32, ptr %20, align 4
   %22 = icmp ult i32 %19, %21
   %23 = select i1 %22, i32 %19, i32 0
-  %24 = getelementptr inbounds i8, ptr %4, i64 192
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %57, label %27
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %4, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i32, ptr %5, align 4
   %34 = sext i32 %33 to i64
   %35 = getelementptr [2 x %struct.hda_pcm_stream], ptr %32, i64 0, i64 %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 1480
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %37 = getelementptr [2 x ptr], ptr %36, i64 0, i64 %8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
@@ -831,13 +831,13 @@ define dso_local i32 @azx_get_position(ptr noundef %0, ptr noundef %1) #1 align 
 
 42:                                               ; preds = %40, %27
   %43 = phi i32 [ %41, %40 ], [ 0, %27 ]
-  %44 = getelementptr inbounds i8, ptr %35, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %52, label %47
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %29, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 %45(ptr noundef %35, ptr noundef %49, ptr noundef %4) #15
   %51 = add i32 %50, %43
@@ -847,7 +847,7 @@ define dso_local i32 @azx_get_position(ptr noundef %0, ptr noundef %1) #1 align 
   %53 = phi i32 [ %51, %47 ], [ %43, %42 ]
   %54 = sext i32 %53 to i64
   %55 = load ptr, ptr %24, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 80
   store i64 %54, ptr %56, align 8
   br label %57
 
@@ -873,7 +873,7 @@ define dso_local i32 @azx_get_position(ptr noundef %0, ptr noundef %1) #1 align 
   br i1 %67, label %72, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @__SCT__tp_func_azx_get_position(ptr noundef %70, ptr noundef %0, ptr noundef %1, i32 noundef %23, i32 noundef %58) #15
   br label %72
@@ -901,9 +901,9 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_attach_pcm_stream(ptr no
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   store ptr null, ptr %4, align 8, !annotation !16
-  %5 = getelementptr inbounds i8, ptr %2, i64 188
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 188
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 1528
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   br label %8
 
 8:                                                ; preds = %12, %3
@@ -915,24 +915,24 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_attach_pcm_stream(ptr no
 12:                                               ; preds = %8
   %13 = getelementptr i8, ptr %10, i64 -24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, %6
   br i1 %17, label %18, label %8, !llvm.loop !29
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 1400
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 640
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 640
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %22, ptr noundef nonnull @.str, i32 noundef %6) #17
   br label %84
 
 23:                                               ; preds = %8
-  %24 = getelementptr inbounds i8, ptr %0, i64 1400
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = getelementptr i8, ptr %2, i64 96
   %30 = load i32, ptr %29, align 8
@@ -942,9 +942,9 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_attach_pcm_stream(ptr no
 
 33:                                               ; preds = %23
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 100
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 100
   %36 = load ptr, ptr %2, align 8
-  %37 = call i64 @strscpy(ptr noundef %35, ptr noundef %36, i64 noundef 80) #15
+  %37 = call i64 @strscpy(ptr noundef nonnull %35, ptr noundef %36, i64 noundef 80) #15
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %39 = call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %38, i32 noundef 3520, i64 noundef 48) #18
   %40 = icmp eq ptr %39, null
@@ -959,37 +959,37 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_attach_pcm_stream(ptr no
 44:                                               ; preds = %33
   store ptr %0, ptr %39, align 8
   %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %39, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %39, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %39, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %2, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 352
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 352
   store ptr %39, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %45, i64 360
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 360
   store ptr @azx_pcm_free, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 184
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 3
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %44
-  %55 = getelementptr inbounds i8, ptr %45, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store i16 2, ptr %55, align 8
   br label %56
 
 56:                                               ; preds = %54, %44
-  %57 = getelementptr inbounds i8, ptr %39, i64 32
-  %58 = getelementptr inbounds i8, ptr %0, i64 1536
+  %57 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1536
   %59 = load ptr, ptr %58, align 8
   store ptr %57, ptr %58, align 8
   store ptr %7, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %39, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store ptr %59, ptr %60, align 8
   store volatile ptr %57, ptr %59, align 8
   %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds i8, ptr %2, i64 192
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store ptr %61, ptr %62, align 8
   br label %63
 
@@ -1011,14 +1011,14 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_attach_pcm_stream(ptr no
   br i1 %64, label %63, label %73, !llvm.loop !30
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds i8, ptr %0, i64 1560
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %75 = load i16, ptr %74, align 8
   %76 = and i16 %75, 64
   %77 = icmp eq i16 %76, 0
   %78 = select i1 %77, i32 8, i32 6
   %79 = load ptr, ptr %4, align 8
   %80 = load ptr, ptr %24, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 640
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 640
   %82 = load ptr, ptr %81, align 8
   %83 = call i32 @snd_pcm_set_managed_buffer_all(ptr noundef %79, i32 noundef %78, ptr noundef %82, i64 noundef 0, i64 noundef 33554432) #15
   br label %84
@@ -1043,24 +1043,24 @@ declare dso_local void @snd_device_free(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @azx_pcm_free(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 352
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %8, ptr %10, align 8
   store volatile ptr %9, ptr %8, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 192
   store ptr null, ptr %13, align 8
   tail call void @kfree(ptr noundef nonnull %3) #15
   br label %14
@@ -1081,14 +1081,14 @@ define dso_local void @azx_init_chip(ptr noundef %0, i1 noundef zeroext %1) #1 a
   br i1 %3, label %4, label %13
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1424
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 32768
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 90
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 192, ptr elementtype(i16) %12) #15, !srcloc !31
@@ -1121,40 +1121,40 @@ declare dso_local void @snd_hdac_bus_stop_chip(ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @azx_interrupt(i32 %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 1424
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1424
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 67108864
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %20, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 1400
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1400
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 640
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 640
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 452
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 452
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %11, i64 440
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 440
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, 7
   %19 = icmp eq i16 %18, 0
   br i1 %19, label %69, label %20
 
 20:                                               ; preds = %15, %7, %2
-  %21 = getelementptr inbounds i8, ptr %1, i64 1192
-  tail call void @_raw_spin_lock(ptr noundef %21) #15
-  %22 = getelementptr inbounds i8, ptr %1, i64 1560
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1192
+  tail call void @_raw_spin_lock(ptr noundef nonnull %21) #15
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1560
   %23 = load i16, ptr %22, align 8
   %24 = and i16 %23, 256
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %26, label %.loopexit
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 36
   %30 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %29) #15, !srcloc !20
@@ -1219,7 +1219,7 @@ define dso_local noundef range(i32 0, 2) i32 @azx_interrupt(i32 %0, ptr noundef 
 
 .loopexit:                                        ; preds = %61, %58, %53, %26, %20
   %68 = phi i32 [ 0, %20 ], [ 0, %26 ], [ 1, %53 ], [ 1, %58 ], [ 1, %61 ]
-  tail call void @_raw_spin_unlock(ptr noundef %21) #15
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %21) #15
   br label %69
 
 69:                                               ; preds = %.loopexit, %15
@@ -1232,9 +1232,9 @@ declare dso_local i32 @snd_hdac_bus_handle_stream_irq(ptr noundef, i32 noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @stream_update(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1456
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %11, label %8
@@ -1245,12 +1245,12 @@ define internal void @stream_update(ptr noundef %0, ptr noundef %1) #1 align 16 
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 1192
-  tail call void @_raw_spin_unlock(ptr noundef %12) #15
-  %13 = getelementptr inbounds i8, ptr %1, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1192
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %12) #15
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %14 = load ptr, ptr %13, align 8
   tail call void @snd_pcm_period_elapsed(ptr noundef %14) #15
-  tail call void @_raw_spin_lock(ptr noundef %12) #15
+  tail call void @_raw_spin_lock(ptr noundef nonnull %12) #15
   br label %15
 
 15:                                               ; preds = %11, %8
@@ -1265,7 +1265,7 @@ declare dso_local void @snd_hdac_bus_update_rirb(ptr noundef) local_unnamed_addr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hda_bus_reset(ptr noundef %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1384
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   %3 = load i8, ptr %2, align 8
   %4 = or i8 %3, 8
   store i8 %4, ptr %2, align 8
@@ -1274,21 +1274,21 @@ define dso_local void @snd_hda_bus_reset(ptr noundef %0) local_unnamed_addr #1 a
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 32768
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 90
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 192, ptr elementtype(i16) %14) #15, !srcloc !31
   br label %15
 
 15:                                               ; preds = %11, %6, %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 1176
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, 1
   %19 = icmp eq i16 %18, 0
@@ -1310,9 +1310,9 @@ declare dso_local void @snd_hda_bus_reset_codecs(ptr noundef) local_unnamed_addr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @azx_bus_init(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1400
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 640
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 640
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @snd_hdac_bus_init(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @bus_core_ops) #15
   %8 = icmp slt i32 %7, 0
@@ -1320,27 +1320,27 @@ define dso_local range(i32 -2147483648, 1) i32 @azx_bus_init(ptr noundef %0, ptr
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1320
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 1344
-  tail call void @__mutex_init(ptr noundef %12, ptr noundef nonnull @.str.1, ptr noundef nonnull @azx_bus_init.__key) #15
-  %13 = getelementptr inbounds i8, ptr %0, i64 1408
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1344
+  tail call void @__mutex_init(ptr noundef nonnull %12, ptr noundef nonnull @.str.1, ptr noundef nonnull @azx_bus_init.__key) #15
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 1328
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1336
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 1392
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store i32 -1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 1560
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %19 = load i16, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 1176
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %21 = load i16, ptr %20, align 8
   %22 = lshr i16 %19, 1
   %23 = and i16 %22, 16
   %24 = and i16 %21, -17
   %25 = or disjoint i16 %24, %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 1464
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, @azx_get_pos_lpib
   br i1 %28, label %29, label %33
@@ -1357,11 +1357,11 @@ define dso_local range(i32 -2147483648, 1) i32 @azx_bus_init(ptr noundef %0, ptr
 
 35:                                               ; preds = %33, %29
   %36 = phi i16 [ %34, %33 ], [ %25, %29 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 1556
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1556
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 1184
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   store i32 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 1424
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %41 = load i32, ptr %40, align 8
   %42 = lshr i32 %41, 21
   %43 = trunc nuw nsw i32 %42 to i16
@@ -1391,20 +1391,20 @@ define dso_local noundef range(i32 -6, 1) i32 @azx_probe_codecs(ptr noundef %0, 
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = icmp eq i32 %1, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 792
-  %7 = getelementptr inbounds i8, ptr %0, i64 1544
-  %8 = getelementptr inbounds i8, ptr %0, i64 1200
-  %9 = getelementptr inbounds i8, ptr %0, i64 1560
-  %10 = getelementptr inbounds i8, ptr %0, i64 1400
-  %11 = getelementptr inbounds i8, ptr %0, i64 1424
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1544
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1200
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1560
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1400
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1424
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = select i1 %5, i32 4, i32 %1
   br label %18
 
 14:                                               ; preds = %57
-  %15 = getelementptr inbounds i8, ptr %0, i64 1448
-  %16 = getelementptr inbounds i8, ptr %0, i64 1548
-  %17 = getelementptr inbounds i8, ptr %0, i64 1552
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1448
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1548
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   br label %60
 
 18:                                               ; preds = %57, %2
@@ -1424,7 +1424,7 @@ define dso_local noundef range(i32 -6, 1) i32 @azx_probe_codecs(ptr noundef %0, 
   %30 = or disjoint i32 %29, 983040
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
   store i32 -1, ptr %3, align 4
-  call void @mutex_lock(ptr noundef %8) #15
+  call void @mutex_lock(ptr noundef nonnull %8) #15
   %31 = load i16, ptr %9, align 8
   %32 = or i16 %31, 16
   store i16 %32, ptr %9, align 8
@@ -1433,7 +1433,7 @@ define dso_local noundef range(i32 -6, 1) i32 @azx_probe_codecs(ptr noundef %0, 
   %35 = load i16, ptr %9, align 8
   %36 = and i16 %35, -17
   store i16 %36, ptr %9, align 8
-  call void @mutex_unlock(ptr noundef %8) #15
+  call void @mutex_unlock(ptr noundef nonnull %8) #15
   %37 = icmp slt i32 %34, 0
   %38 = load i32, ptr %3, align 4
   %39 = icmp eq i32 %38, -1
@@ -1443,7 +1443,7 @@ define dso_local noundef range(i32 -6, 1) i32 @azx_probe_codecs(ptr noundef %0, 
 
 41:                                               ; preds = %28
   %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 640
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 640
   %44 = load ptr, ptr %43, align 8
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef %44, ptr noundef nonnull @.str.2, i32 noundef %19) #17
   %45 = xor i32 %21, -1
@@ -1497,14 +1497,14 @@ define dso_local noundef range(i32 -6, 1) i32 @azx_probe_codecs(ptr noundef %0, 
   %76 = load i32, ptr %15, align 8
   %77 = sext i32 %76 to i64
   %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1504
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1504
   store i64 %77, ptr %79, align 8
   %80 = load i32, ptr %16, align 4
-  %81 = getelementptr inbounds i8, ptr %78, i64 1136
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 1136
   store i32 %80, ptr %81, align 8
   %82 = load i8, ptr %17, align 8, !range !37, !noundef !38
   %83 = zext nneg i8 %82 to i32
-  %84 = getelementptr inbounds i8, ptr %78, i64 1432
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 1432
   %85 = load i32, ptr %84, align 8
   %86 = shl nuw nsw i32 %83, 23
   %87 = and i32 %85, -8388609
@@ -1530,7 +1530,7 @@ define dso_local noundef range(i32 -6, 1) i32 @azx_probe_codecs(ptr noundef %0, 
 
 98:                                               ; preds = %96
   %99 = load ptr, ptr %10, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 640
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 640
   %101 = load ptr, ptr %100, align 8
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %101, ptr noundef nonnull @.str.3) #17
   br label %102
@@ -1548,7 +1548,7 @@ declare dso_local i32 @snd_hda_codec_new(ptr noundef, ptr noundef, i32 noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -19, 1) i32 @azx_codec_configure(ptr noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader4
@@ -1609,15 +1609,15 @@ define dso_local noundef range(i32 -12, 1) i32 @azx_init_streams(ptr noundef %0)
   %2 = alloca [2 x i32], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1444
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1444
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1440
-  %8 = getelementptr inbounds i8, ptr %0, i64 1436
-  %9 = getelementptr inbounds i8, ptr %0, i64 1424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1440
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1436
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   br label %10
 
 10:                                               ; preds = %36, %6
@@ -1684,7 +1684,7 @@ declare dso_local void @snd_hdac_stream_init(ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @azx_free_streams(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader
@@ -1692,10 +1692,10 @@ define dso_local void @azx_free_streams(ptr noundef %0) #1 align 16 {
 .preheader:                                       ; preds = %1, %.preheader
   %5 = phi ptr [ %11, %.preheader ], [ %3, %1 ]
   %6 = getelementptr i8, ptr %5, i64 -272
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %8, ptr %10, align 8
   store volatile ptr %9, ptr %8, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %5, align 8
@@ -1723,22 +1723,22 @@ declare dso_local zeroext i1 @__trace_trigger_soft_disabled(ptr noundef) local_u
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_azx_pcm_trigger(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #15
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8344
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load i32, ptr %14, align 4
   tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %11, i32 noundef %13, i32 noundef %15) #15
-  %16 = tail call i32 @trace_handle_return(ptr noundef %9) #15
+  %16 = tail call i32 @trace_handle_return(ptr noundef nonnull %9) #15
   br label %17
 
 17:                                               ; preds = %8, %3
@@ -1757,24 +1757,24 @@ declare dso_local i32 @trace_handle_return(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_azx_get_position(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #15
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8344
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %17 = load i32, ptr %16, align 4
   tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %11, i32 noundef %13, i32 noundef %15, i32 noundef %17) #15
-  %18 = tail call i32 @trace_handle_return(ptr noundef %9) #15
+  %18 = tail call i32 @trace_handle_return(ptr noundef nonnull %9) #15
   br label %19
 
 19:                                               ; preds = %8, %3
@@ -1784,19 +1784,19 @@ define internal i32 @trace_raw_output_azx_get_position(ptr noundef %0, i32 %1, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_azx_pcm(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #15
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8344
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i8, ptr %10, align 4
   %12 = zext i8 %11 to i32
   tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %12) #15
-  %13 = tail call i32 @trace_handle_return(ptr noundef %9) #15
+  %13 = tail call i32 @trace_handle_return(ptr noundef nonnull %9) #15
   br label %14
 
 14:                                               ; preds = %8, %3
@@ -1830,22 +1830,22 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -2147483648, 1) i32 @azx_pcm_open(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr [2 x %struct.hda_pcm_stream], ptr %6, i64 0, i64 %9
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1088
-  %17 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, i32 1, ptr elementtype(i32) %16) #15, !srcloc !44
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1088
+  %17 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16, i32 1, ptr nonnull elementtype(i32) %16) #15, !srcloc !44
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %23, label %19, !prof !15
 
@@ -1857,12 +1857,12 @@ define internal range(i32 -2147483648, 1) i32 @azx_pcm_open(ptr noundef %0) #1 a
 
 23:                                               ; preds = %19, %1
   %24 = phi i32 [ 2, %1 ], [ 1, %19 ]
-  tail call void @refcount_warn_saturate(ptr noundef %16, i32 noundef %24) #15
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %16, i32 noundef %24) #15
   br label %25
 
 25:                                               ; preds = %23, %19
-  %26 = getelementptr inbounds i8, ptr %11, i64 1496
-  tail call void @mutex_lock(ptr noundef %26) #15
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 1496
+  tail call void @mutex_lock(ptr noundef nonnull %26) #15
   %27 = tail call ptr @snd_hdac_stream_assign(ptr noundef %11, ptr noundef %0) #15
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_azx_pcm_open, i64 8), i32 2) #15
           to label %48 [label %28], !srcloc !21
@@ -1884,7 +1884,7 @@ define internal range(i32 -2147483648, 1) i32 @azx_pcm_open(ptr noundef %0) #1 a
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @__SCT__tp_func_azx_pcm_open(ptr noundef %39, ptr noundef %11, ptr noundef %27) #15
   br label %41
@@ -1908,11 +1908,11 @@ define internal range(i32 -2147483648, 1) i32 @azx_pcm_open(ptr noundef %0) #1 a
   br i1 %49, label %122, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %13, i64 392
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 392
   store ptr %27, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %13, i64 408
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(80) %52, ptr noundef nonnull align 8 dereferenceable(80) @azx_pcm_hw, i64 80, i1 false)
-  %53 = getelementptr inbounds i8, ptr %11, i64 1560
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 408
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %52, ptr noundef nonnull align 8 dereferenceable(80) @azx_pcm_hw, i64 80, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 1560
   %54 = load i16, ptr %53, align 8
   %55 = and i16 %54, 1024
   %56 = icmp eq i16 %55, 0
@@ -1923,23 +1923,23 @@ define internal range(i32 -2147483648, 1) i32 @azx_pcm_open(ptr noundef %0) #1 a
   br label %58
 
 58:                                               ; preds = %57, %50
-  %59 = getelementptr inbounds i8, ptr %10, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %13, i64 440
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 440
   store i32 %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %10, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %13, i64 444
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 444
   store i32 %63, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %10, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %13, i64 416
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 416
   store i64 %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %10, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %13, i64 428
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 428
   store i32 %69, ptr %70, align 4
-  %71 = tail call i32 @snd_pcm_hw_limit_rates(ptr noundef %52) #15
+  %71 = tail call i32 @snd_pcm_hw_limit_rates(ptr noundef nonnull %52) #15
   %72 = tail call i32 @snd_pcm_hw_constraint_integer(ptr noundef %13, i32 noundef 15) #15
   %73 = tail call i32 @snd_pcm_hw_constraint_minmax(ptr noundef %13, i32 noundef 16, i32 noundef 20, i32 noundef 178000000) #15
   %74 = load i16, ptr %53, align 8
@@ -1948,10 +1948,10 @@ define internal range(i32 -2147483648, 1) i32 @azx_pcm_open(ptr noundef %0) #1 a
   %77 = select i1 %76, i64 4, i64 128
   %78 = tail call i32 @snd_pcm_hw_constraint_step(ptr noundef %13, i32 noundef 0, i32 noundef 18, i64 noundef %77) #15
   %79 = tail call i32 @snd_pcm_hw_constraint_step(ptr noundef %13, i32 noundef 0, i32 noundef 14, i64 noundef %77) #15
-  %80 = getelementptr inbounds i8, ptr %3, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = tail call i32 @snd_hdac_power_up(ptr noundef %81) #15
-  %83 = getelementptr inbounds i8, ptr %10, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.thread, label %86
@@ -1968,7 +1968,7 @@ define internal range(i32 -2147483648, 1) i32 @azx_pcm_open(ptr noundef %0) #1 a
   br label %118
 
 91:                                               ; preds = %86
-  %92 = tail call i32 @snd_pcm_hw_limit_rates(ptr noundef %52) #15
+  %92 = tail call i32 @snd_pcm_hw_limit_rates(ptr noundef nonnull %52) #15
   %93 = load i32, ptr %61, align 8
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %104, label %95
@@ -1990,7 +1990,7 @@ define internal range(i32 -2147483648, 1) i32 @azx_pcm_open(ptr noundef %0) #1 a
 
 104:                                              ; preds = %101, %98, %95, %91
   tail call void @snd_hdac_stream_release(ptr noundef nonnull %27) #15
-  %105 = getelementptr inbounds i8, ptr %10, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
   br i1 %107, label %118, label %108
@@ -2013,7 +2013,7 @@ define internal range(i32 -2147483648, 1) i32 @azx_pcm_open(ptr noundef %0) #1 a
 
 117:                                              ; preds = %114, %111
   tail call void @snd_pcm_set_sync(ptr noundef %0) #15
-  tail call void @mutex_unlock(ptr noundef %26) #15
+  tail call void @mutex_unlock(ptr noundef nonnull %26) #15
   br label %125
 
 118:                                              ; preds = %108, %104, %.thread
@@ -2024,7 +2024,7 @@ define internal range(i32 -2147483648, 1) i32 @azx_pcm_open(ptr noundef %0) #1 a
 
 122:                                              ; preds = %118, %48
   %123 = phi i32 [ %119, %118 ], [ -16, %48 ]
-  tail call void @mutex_unlock(ptr noundef %26) #15
+  tail call void @mutex_unlock(ptr noundef nonnull %26) #15
   %124 = load ptr, ptr %4, align 8
   tail call void @snd_hda_codec_pcm_put(ptr noundef %124) #15
   br label %125
@@ -2036,19 +2036,19 @@ define internal range(i32 -2147483648, 1) i32 @azx_pcm_open(ptr noundef %0) #1 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @azx_pcm_close(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr [2 x %struct.hda_pcm_stream], ptr %6, i64 0, i64 %9
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 392
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 392
   %15 = load ptr, ptr %14, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_azx_pcm_close, i64 8), i32 2) #15
           to label %36 [label %16], !srcloc !21
@@ -2070,7 +2070,7 @@ define internal noundef i32 @azx_pcm_close(ptr noundef %0) #1 align 16 {
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @__SCT__tp_func_azx_pcm_close(ptr noundef %27, ptr noundef %11, ptr noundef %15) #15
   br label %29
@@ -2090,25 +2090,25 @@ define internal noundef i32 @azx_pcm_close(ptr noundef %0) #1 align 16 {
   br label %36
 
 36:                                               ; preds = %33, %29, %16, %1
-  %37 = getelementptr inbounds i8, ptr %11, i64 1496
-  tail call void @mutex_lock(ptr noundef %37) #15
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 1496
+  tail call void @mutex_lock(ptr noundef nonnull %37) #15
   tail call void @snd_hdac_stream_release(ptr noundef %15) #15
-  %38 = getelementptr inbounds i8, ptr %10, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %45, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %3, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %39(ptr noundef %10, ptr noundef %43, ptr noundef %0) #15
   br label %45
 
 45:                                               ; preds = %41, %36
-  %46 = getelementptr inbounds i8, ptr %3, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @snd_hdac_power_down(ptr noundef %47) #15
-  tail call void @mutex_unlock(ptr noundef %37) #15
+  tail call void @mutex_unlock(ptr noundef nonnull %37) #15
   %49 = load ptr, ptr %4, align 8
   tail call void @snd_hda_codec_pcm_put(ptr noundef %49) #15
   ret i32 0
@@ -2116,12 +2116,12 @@ define internal noundef i32 @azx_pcm_close(ptr noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @azx_pcm_hw_params(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 392
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 392
   %9 = load ptr, ptr %8, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_azx_pcm_hw_params, i64 8), i32 2) #15
           to label %30 [label %10], !srcloc !21
@@ -2143,7 +2143,7 @@ define internal noundef i32 @azx_pcm_hw_params(ptr nocapture noundef readonly %0
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @__SCT__tp_func_azx_pcm_hw_params(ptr noundef %21, ptr noundef %5, ptr noundef %9) #15
   br label %23
@@ -2163,35 +2163,35 @@ define internal noundef i32 @azx_pcm_hw_params(ptr nocapture noundef readonly %0
   br label %30
 
 30:                                               ; preds = %27, %23, %10, %2
-  %31 = getelementptr inbounds i8, ptr %9, i64 76
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 76
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %9, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %9, i64 160
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 160
   store i32 0, ptr %33, align 8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @azx_pcm_hw_free(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 392
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 60
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr [2 x %struct.hda_pcm_stream], ptr %10, i64 0, i64 %13
   tail call void @snd_hdac_stream_cleanup(ptr noundef %7) #15
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @snd_hda_codec_cleanup(ptr noundef %16, ptr noundef %14, ptr noundef %0) #15
-  %17 = getelementptr inbounds i8, ptr %7, i64 172
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 172
   %18 = load i8, ptr %17, align 4
   %19 = and i8 %18, -5
   store i8 %19, ptr %17, align 4
@@ -2200,30 +2200,30 @@ define internal noundef i32 @azx_pcm_hw_free(ptr noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @azx_pcm_prepare(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 392
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 392
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 60
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr [2 x %struct.hda_pcm_stream], ptr %11, i64 0, i64 %14
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %19 = load i16, ptr %18, align 4
   %20 = tail call ptr @snd_hda_spdif_out_of_nid(ptr noundef %17, i16 noundef zeroext %19) #15
   %21 = icmp eq ptr %20, null
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i16, ptr %23, align 4
   br label %25
 
@@ -2249,7 +2249,7 @@ define internal i32 @azx_pcm_prepare(ptr noundef %0) #1 align 16 {
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @__SCT__tp_func_azx_pcm_prepare(ptr noundef %38, ptr noundef %4, ptr noundef %8) #15
   br label %40
@@ -2270,23 +2270,23 @@ define internal i32 @azx_pcm_prepare(ptr noundef %0) #1 align 16 {
 
 47:                                               ; preds = %44, %40, %27, %25
   tail call void @snd_hdac_stream_reset(ptr noundef %8) #15
-  %48 = getelementptr inbounds i8, ptr %6, i64 100
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 100
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %15, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %51 = load i32, ptr %50, align 4
   %52 = tail call i32 @snd_hdac_stream_format_bits(i32 noundef %49, i32 noundef 0, i32 noundef %51) #15
-  %53 = getelementptr inbounds i8, ptr %6, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 108
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 108
   %56 = load i32, ptr %55, align 4
   %57 = tail call i32 @snd_hdac_spdif_stream_format(i32 noundef %54, i32 noundef %52, i32 noundef %56, i16 noundef zeroext %26) #15
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %67
 
 59:                                               ; preds = %47
-  %60 = getelementptr inbounds i8, ptr %4, i64 1400
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 1400
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 640
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 640
   %63 = load ptr, ptr %62, align 8
   %64 = load i32, ptr %55, align 4
   %65 = load i32, ptr %53, align 8
@@ -2301,17 +2301,17 @@ define internal i32 @azx_pcm_prepare(ptr noundef %0) #1 align 16 {
 
 70:                                               ; preds = %67
   %71 = tail call i32 @snd_hdac_stream_setup(ptr noundef %8, i1 noundef zeroext false) #15
-  %72 = getelementptr inbounds i8, ptr %8, i64 164
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 164
   %73 = load i8, ptr %72, align 4
   %74 = zext i8 %73 to i32
-  %75 = getelementptr inbounds i8, ptr %4, i64 1424
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 1424
   %76 = load i32, ptr %75, align 8
   %77 = and i32 %76, 32768
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %85, label %79
 
 79:                                               ; preds = %70
-  %80 = getelementptr inbounds i8, ptr %4, i64 1436
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 1436
   %81 = load i32, ptr %80, align 4
   %82 = icmp ult i32 %81, %74
   %83 = select i1 %82, i32 %81, i32 0
@@ -2321,14 +2321,14 @@ define internal i32 @azx_pcm_prepare(ptr noundef %0) #1 align 16 {
 85:                                               ; preds = %70, %79
   %86 = phi i32 [ %74, %70 ], [ %84, %79 ]
   %87 = load ptr, ptr %16, align 8
-  %88 = getelementptr inbounds i8, ptr %8, i64 160
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %89 = load i32, ptr %88, align 8
   %90 = tail call i32 @snd_hda_codec_prepare(ptr noundef %87, ptr noundef %15, i32 noundef %86, i32 noundef %89, ptr noundef %0) #15
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %.thread
 
 92:                                               ; preds = %85
-  %93 = getelementptr inbounds i8, ptr %8, i64 172
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 172
   %94 = load i8, ptr %93, align 4
   %95 = or i8 %94, 4
   store i8 %95, ptr %93, align 4
@@ -2341,12 +2341,12 @@ define internal i32 @azx_pcm_prepare(ptr noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i32 noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 392
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 392
   %9 = load ptr, ptr %8, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_azx_pcm_trigger, i64 8), i32 2) #15
           to label %30 [label %10], !srcloc !21
@@ -2368,7 +2368,7 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @__SCT__tp_func_azx_pcm_trigger(ptr noundef %21, ptr noundef %5, ptr noundef %9, i32 noundef %1) #15
   br label %23
@@ -2388,12 +2388,12 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
   br label %30
 
 30:                                               ; preds = %27, %23, %10, %2
-  %31 = getelementptr inbounds i8, ptr %5, i64 1424
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 1424
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 1048576
   %34 = icmp eq i32 %33, 0
   %35 = select i1 %34, i32 56, i32 52
-  %36 = getelementptr inbounds i8, ptr %9, i64 172
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 172
   %37 = load i8, ptr %36, align 4
   %38 = and i8 %37, 4
   %39 = icmp eq i8 %38, 0
@@ -2414,9 +2414,9 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
 
 42:                                               ; preds = %41, %40, %40, %40
   %43 = phi i1 [ false, %41 ], [ true, %40 ], [ true, %40 ], [ true, %40 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 312
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, %46
   br i1 %48, label %.loopexit6, label %.preheader5
@@ -2436,14 +2436,14 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
 58:                                               ; preds = %.preheader5
   %59 = getelementptr i8, ptr %50, i64 -40
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 392
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 392
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 165
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 165
   %64 = load i8, ptr %63, align 1
   %65 = zext nneg i8 %64 to i32
   %66 = shl nuw i32 1, %65
   %67 = or i32 %66, %51
-  %68 = getelementptr inbounds i8, ptr %60, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %0, ptr %68, align 8
   %.pre = load ptr, ptr %44, align 8
   br label %69
@@ -2452,17 +2452,17 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
   %70 = phi ptr [ %49, %.preheader5 ], [ %.pre, %58 ]
   %71 = phi i32 [ %51, %.preheader5 ], [ %67, %58 ]
   %72 = load ptr, ptr %50, align 8
-  %73 = getelementptr inbounds i8, ptr %70, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %74 = icmp eq ptr %72, %73
   br i1 %74, label %.loopexit6, label %.preheader5, !llvm.loop !65
 
 .loopexit6:                                       ; preds = %69, %42
   %75 = phi i32 [ 0, %42 ], [ %71, %69 ]
-  %76 = getelementptr inbounds i8, ptr %5, i64 1192
-  tail call void @_raw_spin_lock(ptr noundef %76) #15
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 1192
+  tail call void @_raw_spin_lock(ptr noundef nonnull %76) #15
   tail call void @snd_hdac_stream_sync_trigger(ptr noundef %9, i1 noundef zeroext true, i32 noundef %75, i32 noundef %35) #15
   %77 = load ptr, ptr %44, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, %78
   br i1 %80, label %.loopexit, label %.preheader
@@ -2484,9 +2484,9 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
 89:                                               ; preds = %.preheader.split.us
   %90 = getelementptr i8, ptr %82, i64 -40
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 392
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 392
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 288
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 288
   %95 = load i8, ptr %94, align 8
   %96 = or i8 %95, 2
   store i8 %96, ptr %94, align 8
@@ -2497,7 +2497,7 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
 97:                                               ; preds = %89, %.preheader.split.us
   %98 = phi ptr [ %.pre9, %89 ], [ %81, %.preheader.split.us ]
   %99 = load ptr, ptr %82, align 8
-  %100 = getelementptr inbounds i8, ptr %98, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 40
   %101 = icmp eq ptr %99, %100
   br i1 %101, label %.loopexit, label %.preheader.split.us, !llvm.loop !66
 
@@ -2515,7 +2515,7 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
 110:                                              ; preds = %.preheader.split
   %111 = getelementptr i8, ptr %103, i64 -40
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 392
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 392
   %114 = load ptr, ptr %113, align 8
   tail call void @snd_hdac_stream_stop(ptr noundef %114) #15
   %.pre8 = load ptr, ptr %44, align 8
@@ -2524,14 +2524,14 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
 115:                                              ; preds = %110, %.preheader.split
   %116 = phi ptr [ %.pre8, %110 ], [ %102, %.preheader.split ]
   %117 = load ptr, ptr %103, align 8
-  %118 = getelementptr inbounds i8, ptr %116, i64 40
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %119 = icmp eq ptr %117, %118
   br i1 %119, label %.loopexit, label %.preheader.split, !llvm.loop !66
 
 .loopexit:                                        ; preds = %115, %97, %.loopexit6
-  tail call void @_raw_spin_unlock(ptr noundef %76) #15
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %76) #15
   tail call void @snd_hdac_stream_sync(ptr noundef %9, i1 noundef zeroext %43, i32 noundef %75) #15
-  tail call void @_raw_spin_lock(ptr noundef %76) #15
+  tail call void @_raw_spin_lock(ptr noundef nonnull %76) #15
   tail call void @snd_hdac_stream_sync_trigger(ptr noundef %9, i1 noundef zeroext false, i32 noundef %75, i32 noundef %35) #15
   br i1 %43, label %120, label %121
 
@@ -2540,7 +2540,7 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
   br label %121
 
 121:                                              ; preds = %120, %.loopexit
-  tail call void @_raw_spin_unlock(ptr noundef %76) #15
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %76) #15
   br label %122
 
 122:                                              ; preds = %121, %40, %30
@@ -2550,17 +2550,17 @@ define internal noundef range(i32 -32, 1) i32 @azx_pcm_trigger(ptr noundef %0, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 0, 34359738361) i64 @azx_pcm_pointer(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 392
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 392
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @azx_get_position(ptr noundef %4, ptr noundef %8)
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 3
-  %12 = getelementptr inbounds i8, ptr %6, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = udiv i64 %11, %14
@@ -2570,18 +2570,18 @@ define internal range(i64 0, 34359738361) i64 @azx_pcm_pointer(ptr nocapture nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @azx_get_time_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) #1 align 16 {
   %6 = alloca %struct.system_device_crosststamp, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 392
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !16
-  %11 = getelementptr inbounds i8, ptr %8, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 16777216
   %14 = icmp eq i32 %13, 0
-  %.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.gep1 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.gep1 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br i1 %14, label %71, label %15
 
 15:                                               ; preds = %5
@@ -2591,7 +2591,7 @@ define internal i32 @azx_get_time_info(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %18, label %19, label %71
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %8, i64 748
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 748
   %21 = load i32, ptr %20, align 4
   switch i32 %21, label %24 [
     i32 1, label %22
@@ -2611,36 +2611,36 @@ define internal i32 @azx_get_time_info(ptr noundef %0, ptr noundef %1, ptr nocap
   br label %25
 
 25:                                               ; preds = %24, %23, %22
-  %26 = getelementptr inbounds i8, ptr %10, i64 200
-  %27 = tail call i64 @timecounter_read(ptr noundef %26) #15
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 200
+  %27 = tail call i64 @timecounter_read(ptr noundef nonnull %26) #15
   %28 = load i8, ptr %3, align 4
   %29 = and i8 %28, 16
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %61, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 60
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
   %40 = getelementptr [2 x %struct.hda_pcm_stream], ptr %36, i64 0, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %61, label %44
 
 44:                                               ; preds = %31
-  %45 = getelementptr inbounds i8, ptr %33, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 %42(ptr noundef %40, ptr noundef %46, ptr noundef %0) #15
   %48 = zext i32 %47 to i64
   %49 = mul nuw nsw i64 %48, 1000000000
   %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 108
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 108
   %52 = load i32, ptr %51, align 4
   %53 = zext i32 %52 to i64
   %54 = udiv i64 %49, %53
@@ -2662,13 +2662,13 @@ define internal i32 @azx_get_time_info(ptr noundef %0, ptr noundef %1, ptr nocap
   %64 = extractvalue { i64, i64 } %63, 0
   %65 = extractvalue { i64, i64 } %63, 1
   store i64 %64, ptr %2, align 8
-  %66 = getelementptr inbounds i8, ptr %2, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %65, ptr %66, align 8
   %67 = load i8, ptr %4, align 4
   %68 = and i8 %67, -63
   %69 = or disjoint i8 %68, 36
   store i8 %69, ptr %4, align 4
-  %70 = getelementptr inbounds i8, ptr %4, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 42, ptr %70, align 4
   br label %104
 
@@ -2696,7 +2696,7 @@ define internal i32 @azx_get_time_info(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %84, label %85, label %104
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %8, i64 748
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 748
   %87 = load i32, ptr %86, align 4
   switch i32 %87, label %88 [
     i32 1, label %104
@@ -2713,20 +2713,20 @@ define internal i32 @azx_get_time_info(ptr noundef %0, ptr noundef %1, ptr nocap
   %92 = extractvalue { i64, i64 } %91, 0
   %93 = extractvalue { i64, i64 } %91, 1
   store i64 %92, ptr %1, align 8
-  %94 = getelementptr inbounds i8, ptr %1, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %93, ptr %94, align 8
   %95 = load i64, ptr %6, align 8
   %96 = call { i64, i64 } @ns_to_timespec64(i64 noundef %95) #15
   %97 = extractvalue { i64, i64 } %96, 0
   %98 = extractvalue { i64, i64 } %96, 1
   store i64 %97, ptr %2, align 8
-  %99 = getelementptr inbounds i8, ptr %2, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %98, ptr %99, align 8
   %100 = load i8, ptr %4, align 4
   %101 = and i8 %100, -63
   %102 = or disjoint i8 %101, 42
   store i8 %102, ptr %4, align 4
-  %103 = getelementptr inbounds i8, ptr %4, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 42, ptr %103, align 4
   br label %104
 
@@ -2840,19 +2840,19 @@ declare dso_local i32 @get_device_system_crosststamp(ptr noundef, ptr noundef, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -5, 1) i32 @azx_get_sync_time(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 392
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 60
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   %14 = select i1 %13, i32 16, i32 0
-  %15 = getelementptr inbounds i8, ptr %7, i64 164
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 164
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   br label %17
 
 17:                                               ; preds = %66, %3
@@ -2887,9 +2887,9 @@ define internal noundef range(i32 -5, 1) i32 @azx_get_sync_time(ptr nocapture no
   br i1 %39, label %31, label %45
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %10, i64 1400
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 1400
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 640
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 640
   %44 = load ptr, ptr %43, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %44, ptr noundef nonnull @.str.20) #17
   br label %108
@@ -2935,9 +2935,9 @@ define internal noundef range(i32 -5, 1) i32 @azx_get_sync_time(ptr nocapture no
   br i1 %73, label %108, label %74
 
 74:                                               ; preds = %.critedge
-  %75 = getelementptr inbounds i8, ptr %10, i64 1400
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 1400
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 640
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 640
   %78 = load ptr, ptr %77, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %78, ptr noundef nonnull @.str.21) #17
   br label %108
@@ -2951,7 +2951,7 @@ define internal noundef range(i32 -5, 1) i32 @azx_get_sync_time(ptr nocapture no
   %85 = shl nuw i64 %84, 32
   %86 = zext i32 %51 to i64
   %87 = or disjoint i64 %85, %86
-  %88 = getelementptr inbounds i8, ptr %5, i64 108
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 108
   %89 = load i32, ptr %88, align 4
   %90 = zext i32 %89 to i64
   %91 = urem i64 %83, %90
@@ -2973,7 +2973,7 @@ define internal noundef range(i32 -5, 1) i32 @azx_get_sync_time(ptr nocapture no
   %105 = extractvalue { i64, ptr } %104, 0
   %106 = extractvalue { i64, ptr } %104, 1
   store i64 %105, ptr %1, align 8
-  %107 = getelementptr inbounds i8, ptr %1, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %106, ptr %107, align 8
   br label %108
 
@@ -3002,7 +3002,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #0 sect
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @azx_send_cmd(ptr noundef %0, i32 noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1560
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 256
   %6 = icmp eq i16 %5, 0
@@ -3016,11 +3016,11 @@ define internal i32 @azx_send_cmd(ptr noundef %0, i32 noundef %1) #1 align 16 {
 10:                                               ; preds = %7
   %11 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %12 = lshr i32 %11, 28
-  %13 = getelementptr inbounds i8, ptr %0, i64 984
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %14 = zext nneg i32 %12 to i64
   %15 = getelementptr [8 x i32], ptr %13, i64 0, i64 %14
   store i32 %1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %17
 
 17:                                               ; preds = %55, %10
@@ -3061,7 +3061,7 @@ define internal i32 @azx_send_cmd(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %43 = load ptr, ptr %16, align 8
   %44 = getelementptr i8, ptr %43, i64 100
   %45 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %44) #15, !srcloc !20
-  %46 = getelementptr inbounds i8, ptr %0, i64 948
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 948
   %47 = getelementptr [8 x i32], ptr %46, i64 0, i64 %14
   store i32 %45, ptr %47, align 4
   br label %62
@@ -3074,7 +3074,7 @@ define internal i32 @azx_send_cmd(ptr noundef %0, i32 noundef %1) #1 align 16 {
 
 51:                                               ; preds = %48
   %52 = tail call i32 @__printk_ratelimit(ptr noundef nonnull @__func__.azx_single_wait_for_response) #15
-  %53 = getelementptr inbounds i8, ptr %0, i64 948
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 948
   %54 = getelementptr [8 x i32], ptr %53, i64 0, i64 %14
   store i32 -1, ptr %54, align 4
   br label %62
@@ -3100,7 +3100,7 @@ define internal i32 @azx_send_cmd(ptr noundef %0, i32 noundef %1) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -11, 1) i32 @azx_get_response(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1560
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 256
   %7 = icmp eq i16 %6, 0
@@ -3116,7 +3116,7 @@ define internal noundef range(i32 -11, 1) i32 @azx_get_response(ptr noundef %0, 
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 948
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 948
   %15 = zext i32 %1 to i64
   %16 = getelementptr [8 x i32], ptr %14, i64 0, i64 %15
   %17 = load i32, ptr %16, align 4
@@ -3129,13 +3129,13 @@ define internal noundef range(i32 -11, 1) i32 @azx_get_response(ptr noundef %0, 
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 1384
-  %23 = getelementptr inbounds i8, ptr %0, i64 1176
-  %24 = getelementptr inbounds i8, ptr %0, i64 1400
-  %25 = getelementptr inbounds i8, ptr %0, i64 984
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1384
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1176
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1400
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %26 = zext i32 %1 to i64
   %27 = getelementptr [8 x i32], ptr %25, i64 0, i64 %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 1456
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   br label %29
 
 29:                                               ; preds = %44, %21
@@ -3152,7 +3152,7 @@ define internal noundef range(i32 -11, 1) i32 @azx_get_response(ptr noundef %0, 
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %24, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 640
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 640
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %27, align 4
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %40, ptr noundef nonnull @.str.22, i32 noundef %41) #17
@@ -3174,7 +3174,7 @@ define internal noundef range(i32 -11, 1) i32 @azx_get_response(ptr noundef %0, 
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %24, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 640
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 640
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %27, align 4
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %54, ptr noundef nonnull @.str.23, i32 noundef %55) #17
@@ -3202,7 +3202,7 @@ define internal noundef range(i32 -11, 1) i32 @azx_get_response(ptr noundef %0, 
   %69 = or disjoint i8 %30, 4
   store i8 %69, ptr %22, align 8
   %70 = load ptr, ptr %24, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 640
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 640
   %72 = load ptr, ptr %71, align 8
   %73 = load i32, ptr %27, align 4
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %72, ptr noundef nonnull @.str.24, i32 noundef %73) #17
@@ -3210,7 +3210,7 @@ define internal noundef range(i32 -11, 1) i32 @azx_get_response(ptr noundef %0, 
 
 74:                                               ; preds = %65
   %75 = load ptr, ptr %24, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 640
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 640
   %77 = load ptr, ptr %76, align 8
   %78 = load i32, ptr %27, align 4
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %77, ptr noundef nonnull @.str.25, i32 noundef %78) #17

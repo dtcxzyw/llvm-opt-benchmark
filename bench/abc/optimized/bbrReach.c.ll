@@ -30,20 +30,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Bbr_ManSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, i8 0, i64 36, i1 false)
   store i32 50000, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1000, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 -1, ptr %8, align 4
   ret void
 }
@@ -53,14 +53,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Bbr_bddComputeRangeCube(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   tail call void @Cudd_Ref(ptr noundef %5) #14
   %6 = icmp slt i32 %1, %2
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 344
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %8 = sext i32 %1 to i64
   br label %9
 
@@ -116,13 +116,13 @@ declare void @Cudd_Quit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Aig_ManInitStateVarMap(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 3
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #15
   %9 = tail call noalias ptr @malloc(i64 noundef %7) #15
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   tail call void @Cudd_Ref(ptr noundef %11) #14
   %12 = getelementptr i8, ptr %1, i64 104
@@ -132,7 +132,7 @@ define noundef ptr @Aig_ManInitStateVarMap(ptr noundef %0, ptr nocapture noundef
 
 .lr.ph:                                           ; preds = %3
   %14 = getelementptr i8, ptr %1, i64 108
-  %15 = getelementptr inbounds i8, ptr %0, i64 344
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 344
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
@@ -146,14 +146,14 @@ define noundef ptr @Aig_ManInitStateVarMap(ptr noundef %0, ptr nocapture noundef
   %20 = load ptr, ptr %15, align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   store ptr %22, ptr %23, align 8
   %24 = add i32 %.val49, %17
   %25 = add i32 %24, %.val41
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %20, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   store ptr %28, ptr %29, align 8
   %30 = ptrtoint ptr %22 to i64
   %31 = xor i64 %30, 1
@@ -214,7 +214,7 @@ define noalias noundef ptr @Aig_ManCreateOutputs(ptr nocapture noundef readnone 
   br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
@@ -222,11 +222,11 @@ define noalias noundef ptr @Aig_ManCreateOutputs(ptr nocapture noundef readnone 
   %10 = load ptr, ptr %8, align 8
   %11 = getelementptr i8, ptr %10, i64 8
   %.val = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 40
   %.val13 = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %.val13, ptr %15, align 8
   tail call void @Cudd_Ref(ptr noundef %.val13) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -269,7 +269,7 @@ define noundef ptr @Aig_ManCreatePartitions(ptr noundef %0, ptr noundef %1, i32 
   br i1 %16, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr i8, ptr %1, i64 112
   br label %19
 
@@ -292,7 +292,7 @@ define noundef ptr @Aig_ManCreatePartitions(ptr noundef %0, ptr noundef %1, i32 
   %30 = getelementptr i8, ptr %26, i64 40
   %.val47 = load ptr, ptr %30, align 8
   %31 = tail call ptr @Cudd_bddXnor(ptr noundef %0, ptr noundef %29, ptr noundef %.val47) #14
-  %32 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   store ptr %31, ptr %32, align 8
   tail call void @Cudd_Ref(ptr noundef %31) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -361,7 +361,7 @@ define range(i32 -1, 2) i32 @Aig_ManComputeReachable(ptr noundef %0, ptr noundef
 13:                                               ; preds = %7
   %14 = load i64, ptr %9, align 8
   %.neg265 = mul i64 %14, -1000000
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load i64, ptr %15, align 8
   %.neg = sdiv i64 %16, -1000
   %.neg266 = add i64 %.neg, %.neg265
@@ -384,14 +384,14 @@ Abc_Clock.exit:                                   ; preds = %7, %13
   %21 = getelementptr i8, ptr %1, i64 104
   %.val239 = load i32, ptr %21, align 8
   %22 = add nsw i32 %.val239, %.val233
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
   call void @Cudd_Ref(ptr noundef %24) #14
   %25 = icmp sgt i32 %.val239, 0
   br i1 %25, label %.lr.ph.i, label %Bbr_bddComputeRangeCube.exit
 
 .lr.ph.i:                                         ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 344
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %27 = sext i32 %.val233 to i64
   br label %28
 
@@ -413,11 +413,11 @@ Bbr_bddComputeRangeCube.exit:                     ; preds = %28, %19
   %.014.lcssa.i = phi ptr [ %24, %19 ], [ %32, %28 ]
   call void @Cudd_Deref(ptr noundef %.014.lcssa.i) #14
   call void @Cudd_Ref(ptr noundef %.014.lcssa.i) #14
-  %33 = getelementptr inbounds i8, ptr %5, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %34 = load i32, ptr %33, align 4
   %.not205 = icmp eq i32 %34, 0
   %.val230 = load i32, ptr %21, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 344
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %36 = load ptr, ptr %35, align 8
   %.val236 = load i32, ptr %20, align 4
   %37 = add nsw i32 %.val236, %.val230
@@ -426,16 +426,16 @@ Bbr_bddComputeRangeCube.exit:                     ; preds = %28, %19
   br i1 %.not205, label %.thread, label %43
 
 .thread:                                          ; preds = %Bbr_bddComputeRangeCube.exit
-  %40 = getelementptr inbounds i8, ptr %5, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %41 = load i32, ptr %40, align 4
   %42 = call ptr @Bbr_bddImageStart2(ptr noundef nonnull %0, ptr noundef %.014.lcssa.i, i32 noundef %.val230, ptr noundef %2, i32 noundef %.val230, ptr noundef %39, i32 noundef %41) #14
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.014.lcssa.i) #14
   br label %50
 
 43:                                               ; preds = %Bbr_bddComputeRangeCube.exit
-  %44 = getelementptr inbounds i8, ptr %5, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %5, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %47 = load i32, ptr %46, align 4
   %48 = call ptr @Bbr_bddImageStart(ptr noundef nonnull %0, ptr noundef %.014.lcssa.i, i32 noundef %.val230, ptr noundef %2, i32 noundef %.val230, ptr noundef %39, i32 noundef %45, i32 noundef %47) #14
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.014.lcssa.i) #14
@@ -443,7 +443,7 @@ Bbr_bddComputeRangeCube.exit:                     ; preds = %28, %19
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %.thread, %43
-  %51 = getelementptr inbounds i8, ptr %5, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %52 = load i32, ptr %51, align 4
   %.not225 = icmp eq i32 %52, 0
   br i1 %.not225, label %53, label %269
@@ -462,11 +462,11 @@ Bbr_bddComputeRangeCube.exit:                     ; preds = %28, %19
 
 58:                                               ; preds = %56, %55
   %59 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
-  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 0, ptr %60, align 4
   store i32 1000, ptr %59, align 8
   %61 = call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #15
-  %62 = getelementptr inbounds i8, ptr %59, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %61, ptr %62, align 8
   call void @Cudd_Ref(ptr noundef %3) #14
   call void @Cudd_Ref(ptr noundef %3) #14
@@ -533,18 +533,18 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %90 = getelementptr inbounds ptr, ptr %86, i64 %89
   store ptr %3, ptr %90, align 8
   call void @Cudd_Ref(ptr noundef %3) #14
-  %91 = getelementptr inbounds i8, ptr %5, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %92 = load i32, ptr %91, align 4
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %.lr.ph284, label %._crit_edge
 
 .lr.ph284:                                        ; preds = %Vec_PtrPush.exit
-  %94 = getelementptr inbounds i8, ptr %8, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %95 = getelementptr i8, ptr %1, i64 112
   %.not210 = icmp eq i32 %6, 0
-  %96 = getelementptr inbounds i8, ptr %5, i64 28
-  %97 = getelementptr inbounds i8, ptr %1, i64 408
-  %98 = getelementptr inbounds i8, ptr %5, i64 36
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 36
   br label %99
 
 99:                                               ; preds = %.lr.ph284, %.thread263
@@ -690,7 +690,7 @@ Vec_PtrFree.exit248:                              ; preds = %139, %141
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %169
   %indvars.iv = phi i64 [ %indvars.iv.next, %169 ], [ 0, %.lr.ph ]
-  %151 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %152 = load ptr, ptr %151, align 8
   %153 = ptrtoint ptr %152 to i64
   %154 = xor i64 %153, 1
@@ -700,7 +700,7 @@ Vec_PtrFree.exit248:                              ; preds = %139, %141
   br i1 %.not211, label %157, label %169
 
 157:                                              ; preds = %.lr.ph.split
-  %158 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %159 = trunc nuw nsw i64 %indvars.iv to i32
   %160 = load ptr, ptr %158, align 8
   %161 = call ptr @Cudd_bddIntersect(ptr noundef %0, ptr noundef %144, ptr noundef %160) #14
@@ -869,7 +869,7 @@ Vec_PtrPush.exit255:                              ; preds = %.Vec_PtrGrow.exit11
 .lr.ph311:                                        ; preds = %._crit_edge, %.lr.ph311
   %indvars.iv322 = phi i64 [ %indvars.iv.next323, %.lr.ph311 ], [ 0, %._crit_edge ]
   %.val234 = load ptr, ptr %62, align 8
-  %225 = getelementptr inbounds ptr, ptr %.val234, i64 %indvars.iv322
+  %225 = getelementptr inbounds nuw ptr, ptr %.val234, i64 %indvars.iv322
   %226 = load ptr, ptr %225, align 8
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %226) #14
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
@@ -939,7 +939,7 @@ Vec_PtrFree.exit257:                              ; preds = %.critedge, %230
 
 254:                                              ; preds = %245, %236
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.1) #14
-  %255 = getelementptr inbounds i8, ptr %5, i64 28
+  %255 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %256 = load i32, ptr %255, align 4
   %.not220 = icmp eq i32 %256, 0
   br i1 %.not219, label %263, label %257
@@ -953,7 +953,7 @@ Vec_PtrFree.exit257:                              ; preds = %.critedge, %230
 
 260:                                              ; preds = %258, %257
   %261 = add nsw i32 %.0199.lcssa, -1
-  %262 = getelementptr inbounds i8, ptr %5, i64 36
+  %262 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %261, ptr %262, align 4
   br label %269
 
@@ -966,7 +966,7 @@ Vec_PtrFree.exit257:                              ; preds = %.critedge, %230
 
 266:                                              ; preds = %264, %263
   %267 = add nsw i32 %.0199.lcssa, -1
-  %268 = getelementptr inbounds i8, ptr %5, i64 36
+  %268 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %267, ptr %268, align 4
   br label %269
 
@@ -1046,7 +1046,7 @@ define range(i32 -1, 2) i32 @Aig_ManVerifyUsingBdds_int(ptr noundef %0, ptr noca
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   %8 = zext i1 %.not to i32
@@ -1058,7 +1058,7 @@ define range(i32 -1, 2) i32 @Aig_ManVerifyUsingBdds_int(ptr noundef %0, ptr noca
 11:                                               ; preds = %2
   %12 = load i64, ptr %5, align 8
   %13 = mul nsw i64 %12, 1000000
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = sdiv i64 %15, 1000
   %17 = add nsw i64 %16, %13
@@ -1067,18 +1067,18 @@ define range(i32 -1, 2) i32 @Aig_ManVerifyUsingBdds_int(ptr noundef %0, ptr noca
 Abc_Clock.exit:                                   ; preds = %2, %11
   %.0.i = phi i64 [ %17, %11 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %18 = getelementptr inbounds i8, ptr %1, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i32, ptr %22, align 4
   %24 = call ptr @Aig_ManComputeGlobalBdds(ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef %21, i32 noundef %23) #14
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %Abc_Clock.exit
-  %27 = getelementptr inbounds i8, ptr %1, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %28 = load i32, ptr %27, align 4
   %.not110 = icmp eq i32 %28, 0
   br i1 %.not110, label %29, label %148
@@ -1115,7 +1115,7 @@ Abc_Clock.exit:                                   ; preds = %2, %11
 45:                                               ; preds = %41
   %46 = load i64, ptr %4, align 8
   %47 = mul nsw i64 %46, 1000000
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = sdiv i64 %49, 1000
   %51 = add nsw i64 %50, %47
@@ -1137,11 +1137,11 @@ Abc_Clock.exit116:                                ; preds = %41, %45
 
 57:                                               ; preds = %Abc_Clock.exit116, %39
   %58 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 0, ptr %59, align 4
   store i32 1000, ptr %58, align 8
   %60 = call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #15
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %60, ptr %61, align 8
   %62 = getelementptr i8, ptr %0, i64 112
   %.val11.i = load i32, ptr %62, align 8
@@ -1152,7 +1152,7 @@ Abc_Clock.exit116:                                ; preds = %41, %45
   br i1 %66, label %.lr.ph.i, label %Aig_ManCreateOutputs.exit
 
 .lr.ph.i:                                         ; preds = %57
-  %67 = getelementptr inbounds i8, ptr %0, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %68
 
 68:                                               ; preds = %68, %.lr.ph.i
@@ -1160,11 +1160,11 @@ Abc_Clock.exit116:                                ; preds = %41, %45
   %69 = load ptr, ptr %67, align 8
   %70 = getelementptr i8, ptr %69, i64 8
   %.val.i = load ptr, ptr %70, align 8
-  %71 = getelementptr inbounds ptr, ptr %.val.i, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr i8, ptr %72, i64 40
   %.val13.i = load ptr, ptr %73, align 8
-  %74 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i
   store ptr %.val13.i, ptr %74, align 8
   call void @Cudd_Ref(ptr noundef %.val13.i) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1179,7 +1179,7 @@ Aig_ManCreateOutputs.exit:                        ; preds = %68, %57
   %79 = call ptr @Aig_ManCreatePartitions(ptr noundef nonnull %24, ptr noundef nonnull %0, i32 noundef %77, i32 noundef %78)
   %80 = call ptr @Aig_ManInitStateVarMap(ptr noundef nonnull %24, ptr noundef nonnull %0, i32 poison)
   call void @Cudd_Ref(ptr noundef %80) #14
-  %81 = getelementptr inbounds i8, ptr %1, i64 20
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %82 = load i32, ptr %81, align 4
   %.not103 = icmp eq i32 %82, 0
   br i1 %.not103, label %84, label %83
@@ -1204,7 +1204,7 @@ Aig_ManCreateOutputs.exit:                        ; preds = %68, %57
   br i1 %.not104.us129, label %.split.us, label %.lr.ph131
 
 90:                                               ; preds = %.lr.ph131
-  %91 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv.next
+  %91 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.next
   %92 = load ptr, ptr %91, align 8
   %93 = ptrtoint ptr %92 to i64
   %94 = xor i64 %93, 1
@@ -1231,10 +1231,10 @@ Aig_ManCreateOutputs.exit:                        ; preds = %68, %57
   %99 = call ptr @Cudd_bddIntersect(ptr noundef nonnull %24, ptr noundef %80, ptr noundef %.lcssa.us) #14
   call void @Cudd_Ref(ptr noundef %99) #14
   %100 = load i32, ptr %22, align 4
-  %101 = getelementptr inbounds i8, ptr %1, i64 28
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %102 = load i32, ptr %101, align 4
   %103 = call ptr @Aig_ManVerifyUsingBddsCountExample(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef %79, ptr noundef nonnull %58, ptr noundef %99, i32 noundef %.093.lcssa121.us, i32 noundef %100, i32 noundef %102) #14
-  %104 = getelementptr inbounds i8, ptr %0, i64 408
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr %103, ptr %104, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %24, ptr noundef %99) #14
   %105 = load i32, ptr %101, align 4
@@ -1255,7 +1255,7 @@ Aig_ManCreateOutputs.exit:                        ; preds = %68, %57
 .lr.ph137:                                        ; preds = %.loopexit, %.lr.ph137
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.lr.ph137 ], [ 0, %.loopexit ]
   %.val111 = load ptr, ptr %61, align 8
-  %109 = getelementptr inbounds ptr, ptr %.val111, i64 %indvars.iv150
+  %109 = getelementptr inbounds nuw ptr, ptr %.val111, i64 %indvars.iv150
   %110 = load ptr, ptr %109, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %24, ptr noundef %110) #14
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
@@ -1291,7 +1291,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %114
 
 .lr.ph140:                                        ; preds = %117, %.lr.ph140
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.lr.ph140 ], [ 0, %117 ]
-  %120 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv153
+  %120 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv153
   %121 = load ptr, ptr %120, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %24, ptr noundef %121) #14
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
@@ -1315,7 +1315,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %114
 
 .lr.ph144:                                        ; preds = %124, %.lr.ph144
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph144 ], [ 0, %124 ]
-  %126 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv156
+  %126 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv156
   %127 = load ptr, ptr %126, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %24, ptr noundef %127) #14
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
@@ -1334,7 +1334,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %114
 
 130:                                              ; preds = %._crit_edge145, %._crit_edge145.thread
   call void @Cudd_Quit(ptr noundef nonnull %24) #14
-  %131 = getelementptr inbounds i8, ptr %1, i64 28
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %132 = load i32, ptr %131, align 4
   %.not109 = icmp eq i32 %132, 0
   br i1 %.not109, label %133, label %148
@@ -1349,7 +1349,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %114
 136:                                              ; preds = %133
   %137 = load i64, ptr %3, align 8
   %138 = mul nsw i64 %137, 1000000
-  %139 = getelementptr inbounds i8, ptr %3, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %140 = load i64, ptr %139, align 8
   %141 = sdiv i64 %140, 1000
   %142 = add nsw i64 %141, %138
@@ -1385,7 +1385,7 @@ define range(i32 -1, 2) i32 @Aig_ManVerifyUsingBdds(ptr noundef %0, ptr nocaptur
   br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 8
   %.val89 = load ptr, ptr %7, align 8
@@ -1394,7 +1394,7 @@ define range(i32 -1, 2) i32 @Aig_ManVerifyUsingBdds(ptr noundef %0, ptr nocaptur
 
 8:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %9 = getelementptr inbounds ptr, ptr %.val89, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %.val89, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 24
   %.val90 = load i64, ptr %11, align 8
@@ -1431,14 +1431,14 @@ define range(i32 -1, 2) i32 @Aig_ManVerifyUsingBdds(ptr noundef %0, ptr nocaptur
   br label %161
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %19, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 408
   %24 = load ptr, ptr %23, align 8
   %.val85 = load i32, ptr %3, align 4
   %25 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %26 = add i32 %.val85, -1
   %or.cond.i = icmp ult i32 %26, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %.val85
-  %27 = getelementptr inbounds i8, ptr %25, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 0, ptr %27, align 4
   store i32 %spec.store.select.i, ptr %25, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -1452,13 +1452,13 @@ define range(i32 -1, 2) i32 @Aig_ManVerifyUsingBdds(ptr noundef %0, ptr nocaptur
 
 Vec_IntAlloc.exit:                                ; preds = %22, %28
   %32 = phi ptr [ %31, %28 ], [ null, %22 ]
-  %33 = getelementptr inbounds i8, ptr %25, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %32, ptr %33, align 8
   %34 = icmp sgt i32 %.val85, 0
   br i1 %34, label %.lr.ph110, label %.critedge2
 
 .lr.ph110:                                        ; preds = %Vec_IntAlloc.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %36
 
 36:                                               ; preds = %.lr.ph110, %Vec_IntPush.exit
@@ -1466,9 +1466,9 @@ Vec_IntAlloc.exit:                                ; preds = %22, %28
   %37 = load ptr, ptr %35, align 8
   %38 = getelementptr i8, ptr %37, i64 8
   %.val88 = load ptr, ptr %38, align 8
-  %39 = getelementptr inbounds ptr, ptr %.val88, i64 %indvars.iv124
+  %39 = getelementptr inbounds nuw ptr, ptr %.val88, i64 %indvars.iv124
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8
   %.not80 = icmp eq ptr %42, null
   br i1 %.not80, label %67, label %43
@@ -1603,23 +1603,23 @@ Vec_IntPush.exit:                                 ; preds = %89, %Vec_IntGrow.ex
   %.val84.lcssa = phi i32 [ %.val85, %Vec_IntAlloc.exit ], [ %.val84, %Vec_IntPush.exit ]
   %96 = getelementptr i8, ptr %0, i64 104
   %.val = load i32, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %24, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = add nsw i32 %98, 1
   %100 = tail call ptr @Abc_CexAlloc(i32 noundef %.val, i32 noundef %.val84.lcssa, i32 noundef %99) #14
   %101 = load i32, ptr %97, align 4
-  %102 = getelementptr inbounds i8, ptr %100, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 4
   store i32 %101, ptr %102, align 4
   %103 = load i32, ptr %24, align 4
   store i32 %103, ptr %100, align 4
-  %104 = getelementptr inbounds i8, ptr %24, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %105 = load i32, ptr %104, align 4
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %.lr.ph113, label %.preheader102
 
 .lr.ph113:                                        ; preds = %.critedge2
-  %107 = getelementptr inbounds i8, ptr %24, i64 20
-  %108 = getelementptr inbounds i8, ptr %100, i64 20
+  %107 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %108 = getelementptr inbounds nuw i8, ptr %100, i64 20
   br label %141
 
 .preheader102:                                    ; preds = %154, %.critedge2
@@ -1630,8 +1630,8 @@ Vec_IntPush.exit:                                 ; preds = %89, %Vec_IntGrow.ex
 .preheader.lr.ph:                                 ; preds = %.preheader102
   %.val92 = load i32, ptr %27, align 4
   %109 = icmp sgt i32 %.val92, 0
-  %110 = getelementptr inbounds i8, ptr %24, i64 20
-  %111 = getelementptr inbounds i8, ptr %100, i64 20
+  %110 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %100, i64 20
   %112 = getelementptr i8, ptr %19, i64 108
   br i1 %109, label %.preheader.lr.ph.split.us, label %._crit_edge
 
@@ -1648,7 +1648,7 @@ Vec_IntPush.exit:                                 ; preds = %89, %Vec_IntGrow.ex
 
 113:                                              ; preds = %.preheader.us, %136
   %indvars.iv127 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next128, %136 ]
-  %114 = getelementptr inbounds i32, ptr %.val93.us, i64 %indvars.iv127
+  %114 = getelementptr inbounds nuw i32, ptr %.val93.us, i64 %indvars.iv127
   %115 = load i32, ptr %114, align 4
   %116 = icmp eq i32 %115, -1
   br i1 %116, label %136, label %117
@@ -1698,7 +1698,7 @@ Vec_IntPush.exit:                                 ; preds = %89, %Vec_IntGrow.ex
   %.070112 = phi i32 [ 0, %.lr.ph113 ], [ %156, %154 ]
   %143 = lshr i32 %.070112, 5
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds i32, ptr %107, i64 %144
+  %145 = getelementptr inbounds nuw i32, ptr %107, i64 %144
   %146 = load i32, ptr %145, align 4
   %147 = and i32 %.070112, 31
   %148 = shl nuw i32 1, %147
@@ -1707,7 +1707,7 @@ Vec_IntPush.exit:                                 ; preds = %89, %Vec_IntGrow.ex
   br i1 %.not79, label %154, label %150
 
 150:                                              ; preds = %141
-  %151 = getelementptr inbounds i32, ptr %108, i64 %144
+  %151 = getelementptr inbounds nuw i32, ptr %108, i64 %144
   %152 = load i32, ptr %151, align 4
   %153 = or i32 %152, %148
   store i32 %153, ptr %151, align 4
@@ -1731,7 +1731,7 @@ Vec_IntPush.exit:                                 ; preds = %89, %Vec_IntGrow.ex
 
 Vec_IntFree.exit:                                 ; preds = %._crit_edge, %159
   tail call void @free(ptr noundef nonnull %25) #14
-  %160 = getelementptr inbounds i8, ptr %0, i64 408
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr %100, ptr %160, align 8
   tail call void @Aig_ManStop(ptr noundef %19) #14
   br label %161

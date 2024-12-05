@@ -77,9 +77,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @InitRecoveryTransactionEnvironment() local_unnamed_addr #0 {
   %1 = alloca %struct.HASHCTL, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 12, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 24, ptr %3, align 8
   %4 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef 64, ptr noundef nonnull %1, i32 noundef 40) #7
   store ptr %4, ptr @RecoveryLockHash, align 8
@@ -90,7 +90,7 @@ define dso_local void @InitRecoveryTransactionEnvironment() local_unnamed_addr #
   call void @SharedInvalBackendInit(i1 noundef zeroext true) #7
   %6 = load i32, ptr @MyProcNumber, align 4
   %7 = load ptr, ptr @MyProc, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 68
   store i32 %6, ptr %8, align 4
   %9 = call i32 @GetNextLocalTransactionId() #7
   %.sroa.2.0.insert.ext = zext i32 %9 to i64
@@ -187,7 +187,7 @@ define dso_local void @LogRecoveryConflict(i32 noundef %0, i64 noundef %1, i64 n
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = load i32, ptr %16, align 4
   %.not2226 = icmp eq i32 %17, 0
   br i1 %.not2226, label %.loopexit, label %.lr.ph
@@ -210,7 +210,7 @@ define dso_local void @LogRecoveryConflict(i32 noundef %0, i64 noundef %1, i64 n
 
 23:                                               ; preds = %20, %22
   %.str.3.sink = phi ptr [ @.str.2, %22 ], [ @.str.3, %20 ]
-  %24 = getelementptr inbounds i8, ptr %19, i64 60
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 60
   %25 = load i32, ptr %24, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull %.str.3.sink, i32 noundef %25) #7
   %26 = add i32 %.128, 1
@@ -240,7 +240,7 @@ define dso_local void @LogRecoveryConflict(i32 noundef %0, i64 noundef %1, i64 n
 
 switch.lookup:                                    ; preds = %33
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.LogRecoveryConflict.1, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.LogRecoveryConflict.1, i64 0, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_recovery_conflict_desc.exit
 
@@ -267,7 +267,7 @@ get_recovery_conflict_desc.exit:                  ; preds = %switch.lookup, %33
 
 switch.lookup30:                                  ; preds = %44
   %47 = zext nneg i32 %switch.tableidx31 to i64
-  %switch.gep32 = getelementptr inbounds [7 x ptr], ptr @switch.table.LogRecoveryConflict.1, i64 0, i64 %47
+  %switch.gep32 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.LogRecoveryConflict.1, i64 0, i64 %47
   %switch.load33 = load ptr, ptr %switch.gep32, align 8
   br label %get_recovery_conflict_desc.exit25
 
@@ -344,7 +344,7 @@ declare ptr @GetConflictingVirtualXIDs(i32 noundef, i32 noundef) local_unnamed_a
 define internal fastcc void @ResolveRecoveryConflictWithVirtualXIDs(ptr noundef %0, i32 noundef range(i32 8, 11) %1, i32 noundef range(i32 50331648, 134217773) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.thread61, label %9
@@ -620,7 +620,7 @@ define dso_local void @ResolveRecoveryConflictWithLock(i64 %0, i64 %1, i1 nounde
   %6 = alloca %struct.LOCKTAG, align 8
   %7 = alloca [2 x %struct.EnableTimeoutParams], align 16
   store i64 %0, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %1, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -659,7 +659,7 @@ GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %27 = call i64 @GetCurrentTimestamp() #7
   %28 = load ptr, ptr @MyProc, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 136
   %30 = load volatile i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %32, label %33
@@ -676,7 +676,7 @@ GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
 
 36:                                               ; preds = %33
   %37 = call ptr @GetLockConflicts(ptr noundef nonnull %6, i32 noundef 8, ptr noundef null) #7
-  %38 = getelementptr inbounds i8, ptr %6, i64 14
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %39 = load i8, ptr %38, align 2
   %40 = zext i8 %39 to i32
   %41 = or disjoint i32 %40, 50331648
@@ -689,9 +689,9 @@ GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
 43:                                               ; preds = %42
   store volatile i32 0, ptr @got_standby_lock_timeout, align 4
   store i32 6, ptr %7, align 16
-  %44 = getelementptr inbounds i8, ptr %7, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %7, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.0.i, ptr %45, align 16
   br label %46
 
@@ -701,17 +701,17 @@ GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
   %47 = zext nneg i32 %.021 to i64
   %48 = getelementptr [2 x %struct.EnableTimeoutParams], ptr %7, i64 0, i64 %47
   store i32 4, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 0, ptr %49, align 4
   %50 = load i32, ptr @DeadlockTimeout, align 4
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 %50, ptr %51, align 8
   %52 = add nuw nsw i32 %.021, 1
   call void @enable_timeouts(ptr noundef nonnull %7, i32 noundef %52) #7
   br label %53
 
 53:                                               ; preds = %46, %36
-  %54 = getelementptr inbounds i8, ptr %6, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %55 = load i8, ptr %54, align 2
   %56 = zext i8 %55 to i32
   %57 = or disjoint i32 %56, 50331648
@@ -727,7 +727,7 @@ GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
 
 61:                                               ; preds = %59
   %62 = call ptr @GetLockConflicts(ptr noundef nonnull %6, i32 noundef 8, ptr noundef null) #7
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %.not24 = icmp eq i32 %64, 0
   br i1 %.not24, label %74, label %.lr.ph
@@ -827,9 +827,9 @@ GetStandbyLimitTime.exit:                         ; preds = %6, %9, %14, %17
 
 27:                                               ; preds = %26
   store i32 5, ptr %3, align 16
-  %28 = getelementptr inbounds i8, ptr %3, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.0.i, ptr %29, align 16
   br label %30
 
@@ -839,10 +839,10 @@ GetStandbyLimitTime.exit:                         ; preds = %6, %9, %14, %17
   %31 = zext nneg i32 %.0 to i64
   %32 = getelementptr [2 x %struct.EnableTimeoutParams], ptr %3, i64 0, i64 %31
   store i32 4, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 0, ptr %33, align 4
   %34 = load i32, ptr @DeadlockTimeout, align 4
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 %34, ptr %35, align 8
   %36 = add nuw nsw i32 %.0, 1
   call void @enable_timeouts(ptr noundef nonnull %3, i32 noundef %36) #7
@@ -948,16 +948,16 @@ define dso_local void @StandbyAcquireAccessExclusiveLock(i32 noundef %0, i32 nou
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr null, ptr %22, align 8
   br label %23
 
 23:                                               ; preds = %21, %16
   %24 = load i32, ptr %4, align 4
   store i32 %24, ptr %5, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %26, align 4
   %27 = load ptr, ptr @RecoveryLockHash, align 8
   %28 = call ptr @hash_search(ptr noundef %27, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %7) #7
@@ -966,21 +966,21 @@ define dso_local void @StandbyAcquireAccessExclusiveLock(i32 noundef %0, i32 nou
   br i1 %30, label %41, label %31
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %18, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %28, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %33, ptr %34, align 8
   store ptr %28, ptr %32, align 8
   store i32 %1, ptr %6, align 4
-  %35 = getelementptr inbounds i8, ptr %6, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %2, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %6, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %6, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i16 0, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %6, i64 14
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 14
   store i8 0, ptr %38, align 2
-  %39 = getelementptr inbounds i8, ptr %6, i64 15
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 15
   store i8 1, ptr %39, align 1
   %40 = call i32 @LockAcquire(ptr noundef nonnull %6, i32 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false) #7
   br label %41
@@ -1075,17 +1075,17 @@ declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @StandbyReleaseXidEntryLocks(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not14 = icmp eq ptr %4, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 12
-  %8 = getelementptr inbounds i8, ptr %2, i64 14
-  %9 = getelementptr inbounds i8, ptr %2, i64 15
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 14
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 15
   br label %10
 
 10:                                               ; preds = %.lr.ph, %32
@@ -1095,19 +1095,19 @@ define internal fastcc void @StandbyReleaseXidEntryLocks(ptr nocapture noundef n
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %.015, align 8
-  %14 = getelementptr inbounds i8, ptr %.015, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.015, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %.015, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %13, i32 noundef %15, i32 noundef %17) #7
   call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1047, ptr noundef nonnull @__func__.StandbyReleaseXidEntryLocks) #7
   br label %19
 
 19:                                               ; preds = %10, %12
-  %20 = getelementptr inbounds i8, ptr %.015, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.015, i64 4
   %21 = load i32, ptr %20, align 4
   store i32 %21, ptr %2, align 4
-  %22 = getelementptr inbounds i8, ptr %.015, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %23 = load i32, ptr %22, align 8
   store i32 %23, ptr %5, align 4
   store i32 0, ptr %6, align 4
@@ -1130,7 +1130,7 @@ define internal fastcc void @StandbyReleaseXidEntryLocks(ptr nocapture noundef n
   br label %32
 
 32:                                               ; preds = %27, %25, %19
-  %33 = getelementptr inbounds i8, ptr %.015, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @RecoveryLockHash, align 8
   %36 = call ptr @hash_search(ptr noundef %35, ptr noundef nonnull %.015, i32 noundef 2, ptr noundef null) #7
@@ -1184,14 +1184,14 @@ declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local void @standby_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RunningTransactionsData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @standbyState, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, -16
   switch i8 %10, label %62 [
@@ -1201,23 +1201,23 @@ define dso_local void @standby_redo(ptr nocapture noundef readonly %0) local_unn
   ]
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %4, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = getelementptr [0 x %struct.xl_standby_lock], ptr %16, i64 0, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %23 = load i32, ptr %22, align 4
   tail call void @StandbyAcquireAccessExclusiveLock(i32 noundef %19, i32 noundef %21, i32 noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1227,49 +1227,49 @@ define dso_local void @standby_redo(ptr nocapture noundef readonly %0) local_unn
   br i1 %26, label %17, label %.loopexit, !llvm.loop !15
 
 27:                                               ; preds = %7
-  %28 = getelementptr inbounds i8, ptr %4, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %2, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %2, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = load i8, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = and i8 %35, 1
   store i8 %37, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %29, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %2, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %29, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %2, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %29, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %2, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %29, i64 24
-  %48 = getelementptr inbounds i8, ptr %2, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %47, ptr %48, align 8
   call void @ProcArrayApplyRecoveryInfo(ptr noundef nonnull %2) #7
   %49 = call i64 @pgstat_report_stat(i1 noundef zeroext true) #7
   br label %.loopexit
 
 50:                                               ; preds = %7
-  %51 = getelementptr inbounds i8, ptr %4, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
-  %54 = getelementptr inbounds i8, ptr %52, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %52, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %57 = load i8, ptr %56, align 4
   %58 = trunc i8 %57 to i1
   %59 = load i32, ptr %52, align 4
-  %60 = getelementptr inbounds i8, ptr %52, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %61 = load i32, ptr %60, align 4
   tail call void @ProcessCommittedInvalidationMessages(ptr noundef nonnull %53, i32 noundef %55, i1 noundef zeroext %58, i32 noundef %59, i32 noundef %61) #7
   br label %.loopexit
@@ -1331,26 +1331,26 @@ define dso_local i64 @LogStandbySnapshot() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   %18 = load i32, ptr %11, align 8
   store i32 %18, ptr %1, align 4
-  %19 = getelementptr inbounds i8, ptr %11, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %11, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %23 = load i8, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = and i8 %23, 1
   store i8 %25, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %11, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %11, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %11, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %33, ptr %34, align 4
   call void @XLogBeginInsert() #7
   call void @XLogSetRecordFlags(i8 noundef zeroext 2) #7
@@ -1360,7 +1360,7 @@ define dso_local i64 @LogStandbySnapshot() local_unnamed_addr #0 {
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %17
-  %38 = getelementptr inbounds i8, ptr %11, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %21, align 4
   %41 = add i32 %40, %35
@@ -1441,9 +1441,9 @@ define dso_local void @LogAccessExclusiveLock(i32 noundef %0, i32 noundef %1) lo
   %4 = alloca %struct.xl_standby_lock, align 4
   %5 = tail call i32 @GetCurrentTransactionId() #7
   store i32 %5, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 1, ptr %3, align 4
@@ -1471,16 +1471,16 @@ define dso_local void @LogAccessExclusiveLockPrepare() local_unnamed_addr #0 {
 define dso_local void @LogStandbyInvalidations(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.xl_invalidations, align 4
   %5 = zext i1 %2 to i8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %6, align 4
   %7 = load i32, ptr @MyDatabaseId, align 4
   store i32 %7, ptr %4, align 4
   %8 = load i32, ptr @MyDatabaseTableSpace, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %5, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %0, ptr %11, align 4
   tail call void @XLogBeginInsert() #7
   call void @XLogRegisterData(ptr noundef nonnull %4, i32 noundef 16) #7

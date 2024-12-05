@@ -53,9 +53,9 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope4miss17h04fb030c2b5cc05bE(
 7:                                                ; preds = %3
   %8 = extractvalue { i32, i32 } %4, 0
   %9 = extractvalue { i32, i32 } %4, 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %9, ptr %11, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   ret void
@@ -72,9 +72,9 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope4miss17h04fb030c2b5cc05bE(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN13logos_codegen5graph4rope4Rope4miss17hb10b074ea6c3bc20E(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 40)) %0, ptr nocapture align 8 initializes((24, 32)) %1, i32 %2, i32 %3) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %3, ptr %6, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   ret void
@@ -94,9 +94,9 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope4miss17hd08044ed7d49c8c5E(
 7:                                                ; preds = %3
   %8 = extractvalue { i32, i32 } %4, 0
   %9 = extractvalue { i32, i32 } %4, 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %9, ptr %11, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   ret void
@@ -120,7 +120,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4rope4Rope9into_fork17h959f0
 5:                                                ; preds = %2
   %6 = extractvalue { i8, i8 } %4, 0
   %7 = extractvalue { i8, i8 } %4, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = invoke i32 @_ZN13logos_codegen5graph4rope4Miss10take_first17h259b9550a3a64e8fE(ptr nonnull align 4 %8)
           to label %10 unwind label %39
 
@@ -134,7 +134,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4rope4Rope9into_fork17h959f0
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = invoke { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork3new17h4732e8fb0936fbbeE()
           to label %28 unwind label %39
@@ -189,7 +189,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4rope4Rope9into_fork17h959f0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN13logos_codegen5graph4rope4Rope6prefix28_$u7b$$u7b$closure$u7d$$u7d$17hebd3dafd5bf62005E"(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = tail call zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h29ae94ba9d91f5deE"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret i1 %4
 }
@@ -247,13 +247,13 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope8split_at17h4cf1c3318155b4
 
 27:                                               ; preds = %25
   store ptr @anon.41f2e3a5ff772aa5c2a5ca7de84bf2e0.7, ptr %8, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %31, align 8
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %8, ptr nonnull align 8 @anon.41f2e3a5ff772aa5c2a5ca7de84bf2e0.9) #11
           to label %34 unwind label %17
@@ -268,19 +268,19 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope8split_at17h4cf1c3318155b4
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %7, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 2
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %35
-  %47 = getelementptr inbounds i8, ptr %1, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %48 = load i32, ptr %47, align 4
   br label %49
 
@@ -295,13 +295,13 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope8split_at17h4cf1c3318155b4
 51:                                               ; preds = %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %52 = getelementptr inbounds i8, ptr %1, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %10, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %10, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %.sroa.03.0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %10, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %.sroa.3.0, ptr %56, align 4
   %57 = invoke i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h0485bf70b045aee4E"(ptr align 8 %3, ptr nonnull align 8 %10)
           to label %58 unwind label %17
@@ -390,7 +390,7 @@ define hidden i32 @_ZN13logos_codegen5graph4rope4Rope9remainder17ha6df45cde71fab
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
   call void @"_ZN4core3ptr56drop_in_place$LT$logos_codegen..graph..rope..Pattern$GT$17h695bea186d767e7aE"(ptr nonnull align 8 %0)
   br label %28
@@ -421,9 +421,9 @@ define hidden i32 @_ZN13logos_codegen5graph4rope4Rope9remainder17ha6df45cde71fab
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN13logos_codegen5graph4rope4Rope5shake17hd5d4df5245d57fe4E(ptr nocapture readonly align 8 %0, ptr align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @_ZN13logos_codegen5graph4rope4Miss5first17h8bbbf9f71445b7e3E(i32 %6, i32 %8)
   %.not = icmp eq i32 %9, 0
@@ -435,7 +435,7 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope5shake17hd5d4df5245d57fe4E
   br i1 %12, label %18, label %22, !prof !3
 
 13:                                               ; preds = %26, %18, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = tail call i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %15)
   %17 = icmp ult i64 %16, %3
@@ -546,7 +546,7 @@ define void @"_ZN69_$LT$logos_codegen..graph..rope..Miss$u20$as$u20$core..hash..
   br i1 %switch, label %.sink.split, label %7
 
 .sink.split:                                      ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   tail call void @_ZN4core4hash6Hasher9write_u3217h27546f1ece9eb5bdE(ptr align 8 %1, i32 %6)
   br label %7

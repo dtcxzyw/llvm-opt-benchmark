@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @range_gist_consistent(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -40,16 +40,16 @@ define dso_local range(i64 0, 2) i64 @range_gist_consistent(ptr noundef %0) loca
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call ptr @pg_detoast_datum(ptr noundef %17) #10
   store i8 0, ptr %15, align 1
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %20) #10
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i16, ptr %24, align 4
   %26 = zext i16 %25 to i64
   %27 = getelementptr i8, ptr %23, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i16, ptr %28, align 4
   %30 = and i16 %29, 1
   %.not = icmp eq i16 %30, 0
@@ -263,7 +263,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_leaf_multirange(ptr nou
   br i1 %.not.i, label %30, label %34
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %41
@@ -275,7 +275,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_leaf_multirange(ptr nou
   br i1 %.not14.i, label %multirange_union_range_equal.exit, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 0
   br label %multirange_union_range_equal.exit
@@ -488,7 +488,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   br i1 %.not49, label %8, label %79
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %79, label %12
@@ -505,7 +505,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   br i1 %.not48, label %18, label %79
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %79, label %22
@@ -526,7 +526,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   br i1 %.not47, label %30, label %79
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %79, label %34
@@ -543,7 +543,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   br i1 %.not46, label %40, label %79
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %3, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %79, label %44
@@ -560,7 +560,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   br i1 %.not45, label %50, label %79
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %79, label %54
@@ -588,7 +588,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   br label %79
 
 65:                                               ; preds = %4
-  %66 = getelementptr inbounds i8, ptr %3, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %73
@@ -618,10 +618,10 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @multirange_gist_compress(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 26
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 26
   %6 = load i8, ptr %5, align 2
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %31
@@ -631,27 +631,27 @@ define dso_local i64 @multirange_gist_compress(ptr noundef %0) local_unnamed_add
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #10
   %12 = tail call ptr @palloc(i64 noundef 32) #10
-  %13 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @multirange_get_typcache(ptr noundef nonnull %0, i32 noundef %14) #10
-  %16 = getelementptr inbounds i8, ptr %15, i64 440
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 440
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @multirange_get_union_range(ptr noundef %17, ptr noundef %11) #10
   %19 = ptrtoint ptr %18 to i64
   store i64 %19, ptr %12, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %12, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %27 = load i16, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %12, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i16 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %12, i64 26
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 26
   store i8 0, ptr %29, align 2
   %30 = ptrtoint ptr %12 to i64
   br label %31
@@ -669,7 +669,7 @@ declare ptr @multirange_get_union_range(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @multirange_gist_consistent(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -687,16 +687,16 @@ define dso_local range(i64 0, 2) i64 @multirange_gist_consistent(ptr noundef %0)
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call ptr @pg_detoast_datum(ptr noundef %17) #10
   store i8 1, ptr %15, align 1
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %20) #10
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i16, ptr %24, align 4
   %26 = zext i16 %25 to i64
   %27 = getelementptr i8, ptr %23, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i16, ptr %28, align 4
   %30 = and i16 %29, 1
   %.not = icmp eq i16 %30, 0
@@ -782,14 +782,14 @@ range_gist_consistent_int_element.exit:           ; preds = %56
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @range_gist_union(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #10
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %10) #10
   %12 = load i32, ptr %4, align 8
@@ -905,7 +905,7 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %5 = alloca %struct.RangeBound, align 8
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr i8, ptr %0, i64 48
@@ -920,9 +920,9 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %20 = load i64, ptr %13, align 8
   %21 = inttoptr i64 %20 to ptr
   %22 = tail call ptr @pg_detoast_datum(ptr noundef %21) #10
-  %23 = getelementptr inbounds i8, ptr %19, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %22, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %26 = load i32, ptr %25, align 4
   %.not = icmp eq i32 %24, %26
   br i1 %.not, label %30, label %27
@@ -936,7 +936,7 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 
 30:                                               ; preds = %1
   %31 = tail call ptr @range_get_typcache(ptr noundef nonnull %0, i32 noundef %24) #10
-  %32 = getelementptr inbounds i8, ptr %31, i64 400
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 400
   %33 = load i32, ptr %32, align 8
   %.not55 = icmp eq i32 %33, 0
   call void @range_deserialize(ptr noundef %31, ptr noundef nonnull %19, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %6) #10
@@ -957,10 +957,10 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not57, label %42, label %.sink.split
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load i8, ptr %43, align 8
   %45 = trunc i8 %44 to i1
-  %46 = getelementptr inbounds i8, ptr %4, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %47 = load i8, ptr %46, align 8
   %48 = trunc i8 %47 to i1
   br i1 %45, label %49, label %50
@@ -975,10 +975,10 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 51:                                               ; preds = %30
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = load i8, ptr %52, align 8
   %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds i8, ptr %5, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %56 = load i8, ptr %55, align 8
   %57 = trunc i8 %56 to i1
   br i1 %54, label %58, label %97
@@ -987,10 +987,10 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %57, label %59, label %74
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
-  %63 = getelementptr inbounds i8, ptr %4, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %64 = load i8, ptr %63, align 8
   %65 = trunc i8 %64 to i1
   br i1 %62, label %66, label %67
@@ -1023,13 +1023,13 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %76, label %.sink.split, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %2, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %79 = load i8, ptr %78, align 8
   %80 = trunc i8 %79 to i1
   br i1 %80, label %81, label %.sink.split
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %4, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %83 = load i8, ptr %82, align 8
   %84 = trunc i8 %83 to i1
   br i1 %84, label %.sink.split, label %85
@@ -1044,8 +1044,8 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 88:                                               ; preds = %85
   %89 = load i64, ptr %5, align 8
   %90 = load i64, ptr %4, align 8
-  %91 = getelementptr inbounds i8, ptr %31, i64 392
-  %92 = getelementptr inbounds i8, ptr %31, i64 292
+  %91 = getelementptr inbounds nuw i8, ptr %31, i64 392
+  %92 = getelementptr inbounds nuw i8, ptr %31, i64 292
   %93 = load i32, ptr %92, align 4
   %94 = call i64 @FunctionCall2Coll(ptr noundef nonnull %91, i32 noundef %93, i64 noundef %89, i64 noundef %90) #10
   %95 = bitcast i64 %94 to double
@@ -1063,13 +1063,13 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %99, label %.sink.split, label %101
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %4, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %103 = load i8, ptr %102, align 8
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %.sink.split
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %2, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %107 = load i8, ptr %106, align 8
   %108 = trunc i8 %107 to i1
   br i1 %108, label %.sink.split, label %109
@@ -1084,8 +1084,8 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 112:                                              ; preds = %109
   %113 = load i64, ptr %2, align 8
   %114 = load i64, ptr %3, align 8
-  %115 = getelementptr inbounds i8, ptr %31, i64 392
-  %116 = getelementptr inbounds i8, ptr %31, i64 292
+  %115 = getelementptr inbounds nuw i8, ptr %31, i64 392
+  %116 = getelementptr inbounds nuw i8, ptr %31, i64 292
   %117 = load i32, ptr %116, align 4
   %118 = call i64 @FunctionCall2Coll(ptr noundef nonnull %115, i32 noundef %117, i64 noundef %113, i64 noundef %114) #10
   %119 = bitcast i64 %118 to double
@@ -1098,13 +1098,13 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %99, label %.sink.split, label %122
 
 122:                                              ; preds = %121
-  %123 = getelementptr inbounds i8, ptr %2, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %124 = load i8, ptr %123, align 8
   %125 = trunc i8 %124 to i1
   br i1 %125, label %.sink.split, label %126
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds i8, ptr %4, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %128 = load i8, ptr %127, align 8
   %129 = trunc i8 %128 to i1
   br i1 %129, label %.sink.split, label %130
@@ -1119,8 +1119,8 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 133:                                              ; preds = %130
   %134 = load i64, ptr %2, align 8
   %135 = load i64, ptr %3, align 8
-  %136 = getelementptr inbounds i8, ptr %31, i64 392
-  %137 = getelementptr inbounds i8, ptr %31, i64 292
+  %136 = getelementptr inbounds nuw i8, ptr %31, i64 392
+  %137 = getelementptr inbounds nuw i8, ptr %31, i64 292
   %138 = load i32, ptr %137, align 4
   %139 = call i64 @FunctionCall2Coll(ptr noundef nonnull %136, i32 noundef %138, i64 noundef %134, i64 noundef %135) #10
   %140 = bitcast i64 %139 to double
@@ -1141,8 +1141,8 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 146:                                              ; preds = %145
   %147 = load i64, ptr %5, align 8
   %148 = load i64, ptr %4, align 8
-  %149 = getelementptr inbounds i8, ptr %31, i64 392
-  %150 = getelementptr inbounds i8, ptr %31, i64 292
+  %149 = getelementptr inbounds nuw i8, ptr %31, i64 392
+  %150 = getelementptr inbounds nuw i8, ptr %31, i64 292
   %151 = load i32, ptr %150, align 4
   %152 = call i64 @FunctionCall2Coll(ptr noundef nonnull %149, i32 noundef %151, i64 noundef %147, i64 noundef %148) #10
   %153 = bitcast i64 %152 to double
@@ -1190,18 +1190,18 @@ define dso_local i64 @range_gist_picksplit(ptr noundef %0) local_unnamed_addr #0
   %5 = alloca i8, align 1
   %6 = alloca [9 x i32], align 16
   %7 = alloca [9 x i32], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = getelementptr i8, ptr %10, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call ptr @pg_detoast_datum(ptr noundef %17) #10
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %20) #10
   %22 = load i32, ptr %10, align 8
@@ -1213,7 +1213,7 @@ define dso_local i64 @range_gist_picksplit(ptr noundef %0) local_unnamed_addr #0
   %28 = tail call ptr @palloc(i64 noundef %27) #10
   store ptr %28, ptr %13, align 8
   %29 = tail call ptr @palloc(i64 noundef %27) #10
-  %30 = getelementptr inbounds i8, ptr %13, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %29, ptr %30, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %6, i8 0, i64 36, i1 false)
   %31 = and i32 %22, 65535
@@ -1296,7 +1296,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %60 = getelementptr inbounds i8, ptr %21, i64 400
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 400
   %61 = load i32, ptr %60, align 8
   %.not236.i = icmp eq i32 %61, 0
   %62 = load i32, ptr %10, align 8
@@ -1338,8 +1338,8 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %83 = lshr i32 %82, 1
   %84 = lshr i32 %64, 1
   %85 = uitofp nneg i32 %64 to float
-  %86 = getelementptr inbounds i8, ptr %21, i64 392
-  %87 = getelementptr inbounds i8, ptr %21, i64 292
+  %86 = getelementptr inbounds nuw i8, ptr %21, i64 392
+  %87 = getelementptr inbounds nuw i8, ptr %21, i64 292
   br label %.lr.ph248.i
 
 .lr.ph248.i:                                      ; preds = %range_gist_consider_split.exit.i, %._crit_edge.i
@@ -1366,7 +1366,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   br i1 %92, label %93, label %98
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %90, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %95 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %94, ptr noundef %.1183246.i) #10
   %96 = icmp sgt i32 %95, 0
   %spec.select.i = select i1 %96, ptr %94, ptr %.1183246.i
@@ -1491,7 +1491,7 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
   %indvars.iv354.i = phi i64 [ %137, %.lr.ph286.i ], [ %indvars.iv.next355.i, %143 ]
   %.2188284.i = phi ptr [ %.1187310.i, %.lr.ph286.i ], [ %spec.select204.i, %143 ]
   %139 = getelementptr %struct.NonEmptyRange, ptr %69, i64 %indvars.iv354.i
-  %140 = getelementptr inbounds i8, ptr %139, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %141 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef %.3185311.i, ptr noundef nonnull %140) #10
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %.critedge4.i
@@ -1617,9 +1617,9 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   store ptr %189, ptr %13, align 8
   %190 = call ptr @palloc(i64 noundef %188) #10
   store ptr %190, ptr %30, align 8
-  %191 = getelementptr inbounds i8, ptr %13, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %13, i64 40
+  %192 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 0, ptr %192, align 8
   %193 = shl nuw nsw i64 %66, 4
   %194 = call ptr @palloc(i64 noundef %193) #10
@@ -1672,7 +1672,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
 
 222:                                              ; preds = %210, %207
   %.sink.i = phi double [ %221, %210 ], [ 0.000000e+00, %207 ]
-  %223 = getelementptr inbounds i8, ptr %209, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store double %.sink.i, ptr %223, align 8
   %224 = add i32 %.0180317.i, 1
   br label %247
@@ -1807,10 +1807,10 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %.3176.i = phi ptr [ %.2175.i, %._crit_edge323.i ], [ %.6179.i, %282 ]
   %.3.i = phi ptr [ %.2172.i, %._crit_edge323.i ], [ %.6.i, %282 ]
   %288 = ptrtoint ptr %.3.i to i64
-  %289 = getelementptr inbounds i8, ptr %13, i64 16
+  %289 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %288, ptr %289, align 8
   %290 = ptrtoint ptr %.3176.i to i64
-  %291 = getelementptr inbounds i8, ptr %13, i64 48
+  %291 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i64 %290, ptr %291, align 8
   br label %range_gist_double_sorting_split.exit
 
@@ -1844,20 +1844,20 @@ range_gist_double_sorting_split.exit:             ; preds = %._crit_edge287.thre
   br label %337
 
 299:                                              ; preds = %295
-  %300 = getelementptr inbounds i8, ptr %6, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %301 = load i32, ptr %300, align 16
   %302 = add i32 %301, %296
-  %303 = getelementptr inbounds i8, ptr %6, i64 32
+  %303 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %304 = load i32, ptr %303, align 16
   %305 = add i32 %302, %304
   %306 = sub i32 %24, %305
-  %307 = getelementptr inbounds i8, ptr %6, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %308 = load i32, ptr %307, align 4
   %309 = add i32 %308, %296
-  %310 = getelementptr inbounds i8, ptr %6, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %311 = load i32, ptr %310, align 8
   %312 = add i32 %309, %311
-  %313 = getelementptr inbounds i8, ptr %6, i64 12
+  %313 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %314 = load i32, ptr %313, align 4
   %315 = add i32 %312, %314
   %316 = sub i32 %24, %315
@@ -1876,9 +1876,9 @@ range_gist_double_sorting_split.exit:             ; preds = %._crit_edge287.thre
 
 324:                                              ; preds = %319
   store i32 1, ptr %7, align 16
-  %325 = getelementptr inbounds i8, ptr %7, i64 16
+  %325 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %325, align 16
-  %326 = getelementptr inbounds i8, ptr %7, i64 32
+  %326 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 1, ptr %326, align 16
   br label %337
 
@@ -1890,11 +1890,11 @@ range_gist_double_sorting_split.exit:             ; preds = %._crit_edge287.thre
 
 330:                                              ; preds = %327
   store i32 1, ptr %7, align 16
-  %331 = getelementptr inbounds i8, ptr %7, i64 4
+  %331 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %331, align 4
-  %332 = getelementptr inbounds i8, ptr %7, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %332, align 8
-  %333 = getelementptr inbounds i8, ptr %7, i64 12
+  %333 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %333, align 4
   br label %337
 
@@ -1906,9 +1906,9 @@ range_gist_double_sorting_split.exit:             ; preds = %._crit_edge287.thre
 
 337:                                              ; preds = %324, %334, %330, %298
   %338 = load i32, ptr %10, align 8
-  %339 = getelementptr inbounds i8, ptr %13, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %339, align 8
-  %340 = getelementptr inbounds i8, ptr %13, i64 40
+  %340 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 0, ptr %340, align 8
   %341 = and i32 %338, 65535
   %.not35.i = icmp eq i32 %341, 1
@@ -2006,9 +2006,9 @@ get_gist_range_class.exit.i:                      ; preds = %352, %344
 range_gist_class_split.exit:                      ; preds = %337, %._crit_edge.loopexit.i
   %.030.lcssa.i = phi i64 [ 0, %337 ], [ %382, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i64 [ 0, %337 ], [ %381, %._crit_edge.loopexit.i ]
-  %383 = getelementptr inbounds i8, ptr %13, i64 16
+  %383 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %.0.lcssa.i, ptr %383, align 8
-  %384 = getelementptr inbounds i8, ptr %13, i64 48
+  %384 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i64 %.030.lcssa.i, ptr %384, align 8
   br label %385
 
@@ -2034,14 +2034,14 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
 
 ._crit_edge.thread:                               ; preds = %4
   tail call void @qsort_arg(ptr noundef %12, i64 noundef %10, i64 noundef 24, ptr noundef nonnull @single_bound_cmp, ptr noundef %0) #10
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 0, ptr %14, align 8
   br label %._crit_edge68
 
 .lr.ph:                                           ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -2080,13 +2080,13 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
   call void @qsort_arg(ptr noundef nonnull %12, i64 noundef %10, i64 noundef 24, ptr noundef nonnull @single_bound_cmp, ptr noundef %0) #10
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 0, ptr %37, align 8
   %38 = lshr i16 %9, 1
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %41 = zext nneg i16 %38 to i64
   br label %42
 
@@ -2161,9 +2161,9 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
 ._crit_edge68:                                    ; preds = %._crit_edge.thread, %._crit_edge68.loopexit
   %.053.lcssa = phi i64 [ %73, %._crit_edge68.loopexit ], [ 0, %._crit_edge.thread ]
   %.0.lcssa = phi i64 [ %72, %._crit_edge68.loopexit ], [ 0, %._crit_edge.thread ]
-  %74 = getelementptr inbounds i8, ptr %2, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.0.lcssa, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %2, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 %.053.lcssa, ptr %75, align 8
   ret void
 }
@@ -2171,9 +2171,9 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((8, 12), (40, 44)) %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 0, ptr %6, align 8
   %7 = and i32 %4, 65535
   %.not35 = icmp eq i32 %7, 1
@@ -2184,8 +2184,8 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nocap
   %9 = and i32 %8, 65535
   %10 = add nsw i32 %9, -1
   %11 = sdiv i32 %10, 2
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = trunc i32 %8 to i16
   br label %15
 
@@ -2259,9 +2259,9 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nocap
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %.030.lcssa = phi i64 [ 0, %3 ], [ %46, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %3 ], [ %45, %._crit_edge.loopexit ]
-  %47 = getelementptr inbounds i8, ptr %2, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.0.lcssa, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 %.030.lcssa, ptr %48, align 8
   ret void
 }
@@ -2271,7 +2271,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @range_gist_same(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #10
@@ -2287,7 +2287,7 @@ define dso_local i64 @range_gist_same(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %14, label %20
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = tail call ptr @range_get_typcache(ptr noundef nonnull %0, i32 noundef %16) #10
   %18 = tail call zeroext i1 @range_eq_internal(ptr noundef %17, ptr noundef %5, ptr noundef %9) #10
@@ -2351,8 +2351,8 @@ declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @single_bound_cmp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = tail call i32 @range_cmp_bounds(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   ret i32 %6
 }
@@ -2368,8 +2368,8 @@ define internal i32 @interval_cmp_lower(ptr noundef %0, ptr noundef %1, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @interval_cmp_upper(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call i32 @range_cmp_bounds(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   ret i32 %6
 }
@@ -2378,9 +2378,9 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @common_entry_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
   %7 = fcmp olt double %4, %6
   %8 = fcmp ogt double %4, %6

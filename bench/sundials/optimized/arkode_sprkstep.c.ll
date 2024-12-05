@@ -66,39 +66,39 @@ define ptr @SPRKStepCreate(ptr noundef %0, ptr noundef %1, double noundef %2, pt
   br label %76
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %sprkStep_CheckNVector.exit.thread, label %20
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %sprkStep_CheckNVector.exit.thread, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %16, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %sprkStep_CheckNVector.exit.thread, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %16, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %sprkStep_CheckNVector.exit.thread, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %16, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %sprkStep_CheckNVector.exit.thread, label %sprkStep_CheckNVector.exit
 
 sprkStep_CheckNVector.exit:                       ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %16, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 168
   %37 = load ptr, ptr %36, align 8
   %.not48 = icmp eq ptr %37, null
   br i1 %.not48, label %sprkStep_CheckNVector.exit.thread, label %38
@@ -127,7 +127,7 @@ sprkStep_CheckNVector.exit.thread:                ; preds = %14, %20, %24, %28, 
   br label %76
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   %47 = tail call i32 @arkAllocVec(ptr noundef nonnull %39, ptr noundef nonnull %3, ptr noundef nonnull %46) #7
   %.not40 = icmp eq i32 %47, 0
   br i1 %.not40, label %48, label %49
@@ -137,10 +137,10 @@ sprkStep_CheckNVector.exit.thread:                ; preds = %14, %20, %24, %28, 
   br label %76
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %39, i64 680
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 680
   %51 = load i32, ptr %50, align 8
   %.not41 = icmp eq i32 %51, 0
-  %52 = getelementptr inbounds i8, ptr %calloc, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   br i1 %.not41, label %56, label %53
 
 53:                                               ; preds = %49
@@ -157,13 +157,13 @@ sprkStep_CheckNVector.exit.thread:                ; preds = %14, %20, %24, %28, 
   br label %57
 
 57:                                               ; preds = %53, %56
-  %58 = getelementptr inbounds i8, ptr %39, i64 208
+  %58 = getelementptr inbounds nuw i8, ptr %39, i64 208
   store ptr @sprkStep_Init, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %39, i64 216
+  %59 = getelementptr inbounds nuw i8, ptr %39, i64 216
   store ptr @sprkStep_FullRHS, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %39, i64 224
+  %60 = getelementptr inbounds nuw i8, ptr %39, i64 224
   store ptr @sprkStep_TakeStep, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %39, i64 232
+  %61 = getelementptr inbounds nuw i8, ptr %39, i64 232
   store ptr %calloc, ptr %61, align 8
   %62 = tail call i32 @SPRKStepSetDefaults(ptr noundef nonnull %39) #7
   %.not43 = icmp eq i32 %62, 0
@@ -175,18 +175,18 @@ sprkStep_CheckNVector.exit.thread:                ; preds = %14, %20, %24, %28, 
   br label %76
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %calloc, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store ptr %0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %calloc, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   store ptr %1, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %calloc, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %67, i8 0, i64 20, i1 false)
   %68 = load i32, ptr %50, align 8
   %.not44 = icmp eq i32 %68, 0
   br i1 %.not44, label %72, label %69
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %calloc, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   %71 = load ptr, ptr %70, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %71) #7
   br label %72
@@ -211,39 +211,39 @@ declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @sprkStep_CheckNVector(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %27, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %27, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %27, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %3, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %27, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %3, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %3, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %25 = load ptr, ptr %24, align 8
   %26 = icmp ne ptr %25, null
   %spec.select = zext i1 %26 to i32
@@ -268,13 +268,13 @@ define void @SPRKStepFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %19, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %18, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not17 = icmp eq ptr %9, null
   br i1 %.not17, label %11, label %10
@@ -285,7 +285,7 @@ define void @SPRKStepFree(ptr noundef %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %10, %7
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not18 = icmp eq ptr %13, null
   br i1 %.not18, label %15, label %14
@@ -321,7 +321,7 @@ define range(i32 -22, 1) i32 @sprkStep_Init(ptr noundef %0, i32 noundef %1) #0 {
   br label %sprkStep_AccessStepMem.exit.thread
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %sprkStep_AccessStepMem.exit
@@ -342,7 +342,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %5
   br i1 %.not11, label %12, label %18
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load i32, ptr %13, align 8
   %switch.tableidx = add i32 %14, -1
   %15 = icmp ult i32 %switch.tableidx, 10
@@ -350,7 +350,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %5
 
 switch.lookup:                                    ; preds = %12
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.sprkStep_Init, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.sprkStep_Init, i64 0, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split
 
@@ -361,7 +361,7 @@ switch.lookup:                                    ; preds = %12
   br label %18
 
 18:                                               ; preds = %.sink.split, %sprkStep_AccessStepMem.exit, %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 336
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %20 = load ptr, ptr %19, align 8
   %.not12 = icmp eq ptr %20, null
   br i1 %.not12, label %sprkStep_AccessStepMem.exit.thread, label %21
@@ -395,7 +395,7 @@ define range(i32 -21, 1) i32 @sprkStep_FullRHS(ptr noundef %0, double noundef %1
   br label %sprkStep_AccessStepMem.exit.thread
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %sprkStep_AccessStepMem.exit
@@ -409,12 +409,12 @@ sprkStep_AccessStepMem.exit:                      ; preds = %8
   br i1 %switch, label %13, label %32
 
 13:                                               ; preds = %sprkStep_AccessStepMem.exit
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %15) #7
-  %19 = getelementptr inbounds i8, ptr %10, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %20 = load i64, ptr %19, align 8
   %21 = add nsw i64 %20, 1
   store i64 %21, ptr %19, align 8
@@ -427,10 +427,10 @@ sprkStep_AccessStepMem.exit:                      ; preds = %8
 
 23:                                               ; preds = %13
   %24 = load ptr, ptr %14, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26(double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %24) #7
-  %28 = getelementptr inbounds i8, ptr %10, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %29 = load i64, ptr %28, align 8
   %30 = add nsw i64 %29, 1
   store i64 %30, ptr %28, align 8
@@ -460,7 +460,7 @@ define range(i32 -38, 1) i32 @sprkStep_TakeStep(ptr noundef %0, ptr nocapture no
   br label %sprkStep_AccessStepMem.exit.thread
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 232
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %sprkStep_AccessStepMem.exit
@@ -470,28 +470,28 @@ define range(i32 -38, 1) i32 @sprkStep_TakeStep(ptr noundef %0, ptr nocapture no
   br label %sprkStep_AccessStepMem.exit.thread
 
 sprkStep_AccessStepMem.exit:                      ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 264
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %sprkStep_AccessStepMem.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 272
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 64
-  %20 = getelementptr inbounds i8, ptr %8, i64 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 568
-  %22 = getelementptr inbounds i8, ptr %0, i64 376
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %8, i64 32
-  %25 = getelementptr inbounds i8, ptr %8, i64 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 424
-  %27 = getelementptr inbounds i8, ptr %8, i64 40
-  %28 = getelementptr inbounds i8, ptr %8, i64 56
-  %29 = getelementptr inbounds i8, ptr %0, i64 672
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 672
   br label %30
 
 30:                                               ; preds = %.lr.ph, %80
@@ -500,13 +500,13 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   %.02962 = phi ptr [ %18, %.lr.ph ], [ %12, %80 ]
   %.03160 = phi double [ 0.000000e+00, %.lr.ph ], [ %41, %80 ]
   %.03259 = phi double [ 0.000000e+00, %.lr.ph ], [ %40, %80 ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds double, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
   %35 = load double, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %31, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds double, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
   %39 = load double, ptr %38, align 8
   %40 = fadd double %.03259, %35
   %41 = fadd double %.03160, %39
@@ -574,7 +574,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   store i32 %82, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = load ptr, ptr %8, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next, %86
@@ -608,7 +608,7 @@ define i32 @SPRKStepReInit(ptr noundef %0, ptr noundef %1, ptr noundef %2, doubl
   br label %sprkStep_AccessStepMem.exit.thread
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %sprkStep_AccessStepMem.exit
@@ -618,7 +618,7 @@ define i32 @SPRKStepReInit(ptr noundef %0, ptr noundef %1, ptr noundef %2, doubl
   br label %sprkStep_AccessStepMem.exit.thread
 
 sprkStep_AccessStepMem.exit:                      ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 608
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %17
@@ -646,9 +646,9 @@ sprkStep_AccessStepMem.exit:                      ; preds = %8
   br label %sprkStep_AccessStepMem.exit.thread
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %10, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %2, ptr %25, align 8
   %26 = tail call i32 @arkInit(ptr noundef nonnull %0, double noundef %3, ptr noundef nonnull %4, i32 noundef 0) #7
   %.not20 = icmp eq i32 %26, 0
@@ -659,8 +659,8 @@ sprkStep_AccessStepMem.exit:                      ; preds = %8
   br label %sprkStep_AccessStepMem.exit.thread
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %10, i64 48
-  %30 = getelementptr inbounds i8, ptr %10, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %29, i8 0, i64 20, i1 false)
   %31 = load ptr, ptr %30, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %31) #7
@@ -682,7 +682,7 @@ define range(i32 -21, 1) i32 @sprkStep_AccessStepMem(ptr noundef %0, ptr noundef
 
 7:                                                ; preds = %4
   store ptr %0, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 232
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
@@ -710,7 +710,7 @@ define i32 @SPRKStepReset(ptr noundef %0, double noundef %1, ptr noundef %2) loc
   br label %sprkStep_AccessStepMem.exit.thread
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 232
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %sprkStep_AccessStepMem.exit
@@ -729,7 +729,7 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   br label %sprkStep_AccessStepMem.exit.thread
 
 13:                                               ; preds = %sprkStep_AccessStepMem.exit
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %15) #7
   br label %sprkStep_AccessStepMem.exit.thread
@@ -814,10 +814,10 @@ declare i32 @arkRootInit(ptr noundef, i32 noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define i32 @sprkStep_f1(ptr nocapture noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = add nsw i64 %10, 1
   store i64 %11, ptr %9, align 8
@@ -826,10 +826,10 @@ define i32 @sprkStep_f1(ptr nocapture noundef %0, double noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define i32 @sprkStep_f2(ptr nocapture noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i64, ptr %9, align 8
   %11 = add nsw i64 %10, 1
   store i64 %11, ptr %9, align 8
@@ -851,7 +851,7 @@ define range(i32 -38, 1) i32 @sprkStep_TakeStep_Compensated(ptr noundef %0, ptr 
   br label %sprkStep_AccessStepMem.exit.thread
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 232
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %sprkStep_AccessStepMem.exit
@@ -861,38 +861,38 @@ define range(i32 -38, 1) i32 @sprkStep_TakeStep_Compensated(ptr noundef %0, ptr 
   br label %sprkStep_AccessStepMem.exit.thread
 
 sprkStep_AccessStepMem.exit:                      ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 296
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 304
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 312
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %16 = load ptr, ptr %15, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %12) #7
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %sprkStep_AccessStepMem.exit
-  %21 = getelementptr inbounds i8, ptr %8, i64 64
-  %22 = getelementptr inbounds i8, ptr %0, i64 272
-  %23 = getelementptr inbounds i8, ptr %8, i64 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 568
-  %25 = getelementptr inbounds i8, ptr %0, i64 376
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = getelementptr inbounds i8, ptr %8, i64 32
-  %28 = getelementptr inbounds i8, ptr %8, i64 48
-  %29 = getelementptr inbounds i8, ptr %0, i64 424
-  %30 = getelementptr inbounds i8, ptr %8, i64 40
-  %31 = getelementptr inbounds i8, ptr %8, i64 56
-  %32 = getelementptr inbounds i8, ptr %0, i64 672
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 672
   br label %39
 
 33:                                               ; preds = %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
@@ -903,13 +903,13 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   %40 = phi ptr [ %17, %.lr.ph ], [ %34, %33 ]
   %.03970 = phi double [ 0.000000e+00, %.lr.ph ], [ %50, %33 ]
   %.04069 = phi double [ 0.000000e+00, %.lr.ph ], [ %49, %33 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds double, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %40, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds double, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv
   %48 = load double, ptr %47, align 8
   %49 = fadd double %.04069, %44
   %50 = fadd double %.03970, %48
@@ -972,12 +972,12 @@ sprkStep_AccessStepMem.exit:                      ; preds = %6
   br label %sprkStep_AccessStepMem.exit.thread
 
 ._crit_edge:                                      ; preds = %33, %sprkStep_AccessStepMem.exit
-  %87 = getelementptr inbounds i8, ptr %8, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %88 = load ptr, ptr %87, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %12, double noundef -1.000000e+00, ptr noundef %88, ptr noundef %12) #7
-  %89 = getelementptr inbounds i8, ptr %0, i64 272
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 264
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %92 = load ptr, ptr %91, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %90, double noundef 1.000000e+00, ptr noundef %12, ptr noundef %92) #7
   %93 = load ptr, ptr %91, align 8

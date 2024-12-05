@@ -140,88 +140,88 @@ define noundef ptr @IDACreate() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   store double 0x3CB0000000000000, ptr %calloc, align 8
-  %4 = getelementptr inbounds i8, ptr %calloc, i64 1512
+  %4 = getelementptr inbounds nuw i8, ptr %calloc, i64 1512
   store ptr @IDAErrHandler, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %calloc, i64 1520
+  %5 = getelementptr inbounds nuw i8, ptr %calloc, i64 1520
   store ptr %calloc, ptr %5, align 8
   %6 = load ptr, ptr @stderr, align 8
-  %7 = getelementptr inbounds i8, ptr %calloc, i64 1528
+  %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 1528
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %calloc, i64 1284
+  %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 1284
   store i32 5, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %calloc, i64 1296
+  %9 = getelementptr inbounds nuw i8, ptr %calloc, i64 1296
   store i64 500, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %calloc, i64 1248
+  %10 = getelementptr inbounds nuw i8, ptr %calloc, i64 1248
   store double 3.300000e-01, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %calloc, i64 1280
+  %11 = getelementptr inbounds nuw i8, ptr %calloc, i64 1280
   store i32 10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %calloc, i64 1272
+  %12 = getelementptr inbounds nuw i8, ptr %calloc, i64 1272
   store i32 10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %calloc, i64 1276
+  %13 = getelementptr inbounds nuw i8, ptr %calloc, i64 1276
   store i32 4, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %calloc, i64 1288
+  %14 = getelementptr inbounds nuw i8, ptr %calloc, i64 1288
   store i32 5, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %calloc, i64 1104
+  %15 = getelementptr inbounds nuw i8, ptr %calloc, i64 1104
   store double 0x3F6B089A02752547, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %calloc, i64 1080
+  %16 = getelementptr inbounds nuw i8, ptr %calloc, i64 1080
   store i32 5, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %calloc, i64 1084
+  %17 = getelementptr inbounds nuw i8, ptr %calloc, i64 1084
   store i32 4, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %calloc, i64 1088
+  %18 = getelementptr inbounds nuw i8, ptr %calloc, i64 1088
   store i32 10, ptr %18, align 8
   %19 = tail call double @SUNRpowerR(double noundef 0x3CB0000000000000, double noundef 6.670000e-01) #13
-  %20 = getelementptr inbounds i8, ptr %calloc, i64 1112
+  %20 = getelementptr inbounds nuw i8, ptr %calloc, i64 1112
   store double %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %calloc, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %calloc, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %calloc, i64 88
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %calloc, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %calloc, i64 104
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %calloc, i64 108
+  %24 = getelementptr inbounds nuw i8, ptr %calloc, i64 108
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %calloc, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %calloc, i64 136
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %calloc, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %calloc, i64 160
   store ptr %calloc, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %calloc, i64 152
+  %27 = getelementptr inbounds nuw i8, ptr %calloc, i64 152
   store ptr @IDASensResDQ, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %calloc, i64 168
+  %28 = getelementptr inbounds nuw i8, ptr %calloc, i64 168
   store i32 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %calloc, i64 200
+  %29 = getelementptr inbounds nuw i8, ptr %calloc, i64 200
   store i32 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %calloc, i64 208
+  %30 = getelementptr inbounds nuw i8, ptr %calloc, i64 208
   store double 0.000000e+00, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %calloc, i64 176
-  %32 = getelementptr inbounds i8, ptr %calloc, i64 216
+  %31 = getelementptr inbounds nuw i8, ptr %calloc, i64 176
+  %32 = getelementptr inbounds nuw i8, ptr %calloc, i64 216
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %calloc, i64 1312
+  %33 = getelementptr inbounds nuw i8, ptr %calloc, i64 1312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   store i32 4, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %calloc, i64 220
+  %34 = getelementptr inbounds nuw i8, ptr %calloc, i64 220
   store i32 4, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %calloc, i64 248
+  %35 = getelementptr inbounds nuw i8, ptr %calloc, i64 248
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %calloc, i64 264
+  %36 = getelementptr inbounds nuw i8, ptr %calloc, i64 264
   store ptr %calloc, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %calloc, i64 256
+  %37 = getelementptr inbounds nuw i8, ptr %calloc, i64 256
   store ptr @IDAQuadSensRhsInternalDQ, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %calloc, i64 272
+  %38 = getelementptr inbounds nuw i8, ptr %calloc, i64 272
   store i32 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %calloc, i64 276
+  %39 = getelementptr inbounds nuw i8, ptr %calloc, i64 276
   store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %calloc, i64 280
+  %40 = getelementptr inbounds nuw i8, ptr %calloc, i64 280
   store i32 4, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %calloc, i64 1812
+  %41 = getelementptr inbounds nuw i8, ptr %calloc, i64 1812
   store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %calloc, i64 1816
+  %42 = getelementptr inbounds nuw i8, ptr %calloc, i64 1816
   store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %calloc, i64 1496
+  %43 = getelementptr inbounds nuw i8, ptr %calloc, i64 1496
   store i64 55, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %calloc, i64 1504
+  %44 = getelementptr inbounds nuw i8, ptr %calloc, i64 1504
   store i64 38, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %calloc, i64 1540
-  %46 = getelementptr inbounds i8, ptr %calloc, i64 1824
+  %45 = getelementptr inbounds nuw i8, ptr %calloc, i64 1540
+  %46 = getelementptr inbounds nuw i8, ptr %calloc, i64 1824
   store i32 0, ptr %46, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %45, i8 0, i64 48, i1 false)
   br label %47
@@ -250,9 +250,9 @@ define void @IDAProcessError(ptr noundef readonly %0, i32 noundef %1, ptr nounde
   br label %20
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 1512
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1512
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 1520
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   %19 = load ptr, ptr %18, align 8
   call void %17(i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %19) #13
   br label %20
@@ -280,7 +280,7 @@ define void @IDAErrHandler(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 1528
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 1528
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
@@ -303,26 +303,26 @@ define i32 @IDASensResDQ(i32 noundef %0, double noundef %1, ptr noundef %2, ptr 
   br i1 %13, label %.lr.ph, label %IDASensRes1DQ.exit.thread
 
 .lr.ph:                                           ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
-  %15 = getelementptr inbounds i8, ptr %8, i64 184
-  %16 = getelementptr inbounds i8, ptr %8, i64 192
-  %17 = getelementptr inbounds i8, ptr %8, i64 176
-  %18 = getelementptr inbounds i8, ptr %8, i64 600
-  %19 = getelementptr inbounds i8, ptr %8, i64 208
-  %20 = getelementptr inbounds i8, ptr %8, i64 200
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 16
-  %23 = getelementptr inbounds i8, ptr %8, i64 1360
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 600
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 208
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 200
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 1360
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %24
 
 24:                                               ; preds = %.lr.ph, %161
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %161 ]
-  %25 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load double, ptr %14, align 8
   %32 = load double, ptr %8, align 8
@@ -331,10 +331,10 @@ define i32 @IDASensResDQ(i32 noundef %0, double noundef %1, ptr noundef %2, ptr 
   %34 = tail call double @SUNRsqrt(double noundef %..i) #13
   %35 = fdiv double 1.000000e+00, %34
   %36 = load ptr, ptr %15, align 8
-  %37 = getelementptr inbounds double, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv
   %38 = load double, ptr %37, align 8
   %39 = load ptr, ptr %16, align 8
-  %40 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %17, align 8
   %43 = sext i32 %41 to i64
@@ -555,25 +555,25 @@ define internal i32 @IDAQuadSensRhsInternalDQ(i32 noundef %0, double noundef %1,
   br i1 %13, label %.lr.ph, label %IDAQuadSensRhs1InternalDQ.exit.thread
 
 .lr.ph:                                           ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
-  %15 = getelementptr inbounds i8, ptr %8, i64 184
-  %16 = getelementptr inbounds i8, ptr %8, i64 192
-  %17 = getelementptr inbounds i8, ptr %8, i64 176
-  %18 = getelementptr inbounds i8, ptr %8, i64 600
-  %19 = getelementptr inbounds i8, ptr %8, i64 200
-  %20 = getelementptr inbounds i8, ptr %8, i64 88
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
-  %22 = getelementptr inbounds i8, ptr %8, i64 1368
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 600
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %23
 
 23:                                               ; preds = %.lr.ph, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
-  %24 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = load double, ptr %14, align 8
   %31 = load double, ptr %8, align 8
@@ -582,10 +582,10 @@ define internal i32 @IDAQuadSensRhsInternalDQ(i32 noundef %0, double noundef %1,
   %33 = tail call double @SUNRsqrt(double noundef %..i) #13
   %34 = fdiv double 1.000000e+00, %33
   %35 = load ptr, ptr %15, align 8
-  %36 = getelementptr inbounds double, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv
   %37 = load double, ptr %36, align 8
   %38 = load ptr, ptr %16, align 8
-  %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
   %41 = load ptr, ptr %17, align 8
   %42 = sext i32 %40 to i64
@@ -717,61 +717,61 @@ define range(i32 -22, 1) i32 @IDAInit(ptr noundef %0, ptr noundef %1, double nou
   br i1 %22, label %IDACheckNvector.exit.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.val, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %IDACheckNvector.exit.thread, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %.val, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %IDACheckNvector.exit.thread, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %.val, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %IDACheckNvector.exit.thread, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %.val, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %IDACheckNvector.exit.thread, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.val, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %IDACheckNvector.exit.thread, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %.val, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %IDACheckNvector.exit.thread, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %.val, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %IDACheckNvector.exit.thread, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %.val, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %.val, i64 104
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %IDACheckNvector.exit.thread, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %.val, i64 128
+  %56 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %IDACheckNvector.exit.thread, label %IDACheckNvector.exit
 
 IDACheckNvector.exit:                             ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.val, i64 144
+  %59 = getelementptr inbounds nuw i8, ptr %.val, i64 144
   %60 = load ptr, ptr %59, align 8
   %.not69 = icmp eq ptr %60, null
   br i1 %.not69, label %IDACheckNvector.exit.thread, label %61
@@ -781,7 +781,7 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %23, %27, %31, 
   br label %153
 
 61:                                               ; preds = %IDACheckNvector.exit
-  %62 = getelementptr inbounds i8, ptr %.val, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %63 = load ptr, ptr %62, align 8
   %.not61 = icmp eq ptr %63, null
   br i1 %.not61, label %65, label %64
@@ -800,33 +800,33 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %23, %27, %31, 
 66:                                               ; preds = %65, %64
   %67 = phi i64 [ 0, %65 ], [ %.pre75, %64 ]
   %68 = phi i64 [ 0, %65 ], [ %.pre, %64 ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 1464
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   store i64 %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 1472
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   store i64 %67, ptr %70, align 8
   %71 = call ptr @N_VClone(ptr noundef nonnull %3) #13
-  %72 = getelementptr inbounds i8, ptr %0, i64 600
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store ptr %71, ptr %72, align 8
   %73 = icmp eq ptr %71, null
   br i1 %73, label %.loopexit, label %74
 
 74:                                               ; preds = %66
   %75 = call ptr @N_VClone(ptr noundef nonnull %3) #13
-  %76 = getelementptr inbounds i8, ptr %0, i64 656
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store ptr %75, ptr %76, align 8
   %77 = icmp eq ptr %75, null
   br i1 %77, label %.loopexit.sink.split, label %78
 
 78:                                               ; preds = %74
   %79 = call ptr @N_VClone(ptr noundef nonnull %3) #13
-  %80 = getelementptr inbounds i8, ptr %0, i64 624
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store ptr %79, ptr %80, align 8
   %81 = icmp eq ptr %79, null
   br i1 %81, label %.loopexit.sink.split.sink.split, label %82
 
 82:                                               ; preds = %78
   %83 = call ptr @N_VClone(ptr noundef nonnull %3) #13
-  %84 = getelementptr inbounds i8, ptr %0, i64 672
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store ptr %83, ptr %84, align 8
   %85 = icmp eq ptr %83, null
   br i1 %85, label %86, label %88
@@ -838,7 +838,7 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %23, %27, %31, 
 
 88:                                               ; preds = %82
   %89 = call ptr @N_VClone(ptr noundef nonnull %3) #13
-  %90 = getelementptr inbounds i8, ptr %0, i64 680
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store ptr %89, ptr %90, align 8
   %91 = icmp eq ptr %89, null
   br i1 %91, label %92, label %95
@@ -852,12 +852,12 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %23, %27, %31, 
 
 95:                                               ; preds = %88
   %96 = load ptr, ptr %84, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 648
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store ptr %96, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 1284
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %99 = load i32, ptr %98, align 4
   %spec.select.i63 = call i32 @llvm.smax.i32(i32 %99, i32 3)
-  %100 = getelementptr inbounds i8, ptr %0, i64 312
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %101 = add nuw i32 %spec.select.i63, 1
   %wide.trip.count.i = zext i32 %101 to i64
   br label %102
@@ -865,7 +865,7 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %23, %27, %31, 
 102:                                              ; preds = %114, %95
   %indvars.iv.i = phi i64 [ 0, %95 ], [ %indvars.iv.next.i, %114 ]
   %103 = call ptr @N_VClone(ptr noundef nonnull %3) #13
-  %104 = getelementptr inbounds [6 x ptr], ptr %100, i64 0, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw [6 x ptr], ptr %100, i64 0, i64 %indvars.iv.i
   store ptr %103, ptr %104, align 8
   %105 = icmp eq ptr %103, null
   br i1 %105, label %106, label %114
@@ -890,7 +890,7 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %23, %27, %31, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv64.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next65.i, %.lr.ph.i ]
-  %112 = getelementptr inbounds [6 x ptr], ptr %100, i64 0, i64 %indvars.iv64.i
+  %112 = getelementptr inbounds nuw [6 x ptr], ptr %100, i64 0, i64 %indvars.iv64.i
   %113 = load ptr, ptr %112, align 8
   call void @N_VDestroy(ptr noundef %113) #13
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
@@ -924,63 +924,63 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %23, %27, %31, 
   %117 = zext nneg i32 %116 to i64
   %118 = load i64, ptr %69, align 8
   %119 = mul nsw i64 %118, %117
-  %120 = getelementptr inbounds i8, ptr %0, i64 1496
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %121 = load i64, ptr %120, align 8
   %122 = add nsw i64 %121, %119
   store i64 %122, ptr %120, align 8
   %123 = load i64, ptr %70, align 8
   %124 = mul nsw i64 %123, %117
-  %125 = getelementptr inbounds i8, ptr %0, i64 1504
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %126 = load i64, ptr %125, align 8
   %127 = add nsw i64 %126, %124
   store i64 %127, ptr %125, align 8
   %128 = load i32, ptr %98, align 4
-  %129 = getelementptr inbounds i8, ptr %0, i64 1288
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   store i32 %128, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 1184
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   store double %2, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 1592
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %132, i8 0, i64 52, i1 false)
   %133 = load ptr, ptr %100, align 8
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %3, ptr noundef %133) #13
-  %134 = getelementptr inbounds i8, ptr %0, i64 320
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %135 = load ptr, ptr %134, align 8
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %4, ptr noundef %135) #13
-  %136 = getelementptr inbounds i8, ptr %0, i64 1320
-  %137 = getelementptr inbounds i8, ptr %0, i64 1376
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 1320
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   store i64 0, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %0, i64 1400
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   store i64 0, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %0, i64 1432
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   store i64 0, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 1448
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   store i64 0, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 1660
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   store i32 0, ptr %141, align 4
-  %142 = getelementptr inbounds i8, ptr %0, i64 1672
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   store double 0.000000e+00, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 1680
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %136, i8 0, i64 16, i1 false)
   store double 1.000000e+00, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 1788
-  %145 = getelementptr inbounds i8, ptr %0, i64 1092
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 1788
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store i32 0, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %0, i64 1744
-  %147 = getelementptr inbounds i8, ptr %0, i64 1704
-  %148 = getelementptr inbounds i8, ptr %0, i64 1688
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 1744
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 1704
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   store ptr null, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %0, i64 1696
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   store i32 0, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %0, i64 1808
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %146, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %144, i8 0, i64 20, i1 false)
   store i32 1, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %0, i64 1536
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 1536
   store i32 0, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %0, i64 1552
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   store i32 1, ptr %152, align 8
   br label %153
 
@@ -1003,7 +1003,7 @@ define range(i32 -23, 1) i32 @IDAReInit(ptr noundef %0, double noundef %1, ptr n
   br label %36
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1552
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
@@ -1029,37 +1029,37 @@ define range(i32 -23, 1) i32 @IDAReInit(ptr noundef %0, double noundef %1, ptr n
   br label %36
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 1184
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   store double %1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 1640
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 312
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %22 = load ptr, ptr %21, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %2, ptr noundef %22) #13
-  %23 = getelementptr inbounds i8, ptr %0, i64 320
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %24 = load ptr, ptr %23, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %3, ptr noundef %24) #13
-  %25 = getelementptr inbounds i8, ptr %0, i64 1320
-  %26 = getelementptr inbounds i8, ptr %0, i64 1376
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1320
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 1400
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 1432
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 1448
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 1660
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 1672
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   store double 0.000000e+00, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 1680
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   store double 1.000000e+00, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 1792
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 1788
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1788
   store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 1536
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1536
   store i32 0, ptr %35, align 8
   br label %36
 
@@ -1078,7 +1078,7 @@ define range(i32 -23, 1) i32 @IDASStolerances(ptr noundef %0, double noundef %1,
   br label %24
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1552
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -1104,17 +1104,17 @@ define range(i32 -23, 1) i32 @IDASStolerances(ptr noundef %0, double noundef %1,
   br label %24
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @IDAEwtSet, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %23, align 8
   br label %24
 
@@ -1125,7 +1125,7 @@ define range(i32 -23, 1) i32 @IDASStolerances(ptr noundef %0, double noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @IDAEwtSet(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %IDAEwtSetSS.exit [
     i32 1, label %6
@@ -1133,15 +1133,15 @@ define range(i32 -1, 1) i32 @IDAEwtSet(ptr noundef %0, ptr noundef %1, ptr nocap
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 672
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %8 = load ptr, ptr %7, align 8
   tail call void @N_VAbs(ptr noundef %0, ptr noundef %8) #13
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = load double, ptr %9, align 8
   %11 = load ptr, ptr %7, align 8
   tail call void @N_VScale(double noundef %10, ptr noundef %11, ptr noundef %11) #13
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load double, ptr %13, align 8
   tail call void @N_VAddConst(ptr noundef %12, double noundef %14, ptr noundef %12) #13
   %15 = load ptr, ptr %7, align 8
@@ -1150,13 +1150,13 @@ define range(i32 -1, 1) i32 @IDAEwtSet(ptr noundef %0, ptr noundef %1, ptr nocap
   br i1 %17, label %IDAEwtSetSS.exit.sink.split, label %IDAEwtSetSS.exit
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %2, i64 672
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %20 = load ptr, ptr %19, align 8
   tail call void @N_VAbs(ptr noundef %0, ptr noundef %20) #13
-  %21 = getelementptr inbounds i8, ptr %2, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %22 = load double, ptr %21, align 8
   %23 = load ptr, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %25 = load ptr, ptr %24, align 8
   tail call void @N_VLinearSum(double noundef %22, ptr noundef %23, double noundef 1.000000e+00, ptr noundef %25, ptr noundef %23) #13
   %26 = load ptr, ptr %19, align 8
@@ -1185,7 +1185,7 @@ define range(i32 -23, 1) i32 @IDASVtolerances(ptr noundef %0, double noundef %1,
   br label %43
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1552
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -1212,31 +1212,31 @@ define range(i32 -23, 1) i32 @IDASVtolerances(ptr noundef %0, double noundef %1,
   br label %43
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 1540
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1540
   %20 = load i32, ptr %19, align 4
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %36
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 600
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @N_VClone(ptr noundef %23) #13
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 1464
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 1496
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %29 = load i64, ptr %28, align 8
   %30 = add nsw i64 %29, %27
   store i64 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 1472
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 1504
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %34 = load i64, ptr %33, align 8
   %35 = add nsw i64 %34, %32
   store i64 %35, ptr %33, align 8
@@ -1245,16 +1245,16 @@ define range(i32 -23, 1) i32 @IDASVtolerances(ptr noundef %0, double noundef %1,
 
 36:                                               ; preds = %._crit_edge, %21
   %37 = phi ptr [ %.pre, %._crit_edge ], [ %24, %21 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %1, ptr %38, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %37) #13
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 2, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @IDAEwtSet, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %42, align 8
   br label %43
 
@@ -1277,7 +1277,7 @@ define range(i32 -23, 1) i32 @IDAWFtolerances(ptr noundef %0, ptr noundef %1) lo
   br label %15
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
@@ -1287,13 +1287,13 @@ define range(i32 -23, 1) i32 @IDAWFtolerances(ptr noundef %0, ptr noundef %1) lo
   br label %15
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %14, align 8
   br label %15
 
@@ -1316,46 +1316,46 @@ define range(i32 -21, 1) i32 @IDAQuadInit(ptr noundef %0, ptr noundef %1, ptr no
 8:                                                ; preds = %3
   call void @N_VSpace(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1480
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   store i64 %9, ptr %10, align 8
   %11 = load i64, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 1488
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   store i64 %11, ptr %12, align 8
   %13 = call ptr @N_VClone(ptr noundef %2) #13
-  %14 = getelementptr inbounds i8, ptr %0, i64 768
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store ptr %13, ptr %14, align 8
   %15 = icmp eq ptr %13, null
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %8
   %17 = call ptr @N_VClone(ptr noundef %2) #13
-  %18 = getelementptr inbounds i8, ptr %0, i64 776
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 776
   store ptr %17, ptr %18, align 8
   %19 = icmp eq ptr %17, null
   br i1 %19, label %.loopexit.sink.split, label %20
 
 20:                                               ; preds = %16
   %21 = call ptr @N_VClone(ptr noundef %2) #13
-  %22 = getelementptr inbounds i8, ptr %0, i64 784
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 784
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
   br i1 %23, label %.loopexit.sink.split.sink.split, label %24
 
 24:                                               ; preds = %20
   %25 = call ptr @N_VClone(ptr noundef %2) #13
-  %26 = getelementptr inbounds i8, ptr %0, i64 792
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store ptr %25, ptr %26, align 8
   %27 = icmp eq ptr %25, null
   br i1 %27, label %31, label %.preheader.i
 
 .preheader.i:                                     ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 1284
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %29 = load i32, ptr %28, align 4
   %.not47.i = icmp slt i32 %29, 0
   br i1 %.not47.i, label %.loopexit27, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %30 = getelementptr inbounds i8, ptr %0, i64 720
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 720
   br label %33
 
 31:                                               ; preds = %24
@@ -1366,7 +1366,7 @@ define range(i32 -21, 1) i32 @IDAQuadInit(ptr noundef %0, ptr noundef %1, ptr no
 33:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
   %34 = call ptr @N_VClone(ptr noundef %2) #13
-  %35 = getelementptr inbounds [6 x ptr], ptr %30, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [6 x ptr], ptr %30, i64 0, i64 %indvars.iv.i
   store ptr %34, ptr %35, align 8
   %36 = icmp eq ptr %34, null
   br i1 %36, label %37, label %44
@@ -1389,7 +1389,7 @@ define range(i32 -21, 1) i32 @IDAQuadInit(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph51.i:                                       ; preds = %.lr.ph51.i, %.lr.ph51.preheader.i
   %indvars.iv55.i = phi i64 [ 0, %.lr.ph51.preheader.i ], [ %indvars.iv.next56.i, %.lr.ph51.i ]
-  %42 = getelementptr inbounds [6 x ptr], ptr %30, i64 0, i64 %indvars.iv55.i
+  %42 = getelementptr inbounds nuw [6 x ptr], ptr %30, i64 0, i64 %indvars.iv55.i
   %43 = load ptr, ptr %42, align 8
   call void @N_VDestroy(ptr noundef %43) #13
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
@@ -1426,17 +1426,17 @@ define range(i32 -21, 1) i32 @IDAQuadInit(ptr noundef %0, ptr noundef %1, ptr no
   %48 = sext i32 %47 to i64
   %49 = load i64, ptr %10, align 8
   %50 = mul nsw i64 %49, %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 1496
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %52 = load i64, ptr %51, align 8
   %53 = add nsw i64 %50, %52
   store i64 %53, ptr %51, align 8
   %54 = load i64, ptr %12, align 8
   %55 = mul nsw i64 %54, %48
-  %56 = getelementptr inbounds i8, ptr %0, i64 1504
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %57 = load i64, ptr %56, align 8
   %58 = add nsw i64 %57, %55
   store i64 %58, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 720
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %60 = load ptr, ptr %59, align 8
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %60) #13
   %61 = load i32, ptr %28, align 4
@@ -1445,7 +1445,7 @@ define range(i32 -21, 1) i32 @IDAQuadInit(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph:                                           ; preds = %.loopexit27, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.loopexit27 ]
-  %62 = getelementptr inbounds [6 x ptr], ptr %59, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [6 x ptr], ptr %59, i64 0, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %63) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1455,15 +1455,15 @@ define range(i32 -21, 1) i32 @IDAQuadInit(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not24.not, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit27
-  %66 = getelementptr inbounds i8, ptr %0, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 1336
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   store i64 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 1408
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   store i64 0, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 1560
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   store i32 1, ptr %70, align 8
   br label %71
 
@@ -1484,7 +1484,7 @@ define range(i32 -30, 1) i32 @IDAQuadReInit(ptr noundef %0, ptr noundef %1) loca
   br label %22
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1560
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
@@ -1494,17 +1494,17 @@ define range(i32 -30, 1) i32 @IDAQuadReInit(ptr noundef %0, ptr noundef %1) loca
   br label %22
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 720
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %12 = load ptr, ptr %11, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1, ptr noundef %12) #13
-  %13 = getelementptr inbounds i8, ptr %0, i64 1284
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %14 = load i32, ptr %13, align 4
   %.not16 = icmp slt i32 %14, 1
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %10 ]
-  %15 = getelementptr inbounds [6 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [6 x ptr], ptr %11, i64 0, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %16) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1514,11 +1514,11 @@ define range(i32 -30, 1) i32 @IDAQuadReInit(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 1336
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 1408
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   store i64 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %21, align 8
   br label %22
 
@@ -1537,7 +1537,7 @@ define range(i32 -30, 1) i32 @IDAQuadSStolerances(ptr noundef %0, double noundef
   br label %21
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1560
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -1563,11 +1563,11 @@ define range(i32 -30, 1) i32 @IDAQuadSStolerances(ptr noundef %0, double noundef
   br label %21
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 108
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double %2, ptr %20, align 8
   br label %21
 
@@ -1586,7 +1586,7 @@ define range(i32 -30, 1) i32 @IDAQuadSVtolerances(ptr noundef %0, double noundef
   br label %42
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1560
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -1621,33 +1621,33 @@ define range(i32 -30, 1) i32 @IDAQuadSVtolerances(ptr noundef %0, double noundef
   br label %42
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 108
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 2, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 1556
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1556
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %21
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 128
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %40
 
 27:                                               ; preds = %21
   %28 = tail call ptr @N_VClone(ptr noundef nonnull %2) #13
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 1480
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 1496
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %33 = load i64, ptr %32, align 8
   %34 = add nsw i64 %33, %31
   store i64 %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 1488
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 1504
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %38 = load i64, ptr %37, align 8
   %39 = add nsw i64 %38, %36
   store i64 %39, ptr %37, align 8
@@ -1682,7 +1682,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   br label %214
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 140
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %1, ptr %13, align 4
   %14 = add i32 %2, -3
   %or.cond = icmp ult i32 %14, -2
@@ -1693,7 +1693,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   br label %214
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %2, ptr %17, align 8
   %18 = icmp eq ptr %4, null
   br i1 %18, label %19, label %20
@@ -1715,7 +1715,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -1723,23 +1723,23 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   %.sink79 = phi ptr [ %3, %24 ], [ @IDASensResDQ, %23 ]
   %.sink78 = phi ptr [ %26, %24 ], [ %0, %23 ]
   %.sink = phi i32 [ 0, %24 ], [ 1, %23 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %.sink79, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %.sink78, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 %.sink, ptr %30, align 8
   %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 672
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 888
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 888
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 680
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 896
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 896
   store ptr %36, ptr %37, align 8
   %38 = tail call ptr @N_VClone(ptr noundef %31) #13
-  %39 = getelementptr inbounds i8, ptr %0, i64 904
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 904
   store ptr %38, ptr %39, align 8
   %40 = icmp eq ptr %38, null
   br i1 %40, label %.loopexit, label %41
@@ -1747,7 +1747,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 41:                                               ; preds = %27
   %42 = load i32, ptr %13, align 4
   %43 = tail call ptr @N_VCloneVectorArray(i32 noundef %42, ptr noundef %31) #13
-  %44 = getelementptr inbounds i8, ptr %0, i64 848
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 848
   store ptr %43, ptr %44, align 8
   %45 = icmp eq ptr %43, null
   br i1 %45, label %46, label %48
@@ -1760,7 +1760,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 48:                                               ; preds = %41
   %49 = load i32, ptr %13, align 4
   %50 = tail call ptr @N_VCloneVectorArray(i32 noundef %49, ptr noundef %31) #13
-  %51 = getelementptr inbounds i8, ptr %0, i64 856
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 856
   store ptr %50, ptr %51, align 8
   %52 = icmp eq ptr %50, null
   br i1 %52, label %53, label %57
@@ -1776,7 +1776,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 57:                                               ; preds = %48
   %58 = load i32, ptr %13, align 4
   %59 = tail call ptr @N_VCloneVectorArray(i32 noundef %58, ptr noundef %31) #13
-  %60 = getelementptr inbounds i8, ptr %0, i64 864
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 864
   store ptr %59, ptr %60, align 8
   %61 = icmp eq ptr %59, null
   br i1 %61, label %62, label %68
@@ -1795,7 +1795,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 68:                                               ; preds = %57
   %69 = load i32, ptr %13, align 4
   %70 = tail call ptr @N_VCloneVectorArray(i32 noundef %69, ptr noundef %31) #13
-  %71 = getelementptr inbounds i8, ptr %0, i64 872
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store ptr %70, ptr %71, align 8
   %72 = icmp eq ptr %70, null
   br i1 %72, label %73, label %81
@@ -1817,7 +1817,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 81:                                               ; preds = %68
   %82 = load i32, ptr %13, align 4
   %83 = tail call ptr @N_VCloneVectorArray(i32 noundef %82, ptr noundef %31) #13
-  %84 = getelementptr inbounds i8, ptr %0, i64 880
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 880
   store ptr %83, ptr %84, align 8
   %85 = icmp eq ptr %83, null
   br i1 %85, label %86, label %96
@@ -1844,24 +1844,24 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   %98 = mul nsw i32 %97, 3
   %99 = add nsw i32 %98, 1
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i8, ptr %0, i64 1464
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %102 = load i64, ptr %101, align 8
   %103 = mul nsw i64 %102, %100
-  %104 = getelementptr inbounds i8, ptr %0, i64 1496
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %105 = load i64, ptr %104, align 8
   %106 = add nsw i64 %103, %105
   store i64 %106, ptr %104, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 1472
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %108 = load i64, ptr %107, align 8
   %109 = mul nsw i64 %108, %100
-  %110 = getelementptr inbounds i8, ptr %0, i64 1504
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %111 = load i64, ptr %110, align 8
   %112 = add nsw i64 %111, %109
   store i64 %112, ptr %110, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 1284
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %114 = load i32, ptr %113, align 4
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %114, i32 4)
-  %115 = getelementptr inbounds i8, ptr %0, i64 800
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %116 = add nuw i32 %spec.select.i, 1
   %wide.trip.count.i = zext i32 %116 to i64
   br label %118
@@ -1875,7 +1875,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   %indvars.iv.i = phi i64 [ 0, %96 ], [ %indvars.iv.next.i, %117 ]
   %119 = load i32, ptr %13, align 4
   %120 = tail call ptr @N_VCloneVectorArray(i32 noundef %119, ptr noundef %31) #13
-  %121 = getelementptr inbounds [6 x ptr], ptr %115, i64 0, i64 %indvars.iv.i
+  %121 = getelementptr inbounds nuw [6 x ptr], ptr %115, i64 0, i64 %indvars.iv.i
   store ptr %120, ptr %121, align 8
   %122 = icmp eq ptr %120, null
   br i1 %122, label %123, label %117
@@ -1914,7 +1914,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   %145 = load i64, ptr %110, align 8
   %146 = add nsw i64 %145, %144
   store i64 %146, ptr %110, align 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 184
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %148 = sext i32 %136 to i64
   %149 = shl nsw i64 %148, 3
   %150 = tail call noalias ptr @malloc(i64 noundef %149) #15
@@ -1944,7 +1944,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 
 164:                                              ; preds = %164, %152
   %indvars.iv137.i = phi i64 [ 0, %152 ], [ %indvars.iv.next138.i, %164 ]
-  %165 = getelementptr inbounds [6 x ptr], ptr %115, i64 0, i64 %indvars.iv137.i
+  %165 = getelementptr inbounds nuw [6 x ptr], ptr %115, i64 0, i64 %indvars.iv137.i
   %166 = load ptr, ptr %165, align 8
   %167 = load i32, ptr %13, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %166, i32 noundef %167) #13
@@ -1953,7 +1953,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %exitcond141.not.i, label %.loopexit, label %164, !llvm.loop !14
 
 168:                                              ; preds = %135
-  %169 = getelementptr inbounds i8, ptr %0, i64 192
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %170 = shl nsw i64 %148, 2
   %171 = tail call noalias ptr @malloc(i64 noundef %170) #15
   store ptr %171, ptr %169, align 8
@@ -1988,7 +1988,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   store i64 %186, ptr %104, align 8
   %187 = add nsw i64 %146, %148
   store i64 %187, ptr %110, align 8
-  %188 = getelementptr inbounds i8, ptr %0, i64 808
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %189
@@ -1999,16 +1999,16 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 
 189:                                              ; preds = %.lr.ph, %189
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %189 ]
-  %190 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %191 = load ptr, ptr %190, align 8
   %192 = load ptr, ptr %115, align 8
-  %193 = getelementptr inbounds ptr, ptr %192, i64 %indvars.iv
+  %193 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv
   %194 = load ptr, ptr %193, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %191, ptr noundef %194) #13
-  %195 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %196 = load ptr, ptr %195, align 8
   %197 = load ptr, ptr %188, align 8
-  %198 = getelementptr inbounds ptr, ptr %197, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv
   %199 = load ptr, ptr %198, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %196, ptr noundef %199) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2016,17 +2016,17 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %exitcond.not, label %.lr.ph69, label %189, !llvm.loop !15
 
 .lr.ph69:                                         ; preds = %189
-  %200 = getelementptr inbounds i8, ptr %0, i64 1344
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   store i64 0, ptr %200, align 8
-  %201 = getelementptr inbounds i8, ptr %0, i64 1360
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   store i64 0, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %0, i64 1392
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store i64 0, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %0, i64 1416
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   store i64 0, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %0, i64 1440
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   store i64 0, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %0, i64 1456
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   store i64 0, ptr %205, align 8
   %smax75 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %wide.trip.count76 = zext nneg i32 %smax75 to i64
@@ -2035,20 +2035,20 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 206:                                              ; preds = %.lr.ph69, %206
   %indvars.iv72 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next73, %206 ]
   %207 = load ptr, ptr %169, align 8
-  %208 = getelementptr inbounds i32, ptr %207, i64 %indvars.iv72
+  %208 = getelementptr inbounds nuw i32, ptr %207, i64 %indvars.iv72
   %209 = trunc nuw nsw i64 %indvars.iv72 to i32
   store i32 %209, ptr %208, align 4
   %210 = load ptr, ptr %147, align 8
-  %211 = getelementptr inbounds double, ptr %210, i64 %indvars.iv72
+  %211 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv72
   store double 1.000000e+00, ptr %211, align 8
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count76
   br i1 %exitcond77.not, label %._crit_edge70, label %206, !llvm.loop !16
 
 ._crit_edge70:                                    ; preds = %206
-  %212 = getelementptr inbounds i8, ptr %0, i64 136
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 1, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %0, i64 1572
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 1572
   store i32 1, ptr %213, align 4
   br label %214
 
@@ -2067,7 +2067,7 @@ define range(i32 -40, 1) i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr 
   br label %66
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1572
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1572
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
@@ -2086,7 +2086,7 @@ define range(i32 -40, 1) i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr 
   br label %66
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %1, ptr %16, align 8
   %17 = icmp eq ptr %2, null
   br i1 %17, label %18, label %19
@@ -2100,29 +2100,29 @@ define range(i32 -40, 1) i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %20, label %32, label %.preheader
 
 .preheader:                                       ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 140
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %0, i64 1344
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 1360
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 1392
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 1416
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 1440
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 1456
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   store i64 0, ptr %29, align 8
   br label %._crit_edge48
 
 .lr.ph:                                           ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %0, i64 800
-  %31 = getelementptr inbounds i8, ptr %0, i64 808
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 808
   br label %33
 
 32:                                               ; preds = %19
@@ -2131,16 +2131,16 @@ define range(i32 -40, 1) i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr 
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %30, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %35, ptr noundef %38) #13
-  %39 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %31, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %40, ptr noundef %43) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2151,33 +2151,33 @@ define range(i32 -40, 1) i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr 
 
 ._crit_edge:                                      ; preds = %33
   %47 = icmp sgt i32 %44, 0
-  %48 = getelementptr inbounds i8, ptr %0, i64 1344
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   store i64 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 1360
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   store i64 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 1392
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store i64 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 1416
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   store i64 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 1440
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   store i64 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 1456
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   store i64 0, ptr %53, align 8
   br i1 %47, label %.lr.ph47, label %._crit_edge48
 
 .lr.ph47:                                         ; preds = %._crit_edge
-  %54 = getelementptr inbounds i8, ptr %0, i64 192
-  %55 = getelementptr inbounds i8, ptr %0, i64 184
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %56
 
 56:                                               ; preds = %.lr.ph47, %56
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next51, %56 ]
   %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv50
+  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv50
   %59 = trunc nuw nsw i64 %indvars.iv50 to i32
   store i32 %59, ptr %58, align 4
   %60 = load ptr, ptr %55, align 8
-  %61 = getelementptr inbounds double, ptr %60, i64 %indvars.iv50
+  %61 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv50
   store double 1.000000e+00, ptr %61, align 8
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %62 = load i32, ptr %21, align 4
@@ -2186,7 +2186,7 @@ define range(i32 -40, 1) i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %64, label %56, label %._crit_edge48, !llvm.loop !18
 
 ._crit_edge48:                                    ; preds = %56, %._crit_edge.thread, %._crit_edge
-  %65 = getelementptr inbounds i8, ptr %0, i64 136
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 1, ptr %65, align 8
   br label %66
 
@@ -2205,7 +2205,7 @@ define range(i32 -40, 1) i32 @IDASensSStolerances(ptr noundef %0, double noundef
   br label %.loopexit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1572
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1572
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -2227,7 +2227,7 @@ define range(i32 -40, 1) i32 @IDASensSStolerances(ptr noundef %0, double noundef
   br i1 %15, label %19, label %.preheader
 
 .preheader:                                       ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 140
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph.preheader, label %._crit_edge
@@ -2247,7 +2247,7 @@ define range(i32 -40, 1) i32 @IDASensSStolerances(ptr noundef %0, double noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %22 = load double, ptr %21, align 8
   %23 = fcmp olt double %22, 0.000000e+00
   br i1 %23, label %24, label %20
@@ -2257,22 +2257,22 @@ define range(i32 -40, 1) i32 @IDASensSStolerances(ptr noundef %0, double noundef
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %20, %.preheader
-  %25 = getelementptr inbounds i8, ptr %0, i64 220
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 224
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store double %1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 1568
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   %28 = load i32, ptr %27, align 8
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %29, label %37
 
 29:                                               ; preds = %._crit_edge
-  %30 = getelementptr inbounds i8, ptr %0, i64 232
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %31 = sext i32 %17 to i64
   %32 = shl nsw i64 %31, 3
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #15
   store ptr %33, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 1496
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %35 = load i64, ptr %34, align 8
   %36 = add nsw i64 %35, %31
   store i64 %36, ptr %34, align 8
@@ -2283,15 +2283,15 @@ define range(i32 -40, 1) i32 @IDASensSStolerances(ptr noundef %0, double noundef
   br i1 %18, label %.lr.ph41, label %.loopexit
 
 .lr.ph41:                                         ; preds = %37
-  %38 = getelementptr inbounds i8, ptr %0, i64 232
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 232
   br label %39
 
 39:                                               ; preds = %.lr.ph41, %39
   %indvars.iv43 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next44, %39 ]
-  %40 = getelementptr inbounds double, ptr %2, i64 %indvars.iv43
+  %40 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv43
   %41 = load double, ptr %40, align 8
   %42 = load ptr, ptr %38, align 8
-  %43 = getelementptr inbounds double, ptr %42, i64 %indvars.iv43
+  %43 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv43
   store double %41, ptr %43, align 8
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %44 = load i32, ptr %16, align 4
@@ -2314,7 +2314,7 @@ define range(i32 -40, 1) i32 @IDASensSVtolerances(ptr noundef %0, double noundef
   br label %.loopexit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1572
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1572
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -2336,7 +2336,7 @@ define range(i32 -40, 1) i32 @IDASensSVtolerances(ptr noundef %0, double noundef
   br i1 %15, label %19, label %.preheader
 
 .preheader:                                       ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 140
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
@@ -2354,7 +2354,7 @@ define range(i32 -40, 1) i32 @IDASensSVtolerances(ptr noundef %0, double noundef
 
 .lr.ph:                                           ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader ]
-  %24 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = tail call double @N_VMin(ptr noundef %25) #13
   %27 = fcmp olt double %26, 0.000000e+00
@@ -2366,34 +2366,34 @@ define range(i32 -40, 1) i32 @IDASensSVtolerances(ptr noundef %0, double noundef
 
 ._crit_edge:                                      ; preds = %20, %.preheader
   %.lcssa = phi i32 [ %17, %.preheader ], [ %21, %20 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 220
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 2, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 224
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store double %1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 1564
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1564
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %53
 
 34:                                               ; preds = %._crit_edge
-  %35 = getelementptr inbounds i8, ptr %0, i64 672
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @N_VCloneVectorArray(i32 noundef %.lcssa, ptr noundef %36) #13
-  %38 = getelementptr inbounds i8, ptr %0, i64 240
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %37, ptr %38, align 8
   %39 = load i32, ptr %16, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %0, i64 1464
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %42 = load i64, ptr %41, align 8
   %43 = mul nsw i64 %42, %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 1496
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %45 = load i64, ptr %44, align 8
   %46 = add nsw i64 %45, %43
   store i64 %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 1472
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %48 = load i64, ptr %47, align 8
   %49 = mul nsw i64 %48, %40
-  %50 = getelementptr inbounds i8, ptr %0, i64 1504
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %51 = load i64, ptr %50, align 8
   %52 = add nsw i64 %51, %49
   store i64 %52, ptr %50, align 8
@@ -2406,15 +2406,15 @@ define range(i32 -40, 1) i32 @IDASensSVtolerances(ptr noundef %0, double noundef
   br i1 %55, label %.lr.ph45, label %.loopexit
 
 .lr.ph45:                                         ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 240
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %57
 
 57:                                               ; preds = %.lr.ph45, %57
   %indvars.iv48 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next49, %57 ]
-  %58 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv48
+  %58 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv48
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %56, align 8
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv48
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv48
   %62 = load ptr, ptr %61, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %59, ptr noundef %62) #13
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
@@ -2440,7 +2440,7 @@ define range(i32 -40, 1) i32 @IDASensEEtolerances(ptr noundef %0) local_unnamed_
   br label %11
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1572
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1572
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %9
@@ -2450,7 +2450,7 @@ define range(i32 -40, 1) i32 @IDASensEEtolerances(ptr noundef %0) local_unnamed_
   br label %11
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 220
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 4, ptr %10, align 4
   br label %11
 
@@ -2469,7 +2469,7 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
   br label %116
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %10
@@ -2488,10 +2488,10 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 140
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %16 = load i32, ptr %15, align 4
   %17 = tail call ptr @N_VCloneVectorArray(i32 noundef %16, ptr noundef %14) #13
-  %18 = getelementptr inbounds i8, ptr %0, i64 1024
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store ptr %17, ptr %18, align 8
   %19 = icmp eq ptr %17, null
   br i1 %19, label %.loopexit, label %20
@@ -2499,7 +2499,7 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
 20:                                               ; preds = %13
   %21 = load i32, ptr %15, align 4
   %22 = tail call ptr @N_VCloneVectorArray(i32 noundef %21, ptr noundef %14) #13
-  %23 = getelementptr inbounds i8, ptr %0, i64 1008
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   store ptr %22, ptr %23, align 8
   %24 = icmp eq ptr %22, null
   br i1 %24, label %.loopexit.sink.split, label %25
@@ -2507,7 +2507,7 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
 25:                                               ; preds = %20
   %26 = load i32, ptr %15, align 4
   %27 = tail call ptr @N_VCloneVectorArray(i32 noundef %26, ptr noundef %14) #13
-  %28 = getelementptr inbounds i8, ptr %0, i64 1032
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   store ptr %27, ptr %28, align 8
   %29 = icmp eq ptr %27, null
   br i1 %29, label %.loopexit.sink.split.sink.split, label %30
@@ -2515,7 +2515,7 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
 30:                                               ; preds = %25
   %31 = load i32, ptr %15, align 4
   %32 = tail call ptr @N_VCloneVectorArray(i32 noundef %31, ptr noundef %14) #13
-  %33 = getelementptr inbounds i8, ptr %0, i64 1016
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store ptr %32, ptr %33, align 8
   %34 = icmp eq ptr %32, null
   br i1 %34, label %35, label %38
@@ -2528,7 +2528,7 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
 
 38:                                               ; preds = %30
   %39 = tail call ptr @N_VClone(ptr noundef %14) #13
-  %40 = getelementptr inbounds i8, ptr %0, i64 1040
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   store ptr %39, ptr %40, align 8
   %41 = icmp eq ptr %39, null
   br i1 %41, label %42, label %51
@@ -2549,10 +2549,10 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
   br label %51
 
 51:                                               ; preds = %42, %38
-  %52 = getelementptr inbounds i8, ptr %0, i64 1284
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %53 = load i32, ptr %52, align 4
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %53, i32 4)
-  %54 = getelementptr inbounds i8, ptr %0, i64 960
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %55 = add nuw i32 %spec.select.i, 1
   %wide.trip.count.i = zext i32 %55 to i64
   br label %56
@@ -2561,7 +2561,7 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
   %indvars.iv.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i, %74 ]
   %57 = load i32, ptr %15, align 4
   %58 = tail call ptr @N_VCloneVectorArray(i32 noundef %57, ptr noundef %14) #13
-  %59 = getelementptr inbounds [6 x ptr], ptr %54, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [6 x ptr], ptr %54, i64 0, i64 %indvars.iv.i
   store ptr %58, ptr %59, align 8
   %60 = icmp eq ptr %58, null
   br i1 %60, label %61, label %74
@@ -2590,7 +2590,7 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv82.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next83.i, %.lr.ph.i ]
-  %71 = getelementptr inbounds [6 x ptr], ptr %54, i64 0, i64 %indvars.iv82.i
+  %71 = getelementptr inbounds nuw [6 x ptr], ptr %54, i64 0, i64 %indvars.iv82.i
   %72 = load ptr, ptr %71, align 8
   %73 = load i32, ptr %15, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %72, i32 noundef %73) #13
@@ -2627,17 +2627,17 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
   %79 = load i32, ptr %15, align 4
   %80 = mul nsw i32 %79, %78
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %0, i64 1480
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %83 = load i64, ptr %82, align 8
   %84 = mul nsw i64 %83, %81
-  %85 = getelementptr inbounds i8, ptr %0, i64 1496
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %86 = load i64, ptr %85, align 8
   %87 = add nsw i64 %84, %86
   store i64 %87, ptr %85, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 1488
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %89 = load i64, ptr %88, align 8
   %90 = mul nsw i64 %89, %81
-  %91 = getelementptr inbounds i8, ptr %0, i64 1504
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %92 = load i64, ptr %91, align 8
   %93 = add nsw i64 %92, %90
   store i64 %93, ptr %91, align 8
@@ -2645,7 +2645,7 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
   br i1 %94, label %98, label %95
 
 95:                                               ; preds = %77
-  %96 = getelementptr inbounds i8, ptr %0, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8
   br label %98
 
@@ -2653,21 +2653,21 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
   %.sink44 = phi i32 [ 0, %95 ], [ 1, %77 ]
   %.sink43 = phi ptr [ %1, %95 ], [ @IDAQuadSensRhsInternalDQ, %77 ]
   %.sink = phi ptr [ %97, %95 ], [ %0, %77 ]
-  %99 = getelementptr inbounds i8, ptr %0, i64 272
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 %.sink44, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 256
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %.sink43, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 264
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %.sink, ptr %101, align 8
   %102 = icmp sgt i32 %79, 0
   br i1 %102, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %98, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %98 ]
-  %103 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %54, align 8
-  %106 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv
   %107 = load ptr, ptr %106, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %104, ptr noundef %107) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2677,15 +2677,15 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
   br i1 %110, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %98
-  %111 = getelementptr inbounds i8, ptr %0, i64 1352
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   store i64 0, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 1368
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   store i64 0, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 1424
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   store i64 0, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 248
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 1, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 1584
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store i32 1, ptr %115, align 8
   br label %116
 
@@ -2704,7 +2704,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensReInit(ptr noundef %0, ptr noundef read
   br label %33
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
@@ -2714,7 +2714,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensReInit(ptr noundef %0, ptr noundef read
   br label %33
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 1584
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %11 = load i32, ptr %10, align 8
   %.not21 = icmp eq i32 %11, 0
   br i1 %.not21, label %12, label %13
@@ -2728,13 +2728,13 @@ define range(i32 -50, 1) i32 @IDAQuadSensReInit(ptr noundef %0, ptr noundef read
   br i1 %14, label %19, label %.preheader
 
 .preheader:                                       ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 140
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %0, i64 960
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 960
   br label %20
 
 19:                                               ; preds = %13
@@ -2743,10 +2743,10 @@ define range(i32 -50, 1) i32 @IDAQuadSensReInit(ptr noundef %0, ptr noundef read
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %22, ptr noundef %25) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2756,13 +2756,13 @@ define range(i32 -50, 1) i32 @IDAQuadSensReInit(ptr noundef %0, ptr noundef read
   br i1 %28, label %20, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %20, %.preheader
-  %29 = getelementptr inbounds i8, ptr %0, i64 1352
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 1368
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   store i64 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 1424
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   store i64 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 248
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 1, ptr %32, align 8
   br label %33
 
@@ -2781,7 +2781,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef %0, double nou
   br label %.loopexit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %10
@@ -2791,7 +2791,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef %0, double nou
   br label %.loopexit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 1584
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %12 = load i32, ptr %11, align 8
   %.not36 = icmp eq i32 %12, 0
   br i1 %.not36, label %13, label %14
@@ -2813,7 +2813,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef %0, double nou
   br i1 %18, label %22, label %.preheader
 
 .preheader:                                       ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 140
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.preheader, label %._crit_edge
@@ -2833,7 +2833,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef %0, double nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %25 = load double, ptr %24, align 8
   %26 = fcmp olt double %25, 0.000000e+00
   br i1 %26, label %27, label %23
@@ -2843,11 +2843,11 @@ define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef %0, double nou
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %23, %.preheader
-  %28 = getelementptr inbounds i8, ptr %0, i64 280
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 288
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store double %1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 1580
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1580
   %31 = load i32, ptr %30, align 4
   %.not37 = icmp eq i32 %31, 0
   br i1 %.not37, label %32, label %40
@@ -2856,9 +2856,9 @@ define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef %0, double nou
   %33 = sext i32 %20 to i64
   %34 = shl nsw i64 %33, 3
   %35 = tail call noalias ptr @malloc(i64 noundef %34) #15
-  %36 = getelementptr inbounds i8, ptr %0, i64 296
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 1496
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %38 = load i64, ptr %37, align 8
   %39 = add nsw i64 %38, %33
   store i64 %39, ptr %37, align 8
@@ -2869,15 +2869,15 @@ define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef %0, double nou
   br i1 %21, label %.lr.ph44, label %.loopexit
 
 .lr.ph44:                                         ; preds = %40
-  %41 = getelementptr inbounds i8, ptr %0, i64 296
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br label %42
 
 42:                                               ; preds = %.lr.ph44, %42
   %indvars.iv46 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next47, %42 ]
-  %43 = getelementptr inbounds double, ptr %2, i64 %indvars.iv46
+  %43 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv46
   %44 = load double, ptr %43, align 8
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr inbounds double, ptr %45, i64 %indvars.iv46
+  %46 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv46
   store double %44, ptr %46, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %47 = load i32, ptr %19, align 4
@@ -2900,7 +2900,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSVtolerances(ptr noundef %0, double nou
   br label %.loopexit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %10
@@ -2910,7 +2910,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSVtolerances(ptr noundef %0, double nou
   br label %.loopexit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 1584
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %12 = load i32, ptr %11, align 8
   %.not41 = icmp eq i32 %12, 0
   br i1 %.not41, label %13, label %14
@@ -2932,7 +2932,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSVtolerances(ptr noundef %0, double nou
   br i1 %18, label %22, label %.preheader
 
 .preheader:                                       ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 140
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
@@ -2950,7 +2950,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSVtolerances(ptr noundef %0, double nou
 
 .lr.ph:                                           ; preds = %.preheader, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader ]
-  %27 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = tail call double @N_VMin(ptr noundef %28) #13
   %30 = fcmp olt double %29, 0.000000e+00
@@ -2962,11 +2962,11 @@ define range(i32 -50, 1) i32 @IDAQuadSensSVtolerances(ptr noundef %0, double nou
 
 ._crit_edge:                                      ; preds = %23, %.preheader
   %.lcssa = phi i32 [ %20, %.preheader ], [ %24, %23 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 280
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 288
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store double %1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 1576
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1576
   %35 = load i32, ptr %34, align 8
   %.not42 = icmp eq i32 %35, 0
   br i1 %.not42, label %36, label %54
@@ -2974,21 +2974,21 @@ define range(i32 -50, 1) i32 @IDAQuadSensSVtolerances(ptr noundef %0, double nou
 36:                                               ; preds = %._crit_edge
   %37 = load ptr, ptr %2, align 8
   %38 = tail call ptr @N_VCloneVectorArray(i32 noundef %.lcssa, ptr noundef %37) #13
-  %39 = getelementptr inbounds i8, ptr %0, i64 304
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %38, ptr %39, align 8
   %40 = load i32, ptr %19, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 1480
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %43 = load i64, ptr %42, align 8
   %44 = mul nsw i64 %43, %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 1496
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %46 = load i64, ptr %45, align 8
   %47 = add nsw i64 %46, %44
   store i64 %47, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 1488
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %49 = load i64, ptr %48, align 8
   %50 = mul nsw i64 %49, %41
-  %51 = getelementptr inbounds i8, ptr %0, i64 1504
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %52 = load i64, ptr %51, align 8
   %53 = add nsw i64 %52, %50
   store i64 %53, ptr %51, align 8
@@ -3001,15 +3001,15 @@ define range(i32 -50, 1) i32 @IDAQuadSensSVtolerances(ptr noundef %0, double nou
   br i1 %56, label %.lr.ph49, label %.loopexit
 
 .lr.ph49:                                         ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %0, i64 304
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 304
   br label %58
 
 58:                                               ; preds = %.lr.ph49, %58
   %indvars.iv52 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next53, %58 ]
-  %59 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv52
+  %59 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv52
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %57, align 8
-  %62 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv52
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv52
   %63 = load ptr, ptr %62, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %60, ptr noundef %63) #13
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
@@ -3033,7 +3033,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensEEtolerances(ptr noundef %0) local_unna
   br label %14
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %8
@@ -3043,7 +3043,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensEEtolerances(ptr noundef %0) local_unna
   br label %14
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 1584
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %10 = load i32, ptr %9, align 8
   %.not8 = icmp eq i32 %10, 0
   br i1 %.not8, label %11, label %12
@@ -3053,7 +3053,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensEEtolerances(ptr noundef %0) local_unna
   br label %14
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 4, ptr %13, align 8
   br label %14
 
@@ -3072,9 +3072,9 @@ define range(i32 -20, 1) i32 @IDASensToggleOff(ptr noundef writeonly %0) local_u
   br label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 0, ptr %6, align 8
   br label %7
 
@@ -3094,7 +3094,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 6:                                                ; preds = %3
   %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
-  %8 = getelementptr inbounds i8, ptr %0, i64 1696
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %9 = load i32, ptr %8, align 8
   %.not = icmp ne i32 %7, %9
   %10 = icmp sgt i32 %9, 0
@@ -3102,38 +3102,38 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %or.cond, label %11, label %33
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 1744
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %13 = load ptr, ptr %12, align 8
   tail call void @free(ptr noundef %13) #13
   store ptr null, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 1752
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef %15) #13
   store ptr null, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1760
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #13
   store ptr null, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 1704
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   %19 = load ptr, ptr %18, align 8
   tail call void @free(ptr noundef %19) #13
   store ptr null, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 1712
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   %21 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %21) #13
   store ptr null, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 1800
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %23 = load ptr, ptr %22, align 8
   tail call void @free(ptr noundef %23) #13
   store ptr null, ptr %22, align 8
   %24 = load i32, ptr %8, align 8
   %25 = mul nsw i32 %24, 3
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %0, i64 1496
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %28 = load i64, ptr %27, align 8
   %29 = sub nsw i64 %28, %26
   store i64 %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 1504
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %31 = load i64, ptr %30, align 8
   %32 = sub nsw i64 %31, %26
   store i64 %32, ptr %30, align 8
@@ -3146,7 +3146,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
 
 36:                                               ; preds = %33
   store i32 0, ptr %8, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 1688
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   store ptr null, ptr %37, align 8
   br label %116
 
@@ -3155,7 +3155,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %39, label %40, label %67
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 1688
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %42 = load ptr, ptr %41, align 8
   %.not137 = icmp eq ptr %2, %42
   br i1 %.not137, label %116, label %43
@@ -3165,37 +3165,37 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %44, label %45, label %66
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 1744
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %47 = load ptr, ptr %46, align 8
   tail call void @free(ptr noundef %47) #13
   store ptr null, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 1752
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %49 = load ptr, ptr %48, align 8
   tail call void @free(ptr noundef %49) #13
   store ptr null, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 1760
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   %51 = load ptr, ptr %50, align 8
   tail call void @free(ptr noundef %51) #13
   store ptr null, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 1704
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   %53 = load ptr, ptr %52, align 8
   tail call void @free(ptr noundef %53) #13
   store ptr null, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 1712
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   %55 = load ptr, ptr %54, align 8
   tail call void @free(ptr noundef %55) #13
   store ptr null, ptr %52, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 1800
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %57 = load ptr, ptr %56, align 8
   tail call void @free(ptr noundef %57) #13
   store ptr null, ptr %56, align 8
   %58 = mul nuw nsw i32 %7, 3
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %0, i64 1496
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %61 = load i64, ptr %60, align 8
   %62 = sub nsw i64 %61, %59
   store i64 %62, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 1504
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %64 = load i64, ptr %63, align 8
   %65 = sub nsw i64 %64, %59
   store i64 %65, ptr %63, align 8
@@ -3216,9 +3216,9 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br label %116
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %0, i64 1688
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   store ptr %2, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 1744
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %73 = zext nneg i32 %7 to i64
   %74 = shl nuw nsw i64 %73, 3
   %75 = tail call noalias ptr @malloc(i64 noundef %74) #15
@@ -3231,7 +3231,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br label %116
 
 78:                                               ; preds = %70
-  %79 = getelementptr inbounds i8, ptr %0, i64 1752
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %80 = tail call noalias ptr @malloc(i64 noundef %74) #15
   store ptr %80, ptr %79, align 8
   %81 = icmp eq ptr %80, null
@@ -3244,7 +3244,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br label %116
 
 83:                                               ; preds = %78
-  %84 = getelementptr inbounds i8, ptr %0, i64 1760
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   %85 = tail call noalias ptr @malloc(i64 noundef %74) #15
   store ptr %85, ptr %84, align 8
   %86 = icmp eq ptr %85, null
@@ -3259,7 +3259,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br label %116
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds i8, ptr %0, i64 1704
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   %90 = shl nuw nsw i64 %73, 2
   %91 = tail call noalias ptr @malloc(i64 noundef %90) #15
   store ptr %91, ptr %89, align 8
@@ -3277,7 +3277,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br label %116
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds i8, ptr %0, i64 1712
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   %96 = tail call noalias ptr @malloc(i64 noundef %90) #15
   store ptr %96, ptr %95, align 8
   %97 = icmp eq ptr %96, null
@@ -3296,7 +3296,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br label %116
 
 99:                                               ; preds = %94
-  %100 = getelementptr inbounds i8, ptr %0, i64 1800
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %101 = tail call noalias ptr @malloc(i64 noundef %90) #15
   store ptr %101, ptr %100, align 8
   %102 = icmp eq ptr %101, null
@@ -3328,7 +3328,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %104 = load ptr, ptr %95, align 8
-  %105 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv
   store i32 0, ptr %105, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3337,7 +3337,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
 .lr.ph141:                                        ; preds = %.lr.ph141.preheader, %.lr.ph141
   %indvars.iv143 = phi i64 [ 0, %.lr.ph141.preheader ], [ %indvars.iv.next144, %.lr.ph141 ]
   %106 = load ptr, ptr %100, align 8
-  %107 = getelementptr inbounds i32, ptr %106, i64 %indvars.iv143
+  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv143
   store i32 1, ptr %107, align 4
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
@@ -3346,11 +3346,11 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
 ._crit_edge:                                      ; preds = %.lr.ph141
   %108 = mul nuw nsw i32 %7, 3
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr %0, i64 1496
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %111 = load i64, ptr %110, align 8
   %112 = add nsw i64 %111, %109
   store i64 %112, ptr %110, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 1504
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %114 = load i64, ptr %113, align 8
   %115 = add nsw i64 %114, %109
   store i64 %115, ptr %113, align 8
@@ -3376,7 +3376,7 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br label %IDAStopTest2.exit.thread
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 1552
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %16
@@ -3394,7 +3394,7 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br label %IDAStopTest2.exit.thread
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 608
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store ptr %3, ptr %20, align 8
   %21 = icmp eq ptr %4, null
   br i1 %21, label %22, label %23
@@ -3404,7 +3404,7 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br label %IDAStopTest2.exit.thread
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 616
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 616
   store ptr %4, ptr %24, align 8
   %25 = icmp eq ptr %2, null
   br i1 %25, label %26, label %27
@@ -3427,28 +3427,28 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 1768
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   store double %1, ptr %33, align 8
   br label %34
 
 34:                                               ; preds = %32, %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 1784
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1784
   store i32 %5, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = load i32, ptr %36, align 8
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %47, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 168
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %40 = load i32, ptr %39, align 8
   %.not386 = icmp eq i32 %40, 0
   br i1 %.not386, label %47, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 160
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %47
@@ -3458,21 +3458,21 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br label %IDAStopTest2.exit.thread
 
 47:                                               ; preds = %41, %38, %34
-  %48 = getelementptr inbounds i8, ptr %0, i64 248
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %49 = load i32, ptr %48, align 8
   %.not387 = icmp eq i32 %49, 0
   br i1 %.not387, label %59, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %0, i64 272
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %52 = load i32, ptr %51, align 8
   %.not388 = icmp eq i32 %52, 0
   br i1 %.not388, label %59, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %0, i64 264
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 176
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %59
@@ -3482,13 +3482,13 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br label %IDAStopTest2.exit.thread
 
 59:                                               ; preds = %53, %50, %47
-  %60 = getelementptr inbounds i8, ptr %0, i64 1320
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %63, label %234
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %0, i64 1536
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1536
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %70
@@ -3503,7 +3503,7 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br label %70
 
 70:                                               ; preds = %69, %63
-  %71 = getelementptr inbounds i8, ptr %0, i64 1184
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %72 = load double, ptr %71, align 8
   %73 = fsub double %1, %72
   %74 = tail call double @SUNRabs(double noundef %73) #13
@@ -3530,9 +3530,9 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br label %IDAStopTest2.exit.thread
 
 87:                                               ; preds = %77
-  %88 = getelementptr inbounds i8, ptr %0, i64 1160
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %89 = load double, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 1168
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   store double %89, ptr %90, align 8
   %91 = fcmp une double %89, 0.000000e+00
   br i1 %91, label %92, label %98
@@ -3555,22 +3555,22 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
 100:                                              ; preds = %98
   %101 = fmul double %74, 1.000000e-03
   store double %101, ptr %90, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 320
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 600
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 1656
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %107 = load i32, ptr %106, align 8
   %108 = tail call double @IDAWrmsNorm(ptr noundef nonnull %0, ptr noundef %103, ptr noundef %105, i32 noundef %107)
-  %109 = getelementptr inbounds i8, ptr %0, i64 104
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %110 = load i32, ptr %109, align 8
   %.not390 = icmp eq i32 %110, 0
   br i1 %.not390, label %118, label %111
 
 111:                                              ; preds = %100
-  %112 = getelementptr inbounds i8, ptr %0, i64 728
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 784
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %115 = load ptr, ptr %114, align 8
   %116 = tail call double @N_VWrmsNorm(ptr noundef %113, ptr noundef %115) #13
   %117 = fcmp ogt double %108, %116
@@ -3579,15 +3579,15 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
 
 118:                                              ; preds = %111, %100
   %.0361 = phi double [ %..i, %111 ], [ %108, %100 ]
-  %119 = getelementptr inbounds i8, ptr %0, i64 216
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %120 = load i32, ptr %119, align 8
   %.not391 = icmp eq i32 %120, 0
   br i1 %.not391, label %129, label %121
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %0, i64 808
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 848
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %125 = load ptr, ptr %124, align 8
   %126 = load i32, ptr %106, align 8
   %127 = tail call double @IDASensWrmsNorm(ptr noundef nonnull readonly %0, ptr noundef readonly %123, ptr noundef readonly %125, i32 noundef %126)
@@ -3597,15 +3597,15 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
 
 129:                                              ; preds = %121, %118
   %.1362 = phi double [ %..i418, %121 ], [ %.0361, %118 ]
-  %130 = getelementptr inbounds i8, ptr %0, i64 276
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %131 = load i32, ptr %130, align 4
   %.not392 = icmp eq i32 %131, 0
   br i1 %.not392, label %138, label %132
 
 132:                                              ; preds = %129
-  %133 = getelementptr inbounds i8, ptr %0, i64 968
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 1008
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %136 = load ptr, ptr %135, align 8
   %137 = tail call fastcc double @IDAQuadSensWrmsNormUpdate(ptr noundef %0, double noundef %.1362, ptr noundef %134, ptr noundef %136)
   br label %138
@@ -3636,7 +3636,7 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
 150:                                              ; preds = %144, %148, %98
   %151 = phi double [ %145, %144 ], [ %149, %148 ], [ %89, %98 ]
   %152 = tail call double @SUNRabs(double noundef %151) #13
-  %153 = getelementptr inbounds i8, ptr %0, i64 1304
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %154 = load double, ptr %153, align 8
   %155 = fmul double %152, %154
   %156 = fcmp ogt double %155, 1.000000e+00
@@ -3650,13 +3650,13 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
 
 159:                                              ; preds = %157, %150
   %.pre = phi double [ %158, %157 ], [ %.pre.pre, %150 ]
-  %160 = getelementptr inbounds i8, ptr %0, i64 1128
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %161 = load i32, ptr %160, align 8
   %.not393 = icmp eq i32 %161, 0
   br i1 %.not393, label %179, label %162
 
 162:                                              ; preds = %159
-  %163 = getelementptr inbounds i8, ptr %0, i64 1136
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %164 = load double, ptr %163, align 8
   %165 = load double, ptr %71, align 8
   %166 = fsub double %164, %165
@@ -3684,13 +3684,13 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
 
 179:                                              ; preds = %170, %175, %159
   %180 = phi double [ %.pre, %170 ], [ %178, %175 ], [ %.pre, %159 ]
-  %181 = getelementptr inbounds i8, ptr %0, i64 1664
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   store double %180, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %0, i64 1144
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 0, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %0, i64 1660
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   store i32 0, ptr %183, align 4
-  %184 = getelementptr inbounds i8, ptr %0, i64 1696
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %185 = load i32, ptr %184, align 8
   %186 = icmp sgt i32 %185, 0
   br i1 %186, label %187, label %192
@@ -3711,17 +3711,17 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
 
 192:                                              ; preds = %._crit_edge574, %179
   %193 = phi double [ %.pre575, %._crit_edge574 ], [ %180, %179 ]
-  %194 = getelementptr inbounds i8, ptr %0, i64 320
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %195 = load ptr, ptr %194, align 8
   tail call void @N_VScale(double noundef %193, ptr noundef %195, ptr noundef %195) #13
-  %196 = getelementptr inbounds i8, ptr %0, i64 80
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %197 = load i32, ptr %196, align 8
   %.not394 = icmp eq i32 %197, 0
   br i1 %.not394, label %202, label %198
 
 198:                                              ; preds = %192
   %199 = load double, ptr %90, align 8
-  %200 = getelementptr inbounds i8, ptr %0, i64 728
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %201 = load ptr, ptr %200, align 8
   tail call void @N_VScale(double noundef %199, ptr noundef %201, ptr noundef %201) #13
   br label %202
@@ -3732,20 +3732,20 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br i1 %.not395, label %.loopexit452, label %.preheader451
 
 .preheader451:                                    ; preds = %202
-  %204 = getelementptr inbounds i8, ptr %0, i64 140
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %205 = load i32, ptr %204, align 4
   %206 = icmp sgt i32 %205, 0
   br i1 %206, label %.lr.ph, label %.loopexit452
 
 .lr.ph:                                           ; preds = %.preheader451
-  %207 = getelementptr inbounds i8, ptr %0, i64 808
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 808
   br label %208
 
 208:                                              ; preds = %.lr.ph, %208
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %208 ]
   %209 = load double, ptr %90, align 8
   %210 = load ptr, ptr %207, align 8
-  %211 = getelementptr inbounds ptr, ptr %210, i64 %indvars.iv
+  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv
   %212 = load ptr, ptr %211, align 8
   tail call void @N_VScale(double noundef %209, ptr noundef %212, ptr noundef %212) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3760,20 +3760,20 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br i1 %.not396, label %.loopexit450, label %.preheader449
 
 .preheader449:                                    ; preds = %.loopexit452
-  %217 = getelementptr inbounds i8, ptr %0, i64 140
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %218 = load i32, ptr %217, align 4
   %219 = icmp sgt i32 %218, 0
   br i1 %219, label %.lr.ph524, label %.loopexit450
 
 .lr.ph524:                                        ; preds = %.preheader449
-  %220 = getelementptr inbounds i8, ptr %0, i64 968
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 968
   br label %221
 
 221:                                              ; preds = %.lr.ph524, %221
   %indvars.iv568 = phi i64 [ 0, %.lr.ph524 ], [ %indvars.iv.next569, %221 ]
   %222 = load double, ptr %90, align 8
   %223 = load ptr, ptr %220, align 8
-  %224 = getelementptr inbounds ptr, ptr %223, i64 %indvars.iv568
+  %224 = getelementptr inbounds nuw ptr, ptr %223, i64 %indvars.iv568
   %225 = load ptr, ptr %224, align 8
   tail call void @N_VScale(double noundef %222, ptr noundef %225, ptr noundef %225) #13
   %indvars.iv.next569 = add nuw nsw i64 %indvars.iv568, 1
@@ -3783,17 +3783,17 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br i1 %228, label %221, label %.loopexit450, !llvm.loop !34
 
 .loopexit450:                                     ; preds = %221, %.preheader449, %.loopexit452
-  %229 = getelementptr inbounds i8, ptr %0, i64 1248
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %230 = load double, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %0, i64 1240
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   store double %230, ptr %231, align 8
   %232 = fmul double %230, 1.000000e-04
-  %233 = getelementptr inbounds i8, ptr %0, i64 1256
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   store double %232, ptr %233, align 8
   br label %234
 
 234:                                              ; preds = %.loopexit450, %59
-  %235 = getelementptr inbounds i8, ptr %0, i64 1616
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %236 = load ptr, ptr %235, align 8
   %.not397 = icmp eq ptr %236, null
   br i1 %.not397, label %239, label %237
@@ -3808,13 +3808,13 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br i1 %241, label %242, label %.lr.ph530
 
 242:                                              ; preds = %239
-  %243 = getelementptr inbounds i8, ptr %0, i64 1696
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %244 = load i32, ptr %243, align 8
   %245 = icmp sgt i32 %244, 0
   br i1 %245, label %246, label %291
 
 246:                                              ; preds = %242
-  %247 = getelementptr inbounds i8, ptr %0, i64 1788
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 1788
   %248 = load i32, ptr %247, align 4
   %249 = tail call fastcc i32 @IDARcheck2(ptr noundef %0)
   switch i32 %249, label %260 [
@@ -3824,38 +3824,38 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   ]
 
 250:                                              ; preds = %246
-  %251 = getelementptr inbounds i8, ptr %0, i64 1720
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %252 = load double, ptr %251, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, double noundef %252)
   br label %IDAStopTest2.exit.thread
 
 253:                                              ; preds = %246
-  %254 = getelementptr inbounds i8, ptr %0, i64 1720
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %255 = load double, ptr %254, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.61, double noundef %255)
   br label %IDAStopTest2.exit.thread
 
 256:                                              ; preds = %246
-  %257 = getelementptr inbounds i8, ptr %0, i64 1720
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %258 = load double, ptr %257, align 8
   store double %258, ptr %2, align 8
-  %259 = getelementptr inbounds i8, ptr %0, i64 1192
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %258, ptr %259, align 8
   br label %IDAStopTest2.exit.thread
 
 260:                                              ; preds = %246
   %261 = load double, ptr %0, align 8
   %262 = fmul double %261, 1.000000e+02
-  %263 = getelementptr inbounds i8, ptr %0, i64 1184
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %264 = load double, ptr %263, align 8
   %265 = tail call double @SUNRabs(double noundef %264) #13
-  %266 = getelementptr inbounds i8, ptr %0, i64 1168
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %267 = load double, ptr %266, align 8
   %268 = tail call double @SUNRabs(double noundef %267) #13
   %269 = fadd double %265, %268
   %270 = fmul double %262, %269
   %271 = load double, ptr %263, align 8
-  %272 = getelementptr inbounds i8, ptr %0, i64 1192
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %273 = load double, ptr %272, align 8
   %274 = fsub double %271, %273
   %275 = tail call double @SUNRabs(double noundef %274) #13
@@ -3886,14 +3886,14 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
 
 285:                                              ; preds = %277
   store i32 1, ptr %247, align 4
-  %286 = getelementptr inbounds i8, ptr %0, i64 1720
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %287 = load double, ptr %286, align 8
   store double %287, ptr %2, align 8
   store double %287, ptr %272, align 8
   br label %IDAStopTest2.exit.thread
 
 288:                                              ; preds = %277
-  %289 = getelementptr inbounds i8, ptr %0, i64 1720
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %290 = load double, ptr %289, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.61, double noundef %290)
   br label %IDAStopTest2.exit.thread
@@ -3904,114 +3904,114 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br i1 %.not398, label %.lr.ph530, label %IDAStopTest2.exit.thread
 
 .lr.ph530:                                        ; preds = %239, %291
-  %293 = getelementptr inbounds i8, ptr %0, i64 1296
-  %294 = getelementptr inbounds i8, ptr %0, i64 64
-  %295 = getelementptr inbounds i8, ptr %0, i64 312
-  %296 = getelementptr inbounds i8, ptr %0, i64 600
-  %297 = getelementptr inbounds i8, ptr %0, i64 72
-  %298 = getelementptr inbounds i8, ptr %0, i64 80
-  %299 = getelementptr inbounds i8, ptr %0, i64 104
-  %300 = getelementptr inbounds i8, ptr %0, i64 720
-  %301 = getelementptr inbounds i8, ptr %0, i64 784
-  %302 = getelementptr inbounds i8, ptr %0, i64 800
-  %303 = getelementptr inbounds i8, ptr %0, i64 848
-  %304 = getelementptr inbounds i8, ptr %0, i64 276
-  %305 = getelementptr inbounds i8, ptr %0, i64 960
-  %306 = getelementptr inbounds i8, ptr %0, i64 1008
-  %307 = getelementptr inbounds i8, ptr %0, i64 1656
-  %308 = getelementptr inbounds i8, ptr %0, i64 632
-  %309 = getelementptr inbounds i8, ptr %0, i64 216
-  %310 = getelementptr inbounds i8, ptr %0, i64 140
-  %311 = getelementptr inbounds i8, ptr %0, i64 1680
-  %312 = getelementptr inbounds i8, ptr %0, i64 144
-  %313 = getelementptr inbounds i8, ptr %0, i64 1184
-  %314 = getelementptr inbounds i8, ptr %0, i64 1144
-  %315 = getelementptr inbounds i8, ptr %0, i64 1660
-  %316 = getelementptr inbounds i8, ptr %0, i64 1672
-  %317 = getelementptr inbounds i8, ptr %0, i64 1168
-  %318 = getelementptr inbounds i8, ptr %0, i64 360
-  %319 = getelementptr inbounds i8, ptr %0, i64 1200
-  %320 = getelementptr inbounds i8, ptr %0, i64 1152
-  %321 = getelementptr inbounds i8, ptr %0, i64 1156
-  %322 = getelementptr inbounds i8, ptr %0, i64 1208
-  %323 = getelementptr inbounds i8, ptr %0, i64 408
-  %324 = getelementptr inbounds i8, ptr %0, i64 456
-  %325 = getelementptr inbounds i8, ptr %0, i64 552
-  %326 = getelementptr inbounds i8, ptr %0, i64 504
-  %327 = getelementptr inbounds i8, ptr %0, i64 1128
-  %328 = getelementptr inbounds i8, ptr %0, i64 1136
-  %.phi.trans.insert.i121.i = getelementptr inbounds i8, ptr %0, i64 1648
-  %329 = getelementptr inbounds i8, ptr %0, i64 1216
-  %330 = getelementptr inbounds i8, ptr %0, i64 1232
-  %331 = getelementptr inbounds i8, ptr %0, i64 1264
-  %332 = getelementptr inbounds i8, ptr %0, i64 680
-  %333 = getelementptr inbounds i8, ptr %0, i64 664
-  %334 = getelementptr inbounds i8, ptr %0, i64 656
-  %335 = getelementptr inbounds i8, ptr %0, i64 1224
-  %336 = getelementptr inbounds i8, ptr %0, i64 1640
-  %337 = getelementptr inbounds i8, ptr %0, i64 8
-  %338 = getelementptr inbounds i8, ptr %0, i64 624
-  %339 = getelementptr inbounds i8, ptr %0, i64 16
-  %340 = getelementptr inbounds i8, ptr %0, i64 1328
-  %341 = getelementptr inbounds i8, ptr %0, i64 864
-  %342 = getelementptr inbounds i8, ptr %0, i64 872
-  %343 = getelementptr inbounds i8, ptr %0, i64 152
-  %344 = getelementptr inbounds i8, ptr %0, i64 880
-  %345 = getelementptr inbounds i8, ptr %0, i64 160
-  %346 = getelementptr inbounds i8, ptr %0, i64 888
-  %347 = getelementptr inbounds i8, ptr %0, i64 896
-  %348 = getelementptr inbounds i8, ptr %0, i64 904
-  %349 = getelementptr inbounds i8, ptr %0, i64 1344
-  %350 = getelementptr inbounds i8, ptr %0, i64 1448
-  %351 = getelementptr inbounds i8, ptr %0, i64 1600
-  %352 = getelementptr inbounds i8, ptr %0, i64 672
-  %353 = getelementptr inbounds i8, ptr %0, i64 856
-  %354 = getelementptr inbounds i8, ptr %0, i64 1432
-  %355 = getelementptr inbounds i8, ptr %0, i64 648
-  %356 = getelementptr inbounds i8, ptr %0, i64 1608
-  %357 = getelementptr inbounds i8, ptr %0, i64 1256
-  %358 = getelementptr inbounds i8, ptr %0, i64 1240
-  %359 = getelementptr inbounds i8, ptr %0, i64 1276
-  %360 = getelementptr inbounds i8, ptr %0, i64 1652
-  %361 = getelementptr inbounds i8, ptr %0, i64 640
-  %362 = getelementptr inbounds i8, ptr %0, i64 1176
-  %363 = getelementptr inbounds i8, ptr %0, i64 1148
-  %364 = getelementptr inbounds i8, ptr %0, i64 768
-  %365 = getelementptr inbounds i8, ptr %0, i64 776
-  %366 = getelementptr inbounds i8, ptr %0, i64 88
-  %367 = getelementptr inbounds i8, ptr %0, i64 792
-  %368 = getelementptr inbounds i8, ptr %0, i64 1336
-  %369 = getelementptr inbounds i8, ptr %0, i64 1040
-  %370 = getelementptr inbounds i8, ptr %0, i64 1384
-  %371 = getelementptr inbounds i8, ptr %0, i64 1408
-  %372 = getelementptr inbounds i8, ptr %0, i64 1456
-  %373 = getelementptr inbounds i8, ptr %0, i64 1440
-  %374 = getelementptr inbounds i8, ptr %0, i64 1312
-  %375 = getelementptr inbounds i8, ptr %0, i64 1032
-  %376 = getelementptr inbounds i8, ptr %0, i64 1024
-  %377 = getelementptr inbounds i8, ptr %0, i64 256
-  %378 = getelementptr inbounds i8, ptr %0, i64 1016
-  %379 = getelementptr inbounds i8, ptr %0, i64 264
-  %380 = getelementptr inbounds i8, ptr %0, i64 1352
-  %381 = getelementptr inbounds i8, ptr %0, i64 1392
-  %382 = getelementptr inbounds i8, ptr %0, i64 1376
-  %383 = getelementptr inbounds i8, ptr %0, i64 1400
-  %384 = getelementptr inbounds i8, ptr %0, i64 320
-  %385 = getelementptr inbounds i8, ptr %0, i64 728
-  %386 = getelementptr inbounds i8, ptr %0, i64 808
-  %387 = getelementptr inbounds i8, ptr %0, i64 968
-  %388 = getelementptr inbounds i8, ptr %0, i64 1284
-  %389 = getelementptr inbounds i8, ptr %0, i64 1304
-  %390 = getelementptr inbounds i8, ptr %0, i64 1696
-  %391 = getelementptr inbounds i8, ptr %0, i64 1800
-  %392 = getelementptr inbounds i8, ptr %0, i64 1808
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 1008
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 1656
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 1680
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 1184
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 1144
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 1660
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 1168
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 1200
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 1156
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 1128
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 1136
+  %.phi.trans.insert.i121.i = getelementptr inbounds nuw i8, ptr %0, i64 1648
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 1216
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 1232
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 1264
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 1640
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 1328
+  %341 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 1344
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 1448
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 1600
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 1432
+  %355 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 1608
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 1256
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 1276
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 1652
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 1176
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 1148
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %368 = getelementptr inbounds nuw i8, ptr %0, i64 1336
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 1384
+  %371 = getelementptr inbounds nuw i8, ptr %0, i64 1408
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 1456
+  %373 = getelementptr inbounds nuw i8, ptr %0, i64 1440
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %376 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 1016
+  %379 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 1352
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 1392
+  %382 = getelementptr inbounds nuw i8, ptr %0, i64 1376
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 1400
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %386 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %387 = getelementptr inbounds nuw i8, ptr %0, i64 968
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 1284
+  %389 = getelementptr inbounds nuw i8, ptr %0, i64 1304
+  %390 = getelementptr inbounds nuw i8, ptr %0, i64 1696
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %392 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   br label %396
 
 ._crit_edge:                                      ; preds = %IDAStopTest2.exit
-  %393 = getelementptr inbounds i8, ptr %0, i64 1184
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.65, double noundef %2081)
   %394 = load double, ptr %393, align 8
-  %395 = getelementptr inbounds i8, ptr %0, i64 1192
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %394, ptr %395, align 8
   store double %394, ptr %2, align 8
   br label %IDAStopTest2.exit.thread
@@ -4041,7 +4041,7 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   br i1 %.not401, label %418, label %409
 
 409:                                              ; preds = %403
-  %410 = getelementptr inbounds i8, ptr %0, i64 24
+  %410 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %411 = load i32, ptr %410, align 8
   %412 = icmp eq i32 %411, 3
   %413 = load double, ptr %313, align 8
@@ -4050,7 +4050,7 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   %414 = load double, ptr %313, align 8
   %415 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %414, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %416 = load double, ptr %313, align 8
-  %417 = getelementptr inbounds i8, ptr %0, i64 1192
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %416, ptr %417, align 8
   store double %416, ptr %2, align 8
   br label %IDAStopTest2.exit.thread
@@ -4078,7 +4078,7 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   %428 = load double, ptr %313, align 8
   %429 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %428, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %430 = load double, ptr %313, align 8
-  %431 = getelementptr inbounds i8, ptr %0, i64 1192
+  %431 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %430, ptr %431, align 8
   store double %430, ptr %2, align 8
   br label %IDAStopTest2.exit.thread
@@ -4101,7 +4101,7 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   %440 = load double, ptr %313, align 8
   %441 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %440, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %442 = load double, ptr %313, align 8
-  %443 = getelementptr inbounds i8, ptr %0, i64 1192
+  %443 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %442, ptr %443, align 8
   store double %442, ptr %2, align 8
   br label %IDAStopTest2.exit.thread
@@ -4130,7 +4130,7 @@ define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr n
   %455 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %454, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %456 = load double, ptr %313, align 8
   store double %456, ptr %2, align 8
-  %457 = getelementptr inbounds i8, ptr %0, i64 1192
+  %457 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %456, ptr %457, align 8
   br label %IDAStopTest2.exit.thread
 
@@ -4195,9 +4195,9 @@ IDAWrmsNorm.exit:                                 ; preds = %462, %465
 .lr.ph.i:                                         ; preds = %483, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %483 ]
   %.01113.i = phi double [ %.1.i, %.lr.ph.i ], [ %.1, %483 ]
-  %488 = getelementptr inbounds ptr, ptr %484, i64 %indvars.iv.i
+  %488 = getelementptr inbounds nuw ptr, ptr %484, i64 %indvars.iv.i
   %489 = load ptr, ptr %488, align 8
-  %490 = getelementptr inbounds ptr, ptr %485, i64 %indvars.iv.i
+  %490 = getelementptr inbounds nuw ptr, ptr %485, i64 %indvars.iv.i
   %491 = load ptr, ptr %490, align 8
   %492 = tail call double @N_VWrmsNorm(ptr noundef %489, ptr noundef %491) #13
   %493 = fcmp ogt double %492, %.01113.i
@@ -4222,7 +4222,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i, %483, %48
   %502 = load double, ptr %313, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.71, double noundef %502)
   %503 = load double, ptr %313, align 8
-  %504 = getelementptr inbounds i8, ptr %0, i64 1192
+  %504 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %503, ptr %504, align 8
   store double %503, ptr %2, align 8
   %505 = load i64, ptr %60, align 8
@@ -4330,23 +4330,23 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i, %483, %48
   store double %.0134157.i.i, ptr %540, align 8
   %542 = fmul double %538, %.0134157.i.i
   %543 = fdiv double %542, %541
-  %544 = getelementptr inbounds [6 x double], ptr %324, i64 0, i64 %indvars.iv.i.i
+  %544 = getelementptr inbounds nuw [6 x double], ptr %324, i64 0, i64 %indvars.iv.i.i
   store double %543, ptr %544, align 8
   %545 = load double, ptr %317, align 8
   %546 = fadd double %541, %545
   %547 = fdiv double %545, %546
-  %548 = getelementptr inbounds [6 x double], ptr %323, i64 0, i64 %indvars.iv.i.i
+  %548 = getelementptr inbounds nuw [6 x double], ptr %323, i64 0, i64 %indvars.iv.i.i
   store double %547, ptr %548, align 8
   %549 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %550 = uitofp nneg i32 %549 to double
   %551 = fmul double %537, %550
   %552 = fmul double %551, %547
-  %553 = getelementptr inbounds [6 x double], ptr %326, i64 0, i64 %indvars.iv.i.i
+  %553 = getelementptr inbounds nuw [6 x double], ptr %326, i64 0, i64 %indvars.iv.i.i
   store double %552, ptr %553, align 8
   %554 = load double, ptr %317, align 8
   %555 = fdiv double %535, %554
   %556 = fadd double %536, %555
-  %557 = getelementptr inbounds [6 x double], ptr %325, i64 0, i64 %indvars.iv.i.i
+  %557 = getelementptr inbounds nuw [6 x double], ptr %325, i64 0, i64 %indvars.iv.i.i
   store double %556, ptr %557, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %558 = load i32, ptr %314, align 8
@@ -4380,7 +4380,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i, %483, %48
   %566 = uitofp nneg i32 %565 to double
   %567 = fdiv double 1.000000e+00, %566
   %568 = fsub double %.0162.i.i, %567
-  %569 = getelementptr inbounds [6 x double], ptr %323, i64 0, i64 %indvars.iv198.i.i
+  %569 = getelementptr inbounds nuw [6 x double], ptr %323, i64 0, i64 %indvars.iv198.i.i
   %570 = load double, ptr %569, align 8
   %571 = fsub double %.0132161.i.i, %570
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next199.i.i, %wide.trip.count.i.i
@@ -4490,7 +4490,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i, %483, %48
   %620 = load double, ptr %619, align 8
   %621 = getelementptr inbounds [6 x ptr], ptr %302, i64 0, i64 %indvars.iv207.i.i
   %622 = load ptr, ptr %621, align 8
-  %623 = getelementptr inbounds ptr, ptr %622, i64 %indvars.iv210.i.i
+  %623 = getelementptr inbounds nuw ptr, ptr %622, i64 %indvars.iv210.i.i
   %624 = load ptr, ptr %623, align 8
   tail call void @N_VScale(double noundef %620, ptr noundef %624, ptr noundef %624) #13
   %indvars.iv.next208.i.i = add nsw i64 %indvars.iv207.i.i, 1
@@ -4545,7 +4545,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i, %483, %48
   %643 = load double, ptr %642, align 8
   %644 = getelementptr inbounds [6 x ptr], ptr %305, i64 0, i64 %indvars.iv213.i.i
   %645 = load ptr, ptr %644, align 8
-  %646 = getelementptr inbounds ptr, ptr %645, i64 %indvars.iv216.i.i
+  %646 = getelementptr inbounds nuw ptr, ptr %645, i64 %indvars.iv216.i.i
   %647 = load ptr, ptr %646, align 8
   tail call void @N_VScale(double noundef %643, ptr noundef %647, ptr noundef %647) #13
   %indvars.iv.next214.i.i = add nsw i64 %indvars.iv213.i.i, 1
@@ -4664,11 +4664,11 @@ IDASetCoeffs.exit.i:                              ; preds = %._crit_edge189.i.i,
 
 .lr.ph.i.i.i:                                     ; preds = %692, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 1, %692 ]
-  %697 = getelementptr inbounds [6 x ptr], ptr %295, i64 0, i64 %indvars.iv.i.i.i
+  %697 = getelementptr inbounds nuw [6 x ptr], ptr %295, i64 0, i64 %indvars.iv.i.i.i
   %698 = load ptr, ptr %697, align 8
   %699 = load ptr, ptr %20, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %698, double noundef 1.000000e+00, ptr noundef %699, ptr noundef %699) #13
-  %700 = getelementptr inbounds [6 x double], ptr %325, i64 0, i64 %indvars.iv.i.i.i
+  %700 = getelementptr inbounds nuw [6 x double], ptr %325, i64 0, i64 %indvars.iv.i.i.i
   %701 = load double, ptr %700, align 8
   %702 = load ptr, ptr %697, align 8
   %703 = load ptr, ptr %24, align 8
@@ -4708,13 +4708,13 @@ IDAPredict.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %692
 .lr.ph.i125.i:                                    ; preds = %.preheader.i123.i, %IDASensPredict.exit.i.i
   %indvars.iv.i126.i = phi i64 [ %indvars.iv.next.i127.i, %IDASensPredict.exit.i.i ], [ 0, %.preheader.i123.i ]
   %720 = load ptr, ptr %341, align 8
-  %721 = getelementptr inbounds ptr, ptr %720, i64 %indvars.iv.i126.i
+  %721 = getelementptr inbounds nuw ptr, ptr %720, i64 %indvars.iv.i126.i
   %722 = load ptr, ptr %721, align 8
   %723 = load ptr, ptr %342, align 8
-  %724 = getelementptr inbounds ptr, ptr %723, i64 %indvars.iv.i126.i
+  %724 = getelementptr inbounds nuw ptr, ptr %723, i64 %indvars.iv.i126.i
   %725 = load ptr, ptr %724, align 8
   %726 = load ptr, ptr %302, align 8
-  %727 = getelementptr inbounds ptr, ptr %726, i64 %indvars.iv.i126.i
+  %727 = getelementptr inbounds nuw ptr, ptr %726, i64 %indvars.iv.i126.i
   %728 = load ptr, ptr %727, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %728, ptr noundef %722) #13
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %725) #13
@@ -4724,15 +4724,15 @@ IDAPredict.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %692
 
 .lr.ph.i146.i.i:                                  ; preds = %.lr.ph.i125.i, %.lr.ph.i146.i.i
   %indvars.iv.i147.i.i = phi i64 [ %indvars.iv.next.i148.i.i, %.lr.ph.i146.i.i ], [ 1, %.lr.ph.i125.i ]
-  %730 = getelementptr inbounds [6 x ptr], ptr %302, i64 0, i64 %indvars.iv.i147.i.i
+  %730 = getelementptr inbounds nuw [6 x ptr], ptr %302, i64 0, i64 %indvars.iv.i147.i.i
   %731 = load ptr, ptr %730, align 8
-  %732 = getelementptr inbounds ptr, ptr %731, i64 %indvars.iv.i126.i
+  %732 = getelementptr inbounds nuw ptr, ptr %731, i64 %indvars.iv.i126.i
   %733 = load ptr, ptr %732, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %733, double noundef 1.000000e+00, ptr noundef %722, ptr noundef %722) #13
-  %734 = getelementptr inbounds [6 x double], ptr %325, i64 0, i64 %indvars.iv.i147.i.i
+  %734 = getelementptr inbounds nuw [6 x double], ptr %325, i64 0, i64 %indvars.iv.i147.i.i
   %735 = load double, ptr %734, align 8
   %736 = load ptr, ptr %730, align 8
-  %737 = getelementptr inbounds ptr, ptr %736, i64 %indvars.iv.i126.i
+  %737 = getelementptr inbounds nuw ptr, ptr %736, i64 %indvars.iv.i126.i
   %738 = load ptr, ptr %737, align 8
   tail call void @N_VLinearSum(double noundef %735, ptr noundef %738, double noundef 1.000000e+00, ptr noundef %725, ptr noundef %725) #13
   %indvars.iv.next.i148.i.i = add nuw nsw i64 %indvars.iv.i147.i.i, 1
@@ -4825,7 +4825,7 @@ IDASensPredict.exit.i.i:                          ; preds = %.lr.ph.i146.i.i, %.
 .lr.ph.i150.i.i:                                  ; preds = %.preheader140.i.i.i, %.lr.ph.i150.i.i
   %indvars.iv.i151.i.i = phi i64 [ %indvars.iv.next.i152.i.i, %.lr.ph.i150.i.i ], [ 0, %.preheader140.i.i.i ]
   %784 = load ptr, ptr %353, align 8
-  %785 = getelementptr inbounds ptr, ptr %784, i64 %indvars.iv.i151.i.i
+  %785 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv.i151.i.i
   %786 = load ptr, ptr %785, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %786) #13
   %indvars.iv.next.i152.i.i = add nuw nsw i64 %indvars.iv.i151.i.i, 1
@@ -4880,10 +4880,10 @@ IDASensPredict.exit.i.i:                          ; preds = %.lr.ph.i146.i.i, %.
   %indvars.iv150.i.i.i = phi i64 [ %indvars.iv.next151.i.i.i, %808 ], [ 0, %.preheader136.i.i.i ]
   %812 = load ptr, ptr %356, align 8
   %813 = load ptr, ptr %344, align 8
-  %814 = getelementptr inbounds ptr, ptr %813, i64 %indvars.iv150.i.i.i
+  %814 = getelementptr inbounds nuw ptr, ptr %813, i64 %indvars.iv150.i.i.i
   %815 = load ptr, ptr %814, align 8
   %816 = load ptr, ptr %303, align 8
-  %817 = getelementptr inbounds ptr, ptr %816, i64 %indvars.iv150.i.i.i
+  %817 = getelementptr inbounds nuw ptr, ptr %816, i64 %indvars.iv150.i.i.i
   %818 = load ptr, ptr %817, align 8
   %819 = load ptr, ptr %20, align 8
   %820 = load ptr, ptr %24, align 8
@@ -4921,26 +4921,26 @@ IDASensPredict.exit.i.i:                          ; preds = %.lr.ph.i146.i.i, %.
 .lr.ph146.i.i.i:                                  ; preds = %.preheader.i.i.i, %.lr.ph146.i.i.i
   %indvars.iv153.i.i.i = phi i64 [ %indvars.iv.next154.i.i.i, %.lr.ph146.i.i.i ], [ 0, %.preheader.i.i.i ]
   %838 = load ptr, ptr %353, align 8
-  %839 = getelementptr inbounds ptr, ptr %838, i64 %indvars.iv153.i.i.i
+  %839 = getelementptr inbounds nuw ptr, ptr %838, i64 %indvars.iv153.i.i.i
   %840 = load ptr, ptr %839, align 8
   %841 = load ptr, ptr %344, align 8
-  %842 = getelementptr inbounds ptr, ptr %841, i64 %indvars.iv153.i.i.i
+  %842 = getelementptr inbounds nuw ptr, ptr %841, i64 %indvars.iv153.i.i.i
   %843 = load ptr, ptr %842, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %840, double noundef -1.000000e+00, ptr noundef %843, ptr noundef %840) #13
   %844 = load ptr, ptr %341, align 8
-  %845 = getelementptr inbounds ptr, ptr %844, i64 %indvars.iv153.i.i.i
+  %845 = getelementptr inbounds nuw ptr, ptr %844, i64 %indvars.iv153.i.i.i
   %846 = load ptr, ptr %845, align 8
   %847 = load ptr, ptr %344, align 8
-  %848 = getelementptr inbounds ptr, ptr %847, i64 %indvars.iv153.i.i.i
+  %848 = getelementptr inbounds nuw ptr, ptr %847, i64 %indvars.iv153.i.i.i
   %849 = load ptr, ptr %848, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %846, double noundef -1.000000e+00, ptr noundef %849, ptr noundef %846) #13
   %850 = load ptr, ptr %342, align 8
-  %851 = getelementptr inbounds ptr, ptr %850, i64 %indvars.iv153.i.i.i
+  %851 = getelementptr inbounds nuw ptr, ptr %850, i64 %indvars.iv153.i.i.i
   %852 = load ptr, ptr %851, align 8
   %853 = load double, ptr %319, align 8
   %854 = fneg double %853
   %855 = load ptr, ptr %344, align 8
-  %856 = getelementptr inbounds ptr, ptr %855, i64 %indvars.iv153.i.i.i
+  %856 = getelementptr inbounds nuw ptr, ptr %855, i64 %indvars.iv153.i.i.i
   %857 = load ptr, ptr %856, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %852, double noundef %854, ptr noundef %857, ptr noundef %852) #13
   %indvars.iv.next154.i.i.i = add nuw nsw i64 %indvars.iv153.i.i.i, 1
@@ -4962,9 +4962,9 @@ IDASensPredict.exit.i.i:                          ; preds = %.lr.ph.i146.i.i, %.
 IDAWrmsNorm.exit20.us.i.i.i.i:                    ; preds = %._crit_edge.i.i.i, %IDAWrmsNorm.exit20.us.i.i.i.i
   %indvars.iv25.i.i.i.i = phi i64 [ %indvars.iv.next26.i.i.i.i, %IDAWrmsNorm.exit20.us.i.i.i.i ], [ 1, %._crit_edge.i.i.i ]
   %.01621.us.i.i.i.i = phi double [ %.1.us.i.i.i.i, %IDAWrmsNorm.exit20.us.i.i.i.i ], [ %865, %._crit_edge.i.i.i ]
-  %868 = getelementptr inbounds ptr, ptr %861, i64 %indvars.iv25.i.i.i.i
+  %868 = getelementptr inbounds nuw ptr, ptr %861, i64 %indvars.iv25.i.i.i.i
   %869 = load ptr, ptr %868, align 8
-  %870 = getelementptr inbounds ptr, ptr %862, i64 %indvars.iv25.i.i.i.i
+  %870 = getelementptr inbounds nuw ptr, ptr %862, i64 %indvars.iv25.i.i.i.i
   %871 = load ptr, ptr %870, align 8
   %872 = tail call double @N_VWrmsNorm(ptr noundef %869, ptr noundef %871) #13
   %873 = fcmp ogt double %872, %.01621.us.i.i.i.i
@@ -5170,7 +5170,7 @@ IDAWrmsNorm.exit.i.i:                             ; preds = %976, %973
 
 987:                                              ; preds = %IDAWrmsNorm.exit.i.i
   %988 = zext nneg i32 %978 to i64
-  %989 = getelementptr inbounds [6 x ptr], ptr %295, i64 0, i64 %988
+  %989 = getelementptr inbounds nuw [6 x ptr], ptr %295, i64 0, i64 %988
   %990 = load ptr, ptr %989, align 8
   %991 = load ptr, ptr %334, align 8
   %992 = load ptr, ptr %338, align 8
@@ -5205,7 +5205,7 @@ IDAWrmsNorm.exit59.i.i:                           ; preds = %999, %996
 
 1010:                                             ; preds = %IDAWrmsNorm.exit59.i.i
   %1011 = zext nneg i32 %1002 to i64
-  %1012 = getelementptr inbounds [6 x ptr], ptr %295, i64 0, i64 %1011
+  %1012 = getelementptr inbounds nuw [6 x ptr], ptr %295, i64 0, i64 %1011
   %1013 = load ptr, ptr %1012, align 8
   %1014 = load ptr, ptr %338, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1013, double noundef 1.000000e+00, ptr noundef %1014, ptr noundef %1014) #13
@@ -5306,7 +5306,7 @@ IDANls.exit.thread.i:                             ; preds = %.loopexit.i.i, %774
   %indvars.iv.i431 = phi i64 [ %indvars.iv.next.i432, %.lr.ph.i430 ], [ 0, %.preheader28.i ]
   %1055 = load double, ptr %362, align 8
   %1056 = load ptr, ptr %386, align 8
-  %1057 = getelementptr inbounds ptr, ptr %1056, i64 %indvars.iv.i431
+  %1057 = getelementptr inbounds nuw ptr, ptr %1056, i64 %indvars.iv.i431
   %1058 = load ptr, ptr %1057, align 8
   tail call void @N_VScale(double noundef %1055, ptr noundef %1058, ptr noundef %1058) #13
   %indvars.iv.next.i432 = add nuw nsw i64 %indvars.iv.i431, 1
@@ -5335,7 +5335,7 @@ IDANls.exit.thread.i:                             ; preds = %.loopexit.i.i, %774
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %.lr.ph32.i ], [ 0, %.preheader.i429 ]
   %1065 = load double, ptr %362, align 8
   %1066 = load ptr, ptr %387, align 8
-  %1067 = getelementptr inbounds ptr, ptr %1066, i64 %indvars.iv34.i
+  %1067 = getelementptr inbounds nuw ptr, ptr %1066, i64 %indvars.iv34.i
   %1068 = load ptr, ptr %1067, align 8
   tail call void @N_VScale(double noundef %1065, ptr noundef %1068, ptr noundef %1068) #13
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
@@ -5361,11 +5361,11 @@ IDANls.exit.thread.i:                             ; preds = %.loopexit.i.i, %774
 
 .lr.ph.i.i131.i:                                  ; preds = %1074, %.lr.ph.i.i131.i
   %indvars.iv.i.i132.i = phi i64 [ %indvars.iv.next.i.i133.i, %.lr.ph.i.i131.i ], [ 1, %1074 ]
-  %1079 = getelementptr inbounds [6 x ptr], ptr %300, i64 0, i64 %indvars.iv.i.i132.i
+  %1079 = getelementptr inbounds nuw [6 x ptr], ptr %300, i64 0, i64 %indvars.iv.i.i132.i
   %1080 = load ptr, ptr %1079, align 8
   %1081 = load ptr, ptr %364, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1080, double noundef 1.000000e+00, ptr noundef %1081, ptr noundef %1081) #13
-  %1082 = getelementptr inbounds [6 x double], ptr %325, i64 0, i64 %indvars.iv.i.i132.i
+  %1082 = getelementptr inbounds nuw [6 x double], ptr %325, i64 0, i64 %indvars.iv.i.i132.i
   %1083 = load double, ptr %1082, align 8
   %1084 = load ptr, ptr %1079, align 8
   %1085 = load ptr, ptr %365, align 8
@@ -5440,7 +5440,7 @@ IDAQuadNls.exit.i:                                ; preds = %1101, %1099
 
 1127:                                             ; preds = %1112
   %1128 = zext nneg i32 %1117 to i64
-  %1129 = getelementptr inbounds [6 x ptr], ptr %300, i64 0, i64 %1128
+  %1129 = getelementptr inbounds nuw [6 x ptr], ptr %300, i64 0, i64 %1128
   %1130 = load ptr, ptr %1129, align 8
   %1131 = load ptr, ptr %367, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1130, double noundef 1.000000e+00, ptr noundef %1131, ptr noundef %1113) #13
@@ -5470,7 +5470,7 @@ IDAQuadNls.exit.i:                                ; preds = %1101, %1099
 1147:                                             ; preds = %1145
   %1148 = add nsw i32 %1141, -1
   %1149 = zext nneg i32 %1148 to i64
-  %1150 = getelementptr inbounds [6 x ptr], ptr %300, i64 0, i64 %1149
+  %1150 = getelementptr inbounds nuw [6 x ptr], ptr %300, i64 0, i64 %1149
   %1151 = load ptr, ptr %1150, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1151, double noundef 1.000000e+00, ptr noundef %1113, ptr noundef %1113) #13
   %1152 = load i32, ptr %314, align 8
@@ -5564,13 +5564,13 @@ IDAStep.exit.thread435:                           ; preds = %1179
 .lr.ph.i163.i:                                    ; preds = %.preheader.i, %IDASensPredict.exit.i170.i
   %indvars.iv.i164.i = phi i64 [ %indvars.iv.next.i171.i, %IDASensPredict.exit.i170.i ], [ 0, %.preheader.i ]
   %1191 = load ptr, ptr %341, align 8
-  %1192 = getelementptr inbounds ptr, ptr %1191, i64 %indvars.iv.i164.i
+  %1192 = getelementptr inbounds nuw ptr, ptr %1191, i64 %indvars.iv.i164.i
   %1193 = load ptr, ptr %1192, align 8
   %1194 = load ptr, ptr %342, align 8
-  %1195 = getelementptr inbounds ptr, ptr %1194, i64 %indvars.iv.i164.i
+  %1195 = getelementptr inbounds nuw ptr, ptr %1194, i64 %indvars.iv.i164.i
   %1196 = load ptr, ptr %1195, align 8
   %1197 = load ptr, ptr %302, align 8
-  %1198 = getelementptr inbounds ptr, ptr %1197, i64 %indvars.iv.i164.i
+  %1198 = getelementptr inbounds nuw ptr, ptr %1197, i64 %indvars.iv.i164.i
   %1199 = load ptr, ptr %1198, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1199, ptr noundef %1193) #13
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %1196) #13
@@ -5580,15 +5580,15 @@ IDAStep.exit.thread435:                           ; preds = %1179
 
 .lr.ph.i.i166.i:                                  ; preds = %.lr.ph.i163.i, %.lr.ph.i.i166.i
   %indvars.iv.i.i167.i = phi i64 [ %indvars.iv.next.i.i168.i, %.lr.ph.i.i166.i ], [ 1, %.lr.ph.i163.i ]
-  %1201 = getelementptr inbounds [6 x ptr], ptr %302, i64 0, i64 %indvars.iv.i.i167.i
+  %1201 = getelementptr inbounds nuw [6 x ptr], ptr %302, i64 0, i64 %indvars.iv.i.i167.i
   %1202 = load ptr, ptr %1201, align 8
-  %1203 = getelementptr inbounds ptr, ptr %1202, i64 %indvars.iv.i164.i
+  %1203 = getelementptr inbounds nuw ptr, ptr %1202, i64 %indvars.iv.i164.i
   %1204 = load ptr, ptr %1203, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1204, double noundef 1.000000e+00, ptr noundef %1193, ptr noundef %1193) #13
-  %1205 = getelementptr inbounds [6 x double], ptr %325, i64 0, i64 %indvars.iv.i.i167.i
+  %1205 = getelementptr inbounds nuw [6 x double], ptr %325, i64 0, i64 %indvars.iv.i.i167.i
   %1206 = load double, ptr %1205, align 8
   %1207 = load ptr, ptr %1201, align 8
-  %1208 = getelementptr inbounds ptr, ptr %1207, i64 %indvars.iv.i164.i
+  %1208 = getelementptr inbounds nuw ptr, ptr %1207, i64 %indvars.iv.i164.i
   %1209 = load ptr, ptr %1208, align 8
   tail call void @N_VLinearSum(double noundef %1206, ptr noundef %1209, double noundef 1.000000e+00, ptr noundef %1196, ptr noundef %1196) #13
   %indvars.iv.next.i.i168.i = add nuw nsw i64 %indvars.iv.i.i167.i, 1
@@ -5664,7 +5664,7 @@ IDASensPredict.exit.i170.i:                       ; preds = %.lr.ph.i.i166.i, %.
 .lr.ph.i59.i.i:                                   ; preds = %1247, %.lr.ph.i59.i.i
   %indvars.iv.i60.i.i = phi i64 [ %indvars.iv.next.i61.i.i, %.lr.ph.i59.i.i ], [ 0, %1247 ]
   %1250 = load ptr, ptr %353, align 8
-  %1251 = getelementptr inbounds ptr, ptr %1250, i64 %indvars.iv.i60.i.i
+  %1251 = getelementptr inbounds nuw ptr, ptr %1250, i64 %indvars.iv.i60.i.i
   %1252 = load ptr, ptr %1251, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %1252) #13
   %indvars.iv.next.i61.i.i = add nuw nsw i64 %indvars.iv.i60.i.i, 1
@@ -5690,10 +5690,10 @@ IDASensPredict.exit.i170.i:                       ; preds = %.lr.ph.i.i166.i, %.
   %indvars.iv94.i.i.i = phi i64 [ %indvars.iv.next95.i.i.i, %1273 ], [ 0, %.preheader.i.i148.i ]
   %1260 = load ptr, ptr %356, align 8
   %1261 = load ptr, ptr %344, align 8
-  %1262 = getelementptr inbounds ptr, ptr %1261, i64 %indvars.iv94.i.i.i
+  %1262 = getelementptr inbounds nuw ptr, ptr %1261, i64 %indvars.iv94.i.i.i
   %1263 = load ptr, ptr %1262, align 8
   %1264 = load ptr, ptr %303, align 8
-  %1265 = getelementptr inbounds ptr, ptr %1264, i64 %indvars.iv94.i.i.i
+  %1265 = getelementptr inbounds nuw ptr, ptr %1264, i64 %indvars.iv94.i.i.i
   %1266 = load ptr, ptr %1265, align 8
   %1267 = load ptr, ptr %20, align 8
   %1268 = load ptr, ptr %24, align 8
@@ -5708,26 +5708,26 @@ IDASensPredict.exit.i170.i:                       ; preds = %.lr.ph.i.i166.i, %.
 
 1273:                                             ; preds = %1272
   %1274 = load ptr, ptr %353, align 8
-  %1275 = getelementptr inbounds ptr, ptr %1274, i64 %indvars.iv94.i.i.i
+  %1275 = getelementptr inbounds nuw ptr, ptr %1274, i64 %indvars.iv94.i.i.i
   %1276 = load ptr, ptr %1275, align 8
   %1277 = load ptr, ptr %344, align 8
-  %1278 = getelementptr inbounds ptr, ptr %1277, i64 %indvars.iv94.i.i.i
+  %1278 = getelementptr inbounds nuw ptr, ptr %1277, i64 %indvars.iv94.i.i.i
   %1279 = load ptr, ptr %1278, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1276, double noundef -1.000000e+00, ptr noundef %1279, ptr noundef %1276) #13
   %1280 = load ptr, ptr %341, align 8
-  %1281 = getelementptr inbounds ptr, ptr %1280, i64 %indvars.iv94.i.i.i
+  %1281 = getelementptr inbounds nuw ptr, ptr %1280, i64 %indvars.iv94.i.i.i
   %1282 = load ptr, ptr %1281, align 8
   %1283 = load ptr, ptr %344, align 8
-  %1284 = getelementptr inbounds ptr, ptr %1283, i64 %indvars.iv94.i.i.i
+  %1284 = getelementptr inbounds nuw ptr, ptr %1283, i64 %indvars.iv94.i.i.i
   %1285 = load ptr, ptr %1284, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1282, double noundef -1.000000e+00, ptr noundef %1285, ptr noundef %1282) #13
   %1286 = load ptr, ptr %342, align 8
-  %1287 = getelementptr inbounds ptr, ptr %1286, i64 %indvars.iv94.i.i.i
+  %1287 = getelementptr inbounds nuw ptr, ptr %1286, i64 %indvars.iv94.i.i.i
   %1288 = load ptr, ptr %1287, align 8
   %1289 = load double, ptr %319, align 8
   %1290 = fneg double %1289
   %1291 = load ptr, ptr %344, align 8
-  %1292 = getelementptr inbounds ptr, ptr %1291, i64 %indvars.iv94.i.i.i
+  %1292 = getelementptr inbounds nuw ptr, ptr %1291, i64 %indvars.iv94.i.i.i
   %1293 = load ptr, ptr %1292, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1288, double noundef %1290, ptr noundef %1293, ptr noundef %1288) #13
   %indvars.iv.next95.i.i.i = add nuw nsw i64 %indvars.iv94.i.i.i, 1
@@ -5749,9 +5749,9 @@ IDASensPredict.exit.i170.i:                       ; preds = %.lr.ph.i.i166.i, %.
 IDAWrmsNorm.exit20.us.i.i.i158.i:                 ; preds = %._crit_edge.i.i149.i, %IDAWrmsNorm.exit20.us.i.i.i158.i
   %indvars.iv25.i.i.i159.i = phi i64 [ %indvars.iv.next26.i.i.i162.i, %IDAWrmsNorm.exit20.us.i.i.i158.i ], [ 1, %._crit_edge.i.i149.i ]
   %.01621.us.i.i.i160.i = phi double [ %.1.us.i.i.i161.i, %IDAWrmsNorm.exit20.us.i.i.i158.i ], [ %1301, %._crit_edge.i.i149.i ]
-  %1304 = getelementptr inbounds ptr, ptr %1297, i64 %indvars.iv25.i.i.i159.i
+  %1304 = getelementptr inbounds nuw ptr, ptr %1297, i64 %indvars.iv25.i.i.i159.i
   %1305 = load ptr, ptr %1304, align 8
-  %1306 = getelementptr inbounds ptr, ptr %1298, i64 %indvars.iv25.i.i.i159.i
+  %1306 = getelementptr inbounds nuw ptr, ptr %1298, i64 %indvars.iv25.i.i.i159.i
   %1307 = load ptr, ptr %1306, align 8
   %1308 = tail call double @N_VWrmsNorm(ptr noundef %1305, ptr noundef %1307) #13
   %1309 = fcmp ogt double %1308, %.01621.us.i.i.i160.i
@@ -5878,12 +5878,12 @@ IDASensNls.exit.i:                                ; preds = %1326, %1314
   %1376 = sext i32 %1375 to i64
   %1377 = getelementptr inbounds [6 x ptr], ptr %302, i64 0, i64 %1376
   %1378 = load ptr, ptr %1377, align 8
-  %1379 = getelementptr inbounds ptr, ptr %1378, i64 %indvars.iv.i179.i
+  %1379 = getelementptr inbounds nuw ptr, ptr %1378, i64 %indvars.iv.i179.i
   %1380 = load ptr, ptr %1379, align 8
   %1381 = load ptr, ptr %353, align 8
-  %1382 = getelementptr inbounds ptr, ptr %1381, i64 %indvars.iv.i179.i
+  %1382 = getelementptr inbounds nuw ptr, ptr %1381, i64 %indvars.iv.i179.i
   %1383 = load ptr, ptr %1382, align 8
-  %1384 = getelementptr inbounds ptr, ptr %1358, i64 %indvars.iv.i179.i
+  %1384 = getelementptr inbounds nuw ptr, ptr %1358, i64 %indvars.iv.i179.i
   %1385 = load ptr, ptr %1384, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1380, double noundef 1.000000e+00, ptr noundef %1383, ptr noundef %1385) #13
   %indvars.iv.next.i180.i = add nuw nsw i64 %indvars.iv.i179.i, 1
@@ -5933,9 +5933,9 @@ IDASensNls.exit.i:                                ; preds = %1326, %1314
   %1409 = sext i32 %1408 to i64
   %1410 = getelementptr inbounds [6 x ptr], ptr %302, i64 0, i64 %1409
   %1411 = load ptr, ptr %1410, align 8
-  %1412 = getelementptr inbounds ptr, ptr %1411, i64 %indvars.iv91.i.i
+  %1412 = getelementptr inbounds nuw ptr, ptr %1411, i64 %indvars.iv91.i.i
   %1413 = load ptr, ptr %1412, align 8
-  %1414 = getelementptr inbounds ptr, ptr %1358, i64 %indvars.iv91.i.i
+  %1414 = getelementptr inbounds nuw ptr, ptr %1358, i64 %indvars.iv91.i.i
   %1415 = load ptr, ptr %1414, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1413, double noundef 1.000000e+00, ptr noundef %1415, ptr noundef %1415) #13
   %indvars.iv.next92.i.i = add nuw nsw i64 %indvars.iv91.i.i, 1
@@ -6033,12 +6033,12 @@ IDASensNls.exit.thread.i:                         ; preds = %1246, %1233, %1231,
 .lr.ph.i.i189.i:                                  ; preds = %1448, %.lr.ph.i.i189.i
   %indvars.iv.i.i190.i = phi i64 [ %indvars.iv.next.i.i191.i, %.lr.ph.i.i189.i ], [ 0, %1448 ]
   %1456 = load ptr, ptr %305, align 8
-  %1457 = getelementptr inbounds ptr, ptr %1456, i64 %indvars.iv.i.i190.i
+  %1457 = getelementptr inbounds nuw ptr, ptr %1456, i64 %indvars.iv.i.i190.i
   %1458 = load ptr, ptr %1457, align 8
-  %1459 = getelementptr inbounds ptr, ptr %1450, i64 %indvars.iv.i.i190.i
+  %1459 = getelementptr inbounds nuw ptr, ptr %1450, i64 %indvars.iv.i.i190.i
   %1460 = load ptr, ptr %1459, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1458, ptr noundef %1460) #13
-  %1461 = getelementptr inbounds ptr, ptr %1449, i64 %indvars.iv.i.i190.i
+  %1461 = getelementptr inbounds nuw ptr, ptr %1449, i64 %indvars.iv.i.i190.i
   %1462 = load ptr, ptr %1461, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %1462) #13
   %indvars.iv.next.i.i191.i = add nuw nsw i64 %indvars.iv.i.i190.i, 1
@@ -6055,22 +6055,22 @@ IDASensNls.exit.thread.i:                         ; preds = %1246, %1233, %1231,
   br i1 %.not33.i.i.i, label %._crit_edge.i.i195.i, label %.lr.ph35.i.i.i
 
 .lr.ph35.i.i.i:                                   ; preds = %.preheader.i.i192.i
-  %1468 = getelementptr inbounds ptr, ptr %1450, i64 %indvars.iv43.i.i.i
-  %1469 = getelementptr inbounds ptr, ptr %1449, i64 %indvars.iv43.i.i.i
+  %1468 = getelementptr inbounds nuw ptr, ptr %1450, i64 %indvars.iv43.i.i.i
+  %1469 = getelementptr inbounds nuw ptr, ptr %1449, i64 %indvars.iv43.i.i.i
   br label %1470
 
 1470:                                             ; preds = %1470, %.lr.ph35.i.i.i
   %indvars.iv40.i.i.i = phi i64 [ 1, %.lr.ph35.i.i.i ], [ %indvars.iv.next41.i.i.i, %1470 ]
-  %1471 = getelementptr inbounds [6 x ptr], ptr %305, i64 0, i64 %indvars.iv40.i.i.i
+  %1471 = getelementptr inbounds nuw [6 x ptr], ptr %305, i64 0, i64 %indvars.iv40.i.i.i
   %1472 = load ptr, ptr %1471, align 8
-  %1473 = getelementptr inbounds ptr, ptr %1472, i64 %indvars.iv43.i.i.i
+  %1473 = getelementptr inbounds nuw ptr, ptr %1472, i64 %indvars.iv43.i.i.i
   %1474 = load ptr, ptr %1473, align 8
   %1475 = load ptr, ptr %1468, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1474, double noundef 1.000000e+00, ptr noundef %1475, ptr noundef %1475) #13
-  %1476 = getelementptr inbounds [6 x double], ptr %325, i64 0, i64 %indvars.iv40.i.i.i
+  %1476 = getelementptr inbounds nuw [6 x double], ptr %325, i64 0, i64 %indvars.iv40.i.i.i
   %1477 = load double, ptr %1476, align 8
   %1478 = load ptr, ptr %1471, align 8
-  %1479 = getelementptr inbounds ptr, ptr %1478, i64 %indvars.iv43.i.i.i
+  %1479 = getelementptr inbounds nuw ptr, ptr %1478, i64 %indvars.iv43.i.i.i
   %1480 = load ptr, ptr %1479, align 8
   %1481 = load ptr, ptr %1469, align 8
   tail call void @N_VLinearSum(double noundef %1477, ptr noundef %1480, double noundef 1.000000e+00, ptr noundef %1481, ptr noundef %1481) #13
@@ -6129,15 +6129,15 @@ IDAQuadSensPredict.exit.i.i:                      ; preds = %._crit_edge.i.i195.
 .lr.ph.i185.i:                                    ; preds = %.preheader45.i.i, %.lr.ph.i185.i
   %indvars.iv.i186.i = phi i64 [ %indvars.iv.next.i187.i, %.lr.ph.i185.i ], [ 0, %.preheader45.i.i ]
   %1509 = load ptr, ptr %378, align 8
-  %1510 = getelementptr inbounds ptr, ptr %1509, i64 %indvars.iv.i186.i
+  %1510 = getelementptr inbounds nuw ptr, ptr %1509, i64 %indvars.iv.i186.i
   %1511 = load ptr, ptr %1510, align 8
-  %1512 = getelementptr inbounds ptr, ptr %1449, i64 %indvars.iv.i186.i
+  %1512 = getelementptr inbounds nuw ptr, ptr %1449, i64 %indvars.iv.i186.i
   %1513 = load ptr, ptr %1512, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1511, double noundef -1.000000e+00, ptr noundef %1513, ptr noundef %1511) #13
   %1514 = load double, ptr %319, align 8
   %1515 = fdiv double 1.000000e+00, %1514
   %1516 = load ptr, ptr %378, align 8
-  %1517 = getelementptr inbounds ptr, ptr %1516, i64 %indvars.iv.i186.i
+  %1517 = getelementptr inbounds nuw ptr, ptr %1516, i64 %indvars.iv.i186.i
   %1518 = load ptr, ptr %1517, align 8
   tail call void @N_VScale(double noundef %1515, ptr noundef %1518, ptr noundef %1518) #13
   %indvars.iv.next.i187.i = add nuw nsw i64 %indvars.iv.i186.i, 1
@@ -6149,10 +6149,10 @@ IDAQuadSensPredict.exit.i.i:                      ; preds = %._crit_edge.i.i195.
 .lr.ph49.i.i:                                     ; preds = %.preheader.i188.i, %.lr.ph49.i.i
   %indvars.iv52.i.i = phi i64 [ %indvars.iv.next53.i.i, %.lr.ph49.i.i ], [ 0, %.preheader.i188.i ]
   %1522 = load ptr, ptr %376, align 8
-  %1523 = getelementptr inbounds ptr, ptr %1522, i64 %indvars.iv52.i.i
+  %1523 = getelementptr inbounds nuw ptr, ptr %1522, i64 %indvars.iv52.i.i
   %1524 = load ptr, ptr %1523, align 8
   %1525 = load ptr, ptr %378, align 8
-  %1526 = getelementptr inbounds ptr, ptr %1525, i64 %indvars.iv52.i.i
+  %1526 = getelementptr inbounds nuw ptr, ptr %1525, i64 %indvars.iv52.i.i
   %1527 = load ptr, ptr %1526, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1524, double noundef 1.000000e+00, ptr noundef %1527, ptr noundef %1524) #13
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 1
@@ -6180,9 +6180,9 @@ IDAQuadSensNls.exit.i:                            ; preds = %.lr.ph49.i.i, %.pre
 .lr.ph.i.i207.i:                                  ; preds = %1532, %.lr.ph.i.i207.i
   %indvars.iv.i.i208.i = phi i64 [ %indvars.iv.next.i.i210.i, %.lr.ph.i.i207.i ], [ 1, %1532 ]
   %.01214.i.i.i = phi double [ %.1.i.i209.i, %.lr.ph.i.i207.i ], [ %1538, %1532 ]
-  %1541 = getelementptr inbounds ptr, ptr %1534, i64 %indvars.iv.i.i208.i
+  %1541 = getelementptr inbounds nuw ptr, ptr %1534, i64 %indvars.iv.i.i208.i
   %1542 = load ptr, ptr %1541, align 8
-  %1543 = getelementptr inbounds ptr, ptr %1535, i64 %indvars.iv.i.i208.i
+  %1543 = getelementptr inbounds nuw ptr, ptr %1535, i64 %indvars.iv.i.i208.i
   %1544 = load ptr, ptr %1543, align 8
   %1545 = tail call double @N_VWrmsNorm(ptr noundef %1542, ptr noundef %1544) #13
   %1546 = fcmp ogt double %1545, %.01214.i.i.i
@@ -6219,12 +6219,12 @@ IDAQuadSensWrmsNorm.exit.i.i:                     ; preds = %.lr.ph.i.i207.i, %1
   %1563 = sext i32 %1562 to i64
   %1564 = getelementptr inbounds [6 x ptr], ptr %305, i64 0, i64 %1563
   %1565 = load ptr, ptr %1564, align 8
-  %1566 = getelementptr inbounds ptr, ptr %1565, i64 %indvars.iv.i203.i
+  %1566 = getelementptr inbounds nuw ptr, ptr %1565, i64 %indvars.iv.i203.i
   %1567 = load ptr, ptr %1566, align 8
   %1568 = load ptr, ptr %378, align 8
-  %1569 = getelementptr inbounds ptr, ptr %1568, i64 %indvars.iv.i203.i
+  %1569 = getelementptr inbounds nuw ptr, ptr %1568, i64 %indvars.iv.i203.i
   %1570 = load ptr, ptr %1569, align 8
-  %1571 = getelementptr inbounds ptr, ptr %1533, i64 %indvars.iv.i203.i
+  %1571 = getelementptr inbounds nuw ptr, ptr %1533, i64 %indvars.iv.i203.i
   %1572 = load ptr, ptr %1571, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1567, double noundef 1.000000e+00, ptr noundef %1570, ptr noundef %1572) #13
   %indvars.iv.next.i204.i = add nuw nsw i64 %indvars.iv.i203.i, 1
@@ -6254,9 +6254,9 @@ IDAQuadSensWrmsNorm.exit.i.i:                     ; preds = %.lr.ph.i.i207.i, %1
 .lr.ph.i82.i.i:                                   ; preds = %._crit_edge.i197.i, %.lr.ph.i82.i.i
   %indvars.iv.i83.i.i = phi i64 [ %indvars.iv.next.i86.i.i, %.lr.ph.i82.i.i ], [ 1, %._crit_edge.i197.i ]
   %.01214.i84.i.i = phi double [ %.1.i85.i.i, %.lr.ph.i82.i.i ], [ %1584, %._crit_edge.i197.i ]
-  %1587 = getelementptr inbounds ptr, ptr %1533, i64 %indvars.iv.i83.i.i
+  %1587 = getelementptr inbounds nuw ptr, ptr %1533, i64 %indvars.iv.i83.i.i
   %1588 = load ptr, ptr %1587, align 8
-  %1589 = getelementptr inbounds ptr, ptr %1581, i64 %indvars.iv.i83.i.i
+  %1589 = getelementptr inbounds nuw ptr, ptr %1581, i64 %indvars.iv.i83.i.i
   %1590 = load ptr, ptr %1589, align 8
   %1591 = tail call double @N_VWrmsNorm(ptr noundef %1588, ptr noundef %1590) #13
   %1592 = fcmp ogt double %1591, %.01214.i84.i.i
@@ -6297,9 +6297,9 @@ IDAQuadSensWrmsNorm.exit87.i.i:                   ; preds = %.lr.ph.i82.i.i, %._
   %1608 = sext i32 %1607 to i64
   %1609 = getelementptr inbounds [6 x ptr], ptr %305, i64 0, i64 %1608
   %1610 = load ptr, ptr %1609, align 8
-  %1611 = getelementptr inbounds ptr, ptr %1610, i64 %indvars.iv102.i.i
+  %1611 = getelementptr inbounds nuw ptr, ptr %1610, i64 %indvars.iv102.i.i
   %1612 = load ptr, ptr %1611, align 8
-  %1613 = getelementptr inbounds ptr, ptr %1533, i64 %indvars.iv102.i.i
+  %1613 = getelementptr inbounds nuw ptr, ptr %1533, i64 %indvars.iv102.i.i
   %1614 = load ptr, ptr %1613, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1612, double noundef 1.000000e+00, ptr noundef %1614, ptr noundef %1614) #13
   %indvars.iv.next103.i.i = add nuw nsw i64 %indvars.iv102.i.i, 1
@@ -6329,9 +6329,9 @@ IDAQuadSensWrmsNorm.exit87.i.i:                   ; preds = %.lr.ph.i82.i.i, %._
 .lr.ph.i89.i.i:                                   ; preds = %._crit_edge100.i.i, %.lr.ph.i89.i.i
   %indvars.iv.i90.i.i = phi i64 [ %indvars.iv.next.i93.i.i, %.lr.ph.i89.i.i ], [ 1, %._crit_edge100.i.i ]
   %.01214.i91.i.i = phi double [ %.1.i92.i.i, %.lr.ph.i89.i.i ], [ %1626, %._crit_edge100.i.i ]
-  %1629 = getelementptr inbounds ptr, ptr %1533, i64 %indvars.iv.i90.i.i
+  %1629 = getelementptr inbounds nuw ptr, ptr %1533, i64 %indvars.iv.i90.i.i
   %1630 = load ptr, ptr %1629, align 8
-  %1631 = getelementptr inbounds ptr, ptr %1623, i64 %indvars.iv.i90.i.i
+  %1631 = getelementptr inbounds nuw ptr, ptr %1623, i64 %indvars.iv.i90.i.i
   %1632 = load ptr, ptr %1631, align 8
   %1633 = tail call double @N_VWrmsNorm(ptr noundef %1630, ptr noundef %1632) #13
   %1634 = fcmp ogt double %1633, %.01214.i91.i.i
@@ -6510,16 +6510,16 @@ IDAWrmsNorm.exit.i213.i:                          ; preds = %1699, %1696
 .lr.ph.i226.i:                                    ; preds = %1715, %.lr.ph.i226.i
   %indvars.iv.i227.i = phi i64 [ %indvars.iv.next.i228.i, %.lr.ph.i226.i ], [ 0, %1715 ]
   %1719 = load ptr, ptr %353, align 8
-  %1720 = getelementptr inbounds ptr, ptr %1719, i64 %indvars.iv.i227.i
+  %1720 = getelementptr inbounds nuw ptr, ptr %1719, i64 %indvars.iv.i227.i
   %1721 = load ptr, ptr %1720, align 8
   %1722 = load i32, ptr %314, align 8
   %1723 = add nsw i32 %1722, 1
   %1724 = sext i32 %1723 to i64
   %1725 = getelementptr inbounds [6 x ptr], ptr %302, i64 0, i64 %1724
   %1726 = load ptr, ptr %1725, align 8
-  %1727 = getelementptr inbounds ptr, ptr %1726, i64 %indvars.iv.i227.i
+  %1727 = getelementptr inbounds nuw ptr, ptr %1726, i64 %indvars.iv.i227.i
   %1728 = load ptr, ptr %1727, align 8
-  %1729 = getelementptr inbounds ptr, ptr %1716, i64 %indvars.iv.i227.i
+  %1729 = getelementptr inbounds nuw ptr, ptr %1716, i64 %indvars.iv.i227.i
   %1730 = load ptr, ptr %1729, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1721, double noundef -1.000000e+00, ptr noundef %1728, ptr noundef %1730) #13
   %indvars.iv.next.i228.i = add nuw nsw i64 %indvars.iv.i227.i, 1
@@ -6550,17 +6550,17 @@ IDAWrmsNorm.exit.i213.i:                          ; preds = %1699, %1696
 .lr.ph280.i.i:                                    ; preds = %.preheader276.i.i, %.lr.ph280.i.i
   %indvars.iv307.i.i = phi i64 [ %indvars.iv.next308.i.i, %.lr.ph280.i.i ], [ 0, %.preheader276.i.i ]
   %1742 = load ptr, ptr %378, align 8
-  %1743 = getelementptr inbounds ptr, ptr %1742, i64 %indvars.iv307.i.i
+  %1743 = getelementptr inbounds nuw ptr, ptr %1742, i64 %indvars.iv307.i.i
   %1744 = load ptr, ptr %1743, align 8
   %1745 = load i32, ptr %314, align 8
   %1746 = add nsw i32 %1745, 1
   %1747 = sext i32 %1746 to i64
   %1748 = getelementptr inbounds [6 x ptr], ptr %305, i64 0, i64 %1747
   %1749 = load ptr, ptr %1748, align 8
-  %1750 = getelementptr inbounds ptr, ptr %1749, i64 %indvars.iv307.i.i
+  %1750 = getelementptr inbounds nuw ptr, ptr %1749, i64 %indvars.iv307.i.i
   %1751 = load ptr, ptr %1750, align 8
   %1752 = load ptr, ptr %375, align 8
-  %1753 = getelementptr inbounds ptr, ptr %1752, i64 %indvars.iv307.i.i
+  %1753 = getelementptr inbounds nuw ptr, ptr %1752, i64 %indvars.iv307.i.i
   %1754 = load ptr, ptr %1753, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1744, double noundef -1.000000e+00, ptr noundef %1751, ptr noundef %1754) #13
   %indvars.iv.next308.i.i = add nuw nsw i64 %indvars.iv307.i.i, 1
@@ -6578,9 +6578,9 @@ IDAWrmsNorm.exit.i213.i:                          ; preds = %1699, %1696
 .lr.ph.i.i222.i:                                  ; preds = %._crit_edge281.i.i, %.lr.ph.i.i222.i
   %indvars.iv.i.i223.i = phi i64 [ %indvars.iv.next.i.i225.i, %.lr.ph.i.i222.i ], [ 0, %._crit_edge281.i.i ]
   %.01113.i.i.i = phi double [ %.1.i.i224.i, %.lr.ph.i.i222.i ], [ %.1235.i.i, %._crit_edge281.i.i ]
-  %1761 = getelementptr inbounds ptr, ptr %1759, i64 %indvars.iv.i.i223.i
+  %1761 = getelementptr inbounds nuw ptr, ptr %1759, i64 %indvars.iv.i.i223.i
   %1762 = load ptr, ptr %1761, align 8
-  %1763 = getelementptr inbounds ptr, ptr %1760, i64 %indvars.iv.i.i223.i
+  %1763 = getelementptr inbounds nuw ptr, ptr %1760, i64 %indvars.iv.i.i223.i
   %1764 = load ptr, ptr %1763, align 8
   %1765 = tail call double @N_VWrmsNorm(ptr noundef %1762, ptr noundef %1764) #13
   %1766 = fcmp ogt double %1765, %.01113.i.i.i
@@ -6724,14 +6724,14 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
 .lr.ph283.i.i:                                    ; preds = %.preheader274.i.i, %.lr.ph283.i.i
   %indvars.iv310.i.i = phi i64 [ %indvars.iv.next311.i.i, %.lr.ph283.i.i ], [ 0, %.preheader274.i.i ]
   %1840 = load ptr, ptr %353, align 8
-  %1841 = getelementptr inbounds ptr, ptr %1840, i64 %indvars.iv310.i.i
+  %1841 = getelementptr inbounds nuw ptr, ptr %1840, i64 %indvars.iv310.i.i
   %1842 = load ptr, ptr %1841, align 8
   %1843 = load i32, ptr %315, align 4
   %1844 = add nsw i32 %1843, 1
   %1845 = sext i32 %1844 to i64
   %1846 = getelementptr inbounds [6 x ptr], ptr %302, i64 0, i64 %1845
   %1847 = load ptr, ptr %1846, align 8
-  %1848 = getelementptr inbounds ptr, ptr %1847, i64 %indvars.iv310.i.i
+  %1848 = getelementptr inbounds nuw ptr, ptr %1847, i64 %indvars.iv310.i.i
   %1849 = load ptr, ptr %1848, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1842, ptr noundef %1849) #13
   %indvars.iv.next311.i.i = add nuw nsw i64 %indvars.iv310.i.i, 1
@@ -6753,14 +6753,14 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
 .lr.ph285.i.i:                                    ; preds = %.preheader272.i.i, %.lr.ph285.i.i
   %indvars.iv313.i.i = phi i64 [ %indvars.iv.next314.i.i, %.lr.ph285.i.i ], [ 0, %.preheader272.i.i ]
   %1856 = load ptr, ptr %378, align 8
-  %1857 = getelementptr inbounds ptr, ptr %1856, i64 %indvars.iv313.i.i
+  %1857 = getelementptr inbounds nuw ptr, ptr %1856, i64 %indvars.iv313.i.i
   %1858 = load ptr, ptr %1857, align 8
   %1859 = load i32, ptr %315, align 4
   %1860 = add nsw i32 %1859, 1
   %1861 = sext i32 %1860 to i64
   %1862 = getelementptr inbounds [6 x ptr], ptr %305, i64 0, i64 %1861
   %1863 = load ptr, ptr %1862, align 8
-  %1864 = getelementptr inbounds ptr, ptr %1863, i64 %indvars.iv313.i.i
+  %1864 = getelementptr inbounds nuw ptr, ptr %1863, i64 %indvars.iv313.i.i
   %1865 = load ptr, ptr %1864, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %1858, ptr noundef %1865) #13
   %indvars.iv.next314.i.i = add nuw nsw i64 %indvars.iv313.i.i, 1
@@ -6787,9 +6787,9 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
 .lr.ph288.i.i:                                    ; preds = %.lr.ph288.i.i, %.lr.ph288.preheader.i.i
   %indvars.iv316.i.i = phi i64 [ %1876, %.lr.ph288.preheader.i.i ], [ %indvars.iv.next317.i.i, %.lr.ph288.i.i ]
   %indvars.iv.next317.i.i = add nsw i64 %indvars.iv316.i.i, -1
-  %1877 = getelementptr inbounds [6 x ptr], ptr %295, i64 0, i64 %indvars.iv.next317.i.i
+  %1877 = getelementptr inbounds nuw [6 x ptr], ptr %295, i64 0, i64 %indvars.iv.next317.i.i
   %1878 = load ptr, ptr %1877, align 8
-  %1879 = getelementptr inbounds [6 x ptr], ptr %295, i64 0, i64 %indvars.iv316.i.i
+  %1879 = getelementptr inbounds nuw [6 x ptr], ptr %295, i64 0, i64 %indvars.iv316.i.i
   %1880 = load ptr, ptr %1879, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1878, double noundef 1.000000e+00, ptr noundef %1880, ptr noundef %1878) #13
   %1881 = icmp samesign ugt i64 %indvars.iv316.i.i, 1
@@ -6818,9 +6818,9 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
 .lr.ph292.i.i:                                    ; preds = %.lr.ph292.i.i, %.lr.ph292.preheader.i.i
   %indvars.iv319.i.i = phi i64 [ %1891, %.lr.ph292.preheader.i.i ], [ %indvars.iv.next320.i.i, %.lr.ph292.i.i ]
   %indvars.iv.next320.i.i = add nsw i64 %indvars.iv319.i.i, -1
-  %1892 = getelementptr inbounds [6 x ptr], ptr %300, i64 0, i64 %indvars.iv.next320.i.i
+  %1892 = getelementptr inbounds nuw [6 x ptr], ptr %300, i64 0, i64 %indvars.iv.next320.i.i
   %1893 = load ptr, ptr %1892, align 8
-  %1894 = getelementptr inbounds [6 x ptr], ptr %300, i64 0, i64 %indvars.iv319.i.i
+  %1894 = getelementptr inbounds nuw [6 x ptr], ptr %300, i64 0, i64 %indvars.iv319.i.i
   %1895 = load ptr, ptr %1894, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1893, double noundef 1.000000e+00, ptr noundef %1895, ptr noundef %1893) #13
   %1896 = icmp samesign ugt i64 %indvars.iv319.i.i, 1
@@ -6839,13 +6839,13 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
 .lr.ph298.i.i:                                    ; preds = %.preheader269.i.i, %._crit_edge296.i.i
   %indvars.iv325.i.i = phi i64 [ %indvars.iv.next326.i.i, %._crit_edge296.i.i ], [ 0, %.preheader269.i.i ]
   %1900 = load ptr, ptr %353, align 8
-  %1901 = getelementptr inbounds ptr, ptr %1900, i64 %indvars.iv325.i.i
+  %1901 = getelementptr inbounds nuw ptr, ptr %1900, i64 %indvars.iv325.i.i
   %1902 = load ptr, ptr %1901, align 8
   %1903 = load i32, ptr %315, align 4
   %1904 = sext i32 %1903 to i64
   %1905 = getelementptr inbounds [6 x ptr], ptr %302, i64 0, i64 %1904
   %1906 = load ptr, ptr %1905, align 8
-  %1907 = getelementptr inbounds ptr, ptr %1906, i64 %indvars.iv325.i.i
+  %1907 = getelementptr inbounds nuw ptr, ptr %1906, i64 %indvars.iv325.i.i
   %1908 = load ptr, ptr %1907, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1902, double noundef 1.000000e+00, ptr noundef %1908, ptr noundef %1908) #13
   %1909 = load i32, ptr %315, align 4
@@ -6859,13 +6859,13 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
 .lr.ph295.i.i:                                    ; preds = %.lr.ph295.i.i, %.lr.ph295.preheader.i.i
   %indvars.iv322.i.i = phi i64 [ %1911, %.lr.ph295.preheader.i.i ], [ %indvars.iv.next323.i.i, %.lr.ph295.i.i ]
   %indvars.iv.next323.i.i = add nsw i64 %indvars.iv322.i.i, -1
-  %1912 = getelementptr inbounds [6 x ptr], ptr %302, i64 0, i64 %indvars.iv.next323.i.i
+  %1912 = getelementptr inbounds nuw [6 x ptr], ptr %302, i64 0, i64 %indvars.iv.next323.i.i
   %1913 = load ptr, ptr %1912, align 8
-  %1914 = getelementptr inbounds ptr, ptr %1913, i64 %indvars.iv325.i.i
+  %1914 = getelementptr inbounds nuw ptr, ptr %1913, i64 %indvars.iv325.i.i
   %1915 = load ptr, ptr %1914, align 8
-  %1916 = getelementptr inbounds [6 x ptr], ptr %302, i64 0, i64 %indvars.iv322.i.i
+  %1916 = getelementptr inbounds nuw [6 x ptr], ptr %302, i64 0, i64 %indvars.iv322.i.i
   %1917 = load ptr, ptr %1916, align 8
-  %1918 = getelementptr inbounds ptr, ptr %1917, i64 %indvars.iv325.i.i
+  %1918 = getelementptr inbounds nuw ptr, ptr %1917, i64 %indvars.iv325.i.i
   %1919 = load ptr, ptr %1918, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1915, double noundef 1.000000e+00, ptr noundef %1919, ptr noundef %1915) #13
   %1920 = icmp samesign ugt i64 %indvars.iv322.i.i, 1
@@ -6891,13 +6891,13 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
 .lr.ph304.i.i:                                    ; preds = %.preheader.i220.i, %._crit_edge302.i.i
   %indvars.iv331.i.i = phi i64 [ %indvars.iv.next332.i.i, %._crit_edge302.i.i ], [ 0, %.preheader.i220.i ]
   %1927 = load ptr, ptr %378, align 8
-  %1928 = getelementptr inbounds ptr, ptr %1927, i64 %indvars.iv331.i.i
+  %1928 = getelementptr inbounds nuw ptr, ptr %1927, i64 %indvars.iv331.i.i
   %1929 = load ptr, ptr %1928, align 8
   %1930 = load i32, ptr %315, align 4
   %1931 = sext i32 %1930 to i64
   %1932 = getelementptr inbounds [6 x ptr], ptr %305, i64 0, i64 %1931
   %1933 = load ptr, ptr %1932, align 8
-  %1934 = getelementptr inbounds ptr, ptr %1933, i64 %indvars.iv331.i.i
+  %1934 = getelementptr inbounds nuw ptr, ptr %1933, i64 %indvars.iv331.i.i
   %1935 = load ptr, ptr %1934, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1929, double noundef 1.000000e+00, ptr noundef %1935, ptr noundef %1935) #13
   %1936 = load i32, ptr %315, align 4
@@ -6911,13 +6911,13 @@ IDAQuadSensWrmsNormUpdate.exit.i.i:               ; preds = %.lr.ph.i.i222.i, %.
 .lr.ph301.i.i:                                    ; preds = %.lr.ph301.i.i, %.lr.ph301.preheader.i.i
   %indvars.iv328.i.i = phi i64 [ %1938, %.lr.ph301.preheader.i.i ], [ %indvars.iv.next329.i.i, %.lr.ph301.i.i ]
   %indvars.iv.next329.i.i = add nsw i64 %indvars.iv328.i.i, -1
-  %1939 = getelementptr inbounds [6 x ptr], ptr %305, i64 0, i64 %indvars.iv.next329.i.i
+  %1939 = getelementptr inbounds nuw [6 x ptr], ptr %305, i64 0, i64 %indvars.iv.next329.i.i
   %1940 = load ptr, ptr %1939, align 8
-  %1941 = getelementptr inbounds ptr, ptr %1940, i64 %indvars.iv331.i.i
+  %1941 = getelementptr inbounds nuw ptr, ptr %1940, i64 %indvars.iv331.i.i
   %1942 = load ptr, ptr %1941, align 8
-  %1943 = getelementptr inbounds [6 x ptr], ptr %305, i64 0, i64 %indvars.iv328.i.i
+  %1943 = getelementptr inbounds nuw [6 x ptr], ptr %305, i64 0, i64 %indvars.iv328.i.i
   %1944 = load ptr, ptr %1943, align 8
-  %1945 = getelementptr inbounds ptr, ptr %1944, i64 %indvars.iv331.i.i
+  %1945 = getelementptr inbounds nuw ptr, ptr %1944, i64 %indvars.iv331.i.i
   %1946 = load ptr, ptr %1945, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1942, double noundef 1.000000e+00, ptr noundef %1946, ptr noundef %1942) #13
   %1947 = icmp samesign ugt i64 %indvars.iv328.i.i, 1
@@ -6948,7 +6948,7 @@ IDAStep.exit:                                     ; preds = %IDANls.exit.thread.
   %.0.i422438 = phi i32 [ -8, %IDAStep.exit.thread435 ], [ %.0.i422, %IDAStep.exit ]
   %1952 = tail call fastcc i32 @IDAHandleFailure(ptr noundef %0, i32 noundef %.0.i422438)
   %1953 = load double, ptr %313, align 8
-  %1954 = getelementptr inbounds i8, ptr %0, i64 1192
+  %1954 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %1953, ptr %1954, align 8
   store double %1953, ptr %2, align 8
   %1955 = tail call i32 @IDAGetSolution(ptr noundef %0, double noundef %1953, ptr noundef nonnull %3, ptr noundef nonnull %4)
@@ -6994,17 +6994,17 @@ IDAStep.exit:                                     ; preds = %IDANls.exit.thread.
   ]
 
 1980:                                             ; preds = %1978
-  %1981 = getelementptr inbounds i8, ptr %0, i64 1788
+  %1981 = getelementptr inbounds nuw i8, ptr %0, i64 1788
   store i32 1, ptr %1981, align 4
-  %1982 = getelementptr inbounds i8, ptr %0, i64 1720
+  %1982 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %1983 = load double, ptr %1982, align 8
   store double %1983, ptr %2, align 8
-  %1984 = getelementptr inbounds i8, ptr %0, i64 1192
+  %1984 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %1983, ptr %1984, align 8
   br label %IDAStopTest2.exit.thread
 
 1985:                                             ; preds = %1978
-  %1986 = getelementptr inbounds i8, ptr %0, i64 1720
+  %1986 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %1987 = load double, ptr %1986, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.61, double noundef %1987)
   br label %IDAStopTest2.exit.thread
@@ -7031,7 +7031,7 @@ IDAStep.exit:                                     ; preds = %IDANls.exit.thread.
 
 1995:                                             ; preds = %.lr.ph526, %1994
   %indvars.iv571 = phi i64 [ 0, %.lr.ph526 ], [ %indvars.iv.next572, %1994 ]
-  %1996 = getelementptr inbounds i32, ptr %1993, i64 %indvars.iv571
+  %1996 = getelementptr inbounds nuw i32, ptr %1993, i64 %indvars.iv571
   %1997 = load i32, ptr %1996, align 4
   %.not415 = icmp eq i32 %1997, 0
   br i1 %.not415, label %1998, label %1994
@@ -7061,7 +7061,7 @@ IDAStep.exit:                                     ; preds = %IDANls.exit.thread.
 
 2008:                                             ; preds = %2002
   %2009 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %2010 = getelementptr inbounds i8, ptr %0, i64 1192
+  %2010 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %1, ptr %2010, align 8
   store double %1, ptr %2, align 8
   br label %IDAStopTest2.exit.thread
@@ -7090,7 +7090,7 @@ IDAStep.exit:                                     ; preds = %IDANls.exit.thread.
   %2027 = load double, ptr %328, align 8
   %2028 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %2027, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %2029 = load double, ptr %328, align 8
-  %2030 = getelementptr inbounds i8, ptr %0, i64 1192
+  %2030 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %2029, ptr %2030, align 8
   store double %2029, ptr %2, align 8
   store i32 0, ptr %327, align 8
@@ -7143,7 +7143,7 @@ IDAStep.exit:                                     ; preds = %IDANls.exit.thread.
   %2061 = load double, ptr %328, align 8
   %2062 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %2061, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %2063 = load double, ptr %328, align 8
-  %2064 = getelementptr inbounds i8, ptr %0, i64 1192
+  %2064 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %2063, ptr %2064, align 8
   store double %2063, ptr %2, align 8
   store i32 0, ptr %327, align 8
@@ -7169,7 +7169,7 @@ IDAStep.exit:                                     ; preds = %IDANls.exit.thread.
 
 2078:                                             ; preds = %2073, %2065, %._crit_edge.i
   %2079 = phi double [ %.pre.i427, %._crit_edge.i ], [ %2066, %2065 ], [ %2066, %2073 ]
-  %2080 = getelementptr inbounds i8, ptr %0, i64 1192
+  %2080 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store double %2079, ptr %2080, align 8
   store double %2079, ptr %2, align 8
   br label %IDAStopTest2.exit.thread
@@ -7189,17 +7189,17 @@ IDAStopTest2.exit.thread:                         ; preds = %.thread, %2026, %20
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1656
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.thread, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
@@ -7209,7 +7209,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 632
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %.thread
@@ -7219,7 +7219,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 .thread:                                          ; preds = %1, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %22
@@ -7229,25 +7229,25 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 22:                                               ; preds = %.thread
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load i32, ptr %23, align 8
   %.not108 = icmp eq i32 %24, 0
   br i1 %.not108, label %28, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   br label %28
 
 28:                                               ; preds = %22, %25
   %.sink = phi ptr [ %27, %25 ], [ %0, %22 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.sink, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 312
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 600
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 %31(ptr noundef %33, ptr noundef %35, ptr noundef %.sink) #13
   %.not109 = icmp eq i32 %36, 0
@@ -7267,26 +7267,26 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 42:                                               ; preds = %28
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load i32, ptr %43, align 8
   %.not110 = icmp eq i32 %44, 0
   br i1 %.not110, label %80, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 1184
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %49 = load double, ptr %48, align 8
   %50 = load ptr, ptr %32, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 320
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 720
-  %54 = getelementptr inbounds i8, ptr %0, i64 728
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 %47(double noundef %49, ptr noundef %50, ptr noundef %52, ptr noundef %55, ptr noundef %57) #13
-  %59 = getelementptr inbounds i8, ptr %0, i64 1336
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %60 = load i64, ptr %59, align 8
   %61 = add nsw i64 %60, 1
   store i64 %61, ptr %59, align 8
@@ -7306,13 +7306,13 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %68 = load i32, ptr %67, align 8
   %.not112 = icmp eq i32 %68, 0
   br i1 %.not112, label %82, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %0, i64 108
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %74
@@ -7323,7 +7323,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
 
 74:                                               ; preds = %69
   %75 = load ptr, ptr %53, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 784
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %77 = load ptr, ptr %76, align 8
   %78 = tail call fastcc i32 @IDAQuadEwtSet(ptr noundef nonnull %0, ptr noundef %75, ptr noundef %77)
   %.not113 = icmp eq i32 %78, 0
@@ -7334,18 +7334,18 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 80:                                               ; preds = %42
-  %81 = getelementptr inbounds i8, ptr %0, i64 104
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %81, align 8
   br label %82
 
 82:                                               ; preds = %66, %74, %80
-  %83 = getelementptr inbounds i8, ptr %0, i64 136
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %84 = load i32, ptr %83, align 8
   %.not114 = icmp eq i32 %84, 0
   br i1 %.not114, label %97, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %0, i64 220
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %90
@@ -7355,9 +7355,9 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %0, i64 800
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 848
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i32 @IDASensEwtSet(ptr noundef nonnull %0, ptr noundef %92, ptr noundef %94)
   %.not115 = icmp eq i32 %95, 0
@@ -7368,45 +7368,45 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 97:                                               ; preds = %82
-  %98 = getelementptr inbounds i8, ptr %0, i64 216
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 0, ptr %98, align 8
   br label %99
 
 99:                                               ; preds = %90, %97
-  %100 = getelementptr inbounds i8, ptr %0, i64 248
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %101 = load i32, ptr %100, align 8
   %.not116 = icmp eq i32 %101, 0
   br i1 %.not116, label %166, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %0, i64 256
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 140
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %0, i64 1184
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %108 = load double, ptr %107, align 8
   %109 = load ptr, ptr %32, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 320
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 800
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 808
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 728
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 960
-  %119 = getelementptr inbounds i8, ptr %0, i64 968
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 264
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 888
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 896
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 904
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %128 = load ptr, ptr %127, align 8
   %129 = tail call i32 %104(i32 noundef %106, double noundef %108, ptr noundef %109, ptr noundef %111, ptr noundef %113, ptr noundef %115, ptr noundef %117, ptr noundef %120, ptr noundef %122, ptr noundef %124, ptr noundef %126, ptr noundef %128) #13
-  %130 = getelementptr inbounds i8, ptr %0, i64 1352
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %131 = load i64, ptr %130, align 8
   %132 = add nsw i64 %131, 1
   store i64 %132, ptr %130, align 8
@@ -7426,7 +7426,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds i8, ptr %0, i64 272
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %139 = load i32, ptr %138, align 8
   %.not118 = icmp eq i32 %139, 0
   br i1 %.not118, label %148, label %140
@@ -7441,7 +7441,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %0, i64 176
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, null
   br i1 %146, label %147, label %148
@@ -7451,13 +7451,13 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 148:                                              ; preds = %143, %137
-  %149 = getelementptr inbounds i8, ptr %0, i64 276
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %150 = load i32, ptr %149, align 4
   %.not120 = icmp eq i32 %150, 0
   br i1 %.not120, label %168, label %151
 
 151:                                              ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %0, i64 280
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %153 = load i32, ptr %152, align 8
   switch i32 %153, label %160 [
     i32 0, label %154
@@ -7469,7 +7469,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 155:                                              ; preds = %151
-  %156 = getelementptr inbounds i8, ptr %0, i64 108
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %157 = load i32, ptr %156, align 4
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %160
@@ -7480,7 +7480,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
 
 160:                                              ; preds = %151, %155
   %161 = load ptr, ptr %118, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 1008
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %163 = load ptr, ptr %162, align 8
   %164 = tail call i32 @IDAQuadSensEwtSet(ptr noundef nonnull %0, ptr noundef %161, ptr noundef %163)
   %.not121 = icmp eq i32 %164, 0
@@ -7491,12 +7491,12 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 166:                                              ; preds = %99
-  %167 = getelementptr inbounds i8, ptr %0, i64 276
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store i32 0, ptr %167, align 4
   br label %168
 
 168:                                              ; preds = %148, %160, %166
-  %169 = getelementptr inbounds i8, ptr %0, i64 1652
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 1652
   %170 = load i32, ptr %169, align 4
   %.not122 = icmp eq i32 %170, 0
   br i1 %.not122, label %186, label %171
@@ -7507,7 +7507,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br i1 %.not123, label %178, label %173
 
 173:                                              ; preds = %171
-  %174 = getelementptr inbounds i8, ptr %0, i64 144
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %175 = load i32, ptr %174, align 8
   %176 = icmp eq i32 %175, 1
   br i1 %176, label %177, label %178
@@ -7517,10 +7517,10 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 178:                                              ; preds = %173, %171
-  %179 = getelementptr inbounds i8, ptr %0, i64 640
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %180 = load ptr, ptr %179, align 8
   %181 = load ptr, ptr %32, align 8
-  %182 = getelementptr inbounds i8, ptr %0, i64 680
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %183 = load ptr, ptr %182, align 8
   %184 = tail call i32 @N_VConstrMask(ptr noundef %180, ptr noundef %181, ptr noundef %183) #13
   %.not124 = icmp eq i32 %184, 0
@@ -7531,7 +7531,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 186:                                              ; preds = %178, %168
-  %187 = getelementptr inbounds i8, ptr %0, i64 1608
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   %188 = load ptr, ptr %187, align 8
   %189 = icmp eq ptr %188, null
   br i1 %189, label %190, label %191
@@ -7541,7 +7541,7 @@ define range(i32 -52, 1) i32 @IDAInitialSetup(ptr noundef %0) local_unnamed_addr
   br label %197
 
 191:                                              ; preds = %186
-  %192 = getelementptr inbounds i8, ptr %0, i64 1592
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %193 = load ptr, ptr %192, align 8
   %.not125 = icmp eq ptr %193, null
   br i1 %.not125, label %197, label %194
@@ -7568,7 +7568,7 @@ define double @IDAWrmsNorm(ptr nocapture noundef readonly %0, ptr noundef %1, pt
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 632
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %7 = load ptr, ptr %6, align 8
   %8 = tail call double @N_VWrmsNormMask(ptr noundef %1, ptr noundef %2, ptr noundef %7) #13
   br label %11
@@ -7592,7 +7592,7 @@ define double @IDASensWrmsNormUpdate(ptr nocapture noundef readonly %0, double n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc double @IDAQuadSensWrmsNormUpdate(ptr nocapture noundef nonnull readonly %0, double noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 140
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -7600,9 +7600,9 @@ define internal fastcc double @IDAQuadSensWrmsNormUpdate(ptr nocapture noundef n
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %.01113 = phi double [ %.1, %.lr.ph ], [ %1, %4 ]
-  %8 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call double @N_VWrmsNorm(ptr noundef %9, ptr noundef %11) #13
   %13 = fcmp ogt double %12, %.01113
@@ -7623,19 +7623,19 @@ declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1696
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1704
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 0, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %2, align 8
@@ -7644,33 +7644,33 @@ define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef n
   br i1 %11, label %6, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %6, %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 1184
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 1720
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store double %13, ptr %14, align 8
   %15 = tail call double @SUNRabs(double noundef %13) #13
-  %16 = getelementptr inbounds i8, ptr %0, i64 1168
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %17 = load double, ptr %16, align 8
   %18 = tail call double @SUNRabs(double noundef %17) #13
   %19 = fadd double %15, %18
   %20 = load double, ptr %0, align 8
   %21 = fmul double %19, %20
   %22 = fmul double %21, 1.000000e+02
-  %23 = getelementptr inbounds i8, ptr %0, i64 1776
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   store double %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 1688
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %25 = load ptr, ptr %24, align 8
   %26 = load double, ptr %14, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 312
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 320
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 1744
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 %25(double noundef %26, ptr noundef %28, ptr noundef %30, ptr noundef %32, ptr noundef %34) #13
-  %36 = getelementptr inbounds i8, ptr %0, i64 1792
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   store i64 1, ptr %36, align 8
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %.preheader66, label %.loopexit
@@ -7681,7 +7681,7 @@ define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef n
   br i1 %38, label %.lr.ph70, label %.loopexit
 
 .lr.ph70:                                         ; preds = %.preheader66
-  %39 = getelementptr inbounds i8, ptr %0, i64 1800
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %.lr.ph70
@@ -7692,7 +7692,7 @@ define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef n
 41:                                               ; preds = %.outer, %47
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %47 ], [ %indvars.iv75.ph, %.outer ]
   %42 = load ptr, ptr %31, align 8
-  %43 = getelementptr inbounds double, ptr %42, i64 %indvars.iv75
+  %43 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv75
   %44 = load double, ptr %43, align 8
   %45 = tail call double @SUNRabs(double noundef %44) #13
   %46 = fcmp oeq double %45, 0.000000e+00
@@ -7707,7 +7707,7 @@ define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef n
 
 .thread:                                          ; preds = %41
   %51 = load ptr, ptr %39, align 8
-  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv75
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv75
   store i32 0, ptr %52, align 4
   %indvars.iv.next7683 = add nuw nsw i64 %indvars.iv75, 1
   %53 = load i32, ptr %2, align 8
@@ -7741,13 +7741,13 @@ define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef n
   %71 = fadd double %70, %69
   %72 = load ptr, ptr %27, align 8
   %73 = load ptr, ptr %29, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 608
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %75 = load ptr, ptr %74, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %72, double noundef %69, ptr noundef %73, ptr noundef %75) #13
   %76 = load ptr, ptr %24, align 8
   %77 = load ptr, ptr %74, align 8
   %78 = load ptr, ptr %29, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 1752
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %33, align 8
   %82 = tail call i32 %76(double noundef %71, ptr noundef %77, ptr noundef %78, ptr noundef %80, ptr noundef %81) #13
@@ -7763,20 +7763,20 @@ define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef n
   br i1 %86, label %.lr.ph73, label %.loopexit
 
 .lr.ph73:                                         ; preds = %.preheader
-  %87 = getelementptr inbounds i8, ptr %0, i64 1800
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   br label %88
 
 88:                                               ; preds = %.lr.ph73, %106
   %indvars.iv78 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next79, %106 ]
   %89 = load ptr, ptr %87, align 8
-  %90 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv78
+  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv78
   %91 = load i32, ptr %90, align 4
   %.not65 = icmp eq i32 %91, 0
   br i1 %.not65, label %92, label %106
 
 92:                                               ; preds = %88
   %93 = load ptr, ptr %79, align 8
-  %94 = getelementptr inbounds double, ptr %93, i64 %indvars.iv78
+  %94 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv78
   %95 = load double, ptr %94, align 8
   %96 = tail call double @SUNRabs(double noundef %95) #13
   %97 = fcmp une double %96, 0.000000e+00
@@ -7784,13 +7784,13 @@ define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef n
 
 98:                                               ; preds = %92
   %99 = load ptr, ptr %87, align 8
-  %100 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv78
+  %100 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv78
   store i32 1, ptr %100, align 4
   %101 = load ptr, ptr %79, align 8
-  %102 = getelementptr inbounds double, ptr %101, i64 %indvars.iv78
+  %102 = getelementptr inbounds nuw double, ptr %101, i64 %indvars.iv78
   %103 = load double, ptr %102, align 8
   %104 = load ptr, ptr %31, align 8
-  %105 = getelementptr inbounds double, ptr %104, i64 %indvars.iv78
+  %105 = getelementptr inbounds nuw double, ptr %104, i64 %indvars.iv78
   store double %103, ptr %105, align 8
   br label %106
 
@@ -7808,30 +7808,30 @@ define internal fastcc range(i32 -10, 1) i32 @IDARcheck1(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1788
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1788
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1720
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 608
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 616
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %7, ptr noundef %9, ptr noundef %11)
-  %13 = getelementptr inbounds i8, ptr %0, i64 1688
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %14 = load ptr, ptr %13, align 8
   %15 = load double, ptr %6, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 1744
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %14(double noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %19, ptr noundef %21) #13
-  %23 = getelementptr inbounds i8, ptr %0, i64 1792
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %24 = load i64, ptr %23, align 8
   %25 = add nsw i64 %24, 1
   store i64 %25, ptr %23, align 8
@@ -7839,13 +7839,13 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
   br i1 %.not, label %.preheader86, label %.loopexit
 
 .preheader86:                                     ; preds = %5
-  %26 = getelementptr inbounds i8, ptr %0, i64 1696
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %27 = load i32, ptr %26, align 8
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader86
-  %29 = getelementptr inbounds i8, ptr %0, i64 1704
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   br label %34
 
 .preheader85:                                     ; preds = %34
@@ -7853,8 +7853,8 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
   br i1 %30, label %.lr.ph91, label %.loopexit
 
 .lr.ph91:                                         ; preds = %.preheader85
-  %31 = getelementptr inbounds i8, ptr %0, i64 1800
-  %32 = getelementptr inbounds i8, ptr %0, i64 1704
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %.lr.ph91
@@ -7865,7 +7865,7 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %35 = load ptr, ptr %29, align 8
-  %36 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
   store i32 0, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %26, align 8
@@ -7876,14 +7876,14 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
 40:                                               ; preds = %.outer, %50
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %50 ], [ %indvars.iv98.ph, %.outer ]
   %41 = load ptr, ptr %31, align 8
-  %42 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv98
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv98
   %43 = load i32, ptr %42, align 4
   %.not84 = icmp eq i32 %43, 0
   br i1 %.not84, label %50, label %44
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %18, align 8
-  %46 = getelementptr inbounds double, ptr %45, i64 %indvars.iv98
+  %46 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv98
   %47 = load double, ptr %46, align 8
   %48 = tail call double @SUNRabs(double noundef %47) #13
   %49 = fcmp oeq double %48, 0.000000e+00
@@ -7898,7 +7898,7 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
 
 .thread:                                          ; preds = %44
   %54 = load ptr, ptr %32, align 8
-  %55 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv98
+  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv98
   store i32 1, ptr %55, align 4
   %indvars.iv.next99106 = add nuw nsw i64 %indvars.iv98, 1
   %56 = load i32, ptr %26, align 8
@@ -7910,17 +7910,17 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
   br i1 %33, label %.loopexit, label %._crit_edge.thread108
 
 ._crit_edge.thread108:                            ; preds = %.thread, %._crit_edge
-  %59 = getelementptr inbounds i8, ptr %0, i64 1184
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %60 = load double, ptr %59, align 8
   %61 = tail call double @SUNRabs(double noundef %60) #13
-  %62 = getelementptr inbounds i8, ptr %0, i64 1168
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %63 = load double, ptr %62, align 8
   %64 = tail call double @SUNRabs(double noundef %63) #13
   %65 = fadd double %61, %64
   %66 = load double, ptr %0, align 8
   %67 = fmul double %65, %66
   %68 = fmul double %67, 1.000000e+02
-  %69 = getelementptr inbounds i8, ptr %0, i64 1776
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   store double %68, ptr %69, align 8
   %70 = load double, ptr %62, align 8
   %71 = fcmp ogt double %70, 0.000000e+00
@@ -7937,7 +7937,7 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
 80:                                               ; preds = %._crit_edge.thread108
   %81 = fdiv double %73, %70
   %82 = load ptr, ptr %8, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 320
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %84 = load ptr, ptr %83, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %82, double noundef %81, ptr noundef %84, ptr noundef %82) #13
   br label %89
@@ -7952,7 +7952,7 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
   %90 = load ptr, ptr %13, align 8
   %91 = load ptr, ptr %8, align 8
   %92 = load ptr, ptr %10, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 1752
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %20, align 8
   %96 = tail call i32 %90(double noundef %75, ptr noundef %91, ptr noundef %92, ptr noundef %94, ptr noundef %95) #13
@@ -7968,27 +7968,27 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
   br i1 %100, label %.lr.ph94, label %.loopexit
 
 .lr.ph94:                                         ; preds = %.preheader
-  %101 = getelementptr inbounds i8, ptr %0, i64 1800
-  %102 = getelementptr inbounds i8, ptr %0, i64 1704
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   br label %103
 
 103:                                              ; preds = %.lr.ph94, %126
   %indvars.iv101 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next102, %126 ]
   %.293 = phi i32 [ 0, %.lr.ph94 ], [ %.3, %126 ]
   %104 = load ptr, ptr %101, align 8
-  %105 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv101
+  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv101
   %106 = load i32, ptr %105, align 4
   %.not83 = icmp eq i32 %106, 0
   br i1 %.not83, label %126, label %107
 
 107:                                              ; preds = %103
   %108 = load ptr, ptr %93, align 8
-  %109 = getelementptr inbounds double, ptr %108, i64 %indvars.iv101
+  %109 = getelementptr inbounds nuw double, ptr %108, i64 %indvars.iv101
   %110 = load double, ptr %109, align 8
   %111 = tail call double @SUNRabs(double noundef %110) #13
   %112 = fcmp oeq double %111, 0.000000e+00
   %113 = load ptr, ptr %102, align 8
-  %114 = getelementptr inbounds i32, ptr %113, i64 %indvars.iv101
+  %114 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv101
   %115 = load i32, ptr %114, align 4
   %116 = icmp eq i32 %115, 1
   br i1 %112, label %117, label %119
@@ -8005,10 +8005,10 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
 
 120:                                              ; preds = %119
   %121 = load ptr, ptr %93, align 8
-  %122 = getelementptr inbounds double, ptr %121, i64 %indvars.iv101
+  %122 = getelementptr inbounds nuw double, ptr %121, i64 %indvars.iv101
   %123 = load double, ptr %122, align 8
   %124 = load ptr, ptr %18, align 8
-  %125 = getelementptr inbounds double, ptr %124, i64 %indvars.iv101
+  %125 = getelementptr inbounds nuw double, ptr %124, i64 %indvars.iv101
   store double %123, ptr %125, align 8
   br label %126
 
@@ -8032,7 +8032,7 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1784
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1784
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %._crit_edge108 [
     i32 2, label %.thread
@@ -8040,51 +8040,51 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   ]
 
 ._crit_edge108:                                   ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 1728
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1728
   %.pre = load double, ptr %.phi.trans.insert, align 8
   br label %18
 
 .thread:                                          ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1728
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1728
   store double %5, ptr %6, align 8
   br label %18
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 1768
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1184
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %11 = load double, ptr %10, align 8
   %12 = fsub double %9, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 1168
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %14 = load double, ptr %13, align 8
   %15 = fmul double %12, %14
   %16 = fcmp ult double %15, 0.000000e+00
   %. = select i1 %16, double %9, double %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 1728
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1728
   store double %., ptr %17, align 8
   br label %18
 
 18:                                               ; preds = %._crit_edge108, %.thread, %7
   %19 = phi double [ %.pre, %._crit_edge108 ], [ %5, %.thread ], [ %., %7 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 1728
-  %21 = getelementptr inbounds i8, ptr %0, i64 608
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1728
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 616
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @IDAGetSolution(ptr noundef nonnull %0, double noundef %19, ptr noundef %22, ptr noundef %24)
-  %26 = getelementptr inbounds i8, ptr %0, i64 1688
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %27 = load ptr, ptr %26, align 8
   %28 = load double, ptr %20, align 8
   %29 = load ptr, ptr %21, align 8
   %30 = load ptr, ptr %23, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 1752
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 %27(double noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %32, ptr noundef %34) #13
-  %36 = getelementptr inbounds i8, ptr %0, i64 1792
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %37 = load i64, ptr %36, align 8
   %38 = add nsw i64 %37, 1
   store i64 %38, ptr %36, align 8
@@ -8092,35 +8092,35 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br i1 %.not, label %39, label %IDARootfind.exit.thread
 
 39:                                               ; preds = %18
-  %40 = getelementptr inbounds i8, ptr %0, i64 1184
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %41 = load double, ptr %40, align 8
   %42 = tail call double @SUNRabs(double noundef %41) #13
-  %43 = getelementptr inbounds i8, ptr %0, i64 1168
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %44 = load double, ptr %43, align 8
   %45 = tail call double @SUNRabs(double noundef %44) #13
   %46 = fadd double %42, %45
   %47 = load double, ptr %0, align 8
   %48 = fmul double %46, %47
   %49 = fmul double %48, 1.000000e+02
-  %50 = getelementptr inbounds i8, ptr %0, i64 1776
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   store double %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 1696
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %52 = load i32, ptr %51, align 8
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph.i, label %._crit_edge.thread.thread
 
 ._crit_edge.thread.thread:                        ; preds = %39
   %54 = load double, ptr %20, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 1736
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   store double %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 1720
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store double %54, ptr %56, align 8
   br label %IDARootfind.exit.thread
 
 .lr.ph.i:                                         ; preds = %39
-  %57 = getelementptr inbounds i8, ptr %0, i64 1800
-  %58 = getelementptr inbounds i8, ptr %0, i64 1744
-  %59 = getelementptr inbounds i8, ptr %0, i64 1712
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1744
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.thread.i, %.lr.ph.i
@@ -8135,14 +8135,14 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %103 ], [ %indvars.iv.ph.i, %.outer.i ]
   %.0211261.i = phi i32 [ %.1212.i, %103 ], [ %.0211261.ph.i, %.outer.i ]
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i
   %64 = load i32, ptr %63, align 4
   %.not244.i = icmp eq i32 %64, 0
   br i1 %.not244.i, label %103, label %65
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr %31, align 8
-  %67 = getelementptr inbounds double, ptr %66, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv.i
   %68 = load double, ptr %67, align 8
   %69 = tail call double @SUNRabs(double noundef %68) #13
   %70 = fcmp oeq double %69, 0.000000e+00
@@ -8150,11 +8150,11 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 
 71:                                               ; preds = %65
   %72 = load ptr, ptr %59, align 8
-  %73 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i
   %74 = load i32, ptr %73, align 4
   %75 = sitofp i32 %74 to double
   %76 = load ptr, ptr %58, align 8
-  %77 = getelementptr inbounds double, ptr %76, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw double, ptr %76, i64 %indvars.iv.i
   %78 = load double, ptr %77, align 8
   %79 = fmul double %78, %75
   %80 = fcmp ugt double %79, 0.000000e+00
@@ -8165,10 +8165,10 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 
 82:                                               ; preds = %65
   %83 = load ptr, ptr %58, align 8
-  %84 = getelementptr inbounds double, ptr %83, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw double, ptr %83, i64 %indvars.iv.i
   %85 = load double, ptr %84, align 8
   %86 = load ptr, ptr %31, align 8
-  %87 = getelementptr inbounds double, ptr %86, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw double, ptr %86, i64 %indvars.iv.i
   %88 = load double, ptr %87, align 8
   %89 = fmul double %85, %88
   %90 = fcmp olt double %89, 0.000000e+00
@@ -8176,7 +8176,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 
 91:                                               ; preds = %82
   %92 = load ptr, ptr %59, align 8
-  %93 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv.i
   %94 = load i32, ptr %93, align 4
   %95 = sitofp i32 %94 to double
   %96 = fmul double %85, %95
@@ -8212,7 +8212,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 
 .preheader248.i:                                  ; preds = %.thread.i, %._crit_edge.i
   %.1218346353.i = phi i32 [ %.0217260.ph.i, %._crit_edge.i ], [ %107, %.thread.i ]
-  %112 = getelementptr inbounds i8, ptr %0, i64 1720
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %113 = load double, ptr %20, align 8
   %114 = load double, ptr %112, align 8
   %115 = fsub double %113, %114
@@ -8222,27 +8222,27 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br i1 %118, label %.lr.ph288.i, label %.loopexit246thread-pre-split.i
 
 .lr.ph288.i:                                      ; preds = %.preheader248.i
-  %119 = getelementptr inbounds i8, ptr %0, i64 1760
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   br label %167
 
 120:                                              ; preds = %._crit_edge.i
   %121 = icmp sgt i32 %104, 0
   %122 = load double, ptr %20, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 1736
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   store double %122, ptr %123, align 8
   br i1 %121, label %.lr.ph302.i, label %._crit_edge.thread
 
 .lr.ph302.i:                                      ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %0, i64 1760
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   br label %125
 
 125:                                              ; preds = %125, %.lr.ph302.i
   %indvars.iv327.i = phi i64 [ 0, %.lr.ph302.i ], [ %indvars.iv.next328.i, %125 ]
   %126 = load ptr, ptr %31, align 8
-  %127 = getelementptr inbounds double, ptr %126, i64 %indvars.iv327.i
+  %127 = getelementptr inbounds nuw double, ptr %126, i64 %indvars.iv327.i
   %128 = load double, ptr %127, align 8
   %129 = load ptr, ptr %124, align 8
-  %130 = getelementptr inbounds double, ptr %129, i64 %indvars.iv327.i
+  %130 = getelementptr inbounds nuw double, ptr %129, i64 %indvars.iv327.i
   store double %128, ptr %130, align 8
   %indvars.iv.next328.i = add nuw nsw i64 %indvars.iv327.i, 1
   %131 = load i32, ptr %51, align 8
@@ -8256,23 +8256,23 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   br i1 %brmerge.i, label %IDARootfind.exit, label %.lr.ph305.i
 
 .lr.ph305.i:                                      ; preds = %._crit_edge303.loopexit.i
-  %135 = getelementptr inbounds i8, ptr %0, i64 1704
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   br label %136
 
 136:                                              ; preds = %163, %.lr.ph305.i
   %indvars.iv330.i = phi i64 [ 0, %.lr.ph305.i ], [ %indvars.iv.next331.i, %163 ]
   %137 = load ptr, ptr %135, align 8
-  %138 = getelementptr inbounds i32, ptr %137, i64 %indvars.iv330.i
+  %138 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv330.i
   store i32 0, ptr %138, align 4
   %139 = load ptr, ptr %57, align 8
-  %140 = getelementptr inbounds i32, ptr %139, i64 %indvars.iv330.i
+  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv330.i
   %141 = load i32, ptr %140, align 4
   %.not238.i = icmp eq i32 %141, 0
   br i1 %.not238.i, label %163, label %142
 
 142:                                              ; preds = %136
   %143 = load ptr, ptr %31, align 8
-  %144 = getelementptr inbounds double, ptr %143, i64 %indvars.iv330.i
+  %144 = getelementptr inbounds nuw double, ptr %143, i64 %indvars.iv330.i
   %145 = load double, ptr %144, align 8
   %146 = tail call double @SUNRabs(double noundef %145) #13
   %147 = fcmp oeq double %146, 0.000000e+00
@@ -8280,11 +8280,11 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 
 148:                                              ; preds = %142
   %149 = load ptr, ptr %59, align 8
-  %150 = getelementptr inbounds i32, ptr %149, i64 %indvars.iv330.i
+  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv330.i
   %151 = load i32, ptr %150, align 4
   %152 = sitofp i32 %151 to double
   %153 = load ptr, ptr %58, align 8
-  %154 = getelementptr inbounds double, ptr %153, i64 %indvars.iv330.i
+  %154 = getelementptr inbounds nuw double, ptr %153, i64 %indvars.iv330.i
   %155 = load double, ptr %154, align 8
   %156 = fmul double %155, %152
   %157 = fcmp ugt double %156, 0.000000e+00
@@ -8294,7 +8294,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %159 = fcmp ogt double %155, 0.000000e+00
   %160 = select i1 %159, i32 -1, i32 1
   %161 = load ptr, ptr %135, align 8
-  %162 = getelementptr inbounds i32, ptr %161, i64 %indvars.iv330.i
+  %162 = getelementptr inbounds nuw i32, ptr %161, i64 %indvars.iv330.i
   store i32 %160, ptr %162, align 4
   br label %163
 
@@ -8416,14 +8416,14 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %indvars.iv312.i = phi i64 [ %indvars.iv.next313.i, %279 ], [ %indvars.iv312.ph.i, %.lr.ph270.outer.i ]
   %.2213268.i = phi i32 [ %.3214.i, %279 ], [ %.2213268.ph.i, %.lr.ph270.outer.i ]
   %238 = load ptr, ptr %57, align 8
-  %239 = getelementptr inbounds i32, ptr %238, i64 %indvars.iv312.i
+  %239 = getelementptr inbounds nuw i32, ptr %238, i64 %indvars.iv312.i
   %240 = load i32, ptr %239, align 4
   %.not242.i = icmp eq i32 %240, 0
   br i1 %.not242.i, label %279, label %241
 
 241:                                              ; preds = %.lr.ph270.i
   %242 = load ptr, ptr %119, align 8
-  %243 = getelementptr inbounds double, ptr %242, i64 %indvars.iv312.i
+  %243 = getelementptr inbounds nuw double, ptr %242, i64 %indvars.iv312.i
   %244 = load double, ptr %243, align 8
   %245 = tail call double @SUNRabs(double noundef %244) #13
   %246 = fcmp oeq double %245, 0.000000e+00
@@ -8431,11 +8431,11 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 
 247:                                              ; preds = %241
   %248 = load ptr, ptr %59, align 8
-  %249 = getelementptr inbounds i32, ptr %248, i64 %indvars.iv312.i
+  %249 = getelementptr inbounds nuw i32, ptr %248, i64 %indvars.iv312.i
   %250 = load i32, ptr %249, align 4
   %251 = sitofp i32 %250 to double
   %252 = load ptr, ptr %58, align 8
-  %253 = getelementptr inbounds double, ptr %252, i64 %indvars.iv312.i
+  %253 = getelementptr inbounds nuw double, ptr %252, i64 %indvars.iv312.i
   %254 = load double, ptr %253, align 8
   %255 = fmul double %254, %251
   %256 = fcmp ugt double %255, 0.000000e+00
@@ -8446,10 +8446,10 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 
 258:                                              ; preds = %241
   %259 = load ptr, ptr %58, align 8
-  %260 = getelementptr inbounds double, ptr %259, i64 %indvars.iv312.i
+  %260 = getelementptr inbounds nuw double, ptr %259, i64 %indvars.iv312.i
   %261 = load double, ptr %260, align 8
   %262 = load ptr, ptr %119, align 8
-  %263 = getelementptr inbounds double, ptr %262, i64 %indvars.iv312.i
+  %263 = getelementptr inbounds nuw double, ptr %262, i64 %indvars.iv312.i
   %264 = load double, ptr %263, align 8
   %265 = fmul double %261, %264
   %266 = fcmp olt double %265, 0.000000e+00
@@ -8457,7 +8457,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 
 267:                                              ; preds = %258
   %268 = load ptr, ptr %59, align 8
-  %269 = getelementptr inbounds i32, ptr %268, i64 %indvars.iv312.i
+  %269 = getelementptr inbounds nuw i32, ptr %268, i64 %indvars.iv312.i
   %270 = load i32, ptr %269, align 4
   %271 = sitofp i32 %270 to double
   %272 = fmul double %261, %271
@@ -8507,10 +8507,10 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 .lr.ph277.i:                                      ; preds = %.lr.ph277.i, %.lr.ph277.preheader.i
   %indvars.iv315.i = phi i64 [ 0, %.lr.ph277.preheader.i ], [ %indvars.iv.next316.i, %.lr.ph277.i ]
   %290 = load ptr, ptr %119, align 8
-  %291 = getelementptr inbounds double, ptr %290, i64 %indvars.iv315.i
+  %291 = getelementptr inbounds nuw double, ptr %290, i64 %indvars.iv315.i
   %292 = load double, ptr %291, align 8
   %293 = load ptr, ptr %31, align 8
-  %294 = getelementptr inbounds double, ptr %293, i64 %indvars.iv315.i
+  %294 = getelementptr inbounds nuw double, ptr %293, i64 %indvars.iv315.i
   store double %292, ptr %294, align 8
   %indvars.iv.next316.i = add nuw nsw i64 %indvars.iv315.i, 1
   %295 = load i32, ptr %51, align 8
@@ -8555,10 +8555,10 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 .lr.ph296.i:                                      ; preds = %312, %.lr.ph296.i
   %indvars.iv321.i = phi i64 [ %indvars.iv.next322.i, %.lr.ph296.i ], [ 0, %312 ]
   %313 = load ptr, ptr %119, align 8
-  %314 = getelementptr inbounds double, ptr %313, i64 %indvars.iv321.i
+  %314 = getelementptr inbounds nuw double, ptr %313, i64 %indvars.iv321.i
   %315 = load double, ptr %314, align 8
   %316 = load ptr, ptr %31, align 8
-  %317 = getelementptr inbounds double, ptr %316, i64 %indvars.iv321.i
+  %317 = getelementptr inbounds nuw double, ptr %316, i64 %indvars.iv321.i
   store double %315, ptr %317, align 8
   %indvars.iv.next322.i = add nuw nsw i64 %indvars.iv321.i, 1
   %318 = load i32, ptr %51, align 8
@@ -8573,10 +8573,10 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 .lr.ph281.i:                                      ; preds = %321, %.lr.ph281.i
   %indvars.iv318.i = phi i64 [ %indvars.iv.next319.i, %.lr.ph281.i ], [ 0, %321 ]
   %322 = load ptr, ptr %119, align 8
-  %323 = getelementptr inbounds double, ptr %322, i64 %indvars.iv318.i
+  %323 = getelementptr inbounds nuw double, ptr %322, i64 %indvars.iv318.i
   %324 = load double, ptr %323, align 8
   %325 = load ptr, ptr %58, align 8
-  %326 = getelementptr inbounds double, ptr %325, i64 %indvars.iv318.i
+  %326 = getelementptr inbounds nuw double, ptr %325, i64 %indvars.iv318.i
   store double %324, ptr %326, align 8
   %indvars.iv.next319.i = add nuw nsw i64 %indvars.iv318.i, 1
   %327 = load i32, ptr %51, align 8
@@ -8605,43 +8605,43 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 .loopexit246.i:                                   ; preds = %.lr.ph296.i, %.loopexit246thread-pre-split.i
   %336 = phi i32 [ %.pr.i, %.loopexit246thread-pre-split.i ], [ %318, %.lr.ph296.i ]
   %337 = load double, ptr %20, align 8
-  %338 = getelementptr inbounds i8, ptr %0, i64 1736
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   store double %337, ptr %338, align 8
   %339 = icmp sgt i32 %336, 0
   br i1 %339, label %.lr.ph299.i, label %._crit_edge.thread.thread113
 
 ._crit_edge.thread.thread113:                     ; preds = %.loopexit246.i
-  %340 = getelementptr inbounds i8, ptr %0, i64 1736
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   %341 = load double, ptr %340, align 8
-  %342 = getelementptr inbounds i8, ptr %0, i64 1720
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store double %341, ptr %342, align 8
   br label %439
 
 .lr.ph299.i:                                      ; preds = %.loopexit246.i
-  %343 = getelementptr inbounds i8, ptr %0, i64 1760
-  %344 = getelementptr inbounds i8, ptr %0, i64 1704
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 1760
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   br label %345
 
 345:                                              ; preds = %397, %.lr.ph299.i
   %indvars.iv324.i = phi i64 [ 0, %.lr.ph299.i ], [ %indvars.iv.next325.i, %397 ]
   %346 = load ptr, ptr %31, align 8
-  %347 = getelementptr inbounds double, ptr %346, i64 %indvars.iv324.i
+  %347 = getelementptr inbounds nuw double, ptr %346, i64 %indvars.iv324.i
   %348 = load double, ptr %347, align 8
   %349 = load ptr, ptr %343, align 8
-  %350 = getelementptr inbounds double, ptr %349, i64 %indvars.iv324.i
+  %350 = getelementptr inbounds nuw double, ptr %349, i64 %indvars.iv324.i
   store double %348, ptr %350, align 8
   %351 = load ptr, ptr %344, align 8
-  %352 = getelementptr inbounds i32, ptr %351, i64 %indvars.iv324.i
+  %352 = getelementptr inbounds nuw i32, ptr %351, i64 %indvars.iv324.i
   store i32 0, ptr %352, align 4
   %353 = load ptr, ptr %57, align 8
-  %354 = getelementptr inbounds i32, ptr %353, i64 %indvars.iv324.i
+  %354 = getelementptr inbounds nuw i32, ptr %353, i64 %indvars.iv324.i
   %355 = load i32, ptr %354, align 4
   %.not243.i = icmp eq i32 %355, 0
   br i1 %.not243.i, label %397, label %356
 
 356:                                              ; preds = %345
   %357 = load ptr, ptr %31, align 8
-  %358 = getelementptr inbounds double, ptr %357, i64 %indvars.iv324.i
+  %358 = getelementptr inbounds nuw double, ptr %357, i64 %indvars.iv324.i
   %359 = load double, ptr %358, align 8
   %360 = tail call double @SUNRabs(double noundef %359) #13
   %361 = fcmp oeq double %360, 0.000000e+00
@@ -8650,10 +8650,10 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 
 362:                                              ; preds = %356
   %363 = load ptr, ptr %59, align 8
-  %364 = getelementptr inbounds i32, ptr %363, i64 %indvars.iv324.i
+  %364 = getelementptr inbounds nuw i32, ptr %363, i64 %indvars.iv324.i
   %365 = load i32, ptr %364, align 4
   %366 = sitofp i32 %365 to double
-  %367 = getelementptr inbounds double, ptr %.pre336.i, i64 %indvars.iv324.i
+  %367 = getelementptr inbounds nuw double, ptr %.pre336.i, i64 %indvars.iv324.i
   %368 = load double, ptr %367, align 8
   %369 = fmul double %368, %366
   %370 = fcmp ugt double %369, 0.000000e+00
@@ -8663,17 +8663,17 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %372 = fcmp ogt double %368, 0.000000e+00
   %373 = select i1 %372, i32 -1, i32 1
   %374 = load ptr, ptr %344, align 8
-  %375 = getelementptr inbounds i32, ptr %374, i64 %indvars.iv324.i
+  %375 = getelementptr inbounds nuw i32, ptr %374, i64 %indvars.iv324.i
   store i32 %373, ptr %375, align 4
   %.pre335.i = load ptr, ptr %58, align 8
   br label %376
 
 376:                                              ; preds = %371, %362, %356
   %377 = phi ptr [ %.pre335.i, %371 ], [ %.pre336.i, %362 ], [ %.pre336.i, %356 ]
-  %378 = getelementptr inbounds double, ptr %377, i64 %indvars.iv324.i
+  %378 = getelementptr inbounds nuw double, ptr %377, i64 %indvars.iv324.i
   %379 = load double, ptr %378, align 8
   %380 = load ptr, ptr %31, align 8
-  %381 = getelementptr inbounds double, ptr %380, i64 %indvars.iv324.i
+  %381 = getelementptr inbounds nuw double, ptr %380, i64 %indvars.iv324.i
   %382 = load double, ptr %381, align 8
   %383 = fmul double %379, %382
   %384 = fcmp olt double %383, 0.000000e+00
@@ -8681,7 +8681,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 
 385:                                              ; preds = %376
   %386 = load ptr, ptr %59, align 8
-  %387 = getelementptr inbounds i32, ptr %386, i64 %indvars.iv324.i
+  %387 = getelementptr inbounds nuw i32, ptr %386, i64 %indvars.iv324.i
   %388 = load i32, ptr %387, align 4
   %389 = sitofp i32 %388 to double
   %390 = fmul double %379, %389
@@ -8692,7 +8692,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %393 = fcmp ogt double %379, 0.000000e+00
   %394 = select i1 %393, i32 -1, i32 1
   %395 = load ptr, ptr %344, align 8
-  %396 = getelementptr inbounds i32, ptr %395, i64 %indvars.iv324.i
+  %396 = getelementptr inbounds nuw i32, ptr %395, i64 %indvars.iv324.i
   store i32 %394, ptr %396, align 4
   br label %397
 
@@ -8710,22 +8710,22 @@ IDARootfind.exit:                                 ; preds = %397, %163, %._crit_
   br i1 %403, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %IDARootfind.exit
-  %404 = getelementptr inbounds i8, ptr %0, i64 1800
-  %405 = getelementptr inbounds i8, ptr %0, i64 1760
+  %404 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   br label %406
 
 406:                                              ; preds = %.lr.ph, %417
   %407 = phi i32 [ %401, %.lr.ph ], [ %418, %417 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %417 ]
   %408 = load ptr, ptr %404, align 8
-  %409 = getelementptr inbounds i32, ptr %408, i64 %indvars.iv
+  %409 = getelementptr inbounds nuw i32, ptr %408, i64 %indvars.iv
   %410 = load i32, ptr %409, align 4
   %.not53 = icmp eq i32 %410, 0
   br i1 %.not53, label %411, label %417
 
 411:                                              ; preds = %406
   %412 = load ptr, ptr %405, align 8
-  %413 = getelementptr inbounds double, ptr %412, i64 %indvars.iv
+  %413 = getelementptr inbounds nuw double, ptr %412, i64 %indvars.iv
   %414 = load double, ptr %413, align 8
   %415 = fcmp une double %414, 0.000000e+00
   br i1 %415, label %416, label %417
@@ -8744,32 +8744,32 @@ IDARootfind.exit:                                 ; preds = %397, %163, %._crit_
 
 ._crit_edge.thread:                               ; preds = %IDARootfind.exit, %120
   %.ph = phi i1 [ %402, %IDARootfind.exit ], [ %111, %120 ]
-  %421 = getelementptr inbounds i8, ptr %0, i64 1736
+  %421 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   %422 = load double, ptr %421, align 8
-  %423 = getelementptr inbounds i8, ptr %0, i64 1720
+  %423 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store double %422, ptr %423, align 8
   br i1 %.ph, label %IDARootfind.exit.thread, label %439
 
 ._crit_edge:                                      ; preds = %417
   %424 = icmp sgt i32 %418, 0
-  %425 = getelementptr inbounds i8, ptr %0, i64 1736
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   %426 = load double, ptr %425, align 8
-  %427 = getelementptr inbounds i8, ptr %0, i64 1720
+  %427 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store double %426, ptr %427, align 8
   br i1 %424, label %.lr.ph80, label %._crit_edge81
 
 .lr.ph80:                                         ; preds = %._crit_edge
-  %428 = getelementptr inbounds i8, ptr %0, i64 1760
-  %429 = getelementptr inbounds i8, ptr %0, i64 1744
+  %428 = getelementptr inbounds nuw i8, ptr %0, i64 1760
+  %429 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   br label %430
 
 430:                                              ; preds = %.lr.ph80, %430
   %indvars.iv105 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next106, %430 ]
   %431 = load ptr, ptr %428, align 8
-  %432 = getelementptr inbounds double, ptr %431, i64 %indvars.iv105
+  %432 = getelementptr inbounds nuw double, ptr %431, i64 %indvars.iv105
   %433 = load double, ptr %432, align 8
   %434 = load ptr, ptr %429, align 8
-  %435 = getelementptr inbounds double, ptr %434, i64 %indvars.iv105
+  %435 = getelementptr inbounds nuw double, ptr %434, i64 %indvars.iv105
   store double %433, ptr %435, align 8
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %436 = load i32, ptr %51, align 8
@@ -8805,10 +8805,10 @@ define range(i32 -26, 1) i32 @IDAGetSolution(ptr noundef %0, double noundef %1, 
 7:                                                ; preds = %4
   %8 = load double, ptr %0, align 8
   %9 = fmul double %8, 1.000000e+02
-  %10 = getelementptr inbounds i8, ptr %0, i64 1184
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %11 = load double, ptr %10, align 8
   %12 = tail call double @SUNRabs(double noundef %11) #13
-  %13 = getelementptr inbounds i8, ptr %0, i64 1168
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %14 = load double, ptr %13, align 8
   %15 = tail call double @SUNRabs(double noundef %14) #13
   %16 = fadd double %12, %15
@@ -8818,7 +8818,7 @@ define range(i32 -26, 1) i32 @IDAGetSolution(ptr noundef %0, double noundef %1, 
   %20 = fneg double %17
   %.056 = select i1 %19, double %20, double %17
   %21 = load double, ptr %10, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 1672
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %23 = load double, ptr %22, align 8
   %24 = fsub double %21, %23
   %25 = fsub double %24, %.056
@@ -8832,16 +8832,16 @@ define range(i32 -26, 1) i32 @IDAGetSolution(ptr noundef %0, double noundef %1, 
   br label %.loopexit
 
 30:                                               ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %0, i64 312
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %32 = load ptr, ptr %31, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %32, ptr noundef %2) #13
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %3) #13
-  %33 = getelementptr inbounds i8, ptr %0, i64 1660
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %34 = load i32, ptr %33, align 4
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %34, i32 1)
   %35 = load double, ptr %10, align 8
   %36 = fsub double %1, %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 360
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %.not58 = icmp slt i32 %spec.store.select, 1
   br i1 %.not58, label %.loopexit, label %.lr.ph.preheader
 
@@ -8864,10 +8864,10 @@ define range(i32 -26, 1) i32 @IDAGetSolution(ptr noundef %0, double noundef %1, 
   %45 = tail call double @llvm.fmuladd.f64(double %.05360, double %.05261, double %44)
   %46 = fmul double %.05459, %.05261
   %47 = fadd double %36, %43
-  %48 = getelementptr inbounds [6 x double], ptr %37, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [6 x double], ptr %37, i64 0, i64 %indvars.iv
   %49 = load double, ptr %48, align 8
   %50 = fdiv double %47, %49
-  %51 = getelementptr inbounds [6 x ptr], ptr %31, i64 0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [6 x ptr], ptr %31, i64 0, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %2, double noundef %46, ptr noundef %52, ptr noundef %2) #13
   %53 = load ptr, ptr %51, align 8
@@ -8889,18 +8889,18 @@ define internal fastcc range(i32 -99, 100) i32 @IDAStopTest1(ptr noundef nonnull
   ]
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 1128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %9 = load i32, ptr %8, align 8
   %.not100 = icmp eq i32 %9, 0
   br i1 %.not100, label %21, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 1184
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 1136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %14 = load double, ptr %13, align 8
   %15 = fsub double %12, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 1168
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %17 = load double, ptr %16, align 8
   %18 = fmul double %15, %17
   %19 = fcmp ogt double %18, 0.000000e+00
@@ -8911,7 +8911,7 @@ define internal fastcc range(i32 -99, 100) i32 @IDAStopTest1(ptr noundef nonnull
   br label %135
 
 21:                                               ; preds = %10, %7
-  %22 = getelementptr inbounds i8, ptr %0, i64 1192
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %23 = load double, ptr %22, align 8
   %24 = fcmp oeq double %1, %23
   br i1 %24, label %25, label %26
@@ -8922,10 +8922,10 @@ define internal fastcc range(i32 -99, 100) i32 @IDAStopTest1(ptr noundef nonnull
   br label %135
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 1184
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %28 = load double, ptr %27, align 8
   %29 = fsub double %28, %1
-  %30 = getelementptr inbounds i8, ptr %0, i64 1168
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %31 = load double, ptr %30, align 8
   %32 = fmul double %29, %31
   %33 = fcmp ult double %32, 0.000000e+00
@@ -8957,7 +8957,7 @@ define internal fastcc range(i32 -99, 100) i32 @IDAStopTest1(ptr noundef nonnull
   %45 = fadd double %42, %44
   %46 = fmul double %41, %45
   %47 = load double, ptr %27, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 1136
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %49 = load double, ptr %48, align 8
   %50 = fsub double %47, %49
   %51 = tail call double @SUNRabs(double noundef %50) #13
@@ -9001,17 +9001,17 @@ define internal fastcc range(i32 -99, 100) i32 @IDAStopTest1(ptr noundef nonnull
   br label %135
 
 73:                                               ; preds = %6
-  %74 = getelementptr inbounds i8, ptr %0, i64 1128
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %75 = load i32, ptr %74, align 8
   %.not = icmp eq i32 %75, 0
-  %76 = getelementptr inbounds i8, ptr %0, i64 1184
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %77 = load double, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 1168
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %79 = load double, ptr %78, align 8
   br i1 %.not, label %87, label %80
 
 80:                                               ; preds = %73
-  %81 = getelementptr inbounds i8, ptr %0, i64 1136
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %82 = load double, ptr %81, align 8
   %83 = fsub double %77, %82
   %84 = fmul double %83, %79
@@ -9023,7 +9023,7 @@ define internal fastcc range(i32 -99, 100) i32 @IDAStopTest1(ptr noundef nonnull
   br label %135
 
 87:                                               ; preds = %73
-  %88 = getelementptr inbounds i8, ptr %0, i64 1192
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %89 = load double, ptr %88, align 8
   %90 = fsub double %77, %89
   %91 = fmul double %90, %79
@@ -9031,7 +9031,7 @@ define internal fastcc range(i32 -99, 100) i32 @IDAStopTest1(ptr noundef nonnull
   br i1 %92, label %98, label %135
 
 .thread:                                          ; preds = %80
-  %93 = getelementptr inbounds i8, ptr %0, i64 1192
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %94 = load double, ptr %93, align 8
   %95 = fsub double %77, %94
   %96 = fmul double %95, %79
@@ -9104,7 +9104,7 @@ define internal fastcc range(i32 -99, 100) i32 @IDAStopTest1(ptr noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @IDAQuadEwtSet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 108
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %IDAQuadEwtSetSS.exit [
     i32 1, label %6
@@ -9112,13 +9112,13 @@ define internal fastcc range(i32 -1, 1) i32 @IDAQuadEwtSet(ptr nocapture noundef
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 776
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %8 = load ptr, ptr %7, align 8
   tail call void @N_VAbs(ptr noundef %1, ptr noundef %8) #13
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load double, ptr %9, align 8
   tail call void @N_VScale(double noundef %10, ptr noundef %8, ptr noundef %8) #13
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load double, ptr %11, align 8
   tail call void @N_VAddConst(ptr noundef %8, double noundef %12, ptr noundef %8) #13
   %13 = tail call double @N_VMin(ptr noundef %8) #13
@@ -9126,12 +9126,12 @@ define internal fastcc range(i32 -1, 1) i32 @IDAQuadEwtSet(ptr nocapture noundef
   br i1 %14, label %IDAQuadEwtSetSS.exit.sink.split, label %IDAQuadEwtSetSS.exit
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 776
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %17 = load ptr, ptr %16, align 8
   tail call void @N_VAbs(ptr noundef %1, ptr noundef %17) #13
-  %18 = getelementptr inbounds i8, ptr %0, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = load ptr, ptr %20, align 8
   tail call void @N_VLinearSum(double noundef %19, ptr noundef %17, double noundef 1.000000e+00, ptr noundef %21, ptr noundef %17) #13
   %22 = tail call double @N_VMin(ptr noundef %17) #13
@@ -9150,7 +9150,7 @@ IDAQuadEwtSetSS.exit:                             ; preds = %IDAQuadEwtSetSS.exi
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @IDASensEwtSet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 220
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %IDASensEwtSetEE.exit [
     i32 4, label %6
@@ -9159,29 +9159,29 @@ define range(i32 -1, 1) i32 @IDASensEwtSet(ptr nocapture noundef readonly %0, pt
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 672
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 184
-  %10 = getelementptr inbounds i8, ptr %0, i64 140
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph.i, label %IDASensEwtSetEE.exit
 
 .lr.ph.i:                                         ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %15
 
 15:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds double, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv.i
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   tail call void @N_VScale(double noundef %18, ptr noundef %20, ptr noundef %8) #13
   %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %14, align 8
   %25 = tail call i32 %21(ptr noundef %8, ptr noundef %23, ptr noundef %24) #13
@@ -9190,7 +9190,7 @@ define range(i32 -1, 1) i32 @IDASensEwtSet(ptr nocapture noundef readonly %0, pt
 
 26:                                               ; preds = %15
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds double, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i
   %29 = load double, ptr %28, align 8
   %30 = load ptr, ptr %22, align 8
   tail call void @N_VScale(double noundef %29, ptr noundef %30, ptr noundef %30) #13
@@ -9201,20 +9201,20 @@ define range(i32 -1, 1) i32 @IDASensEwtSet(ptr nocapture noundef readonly %0, pt
   br i1 %33, label %15, label %IDASensEwtSetEE.exit, !llvm.loop !96
 
 34:                                               ; preds = %3
-  %35 = getelementptr inbounds i8, ptr %0, i64 140
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph.i10, label %IDASensEwtSetEE.exit
 
 .lr.ph.i10:                                       ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 672
-  %39 = getelementptr inbounds i8, ptr %0, i64 224
-  %40 = getelementptr inbounds i8, ptr %0, i64 232
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 232
   br label %41
 
 41:                                               ; preds = %54, %.lr.ph.i10
   %indvars.iv.i11 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i12, %54 ]
-  %42 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i11
+  %42 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i11
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %38, align 8
   tail call void @N_VAbs(ptr noundef %43, ptr noundef %44) #13
@@ -9223,7 +9223,7 @@ define range(i32 -1, 1) i32 @IDASensEwtSet(ptr nocapture noundef readonly %0, pt
   tail call void @N_VScale(double noundef %45, ptr noundef %46, ptr noundef %46) #13
   %47 = load ptr, ptr %38, align 8
   %48 = load ptr, ptr %40, align 8
-  %49 = getelementptr inbounds double, ptr %48, i64 %indvars.iv.i11
+  %49 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv.i11
   %50 = load double, ptr %49, align 8
   tail call void @N_VAddConst(ptr noundef %47, double noundef %50, ptr noundef %47) #13
   %51 = load ptr, ptr %38, align 8
@@ -9233,7 +9233,7 @@ define range(i32 -1, 1) i32 @IDASensEwtSet(ptr nocapture noundef readonly %0, pt
 
 54:                                               ; preds = %41
   %55 = load ptr, ptr %38, align 8
-  %56 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i11
+  %56 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i11
   %57 = load ptr, ptr %56, align 8
   tail call void @N_VInv(ptr noundef %55, ptr noundef %57) #13
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
@@ -9243,27 +9243,27 @@ define range(i32 -1, 1) i32 @IDASensEwtSet(ptr nocapture noundef readonly %0, pt
   br i1 %60, label %41, label %IDASensEwtSetEE.exit, !llvm.loop !97
 
 61:                                               ; preds = %3
-  %62 = getelementptr inbounds i8, ptr %0, i64 140
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %63 = load i32, ptr %62, align 4
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph.i13, label %IDASensEwtSetEE.exit
 
 .lr.ph.i13:                                       ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %0, i64 672
-  %66 = getelementptr inbounds i8, ptr %0, i64 224
-  %67 = getelementptr inbounds i8, ptr %0, i64 240
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %68
 
 68:                                               ; preds = %80, %.lr.ph.i13
   %indvars.iv.i14 = phi i64 [ 0, %.lr.ph.i13 ], [ %indvars.iv.next.i15, %80 ]
-  %69 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i14
+  %69 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i14
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %65, align 8
   tail call void @N_VAbs(ptr noundef %70, ptr noundef %71) #13
   %72 = load double, ptr %66, align 8
   %73 = load ptr, ptr %65, align 8
   %74 = load ptr, ptr %67, align 8
-  %75 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv.i14
+  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv.i14
   %76 = load ptr, ptr %75, align 8
   tail call void @N_VLinearSum(double noundef %72, ptr noundef %73, double noundef 1.000000e+00, ptr noundef %76, ptr noundef %73) #13
   %77 = load ptr, ptr %65, align 8
@@ -9273,7 +9273,7 @@ define range(i32 -1, 1) i32 @IDASensEwtSet(ptr nocapture noundef readonly %0, pt
 
 80:                                               ; preds = %68
   %81 = load ptr, ptr %65, align 8
-  %82 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i14
+  %82 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i14
   %83 = load ptr, ptr %82, align 8
   tail call void @N_VInv(ptr noundef %81, ptr noundef %83) #13
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
@@ -9289,7 +9289,7 @@ IDASensEwtSetEE.exit:                             ; preds = %80, %68, %54, %41, 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @IDAQuadSensEwtSet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %IDAQuadSensEwtSetEE.exit [
     i32 4, label %6
@@ -9298,11 +9298,11 @@ define range(i32 -1, 1) i32 @IDAQuadSensEwtSet(ptr nocapture noundef readonly %0
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1032
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 184
-  %11 = getelementptr inbounds i8, ptr %0, i64 140
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.i, label %IDAQuadSensEwtSetEE.exit
@@ -9310,12 +9310,12 @@ define range(i32 -1, 1) i32 @IDAQuadSensEwtSet(ptr nocapture noundef readonly %0
 .lr.ph.i:                                         ; preds = %6, %22
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %6 ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds double, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   tail call void @N_VScale(double noundef %16, ptr noundef %18, ptr noundef %9) #13
-  %19 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %21 = tail call fastcc i32 @IDAQuadEwtSet(ptr noundef nonnull readonly %0, ptr noundef %9, ptr noundef %20)
   %.not.i = icmp eq i32 %21, 0
@@ -9323,7 +9323,7 @@ define range(i32 -1, 1) i32 @IDAQuadSensEwtSet(ptr nocapture noundef readonly %0
 
 22:                                               ; preds = %.lr.ph.i
   %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds double, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i
   %25 = load double, ptr %24, align 8
   %26 = load ptr, ptr %19, align 8
   tail call void @N_VScale(double noundef %25, ptr noundef %26, ptr noundef %26) #13
@@ -9334,27 +9334,27 @@ define range(i32 -1, 1) i32 @IDAQuadSensEwtSet(ptr nocapture noundef readonly %0
   br i1 %29, label %.lr.ph.i, label %IDAQuadSensEwtSetEE.exit, !llvm.loop !99
 
 30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %0, i64 776
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 140
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %34 = load i32, ptr %33, align 4
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph.i11, label %IDAQuadSensEwtSetEE.exit
 
 .lr.ph.i11:                                       ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 288
-  %37 = getelementptr inbounds i8, ptr %0, i64 296
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br label %38
 
 38:                                               ; preds = %47, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %47 ]
-  %39 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i12
+  %39 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i12
   %40 = load ptr, ptr %39, align 8
   tail call void @N_VAbs(ptr noundef %40, ptr noundef %32) #13
   %41 = load double, ptr %36, align 8
   tail call void @N_VScale(double noundef %41, ptr noundef %32, ptr noundef %32) #13
   %42 = load ptr, ptr %37, align 8
-  %43 = getelementptr inbounds double, ptr %42, i64 %indvars.iv.i12
+  %43 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv.i12
   %44 = load double, ptr %43, align 8
   tail call void @N_VAddConst(ptr noundef %32, double noundef %44, ptr noundef %32) #13
   %45 = tail call double @N_VMin(ptr noundef %32) #13
@@ -9362,7 +9362,7 @@ define range(i32 -1, 1) i32 @IDAQuadSensEwtSet(ptr nocapture noundef readonly %0
   br i1 %46, label %47, label %IDAQuadSensEwtSetEE.exit
 
 47:                                               ; preds = %38
-  %48 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i12
+  %48 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i12
   %49 = load ptr, ptr %48, align 8
   tail call void @N_VInv(ptr noundef %32, ptr noundef %49) #13
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
@@ -9372,26 +9372,26 @@ define range(i32 -1, 1) i32 @IDAQuadSensEwtSet(ptr nocapture noundef readonly %0
   br i1 %52, label %38, label %IDAQuadSensEwtSetEE.exit, !llvm.loop !100
 
 53:                                               ; preds = %3
-  %54 = getelementptr inbounds i8, ptr %0, i64 776
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 140
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %57 = load i32, ptr %56, align 4
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph.i15, label %IDAQuadSensEwtSetEE.exit
 
 .lr.ph.i15:                                       ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %0, i64 288
-  %60 = getelementptr inbounds i8, ptr %0, i64 304
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 304
   br label %61
 
 61:                                               ; preds = %70, %.lr.ph.i15
   %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.i15 ], [ %indvars.iv.next.i17, %70 ]
-  %62 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i16
+  %62 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i16
   %63 = load ptr, ptr %62, align 8
   tail call void @N_VAbs(ptr noundef %63, ptr noundef %55) #13
   %64 = load double, ptr %59, align 8
   %65 = load ptr, ptr %60, align 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv.i16
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i16
   %67 = load ptr, ptr %66, align 8
   tail call void @N_VLinearSum(double noundef %64, ptr noundef %55, double noundef 1.000000e+00, ptr noundef %67, ptr noundef %55) #13
   %68 = tail call double @N_VMin(ptr noundef %55) #13
@@ -9399,7 +9399,7 @@ define range(i32 -1, 1) i32 @IDAQuadSensEwtSet(ptr nocapture noundef readonly %0
   br i1 %69, label %70, label %IDAQuadSensEwtSetEE.exit
 
 70:                                               ; preds = %61
-  %71 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i16
+  %71 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i16
   %72 = load ptr, ptr %71, align 8
   tail call void @N_VInv(ptr noundef %55, ptr noundef %72) #13
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
@@ -9426,47 +9426,47 @@ define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef nonn
   ]
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 1184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %7 = load double, ptr %6, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.114, double noundef %5, double noundef %7)
   br label %28
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1184
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %10 = load double, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1168
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %12 = load double, ptr %11, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.115, double noundef %10, double noundef %12)
   br label %28
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 1184
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %15 = load double, ptr %14, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.116, double noundef %15)
   br label %28
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 1184
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %18 = load double, ptr %17, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.117, double noundef %18)
   br label %28
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 1184
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %21 = load double, ptr %20, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -9, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.118, double noundef %21)
   br label %28
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 1184
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %24 = load double, ptr %23, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.119, double noundef %24)
   br label %28
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 1184
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %27 = load double, ptr %26, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.120, double noundef %27)
   br label %28
@@ -9500,7 +9500,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 1660
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %2, %16
   br i1 %17, label %18, label %19
@@ -9512,10 +9512,10 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
 19:                                               ; preds = %14
   %20 = load double, ptr %0, align 8
   %21 = fmul double %20, 1.000000e+02
-  %22 = getelementptr inbounds i8, ptr %0, i64 1184
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %23 = load double, ptr %22, align 8
   %24 = tail call double @SUNRabs(double noundef %23) #13
-  %25 = getelementptr inbounds i8, ptr %0, i64 1168
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %26 = load double, ptr %25, align 8
   %27 = tail call double @SUNRabs(double noundef %26) #13
   %28 = fadd double %24, %27
@@ -9525,7 +9525,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   %32 = fneg double %29
   %.081 = select i1 %31, double %32, double %29
   %33 = load double, ptr %22, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 1672
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %35 = load double, ptr %34, align 8
   %36 = fsub double %33, %35
   %37 = fsub double %36, %.081
@@ -9542,7 +9542,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %42 = fsub double %1, %33
-  %43 = getelementptr inbounds i8, ptr %0, i64 360
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %44 = load i32, ptr %15, align 4
   %45 = sub i32 %44, %2
   %46 = sext i32 %45 to i64
@@ -9596,7 +9596,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   %70 = getelementptr inbounds [6 x double], ptr %43, i64 0, i64 %64
   %71 = load double, ptr %70, align 8
   %72 = fdiv double %69, %71
-  %73 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %indvar
+  %73 = getelementptr inbounds nuw [6 x double], ptr %5, i64 0, i64 %indvar
   store double %72, ptr %73, align 8
   br label %74
 
@@ -9629,7 +9629,7 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   %85 = getelementptr inbounds [6 x double], ptr %43, i64 0, i64 %79
   %86 = load double, ptr %85, align 8
   %87 = fdiv double %84, %86
-  %88 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %indvars.iv105
+  %88 = getelementptr inbounds nuw [6 x double], ptr %5, i64 0, i64 %indvars.iv105
   store double %87, ptr %88, align 8
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %.not86.not = icmp slt i64 %indvars.iv105, %75
@@ -9642,15 +9642,15 @@ define range(i32 -27, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   br i1 %.not85100, label %.loopexit, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %._crit_edge
-  %90 = getelementptr inbounds i8, ptr %0, i64 312
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %91 = zext nneg i32 %2 to i64
   br label %92
 
 92:                                               ; preds = %.lr.ph103, %92
   %indvars.iv = phi i64 [ %91, %.lr.ph103 ], [ %indvars.iv.next, %92 ]
-  %93 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [6 x double], ptr %5, i64 0, i64 %indvars.iv
   %94 = load double, ptr %93, align 8
-  %95 = getelementptr inbounds [6 x ptr], ptr %90, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [6 x ptr], ptr %90, i64 0, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef nonnull %3, double noundef %94, ptr noundef %96, ptr noundef nonnull %3) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9676,7 +9676,7 @@ define range(i32 -30, 1) i32 @IDAGetQuad(ptr noundef %0, ptr nocapture noundef w
   br label %10
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %8 = load double, ptr %7, align 8
   store double %8, ptr %1, align 8
   %9 = tail call i32 @IDAGetQuadDky(ptr noundef nonnull %0, double noundef %8, i32 noundef 0, ptr noundef %2)
@@ -9699,7 +9699,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
   br label %.loopexit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 1
   br i1 %.not, label %13, label %12
@@ -9721,7 +9721,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 1144
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %2, %20
   br i1 %21, label %22, label %23
@@ -9733,13 +9733,13 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
 23:                                               ; preds = %18
   %24 = load double, ptr %0, align 8
   %25 = fmul double %24, 1.000000e+02
-  %26 = getelementptr inbounds i8, ptr %0, i64 1184
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 1168
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %29 = load double, ptr %28, align 8
   %30 = fadd double %27, %29
   %31 = fmul double %25, %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 1672
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %33 = load double, ptr %32, align 8
   %34 = fsub double %27, %33
   %35 = fsub double %34, %31
@@ -9756,8 +9756,8 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %40 = fsub double %1, %27
-  %41 = getelementptr inbounds i8, ptr %0, i64 360
-  %42 = getelementptr inbounds i8, ptr %0, i64 1660
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %43 = load i32, ptr %42, align 4
   %44 = sub i32 %43, %2
   %45 = sext i32 %44 to i64
@@ -9811,7 +9811,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
   %69 = getelementptr inbounds [6 x double], ptr %41, i64 0, i64 %63
   %70 = load double, ptr %69, align 8
   %71 = fdiv double %68, %70
-  %72 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %indvar
+  %72 = getelementptr inbounds nuw [6 x double], ptr %5, i64 0, i64 %indvar
   store double %71, ptr %72, align 8
   br label %73
 
@@ -9844,7 +9844,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
   %84 = getelementptr inbounds [6 x double], ptr %41, i64 0, i64 %78
   %85 = load double, ptr %84, align 8
   %86 = fdiv double %83, %85
-  %87 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %indvars.iv105
+  %87 = getelementptr inbounds nuw [6 x double], ptr %5, i64 0, i64 %indvars.iv105
   store double %86, ptr %87, align 8
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %.not86.not = icmp slt i64 %indvars.iv105, %74
@@ -9852,21 +9852,21 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
 
 ._crit_edge:                                      ; preds = %.loopexit88
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef nonnull %3) #13
-  %88 = getelementptr inbounds i8, ptr %0, i64 1660
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %89 = load i32, ptr %88, align 4
   %.not85100 = icmp sgt i32 %2, %89
   br i1 %.not85100, label %.loopexit, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %._crit_edge
-  %90 = getelementptr inbounds i8, ptr %0, i64 720
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %91 = zext nneg i32 %2 to i64
   br label %92
 
 92:                                               ; preds = %.lr.ph103, %92
   %indvars.iv = phi i64 [ %91, %.lr.ph103 ], [ %indvars.iv.next, %92 ]
-  %93 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [6 x double], ptr %5, i64 0, i64 %indvars.iv
   %94 = load double, ptr %93, align 8
-  %95 = getelementptr inbounds [6 x ptr], ptr %90, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [6 x ptr], ptr %90, i64 0, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef nonnull %3, double noundef %94, ptr noundef %96, ptr noundef nonnull %3) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9898,7 +9898,7 @@ define range(i32 -40, 1) i32 @IDAGetSens(ptr noundef %0, ptr nocapture noundef %
   br label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %14
@@ -9908,10 +9908,10 @@ define range(i32 -40, 1) i32 @IDAGetSens(ptr noundef %0, ptr nocapture noundef %
   br label %.loopexit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 1192
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %16 = load double, ptr %15, align 8
   store double %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 140
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph, label %.loopexit
@@ -9926,7 +9926,7 @@ define range(i32 -40, 1) i32 @IDAGetSens(ptr noundef %0, ptr nocapture noundef %
 .lr.ph:                                           ; preds = %14, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %14 ]
   %24 = load double, ptr %1, align 8
-  %25 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call i32 @IDAGetSensDky1(ptr noundef nonnull %0, double noundef %24, i32 noundef 0, i32 noundef %27, ptr noundef %26)
@@ -9950,7 +9950,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   br label %.loopexit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15
@@ -9972,7 +9972,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 140
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %22 = load i32, ptr %21, align 4
   %.not = icmp slt i32 %3, %22
   br i1 %.not, label %24, label %23
@@ -9986,7 +9986,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 1660
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %2, %28
   br i1 %29, label %30, label %31
@@ -9998,10 +9998,10 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
 31:                                               ; preds = %26
   %32 = load double, ptr %0, align 8
   %33 = fmul double %32, 1.000000e+02
-  %34 = getelementptr inbounds i8, ptr %0, i64 1184
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %35 = load double, ptr %34, align 8
   %36 = tail call double @SUNRabs(double noundef %35) #13
-  %37 = getelementptr inbounds i8, ptr %0, i64 1168
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %38 = load double, ptr %37, align 8
   %39 = tail call double @SUNRabs(double noundef %38) #13
   %40 = fadd double %36, %39
@@ -10011,7 +10011,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   %44 = fneg double %41
   %.088 = select i1 %43, double %44, double %41
   %45 = load double, ptr %34, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 1672
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %47 = load double, ptr %46, align 8
   %48 = fsub double %45, %47
   %49 = fsub double %48, %.088
@@ -10028,7 +10028,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %54 = fsub double %1, %45
-  %55 = getelementptr inbounds i8, ptr %0, i64 360
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %56 = load i32, ptr %27, align 4
   %57 = sub i32 %56, %2
   %58 = sext i32 %57 to i64
@@ -10082,7 +10082,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   %82 = getelementptr inbounds [6 x double], ptr %55, i64 0, i64 %76
   %83 = load double, ptr %82, align 8
   %84 = fdiv double %81, %83
-  %85 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %indvar
+  %85 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %indvar
   store double %84, ptr %85, align 8
   br label %86
 
@@ -10115,7 +10115,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   %97 = getelementptr inbounds [6 x double], ptr %55, i64 0, i64 %91
   %98 = load double, ptr %97, align 8
   %99 = fdiv double %96, %98
-  %100 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %indvars.iv114
+  %100 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %indvars.iv114
   store double %99, ptr %100, align 8
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %.not95.not = icmp slt i64 %indvars.iv114, %87
@@ -10128,16 +10128,16 @@ define range(i32 -40, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   br i1 %.not94109, label %.loopexit, label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %._crit_edge
-  %102 = getelementptr inbounds i8, ptr %0, i64 800
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %103 = sext i32 %3 to i64
   %104 = zext nneg i32 %2 to i64
   br label %105
 
 105:                                              ; preds = %.lr.ph112, %105
   %indvars.iv = phi i64 [ %104, %.lr.ph112 ], [ %indvars.iv.next, %105 ]
-  %106 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %indvars.iv
   %107 = load double, ptr %106, align 8
-  %108 = getelementptr inbounds [6 x ptr], ptr %102, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [6 x ptr], ptr %102, i64 0, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds ptr, ptr %109, i64 %103
   %111 = load ptr, ptr %110, align 8
@@ -10163,7 +10163,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky(ptr noundef %0, double noundef %1, i
   br label %.loopexit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
@@ -10185,13 +10185,13 @@ define range(i32 -40, 1) i32 @IDAGetSensDky(ptr noundef %0, double noundef %1, i
   br i1 %16, label %24, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 1144
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %2, %19
   br i1 %20, label %24, label %.preheader
 
 .preheader:                                       ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 140
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph, label %.loopexit
@@ -10209,7 +10209,7 @@ define range(i32 -40, 1) i32 @IDAGetSensDky(ptr noundef %0, double noundef %1, i
 
 .lr.ph:                                           ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader ]
-  %29 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = tail call i32 @IDAGetSensDky1(ptr noundef nonnull %0, double noundef %1, i32 noundef %2, i32 noundef %31, ptr noundef %30)
@@ -10231,7 +10231,7 @@ define range(i32 -40, 1) i32 @IDAGetSens1(ptr noundef %0, ptr nocapture noundef 
   br label %11
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1192
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %9 = load double, ptr %8, align 8
   store double %9, ptr %1, align 8
   %10 = tail call i32 @IDAGetSensDky1(ptr noundef nonnull %0, double noundef %9, i32 noundef 0, i32 noundef %2, ptr noundef %3)
@@ -10260,7 +10260,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSens(ptr noundef %0, ptr nocapture nound
   br label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 248
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %14
@@ -10270,10 +10270,10 @@ define range(i32 -50, 1) i32 @IDAGetQuadSens(ptr noundef %0, ptr nocapture nound
   br label %.loopexit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 1192
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %16 = load double, ptr %15, align 8
   store double %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 140
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph, label %.loopexit
@@ -10288,7 +10288,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSens(ptr noundef %0, ptr nocapture nound
 .lr.ph:                                           ; preds = %14, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %14 ]
   %24 = load double, ptr %1, align 8
-  %25 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call i32 @IDAGetQuadSensDky1(ptr noundef nonnull %0, double noundef %24, i32 noundef 0, i32 noundef %27, ptr noundef %26)
@@ -10312,7 +10312,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   br label %.loopexit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15
@@ -10322,7 +10322,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   br label %.loopexit
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 248
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %20
@@ -10344,7 +10344,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 140
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %27 = load i32, ptr %26, align 4
   %.not = icmp slt i32 %3, %27
   br i1 %.not, label %29, label %28
@@ -10358,7 +10358,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 1660
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %2, %33
   br i1 %34, label %35, label %36
@@ -10370,10 +10370,10 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
 36:                                               ; preds = %31
   %37 = load double, ptr %0, align 8
   %38 = fmul double %37, 1.000000e+02
-  %39 = getelementptr inbounds i8, ptr %0, i64 1184
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %40 = load double, ptr %39, align 8
   %41 = tail call double @SUNRabs(double noundef %40) #13
-  %42 = getelementptr inbounds i8, ptr %0, i64 1168
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %43 = load double, ptr %42, align 8
   %44 = tail call double @SUNRabs(double noundef %43) #13
   %45 = fadd double %41, %44
@@ -10383,7 +10383,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   %49 = fneg double %46
   %.090 = select i1 %48, double %49, double %46
   %50 = load double, ptr %39, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 1672
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %52 = load double, ptr %51, align 8
   %53 = fsub double %50, %52
   %54 = fsub double %53, %.090
@@ -10400,7 +10400,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %59 = fsub double %1, %50
-  %60 = getelementptr inbounds i8, ptr %0, i64 360
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %61 = load i32, ptr %32, align 4
   %62 = sub i32 %61, %2
   %63 = sext i32 %62 to i64
@@ -10454,7 +10454,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   %87 = getelementptr inbounds [6 x double], ptr %60, i64 0, i64 %81
   %88 = load double, ptr %87, align 8
   %89 = fdiv double %86, %88
-  %90 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %indvar
+  %90 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %indvar
   store double %89, ptr %90, align 8
   br label %91
 
@@ -10487,7 +10487,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   %102 = getelementptr inbounds [6 x double], ptr %60, i64 0, i64 %96
   %103 = load double, ptr %102, align 8
   %104 = fdiv double %101, %103
-  %105 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %indvars.iv116
+  %105 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %indvars.iv116
   store double %104, ptr %105, align 8
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %.not97.not = icmp slt i64 %indvars.iv116, %92
@@ -10500,16 +10500,16 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   br i1 %.not96111, label %.loopexit, label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %._crit_edge
-  %107 = getelementptr inbounds i8, ptr %0, i64 960
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %108 = sext i32 %3 to i64
   %109 = zext nneg i32 %2 to i64
   br label %110
 
 110:                                              ; preds = %.lr.ph114, %110
   %indvars.iv = phi i64 [ %109, %.lr.ph114 ], [ %indvars.iv.next, %110 ]
-  %111 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %indvars.iv
   %112 = load double, ptr %111, align 8
-  %113 = getelementptr inbounds [6 x ptr], ptr %107, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [6 x ptr], ptr %107, i64 0, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds ptr, ptr %114, i64 %108
   %116 = load ptr, ptr %115, align 8
@@ -10535,7 +10535,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky(ptr noundef %0, double noundef %
   br label %.loopexit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
@@ -10545,7 +10545,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky(ptr noundef %0, double noundef %
   br label %.loopexit
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 248
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %17
@@ -10567,13 +10567,13 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky(ptr noundef %0, double noundef %
   br i1 %21, label %29, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 1144
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %2, %24
   br i1 %25, label %29, label %.preheader
 
 .preheader:                                       ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 140
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %.loopexit
@@ -10591,7 +10591,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky(ptr noundef %0, double noundef %
 
 .lr.ph:                                           ; preds = %.preheader, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.preheader ]
-  %34 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = tail call i32 @IDAGetQuadSensDky1(ptr noundef nonnull %0, double noundef %1, i32 noundef %2, i32 noundef %36, ptr noundef %35)
@@ -10613,7 +10613,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSens1(ptr noundef %0, ptr nocapture noun
   br label %24
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
@@ -10623,7 +10623,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSens1(ptr noundef %0, ptr nocapture noun
   br label %24
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 248
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %17
@@ -10641,7 +10641,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSens1(ptr noundef %0, ptr nocapture noun
   br label %24
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 1192
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %22 = load double, ptr %21, align 8
   store double %22, ptr %1, align 8
   %23 = tail call i32 @IDAGetQuadSensDky1(ptr noundef nonnull %0, double noundef %22, i32 noundef 0, i32 noundef %2, ptr noundef nonnull %3)
@@ -10659,37 +10659,37 @@ define void @IDAFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %95, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 600
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 600
   %6 = load ptr, ptr %5, align 8
   tail call void @N_VDestroy(ptr noundef %6) #13
   store ptr null, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 656
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 656
   %8 = load ptr, ptr %7, align 8
   tail call void @N_VDestroy(ptr noundef %8) #13
   store ptr null, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 624
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 624
   %10 = load ptr, ptr %9, align 8
   tail call void @N_VDestroy(ptr noundef %10) #13
   store ptr null, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 672
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %12 = load ptr, ptr %11, align 8
   tail call void @N_VDestroy(ptr noundef %12) #13
   store ptr null, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 680
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 680
   %14 = load ptr, ptr %13, align 8
   tail call void @N_VDestroy(ptr noundef %14) #13
   store ptr null, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 1288
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   %16 = load i32, ptr %15, align 8
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %16, i32 3)
-  %17 = getelementptr inbounds i8, ptr %2, i64 312
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %18 = add nuw i32 %spec.select.i, 1
   %wide.trip.count.i = zext i32 %18 to i64
   br label %19
 
 19:                                               ; preds = %19, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %19 ]
-  %20 = getelementptr inbounds [6 x ptr], ptr %17, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [6 x ptr], ptr %17, i64 0, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8
   tail call void @N_VDestroy(ptr noundef %21) #13
   store ptr null, ptr %20, align 8
@@ -10700,27 +10700,27 @@ define void @IDAFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %19
   %23 = add nuw nsw i32 %spec.select.i, 6
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %2, i64 1464
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 1464
   %26 = load i64, ptr %25, align 8
   %27 = mul nsw i64 %26, %24
-  %28 = getelementptr inbounds i8, ptr %2, i64 1496
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 1496
   %29 = load i64, ptr %28, align 8
   %30 = sub nsw i64 %29, %27
   store i64 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 1472
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 1472
   %32 = load i64, ptr %31, align 8
   %33 = mul nsw i64 %32, %24
-  %34 = getelementptr inbounds i8, ptr %2, i64 1504
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 1504
   %35 = load i64, ptr %34, align 8
   %36 = sub nsw i64 %35, %33
   store i64 %36, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 1540
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 1540
   %38 = load i32, ptr %37, align 4
   %.not47.i = icmp eq i32 %38, 0
   br i1 %.not47.i, label %48, label %39
 
 39:                                               ; preds = %22
-  %40 = getelementptr inbounds i8, ptr %2, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %41 = load ptr, ptr %40, align 8
   tail call void @N_VDestroy(ptr noundef %41) #13
   store ptr null, ptr %40, align 8
@@ -10735,13 +10735,13 @@ define void @IDAFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %48
 
 48:                                               ; preds = %39, %22
-  %49 = getelementptr inbounds i8, ptr %2, i64 1544
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 1544
   %50 = load i32, ptr %49, align 8
   %.not48.i = icmp eq i32 %50, 0
   br i1 %.not48.i, label %60, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %2, i64 640
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %53 = load ptr, ptr %52, align 8
   tail call void @N_VDestroy(ptr noundef %53) #13
   store ptr null, ptr %52, align 8
@@ -10756,13 +10756,13 @@ define void @IDAFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %60
 
 60:                                               ; preds = %51, %48
-  %61 = getelementptr inbounds i8, ptr %2, i64 1548
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 1548
   %62 = load i32, ptr %61, align 4
   %.not49.i = icmp eq i32 %62, 0
   br i1 %.not49.i, label %IDAFreeVectors.exit, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %2, i64 632
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 632
   %65 = load ptr, ptr %64, align 8
   tail call void @N_VDestroy(ptr noundef %65) #13
   store ptr null, ptr %64, align 8
@@ -10781,7 +10781,7 @@ IDAFreeVectors.exit:                              ; preds = %60, %63
   tail call void @IDASensFree(ptr noundef nonnull %2)
   tail call void @IDAQuadSensFree(ptr noundef nonnull %2)
   tail call void @IDAAdjFree(ptr noundef nonnull %2) #13
-  %72 = getelementptr inbounds i8, ptr %2, i64 1624
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 1624
   %73 = load ptr, ptr %72, align 8
   %.not = icmp eq ptr %73, null
   br i1 %.not, label %76, label %74
@@ -10791,33 +10791,33 @@ IDAFreeVectors.exit:                              ; preds = %60, %63
   br label %76
 
 76:                                               ; preds = %74, %IDAFreeVectors.exit
-  %77 = getelementptr inbounds i8, ptr %2, i64 1696
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 1696
   %78 = load i32, ptr %77, align 8
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %93
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %2, i64 1744
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 1744
   %82 = load ptr, ptr %81, align 8
   tail call void @free(ptr noundef %82) #13
   store ptr null, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %2, i64 1752
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 1752
   %84 = load ptr, ptr %83, align 8
   tail call void @free(ptr noundef %84) #13
   store ptr null, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %2, i64 1760
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 1760
   %86 = load ptr, ptr %85, align 8
   tail call void @free(ptr noundef %86) #13
   store ptr null, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %2, i64 1704
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 1704
   %88 = load ptr, ptr %87, align 8
   tail call void @free(ptr noundef %88) #13
   store ptr null, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %2, i64 1712
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 1712
   %90 = load ptr, ptr %89, align 8
   tail call void @free(ptr noundef %90) #13
   store ptr null, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %2, i64 1800
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 1800
   %92 = load ptr, ptr %91, align 8
   tail call void @free(ptr noundef %92) #13
   store ptr null, ptr %91, align 8
@@ -10839,40 +10839,40 @@ define void @IDAQuadFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %49, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1560
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %49, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 768
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %8 = load ptr, ptr %7, align 8
   tail call void @N_VDestroy(ptr noundef %8) #13
   store ptr null, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 776
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %10 = load ptr, ptr %9, align 8
   tail call void @N_VDestroy(ptr noundef %10) #13
   store ptr null, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 784
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %12 = load ptr, ptr %11, align 8
   tail call void @N_VDestroy(ptr noundef %12) #13
   store ptr null, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 792
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %14 = load ptr, ptr %13, align 8
   tail call void @N_VDestroy(ptr noundef %14) #13
   store ptr null, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 1284
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %16 = load i32, ptr %15, align 4
   %.not30.i = icmp slt i32 %16, 0
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 720
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 720
   br label %18
 
 18:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds [6 x ptr], ptr %17, i64 0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [6 x ptr], ptr %17, i64 0, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   tail call void @N_VDestroy(ptr noundef %20) #13
   store ptr null, ptr %19, align 8
@@ -10886,27 +10886,27 @@ define void @IDAQuadFree(ptr noundef %0) local_unnamed_addr #0 {
   %.lcssa.i = phi i32 [ %16, %6 ], [ %21, %18 ]
   %23 = add nsw i32 %.lcssa.i, 5
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 1480
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %26 = load i64, ptr %25, align 8
   %27 = mul nsw i64 %26, %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 1496
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %29 = load i64, ptr %28, align 8
   %30 = sub nsw i64 %29, %27
   store i64 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 1488
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %32 = load i64, ptr %31, align 8
   %33 = mul nsw i64 %32, %24
-  %34 = getelementptr inbounds i8, ptr %0, i64 1504
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %35 = load i64, ptr %34, align 8
   %36 = sub nsw i64 %35, %33
   store i64 %36, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 1556
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1556
   %38 = load i32, ptr %37, align 4
   %.not29.i = icmp eq i32 %38, 0
   br i1 %.not29.i, label %IDAQuadFreeVectors.exit, label %39
 
 39:                                               ; preds = %._crit_edge.i
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   tail call void @N_VDestroy(ptr noundef %41) #13
   store ptr null, ptr %40, align 8
@@ -10923,7 +10923,7 @@ define void @IDAQuadFree(ptr noundef %0) local_unnamed_addr #0 {
 IDAQuadFreeVectors.exit:                          ; preds = %._crit_edge.i, %39
   store i32 0, ptr %37, align 4
   store i32 0, ptr %4, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %48, align 8
   br label %49
 
@@ -10937,47 +10937,47 @@ define void @IDASensFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %84, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1572
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1572
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %84, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 880
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 140
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %10 = load i32, ptr %9, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %8, i32 noundef %10) #13
-  %11 = getelementptr inbounds i8, ptr %0, i64 872
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %9, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %12, i32 noundef %13) #13
-  %14 = getelementptr inbounds i8, ptr %0, i64 864
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %9, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %15, i32 noundef %16) #13
-  %17 = getelementptr inbounds i8, ptr %0, i64 856
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %9, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %18, i32 noundef %19) #13
-  %20 = getelementptr inbounds i8, ptr %0, i64 848
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %9, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %21, i32 noundef %22) #13
-  %23 = getelementptr inbounds i8, ptr %0, i64 904
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %24 = load ptr, ptr %23, align 8
   tail call void @N_VDestroy(ptr noundef %24) #13
-  %25 = getelementptr inbounds i8, ptr %0, i64 1288
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %26 = load i32, ptr %25, align 8
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %26, i32 4)
-  %27 = getelementptr inbounds i8, ptr %0, i64 800
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %28 = add nuw i32 %spec.select.i, 1
   %wide.trip.count.i = zext i32 %28 to i64
   br label %29
 
 29:                                               ; preds = %29, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %29 ]
-  %30 = getelementptr inbounds [6 x ptr], ptr %27, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [6 x ptr], ptr %27, i64 0, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %9, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %31, i32 noundef %32) #13
@@ -10986,11 +10986,11 @@ define void @IDASensFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %33, label %29, !llvm.loop !120
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 184
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %35 = load ptr, ptr %34, align 8
   tail call void @free(ptr noundef %35) #13
   store ptr null, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 192
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %37 = load ptr, ptr %36, align 8
   tail call void @free(ptr noundef %37) #13
   store ptr null, ptr %36, align 8
@@ -10999,30 +10999,30 @@ define void @IDASensFree(ptr noundef %0) local_unnamed_addr #0 {
   %40 = mul nsw i32 %39, %38
   %41 = add nsw i32 %40, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %0, i64 1464
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %44 = load i64, ptr %43, align 8
   %45 = mul nsw i64 %44, %42
   %46 = sext i32 %39 to i64
-  %47 = getelementptr inbounds i8, ptr %0, i64 1496
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %48 = load i64, ptr %47, align 8
   %49 = add i64 %45, %46
   %50 = sub i64 %48, %49
   store i64 %50, ptr %47, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 1472
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %52 = load i64, ptr %51, align 8
   %53 = mul nsw i64 %52, %42
-  %54 = getelementptr inbounds i8, ptr %0, i64 1504
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %53, %46
   %57 = sub i64 %55, %56
   store i64 %57, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 1564
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1564
   %59 = load i32, ptr %58, align 4
   %.not50.i = icmp eq i32 %59, 0
   br i1 %.not50.i, label %73, label %60
 
 60:                                               ; preds = %33
-  %61 = getelementptr inbounds i8, ptr %0, i64 240
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %62 = load ptr, ptr %61, align 8
   tail call void @N_VDestroyVectorArray(ptr noundef %62, i32 noundef %39) #13
   %63 = load i32, ptr %9, align 4
@@ -11041,13 +11041,13 @@ define void @IDASensFree(ptr noundef %0) local_unnamed_addr #0 {
   br label %73
 
 73:                                               ; preds = %60, %33
-  %74 = getelementptr inbounds i8, ptr %0, i64 1568
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   %75 = load i32, ptr %74, align 8
   %.not51.i = icmp eq i32 %75, 0
   br i1 %.not51.i, label %IDASensFreeVectors.exit, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %0, i64 232
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %78 = load ptr, ptr %77, align 8
   tail call void @free(ptr noundef %78) #13
   store ptr null, ptr %77, align 8
@@ -11061,7 +11061,7 @@ define void @IDASensFree(ptr noundef %0) local_unnamed_addr #0 {
 
 IDASensFreeVectors.exit:                          ; preds = %73, %76
   store i32 0, ptr %4, align 4
-  %83 = getelementptr inbounds i8, ptr %0, i64 136
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %83, align 8
   br label %84
 
@@ -11075,43 +11075,43 @@ define void @IDAQuadSensFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %73, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1584
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %73, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1284
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %8 = load i32, ptr %7, align 4
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %8, i32 4)
-  %9 = getelementptr inbounds i8, ptr %0, i64 1024
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 140
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %12 = load i32, ptr %11, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %10, i32 noundef %12) #13
-  %13 = getelementptr inbounds i8, ptr %0, i64 1008
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %11, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %14, i32 noundef %15) #13
-  %16 = getelementptr inbounds i8, ptr %0, i64 1016
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %11, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %17, i32 noundef %18) #13
-  %19 = getelementptr inbounds i8, ptr %0, i64 1032
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %11, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %20, i32 noundef %21) #13
-  %22 = getelementptr inbounds i8, ptr %0, i64 1040
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %23 = load ptr, ptr %22, align 8
   tail call void @N_VDestroy(ptr noundef %23) #13
-  %24 = getelementptr inbounds i8, ptr %0, i64 960
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %25 = add nuw i32 %spec.select.i, 1
   %wide.trip.count.i = zext i32 %25 to i64
   br label %26
 
 26:                                               ; preds = %26, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %26 ]
-  %27 = getelementptr inbounds [6 x ptr], ptr %24, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [6 x ptr], ptr %24, i64 0, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %11, align 4
   tail call void @N_VDestroyVectorArray(ptr noundef %28, i32 noundef %29) #13
@@ -11124,27 +11124,27 @@ define void @IDAQuadSensFree(ptr noundef %0) local_unnamed_addr #0 {
   %32 = load i32, ptr %11, align 4
   %33 = mul nsw i32 %32, %31
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %0, i64 1480
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %36 = load i64, ptr %35, align 8
   %37 = mul nsw i64 %36, %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 1496
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %39 = load i64, ptr %38, align 8
   %40 = sub nsw i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 1488
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %42 = load i64, ptr %41, align 8
   %43 = mul nsw i64 %42, %34
-  %44 = getelementptr inbounds i8, ptr %0, i64 1504
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %45 = load i64, ptr %44, align 8
   %46 = sub nsw i64 %45, %43
   store i64 %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 1576
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1576
   %48 = load i32, ptr %47, align 8
   %.not42.i = icmp eq i32 %48, 0
   br i1 %.not42.i, label %62, label %49
 
 49:                                               ; preds = %30
-  %50 = getelementptr inbounds i8, ptr %0, i64 304
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %51 = load ptr, ptr %50, align 8
   tail call void @N_VDestroyVectorArray(ptr noundef %51, i32 noundef %32) #13
   %52 = load i32, ptr %11, align 4
@@ -11162,13 +11162,13 @@ define void @IDAQuadSensFree(ptr noundef %0) local_unnamed_addr #0 {
   br label %62
 
 62:                                               ; preds = %49, %30
-  %63 = getelementptr inbounds i8, ptr %0, i64 1580
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1580
   %64 = load i32, ptr %63, align 4
   %.not43.i = icmp eq i32 %64, 0
   br i1 %.not43.i, label %IDAQuadSensFreeVectors.exit, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %0, i64 296
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %67 = load ptr, ptr %66, align 8
   tail call void @free(ptr noundef %67) #13
   store ptr null, ptr %66, align 8
@@ -11183,7 +11183,7 @@ IDAQuadSensFreeVectors.exit:                      ; preds = %62, %65
   store i32 0, ptr %47, align 8
   store i32 0, ptr %63, align 4
   store i32 0, ptr %4, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 248
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 0, ptr %72, align 8
   br label %73
 
@@ -11208,30 +11208,30 @@ define double @IDASensWrmsNorm(ptr nocapture noundef readonly %0, ptr nocapture 
 
 IDAWrmsNorm.exit:                                 ; preds = %4
   %7 = tail call double @N_VWrmsNorm(ptr noundef %5, ptr noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 140
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %IDAWrmsNorm.exit20.us, label %._crit_edge
 
 IDAWrmsNorm.exit.thread:                          ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 632
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %12 = load ptr, ptr %11, align 8
   %13 = tail call double @N_VWrmsNormMask(ptr noundef %5, ptr noundef %6, ptr noundef %12) #13
-  %14 = getelementptr inbounds i8, ptr %0, i64 140
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, 1
   br i1 %16, label %IDAWrmsNorm.exit20.preheader, label %._crit_edge
 
 IDAWrmsNorm.exit20.preheader:                     ; preds = %IDAWrmsNorm.exit.thread
-  %17 = getelementptr inbounds i8, ptr %0, i64 632
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 632
   br label %IDAWrmsNorm.exit20
 
 IDAWrmsNorm.exit20.us:                            ; preds = %IDAWrmsNorm.exit, %IDAWrmsNorm.exit20.us
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %IDAWrmsNorm.exit20.us ], [ 1, %IDAWrmsNorm.exit ]
   %.01621.us = phi double [ %.1.us, %IDAWrmsNorm.exit20.us ], [ %7, %IDAWrmsNorm.exit ]
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv25
+  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv25
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv25
+  %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv25
   %21 = load ptr, ptr %20, align 8
   %22 = tail call double @N_VWrmsNorm(ptr noundef %19, ptr noundef %21) #13
   %23 = fcmp ogt double %22, %.01621.us
@@ -11245,9 +11245,9 @@ IDAWrmsNorm.exit20.us:                            ; preds = %IDAWrmsNorm.exit, %
 IDAWrmsNorm.exit20:                               ; preds = %IDAWrmsNorm.exit20.preheader, %IDAWrmsNorm.exit20
   %indvars.iv = phi i64 [ 1, %IDAWrmsNorm.exit20.preheader ], [ %indvars.iv.next, %IDAWrmsNorm.exit20 ]
   %.01621 = phi double [ %13, %IDAWrmsNorm.exit20.preheader ], [ %.1, %IDAWrmsNorm.exit20 ]
-  %27 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %17, align 8
   %32 = tail call double @N_VWrmsNormMask(ptr noundef %28, ptr noundef %30, ptr noundef %31) #13
@@ -11282,21 +11282,21 @@ declare void @N_VInv(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @IDARestore(ptr nocapture noundef nonnull initializes((1184, 1192)) %0, double noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   store double %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %5 = load i32, ptr %4, align 8
   %.not74 = icmp slt i32 %5, 1
   br i1 %.not74, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 360
-  %7 = getelementptr inbounds i8, ptr %0, i64 1168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %indvars.iv
   %10 = load double, ptr %9, align 8
   %11 = load double, ptr %7, align 8
   %12 = fsub double %10, %11
@@ -11311,14 +11311,14 @@ define internal fastcc void @IDARestore(ptr nocapture noundef nonnull initialize
 
 ._crit_edge:                                      ; preds = %8, %2
   %17 = phi i32 [ %5, %2 ], [ %15, %8 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 1156
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1156
   %19 = load i32, ptr %18, align 4
   %.not6476 = icmp sgt i32 %19, %17
   br i1 %.not6476, label %._crit_edge80, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %._crit_edge
-  %20 = getelementptr inbounds i8, ptr %0, i64 456
-  %21 = getelementptr inbounds i8, ptr %0, i64 312
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %22 = sext i32 %19 to i64
   br label %23
 
@@ -11338,7 +11338,7 @@ define internal fastcc void @IDARestore(ptr nocapture noundef nonnull initialize
 
 ._crit_edge80:                                    ; preds = %23, %._crit_edge
   %31 = phi i32 [ %17, %._crit_edge ], [ %29, %23 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %33 = load i32, ptr %32, align 8
   %.not65 = icmp eq i32 %33, 0
   br i1 %.not65, label %.loopexit73, label %34
@@ -11349,8 +11349,8 @@ define internal fastcc void @IDARestore(ptr nocapture noundef nonnull initialize
   br i1 %.not6681, label %.loopexit73, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 456
-  %37 = getelementptr inbounds i8, ptr %0, i64 720
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %38 = sext i32 %35 to i64
   br label %39
 
@@ -11370,20 +11370,20 @@ define internal fastcc void @IDARestore(ptr nocapture noundef nonnull initialize
 
 .loopexit73:                                      ; preds = %39, %34, %._crit_edge80
   %47 = phi i32 [ %31, %34 ], [ %31, %._crit_edge80 ], [ %45, %39 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 136
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %49 = load i32, ptr %48, align 8
   %.not67 = icmp eq i32 %49, 0
   br i1 %.not67, label %.loopexit72, label %.preheader71
 
 .preheader71:                                     ; preds = %.loopexit73
-  %50 = getelementptr inbounds i8, ptr %0, i64 140
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %51 = load i32, ptr %50, align 4
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %.lr.ph91, label %.loopexit72
 
 .lr.ph91:                                         ; preds = %.preheader71
-  %53 = getelementptr inbounds i8, ptr %0, i64 456
-  %54 = getelementptr inbounds i8, ptr %0, i64 800
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %55 = load i32, ptr %18, align 4
   %56 = icmp sgt i32 %55, %47
   br i1 %56, label %.loopexit72, label %.lr.ph91.split
@@ -11407,7 +11407,7 @@ define internal fastcc void @IDARestore(ptr nocapture noundef nonnull initialize
   %64 = fdiv double 1.000000e+00, %63
   %65 = getelementptr inbounds [6 x ptr], ptr %54, i64 0, i64 %indvars.iv108
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv111
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv111
   %68 = load ptr, ptr %67, align 8
   tail call void @N_VScale(double noundef %64, ptr noundef %68, ptr noundef %68) #13
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, 1
@@ -11430,20 +11430,20 @@ define internal fastcc void @IDARestore(ptr nocapture noundef nonnull initialize
 
 .loopexit72:                                      ; preds = %._crit_edge89, %.lr.ph91, %.preheader71, %.loopexit73
   %75 = phi i32 [ %47, %.preheader71 ], [ %47, %.loopexit73 ], [ %47, %.lr.ph91 ], [ %72, %._crit_edge89 ]
-  %76 = getelementptr inbounds i8, ptr %0, i64 248
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %77 = load i32, ptr %76, align 8
   %.not68 = icmp eq i32 %77, 0
   br i1 %.not68, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit72
-  %78 = getelementptr inbounds i8, ptr %0, i64 140
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %79 = load i32, ptr %78, align 4
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph98, label %.loopexit
 
 .lr.ph98:                                         ; preds = %.preheader
-  %81 = getelementptr inbounds i8, ptr %0, i64 456
-  %82 = getelementptr inbounds i8, ptr %0, i64 960
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %83 = load i32, ptr %18, align 4
   %84 = icmp sgt i32 %83, %75
   br i1 %84, label %.loopexit, label %.lr.ph98.split
@@ -11467,7 +11467,7 @@ define internal fastcc void @IDARestore(ptr nocapture noundef nonnull initialize
   %92 = fdiv double 1.000000e+00, %91
   %93 = getelementptr inbounds [6 x ptr], ptr %82, i64 0, i64 %indvars.iv114
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv117
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv117
   %96 = load ptr, ptr %95, align 8
   tail call void @N_VScale(double noundef %92, ptr noundef %96, ptr noundef %96) #13
   %indvars.iv.next115 = add nsw i64 %indvars.iv114, 1
@@ -11494,7 +11494,7 @@ define internal fastcc void @IDARestore(ptr nocapture noundef nonnull initialize
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 21) i32 @IDAHandleNFlag(ptr nocapture noundef nonnull initializes((1152, 1156)) %0, i32 noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 1152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store i32 1, ptr %9, align 8
   %.not = icmp eq i32 %1, 7
   br i1 %.not, label %29, label %10
@@ -11511,7 +11511,7 @@ define internal fastcc range(i32 -2147483648, 21) i32 @IDAHandleNFlag(ptr nocapt
 
 16:                                               ; preds = %10
   %.not52 = icmp eq i32 %1, 5
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 1176
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1176
   br i1 %.not52, label %._crit_edge, label %17
 
 ._crit_edge:                                      ; preds = %16
@@ -11524,12 +11524,12 @@ define internal fastcc range(i32 -2147483648, 21) i32 @IDAHandleNFlag(ptr nocapt
 
 18:                                               ; preds = %._crit_edge, %17
   %19 = phi double [ %.pre, %._crit_edge ], [ 2.500000e-01, %17 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 1168
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %21 = load double, ptr %20, align 8
   %22 = fmul double %19, %21
   store double %22, ptr %20, align 8
   %23 = load i32, ptr %5, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 1272
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %25 = load i32, ptr %24, align 8
   %26 = icmp slt i32 %23, %25
   br i1 %26, label %75, label %27
@@ -11553,9 +11553,9 @@ define internal fastcc range(i32 -2147483648, 21) i32 @IDAHandleNFlag(ptr nocapt
   ]
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %0, i64 1144
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 1148
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1148
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %37, %39
   %41 = select i1 %40, double %2, double %3
@@ -11566,7 +11566,7 @@ define internal fastcc range(i32 -2147483648, 21) i32 @IDAHandleNFlag(ptr nocapt
   %45 = fdiv double -1.000000e+00, %44
   %46 = tail call double @SUNRpowerR(double noundef %42, double noundef %45) #13
   %47 = fmul double %46, 9.000000e-01
-  %48 = getelementptr inbounds i8, ptr %0, i64 1176
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %49 = fcmp ogt double %47, 9.000000e-01
   %50 = fcmp olt double %47, 2.500000e-01
   %not. = xor i1 %49, true
@@ -11575,37 +11575,37 @@ define internal fastcc range(i32 -2147483648, 21) i32 @IDAHandleNFlag(ptr nocapt
   %.mux = select i1 %51, double 2.500000e-01, double 9.000000e-01
   %52 = select i1 %brmerge, double %.mux, double %47
   store double %52, ptr %48, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 1168
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %54 = load double, ptr %53, align 8
   %55 = fmul double %54, %52
   store double %55, ptr %53, align 8
   br label %75
 
 56:                                               ; preds = %29
-  %57 = getelementptr inbounds i8, ptr %0, i64 1148
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1148
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 1144
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 1176
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   store double 2.500000e-01, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 1168
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %62 = load double, ptr %61, align 8
   %63 = fmul double %62, 2.500000e-01
   store double %63, ptr %61, align 8
   br label %75
 
 64:                                               ; preds = %29
-  %65 = getelementptr inbounds i8, ptr %0, i64 1280
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %66 = load i32, ptr %65, align 8
   %67 = icmp slt i32 %34, %66
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %0, i64 1144
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store i32 1, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 1176
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   store double 2.500000e-01, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 1168
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %72 = load double, ptr %71, align 8
   %73 = fmul double %72, 2.500000e-01
   store double %73, ptr %71, align 8
@@ -11613,7 +11613,7 @@ define internal fastcc range(i32 -2147483648, 21) i32 @IDAHandleNFlag(ptr nocapt
 
 switch.lookup:                                    ; preds = %27
   %74 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table.IDAHandleNFlag, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.IDAHandleNFlag, i64 0, i64 %74
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %75
 

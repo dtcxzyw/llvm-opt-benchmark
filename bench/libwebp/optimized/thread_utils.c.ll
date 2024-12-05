@@ -18,31 +18,31 @@ define range(i32 0, 2) i32 @WebPSetWorkerInterface(ptr noundef readonly %0) loca
   br i1 %5, label %27, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %27, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %27, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %27, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %26
@@ -72,9 +72,9 @@ define internal void @Init(ptr nocapture noundef writeonly initializes((0, 48)) 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Reset(ptr noundef initializes((40, 44)) %0) #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %25 [
     i32 0, label %5
@@ -93,7 +93,7 @@ define internal range(i32 0, 2) i32 @Reset(ptr noundef initializes((40, 44)) %0)
   br i1 %.not25, label %10, label %24
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = tail call i32 @pthread_cond_init(ptr noundef nonnull %11, ptr noundef null) #8
   %.not26 = icmp eq i32 %12, 0
   br i1 %.not26, label %15, label %13
@@ -104,7 +104,7 @@ define internal range(i32 0, 2) i32 @Reset(ptr noundef initializes((40, 44)) %0)
 
 15:                                               ; preds = %10
   %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #8
-  %17 = getelementptr inbounds i8, ptr %6, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %18 = tail call i32 @pthread_create(ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull @ThreadLoop, ptr noundef nonnull %0) #8
   %.not27 = icmp eq i32 %18, 0
   br i1 %.not27, label %19, label %.critedge
@@ -137,7 +137,7 @@ define internal range(i32 0, 2) i32 @Reset(ptr noundef initializes((40, 44)) %0)
   br i1 %switch.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %26, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 40
   br label %32
 
 32:                                               ; preds = %32, %.lr.ph.i.i
@@ -166,13 +166,13 @@ define internal range(i32 0, 2) i32 @Sync(ptr nocapture noundef readonly %0) #4 
 
 4:                                                ; preds = %1
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %switch = icmp ult i32 %7, 2
   br i1 %switch, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br label %9
 
 9:                                                ; preds = %9, %.lr.ph.i
@@ -186,7 +186,7 @@ define internal range(i32 0, 2) i32 @Sync(ptr nocapture noundef readonly %0) #4 
   br label %ChangeState.exit
 
 ChangeState.exit:                                 ; preds = %1, %._crit_edge.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %.not = icmp eq i32 %13, 0
   %14 = zext i1 %.not to i32
@@ -201,7 +201,7 @@ define internal void @Launch(ptr nocapture noundef %0) #4 {
 
 4:                                                ; preds = %1
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %.lr.ph.i [
     i32 0, label %14
@@ -209,7 +209,7 @@ define internal void @Launch(ptr nocapture noundef %0) #4 {
   ]
 
 .lr.ph.i:                                         ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br label %9
 
 9:                                                ; preds = %9, %.lr.ph.i
@@ -221,7 +221,7 @@ define internal void @Launch(ptr nocapture noundef %0) #4 {
 ._crit_edge.i:                                    ; preds = %9, %4
   store i32 2, ptr %6, align 8
   %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #8
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %12) #8
   br label %ChangeState.exit
 
@@ -235,20 +235,20 @@ ChangeState.exit:                                 ; preds = %1, %._crit_edge.i, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @Execute(ptr nocapture noundef %0) #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %3(ptr noundef %6, ptr noundef %8) #8
   %.not5 = icmp eq i32 %9, 0
   %10 = zext i1 %.not5 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = or i32 %12, %10
   store i32 %13, ptr %11, align 8
@@ -266,7 +266,7 @@ define internal void @End(ptr nocapture noundef %0) #4 {
 
 3:                                                ; preds = %1
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %.lr.ph.i [
     i32 0, label %13
@@ -274,7 +274,7 @@ define internal void @End(ptr nocapture noundef %0) #4 {
   ]
 
 .lr.ph.i:                                         ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br label %8
 
 8:                                                ; preds = %8, %.lr.ph.i
@@ -286,7 +286,7 @@ define internal void @End(ptr nocapture noundef %0) #4 {
 ._crit_edge.i:                                    ; preds = %8, %3
   store i32 0, ptr %5, align 8
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #8
-  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %12 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %11) #8
   br label %ChangeState.exit
 
@@ -295,11 +295,11 @@ define internal void @End(ptr nocapture noundef %0) #4 {
   br label %ChangeState.exit
 
 ChangeState.exit:                                 ; preds = %._crit_edge.i, %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 @pthread_join(i64 noundef %16, ptr noundef null) #8
   %18 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %2) #8
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %19) #8
   tail call void @WebPSafeFree(ptr noundef nonnull %2) #8
   store ptr null, ptr %0, align 8
@@ -332,8 +332,8 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @ThreadLoop(ptr noundef %0) #4 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br label %7
 
 .critedge:                                        ; preds = %9, %13

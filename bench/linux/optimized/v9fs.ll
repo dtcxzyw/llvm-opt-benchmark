@@ -98,11 +98,11 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @v9fs_show_options(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 872
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 872
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %8 = load i16, ptr %7, align 2
   %9 = icmp eq i16 %8, 0
   br i1 %9, label %12, label %10
@@ -113,7 +113,7 @@ define dso_local i32 @v9fs_show_options(ptr noundef %0, ptr nocapture noundef re
   br label %12
 
 12:                                               ; preds = %10, %2
-  %13 = getelementptr inbounds i8, ptr %6, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, -2
   br i1 %15, label %20, label %16
@@ -126,7 +126,7 @@ define dso_local i32 @v9fs_show_options(ptr noundef %0, ptr nocapture noundef re
   br label %20
 
 20:                                               ; preds = %16, %12
-  %21 = getelementptr inbounds i8, ptr %6, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, -2
   br i1 %23, label %28, label %24
@@ -139,7 +139,7 @@ define dso_local i32 @v9fs_show_options(ptr noundef %0, ptr nocapture noundef re
   br label %28
 
 28:                                               ; preds = %24, %20
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %33, label %32
@@ -149,7 +149,7 @@ define dso_local i32 @v9fs_show_options(ptr noundef %0, ptr nocapture noundef re
   br label %33
 
 33:                                               ; preds = %32, %28
-  %34 = getelementptr inbounds i8, ptr %6, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @strcmp(ptr noundef %35, ptr noundef nonnull dereferenceable(7) @.str.4) #7
   %37 = icmp eq i32 %36, 0
@@ -160,7 +160,7 @@ define dso_local i32 @v9fs_show_options(ptr noundef %0, ptr nocapture noundef re
   br label %39
 
 39:                                               ; preds = %38, %33
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 0
@@ -171,7 +171,7 @@ define dso_local i32 @v9fs_show_options(ptr noundef %0, ptr nocapture noundef re
   br label %45
 
 45:                                               ; preds = %44, %39
-  %46 = getelementptr inbounds i8, ptr %6, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %47 = load i8, ptr %46, align 4
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %50, label %49
@@ -181,7 +181,7 @@ define dso_local i32 @v9fs_show_options(ptr noundef %0, ptr nocapture noundef re
   br label %50
 
 50:                                               ; preds = %49, %45
-  %51 = getelementptr inbounds i8, ptr %6, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %55, label %54
@@ -215,7 +215,7 @@ define dso_local i32 @v9fs_show_options(ptr noundef %0, ptr nocapture noundef re
   br label %69
 
 63:                                               ; preds = %55
-  %64 = getelementptr inbounds i8, ptr %6, i64 44
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, -1
   %67 = load i32, ptr @overflowuid, align 4
@@ -267,7 +267,7 @@ define dso_local i32 @v9fs_show_options(ptr noundef %0, ptr nocapture noundef re
   br label %89
 
 89:                                               ; preds = %88, %84
-  %90 = getelementptr inbounds i8, ptr %6, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %91 = load ptr, ptr %90, align 8
   %92 = tail call i32 @p9_show_client_options(ptr noundef %0, ptr noundef %91) #7
   ret i32 %92
@@ -299,29 +299,29 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = tail call noalias ptr @kstrdup(ptr noundef nonnull @.str.4, i32 noundef 3264) #7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %229, label %12
 
 12:                                               ; preds = %3
   %13 = tail call noalias ptr @kstrdup(ptr noundef nonnull @.str.6, i32 noundef 3264) #7
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %13, ptr %14, align 8
   %15 = icmp eq ptr %13, null
   br i1 %15, label %229, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
-  tail call void @__init_rwsem(ptr noundef %17, ptr noundef nonnull @.str.18, ptr noundef nonnull @v9fs_session_init.__key) #7
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @__init_rwsem(ptr noundef nonnull %17, ptr noundef nonnull @.str.18, ptr noundef nonnull @v9fs_session_init.__key) #7
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 -1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 -2, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 -2, ptr %20, align 8
   %21 = tail call ptr @p9_client_create(ptr noundef %1, ptr noundef %2) #7
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %21, ptr %22, align 8
   %23 = icmp ugt ptr %21, inttoptr (i64 -4096 to ptr)
   br i1 %23, label %24, label %27
@@ -359,13 +359,13 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
   store i32 0, ptr %7, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 6
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %41, align 2
-  %42 = getelementptr inbounds i8, ptr %0, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 30000, ptr %43, align 8
   %44 = icmp eq ptr %2, null
   br i1 %44, label %.sink.split, label %45
@@ -392,7 +392,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   br label %.sink.split
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %0, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %53
 
 53:                                               ; preds = %176, %51
@@ -686,10 +686,10 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
 
 181:                                              ; preds = %.sink.split, %179
   %182 = load ptr, ptr %22, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %184 = load i32, ptr %183, align 4
   %185 = add i32 %184, -24
-  %186 = getelementptr inbounds i8, ptr %0, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %185, ptr %186, align 8
   %187 = load i32, ptr %0, align 8
   %188 = and i32 %187, 30
@@ -741,7 +741,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   %214 = load i32, ptr %0, align 8
   %215 = and i32 %214, 28
   %216 = icmp eq i32 %215, 4
-  %217 = getelementptr inbounds i8, ptr %208, i64 44
+  %217 = getelementptr inbounds nuw i8, ptr %208, i64 44
   br i1 %216, label %218, label %220
 
 218:                                              ; preds = %213
@@ -752,12 +752,12 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   %221 = phi i32 [ %219, %218 ], [ -1, %213 ]
   store i32 %221, ptr %217, align 4
   call void @_raw_spin_lock(ptr noundef nonnull @v9fs_sessionlist_lock) #7
-  %222 = getelementptr inbounds i8, ptr %0, i64 56
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %223 = load ptr, ptr @v9fs_sessionlist, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   store ptr %222, ptr %224, align 8
   store ptr %223, ptr %222, align 8
-  %225 = getelementptr inbounds i8, ptr %0, i64 64
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @v9fs_sessionlist, ptr %225, align 8
   store volatile ptr %222, ptr @v9fs_sessionlist, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull @v9fs_sessionlist_lock) #7
@@ -773,7 +773,7 @@ define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, pt
   %230 = phi i32 [ %26, %24 ], [ %227, %226 ], [ -12, %12 ], [ -12, %3 ]
   %231 = load ptr, ptr %10, align 8
   call void @kfree(ptr noundef %231) #7
-  %232 = getelementptr inbounds i8, ptr %0, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %233 = load ptr, ptr %232, align 8
   call void @kfree(ptr noundef %233) #7
   %234 = sext i32 %230 to i64
@@ -811,7 +811,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @v9fs_session_close(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -822,18 +822,18 @@ define dso_local void @v9fs_session_close(ptr nocapture noundef %0) local_unname
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void @kfree(ptr noundef %8) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @kfree(ptr noundef %10) #7
   tail call void @_raw_spin_lock(ptr noundef nonnull @v9fs_sessionlist_lock) #7
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %13, ptr %15, align 8
   store volatile ptr %14, ptr %13, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %11, align 8
@@ -844,7 +844,7 @@ define dso_local void @v9fs_session_close(ptr nocapture noundef %0) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @v9fs_session_cancel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   tail call void @p9_client_disconnect(ptr noundef %3) #7
   ret void
@@ -855,7 +855,7 @@ declare dso_local void @p9_client_disconnect(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @v9fs_session_begin_cancel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   tail call void @p9_client_begin_disconnect(ptr noundef %3) #7
   ret void
@@ -999,8 +999,8 @@ declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @v9fs_inode_init_once(ptr noundef initializes((632, 648)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 632
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   tail call void @inode_init_once(ptr noundef %0) #7
   ret void
 }

@@ -1461,15 +1461,15 @@ define internal i32 @dissect_zbee_zcl_elec_mes(ptr noundef %0, ptr nocapture nou
   br i1 %7, label %84, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %3, i64 17
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i8 %10 to i32
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %13, label %18, label %40
 
 18:                                               ; preds = %8
@@ -1497,7 +1497,7 @@ define internal i32 @dissect_zbee_zcl_elec_mes(ptr noundef %0, ptr nocapture nou
   %33 = zext i32 %32 to i64
   %34 = add nuw nsw i64 %33, 946684800
   store i64 %34, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %35, align 8
   %36 = load i32, ptr @hf_zbee_zcl_elec_mes_start_time, align 4
   %37 = call ptr @proto_tree_add_time(ptr noundef %28, i32 noundef %36, ptr noundef %0, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %6) #7
@@ -1551,7 +1551,7 @@ define internal i32 @dissect_zbee_zcl_elec_mes(ptr noundef %0, ptr nocapture nou
   %67 = zext i32 %66 to i64
   %68 = add nuw nsw i64 %67, 946684800
   store i64 %68, ptr %5, align 8
-  %69 = getelementptr inbounds i8, ptr %5, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %69, align 8
   %70 = load i32, ptr @hf_zbee_zcl_elec_mes_start_time, align 4
   %71 = call ptr @proto_tree_add_time(ptr noundef %50, i32 noundef %70, ptr noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %5) #7

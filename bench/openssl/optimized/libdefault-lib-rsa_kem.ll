@@ -25,7 +25,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #4
   store ptr %call1, ptr %call, align 8
-  %op = getelementptr inbounds i8, ptr %call, i64 16
+  %op = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 -1, ptr %op, align 8
   br label %return
 
@@ -43,13 +43,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2, 2) i32 @rsakem_generate(ptr nocapture noundef readonly %vprsactx, ptr noundef %out, ptr noundef writeonly %outlen, ptr noundef %secret, ptr noundef writeonly %secretlen) #0 {
 entry:
-  %op = getelementptr inbounds i8, ptr %vprsactx, i64 16
+  %op = getelementptr inbounds nuw i8, ptr %vprsactx, i64 16
   %0 = load i32, ptr %op, align 8
   %cond = icmp eq i32 %0, 0
   br i1 %cond, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %entry
-  %rsa.i = getelementptr inbounds i8, ptr %vprsactx, i64 8
+  %rsa.i = getelementptr inbounds nuw i8, ptr %vprsactx, i64 8
   %1 = load ptr, ptr %rsa.i, align 8
   %call.i = tail call i32 @RSA_size(ptr noundef %1) #4
   %conv.i = sext i32 %call.i to i64
@@ -174,13 +174,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2, 2) i32 @rsakem_recover(ptr nocapture noundef readonly %vprsactx, ptr noundef %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i64 noundef %inlen) #0 {
 entry:
-  %op = getelementptr inbounds i8, ptr %vprsactx, i64 16
+  %op = getelementptr inbounds nuw i8, ptr %vprsactx, i64 16
   %0 = load i32, ptr %op, align 8
   %cond = icmp eq i32 %0, 0
   br i1 %cond, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %entry
-  %rsa.i = getelementptr inbounds i8, ptr %vprsactx, i64 8
+  %rsa.i = getelementptr inbounds nuw i8, ptr %vprsactx, i64 8
   %1 = load ptr, ptr %rsa.i, align 8
   %call.i = tail call i32 @RSA_size(ptr noundef %1) #4
   %conv.i = sext i32 %call.i to i64
@@ -227,7 +227,7 @@ return:                                           ; preds = %if.end9.i, %if.then
 ; Function Attrs: nounwind uwtable
 define internal void @rsakem_freectx(ptr noundef %vprsactx) #0 {
 entry:
-  %rsa = getelementptr inbounds i8, ptr %vprsactx, i64 8
+  %rsa = getelementptr inbounds nuw i8, ptr %vprsactx, i64 8
   %0 = load ptr, ptr %rsa, align 8
   tail call void @RSA_free(ptr noundef %0) #4
   tail call void @CRYPTO_free(ptr noundef %vprsactx, ptr noundef nonnull @.str, i32 noundef 101) #4
@@ -243,7 +243,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull align 8 dereferenceable(24) %vprsactx, i64 24, i1 false)
-  %rsa = getelementptr inbounds i8, ptr %call, i64 8
+  %rsa = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load ptr, ptr %rsa, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %return, label %land.lhs.true
@@ -292,13 +292,13 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %data_type = getelementptr inbounds i8, ptr %call, i64 8
+  %data_type = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp6.not = icmp eq i32 %0, 4
   br i1 %cmp6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then5
-  %data = getelementptr inbounds i8, ptr %call, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call, i64 16
   %1 = load ptr, ptr %data, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %rsakem_opname2id.exit
@@ -309,7 +309,7 @@ rsakem_opname2id.exit:                            ; preds = %if.end8
   br i1 %cmp2.i.i.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %rsakem_opname2id.exit
-  %op13 = getelementptr inbounds i8, ptr %vprsactx, i64 16
+  %op13 = getelementptr inbounds nuw i8, ptr %vprsactx, i64 16
   store i32 0, ptr %op13, align 8
   br label %return
 
@@ -348,7 +348,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool5.not, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end3
-  %rsa = getelementptr inbounds i8, ptr %vprsactx, i64 8
+  %rsa = getelementptr inbounds nuw i8, ptr %vprsactx, i64 8
   %1 = load ptr, ptr %rsa, align 8
   tail call void @RSA_free(ptr noundef %1) #4
   store ptr %vrsa, ptr %rsa, align 8
@@ -361,13 +361,13 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp4.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %data_type.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %data_type.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %2 = load i32, ptr %data_type.i, align 8
   %cmp6.not.i = icmp eq i32 %2, 4
   br i1 %cmp6.not.i, label %if.end8.i, label %return
 
 if.end8.i:                                        ; preds = %if.then5.i
-  %data.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %data.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %3 = load ptr, ptr %data.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %return, label %rsakem_opname2id.exit.i
@@ -378,7 +378,7 @@ rsakem_opname2id.exit.i:                          ; preds = %if.end8.i
   br i1 %cmp2.i.i.not.i, label %if.end12.i, label %return
 
 if.end12.i:                                       ; preds = %rsakem_opname2id.exit.i
-  %op13.i = getelementptr inbounds i8, ptr %vprsactx, i64 16
+  %op13.i = getelementptr inbounds nuw i8, ptr %vprsactx, i64 16
   store i32 0, ptr %op13.i, align 8
   br label %return
 

@@ -90,7 +90,7 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef
 14:                                               ; preds = %22, %10
   %15 = phi ptr [ @.str, %10 ], [ %24, %22 ]
   %.012.i = phi ptr [ @x509_attrs, %10 ], [ %23, %22 ]
-  %16 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, %13
   br i1 %18, label %19, label %22
@@ -101,15 +101,15 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef
   br i1 %21, label %x509_attr_descr_from_name.exit, label %22
 
 22:                                               ; preds = %19, %14
-  %23 = getelementptr inbounds i8, ptr %.012.i, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.012.i, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %x509_attr_descr_from_name.exit.thread, label %14, !llvm.loop !4
 
 x509_attr_descr_from_name.exit:                   ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %.012.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.055107, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.055107, i64 1
   br label %28
 
 28:                                               ; preds = %x509_attr_descr_from_name.exit, %7
@@ -123,7 +123,7 @@ x509_attr_descr_from_name.exit:                   ; preds = %19
   br i1 %or.cond, label %35, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %.055107, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.055107, i64 1
   %32 = icmp eq ptr %31, %5
   br i1 %32, label %x509_attr_descr_from_name.exit.thread, label %33
 
@@ -146,9 +146,9 @@ x509_attr_descr_from_name.exit:                   ; preds = %19
   br i1 %42, label %x509_attr_descr_from_name.exit.thread, label %43
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %.151.ph, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.151.ph, i64 24
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %41, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i32 %45, ptr %46, align 8
   br label %47
 
@@ -158,13 +158,13 @@ x509_attr_descr_from_name.exit:                   ; preds = %19
   br i1 %48, label %49, label %.critedge
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %.257, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.257, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 32
   br i1 %52, label %47, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %47, %49
-  %53 = getelementptr inbounds i8, ptr %.257, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.257, i64 1
   br label %.critedge72.thread
 
 .critedge72.thread:                               ; preds = %.critedge, %8
@@ -173,18 +173,18 @@ x509_attr_descr_from_name.exit:                   ; preds = %19
   %.15382.ph = phi ptr [ %.052108, %8 ], [ %.153.ph, %.critedge ]
   %.260.ph = phi ptr [ %.058106, %8 ], [ %53, %.critedge ]
   %.156.ph = phi ptr [ %.055107, %8 ], [ %.257, %.critedge ]
-  %54 = getelementptr inbounds i8, ptr %.156.ph, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.156.ph, i64 1
   br label %62
 
 .critedge72:                                      ; preds = %35, %33
   %55 = phi i8 [ 44, %33 ], [ %.pre122, %35 ]
   %.156 = phi ptr [ %31, %33 ], [ %.055107, %35 ]
-  %56 = getelementptr inbounds i8, ptr %.156, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.156, i64 1
   %.not70 = icmp eq ptr %.159.ph, %56
   br i1 %.not70, label %62, label %57
 
 57:                                               ; preds = %.critedge72
-  %58 = getelementptr inbounds i8, ptr %.1.ph, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 1
   store i8 %55, ptr %.1.ph, align 1
   %59 = ptrtoint ptr %58 to i64
   %60 = sub i64 %59, %6
@@ -222,11 +222,11 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_set_extension(ptr noundef %
 
 10:                                               ; preds = %6
   %11 = trunc i32 %3 to i8
-  %12 = getelementptr inbounds i8, ptr %8, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load ptr, ptr %12, align 8
   store i8 %11, ptr %13, align 1
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %4, i64 %5, i1 false)
   br label %16
 
@@ -246,14 +246,14 @@ define hidden i32 @mbedtls_x509_write_names(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph:                                           ; preds = %3, %40
   %.032 = phi ptr [ %44, %40 ], [ %2, %3 ]
   %.02131 = phi i64 [ %42, %40 ], [ 0, %3 ]
-  %4 = getelementptr inbounds i8, ptr %.032, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.032, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.032, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.032, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %.032, i64 24
-  %9 = getelementptr inbounds i8, ptr %.032, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %.032, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.032, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.032, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.032, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = load i32, ptr %8, align 8
   %14 = tail call i32 @mbedtls_asn1_write_tagged_string(ptr noundef %0, ptr noundef %1, i32 noundef %13, ptr noundef %10, i64 noundef %12) #5
@@ -301,7 +301,7 @@ x509_write_name.exit:                             ; preds = %33
 40:                                               ; preds = %x509_write_name.exit
   %41 = zext nneg i32 %38 to i64
   %42 = add i64 %.02131, %41
-  %43 = getelementptr inbounds i8, ptr %.032, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %.032, i64 48
   %44 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -397,10 +397,10 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
 .lr.ph:                                           ; preds = %3, %62
   %.016 = phi ptr [ %65, %62 ], [ %2, %3 ]
   %.01015 = phi i32 [ %63, %62 ], [ 0, %3 ]
-  %4 = getelementptr inbounds i8, ptr %.016, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %.016, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1
-  %7 = getelementptr inbounds i8, ptr %.016, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.016, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, -1
   %10 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i64 noundef %9) #5
@@ -441,9 +441,9 @@ define hidden i32 @mbedtls_x509_write_extensions(ptr noundef %0, ptr noundef %1,
 
 32:                                               ; preds = %29, %20
   %.0.i = phi i64 [ %31, %29 ], [ %23, %20 ]
-  %33 = getelementptr inbounds i8, ptr %.016, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.016, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %.016, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = tail call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %34, i64 noundef %36) #5
   %38 = icmp slt i32 %37, 0
@@ -485,7 +485,7 @@ x509_write_extension.exit:                        ; preds = %55
 
 62:                                               ; preds = %x509_write_extension.exit
   %63 = add i32 %60, %.01015
-  %64 = getelementptr inbounds i8, ptr %.016, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %.016, i64 48
   %65 = load ptr, ptr %64, align 8
   %.not = icmp eq ptr %65, null
   br i1 %.not, label %x509_write_extension.exit.thread, label %.lr.ph, !llvm.loop !9

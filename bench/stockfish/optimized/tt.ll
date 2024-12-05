@@ -52,7 +52,7 @@ define dso_local void @_ZN9Stockfish7TTEntry4saveEmibNS_5BoundEiNS_4MoveEih(ptr 
   br i1 %or.cond, label %14, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %6, ptr %13, align 2
   br label %14
 
@@ -64,7 +64,7 @@ define dso_local void @_ZN9Stockfish7TTEntry4saveEmibNS_5BoundEiNS_4MoveEih(ptr 
 16:                                               ; preds = %14
   %17 = select i1 %3, i32 9, i32 7
   %18 = add i32 %17, %5
-  %19 = getelementptr inbounds i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %20 = load i8, ptr %19, align 2
   %21 = zext i8 %20 to i32
   %22 = add nsw i32 %21, -4
@@ -75,20 +75,20 @@ define dso_local void @_ZN9Stockfish7TTEntry4saveEmibNS_5BoundEiNS_4MoveEih(ptr 
   store i16 %11, ptr %0, align 2
   %25 = trunc i32 %5 to i8
   %26 = add i8 %25, 7
-  %27 = getelementptr inbounds i8, ptr %0, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %26, ptr %27, align 2
   %28 = zext i8 %8 to i32
   %29 = select i1 %3, i32 4, i32 0
   %30 = or i32 %29, %28
   %31 = or i32 %30, %4
   %32 = trunc i32 %31 to i8
-  %33 = getelementptr inbounds i8, ptr %0, i64 3
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %32, ptr %33, align 1
   %34 = trunc i32 %2 to i16
-  %35 = getelementptr inbounds i8, ptr %0, i64 6
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 %34, ptr %35, align 2
   %36 = trunc i32 %7 to i16
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %36, ptr %37, align 2
   br label %38
 
@@ -99,7 +99,7 @@ define dso_local void @_ZN9Stockfish7TTEntry4saveEmibNS_5BoundEiNS_4MoveEih(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext range(i8 0, -7) i8 @_ZNK9Stockfish7TTEntry12relative_ageEh(ptr nocapture noundef nonnull readonly align 2 dereferenceable(10) %0, i8 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = add i8 %1, 7
-  %4 = getelementptr inbounds i8, ptr %0, i64 3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %5 = load i8, ptr %4, align 1
   %6 = sub i8 %3, %5
   %7 = and i8 %6, -8
@@ -108,24 +108,24 @@ define dso_local noundef zeroext range(i8 0, -7) i8 @_ZNK9Stockfish7TTEntry12rel
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN9Stockfish18TranspositionTable6resizeEmi(ptr noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  tail call void @_ZN9Stockfish24aligned_large_pages_freeEPv(ptr noundef %5) #18
+  tail call void @_ZN9Stockfish24aligned_large_pages_freeEPv(ptr noundef %5) #19
   %6 = shl i64 %1, 15
   %7 = and i64 %6, 576460752303390720
   store i64 %7, ptr %0, align 8
   %8 = shl nuw i64 %7, 5
-  %9 = tail call noundef ptr @_ZN9Stockfish25aligned_large_pages_allocEm(i64 noundef %8) #18
+  %9 = tail call noundef ptr @_ZN9Stockfish25aligned_large_pages_allocEm(i64 noundef %8) #19
   store ptr %9, ptr %4, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %15
 
 10:                                               ; preds = %3
-  %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str) #18
-  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %1) #18
-  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.1) #18
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_) #18
-  tail call void @exit(i32 noundef 1) #19
+  %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str) #19
+  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %1) #19
+  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.1) #19
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 15:                                               ; preds = %3
@@ -161,7 +161,7 @@ define dso_local void @_ZN9Stockfish18TranspositionTable5clearEm(ptr noundef non
   br i1 %.not33, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i, label %.lr.ph35
 
 .lr.ph:                                           ; preds = %2, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEERS0_DpOT_.exit"
-  %.031 = phi i64 [ %39, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEERS0_DpOT_.exit" ], [ 0, %2 ]
+  %.031 = phi i64 [ %37, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEERS0_DpOT_.exit" ], [ 0, %2 ]
   %.sroa.020.030 = phi ptr [ %.sroa.020.1, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEERS0_DpOT_.exit" ], [ null, %2 ]
   %.sroa.5.029 = phi ptr [ %.sroa.5.1, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEERS0_DpOT_.exit" ], [ null, %2 ]
   %.sroa.11.028 = phi ptr [ %.sroa.11.1, %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEERS0_DpOT_.exit" ], [ null, %2 ]
@@ -171,25 +171,25 @@ define dso_local void @_ZN9Stockfish18TranspositionTable5clearEm(ptr noundef non
 5:                                                ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %.sroa.5.029, align 8
-  %6 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
+  %6 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEEEE", i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.031, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %1, ptr %.sroa.4.0..sroa_idx, align 8
   store ptr %6, ptr %4, align 8
-  call void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.5.029, ptr noundef nonnull %4, ptr noundef null) #18
+  call void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.5.029, ptr noundef nonnull %4, ptr noundef null) #19
   %8 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i: ; preds = %5
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
   br label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i"
 
 "_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i, %5
@@ -204,7 +204,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i: ; preds = %5
   br i1 %16, label %17, label %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i
 
 17:                                               ; preds = %12
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #21
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #22
   unreachable
 
 _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %12
@@ -214,111 +214,105 @@ _ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %12
   %20 = icmp ult i64 %19, %18
   %21 = call i64 @llvm.umin.i64(i64 %19, i64 1152921504606846975)
   %22 = select i1 %20, i64 1152921504606846975, i64 %21
-  %.not.i.i.i = icmp eq i64 %22, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i, label %23
-
-23:                                               ; preds = %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i
-  %24 = shl nuw nsw i64 %22, 3
-  %25 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #20
-  br label %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %23, %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i
-  %26 = phi ptr [ %25, %23 ], [ null, %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i ]
-  %27 = getelementptr inbounds %"class.std::thread", ptr %26, i64 %18
+  %.not.i.i.i = icmp ne i64 %22, 0
+  call void @llvm.assume(i1 %.not.i.i.i)
+  %23 = shl nuw nsw i64 %22, 3
+  %24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #21
+  %25 = getelementptr inbounds i8, ptr %24, i64 %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store i64 0, ptr %27, align 8
-  %28 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
-  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEEEE", i64 16), ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %0, ptr %29, align 8
-  %.sroa.3.0..sroa_idx16 = getelementptr inbounds i8, ptr %28, i64 16
+  store i64 0, ptr %25, align 8
+  %26 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
+  store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEEEE", i64 16), ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store ptr %0, ptr %27, align 8
+  %.sroa.3.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 %.031, ptr %.sroa.3.0..sroa_idx16, align 8
-  %.sroa.4.0..sroa_idx18 = getelementptr inbounds i8, ptr %28, i64 24
+  %.sroa.4.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i64 %1, ptr %.sroa.4.0..sroa_idx18, align 8
-  store ptr %28, ptr %3, align 8
-  call void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %3, ptr noundef null) #18
-  %30 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %30, null
+  store ptr %26, ptr %3, align 8
+  call void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %3, ptr noundef null) #19
+  %28 = load ptr, ptr %3, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i
 
-_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i
+_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(8) %30) #18
+  call void %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #19
   br label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i"
 
-"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i
+"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i, %_ZNKSt6vectorISt6threadSaIS0_EE12_M_check_lenEmPKc.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not10.i.i.i.i.i = icmp eq ptr %.sroa.020.030, %.sroa.5.029
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i", %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i ], [ %26, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i" ]
-  %.0911.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i ], [ %.sroa.020.030, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i" ]
+  %.012.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %24, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i" ]
+  %.0911.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %.sroa.020.030, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %34 = load i64, ptr %.0911.i.i.i.i.i, align 8, !alias.scope !8, !noalias !5
-  store i64 %34, ptr %.012.i.i.i.i.i, align 8, !alias.scope !5, !noalias !8
+  %32 = load i64, ptr %.0911.i.i.i.i.i, align 8, !alias.scope !8, !noalias !5
+  store i64 %32, ptr %.012.i.i.i.i.i, align 8, !alias.scope !5, !noalias !8
   store i64 0, ptr %.0911.i.i.i.i.i, align 8, !alias.scope !8, !noalias !5
-  %35 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 8
-  %36 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 8
-  %.not.i.i.i.i3.i = icmp eq ptr %35, %.sroa.5.029
+  %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
+  %.not.i.i.i.i3.i = icmp eq ptr %33, %.sroa.5.029
   br i1 %.not.i.i.i.i3.i, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i"
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %26, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i" ], [ %36, %.lr.ph.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %24, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i" ], [ %34, %.lr.ph.i.i.i.i.i ]
   %.not.i23.i.i = icmp eq ptr %.sroa.020.030, null
-  br i1 %.not.i23.i.i, label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i", label %37
+  br i1 %.not.i23.i.i, label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i", label %35
 
-37:                                               ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.020.030) #22
+35:                                               ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.020.030) #23
   br label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i"
 
-"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i": ; preds = %37, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
-  %38 = getelementptr inbounds %"class.std::thread", ptr %26, i64 %22
+"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i": ; preds = %35, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
+  %36 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %22
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEERS0_DpOT_.exit"
 
 "_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEERS0_DpOT_.exit": ; preds = %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i", %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i"
-  %.sroa.11.1 = phi ptr [ %38, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i" ], [ %.sroa.11.028, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i" ]
+  %.sroa.11.1 = phi ptr [ %36, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i" ], [ %.sroa.11.028, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i" ]
   %.0.lcssa.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i" ], [ %.sroa.5.029, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i" ]
-  %.sroa.020.1 = phi ptr [ %26, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i" ], [ %.sroa.020.030, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i" ]
-  %.sroa.5.1 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.pn, i64 8
-  %39 = add nuw i64 %.031, 1
-  %exitcond.not = icmp eq i64 %39, %1
+  %.sroa.020.1 = phi ptr [ %24, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i" ], [ %.sroa.020.030, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i" ]
+  %.sroa.5.1 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.pn, i64 8
+  %37 = add nuw i64 %.031, 1
+  %exitcond.not = icmp eq i64 %37, %1
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !12
 
 .lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
-  %.sroa.011.034 = phi ptr [ %40, %.lr.ph35 ], [ %.sroa.020.1, %.preheader ]
-  call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.011.034) #18
-  %40 = getelementptr inbounds i8, ptr %.sroa.011.034, i64 8
+  %.sroa.011.034 = phi ptr [ %38, %.lr.ph35 ], [ %.sroa.020.1, %.preheader ]
+  call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.011.034) #19
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.011.034, i64 8
   %.not = icmp eq ptr %.sroa.011.034, %.0.lcssa.i.i.i.i.i.pn
   br i1 %.not, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i, label %.lr.ph35
 
-41:                                               ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+39:                                               ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %.05.i.i.i.i, %.0.lcssa.i.i.i.i.i.pn
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i, !llvm.loop !13
 
-_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %.lr.ph35, %41
-  %.05.i.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.020.1, %.lr.ph35 ]
+_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i:        ; preds = %.lr.ph35, %39
+  %.05.i.i.i.i = phi ptr [ %40, %39 ], [ %.sroa.020.1, %.lr.ph35 ]
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.05.i.i.i.i, align 8
   %.not.i.i.i.i.i.i9 = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i9, label %41, label %43
+  br i1 %.not.i.i.i.i.i.i9, label %39, label %41
 
-43:                                               ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i
-  call void @_ZSt9terminatev() #21
+41:                                               ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i
+  call void @_ZSt9terminatev() #22
   unreachable
 
-_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %41, %.preheader
+_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %39, %.preheader
   %.not.i.i.i10 = icmp eq ptr %.sroa.020.1, null
-  br i1 %.not.i.i.i10, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %44
+  br i1 %.not.i.i.i10, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %42
 
-44:                                               ; preds = %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.020.1) #22
+42:                                               ; preds = %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.020.1) #23
   br label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit
 
-_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit:          ; preds = %2, %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i, %44
+_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit:          ; preds = %2, %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i, %42
   ret void
 }
 
@@ -326,7 +320,7 @@ declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK9Stockfish18TranspositionTable5probeEmRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) local_unnamed_addr #7 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = zext i64 %1 to i128
@@ -344,17 +338,17 @@ define dso_local noundef ptr @_ZNK9Stockfish18TranspositionTable5probeEmRb(ptr n
   br i1 %exitcond.not, label %.preheader, label %18, !llvm.loop !14
 
 .preheader:                                       ; preds = %14
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i8, ptr %15, align 8
   %17 = add i8 %16, 7
   br label %32
 
 18:                                               ; preds = %3, %14
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %14 ]
-  %19 = getelementptr inbounds %"struct.Stockfish::TTEntry", ptr %12, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %"struct.Stockfish::TTEntry", ptr %12, i64 %indvars.iv
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %20, %13
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %19, i64 2
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %19, i64 2
   %.pre = load i8, ptr %.phi.trans.insert, align 2
   br i1 %21, label %._crit_edge, label %24
 
@@ -369,9 +363,9 @@ define dso_local noundef ptr @_ZNK9Stockfish18TranspositionTable5probeEmRb(ptr n
 
 split:                                            ; preds = %24, %._crit_edge
   %25 = phi i8 [ %23, %._crit_edge ], [ 0, %24 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i8, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 3
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 3
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, 7
   %31 = or i8 %30, %27
@@ -381,20 +375,20 @@ split:                                            ; preds = %24, %._crit_edge
 32:                                               ; preds = %.preheader, %32
   %indvars.iv40 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next41, %32 ]
   %.03236 = phi ptr [ %12, %.preheader ], [ %spec.select, %32 ]
-  %33 = getelementptr inbounds i8, ptr %.03236, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.03236, i64 2
   %34 = load i8, ptr %33, align 2
   %35 = zext i8 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %.03236, i64 3
+  %36 = getelementptr inbounds nuw i8, ptr %.03236, i64 3
   %37 = load i8, ptr %36, align 1
   %38 = sub i8 %17, %37
   %39 = and i8 %38, -8
   %40 = zext i8 %39 to i32
   %41 = sub nsw i32 %35, %40
-  %42 = getelementptr inbounds %"struct.Stockfish::TTEntry", ptr %12, i64 %indvars.iv40
-  %43 = getelementptr inbounds i8, ptr %42, i64 2
+  %42 = getelementptr inbounds nuw %"struct.Stockfish::TTEntry", ptr %12, i64 %indvars.iv40
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 2
   %44 = load i8, ptr %43, align 2
   %45 = zext i8 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %42, i64 3
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 3
   %47 = load i8, ptr %46, align 1
   %48 = sub i8 %17, %47
   %49 = and i8 %48, -8
@@ -415,29 +409,29 @@ split:                                            ; preds = %24, %._crit_edge
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 -715827882, 715827883) i32 @_ZNK9Stockfish18TranspositionTable8hashfullEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %20
   %indvars.iv17 = phi i64 [ 0, %1 ], [ %indvars.iv.next18, %20 ]
   %.01114 = phi i32 [ 0, %1 ], [ %19, %20 ]
-  %6 = getelementptr inbounds %"struct.Stockfish::TranspositionTable::Cluster", ptr %3, i64 %indvars.iv17
+  %6 = getelementptr inbounds nuw %"struct.Stockfish::TranspositionTable::Cluster", ptr %3, i64 %indvars.iv17
   br label %7
 
 7:                                                ; preds = %.preheader, %17
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %17 ]
   %.112 = phi i32 [ %.01114, %.preheader ], [ %19, %17 ]
-  %8 = getelementptr inbounds [3 x %"struct.Stockfish::TTEntry"], ptr %6, i64 0, i64 %indvars.iv
-  %9 = getelementptr inbounds i8, ptr %8, i64 2
+  %8 = getelementptr inbounds nuw [3 x %"struct.Stockfish::TTEntry"], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %10 = load i8, ptr %9, align 2
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, -8
   %15 = icmp eq i8 %14, %5
@@ -474,30 +468,30 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
+  tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEEE6_M_runEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %5, 8
   br i1 %6, label %7, label %"_ZNSt6thread8_InvokerISt5tupleIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEclEv.exit"
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  tail call void @_ZN9Stockfish12WinProcGroup14bindThisThreadEm(i64 noundef %9) #18
+  tail call void @_ZN9Stockfish12WinProcGroup14bindThisThreadEm(i64 noundef %9) #19
   %.pre.i.i.i.i.i = load i64, ptr %4, align 8
   br label %"_ZNSt6thread8_InvokerISt5tupleIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEclEv.exit"
 
@@ -505,14 +499,14 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN9Stock
   %10 = phi i64 [ %.pre.i.i.i.i.i, %7 ], [ %5, %1 ]
   %11 = load i64, ptr %3, align 8
   %12 = udiv i64 %11, %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = mul i64 %14, %12
   %16 = add i64 %10, -1
   %.not.i.i.i.i.i = icmp eq i64 %14, %16
   %17 = sub i64 %11, %15
   %18 = select i1 %.not.i.i.i.i.i, i64 %17, i64 %12
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds %"struct.Stockfish::TranspositionTable::Cluster", ptr %20, i64 %15
   %22 = shl i64 %18, 5
@@ -533,8 +527,8 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_tt.cpp() #14 section ".text.startup" {
-  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #18
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
+  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit) #19
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   ret void
 }
 
@@ -552,6 +546,9 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -571,11 +568,12 @@ attributes #14 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-widt
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { cold noreturn nounwind }
-attributes #20 = { builtin nounwind allocsize(0) }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { builtin nounwind }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nounwind }
+attributes #20 = { cold noreturn nounwind }
+attributes #21 = { builtin nounwind allocsize(0) }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

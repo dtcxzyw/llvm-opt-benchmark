@@ -82,9 +82,9 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp1.i)
   call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config.i) #14
-  %site_import.i = getelementptr inbounds i8, ptr %config.i, i64 176
+  %site_import.i = getelementptr inbounds nuw i8, ptr %config.i, i64 176
   store i32 0, ptr %site_import.i, align 8
-  %program_name.i = getelementptr inbounds i8, ptr %config.i, i64 280
+  %program_name.i = getelementptr inbounds nuw i8, ptr %config.i, i64 280
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef nonnull %config.i, ptr noundef nonnull %program_name.i, ptr noundef nonnull @.str.1) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status.i, ptr noundef nonnull align 8 dereferenceable(32) %tmp.i, i64 32, i1 false)
   %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp.i) #14
@@ -97,9 +97,9 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 if.end.i11:                                       ; preds = %if.end
-  %_install_importlib.i = getelementptr inbounds i8, ptr %config.i, i64 432
+  %_install_importlib.i = getelementptr inbounds nuw i8, ptr %config.i, i64 432
   store i32 0, ptr %_install_importlib.i, align 8
-  %_init_main.i = getelementptr inbounds i8, ptr %config.i, i64 436
+  %_init_main.i = getelementptr inbounds nuw i8, ptr %config.i, i64 436
   store i32 0, ptr %_init_main.i, align 4
   call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1.i, ptr noundef nonnull %config.i) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status.i, ptr noundef nonnull align 8 dereferenceable(32) %tmp1.i, i64 32, i1 false)
@@ -140,7 +140,7 @@ if.then4.i17:                                     ; preds = %if.end.i14
   br label %read_text.exit.thread
 
 if.end7.i:                                        ; preds = %if.end.i14
-  %st_size.i = getelementptr inbounds i8, ptr %stat.i, i64 48
+  %st_size.i = getelementptr inbounds nuw i8, ptr %stat.i, i64 48
   %7 = load i64, ptr %st_size.i, align 8
   %add.i = add i64 %7, 1
   %call8.i = call noalias ptr @malloc(i64 noundef %add.i) #16
@@ -250,7 +250,7 @@ for.inc.i.i:                                      ; preds = %if.else.i.i, %for.c
 get_varname.exit.i:                               ; preds = %for.cond.i.i
   %arrayidx15.i.i = getelementptr i8, ptr %call3.i.i, i64 %n.0.i.i
   store i8 0, ptr %arrayidx15.i.i, align 1
-  %ob_sval.i.i.i = getelementptr inbounds i8, ptr %call4.i, i64 32
+  %ob_sval.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 32
   %14 = getelementptr i8, ptr %call4.i, i64 16
   %marshalled.val.i.i = load i64, ptr %14, align 8
   %call2.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call.i27, ptr noundef nonnull @.str.13, ptr noundef nonnull %call3.i.i)

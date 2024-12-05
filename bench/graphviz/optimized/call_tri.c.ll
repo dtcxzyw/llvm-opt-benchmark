@@ -63,14 +63,14 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %23 = shl nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds double, ptr %1, i64 %23
+  %24 = getelementptr inbounds nuw double, ptr %1, i64 %23
   %25 = load double, ptr %24, align 8
-  %26 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   store double %25, ptr %26, align 8
   %27 = or disjoint i64 %23, 1
-  %28 = getelementptr inbounds double, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw double, ptr %1, i64 %27
   %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds double, ptr %17, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
   store double %29, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -94,10 +94,10 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
 .lr.ph54:                                         ; preds = %._crit_edge.thread, %.lr.ph54
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph54 ], [ 0, %._crit_edge.thread ]
   %37 = shl nuw nsw i64 %indvars.iv62, 1
-  %38 = getelementptr inbounds i32, ptr %.046, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %.046, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = or disjoint i64 %37, 1
-  %41 = getelementptr inbounds i32, ptr %.046, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %.046, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %34, i32 noundef %39, i32 noundef %42, ptr noundef nonnull %3) #11
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
@@ -209,11 +209,11 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit50.pr
   %24 = mul nsw i64 %indvars.iv, %19
   %25 = getelementptr inbounds double, ptr %2, i64 %24
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   store double %26, ptr %27, align 8
   %28 = getelementptr i8, ptr %25, i64 8
   %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds double, ptr %17, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
   store double %29, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -231,13 +231,13 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
 
 .preheader51:                                     ; preds = %.preheader51.preheader, %._crit_edge
   %indvars.iv66 = phi i64 [ 0, %.preheader51.preheader ], [ %indvars.iv.next67, %._crit_edge ]
-  %33 = getelementptr inbounds %struct.v_data, ptr %31, i64 %indvars.iv66
+  %33 = getelementptr inbounds nuw %struct.v_data, ptr %31, i64 %indvars.iv66
   %34 = load i32, ptr %33, align 8
   %35 = icmp sgt i32 %34, 1
   br i1 %35, label %.lr.ph54, label %._crit_edge
 
 .lr.ph54:                                         ; preds = %.preheader51
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = trunc nuw nsw i64 %indvars.iv66 to i32
   br label %38
 
@@ -248,7 +248,7 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
 38:                                               ; preds = %.lr.ph54, %38
   %indvars.iv63 = phi i64 [ 1, %.lr.ph54 ], [ %indvars.iv.next64, %38 ]
   %39 = load ptr, ptr %36, align 8
-  %40 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv63
+  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv63
   %41 = load i32, ptr %40, align 4
   %42 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %37, i32 noundef %41, ptr noundef nonnull %4) #11
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1

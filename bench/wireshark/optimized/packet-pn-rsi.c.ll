@@ -284,7 +284,7 @@ define hidden i32 @dissect_PNIO_RSI(ptr noundef %0, i32 noundef %1, ptr noundef 
   %13 = alloca i16, align 2
   %14 = alloca i16, align 2
   %15 = alloca i16, align 2
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str) #3
   %18 = load i32, ptr @proto_pn_rsi, align 4
@@ -485,7 +485,7 @@ dissect_FREQ_RTA_block.exit:                      ; preds = %97, %99, %102, %104
 
 switch.lookup:                                    ; preds = %121
   %138 = zext nneg i32 %135 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_PNIO_RSI, i64 0, i64 %138
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_PNIO_RSI, i64 0, i64 %138
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %139
 
@@ -772,23 +772,23 @@ declare i32 @dissect_dcerpc_uint32(ptr noundef, i32 noundef, ptr noundef, ptr no
 define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i8 noundef zeroext range(i8 0, 2) %6, i32 noundef range(i32 0, 32) %7, i32 noundef range(i32 5, 7) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   store i32 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 284
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 284
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %29, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 288
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %15 = load i32, ptr %14, align 8
   %.not90 = icmp eq i32 %15, 0
   br i1 %.not90, label %29, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %2, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 208
-  %21 = getelementptr inbounds i8, ptr %2, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %22 = tail call ptr @find_conversation(i32 noundef %19, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef 0, i32 noundef %12, i32 noundef %15, i32 noundef 0) #3
   %.not92 = icmp eq ptr %22, null
   br i1 %.not92, label %23, label %50
@@ -802,15 +802,15 @@ define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef
   br label %50
 
 29:                                               ; preds = %13, %9
-  %30 = getelementptr inbounds i8, ptr %2, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 208
-  %34 = getelementptr inbounds i8, ptr %2, i64 232
-  %35 = getelementptr inbounds i8, ptr %2, i64 380
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 380
   %36 = load i16, ptr %35, align 4
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %2, i64 382
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 382
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = tail call ptr @find_conversation(i32 noundef %32, ptr noundef nonnull %33, ptr noundef nonnull %34, i32 noundef 0, i32 noundef %37, i32 noundef %40, i32 noundef 0) #3
@@ -829,7 +829,7 @@ define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef
 
 50:                                               ; preds = %29, %42, %16, %23
   %.2.sink = phi ptr [ %22, %16 ], [ %28, %23 ], [ %41, %29 ], [ %49, %42 ]
-  %51 = getelementptr inbounds i8, ptr %.2.sink, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.2.sink, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = tail call ptr @fragment_get(ptr noundef nonnull @pn_rsi_reassembly_table, ptr noundef nonnull %2, i32 noundef %52, ptr noundef null) #3
   %54 = load i32, ptr %51, align 8
@@ -846,16 +846,16 @@ define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef
   br label %proto_item_set_generated.exit
 
 61:                                               ; preds = %50
-  %62 = getelementptr inbounds i8, ptr %2, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 50
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 50
   %65 = load i16, ptr %64, align 2
   %66 = and i16 %65, 8
   %67 = icmp eq i16 %66, 0
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %.2.sink, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.2.sink, i64 24
   %70 = load i32, ptr %69, align 8
   %71 = zext nneg i8 %6 to i32
   %72 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @pn_rsi_reassembly_table, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %70, ptr noundef null, i32 noundef %5, i32 noundef %71) #3
@@ -865,7 +865,7 @@ define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef
 
 75:                                               ; preds = %68, %61
   %.185 = phi ptr [ %74, %68 ], [ %55, %61 ]
-  %76 = getelementptr inbounds i8, ptr %2, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not93 = icmp eq i8 %6, 0
   %78 = select i1 %.not93, ptr @.str.118, ptr @.str.103
@@ -876,7 +876,7 @@ define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef
 79:                                               ; preds = %75
   %80 = load ptr, ptr %62, align 8
   %81 = load i32, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %.185, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %.185, i64 40
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %81, %83
   br i1 %84, label %85, label %93
@@ -900,13 +900,13 @@ define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef
   br i1 %.not.i, label %proto_item_set_generated.exit, label %98
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds i8, ptr %97, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %100 = load ptr, ptr %99, align 8
   %.not5.i = icmp eq ptr %100, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %100, i64 28
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 28
   %103 = load i32, ptr %102, align 4
   %104 = or i32 %103, 2
   store i32 %104, ptr %102, align 4

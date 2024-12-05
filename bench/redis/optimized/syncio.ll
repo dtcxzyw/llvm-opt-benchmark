@@ -156,7 +156,7 @@ if.then8:                                         ; preds = %land.lhs.true
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.addr.014, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ptr.addr.014, i64 1
   store i8 %0, ptr %ptr.addr.014, align 1
   store i8 0, ptr %incdec.ptr, align 1
   %inc = add nuw nsw i64 %nread.015, 1

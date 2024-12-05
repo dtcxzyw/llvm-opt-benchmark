@@ -18,7 +18,7 @@ define void @_RINvMNtNtCsapf13pIxsjn_3std4sync9once_lockINtB3_8OnceLockANtNtCsjI
   %2 = alloca [0 x i8], align 1
   %3 = alloca [8 x i8], align 8
   %4 = alloca [16 x i8], align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 9360
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 9360
   %6 = load atomic i32, ptr %5 acquire, align 8, !noalias !4
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %_RINvMs0_NtNtCsapf13pIxsjn_3std4sync4onceNtB6_4Once15call_once_forceNCINvMNtB8_9once_lockINtB19_8OnceLockANtNtCsjIaN6dkKMFO_12turborepo_ci7vendors6Vendorj2d_E10initializeNCINvB18_11get_or_initNCNvB1H_11get_vendors0E0zE0EB1J_.llvm.12991001126515474163.exit, label %8
@@ -26,7 +26,7 @@ define void @_RINvMNtNtCsapf13pIxsjn_3std4sync9once_lockINtB3_8OnceLockANtNtCsjI
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !4
   store ptr %0, ptr %4, align 8, !noalias !4
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %9, align 8, !noalias !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !4
   store ptr %4, ptr %3, align 8, !noalias !4
@@ -44,7 +44,7 @@ define void @_RINvMNtNtCsapf13pIxsjn_3std4sync9once_lockINtB3_8OnceLockINtNtCs1L
   %2 = alloca [0 x i8], align 1
   %3 = alloca [8 x i8], align 8
   %4 = alloca [16 x i8], align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load atomic i32, ptr %5 acquire, align 8, !noalias !7
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %_RINvMs0_NtNtCsapf13pIxsjn_3std4sync4onceNtB6_4Once15call_once_forceNCINvMNtB8_9once_lockINtB19_8OnceLockINtNtCs1LoaDTb72WA_4core6option6OptionRNtNtCsjIaN6dkKMFO_12turborepo_ci7vendors6VendorEE10initializeNCINvB18_11get_or_initNvMB2l_B2h_11infer_innerE0zE0EB2l_.llvm.12991001126515474163.exit, label %8
@@ -52,7 +52,7 @@ define void @_RINvMNtNtCsapf13pIxsjn_3std4sync9once_lockINtB3_8OnceLockINtNtCs1L
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !7
   store ptr %0, ptr %4, align 8, !noalias !7
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %9, align 8, !noalias !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !7
   store ptr %4, ptr %3, align 8, !noalias !7
@@ -75,10 +75,10 @@ define void @_RINvMNtNtCsapf13pIxsjn_3std4sync9once_lockINtB3_8OnceLockbE10initi
   br i1 %6, label %_RINvMs0_NtNtCsapf13pIxsjn_3std4sync4onceNtB6_4Once15call_once_forceNCINvMNtB8_9once_lockINtB19_8OnceLockbE10initializeNCINvB18_11get_or_initNCNvCsjIaN6dkKMFO_12turborepo_ci5is_ci0E0zE0EB2i_.llvm.12991001126515474163.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !10
   store ptr %8, ptr %4, align 8, !noalias !10
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %9, align 8, !noalias !10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !10
   store ptr %4, ptr %3, align 8, !noalias !10
@@ -102,7 +102,7 @@ define hidden void @_RINvMs0_NtNtCsapf13pIxsjn_3std4sync4onceNtB6_4Once15call_on
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %1, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %5, ptr %4, align 8
@@ -126,7 +126,7 @@ define hidden void @_RINvMs0_NtNtCsapf13pIxsjn_3std4sync4onceNtB6_4Once15call_on
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %1, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %5, ptr %4, align 8
@@ -150,7 +150,7 @@ define hidden void @_RINvMs0_NtNtCsapf13pIxsjn_3std4sync4onceNtB6_4Once15call_on
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %1, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %5, ptr %4, align 8
@@ -185,13 +185,13 @@ define hidden noundef i32 @_RINvNtNtCs1LoaDTb72WA_4core4sync6atomic11atomic_load
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @anon.fd6b38a97f68a69a0ebaa45afaa70a7a.3, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
   call void @_ZN4core9panicking9panic_fmt17hb0937d4ccfd82515E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd6b38a97f68a69a0ebaa45afaa70a7a.6) #5
   unreachable
@@ -203,13 +203,13 @@ define hidden noundef i32 @_RINvNtNtCs1LoaDTb72WA_4core4sync6atomic11atomic_load
 15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.fd6b38a97f68a69a0ebaa45afaa70a7a.8, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
   call void @_ZN4core9panicking9panic_fmt17hb0937d4ccfd82515E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fd6b38a97f68a69a0ebaa45afaa70a7a.9) #5
   unreachable

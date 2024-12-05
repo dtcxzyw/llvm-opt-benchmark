@@ -136,7 +136,7 @@ define void @dsytri2x_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 79:                                               ; preds = %91, %75
   %80 = phi i64 [ 1, %75 ], [ %92, %91 ]
-  %81 = getelementptr inbounds i32, ptr %21, i64 %80
+  %81 = getelementptr inbounds nuw i32, ptr %21, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !3
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %84, label %91
@@ -180,7 +180,7 @@ define void @dsytri2x_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 107:                                              ; preds = %156, %102
   %108 = phi i32 [ 1, %102 ], [ %162, %156 ]
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds i32, ptr %21, i64 %109
+  %110 = getelementptr inbounds nuw i32, ptr %21, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !3
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %113, label %123
@@ -439,7 +439,7 @@ thread-pre-split95:                               ; preds = %thread-pre-split95.
 269:                                              ; preds = %.loopexit119, %235
   %270 = phi i32 [ 1, %235 ], [ %326, %.loopexit119 ]
   %271 = zext nneg i32 %270 to i64
-  %272 = getelementptr inbounds i32, ptr %21, i64 %271
+  %272 = getelementptr inbounds nuw i32, ptr %21, i64 %271
   %273 = load i32, ptr %272, align 4, !tbaa !3
   %274 = icmp sgt i32 %273, 0
   br i1 %274, label %275, label %290
@@ -858,7 +858,7 @@ thread-pre-split95:                               ; preds = %thread-pre-split95.
 539:                                              ; preds = %580, %524
   %540 = phi i32 [ %99, %524 ], [ %589, %580 ]
   %541 = zext nneg i32 %540 to i64
-  %542 = getelementptr inbounds i32, ptr %21, i64 %541
+  %542 = getelementptr inbounds nuw i32, ptr %21, i64 %541
   %543 = load i32, ptr %542, align 4, !tbaa !3
   %544 = icmp sgt i32 %543, 0
   br i1 %544, label %545, label %551
@@ -1496,7 +1496,7 @@ thread-pre-split95:                               ; preds = %thread-pre-split95.
 .preheader:                                       ; preds = %591, %985
   %960 = phi i32 [ %987, %985 ], [ %957, %591 ]
   %961 = zext nneg i32 %960 to i64
-  %962 = getelementptr inbounds i32, ptr %21, i64 %961
+  %962 = getelementptr inbounds nuw i32, ptr %21, i64 %961
   %963 = load i32, ptr %962, align 4, !tbaa !3
   %964 = icmp sgt i32 %963, 0
   br i1 %964, label %965, label %973

@@ -174,9 +174,9 @@ define noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr nocapture noundef reado
   %69 = add i32 %spec.select.i, %.sroa.14.3.fr.i
   %70 = icmp eq i32 %spec.select.i, 0
   %71 = icmp eq i32 %.sroa.14.3.fr.i, 7
-  %72 = getelementptr inbounds i8, ptr %7, i64 28
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %73 = icmp eq i32 %.sroa.14.3.fr.i, 5
-  %74 = getelementptr inbounds i8, ptr %7, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br i1 %70, label %.split.i, label %.split.us.preheader.i
 
 .split.us.preheader.i:                            ; preds = %67

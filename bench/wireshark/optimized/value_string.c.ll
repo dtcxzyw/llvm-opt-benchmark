@@ -48,7 +48,7 @@ define ptr @val_to_str(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) 
   br i1 %.not15.i.i, label %.loopexit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not1619.i.i = icmp eq ptr %7, null
   br i1 %.not1619.i.i, label %.loopexit, label %.lr.ph.i.i.preheader
@@ -68,7 +68,7 @@ define ptr @val_to_str(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) 
   %12 = add i32 %.020.i.i13, 1
   %13 = sext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %1, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16.i.i = icmp eq ptr %16, null
   br i1 %.not16.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
@@ -92,7 +92,7 @@ define ptr @try_val_to_str(i32 noundef %0, ptr noundef readonly %1) local_unname
   br i1 %.not15.i, label %try_val_to_str_idx.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not1619.i = icmp eq ptr %4, null
   br i1 %.not1619.i, label %try_val_to_str_idx.exit, label %.lr.ph.i.preheader
@@ -112,7 +112,7 @@ define ptr @try_val_to_str(i32 noundef %0, ptr noundef readonly %1) local_unname
   %9 = add i32 %.020.i3, 1
   %10 = sext i32 %9 to i64
   %11 = getelementptr %struct._value_string, ptr %1, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not16.i = icmp eq ptr %13, null
   br i1 %.not16.i, label %try_val_to_str_idx.exit, label %.lr.ph.i, !llvm.loop !4
@@ -140,7 +140,7 @@ define noalias ptr @val_to_str_wmem(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not15.i.i, label %.loopexit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not1619.i.i = icmp eq ptr %8, null
   br i1 %.not1619.i.i, label %.loopexit, label %.lr.ph.i.i.preheader
@@ -160,7 +160,7 @@ define noalias ptr @val_to_str_wmem(ptr noundef %0, i32 noundef %1, ptr noundef 
   %13 = add i32 %.020.i.i15, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr %struct._value_string, ptr %2, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not16.i.i = icmp eq ptr %17, null
   br i1 %.not16.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
@@ -195,7 +195,7 @@ define nonnull ptr @val_to_str_const(i32 noundef %0, ptr noundef readonly %1, pt
   br i1 %.not15.i.i, label %try_val_to_str.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not1619.i.i = icmp eq ptr %7, null
   br i1 %.not1619.i.i, label %try_val_to_str.exit, label %.lr.ph.i.i.preheader
@@ -215,7 +215,7 @@ define nonnull ptr @val_to_str_const(i32 noundef %0, ptr noundef readonly %1, pt
   %12 = add i32 %.020.i.i9, 1
   %13 = sext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %1, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16.i.i = icmp eq ptr %16, null
   br i1 %.not16.i.i, label %try_val_to_str.exit, label %.lr.ph.i.i, !llvm.loop !4
@@ -241,7 +241,7 @@ define ptr @try_val_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr noun
   br i1 %.not15, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not1619 = icmp eq ptr %7, null
   br i1 %.not1619, label %.loopexit, label %.lr.ph
@@ -254,7 +254,7 @@ define ptr @try_val_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr noun
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %.020, ptr %2, align 4
   %13 = load ptr, ptr %12, align 8
   br label %20
@@ -263,7 +263,7 @@ define ptr @try_val_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr noun
   %15 = add i32 %.020, 1
   %16 = sext i32 %15 to i64
   %17 = getelementptr %struct._value_string, ptr %1, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not16 = icmp eq ptr %19, null
   br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -293,7 +293,7 @@ define ptr @char_val_to_str(i8 noundef signext %0, ptr noundef readonly %1, ptr 
   br i1 %.not15.i.i, label %.loopexit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not1619.i.i = icmp eq ptr %9, null
   br i1 %.not1619.i.i, label %.loopexit, label %.lr.ph.i.i.preheader
@@ -313,7 +313,7 @@ define ptr @char_val_to_str(i8 noundef signext %0, ptr noundef readonly %1, ptr 
   %14 = add i32 %.020.i.i13, 1
   %15 = sext i32 %14 to i64
   %16 = getelementptr %struct._value_string, ptr %1, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not16.i.i = icmp eq ptr %18, null
   br i1 %.not16.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !4
@@ -345,7 +345,7 @@ define ptr @val64_to_str(i64 noundef %0, ptr noundef readonly %1, ptr noundef %2
   br i1 %.not15.i.i, label %.loopexit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not1619.i.i = icmp eq ptr %7, null
   br i1 %.not1619.i.i, label %.loopexit, label %.lr.ph.i.i.preheader
@@ -365,7 +365,7 @@ define ptr @val64_to_str(i64 noundef %0, ptr noundef readonly %1, ptr noundef %2
   %12 = add i32 %.020.i.i13, 1
   %13 = sext i32 %12 to i64
   %14 = getelementptr %struct._val64_string, ptr %1, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16.i.i = icmp eq ptr %16, null
   br i1 %.not16.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !6
@@ -386,7 +386,7 @@ define ptr @try_val64_to_str(i64 noundef %0, ptr noundef readonly %1) local_unna
   br i1 %.not15.i, label %try_val64_to_str_idx.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not1619.i = icmp eq ptr %4, null
   br i1 %.not1619.i, label %try_val64_to_str_idx.exit, label %.lr.ph.i.preheader
@@ -406,7 +406,7 @@ define ptr @try_val64_to_str(i64 noundef %0, ptr noundef readonly %1) local_unna
   %9 = add i32 %.020.i3, 1
   %10 = sext i32 %9 to i64
   %11 = getelementptr %struct._val64_string, ptr %1, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not16.i = icmp eq ptr %13, null
   br i1 %.not16.i, label %try_val64_to_str_idx.exit, label %.lr.ph.i, !llvm.loop !6
@@ -430,7 +430,7 @@ define nonnull ptr @val64_to_str_const(i64 noundef %0, ptr noundef readonly %1, 
   br i1 %.not15.i.i, label %try_val64_to_str.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not1619.i.i = icmp eq ptr %7, null
   br i1 %.not1619.i.i, label %try_val64_to_str.exit, label %.lr.ph.i.i.preheader
@@ -450,7 +450,7 @@ define nonnull ptr @val64_to_str_const(i64 noundef %0, ptr noundef readonly %1, 
   %12 = add i32 %.020.i.i9, 1
   %13 = sext i32 %12 to i64
   %14 = getelementptr %struct._val64_string, ptr %1, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16.i.i = icmp eq ptr %16, null
   br i1 %.not16.i.i, label %try_val64_to_str.exit, label %.lr.ph.i.i, !llvm.loop !6
@@ -476,7 +476,7 @@ define ptr @try_val64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr no
   br i1 %.not15, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not1619 = icmp eq ptr %7, null
   br i1 %.not1619, label %.loopexit, label %.lr.ph
@@ -489,7 +489,7 @@ define ptr @try_val64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr no
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %.020, ptr %2, align 4
   %13 = load ptr, ptr %12, align 8
   br label %20
@@ -498,7 +498,7 @@ define ptr @try_val64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr no
   %15 = add i32 %.020, 1
   %16 = sext i32 %15 to i64
   %17 = getelementptr %struct._val64_string, ptr %1, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not16 = icmp eq ptr %19, null
   br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !6
@@ -619,14 +619,14 @@ define noalias noundef ptr @value_string_ext_new(ptr noundef %0, i32 noundef %1,
 14:                                               ; preds = %7
   %15 = tail call ptr @wmem_epan_scope() #12
   %16 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef 32) #12
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %8, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 0, ptr %19, align 8
   store ptr @_try_val_to_str_ext_init, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %2, ptr %20, align 8
   ret ptr %16
 }
@@ -637,9 +637,9 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = getelementptr %struct._value_string, ptr %4, i64 %7
@@ -648,7 +648,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -659,7 +659,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
 
 16:                                               ; preds = %11
   %17 = load i32, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %17, ptr %18, align 8
   %.not76 = icmp eq i32 %6, 0
   br i1 %.not76, label %._crit_edge.thread, label %.lr.ph
@@ -670,7 +670,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
   %.05273 = phi i32 [ %.pre, %35 ], [ %17, %16 ]
   %indvars84 = trunc i64 %indvars.iv to i32
   %19 = getelementptr %struct._value_string, ptr %4, i64 %indvars.iv
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %23
@@ -692,7 +692,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %.thread
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 477, ptr noundef nonnull @__func__._try_val_to_str_ext_init, ptr noundef nonnull @.str.13, ptr noundef %29, i32 noundef %indvars84, i32 noundef %.pre, i32 noundef %.pre, i32 noundef %.05273, i32 noundef %.05273) #12
   br label %.thread61
@@ -702,7 +702,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 484, ptr noundef nonnull @__func__._try_val_to_str_ext_init, ptr noundef nonnull @.str.14, ptr noundef %34, i32 noundef %indvars84, i32 noundef %.pre, i32 noundef %.pre, i32 noundef %17, i32 noundef %17) #12
   br label %.thread61
@@ -747,7 +747,7 @@ define ptr @try_val_to_str_ext(i32 noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not8, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -768,7 +768,7 @@ define ptr @try_val_to_str_idx_ext(i32 noundef %0, ptr noundef %1, ptr nocapture
   br i1 %.not12, label %17, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -776,7 +776,7 @@ define ptr @try_val_to_str_idx_ext(i32 noundef %0, ptr noundef %1, ptr nocapture
   %13 = lshr exact i64 %12, 4
   %14 = trunc i64 %13 to i32
   store i32 %14, ptr %2, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %18
 
@@ -809,7 +809,7 @@ define ptr @val_to_str_ext(i32 noundef %0, ptr noundef %1, ptr noundef %2) local
   br i1 %.not8.i, label %try_val_to_str_ext.exit.thread, label %try_val_to_str_ext.exit
 
 try_val_to_str_ext.exit:                          ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %try_val_to_str_ext.exit.thread, label %13
@@ -844,7 +844,7 @@ define ptr @val_to_str_ext_wmem(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   br i1 %.not8.i, label %try_val_to_str_ext.exit.thread, label %try_val_to_str_ext.exit
 
 try_val_to_str_ext.exit:                          ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not11 = icmp eq ptr %11, null
   br i1 %.not11, label %try_val_to_str_ext.exit.thread, label %12
@@ -882,7 +882,7 @@ define nonnull ptr @val_to_str_ext_const(i32 noundef %0, ptr noundef %1, ptr nou
   br i1 %.not8.i, label %try_val_to_str_ext.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
   br label %try_val_to_str_ext.exit
 
@@ -897,9 +897,9 @@ declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, pt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_try_val_to_str_linear(i32 noundef %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -927,13 +927,13 @@ define internal noundef ptr @_try_val_to_str_linear(i32 noundef %0, ptr nocaptur
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_try_val_to_str_bsearch(i32 noundef %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -969,16 +969,16 @@ define internal noundef ptr @_try_val_to_str_bsearch(i32 noundef %0, ptr nocaptu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal ptr @_try_val_to_str_index(i32 noundef %0, ptr nocapture noundef readonly %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sub i32 %0, %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp ult i32 %5, %7
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %5 to i64
   %13 = getelementptr %struct._value_string, ptr %11, i64 %12
@@ -1021,23 +1021,23 @@ define noalias noundef ptr @val64_string_ext_new(ptr noundef %0, i32 noundef %1,
 14:                                               ; preds = %7
   %15 = tail call ptr @wmem_epan_scope() #12
   %16 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef 40) #12
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %8, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %19, align 8
   store ptr @_try_val64_to_str_ext_init, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %2, ptr %20, align 8
   ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = getelementptr %struct._val64_string, ptr %4, i64 %7
@@ -1046,7 +1046,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -1057,7 +1057,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
 
 16:                                               ; preds = %11
   %17 = load i64, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %17, ptr %18, align 8
   %.not76 = icmp eq i32 %6, 0
   br i1 %.not76, label %._crit_edge.thread, label %.lr.ph
@@ -1067,7 +1067,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   %.05174 = phi i32 [ %.259, %37 ], [ 2, %16 ]
   %.05273 = phi i64 [ %.pre, %37 ], [ %17, %16 ]
   %19 = getelementptr %struct._val64_string, ptr %4, i64 %indvars.iv
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %23
@@ -1090,7 +1090,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
 
 27:                                               ; preds = %.thread
   %28 = trunc nuw i64 %indvars.iv to i32
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 762, ptr noundef nonnull @__func__._try_val64_to_str_ext_init, ptr noundef nonnull @.str.16, ptr noundef %30, i32 noundef %28, i64 noundef %.pre, i64 noundef %.pre, i64 noundef %.05273, i64 noundef %.05273) #12
   br label %.thread61
@@ -1101,7 +1101,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
 
 33:                                               ; preds = %31
   %34 = trunc nuw i64 %indvars.iv to i32
-  %35 = getelementptr inbounds i8, ptr %1, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %36 = load ptr, ptr %35, align 8
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.12, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 769, ptr noundef nonnull @__func__._try_val64_to_str_ext_init, ptr noundef nonnull @.str.17, ptr noundef %36, i32 noundef %34, i64 noundef %.pre, i64 noundef %.pre, i64 noundef %17, i64 noundef %17) #12
   br label %.thread61
@@ -1144,7 +1144,7 @@ define ptr @try_val64_to_str_ext(i64 noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not8, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -1165,7 +1165,7 @@ define ptr @try_val64_to_str_idx_ext(i64 noundef %0, ptr noundef %1, ptr nocaptu
   br i1 %.not12, label %17, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %6 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -1173,7 +1173,7 @@ define ptr @try_val64_to_str_idx_ext(i64 noundef %0, ptr noundef %1, ptr nocaptu
   %13 = lshr exact i64 %12, 4
   %14 = trunc i64 %13 to i32
   store i32 %14, ptr %2, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %18
 
@@ -1206,7 +1206,7 @@ define ptr @val64_to_str_ext(i64 noundef %0, ptr noundef %1, ptr noundef %2) loc
   br i1 %.not8.i, label %try_val64_to_str_ext.exit.thread, label %try_val64_to_str_ext.exit
 
 try_val64_to_str_ext.exit:                        ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %try_val64_to_str_ext.exit.thread, label %13
@@ -1241,7 +1241,7 @@ define ptr @val64_to_str_ext_wmem(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %.not8.i, label %try_val64_to_str_ext.exit.thread, label %try_val64_to_str_ext.exit
 
 try_val64_to_str_ext.exit:                        ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not11 = icmp eq ptr %11, null
   br i1 %.not11, label %try_val64_to_str_ext.exit.thread, label %12
@@ -1279,7 +1279,7 @@ define nonnull ptr @val64_to_str_ext_const(i64 noundef %0, ptr noundef %1, ptr n
   br i1 %.not8.i, label %try_val64_to_str_ext.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
   br label %try_val64_to_str_ext.exit
 
@@ -1292,9 +1292,9 @@ try_val64_to_str_ext.exit:                        ; preds = %5, %6, %9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_try_val64_to_str_linear(i64 noundef %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -1322,13 +1322,13 @@ define internal noundef ptr @_try_val64_to_str_linear(i64 noundef %0, ptr nocapt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_try_val64_to_str_bsearch(i64 noundef %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -1364,17 +1364,17 @@ define internal noundef ptr @_try_val64_to_str_bsearch(i64 noundef %0, ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal ptr @_try_val64_to_str_index(i64 noundef %0, ptr nocapture noundef readonly %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = sub i64 %0, %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = icmp ult i64 %5, %8
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr %struct._val64_string, ptr %12, i64 %5
   br label %14
@@ -1398,7 +1398,7 @@ define ptr @str_to_str(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) 
   br i1 %.not.i.i, label %.loopexit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not1317.i.i = icmp eq ptr %7, null
   br i1 %.not1317.i.i, label %.loopexit, label %.lr.ph.i.i.preheader
@@ -1420,7 +1420,7 @@ define ptr @str_to_str(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) 
   %12 = add i32 %.018.i.i15, 1
   %13 = sext i32 %12 to i64
   %14 = getelementptr %struct._string_string, ptr %1, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not13.i.i = icmp eq ptr %16, null
   br i1 %.not13.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !14
@@ -1441,7 +1441,7 @@ define ptr @try_str_to_str(ptr nocapture noundef readonly %0, ptr noundef readon
   br i1 %.not.i, label %try_str_to_str_idx.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not1317.i = icmp eq ptr %4, null
   br i1 %.not1317.i, label %try_str_to_str_idx.exit, label %.lr.ph.i.preheader
@@ -1463,7 +1463,7 @@ define ptr @try_str_to_str(ptr nocapture noundef readonly %0, ptr noundef readon
   %9 = add i32 %.018.i5, 1
   %10 = sext i32 %9 to i64
   %11 = getelementptr %struct._string_string, ptr %1, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not13.i = icmp eq ptr %13, null
   br i1 %.not13.i, label %try_str_to_str_idx.exit, label %.lr.ph.i, !llvm.loop !14
@@ -1479,7 +1479,7 @@ define ptr @try_str_to_str_idx(ptr nocapture noundef readonly %0, ptr noundef re
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not1317 = icmp eq ptr %5, null
   br i1 %.not1317, label %.loopexit, label %.lr.ph
@@ -1493,7 +1493,7 @@ define ptr @try_str_to_str_idx(ptr nocapture noundef readonly %0, ptr noundef re
   br i1 %.not14, label %9, label %12
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.018, ptr %2, align 4
   %11 = load ptr, ptr %10, align 8
   br label %18
@@ -1502,7 +1502,7 @@ define ptr @try_str_to_str_idx(ptr nocapture noundef readonly %0, ptr noundef re
   %13 = add i32 %.018, 1
   %14 = sext i32 %13 to i64
   %15 = getelementptr %struct._string_string, ptr %1, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13 = icmp eq ptr %17, null
   br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !14
@@ -1530,7 +1530,7 @@ define ptr @rval_to_str(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2)
   br i1 %.not.i.i, label %.loopexit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not1722.i.i = icmp eq ptr %7, null
   br i1 %.not1722.i.i, label %.loopexit, label %.lr.ph.i.i
@@ -1548,7 +1548,7 @@ define ptr @rval_to_str(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2)
   br i1 %.not18.i.i, label %16, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i64, ptr %14, align 8
   %.not19.i.i = icmp ult i64 %15, %8
   br i1 %.not19.i.i, label %16, label %try_rval_to_str.exit
@@ -1557,7 +1557,7 @@ define ptr @rval_to_str(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2)
   %17 = add i32 %.023.i.i, 1
   %18 = sext i32 %17 to i64
   %19 = getelementptr %struct._range_string, ptr %1, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not17.i.i = icmp eq ptr %21, null
   br i1 %.not17.i.i, label %.loopexit, label %9, !llvm.loop !15
@@ -1578,7 +1578,7 @@ define ptr @try_rval_to_str(i32 noundef %0, ptr noundef readonly %1) local_unnam
   br i1 %.not.i, label %try_rval_to_str_idx.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not1722.i = icmp eq ptr %4, null
   br i1 %.not1722.i, label %try_rval_to_str_idx.exit, label %.lr.ph.i
@@ -1596,7 +1596,7 @@ define ptr @try_rval_to_str(i32 noundef %0, ptr noundef readonly %1) local_unnam
   br i1 %.not18.i, label %13, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i64, ptr %11, align 8
   %.not19.i = icmp ult i64 %12, %5
   br i1 %.not19.i, label %13, label %try_rval_to_str_idx.exit
@@ -1605,7 +1605,7 @@ define ptr @try_rval_to_str(i32 noundef %0, ptr noundef readonly %1) local_unnam
   %14 = add i32 %.023.i, 1
   %15 = sext i32 %14 to i64
   %16 = getelementptr %struct._range_string, ptr %1, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not17.i = icmp eq ptr %18, null
   br i1 %.not17.i, label %try_rval_to_str_idx.exit, label %6, !llvm.loop !15
@@ -1629,7 +1629,7 @@ define nonnull ptr @rval_to_str_const(i32 noundef %0, ptr noundef readonly %1, p
   br i1 %.not.i.i, label %try_rval_to_str.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not1722.i.i = icmp eq ptr %7, null
   br i1 %.not1722.i.i, label %try_rval_to_str.exit, label %.lr.ph.i.i
@@ -1647,7 +1647,7 @@ define nonnull ptr @rval_to_str_const(i32 noundef %0, ptr noundef readonly %1, p
   br i1 %.not18.i.i, label %16, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i64, ptr %14, align 8
   %.not19.i.i = icmp ult i64 %15, %8
   br i1 %.not19.i.i, label %16, label %try_rval_to_str.exit
@@ -1656,7 +1656,7 @@ define nonnull ptr @rval_to_str_const(i32 noundef %0, ptr noundef readonly %1, p
   %17 = add i32 %.023.i.i, 1
   %18 = sext i32 %17 to i64
   %19 = getelementptr %struct._range_string, ptr %1, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not17.i.i = icmp eq ptr %21, null
   br i1 %.not17.i.i, label %try_rval_to_str.exit, label %9, !llvm.loop !15
@@ -1674,7 +1674,7 @@ define ptr @try_rval_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr noc
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not1722 = icmp eq ptr %5, null
   br i1 %.not1722, label %.loopexit, label %.lr.ph
@@ -1691,13 +1691,13 @@ define ptr @try_rval_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr noc
   br i1 %.not18, label %16, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i64, ptr %11, align 8
   %.not19 = icmp ult i64 %12, %6
   br i1 %.not19, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %.023, ptr %2, align 4
   %15 = load ptr, ptr %14, align 8
   br label %22
@@ -1706,7 +1706,7 @@ define ptr @try_rval_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr noc
   %17 = add i32 %.023, 1
   %18 = sext i32 %17 to i64
   %19 = getelementptr %struct._range_string, ptr %1, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not17 = icmp eq ptr %21, null
   br i1 %.not17, label %.loopexit, label %7, !llvm.loop !15
@@ -1726,7 +1726,7 @@ define ptr @try_rval64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr n
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not1722 = icmp eq ptr %5, null
   br i1 %.not1722, label %.loopexit, label %.lr.ph
@@ -1739,13 +1739,13 @@ define ptr @try_rval64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr n
   br i1 %.not18, label %14, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8
   %.not19 = icmp ugt i64 %0, %10
   br i1 %.not19, label %14, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.023, ptr %2, align 4
   %13 = load ptr, ptr %12, align 8
   br label %20
@@ -1754,7 +1754,7 @@ define ptr @try_rval64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr n
   %15 = add i32 %.023, 1
   %16 = sext i32 %15 to i64
   %17 = getelementptr %struct._range_string, ptr %1, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not17 = icmp eq ptr %19, null
   br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !16
@@ -1774,7 +1774,7 @@ define ptr @try_rval64_to_str(i64 noundef %0, ptr noundef readonly %1) local_unn
   br i1 %.not.i, label %try_rval64_to_str_idx.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not1722.i = icmp eq ptr %4, null
   br i1 %.not1722.i, label %try_rval64_to_str_idx.exit, label %.lr.ph.i
@@ -1788,7 +1788,7 @@ define ptr @try_rval64_to_str(i64 noundef %0, ptr noundef readonly %1) local_unn
   br i1 %.not18.i, label %11, label %8
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8
   %.not19.i = icmp ugt i64 %0, %10
   br i1 %.not19.i, label %11, label %try_rval64_to_str_idx.exit
@@ -1797,7 +1797,7 @@ define ptr @try_rval64_to_str(i64 noundef %0, ptr noundef readonly %1) local_unn
   %12 = add i32 %.023.i, 1
   %13 = sext i32 %12 to i64
   %14 = getelementptr %struct._range_string, ptr %1, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not17.i = icmp eq ptr %16, null
   br i1 %.not17.i, label %try_rval64_to_str_idx.exit, label %.lr.ph.i, !llvm.loop !16
@@ -1821,7 +1821,7 @@ define ptr @bytesval_to_str(ptr nocapture noundef readonly %0, i64 noundef %1, p
   br i1 %.not.i, label %.loopexit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not1618.i = icmp eq ptr %8, null
   br i1 %.not1618.i, label %.loopexit, label %.lr.ph.i
@@ -1830,7 +1830,7 @@ define ptr @bytesval_to_str(ptr nocapture noundef readonly %0, i64 noundef %1, p
   %9 = phi ptr [ %21, %16 ], [ %8, %.preheader.i ]
   %10 = phi ptr [ %19, %16 ], [ %2, %.preheader.i ]
   %.019.i = phi i32 [ %17, %16 ], [ 0, %.preheader.i ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, %1
   br i1 %13, label %14, label %16
@@ -1845,7 +1845,7 @@ define ptr @bytesval_to_str(ptr nocapture noundef readonly %0, i64 noundef %1, p
   %17 = add i32 %.019.i, 1
   %18 = zext i32 %17 to i64
   %19 = getelementptr %struct._bytes_string, ptr %2, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not16.i = icmp eq ptr %21, null
   br i1 %.not16.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !17
@@ -1866,7 +1866,7 @@ define ptr @try_bytesval_to_str(ptr nocapture noundef readonly %0, i64 noundef %
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not1618 = icmp eq ptr %5, null
   br i1 %.not1618, label %.loopexit, label %.lr.ph
@@ -1875,7 +1875,7 @@ define ptr @try_bytesval_to_str(ptr nocapture noundef readonly %0, i64 noundef %
   %6 = phi ptr [ %18, %13 ], [ %5, %.preheader ]
   %7 = phi ptr [ %16, %13 ], [ %2, %.preheader ]
   %.019 = phi i32 [ %14, %13 ], [ 0, %.preheader ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, %1
   br i1 %10, label %11, label %13
@@ -1890,7 +1890,7 @@ define ptr @try_bytesval_to_str(ptr nocapture noundef readonly %0, i64 noundef %
   %14 = add i32 %.019, 1
   %15 = zext i32 %14 to i64
   %16 = getelementptr %struct._bytes_string, ptr %2, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not16 = icmp eq ptr %18, null
   br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !17
@@ -1914,7 +1914,7 @@ define ptr @bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 noundef %1
   br i1 %.not.i, label %.loopexit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not1720.i = icmp eq ptr %8, null
   br i1 %.not1720.i, label %.loopexit, label %.lr.ph.i
@@ -1923,7 +1923,7 @@ define ptr @bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 noundef %1
   %9 = phi ptr [ %20, %15 ], [ %8, %.preheader.i ]
   %10 = phi ptr [ %18, %15 ], [ %2, %.preheader.i ]
   %.021.i = phi i32 [ %16, %15 ], [ 0, %.preheader.i ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %.not18.i = icmp ult i64 %1, %12
   br i1 %.not18.i, label %15, label %13
@@ -1938,7 +1938,7 @@ define ptr @bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 noundef %1
   %16 = add i32 %.021.i, 1
   %17 = zext i32 %16 to i64
   %18 = getelementptr %struct._bytes_string, ptr %2, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not17.i = icmp eq ptr %20, null
   br i1 %.not17.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !18
@@ -1959,7 +1959,7 @@ define ptr @try_bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 nounde
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not1720 = icmp eq ptr %5, null
   br i1 %.not1720, label %.loopexit, label %.lr.ph
@@ -1968,7 +1968,7 @@ define ptr @try_bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 nounde
   %6 = phi ptr [ %17, %12 ], [ %5, %.preheader ]
   %7 = phi ptr [ %15, %12 ], [ %2, %.preheader ]
   %.021 = phi i32 [ %13, %12 ], [ 0, %.preheader ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %.not18 = icmp ult i64 %1, %9
   br i1 %.not18, label %12, label %10
@@ -1983,7 +1983,7 @@ define ptr @try_bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 nounde
   %13 = add i32 %.021, 1
   %14 = zext i32 %13 to i64
   %15 = getelementptr %struct._bytes_string, ptr %2, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not17 = icmp eq ptr %17, null
   br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !18

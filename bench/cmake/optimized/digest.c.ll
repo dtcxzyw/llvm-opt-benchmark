@@ -67,8 +67,8 @@ define dso_local noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %0, p
 
 8:                                                ; preds = %7
   %9 = add nsw i32 %.027, -1
-  %10 = getelementptr inbounds i8, ptr %.033, i64 1
-  %11 = getelementptr inbounds i8, ptr %.032, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.033, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.032, i64 1
   store i8 %6, ptr %.032, align 1
   br label %5, !llvm.loop !5
 
@@ -79,11 +79,11 @@ define dso_local noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %0, p
   br i1 %.not40, label %13, label %.loopexit
 
 13:                                               ; preds = %.critedge
-  %14 = getelementptr inbounds i8, ptr %.033, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.033, i64 1
   %15 = load i8, ptr %14, align 1
   %.fr62 = freeze i8 %15
   %16 = icmp eq i8 %.fr62, 34
-  %17 = getelementptr inbounds i8, ptr %.033, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.033, i64 2
   %spec.select = select i1 %16, ptr %17, ptr %14
   %18 = load i8, ptr %spec.select, align 1
   %.not4146 = icmp eq i8 %18, 0
@@ -118,7 +118,7 @@ define dso_local noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %0, p
   br label %27
 
 25:                                               ; preds = %23, %21
-  %26 = getelementptr inbounds i8, ptr %.03048.us, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.03048.us, i64 1
   store i8 %19, ptr %.03048.us, align 1
   br label %27
 
@@ -126,7 +126,7 @@ define dso_local noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %0, p
   %.131.us = phi ptr [ %26, %25 ], [ %.03048.us, %24 ], [ %.03048.us, %23 ]
   %.2.us = phi i32 [ %20, %25 ], [ %20, %24 ], [ 0, %23 ]
   %.1.us = phi i8 [ 0, %25 ], [ 1, %24 ], [ %.050.us, %23 ]
-  %28 = getelementptr inbounds i8, ptr %.23547.us, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.23547.us, i64 1
   %29 = load i8, ptr %28, align 1
   %.not41.us = icmp eq i8 %29, 0
   br i1 %.not41.us, label %.critedge2, label %.lr.ph.split.us, !llvm.loop !7
@@ -149,14 +149,14 @@ define dso_local noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %0, p
   ]
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %.03048, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.03048, i64 1
   store i8 %30, ptr %.03048, align 1
   br label %35
 
 35:                                               ; preds = %32, %32, %32, %33
   %.131 = phi ptr [ %34, %33 ], [ %.03048, %32 ], [ %.03048, %32 ], [ %.03048, %32 ]
   %.2 = phi i32 [ %31, %33 ], [ 0, %32 ], [ 0, %32 ], [ 0, %32 ]
-  %36 = getelementptr inbounds i8, ptr %.23547, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.23547, i64 1
   %37 = load i8, ptr %36, align 1
   %.not41 = icmp eq i8 %37, 0
   br i1 %.not41, label %.critedge2.thread, label %.lr.ph.split.split, !llvm.loop !7
@@ -214,7 +214,7 @@ define dso_local i32 @Curl_auth_create_digest_md5_message(ptr noundef %0, ptr no
   br i1 %.not.i.not.i, label %auth_decode_digest_md5_message.exit.thread, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %23, i64 7
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 7
   %26 = load i8, ptr %25, align 1
   switch i8 %26, label %.lr.ph.i.i [
     i8 34, label %auth_digest_get_key_value.exit.thread57.i
@@ -229,14 +229,14 @@ auth_digest_get_key_value.exit.thread57.i:        ; preds = %24, %24
   %27 = phi i8 [ %31, %switch.early.test.i ], [ %26, %24 ]
   %.030.i.i = phi i64 [ %29, %switch.early.test.i ], [ 0, %24 ]
   %.01629.i.i = phi ptr [ %30, %switch.early.test.i ], [ %25, %24 ]
-  %28 = getelementptr inbounds i8, ptr %12, i64 %.030.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 %.030.i.i
   store i8 %27, ptr %28, align 1
   %exitcond.not.i = icmp eq i64 %.030.i.i, 62
   br i1 %exitcond.not.i, label %auth_digest_get_key_value.exit.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %.lr.ph.i.i
   %29 = add nuw nsw i64 %.030.i.i, 1
-  %30 = getelementptr inbounds i8, ptr %.01629.i.i, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.01629.i.i, i64 1
   %31 = load i8, ptr %30, align 1
   switch i8 %31, label %.lr.ph.i.i [
     i8 34, label %auth_digest_get_key_value.exit.i
@@ -245,7 +245,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i.i
 
 auth_digest_get_key_value.exit.i:                 ; preds = %switch.early.test.i, %switch.early.test.i, %.lr.ph.i.i
   %.lcssa71.i = phi i64 [ %29, %switch.early.test.i ], [ %29, %switch.early.test.i ], [ 63, %.lr.ph.i.i ]
-  %32 = getelementptr inbounds i8, ptr %12, i64 %.lcssa71.i
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 %.lcssa71.i
   store i8 0, ptr %32, align 1
   br label %33
 
@@ -255,7 +255,7 @@ auth_digest_get_key_value.exit.i:                 ; preds = %switch.early.test.i
   br i1 %.not.i15.not.i, label %auth_digest_get_key_value.exit28.thread.i, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %34, i64 7
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 7
   %37 = load i8, ptr %36, align 1
   switch i8 %37, label %.lr.ph.i21.i [
     i8 34, label %auth_digest_get_key_value.exit28.thread59.i
@@ -270,14 +270,14 @@ auth_digest_get_key_value.exit28.thread59.i:      ; preds = %35, %35
   %38 = phi i8 [ %42, %switch.early.test63.i ], [ %37, %35 ]
   %.030.i22.i = phi i64 [ %40, %switch.early.test63.i ], [ 0, %35 ]
   %.01629.i23.i = phi ptr [ %41, %switch.early.test63.i ], [ %36, %35 ]
-  %39 = getelementptr inbounds i8, ptr %13, i64 %.030.i22.i
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 %.030.i22.i
   store i8 %38, ptr %39, align 1
   %exitcond72.not.i = icmp eq i64 %.030.i22.i, 126
   br i1 %exitcond72.not.i, label %auth_digest_get_key_value.exit28.i, label %switch.early.test63.i
 
 switch.early.test63.i:                            ; preds = %.lr.ph.i21.i
   %40 = add nuw nsw i64 %.030.i22.i, 1
-  %41 = getelementptr inbounds i8, ptr %.01629.i23.i, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.01629.i23.i, i64 1
   %42 = load i8, ptr %41, align 1
   switch i8 %42, label %.lr.ph.i21.i [
     i8 34, label %auth_digest_get_key_value.exit28.i
@@ -286,7 +286,7 @@ switch.early.test63.i:                            ; preds = %.lr.ph.i21.i
 
 auth_digest_get_key_value.exit28.i:               ; preds = %switch.early.test63.i, %switch.early.test63.i, %.lr.ph.i21.i
   %.lcssa70.i = phi i64 [ %40, %switch.early.test63.i ], [ %40, %switch.early.test63.i ], [ 127, %.lr.ph.i21.i ]
-  %43 = getelementptr inbounds i8, ptr %13, i64 %.lcssa70.i
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 %.lcssa70.i
   store i8 0, ptr %43, align 1
   br label %44
 
@@ -300,7 +300,7 @@ auth_digest_get_key_value.exit28.thread.i:        ; preds = %33
   br i1 %.not.i29.not.i, label %auth_decode_digest_md5_message.exit.thread, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 10
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 10
   %48 = load i8, ptr %47, align 1
   switch i8 %48, label %.lr.ph.i35.i [
     i8 44, label %auth_digest_get_key_value.exit42.thread61.i
@@ -315,14 +315,14 @@ auth_digest_get_key_value.exit42.thread61.i:      ; preds = %46, %46
   %49 = phi i8 [ %53, %switch.early.test64.i ], [ %48, %46 ]
   %.030.i36.i = phi i64 [ %51, %switch.early.test64.i ], [ 0, %46 ]
   %.01629.i37.i = phi ptr [ %52, %switch.early.test64.i ], [ %47, %46 ]
-  %50 = getelementptr inbounds i8, ptr %14, i64 %.030.i36.i
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 %.030.i36.i
   store i8 %49, ptr %50, align 1
   %exitcond73.not.i = icmp eq i64 %.030.i36.i, 62
   br i1 %exitcond73.not.i, label %auth_digest_get_key_value.exit42.i, label %switch.early.test64.i
 
 switch.early.test64.i:                            ; preds = %.lr.ph.i35.i
   %51 = add nuw nsw i64 %.030.i36.i, 1
-  %52 = getelementptr inbounds i8, ptr %.01629.i37.i, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.01629.i37.i, i64 1
   %53 = load i8, ptr %52, align 1
   switch i8 %53, label %.lr.ph.i35.i [
     i8 44, label %auth_digest_get_key_value.exit42.i
@@ -331,7 +331,7 @@ switch.early.test64.i:                            ; preds = %.lr.ph.i35.i
 
 auth_digest_get_key_value.exit42.i:               ; preds = %switch.early.test64.i, %switch.early.test64.i, %.lr.ph.i35.i
   %.lcssa69.i = phi i64 [ %51, %switch.early.test64.i ], [ %51, %switch.early.test64.i ], [ 63, %.lr.ph.i35.i ]
-  %54 = getelementptr inbounds i8, ptr %14, i64 %.lcssa69.i
+  %54 = getelementptr inbounds nuw i8, ptr %14, i64 %.lcssa69.i
   store i8 0, ptr %54, align 1
   br label %55
 
@@ -341,7 +341,7 @@ auth_digest_get_key_value.exit42.i:               ; preds = %switch.early.test64
   br i1 %.not.i43.not.i, label %auth_decode_digest_md5_message.exit.thread, label %57
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %56, i64 5
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 5
   %59 = load i8, ptr %58, align 1
   switch i8 %59, label %.lr.ph.i49.i [
     i8 34, label %.loopexit103
@@ -352,14 +352,14 @@ auth_digest_get_key_value.exit42.i:               ; preds = %switch.early.test64
   %60 = phi i8 [ %64, %switch.early.test65.i ], [ %59, %57 ]
   %.030.i50.i = phi i64 [ %62, %switch.early.test65.i ], [ 0, %57 ]
   %.01629.i51.i = phi ptr [ %63, %switch.early.test65.i ], [ %58, %57 ]
-  %61 = getelementptr inbounds i8, ptr %15, i64 %.030.i50.i
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 %.030.i50.i
   store i8 %60, ptr %61, align 1
   %exitcond74.not.i = icmp eq i64 %.030.i50.i, 62
   br i1 %exitcond74.not.i, label %.loopexit103, label %switch.early.test65.i
 
 switch.early.test65.i:                            ; preds = %.lr.ph.i49.i
   %62 = add nuw nsw i64 %.030.i50.i, 1
-  %63 = getelementptr inbounds i8, ptr %.01629.i51.i, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.01629.i51.i, i64 1
   %64 = load i8, ptr %63, align 1
   switch i8 %64, label %.lr.ph.i49.i [
     i8 34, label %.loopexit103
@@ -368,7 +368,7 @@ switch.early.test65.i:                            ; preds = %.lr.ph.i49.i
 
 .loopexit103:                                     ; preds = %switch.early.test65.i, %switch.early.test65.i, %.lr.ph.i49.i, %57, %57
   %.0.lcssa.i48.i = phi i64 [ 0, %57 ], [ 0, %57 ], [ 63, %.lr.ph.i49.i ], [ %62, %switch.early.test65.i ], [ %62, %switch.early.test65.i ]
-  %65 = getelementptr inbounds i8, ptr %15, i64 %.0.lcssa.i48.i
+  %65 = getelementptr inbounds nuw i8, ptr %15, i64 %.0.lcssa.i48.i
   store i8 0, ptr %65, align 1
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %14, ptr noundef nonnull dereferenceable(9) @.str, i64 9)
   %.not82 = icmp eq i32 %bcmp, 0
@@ -476,8 +476,8 @@ auth_digest_get_qop_values.exit:                  ; preds = %66
 112:                                              ; preds = %101, %112
   %.0104 = phi i64 [ 0, %101 ], [ %119, %112 ]
   %113 = shl nuw nsw i64 %.0104, 1
-  %114 = getelementptr inbounds [33 x i8], ptr %9, i64 0, i64 %113
-  %115 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.0104
+  %114 = getelementptr inbounds nuw [33 x i8], ptr %9, i64 0, i64 %113
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.0104
   %116 = load i8, ptr %115, align 1
   %117 = zext i8 %116 to i32
   %118 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %114, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %117) #10
@@ -486,9 +486,9 @@ auth_digest_get_qop_values.exit:                  ; preds = %66
   br i1 %exitcond.not, label %120, label %112, !llvm.loop !9
 
 120:                                              ; preds = %112
-  %121 = getelementptr inbounds i8, ptr %0, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 80
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 80
   %124 = load ptr, ptr %123, align 8
   %125 = call ptr @Curl_auth_build_spn(ptr noundef %4, ptr noundef %124, ptr noundef null) #10
   %.not88 = icmp eq ptr %125, null
@@ -518,8 +518,8 @@ auth_digest_get_qop_values.exit:                  ; preds = %66
 139:                                              ; preds = %130, %139
   %.1105 = phi i64 [ 0, %130 ], [ %146, %139 ]
   %140 = shl nuw nsw i64 %.1105, 1
-  %141 = getelementptr inbounds [33 x i8], ptr %10, i64 0, i64 %140
-  %142 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.1105
+  %141 = getelementptr inbounds nuw [33 x i8], ptr %10, i64 0, i64 %140
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.1105
   %143 = load i8, ptr %142, align 1
   %144 = zext i8 %143 to i32
   %145 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %141, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %144) #10
@@ -563,8 +563,8 @@ auth_digest_get_qop_values.exit:                  ; preds = %66
 172:                                              ; preds = %151, %172
   %.2106 = phi i64 [ 0, %151 ], [ %179, %172 ]
   %173 = shl nuw nsw i64 %.2106, 1
-  %174 = getelementptr inbounds [33 x i8], ptr %11, i64 0, i64 %173
-  %175 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.2106
+  %174 = getelementptr inbounds nuw [33 x i8], ptr %11, i64 0, i64 %173
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.2106
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
   %178 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %174, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %177) #10
@@ -628,35 +628,35 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr 
   tail call void %8(ptr noundef %7) #10
   store ptr null, ptr %1, align 8
   %9 = load ptr, ptr @Curl_cfree, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %9(ptr noundef %11) #10
   store ptr null, ptr %10, align 8
   %12 = load ptr, ptr @Curl_cfree, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %12(ptr noundef %14) #10
   store ptr null, ptr %13, align 8
   %15 = load ptr, ptr @Curl_cfree, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %15(ptr noundef %17) #10
   store ptr null, ptr %16, align 8
   %18 = load ptr, ptr @Curl_cfree, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
   tail call void %18(ptr noundef %20) #10
   store ptr null, ptr %19, align 8
   %21 = load ptr, ptr @Curl_cfree, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load ptr, ptr %22, align 8
   tail call void %21(ptr noundef %23) #10
   store ptr null, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i8 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 53
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 53
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, -4
   store i8 %28, ptr %26, align 1
@@ -677,7 +677,7 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr 
   ]
 
 .critedge2:                                       ; preds = %30, %30
-  %33 = getelementptr inbounds i8, ptr %31, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 1
   br label %30, !llvm.loop !12
 
 .critedge:                                        ; preds = %30
@@ -779,7 +779,7 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr 
   ]
 
 .critedge6:                                       ; preds = %70, %70
-  %72 = getelementptr inbounds i8, ptr %.1, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %70, !llvm.loop !13
 
 .critedge4:                                       ; preds = %70
@@ -931,11 +931,11 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr 
   ]
 
 .critedge10:                                      ; preds = %123, %123
-  %126 = getelementptr inbounds i8, ptr %124, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 1
   br label %123, !llvm.loop !15
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %124, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %123, %127
@@ -983,35 +983,35 @@ define dso_local void @Curl_auth_digest_cleanup(ptr nocapture noundef initialize
   tail call void %2(ptr noundef %3) #10
   store ptr null, ptr %0, align 8
   %4 = load ptr, ptr @Curl_cfree, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %4(ptr noundef %6) #10
   store ptr null, ptr %5, align 8
   %7 = load ptr, ptr @Curl_cfree, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %9) #10
   store ptr null, ptr %8, align 8
   %10 = load ptr, ptr @Curl_cfree, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void %10(ptr noundef %12) #10
   store ptr null, ptr %11, align 8
   %13 = load ptr, ptr @Curl_cfree, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   tail call void %13(ptr noundef %15) #10
   store ptr null, ptr %14, align 8
   %16 = load ptr, ptr @Curl_cfree, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   tail call void %16(ptr noundef %18) #10
   store ptr null, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 53
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, -4
   store i8 %23, ptr %21, align 1
@@ -1043,10 +1043,10 @@ define dso_local i32 @Curl_auth_create_digest_http_message(ptr noundef %0, ptr n
   %24 = alloca i64, align 8
   %25 = alloca [33 x i8], align 16
   %26 = alloca [65 x i8], align 16
-  %27 = getelementptr inbounds i8, ptr %5, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %28 = load i8, ptr %27, align 4
   %29 = icmp ult i8 %28, 2
-  %30 = getelementptr inbounds i8, ptr %5, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
   br i1 %29, label %31, label %246
 
 31:                                               ; preds = %8
@@ -1071,7 +1071,7 @@ define dso_local i32 @Curl_auth_create_digest_http_message(ptr noundef %0, ptr n
   br label %34
 
 34:                                               ; preds = %33, %31
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not147.i = icmp eq ptr %36, null
   br i1 %.not147.i, label %37, label %44
@@ -1093,14 +1093,14 @@ define dso_local i32 @Curl_auth_create_digest_http_message(ptr noundef %0, ptr n
   br label %44
 
 44:                                               ; preds = %42, %34
-  %45 = getelementptr inbounds i8, ptr %5, i64 53
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 53
   %46 = load i8, ptr %45, align 1
   %47 = and i8 %46, 2
   %.not150.i = icmp eq i8 %47, 0
   br i1 %.not150.i, label %auth_digest_md5_to_ascii.exit111, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %5, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %50 = load ptr, ptr %49, align 8
   %.not151.i = icmp eq ptr %50, null
   %spec.select.i = select i1 %.not151.i, ptr @.str.23, ptr %50
@@ -1118,8 +1118,8 @@ define dso_local i32 @Curl_auth_create_digest_http_message(ptr noundef %0, ptr n
 56:                                               ; preds = %56, %52
   %indvars.iv.i108 = phi i64 [ 0, %52 ], [ %indvars.iv.next.i109, %56 ]
   %57 = shl nuw nsw i64 %indvars.iv.i108, 1
-  %58 = getelementptr inbounds i8, ptr %22, i64 %57
-  %59 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv.i108
+  %58 = getelementptr inbounds nuw i8, ptr %22, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i108
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %58, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %61) #10
@@ -1128,7 +1128,7 @@ define dso_local i32 @Curl_auth_create_digest_http_message(ptr noundef %0, ptr n
   br i1 %exitcond.not.i110, label %auth_digest_md5_to_ascii.exit111, label %56, !llvm.loop !17
 
 auth_digest_md5_to_ascii.exit111:                 ; preds = %56, %44
-  %63 = getelementptr inbounds i8, ptr %5, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not153.i = icmp eq ptr %64, null
   %spec.select178.i = select i1 %.not153.i, ptr @.str.23, ptr %64
@@ -1146,8 +1146,8 @@ auth_digest_md5_to_ascii.exit111:                 ; preds = %56, %44
 70:                                               ; preds = %70, %66
   %indvars.iv.i104 = phi i64 [ 0, %66 ], [ %indvars.iv.next.i105, %70 ]
   %71 = shl nuw nsw i64 %indvars.iv.i104, 1
-  %72 = getelementptr inbounds i8, ptr %20, i64 %71
-  %73 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv.i104
+  %72 = getelementptr inbounds nuw i8, ptr %20, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i104
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %72, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %75) #10
@@ -1178,8 +1178,8 @@ auth_digest_md5_to_ascii.exit107:                 ; preds = %70
 87:                                               ; preds = %87, %83
   %indvars.iv.i100 = phi i64 [ 0, %83 ], [ %indvars.iv.next.i101, %87 ]
   %88 = shl nuw nsw i64 %indvars.iv.i100, 1
-  %89 = getelementptr inbounds i8, ptr %20, i64 %88
-  %90 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv.i100
+  %89 = getelementptr inbounds nuw i8, ptr %20, i64 %88
+  %90 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i100
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i32
   %93 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %89, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %92) #10
@@ -1193,7 +1193,7 @@ auth_digest_md5_to_ascii.exit103:                 ; preds = %87, %auth_digest_md
   br i1 %.not157.i, label %auth_create_digest_http_message.exit, label %95
 
 95:                                               ; preds = %auth_digest_md5_to_ascii.exit103
-  %96 = getelementptr inbounds i8, ptr %5, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %97 = load ptr, ptr %96, align 8
   %.not158.i = icmp eq ptr %97, null
   br i1 %.not158.i, label %.thread.i, label %98
@@ -1210,8 +1210,8 @@ auth_digest_md5_to_ascii.exit103:                 ; preds = %87, %auth_digest_md
 102:                                              ; preds = %102, %100
   %indvars.iv.i96 = phi i64 [ 0, %100 ], [ %indvars.iv.next.i97, %102 ]
   %103 = shl nuw nsw i64 %indvars.iv.i96, 1
-  %104 = getelementptr inbounds i8, ptr %26, i64 %103
-  %105 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv.i96
+  %104 = getelementptr inbounds nuw i8, ptr %26, i64 %103
+  %105 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i96
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   %108 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %104, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %107) #10
@@ -1237,8 +1237,8 @@ auth_digest_md5_to_ascii.exit99:                  ; preds = %102
 114:                                              ; preds = %114, %.thread.i
   %indvars.iv.i92 = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i93, %114 ]
   %115 = shl nuw nsw i64 %indvars.iv.i92, 1
-  %116 = getelementptr inbounds i8, ptr %21, i64 %115
-  %117 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv.i92
+  %116 = getelementptr inbounds nuw i8, ptr %21, i64 %115
+  %117 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i92
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   %120 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %116, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %119) #10
@@ -1277,8 +1277,8 @@ auth_digest_md5_to_ascii.exit95:                  ; preds = %114
 134:                                              ; preds = %134, %130
   %indvars.iv.i = phi i64 [ 0, %130 ], [ %indvars.iv.next.i, %134 ]
   %135 = shl nuw nsw i64 %indvars.iv.i, 1
-  %136 = getelementptr inbounds i8, ptr %19, i64 %135
-  %137 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv.i
+  %136 = getelementptr inbounds nuw i8, ptr %19, i64 %135
+  %137 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
   %140 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %136, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %139) #10
@@ -1313,7 +1313,7 @@ auth_digest_md5_to_ascii.exit:                    ; preds = %134
 
 151:                                              ; preds = %149, %146
   %.119.i.i = phi i64 [ %150, %149 ], [ %147, %146 ]
-  %152 = getelementptr inbounds i8, ptr %.020.i.i, i64 1
+  %152 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
   br label %144, !llvm.loop !18
 
 153:                                              ; preds = %144
@@ -1333,7 +1333,7 @@ auth_digest_md5_to_ascii.exit:                    ; preds = %134
   ]
 
 157:                                              ; preds = %.preheader.i.i, %.preheader.i.i
-  %158 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %158 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   store i8 92, ptr %.0.i.i, align 1
   %.pre.i.i = load i8, ptr %.121.i.i, align 1
   br label %159
@@ -1341,8 +1341,8 @@ auth_digest_md5_to_ascii.exit:                    ; preds = %134
 159:                                              ; preds = %157, %.preheader.i.i
   %160 = phi i8 [ %.pre.i.i, %157 ], [ %156, %.preheader.i.i ]
   %.1.i.i = phi ptr [ %158, %157 ], [ %.0.i.i, %.preheader.i.i ]
-  %161 = getelementptr inbounds i8, ptr %.121.i.i, i64 1
-  %162 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %161 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 1
+  %162 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   store i8 %160, ptr %.1.i.i, align 1
   br label %.preheader.i.i, !llvm.loop !19
 
@@ -1372,7 +1372,7 @@ auth_digest_string_quoted.exit.i:                 ; preds = %.preheader.i.i
 
 170:                                              ; preds = %168, %165
   %.119.i181.i = phi i64 [ %169, %168 ], [ %166, %165 ]
-  %171 = getelementptr inbounds i8, ptr %.020.i179.i, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %.020.i179.i, i64 1
   br label %.preheader.i, !llvm.loop !18
 
 172:                                              ; preds = %.preheader.i
@@ -1392,7 +1392,7 @@ auth_digest_string_quoted.exit.i:                 ; preds = %.preheader.i.i
   ]
 
 176:                                              ; preds = %.preheader.i183.i, %.preheader.i183.i
-  %177 = getelementptr inbounds i8, ptr %.0.i185.i, i64 1
+  %177 = getelementptr inbounds nuw i8, ptr %.0.i185.i, i64 1
   store i8 92, ptr %.0.i185.i, align 1
   %.pre.i186.i = load i8, ptr %.121.i184.i, align 1
   br label %178
@@ -1400,8 +1400,8 @@ auth_digest_string_quoted.exit.i:                 ; preds = %.preheader.i.i
 178:                                              ; preds = %176, %.preheader.i183.i
   %179 = phi i8 [ %.pre.i186.i, %176 ], [ %175, %.preheader.i183.i ]
   %.1.i187.i = phi ptr [ %177, %176 ], [ %.0.i185.i, %.preheader.i183.i ]
-  %180 = getelementptr inbounds i8, ptr %.121.i184.i, i64 1
-  %181 = getelementptr inbounds i8, ptr %.1.i187.i, i64 1
+  %180 = getelementptr inbounds nuw i8, ptr %.121.i184.i, i64 1
+  %181 = getelementptr inbounds nuw i8, ptr %.1.i187.i, i64 1
   store i8 %179, ptr %.1.i187.i, align 1
   br label %.preheader.i183.i, !llvm.loop !19
 
@@ -1443,7 +1443,7 @@ auth_digest_string_quoted.exit188.thread204.i:    ; preds = %.preheader.i183.i, 
 
 194:                                              ; preds = %192, %189
   %.119.i191.i = phi i64 [ %193, %192 ], [ %190, %189 ]
-  %195 = getelementptr inbounds i8, ptr %.020.i189.i, i64 1
+  %195 = getelementptr inbounds nuw i8, ptr %.020.i189.i, i64 1
   br label %187, !llvm.loop !18
 
 196:                                              ; preds = %187
@@ -1463,7 +1463,7 @@ auth_digest_string_quoted.exit188.thread204.i:    ; preds = %.preheader.i183.i, 
   ]
 
 200:                                              ; preds = %.preheader.i193.i, %.preheader.i193.i
-  %201 = getelementptr inbounds i8, ptr %.0.i195.i, i64 1
+  %201 = getelementptr inbounds nuw i8, ptr %.0.i195.i, i64 1
   store i8 92, ptr %.0.i195.i, align 1
   %.pre.i196.i = load i8, ptr %.121.i194.i, align 1
   br label %202
@@ -1471,8 +1471,8 @@ auth_digest_string_quoted.exit188.thread204.i:    ; preds = %.preheader.i183.i, 
 202:                                              ; preds = %200, %.preheader.i193.i
   %203 = phi i8 [ %.pre.i196.i, %200 ], [ %199, %.preheader.i193.i ]
   %.1.i197.i = phi ptr [ %201, %200 ], [ %.0.i195.i, %.preheader.i193.i ]
-  %204 = getelementptr inbounds i8, ptr %.121.i194.i, i64 1
-  %205 = getelementptr inbounds i8, ptr %.1.i197.i, i64 1
+  %204 = getelementptr inbounds nuw i8, ptr %.121.i194.i, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %.1.i197.i, i64 1
   store i8 %203, ptr %.1.i197.i, align 1
   br label %.preheader.i193.i, !llvm.loop !19
 
@@ -1514,7 +1514,7 @@ auth_digest_string_quoted.exit198.thread.i:       ; preds = %196
   br i1 %.not170.i, label %auth_create_digest_http_message.exit, label %221
 
 221:                                              ; preds = %217
-  %222 = getelementptr inbounds i8, ptr %5, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %223 = load ptr, ptr %222, align 8
   %.not171.i = icmp eq ptr %223, null
   br i1 %.not171.i, label %232, label %224
@@ -1540,7 +1540,7 @@ auth_digest_string_quoted.exit198.thread.i:       ; preds = %196
 
 232:                                              ; preds = %228, %221
   %.1123.i = phi ptr [ %.0122.i, %221 ], [ %229, %228 ]
-  %233 = getelementptr inbounds i8, ptr %5, i64 40
+  %233 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %234 = load ptr, ptr %233, align 8
   %.not174.i = icmp eq ptr %234, null
   br i1 %.not174.i, label %238, label %235
@@ -1608,7 +1608,7 @@ auth_create_digest_http_message.exit:             ; preds = %37, %39, %48, %auth
   br label %249
 
 249:                                              ; preds = %248, %246
-  %250 = getelementptr inbounds i8, ptr %5, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %251 = load ptr, ptr %250, align 8
   %.not147.i18 = icmp eq ptr %251, null
   br i1 %.not147.i18, label %252, label %259
@@ -1630,14 +1630,14 @@ auth_create_digest_http_message.exit:             ; preds = %37, %39, %48, %auth
   br label %259
 
 259:                                              ; preds = %257, %249
-  %260 = getelementptr inbounds i8, ptr %5, i64 53
+  %260 = getelementptr inbounds nuw i8, ptr %5, i64 53
   %261 = load i8, ptr %260, align 1
   %262 = and i8 %261, 2
   %.not150.i19 = icmp eq i8 %262, 0
   br i1 %.not150.i19, label %auth_digest_sha256_to_ascii.exit134, label %263
 
 263:                                              ; preds = %259
-  %264 = getelementptr inbounds i8, ptr %5, i64 16
+  %264 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %265 = load ptr, ptr %264, align 8
   %.not151.i20 = icmp eq ptr %265, null
   %spec.select.i21 = select i1 %.not151.i20, ptr @.str.23, ptr %265
@@ -1655,8 +1655,8 @@ auth_create_digest_http_message.exit:             ; preds = %37, %39, %48, %auth
 271:                                              ; preds = %271, %267
   %indvars.iv.i131 = phi i64 [ 0, %267 ], [ %indvars.iv.next.i132, %271 ]
   %272 = shl nuw nsw i64 %indvars.iv.i131, 1
-  %273 = getelementptr inbounds i8, ptr %13, i64 %272
-  %274 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i131
+  %273 = getelementptr inbounds nuw i8, ptr %13, i64 %272
+  %274 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i131
   %275 = load i8, ptr %274, align 1
   %276 = zext i8 %275 to i32
   %277 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %273, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %276) #10
@@ -1665,7 +1665,7 @@ auth_create_digest_http_message.exit:             ; preds = %37, %39, %48, %auth
   br i1 %exitcond.not.i133, label %auth_digest_sha256_to_ascii.exit134, label %271, !llvm.loop !20
 
 auth_digest_sha256_to_ascii.exit134:              ; preds = %271, %259
-  %278 = getelementptr inbounds i8, ptr %5, i64 16
+  %278 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %279 = load ptr, ptr %278, align 8
   %.not153.i23 = icmp eq ptr %279, null
   %spec.select178.i24 = select i1 %.not153.i23, ptr @.str.23, ptr %279
@@ -1683,8 +1683,8 @@ auth_digest_sha256_to_ascii.exit134:              ; preds = %271, %259
 285:                                              ; preds = %285, %281
   %indvars.iv.i127 = phi i64 [ 0, %281 ], [ %indvars.iv.next.i128, %285 ]
   %286 = shl nuw nsw i64 %indvars.iv.i127, 1
-  %287 = getelementptr inbounds i8, ptr %11, i64 %286
-  %288 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i127
+  %287 = getelementptr inbounds nuw i8, ptr %11, i64 %286
+  %288 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i127
   %289 = load i8, ptr %288, align 1
   %290 = zext i8 %289 to i32
   %291 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %287, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %290) #10
@@ -1715,8 +1715,8 @@ auth_digest_sha256_to_ascii.exit130:              ; preds = %285
 302:                                              ; preds = %302, %298
   %indvars.iv.i123 = phi i64 [ 0, %298 ], [ %indvars.iv.next.i124, %302 ]
   %303 = shl nuw nsw i64 %indvars.iv.i123, 1
-  %304 = getelementptr inbounds i8, ptr %11, i64 %303
-  %305 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i123
+  %304 = getelementptr inbounds nuw i8, ptr %11, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i123
   %306 = load i8, ptr %305, align 1
   %307 = zext i8 %306 to i32
   %308 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %304, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %307) #10
@@ -1730,7 +1730,7 @@ auth_digest_sha256_to_ascii.exit126:              ; preds = %302, %auth_digest_s
   br i1 %.not157.i28, label %auth_create_digest_http_message.exit91, label %310
 
 310:                                              ; preds = %auth_digest_sha256_to_ascii.exit126
-  %311 = getelementptr inbounds i8, ptr %5, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %312 = load ptr, ptr %311, align 8
   %.not158.i29 = icmp eq ptr %312, null
   br i1 %.not158.i29, label %.thread.i32, label %313
@@ -1747,8 +1747,8 @@ auth_digest_sha256_to_ascii.exit126:              ; preds = %302, %auth_digest_s
 317:                                              ; preds = %317, %315
   %indvars.iv.i119 = phi i64 [ 0, %315 ], [ %indvars.iv.next.i120, %317 ]
   %318 = shl nuw nsw i64 %indvars.iv.i119, 1
-  %319 = getelementptr inbounds i8, ptr %17, i64 %318
-  %320 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i119
+  %319 = getelementptr inbounds nuw i8, ptr %17, i64 %318
+  %320 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i119
   %321 = load i8, ptr %320, align 1
   %322 = zext i8 %321 to i32
   %323 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %319, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %322) #10
@@ -1774,8 +1774,8 @@ auth_digest_sha256_to_ascii.exit122:              ; preds = %317
 329:                                              ; preds = %329, %.thread.i32
   %indvars.iv.i115 = phi i64 [ 0, %.thread.i32 ], [ %indvars.iv.next.i116, %329 ]
   %330 = shl nuw nsw i64 %indvars.iv.i115, 1
-  %331 = getelementptr inbounds i8, ptr %12, i64 %330
-  %332 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i115
+  %331 = getelementptr inbounds nuw i8, ptr %12, i64 %330
+  %332 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i115
   %333 = load i8, ptr %332, align 1
   %334 = zext i8 %333 to i32
   %335 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %331, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %334) #10
@@ -1814,8 +1814,8 @@ auth_digest_sha256_to_ascii.exit118:              ; preds = %329
 349:                                              ; preds = %349, %345
   %indvars.iv.i112 = phi i64 [ 0, %345 ], [ %indvars.iv.next.i113, %349 ]
   %350 = shl nuw nsw i64 %indvars.iv.i112, 1
-  %351 = getelementptr inbounds i8, ptr %10, i64 %350
-  %352 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i112
+  %351 = getelementptr inbounds nuw i8, ptr %10, i64 %350
+  %352 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i112
   %353 = load i8, ptr %352, align 1
   %354 = zext i8 %353 to i32
   %355 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %351, i64 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %354) #10
@@ -1850,7 +1850,7 @@ auth_digest_sha256_to_ascii.exit:                 ; preds = %349
 
 366:                                              ; preds = %364, %361
   %.119.i.i40 = phi i64 [ %365, %364 ], [ %362, %361 ]
-  %367 = getelementptr inbounds i8, ptr %.020.i.i38, i64 1
+  %367 = getelementptr inbounds nuw i8, ptr %.020.i.i38, i64 1
   br label %359, !llvm.loop !18
 
 368:                                              ; preds = %359
@@ -1870,7 +1870,7 @@ auth_digest_sha256_to_ascii.exit:                 ; preds = %349
   ]
 
 372:                                              ; preds = %.preheader.i.i42, %.preheader.i.i42
-  %373 = getelementptr inbounds i8, ptr %.0.i.i44, i64 1
+  %373 = getelementptr inbounds nuw i8, ptr %.0.i.i44, i64 1
   store i8 92, ptr %.0.i.i44, align 1
   %.pre.i.i45 = load i8, ptr %.121.i.i43, align 1
   br label %374
@@ -1878,8 +1878,8 @@ auth_digest_sha256_to_ascii.exit:                 ; preds = %349
 374:                                              ; preds = %372, %.preheader.i.i42
   %375 = phi i8 [ %.pre.i.i45, %372 ], [ %371, %.preheader.i.i42 ]
   %.1.i.i46 = phi ptr [ %373, %372 ], [ %.0.i.i44, %.preheader.i.i42 ]
-  %376 = getelementptr inbounds i8, ptr %.121.i.i43, i64 1
-  %377 = getelementptr inbounds i8, ptr %.1.i.i46, i64 1
+  %376 = getelementptr inbounds nuw i8, ptr %.121.i.i43, i64 1
+  %377 = getelementptr inbounds nuw i8, ptr %.1.i.i46, i64 1
   store i8 %375, ptr %.1.i.i46, align 1
   br label %.preheader.i.i42, !llvm.loop !19
 
@@ -1909,7 +1909,7 @@ auth_digest_string_quoted.exit.i47:               ; preds = %.preheader.i.i42
 
 385:                                              ; preds = %383, %380
   %.119.i181.i52 = phi i64 [ %384, %383 ], [ %381, %380 ]
-  %386 = getelementptr inbounds i8, ptr %.020.i179.i50, i64 1
+  %386 = getelementptr inbounds nuw i8, ptr %.020.i179.i50, i64 1
   br label %.preheader.i49, !llvm.loop !18
 
 387:                                              ; preds = %.preheader.i49
@@ -1929,7 +1929,7 @@ auth_digest_string_quoted.exit.i47:               ; preds = %.preheader.i.i42
   ]
 
 391:                                              ; preds = %.preheader.i183.i54, %.preheader.i183.i54
-  %392 = getelementptr inbounds i8, ptr %.0.i185.i56, i64 1
+  %392 = getelementptr inbounds nuw i8, ptr %.0.i185.i56, i64 1
   store i8 92, ptr %.0.i185.i56, align 1
   %.pre.i186.i57 = load i8, ptr %.121.i184.i55, align 1
   br label %393
@@ -1937,8 +1937,8 @@ auth_digest_string_quoted.exit.i47:               ; preds = %.preheader.i.i42
 393:                                              ; preds = %391, %.preheader.i183.i54
   %394 = phi i8 [ %.pre.i186.i57, %391 ], [ %390, %.preheader.i183.i54 ]
   %.1.i187.i58 = phi ptr [ %392, %391 ], [ %.0.i185.i56, %.preheader.i183.i54 ]
-  %395 = getelementptr inbounds i8, ptr %.121.i184.i55, i64 1
-  %396 = getelementptr inbounds i8, ptr %.1.i187.i58, i64 1
+  %395 = getelementptr inbounds nuw i8, ptr %.121.i184.i55, i64 1
+  %396 = getelementptr inbounds nuw i8, ptr %.1.i187.i58, i64 1
   store i8 %394, ptr %.1.i187.i58, align 1
   br label %.preheader.i183.i54, !llvm.loop !19
 
@@ -1980,7 +1980,7 @@ auth_digest_string_quoted.exit188.thread204.i59:  ; preds = %.preheader.i183.i54
 
 409:                                              ; preds = %407, %404
   %.119.i191.i64 = phi i64 [ %408, %407 ], [ %405, %404 ]
-  %410 = getelementptr inbounds i8, ptr %.020.i189.i62, i64 1
+  %410 = getelementptr inbounds nuw i8, ptr %.020.i189.i62, i64 1
   br label %402, !llvm.loop !18
 
 411:                                              ; preds = %402
@@ -2000,7 +2000,7 @@ auth_digest_string_quoted.exit188.thread204.i59:  ; preds = %.preheader.i183.i54
   ]
 
 415:                                              ; preds = %.preheader.i193.i66, %.preheader.i193.i66
-  %416 = getelementptr inbounds i8, ptr %.0.i195.i68, i64 1
+  %416 = getelementptr inbounds nuw i8, ptr %.0.i195.i68, i64 1
   store i8 92, ptr %.0.i195.i68, align 1
   %.pre.i196.i69 = load i8, ptr %.121.i194.i67, align 1
   br label %417
@@ -2008,8 +2008,8 @@ auth_digest_string_quoted.exit188.thread204.i59:  ; preds = %.preheader.i183.i54
 417:                                              ; preds = %415, %.preheader.i193.i66
   %418 = phi i8 [ %.pre.i196.i69, %415 ], [ %414, %.preheader.i193.i66 ]
   %.1.i197.i70 = phi ptr [ %416, %415 ], [ %.0.i195.i68, %.preheader.i193.i66 ]
-  %419 = getelementptr inbounds i8, ptr %.121.i194.i67, i64 1
-  %420 = getelementptr inbounds i8, ptr %.1.i197.i70, i64 1
+  %419 = getelementptr inbounds nuw i8, ptr %.121.i194.i67, i64 1
+  %420 = getelementptr inbounds nuw i8, ptr %.1.i197.i70, i64 1
   store i8 %418, ptr %.1.i197.i70, align 1
   br label %.preheader.i193.i66, !llvm.loop !19
 
@@ -2051,7 +2051,7 @@ auth_digest_string_quoted.exit198.thread.i86:     ; preds = %411
   br i1 %.not170.i74, label %auth_create_digest_http_message.exit91, label %436
 
 436:                                              ; preds = %432
-  %437 = getelementptr inbounds i8, ptr %5, i64 24
+  %437 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %438 = load ptr, ptr %437, align 8
   %.not171.i75 = icmp eq ptr %438, null
   br i1 %.not171.i75, label %447, label %439
@@ -2077,7 +2077,7 @@ auth_digest_string_quoted.exit198.thread.i86:     ; preds = %411
 
 447:                                              ; preds = %443, %436
   %.1123.i78 = phi ptr [ %.0122.i73, %436 ], [ %444, %443 ]
-  %448 = getelementptr inbounds i8, ptr %5, i64 40
+  %448 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %449 = load ptr, ptr %448, align 8
   %.not174.i79 = icmp eq ptr %449, null
   br i1 %.not174.i79, label %453, label %450
@@ -2168,7 +2168,7 @@ define internal fastcc ptr @auth_digest_string_quoted(ptr nocapture noundef read
 
 9:                                                ; preds = %7, %4
   %.119 = phi i64 [ %8, %7 ], [ %5, %4 ]
-  %10 = getelementptr inbounds i8, ptr %.020, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.020, i64 1
   br label %2, !llvm.loop !18
 
 11:                                               ; preds = %2
@@ -2188,7 +2188,7 @@ define internal fastcc ptr @auth_digest_string_quoted(ptr nocapture noundef read
   ]
 
 15:                                               ; preds = %.preheader, %.preheader
-  %16 = getelementptr inbounds i8, ptr %.0, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 92, ptr %.0, align 1
   %.pre = load i8, ptr %.121, align 1
   br label %17
@@ -2196,8 +2196,8 @@ define internal fastcc ptr @auth_digest_string_quoted(ptr nocapture noundef read
 17:                                               ; preds = %.preheader, %15
   %18 = phi i8 [ %.pre, %15 ], [ %14, %.preheader ]
   %.1 = phi ptr [ %16, %15 ], [ %.0, %.preheader ]
-  %19 = getelementptr inbounds i8, ptr %.121, i64 1
-  %20 = getelementptr inbounds i8, ptr %.1, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.121, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %18, ptr %.1, align 1
   br label %.preheader, !llvm.loop !19
 

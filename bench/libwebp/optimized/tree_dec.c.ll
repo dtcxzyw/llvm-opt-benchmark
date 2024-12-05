@@ -23,34 +23,34 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @VP8ParseIntraModeRow(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 2808
-  %7 = getelementptr inbounds i8, ptr %1, i64 2816
-  %8 = getelementptr inbounds i8, ptr %1, i64 2912
-  %9 = getelementptr inbounds i8, ptr %1, i64 136
-  %10 = getelementptr inbounds i8, ptr %1, i64 1192
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = getelementptr inbounds i8, ptr %1, i64 1193
-  %16 = getelementptr inbounds i8, ptr %1, i64 1194
-  %17 = getelementptr inbounds i8, ptr %1, i64 2800
-  %18 = getelementptr inbounds i8, ptr %1, i64 2804
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2808
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2816
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2912
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1192
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1193
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1194
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 2800
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2804
   br label %19
 
 19:                                               ; preds = %.lr.ph, %ParseIntraMode.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ParseIntraMode.exit ]
   %20 = load ptr, ptr %6, align 8
   %21 = shl nsw i64 %indvars.iv, 2
-  %22 = getelementptr inbounds i8, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.VP8MBData, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.VP8MBData, ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %9, align 4
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %136, label %26
@@ -73,7 +73,7 @@ define hidden range(i32 0, 2) i32 @VP8ParseIntraModeRow(ptr noundef %0, ptr noca
 
 36:                                               ; preds = %32
   %.0.copyload.i.i.i = load i64, ptr %33, align 1, !noalias !10
-  %37 = getelementptr inbounds i8, ptr %33, i64 7
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 7
   store ptr %37, ptr %13, align 8, !alias.scope !10
   %38 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i.i)
   %39 = load i64, ptr %0, align 8, !alias.scope !10
@@ -139,7 +139,7 @@ VP8GetBit.exit.i:                                 ; preds = %56, %50
 
 72:                                               ; preds = %68
   %.0.copyload.i.i78.i = load i64, ptr %69, align 1, !noalias !17
-  %73 = getelementptr inbounds i8, ptr %69, i64 7
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 7
   store ptr %73, ptr %13, align 8, !alias.scope !17
   %74 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i78.i)
   %75 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %74, i64 56)
@@ -204,7 +204,7 @@ VP8GetBit.exit79.i:                               ; preds = %92, %86
 
 107:                                              ; preds = %103
   %.0.copyload.i.i83.i = load i64, ptr %104, align 1, !noalias !24
-  %108 = getelementptr inbounds i8, ptr %104, i64 7
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 7
   store ptr %108, ptr %13, align 8, !alias.scope !24
   %109 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i83.i)
   %110 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %109, i64 56)
@@ -257,7 +257,7 @@ VP8GetBit.exit84.i:                               ; preds = %127, %121
 
 136:                                              ; preds = %VP8GetBit.exit84.i, %VP8GetBit.exit79.i, %19
   %.sink.i = phi i8 [ %94, %VP8GetBit.exit79.i ], [ %135, %VP8GetBit.exit84.i ], [ 0, %19 ]
-  %137 = getelementptr inbounds i8, ptr %24, i64 798
+  %137 = getelementptr inbounds nuw i8, ptr %24, i64 798
   store i8 %.sink.i, ptr %137, align 2
   %138 = load i32, ptr %17, align 8
   %.not65.i = icmp eq i32 %138, 0
@@ -281,7 +281,7 @@ VP8GetBit.exit84.i:                               ; preds = %127, %121
 
 149:                                              ; preds = %145
   %.0.copyload.i.i88.i = load i64, ptr %146, align 1, !noalias !31
-  %150 = getelementptr inbounds i8, ptr %146, i64 7
+  %150 = getelementptr inbounds nuw i8, ptr %146, i64 7
   store ptr %150, ptr %13, align 8, !alias.scope !31
   %151 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i88.i)
   %152 = load i64, ptr %0, align 8, !alias.scope !31
@@ -329,7 +329,7 @@ VP8GetBit.exit89.i:                               ; preds = %170, %164
   %176 = add i32 %174, -1
   store i32 %176, ptr %11, align 8, !alias.scope !25
   %177 = zext i1 %163 to i8
-  %178 = getelementptr inbounds i8, ptr %24, i64 797
+  %178 = getelementptr inbounds nuw i8, ptr %24, i64 797
   store i8 %177, ptr %178, align 1
   br label %179
 
@@ -349,7 +349,7 @@ VP8GetBit.exit89.i:                               ; preds = %170, %164
 
 187:                                              ; preds = %183
   %.0.copyload.i.i93.i = load i64, ptr %184, align 1, !noalias !38
-  %188 = getelementptr inbounds i8, ptr %184, i64 7
+  %188 = getelementptr inbounds nuw i8, ptr %184, i64 7
   store ptr %188, ptr %13, align 8, !alias.scope !38
   %189 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i93.i)
   %190 = load i64, ptr %0, align 8, !alias.scope !38
@@ -397,7 +397,7 @@ VP8GetBit.exit94.i:                               ; preds = %208, %202
   %214 = add i32 %212, -1
   store i32 %214, ptr %11, align 8, !alias.scope !32
   %215 = zext i1 %201 to i8
-  %216 = getelementptr inbounds i8, ptr %24, i64 768
+  %216 = getelementptr inbounds nuw i8, ptr %24, i64 768
   store i8 %215, ptr %216, align 4
   br i1 %201, label %312, label %217
 
@@ -417,7 +417,7 @@ VP8GetBit.exit94.i:                               ; preds = %208, %202
 
 225:                                              ; preds = %221
   %.0.copyload.i.i98.i = load i64, ptr %222, align 1, !noalias !45
-  %226 = getelementptr inbounds i8, ptr %222, i64 7
+  %226 = getelementptr inbounds nuw i8, ptr %222, i64 7
   store ptr %226, ptr %13, align 8, !alias.scope !45
   %227 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i98.i)
   %228 = load i64, ptr %0, align 8, !alias.scope !45
@@ -481,7 +481,7 @@ VP8GetBit.exit99.i:                               ; preds = %245, %239
 
 259:                                              ; preds = %255
   %.0.copyload.i.i103.i = load i64, ptr %256, align 1, !noalias !52
-  %260 = getelementptr inbounds i8, ptr %256, i64 7
+  %260 = getelementptr inbounds nuw i8, ptr %256, i64 7
   store ptr %260, ptr %13, align 8, !alias.scope !52
   %261 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i103.i)
   %262 = tail call i64 @llvm.fshl.i64(i64 %247, i64 %261, i64 56)
@@ -532,7 +532,7 @@ VP8LoadNewBytes.exit.i100.i:                      ; preds = %264, %259, %254
 
 285:                                              ; preds = %281
   %.0.copyload.i.i108.i = load i64, ptr %282, align 1, !noalias !59
-  %286 = getelementptr inbounds i8, ptr %282, i64 7
+  %286 = getelementptr inbounds nuw i8, ptr %282, i64 7
   store ptr %286, ptr %13, align 8, !alias.scope !59
   %287 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i108.i)
   %288 = tail call i64 @llvm.fshl.i64(i64 %247, i64 %287, i64 56)
@@ -581,20 +581,20 @@ VP8GetBit.exit104.i:                              ; preds = %304, %298, %278, %2
   store i32 %310, ptr %12, align 4
   %storemerge.i = add i32 %309, -1
   store i32 %storemerge.i, ptr %11, align 8
-  %311 = getelementptr inbounds i8, ptr %24, i64 769
+  %311 = getelementptr inbounds nuw i8, ptr %24, i64 769
   store i8 %306, ptr %311, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %22, i8 %306, i64 4, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %7, i8 %306, i64 4, i1 false)
   br label %.loopexit.i
 
 312:                                              ; preds = %VP8GetBit.exit94.i
-  %313 = getelementptr inbounds i8, ptr %24, i64 769
+  %313 = getelementptr inbounds nuw i8, ptr %24, i64 769
   br label %314
 
 314:                                              ; preds = %409, %312
   %indvars.iv155.i = phi i64 [ 0, %312 ], [ %indvars.iv.next156.i, %409 ]
   %.060152.i = phi ptr [ %313, %312 ], [ %411, %409 ]
-  %315 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv155.i
+  %315 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv155.i
   %316 = load i8, ptr %315, align 1
   %317 = zext i8 %316 to i32
   br label %318
@@ -602,11 +602,11 @@ VP8GetBit.exit104.i:                              ; preds = %304, %298, %278, %2
 318:                                              ; preds = %._crit_edge.i, %314
   %indvars.iv.i = phi i64 [ 0, %314 ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %.062149.i = phi i32 [ %317, %314 ], [ %407, %._crit_edge.i ]
-  %319 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv.i
+  %319 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i
   %320 = load i8, ptr %319, align 1
   %321 = zext i8 %320 to i64
   %322 = zext nneg i32 %.062149.i to i64
-  %323 = getelementptr inbounds [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %321, i64 %322
+  %323 = getelementptr inbounds nuw [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %321, i64 %322
   %324 = load i8, ptr %323, align 1
   %325 = zext i8 %324 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
@@ -624,7 +624,7 @@ VP8GetBit.exit104.i:                              ; preds = %304, %298, %278, %2
 
 333:                                              ; preds = %329
   %.0.copyload.i.i113.i = load i64, ptr %330, align 1, !noalias !66
-  %334 = getelementptr inbounds i8, ptr %330, i64 7
+  %334 = getelementptr inbounds nuw i8, ptr %330, i64 7
   store ptr %334, ptr %13, align 8, !alias.scope !66
   %335 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i113.i)
   %336 = load i64, ptr %0, align 8, !alias.scope !66
@@ -673,7 +673,7 @@ VP8GetBit.exit114.i:                              ; preds = %354, %348
   %361 = add i32 %359, -1
   store i32 %361, ptr %11, align 8, !alias.scope !60
   %.pn143.i = zext i1 %347 to i64
-  %.0.in.in144.i = getelementptr inbounds [18 x i8], ptr @kYModesIntra4, i64 0, i64 %.pn143.i
+  %.0.in.in144.i = getelementptr inbounds nuw [18 x i8], ptr @kYModesIntra4, i64 0, i64 %.pn143.i
   %.0.in145.i = load i8, ptr %.0.in.in144.i, align 1
   %.0146.i = sext i8 %.0.in145.i to i32
   br i1 %347, label %.lr.ph.i, label %._crit_edge.i
@@ -685,7 +685,7 @@ VP8GetBit.exit114.i:                              ; preds = %354, %348
   %.0148.i = phi i32 [ %.0.i, %VP8GetBit.exit119.i ], [ %.0146.i, %VP8GetBit.exit114.i ]
   %365 = shl nuw nsw i32 %.0148.i, 1
   %366 = zext nneg i32 %.0148.i to i64
-  %367 = getelementptr inbounds i8, ptr %323, i64 %366
+  %367 = getelementptr inbounds nuw i8, ptr %323, i64 %366
   %368 = load i8, ptr %367, align 1
   %369 = zext i8 %368 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
@@ -701,7 +701,7 @@ VP8GetBit.exit114.i:                              ; preds = %354, %348
 
 375:                                              ; preds = %371
   %.0.copyload.i.i118.i = load i64, ptr %372, align 1, !noalias !73
-  %376 = getelementptr inbounds i8, ptr %372, i64 7
+  %376 = getelementptr inbounds nuw i8, ptr %372, i64 7
   store ptr %376, ptr %13, align 8, !alias.scope !73
   %377 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i118.i)
   %378 = tail call i64 @llvm.fshl.i64(i64 %362, i64 %377, i64 56)
@@ -752,7 +752,7 @@ VP8GetBit.exit119.i:                              ; preds = %395, %389
   store i32 %403, ptr %11, align 8, !alias.scope !67
   %404 = or disjoint i32 %365, %398
   %.pn.i = zext nneg i32 %404 to i64
-  %.0.in.in.i = getelementptr inbounds [18 x i8], ptr @kYModesIntra4, i64 0, i64 %.pn.i
+  %.0.in.in.i = getelementptr inbounds nuw [18 x i8], ptr @kYModesIntra4, i64 0, i64 %.pn.i
   %.0.in.i = load i8, ptr %.0.in.in.i, align 1
   %.0.i = sext i8 %.0.in.i to i32
   %405 = shl nuw i64 1, %.pn.i
@@ -772,7 +772,7 @@ VP8GetBit.exit119.i:                              ; preds = %395, %389
 409:                                              ; preds = %._crit_edge.i
   %410 = load i32, ptr %22, align 1
   store i32 %410, ptr %.060152.i, align 1
-  %411 = getelementptr inbounds i8, ptr %.060152.i, i64 4
+  %411 = getelementptr inbounds nuw i8, ptr %.060152.i, i64 4
   store i8 %408, ptr %315, align 1
   %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
   %exitcond158.not.i = icmp eq i64 %indvars.iv.next156.i, 4
@@ -794,7 +794,7 @@ VP8GetBit.exit119.i:                              ; preds = %395, %389
 
 419:                                              ; preds = %415
   %.0.copyload.i.i123.i = load i64, ptr %416, align 1, !noalias !84
-  %420 = getelementptr inbounds i8, ptr %416, i64 7
+  %420 = getelementptr inbounds nuw i8, ptr %416, i64 7
   store ptr %420, ptr %13, align 8, !alias.scope !84
   %421 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i123.i)
   %422 = load i64, ptr %0, align 8, !alias.scope !84
@@ -858,7 +858,7 @@ VP8GetBit.exit124.i:                              ; preds = %439, %433
 
 453:                                              ; preds = %449
   %.0.copyload.i.i128.i = load i64, ptr %450, align 1, !noalias !91
-  %454 = getelementptr inbounds i8, ptr %450, i64 7
+  %454 = getelementptr inbounds nuw i8, ptr %450, i64 7
   store ptr %454, ptr %13, align 8, !alias.scope !91
   %455 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i128.i)
   %456 = tail call i64 @llvm.fshl.i64(i64 %441, i64 %455, i64 56)
@@ -922,7 +922,7 @@ VP8GetBit.exit129.i:                              ; preds = %472, %466
 
 486:                                              ; preds = %482
   %.0.copyload.i.i133.i = load i64, ptr %483, align 1, !noalias !98
-  %487 = getelementptr inbounds i8, ptr %483, i64 7
+  %487 = getelementptr inbounds nuw i8, ptr %483, i64 7
   store ptr %487, ptr %13, align 8, !alias.scope !98
   %488 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i133.i)
   %489 = tail call i64 @llvm.fshl.i64(i64 %474, i64 %488, i64 56)
@@ -974,7 +974,7 @@ VP8GetBit.exit134.i:                              ; preds = %505, %499
 
 ParseIntraMode.exit:                              ; preds = %VP8GetBit.exit124.i, %VP8GetBit.exit129.i, %VP8GetBit.exit134.i
   %513 = phi i8 [ 0, %VP8GetBit.exit124.i ], [ %507, %VP8GetBit.exit134.i ], [ 2, %VP8GetBit.exit129.i ]
-  %514 = getelementptr inbounds i8, ptr %24, i64 785
+  %514 = getelementptr inbounds nuw i8, ptr %24, i64 785
   store i8 %513, ptr %514, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %515 = load i32, ptr %3, align 8
@@ -983,7 +983,7 @@ ParseIntraMode.exit:                              ; preds = %VP8GetBit.exit124.i
   br i1 %517, label %19, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %ParseIntraMode.exit, %2
-  %518 = getelementptr inbounds i8, ptr %1, i64 56
+  %518 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %519 = load i32, ptr %518, align 8
   %.not = icmp eq i32 %519, 0
   %520 = zext i1 %.not to i32
@@ -992,12 +992,12 @@ ParseIntraMode.exit:                              ; preds = %VP8GetBit.exit124.i
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8ParseProba(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %1, i64 1195
-  %8 = getelementptr inbounds i8, ptr %1, i64 2256
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1195
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2256
   br label %.preheader44
 
 .preheader44:                                     ; preds = %2, %64
@@ -1006,7 +1006,7 @@ define hidden void @VP8ParseProba(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 .preheader42:                                     ; preds = %.preheader44, %58
   %indvars.iv55 = phi i64 [ 0, %.preheader44 ], [ %indvars.iv.next56, %58 ]
-  %9 = getelementptr inbounds [4 x [8 x %struct.VP8BandProbas]], ptr %7, i64 0, i64 %indvars.iv63, i64 %indvars.iv55
+  %9 = getelementptr inbounds nuw [4 x [8 x %struct.VP8BandProbas]], ptr %7, i64 0, i64 %indvars.iv63, i64 %indvars.iv55
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader42, %57
@@ -1015,7 +1015,7 @@ define hidden void @VP8ParseProba(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 10:                                               ; preds = %.preheader, %54
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %54 ]
-  %11 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr @CoeffsUpdateProba, i64 0, i64 %indvars.iv63, i64 %indvars.iv55, i64 %indvars.iv51, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr @CoeffsUpdateProba, i64 0, i64 %indvars.iv63, i64 %indvars.iv55, i64 %indvars.iv51, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
@@ -1033,7 +1033,7 @@ define hidden void @VP8ParseProba(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 21:                                               ; preds = %17
   %.0.copyload.i.i = load i64, ptr %18, align 1, !noalias !106
-  %22 = getelementptr inbounds i8, ptr %18, i64 7
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 7
   store ptr %22, ptr %5, align 8, !alias.scope !106
   %23 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i)
   %24 = load i64, ptr %0, align 8, !alias.scope !106
@@ -1088,13 +1088,13 @@ VP8GetBit.exit:                                   ; preds = %35, %41
   br label %54
 
 51:                                               ; preds = %VP8GetBit.exit
-  %52 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr @CoeffsProba0, i64 0, i64 %indvars.iv63, i64 %indvars.iv55, i64 %indvars.iv51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr @CoeffsProba0, i64 0, i64 %indvars.iv63, i64 %indvars.iv55, i64 %indvars.iv51, i64 %indvars.iv
   %53 = load i8, ptr %52, align 1
   br label %54
 
 54:                                               ; preds = %51, %48
   %55 = phi i8 [ %50, %48 ], [ %53, %51 ]
-  %56 = getelementptr inbounds [3 x [11 x i8]], ptr %9, i64 0, i64 %indvars.iv51, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %9, i64 0, i64 %indvars.iv51, i64 %indvars.iv
   store i8 %55, ptr %56, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
@@ -1112,11 +1112,11 @@ VP8GetBit.exit:                                   ; preds = %35, %41
 
 .preheader43:                                     ; preds = %58, %.preheader43
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.preheader43 ], [ 0, %58 ]
-  %59 = getelementptr inbounds [17 x i8], ptr @kBands, i64 0, i64 %indvars.iv59
+  %59 = getelementptr inbounds nuw [17 x i8], ptr @kBands, i64 0, i64 %indvars.iv59
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds [4 x [8 x %struct.VP8BandProbas]], ptr %7, i64 0, i64 %indvars.iv63, i64 %61
-  %63 = getelementptr inbounds [4 x [17 x ptr]], ptr %8, i64 0, i64 %indvars.iv63, i64 %indvars.iv59
+  %62 = getelementptr inbounds nuw [4 x [8 x %struct.VP8BandProbas]], ptr %7, i64 0, i64 %indvars.iv63, i64 %61
+  %63 = getelementptr inbounds nuw [4 x [17 x ptr]], ptr %8, i64 0, i64 %indvars.iv63, i64 %indvars.iv59
   store ptr %62, ptr %63, align 8
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 17
@@ -1129,7 +1129,7 @@ VP8GetBit.exit:                                   ; preds = %35, %41
 
 65:                                               ; preds = %64
   %66 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #7
-  %67 = getelementptr inbounds i8, ptr %1, i64 2800
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 2800
   store i32 %66, ptr %67, align 8
   %.not = icmp eq i32 %66, 0
   br i1 %.not, label %72, label %68
@@ -1137,7 +1137,7 @@ VP8GetBit.exit:                                   ; preds = %35, %41
 68:                                               ; preds = %65
   %69 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 8) #7
   %70 = trunc i32 %69 to i8
-  %71 = getelementptr inbounds i8, ptr %1, i64 2804
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 2804
   store i8 %70, ptr %71, align 4
   br label %72
 

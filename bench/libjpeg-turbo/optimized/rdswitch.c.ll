@@ -144,7 +144,7 @@ text_getc.exit26.i:                               ; preds = %.preheader.i25.i, %
 
 56:                                               ; preds = %42, %text_getc.exit26.i
   %57 = trunc i64 %.0.i to i32
-  %58 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %indvars.iv
   store i32 %57, ptr %58, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -153,7 +153,7 @@ text_getc.exit26.i:                               ; preds = %.preheader.i25.i, %
 59:                                               ; preds = %56
   store i64 %.0.i, ptr %5, align 8
   store i32 %.0.i24.i, ptr %4, align 4
-  %60 = getelementptr inbounds [4 x i32], ptr @q_scale_factor, i64 0, i64 %indvars.iv57
+  %60 = getelementptr inbounds nuw [4 x i32], ptr @q_scale_factor, i64 0, i64 %indvars.iv57
   %61 = load i32, ptr %60, align 4
   %62 = trunc nuw nsw i64 %indvars.iv57 to i32
   call void @jpeg_add_quant_table(ptr noundef %0, i32 noundef %62, ptr noundef nonnull %6, i32 noundef %61, i32 noundef %2) #9
@@ -314,7 +314,7 @@ define dso_local range(i32 0, 2) i32 @read_scan_script(ptr noundef %0, ptr nound
 16:                                               ; preds = %.lr.ph113
   %17 = load i64, ptr %4, align 8
   %18 = trunc i64 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %.0112, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.0112, i64 4
   store i32 %18, ptr %19, align 4
   %.promoted = load i32, ptr %3, align 4
   %20 = icmp eq i32 %.promoted, 32
@@ -456,7 +456,7 @@ text_getc.exit.i:                                 ; preds = %.preheader.i.i, %.p
 select.unfold:                                    ; preds = %74, %71
   %.1.i = phi i32 [ 32, %71 ], [ %spec.select, %74 ]
   %77 = trunc i64 %.0.i to i32
-  %78 = getelementptr inbounds [4 x i32], ptr %19, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %indvars.iv
   store i32 %77, ptr %78, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = icmp eq i32 %.1.i, 32
@@ -487,7 +487,7 @@ select.unfold:                                    ; preds = %74, %71
 87:                                               ; preds = %82
   %88 = load i64, ptr %4, align 8
   %89 = trunc i64 %88 to i32
-  %90 = getelementptr inbounds i8, ptr %.0112, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %.0112, i64 20
   store i32 %89, ptr %90, align 4
   %91 = call fastcc i32 @read_scan_integer(ptr noundef %6, ptr noundef %4, ptr noundef %3)
   %92 = icmp eq i32 %91, 0
@@ -499,7 +499,7 @@ select.unfold:                                    ; preds = %74, %71
 95:                                               ; preds = %87
   %96 = load i64, ptr %4, align 8
   %97 = trunc i64 %96 to i32
-  %98 = getelementptr inbounds i8, ptr %.0112, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %.0112, i64 24
   store i32 %97, ptr %98, align 4
   %99 = call fastcc i32 @read_scan_integer(ptr noundef %6, ptr noundef %4, ptr noundef %3)
   %100 = icmp eq i32 %99, 0
@@ -511,7 +511,7 @@ select.unfold:                                    ; preds = %74, %71
 103:                                              ; preds = %95
   %104 = load i64, ptr %4, align 8
   %105 = trunc i64 %104 to i32
-  %106 = getelementptr inbounds i8, ptr %.0112, i64 28
+  %106 = getelementptr inbounds nuw i8, ptr %.0112, i64 28
   store i32 %105, ptr %106, align 4
   %107 = call fastcc i32 @read_scan_integer(ptr noundef %6, ptr noundef %4, ptr noundef %3)
   %.not58 = icmp eq i32 %107, 0
@@ -520,19 +520,19 @@ select.unfold:                                    ; preds = %74, %71
 108:                                              ; preds = %103
   %109 = load i64, ptr %4, align 8
   %110 = trunc i64 %109 to i32
-  %111 = getelementptr inbounds i8, ptr %.0112, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %.0112, i64 32
   store i32 %110, ptr %111, align 4
   %.pre = load i32, ptr %3, align 4
   br label %117
 
 112:                                              ; preds = %._crit_edge
-  %113 = getelementptr inbounds i8, ptr %.0112, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %.0112, i64 20
   store i32 0, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %.0112, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %.0112, i64 24
   store i32 63, ptr %114, align 4
-  %115 = getelementptr inbounds i8, ptr %.0112, i64 28
+  %115 = getelementptr inbounds nuw i8, ptr %.0112, i64 28
   store i32 0, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %.0112, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %.0112, i64 32
   store i32 0, ptr %116, align 4
   br label %117
 
@@ -550,7 +550,7 @@ read_scan_integer.exit.thread:                    ; preds = %117, %103, %95, %87
   br label %142
 
 122:                                              ; preds = %117, %117
-  %123 = getelementptr inbounds i8, ptr %.0112, i64 36
+  %123 = getelementptr inbounds nuw i8, ptr %.0112, i64 36
   %124 = add nuw nsw i32 %.053111, 1
   %125 = call fastcc i32 @read_scan_integer(ptr noundef %6, ptr noundef %4, ptr noundef %3)
   %.not = icmp eq i32 %125, 0
@@ -573,16 +573,16 @@ read_scan_integer.exit.thread:                    ; preds = %117, %103, %95, %87
   br label %142
 
 132:                                              ; preds = %._crit_edge114
-  %133 = getelementptr inbounds i8, ptr %0, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %134, align 8
   %136 = zext nneg i32 %124 to i64
   %137 = mul nuw nsw i64 %136, 36
   %138 = tail call ptr %135(ptr noundef %0, i32 noundef 1, i64 noundef %137) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %138, ptr noundef nonnull align 16 dereferenceable(1) %5, i64 %137, i1 false)
-  %139 = getelementptr inbounds i8, ptr %0, i64 248
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %138, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 240
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %124, ptr %140, align 8
   br label %.thread148
 
@@ -696,7 +696,7 @@ define dso_local range(i32 0, 2) i32 @set_quality_ratings(ptr noundef %0, ptr no
 12:                                               ; preds = %8
   %13 = load i32, ptr %4, align 4
   %14 = call i32 @jpeg_quality_scaling(i32 noundef %13) #9
-  %15 = getelementptr inbounds [4 x i32], ptr @q_scale_factor, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i32], ptr @q_scale_factor, i64 0, i64 %indvars.iv
   store i32 %14, ptr %15, align 4
   br label %16
 
@@ -707,14 +707,14 @@ define dso_local range(i32 0, 2) i32 @set_quality_ratings(ptr noundef %0, ptr no
   br i1 %.not14, label %.critedge, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.1, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.not15 = icmp eq i8 %17, 44
   br i1 %.not15, label %.critedge, label %16, !llvm.loop !13
 
 20:                                               ; preds = %6
   %21 = load i32, ptr %4, align 4
   %22 = call i32 @jpeg_quality_scaling(i32 noundef %21) #9
-  %23 = getelementptr inbounds [4 x i32], ptr @q_scale_factor, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i32], ptr @q_scale_factor, i64 0, i64 %indvars.iv
   store i32 %22, ptr %23, align 4
   br label %.critedge
 
@@ -746,7 +746,7 @@ define dso_local range(i32 0, 2) i32 @set_quant_slots(ptr nocapture noundef read
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %6
 
 6:                                                ; preds = %2, %.critedge
@@ -777,7 +777,7 @@ define dso_local range(i32 0, 2) i32 @set_quant_slots(ptr nocapture noundef read
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.jpeg_component_info, ptr %18, i64 %indvars.iv, i32 4
+  %19 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %18, i64 %indvars.iv, i32 4
   store i32 %13, ptr %19, align 8
   br label %20
 
@@ -788,14 +788,14 @@ define dso_local range(i32 0, 2) i32 @set_quant_slots(ptr nocapture noundef read
   br i1 %.not16, label %.critedge, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %.1, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.not17 = icmp eq i8 %21, 44
   br i1 %.not17, label %.critedge, label %20, !llvm.loop !15
 
 24:                                               ; preds = %6
   %25 = load i32, ptr %3, align 4
   %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.jpeg_component_info, ptr %26, i64 %indvars.iv, i32 4
+  %27 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %26, i64 %indvars.iv, i32 4
   store i32 %25, ptr %27, align 8
   br label %.critedge
 
@@ -816,7 +816,7 @@ define dso_local range(i32 0, 2) i32 @set_sample_factors(ptr nocapture noundef r
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %8
 
 8:                                                ; preds = %2, %.critedge
@@ -858,11 +858,11 @@ define dso_local range(i32 0, 2) i32 @set_sample_factors(ptr nocapture noundef r
 
 27:                                               ; preds = %18
   %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %struct.jpeg_component_info, ptr %28, i64 %indvars.iv, i32 2
+  %29 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %28, i64 %indvars.iv, i32 2
   store i32 %19, ptr %29, align 8
   %30 = load i32, ptr %4, align 4
   %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %struct.jpeg_component_info, ptr %31, i64 %indvars.iv, i32 3
+  %32 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %31, i64 %indvars.iv, i32 3
   store i32 %30, ptr %32, align 4
   br label %33
 
@@ -873,16 +873,16 @@ define dso_local range(i32 0, 2) i32 @set_sample_factors(ptr nocapture noundef r
   br i1 %.not29, label %.critedge, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.1, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.not30 = icmp eq i8 %34, 44
   br i1 %.not30, label %.critedge, label %33, !llvm.loop !17
 
 37:                                               ; preds = %8
   %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct.jpeg_component_info, ptr %38, i64 %indvars.iv, i32 2
+  %39 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %38, i64 %indvars.iv, i32 2
   store i32 1, ptr %39, align 8
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds %struct.jpeg_component_info, ptr %40, i64 %indvars.iv, i32 3
+  %41 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %40, i64 %indvars.iv, i32 3
   store i32 1, ptr %41, align 4
   br label %.critedge
 

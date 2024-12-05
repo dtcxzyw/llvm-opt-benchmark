@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @_ZN17IsSTWGCActiveMarkC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i8 1, ptr %3, align 8
   ret void
 }
@@ -20,7 +20,7 @@ define hidden void @_ZN17IsSTWGCActiveMarkC2Ev(ptr nocapture nonnull readnone al
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @_ZN17IsSTWGCActiveMarkD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i8 0, ptr %3, align 8
   ret void
 }

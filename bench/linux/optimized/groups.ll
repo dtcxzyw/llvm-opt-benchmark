@@ -64,7 +64,7 @@ define dso_local ptr @groups_alloc(i32 noundef %0) #0 align 16 {
 
 9:                                                ; preds = %1
   store volatile i32 1, ptr %7, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %0, ptr %10, align 4
   br label %11
 
@@ -83,11 +83,11 @@ declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @groups_sort(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
-  tail call void @sort(ptr noundef %2, i64 noundef %5, i64 noundef 4, ptr noundef nonnull @gid_cmp, ptr noundef null) #11
+  tail call void @sort(ptr noundef nonnull %2, i64 noundef %5, i64 noundef 4, ptr noundef nonnull @gid_cmp, ptr noundef null) #11
   ret void
 }
 
@@ -108,9 +108,9 @@ define dso_local noundef range(i32 0, 2) i32 @groups_search(ptr noundef readonly
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %12, %4
@@ -141,7 +141,7 @@ define dso_local noundef range(i32 0, 2) i32 @groups_search(ptr noundef readonly
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @set_groups(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 -1, ptr elementtype(i32) %4) #11, !srcloc !9
   %6 = icmp eq i32 %5, 1
@@ -191,9 +191,9 @@ define dso_local i32 @set_current_groups(ptr noundef %0) #0 align 16 {
 4:                                                ; preds = %1
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !14
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 -1, ptr elementtype(i32) %10) #11, !srcloc !9
   %12 = icmp eq i32 %11, 1
@@ -262,9 +262,9 @@ declare dso_local void @abort_creds(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_getgroups(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %3 to i32
   %7 = inttoptr i64 %5 to ptr
@@ -274,11 +274,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_getgroups(ptr
 
 10:                                               ; preds = %1
   %11 = inttoptr i64 %8 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 1784
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1784
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 160
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %6, 0
   br i1 %18, label %.loopexit, label %19
@@ -288,7 +288,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_getgroups(ptr
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %15, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %23 = icmp eq i32 %17, 0
   br i1 %23, label %.loopexit, label %.preheader
 
@@ -328,9 +328,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_getgroups(ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_getgroups(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 4294967295
   %7 = trunc i64 %3 to i32
@@ -341,11 +341,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_getgroups(pt
 
 11:                                               ; preds = %1
   %12 = inttoptr i64 %9 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 1784
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1784
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 160
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %7, 0
   br i1 %19, label %.loopexit, label %20
@@ -355,7 +355,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_getgroups(pt
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = icmp eq i32 %18, 0
   br i1 %24, label %.loopexit, label %.preheader
 
@@ -404,9 +404,9 @@ declare dso_local zeroext i1 @ns_capable_setid(ptr noundef, i32 noundef) local_u
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_setgroups(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
   %6 = tail call fastcc i64 @__se_sys_setgroups(i64 noundef %3, i64 noundef %5), !range !17
   ret i64 %6
@@ -433,13 +433,13 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_setgroup
 
 14:                                               ; preds = %8
   store volatile i32 1, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %12, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %3, ptr %15, align 4
   %16 = icmp eq i32 %3, 0
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %23
 
 19:                                               ; preds = %35
@@ -494,8 +494,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_setgroup
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14
   %45 = phi i64 [ %44, %.loopexit.loopexit ], [ 0, %14 ]
-  %46 = getelementptr inbounds i8, ptr %12, i64 8
-  tail call void @sort(ptr noundef %46, i64 noundef %45, i64 noundef 4, ptr noundef nonnull @gid_cmp, ptr noundef null) #11
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  tail call void @sort(ptr noundef nonnull %46, i64 noundef %45, i64 noundef 4, ptr noundef nonnull @gid_cmp, ptr noundef null) #11
   %47 = tail call ptr @prepare_creds() #11
   %48 = icmp eq ptr %47, null
   br i1 %48, label %76, label %49
@@ -503,9 +503,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_setgroup
 49:                                               ; preds = %.loopexit
   %50 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !14
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds i8, ptr %51, i64 1784
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1784
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %47, i64 160
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 160
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %55, i32 -1, ptr elementtype(i32) %55) #11, !srcloc !9
   %57 = icmp eq i32 %56, 1
@@ -585,10 +585,10 @@ set_groups.exit:                                  ; preds = %65, %69
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_setgroups(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
   %8 = tail call fastcc i64 @__se_sys_setgroups(i64 noundef %4, i64 noundef %7), !range !17
@@ -599,23 +599,23 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_setgroups(pt
 define dso_local noundef range(i32 0, 2) i32 @in_group_p(i32 %0) #4 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !14
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %17
 
 17:                                               ; preds = %21, %13
@@ -648,23 +648,23 @@ define dso_local noundef range(i32 0, 2) i32 @in_group_p(i32 %0) #4 align 16 {
 define dso_local noundef range(i32 0, 2) i32 @in_egroup_p(i32 %0) #4 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !14
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %17
 
 17:                                               ; preds = %21, %13

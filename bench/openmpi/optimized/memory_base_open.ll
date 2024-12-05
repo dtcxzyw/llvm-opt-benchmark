@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @opal_memory_base_malloc_init_hook() local_unnamed_addr #0 {
   %1 = load ptr, ptr @opal_memory, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 272
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -46,9 +46,9 @@ define internal i32 @opal_memory_base_open(i32 noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %12
   %.01931 = phi ptr [ %.019, %12 ], [ %.01928, %1 ]
   %.030 = phi i32 [ %.1, %12 ], [ 0, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.01931, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %.01931, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 264
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 %6(ptr noundef nonnull %2) #4
   %.not27 = icmp eq i32 %7, 0
@@ -65,14 +65,14 @@ define internal i32 @opal_memory_base_open(i32 noundef %0) #0 {
 
 12:                                               ; preds = %.lr.ph, %8, %11
   %.1 = phi i32 [ %.030, %.lr.ph ], [ %.030, %8 ], [ %9, %11 ]
-  %13 = getelementptr inbounds i8, ptr %.01931, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.01931, i64 16
   %.019 = load volatile ptr, ptr %13, align 8
   %.not = icmp eq ptr %.019, getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %12, %1
   %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 112), align 8
-  %.018.in32 = getelementptr inbounds i8, ptr %14, i64 16
+  %.018.in32 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.01833 = load volatile ptr, ptr %.018.in32, align 8
   %.not2434 = icmp eq ptr %14, getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 96)
   br i1 %.not2434, label %._crit_edge40, label %.lr.ph39.preheader
@@ -86,7 +86,7 @@ define internal i32 @opal_memory_base_open(i32 noundef %0) #0 {
   %.01837 = phi ptr [ %.018, %30 ], [ %.01833, %.lr.ph39.preheader ]
   %.018.in36 = phi ptr [ %.018.in, %30 ], [ %.018.in32, %.lr.ph39.preheader ]
   %.12035 = phi ptr [ %.01837, %30 ], [ %14, %.lr.ph39.preheader ]
-  %16 = getelementptr inbounds i8, ptr %.12035, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.12035, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not26 = icmp eq ptr %15, %17
   br i1 %.not26, label %30, label %18
@@ -95,13 +95,13 @@ define internal i32 @opal_memory_base_open(i32 noundef %0) #0 {
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 76), align 4
   call void @mca_base_component_unload(ptr noundef %17, i32 noundef %19) #4
   %20 = load volatile ptr, ptr %.018.in36, align 8
-  %21 = getelementptr inbounds i8, ptr %.12035, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.12035, i64 24
   %22 = load volatile ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store volatile ptr %20, ptr %23, align 8
   %24 = load volatile ptr, ptr %21, align 8
   %25 = load volatile ptr, ptr %.018.in36, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store volatile ptr %24, ptr %26, align 8
   %27 = load volatile i64, ptr getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 136), align 8
   %28 = add i64 %27, -1
@@ -112,7 +112,7 @@ define internal i32 @opal_memory_base_open(i32 noundef %0) #0 {
 
 30:                                               ; preds = %.lr.ph39, %18
   %31 = phi ptr [ %15, %.lr.ph39 ], [ %.pre, %18 ]
-  %.018.in = getelementptr inbounds i8, ptr %.01837, i64 16
+  %.018.in = getelementptr inbounds nuw i8, ptr %.01837, i64 16
   %.018 = load volatile ptr, ptr %.018.in, align 8
   %.not24 = icmp eq ptr %.01837, getelementptr inbounds (i8, ptr @opal_memory_base_framework, i64 96)
   br i1 %.not24, label %._crit_edge40, label %.lr.ph39, !llvm.loop !6

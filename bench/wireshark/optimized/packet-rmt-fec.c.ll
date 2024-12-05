@@ -266,7 +266,7 @@ define internal range(i32 0, 9) i32 @dissect_fec(ptr noundef %0, ptr noundef %1,
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
   %29 = load i32, ptr @hf_esi, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %29, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #2
   %34 = zext i16 %33 to i32
@@ -282,7 +282,7 @@ define internal range(i32 0, 9) i32 @dissect_fec(ptr noundef %0, ptr noundef %1,
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
   %41 = load i32, ptr @hf_esi, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %41, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #2
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %45) #2
@@ -296,7 +296,7 @@ define internal range(i32 0, 9) i32 @dissect_fec(ptr noundef %0, ptr noundef %1,
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
   %51 = load i32, ptr @hf_esi_with_mask, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   %56 = lshr i32 %55, 20
@@ -312,7 +312,7 @@ define internal range(i32 0, 9) i32 @dissect_fec(ptr noundef %0, ptr noundef %1,
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %61, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
   %63 = load i32, ptr @hf_esi, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %63, ptr noundef %0, i32 noundef 1, i32 noundef 3, i32 noundef 0) #2
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %68 = zext i8 %67 to i32
@@ -329,7 +329,7 @@ define internal range(i32 0, 9) i32 @dissect_fec(ptr noundef %0, ptr noundef %1,
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %74, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #2
   %76 = load i32, ptr @hf_esi, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %76, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #2
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %80) #2

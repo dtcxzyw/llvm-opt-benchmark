@@ -32,13 +32,13 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Rwt_Man4ExploreStart() local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   store i32 65536, ptr %calloc, align 8
-  %1 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   tail call void @Extra_Truth4VarNPN(ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null) #17
   %2 = load i32, ptr %calloc, align 8
   %3 = sext i32 %2 to i64
   %4 = shl nsw i64 %3, 2
   %calloc8 = tail call ptr @calloc(i64 1, i64 %4)
-  %5 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store ptr %calloc8, ptr %5, align 8
   store ptr %calloc, ptr @s_pManRwrExp4, align 8
   ret void
@@ -52,15 +52,15 @@ declare void @Extra_Truth4VarNPN(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @Rwt_Man4ExploreCount(i32 noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr @s_pManRwrExp4, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %0 to i64
-  %8 = getelementptr inbounds i16, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw i16, ptr %6, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -76,7 +76,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre = load ptr, ptr %5, align 8
   %6 = zext nneg i32 %3 to i64
   br label %7
@@ -86,7 +86,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   %.046 = phi i32 [ 0, %.lr.ph ], [ %.1, %7 ]
   %.02445 = phi i32 [ 0, %.lr.ph ], [ %10, %7 ]
   %.02744 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %7 ]
-  %8 = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.02744, i32 %9)
   %10 = add nsw i32 %9, %.02445
@@ -116,14 +116,14 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   br i1 %23, label %.lr.ph51, label %._crit_edge52
 
 .lr.ph51:                                         ; preds = %._crit_edge
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.pre73 = load ptr, ptr %24, align 8
   %25 = zext nneg i32 %22 to i64
   br label %26
 
 26:                                               ; preds = %.lr.ph51, %26
   %indvars.iv67 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next68, %26 ]
-  %27 = getelementptr inbounds i32, ptr %.pre73, i64 %indvars.iv67
+  %27 = getelementptr inbounds nuw i32, ptr %.pre73, i64 %indvars.iv67
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %calloc, i64 %29
@@ -145,7 +145,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
 
 .lr.ph56:                                         ; preds = %._crit_edge52, %45
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %45 ], [ 1, %._crit_edge52 ]
-  %38 = getelementptr inbounds i32, ptr %calloc, i64 %indvars.iv70
+  %38 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv70
   %39 = load i32, ptr %38, align 4
   %.not42 = icmp eq i32 %39, 0
   br i1 %.not42, label %45, label %40
@@ -154,7 +154,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   %41 = trunc nuw nsw i64 %indvars.iv70 to i32
   %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %41, i32 noundef %39)
   %43 = load ptr, ptr @stdout, align 8
-  %44 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv70
+  %44 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv70
   tail call void @Extra_PrintBinary(ptr noundef %43, ptr noundef nonnull %44, i32 noundef 16) #17
   %putchar = tail call i32 @putchar(i32 10)
   br label %45
@@ -192,7 +192,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   %53 = phi ptr [ %71, %70 ], [ %50, %48 ]
   %.02560 = phi i32 [ %.126, %70 ], [ 0, %48 ]
   %storemerge4159 = phi i32 [ %73, %70 ], [ 0, %48 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = sext i32 %storemerge4159 to i64
   %57 = getelementptr inbounds i32, ptr %55, i64 %56
@@ -203,7 +203,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
 60:                                               ; preds = %.lr.ph62
   call void @Extra_PrintHex(ptr noundef %49, ptr noundef nonnull %1, i32 noundef 4) #17
   %61 = load ptr, ptr @s_pManRwrExp4, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = load i32, ptr %1, align 4
   %65 = sext i32 %64 to i64
@@ -257,7 +257,7 @@ define void @Rwt_Man5ExploreStart() local_unnamed_addr #0 {
   %1 = tail call ptr @stmm_init_table(ptr noundef nonnull @st__numcmp, ptr noundef nonnull @st__numhash) #17
   store ptr %1, ptr @s_pManRwrExp5.body, align 8
   %2 = tail call ptr @stmm_init_table(ptr noundef nonnull @st__numcmp, ptr noundef nonnull @st__numhash) #17
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
   ret void
 }
 
@@ -316,7 +316,7 @@ Abc_Clock.exit:
   call void @stmm_free_gen(ptr noundef %8) #17
   %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.072.lcssa)
   %11 = load ptr, ptr @s_pManRwrExp5.body, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %13)
   %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.073.lcssa)
@@ -362,7 +362,7 @@ Abc_Clock.exit:
 
 .lr.ph:                                           ; preds = %._crit_edge118, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 1, %._crit_edge118 ]
-  %34 = getelementptr inbounds i32, ptr %calloc, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %.not86 = icmp eq i32 %35, 0
   br i1 %.not86, label %41, label %36
@@ -371,7 +371,7 @@ Abc_Clock.exit:
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %37, i32 noundef %35)
   %39 = load ptr, ptr @stdout, align 8
-  %40 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   call void @Extra_PrintBinary(ptr noundef %39, ptr noundef nonnull %40, i32 noundef 32) #17
   %putchar = call i32 @putchar(i32 10)
   br label %41
@@ -399,13 +399,13 @@ Abc_Clock.exit:
 
 44:                                               ; preds = %42, %43
   %45 = load ptr, ptr @s_pManRwrExp5.body, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %47 = load i32, ptr %46, align 4
   %48 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %49 = add i32 %47, -1
   %or.cond.i = icmp ult i32 %49, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %47
-  %50 = getelementptr inbounds i8, ptr %48, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 0, ptr %50, align 4
   store i32 %spec.store.select.i, ptr %48, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -419,7 +419,7 @@ Abc_Clock.exit:
 
 Vec_IntAlloc.exit:                                ; preds = %44, %51
   %55 = phi ptr [ %54, %51 ], [ null, %44 ]
-  %56 = getelementptr inbounds i8, ptr %48, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %55, ptr %56, align 8
   %57 = call ptr @stmm_init_gen(ptr noundef nonnull %45) #17
   %58 = call i32 @stmm_gen(ptr noundef %57, ptr noundef nonnull %4, ptr noundef null) #17
@@ -509,7 +509,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph127:                                        ; preds = %.lr.ph127.preheader, %.lr.ph127
   %indvars.iv136 = phi i64 [ 0, %.lr.ph127.preheader ], [ %indvars.iv.next137, %.lr.ph127 ]
-  %91 = getelementptr inbounds i32, ptr %.val87, i64 %indvars.iv136
+  %91 = getelementptr inbounds nuw i32, ptr %.val87, i64 %indvars.iv136
   %92 = load i32, ptr %91, align 4
   store i32 %92, ptr %4, align 4
   %93 = load ptr, ptr @s_pManRwrExp5.body, align 8
@@ -534,7 +534,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 103:                                              ; preds = %.critedge6
   %104 = load i64, ptr %1, align 8
   %.neg111 = mul i64 %104, -1000000
-  %105 = getelementptr inbounds i8, ptr %1, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %106 = load i64, ptr %105, align 8
   %.neg = sdiv i64 %106, -1000
   %.neg112 = add i64 %.neg, %.neg111
@@ -551,11 +551,11 @@ Abc_Clock.exit97:                                 ; preds = %.critedge6, %103
 
 .lr.ph129:                                        ; preds = %.lr.ph129.preheader, %116
   %indvars.iv141 = phi i64 [ 0, %.lr.ph129.preheader ], [ %indvars.iv.next142, %116 ]
-  %107 = getelementptr inbounds i32, ptr %.val87, i64 %indvars.iv141
+  %107 = getelementptr inbounds nuw i32, ptr %.val87, i64 %indvars.iv141
   %108 = load i32, ptr %107, align 4
   store i32 %108, ptr %4, align 4
   %109 = call i32 @Extra_TruthCanonNPN(i32 noundef %108, i32 noundef 5) #17
-  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
   %111 = zext i32 %109 to i64
   %112 = inttoptr i64 %111 to ptr
   %113 = call i32 @stmm_find_or_add(ptr noundef %110, ptr noundef %112, ptr noundef nonnull %5) #17
@@ -583,8 +583,8 @@ Abc_Clock.exit97:                                 ; preds = %.critedge6, %103
   br i1 %exitcond145.not, label %.critedge8, label %.lr.ph129, !llvm.loop !14
 
 .critedge8:                                       ; preds = %116, %Abc_Clock.exit97
-  %126 = load ptr, ptr getelementptr inbounds (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 20
+  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 20
   %128 = load i32, ptr %127, align 4
   %129 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %128)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15)
@@ -596,7 +596,7 @@ Abc_Clock.exit97:                                 ; preds = %.critedge6, %103
 132:                                              ; preds = %.critedge8
   %133 = load i64, ptr %0, align 8
   %134 = mul nsw i64 %133, 1000000
-  %135 = getelementptr inbounds i8, ptr %0, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %136 = load i64, ptr %135, align 8
   %137 = sdiv i64 %136, 1000
   %138 = add nsw i64 %137, %134
@@ -609,14 +609,14 @@ Abc_Clock.exit99:                                 ; preds = %.critedge8, %132
   %140 = sitofp i64 %139 to double
   %141 = fdiv double %140, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.16, double noundef %141)
-  %142 = load ptr, ptr getelementptr inbounds (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 20
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 20
   %144 = load i32, ptr %143, align 4
   %145 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %146 = add i32 %144, -1
   %or.cond.i100 = icmp ult i32 %146, 15
   %spec.store.select.i101 = select i1 %or.cond.i100, i32 16, i32 %144
-  %147 = getelementptr inbounds i8, ptr %145, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 4
   store i32 0, ptr %147, align 4
   store i32 %spec.store.select.i101, ptr %145, align 8
   %.not.i102 = icmp eq i32 %spec.store.select.i101, 0
@@ -630,7 +630,7 @@ Abc_Clock.exit99:                                 ; preds = %.critedge8, %132
 
 Vec_IntAlloc.exit103:                             ; preds = %Abc_Clock.exit99, %148
   %152 = phi ptr [ %151, %148 ], [ null, %Abc_Clock.exit99 ]
-  %153 = getelementptr inbounds i8, ptr %145, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store ptr %152, ptr %153, align 8
   %154 = call ptr @stmm_init_gen(ptr noundef nonnull %142) #17
   %155 = call i32 @stmm_gen(ptr noundef %154, ptr noundef nonnull %4, ptr noundef null) #17
@@ -720,10 +720,10 @@ Vec_IntPush.exit110:                              ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph134:                                        ; preds = %.lr.ph134.preheader, %.lr.ph134
   %indvars.iv146 = phi i64 [ 0, %.lr.ph134.preheader ], [ %indvars.iv.next147, %.lr.ph134 ]
-  %188 = getelementptr inbounds i32, ptr %.val89, i64 %indvars.iv146
+  %188 = getelementptr inbounds nuw i32, ptr %.val89, i64 %indvars.iv146
   %189 = load i32, ptr %188, align 4
   store i32 %189, ptr %4, align 4
-  %190 = load ptr, ptr getelementptr inbounds (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
+  %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @s_pManRwrExp5.body, i64 8), align 8
   %191 = zext i32 %189 to i64
   %192 = inttoptr i64 %191 to ptr
   %193 = call i32 @stmm_lookup(ptr noundef %190, ptr noundef %192, ptr noundef nonnull %3) #17

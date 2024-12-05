@@ -87,7 +87,7 @@ $_ZTV17LogStreamImplBase = comdat any
 define hidden void @_ZN8AgeTableC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((0, 129)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.ExceptionMark, align 8
   %4 = alloca [10 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load i8, ptr @UsePerfData, align 1
   %7 = trunc i8 %6 to i1
   %8 = and i1 %1, %7
@@ -99,21 +99,21 @@ define hidden void @_ZN8AgeTableC2Eb(ptr nocapture noundef nonnull writeonly ali
 10:                                               ; preds = %2
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 800
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 800
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load i64, ptr %21, align 8
   call void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   %23 = load ptr, ptr %3, align 8
   %24 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #11
-  %25 = getelementptr inbounds i8, ptr %0, i64 136
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   br label %28
 
 27:                                               ; preds = %28
@@ -127,7 +127,7 @@ define hidden void @_ZN8AgeTableC2Eb(ptr nocapture noundef nonnull writeonly ali
   %30 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %29) #11
   %31 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %24, ptr noundef nonnull %4) #11
   %32 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %31, i32 noundef 2, i64 noundef 0, ptr noundef %23) #11
-  %33 = getelementptr inbounds [16 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x ptr], ptr %25, i64 0, i64 %indvars.iv
   store ptr %32, ptr %33, align 8
   %34 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %34, null
@@ -185,9 +185,9 @@ define hidden void @_ZN8AgeTable5mergeEPKS_(ptr nocapture noundef nonnull align 
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds [16 x i64], ptr %1, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i64], ptr %1, i64 0, i64 %indvars.iv
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds [16 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %5
   store i64 %8, ptr %6, align 8
@@ -217,7 +217,7 @@ define hidden noundef i32 @_ZN8AgeTable26compute_tenuring_thresholdEm(ptr nocapt
 .preheader:                                       ; preds = %5, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 1, %5 ]
   %.01114 = phi i64 [ %12, %14 ], [ 0, %5 ]
-  %10 = getelementptr inbounds [16 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %.01114
   %13 = icmp ugt i64 %12, %1
@@ -241,7 +241,7 @@ define hidden noundef i32 @_ZN8AgeTable26compute_tenuring_thresholdEm(ptr nocapt
 18:                                               ; preds = %.split.loop.exit17, %8
   %19 = phi i32 [ %9, %8 ], [ %16, %.split.loop.exit17 ]
   %.012 = phi i32 [ %9, %8 ], [ %17, %.split.loop.exit17 ]
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %24, label %21
 
@@ -267,12 +267,12 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8AgeTable15print_age_tableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.LogStream, align 8
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %10
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %10, label %8
@@ -284,22 +284,22 @@ define hidden void @_ZN8AgeTable15print_age_tableEv(ptr nocapture noundef nonnul
 10:                                               ; preds = %8, %4, %1
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %11) #11
-  %12 = getelementptr inbounds i8, ptr %2, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 1, ptr %12, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 152
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.8) #11
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
-  %14 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %15
 
 15:                                               ; preds = %31, %10
   %indvars.iv.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i, %31 ]
   %.018.i = phi i64 [ 0, %10 ], [ %18, %31 ]
-  %16 = getelementptr inbounds [16 x i64], ptr %0, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %indvars.iv.i
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %.018.i
   %.not.i = icmp eq i64 %17, 0
@@ -325,9 +325,9 @@ define hidden void @_ZN8AgeTable15print_age_tableEv(ptr nocapture noundef nonnul
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds [16 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [16 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8
   store i64 %.pre-phi.i, ptr %30, align 8
   br label %31
@@ -350,14 +350,14 @@ declare noundef zeroext i1 @_ZN14AgeTableTracer38is_tenuring_distribution_event_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8AgeTable8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %5
 
 5:                                                ; preds = %2, %21
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %21 ]
   %.018 = phi i64 [ 0, %2 ], [ %8, %21 ]
-  %6 = getelementptr inbounds [16 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %.018
   %.not = icmp eq i64 %7, 0
@@ -383,9 +383,9 @@ define hidden void @_ZN8AgeTable8print_onEP12outputStream(ptr nocapture noundef 
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   store i64 %.pre-phi, ptr %20, align 8
   br label %21
@@ -568,7 +568,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #11
   ret void
 }

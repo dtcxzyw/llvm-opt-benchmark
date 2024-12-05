@@ -37,7 +37,7 @@ define dso_local noundef ptr @intel_nested_domain_alloc(ptr noundef %0, ptr noun
   br i1 %6, label %7, label %58
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @intel_iommu_ops, i64 136), align 8
   %11 = icmp eq ptr %9, %10
@@ -61,14 +61,14 @@ define dso_local noundef ptr @intel_nested_domain_alloc(ptr noundef %0, ptr noun
   br label %29
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 24
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !9
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %26, i64 noundef 24) #7
   %28 = icmp eq i64 %27, 0
@@ -86,43 +86,43 @@ define dso_local noundef ptr @intel_nested_domain_alloc(ptr noundef %0, ptr noun
   br i1 %34, label %58, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %33, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %37 = load i8, ptr %36, align 8
   %38 = or i8 %37, 16
   store i8 %38, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %33, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 72
   store ptr %4, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %33, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 80
   store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %33, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %44 = getelementptr inbounds i8, ptr %33, i64 128
-  %45 = getelementptr inbounds i8, ptr %33, i64 136
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %33, i64 136
   store ptr @intel_nested_domain_ops, ptr %45, align 8
   store i32 64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %33, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store volatile ptr %46, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %33, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store volatile ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %33, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %33, i64 48
   store volatile ptr %48, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %33, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %33, i64 56
   store volatile ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %33, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 28
   store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %33, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
+  %51 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   %52 = getelementptr i8, ptr %0, i64 -32
   call void @_raw_spin_lock(ptr noundef %52) #7
-  %53 = getelementptr inbounds i8, ptr %33, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %33, i64 112
   %54 = getelementptr i8, ptr %0, i64 -24
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %53, ptr %56, align 8
   store ptr %55, ptr %53, align 8
-  %57 = getelementptr inbounds i8, ptr %33, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %33, i64 120
   store ptr %54, ptr %57, align 8
   store volatile ptr %53, ptr %54, align 8
   call void @_raw_spin_unlock(ptr noundef %52) #7
@@ -154,22 +154,22 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_nested_attach_dev(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 704
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = load ptr, ptr %7, align 8
   br label %9
 
 9:                                                ; preds = %6, %2
   %10 = phi ptr [ %8, %6 ], [ null, %2 ]
   %11 = getelementptr i8, ptr %0, i64 -128
-  %12 = getelementptr inbounds i8, ptr %10, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %18, label %17
@@ -179,11 +179,11 @@ define internal i32 @intel_nested_attach_dev(ptr noundef %0, ptr noundef %1) #0 
   br label %18
 
 18:                                               ; preds = %17, %9
-  %19 = getelementptr inbounds i8, ptr %13, i64 92
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 92
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr i8, ptr %0, i64 -56
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 84
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 84
   %24 = load i32, ptr %23, align 4
   %25 = icmp slt i32 %20, %24
   br i1 %25, label %26, label %30
@@ -198,8 +198,8 @@ define internal i32 @intel_nested_attach_dev(ptr noundef %0, ptr noundef %1) #0 
   br label %59
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %22, i64 128
-  %32 = tail call i32 @prepare_domain_attach_device(ptr noundef %31, ptr noundef %1) #7
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 128
+  %32 = tail call i32 @prepare_domain_attach_device(ptr noundef nonnull %31, ptr noundef %1) #7
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %38, label %34
 
@@ -247,10 +247,10 @@ define internal i32 @intel_nested_attach_dev(ptr noundef %0, ptr noundef %1) #0 
   %54 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %53) #7
   %55 = getelementptr i8, ptr %0, i64 -96
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %10, ptr %57, align 8
   store ptr %56, ptr %10, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %55, ptr %58, align 8
   store volatile ptr %10, ptr %55, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %53, i64 noundef %54) #7
@@ -272,7 +272,7 @@ define internal range(i32 -95, 1) i32 @intel_nested_cache_invalidate_user(ptr no
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.thread, label %11
@@ -280,11 +280,11 @@ define internal range(i32 -95, 1) i32 @intel_nested_cache_invalidate_user(ptr no
 11:                                               ; preds = %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !9
   %12 = icmp eq ptr %1, null
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
-  %16 = getelementptr inbounds i8, ptr %4, i64 20
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = getelementptr i8, ptr %0, i64 -120
   %19 = getelementptr i8, ptr %0, i64 -104
   %20 = getelementptr i8, ptr %0, i64 -100
@@ -346,11 +346,11 @@ define internal range(i32 -95, 1) i32 @intel_nested_cache_invalidate_user(ptr no
 .preheader:                                       ; preds = %49, %.preheader
   %53 = phi ptr [ %61, %.preheader ], [ %51, %49 ]
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 88
   %56 = load i32, ptr %55, align 8
   %57 = sext i32 %56 to i64
   %58 = call ptr @xa_load(ptr noundef %18, i64 noundef %57) #7
-  %59 = getelementptr inbounds i8, ptr %58, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %60 = load i16, ptr %59, align 4
   call void @qi_flush_piotlb(ptr noundef %54, i16 noundef zeroext %60, i32 noundef 0, i64 noundef %41, i64 noundef %45, i1 noundef zeroext %50) #7
   %61 = call ptr @xa_find_after(ptr noundef %18, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #7
@@ -388,27 +388,27 @@ define internal range(i32 -95, 1) i32 @intel_nested_cache_invalidate_user(ptr no
 
 81:                                               ; preds = %103, %79
   %82 = phi ptr [ %77, %79 ], [ %104, %103 ]
-  %83 = getelementptr inbounds i8, ptr %82, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load i16, ptr %83, align 8
   %85 = and i16 %84, 128
   %86 = icmp eq i16 %85, 0
   br i1 %86, label %103, label %87
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %82, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 20
   %89 = load i8, ptr %88, align 4
   %90 = zext i8 %89 to i16
   %91 = shl nuw i16 %90, 8
-  %92 = getelementptr inbounds i8, ptr %82, i64 21
+  %92 = getelementptr inbounds nuw i8, ptr %82, i64 21
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i16
   %95 = or disjoint i16 %91, %94
-  %96 = getelementptr inbounds i8, ptr %82, i64 26
+  %96 = getelementptr inbounds nuw i8, ptr %82, i64 26
   %97 = load i8, ptr %96, align 2
   %98 = zext i8 %97 to i16
-  %99 = getelementptr inbounds i8, ptr %82, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %82, i64 22
+  %101 = getelementptr inbounds nuw i8, ptr %82, i64 22
   %102 = load i16, ptr %101, align 2
   call void @qi_flush_dev_iotlb(ptr noundef %100, i16 noundef zeroext %95, i16 noundef zeroext %102, i16 noundef zeroext %98, i64 noundef %41, i32 noundef %75) #7
   call void @quirk_extra_dev_tlb_flush(ptr noundef %82, i64 noundef %41, i64 noundef %80, i32 noundef 0, i16 noundef zeroext %98) #7
@@ -440,7 +440,7 @@ define internal range(i32 -95, 1) i32 @intel_nested_cache_invalidate_user(ptr no
 .thread:                                          ; preds = %.split14.us, %.thread.loopexit, %7, %2
   %112 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 0, %.split14.us ], [ %111, %.thread.loopexit ]
   %113 = phi i32 [ -22, %2 ], [ 0, %7 ], [ -22, %.split14.us ], [ %.ph15, %.thread.loopexit ]
-  %114 = getelementptr inbounds i8, ptr %1, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %112, ptr %114, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
   ret i32 %113
@@ -451,18 +451,18 @@ define internal void @intel_nested_domain_free(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -128
   %3 = getelementptr i8, ptr %0, i64 -56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
-  tail call void @_raw_spin_lock(ptr noundef %5) #7
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  tail call void @_raw_spin_lock(ptr noundef nonnull %5) #7
   %6 = getelementptr i8, ptr %0, i64 -16
   %7 = getelementptr i8, ptr %0, i64 -8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %8, ptr %10, align 8
   store volatile ptr %9, ptr %8, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %7, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %5) #7
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %5) #7
   tail call void @kfree(ptr noundef %2) #7
   ret void
 }

@@ -39,15 +39,15 @@ $_ZTIN3zmq13i_poll_eventsE = comdat any
 define void @_ZN3zmq11io_thread_tC2EPNS_5ctx_tEj(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %ctx_, i32 noundef %tid_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3zmq8object_tC2EPNS_5ctx_tEj(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %ctx_, i32 noundef %tid_)
-  %0 = getelementptr inbounds i8, ptr %this, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq11io_thread_tE, i64 16), ptr %this, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq11io_thread_tE, i64 240), ptr %0, align 8
-  %_mailbox = getelementptr inbounds i8, ptr %this, i64 32
+  %_mailbox = getelementptr inbounds nuw i8, ptr %this, i64 32
   invoke void @_ZN3zmq9mailbox_tC1Ev(ptr noundef nonnull align 8 dereferenceable(176) %_mailbox)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_mailbox_handle = getelementptr inbounds i8, ptr %this, i64 208
+  %_mailbox_handle = getelementptr inbounds nuw i8, ptr %this, i64 208
   store ptr null, ptr %_mailbox_handle, align 8
   %call = tail call noalias noundef dereferenceable_or_null(224) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 224, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #14
   %new.isnull = icmp eq ptr %call, null
@@ -58,12 +58,12 @@ new.notnull:                                      ; preds = %invoke.cont
           to label %new.cont unwind label %lpad2
 
 new.cont:                                         ; preds = %new.notnull
-  %_poller = getelementptr inbounds i8, ptr %this, i64 216
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 216
   store ptr %call, ptr %_poller, align 8
   br label %do.end
 
 if.then:                                          ; preds = %invoke.cont
-  %_poller4 = getelementptr inbounds i8, ptr %this, i64 216
+  %_poller4 = getelementptr inbounds nuw i8, ptr %this, i64 216
   store ptr null, ptr %_poller4, align 8
   %1 = load ptr, ptr @stderr, align 8
   %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 17) #15
@@ -163,7 +163,7 @@ declare void @_ZN3zmq8object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq11io_thread_tD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #6 align 2 {
 entry:
-  %_poller = getelementptr inbounds i8, ptr %this, i64 216
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %_poller, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -175,7 +175,7 @@ delete.notnull:                                   ; preds = %entry
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %_poller, align 8
-  %_mailbox = getelementptr inbounds i8, ptr %this, i64 32
+  %_mailbox = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN3zmq9mailbox_tD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %_mailbox) #17
   tail call void @_ZN3zmq8object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #17
   ret void
@@ -220,7 +220,7 @@ entry:
   %call = tail call noundef i32 @_ZNK3zmq8object_t7get_tidEv(ptr noundef nonnull align 8 dereferenceable(20) %this)
   %sub2 = add i32 %call, -2
   %call3 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %sub2) #17
-  %_poller = getelementptr inbounds i8, ptr %this, i64 216
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %_poller, align 8
   call void @_ZN3zmq20worker_poller_base_t5startEPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %name)
   ret void
@@ -248,14 +248,14 @@ declare void @_ZN3zmq8object_t9send_stopEv(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZN3zmq11io_thread_t11get_mailboxEv(ptr noundef nonnull readnone align 8 dereferenceable(224) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %_mailbox = getelementptr inbounds i8, ptr %this, i64 32
+  %_mailbox = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %_mailbox
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK3zmq11io_thread_t8get_loadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds i8, ptr %this, i64 216
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %_poller, align 8
   %call = tail call noundef i32 @_ZNK3zmq13poller_base_t8get_loadEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   ret i32 %call
@@ -267,7 +267,7 @@ declare noundef i32 @_ZNK3zmq13poller_base_t8get_loadEv(ptr noundef nonnull alig
 define void @_ZN3zmq11io_thread_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
-  %_mailbox = getelementptr inbounds i8, ptr %this, i64 32
+  %_mailbox = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -361,7 +361,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK3zmq11io_thread_t10get_pollerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds i8, ptr %this, i64 216
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %_poller, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %do.end
@@ -383,7 +383,7 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_thread_t12process_stopEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 {
 entry:
-  %_mailbox_handle = getelementptr inbounds i8, ptr %this, i64 208
+  %_mailbox_handle = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %_mailbox_handle, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %do.end
@@ -399,7 +399,7 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry, %if.then
   %3 = phi ptr [ %0, %entry ], [ %.pre, %if.then ]
-  %_poller = getelementptr inbounds i8, ptr %this, i64 216
+  %_poller = getelementptr inbounds nuw i8, ptr %this, i64 216
   %4 = load ptr, ptr %_poller, align 8
   tail call void @_ZN3zmq7epoll_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef %3)
   %5 = load ptr, ptr %_poller, align 8

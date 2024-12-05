@@ -1634,7 +1634,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @afp_hash(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i32
   ret i32 %4
@@ -1648,9 +1648,9 @@ define internal range(i32 0, 2) i32 @afp_equal(ptr nocapture noundef readonly %0
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i16, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i16, ptr %9, align 4
   %11 = icmp eq i16 %8, %10
   br i1 %11, label %13, label %12
@@ -1674,18 +1674,18 @@ define internal i32 @dissect_afp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 8:                                                ; preds = %4
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.817) #7
   %12 = load ptr, ptr %10, align 8
   tail call void @col_clear(ptr noundef %12, i32 noundef 25) #7
   %13 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #7
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %17 = load i16, ptr %16, align 2
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 %17, ptr %18, align 4
   %19 = load ptr, ptr @afp_request_hash, align 8
   %20 = call ptr @wmem_map_lookup(ptr noundef %19, ptr noundef nonnull %5) #7
@@ -1715,16 +1715,16 @@ define internal i32 @dissect_afp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 33:                                               ; preds = %23, %31
   %.sink = phi i32 [ %32, %31 ], [ -1, %23 ]
-  %34 = getelementptr inbounds i8, ptr %29, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i32 %.sink, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %29, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %29, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %29, i64 16
-  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
   %41 = load ptr, ptr @afp_request_hash, align 8
   %42 = call ptr @wmem_map_insert(ptr noundef %41, ptr noundef nonnull %26, ptr noundef nonnull %29) #7
@@ -1750,7 +1750,7 @@ define internal i32 @dissect_afp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not443, label %60, label %53
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %3, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %55 = load i32, ptr %54, align 4
   %.not444 = icmp eq i32 %55, 0
   br i1 %.not444, label %60, label %56
@@ -1785,7 +1785,7 @@ define internal i32 @dissect_afp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %.sink.split
 
 73:                                               ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %.0432.ph, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.0432.ph, i64 8
   %75 = load i32, ptr %74, align 8
   %.not447 = icmp eq i32 %75, 0
   br i1 %.not447, label %proto_item_set_generated.exit, label %76
@@ -1797,13 +1797,13 @@ define internal i32 @dissect_afp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i, label %proto_item_set_generated.exit, label %79
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %78, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %81 = load ptr, ptr %80, align 8
   %.not5.i = icmp eq ptr %81, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %81, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 28
   %84 = load i32, ptr %83, align 4
   %85 = or i32 %84, 2
   store i32 %85, ptr %83, align 4
@@ -2103,7 +2103,7 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %73
 
 180:                                              ; preds = %60
   %181 = call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %66, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %48) #7
-  %182 = getelementptr inbounds i8, ptr %.0432.ph, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %.0432.ph, i64 4
   %183 = load i32, ptr %182, align 4
   %.not448 = icmp eq i32 %183, 0
   br i1 %.not448, label %proto_item_set_generated.exit455, label %184
@@ -2115,21 +2115,21 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %73
   br i1 %.not.i450, label %proto_item_set_generated.exit452, label %187
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %186, i64 32
+  %188 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %189 = load ptr, ptr %188, align 8
   %.not5.i451 = icmp eq ptr %189, null
   br i1 %.not5.i451, label %proto_item_set_generated.exit452, label %190
 
 190:                                              ; preds = %187
-  %191 = getelementptr inbounds i8, ptr %189, i64 28
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 28
   %192 = load i32, ptr %191, align 4
   %193 = or i32 %192, 2
   store i32 %193, ptr %191, align 4
   br label %proto_item_set_generated.exit452
 
 proto_item_set_generated.exit452:                 ; preds = %184, %187, %190
-  %194 = getelementptr inbounds i8, ptr %1, i64 24
-  %195 = getelementptr inbounds i8, ptr %.0432.ph, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %.0432.ph, i64 16
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %194, ptr noundef nonnull %195) #7
   %196 = load i32, ptr @hf_afp_time, align 4
   %197 = call ptr @proto_tree_add_time(ptr noundef %64, i32 noundef %196, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #7
@@ -2137,26 +2137,26 @@ proto_item_set_generated.exit452:                 ; preds = %184, %187, %190
   br i1 %.not.i453, label %proto_item_set_generated.exit455, label %198
 
 198:                                              ; preds = %proto_item_set_generated.exit452
-  %199 = getelementptr inbounds i8, ptr %197, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %197, i64 32
   %200 = load ptr, ptr %199, align 8
   %.not5.i454 = icmp eq ptr %200, null
   br i1 %.not5.i454, label %proto_item_set_generated.exit455, label %201
 
 201:                                              ; preds = %198
-  %202 = getelementptr inbounds i8, ptr %200, i64 28
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 28
   %203 = load i32, ptr %202, align 4
   %204 = or i32 %203, 2
   store i32 %204, ptr %202, align 4
   br label %proto_item_set_generated.exit455
 
 proto_item_set_generated.exit455:                 ; preds = %201, %198, %proto_item_set_generated.exit452, %180
-  %205 = getelementptr inbounds i8, ptr %.0432.ph, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %.0432.ph, i64 8
   %206 = load i32, ptr %205, align 8
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %208, label %211
 
 208:                                              ; preds = %proto_item_set_generated.exit455
-  %209 = getelementptr inbounds i8, ptr %1, i64 20
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %210 = load i32, ptr %209, align 4
   store i32 %210, ptr %205, align 8
   br label %211
@@ -2556,7 +2556,7 @@ define internal i32 @dissect_afp_server_status(ptr noundef %0, ptr nocapture nou
   br i1 %.not334, label %.loopexit317, label %.lr.ph327
 
 .lr.ph327:                                        ; preds = %108
-  %114 = getelementptr inbounds i8, ptr %1, i64 408
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %115
 
 115:                                              ; preds = %.lr.ph327, %180
@@ -2705,7 +2705,7 @@ define internal i32 @dissect_afp_server_status(ptr noundef %0, ptr nocapture nou
 
 204:                                              ; preds = %.loopexit
   %205 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0273) #7
-  %206 = getelementptr inbounds i8, ptr %1, i64 408
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %207 = load ptr, ptr %206, align 8
   %208 = add nuw nsw i32 %.0273, 2
   %209 = zext i16 %205 to i32
@@ -2728,7 +2728,7 @@ define internal i32 @dissect_afp_server_status(ptr noundef %0, ptr nocapture nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_spotlight(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @tvb_get_string_enc(ptr noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 2) #7
   %9 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(9) @.str.1091, i64 noundef 8) #8
@@ -2900,7 +2900,7 @@ define internal range(i32 0, 2) i32 @afpstat_packet(ptr nocapture noundef readon
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %3, align 8
   %11 = zext i8 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @add_srt_table_data(ptr noundef %9, i32 noundef %11, ptr noundef nonnull %12, ptr noundef %1) #7
   br label %13
 
@@ -3047,7 +3047,7 @@ define internal fastcc void @dissect_query_afp_with_fork(ptr noundef %0, ptr noc
   br i1 %.not.i, label %add_info_fork.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i16 %6 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.1046, i32 noundef %10) #7
@@ -3179,7 +3179,7 @@ define internal fastcc void @dissect_query_afp_get_fork_param(ptr noundef %0, pt
   br i1 %.not.i, label %add_info_fork.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i16 %6 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.1046, i32 noundef %10) #7
@@ -3255,7 +3255,7 @@ define internal fastcc void @dissect_query_afp_get_vol_param(ptr noundef %0, ptr
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i16 %6 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.1056, i32 noundef %9) #7
@@ -3281,7 +3281,7 @@ define internal fastcc range(i32 4, 131610) i32 @dissect_query_afp_login_ext(ptr
   %12 = add nuw nsw i32 %9, 5
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %12) #7
   %14 = zext i8 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = add nuw nsw i32 %9, 6
   %18 = tail call ptr @tvb_get_string_enc(ptr noundef %16, ptr noundef %0, i32 noundef %17, i32 noundef %14, i32 noundef 2) #7
@@ -3347,7 +3347,7 @@ define internal fastcc range(i32 3, 131610) i32 @dissect_query_afp_login(ptr nou
   %8 = add nuw nsw i32 %5, 2
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %8) #7
   %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = add nuw nsw i32 %5, 3
   %14 = tail call ptr @tvb_get_string_enc(ptr noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef %10, i32 noundef 2) #7
@@ -3448,12 +3448,12 @@ define internal fastcc range(i32 4, 269) i32 @dissect_query_afp_open_vol(ptr nou
   %8 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @decode_vol_bitmap.bitmaps, i32 noundef 0) #7
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #7
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #7
   %14 = zext i8 %13 to i32
   %15 = tail call ptr @tvb_format_text(ptr noundef %12, ptr noundef %0, i32 noundef 5, i32 noundef %14) #7
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1061, ptr noundef %15) #7
   %.not = icmp eq ptr %2, null
@@ -3512,7 +3512,7 @@ define internal fastcc void @dissect_query_afp_read(ptr noundef %0, ptr nocaptur
   br i1 %.not.i, label %add_info_fork.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i16 %6 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.1046, i32 noundef %10) #7
@@ -3524,7 +3524,7 @@ add_info_fork.exit:                               ; preds = %3, %7
   %13 = load i32, ptr @hf_afp_offset, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #7
   %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #7
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1062, i32 noundef %15) #7
   %18 = load i32, ptr @hf_afp_rw_count, align 4
@@ -3548,7 +3548,7 @@ define internal fastcc void @dissect_query_afp_read_ext(ptr noundef %0, ptr noca
   br i1 %.not.i, label %add_info_fork.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i16 %6 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.1046, i32 noundef %10) #7
@@ -3660,7 +3660,7 @@ define internal fastcc range(i32 10, 15) i32 @dissect_query_afp_set_fork_param(p
   br i1 %.not.i, label %add_info_fork.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i16 %6 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.1046, i32 noundef %10) #7
@@ -3686,7 +3686,7 @@ add_info_fork.exit:                               ; preds = %3, %7
   %22 = load i32, ptr @hf_afp_ofork_len, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef 0) #7
   %24 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 6) #7
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.1063, i32 noundef %24) #7
   br label %27
@@ -3701,7 +3701,7 @@ define internal fastcc range(i32 2, 311) i32 @dissect_query_afp_set_vol_param(pt
   %4 = load i32, ptr @hf_afp_pad, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i16 %6 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.1056, i32 noundef %9) #7
@@ -3724,7 +3724,7 @@ define internal fastcc void @dissect_query_afp_write(ptr noundef %0, ptr nocaptu
   br i1 %.not.i, label %add_info_fork.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i16 %6 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.1046, i32 noundef %10) #7
@@ -3736,7 +3736,7 @@ add_info_fork.exit:                               ; preds = %3, %7
   %13 = load i32, ptr @hf_afp_offset, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #7
   %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #7
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1062, i32 noundef %15) #7
   %18 = load i32, ptr @hf_afp_rw_count, align 4
@@ -3756,7 +3756,7 @@ define internal fastcc void @dissect_query_afp_write_ext(ptr noundef %0, ptr noc
   br i1 %.not.i, label %add_info_fork.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i16 %6 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.1046, i32 noundef %10) #7
@@ -4252,7 +4252,7 @@ define internal fastcc i32 @dissect_query_afp_spotlight(ptr noundef %0, ptr noun
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
   %16 = load i32, ptr @hf_afp_spotlight_request_reserved, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #7
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %38 [
     i32 4, label %20
@@ -4260,7 +4260,7 @@ define internal fastcc i32 @dissect_query_afp_spotlight(ptr noundef %0, ptr noun
   ]
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @tvb_get_stringz_enc(ptr noundef %22, ptr noundef %0, i32 noundef 16, ptr noundef nonnull %5, i32 noundef 2) #7
   %24 = load i32, ptr @hf_afp_spotlight_volpath_client, align 4
@@ -4321,7 +4321,7 @@ define internal fastcc i32 @dissect_reply_afp_open_fork(ptr noundef %0, ptr noca
   br i1 %.not.i, label %add_info_fork.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i16 %8 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.1046, i32 noundef %12) #7
@@ -4402,7 +4402,7 @@ define internal fastcc i32 @dissect_reply_afp_get_server_param(ptr noundef %0, p
   %8 = zext i32 %7 to i64
   %9 = add nuw nsw i64 %8, 946684800
   store i64 %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %10, align 8
   %11 = call ptr @proto_tree_add_time(ptr noundef nonnull %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -4414,7 +4414,7 @@ define internal fastcc i32 @dissect_reply_afp_get_server_param(ptr noundef %0, p
   br i1 %.not43, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
@@ -4733,7 +4733,7 @@ define internal fastcc i32 @dissect_reply_afp_spotlight(ptr noundef %0, ptr noun
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #7
   %8 = load i32, ptr @hf_afp_spotlight_reply_reserved, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #7
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @tvb_get_stringz_enc(ptr noundef %11, ptr noundef %0, i32 noundef 8, ptr noundef nonnull %4, i32 noundef 2) #7
   %13 = load i32, ptr @hf_afp_spotlight_volpath_server, align 4
@@ -4782,7 +4782,7 @@ define internal fastcc i32 @decode_name_label(ptr noundef %0, ptr nocapture noun
   %9 = add i32 %3, 5
   %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %9) #7
   %11 = zext i16 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = add i32 %3, 1
   %15 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %9) #7
@@ -4800,7 +4800,7 @@ define internal fastcc i32 @decode_name_label(ptr noundef %0, ptr nocapture noun
   br i1 %switch, label %.sink.split.i, label %get_name.exit
 
 .sink.split.i:                                    ; preds = %.split52
-  %22 = getelementptr inbounds i8, ptr %1, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %19) #7
   %25 = zext i8 %24 to i32
@@ -4817,7 +4817,7 @@ get_name.exit:                                    ; preds = %.split52, %.sink.sp
   br i1 %.not, label %36, label %29
 
 29:                                               ; preds = %get_name.exit
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr @Vol, align 4
   %33 = load i32, ptr @Did, align 4
@@ -5008,7 +5008,7 @@ define internal fastcc i32 @parse_dir_bitmap(ptr noundef %0, ptr noundef %1, i32
   %27 = zext i32 %26 to i64
   %28 = add nuw nsw i64 %27, 946684800
   store i64 %28, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %29, align 8
   %30 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %25, ptr noundef %1, i32 noundef %.1, i32 noundef 4, ptr noundef nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -5028,7 +5028,7 @@ define internal fastcc i32 @parse_dir_bitmap(ptr noundef %0, ptr noundef %1, i32
   %37 = zext i32 %36 to i64
   %38 = add nuw nsw i64 %37, 946684800
   store i64 %38, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %39, align 8
   %40 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %35, ptr noundef %1, i32 noundef %.2, i32 noundef 4, ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -5048,7 +5048,7 @@ define internal fastcc i32 @parse_dir_bitmap(ptr noundef %0, ptr noundef %1, i32
   %47 = zext i32 %46 to i64
   %48 = add nuw nsw i64 %47, 946684800
   store i64 %48, ptr %5, align 8
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %49, align 8
   %50 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef %.3, i32 noundef 4, ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -5320,7 +5320,7 @@ define internal fastcc i32 @parse_file_bitmap(ptr noundef %0, ptr noundef %1, i3
   %28 = zext i32 %27 to i64
   %29 = add nuw nsw i64 %28, 946684800
   store i64 %29, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %30, align 8
   %31 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %.1, i32 noundef 4, ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -5340,7 +5340,7 @@ define internal fastcc i32 @parse_file_bitmap(ptr noundef %0, ptr noundef %1, i3
   %38 = zext i32 %37 to i64
   %39 = add nuw nsw i64 %38, 946684800
   store i64 %39, ptr %7, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %40, align 8
   %41 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %36, ptr noundef %1, i32 noundef %.2, i32 noundef 4, ptr noundef nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -5360,7 +5360,7 @@ define internal fastcc i32 @parse_file_bitmap(ptr noundef %0, ptr noundef %1, i3
   %48 = zext i32 %47 to i64
   %49 = add nuw nsw i64 %48, 946684800
   store i64 %49, ptr %6, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %50, align 8
   %51 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %46, ptr noundef %1, i32 noundef %.3, i32 noundef 4, ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -5540,7 +5540,7 @@ define internal fastcc range(i32 2, 311) i32 @parse_vol_bitmap(ptr noundef %0, p
   %27 = zext i32 %26 to i64
   %28 = add nuw nsw i64 %27, 946684800
   store i64 %28, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %29, align 8
   %30 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %25, ptr noundef %1, i32 noundef %.1, i32 noundef 4, ptr noundef nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -5560,7 +5560,7 @@ define internal fastcc range(i32 2, 311) i32 @parse_vol_bitmap(ptr noundef %0, p
   %37 = zext i32 %36 to i64
   %38 = add nuw nsw i64 %37, 946684800
   store i64 %38, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %39, align 8
   %40 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %35, ptr noundef %1, i32 noundef %.2, i32 noundef 4, ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -5580,7 +5580,7 @@ define internal fastcc range(i32 2, 311) i32 @parse_vol_bitmap(ptr noundef %0, p
   %47 = zext i32 %46 to i64
   %48 = add nuw nsw i64 %47, 946684800
   store i64 %48, ptr %5, align 8
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %49, align 8
   %50 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef %.3, i32 noundef 4, ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -5845,7 +5845,7 @@ define internal fastcc i32 @decode_attr_name(ptr noundef %0, ptr nocapture nound
   br label %25
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = add i32 %.0, 2
   %17 = tail call ptr @tvb_format_text(ptr noundef %15, ptr noundef %2, i32 noundef %16, i32 noundef %12) #7
@@ -6014,7 +6014,7 @@ define internal fastcc i32 @loop_record(ptr noundef %0, ptr nocapture noundef re
   %11 = shl nuw nsw i32 %7, 1
   %12 = select i1 %.not, i32 1, i32 2
   %.not85 = icmp eq ptr %2, null
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %14
 
 14:                                               ; preds = %.lr.ph, %62
@@ -6285,9 +6285,9 @@ define internal fastcc i32 @spotlight_dissect_query_loop(ptr noundef %0, ptr nou
   br i1 %14, label %.lr.ph275, label %.loopexit268
 
 .lr.ph275:                                        ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %trunc242 = trunc nuw i64 %4 to i16
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
 17:                                               ; preds = %.lr.ph275, %230

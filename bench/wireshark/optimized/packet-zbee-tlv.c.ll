@@ -513,7 +513,7 @@ define hidden i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.off.i = add i32 %6, -17
   %switch.i = icmp ult i32 %.off.i, 2
   %24 = icmp eq i32 %6, 17
@@ -1183,7 +1183,7 @@ dissect_zdp_req_clear_all_bindings_local_tlv.exit.i: ; preds = %.lr.ph.i93.i, %.
   %458 = call ptr @wmem_file_scope() #4
   %459 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.193) #4
   %460 = call ptr @p_get_proto_data(ptr noundef %458, ptr noundef %1, i32 noundef %459, i32 noundef 0) #4
-  %461 = getelementptr inbounds i8, ptr %460, i64 32
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 32
   store i32 %25, ptr %461, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %462 = call ptr @find_dissector(ptr noundef nonnull @.str.194) #4
@@ -1201,7 +1201,7 @@ dissect_zdp_req_clear_all_bindings_local_tlv.exit.i: ; preds = %.lr.ph.i93.i, %.
   %473 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.193) #4
   %474 = call ptr @p_get_proto_data(ptr noundef %472, ptr noundef %1, i32 noundef %473, i32 noundef 0) #4
   %475 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %469) #4
-  %476 = getelementptr inbounds i8, ptr %474, i64 40
+  %476 = getelementptr inbounds nuw i8, ptr %474, i64 40
   store i64 %475, ptr %476, align 8
   %477 = add i32 %.02847, 10
   %478 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %477) #4

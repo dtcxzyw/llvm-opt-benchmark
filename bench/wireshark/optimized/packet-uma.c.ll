@@ -819,7 +819,7 @@ define internal i32 @dissect_uma_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_uma_urlc_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.221) #3
   %7 = load ptr, ptr %5, align 8
@@ -899,7 +899,7 @@ define internal range(i32 2, 65538) i32 @get_uma_pdu_len(ptr nocapture readnone 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_uma(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.221) #3
   %7 = load ptr, ptr %5, align 8
@@ -1572,7 +1572,7 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   br i1 %.not611, label %316, label %310
 
 310:                                              ; preds = %304
-  %311 = getelementptr inbounds i8, ptr %1, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %312 = load ptr, ptr %311, align 8
   call void @col_append_str(ptr noundef %312, i32 noundef 34, ptr noundef nonnull @.str.562) #3
   %313 = load ptr, ptr %311, align 8
@@ -1747,7 +1747,7 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
 425:                                              ; preds = %424
   %426 = zext nneg i16 %.0599 to i32
   %427 = load i32, ptr @hf_uma_unc_FQDN, align 4
-  %428 = getelementptr inbounds i8, ptr %1, i64 408
+  %428 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %429 = load ptr, ptr %428, align 8
   %430 = call ptr @proto_tree_add_item_ret_string(ptr noundef %14, i32 noundef %427, ptr noundef %0, i32 noundef %38, i32 noundef %426, i32 noundef 0, ptr noundef %429, ptr noundef nonnull %6) #3
   br label %.loopexit
@@ -1775,9 +1775,9 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   %444 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %38) #3
   %445 = load i32, ptr @hf_uma_urr_GPRS_port, align 4
   %446 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %445, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef 0) #3
-  %447 = getelementptr inbounds i8, ptr %1, i64 80
+  %447 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %448 = load ptr, ptr %447, align 8
-  %449 = getelementptr inbounds i8, ptr %448, i64 50
+  %449 = getelementptr inbounds nuw i8, ptr %448, i64 50
   %450 = load i16, ptr %449, align 2
   %451 = and i16 %450, 8
   %.not608 = icmp eq i16 %451, 0
@@ -1786,13 +1786,13 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
 452:                                              ; preds = %443
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   store i32 2, ptr %7, align 8
-  %453 = getelementptr inbounds i8, ptr %7, i64 4
+  %453 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 4, ptr %453, align 4
-  %454 = getelementptr inbounds i8, ptr %7, i64 8
+  %454 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @GPRS_user_data_ipv4_address, ptr %454, align 8
-  %455 = getelementptr inbounds i8, ptr %7, i64 16
+  %455 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %455, align 8
-  %456 = getelementptr inbounds i8, ptr %1, i64 20
+  %456 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %457 = load i32, ptr %456, align 4
   %458 = zext i16 %444 to i32
   %459 = call ptr @find_conversation(i32 noundef %457, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 3, i32 noundef %458, i32 noundef 0, i32 noundef 196608) #3
@@ -1811,9 +1811,9 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   %467 = load i32, ptr @hf_uma_urr_UNC_tcp_port, align 4
   %468 = zext i16 %466 to i32
   %469 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %467, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef %468) #3
-  %470 = getelementptr inbounds i8, ptr %1, i64 80
+  %470 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %471 = load ptr, ptr %470, align 8
-  %472 = getelementptr inbounds i8, ptr %471, i64 50
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 50
   %473 = load i16, ptr %472, align 2
   %474 = and i16 %473, 8
   %.not607 = icmp eq i16 %474, 0
@@ -1822,13 +1822,13 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
 475:                                              ; preds = %465
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   store i32 2, ptr %7, align 8
-  %476 = getelementptr inbounds i8, ptr %7, i64 4
+  %476 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 4, ptr %476, align 4
-  %477 = getelementptr inbounds i8, ptr %7, i64 8
+  %477 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @unc_ipv4_address, ptr %477, align 8
-  %478 = getelementptr inbounds i8, ptr %7, i64 16
+  %478 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %478, align 8
-  %479 = getelementptr inbounds i8, ptr %1, i64 20
+  %479 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %480 = load i32, ptr %479, align 4
   %481 = call ptr @find_conversation(i32 noundef %480, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 2, i32 noundef %468, i32 noundef 0, i32 noundef 196608) #3
   %482 = icmp eq ptr %481, null
@@ -1850,11 +1850,11 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   br i1 %.not606, label %492, label %499
 
 492:                                              ; preds = %487
-  %493 = getelementptr inbounds i8, ptr %1, i64 208
+  %493 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %494 = load i32, ptr %493, align 8
-  %495 = getelementptr inbounds i8, ptr %1, i64 212
+  %495 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %496 = load i32, ptr %495, align 4
-  %497 = getelementptr inbounds i8, ptr %1, i64 216
+  %497 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %498 = load ptr, ptr %497, align 8
   br label %499
 
@@ -1863,15 +1863,15 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   %.sink = phi i32 [ %496, %492 ], [ 4, %487 ]
   %unc_ipv4_address.sink = phi ptr [ %498, %492 ], [ @unc_ipv4_address, %487 ]
   store i32 %.sink631, ptr %9, align 8
-  %500 = getelementptr inbounds i8, ptr %9, i64 4
+  %500 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.sink, ptr %500, align 4
-  %501 = getelementptr inbounds i8, ptr %9, i64 8
+  %501 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %unc_ipv4_address.sink, ptr %501, align 8
-  %502 = getelementptr inbounds i8, ptr %9, i64 16
+  %502 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %502, align 8
-  %503 = getelementptr inbounds i8, ptr %1, i64 80
+  %503 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %504 = load ptr, ptr %503, align 8
-  %505 = getelementptr inbounds i8, ptr %504, i64 50
+  %505 = getelementptr inbounds nuw i8, ptr %504, i64 50
   %506 = load i16, ptr %505, align 2
   %507 = and i16 %506, 8
   %508 = icmp eq i16 %507, 0
@@ -1881,7 +1881,7 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
 
 510:                                              ; preds = %499
   %511 = zext i16 %488 to i32
-  %512 = getelementptr inbounds i8, ptr %1, i64 20
+  %512 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %513 = load i32, ptr %512, align 4
   call void @rtp_add_address(ptr noundef nonnull %1, i32 noundef 3, ptr noundef nonnull %9, i32 noundef %511, i32 noundef 0, ptr noundef nonnull @.str.221, i32 noundef %513, i32 noundef 0, ptr noundef null) #3
   %514 = and i32 %511, 1
@@ -1899,9 +1899,9 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   %521 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %38) #3
   %522 = load i32, ptr @hf_uma_urr_RTCP_port, align 4
   %523 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %522, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef 0) #3
-  %524 = getelementptr inbounds i8, ptr %1, i64 80
+  %524 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %525 = load ptr, ptr %524, align 8
-  %526 = getelementptr inbounds i8, ptr %525, i64 50
+  %526 = getelementptr inbounds nuw i8, ptr %525, i64 50
   %527 = load i16, ptr %526, align 2
   %528 = and i16 %527, 8
   %529 = icmp eq i16 %528, 0
@@ -1918,13 +1918,13 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
 535:                                              ; preds = %520
   %536 = zext i16 %521 to i32
   store i32 2, ptr %9, align 8
-  %537 = getelementptr inbounds i8, ptr %9, i64 4
+  %537 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 4, ptr %537, align 4
-  %538 = getelementptr inbounds i8, ptr %9, i64 8
+  %538 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @rtcp_ipv4_address, ptr %538, align 8
-  %539 = getelementptr inbounds i8, ptr %9, i64 16
+  %539 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %539, align 8
-  %540 = getelementptr inbounds i8, ptr %1, i64 20
+  %540 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %541 = load i32, ptr %540, align 4
   call void @rtcp_add_address(ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef %536, i32 noundef 0, ptr noundef nonnull @.str.221, i32 noundef %541) #3
   br label %.loopexit

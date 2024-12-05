@@ -294,7 +294,7 @@ define internal range(i32 0, 65536) i32 @dissect_ecpri(ptr noundef %0, ptr nound
   br i1 %17, label %proto_item_set_generated.exit, label %18
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef nonnull @.str.88) #2
   %21 = load ptr, ptr %19, align 8
@@ -883,13 +883,13 @@ define internal range(i32 0, 65536) i32 @dissect_ecpri(ptr noundef %0, ptr nound
   br i1 %.not.i, label %proto_item_set_generated.exit, label %367
 
 367:                                              ; preds = %364
-  %368 = getelementptr inbounds i8, ptr %366, i64 32
+  %368 = getelementptr inbounds nuw i8, ptr %366, i64 32
   %369 = load ptr, ptr %368, align 8
   %.not5.i = icmp eq ptr %369, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %370
 
 370:                                              ; preds = %367
-  %371 = getelementptr inbounds i8, ptr %369, i64 28
+  %371 = getelementptr inbounds nuw i8, ptr %369, i64 28
   %372 = load i32, ptr %371, align 4
   %373 = or i32 %372, 2
   store i32 %373, ptr %371, align 4

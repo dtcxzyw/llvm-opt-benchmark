@@ -17,7 +17,7 @@ entry:
 define dso_local i64 @siphash(ptr noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %k) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %k, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %k, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %k, i64 8
   %1 = load i64, ptr %add.ptr, align 8
   %add.ptr1 = getelementptr inbounds i8, ptr %in, i64 %inlen
   %rem = and i64 %inlen, 7
@@ -56,7 +56,7 @@ for.body:                                         ; preds = %entry, %for.body
   %xor27 = xor i64 %add23, %or26
   %or30 = tail call i64 @llvm.fshl.i64(i64 %add23, i64 %add23, i64 32)
   %xor31 = xor i64 %add18, %3
-  %add.ptr32 = getelementptr inbounds i8, ptr %in.addr.0153, i64 8
+  %add.ptr32 = getelementptr inbounds nuw i8, ptr %in.addr.0153, i64 8
   %cmp.not = icmp eq ptr %add.ptr32, %add.ptr2
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !5
 
@@ -78,7 +78,7 @@ for.end:                                          ; preds = %for.body, %entry
   ]
 
 sw.bb:                                            ; preds = %for.end
-  %arrayidx = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 6
+  %arrayidx = getelementptr inbounds nuw i8, ptr %in.addr.0.lcssa, i64 6
   %4 = load i8, ptr %arrayidx, align 1
   %conv33 = zext i8 %4 to i64
   %shl34 = shl nuw nsw i64 %conv33, 48
@@ -87,7 +87,7 @@ sw.bb:                                            ; preds = %for.end
 
 sw.bb36:                                          ; preds = %sw.bb, %for.end
   %b.1 = phi i64 [ %shl, %for.end ], [ %or35, %sw.bb ]
-  %arrayidx37 = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 5
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %in.addr.0.lcssa, i64 5
   %5 = load i8, ptr %arrayidx37, align 1
   %conv38 = zext i8 %5 to i64
   %shl39 = shl nuw nsw i64 %conv38, 40
@@ -96,7 +96,7 @@ sw.bb36:                                          ; preds = %sw.bb, %for.end
 
 sw.bb41:                                          ; preds = %sw.bb36, %for.end
   %b.2 = phi i64 [ %shl, %for.end ], [ %or40, %sw.bb36 ]
-  %arrayidx42 = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 4
+  %arrayidx42 = getelementptr inbounds nuw i8, ptr %in.addr.0.lcssa, i64 4
   %6 = load i8, ptr %arrayidx42, align 1
   %conv43 = zext i8 %6 to i64
   %shl44 = shl nuw nsw i64 %conv43, 32
@@ -105,7 +105,7 @@ sw.bb41:                                          ; preds = %sw.bb36, %for.end
 
 sw.bb46:                                          ; preds = %sw.bb41, %for.end
   %b.3 = phi i64 [ %shl, %for.end ], [ %or45, %sw.bb41 ]
-  %arrayidx47 = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 3
+  %arrayidx47 = getelementptr inbounds nuw i8, ptr %in.addr.0.lcssa, i64 3
   %7 = load i8, ptr %arrayidx47, align 1
   %conv48 = zext i8 %7 to i64
   %shl49 = shl nuw nsw i64 %conv48, 24
@@ -114,7 +114,7 @@ sw.bb46:                                          ; preds = %sw.bb41, %for.end
 
 sw.bb51:                                          ; preds = %sw.bb46, %for.end
   %b.4 = phi i64 [ %shl, %for.end ], [ %or50, %sw.bb46 ]
-  %arrayidx52 = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 2
+  %arrayidx52 = getelementptr inbounds nuw i8, ptr %in.addr.0.lcssa, i64 2
   %8 = load i8, ptr %arrayidx52, align 1
   %conv53 = zext i8 %8 to i64
   %shl54 = shl nuw nsw i64 %conv53, 16
@@ -123,7 +123,7 @@ sw.bb51:                                          ; preds = %sw.bb46, %for.end
 
 sw.bb56:                                          ; preds = %sw.bb51, %for.end
   %b.5 = phi i64 [ %shl, %for.end ], [ %or55, %sw.bb51 ]
-  %arrayidx57 = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 1
+  %arrayidx57 = getelementptr inbounds nuw i8, ptr %in.addr.0.lcssa, i64 1
   %9 = load i8, ptr %arrayidx57, align 1
   %conv58 = zext i8 %9 to i64
   %shl59 = shl nuw nsw i64 %conv58, 8
@@ -193,7 +193,7 @@ sw.epilog:                                        ; preds = %for.end, %sw.bb61
 define dso_local i64 @siphash_nocase(ptr noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %k) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %k, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %k, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %k, i64 8
   %1 = load i64, ptr %add.ptr, align 8
   %add.ptr1 = getelementptr inbounds i8, ptr %in, i64 %inlen
   %rem = and i64 %inlen, 7
@@ -221,7 +221,7 @@ for.body:                                         ; preds = %entry, %for.body
   %or.cond.i = icmp ult i8 %4, 26
   %add.i = or disjoint i32 %conv7, 32
   %retval.0.i = select i1 %or.cond.i, i32 %add.i, i32 %conv7
-  %arrayidx9 = getelementptr inbounds i8, ptr %in.addr.0205, i64 1
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %in.addr.0205, i64 1
   %5 = load i8, ptr %arrayidx9, align 1
   %conv10 = zext i8 %5 to i32
   %6 = add i8 %5, -65
@@ -230,7 +230,7 @@ for.body:                                         ; preds = %entry, %for.body
   %8 = or i32 %7, 8192
   %9 = select i1 %or.cond.i155, i32 %8, i32 %7
   %or197 = or disjoint i32 %9, %retval.0.i
-  %arrayidx14 = getelementptr inbounds i8, ptr %in.addr.0205, i64 2
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %in.addr.0205, i64 2
   %10 = load i8, ptr %arrayidx14, align 1
   %conv15 = zext i8 %10 to i32
   %11 = add i8 %10, -65
@@ -239,7 +239,7 @@ for.body:                                         ; preds = %entry, %for.body
   %13 = or i32 %12, 2097152
   %14 = select i1 %or.cond.i158, i32 %13, i32 %12
   %or19198 = or disjoint i32 %or197, %14
-  %arrayidx20 = getelementptr inbounds i8, ptr %in.addr.0205, i64 3
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %in.addr.0205, i64 3
   %15 = load i8, ptr %arrayidx20, align 1
   %conv21 = zext i8 %15 to i32
   %16 = add i8 %15, -65
@@ -249,7 +249,7 @@ for.body:                                         ; preds = %entry, %for.body
   %19 = select i1 %or.cond.i161, i32 %18, i32 %17
   %or25199 = or i32 %or19198, %19
   %or25 = zext i32 %or25199 to i64
-  %arrayidx26 = getelementptr inbounds i8, ptr %in.addr.0205, i64 4
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %in.addr.0205, i64 4
   %20 = load i8, ptr %arrayidx26, align 1
   %conv27 = zext i8 %20 to i32
   %21 = add i8 %20, -65
@@ -259,7 +259,7 @@ for.body:                                         ; preds = %entry, %for.body
   %conv29 = zext nneg i32 %retval.0.i166 to i64
   %shl30 = shl nuw nsw i64 %conv29, 32
   %or31 = or disjoint i64 %shl30, %or25
-  %arrayidx32 = getelementptr inbounds i8, ptr %in.addr.0205, i64 5
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %in.addr.0205, i64 5
   %22 = load i8, ptr %arrayidx32, align 1
   %conv33 = zext i8 %22 to i32
   %23 = add i8 %22, -65
@@ -269,7 +269,7 @@ for.body:                                         ; preds = %entry, %for.body
   %conv35 = zext nneg i32 %retval.0.i169 to i64
   %shl36 = shl nuw nsw i64 %conv35, 40
   %or37 = or disjoint i64 %or31, %shl36
-  %arrayidx38 = getelementptr inbounds i8, ptr %in.addr.0205, i64 6
+  %arrayidx38 = getelementptr inbounds nuw i8, ptr %in.addr.0205, i64 6
   %24 = load i8, ptr %arrayidx38, align 1
   %conv39 = zext i8 %24 to i32
   %25 = add i8 %24, -65
@@ -279,7 +279,7 @@ for.body:                                         ; preds = %entry, %for.body
   %conv41 = zext nneg i32 %retval.0.i172 to i64
   %shl42 = shl nuw nsw i64 %conv41, 48
   %or43 = or i64 %or37, %shl42
-  %arrayidx44 = getelementptr inbounds i8, ptr %in.addr.0205, i64 7
+  %arrayidx44 = getelementptr inbounds nuw i8, ptr %in.addr.0205, i64 7
   %26 = load i8, ptr %arrayidx44, align 1
   %conv45 = zext i8 %26 to i32
   %27 = add i8 %26, -65
@@ -305,7 +305,7 @@ for.body:                                         ; preds = %entry, %for.body
   %xor71 = xor i64 %add67, %or70
   %or74 = tail call i64 @llvm.fshl.i64(i64 %add67, i64 %add67, i64 32)
   %xor75 = xor i64 %add62, %or49
-  %add.ptr76 = getelementptr inbounds i8, ptr %in.addr.0205, i64 8
+  %add.ptr76 = getelementptr inbounds nuw i8, ptr %in.addr.0205, i64 8
   %cmp.not = icmp eq ptr %add.ptr76, %add.ptr2
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
 
@@ -327,7 +327,7 @@ for.end:                                          ; preds = %for.body, %entry
   ]
 
 sw.bb:                                            ; preds = %for.end
-  %arrayidx77 = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 6
+  %arrayidx77 = getelementptr inbounds nuw i8, ptr %in.addr.0.lcssa, i64 6
   %28 = load i8, ptr %arrayidx77, align 1
   %conv78 = zext i8 %28 to i32
   %29 = add i8 %28, -65
@@ -341,7 +341,7 @@ sw.bb:                                            ; preds = %for.end
 
 sw.bb83:                                          ; preds = %sw.bb, %for.end
   %b.1 = phi i64 [ %shl, %for.end ], [ %or82, %sw.bb ]
-  %arrayidx84 = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 5
+  %arrayidx84 = getelementptr inbounds nuw i8, ptr %in.addr.0.lcssa, i64 5
   %30 = load i8, ptr %arrayidx84, align 1
   %conv85 = zext i8 %30 to i32
   %31 = add i8 %30, -65
@@ -355,7 +355,7 @@ sw.bb83:                                          ; preds = %sw.bb, %for.end
 
 sw.bb90:                                          ; preds = %sw.bb83, %for.end
   %b.2 = phi i64 [ %shl, %for.end ], [ %or89, %sw.bb83 ]
-  %arrayidx91 = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 4
+  %arrayidx91 = getelementptr inbounds nuw i8, ptr %in.addr.0.lcssa, i64 4
   %32 = load i8, ptr %arrayidx91, align 1
   %conv92 = zext i8 %32 to i32
   %33 = add i8 %32, -65
@@ -369,7 +369,7 @@ sw.bb90:                                          ; preds = %sw.bb83, %for.end
 
 sw.bb97:                                          ; preds = %sw.bb90, %for.end
   %b.3 = phi i64 [ %shl, %for.end ], [ %or96, %sw.bb90 ]
-  %arrayidx98 = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 3
+  %arrayidx98 = getelementptr inbounds nuw i8, ptr %in.addr.0.lcssa, i64 3
   %34 = load i8, ptr %arrayidx98, align 1
   %conv99 = zext i8 %34 to i32
   %35 = add i8 %34, -65
@@ -383,7 +383,7 @@ sw.bb97:                                          ; preds = %sw.bb90, %for.end
 
 sw.bb104:                                         ; preds = %sw.bb97, %for.end
   %b.4 = phi i64 [ %shl, %for.end ], [ %or103, %sw.bb97 ]
-  %arrayidx105 = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 2
+  %arrayidx105 = getelementptr inbounds nuw i8, ptr %in.addr.0.lcssa, i64 2
   %39 = load i8, ptr %arrayidx105, align 1
   %conv106 = zext i8 %39 to i32
   %40 = add i8 %39, -65
@@ -397,7 +397,7 @@ sw.bb104:                                         ; preds = %sw.bb97, %for.end
 
 sw.bb111:                                         ; preds = %sw.bb104, %for.end
   %b.5 = phi i64 [ %shl, %for.end ], [ %or110, %sw.bb104 ]
-  %arrayidx112 = getelementptr inbounds i8, ptr %in.addr.0.lcssa, i64 1
+  %arrayidx112 = getelementptr inbounds nuw i8, ptr %in.addr.0.lcssa, i64 1
   %44 = load i8, ptr %arrayidx112, align 1
   %conv113 = zext i8 %44 to i32
   %45 = add i8 %44, -65

@@ -52,12 +52,12 @@ define ptr @agmemread(ptr noundef %0) local_unnamed_addr #1 {
   store ptr %5, ptr getelementptr inbounds (i8, ptr @memIoDisc, i64 16), align 8
   store ptr %0, ptr %2, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %8, align 8
   store ptr @AgIdDisc, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @memIoDisc, ptr %9, align 8
   %10 = call ptr @agread(ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   call void @agsetfile(ptr noundef null) #8
@@ -78,12 +78,12 @@ define ptr @agmemconcat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   store ptr %6, ptr getelementptr inbounds (i8, ptr @memIoDisc, i64 16), align 8
   store ptr %1, ptr %3, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %9, align 8
   store ptr @AgIdDisc, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @memIoDisc, ptr %10, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %13, label %11
@@ -128,9 +128,9 @@ define internal i32 @memiofread(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %4, label %23, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %10, label %23
@@ -154,8 +154,8 @@ define internal i32 @memiofread(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %or.cond, label %17, label %.critedge
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.020, i64 1
-  %.021 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.020, i64 1
+  %.021 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %19 = load i8, ptr %.021, align 1
   %.not26 = icmp eq i8 %19, 0
   br i1 %.not26, label %.critedge, label %14

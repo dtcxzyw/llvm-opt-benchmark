@@ -136,7 +136,7 @@ define hidden void @_ZN9metaspace17MetaspaceReporter18print_basic_reportEP12outp
 
 20:                                               ; preds = %19, %16
   %21 = tail call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #3
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %22) #3
   tail call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %0, i64 noundef %23, i64 noundef %1, i32 noundef -1) #3
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
@@ -147,16 +147,16 @@ define hidden void @_ZN9metaspace17MetaspaceReporter18print_basic_reportEP12outp
 26:                                               ; preds = %20
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.12) #3
   %27 = tail call noundef ptr @_ZN9metaspace12ChunkManager18chunkmanager_classEv() #3
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %28) #3
   tail call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %0, i64 noundef %29, i64 noundef %1, i32 noundef -1) #3
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.13) #3
   %30 = tail call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #3
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %31) #3
   %33 = tail call noundef ptr @_ZN9metaspace12ChunkManager18chunkmanager_classEv() #3
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %34) #3
   %36 = add i64 %35, %32
   tail call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %0, i64 noundef %36, i64 noundef %1, i32 noundef -1) #3
@@ -195,7 +195,7 @@ define internal fastcc void @_ZN9metaspaceL8print_vsEP12outputStreamm(ptr nounde
   %3 = tail call noundef i64 @_ZN9metaspace15RunningCounters23reserved_words_nonclassEv() #3
   %4 = tail call noundef i64 @_ZN9metaspace15RunningCounters24committed_words_nonclassEv() #3
   %5 = tail call noundef ptr @_ZN9metaspace16VirtualSpaceList15vslist_nonclassEv() #3
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 4
   %8 = load i8, ptr @UseCompressedClassPointers, align 1
   %9 = trunc i8 %8 to i1
@@ -205,7 +205,7 @@ define internal fastcc void @_ZN9metaspaceL8print_vsEP12outputStreamm(ptr nounde
   %11 = tail call noundef i64 @_ZN9metaspace15RunningCounters20reserved_words_classEv() #3
   %12 = tail call noundef i64 @_ZN9metaspace15RunningCounters21committed_words_classEv() #3
   %13 = tail call noundef ptr @_ZN9metaspace16VirtualSpaceList12vslist_classEv() #3
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.41) #3
   tail call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %0, i64 noundef %3, i64 noundef %1, i32 noundef 7) #3
@@ -341,17 +341,17 @@ define hidden void @_ZN9metaspace17MetaspaceReporter12print_reportEP12outputStre
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.16) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %23 = getelementptr inbounds i8, ptr %4, i64 1528
-  %24 = getelementptr inbounds i8, ptr %4, i64 7448
-  %25 = getelementptr inbounds i8, ptr %4, i64 7480
-  %26 = getelementptr inbounds i8, ptr %4, i64 1560
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 1528
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 7448
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 7480
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 1560
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %22, %38
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %38 ]
-  %27 = getelementptr inbounds [4 x i64], ptr %23, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i64], ptr %23, i64 0, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds [4 x i64], ptr %24, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i64], ptr %24, i64 0, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
   %sext = shl i64 %indvars.iv, 32
   %31 = ashr exact i64 %sext, 32
@@ -364,11 +364,11 @@ switch.lookup:                                    ; preds = %22, %38
 
 33:                                               ; preds = %switch.lookup
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.18) #3
-  %34 = getelementptr inbounds [4 x i64], ptr %25, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i64], ptr %25, i64 0, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
   call void @_ZN9metaspace23print_number_of_classesEP12outputStreammm(ptr noundef nonnull %0, i64 noundef %30, i64 noundef %35) #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.19) #3
-  %36 = getelementptr inbounds [4 x %"struct.metaspace::ClmsStats"], ptr %26, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x %"struct.metaspace::ClmsStats"], ptr %26, i64 0, i64 %indvars.iv
   call void @_ZNK9metaspace9ClmsStats8print_onEP12outputStreammb(ptr noundef nonnull align 8 dereferenceable(1472) %36, ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext %18) #3
   br label %38
 
@@ -385,17 +385,17 @@ switch.lookup:                                    ; preds = %22, %38
 
 .loopexit:                                        ; preds = %38, %21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %39 = getelementptr inbounds i8, ptr %4, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %40 = load i64, ptr %39, align 8
   %41 = call noundef ptr @_ZN9metaspace14loaders_pluralEm(i64 noundef %40) #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, i64 noundef %40, ptr noundef %41) #3
-  %42 = getelementptr inbounds i8, ptr %4, i64 7512
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 7512
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 7520
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 7520
   %45 = load i64, ptr %44, align 8
   call void @_ZN9metaspace23print_number_of_classesEP12outputStreammm(ptr noundef nonnull %0, i64 noundef %43, i64 noundef %45) #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.19) #3
-  %46 = getelementptr inbounds i8, ptr %4, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @_ZNK9metaspace9ClmsStats8print_onEP12outputStreammb(ptr noundef nonnull align 8 dereferenceable(1472) %46, ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext %18) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
@@ -442,13 +442,13 @@ switch.lookup:                                    ; preds = %22, %38
   %64 = select i1 %63, ptr @.str.23, ptr @.str.24
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %64) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %5, i8 0, i64 60, i1 false)
-  %65 = getelementptr inbounds i8, ptr %5, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %65, i8 0, i64 120, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %6, i8 0, i64 60, i1 false)
-  %66 = getelementptr inbounds i8, ptr %6, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %66, i8 0, i64 120, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %7, i8 0, i64 60, i1 false)
-  %67 = getelementptr inbounds i8, ptr %7, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %67, i8 0, i64 120, i1 false)
   %68 = call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #3
   call void @_ZNK9metaspace12ChunkManager17add_to_statisticsEPNS_17ChunkManagerStatsE(ptr noundef nonnull align 8 dereferenceable(376) %68, ptr noundef nonnull %5) #3
@@ -515,16 +515,16 @@ switch.lookup:                                    ; preds = %22, %38
   call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %0, i64 noundef %87, i64 noundef %1, i32 noundef -1) #3
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.32) #3
   call void @_ZNK9metaspace10ArenaStats6totalsEv(ptr dead_on_unwind nonnull writable sret(%"struct.metaspace::InUseChunkStats") align 8 %8, ptr noundef nonnull align 8 dereferenceable(736) %46) #3
-  %88 = getelementptr inbounds i8, ptr %4, i64 792
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 792
   call void @_ZNK9metaspace10ArenaStats6totalsEv(ptr dead_on_unwind nonnull writable sret(%"struct.metaspace::InUseChunkStats") align 8 %9, ptr noundef nonnull align 8 dereferenceable(736) %88) #3
-  %89 = getelementptr inbounds i8, ptr %8, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %9, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %92 = load i64, ptr %91, align 8
   %93 = add i64 %92, %90
-  %94 = getelementptr inbounds i8, ptr %8, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %9, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %97 = load i64, ptr %96, align 8
   %98 = add i64 %97, %95
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.33) #3
@@ -537,14 +537,14 @@ switch.lookup:                                    ; preds = %22, %38
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35) #3
   call void @_ZN9metaspace33print_scaled_words_and_percentageEP12outputStreammmmi(ptr noundef nonnull %0, i64 noundef %99, i64 noundef %87, i64 noundef %1, i32 noundef 6) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %100 = getelementptr inbounds i8, ptr %4, i64 776
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 776
   %101 = load i64, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %4, i64 1512
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 1512
   %103 = load i64, ptr %102, align 8
   %104 = add i64 %103, %101
-  %105 = getelementptr inbounds i8, ptr %4, i64 784
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 784
   %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %4, i64 1520
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 1520
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, %106
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.36) #3
@@ -559,7 +559,7 @@ switch.lookup:                                    ; preds = %22, %38
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   %113 = load ptr, ptr @_ZN9metaspace15ChunkHeaderPool16_chunkHeaderPoolE, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %115 = load i32, ptr %114, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.39, i32 noundef %115) #3
   %116 = load ptr, ptr @_ZN9metaspace15ChunkHeaderPool16_chunkHeaderPoolE, align 8

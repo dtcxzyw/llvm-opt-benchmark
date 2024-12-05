@@ -80,7 +80,7 @@ if.then:                                          ; preds = %entry
 invoke.cont:                                      ; preds = %if.then
   %call3 = tail call noundef i32 @_ZN7logging22GetLastSystemErrorCodeEv()
   call void @_ZN7logging15ErrnoLogMessageC1EPKciii(ptr noundef nonnull align 8 dereferenceable(416) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 156, i32 noundef 2, i32 noundef %call3)
-  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  %stream_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.1)
           to label %cleanup.action unwind label %lpad
 
@@ -97,7 +97,7 @@ lpad:                                             ; preds = %invoke.cont
 if.end:                                           ; preds = %entry
   %1 = load i64, ptr %tv, align 8
   %mul = mul nsw i64 %1, 1000000
-  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
+  %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
   %2 = load i64, ptr %tv_usec, align 8
   %add = add i64 %2, 11644473600000000
   %add11 = add i64 %add, %mul
@@ -180,8 +180,8 @@ land.lhs.true.i.i.i:                              ; preds = %if.end15
   br i1 %call3.i.i.i, label %if.then.i.i.i, label %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  tail call void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 8))
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(48) @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(48) @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, ptr noundef null)
+  tail call void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 8))
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(48) @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 noundef ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(48) @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit.i
 
 _ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit.i: ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %if.end15
@@ -211,35 +211,35 @@ terminate.lpad.i.i:                               ; preds = %if.end.i
 
 _ZN12_GLOBAL__N_119SysTimeToTimeStructElP2tmb.exit: ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.addr.i)
-  %tm_year = getelementptr inbounds i8, ptr %timestruct, i64 20
+  %tm_year = getelementptr inbounds nuw i8, ptr %timestruct, i64 20
   %7 = load i32, ptr %tm_year, align 4
   %add16 = add nsw i32 %7, 1900
   store i32 %add16, ptr %exploded, align 4
-  %tm_mon = getelementptr inbounds i8, ptr %timestruct, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %timestruct, i64 16
   %8 = load i32, ptr %tm_mon, align 8
   %add17 = add nsw i32 %8, 1
-  %month = getelementptr inbounds i8, ptr %exploded, i64 4
+  %month = getelementptr inbounds nuw i8, ptr %exploded, i64 4
   store i32 %add17, ptr %month, align 4
-  %tm_wday = getelementptr inbounds i8, ptr %timestruct, i64 24
+  %tm_wday = getelementptr inbounds nuw i8, ptr %timestruct, i64 24
   %9 = load i32, ptr %tm_wday, align 8
-  %day_of_week = getelementptr inbounds i8, ptr %exploded, i64 8
+  %day_of_week = getelementptr inbounds nuw i8, ptr %exploded, i64 8
   store i32 %9, ptr %day_of_week, align 4
-  %tm_mday = getelementptr inbounds i8, ptr %timestruct, i64 12
+  %tm_mday = getelementptr inbounds nuw i8, ptr %timestruct, i64 12
   %10 = load i32, ptr %tm_mday, align 4
-  %day_of_month = getelementptr inbounds i8, ptr %exploded, i64 12
+  %day_of_month = getelementptr inbounds nuw i8, ptr %exploded, i64 12
   store i32 %10, ptr %day_of_month, align 4
-  %tm_hour = getelementptr inbounds i8, ptr %timestruct, i64 8
+  %tm_hour = getelementptr inbounds nuw i8, ptr %timestruct, i64 8
   %11 = load i32, ptr %tm_hour, align 8
-  %hour = getelementptr inbounds i8, ptr %exploded, i64 16
+  %hour = getelementptr inbounds nuw i8, ptr %exploded, i64 16
   store i32 %11, ptr %hour, align 4
-  %tm_min = getelementptr inbounds i8, ptr %timestruct, i64 4
+  %tm_min = getelementptr inbounds nuw i8, ptr %timestruct, i64 4
   %12 = load i32, ptr %tm_min, align 4
-  %minute = getelementptr inbounds i8, ptr %exploded, i64 20
+  %minute = getelementptr inbounds nuw i8, ptr %exploded, i64 20
   store i32 %12, ptr %minute, align 4
   %13 = load i32, ptr %timestruct, align 8
-  %second = getelementptr inbounds i8, ptr %exploded, i64 24
+  %second = getelementptr inbounds nuw i8, ptr %exploded, i64 24
   store i32 %13, ptr %second, align 4
-  %millisecond18 = getelementptr inbounds i8, ptr %exploded, i64 28
+  %millisecond18 = getelementptr inbounds nuw i8, ptr %exploded, i64 28
   store i32 %millisecond.0, ptr %millisecond18, align 4
   ret void
 }
@@ -251,39 +251,39 @@ entry:
   %timestruct0 = alloca %struct.tm, align 8
   %converted_time = alloca %"class.base::Time", align 8
   %to_exploded = alloca %"struct.base::Time::Exploded", align 4
-  %second = getelementptr inbounds i8, ptr %exploded, i64 24
+  %second = getelementptr inbounds nuw i8, ptr %exploded, i64 24
   %0 = load i32, ptr %second, align 4
   store i32 %0, ptr %timestruct, align 8
-  %minute = getelementptr inbounds i8, ptr %exploded, i64 20
+  %minute = getelementptr inbounds nuw i8, ptr %exploded, i64 20
   %1 = load i32, ptr %minute, align 4
-  %tm_min = getelementptr inbounds i8, ptr %timestruct, i64 4
+  %tm_min = getelementptr inbounds nuw i8, ptr %timestruct, i64 4
   store i32 %1, ptr %tm_min, align 4
-  %hour = getelementptr inbounds i8, ptr %exploded, i64 16
+  %hour = getelementptr inbounds nuw i8, ptr %exploded, i64 16
   %2 = load i32, ptr %hour, align 4
-  %tm_hour = getelementptr inbounds i8, ptr %timestruct, i64 8
+  %tm_hour = getelementptr inbounds nuw i8, ptr %timestruct, i64 8
   store i32 %2, ptr %tm_hour, align 8
-  %day_of_month = getelementptr inbounds i8, ptr %exploded, i64 12
+  %day_of_month = getelementptr inbounds nuw i8, ptr %exploded, i64 12
   %3 = load i32, ptr %day_of_month, align 4
-  %tm_mday = getelementptr inbounds i8, ptr %timestruct, i64 12
+  %tm_mday = getelementptr inbounds nuw i8, ptr %timestruct, i64 12
   store i32 %3, ptr %tm_mday, align 4
-  %month = getelementptr inbounds i8, ptr %exploded, i64 4
+  %month = getelementptr inbounds nuw i8, ptr %exploded, i64 4
   %4 = load i32, ptr %month, align 4
   %sub = add nsw i32 %4, -1
-  %tm_mon = getelementptr inbounds i8, ptr %timestruct, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %timestruct, i64 16
   store i32 %sub, ptr %tm_mon, align 8
   %5 = load i32, ptr %exploded, align 4
   %sub1 = add nsw i32 %5, -1900
-  %tm_year = getelementptr inbounds i8, ptr %timestruct, i64 20
+  %tm_year = getelementptr inbounds nuw i8, ptr %timestruct, i64 20
   store i32 %sub1, ptr %tm_year, align 4
-  %day_of_week = getelementptr inbounds i8, ptr %exploded, i64 8
+  %day_of_week = getelementptr inbounds nuw i8, ptr %exploded, i64 8
   %6 = load i32, ptr %day_of_week, align 4
-  %tm_wday = getelementptr inbounds i8, ptr %timestruct, i64 24
+  %tm_wday = getelementptr inbounds nuw i8, ptr %timestruct, i64 24
   store i32 %6, ptr %tm_wday, align 8
-  %tm_yday = getelementptr inbounds i8, ptr %timestruct, i64 28
+  %tm_yday = getelementptr inbounds nuw i8, ptr %timestruct, i64 28
   store i32 0, ptr %tm_yday, align 4
-  %tm_isdst = getelementptr inbounds i8, ptr %timestruct, i64 32
+  %tm_isdst = getelementptr inbounds nuw i8, ptr %timestruct, i64 32
   store i32 -1, ptr %tm_isdst, align 8
-  %tm_gmtoff = getelementptr inbounds i8, ptr %timestruct, i64 40
+  %tm_gmtoff = getelementptr inbounds nuw i8, ptr %timestruct, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tm_gmtoff, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %timestruct0, ptr noundef nonnull align 8 dereferenceable(56) %timestruct, i64 56, i1 false)
   %call = call fastcc noundef i64 @_ZN12_GLOBAL__N_121SysTimeFromTimeStructEP2tmb(ptr noundef %timestruct, i1 noundef zeroext %is_local)
@@ -326,7 +326,7 @@ if.then21:                                        ; preds = %land.lhs.true
 if.else27:                                        ; preds = %if.else, %entry, %if.else12, %land.lhs.true, %if.end15
   %seconds.025 = phi i64 [ -1, %land.lhs.true ], [ %call7, %if.end15 ], [ %call4, %if.else ], [ %call, %entry ], [ %.sroa.speculated, %if.else12 ]
   %mul = mul nsw i64 %seconds.025, 1000
-  %millisecond = getelementptr inbounds i8, ptr %exploded, i64 28
+  %millisecond = getelementptr inbounds nuw i8, ptr %exploded, i64 28
   %9 = load i32, ptr %millisecond, align 4
   %conv = sext i32 %9 to i64
   %add28 = add nsw i64 %mul, %conv
@@ -359,8 +359,8 @@ land.lhs.true.i.i:                                ; preds = %entry
   br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  tail call void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 8))
-  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(48) @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(48) @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, ptr noundef null)
+  tail call void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 8))
+  tail call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(48) @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 noundef ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, i64 8) to i64), ptr noundef nonnull align 8 dereferenceable(48) @_ZN12_GLOBAL__N_130g_sys_time_to_time_struct_lockE, ptr noundef null)
   br label %_ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit
 
 _ZN4base12LazyInstanceINS_4LockENS_8internal23LeakyLazyInstanceTraitsIS1_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
@@ -407,7 +407,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %ts.val.i = load i64, ptr %ts.i, align 8
-  %0 = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %ts.val1.i = load i64, ptr %0, align 8
   %tobool.i.i.i.not.i.i = icmp eq i64 %ts.val.i, 0
   br i1 %tobool.i.i.i.not.i.i, label %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i, label %if.else.i.i.i.i.i
@@ -482,7 +482,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %ts.val.i = load i64, ptr %ts.i, align 8
-  %0 = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %ts.val1.i = load i64, ptr %0, align 8
   %tobool.i.i.i.not.i.i = icmp eq i64 %ts.val.i, 0
   br i1 %tobool.i.i.i.not.i.i, label %_ZN4base8internal14CheckedNumericIlEmLIlEERS2_T_.exit.i.i, label %if.else.i.i.i.i.i

@@ -173,11 +173,11 @@ define internal fastcc ptr @altmap_alloc_block_buf(i64 noundef %0, ptr nocapture
 
 9:                                                ; preds = %2
   %10 = load i64, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %14
   %18 = add i64 %12, %10
@@ -198,7 +198,7 @@ define internal fastcc ptr @altmap_alloc_block_buf(i64 noundef %0, ptr nocapture
   %29 = and i64 %28, %26
   %30 = sub i64 %29, %19
   %31 = add i64 %30, %20
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = tail call i64 @llvm.usub.sat.i64(i64 %33, i64 %17)
   %35 = icmp ugt i64 %31, %34
@@ -303,7 +303,7 @@ define dso_local noundef ptr @vmemmap_pte_populate(ptr nocapture noundef readonl
   br label %62
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load volatile i64, ptr %28, align 8
   %30 = and i64 %29, 1
   %31 = icmp eq i64 %30, 0
@@ -344,8 +344,8 @@ define dso_local noundef ptr @vmemmap_pte_populate(ptr nocapture noundef readonl
 
 52:                                               ; preds = %51, %44, %35, %32
   %53 = phi ptr [ %34, %32 ], [ %50, %44 ], [ %4, %51 ], [ %4, %35 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 52
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54, ptr elementtype(i32) %54) #7, !srcloc !10
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 52
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %54, ptr nonnull elementtype(i32) %54) #7, !srcloc !10
   %55 = load i64, ptr @vmemmap_base, align 8
   %56 = ptrtoint ptr %4 to i64
   %57 = sub i64 %56, %55
@@ -790,7 +790,7 @@ define dso_local ptr @__populate_section_memmap(i64 noundef %0, i64 noundef %1, 
   br i1 %15, label %28, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %4, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   %20 = shl nuw i32 1, %19
@@ -829,13 +829,13 @@ define dso_local ptr @__populate_section_memmap(i64 noundef %0, i64 noundef %1, 
 define internal fastcc noundef range(i32 -12, 1) i32 @vmemmap_populate_compound_pages(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 section ".meminit.text" align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   %11 = shl nuw i32 1, %10
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %4, i64 136
-  %14 = getelementptr inbounds i8, ptr %4, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr [0 x %struct.range], ptr %13, i64 0, i64 %16

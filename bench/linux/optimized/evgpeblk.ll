@@ -25,20 +25,20 @@ define dso_local i32 @acpi_ev_delete_gpe_block(ptr noundef %0) local_unnamed_add
   br i1 %3, label %4, label %52
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @acpi_hw_disable_gpe_block(ptr noundef %6, ptr noundef %0, ptr noundef null) #6
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %52
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %21
@@ -54,7 +54,7 @@ define dso_local i32 @acpi_ev_delete_gpe_block(ptr noundef %0) local_unnamed_add
   %23 = tail call i64 @acpi_os_acquire_lock(ptr noundef %22) #6
   %24 = load ptr, ptr %10, align 8
   %25 = icmp eq ptr %24, null
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   br i1 %25, label %28, label %30
 
@@ -64,7 +64,7 @@ define dso_local i32 @acpi_ev_delete_gpe_block(ptr noundef %0) local_unnamed_add
 
 30:                                               ; preds = %28, %21
   %31 = phi ptr [ %29, %28 ], [ %24, %21 ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %27, ptr %32, align 8
   %33 = load ptr, ptr %26, align 8
   %34 = icmp eq ptr %33, null
@@ -72,7 +72,7 @@ define dso_local i32 @acpi_ev_delete_gpe_block(ptr noundef %0) local_unnamed_add
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %36, ptr %37, align 8
   br label %38
 
@@ -82,16 +82,16 @@ define dso_local i32 @acpi_ev_delete_gpe_block(ptr noundef %0) local_unnamed_add
   br label %40
 
 40:                                               ; preds = %38, %17
-  %41 = getelementptr inbounds i8, ptr %0, i64 60
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %42 = load i16, ptr %41, align 4
   %43 = zext i16 %42 to i32
   %44 = load i32, ptr @acpi_current_gpe_count, align 4
   %45 = sub i32 %44, %43
   store i32 %45, ptr @acpi_current_gpe_count, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load ptr, ptr %46, align 8
   tail call void @kfree(ptr noundef %47) #6
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load ptr, ptr %48, align 8
   tail call void @kfree(ptr noundef %49) #6
   tail call void @kfree(ptr noundef %0) #6
@@ -175,20 +175,20 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   br i1 %30, label %144, label %31
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %29, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store i64 %1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 64
   store i8 %2, ptr %33, align 8
   store ptr %0, ptr %29, align 8
   %34 = trunc i32 %3 to i16
   %35 = shl i16 %34, 3
-  %36 = getelementptr inbounds i8, ptr %29, i64 60
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 60
   store i16 %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %29, i64 65
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 65
   store i8 0, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %29, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 56
   store i32 %3, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %29, i64 62
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 62
   store i16 %4, ptr %39, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
   store i64 0, ptr %10, align 8, !annotation !5
@@ -229,9 +229,9 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   br label %105
 
 58:                                               ; preds = %49
-  %59 = getelementptr inbounds i8, ptr %29, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr %46, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %29, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store ptr %56, ptr %60, align 8
   %61 = load i32, ptr %38, align 8
   %62 = icmp eq i32 %61, 0
@@ -246,16 +246,16 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   %68 = trunc i64 %63 to i16
   %69 = shl i16 %68, 3
   %70 = add i16 %67, %69
-  %71 = getelementptr inbounds i8, ptr %65, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store i16 %70, ptr %71, align 8
   %72 = load i64, ptr %32, align 8
   %73 = add i64 %72, %63
-  %74 = getelementptr inbounds i8, ptr %65, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %73, ptr %74, align 8
   %75 = zext i32 %64 to i64
   %76 = add i64 %73, %75
-  %77 = getelementptr inbounds i8, ptr %65, i64 16
-  %78 = getelementptr inbounds i8, ptr %65, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i64 %76, ptr %78, align 8
   %79 = load i8, ptr %33, align 8
   store i8 %79, ptr %65, align 8
@@ -268,9 +268,9 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   %83 = phi ptr [ %66, %.preheader19 ], [ %88, %81 ]
   %84 = add nuw nsw i32 %82, %80
   %85 = trunc i32 %84 to i8
-  %86 = getelementptr inbounds i8, ptr %83, i64 17
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 17
   store i8 %85, ptr %86, align 1
-  %87 = getelementptr inbounds i8, ptr %83, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %65, ptr %87, align 8
   %88 = getelementptr i8, ptr %83, i64 24
   %89 = add nuw nsw i32 %82, 1
@@ -278,7 +278,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   br i1 %90, label %91, label %81, !llvm.loop !7
 
 91:                                               ; preds = %81
-  %92 = call i32 @acpi_hw_gpe_write(i64 noundef 0, ptr noundef %77) #6
+  %92 = call i32 @acpi_hw_gpe_write(i64 noundef 0, ptr noundef nonnull %77) #6
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %103
 
@@ -326,22 +326,22 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   %113 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
   %114 = call i64 @acpi_os_acquire_lock(ptr noundef %113) #6
   %115 = load ptr, ptr %8, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
   br i1 %118, label %126, label %.preheader
 
 .preheader:                                       ; preds = %112, %.preheader
   %119 = phi ptr [ %121, %.preheader ], [ %117, %112 ]
-  %120 = getelementptr inbounds i8, ptr %119, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %.preheader, !llvm.loop !11
 
 123:                                              ; preds = %.preheader
-  %124 = getelementptr inbounds i8, ptr %119, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %29, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %29, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %119, ptr %125, align 8
   br label %127
 
@@ -350,17 +350,17 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   br label %127
 
 127:                                              ; preds = %123, %126
-  %128 = getelementptr inbounds i8, ptr %29, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %115, ptr %128, align 8
   %129 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
   call void @acpi_os_release_lock(ptr noundef %129, i64 noundef %114) #6
   %130 = call i32 @acpi_ut_release_mutex(i32 noundef 3) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
   store i8 0, ptr @acpi_gbl_all_gpes_initialized, align 1
-  %131 = getelementptr inbounds i8, ptr %12, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %29, ptr %131, align 8
   store ptr %0, ptr %12, align 8
-  %132 = getelementptr inbounds i8, ptr %12, i64 20
+  %132 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %132, align 4
   %133 = call i32 @acpi_ns_walk_namespace(i32 noundef 8, ptr noundef %0, i32 noundef -1, i32 noundef 0, ptr noundef nonnull @acpi_ev_match_gpe_method, ptr noundef null, ptr noundef nonnull %12, ptr noundef null) #6
   %134 = icmp eq ptr %6, null
@@ -415,20 +415,20 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr nocapture noundef
   br i1 %4, label %104, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 65
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %104
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
-  %15 = getelementptr inbounds i8, ptr %1, i64 62
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 62
   %16 = icmp eq ptr %2, null
   br i1 %16, label %.split.us.us, label %.split
 
@@ -449,7 +449,7 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr nocapture noundef
   %28 = zext i16 %27 to i32
   %29 = trunc i64 %24 to i32
   %30 = add i32 %28, %29
-  %31 = getelementptr inbounds i8, ptr %26, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %32 = load i8, ptr %31, align 8
   %33 = or i8 %32, 64
   store i8 %33, ptr %31, align 8
@@ -503,7 +503,7 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr nocapture noundef
   %63 = zext i16 %62 to i32
   %64 = trunc i64 %59 to i32
   %65 = add i32 %63, %64
-  %66 = getelementptr inbounds i8, ptr %61, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %67 = load i8, ptr %66, align 8
   %68 = or i8 %67, 64
   store i8 %68, ptr %66, align 8
@@ -524,7 +524,7 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr nocapture noundef
   %76 = load i8, ptr %66, align 8
   %77 = or i8 %76, 32
   store i8 %77, ptr %66, align 8
-  %78 = getelementptr inbounds i8, ptr %61, i64 18
+  %78 = getelementptr inbounds nuw i8, ptr %61, i64 18
   %79 = load i8, ptr %78, align 2
   %80 = icmp eq i8 %79, 1
   %81 = and i8 %76, 72
@@ -561,7 +561,7 @@ define dso_local noundef i32 @acpi_ev_initialize_gpe_block(ptr nocapture noundef
 96:                                               ; preds = %.split10.us
   %97 = load i16, ptr %15, align 2
   %98 = zext i16 %97 to i32
-  %99 = getelementptr inbounds i8, ptr %1, i64 60
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %100 = load i16, ptr %99, align 4
   %101 = zext i16 %100 to i32
   %102 = add nsw i32 %98, -1

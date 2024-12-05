@@ -181,7 +181,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(110) %ap, i8 0, i64 110, i1 false)
   store i16 1, ptr %ap, align 4
-  %sun_path = getelementptr inbounds i8, ptr %ap, i64 2
+  %sun_path = getelementptr inbounds nuw i8, ptr %ap, i64 2
   %call = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %sun_path, ptr noundef nonnull dereferenceable(1) %where, i64 noundef 107) #13
   br label %return
 
@@ -190,12 +190,12 @@ if.then6:                                         ; preds = %entry
   br i1 %cmp7.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.then6
-  %1 = getelementptr inbounds i8, ptr %ap, i64 4
+  %1 = getelementptr inbounds nuw i8, ptr %ap, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, i8 0, i64 12, i1 false)
   store i16 2, ptr %ap, align 4
-  %sin_port = getelementptr inbounds i8, ptr %ap, i64 2
+  %sin_port = getelementptr inbounds nuw i8, ptr %ap, i64 2
   store i16 %port, ptr %sin_port, align 2
-  %sin_addr = getelementptr inbounds i8, ptr %ap, i64 4
+  %sin_addr = getelementptr inbounds nuw i8, ptr %ap, i64 4
   %2 = load i32, ptr %where, align 4
   store i32 %2, ptr %sin_addr, align 4
   br label %return
@@ -205,12 +205,12 @@ if.then15:                                        ; preds = %entry
   br i1 %cmp16.not, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.then15
-  %3 = getelementptr inbounds i8, ptr %ap, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %ap, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, i8 0, i64 24, i1 false)
   store i16 10, ptr %ap, align 4
-  %sin6_port = getelementptr inbounds i8, ptr %ap, i64 2
+  %sin6_port = getelementptr inbounds nuw i8, ptr %ap, i64 2
   store i16 %port, ptr %sin6_port, align 2
-  %sin6_addr = getelementptr inbounds i8, ptr %ap, i64 8
+  %sin6_addr = getelementptr inbounds nuw i8, ptr %ap, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr, ptr noundef nonnull align 4 dereferenceable(16) %where, i64 16, i1 false)
   br label %return
 
@@ -241,15 +241,15 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %sin_addr = getelementptr inbounds i8, ptr %ap, i64 4
+  %sin_addr = getelementptr inbounds nuw i8, ptr %ap, i64 4
   br label %if.end19
 
 if.then6:                                         ; preds = %entry
-  %sin6_addr = getelementptr inbounds i8, ptr %ap, i64 8
+  %sin6_addr = getelementptr inbounds nuw i8, ptr %ap, i64 8
   br label %if.end19
 
 if.then12:                                        ; preds = %entry
-  %sun_path = getelementptr inbounds i8, ptr %ap, i64 2
+  %sun_path = getelementptr inbounds nuw i8, ptr %ap, i64 2
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %sun_path) #14
   br label %if.end19
 
@@ -289,7 +289,7 @@ entry:
   ]
 
 return.sink.split:                                ; preds = %entry, %entry
-  %sin6_port = getelementptr inbounds i8, ptr %ap, i64 2
+  %sin6_port = getelementptr inbounds nuw i8, ptr %ap, i64 2
   %1 = load i16, ptr %sin6_port, align 2
   br label %return
 
@@ -376,7 +376,7 @@ if.then17:                                        ; preds = %if.end14
   ]
 
 return.sink.split.i:                              ; preds = %if.then17, %if.then17
-  %sin6_port.i = getelementptr inbounds i8, ptr %ap, i64 2
+  %sin6_port.i = getelementptr inbounds nuw i8, ptr %ap, i64 2
   %4 = load i16, ptr %sin6_port.i, align 2
   br label %BIO_ADDR_rawport.exit
 
@@ -466,7 +466,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %sun_path = getelementptr inbounds i8, ptr %ap, i64 2
+  %sun_path = getelementptr inbounds nuw i8, ptr %ap, i64 2
   %call = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %sun_path, ptr noundef nonnull @.str, i32 noundef 325) #13
   br label %return
 
@@ -520,7 +520,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ai_next = getelementptr inbounds i8, ptr %bai, i64 40
+  %ai_next = getelementptr inbounds nuw i8, ptr %bai, i64 40
   %0 = load ptr, ptr %ai_next, align 8
   br label %return
 
@@ -536,7 +536,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ai_family = getelementptr inbounds i8, ptr %bai, i64 4
+  %ai_family = getelementptr inbounds nuw i8, ptr %bai, i64 4
   %0 = load i32, ptr %ai_family, align 4
   br label %return
 
@@ -552,7 +552,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ai_socktype = getelementptr inbounds i8, ptr %bai, i64 8
+  %ai_socktype = getelementptr inbounds nuw i8, ptr %bai, i64 8
   %0 = load i32, ptr %ai_socktype, align 8
   br label %return
 
@@ -568,19 +568,19 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ai_protocol = getelementptr inbounds i8, ptr %bai, i64 12
+  %ai_protocol = getelementptr inbounds nuw i8, ptr %bai, i64 12
   %0 = load i32, ptr %ai_protocol, align 4
   %cmp1.not = icmp eq i32 %0, 0
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %ai_family = getelementptr inbounds i8, ptr %bai, i64 4
+  %ai_family = getelementptr inbounds nuw i8, ptr %bai, i64 4
   %1 = load i32, ptr %ai_family, align 4
   %cmp4 = icmp eq i32 %1, 1
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %ai_socktype = getelementptr inbounds i8, ptr %bai, i64 8
+  %ai_socktype = getelementptr inbounds nuw i8, ptr %bai, i64 8
   %2 = load i32, ptr %ai_socktype, align 8
   %switch.selectcmp = icmp eq i32 %2, 2
   %switch.select = select i1 %switch.selectcmp, i32 17, i32 0
@@ -600,7 +600,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ai_addrlen = getelementptr inbounds i8, ptr %bai, i64 16
+  %ai_addrlen = getelementptr inbounds nuw i8, ptr %bai, i64 16
   %0 = load i32, ptr %ai_addrlen, align 8
   br label %return
 
@@ -616,7 +616,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ai_addr = getelementptr inbounds i8, ptr %bai, i64 24
+  %ai_addr = getelementptr inbounds nuw i8, ptr %bai, i64 24
   %0 = load ptr, ptr %ai_addr, align 8
   br label %return
 
@@ -632,7 +632,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ai_addr = getelementptr inbounds i8, ptr %bai, i64 24
+  %ai_addr = getelementptr inbounds nuw i8, ptr %bai, i64 24
   %0 = load ptr, ptr %ai_addr, align 8
   br label %return
 
@@ -648,7 +648,7 @@ entry:
   br i1 %cmp, label %while.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ai_family = getelementptr inbounds i8, ptr %bai, i64 4
+  %ai_family = getelementptr inbounds nuw i8, ptr %bai, i64 4
   %0 = load i32, ptr %ai_family, align 4
   %cmp1.not = icmp eq i32 %0, 1
   br i1 %cmp1.not, label %while.body, label %if.then2
@@ -659,9 +659,9 @@ if.then2:                                         ; preds = %if.end
 
 while.body:                                       ; preds = %if.end, %while.body
   %bai.addr.07 = phi ptr [ %1, %while.body ], [ %bai, %if.end ]
-  %ai_next = getelementptr inbounds i8, ptr %bai.addr.07, i64 40
+  %ai_next = getelementptr inbounds nuw i8, ptr %bai.addr.07, i64 40
   %1 = load ptr, ptr %ai_next, align 8
-  %ai_addr = getelementptr inbounds i8, ptr %bai.addr.07, i64 24
+  %ai_addr = getelementptr inbounds nuw i8, ptr %bai.addr.07, i64 24
   %2 = load ptr, ptr %ai_addr, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 473) #13
   tail call void @CRYPTO_free(ptr noundef nonnull %bai.addr.07, ptr noundef nonnull @.str, i32 noundef 474) #13
@@ -688,11 +688,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %spec_err, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %add.ptr = getelementptr inbounds i8, ptr %hostserv, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %hostserv, i64 1
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
   %1 = load i8, ptr %incdec.ptr, align 1
   switch i8 %1, label %spec_err [
     i8 0, label %if.end47
@@ -700,7 +700,7 @@ if.end:                                           ; preds = %if.then
   ]
 
 if.else13:                                        ; preds = %if.end
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %call, i64 2
+  %incdec.ptr14 = getelementptr inbounds nuw i8, ptr %call, i64 2
   br label %land.lhs.true.sink.split
 
 if.else18:                                        ; preds = %entry
@@ -717,7 +717,7 @@ if.then27:                                        ; preds = %if.end24
   %sub.ptr.lhs.cast28 = ptrtoint ptr %call19 to i64
   %sub.ptr.rhs.cast29 = ptrtoint ptr %hostserv to i64
   %sub.ptr.sub30 = sub i64 %sub.ptr.lhs.cast28, %sub.ptr.rhs.cast29
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %call20, i64 1
+  %incdec.ptr31 = getelementptr inbounds nuw i8, ptr %call20, i64 1
   br label %land.lhs.true.sink.split
 
 if.else33:                                        ; preds = %if.end24
@@ -865,11 +865,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.else, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %ai_family.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  %ai_family.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   store i32 1, ptr %ai_family.i, align 4
-  %ai_socktype.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %ai_socktype.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 %socktype, ptr %ai_socktype.i, align 8
-  %ai_protocol10.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %ai_protocol10.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %ai_protocol10.i, align 4
   %call.i.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 112, ptr noundef nonnull @.str, i32 noundef 54) #13
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -882,31 +882,31 @@ if.then14.i:                                      ; preds = %if.end.i
   br i1 %cmp1.i.i, label %BIO_ADDR_rawmake.exit.i, label %if.end.i17.i
 
 if.end.i17.i:                                     ; preds = %if.then14.i
-  %1 = getelementptr inbounds i8, ptr %call.i.i, i64 108
+  %1 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 108
   store i16 0, ptr %1, align 4
   store i16 1, ptr %call.i.i, align 4
-  %sun_path.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2
+  %sun_path.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 2
   %call.i18.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %sun_path.i.i, ptr noundef nonnull readonly dereferenceable(1) %host, i64 noundef 107) #13
   br label %BIO_ADDR_rawmake.exit.i
 
 BIO_ADDR_rawmake.exit.i:                          ; preds = %if.end.i17.i, %if.then14.i
   %2 = load ptr, ptr %res, align 8
-  %ai_addr.i = getelementptr inbounds i8, ptr %2, i64 24
+  %ai_addr.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %call.i.i, ptr %ai_addr.i, align 8
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %BIO_ADDR_rawmake.exit.i, %if.end.i
   %3 = load ptr, ptr %res, align 8
-  %ai_next.i = getelementptr inbounds i8, ptr %3, i64 40
+  %ai_next.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr null, ptr %ai_next.i, align 8
   %4 = load ptr, ptr %res, align 8
-  %ai_addr18.i = getelementptr inbounds i8, ptr %4, i64 24
+  %ai_addr18.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %5 = load ptr, ptr %ai_addr18.i, align 8
   %cmp19.i = icmp eq ptr %5, null
   br i1 %cmp19.i, label %if.end.i20.i, label %return
 
 if.end.i20.i:                                     ; preds = %if.end17.i
-  %ai_family.i.i = getelementptr inbounds i8, ptr %4, i64 4
+  %ai_family.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %ai_family.i.i, align 4
   %cmp1.not.i.i = icmp eq i32 %6, 1
   br i1 %cmp1.not.i.i, label %while.body.i.i, label %if.then2.i.i
@@ -917,9 +917,9 @@ if.then2.i.i:                                     ; preds = %if.end.i20.i
 
 while.body.i.i:                                   ; preds = %if.end.i20.i, %while.body.i.i
   %bai.addr.07.i.i = phi ptr [ %7, %while.body.i.i ], [ %4, %if.end.i20.i ]
-  %ai_next.i.i = getelementptr inbounds i8, ptr %bai.addr.07.i.i, i64 40
+  %ai_next.i.i = getelementptr inbounds nuw i8, ptr %bai.addr.07.i.i, i64 40
   %7 = load ptr, ptr %ai_next.i.i, align 8
-  %ai_addr.i.i = getelementptr inbounds i8, ptr %bai.addr.07.i.i, i64 24
+  %ai_addr.i.i = getelementptr inbounds nuw i8, ptr %bai.addr.07.i.i, i64 24
   %8 = load ptr, ptr %ai_addr.i.i, align 8
   tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 473) #13
   tail call void @CRYPTO_free(ptr noundef nonnull %bai.addr.07.i.i, ptr noundef nonnull @.str, i32 noundef 474) #13
@@ -943,11 +943,11 @@ if.end3:                                          ; preds = %entry, %entry, %ent
 
 if.then8:                                         ; preds = %if.end3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hints, i8 0, i64 48, i1 false)
-  %ai_family = getelementptr inbounds i8, ptr %hints, i64 4
+  %ai_family = getelementptr inbounds nuw i8, ptr %hints, i64 4
   store i32 %family, ptr %ai_family, align 4
-  %ai_socktype = getelementptr inbounds i8, ptr %hints, i64 8
+  %ai_socktype = getelementptr inbounds nuw i8, ptr %hints, i64 8
   store i32 %socktype, ptr %ai_socktype, align 8
-  %ai_protocol = getelementptr inbounds i8, ptr %hints, i64 12
+  %ai_protocol = getelementptr inbounds nuw i8, ptr %hints, i64 12
   store i32 %protocol, ptr %ai_protocol, align 4
   %cmp9 = icmp ne ptr %host, null
   %cmp10 = icmp eq i32 %family, 0

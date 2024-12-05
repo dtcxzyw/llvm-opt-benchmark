@@ -58,7 +58,7 @@ define internal void @cf_h1_proxy_destroy(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 2642
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %5 = load i64, ptr %4, align 2
   %6 = and i64 %5, 268435456
   %7 = icmp ne i64 %6, 0
@@ -68,7 +68,7 @@ define internal void @cf_h1_proxy_destroy(ptr noundef %0, ptr noundef %1) #0 {
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %15
@@ -90,9 +90,9 @@ define internal i32 @cf_h1_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %14 = load i8, ptr %13, align 4
   %15 = and i8 %14, 1
   %.not = icmp eq i8 %15, 0
@@ -107,7 +107,7 @@ define internal i32 @cf_h1_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %.not46, label %28, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 2642
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %20 = load i64, ptr %19, align 2
   %21 = and i64 %20, 268435456
   %.not64 = icmp eq i64 %21, 0
@@ -115,7 +115,7 @@ define internal i32 @cf_h1_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %28
@@ -125,10 +125,10 @@ define internal i32 @cf_h1_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   br label %28
 
 28:                                               ; preds = %17, %18, %22, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %33(ptr noundef nonnull %30, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #5
   %.not47 = icmp eq i32 %34, 0
@@ -145,11 +145,11 @@ define internal i32 @cf_h1_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %.not48, label %39, label %tunnel_is_established.exit.i
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 680
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 680
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 140
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 140
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 16384
   %.not.i = icmp eq i32 %46, 0
@@ -175,7 +175,7 @@ define internal i32 @cf_h1_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %.not46, label %60, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %1, i64 2642
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %57 = load i64, ptr %56, align 2
   %58 = and i64 %57, 268435456
   %.not26.i = icmp eq i64 %58, 0
@@ -186,23 +186,23 @@ define internal i32 @cf_h1_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   br label %60
 
 60:                                               ; preds = %59, %55, %54
-  %61 = getelementptr inbounds i8, ptr %53, i64 112
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 112
   tail call void @Curl_dyn_init(ptr noundef nonnull %61, i64 noundef 16384) #5
-  %62 = getelementptr inbounds i8, ptr %53, i64 144
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 144
   tail call void @Curl_dyn_init(ptr noundef nonnull %62, i64 noundef 1048576) #5
-  %63 = getelementptr inbounds i8, ptr %53, i64 192
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 192
   tail call void @Curl_httpchunk_init(ptr noundef %1, ptr noundef nonnull %63, i1 noundef zeroext true) #5
   %64 = load ptr, ptr %40, align 8
   tail call void @Curl_conncontrol(ptr noundef %64, i32 noundef 0) #5
   tail call void @Curl_dyn_reset(ptr noundef nonnull %61) #5
   tail call void @Curl_dyn_reset(ptr noundef nonnull %62) #5
-  %65 = getelementptr inbounds i8, ptr %53, i64 280
+  %65 = getelementptr inbounds nuw i8, ptr %53, i64 280
   store i32 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %53, i64 264
+  %66 = getelementptr inbounds nuw i8, ptr %53, i64 264
   store i32 1, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %53, i64 272
+  %67 = getelementptr inbounds nuw i8, ptr %53, i64 272
   store i64 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %53, i64 284
+  %68 = getelementptr inbounds nuw i8, ptr %53, i64 284
   %69 = load i8, ptr %68, align 4
   %70 = and i8 %69, -3
   store i8 %70, ptr %68, align 4
@@ -212,9 +212,9 @@ define internal i32 @cf_h1_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
 tunnel_is_established.exit.i:                     ; preds = %38, %60
   %.056 = phi ptr [ %53, %60 ], [ %12, %38 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  %71 = getelementptr inbounds i8, ptr %0, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %.056, i64 280
+  %73 = getelementptr inbounds nuw i8, ptr %.056, i64 280
   %74 = load i32, ptr %73, align 8
   switch i32 %74, label %tunnel_is_failed.exit.preheader.i [
     i32 4, label %.loopexit
@@ -222,24 +222,24 @@ tunnel_is_established.exit.i:                     ; preds = %38, %60
   ]
 
 tunnel_is_failed.exit.preheader.i:                ; preds = %tunnel_is_established.exit.i
-  %75 = getelementptr inbounds i8, ptr %1, i64 2642
-  %76 = getelementptr inbounds i8, ptr %1, i64 360
-  %77 = getelementptr inbounds i8, ptr %.056, i64 144
-  %78 = getelementptr inbounds i8, ptr %.056, i64 176
-  %79 = getelementptr inbounds i8, ptr %.056, i64 264
-  %80 = getelementptr inbounds i8, ptr %.056, i64 112
-  %81 = getelementptr inbounds i8, ptr %0, i64 32
-  %82 = getelementptr inbounds i8, ptr %.056, i64 184
-  %83 = getelementptr inbounds i8, ptr %1, i64 296
-  %84 = getelementptr inbounds i8, ptr %1, i64 4940
-  %85 = getelementptr inbounds i8, ptr %.056, i64 272
-  %86 = getelementptr inbounds i8, ptr %.056, i64 284
-  %87 = getelementptr inbounds i8, ptr %.056, i64 192
-  %88 = getelementptr inbounds i8, ptr %1, i64 4956
-  %89 = getelementptr inbounds i8, ptr %1, i64 472
-  %90 = getelementptr inbounds i8, ptr %1, i64 3536
-  %91 = getelementptr inbounds i8, ptr %1, i64 4824
-  %92 = getelementptr inbounds i8, ptr %72, i64 672
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 2642
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %77 = getelementptr inbounds nuw i8, ptr %.056, i64 144
+  %78 = getelementptr inbounds nuw i8, ptr %.056, i64 176
+  %79 = getelementptr inbounds nuw i8, ptr %.056, i64 264
+  %80 = getelementptr inbounds nuw i8, ptr %.056, i64 112
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %.056, i64 184
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 4940
+  %85 = getelementptr inbounds nuw i8, ptr %.056, i64 272
+  %86 = getelementptr inbounds nuw i8, ptr %.056, i64 284
+  %87 = getelementptr inbounds nuw i8, ptr %.056, i64 192
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 4956
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 472
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 3536
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 4824
+  %92 = getelementptr inbounds nuw i8, ptr %72, i64 672
   br label %tunnel_is_failed.exit.i
 
 tunnel_is_failed.exit.i:                          ; preds = %h1_tunnel_go_state.exit145.i, %tunnel_is_failed.exit.preheader.i
@@ -271,7 +271,7 @@ tunnel_is_failed.exit.i:                          ; preds = %h1_tunnel_go_state.
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %0, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 12
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 12
   %105 = load i32, ptr %104, align 4
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %107, label %108
@@ -299,7 +299,7 @@ tunnel_is_failed.exit.i:                          ; preds = %h1_tunnel_go_state.
 
 115:                                              ; preds = %112
   %116 = load ptr, ptr %9, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %118 = load ptr, ptr %117, align 8
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.21, ptr noundef %118) #5
   br label %119
@@ -308,7 +308,7 @@ tunnel_is_failed.exit.i:                          ; preds = %h1_tunnel_go_state.
   call void @Curl_dyn_reset(ptr noundef nonnull %77) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
   %120 = load ptr, ptr %71, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 236
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 236
   %122 = load i8, ptr %121, align 4
   %123 = icmp ne i8 %122, 1
   %124 = zext i1 %123 to i32
@@ -350,7 +350,7 @@ start_CONNECT.exit.i:                             ; preds = %129, %127
 
 136:                                              ; preds = %133
   %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 12
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 12
   %139 = load i32, ptr %138, align 4
   %140 = icmp sgt i32 %139, 0
   br i1 %140, label %141, label %142
@@ -376,7 +376,7 @@ h1_tunnel_go_state.exit.thread.i:                 ; preds = %h1_tunnel_go_state.
 
 145:                                              ; preds = %h1_tunnel_go_state.exit.thread.i
   %146 = load ptr, ptr %0, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 12
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %148 = load i32, ptr %147, align 4
   %149 = icmp sgt i32 %148, 0
   br i1 %149, label %150, label %151
@@ -400,7 +400,7 @@ h1_tunnel_go_state.exit.thread.i:                 ; preds = %h1_tunnel_go_state.
   %157 = getelementptr inbounds i8, ptr %152, i64 %154
   %158 = load ptr, ptr %29, align 8
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 64
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 64
   %161 = load ptr, ptr %160, align 8
   %162 = call i64 %161(ptr noundef nonnull %158, ptr noundef %1, ptr noundef %157, i64 noundef %156, ptr noundef nonnull %8) #5
   %163 = icmp slt i64 %162, 0
@@ -457,7 +457,7 @@ send_CONNECT.exit.i:                              ; preds = %.thread.i136.i
 
 181:                                              ; preds = %178
   %182 = load ptr, ptr %0, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 12
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 12
   %184 = load i32, ptr %183, align 4
   %185 = icmp sgt i32 %184, 0
   br i1 %185, label %186, label %187
@@ -481,7 +481,7 @@ h1_tunnel_go_state.exit138.i:                     ; preds = %187, %174, %96
 
 191:                                              ; preds = %188
   %192 = load ptr, ptr %0, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 12
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 12
   %194 = load i32, ptr %193, align 4
   %195 = icmp sgt i32 %194, 0
   br i1 %195, label %196, label %197
@@ -690,7 +690,7 @@ h1_tunnel_go_state.exit138.i:                     ; preds = %187, %174, %96
 
 280:                                              ; preds = %279
   %281 = load ptr, ptr %0, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 12
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 12
   %283 = load i32, ptr %282, align 4
   %284 = icmp sgt i32 %283, 0
   br i1 %284, label %285, label %.backedge.thread.sink.split.i.i
@@ -733,7 +733,7 @@ h1_tunnel_go_state.exit138.i:                     ; preds = %187, %174, %96
 
 302:                                              ; preds = %299
   %303 = load ptr, ptr %0, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 12
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 12
   %305 = load i32, ptr %304, align 4
   %306 = icmp sgt i32 %305, 0
   br i1 %306, label %307, label %308
@@ -771,7 +771,7 @@ h1_tunnel_go_state.exit138.i:                     ; preds = %187, %174, %96
   br label %on_resp_header.exit.i.i
 
 320:                                              ; preds = %313
-  %321 = getelementptr inbounds i8, ptr %250, i64 15
+  %321 = getelementptr inbounds nuw i8, ptr %250, i64 15
   %322 = call i32 @curlx_strtoofft(ptr noundef nonnull %321, ptr noundef null, i32 noundef 10, ptr noundef nonnull %85) #5
   br label %on_resp_header.exit.i.i
 
@@ -843,41 +843,41 @@ h1_tunnel_go_state.exit138.i:                     ; preds = %187, %174, %96
   br i1 %.not79.i.i.i, label %353, label %on_resp_header.exit.i.i
 
 353:                                              ; preds = %351
-  %354 = getelementptr inbounds i8, ptr %250, i64 7
+  %354 = getelementptr inbounds nuw i8, ptr %250, i64 7
   %355 = load i8, ptr %354, align 1
   %356 = and i8 %355, -2
   %switch.i.i.i = icmp eq i8 %356, 48
   br i1 %switch.i.i.i, label %357, label %on_resp_header.exit.i.i
 
 357:                                              ; preds = %353
-  %358 = getelementptr inbounds i8, ptr %250, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %359 = load i8, ptr %358, align 1
   %360 = icmp eq i8 %359, 32
   br i1 %360, label %361, label %on_resp_header.exit.i.i
 
 361:                                              ; preds = %357
-  %362 = getelementptr inbounds i8, ptr %250, i64 9
+  %362 = getelementptr inbounds nuw i8, ptr %250, i64 9
   %363 = load i8, ptr %362, align 1
   %364 = add i8 %363, -48
   %or.cond90.i.i.i = icmp ult i8 %364, 10
   br i1 %or.cond90.i.i.i, label %365, label %on_resp_header.exit.i.i
 
 365:                                              ; preds = %361
-  %366 = getelementptr inbounds i8, ptr %250, i64 10
+  %366 = getelementptr inbounds nuw i8, ptr %250, i64 10
   %367 = load i8, ptr %366, align 1
   %368 = add i8 %367, -48
   %or.cond91.i.i.i = icmp ult i8 %368, 10
   br i1 %or.cond91.i.i.i, label %369, label %on_resp_header.exit.i.i
 
 369:                                              ; preds = %365
-  %370 = getelementptr inbounds i8, ptr %250, i64 11
+  %370 = getelementptr inbounds nuw i8, ptr %250, i64 11
   %371 = load i8, ptr %370, align 1
   %372 = add i8 %371, -48
   %or.cond92.i.i.i = icmp ult i8 %372, 10
   br i1 %or.cond92.i.i.i, label %373, label %on_resp_header.exit.i.i
 
 373:                                              ; preds = %369
-  %374 = getelementptr inbounds i8, ptr %250, i64 12
+  %374 = getelementptr inbounds nuw i8, ptr %250, i64 12
   %375 = load i8, ptr %374, align 1
   %376 = add i8 %375, -48
   %or.cond93.i.i.i = icmp ult i8 %376, 10
@@ -959,7 +959,7 @@ recv_CONNECT_resp.exit.i:                         ; preds = %308, %296, %256, %2
 
 400:                                              ; preds = %397
   %401 = load ptr, ptr %0, align 8
-  %402 = getelementptr inbounds i8, ptr %401, i64 12
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 12
   %403 = load i32, ptr %402, align 4
   %404 = icmp sgt i32 %403, 0
   br i1 %404, label %405, label %406
@@ -983,7 +983,7 @@ h1_tunnel_go_state.exit143.i:                     ; preds = %406, %393, %96
 
 410:                                              ; preds = %407
   %411 = load ptr, ptr %0, align 8
-  %412 = getelementptr inbounds i8, ptr %411, i64 12
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 12
   %413 = load i32, ptr %412, align 4
   %414 = icmp sgt i32 %413, 0
   br i1 %414, label %415, label %416
@@ -1017,7 +1017,7 @@ h1_tunnel_go_state.exit143.i:                     ; preds = %406, %393, %96
 
 427:                                              ; preds = %424
   %428 = load ptr, ptr %0, align 8
-  %429 = getelementptr inbounds i8, ptr %428, i64 12
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 12
   %430 = load i32, ptr %429, align 4
   %431 = icmp sgt i32 %430, 0
   br i1 %431, label %432, label %.thread.i
@@ -1046,7 +1046,7 @@ h1_tunnel_go_state.exit143.i:                     ; preds = %406, %393, %96
 
 440:                                              ; preds = %437
   %441 = load ptr, ptr %0, align 8
-  %442 = getelementptr inbounds i8, ptr %441, i64 12
+  %442 = getelementptr inbounds nuw i8, ptr %441, i64 12
   %443 = load i32, ptr %442, align 4
   %444 = icmp sgt i32 %443, 0
   br i1 %444, label %445, label %446
@@ -1094,7 +1094,7 @@ h1_tunnel_go_state.exit145.thread.i:              ; preds = %h1_tunnel_go_state.
 
 457:                                              ; preds = %454
   %458 = load ptr, ptr %0, align 8
-  %459 = getelementptr inbounds i8, ptr %458, i64 12
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 12
   %460 = load i32, ptr %459, align 4
   %461 = icmp sgt i32 %460, 0
   br i1 %461, label %462, label %463
@@ -1107,7 +1107,7 @@ h1_tunnel_go_state.exit145.thread.i:              ; preds = %h1_tunnel_go_state.
   store i32 5, ptr %73, align 8
   call void @Curl_dyn_reset(ptr noundef nonnull %80) #5
   call void @Curl_dyn_reset(ptr noundef nonnull %77) #5
-  %464 = getelementptr inbounds i8, ptr %1, i64 4952
+  %464 = getelementptr inbounds nuw i8, ptr %1, i64 4952
   store i32 0, ptr %464, align 8
   %465 = load ptr, ptr @Curl_cfree, align 8
   %466 = load ptr, ptr %91, align 8
@@ -1157,7 +1157,7 @@ h1_tunnel_go_state.exit147.i:                     ; preds = %463, %450
 
 481:                                              ; preds = %478
   %482 = load ptr, ptr %0, align 8
-  %483 = getelementptr inbounds i8, ptr %482, i64 12
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 12
   %484 = load i32, ptr %483, align 4
   %485 = icmp sgt i32 %484, 0
   br i1 %485, label %486, label %487
@@ -1170,7 +1170,7 @@ h1_tunnel_go_state.exit147.i:                     ; preds = %463, %450
   store i32 5, ptr %73, align 8
   call void @Curl_dyn_reset(ptr noundef nonnull %80) #5
   call void @Curl_dyn_reset(ptr noundef nonnull %77) #5
-  %488 = getelementptr inbounds i8, ptr %1, i64 4952
+  %488 = getelementptr inbounds nuw i8, ptr %1, i64 4952
   store i32 0, ptr %488, align 8
   %489 = load ptr, ptr @Curl_cfree, align 8
   %490 = load ptr, ptr %91, align 8
@@ -1181,7 +1181,7 @@ h1_tunnel_go_state.exit147.i:                     ; preds = %463, %450
 .loopexit:                                        ; preds = %392, %172, %tunnel_is_established.exit.i, %.thread, %468, %471
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   %491 = load ptr, ptr @Curl_cfree, align 8
-  %492 = getelementptr inbounds i8, ptr %1, i64 4824
+  %492 = getelementptr inbounds nuw i8, ptr %1, i64 4824
   %493 = load ptr, ptr %492, align 8
   call void %491(ptr noundef %493) #5
   store ptr null, ptr %492, align 8
@@ -1194,7 +1194,7 @@ tunnel_is_established.exit.thread:                ; preds = %.loopexit
   br label %tunnel_init.exit.thread
 
 tunnel_is_established.exit:                       ; preds = %.loopexit
-  %495 = getelementptr inbounds i8, ptr %494, i64 280
+  %495 = getelementptr inbounds nuw i8, ptr %494, i64 280
   %496 = load i32, ptr %495, align 8
   %497 = icmp eq i32 %496, 4
   %498 = zext i1 %497 to i8
@@ -1205,9 +1205,9 @@ tunnel_is_established.exit:                       ; preds = %.loopexit
   %500 = load i8, ptr %13, align 4
   %501 = or i8 %500, 1
   store i8 %501, ptr %13, align 4
-  %502 = getelementptr inbounds i8, ptr %1, i64 403
+  %502 = getelementptr inbounds nuw i8, ptr %1, i64 403
   %503 = load i16, ptr %502, align 1
-  %504 = getelementptr inbounds i8, ptr %1, i64 232
+  %504 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i64 0, ptr %504, align 8
   %505 = and i16 %503, -34
   %506 = or disjoint i16 %505, 1
@@ -1235,7 +1235,7 @@ define internal void @cf_h1_proxy_close(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 2642
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %5 = load i64, ptr %4, align 2
   %6 = and i64 %5, 268435456
   %7 = icmp ne i64 %6, 0
@@ -1245,7 +1245,7 @@ define internal void @cf_h1_proxy_close(ptr noundef %0, ptr noundef %1) #0 {
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %15
@@ -1255,17 +1255,17 @@ define internal void @cf_h1_proxy_close(ptr noundef %0, ptr noundef %1) #0 {
   br label %15
 
 15:                                               ; preds = %2, %3, %9, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %17 = load i8, ptr %16, align 4
   %18 = and i8 %17, -2
   store i8 %18, ptr %16, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not19 = icmp eq ptr %20, null
   br i1 %.not19, label %h1_tunnel_go_state.exit, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %20, i64 280
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 280
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %h1_tunnel_go_state.exit, label %25
@@ -1274,7 +1274,7 @@ define internal void @cf_h1_proxy_close(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %36, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %1, i64 2642
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %28 = load i64, ptr %27, align 2
   %29 = and i64 %28, 268435456
   %.not21 = icmp eq i64 %29, 0
@@ -1282,7 +1282,7 @@ define internal void @cf_h1_proxy_close(ptr noundef %0, ptr noundef %1) #0 {
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %36
@@ -1292,30 +1292,30 @@ define internal void @cf_h1_proxy_close(ptr noundef %0, ptr noundef %1) #0 {
   br label %36
 
 36:                                               ; preds = %35, %30, %26, %25
-  %37 = getelementptr inbounds i8, ptr %20, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 112
   tail call void @Curl_dyn_reset(ptr noundef nonnull %37) #5
-  %38 = getelementptr inbounds i8, ptr %20, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 144
   tail call void @Curl_dyn_reset(ptr noundef nonnull %38) #5
   store i32 0, ptr %22, align 8
-  %39 = getelementptr inbounds i8, ptr %20, i64 264
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 264
   store i32 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %20, i64 272
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 272
   store i64 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %20, i64 284
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 284
   %42 = load i8, ptr %41, align 4
   %43 = and i8 %42, -3
   store i8 %43, ptr %41, align 4
   br label %h1_tunnel_go_state.exit
 
 h1_tunnel_go_state.exit:                          ; preds = %36, %21, %15
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not20 = icmp eq ptr %45, null
   br i1 %.not20, label %50, label %46
 
 46:                                               ; preds = %h1_tunnel_go_state.exit
   %47 = load ptr, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull %45, ptr noundef %1) #5
   br label %50
@@ -1328,9 +1328,9 @@ declare void @Curl_cf_http_proxy_get_host(ptr noundef, ptr noundef, ptr noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal void @cf_h1_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, 1
   %.not = icmp eq i8 %8, 0
@@ -1342,7 +1342,7 @@ define internal void @cf_h1_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
   br i1 %.not14, label %17, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %5, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %15, label %16
@@ -1401,13 +1401,13 @@ declare void @Curl_trc_cf_infof(ptr noundef, ptr noundef, ptr noundef, ...) loca
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tunnel_free(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %31, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 5
   br i1 %8, label %h1_tunnel_go_state.exit, label %9
@@ -1417,7 +1417,7 @@ define internal fastcc void @tunnel_free(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %.not83.i, label %20, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 2642
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %12 = load i64, ptr %11, align 2
   %13 = and i64 %12, 268435456
   %.not11 = icmp eq i64 %13, 0
@@ -1425,7 +1425,7 @@ define internal fastcc void @tunnel_free(ptr noundef %0, ptr noundef %1) unnamed
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %19, label %20
@@ -1436,25 +1436,25 @@ define internal fastcc void @tunnel_free(ptr noundef %0, ptr noundef %1) unnamed
 
 20:                                               ; preds = %19, %14, %10, %9
   store i32 5, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 112
   tail call void @Curl_dyn_reset(ptr noundef nonnull %21) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 144
   tail call void @Curl_dyn_reset(ptr noundef nonnull %22) #5
-  %23 = getelementptr inbounds i8, ptr %1, i64 4952
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4952
   store i32 0, ptr %23, align 8
   %24 = load ptr, ptr @Curl_cfree, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 4824
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4824
   %26 = load ptr, ptr %25, align 8
   tail call void %24(ptr noundef %26) #5
   store ptr null, ptr %25, align 8
   br label %h1_tunnel_go_state.exit
 
 h1_tunnel_go_state.exit:                          ; preds = %5, %20
-  %27 = getelementptr inbounds i8, ptr %4, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 112
   tail call void @Curl_dyn_free(ptr noundef nonnull %27) #5
-  %28 = getelementptr inbounds i8, ptr %4, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 144
   tail call void @Curl_dyn_free(ptr noundef nonnull %28) #5
-  %29 = getelementptr inbounds i8, ptr %4, i64 192
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 192
   tail call void @Curl_httpchunk_free(ptr noundef %1, ptr noundef nonnull %29) #5
   %30 = load ptr, ptr @Curl_cfree, align 8
   tail call void %30(ptr noundef nonnull %4) #5
@@ -1467,7 +1467,7 @@ h1_tunnel_go_state.exit:                          ; preds = %5, %20
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 6) %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %2
   br i1 %7, label %112, label %8
@@ -1487,7 +1487,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   br i1 %.not83, label %22, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %3, i64 2642
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 2642
   %12 = load i64, ptr %11, align 2
   %13 = and i64 %12, 268435456
   %14 = icmp ne i64 %13, 0
@@ -1497,7 +1497,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %22
@@ -1507,16 +1507,16 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   br label %22
 
 22:                                               ; preds = %9, %10, %16, %21
-  %23 = getelementptr inbounds i8, ptr %1, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 112
   tail call void @Curl_dyn_reset(ptr noundef nonnull %23) #5
-  %24 = getelementptr inbounds i8, ptr %1, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 144
   tail call void @Curl_dyn_reset(ptr noundef nonnull %24) #5
   store i32 0, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 264
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store i32 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 272
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 284
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %28 = load i8, ptr %27, align 4
   %29 = and i8 %28, -3
   store i8 %29, ptr %27, align 4
@@ -1526,7 +1526,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   br i1 %.not83, label %43, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %3, i64 2642
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 2642
   %33 = load i64, ptr %32, align 2
   %34 = and i64 %33, 268435456
   %35 = icmp ne i64 %34, 0
@@ -1536,7 +1536,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %43
@@ -1547,9 +1547,9 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
 
 43:                                               ; preds = %30, %31, %37, %42
   store i32 1, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 264
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store i32 1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 112
   tail call void @Curl_dyn_reset(ptr noundef nonnull %45) #5
   br label %112
 
@@ -1557,7 +1557,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   br i1 %.not83, label %59, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %3, i64 2642
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 2642
   %49 = load i64, ptr %48, align 2
   %50 = and i64 %49, 268435456
   %51 = icmp ne i64 %50, 0
@@ -1567,7 +1567,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
 
 53:                                               ; preds = %47
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %58, label %59
@@ -1584,7 +1584,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   br i1 %.not83, label %73, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %3, i64 2642
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 2642
   %63 = load i64, ptr %62, align 2
   %64 = and i64 %63, 268435456
   %65 = icmp ne i64 %64, 0
@@ -1594,7 +1594,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %72, label %73
@@ -1611,7 +1611,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   br i1 %.not83, label %.thread, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %3, i64 2642
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 2642
   %77 = load i64, ptr %76, align 2
   %78 = and i64 %77, 268435456
   %79 = icmp ne i64 %78, 0
@@ -1621,7 +1621,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
 
 81:                                               ; preds = %75
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 12
   %84 = load i32, ptr %83, align 4
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %86, label %.thread88
@@ -1642,7 +1642,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %.thread88, %87, %74
-  %88 = getelementptr inbounds i8, ptr %3, i64 3544
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 3544
   %89 = load i8, ptr %88, align 8
   %90 = and i8 %89, -4
   %91 = or disjoint i8 %90, 1
@@ -1653,7 +1653,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
   br i1 %.not83, label %105, label %93
 
 93:                                               ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %3, i64 2642
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 2642
   %95 = load i64, ptr %94, align 2
   %96 = and i64 %95, 268435456
   %97 = icmp ne i64 %96, 0
@@ -1663,7 +1663,7 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
 
 99:                                               ; preds = %93
   %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %104, label %105
@@ -1674,14 +1674,14 @@ define internal fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef %1, 
 
 105:                                              ; preds = %.thread, %104, %99, %93, %92
   store i32 %2, ptr %5, align 8
-  %106 = getelementptr inbounds i8, ptr %1, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 112
   tail call void @Curl_dyn_reset(ptr noundef nonnull %106) #5
-  %107 = getelementptr inbounds i8, ptr %1, i64 144
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 144
   tail call void @Curl_dyn_reset(ptr noundef nonnull %107) #5
-  %108 = getelementptr inbounds i8, ptr %3, i64 4952
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 4952
   store i32 0, ptr %108, align 8
   %109 = load ptr, ptr @Curl_cfree, align 8
-  %110 = getelementptr inbounds i8, ptr %3, i64 4824
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 4824
   %111 = load ptr, ptr %110, align 8
   tail call void %109(ptr noundef %111) #5
   store ptr null, ptr %110, align 8

@@ -92,7 +92,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   unreachable
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %21)
@@ -101,7 +101,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 27:                                               ; preds = %24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #13
   %28 = add nsw i32 %0, -2
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.1) #13
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %158
@@ -138,7 +138,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 39:                                               ; preds = %38
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #13
-  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load ptr, ptr %40, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef %41, ptr noundef nonnull align 1 dereferenceable(1) %15)
@@ -214,17 +214,17 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   unreachable
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %10, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %13, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %71 = load i32, ptr %70, align 8
   %.not.i = icmp eq i32 %69, %71
   br i1 %.not.i, label %78, label %72
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %10, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %13, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %76 = load i32, ptr %75, align 4
   %.not26.i = icmp eq i32 %74, %76
   br i1 %.not26.i, label %78, label %77
@@ -252,7 +252,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   unreachable
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %10, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %87 = load i32, ptr %86, align 4
   %88 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %69, i32 noundef %87)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #13
@@ -261,22 +261,22 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 
 90:                                               ; preds = %85
   %91 = sitofp i64 %89 to float
-  %92 = getelementptr inbounds i8, ptr %17, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %17, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 0, ptr %93, align 4
   store i32 16842752, ptr %17, align 8
-  %94 = getelementptr inbounds i8, ptr %17, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %10, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %18, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %18, i64 20
+  %96 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i32 0, ptr %96, align 4
   store i32 16842752, ptr %18, align 8
-  %97 = getelementptr inbounds i8, ptr %18, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %13, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %19, i64 8
-  %99 = getelementptr inbounds i8, ptr %19, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 0, ptr %99, align 8
   store i32 33619968, ptr %19, align 8
   store ptr %16, ptr %98, align 8
@@ -297,7 +297,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   %107 = fpext float %106 to double
   %108 = fdiv double %107, %103
   %109 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, double noundef %108)
-  %110 = getelementptr inbounds i8, ptr %1, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %111 = load ptr, ptr %110, align 8
   %112 = call noalias ptr @fopen(ptr noundef %111, ptr noundef nonnull @.str.15)
   %113 = icmp eq ptr %112, null
@@ -324,10 +324,10 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %122 = getelementptr inbounds i8, ptr %16, i64 12
+  %122 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %123 = load i32, ptr %122, align 4
   store i32 %123, ptr %7, align 4
-  %124 = getelementptr inbounds i8, ptr %16, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %125 = load i32, ptr %124, align 8
   store i32 %125, ptr %8, align 4
   %126 = call i64 @fwrite(ptr nonnull @.str.18, i64 4, i64 1, ptr nonnull %112)
@@ -348,9 +348,9 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 .preheader.lr.ph.i.i:                             ; preds = %.preheader18.i.i
   %132 = load i32, ptr %7, align 4
   %133 = icmp sgt i32 %132, 0
-  %134 = getelementptr inbounds i8, ptr %16, i64 16
-  %135 = getelementptr inbounds i8, ptr %16, i64 72
-  %136 = getelementptr inbounds i8, ptr %9, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  %136 = getelementptr inbounds nuw i8, ptr %9, i64 4
   br i1 %133, label %.preheader.us.preheader.i.i, label %_ZL3runiPPc.exit
 
 .preheader.us.preheader.i.i:                      ; preds = %.preheader.lr.ph.i.i
@@ -374,10 +374,10 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   %141 = load i64, ptr %140, align 8
   %142 = mul i64 %141, %indvars.iv24.i.i
   %143 = getelementptr inbounds i8, ptr %139, i64 %142
-  %144 = getelementptr inbounds %"class.cv::Vec", ptr %143, i64 %indvars.iv.i.i
+  %144 = getelementptr inbounds nuw %"class.cv::Vec", ptr %143, i64 %indvars.iv.i.i
   %145 = load float, ptr %144, align 4
   store float %145, ptr %9, align 4
-  %146 = getelementptr inbounds i8, ptr %144, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %147 = load float, ptr %146, align 4
   store float %147, ptr %136, align 4
   %148 = call i64 @fwrite(ptr noundef nonnull %9, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %112)
@@ -502,7 +502,7 @@ _ZL3runiPPc.exit:                                 ; preds = %._crit_edge.us.i.i,
 
 180:                                              ; preds = %176
   %181 = call i32 @fclose(ptr noundef nonnull %167)
-  %182 = getelementptr inbounds i8, ptr %1, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %183 = load ptr, ptr %182, align 8
   %184 = call noalias ptr @fopen(ptr noundef %183, ptr noundef nonnull @.str.22)
   %185 = icmp eq ptr %184, null
@@ -537,11 +537,11 @@ _ZL3runiPPc.exit:                                 ; preds = %._crit_edge.us.i.i,
           to label %198 unwind label %246
 
 198:                                              ; preds = %197
-  %199 = getelementptr inbounds i8, ptr %6, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val.i = load ptr, ptr %199, align 8
-  %200 = getelementptr inbounds i8, ptr %5, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %201 = load i32, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %5, i64 12
+  %202 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %203 = load i32, ptr %202, align 4
   %204 = icmp sgt i32 %201, 0
   %205 = icmp sgt i32 %203, 0
@@ -549,10 +549,10 @@ _ZL3runiPPc.exit:                                 ; preds = %._crit_edge.us.i.i,
   br i1 %or.cond.i.i, label %.preheader.lr.ph.split.us.i.i, label %_ZL4evaliPPc.exit
 
 .preheader.lr.ph.split.us.i.i:                    ; preds = %198
-  %206 = getelementptr inbounds i8, ptr %6, i64 72
+  %206 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %.val23.i = load ptr, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %5, i64 72
-  %208 = getelementptr inbounds i8, ptr %5, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %208 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %209 = load ptr, ptr %208, align 8
   %210 = load ptr, ptr %207, align 8
   %211 = load i64, ptr %210, align 8
@@ -575,13 +575,13 @@ _ZL3runiPPc.exit:                                 ; preds = %._crit_edge.us.i.i,
   %indvars.iv.i.i16 = phi i64 [ 0, %.preheader.us.i.i15 ], [ %indvars.iv.next.i.i17, %241 ]
   %.110.us.i.i = phi float [ %.014.us.i.i, %.preheader.us.i.i15 ], [ %.2.us.i.i, %241 ]
   %.1269.us.i.i = phi i32 [ %.02513.us.i.i, %.preheader.us.i.i15 ], [ %.227.us.i.i, %241 ]
-  %218 = getelementptr inbounds %"class.cv::Vec", ptr %214, i64 %indvars.iv.i.i16
+  %218 = getelementptr inbounds nuw %"class.cv::Vec", ptr %214, i64 %indvars.iv.i.i16
   %219 = load float, ptr %218, align 4
-  %220 = getelementptr inbounds i8, ptr %218, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %221 = load float, ptr %220, align 4
-  %222 = getelementptr inbounds %"class.cv::Vec", ptr %216, i64 %indvars.iv.i.i16
+  %222 = getelementptr inbounds nuw %"class.cv::Vec", ptr %216, i64 %indvars.iv.i.i16
   %223 = load float, ptr %222, align 4
-  %224 = getelementptr inbounds i8, ptr %222, i64 4
+  %224 = getelementptr inbounds nuw i8, ptr %222, i64 4
   %225 = load float, ptr %224, align 4
   %226 = call float @llvm.fabs.f32(float %219)
   %227 = fcmp olt float %226, 1.000000e+09
@@ -776,26 +776,26 @@ define internal fastcc noundef zeroext i1 @_ZL23readOpticalFlowFromFileP8_IO_FIL
   call void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %8, i32 noundef %20, i32 noundef %21, i32 noundef 13)
   %22 = load ptr, ptr %8, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(352) %8, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef -1)
           to label %_ZN2cv3MataSERKNS_7MatExprE.exit unwind label %46
 
 _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %8, i64 208
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 208
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #13
-  %27 = getelementptr inbounds i8, ptr %8, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #13
-  %28 = getelementptr inbounds i8, ptr %8, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %28) #13
   %29 = icmp sgt i32 %20, 0
   br i1 %29, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit
   %30 = icmp sgt i32 %21, 0
-  %31 = getelementptr inbounds i8, ptr %9, i64 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
-  %33 = getelementptr inbounds i8, ptr %1, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br i1 %30, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -825,7 +825,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %19
   %41 = load i64, ptr %40, align 8
   %42 = mul i64 %41, %indvars.iv39
   %43 = getelementptr inbounds i8, ptr %39, i64 %42
-  %44 = getelementptr inbounds %"class.cv::Vec", ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %"class.cv::Vec", ptr %43, i64 %indvars.iv
   %45 = load i64, ptr %9, align 8
   store i64 %45, ptr %44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -861,11 +861,11 @@ declare void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind writable sret(%"class.cv::
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #7 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #13
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #13
   ret void
 }

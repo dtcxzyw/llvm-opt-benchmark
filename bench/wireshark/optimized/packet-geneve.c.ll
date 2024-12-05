@@ -169,7 +169,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_geneve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.46) #2
   %7 = load ptr, ptr %5, align 8
@@ -223,13 +223,13 @@ define internal i32 @dissect_geneve(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %or.cond81, label %proto_item_set_hidden.exit, label %42
 
 42:                                               ; preds = %20
-  %43 = getelementptr inbounds i8, ptr %40, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not5.i = icmp eq ptr %44, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %44, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = or i32 %47, 1
   store i32 %48, ptr %46, align 4
@@ -247,7 +247,7 @@ proto_item_set_hidden.exit:                       ; preds = %45, %42, %20
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %53, ptr noundef nonnull @.str.75, i32 noundef range(i32 1, 253) %22) #2
   %54 = load i32, ptr @ett_geneve_options, align 4
   %55 = tail call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54) #2
-  %56 = getelementptr inbounds i8, ptr %1, i64 408
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %57
 
 57:                                               ; preds = %dissect_option.exit.i, %51
@@ -307,13 +307,13 @@ proto_item_set_hidden.exit:                       ; preds = %45, %42, %20
   br i1 %.not.i.i.i, label %proto_item_set_hidden.exit.i.i, label %100
 
 100:                                              ; preds = %79
-  %101 = getelementptr inbounds i8, ptr %99, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %102 = load ptr, ptr %101, align 8
   %.not5.i.i.i = icmp eq ptr %102, null
   br i1 %.not5.i.i.i, label %proto_item_set_hidden.exit.i.i, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %102, i64 28
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 28
   %105 = load i32, ptr %104, align 4
   %106 = or i32 %105, 1
   store i32 %106, ptr %104, align 4
@@ -341,13 +341,13 @@ proto_item_set_hidden.exit.i.i:                   ; preds = %103, %100, %79
   br i1 %.not.i66.i.i, label %proto_item_set_hidden.exit68.i.i, label %118
 
 118:                                              ; preds = %117
-  %119 = getelementptr inbounds i8, ptr %111, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %120 = load ptr, ptr %119, align 8
   %.not5.i67.i.i = icmp eq ptr %120, null
   br i1 %.not5.i67.i.i, label %proto_item_set_hidden.exit68.i.i, label %121
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %120, i64 28
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 28
   %123 = load i32, ptr %122, align 4
   %124 = or i32 %123, 1
   store i32 %124, ptr %122, align 4

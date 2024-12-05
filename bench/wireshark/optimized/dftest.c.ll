@@ -658,7 +658,7 @@ define internal fastcc ptr @expand_filter(ptr noundef %0) unnamed_addr #7 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr @stderr, align 8
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.30, ptr noundef %10) #19
   call void @df_error_free(ptr noundef nonnull %2) #14
@@ -700,11 +700,11 @@ define internal fastcc range(i32 0, 2) i32 @compile_filter(ptr noundef nonnull %
 12:                                               ; preds = %2
   %13 = load ptr, ptr @stderr, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.30, ptr noundef %16) #19
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = icmp sgt i64 %20, -1
   br i1 %21, label %22, label %31
@@ -714,9 +714,9 @@ define internal fastcc range(i32 0, 2) i32 @compile_filter(ptr noundef nonnull %
   %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.51, ptr noundef nonnull %0) #19
   %25 = load ptr, ptr @stderr, align 8
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %30 = load i64, ptr %29, align 8
   call fastcc void @putloc(ptr noundef %25, i64 %28, i64 %30)
   br label %31
@@ -747,7 +747,7 @@ define internal fastcc void @print_warnings(ptr noundef %0) unnamed_addr #7 {
   %3 = load ptr, ptr %.01523, align 8
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, ptr noundef %3)
   %5 = add i32 %.01622, 1
-  %6 = getelementptr inbounds i8, ptr %.01523, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.01523, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -759,7 +759,7 @@ define internal fastcc void @print_warnings(ptr noundef %0) unnamed_addr #7 {
   br i1 %.not18, label %.loopexit, label %9
 
 9:                                                ; preds = %._crit_edge
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i32, ptr %10, align 8
   %.not19 = icmp eq i32 %11, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph26

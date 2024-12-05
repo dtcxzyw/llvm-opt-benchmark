@@ -44,16 +44,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @Dtd_PreParse_lex(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %65
 
 4:                                                ; preds = %1
   store i32 1, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 76
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 3, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not169 = icmp eq ptr %7, null
   br i1 %.not169, label %8, label %10
@@ -65,7 +65,7 @@ define hidden noundef i32 @Dtd_PreParse_lex(ptr noundef %0) local_unnamed_addr #
 
 10:                                               ; preds = %8, %4
   %11 = phi ptr [ %9, %8 ], [ %7, %4 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not170 = icmp eq ptr %13, null
   br i1 %.not170, label %14, label %16
@@ -76,13 +76,13 @@ define hidden noundef i32 @Dtd_PreParse_lex(ptr noundef %0) local_unnamed_addr #
   br label %16
 
 16:                                               ; preds = %14, %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not171 = icmp eq ptr %18, null
   br i1 %.not171, label %24, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr ptr, ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8
@@ -101,14 +101,14 @@ define hidden noundef i32 @Dtd_PreParse_lex(ptr noundef %0) local_unnamed_addr #
 
 27:                                               ; preds = %24
   store i64 0, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %29, align 8
   br label %Dtd_PreParse_ensure_buffer_stack.exit
 
 30:                                               ; preds = %19
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, -1
   %.not27.i = icmp ult i64 %21, %33
@@ -138,7 +138,7 @@ Dtd_PreParse_ensure_buffer_stack.exit:            ; preds = %27, %30, %39
   %42 = phi ptr [ %11, %27 ], [ %11, %30 ], [ %.pre, %39 ]
   %43 = tail call ptr @Dtd_PreParse__create_buffer(ptr noundef %42, i32 noundef 16384, ptr noundef nonnull %0)
   %44 = load ptr, ptr %17, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr ptr, ptr %44, i64 %46
   store ptr %43, ptr %47, align 8
@@ -153,38 +153,38 @@ Dtd_PreParse_ensure_buffer_stack.exit:            ; preds = %27, %30, %39
   %50 = phi i64 [ %.pre394, %Dtd_PreParse_ensure_buffer_stack.exit ], [ %21, %19 ]
   %51 = phi ptr [ %.pre393, %Dtd_PreParse_ensure_buffer_stack.exit ], [ %18, %19 ]
   %52 = getelementptr ptr, ptr %51, i64 %50
-  %53 = getelementptr inbounds i8, ptr %49, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 28
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 52
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %54, ptr %55, align 4
   %56 = load ptr, ptr %52, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 128
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %58, ptr %60, align 8
   %61 = load ptr, ptr %52, align 8
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %6, align 8
   %63 = load i8, ptr %58, align 1
-  %64 = getelementptr inbounds i8, ptr %0, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %63, ptr %64, align 8
   br label %65
 
 65:                                               ; preds = %48, %1
-  %66 = getelementptr inbounds i8, ptr %0, i64 64
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
-  %68 = getelementptr inbounds i8, ptr %0, i64 76
-  %69 = getelementptr inbounds i8, ptr %0, i64 104
-  %70 = getelementptr inbounds i8, ptr %0, i64 112
-  %71 = getelementptr inbounds i8, ptr %0, i64 128
-  %72 = getelementptr inbounds i8, ptr %0, i64 56
-  %73 = getelementptr inbounds i8, ptr %0, i64 40
-  %74 = getelementptr inbounds i8, ptr %0, i64 24
-  %75 = getelementptr inbounds i8, ptr %0, i64 52
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %65
@@ -341,7 +341,7 @@ Dtd_PreParse_ensure_buffer_stack.exit:            ; preds = %27, %30, %39
 
 135:                                              ; preds = %131
   %136 = load ptr, ptr %0, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 40
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 40
   %138 = load ptr, ptr %137, align 8
   %.not180 = icmp eq ptr %138, null
   br i1 %.not180, label %.loopexit.backedge, label %139
@@ -349,7 +349,7 @@ Dtd_PreParse_ensure_buffer_stack.exit:            ; preds = %27, %30, %39
 139:                                              ; preds = %135
   %140 = load ptr, ptr %71, align 8
   store i8 37, ptr %140, align 1
-  %141 = getelementptr inbounds i8, ptr %136, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %142 = load ptr, ptr %141, align 8
   %143 = tail call ptr @g_hash_table_lookup(ptr noundef %142, ptr noundef nonnull %140) #26
   %.not.i181 = icmp eq ptr %143, null
@@ -360,9 +360,9 @@ Dtd_PreParse_ensure_buffer_stack.exit:            ; preds = %27, %30, %39
   br label %replace_entity.exit
 
 146:                                              ; preds = %139
-  %147 = getelementptr inbounds i8, ptr %136, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %136, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %150 = load ptr, ptr %149, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %148, ptr noundef nonnull @.str.23, ptr noundef %150, ptr noundef nonnull %140) #26
   br label %replace_entity.exit
@@ -376,9 +376,9 @@ replace_entity.exit:                              ; preds = %144, %146
   br i1 %.not.i182, label %dtd_location.exit, label %153
 
 153:                                              ; preds = %replace_entity.exit
-  %154 = getelementptr inbounds i8, ptr %151, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %151, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %157 = load i32, ptr %156, align 8
   %158 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef %155, i32 noundef %157) #26
   store ptr %158, ptr @dtd_location.loc, align 8
@@ -391,7 +391,7 @@ dtd_location.exit:                                ; preds = %replace_entity.exit
 
 159:                                              ; preds = %131
   %160 = load ptr, ptr %0, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 40
   %162 = load ptr, ptr %161, align 8
   %.not179 = icmp eq ptr %162, null
   br i1 %.not179, label %.loopexit.backedge, label %163
@@ -402,7 +402,7 @@ dtd_location.exit:                                ; preds = %replace_entity.exit
 
 165:                                              ; preds = %131
   %166 = load ptr, ptr %0, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 40
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 40
   %168 = load ptr, ptr %167, align 8
   %169 = load ptr, ptr %71, align 8
   %170 = tail call ptr @g_string_append(ptr noundef %168, ptr noundef %169) #26
@@ -411,7 +411,7 @@ dtd_location.exit:                                ; preds = %replace_entity.exit
 
 171:                                              ; preds = %131
   %172 = load ptr, ptr %0, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 40
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 40
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr %71, align 8
   %176 = tail call ptr @g_string_append(ptr noundef %174, ptr noundef %175) #26
@@ -419,7 +419,7 @@ dtd_location.exit:                                ; preds = %replace_entity.exit
 
 177:                                              ; preds = %131
   %178 = load ptr, ptr %0, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 40
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 40
   %180 = load ptr, ptr %179, align 8
   %181 = load ptr, ptr %71, align 8
   %182 = tail call ptr @g_string_append(ptr noundef %180, ptr noundef %181) #26
@@ -427,7 +427,7 @@ dtd_location.exit:                                ; preds = %replace_entity.exit
 
 183:                                              ; preds = %131
   %184 = load ptr, ptr %0, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 40
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 40
   %186 = load ptr, ptr %185, align 8
   %187 = load ptr, ptr %71, align 8
   %188 = tail call ptr @g_string_append(ptr noundef %186, ptr noundef %187) #26
@@ -436,28 +436,28 @@ dtd_location.exit:                                ; preds = %replace_entity.exit
 
 189:                                              ; preds = %131
   %190 = load ptr, ptr %0, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 40
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 40
   store ptr null, ptr %191, align 8
   store i32 5, ptr %68, align 4
   br label %.loopexit.backedge
 
 192:                                              ; preds = %131
   %193 = load ptr, ptr %0, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 48
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 48
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %193, i64 40
+  %196 = getelementptr inbounds nuw i8, ptr %193, i64 40
   store ptr %195, ptr %196, align 8
   store i32 3, ptr %68, align 4
   br label %.loopexit.backedge
 
 197:                                              ; preds = %131
   %198 = load ptr, ptr %0, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %200 = load i32, ptr %199, align 8
   %201 = add i32 %200, 1
   store i32 %201, ptr %199, align 8
   %202 = load ptr, ptr %0, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 40
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 40
   %204 = load ptr, ptr %203, align 8
   %.not178 = icmp eq ptr %204, null
   br i1 %.not178, label %.loopexit.backedge, label %dtd_location.exit186
@@ -468,9 +468,9 @@ dtd_location.exit:                                ; preds = %replace_entity.exit
 dtd_location.exit186:                             ; preds = %197
   %205 = load ptr, ptr @dtd_location.loc, align 8
   tail call void @g_free(ptr noundef %205) #26
-  %206 = getelementptr inbounds i8, ptr %202, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %202, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %209 = load i32, ptr %208, align 8
   %210 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef %207, i32 noundef %209) #26
   store ptr %210, ptr @dtd_location.loc, align 8
@@ -485,7 +485,7 @@ dtd_location.exit186:                             ; preds = %197
   %213 = load ptr, ptr %71, align 8
   %214 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %213) #26
   %215 = load ptr, ptr %0, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 56
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 56
   store ptr %214, ptr %216, align 8
   store i32 9, ptr %68, align 4
   br label %.loopexit.backedge
@@ -498,9 +498,9 @@ dtd_location.exit186:                             ; preds = %197
   br i1 %.not.i187, label %dtd_location.exit189, label %220
 
 220:                                              ; preds = %217
-  %221 = getelementptr inbounds i8, ptr %218, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %218, i64 16
+  %223 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %224 = load i32, ptr %223, align 8
   %225 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef %222, i32 noundef %224) #26
   store ptr %225, ptr @dtd_location.loc, align 8
@@ -510,18 +510,18 @@ dtd_location.exit189:                             ; preds = %217, %220
   %.0.i188 = phi ptr [ %225, %220 ], [ null, %217 ]
   %226 = tail call ptr @g_string_new(ptr noundef %.0.i188) #26
   %227 = load ptr, ptr %0, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 40
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 40
   store ptr %226, ptr %228, align 8
   store i32 11, ptr %68, align 4
   br label %.loopexit.backedge
 
 229:                                              ; preds = %131
   %230 = load ptr, ptr %0, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 32
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 32
   %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %230, i64 56
+  %233 = getelementptr inbounds nuw i8, ptr %230, i64 56
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %230, i64 40
+  %235 = getelementptr inbounds nuw i8, ptr %230, i64 40
   %236 = load ptr, ptr %235, align 8
   %237 = tail call i32 @g_hash_table_insert(ptr noundef %232, ptr noundef %234, ptr noundef %236) #26
   store i32 13, ptr %68, align 4
@@ -529,7 +529,7 @@ dtd_location.exit189:                             ; preds = %217, %220
 
 238:                                              ; preds = %131, %131, %131
   %239 = load ptr, ptr %0, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 40
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 40
   %241 = load ptr, ptr %240, align 8
   %242 = load ptr, ptr %71, align 8
   %243 = tail call ptr @g_string_append(ptr noundef %241, ptr noundef %242) #26
@@ -537,23 +537,23 @@ dtd_location.exit189:                             ; preds = %217, %220
 
 244:                                              ; preds = %131
   %245 = load ptr, ptr %0, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 24
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
   %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds i8, ptr %245, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %245, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %251 = load i32, ptr %250, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %247, ptr noundef nonnull @.str.4, ptr noundef %249, i32 noundef %251) #26
   br label %.loopexit234
 
 252:                                              ; preds = %131
   %253 = load ptr, ptr %0, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 48
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 48
   %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %253, i64 40
+  %256 = getelementptr inbounds nuw i8, ptr %253, i64 40
   store ptr %255, ptr %256, align 8
   %257 = load ptr, ptr %0, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 40
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 40
   %259 = load ptr, ptr %258, align 8
   %260 = tail call ptr @g_string_append(ptr noundef %259, ptr noundef nonnull @.str.5) #26
   store i32 3, ptr %68, align 4
@@ -561,7 +561,7 @@ dtd_location.exit189:                             ; preds = %217, %220
 
 261:                                              ; preds = %131
   %262 = load ptr, ptr %0, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 40
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 40
   %264 = load ptr, ptr %263, align 8
   %265 = load ptr, ptr %71, align 8
   %266 = tail call ptr @g_string_append(ptr noundef %264, ptr noundef %265) #26
@@ -575,13 +575,13 @@ dtd_location.exit189:                             ; preds = %217, %220
   %271 = load i64, ptr %74, align 8
   %272 = getelementptr ptr, ptr %270, i64 %271
   %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 56
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 56
   %275 = load i32, ptr %274, align 8
   %276 = icmp eq i32 %275, 0
   br i1 %276, label %277, label %287
 
 277:                                              ; preds = %267
-  %278 = getelementptr inbounds i8, ptr %273, i64 28
+  %278 = getelementptr inbounds nuw i8, ptr %273, i64 28
   %279 = load i32, ptr %278, align 4
   store i32 %279, ptr %75, align 4
   %280 = load ptr, ptr %76, align 8
@@ -591,7 +591,7 @@ dtd_location.exit189:                             ; preds = %217, %220
   %283 = load i64, ptr %74, align 8
   %284 = getelementptr ptr, ptr %282, i64 %283
   %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 56
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 56
   store i32 1, ptr %286, align 8
   %.pre397 = load ptr, ptr %73, align 8
   %.pre398 = load i64, ptr %74, align 8
@@ -604,7 +604,7 @@ dtd_location.exit189:                             ; preds = %217, %220
   %289 = phi i64 [ %.pre398, %277 ], [ %271, %267 ]
   %290 = phi ptr [ %.pre397, %277 ], [ %270, %267 ]
   %291 = load ptr, ptr %66, align 8
-  %292 = getelementptr inbounds i8, ptr %288, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %293 = load ptr, ptr %292, align 8
   %294 = load i32, ptr %75, align 4
   %295 = sext i32 %294 to i64
@@ -766,7 +766,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   unreachable
 
 383:                                              ; preds = %376
-  %384 = getelementptr inbounds i8, ptr %288, i64 52
+  %384 = getelementptr inbounds nuw i8, ptr %288, i64 52
   %385 = load i32, ptr %384, align 4
   %386 = icmp eq i32 %385, 0
   %387 = ptrtoint ptr %291 to i64
@@ -808,7 +808,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   %401 = phi ptr [ %.pre179.i, %._crit_edge.loopexit.i ], [ %288, %392 ]
   %402 = phi i64 [ %.pre178.i, %._crit_edge.loopexit.i ], [ %289, %392 ]
   %403 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %290, %392 ]
-  %404 = getelementptr inbounds i8, ptr %401, i64 56
+  %404 = getelementptr inbounds nuw i8, ptr %401, i64 56
   %405 = load i32, ptr %404, align 8
   %406 = icmp eq i32 %405, 2
   br i1 %406, label %407, label %409
@@ -820,7 +820,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
 
 409:                                              ; preds = %._crit_edge.i195
   %410 = xor i32 %395, -1
-  %.pn.in162.i = getelementptr inbounds i8, ptr %401, i64 24
+  %.pn.in162.i = getelementptr inbounds nuw i8, ptr %401, i64 24
   %.pn163.i = load i32, ptr %.pn.in162.i, align 8
   %.0132164.i = add i32 %.pn163.i, %410
   %411 = icmp slt i32 %.0132164.i, 1
@@ -834,12 +834,12 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   %412 = phi i32 [ %.pn163.i, %.lr.ph166.preheader.i ], [ %.pn.i, %433 ]
   %413 = phi ptr [ %.pre180.i, %.lr.ph166.preheader.i ], [ %435, %433 ]
   %414 = phi ptr [ %401, %.lr.ph166.preheader.i ], [ %439, %433 ]
-  %415 = getelementptr inbounds i8, ptr %414, i64 8
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 8
   %416 = load ptr, ptr %415, align 8
   %417 = ptrtoint ptr %413 to i64
   %418 = ptrtoint ptr %416 to i64
   %419 = sub i64 %417, %418
-  %420 = getelementptr inbounds i8, ptr %414, i64 32
+  %420 = getelementptr inbounds nuw i8, ptr %414, i64 32
   %421 = load i32, ptr %420, align 8
   %.not145.i = icmp eq i32 %421, 0
   br i1 %.not145.i, label %.thread.i, label %422
@@ -849,7 +849,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   br label %.loopexit.i
 
 422:                                              ; preds = %.lr.ph166.i
-  %423 = getelementptr inbounds i8, ptr %414, i64 24
+  %423 = getelementptr inbounds nuw i8, ptr %414, i64 24
   %424 = shl i32 %412, 1
   %425 = icmp slt i32 %424, 1
   br i1 %425, label %426, label %429
@@ -882,7 +882,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   %437 = load i64, ptr %74, align 8
   %438 = getelementptr ptr, ptr %436, i64 %437
   %439 = load ptr, ptr %438, align 8
-  %.pn.in.i = getelementptr inbounds i8, ptr %439, i64 24
+  %.pn.in.i = getelementptr inbounds nuw i8, ptr %439, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
   %.0132.i = add i32 %.pn.i, %410
   %440 = icmp slt i32 %.0132.i, 1
@@ -892,7 +892,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   %441 = phi ptr [ %401, %409 ], [ %439, %433 ]
   %.0132.lcssa.i = phi i32 [ %.0132164.i, %409 ], [ %.0132.i, %433 ]
   %442 = tail call i32 @llvm.umin.i32(i32 %.0132.lcssa.i, i32 8192)
-  %443 = getelementptr inbounds i8, ptr %441, i64 36
+  %443 = getelementptr inbounds nuw i8, ptr %441, i64 36
   %444 = load i32, ptr %443, align 4
   %.not.i196 = icmp eq i32 %444, 0
   br i1 %.not.i196, label %475, label %.preheader.i
@@ -918,7 +918,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   %452 = load i64, ptr %74, align 8
   %453 = getelementptr ptr, ptr %451, i64 %452
   %454 = load ptr, ptr %453, align 8
-  %455 = getelementptr inbounds i8, ptr %454, i64 8
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %456 = load ptr, ptr %455, align 8
   %457 = getelementptr i8, ptr %456, i64 %445
   %458 = getelementptr i8, ptr %457, i64 %indvars.iv.i
@@ -943,7 +943,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   %461 = load i64, ptr %74, align 8
   %462 = getelementptr ptr, ptr %460, i64 %461
   %463 = load ptr, ptr %462, align 8
-  %464 = getelementptr inbounds i8, ptr %463, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 8
   %465 = load ptr, ptr %464, align 8
   %466 = getelementptr i8, ptr %465, i64 %445
   %467 = add nuw i32 %.0126.lcssa.i, 1
@@ -977,7 +977,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   %480 = load i64, ptr %74, align 8
   %481 = getelementptr ptr, ptr %479, i64 %480
   %482 = load ptr, ptr %481, align 8
-  %483 = getelementptr inbounds i8, ptr %482, i64 8
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 8
   %484 = load ptr, ptr %483, align 8
   %485 = getelementptr i8, ptr %484, i64 %477
   %486 = load ptr, ptr %76, align 8
@@ -1010,7 +1010,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   %498 = load i64, ptr %74, align 8
   %499 = getelementptr ptr, ptr %497, i64 %498
   %500 = load ptr, ptr %499, align 8
-  %501 = getelementptr inbounds i8, ptr %500, i64 8
+  %501 = getelementptr inbounds nuw i8, ptr %500, i64 8
   %502 = load ptr, ptr %501, align 8
   %503 = getelementptr i8, ptr %502, i64 %477
   %504 = load ptr, ptr %76, align 8
@@ -1031,7 +1031,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   %.sink194.in.i = phi ptr [ %511, %.critedge2.i ], [ %408, %407 ]
   %.sink.i = phi i32 [ %508, %.critedge2.i ], [ 0, %407 ]
   %.sink194.i = load ptr, ptr %.sink194.in.i, align 8
-  %513 = getelementptr inbounds i8, ptr %.sink194.i, i64 28
+  %513 = getelementptr inbounds nuw i8, ptr %.sink194.i, i64 28
   store i32 %.sink.i, ptr %513, align 4
   %514 = load i32, ptr %75, align 4
   %515 = icmp eq i32 %514, 0
@@ -1051,7 +1051,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   %522 = load i64, ptr %74, align 8
   %523 = getelementptr ptr, ptr %521, i64 %522
   %524 = load ptr, ptr %523, align 8
-  %525 = getelementptr inbounds i8, ptr %524, i64 56
+  %525 = getelementptr inbounds nuw i8, ptr %524, i64 56
   store i32 2, ptr %525, align 8
   br label %526
 
@@ -1063,7 +1063,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   %530 = load i64, ptr %74, align 8
   %531 = getelementptr ptr, ptr %529, i64 %530
   %532 = load ptr, ptr %531, align 8
-  %533 = getelementptr inbounds i8, ptr %532, i64 24
+  %533 = getelementptr inbounds nuw i8, ptr %532, i64 24
   %534 = load i32, ptr %533, align 8
   %535 = icmp sgt i32 %528, %534
   br i1 %535, label %536, label %yy_get_next_buffer.exit
@@ -1071,7 +1071,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
 536:                                              ; preds = %526
   %537 = ashr i32 %527, 1
   %538 = add i32 %528, %537
-  %539 = getelementptr inbounds i8, ptr %532, i64 8
+  %539 = getelementptr inbounds nuw i8, ptr %532, i64 8
   %540 = load ptr, ptr %539, align 8
   %541 = sext i32 %538 to i64
   %542 = tail call ptr @realloc(ptr noundef %540, i64 noundef %541) #25
@@ -1079,13 +1079,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
   %544 = load i64, ptr %74, align 8
   %545 = getelementptr ptr, ptr %543, i64 %544
   %546 = load ptr, ptr %545, align 8
-  %547 = getelementptr inbounds i8, ptr %546, i64 8
+  %547 = getelementptr inbounds nuw i8, ptr %546, i64 8
   store ptr %542, ptr %547, align 8
   %548 = load ptr, ptr %73, align 8
   %549 = load i64, ptr %74, align 8
   %550 = getelementptr ptr, ptr %548, i64 %549
   %551 = load ptr, ptr %550, align 8
-  %552 = getelementptr inbounds i8, ptr %551, i64 8
+  %552 = getelementptr inbounds nuw i8, ptr %551, i64 8
   %553 = load ptr, ptr %552, align 8
   %.not149.i = icmp eq ptr %553, null
   br i1 %.not149.i, label %554, label %555
@@ -1096,7 +1096,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i192, %351
 
 555:                                              ; preds = %536
   %556 = add i32 %538, -2
-  %557 = getelementptr inbounds i8, ptr %551, i64 24
+  %557 = getelementptr inbounds nuw i8, ptr %551, i64 24
   store i32 %556, ptr %557, align 8
   %.pre181.i = load i32, ptr %75, align 4
   %.pre182.i = load ptr, ptr %73, align 8
@@ -1111,7 +1111,7 @@ yy_get_next_buffer.exit:                          ; preds = %526, %555
   store i32 %.pre-phi.i, ptr %75, align 4
   %560 = getelementptr ptr, ptr %559, i64 %558
   %561 = load ptr, ptr %560, align 8
-  %562 = getelementptr inbounds i8, ptr %561, i64 8
+  %562 = getelementptr inbounds nuw i8, ptr %561, i64 8
   %563 = load ptr, ptr %562, align 8
   %564 = sext i32 %.pre-phi.i to i64
   %565 = getelementptr i8, ptr %563, i64 %564
@@ -1120,7 +1120,7 @@ yy_get_next_buffer.exit:                          ; preds = %526, %555
   %567 = load i64, ptr %74, align 8
   %568 = getelementptr ptr, ptr %566, i64 %567
   %569 = load ptr, ptr %568, align 8
-  %570 = getelementptr inbounds i8, ptr %569, i64 8
+  %570 = getelementptr inbounds nuw i8, ptr %569, i64 8
   %571 = load ptr, ptr %570, align 8
   %572 = load i32, ptr %75, align 4
   %573 = add i32 %572, 1
@@ -1131,7 +1131,7 @@ yy_get_next_buffer.exit:                          ; preds = %526, %555
   %577 = load i64, ptr %74, align 8
   %578 = getelementptr ptr, ptr %576, i64 %577
   %579 = load ptr, ptr %578, align 8
-  %580 = getelementptr inbounds i8, ptr %579, i64 8
+  %580 = getelementptr inbounds nuw i8, ptr %579, i64 8
   %581 = load ptr, ptr %580, align 8
   store ptr %581, ptr %71, align 8
   switch i32 %.0133.i, label %default.unreachable406 [
@@ -1143,7 +1143,7 @@ yy_get_next_buffer.exit:                          ; preds = %526, %555
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread231_crit_edge: ; preds = %yy_get_next_buffer.exit
   %582 = getelementptr ptr, ptr %576, i64 %577
   %.pre401 = load ptr, ptr %582, align 8
-  %.phi.trans.insert402 = getelementptr inbounds i8, ptr %.pre401, i64 8
+  %.phi.trans.insert402 = getelementptr inbounds nuw i8, ptr %.pre401, i64 8
   %.pre403 = load ptr, ptr %.phi.trans.insert402, align 8
   %.pre404 = load i32, ptr %75, align 4
   %.pre405 = sext i32 %.pre404 to i64
@@ -1361,12 +1361,12 @@ define hidden nonnull ptr @Dtd_PreParse__create_buffer(ptr noundef %0, i32 nound
   unreachable
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %1, ptr %7, align 8
   %8 = add i32 %1, 2
   %9 = sext i32 %8 to i64
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #23
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %12, label %13
@@ -1376,28 +1376,28 @@ define hidden nonnull ptr @Dtd_PreParse__create_buffer(ptr noundef %0, i32 nound
   unreachable
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 1, ptr %14, align 8
   %15 = tail call ptr @__errno_location() #27
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 0, ptr %17, align 4
   store i8 0, ptr %10, align 1
   %18 = getelementptr i8, ptr %10, i64 1
   store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not15.i.i = icmp eq ptr %23, null
   br i1 %.not15.i.i, label %Dtd_PreParse__flush_buffer.exit.i, label %24
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
@@ -1405,37 +1405,37 @@ define hidden nonnull ptr @Dtd_PreParse__create_buffer(ptr noundef %0, i32 nound
   br i1 %29, label %30, label %45
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %28, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %2, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %32, ptr %33, align 4
   %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %36, ptr %38, align 8
   %39 = load ptr, ptr %27, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %40, ptr %41, align 8
   %42 = load i8, ptr %36, align 1
-  %43 = getelementptr inbounds i8, ptr %2, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i8 %42, ptr %43, align 8
   br label %45
 
 Dtd_PreParse__flush_buffer.exit.i:                ; preds = %13
   store ptr %0, ptr %4, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 52
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %44, align 4
   br label %.thread.i
 
 45:                                               ; preds = %30, %24
   store ptr %0, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 52
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr ptr, ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
@@ -1443,14 +1443,14 @@ Dtd_PreParse__flush_buffer.exit.i:                ; preds = %13
   br i1 %.not14.i, label %Dtd_PreParse__init_buffer.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %Dtd_PreParse__flush_buffer.exit.i, %45
-  %51 = getelementptr inbounds i8, ptr %4, i64 44
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %4, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 0, ptr %52, align 8
   br label %Dtd_PreParse__init_buffer.exit
 
 Dtd_PreParse__init_buffer.exit:                   ; preds = %45, %.thread.i
-  %53 = getelementptr inbounds i8, ptr %4, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %53, align 4
   store i32 %16, ptr %15, align 4
   ret ptr %4
@@ -1466,9 +1466,9 @@ define hidden ptr @dtd_location(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef %5, i32 noundef %7) #26
   store ptr %8, ptr @dtd_location.loc, align 8
@@ -1497,13 +1497,13 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #3 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Dtd_PreParse_restart(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -1522,14 +1522,14 @@ define hidden void @Dtd_PreParse_restart(ptr noundef %0, ptr nocapture noundef %
 
 13:                                               ; preds = %10
   store i64 0, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %15, align 8
   br label %28
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, -1
   %.not27.i = icmp ult i64 %7, %19
@@ -1555,11 +1555,11 @@ define hidden void @Dtd_PreParse_restart(ptr noundef %0, ptr nocapture noundef %
   br label %28
 
 28:                                               ; preds = %25, %16, %13
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @Dtd_PreParse__create_buffer(ptr noundef %30, i32 noundef 16384, ptr noundef nonnull %1)
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr ptr, ptr %32, i64 %34
   store ptr %31, ptr %35, align 8
@@ -1574,7 +1574,7 @@ define hidden void @Dtd_PreParse_restart(ptr noundef %0, ptr nocapture noundef %
 
 .thread:                                          ; preds = %5, %28
   %38 = phi ptr [ %.pre, %28 ], [ %4, %5 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr ptr, ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8
@@ -1584,20 +1584,20 @@ define hidden void @Dtd_PreParse_restart(ptr noundef %0, ptr nocapture noundef %
   br i1 %.not.i.i, label %Dtd_PreParse__flush_buffer.exit.i, label %45
 
 45:                                               ; preds = %.thread
-  %46 = getelementptr inbounds i8, ptr %42, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 28
   store i32 0, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %42, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %48 = load ptr, ptr %47, align 8
   store i8 0, ptr %48, align 1
   %49 = load ptr, ptr %47, align 8
   %50 = getelementptr i8, ptr %49, i64 1
   store i8 0, ptr %50, align 1
   %51 = load ptr, ptr %47, align 8
-  %52 = getelementptr inbounds i8, ptr %42, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %42, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i32 1, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %42, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 56
   store i32 0, ptr %54, align 8
   %55 = load ptr, ptr %3, align 8
   %.not15.i.i = icmp eq ptr %55, null
@@ -1611,23 +1611,23 @@ define hidden void @Dtd_PreParse_restart(ptr noundef %0, ptr nocapture noundef %
   br i1 %60, label %61, label %Dtd_PreParse__flush_buffer.exit.i
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %59, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 52
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %63, ptr %64, align 4
   %65 = load ptr, ptr %58, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 128
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %67, ptr %69, align 8
   %70 = load ptr, ptr %58, align 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %71, ptr %72, align 8
   %73 = load i8, ptr %67, align 1
-  %74 = getelementptr inbounds i8, ptr %1, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %73, ptr %74, align 8
   br label %Dtd_PreParse__flush_buffer.exit.i
 
@@ -1636,14 +1636,14 @@ Dtd_PreParse__flush_buffer.exit.i:                ; preds = %.thread19, %61, %56
   %76 = phi ptr [ %36, %.thread19 ], [ %43, %61 ], [ %43, %56 ], [ %43, %45 ], [ %43, %.thread ]
   %77 = phi ptr [ null, %.thread19 ], [ %42, %61 ], [ %42, %56 ], [ %42, %45 ], [ null, %.thread ]
   store ptr %0, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 52
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 52
   store i32 1, ptr %78, align 4
   %79 = load ptr, ptr %3, align 8
   %.not.i18 = icmp eq ptr %79, null
   br i1 %.not.i18, label %.thread.i, label %80
 
 80:                                               ; preds = %Dtd_PreParse__flush_buffer.exit.i
-  %81 = getelementptr inbounds i8, ptr %1, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %82 = load i64, ptr %81, align 8
   %83 = getelementptr ptr, ptr %79, i64 %82
   %84 = load ptr, ptr %83, align 8
@@ -1651,45 +1651,45 @@ Dtd_PreParse__flush_buffer.exit.i:                ; preds = %.thread19, %61, %56
   br i1 %.not14.i, label %Dtd_PreParse__init_buffer.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %80, %Dtd_PreParse__flush_buffer.exit.i
-  %85 = getelementptr inbounds i8, ptr %77, i64 44
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 44
   store i32 1, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %77, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 48
   store i32 0, ptr %86, align 8
   br label %Dtd_PreParse__init_buffer.exit
 
 Dtd_PreParse__init_buffer.exit:                   ; preds = %80, %.thread.i
-  %87 = getelementptr inbounds i8, ptr %77, i64 36
+  %87 = getelementptr inbounds nuw i8, ptr %77, i64 36
   store i32 0, ptr %87, align 4
   store i32 %75, ptr %76, align 4
   %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr ptr, ptr %88, i64 %90
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 28
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %1, i64 52
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %94, ptr %95, align 4
   %96 = load ptr, ptr %91, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %98, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 128
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %98, ptr %100, align 8
   %101 = load ptr, ptr %91, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %102, ptr %103, align 8
   %104 = load i8, ptr %98, align 1
-  %105 = getelementptr inbounds i8, ptr %1, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %104, ptr %105, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Dtd_PreParse__switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %11
@@ -1706,16 +1706,16 @@ define hidden void @Dtd_PreParse__switch_to_buffer(ptr noundef %0, ptr nocapture
 
 8:                                                ; preds = %5
   store i64 0, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %10, align 8
   br label %.thread
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, -1
   %.not27.i = icmp ult i64 %13, %16
@@ -1742,7 +1742,7 @@ define hidden void @Dtd_PreParse__switch_to_buffer(ptr noundef %0, ptr nocapture
 
 .thread:                                          ; preds = %22, %11, %8
   %25 = phi ptr [ %6, %8 ], [ %4, %11 ], [ %20, %22 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
@@ -1754,9 +1754,9 @@ define hidden void @Dtd_PreParse__switch_to_buffer(ptr noundef %0, ptr nocapture
   br i1 %.not25, label %50, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load ptr, ptr %35, align 8
   store i8 %34, ptr %36, align 1
   %37 = load ptr, ptr %35, align 8
@@ -1764,22 +1764,22 @@ define hidden void @Dtd_PreParse__switch_to_buffer(ptr noundef %0, ptr nocapture
   %39 = load i64, ptr %26, align 8
   %40 = getelementptr ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %3, align 8
   %46 = load i64, ptr %26, align 8
   %47 = getelementptr ptr, ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %44, ptr %49, align 4
   %.pre = load ptr, ptr %3, align 8
   br label %50
 
 50:                                               ; preds = %32, %31
   %51 = phi ptr [ %.pre, %32 ], [ %25, %31 ]
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr ptr, ptr %51, i64 %53
   store ptr %0, ptr %54, align 8
@@ -1787,25 +1787,25 @@ define hidden void @Dtd_PreParse__switch_to_buffer(ptr noundef %0, ptr nocapture
   %56 = load i64, ptr %52, align 8
   %57 = getelementptr ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %57, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %68, ptr %69, align 8
   %70 = load i8, ptr %64, align 1
-  %71 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 1, ptr %72, align 8
   br label %73
 
@@ -1822,13 +1822,13 @@ define hidden void @Dtd_PreParse__delete_buffer(ptr noundef %0, ptr nocapture no
   br i1 %.not, label %19, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
@@ -1840,13 +1840,13 @@ define hidden void @Dtd_PreParse__delete_buffer(ptr noundef %0, ptr nocapture no
   br label %.thread
 
 .thread:                                          ; preds = %3, %12, %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %.not13 = icmp eq i32 %14, 0
   br i1 %.not13, label %18, label %15
 
 15:                                               ; preds = %.thread
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #26
   br label %18
@@ -1868,28 +1868,28 @@ define hidden void @Dtd_PreParse__flush_buffer(ptr noundef %0, ptr nocapture nou
   br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr i8, ptr %7, i64 1
   store i8 0, ptr %8, align 1
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %.thread, label %15
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
@@ -1897,23 +1897,23 @@ define hidden void @Dtd_PreParse__flush_buffer(ptr noundef %0, ptr nocapture nou
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %19, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %23, ptr %24, align 4
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %27, ptr %29, align 8
   %30 = load ptr, ptr %18, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %31, ptr %32, align 8
   %33 = load i8, ptr %27, align 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %33, ptr %34, align 8
   br label %.thread
 
@@ -1927,7 +1927,7 @@ define hidden void @Dtd_PreParse_push_buffer_state(ptr noundef %0, ptr nocapture
   br i1 %3, label %73, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %13
@@ -1944,16 +1944,16 @@ define hidden void @Dtd_PreParse_push_buffer_state(ptr noundef %0, ptr nocapture
 
 10:                                               ; preds = %7
   store i64 0, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %12, align 8
   br label %Dtd_PreParse_ensure_buffer_stack.exit
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, -1
   %.not27.i = icmp ult i64 %15, %18
@@ -1982,16 +1982,16 @@ define hidden void @Dtd_PreParse_push_buffer_state(ptr noundef %0, ptr nocapture
 Dtd_PreParse_ensure_buffer_stack.exit:            ; preds = %10, %13, %24
   %27 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %24 ]
   %28 = phi ptr [ %8, %10 ], [ %6, %13 ], [ %22, %24 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = getelementptr ptr, ptr %28, i64 %27
   %31 = load ptr, ptr %30, align 8
   %.not25 = icmp eq ptr %31, null
   br i1 %.not25, label %.thread, label %32
 
 32:                                               ; preds = %Dtd_PreParse_ensure_buffer_stack.exit
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load ptr, ptr %35, align 8
   store i8 %34, ptr %36, align 1
   %37 = load ptr, ptr %35, align 8
@@ -1999,15 +1999,15 @@ Dtd_PreParse_ensure_buffer_stack.exit:            ; preds = %10, %13, %24
   %39 = load i64, ptr %29, align 8
   %40 = getelementptr ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %5, align 8
   %46 = load i64, ptr %29, align 8
   %47 = getelementptr ptr, ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %44, ptr %49, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.pre30 = load i64, ptr %29, align 8
@@ -2030,25 +2030,25 @@ Dtd_PreParse_ensure_buffer_stack.exit:            ; preds = %10, %13, %24
   %56 = load i64, ptr %29, align 8
   %57 = getelementptr ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %57, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %68, ptr %69, align 8
   %70 = load i8, ptr %64, align 1
-  %71 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 1, ptr %72, align 8
   br label %73
 
@@ -2058,13 +2058,13 @@ Dtd_PreParse_ensure_buffer_stack.exit:            ; preds = %10, %13, %24
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @Dtd_PreParse_pop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %41, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -2073,13 +2073,13 @@ define hidden void @Dtd_PreParse_pop_buffer_state(ptr nocapture noundef %0) loca
 
 .thread.i:                                        ; preds = %4
   store ptr null, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
   %.not13.i = icmp eq i32 %10, 0
   br i1 %.not13.i, label %Dtd_PreParse__delete_buffer.exit, label %11
 
 11:                                               ; preds = %.thread.i
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @free(ptr noundef %13) #26
   br label %Dtd_PreParse__delete_buffer.exit
@@ -2112,25 +2112,25 @@ Dtd_PreParse__delete_buffer.exit:                 ; preds = %.thread.i, %11
   br i1 %.not23, label %41, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %28, ptr %29, align 4
   %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %32, ptr %34, align 8
   %35 = load ptr, ptr %24, align 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %37, align 8
   %38 = load i8, ptr %32, align 1
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %40, align 8
   br label %41
 
@@ -2168,24 +2168,24 @@ define hidden noundef ptr @Dtd_PreParse__scan_buffer(ptr noundef %0, i64 noundef
 
 16:                                               ; preds = %13
   %17 = trunc i64 %6 to i32
-  %18 = getelementptr inbounds i8, ptr %14, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 0, ptr %21, align 8
   store ptr null, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %14, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 %17, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %14, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %14, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %14, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 52
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %14, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i32 0, ptr %26, align 8
   tail call void @Dtd_PreParse__switch_to_buffer(ptr noundef nonnull %14, ptr noundef %2)
   br label %27
@@ -2271,24 +2271,24 @@ define hidden nonnull ptr @Dtd_PreParse__scan_bytes(ptr nocapture noundef readon
 
 33:                                               ; preds = %29
   %34 = trunc i64 %22 to i32
-  %35 = getelementptr inbounds i8, ptr %30, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %30, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %6, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %6, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %30, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i32 0, ptr %38, align 8
   store ptr null, ptr %30, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 28
   store i32 %34, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %30, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 36
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %30, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i32 1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %30, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 52
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %30, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 56
   store i32 0, ptr %43, align 8
   tail call void @Dtd_PreParse__switch_to_buffer(ptr noundef nonnull %30, ptr noundef %2)
   store i32 1, ptr %38, align 8
@@ -2306,13 +2306,13 @@ define hidden ptr @Dtd_PreParse_get_extra(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @Dtd_PreParse_get_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -2320,7 +2320,7 @@ define hidden i32 @Dtd_PreParse_get_lineno(ptr nocapture noundef readonly %0) lo
   br i1 %.not8, label %12, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %11 = load i32, ptr %10, align 4
   br label %12
 
@@ -2331,13 +2331,13 @@ define hidden i32 @Dtd_PreParse_get_lineno(ptr nocapture noundef readonly %0) lo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @Dtd_PreParse_get_column(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -2345,7 +2345,7 @@ define hidden i32 @Dtd_PreParse_get_column(ptr nocapture noundef readonly %0) lo
   br i1 %.not8, label %12, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %11 = load i32, ptr %10, align 8
   br label %12
 
@@ -2356,28 +2356,28 @@ define hidden i32 @Dtd_PreParse_get_column(ptr nocapture noundef readonly %0) lo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @Dtd_PreParse_get_in(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @Dtd_PreParse_get_out(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @Dtd_PreParse_get_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @Dtd_PreParse_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -2390,13 +2390,13 @@ define hidden void @Dtd_PreParse_set_extra(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @Dtd_PreParse_set_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -2408,20 +2408,20 @@ define hidden void @Dtd_PreParse_set_lineno(i32 noundef %0, ptr nocapture nounde
   unreachable
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 %0, ptr %12, align 4
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @Dtd_PreParse_set_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -2433,35 +2433,35 @@ define hidden void @Dtd_PreParse_set_column(i32 noundef %0, ptr nocapture nounde
   unreachable
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %0, ptr %12, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Dtd_PreParse_set_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Dtd_PreParse_set_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @Dtd_PreParse_get_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 124
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Dtd_PreParse_set_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 124
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
 }
@@ -2526,19 +2526,19 @@ define hidden range(i32 0, 2) i32 @Dtd_PreParse_lex_init_extra(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @Dtd_PreParse_lex_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not22 = icmp eq ptr %4, null
   br i1 %.not22, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %2, align 8
   %12 = getelementptr ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
@@ -2549,13 +2549,13 @@ define hidden noundef i32 @Dtd_PreParse_lex_destroy(ptr nocapture noundef %0) lo
   %15 = phi ptr [ %59, %Dtd_PreParse_pop_buffer_state.exit ], [ %13, %.lr.ph ]
   %16 = phi ptr [ %58, %Dtd_PreParse_pop_buffer_state.exit ], [ %12, %.lr.ph ]
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load i32, ptr %17, align 8
   %.not13.i = icmp eq i32 %18, 0
   br i1 %.not13.i, label %Dtd_PreParse__delete_buffer.exit, label %19
 
 19:                                               ; preds = %.thread.i
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %21) #26
   br label %Dtd_PreParse__delete_buffer.exit
@@ -2579,13 +2579,13 @@ Dtd_PreParse__delete_buffer.exit:                 ; preds = %.thread.i, %19
 
 .thread.i.i:                                      ; preds = %26
   store ptr null, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i32, ptr %30, align 8
   %.not13.i.i = icmp eq i32 %31, 0
   br i1 %.not13.i.i, label %Dtd_PreParse__delete_buffer.exit.i, label %32
 
 32:                                               ; preds = %.thread.i.i
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void @free(ptr noundef %34) #26
   br label %Dtd_PreParse__delete_buffer.exit.i
@@ -2618,11 +2618,11 @@ Dtd_PreParse__delete_buffer.exit.i:               ; preds = %32, %.thread.i.i
   br i1 %.not23.i, label %Dtd_PreParse_pop_buffer_state.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %5, align 4
   %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %6, align 8
   store ptr %52, ptr %7, align 8
@@ -2646,7 +2646,7 @@ Dtd_PreParse_pop_buffer_state.exit:               ; preds = %26, %44, %47
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %41 ], [ null, %Dtd_PreParse__delete_buffer.exit ], [ %56, %Dtd_PreParse_pop_buffer_state.exit ]
   tail call void @free(ptr noundef %.lcssa) #26
   store ptr null, ptr %3, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %62 = load ptr, ptr %61, align 8
   tail call void @free(ptr noundef %62) #26
   tail call void @free(ptr noundef nonnull %0) #26
@@ -2700,28 +2700,28 @@ define hidden ptr @dtd_preparse(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %41
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %6, ptr %22, align 8
   store ptr %0, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %25, align 8
   %26 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #26
-  %27 = getelementptr inbounds i8, ptr %4, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %26, ptr %27, align 8
   %28 = load ptr, ptr @dtd_location.loc, align 8
   tail call void @g_free(ptr noundef %28) #26
   %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef %1, i32 noundef 1) #26
   store ptr %29, ptr @dtd_location.loc, align 8
   %30 = tail call ptr @g_string_new(ptr noundef %29) #26
-  %31 = getelementptr inbounds i8, ptr %4, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %30, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr null, ptr %33, align 8
   store ptr %4, ptr %calloc.i, align 8
   %34 = call i32 @Dtd_PreParse_lex(ptr noundef nonnull %calloc.i)

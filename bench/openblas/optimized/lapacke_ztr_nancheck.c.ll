@@ -99,7 +99,7 @@ define noundef range(i32 0, 2) i32 @LAPACKE_ztr_nancheck(i32 noundef %0, i8 noun
   br i1 %66, label %.loopexit, label %67
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %64, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %69 = load double, ptr %68, align 8, !tbaa !7
   %70 = fcmp uno double %69, 0.000000e+00
   br i1 %70, label %.loopexit, label %59
@@ -128,7 +128,7 @@ define noundef range(i32 0, 2) i32 @LAPACKE_ztr_nancheck(i32 noundef %0, i8 noun
   br i1 %85, label %.loopexit, label %86
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %83, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %88 = load double, ptr %87, align 8, !tbaa !7
   %89 = fcmp uno double %88, 0.000000e+00
   br i1 %89, label %.loopexit, label %78

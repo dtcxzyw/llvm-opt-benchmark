@@ -33,22 +33,22 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptGcmpDecrypt(ptr noundef %0, i32 n
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr i8, ptr %12, i64 5
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 10
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %7, ptr noundef nonnull readonly align 1 dereferenceable(6) %30, i64 6, i1 false)
   %31 = lshr i16 %22, 8
   %32 = trunc nuw i16 %31 to i8
-  %33 = getelementptr inbounds i8, ptr %7, i64 6
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i8 %32, ptr %33, align 1
   %34 = trunc i16 %22 to i8
-  %35 = getelementptr inbounds i8, ptr %7, i64 7
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 7
   store i8 %34, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %29, ptr %36, align 1
-  %37 = getelementptr inbounds i8, ptr %7, i64 9
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 %27, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %7, i64 10
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 10
   store i8 %25, ptr %38, align 1
-  %39 = getelementptr inbounds i8, ptr %7, i64 11
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 11
   store i8 %23, ptr %39, align 1
   call void @dot11decrypt_construct_aad(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %9) #3
   %40 = call i32 @gcry_cipher_open(ptr noundef nonnull %10, i32 noundef 7, i32 noundef 9, i32 noundef 0) #3

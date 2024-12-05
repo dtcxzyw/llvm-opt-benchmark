@@ -53,33 +53,33 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
   %.060 = phi ptr [ %47, %.lr.ph ], [ %0, %22 ]
   %.05359 = phi i64 [ %48, %.lr.ph ], [ 0, %22 ]
   %.05458 = phi ptr [ %28, %.lr.ph ], [ %3, %22 ]
-  %24 = getelementptr inbounds i8, ptr %.05458, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.05458, i64 1
   %25 = load i8, ptr %.05458, align 1
-  %26 = getelementptr inbounds i8, ptr %.05458, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.05458, i64 2
   %27 = load i8, ptr %24, align 1
-  %28 = getelementptr inbounds i8, ptr %.05458, i64 3
+  %28 = getelementptr inbounds nuw i8, ptr %.05458, i64 3
   %29 = load i8, ptr %26, align 1
   %30 = lshr i8 %25, 2
   %31 = tail call zeroext i8 @mbedtls_ct_base64_enc_char(i8 noundef zeroext %30) #6
-  %32 = getelementptr inbounds i8, ptr %.060, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.060, i64 1
   store i8 %31, ptr %.060, align 1
   %33 = shl i8 %25, 4
   %34 = lshr i8 %27, 4
   %35 = and i8 %33, 48
   %36 = or disjoint i8 %34, %35
   %37 = tail call zeroext i8 @mbedtls_ct_base64_enc_char(i8 noundef zeroext %36) #6
-  %38 = getelementptr inbounds i8, ptr %.060, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %.060, i64 2
   store i8 %37, ptr %32, align 1
   %39 = shl i8 %27, 2
   %40 = lshr i8 %29, 6
   %41 = and i8 %39, 60
   %42 = or disjoint i8 %40, %41
   %43 = tail call zeroext i8 @mbedtls_ct_base64_enc_char(i8 noundef zeroext %42) #6
-  %44 = getelementptr inbounds i8, ptr %.060, i64 3
+  %44 = getelementptr inbounds nuw i8, ptr %.060, i64 3
   store i8 %43, ptr %38, align 1
   %45 = and i8 %29, 63
   %46 = tail call zeroext i8 @mbedtls_ct_base64_enc_char(i8 noundef zeroext %45) #6
-  %47 = getelementptr inbounds i8, ptr %.060, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.060, i64 4
   store i8 %46, ptr %44, align 1
   %48 = add i64 %.05359, 3
   %49 = icmp ult i64 %48, %23
@@ -99,7 +99,7 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %.054.lcssa, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 1
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   br label %59
@@ -108,7 +108,7 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
   %60 = phi i32 [ %58, %55 ], [ 0, %51 ]
   %61 = lshr i8 %52, 2
   %62 = tail call zeroext i8 @mbedtls_ct_base64_enc_char(i8 noundef zeroext %61) #6
-  %63 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   store i8 %62, ptr %.0.lcssa, align 1
   %64 = shl i8 %52, 4
   %65 = lshr i32 %60, 4
@@ -116,7 +116,7 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
   %67 = trunc nuw nsw i32 %65 to i8
   %68 = or disjoint i8 %66, %67
   %69 = tail call zeroext i8 @mbedtls_ct_base64_enc_char(i8 noundef zeroext %68) #6
-  %70 = getelementptr inbounds i8, ptr %.0.lcssa, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
   store i8 %69, ptr %63, align 1
   br i1 %54, label %71, label %75
 
@@ -129,9 +129,9 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
 
 75:                                               ; preds = %59, %71
   %storemerge = phi i8 [ %74, %71 ], [ 61, %59 ]
-  %.2 = getelementptr inbounds i8, ptr %.0.lcssa, i64 3
+  %.2 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 3
   store i8 %storemerge, ptr %70, align 1
-  %76 = getelementptr inbounds i8, ptr %.0.lcssa, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
   store i8 61, ptr %.2, align 1
   br label %77
 
@@ -307,7 +307,7 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
 69:                                               ; preds = %66
   %70 = lshr i32 %.271, 16
   %71 = trunc i32 %70 to i8
-  %72 = getelementptr inbounds i8, ptr %.0109, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.0109, i64 1
   store i8 %71, ptr %.0109, align 1
   %73 = icmp ult i32 %.5, 2
   br i1 %73, label %74, label %.thread
@@ -315,14 +315,14 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
 74:                                               ; preds = %69
   %75 = lshr i32 %.271, 8
   %76 = trunc i32 %75 to i8
-  %77 = getelementptr inbounds i8, ptr %.0109, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.0109, i64 2
   store i8 %76, ptr %72, align 1
   %78 = icmp eq i32 %.5, 0
   br i1 %78, label %79, label %.thread
 
 79:                                               ; preds = %74
   %80 = trunc i32 %.271 to i8
-  %81 = getelementptr inbounds i8, ptr %.0109, i64 3
+  %81 = getelementptr inbounds nuw i8, ptr %.0109, i64 3
   store i8 %80, ptr %77, align 1
   br label %.thread
 
@@ -332,7 +332,7 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   %.4 = phi i32 [ %.3108, %.lr.ph ], [ 0, %79 ], [ 1, %74 ], [ %.5, %66 ], [ %.3108, %.lr.ph ], [ %.3108, %.lr.ph ], [ %.5, %69 ]
   %.1 = phi ptr [ %.0109, %.lr.ph ], [ %81, %79 ], [ %77, %74 ], [ %.0109, %66 ], [ %.0109, %.lr.ph ], [ %.0109, %.lr.ph ], [ %72, %69 ]
   %82 = add i64 %.377105, -1
-  %83 = getelementptr inbounds i8, ptr %.079104, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.079104, i64 1
   %.not87 = icmp eq i64 %82, 0
   br i1 %.not87, label %._crit_edge110, label %.lr.ph, !llvm.loop !8
 

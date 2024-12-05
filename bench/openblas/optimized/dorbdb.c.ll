@@ -289,7 +289,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %207 = getelementptr double, ptr %206, i64 %205
   %208 = call double @dnrm2_(ptr noundef nonnull %25, ptr noundef %207, ptr noundef nonnull @c__1) #6
   %209 = call double @atan2(double noundef %203, double noundef %208) #6
-  %210 = getelementptr inbounds double, ptr %45, i64 %134
+  %210 = getelementptr inbounds nuw double, ptr %45, i64 %134
   store double %209, ptr %210, align 8, !tbaa !7
   %211 = load i32, ptr %3, align 4, !tbaa !3
   %212 = sext i32 %211 to i64
@@ -315,7 +315,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 223:                                              ; preds = %222, %214
   %224 = phi ptr [ %207, %222 ], [ %218, %214 ]
-  %225 = getelementptr inbounds double, ptr %47, i64 %134
+  %225 = getelementptr inbounds nuw double, ptr %47, i64 %134
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %207, ptr noundef %224, ptr noundef nonnull @c__1, ptr noundef nonnull %225) #6
   %.pre122 = load i32, ptr %3, align 4, !tbaa !3
   br label %226
@@ -347,7 +347,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 240:                                              ; preds = %239, %232
   %241 = phi ptr [ %202, %239 ], [ %235, %232 ]
-  %242 = getelementptr inbounds double, ptr %48, i64 %134
+  %242 = getelementptr inbounds nuw double, ptr %48, i64 %134
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %202, ptr noundef %241, ptr noundef nonnull @c__1, ptr noundef nonnull %242) #6
   br label %243
 
@@ -364,7 +364,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   store i32 %249, ptr %24, align 4, !tbaa !3
   %250 = sub nsw i32 %244, %136
   store i32 %250, ptr %25, align 4, !tbaa !3
-  %251 = getelementptr inbounds double, ptr %47, i64 %134
+  %251 = getelementptr inbounds nuw double, ptr %47, i64 %134
   %252 = add nuw nsw i32 %136, 1
   %253 = mul nsw i32 %252, %29
   %254 = sext i32 %253 to i64
@@ -388,7 +388,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %265 = add i32 %258, %.pre-phi
   %266 = sub i32 %265, %257
   store i32 %266, ptr %25, align 4, !tbaa !3
-  %267 = getelementptr inbounds double, ptr %47, i64 %134
+  %267 = getelementptr inbounds nuw double, ptr %47, i64 %134
   %268 = mul i32 %125, %136
   %269 = sext i32 %268 to i64
   %270 = getelementptr inbounds double, ptr %36, i64 %269
@@ -411,7 +411,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   store i32 %278, ptr %24, align 4, !tbaa !3
   %279 = sub nsw i32 %272, %136
   store i32 %279, ptr %25, align 4, !tbaa !3
-  %280 = getelementptr inbounds double, ptr %48, i64 %134
+  %280 = getelementptr inbounds nuw double, ptr %48, i64 %134
   %281 = add nuw nsw i32 %136, 1
   %282 = mul nsw i32 %281, %37
   %283 = sext i32 %282 to i64
@@ -436,7 +436,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   store i32 %294, ptr %24, align 4, !tbaa !3
   %295 = sub i32 %293, %286
   store i32 %295, ptr %25, align 4, !tbaa !3
-  %296 = getelementptr inbounds double, ptr %48, i64 %134
+  %296 = getelementptr inbounds nuw double, ptr %48, i64 %134
   %297 = mul i32 %126, %136
   %298 = sext i32 %297 to i64
   %299 = getelementptr inbounds double, ptr %44, i64 %298
@@ -534,7 +534,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %366 = call double @dnrm2_(ptr noundef nonnull %24, ptr noundef %365, ptr noundef nonnull %6) #6
   %367 = call double @dnrm2_(ptr noundef nonnull %25, ptr noundef %339, ptr noundef nonnull %8) #6
   %368 = call double @atan2(double noundef %366, double noundef %367) #6
-  %369 = getelementptr inbounds double, ptr %46, i64 %134
+  %369 = getelementptr inbounds nuw double, ptr %46, i64 %134
   store double %368, ptr %369, align 8, !tbaa !7
   %.pre130 = load i32, ptr %4, align 4, !tbaa !3
   %.pre144 = sext i32 %.pre130 to i64
@@ -559,7 +559,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %383 = getelementptr double, ptr %206, i64 %382
   %384 = select i1 %375, ptr %379, ptr %383
   store i32 %374, ptr %24, align 4, !tbaa !3
-  %385 = getelementptr inbounds double, ptr %49, i64 %134
+  %385 = getelementptr inbounds nuw double, ptr %49, i64 %134
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %379, ptr noundef %384, ptr noundef nonnull %6, ptr noundef nonnull %385) #6
   store double 1.000000e+00, ptr %379, align 8, !tbaa !7
   %.pre131 = load i32, ptr %4, align 4, !tbaa !3
@@ -584,7 +584,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %.sink105 = select i1 %394, i32 1, i32 %395
   %400 = select i1 %394, ptr %339, ptr %399
   store i32 %.sink105, ptr %24, align 4, !tbaa !3
-  %401 = getelementptr inbounds double, ptr %50, i64 %134
+  %401 = getelementptr inbounds nuw double, ptr %50, i64 %134
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %339, ptr noundef %400, ptr noundef nonnull %8, ptr noundef nonnull %401) #6
   %.pre132 = load i32, ptr %4, align 4, !tbaa !3
   br label %402
@@ -607,7 +607,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %412 = mul nsw i32 %411, %29
   %413 = sext i32 %412 to i64
   %414 = getelementptr double, ptr %206, i64 %413
-  %415 = getelementptr inbounds double, ptr %49, i64 %134
+  %415 = getelementptr inbounds nuw double, ptr %49, i64 %134
   %416 = getelementptr double, ptr %32, i64 %410
   %417 = getelementptr double, ptr %416, i64 %413
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %414, ptr noundef nonnull %6, ptr noundef nonnull %415, ptr noundef %417, ptr noundef nonnull %6, ptr noundef %19) #6
@@ -640,7 +640,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %435 = add i32 %.pre134, %.pre-phi
   %436 = sub i32 %435, %434
   store i32 %436, ptr %25, align 4, !tbaa !3
-  %437 = getelementptr inbounds double, ptr %50, i64 %134
+  %437 = getelementptr inbounds nuw double, ptr %50, i64 %134
   %438 = getelementptr double, ptr %130, i64 %134
   %439 = getelementptr double, ptr %438, i64 %335
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %339, ptr noundef nonnull %8, ptr noundef nonnull %437, ptr noundef %439, ptr noundef nonnull %8, ptr noundef %19) #6
@@ -663,7 +663,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %449 = add i32 %442, %.pre-phi
   %450 = sub i32 %449, %448
   store i32 %450, ptr %25, align 4, !tbaa !3
-  %451 = getelementptr inbounds double, ptr %50, i64 %134
+  %451 = getelementptr inbounds nuw double, ptr %50, i64 %134
   %452 = getelementptr double, ptr %131, i64 %134
   %453 = getelementptr double, ptr %452, i64 %349
   call void @dlarf_(ptr noundef nonnull @.str.4, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %339, ptr noundef nonnull %8, ptr noundef nonnull %451, ptr noundef %453, ptr noundef nonnull %12, ptr noundef %19) #6
@@ -1010,7 +1010,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %694 = getelementptr double, ptr %693, i64 %692
   %695 = call double @dnrm2_(ptr noundef nonnull %25, ptr noundef %694, ptr noundef nonnull %6) #6
   %696 = call double @atan2(double noundef %689, double noundef %695) #6
-  %697 = getelementptr inbounds double, ptr %45, i64 %622
+  %697 = getelementptr inbounds nuw double, ptr %45, i64 %622
   store double %696, ptr %697, align 8, !tbaa !7
   %698 = load i32, ptr %3, align 4, !tbaa !3
   %699 = add i32 %698, %.pre-phi147
@@ -1020,7 +1020,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %702 = mul nsw i32 %29, %701
   %703 = sext i32 %702 to i64
   %704 = getelementptr double, ptr %693, i64 %703
-  %705 = getelementptr inbounds double, ptr %47, i64 %622
+  %705 = getelementptr inbounds nuw double, ptr %47, i64 %622
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %694, ptr noundef %704, ptr noundef nonnull %6, ptr noundef nonnull %705) #6
   store double 1.000000e+00, ptr %694, align 8, !tbaa !7
   %706 = load i32, ptr %2, align 4, !tbaa !3
@@ -1035,7 +1035,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %.sink106 = select i1 %710, i32 1, i32 %711
   %715 = select i1 %710, ptr %688, ptr %714
   store i32 %.sink106, ptr %24, align 4, !tbaa !3
-  %716 = getelementptr inbounds double, ptr %48, i64 %622
+  %716 = getelementptr inbounds nuw double, ptr %48, i64 %622
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %688, ptr noundef %715, ptr noundef nonnull %10, ptr noundef nonnull %716) #6
   store double 1.000000e+00, ptr %688, align 8, !tbaa !7
   %717 = load i32, ptr %4, align 4, !tbaa !3
@@ -1203,7 +1203,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %823 = call double @dnrm2_(ptr noundef nonnull %24, ptr noundef %822, ptr noundef nonnull @c__1) #6
   %824 = call double @dnrm2_(ptr noundef nonnull %25, ptr noundef %800, ptr noundef nonnull @c__1) #6
   %825 = call double @atan2(double noundef %823, double noundef %824) #6
-  %826 = getelementptr inbounds double, ptr %46, i64 %622
+  %826 = getelementptr inbounds nuw double, ptr %46, i64 %622
   store double %825, ptr %826, align 8, !tbaa !7
   %.pre114 = load i32, ptr %4, align 4, !tbaa !3
   %.pre148 = sext i32 %.pre114 to i64
@@ -1224,7 +1224,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %836 = getelementptr double, ptr %835, i64 %690
   %837 = select i1 %832, ptr %834, ptr %836
   store i32 %831, ptr %24, align 4, !tbaa !3
-  %838 = getelementptr inbounds double, ptr %49, i64 %622
+  %838 = getelementptr inbounds nuw double, ptr %49, i64 %622
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %834, ptr noundef %837, ptr noundef nonnull @c__1, ptr noundef nonnull %838) #6
   store double 1.000000e+00, ptr %834, align 8, !tbaa !7
   %.pre115 = load i32, ptr %4, align 4, !tbaa !3
@@ -1241,7 +1241,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %846 = getelementptr double, ptr %36, i64 %700
   %847 = getelementptr double, ptr %846, i64 %796
   %848 = select i1 %844, ptr %847, ptr %800
-  %849 = getelementptr inbounds double, ptr %50, i64 %622
+  %849 = getelementptr inbounds nuw double, ptr %50, i64 %622
   call void @dlarfgp_(ptr noundef nonnull %24, ptr noundef %800, ptr noundef %848, ptr noundef nonnull @c__1, ptr noundef nonnull %849) #6
   store double 1.000000e+00, ptr %800, align 8, !tbaa !7
   %850 = load i32, ptr %4, align 4, !tbaa !3
@@ -1257,7 +1257,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   store i32 %856, ptr %25, align 4, !tbaa !3
   %857 = getelementptr double, ptr %32, i64 %700
   %858 = getelementptr double, ptr %857, i64 %690
-  %859 = getelementptr inbounds double, ptr %49, i64 %622
+  %859 = getelementptr inbounds nuw double, ptr %49, i64 %622
   %860 = getelementptr double, ptr %857, i64 %703
   call void @dlarf_(ptr noundef nonnull @.str.3, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %858, ptr noundef nonnull @c__1, ptr noundef nonnull %859, ptr noundef %860, ptr noundef nonnull %6, ptr noundef %19) #6
   %861 = load i32, ptr %4, align 4, !tbaa !3

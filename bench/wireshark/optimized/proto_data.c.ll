@@ -12,13 +12,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @p_add_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %0, %7
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 392
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 392
   br label %20
 
 11:                                               ; preds = %5
@@ -28,9 +28,9 @@ define void @p_add_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 
 14:                                               ; preds = %11
   %15 = tail call ptr @wmem_file_scope() #5
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   br label %20
 
 19:                                               ; preds = %11
@@ -42,9 +42,9 @@ define void @p_add_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   %.0 = phi ptr [ %0, %9 ], [ %15, %14 ]
   %21 = tail call noalias ptr @wmem_alloc(ptr noundef %.0, i64 noundef 16) #5
   store i32 %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %3, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %4, ptr %23, align 8
   %24 = load ptr, ptr %.015, align 8
   %25 = tail call ptr @g_slist_prepend(ptr noundef %24, ptr noundef nonnull %21) #5
@@ -65,17 +65,17 @@ declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 define void @p_set_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct._proto_data, align 8
   store i32 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %3, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 392
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 392
   br label %22
 
 14:                                               ; preds = %5
@@ -84,9 +84,9 @@ define void @p_set_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %22
 
 21:                                               ; preds = %14
@@ -102,7 +102,7 @@ define void @p_set_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %4, ptr %26, align 8
   br label %46
 
@@ -112,7 +112,7 @@ define void @p_set_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %1, i64 392
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 392
   br label %p_add_proto_data.exit
 
 32:                                               ; preds = %27
@@ -122,9 +122,9 @@ define void @p_set_proto_data(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 
 35:                                               ; preds = %32
   %36 = call ptr @wmem_file_scope() #5
-  %37 = getelementptr inbounds i8, ptr %1, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   br label %p_add_proto_data.exit
 
 40:                                               ; preds = %32
@@ -136,9 +136,9 @@ p_add_proto_data.exit:                            ; preds = %30, %35
   %.0.i = phi ptr [ %0, %30 ], [ %36, %35 ]
   %41 = call noalias ptr @wmem_alloc(ptr noundef %.0.i, i64 noundef 16) #5
   store i32 %2, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 %3, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %4, ptr %43, align 8
   %44 = load ptr, ptr %.015.i, align 8
   %45 = call ptr @g_slist_prepend(ptr noundef %44, ptr noundef nonnull %41) #5
@@ -163,9 +163,9 @@ define internal range(i32 -1, 2) i32 @p_compare(ptr nocapture noundef readonly %
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp ugt i32 %10, %12
   br i1 %13, label %16, label %14
@@ -184,17 +184,17 @@ define internal range(i32 -1, 2) i32 @p_compare(ptr nocapture noundef readonly %
 define ptr @p_get_proto_data(ptr noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._proto_data, align 8
   store i32 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %3, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %0, %9
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 392
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 392
   br label %21
 
 13:                                               ; preds = %4
@@ -203,9 +203,9 @@ define ptr @p_get_proto_data(ptr noundef readnone %0, ptr nocapture noundef read
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br label %21
 
 20:                                               ; preds = %13
@@ -221,7 +221,7 @@ define ptr @p_get_proto_data(ptr noundef readnone %0, ptr nocapture noundef read
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -234,17 +234,17 @@ define ptr @p_get_proto_data(ptr noundef readnone %0, ptr nocapture noundef read
 define void @p_remove_proto_data(ptr noundef readnone %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._proto_data, align 8
   store i32 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %3, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %0, %9
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 392
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr @g_slist_find_custom(ptr noundef %13, ptr noundef nonnull %5, ptr noundef nonnull @p_compare) #5
   br label %27
@@ -255,13 +255,13 @@ define void @p_remove_proto_data(ptr noundef readnone %0, ptr nocapture noundef 
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @g_slist_find_custom(ptr noundef %22, ptr noundef nonnull %5, ptr noundef nonnull @p_compare) #5
   %24 = load ptr, ptr %19, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   br label %27
 
 26:                                               ; preds = %15
@@ -289,13 +289,13 @@ declare ptr @g_slist_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias ptr @p_get_proto_name_and_key(ptr noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %0, %5
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 392
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 392
   br label %17
 
 9:                                                ; preds = %3
@@ -304,9 +304,9 @@ define hidden noalias ptr @p_get_proto_name_and_key(ptr noundef readnone %0, ptr
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br label %17
 
 16:                                               ; preds = %9
@@ -320,7 +320,7 @@ define hidden noalias ptr @p_get_proto_name_and_key(ptr noundef readnone %0, ptr
   %19 = load ptr, ptr %4, align 8
   %20 = load i32, ptr %18, align 8
   %21 = tail call ptr @proto_get_protocol_name(i32 noundef %20) #5
-  %22 = getelementptr inbounds i8, ptr %18, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %19, ptr noundef nonnull @.str.3, ptr noundef %21, i32 noundef %23) #5
   ret ptr %24
@@ -334,7 +334,7 @@ declare ptr @proto_get_protocol_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @p_set_proto_depth(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %2 to i64
   %7 = inttoptr i64 %6 to ptr
@@ -347,11 +347,11 @@ define i32 @p_get_proto_depth(ptr nocapture noundef readonly %0, i32 noundef %1)
   %3 = alloca %struct._proto_data, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1008943029, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %.sink.i = load ptr, ptr %6, align 8
   %7 = call ptr @g_slist_find_custom(ptr noundef %.sink.i, ptr noundef nonnull %3, ptr noundef nonnull @p_compare) #5
   %.not.i = icmp eq ptr %7, null
@@ -359,7 +359,7 @@ define i32 @p_get_proto_depth(ptr nocapture noundef readonly %0, i32 noundef %1)
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i32

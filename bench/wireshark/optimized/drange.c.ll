@@ -140,7 +140,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
 
 .critedge2.thread.thread122:                      ; preds = %52
   %56 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, i8 0, i64 12, i1 false)
   store i32 %.07195, ptr %56, align 4
   br label %112
@@ -217,14 +217,14 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
 .thread126:                                       ; preds = %31, %21
   %.07196107117.ph = phi i32 [ %22, %21 ], [ %.07195, %31 ]
   %86 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %87, i8 0, i64 12, i1 false)
   store i32 %.07196107117.ph, ptr %86, align 4
   br label %94
 
 .critedge2.thread:                                ; preds = %.critedge2
   %88 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %89, i8 0, i64 12, i1 false)
   store i32 %.07195, ptr %88, align 4
   switch i32 %.045.ph, label %default.unreachable [
@@ -247,9 +247,9 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
 94:                                               ; preds = %.thread126, %90
   %.0108116121128 = phi i32 [ 1, %.thread126 ], [ %.0.ph, %90 ]
   %95 = phi ptr [ %86, %.thread126 ], [ %88, %90 ]
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 %.0108116121128, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %95, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 12
   store i32 1, ptr %97, align 4
   br label %drange_str_to_gint32.exit.thread
 
@@ -282,15 +282,15 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br label %drange_str_to_gint32.exit.thread
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %88, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i32 %.0.ph, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %88, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %88, i64 12
   store i32 2, ptr %111, align 4
   br label %drange_str_to_gint32.exit.thread
 
 112:                                              ; preds = %.critedge2.thread.thread122, %.critedge2.thread
   %113 = phi ptr [ %56, %.critedge2.thread.thread122 ], [ %88, %.critedge2.thread ]
-  %114 = getelementptr inbounds i8, ptr %113, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 12
   store i32 3, ptr %114, align 4
   br label %drange_str_to_gint32.exit.thread
 
@@ -322,25 +322,25 @@ define hidden void @drange_node_free(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @drange_node_set_length(ptr nocapture noundef writeonly initializes((4, 8), (12, 16)) %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %4, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @drange_node_set_end_offset(ptr nocapture noundef writeonly initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 2, ptr %4, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @drange_node_set_to_the_end(ptr nocapture noundef writeonly initializes((12, 16)) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 3, ptr %2, align 4
   ret void
 }
@@ -358,21 +358,21 @@ define hidden i32 @drange_node_get_start_offset(ptr nocapture noundef readonly %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @drange_node_get_length(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @drange_node_get_end_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @drange_node_get_ending(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
@@ -381,13 +381,13 @@ define hidden i32 @drange_node_get_ending(ptr nocapture noundef readonly %0) loc
 define hidden noalias noundef ptr @drange_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #10
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 2147483647, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 -2147483648, ptr %6, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %drange_append_drange_node.exit, label %7
@@ -395,7 +395,7 @@ define hidden noalias noundef ptr @drange_new(ptr noundef %0) local_unnamed_addr
 7:                                                ; preds = %1
   %8 = tail call ptr @g_slist_append(ptr noundef null, ptr noundef nonnull %0) #12
   store ptr %8, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 3
   br i1 %11, label %12, label %13
@@ -405,7 +405,7 @@ define hidden noalias noundef ptr @drange_new(ptr noundef %0) local_unnamed_addr
   br label %16
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %4, align 4
   br label %16
@@ -437,10 +437,10 @@ define hidden void @drange_append_drange_node(ptr nocapture noundef %0, ptr noun
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @g_slist_append(ptr noundef %4, ptr noundef nonnull %1) #12
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %8, label %10, label %11
 
 10:                                               ; preds = %3
@@ -453,9 +453,9 @@ define hidden void @drange_append_drange_node(ptr nocapture noundef %0, ptr noun
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, %16
   store i32 %19, ptr %17, align 4
@@ -463,7 +463,7 @@ define hidden void @drange_append_drange_node(ptr nocapture noundef %0, ptr noun
 
 20:                                               ; preds = %14, %11, %10
   %21 = load i32, ptr %1, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = icmp slt i32 %21, %23
   br i1 %24, label %25, label %26
@@ -475,7 +475,7 @@ define hidden void @drange_append_drange_node(ptr nocapture noundef %0, ptr noun
 
 26:                                               ; preds = %25, %20
   %27 = phi i32 [ %.pre.i, %25 ], [ %21, %20 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %27, %29
   br i1 %30, label %31, label %update_drange_with_node.exit
@@ -492,13 +492,13 @@ update_drange_with_node.exit:                     ; preds = %31, %26, %2
 define hidden noundef ptr @drange_new_from_list(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #10
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 2147483647, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 -2147483648, ptr %6, align 4
   tail call void @g_slist_foreach(ptr noundef %0, ptr noundef nonnull @drange_append_wrapper, ptr noundef nonnull %2) #12
   ret ptr %2
@@ -515,10 +515,10 @@ define internal void @drange_append_wrapper(ptr noundef %0, ptr nocapture nounde
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @g_slist_append(ptr noundef %4, ptr noundef nonnull %0) #12
   store ptr %5, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 3
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %8, label %10, label %11
 
 10:                                               ; preds = %3
@@ -531,9 +531,9 @@ define internal void @drange_append_wrapper(ptr noundef %0, ptr nocapture nounde
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, %16
   store i32 %19, ptr %17, align 4
@@ -541,7 +541,7 @@ define internal void @drange_append_wrapper(ptr noundef %0, ptr nocapture nounde
 
 20:                                               ; preds = %14, %11, %10
   %21 = load i32, ptr %0, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = icmp slt i32 %21, %23
   br i1 %24, label %25, label %26
@@ -553,7 +553,7 @@ define internal void @drange_append_wrapper(ptr noundef %0, ptr nocapture nounde
 
 26:                                               ; preds = %25, %20
   %27 = phi i32 [ %.pre.i.i, %25 ], [ %21, %20 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %27, %29
   br i1 %30, label %31, label %drange_append_drange_node.exit
@@ -574,13 +574,13 @@ define hidden noalias noundef ptr @drange_dup(ptr noundef readonly %0) local_unn
 2:                                                ; preds = %1
   %3 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #10
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2147483647, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 -2147483648, ptr %7, align 4
   %.0916 = load ptr, ptr %0, align 8
   %.not1117 = icmp eq ptr %.0916, null
@@ -597,17 +597,17 @@ define hidden noalias noundef ptr @drange_dup(ptr noundef readonly %0) local_unn
   %11 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
   %12 = load i32, ptr %9, align 4
   store i32 %12, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %9, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %11, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %20, ptr %21, align 4
   %22 = tail call ptr @g_slist_append(ptr noundef %8, ptr noundef nonnull %11) #12
   store ptr %22, ptr %3, align 8
@@ -643,7 +643,7 @@ define hidden noalias noundef ptr @drange_dup(ptr noundef readonly %0) local_unn
 
 drange_append_drange_node.exit:                   ; preds = %33, %.lr.ph
   %37 = phi ptr [ %22, %33 ], [ %8, %.lr.ph ]
-  %38 = getelementptr inbounds i8, ptr %.0918, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0918, i64 8
   %.09 = load ptr, ptr %38, align 8
   %.not11 = icmp eq ptr %.09, null
   br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !7
@@ -671,7 +671,7 @@ declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @drange_has_total_length(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -679,21 +679,21 @@ define hidden zeroext i1 @drange_has_total_length(ptr nocapture noundef readonly
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @drange_get_total_length(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @drange_get_min_start_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @drange_get_max_start_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
@@ -707,10 +707,10 @@ define hidden void @drange_prepend_drange_node(ptr nocapture noundef %0, ptr nou
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @g_slist_prepend(ptr noundef %4, ptr noundef nonnull %1) #12
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %8, label %10, label %11
 
 10:                                               ; preds = %3
@@ -723,9 +723,9 @@ define hidden void @drange_prepend_drange_node(ptr nocapture noundef %0, ptr nou
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, %16
   store i32 %19, ptr %17, align 4
@@ -733,7 +733,7 @@ define hidden void @drange_prepend_drange_node(ptr nocapture noundef %0, ptr nou
 
 20:                                               ; preds = %14, %11, %10
   %21 = load i32, ptr %1, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = icmp slt i32 %21, %23
   br i1 %24, label %25, label %26
@@ -745,7 +745,7 @@ define hidden void @drange_prepend_drange_node(ptr nocapture noundef %0, ptr nou
 
 26:                                               ; preds = %25, %20
   %27 = phi i32 [ %.pre.i, %25 ], [ %21, %20 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %27, %29
   br i1 %30, label %31, label %update_drange_with_node.exit
@@ -771,7 +771,7 @@ define hidden void @drange_foreach_drange_node(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias ptr @drange_node_tostr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 4
   switch i32 %3, label %15 [
@@ -785,21 +785,21 @@ define hidden noalias ptr @drange_node_tostr(ptr nocapture noundef readonly %0) 
   br label %21
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %4, i32 noundef %9) #12
   br label %21
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %4, i32 noundef %13) #12
   br label %21
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 4
   %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %4, i32 noundef %17, i32 noundef %19) #12
   br label %21
@@ -817,14 +817,14 @@ define hidden ptr @drange_tostr(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit:                    ; preds = %g_string_append_c_inline.exit.backedge, %.lr.ph
   %.013 = phi ptr [ %3, %.lr.ph ], [ %28, %g_string_append_c_inline.exit.backedge ]
   %6 = load ptr, ptr %.013, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %6, align 4
   switch i32 %8, label %20 [
@@ -838,21 +838,21 @@ g_string_append_c_inline.exit:                    ; preds = %g_string_append_c_i
   br label %drange_node_tostr.exit
 
 12:                                               ; preds = %g_string_append_c_inline.exit
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i32, ptr %13, align 4
   %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %9, i32 noundef %14) #12
   br label %drange_node_tostr.exit
 
 16:                                               ; preds = %g_string_append_c_inline.exit
-  %17 = getelementptr inbounds i8, ptr %6, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %9, i32 noundef %18) #12
   br label %drange_node_tostr.exit
 
 20:                                               ; preds = %g_string_append_c_inline.exit
-  %21 = getelementptr inbounds i8, ptr %6, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i32, ptr %23, align 4
   %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %9, i32 noundef %22, i32 noundef %24) #12
   br label %drange_node_tostr.exit
@@ -861,7 +861,7 @@ drange_node_tostr.exit:                           ; preds = %10, %12, %16, %20
   %.0.i = phi ptr [ %11, %10 ], [ %15, %12 ], [ %19, %16 ], [ %25, %20 ]
   %26 = tail call ptr @g_string_append(ptr noundef %2, ptr noundef %.0.i) #12
   tail call void @g_free(ptr noundef %.0.i) #12
-  %27 = getelementptr inbounds i8, ptr %.013, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %28 = load ptr, ptr %27, align 8
   %cond = icmp eq ptr %28, null
   br i1 %cond, label %._crit_edge, label %29

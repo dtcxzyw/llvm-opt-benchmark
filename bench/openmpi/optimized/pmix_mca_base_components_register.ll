@@ -25,42 +25,42 @@ define i32 @pmix_mca_base_framework_components_register(ptr noundef %0, i32 noun
   br i1 %.not9, label %7, label %register_components.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 76
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %9 = load i32, ptr %8, align 4
   %or.cond.i = icmp ugt i32 %9, 63
   br i1 %or.cond.i, label %18, label %10
 
 10:                                               ; preds = %7
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %11, i32 2
+  %12 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %11, i32 2
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 9
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %9, ptr noundef nonnull @.str, ptr noundef %17) #7
   br label %18
 
 18:                                               ; preds = %15, %10, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 200
-  %20 = getelementptr inbounds i8, ptr %0, i64 320
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %21 = load ptr, ptr %20, align 8
   %.not95.i = icmp eq ptr %21, %19
   br i1 %.not95.i, label %register_components.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18
   %22 = zext nneg i32 %9 to i64
-  %23 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %22, i32 2
-  %24 = getelementptr inbounds i8, ptr %0, i64 344
+  %23 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %22, i32 2
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 344
   br label %25
 
 25:                                               ; preds = %.thread86.thread.i, %.lr.ph.i
   %.07396.i = phi ptr [ %21, %.lr.ph.i ], [ %.07298.i, %.thread86.thread.i ]
-  %.072.in97.i = getelementptr inbounds i8, ptr %.07396.i, i64 120
+  %.072.in97.i = getelementptr inbounds nuw i8, ptr %.07396.i, i64 120
   %.07298.i = load ptr, ptr %.072.in97.i, align 8
-  %26 = getelementptr inbounds i8, ptr %.07396.i, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %.07396.i, i64 144
   %27 = load ptr, ptr %26, align 8
   br i1 %or.cond.i, label %.thread.i, label %28
 
@@ -70,18 +70,18 @@ define i32 @pmix_mca_base_framework_components_register(ptr noundef %0, i32 noun
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %27, i64 84
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 84
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %9, ptr noundef nonnull @.str.1, ptr noundef nonnull %32) #7
   br label %33
 
 33:                                               ; preds = %31, %28
-  %34 = getelementptr inbounds i8, ptr %27, i64 184
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 184
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %40, label %45
 
 .thread.i:                                        ; preds = %25
-  %37 = getelementptr inbounds i8, ptr %27, i64 184
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 184
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread86.thread.i, label %45
@@ -92,7 +92,7 @@ define i32 @pmix_mca_base_framework_components_register(ptr noundef %0, i32 noun
   br i1 %42, label %43, label %.thread86.i
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %27, i64 84
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 84
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %9, ptr noundef nonnull @.str.2, ptr noundef nonnull %44) #7
   br label %.thread86.i
 
@@ -106,8 +106,8 @@ define i32 @pmix_mca_base_framework_components_register(ptr noundef %0, i32 noun
   ]
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %27, i64 40
-  %51 = getelementptr inbounds i8, ptr %27, i64 84
+  %50 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 84
   %52 = tail call zeroext i1 @pmix_mca_base_show_load_errors(ptr noundef nonnull %50, ptr noundef nonnull %51) #7
   %.not81.i = xor i1 %52, true
   %brmerge.i = or i1 %or.cond.i, %.not81.i
@@ -136,12 +136,12 @@ define i32 @pmix_mca_base_framework_components_register(ptr noundef %0, i32 noun
 
 .thread89.thread.i:                               ; preds = %59, %.thread89.i, %57, %53, %45
   %60 = load ptr, ptr %.072.in97.i, align 8
-  %61 = getelementptr inbounds i8, ptr %.07396.i, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %.07396.i, i64 128
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 120
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 120
   store volatile ptr %60, ptr %63, align 8
   %64 = load ptr, ptr %61, align 8
-  %65 = getelementptr inbounds i8, ptr %60, i64 128
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 128
   store volatile ptr %64, ptr %65, align 8
   %66 = load volatile i64, ptr %24, align 8
   %67 = add i64 %66, -1
@@ -158,7 +158,7 @@ define i32 @pmix_mca_base_framework_components_register(ptr noundef %0, i32 noun
   unreachable
 
 72:                                               ; preds = %.thread89.thread.i
-  %73 = getelementptr inbounds i8, ptr %.07396.i, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %.07396.i, i64 48
   %74 = load i32, ptr %73, align 8
   %75 = add nsw i32 %74, -1
   store i32 %75, ptr %73, align 8
@@ -167,9 +167,9 @@ define i32 @pmix_mca_base_framework_components_register(ptr noundef %0, i32 noun
   br i1 %77, label %78, label %.thread86.thread.i
 
 78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %.07396.i, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %.07396.i, i64 40
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %82 = load ptr, ptr %81, align 8
   %83 = load ptr, ptr %82, align 8
   %.not6.i.i = icmp eq ptr %83, null
@@ -179,19 +179,19 @@ define i32 @pmix_mca_base_framework_components_register(ptr noundef %0, i32 noun
   %84 = phi ptr [ %86, %.lr.ph.i.i ], [ %83, %78 ]
   %.07.i.i = phi ptr [ %85, %.lr.ph.i.i ], [ %82, %78 ]
   tail call void %84(ptr noundef %.07396.i) #7
-  %85 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not.i.i = icmp eq ptr %86, null
   br i1 %.not.i.i, label %pmix_obj_run_destructors.exit.i, label %.lr.ph.i.i, !llvm.loop !4
 
 pmix_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %78
-  %87 = getelementptr inbounds i8, ptr %.07396.i, i64 96
+  %87 = getelementptr inbounds nuw i8, ptr %.07396.i, i64 96
   %88 = load ptr, ptr %87, align 8
   %.not80.i = icmp eq ptr %88, null
   br i1 %.not80.i, label %91, label %89
 
 89:                                               ; preds = %pmix_obj_run_destructors.exit.i
-  %90 = getelementptr inbounds i8, ptr %.07396.i, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %.07396.i, i64 56
   tail call void %88(ptr noundef nonnull %90, ptr noundef nonnull %.07396.i) #7
   br label %.thread86.thread.i
 
@@ -212,7 +212,7 @@ pmix_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %78
   br i1 %96, label %97, label %.thread86.thread.i
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %27, i64 84
+  %98 = getelementptr inbounds nuw i8, ptr %27, i64 84
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %9, ptr noundef nonnull @.str.5, ptr noundef nonnull %98) #7
   br label %.thread86.thread.i
 

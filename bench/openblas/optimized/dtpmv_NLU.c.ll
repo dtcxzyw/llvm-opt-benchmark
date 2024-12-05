@@ -23,41 +23,40 @@ define noundef i32 @dtpmv_NLU(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
   %15 = lshr i64 %14, 1
   %16 = getelementptr double, ptr %1, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
-  %18 = getelementptr inbounds double, ptr %10, i64 %0
+  %18 = getelementptr double, ptr %10, i64 %0
   br label %19
 
-19:                                               ; preds = %32, %12
-  %20 = phi i64 [ 0, %12 ], [ %35, %32 ]
-  %21 = phi ptr [ %17, %12 ], [ %34, %32 ]
+19:                                               ; preds = %31, %12
+  %20 = phi i64 [ 0, %12 ], [ %34, %31 ]
+  %21 = phi ptr [ %17, %12 ], [ %33, %31 ]
   %22 = icmp eq i64 %20, 0
-  br i1 %22, label %32, label %23
+  br i1 %22, label %31, label %23
 
 23:                                               ; preds = %19
   %24 = xor i64 %20, -1
-  %25 = add nsw i64 %0, %24
-  %26 = getelementptr inbounds double, ptr %10, i64 %25
-  %27 = load double, ptr %26, align 8, !tbaa !3
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
-  %29 = sub nsw i64 0, %20
-  %30 = getelementptr inbounds double, ptr %18, i64 %29
-  %31 = tail call i32 @daxpy_k(i64 noundef %20, i64 noundef 0, i64 noundef 0, double noundef %27, ptr noundef nonnull %28, i64 noundef 1, ptr noundef nonnull %30, i64 noundef 1, ptr noundef null, i64 noundef 0) #2
-  br label %32
+  %25 = getelementptr double, ptr %18, i64 %24
+  %26 = load double, ptr %25, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %28 = sub nsw i64 0, %20
+  %29 = getelementptr inbounds double, ptr %18, i64 %28
+  %30 = tail call i32 @daxpy_k(i64 noundef %20, i64 noundef 0, i64 noundef 0, double noundef %26, ptr noundef nonnull %27, i64 noundef 1, ptr noundef nonnull %29, i64 noundef 1, ptr noundef null, i64 noundef 0) #2
+  br label %31
 
-32:                                               ; preds = %23, %19
-  %33 = sub nuw nsw i64 -2, %20
-  %34 = getelementptr inbounds double, ptr %21, i64 %33
-  %35 = add nuw nsw i64 %20, 1
-  %36 = icmp eq i64 %35, %0
-  br i1 %36, label %.loopexit, label %19, !llvm.loop !7
+31:                                               ; preds = %23, %19
+  %32 = sub nuw nsw i64 -2, %20
+  %33 = getelementptr inbounds double, ptr %21, i64 %32
+  %34 = add nuw nsw i64 %20, 1
+  %35 = icmp eq i64 %34, %0
+  br i1 %35, label %.loopexit, label %19, !llvm.loop !7
 
-.loopexit:                                        ; preds = %32, %9
-  br i1 %6, label %39, label %37
+.loopexit:                                        ; preds = %31, %9
+  br i1 %6, label %38, label %36
 
-37:                                               ; preds = %.loopexit
-  %38 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %4, i64 noundef 1, ptr noundef %2, i64 noundef %3) #2
-  br label %39
+36:                                               ; preds = %.loopexit
+  %37 = tail call i32 @dcopy_k(i64 noundef %0, ptr noundef %4, i64 noundef 1, ptr noundef %2, i64 noundef %3) #2
+  br label %38
 
-39:                                               ; preds = %37, %.loopexit
+38:                                               ; preds = %36, %.loopexit
   ret i32 0
 }
 

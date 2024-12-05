@@ -88,7 +88,7 @@ define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture 
   br i1 %.not.i.i, label %28, label %33
 
 28:                                               ; preds = %.critedge22.i
-  %29 = getelementptr inbounds i8, ptr %6, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 61440
   %32 = icmp eq i32 %31, 40960
@@ -130,7 +130,7 @@ define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture 
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   store i8 0, ptr %50, align 1
   br label %ADIO_FileSysType_parentdir.exit.i
 
@@ -214,8 +214,8 @@ ADIO_FileSysType_fncall.exit:                     ; preds = %54, %.critedge23.i,
   br i1 %exitcond.i, label %ADIO_FileSysType_prefix.exit, label %72, !llvm.loop !6
 
 72:                                               ; preds = %.lr.ph
-  %73 = getelementptr inbounds [4 x %struct.ADIO_FSTypes], ptr @fstypes, i64 0, i64 %indvars.iv.next.i
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %73 = getelementptr inbounds nuw [4 x %struct.ADIO_FSTypes], ptr @fstypes, i64 0, i64 %indvars.iv.next.i
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #10
   %77 = tail call i32 @strncasecmp(ptr noundef %75, ptr noundef nonnull %1, i64 noundef %76) #10
@@ -229,7 +229,7 @@ ADIO_FileSysType_fncall.exit:                     ; preds = %54, %.critedge23.i,
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %70
   %.lcssa63 = phi ptr [ @ADIO_UFS_operations, %70 ], [ %78, %.loopexit.i.loopexit ]
   %.lcssa61 = phi ptr [ @fstypes, %70 ], [ %73, %.loopexit.i.loopexit ]
-  %79 = getelementptr inbounds i8, ptr %.lcssa61, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.lcssa61, i64 8
   %80 = load i32, ptr %79, align 8
   store i32 %80, ptr %9, align 4
   store ptr %.lcssa63, ptr %3, align 8
@@ -266,8 +266,8 @@ ADIO_FileSysType_prefix.exit.thread:              ; preds = %.loopexit.i, %ADIO_
   br i1 %exitcond.i48, label %ADIO_FileSysType_prefix.exit52, label %87, !llvm.loop !6
 
 87:                                               ; preds = %.lr.ph70
-  %88 = getelementptr inbounds [4 x %struct.ADIO_FSTypes], ptr @fstypes, i64 0, i64 %indvars.iv.next.i47
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %88 = getelementptr inbounds nuw [4 x %struct.ADIO_FSTypes], ptr @fstypes, i64 0, i64 %indvars.iv.next.i47
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #10
   %92 = call i32 @strncasecmp(ptr noundef %90, ptr noundef nonnull %84, i64 noundef %91) #10
@@ -281,7 +281,7 @@ ADIO_FileSysType_prefix.exit.thread:              ; preds = %.loopexit.i, %ADIO_
 .loopexit.i50:                                    ; preds = %.loopexit.i50.loopexit, %85
   %.lcssa58 = phi ptr [ @ADIO_UFS_operations, %85 ], [ %93, %.loopexit.i50.loopexit ]
   %.lcssa = phi ptr [ @fstypes, %85 ], [ %88, %.loopexit.i50.loopexit ]
-  %94 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %95 = load i32, ptr %94, align 8
   store i32 %95, ptr %9, align 4
   store ptr %.lcssa58, ptr %3, align 8
@@ -320,8 +320,8 @@ ADIO_FileSysType_prefix.exit52.thread:            ; preds = %.loopexit.i50, %thr
   br i1 %exitcond, label %107, label %.preheader, !llvm.loop !7
 
 .preheader:                                       ; preds = %.lr.ph95
-  %101 = getelementptr inbounds [4 x %struct.ADIO_FSTypes], ptr @fstypes, i64 0, i64 %indvars.iv.next
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %101 = getelementptr inbounds nuw [4 x %struct.ADIO_FSTypes], ptr @fstypes, i64 0, i64 %indvars.iv.next
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = icmp eq i32 %.pre, %103
   br i1 %104, label %.preheader._crit_edge, label %.lr.ph95, !llvm.loop !7

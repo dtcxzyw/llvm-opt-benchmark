@@ -25,20 +25,20 @@ define i32 @mca_coll_monitoring_scatterv(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %8, i64 256
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %wide.trip.count = zext nneg i32 %.val29.val to i64
   br label %20
 
 20:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %.02837 = phi i64 [ 0, %.lr.ph ], [ %.1, %67 ]
-  %21 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 1
@@ -52,14 +52,14 @@ define i32 @mca_coll_monitoring_scatterv(ptr noundef %0, ptr noundef %1, ptr nou
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %32, %33
   %34 = call ptr @ompi_proc_for_name(i64 %.sroa.0.0.insert.insert.i.i.i.i) #3
   %35 = load ptr, ptr %24, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
   %37 = ptrtoint ptr %34 to i64
   %38 = cmpxchg volatile ptr %36, i64 %28, i64 %37 acquire monotonic, align 8
   %39 = extractvalue { i64, i1 } %38, 1
   br i1 %39, label %40, label %ompi_group_get_proc_ptr.exit.i
 
 40:                                               ; preds = %30
-  %41 = getelementptr inbounds i8, ptr %34, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %42 = load i8, ptr @opal_uses_threads, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %46
@@ -90,7 +90,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %46, %44, %30, %20
   br label %57
 
 55:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %56 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %56, align 8
   br label %57
 
@@ -123,15 +123,15 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %57
 
 ._crit_edge:                                      ; preds = %67, %14
   %.028.lcssa = phi i64 [ 0, %14 ], [ %.1, %67 ]
-  %68 = getelementptr inbounds i8, ptr %9, i64 1704
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 1704
   %69 = load ptr, ptr %68, align 8
   call void @mca_common_monitoring_coll_o2a(i64 noundef %.028.lcssa, ptr noundef %69) #3
   br label %70
 
 70:                                               ; preds = %._crit_edge, %10
-  %71 = getelementptr inbounds i8, ptr %9, i64 848
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 848
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %9, i64 856
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 856
   %74 = load ptr, ptr %73, align 8
   %75 = call i32 %72(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %8, ptr noundef %74) #3
   ret i32 %75
@@ -160,20 +160,20 @@ define i32 @mca_coll_monitoring_iscatterv(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %8, i64 256
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %wide.trip.count = zext nneg i32 %.val30.val to i64
   br label %21
 
 21:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %.02938 = phi i64 [ 0, %.lr.ph ], [ %.1, %68 ]
-  %22 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -187,14 +187,14 @@ define i32 @mca_coll_monitoring_iscatterv(ptr noundef %0, ptr noundef %1, ptr no
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %33, %34
   %35 = call ptr @ompi_proc_for_name(i64 %.sroa.0.0.insert.insert.i.i.i.i) #3
   %36 = load ptr, ptr %25, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   %38 = ptrtoint ptr %35 to i64
   %39 = cmpxchg volatile ptr %37, i64 %29, i64 %38 acquire monotonic, align 8
   %40 = extractvalue { i64, i1 } %39, 1
   br i1 %40, label %41, label %ompi_group_get_proc_ptr.exit.i
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %35, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %43 = load i8, ptr @opal_uses_threads, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %47
@@ -225,7 +225,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %47, %45, %31, %21
   br label %58
 
 56:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %57 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %57, align 8
   br label %58
 
@@ -258,15 +258,15 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %58
 
 ._crit_edge:                                      ; preds = %68, %15
   %.029.lcssa = phi i64 [ 0, %15 ], [ %.1, %68 ]
-  %69 = getelementptr inbounds i8, ptr %10, i64 1704
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 1704
   %70 = load ptr, ptr %69, align 8
   call void @mca_common_monitoring_coll_o2a(i64 noundef %.029.lcssa, ptr noundef %70) #3
   br label %71
 
 71:                                               ; preds = %._crit_edge, %11
-  %72 = getelementptr inbounds i8, ptr %10, i64 1120
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 1120
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %10, i64 1128
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 1128
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 %73(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef nonnull %8, ptr noundef %9, ptr noundef %75) #3
   ret i32 %76

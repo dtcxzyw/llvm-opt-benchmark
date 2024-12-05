@@ -252,7 +252,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr nocapture noundef readonl
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.131) #4
   %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #4
@@ -391,7 +391,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr nocapture noundef readonl
 
 .preheader78.i.i:                                 ; preds = %90
   %108 = zext i16 %93 to i32
-  %109 = getelementptr inbounds i8, ptr %1, i64 408
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %110
 
 110:                                              ; preds = %110, %.preheader78.i.i
@@ -422,7 +422,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr nocapture noundef readonl
 
 .preheader.i.i:                                   ; preds = %.loopexit79.i.i
   %126 = zext i16 %94 to i32
-  %127 = getelementptr inbounds i8, ptr %1, i64 408
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %128
 
 128:                                              ; preds = %128, %.preheader.i.i
@@ -502,7 +502,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr nocapture noundef readonl
 186:                                              ; preds = %172
   %187 = add nuw nsw i32 %184, 36
   %188 = zext i16 %175 to i32
-  %189 = getelementptr inbounds i8, ptr %1, i64 408
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %190
 
 190:                                              ; preds = %190, %186
@@ -629,7 +629,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %.not.i44.i.i, label %dissect_srv_records.exit.i.i, label %.lr.ph.i45.i.i
 
 .lr.ph.i45.i.i:                                   ; preds = %272
-  %275 = getelementptr inbounds i8, ptr %1, i64 408
+  %275 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %276
 
 276:                                              ; preds = %276, %.lr.ph.i45.i.i
@@ -689,7 +689,7 @@ dissect_srv_records.exit.i.i:                     ; preds = %276, %272, %270
   br i1 %.not.i47.i.i, label %dissect_mx_records.exit.i.i, label %.lr.ph.i48.i.i
 
 .lr.ph.i48.i.i:                                   ; preds = %312
-  %315 = getelementptr inbounds i8, ptr %1, i64 408
+  %315 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %316
 
 316:                                              ; preds = %316, %.lr.ph.i48.i.i
@@ -739,7 +739,7 @@ dissect_mx_records.exit.i.i:                      ; preds = %316, %312, %310
   br i1 %.not.i50.i.i, label %dissect_ns_records.exit.i.i, label %.lr.ph.i51.i.i
 
 .lr.ph.i51.i.i:                                   ; preds = %342
-  %345 = getelementptr inbounds i8, ptr %1, i64 408
+  %345 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %346
 
 346:                                              ; preds = %346, %.lr.ph.i51.i.i

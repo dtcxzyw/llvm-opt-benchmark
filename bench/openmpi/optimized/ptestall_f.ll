@@ -56,10 +56,10 @@ define void @ompi_testall_f(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %17 ]
-  %20 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = tail call ptr @PMPI_Request_f2c(i32 noundef %21) #5
-  %23 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   store ptr %22, ptr %23, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %0, align 4
@@ -97,11 +97,11 @@ define void @ompi_testall_f(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 .lr.ph51.split.us:                                ; preds = %.lr.ph51, %.lr.ph51.split.us
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.lr.ph51.split.us ], [ 0, %.lr.ph51 ]
-  %36 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv58
+  %36 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv58
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv58
+  %40 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv58
   store i32 %39, ptr %40, align 4
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %41 = load i32, ptr %0, align 4
@@ -111,20 +111,20 @@ define void @ompi_testall_f(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 .lr.ph51.split:                                   ; preds = %.lr.ph51, %55
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %55 ], [ 0, %.lr.ph51 ]
-  %44 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv55
+  %44 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv55
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 104
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv55
+  %48 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv55
   store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv55
+  %49 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv55
   %50 = icmp eq ptr %49, @mpi_fortran_status_ignore_
   br i1 %50, label %55, label %51
 
 51:                                               ; preds = %.lr.ph51.split
-  %52 = getelementptr inbounds %struct.ompi_status_public_t, ptr %18, i64 %indvars.iv55
+  %52 = getelementptr inbounds nuw %struct.ompi_status_public_t, ptr %18, i64 %indvars.iv55
   %.idx = mul nuw nsw i64 %indvars.iv55, 24
-  %53 = getelementptr inbounds i8, ptr %3, i64 %.idx
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %54 = tail call i32 @PMPI_Status_c2f(ptr noundef nonnull %52, ptr noundef %53) #5
   br label %55
 

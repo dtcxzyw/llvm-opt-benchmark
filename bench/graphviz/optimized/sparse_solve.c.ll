@@ -12,11 +12,11 @@ define double @SparseMatrix_solve(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = load i32, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = add nsw i32 %9, 1
   %17 = sext i32 %16 to i64
@@ -46,7 +46,7 @@ define double @SparseMatrix_solve(ptr noundef %0, i32 noundef %1, ptr nocapture 
 gv_calloc.exit.i:                                 ; preds = %21
   %29 = sitofp i32 %9 to double
   store double %29, ptr %23, align 8
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = icmp sgt i32 %9, 0
   br i1 %31, label %.lr.ph32.preheader.i, label %diag_precon_new.exit
 
@@ -62,10 +62,10 @@ gv_calloc.exit.i:                                 ; preds = %21
 .lr.ph32.i:                                       ; preds = %.loopexit.i, %.lr.ph32.preheader.i
   %32 = phi i32 [ %.pre.i, %.lr.ph32.preheader.i ], [ %35, %.loopexit.i ]
   %indvars.iv34.i = phi i64 [ 0, %.lr.ph32.preheader.i ], [ %indvars.iv.next35.i, %.loopexit.i ]
-  %33 = getelementptr inbounds double, ptr %30, i64 %indvars.iv34.i
+  %33 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv34.i
   store double 1.000000e+00, ptr %33, align 8
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
-  %34 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.next35.i
+  %34 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next35.i
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %32, %35
   br i1 %36, label %.lr.ph.preheader.i, label %.loopexit.i
@@ -166,13 +166,13 @@ gv_calloc.exit.i.thread.i:                        ; preds = %.preheader.i
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i17, %.lr.ph.i15 ], [ 0, %.preheader.i ]
   %74 = mul nuw nsw i64 %indvars.iv.i16, %67
   %75 = add nuw nsw i64 %74, %indvars.iv64.i
-  %76 = getelementptr inbounds double, ptr %2, i64 %75
+  %76 = getelementptr inbounds nuw double, ptr %2, i64 %75
   %77 = load double, ptr %76, align 8
-  %78 = getelementptr inbounds double, ptr %55, i64 %indvars.iv.i16
+  %78 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv.i16
   store double %77, ptr %78, align 8
-  %79 = getelementptr inbounds double, ptr %3, i64 %75
+  %79 = getelementptr inbounds nuw double, ptr %3, i64 %75
   %80 = load double, ptr %79, align 8
-  %81 = getelementptr inbounds double, ptr %61, i64 %indvars.iv.i16
+  %81 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv.i16
   store double %80, ptr %81, align 8
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, %wide.trip.count.i14
@@ -261,12 +261,12 @@ gv_calloc.exit59.i.i:                             ; preds = %gv_calloc.exit56.i.
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %117 = getelementptr inbounds double, ptr %113, i64 %indvars.iv.i.i.i
+  %117 = getelementptr inbounds nuw double, ptr %113, i64 %indvars.iv.i.i.i
   %118 = load double, ptr %117, align 8
-  %119 = getelementptr inbounds double, ptr %30, i64 %indvars.iv.i.i.i
+  %119 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv.i.i.i
   %120 = load double, ptr %119, align 8
   %121 = fmul double %118, %120
-  %122 = getelementptr inbounds double, ptr %94, i64 %indvars.iv.i.i.i
+  %122 = getelementptr inbounds nuw double, ptr %94, i64 %indvars.iv.i.i.i
   store double %121, ptr %122, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -321,15 +321,15 @@ conjugate_gradient.exit.i:                        ; preds = %128, %gv_calloc.exi
   br i1 %.not.i, label %gv_calloc.exit45.i, label %.lr.ph52.preheader.i
 
 .lr.ph52.preheader.i:                             ; preds = %conjugate_gradient.exit.i
-  %invariant.gep.i = getelementptr inbounds double, ptr %3, i64 %indvars.iv64.i
+  %invariant.gep.i = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv64.i
   br label %.lr.ph52.i
 
 .lr.ph52.i:                                       ; preds = %.lr.ph52.i, %.lr.ph52.preheader.i
   %indvars.iv59.i = phi i64 [ 0, %.lr.ph52.preheader.i ], [ %indvars.iv.next60.i, %.lr.ph52.i ]
-  %146 = getelementptr inbounds double, ptr %55, i64 %indvars.iv59.i
+  %146 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv59.i
   %147 = load double, ptr %146, align 8
   %148 = mul nuw nsw i64 %indvars.iv59.i, %67
-  %gep.i = getelementptr inbounds double, ptr %invariant.gep.i, i64 %148
+  %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.i, i64 %148
   store double %147, ptr %gep.i, align 8
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count.i14

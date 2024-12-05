@@ -149,12 +149,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @cirrus_post_load(ptr noundef initializes((1106, 1108), (70588, 70592), (70596, 70600)) %opaque, i32 %version_id) #0 {
 entry:
-  %cirrus_shadow_gr0 = getelementptr inbounds i8, ptr %opaque, i64 70584
+  %cirrus_shadow_gr0 = getelementptr inbounds nuw i8, ptr %opaque, i64 70584
   %0 = load i8, ptr %cirrus_shadow_gr0, align 8
   %1 = and i8 %0, 15
-  %gr = getelementptr inbounds i8, ptr %opaque, i64 1106
+  %gr = getelementptr inbounds nuw i8, ptr %opaque, i64 1106
   store i8 %1, ptr %gr, align 2
-  %cirrus_shadow_gr1 = getelementptr inbounds i8, ptr %opaque, i64 70585
+  %cirrus_shadow_gr1 = getelementptr inbounds nuw i8, ptr %opaque, i64 70585
   %2 = load i8, ptr %cirrus_shadow_gr1, align 1
   %3 = and i8 %2, 15
   %arrayidx7 = getelementptr i8, ptr %opaque, i64 1107
@@ -170,15 +170,15 @@ entry:
   %cmp15.not.i = icmp eq i8 %6, 0
   %offset.1.v.i = select i1 %cmp15.not.i, i32 12, i32 14
   %offset.1.i = shl nuw nsw i32 %offset.0.i, %offset.1.v.i
-  %real_vram_size.i = getelementptr inbounds i8, ptr %opaque, i64 78936
+  %real_vram_size.i = getelementptr inbounds nuw i8, ptr %opaque, i64 78936
   %7 = load i32, ptr %real_vram_size.i, align 8
   %limit.0.i = tail call i32 @llvm.usub.sat.i32(i32 %7, i32 %offset.1.i)
   %cmp45.not.not.i = icmp ugt i32 %7, %offset.1.i
   %spec.select = select i1 %cmp45.not.not.i, i32 %offset.1.i, i32 0
   %spec.select28 = select i1 %cmp45.not.not.i, i32 %limit.0.i, i32 0
-  %cirrus_bank_base53.i = getelementptr inbounds i8, ptr %opaque, i64 70588
+  %cirrus_bank_base53.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70588
   store i32 %spec.select, ptr %cirrus_bank_base53.i, align 4
-  %cirrus_bank_limit56.i = getelementptr inbounds i8, ptr %opaque, i64 70596
+  %cirrus_bank_limit56.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70596
   store i32 %spec.select28, ptr %cirrus_bank_limit56.i, align 4
   %arrayidx4.i11 = getelementptr i8, ptr %opaque, i64 1116
   %offset.0.in.in.i13 = select i1 %cmp.not.i, ptr %arrayidx4.i, ptr %arrayidx4.i11
@@ -212,7 +212,7 @@ cirrus_update_bank_ptr.exit27:                    ; preds = %if.end44.thread27.i
   %arrayidx58.i = getelementptr i8, ptr %opaque, i64 70600
   store i32 %.sink.i24, ptr %arrayidx58.i, align 4
   tail call fastcc void @cirrus_update_memory_access(ptr noundef nonnull %opaque)
-  %graphic_mode = getelementptr inbounds i8, ptr %opaque, i64 2640
+  %graphic_mode = getelementptr inbounds nuw i8, ptr %opaque, i64 2640
   store i32 -1, ptr %graphic_mode, align 16
   ret i32 0
 }
@@ -241,26 +241,26 @@ if.then:                                          ; preds = %entry
   store i8 13, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 208), align 16
   store i8 14, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 214), align 2
   store i8 15, ptr getelementptr inbounds (i8, ptr @rop_to_index, i64 218), align 2
-  %device_id1 = getelementptr inbounds i8, ptr %s, i64 78940
+  %device_id1 = getelementptr inbounds nuw i8, ptr %s, i64 78940
   store i32 %device_id, ptr %device_id1, align 4
   %tobool2.not = icmp eq i32 %is_pci, 0
-  %bustype4 = getelementptr inbounds i8, ptr %s, i64 78944
+  %bustype4 = getelementptr inbounds nuw i8, ptr %s, i64 78944
   %. = select i1 %tobool2.not, i32 56, i32 32
   store i32 %., ptr %bustype4, align 16
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then, %entry
-  %cirrus_vga_io = getelementptr inbounds i8, ptr %s, i64 68112
+  %cirrus_vga_io = getelementptr inbounds nuw i8, ptr %s, i64 68112
   tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_vga_io, ptr noundef %owner, ptr noundef nonnull @cirrus_vga_io_ops, ptr noundef %s, ptr noundef nonnull @.str.28, i64 noundef 48) #13
   tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_vga_io) #13
   tail call void @memory_region_add_subregion(ptr noundef %system_io, i64 noundef 944, ptr noundef nonnull %cirrus_vga_io) #13
-  %low_mem_container = getelementptr inbounds i8, ptr %s, i64 69488
+  %low_mem_container = getelementptr inbounds nuw i8, ptr %s, i64 69488
   tail call void @memory_region_init(ptr noundef nonnull %low_mem_container, ptr noundef %owner, ptr noundef nonnull @.str.29, i64 noundef 131072) #13
-  %low_mem = getelementptr inbounds i8, ptr %s, i64 69760
+  %low_mem = getelementptr inbounds nuw i8, ptr %s, i64 69760
   tail call void @memory_region_init_io(ptr noundef nonnull %low_mem, ptr noundef %owner, ptr noundef nonnull @cirrus_vga_mem_ops, ptr noundef %s, ptr noundef nonnull @.str.30, i64 noundef 131072) #13
   tail call void @memory_region_add_subregion(ptr noundef nonnull %low_mem_container, i64 noundef 0, ptr noundef nonnull %low_mem) #13
-  %cirrus_bank = getelementptr inbounds i8, ptr %s, i64 70032
-  %vram = getelementptr inbounds i8, ptr %s, i64 16
+  %cirrus_bank = getelementptr inbounds nuw i8, ptr %s, i64 70032
+  %vram = getelementptr inbounds nuw i8, ptr %s, i64 16
   tail call void @memory_region_init_alias(ptr noundef nonnull %cirrus_bank, ptr noundef %owner, ptr noundef nonnull @.str.31, ptr noundef nonnull %vram, i64 noundef 0, i64 noundef 32768) #13
   tail call void @memory_region_set_enabled(ptr noundef nonnull %cirrus_bank, i1 noundef zeroext false) #13
   tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %low_mem_container, i64 noundef 0, ptr noundef nonnull %cirrus_bank, i32 noundef 1) #13
@@ -270,40 +270,40 @@ if.end5:                                          ; preds = %if.then, %entry
   tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %low_mem_container, i64 noundef 32768, ptr noundef %arrayidx14.c, i32 noundef 1) #13
   tail call void @memory_region_add_subregion_overlap(ptr noundef %system_memory, i64 noundef 655360, ptr noundef nonnull %low_mem_container, i32 noundef 1) #13
   tail call void @memory_region_set_coalescing(ptr noundef nonnull %low_mem) #13
-  %cirrus_linear_io = getelementptr inbounds i8, ptr %s, i64 68384
-  %vram_size_mb = getelementptr inbounds i8, ptr %s, i64 292
+  %cirrus_linear_io = getelementptr inbounds nuw i8, ptr %s, i64 68384
+  %vram_size_mb = getelementptr inbounds nuw i8, ptr %s, i64 292
   %0 = load i32, ptr %vram_size_mb, align 4
   %conv24 = zext i32 %0 to i64
   %mul25 = shl nuw nsw i64 %conv24, 20
   tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_linear_io, ptr noundef %owner, ptr noundef nonnull @cirrus_linear_io_ops, ptr noundef %s, ptr noundef nonnull @.str.33, i64 noundef %mul25) #13
   tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_linear_io) #13
-  %cirrus_linear_bitblt_io = getelementptr inbounds i8, ptr %s, i64 68656
+  %cirrus_linear_bitblt_io = getelementptr inbounds nuw i8, ptr %s, i64 68656
   tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_linear_bitblt_io, ptr noundef %owner, ptr noundef nonnull @cirrus_linear_bitblt_io_ops, ptr noundef %s, ptr noundef nonnull @.str.34, i64 noundef 4194304) #13
   tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_linear_bitblt_io) #13
-  %cirrus_mmio_io = getelementptr inbounds i8, ptr %s, i64 68928
+  %cirrus_mmio_io = getelementptr inbounds nuw i8, ptr %s, i64 68928
   tail call void @memory_region_init_io(ptr noundef nonnull %cirrus_mmio_io, ptr noundef %owner, ptr noundef nonnull @cirrus_mmio_io_ops, ptr noundef %s, ptr noundef nonnull @.str.35, i64 noundef 4096) #13
   tail call void @memory_region_set_flush_coalesced(ptr noundef nonnull %cirrus_mmio_io) #13
-  %device_id29 = getelementptr inbounds i8, ptr %s, i64 78940
+  %device_id29 = getelementptr inbounds nuw i8, ptr %s, i64 78940
   %1 = load i32, ptr %device_id29, align 4
   %cmp30 = icmp eq i32 %1, 184
   %conv32 = select i1 %cmp30, i32 4194304, i32 2097152
-  %real_vram_size = getelementptr inbounds i8, ptr %s, i64 78936
+  %real_vram_size = getelementptr inbounds nuw i8, ptr %s, i64 78936
   store i32 %conv32, ptr %real_vram_size, align 8
   %sub = add nsw i32 %conv32, -1
-  %cirrus_addr_mask = getelementptr inbounds i8, ptr %s, i64 70576
+  %cirrus_addr_mask = getelementptr inbounds nuw i8, ptr %s, i64 70576
   store i32 %sub, ptr %cirrus_addr_mask, align 16
   %sub35 = add nsw i32 %conv32, -256
-  %linear_mmio_mask = getelementptr inbounds i8, ptr %s, i64 70580
+  %linear_mmio_mask = getelementptr inbounds nuw i8, ptr %s, i64 70580
   store i32 %sub35, ptr %linear_mmio_mask, align 4
-  %get_bpp = getelementptr inbounds i8, ptr %s, i64 2432
+  %get_bpp = getelementptr inbounds nuw i8, ptr %s, i64 2432
   store ptr @cirrus_get_bpp, ptr %get_bpp, align 16
-  %get_offsets = getelementptr inbounds i8, ptr %s, i64 2440
+  %get_offsets = getelementptr inbounds nuw i8, ptr %s, i64 2440
   store ptr @cirrus_get_offsets, ptr %get_offsets, align 8
-  %get_resolution = getelementptr inbounds i8, ptr %s, i64 2448
+  %get_resolution = getelementptr inbounds nuw i8, ptr %s, i64 2448
   store ptr @cirrus_get_resolution, ptr %get_resolution, align 16
-  %cursor_invalidate = getelementptr inbounds i8, ptr %s, i64 3000
+  %cursor_invalidate = getelementptr inbounds nuw i8, ptr %s, i64 3000
   store ptr @cirrus_cursor_invalidate, ptr %cursor_invalidate, align 8
-  %cursor_draw_line = getelementptr inbounds i8, ptr %s, i64 3008
+  %cursor_draw_line = getelementptr inbounds nuw i8, ptr %s, i64 3008
   store ptr @cirrus_cursor_draw_line, ptr %cursor_draw_line, align 16
   tail call void @qemu_register_reset(ptr noundef nonnull @cirrus_reset, ptr noundef %s) #13
   ret void
@@ -500,23 +500,23 @@ entry:
   %tobool6.not = icmp eq i32 %and5, 0
   %. = select i1 %tobool6.not, i32 32, i32 64
   %size.0 = select i1 %tobool.not, i32 0, i32 %.
-  %last_hw_cursor_size = getelementptr inbounds i8, ptr %s1, i64 78916
+  %last_hw_cursor_size = getelementptr inbounds nuw i8, ptr %s1, i64 78916
   %1 = load i32, ptr %last_hw_cursor_size, align 4
   %cmp.not = icmp eq i32 %1, %size.0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then18
 
 lor.lhs.false:                                    ; preds = %entry
-  %last_hw_cursor_x = getelementptr inbounds i8, ptr %s1, i64 78920
+  %last_hw_cursor_x = getelementptr inbounds nuw i8, ptr %s1, i64 78920
   %2 = load i32, ptr %last_hw_cursor_x, align 8
-  %hw_cursor_x = getelementptr inbounds i8, ptr %s1, i64 2992
+  %hw_cursor_x = getelementptr inbounds nuw i8, ptr %s1, i64 2992
   %3 = load i32, ptr %hw_cursor_x, align 16
   %cmp12.not = icmp eq i32 %2, %3
   br i1 %cmp12.not, label %lor.lhs.false14, label %if.then18
 
 lor.lhs.false14:                                  ; preds = %lor.lhs.false
-  %last_hw_cursor_y = getelementptr inbounds i8, ptr %s1, i64 78924
+  %last_hw_cursor_y = getelementptr inbounds nuw i8, ptr %s1, i64 78924
   %4 = load i32, ptr %last_hw_cursor_y, align 4
-  %hw_cursor_y = getelementptr inbounds i8, ptr %s1, i64 2996
+  %hw_cursor_y = getelementptr inbounds nuw i8, ptr %s1, i64 2996
   %5 = load i32, ptr %hw_cursor_y, align 4
   %cmp16.not = icmp eq i32 %4, %5
   br i1 %cmp16.not, label %if.end26, label %if.then18
@@ -526,12 +526,12 @@ if.then18:                                        ; preds = %lor.lhs.false14, %l
   br i1 %tobool.not.i, label %invalidate_cursor1.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then18
-  %last_hw_cursor_y.i = getelementptr inbounds i8, ptr %s1, i64 78924
+  %last_hw_cursor_y.i = getelementptr inbounds nuw i8, ptr %s1, i64 78924
   %6 = load i32, ptr %last_hw_cursor_y.i, align 4
-  %last_hw_cursor_y_start.i = getelementptr inbounds i8, ptr %s1, i64 78928
+  %last_hw_cursor_y_start.i = getelementptr inbounds nuw i8, ptr %s1, i64 78928
   %7 = load i32, ptr %last_hw_cursor_y_start.i, align 16
   %add.i = add i32 %7, %6
-  %last_hw_cursor_y_end.i = getelementptr inbounds i8, ptr %s1, i64 78932
+  %last_hw_cursor_y_end.i = getelementptr inbounds nuw i8, ptr %s1, i64 78932
   %8 = load i32, ptr %last_hw_cursor_y_end.i, align 4
   %add2.i = add i32 %8, %6
   tail call void @vga_invalidate_scanlines(ptr noundef nonnull %s1, i32 noundef %add.i, i32 noundef %add2.i) #13
@@ -541,17 +541,17 @@ if.then.i:                                        ; preds = %if.then18
 invalidate_cursor1.exit:                          ; preds = %if.then18, %if.then.i
   %9 = phi i8 [ %0, %if.then18 ], [ %.pre, %if.then.i ]
   store i32 %size.0, ptr %last_hw_cursor_size, align 4
-  %hw_cursor_x21 = getelementptr inbounds i8, ptr %s1, i64 2992
+  %hw_cursor_x21 = getelementptr inbounds nuw i8, ptr %s1, i64 2992
   %10 = load i32, ptr %hw_cursor_x21, align 16
-  %last_hw_cursor_x22 = getelementptr inbounds i8, ptr %s1, i64 78920
+  %last_hw_cursor_x22 = getelementptr inbounds nuw i8, ptr %s1, i64 78920
   store i32 %10, ptr %last_hw_cursor_x22, align 8
-  %hw_cursor_y24 = getelementptr inbounds i8, ptr %s1, i64 2996
+  %hw_cursor_y24 = getelementptr inbounds nuw i8, ptr %s1, i64 2996
   %11 = load i32, ptr %hw_cursor_y24, align 4
-  %last_hw_cursor_y25 = getelementptr inbounds i8, ptr %s1, i64 78924
+  %last_hw_cursor_y25 = getelementptr inbounds nuw i8, ptr %s1, i64 78924
   store i32 %11, ptr %last_hw_cursor_y25, align 4
-  %vram_ptr.i = getelementptr inbounds i8, ptr %s1, i64 8
+  %vram_ptr.i = getelementptr inbounds nuw i8, ptr %s1, i64 8
   %12 = load ptr, ptr %vram_ptr.i, align 8
-  %real_vram_size.i = getelementptr inbounds i8, ptr %s1, i64 78936
+  %real_vram_size.i = getelementptr inbounds nuw i8, ptr %s1, i64 78936
   %13 = load i32, ptr %real_vram_size.i, align 8
   %idx.ext.i = sext i32 %13 to i64
   %add.ptr.i = getelementptr i8, ptr %12, i64 %idx.ext.i
@@ -627,9 +627,9 @@ cirrus_cursor_compute_yrange.exit:                ; preds = %for.body.i, %for.bo
   %add.i18 = add i32 %y_max.2.i, 1
   %spec.select51.i = select i1 %cmp60.i, i32 0, i32 %y_min.3.i
   %spec.select52.i = select i1 %cmp60.i, i32 0, i32 %add.i18
-  %24 = getelementptr inbounds i8, ptr %s1, i64 78928
+  %24 = getelementptr inbounds nuw i8, ptr %s1, i64 78928
   store i32 %spec.select51.i, ptr %24, align 16
-  %25 = getelementptr inbounds i8, ptr %s1, i64 78932
+  %25 = getelementptr inbounds nuw i8, ptr %s1, i64 78932
   store i32 %spec.select52.i, ptr %25, align 4
   br i1 %tobool.not, label %if.end26, label %if.then.i21
 
@@ -657,7 +657,7 @@ if.end:                                           ; preds = %entry
   %and5 = and i32 %conv, 4
   %tobool6.not = icmp eq i32 %and5, 0
   %. = select i1 %tobool6.not, i32 32, i32 64
-  %hw_cursor_y = getelementptr inbounds i8, ptr %s1, i64 2996
+  %hw_cursor_y = getelementptr inbounds nuw i8, ptr %s1, i64 2996
   %1 = load i32, ptr %hw_cursor_y, align 4
   %cmp = icmp uge i32 %scr_y, %1
   %add = add i32 %1, %.
@@ -666,9 +666,9 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end
-  %vram_ptr = getelementptr inbounds i8, ptr %s1, i64 8
+  %vram_ptr = getelementptr inbounds nuw i8, ptr %s1, i64 8
   %2 = load ptr, ptr %vram_ptr, align 8
-  %real_vram_size = getelementptr inbounds i8, ptr %s1, i64 78936
+  %real_vram_size = getelementptr inbounds nuw i8, ptr %s1, i64 78936
   %3 = load i32, ptr %real_vram_size, align 8
   %idx.ext = sext i32 %3 to i64
   %add.ptr18 = getelementptr i8, ptr %2, i64 %idx.ext
@@ -722,9 +722,9 @@ if.end64:                                         ; preds = %if.else45, %if.then
   br i1 %tobool65.not, label %return, label %if.end67
 
 if.end67:                                         ; preds = %if.end64
-  %hw_cursor_x = getelementptr inbounds i8, ptr %s1, i64 2992
+  %hw_cursor_x = getelementptr inbounds nuw i8, ptr %s1, i64 2992
   %14 = load i32, ptr %hw_cursor_x, align 16
-  %last_scr_width = getelementptr inbounds i8, ptr %s1, i64 2680
+  %last_scr_width = getelementptr inbounds nuw i8, ptr %s1, i64 2680
   %15 = load i32, ptr %last_scr_width, align 8
   %cmp70.not = icmp ult i32 %14, %15
   br i1 %cmp70.not, label %if.end73, label %return
@@ -733,7 +733,7 @@ if.end73:                                         ; preds = %if.end67
   %add76 = add i32 %14, %.
   %spec.select = tail call i32 @llvm.umin.i32(i32 %add76, i32 %15)
   %sub85 = sub i32 %spec.select, %14
-  %cirrus_hidden_palette = getelementptr inbounds i8, ptr %s1, i64 70604
+  %cirrus_hidden_palette = getelementptr inbounds nuw i8, ptr %s1, i64 70604
   %16 = load i8, ptr %cirrus_hidden_palette, align 1
   %conv87 = zext i8 %16 to i32
   %and1.i = and i32 %conv87, 1
@@ -863,32 +863,32 @@ declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #
 define internal void @cirrus_reset(ptr noundef %opaque) #0 {
 entry:
   tail call void @vga_common_reset(ptr noundef %opaque) #13
-  %bustype.i = getelementptr inbounds i8, ptr %opaque, i64 78944
+  %bustype.i = getelementptr inbounds nuw i8, ptr %opaque, i64 78944
   %0 = load i32, ptr %bustype.i, align 16
   %cmp.i = icmp eq i32 %0, 32
   br i1 %cmp.i, label %land.lhs.true.i, label %unmap_linear_vram.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %linear_vram.i = getelementptr inbounds i8, ptr %opaque, i64 69472
+  %linear_vram.i = getelementptr inbounds nuw i8, ptr %opaque, i64 69472
   %1 = load i8, ptr %linear_vram.i, align 16
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %if.then.i, label %unmap_linear_vram.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   store i8 0, ptr %linear_vram.i, align 16
-  %pci_bar.i = getelementptr inbounds i8, ptr %opaque, i64 69200
-  %vram.i = getelementptr inbounds i8, ptr %opaque, i64 16
+  %pci_bar.i = getelementptr inbounds nuw i8, ptr %opaque, i64 69200
+  %vram.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   tail call void @memory_region_del_subregion(ptr noundef nonnull %pci_bar.i, ptr noundef nonnull %vram.i) #13
   br label %unmap_linear_vram.exit
 
 unmap_linear_vram.exit:                           ; preds = %entry, %land.lhs.true.i, %if.then.i
-  %cirrus_bank.i = getelementptr inbounds i8, ptr %opaque, i64 70032
+  %cirrus_bank.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70032
   tail call void @memory_region_set_enabled(ptr noundef nonnull %cirrus_bank.i, i1 noundef zeroext false) #13
   %arrayidx3.i = getelementptr i8, ptr %opaque, i64 70304
   tail call void @memory_region_set_enabled(ptr noundef %arrayidx3.i, i1 noundef zeroext false) #13
   %arrayidx = getelementptr i8, ptr %opaque, i64 599
   store i8 15, ptr %arrayidx, align 1
-  %device_id = getelementptr inbounds i8, ptr %opaque, i64 78940
+  %device_id = getelementptr inbounds nuw i8, ptr %opaque, i64 78940
   %2 = load i32, ptr %device_id, align 4
   %cmp = icmp eq i32 %2, 184
   br i1 %cmp, label %if.then, label %if.else
@@ -919,9 +919,9 @@ if.end:                                           ; preds = %if.else, %if.then
   %conv29 = trunc i32 %2 to i8
   %arrayidx31 = getelementptr i8, ptr %opaque, i64 1428
   store i8 %conv29, ptr %arrayidx31, align 1
-  %cirrus_hidden_dac_lockindex = getelementptr inbounds i8, ptr %opaque, i64 70586
+  %cirrus_hidden_dac_lockindex = getelementptr inbounds nuw i8, ptr %opaque, i64 70586
   store i8 5, ptr %cirrus_hidden_dac_lockindex, align 2
-  %cirrus_hidden_dac_data = getelementptr inbounds i8, ptr %opaque, i64 70587
+  %cirrus_hidden_dac_data = getelementptr inbounds nuw i8, ptr %opaque, i64 70587
   store i8 0, ptr %cirrus_hidden_dac_data, align 1
   ret void
 }
@@ -953,9 +953,9 @@ entry:
   br i1 %cmp, label %generic_io, label %if.else
 
 if.else:                                          ; preds = %entry
-  %cirrus_srcptr = getelementptr inbounds i8, ptr %s, i64 78896
+  %cirrus_srcptr = getelementptr inbounds nuw i8, ptr %s, i64 78896
   %2 = load ptr, ptr %cirrus_srcptr, align 16
-  %cirrus_srcptr_end = getelementptr inbounds i8, ptr %s, i64 78904
+  %cirrus_srcptr_end = getelementptr inbounds nuw i8, ptr %s, i64 78904
   %3 = load ptr, ptr %cirrus_srcptr_end, align 8
   %cmp2.not = icmp eq ptr %2, %3
   br i1 %cmp2.not, label %if.else5, label %generic_io
@@ -982,21 +982,21 @@ if.end20:                                         ; preds = %if.else5
   br i1 %or.cond10, label %if.then38, label %generic_io
 
 if.then38:                                        ; preds = %if.end20
-  %bustype.i = getelementptr inbounds i8, ptr %s, i64 78944
+  %bustype.i = getelementptr inbounds nuw i8, ptr %s, i64 78944
   %7 = load i32, ptr %bustype.i, align 16
   %cmp.i = icmp eq i32 %7, 32
   br i1 %cmp.i, label %land.lhs.true.i, label %land.lhs.true.i.i
 
 land.lhs.true.i:                                  ; preds = %if.then38
-  %linear_vram.i = getelementptr inbounds i8, ptr %s, i64 69472
+  %linear_vram.i = getelementptr inbounds nuw i8, ptr %s, i64 69472
   %8 = load i8, ptr %linear_vram.i, align 16
   %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %land.lhs.true.i.i, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i
   store i8 1, ptr %linear_vram.i, align 16
-  %pci_bar.i = getelementptr inbounds i8, ptr %s, i64 69200
-  %vram.i = getelementptr inbounds i8, ptr %s, i64 16
+  %pci_bar.i = getelementptr inbounds nuw i8, ptr %s, i64 69200
+  %vram.i = getelementptr inbounds nuw i8, ptr %s, i64 16
   tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %pci_bar.i, i64 noundef 0, ptr noundef nonnull %vram.i, i32 noundef 1) #13
   %.pre = load ptr, ptr %cirrus_srcptr, align 16
   %.pre20 = load ptr, ptr %cirrus_srcptr_end, align 8
@@ -1024,9 +1024,9 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true4.i.i
 
 map_linear_vram_bank.exit.i:                      ; preds = %land.rhs.i.i, %land.lhs.true4.i.i, %land.lhs.true.i.i, %if.end.i
   %12 = phi i1 [ false, %land.lhs.true4.i.i ], [ false, %land.lhs.true.i.i ], [ false, %if.end.i ], [ %tobool.not.i.i, %land.rhs.i.i ]
-  %cirrus_bank.i.i = getelementptr inbounds i8, ptr %s, i64 70032
+  %cirrus_bank.i.i = getelementptr inbounds nuw i8, ptr %s, i64 70032
   tail call void @memory_region_set_enabled(ptr noundef nonnull %cirrus_bank.i.i, i1 noundef zeroext %12) #13
-  %cirrus_bank_base.i.i = getelementptr inbounds i8, ptr %s, i64 70588
+  %cirrus_bank_base.i.i = getelementptr inbounds nuw i8, ptr %s, i64 70588
   %13 = load i32, ptr %cirrus_bank_base.i.i, align 4
   %conv19.i.i = zext i32 %13 to i64
   tail call void @memory_region_set_alias_offset(ptr noundef nonnull %cirrus_bank.i.i, i64 noundef %conv19.i.i) #13
@@ -1065,26 +1065,26 @@ map_linear_vram.exit:                             ; preds = %map_linear_vram_ban
   br label %if.end42
 
 generic_io:                                       ; preds = %if.end20, %if.else5, %if.else, %entry
-  %bustype.i11 = getelementptr inbounds i8, ptr %s, i64 78944
+  %bustype.i11 = getelementptr inbounds nuw i8, ptr %s, i64 78944
   %21 = load i32, ptr %bustype.i11, align 16
   %cmp.i12 = icmp eq i32 %21, 32
   br i1 %cmp.i12, label %land.lhs.true.i14, label %unmap_linear_vram.exit
 
 land.lhs.true.i14:                                ; preds = %generic_io
-  %linear_vram.i15 = getelementptr inbounds i8, ptr %s, i64 69472
+  %linear_vram.i15 = getelementptr inbounds nuw i8, ptr %s, i64 69472
   %22 = load i8, ptr %linear_vram.i15, align 16
   %tobool.i16 = trunc i8 %22 to i1
   br i1 %tobool.i16, label %if.then.i17, label %unmap_linear_vram.exit
 
 if.then.i17:                                      ; preds = %land.lhs.true.i14
   store i8 0, ptr %linear_vram.i15, align 16
-  %pci_bar.i18 = getelementptr inbounds i8, ptr %s, i64 69200
-  %vram.i19 = getelementptr inbounds i8, ptr %s, i64 16
+  %pci_bar.i18 = getelementptr inbounds nuw i8, ptr %s, i64 69200
+  %vram.i19 = getelementptr inbounds nuw i8, ptr %s, i64 16
   tail call void @memory_region_del_subregion(ptr noundef nonnull %pci_bar.i18, ptr noundef nonnull %vram.i19) #13
   br label %unmap_linear_vram.exit
 
 unmap_linear_vram.exit:                           ; preds = %generic_io, %land.lhs.true.i14, %if.then.i17
-  %cirrus_bank.i = getelementptr inbounds i8, ptr %s, i64 70032
+  %cirrus_bank.i = getelementptr inbounds nuw i8, ptr %s, i64 70032
   tail call void @memory_region_set_enabled(ptr noundef nonnull %cirrus_bank.i, i1 noundef zeroext false) #13
   %arrayidx3.i = getelementptr i8, ptr %s, i64 70304
   tail call void @memory_region_set_enabled(ptr noundef %arrayidx3.i, i1 noundef zeroext false) #13
@@ -1137,26 +1137,26 @@ if.else:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.else
-  %ar_flip_flop = getelementptr inbounds i8, ptr %opaque, i64 1384
+  %ar_flip_flop = getelementptr inbounds nuw i8, ptr %opaque, i64 1384
   %1 = load i32, ptr %ar_flip_flop, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then2, label %if.end48
 
 if.then2:                                         ; preds = %sw.bb
-  %ar_index = getelementptr inbounds i8, ptr %opaque, i64 1362
+  %ar_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1362
   %2 = load i8, ptr %ar_index, align 2
   %conv3 = zext i8 %2 to i32
   br label %if.end48
 
 sw.bb5:                                           ; preds = %if.else
-  %ar_index6 = getelementptr inbounds i8, ptr %opaque, i64 1362
+  %ar_index6 = getelementptr inbounds nuw i8, ptr %opaque, i64 1362
   %3 = load i8, ptr %ar_index6, align 2
   %4 = and i8 %3, 31
   %cmp8 = icmp samesign ult i8 %4, 21
   br i1 %cmp8, label %if.then10, label %if.end48
 
 if.then10:                                        ; preds = %sw.bb5
-  %ar = getelementptr inbounds i8, ptr %opaque, i64 1363
+  %ar = getelementptr inbounds nuw i8, ptr %opaque, i64 1363
   %idxprom = zext nneg i8 %4 to i64
   %arrayidx = getelementptr [21 x i8], ptr %ar, i64 0, i64 %idxprom
   %5 = load i8, ptr %arrayidx, align 1
@@ -1164,13 +1164,13 @@ if.then10:                                        ; preds = %sw.bb5
   br label %if.end48
 
 sw.bb14:                                          ; preds = %if.else
-  %st00 = getelementptr inbounds i8, ptr %opaque, i64 1647
+  %st00 = getelementptr inbounds nuw i8, ptr %opaque, i64 1647
   %6 = load i8, ptr %st00, align 1
   %conv15 = zext i8 %6 to i32
   br label %if.end48
 
 sw.bb16:                                          ; preds = %if.else
-  %sr_index = getelementptr inbounds i8, ptr %opaque, i64 592
+  %sr_index = getelementptr inbounds nuw i8, ptr %opaque, i64 592
   %7 = load i8, ptr %sr_index, align 16
   %conv17 = zext i8 %7 to i32
   br label %if.end48
@@ -1180,7 +1180,7 @@ sw.bb18:                                          ; preds = %if.else
   br label %if.end48
 
 sw.bb20:                                          ; preds = %if.else
-  %cirrus_hidden_dac_lockindex.i = getelementptr inbounds i8, ptr %opaque, i64 70586
+  %cirrus_hidden_dac_lockindex.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70586
   %8 = load i8, ptr %cirrus_hidden_dac_lockindex.i, align 2
   %inc.i = add i8 %8, 1
   store i8 %inc.i, ptr %cirrus_hidden_dac_lockindex.i, align 2
@@ -1189,22 +1189,22 @@ sw.bb20:                                          ; preds = %if.else
 
 if.then.i:                                        ; preds = %sw.bb20
   store i8 0, ptr %cirrus_hidden_dac_lockindex.i, align 2
-  %cirrus_hidden_dac_data.i = getelementptr inbounds i8, ptr %opaque, i64 70587
+  %cirrus_hidden_dac_data.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70587
   %9 = load i8, ptr %cirrus_hidden_dac_data.i, align 1
   %conv3.i = zext i8 %9 to i32
   br label %if.end48
 
 sw.bb22:                                          ; preds = %if.else
-  %dac_state = getelementptr inbounds i8, ptr %opaque, i64 1649
+  %dac_state = getelementptr inbounds nuw i8, ptr %opaque, i64 1649
   %10 = load i8, ptr %dac_state, align 1
   %conv23 = zext i8 %10 to i32
   br label %if.end48
 
 sw.bb24:                                          ; preds = %if.else
-  %dac_write_index = getelementptr inbounds i8, ptr %opaque, i64 1652
+  %dac_write_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1652
   %11 = load i8, ptr %dac_write_index, align 4
   %conv25 = zext i8 %11 to i32
-  %cirrus_hidden_dac_lockindex = getelementptr inbounds i8, ptr %opaque, i64 70586
+  %cirrus_hidden_dac_lockindex = getelementptr inbounds nuw i8, ptr %opaque, i64 70586
   store i8 0, ptr %cirrus_hidden_dac_lockindex, align 2
   br label %if.end48
 
@@ -1213,38 +1213,38 @@ sw.bb26:                                          ; preds = %if.else
   br label %if.end48
 
 sw.bb28:                                          ; preds = %if.else
-  %fcr = getelementptr inbounds i8, ptr %opaque, i64 1646
+  %fcr = getelementptr inbounds nuw i8, ptr %opaque, i64 1646
   %12 = load i8, ptr %fcr, align 2
   %conv29 = zext i8 %12 to i32
   br label %if.end48
 
 sw.bb30:                                          ; preds = %if.else
-  %msr = getelementptr inbounds i8, ptr %opaque, i64 1645
+  %msr = getelementptr inbounds nuw i8, ptr %opaque, i64 1645
   %13 = load i8, ptr %msr, align 1
   %conv31 = zext i8 %13 to i32
   br label %if.end48
 
 sw.bb32:                                          ; preds = %if.else
-  %gr_index = getelementptr inbounds i8, ptr %opaque, i64 1105
+  %gr_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1105
   %14 = load i8, ptr %gr_index, align 1
   %conv33 = zext i8 %14 to i32
   br label %if.end48
 
 sw.bb34:                                          ; preds = %if.else
-  %gr_index35 = getelementptr inbounds i8, ptr %opaque, i64 1105
+  %gr_index35 = getelementptr inbounds nuw i8, ptr %opaque, i64 1105
   %15 = load i8, ptr %gr_index35, align 1
   %conv36 = zext i8 %15 to i32
   %call37 = tail call fastcc i32 @cirrus_vga_read_gr(ptr noundef %opaque, i32 noundef %conv36)
   br label %if.end48
 
 sw.bb38:                                          ; preds = %if.else, %if.else
-  %cr_index = getelementptr inbounds i8, ptr %opaque, i64 1388
+  %cr_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1388
   %16 = load i8, ptr %cr_index, align 4
   %conv39 = zext i8 %16 to i32
   br label %if.end48
 
 sw.bb40:                                          ; preds = %if.else, %if.else
-  %cr_index41 = getelementptr inbounds i8, ptr %opaque, i64 1388
+  %cr_index41 = getelementptr inbounds nuw i8, ptr %opaque, i64 1388
   %17 = load i8, ptr %cr_index41, align 4
   %conv42 = zext i8 %17 to i32
   switch i8 %17, label %do.body.i [
@@ -1286,7 +1286,7 @@ sw.bb40:                                          ; preds = %if.else, %if.else
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40
-  %cr.i = getelementptr inbounds i8, ptr %opaque, i64 1389
+  %cr.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1389
   %idxprom.i = zext nneg i8 %17 to i64
   %arrayidx.i = getelementptr [256 x i8], ptr %cr.i, i64 0, i64 %idxprom.i
   %18 = load i8, ptr %arrayidx.i, align 1
@@ -1294,13 +1294,13 @@ sw.bb.i:                                          ; preds = %sw.bb40, %sw.bb40, 
   br label %if.end48
 
 sw.bb2.i:                                         ; preds = %sw.bb40
-  %ar_flip_flop.i = getelementptr inbounds i8, ptr %opaque, i64 1384
+  %ar_flip_flop.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1384
   %19 = load i32, ptr %ar_flip_flop.i, align 8
   %shl.i = shl i32 %19, 7
   br label %if.end48
 
 sw.bb4.i:                                         ; preds = %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40, %sw.bb40
-  %cr6.i = getelementptr inbounds i8, ptr %opaque, i64 1389
+  %cr6.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1389
   %idxprom9.i = zext nneg i8 %17 to i64
   %arrayidx10.i = getelementptr [256 x i8], ptr %cr6.i, i64 0, i64 %idxprom9.i
   %20 = load i8, ptr %arrayidx10.i, align 1
@@ -1308,7 +1308,7 @@ sw.bb4.i:                                         ; preds = %sw.bb40, %sw.bb40, 
   br label %if.end48
 
 sw.bb12.i:                                        ; preds = %sw.bb40
-  %ar_index.i = getelementptr inbounds i8, ptr %opaque, i64 1362
+  %ar_index.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1362
   %21 = load i8, ptr %ar_index.i, align 2
   %22 = and i8 %21, 63
   %and.i = zext nneg i8 %22 to i32
@@ -1325,13 +1325,13 @@ if.then.i31:                                      ; preds = %do.body.i
   br label %if.end48
 
 sw.bb44:                                          ; preds = %if.else, %if.else
-  %retrace = getelementptr inbounds i8, ptr %opaque, i64 68040
+  %retrace = getelementptr inbounds nuw i8, ptr %opaque, i64 68040
   %24 = load ptr, ptr %retrace, align 8
   %call45 = tail call zeroext i8 %24(ptr noundef %opaque) #13
-  %st01 = getelementptr inbounds i8, ptr %opaque, i64 1648
+  %st01 = getelementptr inbounds nuw i8, ptr %opaque, i64 1648
   store i8 %call45, ptr %st01, align 16
   %conv46 = zext i8 %call45 to i32
-  %ar_flip_flop47 = getelementptr inbounds i8, ptr %opaque, i64 1384
+  %ar_flip_flop47 = getelementptr inbounds nuw i8, ptr %opaque, i64 1384
   store i32 0, ptr %ar_flip_flop47, align 8
   br label %if.end48
 
@@ -1360,7 +1360,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %29 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %30 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %29, i64 noundef %30, i32 noundef %conv, i32 noundef range(i32 0, -127) %val.0) #13
   br label %trace_vga_cirrus_read_io.exit
@@ -1410,7 +1410,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv, i32 noundef %conv2) #13
   br label %trace_vga_cirrus_write_io.exit
@@ -1441,7 +1441,7 @@ trace_vga_cirrus_write_io.exit:                   ; preds = %if.end, %land.lhs.t
   ]
 
 sw.bb:                                            ; preds = %trace_vga_cirrus_write_io.exit
-  %ar_flip_flop = getelementptr inbounds i8, ptr %opaque, i64 1384
+  %ar_flip_flop = getelementptr inbounds nuw i8, ptr %opaque, i64 1384
   %7 = load i32, ptr %ar_flip_flop, align 8
   %cmp = icmp eq i32 %7, 0
   br i1 %cmp, label %if.then4, label %if.else
@@ -1449,12 +1449,12 @@ sw.bb:                                            ; preds = %trace_vga_cirrus_wr
 if.then4:                                         ; preds = %sw.bb
   %8 = trunc i64 %val to i8
   %conv5 = and i8 %8, 63
-  %ar_index = getelementptr inbounds i8, ptr %opaque, i64 1362
+  %ar_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1362
   store i8 %conv5, ptr %ar_index, align 2
   br label %if.end41
 
 if.else:                                          ; preds = %sw.bb
-  %ar_index6 = getelementptr inbounds i8, ptr %opaque, i64 1362
+  %ar_index6 = getelementptr inbounds nuw i8, ptr %opaque, i64 1362
   %9 = load i8, ptr %ar_index6, align 2
   %10 = and i8 %9, 31
   switch i8 %10, label %if.end41 [
@@ -1484,7 +1484,7 @@ if.else:                                          ; preds = %sw.bb
 sw.bb9:                                           ; preds = %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else
   %11 = trunc i64 %val to i8
   %conv11 = and i8 %11, 63
-  %ar = getelementptr inbounds i8, ptr %opaque, i64 1363
+  %ar = getelementptr inbounds nuw i8, ptr %opaque, i64 1363
   %idxprom = zext nneg i8 %10 to i64
   %arrayidx = getelementptr [21 x i8], ptr %ar, i64 0, i64 %idxprom
   store i8 %conv11, ptr %arrayidx, align 1
@@ -1534,21 +1534,21 @@ if.end41:                                         ; preds = %sw.bb9, %sw.bb12, %
 sw.bb43:                                          ; preds = %trace_vga_cirrus_write_io.exit
   %17 = trunc i64 %val to i8
   %conv45 = and i8 %17, -17
-  %msr = getelementptr inbounds i8, ptr %opaque, i64 1645
+  %msr = getelementptr inbounds nuw i8, ptr %opaque, i64 1645
   store i8 %conv45, ptr %msr, align 1
-  %update_retrace_info = getelementptr inbounds i8, ptr %opaque, i64 68048
+  %update_retrace_info = getelementptr inbounds nuw i8, ptr %opaque, i64 68048
   %18 = load ptr, ptr %update_retrace_info, align 16
   tail call void %18(ptr noundef %opaque) #13
   br label %sw.epilog73
 
 sw.bb46:                                          ; preds = %trace_vga_cirrus_write_io.exit
   %conv47 = trunc i64 %val to i8
-  %sr_index = getelementptr inbounds i8, ptr %opaque, i64 592
+  %sr_index = getelementptr inbounds nuw i8, ptr %opaque, i64 592
   store i8 %conv47, ptr %sr_index, align 16
   br label %sw.epilog73
 
 sw.bb48:                                          ; preds = %trace_vga_cirrus_write_io.exit
-  %sr_index.i = getelementptr inbounds i8, ptr %opaque, i64 592
+  %sr_index.i = getelementptr inbounds nuw i8, ptr %opaque, i64 592
   %19 = load i8, ptr %sr_index.i, align 16
   switch i8 %19, label %do.body.i [
     i8 0, label %sw.bb.i
@@ -1604,14 +1604,14 @@ sw.bb.i:                                          ; preds = %sw.bb48, %sw.bb48, 
   %20 = load i8, ptr %arrayidx.i, align 1
   %21 = trunc i64 %val to i8
   %conv4.i = and i8 %20, %21
-  %sr.i = getelementptr inbounds i8, ptr %opaque, i64 593
+  %sr.i = getelementptr inbounds nuw i8, ptr %opaque, i64 593
   %arrayidx9.i = getelementptr [256 x i8], ptr %sr.i, i64 0, i64 %idxprom.i
   store i8 %conv4.i, ptr %arrayidx9.i, align 1
   %cmp.i = icmp eq i8 %19, 1
   br i1 %cmp.i, label %if.then.i, label %sw.epilog73
 
 if.then.i:                                        ; preds = %sw.bb.i
-  %update_retrace_info.i = getelementptr inbounds i8, ptr %opaque, i64 68048
+  %update_retrace_info.i = getelementptr inbounds nuw i8, ptr %opaque, i64 68048
   %22 = load ptr, ptr %update_retrace_info.i, align 16
   tail call void %22(ptr noundef nonnull %opaque) #13
   br label %sw.epilog73
@@ -1638,7 +1638,7 @@ sw.bb34.i:                                        ; preds = %sw.bb48, %sw.bb48, 
   %23 = lshr i8 %19, 5
   %shr.i = zext nneg i8 %23 to i32
   %or.i = or disjoint i32 %shl.i, %shr.i
-  %hw_cursor_x.i = getelementptr inbounds i8, ptr %opaque, i64 2992
+  %hw_cursor_x.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2992
   store i32 %or.i, ptr %hw_cursor_x.i, align 16
   br label %sw.epilog73
 
@@ -1650,7 +1650,7 @@ sw.bb43.i:                                        ; preds = %sw.bb48, %sw.bb48, 
   %24 = lshr i8 %19, 5
   %shr52.i = zext nneg i8 %24 to i32
   %or53.i = or disjoint i32 %shl48.i, %shr52.i
-  %hw_cursor_y.i = getelementptr inbounds i8, ptr %opaque, i64 2996
+  %hw_cursor_y.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2996
   store i32 %or53.i, ptr %hw_cursor_y.i, align 4
   br label %sw.epilog73
 
@@ -1662,7 +1662,7 @@ sw.bb55.i:                                        ; preds = %sw.bb48
 sw.bb56.i:                                        ; preds = %sw.bb55.i, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48, %sw.bb48
   %25 = phi i8 [ %.pre.i, %sw.bb55.i ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ], [ %19, %sw.bb48 ]
   %conv57.i = trunc i64 %val to i8
-  %sr59.i = getelementptr inbounds i8, ptr %opaque, i64 593
+  %sr59.i = getelementptr inbounds nuw i8, ptr %opaque, i64 593
   %idxprom62.i = zext i8 %25 to i64
   %arrayidx63.i = getelementptr [256 x i8], ptr %sr59.i, i64 0, i64 %idxprom62.i
   store i8 %conv57.i, ptr %arrayidx63.i, align 1
@@ -1672,7 +1672,7 @@ sw.bb64.i:                                        ; preds = %sw.bb48
   %conv65.i = trunc i64 %val to i8
   %arrayidx68.i = getelementptr i8, ptr %opaque, i64 611
   store i8 %conv65.i, ptr %arrayidx68.i, align 1
-  %force_shadow.i = getelementptr inbounds i8, ptr %opaque, i64 2693
+  %force_shadow.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2693
   %frombool.i = and i8 %conv65.i, 1
   store i8 %frombool.i, ptr %force_shadow.i, align 1
   br label %sw.epilog73
@@ -1700,14 +1700,14 @@ if.then94.i:                                      ; preds = %do.body.i
   br label %sw.epilog73
 
 sw.bb50:                                          ; preds = %trace_vga_cirrus_write_io.exit
-  %cirrus_hidden_dac_lockindex.i = getelementptr inbounds i8, ptr %opaque, i64 70586
+  %cirrus_hidden_dac_lockindex.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70586
   %31 = load i8, ptr %cirrus_hidden_dac_lockindex.i, align 2
   %cmp.i59 = icmp eq i8 %31, 4
   br i1 %cmp.i59, label %if.then.i60, label %cirrus_write_hidden_dac.exit
 
 if.then.i60:                                      ; preds = %sw.bb50
   %conv2.i = trunc i64 %val to i8
-  %cirrus_hidden_dac_data.i = getelementptr inbounds i8, ptr %opaque, i64 70587
+  %cirrus_hidden_dac_data.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70587
   store i8 %conv2.i, ptr %cirrus_hidden_dac_data.i, align 1
   br label %cirrus_write_hidden_dac.exit
 
@@ -1717,28 +1717,28 @@ cirrus_write_hidden_dac.exit:                     ; preds = %sw.bb50, %if.then.i
 
 sw.bb52:                                          ; preds = %trace_vga_cirrus_write_io.exit
   %conv53 = trunc i64 %val to i8
-  %dac_read_index = getelementptr inbounds i8, ptr %opaque, i64 1651
+  %dac_read_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1651
   store i8 %conv53, ptr %dac_read_index, align 1
-  %dac_sub_index = getelementptr inbounds i8, ptr %opaque, i64 1650
+  %dac_sub_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1650
   store i8 0, ptr %dac_sub_index, align 2
-  %dac_state = getelementptr inbounds i8, ptr %opaque, i64 1649
+  %dac_state = getelementptr inbounds nuw i8, ptr %opaque, i64 1649
   store i8 3, ptr %dac_state, align 1
   br label %sw.epilog73
 
 sw.bb54:                                          ; preds = %trace_vga_cirrus_write_io.exit
   %conv55 = trunc i64 %val to i8
-  %dac_write_index = getelementptr inbounds i8, ptr %opaque, i64 1652
+  %dac_write_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1652
   store i8 %conv55, ptr %dac_write_index, align 4
-  %dac_sub_index56 = getelementptr inbounds i8, ptr %opaque, i64 1650
+  %dac_sub_index56 = getelementptr inbounds nuw i8, ptr %opaque, i64 1650
   store i8 0, ptr %dac_sub_index56, align 2
-  %dac_state57 = getelementptr inbounds i8, ptr %opaque, i64 1649
+  %dac_state57 = getelementptr inbounds nuw i8, ptr %opaque, i64 1649
   store i8 0, ptr %dac_state57, align 1
   br label %sw.epilog73
 
 sw.bb58:                                          ; preds = %trace_vga_cirrus_write_io.exit
   %conv.i = trunc i64 %val to i8
-  %dac_cache.i = getelementptr inbounds i8, ptr %opaque, i64 1653
-  %dac_sub_index.i = getelementptr inbounds i8, ptr %opaque, i64 1650
+  %dac_cache.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1653
+  %dac_sub_index.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1650
   %32 = load i8, ptr %dac_sub_index.i, align 2
   %idxprom.i61 = zext i8 %32 to i64
   %arrayidx.i62 = getelementptr [3 x i8], ptr %dac_cache.i, i64 0, i64 %idxprom.i61
@@ -1753,12 +1753,12 @@ if.then.i64:                                      ; preds = %sw.bb58
   %33 = load i8, ptr %arrayidx7.i, align 1
   %34 = and i8 %33, 2
   %tobool.not.i = icmp eq i8 %34, 0
-  %dac_write_index19.i = getelementptr inbounds i8, ptr %opaque, i64 1652
+  %dac_write_index19.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1652
   %35 = load i8, ptr %dac_write_index19.i, align 4
   br i1 %tobool.not.i, label %if.else.i65, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.then.i64
-  %cirrus_hidden_palette.i = getelementptr inbounds i8, ptr %opaque, i64 70604
+  %cirrus_hidden_palette.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70604
   %36 = and i8 %35, 15
   %narrow.i = mul nuw nsw i8 %36, 3
   %idxprom13.i = zext nneg i8 %narrow.i to i64
@@ -1766,7 +1766,7 @@ if.then9.i:                                       ; preds = %if.then.i64
   br label %if.end.i
 
 if.else.i65:                                      ; preds = %if.then.i64
-  %palette.i = getelementptr inbounds i8, ptr %opaque, i64 1660
+  %palette.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1660
   %conv20.i = zext i8 %35 to i64
   %mul21.i = mul nuw nsw i64 %conv20.i, 3
   %arrayidx23.i = getelementptr [768 x i8], ptr %palette.i, i64 0, i64 %mul21.i
@@ -1782,12 +1782,12 @@ if.end.i:                                         ; preds = %if.else.i65, %if.th
 
 sw.bb60:                                          ; preds = %trace_vga_cirrus_write_io.exit
   %conv61 = trunc i64 %val to i8
-  %gr_index = getelementptr inbounds i8, ptr %opaque, i64 1105
+  %gr_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1105
   store i8 %conv61, ptr %gr_index, align 1
   br label %sw.epilog73
 
 sw.bb62:                                          ; preds = %trace_vga_cirrus_write_io.exit
-  %gr_index63 = getelementptr inbounds i8, ptr %opaque, i64 1105
+  %gr_index63 = getelementptr inbounds nuw i8, ptr %opaque, i64 1105
   %37 = load i8, ptr %gr_index63, align 1
   %conv64 = zext i8 %37 to i32
   tail call fastcc void @cirrus_vga_write_gr(ptr noundef %opaque, i32 noundef %conv64, i32 noundef %conv2)
@@ -1795,12 +1795,12 @@ sw.bb62:                                          ; preds = %trace_vga_cirrus_wr
 
 sw.bb66:                                          ; preds = %trace_vga_cirrus_write_io.exit, %trace_vga_cirrus_write_io.exit
   %conv67 = trunc i64 %val to i8
-  %cr_index = getelementptr inbounds i8, ptr %opaque, i64 1388
+  %cr_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1388
   store i8 %conv67, ptr %cr_index, align 4
   br label %sw.epilog73
 
 sw.bb68:                                          ; preds = %trace_vga_cirrus_write_io.exit, %trace_vga_cirrus_write_io.exit
-  %cr_index.i = getelementptr inbounds i8, ptr %opaque, i64 1388
+  %cr_index.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1388
   %38 = load i8, ptr %cr_index.i, align 4
   switch i8 %38, label %do.body.i73 [
     i8 0, label %sw.bb.i66
@@ -1862,7 +1862,7 @@ if.then12.i:                                      ; preds = %if.then.i72
   br label %sw.epilog73
 
 if.end23.i:                                       ; preds = %sw.bb.i66
-  %cr.i = getelementptr inbounds i8, ptr %opaque, i64 1389
+  %cr.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1389
   %conv24.i = trunc i64 %val to i8
   %idxprom.i70 = zext nneg i8 %38 to i64
   %arrayidx29.i = getelementptr [256 x i8], ptr %cr.i, i64 0, i64 %idxprom.i70
@@ -1878,14 +1878,14 @@ if.end23.i:                                       ; preds = %sw.bb.i66
   ]
 
 sw.bb33.i:                                        ; preds = %if.end23.i, %if.end23.i, %if.end23.i, %if.end23.i, %if.end23.i, %if.end23.i, %if.end23.i
-  %update_retrace_info.i71 = getelementptr inbounds i8, ptr %opaque, i64 68048
+  %update_retrace_info.i71 = getelementptr inbounds nuw i8, ptr %opaque, i64 68048
   %44 = load ptr, ptr %update_retrace_info.i71, align 16
   tail call void %44(ptr noundef nonnull %opaque) #13
   br label %sw.epilog73
 
 sw.bb36.i:                                        ; preds = %sw.bb68, %sw.bb68, %sw.bb68, %sw.bb68, %sw.bb68
   %conv37.i = trunc i64 %val to i8
-  %cr39.i = getelementptr inbounds i8, ptr %opaque, i64 1389
+  %cr39.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1389
   %idxprom42.i = zext nneg i8 %38 to i64
   %arrayidx43.i = getelementptr [256 x i8], ptr %cr39.i, i64 0, i64 %idxprom42.i
   store i8 %conv37.i, ptr %arrayidx43.i, align 1
@@ -1905,7 +1905,7 @@ if.then49.i:                                      ; preds = %do.body.i73
 sw.bb70:                                          ; preds = %trace_vga_cirrus_write_io.exit, %trace_vga_cirrus_write_io.exit
   %46 = trunc i64 %val to i8
   %conv72 = and i8 %46, 16
-  %fcr = getelementptr inbounds i8, ptr %opaque, i64 1646
+  %fcr = getelementptr inbounds nuw i8, ptr %opaque, i64 1646
   store i8 %conv72, ptr %fcr, align 2
   br label %sw.epilog73
 
@@ -1918,7 +1918,7 @@ declare i32 @vga_ioport_invalid(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 256) i32 @cirrus_vga_read_sr(ptr nocapture noundef readonly %s) unnamed_addr #0 {
 entry:
-  %sr_index = getelementptr inbounds i8, ptr %s, i64 592
+  %sr_index = getelementptr inbounds nuw i8, ptr %s, i64 592
   %0 = load i8, ptr %sr_index, align 16
   switch i8 %0, label %do.body [
     i8 0, label %sw.bb
@@ -1970,7 +1970,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry
-  %sr = getelementptr inbounds i8, ptr %s, i64 593
+  %sr = getelementptr inbounds nuw i8, ptr %s, i64 593
   %idxprom = zext nneg i8 %0 to i64
   %arrayidx = getelementptr [256 x i8], ptr %sr, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
@@ -1992,7 +1992,7 @@ sw.bb18:                                          ; preds = %entry, %entry, %ent
   br label %return
 
 sw.bb23:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  %sr25 = getelementptr inbounds i8, ptr %s, i64 593
+  %sr25 = getelementptr inbounds nuw i8, ptr %s, i64 593
   %idxprom28 = zext nneg i8 %0 to i64
   %arrayidx29 = getelementptr [256 x i8], ptr %sr25, i64 0, i64 %idxprom28
   %5 = load i8, ptr %arrayidx29, align 1
@@ -2022,16 +2022,16 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 2
   %tobool.not = icmp eq i8 %1, 0
-  %dac_read_index10 = getelementptr inbounds i8, ptr %s, i64 1651
+  %dac_read_index10 = getelementptr inbounds nuw i8, ptr %s, i64 1651
   %2 = load i8, ptr %dac_read_index10, align 1
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cirrus_hidden_palette = getelementptr inbounds i8, ptr %s, i64 70604
+  %cirrus_hidden_palette = getelementptr inbounds nuw i8, ptr %s, i64 70604
   %3 = and i8 %2, 15
   %narrow = mul nuw nsw i8 %3, 3
   %mul = zext nneg i8 %narrow to i64
-  %dac_sub_index = getelementptr inbounds i8, ptr %s, i64 1650
+  %dac_sub_index = getelementptr inbounds nuw i8, ptr %s, i64 1650
   %4 = load i8, ptr %dac_sub_index, align 2
   %conv5 = zext i8 %4 to i64
   %add = add nuw nsw i64 %mul, %conv5
@@ -2039,10 +2039,10 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %palette = getelementptr inbounds i8, ptr %s, i64 1660
+  %palette = getelementptr inbounds nuw i8, ptr %s, i64 1660
   %conv11 = zext i8 %2 to i64
   %mul12 = mul nuw nsw i64 %conv11, 3
-  %dac_sub_index14 = getelementptr inbounds i8, ptr %s, i64 1650
+  %dac_sub_index14 = getelementptr inbounds nuw i8, ptr %s, i64 1650
   %5 = load i8, ptr %dac_sub_index14, align 2
   %conv15 = zext i8 %5 to i64
   %add16 = add nuw nsw i64 %mul12, %conv15
@@ -2053,7 +2053,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %6 = phi i8 [ %4, %if.then ], [ %5, %if.else ]
   %val.0.in.in = phi ptr [ %arrayidx6, %if.then ], [ %arrayidx18, %if.else ]
   %val.0.in = load i8, ptr %val.0.in.in, align 1
-  %dac_sub_index21 = getelementptr inbounds i8, ptr %s, i64 1650
+  %dac_sub_index21 = getelementptr inbounds nuw i8, ptr %s, i64 1650
   %inc = add i8 %6, 1
   store i8 %inc, ptr %dac_sub_index21, align 2
   %cmp = icmp eq i8 %inc, 3
@@ -2061,7 +2061,7 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then24:                                        ; preds = %if.end
   store i8 0, ptr %dac_sub_index21, align 2
-  %dac_read_index28 = getelementptr inbounds i8, ptr %s, i64 1651
+  %dac_read_index28 = getelementptr inbounds nuw i8, ptr %s, i64 1651
   %inc29 = add i8 %2, 1
   store i8 %inc29, ptr %dac_read_index28, align 1
   br label %if.end30
@@ -2087,18 +2087,18 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %cirrus_shadow_gr0 = getelementptr inbounds i8, ptr %s, i64 70584
+  %cirrus_shadow_gr0 = getelementptr inbounds nuw i8, ptr %s, i64 70584
   %0 = load i8, ptr %cirrus_shadow_gr0, align 8
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %cirrus_shadow_gr1 = getelementptr inbounds i8, ptr %s, i64 70585
+  %cirrus_shadow_gr1 = getelementptr inbounds nuw i8, ptr %s, i64 70585
   %1 = load i8, ptr %cirrus_shadow_gr1, align 1
   br label %return
 
 sw.bb3:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry
-  %gr = getelementptr inbounds i8, ptr %s, i64 1106
-  %gr_index = getelementptr inbounds i8, ptr %s, i64 1105
+  %gr = getelementptr inbounds nuw i8, ptr %s, i64 1106
+  %gr_index = getelementptr inbounds nuw i8, ptr %s, i64 1105
   %2 = load i8, ptr %gr_index, align 1
   %idxprom = zext i8 %2 to i64
   %arrayidx = getelementptr [256 x i8], ptr %gr, i64 0, i64 %idxprom
@@ -2110,7 +2110,7 @@ sw.epilog:                                        ; preds = %entry
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %sw.epilog
-  %gr9 = getelementptr inbounds i8, ptr %s, i64 1106
+  %gr9 = getelementptr inbounds nuw i8, ptr %s, i64 1106
   %idxprom10 = zext nneg i32 %reg_index to i64
   %arrayidx11 = getelementptr [256 x i8], ptr %gr9, i64 0, i64 %idxprom10
   %4 = load i8, ptr %arrayidx11, align 1
@@ -2168,7 +2168,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = and i32 %reg_value, 255
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %reg_index, i32 noundef %conv12.i.i) #13
@@ -2228,9 +2228,9 @@ trace_vga_cirrus_write_gr.exit:                   ; preds = %entry, %land.lhs.tr
 sw.bb:                                            ; preds = %trace_vga_cirrus_write_gr.exit
   %6 = load i8, ptr @gr_mask, align 16
   %conv3 = and i8 %6, %conv1
-  %gr = getelementptr inbounds i8, ptr %s, i64 1106
+  %gr = getelementptr inbounds nuw i8, ptr %s, i64 1106
   store i8 %conv3, ptr %gr, align 1
-  %cirrus_shadow_gr0 = getelementptr inbounds i8, ptr %s, i64 70584
+  %cirrus_shadow_gr0 = getelementptr inbounds nuw i8, ptr %s, i64 70584
   store i8 %conv1, ptr %cirrus_shadow_gr0, align 8
   br label %sw.epilog
 
@@ -2239,7 +2239,7 @@ sw.bb7:                                           ; preds = %trace_vga_cirrus_wr
   %conv12 = and i8 %7, %conv1
   %arrayidx16 = getelementptr i8, ptr %s, i64 1107
   store i8 %conv12, ptr %arrayidx16, align 1
-  %cirrus_shadow_gr1 = getelementptr inbounds i8, ptr %s, i64 70585
+  %cirrus_shadow_gr1 = getelementptr inbounds nuw i8, ptr %s, i64 70585
   store i8 %conv1, ptr %cirrus_shadow_gr1, align 1
   br label %sw.epilog
 
@@ -2248,7 +2248,7 @@ sw.bb18:                                          ; preds = %trace_vga_cirrus_wr
   %arrayidx20 = getelementptr [16 x i8], ptr @gr_mask, i64 0, i64 %idxprom19
   %8 = load i8, ptr %arrayidx20, align 1
   %conv23 = and i8 %8, %conv1
-  %gr25 = getelementptr inbounds i8, ptr %s, i64 1106
+  %gr25 = getelementptr inbounds nuw i8, ptr %s, i64 1106
   %arrayidx27 = getelementptr [256 x i8], ptr %gr25, i64 0, i64 %idxprom19
   store i8 %conv23, ptr %arrayidx27, align 1
   br label %sw.epilog
@@ -2261,7 +2261,7 @@ sw.bb28:                                          ; preds = %trace_vga_cirrus_wr
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit
-  %gr38 = getelementptr inbounds i8, ptr %s, i64 1106
+  %gr38 = getelementptr inbounds nuw i8, ptr %s, i64 1106
   %idxprom39 = zext nneg i32 %reg_index to i64
   %arrayidx40 = getelementptr [256 x i8], ptr %gr38, i64 0, i64 %idxprom39
   store i8 %conv1, ptr %arrayidx40, align 1
@@ -2276,15 +2276,15 @@ sw.bb35:                                          ; preds = %trace_vga_cirrus_wr
   %cmp15.not.i = icmp eq i8 %11, 0
   %offset.1.v.i = select i1 %cmp15.not.i, i32 12, i32 14
   %offset.1.i = shl nuw nsw i32 %offset.0.i, %offset.1.v.i
-  %real_vram_size.i = getelementptr inbounds i8, ptr %s, i64 78936
+  %real_vram_size.i = getelementptr inbounds nuw i8, ptr %s, i64 78936
   %12 = load i32, ptr %real_vram_size.i, align 8
   %limit.0.i = tail call i32 @llvm.usub.sat.i32(i32 %12, i32 %offset.1.i)
   %cmp45.not.not.i = icmp ugt i32 %12, %offset.1.i
   %spec.select = select i1 %cmp45.not.not.i, i32 %offset.1.i, i32 0
   %spec.select130 = select i1 %cmp45.not.not.i, i32 %limit.0.i, i32 0
-  %cirrus_bank_base53.i = getelementptr inbounds i8, ptr %s, i64 70588
+  %cirrus_bank_base53.i = getelementptr inbounds nuw i8, ptr %s, i64 70588
   store i32 %spec.select, ptr %cirrus_bank_base53.i, align 4
-  %cirrus_bank_limit56.i = getelementptr inbounds i8, ptr %s, i64 70596
+  %cirrus_bank_limit56.i = getelementptr inbounds nuw i8, ptr %s, i64 70596
   store i32 %spec.select130, ptr %cirrus_bank_limit56.i, align 4
   %arrayidx4.i54 = getelementptr i8, ptr %s, i64 1116
   %offset.0.in.in.i56 = select i1 %cmp.not.i, ptr %arrayidx4.i, ptr %arrayidx4.i54
@@ -2332,15 +2332,15 @@ sw.bb41:                                          ; preds = %trace_vga_cirrus_wr
   %cmp15.not.i79 = icmp eq i8 %14, 0
   %offset.1.v.i80 = select i1 %cmp15.not.i79, i32 12, i32 14
   %offset.1.i81 = shl nuw nsw i32 %offset.0.i78, %offset.1.v.i80
-  %real_vram_size.i82 = getelementptr inbounds i8, ptr %s, i64 78936
+  %real_vram_size.i82 = getelementptr inbounds nuw i8, ptr %s, i64 78936
   %15 = load i32, ptr %real_vram_size.i82, align 8
   %limit.0.i83 = tail call i32 @llvm.usub.sat.i32(i32 %15, i32 %offset.1.i81)
   %cmp45.not.not.i85 = icmp ugt i32 %15, %offset.1.i81
   %spec.select131 = select i1 %cmp45.not.not.i85, i32 %offset.1.i81, i32 0
   %spec.select132 = select i1 %cmp45.not.not.i85, i32 %limit.0.i83, i32 0
-  %cirrus_bank_base53.i89 = getelementptr inbounds i8, ptr %s, i64 70588
+  %cirrus_bank_base53.i89 = getelementptr inbounds nuw i8, ptr %s, i64 70588
   store i32 %spec.select131, ptr %cirrus_bank_base53.i89, align 4
-  %cirrus_bank_limit56.i91 = getelementptr inbounds i8, ptr %s, i64 70596
+  %cirrus_bank_limit56.i91 = getelementptr inbounds nuw i8, ptr %s, i64 70596
   store i32 %spec.select132, ptr %cirrus_bank_limit56.i91, align 4
   %arrayidx4.i102 = getelementptr i8, ptr %s, i64 1116
   %offset.0.in.in.i104 = select i1 %cmp.not.i72, ptr %arrayidx4.i74, ptr %arrayidx4.i102
@@ -2377,7 +2377,7 @@ cirrus_update_bank_ptr.exit126:                   ; preds = %if.end44.thread27.i
   br label %sw.epilog
 
 sw.bb47:                                          ; preds = %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit
-  %gr50 = getelementptr inbounds i8, ptr %s, i64 1106
+  %gr50 = getelementptr inbounds nuw i8, ptr %s, i64 1106
   %idxprom51 = zext nneg i32 %reg_index to i64
   %arrayidx52 = getelementptr [256 x i8], ptr %gr50, i64 0, i64 %idxprom51
   store i8 %conv1, ptr %arrayidx52, align 1
@@ -2385,7 +2385,7 @@ sw.bb47:                                          ; preds = %trace_vga_cirrus_wr
 
 sw.bb53:                                          ; preds = %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit, %trace_vga_cirrus_write_gr.exit
   %conv55 = and i8 %conv1, 31
-  %gr57 = getelementptr inbounds i8, ptr %s, i64 1106
+  %gr57 = getelementptr inbounds nuw i8, ptr %s, i64 1106
   %idxprom58 = zext nneg i32 %reg_index to i64
   %arrayidx59 = getelementptr [256 x i8], ptr %gr57, i64 0, i64 %idxprom58
   store i8 %conv55, ptr %arrayidx59, align 1
@@ -2425,26 +2425,26 @@ sw.bb79:                                          ; preds = %trace_vga_cirrus_wr
 if.then.i:                                        ; preds = %sw.bb79
   %18 = and i8 %conv1, -24
   store i8 %18, ptr %arrayidx.i127, align 1
-  %cirrus_srcptr.i.i = getelementptr inbounds i8, ptr %s, i64 78896
+  %cirrus_srcptr.i.i = getelementptr inbounds nuw i8, ptr %s, i64 78896
   %19 = load ptr, ptr %cirrus_srcptr.i.i, align 16
-  %cirrus_bltbuf.i.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_bltbuf.i.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %cmp.not.i.i = icmp eq ptr %19, %cirrus_bltbuf.i.i
   br i1 %cmp.not.i.i, label %lor.rhs.i.i, label %if.end.critedge.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then.i
-  %cirrus_srcptr_end.i.i = getelementptr inbounds i8, ptr %s, i64 78904
+  %cirrus_srcptr_end.i.i = getelementptr inbounds nuw i8, ptr %s, i64 78904
   %20 = load ptr, ptr %cirrus_srcptr_end.i.i, align 8
   %cmp6.not.i.i = icmp eq ptr %20, %19
   store ptr %cirrus_bltbuf.i.i, ptr %cirrus_srcptr_end.i.i, align 8
-  %cirrus_srccounter.i.i = getelementptr inbounds i8, ptr %s, i64 78912
+  %cirrus_srccounter.i.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
   store i32 0, ptr %cirrus_srccounter.i.i, align 16
   br i1 %cmp6.not.i.i, label %sw.epilog, label %if.end.i.i
 
 if.end.critedge.i.i:                              ; preds = %if.then.i
   store ptr %cirrus_bltbuf.i.i, ptr %cirrus_srcptr.i.i, align 16
-  %cirrus_srcptr_end13.c.i.i = getelementptr inbounds i8, ptr %s, i64 78904
+  %cirrus_srcptr_end13.c.i.i = getelementptr inbounds nuw i8, ptr %s, i64 78904
   store ptr %cirrus_bltbuf.i.i, ptr %cirrus_srcptr_end13.c.i.i, align 8
-  %cirrus_srccounter.c.i.i = getelementptr inbounds i8, ptr %s, i64 78912
+  %cirrus_srccounter.c.i.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
   store i32 0, ptr %cirrus_srccounter.c.i.i, align 16
   br label %if.end.i.i
 
@@ -2487,7 +2487,7 @@ entry:
   %width.i.i.i = alloca i32, align 4
   %height.i.i.i = alloca i32, align 4
   %_now.i.i = alloca %struct.timeval, align 8
-  %enable_blitter = getelementptr inbounds i8, ptr %s, i64 70652
+  %enable_blitter = getelementptr inbounds nuw i8, ptr %s, i64 70652
   %0 = load i8, ptr %enable_blitter, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %bitblt_ignore
@@ -2501,13 +2501,13 @@ if.end:                                           ; preds = %entry
   %3 = load i16, ptr %arrayidx4, align 2
   %4 = zext i16 %3 to i32
   %add = add nuw nsw i32 %4, 1
-  %cirrus_blt_width = getelementptr inbounds i8, ptr %s, i64 70660
+  %cirrus_blt_width = getelementptr inbounds nuw i8, ptr %s, i64 70660
   store i32 %add, ptr %cirrus_blt_width, align 4
   %arrayidx13 = getelementptr i8, ptr %s, i64 1140
   %5 = load i16, ptr %arrayidx13, align 2
   %6 = zext i16 %5 to i32
   %add21 = add nuw nsw i32 %6, 1
-  %cirrus_blt_height = getelementptr inbounds i8, ptr %s, i64 70664
+  %cirrus_blt_height = getelementptr inbounds nuw i8, ptr %s, i64 70664
   store i32 %add21, ptr %cirrus_blt_height, align 8
   %arrayidx24 = getelementptr i8, ptr %s, i64 1142
   %7 = load i8, ptr %arrayidx24, align 2
@@ -2517,7 +2517,7 @@ if.end:                                           ; preds = %entry
   %conv29 = zext i8 %8 to i32
   %shl30 = shl nuw nsw i32 %conv29, 8
   %or31 = or disjoint i32 %shl30, %conv25
-  %cirrus_blt_dstpitch = getelementptr inbounds i8, ptr %s, i64 70668
+  %cirrus_blt_dstpitch = getelementptr inbounds nuw i8, ptr %s, i64 70668
   store i32 %or31, ptr %cirrus_blt_dstpitch, align 4
   %arrayidx34 = getelementptr i8, ptr %s, i64 1144
   %9 = load i8, ptr %arrayidx34, align 2
@@ -2527,7 +2527,7 @@ if.end:                                           ; preds = %entry
   %conv39 = zext i8 %10 to i32
   %shl40 = shl nuw nsw i32 %conv39, 8
   %or41 = or disjoint i32 %shl40, %conv35
-  %cirrus_blt_srcpitch = getelementptr inbounds i8, ptr %s, i64 70672
+  %cirrus_blt_srcpitch = getelementptr inbounds nuw i8, ptr %s, i64 70672
   store i32 %or41, ptr %cirrus_blt_srcpitch, align 16
   %arrayidx44 = getelementptr i8, ptr %s, i64 1146
   %11 = load i16, ptr %arrayidx44, align 2
@@ -2537,7 +2537,7 @@ if.end:                                           ; preds = %entry
   %conv55 = zext i8 %13 to i32
   %shl56 = shl nuw nsw i32 %conv55, 16
   %or57 = or disjoint i32 %shl56, %12
-  %cirrus_blt_dstaddr = getelementptr inbounds i8, ptr %s, i64 70684
+  %cirrus_blt_dstaddr = getelementptr inbounds nuw i8, ptr %s, i64 70684
   %arrayidx60 = getelementptr i8, ptr %s, i64 1150
   %14 = load i16, ptr %arrayidx60, align 2
   %15 = zext i16 %14 to i32
@@ -2546,18 +2546,18 @@ if.end:                                           ; preds = %entry
   %conv71 = zext i8 %16 to i32
   %shl72 = shl nuw nsw i32 %conv71, 16
   %or73 = or disjoint i32 %shl72, %15
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %arrayidx76 = getelementptr i8, ptr %s, i64 1154
   %17 = load i8, ptr %arrayidx76, align 2
-  %cirrus_blt_mode = getelementptr inbounds i8, ptr %s, i64 70692
+  %cirrus_blt_mode = getelementptr inbounds nuw i8, ptr %s, i64 70692
   store i8 %17, ptr %cirrus_blt_mode, align 4
   %arrayidx79 = getelementptr i8, ptr %s, i64 1157
   %18 = load i8, ptr %arrayidx79, align 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   store i8 %18, ptr %cirrus_blt_modeext, align 1
   %arrayidx82 = getelementptr i8, ptr %s, i64 1156
   %19 = load i8, ptr %arrayidx82, align 2
-  %cirrus_addr_mask = getelementptr inbounds i8, ptr %s, i64 70576
+  %cirrus_addr_mask = getelementptr inbounds nuw i8, ptr %s, i64 70576
   %20 = load i32, ptr %cirrus_addr_mask, align 16
   %and = and i32 %20, %or57
   store i32 %and, ptr %cirrus_blt_dstaddr, align 4
@@ -2588,7 +2588,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %26 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %27 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %19 to i32
   %conv12.i.i = zext i8 %17 to i32
@@ -2610,7 +2610,7 @@ trace_vga_cirrus_bitblt_start.exit:               ; preds = %if.end, %land.lhs.t
   %28 = load i8, ptr %cirrus_blt_mode, align 4
   %29 = lshr i8 %28, 4
   %30 = and i8 %29, 3
-  %cirrus_blt_pixelwidth = getelementptr inbounds i8, ptr %s, i64 70656
+  %cirrus_blt_pixelwidth = getelementptr inbounds nuw i8, ptr %s, i64 70656
   switch i8 %30, label %default.unreachable [
     i8 0, label %sw.epilog
     i8 1, label %sw.bb101
@@ -2657,7 +2657,7 @@ if.end132:                                        ; preds = %sw.epilog
   br i1 %or.cond, label %if.then142, label %if.else
 
 if.then142:                                       ; preds = %if.end132
-  %cirrus_shadow_gr125.i = getelementptr inbounds i8, ptr %s, i64 70585
+  %cirrus_shadow_gr125.i = getelementptr inbounds nuw i8, ptr %s, i64 70585
   %35 = load i8, ptr %cirrus_shadow_gr125.i, align 1
   %conv26.i = zext i8 %35 to i32
   switch i32 %.sink, label %sw.bb24.i [
@@ -2707,7 +2707,7 @@ sw.bb24.i:                                        ; preds = %if.then142
 
 cirrus_bitblt_fgcol.exit:                         ; preds = %if.then142, %sw.bb1.i, %sw.bb8.i, %sw.bb24.i
   %or44.sink.i = phi i32 [ %or44.i, %sw.bb24.i ], [ %or22.i, %sw.bb8.i ], [ %or.i, %sw.bb1.i ], [ %conv26.i, %if.then142 ]
-  %cirrus_blt_fgcol46.i = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol46.i = getelementptr inbounds nuw i8, ptr %s, i64 70676
   store i32 %or44.sink.i, ptr %cirrus_blt_fgcol46.i, align 4
   %45 = load i32, ptr %cirrus_blt_width, align 4
   %cmp.i.i = icmp sgt i32 %45, 0
@@ -2753,7 +2753,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp6.i.i.i, label %return, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.then1.i.i.i
-  %vram_size.i.i.i = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 288
   %49 = load i32, ptr %vram_size.i.i.i, align 16
   %cmp8.not.i.i.not.i = icmp ult i32 %48, %49
   br i1 %cmp8.not.i.i.not.i, label %if.end.i, label %return
@@ -2763,7 +2763,7 @@ blit_is_unsafe.exit.i:                            ; preds = %if.end.i.i.i
   %mul17.i.i.i = mul nuw nsw i64 %sub.i.i.i, %conv16.i.i.i
   %add18.i.i.i = add nsw i64 %conv.i.i.i, %conv4.i.i.i
   %add21.i.i.i = add nsw i64 %add18.i.i.i, %mul17.i.i.i
-  %vram_size23.i.i.i = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size23.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 288
   %50 = load i32, ptr %vram_size23.i.i.i, align 16
   %conv24.i.i.i = zext i32 %50 to i64
   %cmp25.i.i.i = icmp sgt i64 %add21.i.i.i, %conv24.i.i.i
@@ -2791,7 +2791,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.end.i
   %sub.i.i = add i32 %55, -1
   %sub1.i.i = select i1 %cmp.i13.i, i32 %sub.i.i, i32 0
   %off_begin.addr.0.i.i = sub i32 %56, %sub1.i.i
-  %vram.i.i = getelementptr inbounds i8, ptr %s, i64 16
+  %vram.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end21.i.i, %for.body.lr.ph.i.i
@@ -2831,26 +2831,26 @@ cirrus_invalidate_region.exit.i:                  ; preds = %if.end21.i.i, %if.e
   %58 = load i8, ptr %arrayidx, align 1
   %59 = and i8 %58, -20
   store i8 %59, ptr %arrayidx, align 1
-  %cirrus_srcptr.i.i = getelementptr inbounds i8, ptr %s, i64 78896
+  %cirrus_srcptr.i.i = getelementptr inbounds nuw i8, ptr %s, i64 78896
   %60 = load ptr, ptr %cirrus_srcptr.i.i, align 16
-  %cirrus_bltbuf.i.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_bltbuf.i.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %cmp.not.i.i = icmp eq ptr %60, %cirrus_bltbuf.i.i
   br i1 %cmp.not.i.i, label %lor.rhs.i.i, label %if.end.critedge.i.i
 
 lor.rhs.i.i:                                      ; preds = %cirrus_invalidate_region.exit.i
-  %cirrus_srcptr_end.i.i = getelementptr inbounds i8, ptr %s, i64 78904
+  %cirrus_srcptr_end.i.i = getelementptr inbounds nuw i8, ptr %s, i64 78904
   %61 = load ptr, ptr %cirrus_srcptr_end.i.i, align 8
   %cmp6.not.i.i = icmp eq ptr %61, %cirrus_bltbuf.i.i
   store ptr %cirrus_bltbuf.i.i, ptr %cirrus_srcptr_end.i.i, align 8
-  %cirrus_srccounter.i.i = getelementptr inbounds i8, ptr %s, i64 78912
+  %cirrus_srccounter.i.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
   store i32 0, ptr %cirrus_srccounter.i.i, align 16
   br i1 %cmp6.not.i.i, label %return, label %if.end.i15.i
 
 if.end.critedge.i.i:                              ; preds = %cirrus_invalidate_region.exit.i
   store ptr %cirrus_bltbuf.i.i, ptr %cirrus_srcptr.i.i, align 16
-  %cirrus_srcptr_end13.c.i.i = getelementptr inbounds i8, ptr %s, i64 78904
+  %cirrus_srcptr_end13.c.i.i = getelementptr inbounds nuw i8, ptr %s, i64 78904
   store ptr %cirrus_bltbuf.i.i, ptr %cirrus_srcptr_end13.c.i.i, align 8
-  %cirrus_srccounter.c.i.i = getelementptr inbounds i8, ptr %s, i64 78912
+  %cirrus_srccounter.c.i.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
   store i32 0, ptr %cirrus_srccounter.c.i.i, align 16
   br label %if.end.i15.i
 
@@ -2886,7 +2886,7 @@ if.end162:                                        ; preds = %if.else161, %if.the
   %arrayidx163 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom
   %63 = load i8, ptr %arrayidx163, align 1
   %idxprom164 = zext i8 %63 to i64
-  %cirrus_blt_pixelwidth166 = getelementptr inbounds i8, ptr %s, i64 70656
+  %cirrus_blt_pixelwidth166 = getelementptr inbounds nuw i8, ptr %s, i64 70656
   %64 = load i32, ptr %cirrus_blt_pixelwidth166, align 16
   %sub = add i32 %64, -1
   %idxprom167 = sext i32 %sub to i64
@@ -2894,7 +2894,7 @@ if.end162:                                        ; preds = %if.else161, %if.the
   br label %if.end313
 
 if.else169:                                       ; preds = %if.then150
-  %cirrus_shadow_gr125.i117 = getelementptr inbounds i8, ptr %s, i64 70585
+  %cirrus_shadow_gr125.i117 = getelementptr inbounds nuw i8, ptr %s, i64 70585
   %65 = load i8, ptr %cirrus_shadow_gr125.i117, align 1
   %conv26.i118 = zext i8 %65 to i32
   switch i32 %.sink, label %cirrus_bitblt_fgcol.exit145 [
@@ -2904,9 +2904,9 @@ if.else169:                                       ; preds = %if.then150
   ]
 
 cirrus_bitblt_fgcol.exit145.thread:               ; preds = %if.else169
-  %cirrus_blt_fgcol46.i128246 = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol46.i128246 = getelementptr inbounds nuw i8, ptr %s, i64 70676
   store i32 %conv26.i118, ptr %cirrus_blt_fgcol46.i128246, align 4
-  %cirrus_shadow_gr025.i247 = getelementptr inbounds i8, ptr %s, i64 70584
+  %cirrus_shadow_gr025.i247 = getelementptr inbounds nuw i8, ptr %s, i64 70584
   %66 = load i8, ptr %cirrus_shadow_gr025.i247, align 8
   %conv26.i147248 = zext i8 %66 to i32
   br label %cirrus_bitblt_bgcol.exit
@@ -2917,9 +2917,9 @@ cirrus_bitblt_fgcol.exit145.thread249:            ; preds = %if.else169
   %conv4.i131 = zext i8 %67 to i32
   %shl.i132 = shl nuw nsw i32 %conv4.i131, 8
   %or.i133 = or disjoint i32 %shl.i132, %conv26.i118
-  %cirrus_blt_fgcol46.i128251 = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol46.i128251 = getelementptr inbounds nuw i8, ptr %s, i64 70676
   store i32 %or.i133, ptr %cirrus_blt_fgcol46.i128251, align 4
-  %cirrus_shadow_gr025.i252 = getelementptr inbounds i8, ptr %s, i64 70584
+  %cirrus_shadow_gr025.i252 = getelementptr inbounds nuw i8, ptr %s, i64 70584
   %68 = load i8, ptr %cirrus_shadow_gr025.i252, align 8
   %conv26.i147253 = zext i8 %68 to i32
   %arrayidx.i158 = getelementptr i8, ptr %s, i64 1122
@@ -2940,9 +2940,9 @@ cirrus_bitblt_fgcol.exit145.thread255:            ; preds = %if.else169
   %shl21.i125 = shl nuw nsw i32 %conv20.i124, 16
   %72 = or disjoint i32 %shl15.i122, %shl21.i125
   %or22.i126 = or disjoint i32 %72, %conv26.i118
-  %cirrus_blt_fgcol46.i128257 = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol46.i128257 = getelementptr inbounds nuw i8, ptr %s, i64 70676
   store i32 %or22.i126, ptr %cirrus_blt_fgcol46.i128257, align 4
-  %cirrus_shadow_gr025.i258 = getelementptr inbounds i8, ptr %s, i64 70584
+  %cirrus_shadow_gr025.i258 = getelementptr inbounds nuw i8, ptr %s, i64 70584
   %73 = load i8, ptr %cirrus_shadow_gr025.i258, align 8
   %conv26.i147259 = zext i8 %73 to i32
   %arrayidx13.i149 = getelementptr i8, ptr %s, i64 1122
@@ -2973,9 +2973,9 @@ cirrus_bitblt_fgcol.exit145:                      ; preds = %if.else169
   %80 = or disjoint i32 %shl31.i137, %shl37.i140
   %81 = or disjoint i32 %80, %shl43.i143
   %or44.i144 = or disjoint i32 %81, %conv26.i118
-  %cirrus_blt_fgcol46.i128 = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol46.i128 = getelementptr inbounds nuw i8, ptr %s, i64 70676
   store i32 %or44.i144, ptr %cirrus_blt_fgcol46.i128, align 4
-  %cirrus_shadow_gr025.i = getelementptr inbounds i8, ptr %s, i64 70584
+  %cirrus_shadow_gr025.i = getelementptr inbounds nuw i8, ptr %s, i64 70584
   %82 = load i8, ptr %cirrus_shadow_gr025.i, align 8
   %conv26.i147 = zext i8 %82 to i32
   %arrayidx29.i163 = getelementptr i8, ptr %s, i64 1122
@@ -2997,7 +2997,7 @@ cirrus_bitblt_fgcol.exit145:                      ; preds = %if.else169
 
 cirrus_bitblt_bgcol.exit:                         ; preds = %cirrus_bitblt_fgcol.exit145.thread, %cirrus_bitblt_fgcol.exit145.thread249, %cirrus_bitblt_fgcol.exit145.thread255, %cirrus_bitblt_fgcol.exit145
   %or44.sink.i156 = phi i32 [ %or44.i172, %cirrus_bitblt_fgcol.exit145 ], [ %or22.i155, %cirrus_bitblt_fgcol.exit145.thread255 ], [ %or.i161, %cirrus_bitblt_fgcol.exit145.thread249 ], [ %conv26.i147248, %cirrus_bitblt_fgcol.exit145.thread ]
-  %cirrus_blt_bgcol46.i = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol46.i = getelementptr inbounds nuw i8, ptr %s, i64 70680
   store i32 %or44.sink.i156, ptr %cirrus_blt_bgcol46.i, align 8
   %idxprom170 = zext i8 %19 to i64
   %arrayidx171 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom170
@@ -3040,7 +3040,7 @@ if.end202:                                        ; preds = %if.else201, %if.the
   %arrayidx204 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom203
   %90 = load i8, ptr %arrayidx204, align 1
   %idxprom205 = zext i8 %90 to i64
-  %cirrus_blt_pixelwidth207 = getelementptr inbounds i8, ptr %s, i64 70656
+  %cirrus_blt_pixelwidth207 = getelementptr inbounds nuw i8, ptr %s, i64 70656
   %91 = load i32, ptr %cirrus_blt_pixelwidth207, align 16
   %sub208 = add i32 %91, -1
   %idxprom209 = sext i32 %sub208 to i64
@@ -3054,7 +3054,7 @@ if.else212:                                       ; preds = %if.then190
   %arrayidx214 = getelementptr [256 x i8], ptr @rop_to_index, i64 0, i64 %idxprom213
   %92 = load i8, ptr %arrayidx214, align 1
   %idxprom215 = zext i8 %92 to i64
-  %cirrus_blt_pixelwidth217 = getelementptr inbounds i8, ptr %s, i64 70656
+  %cirrus_blt_pixelwidth217 = getelementptr inbounds nuw i8, ptr %s, i64 70656
   %93 = load i32, ptr %cirrus_blt_pixelwidth217, align 16
   %sub218 = add i32 %93, -1
   %idxprom219 = sext i32 %sub218 to i64
@@ -3147,7 +3147,7 @@ if.end313:                                        ; preds = %if.end202, %if.else
   %.sink265.in = phi ptr [ %arrayidx210, %if.end202 ], [ %arrayidx220, %if.else212 ], [ %arrayidx231, %if.else223 ], [ %arrayidx302, %if.then292 ], [ %arrayidx308, %if.else304 ], [ %arrayidx274, %if.then260 ], [ %arrayidx284, %if.else276 ], [ %arrayidx168, %if.end162 ], [ %arrayidx177, %cirrus_bitblt_bgcol.exit ]
   %104 = phi i32 [ %91, %if.end202 ], [ %93, %if.else212 ], [ %.sink, %if.else223 ], [ %.sink, %if.then292 ], [ %.sink, %if.else304 ], [ %.sink, %if.then260 ], [ %.sink, %if.else276 ], [ %64, %if.end162 ], [ %.sink, %cirrus_bitblt_bgcol.exit ]
   %.sink265 = load ptr, ptr %.sink265.in, align 8
-  %cirrus_rop211 = getelementptr inbounds i8, ptr %s, i64 70696
+  %cirrus_rop211 = getelementptr inbounds nuw i8, ptr %s, i64 70696
   store ptr %.sink265, ptr %cirrus_rop211, align 8
   %105 = load i8, ptr %cirrus_blt_mode, align 4
   %conv315 = zext i8 %105 to i32
@@ -3200,7 +3200,7 @@ if.then1.i.i.i206:                                ; preds = %if.end.i.i.i188
   br i1 %cmp6.i.i.i211, label %bitblt_ignore, label %lor.lhs.false.i.i.i212
 
 lor.lhs.false.i.i.i212:                           ; preds = %if.then1.i.i.i206
-  %vram_size.i.i.i213 = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size.i.i.i213 = getelementptr inbounds nuw i8, ptr %s, i64 288
   %110 = load i32, ptr %vram_size.i.i.i213, align 16
   %cmp8.not.i.i.not.i214 = icmp ult i32 %109, %110
   br i1 %cmp8.not.i.i.not.i214, label %if.end.i202, label %bitblt_ignore
@@ -3210,7 +3210,7 @@ blit_is_unsafe.exit.i194:                         ; preds = %if.end.i.i.i188
   %mul17.i.i.i196 = mul nuw nsw i64 %sub.i.i.i192, %conv16.i.i.i195
   %add18.i.i.i197 = add nsw i64 %conv.i.i.i190, %conv4.i.i.i193
   %add21.i.i.i198 = add nsw i64 %add18.i.i.i197, %mul17.i.i.i196
-  %vram_size23.i.i.i199 = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size23.i.i.i199 = getelementptr inbounds nuw i8, ptr %s, i64 288
   %111 = load i32, ptr %vram_size23.i.i.i199, align 16
   %conv24.i.i.i200 = zext i32 %111 to i64
   %cmp25.i.i.i201 = icmp sgt i64 %add21.i.i.i198, %conv24.i.i.i200
@@ -3219,10 +3219,10 @@ blit_is_unsafe.exit.i194:                         ; preds = %if.end.i.i.i188
 if.end.i202:                                      ; preds = %blit_is_unsafe.exit.i194, %lor.lhs.false.i.i.i212
   %112 = and i8 %105, -5
   store i8 %112, ptr %cirrus_blt_mode, align 4
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
-  %cirrus_srcptr.i = getelementptr inbounds i8, ptr %s, i64 78896
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
+  %cirrus_srcptr.i = getelementptr inbounds nuw i8, ptr %s, i64 78896
   store ptr %cirrus_bltbuf.i, ptr %cirrus_srcptr.i, align 16
-  %cirrus_srcptr_end.i = getelementptr inbounds i8, ptr %s, i64 78904
+  %cirrus_srcptr_end.i = getelementptr inbounds nuw i8, ptr %s, i64 78904
   store ptr %cirrus_bltbuf.i, ptr %cirrus_srcptr_end.i, align 8
   %113 = and i8 %105, 64
   %tobool.not.i = icmp eq i8 %113, 0
@@ -3269,7 +3269,7 @@ if.end38.i:                                       ; preds = %if.else33.i, %if.el
 if.end42.i:                                       ; preds = %if.end38.i, %if.then7.i
   %mul40.sink.i = phi i32 [ %mul40.i, %if.end38.i ], [ %spec.select, %if.then7.i ]
   %116 = phi i32 [ %and36.i.sink, %if.end38.i ], [ %spec.select, %if.then7.i ]
-  %cirrus_srccounter41.i = getelementptr inbounds i8, ptr %s, i64 78912
+  %cirrus_srccounter41.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
   store i32 %mul40.sink.i, ptr %cirrus_srccounter41.i, align 16
   %cmp.i203 = icmp slt i32 %116, 8193
   br i1 %cmp.i203, label %cirrus_bitblt_cputovideo.exit, label %if.else46.i
@@ -3351,7 +3351,7 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br i1 %cmp6.i.i.i.i, label %bitblt_ignore, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.then1.i.i.i.i
-  %vram_size.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 288
   %123 = load i32, ptr %vram_size.i.i.i.i, align 16
   %cmp8.not.i.i.not.i.i = icmp ult i32 %122, %123
   br i1 %cmp8.not.i.i.not.i.i, label %if.end12.i.i.i, label %bitblt_ignore
@@ -3361,7 +3361,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %mul17.i.i.i.i = mul nuw nsw i64 %sub.i.i.i.i, %conv16.i.i.i.i
   %add18.i.i.i.i = add nsw i64 %conv.i.i.i.i, %conv4.i.i.i.i
   %add21.i.i.i.i = add nsw i64 %add18.i.i.i.i, %mul17.i.i.i.i
-  %vram_size23.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size23.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 288
   %124 = load i32, ptr %vram_size23.i.i.i.i, align 16
   %conv24.i.i.i.i = zext i32 %124 to i64
   %cmp25.i.i.i.i = icmp sgt i64 %add21.i.i.i.i, %conv24.i.i.i.i
@@ -3399,20 +3399,20 @@ if.else.i18.i.i.i:                                ; preds = %if.end.i10.i.i.i
   br i1 %cmp25.i25.i.i.i, label %bitblt_ignore, label %if.end.i.i235
 
 if.end.i.i235:                                    ; preds = %if.else.i18.i.i.i, %if.then1.i28.i.i.i
-  %start_addr.i.i = getelementptr inbounds i8, ptr %s, i64 2656
+  %start_addr.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2656
   %128 = load i32, ptr %start_addr.i.i, align 16
   %sub.i.i236 = sub i32 %122, %128
   %sub3.i.i237 = sub i32 %127, %128
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %width.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %height.i.i.i)
-  %cirrus_rop.i.i.i = getelementptr inbounds i8, ptr %s, i64 70696
+  %cirrus_rop.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 70696
   %cmp.i8.i.i = icmp eq ptr %.sink265, @cirrus_bitblt_rop_fwd_src
   %cmp2.i.i.i = icmp eq ptr %.sink265, @cirrus_bitblt_rop_bkwd_src
   %or.cond71.i.i.i = or i1 %cmp.i8.i.i, %cmp2.i.i.i
   br i1 %or.cond71.i.i.i, label %if.then.i.i.i, label %if.end77.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i235
-  %get_bpp.i.i.i = getelementptr inbounds i8, ptr %s, i64 2432
+  %get_bpp.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2432
   %129 = load ptr, ptr %get_bpp.i.i.i, align 16
   %call.i.i.i = tail call i32 %129(ptr noundef nonnull %s) #13
   %div.i.i.i = sdiv i32 %call.i.i.i, 8
@@ -3421,7 +3421,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i235
   br i1 %tobool.not.i.i.i238, label %cirrus_do_copy.exit.i.i, label %if.end.i15.i.i
 
 if.end.i15.i.i:                                   ; preds = %if.then.i.i.i
-  %get_resolution.i.i.i = getelementptr inbounds i8, ptr %s, i64 2448
+  %get_resolution.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2448
   %130 = load ptr, ptr %get_resolution.i.i.i, align 16
   call void %130(ptr noundef nonnull %s, ptr noundef nonnull %width.i.i.i, ptr noundef nonnull %height.i.i.i) #13
   %131 = load i32, ptr %cirrus_blt_srcpitch, align 16
@@ -3498,7 +3498,7 @@ if.end77.i.i.i:                                   ; preds = %land.lhs.true66.i.i
   br i1 %tobool83.not.i.i.i, label %if.end89.i.i.i, label %if.then84.i.i.i
 
 if.then84.i.i.i:                                  ; preds = %if.end77.i.i.i
-  %con.i.i.i = getelementptr inbounds i8, ptr %s, i64 2624
+  %con.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2624
   %144 = load ptr, ptr %con.i.i.i, align 16
   %145 = load i32, ptr %cirrus_blt_width, align 4
   %div87.i.i.i = sdiv i32 %145, %depth.0.i.i.i
@@ -3519,7 +3519,7 @@ for.body.lr.ph.i.i.i.i:                           ; preds = %if.end89.i.i.i
   %sub.i.i13.i.i = add i32 %149, -1
   %sub1.i.i.i.i = select i1 %cmp.i.i12.i.i, i32 %sub.i.i13.i.i, i32 0
   %off_begin.addr.0.i.i.i.i = sub i32 %150, %sub1.i.i.i.i
-  %vram.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 16
+  %vram.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end21.i.i.i.i, %for.body.lr.ph.i.i.i.i
@@ -3570,26 +3570,26 @@ if.then3.i:                                       ; preds = %if.end.i219
   %152 = load i8, ptr %arrayidx, align 1
   %153 = and i8 %152, -20
   store i8 %153, ptr %arrayidx, align 1
-  %cirrus_srcptr.i.i221 = getelementptr inbounds i8, ptr %s, i64 78896
+  %cirrus_srcptr.i.i221 = getelementptr inbounds nuw i8, ptr %s, i64 78896
   %154 = load ptr, ptr %cirrus_srcptr.i.i221, align 16
-  %cirrus_bltbuf.i.i222 = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_bltbuf.i.i222 = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %cmp.not.i.i223 = icmp eq ptr %154, %cirrus_bltbuf.i.i222
   br i1 %cmp.not.i.i223, label %lor.rhs.i.i227, label %if.end.critedge.i.i224
 
 lor.rhs.i.i227:                                   ; preds = %if.then3.i
-  %cirrus_srcptr_end.i.i228 = getelementptr inbounds i8, ptr %s, i64 78904
+  %cirrus_srcptr_end.i.i228 = getelementptr inbounds nuw i8, ptr %s, i64 78904
   %155 = load ptr, ptr %cirrus_srcptr_end.i.i228, align 8
   %cmp6.not.i.i229 = icmp eq ptr %155, %cirrus_bltbuf.i.i222
   store ptr %cirrus_bltbuf.i.i222, ptr %cirrus_srcptr_end.i.i228, align 8
-  %cirrus_srccounter.i.i230 = getelementptr inbounds i8, ptr %s, i64 78912
+  %cirrus_srccounter.i.i230 = getelementptr inbounds nuw i8, ptr %s, i64 78912
   store i32 0, ptr %cirrus_srccounter.i.i230, align 16
   br i1 %cmp6.not.i.i229, label %return, label %if.end.i5.i
 
 if.end.critedge.i.i224:                           ; preds = %if.then3.i
   store ptr %cirrus_bltbuf.i.i222, ptr %cirrus_srcptr.i.i221, align 16
-  %cirrus_srcptr_end13.c.i.i225 = getelementptr inbounds i8, ptr %s, i64 78904
+  %cirrus_srcptr_end13.c.i.i225 = getelementptr inbounds nuw i8, ptr %s, i64 78904
   store ptr %cirrus_bltbuf.i.i222, ptr %cirrus_srcptr_end13.c.i.i225, align 8
-  %cirrus_srccounter.c.i.i226 = getelementptr inbounds i8, ptr %s, i64 78912
+  %cirrus_srccounter.c.i.i226 = getelementptr inbounds nuw i8, ptr %s, i64 78912
   store i32 0, ptr %cirrus_srccounter.c.i.i226, align 16
   br label %if.end.i5.i
 
@@ -3607,26 +3607,26 @@ bitblt_ignore:                                    ; preds = %bitblt_ignore.sink.
   %156 = load i8, ptr %arrayidx.i240, align 1
   %157 = and i8 %156, -20
   store i8 %157, ptr %arrayidx.i240, align 1
-  %cirrus_srcptr.i241 = getelementptr inbounds i8, ptr %s, i64 78896
+  %cirrus_srcptr.i241 = getelementptr inbounds nuw i8, ptr %s, i64 78896
   %158 = load ptr, ptr %cirrus_srcptr.i241, align 16
-  %cirrus_bltbuf.i242 = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_bltbuf.i242 = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %cmp.not.i = icmp eq ptr %158, %cirrus_bltbuf.i242
   br i1 %cmp.not.i, label %lor.rhs.i, label %if.end.critedge.i
 
 lor.rhs.i:                                        ; preds = %bitblt_ignore
-  %cirrus_srcptr_end.i244 = getelementptr inbounds i8, ptr %s, i64 78904
+  %cirrus_srcptr_end.i244 = getelementptr inbounds nuw i8, ptr %s, i64 78904
   %159 = load ptr, ptr %cirrus_srcptr_end.i244, align 8
   %cmp6.not.i = icmp eq ptr %159, %cirrus_bltbuf.i242
   store ptr %cirrus_bltbuf.i242, ptr %cirrus_srcptr_end.i244, align 8
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
   store i32 0, ptr %cirrus_srccounter.i, align 16
   br i1 %cmp6.not.i, label %return, label %if.end.i243
 
 if.end.critedge.i:                                ; preds = %bitblt_ignore
   store ptr %cirrus_bltbuf.i242, ptr %cirrus_srcptr.i241, align 16
-  %cirrus_srcptr_end13.c.i = getelementptr inbounds i8, ptr %s, i64 78904
+  %cirrus_srcptr_end13.c.i = getelementptr inbounds nuw i8, ptr %s, i64 78904
   store ptr %cirrus_bltbuf.i242, ptr %cirrus_srcptr_end13.c.i, align 8
-  %cirrus_srccounter.c.i = getelementptr inbounds i8, ptr %s, i64 78912
+  %cirrus_srccounter.c.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
   store i32 0, ptr %cirrus_srccounter.c.i, align 16
   br label %if.end.i243
 
@@ -3641,9 +3641,9 @@ return:                                           ; preds = %if.end.i243, %lor.r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @cirrus_bitblt_fgcol(ptr nocapture noundef initializes((70676, 70680)) %s) unnamed_addr #2 {
 entry:
-  %cirrus_blt_pixelwidth = getelementptr inbounds i8, ptr %s, i64 70656
+  %cirrus_blt_pixelwidth = getelementptr inbounds nuw i8, ptr %s, i64 70656
   %0 = load i32, ptr %cirrus_blt_pixelwidth, align 16
-  %cirrus_shadow_gr125 = getelementptr inbounds i8, ptr %s, i64 70585
+  %cirrus_shadow_gr125 = getelementptr inbounds nuw i8, ptr %s, i64 70585
   %1 = load i8, ptr %cirrus_shadow_gr125, align 1
   %conv26 = zext i8 %1 to i32
   switch i32 %0, label %sw.bb24 [
@@ -3693,7 +3693,7 @@ sw.bb24:                                          ; preds = %entry
 
 sw.epilog:                                        ; preds = %entry, %sw.bb24, %sw.bb8, %sw.bb1
   %or44.sink = phi i32 [ %or44, %sw.bb24 ], [ %or22, %sw.bb8 ], [ %or, %sw.bb1 ], [ %conv26, %entry ]
-  %cirrus_blt_fgcol46 = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol46 = getelementptr inbounds nuw i8, ptr %s, i64 70676
   store i32 %or44.sink, ptr %cirrus_blt_fgcol46, align 4
   ret void
 }
@@ -3701,9 +3701,9 @@ sw.epilog:                                        ; preds = %entry, %sw.bb24, %s
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @cirrus_bitblt_bgcol(ptr nocapture noundef initializes((70680, 70684)) %s) unnamed_addr #2 {
 entry:
-  %cirrus_blt_pixelwidth = getelementptr inbounds i8, ptr %s, i64 70656
+  %cirrus_blt_pixelwidth = getelementptr inbounds nuw i8, ptr %s, i64 70656
   %0 = load i32, ptr %cirrus_blt_pixelwidth, align 16
-  %cirrus_shadow_gr025 = getelementptr inbounds i8, ptr %s, i64 70584
+  %cirrus_shadow_gr025 = getelementptr inbounds nuw i8, ptr %s, i64 70584
   %1 = load i8, ptr %cirrus_shadow_gr025, align 8
   %conv26 = zext i8 %1 to i32
   switch i32 %0, label %sw.bb24 [
@@ -3753,7 +3753,7 @@ sw.bb24:                                          ; preds = %entry
 
 sw.epilog:                                        ; preds = %entry, %sw.bb24, %sw.bb8, %sw.bb1
   %or44.sink = phi i32 [ %or44, %sw.bb24 ], [ %or22, %sw.bb8 ], [ %or, %sw.bb1 ], [ %conv26, %entry ]
-  %cirrus_blt_bgcol46 = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol46 = getelementptr inbounds nuw i8, ptr %s, i64 70680
   store i32 %or44.sink, ptr %cirrus_blt_bgcol46, align 8
   ret void
 }
@@ -3948,7 +3948,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -3994,7 +3994,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i16
@@ -4041,7 +4041,7 @@ entry:
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp225 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -4105,7 +4105,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_fill_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4161,7 +4161,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -4208,7 +4208,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i16
@@ -4256,7 +4256,7 @@ entry:
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp227 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -4323,7 +4323,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_fill_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4566,7 +4566,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -4610,7 +4610,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i16
@@ -4655,7 +4655,7 @@ entry:
   br i1 %cmp26, label %for.cond1.preheader.lr.ph, label %for.end12
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp223 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -4713,7 +4713,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_fill_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4941,7 +4941,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -4988,7 +4988,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i16
@@ -5036,7 +5036,7 @@ entry:
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp227 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -5107,7 +5107,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %1 = getelementptr i8, ptr %s, i64 8
@@ -5154,7 +5154,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -5200,7 +5200,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i16
@@ -5247,7 +5247,7 @@ entry:
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp225 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -5311,7 +5311,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_fill_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5361,7 +5361,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -5407,7 +5407,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i16
@@ -5454,7 +5454,7 @@ entry:
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp225 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -5518,7 +5518,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_fill_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5568,7 +5568,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -5615,7 +5615,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i16
@@ -5663,7 +5663,7 @@ entry:
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp227 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -5730,7 +5730,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_fill_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5787,7 +5787,7 @@ for.cond1.preheader.lr.ph:                        ; preds = %entry
   br i1 %cmp27, label %for.cond1.preheader.us.preheader, label %for.end7
 
 for.cond1.preheader.us.preheader:                 ; preds = %for.cond1.preheader.lr.ph
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %2 = load i32, ptr %cirrus_blt_fgcol, align 4
   %conv = trunc i32 %2 to i8
   %invariant.op = xor i8 %conv, -1
@@ -5837,7 +5837,7 @@ for.cond1.preheader.lr.ph:                        ; preds = %entry
   br i1 %cmp27, label %for.cond1.preheader.us.preheader, label %for.end7
 
 for.cond1.preheader.us.preheader:                 ; preds = %for.cond1.preheader.lr.ph
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %2 = load i32, ptr %cirrus_blt_fgcol, align 4
   %conv = trunc i32 %2 to i16
   %invariant.op = xor i16 %conv, -1
@@ -5888,7 +5888,7 @@ for.cond1.preheader.lr.ph:                        ; preds = %entry
   br i1 %cmp225, label %for.cond1.preheader.us.preheader, label %for.end12
 
 for.cond1.preheader.us.preheader:                 ; preds = %for.cond1.preheader.lr.ph
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %2 = load i32, ptr %cirrus_blt_fgcol, align 4
   %shr6 = lshr i32 %2, 16
   %conv7 = trunc i32 %shr6 to i8
@@ -5962,7 +5962,7 @@ for.cond1.preheader.lr.ph:                        ; preds = %entry
   br i1 %cmp27, label %for.cond1.preheader.us.preheader, label %for.end7
 
 for.cond1.preheader.us.preheader:                 ; preds = %for.cond1.preheader.lr.ph
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %2 = load i32, ptr %cirrus_blt_fgcol, align 4
   %invariant.op = xor i32 %2, -1
   br label %for.cond1.preheader.us
@@ -6006,7 +6006,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -6053,7 +6053,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i16
@@ -6101,7 +6101,7 @@ entry:
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp227 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -6168,7 +6168,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_fill_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6219,7 +6219,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -6264,7 +6264,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i16
@@ -6310,7 +6310,7 @@ entry:
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp225 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -6375,7 +6375,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %1 = getelementptr i8, ptr %s, i64 8
@@ -6420,7 +6420,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -6467,7 +6467,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i16
@@ -6515,7 +6515,7 @@ entry:
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp227 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -6586,7 +6586,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %1 = getelementptr i8, ptr %s, i64 8
@@ -6633,7 +6633,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -6680,7 +6680,7 @@ entry:
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp27 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i16
@@ -6728,7 +6728,7 @@ entry:
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
 
 for.cond1.preheader.lr.ph:                        ; preds = %entry
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp227 = icmp sgt i32 %width, 0
   %conv = trunc i32 %0 to i8
@@ -6795,7 +6795,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @cirrus_fill_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6848,7 +6848,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -6858,8 +6858,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -6975,7 +6975,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -6985,8 +6985,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -7102,7 +7102,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -7114,8 +7114,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %div53 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div53 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp654 = icmp sgt i32 %bltwidth, %and
@@ -7245,7 +7245,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -7255,8 +7255,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -7372,7 +7372,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -7382,11 +7382,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -7505,7 +7505,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -7515,11 +7515,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -7638,7 +7638,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -7648,13 +7648,13 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div55 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div55 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp656 = icmp sgt i32 %bltwidth, %and
@@ -7795,21 +7795,21 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp44 = icmp sgt i32 %bltheight, 0
   br i1 %cmp44, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -7933,7 +7933,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -7943,11 +7943,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -8067,7 +8067,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -8077,11 +8077,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -8201,7 +8201,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -8211,13 +8211,13 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div57 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div57 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp658 = icmp sgt i32 %bltwidth, %and
@@ -8361,21 +8361,21 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp44 = icmp sgt i32 %bltheight, 0
   br i1 %cmp44, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -8494,7 +8494,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -8504,8 +8504,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -8623,7 +8623,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -8633,8 +8633,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -8752,7 +8752,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -8764,8 +8764,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %div55 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div55 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp656 = icmp sgt i32 %bltwidth, %and
@@ -8901,7 +8901,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -8911,8 +8911,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -9030,7 +9030,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -9040,11 +9040,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -9161,7 +9161,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -9171,11 +9171,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -9292,7 +9292,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -9302,13 +9302,13 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div53 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div53 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp654 = icmp sgt i32 %bltwidth, %and
@@ -9443,21 +9443,21 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp44 = icmp sgt i32 %bltheight, 0
   br i1 %cmp44, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -9573,7 +9573,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -9583,8 +9583,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -9700,7 +9700,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -9710,8 +9710,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -9827,7 +9827,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -9839,8 +9839,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %div53 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div53 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp654 = icmp sgt i32 %bltwidth, %and
@@ -9970,7 +9970,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -9980,8 +9980,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -10097,7 +10097,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -10107,11 +10107,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -10231,7 +10231,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -10241,11 +10241,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -10365,7 +10365,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -10375,13 +10375,13 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div57 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div57 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp658 = icmp sgt i32 %bltwidth, %and
@@ -10525,7 +10525,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -10535,11 +10535,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -10658,7 +10658,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -10668,11 +10668,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -10791,7 +10791,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -10801,11 +10801,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -10924,7 +10924,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -10934,13 +10934,13 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div55 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div55 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp656 = icmp sgt i32 %bltwidth, %and
@@ -11081,21 +11081,21 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp44 = icmp sgt i32 %bltheight, 0
   br i1 %cmp44, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -11213,7 +11213,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -11223,11 +11223,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -11346,7 +11346,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -11356,11 +11356,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -11479,7 +11479,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -11489,13 +11489,13 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div55 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div55 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp656 = icmp sgt i32 %bltwidth, %and
@@ -11636,21 +11636,21 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp44 = icmp sgt i32 %bltheight, 0
   br i1 %cmp44, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -11768,7 +11768,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -11778,11 +11778,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -11902,7 +11902,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -11912,11 +11912,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -12036,7 +12036,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -12046,13 +12046,13 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div57 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div57 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp658 = icmp sgt i32 %bltwidth, %and
@@ -12196,21 +12196,21 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp44 = icmp sgt i32 %bltheight, 0
   br i1 %cmp44, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -12329,7 +12329,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -12339,8 +12339,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -12348,7 +12348,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %conv21 = trunc i32 %col.0 to i8
   %invariant.op = xor i8 %conv21, -1
@@ -12466,7 +12466,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -12476,8 +12476,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -12485,7 +12485,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %conv21 = trunc i32 %col.0 to i16
   %invariant.op = xor i16 %conv21, -1
@@ -12603,7 +12603,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -12615,8 +12615,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %div55 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div55 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp656 = icmp sgt i32 %bltwidth, %and
@@ -12624,7 +12624,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr26 = lshr i32 %col.0, 16
   %conv27 = trunc i32 %shr26 to i8
@@ -12766,7 +12766,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -12776,8 +12776,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -12785,7 +12785,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %invariant.op = xor i32 %col.0, -1
   br label %for.body.us
@@ -12902,7 +12902,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -12912,11 +12912,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -13036,7 +13036,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -13046,11 +13046,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -13170,7 +13170,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -13180,13 +13180,13 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div57 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div57 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp658 = icmp sgt i32 %bltwidth, %and
@@ -13330,21 +13330,21 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp44 = icmp sgt i32 %bltheight, 0
   br i1 %cmp44, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -13463,7 +13463,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -13473,11 +13473,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -13595,7 +13595,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -13605,11 +13605,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -13727,7 +13727,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -13737,13 +13737,13 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div55 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div55 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp656 = icmp sgt i32 %bltwidth, %and
@@ -13881,7 +13881,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -13891,11 +13891,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -14012,7 +14012,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -14022,11 +14022,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -14146,7 +14146,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -14156,11 +14156,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -14280,7 +14280,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -14290,13 +14290,13 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div57 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div57 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp658 = icmp sgt i32 %bltwidth, %and
@@ -14440,7 +14440,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -14450,11 +14450,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -14573,7 +14573,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -14583,11 +14583,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp637 = icmp sgt i32 %bltwidth, %and
@@ -14707,7 +14707,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -14717,11 +14717,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -14841,7 +14841,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -14851,13 +14851,13 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div57 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div57 to i32
   %shr = lshr i32 128, %div.zext
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp658 = icmp sgt i32 %bltwidth, %and
@@ -15001,21 +15001,21 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp44 = icmp sgt i32 %bltheight, 0
   br i1 %cmp44, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp638 = icmp slt i32 %mul, %bltwidth
@@ -15338,20 +15338,20 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp635 = icmp sgt i32 %bltwidth, %and
@@ -15466,20 +15466,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -15595,20 +15595,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp59 = icmp sgt i32 %bltheight, 0
   br i1 %cmp59, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp653 = icmp slt i32 %mul, %bltwidth
@@ -15745,20 +15745,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -15872,20 +15872,20 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp635 = icmp sgt i32 %bltwidth, %and
@@ -16001,20 +16001,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -16131,20 +16131,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp61 = icmp sgt i32 %bltheight, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp655 = icmp slt i32 %mul, %bltwidth
@@ -16284,20 +16284,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -16627,20 +16627,20 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp635 = icmp sgt i32 %bltwidth, %and
@@ -16753,20 +16753,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -16880,20 +16880,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp57 = icmp sgt i32 %bltheight, 0
   br i1 %cmp57, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp651 = icmp slt i32 %mul, %bltwidth
@@ -17024,20 +17024,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -17352,20 +17352,20 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp635 = icmp sgt i32 %bltwidth, %and
@@ -17481,20 +17481,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -17611,20 +17611,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp61 = icmp sgt i32 %bltheight, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp655 = icmp slt i32 %mul, %bltwidth
@@ -17764,20 +17764,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -17892,20 +17892,20 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp635 = icmp sgt i32 %bltwidth, %and
@@ -18020,20 +18020,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -18149,20 +18149,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp59 = icmp sgt i32 %bltheight, 0
   br i1 %cmp59, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp653 = icmp slt i32 %mul, %bltwidth
@@ -18299,20 +18299,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -18426,20 +18426,20 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp635 = icmp sgt i32 %bltwidth, %and
@@ -18554,20 +18554,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -18683,20 +18683,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp59 = icmp sgt i32 %bltheight, 0
   br i1 %cmp59, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp653 = icmp slt i32 %mul, %bltwidth
@@ -18833,20 +18833,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -18960,20 +18960,20 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp635 = icmp sgt i32 %bltwidth, %and
@@ -19089,20 +19089,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -19219,20 +19219,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp61 = icmp sgt i32 %bltheight, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp655 = icmp slt i32 %mul, %bltwidth
@@ -19372,20 +19372,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -19500,20 +19500,20 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp635 = icmp sgt i32 %bltwidth, %and
@@ -19629,20 +19629,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -19759,20 +19759,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp59 = icmp sgt i32 %bltheight, 0
   br i1 %cmp59, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp653 = icmp slt i32 %mul, %bltwidth
@@ -19912,20 +19912,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -20040,20 +20040,20 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp635 = icmp sgt i32 %bltwidth, %and
@@ -20169,20 +20169,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -20299,20 +20299,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp61 = icmp sgt i32 %bltheight, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp655 = icmp slt i32 %mul, %bltwidth
@@ -20452,20 +20452,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -20580,20 +20580,20 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp635 = icmp sgt i32 %bltwidth, %and
@@ -20707,20 +20707,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -20835,20 +20835,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp59 = icmp sgt i32 %bltheight, 0
   br i1 %cmp59, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp653 = icmp slt i32 %mul, %bltwidth
@@ -20982,20 +20982,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -21108,20 +21108,20 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp635 = icmp sgt i32 %bltwidth, %and
@@ -21237,20 +21237,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -21367,20 +21367,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp61 = icmp sgt i32 %bltheight, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp655 = icmp slt i32 %mul, %bltwidth
@@ -21520,20 +21520,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -21648,20 +21648,20 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp635 = icmp sgt i32 %bltwidth, %and
@@ -21777,20 +21777,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -21907,20 +21907,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp61 = icmp sgt i32 %bltheight, 0
   br i1 %cmp61, label %for.body.lr.ph, label %for.end31
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp655 = icmp slt i32 %mul, %bltwidth
@@ -22060,20 +22060,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp42 = icmp sgt i32 %bltheight, 0
   br i1 %cmp42, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
   %shr = lshr exact i32 128, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %cmp636 = icmp slt i32 %mul, %bltwidth
@@ -22187,7 +22187,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -22196,8 +22196,8 @@ entry:
   br i1 %cmp24, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -22205,7 +22205,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -22286,7 +22286,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -22295,8 +22295,8 @@ entry:
   br i1 %cmp25, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -22304,7 +22304,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -22385,7 +22385,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -22396,8 +22396,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %div35 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div35 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -22405,7 +22405,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp836, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -22500,7 +22500,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -22509,8 +22509,8 @@ entry:
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -22518,7 +22518,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -22599,7 +22599,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -22609,10 +22609,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -22621,7 +22621,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -22704,7 +22704,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -22714,10 +22714,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -22726,7 +22726,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -22809,7 +22809,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -22819,12 +22819,12 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div37 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div37 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -22837,7 +22837,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp838, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -22938,20 +22938,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp25 = icmp sgt i32 %bltheight, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -22959,7 +22959,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -23042,7 +23042,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -23052,10 +23052,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -23064,7 +23064,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -23148,7 +23148,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -23158,10 +23158,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -23170,7 +23170,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -23254,7 +23254,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -23264,12 +23264,12 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div39 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div39 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -23282,7 +23282,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp840, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -23386,20 +23386,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp25 = icmp sgt i32 %bltheight, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -23407,7 +23407,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -23491,7 +23491,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -23500,8 +23500,8 @@ entry:
   br i1 %cmp24, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -23509,7 +23509,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -23592,7 +23592,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -23601,8 +23601,8 @@ entry:
   br i1 %cmp25, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -23610,7 +23610,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -23693,7 +23693,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -23704,8 +23704,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %div37 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div37 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -23713,7 +23713,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp838, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -23814,7 +23814,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -23823,8 +23823,8 @@ entry:
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -23832,7 +23832,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -23915,7 +23915,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -23925,10 +23925,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -23937,7 +23937,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -24018,7 +24018,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -24028,10 +24028,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -24040,7 +24040,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -24121,7 +24121,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -24131,12 +24131,12 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div35 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div35 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -24149,7 +24149,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp836, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -24244,20 +24244,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp25 = icmp sgt i32 %bltheight, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -24265,7 +24265,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -24346,7 +24346,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -24355,8 +24355,8 @@ entry:
   br i1 %cmp24, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -24364,7 +24364,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -24445,7 +24445,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -24454,8 +24454,8 @@ entry:
   br i1 %cmp25, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -24463,7 +24463,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -24544,7 +24544,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -24555,8 +24555,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %div35 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div35 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -24564,7 +24564,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp836, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -24659,7 +24659,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -24668,8 +24668,8 @@ entry:
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -24677,7 +24677,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -24758,7 +24758,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -24768,10 +24768,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -24781,7 +24781,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -24864,7 +24864,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -24874,10 +24874,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -24887,7 +24887,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -24970,7 +24970,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -24980,12 +24980,12 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div39 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div39 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -25001,7 +25001,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp840, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -25102,7 +25102,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -25112,10 +25112,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -25124,7 +25124,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -25207,7 +25207,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -25217,10 +25217,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -25229,7 +25229,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -25312,7 +25312,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -25322,10 +25322,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -25334,7 +25334,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -25417,7 +25417,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -25427,12 +25427,12 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div37 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div37 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -25445,7 +25445,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp838, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -25546,20 +25546,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp25 = icmp sgt i32 %bltheight, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -25567,7 +25567,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -25650,7 +25650,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -25660,10 +25660,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -25672,7 +25672,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -25755,7 +25755,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -25765,10 +25765,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -25777,7 +25777,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -25860,7 +25860,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -25870,12 +25870,12 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div37 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div37 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -25888,7 +25888,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp838, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -25989,20 +25989,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp25 = icmp sgt i32 %bltheight, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -26010,7 +26010,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -26093,7 +26093,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -26103,10 +26103,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -26115,7 +26115,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -26199,7 +26199,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -26209,10 +26209,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -26221,7 +26221,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -26305,7 +26305,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -26315,12 +26315,12 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div39 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div39 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -26333,7 +26333,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp840, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -26437,20 +26437,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp25 = icmp sgt i32 %bltheight, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -26458,7 +26458,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -26542,19 +26542,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -26563,7 +26563,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %conv14 = trunc i32 %col.0 to i8
   %invariant.op = xor i8 %conv14, -1
@@ -26648,19 +26648,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   %cmp25 = icmp sgt i32 %bltheight, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end24
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -26669,7 +26669,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %conv14 = trunc i32 %col.0 to i16
   %invariant.op = xor i16 %conv14, -1
@@ -26754,12 +26754,12 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end30
@@ -26767,8 +26767,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %div37 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div37 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -26777,7 +26777,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %shr19 = lshr i32 %col.0, 16
   %conv20 = trunc i32 %shr19 to i8
@@ -26886,19 +26886,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   %cmp25 = icmp sgt i32 %bltheight, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -26907,7 +26907,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %invariant.op = xor i32 %col.0, -1
   br label %for.body.us
@@ -26991,7 +26991,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -27001,10 +27001,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -27013,7 +27013,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -27097,7 +27097,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -27107,10 +27107,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -27119,7 +27119,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -27203,7 +27203,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -27213,12 +27213,12 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div39 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div39 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -27231,7 +27231,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp840, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -27335,20 +27335,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp25 = icmp sgt i32 %bltheight, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -27356,7 +27356,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -27440,7 +27440,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -27450,10 +27450,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -27463,7 +27463,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -27544,7 +27544,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -27554,10 +27554,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -27567,7 +27567,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -27648,7 +27648,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -27658,12 +27658,12 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div37 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div37 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -27679,7 +27679,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp838, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -27774,7 +27774,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -27784,10 +27784,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -27796,7 +27796,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -27877,7 +27877,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -27887,10 +27887,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -27900,7 +27900,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -27983,7 +27983,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -27993,10 +27993,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -28006,7 +28006,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -28089,7 +28089,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -28099,12 +28099,12 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div39 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div39 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -28120,7 +28120,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp840, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -28221,7 +28221,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -28231,10 +28231,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -28243,7 +28243,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -28326,7 +28326,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -28336,10 +28336,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -28348,7 +28348,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -28432,7 +28432,7 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -28442,10 +28442,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -28454,7 +28454,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end24
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -28538,7 +28538,7 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
@@ -28548,12 +28548,12 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %div39 = udiv i8 %1, 3
   %div.zext = zext nneg i8 %div39 to i32
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = sub nsw i32 7, %div.zext
@@ -28566,7 +28566,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp840, label %for.body.us.preheader, label %for.end30
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -28670,20 +28670,20 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_modeext = getelementptr inbounds i8, ptr %s, i64 70693
+  %cirrus_blt_modeext = getelementptr inbounds nuw i8, ptr %s, i64 70693
   %2 = load i8, ptr %cirrus_blt_modeext, align 1
   %3 = and i8 %2, 2
   %tobool.not = icmp eq i8 %3, 0
   %bits_xor.0 = select i1 %tobool.not, i32 0, i32 255
   %col.0.in.v = select i1 %tobool.not, i64 70676, i64 70680
-  %col.0.in = getelementptr inbounds i8, ptr %s, i64 %col.0.in.v
+  %col.0.in = getelementptr inbounds nuw i8, ptr %s, i64 %col.0.in.v
   %col.0 = load i32, ptr %col.0.in, align 4
   %cmp25 = icmp sgt i32 %bltheight, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -28691,7 +28691,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp820, label %for.body.us.preheader, label %for.end23
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -28979,19 +28979,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -28999,7 +28999,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -29079,19 +29079,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -29099,7 +29099,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -29180,19 +29180,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -29200,7 +29200,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp836, label %for.body.us.preheader, label %for.end28
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -29302,19 +29302,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -29322,7 +29322,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end21
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -29401,19 +29401,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -29421,7 +29421,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -29502,19 +29502,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -29522,7 +29522,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -29604,19 +29604,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -29624,7 +29624,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp838, label %for.body.us.preheader, label %for.end28
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -29729,19 +29729,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -29749,7 +29749,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end21
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -30044,19 +30044,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -30064,7 +30064,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -30142,19 +30142,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -30162,7 +30162,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -30241,19 +30241,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp39 = icmp sgt i32 %bltheight, 0
   br i1 %cmp39, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -30261,7 +30261,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp834, label %for.body.us.preheader, label %for.end28
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -30357,19 +30357,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -30377,7 +30377,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end21
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -30657,19 +30657,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -30677,7 +30677,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -30758,19 +30758,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -30778,7 +30778,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -30860,19 +30860,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -30880,7 +30880,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp838, label %for.body.us.preheader, label %for.end28
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -30985,19 +30985,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -31005,7 +31005,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end21
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -31085,19 +31085,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -31105,7 +31105,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -31185,19 +31185,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -31205,7 +31205,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -31286,19 +31286,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -31306,7 +31306,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp836, label %for.body.us.preheader, label %for.end28
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -31408,19 +31408,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -31428,7 +31428,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end21
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -31507,19 +31507,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -31527,7 +31527,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -31607,19 +31607,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -31627,7 +31627,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -31708,19 +31708,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -31728,7 +31728,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp836, label %for.body.us.preheader, label %for.end28
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -31830,19 +31830,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -31850,7 +31850,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end21
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -31929,19 +31929,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -31949,7 +31949,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -32030,19 +32030,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -32050,7 +32050,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -32132,19 +32132,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -32152,7 +32152,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp838, label %for.body.us.preheader, label %for.end28
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -32257,19 +32257,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -32277,7 +32277,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end21
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -32357,19 +32357,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -32377,7 +32377,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -32458,19 +32458,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -32478,7 +32478,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -32560,19 +32560,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -32580,7 +32580,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp836, label %for.body.us.preheader, label %for.end28
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -32685,19 +32685,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -32705,7 +32705,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end21
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -32785,19 +32785,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -32805,7 +32805,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -32886,19 +32886,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -32906,7 +32906,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -32988,19 +32988,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -33008,7 +33008,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp838, label %for.body.us.preheader, label %for.end28
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -33113,19 +33113,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -33133,7 +33133,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end21
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -33213,19 +33213,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -33233,7 +33233,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -33312,19 +33312,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -33332,7 +33332,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -33412,19 +33412,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp41 = icmp sgt i32 %bltheight, 0
   br i1 %cmp41, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -33432,7 +33432,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp836, label %for.body.us.preheader, label %for.end28
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -33531,19 +33531,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -33551,7 +33551,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end21
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -33629,19 +33629,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -33649,7 +33649,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -33730,19 +33730,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -33750,7 +33750,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -33832,19 +33832,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -33852,7 +33852,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp838, label %for.body.us.preheader, label %for.end28
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -33957,19 +33957,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -33977,7 +33977,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end21
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -34057,19 +34057,19 @@ entry:
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp23 = icmp sgt i32 %bltheight, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -34077,7 +34077,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp818, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -34158,19 +34158,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 1
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end22
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -34178,7 +34178,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end22
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -34260,19 +34260,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = mul nuw nsw i32 %and, 3
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp43 = icmp sgt i32 %bltheight, 0
   br i1 %cmp43, label %for.body.lr.ph, label %for.end28
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -34280,7 +34280,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp838, label %for.body.us.preheader, label %for.end28
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -34385,19 +34385,19 @@ entry:
   %1 = and i8 %0, 7
   %and = zext nneg i8 %1 to i32
   %mul = shl nuw nsw i32 %and, 2
-  %cirrus_blt_bgcol = getelementptr inbounds i8, ptr %s, i64 70680
+  %cirrus_blt_bgcol = getelementptr inbounds nuw i8, ptr %s, i64 70680
   %2 = load i32, ptr %cirrus_blt_bgcol, align 8
   store i32 %2, ptr %colors, align 4
-  %cirrus_blt_fgcol = getelementptr inbounds i8, ptr %s, i64 70676
+  %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %3 = load i32, ptr %cirrus_blt_fgcol, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %colors, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %colors, i64 4
   store i32 %3, ptr %arrayidx2, align 4
   %cmp24 = icmp sgt i32 %bltheight, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end21
 
 for.body.lr.ph:                                   ; preds = %entry
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   %sub = xor i32 %and, 7
@@ -34405,7 +34405,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp819, label %for.body.us.preheader, label %for.end21
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %4 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -34691,14 +34691,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -34779,14 +34779,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -34868,14 +34868,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp585 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp585, label %for.body.us.preheader, label %for.end33
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -34995,14 +34995,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp617 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp617, label %for.body.us.preheader, label %for.end18
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -35084,14 +35084,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -35173,14 +35173,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp617 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp617, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -35263,14 +35263,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp587 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp587, label %for.body.us.preheader, label %for.end33
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -35393,14 +35393,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp617 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp617, label %for.body.us.preheader, label %for.end18
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -35697,14 +35697,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -35783,14 +35783,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -35870,14 +35870,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp583 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp583, label %for.body.us.preheader, label %for.end33
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -35991,14 +35991,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end18
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -36280,14 +36280,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -36369,14 +36369,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp617 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp617, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -36459,14 +36459,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp587 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp587, label %for.body.us.preheader, label %for.end33
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -36589,14 +36589,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp617 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp617, label %for.body.us.preheader, label %for.end18
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -36679,14 +36679,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -36767,14 +36767,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -36856,14 +36856,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp585 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp585, label %for.body.us.preheader, label %for.end33
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -36983,14 +36983,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end18
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -37072,14 +37072,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -37160,14 +37160,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -37249,14 +37249,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp585 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp585, label %for.body.us.preheader, label %for.end33
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -37376,14 +37376,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end18
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -37465,14 +37465,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -37554,14 +37554,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -37644,14 +37644,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp587 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp587, label %for.body.us.preheader, label %for.end33
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -37774,14 +37774,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end18
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -37864,14 +37864,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -37953,14 +37953,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -38043,14 +38043,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp585 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp585, label %for.body.us.preheader, label %for.end33
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -38173,14 +38173,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end18
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -38263,14 +38263,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -38352,14 +38352,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -38442,14 +38442,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp587 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp587, label %for.body.us.preheader, label %for.end33
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -38572,14 +38572,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end18
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -38662,14 +38662,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -38749,14 +38749,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -38837,14 +38837,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp585 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp585, label %for.body.us.preheader, label %for.end33
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -38961,14 +38961,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end18
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -39049,14 +39049,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -39138,14 +39138,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -39228,14 +39228,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp587 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp587, label %for.body.us.preheader, label %for.end33
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -39358,14 +39358,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end18
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -39448,14 +39448,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -39537,14 +39537,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp616 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp616, label %for.body.us.preheader, label %for.end20
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -39627,14 +39627,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp587 = icmp sgt i32 %bltwidth, %and
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp587, label %for.body.us.preheader, label %for.end33
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -39757,14 +39757,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp617 = icmp sgt i32 %bltwidth, %mul
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp617, label %for.body.us.preheader, label %for.end18
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %3 = load i32, ptr %cirrus_blt_srcaddr, align 16
   br label %for.body.us
 
@@ -39844,8 +39844,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp319 = icmp sgt i32 %bltwidth, 0
-  %vram_ptr.i14 = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i15 = getelementptr inbounds i8, ptr %s, i64 70576
+  %vram_ptr.i14 = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i15 = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp319, label %for.cond2.preheader.lr.ph.split.us, label %for.end10
 
 for.cond2.preheader.lr.ph.split.us:               ; preds = %for.cond2.preheader.lr.ph
@@ -39892,8 +39892,8 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1020 = icmp sgt i32 %bltwidth, 0
-  %vram_ptr.i15 = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i16 = getelementptr inbounds i8, ptr %s, i64 70576
+  %vram_ptr.i15 = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i16 = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp1020, label %for.cond9.preheader.lr.ph.split.us, label %for.end20
 
 for.cond9.preheader.lr.ph.split.us:               ; preds = %for.cond9.preheader.lr.ph
@@ -39945,8 +39945,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp318 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp318, label %for.cond2.preheader.us, label %for.end10
@@ -40028,8 +40028,8 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1019 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1019, label %for.cond9.preheader.us, label %for.end20
@@ -40115,8 +40115,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp318 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp318, label %for.cond2.preheader.us, label %for.end10
@@ -40199,8 +40199,8 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1020 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1020, label %for.cond9.preheader.us, label %for.end20
@@ -40395,10 +40395,10 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp319 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
-  %vram_ptr.i = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i = getelementptr inbounds i8, ptr %s, i64 70576
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
+  %vram_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp319, label %for.cond2.preheader.us, label %for.end10
 
 for.cond2.preheader.us:                           ; preds = %for.cond2.preheader.lr.ph, %for.cond2.for.end_crit_edge.us
@@ -40474,10 +40474,10 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1020 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
-  %vram_ptr.i = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i = getelementptr inbounds i8, ptr %s, i64 70576
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
+  %vram_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp1020, label %for.cond9.preheader.us, label %for.end20
 
 for.cond9.preheader.us:                           ; preds = %for.cond9.preheader.lr.ph, %for.cond9.for.end_crit_edge.us
@@ -40554,8 +40554,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp319 = icmp sgt i32 %bltwidth, 0
-  %vram_ptr.i14 = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i15 = getelementptr inbounds i8, ptr %s, i64 70576
+  %vram_ptr.i14 = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i15 = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp319, label %for.cond2.preheader.lr.ph.split.us, label %for.end10
 
 for.cond2.preheader.lr.ph.split.us:               ; preds = %for.cond2.preheader.lr.ph
@@ -40602,8 +40602,8 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1020 = icmp sgt i32 %bltwidth, 0
-  %vram_ptr.i15 = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i16 = getelementptr inbounds i8, ptr %s, i64 70576
+  %vram_ptr.i15 = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i16 = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp1020, label %for.cond9.preheader.lr.ph.split.us, label %for.end20
 
 for.cond9.preheader.lr.ph.split.us:               ; preds = %for.cond9.preheader.lr.ph
@@ -40655,8 +40655,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp318 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp318, label %for.cond2.preheader.us, label %for.end10
@@ -40739,8 +40739,8 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1020 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1020, label %for.cond9.preheader.us, label %for.end20
@@ -40827,8 +40827,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp318 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp318, label %for.cond2.preheader.us, label %for.end10
@@ -40910,8 +40910,8 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1019 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1019, label %for.cond9.preheader.us, label %for.end20
@@ -40997,8 +40997,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp318 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp318, label %for.cond2.preheader.us, label %for.end10
@@ -41080,8 +41080,8 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1019 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1019, label %for.cond9.preheader.us, label %for.end20
@@ -41167,8 +41167,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp318 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp318, label %for.cond2.preheader.us, label %for.end10
@@ -41251,8 +41251,8 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1019 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1019, label %for.cond9.preheader.us, label %for.end20
@@ -41339,8 +41339,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp318 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp318, label %for.cond2.preheader.us, label %for.end10
@@ -41423,8 +41423,8 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1019 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1019, label %for.cond9.preheader.us, label %for.end20
@@ -41511,8 +41511,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp318 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp318, label %for.cond2.preheader.us, label %for.end10
@@ -41595,8 +41595,8 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1019 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1019, label %for.cond9.preheader.us, label %for.end20
@@ -41683,10 +41683,10 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp319 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
-  %vram_ptr.i = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i = getelementptr inbounds i8, ptr %s, i64 70576
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
+  %vram_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp319, label %for.cond2.preheader.us, label %for.end10
 
 for.cond2.preheader.us:                           ; preds = %for.cond2.preheader.lr.ph, %for.cond2.for.end_crit_edge.us
@@ -41763,10 +41763,10 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1020 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
-  %vram_ptr.i = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i = getelementptr inbounds i8, ptr %s, i64 70576
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
+  %vram_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp1020, label %for.cond9.preheader.us, label %for.end20
 
 for.cond9.preheader.us:                           ; preds = %for.cond9.preheader.lr.ph, %for.cond9.for.end_crit_edge.us
@@ -41847,8 +41847,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp318 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp318, label %for.cond2.preheader.us, label %for.end10
@@ -41931,8 +41931,8 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1019 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1019, label %for.cond9.preheader.us, label %for.end20
@@ -42019,8 +42019,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp318 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp318, label %for.cond2.preheader.us, label %for.end10
@@ -42103,8 +42103,8 @@ entry:
 
 for.cond9.preheader.lr.ph:                        ; preds = %entry
   %cmp1019 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1019, label %for.cond9.preheader.us, label %for.end20
@@ -42194,8 +42194,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp622 = icmp sgt i32 %bltwidth, 0
-  %vram_ptr.i17 = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i18 = getelementptr inbounds i8, ptr %s, i64 70576
+  %vram_ptr.i17 = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i18 = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp622, label %for.cond5.preheader.lr.ph.split.us, label %for.end13
 
 for.cond5.preheader.lr.ph.split.us:               ; preds = %for.cond5.preheader.lr.ph
@@ -42248,8 +42248,8 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1623 = icmp sgt i32 %bltwidth, 0
-  %vram_ptr.i18 = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i19 = getelementptr inbounds i8, ptr %s, i64 70576
+  %vram_ptr.i18 = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i19 = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp1623, label %for.cond15.preheader.lr.ph.split.us, label %for.end24
 
 for.cond15.preheader.lr.ph.split.us:              ; preds = %for.cond15.preheader.lr.ph
@@ -42305,8 +42305,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp621 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp621, label %for.cond5.preheader.us, label %for.end13
@@ -42393,8 +42393,8 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1622 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1622, label %for.cond15.preheader.us, label %for.end24
@@ -42483,8 +42483,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp621 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp621, label %for.cond5.preheader.us, label %for.end13
@@ -42572,8 +42572,8 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1623 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1623, label %for.cond15.preheader.us, label %for.end24
@@ -42782,10 +42782,10 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp622 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
-  %vram_ptr.i = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i = getelementptr inbounds i8, ptr %s, i64 70576
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
+  %vram_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp622, label %for.cond5.preheader.us, label %for.end13
 
 for.cond5.preheader.us:                           ; preds = %for.cond5.preheader.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -42866,10 +42866,10 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1623 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
-  %vram_ptr.i = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i = getelementptr inbounds i8, ptr %s, i64 70576
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
+  %vram_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp1623, label %for.cond15.preheader.us, label %for.end24
 
 for.cond15.preheader.us:                          ; preds = %for.cond15.preheader.lr.ph, %for.cond15.for.end_crit_edge.us
@@ -42950,8 +42950,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp622 = icmp sgt i32 %bltwidth, 0
-  %vram_ptr.i17 = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i18 = getelementptr inbounds i8, ptr %s, i64 70576
+  %vram_ptr.i17 = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i18 = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp622, label %for.cond5.preheader.lr.ph.split.us, label %for.end13
 
 for.cond5.preheader.lr.ph.split.us:               ; preds = %for.cond5.preheader.lr.ph
@@ -43004,8 +43004,8 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1623 = icmp sgt i32 %bltwidth, 0
-  %vram_ptr.i18 = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i19 = getelementptr inbounds i8, ptr %s, i64 70576
+  %vram_ptr.i18 = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i19 = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp1623, label %for.cond15.preheader.lr.ph.split.us, label %for.end24
 
 for.cond15.preheader.lr.ph.split.us:              ; preds = %for.cond15.preheader.lr.ph
@@ -43061,8 +43061,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp621 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp621, label %for.cond5.preheader.us, label %for.end13
@@ -43150,8 +43150,8 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1623 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1623, label %for.cond15.preheader.us, label %for.end24
@@ -43241,8 +43241,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp621 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp621, label %for.cond5.preheader.us, label %for.end13
@@ -43329,8 +43329,8 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1622 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1622, label %for.cond15.preheader.us, label %for.end24
@@ -43419,8 +43419,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp621 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp621, label %for.cond5.preheader.us, label %for.end13
@@ -43507,8 +43507,8 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1622 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1622, label %for.cond15.preheader.us, label %for.end24
@@ -43597,8 +43597,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp621 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp621, label %for.cond5.preheader.us, label %for.end13
@@ -43686,8 +43686,8 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1622 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1622, label %for.cond15.preheader.us, label %for.end24
@@ -43777,8 +43777,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp621 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp621, label %for.cond5.preheader.us, label %for.end13
@@ -43866,8 +43866,8 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1622 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1622, label %for.cond15.preheader.us, label %for.end24
@@ -43957,8 +43957,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp621 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp621, label %for.cond5.preheader.us, label %for.end13
@@ -44046,8 +44046,8 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1622 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1622, label %for.cond15.preheader.us, label %for.end24
@@ -44137,10 +44137,10 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp622 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
-  %vram_ptr.i = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i = getelementptr inbounds i8, ptr %s, i64 70576
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
+  %vram_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp622, label %for.cond5.preheader.us, label %for.end13
 
 for.cond5.preheader.us:                           ; preds = %for.cond5.preheader.lr.ph, %for.cond5.for.end_crit_edge.us
@@ -44222,10 +44222,10 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1623 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
-  %vram_ptr.i = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask.i = getelementptr inbounds i8, ptr %s, i64 70576
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
+  %vram_ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask.i = getelementptr inbounds nuw i8, ptr %s, i64 70576
   br i1 %cmp1623, label %for.cond15.preheader.us, label %for.end24
 
 for.cond15.preheader.us:                          ; preds = %for.cond15.preheader.lr.ph, %for.cond15.for.end_crit_edge.us
@@ -44309,8 +44309,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp621 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp621, label %for.cond5.preheader.us, label %for.end13
@@ -44398,8 +44398,8 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1622 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1622, label %for.cond15.preheader.us, label %for.end24
@@ -44489,8 +44489,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp621 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp621, label %for.cond5.preheader.us, label %for.end13
@@ -44578,8 +44578,8 @@ entry:
 
 for.cond15.preheader.lr.ph:                       ; preds = %entry
   %cmp1622 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp1622, label %for.cond15.preheader.us, label %for.end24
@@ -44704,8 +44704,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp316 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp316, label %for.cond2.preheader.us, label %for.end10
@@ -44778,8 +44778,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp316 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp316, label %for.cond2.preheader.us, label %for.end10
@@ -44897,8 +44897,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp316 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp316, label %for.cond2.preheader.us, label %for.end10
@@ -45011,8 +45011,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp316 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp316, label %for.cond2.preheader.us, label %for.end10
@@ -45086,8 +45086,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp316 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp316, label %for.cond2.preheader.us, label %for.end10
@@ -45160,8 +45160,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp316 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp316, label %for.cond2.preheader.us, label %for.end10
@@ -45234,8 +45234,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp316 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp316, label %for.cond2.preheader.us, label %for.end10
@@ -45309,8 +45309,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp316 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp316, label %for.cond2.preheader.us, label %for.end10
@@ -45384,8 +45384,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp316 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp316, label %for.cond2.preheader.us, label %for.end10
@@ -45459,8 +45459,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp316 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp316, label %for.cond2.preheader.us, label %for.end10
@@ -45532,8 +45532,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp316 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp316, label %for.cond2.preheader.us, label %for.end10
@@ -45607,8 +45607,8 @@ entry:
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
   %cmp316 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp316, label %for.cond2.preheader.us, label %for.end10
@@ -45735,8 +45735,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp619 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp619, label %for.cond5.preheader.us, label %for.end13
@@ -45814,8 +45814,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp619 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp619, label %for.cond5.preheader.us, label %for.end13
@@ -45944,8 +45944,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp619 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp619, label %for.cond5.preheader.us, label %for.end13
@@ -46069,8 +46069,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp619 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp619, label %for.cond5.preheader.us, label %for.end13
@@ -46149,8 +46149,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp619 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp619, label %for.cond5.preheader.us, label %for.end13
@@ -46228,8 +46228,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp619 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp619, label %for.cond5.preheader.us, label %for.end13
@@ -46307,8 +46307,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp619 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp619, label %for.cond5.preheader.us, label %for.end13
@@ -46387,8 +46387,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp619 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp619, label %for.cond5.preheader.us, label %for.end13
@@ -46467,8 +46467,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp619 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp619, label %for.cond5.preheader.us, label %for.end13
@@ -46547,8 +46547,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp619 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp619, label %for.cond5.preheader.us, label %for.end13
@@ -46625,8 +46625,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp619 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp619, label %for.cond5.preheader.us, label %for.end13
@@ -46705,8 +46705,8 @@ entry:
 
 for.cond5.preheader.lr.ph:                        ; preds = %entry
   %cmp619 = icmp sgt i32 %bltwidth, 0
-  %cirrus_srccounter.i = getelementptr inbounds i8, ptr %s, i64 78912
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_srccounter.i = getelementptr inbounds nuw i8, ptr %s, i64 78912
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %vram_ptr.i = getelementptr i8, ptr %s, i64 8
   %cirrus_addr_mask.i = getelementptr i8, ptr %s, i64 70576
   br i1 %cmp619, label %for.cond5.preheader.us, label %for.end13
@@ -46773,13 +46773,13 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @cirrus_bitblt_common_patterncopy(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %cirrus_srccounter = getelementptr inbounds i8, ptr %s, i64 78912
+  %cirrus_srccounter = getelementptr inbounds nuw i8, ptr %s, i64 78912
   %0 = load i32, ptr %cirrus_srccounter, align 16
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %entry
-  %get_bpp = getelementptr inbounds i8, ptr %s, i64 2432
+  %get_bpp = getelementptr inbounds nuw i8, ptr %s, i64 2432
   %1 = load ptr, ptr %get_bpp, align 16
   %call = tail call i32 %1(ptr noundef nonnull %s) #13
   switch i32 %call, label %sw.default [
@@ -46797,18 +46797,18 @@ sw.default:                                       ; preds = %if.then
 sw.epilog:                                        ; preds = %if.then, %sw.default, %sw.bb3
   %patternsize.0 = phi i32 [ 256, %sw.default ], [ 128, %sw.bb3 ], [ 64, %if.then ]
   %not = sub nsw i32 0, %patternsize.0
-  %cirrus_blt_srcaddr = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %2 = load i32, ptr %cirrus_blt_srcaddr, align 16
   %and = and i32 %2, %not
   store i32 %and, ptr %cirrus_blt_srcaddr, align 16
   %add = add i32 %and, %patternsize.0
-  %vram_size = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size = getelementptr inbounds nuw i8, ptr %s, i64 288
   %3 = load i32, ptr %vram_size, align 16
   %cmp = icmp ugt i32 %add, %3
   br i1 %cmp, label %return, label %if.end8
 
 if.end8:                                          ; preds = %sw.epilog, %entry
-  %cirrus_blt_width.i = getelementptr inbounds i8, ptr %s, i64 70660
+  %cirrus_blt_width.i = getelementptr inbounds nuw i8, ptr %s, i64 70660
   %4 = load i32, ptr %cirrus_blt_width.i, align 4
   %cmp.i = icmp sgt i32 %4, 0
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -46818,7 +46818,7 @@ if.else.i:                                        ; preds = %if.end8
   unreachable
 
 if.end.i:                                         ; preds = %if.end8
-  %cirrus_blt_height.i = getelementptr inbounds i8, ptr %s, i64 70664
+  %cirrus_blt_height.i = getelementptr inbounds nuw i8, ptr %s, i64 70664
   %5 = load i32, ptr %cirrus_blt_height.i, align 8
   %cmp1.i = icmp sgt i32 %5, 0
   br i1 %cmp1.i, label %if.end4.i, label %if.else3.i
@@ -46832,9 +46832,9 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end4.i
-  %cirrus_blt_dstpitch.i = getelementptr inbounds i8, ptr %s, i64 70668
+  %cirrus_blt_dstpitch.i = getelementptr inbounds nuw i8, ptr %s, i64 70668
   %6 = load i32, ptr %cirrus_blt_dstpitch.i, align 4
-  %cirrus_blt_dstaddr.i = getelementptr inbounds i8, ptr %s, i64 70684
+  %cirrus_blt_dstaddr.i = getelementptr inbounds nuw i8, ptr %s, i64 70684
   %7 = load i32, ptr %cirrus_blt_dstaddr.i, align 4
   %tobool.not.i.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i.i, label %return, label %if.end.i.i
@@ -46856,7 +46856,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp6.i.i, label %return, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then1.i.i
-  %vram_size.i.i = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size.i.i = getelementptr inbounds nuw i8, ptr %s, i64 288
   %8 = load i32, ptr %vram_size.i.i, align 16
   %cmp8.not.i.i.not = icmp ult i32 %7, %8
   br i1 %cmp8.not.i.i.not, label %if.end11, label %return
@@ -46866,19 +46866,19 @@ blit_is_unsafe.exit:                              ; preds = %if.end.i.i
   %mul17.i.i = mul nuw nsw i64 %sub.i.i, %conv16.i.i
   %add18.i.i = add nsw i64 %conv.i.i, %conv4.i.i
   %add21.i.i = add nsw i64 %add18.i.i, %mul17.i.i
-  %vram_size23.i.i = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size23.i.i = getelementptr inbounds nuw i8, ptr %s, i64 288
   %9 = load i32, ptr %vram_size23.i.i, align 16
   %conv24.i.i = zext i32 %9 to i64
   %cmp25.i.i = icmp sgt i64 %add21.i.i, %conv24.i.i
   br i1 %cmp25.i.i, label %return, label %if.end11
 
 if.end11:                                         ; preds = %lor.lhs.false.i.i, %blit_is_unsafe.exit
-  %cirrus_rop = getelementptr inbounds i8, ptr %s, i64 70696
+  %cirrus_rop = getelementptr inbounds nuw i8, ptr %s, i64 70696
   %10 = load ptr, ptr %cirrus_rop, align 8
   br i1 %tobool.not, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end11
-  %cirrus_blt_srcaddr13 = getelementptr inbounds i8, ptr %s, i64 70688
+  %cirrus_blt_srcaddr13 = getelementptr inbounds nuw i8, ptr %s, i64 70688
   %11 = load i32, ptr %cirrus_blt_srcaddr13, align 16
   br label %cond.end
 
@@ -46897,8 +46897,8 @@ for.body.lr.ph.i:                                 ; preds = %cond.end
   %sub.i = add i32 %14, -1
   %sub1.i = select i1 %cmp.i21, i32 %sub.i, i32 0
   %off_begin.addr.0.i = sub i32 %15, %sub1.i
-  %cirrus_addr_mask.i = getelementptr inbounds i8, ptr %s, i64 70576
-  %vram.i = getelementptr inbounds i8, ptr %s, i64 16
+  %cirrus_addr_mask.i = getelementptr inbounds nuw i8, ptr %s, i64 70576
+  %vram.i = getelementptr inbounds nuw i8, ptr %s, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end21.i, %for.body.lr.ph.i
@@ -46963,14 +46963,14 @@ if.then6:                                         ; preds = %if.end
   %shr = lshr i64 %addr, 15
   %2 = trunc nuw i64 %addr to i32
   %conv9 = and i32 %2, 32767
-  %cirrus_bank_limit = getelementptr inbounds i8, ptr %opaque, i64 70596
+  %cirrus_bank_limit = getelementptr inbounds nuw i8, ptr %opaque, i64 70596
   %arrayidx10 = getelementptr [2 x i32], ptr %cirrus_bank_limit, i64 0, i64 %shr
   %3 = load i32, ptr %arrayidx10, align 4
   %cmp11 = icmp ult i32 %conv9, %3
   br i1 %cmp11, label %if.then13, label %if.end64
 
 if.then13:                                        ; preds = %if.then6
-  %cirrus_bank_base = getelementptr inbounds i8, ptr %opaque, i64 70588
+  %cirrus_bank_base = getelementptr inbounds nuw i8, ptr %opaque, i64 70588
   %arrayidx15 = getelementptr [2 x i32], ptr %cirrus_bank_base, i64 0, i64 %shr
   %4 = load i32, ptr %arrayidx15, align 4
   %add = add i32 %4, %conv9
@@ -46994,10 +46994,10 @@ if.else:                                          ; preds = %if.then13
 
 if.end31:                                         ; preds = %if.else, %if.then22
   %bank_offset.0 = phi i32 [ %shl, %if.then22 ], [ %spec.select, %if.else ]
-  %cirrus_addr_mask = getelementptr inbounds i8, ptr %opaque, i64 70576
+  %cirrus_addr_mask = getelementptr inbounds nuw i8, ptr %opaque, i64 70576
   %6 = load i32, ptr %cirrus_addr_mask, align 16
   %and32 = and i32 %6, %bank_offset.0
-  %vram_ptr = getelementptr inbounds i8, ptr %opaque, i64 8
+  %vram_ptr = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %7 = load ptr, ptr %vram_ptr, align 8
   %idx.ext = zext i32 %and32 to i64
   %add.ptr = getelementptr i8, ptr %7, i64 %idx.ext
@@ -47061,9 +47061,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then6, label %if.else83
 
 if.then6:                                         ; preds = %if.end
-  %cirrus_srcptr = getelementptr inbounds i8, ptr %opaque, i64 78896
+  %cirrus_srcptr = getelementptr inbounds nuw i8, ptr %opaque, i64 78896
   %2 = load ptr, ptr %cirrus_srcptr, align 16
-  %cirrus_srcptr_end = getelementptr inbounds i8, ptr %opaque, i64 78904
+  %cirrus_srcptr_end = getelementptr inbounds nuw i8, ptr %opaque, i64 78904
   %3 = load ptr, ptr %cirrus_srcptr_end, align 8
   %cmp7.not = icmp eq ptr %2, %3
   br i1 %cmp7.not, label %if.else, label %if.then9
@@ -47086,14 +47086,14 @@ if.else:                                          ; preds = %if.then6
   %shr = lshr i64 %addr, 15
   %6 = trunc nuw i64 %addr to i32
   %conv20 = and i32 %6, 32767
-  %cirrus_bank_limit = getelementptr inbounds i8, ptr %opaque, i64 70596
+  %cirrus_bank_limit = getelementptr inbounds nuw i8, ptr %opaque, i64 70596
   %arrayidx21 = getelementptr [2 x i32], ptr %cirrus_bank_limit, i64 0, i64 %shr
   %7 = load i32, ptr %arrayidx21, align 4
   %cmp22 = icmp ult i32 %conv20, %7
   br i1 %cmp22, label %if.then24, label %if.end108
 
 if.then24:                                        ; preds = %if.else
-  %cirrus_bank_base = getelementptr inbounds i8, ptr %opaque, i64 70588
+  %cirrus_bank_base = getelementptr inbounds nuw i8, ptr %opaque, i64 70588
   %arrayidx26 = getelementptr [2 x i32], ptr %cirrus_bank_base, i64 0, i64 %shr
   %8 = load i32, ptr %arrayidx26, align 4
   %add = add i32 %8, %conv20
@@ -47117,7 +47117,7 @@ if.else34:                                        ; preds = %if.then24
 
 if.end43:                                         ; preds = %if.else34, %if.then33
   %bank_offset.0 = phi i32 [ %shl, %if.then33 ], [ %spec.select, %if.else34 ]
-  %cirrus_addr_mask = getelementptr inbounds i8, ptr %opaque, i64 70576
+  %cirrus_addr_mask = getelementptr inbounds nuw i8, ptr %opaque, i64 70576
   %10 = load i32, ptr %cirrus_addr_mask, align 16
   %and44 = and i32 %10, %bank_offset.0
   %arrayidx47 = getelementptr i8, ptr %opaque, i64 1111
@@ -47133,12 +47133,12 @@ if.end43:                                         ; preds = %if.else34, %if.then
 
 if.then62:                                        ; preds = %if.end43
   %conv63 = trunc i64 %mem_value to i8
-  %vram_ptr = getelementptr inbounds i8, ptr %opaque, i64 8
+  %vram_ptr = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %14 = load ptr, ptr %vram_ptr, align 8
   %idx.ext = zext i32 %and44 to i64
   %add.ptr = getelementptr i8, ptr %14, i64 %idx.ext
   store i8 %conv63, ptr %add.ptr, align 1
-  %vram = getelementptr inbounds i8, ptr %opaque, i64 16
+  %vram = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %idx.ext, i64 noundef 8) #13
   br label %if.end108
 
@@ -47228,7 +47228,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %cirrus_shadow_gr0.i = getelementptr inbounds i8, ptr %s, i64 70584
+  %cirrus_shadow_gr0.i = getelementptr inbounds nuw i8, ptr %s, i64 70584
   %0 = load i8, ptr %cirrus_shadow_gr0.i, align 8
   br label %sw.epilog
 
@@ -47248,7 +47248,7 @@ sw.bb5:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %cirrus_shadow_gr1.i = getelementptr inbounds i8, ptr %s, i64 70585
+  %cirrus_shadow_gr1.i = getelementptr inbounds nuw i8, ptr %s, i64 70585
   %4 = load i8, ptr %cirrus_shadow_gr1.i, align 1
   br label %sw.epilog
 
@@ -47418,7 +47418,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %36 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %37 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %36, i64 noundef %37, i32 noundef %address, i32 noundef range(i32 0, 256) %value.0) #13
   br label %trace_vga_cirrus_write_blt.exit
@@ -47437,29 +47437,29 @@ declare void @vga_mem_writeb(ptr noundef, i64 noundef, i32 noundef) local_unname
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @cirrus_bitblt_cputovideo_next(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %cirrus_srccounter = getelementptr inbounds i8, ptr %s, i64 78912
+  %cirrus_srccounter = getelementptr inbounds nuw i8, ptr %s, i64 78912
   %0 = load i32, ptr %cirrus_srccounter, align 16
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end33, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cirrus_blt_mode = getelementptr inbounds i8, ptr %s, i64 70692
+  %cirrus_blt_mode = getelementptr inbounds nuw i8, ptr %s, i64 70692
   %1 = load i8, ptr %cirrus_blt_mode, align 4
   %2 = and i8 %1, 64
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %do.body.preheader, label %if.then1
 
 do.body.preheader:                                ; preds = %if.then
-  %cirrus_rop = getelementptr inbounds i8, ptr %s, i64 70696
-  %cirrus_blt_dstaddr = getelementptr inbounds i8, ptr %s, i64 70684
-  %cirrus_blt_width = getelementptr inbounds i8, ptr %s, i64 70660
-  %cirrus_addr_mask.i = getelementptr inbounds i8, ptr %s, i64 70576
-  %vram.i = getelementptr inbounds i8, ptr %s, i64 16
-  %cirrus_blt_dstpitch = getelementptr inbounds i8, ptr %s, i64 70668
-  %cirrus_blt_srcpitch = getelementptr inbounds i8, ptr %s, i64 70672
-  %cirrus_bltbuf = getelementptr inbounds i8, ptr %s, i64 70704
-  %cirrus_srcptr_end = getelementptr inbounds i8, ptr %s, i64 78904
-  %cirrus_srcptr = getelementptr inbounds i8, ptr %s, i64 78896
+  %cirrus_rop = getelementptr inbounds nuw i8, ptr %s, i64 70696
+  %cirrus_blt_dstaddr = getelementptr inbounds nuw i8, ptr %s, i64 70684
+  %cirrus_blt_width = getelementptr inbounds nuw i8, ptr %s, i64 70660
+  %cirrus_addr_mask.i = getelementptr inbounds nuw i8, ptr %s, i64 70576
+  %vram.i = getelementptr inbounds nuw i8, ptr %s, i64 16
+  %cirrus_blt_dstpitch = getelementptr inbounds nuw i8, ptr %s, i64 70668
+  %cirrus_blt_srcpitch = getelementptr inbounds nuw i8, ptr %s, i64 70672
+  %cirrus_bltbuf = getelementptr inbounds nuw i8, ptr %s, i64 70704
+  %cirrus_srcptr_end = getelementptr inbounds nuw i8, ptr %s, i64 78904
+  %cirrus_srcptr = getelementptr inbounds nuw i8, ptr %s, i64 78896
   %.pre = load i32, ptr %cirrus_blt_dstaddr, align 4
   br label %do.body
 
@@ -47472,14 +47472,14 @@ the_end:                                          ; preds = %if.end21.i, %if.the
   %3 = load i8, ptr %arrayidx.i, align 1
   %4 = and i8 %3, -20
   store i8 %4, ptr %arrayidx.i, align 1
-  %cirrus_srcptr.i = getelementptr inbounds i8, ptr %s, i64 78896
+  %cirrus_srcptr.i = getelementptr inbounds nuw i8, ptr %s, i64 78896
   %5 = load ptr, ptr %cirrus_srcptr.i, align 16
-  %cirrus_bltbuf.i = getelementptr inbounds i8, ptr %s, i64 70704
+  %cirrus_bltbuf.i = getelementptr inbounds nuw i8, ptr %s, i64 70704
   %cmp.not.i = icmp eq ptr %5, %cirrus_bltbuf.i
   br i1 %cmp.not.i, label %lor.rhs.i, label %if.end.critedge.i
 
 lor.rhs.i:                                        ; preds = %the_end
-  %cirrus_srcptr_end.i = getelementptr inbounds i8, ptr %s, i64 78904
+  %cirrus_srcptr_end.i = getelementptr inbounds nuw i8, ptr %s, i64 78904
   %6 = load ptr, ptr %cirrus_srcptr_end.i, align 8
   %cmp6.not.i = icmp eq ptr %6, %cirrus_bltbuf.i
   store ptr %cirrus_bltbuf.i, ptr %cirrus_srcptr_end.i, align 8
@@ -47488,7 +47488,7 @@ lor.rhs.i:                                        ; preds = %the_end
 
 if.end.critedge.i:                                ; preds = %the_end
   store ptr %cirrus_bltbuf.i, ptr %cirrus_srcptr.i, align 16
-  %cirrus_srcptr_end13.c.i = getelementptr inbounds i8, ptr %s, i64 78904
+  %cirrus_srcptr_end13.c.i = getelementptr inbounds nuw i8, ptr %s, i64 78904
   store ptr %cirrus_bltbuf.i, ptr %cirrus_srcptr_end13.c.i, align 8
   store i32 0, ptr %cirrus_srccounter, align 16
   br label %if.end.i
@@ -47565,11 +47565,11 @@ if.end33:                                         ; preds = %if.end, %if.end.i, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @cirrus_mem_writeb_mode4and5_8bpp(ptr noundef %s, i32 noundef range(i32 4, 6) %mode, i32 noundef %offset, i32 noundef %mem_value) unnamed_addr #0 {
 entry:
-  %vram_ptr = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask = getelementptr inbounds i8, ptr %s, i64 70576
-  %cirrus_shadow_gr1 = getelementptr inbounds i8, ptr %s, i64 70585
+  %vram_ptr = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask = getelementptr inbounds nuw i8, ptr %s, i64 70576
+  %cirrus_shadow_gr1 = getelementptr inbounds nuw i8, ptr %s, i64 70585
   %cmp2 = icmp eq i32 %mode, 5
-  %cirrus_shadow_gr0 = getelementptr inbounds i8, ptr %s, i64 70584
+  %cirrus_shadow_gr0 = getelementptr inbounds nuw i8, ptr %s, i64 70584
   br i1 %cmp2, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %entry, %for.body.us
@@ -47616,7 +47616,7 @@ if.end4:                                          ; preds = %for.body, %if.then
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !911
 
 for.end:                                          ; preds = %if.end4, %for.body.us
-  %vram = getelementptr inbounds i8, ptr %s, i64 16
+  %vram = getelementptr inbounds nuw i8, ptr %s, i64 16
   %conv = zext i32 %offset to i64
   tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %conv, i64 noundef 8) #13
   ret void
@@ -47625,12 +47625,12 @@ for.end:                                          ; preds = %if.end4, %for.body.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @cirrus_mem_writeb_mode4and5_16bpp(ptr noundef %s, i32 noundef range(i32 4, 6) %mode, i32 noundef %offset, i32 noundef %mem_value) unnamed_addr #0 {
 entry:
-  %vram_ptr = getelementptr inbounds i8, ptr %s, i64 8
-  %cirrus_addr_mask = getelementptr inbounds i8, ptr %s, i64 70576
-  %cirrus_shadow_gr1 = getelementptr inbounds i8, ptr %s, i64 70585
+  %vram_ptr = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %cirrus_addr_mask = getelementptr inbounds nuw i8, ptr %s, i64 70576
+  %cirrus_shadow_gr1 = getelementptr inbounds nuw i8, ptr %s, i64 70585
   %arrayidx = getelementptr i8, ptr %s, i64 1123
   %cmp5 = icmp eq i32 %mode, 5
-  %cirrus_shadow_gr0 = getelementptr inbounds i8, ptr %s, i64 70584
+  %cirrus_shadow_gr0 = getelementptr inbounds nuw i8, ptr %s, i64 70584
   %arrayidx9 = getelementptr i8, ptr %s, i64 1122
   br i1 %cmp5, label %for.body.us, label %for.body
 
@@ -47689,7 +47689,7 @@ if.end11:                                         ; preds = %for.body, %if.then
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !912
 
 for.end:                                          ; preds = %if.end11, %for.body.us
-  %vram = getelementptr inbounds i8, ptr %s, i64 16
+  %vram = getelementptr inbounds nuw i8, ptr %s, i64 16
   %conv = zext i32 %offset to i64
   tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %conv, i64 noundef 16) #13
   ret void
@@ -47752,7 +47752,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %address, i32 noundef range(i32 0, 256) %conv) #13
   br label %trace_vga_cirrus_write_blt.exit
@@ -47822,7 +47822,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #13
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #13
   %10 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i32 noundef 0, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit
@@ -47835,9 +47835,9 @@ cirrus_vga_write_gr.exit:                         ; preds = %sw.bb, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %12 = load i8, ptr @gr_mask, align 16
   %conv3.i = and i8 %12, %value
-  %gr.i = getelementptr inbounds i8, ptr %s, i64 1106
+  %gr.i = getelementptr inbounds nuw i8, ptr %s, i64 1106
   store i8 %conv3.i, ptr %gr.i, align 1
-  %cirrus_shadow_gr0.i = getelementptr inbounds i8, ptr %s, i64 70584
+  %cirrus_shadow_gr0.i = getelementptr inbounds nuw i8, ptr %s, i64 70584
   store i8 %value, ptr %cirrus_shadow_gr0.i, align 8
   br label %sw.epilog
 
@@ -47865,7 +47865,7 @@ if.then8.i.i.i76:                                 ; preds = %if.then.i.i.i72
   %call9.i.i.i77 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i65, ptr noundef null) #13
   %call10.i.i.i78 = tail call i32 @qemu_get_thread_id() #13
   %17 = load i64, ptr %_now.i.i.i65, align 8
-  %tv_usec.i.i.i79 = getelementptr inbounds i8, ptr %_now.i.i.i65, i64 8
+  %tv_usec.i.i.i79 = getelementptr inbounds nuw i8, ptr %_now.i.i.i65, i64 8
   %18 = load i64, ptr %tv_usec.i.i.i79, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i78, i64 noundef %17, i64 noundef %18, i32 noundef 16, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit81
@@ -47904,7 +47904,7 @@ if.then8.i.i.i95:                                 ; preds = %if.then.i.i.i91
   %call9.i.i.i96 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i82, ptr noundef null) #13
   %call10.i.i.i97 = tail call i32 @qemu_get_thread_id() #13
   %23 = load i64, ptr %_now.i.i.i82, align 8
-  %tv_usec.i.i.i98 = getelementptr inbounds i8, ptr %_now.i.i.i82, i64 8
+  %tv_usec.i.i.i98 = getelementptr inbounds nuw i8, ptr %_now.i.i.i82, i64 8
   %24 = load i64, ptr %tv_usec.i.i.i98, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i97, i64 noundef %23, i64 noundef %24, i32 noundef 18, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit100
@@ -47943,7 +47943,7 @@ if.then8.i.i.i114:                                ; preds = %if.then.i.i.i110
   %call9.i.i.i115 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i101, ptr noundef null) #13
   %call10.i.i.i116 = tail call i32 @qemu_get_thread_id() #13
   %29 = load i64, ptr %_now.i.i.i101, align 8
-  %tv_usec.i.i.i117 = getelementptr inbounds i8, ptr %_now.i.i.i101, i64 8
+  %tv_usec.i.i.i117 = getelementptr inbounds nuw i8, ptr %_now.i.i.i101, i64 8
   %30 = load i64, ptr %tv_usec.i.i.i117, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i116, i64 noundef %29, i64 noundef %30, i32 noundef 20, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit119
@@ -47982,7 +47982,7 @@ if.then8.i.i.i131:                                ; preds = %if.then.i.i.i127
   %call9.i.i.i132 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i120, ptr noundef null) #13
   %call10.i.i.i133 = tail call i32 @qemu_get_thread_id() #13
   %35 = load i64, ptr %_now.i.i.i120, align 8
-  %tv_usec.i.i.i134 = getelementptr inbounds i8, ptr %_now.i.i.i120, i64 8
+  %tv_usec.i.i.i134 = getelementptr inbounds nuw i8, ptr %_now.i.i.i120, i64 8
   %36 = load i64, ptr %tv_usec.i.i.i134, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i133, i64 noundef %35, i64 noundef %36, i32 noundef 1, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit136
@@ -47997,7 +47997,7 @@ cirrus_vga_write_gr.exit136:                      ; preds = %sw.bb8, %land.lhs.t
   %conv12.i = and i8 %37, %value
   %arrayidx16.i = getelementptr i8, ptr %s, i64 1107
   store i8 %conv12.i, ptr %arrayidx16.i, align 1
-  %cirrus_shadow_gr1.i = getelementptr inbounds i8, ptr %s, i64 70585
+  %cirrus_shadow_gr1.i = getelementptr inbounds nuw i8, ptr %s, i64 70585
   store i8 %value, ptr %cirrus_shadow_gr1.i, align 1
   br label %sw.epilog
 
@@ -48025,7 +48025,7 @@ if.then8.i.i.i150:                                ; preds = %if.then.i.i.i146
   %call9.i.i.i151 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i137, ptr noundef null) #13
   %call10.i.i.i152 = tail call i32 @qemu_get_thread_id() #13
   %42 = load i64, ptr %_now.i.i.i137, align 8
-  %tv_usec.i.i.i153 = getelementptr inbounds i8, ptr %_now.i.i.i137, i64 8
+  %tv_usec.i.i.i153 = getelementptr inbounds nuw i8, ptr %_now.i.i.i137, i64 8
   %43 = load i64, ptr %tv_usec.i.i.i153, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i152, i64 noundef %42, i64 noundef %43, i32 noundef 17, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit155
@@ -48064,7 +48064,7 @@ if.then8.i.i.i169:                                ; preds = %if.then.i.i.i165
   %call9.i.i.i170 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i156, ptr noundef null) #13
   %call10.i.i.i171 = tail call i32 @qemu_get_thread_id() #13
   %48 = load i64, ptr %_now.i.i.i156, align 8
-  %tv_usec.i.i.i172 = getelementptr inbounds i8, ptr %_now.i.i.i156, i64 8
+  %tv_usec.i.i.i172 = getelementptr inbounds nuw i8, ptr %_now.i.i.i156, i64 8
   %49 = load i64, ptr %tv_usec.i.i.i172, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i171, i64 noundef %48, i64 noundef %49, i32 noundef 19, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit174
@@ -48103,7 +48103,7 @@ if.then8.i.i.i188:                                ; preds = %if.then.i.i.i184
   %call9.i.i.i189 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i175, ptr noundef null) #13
   %call10.i.i.i190 = tail call i32 @qemu_get_thread_id() #13
   %54 = load i64, ptr %_now.i.i.i175, align 8
-  %tv_usec.i.i.i191 = getelementptr inbounds i8, ptr %_now.i.i.i175, i64 8
+  %tv_usec.i.i.i191 = getelementptr inbounds nuw i8, ptr %_now.i.i.i175, i64 8
   %55 = load i64, ptr %tv_usec.i.i.i191, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i190, i64 noundef %54, i64 noundef %55, i32 noundef 21, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit193
@@ -48142,7 +48142,7 @@ if.then8.i.i.i207:                                ; preds = %if.then.i.i.i203
   %call9.i.i.i208 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i194, ptr noundef null) #13
   %call10.i.i.i209 = tail call i32 @qemu_get_thread_id() #13
   %60 = load i64, ptr %_now.i.i.i194, align 8
-  %tv_usec.i.i.i210 = getelementptr inbounds i8, ptr %_now.i.i.i194, i64 8
+  %tv_usec.i.i.i210 = getelementptr inbounds nuw i8, ptr %_now.i.i.i194, i64 8
   %61 = load i64, ptr %tv_usec.i.i.i210, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i209, i64 noundef %60, i64 noundef %61, i32 noundef 32, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit212
@@ -48181,7 +48181,7 @@ if.then8.i.i.i224:                                ; preds = %if.then.i.i.i220
   %call9.i.i.i225 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i213, ptr noundef null) #13
   %call10.i.i.i226 = tail call i32 @qemu_get_thread_id() #13
   %66 = load i64, ptr %_now.i.i.i213, align 8
-  %tv_usec.i.i.i227 = getelementptr inbounds i8, ptr %_now.i.i.i213, i64 8
+  %tv_usec.i.i.i227 = getelementptr inbounds nuw i8, ptr %_now.i.i.i213, i64 8
   %67 = load i64, ptr %tv_usec.i.i.i227, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i226, i64 noundef %66, i64 noundef %67, i32 noundef 33, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit229
@@ -48221,7 +48221,7 @@ if.then8.i.i.i243:                                ; preds = %if.then.i.i.i239
   %call9.i.i.i244 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i230, ptr noundef null) #13
   %call10.i.i.i245 = tail call i32 @qemu_get_thread_id() #13
   %72 = load i64, ptr %_now.i.i.i230, align 8
-  %tv_usec.i.i.i246 = getelementptr inbounds i8, ptr %_now.i.i.i230, i64 8
+  %tv_usec.i.i.i246 = getelementptr inbounds nuw i8, ptr %_now.i.i.i230, i64 8
   %73 = load i64, ptr %tv_usec.i.i.i246, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i245, i64 noundef %72, i64 noundef %73, i32 noundef 34, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit248
@@ -48260,7 +48260,7 @@ if.then8.i.i.i263:                                ; preds = %if.then.i.i.i259
   %call9.i.i.i264 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i249, ptr noundef null) #13
   %call10.i.i.i265 = tail call i32 @qemu_get_thread_id() #13
   %78 = load i64, ptr %_now.i.i.i249, align 8
-  %tv_usec.i.i.i266 = getelementptr inbounds i8, ptr %_now.i.i.i249, i64 8
+  %tv_usec.i.i.i266 = getelementptr inbounds nuw i8, ptr %_now.i.i.i249, i64 8
   %79 = load i64, ptr %tv_usec.i.i.i266, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i265, i64 noundef %78, i64 noundef %79, i32 noundef 35, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit268
@@ -48300,7 +48300,7 @@ if.then8.i.i.i282:                                ; preds = %if.then.i.i.i278
   %call9.i.i.i283 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i269, ptr noundef null) #13
   %call10.i.i.i284 = tail call i32 @qemu_get_thread_id() #13
   %84 = load i64, ptr %_now.i.i.i269, align 8
-  %tv_usec.i.i.i285 = getelementptr inbounds i8, ptr %_now.i.i.i269, i64 8
+  %tv_usec.i.i.i285 = getelementptr inbounds nuw i8, ptr %_now.i.i.i269, i64 8
   %85 = load i64, ptr %tv_usec.i.i.i285, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i284, i64 noundef %84, i64 noundef %85, i32 noundef 36, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit287
@@ -48339,7 +48339,7 @@ if.then8.i.i.i302:                                ; preds = %if.then.i.i.i298
   %call9.i.i.i303 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i288, ptr noundef null) #13
   %call10.i.i.i304 = tail call i32 @qemu_get_thread_id() #13
   %90 = load i64, ptr %_now.i.i.i288, align 8
-  %tv_usec.i.i.i305 = getelementptr inbounds i8, ptr %_now.i.i.i288, i64 8
+  %tv_usec.i.i.i305 = getelementptr inbounds nuw i8, ptr %_now.i.i.i288, i64 8
   %91 = load i64, ptr %tv_usec.i.i.i305, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i304, i64 noundef %90, i64 noundef %91, i32 noundef 37, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit307
@@ -48379,7 +48379,7 @@ if.then8.i.i.i321:                                ; preds = %if.then.i.i.i317
   %call9.i.i.i322 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i308, ptr noundef null) #13
   %call10.i.i.i323 = tail call i32 @qemu_get_thread_id() #13
   %96 = load i64, ptr %_now.i.i.i308, align 8
-  %tv_usec.i.i.i324 = getelementptr inbounds i8, ptr %_now.i.i.i308, i64 8
+  %tv_usec.i.i.i324 = getelementptr inbounds nuw i8, ptr %_now.i.i.i308, i64 8
   %97 = load i64, ptr %tv_usec.i.i.i324, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i323, i64 noundef %96, i64 noundef %97, i32 noundef 38, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit326
@@ -48418,7 +48418,7 @@ if.then8.i.i.i341:                                ; preds = %if.then.i.i.i337
   %call9.i.i.i342 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i327, ptr noundef null) #13
   %call10.i.i.i343 = tail call i32 @qemu_get_thread_id() #13
   %102 = load i64, ptr %_now.i.i.i327, align 8
-  %tv_usec.i.i.i344 = getelementptr inbounds i8, ptr %_now.i.i.i327, i64 8
+  %tv_usec.i.i.i344 = getelementptr inbounds nuw i8, ptr %_now.i.i.i327, i64 8
   %103 = load i64, ptr %tv_usec.i.i.i344, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i343, i64 noundef %102, i64 noundef %103, i32 noundef 39, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit346
@@ -48458,7 +48458,7 @@ if.then8.i.i.i360:                                ; preds = %if.then.i.i.i356
   %call9.i.i.i361 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i347, ptr noundef null) #13
   %call10.i.i.i362 = tail call i32 @qemu_get_thread_id() #13
   %108 = load i64, ptr %_now.i.i.i347, align 8
-  %tv_usec.i.i.i363 = getelementptr inbounds i8, ptr %_now.i.i.i347, i64 8
+  %tv_usec.i.i.i363 = getelementptr inbounds nuw i8, ptr %_now.i.i.i347, i64 8
   %109 = load i64, ptr %tv_usec.i.i.i363, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i362, i64 noundef %108, i64 noundef %109, i32 noundef 40, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit365
@@ -48497,7 +48497,7 @@ if.then8.i.i.i379:                                ; preds = %if.then.i.i.i375
   %call9.i.i.i380 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i366, ptr noundef null) #13
   %call10.i.i.i381 = tail call i32 @qemu_get_thread_id() #13
   %114 = load i64, ptr %_now.i.i.i366, align 8
-  %tv_usec.i.i.i382 = getelementptr inbounds i8, ptr %_now.i.i.i366, i64 8
+  %tv_usec.i.i.i382 = getelementptr inbounds nuw i8, ptr %_now.i.i.i366, i64 8
   %115 = load i64, ptr %tv_usec.i.i.i382, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i381, i64 noundef %114, i64 noundef %115, i32 noundef 41, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit384
@@ -48540,7 +48540,7 @@ if.then8.i.i.i398:                                ; preds = %if.then.i.i.i394
   %call9.i.i.i399 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i385, ptr noundef null) #13
   %call10.i.i.i400 = tail call i32 @qemu_get_thread_id() #13
   %120 = load i64, ptr %_now.i.i.i385, align 8
-  %tv_usec.i.i.i401 = getelementptr inbounds i8, ptr %_now.i.i.i385, i64 8
+  %tv_usec.i.i.i401 = getelementptr inbounds nuw i8, ptr %_now.i.i.i385, i64 8
   %121 = load i64, ptr %tv_usec.i.i.i401, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i400, i64 noundef %120, i64 noundef %121, i32 noundef 44, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit403
@@ -48579,7 +48579,7 @@ if.then8.i.i.i417:                                ; preds = %if.then.i.i.i413
   %call9.i.i.i418 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i404, ptr noundef null) #13
   %call10.i.i.i419 = tail call i32 @qemu_get_thread_id() #13
   %126 = load i64, ptr %_now.i.i.i404, align 8
-  %tv_usec.i.i.i420 = getelementptr inbounds i8, ptr %_now.i.i.i404, i64 8
+  %tv_usec.i.i.i420 = getelementptr inbounds nuw i8, ptr %_now.i.i.i404, i64 8
   %127 = load i64, ptr %tv_usec.i.i.i420, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i419, i64 noundef %126, i64 noundef %127, i32 noundef 45, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit422
@@ -48618,7 +48618,7 @@ if.then8.i.i.i434:                                ; preds = %if.then.i.i.i430
   %call9.i.i.i435 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i423, ptr noundef null) #13
   %call10.i.i.i436 = tail call i32 @qemu_get_thread_id() #13
   %132 = load i64, ptr %_now.i.i.i423, align 8
-  %tv_usec.i.i.i437 = getelementptr inbounds i8, ptr %_now.i.i.i423, i64 8
+  %tv_usec.i.i.i437 = getelementptr inbounds nuw i8, ptr %_now.i.i.i423, i64 8
   %133 = load i64, ptr %tv_usec.i.i.i437, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i436, i64 noundef %132, i64 noundef %133, i32 noundef 46, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit439
@@ -48658,7 +48658,7 @@ if.then8.i.i.i453:                                ; preds = %if.then.i.i.i449
   %call9.i.i.i454 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i440, ptr noundef null) #13
   %call10.i.i.i455 = tail call i32 @qemu_get_thread_id() #13
   %138 = load i64, ptr %_now.i.i.i440, align 8
-  %tv_usec.i.i.i456 = getelementptr inbounds i8, ptr %_now.i.i.i440, i64 8
+  %tv_usec.i.i.i456 = getelementptr inbounds nuw i8, ptr %_now.i.i.i440, i64 8
   %139 = load i64, ptr %tv_usec.i.i.i456, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i455, i64 noundef %138, i64 noundef %139, i32 noundef 47, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit458
@@ -48697,7 +48697,7 @@ if.then8.i.i.i472:                                ; preds = %if.then.i.i.i468
   %call9.i.i.i473 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i459, ptr noundef null) #13
   %call10.i.i.i474 = tail call i32 @qemu_get_thread_id() #13
   %144 = load i64, ptr %_now.i.i.i459, align 8
-  %tv_usec.i.i.i475 = getelementptr inbounds i8, ptr %_now.i.i.i459, i64 8
+  %tv_usec.i.i.i475 = getelementptr inbounds nuw i8, ptr %_now.i.i.i459, i64 8
   %145 = load i64, ptr %tv_usec.i.i.i475, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i474, i64 noundef %144, i64 noundef %145, i32 noundef 48, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit477
@@ -48736,7 +48736,7 @@ if.then8.i.i.i491:                                ; preds = %if.then.i.i.i487
   %call9.i.i.i492 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i478, ptr noundef null) #13
   %call10.i.i.i493 = tail call i32 @qemu_get_thread_id() #13
   %150 = load i64, ptr %_now.i.i.i478, align 8
-  %tv_usec.i.i.i494 = getelementptr inbounds i8, ptr %_now.i.i.i478, i64 8
+  %tv_usec.i.i.i494 = getelementptr inbounds nuw i8, ptr %_now.i.i.i478, i64 8
   %151 = load i64, ptr %tv_usec.i.i.i494, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i493, i64 noundef %150, i64 noundef %151, i32 noundef 50, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit496
@@ -48775,7 +48775,7 @@ if.then8.i.i.i510:                                ; preds = %if.then.i.i.i506
   %call9.i.i.i511 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i497, ptr noundef null) #13
   %call10.i.i.i512 = tail call i32 @qemu_get_thread_id() #13
   %156 = load i64, ptr %_now.i.i.i497, align 8
-  %tv_usec.i.i.i513 = getelementptr inbounds i8, ptr %_now.i.i.i497, i64 8
+  %tv_usec.i.i.i513 = getelementptr inbounds nuw i8, ptr %_now.i.i.i497, i64 8
   %157 = load i64, ptr %tv_usec.i.i.i513, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i512, i64 noundef %156, i64 noundef %157, i32 noundef 51, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit515
@@ -48814,7 +48814,7 @@ if.then8.i.i.i529:                                ; preds = %if.then.i.i.i525
   %call9.i.i.i530 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i516, ptr noundef null) #13
   %call10.i.i.i531 = tail call i32 @qemu_get_thread_id() #13
   %162 = load i64, ptr %_now.i.i.i516, align 8
-  %tv_usec.i.i.i532 = getelementptr inbounds i8, ptr %_now.i.i.i516, i64 8
+  %tv_usec.i.i.i532 = getelementptr inbounds nuw i8, ptr %_now.i.i.i516, i64 8
   %163 = load i64, ptr %tv_usec.i.i.i532, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i531, i64 noundef %162, i64 noundef %163, i32 noundef 52, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit534
@@ -48853,7 +48853,7 @@ if.then8.i.i.i548:                                ; preds = %if.then.i.i.i544
   %call9.i.i.i549 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i535, ptr noundef null) #13
   %call10.i.i.i550 = tail call i32 @qemu_get_thread_id() #13
   %168 = load i64, ptr %_now.i.i.i535, align 8
-  %tv_usec.i.i.i551 = getelementptr inbounds i8, ptr %_now.i.i.i535, i64 8
+  %tv_usec.i.i.i551 = getelementptr inbounds nuw i8, ptr %_now.i.i.i535, i64 8
   %169 = load i64, ptr %tv_usec.i.i.i551, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i550, i64 noundef %168, i64 noundef %169, i32 noundef 53, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit553
@@ -48892,7 +48892,7 @@ if.then8.i.i.i567:                                ; preds = %if.then.i.i.i563
   %call9.i.i.i568 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i554, ptr noundef null) #13
   %call10.i.i.i569 = tail call i32 @qemu_get_thread_id() #13
   %174 = load i64, ptr %_now.i.i.i554, align 8
-  %tv_usec.i.i.i570 = getelementptr inbounds i8, ptr %_now.i.i.i554, i64 8
+  %tv_usec.i.i.i570 = getelementptr inbounds nuw i8, ptr %_now.i.i.i554, i64 8
   %175 = load i64, ptr %tv_usec.i.i.i570, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i569, i64 noundef %174, i64 noundef %175, i32 noundef 56, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit572
@@ -48931,7 +48931,7 @@ if.then8.i.i.i586:                                ; preds = %if.then.i.i.i582
   %call9.i.i.i587 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i573, ptr noundef null) #13
   %call10.i.i.i588 = tail call i32 @qemu_get_thread_id() #13
   %180 = load i64, ptr %_now.i.i.i573, align 8
-  %tv_usec.i.i.i589 = getelementptr inbounds i8, ptr %_now.i.i.i573, i64 8
+  %tv_usec.i.i.i589 = getelementptr inbounds nuw i8, ptr %_now.i.i.i573, i64 8
   %181 = load i64, ptr %tv_usec.i.i.i589, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i.i588, i64 noundef %180, i64 noundef %181, i32 noundef 57, i32 noundef %conv) #13
   br label %cirrus_vga_write_gr.exit591
@@ -48970,7 +48970,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 256) i64 @cirrus_linear_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
-  %cirrus_addr_mask = getelementptr inbounds i8, ptr %opaque, i64 70576
+  %cirrus_addr_mask = getelementptr inbounds nuw i8, ptr %opaque, i64 70576
   %0 = load i32, ptr %cirrus_addr_mask, align 16
   %conv = zext i32 %0 to i64
   %and = and i64 %addr, %conv
@@ -48981,7 +48981,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %linear_mmio_mask = getelementptr inbounds i8, ptr %opaque, i64 70580
+  %linear_mmio_mask = getelementptr inbounds nuw i8, ptr %opaque, i64 70580
   %3 = load i32, ptr %linear_mmio_mask, align 4
   %conv4 = zext i32 %3 to i64
   %and5 = and i64 %and, %conv4
@@ -49016,7 +49016,7 @@ if.else20:                                        ; preds = %if.else
 if.end28:                                         ; preds = %if.else20, %if.then19
   %addr.addr.0 = phi i64 [ %shl, %if.then19 ], [ %spec.select, %if.else20 ]
   %and31 = and i64 %addr.addr.0, %conv
-  %vram_ptr = getelementptr inbounds i8, ptr %opaque, i64 8
+  %vram_ptr = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %6 = load ptr, ptr %vram_ptr, align 8
   %add.ptr = getelementptr i8, ptr %6, i64 %and31
   %7 = load i8, ptr %add.ptr, align 1
@@ -49031,7 +49031,7 @@ if.end34:                                         ; preds = %if.end28, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cirrus_linear_write(ptr noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 %size) #0 {
 entry:
-  %cirrus_addr_mask = getelementptr inbounds i8, ptr %opaque, i64 70576
+  %cirrus_addr_mask = getelementptr inbounds nuw i8, ptr %opaque, i64 70576
   %0 = load i32, ptr %cirrus_addr_mask, align 16
   %conv = zext i32 %0 to i64
   %and = and i64 %addr, %conv
@@ -49042,7 +49042,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %linear_mmio_mask = getelementptr inbounds i8, ptr %opaque, i64 70580
+  %linear_mmio_mask = getelementptr inbounds nuw i8, ptr %opaque, i64 70580
   %3 = load i32, ptr %linear_mmio_mask, align 4
   %conv4 = zext i32 %3 to i64
   %and5 = and i64 %and, %conv4
@@ -49057,9 +49057,9 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end82
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %cirrus_srcptr = getelementptr inbounds i8, ptr %opaque, i64 78896
+  %cirrus_srcptr = getelementptr inbounds nuw i8, ptr %opaque, i64 78896
   %5 = load ptr, ptr %cirrus_srcptr, align 16
-  %cirrus_srcptr_end = getelementptr inbounds i8, ptr %opaque, i64 78904
+  %cirrus_srcptr_end = getelementptr inbounds nuw i8, ptr %opaque, i64 78904
   %6 = load ptr, ptr %cirrus_srcptr_end, align 8
   %cmp13.not = icmp eq ptr %5, %6
   br i1 %cmp13.not, label %if.else23, label %if.then15
@@ -49112,24 +49112,24 @@ if.end40:                                         ; preds = %if.else31, %if.then
 
 if.then61:                                        ; preds = %if.end40
   %conv62 = trunc i64 %val to i8
-  %vram_ptr = getelementptr inbounds i8, ptr %opaque, i64 8
+  %vram_ptr = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %13 = load ptr, ptr %vram_ptr, align 8
   %add.ptr = getelementptr i8, ptr %13, i64 %and43
   store i8 %conv62, ptr %add.ptr, align 1
-  %vram = getelementptr inbounds i8, ptr %opaque, i64 16
+  %vram = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %and43, i64 noundef 1) #13
   br label %if.end82
 
 if.else65:                                        ; preds = %if.end40
   %conv77 = trunc nuw i64 %and43 to i32
   %conv78 = trunc i64 %val to i32
-  %vram_ptr.i37 = getelementptr inbounds i8, ptr %opaque, i64 8
-  %cirrus_shadow_gr1.i39 = getelementptr inbounds i8, ptr %opaque, i64 70585
+  %vram_ptr.i37 = getelementptr inbounds nuw i8, ptr %opaque, i64 8
+  %cirrus_shadow_gr1.i39 = getelementptr inbounds nuw i8, ptr %opaque, i64 70585
   br i1 %cmp28, label %if.else76, label %if.then73
 
 if.then73:                                        ; preds = %if.else65
   %cmp2.i = icmp eq i8 %11, 5
-  %cirrus_shadow_gr0.i = getelementptr inbounds i8, ptr %opaque, i64 70584
+  %cirrus_shadow_gr0.i = getelementptr inbounds nuw i8, ptr %opaque, i64 70584
   br i1 %cmp2.i, label %for.body.us.i, label %for.body.i
 
 for.body.us.i:                                    ; preds = %if.then73, %for.body.us.i
@@ -49176,14 +49176,14 @@ if.end4.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %exitcond.not.i, label %cirrus_mem_writeb_mode4and5_8bpp.exit, label %for.body.i, !llvm.loop !911
 
 cirrus_mem_writeb_mode4and5_8bpp.exit:            ; preds = %if.end4.i, %for.body.us.i
-  %vram.i = getelementptr inbounds i8, ptr %opaque, i64 16
+  %vram.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i, i64 noundef %and43, i64 noundef 8) #13
   br label %if.end82
 
 if.else76:                                        ; preds = %if.else65
   %arrayidx.i = getelementptr i8, ptr %opaque, i64 1123
   %cmp5.i = icmp eq i8 %11, 5
-  %cirrus_shadow_gr0.i40 = getelementptr inbounds i8, ptr %opaque, i64 70584
+  %cirrus_shadow_gr0.i40 = getelementptr inbounds nuw i8, ptr %opaque, i64 70584
   %arrayidx9.i = getelementptr i8, ptr %opaque, i64 1122
   br i1 %cmp5.i, label %for.body.us.i54, label %for.body.i41
 
@@ -49242,7 +49242,7 @@ if.end11.i:                                       ; preds = %if.then.i43, %for.b
   br i1 %exitcond.not.i51, label %cirrus_mem_writeb_mode4and5_16bpp.exit, label %for.body.i41, !llvm.loop !912
 
 cirrus_mem_writeb_mode4and5_16bpp.exit:           ; preds = %if.end11.i, %for.body.us.i54
-  %vram.i52 = getelementptr inbounds i8, ptr %opaque, i64 16
+  %vram.i52 = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   tail call void @memory_region_set_dirty(ptr noundef nonnull %vram.i52, i64 noundef %and43, i64 noundef 16) #13
   br label %if.end82
 
@@ -49269,9 +49269,9 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cirrus_linear_bitblt_write(ptr noundef %opaque, i64 %addr, i64 noundef %val, i32 %size) #0 {
 entry:
-  %cirrus_srcptr = getelementptr inbounds i8, ptr %opaque, i64 78896
+  %cirrus_srcptr = getelementptr inbounds nuw i8, ptr %opaque, i64 78896
   %0 = load ptr, ptr %cirrus_srcptr, align 16
-  %cirrus_srcptr_end = getelementptr inbounds i8, ptr %opaque, i64 78904
+  %cirrus_srcptr_end = getelementptr inbounds nuw i8, ptr %opaque, i64 78904
   %1 = load ptr, ptr %cirrus_srcptr_end, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.end7, label %if.then
@@ -49350,26 +49350,26 @@ define internal void @cirrus_vga_class_init(ptr noundef %klass, ptr nocapture re
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #13
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.74, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #13
-  %realize = getelementptr inbounds i8, ptr %call.i10, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i10, i64 176
   store ptr @pci_cirrus_vga_realize, ptr %realize, align 8
-  %romfile = getelementptr inbounds i8, ptr %call.i10, i64 224
+  %romfile = getelementptr inbounds nuw i8, ptr %call.i10, i64 224
   store ptr @.str.70, ptr %romfile, align 8
-  %vendor_id = getelementptr inbounds i8, ptr %call.i10, i64 208
+  %vendor_id = getelementptr inbounds nuw i8, ptr %call.i10, i64 208
   store i16 4115, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds i8, ptr %call.i10, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call.i10, i64 210
   store i16 184, ptr %device_id, align 2
-  %class_id = getelementptr inbounds i8, ptr %call.i10, i64 214
+  %class_id = getelementptr inbounds nuw i8, ptr %call.i10, i64 214
   store i16 768, ptr %class_id, align 2
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 32
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.71, ptr %desc, align 8
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_pci_cirrus_vga, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pci_vga_cirrus_properties) #13
-  %hotpluggable = getelementptr inbounds i8, ptr %call.i, i64 129
+  %hotpluggable = getelementptr inbounds nuw i8, ptr %call.i, i64 129
   store i8 0, ptr %hotpluggable, align 1
   ret void
 }
@@ -49378,12 +49378,12 @@ entry:
 define internal void @pci_cirrus_vga_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.53, i32 noundef 189, ptr noundef nonnull @__func__.PCI_CIRRUS_VGA) #13
-  %cirrus_vga = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %cirrus_vga = getelementptr inbounds nuw i8, ptr %call.i, i64 2608
   %call.i27 = tail call ptr @object_get_class(ptr noundef %dev) #13
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i27, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.74, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #13
-  %device_id2 = getelementptr inbounds i8, ptr %call1.i, i64 210
+  %device_id2 = getelementptr inbounds nuw i8, ptr %call1.i, i64 210
   %0 = load i16, ptr %device_id2, align 2
-  %vram_size_mb = getelementptr inbounds i8, ptr %call.i, i64 2900
+  %vram_size_mb = getelementptr inbounds nuw i8, ptr %call.i, i64 2900
   %1 = load i32, ptr %vram_size_mb, align 4
   switch i32 %1, label %if.then [
     i32 4, label %if.end
@@ -49405,23 +49405,23 @@ if.end15:                                         ; preds = %if.end
   %call17 = tail call ptr @pci_address_space_io(ptr noundef %dev) #13
   tail call void @cirrus_init_common(ptr noundef nonnull %cirrus_vga, ptr noundef %dev, i32 noundef %conv, i32 noundef 1, ptr noundef %call16, ptr noundef %call17)
   %call.i28 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
-  %hw_ops = getelementptr inbounds i8, ptr %call.i, i64 5328
+  %hw_ops = getelementptr inbounds nuw i8, ptr %call.i, i64 5328
   %2 = load ptr, ptr %hw_ops, align 16
   %call21 = tail call ptr @graphic_console_init(ptr noundef %call.i28, i32 noundef 0, ptr noundef %2, ptr noundef nonnull %cirrus_vga) #13
-  %con = getelementptr inbounds i8, ptr %call.i, i64 5232
+  %con = getelementptr inbounds nuw i8, ptr %call.i, i64 5232
   store ptr %call21, ptr %con, align 16
-  %pci_bar = getelementptr inbounds i8, ptr %call.i, i64 71808
+  %pci_bar = getelementptr inbounds nuw i8, ptr %call.i, i64 71808
   tail call void @memory_region_init(ptr noundef nonnull %pci_bar, ptr noundef %dev, ptr noundef nonnull @.str.76, i64 noundef 33554432) #13
-  %cirrus_linear_io = getelementptr inbounds i8, ptr %call.i, i64 70992
+  %cirrus_linear_io = getelementptr inbounds nuw i8, ptr %call.i, i64 70992
   tail call void @memory_region_add_subregion(ptr noundef nonnull %pci_bar, i64 noundef 0, ptr noundef nonnull %cirrus_linear_io) #13
-  %cirrus_linear_bitblt_io = getelementptr inbounds i8, ptr %call.i, i64 71264
+  %cirrus_linear_bitblt_io = getelementptr inbounds nuw i8, ptr %call.i, i64 71264
   tail call void @memory_region_add_subregion(ptr noundef nonnull %pci_bar, i64 noundef 16777216, ptr noundef nonnull %cirrus_linear_bitblt_io) #13
   tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 0, i8 noundef zeroext 8, ptr noundef nonnull %pci_bar) #13
   %cmp28 = icmp eq i16 %0, 184
   br i1 %cmp28, label %if.then30, label %if.end32
 
 if.then30:                                        ; preds = %if.end15
-  %cirrus_mmio_io = getelementptr inbounds i8, ptr %call.i, i64 71536
+  %cirrus_mmio_io = getelementptr inbounds nuw i8, ptr %call.i, i64 71536
   tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %cirrus_mmio_io) #13
   br label %if.end32
 

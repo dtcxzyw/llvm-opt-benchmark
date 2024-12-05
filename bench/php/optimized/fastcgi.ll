@@ -68,7 +68,7 @@ define hidden void @fcgi_terminate() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @fcgi_request_set_keep(ptr nocapture noundef writeonly initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
 }
@@ -102,30 +102,30 @@ define hidden range(i32 0, 2) i32 @fcgi_init() local_unnamed_addr #3 {
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %7 = tail call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #33
   store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 150, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 15, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %11, ptr noundef nonnull align 1 dereferenceable(15) @.str, i64 15, i1 false)
-  %12 = getelementptr inbounds i8, ptr %7, i64 39
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 39
   store i8 0, ptr %12, align 1
   %13 = tail call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #33
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 150, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i8 48, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 25
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 25
   store i8 0, ptr %18, align 1
   store ptr %13, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 262, ptr %19, align 8
   %20 = call ptr @zend_hash_add(ptr noundef nonnull @fcgi_mgmt_vars, ptr noundef nonnull %7, ptr noundef nonnull %3) #32
   %21 = load i32, ptr %8, align 4
@@ -163,9 +163,9 @@ fcgi_set_mgmt_var.exit:                           ; preds = %6, %23, %28
 34:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2)
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = call i32 @sigemptyset(ptr noundef nonnull %35) #32
-  %37 = getelementptr inbounds i8, ptr %1, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 0, ptr %37, align 8
   store ptr @fcgi_signal_handler, ptr %1, align 8
   %38 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %1, ptr noundef null) #32
@@ -215,13 +215,13 @@ define hidden void @fcgi_set_mgmt_var(ptr nocapture noundef readonly %0, i64 nou
   %7 = add i64 %6, 32
   %8 = tail call noalias ptr @__zend_malloc(i64 noundef %7) #33
   store i32 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 150, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 1 %0, i64 %1, i1 false)
   %13 = getelementptr inbounds [1 x i8], ptr %12, i64 0, i64 %1
   store i8 0, ptr %13, align 1
@@ -229,18 +229,18 @@ define hidden void @fcgi_set_mgmt_var(ptr nocapture noundef readonly %0, i64 nou
   %15 = add i64 %14, 32
   %16 = tail call noalias ptr @__zend_malloc(i64 noundef %15) #33
   store i32 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 150, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 1 %2, i64 %3, i1 false)
   %21 = getelementptr inbounds [1 x i8], ptr %20, i64 0, i64 %3
   store i8 0, ptr %21, align 1
   store ptr %16, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 262, ptr %22, align 8
   %23 = call ptr @zend_hash_add(ptr noundef nonnull @fcgi_mgmt_vars, ptr noundef nonnull %8, ptr noundef nonnull %5) #32
   %24 = load i32, ptr %9, align 4
@@ -331,7 +331,7 @@ define hidden range(i32 -1, -2147483648) i32 @fcgi_listen(ptr noundef %0, i32 no
   br i1 %.not, label %17, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %11 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #35
   %sext.mask82 = and i32 %11, 65535
   %.not81 = icmp eq i32 %sext.mask82, 0
@@ -350,7 +350,7 @@ define hidden range(i32 -1, -2147483648) i32 @fcgi_listen(ptr noundef %0, i32 no
   br i1 %.not7.i, label %.loopexit106, label %.lr.ph.i
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds i8, ptr %.08.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %21 = load i8, ptr %20, align 1
   %.not.i = icmp eq i8 %21, 0
   br i1 %.not.i, label %.loopexit106, label %.lr.ph.i
@@ -371,11 +371,11 @@ define hidden range(i32 -1, -2147483648) i32 @fcgi_listen(ptr noundef %0, i32 no
 is_port_number.exit.thread:                       ; preds = %.loopexit106
   store i8 0, ptr %5, align 16
   %.069112 = trunc i32 %24 to i16
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %25, align 4
   store i16 2, ptr %6, align 4
   %26 = tail call zeroext i16 @htons(i16 noundef zeroext %.069112) #34
-  %27 = getelementptr inbounds i8, ptr %6, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %26, ptr %27, align 2
   br label %33
 
@@ -385,11 +385,11 @@ is_port_number.exit:                              ; preds = %12
   store i8 0, ptr %29, align 1
   %.pre = load i8, ptr %5, align 16
   %.069 = trunc i32 %11 to i16
-  %30 = getelementptr inbounds i8, ptr %6, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, i8 0, i64 12, i1 false)
   store i16 2, ptr %6, align 4
   %31 = call zeroext i16 @htons(i16 noundef zeroext %.069) #34
-  %32 = getelementptr inbounds i8, ptr %6, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %31, ptr %32, align 2
   switch i8 %.pre, label %36 [
     i8 42, label %33
@@ -398,12 +398,12 @@ is_port_number.exit:                              ; preds = %12
 
 33:                                               ; preds = %is_port_number.exit.thread, %is_port_number.exit, %is_port_number.exit
   %34 = call i32 @htonl(i32 noundef 0) #34
-  %35 = getelementptr inbounds i8, ptr %6, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %34, ptr %35, align 4
   br label %66
 
 36:                                               ; preds = %is_port_number.exit
-  %37 = getelementptr inbounds i8, ptr %6, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %38 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %37) #32
   %.not86 = icmp eq i32 %38, 0
   br i1 %.not86, label %39, label %66
@@ -419,13 +419,13 @@ is_port_number.exit:                              ; preds = %12
   br i1 %.not87, label %.thread, label %44
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %46 = load i32, ptr %45, align 8
   %.not88 = icmp eq i32 %46, 2
   br i1 %.not88, label %47, label %.thread
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %43, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %49, align 8
   %.not89 = icmp eq ptr %50, null
@@ -436,7 +436,7 @@ is_port_number.exit:                              ; preds = %12
   br label %144
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not90 = icmp eq ptr %53, null
   br i1 %.not90, label %55, label %54
@@ -462,7 +462,7 @@ is_port_number.exit:                              ; preds = %12
 60:                                               ; preds = %.loopexit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(110) %6, i8 0, i64 110, i1 false)
   store i16 1, ptr %6, align 4
-  %61 = getelementptr inbounds i8, ptr %6, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %62 = add nuw nsw i64 %57, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %61, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %62, i1 false)
   %63 = trunc nuw i64 %57 to i32
@@ -533,7 +533,7 @@ is_port_number.exit:                              ; preds = %12
 
 96:                                               ; preds = %92, %94
   %.1 = phi i32 [ %95, %94 ], [ %.0, %92 ]
-  %97 = getelementptr inbounds i8, ptr %.063, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.063, i64 1
   br label %92
 
 98:                                               ; preds = %92
@@ -554,7 +554,7 @@ is_port_number.exit:                              ; preds = %12
 
 104:                                              ; preds = %.lr.ph
   store i8 0, ptr %103, align 1
-  %105 = getelementptr inbounds i8, ptr %103, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 1
   br label %106
 
 106:                                              ; preds = %104, %.lr.ph
@@ -625,9 +625,9 @@ is_port_number.exit:                              ; preds = %12
   store i1 true, ptr @is_fastcgi, align 4
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4)
-  %134 = getelementptr inbounds i8, ptr %3, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %135 = call i32 @sigemptyset(ptr noundef nonnull %134) #32
-  %136 = getelementptr inbounds i8, ptr %3, i64 136
+  %136 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 0, ptr %136, align 8
   store ptr @fcgi_signal_handler, ptr %3, align 8
   %137 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %3, ptr noundef null) #32
@@ -736,7 +736,7 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly %0) local_unna
 
 8:                                                ; preds = %4, %6
   %.1 = phi i32 [ %7, %6 ], [ %.0, %4 ]
-  %9 = getelementptr inbounds i8, ptr %.027, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.027, i64 1
   br label %4
 
 10:                                               ; preds = %4
@@ -766,7 +766,7 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly %0) local_unna
 
 19:                                               ; preds = %.lr.ph
   store i8 0, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %18, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 1
   br label %21
 
 21:                                               ; preds = %19, %.lr.ph
@@ -833,40 +833,40 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly %0) local_unna
 define hidden noundef ptr @fcgi_init_request(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #18 {
   %5 = tail call noalias dereferenceable_or_null(9344) ptr @calloc(i64 noundef 1, i64 noundef 9344) #36
   store i32 %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 -1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 -1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 56
-  %9 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %8, ptr %9, align 8
   %.not = icmp eq ptr %1, null
   %10 = select i1 %.not, ptr @fcgi_hook_dummy, ptr %1
-  %11 = getelementptr inbounds i8, ptr %5, i64 8264
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8264
   store ptr %10, ptr %11, align 8
   %.not16 = icmp eq ptr %2, null
   %12 = select i1 %.not16, ptr @fcgi_hook_dummy, ptr %2
-  %13 = getelementptr inbounds i8, ptr %5, i64 8272
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8272
   store ptr %12, ptr %13, align 8
   %.not17 = icmp eq ptr %3, null
   %14 = select i1 %.not17, ptr @fcgi_hook_dummy, ptr %3
-  %15 = getelementptr inbounds i8, ptr %5, i64 8280
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8280
   store ptr %14, ptr %15, align 8
   %16 = tail call noalias dereferenceable_or_null(6160) ptr @malloc(i64 noundef 6160) #33
-  %17 = getelementptr inbounds i8, ptr %5, i64 9328
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 9328
   store ptr %16, ptr %17, align 8
   store i32 0, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %18, align 8
   %19 = tail call noalias dereferenceable_or_null(4127) ptr @malloc(i64 noundef 4127) #33
-  %20 = getelementptr inbounds i8, ptr %5, i64 9336
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 9336
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 4120
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4120
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr null, ptr %24, align 8
   ret ptr %5
 }
@@ -881,28 +881,28 @@ define internal void @fcgi_hook_dummy() #20 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @fcgi_destroy_request(ptr nocapture noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 9328
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 9328
   %3 = load ptr, ptr %2, align 8
   %.not12.i = icmp eq ptr %3, null
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.013.i = phi ptr [ %5, %.lr.ph.i ], [ %3, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef nonnull %.013.i) #32
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 9336
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 9336
   %7 = load ptr, ptr %6, align 8
   %.not1114.i = icmp eq ptr %7, null
   br i1 %.not1114.i, label %fcgi_hash_destroy.exit, label %.lr.ph17.i
 
 .lr.ph17.i:                                       ; preds = %._crit_edge.i, %.lr.ph17.i
   %.01015.i = phi ptr [ %9, %.lr.ph17.i ], [ %7, %._crit_edge.i ]
-  %8 = getelementptr inbounds i8, ptr %.01015.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef nonnull %.01015.i) #32
   %.not11.i = icmp eq ptr %9, null
@@ -921,13 +921,13 @@ define hidden i32 @fcgi_read(ptr nocapture noundef %0, ptr nocapture noundef %1,
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 1
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 5
-  %12 = getelementptr inbounds i8, ptr %4, i64 6
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %126
@@ -1115,7 +1115,7 @@ safe_read.exit62:                                 ; preds = %72, %66, %91, %85, 
   %97 = sub nsw i32 %.089, %.047
   %98 = add nuw nsw i32 %.04688, %.047
   %99 = and i64 %.047.in, 2147483647
-  %100 = getelementptr inbounds i8, ptr %.04986, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %.04986, i64 %99
   %101 = icmp eq i32 %95, %.047
   br i1 %101, label %102, label %.loopexit
 
@@ -1181,7 +1181,7 @@ safe_read.exit78:                                 ; preds = %117, %123, %121
 
 .loopexit.sink.split:                             ; preds = %safe_read.exit78, %safe_read.exit62, %safe_read.exit
   %.048.ph = phi i32 [ 0, %safe_read.exit ], [ %.047, %safe_read.exit62 ], [ %.047, %safe_read.exit78 ]
-  %128 = getelementptr inbounds i8, ptr %0, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %128, align 8
   br label %.loopexit
 
@@ -1197,17 +1197,17 @@ define hidden void @fcgi_close(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   br i1 %.not, label %29, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8288
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8288
   %7 = load i32, ptr %6, align 8
   %.not13 = icmp eq i32 %7, 0
   br i1 %.not13, label %29, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8296
-  %10 = getelementptr inbounds i8, ptr %0, i64 9328
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8296
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 9328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %9, i8 0, i64 1032, i1 false)
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not18.i = icmp eq ptr %13, null
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1218,7 +1218,7 @@ define hidden void @fcgi_close(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   store ptr %14, ptr %10, align 8
   tail call void @free(ptr noundef nonnull %15) #32
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1226,9 +1226,9 @@ define hidden void @fcgi_close(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %8
   %.lcssa17.i = phi ptr [ %11, %8 ], [ %16, %.lr.ph.i ]
   store i32 0, ptr %.lcssa17.i, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 9336
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 9336
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not1619.i = icmp eq ptr %22, null
   br i1 %.not1619.i, label %fcgi_hash_clean.exit, label %.lr.ph21.i
@@ -1239,14 +1239,14 @@ define hidden void @fcgi_close(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   store ptr %23, ptr %19, align 8
   tail call void @free(ptr noundef nonnull %24) #32
   %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not16.i = icmp eq ptr %27, null
   br i1 %.not16.i, label %fcgi_hash_clean.exit, label %.lr.ph21.i
 
 fcgi_hash_clean.exit:                             ; preds = %.lr.ph21.i, %._crit_edge.i
   %.lcssa.i = phi ptr [ %20, %._crit_edge.i ], [ %25, %.lr.ph21.i ]
-  %28 = getelementptr inbounds i8, ptr %.lcssa.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 24
   store ptr %28, ptr %.lcssa.i, align 8
   store i32 0, ptr %6, align 8
   br label %29
@@ -1256,19 +1256,19 @@ fcgi_hash_clean.exit:                             ; preds = %.lr.ph21.i, %._crit
   br i1 %.not14, label %30, label %.thread
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %31, align 8
   %.not15 = icmp eq i32 %32, 0
   br i1 %.not15, label %33, label %52
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %40, label %52
 
 .thread:                                          ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %.thread16, label %52
@@ -1291,10 +1291,10 @@ fcgi_hash_clean.exit:                             ; preds = %.lr.ph21.i, %._crit
   %46 = phi i32 [ %38, %.thread ], [ %.pre, %.thread16.loopexit ]
   %47 = phi ptr [ %37, %.thread ], [ %34, %.thread16.loopexit ]
   %48 = call i32 @close(i32 noundef %46) #32
-  %49 = getelementptr inbounds i8, ptr %0, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %49, align 4
   store i32 -1, ptr %47, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 8280
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8280
   %51 = load ptr, ptr %50, align 8
   call void %51() #32
   br label %52
@@ -1310,7 +1310,7 @@ declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unna
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @fcgi_is_closed(ptr nocapture noundef readonly %0) local_unnamed_addr #22 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.lobit = lshr i32 %3, 31
   ret i32 %.lobit
@@ -1324,40 +1324,40 @@ define hidden i32 @fcgi_accept_request(ptr noundef %0) local_unnamed_addr #3 {
   %5 = alloca %union._sa_t, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.pollfd, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8264
-  %10 = getelementptr inbounds i8, ptr %7, i64 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 6
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
-  %13 = getelementptr inbounds i8, ptr %0, i64 8280
-  %14 = getelementptr inbounds i8, ptr %0, i64 8272
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
-  %21 = getelementptr inbounds i8, ptr %0, i64 8288
-  %22 = getelementptr inbounds i8, ptr %0, i64 8296
-  %23 = getelementptr inbounds i8, ptr %0, i64 9328
-  %24 = getelementptr inbounds i8, ptr %0, i64 9336
-  %25 = getelementptr inbounds i8, ptr %2, i64 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 5
-  %27 = getelementptr inbounds i8, ptr %2, i64 6
-  %28 = getelementptr inbounds i8, ptr %2, i64 1
-  %29 = getelementptr inbounds i8, ptr %2, i64 2
-  %30 = getelementptr inbounds i8, ptr %2, i64 3
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
-  %.ptr222.i = getelementptr inbounds i8, ptr %3, i64 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 9320
-  %33 = getelementptr inbounds i8, ptr %3, i64 5
-  %34 = getelementptr inbounds i8, ptr %3, i64 4
-  %35 = getelementptr inbounds i8, ptr %3, i64 6
-  %36 = getelementptr inbounds i8, ptr %3, i64 3
-  %37 = getelementptr inbounds i8, ptr %3, i64 2
-  %38 = getelementptr inbounds i8, ptr %3, i64 7
-  %39 = getelementptr inbounds i8, ptr %3, i64 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8264
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8280
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8272
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8288
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8296
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 9328
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 9336
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 5
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.ptr222.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 9320
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 7
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %fcgi_close.exit51
 
 fcgi_close.exit51:                                ; preds = %fcgi_close.exit51.backedge, %1
@@ -1398,7 +1398,7 @@ fcgi_close.exit51:                                ; preds = %fcgi_close.exit51.b
 
 .preheader27.i:                                   ; preds = %53, %58
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %58 ], [ 0, %53 ]
-  %54 = getelementptr inbounds %union._sa_t, ptr %52, i64 %indvars.iv37.i
+  %54 = getelementptr inbounds nuw %union._sa_t, ptr %52, i64 %indvars.iv37.i
   %55 = load i16, ptr %54, align 4
   switch i16 %55, label %58 [
     i16 0, label %fcgi_is_allowed.exit
@@ -1406,7 +1406,7 @@ fcgi_close.exit51:                                ; preds = %fcgi_close.exit51.b
   ]
 
 56:                                               ; preds = %.preheader27.i
-  %57 = getelementptr inbounds i8, ptr %54, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %bcmp23.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) getelementptr inbounds (i8, ptr @client_sa, i64 4), ptr noundef nonnull dereferenceable(4) %57, i64 4)
   %.not24.i = icmp eq i32 %bcmp23.i, 0
   br i1 %.not24.i, label %.thread56, label %58
@@ -1427,7 +1427,7 @@ fcgi_close.exit51:                                ; preds = %fcgi_close.exit51.b
 
 .preheader.split.us.i:                            ; preds = %.preheader.i, %.critedge.us.i
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %.critedge.us.i ], [ 0, %.preheader.i ]
-  %64 = getelementptr inbounds %union._sa_t, ptr %52, i64 %indvars.iv34.i
+  %64 = getelementptr inbounds nuw %union._sa_t, ptr %52, i64 %indvars.iv34.i
   %65 = load i16, ptr %64, align 4
   switch i16 %65, label %.critedge.us.i [
     i16 0, label %fcgi_is_allowed.exit
@@ -1441,13 +1441,13 @@ fcgi_close.exit51:                                ; preds = %fcgi_close.exit51.b
   br i1 %68, label %69, label %.critedge.us.i
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds %union._sa_t, ptr %52, i64 %indvars.iv34.i, i32 0, i32 2
+  %70 = getelementptr inbounds nuw %union._sa_t, ptr %52, i64 %indvars.iv34.i, i32 0, i32 2
   %bcmp21.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) getelementptr inbounds (i8, ptr @client_sa, i64 20), ptr noundef nonnull dereferenceable(4) %70, i64 4)
   %.not22.us.i = icmp eq i32 %bcmp21.us.i, 0
   br i1 %.not22.us.i, label %.thread56, label %.critedge.us.i
 
 71:                                               ; preds = %.preheader.split.us.i
-  %72 = getelementptr inbounds i8, ptr %64, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %bcmp.us.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) getelementptr inbounds (i8, ptr @client_sa, i64 8), ptr noundef nonnull dereferenceable(12) %72, i64 12)
   %.not20.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %.not20.us.i, label %.thread56, label %.critedge.us.i
@@ -1458,7 +1458,7 @@ fcgi_close.exit51:                                ; preds = %fcgi_close.exit51.b
 
 .preheader.split.i:                               ; preds = %.preheader.i, %.critedge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge.i ], [ 0, %.preheader.i ]
-  %73 = getelementptr inbounds %union._sa_t, ptr %52, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw %union._sa_t, ptr %52, i64 %indvars.iv.i
   %74 = load i16, ptr %73, align 4
   switch i16 %74, label %.critedge.i [
     i16 0, label %fcgi_is_allowed.exit
@@ -1466,7 +1466,7 @@ fcgi_close.exit51:                                ; preds = %fcgi_close.exit51.b
   ]
 
 75:                                               ; preds = %.preheader.split.i
-  %76 = getelementptr inbounds i8, ptr %73, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) getelementptr inbounds (i8, ptr @client_sa, i64 8), ptr noundef nonnull dereferenceable(12) %76, i64 12)
   %.not20.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not20.i, label %.thread56, label %.critedge.i
@@ -1620,7 +1620,7 @@ fcgi_get_last_client_ip.exit:                     ; preds = %53, %fcgi_is_allowe
 129:                                              ; preds = %.loopexit76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %22, i8 0, i64 1032, i1 false)
   %130 = load ptr, ptr %23, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
   %.not18.i.i = icmp eq ptr %132, null
   br i1 %.not18.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -1631,7 +1631,7 @@ fcgi_get_last_client_ip.exit:                     ; preds = %53, %fcgi_is_allowe
   store ptr %133, ptr %23, align 8
   call void @free(ptr noundef nonnull %134) #32
   %135 = load ptr, ptr %23, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8
   %.not.i.i = icmp eq ptr %137, null
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -1640,7 +1640,7 @@ fcgi_get_last_client_ip.exit:                     ; preds = %53, %fcgi_is_allowe
   %.lcssa17.i.i = phi ptr [ %130, %129 ], [ %135, %.lr.ph.i.i ]
   store i32 0, ptr %.lcssa17.i.i, align 8
   %138 = load ptr, ptr %24, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load ptr, ptr %139, align 8
   %.not1619.i.i = icmp eq ptr %140, null
   br i1 %.not1619.i.i, label %fcgi_hash_clean.exit.i, label %.lr.ph21.i.i
@@ -1651,14 +1651,14 @@ fcgi_get_last_client_ip.exit:                     ; preds = %53, %fcgi_is_allowe
   store ptr %141, ptr %24, align 8
   call void @free(ptr noundef nonnull %142) #32
   %143 = load ptr, ptr %24, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = load ptr, ptr %144, align 8
   %.not16.i.i = icmp eq ptr %145, null
   br i1 %.not16.i.i, label %fcgi_hash_clean.exit.i, label %.lr.ph21.i.i
 
 fcgi_hash_clean.exit.i:                           ; preds = %.lr.ph21.i.i, %._crit_edge.i.i
   %.lcssa.i.i = phi ptr [ %138, %._crit_edge.i.i ], [ %143, %.lr.ph21.i.i ]
-  %146 = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 24
   store ptr %146, ptr %.lcssa.i.i, align 8
   br label %148
 
@@ -2042,7 +2042,7 @@ safe_read.exit181.i:                              ; preds = %309, %313
 
 safe_read.exit181.thread.i:                       ; preds = %315, %safe_read.exit181.i
   %316 = zext nneg i32 %.1289.i to i64
-  %317 = getelementptr inbounds i8, ptr %3, i64 %316
+  %317 = getelementptr inbounds nuw i8, ptr %3, i64 %316
   %318 = call fastcc i32 @fcgi_get_params(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %317)
   %.not149.i = icmp eq i32 %318, 0
   br i1 %.not149.i, label %safe_read.exit.thread.sink.split.i, label %.preheader.i39
@@ -2160,7 +2160,7 @@ safe_read.exit197.i:                              ; preds = %363, %367
   br i1 %.not139.i, label %safe_read.exit197.thread.i, label %safe_read.exit.thread.sink.split.i
 
 safe_read.exit197.thread.i:                       ; preds = %369, %safe_read.exit197.i
-  %370 = getelementptr inbounds i8, ptr %3, i64 %221
+  %370 = getelementptr inbounds nuw i8, ptr %3, i64 %221
   %371 = call fastcc i32 @fcgi_get_params(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %370)
   %.not140.i = icmp eq i32 %371, 0
   br i1 %.not140.i, label %safe_read.exit.thread.sink.split.i, label %372
@@ -2177,9 +2177,9 @@ safe_read.exit197.thread.i:                       ; preds = %369, %safe_read.exi
 
 373:                                              ; preds = %381, %.lr.ph.i
   %.0280.i = phi ptr [ %.0278286.i, %.lr.ph.i ], [ %.0.i38, %381 ]
-  %374 = getelementptr inbounds i8, ptr %.0280.i, i64 8
+  %374 = getelementptr inbounds nuw i8, ptr %.0280.i, i64 8
   %375 = load ptr, ptr %374, align 8
-  %376 = getelementptr inbounds i8, ptr %.0280.i, i64 4
+  %376 = getelementptr inbounds nuw i8, ptr %.0280.i, i64 4
   %377 = load i32, ptr %376, align 4
   %378 = zext i32 %377 to i64
   %379 = call ptr @zend_hash_str_find(ptr noundef nonnull @fcgi_mgmt_vars, ptr noundef %375, i64 noundef %378) #32
@@ -2187,24 +2187,24 @@ safe_read.exit197.thread.i:                       ; preds = %369, %safe_read.exi
   br i1 %380, label %381, label %383
 
 381:                                              ; preds = %373
-  %382 = getelementptr inbounds i8, ptr %.0280.i, i64 40
+  %382 = getelementptr inbounds nuw i8, ptr %.0280.i, i64 40
   %.0.i38 = load ptr, ptr %382, align 8
   %.not141.i = icmp eq ptr %.0.i38, null
   br i1 %.not141.i, label %.loopexit.i, label %373
 
 383:                                              ; preds = %373
-  %384 = getelementptr inbounds i8, ptr %.0280.i, i64 8
-  %385 = getelementptr inbounds i8, ptr %.0280.i, i64 4
-  %.0128.ptr.le.i = getelementptr inbounds i8, ptr %3, i64 %.0128.idx.ph285.i
+  %384 = getelementptr inbounds nuw i8, ptr %.0280.i, i64 8
+  %385 = getelementptr inbounds nuw i8, ptr %.0280.i, i64 4
+  %.0128.ptr.le.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0128.idx.ph285.i
   %386 = load ptr, ptr %379, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 16
   %388 = load i64, ptr %387, align 8
-  %.0128.add.i = add nsw i64 %.0128.idx.ph285.i, 8
+  %.0128.add.i = add nuw nsw i64 %.0128.idx.ph285.i, 8
   %389 = load i32, ptr %385, align 4
   %390 = zext i32 %389 to i64
   %391 = and i64 %388, 4294967295
-  %.add.i = add i64 %.0128.add.i, %391
-  %.add213.i = add i64 %.add.i, %390
+  %.add.i = add nuw nsw i64 %.0128.add.i, %391
+  %.add213.i = add nuw nsw i64 %.add.i, %390
   %.not142.i = icmp slt i64 %.add213.i, 65543
   br i1 %.not142.i, label %392, label %.loopexit.i
 
@@ -2214,7 +2214,7 @@ safe_read.exit197.thread.i:                       ; preds = %369, %safe_read.exi
 
 394:                                              ; preds = %392
   %395 = trunc nuw nsw i32 %389 to i8
-  %.0128.add217.i = add nsw i64 %.0128.idx.ph285.i, 1
+  %.0128.add217.i = add nuw nsw i64 %.0128.idx.ph285.i, 1
   store i8 %395, ptr %.0128.ptr.le.i, align 1
   br label %411
 
@@ -2222,51 +2222,51 @@ safe_read.exit197.thread.i:                       ; preds = %369, %safe_read.exi
   %397 = lshr i32 %389, 24
   %398 = trunc nuw i32 %397 to i8
   %399 = or i8 %398, -128
-  %400 = getelementptr inbounds i8, ptr %.0128.ptr.le.i, i64 1
+  %400 = getelementptr inbounds nuw i8, ptr %.0128.ptr.le.i, i64 1
   store i8 %399, ptr %.0128.ptr.le.i, align 1
   %401 = load i32, ptr %385, align 4
   %402 = lshr i32 %401, 16
   %403 = trunc i32 %402 to i8
-  %404 = getelementptr inbounds i8, ptr %.0128.ptr.le.i, i64 2
+  %404 = getelementptr inbounds nuw i8, ptr %.0128.ptr.le.i, i64 2
   store i8 %403, ptr %400, align 1
   %405 = load i32, ptr %385, align 4
   %406 = lshr i32 %405, 8
   %407 = trunc i32 %406 to i8
-  %408 = getelementptr inbounds i8, ptr %.0128.ptr.le.i, i64 3
+  %408 = getelementptr inbounds nuw i8, ptr %.0128.ptr.le.i, i64 3
   store i8 %407, ptr %404, align 1
   %409 = load i32, ptr %385, align 4
   %410 = trunc i32 %409 to i8
-  %.0128.add216.i = add nsw i64 %.0128.idx.ph285.i, 4
+  %.0128.add216.i = add nuw nsw i64 %.0128.idx.ph285.i, 4
   store i8 %410, ptr %408, align 1
   br label %411
 
 411:                                              ; preds = %396, %394
   %.1129.idx.i = phi i64 [ %.0128.add217.i, %394 ], [ %.0128.add216.i, %396 ]
-  %.1129.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.1129.idx.i
+  %.1129.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %.1129.idx.i
   %412 = and i64 %388, 4294967168
   %413 = icmp eq i64 %412, 0
   br i1 %413, label %414, label %416
 
 414:                                              ; preds = %411
   %415 = trunc i64 %388 to i8
-  %.1129.add215.i = add nsw i64 %.1129.idx.i, 1
+  %.1129.add215.i = add nuw nsw i64 %.1129.idx.i, 1
   br label %.outer.i
 
 416:                                              ; preds = %411
   %417 = lshr i64 %388, 24
   %418 = trunc i64 %417 to i8
   %419 = or i8 %418, -128
-  %420 = getelementptr inbounds i8, ptr %.1129.ptr.i, i64 1
+  %420 = getelementptr inbounds nuw i8, ptr %.1129.ptr.i, i64 1
   %421 = lshr i64 %388, 16
   %422 = trunc i64 %421 to i8
-  %423 = getelementptr inbounds i8, ptr %.1129.ptr.i, i64 2
+  %423 = getelementptr inbounds nuw i8, ptr %.1129.ptr.i, i64 2
   store i8 %422, ptr %420, align 1
   %424 = lshr i64 %388, 8
   %425 = trunc i64 %424 to i8
-  %426 = getelementptr inbounds i8, ptr %.1129.ptr.i, i64 3
+  %426 = getelementptr inbounds nuw i8, ptr %.1129.ptr.i, i64 3
   store i8 %425, ptr %423, align 1
   %427 = trunc i64 %388 to i8
-  %.1129.add.i = add nsw i64 %.1129.idx.i, 4
+  %.1129.add.i = add nuw nsw i64 %.1129.idx.i, 4
   store i8 %427, ptr %426, align 1
   br label %.outer.i
 
@@ -2274,18 +2274,18 @@ safe_read.exit197.thread.i:                       ; preds = %369, %safe_read.exi
   %.sink.i = phi i8 [ %415, %414 ], [ %419, %416 ]
   %.2.idx.i = phi i64 [ %.1129.add215.i, %414 ], [ %.1129.add.i, %416 ]
   store i8 %.sink.i, ptr %.1129.ptr.i, align 1
-  %.2.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.2.idx.i
+  %.2.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %.2.idx.i
   %428 = load ptr, ptr %384, align 8
   %429 = load i32, ptr %385, align 4
   %430 = zext i32 %429 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.2.ptr.i, ptr noundef align 1 %428, i64 noundef %430, i1 false) #32
-  %.2.add.i = add nsw i64 %.2.idx.i, %430
-  %.ptr220.i = getelementptr inbounds i8, ptr %3, i64 %.2.add.i
+  %.2.add.i = add nuw nsw i64 %.2.idx.i, %430
+  %.ptr220.i = getelementptr inbounds nuw i8, ptr %3, i64 %.2.add.i
   %431 = load ptr, ptr %379, align 8
-  %432 = getelementptr inbounds i8, ptr %431, i64 24
+  %432 = getelementptr inbounds nuw i8, ptr %431, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.ptr220.i, ptr noundef nonnull align 1 %432, i64 noundef %391, i1 false) #32
-  %.add214.i = add nsw i64 %.2.add.i, %391
-  %433 = getelementptr inbounds i8, ptr %.0280.i, i64 40
+  %.add214.i = add nuw nsw i64 %.2.add.i, %391
+  %433 = getelementptr inbounds nuw i8, ptr %.0280.i, i64 40
   %.0278.i = load ptr, ptr %433, align 8
   %.not141279.i = icmp eq ptr %.0278.i, null
   br i1 %.not141279.i, label %.loopexit.i, label %.lr.ph.i
@@ -2386,7 +2386,7 @@ fcgi_read_request.exit.thread61:                  ; preds = %461, %safe_write.ex
 465:                                              ; preds = %.loopexit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %22, i8 0, i64 1032, i1 false)
   %466 = load ptr, ptr %23, align 8
-  %467 = getelementptr inbounds i8, ptr %466, i64 8
+  %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
   %468 = load ptr, ptr %467, align 8
   %.not18.i.i40 = icmp eq ptr %468, null
   br i1 %.not18.i.i40, label %._crit_edge.i.i43, label %.lr.ph.i.i41
@@ -2397,7 +2397,7 @@ fcgi_read_request.exit.thread61:                  ; preds = %461, %safe_write.ex
   store ptr %469, ptr %23, align 8
   call void @free(ptr noundef nonnull %470) #32
   %471 = load ptr, ptr %23, align 8
-  %472 = getelementptr inbounds i8, ptr %471, i64 8
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 8
   %473 = load ptr, ptr %472, align 8
   %.not.i.i42 = icmp eq ptr %473, null
   br i1 %.not.i.i42, label %._crit_edge.i.i43, label %.lr.ph.i.i41
@@ -2406,7 +2406,7 @@ fcgi_read_request.exit.thread61:                  ; preds = %461, %safe_write.ex
   %.lcssa17.i.i44 = phi ptr [ %466, %465 ], [ %471, %.lr.ph.i.i41 ]
   store i32 0, ptr %.lcssa17.i.i44, align 8
   %474 = load ptr, ptr %24, align 8
-  %475 = getelementptr inbounds i8, ptr %474, i64 16
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 16
   %476 = load ptr, ptr %475, align 8
   %.not1619.i.i45 = icmp eq ptr %476, null
   br i1 %.not1619.i.i45, label %fcgi_hash_clean.exit.i48, label %.lr.ph21.i.i46
@@ -2417,14 +2417,14 @@ fcgi_read_request.exit.thread61:                  ; preds = %461, %safe_write.ex
   store ptr %477, ptr %24, align 8
   call void @free(ptr noundef nonnull %478) #32
   %479 = load ptr, ptr %24, align 8
-  %480 = getelementptr inbounds i8, ptr %479, i64 16
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 16
   %481 = load ptr, ptr %480, align 8
   %.not16.i.i47 = icmp eq ptr %481, null
   br i1 %.not16.i.i47, label %fcgi_hash_clean.exit.i48, label %.lr.ph21.i.i46
 
 fcgi_hash_clean.exit.i48:                         ; preds = %.lr.ph21.i.i46, %._crit_edge.i.i43
   %.lcssa.i.i49 = phi ptr [ %474, %._crit_edge.i.i43 ], [ %479, %.lr.ph21.i.i46 ]
-  %482 = getelementptr inbounds i8, ptr %.lcssa.i.i49, i64 24
+  %482 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i49, i64 24
   store ptr %482, ptr %.lcssa.i.i49, align 8
   store i32 0, ptr %21, align 8
   br label %483
@@ -2497,42 +2497,42 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden range(i32 0, 2) i32 @fcgi_flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #21 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not.i, label %close_packet.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = ptrtoint ptr %.pre to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = trunc i64 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %10, 7
   %14 = and i32 %13, -8
   %15 = sub nsw i32 %14, %10
   %16 = trunc i64 %9 to i8
-  %17 = getelementptr inbounds i8, ptr %4, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 %16, ptr %17, align 1
   %18 = lshr i64 %9, 8
   %19 = trunc i64 %18 to i8
-  %20 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %19, ptr %20, align 1
   %21 = trunc i32 %15 to i8
-  %22 = getelementptr inbounds i8, ptr %4, i64 6
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 %21, ptr %22, align 1
   %23 = trunc i32 %12 to i8
-  %24 = getelementptr inbounds i8, ptr %4, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %23, ptr %24, align 1
   %25 = lshr i32 %12, 8
   %26 = trunc i32 %25 to i8
-  %27 = getelementptr inbounds i8, ptr %4, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %26, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %4, i64 7
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 0, ptr %28, align 1
   store i8 1, ptr %4, align 1
   %.not.i.i = icmp eq i32 %14, %10
@@ -2556,7 +2556,7 @@ fcgi_make_header.exit.i:                          ; preds = %29, %5
 
 close_packet.exit:                                ; preds = %2, %fcgi_make_header.exit.i
   %35 = phi ptr [ %34, %fcgi_make_header.exit.i ], [ %.pre, %2 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %37 = ptrtoint ptr %35 to i64
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
@@ -2564,27 +2564,27 @@ close_packet.exit:                                ; preds = %2, %fcgi_make_heade
   br i1 %.not, label %55, label %40
 
 40:                                               ; preds = %close_packet.exit
-  %41 = getelementptr inbounds i8, ptr %0, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %35, i64 5
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 5
   store i8 8, ptr %43, align 1
-  %44 = getelementptr inbounds i8, ptr %35, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i8 0, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %35, i64 6
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i8 0, ptr %45, align 1
   %46 = trunc i32 %42 to i8
-  %47 = getelementptr inbounds i8, ptr %35, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %35, i64 3
   store i8 %46, ptr %47, align 1
   %48 = lshr i32 %42, 8
   %49 = trunc i32 %48 to i8
-  %50 = getelementptr inbounds i8, ptr %35, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %35, i64 2
   store i8 %49, ptr %50, align 1
-  %51 = getelementptr inbounds i8, ptr %35, i64 7
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 7
   store i8 0, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %35, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 3, ptr %52, align 1
   store i8 1, ptr %35, align 1
-  %53 = getelementptr inbounds i8, ptr %35, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %54 = add i64 %39, 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %53, i8 0, i64 5, i1 false)
   br label %55
@@ -2594,7 +2594,7 @@ close_packet.exit:                                ; preds = %2, %fcgi_make_heade
   %sext = shl i64 %.022, 32
   %56 = ashr exact i64 %sext, 32
   %57 = tail call ptr @__errno_location() #34
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %59
 
 59:                                               ; preds = %71, %55
@@ -2631,13 +2631,13 @@ safe_write.exit:                                  ; preds = %69
   br i1 %.not23, label %safe_write.exit.thread, label %72
 
 72:                                               ; preds = %safe_write.exit
-  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %73, align 8
   br label %safe_write.exit.thread
 
 safe_write.exit.thread:                           ; preds = %71, %safe_write.exit, %72
   %.0 = phi i32 [ 0, %72 ], [ 1, %safe_write.exit ], [ 1, %71 ]
-  %74 = getelementptr inbounds i8, ptr %0, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %36, ptr %74, align 8
   ret i32 %.0
 }
@@ -2648,49 +2648,49 @@ define hidden range(i32 -1, -2147483648) i32 @fcgi_write(ptr noundef %0, i32 nou
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %45, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %.not109 = icmp eq i32 %1, %12
   br i1 %.not109, label %45, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = trunc i64 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %20, 7
   %24 = and i32 %23, -8
   %25 = sub nsw i32 %24, %20
   %26 = trunc i64 %19 to i8
-  %27 = getelementptr inbounds i8, ptr %8, i64 5
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 5
   store i8 %26, ptr %27, align 1
   %28 = lshr i64 %19, 8
   %29 = trunc i64 %28 to i8
-  %30 = getelementptr inbounds i8, ptr %8, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i8 %29, ptr %30, align 1
   %31 = trunc i32 %25 to i8
-  %32 = getelementptr inbounds i8, ptr %8, i64 6
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 6
   store i8 %31, ptr %32, align 1
   %33 = trunc i32 %22 to i8
-  %34 = getelementptr inbounds i8, ptr %8, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 3
   store i8 %33, ptr %34, align 1
   %35 = lshr i32 %22, 8
   %36 = trunc i32 %35 to i8
-  %37 = getelementptr inbounds i8, ptr %8, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 %36, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %8, i64 7
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 7
   store i8 0, ptr %38, align 1
   store i8 1, ptr %8, align 1
   %.not.i.i = icmp eq i32 %24, %20
@@ -2714,9 +2714,9 @@ close_packet.exit:                                ; preds = %13, %39
 
 45:                                               ; preds = %close_packet.exit, %9, %6
   %46 = phi ptr [ null, %close_packet.exit ], [ %8, %9 ], [ null, %6 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %49 to i64
   %.neg = sub i64 %51, %50
@@ -2735,10 +2735,10 @@ close_packet.exit:                                ; preds = %13, %39
 57:                                               ; preds = %56
   store ptr %48, ptr %7, align 8
   %58 = trunc i32 %1 to i8
-  %59 = getelementptr inbounds i8, ptr %48, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 1
   store i8 %58, ptr %59, align 1
   %60 = load ptr, ptr %47, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %61, ptr %47, align 8
   br label %62
 
@@ -2746,7 +2746,7 @@ close_packet.exit:                                ; preds = %13, %39
   %63 = phi ptr [ %61, %57 ], [ %48, %56 ]
   %64 = zext nneg i32 %3 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %63, ptr noundef align 1 %2, i64 noundef %64, i1 false) #32
-  %65 = getelementptr inbounds i8, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 %64
   store ptr %65, ptr %47, align 8
   br label %.loopexit
 
@@ -2765,10 +2765,10 @@ close_packet.exit:                                ; preds = %13, %39
 72:                                               ; preds = %71
   store ptr %48, ptr %7, align 8
   %73 = trunc i32 %1 to i8
-  %74 = getelementptr inbounds i8, ptr %48, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %48, i64 1
   store i8 %73, ptr %74, align 1
   %75 = load ptr, ptr %47, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %76, ptr %47, align 8
   br label %77
 
@@ -2776,7 +2776,7 @@ close_packet.exit:                                ; preds = %13, %39
   %78 = phi ptr [ %76, %72 ], [ %48, %71 ]
   %79 = zext nneg i32 %.0104 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %78, ptr noundef align 1 %2, i64 noundef %79, i1 false) #32
-  %80 = getelementptr inbounds i8, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 %79
   store ptr %80, ptr %47, align 8
   br label %81
 
@@ -2793,10 +2793,10 @@ close_packet.exit:                                ; preds = %13, %39
   %86 = load ptr, ptr %47, align 8
   store ptr %86, ptr %7, align 8
   %87 = trunc i32 %1 to i8
-  %88 = getelementptr inbounds i8, ptr %86, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 1
   store i8 %87, ptr %88, align 1
   %89 = load ptr, ptr %47, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %90, ptr %47, align 8
   %91 = sext i32 %.0104 to i64
   %92 = getelementptr inbounds i8, ptr %2, i64 %91
@@ -2810,33 +2810,33 @@ close_packet.exit:                                ; preds = %13, %39
   br i1 %.not110, label %close_packet.exit125, label %96
 
 96:                                               ; preds = %95
-  %97 = getelementptr inbounds i8, ptr %46, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %98 = ptrtoint ptr %97 to i64
   %99 = sub i64 %50, %98
   %100 = trunc i64 %99 to i32
-  %101 = getelementptr inbounds i8, ptr %0, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = add nsw i32 %100, 7
   %104 = and i32 %103, -8
   %105 = sub nsw i32 %104, %100
   %106 = trunc i64 %99 to i8
-  %107 = getelementptr inbounds i8, ptr %46, i64 5
+  %107 = getelementptr inbounds nuw i8, ptr %46, i64 5
   store i8 %106, ptr %107, align 1
   %108 = lshr i64 %99, 8
   %109 = trunc i64 %108 to i8
-  %110 = getelementptr inbounds i8, ptr %46, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i8 %109, ptr %110, align 1
   %111 = trunc i32 %105 to i8
-  %112 = getelementptr inbounds i8, ptr %46, i64 6
+  %112 = getelementptr inbounds nuw i8, ptr %46, i64 6
   store i8 %111, ptr %112, align 1
   %113 = trunc i32 %102 to i8
-  %114 = getelementptr inbounds i8, ptr %46, i64 3
+  %114 = getelementptr inbounds nuw i8, ptr %46, i64 3
   store i8 %113, ptr %114, align 1
   %115 = lshr i32 %102, 8
   %116 = trunc i32 %115 to i8
-  %117 = getelementptr inbounds i8, ptr %46, i64 2
+  %117 = getelementptr inbounds nuw i8, ptr %46, i64 2
   store i8 %116, ptr %117, align 1
-  %118 = getelementptr inbounds i8, ptr %46, i64 7
+  %118 = getelementptr inbounds nuw i8, ptr %46, i64 7
   store i8 0, ptr %118, align 1
   store i8 1, ptr %46, align 1
   %.not.i.i121 = icmp eq i32 %104, %100
@@ -2864,37 +2864,37 @@ close_packet.exit125:                             ; preds = %95, %fcgi_make_head
   br i1 %126, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %close_packet.exit125
-  %128 = getelementptr inbounds i8, ptr %0, i64 12
-  %129 = getelementptr inbounds i8, ptr %0, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %130
 
 130:                                              ; preds = %.lr.ph, %safe_write.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %safe_write.exit.thread ]
   %131 = load ptr, ptr %47, align 8
   store ptr %131, ptr %7, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 1
   store i8 %127, ptr %132, align 1
   %133 = load ptr, ptr %47, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr %134, ptr %47, align 8
   %135 = load ptr, ptr %7, align 8
   %136 = load i32, ptr %128, align 4
-  %137 = getelementptr inbounds i8, ptr %135, i64 5
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 5
   store i8 -8, ptr %137, align 1
-  %138 = getelementptr inbounds i8, ptr %135, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 4
   store i8 -1, ptr %138, align 1
-  %139 = getelementptr inbounds i8, ptr %135, i64 6
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 6
   store i8 0, ptr %139, align 1
   %140 = trunc i32 %136 to i8
-  %141 = getelementptr inbounds i8, ptr %135, i64 3
+  %141 = getelementptr inbounds nuw i8, ptr %135, i64 3
   store i8 %140, ptr %141, align 1
   %142 = lshr i32 %136, 8
   %143 = trunc i32 %142 to i8
-  %144 = getelementptr inbounds i8, ptr %135, i64 2
+  %144 = getelementptr inbounds nuw i8, ptr %135, i64 2
   store i8 %143, ptr %144, align 1
-  %145 = getelementptr inbounds i8, ptr %135, i64 7
+  %145 = getelementptr inbounds nuw i8, ptr %135, i64 7
   store i8 0, ptr %145, align 1
-  %146 = getelementptr inbounds i8, ptr %135, i64 1
+  %146 = getelementptr inbounds nuw i8, ptr %135, i64 1
   store i8 %127, ptr %146, align 1
   store i8 1, ptr %135, align 1
   store ptr null, ptr %7, align 8
@@ -2903,7 +2903,7 @@ close_packet.exit125:                             ; preds = %95, %fcgi_make_head
   br i1 %.not115, label %.loopexit, label %148
 
 148:                                              ; preds = %130
-  %149 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %150 = tail call ptr @__errno_location() #34
   br label %151
 
@@ -2941,7 +2941,7 @@ safe_write.exit:                                  ; preds = %161
   br i1 %.not116, label %safe_write.exit.thread, label %164
 
 164:                                              ; preds = %safe_write.exit
-  %165 = getelementptr inbounds i8, ptr %0, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %165, align 8
   br label %.loopexit
 
@@ -2968,45 +2968,45 @@ safe_write.exit.thread:                           ; preds = %163, %safe_write.ex
   %173 = add i32 %.neg112, 8
   %174 = select i1 %.not111, i32 0, i32 %173
   store ptr %170, ptr %7, align 8
-  %175 = getelementptr inbounds i8, ptr %170, i64 1
+  %175 = getelementptr inbounds nuw i8, ptr %170, i64 1
   store i8 %127, ptr %175, align 1
   %176 = load ptr, ptr %47, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store ptr %177, ptr %47, align 8
   %178 = load ptr, ptr %7, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 12
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %180 = load i32, ptr %179, align 4
   %181 = sub nsw i32 %.lcssa141, %174
   %182 = add nsw i32 %181, 7
   %183 = and i32 %182, -8
   %184 = sub nsw i32 %183, %181
   %185 = trunc i32 %181 to i8
-  %186 = getelementptr inbounds i8, ptr %178, i64 5
+  %186 = getelementptr inbounds nuw i8, ptr %178, i64 5
   store i8 %185, ptr %186, align 1
   %187 = lshr i32 %181, 8
   %188 = trunc i32 %187 to i8
-  %189 = getelementptr inbounds i8, ptr %178, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %178, i64 4
   store i8 %188, ptr %189, align 1
   %190 = trunc i32 %184 to i8
-  %191 = getelementptr inbounds i8, ptr %178, i64 6
+  %191 = getelementptr inbounds nuw i8, ptr %178, i64 6
   store i8 %190, ptr %191, align 1
   %192 = trunc i32 %180 to i8
-  %193 = getelementptr inbounds i8, ptr %178, i64 3
+  %193 = getelementptr inbounds nuw i8, ptr %178, i64 3
   store i8 %192, ptr %193, align 1
   %194 = lshr i32 %180, 8
   %195 = trunc i32 %194 to i8
-  %196 = getelementptr inbounds i8, ptr %178, i64 2
+  %196 = getelementptr inbounds nuw i8, ptr %178, i64 2
   store i8 %195, ptr %196, align 1
-  %197 = getelementptr inbounds i8, ptr %178, i64 7
+  %197 = getelementptr inbounds nuw i8, ptr %178, i64 7
   store i8 0, ptr %197, align 1
-  %198 = getelementptr inbounds i8, ptr %178, i64 1
+  %198 = getelementptr inbounds nuw i8, ptr %178, i64 1
   store i8 %127, ptr %198, align 1
   store i8 1, ptr %178, align 1
   %.not.i127 = icmp eq i32 %183, %181
   br i1 %.not.i127, label %fcgi_make_header.exit, label %199
 
 199:                                              ; preds = %._crit_edge
-  %200 = getelementptr inbounds i8, ptr %178, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %201 = sext i32 %181 to i64
   %202 = getelementptr inbounds i8, ptr %200, i64 %201
   %203 = sext i32 %184 to i64
@@ -3020,10 +3020,10 @@ fcgi_make_header.exit:                            ; preds = %._crit_edge, %199
   br i1 %.not113, label %.loopexit, label %205
 
 205:                                              ; preds = %fcgi_make_header.exit
-  %206 = getelementptr inbounds i8, ptr %2, i64 %.0103.lcssa
+  %206 = getelementptr inbounds nuw i8, ptr %2, i64 %.0103.lcssa
   %207 = sext i32 %181 to i64
   %208 = tail call ptr @__errno_location() #34
-  %209 = getelementptr inbounds i8, ptr %0, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %210
 
 210:                                              ; preds = %222, %205
@@ -3061,7 +3061,7 @@ safe_write.exit133:                               ; preds = %220
   br i1 %.not114, label %safe_write.exit133.thread, label %224
 
 224:                                              ; preds = %safe_write.exit133
-  %225 = getelementptr inbounds i8, ptr %0, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %225, align 8
   br label %.loopexit
 
@@ -3071,13 +3071,13 @@ safe_write.exit133.thread:                        ; preds = %222, %safe_write.ex
 226:                                              ; preds = %safe_write.exit133.thread
   %227 = load ptr, ptr %47, align 8
   store ptr %227, ptr %7, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 1
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 1
   store i8 %127, ptr %228, align 1
   %229 = load ptr, ptr %47, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store ptr %230, ptr %47, align 8
   %231 = zext nneg i32 %3 to i64
-  %232 = getelementptr inbounds i8, ptr %2, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr %2, i64 %231
   %233 = sext i32 %173 to i64
   %234 = sub nsw i64 0, %233
   %235 = getelementptr inbounds i8, ptr %232, i64 %234
@@ -3093,7 +3093,7 @@ safe_write.exit133.thread:                        ; preds = %222, %safe_write.ex
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden range(i32 0, 2) i32 @fcgi_end(ptr noundef %0) local_unnamed_addr #21 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %6
@@ -3110,13 +3110,13 @@ define hidden range(i32 0, 2) i32 @fcgi_end(ptr noundef %0) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @fcgi_finish_request(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %fcgi_end.exit
@@ -3142,7 +3142,7 @@ define hidden range(i32 0, 2) i32 @fcgi_has_env(ptr noundef readonly %0) local_u
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8288
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8288
   %4 = load i32, ptr %3, align 8
   %5 = icmp ne i32 %4, 0
   %6 = zext i1 %5 to i32
@@ -3159,12 +3159,12 @@ define hidden ptr @fcgi_getenv(ptr noundef readonly %0, ptr nocapture noundef re
   br i1 %.not, label %fcgi_hash_get.exit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   %6 = icmp slt i32 %2, 3
   br i1 %6, label %24, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %9 = load i8, ptr %8, align 1
   %10 = sext i8 %9 to i32
   %11 = zext nneg i32 %2 to i64
@@ -3186,7 +3186,7 @@ define hidden ptr @fcgi_getenv(ptr noundef readonly %0, ptr nocapture noundef re
   %25 = phi i32 [ %23, %7 ], [ %2, %4 ]
   %26 = and i32 %25, 127
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds [128 x ptr], ptr %5, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [128 x ptr], ptr %5, i64 0, i64 %27
   %.018.i = load ptr, ptr %28, align 8
   %.not19.i = icmp eq ptr %.018.i, null
   br i1 %.not19.i, label %fcgi_hash_get.exit, label %.lr.ph.i
@@ -3202,25 +3202,25 @@ define hidden ptr @fcgi_getenv(ptr noundef readonly %0, ptr nocapture noundef re
   br i1 %32, label %33, label %44
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %.020.i, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.020.i, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, %2
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %.020.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %39 = load ptr, ptr %38, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %39, ptr readonly %1, i64 %29)
   %40 = icmp eq i32 %bcmp.i, 0
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %.020.i, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.020.i, i64 24
   %43 = load ptr, ptr %42, align 8
   br label %fcgi_hash_get.exit
 
 44:                                               ; preds = %37, %33, %30
-  %45 = getelementptr inbounds i8, ptr %.020.i, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %.020.i, i64 32
   %.0.i = load ptr, ptr %45, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %fcgi_hash_get.exit, label %30
@@ -3232,10 +3232,10 @@ fcgi_hash_get.exit:                               ; preds = %44, %41, %24, %3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @fcgi_quick_getenv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #23 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   %6 = and i32 %3, 127
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds [128 x ptr], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [128 x ptr], ptr %5, i64 0, i64 %7
   %.018.i = load ptr, ptr %8, align 8
   %.not19.i = icmp eq ptr %.018.i, null
   br i1 %.not19.i, label %fcgi_hash_get.exit, label %.lr.ph.i
@@ -3251,25 +3251,25 @@ define hidden ptr @fcgi_quick_getenv(ptr nocapture noundef readonly %0, ptr noca
   br i1 %12, label %13, label %24
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.020.i, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.020.i, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %2
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %.020.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %19, ptr readonly %1, i64 %9)
   %20 = icmp eq i32 %bcmp.i, 0
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 24
   %23 = load ptr, ptr %22, align 8
   br label %fcgi_hash_get.exit
 
 24:                                               ; preds = %17, %13, %10
-  %25 = getelementptr inbounds i8, ptr %.020.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.020.i, i64 32
   %.0.i = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %fcgi_hash_get.exit, label %10
@@ -3286,7 +3286,7 @@ define hidden ptr @fcgi_putenv(ptr noundef %0, ptr nocapture noundef readonly %1
 
 5:                                                ; preds = %4
   %6 = icmp eq ptr %3, null
-  %7 = getelementptr inbounds i8, ptr %0, i64 8296
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   %8 = icmp slt i32 %2, 3
   br i1 %6, label %9, label %56
 
@@ -3294,7 +3294,7 @@ define hidden ptr @fcgi_putenv(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %8, label %27, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
   %14 = zext nneg i32 %2 to i64
@@ -3316,7 +3316,7 @@ define hidden ptr @fcgi_putenv(ptr noundef %0, ptr nocapture noundef readonly %1
   %28 = phi i32 [ %26, %10 ], [ %2, %9 ]
   %29 = and i32 %28, 127
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds [128 x ptr], ptr %7, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [128 x ptr], ptr %7, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not19.i = icmp eq ptr %32, null
   br i1 %.not19.i, label %fcgi_hash_del.exit, label %.lr.ph.i
@@ -3333,32 +3333,32 @@ define hidden ptr @fcgi_putenv(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %37, label %38, label %53
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %35, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, %2
   br i1 %41, label %42, label %53
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %35, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %44 = load ptr, ptr %43, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %44, ptr readonly %1, i64 %33)
   %45 = icmp eq i32 %bcmp.i, 0
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %35, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr null, ptr %47, align 8
   %48 = load ptr, ptr %.020.i, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 0, ptr %49, align 8
   %50 = load ptr, ptr %.020.i, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %.020.i, align 8
   br label %fcgi_hash_del.exit
 
 53:                                               ; preds = %42, %38, %34
-  %54 = getelementptr inbounds i8, ptr %35, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %55 = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %fcgi_hash_del.exit, label %34
@@ -3367,7 +3367,7 @@ define hidden ptr @fcgi_putenv(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %8, label %74, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %1, i64 3
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %59 = load i8, ptr %58, align 1
   %60 = sext i8 %59 to i32
   %61 = zext nneg i32 %2 to i64
@@ -3401,7 +3401,7 @@ fcgi_hash_del.exit:                               ; preds = %53, %46, %27, %4, %
 define internal fastcc ptr @fcgi_hash_set(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #21 {
   %7 = and i32 %1, 127
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds [128 x ptr], ptr %0, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [128 x ptr], ptr %0, i64 0, i64 %8
   %.05362 = load ptr, ptr %9, align 8
   %.not63 = icmp eq ptr %.05362, null
   br i1 %.not63, label %._crit_edge, label %.lr.ph
@@ -3417,28 +3417,28 @@ define internal fastcc ptr @fcgi_hash_set(ptr nocapture noundef %0, i32 noundef 
   br i1 %13, label %14, label %43
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.05364, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.05364, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %3
   br i1 %17, label %18, label %43
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %.05364, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.05364, i64 8
   %20 = load ptr, ptr %19, align 8
   %bcmp = tail call i32 @bcmp(ptr %20, ptr %2, i64 %10)
   %21 = icmp eq i32 %bcmp, 0
   br i1 %21, label %22, label %43
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.05364, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.05364, i64 16
   store i32 %5, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 1040
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = zext i32 %5 to i64
-  %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp ult ptr %29, %31
   %.pre.i = add i32 %5, 1
@@ -3449,12 +3449,12 @@ define internal fastcc ptr @fcgi_hash_set(ptr nocapture noundef %0, i32 noundef 
   %34 = zext i32 %33 to i64
   %35 = add nuw nsw i64 %34, 31
   %36 = tail call noalias ptr @malloc(i64 noundef %35) #33
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 %34
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %34
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %25, ptr %40, align 8
   store ptr %36, ptr %24, align 8
   br label %fcgi_hash_strndup.exit
@@ -3462,18 +3462,18 @@ define internal fastcc ptr @fcgi_hash_set(ptr nocapture noundef %0, i32 noundef 
 fcgi_hash_strndup.exit:                           ; preds = %22, %32
   %41 = phi ptr [ %37, %32 ], [ %26, %22 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr readonly align 1 %4, i64 %27, i1 false)
-  %42 = getelementptr inbounds i8, ptr %41, i64 %27
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %27
   store i8 0, ptr %42, align 1
   br label %108
 
 43:                                               ; preds = %18, %14, %11
-  %44 = getelementptr inbounds i8, ptr %.05364, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.05364, i64 32
   %.053 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %.053, null
   br i1 %.not, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %43, %6
-  %45 = getelementptr inbounds i8, ptr %0, i64 1032
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %46, align 8
   %48 = icmp ugt i32 %47, 127
@@ -3482,7 +3482,7 @@ fcgi_hash_strndup.exit:                           ; preds = %22, %32
 49:                                               ; preds = %._crit_edge
   %50 = tail call noalias dereferenceable_or_null(6160) ptr @malloc(i64 noundef 6160) #33
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %46, ptr %51, align 8
   store ptr %50, ptr %45, align 8
   br label %52
@@ -3490,30 +3490,30 @@ fcgi_hash_strndup.exit:                           ; preds = %22, %32
 52:                                               ; preds = %49, %._crit_edge
   %53 = phi i32 [ 0, %49 ], [ %47, %._crit_edge ]
   %54 = phi ptr [ %50, %49 ], [ %46, %._crit_edge ]
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = zext nneg i32 %53 to i64
-  %57 = getelementptr inbounds %struct._fcgi_hash_bucket, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw %struct._fcgi_hash_bucket, ptr %55, i64 %56
   %58 = add nuw nsw i32 %53, 1
   store i32 %58, ptr %54, align 8
   %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds i8, ptr %57, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr %59, ptr %60, align 8
   store ptr %57, ptr %9, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 1024
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %57, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 40
   store ptr %62, ptr %63, align 8
   store ptr %57, ptr %61, align 8
   store i32 %1, ptr %57, align 8
-  %64 = getelementptr inbounds i8, ptr %57, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 %3, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 1040
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %66, align 8
   %68 = zext i32 %3 to i64
-  %69 = getelementptr inbounds i8, ptr %67, i64 %68
-  %70 = getelementptr inbounds i8, ptr %69, i64 1
-  %71 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %72 = load ptr, ptr %71, align 8
   %.not.i55 = icmp ult ptr %70, %72
   %.pre.i56 = add i32 %3, 1
@@ -3524,12 +3524,12 @@ fcgi_hash_strndup.exit:                           ; preds = %22, %32
   %75 = zext i32 %74 to i64
   %76 = add nuw nsw i64 %75, 31
   %77 = tail call noalias ptr @malloc(i64 noundef %76) #33
-  %78 = getelementptr inbounds i8, ptr %77, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store ptr %78, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 %75
-  %80 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %75
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %77, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %66, ptr %81, align 8
   store ptr %77, ptr %65, align 8
   br label %fcgi_hash_strndup.exit57
@@ -3537,23 +3537,23 @@ fcgi_hash_strndup.exit:                           ; preds = %22, %32
 fcgi_hash_strndup.exit57:                         ; preds = %52, %73
   %82 = phi ptr [ %78, %73 ], [ %67, %52 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr readonly align 1 %2, i64 %68, i1 false)
-  %83 = getelementptr inbounds i8, ptr %82, i64 %68
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %68
   store i8 0, ptr %83, align 1
   %84 = load ptr, ptr %65, align 8
   %85 = load ptr, ptr %84, align 8
   %86 = zext i32 %.pre.i56 to i64
-  %87 = getelementptr inbounds i8, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 %86
   store ptr %87, ptr %84, align 8
-  %88 = getelementptr inbounds i8, ptr %57, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %82, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %57, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i32 %5, ptr %89, align 8
   %90 = load ptr, ptr %65, align 8
   %91 = load ptr, ptr %90, align 8
   %92 = zext i32 %5 to i64
-  %93 = getelementptr inbounds i8, ptr %91, i64 %92
-  %94 = getelementptr inbounds i8, ptr %93, i64 1
-  %95 = getelementptr inbounds i8, ptr %90, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %96 = load ptr, ptr %95, align 8
   %.not.i58 = icmp ult ptr %94, %96
   %.pre.i59 = add i32 %5, 1
@@ -3564,12 +3564,12 @@ fcgi_hash_strndup.exit57:                         ; preds = %52, %73
   %99 = zext i32 %98 to i64
   %100 = add nuw nsw i64 %99, 31
   %101 = tail call noalias ptr @malloc(i64 noundef %100) #33
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store ptr %102, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 %99
-  %104 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %99
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store ptr %103, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %101, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store ptr %90, ptr %105, align 8
   store ptr %101, ptr %65, align 8
   br label %fcgi_hash_strndup.exit60
@@ -3577,7 +3577,7 @@ fcgi_hash_strndup.exit57:                         ; preds = %52, %73
 fcgi_hash_strndup.exit60:                         ; preds = %fcgi_hash_strndup.exit57, %97
   %106 = phi ptr [ %102, %97 ], [ %91, %fcgi_hash_strndup.exit57 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %106, ptr readonly align 1 %4, i64 %92, i1 false)
-  %107 = getelementptr inbounds i8, ptr %106, i64 %92
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %92
   store i8 0, ptr %107, align 1
   br label %108
 
@@ -3589,9 +3589,9 @@ fcgi_hash_strndup.exit60:                         ; preds = %fcgi_hash_strndup.e
   %.sink73 = load ptr, ptr %.sink73.in, align 8
   %109 = load ptr, ptr %.sink73, align 8
   %110 = zext i32 %.pre.i59.sink to i64
-  %111 = getelementptr inbounds i8, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 %110
   store ptr %111, ptr %.sink73, align 8
-  %112 = getelementptr inbounds i8, ptr %.sink68, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %.sink68, i64 24
   store ptr %.sink, ptr %112, align 8
   ret ptr %.sink
 }
@@ -3599,13 +3599,13 @@ fcgi_hash_strndup.exit60:                         ; preds = %fcgi_hash_strndup.e
 ; Function Attrs: nofree nounwind uwtable
 define hidden ptr @fcgi_quick_putenv(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #21 {
   %6 = icmp eq ptr %4, null
-  %7 = getelementptr inbounds i8, ptr %0, i64 8296
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   br i1 %6, label %8, label %36
 
 8:                                                ; preds = %5
   %9 = and i32 %3, 127
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds [128 x ptr], ptr %7, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [128 x ptr], ptr %7, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not19.i = icmp eq ptr %12, null
   br i1 %.not19.i, label %fcgi_hash_del.exit, label %.lr.ph.i
@@ -3622,32 +3622,32 @@ define hidden ptr @fcgi_quick_putenv(ptr nocapture noundef %0, ptr nocapture nou
   br i1 %17, label %18, label %33
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %2
   br i1 %21, label %22, label %33
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %15, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %24 = load ptr, ptr %23, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %24, ptr readonly %1, i64 %13)
   %25 = icmp eq i32 %bcmp.i, 0
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr null, ptr %27, align 8
   %28 = load ptr, ptr %.020.i, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 0, ptr %29, align 8
   %30 = load ptr, ptr %.020.i, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %.020.i, align 8
   br label %fcgi_hash_del.exit
 
 33:                                               ; preds = %22, %18, %14
-  %34 = getelementptr inbounds i8, ptr %15, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %fcgi_hash_del.exit, label %14
@@ -3665,30 +3665,30 @@ fcgi_hash_del.exit:                               ; preds = %33, %26, %8, %36
 
 ; Function Attrs: nounwind uwtable
 define hidden void @fcgi_loadenv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 9320
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 9320
   %.012.i = load ptr, ptr %4, align 8
   %.not13.i = icmp eq ptr %.012.i, null
   br i1 %.not13.i, label %fcgi_hash_apply.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %14
   %.014.i = phi ptr [ %.0.i, %14 ], [ %.012.i, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.014.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not11.i = icmp eq ptr %6, null
   br i1 %.not11.i, label %14, label %7
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = getelementptr inbounds i8, ptr %.014.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.014.i, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.014.i, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %.014.i, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
   %13 = load i32, ptr %12, align 8
   tail call void %1(ptr noundef %9, i32 noundef %11, ptr noundef nonnull %6, i32 noundef %13, ptr noundef %2) #32
   br label %14
 
 14:                                               ; preds = %7, %.lr.ph.i
-  %15 = getelementptr inbounds i8, ptr %.014.i, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %.014.i, i64 40
   %.0.i = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %fcgi_hash_apply.exit, label %.lr.ph.i
@@ -3733,31 +3733,31 @@ define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr nocapture nounde
 
 .lr.ph:                                           ; preds = %3
   %5 = ptrtoint ptr %2 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 8296
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   br label %7
 
-7:                                                ; preds = %.lr.ph, %81
-  %.04958 = phi ptr [ %1, %.lr.ph ], [ %87, %81 ]
-  %8 = getelementptr inbounds i8, ptr %.04958, i64 1
+7:                                                ; preds = %.lr.ph, %79
+  %.04958 = phi ptr [ %1, %.lr.ph ], [ %84, %79 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.04958, i64 1
   %9 = load i8, ptr %.04958, align 1
   %10 = zext i8 %9 to i32
   %11 = icmp slt i8 %9, 0
   br i1 %11, label %12, label %30
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %.04958, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.04958, i64 4
   %.not = icmp ult ptr %13, %2
   br i1 %.not, label %14, label %._crit_edge
 
 14:                                               ; preds = %12
   %15 = shl nuw i32 %10, 24
   %16 = and i32 %15, 2130706432
-  %17 = getelementptr inbounds i8, ptr %.04958, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.04958, i64 2
   %18 = load i8, ptr %8, align 1
   %19 = zext i8 %18 to i32
   %20 = shl nuw nsw i32 %19, 16
   %21 = or disjoint i32 %20, %16
-  %22 = getelementptr inbounds i8, ptr %.04958, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %.04958, i64 3
   %23 = load i8, ptr %17, align 1
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 8
@@ -3774,26 +3774,26 @@ define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr nocapture nounde
   br i1 %.not56, label %31, label %._crit_edge
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %.1, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %33 = load i8, ptr %.1, align 1
   %34 = zext i8 %33 to i32
   %35 = icmp slt i8 %33, 0
   br i1 %35, label %36, label %54
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %.1, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %.not57 = icmp ult ptr %37, %2
   br i1 %.not57, label %38, label %._crit_edge
 
 38:                                               ; preds = %36
   %39 = shl nuw i32 %34, 24
   %40 = and i32 %39, 2130706432
-  %41 = getelementptr inbounds i8, ptr %.1, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %42 = load i8, ptr %32, align 1
   %43 = zext i8 %42 to i32
   %44 = shl nuw nsw i32 %43, 16
   %45 = or disjoint i32 %44, %40
-  %46 = getelementptr inbounds i8, ptr %.1, i64 3
+  %46 = getelementptr inbounds nuw i8, ptr %.1, i64 3
   %47 = load i8, ptr %41, align 1
   %48 = zext i8 %47 to i32
   %49 = shl nuw nsw i32 %48, 8
@@ -3815,41 +3815,43 @@ define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr nocapture nounde
 
 60:                                               ; preds = %54
   %61 = icmp samesign ult i32 %.047, 3
-  br i1 %61, label %81, label %62
+  br i1 %61, label %._crit_edge67, label %62
+
+._crit_edge67:                                    ; preds = %60
+  %.pre = zext nneg i32 %.047 to i64
+  br label %79
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %.2, i64 3
+  %63 = getelementptr inbounds nuw i8, ptr %.2, i64 3
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = add nsw i32 %.047, -2
-  %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %.2, i64 %67
+  %66 = zext nneg i32 %.047 to i64
+  %67 = getelementptr i8, ptr %.2, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 -2
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 4
-  %72 = add nsw i32 %.047, -1
-  %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %.2, i64 %73
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  %77 = add nuw nsw i32 %76, %65
-  %78 = shl nuw nsw i32 %77, 2
-  %79 = add nuw i32 %71, %.047
-  %80 = add nuw i32 %79, %78
-  br label %81
+  %72 = getelementptr i8, ptr %67, i64 -1
+  %73 = load i8, ptr %72, align 1
+  %74 = zext i8 %73 to i32
+  %75 = add nuw nsw i32 %74, %65
+  %76 = shl nuw nsw i32 %75, 2
+  %77 = add nuw i32 %71, %.047
+  %78 = add nuw i32 %77, %76
+  br label %79
 
-81:                                               ; preds = %60, %62
-  %82 = phi i32 [ %80, %62 ], [ %.047, %60 ]
-  %83 = zext nneg i32 %.047 to i64
-  %84 = getelementptr inbounds i8, ptr %.2, i64 %83
-  %85 = tail call fastcc ptr @fcgi_hash_set(ptr noundef nonnull %6, i32 noundef %82, ptr noundef nonnull %.2, i32 noundef %.047, ptr noundef nonnull %84, i32 noundef %.0)
-  %86 = zext i32 %55 to i64
-  %87 = getelementptr inbounds i8, ptr %.2, i64 %86
-  %88 = icmp ult ptr %87, %2
-  br i1 %88, label %7, label %._crit_edge
+79:                                               ; preds = %._crit_edge67, %62
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge67 ], [ %66, %62 ]
+  %80 = phi i32 [ %.047, %._crit_edge67 ], [ %78, %62 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.2, i64 %.pre-phi
+  %82 = tail call fastcc ptr @fcgi_hash_set(ptr noundef nonnull %6, i32 noundef %80, ptr noundef nonnull %.2, i32 noundef %.047, ptr noundef nonnull %81, i32 noundef %.0)
+  %83 = zext i32 %55 to i64
+  %84 = getelementptr inbounds nuw i8, ptr %.2, i64 %83
+  %85 = icmp ult ptr %84, %2
+  br i1 %85, label %7, label %._crit_edge
 
-._crit_edge:                                      ; preds = %12, %30, %36, %54, %81, %3
-  %.048 = phi i32 [ 1, %3 ], [ 1, %81 ], [ 0, %54 ], [ 0, %36 ], [ 0, %30 ], [ 0, %12 ]
+._crit_edge:                                      ; preds = %12, %30, %36, %54, %79, %3
+  %.048 = phi i32 [ 1, %3 ], [ 1, %79 ], [ 0, %54 ], [ 0, %36 ], [ 0, %30 ], [ 0, %12 ]
   ret i32 %.048
 }
 

@@ -2897,9 +2897,9 @@ define hidden i32 @dissect_p1_Credentials(i1 zeroext %0, ptr noundef %1, i32 nou
   %12 = sext i32 %10 to i64
   %13 = getelementptr [4 x %struct._value_string], ptr @p1_Credentials_vals, i64 0, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %14) #4
   br label %19
@@ -2929,9 +2929,9 @@ define hidden i32 @dissect_p1_InitiatorCredentials(i1 zeroext %0, ptr noundef %1
   %12 = sext i32 %10 to i64
   %13 = getelementptr [4 x %struct._value_string], ptr @p1_Credentials_vals, i64 0, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %14) #4
   br label %dissect_p1_Credentials.exit
@@ -2976,9 +2976,9 @@ define hidden i32 @dissect_p1_ResponderCredentials(i1 zeroext %0, ptr noundef %1
   %12 = sext i32 %10 to i64
   %13 = getelementptr [4 x %struct._value_string], ptr @p1_Credentials_vals, i64 0, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %14) #4
   br label %dissect_p1_Credentials.exit
@@ -2990,16 +2990,16 @@ dissect_p1_Credentials.exit:                      ; preds = %6, %6, %11
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 120
-  %8 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 32) #4
   store ptr %16, ptr %8, align 8
@@ -3007,12 +3007,12 @@ define hidden i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 
 
 17:                                               ; preds = %11, %6
   %18 = phi ptr [ %16, %11 ], [ %9, %6 ]
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %22, ptr noundef nonnull @.str.14) #4
-  %24 = getelementptr inbounds i8, ptr %18, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %23, ptr %24, align 8
   store ptr null, ptr %7, align 8
   %25 = load ptr, ptr %8, align 8
@@ -3021,7 +3021,7 @@ define hidden i32 @dissect_p1_ORName(i1 noundef zeroext %0, ptr noundef %1, i32 
 
 27:                                               ; preds = %17
   %28 = load ptr, ptr %19, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noalias ptr @wmem_alloc0(ptr noundef %30, i64 noundef 32) #4
   store ptr %31, ptr %8, align 8
@@ -3058,7 +3058,7 @@ set_do_address.exit:                              ; preds = %17, %27
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %19, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 408
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noalias ptr @wmem_alloc0(ptr noundef %48, i64 noundef 32) #4
   store ptr %49, ptr %8, align 8
@@ -3126,15 +3126,15 @@ define hidden i32 @dissect_p1_OriginalEncodedInformationTypes(i1 noundef zeroext
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_p1_ExtendedContentType(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -3142,16 +3142,16 @@ define hidden i32 @dissect_p1_ExtendedContentType(i1 noundef zeroext %0, ptr nou
 
 16:                                               ; preds = %10, %6
   %17 = phi ptr [ %15, %10 ], [ %8, %6 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %18) #4
   %20 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %30, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @oid_resolved_from_string(ptr noundef %25, ptr noundef nonnull %20) #4
   %.not20 = icmp eq ptr %26, null
@@ -3218,7 +3218,7 @@ declare i32 @dissect_ber_sequence(i1 noundef zeroext, ptr noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_p1_Content(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #4
   %11 = load ptr, ptr %7, align 8
@@ -3226,7 +3226,7 @@ define hidden i32 @dissect_p1_Content(i1 noundef zeroext %0, ptr noundef %1, i32
   br i1 %.not, label %45, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @tvb_reported_length(ptr noundef nonnull %11) #4
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %14, ptr noundef nonnull @.str.19, i32 noundef %15) #4
@@ -3234,36 +3234,36 @@ define hidden i32 @dissect_p1_Content(i1 noundef zeroext %0, ptr noundef %1, i32
   br i1 %.not32, label %.critedge, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not33 = icmp eq ptr %18, null
   br i1 %.not33, label %28, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %24 = load ptr, ptr %23, align 8
   %.not36 = icmp eq ptr %24, null
   %. = select i1 %.not36, ptr %4, ptr %24
-  %25 = getelementptr inbounds i8, ptr %3, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @call_ber_oid_callback(ptr noundef nonnull %18, ptr noundef %20, i32 noundef 0, ptr noundef %22, ptr noundef %., ptr noundef %26) #4
   br label %45
 
 28:                                               ; preds = %16
-  %29 = getelementptr inbounds i8, ptr %9, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %30 = load i32, ptr %29, align 8
   %.not34 = icmp eq i32 %30, 0
   br i1 %.not34, label %.critedge, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %33 = load ptr, ptr %32, align 8
   %.not35 = icmp eq ptr %33, null
   %.37 = select i1 %.not35, ptr %4, ptr %33
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %7, align 8
   %37 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %10) #4
@@ -3361,15 +3361,15 @@ define hidden i32 @dissect_p1_MessageSubmissionEnvelope(i1 noundef zeroext %0, p
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_p1_MessageSubmissionIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -3384,9 +3384,9 @@ set_do_address.exit.i:                            ; preds = %10, %6
   br i1 %19, label %20, label %dissect_p1_MTSIdentifier.exit
 
 20:                                               ; preds = %set_do_address.exit.i
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 32) #4
   store ptr %25, ptr %7, align 8
@@ -3420,15 +3420,15 @@ define hidden i32 @dissect_p1_ProbeSubmissionEnvelope(i1 noundef zeroext %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_p1_ProbeSubmissionIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -3443,9 +3443,9 @@ set_do_address.exit.i:                            ; preds = %10, %6
   br i1 %19, label %20, label %dissect_p1_MTSIdentifier.exit
 
 20:                                               ; preds = %set_do_address.exit.i
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 32) #4
   store ptr %25, ptr %7, align 8
@@ -3487,15 +3487,15 @@ define hidden i32 @dissect_p1_SecurityProblem(i1 noundef zeroext %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_p1_MessageDeliveryIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -3510,9 +3510,9 @@ set_do_address.exit.i:                            ; preds = %10, %6
   br i1 %19, label %20, label %dissect_p1_MTSIdentifier.exit
 
 20:                                               ; preds = %set_do_address.exit.i
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 32) #4
   store ptr %25, ptr %7, align 8
@@ -3542,16 +3542,16 @@ declare i32 @dissect_ber_sequence_of(i1 noundef zeroext, ptr noundef, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_p1_ORAddress(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 120
-  %8 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 32) #4
   store ptr %16, ptr %8, align 8
@@ -3559,12 +3559,12 @@ define hidden i32 @dissect_p1_ORAddress(i1 noundef zeroext %0, ptr noundef %1, i
 
 17:                                               ; preds = %11, %6
   %18 = phi ptr [ %16, %11 ], [ %9, %6 ]
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %22, ptr noundef nonnull @.str.14) #4
-  %24 = getelementptr inbounds i8, ptr %18, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %23, ptr %24, align 8
   store ptr null, ptr %7, align 8
   %25 = load ptr, ptr %8, align 8
@@ -3573,7 +3573,7 @@ define hidden i32 @dissect_p1_ORAddress(i1 noundef zeroext %0, ptr noundef %1, i
 
 27:                                               ; preds = %17
   %28 = load ptr, ptr %19, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noalias ptr @wmem_alloc0(ptr noundef %30, i64 noundef 32) #4
   store ptr %31, ptr %8, align 8
@@ -3611,7 +3611,7 @@ set_do_address.exit:                              ; preds = %17, %27
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %19, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 408
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noalias ptr @wmem_alloc0(ptr noundef %49, i64 noundef 32) #4
   store ptr %50, ptr %8, align 8
@@ -3708,15 +3708,15 @@ declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr no
 
 ; Function Attrs: nounwind uwtable
 define hidden void @p1_initialize_content_globals(ptr nocapture noundef initializes((72, 80), (128, 136)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noalias ptr @wmem_alloc0(ptr noundef %11, i64 noundef 32) #4
   store ptr %12, ptr %4, align 8
@@ -3724,13 +3724,13 @@ define hidden void @p1_initialize_content_globals(ptr nocapture noundef initiali
 
 13:                                               ; preds = %7, %3
   %14 = phi ptr [ %12, %7 ], [ %5, %3 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %2, ptr %18, align 8
   ret void
 }
@@ -3741,13 +3741,13 @@ define hidden ptr @p1_get_last_oraddress(ptr noundef readonly %0) local_unnamed_
   br i1 %2, label %15, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @wmem_strbuf_get_len(ptr noundef %9) #4
   %11 = icmp eq i64 %10, 0
@@ -3768,15 +3768,15 @@ define hidden i32 @dissect_p1_mts_apdu(ptr noundef %0, ptr noundef %1, ptr nound
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
-  %7 = getelementptr inbounds i8, ptr %6, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %p1_initialize_content_globals.exit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -3784,13 +3784,13 @@ define hidden i32 @dissect_p1_mts_apdu(ptr noundef %0, ptr noundef %1, ptr nound
 
 p1_initialize_content_globals.exit:               ; preds = %4, %10
   %16 = phi ptr [ %15, %10 ], [ %8, %4 ]
-  %17 = getelementptr inbounds i8, ptr %6, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 1, ptr %20, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %26, label %21
@@ -3804,7 +3804,7 @@ p1_initialize_content_globals.exit:               ; preds = %4, %10
 
 26:                                               ; preds = %21, %p1_initialize_content_globals.exit
   %.0 = phi ptr [ %25, %21 ], [ null, %p1_initialize_content_globals.exit ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.123) #4
   %29 = load ptr, ptr %27, align 8
@@ -3825,9 +3825,9 @@ p1_initialize_content_globals.exit:               ; preds = %4, %10
   %35 = sext i32 %33 to i64
   %36 = getelementptr [4 x %struct._value_string], ptr @p1_MTS_APDU_vals, i64 0, i64 %35, i32 1
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %37) #4
   br label %dissect_p1_MTS_APDU.exit
@@ -3839,9 +3839,9 @@ dissect_p1_MTS_APDU.exit:                         ; preds = %26, %26, %26, %34
   br i1 %43, label %44, label %p1_initialize_content_globals.exit12
 
 44:                                               ; preds = %dissect_p1_MTS_APDU.exit
-  %45 = getelementptr inbounds i8, ptr %6, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 408
   %48 = load ptr, ptr %47, align 8
   %49 = call noalias ptr @wmem_alloc0(ptr noundef %48, i64 noundef 32) #4
   store ptr %49, ptr %7, align 8
@@ -3851,9 +3851,9 @@ p1_initialize_content_globals.exit12:             ; preds = %dissect_p1_MTS_APDU
   %50 = phi ptr [ %49, %44 ], [ %42, %dissect_p1_MTS_APDU.exit ]
   store ptr null, ptr %17, align 8
   store ptr null, ptr %18, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr null, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i32 0, ptr %52, align 8
   %53 = call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %53
@@ -3880,9 +3880,9 @@ define internal i32 @dissect_p1_MTS_APDU(i1 zeroext %0, ptr noundef %1, i32 noun
   %12 = sext i32 %10 to i64
   %13 = getelementptr [4 x %struct._value_string], ptr @p1_MTS_APDU_vals, i64 0, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %14) #4
   br label %19
@@ -3942,15 +3942,15 @@ define internal i32 @dissect_p1(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %6, label %60, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %p1_initialize_content_globals.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 32) #4
   store ptr %16, ptr %8, align 8
@@ -3958,26 +3958,26 @@ define internal i32 @dissect_p1(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 p1_initialize_content_globals.exit:               ; preds = %7, %11
   %17 = phi ptr [ %16, %11 ], [ %9, %7 ]
-  %18 = getelementptr inbounds i8, ptr %5, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %3, ptr %22, align 8
   %23 = load i32, ptr @proto_p1, align 4
   %24 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %25 = load i32, ptr @ett_p1, align 4
   %26 = call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #4
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.123) #4
   %29 = load ptr, ptr %27, align 8
   call void @col_clear(ptr noundef %29, i32 noundef 25) #4
-  %30 = getelementptr inbounds i8, ptr %3, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, -16777216
   switch i32 %32, label %36 [
@@ -4030,9 +4030,9 @@ p1_initialize_content_globals.exit:               ; preds = %7, %11
   br i1 %49, label %50, label %p1_initialize_content_globals.exit39
 
 50:                                               ; preds = %.loopexit
-  %51 = getelementptr inbounds i8, ptr %5, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 408
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 408
   %54 = load ptr, ptr %53, align 8
   %55 = call noalias ptr @wmem_alloc0(ptr noundef %54, i64 noundef 32) #4
   store ptr %55, ptr %8, align 8
@@ -4042,9 +4042,9 @@ p1_initialize_content_globals.exit39:             ; preds = %.loopexit, %50
   %56 = phi ptr [ %55, %50 ], [ %48, %.loopexit ]
   store ptr null, ptr %18, align 8
   store ptr null, ptr %19, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr null, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %56, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i32 0, ptr %58, align 8
   br label %.sink.split
 
@@ -4903,9 +4903,9 @@ define internal i32 @dissect_CommonName_PDU(ptr noundef %0, ptr noundef %1, ptr 
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext false, i32 noundef 19, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 64, i32 noundef %7, ptr noundef nonnull %5) #4
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -4913,7 +4913,7 @@ define internal i32 @dissect_CommonName_PDU(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %6, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -4925,7 +4925,7 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %.not13.i, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   call void @wmem_strbuf_append(ptr noundef %21, ptr noundef nonnull @.str.1782) #4
   %.not15.i = icmp eq ptr %9, null
@@ -4934,7 +4934,7 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
 22:                                               ; preds = %19
   %23 = load ptr, ptr %20, align 8
   %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %28 = call ptr @tvb_format_text(ptr noundef %26, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %27) #4
@@ -4956,9 +4956,9 @@ define internal i32 @dissect_TeletexCommonName_PDU(ptr noundef %0, ptr noundef %
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext false, i32 noundef 20, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 64, i32 noundef %7, ptr noundef nonnull %5) #4
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -4966,7 +4966,7 @@ define internal i32 @dissect_TeletexCommonName_PDU(ptr noundef %0, ptr noundef %
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %6, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -4978,7 +4978,7 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %.not13.i, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   call void @wmem_strbuf_append(ptr noundef %21, ptr noundef nonnull @.str.1782) #4
   %.not15.i = icmp eq ptr %9, null
@@ -4987,7 +4987,7 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
 22:                                               ; preds = %19
   %23 = load ptr, ptr %20, align 8
   %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %28 = call ptr @tvb_format_text(ptr noundef %26, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %27) #4
@@ -5009,9 +5009,9 @@ define internal i32 @dissect_TeletexOrganizationName_PDU(ptr noundef %0, ptr nou
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext false, i32 noundef 20, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 64, i32 noundef %7, ptr noundef nonnull %5) #4
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -5019,7 +5019,7 @@ define internal i32 @dissect_TeletexOrganizationName_PDU(ptr noundef %0, ptr nou
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %6, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -5031,7 +5031,7 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %.not13.i, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   call void @wmem_strbuf_append(ptr noundef %21, ptr noundef nonnull @.str.1602) #4
   %.not15.i = icmp eq ptr %9, null
@@ -5040,7 +5040,7 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
 22:                                               ; preds = %19
   %23 = load ptr, ptr %20, align 8
   %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %28 = call ptr @tvb_format_text(ptr noundef %26, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %27) #4
@@ -5437,15 +5437,15 @@ define internal i32 @dissect_MTANameAndOptionalGDI_PDU(ptr noundef %0, ptr nound
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_p1_MTANameAndOptionalGDI_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -5461,9 +5461,9 @@ set_do_address.exit.i:                            ; preds = %10, %4
   br i1 %20, label %21, label %dissect_p1_MTANameAndOptionalGDI.exit
 
 21:                                               ; preds = %set_do_address.exit.i
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 32) #4
   store ptr %26, ptr %7, align 8
@@ -5528,15 +5528,15 @@ define internal i32 @dissect_ExtendedContentType_PDU(ptr noundef %0, ptr noundef
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_p1_ExtendedContentType_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -5544,16 +5544,16 @@ define internal i32 @dissect_ExtendedContentType_PDU(ptr noundef %0, ptr noundef
 
 16:                                               ; preds = %10, %4
   %17 = phi ptr [ %15, %10 ], [ %8, %4 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %18) #4
   %20 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %dissect_p1_ExtendedContentType.exit, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @oid_resolved_from_string(ptr noundef %25, ptr noundef nonnull %20) #4
   %.not20.i = icmp eq ptr %26, null
@@ -5633,15 +5633,15 @@ define internal i32 @dissect_InternalTraceInformationElement_PDU(ptr noundef %0,
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_p1_InternalTraceInformationElement_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -5657,9 +5657,9 @@ set_do_address.exit.i:                            ; preds = %10, %4
   br i1 %20, label %21, label %dissect_p1_InternalTraceInformationElement.exit
 
 21:                                               ; preds = %set_do_address.exit.i
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 32) #4
   br label %dissect_p1_InternalTraceInformationElement.exit
@@ -5694,15 +5694,15 @@ define internal i32 @dissect_MTSIdentifier_PDU(ptr noundef %0, ptr noundef %1, p
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_p1_MTSIdentifier_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -5717,9 +5717,9 @@ set_do_address.exit.i:                            ; preds = %10, %4
   br i1 %19, label %20, label %dissect_p1_MTSIdentifier.exit
 
 20:                                               ; preds = %set_do_address.exit.i
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 32) #4
   br label %dissect_p1_MTSIdentifier.exit
@@ -5851,15 +5851,15 @@ define internal i32 @dissect_SubjectSubmissionIdentifier_PDU(ptr noundef %0, ptr
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_p1_SubjectSubmissionIdentifier_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i.i
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -5874,9 +5874,9 @@ set_do_address.exit.i.i:                          ; preds = %10, %4
   br i1 %19, label %20, label %dissect_p1_SubjectSubmissionIdentifier.exit
 
 20:                                               ; preds = %set_do_address.exit.i.i
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 32) #4
   br label %dissect_p1_SubjectSubmissionIdentifier.exit
@@ -5892,15 +5892,15 @@ define internal i32 @dissect_TraceInformationElement_PDU(ptr noundef %0, ptr nou
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_p1_TraceInformationElement_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -5916,9 +5916,9 @@ set_do_address.exit.i:                            ; preds = %10, %4
   br i1 %20, label %21, label %dissect_p1_TraceInformationElement.exit
 
 21:                                               ; preds = %set_do_address.exit.i
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 32) #4
   br label %dissect_p1_TraceInformationElement.exit
@@ -6022,26 +6022,26 @@ define internal i32 @dissect_p1_SecurityCategory(i1 noundef zeroext %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_SecurityCategoryIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #4
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_CategoryValue(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   br i1 %.not.i, label %24, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @call_ber_oid_callback(ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2, ptr noundef %10, ptr noundef %4, ptr noundef %13) #4
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %7, align 8
   %19 = tail call ptr @oid_resolved_from_string(ptr noundef %17, ptr noundef %18) #4
@@ -6068,7 +6068,7 @@ dissect_p1_SecurityCategoryValue.exit:            ; preds = %22, %24
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_BuiltInStandardAttributes(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store ptr %4, ptr %7, align 8
   %8 = load i32, ptr @ett_p1_BuiltInStandardAttributes, align 4
   %9 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @BuiltInStandardAttributes_sequence, i32 noundef %5, i32 noundef %8) #4
@@ -6093,9 +6093,9 @@ declare i32 @dissect_x509if_Name(i1 noundef zeroext, ptr noundef, i32 noundef, p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_CountryName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_p1, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -6103,7 +6103,7 @@ define internal i32 @dissect_p1_CountryName(i1 noundef zeroext %0, ptr noundef %
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -6115,7 +6115,7 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %.not13.i, label %do_address.exit, label %16
 
 16:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %17 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %18 = load ptr, ptr %17, align 8
   tail call void @wmem_strbuf_append(ptr noundef %18, ptr noundef nonnull @.str.1597) #4
   br label %do_address.exit
@@ -6127,9 +6127,9 @@ do_address.exit:                                  ; preds = %get_do_address_ctx.
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_AdministrationDomainName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_p1, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -6137,7 +6137,7 @@ define internal i32 @dissect_p1_AdministrationDomainName(i1 noundef zeroext %0, 
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -6149,7 +6149,7 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %.not13.i, label %do_address.exit, label %16
 
 16:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %17 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %18 = load ptr, ptr %17, align 8
   tail call void @wmem_strbuf_append(ptr noundef %18, ptr noundef nonnull @.str.1598) #4
   br label %do_address.exit
@@ -6183,9 +6183,9 @@ define internal i32 @dissect_p1_TerminalIdentifier(i1 noundef zeroext %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_PrivateDomainName(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_p1, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -6193,7 +6193,7 @@ define internal i32 @dissect_p1_PrivateDomainName(i1 zeroext %0, ptr noundef %1,
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -6205,7 +6205,7 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %.not13.i, label %do_address.exit, label %16
 
 16:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %17 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %18 = load ptr, ptr %17, align 8
   tail call void @wmem_strbuf_append(ptr noundef %18, ptr noundef nonnull @.str.1601) #4
   br label %do_address.exit
@@ -6248,9 +6248,9 @@ define internal i32 @dissect_p1_OrganizationalUnitNames(i1 noundef zeroext %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @do_address(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_p1, align 4
   %9 = tail call ptr @p_get_proto_data(ptr noundef %7, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6258,7 +6258,7 @@ define internal fastcc void @do_address(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %.not.i, label %get_do_address_ctx.exit, label %get_do_address_ctx.exit.thread
 
 get_do_address_ctx.exit:                          ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %26, label %get_do_address_ctx.exit.thread
@@ -6274,7 +6274,7 @@ get_do_address_ctx.exit.thread:                   ; preds = %3, %get_do_address_
   br i1 %.not14, label %17, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.0.i18, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void @wmem_strbuf_append(ptr noundef %16, ptr noundef nonnull %0) #4
   br label %17
@@ -6284,10 +6284,10 @@ get_do_address_ctx.exit.thread:                   ; preds = %3, %get_do_address_
   br i1 %.not15, label %26, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %.0.i18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @tvb_captured_length(ptr noundef nonnull %1) #4
   %25 = tail call ptr @tvb_format_text(ptr noundef %23, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %24) #4
@@ -6317,9 +6317,9 @@ define internal i32 @dissect_p1_T_x121_dcc_code(i1 noundef zeroext %0, ptr nound
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 18, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 3, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -6327,7 +6327,7 @@ define internal i32 @dissect_p1_T_x121_dcc_code(i1 noundef zeroext %0, ptr nound
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -6341,10 +6341,10 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %or.cond, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %26 = call ptr @tvb_format_text(ptr noundef %24, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %25) #4
@@ -6361,9 +6361,9 @@ define internal i32 @dissect_p1_T_iso_3166_alpha2_code(i1 noundef zeroext %0, pt
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 19, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -6371,7 +6371,7 @@ define internal i32 @dissect_p1_T_iso_3166_alpha2_code(i1 noundef zeroext %0, pt
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -6385,10 +6385,10 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %or.cond, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %26 = call ptr @tvb_format_text(ptr noundef %24, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %25) #4
@@ -6412,9 +6412,9 @@ define internal i32 @dissect_p1_T_numeric(i1 noundef zeroext %0, ptr noundef %1,
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 18, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 16, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -6422,7 +6422,7 @@ define internal i32 @dissect_p1_T_numeric(i1 noundef zeroext %0, ptr noundef %1,
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -6436,10 +6436,10 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %or.cond, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %26 = call ptr @tvb_format_text(ptr noundef %24, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %25) #4
@@ -6456,9 +6456,9 @@ define internal i32 @dissect_p1_T_printable(i1 noundef zeroext %0, ptr noundef %
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 19, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 16, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -6466,7 +6466,7 @@ define internal i32 @dissect_p1_T_printable(i1 noundef zeroext %0, ptr noundef %
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -6480,10 +6480,10 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %or.cond, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %26 = call ptr @tvb_format_text(ptr noundef %24, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %25) #4
@@ -6500,9 +6500,9 @@ define internal i32 @dissect_p1_T_numeric_private_domain_name(i1 noundef zeroext
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 18, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 16, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -6510,7 +6510,7 @@ define internal i32 @dissect_p1_T_numeric_private_domain_name(i1 noundef zeroext
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -6524,10 +6524,10 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %or.cond, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %26 = call ptr @tvb_format_text(ptr noundef %24, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %25) #4
@@ -6544,9 +6544,9 @@ define internal i32 @dissect_p1_T_printable_private_domain_name(i1 noundef zeroe
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 19, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 16, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -6554,7 +6554,7 @@ define internal i32 @dissect_p1_T_printable_private_domain_name(i1 noundef zeroe
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -6568,10 +6568,10 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %or.cond, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %26 = call ptr @tvb_format_text(ptr noundef %24, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %25) #4
@@ -6634,12 +6634,12 @@ define internal i32 @dissect_p1_OrganizationalUnitName(i1 noundef zeroext %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_BuiltInDomainDefinedAttribute(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((40, 48)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %10, ptr noundef nonnull @.str.14) #4
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %11, ptr %12, align 8
   %13 = load i32, ptr @ett_p1_BuiltInDomainDefinedAttribute, align 4
   %14 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @BuiltInDomainDefinedAttribute_sequence, i32 noundef %5, i32 noundef %13) #4
@@ -6668,11 +6668,11 @@ define internal i32 @dissect_p1_T_printable_value(i1 noundef zeroext %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @do_address_str(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @proto_p1, align 4
   %10 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %6, i32 noundef %9, i32 noundef 0) #4
@@ -6684,7 +6684,7 @@ get_do_address_ctx.exit.thread:                   ; preds = %2
   br label %13
 
 get_do_address_ctx.exit:                          ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @do_address(ptr noundef nonnull @.str.1608, ptr noundef %0, ptr noundef nonnull %1)
   %.not = icmp eq ptr %12, null
@@ -6702,7 +6702,7 @@ get_do_address_ctx.exit:                          ; preds = %2
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @tvb_captured_length(ptr noundef nonnull %0) #4
   %23 = tail call ptr @tvb_format_text(ptr noundef %21, ptr noundef nonnull %0, i32 noundef 0, i32 noundef %22) #4
@@ -6715,11 +6715,11 @@ get_do_address_ctx.exit:                          ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @do_address_str_tree(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_p1, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #4
@@ -6731,7 +6731,7 @@ get_do_address_ctx.exit.thread:                   ; preds = %3
   br label %14
 
 get_do_address_ctx.exit:                          ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %13 = load ptr, ptr %12, align 8
   tail call fastcc void @do_address(ptr noundef nonnull @.str.1609, ptr noundef %0, ptr noundef nonnull %1)
   %.not = icmp eq ptr %13, null
@@ -6755,7 +6755,7 @@ get_do_address_ctx.exit:                          ; preds = %3
 21:                                               ; preds = %19
   %22 = tail call ptr @wmem_strbuf_get_str(ptr noundef nonnull %5) #4
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @tvb_captured_length(ptr noundef nonnull %0) #4
   %27 = tail call ptr @tvb_format_text(ptr noundef %25, ptr noundef nonnull %0, i32 noundef 0, i32 noundef %26) #4
@@ -6775,7 +6775,7 @@ define internal i32 @dissect_p1_ExtensionAttribute(i1 noundef zeroext %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_ExtensionAttributeType(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %8 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #4
   ret i32 %8
 }
@@ -6783,16 +6783,16 @@ define internal i32 @dissect_p1_ExtensionAttributeType(i1 noundef zeroext %0, pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_T_extension_attribute_value(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %9 = load i32, ptr %8, align 8
   %10 = tail call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @p1_ExtensionAttributeType_vals, ptr noundef nonnull @.str.1611) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.16, ptr noundef %10) #4
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @proto_p1, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   tail call void @p_add_proto_data(ptr noundef %14, ptr noundef %12, i32 noundef %15, i32 noundef 0, ptr noundef %17) #4
   %18 = load ptr, ptr @p1_extension_attribute_dissector_table, align 8
@@ -6820,7 +6820,7 @@ define internal i32 @dissect_p1_T_extension_attribute_value(i1 zeroext %0, ptr n
 33:                                               ; preds = %24, %22
   %.0 = phi i32 [ %23, %22 ], [ %29, %24 ]
   %34 = load ptr, ptr %11, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr @proto_p1, align 4
   call void @p_remove_proto_data(ptr noundef %36, ptr noundef %34, i32 noundef %37, i32 noundef 0) #4
@@ -6885,15 +6885,15 @@ define internal i32 @dissect_p1_BuiltInContentType(i1 noundef zeroext %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_BuiltInContentType_U(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -6913,16 +6913,16 @@ define internal i32 @dissect_p1_BuiltInContentType_U(i1 noundef zeroext %0, ptr 
 
 .sink.split:                                      ; preds = %16, %20
   %.str.1614.sink = phi ptr [ @.str.1614, %20 ], [ @.str.1613, %16 ]
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_strdup(ptr noundef %24, ptr noundef nonnull %.str.1614.sink) #4
   br label %26
 
 26:                                               ; preds = %.sink.split, %16
   %.sink = phi ptr [ null, %16 ], [ %25, %.sink.split ]
-  %27 = getelementptr inbounds i8, ptr %17, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %.sink, ptr %27, align 8
   ret i32 %18
 }
@@ -6946,19 +6946,19 @@ define internal i32 @dissect_p1_Criticality(i1 noundef zeroext %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_ExtensionValue(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 62
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 62
   %9 = load i8, ptr %8, align 2
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %31
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %13 = load i32, ptr %12, align 8
   %14 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @p1_StandardExtension_vals, ptr noundef nonnull @.str.1615) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.16, ptr noundef %14) #4
   %15 = load ptr, ptr @p1_extension_dissector_table, align 8
   %16 = load i32, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @dissector_try_uint(ptr noundef %15, i32 noundef %16, ptr noundef %1, ptr noundef %18, ptr noundef %4) #4
   %.not30 = icmp eq i32 %19, 0
@@ -6980,21 +6980,21 @@ define internal i32 @dissect_p1_ExtensionValue(i1 zeroext %0, ptr noundef %1, i3
   br label %52
 
 31:                                               ; preds = %6
-  %32 = getelementptr inbounds i8, ptr %3, i64 61
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %33 = load i8, ptr %32, align 1
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %52
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %3, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @call_ber_oid_callback(ptr noundef %37, ptr noundef %1, i32 noundef %2, ptr noundef %39, ptr noundef %4, ptr noundef %41) #4
   %43 = load ptr, ptr %38, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %36, align 8
   %47 = tail call ptr @oid_resolved_from_string(ptr noundef %45, ptr noundef %46) #4
@@ -7017,25 +7017,25 @@ define internal i32 @dissect_p1_ExtensionValue(i1 zeroext %0, ptr noundef %1, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_StandardExtension(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((61, 63)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 62
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 62
   store i8 1, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %3, i64 61
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 61
   store i8 0, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %10 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %9) #4
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_T_private_extension(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((62, 63), (72, 80)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 62
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 62
   store i8 0, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %3, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr null, ptr %8, align 8
   %9 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %8) #4
   %10 = load ptr, ptr %8, align 8
   %11 = icmp ne ptr %10, null
-  %12 = getelementptr inbounds i8, ptr %3, i64 61
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %13 = zext i1 %11 to i8
   store i8 %13, ptr %12, align 1
   ret i32 %9
@@ -7110,16 +7110,16 @@ define internal i32 @dissect_p1_MTSIdentifier_U(i1 noundef zeroext %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_GlobalDomainIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 120
-  %8 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 32) #4
   store ptr %16, ptr %8, align 8
@@ -7127,12 +7127,12 @@ define internal i32 @dissect_p1_GlobalDomainIdentifier(i1 noundef zeroext %0, pt
 
 17:                                               ; preds = %11, %6
   %18 = phi ptr [ %16, %11 ], [ %9, %6 ]
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %22, ptr noundef nonnull @.str.14) #4
-  %24 = getelementptr inbounds i8, ptr %18, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %23, ptr %24, align 8
   store ptr %4, ptr %7, align 8
   %25 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull @dissect_p1_GlobalDomainIdentifier_U) #4
@@ -7156,7 +7156,7 @@ define internal i32 @dissect_p1_GlobalDomainIdentifier(i1 noundef zeroext %0, pt
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %19, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %24, align 8
   %40 = tail call ptr @wmem_strbuf_get_str(ptr noundef %39) #4
@@ -7171,8 +7171,8 @@ define internal i32 @dissect_p1_GlobalDomainIdentifier(i1 noundef zeroext %0, pt
 define internal i32 @dissect_p1_LocalIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 120
-  %9 = getelementptr inbounds i8, ptr %3, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 22, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 32, i32 noundef %5, ptr noundef nonnull %7) #4
   %12 = load ptr, ptr %7, align 8
@@ -7190,9 +7190,9 @@ define internal i32 @dissect_p1_LocalIdentifier(i1 noundef zeroext %0, ptr nound
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 @tvb_reported_length(ptr noundef nonnull %12) #4
   %23 = call ptr @tvb_format_text(ptr noundef %21, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %22) #4
@@ -7205,11 +7205,11 @@ define internal i32 @dissect_p1_LocalIdentifier(i1 noundef zeroext %0, ptr nound
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %7, align 8
   %35 = call i32 @tvb_reported_length(ptr noundef %34) #4
@@ -7230,9 +7230,9 @@ define internal i32 @dissect_p1_GlobalDomainIdentifier_U(i1 noundef zeroext %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_PrivateDomainIdentifier(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_p1, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #4
@@ -7240,7 +7240,7 @@ define internal i32 @dissect_p1_PrivateDomainIdentifier(i1 zeroext %0, ptr nound
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -7252,7 +7252,7 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %.not13.i, label %do_address.exit, label %16
 
 16:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %17 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %18 = load ptr, ptr %17, align 8
   tail call void @wmem_strbuf_append(ptr noundef %18, ptr noundef nonnull @.str.1601) #4
   br label %do_address.exit
@@ -7269,9 +7269,9 @@ define internal i32 @dissect_p1_T_numeric_private_domain_identifier(i1 noundef z
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 18, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 16, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -7279,7 +7279,7 @@ define internal i32 @dissect_p1_T_numeric_private_domain_identifier(i1 noundef z
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -7293,10 +7293,10 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %or.cond, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %26 = call ptr @tvb_format_text(ptr noundef %24, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %25) #4
@@ -7313,9 +7313,9 @@ define internal i32 @dissect_p1_T_printable_private_domain_identifier(i1 noundef
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 19, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 16, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -7323,7 +7323,7 @@ define internal i32 @dissect_p1_T_printable_private_domain_identifier(i1 noundef
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -7337,10 +7337,10 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %or.cond, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %26 = call ptr @tvb_format_text(ptr noundef %24, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %25) #4
@@ -7423,22 +7423,22 @@ define internal i32 @dissect_p1_RequestedDeliveryMethod_item(i1 noundef zeroext 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_TokenTypeIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #4
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_p1_TokenTypeData(i1 zeroext %0, ptr noundef %1, i32 noundef returned %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @call_ber_oid_callback(ptr noundef nonnull %8, ptr noundef %1, i32 noundef %2, ptr noundef %11, ptr noundef %4, ptr noundef %13) #4
   br label %15
@@ -7511,17 +7511,17 @@ define internal i32 @dissect_p1_MessageTransferEnvelope(i1 noundef zeroext %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_MessageIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((120, 128)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %set_do_address.exit.i
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 32) #4
   store ptr %16, ptr %8, align 8
@@ -7536,9 +7536,9 @@ set_do_address.exit.i:                            ; preds = %11, %6
   br i1 %20, label %21, label %dissect_p1_MTSIdentifier.exit
 
 21:                                               ; preds = %set_do_address.exit.i
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 32) #4
   store ptr %26, ptr %8, align 8
@@ -7594,7 +7594,7 @@ define internal i32 @dissect_p1_T_bilateral_domain(i1 zeroext %0, ptr noundef %1
 define internal i32 @dissect_p1_T_bilateral_information(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @dissect_ber_identifier(ptr noundef %9, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef null, ptr noundef null, ptr noundef null) #4
   %11 = load ptr, ptr %8, align 8
@@ -7628,15 +7628,15 @@ define internal i32 @dissect_p1_SEQUENCE_SIZE_1_ub_transfers_OF_TraceInformation
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_TraceInformationElement(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -7652,9 +7652,9 @@ set_do_address.exit:                              ; preds = %6, %10
   br i1 %20, label %21, label %set_do_address.exit8
 
 21:                                               ; preds = %set_do_address.exit
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 32) #4
   store ptr %26, ptr %7, align 8
@@ -7668,15 +7668,15 @@ set_do_address.exit8:                             ; preds = %set_do_address.exit
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_DomainSuppliedInformation(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -7692,9 +7692,9 @@ set_do_address.exit:                              ; preds = %6, %10
   br i1 %20, label %21, label %set_do_address.exit9
 
 21:                                               ; preds = %set_do_address.exit
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 32) #4
   store ptr %26, ptr %7, align 8
@@ -7718,7 +7718,7 @@ define internal i32 @dissect_p1_RoutingAction(i1 noundef zeroext %0, ptr noundef
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
   %8 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #4
-  %9 = getelementptr inbounds i8, ptr %3, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %7, align 4
   %12 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @p1_RoutingAction_vals, ptr noundef nonnull @.str.1620) #4
@@ -7767,15 +7767,15 @@ define internal i32 @dissect_p1_PerRecipientIndicators(i1 noundef zeroext %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_ProbeIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -7790,9 +7790,9 @@ set_do_address.exit.i:                            ; preds = %10, %6
   br i1 %19, label %20, label %dissect_p1_MTSIdentifier.exit
 
 20:                                               ; preds = %set_do_address.exit.i
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 32) #4
   store ptr %25, ptr %7, align 8
@@ -7834,15 +7834,15 @@ define internal i32 @dissect_p1_ReportTransferContent(i1 noundef zeroext %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_ReportIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -7857,9 +7857,9 @@ set_do_address.exit.i:                            ; preds = %10, %6
   br i1 %19, label %20, label %dissect_p1_MTSIdentifier.exit
 
 20:                                               ; preds = %set_do_address.exit.i
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 32) #4
   store ptr %25, ptr %7, align 8
@@ -7879,15 +7879,15 @@ define internal i32 @dissect_p1_ReportDestinationName(i1 noundef zeroext %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_SubjectIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i.i
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -7902,9 +7902,9 @@ set_do_address.exit.i.i:                          ; preds = %10, %6
   br i1 %19, label %20, label %dissect_p1_MessageOrProbeIdentifier.exit
 
 20:                                               ; preds = %set_do_address.exit.i.i
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 32) #4
   store ptr %25, ptr %7, align 8
@@ -7926,7 +7926,7 @@ define internal i32 @dissect_p1_SubjectIntermediateTraceInformation(i1 noundef z
 define internal i32 @dissect_p1_AdditionalInformation(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @dissect_ber_identifier(ptr noundef %9, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef null, ptr noundef null, ptr noundef null) #4
   %11 = load ptr, ptr %8, align 8
@@ -7984,9 +7984,9 @@ define internal i32 @dissect_p1_ReportType(i1 zeroext %0, ptr noundef %1, i32 no
   %12 = sext i32 %10 to i64
   %13 = getelementptr [3 x %struct._value_string], ptr @p1_ReportType_vals, i64 0, i64 %12, i32 1
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %14) #4
   br label %19
@@ -8041,9 +8041,9 @@ define internal i32 @dissect_p1_MTABindError(i1 noundef zeroext %0, ptr noundef 
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @p1_MTABindError_vals, ptr noundef nonnull @.str.1781) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.16, ptr noundef %15) #4
@@ -8072,8 +8072,8 @@ declare i32 @dissect_ber_null(i1 noundef zeroext, ptr noundef, ptr noundef, ptr 
 define internal i32 @dissect_p1_MTAName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 120
-  %9 = getelementptr inbounds i8, ptr %3, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 22, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 32, i32 noundef %5, ptr noundef nonnull %7) #4
   %.not = icmp eq ptr %10, null
@@ -8086,9 +8086,9 @@ define internal i32 @dissect_p1_MTAName(i1 noundef zeroext %0, ptr noundef %1, i
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %7, align 8
   %21 = call i32 @tvb_reported_length(ptr noundef %20) #4
@@ -8102,11 +8102,11 @@ define internal i32 @dissect_p1_MTAName(i1 noundef zeroext %0, ptr noundef %1, i
   br i1 %.not15, label %34, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @tvb_reported_length(ptr noundef nonnull %24) #4
   %33 = call ptr @tvb_format_text(ptr noundef %31, ptr noundef nonnull %24, i32 noundef 0, i32 noundef %32) #4
@@ -8191,15 +8191,15 @@ define internal i32 @dissect_p1_OriginatorAndDLExpansion(i1 noundef zeroext %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_InternalTraceInformationElement(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -8215,9 +8215,9 @@ set_do_address.exit:                              ; preds = %6, %10
   br i1 %20, label %21, label %set_do_address.exit8
 
 21:                                               ; preds = %set_do_address.exit
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 32) #4
   store ptr %26, ptr %7, align 8
@@ -8231,15 +8231,15 @@ set_do_address.exit8:                             ; preds = %set_do_address.exit
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_MTASuppliedInformation(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -8255,9 +8255,9 @@ set_do_address.exit:                              ; preds = %6, %10
   br i1 %20, label %21, label %set_do_address.exit9
 
 21:                                               ; preds = %set_do_address.exit
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 32) #4
   store ptr %26, ptr %7, align 8
@@ -8329,12 +8329,12 @@ define internal i32 @dissect_p1_TeletexOrganizationalUnitName(i1 noundef zeroext
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_TeletexDomainDefinedAttribute(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((40, 48)) %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %10, ptr noundef nonnull @.str.14) #4
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %11, ptr %12, align 8
   %13 = load i32, ptr @ett_p1_TeletexDomainDefinedAttribute, align 4
   %14 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @TeletexDomainDefinedAttribute_sequence, i32 noundef %5, i32 noundef %13) #4
@@ -8367,9 +8367,9 @@ define internal i32 @dissect_p1_T_x121_dcc_code_01(i1 noundef zeroext %0, ptr no
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 18, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 3, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -8377,7 +8377,7 @@ define internal i32 @dissect_p1_T_x121_dcc_code_01(i1 noundef zeroext %0, ptr no
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -8391,10 +8391,10 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %or.cond, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %26 = call ptr @tvb_format_text(ptr noundef %24, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %25) #4
@@ -8411,9 +8411,9 @@ define internal i32 @dissect_p1_T_iso_3166_alpha2_code_01(i1 noundef zeroext %0,
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 19, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -8421,7 +8421,7 @@ define internal i32 @dissect_p1_T_iso_3166_alpha2_code_01(i1 noundef zeroext %0,
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -8435,10 +8435,10 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %or.cond, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %26 = call ptr @tvb_format_text(ptr noundef %24, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %25) #4
@@ -8455,9 +8455,9 @@ define internal i32 @dissect_p1_T_numeric_code(i1 noundef zeroext %0, ptr nounde
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 18, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 16, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -8465,7 +8465,7 @@ define internal i32 @dissect_p1_T_numeric_code(i1 noundef zeroext %0, ptr nounde
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -8479,10 +8479,10 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %or.cond, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %26 = call ptr @tvb_format_text(ptr noundef %24, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %25) #4
@@ -8582,15 +8582,15 @@ define internal i32 @dissect_p1_TokenData(i1 noundef zeroext %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_MTANameAndOptionalGDI(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -8606,9 +8606,9 @@ set_do_address.exit:                              ; preds = %6, %10
   br i1 %20, label %21, label %set_do_address.exit9
 
 21:                                               ; preds = %set_do_address.exit
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 32) #4
   store ptr %26, ptr %7, align 8
@@ -8623,7 +8623,7 @@ set_do_address.exit9:                             ; preds = %set_do_address.exit
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_TokenDataType(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %8 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #4
   ret i32 %8
 }
@@ -8631,13 +8631,13 @@ define internal i32 @dissect_p1_TokenDataType(i1 noundef zeroext %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_T_value(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %9 = load i32, ptr %8, align 8
   %10 = tail call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @p1_TokenDataType_vals, ptr noundef nonnull @.str.1783) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.16, ptr noundef %10) #4
   %11 = load ptr, ptr @p1_tokendata_dissector_table, align 8
   %12 = load i32, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @dissector_try_uint(ptr noundef %11, i32 noundef %12, ptr noundef %1, ptr noundef %14, ptr noundef %4) #4
   %.not = icmp eq i32 %15, 0
@@ -8692,15 +8692,15 @@ define internal i32 @dissect_p1_ActualRecipientName(i1 noundef zeroext %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_p1_SubjectSubmissionIdentifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -8715,9 +8715,9 @@ set_do_address.exit.i:                            ; preds = %10, %6
   br i1 %19, label %20, label %dissect_p1_MTSIdentifier.exit
 
 20:                                               ; preds = %set_do_address.exit.i
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 32) #4
   store ptr %25, ptr %7, align 8
@@ -8751,7 +8751,7 @@ define internal i32 @dissect_MTSBindResult_PDU(ptr noundef %0, ptr noundef %1, p
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_p1_MTSBindResult_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store ptr null, ptr %7, align 8
   %8 = load i32, ptr @ett_p1_MTSBindResult, align 4
   %9 = call i32 @dissect_ber_set(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @MTSBindResult_set, i32 noundef %6, i32 noundef %8) #4
@@ -8763,15 +8763,15 @@ define internal i32 @dissect_MessageSubmissionArgument_PDU(ptr noundef %0, ptr n
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_p1_MessageSubmissionArgument_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %p1_initialize_content_globals.exit.i
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -8779,13 +8779,13 @@ define internal i32 @dissect_MessageSubmissionArgument_PDU(ptr noundef %0, ptr n
 
 p1_initialize_content_globals.exit.i:             ; preds = %10, %4
   %16 = phi ptr [ %15, %10 ], [ %8, %4 ]
-  %17 = getelementptr inbounds i8, ptr %5, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 1, ptr %20, align 8
   %21 = load i32, ptr @ett_p1_MessageSubmissionArgument, align 4
   %22 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @MessageSubmissionArgument_sequence, i32 noundef %6, i32 noundef %21) #4
@@ -8794,18 +8794,18 @@ p1_initialize_content_globals.exit.i:             ; preds = %10, %4
   br i1 %24, label %25, label %dissect_p1_MessageSubmissionArgument.exit
 
 25:                                               ; preds = %p1_initialize_content_globals.exit.i
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = call noalias ptr @wmem_alloc0(ptr noundef %29, i64 noundef 32) #4
   br label %dissect_p1_MessageSubmissionArgument.exit
 
 dissect_p1_MessageSubmissionArgument.exit:        ; preds = %p1_initialize_content_globals.exit.i, %25
   %31 = phi ptr [ %30, %25 ], [ %23, %p1_initialize_content_globals.exit.i ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 0, ptr %33, align 8
   ret i32 %22
 }
@@ -8845,15 +8845,15 @@ define internal i32 @dissect_CancelDeferredDeliveryArgument_PDU(ptr noundef %0, 
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_p1_CancelDeferredDeliveryArgument_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %set_do_address.exit.i.i.i
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -8868,9 +8868,9 @@ set_do_address.exit.i.i.i:                        ; preds = %10, %4
   br i1 %19, label %20, label %dissect_p1_CancelDeferredDeliveryArgument.exit
 
 20:                                               ; preds = %set_do_address.exit.i.i.i
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 32) #4
   br label %dissect_p1_CancelDeferredDeliveryArgument.exit
@@ -8915,15 +8915,15 @@ define internal i32 @dissect_MessageDeliveryArgument_PDU(ptr noundef %0, ptr nou
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_p1_MessageDeliveryArgument_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %p1_initialize_content_globals.exit.i
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -8931,13 +8931,13 @@ define internal i32 @dissect_MessageDeliveryArgument_PDU(ptr noundef %0, ptr nou
 
 p1_initialize_content_globals.exit.i:             ; preds = %10, %4
   %16 = phi ptr [ %15, %10 ], [ %8, %4 ]
-  %17 = getelementptr inbounds i8, ptr %5, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 1, ptr %20, align 8
   %21 = load i32, ptr @ett_p1_MessageDeliveryArgument, align 4
   %22 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @MessageDeliveryArgument_sequence, i32 noundef %6, i32 noundef %21) #4
@@ -8946,18 +8946,18 @@ p1_initialize_content_globals.exit.i:             ; preds = %10, %4
   br i1 %24, label %25, label %dissect_p1_MessageDeliveryArgument.exit
 
 25:                                               ; preds = %p1_initialize_content_globals.exit.i
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = call noalias ptr @wmem_alloc0(ptr noundef %29, i64 noundef 32) #4
   br label %dissect_p1_MessageDeliveryArgument.exit
 
 dissect_p1_MessageDeliveryArgument.exit:          ; preds = %p1_initialize_content_globals.exit.i, %25
   %31 = phi ptr [ %30, %25 ], [ %23, %p1_initialize_content_globals.exit.i ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 0, ptr %33, align 8
   ret i32 %22
 }
@@ -8977,15 +8977,15 @@ define internal i32 @dissect_ReportDeliveryArgument_PDU(ptr noundef %0, ptr noun
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_p1_ReportDeliveryArgument_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %p1_initialize_content_globals.exit.i
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 32) #4
   store ptr %15, ptr %7, align 8
@@ -8993,13 +8993,13 @@ define internal i32 @dissect_ReportDeliveryArgument_PDU(ptr noundef %0, ptr noun
 
 p1_initialize_content_globals.exit.i:             ; preds = %10, %4
   %16 = phi ptr [ %15, %10 ], [ %8, %4 ]
-  %17 = getelementptr inbounds i8, ptr %5, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 1, ptr %20, align 8
   %21 = load i32, ptr @ett_p1_ReportDeliveryArgument, align 4
   %22 = call i32 @dissect_ber_set(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ReportDeliveryArgument_set, i32 noundef %6, i32 noundef %21) #4
@@ -9008,18 +9008,18 @@ p1_initialize_content_globals.exit.i:             ; preds = %10, %4
   br i1 %24, label %25, label %dissect_p1_ReportDeliveryArgument.exit
 
 25:                                               ; preds = %p1_initialize_content_globals.exit.i
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = call noalias ptr @wmem_alloc0(ptr noundef %29, i64 noundef 32) #4
   br label %dissect_p1_ReportDeliveryArgument.exit
 
 dissect_p1_ReportDeliveryArgument.exit:           ; preds = %p1_initialize_content_globals.exit.i, %25
   %31 = phi ptr [ %30, %25 ], [ %23, %p1_initialize_content_globals.exit.i ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 0, ptr %33, align 8
   ret i32 %22
 }
@@ -9250,9 +9250,9 @@ define internal i32 @dissect_p1_T_x121_address(i1 noundef zeroext %0, ptr nounde
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext %0, i32 noundef 18, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 16, i32 noundef %5, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_p1, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #4
@@ -9260,7 +9260,7 @@ define internal i32 @dissect_p1_T_x121_address(i1 noundef zeroext %0, ptr nounde
   br i1 %.not.i.i, label %get_do_address_ctx.exit.i, label %get_do_address_ctx.exit.thread.i
 
 get_do_address_ctx.exit.i:                        ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %do_address.exit, label %get_do_address_ctx.exit.thread.i
@@ -9274,10 +9274,10 @@ get_do_address_ctx.exit.thread.i:                 ; preds = %get_do_address_ctx.
   br i1 %or.cond, label %do_address.exit, label %19
 
 19:                                               ; preds = %get_do_address_ctx.exit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.0.i18.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18.i, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @tvb_captured_length(ptr noundef nonnull %9) #4
   %26 = call ptr @tvb_format_text(ptr noundef %24, ptr noundef nonnull %9, i32 noundef 0, i32 noundef %25) #4

@@ -555,13 +555,13 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 for.body:                                         ; preds = %if.end, %if.end16
   %i.013 = phi i32 [ %inc, %if.end16 ], [ 0, %if.end ]
   %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef %list.0, i32 noundef %i.013) #4
-  %value = getelementptr inbounds i8, ptr %call6, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool7.not = icmp eq ptr %0, null
   br i1 %tobool7.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %for.body
-  %name = getelementptr inbounds i8, ptr %call6, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %call6, i64 8
   %1 = load ptr, ptr %name, align 8
   br label %cond.end
 
@@ -649,13 +649,13 @@ for.cond:                                         ; preds = %if.end19
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.015 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
   %call14 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1, i32 noundef %i.015) #4
-  %value = getelementptr inbounds i8, ptr %call14, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call14, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %for.body
-  %name = getelementptr inbounds i8, ptr %call14, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %call14, i64 8
   %1 = load ptr, ptr %name, align 8
   br label %cond.end
 
@@ -720,14 +720,14 @@ for.body:                                         ; preds = %if.end, %for.inc
   %millis.024 = phi i32 [ %millis.1, %for.inc ], [ 0, %if.end ]
   %secs.023 = phi i32 [ %secs.1, %for.inc ], [ 0, %if.end ]
   %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef %list.0, i32 noundef %i.026) #4
-  %name = getelementptr inbounds i8, ptr %call6, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %call6, i64 8
   %0 = load ptr, ptr %name, align 8
   %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.17) #5
   %cmp8 = icmp eq i32 %call7, 0
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %for.body
-  %value = getelementptr inbounds i8, ptr %call6, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %1 = load ptr, ptr %value, align 8
   %tobool10.not = icmp eq ptr %1, null
   br i1 %tobool10.not, label %for.inc, label %if.then11
@@ -742,7 +742,7 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp17, label %if.then18, label %if.else25
 
 if.then18:                                        ; preds = %if.else
-  %value19 = getelementptr inbounds i8, ptr %call6, i64 16
+  %value19 = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %2 = load ptr, ptr %value19, align 8
   %tobool20.not = icmp eq ptr %2, null
   br i1 %tobool20.not, label %for.inc, label %if.then21
@@ -757,7 +757,7 @@ if.else25:                                        ; preds = %if.else
   br i1 %cmp28, label %if.then29, label %if.else36
 
 if.then29:                                        ; preds = %if.else25
-  %value30 = getelementptr inbounds i8, ptr %call6, i64 16
+  %value30 = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %3 = load ptr, ptr %value30, align 8
   %tobool31.not = icmp eq ptr %3, null
   br i1 %tobool31.not, label %for.inc, label %if.then32
@@ -862,13 +862,13 @@ sub_0:                                            ; preds = %if.then
   br i1 %.not, label %sub_1, label %if.then5
 
 sub_1:                                            ; preds = %sub_0
-  %1 = getelementptr inbounds i8, ptr %call, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %call, i64 1
   %2 = load i8, ptr %1, align 1
   %.not5 = icmp eq i8 %2, 111
   br i1 %.not5, label %if.else.tail, label %if.then5
 
 if.else.tail:                                     ; preds = %sub_1
-  %3 = getelementptr inbounds i8, ptr %call, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %call, i64 2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %return, label %if.then5

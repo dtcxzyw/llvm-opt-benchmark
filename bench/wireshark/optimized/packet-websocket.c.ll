@@ -457,12 +457,12 @@ define internal i32 @dissect_websocket_frame(ptr noundef %0, ptr noundef %1, ptr
 14:                                               ; preds = %4
   %15 = tail call ptr @wmem_file_scope() #6
   %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 56) #6
-  %17 = getelementptr inbounds i8, ptr %16, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 44
   store i32 1, ptr %17, align 4
   %18 = load i32, ptr @dissect_websocket_frame.frag_id_counter, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr @dissect_websocket_frame.frag_id_counter, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 %19, ptr %20, align 8
   %21 = load i32, ptr @proto_http, align 4
   %22 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %11, i32 noundef %21) #6
@@ -470,14 +470,14 @@ define internal i32 @dissect_websocket_frame(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not132, label %105, label %23
 
 23:                                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %22, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %16, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %27 = load i16, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %16, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i16 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %22, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %30 = load ptr, ptr %29, align 8
   %.not135 = icmp eq ptr %30, null
   br i1 %.not135, label %websocket_parse_extensions.exit, label %31
@@ -495,13 +495,13 @@ define internal i32 @dissect_websocket_frame(ptr noundef %0, ptr noundef %1, ptr
 36:                                               ; preds = %33, %31
   %37 = phi i1 [ true, %31 ], [ %35, %33 ]
   %38 = zext i1 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %16, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %38, ptr %39, align 4
   %40 = load i32, ptr @pref_decompress, align 4
   %.not16.i = icmp ne i32 %40, 0
   %spec.select.i = select i1 %.not16.i, i1 %37, i1 false
   %41 = zext i1 %spec.select.i to i32
-  %42 = getelementptr inbounds i8, ptr %16, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %41, ptr %42, align 8
   br i1 %spec.select.i, label %43, label %websocket_parse_extensions.exit
 
@@ -545,7 +545,7 @@ websocket_extract_wbits.exit.i:                   ; preds = %58, %55, %51, %45, 
   %60 = sub nsw i8 0, %59
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %61 = getelementptr inbounds i8, ptr %16, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i8 %60, ptr %61, align 4
   %62 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) @.str.139) #7
   %.not17.i = icmp eq ptr %62, null
@@ -554,9 +554,9 @@ websocket_extract_wbits.exit.i:                   ; preds = %58, %55, %51, %45, 
 63:                                               ; preds = %websocket_extract_wbits.exit.i
   %64 = call ptr @wmem_file_scope() #6
   %65 = call noalias ptr @wmem_alloc0(ptr noundef %64, i64 noundef 112) #6
-  %66 = getelementptr inbounds i8, ptr %65, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 64
   store ptr @websocket_zalloc, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %65, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 72
   store ptr @websocket_zfree, ptr %67, align 8
   %68 = sext i8 %60 to i32
   %69 = call i32 @inflateInit2_(ptr noundef %65, i32 noundef %68, ptr noundef nonnull @.str.143, i32 noundef 112) #6
@@ -571,7 +571,7 @@ websocket_extract_wbits.exit.i:                   ; preds = %58, %55, %51, %45, 
 
 websocket_init_z_stream_context.exit.i:           ; preds = %70, %63
   %.0.i.i = phi ptr [ null, %70 ], [ %65, %63 ]
-  %73 = getelementptr inbounds i8, ptr %16, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %.0.i.i, ptr %73, align 8
   br label %74
 
@@ -615,7 +615,7 @@ websocket_extract_wbits.exit25.i:                 ; preds = %89, %86, %82, %76, 
   %91 = sub nsw i8 0, %90
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %92 = getelementptr inbounds i8, ptr %16, i64 21
+  %92 = getelementptr inbounds nuw i8, ptr %16, i64 21
   store i8 %91, ptr %92, align 1
   %93 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) @.str.141) #7
   %.not18.i = icmp eq ptr %93, null
@@ -624,9 +624,9 @@ websocket_extract_wbits.exit25.i:                 ; preds = %89, %86, %82, %76, 
 94:                                               ; preds = %websocket_extract_wbits.exit25.i
   %95 = call ptr @wmem_file_scope() #6
   %96 = call noalias ptr @wmem_alloc0(ptr noundef %95, i64 noundef 112) #6
-  %97 = getelementptr inbounds i8, ptr %96, i64 64
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 64
   store ptr @websocket_zalloc, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %96, i64 72
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 72
   store ptr @websocket_zfree, ptr %98, align 8
   %99 = sext i8 %91 to i32
   %100 = call i32 @inflateInit2_(ptr noundef %96, i32 noundef %99, ptr noundef nonnull @.str.143, i32 noundef 112) #6
@@ -641,27 +641,27 @@ websocket_extract_wbits.exit25.i:                 ; preds = %89, %86, %82, %76, 
 
 websocket_init_z_stream_context.exit28.i:         ; preds = %101, %94
   %.0.i27.i = phi ptr [ null, %101 ], [ %96, %94 ]
-  %104 = getelementptr inbounds i8, ptr %16, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %.0.i27.i, ptr %104, align 8
   br label %websocket_parse_extensions.exit
 
 105:                                              ; preds = %14
-  %106 = getelementptr inbounds i8, ptr %1, i64 292
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %107 = load i32, ptr %106, align 4
-  %108 = getelementptr inbounds i8, ptr %1, i64 284
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %109 = load i32, ptr %108, align 4
   %110 = icmp eq i32 %107, %109
   br i1 %110, label %115, label %111
 
 111:                                              ; preds = %105
-  %112 = getelementptr inbounds i8, ptr %1, i64 288
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %113 = load i32, ptr %112, align 8
   %114 = icmp eq i32 %107, %113
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %111, %105
   %116 = trunc i32 %107 to i16
-  %117 = getelementptr inbounds i8, ptr %16, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i16 %116, ptr %117, align 8
   br label %websocket_parse_extensions.exit
 
@@ -675,7 +675,7 @@ websocket_init_z_stream_context.exit28.i:         ; preds = %101, %94
 
 121:                                              ; preds = %118
   %122 = trunc i32 %. to i16
-  %123 = getelementptr inbounds i8, ptr %16, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i16 %122, ptr %123, align 8
   br label %websocket_parse_extensions.exit
 
@@ -687,7 +687,7 @@ websocket_init_z_stream_context.exit28.i:         ; preds = %101, %94
 
 127:                                              ; preds = %124
   %128 = trunc i32 %.142 to i16
-  %129 = getelementptr inbounds i8, ptr %16, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i16 %128, ptr %129, align 8
   br label %websocket_parse_extensions.exit
 
@@ -697,7 +697,7 @@ websocket_parse_extensions.exit:                  ; preds = %websocket_init_z_st
   br label %133
 
 131:                                              ; preds = %4
-  %132 = getelementptr inbounds i8, ptr %13, i64 44
+  %132 = getelementptr inbounds nuw i8, ptr %13, i64 44
   store i32 0, ptr %132, align 4
   br label %133
 
@@ -732,7 +732,7 @@ websocket_parse_extensions.exit:                  ; preds = %websocket_init_z_st
   %149 = and i8 %148, 4
   %150 = zext nneg i8 %149 to i32
   %151 = add nuw nsw i32 %.0122, %150
-  %152 = getelementptr inbounds i8, ptr %1, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %153 = load ptr, ptr %152, align 8
   call void @col_set_str(ptr noundef %153, i32 noundef 34, ptr noundef nonnull @.str.85) #6
   %154 = load ptr, ptr %152, align 8
@@ -746,13 +746,13 @@ websocket_parse_extensions.exit:                  ; preds = %websocket_init_z_st
   %161 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
   %162 = load i32, ptr @hf_ws_reserved, align 4
   %163 = call ptr @proto_tree_add_item(ptr noundef %158, i32 noundef %162, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
-  %164 = getelementptr inbounds i8, ptr %.0121, i64 12
+  %164 = getelementptr inbounds nuw i8, ptr %.0121, i64 12
   %165 = load i32, ptr %164, align 4
   %.not137 = icmp eq i32 %165, 0
   br i1 %.not137, label %177, label %166
 
 166:                                              ; preds = %146
-  %167 = getelementptr inbounds i8, ptr %.0121, i64 44
+  %167 = getelementptr inbounds nuw i8, ptr %.0121, i64 44
   %168 = load i32, ptr %167, align 4
   %.not138 = icmp eq i32 %168, 0
   br i1 %.not138, label %174, label %169
@@ -762,7 +762,7 @@ websocket_parse_extensions.exit:                  ; preds = %websocket_init_z_st
   %171 = lshr i8 %170, 6
   %.lobit = and i8 %171, 1
   %172 = zext nneg i8 %.lobit to i32
-  %173 = getelementptr inbounds i8, ptr %.0121, i64 52
+  %173 = getelementptr inbounds nuw i8, ptr %.0121, i64 52
   store i32 %172, ptr %173, align 4
   br label %174
 
@@ -776,13 +776,13 @@ websocket_parse_extensions.exit:                  ; preds = %websocket_init_z_st
   %179 = call ptr @proto_tree_add_item(ptr noundef %158, i32 noundef %178, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
   %180 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
   %181 = and i8 %180, 15
-  %182 = getelementptr inbounds i8, ptr %.0121, i64 44
+  %182 = getelementptr inbounds nuw i8, ptr %.0121, i64 44
   %183 = load i32, ptr %182, align 4
   %.not139 = icmp eq i32 %183, 0
   br i1 %.not139, label %186, label %184
 
 184:                                              ; preds = %177
-  %185 = getelementptr inbounds i8, ptr %.0121, i64 48
+  %185 = getelementptr inbounds nuw i8, ptr %.0121, i64 48
   store i8 %181, ptr %185, align 8
   br label %186
 
@@ -935,7 +935,7 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
   br label %dissect_websocket_payload.exit
 
 266:                                              ; preds = %240
-  %267 = getelementptr inbounds i8, ptr %1, i64 272
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %268 = load i32, ptr %267, align 8
   %269 = icmp ne i32 %268, 0
   %270 = icmp eq i8 %181, 0
@@ -943,20 +943,20 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
   br i1 %or.cond.i, label %272, label %.thread71.i
 
 .thread71.i:                                      ; preds = %266
-  %271 = getelementptr inbounds i8, ptr %1, i64 80
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %307
 
 272:                                              ; preds = %266
   store i32 1, ptr %267, align 8
-  %273 = getelementptr inbounds i8, ptr %.0121, i64 40
+  %273 = getelementptr inbounds nuw i8, ptr %.0121, i64 40
   %274 = load i32, ptr %273, align 8
   %275 = call i32 @tvb_captured_length_remaining(ptr noundef %.0123, i32 noundef 0) #6
   %276 = zext i1 %.not140 to i32
   %277 = call ptr @fragment_add_seq_next(ptr noundef nonnull @ws_reassembly_table, ptr noundef %.0123, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %274, ptr noundef null, i32 noundef %275, i32 noundef %276) #6
   %278 = call ptr @process_reassembled_data(ptr noundef %.0123, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.145, ptr noundef %277, ptr noundef nonnull @ws_frag_items, ptr noundef null, ptr noundef %2) #6
-  %279 = getelementptr inbounds i8, ptr %1, i64 80
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 50
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 50
   %282 = load i16, ptr %281, align 2
   %283 = and i16 %282, 8
   %284 = icmp eq i16 %283, 0
@@ -967,7 +967,7 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
 286:                                              ; preds = %272
   %287 = call ptr @wmem_file_scope() #6
   %288 = load i32, ptr @proto_websocket, align 4
-  %289 = getelementptr inbounds i8, ptr %.0121, i64 48
+  %289 = getelementptr inbounds nuw i8, ptr %.0121, i64 48
   %290 = load i8, ptr %289, align 8
   %291 = zext i8 %290 to i64
   %292 = inttoptr i64 %291 to ptr
@@ -1020,7 +1020,7 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
   br label %322
 
 315:                                              ; preds = %310
-  %316 = getelementptr inbounds i8, ptr %.0121, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %.0121, i64 8
   %317 = load i16, ptr %316, align 8
   %.not83.i.i = icmp eq i16 %317, 0
   br i1 %.not83.i.i, label %322, label %318
@@ -1033,13 +1033,13 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
 
 322:                                              ; preds = %318, %315, %312
   %.073.i.i = phi ptr [ %314, %312 ], [ %321, %318 ], [ null, %315 ]
-  %323 = getelementptr inbounds i8, ptr %.0121, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %.0121, i64 16
   %324 = load i32, ptr %323, align 8
   %.not84.i.i = icmp eq i32 %324, 0
   br i1 %.not84.i.i, label %.thread.thread.i.i, label %325
 
 325:                                              ; preds = %322
-  %326 = getelementptr inbounds i8, ptr %.0121, i64 52
+  %326 = getelementptr inbounds nuw i8, ptr %.0121, i64 52
   %327 = load i32, ptr %326, align 4
   %.not85.i.i = icmp eq i32 %327, 0
   br i1 %.not85.i.i, label %.thread.thread.i.i, label %328
@@ -1047,21 +1047,21 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
 328:                                              ; preds = %325
   store ptr null, ptr %6, align 8
   %329 = load ptr, ptr %309, align 8
-  %330 = getelementptr inbounds i8, ptr %329, i64 50
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 50
   %331 = load i16, ptr %330, align 2
   %332 = and i16 %331, 8
   %.not86.i.i = icmp eq i16 %332, 0
   br i1 %.not86.i.i, label %333, label %353
 
 333:                                              ; preds = %328
-  %334 = getelementptr inbounds i8, ptr %1, i64 288
+  %334 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %335 = load i32, ptr %334, align 8
-  %336 = getelementptr inbounds i8, ptr %.0121, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %.0121, i64 8
   %337 = load i16, ptr %336, align 8
   %338 = zext i16 %337 to i32
   %339 = icmp eq i32 %335, %338
   %.075.in.v.i.i = select i1 %339, i64 24, i64 32
-  %.075.in.i.i = getelementptr inbounds i8, ptr %.0121, i64 %.075.in.v.i.i
+  %.075.in.i.i = getelementptr inbounds nuw i8, ptr %.0121, i64 %.075.in.v.i.i
   %.075.i.i = load ptr, ptr %.075.in.i.i, align 8
   %.not87.i.i = icmp eq ptr %.075.i.i, null
   br i1 %.not87.i.i, label %342, label %340
@@ -1072,9 +1072,9 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
 
 342:                                              ; preds = %333
   %.074.in.v.i.i = select i1 %339, i64 20, i64 21
-  %.074.in.i.i = getelementptr inbounds i8, ptr %.0121, i64 %.074.in.v.i.i
+  %.074.in.i.i = getelementptr inbounds nuw i8, ptr %.0121, i64 %.074.in.v.i.i
   %.074.i.i = load i8, ptr %.074.in.i.i, align 1
-  %343 = getelementptr inbounds i8, ptr %1, i64 408
+  %343 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %344 = load ptr, ptr %343, align 8
   %345 = call noalias ptr @wmem_alloc0(ptr noundef %344, i64 noundef 112) #6
   %346 = sext i8 %.074.i.i to i32
@@ -1099,7 +1099,7 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
   br i1 %.not88.i.i, label %.thread97.i.i, label %357
 
 357:                                              ; preds = %353
-  %358 = getelementptr inbounds i8, ptr %356, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %359 = load i32, ptr %358, align 8
   %.not89.i.i = icmp eq i32 %359, 0
   br i1 %.not89.i.i, label %.thread.thread.i.i, label %360
@@ -1167,7 +1167,7 @@ tvb_unmasked.exit:                                ; preds = %.lr.ph.i, %207
 378:                                              ; preds = %377
   %379 = load i32, ptr @hf_ws_payload_text, align 4
   %380 = call ptr @proto_tree_add_item(ptr noundef %234, i32 noundef %379, ptr noundef %.0.i.i146, i32 noundef 0, i32 noundef -1, i32 noundef 2) #6
-  %381 = getelementptr inbounds i8, ptr %1, i64 296
+  %381 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %382 = load ptr, ptr %381, align 8
   store ptr null, ptr %381, align 8
   %383 = load i32, ptr @pref_text_type, align 4
@@ -1300,7 +1300,7 @@ declare ptr @dissector_get_string_handle(ptr noundef, ptr noundef) local_unnamed
 define internal fastcc range(i32 0, 2) i32 @websocket_uncompress(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 12), (24, 36)) %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %7 = add i32 %6, 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef %9, i64 noundef %10) #6
@@ -1325,10 +1325,10 @@ define internal fastcc range(i32 0, 2) i32 @websocket_uncompress(ptr noundef %0,
   %26 = zext i32 %24 to i64
   %27 = tail call noalias ptr @wmem_alloc(ptr noundef %25, i64 noundef %26) #6
   store ptr %11, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %7, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
-  %30 = getelementptr inbounds i8, ptr %2, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %31
 
 31:                                               ; preds = %44, %5
@@ -1377,7 +1377,7 @@ define internal fastcc range(i32 0, 2) i32 @websocket_uncompress(ptr noundef %0,
 
 48:                                               ; preds = %45
   store ptr %.1, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 %.165, ptr %49, align 8
   %50 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %.1, i32 noundef %.165, i32 noundef %.165) #6
   store ptr %50, ptr %3, align 8

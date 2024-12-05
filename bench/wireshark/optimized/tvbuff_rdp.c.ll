@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden noalias ptr @zgfx_context_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef 2565548) #4
-  %3 = getelementptr inbounds i8, ptr %2, i64 2500004
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2500004
   store i32 2500000, ptr %3, align 4
   ret ptr %2
 }
@@ -29,7 +29,7 @@ define hidden ptr @rdp8_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 2500008
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2500008
   store i32 0, ptr %8, align 4
   %9 = tail call ptr @tvb_new_subset_remaining(ptr noundef %2, i32 noundef %6) #4
   %10 = tail call fastcc i32 @rdp8_decompress_segment(ptr noundef %0, ptr noundef %9)
@@ -40,7 +40,7 @@ define hidden ptr @rdp8_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %
   %12 = load i32, ptr %8, align 4
   %13 = zext i32 %12 to i64
   %14 = tail call noalias ptr @wmem_alloc(ptr noundef %1, i64 noundef %13) #4
-  %15 = getelementptr inbounds i8, ptr %0, i64 2500012
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2500012
   %16 = load i32, ptr %8, align 4
   %17 = zext i32 %16 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull align 4 %15, i64 %17, i1 false)
@@ -58,8 +58,8 @@ define hidden ptr @rdp8_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .lr.ph:                                           ; preds = %19
   %25 = add i32 %3, 7
-  %26 = getelementptr inbounds i8, ptr %0, i64 2500008
-  %27 = getelementptr inbounds i8, ptr %0, i64 2500012
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2500008
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2500012
   br label %28
 
 28:                                               ; preds = %.lr.ph, %37
@@ -114,19 +114,19 @@ define internal fastcc range(i32 0, 2) i32 @rdp8_decompress_segment(ptr noundef 
 
 9:                                                ; preds = %2
   %10 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef 1) #4
-  %11 = getelementptr inbounds i8, ptr %0, i64 2500004
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2500004
   %12 = load i32, ptr %11, align 4
   %13 = icmp ugt i32 %8, %12
   br i1 %13, label %14, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %9
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 2500000
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 2500000
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %20
 
 14:                                               ; preds = %9
   %15 = sub nuw i32 %8, %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 2500000
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2500000
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, %15
   %19 = urem i32 %18, %12
@@ -161,16 +161,16 @@ define internal fastcc range(i32 0, 2) i32 @rdp8_decompress_segment(ptr noundef 
   br label %zgfx_write_history_buffer_tvb.exit
 
 zgfx_write_history_buffer_tvb.exit:               ; preds = %23, %28
-  %38 = getelementptr inbounds i8, ptr %0, i64 2500000
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2500000
   %39 = load i32, ptr %38, align 4
   %40 = add i32 %39, %.0.i
   %41 = load i32, ptr %11, align 4
   %42 = urem i32 %40, %41
   store i32 %42, ptr %38, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 2500012
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2500012
   %44 = sext i32 %8 to i64
   %45 = tail call ptr @tvb_memcpy(ptr noundef %1, ptr noundef nonnull %43, i32 noundef 1, i64 noundef %44) #4
-  %46 = getelementptr inbounds i8, ptr %0, i64 2500008
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 2500008
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, %8
   store i32 %48, ptr %46, align 4
@@ -187,22 +187,22 @@ zgfx_write_history_buffer_tvb.exit:               ; preds = %23, %28
   %54 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef 1, i32 noundef %53) #4
   %55 = shl i32 %53, 3
   store ptr %54, ptr %3, align 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %3, i64 12
-  %58 = getelementptr inbounds i8, ptr %3, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %3, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %59, align 4
   %.not86285 = icmp eq i32 %55, %52
   br i1 %.not86285, label %zgfx_write_literal.exit.thread, label %.preheader.i.lr.ph
 
 .preheader.i.lr.ph:                               ; preds = %.split284
   %60 = sub i32 %55, %52
-  %61 = getelementptr inbounds i8, ptr %0, i64 2500008
-  %62 = getelementptr inbounds i8, ptr %0, i64 2500012
-  %63 = getelementptr inbounds i8, ptr %0, i64 2500000
-  %64 = getelementptr inbounds i8, ptr %0, i64 2500004
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 2500008
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 2500012
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 2500000
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 2500004
   br label %.preheader.i
 
 .critedgethread-pre-split.loopexit:               ; preds = %137
@@ -490,7 +490,7 @@ bitstream_getbits.exit130:                        ; preds = %.lr.ph522, %.prehea
   %172 = phi i32 [ %163, %bitstream_getbits.exit130 ], [ %141, %138 ]
   %.2 = phi i32 [ %168, %bitstream_getbits.exit130 ], [ %.179229, %138 ]
   %.174 = phi i32 [ %143, %bitstream_getbits.exit130 ], [ %.073231, %138 ]
-  %173 = getelementptr inbounds i8, ptr %142, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %174 = load i32, ptr %173, align 4
   %175 = icmp eq i32 %.2, %174
   br i1 %175, label %176, label %137
@@ -504,9 +504,9 @@ bitstream_getbits.exit130:                        ; preds = %.lr.ph522, %.prehea
   br i1 %.0.i120341350371, label %177, label %329
 
 177:                                              ; preds = %176
-  %178 = getelementptr inbounds i8, ptr %142, i64 12
+  %178 = getelementptr inbounds nuw i8, ptr %142, i64 12
   %179 = load i32, ptr %178, align 4
-  %180 = getelementptr inbounds i8, ptr %142, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %181 = load i32, ptr %180, align 4
   %182 = and i32 %181, 255
   %183 = icmp ult i32 %172, %182
@@ -897,20 +897,20 @@ declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @bitstream_getbits(ptr nocapture noundef nonnull %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = zext i8 %1 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %6, %4
   br i1 %7, label %13, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = icmp ult i32 %9, %4
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %14
 
 13:                                               ; preds = %3
@@ -949,7 +949,7 @@ define internal fastcc i32 @bitstream_getbits(ptr nocapture noundef nonnull %0, 
 
 ._crit_edge:                                      ; preds = %19, %.preheader
   store i32 1, ptr %2, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = load i32, ptr %8, align 4
   %35 = sub i32 %34, %4
@@ -971,7 +971,7 @@ define internal fastcc i32 @bitstream_getbits(ptr nocapture noundef nonnull %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @zgfx_write_raw(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 2500008
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2500008
   %5 = load i32, ptr %4, align 4
   %6 = sub i32 65535, %2
   %7 = icmp ugt i32 %5, %6
@@ -979,14 +979,14 @@ define internal fastcc range(i32 0, 2) i32 @zgfx_write_raw(ptr noundef %0, ptr n
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 @tvb_captured_length_remaining(ptr noundef %9, i32 noundef %11) #4
   %13 = icmp slt i32 %12, %2
   br i1 %13, label %bitstream_copyraw.exit.thread, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 2500012
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2500012
   %16 = zext i32 %5 to i64
   %17 = getelementptr [65536 x i8], ptr %15, i64 0, i64 %16
   %18 = load ptr, ptr %1, align 8
@@ -996,9 +996,9 @@ define internal fastcc range(i32 0, 2) i32 @zgfx_write_raw(ptr noundef %0, ptr n
   %22 = load i32, ptr %4, align 4
   %23 = add i32 %22, %2
   store i32 %23, ptr %4, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 2500004
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2500004
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 2500000
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2500000
   %27 = load i32, ptr %26, align 4
   %28 = sub i32 %25, %27
   %spec.select = tail call i32 @llvm.umin.i32(i32 %28, i32 %2)
@@ -1019,7 +1019,7 @@ define internal fastcc range(i32 0, 2) i32 @zgfx_write_raw(ptr noundef %0, ptr n
   %41 = add i32 %40, %spec.select
   store i32 %41, ptr %10, align 8
   %42 = shl i32 %spec.select, 3
-  %43 = getelementptr inbounds i8, ptr %1, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %44 = load i32, ptr %43, align 4
   %45 = sub i32 %44, %42
   store i32 %45, ptr %43, align 4

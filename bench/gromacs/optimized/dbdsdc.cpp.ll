@@ -142,8 +142,8 @@ define void @dbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %77, %113
   %indvars.iv = phi i64 [ %indvars.iv.next, %113 ], [ 1, %77 ]
-  %82 = getelementptr inbounds double, ptr %30, i64 %indvars.iv
-  %83 = getelementptr inbounds double, ptr %31, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv
   call void @dlartg_(ptr noundef nonnull %82, ptr noundef nonnull %83, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %16)
   %84 = load double, ptr %16, align 8
   store double %84, ptr %82, align 8
@@ -177,7 +177,7 @@ define void @dbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %.sink.split
 
 103:                                              ; preds = %.lr.ph
-  %104 = getelementptr inbounds double, ptr %40, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv
   store double %89, ptr %104, align 8
   %105 = fneg double %85
   %106 = load i32, ptr %19, align 4
@@ -332,7 +332,7 @@ define void @dbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph440:                                        ; preds = %.lr.ph440.preheader, %192
   %indvars.iv464 = phi i64 [ 1, %.lr.ph440.preheader ], [ %indvars.iv.next465, %192 ]
-  %185 = getelementptr inbounds double, ptr %30, i64 %indvars.iv464
+  %185 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv464
   %186 = load double, ptr %185, align 8
   %187 = call noundef double @llvm.fabs.f64(double %186)
   %188 = fcmp olt double %187, 0x3CB0000000000000
@@ -378,7 +378,7 @@ define void @dbdsdc_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %indvars.iv467 = phi i64 [ 1, %.lr.ph446 ], [ %indvars.iv.next468.pre-phi, %340 ]
   %.0395.neg444 = phi i32 [ -1, %.lr.ph446 ], [ %.0395.neg, %340 ]
   %.0395443 = phi i32 [ 1, %.lr.ph446 ], [ %.1, %340 ]
-  %210 = getelementptr inbounds double, ptr %31, i64 %indvars.iv467
+  %210 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv467
   %211 = load double, ptr %210, align 8
   %212 = call noundef double @llvm.fabs.f64(double %211)
   %213 = fcmp olt double %212, 0x3CB0000000000000
@@ -609,7 +609,7 @@ thread-pre-split:                                 ; preds = %118, %._crit_edge44
   %indvars.iv472 = phi i64 [ %indvars.iv470, %.lr.ph453.preheader ], [ %indvars.iv.next473, %.lr.ph453 ]
   %.0403451 = phi i32 [ %353, %.lr.ph453.preheader ], [ %.1404, %.lr.ph453 ]
   %.0408450 = phi double [ %350, %.lr.ph453.preheader ], [ %.1409, %.lr.ph453 ]
-  %355 = getelementptr inbounds double, ptr %30, i64 %indvars.iv472
+  %355 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv472
   %356 = load double, ptr %355, align 8
   %357 = fcmp ogt double %356, %.0408450
   %.1409 = select i1 %357, double %356, double %.0408450

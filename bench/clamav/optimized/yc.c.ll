@@ -17,24 +17,24 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef signext %8) local_unnamed_addr #0 {
   %10 = zext i32 %4 to i64
-  %11 = getelementptr inbounds %struct.cli_exe_section, ptr %3, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %11 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 4
   %14 = sext i16 %8 to i32
   %15 = add i32 %13, %14
   %16 = zext i32 %5 to i64
-  %17 = getelementptr inbounds i8, ptr %1, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i16, ptr %18, align 4
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, i32 noundef %14, i32 noundef %7) #3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %4) #3
   %23 = zext i32 %15 to i64
-  %24 = getelementptr inbounds i8, ptr %1, i64 %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 147
-  %26 = getelementptr inbounds i8, ptr %24, i64 198
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 147
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 198
   %27 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %25, ptr noundef nonnull %26, i32 noundef %7, i32 noundef %7)
   switch i32 %27, label %29 [
     i32 2, label %.loopexit
@@ -45,7 +45,7 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
   br label %.loopexit
 
 29:                                               ; preds = %9
-  %30 = getelementptr inbounds i8, ptr %11, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %31 = load i32, ptr %30, align 4
   %32 = sub i32 %2, %31
   %.not95 = icmp eq i32 %4, 0
@@ -54,13 +54,13 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
 .lr.ph:                                           ; preds = %29
   %33 = icmp eq i16 %8, -24
   %34 = select i1 %33, i64 1002, i64 1111
-  %35 = getelementptr inbounds i8, ptr %24, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 %34
   br label %36
 
 36:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %37 = getelementptr inbounds %struct.cli_exe_section, ptr %3, i64 %indvars.iv
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %37 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 4
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %78, label %40
@@ -68,9 +68,9 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
 40:                                               ; preds = %36
   %41 = mul i64 %indvars.iv, 40
   %42 = and i64 %41, 4294967288
-  %43 = getelementptr inbounds i8, ptr %22, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 %42
   %44 = load i32, ptr %43, align 1
-  %45 = getelementptr inbounds i8, ptr %37, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, 0
   %48 = icmp eq i32 %44, 1668445042
@@ -108,8 +108,8 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
 
 72:                                               ; preds = %66
   %73 = zext i32 %68 to i64
-  %74 = getelementptr inbounds i8, ptr %1, i64 %73
-  %75 = getelementptr inbounds i8, ptr %37, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %76 = load i32, ptr %75, align 4
   %77 = tail call fastcc i32 @yc_poly_emulator(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %35, ptr noundef %74, i32 noundef %76, i32 noundef %69)
   switch i32 %77, label %78 [
@@ -124,17 +124,17 @@ define range(i32 0, 8) i32 @yc_decrypt(ptr noundef %0, ptr noundef %1, i32 nound
 
 ._crit_edge:                                      ; preds = %78, %29
   %79 = trunc i32 %4 to i16
-  %80 = getelementptr inbounds i8, ptr %17, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %17, i64 6
   store i16 %79, ptr %80, align 2
-  %81 = getelementptr inbounds i8, ptr %17, i64 128
+  %81 = getelementptr inbounds nuw i8, ptr %17, i64 128
   store i64 0, ptr %81, align 1
-  %82 = getelementptr inbounds i8, ptr %24, i64 2575
+  %82 = getelementptr inbounds nuw i8, ptr %24, i64 2575
   %83 = load i32, ptr %82, align 1
-  %84 = getelementptr inbounds i8, ptr %17, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 %83, ptr %84, align 1
-  %85 = getelementptr inbounds i8, ptr %17, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %86 = load i32, ptr %85, align 1
-  %87 = getelementptr inbounds i8, ptr %11, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = sub i32 %86, %88
   store i32 %89, ptr %85, align 1
@@ -166,7 +166,7 @@ define internal fastcc range(i32 0, 3) i32 @yc_poly_emulator(ptr noundef %0, ptr
 .lr.ph:                                           ; preds = %7
   %8 = trunc i32 %5 to i8
   %9 = ptrtoint ptr %1 to i64
-  %invariant.gep = getelementptr inbounds i8, ptr %3, i64 1
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %10
 
 10:                                               ; preds = %.lr.ph, %136
@@ -174,7 +174,7 @@ define internal fastcc range(i32 0, 3) i32 @yc_poly_emulator(ptr noundef %0, ptr
   %.0137241 = phi i32 [ 0, %.lr.ph ], [ %138, %136 ]
   %.0140240 = phi i8 [ %8, %.lr.ph ], [ %137, %136 ]
   %11 = zext i32 %.0137241 to i64
-  %12 = getelementptr inbounds i8, ptr %4, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %9
   %15 = trunc i64 %14 to i32
@@ -195,7 +195,7 @@ yc_bounds_check.exit:                             ; preds = %10
   %.0138238 = phi i32 [ 0, %18 ], [ %134, %133 ]
   %.0141237 = phi i8 [ %19, %18 ], [ %.1142, %133 ]
   %21 = zext nneg i32 %.0138238 to i64
-  %22 = getelementptr inbounds i8, ptr %3, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %21
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %23, %9
   %25 = trunc i64 %24 to i32
@@ -228,7 +228,7 @@ yc_bounds_check.exit157:                          ; preds = %20
 30:                                               ; preds = %28
   %31 = add nuw nsw i32 %.0138238, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %3, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 %32
   %34 = ptrtoint ptr %33 to i64
   %35 = sub i64 %34, %9
   %36 = trunc i64 %35 to i32
@@ -274,7 +274,7 @@ yc_bounds_check.exit159:                          ; preds = %30
 56:                                               ; preds = %28
   %57 = add nuw nsw i32 %.0138238, 1
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %3, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %58
   %60 = ptrtoint ptr %59 to i64
   %61 = sub i64 %60, %9
   %62 = trunc i64 %61 to i32
@@ -294,7 +294,7 @@ yc_bounds_check.exit161:                          ; preds = %56
 68:                                               ; preds = %28
   %69 = add nuw nsw i32 %.0138238, 1
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %3, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 %70
   %72 = ptrtoint ptr %71 to i64
   %73 = sub i64 %72, %9
   %74 = trunc i64 %73 to i32
@@ -314,7 +314,7 @@ yc_bounds_check.exit163:                          ; preds = %68
 80:                                               ; preds = %28
   %81 = add nuw nsw i32 %.0138238, 1
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds i8, ptr %3, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 %82
   %84 = ptrtoint ptr %83 to i64
   %85 = sub i64 %84, %9
   %86 = trunc i64 %85 to i32
@@ -332,7 +332,7 @@ yc_bounds_check.exit165:                          ; preds = %80
   br label %133
 
 92:                                               ; preds = %28
-  %gep236 = getelementptr inbounds i8, ptr %invariant.gep, i64 %21
+  %gep236 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %21
   %93 = ptrtoint ptr %gep236 to i64
   %94 = sub i64 %93, %9
   %95 = trunc i64 %94 to i32
@@ -349,7 +349,7 @@ yc_bounds_check.exit167:                          ; preds = %92
   %100 = icmp eq i8 %99, -64
   %101 = add nuw nsw i32 %.0138238, 2
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds i8, ptr %3, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 %102
   %104 = ptrtoint ptr %103 to i64
   %105 = sub i64 %104, %9
   %106 = trunc i64 %105 to i32
@@ -383,7 +383,7 @@ yc_bounds_check.exit171:                          ; preds = %113
   br label %133
 
 118:                                              ; preds = %28
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %21
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %21
   %119 = ptrtoint ptr %gep to i64
   %120 = sub i64 %119, %9
   %121 = trunc i64 %120 to i32

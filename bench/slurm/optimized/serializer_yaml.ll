@@ -218,7 +218,7 @@ define range(i32 -1, 9203) i32 @serialize_p_data_to_string(ptr nocapture noundef
 
 .sink.split:                                      ; preds = %29, %27, %25, %23, %19, %17, %15, %13, %4
   %.sink = phi i32 [ 663, %4 ], [ 674, %13 ], [ 677, %15 ], [ 680, %17 ], [ 683, %19 ], [ 689, %23 ], [ 692, %25 ], [ 695, %27 ], [ 698, %29 ]
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %.sink, ptr noundef nonnull @__func__._dump_yaml, ptr noundef %32) #6
   br label %34
@@ -242,7 +242,7 @@ define range(i32 -1, 9203) i32 @serialize_p_data_to_string(ptr nocapture noundef
   br i1 %.not13, label %42, label %38
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %8, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
   store i64 %41, ptr %1, align 8
@@ -314,7 +314,7 @@ _parse_yaml.exit:                                 ; preds = %13
   br i1 %.not16, label %22, label %.thread
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.6, i32 noundef 391, ptr noundef nonnull @__func__._parse_yaml, ptr noundef %20) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -365,19 +365,19 @@ define internal range(i32 1, 0) i32 @_yaml_write_handler(ptr noundef %0, ptr noc
   br i1 %.not, label %7, label %19
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %1, i64 %2, i1 false)
   %14 = load i32, ptr %10, align 4
   %15 = add i32 %14, %4
   store i32 %15, ptr %10, align 4
   %16 = load ptr, ptr %8, align 8
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds i8, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   store i8 0, ptr %18, align 1
   br label %19
 
@@ -418,7 +418,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not57, label %10, label %14
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 491, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %12) #6
   br label %135
@@ -429,7 +429,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not58, label %16, label %135
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 494, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %18) #6
   br label %135
@@ -444,7 +444,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not55, label %24, label %34
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 503, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %26) #6
   br label %135
@@ -455,7 +455,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not54, label %30, label %34
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 510, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %32) #6
   br label %135
@@ -466,7 +466,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not56, label %36, label %135
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 514, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %38) #6
   br label %135
@@ -491,7 +491,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not52, label %50, label %54
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 531, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %52) #6
   br label %135
@@ -502,7 +502,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not53, label %56, label %135
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 537, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %58) #6
   br label %135
@@ -527,7 +527,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not50, label %70, label %74
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 555, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %72) #6
   br label %135
@@ -538,7 +538,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not51, label %76, label %135
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 561, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %78) #6
   br label %135
@@ -549,7 +549,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not45, label %82, label %86
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 572, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %84) #6
   br label %135
@@ -560,7 +560,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not46, label %88, label %92
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 575, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %90) #6
   br label %135
@@ -572,7 +572,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not47, label %95, label %99
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %1, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 582, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %97) #6
   br label %135
@@ -583,7 +583,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not48, label %101, label %105
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %1, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 585, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %103) #6
   br label %135
@@ -598,7 +598,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not41, label %108, label %112
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 596, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %110) #6
   br label %135
@@ -609,7 +609,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not42, label %114, label %118
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %1, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %116 = load ptr, ptr %115, align 8
   %117 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 599, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %116) #6
   br label %135
@@ -621,7 +621,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not43, label %121, label %125
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %1, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %123 = load ptr, ptr %122, align 8
   %124 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 606, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %123) #6
   br label %135
@@ -632,7 +632,7 @@ define internal fastcc range(i32 -1, 1) i32 @_data_to_yaml(ptr noundef %0, ptr n
   br i1 %.not44, label %127, label %131
 
 127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %1, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 609, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %129) #6
   br label %135
@@ -741,7 +741,7 @@ define internal fastcc range(i32 -1, 1) i32 @_emit_string(ptr noundef %0, ptr no
 
 .sink.split:                                      ; preds = %12, %8, %6, %4
   %.sink = phi i32 [ 425, %4 ], [ 428, %6 ], [ 437, %8 ], [ 440, %12 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %.sink, ptr noundef nonnull @__func__._emit_string, ptr noundef %15) #6
   br label %17
@@ -764,9 +764,9 @@ define internal fastcc range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0, ptr no
   br i1 %6, label %10, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 136
-  %8 = getelementptr inbounds i8, ptr %1, i64 160
-  %9 = getelementptr inbounds i8, ptr %5, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   br label %12
 
 10:                                               ; preds = %4
@@ -786,7 +786,7 @@ define internal fastcc range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0, ptr no
 
 16:                                               ; preds = %14
   call void @yaml_event_delete(ptr noundef nonnull %5) #6
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._yaml_to_data, ptr noundef %18) #6
   store i32 9215, ptr %3, align 4
@@ -816,7 +816,7 @@ define internal fastcc range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0, ptr no
 
 33:                                               ; preds = %32, %23
   %indvars.iv.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i, %32 ]
-  %34 = getelementptr inbounds [11 x %struct.anon.29], ptr @event_types, i64 0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [11 x %struct.anon.29], ptr @event_types, i64 0, i64 %indvars.iv.i
   %35 = load i32, ptr %34, align 16
   %36 = icmp eq i32 %35, %31
   br i1 %36, label %_yaml_event_type_string.exit, label %32
@@ -826,7 +826,7 @@ define internal fastcc range(i32 2, 6) i32 @_yaml_to_data(i32 noundef %0, ptr no
   unreachable
 
 _yaml_event_type_string.exit:                     ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load ptr, ptr %38, align 8
   call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %24, i64 noundef %28, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__._yaml_to_data, ptr noundef %2, i32 noundef %0, ptr noundef %39) #6
   br label %40
@@ -935,7 +935,7 @@ thread-pre-split:                                 ; preds = %5
   br label %common.ret4
 
 26:                                               ; preds = %thread-pre-split
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @data_get_type(ptr noundef %3) #6
   %30 = icmp eq i32 %29, 3
@@ -994,8 +994,8 @@ thread-pre-split:                                 ; preds = %5
 
 52:                                               ; preds = %.preheader, %51
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %.preheader ]
-  %53 = getelementptr inbounds [7 x %struct.anon.30], ptr @tags, i64 0, i64 %indvars.iv.i
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %53 = getelementptr inbounds nuw [7 x %struct.anon.30], ptr @tags, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 @slurm_xstrcmp(ptr noundef %55, ptr noundef nonnull %.val.i) #6
   %.not16.i = icmp eq i32 %56, 0

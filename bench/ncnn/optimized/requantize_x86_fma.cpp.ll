@@ -122,9 +122,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39366 = phi i64 [ 0, %.lr.ph39080 ], [ %indvars.iv.next39367, %214 ]
   %53 = load ptr, ptr %1, align 8
   %54 = shl nsw i64 %indvars.iv39366, 3
-  %55 = getelementptr inbounds i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
   %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 %54
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %54
   %58 = load <8 x i32>, ptr %55, align 1
   %59 = sitofp <8 x i32> %58 to <8 x float>
   %60 = fmul fast <8 x float> %37, %59
@@ -158,7 +158,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %75 = load float, ptr %74, align 4
   %76 = insertelement <8 x float> poison, float %75, i64 0
   %77 = shufflevector <8 x float> %76, <8 x float> poison, <8 x i32> zeroinitializer
-  %78 = getelementptr inbounds i8, ptr %74, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %79 = load float, ptr %78, align 4
   %80 = insertelement <8 x float> poison, float %79, i64 0
   %81 = shufflevector <8 x float> %80, <8 x float> poison, <8 x i32> zeroinitializer
@@ -294,7 +294,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %203 = load float, ptr %202, align 4
   %204 = insertelement <8 x float> poison, float %203, i64 0
   %205 = shufflevector <8 x float> %204, <8 x float> poison, <8 x i32> zeroinitializer
-  %206 = getelementptr inbounds i8, ptr %202, i64 4
+  %206 = getelementptr inbounds nuw i8, ptr %202, i64 4
   %207 = load float, ptr %206, align 4
   %208 = insertelement <8 x float> poison, float %207, i64 0
   %209 = shufflevector <8 x float> %208, <8 x float> poison, <8 x i32> zeroinitializer
@@ -342,9 +342,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39361 = phi i64 [ 0, %.lr.ph39078 ], [ %indvars.iv.next39362, %398 ]
   %237 = load ptr, ptr %1, align 8
   %238 = shl nsw i64 %indvars.iv39361, 3
-  %239 = getelementptr inbounds i32, ptr %237, i64 %238
+  %239 = getelementptr inbounds nuw i32, ptr %237, i64 %238
   %240 = load ptr, ptr %2, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 %238
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 %238
   %242 = load <8 x i32>, ptr %239, align 1
   %243 = sitofp <8 x i32> %242 to <8 x float>
   %244 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %243, <8 x float> %37, <8 x float> %232)
@@ -378,7 +378,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %259 = load float, ptr %258, align 4
   %260 = insertelement <8 x float> poison, float %259, i64 0
   %261 = shufflevector <8 x float> %260, <8 x float> poison, <8 x i32> zeroinitializer
-  %262 = getelementptr inbounds i8, ptr %258, i64 4
+  %262 = getelementptr inbounds nuw i8, ptr %258, i64 4
   %263 = load float, ptr %262, align 4
   %264 = insertelement <8 x float> poison, float %263, i64 0
   %265 = shufflevector <8 x float> %264, <8 x float> poison, <8 x i32> zeroinitializer
@@ -514,7 +514,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %387 = load float, ptr %386, align 4
   %388 = insertelement <8 x float> poison, float %387, i64 0
   %389 = shufflevector <8 x float> %388, <8 x float> poison, <8 x i32> zeroinitializer
-  %390 = getelementptr inbounds i8, ptr %386, i64 4
+  %390 = getelementptr inbounds nuw i8, ptr %386, i64 4
   %391 = load float, ptr %390, align 4
   %392 = insertelement <8 x float> poison, float %391, i64 0
   %393 = shufflevector <8 x float> %392, <8 x float> poison, <8 x i32> zeroinitializer
@@ -547,11 +547,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39371 = phi i64 [ 0, %.lr.ph39082 ], [ %indvars.iv.next39372, %576 ]
   %412 = load ptr, ptr %1, align 8
   %413 = shl nsw i64 %indvars.iv39371, 3
-  %414 = getelementptr inbounds i32, ptr %412, i64 %413
+  %414 = getelementptr inbounds nuw i32, ptr %412, i64 %413
   %415 = load ptr, ptr %2, align 8
-  %416 = getelementptr inbounds i8, ptr %415, i64 %413
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 %413
   %417 = load ptr, ptr %49, align 8
-  %418 = getelementptr inbounds float, ptr %417, i64 %413
+  %418 = getelementptr inbounds nuw float, ptr %417, i64 %413
   %419 = load <8 x float>, ptr %418, align 1
   %420 = load <8 x i32>, ptr %414, align 1
   %421 = sitofp <8 x i32> %420 to <8 x float>
@@ -586,7 +586,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %437 = load float, ptr %436, align 4
   %438 = insertelement <8 x float> poison, float %437, i64 0
   %439 = shufflevector <8 x float> %438, <8 x float> poison, <8 x i32> zeroinitializer
-  %440 = getelementptr inbounds i8, ptr %436, i64 4
+  %440 = getelementptr inbounds nuw i8, ptr %436, i64 4
   %441 = load float, ptr %440, align 4
   %442 = insertelement <8 x float> poison, float %441, i64 0
   %443 = shufflevector <8 x float> %442, <8 x float> poison, <8 x i32> zeroinitializer
@@ -722,7 +722,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %565 = load float, ptr %564, align 4
   %566 = insertelement <8 x float> poison, float %565, i64 0
   %567 = shufflevector <8 x float> %566, <8 x float> poison, <8 x i32> zeroinitializer
-  %568 = getelementptr inbounds i8, ptr %564, i64 4
+  %568 = getelementptr inbounds nuw i8, ptr %564, i64 4
   %569 = load float, ptr %568, align 4
   %570 = insertelement <8 x float> poison, float %569, i64 0
   %571 = shufflevector <8 x float> %570, <8 x float> poison, <8 x i32> zeroinitializer
@@ -796,11 +796,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39351 = phi i64 [ 0, %.lr.ph39073 ], [ %indvars.iv.next39352, %773 ]
   %609 = load ptr, ptr %1, align 8
   %610 = shl nsw i64 %indvars.iv39351, 3
-  %611 = getelementptr inbounds i32, ptr %609, i64 %610
+  %611 = getelementptr inbounds nuw i32, ptr %609, i64 %610
   %612 = load ptr, ptr %2, align 8
-  %613 = getelementptr inbounds i8, ptr %612, i64 %610
+  %613 = getelementptr inbounds nuw i8, ptr %612, i64 %610
   %614 = load ptr, ptr %600, align 8
-  %615 = getelementptr inbounds float, ptr %614, i64 %610
+  %615 = getelementptr inbounds nuw float, ptr %614, i64 %610
   %616 = load <8 x float>, ptr %615, align 1
   %617 = load <8 x i32>, ptr %611, align 1
   %618 = sitofp <8 x i32> %617 to <8 x float>
@@ -835,7 +835,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %634 = load float, ptr %633, align 4
   %635 = insertelement <8 x float> poison, float %634, i64 0
   %636 = shufflevector <8 x float> %635, <8 x float> poison, <8 x i32> zeroinitializer
-  %637 = getelementptr inbounds i8, ptr %633, i64 4
+  %637 = getelementptr inbounds nuw i8, ptr %633, i64 4
   %638 = load float, ptr %637, align 4
   %639 = insertelement <8 x float> poison, float %638, i64 0
   %640 = shufflevector <8 x float> %639, <8 x float> poison, <8 x i32> zeroinitializer
@@ -971,7 +971,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %762 = load float, ptr %761, align 4
   %763 = insertelement <8 x float> poison, float %762, i64 0
   %764 = shufflevector <8 x float> %763, <8 x float> poison, <8 x i32> zeroinitializer
-  %765 = getelementptr inbounds i8, ptr %761, i64 4
+  %765 = getelementptr inbounds nuw i8, ptr %761, i64 4
   %766 = load float, ptr %765, align 4
   %767 = insertelement <8 x float> poison, float %766, i64 0
   %768 = shufflevector <8 x float> %767, <8 x float> poison, <8 x i32> zeroinitializer
@@ -1020,11 +1020,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39346 = phi i64 [ 0, %.lr.ph39071 ], [ %indvars.iv.next39347, %961 ]
   %797 = load ptr, ptr %1, align 8
   %798 = shl nsw i64 %indvars.iv39346, 3
-  %799 = getelementptr inbounds i32, ptr %797, i64 %798
+  %799 = getelementptr inbounds nuw i32, ptr %797, i64 %798
   %800 = load ptr, ptr %2, align 8
-  %801 = getelementptr inbounds i8, ptr %800, i64 %798
+  %801 = getelementptr inbounds nuw i8, ptr %800, i64 %798
   %802 = load ptr, ptr %793, align 8
-  %803 = getelementptr inbounds float, ptr %802, i64 %798
+  %803 = getelementptr inbounds nuw float, ptr %802, i64 %798
   %804 = load <8 x float>, ptr %803, align 1
   %805 = load <8 x i32>, ptr %799, align 1
   %806 = sitofp <8 x i32> %805 to <8 x float>
@@ -1059,7 +1059,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %822 = load float, ptr %821, align 4
   %823 = insertelement <8 x float> poison, float %822, i64 0
   %824 = shufflevector <8 x float> %823, <8 x float> poison, <8 x i32> zeroinitializer
-  %825 = getelementptr inbounds i8, ptr %821, i64 4
+  %825 = getelementptr inbounds nuw i8, ptr %821, i64 4
   %826 = load float, ptr %825, align 4
   %827 = insertelement <8 x float> poison, float %826, i64 0
   %828 = shufflevector <8 x float> %827, <8 x float> poison, <8 x i32> zeroinitializer
@@ -1195,7 +1195,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %950 = load float, ptr %949, align 4
   %951 = insertelement <8 x float> poison, float %950, i64 0
   %952 = shufflevector <8 x float> %951, <8 x float> poison, <8 x i32> zeroinitializer
-  %953 = getelementptr inbounds i8, ptr %949, i64 4
+  %953 = getelementptr inbounds nuw i8, ptr %949, i64 4
   %954 = load float, ptr %953, align 4
   %955 = insertelement <8 x float> poison, float %954, i64 0
   %956 = shufflevector <8 x float> %955, <8 x float> poison, <8 x i32> zeroinitializer
@@ -1228,14 +1228,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39356 = phi i64 [ 0, %.lr.ph39075 ], [ %indvars.iv.next39357, %1142 ]
   %975 = load ptr, ptr %1, align 8
   %976 = shl nsw i64 %indvars.iv39356, 3
-  %977 = getelementptr inbounds i32, ptr %975, i64 %976
+  %977 = getelementptr inbounds nuw i32, ptr %975, i64 %976
   %978 = load ptr, ptr %2, align 8
-  %979 = getelementptr inbounds i8, ptr %978, i64 %976
+  %979 = getelementptr inbounds nuw i8, ptr %978, i64 %976
   %980 = load ptr, ptr %604, align 8
-  %981 = getelementptr inbounds float, ptr %980, i64 %976
+  %981 = getelementptr inbounds nuw float, ptr %980, i64 %976
   %982 = load <8 x float>, ptr %981, align 1
   %983 = load ptr, ptr %605, align 8
-  %984 = getelementptr inbounds float, ptr %983, i64 %976
+  %984 = getelementptr inbounds nuw float, ptr %983, i64 %976
   %985 = load <8 x float>, ptr %984, align 1
   %986 = load <8 x i32>, ptr %977, align 1
   %987 = sitofp <8 x i32> %986 to <8 x float>
@@ -1270,7 +1270,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %1003 = load float, ptr %1002, align 4
   %1004 = insertelement <8 x float> poison, float %1003, i64 0
   %1005 = shufflevector <8 x float> %1004, <8 x float> poison, <8 x i32> zeroinitializer
-  %1006 = getelementptr inbounds i8, ptr %1002, i64 4
+  %1006 = getelementptr inbounds nuw i8, ptr %1002, i64 4
   %1007 = load float, ptr %1006, align 4
   %1008 = insertelement <8 x float> poison, float %1007, i64 0
   %1009 = shufflevector <8 x float> %1008, <8 x float> poison, <8 x i32> zeroinitializer
@@ -1406,7 +1406,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %1131 = load float, ptr %1130, align 4
   %1132 = insertelement <8 x float> poison, float %1131, i64 0
   %1133 = shufflevector <8 x float> %1132, <8 x float> poison, <8 x i32> zeroinitializer
-  %1134 = getelementptr inbounds i8, ptr %1130, i64 4
+  %1134 = getelementptr inbounds nuw i8, ptr %1130, i64 4
   %1135 = load float, ptr %1134, align 4
   %1136 = insertelement <8 x float> poison, float %1135, i64 0
   %1137 = shufflevector <8 x float> %1136, <8 x float> poison, <8 x i32> zeroinitializer
@@ -1480,11 +1480,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39336 = phi i64 [ 0, %.lr.ph39066 ], [ %indvars.iv.next39337, %1339 ]
   %1175 = load ptr, ptr %1, align 8
   %1176 = shl nsw i64 %indvars.iv39336, 3
-  %1177 = getelementptr inbounds i32, ptr %1175, i64 %1176
+  %1177 = getelementptr inbounds nuw i32, ptr %1175, i64 %1176
   %1178 = load ptr, ptr %2, align 8
-  %1179 = getelementptr inbounds i8, ptr %1178, i64 %1176
+  %1179 = getelementptr inbounds nuw i8, ptr %1178, i64 %1176
   %1180 = load ptr, ptr %1166, align 8
-  %1181 = getelementptr inbounds float, ptr %1180, i64 %1176
+  %1181 = getelementptr inbounds nuw float, ptr %1180, i64 %1176
   %1182 = load <8 x float>, ptr %1181, align 1
   %1183 = load <8 x i32>, ptr %1177, align 1
   %1184 = sitofp <8 x i32> %1183 to <8 x float>
@@ -1519,7 +1519,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %1200 = load float, ptr %1199, align 4
   %1201 = insertelement <8 x float> poison, float %1200, i64 0
   %1202 = shufflevector <8 x float> %1201, <8 x float> poison, <8 x i32> zeroinitializer
-  %1203 = getelementptr inbounds i8, ptr %1199, i64 4
+  %1203 = getelementptr inbounds nuw i8, ptr %1199, i64 4
   %1204 = load float, ptr %1203, align 4
   %1205 = insertelement <8 x float> poison, float %1204, i64 0
   %1206 = shufflevector <8 x float> %1205, <8 x float> poison, <8 x i32> zeroinitializer
@@ -1655,7 +1655,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %1328 = load float, ptr %1327, align 4
   %1329 = insertelement <8 x float> poison, float %1328, i64 0
   %1330 = shufflevector <8 x float> %1329, <8 x float> poison, <8 x i32> zeroinitializer
-  %1331 = getelementptr inbounds i8, ptr %1327, i64 4
+  %1331 = getelementptr inbounds nuw i8, ptr %1327, i64 4
   %1332 = load float, ptr %1331, align 4
   %1333 = insertelement <8 x float> poison, float %1332, i64 0
   %1334 = shufflevector <8 x float> %1333, <8 x float> poison, <8 x i32> zeroinitializer
@@ -1704,11 +1704,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39331 = phi i64 [ 0, %.lr.ph39064 ], [ %indvars.iv.next39332, %1527 ]
   %1363 = load ptr, ptr %1, align 8
   %1364 = shl nsw i64 %indvars.iv39331, 3
-  %1365 = getelementptr inbounds i32, ptr %1363, i64 %1364
+  %1365 = getelementptr inbounds nuw i32, ptr %1363, i64 %1364
   %1366 = load ptr, ptr %2, align 8
-  %1367 = getelementptr inbounds i8, ptr %1366, i64 %1364
+  %1367 = getelementptr inbounds nuw i8, ptr %1366, i64 %1364
   %1368 = load ptr, ptr %1359, align 8
-  %1369 = getelementptr inbounds float, ptr %1368, i64 %1364
+  %1369 = getelementptr inbounds nuw float, ptr %1368, i64 %1364
   %1370 = load <8 x float>, ptr %1369, align 1
   %1371 = load <8 x i32>, ptr %1365, align 1
   %1372 = sitofp <8 x i32> %1371 to <8 x float>
@@ -1743,7 +1743,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %1388 = load float, ptr %1387, align 4
   %1389 = insertelement <8 x float> poison, float %1388, i64 0
   %1390 = shufflevector <8 x float> %1389, <8 x float> poison, <8 x i32> zeroinitializer
-  %1391 = getelementptr inbounds i8, ptr %1387, i64 4
+  %1391 = getelementptr inbounds nuw i8, ptr %1387, i64 4
   %1392 = load float, ptr %1391, align 4
   %1393 = insertelement <8 x float> poison, float %1392, i64 0
   %1394 = shufflevector <8 x float> %1393, <8 x float> poison, <8 x i32> zeroinitializer
@@ -1879,7 +1879,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %1516 = load float, ptr %1515, align 4
   %1517 = insertelement <8 x float> poison, float %1516, i64 0
   %1518 = shufflevector <8 x float> %1517, <8 x float> poison, <8 x i32> zeroinitializer
-  %1519 = getelementptr inbounds i8, ptr %1515, i64 4
+  %1519 = getelementptr inbounds nuw i8, ptr %1515, i64 4
   %1520 = load float, ptr %1519, align 4
   %1521 = insertelement <8 x float> poison, float %1520, i64 0
   %1522 = shufflevector <8 x float> %1521, <8 x float> poison, <8 x i32> zeroinitializer
@@ -1912,14 +1912,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39341 = phi i64 [ 0, %.lr.ph39068 ], [ %indvars.iv.next39342, %1708 ]
   %1541 = load ptr, ptr %1, align 8
   %1542 = shl nsw i64 %indvars.iv39341, 3
-  %1543 = getelementptr inbounds i32, ptr %1541, i64 %1542
+  %1543 = getelementptr inbounds nuw i32, ptr %1541, i64 %1542
   %1544 = load ptr, ptr %2, align 8
-  %1545 = getelementptr inbounds i8, ptr %1544, i64 %1542
+  %1545 = getelementptr inbounds nuw i8, ptr %1544, i64 %1542
   %1546 = load ptr, ptr %1170, align 8
-  %1547 = getelementptr inbounds float, ptr %1546, i64 %1542
+  %1547 = getelementptr inbounds nuw float, ptr %1546, i64 %1542
   %1548 = load <8 x float>, ptr %1547, align 1
   %1549 = load ptr, ptr %1171, align 8
-  %1550 = getelementptr inbounds float, ptr %1549, i64 %1542
+  %1550 = getelementptr inbounds nuw float, ptr %1549, i64 %1542
   %1551 = load <8 x float>, ptr %1550, align 1
   %1552 = load <8 x i32>, ptr %1543, align 1
   %1553 = sitofp <8 x i32> %1552 to <8 x float>
@@ -1954,7 +1954,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %1569 = load float, ptr %1568, align 4
   %1570 = insertelement <8 x float> poison, float %1569, i64 0
   %1571 = shufflevector <8 x float> %1570, <8 x float> poison, <8 x i32> zeroinitializer
-  %1572 = getelementptr inbounds i8, ptr %1568, i64 4
+  %1572 = getelementptr inbounds nuw i8, ptr %1568, i64 4
   %1573 = load float, ptr %1572, align 4
   %1574 = insertelement <8 x float> poison, float %1573, i64 0
   %1575 = shufflevector <8 x float> %1574, <8 x float> poison, <8 x i32> zeroinitializer
@@ -2090,7 +2090,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %1697 = load float, ptr %1696, align 4
   %1698 = insertelement <8 x float> poison, float %1697, i64 0
   %1699 = shufflevector <8 x float> %1698, <8 x float> poison, <8 x i32> zeroinitializer
-  %1700 = getelementptr inbounds i8, ptr %1696, i64 4
+  %1700 = getelementptr inbounds nuw i8, ptr %1696, i64 4
   %1701 = load float, ptr %1700, align 4
   %1702 = insertelement <8 x float> poison, float %1701, i64 0
   %1703 = shufflevector <8 x float> %1702, <8 x float> poison, <8 x i32> zeroinitializer
@@ -2156,14 +2156,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39321 = phi i64 [ 0, %.lr.ph39059 ], [ %indvars.iv.next39322, %1903 ]
   %1736 = load ptr, ptr %1, align 8
   %1737 = shl nsw i64 %indvars.iv39321, 3
-  %1738 = getelementptr inbounds i32, ptr %1736, i64 %1737
+  %1738 = getelementptr inbounds nuw i32, ptr %1736, i64 %1737
   %1739 = load ptr, ptr %2, align 8
-  %1740 = getelementptr inbounds i8, ptr %1739, i64 %1737
+  %1740 = getelementptr inbounds nuw i8, ptr %1739, i64 %1737
   %1741 = load ptr, ptr %1725, align 8
-  %1742 = getelementptr inbounds float, ptr %1741, i64 %1737
+  %1742 = getelementptr inbounds nuw float, ptr %1741, i64 %1737
   %1743 = load <8 x float>, ptr %1742, align 1
   %1744 = load ptr, ptr %1726, align 8
-  %1745 = getelementptr inbounds float, ptr %1744, i64 %1737
+  %1745 = getelementptr inbounds nuw float, ptr %1744, i64 %1737
   %1746 = load <8 x float>, ptr %1745, align 1
   %1747 = load <8 x i32>, ptr %1738, align 1
   %1748 = sitofp <8 x i32> %1747 to <8 x float>
@@ -2198,7 +2198,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %1764 = load float, ptr %1763, align 4
   %1765 = insertelement <8 x float> poison, float %1764, i64 0
   %1766 = shufflevector <8 x float> %1765, <8 x float> poison, <8 x i32> zeroinitializer
-  %1767 = getelementptr inbounds i8, ptr %1763, i64 4
+  %1767 = getelementptr inbounds nuw i8, ptr %1763, i64 4
   %1768 = load float, ptr %1767, align 4
   %1769 = insertelement <8 x float> poison, float %1768, i64 0
   %1770 = shufflevector <8 x float> %1769, <8 x float> poison, <8 x i32> zeroinitializer
@@ -2334,7 +2334,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %1892 = load float, ptr %1891, align 4
   %1893 = insertelement <8 x float> poison, float %1892, i64 0
   %1894 = shufflevector <8 x float> %1893, <8 x float> poison, <8 x i32> zeroinitializer
-  %1895 = getelementptr inbounds i8, ptr %1891, i64 4
+  %1895 = getelementptr inbounds nuw i8, ptr %1891, i64 4
   %1896 = load float, ptr %1895, align 4
   %1897 = insertelement <8 x float> poison, float %1896, i64 0
   %1898 = shufflevector <8 x float> %1897, <8 x float> poison, <8 x i32> zeroinitializer
@@ -2384,14 +2384,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39316 = phi i64 [ 0, %.lr.ph39057 ], [ %indvars.iv.next39317, %2095 ]
   %1928 = load ptr, ptr %1, align 8
   %1929 = shl nsw i64 %indvars.iv39316, 3
-  %1930 = getelementptr inbounds i32, ptr %1928, i64 %1929
+  %1930 = getelementptr inbounds nuw i32, ptr %1928, i64 %1929
   %1931 = load ptr, ptr %2, align 8
-  %1932 = getelementptr inbounds i8, ptr %1931, i64 %1929
+  %1932 = getelementptr inbounds nuw i8, ptr %1931, i64 %1929
   %1933 = load ptr, ptr %1923, align 8
-  %1934 = getelementptr inbounds float, ptr %1933, i64 %1929
+  %1934 = getelementptr inbounds nuw float, ptr %1933, i64 %1929
   %1935 = load <8 x float>, ptr %1934, align 1
   %1936 = load ptr, ptr %1924, align 8
-  %1937 = getelementptr inbounds float, ptr %1936, i64 %1929
+  %1937 = getelementptr inbounds nuw float, ptr %1936, i64 %1929
   %1938 = load <8 x float>, ptr %1937, align 1
   %1939 = load <8 x i32>, ptr %1930, align 1
   %1940 = sitofp <8 x i32> %1939 to <8 x float>
@@ -2426,7 +2426,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %1956 = load float, ptr %1955, align 4
   %1957 = insertelement <8 x float> poison, float %1956, i64 0
   %1958 = shufflevector <8 x float> %1957, <8 x float> poison, <8 x i32> zeroinitializer
-  %1959 = getelementptr inbounds i8, ptr %1955, i64 4
+  %1959 = getelementptr inbounds nuw i8, ptr %1955, i64 4
   %1960 = load float, ptr %1959, align 4
   %1961 = insertelement <8 x float> poison, float %1960, i64 0
   %1962 = shufflevector <8 x float> %1961, <8 x float> poison, <8 x i32> zeroinitializer
@@ -2562,7 +2562,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %2084 = load float, ptr %2083, align 4
   %2085 = insertelement <8 x float> poison, float %2084, i64 0
   %2086 = shufflevector <8 x float> %2085, <8 x float> poison, <8 x i32> zeroinitializer
-  %2087 = getelementptr inbounds i8, ptr %2083, i64 4
+  %2087 = getelementptr inbounds nuw i8, ptr %2083, i64 4
   %2088 = load float, ptr %2087, align 4
   %2089 = insertelement <8 x float> poison, float %2088, i64 0
   %2090 = shufflevector <8 x float> %2089, <8 x float> poison, <8 x i32> zeroinitializer
@@ -2595,17 +2595,17 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39326 = phi i64 [ 0, %.lr.ph39061 ], [ %indvars.iv.next39327, %2279 ]
   %2109 = load ptr, ptr %1, align 8
   %2110 = shl nsw i64 %indvars.iv39326, 3
-  %2111 = getelementptr inbounds i32, ptr %2109, i64 %2110
+  %2111 = getelementptr inbounds nuw i32, ptr %2109, i64 %2110
   %2112 = load ptr, ptr %2, align 8
-  %2113 = getelementptr inbounds i8, ptr %2112, i64 %2110
+  %2113 = getelementptr inbounds nuw i8, ptr %2112, i64 %2110
   %2114 = load ptr, ptr %1730, align 8
-  %2115 = getelementptr inbounds float, ptr %2114, i64 %2110
+  %2115 = getelementptr inbounds nuw float, ptr %2114, i64 %2110
   %2116 = load <8 x float>, ptr %2115, align 1
   %2117 = load ptr, ptr %1731, align 8
-  %2118 = getelementptr inbounds float, ptr %2117, i64 %2110
+  %2118 = getelementptr inbounds nuw float, ptr %2117, i64 %2110
   %2119 = load <8 x float>, ptr %2118, align 1
   %2120 = load ptr, ptr %1732, align 8
-  %2121 = getelementptr inbounds float, ptr %2120, i64 %2110
+  %2121 = getelementptr inbounds nuw float, ptr %2120, i64 %2110
   %2122 = load <8 x float>, ptr %2121, align 1
   %2123 = load <8 x i32>, ptr %2111, align 1
   %2124 = sitofp <8 x i32> %2123 to <8 x float>
@@ -2640,7 +2640,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %2140 = load float, ptr %2139, align 4
   %2141 = insertelement <8 x float> poison, float %2140, i64 0
   %2142 = shufflevector <8 x float> %2141, <8 x float> poison, <8 x i32> zeroinitializer
-  %2143 = getelementptr inbounds i8, ptr %2139, i64 4
+  %2143 = getelementptr inbounds nuw i8, ptr %2139, i64 4
   %2144 = load float, ptr %2143, align 4
   %2145 = insertelement <8 x float> poison, float %2144, i64 0
   %2146 = shufflevector <8 x float> %2145, <8 x float> poison, <8 x i32> zeroinitializer
@@ -2776,7 +2776,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %2268 = load float, ptr %2267, align 4
   %2269 = insertelement <8 x float> poison, float %2268, i64 0
   %2270 = shufflevector <8 x float> %2269, <8 x float> poison, <8 x i32> zeroinitializer
-  %2271 = getelementptr inbounds i8, ptr %2267, i64 4
+  %2271 = getelementptr inbounds nuw i8, ptr %2267, i64 4
   %2272 = load float, ptr %2271, align 4
   %2273 = insertelement <8 x float> poison, float %2272, i64 0
   %2274 = shufflevector <8 x float> %2273, <8 x float> poison, <8 x i32> zeroinitializer
@@ -2898,7 +2898,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 2357:                                             ; preds = %2335
   %.idx39512 = shl nsw i64 %indvars.iv39383, 5
-  %2358 = getelementptr inbounds i8, ptr %2352, i64 %.idx39512
+  %2358 = getelementptr inbounds nuw i8, ptr %2352, i64 %.idx39512
   %2359 = load <8 x float>, ptr %2358, align 1
   br label %2360
 
@@ -2917,7 +2917,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 2369:                                             ; preds = %2360
   %.idx39513 = shl nsw i64 %indvars.iv39383, 5
-  %2370 = getelementptr inbounds i8, ptr %2364, i64 %.idx39513
+  %2370 = getelementptr inbounds nuw i8, ptr %2364, i64 %.idx39513
   %2371 = load <8 x float>, ptr %2370, align 1
   br label %2372
 
@@ -2962,7 +2962,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %2391 = load float, ptr %2390, align 4
   %2392 = insertelement <8 x float> poison, float %2391, i64 0
   %2393 = shufflevector <8 x float> %2392, <8 x float> poison, <8 x i32> zeroinitializer
-  %2394 = getelementptr inbounds i8, ptr %2390, i64 4
+  %2394 = getelementptr inbounds nuw i8, ptr %2390, i64 4
   %2395 = load float, ptr %2394, align 4
   %2396 = insertelement <8 x float> poison, float %2395, i64 0
   %2397 = shufflevector <8 x float> %2396, <8 x float> poison, <8 x i32> zeroinitializer
@@ -3098,7 +3098,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %2519 = load float, ptr %2518, align 4
   %2520 = insertelement <8 x float> poison, float %2519, i64 0
   %2521 = shufflevector <8 x float> %2520, <8 x float> poison, <8 x i32> zeroinitializer
-  %2522 = getelementptr inbounds i8, ptr %2518, i64 4
+  %2522 = getelementptr inbounds nuw i8, ptr %2518, i64 4
   %2523 = load float, ptr %2522, align 4
   %2524 = insertelement <8 x float> poison, float %2523, i64 0
   %2525 = shufflevector <8 x float> %2524, <8 x float> poison, <8 x i32> zeroinitializer
@@ -3123,8 +3123,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %2541 = bitcast <16 x i8> %2540 to <2 x i64>
   %2542 = extractelement <2 x i64> %2541, i64 0
   store i64 %2542, ptr %.03195439092, align 8
-  %2543 = getelementptr inbounds i8, ptr %.03195539091, i64 32
-  %2544 = getelementptr inbounds i8, ptr %.03195439092, i64 8
+  %2543 = getelementptr inbounds nuw i8, ptr %.03195539091, i64 32
+  %2544 = getelementptr inbounds nuw i8, ptr %.03195439092, i64 8
   %2545 = add nuw nsw i32 %.03195139093, 1
   %exitcond39382.not = icmp eq i32 %2545, %2294
   br i1 %exitcond39382.not, label %._crit_edge39096, label %.lr.ph39095, !llvm.loop !17
@@ -3163,7 +3163,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 2568:                                             ; preds = %2546
   %.idx39509 = shl nsw i64 %indvars.iv39377, 5
-  %2569 = getelementptr inbounds i8, ptr %2563, i64 %.idx39509
+  %2569 = getelementptr inbounds nuw i8, ptr %2563, i64 %.idx39509
   %2570 = load <8 x float>, ptr %2569, align 1
   br label %2571
 
@@ -3182,7 +3182,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 2580:                                             ; preds = %2571
   %.idx39510 = shl nsw i64 %indvars.iv39377, 5
-  %2581 = getelementptr inbounds i8, ptr %2575, i64 %.idx39510
+  %2581 = getelementptr inbounds nuw i8, ptr %2575, i64 %.idx39510
   %2582 = load <8 x float>, ptr %2581, align 1
   br label %2583
 
@@ -3201,7 +3201,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 2592:                                             ; preds = %2583
   %.idx39511 = shl nsw i64 %indvars.iv39377, 5
-  %2593 = getelementptr inbounds i8, ptr %2587, i64 %.idx39511
+  %2593 = getelementptr inbounds nuw i8, ptr %2587, i64 %.idx39511
   %2594 = load <8 x float>, ptr %2593, align 1
   br label %2595
 
@@ -3246,7 +3246,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %2614 = load float, ptr %2613, align 4
   %2615 = insertelement <8 x float> poison, float %2614, i64 0
   %2616 = shufflevector <8 x float> %2615, <8 x float> poison, <8 x i32> zeroinitializer
-  %2617 = getelementptr inbounds i8, ptr %2613, i64 4
+  %2617 = getelementptr inbounds nuw i8, ptr %2613, i64 4
   %2618 = load float, ptr %2617, align 4
   %2619 = insertelement <8 x float> poison, float %2618, i64 0
   %2620 = shufflevector <8 x float> %2619, <8 x float> poison, <8 x i32> zeroinitializer
@@ -3382,7 +3382,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %2742 = load float, ptr %2741, align 4
   %2743 = insertelement <8 x float> poison, float %2742, i64 0
   %2744 = shufflevector <8 x float> %2743, <8 x float> poison, <8 x i32> zeroinitializer
-  %2745 = getelementptr inbounds i8, ptr %2741, i64 4
+  %2745 = getelementptr inbounds nuw i8, ptr %2741, i64 4
   %2746 = load float, ptr %2745, align 4
   %2747 = insertelement <8 x float> poison, float %2746, i64 0
   %2748 = shufflevector <8 x float> %2747, <8 x float> poison, <8 x i32> zeroinitializer
@@ -3407,8 +3407,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %2764 = bitcast <16 x i8> %2763 to <2 x i64>
   %2765 = extractelement <2 x i64> %2764, i64 0
   store i64 %2765, ptr %.03194839084, align 8
-  %2766 = getelementptr inbounds i8, ptr %.03194939083, i64 32
-  %2767 = getelementptr inbounds i8, ptr %.03194839084, i64 8
+  %2766 = getelementptr inbounds nuw i8, ptr %.03194939083, i64 32
+  %2767 = getelementptr inbounds nuw i8, ptr %.03194839084, i64 8
   %2768 = add nuw nsw i32 %.03194639085, 1
   %exitcond39376.not = icmp eq i32 %2768, %2294
   br i1 %exitcond39376.not, label %._crit_edge39088, label %.lr.ph39087, !llvm.loop !19
@@ -3516,7 +3516,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 2836:                                             ; preds = %2816
   %.idx39517 = shl nsw i64 %indvars.iv39395, 5
-  %2837 = getelementptr inbounds i8, ptr %2831, i64 %.idx39517
+  %2837 = getelementptr inbounds nuw i8, ptr %2831, i64 %.idx39517
   %2838 = load <8 x float>, ptr %2837, align 1
   br label %2839
 
@@ -3535,7 +3535,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 2848:                                             ; preds = %2839
   %.idx39518 = shl nsw i64 %indvars.iv39395, 5
-  %2849 = getelementptr inbounds i8, ptr %2843, i64 %.idx39518
+  %2849 = getelementptr inbounds nuw i8, ptr %2843, i64 %.idx39518
   %2850 = load <8 x float>, ptr %2849, align 1
   br label %2851
 
@@ -3580,7 +3580,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %2870 = load float, ptr %2869, align 4
   %2871 = insertelement <8 x float> poison, float %2870, i64 0
   %2872 = shufflevector <8 x float> %2871, <8 x float> poison, <8 x i32> zeroinitializer
-  %2873 = getelementptr inbounds i8, ptr %2869, i64 4
+  %2873 = getelementptr inbounds nuw i8, ptr %2869, i64 4
   %2874 = load float, ptr %2873, align 4
   %2875 = insertelement <8 x float> poison, float %2874, i64 0
   %2876 = shufflevector <8 x float> %2875, <8 x float> poison, <8 x i32> zeroinitializer
@@ -3716,7 +3716,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %2998 = load float, ptr %2997, align 4
   %2999 = insertelement <8 x float> poison, float %2998, i64 0
   %3000 = shufflevector <8 x float> %2999, <8 x float> poison, <8 x i32> zeroinitializer
-  %3001 = getelementptr inbounds i8, ptr %2997, i64 4
+  %3001 = getelementptr inbounds nuw i8, ptr %2997, i64 4
   %3002 = load float, ptr %3001, align 4
   %3003 = insertelement <8 x float> poison, float %3002, i64 0
   %3004 = shufflevector <8 x float> %3003, <8 x float> poison, <8 x i32> zeroinitializer
@@ -3741,8 +3741,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3020 = bitcast <16 x i8> %3019 to <2 x i64>
   %3021 = extractelement <2 x i64> %3020, i64 0
   store i64 %3021, ptr %.03193939108, align 8
-  %3022 = getelementptr inbounds i8, ptr %.03194039107, i64 32
-  %3023 = getelementptr inbounds i8, ptr %.03193939108, i64 8
+  %3022 = getelementptr inbounds nuw i8, ptr %.03194039107, i64 32
+  %3023 = getelementptr inbounds nuw i8, ptr %.03193939108, i64 8
   %3024 = add nuw nsw i32 %.03193639109, 1
   %exitcond39394.not = icmp eq i32 %3024, %2777
   br i1 %exitcond39394.not, label %._crit_edge39112, label %.lr.ph39111, !llvm.loop !21
@@ -3779,7 +3779,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 3045:                                             ; preds = %3025
   %.idx39514 = shl nsw i64 %indvars.iv39389, 5
-  %3046 = getelementptr inbounds i8, ptr %3040, i64 %.idx39514
+  %3046 = getelementptr inbounds nuw i8, ptr %3040, i64 %.idx39514
   %3047 = load <8 x float>, ptr %3046, align 1
   br label %3048
 
@@ -3798,7 +3798,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 3057:                                             ; preds = %3048
   %.idx39515 = shl nsw i64 %indvars.iv39389, 5
-  %3058 = getelementptr inbounds i8, ptr %3052, i64 %.idx39515
+  %3058 = getelementptr inbounds nuw i8, ptr %3052, i64 %.idx39515
   %3059 = load <8 x float>, ptr %3058, align 1
   br label %3060
 
@@ -3817,7 +3817,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 3069:                                             ; preds = %3060
   %.idx39516 = shl nsw i64 %indvars.iv39389, 5
-  %3070 = getelementptr inbounds i8, ptr %3064, i64 %.idx39516
+  %3070 = getelementptr inbounds nuw i8, ptr %3064, i64 %.idx39516
   %3071 = load <8 x float>, ptr %3070, align 1
   br label %3072
 
@@ -3862,7 +3862,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3091 = load float, ptr %3090, align 4
   %3092 = insertelement <8 x float> poison, float %3091, i64 0
   %3093 = shufflevector <8 x float> %3092, <8 x float> poison, <8 x i32> zeroinitializer
-  %3094 = getelementptr inbounds i8, ptr %3090, i64 4
+  %3094 = getelementptr inbounds nuw i8, ptr %3090, i64 4
   %3095 = load float, ptr %3094, align 4
   %3096 = insertelement <8 x float> poison, float %3095, i64 0
   %3097 = shufflevector <8 x float> %3096, <8 x float> poison, <8 x i32> zeroinitializer
@@ -3998,7 +3998,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3219 = load float, ptr %3218, align 4
   %3220 = insertelement <8 x float> poison, float %3219, i64 0
   %3221 = shufflevector <8 x float> %3220, <8 x float> poison, <8 x i32> zeroinitializer
-  %3222 = getelementptr inbounds i8, ptr %3218, i64 4
+  %3222 = getelementptr inbounds nuw i8, ptr %3218, i64 4
   %3223 = load float, ptr %3222, align 4
   %3224 = insertelement <8 x float> poison, float %3223, i64 0
   %3225 = shufflevector <8 x float> %3224, <8 x float> poison, <8 x i32> zeroinitializer
@@ -4023,8 +4023,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3241 = bitcast <16 x i8> %3240 to <2 x i64>
   %3242 = extractelement <2 x i64> %3241, i64 0
   store i64 %3242, ptr %.03193339100, align 8
-  %3243 = getelementptr inbounds i8, ptr %.03193439099, i64 32
-  %3244 = getelementptr inbounds i8, ptr %.03193339100, i64 8
+  %3243 = getelementptr inbounds nuw i8, ptr %.03193439099, i64 32
+  %3244 = getelementptr inbounds nuw i8, ptr %.03193339100, i64 8
   %3245 = add nuw nsw i32 %.03193139101, 1
   %exitcond39388.not = icmp eq i32 %3245, %2777
   br i1 %exitcond39388.not, label %._crit_edge39104, label %.lr.ph39103, !llvm.loop !23
@@ -4124,9 +4124,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39258 = phi i64 [ 0, %.lr.ph38974 ], [ %indvars.iv.next39259, %3462 ]
   %3300 = load ptr, ptr %1, align 8
   %3301 = shl nsw i64 %indvars.iv39258, 2
-  %3302 = getelementptr inbounds i32, ptr %3300, i64 %3301
+  %3302 = getelementptr inbounds nuw i32, ptr %3300, i64 %3301
   %3303 = load ptr, ptr %2, align 8
-  %3304 = getelementptr inbounds i8, ptr %3303, i64 %3301
+  %3304 = getelementptr inbounds nuw i8, ptr %3303, i64 %3301
   %3305 = load <4 x i32>, ptr %3302, align 1
   %3306 = sitofp <4 x i32> %3305 to <4 x float>
   %3307 = fmul fast <4 x float> %3284, %3306
@@ -4160,7 +4160,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3322 = load float, ptr %3321, align 4
   %3323 = insertelement <4 x float> poison, float %3322, i64 0
   %3324 = shufflevector <4 x float> %3323, <4 x float> poison, <4 x i32> zeroinitializer
-  %3325 = getelementptr inbounds i8, ptr %3321, i64 4
+  %3325 = getelementptr inbounds nuw i8, ptr %3321, i64 4
   %3326 = load float, ptr %3325, align 4
   %3327 = insertelement <4 x float> poison, float %3326, i64 0
   %3328 = shufflevector <4 x float> %3327, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4295,7 +4295,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3450 = load float, ptr %3449, align 4
   %3451 = insertelement <4 x float> poison, float %3450, i64 0
   %3452 = shufflevector <4 x float> %3451, <4 x float> poison, <4 x i32> zeroinitializer
-  %3453 = getelementptr inbounds i8, ptr %3449, i64 4
+  %3453 = getelementptr inbounds nuw i8, ptr %3449, i64 4
   %3454 = load float, ptr %3453, align 4
   %3455 = insertelement <4 x float> poison, float %3454, i64 0
   %3456 = shufflevector <4 x float> %3455, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4319,13 +4319,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3471 = extractelement <16 x i8> %3470, i64 4
   store i8 %3471, ptr %3304, align 1
   %3472 = extractelement <16 x i8> %3470, i64 5
-  %3473 = getelementptr inbounds i8, ptr %3304, i64 1
+  %3473 = getelementptr inbounds nuw i8, ptr %3304, i64 1
   store i8 %3472, ptr %3473, align 1
   %3474 = extractelement <16 x i8> %3470, i64 6
-  %3475 = getelementptr inbounds i8, ptr %3304, i64 2
+  %3475 = getelementptr inbounds nuw i8, ptr %3304, i64 2
   store i8 %3474, ptr %3475, align 1
   %3476 = extractelement <16 x i8> %3470, i64 7
-  %3477 = getelementptr inbounds i8, ptr %3304, i64 3
+  %3477 = getelementptr inbounds nuw i8, ptr %3304, i64 3
   store i8 %3476, ptr %3477, align 1
   %indvars.iv.next39259 = add nuw nsw i64 %indvars.iv39258, 1
   %exitcond39262.not = icmp eq i64 %indvars.iv.next39259, %wide.trip.count39261
@@ -4350,9 +4350,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39253 = phi i64 [ 0, %.lr.ph38972 ], [ %indvars.iv.next39254, %3651 ]
   %3488 = load ptr, ptr %1, align 8
   %3489 = shl nsw i64 %indvars.iv39253, 2
-  %3490 = getelementptr inbounds i32, ptr %3488, i64 %3489
+  %3490 = getelementptr inbounds nuw i32, ptr %3488, i64 %3489
   %3491 = load ptr, ptr %2, align 8
-  %3492 = getelementptr inbounds i8, ptr %3491, i64 %3489
+  %3492 = getelementptr inbounds nuw i8, ptr %3491, i64 %3489
   %3493 = load <4 x i32>, ptr %3490, align 1
   %3494 = sitofp <4 x i32> %3493 to <4 x float>
   %3495 = fmul fast <4 x float> %3284, %3494
@@ -4387,7 +4387,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3511 = load float, ptr %3510, align 4
   %3512 = insertelement <4 x float> poison, float %3511, i64 0
   %3513 = shufflevector <4 x float> %3512, <4 x float> poison, <4 x i32> zeroinitializer
-  %3514 = getelementptr inbounds i8, ptr %3510, i64 4
+  %3514 = getelementptr inbounds nuw i8, ptr %3510, i64 4
   %3515 = load float, ptr %3514, align 4
   %3516 = insertelement <4 x float> poison, float %3515, i64 0
   %3517 = shufflevector <4 x float> %3516, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4522,7 +4522,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3639 = load float, ptr %3638, align 4
   %3640 = insertelement <4 x float> poison, float %3639, i64 0
   %3641 = shufflevector <4 x float> %3640, <4 x float> poison, <4 x i32> zeroinitializer
-  %3642 = getelementptr inbounds i8, ptr %3638, i64 4
+  %3642 = getelementptr inbounds nuw i8, ptr %3638, i64 4
   %3643 = load float, ptr %3642, align 4
   %3644 = insertelement <4 x float> poison, float %3643, i64 0
   %3645 = shufflevector <4 x float> %3644, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4546,13 +4546,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3660 = extractelement <16 x i8> %3659, i64 4
   store i8 %3660, ptr %3492, align 1
   %3661 = extractelement <16 x i8> %3659, i64 5
-  %3662 = getelementptr inbounds i8, ptr %3492, i64 1
+  %3662 = getelementptr inbounds nuw i8, ptr %3492, i64 1
   store i8 %3661, ptr %3662, align 1
   %3663 = extractelement <16 x i8> %3659, i64 6
-  %3664 = getelementptr inbounds i8, ptr %3492, i64 2
+  %3664 = getelementptr inbounds nuw i8, ptr %3492, i64 2
   store i8 %3663, ptr %3664, align 1
   %3665 = extractelement <16 x i8> %3659, i64 7
-  %3666 = getelementptr inbounds i8, ptr %3492, i64 3
+  %3666 = getelementptr inbounds nuw i8, ptr %3492, i64 3
   store i8 %3665, ptr %3666, align 1
   %indvars.iv.next39254 = add nuw nsw i64 %indvars.iv39253, 1
   %exitcond39257.not = icmp eq i64 %indvars.iv.next39254, %wide.trip.count39256
@@ -4562,11 +4562,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39263 = phi i64 [ 0, %.lr.ph38976 ], [ %indvars.iv.next39264, %3834 ]
   %3668 = load ptr, ptr %1, align 8
   %3669 = shl nsw i64 %indvars.iv39263, 2
-  %3670 = getelementptr inbounds i32, ptr %3668, i64 %3669
+  %3670 = getelementptr inbounds nuw i32, ptr %3668, i64 %3669
   %3671 = load ptr, ptr %2, align 8
-  %3672 = getelementptr inbounds i8, ptr %3671, i64 %3669
+  %3672 = getelementptr inbounds nuw i8, ptr %3671, i64 %3669
   %3673 = load ptr, ptr %3296, align 8
-  %3674 = getelementptr inbounds float, ptr %3673, i64 %3669
+  %3674 = getelementptr inbounds nuw float, ptr %3673, i64 %3669
   %3675 = load <4 x float>, ptr %3674, align 1
   %3676 = load <4 x i32>, ptr %3670, align 1
   %3677 = sitofp <4 x i32> %3676 to <4 x float>
@@ -4602,7 +4602,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3694 = load float, ptr %3693, align 4
   %3695 = insertelement <4 x float> poison, float %3694, i64 0
   %3696 = shufflevector <4 x float> %3695, <4 x float> poison, <4 x i32> zeroinitializer
-  %3697 = getelementptr inbounds i8, ptr %3693, i64 4
+  %3697 = getelementptr inbounds nuw i8, ptr %3693, i64 4
   %3698 = load float, ptr %3697, align 4
   %3699 = insertelement <4 x float> poison, float %3698, i64 0
   %3700 = shufflevector <4 x float> %3699, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4737,7 +4737,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3822 = load float, ptr %3821, align 4
   %3823 = insertelement <4 x float> poison, float %3822, i64 0
   %3824 = shufflevector <4 x float> %3823, <4 x float> poison, <4 x i32> zeroinitializer
-  %3825 = getelementptr inbounds i8, ptr %3821, i64 4
+  %3825 = getelementptr inbounds nuw i8, ptr %3821, i64 4
   %3826 = load float, ptr %3825, align 4
   %3827 = insertelement <4 x float> poison, float %3826, i64 0
   %3828 = shufflevector <4 x float> %3827, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4761,13 +4761,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3843 = extractelement <16 x i8> %3842, i64 4
   store i8 %3843, ptr %3672, align 1
   %3844 = extractelement <16 x i8> %3842, i64 5
-  %3845 = getelementptr inbounds i8, ptr %3672, i64 1
+  %3845 = getelementptr inbounds nuw i8, ptr %3672, i64 1
   store i8 %3844, ptr %3845, align 1
   %3846 = extractelement <16 x i8> %3842, i64 6
-  %3847 = getelementptr inbounds i8, ptr %3672, i64 2
+  %3847 = getelementptr inbounds nuw i8, ptr %3672, i64 2
   store i8 %3846, ptr %3847, align 1
   %3848 = extractelement <16 x i8> %3842, i64 7
-  %3849 = getelementptr inbounds i8, ptr %3672, i64 3
+  %3849 = getelementptr inbounds nuw i8, ptr %3672, i64 3
   store i8 %3848, ptr %3849, align 1
   %indvars.iv.next39264 = add nuw nsw i64 %indvars.iv39263, 1
   %exitcond39267.not = icmp eq i64 %indvars.iv.next39264, %wide.trip.count39266
@@ -4818,11 +4818,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39243 = phi i64 [ 0, %.lr.ph38968 ], [ %indvars.iv.next39244, %4035 ]
   %3870 = load ptr, ptr %1, align 8
   %3871 = shl nsw i64 %indvars.iv39243, 2
-  %3872 = getelementptr inbounds i32, ptr %3870, i64 %3871
+  %3872 = getelementptr inbounds nuw i32, ptr %3870, i64 %3871
   %3873 = load ptr, ptr %2, align 8
-  %3874 = getelementptr inbounds i8, ptr %3873, i64 %3871
+  %3874 = getelementptr inbounds nuw i8, ptr %3873, i64 %3871
   %3875 = load ptr, ptr %3861, align 8
-  %3876 = getelementptr inbounds float, ptr %3875, i64 %3871
+  %3876 = getelementptr inbounds nuw float, ptr %3875, i64 %3871
   %3877 = load <4 x float>, ptr %3876, align 1
   %3878 = load <4 x i32>, ptr %3872, align 1
   %3879 = sitofp <4 x i32> %3878 to <4 x float>
@@ -4857,7 +4857,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %3895 = load float, ptr %3894, align 4
   %3896 = insertelement <4 x float> poison, float %3895, i64 0
   %3897 = shufflevector <4 x float> %3896, <4 x float> poison, <4 x i32> zeroinitializer
-  %3898 = getelementptr inbounds i8, ptr %3894, i64 4
+  %3898 = getelementptr inbounds nuw i8, ptr %3894, i64 4
   %3899 = load float, ptr %3898, align 4
   %3900 = insertelement <4 x float> poison, float %3899, i64 0
   %3901 = shufflevector <4 x float> %3900, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4992,7 +4992,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4023 = load float, ptr %4022, align 4
   %4024 = insertelement <4 x float> poison, float %4023, i64 0
   %4025 = shufflevector <4 x float> %4024, <4 x float> poison, <4 x i32> zeroinitializer
-  %4026 = getelementptr inbounds i8, ptr %4022, i64 4
+  %4026 = getelementptr inbounds nuw i8, ptr %4022, i64 4
   %4027 = load float, ptr %4026, align 4
   %4028 = insertelement <4 x float> poison, float %4027, i64 0
   %4029 = shufflevector <4 x float> %4028, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5016,13 +5016,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4044 = extractelement <16 x i8> %4043, i64 4
   store i8 %4044, ptr %3874, align 1
   %4045 = extractelement <16 x i8> %4043, i64 5
-  %4046 = getelementptr inbounds i8, ptr %3874, i64 1
+  %4046 = getelementptr inbounds nuw i8, ptr %3874, i64 1
   store i8 %4045, ptr %4046, align 1
   %4047 = extractelement <16 x i8> %4043, i64 6
-  %4048 = getelementptr inbounds i8, ptr %3874, i64 2
+  %4048 = getelementptr inbounds nuw i8, ptr %3874, i64 2
   store i8 %4047, ptr %4048, align 1
   %4049 = extractelement <16 x i8> %4043, i64 7
-  %4050 = getelementptr inbounds i8, ptr %3874, i64 3
+  %4050 = getelementptr inbounds nuw i8, ptr %3874, i64 3
   store i8 %4049, ptr %4050, align 1
   %indvars.iv.next39244 = add nuw nsw i64 %indvars.iv39243, 1
   %exitcond39247.not = icmp eq i64 %indvars.iv.next39244, %wide.trip.count39246
@@ -5048,11 +5048,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39238 = phi i64 [ 0, %.lr.ph38966 ], [ %indvars.iv.next39239, %4228 ]
   %4062 = load ptr, ptr %1, align 8
   %4063 = shl nsw i64 %indvars.iv39238, 2
-  %4064 = getelementptr inbounds i32, ptr %4062, i64 %4063
+  %4064 = getelementptr inbounds nuw i32, ptr %4062, i64 %4063
   %4065 = load ptr, ptr %2, align 8
-  %4066 = getelementptr inbounds i8, ptr %4065, i64 %4063
+  %4066 = getelementptr inbounds nuw i8, ptr %4065, i64 %4063
   %4067 = load ptr, ptr %4058, align 8
-  %4068 = getelementptr inbounds float, ptr %4067, i64 %4063
+  %4068 = getelementptr inbounds nuw float, ptr %4067, i64 %4063
   %4069 = load <4 x float>, ptr %4068, align 1
   %4070 = load <4 x i32>, ptr %4064, align 1
   %4071 = sitofp <4 x i32> %4070 to <4 x float>
@@ -5088,7 +5088,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4088 = load float, ptr %4087, align 4
   %4089 = insertelement <4 x float> poison, float %4088, i64 0
   %4090 = shufflevector <4 x float> %4089, <4 x float> poison, <4 x i32> zeroinitializer
-  %4091 = getelementptr inbounds i8, ptr %4087, i64 4
+  %4091 = getelementptr inbounds nuw i8, ptr %4087, i64 4
   %4092 = load float, ptr %4091, align 4
   %4093 = insertelement <4 x float> poison, float %4092, i64 0
   %4094 = shufflevector <4 x float> %4093, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5223,7 +5223,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4216 = load float, ptr %4215, align 4
   %4217 = insertelement <4 x float> poison, float %4216, i64 0
   %4218 = shufflevector <4 x float> %4217, <4 x float> poison, <4 x i32> zeroinitializer
-  %4219 = getelementptr inbounds i8, ptr %4215, i64 4
+  %4219 = getelementptr inbounds nuw i8, ptr %4215, i64 4
   %4220 = load float, ptr %4219, align 4
   %4221 = insertelement <4 x float> poison, float %4220, i64 0
   %4222 = shufflevector <4 x float> %4221, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5247,13 +5247,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4237 = extractelement <16 x i8> %4236, i64 4
   store i8 %4237, ptr %4066, align 1
   %4238 = extractelement <16 x i8> %4236, i64 5
-  %4239 = getelementptr inbounds i8, ptr %4066, i64 1
+  %4239 = getelementptr inbounds nuw i8, ptr %4066, i64 1
   store i8 %4238, ptr %4239, align 1
   %4240 = extractelement <16 x i8> %4236, i64 6
-  %4241 = getelementptr inbounds i8, ptr %4066, i64 2
+  %4241 = getelementptr inbounds nuw i8, ptr %4066, i64 2
   store i8 %4240, ptr %4241, align 1
   %4242 = extractelement <16 x i8> %4236, i64 7
-  %4243 = getelementptr inbounds i8, ptr %4066, i64 3
+  %4243 = getelementptr inbounds nuw i8, ptr %4066, i64 3
   store i8 %4242, ptr %4243, align 1
   %indvars.iv.next39239 = add nuw nsw i64 %indvars.iv39238, 1
   %exitcond39242.not = icmp eq i64 %indvars.iv.next39239, %wide.trip.count39241
@@ -5263,14 +5263,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39248 = phi i64 [ 0, %.lr.ph38970 ], [ %indvars.iv.next39249, %4414 ]
   %4245 = load ptr, ptr %1, align 8
   %4246 = shl nsw i64 %indvars.iv39248, 2
-  %4247 = getelementptr inbounds i32, ptr %4245, i64 %4246
+  %4247 = getelementptr inbounds nuw i32, ptr %4245, i64 %4246
   %4248 = load ptr, ptr %2, align 8
-  %4249 = getelementptr inbounds i8, ptr %4248, i64 %4246
+  %4249 = getelementptr inbounds nuw i8, ptr %4248, i64 %4246
   %4250 = load ptr, ptr %3865, align 8
-  %4251 = getelementptr inbounds float, ptr %4250, i64 %4246
+  %4251 = getelementptr inbounds nuw float, ptr %4250, i64 %4246
   %4252 = load <4 x float>, ptr %4251, align 1
   %4253 = load ptr, ptr %3866, align 8
-  %4254 = getelementptr inbounds float, ptr %4253, i64 %4246
+  %4254 = getelementptr inbounds nuw float, ptr %4253, i64 %4246
   %4255 = load <4 x float>, ptr %4254, align 1
   %4256 = load <4 x i32>, ptr %4247, align 1
   %4257 = sitofp <4 x i32> %4256 to <4 x float>
@@ -5306,7 +5306,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4274 = load float, ptr %4273, align 4
   %4275 = insertelement <4 x float> poison, float %4274, i64 0
   %4276 = shufflevector <4 x float> %4275, <4 x float> poison, <4 x i32> zeroinitializer
-  %4277 = getelementptr inbounds i8, ptr %4273, i64 4
+  %4277 = getelementptr inbounds nuw i8, ptr %4273, i64 4
   %4278 = load float, ptr %4277, align 4
   %4279 = insertelement <4 x float> poison, float %4278, i64 0
   %4280 = shufflevector <4 x float> %4279, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5441,7 +5441,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4402 = load float, ptr %4401, align 4
   %4403 = insertelement <4 x float> poison, float %4402, i64 0
   %4404 = shufflevector <4 x float> %4403, <4 x float> poison, <4 x i32> zeroinitializer
-  %4405 = getelementptr inbounds i8, ptr %4401, i64 4
+  %4405 = getelementptr inbounds nuw i8, ptr %4401, i64 4
   %4406 = load float, ptr %4405, align 4
   %4407 = insertelement <4 x float> poison, float %4406, i64 0
   %4408 = shufflevector <4 x float> %4407, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5465,13 +5465,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4423 = extractelement <16 x i8> %4422, i64 4
   store i8 %4423, ptr %4249, align 1
   %4424 = extractelement <16 x i8> %4422, i64 5
-  %4425 = getelementptr inbounds i8, ptr %4249, i64 1
+  %4425 = getelementptr inbounds nuw i8, ptr %4249, i64 1
   store i8 %4424, ptr %4425, align 1
   %4426 = extractelement <16 x i8> %4422, i64 6
-  %4427 = getelementptr inbounds i8, ptr %4249, i64 2
+  %4427 = getelementptr inbounds nuw i8, ptr %4249, i64 2
   store i8 %4426, ptr %4427, align 1
   %4428 = extractelement <16 x i8> %4422, i64 7
-  %4429 = getelementptr inbounds i8, ptr %4249, i64 3
+  %4429 = getelementptr inbounds nuw i8, ptr %4249, i64 3
   store i8 %4428, ptr %4429, align 1
   %indvars.iv.next39249 = add nuw nsw i64 %indvars.iv39248, 1
   %exitcond39252.not = icmp eq i64 %indvars.iv.next39249, %wide.trip.count39251
@@ -5522,11 +5522,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39228 = phi i64 [ 0, %.lr.ph38962 ], [ %indvars.iv.next39229, %4615 ]
   %4450 = load ptr, ptr %1, align 8
   %4451 = shl nsw i64 %indvars.iv39228, 2
-  %4452 = getelementptr inbounds i32, ptr %4450, i64 %4451
+  %4452 = getelementptr inbounds nuw i32, ptr %4450, i64 %4451
   %4453 = load ptr, ptr %2, align 8
-  %4454 = getelementptr inbounds i8, ptr %4453, i64 %4451
+  %4454 = getelementptr inbounds nuw i8, ptr %4453, i64 %4451
   %4455 = load ptr, ptr %4441, align 8
-  %4456 = getelementptr inbounds float, ptr %4455, i64 %4451
+  %4456 = getelementptr inbounds nuw float, ptr %4455, i64 %4451
   %4457 = load <4 x float>, ptr %4456, align 1
   %4458 = load <4 x i32>, ptr %4452, align 1
   %4459 = sitofp <4 x i32> %4458 to <4 x float>
@@ -5561,7 +5561,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4475 = load float, ptr %4474, align 4
   %4476 = insertelement <4 x float> poison, float %4475, i64 0
   %4477 = shufflevector <4 x float> %4476, <4 x float> poison, <4 x i32> zeroinitializer
-  %4478 = getelementptr inbounds i8, ptr %4474, i64 4
+  %4478 = getelementptr inbounds nuw i8, ptr %4474, i64 4
   %4479 = load float, ptr %4478, align 4
   %4480 = insertelement <4 x float> poison, float %4479, i64 0
   %4481 = shufflevector <4 x float> %4480, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5696,7 +5696,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4603 = load float, ptr %4602, align 4
   %4604 = insertelement <4 x float> poison, float %4603, i64 0
   %4605 = shufflevector <4 x float> %4604, <4 x float> poison, <4 x i32> zeroinitializer
-  %4606 = getelementptr inbounds i8, ptr %4602, i64 4
+  %4606 = getelementptr inbounds nuw i8, ptr %4602, i64 4
   %4607 = load float, ptr %4606, align 4
   %4608 = insertelement <4 x float> poison, float %4607, i64 0
   %4609 = shufflevector <4 x float> %4608, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5720,13 +5720,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4624 = extractelement <16 x i8> %4623, i64 4
   store i8 %4624, ptr %4454, align 1
   %4625 = extractelement <16 x i8> %4623, i64 5
-  %4626 = getelementptr inbounds i8, ptr %4454, i64 1
+  %4626 = getelementptr inbounds nuw i8, ptr %4454, i64 1
   store i8 %4625, ptr %4626, align 1
   %4627 = extractelement <16 x i8> %4623, i64 6
-  %4628 = getelementptr inbounds i8, ptr %4454, i64 2
+  %4628 = getelementptr inbounds nuw i8, ptr %4454, i64 2
   store i8 %4627, ptr %4628, align 1
   %4629 = extractelement <16 x i8> %4623, i64 7
-  %4630 = getelementptr inbounds i8, ptr %4454, i64 3
+  %4630 = getelementptr inbounds nuw i8, ptr %4454, i64 3
   store i8 %4629, ptr %4630, align 1
   %indvars.iv.next39229 = add nuw nsw i64 %indvars.iv39228, 1
   %exitcond39232.not = icmp eq i64 %indvars.iv.next39229, %wide.trip.count39231
@@ -5752,11 +5752,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39223 = phi i64 [ 0, %.lr.ph38960 ], [ %indvars.iv.next39224, %4808 ]
   %4642 = load ptr, ptr %1, align 8
   %4643 = shl nsw i64 %indvars.iv39223, 2
-  %4644 = getelementptr inbounds i32, ptr %4642, i64 %4643
+  %4644 = getelementptr inbounds nuw i32, ptr %4642, i64 %4643
   %4645 = load ptr, ptr %2, align 8
-  %4646 = getelementptr inbounds i8, ptr %4645, i64 %4643
+  %4646 = getelementptr inbounds nuw i8, ptr %4645, i64 %4643
   %4647 = load ptr, ptr %4638, align 8
-  %4648 = getelementptr inbounds float, ptr %4647, i64 %4643
+  %4648 = getelementptr inbounds nuw float, ptr %4647, i64 %4643
   %4649 = load <4 x float>, ptr %4648, align 1
   %4650 = load <4 x i32>, ptr %4644, align 1
   %4651 = sitofp <4 x i32> %4650 to <4 x float>
@@ -5792,7 +5792,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4668 = load float, ptr %4667, align 4
   %4669 = insertelement <4 x float> poison, float %4668, i64 0
   %4670 = shufflevector <4 x float> %4669, <4 x float> poison, <4 x i32> zeroinitializer
-  %4671 = getelementptr inbounds i8, ptr %4667, i64 4
+  %4671 = getelementptr inbounds nuw i8, ptr %4667, i64 4
   %4672 = load float, ptr %4671, align 4
   %4673 = insertelement <4 x float> poison, float %4672, i64 0
   %4674 = shufflevector <4 x float> %4673, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5927,7 +5927,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4796 = load float, ptr %4795, align 4
   %4797 = insertelement <4 x float> poison, float %4796, i64 0
   %4798 = shufflevector <4 x float> %4797, <4 x float> poison, <4 x i32> zeroinitializer
-  %4799 = getelementptr inbounds i8, ptr %4795, i64 4
+  %4799 = getelementptr inbounds nuw i8, ptr %4795, i64 4
   %4800 = load float, ptr %4799, align 4
   %4801 = insertelement <4 x float> poison, float %4800, i64 0
   %4802 = shufflevector <4 x float> %4801, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5951,13 +5951,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4817 = extractelement <16 x i8> %4816, i64 4
   store i8 %4817, ptr %4646, align 1
   %4818 = extractelement <16 x i8> %4816, i64 5
-  %4819 = getelementptr inbounds i8, ptr %4646, i64 1
+  %4819 = getelementptr inbounds nuw i8, ptr %4646, i64 1
   store i8 %4818, ptr %4819, align 1
   %4820 = extractelement <16 x i8> %4816, i64 6
-  %4821 = getelementptr inbounds i8, ptr %4646, i64 2
+  %4821 = getelementptr inbounds nuw i8, ptr %4646, i64 2
   store i8 %4820, ptr %4821, align 1
   %4822 = extractelement <16 x i8> %4816, i64 7
-  %4823 = getelementptr inbounds i8, ptr %4646, i64 3
+  %4823 = getelementptr inbounds nuw i8, ptr %4646, i64 3
   store i8 %4822, ptr %4823, align 1
   %indvars.iv.next39224 = add nuw nsw i64 %indvars.iv39223, 1
   %exitcond39227.not = icmp eq i64 %indvars.iv.next39224, %wide.trip.count39226
@@ -5967,14 +5967,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39233 = phi i64 [ 0, %.lr.ph38964 ], [ %indvars.iv.next39234, %4994 ]
   %4825 = load ptr, ptr %1, align 8
   %4826 = shl nsw i64 %indvars.iv39233, 2
-  %4827 = getelementptr inbounds i32, ptr %4825, i64 %4826
+  %4827 = getelementptr inbounds nuw i32, ptr %4825, i64 %4826
   %4828 = load ptr, ptr %2, align 8
-  %4829 = getelementptr inbounds i8, ptr %4828, i64 %4826
+  %4829 = getelementptr inbounds nuw i8, ptr %4828, i64 %4826
   %4830 = load ptr, ptr %4445, align 8
-  %4831 = getelementptr inbounds float, ptr %4830, i64 %4826
+  %4831 = getelementptr inbounds nuw float, ptr %4830, i64 %4826
   %4832 = load <4 x float>, ptr %4831, align 1
   %4833 = load ptr, ptr %4446, align 8
-  %4834 = getelementptr inbounds float, ptr %4833, i64 %4826
+  %4834 = getelementptr inbounds nuw float, ptr %4833, i64 %4826
   %4835 = load <4 x float>, ptr %4834, align 1
   %4836 = load <4 x i32>, ptr %4827, align 1
   %4837 = sitofp <4 x i32> %4836 to <4 x float>
@@ -6010,7 +6010,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4854 = load float, ptr %4853, align 4
   %4855 = insertelement <4 x float> poison, float %4854, i64 0
   %4856 = shufflevector <4 x float> %4855, <4 x float> poison, <4 x i32> zeroinitializer
-  %4857 = getelementptr inbounds i8, ptr %4853, i64 4
+  %4857 = getelementptr inbounds nuw i8, ptr %4853, i64 4
   %4858 = load float, ptr %4857, align 4
   %4859 = insertelement <4 x float> poison, float %4858, i64 0
   %4860 = shufflevector <4 x float> %4859, <4 x float> poison, <4 x i32> zeroinitializer
@@ -6145,7 +6145,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %4982 = load float, ptr %4981, align 4
   %4983 = insertelement <4 x float> poison, float %4982, i64 0
   %4984 = shufflevector <4 x float> %4983, <4 x float> poison, <4 x i32> zeroinitializer
-  %4985 = getelementptr inbounds i8, ptr %4981, i64 4
+  %4985 = getelementptr inbounds nuw i8, ptr %4981, i64 4
   %4986 = load float, ptr %4985, align 4
   %4987 = insertelement <4 x float> poison, float %4986, i64 0
   %4988 = shufflevector <4 x float> %4987, <4 x float> poison, <4 x i32> zeroinitializer
@@ -6169,13 +6169,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5003 = extractelement <16 x i8> %5002, i64 4
   store i8 %5003, ptr %4829, align 1
   %5004 = extractelement <16 x i8> %5002, i64 5
-  %5005 = getelementptr inbounds i8, ptr %4829, i64 1
+  %5005 = getelementptr inbounds nuw i8, ptr %4829, i64 1
   store i8 %5004, ptr %5005, align 1
   %5006 = extractelement <16 x i8> %5002, i64 6
-  %5007 = getelementptr inbounds i8, ptr %4829, i64 2
+  %5007 = getelementptr inbounds nuw i8, ptr %4829, i64 2
   store i8 %5006, ptr %5007, align 1
   %5008 = extractelement <16 x i8> %5002, i64 7
-  %5009 = getelementptr inbounds i8, ptr %4829, i64 3
+  %5009 = getelementptr inbounds nuw i8, ptr %4829, i64 3
   store i8 %5008, ptr %5009, align 1
   %indvars.iv.next39234 = add nuw nsw i64 %indvars.iv39233, 1
   %exitcond39237.not = icmp eq i64 %indvars.iv.next39234, %wide.trip.count39236
@@ -6218,14 +6218,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39213 = phi i64 [ 0, %.lr.ph38956 ], [ %indvars.iv.next39214, %5193 ]
   %5025 = load ptr, ptr %1, align 8
   %5026 = shl nsw i64 %indvars.iv39213, 2
-  %5027 = getelementptr inbounds i32, ptr %5025, i64 %5026
+  %5027 = getelementptr inbounds nuw i32, ptr %5025, i64 %5026
   %5028 = load ptr, ptr %2, align 8
-  %5029 = getelementptr inbounds i8, ptr %5028, i64 %5026
+  %5029 = getelementptr inbounds nuw i8, ptr %5028, i64 %5026
   %5030 = load ptr, ptr %5014, align 8
-  %5031 = getelementptr inbounds float, ptr %5030, i64 %5026
+  %5031 = getelementptr inbounds nuw float, ptr %5030, i64 %5026
   %5032 = load <4 x float>, ptr %5031, align 1
   %5033 = load ptr, ptr %5015, align 8
-  %5034 = getelementptr inbounds float, ptr %5033, i64 %5026
+  %5034 = getelementptr inbounds nuw float, ptr %5033, i64 %5026
   %5035 = load <4 x float>, ptr %5034, align 1
   %5036 = load <4 x i32>, ptr %5027, align 1
   %5037 = sitofp <4 x i32> %5036 to <4 x float>
@@ -6260,7 +6260,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5053 = load float, ptr %5052, align 4
   %5054 = insertelement <4 x float> poison, float %5053, i64 0
   %5055 = shufflevector <4 x float> %5054, <4 x float> poison, <4 x i32> zeroinitializer
-  %5056 = getelementptr inbounds i8, ptr %5052, i64 4
+  %5056 = getelementptr inbounds nuw i8, ptr %5052, i64 4
   %5057 = load float, ptr %5056, align 4
   %5058 = insertelement <4 x float> poison, float %5057, i64 0
   %5059 = shufflevector <4 x float> %5058, <4 x float> poison, <4 x i32> zeroinitializer
@@ -6395,7 +6395,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5181 = load float, ptr %5180, align 4
   %5182 = insertelement <4 x float> poison, float %5181, i64 0
   %5183 = shufflevector <4 x float> %5182, <4 x float> poison, <4 x i32> zeroinitializer
-  %5184 = getelementptr inbounds i8, ptr %5180, i64 4
+  %5184 = getelementptr inbounds nuw i8, ptr %5180, i64 4
   %5185 = load float, ptr %5184, align 4
   %5186 = insertelement <4 x float> poison, float %5185, i64 0
   %5187 = shufflevector <4 x float> %5186, <4 x float> poison, <4 x i32> zeroinitializer
@@ -6419,13 +6419,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5202 = extractelement <16 x i8> %5201, i64 4
   store i8 %5202, ptr %5029, align 1
   %5203 = extractelement <16 x i8> %5201, i64 5
-  %5204 = getelementptr inbounds i8, ptr %5029, i64 1
+  %5204 = getelementptr inbounds nuw i8, ptr %5029, i64 1
   store i8 %5203, ptr %5204, align 1
   %5205 = extractelement <16 x i8> %5201, i64 6
-  %5206 = getelementptr inbounds i8, ptr %5029, i64 2
+  %5206 = getelementptr inbounds nuw i8, ptr %5029, i64 2
   store i8 %5205, ptr %5206, align 1
   %5207 = extractelement <16 x i8> %5201, i64 7
-  %5208 = getelementptr inbounds i8, ptr %5029, i64 3
+  %5208 = getelementptr inbounds nuw i8, ptr %5029, i64 3
   store i8 %5207, ptr %5208, align 1
   %indvars.iv.next39214 = add nuw nsw i64 %indvars.iv39213, 1
   %exitcond39217.not = icmp eq i64 %indvars.iv.next39214, %wide.trip.count39216
@@ -6452,14 +6452,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5390 ]
   %5221 = load ptr, ptr %1, align 8
   %5222 = shl nsw i64 %indvars.iv, 2
-  %5223 = getelementptr inbounds i32, ptr %5221, i64 %5222
+  %5223 = getelementptr inbounds nuw i32, ptr %5221, i64 %5222
   %5224 = load ptr, ptr %2, align 8
-  %5225 = getelementptr inbounds i8, ptr %5224, i64 %5222
+  %5225 = getelementptr inbounds nuw i8, ptr %5224, i64 %5222
   %5226 = load ptr, ptr %5216, align 8
-  %5227 = getelementptr inbounds float, ptr %5226, i64 %5222
+  %5227 = getelementptr inbounds nuw float, ptr %5226, i64 %5222
   %5228 = load <4 x float>, ptr %5227, align 1
   %5229 = load ptr, ptr %5217, align 8
-  %5230 = getelementptr inbounds float, ptr %5229, i64 %5222
+  %5230 = getelementptr inbounds nuw float, ptr %5229, i64 %5222
   %5231 = load <4 x float>, ptr %5230, align 1
   %5232 = load <4 x i32>, ptr %5223, align 1
   %5233 = sitofp <4 x i32> %5232 to <4 x float>
@@ -6495,7 +6495,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5250 = load float, ptr %5249, align 4
   %5251 = insertelement <4 x float> poison, float %5250, i64 0
   %5252 = shufflevector <4 x float> %5251, <4 x float> poison, <4 x i32> zeroinitializer
-  %5253 = getelementptr inbounds i8, ptr %5249, i64 4
+  %5253 = getelementptr inbounds nuw i8, ptr %5249, i64 4
   %5254 = load float, ptr %5253, align 4
   %5255 = insertelement <4 x float> poison, float %5254, i64 0
   %5256 = shufflevector <4 x float> %5255, <4 x float> poison, <4 x i32> zeroinitializer
@@ -6630,7 +6630,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5378 = load float, ptr %5377, align 4
   %5379 = insertelement <4 x float> poison, float %5378, i64 0
   %5380 = shufflevector <4 x float> %5379, <4 x float> poison, <4 x i32> zeroinitializer
-  %5381 = getelementptr inbounds i8, ptr %5377, i64 4
+  %5381 = getelementptr inbounds nuw i8, ptr %5377, i64 4
   %5382 = load float, ptr %5381, align 4
   %5383 = insertelement <4 x float> poison, float %5382, i64 0
   %5384 = shufflevector <4 x float> %5383, <4 x float> poison, <4 x i32> zeroinitializer
@@ -6654,13 +6654,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5399 = extractelement <16 x i8> %5398, i64 4
   store i8 %5399, ptr %5225, align 1
   %5400 = extractelement <16 x i8> %5398, i64 5
-  %5401 = getelementptr inbounds i8, ptr %5225, i64 1
+  %5401 = getelementptr inbounds nuw i8, ptr %5225, i64 1
   store i8 %5400, ptr %5401, align 1
   %5402 = extractelement <16 x i8> %5398, i64 6
-  %5403 = getelementptr inbounds i8, ptr %5225, i64 2
+  %5403 = getelementptr inbounds nuw i8, ptr %5225, i64 2
   store i8 %5402, ptr %5403, align 1
   %5404 = extractelement <16 x i8> %5398, i64 7
-  %5405 = getelementptr inbounds i8, ptr %5225, i64 3
+  %5405 = getelementptr inbounds nuw i8, ptr %5225, i64 3
   store i8 %5404, ptr %5405, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6670,17 +6670,17 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %indvars.iv39218 = phi i64 [ 0, %.lr.ph38958 ], [ %indvars.iv.next39219, %5579 ]
   %5407 = load ptr, ptr %1, align 8
   %5408 = shl nsw i64 %indvars.iv39218, 2
-  %5409 = getelementptr inbounds i32, ptr %5407, i64 %5408
+  %5409 = getelementptr inbounds nuw i32, ptr %5407, i64 %5408
   %5410 = load ptr, ptr %2, align 8
-  %5411 = getelementptr inbounds i8, ptr %5410, i64 %5408
+  %5411 = getelementptr inbounds nuw i8, ptr %5410, i64 %5408
   %5412 = load ptr, ptr %5019, align 8
-  %5413 = getelementptr inbounds float, ptr %5412, i64 %5408
+  %5413 = getelementptr inbounds nuw float, ptr %5412, i64 %5408
   %5414 = load <4 x float>, ptr %5413, align 1
   %5415 = load ptr, ptr %5020, align 8
-  %5416 = getelementptr inbounds float, ptr %5415, i64 %5408
+  %5416 = getelementptr inbounds nuw float, ptr %5415, i64 %5408
   %5417 = load <4 x float>, ptr %5416, align 1
   %5418 = load ptr, ptr %5021, align 8
-  %5419 = getelementptr inbounds float, ptr %5418, i64 %5408
+  %5419 = getelementptr inbounds nuw float, ptr %5418, i64 %5408
   %5420 = load <4 x float>, ptr %5419, align 1
   %5421 = load <4 x i32>, ptr %5409, align 1
   %5422 = sitofp <4 x i32> %5421 to <4 x float>
@@ -6716,7 +6716,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5439 = load float, ptr %5438, align 4
   %5440 = insertelement <4 x float> poison, float %5439, i64 0
   %5441 = shufflevector <4 x float> %5440, <4 x float> poison, <4 x i32> zeroinitializer
-  %5442 = getelementptr inbounds i8, ptr %5438, i64 4
+  %5442 = getelementptr inbounds nuw i8, ptr %5438, i64 4
   %5443 = load float, ptr %5442, align 4
   %5444 = insertelement <4 x float> poison, float %5443, i64 0
   %5445 = shufflevector <4 x float> %5444, <4 x float> poison, <4 x i32> zeroinitializer
@@ -6851,7 +6851,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5567 = load float, ptr %5566, align 4
   %5568 = insertelement <4 x float> poison, float %5567, i64 0
   %5569 = shufflevector <4 x float> %5568, <4 x float> poison, <4 x i32> zeroinitializer
-  %5570 = getelementptr inbounds i8, ptr %5566, i64 4
+  %5570 = getelementptr inbounds nuw i8, ptr %5566, i64 4
   %5571 = load float, ptr %5570, align 4
   %5572 = insertelement <4 x float> poison, float %5571, i64 0
   %5573 = shufflevector <4 x float> %5572, <4 x float> poison, <4 x i32> zeroinitializer
@@ -6875,13 +6875,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5588 = extractelement <16 x i8> %5587, i64 4
   store i8 %5588, ptr %5411, align 1
   %5589 = extractelement <16 x i8> %5587, i64 5
-  %5590 = getelementptr inbounds i8, ptr %5411, i64 1
+  %5590 = getelementptr inbounds nuw i8, ptr %5411, i64 1
   store i8 %5589, ptr %5590, align 1
   %5591 = extractelement <16 x i8> %5587, i64 6
-  %5592 = getelementptr inbounds i8, ptr %5411, i64 2
+  %5592 = getelementptr inbounds nuw i8, ptr %5411, i64 2
   store i8 %5591, ptr %5592, align 1
   %5593 = extractelement <16 x i8> %5587, i64 7
-  %5594 = getelementptr inbounds i8, ptr %5411, i64 3
+  %5594 = getelementptr inbounds nuw i8, ptr %5411, i64 3
   store i8 %5593, ptr %5594, align 1
   %indvars.iv.next39219 = add nuw nsw i64 %indvars.iv39218, 1
   %exitcond39222.not = icmp eq i64 %indvars.iv.next39219, %wide.trip.count39221
@@ -6997,9 +6997,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 5675:                                             ; preds = %5649
   %.idx39502 = shl nsw i64 %indvars.iv39287, 5
-  %5676 = getelementptr inbounds i8, ptr %5670, i64 %.idx39502
+  %5676 = getelementptr inbounds nuw i8, ptr %5670, i64 %.idx39502
   %5677 = load <4 x float>, ptr %5676, align 1
-  %5678 = getelementptr inbounds i8, ptr %5676, i64 16
+  %5678 = getelementptr inbounds nuw i8, ptr %5676, i64 16
   %5679 = load <4 x float>, ptr %5678, align 1
   br label %5680
 
@@ -7019,9 +7019,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 5690:                                             ; preds = %5680
   %.idx39503 = shl nsw i64 %indvars.iv39287, 5
-  %5691 = getelementptr inbounds i8, ptr %5685, i64 %.idx39503
+  %5691 = getelementptr inbounds nuw i8, ptr %5685, i64 %.idx39503
   %5692 = load <4 x float>, ptr %5691, align 1
-  %5693 = getelementptr inbounds i8, ptr %5691, i64 16
+  %5693 = getelementptr inbounds nuw i8, ptr %5691, i64 16
   %5694 = load <4 x float>, ptr %5693, align 1
   br label %5695
 
@@ -7076,7 +7076,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5720 = load float, ptr %5719, align 4
   %5721 = insertelement <4 x float> poison, float %5720, i64 0
   %5722 = shufflevector <4 x float> %5721, <4 x float> poison, <4 x i32> zeroinitializer
-  %5723 = getelementptr inbounds i8, ptr %5719, i64 4
+  %5723 = getelementptr inbounds nuw i8, ptr %5719, i64 4
   %5724 = load float, ptr %5723, align 4
   %5725 = insertelement <4 x float> poison, float %5724, i64 0
   %5726 = shufflevector <4 x float> %5725, <4 x float> poison, <4 x i32> zeroinitializer
@@ -7329,7 +7329,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5962 = load float, ptr %5961, align 4
   %5963 = insertelement <4 x float> poison, float %5962, i64 0
   %5964 = shufflevector <4 x float> %5963, <4 x float> poison, <4 x i32> zeroinitializer
-  %5965 = getelementptr inbounds i8, ptr %5961, i64 4
+  %5965 = getelementptr inbounds nuw i8, ptr %5961, i64 4
   %5966 = load float, ptr %5965, align 4
   %5967 = insertelement <4 x float> poison, float %5966, i64 0
   %5968 = shufflevector <4 x float> %5967, <4 x float> poison, <4 x i32> zeroinitializer
@@ -7363,9 +7363,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %5992 = bitcast <16 x i8> %5991 to <2 x i64>
   %5993 = extractelement <2 x i64> %5992, i64 0
   store i64 %5993, ptr %.03188539008, align 8
-  %5994 = getelementptr inbounds i8, ptr %.03188739006, i64 16
-  %5995 = getelementptr inbounds i8, ptr %.03188639007, i64 16
-  %5996 = getelementptr inbounds i8, ptr %.03188539008, i64 8
+  %5994 = getelementptr inbounds nuw i8, ptr %.03188739006, i64 16
+  %5995 = getelementptr inbounds nuw i8, ptr %.03188639007, i64 16
+  %5996 = getelementptr inbounds nuw i8, ptr %.03188539008, i64 8
   %5997 = add nuw nsw i32 %.03188439009, 1
   %exitcond39286.not = icmp eq i32 %5997, %5597
   br i1 %exitcond39286.not, label %._crit_edge39012, label %.lr.ph39011, !llvm.loop !37
@@ -7408,9 +7408,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 6024:                                             ; preds = %5998
   %.idx = shl nsw i64 %indvars.iv39281, 5
-  %6025 = getelementptr inbounds i8, ptr %6019, i64 %.idx
+  %6025 = getelementptr inbounds nuw i8, ptr %6019, i64 %.idx
   %6026 = load <4 x float>, ptr %6025, align 1
-  %6027 = getelementptr inbounds i8, ptr %6025, i64 16
+  %6027 = getelementptr inbounds nuw i8, ptr %6025, i64 16
   %6028 = load <4 x float>, ptr %6027, align 1
   br label %6029
 
@@ -7430,9 +7430,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 6039:                                             ; preds = %6029
   %.idx39500 = shl nsw i64 %indvars.iv39281, 5
-  %6040 = getelementptr inbounds i8, ptr %6034, i64 %.idx39500
+  %6040 = getelementptr inbounds nuw i8, ptr %6034, i64 %.idx39500
   %6041 = load <4 x float>, ptr %6040, align 1
-  %6042 = getelementptr inbounds i8, ptr %6040, i64 16
+  %6042 = getelementptr inbounds nuw i8, ptr %6040, i64 16
   %6043 = load <4 x float>, ptr %6042, align 1
   br label %6044
 
@@ -7452,9 +7452,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 6054:                                             ; preds = %6044
   %.idx39501 = shl nsw i64 %indvars.iv39281, 5
-  %6055 = getelementptr inbounds i8, ptr %6049, i64 %.idx39501
+  %6055 = getelementptr inbounds nuw i8, ptr %6049, i64 %.idx39501
   %6056 = load <4 x float>, ptr %6055, align 1
-  %6057 = getelementptr inbounds i8, ptr %6055, i64 16
+  %6057 = getelementptr inbounds nuw i8, ptr %6055, i64 16
   %6058 = load <4 x float>, ptr %6057, align 1
   br label %6059
 
@@ -7511,7 +7511,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %6086 = load float, ptr %6085, align 4
   %6087 = insertelement <4 x float> poison, float %6086, i64 0
   %6088 = shufflevector <4 x float> %6087, <4 x float> poison, <4 x i32> zeroinitializer
-  %6089 = getelementptr inbounds i8, ptr %6085, i64 4
+  %6089 = getelementptr inbounds nuw i8, ptr %6085, i64 4
   %6090 = load float, ptr %6089, align 4
   %6091 = insertelement <4 x float> poison, float %6090, i64 0
   %6092 = shufflevector <4 x float> %6091, <4 x float> poison, <4 x i32> zeroinitializer
@@ -7764,7 +7764,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %6328 = load float, ptr %6327, align 4
   %6329 = insertelement <4 x float> poison, float %6328, i64 0
   %6330 = shufflevector <4 x float> %6329, <4 x float> poison, <4 x i32> zeroinitializer
-  %6331 = getelementptr inbounds i8, ptr %6327, i64 4
+  %6331 = getelementptr inbounds nuw i8, ptr %6327, i64 4
   %6332 = load float, ptr %6331, align 4
   %6333 = insertelement <4 x float> poison, float %6332, i64 0
   %6334 = shufflevector <4 x float> %6333, <4 x float> poison, <4 x i32> zeroinitializer
@@ -7798,9 +7798,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %6358 = bitcast <16 x i8> %6357 to <2 x i64>
   %6359 = extractelement <2 x i64> %6358, i64 0
   store i64 %6359, ptr %.03188038999, align 8
-  %6360 = getelementptr inbounds i8, ptr %.03188238997, i64 16
-  %6361 = getelementptr inbounds i8, ptr %.03188138998, i64 16
-  %6362 = getelementptr inbounds i8, ptr %.03188038999, i64 8
+  %6360 = getelementptr inbounds nuw i8, ptr %.03188238997, i64 16
+  %6361 = getelementptr inbounds nuw i8, ptr %.03188138998, i64 16
+  %6362 = getelementptr inbounds nuw i8, ptr %.03188038999, i64 8
   %6363 = add nuw nsw i32 %.03187939000, 1
   %exitcond39280.not = icmp eq i32 %6363, %5597
   br i1 %exitcond39280.not, label %._crit_edge39003, label %.lr.ph39002, !llvm.loop !39
@@ -7887,7 +7887,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   br label %6421
 
 6418:                                             ; preds = %6386
-  %6419 = getelementptr inbounds float, ptr %6413, i64 %6394
+  %6419 = getelementptr inbounds nuw float, ptr %6413, i64 %6394
   %6420 = load <4 x float>, ptr %6419, align 1
   br label %6421
 
@@ -7905,7 +7905,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   br label %6433
 
 6430:                                             ; preds = %6421
-  %6431 = getelementptr inbounds float, ptr %6425, i64 %6394
+  %6431 = getelementptr inbounds nuw float, ptr %6425, i64 %6394
   %6432 = load <4 x float>, ptr %6431, align 1
   br label %6433
 
@@ -7953,7 +7953,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %6452 = load float, ptr %6451, align 4
   %6453 = insertelement <4 x float> poison, float %6452, i64 0
   %6454 = shufflevector <4 x float> %6453, <4 x float> poison, <4 x i32> zeroinitializer
-  %6455 = getelementptr inbounds i8, ptr %6451, i64 4
+  %6455 = getelementptr inbounds nuw i8, ptr %6451, i64 4
   %6456 = load float, ptr %6455, align 4
   %6457 = insertelement <4 x float> poison, float %6456, i64 0
   %6458 = shufflevector <4 x float> %6457, <4 x float> poison, <4 x i32> zeroinitializer
@@ -8088,7 +8088,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %6580 = load float, ptr %6579, align 4
   %6581 = insertelement <4 x float> poison, float %6580, i64 0
   %6582 = shufflevector <4 x float> %6581, <4 x float> poison, <4 x i32> zeroinitializer
-  %6583 = getelementptr inbounds i8, ptr %6579, i64 4
+  %6583 = getelementptr inbounds nuw i8, ptr %6579, i64 4
   %6584 = load float, ptr %6583, align 4
   %6585 = insertelement <4 x float> poison, float %6584, i64 0
   %6586 = shufflevector <4 x float> %6585, <4 x float> poison, <4 x i32> zeroinitializer
@@ -8117,11 +8117,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   store i8 %6603, ptr %.03187438989, align 1
   %6604 = extractelement <16 x i8> %6600, i64 7
   store i8 %6604, ptr %.03187338990, align 1
-  %6605 = getelementptr inbounds i8, ptr %.03187738986, i64 16
-  %6606 = getelementptr inbounds i8, ptr %.03187638987, i64 1
-  %6607 = getelementptr inbounds i8, ptr %.03187538988, i64 1
-  %6608 = getelementptr inbounds i8, ptr %.03187438989, i64 1
-  %6609 = getelementptr inbounds i8, ptr %.03187338990, i64 1
+  %6605 = getelementptr inbounds nuw i8, ptr %.03187738986, i64 16
+  %6606 = getelementptr inbounds nuw i8, ptr %.03187638987, i64 1
+  %6607 = getelementptr inbounds nuw i8, ptr %.03187538988, i64 1
+  %6608 = getelementptr inbounds nuw i8, ptr %.03187438989, i64 1
+  %6609 = getelementptr inbounds nuw i8, ptr %.03187338990, i64 1
   %6610 = add nuw nsw i32 %.03187238991, 1
   %exitcond39274.not = icmp eq i32 %6610, %5597
   br i1 %exitcond39274.not, label %._crit_edge38994, label %.lr.ph38993, !llvm.loop !41
@@ -8169,7 +8169,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   br label %6646
 
 6643:                                             ; preds = %6611
-  %6644 = getelementptr inbounds float, ptr %6638, i64 %6619
+  %6644 = getelementptr inbounds nuw float, ptr %6638, i64 %6619
   %6645 = load <4 x float>, ptr %6644, align 1
   br label %6646
 
@@ -8187,7 +8187,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   br label %6658
 
 6655:                                             ; preds = %6646
-  %6656 = getelementptr inbounds float, ptr %6650, i64 %6619
+  %6656 = getelementptr inbounds nuw float, ptr %6650, i64 %6619
   %6657 = load <4 x float>, ptr %6656, align 1
   br label %6658
 
@@ -8205,7 +8205,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   br label %6670
 
 6667:                                             ; preds = %6658
-  %6668 = getelementptr inbounds float, ptr %6662, i64 %6619
+  %6668 = getelementptr inbounds nuw float, ptr %6662, i64 %6619
   %6669 = load <4 x float>, ptr %6668, align 1
   br label %6670
 
@@ -8254,7 +8254,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %6690 = load float, ptr %6689, align 4
   %6691 = insertelement <4 x float> poison, float %6690, i64 0
   %6692 = shufflevector <4 x float> %6691, <4 x float> poison, <4 x i32> zeroinitializer
-  %6693 = getelementptr inbounds i8, ptr %6689, i64 4
+  %6693 = getelementptr inbounds nuw i8, ptr %6689, i64 4
   %6694 = load float, ptr %6693, align 4
   %6695 = insertelement <4 x float> poison, float %6694, i64 0
   %6696 = shufflevector <4 x float> %6695, <4 x float> poison, <4 x i32> zeroinitializer
@@ -8389,7 +8389,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %6818 = load float, ptr %6817, align 4
   %6819 = insertelement <4 x float> poison, float %6818, i64 0
   %6820 = shufflevector <4 x float> %6819, <4 x float> poison, <4 x i32> zeroinitializer
-  %6821 = getelementptr inbounds i8, ptr %6817, i64 4
+  %6821 = getelementptr inbounds nuw i8, ptr %6817, i64 4
   %6822 = load float, ptr %6821, align 4
   %6823 = insertelement <4 x float> poison, float %6822, i64 0
   %6824 = shufflevector <4 x float> %6823, <4 x float> poison, <4 x i32> zeroinitializer
@@ -8418,11 +8418,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   store i8 %6841, ptr %.03186738980, align 1
   %6842 = extractelement <16 x i8> %6838, i64 7
   store i8 %6842, ptr %.03186638981, align 1
-  %6843 = getelementptr inbounds i8, ptr %.03187038977, i64 16
-  %6844 = getelementptr inbounds i8, ptr %.03186938978, i64 1
-  %6845 = getelementptr inbounds i8, ptr %.03186838979, i64 1
-  %6846 = getelementptr inbounds i8, ptr %.03186738980, i64 1
-  %6847 = getelementptr inbounds i8, ptr %.03186638981, i64 1
+  %6843 = getelementptr inbounds nuw i8, ptr %.03187038977, i64 16
+  %6844 = getelementptr inbounds nuw i8, ptr %.03186938978, i64 1
+  %6845 = getelementptr inbounds nuw i8, ptr %.03186838979, i64 1
+  %6846 = getelementptr inbounds nuw i8, ptr %.03186738980, i64 1
+  %6847 = getelementptr inbounds nuw i8, ptr %.03186638981, i64 1
   %6848 = add nuw nsw i32 %.03186538982, 1
   %exitcond39268.not = icmp eq i32 %6848, %5597
   br i1 %exitcond39268.not, label %._crit_edge, label %.lr.ph38983, !llvm.loop !43
@@ -8547,9 +8547,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 6931:                                             ; preds = %6907
   %.idx39507 = shl nsw i64 %indvars.iv39311, 5
-  %6932 = getelementptr inbounds i8, ptr %6926, i64 %.idx39507
+  %6932 = getelementptr inbounds nuw i8, ptr %6926, i64 %.idx39507
   %6933 = load <4 x float>, ptr %6932, align 1
-  %6934 = getelementptr inbounds i8, ptr %6932, i64 16
+  %6934 = getelementptr inbounds nuw i8, ptr %6932, i64 16
   %6935 = load <4 x float>, ptr %6934, align 1
   br label %6936
 
@@ -8569,9 +8569,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 6946:                                             ; preds = %6936
   %.idx39508 = shl nsw i64 %indvars.iv39311, 5
-  %6947 = getelementptr inbounds i8, ptr %6941, i64 %.idx39508
+  %6947 = getelementptr inbounds nuw i8, ptr %6941, i64 %.idx39508
   %6948 = load <4 x float>, ptr %6947, align 1
-  %6949 = getelementptr inbounds i8, ptr %6947, i64 16
+  %6949 = getelementptr inbounds nuw i8, ptr %6947, i64 16
   %6950 = load <4 x float>, ptr %6949, align 1
   br label %6951
 
@@ -8626,7 +8626,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %6976 = load float, ptr %6975, align 4
   %6977 = insertelement <4 x float> poison, float %6976, i64 0
   %6978 = shufflevector <4 x float> %6977, <4 x float> poison, <4 x i32> zeroinitializer
-  %6979 = getelementptr inbounds i8, ptr %6975, i64 4
+  %6979 = getelementptr inbounds nuw i8, ptr %6975, i64 4
   %6980 = load float, ptr %6979, align 4
   %6981 = insertelement <4 x float> poison, float %6980, i64 0
   %6982 = shufflevector <4 x float> %6981, <4 x float> poison, <4 x i32> zeroinitializer
@@ -8879,7 +8879,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %7218 = load float, ptr %7217, align 4
   %7219 = insertelement <4 x float> poison, float %7218, i64 0
   %7220 = shufflevector <4 x float> %7219, <4 x float> poison, <4 x i32> zeroinitializer
-  %7221 = getelementptr inbounds i8, ptr %7217, i64 4
+  %7221 = getelementptr inbounds nuw i8, ptr %7217, i64 4
   %7222 = load float, ptr %7221, align 4
   %7223 = insertelement <4 x float> poison, float %7222, i64 0
   %7224 = shufflevector <4 x float> %7223, <4 x float> poison, <4 x i32> zeroinitializer
@@ -8913,9 +8913,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %7248 = bitcast <16 x i8> %7247 to <2 x i64>
   %7249 = extractelement <2 x i64> %7248, i64 0
   store i64 %7249, ptr %.03186139048, align 8
-  %7250 = getelementptr inbounds i8, ptr %.03186339046, i64 16
-  %7251 = getelementptr inbounds i8, ptr %.03186239047, i64 16
-  %7252 = getelementptr inbounds i8, ptr %.03186139048, i64 8
+  %7250 = getelementptr inbounds nuw i8, ptr %.03186339046, i64 16
+  %7251 = getelementptr inbounds nuw i8, ptr %.03186239047, i64 16
+  %7252 = getelementptr inbounds nuw i8, ptr %.03186139048, i64 8
   %7253 = add nuw nsw i32 %.03186039049, 1
   %exitcond39310.not = icmp eq i32 %7253, %6857
   br i1 %exitcond39310.not, label %._crit_edge39052, label %.lr.ph39051, !llvm.loop !45
@@ -8956,9 +8956,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 7278:                                             ; preds = %7254
   %.idx39504 = shl nsw i64 %indvars.iv39305, 5
-  %7279 = getelementptr inbounds i8, ptr %7273, i64 %.idx39504
+  %7279 = getelementptr inbounds nuw i8, ptr %7273, i64 %.idx39504
   %7280 = load <4 x float>, ptr %7279, align 1
-  %7281 = getelementptr inbounds i8, ptr %7279, i64 16
+  %7281 = getelementptr inbounds nuw i8, ptr %7279, i64 16
   %7282 = load <4 x float>, ptr %7281, align 1
   br label %7283
 
@@ -8978,9 +8978,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 7293:                                             ; preds = %7283
   %.idx39505 = shl nsw i64 %indvars.iv39305, 5
-  %7294 = getelementptr inbounds i8, ptr %7288, i64 %.idx39505
+  %7294 = getelementptr inbounds nuw i8, ptr %7288, i64 %.idx39505
   %7295 = load <4 x float>, ptr %7294, align 1
-  %7296 = getelementptr inbounds i8, ptr %7294, i64 16
+  %7296 = getelementptr inbounds nuw i8, ptr %7294, i64 16
   %7297 = load <4 x float>, ptr %7296, align 1
   br label %7298
 
@@ -9000,9 +9000,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 7308:                                             ; preds = %7298
   %.idx39506 = shl nsw i64 %indvars.iv39305, 5
-  %7309 = getelementptr inbounds i8, ptr %7303, i64 %.idx39506
+  %7309 = getelementptr inbounds nuw i8, ptr %7303, i64 %.idx39506
   %7310 = load <4 x float>, ptr %7309, align 1
-  %7311 = getelementptr inbounds i8, ptr %7309, i64 16
+  %7311 = getelementptr inbounds nuw i8, ptr %7309, i64 16
   %7312 = load <4 x float>, ptr %7311, align 1
   br label %7313
 
@@ -9059,7 +9059,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %7340 = load float, ptr %7339, align 4
   %7341 = insertelement <4 x float> poison, float %7340, i64 0
   %7342 = shufflevector <4 x float> %7341, <4 x float> poison, <4 x i32> zeroinitializer
-  %7343 = getelementptr inbounds i8, ptr %7339, i64 4
+  %7343 = getelementptr inbounds nuw i8, ptr %7339, i64 4
   %7344 = load float, ptr %7343, align 4
   %7345 = insertelement <4 x float> poison, float %7344, i64 0
   %7346 = shufflevector <4 x float> %7345, <4 x float> poison, <4 x i32> zeroinitializer
@@ -9312,7 +9312,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %7582 = load float, ptr %7581, align 4
   %7583 = insertelement <4 x float> poison, float %7582, i64 0
   %7584 = shufflevector <4 x float> %7583, <4 x float> poison, <4 x i32> zeroinitializer
-  %7585 = getelementptr inbounds i8, ptr %7581, i64 4
+  %7585 = getelementptr inbounds nuw i8, ptr %7581, i64 4
   %7586 = load float, ptr %7585, align 4
   %7587 = insertelement <4 x float> poison, float %7586, i64 0
   %7588 = shufflevector <4 x float> %7587, <4 x float> poison, <4 x i32> zeroinitializer
@@ -9346,9 +9346,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %7612 = bitcast <16 x i8> %7611 to <2 x i64>
   %7613 = extractelement <2 x i64> %7612, i64 0
   store i64 %7613, ptr %.03185639039, align 8
-  %7614 = getelementptr inbounds i8, ptr %.03185839037, i64 16
-  %7615 = getelementptr inbounds i8, ptr %.03185739038, i64 16
-  %7616 = getelementptr inbounds i8, ptr %.03185639039, i64 8
+  %7614 = getelementptr inbounds nuw i8, ptr %.03185839037, i64 16
+  %7615 = getelementptr inbounds nuw i8, ptr %.03185739038, i64 16
+  %7616 = getelementptr inbounds nuw i8, ptr %.03185639039, i64 8
   %7617 = add nuw nsw i32 %.03185539040, 1
   %exitcond39304.not = icmp eq i32 %7617, %6857
   br i1 %exitcond39304.not, label %._crit_edge39043, label %.lr.ph39042, !llvm.loop !47
@@ -9433,7 +9433,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   br label %7673
 
 7670:                                             ; preds = %7640
-  %7671 = getelementptr inbounds float, ptr %7665, i64 %7647
+  %7671 = getelementptr inbounds nuw float, ptr %7665, i64 %7647
   %7672 = load <4 x float>, ptr %7671, align 1
   br label %7673
 
@@ -9451,7 +9451,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   br label %7685
 
 7682:                                             ; preds = %7673
-  %7683 = getelementptr inbounds float, ptr %7677, i64 %7647
+  %7683 = getelementptr inbounds nuw float, ptr %7677, i64 %7647
   %7684 = load <4 x float>, ptr %7683, align 1
   br label %7685
 
@@ -9499,7 +9499,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %7704 = load float, ptr %7703, align 4
   %7705 = insertelement <4 x float> poison, float %7704, i64 0
   %7706 = shufflevector <4 x float> %7705, <4 x float> poison, <4 x i32> zeroinitializer
-  %7707 = getelementptr inbounds i8, ptr %7703, i64 4
+  %7707 = getelementptr inbounds nuw i8, ptr %7703, i64 4
   %7708 = load float, ptr %7707, align 4
   %7709 = insertelement <4 x float> poison, float %7708, i64 0
   %7710 = shufflevector <4 x float> %7709, <4 x float> poison, <4 x i32> zeroinitializer
@@ -9634,7 +9634,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %7832 = load float, ptr %7831, align 4
   %7833 = insertelement <4 x float> poison, float %7832, i64 0
   %7834 = shufflevector <4 x float> %7833, <4 x float> poison, <4 x i32> zeroinitializer
-  %7835 = getelementptr inbounds i8, ptr %7831, i64 4
+  %7835 = getelementptr inbounds nuw i8, ptr %7831, i64 4
   %7836 = load float, ptr %7835, align 4
   %7837 = insertelement <4 x float> poison, float %7836, i64 0
   %7838 = shufflevector <4 x float> %7837, <4 x float> poison, <4 x i32> zeroinitializer
@@ -9663,11 +9663,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   store i8 %7855, ptr %.03185039029, align 1
   %7856 = extractelement <16 x i8> %7852, i64 3
   store i8 %7856, ptr %.03184939030, align 1
-  %7857 = getelementptr inbounds i8, ptr %.03185339026, i64 16
-  %7858 = getelementptr inbounds i8, ptr %.03185239027, i64 1
-  %7859 = getelementptr inbounds i8, ptr %.03185139028, i64 1
-  %7860 = getelementptr inbounds i8, ptr %.03185039029, i64 1
-  %7861 = getelementptr inbounds i8, ptr %.03184939030, i64 1
+  %7857 = getelementptr inbounds nuw i8, ptr %.03185339026, i64 16
+  %7858 = getelementptr inbounds nuw i8, ptr %.03185239027, i64 1
+  %7859 = getelementptr inbounds nuw i8, ptr %.03185139028, i64 1
+  %7860 = getelementptr inbounds nuw i8, ptr %.03185039029, i64 1
+  %7861 = getelementptr inbounds nuw i8, ptr %.03184939030, i64 1
   %7862 = add nuw nsw i32 %.03184839031, 1
   %exitcond39298.not = icmp eq i32 %7862, %6857
   br i1 %exitcond39298.not, label %._crit_edge39034, label %.lr.ph39033, !llvm.loop !49
@@ -9713,7 +9713,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   br label %7896
 
 7893:                                             ; preds = %7863
-  %7894 = getelementptr inbounds float, ptr %7888, i64 %7870
+  %7894 = getelementptr inbounds nuw float, ptr %7888, i64 %7870
   %7895 = load <4 x float>, ptr %7894, align 1
   br label %7896
 
@@ -9731,7 +9731,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   br label %7908
 
 7905:                                             ; preds = %7896
-  %7906 = getelementptr inbounds float, ptr %7900, i64 %7870
+  %7906 = getelementptr inbounds nuw float, ptr %7900, i64 %7870
   %7907 = load <4 x float>, ptr %7906, align 1
   br label %7908
 
@@ -9749,7 +9749,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   br label %7920
 
 7917:                                             ; preds = %7908
-  %7918 = getelementptr inbounds float, ptr %7912, i64 %7870
+  %7918 = getelementptr inbounds nuw float, ptr %7912, i64 %7870
   %7919 = load <4 x float>, ptr %7918, align 1
   br label %7920
 
@@ -9798,7 +9798,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %7940 = load float, ptr %7939, align 4
   %7941 = insertelement <4 x float> poison, float %7940, i64 0
   %7942 = shufflevector <4 x float> %7941, <4 x float> poison, <4 x i32> zeroinitializer
-  %7943 = getelementptr inbounds i8, ptr %7939, i64 4
+  %7943 = getelementptr inbounds nuw i8, ptr %7939, i64 4
   %7944 = load float, ptr %7943, align 4
   %7945 = insertelement <4 x float> poison, float %7944, i64 0
   %7946 = shufflevector <4 x float> %7945, <4 x float> poison, <4 x i32> zeroinitializer
@@ -9933,7 +9933,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %8068 = load float, ptr %8067, align 4
   %8069 = insertelement <4 x float> poison, float %8068, i64 0
   %8070 = shufflevector <4 x float> %8069, <4 x float> poison, <4 x i32> zeroinitializer
-  %8071 = getelementptr inbounds i8, ptr %8067, i64 4
+  %8071 = getelementptr inbounds nuw i8, ptr %8067, i64 4
   %8072 = load float, ptr %8071, align 4
   %8073 = insertelement <4 x float> poison, float %8072, i64 0
   %8074 = shufflevector <4 x float> %8073, <4 x float> poison, <4 x i32> zeroinitializer
@@ -9962,11 +9962,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   store i8 %8091, ptr %.03184339018, align 1
   %8092 = extractelement <16 x i8> %8088, i64 3
   store i8 %8092, ptr %.03184239019, align 1
-  %8093 = getelementptr inbounds i8, ptr %.03184639015, i64 16
-  %8094 = getelementptr inbounds i8, ptr %.03184539016, i64 1
-  %8095 = getelementptr inbounds i8, ptr %.03184439017, i64 1
-  %8096 = getelementptr inbounds i8, ptr %.03184339018, i64 1
-  %8097 = getelementptr inbounds i8, ptr %.03184239019, i64 1
+  %8093 = getelementptr inbounds nuw i8, ptr %.03184639015, i64 16
+  %8094 = getelementptr inbounds nuw i8, ptr %.03184539016, i64 1
+  %8095 = getelementptr inbounds nuw i8, ptr %.03184439017, i64 1
+  %8096 = getelementptr inbounds nuw i8, ptr %.03184339018, i64 1
+  %8097 = getelementptr inbounds nuw i8, ptr %.03184239019, i64 1
   %8098 = add nuw nsw i32 %.03184139020, 1
   %exitcond39292.not = icmp eq i32 %8098, %6857
   br i1 %exitcond39292.not, label %._crit_edge39023, label %.lr.ph39022, !llvm.loop !51
@@ -10051,7 +10051,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 8139:                                             ; preds = %.lr.ph39140, %8190
   %indvars.iv39450 = phi i64 [ 0, %.lr.ph39140 ], [ %indvars.iv.next39451, %8190 ]
-  %8140 = getelementptr inbounds i32, ptr %8116, i64 %indvars.iv39450
+  %8140 = getelementptr inbounds nuw i32, ptr %8116, i64 %indvars.iv39450
   %8141 = load i32, ptr %8140, align 4
   %8142 = sitofp i32 %8141 to float
   %8143 = fmul fast float %8126, %8142
@@ -10080,7 +10080,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8153:                                             ; preds = %8139
   %8154 = load ptr, ptr %8134, align 8
   %8155 = load float, ptr %8154, align 4
-  %8156 = getelementptr inbounds i8, ptr %8154, i64 4
+  %8156 = getelementptr inbounds nuw i8, ptr %8154, i64 4
   %8157 = load float, ptr %8156, align 4
   %8158 = fcmp fast olt float %8143, %8155
   %.1 = select nsz i1 %8158, float %8155, float %8143
@@ -10112,7 +10112,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8174:                                             ; preds = %8139
   %8175 = load ptr, ptr %8134, align 8
   %8176 = load float, ptr %8175, align 4
-  %8177 = getelementptr inbounds i8, ptr %8175, i64 4
+  %8177 = getelementptr inbounds nuw i8, ptr %8175, i64 4
   %8178 = load float, ptr %8177, align 4
   %8179 = fneg fast float %8178
   %8180 = fdiv fast float %8179, %8176
@@ -10139,7 +10139,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select38853 = tail call i32 @llvm.smax.i32(i32 %8193, i32 -127)
   %.03189538854 = tail call i32 @llvm.smin.i32(i32 %spec.select38853, i32 127)
   %.031895 = trunc nsw i32 %.03189538854 to i8
-  %8194 = getelementptr inbounds i8, ptr %8105, i64 %indvars.iv39450
+  %8194 = getelementptr inbounds nuw i8, ptr %8105, i64 %indvars.iv39450
   store i8 %.031895, ptr %8194, align 1
   %indvars.iv.next39451 = add nuw nsw i64 %indvars.iv39450, 1
   %exitcond39454.not = icmp eq i64 %indvars.iv.next39451, %wide.trip.count39453
@@ -10160,7 +10160,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 8202:                                             ; preds = %.lr.ph39138, %8254
   %indvars.iv39445 = phi i64 [ 0, %.lr.ph39138 ], [ %indvars.iv.next39446, %8254 ]
-  %8203 = getelementptr inbounds i32, ptr %8116, i64 %indvars.iv39445
+  %8203 = getelementptr inbounds nuw i32, ptr %8116, i64 %indvars.iv39445
   %8204 = load i32, ptr %8203, align 4
   %8205 = sitofp i32 %8204 to float
   %8206 = fmul fast float %8126, %8205
@@ -10190,7 +10190,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8217:                                             ; preds = %8202
   %8218 = load ptr, ptr %8201, align 8
   %8219 = load float, ptr %8218, align 4
-  %8220 = getelementptr inbounds i8, ptr %8218, i64 4
+  %8220 = getelementptr inbounds nuw i8, ptr %8218, i64 4
   %8221 = load float, ptr %8220, align 4
   %8222 = fcmp fast olt float %8207, %8219
   %.138719 = select nsz i1 %8222, float %8219, float %8207
@@ -10222,7 +10222,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8238:                                             ; preds = %8202
   %8239 = load ptr, ptr %8201, align 8
   %8240 = load float, ptr %8239, align 4
-  %8241 = getelementptr inbounds i8, ptr %8239, i64 4
+  %8241 = getelementptr inbounds nuw i8, ptr %8239, i64 4
   %8242 = load float, ptr %8241, align 4
   %8243 = fneg fast float %8242
   %8244 = fdiv fast float %8243, %8240
@@ -10249,7 +10249,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3848438851 = tail call i32 @llvm.smax.i32(i32 %8257, i32 -127)
   %.03189638852 = tail call i32 @llvm.smin.i32(i32 %spec.select3848438851, i32 127)
   %.031896 = trunc nsw i32 %.03189638852 to i8
-  %8258 = getelementptr inbounds i8, ptr %8105, i64 %indvars.iv39445
+  %8258 = getelementptr inbounds nuw i8, ptr %8105, i64 %indvars.iv39445
   store i8 %.031896, ptr %8258, align 1
   %indvars.iv.next39446 = add nuw nsw i64 %indvars.iv39445, 1
   %exitcond39449.not = icmp eq i64 %indvars.iv.next39446, %wide.trip.count39448
@@ -10257,12 +10257,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 8259:                                             ; preds = %.lr.ph39142, %8314
   %indvars.iv39455 = phi i64 [ 0, %.lr.ph39142 ], [ %indvars.iv.next39456, %8314 ]
-  %8260 = getelementptr inbounds i32, ptr %8116, i64 %indvars.iv39455
+  %8260 = getelementptr inbounds nuw i32, ptr %8116, i64 %indvars.iv39455
   %8261 = load i32, ptr %8260, align 4
   %8262 = sitofp i32 %8261 to float
   %8263 = fmul fast float %8126, %8262
   %8264 = load ptr, ptr %8136, align 8
-  %8265 = getelementptr inbounds float, ptr %8264, i64 %indvars.iv39455
+  %8265 = getelementptr inbounds nuw float, ptr %8264, i64 %indvars.iv39455
   %8266 = load float, ptr %8265, align 4
   %8267 = fadd fast float %8263, %8266
   %8268 = load i32, ptr %8137, align 4
@@ -10290,7 +10290,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8277:                                             ; preds = %8259
   %8278 = load ptr, ptr %8138, align 8
   %8279 = load float, ptr %8278, align 4
-  %8280 = getelementptr inbounds i8, ptr %8278, i64 4
+  %8280 = getelementptr inbounds nuw i8, ptr %8278, i64 4
   %8281 = load float, ptr %8280, align 4
   %8282 = fcmp fast olt float %8267, %8279
   %.138723 = select nsz i1 %8282, float %8279, float %8267
@@ -10322,7 +10322,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8298:                                             ; preds = %8259
   %8299 = load ptr, ptr %8138, align 8
   %8300 = load float, ptr %8299, align 4
-  %8301 = getelementptr inbounds i8, ptr %8299, i64 4
+  %8301 = getelementptr inbounds nuw i8, ptr %8299, i64 4
   %8302 = load float, ptr %8301, align 4
   %8303 = fneg fast float %8302
   %8304 = fdiv fast float %8303, %8300
@@ -10349,7 +10349,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3848538863 = tail call i32 @llvm.smax.i32(i32 %8317, i32 -127)
   %.03189738864 = tail call i32 @llvm.smin.i32(i32 %spec.select3848538863, i32 127)
   %.031897 = trunc nsw i32 %.03189738864 to i8
-  %8318 = getelementptr inbounds i8, ptr %8105, i64 %indvars.iv39455
+  %8318 = getelementptr inbounds nuw i8, ptr %8105, i64 %indvars.iv39455
   store i8 %.031897, ptr %8318, align 1
   %indvars.iv.next39456 = add nuw nsw i64 %indvars.iv39455, 1
   %exitcond39459.not = icmp eq i64 %indvars.iv.next39456, %wide.trip.count39458
@@ -10396,7 +10396,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 8336:                                             ; preds = %.lr.ph39133, %8387
   %indvars.iv39435 = phi i64 [ 0, %.lr.ph39133 ], [ %indvars.iv.next39436, %8387 ]
-  %8337 = getelementptr inbounds i32, ptr %8116, i64 %indvars.iv39435
+  %8337 = getelementptr inbounds nuw i32, ptr %8116, i64 %indvars.iv39435
   %8338 = load i32, ptr %8337, align 4
   %8339 = sitofp i32 %8338 to float
   %8340 = fmul fast float %8324, %8339
@@ -10425,7 +10425,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8350:                                             ; preds = %8336
   %8351 = load ptr, ptr %8329, align 8
   %8352 = load float, ptr %8351, align 4
-  %8353 = getelementptr inbounds i8, ptr %8351, i64 4
+  %8353 = getelementptr inbounds nuw i8, ptr %8351, i64 4
   %8354 = load float, ptr %8353, align 4
   %8355 = fcmp fast olt float %8340, %8352
   %.138725 = select nsz i1 %8355, float %8352, float %8340
@@ -10457,7 +10457,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8371:                                             ; preds = %8336
   %8372 = load ptr, ptr %8329, align 8
   %8373 = load float, ptr %8372, align 4
-  %8374 = getelementptr inbounds i8, ptr %8372, i64 4
+  %8374 = getelementptr inbounds nuw i8, ptr %8372, i64 4
   %8375 = load float, ptr %8374, align 4
   %8376 = fneg fast float %8375
   %8377 = fdiv fast float %8376, %8373
@@ -10479,7 +10479,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8387:                                             ; preds = %8371, %8379, %8383, %8350, %8357, %8365, %8358, %8344, %8342, %8336
   %.038724 = phi nsz float [ %8340, %8336 ], [ %8340, %8379 ], [ %8386, %8383 ], [ %8370, %8365 ], [ %8364, %8358 ], [ %8354, %8357 ], [ %.138725, %8350 ], [ %8349, %8344 ], [ %8343, %8342 ], [ 0.000000e+00, %8371 ]
   %8388 = load ptr, ptr %8330, align 8
-  %8389 = getelementptr inbounds float, ptr %8388, i64 %indvars.iv39435
+  %8389 = getelementptr inbounds nuw float, ptr %8388, i64 %indvars.iv39435
   %8390 = load float, ptr %8389, align 4
   %8391 = fmul fast float %8390, %.038724
   %8392 = tail call fast noundef float @llvm.round.f32(float %8391)
@@ -10487,7 +10487,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3848638847 = tail call i32 @llvm.smax.i32(i32 %8393, i32 -127)
   %.03189838848 = tail call i32 @llvm.smin.i32(i32 %spec.select3848638847, i32 127)
   %.031898 = trunc nsw i32 %.03189838848 to i8
-  %8394 = getelementptr inbounds i8, ptr %8105, i64 %indvars.iv39435
+  %8394 = getelementptr inbounds nuw i8, ptr %8105, i64 %indvars.iv39435
   store i8 %.031898, ptr %8394, align 1
   %indvars.iv.next39436 = add nuw nsw i64 %indvars.iv39435, 1
   %exitcond39439.not = icmp eq i64 %indvars.iv.next39436, %wide.trip.count39438
@@ -10509,7 +10509,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 8403:                                             ; preds = %.lr.ph39131, %8455
   %indvars.iv39430 = phi i64 [ 0, %.lr.ph39131 ], [ %indvars.iv.next39431, %8455 ]
-  %8404 = getelementptr inbounds i32, ptr %8116, i64 %indvars.iv39430
+  %8404 = getelementptr inbounds nuw i32, ptr %8116, i64 %indvars.iv39430
   %8405 = load i32, ptr %8404, align 4
   %8406 = sitofp i32 %8405 to float
   %8407 = fmul fast float %8324, %8406
@@ -10539,7 +10539,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8418:                                             ; preds = %8403
   %8419 = load ptr, ptr %8401, align 8
   %8420 = load float, ptr %8419, align 4
-  %8421 = getelementptr inbounds i8, ptr %8419, i64 4
+  %8421 = getelementptr inbounds nuw i8, ptr %8419, i64 4
   %8422 = load float, ptr %8421, align 4
   %8423 = fcmp fast olt float %8408, %8420
   %.138729 = select nsz i1 %8423, float %8420, float %8408
@@ -10571,7 +10571,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8439:                                             ; preds = %8403
   %8440 = load ptr, ptr %8401, align 8
   %8441 = load float, ptr %8440, align 4
-  %8442 = getelementptr inbounds i8, ptr %8440, i64 4
+  %8442 = getelementptr inbounds nuw i8, ptr %8440, i64 4
   %8443 = load float, ptr %8442, align 4
   %8444 = fneg fast float %8443
   %8445 = fdiv fast float %8444, %8441
@@ -10593,7 +10593,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8455:                                             ; preds = %8439, %8447, %8451, %8418, %8425, %8433, %8426, %8412, %8410, %8403
   %.038728 = phi nsz float [ %8408, %8403 ], [ %8408, %8447 ], [ %8454, %8451 ], [ %8438, %8433 ], [ %8432, %8426 ], [ %8422, %8425 ], [ %.138729, %8418 ], [ %8417, %8412 ], [ %8411, %8410 ], [ 0.000000e+00, %8439 ]
   %8456 = load ptr, ptr %8402, align 8
-  %8457 = getelementptr inbounds float, ptr %8456, i64 %indvars.iv39430
+  %8457 = getelementptr inbounds nuw float, ptr %8456, i64 %indvars.iv39430
   %8458 = load float, ptr %8457, align 4
   %8459 = fmul fast float %8458, %.038728
   %8460 = tail call fast noundef float @llvm.round.f32(float %8459)
@@ -10601,7 +10601,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3848738845 = tail call i32 @llvm.smax.i32(i32 %8461, i32 -127)
   %.03190038846 = tail call i32 @llvm.smin.i32(i32 %spec.select3848738845, i32 127)
   %.031900 = trunc nsw i32 %.03190038846 to i8
-  %8462 = getelementptr inbounds i8, ptr %8105, i64 %indvars.iv39430
+  %8462 = getelementptr inbounds nuw i8, ptr %8105, i64 %indvars.iv39430
   store i8 %.031900, ptr %8462, align 1
   %indvars.iv.next39431 = add nuw nsw i64 %indvars.iv39430, 1
   %exitcond39434.not = icmp eq i64 %indvars.iv.next39431, %wide.trip.count39433
@@ -10609,12 +10609,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 8463:                                             ; preds = %.lr.ph39135, %8518
   %indvars.iv39440 = phi i64 [ 0, %.lr.ph39135 ], [ %indvars.iv.next39441, %8518 ]
-  %8464 = getelementptr inbounds i32, ptr %8116, i64 %indvars.iv39440
+  %8464 = getelementptr inbounds nuw i32, ptr %8116, i64 %indvars.iv39440
   %8465 = load i32, ptr %8464, align 4
   %8466 = sitofp i32 %8465 to float
   %8467 = fmul fast float %8324, %8466
   %8468 = load ptr, ptr %8332, align 8
-  %8469 = getelementptr inbounds float, ptr %8468, i64 %indvars.iv39440
+  %8469 = getelementptr inbounds nuw float, ptr %8468, i64 %indvars.iv39440
   %8470 = load float, ptr %8469, align 4
   %8471 = fadd fast float %8467, %8470
   %8472 = load i32, ptr %8333, align 4
@@ -10642,7 +10642,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8481:                                             ; preds = %8463
   %8482 = load ptr, ptr %8334, align 8
   %8483 = load float, ptr %8482, align 4
-  %8484 = getelementptr inbounds i8, ptr %8482, i64 4
+  %8484 = getelementptr inbounds nuw i8, ptr %8482, i64 4
   %8485 = load float, ptr %8484, align 4
   %8486 = fcmp fast olt float %8471, %8483
   %.138731 = select nsz i1 %8486, float %8483, float %8471
@@ -10674,7 +10674,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8502:                                             ; preds = %8463
   %8503 = load ptr, ptr %8334, align 8
   %8504 = load float, ptr %8503, align 4
-  %8505 = getelementptr inbounds i8, ptr %8503, i64 4
+  %8505 = getelementptr inbounds nuw i8, ptr %8503, i64 4
   %8506 = load float, ptr %8505, align 4
   %8507 = fneg fast float %8506
   %8508 = fdiv fast float %8507, %8504
@@ -10696,7 +10696,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8518:                                             ; preds = %8502, %8510, %8514, %8481, %8488, %8496, %8489, %8475, %8473, %8463
   %.038730 = phi nsz float [ %8471, %8463 ], [ %8471, %8510 ], [ %8517, %8514 ], [ %8501, %8496 ], [ %8495, %8489 ], [ %8485, %8488 ], [ %.138731, %8481 ], [ %8480, %8475 ], [ %8474, %8473 ], [ 0.000000e+00, %8502 ]
   %8519 = load ptr, ptr %8335, align 8
-  %8520 = getelementptr inbounds float, ptr %8519, i64 %indvars.iv39440
+  %8520 = getelementptr inbounds nuw float, ptr %8519, i64 %indvars.iv39440
   %8521 = load float, ptr %8520, align 4
   %8522 = fmul fast float %8521, %.038730
   %8523 = tail call fast noundef float @llvm.round.f32(float %8522)
@@ -10704,7 +10704,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3848838849 = tail call i32 @llvm.smax.i32(i32 %8524, i32 -127)
   %.03190138850 = tail call i32 @llvm.smin.i32(i32 %spec.select3848838849, i32 127)
   %.031901 = trunc nsw i32 %.03190138850 to i8
-  %8525 = getelementptr inbounds i8, ptr %8105, i64 %indvars.iv39440
+  %8525 = getelementptr inbounds nuw i8, ptr %8105, i64 %indvars.iv39440
   store i8 %.031901, ptr %8525, align 1
   %indvars.iv.next39441 = add nuw nsw i64 %indvars.iv39440, 1
   %exitcond39444.not = icmp eq i64 %indvars.iv.next39441, %wide.trip.count39443
@@ -10751,11 +10751,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 8543:                                             ; preds = %.lr.ph39126, %8597
   %indvars.iv39420 = phi i64 [ 0, %.lr.ph39126 ], [ %indvars.iv.next39421, %8597 ]
-  %8544 = getelementptr inbounds i32, ptr %8116, i64 %indvars.iv39420
+  %8544 = getelementptr inbounds nuw i32, ptr %8116, i64 %indvars.iv39420
   %8545 = load i32, ptr %8544, align 4
   %8546 = sitofp i32 %8545 to float
   %8547 = load ptr, ptr %8535, align 8
-  %8548 = getelementptr inbounds float, ptr %8547, i64 %indvars.iv39420
+  %8548 = getelementptr inbounds nuw float, ptr %8547, i64 %indvars.iv39420
   %8549 = load float, ptr %8548, align 4
   %8550 = fmul fast float %8549, %8546
   %8551 = load i32, ptr %8536, align 4
@@ -10783,7 +10783,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8560:                                             ; preds = %8543
   %8561 = load ptr, ptr %8537, align 8
   %8562 = load float, ptr %8561, align 4
-  %8563 = getelementptr inbounds i8, ptr %8561, i64 4
+  %8563 = getelementptr inbounds nuw i8, ptr %8561, i64 4
   %8564 = load float, ptr %8563, align 4
   %8565 = fcmp fast olt float %8550, %8562
   %.138735 = select nsz i1 %8565, float %8562, float %8550
@@ -10815,7 +10815,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8581:                                             ; preds = %8543
   %8582 = load ptr, ptr %8537, align 8
   %8583 = load float, ptr %8582, align 4
-  %8584 = getelementptr inbounds i8, ptr %8582, i64 4
+  %8584 = getelementptr inbounds nuw i8, ptr %8582, i64 4
   %8585 = load float, ptr %8584, align 4
   %8586 = fneg fast float %8585
   %8587 = fdiv fast float %8586, %8583
@@ -10842,7 +10842,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3848938841 = tail call i32 @llvm.smax.i32(i32 %8600, i32 -127)
   %.03190238842 = tail call i32 @llvm.smin.i32(i32 %spec.select3848938841, i32 127)
   %.031902 = trunc nsw i32 %.03190238842 to i8
-  %8601 = getelementptr inbounds i8, ptr %8105, i64 %indvars.iv39420
+  %8601 = getelementptr inbounds nuw i8, ptr %8105, i64 %indvars.iv39420
   store i8 %.031902, ptr %8601, align 1
   %indvars.iv.next39421 = add nuw nsw i64 %indvars.iv39420, 1
   %exitcond39424.not = icmp eq i64 %indvars.iv.next39421, %wide.trip.count39423
@@ -10864,11 +10864,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 8610:                                             ; preds = %.lr.ph39124, %8665
   %indvars.iv39415 = phi i64 [ 0, %.lr.ph39124 ], [ %indvars.iv.next39416, %8665 ]
-  %8611 = getelementptr inbounds i32, ptr %8116, i64 %indvars.iv39415
+  %8611 = getelementptr inbounds nuw i32, ptr %8116, i64 %indvars.iv39415
   %8612 = load i32, ptr %8611, align 4
   %8613 = sitofp i32 %8612 to float
   %8614 = load ptr, ptr %8607, align 8
-  %8615 = getelementptr inbounds float, ptr %8614, i64 %indvars.iv39415
+  %8615 = getelementptr inbounds nuw float, ptr %8614, i64 %indvars.iv39415
   %8616 = load float, ptr %8615, align 4
   %8617 = fmul fast float %8616, %8613
   %8618 = fadd fast float %8617, %8605
@@ -10897,7 +10897,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8628:                                             ; preds = %8610
   %8629 = load ptr, ptr %8609, align 8
   %8630 = load float, ptr %8629, align 4
-  %8631 = getelementptr inbounds i8, ptr %8629, i64 4
+  %8631 = getelementptr inbounds nuw i8, ptr %8629, i64 4
   %8632 = load float, ptr %8631, align 4
   %8633 = fcmp fast olt float %8618, %8630
   %.138737 = select nsz i1 %8633, float %8630, float %8618
@@ -10929,7 +10929,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8649:                                             ; preds = %8610
   %8650 = load ptr, ptr %8609, align 8
   %8651 = load float, ptr %8650, align 4
-  %8652 = getelementptr inbounds i8, ptr %8650, i64 4
+  %8652 = getelementptr inbounds nuw i8, ptr %8650, i64 4
   %8653 = load float, ptr %8652, align 4
   %8654 = fneg fast float %8653
   %8655 = fdiv fast float %8654, %8651
@@ -10956,7 +10956,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3849038839 = tail call i32 @llvm.smax.i32(i32 %8668, i32 -127)
   %.03190338840 = tail call i32 @llvm.smin.i32(i32 %spec.select3849038839, i32 127)
   %.031903 = trunc nsw i32 %.03190338840 to i8
-  %8669 = getelementptr inbounds i8, ptr %8105, i64 %indvars.iv39415
+  %8669 = getelementptr inbounds nuw i8, ptr %8105, i64 %indvars.iv39415
   store i8 %.031903, ptr %8669, align 1
   %indvars.iv.next39416 = add nuw nsw i64 %indvars.iv39415, 1
   %exitcond39419.not = icmp eq i64 %indvars.iv.next39416, %wide.trip.count39418
@@ -10964,15 +10964,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 8670:                                             ; preds = %.lr.ph39128, %8728
   %indvars.iv39425 = phi i64 [ 0, %.lr.ph39128 ], [ %indvars.iv.next39426, %8728 ]
-  %8671 = getelementptr inbounds i32, ptr %8116, i64 %indvars.iv39425
+  %8671 = getelementptr inbounds nuw i32, ptr %8116, i64 %indvars.iv39425
   %8672 = load i32, ptr %8671, align 4
   %8673 = sitofp i32 %8672 to float
   %8674 = load ptr, ptr %8539, align 8
-  %8675 = getelementptr inbounds float, ptr %8674, i64 %indvars.iv39425
+  %8675 = getelementptr inbounds nuw float, ptr %8674, i64 %indvars.iv39425
   %8676 = load float, ptr %8675, align 4
   %8677 = fmul fast float %8676, %8673
   %8678 = load ptr, ptr %8540, align 8
-  %8679 = getelementptr inbounds float, ptr %8678, i64 %indvars.iv39425
+  %8679 = getelementptr inbounds nuw float, ptr %8678, i64 %indvars.iv39425
   %8680 = load float, ptr %8679, align 4
   %8681 = fadd fast float %8680, %8677
   %8682 = load i32, ptr %8541, align 4
@@ -11000,7 +11000,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8691:                                             ; preds = %8670
   %8692 = load ptr, ptr %8542, align 8
   %8693 = load float, ptr %8692, align 4
-  %8694 = getelementptr inbounds i8, ptr %8692, i64 4
+  %8694 = getelementptr inbounds nuw i8, ptr %8692, i64 4
   %8695 = load float, ptr %8694, align 4
   %8696 = fcmp fast olt float %8681, %8693
   %.138741 = select nsz i1 %8696, float %8693, float %8681
@@ -11032,7 +11032,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8712:                                             ; preds = %8670
   %8713 = load ptr, ptr %8542, align 8
   %8714 = load float, ptr %8713, align 4
-  %8715 = getelementptr inbounds i8, ptr %8713, i64 4
+  %8715 = getelementptr inbounds nuw i8, ptr %8713, i64 4
   %8716 = load float, ptr %8715, align 4
   %8717 = fneg fast float %8716
   %8718 = fdiv fast float %8717, %8714
@@ -11059,7 +11059,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3849138843 = tail call i32 @llvm.smax.i32(i32 %8731, i32 -127)
   %.03190538844 = tail call i32 @llvm.smin.i32(i32 %spec.select3849138843, i32 127)
   %.031905 = trunc nsw i32 %.03190538844 to i8
-  %8732 = getelementptr inbounds i8, ptr %8105, i64 %indvars.iv39425
+  %8732 = getelementptr inbounds nuw i8, ptr %8105, i64 %indvars.iv39425
   store i8 %.031905, ptr %8732, align 1
   %indvars.iv.next39426 = add nuw nsw i64 %indvars.iv39425, 1
   %exitcond39429.not = icmp eq i64 %indvars.iv.next39426, %wide.trip.count39428
@@ -11100,11 +11100,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 8747:                                             ; preds = %.lr.ph39119, %8801
   %indvars.iv39405 = phi i64 [ 0, %.lr.ph39119 ], [ %indvars.iv.next39406, %8801 ]
-  %8748 = getelementptr inbounds i32, ptr %8116, i64 %indvars.iv39405
+  %8748 = getelementptr inbounds nuw i32, ptr %8116, i64 %indvars.iv39405
   %8749 = load i32, ptr %8748, align 4
   %8750 = sitofp i32 %8749 to float
   %8751 = load ptr, ptr %8737, align 8
-  %8752 = getelementptr inbounds float, ptr %8751, i64 %indvars.iv39405
+  %8752 = getelementptr inbounds nuw float, ptr %8751, i64 %indvars.iv39405
   %8753 = load float, ptr %8752, align 4
   %8754 = fmul fast float %8753, %8750
   %8755 = load i32, ptr %8738, align 4
@@ -11132,7 +11132,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8764:                                             ; preds = %8747
   %8765 = load ptr, ptr %8739, align 8
   %8766 = load float, ptr %8765, align 4
-  %8767 = getelementptr inbounds i8, ptr %8765, i64 4
+  %8767 = getelementptr inbounds nuw i8, ptr %8765, i64 4
   %8768 = load float, ptr %8767, align 4
   %8769 = fcmp fast olt float %8754, %8766
   %.138743 = select nsz i1 %8769, float %8766, float %8754
@@ -11164,7 +11164,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8785:                                             ; preds = %8747
   %8786 = load ptr, ptr %8739, align 8
   %8787 = load float, ptr %8786, align 4
-  %8788 = getelementptr inbounds i8, ptr %8786, i64 4
+  %8788 = getelementptr inbounds nuw i8, ptr %8786, i64 4
   %8789 = load float, ptr %8788, align 4
   %8790 = fneg fast float %8789
   %8791 = fdiv fast float %8790, %8787
@@ -11186,7 +11186,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8801:                                             ; preds = %8785, %8793, %8797, %8764, %8771, %8779, %8772, %8758, %8756, %8747
   %.038742 = phi nsz float [ %8754, %8747 ], [ %8754, %8793 ], [ %8800, %8797 ], [ %8784, %8779 ], [ %8778, %8772 ], [ %8768, %8771 ], [ %.138743, %8764 ], [ %8763, %8758 ], [ %8757, %8756 ], [ 0.000000e+00, %8785 ]
   %8802 = load ptr, ptr %8740, align 8
-  %8803 = getelementptr inbounds float, ptr %8802, i64 %indvars.iv39405
+  %8803 = getelementptr inbounds nuw float, ptr %8802, i64 %indvars.iv39405
   %8804 = load float, ptr %8803, align 4
   %8805 = fmul fast float %8804, %.038742
   %8806 = tail call fast noundef float @llvm.round.f32(float %8805)
@@ -11194,7 +11194,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3849238835 = tail call i32 @llvm.smax.i32(i32 %8807, i32 -127)
   %.03190638836 = tail call i32 @llvm.smin.i32(i32 %spec.select3849238835, i32 127)
   %.031906 = trunc nsw i32 %.03190638836 to i8
-  %8808 = getelementptr inbounds i8, ptr %8105, i64 %indvars.iv39405
+  %8808 = getelementptr inbounds nuw i8, ptr %8105, i64 %indvars.iv39405
   store i8 %.031906, ptr %8808, align 1
   %indvars.iv.next39406 = add nuw nsw i64 %indvars.iv39405, 1
   %exitcond39409.not = icmp eq i64 %indvars.iv.next39406, %wide.trip.count39408
@@ -11217,11 +11217,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 8818:                                             ; preds = %.lr.ph39117, %8873
   %indvars.iv39400 = phi i64 [ 0, %.lr.ph39117 ], [ %indvars.iv.next39401, %8873 ]
-  %8819 = getelementptr inbounds i32, ptr %8116, i64 %indvars.iv39400
+  %8819 = getelementptr inbounds nuw i32, ptr %8116, i64 %indvars.iv39400
   %8820 = load i32, ptr %8819, align 4
   %8821 = sitofp i32 %8820 to float
   %8822 = load ptr, ptr %8814, align 8
-  %8823 = getelementptr inbounds float, ptr %8822, i64 %indvars.iv39400
+  %8823 = getelementptr inbounds nuw float, ptr %8822, i64 %indvars.iv39400
   %8824 = load float, ptr %8823, align 4
   %8825 = fmul fast float %8824, %8821
   %8826 = fadd fast float %8825, %8812
@@ -11250,7 +11250,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8836:                                             ; preds = %8818
   %8837 = load ptr, ptr %8816, align 8
   %8838 = load float, ptr %8837, align 4
-  %8839 = getelementptr inbounds i8, ptr %8837, i64 4
+  %8839 = getelementptr inbounds nuw i8, ptr %8837, i64 4
   %8840 = load float, ptr %8839, align 4
   %8841 = fcmp fast olt float %8826, %8838
   %.138747 = select nsz i1 %8841, float %8838, float %8826
@@ -11282,7 +11282,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8857:                                             ; preds = %8818
   %8858 = load ptr, ptr %8816, align 8
   %8859 = load float, ptr %8858, align 4
-  %8860 = getelementptr inbounds i8, ptr %8858, i64 4
+  %8860 = getelementptr inbounds nuw i8, ptr %8858, i64 4
   %8861 = load float, ptr %8860, align 4
   %8862 = fneg fast float %8861
   %8863 = fdiv fast float %8862, %8859
@@ -11304,7 +11304,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8873:                                             ; preds = %8857, %8865, %8869, %8836, %8843, %8851, %8844, %8830, %8828, %8818
   %.038746 = phi nsz float [ %8826, %8818 ], [ %8826, %8865 ], [ %8872, %8869 ], [ %8856, %8851 ], [ %8850, %8844 ], [ %8840, %8843 ], [ %.138747, %8836 ], [ %8835, %8830 ], [ %8829, %8828 ], [ 0.000000e+00, %8857 ]
   %8874 = load ptr, ptr %8817, align 8
-  %8875 = getelementptr inbounds float, ptr %8874, i64 %indvars.iv39400
+  %8875 = getelementptr inbounds nuw float, ptr %8874, i64 %indvars.iv39400
   %8876 = load float, ptr %8875, align 4
   %8877 = fmul fast float %8876, %.038746
   %8878 = tail call fast noundef float @llvm.round.f32(float %8877)
@@ -11312,7 +11312,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3849338833 = tail call i32 @llvm.smax.i32(i32 %8879, i32 -127)
   %.03190738834 = tail call i32 @llvm.smin.i32(i32 %spec.select3849338833, i32 127)
   %.031907 = trunc nsw i32 %.03190738834 to i8
-  %8880 = getelementptr inbounds i8, ptr %8105, i64 %indvars.iv39400
+  %8880 = getelementptr inbounds nuw i8, ptr %8105, i64 %indvars.iv39400
   store i8 %.031907, ptr %8880, align 1
   %indvars.iv.next39401 = add nuw nsw i64 %indvars.iv39400, 1
   %exitcond39404.not = icmp eq i64 %indvars.iv.next39401, %wide.trip.count39403
@@ -11320,15 +11320,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 
 8881:                                             ; preds = %.lr.ph39121, %8939
   %indvars.iv39410 = phi i64 [ 0, %.lr.ph39121 ], [ %indvars.iv.next39411, %8939 ]
-  %8882 = getelementptr inbounds i32, ptr %8116, i64 %indvars.iv39410
+  %8882 = getelementptr inbounds nuw i32, ptr %8116, i64 %indvars.iv39410
   %8883 = load i32, ptr %8882, align 4
   %8884 = sitofp i32 %8883 to float
   %8885 = load ptr, ptr %8742, align 8
-  %8886 = getelementptr inbounds float, ptr %8885, i64 %indvars.iv39410
+  %8886 = getelementptr inbounds nuw float, ptr %8885, i64 %indvars.iv39410
   %8887 = load float, ptr %8886, align 4
   %8888 = fmul fast float %8887, %8884
   %8889 = load ptr, ptr %8743, align 8
-  %8890 = getelementptr inbounds float, ptr %8889, i64 %indvars.iv39410
+  %8890 = getelementptr inbounds nuw float, ptr %8889, i64 %indvars.iv39410
   %8891 = load float, ptr %8890, align 4
   %8892 = fadd fast float %8891, %8888
   %8893 = load i32, ptr %8744, align 4
@@ -11356,7 +11356,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8902:                                             ; preds = %8881
   %8903 = load ptr, ptr %8745, align 8
   %8904 = load float, ptr %8903, align 4
-  %8905 = getelementptr inbounds i8, ptr %8903, i64 4
+  %8905 = getelementptr inbounds nuw i8, ptr %8903, i64 4
   %8906 = load float, ptr %8905, align 4
   %8907 = fcmp fast olt float %8892, %8904
   %.138745 = select nsz i1 %8907, float %8904, float %8892
@@ -11388,7 +11388,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8923:                                             ; preds = %8881
   %8924 = load ptr, ptr %8745, align 8
   %8925 = load float, ptr %8924, align 4
-  %8926 = getelementptr inbounds i8, ptr %8924, i64 4
+  %8926 = getelementptr inbounds nuw i8, ptr %8924, i64 4
   %8927 = load float, ptr %8926, align 4
   %8928 = fneg fast float %8927
   %8929 = fdiv fast float %8928, %8925
@@ -11410,7 +11410,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 8939:                                             ; preds = %8923, %8931, %8935, %8902, %8909, %8917, %8910, %8896, %8894, %8881
   %.038744 = phi nsz float [ %8892, %8881 ], [ %8892, %8931 ], [ %8938, %8935 ], [ %8922, %8917 ], [ %8916, %8910 ], [ %8906, %8909 ], [ %.138745, %8902 ], [ %8901, %8896 ], [ %8895, %8894 ], [ 0.000000e+00, %8923 ]
   %8940 = load ptr, ptr %8746, align 8
-  %8941 = getelementptr inbounds float, ptr %8940, i64 %indvars.iv39410
+  %8941 = getelementptr inbounds nuw float, ptr %8940, i64 %indvars.iv39410
   %8942 = load float, ptr %8941, align 4
   %8943 = fmul fast float %8942, %.038744
   %8944 = tail call fast noundef float @llvm.round.f32(float %8943)
@@ -11418,7 +11418,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3849438837 = tail call i32 @llvm.smax.i32(i32 %8945, i32 -127)
   %.03190838838 = tail call i32 @llvm.smin.i32(i32 %spec.select3849438837, i32 127)
   %.031908 = trunc nsw i32 %.03190838838 to i8
-  %8946 = getelementptr inbounds i8, ptr %8105, i64 %indvars.iv39410
+  %8946 = getelementptr inbounds nuw i8, ptr %8105, i64 %indvars.iv39410
   store i8 %.031908, ptr %8946, align 1
   %indvars.iv.next39411 = add nuw nsw i64 %indvars.iv39410, 1
   %exitcond39414.not = icmp eq i64 %indvars.iv.next39411, %wide.trip.count39413
@@ -11510,19 +11510,19 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %9006 = icmp eq i32 %9005, 1
   %9007 = load ptr, ptr %8984, align 8
   %.in38413.idx = select i1 %9006, i64 0, i64 %indvars.iv39475
-  %.in38413 = getelementptr inbounds float, ptr %9007, i64 %.in38413.idx
+  %.in38413 = getelementptr inbounds nuw float, ptr %9007, i64 %.in38413.idx
   %9008 = load float, ptr %.in38413, align 4
   %9009 = load i32, ptr %8985, align 4
   %9010 = icmp eq i32 %9009, 1
   %9011 = load ptr, ptr %8986, align 8
   %.in38414.idx = select i1 %9010, i64 0, i64 %indvars.iv39475
-  %.in38414 = getelementptr inbounds float, ptr %9011, i64 %.in38414.idx
+  %.in38414 = getelementptr inbounds nuw float, ptr %9011, i64 %.in38414.idx
   %9012 = load float, ptr %.in38414, align 4
   br i1 %8987, label %.lr.ph39151, label %._crit_edge39152
 
 .lr.ph39151:                                      ; preds = %8990, %9063
   %indvars.iv39470 = phi i64 [ %indvars.iv.next39471, %9063 ], [ 0, %8990 ]
-  %9013 = getelementptr inbounds i32, ptr %8997, i64 %indvars.iv39470
+  %9013 = getelementptr inbounds nuw i32, ptr %8997, i64 %indvars.iv39470
   %9014 = load i32, ptr %9013, align 4
   %9015 = sitofp i32 %9014 to float
   %9016 = fmul fast float %9008, %9015
@@ -11551,7 +11551,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 9026:                                             ; preds = %.lr.ph39151
   %9027 = load ptr, ptr %8989, align 8
   %9028 = load float, ptr %9027, align 4
-  %9029 = getelementptr inbounds i8, ptr %9027, i64 4
+  %9029 = getelementptr inbounds nuw i8, ptr %9027, i64 4
   %9030 = load float, ptr %9029, align 4
   %9031 = fcmp fast olt float %9016, %9028
   %.138739 = select nsz i1 %9031, float %9028, float %9016
@@ -11583,7 +11583,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 9047:                                             ; preds = %.lr.ph39151
   %9048 = load ptr, ptr %8989, align 8
   %9049 = load float, ptr %9048, align 4
-  %9050 = getelementptr inbounds i8, ptr %9048, i64 4
+  %9050 = getelementptr inbounds nuw i8, ptr %9048, i64 4
   %9051 = load float, ptr %9050, align 4
   %9052 = fneg fast float %9051
   %9053 = fdiv fast float %9052, %9049
@@ -11610,7 +11610,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3849538861 = tail call i32 @llvm.smax.i32(i32 %9066, i32 -127)
   %.03190938862 = tail call i32 @llvm.smin.i32(i32 %spec.select3849538861, i32 127)
   %.031909 = trunc nsw i32 %.03190938862 to i8
-  %9067 = getelementptr inbounds i8, ptr %9004, i64 %indvars.iv39470
+  %9067 = getelementptr inbounds nuw i8, ptr %9004, i64 %indvars.iv39470
   store i8 %.031909, ptr %9067, align 1
   %indvars.iv.next39471 = add nuw nsw i64 %indvars.iv39470, 1
   %exitcond39474.not = icmp eq i64 %indvars.iv.next39471, %wide.trip.count39473
@@ -11641,25 +11641,25 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %9084 = icmp eq i32 %9083, 1
   %9085 = load ptr, ptr %8973, align 8
   %.in.idx = select i1 %9084, i64 0, i64 %indvars.iv39465
-  %.in = getelementptr inbounds float, ptr %9085, i64 %.in.idx
+  %.in = getelementptr inbounds nuw float, ptr %9085, i64 %.in.idx
   %9086 = load float, ptr %.in, align 4
   %9087 = load i32, ptr %8974, align 4
   %9088 = icmp eq i32 %9087, 1
   %9089 = load ptr, ptr %8975, align 8
   %.in38406.idx = select i1 %9088, i64 0, i64 %indvars.iv39465
-  %.in38406 = getelementptr inbounds float, ptr %9089, i64 %.in38406.idx
+  %.in38406 = getelementptr inbounds nuw float, ptr %9089, i64 %.in38406.idx
   %9090 = load float, ptr %.in38406, align 4
   %9091 = load i32, ptr %8965, align 8
   %9092 = icmp eq i32 %9091, 1
   %9093 = load ptr, ptr %8976, align 8
   %.in38407.idx = select i1 %9092, i64 0, i64 %indvars.iv39465
-  %.in38407 = getelementptr inbounds float, ptr %9093, i64 %.in38407.idx
+  %.in38407 = getelementptr inbounds nuw float, ptr %9093, i64 %.in38407.idx
   %9094 = load float, ptr %.in38407, align 4
   br i1 %8977, label %.lr.ph39145, label %._crit_edge39146
 
 .lr.ph39145:                                      ; preds = %9068, %9146
   %indvars.iv39460 = phi i64 [ %indvars.iv.next39461, %9146 ], [ 0, %9068 ]
-  %9095 = getelementptr inbounds i32, ptr %9075, i64 %indvars.iv39460
+  %9095 = getelementptr inbounds nuw i32, ptr %9075, i64 %indvars.iv39460
   %9096 = load i32, ptr %9095, align 4
   %9097 = sitofp i32 %9096 to float
   %9098 = fmul fast float %9086, %9097
@@ -11689,7 +11689,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 9109:                                             ; preds = %.lr.ph39145
   %9110 = load ptr, ptr %8979, align 8
   %9111 = load float, ptr %9110, align 4
-  %9112 = getelementptr inbounds i8, ptr %9110, i64 4
+  %9112 = getelementptr inbounds nuw i8, ptr %9110, i64 4
   %9113 = load float, ptr %9112, align 4
   %9114 = fcmp fast olt float %9099, %9111
   %.138733 = select nsz i1 %9114, float %9111, float %9099
@@ -11721,7 +11721,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 9130:                                             ; preds = %.lr.ph39145
   %9131 = load ptr, ptr %8979, align 8
   %9132 = load float, ptr %9131, align 4
-  %9133 = getelementptr inbounds i8, ptr %9131, i64 4
+  %9133 = getelementptr inbounds nuw i8, ptr %9131, i64 4
   %9134 = load float, ptr %9133, align 4
   %9135 = fneg fast float %9134
   %9136 = fdiv fast float %9135, %9132
@@ -11748,7 +11748,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3849638855 = tail call i32 @llvm.smax.i32(i32 %9149, i32 -127)
   %.03191138856 = tail call i32 @llvm.smin.i32(i32 %spec.select3849638855, i32 127)
   %.031911 = trunc nsw i32 %.03191138856 to i8
-  %9150 = getelementptr inbounds i8, ptr %9082, i64 %indvars.iv39460
+  %9150 = getelementptr inbounds nuw i8, ptr %9082, i64 %indvars.iv39460
   store i8 %.031911, ptr %9150, align 1
   %indvars.iv.next39461 = add nuw nsw i64 %indvars.iv39460, 1
   %exitcond39464.not = icmp eq i64 %indvars.iv.next39461, %wide.trip.count39463
@@ -11850,19 +11850,19 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %9212 = icmp eq i32 %9211, 1
   %9213 = load ptr, ptr %9192, align 8
   %.in38411.idx = select i1 %9212, i64 0, i64 %indvars.iv39495
-  %.in38411 = getelementptr inbounds float, ptr %9213, i64 %.in38411.idx
+  %.in38411 = getelementptr inbounds nuw float, ptr %9213, i64 %.in38411.idx
   %9214 = load float, ptr %.in38411, align 4
   %9215 = load i32, ptr %9193, align 4
   %9216 = icmp eq i32 %9215, 1
   %9217 = load ptr, ptr %9194, align 8
   %.in38412.idx = select i1 %9216, i64 0, i64 %indvars.iv39495
-  %.in38412 = getelementptr inbounds float, ptr %9217, i64 %.in38412.idx
+  %.in38412 = getelementptr inbounds nuw float, ptr %9217, i64 %.in38412.idx
   %9218 = load float, ptr %.in38412, align 4
   br i1 %9195, label %.lr.ph39163, label %._crit_edge39164
 
 .lr.ph39163:                                      ; preds = %9198, %9269
   %indvars.iv39490 = phi i64 [ %indvars.iv.next39491, %9269 ], [ 0, %9198 ]
-  %9219 = getelementptr inbounds i32, ptr %9204, i64 %indvars.iv39490
+  %9219 = getelementptr inbounds nuw i32, ptr %9204, i64 %indvars.iv39490
   %9220 = load i32, ptr %9219, align 4
   %9221 = sitofp i32 %9220 to float
   %9222 = fmul fast float %9214, %9221
@@ -11891,7 +11891,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 9232:                                             ; preds = %.lr.ph39163
   %9233 = load ptr, ptr %9197, align 8
   %9234 = load float, ptr %9233, align 4
-  %9235 = getelementptr inbounds i8, ptr %9233, i64 4
+  %9235 = getelementptr inbounds nuw i8, ptr %9233, i64 4
   %9236 = load float, ptr %9235, align 4
   %9237 = fcmp fast olt float %9222, %9234
   %.138727 = select nsz i1 %9237, float %9234, float %9222
@@ -11923,7 +11923,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 9253:                                             ; preds = %.lr.ph39163
   %9254 = load ptr, ptr %9197, align 8
   %9255 = load float, ptr %9254, align 4
-  %9256 = getelementptr inbounds i8, ptr %9254, i64 4
+  %9256 = getelementptr inbounds nuw i8, ptr %9254, i64 4
   %9257 = load float, ptr %9256, align 4
   %9258 = fneg fast float %9257
   %9259 = fdiv fast float %9258, %9255
@@ -11950,7 +11950,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3849738859 = tail call i32 @llvm.smax.i32(i32 %9272, i32 -127)
   %.03191238860 = tail call i32 @llvm.smin.i32(i32 %spec.select3849738859, i32 127)
   %.031912 = trunc nsw i32 %.03191238860 to i8
-  %9273 = getelementptr inbounds i8, ptr %9210, i64 %indvars.iv39490
+  %9273 = getelementptr inbounds nuw i8, ptr %9210, i64 %indvars.iv39490
   store i8 %.031912, ptr %9273, align 1
   %indvars.iv.next39491 = add nuw nsw i64 %indvars.iv39490, 1
   %exitcond39494.not = icmp eq i64 %indvars.iv.next39491, %wide.trip.count39493
@@ -11979,25 +11979,25 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %9288 = icmp eq i32 %9287, 1
   %9289 = load ptr, ptr %9181, align 8
   %.in38408.idx = select i1 %9288, i64 0, i64 %indvars.iv39485
-  %.in38408 = getelementptr inbounds float, ptr %9289, i64 %.in38408.idx
+  %.in38408 = getelementptr inbounds nuw float, ptr %9289, i64 %.in38408.idx
   %9290 = load float, ptr %.in38408, align 4
   %9291 = load i32, ptr %9182, align 4
   %9292 = icmp eq i32 %9291, 1
   %9293 = load ptr, ptr %9183, align 8
   %.in38409.idx = select i1 %9292, i64 0, i64 %indvars.iv39485
-  %.in38409 = getelementptr inbounds float, ptr %9293, i64 %.in38409.idx
+  %.in38409 = getelementptr inbounds nuw float, ptr %9293, i64 %.in38409.idx
   %9294 = load float, ptr %.in38409, align 4
   %9295 = load i32, ptr %9173, align 8
   %9296 = icmp eq i32 %9295, 1
   %9297 = load ptr, ptr %9184, align 8
   %.in38410.idx = select i1 %9296, i64 0, i64 %indvars.iv39485
-  %.in38410 = getelementptr inbounds float, ptr %9297, i64 %.in38410.idx
+  %.in38410 = getelementptr inbounds nuw float, ptr %9297, i64 %.in38410.idx
   %9298 = load float, ptr %.in38410, align 4
   br i1 %9185, label %.lr.ph39157, label %._crit_edge39158
 
 .lr.ph39157:                                      ; preds = %9274, %9350
   %indvars.iv39480 = phi i64 [ %indvars.iv.next39481, %9350 ], [ 0, %9274 ]
-  %9299 = getelementptr inbounds i32, ptr %9280, i64 %indvars.iv39480
+  %9299 = getelementptr inbounds nuw i32, ptr %9280, i64 %indvars.iv39480
   %9300 = load i32, ptr %9299, align 4
   %9301 = sitofp i32 %9300 to float
   %9302 = fmul fast float %9290, %9301
@@ -12027,7 +12027,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 9313:                                             ; preds = %.lr.ph39157
   %9314 = load ptr, ptr %9187, align 8
   %9315 = load float, ptr %9314, align 4
-  %9316 = getelementptr inbounds i8, ptr %9314, i64 4
+  %9316 = getelementptr inbounds nuw i8, ptr %9314, i64 4
   %9317 = load float, ptr %9316, align 4
   %9318 = fcmp fast olt float %9303, %9315
   %.138721 = select nsz i1 %9318, float %9315, float %9303
@@ -12059,7 +12059,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
 9334:                                             ; preds = %.lr.ph39157
   %9335 = load ptr, ptr %9187, align 8
   %9336 = load float, ptr %9335, align 4
-  %9337 = getelementptr inbounds i8, ptr %9335, i64 4
+  %9337 = getelementptr inbounds nuw i8, ptr %9335, i64 4
   %9338 = load float, ptr %9337, align 4
   %9339 = fneg fast float %9338
   %9340 = fdiv fast float %9339, %9336
@@ -12086,7 +12086,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Requantize_x86_fma7forw
   %spec.select3849838857 = tail call i32 @llvm.smax.i32(i32 %9353, i32 -127)
   %.03191338858 = tail call i32 @llvm.smin.i32(i32 %spec.select3849838857, i32 127)
   %.031913 = trunc nsw i32 %.03191338858 to i8
-  %9354 = getelementptr inbounds i8, ptr %9286, i64 %indvars.iv39480
+  %9354 = getelementptr inbounds nuw i8, ptr %9286, i64 %indvars.iv39480
   store i8 %.031913, ptr %9354, align 1
   %indvars.iv.next39481 = add nuw nsw i64 %indvars.iv39480, 1
   %exitcond39484.not = icmp eq i64 %indvars.iv.next39481, %wide.trip.count39483
@@ -12235,7 +12235,7 @@ define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull al
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %24
@@ -12281,7 +12281,7 @@ define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull al
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
           to label %40 unwind label %46
@@ -12327,7 +12327,7 @@ define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull al
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %55)
           to label %62 unwind label %68
@@ -12373,7 +12373,7 @@ define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull al
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %76, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
   invoke void %81(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef %77)
           to label %84 unwind label %87

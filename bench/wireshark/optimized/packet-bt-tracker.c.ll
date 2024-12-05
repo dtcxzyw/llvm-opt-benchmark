@@ -198,7 +198,7 @@ define internal range(i32 0, 2) i32 @dissect_bt_tracker_heur(ptr noundef %0, ptr
 
 11:                                               ; preds = %9
   %12 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #4
-  %13 = getelementptr inbounds i8, ptr %1, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = load ptr, ptr @bt_tracker_handle, align 8
   tail call void @conversation_set_dissector_from_frame_number(ptr noundef nonnull %12, i32 noundef %14, ptr noundef %15) #4
@@ -215,7 +215,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bt_tracker(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.61) #4
   %8 = load ptr, ptr %6, align 8
@@ -275,13 +275,13 @@ get_message_type.exit:                            ; preds = %11, %14, %17, %20, 
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %40
 
 40:                                               ; preds = %get_message_type.exit
-  %41 = getelementptr inbounds i8, ptr %39, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not5.i.i = icmp eq ptr %42, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %42, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = or i32 %45, 2
   store i32 %46, ptr %44, align 4
@@ -446,13 +446,13 @@ sub_0.i.i:                                        ; preds = %136, %151
   br i1 %.not6.i.i, label %sub_1.i.i, label %.tail.thread.i.i
 
 sub_1.i.i:                                        ; preds = %sub_0.i.i
-  %145 = getelementptr inbounds i8, ptr %143, i64 1
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 1
   %146 = load i8, ptr %145, align 1
   %.not7.i.i = icmp eq i8 %146, 112
   br i1 %.not7.i.i, label %.tail.i.i, label %.tail.thread.i.i
 
 .tail.i.i:                                        ; preds = %sub_1.i.i
-  %147 = getelementptr inbounds i8, ptr %143, i64 2
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 2
   %148 = load i8, ptr %147, align 1
   %149 = icmp eq i8 %148, 0
   br i1 %149, label %is_ipv4_format.exit.i, label %.tail.thread.i.i
@@ -479,7 +479,7 @@ is_ipv4_format.exit.i:                            ; preds = %151, %.tail.thread.
   br i1 %.not211221.i, label %._crit_edge.i, label %.lr.ph224.i
 
 .lr.ph224.i:                                      ; preds = %is_ipv4_format.exit.i
-  %159 = getelementptr inbounds i8, ptr %1, i64 408
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br i1 %.not239.i, label %.lr.ph224.split.us.i, label %.lr.ph224.split.i
 
 .lr.ph224.split.us.i:                             ; preds = %.lr.ph224.i, %.lr.ph224.split.us.i

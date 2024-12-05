@@ -217,7 +217,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 define internal fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 16, 21) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._address, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.72) #4
   %9 = load ptr, ptr %7, align 8
@@ -242,7 +242,7 @@ define internal fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, pt
 21:                                               ; preds = %4
   %22 = tail call i64 @llvm.bswap.i64(i64 %10)
   store i64 %22, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %24
 
 24:                                               ; preds = %21, %13
@@ -261,9 +261,9 @@ define internal fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not103, label %58, label %32
 
 32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %2, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8
   %.not104 = icmp eq i32 %36, 0
   br i1 %.not104, label %58, label %37
@@ -273,17 +273,17 @@ define internal fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, pt
 
 .thread125:                                       ; preds = %37
   store i32 1, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 6, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.099, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %40, align 8
   %41 = load i32, ptr @proto_fp, align 4
   %42 = zext nneg i16 %27 to i32
   %43 = zext nneg i16 %30 to i32
   %44 = and i32 %31, 65535
-  %45 = getelementptr inbounds i8, ptr %1, i64 408
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %46 = load ptr, ptr %45, align 8
   %47 = call ptr @address_with_resolution_to_str(ptr noundef %46, ptr noundef nonnull %6) #4
   %48 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef %3, ptr noundef nonnull @.str.74, i32 noundef %42, i32 noundef %43, i32 noundef %44, ptr noundef %47) #4

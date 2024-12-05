@@ -26,7 +26,7 @@ define noundef ptr @PQgetCancel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %47, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 472
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %47, label %6
@@ -37,22 +37,22 @@ define noundef ptr @PQgetCancel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %8, label %47, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 616
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 616
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7, ptr noundef nonnull align 8 dereferenceable(136) %10, i64 136, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 820
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 820
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %7, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 824
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 140
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 140
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %7, i64 144
-  %18 = getelementptr inbounds i8, ptr %7, i64 148
-  %19 = getelementptr inbounds i8, ptr %7, i64 152
-  %20 = getelementptr inbounds i8, ptr %7, i64 156
-  %21 = getelementptr inbounds i8, ptr %7, i64 160
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 148
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 156
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %17, i8 -1, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
   %.not44 = icmp eq ptr %23, null
@@ -63,7 +63,7 @@ define noundef ptr @PQgetCancel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %25, label %26, label %46
 
 26:                                               ; preds = %24, %9
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load ptr, ptr %27, align 8
   %.not45 = icmp eq ptr %28, null
   br i1 %.not45, label %31, label %29
@@ -73,7 +73,7 @@ define noundef ptr @PQgetCancel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %30, label %31, label %46
 
 31:                                               ; preds = %29, %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %33 = load ptr, ptr %32, align 8
   %.not46 = icmp eq ptr %33, null
   br i1 %.not46, label %36, label %34
@@ -83,7 +83,7 @@ define noundef ptr @PQgetCancel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %35, label %36, label %46
 
 36:                                               ; preds = %34, %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %38 = load ptr, ptr %37, align 8
   %.not47 = icmp eq ptr %38, null
   br i1 %.not47, label %41, label %39
@@ -93,7 +93,7 @@ define noundef ptr @PQgetCancel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %39, %36
-  %42 = getelementptr inbounds i8, ptr %0, i64 144
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %43 = load ptr, ptr %42, align 8
   %.not48 = icmp eq ptr %43, null
   br i1 %.not48, label %47, label %44
@@ -161,7 +161,7 @@ define range(i32 0, 2) i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not47, label %31, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 148
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %24 = load i32, ptr %23, align 4
   %.not48 = icmp eq i32 %24, 0
   br i1 %.not48, label %31, label %25
@@ -180,7 +180,7 @@ define range(i32 0, 2) i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %68
 
 31:                                               ; preds = %25, %22, %20
-  %32 = getelementptr inbounds i8, ptr %0, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %33
 
 33:                                               ; preds = %37, %31
@@ -201,17 +201,17 @@ define range(i32 0, 2) i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef
 
 43:                                               ; preds = %33
   store i32 268435456, ptr %5, align 4
-  %44 = getelementptr inbounds i8, ptr %5, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 773247492, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 136
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %46 = load i32, ptr %45, align 8
   %47 = call i32 @llvm.bswap.i32(i32 %46)
-  %48 = getelementptr inbounds i8, ptr %5, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 140
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %50 = load i32, ptr %49, align 4
   %51 = call i32 @llvm.bswap.i32(i32 %50)
-  %52 = getelementptr inbounds i8, ptr %5, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %51, ptr %52, align 4
   br label %53
 
@@ -254,7 +254,7 @@ define range(i32 0, 2) i32 @PQcancel(ptr noundef %0, ptr noundef %1, i32 noundef
 
 74:                                               ; preds = %68
   %75 = load i32, ptr %7, align 4
-  %76 = getelementptr inbounds i8, ptr %6, i64 31
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 31
   store i8 0, ptr %76, align 1
   br label %77
 
@@ -325,15 +325,15 @@ define range(i32 0, 2) i32 @PQrequestCancel(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %27, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 472
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1000
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1016
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %10 = load i64, ptr %9, align 8
   %11 = tail call i64 @strlcpy(ptr noundef %8, ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %10) #15
   br label %.sink.split
@@ -341,9 +341,9 @@ define range(i32 0, 2) i32 @PQrequestCancel(ptr noundef %0) local_unnamed_addr #
 12:                                               ; preds = %2
   %13 = tail call ptr @PQgetCancel(ptr noundef nonnull %0)
   %.not23 = icmp eq ptr %13, null
-  %14 = getelementptr inbounds i8, ptr %0, i64 1000
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1016
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %17 = load i64, ptr %16, align 8
   br i1 %.not23, label %.thread, label %19
 
@@ -359,16 +359,16 @@ define range(i32 0, 2) i32 @PQrequestCancel(ptr noundef %0) local_unnamed_addr #
   br i1 %.not24, label %22, label %27
 
 22:                                               ; preds = %.thread, %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 1000
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %22
   %.sink29.in = phi ptr [ %23, %22 ], [ %7, %6 ]
   %.sink29 = load ptr, ptr %.sink29.in, align 8
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink29) #17
-  %25 = getelementptr inbounds i8, ptr %0, i64 1008
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   store i64 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 1024
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i32 0, ptr %26, align 8
   br label %27
 

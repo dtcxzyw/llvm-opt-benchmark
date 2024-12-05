@@ -225,7 +225,7 @@ lor.end:                                          ; preds = %for.body, %lor.rhs,
   br i1 %tobool42.not, label %err, label %for.inc
 
 for.inc:                                          ; preds = %lor.end
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.0, i64 1
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond, %for.cond

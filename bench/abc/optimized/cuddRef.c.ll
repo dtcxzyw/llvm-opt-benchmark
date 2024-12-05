@@ -10,7 +10,7 @@ define void @Cudd_Ref(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 4
@@ -19,14 +19,14 @@ define void @Cudd_Ref(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Cudd_RecursiveDeref(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 228
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 236
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %8 = load i32, ptr %7, align 4
   %9 = sub i32 %6, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 728
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %11 = load i32, ptr %10, align 8
   %12 = icmp ugt i32 %9, %11
   br i1 %12, label %13, label %14
@@ -39,15 +39,15 @@ define void @Cudd_RecursiveDeref(ptr nocapture noundef %0, ptr noundef %1) local
   %15 = ptrtoint ptr %1 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %0, i64 312
-  %19 = getelementptr inbounds i8, ptr %0, i64 152
-  %20 = getelementptr inbounds i8, ptr %0, i64 192
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %21
 
 21:                                               ; preds = %60, %14
   %.026 = phi i32 [ 1, %14 ], [ %.127, %60 ]
   %.0 = phi ptr [ %17, %14 ], [ %.1, %60 ]
-  %22 = getelementptr inbounds i8, ptr %.0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %25, label %55
@@ -73,10 +73,10 @@ define void @Cudd_RecursiveDeref(ptr nocapture noundef %0, ptr noundef %1) local
 36:                                               ; preds = %25
   %37 = load ptr, ptr %18, align 8
   %38 = zext i32 %28 to i64
-  %39 = getelementptr inbounds i32, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %38
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %.0, i64 16
-  %42 = getelementptr inbounds i8, ptr %.0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %44, -2
@@ -114,14 +114,14 @@ define void @Cudd_RecursiveDeref(ptr nocapture noundef %0, ptr noundef %1) local
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Cudd_IterDerefBdd(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 228
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 236
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %8 = load i32, ptr %7, align 4
   %9 = sub i32 %6, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 728
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %11 = load i32, ptr %10, align 8
   %12 = icmp ugt i32 %9, %11
   br i1 %12, label %13, label %14
@@ -134,14 +134,14 @@ define void @Cudd_IterDerefBdd(ptr nocapture noundef %0, ptr noundef %1) local_u
   %15 = ptrtoint ptr %1 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %0, i64 312
-  %19 = getelementptr inbounds i8, ptr %0, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %20
 
 20:                                               ; preds = %51, %14
   %.022 = phi i32 [ 1, %14 ], [ %.123, %51 ]
   %.0 = phi ptr [ %17, %14 ], [ %.1, %51 ]
-  %21 = getelementptr inbounds i8, ptr %.0, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %24, label %46
@@ -154,10 +154,10 @@ define void @Cudd_IterDerefBdd(ptr nocapture noundef %0, ptr noundef %1) local_u
   %27 = load ptr, ptr %18, align 8
   %28 = load i32, ptr %.0, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %29
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %.0, i64 16
-  %33 = getelementptr inbounds i8, ptr %.0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, -2
@@ -195,12 +195,12 @@ define void @Cudd_IterDerefBdd(ptr nocapture noundef %0, ptr noundef %1) local_u
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Cudd_DelayedDerefBdd(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 228
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 236
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %6 = load i32, ptr %5, align 4
   %7 = sub i32 %4, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 728
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %9 = load i32, ptr %8, align 8
   %10 = icmp ugt i32 %7, %9
   br i1 %10, label %11, label %12
@@ -215,22 +215,22 @@ define void @Cudd_DelayedDerefBdd(ptr nocapture noundef %0, ptr noundef %1) loca
   %15 = inttoptr i64 %14 to ptr
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 2147483647
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %15, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.pre41 = load i32, ptr %.phi.trans.insert, align 4
   %18 = icmp ugt i32 %.pre41, 1
   %or.cond = select i1 %17, i1 true, i1 %18
   br i1 %or.cond, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %15, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = add i32 %.pre41, -1
   store i32 %20, ptr %19, align 4
   br label %73
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 416
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 428
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %23, i64 %26
@@ -239,16 +239,16 @@ define void @Cudd_DelayedDerefBdd(ptr nocapture noundef %0, ptr noundef %1) loca
   br i1 %.not, label %.loopexit, label %29
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %0, i64 280
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 312
-  %33 = getelementptr inbounds i8, ptr %0, i64 152
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %34
 
 34:                                               ; preds = %65, %29
   %.034 = phi ptr [ %28, %29 ], [ %.135, %65 ]
   %.0 = phi i32 [ 1, %29 ], [ %.1, %65 ]
-  %35 = getelementptr inbounds i8, ptr %.034, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.034, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 1
   br i1 %37, label %38, label %60
@@ -261,10 +261,10 @@ define void @Cudd_DelayedDerefBdd(ptr nocapture noundef %0, ptr noundef %1) loca
   %41 = load ptr, ptr %32, align 8
   %42 = load i32, ptr %.034, align 8
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %41, i64 %43
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %.034, i64 16
-  %47 = getelementptr inbounds i8, ptr %.034, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.034, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.034, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %49, -2
@@ -309,7 +309,7 @@ define void @Cudd_DelayedDerefBdd(ptr nocapture noundef %0, ptr noundef %1) loca
   store ptr %15, ptr %67, align 8
   %68 = load i32, ptr %24, align 4
   %69 = add nsw i32 %68, 1
-  %70 = getelementptr inbounds i8, ptr %0, i64 432
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, %69
   store i32 %72, ptr %24, align 4
@@ -321,17 +321,17 @@ define void @Cudd_DelayedDerefBdd(ptr nocapture noundef %0, ptr noundef %1) loca
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Cudd_RecursiveDerefZdd(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 240
-  %6 = getelementptr inbounds i8, ptr %0, i64 320
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %8
 
 8:                                                ; preds = %36, %2
   %.015 = phi ptr [ %1, %2 ], [ %.116, %36 ]
   %.0 = phi i32 [ 1, %2 ], [ %.1, %36 ]
-  %9 = getelementptr inbounds i8, ptr %.015, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.015, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, -1
   store i32 %11, ptr %9, align 4
@@ -345,10 +345,10 @@ define void @Cudd_RecursiveDerefZdd(ptr nocapture noundef %0, ptr nocapture noun
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr %.015, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %18
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %.015, i64 16
-  %22 = getelementptr inbounds i8, ptr %.015, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.015, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.015, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = add nsw i32 %.0, 1
   %25 = sext i32 %.0 to i64
@@ -384,7 +384,7 @@ define void @Cudd_Deref(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -1
   store i32 %7, ptr %5, align 4
@@ -393,25 +393,25 @@ define void @Cudd_Deref(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @Cudd_CheckZeroRef(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 416
-  %3 = getelementptr inbounds i8, ptr %0, i64 424
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %cuddClearDeathRow.exit
 
 .lr.ph.i:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 280
-  %7 = getelementptr inbounds i8, ptr %0, i64 228
-  %8 = getelementptr inbounds i8, ptr %0, i64 236
-  %9 = getelementptr inbounds i8, ptr %0, i64 728
-  %10 = getelementptr inbounds i8, ptr %0, i64 312
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %12
 
 12:                                               ; preds = %Cudd_IterDerefBdd.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Cudd_IterDerefBdd.exit.i ]
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %cuddClearDeathRow.exit, label %17
@@ -438,7 +438,7 @@ define i32 @Cudd_CheckZeroRef(ptr noundef %0) local_unnamed_addr #1 {
 29:                                               ; preds = %60, %25
   %.022.i.i = phi i32 [ 1, %25 ], [ %.123.i.i, %60 ]
   %.0.i.i = phi ptr [ %28, %25 ], [ %.1.i.i, %60 ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 1
   br i1 %32, label %33, label %55
@@ -451,10 +451,10 @@ define i32 @Cudd_CheckZeroRef(ptr noundef %0) local_unnamed_addr #1 {
   %36 = load ptr, ptr %10, align 8
   %37 = load i32, ptr %.0.i.i, align 8
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %36, i64 %38
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %44, -2
@@ -488,7 +488,7 @@ define i32 @Cudd_CheckZeroRef(ptr noundef %0) local_unnamed_addr #1 {
 
 Cudd_IterDerefBdd.exit.i:                         ; preds = %60
   %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i
   store ptr null, ptr %62, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %63 = load i32, ptr %3, align 8
@@ -497,9 +497,9 @@ Cudd_IterDerefBdd.exit.i:                         ; preds = %60
   br i1 %65, label %12, label %cuddClearDeathRow.exit, !llvm.loop !9
 
 cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDerefBdd.exit.i, %1
-  %66 = getelementptr inbounds i8, ptr %0, i64 428
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 428
   store i32 0, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 136
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %68 = load i32, ptr %67, align 8
   %69 = shl nsw i32 %68, 1
   %70 = or disjoint i32 %69, 1
@@ -507,18 +507,18 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
   br i1 %71, label %.lr.ph120, label %._crit_edge121
 
 .lr.ph120:                                        ; preds = %cuddClearDeathRow.exit
-  %72 = getelementptr inbounds i8, ptr %0, i64 152
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 344
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %wide.trip.count164 = zext nneg i32 %68 to i64
   br label %75
 
 75:                                               ; preds = %.lr.ph120, %._crit_edge116
   %indvars.iv161 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next162, %._crit_edge116 ]
   %.0119 = phi i32 [ 0, %.lr.ph120 ], [ %.1.lcssa, %._crit_edge116 ]
-  %76 = getelementptr inbounds %struct.DdSubtable, ptr %73, i64 %indvars.iv161
+  %76 = getelementptr inbounds nuw %struct.DdSubtable, ptr %73, i64 %indvars.iv161
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %76, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %79 = load i32, ptr %78, align 4
   %.not157 = icmp eq i32 %79, 0
   br i1 %.not157, label %._crit_edge116, label %.lr.ph115.preheader
@@ -530,7 +530,7 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph115.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.1113 = phi i32 [ %.0119, %.lr.ph115.preheader ], [ %.2.lcssa, %._crit_edge ]
-  %80 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
   %.078108 = load ptr, ptr %80, align 8
   %.not99109 = icmp eq ptr %.078108, %0
   br i1 %.not99109, label %._crit_edge, label %.lr.ph
@@ -538,7 +538,7 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
 .lr.ph:                                           ; preds = %.lr.ph115, %93
   %.078111 = phi ptr [ %.078, %93 ], [ %.078108, %.lr.ph115 ]
   %.2110 = phi i32 [ %.3, %93 ], [ %.1113, %.lr.ph115 ]
-  %81 = getelementptr inbounds i8, ptr %.078111, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.078111, i64 4
   %82 = load i32, ptr %81, align 4
   switch i32 %82, label %83 [
     i32 0, label %93
@@ -566,7 +566,7 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
 
 93:                                               ; preds = %91, %.lr.ph, %.lr.ph, %89
   %.3 = phi i32 [ %90, %89 ], [ %.2110, %.lr.ph ], [ %.2110, %.lr.ph ], [ %spec.select, %91 ]
-  %94 = getelementptr inbounds i8, ptr %.078111, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.078111, i64 8
   %.078 = load ptr, ptr %94, align 8
   %.not99 = icmp eq ptr %.078, %0
   br i1 %.not99, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -585,7 +585,7 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
 
 ._crit_edge121:                                   ; preds = %._crit_edge116, %cuddClearDeathRow.exit
   %.0.lcssa = phi i32 [ 0, %cuddClearDeathRow.exit ], [ %.1.lcssa, %._crit_edge116 ]
-  %95 = getelementptr inbounds i8, ptr %0, i64 140
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %96 = load i32, ptr %95, align 4
   %.not = icmp eq i32 %96, 0
   %97 = add nsw i32 %69, 3
@@ -594,19 +594,19 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
   br i1 %98, label %.lr.ph140, label %._crit_edge141
 
 .lr.ph140:                                        ; preds = %._crit_edge121
-  %99 = getelementptr inbounds i8, ptr %0, i64 160
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 360
-  %102 = getelementptr inbounds i8, ptr %0, i64 320
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %wide.trip.count174 = zext nneg i32 %96 to i64
   br label %103
 
 103:                                              ; preds = %.lr.ph140, %._crit_edge135
   %indvars.iv171 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next172, %._crit_edge135 ]
   %.4138 = phi i32 [ %.0.lcssa, %.lr.ph140 ], [ %.5.lcssa, %._crit_edge135 ]
-  %104 = getelementptr inbounds %struct.DdSubtable, ptr %100, i64 %indvars.iv171
+  %104 = getelementptr inbounds nuw %struct.DdSubtable, ptr %100, i64 %indvars.iv171
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %104, i64 12
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 12
   %107 = load i32, ptr %106, align 4
   %.not158 = icmp eq i32 %107, 0
   br i1 %.not158, label %._crit_edge135, label %.lr.ph134.preheader
@@ -618,7 +618,7 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
 .lr.ph134:                                        ; preds = %.lr.ph134.preheader, %._crit_edge129
   %indvars.iv166 = phi i64 [ 0, %.lr.ph134.preheader ], [ %indvars.iv.next167, %._crit_edge129 ]
   %.5132 = phi i32 [ %.4138, %.lr.ph134.preheader ], [ %.6.lcssa, %._crit_edge129 ]
-  %108 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv166
+  %108 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv166
   %.179123 = load ptr, ptr %108, align 8
   %.not96124 = icmp eq ptr %.179123, null
   br i1 %.not96124, label %._crit_edge129, label %.lr.ph128
@@ -626,7 +626,7 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
 .lr.ph128:                                        ; preds = %.lr.ph134, %127
   %.179126 = phi ptr [ %.179, %127 ], [ %.179123, %.lr.ph134 ]
   %.6125 = phi i32 [ %.7, %127 ], [ %.5132, %.lr.ph134 ]
-  %109 = getelementptr inbounds i8, ptr %.179126, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.179126, i64 4
   %110 = load i32, ptr %109, align 4
   switch i32 %110, label %111 [
     i32 0, label %127
@@ -658,7 +658,7 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
 
 127:                                              ; preds = %122, %.lr.ph128, %.lr.ph128, %125
   %.7 = phi i32 [ %126, %125 ], [ %.6125, %.lr.ph128 ], [ %.6125, %.lr.ph128 ], [ %spec.select105, %122 ]
-  %128 = getelementptr inbounds i8, ptr %.179126, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.179126, i64 8
   %.179 = load ptr, ptr %128, align 8
   %.not96 = icmp eq ptr %.179, null
   br i1 %.not96, label %._crit_edge129, label %.lr.ph128, !llvm.loop !13
@@ -677,25 +677,25 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
 
 ._crit_edge141:                                   ; preds = %._crit_edge135, %._crit_edge121
   %.4.lcssa = phi i32 [ %.0.lcssa, %._crit_edge121 ], [ %.5.lcssa, %._crit_edge135 ]
-  %129 = getelementptr inbounds i8, ptr %0, i64 168
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 180
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %132 = load i32, ptr %131, align 4
   %.not159 = icmp eq i32 %132, 0
   br i1 %.not159, label %._crit_edge155, label %.lr.ph154
 
 .lr.ph154:                                        ; preds = %._crit_edge141
-  %133 = getelementptr inbounds i8, ptr %0, i64 40
-  %134 = getelementptr inbounds i8, ptr %0, i64 48
-  %135 = getelementptr inbounds i8, ptr %0, i64 56
-  %136 = getelementptr inbounds i8, ptr %0, i64 64
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %wide.trip.count179 = zext i32 %132 to i64
   br label %137
 
 137:                                              ; preds = %.lr.ph154, %._crit_edge149
   %indvars.iv176 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next177, %._crit_edge149 ]
   %.8152 = phi i32 [ %.4.lcssa, %.lr.ph154 ], [ %.9.lcssa, %._crit_edge149 ]
-  %138 = getelementptr inbounds ptr, ptr %130, i64 %indvars.iv176
+  %138 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv176
   %.280143 = load ptr, ptr %138, align 8
   %.not91144 = icmp eq ptr %.280143, null
   br i1 %.not91144, label %._crit_edge149, label %.lr.ph148
@@ -703,7 +703,7 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
 .lr.ph148:                                        ; preds = %137, %159
   %.280146 = phi ptr [ %.280, %159 ], [ %.280143, %137 ]
   %.9145 = phi i32 [ %.10, %159 ], [ %.8152, %137 ]
-  %139 = getelementptr inbounds i8, ptr %.280146, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %.280146, i64 4
   %140 = load i32, ptr %139, align 4
   switch i32 %140, label %141 [
     i32 0, label %159
@@ -748,7 +748,7 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
 
 159:                                              ; preds = %155, %144, %.lr.ph148, %.lr.ph148, %157
   %.10 = phi i32 [ %158, %157 ], [ %.9145, %.lr.ph148 ], [ %.9145, %.lr.ph148 ], [ %spec.select106, %144 ], [ %spec.select107, %155 ]
-  %160 = getelementptr inbounds i8, ptr %.280146, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %.280146, i64 8
   %.280 = load ptr, ptr %160, align 8
   %.not91 = icmp eq ptr %.280, null
   br i1 %.not91, label %._crit_edge149, label %.lr.ph148, !llvm.loop !16
@@ -766,25 +766,25 @@ cuddClearDeathRow.exit:                           ; preds = %12, %Cudd_IterDeref
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @cuddClearDeathRow(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 416
-  %3 = getelementptr inbounds i8, ptr %0, i64 424
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 280
-  %7 = getelementptr inbounds i8, ptr %0, i64 228
-  %8 = getelementptr inbounds i8, ptr %0, i64 236
-  %9 = getelementptr inbounds i8, ptr %0, i64 728
-  %10 = getelementptr inbounds i8, ptr %0, i64 312
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %12
 
 12:                                               ; preds = %.lr.ph, %Cudd_IterDerefBdd.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Cudd_IterDerefBdd.exit ]
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %._crit_edge, label %17
@@ -811,7 +811,7 @@ define void @cuddClearDeathRow(ptr nocapture noundef %0) local_unnamed_addr #1 {
 29:                                               ; preds = %60, %25
   %.022.i = phi i32 [ 1, %25 ], [ %.123.i, %60 ]
   %.0.i = phi ptr [ %28, %25 ], [ %.1.i, %60 ]
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 1
   br i1 %32, label %33, label %55
@@ -824,10 +824,10 @@ define void @cuddClearDeathRow(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %36 = load ptr, ptr %10, align 8
   %37 = load i32, ptr %.0.i, align 8
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %36, i64 %38
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %42 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %44, -2
@@ -861,7 +861,7 @@ define void @cuddClearDeathRow(ptr nocapture noundef %0) local_unnamed_addr #1 {
 
 Cudd_IterDerefBdd.exit:                           ; preds = %60
   %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
   store ptr null, ptr %62, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %3, align 8
@@ -870,29 +870,29 @@ Cudd_IterDerefBdd.exit:                           ; preds = %60
   br i1 %65, label %12, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %Cudd_IterDerefBdd.exit, %12, %1
-  %66 = getelementptr inbounds i8, ptr %0, i64 428
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 428
   store i32 0, ptr %66, align 4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @cuddReclaim(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 236
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %6 = load i32, ptr %5, align 4
   %7 = ptrtoint ptr %1 to i64
   %8 = and i64 %7, -2
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %0, i64 312
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %13
 
 13:                                               ; preds = %52, %2
   %.026 = phi i32 [ 1, %2 ], [ %.127, %52 ]
   %.0 = phi ptr [ %9, %2 ], [ %.1, %52 ]
-  %14 = getelementptr inbounds i8, ptr %.0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %47
@@ -918,10 +918,10 @@ define void @cuddReclaim(ptr nocapture noundef %0, ptr noundef %1) local_unnamed
 28:                                               ; preds = %17
   %29 = load ptr, ptr %10, align 8
   %30 = zext i32 %20 to i64
-  %31 = getelementptr inbounds i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %.0, i64 16
-  %34 = getelementptr inbounds i8, ptr %.0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = and i64 %36, -2
@@ -955,14 +955,14 @@ define void @cuddReclaim(ptr nocapture noundef %0, ptr noundef %1) local_unnamed
 
 53:                                               ; preds = %52
   %54 = uitofp i32 %6 to double
-  %55 = getelementptr inbounds i8, ptr %9, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, -1
   store i32 %57, ptr %55, align 4
   %58 = load i32, ptr %5, align 4
   %59 = uitofp i32 %58 to double
   %60 = fsub double %54, %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 296
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %62 = load double, ptr %61, align 8
   %63 = fadd double %62, %60
   store double %63, ptr %61, align 8
@@ -971,18 +971,18 @@ define void @cuddReclaim(ptr nocapture noundef %0, ptr noundef %1) local_unnamed
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @cuddReclaimZdd(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 240
-  %6 = getelementptr inbounds i8, ptr %0, i64 296
-  %7 = getelementptr inbounds i8, ptr %0, i64 320
-  %8 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %9
 
 9:                                                ; preds = %39, %2
   %.017 = phi ptr [ %1, %2 ], [ %.118, %39 ]
   %.0 = phi i32 [ 1, %2 ], [ %.1, %39 ]
-  %10 = getelementptr inbounds i8, ptr %.017, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -999,10 +999,10 @@ define void @cuddReclaimZdd(ptr nocapture noundef %0, ptr nocapture noundef %1) 
   %19 = load ptr, ptr %7, align 8
   %20 = load i32, ptr %.017, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %21
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %.017, i64 16
-  %25 = getelementptr inbounds i8, ptr %.017, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.017, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.017, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = add nsw i32 %.0, 1
   %28 = sext i32 %.0 to i64
@@ -1030,7 +1030,7 @@ define void @cuddReclaimZdd(ptr nocapture noundef %0, ptr nocapture noundef %1) 
   br i1 %.not, label %40, label %9, !llvm.loop !19
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %1, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = add i32 %42, -1
   store i32 %43, ptr %41, align 4
@@ -1039,30 +1039,30 @@ define void @cuddReclaimZdd(ptr nocapture noundef %0, ptr nocapture noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define void @cuddShrinkDeathRow(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 424
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 3
   br i1 %4, label %.lr.ph, label %89
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 416
-  %6 = getelementptr inbounds i8, ptr %0, i64 280
-  %7 = getelementptr inbounds i8, ptr %0, i64 228
-  %8 = getelementptr inbounds i8, ptr %0, i64 236
-  %9 = getelementptr inbounds i8, ptr %0, i64 728
-  %10 = getelementptr inbounds i8, ptr %0, i64 312
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = lshr i32 %3, 2
   %13 = zext nneg i32 %12 to i64
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %._crit_edge, label %.lr.ph29
 
 18:                                               ; preds = %Cudd_IterDerefBdd.exit
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %._crit_edge, label %.lr.ph29, !llvm.loop !20
@@ -1091,7 +1091,7 @@ define void @cuddShrinkDeathRow(ptr nocapture noundef %0) local_unnamed_addr #2 
 35:                                               ; preds = %66, %31
   %.022.i = phi i32 [ 1, %31 ], [ %.123.i, %66 ]
   %.0.i = phi ptr [ %34, %31 ], [ %.1.i, %66 ]
-  %36 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 1
   br i1 %38, label %39, label %61
@@ -1104,10 +1104,10 @@ define void @cuddShrinkDeathRow(ptr nocapture noundef %0) local_unnamed_addr #2 
   %42 = load ptr, ptr %10, align 8
   %43 = load i32, ptr %.0.i, align 8
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %42, i64 %44
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %48 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = and i64 %50, -2
@@ -1141,7 +1141,7 @@ define void @cuddShrinkDeathRow(ptr nocapture noundef %0) local_unnamed_addr #2 
 
 Cudd_IterDerefBdd.exit:                           ; preds = %66
   %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv28
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv28
   store ptr null, ptr %68, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv28, 1
   %69 = load i32, ptr %2, align 8
@@ -1154,9 +1154,9 @@ Cudd_IterDerefBdd.exit:                           ; preds = %66
   %72 = sdiv i32 %.lcssa.ph, 4
   store i32 %72, ptr %2, align 8
   %73 = add nsw i32 %72, -1
-  %74 = getelementptr inbounds i8, ptr %0, i64 432
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i32 %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 428
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %76 = load i32, ptr %75, align 4
   %77 = icmp ugt i32 %76, %73
   br i1 %77, label %78, label %79
@@ -1197,20 +1197,20 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 -2147483648, 2147483647) i32 @cuddIsInDeathRow(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 424
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 416
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %1, %10
   br i1 %11, label %._crit_edge.loopexit.split.loop.exit12, label %12
@@ -1231,13 +1231,13 @@ define range(i32 -2147483648, 2147483647) i32 @cuddIsInDeathRow(ptr nocapture no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @cuddTimesInDeathRow(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 424
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 416
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %8
@@ -1245,7 +1245,7 @@ define i32 @cuddTimesInDeathRow(ptr nocapture noundef readonly %0, ptr noundef r
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.078 = phi i32 [ 0, %.lr.ph ], [ %13, %8 ]
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %1, %10
   %12 = zext i1 %11 to i32

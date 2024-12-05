@@ -406,7 +406,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
 
 246:                                              ; preds = %243
   %247 = load ptr, ptr %244, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 24
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %249 = load ptr, ptr %248, align 8
   invoke void %249(ptr noundef nonnull align 8 dereferenceable(8) %244, ptr noundef %245)
           to label %1342 unwind label %251
@@ -477,7 +477,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
 .lr.ph2380.us:                                    ; preds = %.lr.ph2384, %._crit_edge2381.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge2381.us ], [ 0, %.lr.ph2384 ]
   %.215502383.us = phi ptr [ %322, %._crit_edge2381.us ], [ %.015482418, %.lr.ph2384 ]
-  %288 = getelementptr inbounds float, ptr %.215502383.us, i64 %260
+  %288 = getelementptr inbounds nuw float, ptr %.215502383.us, i64 %260
   %289 = load ptr, ptr %278, align 8
   %290 = load i32, ptr %286, align 4
   %291 = sext i32 %290 to i64
@@ -494,42 +494,42 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
   %.015652375.us = phi i32 [ 0, %.lr.ph2380.us ], [ %321, %296 ]
   %297 = load float, ptr %.015622378.us, align 4
   store float %297, ptr %.015642376.us, align 4
-  %298 = getelementptr inbounds i8, ptr %.015622378.us, i64 4
+  %298 = getelementptr inbounds nuw i8, ptr %.015622378.us, i64 4
   %299 = load float, ptr %298, align 4
-  %300 = getelementptr inbounds i8, ptr %.015642376.us, i64 4
+  %300 = getelementptr inbounds nuw i8, ptr %.015642376.us, i64 4
   store float %299, ptr %300, align 4
-  %301 = getelementptr inbounds i8, ptr %.015622378.us, i64 8
+  %301 = getelementptr inbounds nuw i8, ptr %.015622378.us, i64 8
   %302 = load float, ptr %301, align 4
-  %303 = getelementptr inbounds i8, ptr %.015642376.us, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %.015642376.us, i64 8
   store float %302, ptr %303, align 4
-  %304 = getelementptr inbounds i8, ptr %.015622378.us, i64 12
+  %304 = getelementptr inbounds nuw i8, ptr %.015622378.us, i64 12
   %305 = load float, ptr %304, align 4
-  %306 = getelementptr inbounds i8, ptr %.015642376.us, i64 12
+  %306 = getelementptr inbounds nuw i8, ptr %.015642376.us, i64 12
   store float %305, ptr %306, align 4
   %307 = load float, ptr %.015632377.us, align 4
-  %308 = getelementptr inbounds i8, ptr %.015642376.us, i64 16
+  %308 = getelementptr inbounds nuw i8, ptr %.015642376.us, i64 16
   store float %307, ptr %308, align 4
-  %309 = getelementptr inbounds i8, ptr %.015632377.us, i64 4
+  %309 = getelementptr inbounds nuw i8, ptr %.015632377.us, i64 4
   %310 = load float, ptr %309, align 4
-  %311 = getelementptr inbounds i8, ptr %.015642376.us, i64 20
+  %311 = getelementptr inbounds nuw i8, ptr %.015642376.us, i64 20
   store float %310, ptr %311, align 4
-  %312 = getelementptr inbounds i8, ptr %.015632377.us, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %.015632377.us, i64 8
   %313 = load float, ptr %312, align 4
-  %314 = getelementptr inbounds i8, ptr %.015642376.us, i64 24
+  %314 = getelementptr inbounds nuw i8, ptr %.015642376.us, i64 24
   store float %313, ptr %314, align 4
-  %315 = getelementptr inbounds i8, ptr %.015632377.us, i64 12
+  %315 = getelementptr inbounds nuw i8, ptr %.015632377.us, i64 12
   %316 = load float, ptr %315, align 4
-  %317 = getelementptr inbounds i8, ptr %.015642376.us, i64 28
+  %317 = getelementptr inbounds nuw i8, ptr %.015642376.us, i64 28
   store float %316, ptr %317, align 4
-  %318 = getelementptr inbounds i8, ptr %.015622378.us, i64 16
-  %319 = getelementptr inbounds i8, ptr %.015632377.us, i64 16
-  %320 = getelementptr inbounds i8, ptr %.015642376.us, i64 32
+  %318 = getelementptr inbounds nuw i8, ptr %.015622378.us, i64 16
+  %319 = getelementptr inbounds nuw i8, ptr %.015632377.us, i64 16
+  %320 = getelementptr inbounds nuw i8, ptr %.015642376.us, i64 32
   %321 = add nuw nsw i32 %.015652375.us, 1
   %exitcond2575.not = icmp eq i32 %321, %114
   br i1 %exitcond2575.not, label %._crit_edge2381.us, label %296, !llvm.loop !8
 
 ._crit_edge2381.us:                               ; preds = %296
-  %322 = getelementptr inbounds float, ptr %.215502383.us, i64 %263
+  %322 = getelementptr inbounds nuw float, ptr %.215502383.us, i64 %263
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %323 = load i32, ptr %283, align 8
   %324 = sext i32 %323 to i64
@@ -569,13 +569,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
 .lr.ph2397.us:                                    ; preds = %.lr.ph2401, %._crit_edge2398.us
   %indvars.iv2580 = phi i64 [ %indvars.iv.next2581, %._crit_edge2398.us ], [ 0, %.lr.ph2401 ]
   %.415522400.us = phi ptr [ %380, %._crit_edge2398.us ], [ %.11549, %.lr.ph2401 ]
-  %340 = getelementptr inbounds float, ptr %.415522400.us, i64 %265
-  %341 = getelementptr inbounds float, ptr %.415522400.us, i64 %267
-  %342 = getelementptr inbounds float, ptr %.415522400.us, i64 %269
-  %343 = getelementptr inbounds float, ptr %.415522400.us, i64 %260
-  %344 = getelementptr inbounds float, ptr %.415522400.us, i64 %271
-  %345 = getelementptr inbounds float, ptr %.415522400.us, i64 %273
-  %346 = getelementptr inbounds float, ptr %.415522400.us, i64 %275
+  %340 = getelementptr inbounds nuw float, ptr %.415522400.us, i64 %265
+  %341 = getelementptr inbounds nuw float, ptr %.415522400.us, i64 %267
+  %342 = getelementptr inbounds nuw float, ptr %.415522400.us, i64 %269
+  %343 = getelementptr inbounds nuw float, ptr %.415522400.us, i64 %260
+  %344 = getelementptr inbounds nuw float, ptr %.415522400.us, i64 %271
+  %345 = getelementptr inbounds nuw float, ptr %.415522400.us, i64 %273
+  %346 = getelementptr inbounds nuw float, ptr %.415522400.us, i64 %275
   %347 = load ptr, ptr %278, align 8
   %348 = load i32, ptr %338, align 4
   %349 = sext i32 %348 to i64
@@ -596,44 +596,44 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
   %.015802388.us = phi ptr [ %346, %.lr.ph2397.us ], [ %375, %354 ]
   %.015882387.us = phi i32 [ 0, %.lr.ph2397.us ], [ %379, %354 ]
   %.015892386.us = phi ptr [ %353, %.lr.ph2397.us ], [ %378, %354 ]
-  %355 = getelementptr inbounds i8, ptr %.015672395.us, i64 4
+  %355 = getelementptr inbounds nuw i8, ptr %.015672395.us, i64 4
   %356 = load float, ptr %.015672395.us, align 4
   store float %356, ptr %.015892386.us, align 4
-  %357 = getelementptr inbounds i8, ptr %.015712394.us, i64 4
+  %357 = getelementptr inbounds nuw i8, ptr %.015712394.us, i64 4
   %358 = load float, ptr %.015712394.us, align 4
-  %359 = getelementptr inbounds i8, ptr %.015892386.us, i64 4
+  %359 = getelementptr inbounds nuw i8, ptr %.015892386.us, i64 4
   store float %358, ptr %359, align 4
-  %360 = getelementptr inbounds i8, ptr %.015722393.us, i64 4
+  %360 = getelementptr inbounds nuw i8, ptr %.015722393.us, i64 4
   %361 = load float, ptr %.015722393.us, align 4
-  %362 = getelementptr inbounds i8, ptr %.015892386.us, i64 8
+  %362 = getelementptr inbounds nuw i8, ptr %.015892386.us, i64 8
   store float %361, ptr %362, align 4
-  %363 = getelementptr inbounds i8, ptr %.015732392.us, i64 4
+  %363 = getelementptr inbounds nuw i8, ptr %.015732392.us, i64 4
   %364 = load float, ptr %.015732392.us, align 4
-  %365 = getelementptr inbounds i8, ptr %.015892386.us, i64 12
+  %365 = getelementptr inbounds nuw i8, ptr %.015892386.us, i64 12
   store float %364, ptr %365, align 4
-  %366 = getelementptr inbounds i8, ptr %.015772391.us, i64 4
+  %366 = getelementptr inbounds nuw i8, ptr %.015772391.us, i64 4
   %367 = load float, ptr %.015772391.us, align 4
-  %368 = getelementptr inbounds i8, ptr %.015892386.us, i64 16
+  %368 = getelementptr inbounds nuw i8, ptr %.015892386.us, i64 16
   store float %367, ptr %368, align 4
-  %369 = getelementptr inbounds i8, ptr %.015782390.us, i64 4
+  %369 = getelementptr inbounds nuw i8, ptr %.015782390.us, i64 4
   %370 = load float, ptr %.015782390.us, align 4
-  %371 = getelementptr inbounds i8, ptr %.015892386.us, i64 20
+  %371 = getelementptr inbounds nuw i8, ptr %.015892386.us, i64 20
   store float %370, ptr %371, align 4
-  %372 = getelementptr inbounds i8, ptr %.015792389.us, i64 4
+  %372 = getelementptr inbounds nuw i8, ptr %.015792389.us, i64 4
   %373 = load float, ptr %.015792389.us, align 4
-  %374 = getelementptr inbounds i8, ptr %.015892386.us, i64 24
+  %374 = getelementptr inbounds nuw i8, ptr %.015892386.us, i64 24
   store float %373, ptr %374, align 4
-  %375 = getelementptr inbounds i8, ptr %.015802388.us, i64 4
+  %375 = getelementptr inbounds nuw i8, ptr %.015802388.us, i64 4
   %376 = load float, ptr %.015802388.us, align 4
-  %377 = getelementptr inbounds i8, ptr %.015892386.us, i64 28
+  %377 = getelementptr inbounds nuw i8, ptr %.015892386.us, i64 28
   store float %376, ptr %377, align 4
-  %378 = getelementptr inbounds i8, ptr %.015892386.us, i64 32
+  %378 = getelementptr inbounds nuw i8, ptr %.015892386.us, i64 32
   %379 = add nuw nsw i32 %.015882387.us, 1
   %exitcond2579.not = icmp eq i32 %379, %114
   br i1 %exitcond2579.not, label %._crit_edge2398.us, label %354, !llvm.loop !10
 
 ._crit_edge2398.us:                               ; preds = %354
-  %380 = getelementptr inbounds float, ptr %.415522400.us, i64 %263
+  %380 = getelementptr inbounds nuw float, ptr %.415522400.us, i64 %263
   %indvars.iv.next2581 = add nuw nsw i64 %indvars.iv2580, 1
   %381 = load i32, ptr %335, align 8
   %382 = sext i32 %381 to i64
@@ -684,9 +684,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
   %402 = load i64, ptr %395, align 8
   %403 = mul i64 %401, %402
   %404 = getelementptr inbounds i8, ptr %398, i64 %403
-  %405 = getelementptr inbounds float, ptr %.615542414, i64 %269
-  %406 = getelementptr inbounds float, ptr %.615542414, i64 %267
-  %407 = getelementptr inbounds float, ptr %.615542414, i64 %265
+  %405 = getelementptr inbounds nuw float, ptr %.615542414, i64 %269
+  %406 = getelementptr inbounds nuw float, ptr %.615542414, i64 %267
+  %407 = getelementptr inbounds nuw float, ptr %.615542414, i64 %265
   br label %.lr.ph2411
 
 .lr.ph2411:                                       ; preds = %.lr.ph2411.preheader, %.lr.ph2411
@@ -696,22 +696,22 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
   %.015842406 = phi ptr [ %413, %.lr.ph2411 ], [ %406, %.lr.ph2411.preheader ]
   %.015852405 = phi ptr [ %410, %.lr.ph2411 ], [ %407, %.lr.ph2411.preheader ]
   %.015862404 = phi ptr [ %408, %.lr.ph2411 ], [ %.615542414, %.lr.ph2411.preheader ]
-  %408 = getelementptr inbounds i8, ptr %.015862404, i64 4
+  %408 = getelementptr inbounds nuw i8, ptr %.015862404, i64 4
   %409 = load float, ptr %.015862404, align 4
   store float %409, ptr %.015822408, align 4
-  %410 = getelementptr inbounds i8, ptr %.015852405, i64 4
+  %410 = getelementptr inbounds nuw i8, ptr %.015852405, i64 4
   %411 = load float, ptr %.015852405, align 4
-  %412 = getelementptr inbounds i8, ptr %.015822408, i64 4
+  %412 = getelementptr inbounds nuw i8, ptr %.015822408, i64 4
   store float %411, ptr %412, align 4
-  %413 = getelementptr inbounds i8, ptr %.015842406, i64 4
+  %413 = getelementptr inbounds nuw i8, ptr %.015842406, i64 4
   %414 = load float, ptr %.015842406, align 4
-  %415 = getelementptr inbounds i8, ptr %.015822408, i64 8
+  %415 = getelementptr inbounds nuw i8, ptr %.015822408, i64 8
   store float %414, ptr %415, align 4
-  %416 = getelementptr inbounds i8, ptr %.015832407, i64 4
+  %416 = getelementptr inbounds nuw i8, ptr %.015832407, i64 4
   %417 = load float, ptr %.015832407, align 4
-  %418 = getelementptr inbounds i8, ptr %.015822408, i64 12
+  %418 = getelementptr inbounds nuw i8, ptr %.015822408, i64 12
   store float %417, ptr %418, align 4
-  %419 = getelementptr inbounds i8, ptr %.015822408, i64 16
+  %419 = getelementptr inbounds nuw i8, ptr %.015822408, i64 16
   %420 = add nuw nsw i32 %.015812409, 1
   %exitcond2583.not = icmp eq i32 %420, %114
   br i1 %exitcond2583.not, label %._crit_edge2412.loopexit, label %.lr.ph2411, !llvm.loop !12
@@ -782,7 +782,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
 
 457:                                              ; preds = %454
   %458 = load ptr, ptr %455, align 8
-  %459 = getelementptr inbounds i8, ptr %458, i64 24
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 24
   %460 = load ptr, ptr %459, align 8
   invoke void %460(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef %456)
           to label %463 unwind label %464
@@ -1264,36 +1264,36 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
   %.015362446 = phi ptr [ %770, %.lr.ph2451 ], [ %748, %.lr.ph2451.preheader ]
   %749 = load float, ptr %.015362446, align 4
   store float %749, ptr %.015342448, align 4
-  %750 = getelementptr inbounds i8, ptr %.015362446, i64 4
+  %750 = getelementptr inbounds nuw i8, ptr %.015362446, i64 4
   %751 = load float, ptr %750, align 4
-  %752 = getelementptr inbounds i8, ptr %.015342448, i64 4
+  %752 = getelementptr inbounds nuw i8, ptr %.015342448, i64 4
   store float %751, ptr %752, align 4
-  %753 = getelementptr inbounds i8, ptr %.015362446, i64 8
+  %753 = getelementptr inbounds nuw i8, ptr %.015362446, i64 8
   %754 = load float, ptr %753, align 4
-  %755 = getelementptr inbounds i8, ptr %.015342448, i64 8
+  %755 = getelementptr inbounds nuw i8, ptr %.015342448, i64 8
   store float %754, ptr %755, align 4
-  %756 = getelementptr inbounds i8, ptr %.015362446, i64 12
+  %756 = getelementptr inbounds nuw i8, ptr %.015362446, i64 12
   %757 = load float, ptr %756, align 4
-  %758 = getelementptr inbounds i8, ptr %.015342448, i64 12
+  %758 = getelementptr inbounds nuw i8, ptr %.015342448, i64 12
   store float %757, ptr %758, align 4
   %759 = load float, ptr %.015352447, align 4
-  %760 = getelementptr inbounds i8, ptr %.015342448, i64 16
+  %760 = getelementptr inbounds nuw i8, ptr %.015342448, i64 16
   store float %759, ptr %760, align 4
-  %761 = getelementptr inbounds i8, ptr %.015352447, i64 4
+  %761 = getelementptr inbounds nuw i8, ptr %.015352447, i64 4
   %762 = load float, ptr %761, align 4
-  %763 = getelementptr inbounds i8, ptr %.015342448, i64 20
+  %763 = getelementptr inbounds nuw i8, ptr %.015342448, i64 20
   store float %762, ptr %763, align 4
-  %764 = getelementptr inbounds i8, ptr %.015352447, i64 8
+  %764 = getelementptr inbounds nuw i8, ptr %.015352447, i64 8
   %765 = load float, ptr %764, align 4
-  %766 = getelementptr inbounds i8, ptr %.015342448, i64 24
+  %766 = getelementptr inbounds nuw i8, ptr %.015342448, i64 24
   store float %765, ptr %766, align 4
-  %767 = getelementptr inbounds i8, ptr %.015352447, i64 12
+  %767 = getelementptr inbounds nuw i8, ptr %.015352447, i64 12
   %768 = load float, ptr %767, align 4
-  %769 = getelementptr inbounds i8, ptr %.015342448, i64 28
+  %769 = getelementptr inbounds nuw i8, ptr %.015342448, i64 28
   store float %768, ptr %769, align 4
-  %770 = getelementptr inbounds i8, ptr %.015362446, i64 16
-  %771 = getelementptr inbounds i8, ptr %.015352447, i64 16
-  %772 = getelementptr inbounds i8, ptr %.015342448, i64 32
+  %770 = getelementptr inbounds nuw i8, ptr %.015362446, i64 16
+  %771 = getelementptr inbounds nuw i8, ptr %.015352447, i64 16
+  %772 = getelementptr inbounds nuw i8, ptr %.015342448, i64 32
   %773 = add nuw nsw i32 %.015332449, 1
   %exitcond2592.not = icmp eq i32 %773, %724
   br i1 %exitcond2592.not, label %._crit_edge2452.loopexit, label %.lr.ph2451, !llvm.loop !20
@@ -1398,38 +1398,38 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
   %.015282460 = phi ptr [ %838, %.lr.ph2469 ], [ %827, %.lr.ph2469.preheader ]
   %.015292459 = phi ptr [ %835, %.lr.ph2469 ], [ %830, %.lr.ph2469.preheader ]
   %.015302458 = phi ptr [ %833, %.lr.ph2469 ], [ %832, %.lr.ph2469.preheader ]
-  %833 = getelementptr inbounds i8, ptr %.015302458, i64 4
+  %833 = getelementptr inbounds nuw i8, ptr %.015302458, i64 4
   %834 = load float, ptr %.015302458, align 4
   store float %834, ptr %.015222466, align 4
-  %835 = getelementptr inbounds i8, ptr %.015292459, i64 4
+  %835 = getelementptr inbounds nuw i8, ptr %.015292459, i64 4
   %836 = load float, ptr %.015292459, align 4
-  %837 = getelementptr inbounds i8, ptr %.015222466, i64 4
+  %837 = getelementptr inbounds nuw i8, ptr %.015222466, i64 4
   store float %836, ptr %837, align 4
-  %838 = getelementptr inbounds i8, ptr %.015282460, i64 4
+  %838 = getelementptr inbounds nuw i8, ptr %.015282460, i64 4
   %839 = load float, ptr %.015282460, align 4
-  %840 = getelementptr inbounds i8, ptr %.015222466, i64 8
+  %840 = getelementptr inbounds nuw i8, ptr %.015222466, i64 8
   store float %839, ptr %840, align 4
-  %841 = getelementptr inbounds i8, ptr %.015272461, i64 4
+  %841 = getelementptr inbounds nuw i8, ptr %.015272461, i64 4
   %842 = load float, ptr %.015272461, align 4
-  %843 = getelementptr inbounds i8, ptr %.015222466, i64 12
+  %843 = getelementptr inbounds nuw i8, ptr %.015222466, i64 12
   store float %842, ptr %843, align 4
-  %844 = getelementptr inbounds i8, ptr %.015262462, i64 4
+  %844 = getelementptr inbounds nuw i8, ptr %.015262462, i64 4
   %845 = load float, ptr %.015262462, align 4
-  %846 = getelementptr inbounds i8, ptr %.015222466, i64 16
+  %846 = getelementptr inbounds nuw i8, ptr %.015222466, i64 16
   store float %845, ptr %846, align 4
-  %847 = getelementptr inbounds i8, ptr %.015252463, i64 4
+  %847 = getelementptr inbounds nuw i8, ptr %.015252463, i64 4
   %848 = load float, ptr %.015252463, align 4
-  %849 = getelementptr inbounds i8, ptr %.015222466, i64 20
+  %849 = getelementptr inbounds nuw i8, ptr %.015222466, i64 20
   store float %848, ptr %849, align 4
-  %850 = getelementptr inbounds i8, ptr %.015242464, i64 4
+  %850 = getelementptr inbounds nuw i8, ptr %.015242464, i64 4
   %851 = load float, ptr %.015242464, align 4
-  %852 = getelementptr inbounds i8, ptr %.015222466, i64 24
+  %852 = getelementptr inbounds nuw i8, ptr %.015222466, i64 24
   store float %851, ptr %852, align 4
-  %853 = getelementptr inbounds i8, ptr %.015232465, i64 4
+  %853 = getelementptr inbounds nuw i8, ptr %.015232465, i64 4
   %854 = load float, ptr %.015232465, align 4
-  %855 = getelementptr inbounds i8, ptr %.015222466, i64 28
+  %855 = getelementptr inbounds nuw i8, ptr %.015222466, i64 28
   store float %854, ptr %855, align 4
-  %856 = getelementptr inbounds i8, ptr %.015222466, i64 32
+  %856 = getelementptr inbounds nuw i8, ptr %.015222466, i64 32
   %857 = add nuw nsw i32 %.015212467, 1
   %exitcond2600.not = icmp eq i32 %857, %790
   br i1 %exitcond2600.not, label %._crit_edge2470.loopexit, label %.lr.ph2469, !llvm.loop !22
@@ -1515,22 +1515,22 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
   %.015162478 = phi ptr [ %908, %.lr.ph2483 ], [ %897, %.lr.ph2483.preheader ]
   %.015172477 = phi ptr [ %905, %.lr.ph2483 ], [ %900, %.lr.ph2483.preheader ]
   %.015182476 = phi ptr [ %903, %.lr.ph2483 ], [ %902, %.lr.ph2483.preheader ]
-  %903 = getelementptr inbounds i8, ptr %.015182476, i64 4
+  %903 = getelementptr inbounds nuw i8, ptr %.015182476, i64 4
   %904 = load float, ptr %.015182476, align 4
   store float %904, ptr %.015142480, align 4
-  %905 = getelementptr inbounds i8, ptr %.015172477, i64 4
+  %905 = getelementptr inbounds nuw i8, ptr %.015172477, i64 4
   %906 = load float, ptr %.015172477, align 4
-  %907 = getelementptr inbounds i8, ptr %.015142480, i64 4
+  %907 = getelementptr inbounds nuw i8, ptr %.015142480, i64 4
   store float %906, ptr %907, align 4
-  %908 = getelementptr inbounds i8, ptr %.015162478, i64 4
+  %908 = getelementptr inbounds nuw i8, ptr %.015162478, i64 4
   %909 = load float, ptr %.015162478, align 4
-  %910 = getelementptr inbounds i8, ptr %.015142480, i64 8
+  %910 = getelementptr inbounds nuw i8, ptr %.015142480, i64 8
   store float %909, ptr %910, align 4
-  %911 = getelementptr inbounds i8, ptr %.015152479, i64 4
+  %911 = getelementptr inbounds nuw i8, ptr %.015152479, i64 4
   %912 = load float, ptr %.015152479, align 4
-  %913 = getelementptr inbounds i8, ptr %.015142480, i64 12
+  %913 = getelementptr inbounds nuw i8, ptr %.015142480, i64 12
   store float %912, ptr %913, align 4
-  %914 = getelementptr inbounds i8, ptr %.015142480, i64 16
+  %914 = getelementptr inbounds nuw i8, ptr %.015142480, i64 16
   %915 = add nuw nsw i32 %.015132481, 1
   %exitcond2608.not = icmp eq i32 %915, %872
   br i1 %exitcond2608.not, label %._crit_edge2484.loopexit, label %.lr.ph2483, !llvm.loop !24
@@ -1613,7 +1613,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
 
 960:                                              ; preds = %957
   %961 = load ptr, ptr %958, align 8
-  %962 = getelementptr inbounds i8, ptr %961, i64 24
+  %962 = getelementptr inbounds nuw i8, ptr %961, i64 24
   %963 = load ptr, ptr %962, align 8
   invoke void %963(ptr noundef nonnull align 8 dereferenceable(8) %958, ptr noundef %959)
           to label %966 unwind label %967
@@ -1652,7 +1652,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13Slice_x86_avx7forwardER
 
 976:                                              ; preds = %973
   %977 = load ptr, ptr %974, align 8
-  %978 = getelementptr inbounds i8, ptr %977, i64 24
+  %978 = getelementptr inbounds nuw i8, ptr %977, i64 24
   %979 = load ptr, ptr %978, align 8
   invoke void %979(ptr noundef nonnull align 8 dereferenceable(8) %974, ptr noundef %975)
           to label %1342 unwind label %981
@@ -2334,7 +2334,7 @@ define linkonce_odr hidden void @_ZN4ncnn5SliceD2Ev(ptr noundef nonnull align 8 
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %24
@@ -2380,7 +2380,7 @@ define linkonce_odr hidden void @_ZN4ncnn5SliceD2Ev(ptr noundef nonnull align 8 
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
           to label %40 unwind label %43

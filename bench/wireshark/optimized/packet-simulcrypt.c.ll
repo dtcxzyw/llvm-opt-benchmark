@@ -585,7 +585,7 @@ define internal range(i32 5, 65541) i32 @get_simulcrypt_message_len(ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_simulcrypt_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.169) #3
   %7 = load ptr, ptr %5, align 8
@@ -636,9 +636,9 @@ define internal i32 @dissect_simulcrypt_message(ptr noundef %0, ptr noundef %1, 
 get_interface.exit:                               ; preds = %4, %10, %10, %10, %12, %13, %14, %15, %16, %17, %18
   %.04.i = phi i16 [ 8, %4 ], [ 0, %18 ], [ 7, %17 ], [ 6, %16 ], [ 5, %15 ], [ 4, %14 ], [ 3, %13 ], [ 2, %12 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ]
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 284
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 288
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %23 = load i32, ptr %22, align 8
   %24 = zext i16 %8 to i32
   %25 = tail call ptr @val_to_str_ext(i32 noundef %24, ptr noundef nonnull @messagetypenames_ext, ptr noundef nonnull @.str.343) #3
@@ -670,13 +670,13 @@ get_interface.exit:                               ; preds = %4, %10, %10, %10, %
   br i1 %.not.i, label %proto_item_set_generated.exit, label %44
 
 44:                                               ; preds = %26
-  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not5.i = icmp eq ptr %46, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %49, 2
   store i32 %50, ptr %48, align 4
@@ -734,9 +734,9 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
-  %11 = getelementptr inbounds i8, ptr %1, i64 284
-  %12 = getelementptr inbounds i8, ptr %1, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 288
   br label %13
 
 13:                                               ; preds = %.lr.ph, %dissect_ecmg_parameter_value.exit

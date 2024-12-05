@@ -1034,7 +1034,7 @@ land.lhs.true17:                                  ; preds = %if.end13
   br i1 %tobool20.not, label %if.end50, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true17
-  %ob_sval.i = getelementptr inbounds i8, ptr %storemerge, i64 32
+  %ob_sval.i = getelementptr inbounds nuw i8, ptr %storemerge, i64 32
   %9 = getelementptr i8, ptr %storemerge, i64 16
   %.val32 = load i64, ptr %9, align 8
   %cmp24 = icmp eq i64 %.val32, 0
@@ -1143,7 +1143,7 @@ do.end69:                                         ; preds = %if.end.i89, %if.the
 
 if.else70:                                        ; preds = %if.then60
   %sub71 = add i64 %.val34, -1
-  %state.i = getelementptr inbounds i8, ptr %17, i64 32
+  %state.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   %bf.load.i = load i32, ptr %state.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
@@ -1468,7 +1468,7 @@ if.then7:                                         ; preds = %if.else5
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.then7
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i.i, i64 56
   %9 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %3, i64 %9
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
@@ -1713,7 +1713,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %fd6 = getelementptr inbounds i8, ptr %call3, i64 16
+  %fd6 = getelementptr inbounds nuw i8, ptr %call3, i64 16
   store i32 %fd, ptr %fd6, align 8
   br label %return
 
@@ -1730,7 +1730,7 @@ declare ptr @_PyObject_New(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @stdprinter_repr(ptr noundef %self) #0 {
 entry:
-  %fd = getelementptr inbounds i8, ptr %self, i64 16
+  %fd = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.18, i32 noundef %0, ptr noundef %self) #9
   ret ptr %call
@@ -1796,7 +1796,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds i8, ptr %path.val9, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %path.val9, i64 24
   %4 = load ptr, ptr %tp_name, align 8
   %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.15, ptr noundef %4) #9
   br label %return
@@ -1921,7 +1921,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @stdprinter_fileno(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %fd = getelementptr inbounds i8, ptr %self, i64 16
+  %fd = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %conv = sext i32 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #9
@@ -1931,7 +1931,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @stdprinter_isatty(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %fd = getelementptr inbounds i8, ptr %self, i64 16
+  %fd = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -1955,7 +1955,7 @@ define internal ptr @stdprinter_write(ptr nocapture noundef readonly %self, ptr 
 entry:
   %unicode = alloca ptr, align 8
   %n = alloca i64, align 8
-  %fd = getelementptr inbounds i8, ptr %self, i64 16
+  %fd = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -1983,7 +1983,7 @@ if.then5:                                         ; preds = %if.end2
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5
-  %ob_sval.i = getelementptr inbounds i8, ptr %call6, i64 32
+  %ob_sval.i = getelementptr inbounds nuw i8, ptr %call6, i64 32
   %3 = getelementptr i8, ptr %call6, i64 16
   %call6.val = load i64, ptr %3, align 8
   store i64 %call6.val, ptr %n, align 8

@@ -91,9 +91,9 @@ define hidden range(i8 -1, 2) i8 @"_ZN62_$LT$logos_codegen..graph..Merge$u20$as$
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call i8 @llvm.ucmp.i8.i32(i32 %9, i32 %11)
   br label %13

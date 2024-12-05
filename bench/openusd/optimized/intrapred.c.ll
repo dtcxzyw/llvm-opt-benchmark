@@ -12,7 +12,7 @@ define hidden void @aom_dc_predictor_4x8_c(ptr nocapture noundef writeonly %0, i
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -23,7 +23,7 @@ define hidden void @aom_dc_predictor_4x8_c(ptr nocapture noundef writeonly %0, i
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -59,7 +59,7 @@ define hidden void @aom_dc_predictor_8x4_c(ptr nocapture noundef writeonly %0, i
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -70,7 +70,7 @@ define hidden void @aom_dc_predictor_8x4_c(ptr nocapture noundef writeonly %0, i
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -106,7 +106,7 @@ define hidden void @aom_dc_predictor_4x16_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -117,7 +117,7 @@ define hidden void @aom_dc_predictor_4x16_c(ptr nocapture noundef writeonly %0, 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -153,7 +153,7 @@ define hidden void @aom_dc_predictor_16x4_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -164,7 +164,7 @@ define hidden void @aom_dc_predictor_16x4_c(ptr nocapture noundef writeonly %0, 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -200,7 +200,7 @@ define hidden void @aom_dc_predictor_8x16_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -211,7 +211,7 @@ define hidden void @aom_dc_predictor_8x16_c(ptr nocapture noundef writeonly %0, 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -247,7 +247,7 @@ define hidden void @aom_dc_predictor_16x8_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -258,7 +258,7 @@ define hidden void @aom_dc_predictor_16x8_c(ptr nocapture noundef writeonly %0, 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -294,7 +294,7 @@ define hidden void @aom_dc_predictor_8x32_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -305,7 +305,7 @@ define hidden void @aom_dc_predictor_8x32_c(ptr nocapture noundef writeonly %0, 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -341,7 +341,7 @@ define hidden void @aom_dc_predictor_32x8_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -352,7 +352,7 @@ define hidden void @aom_dc_predictor_32x8_c(ptr nocapture noundef writeonly %0, 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -388,7 +388,7 @@ define hidden void @aom_dc_predictor_16x32_c(ptr nocapture noundef writeonly %0,
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -399,7 +399,7 @@ define hidden void @aom_dc_predictor_16x32_c(ptr nocapture noundef writeonly %0,
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -435,7 +435,7 @@ define hidden void @aom_dc_predictor_32x16_c(ptr nocapture noundef writeonly %0,
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -446,7 +446,7 @@ define hidden void @aom_dc_predictor_32x16_c(ptr nocapture noundef writeonly %0,
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -482,7 +482,7 @@ define hidden void @aom_dc_predictor_16x64_c(ptr nocapture noundef writeonly %0,
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -493,7 +493,7 @@ define hidden void @aom_dc_predictor_16x64_c(ptr nocapture noundef writeonly %0,
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -529,7 +529,7 @@ define hidden void @aom_dc_predictor_64x16_c(ptr nocapture noundef writeonly %0,
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -540,7 +540,7 @@ define hidden void @aom_dc_predictor_64x16_c(ptr nocapture noundef writeonly %0,
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -576,7 +576,7 @@ define hidden void @aom_dc_predictor_32x64_c(ptr nocapture noundef writeonly %0,
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -587,7 +587,7 @@ define hidden void @aom_dc_predictor_32x64_c(ptr nocapture noundef writeonly %0,
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -623,7 +623,7 @@ define hidden void @aom_dc_predictor_64x32_c(ptr nocapture noundef writeonly %0,
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02730.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02730.i, %8
@@ -634,7 +634,7 @@ define hidden void @aom_dc_predictor_64x32_c(ptr nocapture noundef writeonly %0,
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.132.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.132.i, %12
@@ -670,7 +670,7 @@ define hidden void @aom_highbd_dc_predictor_4x8_c(ptr noundef %0, i64 noundef %1
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -681,7 +681,7 @@ define hidden void @aom_highbd_dc_predictor_4x8_c(ptr noundef %0, i64 noundef %1
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -716,7 +716,7 @@ define hidden void @aom_highbd_dc_predictor_8x4_c(ptr noundef %0, i64 noundef %1
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -727,7 +727,7 @@ define hidden void @aom_highbd_dc_predictor_8x4_c(ptr noundef %0, i64 noundef %1
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -762,7 +762,7 @@ define hidden void @aom_highbd_dc_predictor_4x16_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -773,7 +773,7 @@ define hidden void @aom_highbd_dc_predictor_4x16_c(ptr noundef %0, i64 noundef %
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -808,7 +808,7 @@ define hidden void @aom_highbd_dc_predictor_16x4_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -819,7 +819,7 @@ define hidden void @aom_highbd_dc_predictor_16x4_c(ptr noundef %0, i64 noundef %
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -854,7 +854,7 @@ define hidden void @aom_highbd_dc_predictor_8x16_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -865,7 +865,7 @@ define hidden void @aom_highbd_dc_predictor_8x16_c(ptr noundef %0, i64 noundef %
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -900,7 +900,7 @@ define hidden void @aom_highbd_dc_predictor_16x8_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -911,7 +911,7 @@ define hidden void @aom_highbd_dc_predictor_16x8_c(ptr noundef %0, i64 noundef %
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -946,7 +946,7 @@ define hidden void @aom_highbd_dc_predictor_8x32_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -957,7 +957,7 @@ define hidden void @aom_highbd_dc_predictor_8x32_c(ptr noundef %0, i64 noundef %
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -992,7 +992,7 @@ define hidden void @aom_highbd_dc_predictor_32x8_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -1003,7 +1003,7 @@ define hidden void @aom_highbd_dc_predictor_32x8_c(ptr noundef %0, i64 noundef %
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -1038,7 +1038,7 @@ define hidden void @aom_highbd_dc_predictor_16x32_c(ptr noundef %0, i64 noundef 
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -1049,7 +1049,7 @@ define hidden void @aom_highbd_dc_predictor_16x32_c(ptr noundef %0, i64 noundef 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -1084,7 +1084,7 @@ define hidden void @aom_highbd_dc_predictor_32x16_c(ptr noundef %0, i64 noundef 
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -1095,7 +1095,7 @@ define hidden void @aom_highbd_dc_predictor_32x16_c(ptr noundef %0, i64 noundef 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -1130,7 +1130,7 @@ define hidden void @aom_highbd_dc_predictor_16x64_c(ptr noundef %0, i64 noundef 
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -1141,7 +1141,7 @@ define hidden void @aom_highbd_dc_predictor_16x64_c(ptr noundef %0, i64 noundef 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -1176,7 +1176,7 @@ define hidden void @aom_highbd_dc_predictor_64x16_c(ptr noundef %0, i64 noundef 
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -1187,7 +1187,7 @@ define hidden void @aom_highbd_dc_predictor_64x16_c(ptr noundef %0, i64 noundef 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -1222,7 +1222,7 @@ define hidden void @aom_highbd_dc_predictor_32x64_c(ptr noundef %0, i64 noundef 
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -1233,7 +1233,7 @@ define hidden void @aom_highbd_dc_predictor_32x64_c(ptr noundef %0, i64 noundef 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -1268,7 +1268,7 @@ define hidden void @aom_highbd_dc_predictor_64x32_c(ptr noundef %0, i64 noundef 
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02730.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02730.i, %9
@@ -1279,7 +1279,7 @@ define hidden void @aom_highbd_dc_predictor_64x32_c(ptr noundef %0, i64 noundef 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.132.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.132.i, %13
@@ -1970,7 +1970,7 @@ define hidden void @aom_h_predictor_4x4_c(ptr nocapture noundef writeonly %0, i6
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %.081.i, i8 %7, i64 4, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -1989,7 +1989,7 @@ define hidden void @aom_h_predictor_8x8_c(ptr nocapture noundef writeonly %0, i6
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %.081.i, i8 %7, i64 8, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2008,7 +2008,7 @@ define hidden void @aom_h_predictor_16x16_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.081.i, i8 %7, i64 16, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2027,7 +2027,7 @@ define hidden void @aom_h_predictor_32x32_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.081.i, i8 %7, i64 32, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2046,7 +2046,7 @@ define hidden void @aom_h_predictor_64x64_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.081.i, i8 %7, i64 64, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2065,7 +2065,7 @@ define hidden void @aom_highbd_h_predictor_4x4_c(ptr noundef %0, i64 noundef %1,
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 4) #8
@@ -2085,7 +2085,7 @@ define hidden void @aom_highbd_h_predictor_8x8_c(ptr noundef %0, i64 noundef %1,
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 8) #8
@@ -2105,7 +2105,7 @@ define hidden void @aom_highbd_h_predictor_16x16_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 16) #8
@@ -2125,7 +2125,7 @@ define hidden void @aom_highbd_h_predictor_32x32_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 32) #8
@@ -2145,7 +2145,7 @@ define hidden void @aom_highbd_h_predictor_64x64_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 64) #8
@@ -2165,7 +2165,7 @@ define hidden void @aom_h_predictor_4x8_c(ptr nocapture noundef writeonly %0, i6
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %.081.i, i8 %7, i64 4, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2184,7 +2184,7 @@ define hidden void @aom_h_predictor_8x4_c(ptr nocapture noundef writeonly %0, i6
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %.081.i, i8 %7, i64 8, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2203,7 +2203,7 @@ define hidden void @aom_h_predictor_8x16_c(ptr nocapture noundef writeonly %0, i
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %.081.i, i8 %7, i64 8, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2222,7 +2222,7 @@ define hidden void @aom_h_predictor_16x8_c(ptr nocapture noundef writeonly %0, i
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.081.i, i8 %7, i64 16, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2241,7 +2241,7 @@ define hidden void @aom_h_predictor_16x32_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.081.i, i8 %7, i64 16, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2260,7 +2260,7 @@ define hidden void @aom_h_predictor_32x16_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.081.i, i8 %7, i64 32, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2279,7 +2279,7 @@ define hidden void @aom_h_predictor_32x64_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.081.i, i8 %7, i64 32, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2298,7 +2298,7 @@ define hidden void @aom_h_predictor_64x32_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.081.i, i8 %7, i64 64, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2317,7 +2317,7 @@ define hidden void @aom_h_predictor_4x16_c(ptr nocapture noundef writeonly %0, i
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %.081.i, i8 %7, i64 4, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2336,7 +2336,7 @@ define hidden void @aom_h_predictor_16x4_c(ptr nocapture noundef writeonly %0, i
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.081.i, i8 %7, i64 16, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2355,7 +2355,7 @@ define hidden void @aom_h_predictor_8x32_c(ptr nocapture noundef writeonly %0, i
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %.081.i, i8 %7, i64 8, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2374,7 +2374,7 @@ define hidden void @aom_h_predictor_32x8_c(ptr nocapture noundef writeonly %0, i
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.081.i, i8 %7, i64 32, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2393,7 +2393,7 @@ define hidden void @aom_h_predictor_16x64_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.081.i, i8 %7, i64 16, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2412,7 +2412,7 @@ define hidden void @aom_h_predictor_64x16_c(ptr nocapture noundef writeonly %0, 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.081.i = phi ptr [ %0, %4 ], [ %8, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.081.i, i8 %7, i64 64, i1 false)
   %8 = getelementptr inbounds i8, ptr %.081.i, i64 %1
@@ -2431,7 +2431,7 @@ define hidden void @aom_highbd_h_predictor_4x8_c(ptr noundef %0, i64 noundef %1,
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 4) #8
@@ -2451,7 +2451,7 @@ define hidden void @aom_highbd_h_predictor_8x4_c(ptr noundef %0, i64 noundef %1,
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 8) #8
@@ -2471,7 +2471,7 @@ define hidden void @aom_highbd_h_predictor_8x16_c(ptr noundef %0, i64 noundef %1
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 8) #8
@@ -2491,7 +2491,7 @@ define hidden void @aom_highbd_h_predictor_16x8_c(ptr noundef %0, i64 noundef %1
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 16) #8
@@ -2511,7 +2511,7 @@ define hidden void @aom_highbd_h_predictor_16x32_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 16) #8
@@ -2531,7 +2531,7 @@ define hidden void @aom_highbd_h_predictor_32x16_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 32) #8
@@ -2551,7 +2551,7 @@ define hidden void @aom_highbd_h_predictor_32x64_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 32) #8
@@ -2571,7 +2571,7 @@ define hidden void @aom_highbd_h_predictor_64x32_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 64) #8
@@ -2591,7 +2591,7 @@ define hidden void @aom_highbd_h_predictor_4x16_c(ptr noundef %0, i64 noundef %1
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 4) #8
@@ -2611,7 +2611,7 @@ define hidden void @aom_highbd_h_predictor_16x4_c(ptr noundef %0, i64 noundef %1
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 16) #8
@@ -2631,7 +2631,7 @@ define hidden void @aom_highbd_h_predictor_8x32_c(ptr noundef %0, i64 noundef %1
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 8) #8
@@ -2651,7 +2651,7 @@ define hidden void @aom_highbd_h_predictor_32x8_c(ptr noundef %0, i64 noundef %1
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 32) #8
@@ -2671,7 +2671,7 @@ define hidden void @aom_highbd_h_predictor_16x64_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 16) #8
@@ -2691,7 +2691,7 @@ define hidden void @aom_highbd_h_predictor_64x16_c(ptr noundef %0, i64 noundef %
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.081.i = phi ptr [ %0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @aom_memset16(ptr noundef %.081.i, i32 noundef %9, i64 noundef 64) #8
@@ -2714,26 +2714,26 @@ define hidden void @aom_smooth_predictor_4x4_c(ptr nocapture noundef writeonly %
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 3
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -2742,7 +2742,7 @@ define hidden void @aom_smooth_predictor_4x4_c(ptr nocapture noundef writeonly %
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -2752,10 +2752,10 @@ define hidden void @aom_smooth_predictor_4x4_c(ptr nocapture noundef writeonly %
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -2768,7 +2768,7 @@ define hidden void @aom_smooth_predictor_4x4_c(ptr nocapture noundef writeonly %
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
@@ -2796,26 +2796,26 @@ define hidden void @aom_smooth_predictor_8x8_c(ptr nocapture noundef writeonly %
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 7
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -2824,7 +2824,7 @@ define hidden void @aom_smooth_predictor_8x8_c(ptr nocapture noundef writeonly %
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -2834,10 +2834,10 @@ define hidden void @aom_smooth_predictor_8x8_c(ptr nocapture noundef writeonly %
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -2850,7 +2850,7 @@ define hidden void @aom_smooth_predictor_8x8_c(ptr nocapture noundef writeonly %
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
@@ -2878,26 +2878,26 @@ define hidden void @aom_smooth_predictor_16x16_c(ptr nocapture noundef writeonly
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 15
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -2906,7 +2906,7 @@ define hidden void @aom_smooth_predictor_16x16_c(ptr nocapture noundef writeonly
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -2916,10 +2916,10 @@ define hidden void @aom_smooth_predictor_16x16_c(ptr nocapture noundef writeonly
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -2932,7 +2932,7 @@ define hidden void @aom_smooth_predictor_16x16_c(ptr nocapture noundef writeonly
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
@@ -2960,26 +2960,26 @@ define hidden void @aom_smooth_predictor_32x32_c(ptr nocapture noundef writeonly
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 31
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -2988,7 +2988,7 @@ define hidden void @aom_smooth_predictor_32x32_c(ptr nocapture noundef writeonly
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -2998,10 +2998,10 @@ define hidden void @aom_smooth_predictor_32x32_c(ptr nocapture noundef writeonly
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -3014,7 +3014,7 @@ define hidden void @aom_smooth_predictor_32x32_c(ptr nocapture noundef writeonly
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
@@ -3042,26 +3042,26 @@ define hidden void @aom_smooth_predictor_64x64_c(ptr nocapture noundef writeonly
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 63
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -3070,7 +3070,7 @@ define hidden void @aom_smooth_predictor_64x64_c(ptr nocapture noundef writeonly
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -3080,10 +3080,10 @@ define hidden void @aom_smooth_predictor_64x64_c(ptr nocapture noundef writeonly
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -3096,7 +3096,7 @@ define hidden void @aom_smooth_predictor_64x64_c(ptr nocapture noundef writeonly
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 64
@@ -3124,26 +3124,26 @@ define hidden void @aom_highbd_smooth_predictor_4x4_c(ptr nocapture noundef writ
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 6
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -3152,7 +3152,7 @@ define hidden void @aom_highbd_smooth_predictor_4x4_c(ptr nocapture noundef writ
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -3162,10 +3162,10 @@ define hidden void @aom_highbd_smooth_predictor_4x4_c(ptr nocapture noundef writ
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -3178,7 +3178,7 @@ define hidden void @aom_highbd_smooth_predictor_4x4_c(ptr nocapture noundef writ
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
@@ -3206,26 +3206,26 @@ define hidden void @aom_highbd_smooth_predictor_8x8_c(ptr nocapture noundef writ
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 14
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -3234,7 +3234,7 @@ define hidden void @aom_highbd_smooth_predictor_8x8_c(ptr nocapture noundef writ
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -3244,10 +3244,10 @@ define hidden void @aom_highbd_smooth_predictor_8x8_c(ptr nocapture noundef writ
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -3260,7 +3260,7 @@ define hidden void @aom_highbd_smooth_predictor_8x8_c(ptr nocapture noundef writ
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
@@ -3288,26 +3288,26 @@ define hidden void @aom_highbd_smooth_predictor_16x16_c(ptr nocapture noundef wr
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 30
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -3316,7 +3316,7 @@ define hidden void @aom_highbd_smooth_predictor_16x16_c(ptr nocapture noundef wr
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -3326,10 +3326,10 @@ define hidden void @aom_highbd_smooth_predictor_16x16_c(ptr nocapture noundef wr
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -3342,7 +3342,7 @@ define hidden void @aom_highbd_smooth_predictor_16x16_c(ptr nocapture noundef wr
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
@@ -3370,26 +3370,26 @@ define hidden void @aom_highbd_smooth_predictor_32x32_c(ptr nocapture noundef wr
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 62
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -3398,7 +3398,7 @@ define hidden void @aom_highbd_smooth_predictor_32x32_c(ptr nocapture noundef wr
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -3408,10 +3408,10 @@ define hidden void @aom_highbd_smooth_predictor_32x32_c(ptr nocapture noundef wr
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -3424,7 +3424,7 @@ define hidden void @aom_highbd_smooth_predictor_32x32_c(ptr nocapture noundef wr
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
@@ -3452,26 +3452,26 @@ define hidden void @aom_highbd_smooth_predictor_64x64_c(ptr nocapture noundef wr
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 126
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -3480,7 +3480,7 @@ define hidden void @aom_highbd_smooth_predictor_64x64_c(ptr nocapture noundef wr
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -3490,10 +3490,10 @@ define hidden void @aom_highbd_smooth_predictor_64x64_c(ptr nocapture noundef wr
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -3506,7 +3506,7 @@ define hidden void @aom_highbd_smooth_predictor_64x64_c(ptr nocapture noundef wr
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 64
@@ -3534,26 +3534,26 @@ define hidden void @aom_smooth_predictor_4x8_c(ptr nocapture noundef writeonly %
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 3
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -3562,7 +3562,7 @@ define hidden void @aom_smooth_predictor_4x8_c(ptr nocapture noundef writeonly %
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -3572,10 +3572,10 @@ define hidden void @aom_smooth_predictor_4x8_c(ptr nocapture noundef writeonly %
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -3588,7 +3588,7 @@ define hidden void @aom_smooth_predictor_4x8_c(ptr nocapture noundef writeonly %
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
@@ -3616,26 +3616,26 @@ define hidden void @aom_smooth_predictor_8x4_c(ptr nocapture noundef writeonly %
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 7
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -3644,7 +3644,7 @@ define hidden void @aom_smooth_predictor_8x4_c(ptr nocapture noundef writeonly %
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -3654,10 +3654,10 @@ define hidden void @aom_smooth_predictor_8x4_c(ptr nocapture noundef writeonly %
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -3670,7 +3670,7 @@ define hidden void @aom_smooth_predictor_8x4_c(ptr nocapture noundef writeonly %
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
@@ -3698,26 +3698,26 @@ define hidden void @aom_smooth_predictor_8x16_c(ptr nocapture noundef writeonly 
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 7
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -3726,7 +3726,7 @@ define hidden void @aom_smooth_predictor_8x16_c(ptr nocapture noundef writeonly 
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -3736,10 +3736,10 @@ define hidden void @aom_smooth_predictor_8x16_c(ptr nocapture noundef writeonly 
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -3752,7 +3752,7 @@ define hidden void @aom_smooth_predictor_8x16_c(ptr nocapture noundef writeonly 
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
@@ -3780,26 +3780,26 @@ define hidden void @aom_smooth_predictor_16x8_c(ptr nocapture noundef writeonly 
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 15
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -3808,7 +3808,7 @@ define hidden void @aom_smooth_predictor_16x8_c(ptr nocapture noundef writeonly 
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -3818,10 +3818,10 @@ define hidden void @aom_smooth_predictor_16x8_c(ptr nocapture noundef writeonly 
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -3834,7 +3834,7 @@ define hidden void @aom_smooth_predictor_16x8_c(ptr nocapture noundef writeonly 
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
@@ -3862,26 +3862,26 @@ define hidden void @aom_smooth_predictor_16x32_c(ptr nocapture noundef writeonly
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 15
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -3890,7 +3890,7 @@ define hidden void @aom_smooth_predictor_16x32_c(ptr nocapture noundef writeonly
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -3900,10 +3900,10 @@ define hidden void @aom_smooth_predictor_16x32_c(ptr nocapture noundef writeonly
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -3916,7 +3916,7 @@ define hidden void @aom_smooth_predictor_16x32_c(ptr nocapture noundef writeonly
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
@@ -3944,26 +3944,26 @@ define hidden void @aom_smooth_predictor_32x16_c(ptr nocapture noundef writeonly
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 31
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -3972,7 +3972,7 @@ define hidden void @aom_smooth_predictor_32x16_c(ptr nocapture noundef writeonly
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -3982,10 +3982,10 @@ define hidden void @aom_smooth_predictor_32x16_c(ptr nocapture noundef writeonly
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -3998,7 +3998,7 @@ define hidden void @aom_smooth_predictor_32x16_c(ptr nocapture noundef writeonly
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
@@ -4026,26 +4026,26 @@ define hidden void @aom_smooth_predictor_32x64_c(ptr nocapture noundef writeonly
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 31
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -4054,7 +4054,7 @@ define hidden void @aom_smooth_predictor_32x64_c(ptr nocapture noundef writeonly
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -4064,10 +4064,10 @@ define hidden void @aom_smooth_predictor_32x64_c(ptr nocapture noundef writeonly
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -4080,7 +4080,7 @@ define hidden void @aom_smooth_predictor_32x64_c(ptr nocapture noundef writeonly
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
@@ -4108,26 +4108,26 @@ define hidden void @aom_smooth_predictor_64x32_c(ptr nocapture noundef writeonly
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 63
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -4136,7 +4136,7 @@ define hidden void @aom_smooth_predictor_64x32_c(ptr nocapture noundef writeonly
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -4146,10 +4146,10 @@ define hidden void @aom_smooth_predictor_64x32_c(ptr nocapture noundef writeonly
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -4162,7 +4162,7 @@ define hidden void @aom_smooth_predictor_64x32_c(ptr nocapture noundef writeonly
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 64
@@ -4190,26 +4190,26 @@ define hidden void @aom_smooth_predictor_4x16_c(ptr nocapture noundef writeonly 
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 3
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -4218,7 +4218,7 @@ define hidden void @aom_smooth_predictor_4x16_c(ptr nocapture noundef writeonly 
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -4228,10 +4228,10 @@ define hidden void @aom_smooth_predictor_4x16_c(ptr nocapture noundef writeonly 
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -4244,7 +4244,7 @@ define hidden void @aom_smooth_predictor_4x16_c(ptr nocapture noundef writeonly 
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
@@ -4272,26 +4272,26 @@ define hidden void @aom_smooth_predictor_16x4_c(ptr nocapture noundef writeonly 
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 15
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -4300,7 +4300,7 @@ define hidden void @aom_smooth_predictor_16x4_c(ptr nocapture noundef writeonly 
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -4310,10 +4310,10 @@ define hidden void @aom_smooth_predictor_16x4_c(ptr nocapture noundef writeonly 
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -4326,7 +4326,7 @@ define hidden void @aom_smooth_predictor_16x4_c(ptr nocapture noundef writeonly 
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
@@ -4354,26 +4354,26 @@ define hidden void @aom_smooth_predictor_8x32_c(ptr nocapture noundef writeonly 
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 7
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -4382,7 +4382,7 @@ define hidden void @aom_smooth_predictor_8x32_c(ptr nocapture noundef writeonly 
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -4392,10 +4392,10 @@ define hidden void @aom_smooth_predictor_8x32_c(ptr nocapture noundef writeonly 
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -4408,7 +4408,7 @@ define hidden void @aom_smooth_predictor_8x32_c(ptr nocapture noundef writeonly 
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
@@ -4436,26 +4436,26 @@ define hidden void @aom_smooth_predictor_32x8_c(ptr nocapture noundef writeonly 
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 31
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -4464,7 +4464,7 @@ define hidden void @aom_smooth_predictor_32x8_c(ptr nocapture noundef writeonly 
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -4474,10 +4474,10 @@ define hidden void @aom_smooth_predictor_32x8_c(ptr nocapture noundef writeonly 
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -4490,7 +4490,7 @@ define hidden void @aom_smooth_predictor_32x8_c(ptr nocapture noundef writeonly 
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
@@ -4518,26 +4518,26 @@ define hidden void @aom_smooth_predictor_16x64_c(ptr nocapture noundef writeonly
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 15
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -4546,7 +4546,7 @@ define hidden void @aom_smooth_predictor_16x64_c(ptr nocapture noundef writeonly
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -4556,10 +4556,10 @@ define hidden void @aom_smooth_predictor_16x64_c(ptr nocapture noundef writeonly
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -4572,7 +4572,7 @@ define hidden void @aom_smooth_predictor_16x64_c(ptr nocapture noundef writeonly
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
@@ -4600,26 +4600,26 @@ define hidden void @aom_smooth_predictor_64x16_c(ptr nocapture noundef writeonly
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %2, i64 63
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
-  %13 = getelementptr inbounds i8, ptr %5, i64 3
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %4
   %indvars.iv49.i = phi i64 [ 0, %4 ], [ %indvars.iv.next50.i, %42 ]
   %.03842.i = phi ptr [ %0, %4 ], [ %43, %42 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv49.i
-  %18 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
   %19 = load i8, ptr %18, align 1
   %20 = sub i8 0, %19
   br label %21
 
 21:                                               ; preds = %37, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %37 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv45.i
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv45.i
   %23 = load i8, ptr %22, align 1
   store i8 %23, ptr %5, align 1
   store i8 %8, ptr %11, align 1
@@ -4628,7 +4628,7 @@ define hidden void @aom_smooth_predictor_64x16_c(ptr nocapture noundef writeonly
   store i8 %10, ptr %13, align 1
   store i8 %19, ptr %6, align 1
   store i8 %20, ptr %14, align 1
-  %25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv45.i
+  %25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv45.i
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %15, align 1
   %27 = sub i8 0, %26
@@ -4638,10 +4638,10 @@ define hidden void @aom_smooth_predictor_64x16_c(ptr nocapture noundef writeonly
 28:                                               ; preds = %28, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %28 ]
   %.03539.i = phi i32 [ 0, %21 ], [ %36, %28 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %31
@@ -4654,7 +4654,7 @@ define hidden void @aom_smooth_predictor_64x16_c(ptr nocapture noundef writeonly
   %38 = add i32 %36, 256
   %39 = lshr i32 %38, 9
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.03842.i, i64 %indvars.iv45.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 %indvars.iv45.i
   store i8 %40, ptr %41, align 1
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 64
@@ -4682,26 +4682,26 @@ define hidden void @aom_highbd_smooth_predictor_4x8_c(ptr nocapture noundef writ
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 6
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -4710,7 +4710,7 @@ define hidden void @aom_highbd_smooth_predictor_4x8_c(ptr nocapture noundef writ
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -4720,10 +4720,10 @@ define hidden void @aom_highbd_smooth_predictor_4x8_c(ptr nocapture noundef writ
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -4736,7 +4736,7 @@ define hidden void @aom_highbd_smooth_predictor_4x8_c(ptr nocapture noundef writ
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
@@ -4764,26 +4764,26 @@ define hidden void @aom_highbd_smooth_predictor_8x4_c(ptr nocapture noundef writ
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 14
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -4792,7 +4792,7 @@ define hidden void @aom_highbd_smooth_predictor_8x4_c(ptr nocapture noundef writ
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -4802,10 +4802,10 @@ define hidden void @aom_highbd_smooth_predictor_8x4_c(ptr nocapture noundef writ
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -4818,7 +4818,7 @@ define hidden void @aom_highbd_smooth_predictor_8x4_c(ptr nocapture noundef writ
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
@@ -4846,26 +4846,26 @@ define hidden void @aom_highbd_smooth_predictor_8x16_c(ptr nocapture noundef wri
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 14
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -4874,7 +4874,7 @@ define hidden void @aom_highbd_smooth_predictor_8x16_c(ptr nocapture noundef wri
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -4884,10 +4884,10 @@ define hidden void @aom_highbd_smooth_predictor_8x16_c(ptr nocapture noundef wri
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -4900,7 +4900,7 @@ define hidden void @aom_highbd_smooth_predictor_8x16_c(ptr nocapture noundef wri
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
@@ -4928,26 +4928,26 @@ define hidden void @aom_highbd_smooth_predictor_16x8_c(ptr nocapture noundef wri
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 30
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -4956,7 +4956,7 @@ define hidden void @aom_highbd_smooth_predictor_16x8_c(ptr nocapture noundef wri
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -4966,10 +4966,10 @@ define hidden void @aom_highbd_smooth_predictor_16x8_c(ptr nocapture noundef wri
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -4982,7 +4982,7 @@ define hidden void @aom_highbd_smooth_predictor_16x8_c(ptr nocapture noundef wri
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
@@ -5010,26 +5010,26 @@ define hidden void @aom_highbd_smooth_predictor_16x32_c(ptr nocapture noundef wr
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 30
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -5038,7 +5038,7 @@ define hidden void @aom_highbd_smooth_predictor_16x32_c(ptr nocapture noundef wr
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -5048,10 +5048,10 @@ define hidden void @aom_highbd_smooth_predictor_16x32_c(ptr nocapture noundef wr
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -5064,7 +5064,7 @@ define hidden void @aom_highbd_smooth_predictor_16x32_c(ptr nocapture noundef wr
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
@@ -5092,26 +5092,26 @@ define hidden void @aom_highbd_smooth_predictor_32x16_c(ptr nocapture noundef wr
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 62
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -5120,7 +5120,7 @@ define hidden void @aom_highbd_smooth_predictor_32x16_c(ptr nocapture noundef wr
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -5130,10 +5130,10 @@ define hidden void @aom_highbd_smooth_predictor_32x16_c(ptr nocapture noundef wr
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -5146,7 +5146,7 @@ define hidden void @aom_highbd_smooth_predictor_32x16_c(ptr nocapture noundef wr
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
@@ -5174,26 +5174,26 @@ define hidden void @aom_highbd_smooth_predictor_32x64_c(ptr nocapture noundef wr
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 62
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -5202,7 +5202,7 @@ define hidden void @aom_highbd_smooth_predictor_32x64_c(ptr nocapture noundef wr
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -5212,10 +5212,10 @@ define hidden void @aom_highbd_smooth_predictor_32x64_c(ptr nocapture noundef wr
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -5228,7 +5228,7 @@ define hidden void @aom_highbd_smooth_predictor_32x64_c(ptr nocapture noundef wr
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
@@ -5256,26 +5256,26 @@ define hidden void @aom_highbd_smooth_predictor_64x32_c(ptr nocapture noundef wr
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 126
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -5284,7 +5284,7 @@ define hidden void @aom_highbd_smooth_predictor_64x32_c(ptr nocapture noundef wr
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -5294,10 +5294,10 @@ define hidden void @aom_highbd_smooth_predictor_64x32_c(ptr nocapture noundef wr
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -5310,7 +5310,7 @@ define hidden void @aom_highbd_smooth_predictor_64x32_c(ptr nocapture noundef wr
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 64
@@ -5338,26 +5338,26 @@ define hidden void @aom_highbd_smooth_predictor_4x16_c(ptr nocapture noundef wri
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 6
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -5366,7 +5366,7 @@ define hidden void @aom_highbd_smooth_predictor_4x16_c(ptr nocapture noundef wri
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -5376,10 +5376,10 @@ define hidden void @aom_highbd_smooth_predictor_4x16_c(ptr nocapture noundef wri
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -5392,7 +5392,7 @@ define hidden void @aom_highbd_smooth_predictor_4x16_c(ptr nocapture noundef wri
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 4
@@ -5420,26 +5420,26 @@ define hidden void @aom_highbd_smooth_predictor_16x4_c(ptr nocapture noundef wri
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 30
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -5448,7 +5448,7 @@ define hidden void @aom_highbd_smooth_predictor_16x4_c(ptr nocapture noundef wri
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -5458,10 +5458,10 @@ define hidden void @aom_highbd_smooth_predictor_16x4_c(ptr nocapture noundef wri
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -5474,7 +5474,7 @@ define hidden void @aom_highbd_smooth_predictor_16x4_c(ptr nocapture noundef wri
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
@@ -5502,26 +5502,26 @@ define hidden void @aom_highbd_smooth_predictor_8x32_c(ptr nocapture noundef wri
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 14
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -5530,7 +5530,7 @@ define hidden void @aom_highbd_smooth_predictor_8x32_c(ptr nocapture noundef wri
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -5540,10 +5540,10 @@ define hidden void @aom_highbd_smooth_predictor_8x32_c(ptr nocapture noundef wri
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -5556,7 +5556,7 @@ define hidden void @aom_highbd_smooth_predictor_8x32_c(ptr nocapture noundef wri
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 8
@@ -5584,26 +5584,26 @@ define hidden void @aom_highbd_smooth_predictor_32x8_c(ptr nocapture noundef wri
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 62
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -5612,7 +5612,7 @@ define hidden void @aom_highbd_smooth_predictor_32x8_c(ptr nocapture noundef wri
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -5622,10 +5622,10 @@ define hidden void @aom_highbd_smooth_predictor_32x8_c(ptr nocapture noundef wri
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -5638,7 +5638,7 @@ define hidden void @aom_highbd_smooth_predictor_32x8_c(ptr nocapture noundef wri
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 32
@@ -5666,26 +5666,26 @@ define hidden void @aom_highbd_smooth_predictor_16x64_c(ptr nocapture noundef wr
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 30
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -5694,7 +5694,7 @@ define hidden void @aom_highbd_smooth_predictor_16x64_c(ptr nocapture noundef wr
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -5704,10 +5704,10 @@ define hidden void @aom_highbd_smooth_predictor_16x64_c(ptr nocapture noundef wr
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -5720,7 +5720,7 @@ define hidden void @aom_highbd_smooth_predictor_16x64_c(ptr nocapture noundef wr
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 16
@@ -5748,26 +5748,26 @@ define hidden void @aom_highbd_smooth_predictor_64x16_c(ptr nocapture noundef wr
   %9 = load i16, ptr %8, align 2
   %10 = getelementptr i8, ptr %2, i64 126
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 6
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %5
   %indvars.iv49.i = phi i64 [ 0, %5 ], [ %indvars.iv.next50.i, %43 ]
   %.03842.i = phi ptr [ %0, %5 ], [ %44, %43 ]
-  %18 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv49.i
-  %19 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
+  %18 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv49.i
+  %19 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv49.i
   %20 = load i8, ptr %19, align 1
   %21 = sub i8 0, %20
   br label %22
 
 22:                                               ; preds = %38, %.preheader.i
   %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %38 ]
-  %23 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv45.i
+  %23 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv45.i
   %24 = load i16, ptr %23, align 2
   store i16 %24, ptr %6, align 2
   store i16 %9, ptr %12, align 2
@@ -5776,7 +5776,7 @@ define hidden void @aom_highbd_smooth_predictor_64x16_c(ptr nocapture noundef wr
   store i16 %11, ptr %14, align 2
   store i8 %20, ptr %7, align 1
   store i8 %21, ptr %15, align 1
-  %26 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv45.i
+  %26 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv45.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %16, align 1
   %28 = sub i8 0, %27
@@ -5786,10 +5786,10 @@ define hidden void @aom_highbd_smooth_predictor_64x16_c(ptr nocapture noundef wr
 29:                                               ; preds = %29, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %29 ]
   %.03539.i = phi i32 [ 0, %22 ], [ %37, %29 ]
-  %30 = getelementptr inbounds [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = mul nuw nsw i32 %35, %32
@@ -5802,7 +5802,7 @@ define hidden void @aom_highbd_smooth_predictor_64x16_c(ptr nocapture noundef wr
   %39 = add i32 %37, 256
   %40 = lshr i32 %39, 9
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i16, ptr %.03842.i, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw i16, ptr %.03842.i, i64 %indvars.iv45.i
   store i16 %41, ptr %42, align 2
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 64
@@ -5829,14 +5829,14 @@ define hidden void @aom_smooth_v_predictor_4x4_c(ptr nocapture noundef writeonly
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -5855,7 +5855,7 @@ define hidden void @aom_smooth_v_predictor_4x4_c(ptr nocapture noundef writeonly
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
@@ -5880,14 +5880,14 @@ define hidden void @aom_smooth_v_predictor_8x8_c(ptr nocapture noundef writeonly
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -5906,7 +5906,7 @@ define hidden void @aom_smooth_v_predictor_8x8_c(ptr nocapture noundef writeonly
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -5931,14 +5931,14 @@ define hidden void @aom_smooth_v_predictor_16x16_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -5957,7 +5957,7 @@ define hidden void @aom_smooth_v_predictor_16x16_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -5982,14 +5982,14 @@ define hidden void @aom_smooth_v_predictor_32x32_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6008,7 +6008,7 @@ define hidden void @aom_smooth_v_predictor_32x32_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -6033,14 +6033,14 @@ define hidden void @aom_smooth_v_predictor_64x64_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6059,7 +6059,7 @@ define hidden void @aom_smooth_v_predictor_64x64_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
@@ -6084,14 +6084,14 @@ define hidden void @aom_highbd_smooth_v_predictor_4x4_c(ptr nocapture noundef wr
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -6110,7 +6110,7 @@ define hidden void @aom_highbd_smooth_v_predictor_4x4_c(ptr nocapture noundef wr
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
@@ -6135,14 +6135,14 @@ define hidden void @aom_highbd_smooth_v_predictor_8x8_c(ptr nocapture noundef wr
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -6161,7 +6161,7 @@ define hidden void @aom_highbd_smooth_v_predictor_8x8_c(ptr nocapture noundef wr
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -6186,14 +6186,14 @@ define hidden void @aom_highbd_smooth_v_predictor_16x16_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -6212,7 +6212,7 @@ define hidden void @aom_highbd_smooth_v_predictor_16x16_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -6237,14 +6237,14 @@ define hidden void @aom_highbd_smooth_v_predictor_32x32_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -6263,7 +6263,7 @@ define hidden void @aom_highbd_smooth_v_predictor_32x32_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -6288,14 +6288,14 @@ define hidden void @aom_highbd_smooth_v_predictor_64x64_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -6314,7 +6314,7 @@ define hidden void @aom_highbd_smooth_v_predictor_64x64_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
@@ -6339,14 +6339,14 @@ define hidden void @aom_smooth_v_predictor_4x8_c(ptr nocapture noundef writeonly
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6365,7 +6365,7 @@ define hidden void @aom_smooth_v_predictor_4x8_c(ptr nocapture noundef writeonly
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
@@ -6390,14 +6390,14 @@ define hidden void @aom_smooth_v_predictor_8x4_c(ptr nocapture noundef writeonly
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6416,7 +6416,7 @@ define hidden void @aom_smooth_v_predictor_8x4_c(ptr nocapture noundef writeonly
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -6441,14 +6441,14 @@ define hidden void @aom_smooth_v_predictor_8x16_c(ptr nocapture noundef writeonl
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6467,7 +6467,7 @@ define hidden void @aom_smooth_v_predictor_8x16_c(ptr nocapture noundef writeonl
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -6492,14 +6492,14 @@ define hidden void @aom_smooth_v_predictor_16x8_c(ptr nocapture noundef writeonl
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6518,7 +6518,7 @@ define hidden void @aom_smooth_v_predictor_16x8_c(ptr nocapture noundef writeonl
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -6543,14 +6543,14 @@ define hidden void @aom_smooth_v_predictor_16x32_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6569,7 +6569,7 @@ define hidden void @aom_smooth_v_predictor_16x32_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -6594,14 +6594,14 @@ define hidden void @aom_smooth_v_predictor_32x16_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6620,7 +6620,7 @@ define hidden void @aom_smooth_v_predictor_32x16_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -6645,14 +6645,14 @@ define hidden void @aom_smooth_v_predictor_32x64_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6671,7 +6671,7 @@ define hidden void @aom_smooth_v_predictor_32x64_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -6696,14 +6696,14 @@ define hidden void @aom_smooth_v_predictor_64x32_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6722,7 +6722,7 @@ define hidden void @aom_smooth_v_predictor_64x32_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
@@ -6747,14 +6747,14 @@ define hidden void @aom_smooth_v_predictor_4x16_c(ptr nocapture noundef writeonl
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6773,7 +6773,7 @@ define hidden void @aom_smooth_v_predictor_4x16_c(ptr nocapture noundef writeonl
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
@@ -6798,14 +6798,14 @@ define hidden void @aom_smooth_v_predictor_16x4_c(ptr nocapture noundef writeonl
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6824,7 +6824,7 @@ define hidden void @aom_smooth_v_predictor_16x4_c(ptr nocapture noundef writeonl
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -6849,14 +6849,14 @@ define hidden void @aom_smooth_v_predictor_8x32_c(ptr nocapture noundef writeonl
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6875,7 +6875,7 @@ define hidden void @aom_smooth_v_predictor_8x32_c(ptr nocapture noundef writeonl
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -6900,14 +6900,14 @@ define hidden void @aom_smooth_v_predictor_32x8_c(ptr nocapture noundef writeonl
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6926,7 +6926,7 @@ define hidden void @aom_smooth_v_predictor_32x8_c(ptr nocapture noundef writeonl
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -6951,14 +6951,14 @@ define hidden void @aom_smooth_v_predictor_16x64_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -6977,7 +6977,7 @@ define hidden void @aom_smooth_v_predictor_16x64_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -7002,14 +7002,14 @@ define hidden void @aom_smooth_v_predictor_64x16_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
   %8 = load i8, ptr %7, align 1
   %9 = sub i8 0, %8
   br label %10
 
 10:                                               ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   br label %13
 
@@ -7028,7 +7028,7 @@ define hidden void @aom_smooth_v_predictor_64x16_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
@@ -7053,14 +7053,14 @@ define hidden void @aom_highbd_smooth_v_predictor_4x8_c(ptr nocapture noundef wr
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7079,7 +7079,7 @@ define hidden void @aom_highbd_smooth_v_predictor_4x8_c(ptr nocapture noundef wr
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
@@ -7104,14 +7104,14 @@ define hidden void @aom_highbd_smooth_v_predictor_8x4_c(ptr nocapture noundef wr
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7130,7 +7130,7 @@ define hidden void @aom_highbd_smooth_v_predictor_8x4_c(ptr nocapture noundef wr
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -7155,14 +7155,14 @@ define hidden void @aom_highbd_smooth_v_predictor_8x16_c(ptr nocapture noundef w
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7181,7 +7181,7 @@ define hidden void @aom_highbd_smooth_v_predictor_8x16_c(ptr nocapture noundef w
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -7206,14 +7206,14 @@ define hidden void @aom_highbd_smooth_v_predictor_16x8_c(ptr nocapture noundef w
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7232,7 +7232,7 @@ define hidden void @aom_highbd_smooth_v_predictor_16x8_c(ptr nocapture noundef w
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -7257,14 +7257,14 @@ define hidden void @aom_highbd_smooth_v_predictor_16x32_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7283,7 +7283,7 @@ define hidden void @aom_highbd_smooth_v_predictor_16x32_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -7308,14 +7308,14 @@ define hidden void @aom_highbd_smooth_v_predictor_32x16_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7334,7 +7334,7 @@ define hidden void @aom_highbd_smooth_v_predictor_32x16_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -7359,14 +7359,14 @@ define hidden void @aom_highbd_smooth_v_predictor_32x64_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7385,7 +7385,7 @@ define hidden void @aom_highbd_smooth_v_predictor_32x64_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -7410,14 +7410,14 @@ define hidden void @aom_highbd_smooth_v_predictor_64x32_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7436,7 +7436,7 @@ define hidden void @aom_highbd_smooth_v_predictor_64x32_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
@@ -7461,14 +7461,14 @@ define hidden void @aom_highbd_smooth_v_predictor_4x16_c(ptr nocapture noundef w
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7487,7 +7487,7 @@ define hidden void @aom_highbd_smooth_v_predictor_4x16_c(ptr nocapture noundef w
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
@@ -7512,14 +7512,14 @@ define hidden void @aom_highbd_smooth_v_predictor_16x4_c(ptr nocapture noundef w
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7538,7 +7538,7 @@ define hidden void @aom_highbd_smooth_v_predictor_16x4_c(ptr nocapture noundef w
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -7563,14 +7563,14 @@ define hidden void @aom_highbd_smooth_v_predictor_8x32_c(ptr nocapture noundef w
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7589,7 +7589,7 @@ define hidden void @aom_highbd_smooth_v_predictor_8x32_c(ptr nocapture noundef w
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -7614,14 +7614,14 @@ define hidden void @aom_highbd_smooth_v_predictor_32x8_c(ptr nocapture noundef w
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7640,7 +7640,7 @@ define hidden void @aom_highbd_smooth_v_predictor_32x8_c(ptr nocapture noundef w
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -7665,14 +7665,14 @@ define hidden void @aom_highbd_smooth_v_predictor_16x64_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7691,7 +7691,7 @@ define hidden void @aom_highbd_smooth_v_predictor_16x64_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -7716,14 +7716,14 @@ define hidden void @aom_highbd_smooth_v_predictor_64x16_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv38.i
   %9 = load i8, ptr %8, align 1
   %10 = sub i8 0, %9
   br label %11
 
 11:                                               ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv35.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35.i
   %13 = load i16, ptr %12, align 2
   br label %14
 
@@ -7742,7 +7742,7 @@ define hidden void @aom_highbd_smooth_v_predictor_64x16_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
@@ -7767,13 +7767,13 @@ define hidden void @aom_smooth_h_predictor_4x4_c(ptr nocapture noundef writeonly
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -7793,7 +7793,7 @@ define hidden void @aom_smooth_h_predictor_4x4_c(ptr nocapture noundef writeonly
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
@@ -7818,13 +7818,13 @@ define hidden void @aom_smooth_h_predictor_8x8_c(ptr nocapture noundef writeonly
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -7844,7 +7844,7 @@ define hidden void @aom_smooth_h_predictor_8x8_c(ptr nocapture noundef writeonly
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -7869,13 +7869,13 @@ define hidden void @aom_smooth_h_predictor_16x16_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -7895,7 +7895,7 @@ define hidden void @aom_smooth_h_predictor_16x16_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -7920,13 +7920,13 @@ define hidden void @aom_smooth_h_predictor_32x32_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -7946,7 +7946,7 @@ define hidden void @aom_smooth_h_predictor_32x32_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -7971,13 +7971,13 @@ define hidden void @aom_smooth_h_predictor_64x64_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -7997,7 +7997,7 @@ define hidden void @aom_smooth_h_predictor_64x64_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
@@ -8022,13 +8022,13 @@ define hidden void @aom_highbd_smooth_h_predictor_4x4_c(ptr nocapture noundef wr
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -8048,7 +8048,7 @@ define hidden void @aom_highbd_smooth_h_predictor_4x4_c(ptr nocapture noundef wr
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
@@ -8073,13 +8073,13 @@ define hidden void @aom_highbd_smooth_h_predictor_8x8_c(ptr nocapture noundef wr
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -8099,7 +8099,7 @@ define hidden void @aom_highbd_smooth_h_predictor_8x8_c(ptr nocapture noundef wr
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -8124,13 +8124,13 @@ define hidden void @aom_highbd_smooth_h_predictor_16x16_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -8150,7 +8150,7 @@ define hidden void @aom_highbd_smooth_h_predictor_16x16_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -8175,13 +8175,13 @@ define hidden void @aom_highbd_smooth_h_predictor_32x32_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -8201,7 +8201,7 @@ define hidden void @aom_highbd_smooth_h_predictor_32x32_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -8226,13 +8226,13 @@ define hidden void @aom_highbd_smooth_h_predictor_64x64_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -8252,7 +8252,7 @@ define hidden void @aom_highbd_smooth_h_predictor_64x64_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
@@ -8277,13 +8277,13 @@ define hidden void @aom_smooth_h_predictor_4x8_c(ptr nocapture noundef writeonly
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8303,7 +8303,7 @@ define hidden void @aom_smooth_h_predictor_4x8_c(ptr nocapture noundef writeonly
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
@@ -8328,13 +8328,13 @@ define hidden void @aom_smooth_h_predictor_8x4_c(ptr nocapture noundef writeonly
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8354,7 +8354,7 @@ define hidden void @aom_smooth_h_predictor_8x4_c(ptr nocapture noundef writeonly
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -8379,13 +8379,13 @@ define hidden void @aom_smooth_h_predictor_8x16_c(ptr nocapture noundef writeonl
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8405,7 +8405,7 @@ define hidden void @aom_smooth_h_predictor_8x16_c(ptr nocapture noundef writeonl
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -8430,13 +8430,13 @@ define hidden void @aom_smooth_h_predictor_16x8_c(ptr nocapture noundef writeonl
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8456,7 +8456,7 @@ define hidden void @aom_smooth_h_predictor_16x8_c(ptr nocapture noundef writeonl
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -8481,13 +8481,13 @@ define hidden void @aom_smooth_h_predictor_16x32_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8507,7 +8507,7 @@ define hidden void @aom_smooth_h_predictor_16x32_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -8532,13 +8532,13 @@ define hidden void @aom_smooth_h_predictor_32x16_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8558,7 +8558,7 @@ define hidden void @aom_smooth_h_predictor_32x16_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -8583,13 +8583,13 @@ define hidden void @aom_smooth_h_predictor_32x64_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8609,7 +8609,7 @@ define hidden void @aom_smooth_h_predictor_32x64_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -8634,13 +8634,13 @@ define hidden void @aom_smooth_h_predictor_64x32_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8660,7 +8660,7 @@ define hidden void @aom_smooth_h_predictor_64x32_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
@@ -8685,13 +8685,13 @@ define hidden void @aom_smooth_h_predictor_4x16_c(ptr nocapture noundef writeonl
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8711,7 +8711,7 @@ define hidden void @aom_smooth_h_predictor_4x16_c(ptr nocapture noundef writeonl
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
@@ -8736,13 +8736,13 @@ define hidden void @aom_smooth_h_predictor_16x4_c(ptr nocapture noundef writeonl
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8762,7 +8762,7 @@ define hidden void @aom_smooth_h_predictor_16x4_c(ptr nocapture noundef writeonl
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -8787,13 +8787,13 @@ define hidden void @aom_smooth_h_predictor_8x32_c(ptr nocapture noundef writeonl
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8813,7 +8813,7 @@ define hidden void @aom_smooth_h_predictor_8x32_c(ptr nocapture noundef writeonl
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -8838,13 +8838,13 @@ define hidden void @aom_smooth_h_predictor_32x8_c(ptr nocapture noundef writeonl
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8864,7 +8864,7 @@ define hidden void @aom_smooth_h_predictor_32x8_c(ptr nocapture noundef writeonl
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -8889,13 +8889,13 @@ define hidden void @aom_smooth_h_predictor_16x64_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8915,7 +8915,7 @@ define hidden void @aom_smooth_h_predictor_16x64_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -8940,13 +8940,13 @@ define hidden void @aom_smooth_h_predictor_64x16_c(ptr nocapture noundef writeon
 .preheader.i:                                     ; preds = %24, %4
   %indvars.iv38.i = phi i64 [ 0, %4 ], [ %indvars.iv.next39.i, %24 ]
   %.02832.i = phi ptr [ %0, %4 ], [ %25, %24 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   br label %8
 
 8:                                                ; preds = %19, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %19 ]
   %9 = load i8, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv35.i
+  %10 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv35.i
   %11 = load i8, ptr %10, align 1
   %12 = sub i8 0, %11
   br label %13
@@ -8966,7 +8966,7 @@ define hidden void @aom_smooth_h_predictor_64x16_c(ptr nocapture noundef writeon
   %20 = add i32 %18, 128
   %21 = lshr i32 %20, 8
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.02832.i, i64 %indvars.iv35.i
+  %23 = getelementptr inbounds nuw i8, ptr %.02832.i, i64 %indvars.iv35.i
   store i8 %22, ptr %23, align 1
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
@@ -8991,13 +8991,13 @@ define hidden void @aom_highbd_smooth_h_predictor_4x8_c(ptr nocapture noundef wr
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9017,7 +9017,7 @@ define hidden void @aom_highbd_smooth_h_predictor_4x8_c(ptr nocapture noundef wr
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
@@ -9042,13 +9042,13 @@ define hidden void @aom_highbd_smooth_h_predictor_8x4_c(ptr nocapture noundef wr
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9068,7 +9068,7 @@ define hidden void @aom_highbd_smooth_h_predictor_8x4_c(ptr nocapture noundef wr
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -9093,13 +9093,13 @@ define hidden void @aom_highbd_smooth_h_predictor_8x16_c(ptr nocapture noundef w
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9119,7 +9119,7 @@ define hidden void @aom_highbd_smooth_h_predictor_8x16_c(ptr nocapture noundef w
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -9144,13 +9144,13 @@ define hidden void @aom_highbd_smooth_h_predictor_16x8_c(ptr nocapture noundef w
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9170,7 +9170,7 @@ define hidden void @aom_highbd_smooth_h_predictor_16x8_c(ptr nocapture noundef w
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -9195,13 +9195,13 @@ define hidden void @aom_highbd_smooth_h_predictor_16x32_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9221,7 +9221,7 @@ define hidden void @aom_highbd_smooth_h_predictor_16x32_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -9246,13 +9246,13 @@ define hidden void @aom_highbd_smooth_h_predictor_32x16_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9272,7 +9272,7 @@ define hidden void @aom_highbd_smooth_h_predictor_32x16_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -9297,13 +9297,13 @@ define hidden void @aom_highbd_smooth_h_predictor_32x64_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9323,7 +9323,7 @@ define hidden void @aom_highbd_smooth_h_predictor_32x64_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -9348,13 +9348,13 @@ define hidden void @aom_highbd_smooth_h_predictor_64x32_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9374,7 +9374,7 @@ define hidden void @aom_highbd_smooth_h_predictor_64x32_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
@@ -9399,13 +9399,13 @@ define hidden void @aom_highbd_smooth_h_predictor_4x16_c(ptr nocapture noundef w
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 4), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9425,7 +9425,7 @@ define hidden void @aom_highbd_smooth_h_predictor_4x16_c(ptr nocapture noundef w
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 4
@@ -9450,13 +9450,13 @@ define hidden void @aom_highbd_smooth_h_predictor_16x4_c(ptr nocapture noundef w
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9476,7 +9476,7 @@ define hidden void @aom_highbd_smooth_h_predictor_16x4_c(ptr nocapture noundef w
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -9501,13 +9501,13 @@ define hidden void @aom_highbd_smooth_h_predictor_8x32_c(ptr nocapture noundef w
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 8), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9527,7 +9527,7 @@ define hidden void @aom_highbd_smooth_h_predictor_8x32_c(ptr nocapture noundef w
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 8
@@ -9552,13 +9552,13 @@ define hidden void @aom_highbd_smooth_h_predictor_32x8_c(ptr nocapture noundef w
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 32), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9578,7 +9578,7 @@ define hidden void @aom_highbd_smooth_h_predictor_32x8_c(ptr nocapture noundef w
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 32
@@ -9603,13 +9603,13 @@ define hidden void @aom_highbd_smooth_h_predictor_16x64_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 16), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9629,7 +9629,7 @@ define hidden void @aom_highbd_smooth_h_predictor_16x64_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 16
@@ -9654,13 +9654,13 @@ define hidden void @aom_highbd_smooth_h_predictor_64x16_c(ptr nocapture noundef 
 .preheader.i:                                     ; preds = %25, %5
   %indvars.iv38.i = phi i64 [ 0, %5 ], [ %indvars.iv.next39.i, %25 ]
   %.02832.i = phi ptr [ %0, %5 ], [ %26, %25 ]
-  %8 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   br label %9
 
 9:                                                ; preds = %20, %.preheader.i
   %indvars.iv35.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next36.i, %20 ]
   %10 = load i16, ptr %8, align 2
-  %11 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv35.i
+  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @sm_weight_arrays, i64 64), i64 %indvars.iv35.i
   %12 = load i8, ptr %11, align 1
   %13 = sub i8 0, %12
   br label %14
@@ -9680,7 +9680,7 @@ define hidden void @aom_highbd_smooth_h_predictor_64x16_c(ptr nocapture noundef 
   %21 = add i32 %19, 128
   %22 = lshr i32 %21, 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i16, ptr %.02832.i, i64 %indvars.iv35.i
+  %24 = getelementptr inbounds nuw i16, ptr %.02832.i, i64 %indvars.iv35.i
   store i16 %23, ptr %24, align 2
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next36.i, 64
@@ -9706,13 +9706,13 @@ define hidden void @aom_paeth_predictor_4x4_c(ptr nocapture noundef writeonly %0
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -9729,7 +9729,7 @@ define hidden void @aom_paeth_predictor_4x4_c(ptr nocapture noundef writeonly %0
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -9755,13 +9755,13 @@ define hidden void @aom_paeth_predictor_8x8_c(ptr nocapture noundef writeonly %0
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -9778,7 +9778,7 @@ define hidden void @aom_paeth_predictor_8x8_c(ptr nocapture noundef writeonly %0
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -9804,13 +9804,13 @@ define hidden void @aom_paeth_predictor_16x16_c(ptr nocapture noundef writeonly 
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -9827,7 +9827,7 @@ define hidden void @aom_paeth_predictor_16x16_c(ptr nocapture noundef writeonly 
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -9853,13 +9853,13 @@ define hidden void @aom_paeth_predictor_32x32_c(ptr nocapture noundef writeonly 
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -9876,7 +9876,7 @@ define hidden void @aom_paeth_predictor_32x32_c(ptr nocapture noundef writeonly 
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -9902,13 +9902,13 @@ define hidden void @aom_paeth_predictor_64x64_c(ptr nocapture noundef writeonly 
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -9925,7 +9925,7 @@ define hidden void @aom_paeth_predictor_64x64_c(ptr nocapture noundef writeonly 
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -9951,13 +9951,13 @@ define hidden void @aom_highbd_paeth_predictor_4x4_c(ptr nocapture noundef write
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -9974,7 +9974,7 @@ define hidden void @aom_highbd_paeth_predictor_4x4_c(ptr nocapture noundef write
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -10000,13 +10000,13 @@ define hidden void @aom_highbd_paeth_predictor_8x8_c(ptr nocapture noundef write
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -10023,7 +10023,7 @@ define hidden void @aom_highbd_paeth_predictor_8x8_c(ptr nocapture noundef write
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -10049,13 +10049,13 @@ define hidden void @aom_highbd_paeth_predictor_16x16_c(ptr nocapture noundef wri
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -10072,7 +10072,7 @@ define hidden void @aom_highbd_paeth_predictor_16x16_c(ptr nocapture noundef wri
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -10098,13 +10098,13 @@ define hidden void @aom_highbd_paeth_predictor_32x32_c(ptr nocapture noundef wri
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -10121,7 +10121,7 @@ define hidden void @aom_highbd_paeth_predictor_32x32_c(ptr nocapture noundef wri
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -10147,13 +10147,13 @@ define hidden void @aom_highbd_paeth_predictor_64x64_c(ptr nocapture noundef wri
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -10170,7 +10170,7 @@ define hidden void @aom_highbd_paeth_predictor_64x64_c(ptr nocapture noundef wri
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -10196,13 +10196,13 @@ define hidden void @aom_paeth_predictor_4x8_c(ptr nocapture noundef writeonly %0
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10219,7 +10219,7 @@ define hidden void @aom_paeth_predictor_4x8_c(ptr nocapture noundef writeonly %0
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -10245,13 +10245,13 @@ define hidden void @aom_paeth_predictor_8x4_c(ptr nocapture noundef writeonly %0
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10268,7 +10268,7 @@ define hidden void @aom_paeth_predictor_8x4_c(ptr nocapture noundef writeonly %0
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -10294,13 +10294,13 @@ define hidden void @aom_paeth_predictor_8x16_c(ptr nocapture noundef writeonly %
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10317,7 +10317,7 @@ define hidden void @aom_paeth_predictor_8x16_c(ptr nocapture noundef writeonly %
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -10343,13 +10343,13 @@ define hidden void @aom_paeth_predictor_16x8_c(ptr nocapture noundef writeonly %
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10366,7 +10366,7 @@ define hidden void @aom_paeth_predictor_16x8_c(ptr nocapture noundef writeonly %
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -10392,13 +10392,13 @@ define hidden void @aom_paeth_predictor_16x32_c(ptr nocapture noundef writeonly 
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10415,7 +10415,7 @@ define hidden void @aom_paeth_predictor_16x32_c(ptr nocapture noundef writeonly 
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -10441,13 +10441,13 @@ define hidden void @aom_paeth_predictor_32x16_c(ptr nocapture noundef writeonly 
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10464,7 +10464,7 @@ define hidden void @aom_paeth_predictor_32x16_c(ptr nocapture noundef writeonly 
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -10490,13 +10490,13 @@ define hidden void @aom_paeth_predictor_32x64_c(ptr nocapture noundef writeonly 
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10513,7 +10513,7 @@ define hidden void @aom_paeth_predictor_32x64_c(ptr nocapture noundef writeonly 
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -10539,13 +10539,13 @@ define hidden void @aom_paeth_predictor_64x32_c(ptr nocapture noundef writeonly 
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10562,7 +10562,7 @@ define hidden void @aom_paeth_predictor_64x32_c(ptr nocapture noundef writeonly 
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -10588,13 +10588,13 @@ define hidden void @aom_paeth_predictor_4x16_c(ptr nocapture noundef writeonly %
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10611,7 +10611,7 @@ define hidden void @aom_paeth_predictor_4x16_c(ptr nocapture noundef writeonly %
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -10637,13 +10637,13 @@ define hidden void @aom_paeth_predictor_16x4_c(ptr nocapture noundef writeonly %
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10660,7 +10660,7 @@ define hidden void @aom_paeth_predictor_16x4_c(ptr nocapture noundef writeonly %
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -10686,13 +10686,13 @@ define hidden void @aom_paeth_predictor_8x32_c(ptr nocapture noundef writeonly %
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10709,7 +10709,7 @@ define hidden void @aom_paeth_predictor_8x32_c(ptr nocapture noundef writeonly %
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -10735,13 +10735,13 @@ define hidden void @aom_paeth_predictor_32x8_c(ptr nocapture noundef writeonly %
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10758,7 +10758,7 @@ define hidden void @aom_paeth_predictor_32x8_c(ptr nocapture noundef writeonly %
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -10784,13 +10784,13 @@ define hidden void @aom_paeth_predictor_16x64_c(ptr nocapture noundef writeonly 
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10807,7 +10807,7 @@ define hidden void @aom_paeth_predictor_16x64_c(ptr nocapture noundef writeonly 
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -10833,13 +10833,13 @@ define hidden void @aom_paeth_predictor_64x16_c(ptr nocapture noundef writeonly 
 .preheader.i:                                     ; preds = %23, %4
   %indvars.iv22.i = phi i64 [ 0, %4 ], [ %indvars.iv.next23.i, %23 ]
   %.020.i = phi ptr [ %0, %4 ], [ %24, %23 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv22.i
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv22.i
   br label %9
 
 9:                                                ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %10 = load i8, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = zext i8 %10 to i32
@@ -10856,7 +10856,7 @@ define hidden void @aom_paeth_predictor_64x16_c(ptr nocapture noundef writeonly 
   %.not19.i.i = icmp samesign ugt i32 %19, %21
   %.v.i = select i1 %.not19.i.i, i8 %6, i8 %12
   %.v17.i = select i1 %or.cond.i.i, i8 %.v.i, i8 %10
-  %22 = getelementptr inbounds i8, ptr %.020.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.020.i, i64 %indvars.iv.i
   store i8 %.v17.i, ptr %22, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -10882,13 +10882,13 @@ define hidden void @aom_highbd_paeth_predictor_4x8_c(ptr nocapture noundef write
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -10905,7 +10905,7 @@ define hidden void @aom_highbd_paeth_predictor_4x8_c(ptr nocapture noundef write
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -10931,13 +10931,13 @@ define hidden void @aom_highbd_paeth_predictor_8x4_c(ptr nocapture noundef write
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -10954,7 +10954,7 @@ define hidden void @aom_highbd_paeth_predictor_8x4_c(ptr nocapture noundef write
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -10980,13 +10980,13 @@ define hidden void @aom_highbd_paeth_predictor_8x16_c(ptr nocapture noundef writ
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -11003,7 +11003,7 @@ define hidden void @aom_highbd_paeth_predictor_8x16_c(ptr nocapture noundef writ
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -11029,13 +11029,13 @@ define hidden void @aom_highbd_paeth_predictor_16x8_c(ptr nocapture noundef writ
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -11052,7 +11052,7 @@ define hidden void @aom_highbd_paeth_predictor_16x8_c(ptr nocapture noundef writ
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -11078,13 +11078,13 @@ define hidden void @aom_highbd_paeth_predictor_16x32_c(ptr nocapture noundef wri
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -11101,7 +11101,7 @@ define hidden void @aom_highbd_paeth_predictor_16x32_c(ptr nocapture noundef wri
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -11127,13 +11127,13 @@ define hidden void @aom_highbd_paeth_predictor_32x16_c(ptr nocapture noundef wri
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -11150,7 +11150,7 @@ define hidden void @aom_highbd_paeth_predictor_32x16_c(ptr nocapture noundef wri
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -11176,13 +11176,13 @@ define hidden void @aom_highbd_paeth_predictor_32x64_c(ptr nocapture noundef wri
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -11199,7 +11199,7 @@ define hidden void @aom_highbd_paeth_predictor_32x64_c(ptr nocapture noundef wri
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -11225,13 +11225,13 @@ define hidden void @aom_highbd_paeth_predictor_64x32_c(ptr nocapture noundef wri
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -11248,7 +11248,7 @@ define hidden void @aom_highbd_paeth_predictor_64x32_c(ptr nocapture noundef wri
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -11274,13 +11274,13 @@ define hidden void @aom_highbd_paeth_predictor_4x16_c(ptr nocapture noundef writ
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -11297,7 +11297,7 @@ define hidden void @aom_highbd_paeth_predictor_4x16_c(ptr nocapture noundef writ
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -11323,13 +11323,13 @@ define hidden void @aom_highbd_paeth_predictor_16x4_c(ptr nocapture noundef writ
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -11346,7 +11346,7 @@ define hidden void @aom_highbd_paeth_predictor_16x4_c(ptr nocapture noundef writ
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -11372,13 +11372,13 @@ define hidden void @aom_highbd_paeth_predictor_8x32_c(ptr nocapture noundef writ
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -11395,7 +11395,7 @@ define hidden void @aom_highbd_paeth_predictor_8x32_c(ptr nocapture noundef writ
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -11421,13 +11421,13 @@ define hidden void @aom_highbd_paeth_predictor_32x8_c(ptr nocapture noundef writ
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -11444,7 +11444,7 @@ define hidden void @aom_highbd_paeth_predictor_32x8_c(ptr nocapture noundef writ
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -11470,13 +11470,13 @@ define hidden void @aom_highbd_paeth_predictor_16x64_c(ptr nocapture noundef wri
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -11493,7 +11493,7 @@ define hidden void @aom_highbd_paeth_predictor_16x64_c(ptr nocapture noundef wri
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -11519,13 +11519,13 @@ define hidden void @aom_highbd_paeth_predictor_64x16_c(ptr nocapture noundef wri
 .preheader.i:                                     ; preds = %26, %5
   %indvars.iv21.i = phi i64 [ 0, %5 ], [ %indvars.iv.next22.i, %26 ]
   %.019.i = phi ptr [ %0, %5 ], [ %27, %26 ]
-  %9 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv21.i
+  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv21.i
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load i16, ptr %9, align 2
-  %12 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %11 to i32
@@ -11542,7 +11542,7 @@ define hidden void @aom_highbd_paeth_predictor_64x16_c(ptr nocapture noundef wri
   %.not19.i.i = icmp samesign ugt i32 %20, %22
   %23 = select i1 %.not19.i.i, i16 %7, i16 %13
   %24 = select i1 %or.cond.i.i, i16 %23, i16 %11
-  %25 = getelementptr inbounds i16, ptr %.019.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %.019.i, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -12249,7 +12249,7 @@ define hidden void @aom_dc_left_predictor_4x4_c(ptr nocapture noundef writeonly 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12283,7 +12283,7 @@ define hidden void @aom_dc_left_predictor_8x8_c(ptr nocapture noundef writeonly 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12317,7 +12317,7 @@ define hidden void @aom_dc_left_predictor_16x16_c(ptr nocapture noundef writeonl
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12351,7 +12351,7 @@ define hidden void @aom_dc_left_predictor_32x32_c(ptr nocapture noundef writeonl
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12385,7 +12385,7 @@ define hidden void @aom_dc_left_predictor_64x64_c(ptr nocapture noundef writeonl
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12419,7 +12419,7 @@ define hidden void @aom_highbd_dc_left_predictor_4x4_c(ptr noundef %0, i64 nound
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -12452,7 +12452,7 @@ define hidden void @aom_highbd_dc_left_predictor_8x8_c(ptr noundef %0, i64 nound
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -12485,7 +12485,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x16_c(ptr noundef %0, i64 nou
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -12518,7 +12518,7 @@ define hidden void @aom_highbd_dc_left_predictor_32x32_c(ptr noundef %0, i64 nou
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -12551,7 +12551,7 @@ define hidden void @aom_highbd_dc_left_predictor_64x64_c(ptr noundef %0, i64 nou
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -12584,7 +12584,7 @@ define hidden void @aom_dc_left_predictor_4x8_c(ptr nocapture noundef writeonly 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12618,7 +12618,7 @@ define hidden void @aom_dc_left_predictor_8x4_c(ptr nocapture noundef writeonly 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12652,7 +12652,7 @@ define hidden void @aom_dc_left_predictor_8x16_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12686,7 +12686,7 @@ define hidden void @aom_dc_left_predictor_16x8_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12720,7 +12720,7 @@ define hidden void @aom_dc_left_predictor_16x32_c(ptr nocapture noundef writeonl
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12754,7 +12754,7 @@ define hidden void @aom_dc_left_predictor_32x16_c(ptr nocapture noundef writeonl
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12788,7 +12788,7 @@ define hidden void @aom_dc_left_predictor_32x64_c(ptr nocapture noundef writeonl
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12822,7 +12822,7 @@ define hidden void @aom_dc_left_predictor_64x32_c(ptr nocapture noundef writeonl
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12856,7 +12856,7 @@ define hidden void @aom_dc_left_predictor_4x16_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12890,7 +12890,7 @@ define hidden void @aom_dc_left_predictor_16x4_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12924,7 +12924,7 @@ define hidden void @aom_dc_left_predictor_8x32_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12958,7 +12958,7 @@ define hidden void @aom_dc_left_predictor_32x8_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -12992,7 +12992,7 @@ define hidden void @aom_dc_left_predictor_16x64_c(ptr nocapture noundef writeonl
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -13026,7 +13026,7 @@ define hidden void @aom_dc_left_predictor_64x16_c(ptr nocapture noundef writeonl
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -13060,7 +13060,7 @@ define hidden void @aom_highbd_dc_left_predictor_4x8_c(ptr noundef %0, i64 nound
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13093,7 +13093,7 @@ define hidden void @aom_highbd_dc_left_predictor_8x4_c(ptr noundef %0, i64 nound
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13126,7 +13126,7 @@ define hidden void @aom_highbd_dc_left_predictor_8x16_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13159,7 +13159,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x8_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13192,7 +13192,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x32_c(ptr noundef %0, i64 nou
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13225,7 +13225,7 @@ define hidden void @aom_highbd_dc_left_predictor_32x16_c(ptr noundef %0, i64 nou
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13258,7 +13258,7 @@ define hidden void @aom_highbd_dc_left_predictor_32x64_c(ptr noundef %0, i64 nou
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13291,7 +13291,7 @@ define hidden void @aom_highbd_dc_left_predictor_64x32_c(ptr noundef %0, i64 nou
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13324,7 +13324,7 @@ define hidden void @aom_highbd_dc_left_predictor_4x16_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13357,7 +13357,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x4_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13390,7 +13390,7 @@ define hidden void @aom_highbd_dc_left_predictor_8x32_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13423,7 +13423,7 @@ define hidden void @aom_highbd_dc_left_predictor_32x8_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13456,7 +13456,7 @@ define hidden void @aom_highbd_dc_left_predictor_16x64_c(ptr noundef %0, i64 nou
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13489,7 +13489,7 @@ define hidden void @aom_highbd_dc_left_predictor_64x16_c(ptr noundef %0, i64 nou
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13522,7 +13522,7 @@ define hidden void @aom_dc_top_predictor_4x4_c(ptr nocapture noundef writeonly %
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -13556,7 +13556,7 @@ define hidden void @aom_dc_top_predictor_8x8_c(ptr nocapture noundef writeonly %
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -13590,7 +13590,7 @@ define hidden void @aom_dc_top_predictor_16x16_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -13624,7 +13624,7 @@ define hidden void @aom_dc_top_predictor_32x32_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -13658,7 +13658,7 @@ define hidden void @aom_dc_top_predictor_64x64_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -13692,7 +13692,7 @@ define hidden void @aom_highbd_dc_top_predictor_4x4_c(ptr noundef %0, i64 nounde
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13725,7 +13725,7 @@ define hidden void @aom_highbd_dc_top_predictor_8x8_c(ptr noundef %0, i64 nounde
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13758,7 +13758,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x16_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13791,7 +13791,7 @@ define hidden void @aom_highbd_dc_top_predictor_32x32_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13824,7 +13824,7 @@ define hidden void @aom_highbd_dc_top_predictor_64x64_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -13857,7 +13857,7 @@ define hidden void @aom_dc_top_predictor_4x8_c(ptr nocapture noundef writeonly %
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -13891,7 +13891,7 @@ define hidden void @aom_dc_top_predictor_8x4_c(ptr nocapture noundef writeonly %
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -13925,7 +13925,7 @@ define hidden void @aom_dc_top_predictor_8x16_c(ptr nocapture noundef writeonly 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -13959,7 +13959,7 @@ define hidden void @aom_dc_top_predictor_16x8_c(ptr nocapture noundef writeonly 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -13993,7 +13993,7 @@ define hidden void @aom_dc_top_predictor_16x32_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -14027,7 +14027,7 @@ define hidden void @aom_dc_top_predictor_32x16_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -14061,7 +14061,7 @@ define hidden void @aom_dc_top_predictor_32x64_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -14095,7 +14095,7 @@ define hidden void @aom_dc_top_predictor_64x32_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -14129,7 +14129,7 @@ define hidden void @aom_dc_top_predictor_4x16_c(ptr nocapture noundef writeonly 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -14163,7 +14163,7 @@ define hidden void @aom_dc_top_predictor_16x4_c(ptr nocapture noundef writeonly 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -14197,7 +14197,7 @@ define hidden void @aom_dc_top_predictor_8x32_c(ptr nocapture noundef writeonly 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -14231,7 +14231,7 @@ define hidden void @aom_dc_top_predictor_32x8_c(ptr nocapture noundef writeonly 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -14265,7 +14265,7 @@ define hidden void @aom_dc_top_predictor_16x64_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -14299,7 +14299,7 @@ define hidden void @aom_dc_top_predictor_64x16_c(ptr nocapture noundef writeonly
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02.i, %8
@@ -14333,7 +14333,7 @@ define hidden void @aom_highbd_dc_top_predictor_4x8_c(ptr noundef %0, i64 nounde
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14366,7 +14366,7 @@ define hidden void @aom_highbd_dc_top_predictor_8x4_c(ptr noundef %0, i64 nounde
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14399,7 +14399,7 @@ define hidden void @aom_highbd_dc_top_predictor_8x16_c(ptr noundef %0, i64 nound
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14432,7 +14432,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x8_c(ptr noundef %0, i64 nound
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14465,7 +14465,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x32_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14498,7 +14498,7 @@ define hidden void @aom_highbd_dc_top_predictor_32x16_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14531,7 +14531,7 @@ define hidden void @aom_highbd_dc_top_predictor_32x64_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14564,7 +14564,7 @@ define hidden void @aom_highbd_dc_top_predictor_64x32_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14597,7 +14597,7 @@ define hidden void @aom_highbd_dc_top_predictor_4x16_c(ptr noundef %0, i64 nound
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14630,7 +14630,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x4_c(ptr noundef %0, i64 nound
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14663,7 +14663,7 @@ define hidden void @aom_highbd_dc_top_predictor_8x32_c(ptr noundef %0, i64 nound
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14696,7 +14696,7 @@ define hidden void @aom_highbd_dc_top_predictor_32x8_c(ptr noundef %0, i64 nound
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14729,7 +14729,7 @@ define hidden void @aom_highbd_dc_top_predictor_16x64_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14762,7 +14762,7 @@ define hidden void @aom_highbd_dc_top_predictor_64x16_c(ptr noundef %0, i64 noun
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02.i, %9
@@ -14795,7 +14795,7 @@ define hidden void @aom_dc_predictor_4x4_c(ptr nocapture noundef writeonly %0, i
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02431.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02431.i, %8
@@ -14806,7 +14806,7 @@ define hidden void @aom_dc_predictor_4x4_c(ptr nocapture noundef writeonly %0, i
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.133.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.133.i, %12
@@ -14840,7 +14840,7 @@ define hidden void @aom_dc_predictor_8x8_c(ptr nocapture noundef writeonly %0, i
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02431.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02431.i, %8
@@ -14851,7 +14851,7 @@ define hidden void @aom_dc_predictor_8x8_c(ptr nocapture noundef writeonly %0, i
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.133.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.133.i, %12
@@ -14885,7 +14885,7 @@ define hidden void @aom_dc_predictor_16x16_c(ptr nocapture noundef writeonly %0,
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02431.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02431.i, %8
@@ -14896,7 +14896,7 @@ define hidden void @aom_dc_predictor_16x16_c(ptr nocapture noundef writeonly %0,
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.133.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.133.i, %12
@@ -14930,7 +14930,7 @@ define hidden void @aom_dc_predictor_32x32_c(ptr nocapture noundef writeonly %0,
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02431.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02431.i, %8
@@ -14941,7 +14941,7 @@ define hidden void @aom_dc_predictor_32x32_c(ptr nocapture noundef writeonly %0,
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.133.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.133.i, %12
@@ -14975,7 +14975,7 @@ define hidden void @aom_dc_predictor_64x64_c(ptr nocapture noundef writeonly %0,
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
   %.02431.i = phi i32 [ 0, %4 ], [ %9, %5 ]
-  %6 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %.02431.i, %8
@@ -14986,7 +14986,7 @@ define hidden void @aom_dc_predictor_64x64_c(ptr nocapture noundef writeonly %0,
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %5 ]
   %.133.i = phi i32 [ %13, %.preheader.i ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv38.i
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv38.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %.133.i, %12
@@ -15020,7 +15020,7 @@ define hidden void @aom_highbd_dc_predictor_4x4_c(ptr noundef %0, i64 noundef %1
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02431.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02431.i, %9
@@ -15031,7 +15031,7 @@ define hidden void @aom_highbd_dc_predictor_4x4_c(ptr noundef %0, i64 noundef %1
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.133.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.133.i, %13
@@ -15064,7 +15064,7 @@ define hidden void @aom_highbd_dc_predictor_8x8_c(ptr noundef %0, i64 noundef %1
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02431.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02431.i, %9
@@ -15075,7 +15075,7 @@ define hidden void @aom_highbd_dc_predictor_8x8_c(ptr noundef %0, i64 noundef %1
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.133.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.133.i, %13
@@ -15108,7 +15108,7 @@ define hidden void @aom_highbd_dc_predictor_16x16_c(ptr noundef %0, i64 noundef 
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02431.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02431.i, %9
@@ -15119,7 +15119,7 @@ define hidden void @aom_highbd_dc_predictor_16x16_c(ptr noundef %0, i64 noundef 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.133.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.133.i, %13
@@ -15152,7 +15152,7 @@ define hidden void @aom_highbd_dc_predictor_32x32_c(ptr noundef %0, i64 noundef 
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02431.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02431.i, %9
@@ -15163,7 +15163,7 @@ define hidden void @aom_highbd_dc_predictor_32x32_c(ptr noundef %0, i64 noundef 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.133.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.133.i, %13
@@ -15196,7 +15196,7 @@ define hidden void @aom_highbd_dc_predictor_64x64_c(ptr noundef %0, i64 noundef 
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
   %.02431.i = phi i32 [ 0, %5 ], [ %10, %6 ]
-  %7 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %.02431.i, %9
@@ -15207,7 +15207,7 @@ define hidden void @aom_highbd_dc_predictor_64x64_c(ptr noundef %0, i64 noundef 
 .preheader.i:                                     ; preds = %6, %.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.preheader.i ], [ 0, %6 ]
   %.133.i = phi i32 [ %14, %.preheader.i ], [ %10, %6 ]
-  %11 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv38.i
+  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv38.i
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = add nuw nsw i32 %.133.i, %13

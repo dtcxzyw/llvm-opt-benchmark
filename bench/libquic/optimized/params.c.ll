@@ -36,11 +36,11 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh1024_160) #2
   store ptr %call1.i, ptr %call.i, align 8
-  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (i8, ptr @dh1024_160, i64 24)) #2
-  %q4.i = getelementptr inbounds i8, ptr %call.i, i64 104
+  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh1024_160, i64 24)) #2
+  %q4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr %call3.i, ptr %q4.i, align 8
-  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (i8, ptr @dh1024_160, i64 48)) #2
-  %g6.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh1024_160, i64 48)) #2
+  %g6.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call5.i, ptr %g6.i, align 8
   %0 = load ptr, ptr %call.i, align 8
   %tobool8.not.i = icmp eq ptr %0, null
@@ -72,11 +72,11 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh2048_224) #2
   store ptr %call1.i, ptr %call.i, align 8
-  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (i8, ptr @dh2048_224, i64 24)) #2
-  %q4.i = getelementptr inbounds i8, ptr %call.i, i64 104
+  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh2048_224, i64 24)) #2
+  %q4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr %call3.i, ptr %q4.i, align 8
-  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (i8, ptr @dh2048_224, i64 48)) #2
-  %g6.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh2048_224, i64 48)) #2
+  %g6.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call5.i, ptr %g6.i, align 8
   %0 = load ptr, ptr %call.i, align 8
   %tobool8.not.i = icmp eq ptr %0, null
@@ -108,11 +108,11 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_dup(ptr noundef nonnull @dh2048_256) #2
   store ptr %call1.i, ptr %call.i, align 8
-  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (i8, ptr @dh2048_256, i64 24)) #2
-  %q4.i = getelementptr inbounds i8, ptr %call.i, i64 104
+  %call3.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh2048_256, i64 24)) #2
+  %q4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr %call3.i, ptr %q4.i, align 8
-  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds (i8, ptr @dh2048_256, i64 48)) #2
-  %g6.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %call5.i = tail call ptr @BN_dup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @dh2048_256, i64 48)) #2
+  %g6.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call5.i, ptr %g6.i, align 8
   %0 = load ptr, ptr %call.i, align 8
   %tobool8.not.i = icmp eq ptr %0, null
@@ -142,7 +142,7 @@ entry:
   br i1 %cmp, label %for.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %g = getelementptr inbounds i8, ptr %dh, i64 8
+  %g = getelementptr inbounds nuw i8, ptr %dh, i64 8
   %1 = load ptr, ptr %g, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %for.end, label %lor.lhs.false2
@@ -166,13 +166,13 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %lor.lhs.false5, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %lor.lhs.false5 ]
   %3 = load ptr, ptr %dh, align 8
-  %arrayidx = getelementptr inbounds [4 x %struct.bignum_st], ptr @dh1024_safe_prime, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x %struct.bignum_st], ptr @dh1024_safe_prime, i64 0, i64 %indvars.iv
   %call12 = tail call i32 @BN_cmp(ptr noundef %3, ptr noundef nonnull %arrayidx) #2
   %cmp13 = icmp eq i32 %call12, 0
   br i1 %cmp13, label %if.then15, label %for.cond
 
 if.then15:                                        ; preds = %for.body
-  %priv_length = getelementptr inbounds i8, ptr %dh, i64 32
+  %priv_length = getelementptr inbounds nuw i8, ptr %dh, i64 32
   store i32 161, ptr %priv_length, align 8
   br label %for.end
 

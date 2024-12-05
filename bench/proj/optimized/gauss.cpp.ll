@@ -11,7 +11,7 @@ define hidden noalias noundef ptr @_Z12pj_gauss_iniddPdS_(double noundef %0, dou
 
 7:                                                ; preds = %4
   %8 = fmul double %0, %0
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %0, ptr %9, align 8
   %10 = tail call double @sin(double noundef %1) #9
   %11 = tail call double @cos(double noundef %1) #9
@@ -42,7 +42,7 @@ define hidden noalias noundef ptr @_Z12pj_gauss_iniddPdS_(double noundef %0, dou
   store double %28, ptr %2, align 8
   %29 = fmul double %23, 5.000000e-01
   %30 = fmul double %0, %29
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double %30, ptr %31, align 8
   %32 = fmul double %0, %10
   %33 = fsub double 1.000000e+00, %32
@@ -63,7 +63,7 @@ define hidden noalias noundef ptr @_Z12pj_gauss_iniddPdS_(double noundef %0, dou
 
 42:                                               ; preds = %39
   %43 = fdiv double 1.000000e+00, %36
-  %44 = getelementptr inbounds i8, ptr %5, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %43, ptr %44, align 8
   br label %54
 
@@ -75,7 +75,7 @@ define hidden noalias noundef ptr @_Z12pj_gauss_iniddPdS_(double noundef %0, dou
   %50 = tail call double @pow(double noundef %49, double noundef %23) #9
   %51 = fmul double %36, %50
   %52 = fdiv double %48, %51
-  %53 = getelementptr inbounds i8, ptr %5, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %52, ptr %53, align 8
   br label %54
 
@@ -113,18 +113,18 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define hidden { double, double } @_Z8pj_gaussP6pj_ctx5PJ_LPPKv(ptr nocapture noundef readnone %0, double %1, double %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load double, ptr %5, align 8
   %7 = tail call double @llvm.fmuladd.f64(double %2, double 5.000000e-01, double 0x3FE921FB54442D18)
   %8 = tail call double @tan(double noundef %7) #9
   %9 = load double, ptr %3, align 8
   %10 = tail call double @pow(double noundef %8, double noundef %9) #9
   %11 = fmul double %6, %10
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load double, ptr %12, align 8
   %14 = tail call double @sin(double noundef %2) #9
   %15 = fmul double %13, %14
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = load double, ptr %16, align 8
   %18 = fsub double 1.000000e+00, %15
   %19 = fadd double %15, 1.000000e+00
@@ -148,13 +148,13 @@ define hidden { double, double } @_Z12pj_inv_gaussP6pj_ctx5PJ_LPPKv(ptr noundef 
   %5 = load double, ptr %3, align 8
   %6 = tail call double @llvm.fmuladd.f64(double %2, double 5.000000e-01, double 0x3FE921FB54442D18)
   %7 = tail call double @tan(double noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fdiv double %7, %9
   %11 = load double, ptr %3, align 8
   %12 = fdiv double 1.000000e+00, %11
   %13 = tail call double @pow(double noundef %10, double noundef %12) #9
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %17
 
 15:                                               ; preds = %17

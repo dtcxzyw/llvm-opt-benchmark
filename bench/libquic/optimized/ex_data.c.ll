@@ -18,14 +18,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i64 %argl, ptr %call, align 8
-  %argp2 = getelementptr inbounds i8, ptr %call, i64 8
+  %argp2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %argp, ptr %argp2, align 8
-  %dup_func3 = getelementptr inbounds i8, ptr %call, i64 24
+  %dup_func3 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %dup_func, ptr %dup_func3, align 8
-  %free_func4 = getelementptr inbounds i8, ptr %call, i64 16
+  %free_func4 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %free_func, ptr %free_func4, align 8
   tail call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef %ex_data_class) #7
-  %meth = getelementptr inbounds i8, ptr %ex_data_class, i64 56
+  %meth = getelementptr inbounds nuw i8, ptr %ex_data_class, i64 56
   %0 = load ptr, ptr %meth, align 8
   %cmp5 = icmp eq ptr %0, null
   br i1 %cmp5, label %if.end9, label %lor.lhs.false
@@ -51,7 +51,7 @@ if.end15:                                         ; preds = %lor.lhs.false
   %2 = load ptr, ptr %meth, align 8
   %call17 = tail call i64 @sk_num(ptr noundef %2) #7
   %sub = add i64 %call17, 4294967295
-  %num_reserved = getelementptr inbounds i8, ptr %ex_data_class, i64 64
+  %num_reserved = getelementptr inbounds nuw i8, ptr %ex_data_class, i64 64
   %3 = load i8, ptr %num_reserved, align 8
   %conv = zext i8 %3 to i64
   %add = add i64 %sub, %conv
@@ -184,7 +184,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef %ex_data_class) #7
-  %meth.i = getelementptr inbounds i8, ptr %ex_data_class, i64 56
+  %meth.i = getelementptr inbounds nuw i8, ptr %ex_data_class, i64 56
   %1 = load ptr, ptr %meth.i, align 8
   %call.i = tail call i64 @sk_num(ptr noundef %1) #7
   %cmp.not.i = icmp eq i64 %call.i, 0
@@ -212,7 +212,7 @@ get_func_pointers.exit:                           ; preds = %if.then.i, %if.end7
   br i1 %cmp424.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %get_func_pointers.exit
-  %num_reserved = getelementptr inbounds i8, ptr %ex_data_class, i64 64
+  %num_reserved = getelementptr inbounds nuw i8, ptr %ex_data_class, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end16
@@ -242,7 +242,7 @@ if.end.i:                                         ; preds = %lor.lhs.false2.i
 CRYPTO_get_ex_data.exit:                          ; preds = %for.body, %lor.lhs.false2.i, %if.end.i
   %retval.0.i16 = phi ptr [ %call8.i, %if.end.i ], [ null, %lor.lhs.false2.i ], [ null, %for.body ]
   store ptr %retval.0.i16, ptr %ptr, align 8
-  %dup_func = getelementptr inbounds i8, ptr %call5, i64 24
+  %dup_func = getelementptr inbounds nuw i8, ptr %call5, i64 24
   %7 = load ptr, ptr %dup_func, align 8
   %tobool8.not = icmp eq ptr %7, null
   %.pre26 = load i8, ptr %num_reserved, align 8
@@ -253,7 +253,7 @@ if.then9:                                         ; preds = %CRYPTO_get_ex_data.
   %add13 = add i64 %i.025, %conv12
   %conv14 = trunc i64 %add13 to i32
   %8 = load i64, ptr %call5, align 8
-  %argp = getelementptr inbounds i8, ptr %call5, i64 8
+  %argp = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %9 = load ptr, ptr %argp, align 8
   %call15 = call i32 %7(ptr noundef %to, ptr noundef nonnull %from, ptr noundef nonnull %ptr, i32 noundef %conv14, i64 noundef %8, ptr noundef %9) #7
   %.pre = load i8, ptr %num_reserved, align 8
@@ -292,7 +292,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef %ex_data_class) #7
-  %meth.i = getelementptr inbounds i8, ptr %ex_data_class, i64 56
+  %meth.i = getelementptr inbounds nuw i8, ptr %ex_data_class, i64 56
   %1 = load ptr, ptr %meth.i, align 8
   %call.i = tail call i64 @sk_num(ptr noundef %1) #7
   %cmp.not.i = icmp eq i64 %call.i, 0
@@ -320,13 +320,13 @@ get_func_pointers.exit:                           ; preds = %if.then.i, %if.end7
   br i1 %cmp423.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %get_func_pointers.exit
-  %num_reserved = getelementptr inbounds i8, ptr %ex_data_class, i64 64
+  %num_reserved = getelementptr inbounds nuw i8, ptr %ex_data_class, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.024 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call5 = tail call ptr @sk_value(ptr noundef %func_pointers.0, i64 noundef %i.024) #7
-  %free_func = getelementptr inbounds i8, ptr %call5, i64 16
+  %free_func = getelementptr inbounds nuw i8, ptr %call5, i64 16
   %3 = load ptr, ptr %free_func, align 8
   %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
@@ -361,7 +361,7 @@ CRYPTO_get_ex_data.exit:                          ; preds = %if.then7, %lor.lhs.
   %add13 = add i64 %i.024, %conv12
   %conv14 = trunc i64 %add13 to i32
   %10 = load i64, ptr %call5, align 8
-  %argp = getelementptr inbounds i8, ptr %call5, i64 8
+  %argp = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %11 = load ptr, ptr %argp, align 8
   tail call void %8(ptr noundef %obj, ptr noundef %retval.0.i15, ptr noundef nonnull %ad, i32 noundef %conv14, i64 noundef %10, ptr noundef %11) #7
   br label %for.inc

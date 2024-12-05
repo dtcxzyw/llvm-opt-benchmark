@@ -213,7 +213,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen2hq13HQFramedCodec10parseFrameERN5folly2io6CursorE(ptr noalias sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp40 = alloca %"class.google::LogMessage", align 8
-  %curHeader_ = getelementptr inbounds i8, ptr %this, i64 32
+  %curHeader_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %curHeader_, align 16
   switch i64 %0, label %sw.default [
     i64 0, label %sw.bb
@@ -231,71 +231,71 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %vtable = load ptr, ptr %this, align 16
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 440
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 440
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %curHeader_)
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   %vtable5 = load ptr, ptr %this, align 16
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 448
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 448
   %2 = load ptr, ptr %vfn6, align 8
   tail call void %2(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %curHeader_)
   br label %return
 
 sw.bb7:                                           ; preds = %entry
   %vtable9 = load ptr, ptr %this, align 16
-  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 456
+  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 456
   %3 = load ptr, ptr %vfn10, align 8
   tail call void %3(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %curHeader_)
   br label %return
 
 sw.bb11:                                          ; preds = %entry
   %vtable13 = load ptr, ptr %this, align 16
-  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 464
+  %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 464
   %4 = load ptr, ptr %vfn14, align 8
   tail call void %4(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %curHeader_)
   br label %return
 
 sw.bb15:                                          ; preds = %entry
   %vtable17 = load ptr, ptr %this, align 16
-  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 472
+  %vfn18 = getelementptr inbounds nuw i8, ptr %vtable17, i64 472
   %5 = load ptr, ptr %vfn18, align 8
   tail call void %5(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %curHeader_)
   br label %return
 
 sw.bb19:                                          ; preds = %entry
   %vtable21 = load ptr, ptr %this, align 16
-  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 480
+  %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 480
   %6 = load ptr, ptr %vfn22, align 8
   tail call void %6(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %curHeader_)
   br label %return
 
 sw.bb23:                                          ; preds = %entry
   %vtable25 = load ptr, ptr %this, align 16
-  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 488
+  %vfn26 = getelementptr inbounds nuw i8, ptr %vtable25, i64 488
   %7 = load ptr, ptr %vfn26, align 8
   tail call void %7(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %curHeader_)
   br label %return
 
 sw.bb27:                                          ; preds = %entry, %entry, %entry, %entry
   %vtable29 = load ptr, ptr %this, align 16
-  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 504
+  %vfn30 = getelementptr inbounds nuw i8, ptr %vtable29, i64 504
   %8 = load ptr, ptr %vfn30, align 8
   tail call void %8(ptr sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %curHeader_)
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %callback_ = getelementptr inbounds i8, ptr %this, i64 24
+  %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %9 = load ptr, ptr %callback_, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %sw.epilog, label %if.then
 
 if.then:                                          ; preds = %sw.default
-  %streamId_ = getelementptr inbounds i8, ptr %this, i64 8
+  %streamId_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %10 = load i64, ptr %streamId_, align 8
   %vtable34 = load ptr, ptr %9, align 8
-  %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 104
+  %vfn35 = getelementptr inbounds nuw i8, ptr %vtable34, i64 104
   %11 = load ptr, ptr %vfn35, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef %10, i64 noundef %0)
   br label %sw.epilog
@@ -337,13 +337,13 @@ cleanup.action:                                   ; preds = %invoke.cont46
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
-  %length = getelementptr inbounds i8, ptr %this, i64 40
+  %length = getelementptr inbounds nuw i8, ptr %this, i64 40
   %15 = load i64, ptr %length, align 8
-  %crtPos_.i = getelementptr inbounds i8, ptr %cursor, i64 32
+  %crtPos_.i = getelementptr inbounds nuw i8, ptr %cursor, i64 32
   %16 = load ptr, ptr %crtPos_.i, align 8
   %17 = ptrtoint ptr %16 to i64
   %add.i = add i64 %15, %17
-  %crtEnd_.i = getelementptr inbounds i8, ptr %cursor, i64 24
+  %crtEnd_.i = getelementptr inbounds nuw i8, ptr %cursor, i64 24
   %18 = load ptr, ptr %crtEnd_.i, align 8
   %19 = ptrtoint ptr %18 to i64
   %cmp.i = icmp ult i64 %add.i, %19
@@ -365,7 +365,7 @@ if.then.i.i:                                      ; preds = %if.else.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE4skipEm.exit: ; preds = %if.then.i, %if.else.i
   store i8 0, ptr %agg.result, align 8
-  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i, align 8
   br label %return
 
@@ -410,31 +410,31 @@ entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp179 = alloca %"class.google::LogMessageFatal", align 8
   %agg.tmp187 = alloca %"class.folly::Optional", align 8
-  %connError_ = getelementptr inbounds i8, ptr %this, i64 72
-  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %connError_ = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i8, ptr %hasValue.i.i.i.i, align 16
   %tobool.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store ptr %buf, ptr %cursor, align 8
-  %buffer_.i.i = getelementptr inbounds i8, ptr %cursor, i64 8
+  %buffer_.i.i = getelementptr inbounds nuw i8, ptr %cursor, i64 8
   store ptr %buf, ptr %buffer_.i.i, align 8
-  %crtBegin_.i.i = getelementptr inbounds i8, ptr %cursor, i64 16
-  %remainingLen_.i.i = getelementptr inbounds i8, ptr %cursor, i64 48
-  %1 = getelementptr inbounds i8, ptr %cursor, i64 40
+  %crtBegin_.i.i = getelementptr inbounds nuw i8, ptr %cursor, i64 16
+  %remainingLen_.i.i = getelementptr inbounds nuw i8, ptr %cursor, i64 48
+  %1 = getelementptr inbounds nuw i8, ptr %cursor, i64 40
   store i64 0, ptr %1, align 8
   store i64 -1, ptr %remainingLen_.i.i, align 8
-  %crtPos_.i.i = getelementptr inbounds i8, ptr %cursor, i64 32
-  %crtEnd_.i.i = getelementptr inbounds i8, ptr %cursor, i64 24
-  %data_.i.i.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %crtPos_.i.i = getelementptr inbounds nuw i8, ptr %cursor, i64 32
+  %crtEnd_.i.i = getelementptr inbounds nuw i8, ptr %cursor, i64 24
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %2 = load ptr, ptr %data_.i.i.i, align 8
   store ptr %2, ptr %crtBegin_.i.i, align 8
   store ptr %2, ptr %crtPos_.i.i, align 8
   %3 = load i64, ptr %buf, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 %3
   store ptr %add.ptr.i.i.i, ptr %crtEnd_.i.i, align 8
-  %buf.0.in9.i = getelementptr inbounds i8, ptr %buf, i64 32
+  %buf.0.in9.i = getelementptr inbounds nuw i8, ptr %buf, i64 32
   %buf.010.i = load ptr, ptr %buf.0.in9.i, align 8
   %cmp.not11.i.not = icmp eq ptr %buf.010.i, %buf
   br i1 %cmp.not11.i.not, label %_ZNK5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11totalLengthEv.exit, label %while.body.i
@@ -444,7 +444,7 @@ while.body.i:                                     ; preds = %if.end, %while.body
   %len.014.i = phi i64 [ %add.i, %while.body.i ], [ 0, %if.end ]
   %4 = load i64, ptr %buf.015.i, align 8
   %add.i = add i64 %4, %len.014.i
-  %buf.0.in.i = getelementptr inbounds i8, ptr %buf.015.i, i64 32
+  %buf.0.in.i = getelementptr inbounds nuw i8, ptr %buf.015.i, i64 32
   %buf.0.i = load ptr, ptr %buf.0.in.i, align 8
   %cmp.not.i = icmp ne ptr %buf.0.i, %buf
   %cmp2.i = icmp ne i64 %add.i, -1
@@ -458,26 +458,26 @@ _ZNK5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11totalLengthEv.exit: ;
   br i1 %cmp85, label %while.end186, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %_ZNK5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11totalLengthEv.exit
-  %parserPaused_ = getelementptr inbounds i8, ptr %this, i64 48
-  %frameState_ = getelementptr inbounds i8, ptr %this, i64 64
-  %pendingDataFrameBytes_147 = getelementptr inbounds i8, ptr %this, i64 56
-  %length149 = getelementptr inbounds i8, ptr %auxDataFrameHeader, i64 8
+  %parserPaused_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %frameState_ = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %pendingDataFrameBytes_147 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %length149 = getelementptr inbounds nuw i8, ptr %auxDataFrameHeader, i64 8
   %cmp.not.i.i52 = icmp eq ptr %connError_, %ref.tmp150
-  %hasValue.i.i.i.i54 = getelementptr inbounds i8, ptr %ref.tmp150, i64 8
-  %length123 = getelementptr inbounds i8, ptr %this, i64 40
+  %hasValue.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %ref.tmp150, i64 8
+  %length123 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %cmp.not.i.i41 = icmp eq ptr %connError_, %ref.tmp126
-  %hasValue.i.i.i.i43 = getelementptr inbounds i8, ptr %ref.tmp126, i64 8
-  %hasValue.i.i25 = getelementptr inbounds i8, ptr %length, i64 16
-  %curHeader_71 = getelementptr inbounds i8, ptr %this, i64 32
-  %second74 = getelementptr inbounds i8, ptr %length, i64 8
-  %callback_ = getelementptr inbounds i8, ptr %this, i64 24
-  %streamId_79 = getelementptr inbounds i8, ptr %this, i64 8
+  %hasValue.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %ref.tmp126, i64 8
+  %hasValue.i.i25 = getelementptr inbounds nuw i8, ptr %length, i64 16
+  %curHeader_71 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %second74 = getelementptr inbounds nuw i8, ptr %length, i64 8
+  %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %streamId_79 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %cmp.not.i.i = icmp eq ptr %connError_, %ref.tmp93
-  %hasValue.i.i.i.i35 = getelementptr inbounds i8, ptr %ref.tmp93, i64 8
-  %hasValue.i.i = getelementptr inbounds i8, ptr %type, i64 16
-  %second = getelementptr inbounds i8, ptr %type, i64 8
-  %hasValue.i.i21 = getelementptr inbounds i8, ptr %res, i64 8
-  %totalBytesParsed_ = getelementptr inbounds i8, ptr %this, i64 88
+  %hasValue.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %ref.tmp93, i64 8
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %type, i64 16
+  %second = getelementptr inbounds nuw i8, ptr %type, i64 8
+  %hasValue.i.i21 = getelementptr inbounds nuw i8, ptr %res, i64 8
+  %totalBytesParsed_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.end
@@ -508,7 +508,7 @@ _ZN5folly8OptionalISt4pairImmEEptEv.exit20:       ; preds = %if.then6
   store i64 %7, ptr %curHeader_71, align 16
   %8 = load i64, ptr %second, align 8
   %vtable = load ptr, ptr %this, align 16
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 432
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 432
   %9 = load ptr, ptr %vfn, align 8
   call void %9(ptr nonnull sret(%"class.folly::Optional") align 8 %res, ptr noundef nonnull align 16 dereferenceable(160) %this, i64 noundef %7)
   %10 = load i8, ptr %hasValue.i.i21, align 8
@@ -591,7 +591,7 @@ _ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEE6assignERKS3_.exit.i.i: ; preds =
 while.end186.thread:                              ; preds = %cleanup.done
   store i8 0, ptr %hasValue.i.i.i.i, align 16
   store i8 0, ptr %agg.tmp187, align 8
-  %hasValue.i.i6598 = getelementptr inbounds i8, ptr %agg.tmp187, i64 8
+  %hasValue.i.i6598 = getelementptr inbounds nuw i8, ptr %agg.tmp187, i64 8
   store i8 0, ptr %hasValue.i.i6598, align 8
   br label %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit
 
@@ -629,7 +629,7 @@ if.then77:                                        ; preds = %_ZN5folly8OptionalI
   %24 = load i64, ptr %streamId_79, align 8
   %25 = load i64, ptr %curHeader_71, align 16
   %vtable84 = load ptr, ptr %23, align 8
-  %vfn85 = getelementptr inbounds i8, ptr %vtable84, i64 88
+  %vfn85 = getelementptr inbounds nuw i8, ptr %vtable84, i64 88
   %26 = load ptr, ptr %vfn85, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %24, i8 noundef zeroext 0, i64 noundef %21, i64 noundef %25, i16 noundef zeroext 0)
   %.pre = load i64, ptr %length123, align 8
@@ -734,7 +734,7 @@ if.then145:                                       ; preds = %while.body
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %bufLen.087, i64 %37)
   store i64 %.sroa.speculated, ptr %length149, align 8
   %vtable151 = load ptr, ptr %this, align 16
-  %vfn152 = getelementptr inbounds i8, ptr %vtable151, i64 440
+  %vfn152 = getelementptr inbounds nuw i8, ptr %vtable151, i64 440
   %38 = load ptr, ptr %vfn152, align 8
   call void %38(ptr nonnull sret(%"class.folly::Optional") align 8 %ref.tmp150, ptr noundef nonnull align 16 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 dereferenceable(16) %auxDataFrameHeader)
   br i1 %cmp.not.i.i52, label %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEaSEOS4_.exit62, label %if.then.i.i53
@@ -859,7 +859,7 @@ while.end186:                                     ; preds = %while.end186.loopex
   %49 = phi i8 [ %18, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEE6assignERKS3_.exit.i.i ], [ %0, %_ZNK5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11totalLengthEv.exit ], [ %.pre96, %while.end186.loopexit ]
   %parsedTot.083 = phi i64 [ %parsedTot.088, %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEE6assignERKS3_.exit.i.i ], [ 0, %_ZNK5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11totalLengthEv.exit ], [ %parsedTot.083.ph, %while.end186.loopexit ]
   store i8 0, ptr %agg.tmp187, align 8
-  %hasValue.i.i65 = getelementptr inbounds i8, ptr %agg.tmp187, i64 8
+  %hasValue.i.i65 = getelementptr inbounds nuw i8, ptr %agg.tmp187, i64 8
   store i8 0, ptr %hasValue.i.i65, align 8
   %tobool.i.i.i67 = trunc i8 %49 to i1
   br i1 %tobool.i.i.i67, label %invoke.cont2.i, label %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit
@@ -891,7 +891,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 8
@@ -911,7 +911,7 @@ entry:
   %ref.tmp12 = alloca %"class.google::LogMessage", align 8
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ex = alloca %"class.proxygen::HTTPException", align 8
-  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %err, i64 8
+  %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %err, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i, label %if.then, label %return
@@ -986,10 +986,10 @@ cleanup.action31:                                 ; preds = %lpad13, %lpad19
 
 if.end:                                           ; preds = %cond.true, %cond.end, %cleanup.action, %invoke.cont3
   %vtable = load ptr, ptr %this, align 16
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %6 = load ptr, ptr %vfn, align 8
   call void %6(ptr noundef nonnull align 16 dereferenceable(160) %this, i1 noundef zeroext true)
-  %callback_ = getelementptr inbounds i8, ptr %this, i64 24
+  %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load ptr, ptr %callback_, align 8
   %tobool33.not = icmp eq ptr %7, null
   br i1 %tobool33.not, label %return, label %if.then34
@@ -1009,7 +1009,7 @@ if.then.i.i:                                      ; preds = %if.then34
 
 invoke.cont36:                                    ; preds = %if.then34
   %9 = load i64, ptr %err, align 8
-  %hasValue.i.i.i.i.i = getelementptr inbounds i8, ptr %ex, i64 64
+  %hasValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ex, i64 64
   %10 = load i8, ptr %hasValue.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i = trunc i8 %10 to i1
   br i1 %tobool.i.i.i.i.i, label %invoke.cont38, label %if.else.i.i.i
@@ -1019,19 +1019,19 @@ if.else.i.i.i:                                    ; preds = %invoke.cont36
   br label %invoke.cont38
 
 invoke.cont38:                                    ; preds = %if.else.i.i.i, %invoke.cont36
-  %http3ErrorCode_.i = getelementptr inbounds i8, ptr %ex, i64 56
+  %http3ErrorCode_.i = getelementptr inbounds nuw i8, ptr %ex, i64 56
   store i64 %9, ptr %http3ErrorCode_.i, align 8
   %11 = load ptr, ptr %callback_, align 8
   %12 = load i64, ptr @_ZN8proxygen2hq16kSessionStreamIdE, align 8
   %vtable40 = load ptr, ptr %11, align 8
-  %vfn41 = getelementptr inbounds i8, ptr %vtable40, i64 72
+  %vfn41 = getelementptr inbounds nuw i8, ptr %vtable40, i64 72
   %13 = load ptr, ptr %vfn41, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %12, ptr noundef nonnull align 8 dereferenceable(96) %ex, i1 noundef zeroext false)
           to label %invoke.cont42 unwind label %lpad35
 
 invoke.cont42:                                    ; preds = %invoke.cont38
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %ex, align 8
-  %partialMsg_.i = getelementptr inbounds i8, ptr %ex, i64 88
+  %partialMsg_.i = getelementptr inbounds nuw i8, ptr %ex, i64 88
   %14 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -1043,7 +1043,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont42
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %ex, i64 80
+  %currentIngressBuf_.i = getelementptr inbounds nuw i8, ptr %ex, i64 80
   %15 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %15, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -1056,7 +1056,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %ex, align 8
-  %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
+  %msg_.i.i = getelementptr inbounds nuw i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %ex) #13
   br label %return
@@ -1080,25 +1080,25 @@ define noundef zeroext i1 @_ZN8proxygen2hq13HQFramedCodec18onFramedIngressEOFEv(
 entry:
   %ref.tmp11 = alloca %"class.google::LogMessage", align 8
   %agg.tmp = alloca %"class.folly::Optional", align 8
-  %connError_ = getelementptr inbounds i8, ptr %this, i64 72
-  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %connError_ = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i8, ptr %hasValue.i.i.i.i, align 16
   %tobool.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %parserPaused_ = getelementptr inbounds i8, ptr %this, i64 48
+  %parserPaused_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load i8, ptr %parserPaused_, align 16
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then2, label %if.else3
 
 if.then2:                                         ; preds = %if.else
-  %deferredEOF_ = getelementptr inbounds i8, ptr %this, i64 49
+  %deferredEOF_ = getelementptr inbounds nuw i8, ptr %this, i64 49
   store i8 1, ptr %deferredEOF_, align 1
   br label %return
 
 if.else3:                                         ; preds = %if.else
-  %frameState_ = getelementptr inbounds i8, ptr %this, i64 64
+  %frameState_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %bf.load = load i8, ptr %frameState_, align 16
   %bf.clear = and i8 %bf.load, 7
   %cmp.not = icmp eq i8 %bf.clear, 0
@@ -1128,7 +1128,7 @@ invoke.cont:                                      ; preds = %cond.false10
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont
-  %curHeader_ = getelementptr inbounds i8, ptr %this, i64 32
+  %curHeader_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load i64, ptr %curHeader_, align 16
   %call16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygen2hqlsERSoNS0_9FrameTypeE(ptr noundef nonnull align 8 dereferenceable(8) %call14, i64 noundef %4)
           to label %cleanup.action unwind label %lpad
@@ -1140,7 +1140,7 @@ cleanup.action:                                   ; preds = %invoke.cont13
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
   %5 = load i8, ptr %hasValue.i.i.i.i, align 16
   %tobool.i.i.i.i3 = trunc i8 %5 to i1
-  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   br i1 %tobool.i.i.i.i3, label %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEaSIS3_EERS4_OT_.exit, label %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEaSIS3_EERS4_OT_.exit.thread
 
 _ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEaSIS3_EERS4_OT_.exit.thread: ; preds = %cleanup.done
@@ -1191,7 +1191,7 @@ declare void @_ZN8proxygen13HTTPExceptionC1ENS0_9DirectionEPKc(ptr noundef nonnu
 define linkonce_odr void @_ZN8proxygen13HTTPExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %this, align 8
-  %partialMsg_ = getelementptr inbounds i8, ptr %this, i64 88
+  %partialMsg_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %partialMsg_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
@@ -1203,7 +1203,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
   store ptr null, ptr %partialMsg_, align 8
-  %currentIngressBuf_ = getelementptr inbounds i8, ptr %this, i64 80
+  %currentIngressBuf_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %currentIngressBuf_, align 8
   %cmp.not.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -1216,7 +1216,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_p
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %currentIngressBuf_, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
-  %msg_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %msg_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i) #13
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #13
   ret void
@@ -1298,7 +1298,7 @@ declare void @_ZN8proxygen12IOBufPrinter10printChainB5cxx11EPKN5folly5IOBufENS0_
 define linkonce_odr void @_ZN8proxygen13HTTPExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %this, align 8
-  %partialMsg_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %partialMsg_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -1310,7 +1310,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %ent
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %entry
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %currentIngressBuf_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -1323,7 +1323,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
-  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %msg_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #13
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
@@ -1354,8 +1354,8 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE14skipAtMostSlowEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %len) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %crtEnd_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %crtPos_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %crtEnd_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %crtPos_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %crtEnd_.i.promoted = load ptr, ptr %crtEnd_.i, align 8
   %crtPos_.i.promoted = load ptr, ptr %crtPos_.i, align 8
   %sub.ptr.lhs.cast.i29 = ptrtoint ptr %crtEnd_.i.promoted to i64
@@ -1366,13 +1366,13 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %this.promoted = load ptr, ptr %this, align 8
-  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_.i, align 8
-  %remainingLen_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %crtBegin_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %absolutePos_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %remainingLen_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %crtBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %absolutePos_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %remainingLen_.i.promoted = load i64, ptr %remainingLen_.i, align 8
-  %next_.i.i55 = getelementptr inbounds i8, ptr %this.promoted, i64 32
+  %next_.i.i55 = getelementptr inbounds nuw i8, ptr %this.promoted, i64 32
   %1 = load ptr, ptr %next_.i.i55, align 8
   %cmp.i56 = icmp eq ptr %1, %0
   %cmp2.i57 = icmp eq i64 %remainingLen_.i.promoted, 0
@@ -1386,7 +1386,7 @@ if.end.i.lr.ph:                                   ; preds = %for.body.lr.ph
 
 for.body:                                         ; preds = %if.end
   %add = add i64 %sub.ptr.sub.i, %add64
-  %next_.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %next_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %2 = load ptr, ptr %next_.i.i, align 8
   %cmp.i = icmp eq ptr %2, %0
   %cmp2.i = icmp eq i64 %sub.i43, 0
@@ -1407,7 +1407,7 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
   %add.i = add i64 %sub.ptr.sub.i9, %add.i4559
   store i64 %add.i, ptr %absolutePos_.i, align 8
   store ptr %3, ptr %this, align 8
-  %data_.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %data_.i.i, align 8
   store ptr %5, ptr %crtBegin_.i, align 8
   store ptr %5, ptr %crtPos_.i, align 8
@@ -1465,15 +1465,15 @@ for.end:                                          ; preds = %if.end, %entry
 
 if.then.i16:                                      ; preds = %for.end
   %9 = load ptr, ptr %this, align 8
-  %next_.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
+  %next_.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 32
   %10 = load ptr, ptr %next_.i.i.i, align 8
-  %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %buffer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load ptr, ptr %buffer_.i.i, align 8
   %cmp.i.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then.i16
-  %remainingLen_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %remainingLen_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %12 = load i64, ptr %remainingLen_.i.i, align 8
   %cmp2.i.i = icmp eq i64 %12, 0
   br i1 %cmp2.i.i, label %if.then.i.i, label %if.end.i.i
@@ -1483,17 +1483,17 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  %crtBegin_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %crtBegin_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load ptr, ptr %crtBegin_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %.lcssa21 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %absolutePos_.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %absolutePos_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %14 = load i64, ptr %absolutePos_.i.i, align 8
   %add.i.i = add i64 %sub.ptr.sub.i.i, %14
   store i64 %add.i.i, ptr %absolutePos_.i.i, align 8
   store ptr %10, ptr %this, align 8
-  %data_.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load ptr, ptr %data_.i.i.i, align 8
   store ptr %15, ptr %crtBegin_.i.i, align 8
   store ptr %15, ptr %crtPos_.i, align 8
@@ -1597,9 +1597,9 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   %offset.011.i.i.i.i = phi i64 [ %add6.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
   %index.010.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
   %add.ptr.i.i.i.i = getelementptr i8, ptr @_ZZN4quic34better_enums_data_PacketDropReason13_name_storageEvE7storage, i64 %offset.011.i.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @_ZZN4quic34better_enums_data_PacketDropReason11_name_arrayEvE5value, i64 %index.010.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZZN4quic34better_enums_data_PacketDropReason11_name_arrayEvE5value, i64 %index.010.i.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  %arrayidx1.i.i.i.i = getelementptr inbounds ptr, ptr @_ZN4quic34better_enums_data_PacketDropReasonL14_the_raw_namesE, i64 %index.010.i.i.i.i
+  %arrayidx1.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZN4quic34better_enums_data_PacketDropReasonL14_the_raw_namesE, i64 %index.010.i.i.i.i
   %2 = load ptr, ptr %arrayidx1.i.i.i.i, align 8
   %call.i.i.i.i = tail call i64 @strcspn(ptr noundef %2, ptr noundef nonnull @.str.16) #17
   %arrayidx2.i.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i, i64 %call.i.i.i.i
@@ -1624,9 +1624,9 @@ for.body.i.i.i.i2:                                ; preds = %__cxx_global_var_in
   %offset.011.i.i.i.i3 = phi i64 [ %add6.i.i.i.i12, %for.body.i.i.i.i2 ], [ 0, %__cxx_global_var_init.1.exit ]
   %index.010.i.i.i.i4 = phi i64 [ %inc.i.i.i.i13, %for.body.i.i.i.i2 ], [ 0, %__cxx_global_var_init.1.exit ]
   %add.ptr.i.i.i.i5 = getelementptr i8, ptr @_ZZN4quic38better_enums_data_TransportKnobParamId13_name_storageEvE7storage, i64 %offset.011.i.i.i.i3
-  %arrayidx.i.i.i.i6 = getelementptr inbounds ptr, ptr @_ZZN4quic38better_enums_data_TransportKnobParamId11_name_arrayEvE5value, i64 %index.010.i.i.i.i4
+  %arrayidx.i.i.i.i6 = getelementptr inbounds nuw ptr, ptr @_ZZN4quic38better_enums_data_TransportKnobParamId11_name_arrayEvE5value, i64 %index.010.i.i.i.i4
   store ptr %add.ptr.i.i.i.i5, ptr %arrayidx.i.i.i.i6, align 8
-  %arrayidx1.i.i.i.i7 = getelementptr inbounds ptr, ptr @_ZN4quic38better_enums_data_TransportKnobParamIdL14_the_raw_namesE, i64 %index.010.i.i.i.i4
+  %arrayidx1.i.i.i.i7 = getelementptr inbounds nuw ptr, ptr @_ZN4quic38better_enums_data_TransportKnobParamIdL14_the_raw_namesE, i64 %index.010.i.i.i.i4
   %4 = load ptr, ptr %arrayidx1.i.i.i.i7, align 8
   %call.i.i.i.i8 = tail call i64 @strcspn(ptr noundef %4, ptr noundef nonnull @.str.16) #17
   %arrayidx2.i.i.i.i9 = getelementptr i8, ptr %add.ptr.i.i.i.i5, i64 %call.i.i.i.i8

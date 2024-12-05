@@ -227,7 +227,7 @@ $_ZTV26UnsafeAccessErrorHandshake = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 1128
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1128
   %5 = load volatile i32, ptr %4, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %6 = add i32 %5, -57005
@@ -243,7 +243,7 @@ define hidden void @_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread(ptr no
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not7 = icmp eq ptr %12, null
   %.not8 = icmp eq ptr %12, %2
@@ -252,7 +252,7 @@ define hidden void @_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread(ptr no
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(888) %12) #11
   br i1 %17, label %18, label %20
@@ -270,7 +270,7 @@ declare void @_ZN17StackWatermarkSet16start_processingEP10JavaThread18StackWater
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18HandshakeOperation12do_handshakeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not6 = icmp eq ptr %3, null
   br i1 %.not6, label %6, label %4
 
@@ -280,7 +280,7 @@ define hidden void @_ZN18HandshakeOperation12do_handshakeEP10JavaThread(ptr noun
 
 6:                                                ; preds = %4, %2
   %.0 = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %7 = getelementptr inbounds i8, ptr %1, i64 1128
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1128
   %8 = load volatile i32, ptr %7, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %9 = add i32 %8, -57005
@@ -288,7 +288,7 @@ define hidden void @_ZN18HandshakeOperation12do_handshakeEP10JavaThread(ptr noun
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
@@ -301,21 +301,21 @@ define hidden void @_ZN18HandshakeOperation12do_handshakeEP10JavaThread(ptr noun
 
 17:                                               ; preds = %16
   %18 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #11
-  %19 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not7 = icmp eq ptr %19, null
   br i1 %.not7, label %34, label %20
 
 20:                                               ; preds = %17
   %21 = sub nsw i64 %18, %.0
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %1 to i64
   %27 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(888) %28) #11
   %33 = select i1 %32, ptr @.str.4, ptr @.str.5
@@ -323,7 +323,7 @@ define hidden void @_ZN18HandshakeOperation12do_handshakeEP10JavaThread(ptr noun
   br label %34
 
 34:                                               ; preds = %20, %17, %16
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %35) #11, !srcloc !7
   ret void
 }
@@ -346,18 +346,18 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef %0) lo
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18HandshakeOperation, i64 16), ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %10, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV22VM_HandshakeAllThreads, i64 16), ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %2, ptr %11, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #11
   ret void
@@ -384,13 +384,13 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %8 = load ptr, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV18HandshakeOperation, i64 16), ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %8, ptr %12, align 8
   %13 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #11
   %.not = icmp eq ptr %2, null
@@ -417,22 +417,22 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
   unreachable
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %2, i64 1384
-  %24 = getelementptr inbounds i8, ptr %2, i64 1392
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1384
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 1392
   call void @_ZN11FilterQueueIP18HandshakeOperationE4pushES1_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %4)
   %25 = load ptr, ptr %23, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   br label %46
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 @_ZNK11ThreadsList8includesEPK10JavaThread(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull %2) #11
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %2, i64 1384
-  %32 = getelementptr inbounds i8, ptr %2, i64 1392
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 1384
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 1392
   call void @_ZN11FilterQueueIP18HandshakeOperationE4pushES1_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull %4)
   %33 = load ptr, ptr %31, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
@@ -442,15 +442,15 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
   %35 = ptrtoint ptr %2 to i64
   %36 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.11, i64 noundef %35) #11
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %40 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not7.i = icmp eq ptr %40, null
   br i1 %.not7.i, label %_ZL18log_handshake_infolPKciiS0_.exit, label %41
 
 41:                                               ; preds = %34
   %42 = call noundef i64 @_ZN2os13javaTimeNanosEv() #11
-  %43 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not8.i = icmp eq ptr %43, null
   br i1 %.not8.i, label %_ZL18log_handshake_infolPKciiS0_.exit, label %44
 
@@ -461,11 +461,11 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
 
 46:                                               ; preds = %30, %22
   %.sink = phi ptr [ %33, %30 ], [ %25, %22 ]
-  %47 = getelementptr inbounds i8, ptr %.sink, i64 1096
+  %47 = getelementptr inbounds nuw i8, ptr %.sink, i64 1096
   %48 = load i64, ptr @_ZN18SafepointMechanism22_poll_word_armed_valueE, align 8
   store volatile i64 %48, ptr %47, align 8
   %49 = load i64, ptr @_ZN18SafepointMechanism22_poll_page_armed_valueE, align 8
-  %50 = getelementptr inbounds i8, ptr %.sink, i64 1104
+  %50 = getelementptr inbounds nuw i8, ptr %.sink, i64 1104
   store volatile i64 %49, ptr %50, align 8
   %51 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %52 = trunc i8 %51 to i1
@@ -477,10 +477,10 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
 
 54:                                               ; preds = %53, %46
   store i64 %13, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %13, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %6, i64 16
-  %57 = getelementptr inbounds i8, ptr %6, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %57, i8 0, i64 44, i1 false)
   %58 = call noundef i32 @_ZN2os22active_processor_countEv() #11
   %59 = mul i32 %58, 5000
@@ -488,19 +488,19 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
   %narrow.i = call i32 @llvm.smin.i32(i32 %60, i32 100000)
   %spec.select.i = sext i32 %narrow.i to i64
   store i64 %spec.select.i, ptr %56, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 1384
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   %62 = load volatile i32, ptr %10, align 8
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54
-  %64 = getelementptr inbounds i8, ptr %6, i64 64
-  %65 = getelementptr inbounds i8, ptr %8, i64 1096
-  %66 = getelementptr inbounds i8, ptr %8, i64 1400
-  %67 = getelementptr inbounds i8, ptr %8, i64 1384
-  %68 = getelementptr inbounds i8, ptr %8, i64 1392
-  %69 = getelementptr inbounds i8, ptr %8, i64 928
-  %70 = getelementptr inbounds i8, ptr %8, i64 1092
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 1096
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 1400
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 1384
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 1392
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 928
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   br label %71
 
 71:                                               ; preds = %.lr.ph, %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit
@@ -520,7 +520,7 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
   %80 = xor i32 %79, 1
   %81 = zext nneg i32 %80 to i64
   %82 = zext nneg i32 %72 to i64
-  %83 = getelementptr inbounds [2 x [5 x i32]], ptr %57, i64 0, i64 %81, i64 %82
+  %83 = getelementptr inbounds nuw [2 x [5 x i32]], ptr %57, i64 0, i64 %81, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = add nsw i32 %84, 1
   store i32 %85, ptr %83, align 4
@@ -541,7 +541,7 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
 
 92:                                               ; preds = %90
   %93 = load ptr, ptr %67, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 1141
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1141
   %95 = load i8, ptr %94, align 1
   %96 = trunc i8 %95 to i1
   %97 = load volatile ptr, ptr %68, align 8
@@ -555,12 +555,12 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
 .preheader.i.i.i:                                 ; preds = %.thread.i.i, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i
   %.011.i.i.i = phi ptr [ %113, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i ], [ %97, %.thread.i.i ]
   %.0.i.i.i = phi ptr [ %112, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i ], [ null, %.thread.i.i ]
-  %99 = getelementptr inbounds i8, ptr %.011.i.i.i, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %105 = load ptr, ptr %104, align 8
   %106 = call noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(16) %102) #11
   br i1 %106, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i
@@ -568,7 +568,7 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
 _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i: ; preds = %.preheader.i.i.i
   %107 = load ptr, ptr %101, align 8
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %110 = load ptr, ptr %109, align 8
   %111 = call noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(16) %107) #11
   %spec.select13.i.i = select i1 %111, ptr %.0.i.i.i, ptr %.011.i.i.i
@@ -590,12 +590,12 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i: 
 .preheader.i5.i.i:                                ; preds = %116, %.preheader.i5.i.i
   %.011.i6.i.i = phi ptr [ %125, %.preheader.i5.i.i ], [ %97, %116 ]
   %.0.i7.i.i = phi ptr [ %spec.select.i8.i.i, %.preheader.i5.i.i ], [ null, %116 ]
-  %117 = getelementptr inbounds i8, ptr %.011.i6.i.i, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.011.i6.i.i, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 40
   %123 = load ptr, ptr %122, align 8
   %124 = call noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(16) %120) #11
   %spec.select.i8.i.i = select i1 %124, ptr %.0.i7.i.i, ptr %.011.i6.i.i
@@ -613,7 +613,7 @@ _ZN14HandshakeState13has_operationEbb.exit.thread32: ; preds = %.thread.i.i, %11
 
 _ZN14HandshakeState13has_operationEbb.exit:       ; preds = %114, %126
   %spec.select.i8.lcssa.sink.i.i = phi ptr [ %112, %114 ], [ %spec.select.i8.i.i, %126 ]
-  %128 = getelementptr inbounds i8, ptr %spec.select.i8.lcssa.sink.i.i, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %spec.select.i8.lcssa.sink.i.i, i64 8
   %129 = load ptr, ptr %128, align 8
   %.not35 = icmp eq ptr %129, null
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %66) #11
@@ -658,12 +658,12 @@ _ZN14HandshakeState13has_operationEbb.exit.thread: ; preds = %90, %130, %_ZN14Ha
 .preheader.i.i.i43:                               ; preds = %139, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i48
   %.011.i.i.i44 = phi ptr [ %156, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i48 ], [ %140, %139 ]
   %.0.i.i.i45 = phi ptr [ %155, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i48 ], [ null, %139 ]
-  %142 = getelementptr inbounds i8, ptr %.011.i.i.i44, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %.011.i.i.i44, i64 8
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %148 = load ptr, ptr %147, align 8
   %149 = call noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(16) %145) #11
   br i1 %149, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i48, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i46
@@ -671,7 +671,7 @@ _ZN14HandshakeState13has_operationEbb.exit.thread: ; preds = %90, %130, %_ZN14Ha
 _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i46: ; preds = %.preheader.i.i.i43
   %150 = load ptr, ptr %144, align 8
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 40
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 40
   %153 = load ptr, ptr %152, align 8
   %154 = call noundef zeroext i1 %153(ptr noundef nonnull align 8 dereferenceable(16) %150) #11
   %spec.select13.i.i47 = select i1 %154, ptr %.0.i.i.i45, ptr %.011.i.i.i44
@@ -692,7 +692,7 @@ _ZN14HandshakeState13has_operationEbb.exit51.thread53: ; preds = %139, %157
   br label %161
 
 _ZN14HandshakeState13has_operationEbb.exit51:     ; preds = %157
-  %159 = getelementptr inbounds i8, ptr %155, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %160 = load ptr, ptr %159, align 8
   %.not55 = icmp eq ptr %160, null
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %66) #11
@@ -727,15 +727,15 @@ _ZN18SafepointMechanism14should_processEP10JavaThreadb.exit: ; preds = %166, %_Z
   %.1 = phi i32 [ 0, %54 ], [ %spec.select, %71 ], [ %spec.select, %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %169 = load ptr, ptr %9, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load ptr, ptr %170, align 8
-  %172 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %172 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not7.i23 = icmp eq ptr %172, null
   br i1 %.not7.i23, label %_ZL18log_handshake_infolPKciiS0_.exit, label %173
 
 173:                                              ; preds = %._crit_edge
   %174 = call noundef i64 @_ZN2os13javaTimeNanosEv() #11
-  %175 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %175 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not8.i24 = icmp eq ptr %175, null
   br i1 %.not8.i24, label %_ZL18log_handshake_infolPKciiS0_.exit, label %176
 
@@ -755,15 +755,15 @@ declare noundef zeroext i1 @_ZN6Thread30is_JavaThread_protected_by_TLHEPK10JavaT
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14HandshakeState13add_operationEP18HandshakeOperation(ptr noundef nonnull align 8 dereferenceable(131) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN11FilterQueueIP18HandshakeOperationE4pushES1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %1)
   %4 = load ptr, ptr %0, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %5 = getelementptr inbounds i8, ptr %4, i64 1096
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   %6 = load i64, ptr @_ZN18SafepointMechanism22_poll_word_armed_valueE, align 8
   store volatile i64 %6, ptr %5, align 8
   %7 = load i64, ptr @_ZN18SafepointMechanism22_poll_page_armed_valueE, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 1104
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1104
   store volatile i64 %7, ptr %8, align 8
   ret void
 }
@@ -773,7 +773,7 @@ declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 5) i32 @_ZN14HandshakeState11try_processEP18HandshakeOperation(ptr noundef nonnull align 8 dereferenceable(131) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.HandshakeState::MatchOp", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile ptr, ptr %4, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %.not = icmp eq ptr %5, null
@@ -781,7 +781,7 @@ define hidden noundef range(i32 0, 5) i32 @_ZN14HandshakeState11try_processEP18H
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1128
   %9 = load volatile i32, ptr %8, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %10 = add i32 %9, -57005
@@ -790,7 +790,7 @@ define hidden noundef range(i32 0, 5) i32 @_ZN14HandshakeState11try_processEP18H
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1092
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1092
   %15 = load volatile i32, ptr %14, align 4
   switch i32 %15, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26 [
     i32 4, label %16
@@ -798,7 +798,7 @@ define hidden noundef range(i32 0, 5) i32 @_ZN14HandshakeState11try_processEP18H
   ]
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %13, i64 928
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 928
   %18 = load volatile ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread, label %19
@@ -809,13 +809,13 @@ define hidden noundef range(i32 0, 5) i32 @_ZN14HandshakeState11try_processEP18H
   br i1 %.not.i.i, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit
 
 _ZN14HandshakeState30possibly_can_process_handshakeEv.exit: ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %13, i64 936
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 936
   %22 = load volatile ptr, ptr %21, align 8
   %.not29 = icmp eq ptr %22, null
   br i1 %.not29, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread
 
 _ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread: ; preds = %12, %16, %6, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = tail call noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #11
   br i1 %24, label %25, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26
 
@@ -827,12 +827,12 @@ _ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread: ; preds = %12
 
 .preheader.i.i.i:                                 ; preds = %25, %36
   %.0.i.i.i = phi ptr [ %37, %36 ], [ %26, %25 ]
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %31) #11
   br i1 %35, label %36, label %38
@@ -845,7 +845,7 @@ _ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread: ; preds = %12
 38:                                               ; preds = %.preheader.i.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1096
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %41 = load volatile i64, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %42 = and i64 %41, 1
@@ -876,12 +876,12 @@ _ZN14HandshakeState15claim_handshakeEv.exit:      ; preds = %38
 .preheader.i.i:                                   ; preds = %46, %.preheader.i.i
   %.011.i.i = phi ptr [ %59, %.preheader.i.i ], [ %49, %46 ]
   %.0.i.i = phi ptr [ %spec.select.i.i, %.preheader.i.i ], [ null, %46 ]
-  %51 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %54) #11
   %spec.select.i.i = select i1 %58, ptr %.0.i.i, ptr %.011.i.i
@@ -894,13 +894,13 @@ _ZN14HandshakeState15claim_handshakeEv.exit:      ; preds = %38
   br i1 %61, label %_ZN14HandshakeState6get_opEv.exit, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
   %64 = load ptr, ptr %63, align 8
   br label %_ZN14HandshakeState6get_opEv.exit
 
 _ZN14HandshakeState6get_opEv.exit:                ; preds = %46, %60, %62
   %.012.i.i = phi ptr [ %64, %62 ], [ null, %46 ], [ null, %60 ]
-  %65 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %65 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not30 = icmp eq ptr %65, null
   br i1 %.not30, label %75, label %66
 
@@ -909,7 +909,7 @@ _ZN14HandshakeState6get_opEv.exit:                ; preds = %46, %60, %62
   %68 = icmp eq ptr %.012.i.i, %1
   %69 = select i1 %68, ptr @.str.19, ptr @.str.20
   %70 = load ptr, ptr %48, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %72 = load ptr, ptr %71, align 8
   %73 = tail call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(888) %48) #11
   %74 = select i1 %73, ptr @.str.21, ptr @.str.22
@@ -918,7 +918,7 @@ _ZN14HandshakeState6get_opEv.exit:                ; preds = %46, %60, %62
 
 75:                                               ; preds = %_ZN14HandshakeState6get_opEv.exit, %66
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1128
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1128
   %78 = load volatile i32, ptr %77, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %79 = add i32 %78, -57005
@@ -934,7 +934,7 @@ _ZN14HandshakeState6get_opEv.exit:                ; preds = %46, %60, %62
   br label %83
 
 83:                                               ; preds = %82, %81
-  %84 = getelementptr inbounds i8, ptr %.012.i.i, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 32
   %85 = load ptr, ptr %84, align 8
   %.not7.i = icmp eq ptr %85, null
   %.not8.i = icmp eq ptr %85, %48
@@ -943,7 +943,7 @@ _ZN14HandshakeState6get_opEv.exit:                ; preds = %46, %60, %62
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %85, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %89 = load ptr, ptr %88, align 8
   %90 = tail call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(888) %85) #11
   br i1 %90, label %91, label %_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit
@@ -954,10 +954,10 @@ _ZN14HandshakeState6get_opEv.exit:                ; preds = %46, %60, %62
   br label %_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit
 
 _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %75, %83, %86, %91
-  %93 = getelementptr inbounds i8, ptr %0, i64 120
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store volatile ptr %48, ptr %93, align 8
   %94 = load ptr, ptr %0, align 8
-  %95 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %95 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not6.i = icmp eq ptr %95, null
   br i1 %.not6.i, label %98, label %96
 
@@ -967,7 +967,7 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %75, %83, 
 
 98:                                               ; preds = %96, %_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit
   %.0.i21 = phi i64 [ %97, %96 ], [ 0, %_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit ]
-  %99 = getelementptr inbounds i8, ptr %94, i64 1128
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 1128
   %100 = load volatile i32, ptr %99, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %101 = add i32 %100, -57005
@@ -975,7 +975,7 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %75, %83, 
   br i1 %102, label %108, label %103
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %105, align 8
   %107 = load ptr, ptr %106, align 8
@@ -988,20 +988,20 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %75, %83, 
 
 109:                                              ; preds = %108
   %110 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #11
-  %111 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %111 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not7.i23 = icmp eq ptr %111, null
   br i1 %.not7.i23, label %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit, label %112
 
 112:                                              ; preds = %109
   %113 = sub nsw i64 %110, %.0.i21
-  %114 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
   %118 = ptrtoint ptr %94 to i64
   %119 = load ptr, ptr %47, align 8
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 48
   %122 = load ptr, ptr %121, align 8
   %123 = tail call noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(888) %119) #11
   %124 = select i1 %123, ptr @.str.4, ptr @.str.5
@@ -1009,7 +1009,7 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %75, %83, 
   br label %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit
 
 _ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit: ; preds = %108, %109, %112
-  %125 = getelementptr inbounds i8, ptr %.012.i.i, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
   %126 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %125) #11, !srcloc !7
   store volatile ptr null, ptr %93, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -1017,13 +1017,13 @@ _ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit: ; preds = %108, %109, 
   %127 = call noundef ptr @_ZN11FilterQueueIP18HandshakeOperationE3popIN14HandshakeState7MatchOpEEES1_RT_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #11
-  %128 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %128 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not31 = icmp eq ptr %128, null
   br i1 %.not31, label %140, label %129
 
 129:                                              ; preds = %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit
   %130 = load ptr, ptr %48, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 48
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 48
   %132 = load ptr, ptr %131, align 8
   %133 = call noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(888) %48) #11
   %134 = select i1 %133, ptr @.str.21, ptr @.str.22
@@ -1063,23 +1063,23 @@ define internal fastcc void @_ZL23check_handshake_timeoutlP18HandshakeOperationP
 
 11:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %14 = load ptr, ptr %13, align 8
   call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %14) #11
-  %15 = getelementptr inbounds i8, ptr %4, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 0, ptr %15, align 8
-  %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not25.i = icmp eq ptr %16, null
   br i1 %.not25.i, label %25, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %1 to i64
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load volatile i32, ptr %23, align 4
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.46, ptr noundef %21, i64 noundef %22, i32 noundef %24)
   br label %25
@@ -1089,10 +1089,10 @@ define internal fastcc void @_ZL23check_handshake_timeoutlP18HandshakeOperationP
   br i1 %26, label %.preheader.i, label %60
 
 .preheader.i:                                     ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %4, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %28 = load i32, ptr %15, align 8
   %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %.not.i29.i = icmp ult i32 %28, %31
   br i1 %.not.i29.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.lr.ph.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread.i
@@ -1107,18 +1107,18 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.i:  ; preds = %55, %_ZN28JavaThrea
   %.030.i = phi ptr [ null, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.lr.ph.i ], [ %.1.i, %55 ]
   %35 = add nuw i32 %34, 1
   store i32 %35, ptr %15, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %34 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i, label %41
 
 41:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.i
-  %42 = getelementptr inbounds i8, ptr %40, i64 1400
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 1400
   call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %42) #11
-  %43 = getelementptr inbounds i8, ptr %40, i64 1392
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 1392
   %44 = load volatile ptr, ptr %43, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %45 = icmp eq ptr %44, null
@@ -1126,7 +1126,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.i:  ; preds = %55, %_ZN28JavaThrea
 
 .preheader.i.i.i:                                 ; preds = %41, %49
   %.0.i.i.i = phi ptr [ %50, %49 ], [ %44, %41 ]
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, %1
   br i1 %48, label %51, label %49
@@ -1142,7 +1142,7 @@ _ZN14HandshakeState17operation_pendingEP18HandshakeOperation.exit.thread.i: ; pr
 
 51:                                               ; preds = %.preheader.i.i.i
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %42) #11
-  %52 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %52 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not27.i = icmp eq ptr %52, null
   br i1 %.not27.i, label %55, label %53
 
@@ -1155,13 +1155,13 @@ _ZN14HandshakeState17operation_pendingEP18HandshakeOperation.exit.thread.i: ; pr
   %.1.i = phi ptr [ %40, %51 ], [ %40, %53 ], [ %.030.i, %_ZN14HandshakeState17operation_pendingEP18HandshakeOperation.exit.thread.i ]
   %56 = load i32, ptr %15, align 8
   %57 = load ptr, ptr %27, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
   %.not.i.i = icmp ult i32 %56, %59
   br i1 %.not.i.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i, !llvm.loop !14
 
 60:                                               ; preds = %25
-  %61 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %61 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not26.i = icmp eq ptr %61, null
   br i1 %.not26.i, label %.thread.i, label %62
 
@@ -1186,7 +1186,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i: ; preds = %55, %_ZN28Jav
   br label %70
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread.i: ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i, %.preheader.i
-  %67 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %67 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not28.i = icmp eq ptr %67, null
   br i1 %.not28.i, label %70, label %68
 
@@ -1208,15 +1208,15 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread.i: ; preds = %_ZN28J
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18HandshakeSpinYield7processEv(ptr noundef nonnull align 8 dereferenceable(68) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   br label %5
 
 5:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4
   %.not.not.i = icmp ne i32 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1228,7 +1228,7 @@ _ZN18HandshakeSpinYield13state_changedEv.exit:    ; preds = %5
   br i1 %.not.not.i, label %10, label %21
 
 10:                                               ; preds = %_ZN18HandshakeSpinYield13state_changedEv.exit
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i32, ptr %11, align 8
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 8
@@ -1240,21 +1240,21 @@ _ZN18HandshakeSpinYield13state_changedEv.exit:    ; preds = %5
   %16 = and i32 %15, 1
   %17 = xor i32 %16, 1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds [2 x [5 x i32]], ptr %3, i64 0, i64 %18, i64 %indvars.iv.i7
+  %19 = getelementptr inbounds nuw [2 x [5 x i32]], ptr %3, i64 0, i64 %18, i64 %indvars.iv.i7
   store i32 0, ptr %19, align 4
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, 5
   br i1 %exitcond.not.i9, label %_ZN18HandshakeSpinYield11reset_stateEv.exit, label %14, !llvm.loop !16
 
 _ZN18HandshakeSpinYield11reset_stateEv.exit:      ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %20, align 8
   br label %_ZN18HandshakeSpinYield11reset_stateEv.exit13
 
 21:                                               ; preds = %_ZN18HandshakeSpinYield13state_changedEv.exit
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = add nsw i64 %25, %23
   %27 = icmp slt i64 %26, %2
@@ -1264,7 +1264,7 @@ _ZN18HandshakeSpinYield11reset_stateEv.exit:      ; preds = %14
   %29 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(888) %30) #11
   br i1 %34, label %35, label %36
@@ -1293,7 +1293,7 @@ _ZN18HandshakeSpinYield8wait_rawEl.exit:          ; preds = %41, %40, %35
   br label %43
 
 43:                                               ; preds = %_ZN18HandshakeSpinYield8wait_rawEl.exit, %21
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load i32, ptr %44, align 8
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %44, align 8
@@ -1305,7 +1305,7 @@ _ZN18HandshakeSpinYield8wait_rawEl.exit:          ; preds = %41, %40, %35
   %49 = and i32 %48, 1
   %50 = xor i32 %49, 1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds [2 x [5 x i32]], ptr %3, i64 0, i64 %51, i64 %indvars.iv.i10
+  %52 = getelementptr inbounds nuw [2 x [5 x i32]], ptr %3, i64 0, i64 %51, i64 %indvars.iv.i10
   store i32 0, ptr %52, align 4
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 5
@@ -1319,16 +1319,16 @@ _ZN18HandshakeSpinYield11reset_stateEv.exit13:    ; preds = %47, %_ZN18Handshake
 define hidden void @_ZN9Handshake7executeEP21AsyncHandshakeClosureP10JavaThread(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #11
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 2, i32 noundef 0) #11
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23AsyncHandshakeOperation, i64 16), ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %3, ptr %9, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %12
@@ -1356,16 +1356,16 @@ define hidden void @_ZN9Handshake7executeEP21AsyncHandshakeClosureP10JavaThread(
   unreachable
 
 19:                                               ; preds = %15, %12
-  %20 = getelementptr inbounds i8, ptr %1, i64 1384
-  %21 = getelementptr inbounds i8, ptr %1, i64 1392
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1384
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1392
   tail call void @_ZN11FilterQueueIP18HandshakeOperationE4pushES1_(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %4)
   %22 = load ptr, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %23 = getelementptr inbounds i8, ptr %22, i64 1096
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1096
   %24 = load i64, ptr @_ZN18SafepointMechanism22_poll_word_armed_valueE, align 8
   store volatile i64 %24, ptr %23, align 8
   %25 = load i64, ptr @_ZN18SafepointMechanism22_poll_page_armed_valueE, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 1104
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 1104
   store volatile i64 %25, ptr %26, align 8
   ret void
 }
@@ -1373,17 +1373,17 @@ define hidden void @_ZN9Handshake7executeEP21AsyncHandshakeClosureP10JavaThread(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14HandshakeStateC2EP10JavaThread(ptr noundef nonnull align 8 dereferenceable(131) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %4, i32 noundef 21, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #11
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store volatile ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 129
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 129
   store volatile i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 130
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 130
   store i8 0, ptr %8, align 2
   ret void
 }
@@ -1391,15 +1391,15 @@ define hidden void @_ZN14HandshakeStateC2EP10JavaThread(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14HandshakeStateD2Ev(ptr noundef nonnull align 8 dereferenceable(131) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.SpinYield, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %.not12 = icmp eq ptr %4, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %7
 
 7:                                                ; preds = %.lr.ph, %36
@@ -1458,14 +1458,14 @@ _ZN9SpinYield4waitEv.exit.i:                      ; preds = %24, %21
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %14, %26
-  %.lcssa46 = getelementptr inbounds i8, ptr %.132.i, i64 8
+  %.lcssa46 = getelementptr inbounds nuw i8, ptr %.132.i, i64 8
   %27 = load ptr, ptr %.lcssa46, align 8
   call void @_Z8FreeHeapPv(ptr noundef nonnull %.132.i) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %29) #11
   br i1 %33, label %36, label %34
@@ -1478,7 +1478,7 @@ _ZN9SpinYield4waitEv.exit.i:                      ; preds = %24, %21
 
 36:                                               ; preds = %.loopexit.sink.split.i
   %37 = load ptr, ptr %27, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   call void %39(ptr noundef nonnull align 8 dereferenceable(40) %27) #11
   %40 = load volatile ptr, ptr %3, align 8
@@ -1487,7 +1487,7 @@ _ZN9SpinYield4waitEv.exit.i:                      ; preds = %24, %21
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %36, %1
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %41) #11
   ret void
 }
@@ -1497,7 +1497,7 @@ define linkonce_odr hidden void @_ZN11FilterQueueIP18HandshakeOperationE4pushES1
   %3 = alloca %class.SpinYield, align 8
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #11
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
   call void @_ZN9SpinYieldC1Ejjj(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 40960, i32 noundef 64, i32 noundef 1000) #11
   %6 = load volatile ptr, ptr %0, align 8
@@ -1508,8 +1508,8 @@ define linkonce_odr hidden void @_ZN11FilterQueueIP18HandshakeOperationE4pushES1
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZN9SpinYield4waitEv.exit
@@ -1542,9 +1542,9 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %15, %18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14HandshakeState17operation_pendingEP18HandshakeOperation(ptr noundef nonnull align 8 dereferenceable(131) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #11
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile ptr, ptr %4, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %6 = icmp eq ptr %5, null
@@ -1552,7 +1552,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState17operation_pendingEP18Hand
 
 .preheader.i:                                     ; preds = %2, %10
   %.0.i = phi ptr [ %11, %10 ], [ %5, %2 ]
-  %7 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %_ZN11MutexLockerD2Ev.exit, label %10
@@ -1574,13 +1574,13 @@ define hidden noundef ptr @_ZN14HandshakeState15get_op_for_selfEbb(ptr noundef n
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1141
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1141
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.thread, label %29
 
 .thread:                                          ; preds = %3, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load volatile ptr, ptr %9, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %11 = icmp eq ptr %10, null
@@ -1589,12 +1589,12 @@ define hidden noundef ptr @_ZN14HandshakeState15get_op_for_selfEbb(ptr noundef n
 .preheader.i:                                     ; preds = %.thread, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread
   %.011.i = phi ptr [ %26, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread ], [ %10, %.thread ]
   %.0.i = phi ptr [ %25, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread ], [ null, %.thread ]
-  %12 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %15) #11
   br i1 %19, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit
@@ -1602,7 +1602,7 @@ define hidden noundef ptr @_ZN14HandshakeState15get_op_for_selfEbb(ptr noundef n
 _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit: ; preds = %.preheader.i
   %20 = load ptr, ptr %14, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %20) #11
   %spec.select13 = select i1 %24, ptr %.0.i, ptr %.011.i
@@ -1622,13 +1622,13 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread: ; pr
   br i1 %2, label %30, label %39
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
   br i1 %33, label %39, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load volatile ptr, ptr %35, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %37 = icmp eq ptr %36, null
@@ -1641,7 +1641,7 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread: ; pr
   br i1 %.not.i.i, label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split, label %.preheader.i.i, !llvm.loop !8
 
 39:                                               ; preds = %30, %29
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load volatile ptr, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %42 = icmp eq ptr %41, null
@@ -1650,12 +1650,12 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread: ; pr
 .preheader.i5:                                    ; preds = %39, %.preheader.i5
   %.011.i6 = phi ptr [ %51, %.preheader.i5 ], [ %41, %39 ]
   %.0.i7 = phi ptr [ %spec.select.i8, %.preheader.i5 ], [ null, %39 ]
-  %43 = getelementptr inbounds i8, ptr %.011.i6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.011.i6, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %46) #11
   %spec.select.i8 = select i1 %50, ptr %.0.i7, ptr %.011.i6
@@ -1669,7 +1669,7 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread: ; pr
 
 _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split: ; preds = %.preheader.i.i, %52, %27
   %spec.select.i8.lcssa.sink = phi ptr [ %25, %27 ], [ %spec.select.i8, %52 ], [ %.011.i.i, %.preheader.i.i ]
-  %54 = getelementptr inbounds i8, ptr %spec.select.i8.lcssa.sink, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %spec.select.i8.lcssa.sink, i64 8
   %55 = load ptr, ptr %54, align 8
   br label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit
 
@@ -1680,7 +1680,7 @@ _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit: ; preds = %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = tail call noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #11
   br i1 %5, label %6, label %60
 
@@ -1689,13 +1689,13 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noun
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1141
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1141
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %.thread.i, label %32
 
 .thread.i:                                        ; preds = %7, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load volatile ptr, ptr %12, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %14 = icmp eq ptr %13, null
@@ -1704,12 +1704,12 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noun
 .preheader.i.i:                                   ; preds = %.thread.i, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i
   %.011.i.i = phi ptr [ %29, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i ], [ %13, %.thread.i ]
   %.0.i.i = phi ptr [ %28, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i ], [ null, %.thread.i ]
-  %15 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %18) #11
   br i1 %22, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i
@@ -1717,7 +1717,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noun
 _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i: ; preds = %.preheader.i.i
   %23 = load ptr, ptr %17, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %23) #11
   %spec.select13.i = select i1 %27, ptr %.0.i.i, ptr %.011.i.i
@@ -1737,13 +1737,13 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i: ; 
   br i1 %2, label %33, label %42
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load volatile ptr, ptr %38, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %40 = icmp eq ptr %39, null
@@ -1756,7 +1756,7 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i: ; 
   br i1 %.not.i.i.i, label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split.i, label %.preheader.i.i.i, !llvm.loop !8
 
 42:                                               ; preds = %33, %32
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load volatile ptr, ptr %43, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %45 = icmp eq ptr %44, null
@@ -1765,12 +1765,12 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i: ; 
 .preheader.i5.i:                                  ; preds = %42, %.preheader.i5.i
   %.011.i6.i = phi ptr [ %54, %.preheader.i5.i ], [ %44, %42 ]
   %.0.i7.i = phi ptr [ %spec.select.i8.i, %.preheader.i5.i ], [ null, %42 ]
-  %46 = getelementptr inbounds i8, ptr %.011.i6.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.011.i6.i, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %49) #11
   %spec.select.i8.i = select i1 %53, ptr %.0.i7.i, ptr %.011.i6.i
@@ -1784,7 +1784,7 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i: ; 
 
 _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.sink.split.i: ; preds = %.preheader.i.i.i, %55, %30
   %spec.select.i8.lcssa.sink.i = phi ptr [ %28, %30 ], [ %spec.select.i8.i, %55 ], [ %.011.i.i.i, %.preheader.i.i.i ]
-  %57 = getelementptr inbounds i8, ptr %spec.select.i8.lcssa.sink.i, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %spec.select.i8.lcssa.sink.i, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = icmp ne ptr %58, null
   br label %_ZN14HandshakeState15get_op_for_selfEbb.exit
@@ -1805,14 +1805,14 @@ declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14HandshakeState29has_async_exception_operationEv(ptr noundef nonnull align 8 dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN22ConditionalMutexLockerD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = tail call noundef zeroext i1 @_ZNK5Mutex13owned_by_selfEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #11
   br i1 %6, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit, label %7
 
@@ -1829,12 +1829,12 @@ _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit: ; preds = 
 .preheader.i:                                     ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit, %.preheader.i
   %.011.i = phi ptr [ %18, %.preheader.i ], [ %8, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit ]
   %.0.i = phi ptr [ %spec.select.i, %.preheader.i ], [ null, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit ]
-  %10 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %13) #11
   %spec.select.i = select i1 %17, ptr %.011.i, ptr %.0.i
@@ -1847,7 +1847,7 @@ _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit: ; preds = 
   br i1 %20, label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %spec.select.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ne ptr %23, null
   br label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit
@@ -1870,14 +1870,14 @@ declare noundef zeroext i1 @_ZNK5Mutex13owned_by_selfEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14HandshakeState31clean_async_exception_operationEv(ptr noundef nonnull align 8 dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.HandshakeState::MatchOp", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %.not.i9 = icmp eq ptr %4, null
   br i1 %.not.i9, label %_ZN14HandshakeState29has_async_exception_operationEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZN11MutexLockerD2Ev.exit
@@ -1897,12 +1897,12 @@ _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.i: ; preds 
 .preheader.i.i:                                   ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.i, %.preheader.i.i
   %.011.i.i = phi ptr [ %19, %.preheader.i.i ], [ %9, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.i ]
   %.0.i.i = phi ptr [ %spec.select.i.i, %.preheader.i.i ], [ null, %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.i ]
-  %11 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #11
   %spec.select.i.i = select i1 %18, ptr %.011.i.i, ptr %.0.i.i
@@ -1915,7 +1915,7 @@ _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.i: ; preds 
   br i1 %21, label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.i, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp ne ptr %24, null
   br label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.i
@@ -1941,12 +1941,12 @@ _ZN14HandshakeState29has_async_exception_operationEv.exit: ; preds = %_ZN11Filte
 .preheader.i:                                     ; preds = %27, %.preheader.i
   %.011.i = phi ptr [ %38, %.preheader.i ], [ %28, %27 ]
   %.0.i4 = phi ptr [ %spec.select.i, %.preheader.i ], [ null, %27 ]
-  %30 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %33) #11
   %spec.select.i = select i1 %37, ptr %.011.i, ptr %.0.i4
@@ -1966,7 +1966,7 @@ _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.thread: ; preds
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit: ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %spec.select.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %43 = load ptr, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %43, ptr %2, align 8
@@ -1977,7 +1977,7 @@ _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit: ; preds = %39
 
 46:                                               ; preds = %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit
   %47 = load ptr, ptr %43, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(40) %43) #11
   br label %_ZN11MutexLockerD2Ev.exit
@@ -1997,14 +1997,14 @@ _ZN14HandshakeState29has_async_exception_operationEv.exit.thread: ; preds = %_ZN
 define hidden void @_ZN14HandshakeState9remove_opEP18HandshakeOperation(ptr noundef nonnull align 8 dereferenceable(131) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.HandshakeState::MatchOp", align 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = call noundef ptr @_ZN11FilterQueueIP18HandshakeOperationE3popIN14HandshakeState7MatchOpEEES1_RT_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14HandshakeState34have_non_self_executable_operationEv(ptr noundef nonnull align 8 dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %4 = icmp eq ptr %3, null
@@ -2012,12 +2012,12 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState34have_non_self_executable_
 
 .preheader.i:                                     ; preds = %1, %13
   %.0.i = phi ptr [ %14, %13 ], [ %3, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
   br i1 %12, label %13, label %_ZN11FilterQueueIP18HandshakeOperationE8containsIFbS1_EEEbRT_.exit.loopexit
@@ -2038,7 +2038,7 @@ _ZN11FilterQueueIP18HandshakeOperationE8containsIFbS1_EEEbRT_.exit: ; preds = %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN14HandshakeState6get_opEv(ptr noundef nonnull align 8 dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %4 = icmp eq ptr %3, null
@@ -2047,12 +2047,12 @@ define hidden noundef ptr @_ZN14HandshakeState6get_opEv(ptr noundef nonnull alig
 .preheader.i:                                     ; preds = %1, %.preheader.i
   %.011.i = phi ptr [ %13, %.preheader.i ], [ %3, %1 ]
   %.0.i = phi ptr [ %spec.select.i, %.preheader.i ], [ null, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
   %spec.select.i = select i1 %12, ptr %.0.i, ptr %.011.i
@@ -2065,7 +2065,7 @@ define hidden noundef ptr @_ZN14HandshakeState6get_opEv(ptr noundef nonnull alig
   br i1 %15, label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %spec.select.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %18 = load ptr, ptr %17, align 8
   br label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit
 
@@ -2084,8 +2084,8 @@ define linkonce_odr hidden noundef ptr @_ZN11FilterQueueIP18HandshakeOperationE3
 
 6:                                                ; preds = %2
   call void @_ZN9SpinYieldC1Ejjj(ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef 40960, i32 noundef 64, i32 noundef 1000) #11
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %9
 
 9:                                                ; preds = %_ZN9SpinYield4waitEv.exit, %6
@@ -2098,7 +2098,7 @@ define linkonce_odr hidden noundef ptr @_ZN11FilterQueueIP18HandshakeOperationE3
   %.130 = phi ptr [ null, %9 ], [ %.132, %11 ]
   %.127 = phi ptr [ null, %9 ], [ %spec.select, %11 ]
   %.1 = phi ptr [ null, %9 ], [ %spec.select35, %11 ]
-  %12 = getelementptr inbounds i8, ptr %.132, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.132, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %10
   %spec.select = select i1 %14, ptr %.132, ptr %.127
@@ -2147,7 +2147,7 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %28, %31
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %21, %33
-  %34 = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @_Z8FreeHeapPv(ptr noundef nonnull %spec.select) #11
   br label %.loopexit
@@ -2164,19 +2164,19 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState15process_by_selfEbb(ptr no
   %6 = alloca %class.HandleMark, align 8
   %7 = alloca %class.PreserveExceptionMark, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 928
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
   %10 = tail call noundef i64 @_ZN2os17current_thread_idEv() #11
   tail call void @_ZN9ttyLocker28break_tty_lock_for_safepointEl(i64 noundef %10) #11
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load volatile ptr, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %.not3443 = icmp eq ptr %12, null
   br i1 %.not3443, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   br label %16
 
@@ -2186,7 +2186,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState15process_by_selfEbb(ptr no
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1141
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1141
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %.thread.i, label %41
@@ -2200,12 +2200,12 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState15process_by_selfEbb(ptr no
 .preheader.i.i:                                   ; preds = %.thread.i, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i
   %.011.i.i = phi ptr [ %38, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i ], [ %22, %.thread.i ]
   %.0.i.i = phi ptr [ %37, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i ], [ null, %.thread.i ]
-  %24 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %27) #11
   br i1 %31, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i
@@ -2213,7 +2213,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState15process_by_selfEbb(ptr no
 _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i: ; preds = %.preheader.i.i
   %32 = load ptr, ptr %26, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %32) #11
   %spec.select13.i = select i1 %36, ptr %.0.i.i, ptr %.011.i.i
@@ -2258,12 +2258,12 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i: ; 
 .preheader.i5.i:                                  ; preds = %49, %.preheader.i5.i
   %.011.i6.i = phi ptr [ %60, %.preheader.i5.i ], [ %50, %49 ]
   %.0.i7.i = phi ptr [ %spec.select.i8.i, %.preheader.i5.i ], [ null, %49 ]
-  %52 = getelementptr inbounds i8, ptr %.011.i6.i, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.011.i6.i, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %55) #11
   %spec.select.i8.i = select i1 %59, ptr %.0.i7.i, ptr %.011.i6.i
@@ -2277,19 +2277,19 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i: ; 
 
 _ZN14HandshakeState15get_op_for_selfEbb.exit:     ; preds = %.preheader.i.i.i, %39, %61
   %spec.select.i8.lcssa.sink.i = phi ptr [ %37, %39 ], [ %spec.select.i8.i, %61 ], [ %.011.i.i.i, %.preheader.i.i.i ]
-  %63 = getelementptr inbounds i8, ptr %spec.select.i8.lcssa.sink.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %spec.select.i8.lcssa.sink.i, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not = icmp eq ptr %64, null
   br i1 %.not, label %_ZN11MutexLockerD2Ev.exit.thread, label %65
 
 65:                                               ; preds = %_ZN14HandshakeState15get_op_for_selfEbb.exit
-  %66 = getelementptr inbounds i8, ptr %64, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(16) %67) #11
-  %72 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %72 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not35 = icmp eq ptr %72, null
   br i1 %.not35, label %78, label %73
 
@@ -2303,7 +2303,7 @@ _ZN14HandshakeState15get_op_for_selfEbb.exit:     ; preds = %.preheader.i.i.i, %
 
 78:                                               ; preds = %65, %73
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 1128
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1128
   %81 = load volatile i32, ptr %80, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %82 = add i32 %81, -57005
@@ -2311,7 +2311,7 @@ _ZN14HandshakeState15get_op_for_selfEbb.exit:     ; preds = %.preheader.i.i.i, %
   br i1 %83, label %_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit, label %84
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %64, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %86 = load ptr, ptr %85, align 8
   %.not7.i = icmp eq ptr %86, null
   %.not8.i = icmp eq ptr %86, %79
@@ -2320,7 +2320,7 @@ _ZN14HandshakeState15get_op_for_selfEbb.exit:     ; preds = %.preheader.i.i.i, %
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %86, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 56
   %90 = load ptr, ptr %89, align 8
   %91 = call noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(888) %86) #11
   br i1 %91, label %92, label %_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit
@@ -2339,7 +2339,7 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %78, %84, 
   %96 = load ptr, ptr %0, align 8
   call void @_ZN21PreserveExceptionMarkC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %96) #11
   %97 = load ptr, ptr %0, align 8
-  %98 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %98 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not6.i = icmp eq ptr %98, null
   br i1 %.not6.i, label %101, label %99
 
@@ -2349,7 +2349,7 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %78, %84, 
 
 101:                                              ; preds = %99, %94
   %.0.i19 = phi i64 [ %100, %99 ], [ 0, %94 ]
-  %102 = getelementptr inbounds i8, ptr %97, i64 1128
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 1128
   %103 = load volatile i32, ptr %102, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %104 = add i32 %103, -57005
@@ -2369,19 +2369,19 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %78, %84, 
 
 111:                                              ; preds = %110
   %112 = call noundef i64 @_ZN2os13javaTimeNanosEv() #11
-  %113 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %113 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not7.i20 = icmp eq ptr %113, null
   br i1 %.not7.i20, label %_ZN11MutexLockerD2Ev.exit, label %114
 
 114:                                              ; preds = %111
   %115 = sub nsw i64 %112, %.0.i19
   %116 = load ptr, ptr %66, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = ptrtoint ptr %97 to i64
   %120 = load ptr, ptr %15, align 8
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 48
   %123 = load ptr, ptr %122, align 8
   %124 = call noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(888) %120) #11
   %125 = select i1 %124, ptr @.str.4, ptr @.str.5
@@ -2394,7 +2394,7 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %78, %84, 
   %127 = call noundef ptr @_ZN11FilterQueueIP18HandshakeOperationE3popIN14HandshakeState7MatchOpEEES1_RT_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %128 = load ptr, ptr %0, align 8
-  %129 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %129 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not6.i21 = icmp eq ptr %129, null
   br i1 %.not6.i21, label %132, label %130
 
@@ -2404,7 +2404,7 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %78, %84, 
 
 132:                                              ; preds = %130, %126
   %.0.i22 = phi i64 [ %131, %130 ], [ 0, %126 ]
-  %133 = getelementptr inbounds i8, ptr %128, i64 1128
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 1128
   %134 = load volatile i32, ptr %133, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %135 = add i32 %134, -57005
@@ -2424,19 +2424,19 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %78, %84, 
 
 142:                                              ; preds = %141
   %143 = call noundef i64 @_ZN2os13javaTimeNanosEv() #11
-  %144 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %144 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not7.i24 = icmp eq ptr %144, null
   br i1 %.not7.i24, label %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit25, label %145
 
 145:                                              ; preds = %142
   %146 = sub nsw i64 %143, %.0.i22
   %147 = load ptr, ptr %66, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8
   %150 = ptrtoint ptr %128 to i64
   %151 = load ptr, ptr %15, align 8
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 48
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 48
   %154 = load ptr, ptr %153, align 8
   %155 = call noundef zeroext i1 %154(ptr noundef nonnull align 8 dereferenceable(888) %151) #11
   %156 = select i1 %155, ptr @.str.4, ptr @.str.5
@@ -2444,20 +2444,20 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %78, %84, 
   br label %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit25
 
 _ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit25: ; preds = %141, %142, %145
-  %157 = getelementptr inbounds i8, ptr %64, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %158 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %157) #11, !srcloc !7
-  %159 = getelementptr inbounds i8, ptr %64, i64 40
+  %159 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %160 = load i64, ptr %159, align 8
   %161 = load ptr, ptr %66, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load ptr, ptr %162, align 8
-  %164 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %164 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not7.i26 = icmp eq ptr %164, null
   br i1 %.not7.i26, label %_ZL18log_handshake_infolPKciiS0_.exit, label %165
 
 165:                                              ; preds = %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit25
   %166 = call noundef i64 @_ZN2os13javaTimeNanosEv() #11
-  %167 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %167 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not8.i27 = icmp eq ptr %167, null
   br i1 %.not8.i27, label %_ZL18log_handshake_infolPKciiS0_.exit, label %168
 
@@ -2468,7 +2468,7 @@ _ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit25: ; preds = %141, %142
 
 _ZL18log_handshake_infolPKciiS0_.exit:            ; preds = %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit25, %165, %168
   %170 = load ptr, ptr %64, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load ptr, ptr %171, align 8
   call void %172(ptr noundef nonnull align 8 dereferenceable(40) %64) #11
   br label %_ZN11MutexLockerD2Ev.exit.thread
@@ -2479,7 +2479,7 @@ _ZN11MutexLockerD2Ev.exit.thread:                 ; preds = %_ZN14HandshakeState
   br label %.loopexit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %114, %111, %110
-  %173 = getelementptr inbounds i8, ptr %64, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %174 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %173) #11, !srcloc !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %64, ptr %5, align 8
@@ -2533,7 +2533,7 @@ declare noundef zeroext i1 @_ZN20SafepointSynchronize14handshake_safeEP10JavaThr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14HandshakeState30possibly_can_process_handshakeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1128
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1128
   %4 = load volatile i32, ptr %3, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %5 = add i32 %4, -57005
@@ -2542,7 +2542,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState30possibly_can_process_hand
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1092
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   %10 = load volatile i32, ptr %9, align 4
   switch i32 %10, label %20 [
     i32 4, label %11
@@ -2550,7 +2550,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState30possibly_can_process_hand
   ]
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 928
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 928
   %13 = load volatile ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %_ZN15JavaFrameAnchor8walkableEv.exit, label %14
@@ -2561,7 +2561,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState30possibly_can_process_hand
   br i1 %.not.i, label %_ZN15JavaFrameAnchor8walkableEv.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %8, i64 936
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 936
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp ne ptr %18, null
   br label %_ZN15JavaFrameAnchor8walkableEv.exit
@@ -2576,12 +2576,12 @@ _ZN15JavaFrameAnchor8walkableEv.exit:             ; preds = %16, %14, %7, %11, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14HandshakeState15claim_handshakeEv(ptr noundef nonnull align 8 dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #11
   br i1 %3, label %4, label %23
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load volatile ptr, ptr %5, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %7 = icmp eq ptr %6, null
@@ -2589,12 +2589,12 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState15claim_handshakeEv(ptr nou
 
 .preheader.i.i:                                   ; preds = %4, %16
   %.0.i.i = phi ptr [ %17, %16 ], [ %6, %4 ]
-  %8 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #11
   br i1 %15, label %16, label %18
@@ -2607,7 +2607,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState15claim_handshakeEv(ptr nou
 18:                                               ; preds = %.preheader.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1096
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1096
   %21 = load volatile i64, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %22 = and i64 %21, 1
@@ -2625,17 +2625,17 @@ _ZN14HandshakeState34have_non_self_executable_operationEv.exit: ; preds = %16, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14HandshakeState15do_self_suspendEv(ptr noundef nonnull align 8 dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 129
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %3 = load volatile i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
 6:                                                ; preds = %.lr.ph, %11
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not1 = icmp eq ptr %7, null
   br i1 %.not1, label %11, label %8
 
@@ -2652,7 +2652,7 @@ define hidden void @_ZN14HandshakeState15do_self_suspendEv(ptr noundef nonnull a
   br i1 %14, label %6, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %11, %1
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %19, label %16
 
@@ -2680,7 +2680,7 @@ declare noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14HandshakeState22suspend_with_handshakeEv(ptr noundef nonnull align 8 dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1128
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1128
   %4 = load volatile i32, ptr %3, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %5 = add i32 %4, -57003
@@ -2688,7 +2688,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState22suspend_with_handshakeEv(
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %1
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not7 = icmp eq ptr %8, null
   br i1 %.not7, label %39, label %9
 
@@ -2699,16 +2699,16 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState22suspend_with_handshakeEv(
   br label %39
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 130
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 130
   %14 = load i8, ptr %13, align 2
   %15 = trunc i8 %14 to i1
-  %16 = getelementptr inbounds i8, ptr %0, i64 129
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 129
   br i1 %15, label %17, label %30
 
 17:                                               ; preds = %12
   %18 = load volatile i8, ptr %16, align 1
   %19 = trunc i8 %18 to i1
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not6 = icmp eq ptr %20, null
   br i1 %19, label %21, label %25
 
@@ -2737,7 +2737,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState22suspend_with_handshakeEv(
 30:                                               ; preds = %12
   store volatile i8 1, ptr %16, align 1
   store i8 1, ptr %13, align 2
-  %31 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %31 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %35, label %32
 
@@ -2749,7 +2749,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState22suspend_with_handshakeEv(
 
 35:                                               ; preds = %30, %32
   %36 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 2, i32 noundef 0) #11
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr @.str.51, ptr %37, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV29ThreadSelfSuspensionHandshake, i64 16), ptr %36, align 8
   %38 = load ptr, ptr %0, align 8
@@ -2771,21 +2771,21 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState7suspendEv(ptr noundef nonn
   br i1 %6, label %7, label %63
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %4, i64 928
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %9 = getelementptr inbounds i8, ptr %4, i64 1092
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   store volatile i32 10, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #11
-  %11 = getelementptr inbounds i8, ptr %0, i64 129
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 129
   store volatile i8 1, ptr %11, align 1
   %12 = load volatile i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %7, %18
-  %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not1.i = icmp eq ptr %14, null
   br i1 %.not1.i, label %18, label %15
 
@@ -2802,7 +2802,7 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState7suspendEv(ptr noundef nonn
   br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %18, %7
-  %22 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %_ZN11MutexLockerD2Ev.exit, label %23
 
@@ -2817,7 +2817,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge.i, %23
   store volatile i32 6, ptr %9, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %26 = getelementptr inbounds i8, ptr %4, i64 1096
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   %27 = load volatile i64, ptr %26, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %28 = and i64 %27, 1
@@ -2830,12 +2830,12 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge.i, %23
   br i1 %.not5.i.i, label %31, label %_ZN14HandshakeState13has_operationEbb.exit.thread
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %4, i64 1400
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 1400
   %33 = tail call noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(104) %32) #11
   br i1 %33, label %34, label %_ZN14HandshakeState13has_operationEbb.exit.thread
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %4, i64 1392
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 1392
   %36 = load volatile ptr, ptr %35, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %37 = icmp eq ptr %36, null
@@ -2844,12 +2844,12 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge.i, %23
 .preheader.i.i.i:                                 ; preds = %34, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i
   %.011.i.i.i = phi ptr [ %52, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i ], [ %36, %34 ]
   %.0.i.i.i = phi ptr [ %51, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i ], [ null, %34 ]
-  %38 = getelementptr inbounds i8, ptr %.011.i.i.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %41) #11
   br i1 %45, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i
@@ -2857,7 +2857,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge.i, %23
 _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i: ; preds = %.preheader.i.i.i
   %46 = load ptr, ptr %40, align 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %46) #11
   %spec.select13.i.i = select i1 %50, ptr %.0.i.i.i, ptr %.011.i.i.i
@@ -2878,7 +2878,7 @@ _ZN14HandshakeState13has_operationEbb.exit.thread12: ; preds = %34, %53
   br label %57
 
 _ZN14HandshakeState13has_operationEbb.exit:       ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %51, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not = icmp eq ptr %56, null
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %32) #11
@@ -2904,10 +2904,10 @@ _ZN14HandshakeState13has_operationEbb.exit.thread: ; preds = %31, %57, %_ZN14Han
   br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
 
 63:                                               ; preds = %1
-  %64 = getelementptr inbounds i8, ptr %2, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.52, ptr %64, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV22SuspendThreadHandshake, i64 16), ptr %2, align 8
-  %65 = getelementptr inbounds i8, ptr %2, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 0, ptr %65, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandleP10JavaThread(ptr noundef nonnull %2, ptr noundef null, ptr noundef %5)
   %66 = load i8, ptr %65, align 8
@@ -2926,13 +2926,13 @@ define linkonce_odr hidden void @_ZN22SuspendThreadHandshakeD2Ev(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14HandshakeState6resumeEv(ptr noundef nonnull align 8 dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 129
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %3 = load volatile i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #11
   %7 = load volatile i8, ptr %2, align 1
   %8 = trunc i8 %7 to i1
@@ -2956,19 +2956,19 @@ declare void @_ZN7Monitor6notifyEv(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14HandshakeState26handle_unsafe_access_errorEv(ptr noundef nonnull align 8 dereferenceable(131) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 129
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %3 = load volatile i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 2, i32 noundef 0) #11
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.53, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV26UnsafeAccessErrorHandshake, i64 16), ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   tail call void @_ZN9Handshake7executeEP21AsyncHandshakeClosureP10JavaThread(ptr noundef nonnull %6, ptr noundef %8)
-  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %57, label %10
 
@@ -2979,10 +2979,10 @@ define hidden void @_ZN14HandshakeState26handle_unsafe_access_errorEv(ptr nounde
   br label %57
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %14) #11
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1137
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1137
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, 1
   store i8 0, ptr %16, align 1
@@ -3001,7 +3001,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %13, %23
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
   %27 = load i8, ptr @UseCompressedClassPointers, align 1
   %28 = trunc i8 %27 to i1
-  %29 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br i1 %28, label %30, label %40
 
 30:                                               ; preds = %_ZNK6HandleclEv.exit
@@ -3022,10 +3022,10 @@ _ZNK6HandleclEv.exit:                             ; preds = %13, %23
 
 _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %40, %30
   %.0.i.i = phi ptr [ %39, %30 ], [ %41, %40 ]
-  %42 = getelementptr inbounds i8, ptr %26, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %.0.i.i, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %26
   br i1 %47, label %_ZNK7oopDesc4is_aEP5Klass.exit.thread, label %48
@@ -3246,50 +3246,50 @@ define linkonce_odr hidden void @_ZN22VM_HandshakeAllThreads4doitEv(ptr noundef 
   %2 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %3 = alloca %class.HandshakeSpinYield, align 8
   %4 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #11
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
   call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %7) #11
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %.not.i.not = icmp eq i32 %12, 0
   br i1 %.not.i.not, label %._crit_edge, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %1
   store i32 1, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %.not33 = icmp eq ptr %15, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %17
 
 17:                                               ; preds = %.lr.ph, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit22
   %.035 = phi i32 [ 0, %.lr.ph ], [ %26, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit22 ]
   %.01834 = phi ptr [ %15, %.lr.ph ], [ %36, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit22 ]
-  %18 = getelementptr inbounds i8, ptr %.01834, i64 1384
+  %18 = getelementptr inbounds nuw i8, ptr %.01834, i64 1384
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %.01834, i64 1392
+  %20 = getelementptr inbounds nuw i8, ptr %.01834, i64 1392
   call void @_ZN11FilterQueueIP18HandshakeOperationE4pushES1_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %19)
   %21 = load ptr, ptr %18, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %22 = getelementptr inbounds i8, ptr %21, i64 1096
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1096
   %23 = load i64, ptr @_ZN18SafepointMechanism22_poll_word_armed_valueE, align 8
   store volatile i64 %23, ptr %22, align 8
   %24 = load i64, ptr @_ZN18SafepointMechanism22_poll_page_armed_valueE, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 1104
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 1104
   store volatile i64 %24, ptr %25, align 8
   %26 = add nuw nsw i32 %.035, 1
   %27 = load i32, ptr %8, align 8
   %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.not.i20 = icmp ult i32 %27, %30
   br i1 %.not.i20, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit22, label %._crit_edge
@@ -3297,10 +3297,10 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %1
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit22:  ; preds = %17
   %31 = add nuw i32 %27, 1
   store i32 %31, ptr %8, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %27 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !25
@@ -3317,22 +3317,22 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit22:  ; preds = %17
 
 40:                                               ; preds = %39, %._crit_edge
   %41 = icmp eq i32 %.0.lcssa, 0
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
   br i1 %41, label %44, label %55
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %49 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not7.i = icmp eq ptr %49, null
   br i1 %.not7.i, label %_ZL18log_handshake_infolPKciiS0_.exit, label %50
 
 50:                                               ; preds = %44
   %51 = call noundef i64 @_ZN2os13javaTimeNanosEv() #11
-  %52 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %52 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not8.i = icmp eq ptr %52, null
   br i1 %.not8.i, label %_ZL18log_handshake_infolPKciiS0_.exit, label %53
 
@@ -3343,9 +3343,9 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit22:  ; preds = %17
 
 55:                                               ; preds = %40
   %56 = add nsw i32 %.0.lcssa, -1
-  %57 = getelementptr inbounds i8, ptr %43, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %58 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %56, ptr nonnull %57) #11, !srcloc !7
-  %59 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %59 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not32 = icmp eq ptr %59, null
   br i1 %.not32, label %61, label %60
 
@@ -3355,10 +3355,10 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit22:  ; preds = %17
 
 61:                                               ; preds = %55, %60
   store i64 %4, ptr %3, align 8
-  %62 = getelementptr inbounds i8, ptr %3, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %4, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %3, i64 16
-  %64 = getelementptr inbounds i8, ptr %3, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %64, i8 0, i64 44, i1 false)
   %65 = call noundef i32 @_ZN2os22active_processor_countEv() #11
   %66 = mul i32 %65, 5000
@@ -3366,8 +3366,8 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit22:  ; preds = %17
   %narrow.i = call i32 @llvm.smin.i32(i32 %67, i32 100000)
   %spec.select.i = sext i32 %narrow.i to i64
   store i64 %spec.select.i, ptr %63, align 8
-  %68 = getelementptr inbounds i8, ptr %3, i64 24
-  %69 = getelementptr inbounds i8, ptr %3, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %.pre = load ptr, ptr %42, align 8
   br label %70
 
@@ -3377,14 +3377,14 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit22:  ; preds = %17
   call fastcc void @_ZL23check_handshake_timeoutlP18HandshakeOperationP10JavaThread(i64 noundef %4, ptr noundef %71, ptr noundef null)
   store i32 0, ptr %8, align 8
   %72 = load ptr, ptr %9, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4
   %.not.i23.not = icmp eq i32 %74, 0
   br i1 %.not.i23.not, label %._crit_edge40, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit25
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit25:  ; preds = %70
   store i32 1, ptr %8, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %76, align 8
   %.not1936 = icmp eq ptr %77, null
@@ -3393,7 +3393,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit25:  ; preds = %70
 .lr.ph39:                                         ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit25, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit28
   %.01638 = phi ptr [ %100, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit28 ], [ %77, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit25 ]
   %.137 = phi i32 [ %spec.select, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit28 ], [ %.017, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit25 ]
-  %78 = getelementptr inbounds i8, ptr %.01638, i64 1384
+  %78 = getelementptr inbounds nuw i8, ptr %.01638, i64 1384
   %79 = load ptr, ptr %42, align 8
   %80 = call noundef i32 @_ZN14HandshakeState11try_processEP18HandshakeOperation(ptr noundef nonnull align 8 dereferenceable(131) %78, ptr noundef %79)
   %81 = load i32, ptr %69, align 8
@@ -3401,7 +3401,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit25:  ; preds = %70
   %83 = xor i32 %82, 1
   %84 = zext nneg i32 %83 to i64
   %85 = zext nneg i32 %80 to i64
-  %86 = getelementptr inbounds [2 x [5 x i32]], ptr %68, i64 0, i64 %84, i64 %85
+  %86 = getelementptr inbounds nuw [2 x [5 x i32]], ptr %68, i64 0, i64 %84, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %86, align 4
@@ -3410,7 +3410,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit25:  ; preds = %70
   %spec.select = add nsw i32 %.137, %90
   %91 = load i32, ptr %8, align 8
   %92 = load ptr, ptr %9, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = load i32, ptr %93, align 4
   %.not.i26 = icmp ult i32 %91, %94
   br i1 %.not.i26, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit28, label %._crit_edge40
@@ -3418,10 +3418,10 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit25:  ; preds = %70
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit28:  ; preds = %.lr.ph39
   %95 = add nuw i32 %91, 1
   store i32 %95, ptr %8, align 8
-  %96 = getelementptr inbounds i8, ptr %92, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %97 = load ptr, ptr %96, align 8
   %98 = zext i32 %91 to i64
-  %99 = getelementptr inbounds ptr, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %98
   %100 = load ptr, ptr %99, align 8
   %.not19 = icmp eq ptr %100, null
   br i1 %.not19, label %._crit_edge40, label %.lr.ph39, !llvm.loop !26
@@ -3430,7 +3430,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit28:  ; preds = %.lr.ph39
   %.1.lcssa = phi i32 [ %.017, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit25 ], [ %.017, %70 ], [ %spec.select, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit28 ], [ %spec.select, %.lr.ph39 ]
   call void @_ZN18HandshakeSpinYield7processEv(ptr noundef nonnull align 8 dereferenceable(68) %3)
   %101 = load ptr, ptr %42, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load volatile i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %70, !llvm.loop !27
@@ -3438,17 +3438,17 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit28:  ; preds = %.lr.ph39
 105:                                              ; preds = %._crit_edge40
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %106 = load ptr, ptr %42, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load ptr, ptr %109, align 8
-  %111 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %111 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not7.i29 = icmp eq ptr %111, null
   br i1 %.not7.i29, label %_ZL18log_handshake_infolPKciiS0_.exit, label %112
 
 112:                                              ; preds = %105
   %113 = call noundef i64 @_ZN2os13javaTimeNanosEv() #11
-  %114 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %114 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not8.i30 = icmp eq ptr %114, null
   br i1 %.not8.i30, label %_ZL18log_handshake_infolPKciiS0_.exit, label %115
 
@@ -3497,22 +3497,22 @@ declare void @_ZNK12VM_Operation14print_on_errorEP12outputStream(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK22VM_HandshakeAllThreads5causeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   ret ptr %7
 }
@@ -3561,10 +3561,10 @@ declare void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef, i1 no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18HandshakeSpinYield12wait_blockedEP10JavaThreadl(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 928
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %5 = getelementptr inbounds i8, ptr %1, i64 1092
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1092
   store volatile i32 10, ptr %5, align 4
   %6 = load i64, ptr %0, align 8
   %7 = sub nsw i64 %2, %6
@@ -3583,7 +3583,7 @@ _ZN18HandshakeSpinYield8wait_rawEl.exit:          ; preds = %9, %10
   store volatile i32 6, ptr %5, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %11 = getelementptr inbounds i8, ptr %1, i64 1096
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %12 = load volatile i64, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %13 = and i64 %12, 1
@@ -3596,12 +3596,12 @@ _ZN18HandshakeSpinYield8wait_rawEl.exit:          ; preds = %9, %10
   br i1 %.not5.i.i, label %16, label %_ZN14HandshakeState13has_operationEbb.exit.thread
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 1400
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1400
   %18 = tail call noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #11
   br i1 %18, label %19, label %_ZN14HandshakeState13has_operationEbb.exit.thread
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 1392
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1392
   %21 = load volatile ptr, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %22 = icmp eq ptr %21, null
@@ -3610,12 +3610,12 @@ _ZN18HandshakeSpinYield8wait_rawEl.exit:          ; preds = %9, %10
 .preheader.i.i.i:                                 ; preds = %19, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i
   %.011.i.i.i = phi ptr [ %37, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i ], [ %21, %19 ]
   %.0.i.i.i = phi ptr [ %36, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i ], [ null, %19 ]
-  %23 = getelementptr inbounds i8, ptr %.011.i.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %26) #11
   br i1 %30, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i, label %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i
@@ -3623,7 +3623,7 @@ _ZN18HandshakeSpinYield8wait_rawEl.exit:          ; preds = %9, %10
 _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i: ; preds = %.preheader.i.i.i
   %31 = load ptr, ptr %25, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %31) #11
   %spec.select13.i.i = select i1 %35, ptr %.0.i.i.i, ptr %.011.i.i.i
@@ -3644,7 +3644,7 @@ _ZN14HandshakeState13has_operationEbb.exit.thread7: ; preds = %19, %38
   br label %42
 
 _ZN14HandshakeState13has_operationEbb.exit:       ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %36, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #11
@@ -3680,14 +3680,14 @@ declare void @_ZN2os17naked_short_sleepEl(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23AsyncHandshakeOperationD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23AsyncHandshakeOperation, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   br label %9
@@ -3699,14 +3699,14 @@ define linkonce_odr hidden void @_ZN23AsyncHandshakeOperationD2Ev(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23AsyncHandshakeOperationD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23AsyncHandshakeOperation, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN23AsyncHandshakeOperationD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   br label %_ZN23AsyncHandshakeOperationD2Ev.exit
@@ -3727,21 +3727,21 @@ declare void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN29ThreadSelfSuspensionHandshake9do_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 1092
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1092
   %4 = load volatile i32, ptr %3, align 4
   store volatile i32 10, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 1384
-  %6 = getelementptr inbounds i8, ptr %1, i64 1513
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1384
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1513
   %7 = load volatile i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 1400
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1400
   br label %10
 
 10:                                               ; preds = %15, %.lr.ph.i
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not1.i = icmp eq ptr %11, null
   br i1 %.not1.i, label %15, label %12
 
@@ -3758,7 +3758,7 @@ define linkonce_odr hidden void @_ZN29ThreadSelfSuspensionHandshake9do_threadEP6
   br i1 %18, label %10, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %15, %2
-  %19 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_153ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %_ZN14HandshakeState15do_self_suspendEv.exit, label %20
 
@@ -3770,7 +3770,7 @@ define linkonce_odr hidden void @_ZN29ThreadSelfSuspensionHandshake9do_threadEP6
 
 _ZN14HandshakeState15do_self_suspendEv.exit:      ; preds = %._crit_edge.i, %20
   store volatile i32 %4, ptr %3, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 1514
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1514
   store i8 0, ptr %23, align 2
   ret void
 }
@@ -3813,9 +3813,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16HandshakeClosure8is_asyncEv(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN22SuspendThreadHandshake9do_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 1384
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1384
   %4 = tail call noundef zeroext i1 @_ZN14HandshakeState22suspend_with_handshakeEv(ptr noundef nonnull align 8 dereferenceable(131) %3)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = zext i1 %4 to i8
   store i8 %6, ptr %5, align 8
   ret void
@@ -3829,7 +3829,7 @@ define linkonce_odr hidden void @_ZN22SuspendThreadHandshakeD0Ev(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26UnsafeAccessErrorHandshake9do_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 1384
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1384
   tail call void @_ZN14HandshakeState26handle_unsafe_access_errorEv(ptr noundef nonnull align 8 dereferenceable(131) %3)
   ret void
 }

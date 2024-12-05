@@ -73,11 +73,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN2pb11CppFeaturesC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 25)) %this, ptr noundef %arena) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2pb11CppFeaturesE, i64 16), ptr %this, align 8
-  %arrayinit.cur.i.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayinit.cur.i.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %arrayinit.cur.i.ptr.i, i8 0, i64 9, i1 false)
   ret void
 }
@@ -87,29 +87,29 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2pb11CppFeaturesC2EPN6google8protobuf5ArenaERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 25)) %this, ptr noundef %arena, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN2pb11CppFeaturesE, i64 16), ptr %this, align 8
-  %arrayinit.cur.i.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayinit.cur.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %arrayinit.cur.i.ptr.i.i, i8 0, i64 9, i1 false)
-  %1 = getelementptr inbounds i8, ptr %from, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %from, i64 16
   %2 = load i32, ptr %1, align 8
   %and.i.i = and i32 %2, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %legacy_closed_enum_.i.i = getelementptr inbounds i8, ptr %from, i64 24
+  %legacy_closed_enum_.i.i = getelementptr inbounds nuw i8, ptr %from, i64 24
   %3 = load i8, ptr %legacy_closed_enum_.i.i, align 8
-  %legacy_closed_enum_3.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %legacy_closed_enum_3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %frombool.i.i = and i8 %3, 1
   store i8 %frombool.i.i, ptr %legacy_closed_enum_3.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %entry
   store i32 %2, ptr %arrayinit.cur.i.ptr.i.i, align 8
-  %_internal_metadata_6.i.i = getelementptr inbounds i8, ptr %from, i64 8
+  %_internal_metadata_6.i.i = getelementptr inbounds nuw i8, ptr %from, i64 8
   %4 = load i64, ptr %_internal_metadata_6.i.i, align 8
   %and.i18.i.i = and i64 %4, 1
   %tobool.i19.not.i.i = icmp eq i64 %and.i18.i.i, 0
@@ -118,7 +118,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %entry
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
   %and.i.i.i = and i64 %4, -2
   %5 = inttoptr i64 %and.i.i.i to ptr
-  %unknown_fields.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %unknown_fields.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -135,7 +135,7 @@ lpad:                                             ; preds = %if.then.i.i.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2pb11CppFeaturesD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %_internal_metadata_, align 8
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
@@ -188,36 +188,36 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2pb11CppFeatures9MergeImplERN6google8protobuf11MessageLiteERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %to_msg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %from_msg) #3 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %from_msg, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %from_msg, i64 16
   %1 = load i32, ptr %0, align 8
   %and = and i32 %1, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %legacy_closed_enum_ = getelementptr inbounds i8, ptr %from_msg, i64 24
+  %legacy_closed_enum_ = getelementptr inbounds nuw i8, ptr %from_msg, i64 24
   %2 = load i8, ptr %legacy_closed_enum_, align 8
-  %legacy_closed_enum_3 = getelementptr inbounds i8, ptr %to_msg, i64 24
+  %legacy_closed_enum_3 = getelementptr inbounds nuw i8, ptr %to_msg, i64 24
   %frombool = and i8 %2, 1
   store i8 %frombool, ptr %legacy_closed_enum_3, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %3 = getelementptr inbounds i8, ptr %to_msg, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %to_msg, i64 16
   %4 = load i32, ptr %3, align 8
   %or = or i32 %4, %1
   store i32 %or, ptr %3, align 8
-  %_internal_metadata_6 = getelementptr inbounds i8, ptr %from_msg, i64 8
+  %_internal_metadata_6 = getelementptr inbounds nuw i8, ptr %from_msg, i64 8
   %5 = load i64, ptr %_internal_metadata_6, align 8
   %and.i18 = and i64 %5, 1
   %tobool.i19.not = icmp eq i64 %and.i18, 0
   br i1 %tobool.i19.not, label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %_internal_metadata_ = getelementptr inbounds i8, ptr %to_msg, i64 8
+  %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %to_msg, i64 8
   %and.i = and i64 %5, -2
   %6 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %unknown_fields.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit
 
@@ -228,11 +228,11 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2pb11CppFeatures5ClearEv(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 20), (24, 25)) %this) unnamed_addr #3 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
-  %legacy_closed_enum_ = getelementptr inbounds i8, ptr %this, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %legacy_closed_enum_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %legacy_closed_enum_, align 8
   store i32 0, ptr %0, align 8
-  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %_internal_metadata_, align 8
   %and.i = and i64 %1, 1
   %tobool.i.not = icmp eq i64 %and.i, 0
@@ -262,7 +262,7 @@ declare noundef ptr @_ZN6google8protobuf8internal8TcParser8FastV8S1EPNS0_11Messa
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK2pb11CppFeatures18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %0, align 8
   %and = and i32 %1, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -279,18 +279,18 @@ if.then.i6:                                       ; preds = %if.then
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %if.then, %if.then.i6
   %retval.0.i = phi ptr [ %call.i7, %if.then.i6 ], [ %target, %if.then ]
-  %legacy_closed_enum_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %legacy_closed_enum_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i8, ptr %legacy_closed_enum_.i, align 8
-  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 1
+  %incdec.ptr2.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 1
   store i8 8, ptr %retval.0.i, align 1
   %conv1.i.i = and i8 %3, 1
-  %incdec.ptr2.i.i8 = getelementptr inbounds i8, ptr %retval.0.i, i64 2
+  %incdec.ptr2.i.i8 = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 2
   store i8 %conv1.i.i, ptr %incdec.ptr2.i.i, align 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit, %entry
   %target.addr.0 = phi ptr [ %incdec.ptr2.i.i8, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %target, %entry ]
-  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %_internal_metadata_, align 8
   %and.i32 = and i64 %4, 1
   %tobool.i33.not = icmp eq i64 %and.i32, 0
@@ -299,7 +299,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
 if.then.i:                                        ; preds = %if.end
   %and.i = and i64 %4, -2
   %5 = inttoptr i64 %and.i to ptr
-  %unknown_fields.i = getelementptr inbounds i8, ptr %5, i64 8
+  %unknown_fields.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %call9 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, ptr noundef %target.addr.0, ptr noundef %stream)
   br label %if.end10
 
@@ -313,12 +313,12 @@ declare noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerialize
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK2pb11CppFeatures12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %0, align 8
   %and = shl i32 %1, 1
   %2 = and i32 %and, 2
   %spec.select = zext nneg i32 %2 to i64
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 20
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   %call2 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %spec.select, ptr noundef nonnull %_cached_size_)
   ret i64 %call2
 }
@@ -332,11 +332,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
-  %legacy_closed_enum_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %legacy_closed_enum_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %legacy_closed_enum_.i, align 8
   store i32 0, ptr %0, align 8
-  %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_internal_metadata_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %_internal_metadata_.i, align 8
   %and.i.i = and i64 %1, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
@@ -347,14 +347,14 @@ if.then.i.i:                                      ; preds = %if.end
   br label %_ZN2pb11CppFeatures5ClearEv.exit
 
 _ZN2pb11CppFeatures5ClearEv.exit:                 ; preds = %if.end, %if.then.i.i
-  %2 = getelementptr inbounds i8, ptr %from, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %from, i64 16
   %3 = load i32, ptr %2, align 8
   %and.i.i2 = and i32 %3, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i2, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %_ZN2pb11CppFeatures5ClearEv.exit
-  %legacy_closed_enum_.i.i = getelementptr inbounds i8, ptr %from, i64 24
+  %legacy_closed_enum_.i.i = getelementptr inbounds nuw i8, ptr %from, i64 24
   %4 = load i8, ptr %legacy_closed_enum_.i.i, align 8
   %frombool.i.i = and i8 %4, 1
   store i8 %frombool.i.i, ptr %legacy_closed_enum_.i, align 8
@@ -364,7 +364,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i3, %_ZN2
   %5 = load i32, ptr %0, align 8
   %or.i.i = or i32 %5, %3
   store i32 %or.i.i, ptr %0, align 8
-  %_internal_metadata_6.i.i = getelementptr inbounds i8, ptr %from, i64 8
+  %_internal_metadata_6.i.i = getelementptr inbounds nuw i8, ptr %from, i64 8
   %6 = load i64, ptr %_internal_metadata_6.i.i, align 8
   %and.i18.i.i = and i64 %6, 1
   %tobool.i19.not.i.i = icmp eq i64 %and.i18.i.i, 0
@@ -373,7 +373,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i3, %_ZN2
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
   %and.i.i.i = and i64 %6, -2
   %7 = inttoptr i64 %and.i.i.i to ptr
-  %unknown_fields.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %unknown_fields.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i.i.i)
   br label %return
 
@@ -390,20 +390,20 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN2pb11CppFeatures12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noalias nocapture noundef %other) local_unnamed_addr #10 align 2 {
 entry:
-  %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_internal_metadata_2 = getelementptr inbounds i8, ptr %other, i64 8
+  %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_internal_metadata_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i64, ptr %_internal_metadata_, align 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   store i64 %1, ptr %_internal_metadata_, align 8
   store i64 %0, ptr %_internal_metadata_2, align 8
-  %2 = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = getelementptr inbounds i8, ptr %other, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i32, ptr %2, align 8
   %5 = load i32, ptr %3, align 4
   store i32 %5, ptr %2, align 8
   store i32 %4, ptr %3, align 4
-  %legacy_closed_enum_ = getelementptr inbounds i8, ptr %this, i64 24
-  %legacy_closed_enum_5 = getelementptr inbounds i8, ptr %other, i64 24
+  %legacy_closed_enum_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %legacy_closed_enum_5 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %6 = load i8, ptr %legacy_closed_enum_, align 8
   %frombool.i = and i8 %6, 1
   %7 = load i8, ptr %legacy_closed_enum_5, align 1

@@ -42,9 +42,9 @@ define hidden noundef zeroext i1 @_ZN27ShenandoahBarrierSetNMethod21nmethod_entr
   br i1 %3, label %4, label %23
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(112) %7) #3
@@ -63,7 +63,7 @@ define hidden noundef zeroext i1 @_ZN27ShenandoahBarrierSetNMethod21nmethod_entr
   tail call void @_ZN17ShenandoahNMethod12heal_nmethodEP7nmethod(ptr noundef nonnull %1) #3
   tail call void @_ZN7nmethod22mark_as_maybe_on_stackEv(ptr noundef nonnull align 8 dereferenceable(214) %1) #3
   %15 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 @_ZN17BarrierSetNMethod8is_armedEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull %1) #3
   br i1 %18, label %19, label %_ZN25ShenandoahReentrantLockerD2Ev.exit
@@ -75,7 +75,7 @@ define hidden noundef zeroext i1 @_ZN27ShenandoahBarrierSetNMethod21nmethod_entr
 _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %19, %14, %4, %13
   %.1 = phi i1 [ false, %13 ], [ true, %4 ], [ true, %14 ], [ true, %19 ]
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(112) %7) #3
   br label %23

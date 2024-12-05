@@ -30,13 +30,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3p2t8TriangleC2ERNS_5PointES2_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((0, 6), (8, 57)) %this, ptr noundef nonnull align 8 dereferenceable(40) %a, ptr noundef nonnull align 8 dereferenceable(40) %b, ptr noundef nonnull align 8 dereferenceable(40) %c) unnamed_addr #3 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %a, ptr %points_, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %b, ptr %arrayidx3, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %c, ptr %arrayidx5, align 8
-  %neighbors_ = getelementptr inbounds i8, ptr %this, i64 32
+  %neighbors_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %this, i8 0, i64 6, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %neighbors_, i8 0, i64 25, i1 false)
   ret void
@@ -45,11 +45,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3p2t8Triangle12MarkNeighborEPNS_5PointES2_PS0_(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef readnone %p1, ptr noundef readnone %p2, ptr noundef %t) local_unnamed_addr #4 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 24
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %arrayidx, align 8
   %cmp = icmp eq ptr %p1, %0
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx3, align 8
   %cmp4 = icmp eq ptr %p2, %1
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
@@ -80,7 +80,7 @@ if.else31:                                        ; preds = %lor.lhs.false20
 
 if.end52.sink.split:                              ; preds = %if.else31, %if.else, %lor.lhs.false20, %entry, %lor.lhs.false
   %.sink = phi i64 [ 32, %lor.lhs.false ], [ 32, %entry ], [ 40, %lor.lhs.false20 ], [ 40, %if.else ], [ 48, %if.else31 ]
-  %arrayidx30 = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
   store ptr %t, ptr %arrayidx30, align 8
   br label %if.end52
 
@@ -91,19 +91,19 @@ if.end52:                                         ; preds = %if.end52.sink.split
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3p2t8Triangle12MarkNeighborERS0_(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(57) %t) local_unnamed_addr #4 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %arrayidx3, align 8
-  %points_.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %points_.i.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %2 = load ptr, ptr %points_.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %2
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %t, i64 16
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %t, i64 16
   %3 = load ptr, ptr %arrayidx3.i.i, align 8
   %cmp4.i.i = icmp eq ptr %0, %3
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %t, i64 24
+  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %t, i64 24
   %4 = load ptr, ptr %arrayidx6.i.i, align 8
   %cmp7.i.i = icmp eq ptr %0, %4
   %or.cond.i = select i1 %or.cond.i.i, i1 true, i1 %cmp7.i.i
@@ -118,7 +118,7 @@ _ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit:   ; preds = %entry
   br i1 %spec.select.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit
-  %neighbors_ = getelementptr inbounds i8, ptr %this, i64 32
+  %neighbors_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %t, ptr %neighbors_, align 8
   %5 = load ptr, ptr %arrayidx6.i.i, align 8
   %cmp.i = icmp eq ptr %0, %5
@@ -168,7 +168,7 @@ _ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit24: ; preds = %if.else
   br i1 %spec.select.i23, label %if.then14, label %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit63
 
 if.then14:                                        ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit24
-  %arrayidx16 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %t, ptr %arrayidx16, align 8
   %9 = load ptr, ptr %arrayidx6.i.i, align 8
   %cmp.i27 = icmp eq ptr %8, %9
@@ -204,7 +204,7 @@ _ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit63: ; preds = %_ZN3p2t8Triangle8Co
   br i1 %or.cond.i, label %if.then27, label %if.end35
 
 if.then27:                                        ; preds = %_ZN3p2t8Triangle8ContainsEPKNS_5PointES3_.exit63
-  %arrayidx29 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %t, ptr %arrayidx29, align 8
   %12 = load ptr, ptr %arrayidx6.i.i, align 8
   %cmp.i66 = icmp eq ptr %8, %12
@@ -238,7 +238,7 @@ if.else31.i80:                                    ; preds = %lor.lhs.false20.i77
 
 if.end35.sink.split:                              ; preds = %if.then27, %lor.lhs.false.i70, %if.else.i74, %lor.lhs.false20.i77, %if.else31.i80, %if.then14, %lor.lhs.false.i31, %if.else.i35, %lor.lhs.false20.i38, %if.else31.i41, %if.then, %lor.lhs.false.i, %if.else.i, %lor.lhs.false20.i, %if.else31.i
   %.sink.i85.sink = phi i64 [ 32, %lor.lhs.false.i ], [ 32, %if.then ], [ 40, %lor.lhs.false20.i ], [ 40, %if.else.i ], [ 48, %if.else31.i ], [ 32, %lor.lhs.false.i31 ], [ 32, %if.then14 ], [ 40, %lor.lhs.false20.i38 ], [ 40, %if.else.i35 ], [ 48, %if.else31.i41 ], [ 32, %lor.lhs.false.i70 ], [ 32, %if.then27 ], [ 40, %lor.lhs.false20.i77 ], [ 40, %if.else.i74 ], [ 48, %if.else31.i80 ]
-  %arrayidx30.i86 = getelementptr inbounds i8, ptr %t, i64 %.sink.i85.sink
+  %arrayidx30.i86 = getelementptr inbounds nuw i8, ptr %t, i64 %.sink.i85.sink
   store ptr %this, ptr %arrayidx30.i86, align 8
   br label %if.end35
 
@@ -249,18 +249,18 @@ if.end35:                                         ; preds = %if.end35.sink.split
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN3p2t8Triangle5ClearEv(ptr noundef nonnull align 8 dereferenceable(57) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %neighbors_ = getelementptr inbounds i8, ptr %this, i64 32
+  %neighbors_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr %neighbors_, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr %neighbors_, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %neighbors_.i = getelementptr inbounds i8, ptr %0, i64 32
+  %neighbors_.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %neighbors_.i, align 8
   %cmp.i = icmp eq ptr %1, %this
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -270,7 +270,7 @@ if.then.i:                                        ; preds = %if.then
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.then
-  %arrayidx5.i = getelementptr inbounds i8, ptr %0, i64 40
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %2 = load ptr, ptr %arrayidx5.i, align 8
   %cmp6.i = icmp eq ptr %2, %this
   br i1 %cmp6.i, label %if.then7.i, label %if.else10.i
@@ -280,7 +280,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %for.inc
 
 if.else10.i:                                      ; preds = %if.else.i
-  %arrayidx12.i = getelementptr inbounds i8, ptr %0, i64 48
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %arrayidx12.i, align 8
   br label %for.inc
 
@@ -290,7 +290,7 @@ for.inc:                                          ; preds = %if.else10.i, %if.th
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %points_, i8 0, i64 48, i1 false)
   ret void
 }
@@ -298,7 +298,7 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3p2t8Triangle13ClearNeighborEPKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef readnone %triangle) local_unnamed_addr #4 align 2 {
 entry:
-  %neighbors_ = getelementptr inbounds i8, ptr %this, i64 32
+  %neighbors_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %neighbors_, align 8
   %cmp = icmp eq ptr %0, %triangle
   br i1 %cmp, label %if.then, label %if.else
@@ -308,7 +308,7 @@ if.then:                                          ; preds = %entry
   br label %if.end13
 
 if.else:                                          ; preds = %entry
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %arrayidx5, align 8
   %cmp6 = icmp eq ptr %1, %triangle
   br i1 %cmp6, label %if.then7, label %if.else10
@@ -318,7 +318,7 @@ if.then7:                                         ; preds = %if.else
   br label %if.end13
 
 if.else10:                                        ; preds = %if.else
-  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %arrayidx12, align 8
   br label %if.end13
 
@@ -329,7 +329,7 @@ if.end13:                                         ; preds = %if.then7, %if.else1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3p2t8Triangle14ClearNeighborsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((32, 56)) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %neighbors_ = getelementptr inbounds i8, ptr %this, i64 32
+  %neighbors_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %neighbors_, i8 0, i64 24, i1 false)
   ret void
 }
@@ -337,10 +337,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3p2t8Triangle17ClearDelunayEdgesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((3, 6)) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %delaunay_edge = getelementptr inbounds i8, ptr %this, i64 3
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 5
+  %delaunay_edge = getelementptr inbounds nuw i8, ptr %this, i64 3
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 5
   store i8 0, ptr %arrayidx, align 1
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i8 0, ptr %arrayidx3, align 4
   store i8 0, ptr %delaunay_edge, align 1
   ret void
@@ -349,24 +349,24 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN3p2t8Triangle13OppositePointERS0_RKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %t, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
 entry:
-  %points_.i = getelementptr inbounds i8, ptr %t, i64 8
+  %points_.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %0 = load ptr, ptr %points_.i, align 8
   %cmp.i = icmp eq ptr %p, %0
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %arrayidx3.i = getelementptr inbounds i8, ptr %t, i64 24
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %t, i64 24
   %1 = load ptr, ptr %arrayidx3.i, align 8
   br label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit
 
 if.else.i:                                        ; preds = %entry
-  %arrayidx5.i = getelementptr inbounds i8, ptr %t, i64 16
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %t, i64 16
   %2 = load ptr, ptr %arrayidx5.i, align 8
   %cmp6.i = icmp eq ptr %p, %2
   br i1 %cmp6.i, label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit, label %if.else10.i
 
 if.else10.i:                                      ; preds = %if.else.i
-  %arrayidx12.i = getelementptr inbounds i8, ptr %t, i64 24
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %t, i64 24
   %3 = load ptr, ptr %arrayidx12.i, align 8
   %cmp13.i = icmp eq ptr %p, %3
   %..i = select i1 %cmp13.i, ptr %2, ptr null
@@ -374,24 +374,24 @@ if.else10.i:                                      ; preds = %if.else.i
 
 _ZN3p2t8Triangle7PointCWERKNS_5PointE.exit:       ; preds = %if.then.i, %if.else.i, %if.else10.i
   %retval.0.i = phi ptr [ %1, %if.then.i ], [ %0, %if.else.i ], [ %..i, %if.else10.i ]
-  %points_.i1 = getelementptr inbounds i8, ptr %this, i64 8
+  %points_.i1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %points_.i1, align 8
   %cmp.i2 = icmp eq ptr %retval.0.i, %4
   br i1 %cmp.i2, label %if.then.i11, label %if.else.i3
 
 if.then.i11:                                      ; preds = %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit
-  %arrayidx3.i12 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx3.i12 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load ptr, ptr %arrayidx3.i12, align 8
   br label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit13
 
 if.else.i3:                                       ; preds = %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit
-  %arrayidx5.i4 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5.i4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load ptr, ptr %arrayidx5.i4, align 8
   %cmp6.i5 = icmp eq ptr %retval.0.i, %6
   br i1 %cmp6.i5, label %_ZN3p2t8Triangle7PointCWERKNS_5PointE.exit13, label %if.else10.i6
 
 if.else10.i6:                                     ; preds = %if.else.i3
-  %arrayidx12.i7 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx12.i7 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load ptr, ptr %arrayidx12.i7, align 8
   %cmp13.i8 = icmp eq ptr %retval.0.i, %7
   %..i9 = select i1 %cmp13.i8, ptr %6, ptr null
@@ -405,24 +405,24 @@ _ZN3p2t8Triangle7PointCWERKNS_5PointE.exit13:     ; preds = %if.then.i11, %if.el
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN3p2t8Triangle7PointCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %point, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %arrayidx3, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %arrayidx5, align 8
   %cmp6 = icmp eq ptr %point, %2
   br i1 %cmp6, label %return, label %if.else10
 
 if.else10:                                        ; preds = %if.else
-  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %arrayidx12, align 8
   %cmp13 = icmp eq ptr %point, %3
   %. = select i1 %cmp13, ptr %2, ptr null
@@ -436,11 +436,11 @@ return:                                           ; preds = %if.else10, %if.else
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3p2t8Triangle8LegalizeERNS_5PointE(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(40) %point) local_unnamed_addr #4 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %arrayidx3, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %arrayidx5, align 8
   store ptr %1, ptr %points_, align 8
   store ptr %point, ptr %arrayidx5, align 8
@@ -450,15 +450,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3p2t8Triangle8LegalizeERNS_5PointES2_(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %opoint, ptr noundef nonnull align 8 dereferenceable(40) %npoint) local_unnamed_addr #4 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %opoint, %0
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   store ptr %0, ptr %arrayidx5, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %arrayidx7, align 8
   store ptr %1, ptr %points_, align 8
   store ptr %npoint, ptr %arrayidx7, align 8
@@ -467,7 +467,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %2 = load ptr, ptr %arrayidx5, align 8
   %cmp14 = icmp eq ptr %opoint, %2
-  %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %this, i64 24
   br i1 %cmp14, label %if.then15, label %if.else26
 
 if.then15:                                        ; preds = %if.else
@@ -494,19 +494,19 @@ if.end43:                                         ; preds = %if.then15, %if.else
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef readnone %p) local_unnamed_addr #6 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %p, %0
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx3, align 8
   %cmp4 = icmp eq ptr %p, %1
   br i1 %cmp4, label %return, label %if.else6
 
 if.else6:                                         ; preds = %if.else
-  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %arrayidx8, align 8
   %cmp9 = icmp eq ptr %p, %2
   %. = select i1 %cmp9, i32 2, i32 -1
@@ -520,10 +520,10 @@ return:                                           ; preds = %if.else6, %if.else,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 -1, 3) i32 @_ZN3p2t8Triangle9EdgeIndexEPKNS_5PointES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef readnone %p1, ptr noundef readnone %p2) local_unnamed_addr #6 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %0, %p1
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx3, align 8
   br i1 %cmp, label %if.then, label %if.else11
 
@@ -532,14 +532,14 @@ if.then:                                          ; preds = %entry
   br i1 %cmp4, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %arrayidx7, align 8
   %cmp8 = icmp eq ptr %2, %p2
   br i1 %cmp8, label %return, label %if.end45
 
 if.else11:                                        ; preds = %entry
   %cmp14 = icmp eq ptr %1, %p1
-  %arrayidx17 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %arrayidx17, align 8
   br i1 %cmp14, label %if.then15, label %if.else27
 
@@ -584,12 +584,12 @@ entry:
 define hidden void @_ZN3p2t8Triangle19MarkConstrainedEdgeERNS_4EdgeE(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %edge) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %edge, align 8
-  %q = getelementptr inbounds i8, ptr %edge, i64 8
+  %q = getelementptr inbounds nuw i8, ptr %edge, i64 8
   %1 = load ptr, ptr %q, align 8
-  %points_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %points_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %points_.i, align 8
   %cmp.i = icmp eq ptr %1, %2
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %arrayidx3.i, align 8
   %cmp4.i = icmp eq ptr %0, %3
   %or.cond.i = select i1 %cmp.i, i1 %cmp4.i, i1 false
@@ -602,12 +602,12 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %or.cond11.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
-  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 2
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i8 1, ptr %arrayidx12.i, align 2
   br label %_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_.exit
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %arrayidx18.i = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx18.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %arrayidx18.i, align 8
   %cmp19.i = icmp eq ptr %0, %4
   %or.cond12.i = select i1 %cmp.i, i1 %cmp19.i, i1 false
@@ -619,7 +619,7 @@ lor.lhs.false20.i:                                ; preds = %if.else.i
   br i1 %or.cond13.i, label %if.then28.i, label %if.else31.i
 
 if.then28.i:                                      ; preds = %lor.lhs.false20.i, %if.else.i
-  %arrayidx30.i = getelementptr inbounds i8, ptr %this, i64 1
+  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %this, i64 1
   store i8 1, ptr %arrayidx30.i, align 1
   br label %_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_.exit
 
@@ -640,10 +640,10 @@ _ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_.exit: ; preds = %if.then.i,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN3p2t8Triangle19MarkConstrainedEdgeEPNS_5PointES2_(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef readnone %p, ptr noundef readnone %q) local_unnamed_addr #4 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %q, %0
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx3, align 8
   %cmp4 = icmp eq ptr %p, %1
   %or.cond = select i1 %cmp, i1 %cmp4, i1 false
@@ -656,12 +656,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond11, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 2
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i8 1, ptr %arrayidx12, align 2
   br label %if.end51
 
 if.else:                                          ; preds = %lor.lhs.false
-  %arrayidx18 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %arrayidx18, align 8
   %cmp19 = icmp eq ptr %p, %2
   %or.cond12 = select i1 %cmp, i1 %cmp19, i1 false
@@ -673,7 +673,7 @@ lor.lhs.false20:                                  ; preds = %if.else
   br i1 %or.cond13, label %if.then28, label %if.else31
 
 if.then28:                                        ; preds = %lor.lhs.false20, %if.else
-  %arrayidx30 = getelementptr inbounds i8, ptr %this, i64 1
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %this, i64 1
   store i8 1, ptr %arrayidx30, align 1
   br label %if.end51
 
@@ -694,16 +694,16 @@ if.end51:                                         ; preds = %if.else31, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN3p2t8Triangle8PointCCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %point, %0
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx3, align 8
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   %cmp6 = icmp eq ptr %point, %1
-  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %arrayidx9, align 8
   br i1 %cmp6, label %return, label %if.else10
 
@@ -720,15 +720,15 @@ return:                                           ; preds = %if.else, %entry, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN3p2t8Triangle10NeighborCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %point, %0
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
   %cmp5 = icmp eq ptr %point, %1
   %. = select i1 %cmp5, i64 48, i64 32
   %.sink = select i1 %cmp, i64 40, i64 %.
-  %neighbors_10 = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %neighbors_10 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
   %retval.0 = load ptr, ptr %neighbors_10, align 8
   ret ptr %retval.0
 }
@@ -736,15 +736,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN3p2t8Triangle11NeighborCCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %point) local_unnamed_addr #6 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %point, %0
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
   %cmp5 = icmp eq ptr %point, %1
   %. = select i1 %cmp5, i64 32, i64 40
   %.sink = select i1 %cmp, i64 48, i64 %.
-  %arrayidx11 = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
   %retval.0 = load ptr, ptr %arrayidx11, align 8
   ret ptr %retval.0
 }
@@ -752,15 +752,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN3p2t8Triangle21GetConstrainedEdgeCCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %p, %0
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
   %cmp5 = icmp ne ptr %p, %1
   %spec.select.idx = zext i1 %cmp5 to i64
   %retval.0.in.in.v = select i1 %cmp, i64 2, i64 %spec.select.idx
-  %retval.0.in.in = getelementptr inbounds i8, ptr %this, i64 %retval.0.in.in.v
+  %retval.0.in.in = getelementptr inbounds nuw i8, ptr %this, i64 %retval.0.in.in.v
   %retval.0.in = load i8, ptr %retval.0.in.in, align 1
   %retval.0 = trunc i8 %retval.0.in to i1
   ret i1 %retval.0
@@ -769,15 +769,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN3p2t8Triangle20GetConstrainedEdgeCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %p, %0
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
   %cmp5 = icmp eq ptr %p, %1
   %spec.select.idx = select i1 %cmp5, i64 2, i64 0
   %retval.0.in.in.v = select i1 %cmp, i64 1, i64 %spec.select.idx
-  %retval.0.in.in = getelementptr inbounds i8, ptr %this, i64 %retval.0.in.in.v
+  %retval.0.in.in = getelementptr inbounds nuw i8, ptr %this, i64 %retval.0.in.in.v
   %retval.0.in = load i8, ptr %retval.0.in.in, align 1
   %retval.0 = trunc i8 %retval.0.in to i1
   ret i1 %retval.0
@@ -787,18 +787,18 @@ entry:
 define hidden void @_ZN3p2t8Triangle21SetConstrainedEdgeCCWERKNS_5PointEb(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p, i1 noundef zeroext %ce) local_unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %ce to i8
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %p, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx2 = getelementptr inbounds i8, ptr %this, i64 2
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i8 %frombool, ptr %arrayidx2, align 2
   br label %if.end17
 
 if.else:                                          ; preds = %entry
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx5, align 8
   %cmp6 = icmp eq ptr %p, %1
   br i1 %cmp6, label %if.then7, label %if.else12
@@ -808,7 +808,7 @@ if.then7:                                         ; preds = %if.else
   br label %if.end17
 
 if.else12:                                        ; preds = %if.else
-  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 1
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %this, i64 1
   store i8 %frombool, ptr %arrayidx15, align 1
   br label %if.end17
 
@@ -820,24 +820,24 @@ if.end17:                                         ; preds = %if.then7, %if.else1
 define hidden void @_ZN3p2t8Triangle20SetConstrainedEdgeCWERKNS_5PointEb(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p, i1 noundef zeroext %ce) local_unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %ce to i8
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %p, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx2 = getelementptr inbounds i8, ptr %this, i64 1
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %this, i64 1
   store i8 %frombool, ptr %arrayidx2, align 1
   br label %if.end17
 
 if.else:                                          ; preds = %entry
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx5, align 8
   %cmp6 = icmp eq ptr %p, %1
   br i1 %cmp6, label %if.then7, label %if.else12
 
 if.then7:                                         ; preds = %if.else
-  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 2
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i8 %frombool, ptr %arrayidx10, align 2
   br label %if.end17
 
@@ -852,15 +852,15 @@ if.end17:                                         ; preds = %if.then7, %if.else1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN3p2t8Triangle17GetDelunayEdgeCCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %p, %0
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
   %cmp5 = icmp eq ptr %p, %1
   %. = select i1 %cmp5, i64 3, i64 4
   %.sink = select i1 %cmp, i64 5, i64 %.
-  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
   %retval.0.in = load i8, ptr %arrayidx12, align 1
   %retval.0 = trunc i8 %retval.0.in to i1
   ret i1 %retval.0
@@ -869,15 +869,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN3p2t8Triangle16GetDelunayEdgeCWERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p) local_unnamed_addr #6 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %p, %0
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
   %cmp5 = icmp eq ptr %p, %1
   %. = select i1 %cmp5, i64 5, i64 3
   %.sink = select i1 %cmp, i64 4, i64 %.
-  %delaunay_edge11 = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %delaunay_edge11 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
   %retval.0.in = load i8, ptr %delaunay_edge11, align 1
   %retval.0 = trunc i8 %retval.0.in to i1
   ret i1 %retval.0
@@ -887,15 +887,15 @@ entry:
 define hidden void @_ZN3p2t8Triangle17SetDelunayEdgeCCWERKNS_5PointEb(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p, i1 noundef zeroext %e) local_unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %e to i8
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %p, %0
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx5, align 8
   %cmp6 = icmp eq ptr %p, %1
   %. = select i1 %cmp6, i64 3, i64 4
   %.sink = select i1 %cmp, i64 5, i64 %.
-  %delaunay_edge9 = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %delaunay_edge9 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
   store i8 %frombool, ptr %delaunay_edge9, align 1
   ret void
 }
@@ -904,15 +904,15 @@ entry:
 define hidden void @_ZN3p2t8Triangle16SetDelunayEdgeCWERKNS_5PointEb(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %p, i1 noundef zeroext %e) local_unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %e to i8
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %p, %0
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx5, align 8
   %cmp6 = icmp eq ptr %p, %1
   %. = select i1 %cmp6, i64 5, i64 3
   %.sink = select i1 %cmp, i64 4, i64 %.
-  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
   store i8 %frombool, ptr %arrayidx10, align 1
   ret void
 }
@@ -920,15 +920,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(57) ptr @_ZN3p2t8Triangle14NeighborAcrossERKNS_5PointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef nonnull readnone align 8 dereferenceable(40) %opoint) local_unnamed_addr #6 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %cmp = icmp eq ptr %opoint, %0
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %arrayidx4, align 8
   %cmp5 = icmp eq ptr %opoint, %1
   %. = select i1 %cmp5, i64 40, i64 48
   %.sink = select i1 %cmp, i64 32, i64 %.
-  %arrayidx11 = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
   %retval.0 = load ptr, ptr %arrayidx11, align 8
   ret ptr %retval.0
 }
@@ -936,33 +936,33 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3p2t8Triangle10DebugPrintEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %points_ = getelementptr inbounds i8, ptr %this, i64 8
+  %points_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8
   %1 = load double, ptr %0, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %1)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @.str)
   %2 = load ptr, ptr %points_, align 8
-  %y = getelementptr inbounds i8, ptr %2, i64 8
+  %y = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load double, ptr %y, align 8
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call2, double noundef %3)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull @.str.1)
-  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %arrayidx8, align 8
   %5 = load double, ptr %4, align 8
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %5)
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef nonnull @.str)
   %6 = load ptr, ptr %arrayidx8, align 8
-  %y14 = getelementptr inbounds i8, ptr %6, i64 8
+  %y14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load double, ptr %y14, align 8
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call11, double noundef %7)
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull @.str.1)
-  %arrayidx18 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load ptr, ptr %arrayidx18, align 8
   %9 = load double, ptr %8, align 8
   %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %9)
   %call21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call20, ptr noundef nonnull @.str)
   %10 = load ptr, ptr %arrayidx18, align 8
-  %y24 = getelementptr inbounds i8, ptr %10, i64 8
+  %y24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load double, ptr %y24, align 8
   %call25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call21, double noundef %11)
   %call26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call25, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)

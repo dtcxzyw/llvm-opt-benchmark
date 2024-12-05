@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hfe722c35568d30c6E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic i64, ptr %0 acquire, align 8
   %.not.i = icmp eq i64 %2, 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h850636752a12125bE.llvm.14109308272594318293.exit", label %4
 
 4:                                                ; preds = %1
@@ -25,7 +25,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN9once_cell4syn
 define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h850636752a12125bE.llvm.14109308272594318293"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %3, 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2

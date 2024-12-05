@@ -51,7 +51,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8OSThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store volatile i32 0, ptr %2, align 8
   tail call void @_ZN8OSThread13pd_initializeEv(ptr noundef nonnull align 8 dereferenceable(196) %0) #3
   ret void
@@ -69,7 +69,7 @@ declare void @_ZN8OSThread10pd_destroyEv(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK8OSThread8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, i64 noundef %5) #3

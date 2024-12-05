@@ -48,7 +48,7 @@ if.else3.i.i.i:                                   ; preds = %if.else.i.i.i
 
 UTF8Position.exit.i.i:                            ; preds = %if.else3.i.i.i, %if.else.i.i.i, %for.body.i.i
   %retval.0.i.i.i = phi i64 [ 0, %for.body.i.i ], [ %.clamp.i.i.i, %if.else3.i.i.i ], [ 1, %if.else.i.i.i ]
-  %arrayidx1.i.i = getelementptr inbounds [3 x i64], ptr %counts.i.i, i64 0, i64 %retval.0.i.i.i
+  %arrayidx1.i.i = getelementptr inbounds nuw [3 x i64], ptr %counts.i.i, i64 0, i64 %retval.0.i.i.i
   %1 = load i64, ptr %arrayidx1.i.i, align 8
   %inc.i.i = add i64 %1, 1
   store i64 %inc.i.i, ptr %arrayidx1.i.i, align 8
@@ -57,9 +57,9 @@ UTF8Position.exit.i.i:                            ; preds = %if.else3.i.i.i, %if
   br i1 %exitcond.not.i.i, label %for.body.preheader.i, label %for.body.i.i, !llvm.loop !4
 
 for.body.preheader.i:                             ; preds = %UTF8Position.exit.i.i
-  %arrayidx3.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %counts.i.i, i64 16
+  %arrayidx3.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %counts.i.i, i64 16
   %.pre.i.i = load i64, ptr %arrayidx3.phi.trans.insert.i.i, align 16
-  %arrayidx6.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %counts.i.i, i64 8
+  %arrayidx6.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %counts.i.i, i64 8
   %.pre7.i.i = load i64, ptr %arrayidx6.phi.trans.insert.i.i, align 8
   %2 = add i64 %.pre7.i.i, %.pre.i.i
   %3 = icmp ugt i64 %2, 24
@@ -89,11 +89,11 @@ for.body.i:                                       ; preds = %UTF8Position.exit.i
   %conv.i55 = zext i8 %5 to i64
   %mul.i = shl nuw nsw i64 %utf8_pos.0136.i, 8
   %add2.i = or disjoint i64 %mul.i, %conv.i55
-  %arrayidx3.i = getelementptr inbounds i64, ptr %histogram, i64 %add2.i
+  %arrayidx3.i = getelementptr inbounds nuw i64, ptr %histogram, i64 %add2.i
   %6 = load i64, ptr %arrayidx3.i, align 8
   %inc.i = add i64 %6, 1
   store i64 %inc.i, ptr %arrayidx3.i, align 8
-  %arrayidx4.i = getelementptr inbounds [3 x i64], ptr %in_window_utf8.i, i64 0, i64 %utf8_pos.0136.i
+  %arrayidx4.i = getelementptr inbounds nuw [3 x i64], ptr %in_window_utf8.i, i64 0, i64 %utf8_pos.0136.i
   %7 = load i64, ptr %arrayidx4.i, align 8
   %inc5.i = add i64 %7, 1
   store i64 %inc5.i, ptr %arrayidx4.i, align 8
@@ -160,11 +160,11 @@ UTF8Position.exit102.i:                           ; preds = %if.else.i94.i, %con
   %12 = load i8, ptr %arrayidx44.i, align 1
   %conv45.i = zext i8 %12 to i64
   %add46.i = or disjoint i64 %mul40.i, %conv45.i
-  %arrayidx47.i = getelementptr inbounds i64, ptr %histogram, i64 %add46.i
+  %arrayidx47.i = getelementptr inbounds nuw i64, ptr %histogram, i64 %add46.i
   %13 = load i64, ptr %arrayidx47.i, align 8
   %dec.i = add i64 %13, -1
   store i64 %dec.i, ptr %arrayidx47.i, align 8
-  %arrayidx48.i = getelementptr inbounds [3 x i64], ptr %in_window_utf8.i, i64 0, i64 %retval.0.i99.i
+  %arrayidx48.i = getelementptr inbounds nuw [3 x i64], ptr %in_window_utf8.i, i64 0, i64 %retval.0.i99.i
   %14 = load i64, ptr %arrayidx48.i, align 8
   %dec49.i = add i64 %14, -1
   store i64 %dec49.i, ptr %arrayidx48.i, align 8
@@ -206,11 +206,11 @@ UTF8Position.exit112.i:                           ; preds = %if.else3.i106.i, %i
   %17 = load i8, ptr %arrayidx74.i, align 1
   %conv75.i = zext i8 %17 to i64
   %add76.i = or disjoint i64 %mul70.i, %conv75.i
-  %arrayidx77.i = getelementptr inbounds i64, ptr %histogram, i64 %add76.i
+  %arrayidx77.i = getelementptr inbounds nuw i64, ptr %histogram, i64 %add76.i
   %18 = load i64, ptr %arrayidx77.i, align 8
   %inc78.i = add i64 %18, 1
   store i64 %inc78.i, ptr %arrayidx77.i, align 8
-  %arrayidx79.i = getelementptr inbounds [3 x i64], ptr %in_window_utf8.i, i64 0, i64 %retval.0.i109.i
+  %arrayidx79.i = getelementptr inbounds nuw [3 x i64], ptr %in_window_utf8.i, i64 0, i64 %retval.0.i109.i
   %19 = load i64, ptr %arrayidx79.i, align 8
   %inc80.i = add i64 %19, 1
   store i64 %inc80.i, ptr %arrayidx79.i, align 8
@@ -256,16 +256,16 @@ UTF8Position.exit122.i:                           ; preds = %if.else.i114.i, %co
   %24 = load i8, ptr %arrayidx113.i, align 1
   %conv114.i = zext i8 %24 to i64
   %add115.i = or disjoint i64 %mul112.i, %conv114.i
-  %arrayidx116.i = getelementptr inbounds i64, ptr %histogram, i64 %add115.i
+  %arrayidx116.i = getelementptr inbounds nuw i64, ptr %histogram, i64 %add115.i
   %25 = load i64, ptr %arrayidx116.i, align 8
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
-  %arrayidx121.i = getelementptr inbounds [3 x i64], ptr %in_window_utf8.i, i64 0, i64 %retval.0.i119.i
+  %arrayidx121.i = getelementptr inbounds nuw [3 x i64], ptr %in_window_utf8.i, i64 0, i64 %retval.0.i119.i
   %26 = load i64, ptr %arrayidx121.i, align 8
   %cmp.i148.i = icmp ult i64 %26, 256
   br i1 %cmp.i148.i, label %if.then.i152.i, label %if.end.i149.i
 
 if.then.i152.i:                                   ; preds = %UTF8Position.exit122.i
-  %arrayidx.i153.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %26
+  %arrayidx.i153.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %26
   %27 = load double, ptr %arrayidx.i153.i, align 8
   br label %FastLog2.exit154.i
 
@@ -280,7 +280,7 @@ FastLog2.exit154.i:                               ; preds = %if.end.i149.i, %if.
   br i1 %cmp.i145.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %FastLog2.exit154.i
-  %arrayidx.i.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %spec.store.select.i
+  %arrayidx.i.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %spec.store.select.i
   %28 = load double, ptr %arrayidx.i.i, align 8
   br label %FastLog2.exit.i
 
@@ -339,7 +339,7 @@ for.body:                                         ; preds = %if.else, %for.body
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 %and
   %30 = load i8, ptr %arrayidx, align 1
   %idxprom = zext i8 %30 to i64
-  %arrayidx2 = getelementptr inbounds i64, ptr %histogram, i64 %idxprom
+  %arrayidx2 = getelementptr inbounds nuw i64, ptr %histogram, i64 %idxprom
   %31 = load i64, ptr %arrayidx2, align 8
   %inc = add i64 %31, 1
   store i64 %inc, ptr %arrayidx2, align 8
@@ -359,7 +359,7 @@ if.then8:                                         ; preds = %for.body6
   %arrayidx11 = getelementptr inbounds i8, ptr %data, i64 %and10
   %32 = load i8, ptr %arrayidx11, align 1
   %idxprom12 = zext i8 %32 to i64
-  %arrayidx13 = getelementptr inbounds i64, ptr %histogram, i64 %idxprom12
+  %arrayidx13 = getelementptr inbounds nuw i64, ptr %histogram, i64 %idxprom12
   %33 = load i64, ptr %arrayidx13, align 8
   %dec = add i64 %33, -1
   store i64 %dec, ptr %arrayidx13, align 8
@@ -378,7 +378,7 @@ if.then17:                                        ; preds = %if.end
   %arrayidx21 = getelementptr inbounds i8, ptr %data, i64 %and20
   %34 = load i8, ptr %arrayidx21, align 1
   %idxprom22 = zext i8 %34 to i64
-  %arrayidx23 = getelementptr inbounds i64, ptr %histogram, i64 %idxprom22
+  %arrayidx23 = getelementptr inbounds nuw i64, ptr %histogram, i64 %idxprom22
   %35 = load i64, ptr %arrayidx23, align 8
   %inc24 = add i64 %35, 1
   store i64 %inc24, ptr %arrayidx23, align 8
@@ -392,14 +392,14 @@ if.end26:                                         ; preds = %if.then17, %if.end
   %arrayidx29 = getelementptr inbounds i8, ptr %data, i64 %and28
   %36 = load i8, ptr %arrayidx29, align 1
   %idxprom30 = zext i8 %36 to i64
-  %arrayidx31 = getelementptr inbounds i64, ptr %histogram, i64 %idxprom30
+  %arrayidx31 = getelementptr inbounds nuw i64, ptr %histogram, i64 %idxprom30
   %37 = load i64, ptr %arrayidx31, align 8
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %37, i64 1)
   %cmp.i51 = icmp ult i64 %in_window.2, 256
   br i1 %cmp.i51, label %if.then.i55, label %if.end.i52
 
 if.then.i55:                                      ; preds = %if.end26
-  %arrayidx.i56 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %in_window.2
+  %arrayidx.i56 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %in_window.2
   %38 = load double, ptr %arrayidx.i56, align 8
   br label %FastLog2.exit57
 
@@ -414,7 +414,7 @@ FastLog2.exit57:                                  ; preds = %if.end.i52, %if.the
   br i1 %cmp.i48, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %FastLog2.exit57
-  %arrayidx.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %spec.store.select
+  %arrayidx.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %spec.store.select
   %39 = load double, ptr %arrayidx.i, align 8
   br label %FastLog2.exit
 

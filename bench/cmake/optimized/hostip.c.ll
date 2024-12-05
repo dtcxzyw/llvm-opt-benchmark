@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_printable_address(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 1)) %1, i64 noundef %2) local_unnamed_addr #0 {
   store i8 0, ptr %1, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %12 [
     i32 2, label %.sink.split
@@ -58,9 +58,9 @@ define dso_local void @Curl_printable_address(ptr nocapture noundef readonly %0,
 
 .sink.split:                                      ; preds = %3, %6
   %.sink16 = phi i64 [ 8, %6 ], [ 4, %3 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 %.sink16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink16
   %10 = trunc i64 %2 to i32
   %11 = tail call ptr @inet_ntop(i32 noundef %5, ptr noundef nonnull %9, ptr noundef nonnull %1, i32 noundef %10) #12
   br label %12
@@ -76,15 +76,15 @@ declare ptr @inet_ntop(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local
 define dso_local void @Curl_hostcache_prune(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.hostcache_prune_data, align 8
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1672
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %31, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 208
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load ptr, ptr %9, align 8
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %13, label %11
@@ -95,8 +95,8 @@ define dso_local void @Curl_hostcache_prune(ptr noundef %0) local_unnamed_addr #
 
 13:                                               ; preds = %11, %8
   %14 = call i64 @time(ptr noundef nonnull %3) #12
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre = load ptr, ptr %6, align 8
   br label %17
 
@@ -119,7 +119,7 @@ define dso_local void @Curl_hostcache_prune(ptr noundef %0) local_unnamed_addr #
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load i64, ptr %25, align 8
   %27 = icmp ugt i64 %26, 29999
   br i1 %27, label %17, label %.critedge, !llvm.loop !5
@@ -146,7 +146,7 @@ declare i32 @Curl_share_unlock(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Curl_fetch_addr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -161,7 +161,7 @@ define dso_local ptr @Curl_fetch_addr(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not9, label %14, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %12, 1
   store i64 %13, ptr %11, align 8
@@ -194,10 +194,10 @@ select.unfold.i:                                  ; preds = %3, %select.unfold.i
   %.01422.i = phi ptr [ %8, %select.unfold.i ], [ %1, %3 ]
   %.01521.i = phi ptr [ %11, %select.unfold.i ], [ %4, %3 ]
   %7 = add nsw i64 %.123.i, -1
-  %8 = getelementptr inbounds i8, ptr %.01422.i, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.01422.i, i64 1
   %9 = load i8, ptr %.01422.i, align 1
   %10 = tail call signext i8 @Curl_raw_tolower(i8 noundef signext %9) #12
-  %11 = getelementptr inbounds i8, ptr %.01521.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 1
   store i8 %10, ptr %.01521.i, align 1
   %.not19.i = icmp eq i64 %7, 0
   br i1 %.not19.i, label %create_hostcache_id.exit, label %select.unfold.i, !llvm.loop !7
@@ -208,7 +208,7 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i, %3
   %12 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %.015.lcssa.i, i64 noundef 7, ptr noundef nonnull @.str.22, i32 noundef %2) #12
   %13 = sext i32 %12 to i64
   %14 = add nsw i64 %.0.lcssa.i, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = load ptr, ptr %15, align 8
   %17 = add nsw i64 %14, 1
   %18 = call ptr @Curl_hash_pick(ptr noundef %16, ptr noundef nonnull %4, i64 noundef %17) #12
@@ -216,14 +216,14 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i, %3
   br i1 %.not, label %19, label %.thread65
 
 19:                                               ; preds = %create_hostcache_id.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 4940
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4940
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 262144
   %.not41 = icmp eq i32 %22, 0
   br i1 %.not41, label %.thread73, label %select.unfold.i53.preheader
 
 select.unfold.i53.preheader:                      ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %4, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %24 = call signext i8 @Curl_raw_tolower(i8 noundef signext 42) #12
   store i8 %24, ptr %4, align 16
   %25 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %23, i64 noundef 7, ptr noundef nonnull @.str.22, i32 noundef %2) #12
@@ -238,7 +238,7 @@ select.unfold.i53.preheader:                      ; preds = %19
 .thread65:                                        ; preds = %create_hostcache_id.exit, %select.unfold.i53.preheader
   %.03470 = phi i64 [ %27, %select.unfold.i53.preheader ], [ %14, %create_hostcache_id.exit ]
   %.03569 = phi ptr [ %30, %select.unfold.i53.preheader ], [ %18, %create_hostcache_id.exit ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 1672
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %32 = load i32, ptr %31, align 8
   %.not43 = icmp eq i32 %32, -1
   br i1 %.not43, label %hostcache_timestamp_remove.exit.thread, label %33
@@ -246,11 +246,11 @@ select.unfold.i53.preheader:                      ; preds = %19
 33:                                               ; preds = %.thread65
   %34 = call i64 @time(ptr noundef nonnull %5) #12
   %35 = load i32, ptr %31, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.03569, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.03569, i64 8
   %39 = load i64, ptr %38, align 8
   %.not.i = icmp eq i64 %39, 0
   br i1 %.not.i, label %hostcache_timestamp_remove.exit.thread, label %40
@@ -271,16 +271,16 @@ select.unfold.i53.preheader:                      ; preds = %19
   br label %hostcache_timestamp_remove.exit.thread
 
 hostcache_timestamp_remove.exit:                  ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %0, i64 2642
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %48 = load i64, ptr %47, align 2
   %49 = and i64 %48, 268435456
   %.not46 = icmp eq i64 %49, 0
   br i1 %.not46, label %.thread73.sink.split, label %.thread73.sink.split.sink.split
 
 hostcache_timestamp_remove.exit.thread:           ; preds = %33, %46, %44, %.thread65
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1151
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1151
   %53 = load i8, ptr %52, align 1
   %.not48 = icmp eq i8 %53, 0
   br i1 %.not48, label %.thread73, label %54
@@ -293,14 +293,14 @@ hostcache_timestamp_remove.exit.thread:           ; preds = %33, %46, %44, %.thr
   br i1 %.not49.not79, label %.critedge.thread, label %.lr.ph
 
 56:                                               ; preds = %.lr.ph
-  %57 = getelementptr inbounds i8, ptr %.080, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.080, i64 40
   %.0 = load ptr, ptr %57, align 8
   %.not49.not = icmp eq ptr %.0, null
   br i1 %.not49.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %54, %56
   %.080 = phi ptr [ %.0, %56 ], [ %.078, %54 ]
-  %58 = getelementptr inbounds i8, ptr %.080, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.080, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %59, %spec.select
   br i1 %60, label %.thread73, label %56
@@ -310,7 +310,7 @@ hostcache_timestamp_remove.exit.thread:           ; preds = %33, %46, %44, %.thr
   br i1 %.not50, label %.thread73.sink.split, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %54, %.critedge
-  %61 = getelementptr inbounds i8, ptr %0, i64 2642
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %62 = load i64, ptr %61, align 2
   %63 = and i64 %62, 268435456
   %.not51 = icmp eq i64 %63, 0
@@ -335,7 +335,7 @@ hostcache_timestamp_remove.exit.thread:           ; preds = %33, %46, %44, %.thr
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Curl_cache_addr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [262 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 2642
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %8 = load i64, ptr %7, align 2
   %9 = and i64 %8, 35184372088832
   %.not = icmp eq i64 %9, 0
@@ -348,7 +348,7 @@ define dso_local ptr @Curl_cache_addr(ptr noundef %0, ptr noundef %1, ptr nocapt
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %.lr.ph.i.i ], [ 0, %10 ]
   %.035.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %1, %10 ]
-  %11 = getelementptr inbounds i8, ptr %.035.i.i, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 40
   %12 = load ptr, ptr %11, align 8
   %indvars.iv.next76.i = add nuw i64 %indvars.iv75.i, 1
   %.not.i.i = icmp eq ptr %12, null
@@ -388,7 +388,7 @@ num_addresses.exit.i:                             ; preds = %.lr.ph.i.i
   %22 = getelementptr ptr, ptr %21, i64 %indvars.iv.i
   %23 = getelementptr i8, ptr %22, i64 -8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %22, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -414,15 +414,15 @@ num_addresses.exit.i:                             ; preds = %.lr.ph.i.i
 
 .preheader65.i:                                   ; preds = %30, %.preheader65.i
   %indvars.iv77.i = phi i64 [ %indvars.iv.next78.i, %.preheader65.i ], [ %indvars.iv75.i, %30 ]
-  %34 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv77.i
+  %34 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv77.i
   %35 = load i32, ptr %34, align 4
   %36 = trunc i64 %indvars.iv77.i to i32
   %37 = add i32 %36, 1
   %38 = urem i32 %35, %37
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %21, i64 %39
+  %40 = getelementptr inbounds nuw ptr, ptr %21, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv77.i
+  %42 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv77.i
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %40, align 8
   store ptr %41, ptr %42, align 8
@@ -432,11 +432,11 @@ num_addresses.exit.i:                             ; preds = %.lr.ph.i.i
 
 .lr.ph71.i:                                       ; preds = %.lr.ph71.i, %.lr.ph71.preheader.i
   %indvars.iv80.i = phi i64 [ 1, %.lr.ph71.preheader.i ], [ %indvars.iv.next81.i, %.lr.ph71.i ]
-  %45 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv80.i
+  %45 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv80.i
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr i8, ptr %45, i64 -8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   store ptr %46, ptr %49, align 8
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count85.i
@@ -444,9 +444,9 @@ num_addresses.exit.i:                             ; preds = %.lr.ph.i.i
 
 ._crit_edge72.i:                                  ; preds = %.lr.ph71.i
   %50 = and i64 %indvars.iv75.i, 4294967295
-  %51 = getelementptr inbounds ptr, ptr %21, i64 %50
+  %51 = getelementptr inbounds nuw ptr, ptr %21, i64 %50
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   store ptr null, ptr %53, align 8
   %54 = load ptr, ptr %21, align 8
   br label %Curl_shuffle_addr.exit.thread49
@@ -504,10 +504,10 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %.01422.i = phi ptr [ %68, %select.unfold.i ], [ %2, %select.unfold.preheader.i ]
   %.01521.i = phi ptr [ %71, %select.unfold.i ], [ %6, %select.unfold.preheader.i ]
   %67 = add nsw i64 %.123.i, -1
-  %68 = getelementptr inbounds i8, ptr %.01422.i, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.01422.i, i64 1
   %69 = load i8, ptr %.01422.i, align 1
   %70 = tail call signext i8 @Curl_raw_tolower(i8 noundef signext %69) #12
-  %71 = getelementptr inbounds i8, ptr %.01521.i, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 1
   store i8 %70, ptr %.01521.i, align 1
   %.not19.i = icmp eq i64 %67, 0
   br i1 %.not19.i, label %create_hostcache_id.exit.loopexit, label %select.unfold.i, !llvm.loop !7
@@ -521,10 +521,10 @@ create_hostcache_id.exit:                         ; preds = %create_hostcache_id
   %.0.lcssa.i = phi i64 [ 1, %65 ], [ %72, %create_hostcache_id.exit.loopexit ]
   %73 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %.015.lcssa.i, i64 noundef 7, ptr noundef nonnull @.str.22, i32 noundef %4) #12
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %63, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i64 1, ptr %75, align 8
   store ptr %.041, ptr %63, align 8
-  %76 = getelementptr inbounds i8, ptr %63, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %77 = call i64 @time(ptr noundef nonnull %76) #12
   %78 = load i64, ptr %76, align 8
   %79 = icmp eq i64 %78, 0
@@ -535,17 +535,17 @@ create_hostcache_id.exit:                         ; preds = %create_hostcache_id
   br label %81
 
 81:                                               ; preds = %80, %create_hostcache_id.exit
-  %82 = getelementptr inbounds i8, ptr %63, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store i32 %4, ptr %82, align 8
   br i1 %.not.i38, label %85, label %83
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %63, i64 28
+  %84 = getelementptr inbounds nuw i8, ptr %63, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %84, ptr align 1 %2, i64 %.029, i1 false)
   br label %85
 
 85:                                               ; preds = %83, %81
-  %86 = getelementptr inbounds i8, ptr %0, i64 176
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %87 = load ptr, ptr %86, align 8
   %88 = add nsw i64 %.0.lcssa.i, %74
   %89 = call ptr @Curl_hash_add(ptr noundef %87, ptr noundef nonnull %6, i64 noundef %88, ptr noundef nonnull %63) #12
@@ -558,7 +558,7 @@ create_hostcache_id.exit:                         ; preds = %create_hostcache_id
   br label %Curl_shuffle_addr.exit.thread45
 
 92:                                               ; preds = %85
-  %93 = getelementptr inbounds i8, ptr %89, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %94 = load i64, ptr %93, align 8
   %95 = add nsw i64 %94, 1
   store i64 %95, ptr %93, align 8
@@ -583,9 +583,9 @@ define dso_local zeroext i1 @Curl_ipv6works(ptr noundef readonly %0) local_unnam
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 432
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 432
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %15
@@ -602,10 +602,10 @@ define dso_local zeroext i1 @Curl_ipv6works(ptr noundef readonly %0) local_unnam
 Curl_ipv6works.exit:                              ; preds = %8, %10
   %12 = phi i8 [ 1, %8 ], [ 2, %10 ]
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 432
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 432
   store i8 %12, ptr %14, align 8
   %.pre = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 432
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 432
   %.pre13 = load i8, ptr %.phi.trans.insert, align 8
   br label %15
 
@@ -662,7 +662,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
   %9 = alloca i32, align 4
   %10 = alloca %struct.in_addr, align 4
   %11 = alloca %struct.in6_addr, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %15 = icmp ugt i64 %14, 6
@@ -687,11 +687,11 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
 
 24:                                               ; preds = %20, %5
   store ptr null, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %13, i64 672
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 672
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, -67108865
   store i32 %27, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 208
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %29 = load ptr, ptr %28, align 8
   %.not77 = icmp eq ptr %29, null
   br i1 %.not77, label %32, label %30
@@ -707,7 +707,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
   br i1 %.not78, label %43, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 2642
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %36 = load i64, ptr %35, align 2
   %37 = and i64 %36, 268435456
   %.not80 = icmp eq i64 %37, 0
@@ -718,7 +718,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
   br label %39
 
 39:                                               ; preds = %34, %38
-  %40 = getelementptr inbounds i8, ptr %33, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = add nsw i64 %41, 1
   store i64 %42, ptr %40, align 8
@@ -739,7 +739,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
 
 48:                                               ; preds = %47
   store i32 0, ptr %9, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 2568
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 2568
   %50 = load ptr, ptr %49, align 8
   %.not83 = icmp eq ptr %50, null
   br i1 %.not83, label %58, label %51
@@ -747,9 +747,9 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
 51:                                               ; preds = %48
   tail call void @Curl_set_in_callback(ptr noundef nonnull %0, i1 noundef zeroext true) #12
   %52 = load ptr, ptr %49, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 3576
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 3576
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 2576
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 2576
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i32 %52(ptr noundef %54, ptr noundef null, ptr noundef %56) #12
   tail call void @Curl_set_in_callback(ptr noundef nonnull %0, i1 noundef zeroext false) #12
@@ -777,7 +777,7 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
   br i1 %.not85, label %147, label %.thread99
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %13, i64 1151
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 1151
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, 2
   br i1 %71, label %72, label %74
@@ -814,26 +814,26 @@ define dso_local range(i32 -1, 2) i32 @Curl_resolv(ptr noundef %0, ptr noundef %
 
 88:                                               ; preds = %84
   store i32 0, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %87, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store i32 2, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %87, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i32 1, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %87, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 12
   store i32 6, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %87, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store i32 16, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %87, i64 48
-  %94 = getelementptr inbounds i8, ptr %87, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %87, i64 32
   store ptr %93, ptr %94, align 8
   store i16 2, ptr %93, align 2
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %87, i64 50
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %87, i64 50
   store i16 %81, ptr %.sroa.3.0..sroa_idx.i, align 2
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %87, i64 52
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %87, i64 52
   store i32 %.sroa.4.4.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 2
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %87, i64 56
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %87, i64 56
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 2
-  %95 = getelementptr inbounds i8, ptr %87, i64 64
-  %96 = getelementptr inbounds i8, ptr %87, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %87, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store ptr %95, ptr %96, align 8
   %97 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull readonly dereferenceable(1) %1) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -855,30 +855,30 @@ get_localhost6.exit.thread.i:                     ; preds = %102, %88
 
 105:                                              ; preds = %102
   store i32 0, ptr %101, align 8
-  %106 = getelementptr inbounds i8, ptr %101, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 10, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %101, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i32 1, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %101, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %101, i64 12
   store i32 6, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %101, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store i32 28, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %101, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %101, i64 40
   store ptr null, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %101, i64 48
-  %112 = getelementptr inbounds i8, ptr %101, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %101, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store ptr %111, ptr %112, align 8
   store i16 10, ptr %111, align 2
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 50
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %101, i64 50
   store i16 %81, ptr %.sroa.2.0..sroa_idx.i.i, align 2
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 52
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %101, i64 52
   store i32 0, ptr %.sroa.3.0..sroa_idx.i.i, align 2
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 56
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %101, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %101, i64 72
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %101, i64 72
   store i32 0, ptr %.sroa.5.0..sroa_idx.i.i, align 2
-  %113 = getelementptr inbounds i8, ptr %101, i64 76
-  %114 = getelementptr inbounds i8, ptr %101, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %101, i64 76
+  %114 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store ptr %113, ptr %114, align 8
   %115 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull readonly dereferenceable(1) %1) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -894,7 +894,7 @@ get_localhost.exit:                               ; preds = %78, %84, %get_local
   br i1 %3, label %117, label %123
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds i8, ptr %0, i64 2642
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %119 = load i64, ptr %118, align 2
   %120 = and i64 %119, 562949953421312
   %.not89 = icmp eq i64 %120, 0
@@ -1014,9 +1014,9 @@ declare ptr @Curl_getaddrinfo(ptr noundef, ptr noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_resolv_check(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 672
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 672
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 67108864
   %.not = icmp eq i32 %7, 0
@@ -1048,14 +1048,14 @@ define internal fastcc void @show_resolve_info(ptr noundef %0, ptr noundef nonnu
   %4 = alloca %struct.in6_addr, align 4
   %5 = alloca [2 x %struct.dynbuf], align 16
   %6 = alloca [46 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 2642
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %8 = load i64, ptr %7, align 2
   %9 = and i64 %8, 268435456
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %67, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %12 = load i8, ptr %11, align 4
   %.not35 = icmp eq i8 %12, 0
   br i1 %.not35, label %67, label %13
@@ -1090,21 +1090,21 @@ Curl_host_is_ipnum.exit:                          ; preds = %13
   %23 = load i8, ptr %11, align 4
   %.not38 = icmp eq i8 %23, 0
   %24 = select i1 %.not38, ptr @.str.26, ptr %11
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i32, ptr %25, align 8
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %24, i32 noundef %26) #12
   br label %27
 
 27:                                               ; preds = %18, %22
   call void @Curl_dyn_init(ptr noundef nonnull %5, i64 noundef 1024) #12
-  %28 = getelementptr inbounds i8, ptr %5, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @Curl_dyn_init(ptr noundef nonnull %28, i64 noundef 1024) #12
   %.not3953 = icmp eq ptr %19, null
   br i1 %.not3953, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %49
   %.054 = phi ptr [ %51, %49 ], [ %19, %27 ]
-  %29 = getelementptr inbounds i8, ptr %.054, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.054, i64 4
   %30 = load i32, ptr %29, align 4
   switch i32 %30, label %49 [
     i32 10, label %31
@@ -1114,7 +1114,7 @@ Curl_host_is_ipnum.exit:                          ; preds = %13
 31:                                               ; preds = %.lr.ph, %.lr.ph
   %32 = icmp ne i32 %30, 2
   %33 = zext i1 %32 to i64
-  %34 = getelementptr inbounds [2 x %struct.dynbuf], ptr %5, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [2 x %struct.dynbuf], ptr %5, i64 0, i64 %33
   store i8 0, ptr %6, align 16
   switch i32 %30, label %Curl_printable_address.exit [
     i32 2, label %.sink.split.i
@@ -1126,9 +1126,9 @@ Curl_host_is_ipnum.exit:                          ; preds = %13
 
 .sink.split.i:                                    ; preds = %35, %31
   %.sink16.i = phi i64 [ 8, %35 ], [ 4, %31 ]
-  %36 = getelementptr inbounds i8, ptr %.054, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.054, i64 32
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 %.sink16.i
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %.sink16.i
   %39 = call ptr @inet_ntop(i32 noundef %30, ptr noundef nonnull %38, ptr noundef nonnull %6, i32 noundef 46) #12
   br label %Curl_printable_address.exit
 
@@ -1158,7 +1158,7 @@ Curl_printable_address.exit:                      ; preds = %31, %.sink.split.i
   br label %.critedge51
 
 49:                                               ; preds = %.lr.ph, %.critedge
-  %50 = getelementptr inbounds i8, ptr %.054, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %.054, i64 40
   %51 = load ptr, ptr %50, align 8
   %.not39 = icmp eq ptr %51, null
   br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -1222,7 +1222,7 @@ define dso_local range(i32 -2, 2) i32 @Curl_resolv_timeout(ptr noundef %0, ptr n
   br i1 %or.cond, label %10, label %15
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 2642
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %12 = load i64, ptr %11, align 2
   %13 = and i64 %12, 268435456
   %.not = icmp eq i64 %13, 0
@@ -1247,7 +1247,7 @@ define dso_local void @Curl_resolv_unlock(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8
   %.not7 = icmp eq ptr %5, null
   br i1 %.not7, label %8, label %6
@@ -1257,7 +1257,7 @@ define dso_local void @Curl_resolv_unlock(ptr noundef %0, ptr noundef %1) local_
   br label %8
 
 8:                                                ; preds = %6, %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = add nsw i64 %10, -1
   store i64 %11, ptr %9, align 8
@@ -1281,7 +1281,7 @@ freednsentry.exit:                                ; preds = %13, %8
   br label %freednsentry.exit9
 
 .critedge:                                        ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = add nsw i64 %20, -1
   store i64 %21, ptr %19, align 8
@@ -1301,7 +1301,7 @@ freednsentry.exit9:                               ; preds = %23, %.critedge, %17
 
 ; Function Attrs: nounwind uwtable
 define internal void @freednsentry(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = add nsw i64 %3, -1
   store i64 %4, ptr %2, align 8
@@ -1337,7 +1337,7 @@ define dso_local void @Curl_hostcache_clean(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8
   %.not7 = icmp eq ptr %5, null
   br i1 %.not7, label %8, label %6
@@ -1371,19 +1371,19 @@ define dso_local range(i32 0, 50) i32 @Curl_loadhostpairs(ptr noundef %0) local_
   %2 = alloca [262 x i8], align 16
   %3 = alloca [64 x i8], align 16
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4940
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4940
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, -262145
   store i32 %7, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4608
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4608
   %.0118231 = load ptr, ptr %8, align 8
   %.not232 = icmp eq ptr %.0118231, null
   br i1 %.not232, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 208
-  %10 = getelementptr inbounds i8, ptr %0, i64 176
-  %11 = getelementptr inbounds i8, ptr %0, i64 2642
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   br label %12
 
 12:                                               ; preds = %.lr.ph, %163
@@ -1398,13 +1398,13 @@ define dso_local range(i32 0, 50) i32 @Curl_loadhostpairs(ptr noundef %0) local_
   br i1 %16, label %17, label %51
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %13, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %19 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 58) #13
   %.not173 = icmp eq ptr %19, null
   br i1 %.not173, label %.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %22 = call i64 @strtoul(ptr nocapture noundef nonnull %21, ptr noundef null, i32 noundef 10) #12
   %23 = icmp eq ptr %19, %18
   %24 = icmp ugt i64 %22, 65535
@@ -1434,11 +1434,11 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %.123.i = phi i64 [ %33, %select.unfold.i ], [ %spec.select27.i, %select.unfold.preheader.i ]
   %.01422.i.pn = phi ptr [ %.01422.i, %select.unfold.i ], [ %32, %select.unfold.preheader.i ]
   %.01521.i = phi ptr [ %36, %select.unfold.i ], [ %2, %select.unfold.preheader.i ]
-  %.01422.i = getelementptr inbounds i8, ptr %.01422.i.pn, i64 1
+  %.01422.i = getelementptr inbounds nuw i8, ptr %.01422.i.pn, i64 1
   %33 = add nsw i64 %.123.i, -1
   %34 = load i8, ptr %.01422.i, align 1
   %35 = call signext i8 @Curl_raw_tolower(i8 noundef signext %34) #12
-  %36 = getelementptr inbounds i8, ptr %.01521.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 1
   store i8 %35, ptr %.01521.i, align 1
   %.not19.i = icmp eq i64 %33, 0
   br i1 %.not19.i, label %create_hostcache_id.exit, label %select.unfold.i, !llvm.loop !7
@@ -1471,7 +1471,7 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
 51:                                               ; preds = %14
   %.not168 = icmp eq i8 %15, 43
   %spec.select179.idx = zext i1 %.not168 to i64
-  %spec.select179 = getelementptr inbounds i8, ptr %13, i64 %spec.select179.idx
+  %spec.select179 = getelementptr inbounds nuw i8, ptr %13, i64 %spec.select179.idx
   %52 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %spec.select179, i32 noundef 58) #13
   %.not152 = icmp eq ptr %52, null
   br i1 %.not152, label %.thread200, label %53
@@ -1480,7 +1480,7 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
   %54 = ptrtoint ptr %52 to i64
   %55 = ptrtoint ptr %spec.select179 to i64
   %56 = sub i64 %54, %55
-  %57 = getelementptr inbounds i8, ptr %52, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %58 = call i64 @strtoul(ptr noundef nonnull %57, ptr noundef nonnull %4, i32 noundef 10) #12
   %59 = icmp ugt i64 %58, 65535
   br i1 %59, label %.thread200, label %60
@@ -1497,7 +1497,7 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
 
 65:                                               ; preds = %63
   %66 = trunc nuw nsw i64 %58 to i32
-  %67 = getelementptr inbounds i8, ptr %61, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 1
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %99, %65
@@ -1517,7 +1517,7 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
   br i1 %.not154, label %102, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %.0126227, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.0126227, i64 1
   %72 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %71, i32 noundef 44) #13
   %.not156 = icmp eq ptr %72, null
   br i1 %.not156, label %73, label %76
@@ -1544,7 +1544,7 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
   br i1 %.not157, label %84, label %.thread200.loopexit.loopexit
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %.0126227, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %.0126227, i64 2
   br label %86
 
 86:                                               ; preds = %84, %76
@@ -1563,7 +1563,7 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
 
 92:                                               ; preds = %87
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %.0127, i64 %90, i1 false)
-  %93 = getelementptr inbounds [64 x i8], ptr %3, i64 0, i64 %90
+  %93 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %90
   store i8 0, ptr %93, align 1
   %94 = call ptr @Curl_str2addr(ptr noundef nonnull %3, i32 noundef %66) #12
   %.not159 = icmp eq ptr %94, null
@@ -1584,7 +1584,7 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
   br i1 %.not162, label %.outer.outer, label %100, !llvm.loop !14
 
 100:                                              ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %.0130.ph, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %.0130.ph, i64 40
   store ptr %94, ptr %101, align 8
   br label %.outer, !llvm.loop !14
 
@@ -1627,10 +1627,10 @@ select.unfold.i187:                               ; preds = %select.unfold.i187,
   %.01422.i189 = phi ptr [ %108, %select.unfold.i187 ], [ %spec.select179, %select.unfold.preheader.i185 ]
   %.01521.i190 = phi ptr [ %111, %select.unfold.i187 ], [ %2, %select.unfold.preheader.i185 ]
   %107 = add nsw i64 %.123.i188, -1
-  %108 = getelementptr inbounds i8, ptr %.01422.i189, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %.01422.i189, i64 1
   %109 = load i8, ptr %.01422.i189, align 1
   %110 = call signext i8 @Curl_raw_tolower(i8 noundef signext %109) #12
-  %111 = getelementptr inbounds i8, ptr %.01521.i190, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.01521.i190, i64 1
   store i8 %110, ptr %.01521.i190, align 1
   %.not19.i191 = icmp eq i64 %107, 0
   br i1 %.not19.i191, label %create_hostcache_id.exit196.loopexit, label %select.unfold.i187, !llvm.loop !7
@@ -1684,12 +1684,12 @@ create_hostcache_id.exit196:                      ; preds = %create_hostcache_id
   br i1 %.not168, label %135, label %133
 
 133:                                              ; preds = %132
-  %134 = getelementptr inbounds i8, ptr %131, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i64 0, ptr %134, align 8
   br label %135
 
 135:                                              ; preds = %133, %132
-  %136 = getelementptr inbounds i8, ptr %131, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %137 = load i64, ptr %136, align 8
   %138 = add nsw i64 %137, -1
   store i64 %138, ptr %136, align 8
@@ -1749,7 +1749,7 @@ create_hostcache_id.exit196:                      ; preds = %create_hostcache_id
   br label %163
 
 163:                                              ; preds = %49, %43, %160, %153, %151, %27, %.thread, %12
-  %164 = getelementptr inbounds i8, ptr %.0118233, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %.0118233, i64 8
   %.0118 = load ptr, ptr %164, align 8
   %.not = icmp eq ptr %.0118, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !15
@@ -1784,15 +1784,15 @@ define dso_local noundef i32 @Curl_resolv_getsock(ptr nocapture noundef readnone
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_once_resolved(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 3560
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3560
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %6, ptr %8, align 8
   store ptr null, ptr %5, align 8
   br label %9
@@ -1822,15 +1822,15 @@ declare void @Curl_disconnect(ptr noundef, ptr noundef, i1 noundef zeroext) loca
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 5, 7) i32 @Curl_resolver_error(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 672
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 672
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
   %. = sub nuw nsw i32 6, %6
   %.str.16..str.15 = select i1 %.not, ptr @.str.16, ptr @.str.15
-  %7 = getelementptr inbounds i8, ptr %0, i64 3552
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3552
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %.str.16..str.15, ptr noundef %8) #12
   ret i32 %.
@@ -1840,7 +1840,7 @@ declare void @Curl_hash_clean_with_criterium(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @hostcache_timestamp_remove(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %16, label %5
@@ -1848,14 +1848,14 @@ define internal range(i32 0, 2) i32 @hostcache_timestamp_remove(ptr nocapture no
 5:                                                ; preds = %2
   %6 = load i64, ptr %0, align 8
   %7 = sub nsw i64 %6, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
   %.not13 = icmp slt i64 %7, %10
   br i1 %.not13, label %11, label %16
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = icmp sgt i64 %7, %13
   br i1 %14, label %15, label %16

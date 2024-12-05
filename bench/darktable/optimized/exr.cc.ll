@@ -186,33 +186,33 @@ define hidden noundef nonnull ptr @_ZN7Imf_3_114TypedAttributeINS_4BlobEE14stati
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK7Imf_3_114TypedAttributeINS_4BlobEE12writeValueToERNS_7OStreamEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %2) unnamed_addr #4 align 2 {
   %4 = alloca [4 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #29
   %7 = trunc i32 %6 to i8
   store i8 %7, ptr %4, align 1, !tbaa !17
   %8 = lshr i32 %6, 8
   %9 = trunc i32 %8 to i8
-  %10 = getelementptr inbounds i8, ptr %4, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %9, ptr %10, align 1, !tbaa !17
   %11 = lshr i32 %6, 16
   %12 = trunc i32 %11 to i8
-  %13 = getelementptr inbounds i8, ptr %4, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %12, ptr %13, align 1, !tbaa !17
   %14 = lshr i32 %6, 24
   %15 = trunc nuw i32 %14 to i8
-  %16 = getelementptr inbounds i8, ptr %4, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %15, ptr %16, align 1, !tbaa !17
   %17 = load ptr, ptr %1, align 8, !tbaa !18
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #29
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = load i32, ptr %5, align 8, !tbaa !6
   %23 = load ptr, ptr %1, align 8, !tbaa !18
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %21, i32 noundef %22)
   ret void
@@ -221,23 +221,23 @@ define hidden void @_ZNK7Imf_3_114TypedAttributeINS_4BlobEE12writeValueToERNS_7O
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEE13readValueFromERNS_7IStreamEii(ptr noundef nonnull align 8 dereferenceable(32) initializes((8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %2, i32 %3) unnamed_addr #4 align 2 {
   %5 = alloca [4 x i8], align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #29
   %7 = load ptr, ptr %1, align 8, !tbaa !18
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %5, i32 noundef 4)
   %11 = load i32, ptr %5, align 4
   store i32 %11, ptr %6, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #29
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = zext i32 %11 to i64
   %14 = call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #30
   call void @_ZNSt12__shared_ptrIhLN9__gnu_cxx12_Lock_policyE2EE5resetIh13array_deleterIhEEENSt9enable_ifIXsr21__sp_is_constructibleIhT_EE5valueEvE4typeEPS7_T0_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %14)
   %15 = load ptr, ptr %12, align 8, !tbaa !20
   %16 = load i32, ptr %6, align 8, !tbaa !6
   %17 = load ptr, ptr %1, align 8, !tbaa !18
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %15, i32 noundef %16)
   ret void
@@ -284,22 +284,22 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIhLN9__gnu_cxx12_Lock_policy
   unreachable
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %19, align 8, !tbaa !22
-  %20 = getelementptr inbounds i8, ptr %3, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %20, align 4, !tbaa !24
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPh13array_deleterIhESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !tbaa !18
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %21, align 8, !tbaa !25
   store ptr %1, ptr %0, align 8, !tbaa !27
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !28
   store ptr %3, ptr %22, align 8, !tbaa !28
   %24 = icmp eq ptr %23, null
   br i1 %24, label %49, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load atomic i64, ptr %26 acquire, align 8
   %28 = icmp eq i64 %27, 4294967297
   %29 = trunc i64 %27 to i32
@@ -307,14 +307,14 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIhLN9__gnu_cxx12_Lock_policy
 
 30:                                               ; preds = %25
   store i32 0, ptr %26, align 8, !tbaa !22
-  %31 = getelementptr inbounds i8, ptr %23, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 0, ptr %31, align 4, !tbaa !24
   %32 = load ptr, ptr %23, align 8, !tbaa !18
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %23) #29
   %35 = load ptr, ptr %23, align 8, !tbaa !18
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %23) #29
   br label %49
@@ -414,13 +414,13 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %52 = alloca %"class.Imf_3_1::OutputFile", align 8
   tail call void @_ZN7Imf_3_120setGlobalThreadCountEi(i32 noundef 1)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17) #29
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load i32, ptr %53, align 4, !tbaa !30
-  %55 = getelementptr inbounds i8, ptr %0, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %56 = load i32, ptr %55, align 4, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #29
   store <2 x float> zeroinitializer, ptr %18, align 8, !tbaa !36
-  %57 = getelementptr inbounds i8, ptr %0, i64 148
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %58 = load i32, ptr %57, align 4, !tbaa !38
   call void @_ZN7Imf_3_16HeaderC1EiifRKN9Imath_3_14Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %17, i32 noundef %54, i32 noundef %56, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %18, float noundef 1.000000e+00, i32 noundef 0, i32 noundef %58)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #29
@@ -428,7 +428,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 1024, ptr noundef nonnull @.str.1, ptr noundef nonnull @darktable_package_string) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20) #29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #29
-  %60 = getelementptr inbounds i8, ptr %21, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %60, ptr %21, align 8, !tbaa !39
   %61 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #29
@@ -464,7 +464,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 
 72:                                               ; preds = %71, %69, %67
   %73 = load i64, ptr %16, align 8, !tbaa !41
-  %74 = getelementptr inbounds i8, ptr %21, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %73, ptr %74, align 8, !tbaa !45
   %75 = load ptr, ptr %21, align 8, !tbaa !43
   %76 = getelementptr inbounds i8, ptr %75, i64 %73
@@ -504,7 +504,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 89:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #29
   store i32 %6, ptr %22, align 8, !tbaa !46
-  %90 = getelementptr inbounds i8, ptr %22, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %22, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
   %91 = zext nneg i32 %6 to i64
   %92 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %91) #30
@@ -528,12 +528,12 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 
 97:                                               ; preds = %96
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %23, align 8, !tbaa !18
-  %98 = getelementptr inbounds i8, ptr %23, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %99 = load i32, ptr %22, align 8, !tbaa !46
   store i32 %99, ptr %98, align 8, !tbaa !46
-  %100 = getelementptr inbounds i8, ptr %23, i64 16
-  %101 = getelementptr inbounds i8, ptr %23, i64 24
-  %102 = getelementptr inbounds i8, ptr %22, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %103 = load <2 x ptr>, ptr %90, align 8, !tbaa !27
   store <2 x ptr> %103, ptr %100, align 8, !tbaa !27
   %104 = extractelement <2 x ptr> %103, i64 1
@@ -541,7 +541,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br i1 %105, label %115, label %106
 
 106:                                              ; preds = %97
-  %107 = getelementptr inbounds i8, ptr %104, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %108 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
   %109 = icmp eq i8 %108, 0
   br i1 %109, label %113, label %110
@@ -567,7 +567,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br i1 %118, label %143, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %117, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %121 = load atomic i64, ptr %120 acquire, align 8
   %122 = icmp eq i64 %121, 4294967297
   %123 = trunc i64 %121 to i32
@@ -575,14 +575,14 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 
 124:                                              ; preds = %119
   store i32 0, ptr %120, align 8, !tbaa !22
-  %125 = getelementptr inbounds i8, ptr %117, i64 12
+  %125 = getelementptr inbounds nuw i8, ptr %117, i64 12
   store i32 0, ptr %125, align 4, !tbaa !24
   %126 = load ptr, ptr %117, align 8, !tbaa !18
-  %127 = getelementptr inbounds i8, ptr %126, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8
   call void %128(ptr noundef nonnull align 8 dereferenceable(16) %117) #29
   %129 = load ptr, ptr %117, align 8, !tbaa !18
-  %130 = getelementptr inbounds i8, ptr %129, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %131 = load ptr, ptr %130, align 8
   call void %131(ptr noundef nonnull align 8 dereferenceable(16) %117) #29
   br label %143
@@ -618,7 +618,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br i1 %145, label %194, label %146
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %144, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %148 = load atomic i64, ptr %147 acquire, align 8
   %149 = icmp eq i64 %148, 4294967297
   %150 = trunc i64 %148 to i32
@@ -626,14 +626,14 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 
 151:                                              ; preds = %146
   store i32 0, ptr %147, align 8, !tbaa !22
-  %152 = getelementptr inbounds i8, ptr %144, i64 12
+  %152 = getelementptr inbounds nuw i8, ptr %144, i64 12
   store i32 0, ptr %152, align 4, !tbaa !24
   %153 = load ptr, ptr %144, align 8, !tbaa !18
-  %154 = getelementptr inbounds i8, ptr %153, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load ptr, ptr %154, align 8
   call void %155(ptr noundef nonnull align 8 dereferenceable(16) %144) #29
   %156 = load ptr, ptr %144, align 8, !tbaa !18
-  %157 = getelementptr inbounds i8, ptr %156, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 24
   %158 = load ptr, ptr %157, align 8
   call void %158(ptr noundef nonnull align 8 dereferenceable(16) %144) #29
   br label %194
@@ -738,7 +738,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 201:                                              ; preds = %198
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #29
-  %202 = getelementptr inbounds i8, ptr %25, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %202, ptr %25, align 8, !tbaa !39
   %203 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %195) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #29
@@ -774,7 +774,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 
 214:                                              ; preds = %213, %211, %209
   %215 = load i64, ptr %15, align 8, !tbaa !41
-  %216 = getelementptr inbounds i8, ptr %25, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %215, ptr %216, align 8, !tbaa !45
   %217 = load ptr, ptr %25, align 8, !tbaa !43
   %218 = getelementptr inbounds i8, ptr %217, i64 %215
@@ -874,7 +874,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
           to label %249 unwind label %257
 
 249:                                              ; preds = %247
-  %250 = getelementptr inbounds i8, ptr %248, i64 1032
+  %250 = getelementptr inbounds nuw i8, ptr %248, i64 1032
   %251 = load ptr, ptr %250, align 8, !tbaa !47
   %252 = invoke i32 @cmsIsMatrixShaper(ptr noundef %251)
           to label %253 unwind label %257
@@ -973,14 +973,14 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 
 305:                                              ; preds = %301
   %306 = load double, ptr %270, align 8, !tbaa !51
-  %307 = getelementptr inbounds i8, ptr %270, i64 8
+  %307 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %308 = load double, ptr %307, align 8, !tbaa !54
-  %309 = getelementptr inbounds i8, ptr %270, i64 16
+  %309 = getelementptr inbounds nuw i8, ptr %270, i64 16
   %310 = load double, ptr %309, align 8, !tbaa !55
   %311 = load double, ptr %273, align 8, !tbaa !51
-  %312 = getelementptr inbounds i8, ptr %273, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %313 = load double, ptr %312, align 8, !tbaa !54
-  %314 = getelementptr inbounds i8, ptr %273, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %273, i64 16
   %315 = load double, ptr %314, align 8, !tbaa !55
   %316 = insertelement <2 x double> poison, double %308, i64 0
   %317 = insertelement <2 x double> %316, double %313, i64 1
@@ -997,7 +997,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %328 = insertelement <4 x double> %327, double %313, i64 3
   %329 = fdiv reassoc nsz arcp contract afn <4 x double> %328, %324
   %330 = fptrunc <4 x double> %329 to <4 x float>
-  %331 = getelementptr inbounds i8, ptr %276, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %276, i64 16
   %332 = load double, ptr %331, align 8, !tbaa !55
   %333 = load <2 x double>, ptr %276, align 8, !tbaa !56
   %334 = shufflevector <2 x double> %333, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -1017,9 +1017,9 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
           to label %346 unwind label %353
 
 346:                                              ; preds = %343
-  %347 = getelementptr inbounds i8, ptr %345, i64 8
+  %347 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %348 = load double, ptr %347, align 8, !tbaa !59
-  %349 = getelementptr inbounds i8, ptr %26, i64 24
+  %349 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %350 = insertelement <2 x double> poison, double %344, i64 0
   %351 = insertelement <2 x double> %350, double %348, i64 1
   %352 = fptrunc <2 x double> %351 to <2 x float>
@@ -1039,7 +1039,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %358 = phi <4 x float> [ %330, %346 ], [ <float 0x3FE6A7EFA0000000, float 0x3FD2B020C0000000, float 0x3FC5C28F60000000, float 0x3FE9810620000000>, %355 ]
   %359 = phi <2 x float> [ %341, %346 ], [ <float 0x3FC0C49BA0000000, float 0x3FA78D4FE0000000>, %355 ]
   store <4 x float> %358, ptr %26, align 16, !tbaa !36
-  %360 = getelementptr inbounds i8, ptr %26, i64 16
+  %360 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store <2 x float> %359, ptr %360, align 16, !tbaa !36
   br label %361
 
@@ -1073,7 +1073,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
           to label %369 unwind label %257
 
 369:                                              ; preds = %368, %363
-  %370 = getelementptr inbounds i8, ptr %0, i64 152
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %371 = load i32, ptr %370, align 4, !tbaa !60
   %372 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN7Imf_3_16Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %17)
           to label %373 unwind label %408
@@ -1118,15 +1118,15 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 383:                                              ; preds = %382
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35) #29
-  %384 = getelementptr inbounds i8, ptr %35, i64 8
+  %384 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 0, ptr %384, align 8, !tbaa !61
-  %385 = getelementptr inbounds i8, ptr %35, i64 16
+  %385 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr null, ptr %385, align 8, !tbaa !65
-  %386 = getelementptr inbounds i8, ptr %35, i64 24
+  %386 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %384, ptr %386, align 8, !tbaa !66
-  %387 = getelementptr inbounds i8, ptr %35, i64 32
+  %387 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr %384, ptr %387, align 8, !tbaa !67
-  %388 = getelementptr inbounds i8, ptr %35, i64 40
+  %388 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i64 0, ptr %388, align 8, !tbaa !68
   %389 = icmp eq i32 %371, 2
   br i1 %389, label %390, label %422
@@ -1146,7 +1146,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 395:                                              ; preds = %394
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %36) #29
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %37) #29
-  %396 = getelementptr inbounds i8, ptr %2, i64 4
+  %396 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %397 = load i32, ptr %53, align 4, !tbaa !30
   %398 = sext i32 %397 to i64
   %399 = shl nsw i64 %398, 4
@@ -1160,7 +1160,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 401:                                              ; preds = %400
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %37) #29
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %38) #29
-  %402 = getelementptr inbounds i8, ptr %2, i64 8
+  %402 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %403 = load i32, ptr %53, align 4, !tbaa !30
   %404 = sext i32 %403 to i64
   %405 = shl nsw i64 %404, 4
@@ -1258,18 +1258,18 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %448 = load float, ptr %446, align 4, !tbaa !36
   %449 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %448, i64 0
   %450 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %449, i32 8)
-  %451 = getelementptr inbounds i8, ptr %446, i64 4
+  %451 = getelementptr inbounds nuw i8, ptr %446, i64 4
   %452 = load float, ptr %451, align 4, !tbaa !36
   %453 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %452, i64 0
   %454 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %453, i32 8)
   %455 = shufflevector <8 x i16> %450, <8 x i16> %454, <2 x i32> <i32 0, i32 8>
   store <2 x i16> %455, ptr %447, align 2, !tbaa !69
-  %456 = getelementptr inbounds i8, ptr %446, i64 8
+  %456 = getelementptr inbounds nuw i8, ptr %446, i64 8
   %457 = load float, ptr %456, align 4, !tbaa !36
   %458 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %457, i64 0
   %459 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %458, i32 8)
   %460 = extractelement <8 x i16> %459, i64 0
-  %461 = getelementptr inbounds i8, ptr %447, i64 4
+  %461 = getelementptr inbounds nuw i8, ptr %447, i64 4
   store i16 %460, ptr %461, align 2, !tbaa !69
   %462 = or disjoint i64 %444, 1
   %463 = add i64 %462, %443
@@ -1280,18 +1280,18 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %466 = load float, ptr %464, align 4, !tbaa !36
   %467 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %466, i64 0
   %468 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %467, i32 8)
-  %469 = getelementptr inbounds i8, ptr %464, i64 4
+  %469 = getelementptr inbounds nuw i8, ptr %464, i64 4
   %470 = load float, ptr %469, align 4, !tbaa !36
   %471 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %470, i64 0
   %472 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %471, i32 8)
   %473 = shufflevector <8 x i16> %468, <8 x i16> %472, <2 x i32> <i32 0, i32 8>
   store <2 x i16> %473, ptr %465, align 2, !tbaa !69
-  %474 = getelementptr inbounds i8, ptr %464, i64 8
+  %474 = getelementptr inbounds nuw i8, ptr %464, i64 8
   %475 = load float, ptr %474, align 4, !tbaa !36
   %476 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %475, i64 0
   %477 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %476, i32 8)
   %478 = extractelement <8 x i16> %477, i64 0
-  %479 = getelementptr inbounds i8, ptr %465, i64 4
+  %479 = getelementptr inbounds nuw i8, ptr %465, i64 4
   store i16 %478, ptr %479, align 2, !tbaa !69
   %480 = add i64 %444, 2
   %481 = icmp eq i64 %480, %438
@@ -1310,18 +1310,18 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %487 = load float, ptr %485, align 4, !tbaa !36
   %488 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %487, i64 0
   %489 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %488, i32 8)
-  %490 = getelementptr inbounds i8, ptr %485, i64 4
+  %490 = getelementptr inbounds nuw i8, ptr %485, i64 4
   %491 = load float, ptr %490, align 4, !tbaa !36
   %492 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %491, i64 0
   %493 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %492, i32 8)
   %494 = shufflevector <8 x i16> %489, <8 x i16> %493, <2 x i32> <i32 0, i32 8>
   store <2 x i16> %494, ptr %486, align 2, !tbaa !69
-  %495 = getelementptr inbounds i8, ptr %485, i64 8
+  %495 = getelementptr inbounds nuw i8, ptr %485, i64 8
   %496 = load float, ptr %495, align 4, !tbaa !36
   %497 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %496, i64 0
   %498 = call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %497, i32 8)
   %499 = extractelement <8 x i16> %498, i64 0
-  %500 = getelementptr inbounds i8, ptr %486, i64 4
+  %500 = getelementptr inbounds nuw i8, ptr %486, i64 4
   store i16 %499, ptr %500, align 2, !tbaa !69
   br label %501
 
@@ -1354,7 +1354,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 511:                                              ; preds = %510
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %39) #29
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %40) #29
-  %512 = getelementptr inbounds i8, ptr %429, i64 2
+  %512 = getelementptr inbounds nuw i8, ptr %429, i64 2
   %513 = load i32, ptr %53, align 4, !tbaa !30
   %514 = sext i32 %513 to i64
   %515 = mul nsw i64 %514, 6
@@ -1368,7 +1368,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 517:                                              ; preds = %516
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %40) #29
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %41) #29
-  %518 = getelementptr inbounds i8, ptr %429, i64 4
+  %518 = getelementptr inbounds nuw i8, ptr %429, i64 4
   %519 = load i32, ptr %53, align 4, !tbaa !30
   %520 = sext i32 %519 to i64
   %521 = mul nsw i64 %520, 6
@@ -1409,18 +1409,18 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br i1 %534, label %535, label %.loopexit60
 
 535:                                              ; preds = %530
-  %536 = getelementptr inbounds i8, ptr %10, i64 328
+  %536 = getelementptr inbounds nuw i8, ptr %10, i64 328
   %537 = load ptr, ptr %536, align 8, !tbaa !27
   %538 = icmp eq ptr %537, null
   br i1 %538, label %.loopexit60, label %539
 
 539:                                              ; preds = %535
-  %540 = getelementptr inbounds i8, ptr %45, i64 16
-  %541 = getelementptr inbounds i8, ptr %45, i64 8
-  %542 = getelementptr inbounds i8, ptr %46, i64 16
-  %543 = getelementptr inbounds i8, ptr %46, i64 8
-  %544 = getelementptr inbounds i8, ptr %47, i64 16
-  %545 = getelementptr inbounds i8, ptr %47, i64 8
+  %540 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %541 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %542 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %543 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %544 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %545 = getelementptr inbounds nuw i8, ptr %47, i64 8
   br label %546
 
 546:                                              ; preds = %873, %539
@@ -1430,7 +1430,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %42) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #29
-  %550 = getelementptr inbounds i8, ptr %549, i64 480
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 480
   %551 = load ptr, ptr %550, align 16, !tbaa !76
   invoke void @g_hash_table_iter_init(ptr noundef nonnull %42, ptr noundef %551)
           to label %.preheader58 unwind label %620
@@ -1446,7 +1446,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 
 556:                                              ; preds = %554
   %557 = load ptr, ptr %549, align 16, !tbaa !86
-  %558 = getelementptr inbounds i8, ptr %557, i64 792
+  %558 = getelementptr inbounds nuw i8, ptr %557, i64 792
   %559 = load ptr, ptr %558, align 8, !tbaa !87
   %560 = load ptr, ptr %43, align 8, !tbaa !27
   %561 = invoke ptr @g_hash_table_lookup(ptr noundef %559, ptr noundef %560)
@@ -1615,7 +1615,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 626:                                              ; preds = %562
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #29
   %627 = load ptr, ptr %549, align 16, !tbaa !86
-  %628 = getelementptr inbounds i8, ptr %627, i64 40
+  %628 = getelementptr inbounds nuw i8, ptr %627, i64 40
   %629 = load ptr, ptr %628, align 8, !tbaa !97
   %630 = invoke noundef ptr %629()
           to label %631 unwind label %689
@@ -1867,10 +1867,10 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
           to label %733 unwind label %723
 
 733:                                              ; preds = %731
-  %734 = getelementptr inbounds i8, ptr %732, i64 8
+  %734 = getelementptr inbounds nuw i8, ptr %732, i64 8
   %735 = load i32, ptr %49, align 4, !tbaa !21
   store i32 %735, ptr %734, align 8, !tbaa !98
-  %736 = getelementptr inbounds i8, ptr %732, i64 16
+  %736 = getelementptr inbounds nuw i8, ptr %732, i64 16
   store ptr %714, ptr %736, align 8, !tbaa !100
   store ptr %552, ptr %732, align 8, !tbaa !101
   br label %847
@@ -2039,9 +2039,9 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
           to label %837 unwind label %845
 
 837:                                              ; preds = %835
-  %838 = getelementptr inbounds i8, ptr %836, i64 8
+  %838 = getelementptr inbounds nuw i8, ptr %836, i64 8
   store i32 1, ptr %838, align 8, !tbaa !98
-  %839 = getelementptr inbounds i8, ptr %836, i64 16
+  %839 = getelementptr inbounds nuw i8, ptr %836, i64 16
   store ptr %746, ptr %839, align 8, !tbaa !100
   store ptr %552, ptr %836, align 8, !tbaa !101
   %840 = load i32, ptr %49, align 4, !tbaa !21
@@ -2129,7 +2129,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %42) #29
-  %874 = getelementptr inbounds i8, ptr %547, i64 8
+  %874 = getelementptr inbounds nuw i8, ptr %547, i64 8
   %875 = load ptr, ptr %874, align 8, !tbaa !27
   %876 = icmp eq ptr %875, null
   br i1 %876, label %.loopexit60, label %546, !llvm.loop !107
@@ -2191,13 +2191,13 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 
 .preheader49:                                     ; preds = %887, %900
   %893 = phi ptr [ %901, %900 ], [ %881, %887 ]
-  %894 = getelementptr inbounds i8, ptr %893, i64 8
+  %894 = getelementptr inbounds nuw i8, ptr %893, i64 8
   %895 = load i32, ptr %894, align 8, !tbaa !98
   %896 = icmp eq i32 %895, 0
   br i1 %896, label %900, label %897
 
 897:                                              ; preds = %.preheader49
-  %898 = getelementptr inbounds i8, ptr %893, i64 16
+  %898 = getelementptr inbounds nuw i8, ptr %893, i64 16
   %899 = load ptr, ptr %898, align 8, !tbaa !100
   call void @free(ptr noundef %899) #29
   br label %900
@@ -2303,13 +2303,13 @@ declare void @_ZN7Imf_3_114TypedAttributeINSt7__cxx1112basic_stringIcSt11char_tr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %0, align 8, !tbaa !18
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -2317,14 +2317,14 @@ define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEED2Ev(ptr 
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !22
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !24
   %12 = load ptr, ptr %3, align 8, !tbaa !18
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   %15 = load ptr, ptr %3, align 8, !tbaa !18
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %29
@@ -2359,13 +2359,13 @@ define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEED2Ev(ptr 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_14BlobD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -2373,14 +2373,14 @@ define linkonce_odr hidden void @_ZN7Imf_3_14BlobD2Ev(ptr noundef nonnull align 
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !22
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !24
   %12 = load ptr, ptr %3, align 8, !tbaa !18
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   %15 = load ptr, ptr %3, align 8, !tbaa !18
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %29
@@ -2482,7 +2482,7 @@ declare void @_ZN7Imf_3_110OutputFileD1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_111FrameBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !65
   invoke void @_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %7 unwind label %4
@@ -2519,12 +2519,12 @@ define noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr noundef
   %8 = tail call noalias dereferenceable_or_null(156) ptr @malloc(i64 noundef 156) #34
   %9 = load <4 x i32>, ptr %1, align 4, !tbaa !21
   store <4 x i32> %9, ptr %8, align 4, !tbaa !21
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = tail call i64 @g_strlcpy(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef 128)
-  %13 = getelementptr inbounds i8, ptr %8, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 144
   store i32 0, ptr %13, align 4, !tbaa !110
-  %14 = getelementptr inbounds i8, ptr %8, i64 148
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 148
   store i32 4, ptr %14, align 4, !tbaa !112
   br label %48
 
@@ -2532,16 +2532,16 @@ define noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr noundef
   %16 = tail call noalias dereferenceable_or_null(156) ptr @malloc(i64 noundef 156) #34
   %17 = load <4 x i32>, ptr %1, align 4, !tbaa !21
   store <4 x i32> %17, ptr %16, align 4, !tbaa !21
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = tail call i64 @g_strlcpy(ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef 128)
-  %21 = getelementptr inbounds i8, ptr %16, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 144
   store i32 0, ptr %21, align 4, !tbaa !110
-  %22 = getelementptr inbounds i8, ptr %1, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %23 = load i32, ptr %22, align 4, !tbaa !113
-  %24 = getelementptr inbounds i8, ptr %16, i64 148
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 148
   store i32 %23, ptr %24, align 4, !tbaa !112
-  %25 = getelementptr inbounds i8, ptr %1, i64 148
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %26 = load i32, ptr %25, align 4, !tbaa !115
   %27 = icmp sgt i32 %26, 0
   %28 = select i1 %27, i32 %26, i32 2
@@ -2551,14 +2551,14 @@ define noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr noundef
   %30 = tail call noalias dereferenceable_or_null(156) ptr @malloc(i64 noundef 156) #34
   %31 = load <4 x i32>, ptr %1, align 4, !tbaa !21
   store <4 x i32> %31, ptr %30, align 4, !tbaa !21
-  %32 = getelementptr inbounds i8, ptr %30, i64 16
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = tail call i64 @g_strlcpy(ptr noundef nonnull %32, ptr noundef nonnull %33, i64 noundef 128)
-  %35 = getelementptr inbounds i8, ptr %30, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 144
   store i32 0, ptr %35, align 4, !tbaa !110
-  %36 = getelementptr inbounds i8, ptr %1, i64 144
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %37 = load i32, ptr %36, align 4, !tbaa !116
-  %38 = getelementptr inbounds i8, ptr %30, i64 148
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 148
   store i32 %37, ptr %38, align 4, !tbaa !112
   br label %48
 
@@ -2566,11 +2566,11 @@ define noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr noundef
   %40 = tail call noalias dereferenceable_or_null(156) ptr @malloc(i64 noundef 156) #34
   %41 = load <4 x i32>, ptr %1, align 4, !tbaa !21
   store <4 x i32> %41, ptr %40, align 4, !tbaa !21
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = tail call i64 @g_strlcpy(ptr noundef nonnull %42, ptr noundef nonnull %43, i64 noundef 128)
-  %45 = getelementptr inbounds i8, ptr %1, i64 144
-  %46 = getelementptr inbounds i8, ptr %40, i64 144
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 144
   %47 = load <2 x i32>, ptr %45, align 4, !tbaa !17
   store <2 x i32> %47, ptr %46, align 4, !tbaa !17
   br label %48
@@ -2578,7 +2578,7 @@ define noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr noundef
 48:                                               ; preds = %39, %29, %15, %7
   %49 = phi ptr [ %40, %39 ], [ %30, %29 ], [ %16, %15 ], [ %8, %7 ]
   %50 = phi i32 [ 2, %39 ], [ 2, %29 ], [ %28, %15 ], [ 2, %7 ]
-  %51 = getelementptr inbounds i8, ptr %49, i64 152
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 152
   store i32 %50, ptr %51, align 4, !tbaa !118
   store i32 5, ptr %4, align 4, !tbaa !21
   store i64 156, ptr %5, align 8, !tbaa !41
@@ -2598,11 +2598,11 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 define noalias noundef ptr @get_params(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
   %2 = tail call noalias dereferenceable_or_null(156) ptr @calloc(i64 noundef 1, i64 noundef 156) #35
   %3 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.14)
-  %4 = getelementptr inbounds i8, ptr %2, i64 148
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 %3, ptr %4, align 4, !tbaa !38
   %5 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.15)
   %6 = ashr i32 %5, 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i32 %6, ptr %7, align 4, !tbaa !60
   ret ptr %2
 }
@@ -2620,7 +2620,7 @@ define void @free_params(ptr nocapture noundef readnone %0, ptr nocapture nounde
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8, !tbaa !119
   %6 = tail call noundef i64 %5(ptr noundef %0)
   %7 = trunc i64 %6 to i32
@@ -2628,16 +2628,16 @@ define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture nou
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 352
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %11 = load ptr, ptr %10, align 8, !tbaa !122
   %12 = load ptr, ptr %11, align 8, !tbaa !123
-  %13 = getelementptr inbounds i8, ptr %1, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %14 = load i32, ptr %13, align 4, !tbaa !60
   %15 = add nsw i32 %14, -1
   tail call void @dt_bauhaus_combobox_set(ptr noundef %12, i32 noundef %15)
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !125
-  %18 = getelementptr inbounds i8, ptr %1, i64 148
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %19 = load i32, ptr %18, align 4, !tbaa !38
   tail call void @dt_bauhaus_combobox_set(ptr noundef %17, i32 noundef %19)
   br label %20
@@ -2683,10 +2683,10 @@ define ptr @name() local_unnamed_addr #9 {
 ; Function Attrs: mustprogress uwtable
 define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr #4 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #34
-  %3 = getelementptr inbounds i8, ptr %0, i64 352
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr %2, ptr %3, align 8, !tbaa !122
   %4 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0)
-  %5 = getelementptr inbounds i8, ptr %0, i64 344
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %4, ptr %5, align 8, !tbaa !126
   %6 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.15)
   %7 = ashr i32 %6, 4
@@ -2705,7 +2705,7 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   tail call void @gtk_box_pack_start(ptr noundef %16, ptr noundef %17, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %18 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.14)
   %19 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef null, i32 noundef %18, ptr noundef nonnull @_ZL28compression_combobox_changedP10_GtkWidgetPv, ptr noundef %0, ptr noundef nonnull @_ZZ8gui_initE5texts_0)
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %19, ptr %20, align 8, !tbaa !125
   %21 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.14, i32 noundef 0)
   tail call void @dt_bauhaus_combobox_set_default(ptr noundef %19, i32 noundef %21)
@@ -2749,7 +2749,7 @@ define internal void @_ZL28compression_combobox_changedP10_GtkWidgetPv(ptr nound
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #17 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 352
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8, !tbaa !122
   tail call void @free(ptr noundef %3) #29
   ret void
@@ -2757,14 +2757,14 @@ define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 ; Function Attrs: mustprogress uwtable
 define void @gui_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 352
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8, !tbaa !122
   %4 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.15, i32 noundef 0)
   %5 = load ptr, ptr %3, align 8, !tbaa !123
   %6 = ashr i32 %4, 4
   %7 = add nsw i32 %6, -1
   tail call void @dt_bauhaus_combobox_set(ptr noundef %5, i32 noundef %7)
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !125
   %10 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.14, i32 noundef 0)
   tail call void @dt_bauhaus_combobox_set(ptr noundef %9, i32 noundef %10)
@@ -2789,10 +2789,10 @@ declare void @_ZSt9terminatev() local_unnamed_addr #20
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !18
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %11, label %8
@@ -2814,7 +2814,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8, !tbaa !18
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %20
@@ -2836,10 +2836,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_5SliceEE
 
 .preheader:                                       ; preds = %2, %.preheader
   %4 = phi ptr [ %8, %.preheader ], [ %1, %2 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !127
   tail call void @_ZNSt8_Rb_treeIN7Imf_3_14NameESt4pairIKS1_NS0_5SliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !128
   tail call void @_ZdlPv(ptr noundef nonnull %4) #31
   %9 = icmp eq ptr %8, null
@@ -2858,13 +2858,13 @@ declare void @dt_conf_set_int(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIhLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -2872,14 +2872,14 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIhLN9__gnu_cxx12_Lock_policy
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !22
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !24
   %12 = load ptr, ptr %3, align 8, !tbaa !18
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   %15 = load ptr, ptr %3, align 8, !tbaa !18
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %29
@@ -2926,7 +2926,7 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPh13array_deleterIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPh13array_deleterIhESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !130
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -2947,7 +2947,7 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPh13array_deleterIhE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPh13array_deleterIhESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !132
   %5 = icmp eq ptr %4, @_ZTS13array_deleterIhE
   br i1 %5, label %12, label %6
@@ -2963,7 +2963,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPh13array_del
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %14
 
 14:                                               ; preds = %12, %9, %6
@@ -3000,9 +3000,9 @@ define linkonce_odr hidden noundef ptr @_ZN7Imf_3_114TypedAttributeINS_4BlobEE16
 define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7Imf_3_19AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %0, align 8, !tbaa !18
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8, !tbaa !46
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
           to label %15 unwind label %5
@@ -3032,13 +3032,13 @@ define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEEC2Ev(ptr 
   unreachable
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %17, align 8, !tbaa !22
-  %18 = getelementptr inbounds i8, ptr %4, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %18, align 4, !tbaa !24
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPhLN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !tbaa !18
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %19, align 8, !tbaa !134
   store ptr %4, ptr %16, align 8, !tbaa !28
   ret void
@@ -3056,13 +3056,13 @@ declare void @_ZN7Imf_3_19AttributeD2Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_114TypedAttributeINS_4BlobEEE, i64 16), ptr %0, align 8, !tbaa !18
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -3070,14 +3070,14 @@ define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEED0Ev(ptr 
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !22
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !24
   %12 = load ptr, ptr %3, align 8, !tbaa !18
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   %15 = load ptr, ptr %3, align 8, !tbaa !18
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   br label %29
@@ -3125,7 +3125,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7Imf_3_114TypedAttributeINS_4BlobEE4
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %2, align 8, !tbaa !18
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret ptr %2
@@ -3159,16 +3159,16 @@ define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEE13copyVal
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %11, align 8, !tbaa !46
   store i32 %13, ptr %12, align 8, !tbaa !46
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   store ptr %16, ptr %14, align 8, !tbaa !20
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = getelementptr inbounds i8, ptr %3, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !28
   %20 = load ptr, ptr %17, align 8, !tbaa !28
   %21 = icmp eq ptr %19, %20
@@ -3179,7 +3179,7 @@ define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEE13copyVal
   br i1 %23, label %34, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %19, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %31, label %28
@@ -3201,7 +3201,7 @@ define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEE13copyVal
   br i1 %36, label %61, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load atomic i64, ptr %38 acquire, align 8
   %40 = icmp eq i64 %39, 4294967297
   %41 = trunc i64 %39 to i32
@@ -3209,14 +3209,14 @@ define linkonce_odr hidden void @_ZN7Imf_3_114TypedAttributeINS_4BlobEE13copyVal
 
 42:                                               ; preds = %37
   store i32 0, ptr %38, align 8, !tbaa !22
-  %43 = getelementptr inbounds i8, ptr %35, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 0, ptr %43, align 4, !tbaa !24
   %44 = load ptr, ptr %35, align 8, !tbaa !18
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %35) #29
   %47 = load ptr, ptr %35, align 8, !tbaa !18
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %35) #29
   br label %61
@@ -3265,7 +3265,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPhLN9__gnu_cxx12_Lock_po
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPhLN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !134
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5

@@ -848,7 +848,7 @@ define internal void @dissect_mmc_preventallowmediaremoval(ptr noundef %0, ptr n
   %17 = zext i8 %16 to i32
   %18 = and i32 %17, 1
   %.not = icmp eq i32 %18, 0
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %.str.368..str.367 = select i1 %.not, ptr @.str.368, ptr @.str.367
   tail call void @col_append_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull %.str.368..str.367) #5
@@ -857,7 +857,7 @@ define internal void @dissect_mmc_preventallowmediaremoval(ptr noundef %0, ptr n
   br i1 %.not15, label %25, label %22
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @col_append_str(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.369) #5
   br label %25
@@ -928,9 +928,9 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
   %18 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %17) #5
   %19 = and i8 %18, 15
   %20 = zext nneg i8 %19 to i16
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i16 %20, ptr %23, align 4
   %switch = icmp samesign ult i8 %19, 2
   br i1 %switch, label %24, label %34
@@ -945,7 +945,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %32 = load i16, ptr %31, align 4
   %33 = or i16 %32, 256
   store i16 %33, ptr %31, align 4
@@ -969,7 +969,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
   %39 = add i32 %3, 5
   %40 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0) #5
   %41 = load ptr, ptr %21, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %43 = load i16, ptr %42, align 4
   %44 = or i16 %43, %.sink123
   store i16 %44, ptr %42, align 4
@@ -982,7 +982,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
   %48 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %46) #5
   %49 = zext i16 %48 to i32
   %50 = load ptr, ptr %21, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i32 %49, ptr %51, align 8
   %52 = add i32 %3, 8
   %53 = load i32, ptr @hf_scsi_control, align 4
@@ -994,18 +994,18 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
   br i1 %14, label %163, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %7, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load i32, ptr %60, align 8
   %62 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %3, i32 noundef %61) #5
   store volatile i32 0, ptr %9, align 4
   store volatile i32 0, ptr %11, align 4
   call void @except_setup_try(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @dissect_mmc4_readtocpmaatip.catch_spec, i64 noundef 1) #5
-  %63 = getelementptr inbounds i8, ptr %13, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %64 = call i32 @_setjmp(ptr noundef nonnull %63) #6
   %.not109 = icmp eq i32 %64, 0
-  %65 = getelementptr inbounds i8, ptr %13, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sink = select i1 %.not109, ptr null, ptr %65
   store volatile ptr %.sink, ptr %10, align 8
   %.0..0..0..0. = load volatile i32, ptr %11, align 4
@@ -1039,7 +1039,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
   %.0..0..0..0.23 = load volatile i32, ptr %9, align 4
   %77 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %76, ptr noundef %62, i32 noundef %.0..0..0..0.23, i32 noundef 2, i32 noundef 0) #5
   %78 = load ptr, ptr %58, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %80 = load i16, ptr %79, align 4
   %81 = and i16 %80, 512
   %.not111 = icmp eq i16 %81, 0
@@ -1055,7 +1055,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
   %87 = add i32 %.0..0..0..0.25, 3
   %88 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %86, ptr noundef %62, i32 noundef %87, i32 noundef 1, i32 noundef 0) #5
   %.pre = load ptr, ptr %58, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 12
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 12
   %.pre120 = load i16, ptr %.phi.trans.insert, align 4
   br label %89
 
@@ -1082,7 +1082,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
   store volatile i32 %100, ptr %9, align 4
   %101 = add i16 %75, -2
   %102 = load ptr, ptr %58, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 12
   %104 = load i16, ptr %103, align 4
   %105 = and i16 %104, 15
   %cond = icmp eq i16 %105, 0
@@ -1107,7 +1107,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
   %114 = add i32 %.0..0..0..0.31, 2
   %115 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %113, ptr noundef %62, i32 noundef %114, i32 noundef 1, i32 noundef 0) #5
   %116 = load ptr, ptr %58, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 12
   %118 = load i16, ptr %117, align 4
   %119 = and i16 %118, 256
   %.not118 = icmp eq i16 %119, 0
@@ -1143,7 +1143,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
 
 131:                                              ; preds = %130
   %.0..0..0..0.14 = load volatile ptr, ptr %10, align 8
-  %132 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %133 = load volatile i64, ptr %132, align 8
   %134 = icmp eq i64 %133, 1
   br i1 %134, label %135, label %137
@@ -1167,7 +1167,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
 
 140:                                              ; preds = %139
   %.0..0..0..0.16 = load volatile ptr, ptr %10, align 8
-  %141 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 8
   %142 = load volatile i64, ptr %141, align 8
   %143 = icmp eq i64 %142, 2
   br i1 %143, label %144, label %146
@@ -1190,7 +1190,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
 
 149:                                              ; preds = %148
   %.0..0..0..0.18 = load volatile ptr, ptr %10, align 8
-  %150 = getelementptr inbounds i8, ptr %.0..0..0..0.18, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.18, i64 8
   %151 = load volatile i64, ptr %150, align 8
   %152 = icmp eq i64 %151, 3
   br i1 %152, label %153, label %155
@@ -1219,7 +1219,7 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
   unreachable
 
 159:                                              ; preds = %157, %155
-  %160 = getelementptr inbounds i8, ptr %13, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %161 = load volatile ptr, ptr %160, align 8
   call void @except_free(ptr noundef %161) #5
   %162 = call ptr @except_pop() #5
@@ -1259,9 +1259,9 @@ define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef 
 27:                                               ; preds = %18
   %28 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %25) #5
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i32 %29, ptr %32, align 8
   br label %.thread
 
@@ -1279,18 +1279,18 @@ define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef 
   br i1 %or.cond5, label %40, label %222
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i32, ptr %43, align 8
   %45 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %3, i32 noundef %44) #5
   store volatile i32 0, ptr %9, align 4
   store volatile i32 0, ptr %11, align 4
   call void @except_setup_try(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @dissect_mmc4_getconfiguration.catch_spec, i64 noundef 1) #5
-  %46 = getelementptr inbounds i8, ptr %13, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %47 = call i32 @_setjmp(ptr noundef nonnull %46) #6
   %.not215 = icmp eq i32 %47, 0
-  %48 = getelementptr inbounds i8, ptr %13, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sink = select i1 %.not215, ptr null, ptr %48
   store volatile ptr %.sink, ptr %10, align 8
   %.0..0..0..0.15 = load volatile i32, ptr %11, align 4
@@ -1588,7 +1588,7 @@ define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef 
 
 190:                                              ; preds = %189
   %.0..0..0..0.28 = load volatile ptr, ptr %10, align 8
-  %191 = getelementptr inbounds i8, ptr %.0..0..0..0.28, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.28, i64 8
   %192 = load volatile i64, ptr %191, align 8
   %193 = icmp eq i64 %192, 1
   br i1 %193, label %194, label %196
@@ -1612,7 +1612,7 @@ define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef 
 
 199:                                              ; preds = %198
   %.0..0..0..0.30 = load volatile ptr, ptr %10, align 8
-  %200 = getelementptr inbounds i8, ptr %.0..0..0..0.30, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.30, i64 8
   %201 = load volatile i64, ptr %200, align 8
   %202 = icmp eq i64 %201, 2
   br i1 %202, label %203, label %205
@@ -1635,7 +1635,7 @@ define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef 
 
 208:                                              ; preds = %207
   %.0..0..0..0.32 = load volatile ptr, ptr %10, align 8
-  %209 = getelementptr inbounds i8, ptr %.0..0..0..0.32, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.32, i64 8
   %210 = load volatile i64, ptr %209, align 8
   %211 = icmp eq i64 %210, 3
   br i1 %211, label %212, label %214
@@ -1664,7 +1664,7 @@ define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef 
   unreachable
 
 218:                                              ; preds = %216, %214
-  %219 = getelementptr inbounds i8, ptr %13, i64 40
+  %219 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %220 = load volatile ptr, ptr %219, align 8
   call void @except_free(ptr noundef %220) #5
   %221 = call ptr @except_pop() #5
@@ -1721,7 +1721,7 @@ define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr nocap
   br i1 %.not85, label %26, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not86 = icmp eq ptr %20, null
   br i1 %.not86, label %26, label %21
@@ -1730,7 +1730,7 @@ define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr nocap
   %22 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %16) #5
   %23 = zext i16 %22 to i32
   %24 = load ptr, ptr %19, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i32 %23, ptr %25, align 8
   br label %26
 
@@ -1750,13 +1750,13 @@ define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr nocap
   br i1 %.not88, label %39, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %7, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not89 = icmp eq ptr %35, null
   br i1 %.not89, label %39, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %35, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %38 = load i32, ptr %37, align 8
   br label %39
 
@@ -1766,10 +1766,10 @@ define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr nocap
   store volatile i32 0, ptr %9, align 4
   store volatile i32 0, ptr %11, align 4
   call void @except_setup_try(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @dissect_mmc4_readdiscinformation.catch_spec, i64 noundef 1) #5
-  %42 = getelementptr inbounds i8, ptr %13, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %43 = call i32 @_setjmp(ptr noundef nonnull %42) #6
   %.not90 = icmp eq i32 %43, 0
-  %44 = getelementptr inbounds i8, ptr %13, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sink = select i1 %.not90, ptr null, ptr %44
   store volatile ptr %.sink, ptr %10, align 8
   %.0..0..0..0. = load volatile i32, ptr %11, align 4
@@ -1883,7 +1883,7 @@ define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr nocap
 
 115:                                              ; preds = %114
   %.0..0..0..0.13 = load volatile ptr, ptr %10, align 8
-  %116 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %117 = load volatile i64, ptr %116, align 8
   %118 = icmp eq i64 %117, 1
   br i1 %118, label %119, label %121
@@ -1907,7 +1907,7 @@ define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr nocap
 
 124:                                              ; preds = %123
   %.0..0..0..0.15 = load volatile ptr, ptr %10, align 8
-  %125 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %126 = load volatile i64, ptr %125, align 8
   %127 = icmp eq i64 %126, 2
   br i1 %127, label %128, label %130
@@ -1930,7 +1930,7 @@ define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr nocap
 
 133:                                              ; preds = %132
   %.0..0..0..0.17 = load volatile ptr, ptr %10, align 8
-  %134 = getelementptr inbounds i8, ptr %.0..0..0..0.17, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.17, i64 8
   %135 = load volatile i64, ptr %134, align 8
   %136 = icmp eq i64 %135, 3
   br i1 %136, label %137, label %139
@@ -1959,7 +1959,7 @@ define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr nocap
   unreachable
 
 143:                                              ; preds = %141, %139
-  %144 = getelementptr inbounds i8, ptr %13, i64 40
+  %144 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %145 = load volatile ptr, ptr %144, align 8
   call void @except_free(ptr noundef %145) #5
   %146 = call ptr @except_pop() #5
@@ -2019,9 +2019,9 @@ default.unreachable:                              ; preds = %16
 30:                                               ; preds = %26
   %31 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %28) #5
   %32 = zext i16 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i32 %32, ptr %35, align 8
   br label %.thread
 
@@ -2036,18 +2036,18 @@ default.unreachable:                              ; preds = %16
   br i1 %14, label %165, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %3, i32 noundef %45) #5
   store volatile i32 0, ptr %9, align 4
   store volatile i32 0, ptr %11, align 4
   call void @except_setup_try(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @dissect_mmc4_readtrackinformation.catch_spec, i64 noundef 1) #5
-  %47 = getelementptr inbounds i8, ptr %13, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %48 = call i32 @_setjmp(ptr noundef nonnull %47) #6
   %.not109 = icmp eq i32 %48, 0
-  %49 = getelementptr inbounds i8, ptr %13, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sink = select i1 %.not109, ptr null, ptr %49
   store volatile ptr %.sink, ptr %10, align 8
   %.0..0..0..0. = load volatile i32, ptr %11, align 4
@@ -2187,7 +2187,7 @@ default.unreachable:                              ; preds = %16
 
 133:                                              ; preds = %132
   %.0..0..0..0.14 = load volatile ptr, ptr %10, align 8
-  %134 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %135 = load volatile i64, ptr %134, align 8
   %136 = icmp eq i64 %135, 1
   br i1 %136, label %137, label %139
@@ -2211,7 +2211,7 @@ default.unreachable:                              ; preds = %16
 
 142:                                              ; preds = %141
   %.0..0..0..0.16 = load volatile ptr, ptr %10, align 8
-  %143 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 8
   %144 = load volatile i64, ptr %143, align 8
   %145 = icmp eq i64 %144, 2
   br i1 %145, label %146, label %148
@@ -2234,7 +2234,7 @@ default.unreachable:                              ; preds = %16
 
 151:                                              ; preds = %150
   %.0..0..0..0.18 = load volatile ptr, ptr %10, align 8
-  %152 = getelementptr inbounds i8, ptr %.0..0..0..0.18, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.18, i64 8
   %153 = load volatile i64, ptr %152, align 8
   %154 = icmp eq i64 %153, 3
   br i1 %154, label %155, label %157
@@ -2263,7 +2263,7 @@ default.unreachable:                              ; preds = %16
   unreachable
 
 161:                                              ; preds = %159, %157
-  %162 = getelementptr inbounds i8, ptr %13, i64 40
+  %162 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %163 = load volatile ptr, ptr %162, align 8
   call void @except_free(ptr noundef %163) #5
   %164 = call ptr @except_pop() #5
@@ -2338,9 +2338,9 @@ define internal void @dissect_mmc4_readbuffercapacity(ptr noundef %0, ptr nocapt
   br i1 %or.cond3, label %13, label %31
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i16 0, ptr %16, align 4
   %17 = load i32, ptr @hf_scsi_mmc_rbc_block, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %17, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
@@ -2351,7 +2351,7 @@ define internal void @dissect_mmc4_readbuffercapacity(ptr noundef %0, ptr nocapt
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i16 1, ptr %23, align 4
   br label %.thread
 
@@ -2373,9 +2373,9 @@ define internal void @dissect_mmc4_readbuffercapacity(ptr noundef %0, ptr nocapt
 33:                                               ; preds = %31
   %34 = load i32, ptr @hf_scsi_mmc_data_length, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %34, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #5
-  %36 = getelementptr inbounds i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %39 = load i16, ptr %38, align 4
   %.not38 = icmp eq i16 %39, 0
   %40 = add i32 %3, 4
@@ -2450,9 +2450,9 @@ define internal void @dissect_mmc4_reportkey(ptr noundef %0, ptr noundef %1, ptr
   %37 = zext i8 %18 to i32
   %38 = or disjoint i32 %36, %37
   %39 = trunc nuw nsw i32 %38 to i16
-  %40 = getelementptr inbounds i8, ptr %7, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i16 %39, ptr %42, align 4
   %43 = add i32 %3, 14
   %44 = load i32, ptr @hf_scsi_control, align 4
@@ -2466,9 +2466,9 @@ define internal void @dissect_mmc4_reportkey(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond5, label %75, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %7, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %53 = load i16, ptr %52, align 4
   %cond = icmp eq i16 %53, 2048
   br i1 %cond, label %54, label %70
@@ -2556,13 +2556,13 @@ define internal void @dissect_mmc4_readdiscstructure(ptr noundef %0, ptr noundef
   %19 = add i32 %3, 6
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %19) #5
   %21 = zext i8 %20 to i16
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i16 %21, ptr %24, align 4
   %25 = load i32, ptr @hf_scsi_mmc_read_dvd_format, align 4
   %26 = load ptr, ptr %22, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load i16, ptr %27, align 4
   %29 = zext i16 %28 to i32
   %30 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %2, i32 noundef %25, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef %29) #5
@@ -2585,9 +2585,9 @@ define internal void @dissect_mmc4_readdiscstructure(ptr noundef %0, ptr noundef
 
 43:                                               ; preds = %41
   %44 = load i32, ptr @hf_scsi_mmc_read_dvd_format, align 4
-  %45 = getelementptr inbounds i8, ptr %7, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %48 = load i16, ptr %47, align 4
   %49 = zext i16 %48 to i32
   %50 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %2, i32 noundef %44, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %49) #5
@@ -2595,13 +2595,13 @@ define internal void @dissect_mmc4_readdiscstructure(ptr noundef %0, ptr noundef
   br i1 %.not.i, label %proto_item_set_generated.exit, label %51
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %50, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %53 = load ptr, ptr %52, align 8
   %.not5.i = icmp eq ptr %53, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %53, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = or i32 %56, 2
   store i32 %57, ptr %55, align 4
@@ -2611,7 +2611,7 @@ proto_item_set_generated.exit:                    ; preds = %43, %51, %54
   %58 = load i32, ptr @hf_scsi_mmc_data_length, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %58, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #5
   %60 = load ptr, ptr %45, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i16, ptr %61, align 4
   switch i16 %62, label %132 [
     i16 0, label %63
@@ -2648,7 +2648,7 @@ proto_item_set_generated.exit:                    ; preds = %43, %51, %54
   %90 = add i32 %3, 13
   %91 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %89, ptr noundef %0, i32 noundef %90, i32 noundef 3, i32 noundef 0) #5
   %92 = load ptr, ptr %45, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 12
   %94 = load i16, ptr %93, align 4
   %95 = icmp eq i16 %94, 0
   br i1 %95, label %96, label %100
@@ -2715,9 +2715,9 @@ define internal void @dissect_mmc4_setstreaming(ptr noundef %0, ptr noundef %1, 
   %12 = add i32 %3, 7
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %12) #5
   %14 = zext i8 %13 to i16
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i16 %14, ptr %17, align 4
   %18 = load i32, ptr @hf_scsi_mmc_setstreaming_type, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %18, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef 0) #5
@@ -2736,9 +2736,9 @@ define internal void @dissect_mmc4_setstreaming(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond7, label %63, label %28
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %32 = load i16, ptr %31, align 4
   %cond = icmp eq i16 %32, 0
   br i1 %cond, label %33, label %60

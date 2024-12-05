@@ -78,14 +78,14 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_crypto_req_d
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @crypto_mod_get(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 376
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @try_module_get(ptr noundef %3) #5
   br i1 %4, label %5, label %15
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
-  %7 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6, i32 1, ptr elementtype(i32) %6) #5, !srcloc !5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %7 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 1, ptr nonnull elementtype(i32) %6) #5, !srcloc !5
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %13, label %9, !prof !6
 
@@ -97,7 +97,7 @@ define dso_local noundef ptr @crypto_mod_get(ptr noundef %0) #0 align 16 {
 
 13:                                               ; preds = %9, %5
   %14 = phi i32 [ 2, %5 ], [ 1, %9 ]
-  tail call void @refcount_warn_saturate(ptr noundef %6, i32 noundef %14) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %6, i32 noundef %14) #5
   br label %15
 
 15:                                               ; preds = %13, %9, %1
@@ -110,10 +110,10 @@ declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @crypto_mod_put(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 376
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 52
-  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 -1, ptr elementtype(i32) %4) #5, !srcloc !8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -1, ptr nonnull elementtype(i32) %4) #5, !srcloc !8
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %10, label %7
 
@@ -122,12 +122,12 @@ define dso_local void @crypto_mod_put(ptr noundef %0) #0 align 16 {
   br i1 %8, label %.thread, label %9, !prof !7
 
 9:                                                ; preds = %7
-  tail call void @refcount_warn_saturate(ptr noundef %4, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %4, i32 noundef 3) #5
   br label %.thread
 
 10:                                               ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %11 = getelementptr inbounds i8, ptr %0, i64 368
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
@@ -152,21 +152,21 @@ define dso_local noundef ptr @crypto_larval_alloc(ptr noundef %0, i32 noundef %1
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 424
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 424
   store i32 %2, ptr %8, align 8
   %9 = or i32 %1, 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 -1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 368
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 368
   store ptr @crypto_larval_destroy, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 56
-  %14 = tail call i64 @strscpy(ptr noundef %13, ptr noundef %0, i64 noundef 128) #5
-  %15 = getelementptr inbounds i8, ptr %5, i64 392
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %14 = tail call i64 @strscpy(ptr noundef nonnull %13, ptr noundef %0, i64 noundef 128) #5
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 392
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 400
-  tail call void @__init_swait_queue_head(ptr noundef %16, ptr noundef nonnull @.str.3, ptr noundef nonnull @init_completion.__key) #5
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 400
+  tail call void @__init_swait_queue_head(ptr noundef nonnull %16, ptr noundef nonnull @.str.3, ptr noundef nonnull @init_completion.__key) #5
   br label %17
 
 17:                                               ; preds = %7, %3
@@ -176,7 +176,7 @@ define dso_local noundef ptr @crypto_larval_alloc(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_larval_destroy(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 16
   %5 = icmp eq i32 %4, 0
@@ -188,7 +188,7 @@ define internal void @crypto_larval_destroy(ptr noundef %0) #0 align 16 {
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 384
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   %11 = icmp ugt ptr %9, inttoptr (i64 -4096 to ptr)
@@ -196,10 +196,10 @@ define internal void @crypto_larval_destroy(ptr noundef %0) #0 align 16 {
   br i1 %12, label %27, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 376
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 376
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 52
-  %17 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, i32 -1, ptr elementtype(i32) %16) #5, !srcloc !8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 52
+  %17 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16, i32 -1, ptr nonnull elementtype(i32) %16) #5, !srcloc !8
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %22, label %19
 
@@ -208,12 +208,12 @@ define internal void @crypto_larval_destroy(ptr noundef %0) #0 align 16 {
   br i1 %20, label %.thread, label %21, !prof !7
 
 21:                                               ; preds = %19
-  tail call void @refcount_warn_saturate(ptr noundef %16, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %16, i32 noundef 3) #5
   br label %.thread
 
 22:                                               ; preds = %13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %23 = getelementptr inbounds i8, ptr %9, i64 368
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 368
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.thread, label %26
@@ -237,19 +237,19 @@ declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unna
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @crypto_larval_kill(ptr noundef %0) #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @crypto_alg_sem) #5
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
   store volatile ptr %4, ptr %3, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %2, align 8
   tail call void @up_write(ptr noundef nonnull @crypto_alg_sem) #5
-  %6 = getelementptr inbounds i8, ptr %0, i64 392
-  tail call void @complete_all(ptr noundef %6) #5
-  %7 = getelementptr inbounds i8, ptr %0, i64 52
-  %8 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, i32 -1, ptr elementtype(i32) %7) #5, !srcloc !8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  tail call void @complete_all(ptr noundef nonnull %6) #5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %8 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %7, i32 -1, ptr nonnull elementtype(i32) %7) #5, !srcloc !8
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %13, label %10
 
@@ -258,12 +258,12 @@ define dso_local void @crypto_larval_kill(ptr noundef %0) #0 align 16 {
   br i1 %11, label %.thread, label %12, !prof !7
 
 12:                                               ; preds = %10
-  tail call void @refcount_warn_saturate(ptr noundef %7, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %7, i32 noundef 3) #5
   br label %.thread
 
 13:                                               ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %14 = getelementptr inbounds i8, ptr %0, i64 368
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %17
@@ -287,7 +287,7 @@ declare dso_local void @complete_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @crypto_wait_for_test(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 384
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @blocking_notifier_call_chain(ptr noundef nonnull @crypto_chain, i64 noundef 1, ptr noundef %3) #5
   %5 = icmp eq i32 %4, 0
@@ -310,8 +310,8 @@ define dso_local void @crypto_wait_for_test(ptr noundef %0) #0 align 16 {
   br label %18
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 392
-  %15 = tail call i32 @wait_for_completion_killable(ptr noundef %14) #5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %15 = tail call i32 @wait_for_completion_killable(ptr noundef nonnull %14) #5
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %18, label %17, !prof !7
 
@@ -323,19 +323,19 @@ define dso_local void @crypto_wait_for_test(ptr noundef %0) #0 align 16 {
 
 18:                                               ; preds = %17, %13, %12
   tail call void @down_write(ptr noundef nonnull @crypto_alg_sem) #5
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8
   store volatile ptr %21, ptr %20, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %19, align 8
   tail call void @up_write(ptr noundef nonnull @crypto_alg_sem) #5
-  %23 = getelementptr inbounds i8, ptr %0, i64 392
-  tail call void @complete_all(ptr noundef %23) #5
-  %24 = getelementptr inbounds i8, ptr %0, i64 52
-  %25 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24, i32 -1, ptr elementtype(i32) %24) #5, !srcloc !8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  tail call void @complete_all(ptr noundef nonnull %23) #5
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %25 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 -1, ptr nonnull elementtype(i32) %24) #5, !srcloc !8
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %30, label %27
 
@@ -344,12 +344,12 @@ define dso_local void @crypto_wait_for_test(ptr noundef %0) #0 align 16 {
   br i1 %28, label %.thread, label %29, !prof !7
 
 29:                                               ; preds = %27
-  tail call void @refcount_warn_saturate(ptr noundef %24, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %24, i32 noundef 3) #5
   br label %.thread
 
 30:                                               ; preds = %18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %31 = getelementptr inbounds i8, ptr %0, i64 368
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread, label %34
@@ -431,7 +431,7 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %27, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 16
   %35 = icmp eq i32 %34, 0
@@ -447,26 +447,26 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
   br i1 %39, label %.thread19, label %40
 
 40:                                               ; preds = %.thread16
-  %41 = getelementptr inbounds i8, ptr %38, i64 424
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 424
   store i32 %10, ptr %41, align 8
   %42 = or disjoint i32 %8, 16
-  %43 = getelementptr inbounds i8, ptr %38, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store i32 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %38, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store i32 -1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %38, i64 368
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 368
   store ptr @crypto_larval_destroy, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %38, i64 56
-  %47 = tail call i64 @strscpy(ptr noundef %46, ptr noundef nonnull %0, i64 noundef 128) #5
-  %48 = getelementptr inbounds i8, ptr %38, i64 392
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  %47 = tail call i64 @strscpy(ptr noundef nonnull %46, ptr noundef nonnull %0, i64 noundef 128) #5
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 392
   store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %38, i64 400
-  tail call void @__init_swait_queue_head(ptr noundef %49, ptr noundef nonnull @.str.3, ptr noundef nonnull @init_completion.__key) #5
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 400
+  tail call void @__init_swait_queue_head(ptr noundef nonnull %49, ptr noundef nonnull @.str.3, ptr noundef nonnull @init_completion.__key) #5
   %50 = icmp ugt ptr %38, inttoptr (i64 -4096 to ptr)
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %40
-  %52 = getelementptr inbounds i8, ptr %38, i64 52
+  %52 = getelementptr inbounds nuw i8, ptr %38, i64 52
   store volatile i32 2, ptr %52, align 4
   tail call void @down_write(ptr noundef nonnull @crypto_alg_sem) #5
   %53 = tail call fastcc ptr @__crypto_alg_lookup(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %10)
@@ -475,10 +475,10 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
 
 .thread18:                                        ; preds = %51
   %55 = load ptr, ptr @crypto_alg_list, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %38, ptr %56, align 8
   store ptr %55, ptr %38, align 8
-  %57 = getelementptr inbounds i8, ptr %38, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr @crypto_alg_list, ptr %57, align 8
   store volatile ptr %38, ptr @crypto_alg_list, align 8
   tail call void @up_write(ptr noundef nonnull @crypto_alg_sem) #5
@@ -491,7 +491,7 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
 
 60:                                               ; preds = %58
   tail call void @kfree(ptr noundef nonnull %38) #5
-  %61 = getelementptr inbounds i8, ptr %53, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 16
   %64 = icmp eq i32 %63, 0
@@ -508,7 +508,7 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
   br i1 %69, label %.thread19, label %70
 
 70:                                               ; preds = %.thread
-  %71 = getelementptr inbounds i8, ptr %68, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %72 = load i32, ptr %71, align 8
   %73 = and i32 %72, 16
   %74 = icmp eq i32 %73, 0
@@ -534,10 +534,10 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
   br label %100
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %68, i64 376
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 376
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %68, i64 52
-  %90 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %89, i32 -1, ptr elementtype(i32) %89) #5, !srcloc !8
+  %89 = getelementptr inbounds nuw i8, ptr %68, i64 52
+  %90 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %89, i32 -1, ptr nonnull elementtype(i32) %89) #5, !srcloc !8
   %91 = icmp eq i32 %90, 1
   br i1 %91, label %95, label %92
 
@@ -546,12 +546,12 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
   br i1 %93, label %.thread21, label %94, !prof !7
 
 94:                                               ; preds = %92
-  tail call void @refcount_warn_saturate(ptr noundef %89, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %89, i32 noundef 3) #5
   br label %.thread21
 
 95:                                               ; preds = %86
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %96 = getelementptr inbounds i8, ptr %68, i64 368
+  %96 = getelementptr inbounds nuw i8, ptr %68, i64 368
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.thread21, label %99
@@ -567,19 +567,19 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
 100:                                              ; preds = %.thread21, %84
   %101 = phi ptr [ %85, %84 ], [ inttoptr (i64 -2 to ptr), %.thread21 ]
   tail call void @down_write(ptr noundef nonnull @crypto_alg_sem) #5
-  %102 = getelementptr inbounds i8, ptr %68, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = load ptr, ptr %68, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr %103, ptr %105, align 8
   store volatile ptr %104, ptr %103, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %68, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %102, align 8
   tail call void @up_write(ptr noundef nonnull @crypto_alg_sem) #5
-  %106 = getelementptr inbounds i8, ptr %68, i64 392
-  tail call void @complete_all(ptr noundef %106) #5
-  %107 = getelementptr inbounds i8, ptr %68, i64 52
-  %108 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %107, i32 -1, ptr elementtype(i32) %107) #5, !srcloc !8
+  %106 = getelementptr inbounds nuw i8, ptr %68, i64 392
+  tail call void @complete_all(ptr noundef nonnull %106) #5
+  %107 = getelementptr inbounds nuw i8, ptr %68, i64 52
+  %108 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %107, i32 -1, ptr nonnull elementtype(i32) %107) #5, !srcloc !8
   %109 = icmp eq i32 %108, 1
   br i1 %109, label %113, label %110
 
@@ -588,12 +588,12 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
   br i1 %111, label %.thread19, label %112, !prof !7
 
 112:                                              ; preds = %110
-  tail call void @refcount_warn_saturate(ptr noundef %107, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %107, i32 noundef 3) #5
   br label %.thread19
 
 113:                                              ; preds = %100
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %114 = getelementptr inbounds i8, ptr %68, i64 368
+  %114 = getelementptr inbounds nuw i8, ptr %68, i64 368
   %115 = load ptr, ptr %114, align 8
   %116 = icmp eq ptr %115, null
   br i1 %116, label %.thread19, label %117
@@ -609,9 +609,9 @@ define dso_local ptr @crypto_alg_mod_lookup(ptr noundef %0, i32 noundef %1, i32 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @crypto_larval_wait(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 392
-  %3 = tail call i64 @wait_for_completion_killable_timeout(ptr noundef %2, i64 noundef 60000) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 384
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %3 = tail call i64 @wait_for_completion_killable_timeout(ptr noundef nonnull %2, i64 noundef 60000) #5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %5 = load ptr, ptr %4, align 8
   %6 = icmp slt i64 %3, 0
   br i1 %6, label %35, label %7
@@ -629,10 +629,10 @@ define internal fastcc ptr @crypto_larval_wait(ptr noundef %0) unnamed_addr #0 a
   br i1 %12, label %35, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 184
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %17 = and i32 %.pre, 1024
   %18 = icmp ne i32 %17, 0
@@ -643,14 +643,14 @@ define internal fastcc ptr @crypto_larval_wait(ptr noundef %0) unnamed_addr #0 a
   br i1 %or.cond7, label %21, label %35
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %5, i64 376
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 376
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @try_module_get(ptr noundef %23) #5
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %5, i64 52
-  %27 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %26, i32 1, ptr elementtype(i32) %26) #5, !srcloc !5
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  %27 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %26, i32 1, ptr nonnull elementtype(i32) %26) #5, !srcloc !5
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %33, label %29, !prof !6
 
@@ -662,15 +662,15 @@ define internal fastcc ptr @crypto_larval_wait(ptr noundef %0) unnamed_addr #0 a
 
 33:                                               ; preds = %29, %25
   %34 = phi i32 [ 2, %25 ], [ 1, %29 ]
-  tail call void @refcount_warn_saturate(ptr noundef %26, i32 noundef %34) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %26, i32 noundef %34) #5
   br label %35
 
 35:                                               ; preds = %13, %33, %29, %21, %11, %9, %7, %1
   %36 = phi ptr [ %5, %11 ], [ inttoptr (i64 -4 to ptr), %1 ], [ inttoptr (i64 -110 to ptr), %7 ], [ inttoptr (i64 -2 to ptr), %9 ], [ inttoptr (i64 -11 to ptr), %21 ], [ %5, %29 ], [ %5, %33 ], [ inttoptr (i64 -11 to ptr), %13 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 376
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 52
-  %40 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %39, i32 -1, ptr elementtype(i32) %39) #5, !srcloc !8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %40 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %39, i32 -1, ptr nonnull elementtype(i32) %39) #5, !srcloc !8
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %45, label %42
 
@@ -679,12 +679,12 @@ define internal fastcc ptr @crypto_larval_wait(ptr noundef %0) unnamed_addr #0 a
   br i1 %43, label %.thread, label %44, !prof !7
 
 44:                                               ; preds = %42
-  tail call void @refcount_warn_saturate(ptr noundef %39, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %39, i32 noundef 3) #5
   br label %.thread
 
 45:                                               ; preds = %35
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %46 = getelementptr inbounds i8, ptr %0, i64 368
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.thread, label %49
@@ -701,7 +701,7 @@ define internal fastcc ptr @crypto_larval_wait(ptr noundef %0) unnamed_addr #0 a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @crypto_shoot_alg(ptr nocapture noundef %0) #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @crypto_alg_sem) #5
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 64
   store i32 %4, ptr %2, align 8
@@ -711,9 +711,9 @@ define dso_local void @crypto_shoot_alg(ptr nocapture noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @__crypto_alloc_tfmgfp(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq ptr %6, null
   br i1 %9, label %13, label %10
@@ -724,7 +724,7 @@ define dso_local ptr @__crypto_alloc_tfmgfp(ptr noundef %0, i32 noundef %1, i32 
   br label %24
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 15
   switch i32 %16, label %17 [
@@ -738,12 +738,12 @@ define dso_local ptr @__crypto_alloc_tfmgfp(ptr noundef %0, i32 noundef %1, i32 
   unreachable
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i32, ptr %19, align 8
   br label %24
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i32, ptr %22, align 8
   br label %24
 
@@ -759,16 +759,16 @@ define dso_local ptr @__crypto_alloc_tfmgfp(ptr noundef %0, i32 noundef %1, i32 
   br i1 %32, label %62, label %33
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %31, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %0, ptr %34, align 8
   store volatile i32 1, ptr %31, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %65
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 352
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %65, label %42
@@ -780,7 +780,7 @@ define dso_local ptr @__crypto_alloc_tfmgfp(ptr noundef %0, i32 noundef %1, i32 
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %34, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 312
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 312
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %54, label %50
@@ -800,7 +800,7 @@ define dso_local ptr @__crypto_alloc_tfmgfp(ptr noundef %0, i32 noundef %1, i32 
 
 56:                                               ; preds = %54
   tail call void @down_write(ptr noundef nonnull @crypto_alg_sem) #5
-  %57 = getelementptr inbounds i8, ptr %0, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = load i32, ptr %57, align 8
   %59 = or i32 %58, 64
   store i32 %59, ptr %57, align 8
@@ -846,10 +846,10 @@ define dso_local ptr @crypto_alloc_base(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %8, label %9, label %.thread14
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 376
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 376
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 52
-  %13 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12, i32 -1, ptr elementtype(i32) %12) #5, !srcloc !8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %13 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 -1, ptr nonnull elementtype(i32) %12) #5, !srcloc !8
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %18, label %15
 
@@ -858,12 +858,12 @@ define dso_local ptr @crypto_alloc_base(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %16, label %.thread, label %17, !prof !7
 
 17:                                               ; preds = %15
-  tail call void @refcount_warn_saturate(ptr noundef %12, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %12, i32 noundef 3) #5
   br label %.thread
 
 18:                                               ; preds = %9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %19 = getelementptr inbounds i8, ptr %4, i64 368
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 368
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread, label %22
@@ -892,7 +892,7 @@ define dso_local ptr @crypto_alloc_base(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %33, label %.thread9.backedge, label %34
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %30, i64 1936
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 1936
   %36 = load i64, ptr %35, align 8
   %.fr15 = freeze i64 %36
   %37 = and i64 %.fr15, 256
@@ -916,9 +916,9 @@ define dso_local ptr @crypto_alloc_base(ptr noundef %0, i32 noundef %1, i32 noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @crypto_create_tfm_node(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0) #5
   %9 = add i32 %5, 32
@@ -931,9 +931,9 @@ define dso_local ptr @crypto_create_tfm_node(ptr noundef %0, ptr nocapture nound
 14:                                               ; preds = %3
   %15 = zext i32 %5 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %2, ptr %18, align 8
   store volatile i32 1, ptr %16, align 4
   %19 = icmp ugt ptr %12, inttoptr (i64 -4096 to ptr)
@@ -943,20 +943,20 @@ define dso_local ptr @crypto_create_tfm_node(ptr noundef %0, ptr nocapture nound
   %21 = load i32, ptr %4, align 4
   %22 = zext i32 %21 to i64
   %23 = getelementptr i8, ptr %12, i64 %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef %23) #5
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %49
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 352
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.thread, label %36
@@ -967,9 +967,9 @@ define dso_local ptr @crypto_create_tfm_node(ptr noundef %0, ptr nocapture nound
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %23, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 312
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 312
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %49, label %45
@@ -990,7 +990,7 @@ define dso_local ptr @crypto_create_tfm_node(ptr noundef %0, ptr nocapture nound
 
 52:                                               ; preds = %49
   tail call void @down_write(ptr noundef nonnull @crypto_alg_sem) #5
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load i32, ptr %53, align 8
   %55 = or i32 %54, 64
   store i32 %55, ptr %53, align 8
@@ -1010,16 +1010,16 @@ define dso_local ptr @crypto_create_tfm_node(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @crypto_clone_tfm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 376
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 376
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @try_module_get(ptr noundef %6) #5
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 52
-  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 1, ptr elementtype(i32) %9) #5, !srcloc !5
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 1, ptr nonnull elementtype(i32) %9) #5, !srcloc !5
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %16, label %12, !prof !6
 
@@ -1031,7 +1031,7 @@ define dso_local ptr @crypto_clone_tfm(ptr nocapture noundef readonly %0, ptr no
 
 16:                                               ; preds = %12, %8
   %17 = phi i32 [ 2, %8 ], [ 1, %12 ]
-  tail call void @refcount_warn_saturate(ptr noundef %9, i32 noundef %17) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %9, i32 noundef %17) #5
   br label %18
 
 18:                                               ; preds = %16, %12
@@ -1039,11 +1039,11 @@ define dso_local ptr @crypto_clone_tfm(ptr nocapture noundef readonly %0, ptr no
   br i1 %19, label %.thread, label %20, !prof !21
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 60
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26(ptr noundef nonnull %4) #5
   %28 = add i32 %24, 32
@@ -1056,9 +1056,9 @@ define dso_local ptr @crypto_clone_tfm(ptr nocapture noundef readonly %0, ptr no
 33:                                               ; preds = %20
   %34 = zext i32 %24 to i64
   %35 = getelementptr i8, ptr %31, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %4, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %22, ptr %37, align 8
   store volatile i32 1, ptr %35, align 4
   %38 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
@@ -1067,7 +1067,7 @@ define dso_local ptr @crypto_clone_tfm(ptr nocapture noundef readonly %0, ptr no
 .thread5:                                         ; preds = %20, %33
   %39 = phi ptr [ %31, %33 ], [ inttoptr (i64 -12 to ptr), %20 ]
   %40 = load ptr, ptr %5, align 8
-  %41 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 -1, ptr elementtype(i32) %9) #5, !srcloc !8
+  %41 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 -1, ptr nonnull elementtype(i32) %9) #5, !srcloc !8
   %42 = icmp eq i32 %41, 1
   br i1 %42, label %46, label %43
 
@@ -1076,12 +1076,12 @@ define dso_local ptr @crypto_clone_tfm(ptr nocapture noundef readonly %0, ptr no
   br i1 %44, label %.thread6, label %45, !prof !7
 
 45:                                               ; preds = %43
-  tail call void @refcount_warn_saturate(ptr noundef %9, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %9, i32 noundef 3) #5
   br label %.thread6
 
 46:                                               ; preds = %.thread5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %47 = getelementptr inbounds i8, ptr %4, i64 368
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 368
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread6, label %50
@@ -1098,13 +1098,13 @@ define dso_local ptr @crypto_clone_tfm(ptr nocapture noundef readonly %0, ptr no
   %52 = load i32, ptr %23, align 4
   %53 = zext i32 %52 to i64
   %54 = getelementptr i8, ptr %31, i64 %53
-  %55 = getelementptr inbounds i8, ptr %1, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %54, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 %56, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %1, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %54, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %59, ptr %60, align 8
   br label %.thread
 
@@ -1119,14 +1119,14 @@ define dso_local ptr @crypto_find_alg(ptr noundef %0, ptr noundef readonly %1, i
   br i1 %5, label %17, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, %2
   %10 = and i32 %8, %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i32, ptr %11, align 8
   %13 = or i32 %9, %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = or i32 %15, %10
   br label %17
@@ -1141,9 +1141,9 @@ define dso_local ptr @crypto_find_alg(ptr noundef %0, ptr noundef readonly %1, i
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @crypto_alloc_tfm_node(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 52
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %.thread9
 
 .thread9:                                         ; preds = %.thread9.backedge, %5
@@ -1172,10 +1172,10 @@ define dso_local ptr @crypto_alloc_tfm_node(ptr noundef %0, ptr noundef readonly
   br i1 %25, label %26, label %.thread14
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %21, i64 376
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 376
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %21, i64 52
-  %30 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %29, i32 -1, ptr elementtype(i32) %29) #5, !srcloc !8
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 52
+  %30 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %29, i32 -1, ptr nonnull elementtype(i32) %29) #5, !srcloc !8
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %35, label %32
 
@@ -1184,12 +1184,12 @@ define dso_local ptr @crypto_alloc_tfm_node(ptr noundef %0, ptr noundef readonly
   br i1 %33, label %.thread, label %34, !prof !7
 
 34:                                               ; preds = %32
-  tail call void @refcount_warn_saturate(ptr noundef %29, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %29, i32 noundef 3) #5
   br label %.thread
 
 35:                                               ; preds = %26
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %36 = getelementptr inbounds i8, ptr %21, i64 368
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 368
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread, label %39
@@ -1218,7 +1218,7 @@ define dso_local ptr @crypto_alloc_tfm_node(ptr noundef %0, ptr noundef readonly
   br i1 %50, label %.thread9.backedge, label %51
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %47, i64 1936
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 1936
   %53 = load i64, ptr %52, align 8
   %.fr15 = freeze i64 %53
   %54 = and i64 %.fr15, 256
@@ -1262,15 +1262,15 @@ define dso_local void @crypto_destroy_tfm(ptr noundef %0, ptr noundef %1) #0 ali
 
 12:                                               ; preds = %6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 360
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 360
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22
@@ -1282,7 +1282,7 @@ define dso_local void @crypto_destroy_tfm(ptr noundef %0, ptr noundef %1) #0 ali
 
 23:                                               ; preds = %22, %18, %12
   %24 = phi ptr [ %.pre, %22 ], [ %14, %18 ], [ %14, %12 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 312
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 312
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %32, label %28
@@ -1297,10 +1297,10 @@ define dso_local void @crypto_destroy_tfm(ptr noundef %0, ptr noundef %1) #0 ali
   br label %32
 
 32:                                               ; preds = %31, %28, %23
-  %33 = getelementptr inbounds i8, ptr %14, i64 376
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 376
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %14, i64 52
-  %36 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35, i32 -1, ptr elementtype(i32) %35) #5, !srcloc !8
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 52
+  %36 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %35, i32 -1, ptr nonnull elementtype(i32) %35) #5, !srcloc !8
   %37 = icmp eq i32 %36, 1
   br i1 %37, label %41, label %38
 
@@ -1309,12 +1309,12 @@ define dso_local void @crypto_destroy_tfm(ptr noundef %0, ptr noundef %1) #0 ali
   br i1 %39, label %.thread7, label %40, !prof !7
 
 40:                                               ; preds = %38
-  tail call void @refcount_warn_saturate(ptr noundef %35, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %35, i32 noundef 3) #5
   br label %.thread7
 
 41:                                               ; preds = %32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %42 = getelementptr inbounds i8, ptr %14, i64 368
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 368
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.thread7, label %45
@@ -1342,10 +1342,10 @@ define dso_local noundef range(i32 0, 2) i32 @crypto_has_alg(ptr noundef %0, i32
   br i1 %5, label %20, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 376
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 376
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 52
-  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 -1, ptr elementtype(i32) %9) #5, !srcloc !8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 -1, ptr nonnull elementtype(i32) %9) #5, !srcloc !8
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %15, label %12
 
@@ -1354,12 +1354,12 @@ define dso_local noundef range(i32 0, 2) i32 @crypto_has_alg(ptr noundef %0, i32
   br i1 %13, label %.thread, label %14, !prof !7
 
 14:                                               ; preds = %12
-  tail call void @refcount_warn_saturate(ptr noundef %9, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %9, i32 noundef 3) #5
   br label %.thread
 
 15:                                               ; preds = %6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %16 = getelementptr inbounds i8, ptr %4, i64 368
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 368
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
@@ -1383,7 +1383,7 @@ define dso_local void @crypto_req_done(ptr noundef %0, i32 noundef %1) #0 align 
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %5, align 8
   tail call void @complete(ptr noundef %0) #5
   br label %6
@@ -1422,7 +1422,7 @@ define internal fastcc ptr @crypto_alg_lookup(ptr nocapture noundef nonnull read
   br i1 %12, label %39, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %11, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 16
   %17 = icmp eq i32 %16, 0
@@ -1438,10 +1438,10 @@ define internal fastcc ptr @crypto_alg_lookup(ptr nocapture noundef nonnull read
   br i1 %24, label %65, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %11, i64 376
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 376
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 52
-  %29 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, i32 -1, ptr elementtype(i32) %28) #5, !srcloc !8
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 52
+  %29 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %28, i32 -1, ptr nonnull elementtype(i32) %28) #5, !srcloc !8
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %34, label %31
 
@@ -1450,12 +1450,12 @@ define internal fastcc ptr @crypto_alg_lookup(ptr nocapture noundef nonnull read
   br i1 %32, label %.thread, label %33, !prof !7
 
 33:                                               ; preds = %31
-  tail call void @refcount_warn_saturate(ptr noundef %28, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %28, i32 noundef 3) #5
   br label %.thread
 
 34:                                               ; preds = %25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %35 = getelementptr inbounds i8, ptr %11, i64 368
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 368
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread, label %38
@@ -1474,17 +1474,17 @@ define internal fastcc ptr @crypto_alg_lookup(ptr nocapture noundef nonnull read
   br i1 %43, label %65, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %42, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 16
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %65
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %42, i64 376
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 376
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %42, i64 52
-  %53 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %52, i32 -1, ptr elementtype(i32) %52) #5, !srcloc !8
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 52
+  %53 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %52, i32 -1, ptr nonnull elementtype(i32) %52) #5, !srcloc !8
   %54 = icmp eq i32 %53, 1
   br i1 %54, label %58, label %55
 
@@ -1493,12 +1493,12 @@ define internal fastcc ptr @crypto_alg_lookup(ptr nocapture noundef nonnull read
   br i1 %56, label %.thread, label %57, !prof !7
 
 57:                                               ; preds = %55
-  tail call void @refcount_warn_saturate(ptr noundef %52, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %52, i32 noundef 3) #5
   br label %.thread
 
 58:                                               ; preds = %49
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %59 = getelementptr inbounds i8, ptr %42, i64 368
+  %59 = getelementptr inbounds nuw i8, ptr %42, i64 368
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.thread, label %62
@@ -1543,7 +1543,7 @@ define internal fastcc ptr @__crypto_alg_lookup(ptr nocapture noundef nonnull re
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %.thread
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 96
   %11 = icmp eq i32 %10, 0
@@ -1561,44 +1561,44 @@ define internal fastcc ptr @__crypto_alg_lookup(ptr nocapture noundef nonnull re
   br i1 %18, label %27, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %5, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %21 = load i8, ptr %20, align 8
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %5, i64 424
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 424
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, %2
   br i1 %26, label %27, label %.thread.outer.backedge, !llvm.loop !22
 
 27:                                               ; preds = %23, %19, %16
-  %28 = getelementptr inbounds i8, ptr %5, i64 184
-  %29 = tail call i32 @strcmp(ptr noundef %28, ptr noundef nonnull dereferenceable(1) %0) #5
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %0) #5
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %5, i64 56
-  %33 = tail call i32 @strcmp(ptr noundef %32, ptr noundef nonnull dereferenceable(1) %0) #5
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %0) #5
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %.thread.outer.backedge, !llvm.loop !22
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %5, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, %.ph.ph
   br i1 %38, label %39, label %.thread.outer.backedge, !llvm.loop !22
 
 39:                                               ; preds = %35, %27
-  %40 = getelementptr inbounds i8, ptr %5, i64 376
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 376
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i1 @try_module_get(ptr noundef %41) #5
   br i1 %42, label %43, label %.thread, !llvm.loop !22
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %5, i64 52
-  %45 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %44, i32 1, ptr elementtype(i32) %44) #5, !srcloc !5
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  %45 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, i32 1, ptr nonnull elementtype(i32) %44) #5, !srcloc !5
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %51, label %47, !prof !6
 
@@ -1610,7 +1610,7 @@ define internal fastcc ptr @__crypto_alg_lookup(ptr nocapture noundef nonnull re
 
 51:                                               ; preds = %47, %43
   %52 = phi i32 [ 2, %43 ], [ 1, %47 ]
-  tail call void @refcount_warn_saturate(ptr noundef %44, i32 noundef %52) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %44, i32 noundef %52) #5
   br label %53
 
 53:                                               ; preds = %51, %47
@@ -1622,16 +1622,16 @@ define internal fastcc ptr @__crypto_alg_lookup(ptr nocapture noundef nonnull re
   br label %.thread.outer, !llvm.loop !22
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %5, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq ptr %.ph7.ph, null
   br i1 %58, label %.loopexit9, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %.ph7.ph, i64 376
+  %60 = getelementptr inbounds nuw i8, ptr %.ph7.ph, i64 376
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.ph7.ph, i64 52
-  %63 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %62, i32 -1, ptr elementtype(i32) %62) #5, !srcloc !8
+  %62 = getelementptr inbounds nuw i8, ptr %.ph7.ph, i64 52
+  %63 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %62, i32 -1, ptr nonnull elementtype(i32) %62) #5, !srcloc !8
   %64 = icmp eq i32 %63, 1
   br i1 %64, label %68, label %65
 
@@ -1640,12 +1640,12 @@ define internal fastcc ptr @__crypto_alg_lookup(ptr nocapture noundef nonnull re
   br i1 %66, label %.thread6, label %67, !prof !7
 
 67:                                               ; preds = %65
-  tail call void @refcount_warn_saturate(ptr noundef %62, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %62, i32 noundef 3) #5
   br label %.thread6
 
 68:                                               ; preds = %59
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %69 = getelementptr inbounds i8, ptr %.ph7.ph, i64 368
+  %69 = getelementptr inbounds nuw i8, ptr %.ph7.ph, i64 368
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %.thread6, label %72

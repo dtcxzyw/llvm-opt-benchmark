@@ -54,11 +54,11 @@ define dso_local ptr @cbuf_create(i32 noundef %0, i32 noundef %1) local_unnamed_
 6:                                                ; preds = %2
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 88, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @__func__.cbuf_create) #15
   %8 = add nuw nsw i32 %0, 1
-  %9 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %8, ptr %9, align 8
   %10 = zext nneg i32 %8 to i64
   %11 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %10, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 140, ptr noundef nonnull @__func__.cbuf_create) #15
-  %12 = getelementptr inbounds i8, ptr %7, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %11, ptr %12, align 8
   %13 = tail call i32 @pthread_mutex_init(ptr noundef %7, ptr noundef null) #15
   %.not = icmp eq i32 %13, 0
@@ -71,18 +71,18 @@ define dso_local ptr @cbuf_create(i32 noundef %0, i32 noundef %1) local_unnamed_
   unreachable
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %7, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 %0, ptr %17, align 4
   %18 = tail call i32 @llvm.smax.i32(i32 %1, i32 %0)
-  %19 = getelementptr inbounds i8, ptr %7, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 52
   store i32 %0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 60
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 60
   store i32 2, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   br label %24
 
@@ -117,7 +117,7 @@ define dso_local void @cbuf_destroy(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @slurm_xfree(ptr noundef nonnull %7) #15
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not8 = icmp eq i32 %8, 0
@@ -169,9 +169,9 @@ define dso_local void @cbuf_flush(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not11 = icmp eq i32 %8, 0
@@ -200,7 +200,7 @@ define dso_local i32 @cbuf_size(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not8 = icmp eq i32 %8, 0
@@ -229,9 +229,9 @@ define dso_local i32 @cbuf_free(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not9 = icmp eq i32 %10, 0
@@ -261,7 +261,7 @@ define dso_local i32 @cbuf_used(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not8 = icmp eq i32 %8, 0
@@ -290,27 +290,27 @@ define dso_local i32 @cbuf_lines_used(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %cbuf_find_unread_line.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %cbuf_find_unread_line.exit, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 68
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %17 = load i32, ptr %16, align 4
   %.not45.i = icmp eq i32 %15, %17
   br i1 %.not45.i, label %cbuf_find_unread_line.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = add nuw nsw i32 %7, 1
   br label %21
@@ -366,11 +366,11 @@ define dso_local range(i32 -2147483646, 2147483647) i32 @cbuf_reused(ptr noundef
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 76
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not11 = icmp eq i32 %12, 0
@@ -405,7 +405,7 @@ define dso_local i32 @cbuf_lines_reused(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load i32, ptr %7, align 4
   %9 = call fastcc i32 @cbuf_find_replay_line(ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef null)
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
@@ -445,9 +445,9 @@ define internal fastcc i32 @cbuf_find_replay_line(ptr nocapture noundef readonly
   br i1 %or.cond, label %69, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 76
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %14, %16
   br i1 %17, label %69, label %18
@@ -456,9 +456,9 @@ define internal fastcc i32 @cbuf_find_replay_line(ptr nocapture noundef readonly
   %19 = icmp sgt i32 %5, 0
   %20 = add nsw i32 %1, 1
   %.067 = select i1 %19, i32 -1, i32 %20
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %24, %14
   %26 = add nsw i32 %24, 1
@@ -539,7 +539,7 @@ define internal fastcc i32 @cbuf_find_replay_line(ptr nocapture noundef readonly
   %.160 = phi i32 [ %.261, %41 ], [ %.059, %40 ]
   %.256 = phi i32 [ %.357, %41 ], [ %.155, %40 ]
   %.3 = phi i32 [ %.4, %41 ], [ %.2, %40 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = load i32, ptr %59, align 8
   %.not77 = icmp eq i32 %60, 0
   br i1 %.not77, label %61, label %67
@@ -587,7 +587,7 @@ define dso_local range(i32 0, 2) i32 @cbuf_is_empty(ptr noundef %0) local_unname
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not8 = icmp eq i32 %8, 0
@@ -631,7 +631,7 @@ define dso_local range(i32 -1, 1) i32 @cbuf_opt_get(ptr noundef %0, i32 noundef 
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 60
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %2, align 4
   br label %18
@@ -679,7 +679,7 @@ define dso_local range(i32 -1, 1) i32 @cbuf_opt_set(ptr noundef %0, i32 noundef 
   br i1 %or.cond3, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 60
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %2, ptr %11, align 4
   br label %16
 
@@ -736,7 +736,7 @@ define dso_local i32 @cbuf_drop(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 12:                                               ; preds = %8
   %13 = icmp eq i32 %1, -1
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %1, i32 %15)
   %.018 = select i1 %13, i32 %15, i32 %.
@@ -744,13 +744,13 @@ define dso_local i32 @cbuf_drop(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = sub nsw i32 %15, %.018
   store i32 %19, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8
   %22 = add nsw i32 %21, %.018
-  %23 = getelementptr inbounds i8, ptr %0, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %24, 1
   %26 = srem i32 %22, %25
@@ -801,7 +801,7 @@ define dso_local i32 @cbuf_peek(ptr noundef %0, ptr noundef writeonly %1, i32 no
   unreachable
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
   %..i = tail call i32 @llvm.smin.i32(i32 range(i32 1, -2147483648) %2, i32 %16)
   %17 = icmp eq i32 %16, 0
@@ -812,10 +812,10 @@ define dso_local i32 @cbuf_peek(ptr noundef %0, ptr noundef writeonly %1, i32 no
   br i1 %.old1.i, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %18
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 52
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %23
 
 23:                                               ; preds = %38, %.preheader.i
@@ -902,7 +902,7 @@ define dso_local i32 @cbuf_read(ptr noundef %0, ptr noundef writeonly %1, i32 no
   unreachable
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
   %..i = tail call i32 @llvm.smin.i32(i32 range(i32 1, -2147483648) %2, i32 %16)
   %17 = icmp eq i32 %16, 0
@@ -913,10 +913,10 @@ define dso_local i32 @cbuf_read(ptr noundef %0, ptr noundef writeonly %1, i32 no
   br i1 %.old1.i, label %.preheader.i, label %cbuf_reader.exit
 
 .preheader.i:                                     ; preds = %18
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 52
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %23
 
 23:                                               ; preds = %38, %.preheader.i
@@ -963,10 +963,10 @@ cbuf_reader.exit:                                 ; preds = %38, %18
   %44 = load i32, ptr %15, align 8
   %45 = sub nsw i32 %44, %.034..i
   store i32 %45, ptr %15, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %47 = load i32, ptr %46, align 8
   %48 = add nsw i32 %47, %.034..i
-  %49 = getelementptr inbounds i8, ptr %0, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, 1
   %52 = srem i32 %48, %51
@@ -1018,12 +1018,12 @@ define dso_local i32 @cbuf_replay(ptr noundef %0, ptr noundef writeonly %1, i32 
   unreachable
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 76
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %18 = load i32, ptr %17, align 4
   %19 = sub i32 %16, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, 1
   %23 = add nsw i32 %19, %22
@@ -1040,7 +1040,7 @@ define dso_local i32 @cbuf_replay(ptr noundef %0, ptr noundef writeonly %1, i32 
   %28 = add i32 %22, %16
   %29 = sub i32 %28, %25
   %30 = srem i32 %29, %22
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %32
 
 32:                                               ; preds = %47, %.preheader.i
@@ -1125,12 +1125,12 @@ define dso_local range(i32 -2147483646, 2147483647) i32 @cbuf_rewind(ptr noundef
   unreachable
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 76
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %16 = load i32, ptr %15, align 4
   %17 = sub i32 %14, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 52
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   %21 = add nsw i32 %17, %20
@@ -1142,7 +1142,7 @@ define dso_local range(i32 -2147483646, 2147483647) i32 @cbuf_rewind(ptr noundef
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %12
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load i32, ptr %27, align 8
   %29 = add nsw i32 %28, %.027
   store i32 %29, ptr %27, align 8
@@ -1225,16 +1225,16 @@ define dso_local i32 @cbuf_write(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @cbuf_writer(ptr nocapture noundef %0, i32 noundef range(i32 1, -2147483648) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = sub nsw i32 %8, %10
   %12 = icmp sgt i32 %1, %11
   br i1 %12, label %13, label %55
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = icmp slt i32 %8, %15
   br i1 %16, label %17, label %55
@@ -1242,7 +1242,7 @@ define internal fastcc i32 @cbuf_writer(ptr nocapture noundef %0, i32 noundef ra
 17:                                               ; preds = %13
   %18 = sub nsw i32 %1, %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i32, ptr %19, align 8
   %21 = sub nsw i32 %20, %8
   %22 = add nsw i32 %20, %18
@@ -1251,7 +1251,7 @@ define internal fastcc i32 @cbuf_writer(ptr nocapture noundef %0, i32 noundef ra
   %24 = sub i32 %reass.sub.i, %23
   %25 = add nsw i32 %21, %15
   %..i = tail call i32 @llvm.smin.i32(i32 %24, i32 %25)
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %6, align 8
   %28 = sext i32 %..i to i64
@@ -1261,9 +1261,9 @@ define internal fastcc i32 @cbuf_writer(ptr nocapture noundef %0, i32 noundef ra
   store i32 %..i, ptr %19, align 8
   %30 = sub nsw i32 %..i, %21
   store i32 %30, ptr %7, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 76
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 68
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %34 = load i32, ptr %33, align 4
   %35 = icmp sgt i32 %32, %34
   br i1 %35, label %36, label %cbuf_grow.exit
@@ -1279,7 +1279,7 @@ define internal fastcc i32 @cbuf_writer(ptr nocapture noundef %0, i32 noundef ra
   %44 = getelementptr inbounds i8, ptr %29, i64 %43
   %45 = sext i32 %38 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %42, ptr align 1 %44, i64 %45, i1 false)
-  %46 = getelementptr inbounds i8, ptr %0, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %47 = load i32, ptr %46, align 8
   %48 = load i32, ptr %31, align 4
   %.not.i = icmp slt i32 %47, %48
@@ -1305,7 +1305,7 @@ cbuf_grow.exit:                                   ; preds = %17, %52
 55:                                               ; preds = %cbuf_grow.exit, %13, %5
   %56 = phi i32 [ %53, %cbuf_grow.exit ], [ %8, %13 ], [ %8, %5 ]
   %.088 = phi i32 [ %54, %cbuf_grow.exit ], [ %11, %13 ], [ %11, %5 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 60
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %58 = load i32, ptr %57, align 4
   switch i32 %58, label %select.unfold.thread [
     i32 0, label %61
@@ -1313,7 +1313,7 @@ cbuf_grow.exit:                                   ; preds = %17, %52
   ]
 
 select.unfold.thread:                             ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %0, i64 68
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %60 = load i32, ptr %59, align 4
   br label %.preheader
 
@@ -1335,7 +1335,7 @@ select.unfold.thread:                             ; preds = %55
 
 select.unfold:                                    ; preds = %67, %61
   %.089 = phi i32 [ %., %61 ], [ %spec.select, %67 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 68
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %69 = load i32, ptr %68, align 4
   %.old1 = icmp sgt i32 %.089, 0
   br i1 %.old1, label %.preheader, label %.loopexit
@@ -1344,7 +1344,7 @@ select.unfold:                                    ; preds = %67, %61
   %70 = phi i32 [ %60, %select.unfold.thread ], [ %69, %select.unfold ]
   %71 = phi ptr [ %59, %select.unfold.thread ], [ %68, %select.unfold ]
   %.089114 = phi i32 [ %1, %select.unfold.thread ], [ %.089, %select.unfold ]
-  %72 = getelementptr inbounds i8, ptr %0, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %73
 
 73:                                               ; preds = %.preheader, %87
@@ -1392,9 +1392,9 @@ select.unfold:                                    ; preds = %67, %61
   br i1 %94, label %95, label %117
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %0, i64 72
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %97 = load i32, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 76
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %99 = load i32, ptr %98, align 4
   %100 = sub i32 %97, %99
   %101 = load i32, ptr %7, align 4
@@ -1411,7 +1411,7 @@ select.unfold:                                    ; preds = %67, %61
   br i1 %108, label %109, label %113
 
 109:                                              ; preds = %95
-  %110 = getelementptr inbounds i8, ptr %0, i64 64
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 1, ptr %110, align 8
   %111 = add nsw i32 %.1, 1
   %112 = srem i32 %111, %102
@@ -1487,15 +1487,15 @@ define dso_local i32 @cbuf_drop_line(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %or.cond.i, label %cbuf_find_unread_line.exit.thread25, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %cbuf_find_unread_line.exit.thread25, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %25 = load i32, ptr %24, align 4
   %.not45.i = icmp eq i32 %23, %25
   br i1 %.not45.i, label %cbuf_find_unread_line.exit.thread25, label %.lr.ph.i
@@ -1503,9 +1503,9 @@ define dso_local i32 @cbuf_drop_line(ptr noundef %0, i32 noundef %1, i32 noundef
 .lr.ph.i:                                         ; preds = %21
   %26 = icmp sgt i32 %2, 0
   %spec.select.i = select i1 %26, i32 -1, i32 %1
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %30
 
 30:                                               ; preds = %41, %.lr.ph.i
@@ -1612,15 +1612,15 @@ define dso_local i32 @cbuf_peek_line(ptr noundef %0, ptr noundef writeonly %1, i
   br i1 %or.cond.i, label %cbuf_find_unread_line.exit.thread, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %cbuf_find_unread_line.exit.thread, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %28 = load i32, ptr %27, align 4
   %.not45.i = icmp eq i32 %26, %28
   br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1628,9 +1628,9 @@ define dso_local i32 @cbuf_peek_line(ptr noundef %0, ptr noundef writeonly %1, i
 .lr.ph.i:                                         ; preds = %24
   %29 = icmp sgt i32 %3, 0
   %spec.select.i = select i1 %29, i32 -1, i32 %17
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %33
 
 33:                                               ; preds = %44, %.lr.ph.i
@@ -1686,8 +1686,8 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
 
 .preheader.i:                                     ; preds = %52
   %55 = tail call i32 @llvm.umin.i32(i32 %53, i32 %22)
-  %56 = getelementptr inbounds i8, ptr %0, i64 52
-  %57 = getelementptr inbounds i8, ptr %0, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %58
 
 58:                                               ; preds = %73, %.preheader.i
@@ -1723,7 +1723,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
 
 cbuf_reader.exit:                                 ; preds = %73, %52
   %75 = zext nneg i32 %53 to i64
-  %76 = getelementptr inbounds i8, ptr %1, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 %75
   store i8 0, ptr %76, align 1
   br label %cbuf_find_unread_line.exit.thread
 
@@ -1781,15 +1781,15 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly %1, i
   br i1 %or.cond.i, label %cbuf_find_unread_line.exit.thread48, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %cbuf_find_unread_line.exit.thread48, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %28 = load i32, ptr %27, align 4
   %.not45.i = icmp eq i32 %26, %28
   br i1 %.not45.i, label %cbuf_find_unread_line.exit.thread48, label %.lr.ph.i
@@ -1797,9 +1797,9 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly %1, i
 .lr.ph.i:                                         ; preds = %24
   %29 = icmp sgt i32 %3, 0
   %spec.select.i = select i1 %29, i32 -1, i32 %17
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %33
 
 33:                                               ; preds = %44, %.lr.ph.i
@@ -1890,7 +1890,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
 
 cbuf_reader.exit:                                 ; preds = %71, %53
   %73 = zext nneg i32 %54 to i64
-  %74 = getelementptr inbounds i8, ptr %1, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %73
   store i8 0, ptr %74, align 1
   %.pre = load i32, ptr %21, align 8
   %.pre51 = load i32, ptr %25, align 8
@@ -1974,12 +1974,12 @@ define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly %1,
   br i1 %26, label %28, label %cbuf_replayer.exit
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 76
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %32 = load i32, ptr %31, align 4
   %33 = sub i32 %30, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 52
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %35 = load i32, ptr %34, align 4
   %36 = add nsw i32 %35, 1
   %37 = add nsw i32 %33, %36
@@ -1992,7 +1992,7 @@ define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly %1,
   %40 = add i32 %36, %30
   %41 = sub i32 %40, %39
   %42 = srem i32 %41, %36
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %44
 
 44:                                               ; preds = %59, %.preheader.i
@@ -2035,14 +2035,14 @@ cbuf_replayer.exit:                               ; preds = %59, %28, %23
 63:                                               ; preds = %cbuf_replayer.exit
   %64 = add nuw nsw i32 %27, 1
   %65 = zext nneg i32 %27 to i64
-  %66 = getelementptr inbounds i8, ptr %1, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 %65
   store i8 10, ptr %66, align 1
   br label %67
 
 67:                                               ; preds = %63, %cbuf_replayer.exit
   %.038 = phi i32 [ %64, %63 ], [ %27, %cbuf_replayer.exit ]
   %68 = zext nneg i32 %.038 to i64
-  %69 = getelementptr inbounds i8, ptr %1, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 %68
   store i8 0, ptr %69, align 1
   %70 = add nsw i32 %24, %20
   br label %71
@@ -2099,14 +2099,14 @@ define dso_local i32 @cbuf_rewind_line(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i32, ptr %19, align 8
   %21 = add nsw i32 %20, %16
   store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load i32, ptr %22, align 8
   %24 = sub i32 %23, %16
-  %25 = getelementptr inbounds i8, ptr %0, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %26 = load i32, ptr %25, align 4
   %27 = add nsw i32 %26, 1
   %28 = add nsw i32 %24, %27
@@ -2186,16 +2186,16 @@ define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load i32, ptr %31, align 8
   %33 = sub nsw i32 %30, %32
   %34 = icmp sgt i32 %.053, %33
   br i1 %34, label %35, label %75
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load i32, ptr %36, align 8
   %38 = icmp slt i32 %30, %37
   br i1 %38, label %39, label %75
@@ -2203,7 +2203,7 @@ define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr nounde
 39:                                               ; preds = %35
   %40 = sub nsw i32 %.053, %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i32, ptr %41, align 8
   %43 = sub nsw i32 %42, %30
   %44 = add nsw i32 %42, %40
@@ -2212,7 +2212,7 @@ define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr nounde
   %46 = sub i32 %reass.sub.i, %45
   %47 = add nsw i32 %43, %37
   %..i = tail call i32 @llvm.smin.i32(i32 %46, i32 %47)
-  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %4, align 8
   %50 = sext i32 %..i to i64
@@ -2222,9 +2222,9 @@ define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr nounde
   store i32 %..i, ptr %41, align 8
   %52 = sub nsw i32 %..i, %43
   store i32 %52, ptr %29, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 76
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 68
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %54, %56
   br i1 %57, label %58, label %cbuf_grow.exit
@@ -2240,7 +2240,7 @@ define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr nounde
   %66 = getelementptr inbounds i8, ptr %51, i64 %65
   %67 = sext i32 %60 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %64, ptr align 1 %66, i64 %67, i1 false)
-  %68 = getelementptr inbounds i8, ptr %0, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %69 = load i32, ptr %68, align 8
   %70 = load i32, ptr %53, align 4
   %.not.i = icmp slt i32 %69, %70
@@ -2261,7 +2261,7 @@ cbuf_grow.exit:                                   ; preds = %39, %74
   br label %75
 
 75:                                               ; preds = %cbuf_grow.exit, %35, %28
-  %76 = getelementptr inbounds i8, ptr %0, i64 60
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %77 = load i32, ptr %76, align 4
   switch i32 %77, label %90 [
     i32 0, label %78
@@ -2390,7 +2390,7 @@ define dso_local i32 @cbuf_peek_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
   br label %17
 
@@ -2400,7 +2400,7 @@ define dso_local i32 @cbuf_peek_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %18, label %19, label %cbuf_reader.exit
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load i32, ptr %20, align 8
   %..i = tail call i32 @llvm.smin.i32(i32 range(i32 1, -2147483648) %.014, i32 %21)
   %22 = icmp eq i32 %21, 0
@@ -2411,10 +2411,10 @@ define dso_local i32 @cbuf_peek_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %.old1.i, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %23
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 52
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %28
 
 28:                                               ; preds = %cbuf_put_fd.exit.thread, %.preheader.i
@@ -2515,7 +2515,7 @@ define dso_local i32 @cbuf_read_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
   br label %17
 
@@ -2525,7 +2525,7 @@ define dso_local i32 @cbuf_read_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %18, label %19, label %cbuf_reader.exit.thread
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load i32, ptr %20, align 8
   %..i = tail call i32 @llvm.smin.i32(i32 range(i32 1, -2147483648) %.017, i32 %21)
   %22 = icmp eq i32 %21, 0
@@ -2536,10 +2536,10 @@ define dso_local i32 @cbuf_read_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %.old1.i, label %.preheader.i, label %cbuf_reader.exit
 
 .preheader.i:                                     ; preds = %23
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 52
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %28
 
 28:                                               ; preds = %cbuf_put_fd.exit.thread, %.preheader.i
@@ -2600,10 +2600,10 @@ cbuf_reader.exit:                                 ; preds = %cbuf_put_fd.exit.th
   %55 = load i32, ptr %20, align 8
   %56 = sub nsw i32 %55, %.034..i
   store i32 %56, ptr %20, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %58 = load i32, ptr %57, align 8
   %59 = add nsw i32 %58, %.034..i
-  %60 = getelementptr inbounds i8, ptr %0, i64 52
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %61 = load i32, ptr %60, align 4
   %62 = add nsw i32 %61, 1
   %63 = srem i32 %59, %62
@@ -2655,9 +2655,9 @@ define dso_local i32 @cbuf_replay_to_fd(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load i32, ptr %17, align 8
   %19 = sub nsw i32 %16, %18
   br label %20
@@ -2668,12 +2668,12 @@ define dso_local i32 @cbuf_replay_to_fd(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %21, label %22, label %cbuf_replayer.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 76
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %26 = load i32, ptr %25, align 4
   %27 = sub i32 %24, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 52
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, 1
   %31 = add nsw i32 %27, %30
@@ -2690,7 +2690,7 @@ define dso_local i32 @cbuf_replay_to_fd(ptr noundef %0, i32 noundef %1, i32 noun
   %36 = add i32 %30, %24
   %37 = sub i32 %36, %33
   %38 = srem i32 %37, %30
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %40
 
 40:                                               ; preds = %cbuf_put_fd.exit.thread, %.preheader.i
@@ -2801,9 +2801,9 @@ define dso_local i32 @cbuf_write_from_fd(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i32, ptr %21, align 8
   %23 = sub nsw i32 %20, %22
   %24 = icmp eq i32 %20, %22
@@ -2930,7 +2930,7 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load i32, ptr %32, align 8
   br label %34
 
@@ -2979,23 +2979,23 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @cbuf_copier(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 1, -2147483648) %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %7)
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge.thread, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = sub nsw i32 %11, %13
   %15 = icmp sgt i32 %., %14
   br i1 %15, label %16, label %58
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load i32, ptr %17, align 8
   %19 = icmp slt i32 %11, %18
   br i1 %19, label %20, label %58
@@ -3003,7 +3003,7 @@ define internal fastcc i32 @cbuf_copier(ptr nocapture noundef readonly %0, ptr n
 20:                                               ; preds = %16
   %21 = sub nsw i32 %., %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = sub nsw i32 %23, %11
   %25 = add nsw i32 %23, %21
@@ -3012,7 +3012,7 @@ define internal fastcc i32 @cbuf_copier(ptr nocapture noundef readonly %0, ptr n
   %27 = sub i32 %reass.sub.i, %26
   %28 = add nsw i32 %24, %18
   %..i = tail call i32 @llvm.smin.i32(i32 %27, i32 %28)
-  %29 = getelementptr inbounds i8, ptr %1, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %5, align 8
   %31 = sext i32 %..i to i64
@@ -3022,9 +3022,9 @@ define internal fastcc i32 @cbuf_copier(ptr nocapture noundef readonly %0, ptr n
   store i32 %..i, ptr %22, align 8
   %33 = sub nsw i32 %..i, %24
   store i32 %33, ptr %10, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 76
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 68
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %35, %37
   br i1 %38, label %39, label %cbuf_grow.exit
@@ -3040,7 +3040,7 @@ define internal fastcc i32 @cbuf_copier(ptr nocapture noundef readonly %0, ptr n
   %47 = getelementptr inbounds i8, ptr %32, i64 %46
   %48 = sext i32 %41 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %45, ptr align 1 %47, i64 %48, i1 false)
-  %49 = getelementptr inbounds i8, ptr %1, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %50 = load i32, ptr %49, align 8
   %51 = load i32, ptr %34, align 4
   %.not.i = icmp slt i32 %50, %51
@@ -3066,7 +3066,7 @@ cbuf_grow.exit:                                   ; preds = %20, %55
 58:                                               ; preds = %cbuf_grow.exit, %16, %9
   %59 = phi i32 [ %56, %cbuf_grow.exit ], [ %11, %16 ], [ %11, %9 ]
   %.0104 = phi i32 [ %57, %cbuf_grow.exit ], [ %14, %16 ], [ %14, %9 ]
-  %60 = getelementptr inbounds i8, ptr %1, i64 60
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %61 = load i32, ptr %60, align 4
   switch i32 %61, label %69 [
     i32 0, label %62
@@ -3105,9 +3105,9 @@ cbuf_grow.exit:                                   ; preds = %20, %55
 
 74:                                               ; preds = %70, %69
   %75 = phi i32 [ %.pre, %70 ], [ %59, %69 ]
-  %76 = getelementptr inbounds i8, ptr %0, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %77 = load i32, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 68
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %79 = load i32, ptr %78, align 4
   %80 = icmp sgt i32 %.0106, %75
   br i1 %80, label %81, label %88
@@ -3115,7 +3115,7 @@ cbuf_grow.exit:                                   ; preds = %20, %55
 81:                                               ; preds = %74
   %82 = add i32 %77, %.0106
   %83 = sub i32 %82, %75
-  %84 = getelementptr inbounds i8, ptr %0, i64 52
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %85 = load i32, ptr %84, align 4
   %86 = add nsw i32 %85, 1
   %87 = srem i32 %83, %86
@@ -3128,9 +3128,9 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   br i1 %89, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %0, i64 52
-  %91 = getelementptr inbounds i8, ptr %1, i64 80
-  %92 = getelementptr inbounds i8, ptr %0, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre136 = load i32, ptr %90, align 4
   br label %93
 
@@ -3167,9 +3167,9 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   br i1 %115, label %93, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %93
-  %116 = getelementptr inbounds i8, ptr %1, i64 72
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %117 = load i32, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %1, i64 76
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %119 = load i32, ptr %118, align 4
   %120 = sub i32 %117, %119
   %121 = add nsw i32 %111, 1
@@ -3185,7 +3185,7 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   br i1 %127, label %128, label %132
 
 128:                                              ; preds = %._crit_edge
-  %129 = getelementptr inbounds i8, ptr %1, i64 64
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 1, ptr %129, align 8
   %130 = add nsw i32 %113, 1
   %131 = srem i32 %130, %121
@@ -3278,7 +3278,7 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load i32, ptr %32, align 8
   br label %34
 
@@ -3293,14 +3293,14 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %38, label %39, label %50
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load i32, ptr %40, align 8
   %42 = sub nsw i32 %41, %37
   store i32 %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i32, ptr %43, align 8
   %45 = add nsw i32 %44, %37
-  %46 = getelementptr inbounds i8, ptr %0, i64 52
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %47 = load i32, ptr %46, align 4
   %48 = add nsw i32 %47, 1
   %49 = srem i32 %45, %48

@@ -28,9 +28,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK4pkpy5ByteseqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %.preheader, label %.loopexit
@@ -47,9 +47,9 @@ define noundef zeroext i1 @_ZNK4pkpy5ByteseqERKS0_(ptr nocapture noundef nonnull
 
 10:                                               ; preds = %10, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   %.not8 = icmp eq i8 %12, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -64,9 +64,9 @@ define noundef zeroext i1 @_ZNK4pkpy5ByteseqERKS0_(ptr nocapture noundef nonnull
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK4pkpy5BytesneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %4, %6
   br i1 %.not.i, label %.preheader.i, label %_ZNK4pkpy5ByteseqERKS0_.exit
@@ -83,9 +83,9 @@ define noundef zeroext i1 @_ZNK4pkpy5BytesneERKS0_(ptr nocapture noundef nonnull
 
 10:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %.not8.i.not = icmp ne i8 %12, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -103,17 +103,17 @@ define void @_ZN4pkpy5BytesC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noc
   %4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %1) #13
   store ptr %4, ptr %0, align 8
   %5 = trunc i64 %1 to i32
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %6, align 8
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   store i8 %9, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %6, align 8
@@ -130,13 +130,13 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4pkpy5BytesC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   %6 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #13
   store ptr %6, ptr %0, align 8
   %7 = load i32, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 8
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
@@ -144,10 +144,10 @@ define void @_ZN4pkpy5BytesC2ERKS0_(ptr nocapture noundef nonnull align 8 derefe
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   store i8 %12, ptr %14, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %8, align 8
@@ -163,9 +163,9 @@ define void @_ZN4pkpy5BytesC2ERKS0_(ptr nocapture noundef nonnull align 8 derefe
 define void @_ZN4pkpy5BytesC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %6, align 8
   store ptr null, ptr %1, align 8
   store i32 0, ptr %4, align 8
@@ -185,9 +185,9 @@ define noundef nonnull align 8 dereferenceable(12) ptr @_ZN4pkpy5BytesaSEOS0_(pt
 6:                                                ; preds = %5, %2
   %7 = load ptr, ptr %1, align 8
   store ptr %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %10, align 8
   store ptr null, ptr %1, align 8
   store i32 0, ptr %8, align 8
@@ -200,7 +200,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define { ptr, i32 } @_ZN4pkpy5Bytes6detachEv(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   store ptr null, ptr %0, align 8
   store i32 0, ptr %3, align 8
@@ -214,7 +214,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4pkpy8PyObjectD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4pkpy8PyObjectE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
@@ -225,7 +225,7 @@ define void @_ZN4pkpy8PyObjectD2Ev(ptr nocapture noundef nonnull align 8 derefer
   br i1 %7, label %_ZN4pkpy12NameDictImplIPNS_8PyObjectEED2Ev.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #15
   %.pre = load ptr, ptr %2, align 8

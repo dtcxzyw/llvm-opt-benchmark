@@ -22,15 +22,15 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @cipher_hw_aes_ocb_aesni_initkey(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %ocb = getelementptr inbounds i8, ptr %vctx, i64 688
+  %ocb = getelementptr inbounds nuw i8, ptr %vctx, i64 688
   tail call void @CRYPTO_ocb128_cleanup(ptr noundef nonnull %ocb) #3
   %keylen.tr = trunc i64 %keylen to i32
   %conv = shl i32 %keylen.tr, 3
-  %ksenc = getelementptr inbounds i8, ptr %vctx, i64 192
+  %ksenc = getelementptr inbounds nuw i8, ptr %vctx, i64 192
   %call = tail call i32 @aesni_set_encrypt_key(ptr noundef %key, i32 noundef %conv, ptr noundef nonnull %ksenc) #3
-  %ksdec = getelementptr inbounds i8, ptr %vctx, i64 440
+  %ksdec = getelementptr inbounds nuw i8, ptr %vctx, i64 440
   %call3 = tail call i32 @aesni_set_decrypt_key(ptr noundef %key, i32 noundef %conv, ptr noundef nonnull %ksdec) #3
-  %enc = getelementptr inbounds i8, ptr %vctx, i64 108
+  %enc = getelementptr inbounds nuw i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
@@ -40,7 +40,7 @@ entry:
   br i1 %tobool8.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key_set = getelementptr inbounds i8, ptr %vctx, i64 868
+  %key_set = getelementptr inbounds nuw i8, ptr %vctx, i64 868
   %bf.load9 = load i8, ptr %key_set, align 4
   %bf.set = or i8 %bf.load9, 1
   store i8 %bf.set, ptr %key_set, align 4
@@ -73,12 +73,12 @@ entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 512
   %tobool.not = icmp eq i32 %and, 0
-  %ocb13 = getelementptr inbounds i8, ptr %vctx, i64 688
+  %ocb13 = getelementptr inbounds nuw i8, ptr %vctx, i64 688
   tail call void @CRYPTO_ocb128_cleanup(ptr noundef nonnull %ocb13) #3
   %keylen.tr = trunc i64 %keylen to i32
   %conv15 = shl i32 %keylen.tr, 3
-  %ksenc16 = getelementptr inbounds i8, ptr %vctx, i64 192
-  %ksdec20 = getelementptr inbounds i8, ptr %vctx, i64 440
+  %ksenc16 = getelementptr inbounds nuw i8, ptr %vctx, i64 192
+  %ksdec20 = getelementptr inbounds nuw i8, ptr %vctx, i64 440
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -96,7 +96,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool34.not, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.else, %if.then
-  %key_set = getelementptr inbounds i8, ptr %vctx, i64 868
+  %key_set = getelementptr inbounds nuw i8, ptr %vctx, i64 868
   %bf.load11 = load i8, ptr %key_set, align 4
   %bf.set = or i8 %bf.load11, 1
   store i8 %bf.set, ptr %key_set, align 4

@@ -1558,7 +1558,7 @@ define hidden i32 @dissect_rdp_bandwidth_req(ptr noundef %0, i32 noundef %1, ptr
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %6, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store ptr @hf_rdp_bandwidth_resptype, ptr %13, align 8
   br label %14
 
@@ -1675,10 +1675,10 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
   %.088 = phi i32 [ %1, %.lr.ph ], [ %.2, %9 ]
   %.05687 = phi ptr [ %4, %.lr.ph ], [ %10, %9 ]
   %.05886 = phi i32 [ 0, %.lr.ph ], [ %.159, %9 ]
-  %13 = getelementptr inbounds i8, ptr %.05687, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.05687, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  %16 = getelementptr inbounds i8, ptr %.05687, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.05687, i64 16
   %17 = load ptr, ptr %16, align 8
   br i1 %15, label %18, label %19
 
@@ -1688,7 +1688,7 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
 
 19:                                               ; preds = %12
   %20 = icmp ne ptr %17, null
-  %21 = getelementptr inbounds i8, ptr %.05687, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.05687, i64 16
   %22 = icmp slt i32 %14, 5
   %or.cond = and i1 %22, %20
   br i1 %or.cond, label %23, label %.thread99
@@ -1722,7 +1722,7 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
   %.sink = phi i32 [ %26, %24 ], [ %29, %27 ], [ %31, %30 ]
   %33 = load ptr, ptr %21, align 8
   store i32 %.sink, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %.05687, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.05687, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = load ptr, ptr %21, align 8
   %37 = load i32, ptr %36, align 4
@@ -1737,7 +1737,7 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
 
 .thread99:                                        ; preds = %19, %.thread, %39
   %.06184 = phi i32 [ %14, %.thread ], [ %40, %39 ], [ %14, %19 ]
-  %41 = getelementptr inbounds i8, ptr %.05687, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %.05687, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 2
   %.not71 = icmp eq i32 %43, 0
@@ -1790,14 +1790,14 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
   br i1 %.not76, label %75, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %.05687, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.05687, i64 24
   %67 = load i32, ptr %66, align 8
   %.not77 = icmp eq i32 %67, -1
   br i1 %.not77, label %72, label %68
 
 68:                                               ; preds = %65
   %69 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %67) #12
-  %70 = getelementptr inbounds i8, ptr %.05687, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.05687, i64 32
   %71 = load ptr, ptr %70, align 8
   %.not78 = icmp eq ptr %71, null
   br i1 %.not78, label %75, label %73
@@ -1837,25 +1837,25 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define hidden void @rdp_transport_set_udp_conversation(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.rdp_transports_key_t, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %2, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
   %11 = load i32, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   store i32 %11, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %13, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i16 %1, ptr %19, align 8
   %20 = load ptr, ptr @rdp_transport_links, align 8
   %21 = call ptr @wmem_map_lookup(ptr noundef %20, ptr noundef nonnull %7) #12
@@ -1881,7 +1881,7 @@ define hidden void @rdp_transport_set_udp_conversation(ptr nocapture noundef rea
 
 copy_address_wmem.exit:                           ; preds = %30, %22, %6
   %.0 = phi ptr [ %21, %6 ], [ %24, %22 ], [ %24, %30 ]
-  %33 = getelementptr inbounds i8, ptr %.0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   store ptr %5, ptr %33, align 8
   ret void
 }
@@ -1896,7 +1896,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #2
 define hidden ptr @rdp_find_tcp_conversation_from_udp(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.find_tcp_conversation_t, align 8
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
   %4 = load ptr, ptr @rdp_transport_links, align 8
   call void @wmem_map_foreach(ptr noundef %4, ptr noundef nonnull @map_find_tcp_conversation_fn, ptr noundef nonnull %2) #12
@@ -1909,15 +1909,15 @@ declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @map_find_tcp_conversation_fn(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #3 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -2039,7 +2039,7 @@ define internal noundef i32 @dissect_rdp_cr(ptr noundef %0, ptr noundef %1, ptr 
 
 .thread:                                          ; preds = %4, %13, %16, %24
   %27 = phi i1 [ false, %24 ], [ true, %16 ], [ true, %13 ], [ true, %4 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @col_set_str(ptr noundef %29, i32 noundef 34, ptr noundef nonnull @.str.700) #12
   %30 = load ptr, ptr %28, align 8
@@ -2053,7 +2053,7 @@ define internal noundef i32 @dissect_rdp_cr(ptr noundef %0, ptr noundef %1, ptr 
 35:                                               ; preds = %.thread
   %36 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %9, i32 noundef 1) #12
   %37 = load i32, ptr @hf_rdp_rt_cookie, align 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = call ptr @proto_tree_add_item_ret_string(ptr noundef %34, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef %36, i32 noundef 0, ptr noundef %39, ptr noundef nonnull %10) #12
   %41 = icmp eq i32 %36, -1
@@ -2194,7 +2194,7 @@ define internal range(i32 0, 9) i32 @dissect_rdp_cc(ptr noundef %0, ptr noundef 
   br i1 %or.cond5.not, label %.thread, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str.700) #12
   %18 = load ptr, ptr %16, align 8
@@ -2244,17 +2244,17 @@ define internal range(i32 0, 9) i32 @dissect_rdp_cc(ptr noundef %0, ptr noundef 
   %46 = call ptr @wmem_file_scope() #12
   %47 = call noalias ptr @wmem_alloc0(ptr noundef %46, i64 noundef 832) #12
   store i32 -1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 -1, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %47, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %47, i64 60
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 60
   store i32 0, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %47, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %53, i8 0, i64 33, i1 false)
   %54 = load i32, ptr @proto_rdp, align 4
   call void @conversation_add_proto_data(ptr noundef nonnull %41, i32 noundef %54, ptr noundef nonnull %47) #12
@@ -2262,7 +2262,7 @@ define internal range(i32 0, 9) i32 @dissect_rdp_cc(ptr noundef %0, ptr noundef 
 
 rdp_get_conversation_data.exit.i:                 ; preds = %45, %40
   %.0.i.i = phi ptr [ %47, %45 ], [ %43, %40 ]
-  %55 = getelementptr inbounds i8, ptr %.0.i.i, i64 60
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 60
   store i32 1, ptr %55, align 4
   br label %dissect_rdpNegRsp.exit
 
@@ -2339,17 +2339,17 @@ define internal range(i32 0, 2) i32 @dissect_rdp_heur(ptr noundef %0, ptr nounde
   %23 = call ptr @wmem_file_scope() #12
   %24 = call noalias ptr @wmem_alloc0(ptr noundef %23, i64 noundef 832) #12
   store i32 -1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 -1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 60
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 60
   store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %24, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %30, i8 0, i64 33, i1 false)
   %31 = load i32, ptr @proto_rdp, align 4
   call void @conversation_add_proto_data(ptr noundef nonnull %18, i32 noundef %31, ptr noundef nonnull %24) #12
@@ -2357,7 +2357,7 @@ define internal range(i32 0, 2) i32 @dissect_rdp_heur(ptr noundef %0, ptr nounde
 
 rdp_get_conversation_data.exit:                   ; preds = %22, %17
   %.0.i = phi ptr [ %24, %22 ], [ %20, %17 ]
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   %33 = load i32, ptr %32, align 4
   %.not14 = icmp eq i32 %33, 0
   br i1 %.not14, label %139, label %34
@@ -2376,100 +2376,100 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
   store i32 0, ptr %10, align 4
   store i32 0, ptr %11, align 4
   store ptr @hf_rdp_rdstls_redirectionGuidLen, ptr %12, align 16
-  %35 = getelementptr inbounds i8, ptr %12, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 2, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %12, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %7, ptr %36, align 16
-  %37 = getelementptr inbounds i8, ptr %12, i64 24
-  %38 = getelementptr inbounds i8, ptr %12, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_rdstls_redirectionGuid, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %12, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 0, ptr %39, align 16
-  %40 = getelementptr inbounds i8, ptr %12, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %7, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %12, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i32 0, ptr %41, align 16
-  %42 = getelementptr inbounds i8, ptr %12, i64 68
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 68
   store i32 6, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %12, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr null, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %12, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store ptr @hf_rdp_rdstls_usernameLen, ptr %44, align 16
-  %45 = getelementptr inbounds i8, ptr %12, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store i32 2, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %12, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store ptr %8, ptr %46, align 16
-  %47 = getelementptr inbounds i8, ptr %12, i64 104
-  %48 = getelementptr inbounds i8, ptr %12, i64 120
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_rdstls_username, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %12, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 128
   store i32 0, ptr %49, align 16
-  %50 = getelementptr inbounds i8, ptr %12, i64 136
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 136
   store ptr %8, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %12, i64 144
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 144
   store i32 0, ptr %51, align 16
-  %52 = getelementptr inbounds i8, ptr %12, i64 148
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 148
   store i32 6, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %12, i64 152
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 152
   store ptr null, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %12, i64 160
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 160
   store ptr @hf_rdp_rdstls_domainLen, ptr %54, align 16
-  %55 = getelementptr inbounds i8, ptr %12, i64 168
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 168
   store i32 2, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %12, i64 176
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 176
   store ptr %9, ptr %56, align 16
-  %57 = getelementptr inbounds i8, ptr %12, i64 184
-  %58 = getelementptr inbounds i8, ptr %12, i64 200
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 184
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_rdstls_domain, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %12, i64 208
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 208
   store i32 0, ptr %59, align 16
-  %60 = getelementptr inbounds i8, ptr %12, i64 216
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 216
   store ptr %9, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %12, i64 224
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 224
   store i32 0, ptr %61, align 16
-  %62 = getelementptr inbounds i8, ptr %12, i64 228
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 228
   store i32 6, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %12, i64 232
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 232
   store ptr null, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %12, i64 240
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 240
   store ptr @hf_rdp_rdstls_passwordLen, ptr %64, align 16
-  %65 = getelementptr inbounds i8, ptr %12, i64 248
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 248
   store i32 2, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %12, i64 256
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 256
   store ptr %10, ptr %66, align 16
-  %67 = getelementptr inbounds i8, ptr %12, i64 264
-  %68 = getelementptr inbounds i8, ptr %12, i64 280
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 264
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 280
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_rdstls_password, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %12, i64 288
+  %69 = getelementptr inbounds nuw i8, ptr %12, i64 288
   store i32 0, ptr %69, align 16
-  %70 = getelementptr inbounds i8, ptr %12, i64 296
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 296
   store ptr %10, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %12, i64 304
+  %71 = getelementptr inbounds nuw i8, ptr %12, i64 304
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %71, i8 0, i64 56, i1 false)
   store ptr @hf_rdp_rdstls_sessionId, ptr %13, align 16
-  %72 = getelementptr inbounds i8, ptr %13, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 4, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %13, i64 16
-  %74 = getelementptr inbounds i8, ptr %13, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %73, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_rdstls_autoReconnectCookieLen, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %13, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i32 2, ptr %75, align 16
-  %76 = getelementptr inbounds i8, ptr %13, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %11, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %13, i64 64
-  %78 = getelementptr inbounds i8, ptr %13, i64 80
+  %77 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %13, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %77, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_rdstls_autoReconnectCookie, ptr %78, align 16
-  %79 = getelementptr inbounds i8, ptr %13, i64 88
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store i32 0, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %13, i64 96
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store ptr %11, ptr %80, align 16
-  %81 = getelementptr inbounds i8, ptr %13, i64 104
+  %81 = getelementptr inbounds nuw i8, ptr %13, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %81, i8 0, i64 56, i1 false)
   %82 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %83 = icmp slt i32 %82, 6
@@ -2567,7 +2567,7 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
   ]
 
 124:                                              ; preds = %.loopexit.i
-  %125 = getelementptr inbounds i8, ptr %1, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %126 = load ptr, ptr %125, align 8
   call void @col_set_str(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.978) #12
   %127 = load i32, ptr @hf_rdp_rdstls_supportedVersions, align 4
@@ -2575,7 +2575,7 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
   br label %dissect_rdp_rdstls.exit
 
 129:                                              ; preds = %.loopexit.i
-  %130 = getelementptr inbounds i8, ptr %1, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %131 = load ptr, ptr %130, align 8
   call void @col_set_str(ptr noundef %131, i32 noundef 25, ptr noundef nonnull @.str.979) #12
   %132 = add i32 %.056.i, -6
@@ -2583,7 +2583,7 @@ rdp_get_conversation_data.exit:                   ; preds = %22, %17
   br label %dissect_rdp_rdstls.exit
 
 134:                                              ; preds = %.loopexit.i
-  %135 = getelementptr inbounds i8, ptr %1, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %136 = load ptr, ptr %135, align 8
   call void @col_set_str(ptr noundef %136, i32 noundef 25, ptr noundef nonnull @.str.980) #12
   %137 = load i32, ptr @hf_rdp_rdstls_resultCode, align 4
@@ -2662,17 +2662,17 @@ dissect_rdp_rdstls.exit:                          ; preds = %.loopexit.i, %124, 
   br i1 %.not11.i.i, label %rdp_isServerAddressTarget.exit.i, label %165
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %164, i64 24
-  %167 = getelementptr inbounds i8, ptr %1, i64 232
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %168 = load i32, ptr %166, align 8
   %169 = load i32, ptr %167, align 8
   %170 = icmp eq i32 %168, %169
   br i1 %170, label %171, label %rdp_isServerAddressTarget.exit.i
 
 171:                                              ; preds = %165
-  %172 = getelementptr inbounds i8, ptr %164, i64 28
+  %172 = getelementptr inbounds nuw i8, ptr %164, i64 28
   %173 = load i32, ptr %172, align 4
-  %174 = getelementptr inbounds i8, ptr %1, i64 236
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %175 = load i32, ptr %174, align 4
   %176 = icmp eq i32 %173, %175
   br i1 %176, label %177, label %rdp_isServerAddressTarget.exit.i
@@ -2682,9 +2682,9 @@ dissect_rdp_rdstls.exit:                          ; preds = %.loopexit.i, %124, 
   br i1 %178, label %186, label %179
 
 179:                                              ; preds = %177
-  %180 = getelementptr inbounds i8, ptr %164, i64 32
+  %180 = getelementptr inbounds nuw i8, ptr %164, i64 32
   %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %1, i64 240
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %183 = load ptr, ptr %182, align 8
   %184 = sext i32 %173 to i64
   %bcmp.i.i.i = call i32 @bcmp(ptr %181, ptr %183, i64 %184)
@@ -2692,9 +2692,9 @@ dissect_rdp_rdstls.exit:                          ; preds = %.loopexit.i, %124, 
   br i1 %185, label %186, label %rdp_isServerAddressTarget.exit.i
 
 186:                                              ; preds = %179, %177
-  %187 = getelementptr inbounds i8, ptr %1, i64 288
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %188 = load i32, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %164, i64 48
+  %189 = getelementptr inbounds nuw i8, ptr %164, i64 48
   %190 = load i16, ptr %189, align 8
   %191 = zext i16 %190 to i32
   %192 = icmp ne i32 %188, %191
@@ -2703,7 +2703,7 @@ dissect_rdp_rdstls.exit:                          ; preds = %.loopexit.i, %124, 
 
 rdp_isServerAddressTarget.exit.i:                 ; preds = %186, %179, %171, %165, %162, %160
   %.0.i.i = phi i1 [ true, %160 ], [ %193, %186 ], [ true, %162 ], [ true, %165 ], [ true, %171 ], [ true, %179 ]
-  %194 = getelementptr inbounds i8, ptr %1, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %195 = load ptr, ptr %194, align 8
   call void @col_set_str(ptr noundef %195, i32 noundef 34, ptr noundef nonnull @.str.700) #12
   %196 = load ptr, ptr %194, align 8
@@ -2879,7 +2879,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
 
 switch.lookup:                                    ; preds = %.lr.ph19.i
   %275 = zext nneg i8 %268 to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table.dissect_rdp_heur, i64 0, i64 %275
+  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.dissect_rdp_heur, i64 0, i64 %275
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %276
 
@@ -2939,35 +2939,35 @@ define internal i32 @dissect_rdp_ClientData(ptr noundef %0, ptr noundef %1, ptr 
   %13 = alloca [5 x %struct.rdp_field_info_t], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %12, ptr noundef nonnull align 16 dereferenceable(200) @__const.dissect_rdp_ClientData.secFlags_fields, i64 200, i1 false)
   store ptr @hf_rdp_headerType, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
-  %16 = getelementptr inbounds i8, ptr %13, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_headerLength, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i32 2, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %13, i64 56
-  %19 = getelementptr inbounds i8, ptr %13, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_cluster_flags, ptr %19, align 16
-  %20 = getelementptr inbounds i8, ptr %13, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store i32 4, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store ptr null, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %13, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %23 = load i32, ptr @ett_rdp_clientClusterFlags, align 4
   store i32 %23, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 108
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 108
   store i32 32, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %13, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 112
   store ptr %12, ptr %25, align 16
-  %26 = getelementptr inbounds i8, ptr %13, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 120
   store ptr @hf_rdp_redirectedSessionId, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %13, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 128
   store i32 4, ptr %27, align 16
-  %28 = getelementptr inbounds i8, ptr %13, i64 136
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, i8 0, i64 64, i1 false)
   %30 = load ptr, ptr %29, align 8
   call void @col_set_str(ptr noundef %30, i32 noundef 34, ptr noundef nonnull @.str.700) #12
@@ -2987,17 +2987,17 @@ define internal i32 @dissect_rdp_ClientData(ptr noundef %0, ptr noundef %1, ptr 
   %41 = call ptr @wmem_file_scope() #12
   %42 = call noalias ptr @wmem_alloc0(ptr noundef %41, i64 noundef 832) #12
   store i32 -1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 -1, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 0, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %42, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %42, i64 60
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 60
   store i32 0, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %42, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %48, i8 0, i64 33, i1 false)
   %49 = load i32, ptr @proto_rdp, align 4
   call void @conversation_add_proto_data(ptr noundef nonnull %36, i32 noundef %49, ptr noundef nonnull %42) #12
@@ -3006,12 +3006,12 @@ define internal i32 @dissect_rdp_ClientData(ptr noundef %0, ptr noundef %1, ptr 
 rdp_get_conversation_data.exit:                   ; preds = %4, %40
   %.0.i = phi ptr [ %42, %40 ], [ %38, %4 ]
   %50 = call ptr @wmem_file_scope() #12
-  %51 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %52 = getelementptr inbounds i8, ptr %1, i64 232
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 236
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %1, i64 240
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %57 = load ptr, ptr %56, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   store i32 %53, ptr %51, align 8
@@ -3021,19 +3021,19 @@ rdp_get_conversation_data.exit:                   ; preds = %4, %40
 59:                                               ; preds = %rdp_get_conversation_data.exit
   %60 = sext i32 %55 to i64
   %61 = call noalias ptr @wmem_memdup(ptr noundef %50, ptr noundef %57, i64 noundef %60) #12
-  %62 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store ptr %61, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   store i32 %55, ptr %64, align 4
   br label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %rdp_get_conversation_data.exit, %59
-  %65 = getelementptr inbounds i8, ptr %1, i64 288
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %66 = load i32, ptr %65, align 8
   %67 = trunc i32 %66 to i16
-  %68 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   store i16 %67, ptr %68, align 8
   %69 = load ptr, ptr %29, align 8
   call void @col_append_sep_str(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.993, ptr noundef nonnull @.str.42) #12
@@ -3046,47 +3046,47 @@ copy_address_wmem.exit:                           ; preds = %rdp_get_conversatio
   br i1 %75, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %copy_address_wmem.exit
-  %76 = getelementptr inbounds i8, ptr %6, i64 8
-  %77 = getelementptr inbounds i8, ptr %6, i64 16
-  %78 = getelementptr inbounds i8, ptr %6, i64 40
-  %79 = getelementptr inbounds i8, ptr %6, i64 48
-  %80 = getelementptr inbounds i8, ptr %6, i64 56
-  %81 = getelementptr inbounds i8, ptr %6, i64 80
-  %82 = getelementptr inbounds i8, ptr %6, i64 88
-  %83 = getelementptr inbounds i8, ptr %6, i64 96
-  %84 = getelementptr inbounds i8, ptr %6, i64 120
-  %85 = getelementptr inbounds i8, ptr %6, i64 128
-  %86 = getelementptr inbounds i8, ptr %6, i64 136
-  %87 = getelementptr inbounds i8, ptr %6, i64 144
-  %88 = getelementptr inbounds i8, ptr %8, i64 8
-  %89 = getelementptr inbounds i8, ptr %8, i64 16
-  %90 = getelementptr inbounds i8, ptr %8, i64 40
-  %91 = getelementptr inbounds i8, ptr %8, i64 48
-  %92 = getelementptr inbounds i8, ptr %8, i64 56
-  %93 = getelementptr inbounds i8, ptr %8, i64 80
-  %94 = getelementptr inbounds i8, ptr %8, i64 88
-  %95 = getelementptr inbounds i8, ptr %8, i64 96
-  %96 = getelementptr inbounds i8, ptr %8, i64 104
-  %97 = getelementptr inbounds i8, ptr %10, i64 8
-  %98 = getelementptr inbounds i8, ptr %10, i64 16
-  %99 = getelementptr inbounds i8, ptr %10, i64 24
-  %100 = getelementptr inbounds i8, ptr %10, i64 28
-  %101 = getelementptr inbounds i8, ptr %10, i64 32
-  %102 = getelementptr inbounds i8, ptr %10, i64 40
-  %103 = getelementptr inbounds i8, ptr %10, i64 48
-  %104 = getelementptr inbounds i8, ptr %10, i64 56
-  %105 = getelementptr inbounds i8, ptr %10, i64 64
-  %106 = getelementptr inbounds i8, ptr %10, i64 68
-  %107 = getelementptr inbounds i8, ptr %10, i64 72
-  %108 = getelementptr inbounds i8, ptr %10, i64 80
-  %109 = getelementptr inbounds i8, ptr %11, i64 8
-  %110 = getelementptr inbounds i8, ptr %11, i64 16
-  %111 = getelementptr inbounds i8, ptr %11, i64 24
-  %112 = getelementptr inbounds i8, ptr %11, i64 28
-  %113 = getelementptr inbounds i8, ptr %11, i64 32
-  %114 = getelementptr inbounds i8, ptr %11, i64 40
-  %115 = getelementptr inbounds i8, ptr %.0.i, i64 56
-  %116 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %97 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %101 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %10, i64 68
+  %107 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %109 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  %113 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   br label %117
 
 117:                                              ; preds = %.lr.ph, %221
@@ -3191,7 +3191,7 @@ copy_address_wmem.exit:                           ; preds = %rdp_get_conversatio
   store i32 -1, ptr %150, align 8
   %151 = call ptr @wmem_file_scope() #12
   %152 = call ptr @tvb_get_string_enc(ptr noundef %151, ptr noundef %0, i32 noundef %.141.i, i32 noundef 8, i32 noundef 0) #12
-  %153 = getelementptr inbounds i8, ptr %150, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store ptr %152, ptr %153, align 8
   %154 = call i32 @g_ascii_strcasecmp(ptr noundef %152, ptr noundef nonnull @.str.994) #12
   %155 = icmp eq i32 %154, 0
@@ -3220,7 +3220,7 @@ copy_address_wmem.exit:                           ; preds = %rdp_get_conversatio
 
 find_known_channel_by_name.exit.i:                ; preds = %165, %162, %159, %156, %.lr.ph.split.i
   %.0.i.i = phi i32 [ 1, %.lr.ph.split.i ], [ 4, %156 ], [ 3, %159 ], [ 2, %162 ], [ %..i.i, %165 ]
-  %168 = getelementptr inbounds i8, ptr %150, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %150, i64 16
   store i32 %.0.i.i, ptr %168, align 8
   %169 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.141.i, ptr noundef %1, ptr noundef %147, ptr noundef nonnull %11, i32 noundef 0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3234,7 +3234,7 @@ find_known_channel_by_name.exit.i:                ; preds = %165, %162, %159, %1
   %.035.lcssa53.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i, %find_known_channel_by_name.exit.i ]
   %174 = getelementptr [32 x %struct._rdp_channel_def], ptr %116, i64 0, i64 %.035.lcssa53.i
   store i32 0, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store ptr null, ptr %175, align 8
   br label %dissect_rdp_clientNetworkData.exit
 
@@ -3364,116 +3364,116 @@ define internal i32 @dissect_rdp_ServerData(ptr noundef %0, ptr noundef %1, ptr 
   store i32 0, ptr %10, align 4
   store i32 0, ptr %11, align 4
   store ptr @hf_rdp_headerType, ptr %12, align 16
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 16
-  %20 = getelementptr inbounds i8, ptr %12, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_headerLength, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 2, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %12, i64 56
-  %23 = getelementptr inbounds i8, ptr %12, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_encryptionMethod, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %12, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store i32 4, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %12, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store ptr %7, ptr %25, align 16
-  %26 = getelementptr inbounds i8, ptr %12, i64 104
-  %27 = getelementptr inbounds i8, ptr %12, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_encryptionLevel, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %12, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 128
   store i32 4, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %12, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 136
   store ptr %8, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %12, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %30, i8 0, i64 56, i1 false)
   store ptr @hf_rdp_serverRandomLen, ptr %13, align 16
-  %31 = getelementptr inbounds i8, ptr %13, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 4, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %13, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %5, ptr %32, align 16
-  %33 = getelementptr inbounds i8, ptr %13, i64 24
-  %34 = getelementptr inbounds i8, ptr %13, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_serverCertLen, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %13, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i32 4, ptr %35, align 16
-  %36 = getelementptr inbounds i8, ptr %13, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %6, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %13, i64 64
-  %38 = getelementptr inbounds i8, ptr %13, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_serverRandom, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %13, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %13, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store ptr %5, ptr %40, align 16
-  %41 = getelementptr inbounds i8, ptr %13, i64 104
-  %42 = getelementptr inbounds i8, ptr %13, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_serverCertificate, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %13, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 128
   store i32 0, ptr %43, align 16
-  %44 = getelementptr inbounds i8, ptr %13, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 136
   store ptr %6, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %13, i64 144
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %45, i8 0, i64 56, i1 false)
   store ptr @hf_rdp_headerType, ptr %14, align 16
-  %46 = getelementptr inbounds i8, ptr %14, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 2, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %14, i64 16
-  %48 = getelementptr inbounds i8, ptr %14, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %47, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_headerLength, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %14, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i32 2, ptr %49, align 16
-  %50 = getelementptr inbounds i8, ptr %14, i64 56
-  %51 = getelementptr inbounds i8, ptr %14, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %14, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_MCSChannelId, ptr %51, align 16
-  %52 = getelementptr inbounds i8, ptr %14, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store i32 2, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %14, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store ptr %10, ptr %53, align 16
-  %54 = getelementptr inbounds i8, ptr %14, i64 104
-  %55 = getelementptr inbounds i8, ptr %14, i64 120
+  %54 = getelementptr inbounds nuw i8, ptr %14, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_channelCount, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %14, i64 128
+  %56 = getelementptr inbounds nuw i8, ptr %14, i64 128
   store i32 2, ptr %56, align 16
-  %57 = getelementptr inbounds i8, ptr %14, i64 136
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store ptr %9, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %14, i64 144
+  %58 = getelementptr inbounds nuw i8, ptr %14, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %58, i8 0, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %15, ptr noundef nonnull align 16 dereferenceable(80) @__const.dissect_rdp_ServerData.array_fields, i64 80, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %16, i8 0, i64 80, i1 false)
   store ptr @hf_rdp_MCSChannelId, ptr %16, align 16
-  %59 = getelementptr inbounds i8, ptr %16, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 2, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %16, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %10, ptr %60, align 16
   store ptr @hf_rdp_headerType, ptr %17, align 16
-  %61 = getelementptr inbounds i8, ptr %17, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 2, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %17, i64 16
-  %63 = getelementptr inbounds i8, ptr %17, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %17, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %62, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_headerLength, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %17, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store i32 2, ptr %64, align 16
-  %65 = getelementptr inbounds i8, ptr %17, i64 56
-  %66 = getelementptr inbounds i8, ptr %17, i64 80
+  %65 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %17, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_msgChannelId, ptr %66, align 16
-  %67 = getelementptr inbounds i8, ptr %17, i64 88
+  %67 = getelementptr inbounds nuw i8, ptr %17, i64 88
   store i32 2, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %17, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %17, i64 96
   store ptr %11, ptr %68, align 16
-  %69 = getelementptr inbounds i8, ptr %17, i64 104
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %17, i64 104
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %69, i8 0, i64 56, i1 false)
   %71 = load ptr, ptr %70, align 8
   call void @col_set_str(ptr noundef %71, i32 noundef 34, ptr noundef nonnull @.str.700) #12
@@ -3493,17 +3493,17 @@ define internal i32 @dissect_rdp_ServerData(ptr noundef %0, ptr noundef %1, ptr 
   %82 = call ptr @wmem_file_scope() #12
   %83 = call noalias ptr @wmem_alloc0(ptr noundef %82, i64 noundef 832) #12
   store i32 -1, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store i32 -1, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %83, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i32 0, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %83, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 12
   store i32 0, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %83, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store i32 0, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %83, i64 60
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 60
   store i32 0, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %83, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %83, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %89, i8 0, i64 33, i1 false)
   %90 = load i32, ptr @proto_rdp, align 4
   call void @conversation_add_proto_data(ptr noundef nonnull %77, i32 noundef %90, ptr noundef nonnull %83) #12
@@ -3522,11 +3522,11 @@ rdp_get_conversation_data.exit:                   ; preds = %4, %81
   br i1 %97, label %.lr.ph120, label %._crit_edge121
 
 .lr.ph120:                                        ; preds = %rdp_get_conversation_data.exit
-  %98 = getelementptr inbounds i8, ptr %.0.i, i64 4
-  %99 = getelementptr inbounds i8, ptr %15, i64 8
-  %100 = getelementptr inbounds i8, ptr %.0.i, i64 64
-  %101 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %102 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
+  %101 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   br label %103
 
 103:                                              ; preds = %.lr.ph120, %._crit_edge.thread
@@ -3605,7 +3605,7 @@ rdp_get_conversation_data.exit:                   ; preds = %4, %81
   br i1 %.not114, label %151, label %146
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %138, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %148 = load ptr, ptr %147, align 8
   %149 = load i32, ptr @ett_rdp_channelIdArray, align 4
   %150 = call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149) #12
@@ -3707,18 +3707,18 @@ declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal i32 @rdp_udp_conversation_hash(ptr nocapture noundef readonly %0) #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i16, ptr %2, align 8
   %4 = zext i16 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %7, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph.preheader.i, label %add_address_to_hash.exit
@@ -3743,7 +3743,7 @@ define internal i32 @rdp_udp_conversation_hash(ptr nocapture noundef readonly %0
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %.011.lcssa.i = phi i32 [ %10, %1 ], [ %22, %.lr.ph.i ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %24
 
 24:                                               ; preds = %add_address_to_hash.exit, %24
@@ -3769,9 +3769,9 @@ define internal range(i32 0, 2) i32 @rdp_udp_conversation_equal_matched(ptr noca
   br i1 %5, label %6, label %addresses_equal.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %addresses_equal.exit
@@ -3781,9 +3781,9 @@ define internal range(i32 0, 2) i32 @rdp_udp_conversation_equal_matched(ptr noca
   br i1 %13, label %21, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %8 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %16, ptr %18, i64 %19)
@@ -3791,32 +3791,32 @@ define internal range(i32 0, 2) i32 @rdp_udp_conversation_equal_matched(ptr noca
   br i1 %20, label %21, label %addresses_equal.exit
 
 21:                                               ; preds = %14, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i16, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i16, ptr %24, align 8
   %26 = icmp eq i16 %23, %25
   br i1 %26, label %27, label %addresses_equal.exit
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %29, %31
   br i1 %32, label %33, label %addresses_equal.exit
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %35, %37
   br i1 %38, label %39, label %addresses_equal.exit
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 36
-  %41 = getelementptr inbounds i8, ptr %1, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %40, ptr noundef nonnull dereferenceable(16) %41, i64 16)
   %42 = icmp eq i32 %bcmp, 0
   %43 = zext i1 %42 to i32
@@ -3932,557 +3932,557 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
   store i32 -1, ptr %22, align 4
   store i32 0, ptr %23, align 4
   store ptr @hf_rdp_flagsPkt, ptr %24, align 16
-  %33 = getelementptr inbounds i8, ptr %24, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 2, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %24, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %10, ptr %34, align 16
-  %35 = getelementptr inbounds i8, ptr %24, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %24, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 16, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %24, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr null, ptr %37, align 16
-  %38 = getelementptr inbounds i8, ptr %24, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr @hf_rdp_flagsEncrypt, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %24, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 48
   store i32 2, ptr %39, align 16
-  %40 = getelementptr inbounds i8, ptr %24, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 56
   store ptr null, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %24, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 64
   store i32 0, ptr %41, align 16
-  %42 = getelementptr inbounds i8, ptr %24, i64 68
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 68
   store i32 16, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %24, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 72
   store ptr null, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %24, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 80
   store ptr @hf_rdp_flagsResetSeqno, ptr %44, align 16
-  %45 = getelementptr inbounds i8, ptr %24, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 88
   store i32 2, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %24, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 96
   store ptr null, ptr %46, align 16
-  %47 = getelementptr inbounds i8, ptr %24, i64 104
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 104
   store i32 0, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %24, i64 108
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 108
   store i32 16, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %24, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 112
   store ptr null, ptr %49, align 16
-  %50 = getelementptr inbounds i8, ptr %24, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store ptr @hf_rdp_flagsIgnoreSeqno, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %24, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 128
   store i32 2, ptr %51, align 16
-  %52 = getelementptr inbounds i8, ptr %24, i64 136
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 136
   store ptr null, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %24, i64 144
+  %53 = getelementptr inbounds nuw i8, ptr %24, i64 144
   store i32 0, ptr %53, align 16
-  %54 = getelementptr inbounds i8, ptr %24, i64 148
+  %54 = getelementptr inbounds nuw i8, ptr %24, i64 148
   store i32 16, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %24, i64 152
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 152
   store ptr null, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %24, i64 160
+  %56 = getelementptr inbounds nuw i8, ptr %24, i64 160
   store ptr @hf_rdp_flagsLicenseEncrypt, ptr %56, align 16
-  %57 = getelementptr inbounds i8, ptr %24, i64 168
+  %57 = getelementptr inbounds nuw i8, ptr %24, i64 168
   store i32 2, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %24, i64 176
+  %58 = getelementptr inbounds nuw i8, ptr %24, i64 176
   store ptr null, ptr %58, align 16
-  %59 = getelementptr inbounds i8, ptr %24, i64 184
+  %59 = getelementptr inbounds nuw i8, ptr %24, i64 184
   store i32 0, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %24, i64 188
+  %60 = getelementptr inbounds nuw i8, ptr %24, i64 188
   store i32 16, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %24, i64 192
+  %61 = getelementptr inbounds nuw i8, ptr %24, i64 192
   store ptr null, ptr %61, align 16
-  %62 = getelementptr inbounds i8, ptr %24, i64 200
+  %62 = getelementptr inbounds nuw i8, ptr %24, i64 200
   store ptr @hf_rdp_flagsSecureChecksum, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %24, i64 208
+  %63 = getelementptr inbounds nuw i8, ptr %24, i64 208
   store i32 2, ptr %63, align 16
-  %64 = getelementptr inbounds i8, ptr %24, i64 216
+  %64 = getelementptr inbounds nuw i8, ptr %24, i64 216
   store ptr null, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %24, i64 224
+  %65 = getelementptr inbounds nuw i8, ptr %24, i64 224
   store i32 0, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %24, i64 228
+  %66 = getelementptr inbounds nuw i8, ptr %24, i64 228
   store i32 16, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %24, i64 232
+  %67 = getelementptr inbounds nuw i8, ptr %24, i64 232
   store ptr null, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %24, i64 240
+  %68 = getelementptr inbounds nuw i8, ptr %24, i64 240
   store ptr @hf_rdp_flagsFlagsHiValid, ptr %68, align 16
-  %69 = getelementptr inbounds i8, ptr %24, i64 248
+  %69 = getelementptr inbounds nuw i8, ptr %24, i64 248
   store i32 2, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %24, i64 256
+  %70 = getelementptr inbounds nuw i8, ptr %24, i64 256
   store ptr null, ptr %70, align 16
-  %71 = getelementptr inbounds i8, ptr %24, i64 264
+  %71 = getelementptr inbounds nuw i8, ptr %24, i64 264
   store i32 0, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %24, i64 268
+  %72 = getelementptr inbounds nuw i8, ptr %24, i64 268
   store i32 16, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %24, i64 272
+  %73 = getelementptr inbounds nuw i8, ptr %24, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %73, i8 0, i64 48, i1 false)
   store ptr @hf_rdp_flags, ptr %25, align 16
-  %74 = getelementptr inbounds i8, ptr %25, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 2, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %25, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr null, ptr %75, align 16
-  %76 = getelementptr inbounds i8, ptr %25, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %77 = load i32, ptr @ett_rdp_flags, align 4
   store i32 %77, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %25, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %25, i64 28
   store i32 32, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %25, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %24, ptr %79, align 16
-  %80 = getelementptr inbounds i8, ptr %25, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr @hf_rdp_flagsHi, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %25, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %25, i64 48
   store i32 2, ptr %81, align 16
-  %82 = getelementptr inbounds i8, ptr %25, i64 56
-  %83 = getelementptr inbounds i8, ptr %25, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %25, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_length, ptr %83, align 16
-  %84 = getelementptr inbounds i8, ptr %25, i64 88
+  %84 = getelementptr inbounds nuw i8, ptr %25, i64 88
   store i32 4, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %25, i64 96
+  %85 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store ptr %23, ptr %85, align 16
-  %86 = getelementptr inbounds i8, ptr %25, i64 104
-  %87 = getelementptr inbounds i8, ptr %25, i64 120
+  %86 = getelementptr inbounds nuw i8, ptr %25, i64 104
+  %87 = getelementptr inbounds nuw i8, ptr %25, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_encryptedClientRandom, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %25, i64 128
+  %88 = getelementptr inbounds nuw i8, ptr %25, i64 128
   store i32 0, ptr %88, align 16
-  %89 = getelementptr inbounds i8, ptr %25, i64 136
+  %89 = getelementptr inbounds nuw i8, ptr %25, i64 136
   store ptr %23, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %25, i64 144
+  %90 = getelementptr inbounds nuw i8, ptr %25, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %90, i8 0, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(360) %26, ptr noundef nonnull align 16 dereferenceable(360) @__const.dissect_rdp_SendData.systime_fields, i64 360, i1 false)
   store ptr @hf_rdp_Bias, ptr %27, align 16
-  %91 = getelementptr inbounds i8, ptr %27, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 4, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %27, i64 16
-  %93 = getelementptr inbounds i8, ptr %27, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %27, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %92, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_StandardName, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %27, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store i32 64, ptr %94, align 16
-  %95 = getelementptr inbounds i8, ptr %27, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store ptr null, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %27, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store i32 0, ptr %96, align 16
-  %97 = getelementptr inbounds i8, ptr %27, i64 68
+  %97 = getelementptr inbounds nuw i8, ptr %27, i64 68
   store i32 6, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %27, i64 72
+  %98 = getelementptr inbounds nuw i8, ptr %27, i64 72
   store ptr null, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %27, i64 80
+  %99 = getelementptr inbounds nuw i8, ptr %27, i64 80
   store ptr @hf_rdp_StandardDate, ptr %99, align 16
-  %100 = getelementptr inbounds i8, ptr %27, i64 88
+  %100 = getelementptr inbounds nuw i8, ptr %27, i64 88
   store i32 16, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %27, i64 96
+  %101 = getelementptr inbounds nuw i8, ptr %27, i64 96
   store ptr null, ptr %101, align 16
-  %102 = getelementptr inbounds i8, ptr %27, i64 104
+  %102 = getelementptr inbounds nuw i8, ptr %27, i64 104
   %103 = load i32, ptr @ett_rdp_StandardDate, align 4
   store i32 %103, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %27, i64 108
+  %104 = getelementptr inbounds nuw i8, ptr %27, i64 108
   store i32 32, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %27, i64 112
+  %105 = getelementptr inbounds nuw i8, ptr %27, i64 112
   store ptr %26, ptr %105, align 16
-  %106 = getelementptr inbounds i8, ptr %27, i64 120
+  %106 = getelementptr inbounds nuw i8, ptr %27, i64 120
   store ptr @hf_rdp_StandardBias, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %27, i64 128
+  %107 = getelementptr inbounds nuw i8, ptr %27, i64 128
   store i32 4, ptr %107, align 16
-  %108 = getelementptr inbounds i8, ptr %27, i64 136
-  %109 = getelementptr inbounds i8, ptr %27, i64 160
+  %108 = getelementptr inbounds nuw i8, ptr %27, i64 136
+  %109 = getelementptr inbounds nuw i8, ptr %27, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_DaylightName, ptr %109, align 16
-  %110 = getelementptr inbounds i8, ptr %27, i64 168
+  %110 = getelementptr inbounds nuw i8, ptr %27, i64 168
   store i32 64, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %27, i64 176
+  %111 = getelementptr inbounds nuw i8, ptr %27, i64 176
   store ptr null, ptr %111, align 16
-  %112 = getelementptr inbounds i8, ptr %27, i64 184
+  %112 = getelementptr inbounds nuw i8, ptr %27, i64 184
   store i32 0, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %27, i64 188
+  %113 = getelementptr inbounds nuw i8, ptr %27, i64 188
   store i32 6, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %27, i64 192
+  %114 = getelementptr inbounds nuw i8, ptr %27, i64 192
   store ptr null, ptr %114, align 16
-  %115 = getelementptr inbounds i8, ptr %27, i64 200
+  %115 = getelementptr inbounds nuw i8, ptr %27, i64 200
   store ptr @hf_rdp_DaylightDate, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %27, i64 208
+  %116 = getelementptr inbounds nuw i8, ptr %27, i64 208
   store i32 16, ptr %116, align 16
-  %117 = getelementptr inbounds i8, ptr %27, i64 216
+  %117 = getelementptr inbounds nuw i8, ptr %27, i64 216
   store ptr null, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %27, i64 224
+  %118 = getelementptr inbounds nuw i8, ptr %27, i64 224
   %119 = load i32, ptr @ett_rdp_DaylightDate, align 4
   store i32 %119, ptr %118, align 16
-  %120 = getelementptr inbounds i8, ptr %27, i64 228
+  %120 = getelementptr inbounds nuw i8, ptr %27, i64 228
   store i32 32, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %27, i64 232
+  %121 = getelementptr inbounds nuw i8, ptr %27, i64 232
   store ptr %26, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %27, i64 240
+  %122 = getelementptr inbounds nuw i8, ptr %27, i64 240
   store ptr @hf_rdp_DaylightBias, ptr %122, align 16
-  %123 = getelementptr inbounds i8, ptr %27, i64 248
+  %123 = getelementptr inbounds nuw i8, ptr %27, i64 248
   store i32 4, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %27, i64 256
+  %124 = getelementptr inbounds nuw i8, ptr %27, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %124, i8 0, i64 64, i1 false)
   store ptr @hf_rdp_codePage, ptr %28, align 16
-  %125 = getelementptr inbounds i8, ptr %28, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 4, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %28, i64 16
-  %127 = getelementptr inbounds i8, ptr %28, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %28, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %126, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_optionFlags, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %28, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i32 4, ptr %128, align 16
-  %129 = getelementptr inbounds i8, ptr %28, i64 56
+  %129 = getelementptr inbounds nuw i8, ptr %28, i64 56
   store ptr null, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %28, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %28, i64 64
   store i32 0, ptr %130, align 16
-  %131 = getelementptr inbounds i8, ptr %28, i64 68
+  %131 = getelementptr inbounds nuw i8, ptr %28, i64 68
   store i32 64, ptr %131, align 4
-  %132 = getelementptr inbounds i8, ptr %28, i64 72
+  %132 = getelementptr inbounds nuw i8, ptr %28, i64 72
   store ptr null, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %28, i64 80
+  %133 = getelementptr inbounds nuw i8, ptr %28, i64 80
   store ptr @hf_rdp_cbDomain, ptr %133, align 16
-  %134 = getelementptr inbounds i8, ptr %28, i64 88
+  %134 = getelementptr inbounds nuw i8, ptr %28, i64 88
   store i32 2, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %28, i64 96
+  %135 = getelementptr inbounds nuw i8, ptr %28, i64 96
   store ptr %11, ptr %135, align 16
-  %136 = getelementptr inbounds i8, ptr %28, i64 104
+  %136 = getelementptr inbounds nuw i8, ptr %28, i64 104
   store i32 2, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %28, i64 108
+  %137 = getelementptr inbounds nuw i8, ptr %28, i64 108
   store i32 0, ptr %137, align 4
-  %138 = getelementptr inbounds i8, ptr %28, i64 112
+  %138 = getelementptr inbounds nuw i8, ptr %28, i64 112
   store ptr null, ptr %138, align 16
-  %139 = getelementptr inbounds i8, ptr %28, i64 120
+  %139 = getelementptr inbounds nuw i8, ptr %28, i64 120
   store ptr @hf_rdp_cbUserName, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %28, i64 128
+  %140 = getelementptr inbounds nuw i8, ptr %28, i64 128
   store i32 2, ptr %140, align 16
-  %141 = getelementptr inbounds i8, ptr %28, i64 136
+  %141 = getelementptr inbounds nuw i8, ptr %28, i64 136
   store ptr %12, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %28, i64 144
+  %142 = getelementptr inbounds nuw i8, ptr %28, i64 144
   store i32 2, ptr %142, align 16
-  %143 = getelementptr inbounds i8, ptr %28, i64 148
+  %143 = getelementptr inbounds nuw i8, ptr %28, i64 148
   store i32 0, ptr %143, align 4
-  %144 = getelementptr inbounds i8, ptr %28, i64 152
+  %144 = getelementptr inbounds nuw i8, ptr %28, i64 152
   store ptr null, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %28, i64 160
+  %145 = getelementptr inbounds nuw i8, ptr %28, i64 160
   store ptr @hf_rdp_cbPassword, ptr %145, align 16
-  %146 = getelementptr inbounds i8, ptr %28, i64 168
+  %146 = getelementptr inbounds nuw i8, ptr %28, i64 168
   store i32 2, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %28, i64 176
+  %147 = getelementptr inbounds nuw i8, ptr %28, i64 176
   store ptr %13, ptr %147, align 16
-  %148 = getelementptr inbounds i8, ptr %28, i64 184
+  %148 = getelementptr inbounds nuw i8, ptr %28, i64 184
   store i32 2, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %28, i64 188
+  %149 = getelementptr inbounds nuw i8, ptr %28, i64 188
   store i32 0, ptr %149, align 4
-  %150 = getelementptr inbounds i8, ptr %28, i64 192
+  %150 = getelementptr inbounds nuw i8, ptr %28, i64 192
   store ptr null, ptr %150, align 16
-  %151 = getelementptr inbounds i8, ptr %28, i64 200
+  %151 = getelementptr inbounds nuw i8, ptr %28, i64 200
   store ptr @hf_rdp_cbAlternateShell, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %28, i64 208
+  %152 = getelementptr inbounds nuw i8, ptr %28, i64 208
   store i32 2, ptr %152, align 16
-  %153 = getelementptr inbounds i8, ptr %28, i64 216
+  %153 = getelementptr inbounds nuw i8, ptr %28, i64 216
   store ptr %14, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %28, i64 224
+  %154 = getelementptr inbounds nuw i8, ptr %28, i64 224
   store i32 2, ptr %154, align 16
-  %155 = getelementptr inbounds i8, ptr %28, i64 228
+  %155 = getelementptr inbounds nuw i8, ptr %28, i64 228
   store i32 0, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %28, i64 232
+  %156 = getelementptr inbounds nuw i8, ptr %28, i64 232
   store ptr null, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %28, i64 240
+  %157 = getelementptr inbounds nuw i8, ptr %28, i64 240
   store ptr @hf_rdp_cbWorkingDir, ptr %157, align 16
-  %158 = getelementptr inbounds i8, ptr %28, i64 248
+  %158 = getelementptr inbounds nuw i8, ptr %28, i64 248
   store i32 2, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %28, i64 256
+  %159 = getelementptr inbounds nuw i8, ptr %28, i64 256
   store ptr %15, ptr %159, align 16
-  %160 = getelementptr inbounds i8, ptr %28, i64 264
+  %160 = getelementptr inbounds nuw i8, ptr %28, i64 264
   store i32 2, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %28, i64 268
+  %161 = getelementptr inbounds nuw i8, ptr %28, i64 268
   store i32 0, ptr %161, align 4
-  %162 = getelementptr inbounds i8, ptr %28, i64 272
+  %162 = getelementptr inbounds nuw i8, ptr %28, i64 272
   store ptr null, ptr %162, align 16
-  %163 = getelementptr inbounds i8, ptr %28, i64 280
+  %163 = getelementptr inbounds nuw i8, ptr %28, i64 280
   store ptr @hf_rdp_domain, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %28, i64 288
+  %164 = getelementptr inbounds nuw i8, ptr %28, i64 288
   store i32 0, ptr %164, align 16
-  %165 = getelementptr inbounds i8, ptr %28, i64 296
+  %165 = getelementptr inbounds nuw i8, ptr %28, i64 296
   store ptr %11, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %28, i64 304
+  %166 = getelementptr inbounds nuw i8, ptr %28, i64 304
   store i32 0, ptr %166, align 16
-  %167 = getelementptr inbounds i8, ptr %28, i64 308
+  %167 = getelementptr inbounds nuw i8, ptr %28, i64 308
   store i32 2, ptr %167, align 4
-  %168 = getelementptr inbounds i8, ptr %28, i64 312
+  %168 = getelementptr inbounds nuw i8, ptr %28, i64 312
   store ptr null, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %28, i64 320
+  %169 = getelementptr inbounds nuw i8, ptr %28, i64 320
   store ptr @hf_rdp_userName, ptr %169, align 16
-  %170 = getelementptr inbounds i8, ptr %28, i64 328
+  %170 = getelementptr inbounds nuw i8, ptr %28, i64 328
   store i32 0, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %28, i64 336
+  %171 = getelementptr inbounds nuw i8, ptr %28, i64 336
   store ptr %12, ptr %171, align 16
-  %172 = getelementptr inbounds i8, ptr %28, i64 344
+  %172 = getelementptr inbounds nuw i8, ptr %28, i64 344
   store i32 0, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %28, i64 348
+  %173 = getelementptr inbounds nuw i8, ptr %28, i64 348
   store i32 2, ptr %173, align 4
-  %174 = getelementptr inbounds i8, ptr %28, i64 352
+  %174 = getelementptr inbounds nuw i8, ptr %28, i64 352
   store ptr null, ptr %174, align 16
-  %175 = getelementptr inbounds i8, ptr %28, i64 360
+  %175 = getelementptr inbounds nuw i8, ptr %28, i64 360
   store ptr @hf_rdp_password, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %28, i64 368
+  %176 = getelementptr inbounds nuw i8, ptr %28, i64 368
   store i32 0, ptr %176, align 16
-  %177 = getelementptr inbounds i8, ptr %28, i64 376
+  %177 = getelementptr inbounds nuw i8, ptr %28, i64 376
   store ptr %13, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %28, i64 384
+  %178 = getelementptr inbounds nuw i8, ptr %28, i64 384
   store i32 0, ptr %178, align 16
-  %179 = getelementptr inbounds i8, ptr %28, i64 388
+  %179 = getelementptr inbounds nuw i8, ptr %28, i64 388
   store i32 2, ptr %179, align 4
-  %180 = getelementptr inbounds i8, ptr %28, i64 392
+  %180 = getelementptr inbounds nuw i8, ptr %28, i64 392
   store ptr null, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %28, i64 400
+  %181 = getelementptr inbounds nuw i8, ptr %28, i64 400
   store ptr @hf_rdp_alternateShell, ptr %181, align 16
-  %182 = getelementptr inbounds i8, ptr %28, i64 408
+  %182 = getelementptr inbounds nuw i8, ptr %28, i64 408
   store i32 0, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %28, i64 416
+  %183 = getelementptr inbounds nuw i8, ptr %28, i64 416
   store ptr %14, ptr %183, align 16
-  %184 = getelementptr inbounds i8, ptr %28, i64 424
+  %184 = getelementptr inbounds nuw i8, ptr %28, i64 424
   store i32 0, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %28, i64 428
+  %185 = getelementptr inbounds nuw i8, ptr %28, i64 428
   store i32 2, ptr %185, align 4
-  %186 = getelementptr inbounds i8, ptr %28, i64 432
+  %186 = getelementptr inbounds nuw i8, ptr %28, i64 432
   store ptr null, ptr %186, align 16
-  %187 = getelementptr inbounds i8, ptr %28, i64 440
+  %187 = getelementptr inbounds nuw i8, ptr %28, i64 440
   store ptr @hf_rdp_workingDir, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %28, i64 448
+  %188 = getelementptr inbounds nuw i8, ptr %28, i64 448
   store i32 0, ptr %188, align 16
-  %189 = getelementptr inbounds i8, ptr %28, i64 456
+  %189 = getelementptr inbounds nuw i8, ptr %28, i64 456
   store ptr %15, ptr %189, align 8
-  %190 = getelementptr inbounds i8, ptr %28, i64 464
+  %190 = getelementptr inbounds nuw i8, ptr %28, i64 464
   store i32 0, ptr %190, align 16
-  %191 = getelementptr inbounds i8, ptr %28, i64 468
+  %191 = getelementptr inbounds nuw i8, ptr %28, i64 468
   store i32 2, ptr %191, align 4
-  %192 = getelementptr inbounds i8, ptr %28, i64 472
+  %192 = getelementptr inbounds nuw i8, ptr %28, i64 472
   store ptr null, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %28, i64 480
+  %193 = getelementptr inbounds nuw i8, ptr %28, i64 480
   store ptr @hf_rdp_clientAddressFamily, ptr %193, align 16
-  %194 = getelementptr inbounds i8, ptr %28, i64 488
+  %194 = getelementptr inbounds nuw i8, ptr %28, i64 488
   store i32 2, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %28, i64 496
-  %196 = getelementptr inbounds i8, ptr %28, i64 520
+  %195 = getelementptr inbounds nuw i8, ptr %28, i64 496
+  %196 = getelementptr inbounds nuw i8, ptr %28, i64 520
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %195, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_cbClientAddress, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %28, i64 528
+  %197 = getelementptr inbounds nuw i8, ptr %28, i64 528
   store i32 2, ptr %197, align 16
-  %198 = getelementptr inbounds i8, ptr %28, i64 536
+  %198 = getelementptr inbounds nuw i8, ptr %28, i64 536
   store ptr %16, ptr %198, align 8
-  %199 = getelementptr inbounds i8, ptr %28, i64 544
-  %200 = getelementptr inbounds i8, ptr %28, i64 560
+  %199 = getelementptr inbounds nuw i8, ptr %28, i64 544
+  %200 = getelementptr inbounds nuw i8, ptr %28, i64 560
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %199, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_clientAddress, ptr %200, align 16
-  %201 = getelementptr inbounds i8, ptr %28, i64 568
+  %201 = getelementptr inbounds nuw i8, ptr %28, i64 568
   store i32 0, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %28, i64 576
+  %202 = getelementptr inbounds nuw i8, ptr %28, i64 576
   store ptr %16, ptr %202, align 16
-  %203 = getelementptr inbounds i8, ptr %28, i64 584
+  %203 = getelementptr inbounds nuw i8, ptr %28, i64 584
   store i32 0, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %28, i64 588
+  %204 = getelementptr inbounds nuw i8, ptr %28, i64 588
   store i32 2, ptr %204, align 4
-  %205 = getelementptr inbounds i8, ptr %28, i64 592
+  %205 = getelementptr inbounds nuw i8, ptr %28, i64 592
   store ptr null, ptr %205, align 16
-  %206 = getelementptr inbounds i8, ptr %28, i64 600
+  %206 = getelementptr inbounds nuw i8, ptr %28, i64 600
   store ptr @hf_rdp_cbClientDir, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %28, i64 608
+  %207 = getelementptr inbounds nuw i8, ptr %28, i64 608
   store i32 2, ptr %207, align 16
-  %208 = getelementptr inbounds i8, ptr %28, i64 616
+  %208 = getelementptr inbounds nuw i8, ptr %28, i64 616
   store ptr %17, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %28, i64 624
-  %210 = getelementptr inbounds i8, ptr %28, i64 640
+  %209 = getelementptr inbounds nuw i8, ptr %28, i64 624
+  %210 = getelementptr inbounds nuw i8, ptr %28, i64 640
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %209, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_clientDir, ptr %210, align 16
-  %211 = getelementptr inbounds i8, ptr %28, i64 648
+  %211 = getelementptr inbounds nuw i8, ptr %28, i64 648
   store i32 0, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %28, i64 656
+  %212 = getelementptr inbounds nuw i8, ptr %28, i64 656
   store ptr %17, ptr %212, align 16
-  %213 = getelementptr inbounds i8, ptr %28, i64 664
+  %213 = getelementptr inbounds nuw i8, ptr %28, i64 664
   store i32 0, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %28, i64 668
+  %214 = getelementptr inbounds nuw i8, ptr %28, i64 668
   store i32 2, ptr %214, align 4
-  %215 = getelementptr inbounds i8, ptr %28, i64 672
+  %215 = getelementptr inbounds nuw i8, ptr %28, i64 672
   store ptr null, ptr %215, align 16
-  %216 = getelementptr inbounds i8, ptr %28, i64 680
+  %216 = getelementptr inbounds nuw i8, ptr %28, i64 680
   store ptr @hf_rdp_clientTimeZone, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %28, i64 688
+  %217 = getelementptr inbounds nuw i8, ptr %28, i64 688
   store i32 172, ptr %217, align 16
-  %218 = getelementptr inbounds i8, ptr %28, i64 696
+  %218 = getelementptr inbounds nuw i8, ptr %28, i64 696
   store ptr null, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %28, i64 704
+  %219 = getelementptr inbounds nuw i8, ptr %28, i64 704
   %220 = load i32, ptr @ett_rdp_clientTimeZone, align 4
   store i32 %220, ptr %219, align 16
-  %221 = getelementptr inbounds i8, ptr %28, i64 708
+  %221 = getelementptr inbounds nuw i8, ptr %28, i64 708
   store i32 32, ptr %221, align 4
-  %222 = getelementptr inbounds i8, ptr %28, i64 712
+  %222 = getelementptr inbounds nuw i8, ptr %28, i64 712
   store ptr %27, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %28, i64 720
+  %223 = getelementptr inbounds nuw i8, ptr %28, i64 720
   store ptr @hf_rdp_clientSessionId, ptr %223, align 16
-  %224 = getelementptr inbounds i8, ptr %28, i64 728
+  %224 = getelementptr inbounds nuw i8, ptr %28, i64 728
   store i32 4, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %28, i64 736
-  %226 = getelementptr inbounds i8, ptr %28, i64 760
+  %225 = getelementptr inbounds nuw i8, ptr %28, i64 736
+  %226 = getelementptr inbounds nuw i8, ptr %28, i64 760
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %225, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_performanceFlags, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %28, i64 768
+  %227 = getelementptr inbounds nuw i8, ptr %28, i64 768
   store i32 4, ptr %227, align 16
-  %228 = getelementptr inbounds i8, ptr %28, i64 776
-  %229 = getelementptr inbounds i8, ptr %28, i64 800
+  %228 = getelementptr inbounds nuw i8, ptr %28, i64 776
+  %229 = getelementptr inbounds nuw i8, ptr %28, i64 800
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %228, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_cbAutoReconnectLen, ptr %229, align 16
-  %230 = getelementptr inbounds i8, ptr %28, i64 808
+  %230 = getelementptr inbounds nuw i8, ptr %28, i64 808
   store i32 2, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %28, i64 816
+  %231 = getelementptr inbounds nuw i8, ptr %28, i64 816
   store ptr %18, ptr %231, align 16
-  %232 = getelementptr inbounds i8, ptr %28, i64 824
-  %233 = getelementptr inbounds i8, ptr %28, i64 840
+  %232 = getelementptr inbounds nuw i8, ptr %28, i64 824
+  %233 = getelementptr inbounds nuw i8, ptr %28, i64 840
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %232, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_autoReconnectCookie, ptr %233, align 8
-  %234 = getelementptr inbounds i8, ptr %28, i64 848
+  %234 = getelementptr inbounds nuw i8, ptr %28, i64 848
   store i32 0, ptr %234, align 16
-  %235 = getelementptr inbounds i8, ptr %28, i64 856
+  %235 = getelementptr inbounds nuw i8, ptr %28, i64 856
   store ptr %18, ptr %235, align 8
-  %236 = getelementptr inbounds i8, ptr %28, i64 864
-  %237 = getelementptr inbounds i8, ptr %28, i64 880
+  %236 = getelementptr inbounds nuw i8, ptr %28, i64 864
+  %237 = getelementptr inbounds nuw i8, ptr %28, i64 880
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %236, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_reserved1, ptr %237, align 16
-  %238 = getelementptr inbounds i8, ptr %28, i64 888
+  %238 = getelementptr inbounds nuw i8, ptr %28, i64 888
   store i32 2, ptr %238, align 8
-  %239 = getelementptr inbounds i8, ptr %28, i64 896
-  %240 = getelementptr inbounds i8, ptr %28, i64 920
+  %239 = getelementptr inbounds nuw i8, ptr %28, i64 896
+  %240 = getelementptr inbounds nuw i8, ptr %28, i64 920
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %239, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_reserved2, ptr %240, align 8
-  %241 = getelementptr inbounds i8, ptr %28, i64 928
+  %241 = getelementptr inbounds nuw i8, ptr %28, i64 928
   store i32 2, ptr %241, align 16
-  %242 = getelementptr inbounds i8, ptr %28, i64 936
-  %243 = getelementptr inbounds i8, ptr %28, i64 960
+  %242 = getelementptr inbounds nuw i8, ptr %28, i64 936
+  %243 = getelementptr inbounds nuw i8, ptr %28, i64 960
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %242, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_cbDynamicDSTTimeZoneKeyName, ptr %243, align 16
-  %244 = getelementptr inbounds i8, ptr %28, i64 968
+  %244 = getelementptr inbounds nuw i8, ptr %28, i64 968
   store i32 2, ptr %244, align 8
-  %245 = getelementptr inbounds i8, ptr %28, i64 976
+  %245 = getelementptr inbounds nuw i8, ptr %28, i64 976
   store ptr %20, ptr %245, align 16
-  %246 = getelementptr inbounds i8, ptr %28, i64 984
-  %247 = getelementptr inbounds i8, ptr %28, i64 1000
+  %246 = getelementptr inbounds nuw i8, ptr %28, i64 984
+  %247 = getelementptr inbounds nuw i8, ptr %28, i64 1000
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %246, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_dynamicDSTTimeZoneKeyName, ptr %247, align 8
-  %248 = getelementptr inbounds i8, ptr %28, i64 1008
+  %248 = getelementptr inbounds nuw i8, ptr %28, i64 1008
   store i32 0, ptr %248, align 16
-  %249 = getelementptr inbounds i8, ptr %28, i64 1016
+  %249 = getelementptr inbounds nuw i8, ptr %28, i64 1016
   store ptr %20, ptr %249, align 8
-  %250 = getelementptr inbounds i8, ptr %28, i64 1024
+  %250 = getelementptr inbounds nuw i8, ptr %28, i64 1024
   store i32 0, ptr %250, align 16
-  %251 = getelementptr inbounds i8, ptr %28, i64 1028
+  %251 = getelementptr inbounds nuw i8, ptr %28, i64 1028
   store i32 2, ptr %251, align 4
-  %252 = getelementptr inbounds i8, ptr %28, i64 1032
+  %252 = getelementptr inbounds nuw i8, ptr %28, i64 1032
   store ptr null, ptr %252, align 8
-  %253 = getelementptr inbounds i8, ptr %28, i64 1040
+  %253 = getelementptr inbounds nuw i8, ptr %28, i64 1040
   store ptr @hf_rdp_dynamicDaylightTimeDisabled, ptr %253, align 16
-  %254 = getelementptr inbounds i8, ptr %28, i64 1048
+  %254 = getelementptr inbounds nuw i8, ptr %28, i64 1048
   store i32 2, ptr %254, align 8
-  %255 = getelementptr inbounds i8, ptr %28, i64 1056
+  %255 = getelementptr inbounds nuw i8, ptr %28, i64 1056
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %255, i8 0, i64 64, i1 false)
   store ptr @hf_rdp_bMsgType, ptr %29, align 16
-  %256 = getelementptr inbounds i8, ptr %29, i64 8
+  %256 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 1, ptr %256, align 8
-  %257 = getelementptr inbounds i8, ptr %29, i64 16
+  %257 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %22, ptr %257, align 16
-  %258 = getelementptr inbounds i8, ptr %29, i64 24
-  %259 = getelementptr inbounds i8, ptr %29, i64 40
+  %258 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %259 = getelementptr inbounds nuw i8, ptr %29, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %258, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_bVersion, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %29, i64 48
+  %260 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store i32 1, ptr %260, align 16
-  %261 = getelementptr inbounds i8, ptr %29, i64 56
-  %262 = getelementptr inbounds i8, ptr %29, i64 80
+  %261 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  %262 = getelementptr inbounds nuw i8, ptr %29, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %261, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_wMsgSize, ptr %262, align 16
-  %263 = getelementptr inbounds i8, ptr %29, i64 88
+  %263 = getelementptr inbounds nuw i8, ptr %29, i64 88
   store i32 2, ptr %263, align 8
-  %264 = getelementptr inbounds i8, ptr %29, i64 96
+  %264 = getelementptr inbounds nuw i8, ptr %29, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %264, i8 0, i64 64, i1 false)
   store ptr @hf_rdp_wErrorCode, ptr %30, align 16
-  %265 = getelementptr inbounds i8, ptr %30, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 4, ptr %265, align 8
-  %266 = getelementptr inbounds i8, ptr %30, i64 16
-  %267 = getelementptr inbounds i8, ptr %30, i64 40
+  %266 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %267 = getelementptr inbounds nuw i8, ptr %30, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %266, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_wStateTransition, ptr %267, align 8
-  %268 = getelementptr inbounds i8, ptr %30, i64 48
+  %268 = getelementptr inbounds nuw i8, ptr %30, i64 48
   store i32 4, ptr %268, align 16
-  %269 = getelementptr inbounds i8, ptr %30, i64 56
-  %270 = getelementptr inbounds i8, ptr %30, i64 80
+  %269 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  %270 = getelementptr inbounds nuw i8, ptr %30, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %269, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_wBlobType, ptr %270, align 16
-  %271 = getelementptr inbounds i8, ptr %30, i64 88
+  %271 = getelementptr inbounds nuw i8, ptr %30, i64 88
   store i32 2, ptr %271, align 8
-  %272 = getelementptr inbounds i8, ptr %30, i64 96
-  %273 = getelementptr inbounds i8, ptr %30, i64 120
+  %272 = getelementptr inbounds nuw i8, ptr %30, i64 96
+  %273 = getelementptr inbounds nuw i8, ptr %30, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %272, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_wBlobLen, ptr %273, align 8
-  %274 = getelementptr inbounds i8, ptr %30, i64 128
+  %274 = getelementptr inbounds nuw i8, ptr %30, i64 128
   store i32 2, ptr %274, align 16
-  %275 = getelementptr inbounds i8, ptr %30, i64 136
+  %275 = getelementptr inbounds nuw i8, ptr %30, i64 136
   store ptr %19, ptr %275, align 8
-  %276 = getelementptr inbounds i8, ptr %30, i64 144
-  %277 = getelementptr inbounds i8, ptr %30, i64 160
+  %276 = getelementptr inbounds nuw i8, ptr %30, i64 144
+  %277 = getelementptr inbounds nuw i8, ptr %30, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %276, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_blobData, ptr %277, align 16
-  %278 = getelementptr inbounds i8, ptr %30, i64 168
+  %278 = getelementptr inbounds nuw i8, ptr %30, i64 168
   store i32 0, ptr %278, align 8
-  %279 = getelementptr inbounds i8, ptr %30, i64 176
+  %279 = getelementptr inbounds nuw i8, ptr %30, i64 176
   store ptr %19, ptr %279, align 16
-  %280 = getelementptr inbounds i8, ptr %30, i64 184
+  %280 = getelementptr inbounds nuw i8, ptr %30, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %280, i8 0, i64 56, i1 false)
   store ptr @hf_rdp_pduTypeType, ptr %31, align 16
-  %281 = getelementptr inbounds i8, ptr %31, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 2, ptr %281, align 8
-  %282 = getelementptr inbounds i8, ptr %31, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %21, ptr %282, align 16
-  %283 = getelementptr inbounds i8, ptr %31, i64 24
+  %283 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i32 0, ptr %283, align 8
-  %284 = getelementptr inbounds i8, ptr %31, i64 28
+  %284 = getelementptr inbounds nuw i8, ptr %31, i64 28
   store i32 16, ptr %284, align 4
-  %285 = getelementptr inbounds i8, ptr %31, i64 32
+  %285 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr null, ptr %285, align 16
-  %286 = getelementptr inbounds i8, ptr %31, i64 40
+  %286 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store ptr @hf_rdp_pduTypeVersionLow, ptr %286, align 8
-  %287 = getelementptr inbounds i8, ptr %31, i64 48
+  %287 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store i32 2, ptr %287, align 16
-  %288 = getelementptr inbounds i8, ptr %31, i64 56
+  %288 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store ptr null, ptr %288, align 8
-  %289 = getelementptr inbounds i8, ptr %31, i64 64
+  %289 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store i32 0, ptr %289, align 16
-  %290 = getelementptr inbounds i8, ptr %31, i64 68
+  %290 = getelementptr inbounds nuw i8, ptr %31, i64 68
   store i32 16, ptr %290, align 4
-  %291 = getelementptr inbounds i8, ptr %31, i64 72
+  %291 = getelementptr inbounds nuw i8, ptr %31, i64 72
   store ptr null, ptr %291, align 8
-  %292 = getelementptr inbounds i8, ptr %31, i64 80
+  %292 = getelementptr inbounds nuw i8, ptr %31, i64 80
   store ptr @hf_rdp_pduTypeVersionHigh, ptr %292, align 16
-  %293 = getelementptr inbounds i8, ptr %31, i64 88
+  %293 = getelementptr inbounds nuw i8, ptr %31, i64 88
   store i32 2, ptr %293, align 8
-  %294 = getelementptr inbounds i8, ptr %31, i64 96
+  %294 = getelementptr inbounds nuw i8, ptr %31, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %294, i8 0, i64 64, i1 false)
   store ptr @hf_rdp_totalLength, ptr %32, align 16
-  %295 = getelementptr inbounds i8, ptr %32, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 2, ptr %295, align 8
-  %296 = getelementptr inbounds i8, ptr %32, i64 16
-  %297 = getelementptr inbounds i8, ptr %32, i64 40
+  %296 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %32, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %296, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_pduType, ptr %297, align 8
-  %298 = getelementptr inbounds i8, ptr %32, i64 48
+  %298 = getelementptr inbounds nuw i8, ptr %32, i64 48
   store i32 2, ptr %298, align 16
-  %299 = getelementptr inbounds i8, ptr %32, i64 56
+  %299 = getelementptr inbounds nuw i8, ptr %32, i64 56
   store ptr null, ptr %299, align 8
-  %300 = getelementptr inbounds i8, ptr %32, i64 64
+  %300 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %301 = load i32, ptr @ett_rdp_pduType, align 4
   store i32 %301, ptr %300, align 16
-  %302 = getelementptr inbounds i8, ptr %32, i64 68
+  %302 = getelementptr inbounds nuw i8, ptr %32, i64 68
   store i32 32, ptr %302, align 4
-  %303 = getelementptr inbounds i8, ptr %32, i64 72
+  %303 = getelementptr inbounds nuw i8, ptr %32, i64 72
   store ptr %31, ptr %303, align 8
-  %304 = getelementptr inbounds i8, ptr %32, i64 80
+  %304 = getelementptr inbounds nuw i8, ptr %32, i64 80
   store ptr @hf_rdp_pduSource, ptr %304, align 16
-  %305 = getelementptr inbounds i8, ptr %32, i64 88
+  %305 = getelementptr inbounds nuw i8, ptr %32, i64 88
   store i32 2, ptr %305, align 8
-  %306 = getelementptr inbounds i8, ptr %32, i64 96
-  %307 = getelementptr inbounds i8, ptr %1, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %32, i64 96
+  %307 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %306, i8 0, i64 64, i1 false)
   %308 = load ptr, ptr %307, align 8
   call void @col_set_str(ptr noundef %308, i32 noundef 34, ptr noundef nonnull @.str.700) #12
@@ -4503,13 +4503,13 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %.critedge, label %321
 
 321:                                              ; preds = %4
-  %322 = getelementptr inbounds i8, ptr %320, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %323 = load i32, ptr %322, align 8
   %324 = icmp eq i32 %323, 0
   br i1 %324, label %328, label %325
 
 325:                                              ; preds = %321
-  %326 = getelementptr inbounds i8, ptr %1, i64 20
+  %326 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %327 = load i32, ptr %326, align 4
   %.not125 = icmp ugt i32 %327, %323
   br i1 %.not125, label %381, label %328
@@ -4593,14 +4593,14 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not131, label %dissect_rdp_nyi.exit, label %369
 
 369:                                              ; preds = %367
-  %370 = getelementptr inbounds i8, ptr %357, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %357, i64 8
   %371 = load ptr, ptr %370, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %371, ptr noundef nonnull @.str.1005, ptr noundef nonnull @.str.1002) #12
   br label %dissect_rdp_nyi.exit
 
 372:                                              ; preds = %361
   %373 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %362, ptr noundef nonnull %1, ptr noundef %357, ptr noundef nonnull %30, i32 noundef 0)
-  %374 = getelementptr inbounds i8, ptr %1, i64 20
+  %374 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %375 = load i32, ptr %374, align 4
   store i32 %375, ptr %322, align 8
   br label %dissect_rdp_nyi.exit
@@ -4609,7 +4609,7 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
   %377 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %358, ptr noundef nonnull %1, ptr noundef %357, ptr noundef nonnull @__const.dissect_rdp_encrypted.enc_fields, i32 noundef 0)
   %378 = load ptr, ptr %307, align 8
   call void @col_append_sep_str(ptr noundef %378, i32 noundef 25, ptr noundef nonnull @.str.968, ptr noundef nonnull @.str.1006) #12
-  %379 = getelementptr inbounds i8, ptr %1, i64 20
+  %379 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %380 = load i32, ptr %379, align 4
   store i32 %380, ptr %322, align 8
   br label %dissect_rdp_nyi.exit
@@ -4690,145 +4690,145 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9)
   store i32 0, ptr %5, align 4
   store ptr @hf_rdp_channelFlagFirst, ptr %7, align 16
-  %412 = getelementptr inbounds i8, ptr %7, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 4, ptr %412, align 8
-  %413 = getelementptr inbounds i8, ptr %7, i64 16
+  %413 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %413, align 16
-  %414 = getelementptr inbounds i8, ptr %7, i64 24
+  %414 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %414, align 8
-  %415 = getelementptr inbounds i8, ptr %7, i64 28
+  %415 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 16, ptr %415, align 4
-  %416 = getelementptr inbounds i8, ptr %7, i64 32
+  %416 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %416, align 16
-  %417 = getelementptr inbounds i8, ptr %7, i64 40
+  %417 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @hf_rdp_channelFlagLast, ptr %417, align 8
-  %418 = getelementptr inbounds i8, ptr %7, i64 48
+  %418 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 4, ptr %418, align 16
-  %419 = getelementptr inbounds i8, ptr %7, i64 56
+  %419 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr null, ptr %419, align 8
-  %420 = getelementptr inbounds i8, ptr %7, i64 64
+  %420 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %420, align 16
-  %421 = getelementptr inbounds i8, ptr %7, i64 68
+  %421 = getelementptr inbounds nuw i8, ptr %7, i64 68
   store i32 16, ptr %421, align 4
-  %422 = getelementptr inbounds i8, ptr %7, i64 72
+  %422 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr null, ptr %422, align 8
-  %423 = getelementptr inbounds i8, ptr %7, i64 80
+  %423 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr @hf_rdp_channelFlagShowProtocol, ptr %423, align 16
-  %424 = getelementptr inbounds i8, ptr %7, i64 88
+  %424 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i32 4, ptr %424, align 8
-  %425 = getelementptr inbounds i8, ptr %7, i64 96
+  %425 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr null, ptr %425, align 16
-  %426 = getelementptr inbounds i8, ptr %7, i64 104
+  %426 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i32 0, ptr %426, align 8
-  %427 = getelementptr inbounds i8, ptr %7, i64 108
+  %427 = getelementptr inbounds nuw i8, ptr %7, i64 108
   store i32 16, ptr %427, align 4
-  %428 = getelementptr inbounds i8, ptr %7, i64 112
+  %428 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store ptr null, ptr %428, align 16
-  %429 = getelementptr inbounds i8, ptr %7, i64 120
+  %429 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store ptr @hf_rdp_channelFlagSuspend, ptr %429, align 8
-  %430 = getelementptr inbounds i8, ptr %7, i64 128
+  %430 = getelementptr inbounds nuw i8, ptr %7, i64 128
   store i32 4, ptr %430, align 16
-  %431 = getelementptr inbounds i8, ptr %7, i64 136
+  %431 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store ptr null, ptr %431, align 8
-  %432 = getelementptr inbounds i8, ptr %7, i64 144
+  %432 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store i32 0, ptr %432, align 16
-  %433 = getelementptr inbounds i8, ptr %7, i64 148
+  %433 = getelementptr inbounds nuw i8, ptr %7, i64 148
   store i32 16, ptr %433, align 4
-  %434 = getelementptr inbounds i8, ptr %7, i64 152
+  %434 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store ptr null, ptr %434, align 8
-  %435 = getelementptr inbounds i8, ptr %7, i64 160
+  %435 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store ptr @hf_rdp_channelFlagResume, ptr %435, align 16
-  %436 = getelementptr inbounds i8, ptr %7, i64 168
+  %436 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store i32 4, ptr %436, align 8
-  %437 = getelementptr inbounds i8, ptr %7, i64 176
+  %437 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store ptr null, ptr %437, align 16
-  %438 = getelementptr inbounds i8, ptr %7, i64 184
+  %438 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i32 0, ptr %438, align 8
-  %439 = getelementptr inbounds i8, ptr %7, i64 188
+  %439 = getelementptr inbounds nuw i8, ptr %7, i64 188
   store i32 16, ptr %439, align 4
-  %440 = getelementptr inbounds i8, ptr %7, i64 192
+  %440 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store ptr null, ptr %440, align 16
-  %441 = getelementptr inbounds i8, ptr %7, i64 200
+  %441 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store ptr @hf_rdp_channelPacketCompressed, ptr %441, align 8
-  %442 = getelementptr inbounds i8, ptr %7, i64 208
+  %442 = getelementptr inbounds nuw i8, ptr %7, i64 208
   store i32 4, ptr %442, align 16
-  %443 = getelementptr inbounds i8, ptr %7, i64 216
+  %443 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store ptr %6, ptr %443, align 8
-  %444 = getelementptr inbounds i8, ptr %7, i64 224
+  %444 = getelementptr inbounds nuw i8, ptr %7, i64 224
   store i32 0, ptr %444, align 16
-  %445 = getelementptr inbounds i8, ptr %7, i64 228
+  %445 = getelementptr inbounds nuw i8, ptr %7, i64 228
   store i32 16, ptr %445, align 4
-  %446 = getelementptr inbounds i8, ptr %7, i64 232
+  %446 = getelementptr inbounds nuw i8, ptr %7, i64 232
   store ptr null, ptr %446, align 8
-  %447 = getelementptr inbounds i8, ptr %7, i64 240
+  %447 = getelementptr inbounds nuw i8, ptr %7, i64 240
   store ptr @hf_rdp_channelPacketAtFront, ptr %447, align 16
-  %448 = getelementptr inbounds i8, ptr %7, i64 248
+  %448 = getelementptr inbounds nuw i8, ptr %7, i64 248
   store i32 4, ptr %448, align 8
-  %449 = getelementptr inbounds i8, ptr %7, i64 256
+  %449 = getelementptr inbounds nuw i8, ptr %7, i64 256
   store ptr null, ptr %449, align 16
-  %450 = getelementptr inbounds i8, ptr %7, i64 264
+  %450 = getelementptr inbounds nuw i8, ptr %7, i64 264
   store i32 0, ptr %450, align 8
-  %451 = getelementptr inbounds i8, ptr %7, i64 268
+  %451 = getelementptr inbounds nuw i8, ptr %7, i64 268
   store i32 16, ptr %451, align 4
-  %452 = getelementptr inbounds i8, ptr %7, i64 272
+  %452 = getelementptr inbounds nuw i8, ptr %7, i64 272
   store ptr null, ptr %452, align 16
-  %453 = getelementptr inbounds i8, ptr %7, i64 280
+  %453 = getelementptr inbounds nuw i8, ptr %7, i64 280
   store ptr @hf_rdp_channelPacketFlushed, ptr %453, align 8
-  %454 = getelementptr inbounds i8, ptr %7, i64 288
+  %454 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store i32 4, ptr %454, align 16
-  %455 = getelementptr inbounds i8, ptr %7, i64 296
+  %455 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store ptr null, ptr %455, align 8
-  %456 = getelementptr inbounds i8, ptr %7, i64 304
+  %456 = getelementptr inbounds nuw i8, ptr %7, i64 304
   store i32 0, ptr %456, align 16
-  %457 = getelementptr inbounds i8, ptr %7, i64 308
+  %457 = getelementptr inbounds nuw i8, ptr %7, i64 308
   store i32 16, ptr %457, align 4
-  %458 = getelementptr inbounds i8, ptr %7, i64 312
+  %458 = getelementptr inbounds nuw i8, ptr %7, i64 312
   store ptr null, ptr %458, align 8
-  %459 = getelementptr inbounds i8, ptr %7, i64 320
+  %459 = getelementptr inbounds nuw i8, ptr %7, i64 320
   store ptr @hf_rdp_channelPacketCompressionType, ptr %459, align 16
-  %460 = getelementptr inbounds i8, ptr %7, i64 328
+  %460 = getelementptr inbounds nuw i8, ptr %7, i64 328
   store i32 4, ptr %460, align 8
-  %461 = getelementptr inbounds i8, ptr %7, i64 336
+  %461 = getelementptr inbounds nuw i8, ptr %7, i64 336
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %461, i8 0, i64 64, i1 false)
   store ptr @hf_rdp_length, ptr %8, align 16
-  %462 = getelementptr inbounds i8, ptr %8, i64 8
+  %462 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 4, ptr %462, align 8
-  %463 = getelementptr inbounds i8, ptr %8, i64 16
+  %463 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %5, ptr %463, align 16
-  %464 = getelementptr inbounds i8, ptr %8, i64 24
-  %465 = getelementptr inbounds i8, ptr %8, i64 40
+  %464 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %465 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %464, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_channelFlags, ptr %465, align 8
-  %466 = getelementptr inbounds i8, ptr %8, i64 48
+  %466 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 4, ptr %466, align 16
-  %467 = getelementptr inbounds i8, ptr %8, i64 56
+  %467 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr null, ptr %467, align 8
-  %468 = getelementptr inbounds i8, ptr %8, i64 64
+  %468 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %469 = load i32, ptr @ett_rdp_channelFlags, align 4
   store i32 %469, ptr %468, align 16
-  %470 = getelementptr inbounds i8, ptr %8, i64 68
+  %470 = getelementptr inbounds nuw i8, ptr %8, i64 68
   store i32 32, ptr %470, align 4
-  %471 = getelementptr inbounds i8, ptr %8, i64 72
+  %471 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %7, ptr %471, align 8
-  %472 = getelementptr inbounds i8, ptr %8, i64 80
+  %472 = getelementptr inbounds nuw i8, ptr %8, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %472, i8 0, i64 40, i1 false)
   store ptr @hf_rdp_channelPDUHeader, ptr %9, align 16
-  %473 = getelementptr inbounds i8, ptr %9, i64 8
+  %473 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 8, ptr %473, align 8
-  %474 = getelementptr inbounds i8, ptr %9, i64 16
+  %474 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %474, align 16
-  %475 = getelementptr inbounds i8, ptr %9, i64 24
+  %475 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %476 = load i32, ptr @ett_rdp_channelPDUHeader, align 4
   store i32 %476, ptr %475, align 8
-  %477 = getelementptr inbounds i8, ptr %9, i64 28
+  %477 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 32, ptr %477, align 4
-  %478 = getelementptr inbounds i8, ptr %9, i64 32
+  %478 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %8, ptr %478, align 16
-  %479 = getelementptr inbounds i8, ptr %9, i64 40
+  %479 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @hf_rdp_virtualChannelData, ptr %479, align 8
-  %480 = getelementptr inbounds i8, ptr %9, i64 48
+  %480 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 -1, ptr %480, align 16
-  %481 = getelementptr inbounds i8, ptr %9, i64 56
+  %481 = getelementptr inbounds nuw i8, ptr %9, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %481, i8 0, i64 64, i1 false)
   %482 = call i32 @t124_get_last_channelId() #12
   %483 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #12
@@ -4838,8 +4838,8 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not.i.i.i, label %find_channel_type.exit.thread.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %411
-  %486 = getelementptr inbounds i8, ptr %485, i64 64
-  %487 = getelementptr inbounds i8, ptr %485, i64 56
+  %486 = getelementptr inbounds nuw i8, ptr %485, i64 64
+  %487 = getelementptr inbounds nuw i8, ptr %485, i64 56
   %488 = load i8, ptr %487, align 8
   %.not17.i.i.i = icmp eq i8 %488, 0
   br i1 %.not17.i.i.i, label %find_channel_type.exit.thread.i, label %.lr.ph.i.i.i
@@ -4862,7 +4862,7 @@ define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %494, label %find_channel_type.exit.i, label %490
 
 find_channel_type.exit.i:                         ; preds = %491
-  %495 = getelementptr inbounds i8, ptr %492, i64 16
+  %495 = getelementptr inbounds nuw i8, ptr %492, i64 16
   %496 = load i32, ptr %495, align 8
   switch i32 %496, label %find_channel_type.exit.thread.i [
     i32 1, label %497
@@ -4889,7 +4889,7 @@ find_channel_type.exit.thread.i:                  ; preds = %490, %497, %find_ch
   br i1 %.not48.i, label %dissect_rdp_channelPDU.exit, label %503
 
 503:                                              ; preds = %501
-  %504 = getelementptr inbounds i8, ptr %317, i64 8
+  %504 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %505 = load ptr, ptr %504, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %505, ptr noundef nonnull @.str.1005, ptr noundef nonnull @.str.1011) #12
   br label %dissect_rdp_channelPDU.exit
@@ -4939,8 +4939,8 @@ find_channel_type.exit.thread.i:                  ; preds = %490, %497, %find_ch
   br i1 %.not.i.i, label %dissect_rdp_channelPDU.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %527
-  %532 = getelementptr inbounds i8, ptr %531, i64 64
-  %533 = getelementptr inbounds i8, ptr %531, i64 56
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 64
+  %533 = getelementptr inbounds nuw i8, ptr %531, i64 56
   %534 = load i8, ptr %533, align 8
   %.not17.i.i = icmp eq i8 %534, 0
   br i1 %.not17.i.i, label %dissect_rdp_channelPDU.exit, label %.lr.ph.i.i
@@ -4964,7 +4964,7 @@ find_channel_type.exit.thread.i:                  ; preds = %490, %497, %find_ch
 
 find_channel.exit.i:                              ; preds = %537
   %541 = load ptr, ptr %307, align 8
-  %542 = getelementptr inbounds i8, ptr %538, i64 8
+  %542 = getelementptr inbounds nuw i8, ptr %538, i64 8
   %543 = load ptr, ptr %542, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %541, i32 noundef 25, ptr noundef nonnull @.str.1012, ptr noundef %543) #12
   br label %dissect_rdp_channelPDU.exit
@@ -4983,7 +4983,7 @@ dissect_rdp_channelPDU.exit:                      ; preds = %536, %501, %503, %5
   br i1 %.not132, label %dissect_rdp_encrypted.exit, label %546
 
 546:                                              ; preds = %544
-  %547 = getelementptr inbounds i8, ptr %317, i64 8
+  %547 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %548 = load ptr, ptr %547, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %548, ptr noundef nonnull @.str.1005, ptr noundef nonnull @.str.1004) #12
   br label %dissect_rdp_encrypted.exit
@@ -5005,23 +5005,23 @@ define internal i32 @dissect_rdp_MessageChannelData(ptr noundef %0, ptr noundef 
   %7 = alloca %struct.rdp_transports_key_t, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %5, ptr noundef nonnull align 16 dereferenceable(240) @__const.dissect_rdp_MessageChannelData.secFlags_fields, i64 240, i1 false)
   store ptr @hf_rdp_flags, ptr %6, align 16
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %11 = load i32, ptr @ett_rdp_flags, align 4
   store i32 %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 32, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %5, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @hf_rdp_flagsHi, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 2, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %6, i64 56
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
   %18 = load ptr, ptr %17, align 8
   call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.700) #12
@@ -5049,30 +5049,30 @@ define internal i32 @dissect_rdp_MessageChannelData(ptr noundef %0, ptr noundef 
   %35 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %34, i32 noundef -2147483648) #12
   %36 = and i16 %35, 1
   %37 = zext nneg i16 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %7, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %37, ptr %38, align 4
   %39 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %30, i32 noundef -2147483648) #12
-  %40 = getelementptr inbounds i8, ptr %7, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 208
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 212
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %1, i64 216
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %46 = load ptr, ptr %45, align 8
   store i32 %42, ptr %7, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %44, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %7, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %46, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %7, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 284
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %51 = load i32, ptr %50, align 4
   %52 = trunc i32 %51 to i16
-  %53 = getelementptr inbounds i8, ptr %7, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i16 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %7, i64 36
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %55 = add i32 %30, 8
   %56 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %54, i32 noundef %55, i64 noundef 16) #12
   %57 = load ptr, ptr @rdp_transport_links, align 8
@@ -5103,7 +5103,7 @@ define internal i32 @dissect_rdp_MessageChannelData(ptr noundef %0, ptr noundef 
 
 copy_address_wmem.exit:                           ; preds = %59, %67
   %70 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #12
-  %71 = getelementptr inbounds i8, ptr %61, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 56
   store ptr %70, ptr %71, align 8
   %72 = load ptr, ptr @rdp_transport_links, align 8
   %73 = call ptr @wmem_map_insert(ptr noundef %72, ptr noundef nonnull %61, ptr noundef nonnull %61) #12
@@ -5149,17 +5149,17 @@ copy_address_wmem.exit:                           ; preds = %59, %67
   br i1 %.not11.i, label %rdp_isServerAddressTarget.exit, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %94, i64 24
-  %97 = getelementptr inbounds i8, ptr %1, i64 232
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %98 = load i32, ptr %96, align 8
   %99 = load i32, ptr %97, align 8
   %100 = icmp eq i32 %98, %99
   br i1 %100, label %101, label %rdp_isServerAddressTarget.exit
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds i8, ptr %94, i64 28
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 28
   %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds i8, ptr %1, i64 236
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %103, %105
   br i1 %106, label %107, label %rdp_isServerAddressTarget.exit
@@ -5169,9 +5169,9 @@ copy_address_wmem.exit:                           ; preds = %59, %67
   br i1 %108, label %116, label %109
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds i8, ptr %94, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %1, i64 240
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %113 = load ptr, ptr %112, align 8
   %114 = sext i32 %103 to i64
   %bcmp.i.i = call i32 @bcmp(ptr %111, ptr %113, i64 %114)
@@ -5179,9 +5179,9 @@ copy_address_wmem.exit:                           ; preds = %59, %67
   br i1 %115, label %116, label %rdp_isServerAddressTarget.exit
 
 116:                                              ; preds = %109, %107
-  %117 = getelementptr inbounds i8, ptr %1, i64 288
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %118 = load i32, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %94, i64 48
+  %119 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %120 = load i16, ptr %119, align 8
   %121 = zext i16 %120 to i32
   %122 = icmp eq i32 %118, %121
@@ -5214,17 +5214,17 @@ rdp_isServerAddressTarget.exit:                   ; preds = %87, %92, %95, %101,
   br i1 %.not11.i82, label %rdp_isServerAddressTarget.exit85, label %135
 
 135:                                              ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %134, i64 24
-  %137 = getelementptr inbounds i8, ptr %1, i64 232
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %138 = load i32, ptr %136, align 8
   %139 = load i32, ptr %137, align 8
   %140 = icmp eq i32 %138, %139
   br i1 %140, label %141, label %rdp_isServerAddressTarget.exit85
 
 141:                                              ; preds = %135
-  %142 = getelementptr inbounds i8, ptr %134, i64 28
+  %142 = getelementptr inbounds nuw i8, ptr %134, i64 28
   %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %1, i64 236
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %143, %145
   br i1 %146, label %147, label %rdp_isServerAddressTarget.exit85
@@ -5234,9 +5234,9 @@ rdp_isServerAddressTarget.exit:                   ; preds = %87, %92, %95, %101,
   br i1 %148, label %156, label %149
 
 149:                                              ; preds = %147
-  %150 = getelementptr inbounds i8, ptr %134, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %1, i64 240
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %153 = load ptr, ptr %152, align 8
   %154 = sext i32 %143 to i64
   %bcmp.i.i84 = call i32 @bcmp(ptr %151, ptr %153, i64 %154)
@@ -5244,9 +5244,9 @@ rdp_isServerAddressTarget.exit:                   ; preds = %87, %92, %95, %101,
   br i1 %155, label %156, label %rdp_isServerAddressTarget.exit85
 
 156:                                              ; preds = %149, %147
-  %157 = getelementptr inbounds i8, ptr %1, i64 288
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %158 = load i32, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %134, i64 48
+  %159 = getelementptr inbounds nuw i8, ptr %134, i64 48
   %160 = load i16, ptr %159, align 8
   %161 = zext i16 %160 to i32
   %162 = icmp eq i32 %158, %161
@@ -5293,7 +5293,7 @@ define internal fastcc i32 @dissect_rdp_securityHeader(ptr noundef %0, ptr nound
   br i1 %.not18, label %13, label %16
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %15 = load i32, ptr %14, align 4
   %.not19 = icmp eq i32 %15, 0
   br i1 %.not19, label %70, label %16
@@ -5304,105 +5304,105 @@ define internal fastcc i32 @dissect_rdp_securityHeader(ptr noundef %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9)
   store i32 0, ptr %7, align 4
   store ptr @hf_rdp_flagsPkt, ptr %8, align 16
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %18, align 16
-  %19 = getelementptr inbounds i8, ptr %8, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 16, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %8, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %8, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr @hf_rdp_flagsEncrypt, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 2, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %8, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 0, ptr %25, align 16
-  %26 = getelementptr inbounds i8, ptr %8, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 68
   store i32 16, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %8, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr @hf_rdp_flagsResetSeqno, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %8, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i32 2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr null, ptr %30, align 16
-  %31 = getelementptr inbounds i8, ptr %8, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 108
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 108
   store i32 16, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %8, i64 112
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store ptr null, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %8, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store ptr @hf_rdp_flagsIgnoreSeqno, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %8, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store i32 2, ptr %35, align 16
-  %36 = getelementptr inbounds i8, ptr %8, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store ptr null, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %8, i64 144
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 144
   store i32 0, ptr %37, align 16
-  %38 = getelementptr inbounds i8, ptr %8, i64 148
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 148
   store i32 16, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %8, i64 152
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 152
   store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 160
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 160
   store ptr @hf_rdp_flagsLicenseEncrypt, ptr %40, align 16
-  %41 = getelementptr inbounds i8, ptr %8, i64 168
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 168
   store i32 2, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %8, i64 176
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 176
   store ptr null, ptr %42, align 16
-  %43 = getelementptr inbounds i8, ptr %8, i64 184
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 184
   store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %8, i64 188
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 188
   store i32 16, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %8, i64 192
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 192
   store ptr null, ptr %45, align 16
-  %46 = getelementptr inbounds i8, ptr %8, i64 200
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 200
   store ptr @hf_rdp_flagsSecureChecksum, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %8, i64 208
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store i32 2, ptr %47, align 16
-  %48 = getelementptr inbounds i8, ptr %8, i64 216
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 216
   store ptr null, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %8, i64 224
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 224
   store i32 0, ptr %49, align 16
-  %50 = getelementptr inbounds i8, ptr %8, i64 228
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 228
   store i32 16, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %8, i64 232
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 232
   store ptr null, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %8, i64 240
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 240
   store ptr @hf_rdp_flagsFlagsHiValid, ptr %52, align 16
-  %53 = getelementptr inbounds i8, ptr %8, i64 248
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 248
   store i32 2, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 256
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 256
   store ptr null, ptr %54, align 16
-  %55 = getelementptr inbounds i8, ptr %8, i64 264
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 264
   store i32 0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %8, i64 268
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 268
   store i32 16, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %8, i64 272
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 272
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %57, i8 0, i64 48, i1 false)
   store ptr @hf_rdp_flags, ptr %9, align 16
-  %58 = getelementptr inbounds i8, ptr %9, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 2, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %9, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %59, align 16
-  %60 = getelementptr inbounds i8, ptr %9, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %61 = load i32, ptr @ett_rdp_flags, align 4
   store i32 %61, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %9, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 32, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %9, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %8, ptr %63, align 16
-  %64 = getelementptr inbounds i8, ptr %9, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr @hf_rdp_flagsHi, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %9, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 2, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %9, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %66, i8 0, i64 64, i1 false)
   %67 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, i32 noundef 0)
   %.not.i = icmp eq ptr %5, null
@@ -5421,7 +5421,7 @@ dissect_rdp_basicSecurityHeader.exit:             ; preds = %16, %68
 
 70:                                               ; preds = %dissect_rdp_basicSecurityHeader.exit, %13
   %.1 = phi i32 [ %67, %dissect_rdp_basicSecurityHeader.exit ], [ 0, %13 ]
-  %71 = getelementptr inbounds i8, ptr %3, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = and i32 %72, 11
   %.not20 = icmp eq i32 %73, 0
@@ -5449,49 +5449,49 @@ define internal fastcc void @dissect_rdp_demandActivePDU(ptr noundef %0, i32 nou
   %7 = alloca [7 x %struct.rdp_field_info_t], align 16
   store i32 0, ptr %6, align 4
   store ptr @hf_rdp_shareId, ptr %7, align 16
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_lengthSourceDescriptor, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 2, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %7, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %5, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 64
-  %14 = getelementptr inbounds i8, ptr %7, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_lengthCombinedCapabilities, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %7, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i32 2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 96
-  %17 = getelementptr inbounds i8, ptr %7, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_sourceDescriptor, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 128
   store i32 0, ptr %18, align 16
-  %19 = getelementptr inbounds i8, ptr %7, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store ptr %5, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store i32 0, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %7, i64 148
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 148
   store i32 10, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store ptr @hf_rdp_numberCapabilities, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %7, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store i32 2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 176
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store ptr %6, ptr %25, align 16
-  %26 = getelementptr inbounds i8, ptr %7, i64 184
-  %27 = getelementptr inbounds i8, ptr %7, i64 200
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_pad2Octets, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 208
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 208
   store i32 2, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %7, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, i8 0, i64 64, i1 false)
   %30 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, i32 noundef 0)
   %31 = load i32, ptr %6, align 4
@@ -5507,51 +5507,51 @@ define internal fastcc void @dissect_rdp_confirmActivePDU(ptr noundef %0, i32 no
   %7 = alloca [8 x %struct.rdp_field_info_t], align 16
   store i32 0, ptr %6, align 4
   store ptr @hf_rdp_shareId, ptr %7, align 16
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_originatorId, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 2, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %7, i64 56
-  %13 = getelementptr inbounds i8, ptr %7, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_lengthSourceDescriptor, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %7, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i32 2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %5, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %7, i64 104
-  %17 = getelementptr inbounds i8, ptr %7, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_lengthCombinedCapabilities, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 128
   store i32 2, ptr %18, align 16
-  %19 = getelementptr inbounds i8, ptr %7, i64 136
-  %20 = getelementptr inbounds i8, ptr %7, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_sourceDescriptor, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %7, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store ptr %5, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %7, i64 184
-  %24 = getelementptr inbounds i8, ptr %7, i64 200
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_numberCapabilities, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 208
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 208
   store i32 2, ptr %25, align 16
-  %26 = getelementptr inbounds i8, ptr %7, i64 216
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store ptr %6, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 224
-  %28 = getelementptr inbounds i8, ptr %7, i64 240
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 224
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_pad2Octets, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %7, i64 248
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 248
   store i32 2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 256
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %30, i8 0, i64 64, i1 false)
   %31 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, i32 noundef 0)
   %32 = load i32, ptr %6, align 4
@@ -5572,148 +5572,148 @@ define internal fastcc void @dissect_rdp_shareDataHeader(ptr noundef %0, i32 nou
   store i32 0, ptr %5, align 4
   store i32 0, ptr %7, align 4
   store ptr @hf_rdp_compressedTypeType, ptr %8, align 16
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %6, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %8, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 16, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %8, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr @hf_rdp_compressedTypeCompressed, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 1, ptr %19, align 16
-  %20 = getelementptr inbounds i8, ptr %8, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 0, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %8, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 68
   store i32 16, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %8, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr @hf_rdp_compressedTypeAtFront, ptr %24, align 16
-  %25 = getelementptr inbounds i8, ptr %8, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i32 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr null, ptr %26, align 16
-  %27 = getelementptr inbounds i8, ptr %8, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 108
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 108
   store i32 16, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %8, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store ptr null, ptr %29, align 16
-  %30 = getelementptr inbounds i8, ptr %8, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store ptr @hf_rdp_compressedTypeFlushed, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store i32 1, ptr %31, align 16
-  %32 = getelementptr inbounds i8, ptr %8, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %32, i8 0, i64 64, i1 false)
   store ptr @hf_rdp_shareId, ptr %9, align 16
-  %33 = getelementptr inbounds i8, ptr %9, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 4, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %9, i64 16
-  %35 = getelementptr inbounds i8, ptr %9, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_pad1, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 1, ptr %36, align 16
-  %37 = getelementptr inbounds i8, ptr %9, i64 56
-  %38 = getelementptr inbounds i8, ptr %9, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_streamId, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %9, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i32 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %9, i64 96
-  %41 = getelementptr inbounds i8, ptr %9, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_uncompressedLength, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %9, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store i32 2, ptr %42, align 16
-  %43 = getelementptr inbounds i8, ptr %9, i64 136
-  %44 = getelementptr inbounds i8, ptr %9, i64 160
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_pduType2, ptr %44, align 16
-  %45 = getelementptr inbounds i8, ptr %9, i64 168
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 168
   store i32 1, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %9, i64 176
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 176
   store ptr %5, ptr %46, align 16
-  %47 = getelementptr inbounds i8, ptr %9, i64 184
-  %48 = getelementptr inbounds i8, ptr %9, i64 200
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 184
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_compressedType, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %9, i64 208
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store i32 1, ptr %49, align 16
-  %50 = getelementptr inbounds i8, ptr %9, i64 216
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 216
   store ptr null, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %9, i64 224
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %52 = load i32, ptr @ett_rdp_compressedType, align 4
   store i32 %52, ptr %51, align 16
-  %53 = getelementptr inbounds i8, ptr %9, i64 228
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 228
   store i32 32, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %9, i64 232
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 232
   store ptr %8, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %9, i64 240
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 240
   store ptr @hf_rdp_compressedLength, ptr %55, align 16
-  %56 = getelementptr inbounds i8, ptr %9, i64 248
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 248
   store i32 2, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %9, i64 256
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %57, i8 0, i64 64, i1 false)
   store ptr @hf_rdp_action, ptr %10, align 16
-  %58 = getelementptr inbounds i8, ptr %10, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 2, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %7, ptr %59, align 16
-  %60 = getelementptr inbounds i8, ptr %10, i64 24
-  %61 = getelementptr inbounds i8, ptr %10, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_grantId, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %10, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i32 2, ptr %62, align 16
-  %63 = getelementptr inbounds i8, ptr %10, i64 56
-  %64 = getelementptr inbounds i8, ptr %10, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %10, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_controlId, ptr %64, align 16
-  %65 = getelementptr inbounds i8, ptr %10, i64 88
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store i32 4, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %10, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %66, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %11, ptr noundef nonnull align 16 dereferenceable(120) @__const.dissect_rdp_shareDataHeader.mapflags_fields, i64 120, i1 false)
   store ptr @hf_rdp_numberEntries, ptr %12, align 16
-  %67 = getelementptr inbounds i8, ptr %12, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 2, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %12, i64 16
-  %69 = getelementptr inbounds i8, ptr %12, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %68, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_totalNumberEntries, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %12, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 2, ptr %70, align 16
-  %71 = getelementptr inbounds i8, ptr %12, i64 56
-  %72 = getelementptr inbounds i8, ptr %12, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_mapFlags, ptr %72, align 16
-  %73 = getelementptr inbounds i8, ptr %12, i64 88
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store i32 2, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %12, i64 96
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store ptr null, ptr %74, align 16
-  %75 = getelementptr inbounds i8, ptr %12, i64 104
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %76 = load i32, ptr @ett_rdp_mapFlags, align 4
   store i32 %76, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %12, i64 108
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 108
   store i32 32, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %12, i64 112
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store ptr %11, ptr %78, align 16
-  %79 = getelementptr inbounds i8, ptr %12, i64 120
+  %79 = getelementptr inbounds nuw i8, ptr %12, i64 120
   store ptr @hf_rdp_entrySize, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %12, i64 128
+  %80 = getelementptr inbounds nuw i8, ptr %12, i64 128
   store i32 2, ptr %80, align 16
-  %81 = getelementptr inbounds i8, ptr %12, i64 136
+  %81 = getelementptr inbounds nuw i8, ptr %12, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %81, i8 0, i64 64, i1 false)
   %82 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %9, i32 noundef 0)
-  %83 = getelementptr inbounds i8, ptr %2, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %84 = load ptr, ptr %83, align 8
   call void @col_append_str(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.1009) #12
   %85 = load ptr, ptr %83, align 8
@@ -5779,58 +5779,58 @@ define internal fastcc i32 @dissect_rdp_capabilitySets(ptr noundef %0, i32 nound
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
   store ptr @hf_rdp_capabilitySetType, ptr %8, align 16
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
-  %14 = getelementptr inbounds i8, ptr %8, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store ptr @hf_rdp_lengthCapability, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 2, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %8, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %6, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 -4, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %8, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 68
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %8, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr @hf_rdp_capabilityData, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %8, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %6, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %8, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(360) %9, ptr noundef nonnull align 16 dereferenceable(360) @__const.dissect_rdp_capabilitySets.railFlags_fields, i64 360, i1 false)
   store ptr @hf_rdp_capabilitySetType, ptr %10, align 16
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 16
-  %26 = getelementptr inbounds i8, ptr %10, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_lengthCapability, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %10, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i32 2, ptr %27, align 16
-  %28 = getelementptr inbounds i8, ptr %10, i64 56
-  %29 = getelementptr inbounds i8, ptr %10, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   store ptr @hf_rdp_capaRail_supportedLevel, ptr %29, align 16
-  %30 = getelementptr inbounds i8, ptr %10, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store i32 4, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %10, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store ptr null, ptr %31, align 16
-  %32 = getelementptr inbounds i8, ptr %10, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %33 = load i32, ptr @ett_rdp_capa_rail, align 4
   store i32 %33, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %10, i64 108
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 108
   store i32 32, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %10, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 112
   store ptr %9, ptr %35, align 16
-  %36 = getelementptr inbounds i8, ptr %10, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, i8 0, i64 40, i1 false)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph

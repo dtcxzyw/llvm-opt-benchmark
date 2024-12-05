@@ -47,9 +47,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3vcg10RubberbandC2ENS_6Color4IhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 49)) %0, i32 %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg10RubberbandE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %4, i8 0, i64 37, i1 false)
   ret void
 }
@@ -59,7 +59,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3vcg10Rubberband5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((12, 49)) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %2, i8 0, i64 37, i1 false)
   ret void
 }
@@ -90,34 +90,34 @@ define void @_ZN3vcg10Rubberband6RenderEP9QGLWidget(ptr noundef nonnull align 8 
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca %"class.vcg::Point2", align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %64
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(24) %19, i32 noundef 11)
   %24 = mul nsw i32 %23, %18
   store i32 %24, ptr %10, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %26, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
   %.neg20 = add i32 %28, 1
   %33 = add i32 %30, %32
   %34 = sub i32 %.neg20, %33
   %35 = load ptr, ptr %19, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(24) %19, i32 noundef 11)
   %39 = mul nsw i32 %38, %34
@@ -127,7 +127,7 @@ define void @_ZN3vcg10Rubberband6RenderEP9QGLWidget(ptr noundef nonnull align 8 
 
 41:                                               ; preds = %16
   store i8 0, ptr %13, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %43 = load i32, ptr %42, align 4
   switch i32 %43, label %64 [
     i32 0, label %44
@@ -135,31 +135,31 @@ define void @_ZN3vcg10Rubberband6RenderEP9QGLWidget(ptr noundef nonnull align 8 
   ]
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %45, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false)
   call void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 2, i1 noundef zeroext true)
   store i32 1, ptr %42, align 4
   br label %64
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load float, ptr %9, align 4
   %49 = load float, ptr %47, align 8
   %50 = fcmp oeq float %48, %49
   br i1 %50, label %51, label %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %9, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %53 = load float, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %55 = load float, ptr %54, align 4
   %56 = fcmp oeq float %53, %55
   br i1 %56, label %_ZNK3vcg6Point3IfEeqERKS1_.exit, label %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread
 
 _ZNK3vcg6Point3IfEeqERKS1_.exit:                  ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %9, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %58 = load float, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load float, ptr %59, align 8
   %61 = fcmp oeq float %58, %60
   br i1 %61, label %62, label %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread
@@ -169,14 +169,14 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit:                  ; preds = %51
   br label %64
 
 _ZNK3vcg6Point3IfEeqERKS1_.exit.thread:           ; preds = %46, %51, %_ZNK3vcg6Point3IfEeqERKS1_.exit
-  %63 = getelementptr inbounds i8, ptr %0, i64 36
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %63, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false)
   call void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 2, i1 noundef zeroext false)
   store i32 2, ptr %42, align 4
   br label %64
 
 64:                                               ; preds = %16, %41, %_ZNK3vcg6Point3IfEeqERKS1_.exit.thread, %62, %44, %2
-  %65 = getelementptr inbounds i8, ptr %0, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %135, label %68
@@ -193,9 +193,9 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit.thread:           ; preds = %46, %51, %_ZNK3vcg6
   br i1 %70, label %71, label %130
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.01.0.copyload = load <2 x float>, ptr %72, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.22.0.copyload = load float, ptr %.sroa.22.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
@@ -214,7 +214,7 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit.thread:           ; preds = %46, %51, %_ZNK3vcg6
   %76 = call i32 @gluProject(double noundef %73, double noundef %74, double noundef %75, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %77 = load double, ptr %6, align 8
   %78 = fptrunc double %77 to float
-  %79 = getelementptr inbounds i8, ptr %3, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = sitofp i32 %80 to double
   %82 = load double, ptr %7, align 8
@@ -229,35 +229,35 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit.thread:           ; preds = %46, %51, %_ZNK3vcg6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   store <2 x float> %.sroa.01.4.vec.insert.i, ptr %12, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %85)
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPushMatrix()
   call void @glLoadIdentity()
-  %86 = getelementptr inbounds i8, ptr %1, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 20
-  %89 = getelementptr inbounds i8, ptr %87, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 28
   %90 = load i32, ptr %89, align 4
   %91 = load i32, ptr %88, align 4
   %92 = add i32 %90, 1
   %93 = sub i32 %92, %91
-  %94 = getelementptr inbounds i8, ptr %1, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load ptr, ptr %96, align 8
   %98 = call noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(24) %94, i32 noundef 11)
   %99 = mul nsw i32 %98, %93
   %100 = sitofp i32 %99 to double
   %101 = load ptr, ptr %86, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds i8, ptr %101, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %105 = load i32, ptr %104, align 4
   %106 = add i32 %103, 1
   %107 = sub i32 %106, %105
   %108 = load ptr, ptr %94, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %110 = load ptr, ptr %109, align 8
   %111 = call noundef i32 %110(ptr noundef nonnull align 8 dereferenceable(24) %94, i32 noundef 11)
   %112 = mul nsw i32 %111, %107
@@ -269,18 +269,18 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit.thread:           ; preds = %46, %51, %_ZNK3vcg6
   call void @glDisable(i32 noundef 2929)
   call void @glBegin(i32 noundef 1)
   call void @glVertex2fv(ptr noundef nonnull align 4 dereferenceable(8) %12)
-  %114 = getelementptr inbounds i8, ptr %0, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %115 = load i32, ptr %114, align 8
   %116 = load ptr, ptr %94, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %118 = load ptr, ptr %117, align 8
   %119 = call noundef i32 %118(ptr noundef nonnull align 8 dereferenceable(24) %94, i32 noundef 11)
   %120 = mul nsw i32 %119, %115
   %121 = sitofp i32 %120 to float
-  %122 = getelementptr inbounds i8, ptr %0, i64 20
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %123 = load i32, ptr %122, align 4
   %124 = load ptr, ptr %94, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %126 = load ptr, ptr %125, align 8
   %127 = call noundef i32 %126(ptr noundef nonnull align 8 dereferenceable(24) %94, i32 noundef 11)
   %128 = mul nsw i32 %127, %123
@@ -299,14 +299,14 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit.thread:           ; preds = %46, %51, %_ZNK3vcg6
   call void @glBlendFunc(i32 noundef 775, i32 noundef 769)
   call void @glEnable(i32 noundef 2848)
   call void @glEnable(i32 noundef 2832)
-  %131 = getelementptr inbounds i8, ptr %0, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %131)
   call void @glLineWidth(float noundef 2.000000e+00)
   call void @glPointSize(float noundef 4.000000e+00)
   call void @glBegin(i32 noundef 1)
-  %132 = getelementptr inbounds i8, ptr %0, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %132)
-  %133 = getelementptr inbounds i8, ptr %0, i64 36
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %133)
   call void @glEnd()
   call void @glBegin(i32 noundef 0)
@@ -352,7 +352,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg4PickINS_6Point3IfEEEEbRKiS4_RT_(
   store i64 0, ptr %9, align 8
   call void @glGetFloatv(i32 noundef 2928, ptr noundef nonnull %9)
   %12 = load float, ptr %8, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %14 = load float, ptr %13, align 4
   %15 = fcmp une float %12, %14
   br i1 %15, label %16, label %31
@@ -363,8 +363,8 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg4PickINS_6Point3IfEEEEbRKiS4_RT_(
   %19 = load i32, ptr %1, align 4
   %20 = sitofp i32 %19 to double
   %21 = fpext float %12 to double
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = call i32 @gluUnProject(double noundef %18, double noundef %20, double noundef %21, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef nonnull %23)
   %25 = load double, ptr %4, align 16
   %26 = fptrunc double %25 to float
@@ -373,9 +373,9 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg4PickINS_6Point3IfEEEEbRKiS4_RT_(
   %29 = load double, ptr %23, align 16
   %30 = fptrunc double %29 to float
   store float %26, ptr %2, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %28, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store float %30, ptr %.sroa.3.0..sroa_idx, align 4
   br label %31
 
@@ -412,7 +412,7 @@ define <2 x float> @_ZN3vcg10Rubberband18DevicePixelConvertENS_6Point3IfEE(ptr n
   %13 = call i32 @gluProject(double noundef %10, double noundef %11, double noundef %12, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %14 = load double, ptr %7, align 8
   %15 = fptrunc double %14 to float
-  %16 = getelementptr inbounds i8, ptr %4, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = sitofp i32 %17 to double
   %19 = load double, ptr %8, align 8
@@ -473,10 +473,10 @@ define void @_ZN3vcg10Rubberband10RenderLineEP9QGLWidgetNS_6Point3IfEES4_(ptr no
   %7 = alloca %"class.vcg::Point3", align 8
   %8 = alloca %"class.vcg::Point3", align 8
   store <2 x float> %2, ptr %7, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %3, ptr %.sroa.22.0..sroa_idx, align 8
   store <2 x float> %4, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store float %5, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @glPushAttrib(i32 noundef 24903)
   tail call void @glDisable(i32 noundef 2896)
@@ -484,7 +484,7 @@ define void @_ZN3vcg10Rubberband10RenderLineEP9QGLWidgetNS_6Point3IfEES4_(ptr no
   tail call void @glDepthMask(i8 noundef zeroext 0)
   tail call void @glEnable(i32 noundef 2848)
   tail call void @glEnable(i32 noundef 2832)
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %9)
   tail call void @glDepthFunc(i32 noundef 513)
   tail call void @glLineWidth(float noundef 2.500000e+00)
@@ -517,13 +517,13 @@ define void @_ZN3vcg10Rubberband10RenderLineEP9QGLWidgetNS_6Point3IfEES4_(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3vcg10Rubberband4DragE6QPoint(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 %1) local_unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %7, align 8
   br label %8
 
@@ -533,15 +533,15 @@ define void @_ZN3vcg10Rubberband4DragE6QPoint(ptr nocapture noundef nonnull alig
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3vcg10Rubberband3PinE6QPoint(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 %1) local_unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %8, align 8
   br label %9
 
@@ -551,7 +551,7 @@ define void @_ZN3vcg10Rubberband3PinE6QPoint(ptr nocapture noundef nonnull align
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN3vcg10Rubberband7IsReadyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #11 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 2
   ret i1 %4
@@ -559,9 +559,9 @@ define noundef zeroext i1 @_ZN3vcg10Rubberband7IsReadyEv(ptr nocapture noundef n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3vcg10Rubberband9GetPointsERNS_6Point3IfEES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %2) local_unnamed_addr #10 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
   ret void
 }

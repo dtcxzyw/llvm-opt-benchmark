@@ -102,7 +102,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %2 = load i32, ptr %fd, align 8
   ret i32 %2
 }
@@ -113,7 +113,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -1, 1) i32 @net_init_bridge(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #2 {
 entry:
-  %type = getelementptr inbounds i8, ptr %netdev, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 9
   br i1 %cmp, label %if.end, label %if.else
@@ -123,8 +123,8 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %u = getelementptr inbounds i8, ptr %netdev, i64 16
-  %helper1 = getelementptr inbounds i8, ptr %netdev, i64 24
+  %u = getelementptr inbounds nuw i8, ptr %netdev, i64 16
+  %helper1 = getelementptr inbounds nuw i8, ptr %netdev, i64 24
   %1 = load ptr, ptr %helper1, align 8
   %2 = load ptr, ptr %u, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -220,7 +220,7 @@ if.then14:                                        ; preds = %if.end12
   br i1 %cmp1633, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then14
-  %arrayidx = getelementptr inbounds i8, ptr %sv, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %sv, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -239,7 +239,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %if.then14
-  %arrayidx23 = getelementptr inbounds i8, ptr %sv, i64 4
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %sv, i64 4
   %3 = load i32, ptr %arrayidx23, align 4
   %call24 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %3) #15
   %call25 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %helper.addr.0, i32 noundef 32) #18
@@ -265,11 +265,11 @@ if.end35:                                         ; preds = %if.then33, %if.then
   %tobool36.not = icmp eq ptr %br_buf.0, null
   %cond = select i1 %tobool36.not, ptr @.str.30, ptr %br_buf.0
   %call37 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.28, ptr noundef %helper.addr.0, ptr noundef nonnull @.str.29, ptr noundef %call24, ptr noundef nonnull %cond) #15
-  %incdec.ptr = getelementptr inbounds i8, ptr %args, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %args, i64 8
   store ptr @.str.31, ptr %args, align 16
-  %incdec.ptr39 = getelementptr inbounds i8, ptr %args, i64 16
+  %incdec.ptr39 = getelementptr inbounds nuw i8, ptr %args, i64 16
   store ptr @.str.32, ptr %incdec.ptr, align 8
-  %incdec.ptr40 = getelementptr inbounds i8, ptr %args, i64 24
+  %incdec.ptr40 = getelementptr inbounds nuw i8, ptr %args, i64 24
   store ptr %call37, ptr %incdec.ptr39, align 16
   store ptr null, ptr %incdec.ptr40, align 8
   %call43 = call i32 @execv(ptr noundef nonnull @.str.33, ptr noundef nonnull %args) #15
@@ -278,13 +278,13 @@ if.end35:                                         ; preds = %if.then33, %if.then
 
 if.else:                                          ; preds = %lor.lhs.false
   %call44 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.26, ptr noundef %bridge) #15
-  %incdec.ptr46 = getelementptr inbounds i8, ptr %args, i64 8
+  %incdec.ptr46 = getelementptr inbounds nuw i8, ptr %args, i64 8
   store ptr %helper.addr.0, ptr %args, align 16
-  %incdec.ptr47 = getelementptr inbounds i8, ptr %args, i64 16
+  %incdec.ptr47 = getelementptr inbounds nuw i8, ptr %args, i64 16
   store ptr @.str.29, ptr %incdec.ptr46, align 8
-  %incdec.ptr48 = getelementptr inbounds i8, ptr %args, i64 24
+  %incdec.ptr48 = getelementptr inbounds nuw i8, ptr %args, i64 24
   store ptr %call24, ptr %incdec.ptr47, align 16
-  %incdec.ptr49 = getelementptr inbounds i8, ptr %args, i64 32
+  %incdec.ptr49 = getelementptr inbounds nuw i8, ptr %args, i64 32
   store ptr %call44, ptr %incdec.ptr48, align 8
   store ptr null, ptr %incdec.ptr49, align 16
   %call52 = call i32 @execv(ptr noundef %helper.addr.0, ptr noundef nonnull %args) #15
@@ -298,19 +298,19 @@ if.end53:                                         ; preds = %if.else, %if.end35
   unreachable
 
 if.else54:                                        ; preds = %if.end12
-  %arrayidx55 = getelementptr inbounds i8, ptr %sv, i64 4
+  %arrayidx55 = getelementptr inbounds nuw i8, ptr %sv, i64 4
   %4 = load i32, ptr %arrayidx55, align 4
   %call56 = call i32 @close(i32 noundef %4) #15
-  %msg_namelen.i = getelementptr inbounds i8, ptr %msg.i, i64 8
-  %msg_iov.i = getelementptr inbounds i8, ptr %msg.i, i64 16
-  %msg_iovlen.i = getelementptr inbounds i8, ptr %msg.i, i64 24
-  %msg_control.i = getelementptr inbounds i8, ptr %msg.i, i64 32
-  %msg_controllen.i = getelementptr inbounds i8, ptr %msg.i, i64 40
-  %msg_flags.i = getelementptr inbounds i8, ptr %msg.i, i64 48
-  %cmsg_level.i = getelementptr inbounds i8, ptr %msgbuf.i, i64 8
-  %cmsg_type.i = getelementptr inbounds i8, ptr %msgbuf.i, i64 12
-  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
-  %__cmsg_data.i = getelementptr inbounds i8, ptr %msgbuf.i, i64 16
+  %msg_namelen.i = getelementptr inbounds nuw i8, ptr %msg.i, i64 8
+  %msg_iov.i = getelementptr inbounds nuw i8, ptr %msg.i, i64 16
+  %msg_iovlen.i = getelementptr inbounds nuw i8, ptr %msg.i, i64 24
+  %msg_control.i = getelementptr inbounds nuw i8, ptr %msg.i, i64 32
+  %msg_controllen.i = getelementptr inbounds nuw i8, ptr %msg.i, i64 40
+  %msg_flags.i = getelementptr inbounds nuw i8, ptr %msg.i, i64 48
+  %cmsg_level.i = getelementptr inbounds nuw i8, ptr %msgbuf.i, i64 8
+  %cmsg_type.i = getelementptr inbounds nuw i8, ptr %msgbuf.i, i64 12
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %iov.i, i64 8
+  %__cmsg_data.i = getelementptr inbounds nuw i8, ptr %msgbuf.i, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.else54
@@ -400,26 +400,26 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 define internal fastcc ptr @net_tap_fd_init(ptr noundef %peer, ptr noundef %model, ptr noundef %name, i32 noundef range(i32 0, -1) %fd, i32 noundef %vnet_hdr) unnamed_addr #2 {
 entry:
   %call = tail call ptr @qemu_new_net_client(ptr noundef nonnull @net_tap_info, ptr noundef %peer, ptr noundef %model, ptr noundef %name) #15
-  %fd2 = getelementptr inbounds i8, ptr %call, i64 376
+  %fd2 = getelementptr inbounds nuw i8, ptr %call, i64 376
   store i32 %fd, ptr %fd2, align 8
   %tobool.not = icmp eq i32 %vnet_hdr, 0
   %conv = select i1 %tobool.not, i32 0, i32 10
-  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %call, i64 71184
+  %host_vnet_hdr_len = getelementptr inbounds nuw i8, ptr %call, i64 71184
   store i32 %conv, ptr %host_vnet_hdr_len, align 8
-  %using_vnet_hdr = getelementptr inbounds i8, ptr %call, i64 71166
+  %using_vnet_hdr = getelementptr inbounds nuw i8, ptr %call, i64 71166
   store i8 0, ptr %using_vnet_hdr, align 2
   %call4 = tail call i32 @tap_probe_has_ufo(i32 noundef %fd) #15
   %tobool5 = icmp ne i32 %call4, 0
-  %has_ufo = getelementptr inbounds i8, ptr %call, i64 71167
+  %has_ufo = getelementptr inbounds nuw i8, ptr %call, i64 71167
   %frombool = zext i1 %tobool5 to i8
   store i8 %frombool, ptr %has_ufo, align 1
   %0 = load i32, ptr %fd2, align 8
   %call7 = tail call i32 @tap_probe_has_uso(i32 noundef %0) #15
   %tobool8 = icmp ne i32 %call7, 0
-  %has_uso = getelementptr inbounds i8, ptr %call, i64 71168
+  %has_uso = getelementptr inbounds nuw i8, ptr %call, i64 71168
   %frombool9 = zext i1 %tobool8 to i8
   store i8 %frombool9, ptr %has_uso, align 8
-  %enabled = getelementptr inbounds i8, ptr %call, i64 71169
+  %enabled = getelementptr inbounds nuw i8, ptr %call, i64 71169
   store i8 1, ptr %enabled, align 1
   %1 = load i32, ptr %fd2, align 8
   %cmp.i = icmp slt i32 %1, 0
@@ -444,21 +444,21 @@ if.then:                                          ; preds = %tap_set_offload.exi
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %tap_set_offload.exit
-  %read_poll.i = getelementptr inbounds i8, ptr %call, i64 71164
+  %read_poll.i = getelementptr inbounds nuw i8, ptr %call, i64 71164
   store i8 1, ptr %read_poll.i, align 4
   %6 = load i32, ptr %fd2, align 8
   %7 = load i8, ptr %enabled, align 1
   %tobool1.i.i = trunc i8 %7 to i1
   %8 = select i1 %tobool1.i.i, ptr @tap_send, ptr null
-  %write_poll.i.i = getelementptr inbounds i8, ptr %call, i64 71165
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %call, i64 71165
   %9 = load i8, ptr %write_poll.i.i, align 1
   %10 = and i8 %9, %7
   %11 = trunc i8 %10 to i1
   %spec.select = select i1 %11, ptr @tap_writable, ptr null
   tail call void @qemu_set_fd_handler(i32 noundef %6, ptr noundef %8, ptr noundef %spec.select, ptr noundef nonnull %call) #15
-  %vhost_net = getelementptr inbounds i8, ptr %call, i64 71176
+  %vhost_net = getelementptr inbounds nuw i8, ptr %call, i64 71176
   store ptr null, ptr %vhost_net, align 8
-  %exit = getelementptr inbounds i8, ptr %call, i64 71192
+  %exit = getelementptr inbounds nuw i8, ptr %call, i64 71192
   store ptr @tap_exit_notify, ptr %exit, align 8
   tail call void @qemu_add_exit_notifier(ptr noundef nonnull %exit) #15
   ret ptr %call
@@ -475,7 +475,7 @@ entry:
   %ifname = alloca [128 x i8], align 16
   store i32 0, ptr %vnet_hdr, align 4
   store ptr null, ptr %err, align 8
-  %type = getelementptr inbounds i8, ptr %netdev, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 3
   br i1 %cmp, label %if.end, label %if.else
@@ -485,42 +485,42 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %u = getelementptr inbounds i8, ptr %netdev, i64 16
-  %has_queues = getelementptr inbounds i8, ptr %netdev, i64 114
+  %u = getelementptr inbounds nuw i8, ptr %netdev, i64 16
+  %has_queues = getelementptr inbounds nuw i8, ptr %netdev, i64 114
   %1 = load i8, ptr %has_queues, align 2
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %cond.end, label %cond.end.thread
 
 cond.end:                                         ; preds = %if.end
-  %queues1 = getelementptr inbounds i8, ptr %netdev, i64 116
+  %queues1 = getelementptr inbounds nuw i8, ptr %netdev, i64 116
   %2 = load i32, ptr %queues1, align 4
-  %vhostfd = getelementptr inbounds i8, ptr %netdev, i64 96
+  %vhostfd = getelementptr inbounds nuw i8, ptr %netdev, i64 96
   %3 = load ptr, ptr %vhostfd, align 8
-  %script2 = getelementptr inbounds i8, ptr %netdev, i64 40
+  %script2 = getelementptr inbounds nuw i8, ptr %netdev, i64 40
   %4 = load ptr, ptr %script2, align 8
-  %downscript3 = getelementptr inbounds i8, ptr %netdev, i64 48
+  %downscript3 = getelementptr inbounds nuw i8, ptr %netdev, i64 48
   %5 = load ptr, ptr %downscript3, align 8
   %tobool4.not = icmp eq ptr %peer, null
   br i1 %tobool4.not, label %if.end11, label %if.then10
 
 cond.end.thread:                                  ; preds = %if.end
-  %vhostfd151 = getelementptr inbounds i8, ptr %netdev, i64 96
+  %vhostfd151 = getelementptr inbounds nuw i8, ptr %netdev, i64 96
   %6 = load ptr, ptr %vhostfd151, align 8
-  %script2152 = getelementptr inbounds i8, ptr %netdev, i64 40
+  %script2152 = getelementptr inbounds nuw i8, ptr %netdev, i64 40
   %7 = load ptr, ptr %script2152, align 8
-  %downscript3153 = getelementptr inbounds i8, ptr %netdev, i64 48
+  %downscript3153 = getelementptr inbounds nuw i8, ptr %netdev, i64 48
   %8 = load ptr, ptr %downscript3153, align 8
   %tobool4.not154 = icmp eq ptr %peer, null
   br i1 %tobool4.not154, label %if.end11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %cond.end.thread
-  %fds = getelementptr inbounds i8, ptr %netdev, i64 32
+  %fds = getelementptr inbounds nuw i8, ptr %netdev, i64 32
   %9 = load ptr, ptr %fds, align 8
   %tobool7.not = icmp eq ptr %9, null
   br i1 %tobool7.not, label %lor.lhs.false8, label %if.then10
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %vhostfds = getelementptr inbounds i8, ptr %netdev, i64 104
+  %vhostfds = getelementptr inbounds nuw i8, ptr %netdev, i64 104
   %10 = load ptr, ptr %vhostfds, align 8
   %tobool9.not = icmp eq ptr %10, null
   br i1 %tobool9.not, label %if.end11, label %if.then10
@@ -534,7 +534,7 @@ if.end11:                                         ; preds = %cond.end.thread, %l
   %12 = phi ptr [ %7, %cond.end.thread ], [ %7, %lor.lhs.false8 ], [ %4, %cond.end ]
   %13 = phi ptr [ %6, %cond.end.thread ], [ %6, %lor.lhs.false8 ], [ %3, %cond.end ]
   %cond156 = phi i32 [ 1, %cond.end.thread ], [ 1, %lor.lhs.false8 ], [ %2, %cond.end ]
-  %fd12 = getelementptr inbounds i8, ptr %netdev, i64 24
+  %fd12 = getelementptr inbounds nuw i8, ptr %netdev, i64 24
   %14 = load ptr, ptr %fd12, align 8
   %tobool13.not = icmp eq ptr %14, null
   br i1 %tobool13.not, label %if.else58, label %if.then14
@@ -549,26 +549,26 @@ if.then14:                                        ; preds = %if.end11
   br i1 %or.cond163, label %lor.lhs.false23, label %if.then36
 
 lor.lhs.false23:                                  ; preds = %if.then14
-  %has_vnet_hdr = getelementptr inbounds i8, ptr %netdev, i64 88
+  %has_vnet_hdr = getelementptr inbounds nuw i8, ptr %netdev, i64 88
   %16 = load i8, ptr %has_vnet_hdr, align 8
   %tobool24 = trunc i8 %16 to i1
   br i1 %tobool24, label %if.then36, label %lor.lhs.false25
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false23
-  %helper = getelementptr inbounds i8, ptr %netdev, i64 64
+  %helper = getelementptr inbounds nuw i8, ptr %netdev, i64 64
   %17 = load ptr, ptr %helper, align 8
   %tobool26.not = icmp ne ptr %17, null
   %brmerge = or i1 %tobool26.not, %tobool
   br i1 %brmerge, label %if.then36, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false25
-  %fds31 = getelementptr inbounds i8, ptr %netdev, i64 32
+  %fds31 = getelementptr inbounds nuw i8, ptr %netdev, i64 32
   %18 = load ptr, ptr %fds31, align 8
   %tobool32.not = icmp eq ptr %18, null
   br i1 %tobool32.not, label %lor.lhs.false33, label %if.then36
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false30
-  %vhostfds34 = getelementptr inbounds i8, ptr %netdev, i64 104
+  %vhostfds34 = getelementptr inbounds nuw i8, ptr %netdev, i64 104
   %19 = load ptr, ptr %vhostfds34, align 8
   %tobool35.not = icmp eq ptr %19, null
   br i1 %tobool35.not, label %if.end37, label %if.then36
@@ -617,7 +617,7 @@ if.then55:                                        ; preds = %if.end53
   br label %return
 
 if.else58:                                        ; preds = %if.end11
-  %fds59 = getelementptr inbounds i8, ptr %netdev, i64 32
+  %fds59 = getelementptr inbounds nuw i8, ptr %netdev, i64 32
   %23 = load ptr, ptr %fds59, align 8
   %tobool60.not = icmp eq ptr %23, null
   br i1 %tobool60.not, label %if.else148, label %if.then61
@@ -632,13 +632,13 @@ if.then61:                                        ; preds = %if.else58
   br i1 %or.cond165, label %lor.lhs.false71, label %if.then83
 
 lor.lhs.false71:                                  ; preds = %if.then61
-  %has_vnet_hdr72 = getelementptr inbounds i8, ptr %netdev, i64 88
+  %has_vnet_hdr72 = getelementptr inbounds nuw i8, ptr %netdev, i64 88
   %25 = load i8, ptr %has_vnet_hdr72, align 8
   %tobool73 = trunc i8 %25 to i1
   br i1 %tobool73, label %if.then83, label %lor.lhs.false74
 
 lor.lhs.false74:                                  ; preds = %lor.lhs.false71
-  %helper75 = getelementptr inbounds i8, ptr %netdev, i64 64
+  %helper75 = getelementptr inbounds nuw i8, ptr %netdev, i64 64
   %26 = load ptr, ptr %helper75, align 8
   %tobool76.not = icmp ne ptr %26, null
   %brmerge166 = or i1 %tobool76.not, %tobool
@@ -655,7 +655,7 @@ if.end84:                                         ; preds = %lor.lhs.false74
   %call86 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0_n(i64 noundef 1024, i64 noundef 8) #19
   %27 = load ptr, ptr %fds59, align 8
   %call88 = tail call fastcc i32 @get_fds(ptr noundef %27, ptr noundef %call85)
-  %vhostfds89 = getelementptr inbounds i8, ptr %netdev, i64 104
+  %vhostfds89 = getelementptr inbounds nuw i8, ptr %netdev, i64 104
   %28 = load ptr, ptr %vhostfds89, align 8
   %tobool90.not = icmp eq ptr %28, null
   br i1 %tobool90.not, label %if.end97, label %if.then91
@@ -786,7 +786,7 @@ for.end147:                                       ; preds = %for.body142, %for.c
   br label %return
 
 if.else148:                                       ; preds = %if.else58
-  %helper149 = getelementptr inbounds i8, ptr %netdev, i64 64
+  %helper149 = getelementptr inbounds nuw i8, ptr %netdev, i64 64
   %38 = load ptr, ptr %helper149, align 8
   %tobool150.not = icmp eq ptr %38, null
   br i1 %tobool150.not, label %if.else196, label %if.then151
@@ -801,14 +801,14 @@ if.then151:                                       ; preds = %if.else148
   br i1 %or.cond169, label %lor.lhs.false160, label %if.then169
 
 lor.lhs.false160:                                 ; preds = %if.then151
-  %has_vnet_hdr161 = getelementptr inbounds i8, ptr %netdev, i64 88
+  %has_vnet_hdr161 = getelementptr inbounds nuw i8, ptr %netdev, i64 88
   %40 = load i8, ptr %has_vnet_hdr161, align 8
   %brmerge170171 = or i8 %40, %1
   %brmerge170 = trunc i8 %brmerge170171 to i1
   br i1 %brmerge170, label %if.then169, label %lor.lhs.false166
 
 lor.lhs.false166:                                 ; preds = %lor.lhs.false160
-  %vhostfds167 = getelementptr inbounds i8, ptr %netdev, i64 104
+  %vhostfds167 = getelementptr inbounds nuw i8, ptr %netdev, i64 104
   %41 = load ptr, ptr %vhostfds167, align 8
   %tobool168.not = icmp eq ptr %41, null
   br i1 %tobool168.not, label %if.end170, label %if.then169
@@ -818,7 +818,7 @@ if.then169:                                       ; preds = %lor.lhs.false160, %
   br label %return
 
 if.end170:                                        ; preds = %lor.lhs.false166
-  %br = getelementptr inbounds i8, ptr %netdev, i64 56
+  %br = getelementptr inbounds nuw i8, ptr %netdev, i64 56
   %42 = load ptr, ptr %br, align 8
   %tobool172.not = icmp eq ptr %42, null
   %..str.3 = select i1 %tobool172.not, ptr @.str.3, ptr %42
@@ -858,7 +858,7 @@ if.then193:                                       ; preds = %if.end190
   br label %return
 
 if.else196:                                       ; preds = %if.else148
-  %vhostfds197 = getelementptr inbounds i8, ptr %netdev, i64 104
+  %vhostfds197 = getelementptr inbounds nuw i8, ptr %netdev, i64 104
   %45 = load ptr, ptr %vhostfds197, align 8
   %tobool198.not = icmp eq ptr %45, null
   br i1 %tobool198.not, label %if.end200, label %if.then199
@@ -907,8 +907,8 @@ if.end216:                                        ; preds = %if.else214, %if.the
 for.body219.lr.ph:                                ; preds = %if.end216
   %cmp226 = icmp ne i32 %cond156, 1
   %conv = zext i1 %cmp226 to i32
-  %has_vnet_hdr.i = getelementptr inbounds i8, ptr %netdev, i64 88
-  %vnet_hdr1.i = getelementptr inbounds i8, ptr %netdev, i64 89
+  %has_vnet_hdr.i = getelementptr inbounds nuw i8, ptr %netdev, i64 88
+  %vnet_hdr1.i = getelementptr inbounds nuw i8, ptr %netdev, i64 89
   br label %for.body219
 
 for.cond217:                                      ; preds = %if.end247
@@ -965,13 +965,13 @@ land.lhs.true.i:                                  ; preds = %if.end11.i
   ]
 
 sub_1.i:                                          ; preds = %land.lhs.true.i
-  %52 = getelementptr inbounds i8, ptr %cond224, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %cond224, i64 1
   %53 = load i8, ptr %52, align 1
   %.not16.i = icmp eq i8 %53, 111
   br i1 %.not16.i, label %land.lhs.true16.tail.i, label %if.then20.i
 
 land.lhs.true16.tail.i:                           ; preds = %sub_1.i
-  %54 = getelementptr inbounds i8, ptr %cond224, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %cond224, i64 2
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %if.end231, label %if.then20.i
@@ -1055,7 +1055,7 @@ entry:
   %options = alloca %struct.VhostNetOptions, align 8
   store ptr null, ptr %err, align 8
   %call = tail call fastcc ptr @net_tap_fd_init(ptr noundef %peer, ptr noundef %model, ptr noundef %name, i32 noundef %fd, i32 noundef %vnet_hdr)
-  %fd1 = getelementptr inbounds i8, ptr %call, i64 376
+  %fd1 = getelementptr inbounds nuw i8, ptr %call, i64 376
   %0 = load i32, ptr %fd1, align 8
   call void @tap_set_sndbuf(i32 noundef %0, ptr noundef %tap, ptr noundef nonnull %err) #15
   %1 = load ptr, ptr %err, align 8
@@ -1067,13 +1067,13 @@ if.then:                                          ; preds = %entry
   br label %failed
 
 if.end:                                           ; preds = %entry
-  %fd2 = getelementptr inbounds i8, ptr %tap, i64 8
+  %fd2 = getelementptr inbounds nuw i8, ptr %tap, i64 8
   %2 = load ptr, ptr %fd2, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %if.end
-  %fds = getelementptr inbounds i8, ptr %tap, i64 16
+  %fds = getelementptr inbounds nuw i8, ptr %tap, i64 16
   %3 = load ptr, ptr %fds, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.else, label %if.then5
@@ -1083,7 +1083,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
   br label %if.end19
 
 if.else:                                          ; preds = %lor.lhs.false
-  %helper = getelementptr inbounds i8, ptr %tap, i64 48
+  %helper = getelementptr inbounds nuw i8, ptr %tap, i64 48
   %4 = load ptr, ptr %helper, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %if.else10, label %if.then7
@@ -1099,32 +1099,32 @@ if.else10:                                        ; preds = %if.else
   br i1 %.not, label %sub_1, label %if.then13
 
 sub_1:                                            ; preds = %if.else10
-  %6 = getelementptr inbounds i8, ptr %downscript, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %downscript, i64 1
   %7 = load i8, ptr %6, align 1
   %.not47 = icmp eq i8 %7, 111
   br i1 %.not47, label %if.else10.tail, label %if.then13
 
 if.else10.tail:                                   ; preds = %sub_1
-  %8 = getelementptr inbounds i8, ptr %downscript, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %downscript, i64 2
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %if.end19, label %if.then13
 
 if.then13:                                        ; preds = %sub_1, %if.else10, %if.else10.tail
-  %down_script = getelementptr inbounds i8, ptr %call, i64 380
+  %down_script = getelementptr inbounds nuw i8, ptr %call, i64 380
   %call14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %down_script, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %downscript) #15
-  %down_script_arg = getelementptr inbounds i8, ptr %call, i64 1404
+  %down_script_arg = getelementptr inbounds nuw i8, ptr %call, i64 1404
   %call16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %down_script_arg, i64 noundef 128, ptr noundef nonnull @.str.43, ptr noundef %ifname) #15
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then7, %if.then13, %if.else10.tail, %if.then5
-  %has_vhost = getelementptr inbounds i8, ptr %tap, i64 74
+  %has_vhost = getelementptr inbounds nuw i8, ptr %tap, i64 74
   %11 = load i8, ptr %has_vhost, align 2
   %tobool20 = trunc i8 %11 to i1
   br i1 %tobool20, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end19
-  %vhost = getelementptr inbounds i8, ptr %tap, i64 75
+  %vhost = getelementptr inbounds nuw i8, ptr %tap, i64 75
   %12 = load i8, ptr %vhost, align 1
   %tobool21 = trunc i8 %12 to i1
   br i1 %tobool21, label %if.then26, label %if.else90
@@ -1134,34 +1134,34 @@ cond.false:                                       ; preds = %if.end19
   br i1 %tobool22.not, label %lor.lhs.false23, label %if.then26
 
 lor.lhs.false23:                                  ; preds = %cond.false
-  %has_vhostforce = getelementptr inbounds i8, ptr %tap, i64 96
+  %has_vhostforce = getelementptr inbounds nuw i8, ptr %tap, i64 96
   %13 = load i8, ptr %has_vhostforce, align 8
   %tobool24 = trunc i8 %13 to i1
   br i1 %tobool24, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %lor.lhs.false23
-  %vhostforce = getelementptr inbounds i8, ptr %tap, i64 97
+  %vhostforce = getelementptr inbounds nuw i8, ptr %tap, i64 97
   %14 = load i8, ptr %vhostforce, align 1
   %tobool25 = trunc i8 %14 to i1
   br i1 %tobool25, label %if.then26, label %return
 
 if.then26:                                        ; preds = %land.lhs.true, %cond.false, %cond.true
   store i32 1, ptr %options, align 8
-  %net_backend = getelementptr inbounds i8, ptr %options, i64 8
+  %net_backend = getelementptr inbounds nuw i8, ptr %options, i64 8
   store ptr %call, ptr %net_backend, align 8
-  %has_poll_us = getelementptr inbounds i8, ptr %tap, i64 104
+  %has_poll_us = getelementptr inbounds nuw i8, ptr %tap, i64 104
   %15 = load i8, ptr %has_poll_us, align 8
   %tobool28 = trunc i8 %15 to i1
   br i1 %tobool28, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %if.then26
-  %poll_us = getelementptr inbounds i8, ptr %tap, i64 108
+  %poll_us = getelementptr inbounds nuw i8, ptr %tap, i64 108
   %16 = load i32, ptr %poll_us, align 4
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then26, %if.then29
   %.sink = phi i32 [ %16, %if.then29 ], [ 0, %if.then26 ]
-  %17 = getelementptr inbounds i8, ptr %options, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %options, i64 16
   store i32 %.sink, ptr %17, align 8
   %tobool33.not = icmp eq ptr %vhostfdname, null
   br i1 %tobool33.not, label %if.else53, label %if.then34
@@ -1173,13 +1173,13 @@ if.then34:                                        ; preds = %if.end32
   br i1 %cmp37, label %if.then38, label %if.end47
 
 if.then38:                                        ; preds = %if.then34
-  %has_vhostforce39 = getelementptr inbounds i8, ptr %tap, i64 96
+  %has_vhostforce39 = getelementptr inbounds nuw i8, ptr %tap, i64 96
   %18 = load i8, ptr %has_vhostforce39, align 8
   %tobool40 = trunc i8 %18 to i1
   br i1 %tobool40, label %land.lhs.true41, label %if.else45
 
 land.lhs.true41:                                  ; preds = %if.then38
-  %vhostforce42 = getelementptr inbounds i8, ptr %tap, i64 97
+  %vhostforce42 = getelementptr inbounds nuw i8, ptr %tap, i64 97
   %19 = load i8, ptr %vhostforce42, align 1
   %tobool43 = trunc i8 %19 to i1
   br i1 %tobool43, label %if.then44, label %if.else45
@@ -1211,13 +1211,13 @@ if.else53:                                        ; preds = %if.end32
   br i1 %cmp55, label %if.then56, label %if.end68
 
 if.then56:                                        ; preds = %if.else53
-  %has_vhostforce57 = getelementptr inbounds i8, ptr %tap, i64 96
+  %has_vhostforce57 = getelementptr inbounds nuw i8, ptr %tap, i64 96
   %23 = load i8, ptr %has_vhostforce57, align 8
   %tobool58 = trunc i8 %23 to i1
   br i1 %tobool58, label %land.lhs.true59, label %if.else64
 
 land.lhs.true59:                                  ; preds = %if.then56
-  %vhostforce60 = getelementptr inbounds i8, ptr %tap, i64 97
+  %vhostforce60 = getelementptr inbounds nuw i8, ptr %tap, i64 97
   %24 = load i8, ptr %vhostforce60, align 1
   %tobool61 = trunc i8 %24 to i1
   br i1 %tobool61, label %if.then62, label %if.else64
@@ -1250,24 +1250,24 @@ if.end74:                                         ; preds = %if.end68, %if.end47
   %vhostfd.0 = phi i32 [ %call36, %if.end47 ], [ %call54, %if.end68 ]
   %conv = sext i32 %vhostfd.0 to i64
   %28 = inttoptr i64 %conv to ptr
-  %opaque = getelementptr inbounds i8, ptr %options, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %options, i64 24
   store ptr %28, ptr %opaque, align 8
-  %nvqs = getelementptr inbounds i8, ptr %options, i64 20
+  %nvqs = getelementptr inbounds nuw i8, ptr %options, i64 20
   store i32 2, ptr %nvqs, align 4
   %call75 = call ptr @vhost_net_init(ptr noundef nonnull %options) #15
-  %vhost_net = getelementptr inbounds i8, ptr %call, i64 71176
+  %vhost_net = getelementptr inbounds nuw i8, ptr %call, i64 71176
   store ptr %call75, ptr %vhost_net, align 8
   %tobool77.not = icmp eq ptr %call75, null
   br i1 %tobool77.not, label %if.then78, label %return
 
 if.then78:                                        ; preds = %if.end74
-  %has_vhostforce79 = getelementptr inbounds i8, ptr %tap, i64 96
+  %has_vhostforce79 = getelementptr inbounds nuw i8, ptr %tap, i64 96
   %29 = load i8, ptr %has_vhostforce79, align 8
   %tobool80 = trunc i8 %29 to i1
   br i1 %tobool80, label %land.lhs.true82, label %if.else87
 
 land.lhs.true82:                                  ; preds = %if.then78
-  %vhostforce83 = getelementptr inbounds i8, ptr %tap, i64 97
+  %vhostforce83 = getelementptr inbounds nuw i8, ptr %tap, i64 97
   %30 = load i8, ptr %vhostforce83, align 1
   %tobool84 = trunc i8 %30 to i1
   br i1 %tobool84, label %if.then86, label %if.else87
@@ -1368,7 +1368,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vhost_net = getelementptr inbounds i8, ptr %nc, i64 71176
+  %vhost_net = getelementptr inbounds nuw i8, ptr %nc, i64 71176
   %2 = load ptr, ptr %vhost_net, align 8
   ret ptr %2
 }
@@ -1376,13 +1376,13 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @tap_enable(ptr noundef %nc) local_unnamed_addr #2 {
 entry:
-  %enabled = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %0 = load i8, ptr %enabled, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %fd = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %1 = load i32, ptr %fd, align 8
   %call = tail call i32 @tap_fd_enable(i32 noundef %1) #15
   %cmp = icmp eq i32 %call, 0
@@ -1391,11 +1391,11 @@ if.else:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.else
   store i8 1, ptr %enabled, align 1
   %2 = load i32, ptr %fd, align 8
-  %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 71164
+  %read_poll.i = getelementptr inbounds nuw i8, ptr %nc, i64 71164
   %3 = load i8, ptr %read_poll.i, align 4
   %tobool.i = trunc i8 %3 to i1
   %spec.select = select i1 %tobool.i, ptr @tap_send, ptr null
-  %write_poll.i = getelementptr inbounds i8, ptr %nc, i64 71165
+  %write_poll.i = getelementptr inbounds nuw i8, ptr %nc, i64 71165
   %4 = load i8, ptr %write_poll.i, align 1
   %tobool2.i = trunc i8 %4 to i1
   %cond7.i = select i1 %tobool2.i, ptr @tap_writable, ptr null
@@ -1412,14 +1412,14 @@ declare i32 @tap_fd_enable(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @tap_disable(ptr noundef %nc) local_unnamed_addr #2 {
 entry:
-  %enabled = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %0 = load i8, ptr %enabled, align 1
   %1 = and i8 %0, 1
   %cmp = icmp eq i8 %1, 0
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %fd = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %2 = load i32, ptr %fd, align 8
   %call = tail call i32 @tap_fd_disable(i32 noundef %2) #15
   %cmp3 = icmp eq i32 %call, 0
@@ -1489,7 +1489,7 @@ declare i32 @tap_probe_has_uso(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tap_set_offload(ptr nocapture noundef readonly %nc, i32 noundef %csum, i32 noundef %tso4, i32 noundef %tso6, i32 noundef %ecn, i32 noundef %ufo, i32 noundef %uso4, i32 noundef %uso6) #2 {
 entry:
-  %fd = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -1541,13 +1541,13 @@ entry:
   %iov.i = alloca [2 x %struct.iovec], align 16
   %hdr.i = alloca %struct.virtio_net_hdr_mrg_rxbuf, align 2
   %iov = alloca [1 x %struct.iovec], align 16
-  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
+  %host_vnet_hdr_len = getelementptr inbounds nuw i8, ptr %nc, i64 71184
   %0 = load i32, ptr %host_vnet_hdr_len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %using_vnet_hdr = getelementptr inbounds i8, ptr %nc, i64 71166
+  %using_vnet_hdr = getelementptr inbounds nuw i8, ptr %nc, i64 71166
   %1 = load i8, ptr %using_vnet_hdr, align 2
   %tobool2 = trunc i8 %1 to i1
   br i1 %tobool2, label %if.end, label %if.end.i
@@ -1558,13 +1558,13 @@ if.end.i:                                         ; preds = %land.lhs.true
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %hdr.i, i8 0, i64 12, i1 false)
   store ptr %hdr.i, ptr %iov.i, align 16
   %conv.i = zext i32 %0 to i64
-  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %iov.i, i64 8
   store i64 %conv.i, ptr %iov_len.i, align 8
-  %arrayidx6.i = getelementptr inbounds i8, ptr %iov.i, i64 16
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %iov.i, i64 16
   store ptr %buf, ptr %arrayidx6.i, align 16
-  %iov_len10.i = getelementptr inbounds i8, ptr %iov.i, i64 24
+  %iov_len10.i = getelementptr inbounds nuw i8, ptr %iov.i, i64 24
   store i64 %size, ptr %iov_len10.i, align 8
-  %fd.i.i = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 376
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end.i
@@ -1582,12 +1582,12 @@ land.rhs.i.i:                                     ; preds = %do.body.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.rhs.i.i
-  %write_poll.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
+  %write_poll.i.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71165
   store i8 1, ptr %write_poll.i.i.i, align 1
   %4 = load i32, ptr %fd.i.i, align 8
-  %read_poll.i.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71164
+  %read_poll.i.i.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71164
   %5 = load i8, ptr %read_poll.i.i.i.i, align 4
-  %enabled.i.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled.i.i.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %6 = load i8, ptr %enabled.i.i.i.i, align 1
   %tobool1.i.i.i.i = trunc i8 %6 to i1
   %7 = and i8 %6, %5
@@ -1605,9 +1605,9 @@ tap_receive_raw.exit:                             ; preds = %do.body.i.i, %land.
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   store ptr %buf, ptr %iov, align 16
-  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %iov, i64 8
   store i64 %size, ptr %iov_len, align 8
-  %fd.i = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd.i = getelementptr inbounds nuw i8, ptr %nc, i64 376
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end
@@ -1625,12 +1625,12 @@ land.rhs.i:                                       ; preds = %do.body.i
   ]
 
 if.then.i6:                                       ; preds = %land.rhs.i
-  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71165
   store i8 1, ptr %write_poll.i.i, align 1
   %12 = load i32, ptr %fd.i, align 8
-  %read_poll.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71164
+  %read_poll.i.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71164
   %13 = load i8, ptr %read_poll.i.i.i, align 4
-  %enabled.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled.i.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %14 = load i8, ptr %enabled.i.i.i, align 1
   %tobool1.i.i.i = trunc i8 %14 to i1
   %15 = and i8 %14, %13
@@ -1651,7 +1651,7 @@ entry:
   %iov = alloca [2 x %struct.iovec], align 16
   %hdr = alloca %struct.virtio_net_hdr_mrg_rxbuf, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %hdr, i8 0, i64 12, i1 false)
-  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
+  %host_vnet_hdr_len = getelementptr inbounds nuw i8, ptr %nc, i64 71184
   %0 = load i32, ptr %host_vnet_hdr_len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1659,7 +1659,7 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr %hdr, ptr %iov, align 16
   %conv = zext i32 %0 to i64
-  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %iov, i64 8
   store i64 %conv, ptr %iov_len, align 8
   br label %if.end
 
@@ -1668,10 +1668,10 @@ if.end:                                           ; preds = %if.then, %entry
   %idxprom5 = zext nneg i32 %iovcnt.0 to i64
   %arrayidx6 = getelementptr [2 x %struct.iovec], ptr %iov, i64 0, i64 %idxprom5
   store ptr %buf, ptr %arrayidx6, align 16
-  %iov_len10 = getelementptr inbounds i8, ptr %arrayidx6, i64 8
+  %iov_len10 = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
   store i64 %size, ptr %iov_len10, align 8
   %inc11 = add nuw nsw i32 %iovcnt.0, 1
-  %fd.i = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd.i = getelementptr inbounds nuw i8, ptr %nc, i64 376
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end
@@ -1689,12 +1689,12 @@ land.rhs.i:                                       ; preds = %do.body.i
   ]
 
 if.then.i:                                        ; preds = %land.rhs.i
-  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71165
   store i8 1, ptr %write_poll.i.i, align 1
   %3 = load i32, ptr %fd.i, align 8
-  %read_poll.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71164
+  %read_poll.i.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71164
   %4 = load i8, ptr %read_poll.i.i.i, align 4
-  %enabled.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled.i.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %5 = load i8, ptr %enabled.i.i.i, align 1
   %tobool1.i.i.i = trunc i8 %5 to i1
   %6 = and i8 %5, %4
@@ -1714,13 +1714,13 @@ define internal i64 @tap_receive_iov(ptr noundef %nc, ptr noundef %iov, i32 noun
 entry:
   %hdr = alloca %struct.virtio_net_hdr_mrg_rxbuf, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %hdr, i8 0, i64 12, i1 false)
-  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
+  %host_vnet_hdr_len = getelementptr inbounds nuw i8, ptr %nc, i64 71184
   %0 = load i32, ptr %host_vnet_hdr_len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %using_vnet_hdr = getelementptr inbounds i8, ptr %nc, i64 71166
+  %using_vnet_hdr = getelementptr inbounds nuw i8, ptr %nc, i64 71166
   %1 = load i8, ptr %using_vnet_hdr, align 2
   %tobool2 = trunc i8 %1 to i1
   br i1 %tobool2, label %if.end, label %if.then
@@ -1732,7 +1732,7 @@ if.then:                                          ; preds = %land.lhs.true
   store ptr %hdr, ptr %call, align 8
   %2 = load i32, ptr %host_vnet_hdr_len, align 8
   %conv4 = zext i32 %2 to i64
-  %iov_len = getelementptr inbounds i8, ptr %call, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %conv4, ptr %iov_len, align 8
   %arrayidx6 = getelementptr i8, ptr %call, i64 16
   %conv7 = sext i32 %iovcnt to i64
@@ -1744,7 +1744,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %iov_copy.0 = phi ptr [ null, %entry ], [ null, %land.lhs.true ], [ %call, %if.then ]
   %iovcnt.addr.0 = phi i32 [ %iovcnt, %entry ], [ %iovcnt, %land.lhs.true ], [ %add, %if.then ]
   %iovp.0 = phi ptr [ %iov, %entry ], [ %iov, %land.lhs.true ], [ %call, %if.then ]
-  %fd.i = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd.i = getelementptr inbounds nuw i8, ptr %nc, i64 376
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end
@@ -1762,12 +1762,12 @@ land.rhs.i:                                       ; preds = %do.body.i
   ]
 
 if.then.i:                                        ; preds = %land.rhs.i
-  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71165
   store i8 1, ptr %write_poll.i.i, align 1
   %5 = load i32, ptr %fd.i, align 8
-  %read_poll.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71164
+  %read_poll.i.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71164
   %6 = load i8, ptr %read_poll.i.i.i, align 4
-  %enabled.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled.i.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %7 = load i8, ptr %enabled.i.i.i, align 1
   %tobool1.i.i.i = trunc i8 %7 to i1
   %8 = and i8 %7, %6
@@ -1787,7 +1787,7 @@ tap_write_packet.exit:                            ; preds = %do.body.i, %land.rh
 define internal void @tap_cleanup(ptr noundef %nc) #2 {
 entry:
   %err.i = alloca ptr, align 8
-  %vhost_net = getelementptr inbounds i8, ptr %nc, i64 71176
+  %vhost_net = getelementptr inbounds nuw i8, ptr %nc, i64 71176
   %0 = load ptr, ptr %vhost_net, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1801,7 +1801,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @qemu_purge_queued_packets(ptr noundef nonnull %nc) #15
-  %exit = getelementptr inbounds i8, ptr %nc, i64 71192
+  %exit = getelementptr inbounds nuw i8, ptr %nc, i64 71192
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
   %down_script.i = getelementptr i8, ptr %nc, i64 380
@@ -1825,17 +1825,17 @@ if.then4.i:                                       ; preds = %if.then.i
 tap_exit_notify.exit:                             ; preds = %if.end, %if.then.i, %if.then4.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
   call void @qemu_remove_exit_notifier(ptr noundef nonnull %exit) #15
-  %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 71164
+  %read_poll.i = getelementptr inbounds nuw i8, ptr %nc, i64 71164
   store i8 0, ptr %read_poll.i, align 4
-  %fd.i.i = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %5 = load i32, ptr %fd.i.i, align 8
-  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71165
   %6 = load i8, ptr %write_poll.i.i, align 1
   %tobool2.i.i = trunc i8 %6 to i1
   br i1 %tobool2.i.i, label %land.rhs3.i.i, label %tap_read_poll.exit
 
 land.rhs3.i.i:                                    ; preds = %tap_exit_notify.exit
-  %enabled4.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled4.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %7 = load i8, ptr %enabled4.i.i, align 1
   %tobool5.i.i = trunc i8 %7 to i1
   %8 = select i1 %tobool5.i.i, ptr @tap_writable, ptr null
@@ -1851,7 +1851,7 @@ tap_read_poll.exit:                               ; preds = %tap_exit_notify.exi
   br i1 %tobool.i.i, label %land.rhs.i.i, label %tap_write_poll.exit
 
 land.rhs.i.i:                                     ; preds = %tap_read_poll.exit
-  %enabled.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %11 = load i8, ptr %enabled.i.i, align 1
   %tobool1.i.i = trunc i8 %11 to i1
   %12 = select i1 %tobool1.i.i, ptr @tap_send, ptr null
@@ -1870,14 +1870,14 @@ tap_write_poll.exit:                              ; preds = %tap_read_poll.exit,
 define internal void @tap_poll(ptr noundef initializes((71164, 71165)) %nc, i1 noundef zeroext %enable) #2 {
 entry:
   %frombool.i = zext i1 %enable to i8
-  %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 71164
+  %read_poll.i = getelementptr inbounds nuw i8, ptr %nc, i64 71164
   store i8 %frombool.i, ptr %read_poll.i, align 4
-  %fd.i.i = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd.i.i, align 8
   br i1 %enable, label %land.rhs.i.i, label %land.end.i.i
 
 land.rhs.i.i:                                     ; preds = %entry
-  %enabled.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %1 = load i8, ptr %enabled.i.i, align 1
   %tobool1.i.i = trunc i8 %1 to i1
   %2 = select i1 %tobool1.i.i, ptr @tap_send, ptr null
@@ -1885,13 +1885,13 @@ land.rhs.i.i:                                     ; preds = %entry
 
 land.end.i.i:                                     ; preds = %land.rhs.i.i, %entry
   %cond.i.i = phi ptr [ null, %entry ], [ %2, %land.rhs.i.i ]
-  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71165
   %3 = load i8, ptr %write_poll.i.i, align 1
   %tobool2.i.i = trunc i8 %3 to i1
   br i1 %tobool2.i.i, label %land.rhs3.i.i, label %tap_read_poll.exit
 
 land.rhs3.i.i:                                    ; preds = %land.end.i.i
-  %enabled4.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled4.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %4 = load i8, ptr %enabled4.i.i, align 1
   %tobool5.i.i = trunc i8 %4 to i1
   %5 = select i1 %tobool5.i.i, ptr @tap_writable, ptr null
@@ -1907,7 +1907,7 @@ tap_read_poll.exit:                               ; preds = %land.end.i.i, %land
   br i1 %tobool.i.i, label %land.rhs.i.i11, label %land.end.i.i5
 
 land.rhs.i.i11:                                   ; preds = %tap_read_poll.exit
-  %enabled.i.i12 = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled.i.i12 = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %8 = load i8, ptr %enabled.i.i12, align 1
   %tobool1.i.i13 = trunc i8 %8 to i1
   %9 = select i1 %tobool1.i.i13, ptr @tap_send, ptr null
@@ -1918,7 +1918,7 @@ land.end.i.i5:                                    ; preds = %land.rhs.i.i11, %ta
   br i1 %enable, label %land.rhs3.i.i8, label %tap_write_poll.exit
 
 land.rhs3.i.i8:                                   ; preds = %land.end.i.i5
-  %enabled4.i.i9 = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled4.i.i9 = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %10 = load i8, ptr %enabled4.i.i9, align 1
   %tobool5.i.i10 = trunc i8 %10 to i1
   %11 = select i1 %tobool5.i.i10, ptr @tap_writable, ptr null
@@ -1943,7 +1943,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %has_ufo = getelementptr inbounds i8, ptr %nc, i64 71167
+  %has_ufo = getelementptr inbounds nuw i8, ptr %nc, i64 71167
   %2 = load i8, ptr %has_ufo, align 1
   %tobool = trunc i8 %2 to i1
   ret i1 %tobool
@@ -1962,7 +1962,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %has_uso = getelementptr inbounds i8, ptr %nc, i64 71168
+  %has_uso = getelementptr inbounds nuw i8, ptr %nc, i64 71168
   %2 = load i8, ptr %has_uso, align 8
   %tobool = trunc i8 %2 to i1
   ret i1 %tobool
@@ -1981,7 +1981,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
+  %host_vnet_hdr_len = getelementptr inbounds nuw i8, ptr %nc, i64 71184
   %2 = load i32, ptr %host_vnet_hdr_len, align 8
   %tobool = icmp ne i32 %2, 0
   ret i1 %tobool
@@ -2000,7 +2000,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %2 = load i32, ptr %fd, align 8
   %call = tail call i32 @tap_probe_vnet_hdr_len(i32 noundef %2, i32 noundef %len) #15
   %tobool = icmp ne i32 %call, 0
@@ -2010,7 +2010,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @tap_get_using_vnet_hdr(ptr nocapture noundef readonly %nc) #12 {
 entry:
-  %using_vnet_hdr = getelementptr inbounds i8, ptr %nc, i64 71166
+  %using_vnet_hdr = getelementptr inbounds nuw i8, ptr %nc, i64 71166
   %0 = load i8, ptr %using_vnet_hdr, align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -2029,7 +2029,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
+  %host_vnet_hdr_len = getelementptr inbounds nuw i8, ptr %nc, i64 71184
   %2 = load i32, ptr %host_vnet_hdr_len, align 8
   %3 = icmp eq i32 %2, 0
   %cmp4 = xor i1 %using_vnet_hdr, %3
@@ -2041,7 +2041,7 @@ if.else7:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end
   %frombool = zext i1 %using_vnet_hdr to i8
-  %using_vnet_hdr10 = getelementptr inbounds i8, ptr %nc, i64 71166
+  %using_vnet_hdr10 = getelementptr inbounds nuw i8, ptr %nc, i64 71166
   store i8 %frombool, ptr %using_vnet_hdr10, align 2
   ret void
 }
@@ -2049,7 +2049,7 @@ if.end8:                                          ; preds = %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @tap_get_vnet_hdr_len(ptr nocapture noundef readonly %nc) #12 {
 entry:
-  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
+  %host_vnet_hdr_len = getelementptr inbounds nuw i8, ptr %nc, i64 71184
   %0 = load i32, ptr %host_vnet_hdr_len, align 8
   ret i32 %0
 }
@@ -2078,10 +2078,10 @@ if.else12:                                        ; preds = %if.end
   unreachable
 
 if.end13:                                         ; preds = %if.end, %if.end, %if.end
-  %fd = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %2 = load i32, ptr %fd, align 8
   tail call void @tap_fd_set_vnet_hdr_len(i32 noundef %2, i32 noundef %len) #15
-  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
+  %host_vnet_hdr_len = getelementptr inbounds nuw i8, ptr %nc, i64 71184
   store i32 %len, ptr %host_vnet_hdr_len, align 8
   ret void
 }
@@ -2089,7 +2089,7 @@ if.end13:                                         ; preds = %if.end, %if.end, %i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @tap_set_vnet_le(ptr nocapture noundef readonly %nc, i1 noundef zeroext %is_le) #2 {
 entry:
-  %fd = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd, align 8
   %conv = zext i1 %is_le to i32
   %call = tail call i32 @tap_fd_set_vnet_le(i32 noundef %0, i32 noundef %conv) #15
@@ -2099,7 +2099,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @tap_set_vnet_be(ptr nocapture noundef readonly %nc, i1 noundef zeroext %is_be) #2 {
 entry:
-  %fd = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd, align 8
   %conv = zext i1 %is_be to i32
   %call = tail call i32 @tap_fd_set_vnet_be(i32 noundef %0, i32 noundef %conv) #15
@@ -2119,7 +2119,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %2 = load i32, ptr %fd, align 8
   %call = tail call i32 @tap_fd_set_steering_ebpf(i32 noundef %2, i32 noundef %prog_fd) #15
   %cmp2 = icmp eq i32 %call, 0
@@ -2186,9 +2186,9 @@ for.inc:                                          ; preds = %for.body, %if.then9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc, %if.then3
-  %incdec.ptr = getelementptr inbounds i8, ptr %args, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %args, i64 8
   store ptr %setup_script, ptr %args, align 16
-  %incdec.ptr12 = getelementptr inbounds i8, ptr %args, i64 16
+  %incdec.ptr12 = getelementptr inbounds nuw i8, ptr %args, i64 16
   store ptr %ifname, ptr %incdec.ptr, align 8
   store ptr null, ptr %incdec.ptr12, align 16
   %call14 = call i32 @execv(ptr noundef %setup_script, ptr noundef nonnull %args) #15
@@ -2254,10 +2254,10 @@ define internal void @tap_send(ptr noundef %opaque) #2 {
 entry:
   %min_pkt = alloca [60 x i8], align 16
   %min_pktsz = alloca i64, align 8
-  %buf1 = getelementptr inbounds i8, ptr %opaque, i64 1532
-  %fd = getelementptr inbounds i8, ptr %opaque, i64 376
-  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %opaque, i64 71184
-  %using_vnet_hdr = getelementptr inbounds i8, ptr %opaque, i64 71166
+  %buf1 = getelementptr inbounds nuw i8, ptr %opaque, i64 1532
+  %fd = getelementptr inbounds nuw i8, ptr %opaque, i64 376
+  %host_vnet_hdr_len = getelementptr inbounds nuw i8, ptr %opaque, i64 71184
+  %using_vnet_hdr = getelementptr inbounds nuw i8, ptr %opaque, i64 71166
   %0 = getelementptr i8, ptr %opaque, i64 32
   br label %while.body
 
@@ -2294,7 +2294,7 @@ if.end9:                                          ; preds = %if.then6, %land.lhs
   br i1 %tobool.not.i, label %if.end19, label %net_peer_needs_padding.exit
 
 net_peer_needs_padding.exit:                      ; preds = %if.end9
-  %do_not_pad.i = getelementptr inbounds i8, ptr %opaque.val, i64 353
+  %do_not_pad.i = getelementptr inbounds nuw i8, ptr %opaque.val, i64 353
   %4 = load i8, ptr %do_not_pad.i, align 1
   %tobool2.i = trunc i8 %4 to i1
   br i1 %tobool2.i, label %if.end19, label %if.then11
@@ -2318,16 +2318,16 @@ if.end19:                                         ; preds = %if.end9, %if.then11
   br i1 %cmp23, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %if.end19
-  %read_poll.i = getelementptr inbounds i8, ptr %opaque, i64 71164
+  %read_poll.i = getelementptr inbounds nuw i8, ptr %opaque, i64 71164
   store i8 0, ptr %read_poll.i, align 4
   %6 = load i32, ptr %fd, align 8
-  %write_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 71165
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 71165
   %7 = load i8, ptr %write_poll.i.i, align 1
   %tobool2.i.i = trunc i8 %7 to i1
   br i1 %tobool2.i.i, label %land.rhs3.i.i, label %tap_read_poll.exit
 
 land.rhs3.i.i:                                    ; preds = %if.then25
-  %enabled4.i.i = getelementptr inbounds i8, ptr %opaque, i64 71169
+  %enabled4.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 71169
   %8 = load i8, ptr %enabled4.i.i, align 1
   %tobool5.i.i = trunc i8 %8 to i1
   %9 = select i1 %tobool5.i.i, ptr @tap_writable, ptr null
@@ -2352,17 +2352,17 @@ while.end:                                        ; preds = %if.else, %while.bod
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tap_writable(ptr noundef initializes((71165, 71166)) %opaque) #2 {
 entry:
-  %write_poll.i = getelementptr inbounds i8, ptr %opaque, i64 71165
+  %write_poll.i = getelementptr inbounds nuw i8, ptr %opaque, i64 71165
   store i8 0, ptr %write_poll.i, align 1
-  %fd.i.i = getelementptr inbounds i8, ptr %opaque, i64 376
+  %fd.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 376
   %0 = load i32, ptr %fd.i.i, align 8
-  %read_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 71164
+  %read_poll.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 71164
   %1 = load i8, ptr %read_poll.i.i, align 4
   %tobool.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i, label %land.rhs.i.i, label %tap_write_poll.exit
 
 land.rhs.i.i:                                     ; preds = %entry
-  %enabled.i.i = getelementptr inbounds i8, ptr %opaque, i64 71169
+  %enabled.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 71169
   %2 = load i8, ptr %enabled.i.i, align 1
   %tobool1.i.i = trunc i8 %2 to i1
   %3 = select i1 %tobool1.i.i, ptr @tap_send, ptr null
@@ -2382,15 +2382,15 @@ declare i64 @qemu_send_packet_async(ptr noundef, ptr noundef, i32 noundef, ptr n
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tap_send_completed(ptr noundef initializes((71164, 71165)) %nc, i64 %len) #2 {
 entry:
-  %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 71164
+  %read_poll.i = getelementptr inbounds nuw i8, ptr %nc, i64 71164
   store i8 1, ptr %read_poll.i, align 4
-  %fd.i.i = getelementptr inbounds i8, ptr %nc, i64 376
+  %fd.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd.i.i, align 8
-  %enabled.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
+  %enabled.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71169
   %1 = load i8, ptr %enabled.i.i, align 1
   %tobool1.i.i = trunc i8 %1 to i1
   %2 = select i1 %tobool1.i.i, ptr @tap_send, ptr null
-  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
+  %write_poll.i.i = getelementptr inbounds nuw i8, ptr %nc, i64 71165
   %3 = load i8, ptr %write_poll.i.i, align 1
   %4 = and i8 %3, %1
   %5 = trunc i8 %4 to i1

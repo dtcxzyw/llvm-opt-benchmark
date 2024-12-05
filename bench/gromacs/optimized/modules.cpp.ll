@@ -103,10 +103,10 @@ define void @_ZN3gmx33registerTrajectoryAnalysisModulesEPNS_24CommandLineModuleM
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
   store ptr %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 24
-  %35 = getelementptr inbounds i8, ptr %31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr @_ZN3gmx15analysismodules9AngleInfo6createEv, ptr %31, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %34, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %35, align 8
@@ -158,10 +158,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9AngleInfoEEEvPNS_24Co
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
   store ptr %32, ptr %28, align 8
-  %51 = getelementptr inbounds i8, ptr %29, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %29, i64 24
-  %53 = getelementptr inbounds i8, ptr %29, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr @_ZN3gmx15analysismodules14ConvertTrjInfo6createEv, ptr %29, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %52, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %53, align 8
@@ -209,10 +209,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ConvertTrjInfoEEEvPN
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
   store ptr %32, ptr %26, align 8
-  %69 = getelementptr inbounds i8, ptr %27, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 0, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %27, i64 24
-  %71 = getelementptr inbounds i8, ptr %27, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr @_ZN3gmx15analysismodules12DistanceInfo6createEv, ptr %27, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %70, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %71, align 8
@@ -260,10 +260,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules12DistanceInfoEEEvPNS_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   store ptr %32, ptr %24, align 8
-  %87 = getelementptr inbounds i8, ptr %25, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %25, i64 24
-  %89 = getelementptr inbounds i8, ptr %25, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr @_ZN3gmx15analysismodules8DsspInfo6createEv, ptr %25, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %88, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %89, align 8
@@ -311,10 +311,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8DsspInfoEEEvPNS_24Com
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   store ptr %32, ptr %22, align 8
-  %105 = getelementptr inbounds i8, ptr %23, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %23, i64 24
-  %107 = getelementptr inbounds i8, ptr %23, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr @_ZN3gmx15analysismodules18ExtractClusterInfo6createEv, ptr %23, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %106, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %107, align 8
@@ -362,10 +362,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules18ExtractClusterInfoEE
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   store ptr %32, ptr %20, align 8
-  %123 = getelementptr inbounds i8, ptr %21, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %21, i64 24
-  %125 = getelementptr inbounds i8, ptr %21, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr @_ZN3gmx15analysismodules14FreeVolumeInfo6createEv, ptr %21, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %124, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %125, align 8
@@ -413,10 +413,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14FreeVolumeInfoEEEvPN
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   store ptr %32, ptr %18, align 8
-  %141 = getelementptr inbounds i8, ptr %19, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %19, i64 24
-  %143 = getelementptr inbounds i8, ptr %19, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr @_ZN3gmx15analysismodules9HbondInfo6createEv, ptr %19, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %142, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %143, align 8
@@ -464,10 +464,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules9HbondInfoEEEvPNS_24Co
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   store ptr %32, ptr %16, align 8
-  %159 = getelementptr inbounds i8, ptr %17, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %17, i64 24
-  %161 = getelementptr inbounds i8, ptr %17, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %161 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr @_ZN3gmx15analysismodules7MsdInfo6createEv, ptr %17, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %160, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %161, align 8
@@ -515,10 +515,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7MsdInfoEEEvPNS_24Comm
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   store ptr %32, ptr %14, align 8
-  %177 = getelementptr inbounds i8, ptr %15, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %15, i64 24
-  %179 = getelementptr inbounds i8, ptr %15, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr @_ZN3gmx15analysismodules16PairDistanceInfo6createEv, ptr %15, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %178, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %179, align 8
@@ -566,10 +566,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules16PairDistanceInfoEEEv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   store ptr %32, ptr %12, align 8
-  %195 = getelementptr inbounds i8, ptr %13, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %195, align 8
-  %196 = getelementptr inbounds i8, ptr %13, i64 24
-  %197 = getelementptr inbounds i8, ptr %13, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr @_ZN3gmx15analysismodules7RdfInfo6createEv, ptr %13, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %196, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %197, align 8
@@ -617,10 +617,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules7RdfInfoEEEvPNS_24Comm
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   store ptr %32, ptr %10, align 8
-  %213 = getelementptr inbounds i8, ptr %11, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %11, i64 24
-  %215 = getelementptr inbounds i8, ptr %11, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %215 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @_ZN3gmx15analysismodules8SasaInfo6createEv, ptr %11, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %214, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %215, align 8
@@ -668,10 +668,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules8SasaInfoEEEvPNS_24Com
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %32, ptr %8, align 8
-  %231 = getelementptr inbounds i8, ptr %9, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %231, align 8
-  %232 = getelementptr inbounds i8, ptr %9, i64 24
-  %233 = getelementptr inbounds i8, ptr %9, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr @_ZN3gmx15analysismodules14ScatteringInfo6createEv, ptr %9, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %232, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %233, align 8
@@ -719,10 +719,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14ScatteringInfoEEEvPN
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %32, ptr %6, align 8
-  %249 = getelementptr inbounds i8, ptr %7, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %249, align 8
-  %250 = getelementptr inbounds i8, ptr %7, i64 24
-  %251 = getelementptr inbounds i8, ptr %7, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %251 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @_ZN3gmx15analysismodules10SelectInfo6createEv, ptr %7, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %250, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %251, align 8
@@ -770,10 +770,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules10SelectInfoEEEvPNS_24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %32, ptr %4, align 8
-  %267 = getelementptr inbounds i8, ptr %5, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %267, align 8
-  %268 = getelementptr inbounds i8, ptr %5, i64 24
-  %269 = getelementptr inbounds i8, ptr %5, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %269 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZN3gmx15analysismodules14TrajectoryInfo6createEv, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %268, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %269, align 8
@@ -821,10 +821,10 @@ _ZN3gmx12_GLOBAL__N_114registerModuleINS_15analysismodules14TrajectoryInfoEEEvPN
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %32, ptr %2, align 8
-  %285 = getelementptr inbounds i8, ptr %3, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %285, align 8
-  %286 = getelementptr inbounds i8, ptr %3, i64 24
-  %287 = getelementptr inbounds i8, ptr %3, i64 16
+  %286 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %287 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @_ZN3gmx15analysismodules10GyrateInfo6createEv, ptr %3, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %286, align 8
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %287, align 8

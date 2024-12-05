@@ -124,7 +124,7 @@ define noundef i32 @_ZNK6icu_7514IndianCalendar14handleGetLimitE19UCalendarDateF
 entry:
   %idxprom = zext i32 %field to i64
   %idxprom2 = zext i32 %limitType to i64
-  %arrayidx3 = getelementptr inbounds [24 x [4 x i32]], ptr @_ZN6icu_75L6LIMITSE, i64 0, i64 %idxprom, i64 %idxprom2
+  %arrayidx3 = getelementptr inbounds nuw [24 x [4 x i32]], ptr @_ZN6icu_75L6LIMITSE, i64 0, i64 %idxprom, i64 %idxprom2
   %0 = load i32, ptr %arrayidx3, align 4
   ret i32 %0
 }
@@ -271,24 +271,24 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 208
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %cond.true.i, label %if.end
 
 cond.true.i:                                      ; preds = %if.then
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 88
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %1 = load i32, ptr %arrayidx3.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %arrayidx.i2 = getelementptr inbounds i8, ptr %this, i64 136
+  %arrayidx.i2 = getelementptr inbounds nuw i8, ptr %this, i64 136
   %2 = load i32, ptr %arrayidx.i2, align 8
   %cmp.i3 = icmp sgt i32 %2, 0
   br i1 %cmp.i3, label %cond.true.i5, label %if.end
 
 cond.true.i5:                                     ; preds = %if.else
-  %arrayidx3.i7 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3.i7 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %arrayidx3.i7, align 8
   br label %if.end
 
@@ -309,8 +309,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %gdow.i)
   %sub.i = fadd double %conv, 0xC1429EC600000000
   %conv.i = fptosi double %sub.i to i32
-  %arrayidx1.i = getelementptr inbounds i8, ptr %gd, i64 4
-  %arrayidx2.i = getelementptr inbounds i8, ptr %gd, i64 8
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %gd, i64 4
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %gd, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %doy_unused.i.i)
   call void @_ZN6icu_755Grego11dayToFieldsEiRiS1_S1_S1_S1_(i32 noundef %conv.i, ptr noundef nonnull align 4 dereferenceable(4) %gd, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx1.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx2.i, ptr noundef nonnull align 4 dereferenceable(4) %gdow.i, ptr noundef nonnull align 4 dereferenceable(4) %doy_unused.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %doy_unused.i.i)
@@ -407,48 +407,48 @@ if.end38:                                         ; preds = %if.end, %if.then22,
   %IndianMonth.0 = phi i32 [ %add26, %if.then22 ], [ %add34, %if.else28 ], [ 0, %if.end ]
   %IndianDayOfMonth.0.in = phi i32 [ %rem.sext, %if.then22 ], [ %rem35, %if.else28 ], [ %yday.0, %if.end ]
   %IndianDayOfMonth.0 = add nsw i32 %IndianDayOfMonth.0.in, 1
-  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
+  %fFields.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %fFields.i, align 4
-  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %fStamp.i = getelementptr inbounds nuw i8, ptr %this, i64 132
   store i32 1, ptr %fStamp.i, align 4
-  %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
+  %fIsSet.i = getelementptr inbounds nuw i8, ptr %this, i64 108
   store i8 1, ptr %fIsSet.i, align 4
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 88
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 %IndianYear.0, ptr %arrayidx.i, align 8
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 208
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i32 1, ptr %arrayidx3.i, align 8
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 127
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 127
   store i8 1, ptr %arrayidx5.i, align 1
-  %arrayidx.i36 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx.i36 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %IndianYear.0, ptr %arrayidx.i36, align 8
-  %arrayidx3.i38 = getelementptr inbounds i8, ptr %this, i64 136
+  %arrayidx3.i38 = getelementptr inbounds nuw i8, ptr %this, i64 136
   store i32 1, ptr %arrayidx3.i38, align 8
-  %arrayidx5.i40 = getelementptr inbounds i8, ptr %this, i64 109
+  %arrayidx5.i40 = getelementptr inbounds nuw i8, ptr %this, i64 109
   store i8 1, ptr %arrayidx5.i40, align 1
-  %arrayidx.i42 = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayidx.i42 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %IndianMonth.0, ptr %arrayidx.i42, align 4
-  %arrayidx3.i44 = getelementptr inbounds i8, ptr %this, i64 140
+  %arrayidx3.i44 = getelementptr inbounds nuw i8, ptr %this, i64 140
   store i32 1, ptr %arrayidx3.i44, align 4
-  %arrayidx5.i46 = getelementptr inbounds i8, ptr %this, i64 110
+  %arrayidx5.i46 = getelementptr inbounds nuw i8, ptr %this, i64 110
   store i8 1, ptr %arrayidx5.i46, align 2
-  %arrayidx.i48 = getelementptr inbounds i8, ptr %this, i64 104
+  %arrayidx.i48 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 %IndianMonth.0, ptr %arrayidx.i48, align 8
-  %arrayidx3.i50 = getelementptr inbounds i8, ptr %this, i64 224
+  %arrayidx3.i50 = getelementptr inbounds nuw i8, ptr %this, i64 224
   store i32 1, ptr %arrayidx3.i50, align 8
-  %arrayidx5.i52 = getelementptr inbounds i8, ptr %this, i64 131
+  %arrayidx5.i52 = getelementptr inbounds nuw i8, ptr %this, i64 131
   store i8 1, ptr %arrayidx5.i52, align 1
-  %arrayidx.i54 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx.i54 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %IndianDayOfMonth.0, ptr %arrayidx.i54, align 8
-  %arrayidx3.i56 = getelementptr inbounds i8, ptr %this, i64 152
+  %arrayidx3.i56 = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i32 1, ptr %arrayidx3.i56, align 8
-  %arrayidx5.i58 = getelementptr inbounds i8, ptr %this, i64 113
+  %arrayidx5.i58 = getelementptr inbounds nuw i8, ptr %this, i64 113
   store i8 1, ptr %arrayidx5.i58, align 1
   %add39 = add nsw i32 %yday.0, 1
-  %arrayidx.i60 = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx.i60 = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 %add39, ptr %arrayidx.i60, align 4
-  %arrayidx3.i62 = getelementptr inbounds i8, ptr %this, i64 156
+  %arrayidx3.i62 = getelementptr inbounds nuw i8, ptr %this, i64 156
   store i32 1, ptr %arrayidx3.i62, align 4
-  %arrayidx5.i64 = getelementptr inbounds i8, ptr %this, i64 114
+  %arrayidx5.i64 = getelementptr inbounds nuw i8, ptr %this, i64 114
   store i8 1, ptr %arrayidx5.i64, align 2
   ret void
 }

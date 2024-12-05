@@ -12,14 +12,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1EncryptInit(ptr noundef 
 8:                                                ; preds = %5
   %9 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #2
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1824
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1824
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i8 %12(ptr noundef nonnull %0) #2
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %14, label %19
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %6, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 240
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 %16(i64 noundef %2, ptr noundef %9, i64 noundef %4) #2
   tail call void @freeCKMechanismPtr(ptr noundef %9) #2
@@ -47,7 +47,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GCMEncryptInitWithRetry(
 9:                                                ; preds = %6
   %10 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1824
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1824
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i8 %13(ptr noundef nonnull %0) #2
   %.not = icmp eq i8 %14, 0
@@ -64,7 +64,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GCMEncryptInitWithRetry(
 
 19:                                               ; preds = %16, %15
   %20 = phi i1 [ false, %15 ], [ %18, %16 ]
-  %21 = getelementptr inbounds i8, ptr %7, i64 240
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 %22(i64 noundef %2, ptr noundef %10, i64 noundef %4) #2
   %24 = icmp eq i64 %23, 7
@@ -112,7 +112,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Encrypt(ptr noundef %0, p
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1776
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1776
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %21(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #2
   %23 = icmp eq ptr %22, null
@@ -129,7 +129,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Encrypt(ptr noundef %0, p
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1776
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1776
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %8, ptr noundef null) #2
   %32 = icmp eq ptr %31, null
@@ -140,7 +140,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Encrypt(ptr noundef %0, p
 
 34:                                               ; preds = %33
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1784
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1784
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %.042, i32 noundef 2) #2
   br label %61
@@ -149,7 +149,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Encrypt(ptr noundef %0, p
   %.041 = phi ptr [ %26, %25 ], [ %31, %27 ]
   %39 = sext i32 %10 to i64
   store i64 %39, ptr %12, align 8
-  %40 = getelementptr inbounds i8, ptr %13, i64 248
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 248
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %5 to i64
   %43 = getelementptr inbounds i8, ptr %.042, i64 %42
@@ -161,7 +161,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Encrypt(ptr noundef %0, p
 
 48:                                               ; preds = %38
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1784
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1784
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %.042, i32 noundef 2) #2
   br label %52
@@ -171,7 +171,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Encrypt(ptr noundef %0, p
 
 53:                                               ; preds = %52
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1784
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1784
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %.041, i32 noundef 0) #2
   br label %57
@@ -204,7 +204,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1EncryptUpdate(ptr noundef
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1776
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1776
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %21(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #2
   %23 = icmp eq ptr %22, null
@@ -221,7 +221,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1EncryptUpdate(ptr noundef
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1776
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1776
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %8, ptr noundef null) #2
   %32 = icmp eq ptr %31, null
@@ -232,7 +232,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1EncryptUpdate(ptr noundef
 
 34:                                               ; preds = %33
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1784
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1784
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %.042, i32 noundef 2) #2
   br label %61
@@ -241,7 +241,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1EncryptUpdate(ptr noundef
   %.041 = phi ptr [ %26, %25 ], [ %31, %27 ]
   %39 = sext i32 %10 to i64
   store i64 %39, ptr %12, align 8
-  %40 = getelementptr inbounds i8, ptr %13, i64 256
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 256
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %5 to i64
   %43 = getelementptr inbounds i8, ptr %.042, i64 %42
@@ -253,7 +253,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1EncryptUpdate(ptr noundef
 
 48:                                               ; preds = %38
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1784
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1784
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %.042, i32 noundef 2) #2
   br label %52
@@ -263,7 +263,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1EncryptUpdate(ptr noundef
 
 53:                                               ; preds = %52
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1784
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1784
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %.041, i32 noundef 0) #2
   br label %57
@@ -296,7 +296,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1EncryptFinal(ptr noundef 
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1776
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1776
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #2
   %19 = icmp eq ptr %18, null
@@ -306,7 +306,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1EncryptFinal(ptr noundef 
   %.022 = phi ptr [ %13, %12 ], [ %18, %14 ]
   %21 = sext i32 %6 to i64
   store i64 %21, ptr %8, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 264
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %5 to i64
   %25 = getelementptr inbounds i8, ptr %.022, i64 %24
@@ -315,7 +315,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1EncryptFinal(ptr noundef 
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1784
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1784
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %.022, i32 noundef 0) #2
   br label %31
@@ -340,14 +340,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DecryptInit(ptr noundef 
 8:                                                ; preds = %5
   %9 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #2
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1824
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1824
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i8 %12(ptr noundef nonnull %0) #2
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %14, label %19
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %6, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 %16(i64 noundef %2, ptr noundef %9, i64 noundef %4) #2
   tail call void @freeCKMechanismPtr(ptr noundef %9) #2
@@ -367,7 +367,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GCMDecryptInitWithRetry(
 9:                                                ; preds = %6
   %10 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1824
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1824
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i8 %13(ptr noundef nonnull %0) #2
   %.not = icmp eq i8 %14, 0
@@ -384,7 +384,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GCMDecryptInitWithRetry(
 
 19:                                               ; preds = %16, %15
   %20 = phi i1 [ false, %15 ], [ %18, %16 ]
-  %21 = getelementptr inbounds i8, ptr %7, i64 272
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 %22(i64 noundef %2, ptr noundef %10, i64 noundef %4) #2
   %24 = icmp eq i64 %23, 7
@@ -430,7 +430,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Decrypt(ptr noundef %0, p
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1776
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1776
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %21(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #2
   %23 = icmp eq ptr %22, null
@@ -447,7 +447,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Decrypt(ptr noundef %0, p
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1776
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1776
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %8, ptr noundef null) #2
   %32 = icmp eq ptr %31, null
@@ -458,7 +458,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Decrypt(ptr noundef %0, p
 
 34:                                               ; preds = %33
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1784
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1784
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %.042, i32 noundef 2) #2
   br label %61
@@ -467,7 +467,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Decrypt(ptr noundef %0, p
   %.041 = phi ptr [ %26, %25 ], [ %31, %27 ]
   %39 = sext i32 %10 to i64
   store i64 %39, ptr %12, align 8
-  %40 = getelementptr inbounds i8, ptr %13, i64 280
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 280
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %5 to i64
   %43 = getelementptr inbounds i8, ptr %.042, i64 %42
@@ -479,7 +479,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Decrypt(ptr noundef %0, p
 
 48:                                               ; preds = %38
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1784
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1784
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %.042, i32 noundef 2) #2
   br label %52
@@ -489,7 +489,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Decrypt(ptr noundef %0, p
 
 53:                                               ; preds = %52
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1784
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1784
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %.041, i32 noundef 0) #2
   br label %57
@@ -522,7 +522,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DecryptUpdate(ptr noundef
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1776
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1776
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %21(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #2
   %23 = icmp eq ptr %22, null
@@ -539,7 +539,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DecryptUpdate(ptr noundef
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1776
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1776
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %8, ptr noundef null) #2
   %32 = icmp eq ptr %31, null
@@ -550,7 +550,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DecryptUpdate(ptr noundef
 
 34:                                               ; preds = %33
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1784
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1784
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %.042, i32 noundef 2) #2
   br label %61
@@ -559,7 +559,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DecryptUpdate(ptr noundef
   %.041 = phi ptr [ %26, %25 ], [ %31, %27 ]
   %39 = sext i32 %10 to i64
   store i64 %39, ptr %12, align 8
-  %40 = getelementptr inbounds i8, ptr %13, i64 288
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 288
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %5 to i64
   %43 = getelementptr inbounds i8, ptr %.042, i64 %42
@@ -571,7 +571,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DecryptUpdate(ptr noundef
 
 48:                                               ; preds = %38
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1784
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1784
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %.042, i32 noundef 2) #2
   br label %52
@@ -581,7 +581,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DecryptUpdate(ptr noundef
 
 53:                                               ; preds = %52
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1784
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1784
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %.041, i32 noundef 0) #2
   br label %57
@@ -614,7 +614,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DecryptFinal(ptr noundef 
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1776
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1776
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #2
   %19 = icmp eq ptr %18, null
@@ -624,7 +624,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DecryptFinal(ptr noundef 
   %.022 = phi ptr [ %13, %12 ], [ %18, %14 ]
   %21 = sext i32 %6 to i64
   store i64 %21, ptr %8, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 296
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 296
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %5 to i64
   %25 = getelementptr inbounds i8, ptr %.022, i64 %24
@@ -633,7 +633,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DecryptFinal(ptr noundef 
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1784
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1784
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %.022, i32 noundef 0) #2
   br label %31

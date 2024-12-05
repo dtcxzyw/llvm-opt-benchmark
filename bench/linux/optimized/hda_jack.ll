@@ -47,7 +47,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hda_jack
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @is_jack_detectable(ptr noundef %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 1432
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 512
   %7 = icmp eq i32 %6, 0
@@ -73,21 +73,21 @@ define dso_local noundef zeroext i1 @is_jack_detectable(ptr noundef %0, i16 noun
 
 19:                                               ; preds = %15
   %20 = zext i16 %1 to i32
-  %21 = getelementptr inbounds i8, ptr %0, i64 828
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 828
   %22 = load i16, ptr %21, align 4
   %23 = zext i16 %22 to i32
   %24 = icmp ugt i16 %22, %1
   br i1 %24, label %39, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 824
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, %23
   %29 = icmp ugt i32 %28, %20
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 1144
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %32 = load ptr, ptr %31, align 8
   %33 = sub nsw i32 %20, %23
   %34 = sext i32 %33 to i64
@@ -98,7 +98,7 @@ define dso_local noundef zeroext i1 @is_jack_detectable(ptr noundef %0, i16 noun
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %30, %25, %19
-  %40 = getelementptr inbounds i8, ptr %0, i64 1504
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %44, label %43
@@ -116,7 +116,7 @@ declare dso_local i32 @snd_hda_codec_get_pincfg(ptr noundef, i16 noundef zeroext
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local noundef ptr @snd_hda_jack_tbl_get_mst(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2) #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1496
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne i16 %1, 0
   %7 = icmp ne ptr %5, null
@@ -124,7 +124,7 @@ define dso_local noundef ptr @snd_hda_jack_tbl_get_mst(ptr nocapture noundef rea
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 1480
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.loopexit, label %.preheader
@@ -137,7 +137,7 @@ define dso_local noundef ptr @snd_hda_jack_tbl_get_mst(ptr nocapture noundef rea
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %14, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %2
   br i1 %20, label %.loopexit, label %21
@@ -161,7 +161,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local ptr @snd_hda_jack_tbl_get_from_tag(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1496
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne i8 %1, 0
   %7 = icmp ne ptr %5, null
@@ -169,7 +169,7 @@ define dso_local ptr @snd_hda_jack_tbl_get_from_tag(ptr nocapture noundef readon
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 1480
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.loopexit, label %.preheader
@@ -177,13 +177,13 @@ define dso_local ptr @snd_hda_jack_tbl_get_from_tag(ptr nocapture noundef readon
 .preheader:                                       ; preds = %9, %22
   %13 = phi i32 [ %23, %22 ], [ 0, %9 ]
   %14 = phi ptr [ %24, %22 ], [ %5, %9 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, %1
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %.preheader
-  %19 = getelementptr inbounds i8, ptr %14, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %2
   br i1 %21, label %.loopexit, label %22
@@ -201,16 +201,16 @@ define dso_local ptr @snd_hda_jack_tbl_get_from_tag(ptr nocapture noundef readon
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hda_jack_tbl_disconnect(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1480
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1496
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 952
-  %9 = getelementptr inbounds i8, ptr %0, i64 960
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 960
   br label %10
 
 10:                                               ; preds = %25, %5
@@ -218,14 +218,14 @@ define dso_local void @snd_hda_jack_tbl_disconnect(ptr nocapture noundef readonl
   %12 = phi i32 [ 0, %5 ], [ %27, %25 ]
   %13 = phi ptr [ %7, %5 ], [ %28, %25 ]
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1384
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1384
   %16 = load i8, ptr %15, align 8
   %17 = and i8 %16, 2
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %13, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %25, label %23
@@ -252,30 +252,30 @@ declare dso_local void @snd_device_disconnect(ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hda_jack_tbl_clear(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1480
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit3, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1496
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 952
-  %9 = getelementptr inbounds i8, ptr %0, i64 960
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 960
   br label %10
 
 10:                                               ; preds = %.loopexit, %5
   %11 = phi i32 [ 0, %5 ], [ %32, %.loopexit ]
   %12 = phi ptr [ %7, %5 ], [ %33, %.loopexit ]
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1384
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1384
   %15 = load i8, ptr %14, align 8
   %16 = and i8 %15, 2
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %12, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %24, label %22
@@ -286,14 +286,14 @@ define dso_local void @snd_hda_jack_tbl_clear(ptr noundef %0) local_unnamed_addr
   br label %24
 
 24:                                               ; preds = %22, %18, %10
-  %25 = getelementptr inbounds i8, ptr %12, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %24, %.preheader
   %28 = phi ptr [ %30, %.preheader ], [ %26, %24 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
   tail call void @kfree(ptr noundef nonnull %28) #11
   %31 = icmp eq ptr %30, null
@@ -307,7 +307,7 @@ define dso_local void @snd_hda_jack_tbl_clear(ptr noundef %0) local_unnamed_addr
   br i1 %35, label %10, label %.loopexit3, !llvm.loop !12
 
 .loopexit3:                                       ; preds = %.loopexit, %1
-  tail call void @snd_array_free(ptr noundef %2) #11
+  tail call void @snd_array_free(ptr noundef nonnull %2) #11
   ret void
 }
 
@@ -322,13 +322,13 @@ declare dso_local void @snd_array_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local void @snd_hda_jack_set_dirty_all(ptr nocapture noundef readonly %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1480
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1496
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -341,7 +341,7 @@ define dso_local void @snd_hda_jack_set_dirty_all(ptr nocapture noundef readonly
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %11, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %16 = load i8, ptr %15, align 4
   %17 = or i8 %16, 2
   store i8 %17, ptr %15, align 4
@@ -362,7 +362,7 @@ define dso_local void @snd_hda_jack_set_dirty_all(ptr nocapture noundef readonly
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hda_jack_pin_sense(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 1496
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne i16 %1, 0
   %8 = icmp ne ptr %6, null
@@ -370,7 +370,7 @@ define dso_local i32 @snd_hda_jack_pin_sense(ptr noundef %0, i16 noundef zeroext
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 1480
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.thread, label %.preheader
@@ -383,7 +383,7 @@ define dso_local i32 @snd_hda_jack_pin_sense(ptr noundef %0, i16 noundef zeroext
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %.preheader
-  %19 = getelementptr inbounds i8, ptr %15, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %2
   br i1 %21, label %26, label %22
@@ -400,12 +400,12 @@ define dso_local i32 @snd_hda_jack_pin_sense(ptr noundef %0, i16 noundef zeroext
 
 28:                                               ; preds = %26
   tail call fastcc void @jack_detect_update(ptr noundef %0, ptr noundef nonnull %15)
-  %29 = getelementptr inbounds i8, ptr %15, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %30 = load i32, ptr %29, align 8
   br label %50
 
 .thread:                                          ; preds = %22, %10, %3, %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 1432
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 256
   %34 = icmp eq i32 %33, 0
@@ -443,7 +443,7 @@ define dso_local i32 @snd_hda_jack_pin_sense(ptr noundef %0, i16 noundef zeroext
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @jack_detect_update(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 2
   %7 = icmp eq i8 %6, 0
@@ -456,9 +456,9 @@ define internal fastcc void @jack_detect_update(ptr noundef %0, ptr nocapture no
 
 11:                                               ; preds = %8
   %12 = load i16, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 1432
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 256
   %18 = icmp eq i32 %17, 0
@@ -490,23 +490,23 @@ define internal fastcc void @jack_detect_update(ptr noundef %0, ptr nocapture no
 
 34:                                               ; preds = %28, %8
   %35 = phi i32 [ %33, %28 ], [ -2147483648, %8 ]
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 30
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %38 = load i16, ptr %37, align 2
   %39 = icmp eq i16 %38, 0
   br i1 %39, label %74, label %40
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %1, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 1496
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %0, i64 1480
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.thread, label %.preheader10
@@ -519,7 +519,7 @@ define internal fastcc void @jack_detect_update(ptr noundef %0, ptr nocapture no
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %.preheader10
-  %55 = getelementptr inbounds i8, ptr %51, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, %42
   br i1 %57, label %62, label %58
@@ -535,7 +535,7 @@ define internal fastcc void @jack_detect_update(ptr noundef %0, ptr nocapture no
   br i1 %63, label %.thread, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %51, i64 28
+  %65 = getelementptr inbounds nuw i8, ptr %51, i64 28
   %66 = load i8, ptr %65, align 4
   %67 = and i8 %66, 4
   %68 = icmp eq i8 %67, 0
@@ -556,21 +556,21 @@ define internal fastcc void @jack_detect_update(ptr noundef %0, ptr nocapture no
   %75 = load i8, ptr %4, align 4
   %76 = and i8 %75, -3
   store i8 %76, ptr %4, align 4
-  %77 = getelementptr inbounds i8, ptr %1, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %78 = load i16, ptr %77, align 8
   %79 = icmp eq i16 %78, 0
   br i1 %79, label %.thread9, label %80
 
 80:                                               ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %1, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %0, i64 1496
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.thread9, label %86
 
 86:                                               ; preds = %80
-  %87 = getelementptr inbounds i8, ptr %0, i64 1480
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %88 = load i32, ptr %87, align 8
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %.thread9, label %.preheader
@@ -583,7 +583,7 @@ define internal fastcc void @jack_detect_update(ptr noundef %0, ptr nocapture no
   br i1 %93, label %94, label %98
 
 94:                                               ; preds = %.preheader
-  %95 = getelementptr inbounds i8, ptr %91, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %96, %82
   br i1 %97, label %102, label %98
@@ -599,7 +599,7 @@ define internal fastcc void @jack_detect_update(ptr noundef %0, ptr nocapture no
   br i1 %103, label %.thread9, label %104
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %91, i64 28
+  %105 = getelementptr inbounds nuw i8, ptr %91, i64 28
   %106 = load i8, ptr %105, align 4
   %107 = or i8 %106, 2
   store i8 %107, ptr %105, align 4
@@ -612,7 +612,7 @@ define internal fastcc void @jack_detect_update(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 3) i32 @snd_hda_jack_detect_state_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1496
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne i16 %1, 0
   %7 = icmp ne ptr %5, null
@@ -620,7 +620,7 @@ define dso_local range(i32 0, 3) i32 @snd_hda_jack_detect_state_mst(ptr noundef 
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 1480
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.thread, label %.preheader
@@ -633,7 +633,7 @@ define dso_local range(i32 0, 3) i32 @snd_hda_jack_detect_state_mst(ptr noundef 
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %14, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %2
   br i1 %20, label %25, label %21
@@ -649,7 +649,7 @@ define dso_local range(i32 0, 3) i32 @snd_hda_jack_detect_state_mst(ptr noundef 
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %14, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %29 = load i8, ptr %28, align 4
   %30 = and i8 %29, 4
   %31 = icmp eq i8 %30, 0
@@ -676,20 +676,20 @@ define dso_local ptr @snd_hda_jack_detect_enable_callback_mst(ptr noundef %0, i1
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %9, %17
   %13 = phi ptr [ %19, %17 ], [ %11, %9 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %3
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %13, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !14
@@ -701,23 +701,23 @@ define dso_local ptr @snd_hda_jack_detect_enable_callback_mst(ptr noundef %0, i1
   br i1 %23, label %55, label %24
 
 24:                                               ; preds = %.loopexit
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %3, ptr %25, align 8
   %26 = load i16, ptr %5, align 8
   store i16 %26, ptr %22, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %22, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %28, ptr %29, align 4
   %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds i8, ptr %22, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %30, ptr %31, align 8
   store ptr %22, ptr %10, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %7, %24
   %32 = phi ptr [ %22, %24 ], [ null, %7 ], [ %13, %.preheader ]
-  %33 = getelementptr inbounds i8, ptr %5, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %34 = load i8, ptr %33, align 4
   %35 = and i8 %34, 1
   %36 = icmp eq i8 %35, 0
@@ -726,13 +726,13 @@ define dso_local ptr @snd_hda_jack_detect_enable_callback_mst(ptr noundef %0, i1
 37:                                               ; preds = %.thread
   %38 = or disjoint i8 %34, 1
   store i8 %38, ptr %33, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 1504
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %42, label %55
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %5, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %44 = load i8, ptr %43, align 8
   %45 = or i8 %44, -128
   %46 = zext i8 %45 to i32
@@ -755,7 +755,7 @@ define dso_local ptr @snd_hda_jack_detect_enable_callback_mst(ptr noundef %0, i1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1496
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne i16 %1, 0
   %7 = icmp ne ptr %5, null
@@ -763,7 +763,7 @@ define internal fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zer
   br i1 %8, label %9, label %.thread8
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 1480
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.thread8, label %.preheader9
@@ -776,7 +776,7 @@ define internal fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zer
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %.preheader9
-  %18 = getelementptr inbounds i8, ptr %14, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %2
   br i1 %20, label %.preheader.preheader, label %21
@@ -811,7 +811,7 @@ define internal fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zer
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %.thread8
-  %38 = getelementptr inbounds i8, ptr %0, i64 1432
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 16384
   %41 = icmp eq i32 %40, 0
@@ -828,28 +828,28 @@ define internal fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zer
   br i1 %44, label %45, label %67
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 1480
-  %47 = tail call ptr @snd_array_new(ptr noundef %46) #11
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %47 = tail call ptr @snd_array_new(ptr noundef nonnull %46) #11
   %48 = icmp eq ptr %47, null
   br i1 %48, label %67, label %49
 
 49:                                               ; preds = %45
   store i16 %1, ptr %47, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %2, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %47, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %52 = load i8, ptr %51, align 4
   %53 = or i8 %52, 2
   store i8 %53, ptr %51, align 4
   %54 = icmp eq ptr %35, null
-  %55 = getelementptr inbounds i8, ptr %47, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 8
   br i1 %54, label %64, label %56
 
 56:                                               ; preds = %49
-  %57 = getelementptr inbounds i8, ptr %35, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %58 = load i8, ptr %57, align 8
   store i8 %58, ptr %55, align 8
-  %59 = getelementptr inbounds i8, ptr %35, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %60 = load i8, ptr %59, align 4
   %61 = and i8 %60, 1
   %62 = and i8 %53, -2
@@ -875,7 +875,7 @@ define dso_local i32 @snd_hda_jack_detect_enable(ptr noundef %0, i16 noundef zer
   br i1 %5, label %29, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i8, ptr %7, align 4
   %9 = and i8 %8, 1
   %10 = icmp eq i8 %9, 0
@@ -884,13 +884,13 @@ define dso_local i32 @snd_hda_jack_detect_enable(ptr noundef %0, i16 noundef zer
 11:                                               ; preds = %6
   %12 = or disjoint i8 %8, 1
   store i8 %12, ptr %7, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 1504
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %29
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = or i8 %18, -128
   %20 = zext i8 %19 to i32
@@ -917,7 +917,7 @@ define dso_local i32 @snd_hda_jack_detect_enable(ptr noundef %0, i16 noundef zer
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_set_gating_jack(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1496
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne i16 %1, 0
   %7 = icmp ne ptr %5, null
@@ -925,7 +925,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_set_gating_jack(ptr
   br i1 %8, label %9, label %.thread8.i.thread
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 1480
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.thread8.i.thread, label %.preheader9.i
@@ -938,7 +938,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_set_gating_jack(ptr
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %.preheader9.i
-  %18 = getelementptr inbounds i8, ptr %14, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.preheader.preheader.i, label %21
@@ -973,28 +973,28 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_set_gating_jack(ptr
 
 .thread8.i.thread:                                ; preds = %9, %3, %.thread8.i
   %36 = phi ptr [ %34, %.thread8.i ], [ null, %3 ], [ null, %9 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 1480
-  %38 = tail call ptr @snd_array_new(ptr noundef %37) #11
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %38 = tail call ptr @snd_array_new(ptr noundef nonnull %37) #11
   %39 = icmp eq ptr %38, null
   br i1 %39, label %snd_hda_jack_tbl_new.exit, label %40
 
 40:                                               ; preds = %.thread8.i.thread
   store i16 %1, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %38, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 28
   %43 = load i8, ptr %42, align 4
   %44 = or i8 %43, 2
   store i8 %44, ptr %42, align 4
   %45 = icmp eq ptr %36, null
-  %46 = getelementptr inbounds i8, ptr %38, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 8
   br i1 %45, label %55, label %47
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %36, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %49 = load i8, ptr %48, align 8
   store i8 %49, ptr %46, align 8
-  %50 = getelementptr inbounds i8, ptr %36, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %51 = load i8, ptr %50, align 4
   %52 = and i8 %51, 1
   %53 = and i8 %44, -2
@@ -1017,7 +1017,7 @@ snd_hda_jack_tbl_new.exit:                        ; preds = %.thread8.i, %.threa
   br i1 %62, label %63, label %.thread8.i2.thread
 
 63:                                               ; preds = %snd_hda_jack_tbl_new.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 1480
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %.thread8.i2.thread, label %.preheader9.i3
@@ -1030,7 +1030,7 @@ snd_hda_jack_tbl_new.exit:                        ; preds = %.thread8.i, %.threa
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %.preheader9.i3
-  %72 = getelementptr inbounds i8, ptr %68, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.preheader.preheader.i4, label %75
@@ -1065,28 +1065,28 @@ snd_hda_jack_tbl_new.exit:                        ; preds = %.thread8.i, %.threa
 
 .thread8.i2.thread:                               ; preds = %63, %snd_hda_jack_tbl_new.exit, %.thread8.i2
   %90 = phi ptr [ %88, %.thread8.i2 ], [ null, %snd_hda_jack_tbl_new.exit ], [ null, %63 ]
-  %91 = getelementptr inbounds i8, ptr %0, i64 1480
-  %92 = tail call ptr @snd_array_new(ptr noundef %91) #11
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %92 = tail call ptr @snd_array_new(ptr noundef nonnull %91) #11
   %93 = icmp eq ptr %92, null
   br i1 %93, label %snd_hda_jack_tbl_new.exit7, label %94
 
 94:                                               ; preds = %.thread8.i2.thread
   store i16 %2, ptr %92, align 8
-  %95 = getelementptr inbounds i8, ptr %92, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   store i32 0, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %92, i64 28
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %97 = load i8, ptr %96, align 4
   %98 = or i8 %97, 2
   store i8 %98, ptr %96, align 4
   %99 = icmp eq ptr %90, null
-  %100 = getelementptr inbounds i8, ptr %92, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %92, i64 8
   br i1 %99, label %109, label %101
 
 101:                                              ; preds = %94
-  %102 = getelementptr inbounds i8, ptr %90, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %103 = load i8, ptr %102, align 8
   store i8 %103, ptr %100, align 8
-  %104 = getelementptr inbounds i8, ptr %90, i64 28
+  %104 = getelementptr inbounds nuw i8, ptr %90, i64 28
   %105 = load i8, ptr %104, align 4
   %106 = and i8 %105, 1
   %107 = and i8 %98, -2
@@ -1102,7 +1102,7 @@ snd_hda_jack_tbl_new.exit:                        ; preds = %.thread8.i, %.threa
 
 snd_hda_jack_tbl_new.exit7:                       ; preds = %.thread8.i2, %.thread8.i2.thread, %101, %109
   %112 = phi ptr [ %79, %.thread8.i2 ], [ null, %.thread8.i2.thread ], [ %92, %109 ], [ %92, %101 ]
-  %113 = getelementptr inbounds i8, ptr %0, i64 1432
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %114 = load i32, ptr %113, align 8
   %115 = and i32 %114, 16384
   %116 = icmp eq i32 %115, 0
@@ -1121,9 +1121,9 @@ snd_hda_jack_tbl_new.exit7:                       ; preds = %.thread8.i2, %.thre
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %58, i64 30
+  %123 = getelementptr inbounds nuw i8, ptr %58, i64 30
   store i16 %2, ptr %123, align 2
-  %124 = getelementptr inbounds i8, ptr %112, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %112, i64 32
   store i16 %1, ptr %124, align 8
   br label %125
 
@@ -1134,7 +1134,7 @@ snd_hda_jack_tbl_new.exit7:                       ; preds = %.thread8.i2, %.thre
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr noundef readonly %2, i16 noundef zeroext %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1496
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne i16 %1, 0
   %8 = icmp ne ptr %6, null
@@ -1142,7 +1142,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr noc
   br i1 %9, label %10, label %.loopexit12
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 1480
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit12, label %.preheader11
@@ -1155,7 +1155,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr noc
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %.preheader11
-  %19 = getelementptr inbounds i8, ptr %15, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.loopexit12, label %22
@@ -1173,7 +1173,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr noc
   br i1 %28, label %29, label %.loopexit10
 
 29:                                               ; preds = %.loopexit12
-  %30 = getelementptr inbounds i8, ptr %0, i64 1480
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %.loopexit10, label %.preheader9
@@ -1186,7 +1186,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr noc
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %.preheader9
-  %38 = getelementptr inbounds i8, ptr %34, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %.loopexit10, label %41
@@ -1199,7 +1199,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr noc
 
 .loopexit10:                                      ; preds = %41, %37, %29, %.loopexit12
   %45 = phi ptr [ null, %.loopexit12 ], [ null, %29 ], [ %34, %37 ], [ null, %41 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 1432
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 16384
   %49 = icmp eq i32 %48, 0
@@ -1218,13 +1218,13 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr noc
   br i1 %54, label %55, label %.loopexit
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %45, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.loopexit, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %26, i64 34
+  %60 = getelementptr inbounds nuw i8, ptr %26, i64 34
   store i16 %3, ptr %60, align 2
   %61 = icmp eq ptr %2, null
   br i1 %61, label %.loopexit, label %62
@@ -1238,7 +1238,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr noc
   %65 = phi i32 [ %72, %.preheader ], [ %63, %62 ]
   %66 = phi ptr [ %71, %.preheader ], [ %2, %62 ]
   %67 = load ptr, ptr %56, align 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = tail call i32 @snd_jack_set_key(ptr noundef %67, i32 noundef %65, i32 noundef %69) #11
   %71 = getelementptr i8, ptr %66, i64 8
@@ -1256,7 +1256,7 @@ declare dso_local i32 @snd_jack_set_key(ptr noundef, i32 noundef, i32 noundef) l
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local void @snd_hda_jack_set_button_state(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2) #4 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1496
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne i16 %1, 0
   %7 = icmp ne ptr %5, null
@@ -1264,7 +1264,7 @@ define dso_local void @snd_hda_jack_set_button_state(ptr nocapture noundef reado
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 1480
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.thread, label %.preheader10
@@ -1277,7 +1277,7 @@ define dso_local void @snd_hda_jack_set_button_state(ptr nocapture noundef reado
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %.preheader10
-  %18 = getelementptr inbounds i8, ptr %14, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %25, label %21
@@ -1293,7 +1293,7 @@ define dso_local void @snd_hda_jack_set_button_state(ptr nocapture noundef reado
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %14, i64 34
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 34
   %29 = load i16, ptr %28, align 2
   %.not = icmp eq i16 %29, 0
   br i1 %.not, label %.thread8, label %.preheader
@@ -1306,7 +1306,7 @@ define dso_local void @snd_hda_jack_set_button_state(ptr nocapture noundef reado
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %.preheader
-  %35 = getelementptr inbounds i8, ptr %31, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %42, label %38
@@ -1326,7 +1326,7 @@ define dso_local void @snd_hda_jack_set_button_state(ptr nocapture noundef reado
 
 44:                                               ; preds = %.thread8, %42
   %45 = phi ptr [ %14, %.thread8 ], [ %31, %42 ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i32 %2, ptr %46, align 8
   br label %.thread
 
@@ -1336,8 +1336,8 @@ define dso_local void @snd_hda_jack_set_button_state(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hda_jack_report_sync(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1480
-  %3 = getelementptr inbounds i8, ptr %0, i64 1496
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %4 = load i32, ptr %2, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.thread, label %6
@@ -1382,28 +1382,28 @@ define dso_local void @snd_hda_jack_report_sync(ptr noundef %0) #0 align 16 {
   br i1 %28, label %56, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %26, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %56, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %26, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %35 = load i8, ptr %34, align 4
   %36 = and i8 %35, 8
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %38, label %56
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %26, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %26, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %42 = load i32, ptr %41, align 8
   %43 = icmp sgt i32 %42, -1
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %26, i64 36
+  %45 = getelementptr inbounds nuw i8, ptr %26, i64 36
   %46 = load i32, ptr %45, align 4
   %47 = or i32 %46, %40
   br label %48
@@ -1444,7 +1444,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr no
   br i1 %9, label %105, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %105
@@ -1500,29 +1500,29 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr no
 
 .loopexit13:                                      ; preds = %.preheader12, %27, %24
   %37 = phi i32 [ 0, %24 ], [ 0, %27 ], [ %33, %.preheader12 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 960
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %39 = load ptr, ptr %38, align 8
   %40 = or i32 %37, %25
-  %41 = tail call i32 @snd_jack_new(ptr noundef %39, ptr noundef %3, i32 noundef %40, ptr noundef %11, i1 noundef zeroext true, i1 noundef zeroext %4) #11
+  %41 = tail call i32 @snd_jack_new(ptr noundef %39, ptr noundef %3, i32 noundef %40, ptr noundef nonnull %11, i1 noundef zeroext true, i1 noundef zeroext %4) #11
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %105, label %43
 
 43:                                               ; preds = %.loopexit13
-  %44 = getelementptr inbounds i8, ptr %8, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %45 = load i8, ptr %44, align 4
   %46 = select i1 %4, i8 4, i8 0
   %47 = and i8 %45, -5
   %48 = or disjoint i8 %47, %46
   store i8 %48, ptr %44, align 4
-  %49 = getelementptr inbounds i8, ptr %8, i64 36
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i32 %25, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %8, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 0, ptr %50, align 8
   %51 = load ptr, ptr %11, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 208
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 208
   store ptr %8, ptr %52, align 8
   %53 = load ptr, ptr %11, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 216
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 216
   store ptr @hda_free_jack_priv, ptr %54, align 8
   br i1 %26, label %.loopexit, label %55
 
@@ -1535,7 +1535,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr no
   %58 = phi i32 [ %65, %.preheader11 ], [ %56, %55 ]
   %59 = phi ptr [ %64, %.preheader11 ], [ %6, %55 ]
   %60 = load ptr, ptr %11, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = tail call i32 @snd_jack_set_key(ptr noundef %60, i32 noundef %58, i32 noundef %62) #11
   %64 = getelementptr i8, ptr %59, i64 8
@@ -1544,7 +1544,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr no
   br i1 %66, label %.loopexit, label %.preheader11, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader11, %55, %43
-  %67 = getelementptr inbounds i8, ptr %0, i64 1496
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %68 = load ptr, ptr %67, align 8
   %69 = icmp ne i16 %1, 0
   %70 = icmp ne ptr %68, null
@@ -1552,7 +1552,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr no
   br i1 %71, label %72, label %.thread
 
 72:                                               ; preds = %.loopexit
-  %73 = getelementptr inbounds i8, ptr %0, i64 1480
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %.thread, label %.preheader
@@ -1565,7 +1565,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr no
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %.preheader
-  %81 = getelementptr inbounds i8, ptr %77, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %82, %2
   br i1 %83, label %88, label %84
@@ -1581,7 +1581,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr no
   br i1 %89, label %.thread, label %90
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %77, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %77, i64 28
   %92 = load i8, ptr %91, align 4
   %93 = and i8 %92, 4
   %94 = icmp eq i8 %93, 0
@@ -1618,24 +1618,24 @@ declare dso_local i32 @snd_jack_new(ptr noundef, ptr noundef, i32 noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
 define internal void @hda_free_jack_priv(ptr nocapture noundef readonly %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   store i16 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 52
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %.loopexit21
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %14
 
 9:                                                ; preds = %39
@@ -1648,7 +1648,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
 14:                                               ; preds = %9, %6
   %15 = phi i64 [ 0, %6 ], [ %10, %9 ]
   %16 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %7, i64 0, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 4
   %19 = and i8 %18, 2
   %20 = icmp eq i8 %19, 0
@@ -1658,14 +1658,14 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   %22 = load i32, ptr %8, align 4
   %23 = icmp eq i32 %22, 2
   %24 = select i1 %23, i64 0, i64 32
-  %25 = getelementptr inbounds i8, ptr %1, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %21
   %29 = select i1 %23, i64 4, i64 40
-  %30 = getelementptr inbounds i8, ptr %1, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = tail call fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %31, ptr noundef %1, ptr noundef nonnull @.str.1)
   br label %39
@@ -1686,7 +1686,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   br i1 %41, label %.loopexit, label %9
 
 .loopexit21:                                      ; preds = %9, %2
-  %42 = getelementptr inbounds i8, ptr %1, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %43 = load i32, ptr %1, align 4
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.preheader, label %.loopexit19
@@ -1707,13 +1707,13 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   br i1 %54, label %.preheader, label %.loopexit19, !llvm.loop !33
 
 .loopexit19:                                      ; preds = %50, %.loopexit21
-  %55 = getelementptr inbounds i8, ptr %1, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %58, label %.loopexit16
 
 58:                                               ; preds = %.loopexit19
-  %59 = getelementptr inbounds i8, ptr %1, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %60
 
 60:                                               ; preds = %69, %58
@@ -1737,13 +1737,13 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   br i1 %73, label %60, label %.loopexit16, !llvm.loop !34
 
 .loopexit16:                                      ; preds = %69, %60, %.loopexit19
-  %74 = getelementptr inbounds i8, ptr %1, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %75 = load i32, ptr %74, align 4
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %77, label %.loopexit14
 
 77:                                               ; preds = %.loopexit16
-  %78 = getelementptr inbounds i8, ptr %1, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 20
   br label %79
 
 79:                                               ; preds = %88, %77
@@ -1767,13 +1767,13 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   br i1 %92, label %79, label %.loopexit14, !llvm.loop !35
 
 .loopexit14:                                      ; preds = %88, %79, %.loopexit16
-  %93 = getelementptr inbounds i8, ptr %1, i64 272
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %94 = load i32, ptr %93, align 4
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %96, label %.loopexit13
 
 96:                                               ; preds = %.loopexit14
-  %97 = getelementptr inbounds i8, ptr %1, i64 276
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 276
   br label %98
 
 98:                                               ; preds = %104, %96
@@ -1792,14 +1792,14 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   br i1 %108, label %98, label %.loopexit13, !llvm.loop !36
 
 .loopexit13:                                      ; preds = %104, %.loopexit14
-  %109 = getelementptr inbounds i8, ptr %1, i64 280
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %110 = load i16, ptr %109, align 4
   %111 = tail call fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %110, ptr noundef %1, ptr noundef null)
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %.loopexit, label %113
 
 113:                                              ; preds = %.loopexit13
-  %114 = getelementptr inbounds i8, ptr %1, i64 282
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 282
   %115 = load i16, ptr %114, align 2
   %116 = tail call fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %115, ptr noundef %1, ptr noundef null)
   %117 = tail call i32 @llvm.smin.i32(i32 %116, i32 0)
@@ -1815,7 +1815,7 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   %5 = alloca i32, align 4
   %6 = alloca [44 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %6) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 1432
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 16384
   %10 = icmp eq i32 %9, 0
@@ -1868,21 +1868,21 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
 
 35:                                               ; preds = %31
   %36 = zext i16 %1 to i32
-  %37 = getelementptr inbounds i8, ptr %0, i64 828
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 828
   %38 = load i16, ptr %37, align 4
   %39 = zext i16 %38 to i32
   %40 = icmp ugt i16 %38, %1
   br i1 %40, label %55, label %41
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %0, i64 824
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %43 = load i32, ptr %42, align 8
   %44 = add i32 %43, %39
   %45 = icmp ugt i32 %44, %36
   br i1 %45, label %46, label %55
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %0, i64 1144
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %48 = load ptr, ptr %47, align 8
   %49 = sub nsw i32 %36, %39
   %50 = sext i32 %49 to i64
@@ -1893,7 +1893,7 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %46, %41, %35
-  %56 = getelementptr inbounds i8, ptr %0, i64 1504
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %57 = load i64, ptr %56, align 8
   %58 = icmp eq i64 %57, 0
   br i1 %58, label %60, label %59
@@ -1930,13 +1930,13 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   br i1 %74, label %155, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %0, i64 1496
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %77 = load ptr, ptr %76, align 8
   %.not = icmp eq ptr %77, null
   br i1 %.not, label %.thread8.i.thread, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %0, i64 1480
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %.thread8.i.thread, label %.preheader9.i
@@ -1949,7 +1949,7 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %.preheader9.i
-  %87 = getelementptr inbounds i8, ptr %83, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %.preheader.preheader.i, label %90
@@ -1983,34 +1983,34 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   br i1 %104, label %.thread8.i.thread, label %.thread8.i._crit_edge
 
 .thread8.i._crit_edge:                            ; preds = %.thread8.i
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %94, i64 28
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %94, i64 28
   %.pre = load i8, ptr %.phi.trans.insert, align 4
   br label %127
 
 .thread8.i.thread:                                ; preds = %78, %75, %.thread8.i
   %105 = phi ptr [ %103, %.thread8.i ], [ null, %75 ], [ null, %78 ]
-  %106 = getelementptr inbounds i8, ptr %0, i64 1480
-  %107 = call ptr @snd_array_new(ptr noundef %106) #11
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %107 = call ptr @snd_array_new(ptr noundef nonnull %106) #11
   %108 = icmp eq ptr %107, null
   br i1 %108, label %snd_hda_jack_tbl_new.exit, label %109
 
 109:                                              ; preds = %.thread8.i.thread
   store i16 %1, ptr %107, align 8
-  %110 = getelementptr inbounds i8, ptr %107, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 4
   store i32 0, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %107, i64 28
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 28
   %112 = load i8, ptr %111, align 4
   %113 = or i8 %112, 2
   store i8 %113, ptr %111, align 4
   %114 = icmp eq ptr %105, null
-  %115 = getelementptr inbounds i8, ptr %107, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %107, i64 8
   br i1 %114, label %124, label %116
 
 116:                                              ; preds = %109
-  %117 = getelementptr inbounds i8, ptr %105, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %118 = load i8, ptr %117, align 8
   store i8 %118, ptr %115, align 8
-  %119 = getelementptr inbounds i8, ptr %105, i64 28
+  %119 = getelementptr inbounds nuw i8, ptr %105, i64 28
   %120 = load i8, ptr %119, align 4
   %121 = and i8 %120, 1
   %122 = and i8 %113, -2
@@ -2032,16 +2032,16 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   br i1 %130, label %131, label %snd_hda_jack_tbl_new.exit
 
 131:                                              ; preds = %127
-  %132 = getelementptr inbounds i8, ptr %.ph, i64 28
+  %132 = getelementptr inbounds nuw i8, ptr %.ph, i64 28
   %133 = or disjoint i8 %128, 1
   store i8 %133, ptr %132, align 4
-  %134 = getelementptr inbounds i8, ptr %0, i64 1504
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %135 = load i64, ptr %134, align 8
   %136 = icmp eq i64 %135, 0
   br i1 %136, label %137, label %snd_hda_jack_tbl_new.exit
 
 137:                                              ; preds = %131
-  %138 = getelementptr inbounds i8, ptr %.ph, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %.ph, i64 8
   %139 = load i8, ptr %138, align 8
   %140 = or i8 %139, -128
   %141 = zext i8 %140 to i32
@@ -2074,7 +2074,7 @@ snd_hda_jack_tbl_new.exit:                        ; preds = %.thread8.i.thread, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = lshr i32 %1, 26
-  %4 = getelementptr inbounds i8, ptr %0, i64 1432
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 16384
   %7 = icmp eq i32 %6, 0
@@ -2084,7 +2084,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   %9 = lshr i32 %1, 15
   %10 = and i32 %9, 63
   %11 = trunc nuw nsw i32 %3 to i8
-  %12 = getelementptr inbounds i8, ptr %0, i64 1496
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ugt i32 %1, 67108863
   %15 = icmp ne ptr %13, null
@@ -2092,7 +2092,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %0, i64 1480
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.thread, label %.preheader27
@@ -2100,13 +2100,13 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
 .preheader27:                                     ; preds = %17, %30
   %21 = phi i32 [ %31, %30 ], [ 0, %17 ]
   %22 = phi ptr [ %32, %30 ], [ %13, %17 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, %11
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %.preheader27
-  %27 = getelementptr inbounds i8, ptr %22, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, %10
   br i1 %29, label %.loopexit26, label %30
@@ -2119,7 +2119,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
 
 34:                                               ; preds = %2
   %35 = trunc nuw nsw i32 %3 to i8
-  %36 = getelementptr inbounds i8, ptr %0, i64 1496
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %37 = load ptr, ptr %36, align 8
   %38 = icmp ugt i32 %1, 67108863
   %39 = icmp ne ptr %37, null
@@ -2127,7 +2127,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %0, i64 1480
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.thread, label %.preheader25
@@ -2135,13 +2135,13 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
 .preheader25:                                     ; preds = %41, %54
   %45 = phi i32 [ %55, %54 ], [ 0, %41 ]
   %46 = phi ptr [ %56, %54 ], [ %37, %41 ]
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i8, ptr %47, align 8
   %49 = icmp eq i8 %48, %35
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %.preheader25
-  %51 = getelementptr inbounds i8, ptr %46, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %.loopexit26, label %54
@@ -2161,7 +2161,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   br i1 %62, label %.thread, label %63
 
 63:                                               ; preds = %.loopexit26
-  %64 = getelementptr inbounds i8, ptr %61, i64 34
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 34
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, 0
   br i1 %66, label %81, label %.preheader24
@@ -2174,7 +2174,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %.preheader24
-  %72 = getelementptr inbounds i8, ptr %68, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %73, %60
   br i1 %74, label %79, label %75
@@ -2191,48 +2191,48 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
 
 81:                                               ; preds = %79, %63
   %82 = phi ptr [ %68, %79 ], [ %61, %63 ]
-  %83 = getelementptr inbounds i8, ptr %82, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 28
   %84 = load i8, ptr %83, align 4
   %85 = or i8 %84, 2
   store i8 %85, ptr %83, align 4
   br label %.thread18
 
 .thread18:                                        ; preds = %75, %81, %79
-  %86 = getelementptr inbounds i8, ptr %61, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %.loopexit, label %.preheader23
 
 .preheader23:                                     ; preds = %.thread18, %.preheader23
   %89 = phi ptr [ %95, %.preheader23 ], [ %87, %.thread18 ]
-  %90 = getelementptr inbounds i8, ptr %89, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store ptr %61, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %89, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 20
   store i32 %1, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %89, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %93 = load ptr, ptr %92, align 8
   tail call void %93(ptr noundef %0, ptr noundef nonnull %89) #11
-  %94 = getelementptr inbounds i8, ptr %89, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %.loopexit, label %.preheader23, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.preheader23, %.thread18
-  %97 = getelementptr inbounds i8, ptr %61, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %98 = load i16, ptr %97, align 8
   %99 = icmp eq i16 %98, 0
   br i1 %99, label %.thread20, label %100
 
 100:                                              ; preds = %.loopexit
-  %101 = getelementptr inbounds i8, ptr %61, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %0, i64 1496
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %.thread20, label %106
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %0, i64 1480
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %108 = load i32, ptr %107, align 8
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %.thread20, label %.preheader21
@@ -2245,7 +2245,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   br i1 %113, label %114, label %118
 
 114:                                              ; preds = %.preheader21
-  %115 = getelementptr inbounds i8, ptr %111, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %116, %102
   br i1 %117, label %122, label %118
@@ -2261,21 +2261,21 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   br i1 %123, label %.thread20, label %124
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds i8, ptr %111, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
   br i1 %127, label %.thread20, label %.preheader
 
 .preheader:                                       ; preds = %124, %.preheader
   %128 = phi ptr [ %134, %.preheader ], [ %126, %124 ]
-  %129 = getelementptr inbounds i8, ptr %128, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   store ptr %111, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %128, i64 20
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 20
   store i32 %1, ptr %130, align 4
-  %131 = getelementptr inbounds i8, ptr %128, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %132 = load ptr, ptr %131, align 8
   tail call void %132(ptr noundef %0, ptr noundef nonnull %128) #11
-  %133 = getelementptr inbounds i8, ptr %128, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %.thread20, label %.preheader, !llvm.loop !42
@@ -2290,8 +2290,8 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hda_jack_poll_all(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1480
-  %3 = getelementptr inbounds i8, ptr %0, i64 1496
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %4 = load i32, ptr %2, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %82, label %6
@@ -2309,14 +2309,14 @@ define dso_local void @snd_hda_jack_poll_all(ptr noundef %0) #0 align 16 {
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %11, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %16 = load i8, ptr %15, align 4
   %17 = and i8 %16, 6
   %18 = icmp eq i8 %17, 2
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %11, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %21 = load i32, ptr %20, align 8
   tail call fastcc void @jack_detect_update(ptr noundef %0, ptr noundef %11)
   %22 = load i32, ptr %20, align 8
@@ -2325,33 +2325,33 @@ define dso_local void @snd_hda_jack_poll_all(ptr noundef %0) #0 align 16 {
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %11, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %.preheader9
 
 .preheader9:                                      ; preds = %25, %.preheader9
   %29 = phi ptr [ %35, %.preheader9 ], [ %27, %25 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %11, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef %0, ptr noundef nonnull %29) #11
-  %34 = getelementptr inbounds i8, ptr %29, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit, label %.preheader9, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.preheader9, %25
-  %37 = getelementptr inbounds i8, ptr %11, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %38 = load i16, ptr %37, align 8
   %39 = icmp eq i16 %38, 0
   br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %.loopexit
-  %41 = getelementptr inbounds i8, ptr %11, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = load ptr, ptr %3, align 8
   %44 = icmp eq ptr %43, null
@@ -2370,7 +2370,7 @@ define dso_local void @snd_hda_jack_poll_all(ptr noundef %0) #0 align 16 {
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %.preheader7
-  %53 = getelementptr inbounds i8, ptr %49, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, %42
   br i1 %55, label %60, label %56
@@ -2386,21 +2386,21 @@ define dso_local void @snd_hda_jack_poll_all(ptr noundef %0) #0 align 16 {
   br i1 %61, label %.thread, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %49, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %62, %.preheader
   %66 = phi ptr [ %72, %.preheader ], [ %64, %62 ]
-  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store ptr %49, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 20
   store i32 0, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef %0, ptr noundef nonnull %66) #11
-  %71 = getelementptr inbounds i8, ptr %66, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.thread, label %.preheader, !llvm.loop !42

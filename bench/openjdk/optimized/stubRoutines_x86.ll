@@ -132,7 +132,7 @@ define hidden void @_ZN12StubRoutines3x8621generate_CRC32C_tableEb(i1 noundef ze
   br i1 %exitcond.not.i.i, label %_ZL15crc32c_multiplyjj.exit.i, label %._crit_edge.i.i, !llvm.loop !6
 
 _ZL15crc32c_multiplyjj.exit.i:                    ; preds = %._crit_edge.i.i
-  %12 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i
   store i32 %.1.i.i, ptr %12, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 31
@@ -147,7 +147,7 @@ _ZL18crc32c_init_pow_2kv.exit:                    ; preds = %_ZL15crc32c_multipl
   br i1 %.not12.i, label %_ZL15crc32c_multiplyjj.exit.i27, label %14
 
 14:                                               ; preds = %_ZL18crc32c_init_pow_2kv.exit
-  %15 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i17
+  %15 = getelementptr inbounds nuw [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i17
   %16 = load i32, ptr %15, align 4
   br label %._crit_edge.i.i18
 
@@ -190,7 +190,7 @@ _ZL14crc32c_f_pow_nj.exit:                        ; preds = %_ZL15crc32c_multipl
   br i1 %.not12.i32, label %_ZL15crc32c_multiplyjj.exit.i42, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i29
+  %29 = getelementptr inbounds nuw [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i29
   %30 = load i32, ptr %29, align 4
   br label %._crit_edge.i.i33
 
@@ -233,7 +233,7 @@ _ZL14crc32c_f_pow_nj.exit46:                      ; preds = %_ZL15crc32c_multipl
   br i1 %.not12.i50, label %_ZL15crc32c_multiplyjj.exit.i60, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i47
+  %43 = getelementptr inbounds nuw [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i47
   %44 = load i32, ptr %43, align 4
   br label %._crit_edge.i.i51
 
@@ -276,7 +276,7 @@ _ZL14crc32c_f_pow_nj.exit64:                      ; preds = %_ZL15crc32c_multipl
   br i1 %.not12.i68, label %_ZL15crc32c_multiplyjj.exit.i78, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i65
+  %57 = getelementptr inbounds nuw [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i65
   %58 = load i32, ptr %57, align 4
   br label %._crit_edge.i.i69
 
@@ -319,7 +319,7 @@ _ZL14crc32c_f_pow_nj.exit82:                      ; preds = %_ZL15crc32c_multipl
   br i1 %.not12.i86, label %_ZL15crc32c_multiplyjj.exit.i96, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i83
+  %71 = getelementptr inbounds nuw [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i83
   %72 = load i32, ptr %71, align 4
   br label %._crit_edge.i.i87
 
@@ -362,7 +362,7 @@ _ZL14crc32c_f_pow_nj.exit100:                     ; preds = %_ZL15crc32c_multipl
   br i1 %.not12.i104, label %_ZL15crc32c_multiplyjj.exit.i114, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i101
+  %85 = getelementptr inbounds nuw [31 x i32], ptr @_crc32c_pow_2k_table, i64 0, i64 %indvars.iv.i101
   %86 = load i32, ptr %85, align 4
   br label %._crit_edge.i.i105
 
@@ -408,7 +408,7 @@ _ZL14crc32c_f_pow_nj.exit118:                     ; preds = %_ZL15crc32c_multipl
   br i1 %.not, label %103, label %100
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds [6 x i32], ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [6 x i32], ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE5pow_n, i64 0, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4
   store i32 %102, ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE7X_CONST, align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN12StubRoutines3x8621generate_CRC32C_tableEbE7X_CONST) #5
@@ -446,7 +446,7 @@ _ZL14crc32c_f_pow_nj.exit118:                     ; preds = %_ZL15crc32c_multipl
   %129 = mul nuw nsw i64 %128, %105
   %130 = xor i64 %127, %129
   %131 = or disjoint i64 %.0119, %106
-  %132 = getelementptr inbounds [1536 x i64], ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE15pclmulqdq_table, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw [1536 x i64], ptr @_ZZN12StubRoutines3x8621generate_CRC32C_tableEbE15pclmulqdq_table, i64 0, i64 %131
   store i64 %130, ptr %132, align 8
   %133 = add nuw nsw i64 %.0119, 1
   %exitcond126.not = icmp eq i64 %133, 256

@@ -52,9 +52,9 @@ define internal i32 @tcpudp_mt_init() #0 section ".init.text" align 16 {
 define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = alloca %struct.tcphdr, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #7
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i16, ptr %6, align 4
   switch i16 %7, label %94 [
     i16 0, label %10
@@ -62,17 +62,17 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   ]
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 30
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i8 1, ptr %9, align 2
   br label %94
 
 10:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !5
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 116
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %12, %16
   %18 = sub i32 %14, %17
@@ -89,7 +89,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   br i1 %24, label %.thread, label %.thread4, !prof !6
 
 25:                                               ; preds = %10
-  %26 = getelementptr inbounds i8, ptr %0, i64 200
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %12 to i64
   %29 = getelementptr i8, ptr %27, i64 %28
@@ -97,7 +97,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   br i1 %30, label %.thread, label %.thread4
 
 .thread:                                          ; preds = %22, %20, %25
-  %31 = getelementptr inbounds i8, ptr %1, i64 30
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i8 1, ptr %31, align 2
   br label %94
 
@@ -108,7 +108,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   %35 = load i16, ptr %34, align 2
   %36 = load i16, ptr %32, align 4
   %37 = call i16 @llvm.bswap.i16(i16 %36)
-  %38 = getelementptr inbounds i8, ptr %5, i64 11
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 11
   %39 = load i8, ptr %38, align 1
   %40 = and i8 %39, 1
   %41 = icmp ne i8 %40, 0
@@ -119,11 +119,11 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   br i1 %45, label %46, label %94
 
 46:                                               ; preds = %.thread4
-  %47 = getelementptr inbounds i8, ptr %5, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %48 = load i16, ptr %47, align 2
   %49 = getelementptr i8, ptr %5, i64 6
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %32, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %52 = load i16, ptr %51, align 2
   %53 = call i16 @llvm.bswap.i16(i16 %52)
   %54 = and i8 %39, 2
@@ -137,10 +137,10 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
 60:                                               ; preds = %46
   %61 = getelementptr i8, ptr %32, i64 13
   %62 = load i8, ptr %61, align 1
-  %63 = getelementptr inbounds i8, ptr %5, i64 9
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %64 = load i8, ptr %63, align 1
   %65 = and i8 %64, %62
-  %66 = getelementptr inbounds i8, ptr %5, i64 10
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %67 = load i8, ptr %66, align 2
   %68 = icmp eq i8 %65, %67
   %69 = zext i8 %39 to i32
@@ -150,13 +150,13 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   br i1 %72, label %94, label %73
 
 73:                                               ; preds = %60
-  %74 = getelementptr inbounds i8, ptr %5, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %75 = load i8, ptr %74, align 2
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %93, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %32, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %79 = load i16, ptr %78, align 4
   %80 = lshr i16 %79, 2
   %81 = and i16 %80, 60
@@ -164,7 +164,7 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %1, i64 30
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i8 1, ptr %84, align 2
   br label %94
 
@@ -174,8 +174,8 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
   %88 = add nsw i32 %86, -20
   %89 = and i32 %69, 8
   %90 = icmp ne i32 %89, 0
-  %91 = getelementptr inbounds i8, ptr %1, i64 30
-  %92 = call fastcc zeroext i1 @tcp_find_option(i8 noundef zeroext %75, ptr noundef %0, i32 noundef %87, i32 noundef %88, i1 noundef zeroext %90, ptr noundef %91)
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %92 = call fastcc zeroext i1 @tcp_find_option(i8 noundef zeroext %75, ptr noundef %0, i32 noundef %87, i32 noundef %88, i1 noundef zeroext %90, ptr noundef nonnull %91)
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %85, %73
@@ -189,9 +189,9 @@ define internal noundef zeroext i1 @tcp_mt(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal range(i32 -22, 1) i32 @tcp_mt_check(ptr nocapture noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 11
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 11
   %5 = load i8, ptr %4, align 1
   %6 = icmp ult i8 %5, 16
   %7 = select i1 %6, i32 0, i32 -22
@@ -202,20 +202,20 @@ define internal range(i32 -22, 1) i32 @tcp_mt_check(ptr nocapture noundef readon
 define internal zeroext i1 @udp_mt(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = alloca %struct.udphdr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i16, ptr %6, align 4
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %9, label %59
 
 9:                                                ; preds = %2
   store i64 0, ptr %3, align 8, !annotation !5
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 116
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %11, %15
   %17 = sub i32 %13, %16
@@ -232,7 +232,7 @@ define internal zeroext i1 @udp_mt(ptr noundef %0, ptr nocapture noundef %1) #2 
   br i1 %23, label %.thread, label %.thread2, !prof !6
 
 24:                                               ; preds = %9
-  %25 = getelementptr inbounds i8, ptr %0, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %11 to i64
   %28 = getelementptr i8, ptr %26, i64 %27
@@ -240,7 +240,7 @@ define internal zeroext i1 @udp_mt(ptr noundef %0, ptr nocapture noundef %1) #2 
   br i1 %29, label %.thread, label %.thread2
 
 .thread:                                          ; preds = %21, %19, %24
-  %30 = getelementptr inbounds i8, ptr %1, i64 30
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i8 1, ptr %30, align 2
   br label %59
 
@@ -251,7 +251,7 @@ define internal zeroext i1 @udp_mt(ptr noundef %0, ptr nocapture noundef %1) #2 
   %34 = load i16, ptr %33, align 2
   %35 = load i16, ptr %31, align 2
   %36 = call i16 @llvm.bswap.i16(i16 %35)
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = load i8, ptr %37, align 2
   %39 = and i8 %38, 1
   %40 = icmp ne i8 %39, 0
@@ -262,11 +262,11 @@ define internal zeroext i1 @udp_mt(ptr noundef %0, ptr nocapture noundef %1) #2 
   br i1 %44, label %45, label %59
 
 45:                                               ; preds = %.thread2
-  %46 = getelementptr inbounds i8, ptr %5, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %47 = load i16, ptr %46, align 2
   %48 = getelementptr i8, ptr %5, i64 6
   %49 = load i16, ptr %48, align 2
-  %50 = getelementptr inbounds i8, ptr %31, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %51 = load i16, ptr %50, align 2
   %52 = call i16 @llvm.bswap.i16(i16 %51)
   %53 = and i8 %38, 2
@@ -285,9 +285,9 @@ define internal zeroext i1 @udp_mt(ptr noundef %0, ptr nocapture noundef %1) #2 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal range(i32 -22, 1) i32 @udp_mt_check(ptr nocapture noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i8, ptr %4, align 2
   %6 = icmp ult i8 %5, 4
   %7 = select i1 %6, i32 0, i32 -22
@@ -298,20 +298,20 @@ define internal range(i32 -22, 1) i32 @udp_mt_check(ptr nocapture noundef readon
 define internal zeroext i1 @icmp_match(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = alloca %struct.icmphdr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i16, ptr %6, align 4
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %9, label %55
 
 9:                                                ; preds = %2
   store i64 0, ptr %3, align 8, !annotation !5
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 116
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %11, %15
   %17 = sub i32 %13, %16
@@ -328,7 +328,7 @@ define internal zeroext i1 @icmp_match(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %23, label %.thread, label %.thread3, !prof !6
 
 24:                                               ; preds = %9
-  %25 = getelementptr inbounds i8, ptr %0, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %11 to i64
   %28 = getelementptr i8, ptr %26, i64 %27
@@ -336,26 +336,26 @@ define internal zeroext i1 @icmp_match(ptr noundef %0, ptr nocapture noundef %1)
   br i1 %29, label %.thread, label %.thread3
 
 .thread:                                          ; preds = %21, %19, %24
-  %30 = getelementptr inbounds i8, ptr %1, i64 30
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i8 1, ptr %30, align 2
   br label %55
 
 .thread3:                                         ; preds = %21, %24
   %31 = phi ptr [ %28, %24 ], [ %3, %21 ]
   %32 = load i8, ptr %5, align 1
-  %33 = getelementptr inbounds i8, ptr %5, i64 3
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, 1
   %36 = icmp eq i8 %32, -1
   br i1 %36, label %51, label %37
 
 37:                                               ; preds = %.thread3
-  %38 = getelementptr inbounds i8, ptr %31, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = load i8, ptr %31, align 4
   %41 = getelementptr i8, ptr %5, i64 2
   %42 = load i8, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %5, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %40, %32
   %46 = icmp uge i8 %39, %44
@@ -379,9 +379,9 @@ define internal zeroext i1 @icmp_match(ptr noundef %0, ptr nocapture noundef %1)
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal range(i32 -22, 1) i32 @icmp_checkentry(ptr nocapture noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 3
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %5 = load i8, ptr %4, align 1
   %6 = icmp ult i8 %5, 2
   %7 = select i1 %6, i32 0, i32 -22
@@ -392,20 +392,20 @@ define internal range(i32 -22, 1) i32 @icmp_checkentry(ptr nocapture noundef rea
 define internal zeroext i1 @icmp6_match(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = alloca %struct.icmp6hdr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i16, ptr %6, align 4
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %9, label %50
 
 9:                                                ; preds = %2
   store i64 0, ptr %3, align 8, !annotation !5
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 116
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %11, %15
   %17 = sub i32 %13, %16
@@ -422,7 +422,7 @@ define internal zeroext i1 @icmp6_match(ptr noundef %0, ptr nocapture noundef %1
   br i1 %23, label %.thread, label %.thread2, !prof !6
 
 24:                                               ; preds = %9
-  %25 = getelementptr inbounds i8, ptr %0, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %11 to i64
   %28 = getelementptr i8, ptr %26, i64 %27
@@ -430,21 +430,21 @@ define internal zeroext i1 @icmp6_match(ptr noundef %0, ptr nocapture noundef %1
   br i1 %29, label %.thread, label %.thread2
 
 .thread:                                          ; preds = %21, %19, %24
-  %30 = getelementptr inbounds i8, ptr %1, i64 30
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i8 1, ptr %30, align 2
   br label %50
 
 .thread2:                                         ; preds = %21, %24
   %31 = phi ptr [ %28, %24 ], [ %3, %21 ]
   %32 = load i8, ptr %5, align 1
-  %33 = getelementptr inbounds i8, ptr %5, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = getelementptr i8, ptr %5, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = load i8, ptr %31, align 4
-  %38 = getelementptr inbounds i8, ptr %31, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %39 = load i8, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %5, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %41 = load i8, ptr %40, align 1
   %42 = and i8 %41, 1
   %43 = icmp ne i8 %42, 0
@@ -464,9 +464,9 @@ define internal zeroext i1 @icmp6_match(ptr noundef %0, ptr nocapture noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal range(i32 -22, 1) i32 @icmp6_checkentry(ptr nocapture noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 3
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %5 = load i8, ptr %4, align 1
   %6 = icmp ult i8 %5, 2
   %7 = select i1 %6, i32 0, i32 -22
@@ -492,9 +492,9 @@ define internal fastcc noundef zeroext i1 @tcp_find_option(i8 noundef zeroext ra
 9:                                                ; preds = %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !5
   %10 = add i32 %2, 20
-  %11 = getelementptr inbounds i8, ptr %1, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 116
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %12, -20
   %16 = add i32 %2, %14
@@ -512,7 +512,7 @@ define internal fastcc noundef zeroext i1 @tcp_find_option(i8 noundef zeroext ra
   br i1 %23, label %.thread, label %.thread5, !prof !6
 
 24:                                               ; preds = %9
-  %25 = getelementptr inbounds i8, ptr %1, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %10 to i64
   %28 = getelementptr i8, ptr %26, i64 %27

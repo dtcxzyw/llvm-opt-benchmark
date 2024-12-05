@@ -137,11 +137,11 @@ define internal i32 @dissect_remunk_remqueryinterface_rqst(ptr noundef %0, i32 n
   %29 = load i32, ptr %10, align 4
   store i32 %29, ptr %28, align 8
   %30 = getelementptr i8, ptr %28, i64 16
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 80
   store ptr %28, ptr %34, align 8
   %35 = add i32 %29, -1
   store i32 %35, ptr %10, align 4
@@ -149,7 +149,7 @@ define internal i32 @dissect_remunk_remqueryinterface_rqst(ptr noundef %0, i32 n
   br i1 %.not49, label %._crit_edge, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %22
-  %36 = getelementptr inbounds i8, ptr %28, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 8
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %6
@@ -199,9 +199,9 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca %struct._e_guid_t, align 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @dissect_dcom_that(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4
   %19 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #4
@@ -214,9 +214,9 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
 
 .lr.ph:                                           ; preds = %6
   %.not67 = icmp eq ptr %17, null
-  %23 = getelementptr inbounds i8, ptr %17, i64 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 160
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %26
 
 26:                                               ; preds = %.lr.ph, %49
@@ -280,7 +280,7 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
 ._crit_edge:                                      ; preds = %49, %6
   %.0.lcssa = phi i32 [ %20, %6 ], [ %42, %49 ]
   %59 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0.lcssa, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %9) #4
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %9, align 4
   %63 = call ptr @val_to_str(i32 noundef %62, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.28) #4
@@ -301,7 +301,7 @@ define internal i32 @dissect_remunk_remrelease_rqst(ptr noundef %0, i32 noundef 
   %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %8) #4
   %16 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %16, 0
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   br i1 %.not, label %20, label %19
 
@@ -321,8 +321,8 @@ define internal i32 @dissect_remunk_remrelease_rqst(ptr noundef %0, i32 noundef 
   br i1 %.not5859, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %2, i64 408
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %26
 
 26:                                               ; preds = %.lr.ph, %47

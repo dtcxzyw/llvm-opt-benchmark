@@ -10,36 +10,36 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 76
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %14 = load float, ptr %13, align 4
   %15 = fmul float %14, %14
   %16 = load i32, ptr %1, align 8
   %17 = shl nsw i32 %16, 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 108
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 288
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load ptr, ptr %32, align 8
   %.not652728 = icmp eq ptr %31, %33
   br i1 %.not652728, label %._crit_edge, label %.lr.ph730
 
 .lr.ph730:                                        ; preds = %5
-  %34 = getelementptr inbounds i8, ptr %2, i64 116
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %35 = load float, ptr %34, align 4
   %36 = fmul float %35, -2.000000e+00
   %.not622 = icmp eq ptr %12, null
@@ -47,13 +47,13 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
 
 37:                                               ; preds = %.lr.ph730, %.loopexit666
   %.sroa.0648.0729 = phi ptr [ %31, %.lr.ph730 ], [ %651, %.loopexit666 ]
-  %38 = getelementptr inbounds i8, ptr %.sroa.0648.0729, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0648.0729, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 127
   %41 = mul nuw nsw i32 %40, 3
-  %42 = getelementptr inbounds i8, ptr %.sroa.0648.0729, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0648.0729, i64 8
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %.sroa.0648.0729, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0648.0729, i64 12
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr %.sroa.0648.0729, align 4
   %47 = icmp eq i32 %40, 22
@@ -66,7 +66,7 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %52 = zext nneg i32 %41 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %53 = sext i32 %51 to i64
-  %invariant.gep872 = getelementptr inbounds float, ptr %3, i64 %52
+  %invariant.gep872 = getelementptr inbounds nuw float, ptr %3, i64 %52
   br label %.preheader664
 
 .preheader668:                                    ; preds = %174
@@ -99,7 +99,7 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
 60:                                               ; preds = %.lr.ph.split.us
   %61 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %29, i64 %indvars.iv784
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %61, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %64 = icmp eq i32 %62, %54
   %65 = shl nsw i32 %62, 2
   %66 = sext i32 %65 to i64
@@ -112,20 +112,20 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %69 = mul nsw i32 %68, %17
   %70 = shl nuw nsw i64 %indvars.iv780, 2
   %71 = mul nuw nsw i64 %indvars.iv780, 3
-  %72 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %71
   %73 = load float, ptr %72, align 4
   %74 = add nuw nsw i64 %71, 1
-  %75 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %74
   %76 = load float, ptr %75, align 4
   %77 = add nuw nsw i64 %71, 2
-  %78 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %77
   %79 = load float, ptr %78, align 4
   %80 = icmp samesign ult i64 %indvars.iv780, 2
-  %81 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv780
+  %81 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv780
   %82 = load float, ptr %81, align 4
-  %83 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %71
-  %84 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %74
-  %85 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %77
+  %83 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %71
+  %84 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %74
+  %85 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %77
   %.promoted685.us = load float, ptr %83, align 4
   %.promoted687.us = load float, ptr %84, align 4
   %.promoted689.us = load float, ptr %85, align 4
@@ -250,11 +250,11 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %indvars.iv = phi i64 [ 0, %.preheader664 ], [ %indvars.iv.next, %168 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %169 = load float, ptr %gep, align 4
-  %gep873 = getelementptr inbounds float, ptr %invariant.gep872, i64 %indvars.iv
+  %gep873 = getelementptr inbounds nuw float, ptr %invariant.gep872, i64 %indvars.iv
   %170 = load float, ptr %gep873, align 4
   %171 = fadd float %169, %170
   %172 = add nuw nsw i64 %indvars.iv, %167
-  %173 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %172
   store float %171, ptr %173, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -264,7 +264,7 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %175 = getelementptr inbounds float, ptr %21, i64 %166
   %176 = load float, ptr %175, align 4
   %177 = fmul float %25, %176
-  %178 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %178 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %177, ptr %178, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond755.not = icmp eq i64 %indvar.next, 4
@@ -281,7 +281,7 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
 182:                                              ; preds = %.lr.ph.split
   %183 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %29, i64 %indvars.iv772
   %184 = load i32, ptr %183, align 4
-  %185 = getelementptr inbounds i8, ptr %183, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 4
   br i1 %49, label %186, label %285
 
 186:                                              ; preds = %182
@@ -297,19 +297,19 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %192 = mul nsw i32 %191, %17
   %193 = shl nuw nsw i64 %indvars.iv768, 2
   %194 = mul nuw nsw i64 %indvars.iv768, 3
-  %195 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %194
   %196 = load float, ptr %195, align 4
   %197 = add nuw nsw i64 %194, 1
-  %198 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %197
   %199 = load float, ptr %198, align 4
   %200 = add nuw nsw i64 %194, 2
-  %201 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %200
   %202 = load float, ptr %201, align 4
-  %203 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv768
+  %203 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv768
   %204 = load float, ptr %203, align 4
-  %205 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %194
-  %206 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %197
-  %207 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %200
+  %205 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %194
+  %206 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %197
+  %207 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %200
   %.promoted677 = load float, ptr %205, align 4
   %.promoted679 = load float, ptr %206, align 4
   %.promoted681 = load float, ptr %207, align 4
@@ -421,17 +421,17 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %290 = mul nsw i32 %289, %17
   %291 = shl nuw nsw i64 %indvars.iv760, 2
   %292 = mul nuw nsw i64 %indvars.iv760, 3
-  %293 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %292
+  %293 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %292
   %294 = load float, ptr %293, align 4
   %295 = add nuw nsw i64 %292, 1
-  %296 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %295
+  %296 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %295
   %297 = load float, ptr %296, align 4
   %298 = add nuw nsw i64 %292, 2
-  %299 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %298
   %300 = load float, ptr %299, align 4
-  %301 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %292
-  %302 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %295
-  %303 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %298
+  %301 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %292
+  %302 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %295
+  %303 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %298
   %.promoted = load float, ptr %301, align 4
   %.promoted671 = load float, ptr %302, align 4
   %.promoted673 = load float, ptr %303, align 4
@@ -560,20 +560,20 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %380 = load i32, ptr %gep885, align 4
   %381 = mul nsw i32 %380, %17
   %382 = mul nuw nsw i64 %indvars.iv818, 3
-  %383 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %382
   %384 = load float, ptr %383, align 4
   %385 = add nuw nsw i64 %382, 1
-  %386 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %385
+  %386 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %385
   %387 = load float, ptr %386, align 4
   %388 = add nuw nsw i64 %382, 2
-  %389 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %388
+  %389 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %388
   %390 = load float, ptr %389, align 4
   %391 = icmp samesign ult i64 %indvars.iv818, 2
-  %392 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv818
+  %392 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv818
   %393 = load float, ptr %392, align 4
-  %394 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %382
-  %395 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %385
-  %396 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %388
+  %394 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %382
+  %395 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %385
+  %396 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %388
   %.promoted713.us = load float, ptr %394, align 4
   %.promoted715.us = load float, ptr %395, align 4
   %.promoted717.us = load float, ptr %396, align 4
@@ -692,19 +692,19 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %471 = load i32, ptr %gep883, align 4
   %472 = mul nsw i32 %471, %17
   %473 = mul nuw nsw i64 %indvars.iv805, 3
-  %474 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %473
+  %474 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %473
   %475 = load float, ptr %474, align 4
   %476 = add nuw nsw i64 %473, 1
-  %477 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %476
+  %477 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %476
   %478 = load float, ptr %477, align 4
   %479 = add nuw nsw i64 %473, 2
-  %480 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %479
+  %480 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %479
   %481 = load float, ptr %480, align 4
-  %482 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv805
+  %482 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv805
   %483 = load float, ptr %482, align 4
-  %484 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %473
-  %485 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %476
-  %486 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %479
+  %484 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %473
+  %485 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %476
+  %486 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %479
   %.promoted705.us = load float, ptr %484, align 4
   %.promoted707.us = load float, ptr %485, align 4
   %.promoted709.us = load float, ptr %486, align 4
@@ -812,17 +812,17 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   %558 = load i32, ptr %gep881, align 4
   %559 = mul nsw i32 %558, %17
   %560 = mul nuw nsw i64 %indvars.iv792, 3
-  %561 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %560
+  %561 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %560
   %562 = load float, ptr %561, align 4
   %563 = add nuw nsw i64 %560, 1
-  %564 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %563
+  %564 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %563
   %565 = load float, ptr %564, align 4
   %566 = add nuw nsw i64 %560, 2
-  %567 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %566
+  %567 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %566
   %568 = load float, ptr %567, align 4
-  %569 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %560
-  %570 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %563
-  %571 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %566
+  %569 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %560
+  %570 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %563
+  %571 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %566
   %.promoted697 = load float, ptr %569, align 4
   %.promoted699 = load float, ptr %570, align 4
   %.promoted701 = load float, ptr %571, align 4
@@ -924,7 +924,7 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
 634:                                              ; preds = %.preheader658, %634
   %indvars.iv827 = phi i64 [ 0, %.preheader658 ], [ %indvars.iv.next828, %634 ]
   %635 = add nuw nsw i64 %indvars.iv827, %632
-  %636 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %635
+  %636 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %635
   %637 = load float, ptr %636, align 4
   %gep887 = getelementptr float, ptr %invariant.gep886, i64 %indvars.iv827
   %638 = load float, ptr %gep887, align 4
@@ -944,7 +944,7 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
 
 .preheader.preheader:                             ; preds = %641
   %642 = zext nneg i32 %41 to i64
-  %invariant.gep888 = getelementptr inbounds float, ptr %12, i64 %642
+  %invariant.gep888 = getelementptr inbounds nuw float, ptr %12, i64 %642
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %650
@@ -955,9 +955,9 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
 644:                                              ; preds = %.preheader, %644
   %indvars.iv835 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next836, %644 ]
   %645 = add nuw nsw i64 %indvars.iv835, %643
-  %646 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %645
+  %646 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %645
   %647 = load float, ptr %646, align 4
-  %gep889 = getelementptr inbounds float, ptr %invariant.gep888, i64 %indvars.iv835
+  %gep889 = getelementptr inbounds nuw float, ptr %invariant.gep888, i64 %indvars.iv835
   %648 = load float, ptr %gep889, align 4
   %649 = fadd float %647, %648
   store float %649, ptr %gep889, align 4
@@ -971,7 +971,7 @@ define void @_Z31nbnxn_kernel_ElecRF_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn_at
   br i1 %exitcond842.not, label %.loopexit666, label %.preheader, !llvm.loop !25
 
 .loopexit666:                                     ; preds = %650, %641
-  %651 = getelementptr inbounds i8, ptr %.sroa.0648.0729, i64 16
+  %651 = getelementptr inbounds nuw i8, ptr %.sroa.0648.0729, i64 16
   %.not652 = icmp eq ptr %651, %33
   br i1 %.not652, label %._crit_edge, label %37
 
@@ -987,59 +987,59 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 116
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %20 = load float, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %22 = load float, ptr %21, align 4
   %23 = fmul float %22, %22
   %24 = load i32, ptr %1, align 8
   %25 = shl nsw i32 %24, 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 108
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 288
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load ptr, ptr %40, align 8
   %.not788905 = icmp eq ptr %39, %41
   br i1 %.not788905, label %._crit_edge, label %.lr.ph907
 
 .lr.ph907:                                        ; preds = %5
   %42 = fmul float %20, 5.000000e-01
-  %43 = getelementptr inbounds i8, ptr %2, i64 44
-  %44 = getelementptr inbounds i8, ptr %2, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %45 = fmul float %18, -2.000000e+00
   %.not754 = icmp eq ptr %12, null
   br label %46
 
 46:                                               ; preds = %.lr.ph907, %.loopexit802
   %.sroa.0784.0906 = phi ptr [ %39, %.lr.ph907 ], [ %750, %.loopexit802 ]
-  %47 = getelementptr inbounds i8, ptr %.sroa.0784.0906, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0784.0906, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, 127
   %50 = mul nuw nsw i32 %49, 3
-  %51 = getelementptr inbounds i8, ptr %.sroa.0784.0906, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0784.0906, i64 8
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %.sroa.0784.0906, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0784.0906, i64 12
   %54 = load i32, ptr %53, align 4
   %55 = load i32, ptr %.sroa.0784.0906, align 4
   %56 = icmp eq i32 %49, 22
@@ -1050,7 +1050,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %60 = zext nneg i32 %50 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %61 = sext i32 %59 to i64
-  %invariant.gep1064 = getelementptr inbounds float, ptr %3, i64 %60
+  %invariant.gep1064 = getelementptr inbounds nuw float, ptr %3, i64 %60
   br label %.preheader800
 
 .preheader800:                                    ; preds = %46, %70
@@ -1065,11 +1065,11 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %indvars.iv = phi i64 [ 0, %.preheader800 ], [ %indvars.iv.next, %64 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %65 = load float, ptr %gep, align 4
-  %gep1065 = getelementptr inbounds float, ptr %invariant.gep1064, i64 %indvars.iv
+  %gep1065 = getelementptr inbounds nuw float, ptr %invariant.gep1064, i64 %indvars.iv
   %66 = load float, ptr %gep1065, align 4
   %67 = fadd float %65, %66
   %68 = add nuw nsw i64 %indvars.iv, %63
-  %69 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %68
   store float %67, ptr %69, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1079,7 +1079,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %71 = getelementptr inbounds float, ptr %29, i64 %62
   %72 = load float, ptr %71, align 4
   %73 = fmul float %33, %72
-  %74 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %74 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %73, ptr %74, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond939.not = icmp eq i64 %indvar.next, 4
@@ -1106,7 +1106,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
 83:                                               ; preds = %.preheader804, %83
   %indvars.iv940 = phi i64 [ 0, %.preheader804 ], [ %indvars.iv.next941, %83 ]
   %84 = phi float [ %.promoted, %.preheader804 ], [ %90, %83 ]
-  %85 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv940
+  %85 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv940
   %86 = load float, ptr %85, align 4
   %gep1067 = getelementptr float, ptr %invariant.gep1066, i64 %indvars.iv940
   %87 = load float, ptr %gep1067, align 4
@@ -1142,7 +1142,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
 97:                                               ; preds = %93
   %98 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %37, i64 %indvars.iv968
   %99 = load i32, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %98, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 4
   br i1 %spec.select, label %101, label %219
 
 101:                                              ; preds = %97
@@ -1160,20 +1160,20 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %107 = mul nsw i32 %106, %25
   %108 = shl nuw nsw i64 %indvars.iv964, 2
   %109 = mul nuw nsw i64 %indvars.iv964, 3
-  %110 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %109
   %111 = load float, ptr %110, align 4
   %112 = add nuw nsw i64 %109, 1
-  %113 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %112
   %114 = load float, ptr %113, align 4
   %115 = add nuw nsw i64 %109, 2
-  %116 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %115
   %117 = load float, ptr %116, align 4
   %118 = icmp samesign ult i64 %indvars.iv964, 2
-  %119 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv964
+  %119 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv964
   %120 = load float, ptr %119, align 4
-  %121 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %109
-  %122 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %112
-  %123 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %115
+  %121 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %109
+  %122 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %112
+  %123 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %115
   %.promoted830 = load float, ptr %121, align 4
   %.promoted832 = load float, ptr %122, align 4
   %.promoted834 = load float, ptr %123, align 4
@@ -1317,19 +1317,19 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %226 = mul nsw i32 %225, %25
   %227 = shl nuw nsw i64 %indvars.iv956, 2
   %228 = mul nuw nsw i64 %indvars.iv956, 3
-  %229 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %228
   %230 = load float, ptr %229, align 4
   %231 = add nuw nsw i64 %228, 1
-  %232 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %231
   %233 = load float, ptr %232, align 4
   %234 = add nuw nsw i64 %228, 2
-  %235 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %234
   %236 = load float, ptr %235, align 4
-  %237 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv956
+  %237 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv956
   %238 = load float, ptr %237, align 4
-  %239 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %228
-  %240 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %231
-  %241 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %234
+  %239 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %228
+  %240 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %231
+  %241 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %234
   %.promoted818 = load float, ptr %239, align 4
   %.promoted820 = load float, ptr %240, align 4
   %.promoted822 = load float, ptr %241, align 4
@@ -1459,17 +1459,17 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %339 = mul nsw i32 %338, %25
   %340 = shl nuw nsw i64 %indvars.iv948, 2
   %341 = mul nuw nsw i64 %indvars.iv948, 3
-  %342 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %341
+  %342 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %341
   %343 = load float, ptr %342, align 4
   %344 = add nuw nsw i64 %341, 1
-  %345 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %344
+  %345 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %344
   %346 = load float, ptr %345, align 4
   %347 = add nuw nsw i64 %341, 2
-  %348 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %347
+  %348 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %347
   %349 = load float, ptr %348, align 4
-  %350 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %341
-  %351 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %344
-  %352 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %347
+  %350 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %341
+  %351 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %344
+  %352 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %347
   %.promoted809 = load float, ptr %350, align 4
   %.promoted810 = load float, ptr %351, align 4
   %.promoted812 = load float, ptr %352, align 4
@@ -1613,20 +1613,20 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %438 = load i32, ptr %gep1079, align 4
   %439 = mul nsw i32 %438, %25
   %440 = mul nuw nsw i64 %indvars.iv1001, 3
-  %441 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %440
+  %441 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %440
   %442 = load float, ptr %441, align 4
   %443 = add nuw nsw i64 %440, 1
-  %444 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %443
+  %444 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %443
   %445 = load float, ptr %444, align 4
   %446 = add nuw nsw i64 %440, 2
-  %447 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %446
+  %447 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %446
   %448 = load float, ptr %447, align 4
   %449 = icmp samesign ult i64 %indvars.iv1001, 2
-  %450 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1001
+  %450 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1001
   %451 = load float, ptr %450, align 4
-  %452 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %440
-  %453 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %443
-  %454 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %446
+  %452 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %440
+  %453 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %443
+  %454 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %446
   %.promoted873.us = load float, ptr %452, align 4
   %.promoted875.us = load float, ptr %453, align 4
   %.promoted877.us = load float, ptr %454, align 4
@@ -1766,19 +1766,19 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %543 = load i32, ptr %gep1077, align 4
   %544 = mul nsw i32 %543, %25
   %545 = mul nuw nsw i64 %indvars.iv988, 3
-  %546 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %545
+  %546 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %545
   %547 = load float, ptr %546, align 4
   %548 = add nuw nsw i64 %545, 1
-  %549 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %548
+  %549 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %548
   %550 = load float, ptr %549, align 4
   %551 = add nuw nsw i64 %545, 2
-  %552 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %551
+  %552 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %551
   %553 = load float, ptr %552, align 4
-  %554 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv988
+  %554 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv988
   %555 = load float, ptr %554, align 4
-  %556 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %545
-  %557 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %548
-  %558 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %551
+  %556 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %545
+  %557 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %548
+  %558 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %551
   %.promoted861.us = load float, ptr %556, align 4
   %.promoted863.us = load float, ptr %557, align 4
   %.promoted865.us = load float, ptr %558, align 4
@@ -1909,17 +1909,17 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %644 = load i32, ptr %gep1075, align 4
   %645 = mul nsw i32 %644, %25
   %646 = mul nuw nsw i64 %indvars.iv976, 3
-  %647 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %646
+  %647 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %646
   %648 = load float, ptr %647, align 4
   %649 = add nuw nsw i64 %646, 1
-  %650 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %649
+  %650 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %649
   %651 = load float, ptr %650, align 4
   %652 = add nuw nsw i64 %646, 2
-  %653 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %652
+  %653 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %652
   %654 = load float, ptr %653, align 4
-  %655 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %646
-  %656 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %649
-  %657 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %652
+  %655 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %646
+  %656 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %649
+  %657 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %652
   %.promoted851 = load float, ptr %655, align 4
   %.promoted853 = load float, ptr %656, align 4
   %.promoted855 = load float, ptr %657, align 4
@@ -2028,7 +2028,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
 729:                                              ; preds = %.preheader794, %729
   %indvars.iv1010 = phi i64 [ 0, %.preheader794 ], [ %indvars.iv.next1011, %729 ]
   %730 = add nuw nsw i64 %indvars.iv1010, %727
-  %731 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %730
+  %731 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %730
   %732 = load float, ptr %731, align 4
   %gep1081 = getelementptr float, ptr %invariant.gep1080, i64 %indvars.iv1010
   %733 = load float, ptr %gep1081, align 4
@@ -2048,7 +2048,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
 
 .preheader.preheader:                             ; preds = %736
   %737 = zext nneg i32 %50 to i64
-  %invariant.gep1082 = getelementptr inbounds float, ptr %12, i64 %737
+  %invariant.gep1082 = getelementptr inbounds nuw float, ptr %12, i64 %737
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %745
@@ -2059,9 +2059,9 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
 739:                                              ; preds = %.preheader, %739
   %indvars.iv1018 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1019, %739 ]
   %740 = add nuw nsw i64 %indvars.iv1018, %738
-  %741 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %740
+  %741 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %740
   %742 = load float, ptr %741, align 4
-  %gep1083 = getelementptr inbounds float, ptr %invariant.gep1082, i64 %indvars.iv1018
+  %gep1083 = getelementptr inbounds nuw float, ptr %invariant.gep1082, i64 %indvars.iv1018
   %743 = load float, ptr %gep1083, align 4
   %744 = fadd float %742, %743
   store float %744, ptr %gep1083, align 4
@@ -2081,7 +2081,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %748 = load float, ptr %16, align 4
   %749 = fadd float %.6726.lcssa, %748
   store float %749, ptr %16, align 4
-  %750 = getelementptr inbounds i8, ptr %.sroa.0784.0906, i64 16
+  %750 = getelementptr inbounds nuw i8, ptr %.sroa.0784.0906, i64 16
   %.not788 = icmp eq ptr %750, %41
   br i1 %.not788, label %._crit_edge, label %46
 
@@ -2095,60 +2095,60 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 116
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %21 = load float, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 76
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %23 = load float, ptr %22, align 4
   %24 = fmul float %23, %23
   %25 = load i32, ptr %1, align 8
   %26 = shl nsw i32 %25, 1
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 176
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 108
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %34 = load float, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 288
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %42 = load ptr, ptr %41, align 8
   %.not821900 = icmp eq ptr %40, %42
   br i1 %.not821900, label %._crit_edge, label %.lr.ph902
 
 .lr.ph902:                                        ; preds = %5
-  %43 = getelementptr inbounds i8, ptr %1, i64 208
-  %44 = getelementptr inbounds i8, ptr %1, i64 200
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %45 = fmul float %21, 5.000000e-01
-  %46 = getelementptr inbounds i8, ptr %2, i64 44
-  %47 = getelementptr inbounds i8, ptr %2, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %48 = fmul float %19, -2.000000e+00
   %.not787 = icmp eq ptr %13, null
   br label %49
 
 49:                                               ; preds = %.lr.ph902, %.loopexit835
   %.sroa.0817.0901 = phi ptr [ %40, %.lr.ph902 ], [ %905, %.loopexit835 ]
-  %50 = getelementptr inbounds i8, ptr %.sroa.0817.0901, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0817.0901, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %51, 127
-  %53 = getelementptr inbounds i8, ptr %.sroa.0817.0901, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0817.0901, i64 8
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %.sroa.0817.0901, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0817.0901, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = load i32, ptr %.sroa.0817.0901, align 4
   %58 = icmp eq i32 %52, 22
@@ -2156,13 +2156,13 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %60 = and i32 %51, 384
   %or.cond = icmp ne i32 %60, 128
   %61 = load ptr, ptr %43, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = sext i32 %57 to i64
   %64 = load ptr, ptr %62, align 8
   %65 = getelementptr inbounds i32, ptr %64, i64 %63
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %61, align 8
-  %68 = getelementptr inbounds i8, ptr %61, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %69 = load i32, ptr %68, align 8
   %70 = load i32, ptr %44, align 8
   br label %76
@@ -2174,7 +2174,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %74 = zext nneg i32 %71 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %75 = sext i32 %73 to i64
-  %invariant.gep1051 = getelementptr inbounds float, ptr %3, i64 %74
+  %invariant.gep1051 = getelementptr inbounds nuw float, ptr %3, i64 %74
   br label %.preheader833
 
 76:                                               ; preds = %49, %76
@@ -2184,7 +2184,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %79 = ashr i32 %66, %78
   %80 = and i32 %79, %69
   %81 = mul nsw i32 %80, %70
-  %82 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %81, ptr %82, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -2202,11 +2202,11 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %indvars.iv925 = phi i64 [ 0, %.preheader833 ], [ %indvars.iv.next926, %85 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv925
   %86 = load float, ptr %gep, align 4
-  %gep1052 = getelementptr inbounds float, ptr %invariant.gep1051, i64 %indvars.iv925
+  %gep1052 = getelementptr inbounds nuw float, ptr %invariant.gep1051, i64 %indvars.iv925
   %87 = load float, ptr %gep1052, align 4
   %88 = fadd float %86, %87
   %89 = add nuw nsw i64 %indvars.iv925, %84
-  %90 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %89
   store float %88, ptr %90, align 4
   %indvars.iv.next926 = add nuw nsw i64 %indvars.iv925, 1
   %exitcond928.not = icmp eq i64 %indvars.iv.next926, 3
@@ -2216,7 +2216,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %92 = getelementptr inbounds float, ptr %30, i64 %83
   %93 = load float, ptr %92, align 4
   %94 = fmul float %34, %93
-  %95 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %95 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %94, ptr %95, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond930.not = icmp eq i64 %indvar.next, 4
@@ -2240,10 +2240,10 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
 
 103:                                              ; preds = %.preheader837, %103
   %indvars.iv931 = phi i64 [ 0, %.preheader837 ], [ %indvars.iv.next932, %103 ]
-  %104 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv931
+  %104 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv931
   %105 = load i32, ptr %104, align 4
   %106 = load ptr, ptr %43, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds i32, ptr %108, i64 %63
   %110 = load i32, ptr %109, align 4
@@ -2251,11 +2251,11 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %112 = trunc nuw nsw i64 %indvars.iv931 to i32
   %113 = mul nsw i32 %111, %112
   %114 = ashr i32 %110, %113
-  %115 = getelementptr inbounds i8, ptr %106, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %116 = load i32, ptr %115, align 8
   %117 = and i32 %114, %116
   %118 = add nsw i32 %117, %105
-  %119 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv931
+  %119 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv931
   %120 = load float, ptr %119, align 4
   %gep1054 = getelementptr float, ptr %invariant.gep1053, i64 %indvars.iv931
   %121 = load float, ptr %gep1054, align 4
@@ -2292,7 +2292,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
 134:                                              ; preds = %130
   %135 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %38, i64 %indvars.iv959
   %136 = load i32, ptr %135, align 4
-  %137 = getelementptr inbounds i8, ptr %135, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 4
   br i1 %spec.select, label %138, label %277
 
 138:                                              ; preds = %134
@@ -2309,22 +2309,22 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %145 = mul nsw i32 %144, %26
   %146 = shl nuw nsw i64 %indvars.iv955, 2
   %147 = mul nuw nsw i64 %indvars.iv955, 3
-  %148 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %147
   %149 = load float, ptr %148, align 4
   %150 = add nuw nsw i64 %147, 1
-  %151 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %150
   %152 = load float, ptr %151, align 4
   %153 = add nuw nsw i64 %147, 2
-  %154 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %153
   %155 = load float, ptr %154, align 4
   %156 = icmp samesign ult i64 %indvars.iv955, 2
-  %157 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv955
+  %157 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv955
   %158 = load float, ptr %157, align 4
-  %159 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv955
+  %159 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv955
   %160 = load i32, ptr %159, align 4
-  %161 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %147
-  %162 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %150
-  %163 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %153
+  %161 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %147
+  %162 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %150
+  %163 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %153
   %.promoted858 = load float, ptr %161, align 4
   %.promoted860 = load float, ptr %162, align 4
   %.promoted862 = load float, ptr %163, align 4
@@ -2369,7 +2369,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %197 = fmul float %194, %196
   %198 = fmul float %197, %197
   %199 = load ptr, ptr %43, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %201 = load ptr, ptr %200, align 8
   %202 = getelementptr inbounds i32, ptr %201, i64 %141
   %203 = load i32, ptr %202, align 4
@@ -2377,7 +2377,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %205 = trunc nuw nsw i64 %indvars.iv951 to i32
   %206 = mul nsw i32 %204, %205
   %207 = ashr i32 %203, %206
-  %208 = getelementptr inbounds i8, ptr %199, i64 32
+  %208 = getelementptr inbounds nuw i8, ptr %199, i64 32
   %209 = load i32, ptr %208, align 8
   %210 = and i32 %207, %209
   br i1 %156, label %211, label %._crit_edge1017
@@ -2490,21 +2490,21 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %285 = mul nsw i32 %284, %26
   %286 = shl nuw nsw i64 %indvars.iv947, 2
   %287 = mul nuw nsw i64 %indvars.iv947, 3
-  %288 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %287
   %289 = load float, ptr %288, align 4
   %290 = add nuw nsw i64 %287, 1
-  %291 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %290
+  %291 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %290
   %292 = load float, ptr %291, align 4
   %293 = add nuw nsw i64 %287, 2
-  %294 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %293
+  %294 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %293
   %295 = load float, ptr %294, align 4
-  %296 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv947
+  %296 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv947
   %297 = load i32, ptr %296, align 4
-  %298 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv947
+  %298 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv947
   %299 = load float, ptr %298, align 4
-  %300 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %287
-  %301 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %290
-  %302 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %293
+  %300 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %287
+  %301 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %290
+  %302 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %293
   %.promoted850 = load float, ptr %300, align 4
   %.promoted852 = load float, ptr %301, align 4
   %.promoted854 = load float, ptr %302, align 4
@@ -2549,7 +2549,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %336 = fmul float %333, %335
   %337 = fmul float %336, %336
   %338 = load ptr, ptr %43, align 8
-  %339 = getelementptr inbounds i8, ptr %338, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
   %340 = load ptr, ptr %339, align 8
   %341 = getelementptr inbounds i32, ptr %340, i64 %281
   %342 = load i32, ptr %341, align 4
@@ -2557,7 +2557,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %344 = trunc nuw nsw i64 %indvars.iv943 to i32
   %345 = mul nsw i32 %343, %344
   %346 = ashr i32 %342, %345
-  %347 = getelementptr inbounds i8, ptr %338, i64 32
+  %347 = getelementptr inbounds nuw i8, ptr %338, i64 32
   %348 = load i32, ptr %347, align 8
   %349 = and i32 %346, %348
   %350 = getelementptr inbounds i32, ptr %32, i64 %315
@@ -2652,19 +2652,19 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %419 = mul nsw i32 %418, %26
   %420 = shl nuw nsw i64 %indvars.iv939, 2
   %421 = mul nuw nsw i64 %indvars.iv939, 3
-  %422 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %421
+  %422 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %421
   %423 = load float, ptr %422, align 4
   %424 = add nuw nsw i64 %421, 1
-  %425 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %424
+  %425 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %424
   %426 = load float, ptr %425, align 4
   %427 = add nuw nsw i64 %421, 2
-  %428 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %427
+  %428 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %427
   %429 = load float, ptr %428, align 4
-  %430 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv939
+  %430 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv939
   %431 = load i32, ptr %430, align 4
-  %432 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %421
-  %433 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %424
-  %434 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %427
+  %432 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %421
+  %433 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %424
+  %434 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %427
   %.promoted = load float, ptr %432, align 4
   %.promoted844 = load float, ptr %433, align 4
   %.promoted846 = load float, ptr %434, align 4
@@ -2706,7 +2706,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %465 = fmul float %462, %464
   %466 = fmul float %465, %465
   %467 = load ptr, ptr %43, align 8
-  %468 = getelementptr inbounds i8, ptr %467, i64 8
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
   %469 = load ptr, ptr %468, align 8
   %470 = getelementptr inbounds i32, ptr %469, i64 %415
   %471 = load i32, ptr %470, align 4
@@ -2714,7 +2714,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %473 = trunc nuw nsw i64 %indvars.iv935 to i32
   %474 = mul nsw i32 %472, %473
   %475 = ashr i32 %471, %474
-  %476 = getelementptr inbounds i8, ptr %467, i64 32
+  %476 = getelementptr inbounds nuw i8, ptr %467, i64 32
   %477 = load i32, ptr %476, align 8
   %478 = and i32 %475, %477
   %479 = getelementptr inbounds i32, ptr %32, i64 %445
@@ -2817,22 +2817,22 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %537 = load i32, ptr %gep1066, align 4
   %538 = mul nsw i32 %537, %26
   %539 = mul nuw nsw i64 %indvars.iv992, 3
-  %540 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %539
+  %540 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %539
   %541 = load float, ptr %540, align 4
   %542 = add nuw nsw i64 %539, 1
-  %543 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %542
+  %543 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %542
   %544 = load float, ptr %543, align 4
   %545 = add nuw nsw i64 %539, 2
-  %546 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %545
+  %546 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %545
   %547 = load float, ptr %546, align 4
   %548 = icmp samesign ult i64 %indvars.iv992, 2
-  %549 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv992
+  %549 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv992
   %550 = load float, ptr %549, align 4
-  %551 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv992
+  %551 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv992
   %552 = load i32, ptr %551, align 4
-  %553 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %539
-  %554 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %542
-  %555 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %545
+  %553 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %539
+  %554 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %542
+  %555 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %545
   %.promoted885.us = load float, ptr %553, align 4
   %.promoted887.us = load float, ptr %554, align 4
   %.promoted889.us = load float, ptr %555, align 4
@@ -2876,7 +2876,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %581 = fmul float %578, %580
   %582 = fmul float %581, %581
   %583 = load ptr, ptr %43, align 8
-  %584 = getelementptr inbounds i8, ptr %583, i64 8
+  %584 = getelementptr inbounds nuw i8, ptr %583, i64 8
   %585 = load ptr, ptr %584, align 8
   %586 = getelementptr inbounds i32, ptr %585, i64 %534
   %587 = load i32, ptr %586, align 4
@@ -2884,7 +2884,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %589 = trunc nuw nsw i64 %indvars.iv988 to i32
   %590 = mul nsw i32 %588, %589
   %591 = ashr i32 %587, %590
-  %592 = getelementptr inbounds i8, ptr %583, i64 32
+  %592 = getelementptr inbounds nuw i8, ptr %583, i64 32
   %593 = load i32, ptr %592, align 8
   %594 = and i32 %591, %593
   br i1 %548, label %595, label %._crit_edge1018
@@ -2992,21 +2992,21 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %663 = load i32, ptr %gep1064, align 4
   %664 = mul nsw i32 %663, %26
   %665 = mul nuw nsw i64 %indvars.iv979, 3
-  %666 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %665
+  %666 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %665
   %667 = load float, ptr %666, align 4
   %668 = add nuw nsw i64 %665, 1
-  %669 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %668
+  %669 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %668
   %670 = load float, ptr %669, align 4
   %671 = add nuw nsw i64 %665, 2
-  %672 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %671
+  %672 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %671
   %673 = load float, ptr %672, align 4
-  %674 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv979
+  %674 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv979
   %675 = load i32, ptr %674, align 4
-  %676 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv979
+  %676 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv979
   %677 = load float, ptr %676, align 4
-  %678 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %665
-  %679 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %668
-  %680 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %671
+  %678 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %665
+  %679 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %668
+  %680 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %671
   %.promoted877.us = load float, ptr %678, align 4
   %.promoted879.us = load float, ptr %679, align 4
   %.promoted881.us = load float, ptr %680, align 4
@@ -3050,7 +3050,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %706 = fmul float %703, %705
   %707 = fmul float %706, %706
   %708 = load ptr, ptr %43, align 8
-  %709 = getelementptr inbounds i8, ptr %708, i64 8
+  %709 = getelementptr inbounds nuw i8, ptr %708, i64 8
   %710 = load ptr, ptr %709, align 8
   %711 = getelementptr inbounds i32, ptr %710, i64 %660
   %712 = load i32, ptr %711, align 4
@@ -3058,7 +3058,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %714 = trunc nuw nsw i64 %indvars.iv975 to i32
   %715 = mul nsw i32 %713, %714
   %716 = ashr i32 %712, %715
-  %717 = getelementptr inbounds i8, ptr %708, i64 32
+  %717 = getelementptr inbounds nuw i8, ptr %708, i64 32
   %718 = load i32, ptr %717, align 8
   %719 = and i32 %716, %718
   %720 = getelementptr inbounds i32, ptr %32, i64 %686
@@ -3149,19 +3149,19 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %785 = load i32, ptr %gep1062, align 4
   %786 = mul nsw i32 %785, %26
   %787 = mul nuw nsw i64 %indvars.iv967, 3
-  %788 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %787
+  %788 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %787
   %789 = load float, ptr %788, align 4
   %790 = add nuw nsw i64 %787, 1
-  %791 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %790
+  %791 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %790
   %792 = load float, ptr %791, align 4
   %793 = add nuw nsw i64 %787, 2
-  %794 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %793
+  %794 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %793
   %795 = load float, ptr %794, align 4
-  %796 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv967
+  %796 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv967
   %797 = load i32, ptr %796, align 4
-  %798 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %787
-  %799 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %790
-  %800 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %793
+  %798 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %787
+  %799 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %790
+  %800 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %793
   %.promoted869 = load float, ptr %798, align 4
   %.promoted871 = load float, ptr %799, align 4
   %.promoted873 = load float, ptr %800, align 4
@@ -3197,7 +3197,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %825 = fmul float %822, %824
   %826 = fmul float %825, %825
   %827 = load ptr, ptr %43, align 8
-  %828 = getelementptr inbounds i8, ptr %827, i64 8
+  %828 = getelementptr inbounds nuw i8, ptr %827, i64 8
   %829 = load ptr, ptr %828, align 8
   %830 = getelementptr inbounds i32, ptr %829, i64 %782
   %831 = load i32, ptr %830, align 4
@@ -3205,7 +3205,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   %833 = trunc nuw nsw i64 %indvars.iv963 to i32
   %834 = mul nsw i32 %832, %833
   %835 = ashr i32 %831, %834
-  %836 = getelementptr inbounds i8, ptr %827, i64 32
+  %836 = getelementptr inbounds nuw i8, ptr %827, i64 32
   %837 = load i32, ptr %836, align 8
   %838 = and i32 %835, %837
   %839 = getelementptr inbounds i32, ptr %32, i64 %805
@@ -3289,7 +3289,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
 888:                                              ; preds = %.preheader827, %888
   %indvars.iv1001 = phi i64 [ 0, %.preheader827 ], [ %indvars.iv.next1002, %888 ]
   %889 = add nuw nsw i64 %indvars.iv1001, %886
-  %890 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %889
+  %890 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %889
   %891 = load float, ptr %890, align 4
   %gep1068 = getelementptr float, ptr %invariant.gep1067, i64 %indvars.iv1001
   %892 = load float, ptr %gep1068, align 4
@@ -3309,7 +3309,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
 
 .preheader.preheader:                             ; preds = %895
   %896 = zext nneg i32 %71 to i64
-  %invariant.gep1069 = getelementptr inbounds float, ptr %13, i64 %896
+  %invariant.gep1069 = getelementptr inbounds nuw float, ptr %13, i64 %896
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %904
@@ -3320,9 +3320,9 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
 898:                                              ; preds = %.preheader, %898
   %indvars.iv1009 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1010, %898 ]
   %899 = add nuw nsw i64 %indvars.iv1009, %897
-  %900 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %899
+  %900 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %899
   %901 = load float, ptr %900, align 4
-  %gep1070 = getelementptr inbounds float, ptr %invariant.gep1069, i64 %indvars.iv1009
+  %gep1070 = getelementptr inbounds nuw float, ptr %invariant.gep1069, i64 %indvars.iv1009
   %902 = load float, ptr %gep1070, align 4
   %903 = fadd float %901, %902
   store float %903, ptr %gep1070, align 4
@@ -3336,7 +3336,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16nbnx
   br i1 %exitcond1016.not, label %.loopexit835, label %.preheader, !llvm.loop !68
 
 .loopexit835:                                     ; preds = %904, %895
-  %905 = getelementptr inbounds i8, ptr %.sroa.0817.0901, i64 16
+  %905 = getelementptr inbounds nuw i8, ptr %.sroa.0817.0901, i64 16
   %.not821 = icmp eq ptr %905, %42
   br i1 %.not821, label %._crit_edge, label %49
 
@@ -3349,55 +3349,55 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 76
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %14 = load float, ptr %13, align 4
   %15 = fmul float %14, %14
   %16 = load i32, ptr %1, align 8
   %17 = shl nsw i32 %16, 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 108
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 288
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load ptr, ptr %32, align 8
   %.not778854 = icmp eq ptr %31, %33
   br i1 %.not778854, label %._crit_edge, label %.lr.ph856
 
 .lr.ph856:                                        ; preds = %5
-  %34 = getelementptr inbounds i8, ptr %2, i64 116
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 20
-  %37 = getelementptr inbounds i8, ptr %2, i64 24
-  %38 = getelementptr inbounds i8, ptr %2, i64 28
-  %39 = getelementptr inbounds i8, ptr %2, i64 36
-  %40 = getelementptr inbounds i8, ptr %2, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %41 = fmul float %35, -2.000000e+00
   %.not742 = icmp eq ptr %12, null
   br label %42
 
 42:                                               ; preds = %.lr.ph856, %.loopexit792
   %.sroa.0774.0855 = phi ptr [ %31, %.lr.ph856 ], [ %782, %.loopexit792 ]
-  %43 = getelementptr inbounds i8, ptr %.sroa.0774.0855, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0774.0855, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 127
   %46 = mul nuw nsw i32 %45, 3
-  %47 = getelementptr inbounds i8, ptr %.sroa.0774.0855, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0774.0855, i64 8
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %.sroa.0774.0855, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0774.0855, i64 12
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %.sroa.0774.0855, align 4
   %52 = icmp eq i32 %45, 22
@@ -3410,7 +3410,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %57 = zext nneg i32 %46 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %58 = sext i32 %56 to i64
-  %invariant.gep998 = getelementptr inbounds float, ptr %3, i64 %57
+  %invariant.gep998 = getelementptr inbounds nuw float, ptr %3, i64 %57
   br label %.preheader790
 
 .preheader794:                                    ; preds = %200
@@ -3443,7 +3443,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
 65:                                               ; preds = %.lr.ph.split.us
   %66 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %29, i64 %indvars.iv910
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %66, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %69 = icmp eq i32 %67, %59
   %70 = shl nsw i32 %67, 2
   %71 = sext i32 %70 to i64
@@ -3456,20 +3456,20 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %74 = mul nsw i32 %73, %17
   %75 = shl nuw nsw i64 %indvars.iv906, 2
   %76 = mul nuw nsw i64 %indvars.iv906, 3
-  %77 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %76
   %78 = load float, ptr %77, align 4
   %79 = add nuw nsw i64 %76, 1
-  %80 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %79
   %81 = load float, ptr %80, align 4
   %82 = add nuw nsw i64 %76, 2
-  %83 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %82
   %84 = load float, ptr %83, align 4
   %85 = icmp samesign ult i64 %indvars.iv906, 2
-  %86 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv906
+  %86 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv906
   %87 = load float, ptr %86, align 4
-  %88 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %76
-  %89 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %79
-  %90 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %82
+  %88 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %76
+  %89 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %79
+  %90 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %82
   %.promoted811.us = load float, ptr %88, align 4
   %.promoted813.us = load float, ptr %89, align 4
   %.promoted815.us = load float, ptr %90, align 4
@@ -3615,11 +3615,11 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %indvars.iv = phi i64 [ 0, %.preheader790 ], [ %indvars.iv.next, %194 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %195 = load float, ptr %gep, align 4
-  %gep999 = getelementptr inbounds float, ptr %invariant.gep998, i64 %indvars.iv
+  %gep999 = getelementptr inbounds nuw float, ptr %invariant.gep998, i64 %indvars.iv
   %196 = load float, ptr %gep999, align 4
   %197 = fadd float %195, %196
   %198 = add nuw nsw i64 %indvars.iv, %193
-  %199 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %198
   store float %197, ptr %199, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3629,7 +3629,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %201 = getelementptr inbounds float, ptr %21, i64 %192
   %202 = load float, ptr %201, align 4
   %203 = fmul float %25, %202
-  %204 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %204 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %203, ptr %204, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond881.not = icmp eq i64 %indvar.next, 4
@@ -3646,7 +3646,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
 208:                                              ; preds = %.lr.ph.split
   %209 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %29, i64 %indvars.iv898
   %210 = load i32, ptr %209, align 4
-  %211 = getelementptr inbounds i8, ptr %209, i64 4
+  %211 = getelementptr inbounds nuw i8, ptr %209, i64 4
   br i1 %54, label %212, label %332
 
 212:                                              ; preds = %208
@@ -3662,19 +3662,19 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %218 = mul nsw i32 %217, %17
   %219 = shl nuw nsw i64 %indvars.iv894, 2
   %220 = mul nuw nsw i64 %indvars.iv894, 3
-  %221 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %220
+  %221 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %220
   %222 = load float, ptr %221, align 4
   %223 = add nuw nsw i64 %220, 1
-  %224 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %223
   %225 = load float, ptr %224, align 4
   %226 = add nuw nsw i64 %220, 2
-  %227 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %226
   %228 = load float, ptr %227, align 4
-  %229 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv894
+  %229 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv894
   %230 = load float, ptr %229, align 4
-  %231 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %220
-  %232 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %223
-  %233 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %226
+  %231 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %220
+  %232 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %223
+  %233 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %226
   %.promoted803 = load float, ptr %231, align 4
   %.promoted805 = load float, ptr %232, align 4
   %.promoted807 = load float, ptr %233, align 4
@@ -3807,17 +3807,17 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %337 = mul nsw i32 %336, %17
   %338 = shl nuw nsw i64 %indvars.iv886, 2
   %339 = mul nuw nsw i64 %indvars.iv886, 3
-  %340 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %339
+  %340 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %339
   %341 = load float, ptr %340, align 4
   %342 = add nuw nsw i64 %339, 1
-  %343 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %342
   %344 = load float, ptr %343, align 4
   %345 = add nuw nsw i64 %339, 2
-  %346 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %345
   %347 = load float, ptr %346, align 4
-  %348 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %339
-  %349 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %342
-  %350 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %345
+  %348 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %339
+  %349 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %342
+  %350 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %345
   %.promoted = load float, ptr %348, align 4
   %.promoted797 = load float, ptr %349, align 4
   %.promoted799 = load float, ptr %350, align 4
@@ -3967,20 +3967,20 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %448 = load i32, ptr %gep1011, align 4
   %449 = mul nsw i32 %448, %17
   %450 = mul nuw nsw i64 %indvars.iv944, 3
-  %451 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %450
   %452 = load float, ptr %451, align 4
   %453 = add nuw nsw i64 %450, 1
-  %454 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %453
+  %454 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %453
   %455 = load float, ptr %454, align 4
   %456 = add nuw nsw i64 %450, 2
-  %457 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %456
+  %457 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %456
   %458 = load float, ptr %457, align 4
   %459 = icmp samesign ult i64 %indvars.iv944, 2
-  %460 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv944
+  %460 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv944
   %461 = load float, ptr %460, align 4
-  %462 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %450
-  %463 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %453
-  %464 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %456
+  %462 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %450
+  %463 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %453
+  %464 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %456
   %.promoted839.us = load float, ptr %462, align 4
   %.promoted841.us = load float, ptr %463, align 4
   %.promoted843.us = load float, ptr %464, align 4
@@ -4120,19 +4120,19 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %560 = load i32, ptr %gep1009, align 4
   %561 = mul nsw i32 %560, %17
   %562 = mul nuw nsw i64 %indvars.iv931, 3
-  %563 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %562
+  %563 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %562
   %564 = load float, ptr %563, align 4
   %565 = add nuw nsw i64 %562, 1
-  %566 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %565
+  %566 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %565
   %567 = load float, ptr %566, align 4
   %568 = add nuw nsw i64 %562, 2
-  %569 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %568
+  %569 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %568
   %570 = load float, ptr %569, align 4
-  %571 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv931
+  %571 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv931
   %572 = load float, ptr %571, align 4
-  %573 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %562
-  %574 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %565
-  %575 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %568
+  %573 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %562
+  %574 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %565
+  %575 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %568
   %.promoted831.us = load float, ptr %573, align 4
   %.promoted833.us = load float, ptr %574, align 4
   %.promoted835.us = load float, ptr %575, align 4
@@ -4261,17 +4261,17 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %668 = load i32, ptr %gep1007, align 4
   %669 = mul nsw i32 %668, %17
   %670 = mul nuw nsw i64 %indvars.iv918, 3
-  %671 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %670
+  %671 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %670
   %672 = load float, ptr %671, align 4
   %673 = add nuw nsw i64 %670, 1
-  %674 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %673
+  %674 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %673
   %675 = load float, ptr %674, align 4
   %676 = add nuw nsw i64 %670, 2
-  %677 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %676
+  %677 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %676
   %678 = load float, ptr %677, align 4
-  %679 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %670
-  %680 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %673
-  %681 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %676
+  %679 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %670
+  %680 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %673
+  %681 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %676
   %.promoted823 = load float, ptr %679, align 4
   %.promoted825 = load float, ptr %680, align 4
   %.promoted827 = load float, ptr %681, align 4
@@ -4394,7 +4394,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
 765:                                              ; preds = %.preheader784, %765
   %indvars.iv953 = phi i64 [ 0, %.preheader784 ], [ %indvars.iv.next954, %765 ]
   %766 = add nuw nsw i64 %indvars.iv953, %763
-  %767 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %766
+  %767 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %766
   %768 = load float, ptr %767, align 4
   %gep1013 = getelementptr float, ptr %invariant.gep1012, i64 %indvars.iv953
   %769 = load float, ptr %gep1013, align 4
@@ -4414,7 +4414,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
 
 .preheader.preheader:                             ; preds = %772
   %773 = zext nneg i32 %46 to i64
-  %invariant.gep1014 = getelementptr inbounds float, ptr %12, i64 %773
+  %invariant.gep1014 = getelementptr inbounds nuw float, ptr %12, i64 %773
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %781
@@ -4425,9 +4425,9 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
 775:                                              ; preds = %.preheader, %775
   %indvars.iv961 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next962, %775 ]
   %776 = add nuw nsw i64 %indvars.iv961, %774
-  %777 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %776
+  %777 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %776
   %778 = load float, ptr %777, align 4
-  %gep1015 = getelementptr inbounds float, ptr %invariant.gep1014, i64 %indvars.iv961
+  %gep1015 = getelementptr inbounds nuw float, ptr %invariant.gep1014, i64 %indvars.iv961
   %779 = load float, ptr %gep1015, align 4
   %780 = fadd float %778, %779
   store float %780, ptr %gep1015, align 4
@@ -4441,7 +4441,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   br i1 %exitcond968.not, label %.loopexit792, label %.preheader, !llvm.loop !88
 
 .loopexit792:                                     ; preds = %781, %772
-  %782 = getelementptr inbounds i8, ptr %.sroa.0774.0855, i64 16
+  %782 = getelementptr inbounds nuw i8, ptr %.sroa.0774.0855, i64 16
   %.not778 = icmp eq ptr %782, %33
   br i1 %.not778, label %._crit_edge, label %42
 
@@ -4454,64 +4454,64 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 116
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %20 = load float, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %22 = load float, ptr %21, align 4
   %23 = fmul float %22, %22
   %24 = load i32, ptr %1, align 8
   %25 = shl nsw i32 %24, 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 108
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 288
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load ptr, ptr %40, align 8
   %.not10021119 = icmp eq ptr %39, %41
   br i1 %.not10021119, label %._crit_edge, label %.lr.ph1121
 
 .lr.ph1121:                                       ; preds = %5
   %42 = fmul float %20, 5.000000e-01
-  %43 = getelementptr inbounds i8, ptr %2, i64 36
-  %44 = getelementptr inbounds i8, ptr %2, i64 44
-  %45 = getelementptr inbounds i8, ptr %2, i64 24
-  %46 = getelementptr inbounds i8, ptr %2, i64 32
-  %47 = getelementptr inbounds i8, ptr %2, i64 20
-  %48 = getelementptr inbounds i8, ptr %2, i64 28
-  %49 = getelementptr inbounds i8, ptr %2, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %50 = fmul float %18, -2.000000e+00
   %.not964 = icmp eq ptr %12, null
   br label %51
 
 51:                                               ; preds = %.lr.ph1121, %.loopexit1016
   %.sroa.0998.01120 = phi ptr [ %39, %.lr.ph1121 ], [ %971, %.loopexit1016 ]
-  %52 = getelementptr inbounds i8, ptr %.sroa.0998.01120, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0998.01120, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 127
   %55 = mul nuw nsw i32 %54, 3
-  %56 = getelementptr inbounds i8, ptr %.sroa.0998.01120, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0998.01120, i64 8
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.sroa.0998.01120, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0998.01120, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %.sroa.0998.01120, align 4
   %61 = icmp eq i32 %54, 22
@@ -4522,7 +4522,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %65 = zext nneg i32 %55 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %66 = sext i32 %64 to i64
-  %invariant.gep1278 = getelementptr inbounds float, ptr %3, i64 %65
+  %invariant.gep1278 = getelementptr inbounds nuw float, ptr %3, i64 %65
   br label %.preheader1014
 
 .preheader1014:                                   ; preds = %51, %75
@@ -4537,11 +4537,11 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %indvars.iv = phi i64 [ 0, %.preheader1014 ], [ %indvars.iv.next, %69 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %70 = load float, ptr %gep, align 4
-  %gep1279 = getelementptr inbounds float, ptr %invariant.gep1278, i64 %indvars.iv
+  %gep1279 = getelementptr inbounds nuw float, ptr %invariant.gep1278, i64 %indvars.iv
   %71 = load float, ptr %gep1279, align 4
   %72 = fadd float %70, %71
   %73 = add nuw nsw i64 %indvars.iv, %68
-  %74 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %73
   store float %72, ptr %74, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -4551,7 +4551,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %76 = getelementptr inbounds float, ptr %29, i64 %67
   %77 = load float, ptr %76, align 4
   %78 = fmul float %33, %77
-  %79 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %79 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %78, ptr %79, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1153.not = icmp eq i64 %indvar.next, 4
@@ -4578,7 +4578,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 88:                                               ; preds = %.preheader1018, %88
   %indvars.iv1154 = phi i64 [ 0, %.preheader1018 ], [ %indvars.iv.next1155, %88 ]
   %89 = phi float [ %.promoted, %.preheader1018 ], [ %95, %88 ]
-  %90 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1154
+  %90 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1154
   %91 = load float, ptr %90, align 4
   %gep1281 = getelementptr float, ptr %invariant.gep1280, i64 %indvars.iv1154
   %92 = load float, ptr %gep1281, align 4
@@ -4614,7 +4614,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 102:                                              ; preds = %98
   %103 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %37, i64 %indvars.iv1182
   %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds i8, ptr %103, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 4
   br i1 %spec.select, label %106, label %260
 
 106:                                              ; preds = %102
@@ -4632,20 +4632,20 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %112 = mul nsw i32 %111, %25
   %113 = shl nuw nsw i64 %indvars.iv1178, 2
   %114 = mul nuw nsw i64 %indvars.iv1178, 3
-  %115 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %114
   %116 = load float, ptr %115, align 4
   %117 = add nuw nsw i64 %114, 1
-  %118 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %117
   %119 = load float, ptr %118, align 4
   %120 = add nuw nsw i64 %114, 2
-  %121 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %120
   %122 = load float, ptr %121, align 4
   %123 = icmp samesign ult i64 %indvars.iv1178, 2
-  %124 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1178
+  %124 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1178
   %125 = load float, ptr %124, align 4
-  %126 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %114
-  %127 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %117
-  %128 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %120
+  %126 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %114
+  %127 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %117
+  %128 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %120
   %.promoted1044 = load float, ptr %126, align 4
   %.promoted1046 = load float, ptr %127, align 4
   %.promoted1048 = load float, ptr %128, align 4
@@ -4825,19 +4825,19 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %267 = mul nsw i32 %266, %25
   %268 = shl nuw nsw i64 %indvars.iv1170, 2
   %269 = mul nuw nsw i64 %indvars.iv1170, 3
-  %270 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %269
+  %270 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %269
   %271 = load float, ptr %270, align 4
   %272 = add nuw nsw i64 %269, 1
-  %273 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %272
+  %273 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %272
   %274 = load float, ptr %273, align 4
   %275 = add nuw nsw i64 %269, 2
-  %276 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %275
+  %276 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %275
   %277 = load float, ptr %276, align 4
-  %278 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1170
+  %278 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1170
   %279 = load float, ptr %278, align 4
-  %280 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %269
-  %281 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %272
-  %282 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %275
+  %280 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %269
+  %281 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %272
+  %282 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %275
   %.promoted1032 = load float, ptr %280, align 4
   %.promoted1034 = load float, ptr %281, align 4
   %.promoted1036 = load float, ptr %282, align 4
@@ -5003,17 +5003,17 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %416 = mul nsw i32 %415, %25
   %417 = shl nuw nsw i64 %indvars.iv1162, 2
   %418 = mul nuw nsw i64 %indvars.iv1162, 3
-  %419 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %418
+  %419 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %418
   %420 = load float, ptr %419, align 4
   %421 = add nuw nsw i64 %418, 1
-  %422 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %421
+  %422 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %421
   %423 = load float, ptr %422, align 4
   %424 = add nuw nsw i64 %418, 2
-  %425 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %424
+  %425 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %424
   %426 = load float, ptr %425, align 4
-  %427 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %418
-  %428 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %421
-  %429 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %424
+  %427 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %418
+  %428 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %421
+  %429 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %424
   %.promoted1023 = load float, ptr %427, align 4
   %.promoted1024 = load float, ptr %428, align 4
   %.promoted1026 = load float, ptr %429, align 4
@@ -5193,20 +5193,20 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %551 = load i32, ptr %gep1293, align 4
   %552 = mul nsw i32 %551, %25
   %553 = mul nuw nsw i64 %indvars.iv1215, 3
-  %554 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %553
+  %554 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %553
   %555 = load float, ptr %554, align 4
   %556 = add nuw nsw i64 %553, 1
-  %557 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %556
+  %557 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %556
   %558 = load float, ptr %557, align 4
   %559 = add nuw nsw i64 %553, 2
-  %560 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %559
+  %560 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %559
   %561 = load float, ptr %560, align 4
   %562 = icmp samesign ult i64 %indvars.iv1215, 2
-  %563 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1215
+  %563 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1215
   %564 = load float, ptr %563, align 4
-  %565 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %553
-  %566 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %556
-  %567 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %559
+  %565 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %553
+  %566 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %556
+  %567 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %559
   %.promoted1087.us = load float, ptr %565, align 4
   %.promoted1089.us = load float, ptr %566, align 4
   %.promoted1091.us = load float, ptr %567, align 4
@@ -5382,19 +5382,19 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %692 = load i32, ptr %gep1291, align 4
   %693 = mul nsw i32 %692, %25
   %694 = mul nuw nsw i64 %indvars.iv1202, 3
-  %695 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %694
+  %695 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %694
   %696 = load float, ptr %695, align 4
   %697 = add nuw nsw i64 %694, 1
-  %698 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %697
+  %698 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %697
   %699 = load float, ptr %698, align 4
   %700 = add nuw nsw i64 %694, 2
-  %701 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %700
+  %701 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %700
   %702 = load float, ptr %701, align 4
-  %703 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1202
+  %703 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1202
   %704 = load float, ptr %703, align 4
-  %705 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %694
-  %706 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %697
-  %707 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %700
+  %705 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %694
+  %706 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %697
+  %707 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %700
   %.promoted1075.us = load float, ptr %705, align 4
   %.promoted1077.us = load float, ptr %706, align 4
   %.promoted1079.us = load float, ptr %707, align 4
@@ -5561,17 +5561,17 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %829 = load i32, ptr %gep1289, align 4
   %830 = mul nsw i32 %829, %25
   %831 = mul nuw nsw i64 %indvars.iv1190, 3
-  %832 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %831
+  %832 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %831
   %833 = load float, ptr %832, align 4
   %834 = add nuw nsw i64 %831, 1
-  %835 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %834
+  %835 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %834
   %836 = load float, ptr %835, align 4
   %837 = add nuw nsw i64 %831, 2
-  %838 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %837
+  %838 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %837
   %839 = load float, ptr %838, align 4
-  %840 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %831
-  %841 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %834
-  %842 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %837
+  %840 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %831
+  %841 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %834
+  %842 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %837
   %.promoted1065 = load float, ptr %840, align 4
   %.promoted1067 = load float, ptr %841, align 4
   %.promoted1069 = load float, ptr %842, align 4
@@ -5716,7 +5716,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 950:                                              ; preds = %.preheader1008, %950
   %indvars.iv1224 = phi i64 [ 0, %.preheader1008 ], [ %indvars.iv.next1225, %950 ]
   %951 = add nuw nsw i64 %indvars.iv1224, %948
-  %952 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %951
+  %952 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %951
   %953 = load float, ptr %952, align 4
   %gep1295 = getelementptr float, ptr %invariant.gep1294, i64 %indvars.iv1224
   %954 = load float, ptr %gep1295, align 4
@@ -5736,7 +5736,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 .preheader.preheader:                             ; preds = %957
   %958 = zext nneg i32 %55 to i64
-  %invariant.gep1296 = getelementptr inbounds float, ptr %12, i64 %958
+  %invariant.gep1296 = getelementptr inbounds nuw float, ptr %12, i64 %958
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %966
@@ -5747,9 +5747,9 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 960:                                              ; preds = %.preheader, %960
   %indvars.iv1232 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1233, %960 ]
   %961 = add nuw nsw i64 %indvars.iv1232, %959
-  %962 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %961
+  %962 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %961
   %963 = load float, ptr %962, align 4
-  %gep1297 = getelementptr inbounds float, ptr %invariant.gep1296, i64 %indvars.iv1232
+  %gep1297 = getelementptr inbounds nuw float, ptr %invariant.gep1296, i64 %indvars.iv1232
   %964 = load float, ptr %gep1297, align 4
   %965 = fadd float %963, %964
   store float %965, ptr %gep1297, align 4
@@ -5769,7 +5769,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %969 = load float, ptr %16, align 4
   %970 = fadd float %.6936.lcssa, %969
   store float %970, ptr %16, align 4
-  %971 = getelementptr inbounds i8, ptr %.sroa.0998.01120, i64 16
+  %971 = getelementptr inbounds nuw i8, ptr %.sroa.0998.01120, i64 16
   %.not1002 = icmp eq ptr %971, %41
   br i1 %.not1002, label %._crit_edge, label %51
 
@@ -5783,65 +5783,65 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 116
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %21 = load float, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 76
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %23 = load float, ptr %22, align 4
   %24 = fmul float %23, %23
   %25 = load i32, ptr %1, align 8
   %26 = shl nsw i32 %25, 1
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 176
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 108
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %34 = load float, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 288
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %42 = load ptr, ptr %41, align 8
   %.not10371116 = icmp eq ptr %40, %42
   br i1 %.not10371116, label %._crit_edge, label %.lr.ph1118
 
 .lr.ph1118:                                       ; preds = %5
-  %43 = getelementptr inbounds i8, ptr %1, i64 208
-  %44 = getelementptr inbounds i8, ptr %1, i64 200
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %45 = fmul float %21, 5.000000e-01
-  %46 = getelementptr inbounds i8, ptr %2, i64 36
-  %47 = getelementptr inbounds i8, ptr %2, i64 44
-  %48 = getelementptr inbounds i8, ptr %2, i64 24
-  %49 = getelementptr inbounds i8, ptr %2, i64 32
-  %50 = getelementptr inbounds i8, ptr %2, i64 20
-  %51 = getelementptr inbounds i8, ptr %2, i64 28
-  %52 = getelementptr inbounds i8, ptr %2, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %53 = fmul float %19, -2.000000e+00
   %.not997 = icmp eq ptr %13, null
   br label %54
 
 54:                                               ; preds = %.lr.ph1118, %.loopexit1051
   %.sroa.01033.01117 = phi ptr [ %40, %.lr.ph1118 ], [ %1126, %.loopexit1051 ]
-  %55 = getelementptr inbounds i8, ptr %.sroa.01033.01117, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.01033.01117, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 127
-  %58 = getelementptr inbounds i8, ptr %.sroa.01033.01117, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.01033.01117, i64 8
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %.sroa.01033.01117, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.01033.01117, i64 12
   %61 = load i32, ptr %60, align 4
   %62 = load i32, ptr %.sroa.01033.01117, align 4
   %63 = icmp eq i32 %57, 22
@@ -5849,13 +5849,13 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %65 = and i32 %56, 384
   %or.cond = icmp ne i32 %65, 128
   %66 = load ptr, ptr %43, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = sext i32 %62 to i64
   %69 = load ptr, ptr %67, align 8
   %70 = getelementptr inbounds i32, ptr %69, i64 %68
   %71 = load i32, ptr %70, align 4
   %72 = load i32, ptr %66, align 8
-  %73 = getelementptr inbounds i8, ptr %66, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %74 = load i32, ptr %73, align 8
   %75 = load i32, ptr %44, align 8
   br label %81
@@ -5867,7 +5867,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %79 = zext nneg i32 %76 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %80 = sext i32 %78 to i64
-  %invariant.gep1267 = getelementptr inbounds float, ptr %3, i64 %79
+  %invariant.gep1267 = getelementptr inbounds nuw float, ptr %3, i64 %79
   br label %.preheader1049
 
 81:                                               ; preds = %54, %81
@@ -5877,7 +5877,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %84 = ashr i32 %71, %83
   %85 = and i32 %84, %74
   %86 = mul nsw i32 %85, %75
-  %87 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %86, ptr %87, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -5895,11 +5895,11 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %indvars.iv1141 = phi i64 [ 0, %.preheader1049 ], [ %indvars.iv.next1142, %90 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1141
   %91 = load float, ptr %gep, align 4
-  %gep1268 = getelementptr inbounds float, ptr %invariant.gep1267, i64 %indvars.iv1141
+  %gep1268 = getelementptr inbounds nuw float, ptr %invariant.gep1267, i64 %indvars.iv1141
   %92 = load float, ptr %gep1268, align 4
   %93 = fadd float %91, %92
   %94 = add nuw nsw i64 %indvars.iv1141, %89
-  %95 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %94
   store float %93, ptr %95, align 4
   %indvars.iv.next1142 = add nuw nsw i64 %indvars.iv1141, 1
   %exitcond1144.not = icmp eq i64 %indvars.iv.next1142, 3
@@ -5909,7 +5909,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %97 = getelementptr inbounds float, ptr %30, i64 %88
   %98 = load float, ptr %97, align 4
   %99 = fmul float %34, %98
-  %100 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %100 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %99, ptr %100, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1146.not = icmp eq i64 %indvar.next, 4
@@ -5933,10 +5933,10 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
 
 108:                                              ; preds = %.preheader1053, %108
   %indvars.iv1147 = phi i64 [ 0, %.preheader1053 ], [ %indvars.iv.next1148, %108 ]
-  %109 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1147
+  %109 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1147
   %110 = load i32, ptr %109, align 4
   %111 = load ptr, ptr %43, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i32, ptr %113, i64 %68
   %115 = load i32, ptr %114, align 4
@@ -5944,11 +5944,11 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %117 = trunc nuw nsw i64 %indvars.iv1147 to i32
   %118 = mul nsw i32 %116, %117
   %119 = ashr i32 %115, %118
-  %120 = getelementptr inbounds i8, ptr %111, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %121 = load i32, ptr %120, align 8
   %122 = and i32 %119, %121
   %123 = add nsw i32 %122, %110
-  %124 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1147
+  %124 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1147
   %125 = load float, ptr %124, align 4
   %gep1270 = getelementptr float, ptr %invariant.gep1269, i64 %indvars.iv1147
   %126 = load float, ptr %gep1270, align 4
@@ -5985,7 +5985,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
 139:                                              ; preds = %135
   %140 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %38, i64 %indvars.iv1175
   %141 = load i32, ptr %140, align 4
-  %142 = getelementptr inbounds i8, ptr %140, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 4
   br i1 %spec.select, label %143, label %318
 
 143:                                              ; preds = %139
@@ -6002,22 +6002,22 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %150 = mul nsw i32 %149, %26
   %151 = shl nuw nsw i64 %indvars.iv1171, 2
   %152 = mul nuw nsw i64 %indvars.iv1171, 3
-  %153 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %152
   %154 = load float, ptr %153, align 4
   %155 = add nuw nsw i64 %152, 1
-  %156 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %155
   %157 = load float, ptr %156, align 4
   %158 = add nuw nsw i64 %152, 2
-  %159 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %158
   %160 = load float, ptr %159, align 4
   %161 = icmp samesign ult i64 %indvars.iv1171, 2
-  %162 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1171
+  %162 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1171
   %163 = load float, ptr %162, align 4
-  %164 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1171
+  %164 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1171
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %152
-  %167 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %155
-  %168 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %158
+  %166 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %152
+  %167 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %155
+  %168 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %158
   %.promoted1074 = load float, ptr %166, align 4
   %.promoted1076 = load float, ptr %167, align 4
   %.promoted1078 = load float, ptr %168, align 4
@@ -6062,7 +6062,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %202 = fmul float %199, %201
   %203 = fmul float %202, %202
   %204 = load ptr, ptr %43, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = load ptr, ptr %205, align 8
   %207 = getelementptr inbounds i32, ptr %206, i64 %146
   %208 = load i32, ptr %207, align 4
@@ -6070,7 +6070,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %210 = trunc nuw nsw i64 %indvars.iv1167 to i32
   %211 = mul nsw i32 %209, %210
   %212 = ashr i32 %208, %211
-  %213 = getelementptr inbounds i8, ptr %204, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %204, i64 32
   %214 = load i32, ptr %213, align 8
   %215 = and i32 %212, %214
   br i1 %161, label %216, label %._crit_edge1233
@@ -6219,21 +6219,21 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %326 = mul nsw i32 %325, %26
   %327 = shl nuw nsw i64 %indvars.iv1163, 2
   %328 = mul nuw nsw i64 %indvars.iv1163, 3
-  %329 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %328
   %330 = load float, ptr %329, align 4
   %331 = add nuw nsw i64 %328, 1
-  %332 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %331
+  %332 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %331
   %333 = load float, ptr %332, align 4
   %334 = add nuw nsw i64 %328, 2
-  %335 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %334
+  %335 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %334
   %336 = load float, ptr %335, align 4
-  %337 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1163
+  %337 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1163
   %338 = load i32, ptr %337, align 4
-  %339 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1163
+  %339 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1163
   %340 = load float, ptr %339, align 4
-  %341 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %328
-  %342 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %331
-  %343 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %334
+  %341 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %328
+  %342 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %331
+  %343 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %334
   %.promoted1066 = load float, ptr %341, align 4
   %.promoted1068 = load float, ptr %342, align 4
   %.promoted1070 = load float, ptr %343, align 4
@@ -6278,7 +6278,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %377 = fmul float %374, %376
   %378 = fmul float %377, %377
   %379 = load ptr, ptr %43, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 8
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 8
   %381 = load ptr, ptr %380, align 8
   %382 = getelementptr inbounds i32, ptr %381, i64 %322
   %383 = load i32, ptr %382, align 4
@@ -6286,7 +6286,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %385 = trunc nuw nsw i64 %indvars.iv1159 to i32
   %386 = mul nsw i32 %384, %385
   %387 = ashr i32 %383, %386
-  %388 = getelementptr inbounds i8, ptr %379, i64 32
+  %388 = getelementptr inbounds nuw i8, ptr %379, i64 32
   %389 = load i32, ptr %388, align 8
   %390 = and i32 %387, %389
   %391 = getelementptr inbounds i32, ptr %32, i64 %356
@@ -6417,19 +6417,19 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %496 = mul nsw i32 %495, %26
   %497 = shl nuw nsw i64 %indvars.iv1155, 2
   %498 = mul nuw nsw i64 %indvars.iv1155, 3
-  %499 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %498
+  %499 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %498
   %500 = load float, ptr %499, align 4
   %501 = add nuw nsw i64 %498, 1
-  %502 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %501
+  %502 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %501
   %503 = load float, ptr %502, align 4
   %504 = add nuw nsw i64 %498, 2
-  %505 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %504
+  %505 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %504
   %506 = load float, ptr %505, align 4
-  %507 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1155
+  %507 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1155
   %508 = load i32, ptr %507, align 4
-  %509 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %498
-  %510 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %501
-  %511 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %504
+  %509 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %498
+  %510 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %501
+  %511 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %504
   %.promoted = load float, ptr %509, align 4
   %.promoted1060 = load float, ptr %510, align 4
   %.promoted1062 = load float, ptr %511, align 4
@@ -6471,7 +6471,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %542 = fmul float %539, %541
   %543 = fmul float %542, %542
   %544 = load ptr, ptr %43, align 8
-  %545 = getelementptr inbounds i8, ptr %544, i64 8
+  %545 = getelementptr inbounds nuw i8, ptr %544, i64 8
   %546 = load ptr, ptr %545, align 8
   %547 = getelementptr inbounds i32, ptr %546, i64 %492
   %548 = load i32, ptr %547, align 4
@@ -6479,7 +6479,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %550 = trunc nuw nsw i64 %indvars.iv1151 to i32
   %551 = mul nsw i32 %549, %550
   %552 = ashr i32 %548, %551
-  %553 = getelementptr inbounds i8, ptr %544, i64 32
+  %553 = getelementptr inbounds nuw i8, ptr %544, i64 32
   %554 = load i32, ptr %553, align 8
   %555 = and i32 %552, %554
   %556 = getelementptr inbounds i32, ptr %32, i64 %522
@@ -6618,22 +6618,22 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %650 = load i32, ptr %gep1282, align 4
   %651 = mul nsw i32 %650, %26
   %652 = mul nuw nsw i64 %indvars.iv1208, 3
-  %653 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %652
+  %653 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %652
   %654 = load float, ptr %653, align 4
   %655 = add nuw nsw i64 %652, 1
-  %656 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %655
+  %656 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %655
   %657 = load float, ptr %656, align 4
   %658 = add nuw nsw i64 %652, 2
-  %659 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %658
+  %659 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %658
   %660 = load float, ptr %659, align 4
   %661 = icmp samesign ult i64 %indvars.iv1208, 2
-  %662 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1208
+  %662 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1208
   %663 = load float, ptr %662, align 4
-  %664 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1208
+  %664 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1208
   %665 = load i32, ptr %664, align 4
-  %666 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %652
-  %667 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %655
-  %668 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %658
+  %666 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %652
+  %667 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %655
+  %668 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %658
   %.promoted1101.us = load float, ptr %666, align 4
   %.promoted1103.us = load float, ptr %667, align 4
   %.promoted1105.us = load float, ptr %668, align 4
@@ -6677,7 +6677,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %694 = fmul float %691, %693
   %695 = fmul float %694, %694
   %696 = load ptr, ptr %43, align 8
-  %697 = getelementptr inbounds i8, ptr %696, i64 8
+  %697 = getelementptr inbounds nuw i8, ptr %696, i64 8
   %698 = load ptr, ptr %697, align 8
   %699 = getelementptr inbounds i32, ptr %698, i64 %647
   %700 = load i32, ptr %699, align 4
@@ -6685,7 +6685,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %702 = trunc nuw nsw i64 %indvars.iv1204 to i32
   %703 = mul nsw i32 %701, %702
   %704 = ashr i32 %700, %703
-  %705 = getelementptr inbounds i8, ptr %696, i64 32
+  %705 = getelementptr inbounds nuw i8, ptr %696, i64 32
   %706 = load i32, ptr %705, align 8
   %707 = and i32 %704, %706
   br i1 %661, label %708, label %._crit_edge1234
@@ -6829,21 +6829,21 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %812 = load i32, ptr %gep1280, align 4
   %813 = mul nsw i32 %812, %26
   %814 = mul nuw nsw i64 %indvars.iv1195, 3
-  %815 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %814
+  %815 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %814
   %816 = load float, ptr %815, align 4
   %817 = add nuw nsw i64 %814, 1
-  %818 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %817
+  %818 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %817
   %819 = load float, ptr %818, align 4
   %820 = add nuw nsw i64 %814, 2
-  %821 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %820
+  %821 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %820
   %822 = load float, ptr %821, align 4
-  %823 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1195
+  %823 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1195
   %824 = load i32, ptr %823, align 4
-  %825 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1195
+  %825 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1195
   %826 = load float, ptr %825, align 4
-  %827 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %814
-  %828 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %817
-  %829 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %820
+  %827 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %814
+  %828 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %817
+  %829 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %820
   %.promoted1093.us = load float, ptr %827, align 4
   %.promoted1095.us = load float, ptr %828, align 4
   %.promoted1097.us = load float, ptr %829, align 4
@@ -6887,7 +6887,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %855 = fmul float %852, %854
   %856 = fmul float %855, %855
   %857 = load ptr, ptr %43, align 8
-  %858 = getelementptr inbounds i8, ptr %857, i64 8
+  %858 = getelementptr inbounds nuw i8, ptr %857, i64 8
   %859 = load ptr, ptr %858, align 8
   %860 = getelementptr inbounds i32, ptr %859, i64 %809
   %861 = load i32, ptr %860, align 4
@@ -6895,7 +6895,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %863 = trunc nuw nsw i64 %indvars.iv1191 to i32
   %864 = mul nsw i32 %862, %863
   %865 = ashr i32 %861, %864
-  %866 = getelementptr inbounds i8, ptr %857, i64 32
+  %866 = getelementptr inbounds nuw i8, ptr %857, i64 32
   %867 = load i32, ptr %866, align 8
   %868 = and i32 %865, %867
   %869 = getelementptr inbounds i32, ptr %32, i64 %835
@@ -7022,19 +7022,19 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %970 = load i32, ptr %gep1278, align 4
   %971 = mul nsw i32 %970, %26
   %972 = mul nuw nsw i64 %indvars.iv1183, 3
-  %973 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %972
+  %973 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %972
   %974 = load float, ptr %973, align 4
   %975 = add nuw nsw i64 %972, 1
-  %976 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %975
+  %976 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %975
   %977 = load float, ptr %976, align 4
   %978 = add nuw nsw i64 %972, 2
-  %979 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %978
+  %979 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %978
   %980 = load float, ptr %979, align 4
-  %981 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1183
+  %981 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1183
   %982 = load i32, ptr %981, align 4
-  %983 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %972
-  %984 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %975
-  %985 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %978
+  %983 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %972
+  %984 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %975
+  %985 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %978
   %.promoted1085 = load float, ptr %983, align 4
   %.promoted1087 = load float, ptr %984, align 4
   %.promoted1089 = load float, ptr %985, align 4
@@ -7070,7 +7070,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %1010 = fmul float %1007, %1009
   %1011 = fmul float %1010, %1010
   %1012 = load ptr, ptr %43, align 8
-  %1013 = getelementptr inbounds i8, ptr %1012, i64 8
+  %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 8
   %1014 = load ptr, ptr %1013, align 8
   %1015 = getelementptr inbounds i32, ptr %1014, i64 %967
   %1016 = load i32, ptr %1015, align 4
@@ -7078,7 +7078,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %1018 = trunc nuw nsw i64 %indvars.iv1179 to i32
   %1019 = mul nsw i32 %1017, %1018
   %1020 = ashr i32 %1016, %1019
-  %1021 = getelementptr inbounds i8, ptr %1012, i64 32
+  %1021 = getelementptr inbounds nuw i8, ptr %1012, i64 32
   %1022 = load i32, ptr %1021, align 8
   %1023 = and i32 %1020, %1022
   %1024 = getelementptr inbounds i32, ptr %32, i64 %990
@@ -7198,7 +7198,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
 1109:                                             ; preds = %.preheader1043, %1109
   %indvars.iv1217 = phi i64 [ 0, %.preheader1043 ], [ %indvars.iv.next1218, %1109 ]
   %1110 = add nuw nsw i64 %indvars.iv1217, %1107
-  %1111 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1110
+  %1111 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1110
   %1112 = load float, ptr %1111, align 4
   %gep1284 = getelementptr float, ptr %invariant.gep1283, i64 %indvars.iv1217
   %1113 = load float, ptr %gep1284, align 4
@@ -7218,7 +7218,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
 
 .preheader.preheader:                             ; preds = %1116
   %1117 = zext nneg i32 %76 to i64
-  %invariant.gep1285 = getelementptr inbounds float, ptr %13, i64 %1117
+  %invariant.gep1285 = getelementptr inbounds nuw float, ptr %13, i64 %1117
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1125
@@ -7229,9 +7229,9 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
 1119:                                             ; preds = %.preheader, %1119
   %indvars.iv1225 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1226, %1119 ]
   %1120 = add nuw nsw i64 %indvars.iv1225, %1118
-  %1121 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1120
+  %1121 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1120
   %1122 = load float, ptr %1121, align 4
-  %gep1286 = getelementptr inbounds float, ptr %invariant.gep1285, i64 %indvars.iv1225
+  %gep1286 = getelementptr inbounds nuw float, ptr %invariant.gep1285, i64 %indvars.iv1225
   %1123 = load float, ptr %gep1286, align 4
   %1124 = fadd float %1122, %1123
   store float %1124, ptr %gep1286, align 4
@@ -7245,7 +7245,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   br i1 %exitcond1232.not, label %.loopexit1051, label %.preheader, !llvm.loop !131
 
 .loopexit1051:                                    ; preds = %1125, %1116
-  %1126 = getelementptr inbounds i8, ptr %.sroa.01033.01117, i64 16
+  %1126 = getelementptr inbounds nuw i8, ptr %.sroa.01033.01117, i64 16
   %.not1037 = icmp eq ptr %1126, %42
   br i1 %.not1037, label %._crit_edge, label %54
 
@@ -7258,62 +7258,62 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %14 = load float, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %18 = load float, ptr %17, align 8
   %19 = fmul float %14, 3.000000e+00
   %20 = fmul float %16, 4.000000e+00
   %21 = fmul float %18, 5.000000e+00
-  %22 = getelementptr inbounds i8, ptr %2, i64 76
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %23 = load float, ptr %22, align 4
   %24 = fmul float %23, %23
   %25 = load i32, ptr %1, align 8
   %26 = shl nsw i32 %25, 1
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 176
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 108
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %34 = load float, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 288
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %42 = load ptr, ptr %41, align 8
   %.not871947 = icmp eq ptr %40, %42
   br i1 %.not871947, label %._crit_edge, label %.lr.ph949
 
 .lr.ph949:                                        ; preds = %5
-  %43 = getelementptr inbounds i8, ptr %2, i64 116
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %2, i64 44
-  %46 = getelementptr inbounds i8, ptr %2, i64 32
-  %47 = getelementptr inbounds i8, ptr %2, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %48 = fmul float %44, -2.000000e+00
   %.not835 = icmp eq ptr %12, null
   br label %49
 
 49:                                               ; preds = %.lr.ph949, %.loopexit885
   %.sroa.0867.0948 = phi ptr [ %40, %.lr.ph949 ], [ %822, %.loopexit885 ]
-  %50 = getelementptr inbounds i8, ptr %.sroa.0867.0948, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0867.0948, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %51, 127
   %53 = mul nuw nsw i32 %52, 3
-  %54 = getelementptr inbounds i8, ptr %.sroa.0867.0948, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0867.0948, i64 8
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %.sroa.0867.0948, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0867.0948, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %.sroa.0867.0948, align 4
   %59 = icmp eq i32 %52, 22
@@ -7326,7 +7326,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %64 = zext nneg i32 %53 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %65 = sext i32 %63 to i64
-  %invariant.gep1091 = getelementptr inbounds float, ptr %3, i64 %64
+  %invariant.gep1091 = getelementptr inbounds nuw float, ptr %3, i64 %64
   br label %.preheader883
 
 .preheader887:                                    ; preds = %213
@@ -7359,7 +7359,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
 72:                                               ; preds = %.lr.ph.split.us
   %73 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %38, i64 %indvars.iv1003
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %73, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %76 = icmp eq i32 %74, %66
   %77 = shl nsw i32 %74, 2
   %78 = sext i32 %77 to i64
@@ -7372,20 +7372,20 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %81 = mul nsw i32 %80, %26
   %82 = shl nuw nsw i64 %indvars.iv999, 2
   %83 = mul nuw nsw i64 %indvars.iv999, 3
-  %84 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %83
   %85 = load float, ptr %84, align 4
   %86 = add nuw nsw i64 %83, 1
-  %87 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %86
   %88 = load float, ptr %87, align 4
   %89 = add nuw nsw i64 %83, 2
-  %90 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %89
   %91 = load float, ptr %90, align 4
   %92 = icmp samesign ult i64 %indvars.iv999, 2
-  %93 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv999
+  %93 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv999
   %94 = load float, ptr %93, align 4
-  %95 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %83
-  %96 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %86
-  %97 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %89
+  %95 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %83
+  %96 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %86
+  %97 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %89
   %.promoted904.us = load float, ptr %95, align 4
   %.promoted906.us = load float, ptr %96, align 4
   %.promoted908.us = load float, ptr %97, align 4
@@ -7537,11 +7537,11 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %indvars.iv = phi i64 [ 0, %.preheader883 ], [ %indvars.iv.next, %207 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %208 = load float, ptr %gep, align 4
-  %gep1092 = getelementptr inbounds float, ptr %invariant.gep1091, i64 %indvars.iv
+  %gep1092 = getelementptr inbounds nuw float, ptr %invariant.gep1091, i64 %indvars.iv
   %209 = load float, ptr %gep1092, align 4
   %210 = fadd float %208, %209
   %211 = add nuw nsw i64 %indvars.iv, %206
-  %212 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %211
   store float %210, ptr %212, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -7551,7 +7551,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %214 = getelementptr inbounds float, ptr %30, i64 %205
   %215 = load float, ptr %214, align 4
   %216 = fmul float %34, %215
-  %217 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %217 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %216, ptr %217, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond974.not = icmp eq i64 %indvar.next, 4
@@ -7568,7 +7568,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
 221:                                              ; preds = %.lr.ph.split
   %222 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %38, i64 %indvars.iv991
   %223 = load i32, ptr %222, align 4
-  %224 = getelementptr inbounds i8, ptr %222, i64 4
+  %224 = getelementptr inbounds nuw i8, ptr %222, i64 4
   br i1 %61, label %225, label %351
 
 225:                                              ; preds = %221
@@ -7584,19 +7584,19 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %231 = mul nsw i32 %230, %26
   %232 = shl nuw nsw i64 %indvars.iv987, 2
   %233 = mul nuw nsw i64 %indvars.iv987, 3
-  %234 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %233
   %235 = load float, ptr %234, align 4
   %236 = add nuw nsw i64 %233, 1
-  %237 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %236
   %238 = load float, ptr %237, align 4
   %239 = add nuw nsw i64 %233, 2
-  %240 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %239
   %241 = load float, ptr %240, align 4
-  %242 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv987
+  %242 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv987
   %243 = load float, ptr %242, align 4
-  %244 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %233
-  %245 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %236
-  %246 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %239
+  %244 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %233
+  %245 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %236
+  %246 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %239
   %.promoted896 = load float, ptr %244, align 4
   %.promoted898 = load float, ptr %245, align 4
   %.promoted900 = load float, ptr %246, align 4
@@ -7735,17 +7735,17 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %356 = mul nsw i32 %355, %26
   %357 = shl nuw nsw i64 %indvars.iv979, 2
   %358 = mul nuw nsw i64 %indvars.iv979, 3
-  %359 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %358
   %360 = load float, ptr %359, align 4
   %361 = add nuw nsw i64 %358, 1
-  %362 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %361
+  %362 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %361
   %363 = load float, ptr %362, align 4
   %364 = add nuw nsw i64 %358, 2
-  %365 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %364
   %366 = load float, ptr %365, align 4
-  %367 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %358
-  %368 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %361
-  %369 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %364
+  %367 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %358
+  %368 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %361
+  %369 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %364
   %.promoted = load float, ptr %367, align 4
   %.promoted890 = load float, ptr %368, align 4
   %.promoted892 = load float, ptr %369, align 4
@@ -7901,20 +7901,20 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %473 = load i32, ptr %gep1104, align 4
   %474 = mul nsw i32 %473, %26
   %475 = mul nuw nsw i64 %indvars.iv1037, 3
-  %476 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %475
+  %476 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %475
   %477 = load float, ptr %476, align 4
   %478 = add nuw nsw i64 %475, 1
-  %479 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %478
+  %479 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %478
   %480 = load float, ptr %479, align 4
   %481 = add nuw nsw i64 %475, 2
-  %482 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %481
+  %482 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %481
   %483 = load float, ptr %482, align 4
   %484 = icmp samesign ult i64 %indvars.iv1037, 2
-  %485 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1037
+  %485 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1037
   %486 = load float, ptr %485, align 4
-  %487 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %475
-  %488 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %478
-  %489 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %481
+  %487 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %475
+  %488 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %478
+  %489 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %481
   %.promoted932.us = load float, ptr %487, align 4
   %.promoted934.us = load float, ptr %488, align 4
   %.promoted936.us = load float, ptr %489, align 4
@@ -8059,19 +8059,19 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %590 = load i32, ptr %gep1102, align 4
   %591 = mul nsw i32 %590, %26
   %592 = mul nuw nsw i64 %indvars.iv1024, 3
-  %593 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %592
+  %593 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %592
   %594 = load float, ptr %593, align 4
   %595 = add nuw nsw i64 %592, 1
-  %596 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %595
+  %596 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %595
   %597 = load float, ptr %596, align 4
   %598 = add nuw nsw i64 %592, 2
-  %599 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %598
+  %599 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %598
   %600 = load float, ptr %599, align 4
-  %601 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1024
+  %601 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1024
   %602 = load float, ptr %601, align 4
-  %603 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %592
-  %604 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %595
-  %605 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %598
+  %603 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %592
+  %604 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %595
+  %605 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %598
   %.promoted924.us = load float, ptr %603, align 4
   %.promoted926.us = load float, ptr %604, align 4
   %.promoted928.us = load float, ptr %605, align 4
@@ -8205,17 +8205,17 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %703 = load i32, ptr %gep1100, align 4
   %704 = mul nsw i32 %703, %26
   %705 = mul nuw nsw i64 %indvars.iv1011, 3
-  %706 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %705
+  %706 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %705
   %707 = load float, ptr %706, align 4
   %708 = add nuw nsw i64 %705, 1
-  %709 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %708
+  %709 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %708
   %710 = load float, ptr %709, align 4
   %711 = add nuw nsw i64 %705, 2
-  %712 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %711
+  %712 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %711
   %713 = load float, ptr %712, align 4
-  %714 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %705
-  %715 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %708
-  %716 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %711
+  %714 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %705
+  %715 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %708
+  %716 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %711
   %.promoted916 = load float, ptr %714, align 4
   %.promoted918 = load float, ptr %715, align 4
   %.promoted920 = load float, ptr %716, align 4
@@ -8343,7 +8343,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
 805:                                              ; preds = %.preheader877, %805
   %indvars.iv1046 = phi i64 [ 0, %.preheader877 ], [ %indvars.iv.next1047, %805 ]
   %806 = add nuw nsw i64 %indvars.iv1046, %803
-  %807 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %806
+  %807 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %806
   %808 = load float, ptr %807, align 4
   %gep1106 = getelementptr float, ptr %invariant.gep1105, i64 %indvars.iv1046
   %809 = load float, ptr %gep1106, align 4
@@ -8363,7 +8363,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
 
 .preheader.preheader:                             ; preds = %812
   %813 = zext nneg i32 %53 to i64
-  %invariant.gep1107 = getelementptr inbounds float, ptr %12, i64 %813
+  %invariant.gep1107 = getelementptr inbounds nuw float, ptr %12, i64 %813
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %821
@@ -8374,9 +8374,9 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
 815:                                              ; preds = %.preheader, %815
   %indvars.iv1054 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1055, %815 ]
   %816 = add nuw nsw i64 %indvars.iv1054, %814
-  %817 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %816
+  %817 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %816
   %818 = load float, ptr %817, align 4
-  %gep1108 = getelementptr inbounds float, ptr %invariant.gep1107, i64 %indvars.iv1054
+  %gep1108 = getelementptr inbounds nuw float, ptr %invariant.gep1107, i64 %indvars.iv1054
   %819 = load float, ptr %gep1108, align 4
   %820 = fadd float %818, %819
   store float %820, ptr %gep1108, align 4
@@ -8390,7 +8390,7 @@ define void @_Z34nbnxn_kernel_ElecRF_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nbnxn
   br i1 %exitcond1061.not, label %.loopexit885, label %.preheader, !llvm.loop !151
 
 .loopexit885:                                     ; preds = %821, %812
-  %822 = getelementptr inbounds i8, ptr %.sroa.0867.0948, i64 16
+  %822 = getelementptr inbounds nuw i8, ptr %.sroa.0867.0948, i64 16
   %.not871 = icmp eq ptr %822, %42
   br i1 %.not871, label %._crit_edge, label %49
 
@@ -8403,69 +8403,69 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %18 = load float, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %22 = load float, ptr %21, align 8
   %23 = fmul float %18, 3.000000e+00
   %24 = fmul float %20, 4.000000e+00
   %25 = fmul float %22, 5.000000e+00
-  %26 = getelementptr inbounds i8, ptr %2, i64 116
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %27 = load float, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %2, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %29 = load float, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 76
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %31 = load float, ptr %30, align 4
   %32 = fmul float %31, %31
   %33 = load i32, ptr %1, align 8
   %34 = shl nsw i32 %33, 1
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 176
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 108
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %42 = load float, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 288
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %50 = load ptr, ptr %49, align 8
   %.not9601077 = icmp eq ptr %48, %50
   br i1 %.not9601077, label %._crit_edge, label %.lr.ph1079
 
 .lr.ph1079:                                       ; preds = %5
   %51 = fmul float %29, 5.000000e-01
-  %52 = getelementptr inbounds i8, ptr %2, i64 44
-  %53 = getelementptr inbounds i8, ptr %2, i64 32
-  %54 = getelementptr inbounds i8, ptr %2, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %55 = fmul float %27, -2.000000e+00
   %.not922 = icmp eq ptr %12, null
   br label %56
 
 56:                                               ; preds = %.lr.ph1079, %.loopexit974
   %.sroa.0956.01078 = phi ptr [ %48, %.lr.ph1079 ], [ %880, %.loopexit974 ]
-  %57 = getelementptr inbounds i8, ptr %.sroa.0956.01078, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0956.01078, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 127
   %60 = mul nuw nsw i32 %59, 3
-  %61 = getelementptr inbounds i8, ptr %.sroa.0956.01078, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0956.01078, i64 8
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %.sroa.0956.01078, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0956.01078, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = load i32, ptr %.sroa.0956.01078, align 4
   %66 = icmp eq i32 %59, 22
@@ -8476,7 +8476,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %70 = zext nneg i32 %60 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %71 = sext i32 %69 to i64
-  %invariant.gep1236 = getelementptr inbounds float, ptr %3, i64 %70
+  %invariant.gep1236 = getelementptr inbounds nuw float, ptr %3, i64 %70
   br label %.preheader972
 
 .preheader972:                                    ; preds = %56, %80
@@ -8491,11 +8491,11 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %indvars.iv = phi i64 [ 0, %.preheader972 ], [ %indvars.iv.next, %74 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %75 = load float, ptr %gep, align 4
-  %gep1237 = getelementptr inbounds float, ptr %invariant.gep1236, i64 %indvars.iv
+  %gep1237 = getelementptr inbounds nuw float, ptr %invariant.gep1236, i64 %indvars.iv
   %76 = load float, ptr %gep1237, align 4
   %77 = fadd float %75, %76
   %78 = add nuw nsw i64 %indvars.iv, %73
-  %79 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %78
   store float %77, ptr %79, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -8505,7 +8505,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %81 = getelementptr inbounds float, ptr %38, i64 %72
   %82 = load float, ptr %81, align 4
   %83 = fmul float %42, %82
-  %84 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %84 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %83, ptr %84, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1111.not = icmp eq i64 %indvar.next, 4
@@ -8532,7 +8532,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 93:                                               ; preds = %.preheader976, %93
   %indvars.iv1112 = phi i64 [ 0, %.preheader976 ], [ %indvars.iv.next1113, %93 ]
   %94 = phi float [ %.promoted, %.preheader976 ], [ %100, %93 ]
-  %95 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1112
+  %95 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1112
   %96 = load float, ptr %95, align 4
   %gep1239 = getelementptr float, ptr %invariant.gep1238, i64 %indvars.iv1112
   %97 = load float, ptr %gep1239, align 4
@@ -8568,7 +8568,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 107:                                              ; preds = %103
   %108 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %46, i64 %indvars.iv1140
   %109 = load i32, ptr %108, align 4
-  %110 = getelementptr inbounds i8, ptr %108, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 4
   br i1 %spec.select, label %111, label %249
 
 111:                                              ; preds = %107
@@ -8586,20 +8586,20 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %117 = mul nsw i32 %116, %34
   %118 = shl nuw nsw i64 %indvars.iv1136, 2
   %119 = mul nuw nsw i64 %indvars.iv1136, 3
-  %120 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %119
   %121 = load float, ptr %120, align 4
   %122 = add nuw nsw i64 %119, 1
-  %123 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %122
   %124 = load float, ptr %123, align 4
   %125 = add nuw nsw i64 %119, 2
-  %126 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %125
   %127 = load float, ptr %126, align 4
   %128 = icmp samesign ult i64 %indvars.iv1136, 2
-  %129 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1136
+  %129 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1136
   %130 = load float, ptr %129, align 4
-  %131 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %119
-  %132 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %122
-  %133 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %125
+  %131 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %119
+  %132 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %122
+  %133 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %125
   %.promoted1002 = load float, ptr %131, align 4
   %.promoted1004 = load float, ptr %132, align 4
   %.promoted1006 = load float, ptr %133, align 4
@@ -8763,19 +8763,19 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %256 = mul nsw i32 %255, %34
   %257 = shl nuw nsw i64 %indvars.iv1128, 2
   %258 = mul nuw nsw i64 %indvars.iv1128, 3
-  %259 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %258
   %260 = load float, ptr %259, align 4
   %261 = add nuw nsw i64 %258, 1
-  %262 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %261
+  %262 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %261
   %263 = load float, ptr %262, align 4
   %264 = add nuw nsw i64 %258, 2
-  %265 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %264
   %266 = load float, ptr %265, align 4
-  %267 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1128
+  %267 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1128
   %268 = load float, ptr %267, align 4
-  %269 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %258
-  %270 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %261
-  %271 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %264
+  %269 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %258
+  %270 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %261
+  %271 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %264
   %.promoted990 = load float, ptr %269, align 4
   %.promoted992 = load float, ptr %270, align 4
   %.promoted994 = load float, ptr %271, align 4
@@ -8925,17 +8925,17 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %389 = mul nsw i32 %388, %34
   %390 = shl nuw nsw i64 %indvars.iv1120, 2
   %391 = mul nuw nsw i64 %indvars.iv1120, 3
-  %392 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %391
   %393 = load float, ptr %392, align 4
   %394 = add nuw nsw i64 %391, 1
-  %395 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %394
   %396 = load float, ptr %395, align 4
   %397 = add nuw nsw i64 %391, 2
-  %398 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %397
+  %398 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %397
   %399 = load float, ptr %398, align 4
-  %400 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %391
-  %401 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %394
-  %402 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %397
+  %400 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %391
+  %401 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %394
+  %402 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %397
   %.promoted981 = load float, ptr %400, align 4
   %.promoted982 = load float, ptr %401, align 4
   %.promoted984 = load float, ptr %402, align 4
@@ -9099,20 +9099,20 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %508 = load i32, ptr %gep1251, align 4
   %509 = mul nsw i32 %508, %34
   %510 = mul nuw nsw i64 %indvars.iv1173, 3
-  %511 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %510
+  %511 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %510
   %512 = load float, ptr %511, align 4
   %513 = add nuw nsw i64 %510, 1
-  %514 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %513
+  %514 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %513
   %515 = load float, ptr %514, align 4
   %516 = add nuw nsw i64 %510, 2
-  %517 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %516
+  %517 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %516
   %518 = load float, ptr %517, align 4
   %519 = icmp samesign ult i64 %indvars.iv1173, 2
-  %520 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1173
+  %520 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1173
   %521 = load float, ptr %520, align 4
-  %522 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %510
-  %523 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %513
-  %524 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %516
+  %522 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %510
+  %523 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %513
+  %524 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %516
   %.promoted1045.us = load float, ptr %522, align 4
   %.promoted1047.us = load float, ptr %523, align 4
   %.promoted1049.us = load float, ptr %524, align 4
@@ -9272,19 +9272,19 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %633 = load i32, ptr %gep1249, align 4
   %634 = mul nsw i32 %633, %34
   %635 = mul nuw nsw i64 %indvars.iv1160, 3
-  %636 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %635
+  %636 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %635
   %637 = load float, ptr %636, align 4
   %638 = add nuw nsw i64 %635, 1
-  %639 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %638
+  %639 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %638
   %640 = load float, ptr %639, align 4
   %641 = add nuw nsw i64 %635, 2
-  %642 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %641
+  %642 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %641
   %643 = load float, ptr %642, align 4
-  %644 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1160
+  %644 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1160
   %645 = load float, ptr %644, align 4
-  %646 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %635
-  %647 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %638
-  %648 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %641
+  %646 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %635
+  %647 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %638
+  %648 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %641
   %.promoted1033.us = load float, ptr %646, align 4
   %.promoted1035.us = load float, ptr %647, align 4
   %.promoted1037.us = load float, ptr %648, align 4
@@ -9435,17 +9435,17 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %754 = load i32, ptr %gep1247, align 4
   %755 = mul nsw i32 %754, %34
   %756 = mul nuw nsw i64 %indvars.iv1148, 3
-  %757 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %756
+  %757 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %756
   %758 = load float, ptr %757, align 4
   %759 = add nuw nsw i64 %756, 1
-  %760 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %759
+  %760 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %759
   %761 = load float, ptr %760, align 4
   %762 = add nuw nsw i64 %756, 2
-  %763 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %762
+  %763 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %762
   %764 = load float, ptr %763, align 4
-  %765 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %756
-  %766 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %759
-  %767 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %762
+  %765 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %756
+  %766 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %759
+  %767 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %762
   %.promoted1023 = load float, ptr %765, align 4
   %.promoted1025 = load float, ptr %766, align 4
   %.promoted1027 = load float, ptr %767, align 4
@@ -9574,7 +9574,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 859:                                              ; preds = %.preheader966, %859
   %indvars.iv1182 = phi i64 [ 0, %.preheader966 ], [ %indvars.iv.next1183, %859 ]
   %860 = add nuw nsw i64 %indvars.iv1182, %857
-  %861 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %860
+  %861 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %860
   %862 = load float, ptr %861, align 4
   %gep1253 = getelementptr float, ptr %invariant.gep1252, i64 %indvars.iv1182
   %863 = load float, ptr %gep1253, align 4
@@ -9594,7 +9594,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 .preheader.preheader:                             ; preds = %866
   %867 = zext nneg i32 %60 to i64
-  %invariant.gep1254 = getelementptr inbounds float, ptr %12, i64 %867
+  %invariant.gep1254 = getelementptr inbounds nuw float, ptr %12, i64 %867
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %875
@@ -9605,9 +9605,9 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 869:                                              ; preds = %.preheader, %869
   %indvars.iv1190 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1191, %869 ]
   %870 = add nuw nsw i64 %indvars.iv1190, %868
-  %871 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %870
+  %871 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %870
   %872 = load float, ptr %871, align 4
-  %gep1255 = getelementptr inbounds float, ptr %invariant.gep1254, i64 %indvars.iv1190
+  %gep1255 = getelementptr inbounds nuw float, ptr %invariant.gep1254, i64 %indvars.iv1190
   %873 = load float, ptr %gep1255, align 4
   %874 = fadd float %872, %873
   store float %874, ptr %gep1255, align 4
@@ -9627,7 +9627,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %878 = load float, ptr %16, align 4
   %879 = fadd float %.6894.lcssa, %878
   store float %879, ptr %16, align 4
-  %880 = getelementptr inbounds i8, ptr %.sroa.0956.01078, i64 16
+  %880 = getelementptr inbounds nuw i8, ptr %.sroa.0956.01078, i64 16
   %.not960 = icmp eq ptr %880, %50
   br i1 %.not960, label %._crit_edge, label %56
 
@@ -9641,70 +9641,70 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %19 = load float, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %23 = load float, ptr %22, align 8
   %24 = fmul float %19, 3.000000e+00
   %25 = fmul float %21, 4.000000e+00
   %26 = fmul float %23, 5.000000e+00
-  %27 = getelementptr inbounds i8, ptr %2, i64 116
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %28 = load float, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %2, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %30 = load float, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 76
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %32 = load float, ptr %31, align 4
   %33 = fmul float %32, %32
   %34 = load i32, ptr %1, align 8
   %35 = shl nsw i32 %34, 1
-  %36 = getelementptr inbounds i8, ptr %1, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 176
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 108
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 288
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 128
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %51 = load ptr, ptr %50, align 8
   %.not9951074 = icmp eq ptr %49, %51
   br i1 %.not9951074, label %._crit_edge, label %.lr.ph1076
 
 .lr.ph1076:                                       ; preds = %5
-  %52 = getelementptr inbounds i8, ptr %1, i64 208
-  %53 = getelementptr inbounds i8, ptr %1, i64 200
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %54 = fmul float %30, 5.000000e-01
-  %55 = getelementptr inbounds i8, ptr %2, i64 44
-  %56 = getelementptr inbounds i8, ptr %2, i64 32
-  %57 = getelementptr inbounds i8, ptr %2, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %58 = fmul float %28, -2.000000e+00
   %.not955 = icmp eq ptr %13, null
   br label %59
 
 59:                                               ; preds = %.lr.ph1076, %.loopexit1009
   %.sroa.0991.01075 = phi ptr [ %49, %.lr.ph1076 ], [ %1035, %.loopexit1009 ]
-  %60 = getelementptr inbounds i8, ptr %.sroa.0991.01075, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0991.01075, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 127
-  %63 = getelementptr inbounds i8, ptr %.sroa.0991.01075, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0991.01075, i64 8
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.sroa.0991.01075, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.0991.01075, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %.sroa.0991.01075, align 4
   %68 = icmp eq i32 %62, 22
@@ -9712,13 +9712,13 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %70 = and i32 %61, 384
   %or.cond = icmp ne i32 %70, 128
   %71 = load ptr, ptr %52, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = sext i32 %67 to i64
   %74 = load ptr, ptr %72, align 8
   %75 = getelementptr inbounds i32, ptr %74, i64 %73
   %76 = load i32, ptr %75, align 4
   %77 = load i32, ptr %71, align 8
-  %78 = getelementptr inbounds i8, ptr %71, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %79 = load i32, ptr %78, align 8
   %80 = load i32, ptr %53, align 8
   br label %86
@@ -9730,7 +9730,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %84 = zext nneg i32 %81 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %85 = sext i32 %83 to i64
-  %invariant.gep1225 = getelementptr inbounds float, ptr %3, i64 %84
+  %invariant.gep1225 = getelementptr inbounds nuw float, ptr %3, i64 %84
   br label %.preheader1007
 
 86:                                               ; preds = %59, %86
@@ -9740,7 +9740,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %89 = ashr i32 %76, %88
   %90 = and i32 %89, %79
   %91 = mul nsw i32 %90, %80
-  %92 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %91, ptr %92, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -9758,11 +9758,11 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %indvars.iv1099 = phi i64 [ 0, %.preheader1007 ], [ %indvars.iv.next1100, %95 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1099
   %96 = load float, ptr %gep, align 4
-  %gep1226 = getelementptr inbounds float, ptr %invariant.gep1225, i64 %indvars.iv1099
+  %gep1226 = getelementptr inbounds nuw float, ptr %invariant.gep1225, i64 %indvars.iv1099
   %97 = load float, ptr %gep1226, align 4
   %98 = fadd float %96, %97
   %99 = add nuw nsw i64 %indvars.iv1099, %94
-  %100 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %99
   store float %98, ptr %100, align 4
   %indvars.iv.next1100 = add nuw nsw i64 %indvars.iv1099, 1
   %exitcond1102.not = icmp eq i64 %indvars.iv.next1100, 3
@@ -9772,7 +9772,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %102 = getelementptr inbounds float, ptr %39, i64 %93
   %103 = load float, ptr %102, align 4
   %104 = fmul float %43, %103
-  %105 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %105 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %104, ptr %105, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1104.not = icmp eq i64 %indvar.next, 4
@@ -9796,10 +9796,10 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
 
 113:                                              ; preds = %.preheader1011, %113
   %indvars.iv1105 = phi i64 [ 0, %.preheader1011 ], [ %indvars.iv.next1106, %113 ]
-  %114 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1105
+  %114 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1105
   %115 = load i32, ptr %114, align 4
   %116 = load ptr, ptr %52, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i32, ptr %118, i64 %73
   %120 = load i32, ptr %119, align 4
@@ -9807,11 +9807,11 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %122 = trunc nuw nsw i64 %indvars.iv1105 to i32
   %123 = mul nsw i32 %121, %122
   %124 = ashr i32 %120, %123
-  %125 = getelementptr inbounds i8, ptr %116, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %126 = load i32, ptr %125, align 8
   %127 = and i32 %124, %126
   %128 = add nsw i32 %127, %115
-  %129 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1105
+  %129 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1105
   %130 = load float, ptr %129, align 4
   %gep1228 = getelementptr float, ptr %invariant.gep1227, i64 %indvars.iv1105
   %131 = load float, ptr %gep1228, align 4
@@ -9848,7 +9848,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
 144:                                              ; preds = %140
   %145 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %47, i64 %indvars.iv1133
   %146 = load i32, ptr %145, align 4
-  %147 = getelementptr inbounds i8, ptr %145, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 4
   br i1 %spec.select, label %148, label %307
 
 148:                                              ; preds = %144
@@ -9865,22 +9865,22 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %155 = mul nsw i32 %154, %35
   %156 = shl nuw nsw i64 %indvars.iv1129, 2
   %157 = mul nuw nsw i64 %indvars.iv1129, 3
-  %158 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %157
   %159 = load float, ptr %158, align 4
   %160 = add nuw nsw i64 %157, 1
-  %161 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %160
   %162 = load float, ptr %161, align 4
   %163 = add nuw nsw i64 %157, 2
-  %164 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %163
   %165 = load float, ptr %164, align 4
   %166 = icmp samesign ult i64 %indvars.iv1129, 2
-  %167 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1129
+  %167 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1129
   %168 = load float, ptr %167, align 4
-  %169 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1129
+  %169 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1129
   %170 = load i32, ptr %169, align 4
-  %171 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %157
-  %172 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %160
-  %173 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %163
+  %171 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %157
+  %172 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %160
+  %173 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %163
   %.promoted1032 = load float, ptr %171, align 4
   %.promoted1034 = load float, ptr %172, align 4
   %.promoted1036 = load float, ptr %173, align 4
@@ -9925,7 +9925,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %207 = fmul float %204, %206
   %208 = fmul float %207, %207
   %209 = load ptr, ptr %52, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds i32, ptr %211, i64 %151
   %213 = load i32, ptr %212, align 4
@@ -9933,7 +9933,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %215 = trunc nuw nsw i64 %indvars.iv1125 to i32
   %216 = mul nsw i32 %214, %215
   %217 = ashr i32 %213, %216
-  %218 = getelementptr inbounds i8, ptr %209, i64 32
+  %218 = getelementptr inbounds nuw i8, ptr %209, i64 32
   %219 = load i32, ptr %218, align 8
   %220 = and i32 %217, %219
   br i1 %166, label %221, label %._crit_edge1191
@@ -10066,21 +10066,21 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %315 = mul nsw i32 %314, %35
   %316 = shl nuw nsw i64 %indvars.iv1121, 2
   %317 = mul nuw nsw i64 %indvars.iv1121, 3
-  %318 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %317
+  %318 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %317
   %319 = load float, ptr %318, align 4
   %320 = add nuw nsw i64 %317, 1
-  %321 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %320
   %322 = load float, ptr %321, align 4
   %323 = add nuw nsw i64 %317, 2
-  %324 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %323
+  %324 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %323
   %325 = load float, ptr %324, align 4
-  %326 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1121
+  %326 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1121
   %327 = load i32, ptr %326, align 4
-  %328 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1121
+  %328 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1121
   %329 = load float, ptr %328, align 4
-  %330 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %317
-  %331 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %320
-  %332 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %323
+  %330 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %317
+  %331 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %320
+  %332 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %323
   %.promoted1024 = load float, ptr %330, align 4
   %.promoted1026 = load float, ptr %331, align 4
   %.promoted1028 = load float, ptr %332, align 4
@@ -10125,7 +10125,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %366 = fmul float %363, %365
   %367 = fmul float %366, %366
   %368 = load ptr, ptr %52, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 8
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
   %370 = load ptr, ptr %369, align 8
   %371 = getelementptr inbounds i32, ptr %370, i64 %311
   %372 = load i32, ptr %371, align 4
@@ -10133,7 +10133,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %374 = trunc nuw nsw i64 %indvars.iv1117 to i32
   %375 = mul nsw i32 %373, %374
   %376 = ashr i32 %372, %375
-  %377 = getelementptr inbounds i8, ptr %368, i64 32
+  %377 = getelementptr inbounds nuw i8, ptr %368, i64 32
   %378 = load i32, ptr %377, align 8
   %379 = and i32 %376, %378
   %380 = getelementptr inbounds i32, ptr %41, i64 %345
@@ -10248,19 +10248,19 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %469 = mul nsw i32 %468, %35
   %470 = shl nuw nsw i64 %indvars.iv1113, 2
   %471 = mul nuw nsw i64 %indvars.iv1113, 3
-  %472 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %471
+  %472 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %471
   %473 = load float, ptr %472, align 4
   %474 = add nuw nsw i64 %471, 1
-  %475 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %474
+  %475 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %474
   %476 = load float, ptr %475, align 4
   %477 = add nuw nsw i64 %471, 2
-  %478 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %477
+  %478 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %477
   %479 = load float, ptr %478, align 4
-  %480 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1113
+  %480 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1113
   %481 = load i32, ptr %480, align 4
-  %482 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %471
-  %483 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %474
-  %484 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %477
+  %482 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %471
+  %483 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %474
+  %484 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %477
   %.promoted = load float, ptr %482, align 4
   %.promoted1018 = load float, ptr %483, align 4
   %.promoted1020 = load float, ptr %484, align 4
@@ -10302,7 +10302,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %515 = fmul float %512, %514
   %516 = fmul float %515, %515
   %517 = load ptr, ptr %52, align 8
-  %518 = getelementptr inbounds i8, ptr %517, i64 8
+  %518 = getelementptr inbounds nuw i8, ptr %517, i64 8
   %519 = load ptr, ptr %518, align 8
   %520 = getelementptr inbounds i32, ptr %519, i64 %465
   %521 = load i32, ptr %520, align 4
@@ -10310,7 +10310,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %523 = trunc nuw nsw i64 %indvars.iv1109 to i32
   %524 = mul nsw i32 %522, %523
   %525 = ashr i32 %521, %524
-  %526 = getelementptr inbounds i8, ptr %517, i64 32
+  %526 = getelementptr inbounds nuw i8, ptr %517, i64 32
   %527 = load i32, ptr %526, align 8
   %528 = and i32 %525, %527
   %529 = getelementptr inbounds i32, ptr %41, i64 %495
@@ -10433,22 +10433,22 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %607 = load i32, ptr %gep1240, align 4
   %608 = mul nsw i32 %607, %35
   %609 = mul nuw nsw i64 %indvars.iv1166, 3
-  %610 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %609
+  %610 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %609
   %611 = load float, ptr %610, align 4
   %612 = add nuw nsw i64 %609, 1
-  %613 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %612
+  %613 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %612
   %614 = load float, ptr %613, align 4
   %615 = add nuw nsw i64 %609, 2
-  %616 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %615
+  %616 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %615
   %617 = load float, ptr %616, align 4
   %618 = icmp samesign ult i64 %indvars.iv1166, 2
-  %619 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1166
+  %619 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1166
   %620 = load float, ptr %619, align 4
-  %621 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1166
+  %621 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1166
   %622 = load i32, ptr %621, align 4
-  %623 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %609
-  %624 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %612
-  %625 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %615
+  %623 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %609
+  %624 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %612
+  %625 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %615
   %.promoted1059.us = load float, ptr %623, align 4
   %.promoted1061.us = load float, ptr %624, align 4
   %.promoted1063.us = load float, ptr %625, align 4
@@ -10492,7 +10492,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %651 = fmul float %648, %650
   %652 = fmul float %651, %651
   %653 = load ptr, ptr %52, align 8
-  %654 = getelementptr inbounds i8, ptr %653, i64 8
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 8
   %655 = load ptr, ptr %654, align 8
   %656 = getelementptr inbounds i32, ptr %655, i64 %604
   %657 = load i32, ptr %656, align 4
@@ -10500,7 +10500,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %659 = trunc nuw nsw i64 %indvars.iv1162 to i32
   %660 = mul nsw i32 %658, %659
   %661 = ashr i32 %657, %660
-  %662 = getelementptr inbounds i8, ptr %653, i64 32
+  %662 = getelementptr inbounds nuw i8, ptr %653, i64 32
   %663 = load i32, ptr %662, align 8
   %664 = and i32 %661, %663
   br i1 %618, label %665, label %._crit_edge1192
@@ -10628,21 +10628,21 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %753 = load i32, ptr %gep1238, align 4
   %754 = mul nsw i32 %753, %35
   %755 = mul nuw nsw i64 %indvars.iv1153, 3
-  %756 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %755
+  %756 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %755
   %757 = load float, ptr %756, align 4
   %758 = add nuw nsw i64 %755, 1
-  %759 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %758
+  %759 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %758
   %760 = load float, ptr %759, align 4
   %761 = add nuw nsw i64 %755, 2
-  %762 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %761
+  %762 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %761
   %763 = load float, ptr %762, align 4
-  %764 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1153
+  %764 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1153
   %765 = load i32, ptr %764, align 4
-  %766 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1153
+  %766 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1153
   %767 = load float, ptr %766, align 4
-  %768 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %755
-  %769 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %758
-  %770 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %761
+  %768 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %755
+  %769 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %758
+  %770 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %761
   %.promoted1051.us = load float, ptr %768, align 4
   %.promoted1053.us = load float, ptr %769, align 4
   %.promoted1055.us = load float, ptr %770, align 4
@@ -10686,7 +10686,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %796 = fmul float %793, %795
   %797 = fmul float %796, %796
   %798 = load ptr, ptr %52, align 8
-  %799 = getelementptr inbounds i8, ptr %798, i64 8
+  %799 = getelementptr inbounds nuw i8, ptr %798, i64 8
   %800 = load ptr, ptr %799, align 8
   %801 = getelementptr inbounds i32, ptr %800, i64 %750
   %802 = load i32, ptr %801, align 4
@@ -10694,7 +10694,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %804 = trunc nuw nsw i64 %indvars.iv1149 to i32
   %805 = mul nsw i32 %803, %804
   %806 = ashr i32 %802, %805
-  %807 = getelementptr inbounds i8, ptr %798, i64 32
+  %807 = getelementptr inbounds nuw i8, ptr %798, i64 32
   %808 = load i32, ptr %807, align 8
   %809 = and i32 %806, %808
   %810 = getelementptr inbounds i32, ptr %41, i64 %776
@@ -10805,19 +10805,19 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %895 = load i32, ptr %gep1236, align 4
   %896 = mul nsw i32 %895, %35
   %897 = mul nuw nsw i64 %indvars.iv1141, 3
-  %898 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %897
+  %898 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %897
   %899 = load float, ptr %898, align 4
   %900 = add nuw nsw i64 %897, 1
-  %901 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %900
+  %901 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %900
   %902 = load float, ptr %901, align 4
   %903 = add nuw nsw i64 %897, 2
-  %904 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %903
+  %904 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %903
   %905 = load float, ptr %904, align 4
-  %906 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1141
+  %906 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1141
   %907 = load i32, ptr %906, align 4
-  %908 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %897
-  %909 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %900
-  %910 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %903
+  %908 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %897
+  %909 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %900
+  %910 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %903
   %.promoted1043 = load float, ptr %908, align 4
   %.promoted1045 = load float, ptr %909, align 4
   %.promoted1047 = load float, ptr %910, align 4
@@ -10853,7 +10853,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %935 = fmul float %932, %934
   %936 = fmul float %935, %935
   %937 = load ptr, ptr %52, align 8
-  %938 = getelementptr inbounds i8, ptr %937, i64 8
+  %938 = getelementptr inbounds nuw i8, ptr %937, i64 8
   %939 = load ptr, ptr %938, align 8
   %940 = getelementptr inbounds i32, ptr %939, i64 %892
   %941 = load i32, ptr %940, align 4
@@ -10861,7 +10861,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %943 = trunc nuw nsw i64 %indvars.iv1137 to i32
   %944 = mul nsw i32 %942, %943
   %945 = ashr i32 %941, %944
-  %946 = getelementptr inbounds i8, ptr %937, i64 32
+  %946 = getelementptr inbounds nuw i8, ptr %937, i64 32
   %947 = load i32, ptr %946, align 8
   %948 = and i32 %945, %947
   %949 = getelementptr inbounds i32, ptr %41, i64 %915
@@ -10965,7 +10965,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
 1018:                                             ; preds = %.preheader1001, %1018
   %indvars.iv1175 = phi i64 [ 0, %.preheader1001 ], [ %indvars.iv.next1176, %1018 ]
   %1019 = add nuw nsw i64 %indvars.iv1175, %1016
-  %1020 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1019
+  %1020 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1019
   %1021 = load float, ptr %1020, align 4
   %gep1242 = getelementptr float, ptr %invariant.gep1241, i64 %indvars.iv1175
   %1022 = load float, ptr %gep1242, align 4
@@ -10985,7 +10985,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
 
 .preheader.preheader:                             ; preds = %1025
   %1026 = zext nneg i32 %81 to i64
-  %invariant.gep1243 = getelementptr inbounds float, ptr %13, i64 %1026
+  %invariant.gep1243 = getelementptr inbounds nuw float, ptr %13, i64 %1026
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1034
@@ -10996,9 +10996,9 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
 1028:                                             ; preds = %.preheader, %1028
   %indvars.iv1183 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1184, %1028 ]
   %1029 = add nuw nsw i64 %indvars.iv1183, %1027
-  %1030 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1029
+  %1030 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1029
   %1031 = load float, ptr %1030, align 4
-  %gep1244 = getelementptr inbounds float, ptr %invariant.gep1243, i64 %indvars.iv1183
+  %gep1244 = getelementptr inbounds nuw float, ptr %invariant.gep1243, i64 %indvars.iv1183
   %1032 = load float, ptr %gep1244, align 4
   %1033 = fadd float %1031, %1032
   store float %1033, ptr %gep1244, align 4
@@ -11012,7 +11012,7 @@ define void @_Z38nbnxn_kernel_ElecRF_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK16n
   br i1 %exitcond1190.not, label %.loopexit1009, label %.preheader, !llvm.loop !194
 
 .loopexit1009:                                    ; preds = %1034, %1025
-  %1035 = getelementptr inbounds i8, ptr %.sroa.0991.01075, i64 16
+  %1035 = getelementptr inbounds nuw i8, ptr %.sroa.0991.01075, i64 16
   %.not995 = icmp eq ptr %1035, %51
   br i1 %.not995, label %._crit_edge, label %59
 
@@ -11025,44 +11025,44 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %14 = load float, ptr %13, align 8
   %15 = fmul float %14, %14
   %16 = fmul float %15, %15
   %17 = fmul float %15, %16
   %18 = fdiv float %17, 6.000000e+00
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %22 = load float, ptr %21, align 4
   %23 = fmul float %22, %22
   %24 = load i32, ptr %1, align 8
   %25 = shl nsw i32 %24, 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 108
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 288
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load ptr, ptr %40, align 8
   %.not787863 = icmp eq ptr %39, %41
   br i1 %.not787863, label %._crit_edge, label %.lr.ph865
 
 .lr.ph865:                                        ; preds = %5
-  %42 = getelementptr inbounds i8, ptr %2, i64 116
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %43 = load float, ptr %42, align 4
   %44 = fmul float %43, -2.000000e+00
   %.not751 = icmp eq ptr %12, null
@@ -11070,13 +11070,13 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
 
 45:                                               ; preds = %.lr.ph865, %.loopexit801
   %.sroa.0783.0864 = phi ptr [ %39, %.lr.ph865 ], [ %794, %.loopexit801 ]
-  %46 = getelementptr inbounds i8, ptr %.sroa.0783.0864, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0783.0864, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 127
   %49 = mul nuw nsw i32 %48, 3
-  %50 = getelementptr inbounds i8, ptr %.sroa.0783.0864, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0783.0864, i64 8
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %.sroa.0783.0864, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0783.0864, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %.sroa.0783.0864, align 4
   %55 = icmp eq i32 %48, 22
@@ -11089,7 +11089,7 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %60 = zext nneg i32 %49 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %61 = sext i32 %59 to i64
-  %invariant.gep1007 = getelementptr inbounds float, ptr %3, i64 %60
+  %invariant.gep1007 = getelementptr inbounds nuw float, ptr %3, i64 %60
   br label %.preheader799
 
 .preheader803:                                    ; preds = %206
@@ -11122,7 +11122,7 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
 68:                                               ; preds = %.lr.ph.split.us
   %69 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %37, i64 %indvars.iv919
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %69, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %72 = icmp eq i32 %70, %62
   %73 = shl nsw i32 %70, 2
   %74 = sext i32 %73 to i64
@@ -11135,20 +11135,20 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %77 = mul nsw i32 %76, %25
   %78 = shl nuw nsw i64 %indvars.iv915, 2
   %79 = mul nuw nsw i64 %indvars.iv915, 3
-  %80 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %79
   %81 = load float, ptr %80, align 4
   %82 = add nuw nsw i64 %79, 1
-  %83 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %82
   %84 = load float, ptr %83, align 4
   %85 = add nuw nsw i64 %79, 2
-  %86 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %85
   %87 = load float, ptr %86, align 4
   %88 = icmp samesign ult i64 %indvars.iv915, 2
-  %89 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv915
+  %89 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv915
   %90 = load float, ptr %89, align 4
-  %91 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %79
-  %92 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %82
-  %93 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %85
+  %91 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %79
+  %92 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %82
+  %93 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %85
   %.promoted820.us = load float, ptr %91, align 4
   %.promoted822.us = load float, ptr %92, align 4
   %.promoted824.us = load float, ptr %93, align 4
@@ -11297,11 +11297,11 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %indvars.iv = phi i64 [ 0, %.preheader799 ], [ %indvars.iv.next, %200 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %201 = load float, ptr %gep, align 4
-  %gep1008 = getelementptr inbounds float, ptr %invariant.gep1007, i64 %indvars.iv
+  %gep1008 = getelementptr inbounds nuw float, ptr %invariant.gep1007, i64 %indvars.iv
   %202 = load float, ptr %gep1008, align 4
   %203 = fadd float %201, %202
   %204 = add nuw nsw i64 %indvars.iv, %199
-  %205 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %204
   store float %203, ptr %205, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -11311,7 +11311,7 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %207 = getelementptr inbounds float, ptr %29, i64 %198
   %208 = load float, ptr %207, align 4
   %209 = fmul float %33, %208
-  %210 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %210 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %209, ptr %210, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond890.not = icmp eq i64 %indvar.next, 4
@@ -11328,7 +11328,7 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
 214:                                              ; preds = %.lr.ph.split
   %215 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %37, i64 %indvars.iv907
   %216 = load i32, ptr %215, align 4
-  %217 = getelementptr inbounds i8, ptr %215, i64 4
+  %217 = getelementptr inbounds nuw i8, ptr %215, i64 4
   %218 = icmp eq i32 %216, %62
   %219 = shl nsw i32 %216, 2
   %220 = sext i32 %219 to i64
@@ -11341,19 +11341,19 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %222 = mul nsw i32 %221, %25
   %223 = shl nuw nsw i64 %indvars.iv903, 2
   %224 = mul nuw nsw i64 %indvars.iv903, 3
-  %225 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %224
   %226 = load float, ptr %225, align 4
   %227 = add nuw nsw i64 %224, 1
-  %228 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %227
   %229 = load float, ptr %228, align 4
   %230 = add nuw nsw i64 %224, 2
-  %231 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %230
+  %231 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %230
   %232 = load float, ptr %231, align 4
-  %233 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv903
+  %233 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv903
   %234 = load float, ptr %233, align 4
-  %235 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %224
-  %236 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %227
-  %237 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %230
+  %235 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %224
+  %236 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %227
+  %237 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %230
   %.promoted812 = load float, ptr %235, align 4
   %.promoted814 = load float, ptr %236, align 4
   %.promoted816 = load float, ptr %237, align 4
@@ -11484,17 +11484,17 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %340 = mul nsw i32 %339, %25
   %341 = shl nuw nsw i64 %indvars.iv895, 2
   %342 = mul nuw nsw i64 %indvars.iv895, 3
-  %343 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %342
   %344 = load float, ptr %343, align 4
   %345 = add nuw nsw i64 %342, 1
-  %346 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %345
   %347 = load float, ptr %346, align 4
   %348 = add nuw nsw i64 %342, 2
-  %349 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %348
+  %349 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %348
   %350 = load float, ptr %349, align 4
-  %351 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %342
-  %352 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %345
-  %353 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %348
+  %351 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %342
+  %352 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %345
+  %353 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %348
   %.promoted = load float, ptr %351, align 4
   %.promoted806 = load float, ptr %352, align 4
   %.promoted808 = load float, ptr %353, align 4
@@ -11650,20 +11650,20 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %457 = load i32, ptr %gep1020, align 4
   %458 = mul nsw i32 %457, %25
   %459 = mul nuw nsw i64 %indvars.iv953, 3
-  %460 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %459
+  %460 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %459
   %461 = load float, ptr %460, align 4
   %462 = add nuw nsw i64 %459, 1
-  %463 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %462
+  %463 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %462
   %464 = load float, ptr %463, align 4
   %465 = add nuw nsw i64 %459, 2
-  %466 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %465
+  %466 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %465
   %467 = load float, ptr %466, align 4
   %468 = icmp samesign ult i64 %indvars.iv953, 2
-  %469 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv953
+  %469 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv953
   %470 = load float, ptr %469, align 4
-  %471 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %459
-  %472 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %462
-  %473 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %465
+  %471 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %459
+  %472 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %462
+  %473 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %465
   %.promoted848.us = load float, ptr %471, align 4
   %.promoted850.us = load float, ptr %472, align 4
   %.promoted852.us = load float, ptr %473, align 4
@@ -11804,19 +11804,19 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %570 = load i32, ptr %gep1018, align 4
   %571 = mul nsw i32 %570, %25
   %572 = mul nuw nsw i64 %indvars.iv940, 3
-  %573 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %572
+  %573 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %572
   %574 = load float, ptr %573, align 4
   %575 = add nuw nsw i64 %572, 1
-  %576 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %575
+  %576 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %575
   %577 = load float, ptr %576, align 4
   %578 = add nuw nsw i64 %572, 2
-  %579 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %578
+  %579 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %578
   %580 = load float, ptr %579, align 4
-  %581 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv940
+  %581 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv940
   %582 = load float, ptr %581, align 4
-  %583 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %572
-  %584 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %575
-  %585 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %578
+  %583 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %572
+  %584 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %575
+  %585 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %578
   %.promoted840.us = load float, ptr %583, align 4
   %.promoted842.us = load float, ptr %584, align 4
   %.promoted844.us = load float, ptr %585, align 4
@@ -11946,17 +11946,17 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   %679 = load i32, ptr %gep1016, align 4
   %680 = mul nsw i32 %679, %25
   %681 = mul nuw nsw i64 %indvars.iv927, 3
-  %682 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %681
+  %682 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %681
   %683 = load float, ptr %682, align 4
   %684 = add nuw nsw i64 %681, 1
-  %685 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %684
+  %685 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %684
   %686 = load float, ptr %685, align 4
   %687 = add nuw nsw i64 %681, 2
-  %688 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %687
+  %688 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %687
   %689 = load float, ptr %688, align 4
-  %690 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %681
-  %691 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %684
-  %692 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %687
+  %690 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %681
+  %691 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %684
+  %692 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %687
   %.promoted832 = load float, ptr %690, align 4
   %.promoted834 = load float, ptr %691, align 4
   %.promoted836 = load float, ptr %692, align 4
@@ -12080,7 +12080,7 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
 777:                                              ; preds = %.preheader793, %777
   %indvars.iv962 = phi i64 [ 0, %.preheader793 ], [ %indvars.iv.next963, %777 ]
   %778 = add nuw nsw i64 %indvars.iv962, %775
-  %779 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %778
+  %779 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %778
   %780 = load float, ptr %779, align 4
   %gep1022 = getelementptr float, ptr %invariant.gep1021, i64 %indvars.iv962
   %781 = load float, ptr %gep1022, align 4
@@ -12100,7 +12100,7 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
 
 .preheader.preheader:                             ; preds = %784
   %785 = zext nneg i32 %49 to i64
-  %invariant.gep1023 = getelementptr inbounds float, ptr %12, i64 %785
+  %invariant.gep1023 = getelementptr inbounds nuw float, ptr %12, i64 %785
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %793
@@ -12111,9 +12111,9 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
 787:                                              ; preds = %.preheader, %787
   %indvars.iv970 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next971, %787 ]
   %788 = add nuw nsw i64 %indvars.iv970, %786
-  %789 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %788
+  %789 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %788
   %790 = load float, ptr %789, align 4
-  %gep1024 = getelementptr inbounds float, ptr %invariant.gep1023, i64 %indvars.iv970
+  %gep1024 = getelementptr inbounds nuw float, ptr %invariant.gep1023, i64 %indvars.iv970
   %791 = load float, ptr %gep1024, align 4
   %792 = fadd float %790, %791
   store float %792, ptr %gep1024, align 4
@@ -12127,7 +12127,7 @@ define void @_Z41nbnxn_kernel_ElecRF_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCpuPK
   br i1 %exitcond977.not, label %.loopexit801, label %.preheader, !llvm.loop !214
 
 .loopexit801:                                     ; preds = %793, %784
-  %794 = getelementptr inbounds i8, ptr %.sroa.0783.0864, i64 16
+  %794 = getelementptr inbounds nuw i8, ptr %.sroa.0783.0864, i64 16
   %.not787 = icmp eq ptr %794, %41
   br i1 %.not787, label %._crit_edge, label %45
 
@@ -12146,48 +12146,48 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %18 = load float, ptr %17, align 8
   %19 = fmul float %18, %18
   %20 = fmul float %19, %19
   %21 = fmul float %19, %20
   %22 = fdiv float %21, 6.000000e+00
-  %23 = getelementptr inbounds i8, ptr %2, i64 100
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %24 = load float, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 116
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %28 = load float, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %2, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %30 = load float, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 76
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %32 = load float, ptr %31, align 4
   %33 = fmul float %32, %32
   %34 = load i32, ptr %1, align 8
   %35 = shl nsw i32 %34, 1
-  %36 = getelementptr inbounds i8, ptr %1, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 176
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 108
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 288
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 128
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %51 = load ptr, ptr %50, align 8
   %.not9741090 = icmp eq ptr %49, %51
   br i1 %.not9741090, label %._crit_edge, label %.lr.ph1092
@@ -12195,21 +12195,21 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
 .lr.ph1092:                                       ; preds = %5
   %52 = fmul float %30, 5.000000e-01
   %53 = fpext float %22 to double
-  %54 = getelementptr inbounds i8, ptr %2, i64 44
-  %55 = getelementptr inbounds i8, ptr %2, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %56 = fmul float %28, -2.000000e+00
   %.not934 = icmp eq ptr %12, null
   br label %57
 
 57:                                               ; preds = %.lr.ph1092, %.loopexit988
   %.sroa.0970.01091 = phi ptr [ %49, %.lr.ph1092 ], [ %935, %.loopexit988 ]
-  %58 = getelementptr inbounds i8, ptr %.sroa.0970.01091, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0970.01091, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 127
   %61 = mul nuw nsw i32 %60, 3
-  %62 = getelementptr inbounds i8, ptr %.sroa.0970.01091, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0970.01091, i64 8
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %.sroa.0970.01091, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0970.01091, i64 12
   %65 = load i32, ptr %64, align 4
   %66 = load i32, ptr %.sroa.0970.01091, align 4
   %67 = icmp eq i32 %60, 22
@@ -12220,7 +12220,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %71 = zext nneg i32 %61 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %72 = sext i32 %70 to i64
-  %invariant.gep1249 = getelementptr inbounds float, ptr %3, i64 %71
+  %invariant.gep1249 = getelementptr inbounds nuw float, ptr %3, i64 %71
   br label %.preheader986
 
 .preheader986:                                    ; preds = %57, %81
@@ -12235,11 +12235,11 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %indvars.iv = phi i64 [ 0, %.preheader986 ], [ %indvars.iv.next, %75 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %76 = load float, ptr %gep, align 4
-  %gep1250 = getelementptr inbounds float, ptr %invariant.gep1249, i64 %indvars.iv
+  %gep1250 = getelementptr inbounds nuw float, ptr %invariant.gep1249, i64 %indvars.iv
   %77 = load float, ptr %gep1250, align 4
   %78 = fadd float %76, %77
   %79 = add nuw nsw i64 %indvars.iv, %74
-  %80 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %79
   store float %78, ptr %80, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -12249,7 +12249,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %82 = getelementptr inbounds float, ptr %39, i64 %73
   %83 = load float, ptr %82, align 4
   %84 = fmul float %43, %83
-  %85 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %85 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %84, ptr %85, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1124.not = icmp eq i64 %indvar.next, 4
@@ -12267,7 +12267,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
 
 .preheader990:                                    ; preds = %86, %.preheader990
   %indvars.iv1125 = phi i64 [ %indvars.iv.next1126, %.preheader990 ], [ 0, %86 ]
-  %93 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1125
+  %93 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1125
   %94 = load float, ptr %93, align 4
   %95 = add nuw nsw i64 %indvars.iv1125, %72
   %96 = getelementptr inbounds float, ptr %39, i64 %95
@@ -12323,7 +12323,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
 125:                                              ; preds = %121
   %126 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %47, i64 %indvars.iv1153
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %126, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %129 = icmp eq i32 %127, %87
   %130 = shl nsw i32 %127, 2
   %131 = sext i32 %130 to i64
@@ -12338,20 +12338,20 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %133 = mul nsw i32 %132, %35
   %134 = shl nuw nsw i64 %indvars.iv1149, 2
   %135 = mul nuw nsw i64 %indvars.iv1149, 3
-  %136 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %135
   %137 = load float, ptr %136, align 4
   %138 = add nuw nsw i64 %135, 1
-  %139 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %138
   %140 = load float, ptr %139, align 4
   %141 = add nuw nsw i64 %135, 2
-  %142 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %141
   %143 = load float, ptr %142, align 4
   %144 = icmp samesign ult i64 %indvars.iv1149, 2
-  %145 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1149
+  %145 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1149
   %146 = load float, ptr %145, align 4
-  %147 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %135
-  %148 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %138
-  %149 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %141
+  %147 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %135
+  %148 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %138
+  %149 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %141
   %.promoted1015 = load float, ptr %147, align 4
   %.promoted1017 = load float, ptr %148, align 4
   %.promoted1019 = load float, ptr %149, align 4
@@ -12518,19 +12518,19 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %276 = mul nsw i32 %275, %35
   %277 = shl nuw nsw i64 %indvars.iv1141, 2
   %278 = mul nuw nsw i64 %indvars.iv1141, 3
-  %279 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %278
+  %279 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %278
   %280 = load float, ptr %279, align 4
   %281 = add nuw nsw i64 %278, 1
-  %282 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %281
+  %282 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %281
   %283 = load float, ptr %282, align 4
   %284 = add nuw nsw i64 %278, 2
-  %285 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %284
   %286 = load float, ptr %285, align 4
-  %287 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1141
+  %287 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1141
   %288 = load float, ptr %287, align 4
-  %289 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %278
-  %290 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %281
-  %291 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %284
+  %289 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %278
+  %290 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %281
+  %291 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %284
   %.promoted1003 = load float, ptr %289, align 4
   %.promoted1005 = load float, ptr %290, align 4
   %.promoted1007 = load float, ptr %291, align 4
@@ -12684,17 +12684,17 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %414 = mul nsw i32 %413, %35
   %415 = shl nuw nsw i64 %indvars.iv1133, 2
   %416 = mul nuw nsw i64 %indvars.iv1133, 3
-  %417 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %416
+  %417 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %416
   %418 = load float, ptr %417, align 4
   %419 = add nuw nsw i64 %416, 1
-  %420 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %419
+  %420 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %419
   %421 = load float, ptr %420, align 4
   %422 = add nuw nsw i64 %416, 2
-  %423 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %422
+  %423 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %422
   %424 = load float, ptr %423, align 4
-  %425 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %416
-  %426 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %419
-  %427 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %422
+  %425 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %416
+  %426 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %419
+  %427 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %422
   %.promoted = load float, ptr %425, align 4
   %.promoted995 = load float, ptr %426, align 4
   %.promoted997 = load float, ptr %427, align 4
@@ -12870,20 +12870,20 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %545 = load i32, ptr %gep1262, align 4
   %546 = mul nsw i32 %545, %35
   %547 = mul nuw nsw i64 %indvars.iv1186, 3
-  %548 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %547
+  %548 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %547
   %549 = load float, ptr %548, align 4
   %550 = add nuw nsw i64 %547, 1
-  %551 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %550
+  %551 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %550
   %552 = load float, ptr %551, align 4
   %553 = add nuw nsw i64 %547, 2
-  %554 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %553
+  %554 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %553
   %555 = load float, ptr %554, align 4
   %556 = icmp samesign ult i64 %indvars.iv1186, 2
-  %557 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1186
+  %557 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1186
   %558 = load float, ptr %557, align 4
-  %559 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %547
-  %560 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %550
-  %561 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %553
+  %559 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %547
+  %560 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %550
+  %561 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %553
   %.promoted1058.us = load float, ptr %559, align 4
   %.promoted1060.us = load float, ptr %560, align 4
   %.promoted1062.us = load float, ptr %561, align 4
@@ -13049,19 +13049,19 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %676 = load i32, ptr %gep1260, align 4
   %677 = mul nsw i32 %676, %35
   %678 = mul nuw nsw i64 %indvars.iv1173, 3
-  %679 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %678
+  %679 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %678
   %680 = load float, ptr %679, align 4
   %681 = add nuw nsw i64 %678, 1
-  %682 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %681
+  %682 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %681
   %683 = load float, ptr %682, align 4
   %684 = add nuw nsw i64 %678, 2
-  %685 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %684
+  %685 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %684
   %686 = load float, ptr %685, align 4
-  %687 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1173
+  %687 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1173
   %688 = load float, ptr %687, align 4
-  %689 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %678
-  %690 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %681
-  %691 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %684
+  %689 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %678
+  %690 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %681
+  %691 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %684
   %.promoted1046.us = load float, ptr %689, align 4
   %.promoted1048.us = load float, ptr %690, align 4
   %.promoted1050.us = load float, ptr %691, align 4
@@ -13218,17 +13218,17 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %803 = load i32, ptr %gep1258, align 4
   %804 = mul nsw i32 %803, %35
   %805 = mul nuw nsw i64 %indvars.iv1161, 3
-  %806 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %805
+  %806 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %805
   %807 = load float, ptr %806, align 4
   %808 = add nuw nsw i64 %805, 1
-  %809 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %808
+  %809 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %808
   %810 = load float, ptr %809, align 4
   %811 = add nuw nsw i64 %805, 2
-  %812 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %811
+  %812 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %811
   %813 = load float, ptr %812, align 4
-  %814 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %805
-  %815 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %808
-  %816 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %811
+  %814 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %805
+  %815 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %808
+  %816 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %811
   %.promoted1036 = load float, ptr %814, align 4
   %.promoted1038 = load float, ptr %815, align 4
   %.promoted1040 = load float, ptr %816, align 4
@@ -13363,7 +13363,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
 914:                                              ; preds = %.preheader980, %914
   %indvars.iv1195 = phi i64 [ 0, %.preheader980 ], [ %indvars.iv.next1196, %914 ]
   %915 = add nuw nsw i64 %indvars.iv1195, %912
-  %916 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %915
+  %916 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %915
   %917 = load float, ptr %916, align 4
   %gep1264 = getelementptr float, ptr %invariant.gep1263, i64 %indvars.iv1195
   %918 = load float, ptr %gep1264, align 4
@@ -13383,7 +13383,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
 
 .preheader.preheader:                             ; preds = %921
   %922 = zext nneg i32 %61 to i64
-  %invariant.gep1265 = getelementptr inbounds float, ptr %12, i64 %922
+  %invariant.gep1265 = getelementptr inbounds nuw float, ptr %12, i64 %922
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %930
@@ -13394,9 +13394,9 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
 924:                                              ; preds = %.preheader, %924
   %indvars.iv1203 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1204, %924 ]
   %925 = add nuw nsw i64 %indvars.iv1203, %923
-  %926 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %925
+  %926 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %925
   %927 = load float, ptr %926, align 4
-  %gep1266 = getelementptr inbounds float, ptr %invariant.gep1265, i64 %indvars.iv1203
+  %gep1266 = getelementptr inbounds nuw float, ptr %invariant.gep1265, i64 %indvars.iv1203
   %928 = load float, ptr %gep1266, align 4
   %929 = fadd float %927, %928
   store float %929, ptr %gep1266, align 4
@@ -13416,7 +13416,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %933 = load float, ptr %16, align 4
   %934 = fadd float %.6906.lcssa, %933
   store float %934, ptr %16, align 4
-  %935 = getelementptr inbounds i8, ptr %.sroa.0970.01091, i64 16
+  %935 = getelementptr inbounds nuw i8, ptr %.sroa.0970.01091, i64 16
   %.not974 = icmp eq ptr %935, %51
   br i1 %.not974, label %._crit_edge, label %57
 
@@ -13430,71 +13430,71 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %19 = load float, ptr %18, align 8
   %20 = fmul float %19, %19
   %21 = fmul float %20, %20
   %22 = fmul float %20, %21
   %23 = fdiv float %22, 6.000000e+00
-  %24 = getelementptr inbounds i8, ptr %2, i64 100
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %31 = load float, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %33 = load float, ptr %32, align 4
   %34 = fmul float %33, %33
   %35 = load i32, ptr %1, align 8
   %36 = shl nsw i32 %35, 1
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 176
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 108
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %1, i64 288
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %52 = load ptr, ptr %51, align 8
   %.not10081087 = icmp eq ptr %50, %52
   br i1 %.not10081087, label %._crit_edge, label %.lr.ph1089
 
 .lr.ph1089:                                       ; preds = %5
-  %53 = getelementptr inbounds i8, ptr %1, i64 208
-  %54 = getelementptr inbounds i8, ptr %1, i64 200
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %55 = fmul float %31, 5.000000e-01
   %56 = fpext float %23 to double
-  %57 = getelementptr inbounds i8, ptr %2, i64 44
-  %58 = getelementptr inbounds i8, ptr %2, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %59 = fmul float %29, -2.000000e+00
   %.not968 = icmp eq ptr %13, null
   br label %60
 
 60:                                               ; preds = %.lr.ph1089, %.loopexit1022
   %.sroa.01004.01088 = phi ptr [ %50, %.lr.ph1089 ], [ %1089, %.loopexit1022 ]
-  %61 = getelementptr inbounds i8, ptr %.sroa.01004.01088, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.01004.01088, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 127
-  %64 = getelementptr inbounds i8, ptr %.sroa.01004.01088, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.01004.01088, i64 8
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.sroa.01004.01088, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.01004.01088, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = load i32, ptr %.sroa.01004.01088, align 4
   %69 = icmp eq i32 %63, 22
@@ -13502,13 +13502,13 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %71 = and i32 %62, 384
   %or.cond = icmp ne i32 %71, 128
   %72 = load ptr, ptr %53, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = sext i32 %68 to i64
   %75 = load ptr, ptr %73, align 8
   %76 = getelementptr inbounds i32, ptr %75, i64 %74
   %77 = load i32, ptr %76, align 4
   %78 = load i32, ptr %72, align 8
-  %79 = getelementptr inbounds i8, ptr %72, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %80 = load i32, ptr %79, align 8
   %81 = load i32, ptr %54, align 8
   br label %87
@@ -13520,7 +13520,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %85 = zext nneg i32 %82 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %86 = sext i32 %84 to i64
-  %invariant.gep1238 = getelementptr inbounds float, ptr %3, i64 %85
+  %invariant.gep1238 = getelementptr inbounds nuw float, ptr %3, i64 %85
   br label %.preheader1020
 
 87:                                               ; preds = %60, %87
@@ -13530,7 +13530,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %90 = ashr i32 %77, %89
   %91 = and i32 %90, %80
   %92 = mul nsw i32 %91, %81
-  %93 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %92, ptr %93, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -13548,11 +13548,11 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %indvars.iv1112 = phi i64 [ 0, %.preheader1020 ], [ %indvars.iv.next1113, %96 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1112
   %97 = load float, ptr %gep, align 4
-  %gep1239 = getelementptr inbounds float, ptr %invariant.gep1238, i64 %indvars.iv1112
+  %gep1239 = getelementptr inbounds nuw float, ptr %invariant.gep1238, i64 %indvars.iv1112
   %98 = load float, ptr %gep1239, align 4
   %99 = fadd float %97, %98
   %100 = add nuw nsw i64 %indvars.iv1112, %95
-  %101 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %100
   store float %99, ptr %101, align 4
   %indvars.iv.next1113 = add nuw nsw i64 %indvars.iv1112, 1
   %exitcond1115.not = icmp eq i64 %indvars.iv.next1113, 3
@@ -13562,7 +13562,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %103 = getelementptr inbounds float, ptr %40, i64 %94
   %104 = load float, ptr %103, align 4
   %105 = fmul float %44, %104
-  %106 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %106 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %105, ptr %106, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1117.not = icmp eq i64 %indvar.next, 4
@@ -13579,10 +13579,10 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
 
 .preheader1024:                                   ; preds = %107, %.preheader1024
   %indvars.iv1118 = phi i64 [ %indvars.iv.next1119, %.preheader1024 ], [ 0, %107 ]
-  %113 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1118
+  %113 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1118
   %114 = load i32, ptr %113, align 4
   %115 = load ptr, ptr %53, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i32, ptr %117, i64 %74
   %119 = load i32, ptr %118, align 4
@@ -13590,11 +13590,11 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %121 = trunc nuw nsw i64 %indvars.iv1118 to i32
   %122 = mul nsw i32 %120, %121
   %123 = ashr i32 %119, %122
-  %124 = getelementptr inbounds i8, ptr %115, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %125 = load i32, ptr %124, align 8
   %126 = and i32 %123, %125
   %127 = add nsw i32 %126, %114
-  %128 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1118
+  %128 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1118
   %129 = load float, ptr %128, align 4
   %130 = add nuw nsw i64 %indvars.iv1118, %86
   %131 = getelementptr inbounds float, ptr %40, i64 %130
@@ -13651,7 +13651,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
 163:                                              ; preds = %159
   %164 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %48, i64 %indvars.iv1146
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds i8, ptr %164, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %167 = icmp eq i32 %165, %108
   %168 = shl nsw i32 %165, 2
   %169 = sext i32 %165 to i64
@@ -13665,22 +13665,22 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %172 = mul nsw i32 %171, %36
   %173 = shl nuw nsw i64 %indvars.iv1142, 2
   %174 = mul nuw nsw i64 %indvars.iv1142, 3
-  %175 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %174
   %176 = load float, ptr %175, align 4
   %177 = add nuw nsw i64 %174, 1
-  %178 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %177
   %179 = load float, ptr %178, align 4
   %180 = add nuw nsw i64 %174, 2
-  %181 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %180
   %182 = load float, ptr %181, align 4
   %183 = icmp samesign ult i64 %indvars.iv1142, 2
-  %184 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1142
+  %184 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1142
   %185 = load float, ptr %184, align 4
-  %186 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1142
+  %186 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1142
   %187 = load i32, ptr %186, align 4
-  %188 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %174
-  %189 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %177
-  %190 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %180
+  %188 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %174
+  %189 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %177
+  %190 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %180
   %.promoted1045 = load float, ptr %188, align 4
   %.promoted1047 = load float, ptr %189, align 4
   %.promoted1049 = load float, ptr %190, align 4
@@ -13725,7 +13725,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %224 = fmul float %221, %223
   %225 = fmul float %224, %224
   %226 = load ptr, ptr %53, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds i32, ptr %228, i64 %169
   %230 = load i32, ptr %229, align 4
@@ -13733,7 +13733,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %232 = trunc nuw nsw i64 %indvars.iv1138 to i32
   %233 = mul nsw i32 %231, %232
   %234 = ashr i32 %230, %233
-  %235 = getelementptr inbounds i8, ptr %226, i64 32
+  %235 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %236 = load i32, ptr %235, align 8
   %237 = and i32 %234, %236
   br i1 %183, label %238, label %._crit_edge1204
@@ -13868,21 +13868,21 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %335 = mul nsw i32 %334, %36
   %336 = shl nuw nsw i64 %indvars.iv1134, 2
   %337 = mul nuw nsw i64 %indvars.iv1134, 3
-  %338 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %337
   %339 = load float, ptr %338, align 4
   %340 = add nuw nsw i64 %337, 1
-  %341 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %340
+  %341 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %340
   %342 = load float, ptr %341, align 4
   %343 = add nuw nsw i64 %337, 2
-  %344 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %343
+  %344 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %343
   %345 = load float, ptr %344, align 4
-  %346 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1134
+  %346 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1134
   %347 = load i32, ptr %346, align 4
-  %348 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1134
+  %348 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1134
   %349 = load float, ptr %348, align 4
-  %350 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %337
-  %351 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %340
-  %352 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %343
+  %350 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %337
+  %351 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %340
+  %352 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %343
   %.promoted1037 = load float, ptr %350, align 4
   %.promoted1039 = load float, ptr %351, align 4
   %.promoted1041 = load float, ptr %352, align 4
@@ -13927,7 +13927,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %386 = fmul float %383, %385
   %387 = fmul float %386, %386
   %388 = load ptr, ptr %53, align 8
-  %389 = getelementptr inbounds i8, ptr %388, i64 8
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
   %390 = load ptr, ptr %389, align 8
   %391 = getelementptr inbounds i32, ptr %390, i64 %169
   %392 = load i32, ptr %391, align 4
@@ -13935,7 +13935,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %394 = trunc nuw nsw i64 %indvars.iv1130 to i32
   %395 = mul nsw i32 %393, %394
   %396 = ashr i32 %392, %395
-  %397 = getelementptr inbounds i8, ptr %388, i64 32
+  %397 = getelementptr inbounds nuw i8, ptr %388, i64 32
   %398 = load i32, ptr %397, align 8
   %399 = and i32 %396, %398
   %400 = getelementptr inbounds i32, ptr %42, i64 %365
@@ -14053,19 +14053,19 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %493 = mul nsw i32 %492, %36
   %494 = shl nuw nsw i64 %indvars.iv1126, 2
   %495 = mul nuw nsw i64 %indvars.iv1126, 3
-  %496 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %495
+  %496 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %495
   %497 = load float, ptr %496, align 4
   %498 = add nuw nsw i64 %495, 1
-  %499 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %498
+  %499 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %498
   %500 = load float, ptr %499, align 4
   %501 = add nuw nsw i64 %495, 2
-  %502 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %501
+  %502 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %501
   %503 = load float, ptr %502, align 4
-  %504 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1126
+  %504 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1126
   %505 = load i32, ptr %504, align 4
-  %506 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %495
-  %507 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %498
-  %508 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %501
+  %506 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %495
+  %507 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %498
+  %508 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %501
   %.promoted = load float, ptr %506, align 4
   %.promoted1031 = load float, ptr %507, align 4
   %.promoted1033 = load float, ptr %508, align 4
@@ -14110,7 +14110,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %542 = fmul float %539, %541
   %543 = fmul float %542, %542
   %544 = load ptr, ptr %53, align 8
-  %545 = getelementptr inbounds i8, ptr %544, i64 8
+  %545 = getelementptr inbounds nuw i8, ptr %544, i64 8
   %546 = load ptr, ptr %545, align 8
   %547 = getelementptr inbounds i32, ptr %546, i64 %169
   %548 = load i32, ptr %547, align 4
@@ -14118,7 +14118,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %550 = trunc nuw nsw i64 %indvars.iv1122 to i32
   %551 = mul nsw i32 %549, %550
   %552 = ashr i32 %548, %551
-  %553 = getelementptr inbounds i8, ptr %544, i64 32
+  %553 = getelementptr inbounds nuw i8, ptr %544, i64 32
   %554 = load i32, ptr %553, align 8
   %555 = and i32 %552, %554
   %556 = getelementptr inbounds i32, ptr %42, i64 %521
@@ -14250,22 +14250,22 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %643 = load i32, ptr %gep1251, align 4
   %644 = mul nsw i32 %643, %36
   %645 = mul nuw nsw i64 %indvars.iv1179, 3
-  %646 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %645
+  %646 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %645
   %647 = load float, ptr %646, align 4
   %648 = add nuw nsw i64 %645, 1
-  %649 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %648
+  %649 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %648
   %650 = load float, ptr %649, align 4
   %651 = add nuw nsw i64 %645, 2
-  %652 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %651
+  %652 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %651
   %653 = load float, ptr %652, align 4
   %654 = icmp samesign ult i64 %indvars.iv1179, 2
-  %655 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1179
+  %655 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1179
   %656 = load float, ptr %655, align 4
-  %657 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1179
+  %657 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1179
   %658 = load i32, ptr %657, align 4
-  %659 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %645
-  %660 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %648
-  %661 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %651
+  %659 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %645
+  %660 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %648
+  %661 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %651
   %.promoted1072.us = load float, ptr %659, align 4
   %.promoted1074.us = load float, ptr %660, align 4
   %.promoted1076.us = load float, ptr %661, align 4
@@ -14309,7 +14309,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %687 = fmul float %684, %686
   %688 = fmul float %687, %687
   %689 = load ptr, ptr %53, align 8
-  %690 = getelementptr inbounds i8, ptr %689, i64 8
+  %690 = getelementptr inbounds nuw i8, ptr %689, i64 8
   %691 = load ptr, ptr %690, align 8
   %692 = getelementptr inbounds i32, ptr %691, i64 %640
   %693 = load i32, ptr %692, align 4
@@ -14317,7 +14317,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %695 = trunc nuw nsw i64 %indvars.iv1175 to i32
   %696 = mul nsw i32 %694, %695
   %697 = ashr i32 %693, %696
-  %698 = getelementptr inbounds i8, ptr %689, i64 32
+  %698 = getelementptr inbounds nuw i8, ptr %689, i64 32
   %699 = load i32, ptr %698, align 8
   %700 = and i32 %697, %699
   br i1 %654, label %701, label %._crit_edge1205
@@ -14451,21 +14451,21 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %795 = load i32, ptr %gep1249, align 4
   %796 = mul nsw i32 %795, %36
   %797 = mul nuw nsw i64 %indvars.iv1166, 3
-  %798 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %797
+  %798 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %797
   %799 = load float, ptr %798, align 4
   %800 = add nuw nsw i64 %797, 1
-  %801 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %800
+  %801 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %800
   %802 = load float, ptr %801, align 4
   %803 = add nuw nsw i64 %797, 2
-  %804 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %803
+  %804 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %803
   %805 = load float, ptr %804, align 4
-  %806 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1166
+  %806 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1166
   %807 = load i32, ptr %806, align 4
-  %808 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1166
+  %808 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1166
   %809 = load float, ptr %808, align 4
-  %810 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %797
-  %811 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %800
-  %812 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %803
+  %810 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %797
+  %811 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %800
+  %812 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %803
   %.promoted1064.us = load float, ptr %810, align 4
   %.promoted1066.us = load float, ptr %811, align 4
   %.promoted1068.us = load float, ptr %812, align 4
@@ -14509,7 +14509,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %838 = fmul float %835, %837
   %839 = fmul float %838, %838
   %840 = load ptr, ptr %53, align 8
-  %841 = getelementptr inbounds i8, ptr %840, i64 8
+  %841 = getelementptr inbounds nuw i8, ptr %840, i64 8
   %842 = load ptr, ptr %841, align 8
   %843 = getelementptr inbounds i32, ptr %842, i64 %792
   %844 = load i32, ptr %843, align 4
@@ -14517,7 +14517,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %846 = trunc nuw nsw i64 %indvars.iv1162 to i32
   %847 = mul nsw i32 %845, %846
   %848 = ashr i32 %844, %847
-  %849 = getelementptr inbounds i8, ptr %840, i64 32
+  %849 = getelementptr inbounds nuw i8, ptr %840, i64 32
   %850 = load i32, ptr %849, align 8
   %851 = and i32 %848, %850
   %852 = getelementptr inbounds i32, ptr %42, i64 %818
@@ -14634,19 +14634,19 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %943 = load i32, ptr %gep1247, align 4
   %944 = mul nsw i32 %943, %36
   %945 = mul nuw nsw i64 %indvars.iv1154, 3
-  %946 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %945
+  %946 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %945
   %947 = load float, ptr %946, align 4
   %948 = add nuw nsw i64 %945, 1
-  %949 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %948
+  %949 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %948
   %950 = load float, ptr %949, align 4
   %951 = add nuw nsw i64 %945, 2
-  %952 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %951
+  %952 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %951
   %953 = load float, ptr %952, align 4
-  %954 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1154
+  %954 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1154
   %955 = load i32, ptr %954, align 4
-  %956 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %945
-  %957 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %948
-  %958 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %951
+  %956 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %945
+  %957 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %948
+  %958 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %951
   %.promoted1056 = load float, ptr %956, align 4
   %.promoted1058 = load float, ptr %957, align 4
   %.promoted1060 = load float, ptr %958, align 4
@@ -14682,7 +14682,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %983 = fmul float %980, %982
   %984 = fmul float %983, %983
   %985 = load ptr, ptr %53, align 8
-  %986 = getelementptr inbounds i8, ptr %985, i64 8
+  %986 = getelementptr inbounds nuw i8, ptr %985, i64 8
   %987 = load ptr, ptr %986, align 8
   %988 = getelementptr inbounds i32, ptr %987, i64 %940
   %989 = load i32, ptr %988, align 4
@@ -14690,7 +14690,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   %991 = trunc nuw nsw i64 %indvars.iv1150 to i32
   %992 = mul nsw i32 %990, %991
   %993 = ashr i32 %989, %992
-  %994 = getelementptr inbounds i8, ptr %985, i64 32
+  %994 = getelementptr inbounds nuw i8, ptr %985, i64 32
   %995 = load i32, ptr %994, align 8
   %996 = and i32 %993, %995
   %997 = getelementptr inbounds i32, ptr %42, i64 %963
@@ -14800,7 +14800,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
 1072:                                             ; preds = %.preheader1014, %1072
   %indvars.iv1188 = phi i64 [ 0, %.preheader1014 ], [ %indvars.iv.next1189, %1072 ]
   %1073 = add nuw nsw i64 %indvars.iv1188, %1070
-  %1074 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1073
+  %1074 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1073
   %1075 = load float, ptr %1074, align 4
   %gep1253 = getelementptr float, ptr %invariant.gep1252, i64 %indvars.iv1188
   %1076 = load float, ptr %gep1253, align 4
@@ -14820,7 +14820,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
 
 .preheader.preheader:                             ; preds = %1079
   %1080 = zext nneg i32 %82 to i64
-  %invariant.gep1254 = getelementptr inbounds float, ptr %13, i64 %1080
+  %invariant.gep1254 = getelementptr inbounds nuw float, ptr %13, i64 %1080
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1088
@@ -14831,9 +14831,9 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
 1082:                                             ; preds = %.preheader, %1082
   %indvars.iv1196 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1197, %1082 ]
   %1083 = add nuw nsw i64 %indvars.iv1196, %1081
-  %1084 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1083
+  %1084 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1083
   %1085 = load float, ptr %1084, align 4
-  %gep1255 = getelementptr inbounds float, ptr %invariant.gep1254, i64 %indvars.iv1196
+  %gep1255 = getelementptr inbounds nuw float, ptr %invariant.gep1254, i64 %indvars.iv1196
   %1086 = load float, ptr %gep1255, align 4
   %1087 = fadd float %1085, %1086
   store float %1087, ptr %gep1255, align 4
@@ -14847,7 +14847,7 @@ define void @_Z45nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairlistC
   br i1 %exitcond1203.not, label %.loopexit1022, label %.preheader, !llvm.loop !257
 
 .loopexit1022:                                    ; preds = %1088, %1079
-  %1089 = getelementptr inbounds i8, ptr %.sroa.01004.01088, i64 16
+  %1089 = getelementptr inbounds nuw i8, ptr %.sroa.01004.01088, i64 16
   %.not1008 = icmp eq ptr %1089, %52
   br i1 %.not1008, label %._crit_edge, label %60
 
@@ -14860,44 +14860,44 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %14 = load float, ptr %13, align 8
   %15 = fmul float %14, %14
   %16 = fmul float %15, %15
   %17 = fmul float %15, %16
   %18 = fdiv float %17, 6.000000e+00
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %22 = load float, ptr %21, align 4
   %23 = fmul float %22, %22
   %24 = load i32, ptr %1, align 8
   %25 = shl nsw i32 %24, 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 108
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 288
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load ptr, ptr %40, align 8
   %.not859935 = icmp eq ptr %39, %41
   br i1 %.not859935, label %._crit_edge, label %.lr.ph937
 
 .lr.ph937:                                        ; preds = %5
-  %42 = getelementptr inbounds i8, ptr %2, i64 116
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %43 = load float, ptr %42, align 4
   %44 = fmul float %43, -2.000000e+00
   %.not823 = icmp eq ptr %12, null
@@ -14905,13 +14905,13 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
 
 45:                                               ; preds = %.lr.ph937, %.loopexit873
   %.sroa.0855.0936 = phi ptr [ %39, %.lr.ph937 ], [ %872, %.loopexit873 ]
-  %46 = getelementptr inbounds i8, ptr %.sroa.0855.0936, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0855.0936, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 127
   %49 = mul nuw nsw i32 %48, 3
-  %50 = getelementptr inbounds i8, ptr %.sroa.0855.0936, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0855.0936, i64 8
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %.sroa.0855.0936, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0855.0936, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %.sroa.0855.0936, align 4
   %55 = icmp eq i32 %48, 22
@@ -14924,7 +14924,7 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %60 = zext nneg i32 %49 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %61 = sext i32 %59 to i64
-  %invariant.gep1079 = getelementptr inbounds float, ptr %3, i64 %60
+  %invariant.gep1079 = getelementptr inbounds nuw float, ptr %3, i64 %60
   br label %.preheader871
 
 .preheader875:                                    ; preds = %219
@@ -14957,7 +14957,7 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
 68:                                               ; preds = %.lr.ph.split.us
   %69 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %37, i64 %indvars.iv991
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %69, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %72 = icmp eq i32 %70, %62
   %73 = shl nsw i32 %70, 2
   %74 = sext i32 %73 to i64
@@ -14970,20 +14970,20 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %77 = mul nsw i32 %76, %25
   %78 = shl nuw nsw i64 %indvars.iv987, 2
   %79 = mul nuw nsw i64 %indvars.iv987, 3
-  %80 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %79
   %81 = load float, ptr %80, align 4
   %82 = add nuw nsw i64 %79, 1
-  %83 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %82
   %84 = load float, ptr %83, align 4
   %85 = add nuw nsw i64 %79, 2
-  %86 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %85
   %87 = load float, ptr %86, align 4
   %88 = icmp samesign ult i64 %indvars.iv987, 2
-  %89 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv987
+  %89 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv987
   %90 = load float, ptr %89, align 4
-  %91 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %79
-  %92 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %82
-  %93 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %85
+  %91 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %79
+  %92 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %82
+  %93 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %85
   %.promoted892.us = load float, ptr %91, align 4
   %.promoted894.us = load float, ptr %92, align 4
   %.promoted896.us = load float, ptr %93, align 4
@@ -15145,11 +15145,11 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %indvars.iv = phi i64 [ 0, %.preheader871 ], [ %indvars.iv.next, %213 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %214 = load float, ptr %gep, align 4
-  %gep1080 = getelementptr inbounds float, ptr %invariant.gep1079, i64 %indvars.iv
+  %gep1080 = getelementptr inbounds nuw float, ptr %invariant.gep1079, i64 %indvars.iv
   %215 = load float, ptr %gep1080, align 4
   %216 = fadd float %214, %215
   %217 = add nuw nsw i64 %indvars.iv, %212
-  %218 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %217
   store float %216, ptr %218, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -15159,7 +15159,7 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %220 = getelementptr inbounds float, ptr %29, i64 %211
   %221 = load float, ptr %220, align 4
   %222 = fmul float %33, %221
-  %223 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %223 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %222, ptr %223, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond962.not = icmp eq i64 %indvar.next, 4
@@ -15176,7 +15176,7 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
 227:                                              ; preds = %.lr.ph.split
   %228 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %37, i64 %indvars.iv979
   %229 = load i32, ptr %228, align 4
-  %230 = getelementptr inbounds i8, ptr %228, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %228, i64 4
   %231 = icmp eq i32 %229, %62
   %232 = shl nsw i32 %229, 2
   %233 = sext i32 %232 to i64
@@ -15189,19 +15189,19 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %235 = mul nsw i32 %234, %25
   %236 = shl nuw nsw i64 %indvars.iv975, 2
   %237 = mul nuw nsw i64 %indvars.iv975, 3
-  %238 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %237
+  %238 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %237
   %239 = load float, ptr %238, align 4
   %240 = add nuw nsw i64 %237, 1
-  %241 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %240
   %242 = load float, ptr %241, align 4
   %243 = add nuw nsw i64 %237, 2
-  %244 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %243
   %245 = load float, ptr %244, align 4
-  %246 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv975
+  %246 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv975
   %247 = load float, ptr %246, align 4
-  %248 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %237
-  %249 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %240
-  %250 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %243
+  %248 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %237
+  %249 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %240
+  %250 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %243
   %.promoted884 = load float, ptr %248, align 4
   %.promoted886 = load float, ptr %249, align 4
   %.promoted888 = load float, ptr %250, align 4
@@ -15345,17 +15345,17 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %366 = mul nsw i32 %365, %25
   %367 = shl nuw nsw i64 %indvars.iv967, 2
   %368 = mul nuw nsw i64 %indvars.iv967, 3
-  %369 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %368
+  %369 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %368
   %370 = load float, ptr %369, align 4
   %371 = add nuw nsw i64 %368, 1
-  %372 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %371
   %373 = load float, ptr %372, align 4
   %374 = add nuw nsw i64 %368, 2
-  %375 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %374
+  %375 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %374
   %376 = load float, ptr %375, align 4
-  %377 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %368
-  %378 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %371
-  %379 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %374
+  %377 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %368
+  %378 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %371
+  %379 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %374
   %.promoted = load float, ptr %377, align 4
   %.promoted878 = load float, ptr %378, align 4
   %.promoted880 = load float, ptr %379, align 4
@@ -15524,20 +15524,20 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %496 = load i32, ptr %gep1092, align 4
   %497 = mul nsw i32 %496, %25
   %498 = mul nuw nsw i64 %indvars.iv1025, 3
-  %499 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %498
+  %499 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %498
   %500 = load float, ptr %499, align 4
   %501 = add nuw nsw i64 %498, 1
-  %502 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %501
+  %502 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %501
   %503 = load float, ptr %502, align 4
   %504 = add nuw nsw i64 %498, 2
-  %505 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %504
+  %505 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %504
   %506 = load float, ptr %505, align 4
   %507 = icmp samesign ult i64 %indvars.iv1025, 2
-  %508 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1025
+  %508 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1025
   %509 = load float, ptr %508, align 4
-  %510 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %498
-  %511 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %501
-  %512 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %504
+  %510 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %498
+  %511 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %501
+  %512 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %504
   %.promoted920.us = load float, ptr %510, align 4
   %.promoted922.us = load float, ptr %511, align 4
   %.promoted924.us = load float, ptr %512, align 4
@@ -15691,19 +15691,19 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %622 = load i32, ptr %gep1090, align 4
   %623 = mul nsw i32 %622, %25
   %624 = mul nuw nsw i64 %indvars.iv1012, 3
-  %625 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %624
+  %625 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %624
   %626 = load float, ptr %625, align 4
   %627 = add nuw nsw i64 %624, 1
-  %628 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %627
+  %628 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %627
   %629 = load float, ptr %628, align 4
   %630 = add nuw nsw i64 %624, 2
-  %631 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %630
+  %631 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %630
   %632 = load float, ptr %631, align 4
-  %633 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1012
+  %633 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1012
   %634 = load float, ptr %633, align 4
-  %635 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %624
-  %636 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %627
-  %637 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %630
+  %635 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %624
+  %636 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %627
+  %637 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %630
   %.promoted912.us = load float, ptr %635, align 4
   %.promoted914.us = load float, ptr %636, align 4
   %.promoted916.us = load float, ptr %637, align 4
@@ -15846,17 +15846,17 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   %744 = load i32, ptr %gep1088, align 4
   %745 = mul nsw i32 %744, %25
   %746 = mul nuw nsw i64 %indvars.iv999, 3
-  %747 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %746
+  %747 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %746
   %748 = load float, ptr %747, align 4
   %749 = add nuw nsw i64 %746, 1
-  %750 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %749
+  %750 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %749
   %751 = load float, ptr %750, align 4
   %752 = add nuw nsw i64 %746, 2
-  %753 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %752
+  %753 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %752
   %754 = load float, ptr %753, align 4
-  %755 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %746
-  %756 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %749
-  %757 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %752
+  %755 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %746
+  %756 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %749
+  %757 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %752
   %.promoted904 = load float, ptr %755, align 4
   %.promoted906 = load float, ptr %756, align 4
   %.promoted908 = load float, ptr %757, align 4
@@ -15993,7 +15993,7 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
 855:                                              ; preds = %.preheader865, %855
   %indvars.iv1034 = phi i64 [ 0, %.preheader865 ], [ %indvars.iv.next1035, %855 ]
   %856 = add nuw nsw i64 %indvars.iv1034, %853
-  %857 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %856
+  %857 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %856
   %858 = load float, ptr %857, align 4
   %gep1094 = getelementptr float, ptr %invariant.gep1093, i64 %indvars.iv1034
   %859 = load float, ptr %gep1094, align 4
@@ -16013,7 +16013,7 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
 
 .preheader.preheader:                             ; preds = %862
   %863 = zext nneg i32 %49 to i64
-  %invariant.gep1095 = getelementptr inbounds float, ptr %12, i64 %863
+  %invariant.gep1095 = getelementptr inbounds nuw float, ptr %12, i64 %863
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %871
@@ -16024,9 +16024,9 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
 865:                                              ; preds = %.preheader, %865
   %indvars.iv1042 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1043, %865 ]
   %866 = add nuw nsw i64 %indvars.iv1042, %864
-  %867 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %866
+  %867 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %866
   %868 = load float, ptr %867, align 4
-  %gep1096 = getelementptr inbounds float, ptr %invariant.gep1095, i64 %indvars.iv1042
+  %gep1096 = getelementptr inbounds nuw float, ptr %invariant.gep1095, i64 %indvars.iv1042
   %869 = load float, ptr %gep1096, align 4
   %870 = fadd float %868, %869
   store float %870, ptr %gep1096, align 4
@@ -16040,7 +16040,7 @@ define void @_Z39nbnxn_kernel_ElecRF_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuPK16
   br i1 %exitcond1049.not, label %.loopexit873, label %.preheader, !llvm.loop !277
 
 .loopexit873:                                     ; preds = %871, %862
-  %872 = getelementptr inbounds i8, ptr %.sroa.0855.0936, i64 16
+  %872 = getelementptr inbounds nuw i8, ptr %.sroa.0855.0936, i64 16
   %.not859 = icmp eq ptr %872, %41
   br i1 %.not859, label %._crit_edge, label %45
 
@@ -16053,48 +16053,48 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %18 = load float, ptr %17, align 8
   %19 = fmul float %18, %18
   %20 = fmul float %19, %19
   %21 = fmul float %19, %20
   %22 = fdiv float %21, 6.000000e+00
-  %23 = getelementptr inbounds i8, ptr %2, i64 100
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %24 = load float, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 116
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %28 = load float, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %2, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %30 = load float, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 76
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %32 = load float, ptr %31, align 4
   %33 = fmul float %32, %32
   %34 = load i32, ptr %1, align 8
   %35 = shl nsw i32 %34, 1
-  %36 = getelementptr inbounds i8, ptr %1, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 176
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 108
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 288
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 128
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %51 = load ptr, ptr %50, align 8
   %.not10461162 = icmp eq ptr %49, %51
   br i1 %.not10461162, label %._crit_edge, label %.lr.ph1164
@@ -16102,21 +16102,21 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
 .lr.ph1164:                                       ; preds = %5
   %52 = fmul float %30, 5.000000e-01
   %53 = fpext float %22 to double
-  %54 = getelementptr inbounds i8, ptr %2, i64 44
-  %55 = getelementptr inbounds i8, ptr %2, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %56 = fmul float %28, -2.000000e+00
   %.not1006 = icmp eq ptr %12, null
   br label %57
 
 57:                                               ; preds = %.lr.ph1164, %.loopexit1060
   %.sroa.01042.01163 = phi ptr [ %49, %.lr.ph1164 ], [ %1013, %.loopexit1060 ]
-  %58 = getelementptr inbounds i8, ptr %.sroa.01042.01163, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.01042.01163, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 127
   %61 = mul nuw nsw i32 %60, 3
-  %62 = getelementptr inbounds i8, ptr %.sroa.01042.01163, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.01042.01163, i64 8
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %.sroa.01042.01163, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.01042.01163, i64 12
   %65 = load i32, ptr %64, align 4
   %66 = load i32, ptr %.sroa.01042.01163, align 4
   %67 = icmp eq i32 %60, 22
@@ -16127,7 +16127,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %71 = zext nneg i32 %61 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %72 = sext i32 %70 to i64
-  %invariant.gep1321 = getelementptr inbounds float, ptr %3, i64 %71
+  %invariant.gep1321 = getelementptr inbounds nuw float, ptr %3, i64 %71
   br label %.preheader1058
 
 .preheader1058:                                   ; preds = %57, %81
@@ -16142,11 +16142,11 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %indvars.iv = phi i64 [ 0, %.preheader1058 ], [ %indvars.iv.next, %75 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %76 = load float, ptr %gep, align 4
-  %gep1322 = getelementptr inbounds float, ptr %invariant.gep1321, i64 %indvars.iv
+  %gep1322 = getelementptr inbounds nuw float, ptr %invariant.gep1321, i64 %indvars.iv
   %77 = load float, ptr %gep1322, align 4
   %78 = fadd float %76, %77
   %79 = add nuw nsw i64 %indvars.iv, %74
-  %80 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %79
   store float %78, ptr %80, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -16156,7 +16156,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %82 = getelementptr inbounds float, ptr %39, i64 %73
   %83 = load float, ptr %82, align 4
   %84 = fmul float %43, %83
-  %85 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %85 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %84, ptr %85, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1196.not = icmp eq i64 %indvar.next, 4
@@ -16174,7 +16174,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
 
 .preheader1062:                                   ; preds = %86, %.preheader1062
   %indvars.iv1197 = phi i64 [ %indvars.iv.next1198, %.preheader1062 ], [ 0, %86 ]
-  %93 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1197
+  %93 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1197
   %94 = load float, ptr %93, align 4
   %95 = add nuw nsw i64 %indvars.iv1197, %72
   %96 = getelementptr inbounds float, ptr %39, i64 %95
@@ -16230,7 +16230,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
 125:                                              ; preds = %121
   %126 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %47, i64 %indvars.iv1225
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %126, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %129 = icmp eq i32 %127, %87
   %130 = shl nsw i32 %127, 2
   %131 = sext i32 %130 to i64
@@ -16245,20 +16245,20 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %133 = mul nsw i32 %132, %35
   %134 = shl nuw nsw i64 %indvars.iv1221, 2
   %135 = mul nuw nsw i64 %indvars.iv1221, 3
-  %136 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %135
   %137 = load float, ptr %136, align 4
   %138 = add nuw nsw i64 %135, 1
-  %139 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %138
   %140 = load float, ptr %139, align 4
   %141 = add nuw nsw i64 %135, 2
-  %142 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %141
   %143 = load float, ptr %142, align 4
   %144 = icmp samesign ult i64 %indvars.iv1221, 2
-  %145 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1221
+  %145 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1221
   %146 = load float, ptr %145, align 4
-  %147 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %135
-  %148 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %138
-  %149 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %141
+  %147 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %135
+  %148 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %138
+  %149 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %141
   %.promoted1087 = load float, ptr %147, align 4
   %.promoted1089 = load float, ptr %148, align 4
   %.promoted1091 = load float, ptr %149, align 4
@@ -16438,19 +16438,19 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %289 = mul nsw i32 %288, %35
   %290 = shl nuw nsw i64 %indvars.iv1213, 2
   %291 = mul nuw nsw i64 %indvars.iv1213, 3
-  %292 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %291
+  %292 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %291
   %293 = load float, ptr %292, align 4
   %294 = add nuw nsw i64 %291, 1
-  %295 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %294
   %296 = load float, ptr %295, align 4
   %297 = add nuw nsw i64 %291, 2
-  %298 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %297
+  %298 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %297
   %299 = load float, ptr %298, align 4
-  %300 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1213
+  %300 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1213
   %301 = load float, ptr %300, align 4
-  %302 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %291
-  %303 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %294
-  %304 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %297
+  %302 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %291
+  %303 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %294
+  %304 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %297
   %.promoted1075 = load float, ptr %302, align 4
   %.promoted1077 = load float, ptr %303, align 4
   %.promoted1079 = load float, ptr %304, align 4
@@ -16617,17 +16617,17 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %440 = mul nsw i32 %439, %35
   %441 = shl nuw nsw i64 %indvars.iv1205, 2
   %442 = mul nuw nsw i64 %indvars.iv1205, 3
-  %443 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %442
+  %443 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %442
   %444 = load float, ptr %443, align 4
   %445 = add nuw nsw i64 %442, 1
-  %446 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %445
+  %446 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %445
   %447 = load float, ptr %446, align 4
   %448 = add nuw nsw i64 %442, 2
-  %449 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %448
+  %449 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %448
   %450 = load float, ptr %449, align 4
-  %451 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %442
-  %452 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %445
-  %453 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %448
+  %451 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %442
+  %452 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %445
+  %453 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %448
   %.promoted = load float, ptr %451, align 4
   %.promoted1067 = load float, ptr %452, align 4
   %.promoted1069 = load float, ptr %453, align 4
@@ -16816,20 +16816,20 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %584 = load i32, ptr %gep1334, align 4
   %585 = mul nsw i32 %584, %35
   %586 = mul nuw nsw i64 %indvars.iv1258, 3
-  %587 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %586
+  %587 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %586
   %588 = load float, ptr %587, align 4
   %589 = add nuw nsw i64 %586, 1
-  %590 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %589
+  %590 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %589
   %591 = load float, ptr %590, align 4
   %592 = add nuw nsw i64 %586, 2
-  %593 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %592
+  %593 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %592
   %594 = load float, ptr %593, align 4
   %595 = icmp samesign ult i64 %indvars.iv1258, 2
-  %596 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1258
+  %596 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1258
   %597 = load float, ptr %596, align 4
-  %598 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %586
-  %599 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %589
-  %600 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %592
+  %598 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %586
+  %599 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %589
+  %600 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %592
   %.promoted1130.us = load float, ptr %598, align 4
   %.promoted1132.us = load float, ptr %599, align 4
   %.promoted1134.us = load float, ptr %600, align 4
@@ -17008,19 +17008,19 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %728 = load i32, ptr %gep1332, align 4
   %729 = mul nsw i32 %728, %35
   %730 = mul nuw nsw i64 %indvars.iv1245, 3
-  %731 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %730
+  %731 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %730
   %732 = load float, ptr %731, align 4
   %733 = add nuw nsw i64 %730, 1
-  %734 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %733
+  %734 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %733
   %735 = load float, ptr %734, align 4
   %736 = add nuw nsw i64 %730, 2
-  %737 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %736
+  %737 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %736
   %738 = load float, ptr %737, align 4
-  %739 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1245
+  %739 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1245
   %740 = load float, ptr %739, align 4
-  %741 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %730
-  %742 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %733
-  %743 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %736
+  %741 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %730
+  %742 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %733
+  %743 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %736
   %.promoted1118.us = load float, ptr %741, align 4
   %.promoted1120.us = load float, ptr %742, align 4
   %.promoted1122.us = load float, ptr %743, align 4
@@ -17190,17 +17190,17 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %868 = load i32, ptr %gep1330, align 4
   %869 = mul nsw i32 %868, %35
   %870 = mul nuw nsw i64 %indvars.iv1233, 3
-  %871 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %870
+  %871 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %870
   %872 = load float, ptr %871, align 4
   %873 = add nuw nsw i64 %870, 1
-  %874 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %873
+  %874 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %873
   %875 = load float, ptr %874, align 4
   %876 = add nuw nsw i64 %870, 2
-  %877 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %876
+  %877 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %876
   %878 = load float, ptr %877, align 4
-  %879 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %870
-  %880 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %873
-  %881 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %876
+  %879 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %870
+  %880 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %873
+  %881 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %876
   %.promoted1108 = load float, ptr %879, align 4
   %.promoted1110 = load float, ptr %880, align 4
   %.promoted1112 = load float, ptr %881, align 4
@@ -17348,7 +17348,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
 992:                                              ; preds = %.preheader1052, %992
   %indvars.iv1267 = phi i64 [ 0, %.preheader1052 ], [ %indvars.iv.next1268, %992 ]
   %993 = add nuw nsw i64 %indvars.iv1267, %990
-  %994 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %993
+  %994 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %993
   %995 = load float, ptr %994, align 4
   %gep1336 = getelementptr float, ptr %invariant.gep1335, i64 %indvars.iv1267
   %996 = load float, ptr %gep1336, align 4
@@ -17368,7 +17368,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
 
 .preheader.preheader:                             ; preds = %999
   %1000 = zext nneg i32 %61 to i64
-  %invariant.gep1337 = getelementptr inbounds float, ptr %12, i64 %1000
+  %invariant.gep1337 = getelementptr inbounds nuw float, ptr %12, i64 %1000
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1008
@@ -17379,9 +17379,9 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
 1002:                                             ; preds = %.preheader, %1002
   %indvars.iv1275 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1276, %1002 ]
   %1003 = add nuw nsw i64 %indvars.iv1275, %1001
-  %1004 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1003
+  %1004 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1003
   %1005 = load float, ptr %1004, align 4
-  %gep1338 = getelementptr inbounds float, ptr %invariant.gep1337, i64 %indvars.iv1275
+  %gep1338 = getelementptr inbounds nuw float, ptr %invariant.gep1337, i64 %indvars.iv1275
   %1006 = load float, ptr %gep1338, align 4
   %1007 = fadd float %1005, %1006
   store float %1007, ptr %gep1338, align 4
@@ -17401,7 +17401,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %1011 = load float, ptr %16, align 4
   %1012 = fadd float %.6978.lcssa, %1011
   store float %1012, ptr %16, align 4
-  %1013 = getelementptr inbounds i8, ptr %.sroa.01042.01163, i64 16
+  %1013 = getelementptr inbounds nuw i8, ptr %.sroa.01042.01163, i64 16
   %.not1046 = icmp eq ptr %1013, %51
   br i1 %.not1046, label %._crit_edge, label %57
 
@@ -17415,71 +17415,71 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %19 = load float, ptr %18, align 8
   %20 = fmul float %19, %19
   %21 = fmul float %20, %20
   %22 = fmul float %20, %21
   %23 = fdiv float %22, 6.000000e+00
-  %24 = getelementptr inbounds i8, ptr %2, i64 100
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %31 = load float, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %33 = load float, ptr %32, align 4
   %34 = fmul float %33, %33
   %35 = load i32, ptr %1, align 8
   %36 = shl nsw i32 %35, 1
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 176
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 108
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %1, i64 288
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %52 = load ptr, ptr %51, align 8
   %.not10801159 = icmp eq ptr %50, %52
   br i1 %.not10801159, label %._crit_edge, label %.lr.ph1161
 
 .lr.ph1161:                                       ; preds = %5
-  %53 = getelementptr inbounds i8, ptr %1, i64 208
-  %54 = getelementptr inbounds i8, ptr %1, i64 200
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %55 = fmul float %31, 5.000000e-01
   %56 = fpext float %23 to double
-  %57 = getelementptr inbounds i8, ptr %2, i64 44
-  %58 = getelementptr inbounds i8, ptr %2, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %59 = fmul float %29, -2.000000e+00
   %.not1040 = icmp eq ptr %13, null
   br label %60
 
 60:                                               ; preds = %.lr.ph1161, %.loopexit1094
   %.sroa.01076.01160 = phi ptr [ %50, %.lr.ph1161 ], [ %1167, %.loopexit1094 ]
-  %61 = getelementptr inbounds i8, ptr %.sroa.01076.01160, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.01076.01160, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 127
-  %64 = getelementptr inbounds i8, ptr %.sroa.01076.01160, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.01076.01160, i64 8
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.sroa.01076.01160, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.01076.01160, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = load i32, ptr %.sroa.01076.01160, align 4
   %69 = icmp eq i32 %63, 22
@@ -17487,13 +17487,13 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %71 = and i32 %62, 384
   %or.cond = icmp ne i32 %71, 128
   %72 = load ptr, ptr %53, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = sext i32 %68 to i64
   %75 = load ptr, ptr %73, align 8
   %76 = getelementptr inbounds i32, ptr %75, i64 %74
   %77 = load i32, ptr %76, align 4
   %78 = load i32, ptr %72, align 8
-  %79 = getelementptr inbounds i8, ptr %72, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %80 = load i32, ptr %79, align 8
   %81 = load i32, ptr %54, align 8
   br label %87
@@ -17505,7 +17505,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %85 = zext nneg i32 %82 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %86 = sext i32 %84 to i64
-  %invariant.gep1310 = getelementptr inbounds float, ptr %3, i64 %85
+  %invariant.gep1310 = getelementptr inbounds nuw float, ptr %3, i64 %85
   br label %.preheader1092
 
 87:                                               ; preds = %60, %87
@@ -17515,7 +17515,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %90 = ashr i32 %77, %89
   %91 = and i32 %90, %80
   %92 = mul nsw i32 %91, %81
-  %93 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %92, ptr %93, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -17533,11 +17533,11 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %indvars.iv1184 = phi i64 [ 0, %.preheader1092 ], [ %indvars.iv.next1185, %96 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1184
   %97 = load float, ptr %gep, align 4
-  %gep1311 = getelementptr inbounds float, ptr %invariant.gep1310, i64 %indvars.iv1184
+  %gep1311 = getelementptr inbounds nuw float, ptr %invariant.gep1310, i64 %indvars.iv1184
   %98 = load float, ptr %gep1311, align 4
   %99 = fadd float %97, %98
   %100 = add nuw nsw i64 %indvars.iv1184, %95
-  %101 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %100
   store float %99, ptr %101, align 4
   %indvars.iv.next1185 = add nuw nsw i64 %indvars.iv1184, 1
   %exitcond1187.not = icmp eq i64 %indvars.iv.next1185, 3
@@ -17547,7 +17547,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %103 = getelementptr inbounds float, ptr %40, i64 %94
   %104 = load float, ptr %103, align 4
   %105 = fmul float %44, %104
-  %106 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %106 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %105, ptr %106, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1189.not = icmp eq i64 %indvar.next, 4
@@ -17564,10 +17564,10 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
 
 .preheader1096:                                   ; preds = %107, %.preheader1096
   %indvars.iv1190 = phi i64 [ %indvars.iv.next1191, %.preheader1096 ], [ 0, %107 ]
-  %113 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1190
+  %113 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1190
   %114 = load i32, ptr %113, align 4
   %115 = load ptr, ptr %53, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i32, ptr %117, i64 %74
   %119 = load i32, ptr %118, align 4
@@ -17575,11 +17575,11 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %121 = trunc nuw nsw i64 %indvars.iv1190 to i32
   %122 = mul nsw i32 %120, %121
   %123 = ashr i32 %119, %122
-  %124 = getelementptr inbounds i8, ptr %115, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %125 = load i32, ptr %124, align 8
   %126 = and i32 %123, %125
   %127 = add nsw i32 %126, %114
-  %128 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1190
+  %128 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1190
   %129 = load float, ptr %128, align 4
   %130 = add nuw nsw i64 %indvars.iv1190, %86
   %131 = getelementptr inbounds float, ptr %40, i64 %130
@@ -17636,7 +17636,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
 163:                                              ; preds = %159
   %164 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %48, i64 %indvars.iv1218
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds i8, ptr %164, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %167 = icmp eq i32 %165, %108
   %168 = shl nsw i32 %165, 2
   %169 = sext i32 %165 to i64
@@ -17650,22 +17650,22 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %172 = mul nsw i32 %171, %36
   %173 = shl nuw nsw i64 %indvars.iv1214, 2
   %174 = mul nuw nsw i64 %indvars.iv1214, 3
-  %175 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %174
   %176 = load float, ptr %175, align 4
   %177 = add nuw nsw i64 %174, 1
-  %178 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %177
   %179 = load float, ptr %178, align 4
   %180 = add nuw nsw i64 %174, 2
-  %181 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %180
   %182 = load float, ptr %181, align 4
   %183 = icmp samesign ult i64 %indvars.iv1214, 2
-  %184 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1214
+  %184 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1214
   %185 = load float, ptr %184, align 4
-  %186 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1214
+  %186 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1214
   %187 = load i32, ptr %186, align 4
-  %188 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %174
-  %189 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %177
-  %190 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %180
+  %188 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %174
+  %189 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %177
+  %190 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %180
   %.promoted1117 = load float, ptr %188, align 4
   %.promoted1119 = load float, ptr %189, align 4
   %.promoted1121 = load float, ptr %190, align 4
@@ -17710,7 +17710,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %224 = fmul float %221, %223
   %225 = fmul float %224, %224
   %226 = load ptr, ptr %53, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds i32, ptr %228, i64 %169
   %230 = load i32, ptr %229, align 4
@@ -17718,7 +17718,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %232 = trunc nuw nsw i64 %indvars.iv1210 to i32
   %233 = mul nsw i32 %231, %232
   %234 = ashr i32 %230, %233
-  %235 = getelementptr inbounds i8, ptr %226, i64 32
+  %235 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %236 = load i32, ptr %235, align 8
   %237 = and i32 %234, %236
   br i1 %183, label %238, label %._crit_edge1276
@@ -17866,21 +17866,21 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %348 = mul nsw i32 %347, %36
   %349 = shl nuw nsw i64 %indvars.iv1206, 2
   %350 = mul nuw nsw i64 %indvars.iv1206, 3
-  %351 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %350
   %352 = load float, ptr %351, align 4
   %353 = add nuw nsw i64 %350, 1
-  %354 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %353
+  %354 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %353
   %355 = load float, ptr %354, align 4
   %356 = add nuw nsw i64 %350, 2
-  %357 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %356
   %358 = load float, ptr %357, align 4
-  %359 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1206
+  %359 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1206
   %360 = load i32, ptr %359, align 4
-  %361 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1206
+  %361 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1206
   %362 = load float, ptr %361, align 4
-  %363 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %350
-  %364 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %353
-  %365 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %356
+  %363 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %350
+  %364 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %353
+  %365 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %356
   %.promoted1109 = load float, ptr %363, align 4
   %.promoted1111 = load float, ptr %364, align 4
   %.promoted1113 = load float, ptr %365, align 4
@@ -17925,7 +17925,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %399 = fmul float %396, %398
   %400 = fmul float %399, %399
   %401 = load ptr, ptr %53, align 8
-  %402 = getelementptr inbounds i8, ptr %401, i64 8
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 8
   %403 = load ptr, ptr %402, align 8
   %404 = getelementptr inbounds i32, ptr %403, i64 %169
   %405 = load i32, ptr %404, align 4
@@ -17933,7 +17933,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %407 = trunc nuw nsw i64 %indvars.iv1202 to i32
   %408 = mul nsw i32 %406, %407
   %409 = ashr i32 %405, %408
-  %410 = getelementptr inbounds i8, ptr %401, i64 32
+  %410 = getelementptr inbounds nuw i8, ptr %401, i64 32
   %411 = load i32, ptr %410, align 8
   %412 = and i32 %409, %411
   %413 = getelementptr inbounds i32, ptr %42, i64 %378
@@ -18064,19 +18064,19 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %519 = mul nsw i32 %518, %36
   %520 = shl nuw nsw i64 %indvars.iv1198, 2
   %521 = mul nuw nsw i64 %indvars.iv1198, 3
-  %522 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %521
+  %522 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %521
   %523 = load float, ptr %522, align 4
   %524 = add nuw nsw i64 %521, 1
-  %525 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %524
+  %525 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %524
   %526 = load float, ptr %525, align 4
   %527 = add nuw nsw i64 %521, 2
-  %528 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %527
+  %528 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %527
   %529 = load float, ptr %528, align 4
-  %530 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1198
+  %530 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1198
   %531 = load i32, ptr %530, align 4
-  %532 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %521
-  %533 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %524
-  %534 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %527
+  %532 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %521
+  %533 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %524
+  %534 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %527
   %.promoted = load float, ptr %532, align 4
   %.promoted1103 = load float, ptr %533, align 4
   %.promoted1105 = load float, ptr %534, align 4
@@ -18121,7 +18121,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %568 = fmul float %565, %567
   %569 = fmul float %568, %568
   %570 = load ptr, ptr %53, align 8
-  %571 = getelementptr inbounds i8, ptr %570, i64 8
+  %571 = getelementptr inbounds nuw i8, ptr %570, i64 8
   %572 = load ptr, ptr %571, align 8
   %573 = getelementptr inbounds i32, ptr %572, i64 %169
   %574 = load i32, ptr %573, align 4
@@ -18129,7 +18129,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %576 = trunc nuw nsw i64 %indvars.iv1194 to i32
   %577 = mul nsw i32 %575, %576
   %578 = ashr i32 %574, %577
-  %579 = getelementptr inbounds i8, ptr %570, i64 32
+  %579 = getelementptr inbounds nuw i8, ptr %570, i64 32
   %580 = load i32, ptr %579, align 8
   %581 = and i32 %578, %580
   %582 = getelementptr inbounds i32, ptr %42, i64 %547
@@ -18274,22 +18274,22 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %682 = load i32, ptr %gep1323, align 4
   %683 = mul nsw i32 %682, %36
   %684 = mul nuw nsw i64 %indvars.iv1251, 3
-  %685 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %684
+  %685 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %684
   %686 = load float, ptr %685, align 4
   %687 = add nuw nsw i64 %684, 1
-  %688 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %687
+  %688 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %687
   %689 = load float, ptr %688, align 4
   %690 = add nuw nsw i64 %684, 2
-  %691 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %690
+  %691 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %690
   %692 = load float, ptr %691, align 4
   %693 = icmp samesign ult i64 %indvars.iv1251, 2
-  %694 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1251
+  %694 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1251
   %695 = load float, ptr %694, align 4
-  %696 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1251
+  %696 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1251
   %697 = load i32, ptr %696, align 4
-  %698 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %684
-  %699 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %687
-  %700 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %690
+  %698 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %684
+  %699 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %687
+  %700 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %690
   %.promoted1144.us = load float, ptr %698, align 4
   %.promoted1146.us = load float, ptr %699, align 4
   %.promoted1148.us = load float, ptr %700, align 4
@@ -18333,7 +18333,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %726 = fmul float %723, %725
   %727 = fmul float %726, %726
   %728 = load ptr, ptr %53, align 8
-  %729 = getelementptr inbounds i8, ptr %728, i64 8
+  %729 = getelementptr inbounds nuw i8, ptr %728, i64 8
   %730 = load ptr, ptr %729, align 8
   %731 = getelementptr inbounds i32, ptr %730, i64 %679
   %732 = load i32, ptr %731, align 4
@@ -18341,7 +18341,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %734 = trunc nuw nsw i64 %indvars.iv1247 to i32
   %735 = mul nsw i32 %733, %734
   %736 = ashr i32 %732, %735
-  %737 = getelementptr inbounds i8, ptr %728, i64 32
+  %737 = getelementptr inbounds nuw i8, ptr %728, i64 32
   %738 = load i32, ptr %737, align 8
   %739 = and i32 %736, %738
   br i1 %693, label %740, label %._crit_edge1277
@@ -18488,21 +18488,21 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %847 = load i32, ptr %gep1321, align 4
   %848 = mul nsw i32 %847, %36
   %849 = mul nuw nsw i64 %indvars.iv1238, 3
-  %850 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %849
+  %850 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %849
   %851 = load float, ptr %850, align 4
   %852 = add nuw nsw i64 %849, 1
-  %853 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %852
+  %853 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %852
   %854 = load float, ptr %853, align 4
   %855 = add nuw nsw i64 %849, 2
-  %856 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %855
+  %856 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %855
   %857 = load float, ptr %856, align 4
-  %858 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1238
+  %858 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1238
   %859 = load i32, ptr %858, align 4
-  %860 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1238
+  %860 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1238
   %861 = load float, ptr %860, align 4
-  %862 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %849
-  %863 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %852
-  %864 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %855
+  %862 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %849
+  %863 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %852
+  %864 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %855
   %.promoted1136.us = load float, ptr %862, align 4
   %.promoted1138.us = load float, ptr %863, align 4
   %.promoted1140.us = load float, ptr %864, align 4
@@ -18546,7 +18546,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %890 = fmul float %887, %889
   %891 = fmul float %890, %890
   %892 = load ptr, ptr %53, align 8
-  %893 = getelementptr inbounds i8, ptr %892, i64 8
+  %893 = getelementptr inbounds nuw i8, ptr %892, i64 8
   %894 = load ptr, ptr %893, align 8
   %895 = getelementptr inbounds i32, ptr %894, i64 %844
   %896 = load i32, ptr %895, align 4
@@ -18554,7 +18554,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %898 = trunc nuw nsw i64 %indvars.iv1234 to i32
   %899 = mul nsw i32 %897, %898
   %900 = ashr i32 %896, %899
-  %901 = getelementptr inbounds i8, ptr %892, i64 32
+  %901 = getelementptr inbounds nuw i8, ptr %892, i64 32
   %902 = load i32, ptr %901, align 8
   %903 = and i32 %900, %902
   %904 = getelementptr inbounds i32, ptr %42, i64 %870
@@ -18684,19 +18684,19 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %1008 = load i32, ptr %gep1319, align 4
   %1009 = mul nsw i32 %1008, %36
   %1010 = mul nuw nsw i64 %indvars.iv1226, 3
-  %1011 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1010
+  %1011 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1010
   %1012 = load float, ptr %1011, align 4
   %1013 = add nuw nsw i64 %1010, 1
-  %1014 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1013
+  %1014 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1013
   %1015 = load float, ptr %1014, align 4
   %1016 = add nuw nsw i64 %1010, 2
-  %1017 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1016
+  %1017 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1016
   %1018 = load float, ptr %1017, align 4
-  %1019 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1226
+  %1019 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1226
   %1020 = load i32, ptr %1019, align 4
-  %1021 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1010
-  %1022 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1013
-  %1023 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1016
+  %1021 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1010
+  %1022 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1013
+  %1023 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1016
   %.promoted1128 = load float, ptr %1021, align 4
   %.promoted1130 = load float, ptr %1022, align 4
   %.promoted1132 = load float, ptr %1023, align 4
@@ -18732,7 +18732,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %1048 = fmul float %1045, %1047
   %1049 = fmul float %1048, %1048
   %1050 = load ptr, ptr %53, align 8
-  %1051 = getelementptr inbounds i8, ptr %1050, i64 8
+  %1051 = getelementptr inbounds nuw i8, ptr %1050, i64 8
   %1052 = load ptr, ptr %1051, align 8
   %1053 = getelementptr inbounds i32, ptr %1052, i64 %1005
   %1054 = load i32, ptr %1053, align 4
@@ -18740,7 +18740,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   %1056 = trunc nuw nsw i64 %indvars.iv1222 to i32
   %1057 = mul nsw i32 %1055, %1056
   %1058 = ashr i32 %1054, %1057
-  %1059 = getelementptr inbounds i8, ptr %1050, i64 32
+  %1059 = getelementptr inbounds nuw i8, ptr %1050, i64 32
   %1060 = load i32, ptr %1059, align 8
   %1061 = and i32 %1058, %1060
   %1062 = getelementptr inbounds i32, ptr %42, i64 %1028
@@ -18863,7 +18863,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
 1150:                                             ; preds = %.preheader1086, %1150
   %indvars.iv1260 = phi i64 [ 0, %.preheader1086 ], [ %indvars.iv.next1261, %1150 ]
   %1151 = add nuw nsw i64 %indvars.iv1260, %1148
-  %1152 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1151
+  %1152 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1151
   %1153 = load float, ptr %1152, align 4
   %gep1325 = getelementptr float, ptr %invariant.gep1324, i64 %indvars.iv1260
   %1154 = load float, ptr %gep1325, align 4
@@ -18883,7 +18883,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
 
 .preheader.preheader:                             ; preds = %1157
   %1158 = zext nneg i32 %82 to i64
-  %invariant.gep1326 = getelementptr inbounds float, ptr %13, i64 %1158
+  %invariant.gep1326 = getelementptr inbounds nuw float, ptr %13, i64 %1158
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1166
@@ -18894,9 +18894,9 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
 1160:                                             ; preds = %.preheader, %1160
   %indvars.iv1268 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1269, %1160 ]
   %1161 = add nuw nsw i64 %indvars.iv1268, %1159
-  %1162 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1161
+  %1162 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1161
   %1163 = load float, ptr %1162, align 4
-  %gep1327 = getelementptr inbounds float, ptr %invariant.gep1326, i64 %indvars.iv1268
+  %gep1327 = getelementptr inbounds nuw float, ptr %invariant.gep1326, i64 %indvars.iv1268
   %1164 = load float, ptr %gep1327, align 4
   %1165 = fadd float %1163, %1164
   store float %1165, ptr %gep1327, align 4
@@ -18910,7 +18910,7 @@ define void @_Z43nbnxn_kernel_ElecRF_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlistCpu
   br i1 %exitcond1275.not, label %.loopexit1094, label %.preheader, !llvm.loop !320
 
 .loopexit1094:                                    ; preds = %1166, %1157
-  %1167 = getelementptr inbounds i8, ptr %.sroa.01076.01160, i64 16
+  %1167 = getelementptr inbounds nuw i8, ptr %.sroa.01076.01160, i64 16
   %.not1080 = icmp eq ptr %1167, %52
   br i1 %.not1080, label %._crit_edge, label %60
 
@@ -18923,35 +18923,35 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load float, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %19 = load float, ptr %18, align 4
   %20 = fmul float %19, %19
   %21 = load i32, ptr %1, align 8
   %22 = shl nsw i32 %21, 1
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 176
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 108
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %30 = load float, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 288
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %38 = load ptr, ptr %37, align 8
   %.not701777 = icmp eq ptr %36, %38
   br i1 %.not701777, label %._crit_edge, label %.lr.ph779
@@ -18962,13 +18962,13 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
 
 39:                                               ; preds = %.lr.ph779, %.loopexit715
   %.sroa.0697.0778 = phi ptr [ %36, %.lr.ph779 ], [ %713, %.loopexit715 ]
-  %40 = getelementptr inbounds i8, ptr %.sroa.0697.0778, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0697.0778, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 127
   %43 = mul nuw nsw i32 %42, 3
-  %44 = getelementptr inbounds i8, ptr %.sroa.0697.0778, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0697.0778, i64 8
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %.sroa.0697.0778, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0697.0778, i64 12
   %47 = load i32, ptr %46, align 4
   %48 = load i32, ptr %.sroa.0697.0778, align 4
   %49 = icmp eq i32 %42, 22
@@ -18981,7 +18981,7 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %54 = zext nneg i32 %43 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %55 = sext i32 %53 to i64
-  %invariant.gep921 = getelementptr inbounds float, ptr %3, i64 %54
+  %invariant.gep921 = getelementptr inbounds nuw float, ptr %3, i64 %54
   br label %.preheader713
 
 .preheader717:                                    ; preds = %191
@@ -19014,7 +19014,7 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
 62:                                               ; preds = %.lr.ph.split.us
   %63 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %34, i64 %indvars.iv833
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %63, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %66 = icmp eq i32 %64, %56
   %67 = shl nsw i32 %64, 2
   %68 = sext i32 %67 to i64
@@ -19027,20 +19027,20 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %71 = mul nsw i32 %70, %22
   %72 = shl nuw nsw i64 %indvars.iv829, 2
   %73 = mul nuw nsw i64 %indvars.iv829, 3
-  %74 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %73
   %75 = load float, ptr %74, align 4
   %76 = add nuw nsw i64 %73, 1
-  %77 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %76
   %78 = load float, ptr %77, align 4
   %79 = add nuw nsw i64 %73, 2
-  %80 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %79
   %81 = load float, ptr %80, align 4
   %82 = icmp samesign ult i64 %indvars.iv829, 2
-  %83 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv829
+  %83 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv829
   %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %73
-  %86 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %76
-  %87 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %79
+  %85 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %73
+  %86 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %76
+  %87 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %79
   %.promoted734.us = load float, ptr %85, align 4
   %.promoted736.us = load float, ptr %86, align 4
   %.promoted738.us = load float, ptr %87, align 4
@@ -19180,11 +19180,11 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %indvars.iv = phi i64 [ 0, %.preheader713 ], [ %indvars.iv.next, %185 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %186 = load float, ptr %gep, align 4
-  %gep922 = getelementptr inbounds float, ptr %invariant.gep921, i64 %indvars.iv
+  %gep922 = getelementptr inbounds nuw float, ptr %invariant.gep921, i64 %indvars.iv
   %187 = load float, ptr %gep922, align 4
   %188 = fadd float %186, %187
   %189 = add nuw nsw i64 %indvars.iv, %184
-  %190 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %189
   store float %188, ptr %190, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -19194,7 +19194,7 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %192 = getelementptr inbounds float, ptr %26, i64 %183
   %193 = load float, ptr %192, align 4
   %194 = fmul float %30, %193
-  %195 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %195 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %194, ptr %195, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond804.not = icmp eq i64 %indvar.next, 4
@@ -19211,7 +19211,7 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
 199:                                              ; preds = %.lr.ph.split
   %200 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %34, i64 %indvars.iv821
   %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds i8, ptr %200, i64 4
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 4
   br i1 %51, label %203, label %317
 
 203:                                              ; preds = %199
@@ -19227,19 +19227,19 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %209 = mul nsw i32 %208, %22
   %210 = shl nuw nsw i64 %indvars.iv817, 2
   %211 = mul nuw nsw i64 %indvars.iv817, 3
-  %212 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %211
   %213 = load float, ptr %212, align 4
   %214 = add nuw nsw i64 %211, 1
-  %215 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %214
+  %215 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %214
   %216 = load float, ptr %215, align 4
   %217 = add nuw nsw i64 %211, 2
-  %218 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %217
   %219 = load float, ptr %218, align 4
-  %220 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv817
+  %220 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv817
   %221 = load float, ptr %220, align 4
-  %222 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %211
-  %223 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %214
-  %224 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %217
+  %222 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %211
+  %223 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %214
+  %224 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %217
   %.promoted726 = load float, ptr %222, align 4
   %.promoted728 = load float, ptr %223, align 4
   %.promoted730 = load float, ptr %224, align 4
@@ -19366,17 +19366,17 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %322 = mul nsw i32 %321, %22
   %323 = shl nuw nsw i64 %indvars.iv809, 2
   %324 = mul nuw nsw i64 %indvars.iv809, 3
-  %325 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %324
+  %325 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %324
   %326 = load float, ptr %325, align 4
   %327 = add nuw nsw i64 %324, 1
-  %328 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %327
+  %328 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %327
   %329 = load float, ptr %328, align 4
   %330 = add nuw nsw i64 %324, 2
-  %331 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %330
+  %331 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %330
   %332 = load float, ptr %331, align 4
-  %333 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %324
-  %334 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %327
-  %335 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %330
+  %333 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %324
+  %334 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %327
+  %335 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %330
   %.promoted = load float, ptr %333, align 4
   %.promoted720 = load float, ptr %334, align 4
   %.promoted722 = load float, ptr %335, align 4
@@ -19505,20 +19505,20 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %412 = load i32, ptr %gep934, align 4
   %413 = mul nsw i32 %412, %22
   %414 = mul nuw nsw i64 %indvars.iv867, 3
-  %415 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %414
+  %415 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %414
   %416 = load float, ptr %415, align 4
   %417 = add nuw nsw i64 %414, 1
-  %418 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %417
+  %418 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %417
   %419 = load float, ptr %418, align 4
   %420 = add nuw nsw i64 %414, 2
-  %421 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %420
+  %421 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %420
   %422 = load float, ptr %421, align 4
   %423 = icmp samesign ult i64 %indvars.iv867, 2
-  %424 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv867
+  %424 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv867
   %425 = load float, ptr %424, align 4
-  %426 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %414
-  %427 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %417
-  %428 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %420
+  %426 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %414
+  %427 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %417
+  %428 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %420
   %.promoted762.us = load float, ptr %426, align 4
   %.promoted764.us = load float, ptr %427, align 4
   %.promoted766.us = load float, ptr %428, align 4
@@ -19652,19 +19652,19 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %518 = load i32, ptr %gep932, align 4
   %519 = mul nsw i32 %518, %22
   %520 = mul nuw nsw i64 %indvars.iv854, 3
-  %521 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %520
+  %521 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %520
   %522 = load float, ptr %521, align 4
   %523 = add nuw nsw i64 %520, 1
-  %524 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %523
+  %524 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %523
   %525 = load float, ptr %524, align 4
   %526 = add nuw nsw i64 %520, 2
-  %527 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %526
+  %527 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %526
   %528 = load float, ptr %527, align 4
-  %529 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv854
+  %529 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv854
   %530 = load float, ptr %529, align 4
-  %531 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %520
-  %532 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %523
-  %533 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %526
+  %531 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %520
+  %532 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %523
+  %533 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %526
   %.promoted754.us = load float, ptr %531, align 4
   %.promoted756.us = load float, ptr %532, align 4
   %.promoted758.us = load float, ptr %533, align 4
@@ -19787,17 +19787,17 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   %620 = load i32, ptr %gep930, align 4
   %621 = mul nsw i32 %620, %22
   %622 = mul nuw nsw i64 %indvars.iv841, 3
-  %623 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %622
+  %623 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %622
   %624 = load float, ptr %623, align 4
   %625 = add nuw nsw i64 %622, 1
-  %626 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %625
+  %626 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %625
   %627 = load float, ptr %626, align 4
   %628 = add nuw nsw i64 %622, 2
-  %629 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %628
+  %629 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %628
   %630 = load float, ptr %629, align 4
-  %631 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %622
-  %632 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %625
-  %633 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %628
+  %631 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %622
+  %632 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %625
+  %633 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %628
   %.promoted746 = load float, ptr %631, align 4
   %.promoted748 = load float, ptr %632, align 4
   %.promoted750 = load float, ptr %633, align 4
@@ -19899,7 +19899,7 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
 696:                                              ; preds = %.preheader707, %696
   %indvars.iv876 = phi i64 [ 0, %.preheader707 ], [ %indvars.iv.next877, %696 ]
   %697 = add nuw nsw i64 %indvars.iv876, %694
-  %698 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %697
+  %698 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %697
   %699 = load float, ptr %698, align 4
   %gep936 = getelementptr float, ptr %invariant.gep935, i64 %indvars.iv876
   %700 = load float, ptr %gep936, align 4
@@ -19919,7 +19919,7 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
 
 .preheader.preheader:                             ; preds = %703
   %704 = zext nneg i32 %43 to i64
-  %invariant.gep937 = getelementptr inbounds float, ptr %12, i64 %704
+  %invariant.gep937 = getelementptr inbounds nuw float, ptr %12, i64 %704
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %712
@@ -19930,9 +19930,9 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
 706:                                              ; preds = %.preheader, %706
   %indvars.iv884 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next885, %706 ]
   %707 = add nuw nsw i64 %indvars.iv884, %705
-  %708 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %707
+  %708 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %707
   %709 = load float, ptr %708, align 4
-  %gep938 = getelementptr inbounds float, ptr %invariant.gep937, i64 %indvars.iv884
+  %gep938 = getelementptr inbounds nuw float, ptr %invariant.gep937, i64 %indvars.iv884
   %710 = load float, ptr %gep938, align 4
   %711 = fadd float %709, %710
   store float %711, ptr %gep938, align 4
@@ -19946,7 +19946,7 @@ define void @_Z34nbnxn_kernel_ElecQSTab_VdwLJ_F_refPK16NbnxnPairlistCpuPK16nbnxn
   br i1 %exitcond891.not, label %.loopexit715, label %.preheader, !llvm.loop !340
 
 .loopexit715:                                     ; preds = %712, %703
-  %713 = getelementptr inbounds i8, ptr %.sroa.0697.0778, i64 16
+  %713 = getelementptr inbounds nuw i8, ptr %.sroa.0697.0778, i64 16
   %.not701 = icmp eq ptr %713, %38
   br i1 %.not701, label %._crit_edge, label %39
 
@@ -19959,61 +19959,61 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %18 = load ptr, ptr %17, align 8
   %19 = load float, ptr %18, align 8
   %20 = fdiv float 5.000000e-01, %19
-  %21 = getelementptr inbounds i8, ptr %18, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 76
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %24 = load float, ptr %23, align 4
   %25 = fmul float %24, %24
   %26 = load i32, ptr %1, align 8
   %27 = shl nsw i32 %26, 1
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 176
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 108
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 288
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %43 = load ptr, ptr %42, align 8
   %.not856973 = icmp eq ptr %41, %43
   br i1 %.not856973, label %._crit_edge, label %.lr.ph975
 
 .lr.ph975:                                        ; preds = %5
-  %44 = getelementptr inbounds i8, ptr %22, i64 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 44
-  %46 = getelementptr inbounds i8, ptr %2, i64 32
-  %47 = getelementptr inbounds i8, ptr %2, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not822 = icmp eq ptr %12, null
   br label %48
 
 48:                                               ; preds = %.lr.ph975, %.loopexit870
   %.sroa.0852.0974 = phi ptr [ %41, %.lr.ph975 ], [ %848, %.loopexit870 ]
-  %49 = getelementptr inbounds i8, ptr %.sroa.0852.0974, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0852.0974, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 127
   %52 = mul nuw nsw i32 %51, 3
-  %53 = getelementptr inbounds i8, ptr %.sroa.0852.0974, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0852.0974, i64 8
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %.sroa.0852.0974, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0852.0974, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = load i32, ptr %.sroa.0852.0974, align 4
   %58 = icmp eq i32 %51, 22
@@ -20024,7 +20024,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %62 = zext nneg i32 %52 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %63 = sext i32 %61 to i64
-  %invariant.gep1132 = getelementptr inbounds float, ptr %3, i64 %62
+  %invariant.gep1132 = getelementptr inbounds nuw float, ptr %3, i64 %62
   br label %.preheader868
 
 .preheader868:                                    ; preds = %48, %72
@@ -20039,11 +20039,11 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %indvars.iv = phi i64 [ 0, %.preheader868 ], [ %indvars.iv.next, %66 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %67 = load float, ptr %gep, align 4
-  %gep1133 = getelementptr inbounds float, ptr %invariant.gep1132, i64 %indvars.iv
+  %gep1133 = getelementptr inbounds nuw float, ptr %invariant.gep1132, i64 %indvars.iv
   %68 = load float, ptr %gep1133, align 4
   %69 = fadd float %67, %68
   %70 = add nuw nsw i64 %indvars.iv, %65
-  %71 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %70
   store float %69, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -20053,7 +20053,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %73 = getelementptr inbounds float, ptr %31, i64 %64
   %74 = load float, ptr %73, align 4
   %75 = fmul float %35, %74
-  %76 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %76 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %75, ptr %76, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1007.not = icmp eq i64 %indvar.next, 4
@@ -20082,7 +20082,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
 87:                                               ; preds = %.preheader872, %87
   %indvars.iv1008 = phi i64 [ 0, %.preheader872 ], [ %indvars.iv.next1009, %87 ]
   %88 = phi float [ %.promoted, %.preheader872 ], [ %94, %87 ]
-  %89 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1008
+  %89 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1008
   %90 = load float, ptr %89, align 4
   %gep1135 = getelementptr float, ptr %invariant.gep1134, i64 %indvars.iv1008
   %91 = load float, ptr %gep1135, align 4
@@ -20118,7 +20118,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
 101:                                              ; preds = %97
   %102 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %39, i64 %indvars.iv1036
   %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds i8, ptr %102, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 4
   br i1 %spec.select, label %105, label %247
 
 105:                                              ; preds = %101
@@ -20136,20 +20136,20 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %111 = mul nsw i32 %110, %27
   %112 = shl nuw nsw i64 %indvars.iv1032, 2
   %113 = mul nuw nsw i64 %indvars.iv1032, 3
-  %114 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %113
   %115 = load float, ptr %114, align 4
   %116 = add nuw nsw i64 %113, 1
-  %117 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %116
   %118 = load float, ptr %117, align 4
   %119 = add nuw nsw i64 %113, 2
-  %120 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %119
   %121 = load float, ptr %120, align 4
   %122 = icmp samesign ult i64 %indvars.iv1032, 2
-  %123 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1032
+  %123 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1032
   %124 = load float, ptr %123, align 4
-  %125 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %113
-  %126 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %116
-  %127 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %119
+  %125 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %113
+  %126 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %116
+  %127 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %119
   %.promoted898 = load float, ptr %125, align 4
   %.promoted900 = load float, ptr %126, align 4
   %.promoted902 = load float, ptr %127, align 4
@@ -20317,19 +20317,19 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %254 = mul nsw i32 %253, %27
   %255 = shl nuw nsw i64 %indvars.iv1024, 2
   %256 = mul nuw nsw i64 %indvars.iv1024, 3
-  %257 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %256
   %258 = load float, ptr %257, align 4
   %259 = add nuw nsw i64 %256, 1
-  %260 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %259
   %261 = load float, ptr %260, align 4
   %262 = add nuw nsw i64 %256, 2
-  %263 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %262
   %264 = load float, ptr %263, align 4
-  %265 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1024
+  %265 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1024
   %266 = load float, ptr %265, align 4
-  %267 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %256
-  %268 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %259
-  %269 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %262
+  %267 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %256
+  %268 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %259
+  %269 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %262
   %.promoted886 = load float, ptr %267, align 4
   %.promoted888 = load float, ptr %268, align 4
   %.promoted890 = load float, ptr %269, align 4
@@ -20483,17 +20483,17 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %391 = mul nsw i32 %390, %27
   %392 = shl nuw nsw i64 %indvars.iv1016, 2
   %393 = mul nuw nsw i64 %indvars.iv1016, 3
-  %394 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %393
+  %394 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %393
   %395 = load float, ptr %394, align 4
   %396 = add nuw nsw i64 %393, 1
-  %397 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %396
+  %397 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %396
   %398 = load float, ptr %397, align 4
   %399 = add nuw nsw i64 %393, 2
-  %400 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %399
+  %400 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %399
   %401 = load float, ptr %400, align 4
-  %402 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %393
-  %403 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %396
-  %404 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %399
+  %402 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %393
+  %403 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %396
+  %404 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %399
   %.promoted877 = load float, ptr %402, align 4
   %.promoted878 = load float, ptr %403, align 4
   %.promoted880 = load float, ptr %404, align 4
@@ -20637,20 +20637,20 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %490 = load i32, ptr %gep1147, align 4
   %491 = mul nsw i32 %490, %27
   %492 = mul nuw nsw i64 %indvars.iv1069, 3
-  %493 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %492
+  %493 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %492
   %494 = load float, ptr %493, align 4
   %495 = add nuw nsw i64 %492, 1
-  %496 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %495
+  %496 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %495
   %497 = load float, ptr %496, align 4
   %498 = add nuw nsw i64 %492, 2
-  %499 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %498
+  %499 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %498
   %500 = load float, ptr %499, align 4
   %501 = icmp samesign ult i64 %indvars.iv1069, 2
-  %502 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1069
+  %502 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1069
   %503 = load float, ptr %502, align 4
-  %504 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %492
-  %505 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %495
-  %506 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %498
+  %504 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %492
+  %505 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %495
+  %506 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %498
   %.promoted941.us = load float, ptr %504, align 4
   %.promoted943.us = load float, ptr %505, align 4
   %.promoted945.us = load float, ptr %506, align 4
@@ -20813,19 +20813,19 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %618 = load i32, ptr %gep1145, align 4
   %619 = mul nsw i32 %618, %27
   %620 = mul nuw nsw i64 %indvars.iv1056, 3
-  %621 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %620
+  %621 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %620
   %622 = load float, ptr %621, align 4
   %623 = add nuw nsw i64 %620, 1
-  %624 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %623
+  %624 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %623
   %625 = load float, ptr %624, align 4
   %626 = add nuw nsw i64 %620, 2
-  %627 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %626
+  %627 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %626
   %628 = load float, ptr %627, align 4
-  %629 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1056
+  %629 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1056
   %630 = load float, ptr %629, align 4
-  %631 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %620
-  %632 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %623
-  %633 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %626
+  %631 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %620
+  %632 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %623
+  %633 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %626
   %.promoted929.us = load float, ptr %631, align 4
   %.promoted931.us = load float, ptr %632, align 4
   %.promoted933.us = load float, ptr %633, align 4
@@ -20979,17 +20979,17 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %742 = load i32, ptr %gep1143, align 4
   %743 = mul nsw i32 %742, %27
   %744 = mul nuw nsw i64 %indvars.iv1044, 3
-  %745 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %744
+  %745 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %744
   %746 = load float, ptr %745, align 4
   %747 = add nuw nsw i64 %744, 1
-  %748 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %747
+  %748 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %747
   %749 = load float, ptr %748, align 4
   %750 = add nuw nsw i64 %744, 2
-  %751 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %750
+  %751 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %750
   %752 = load float, ptr %751, align 4
-  %753 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %744
-  %754 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %747
-  %755 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %750
+  %753 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %744
+  %754 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %747
+  %755 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %750
   %.promoted919 = load float, ptr %753, align 4
   %.promoted921 = load float, ptr %754, align 4
   %.promoted923 = load float, ptr %755, align 4
@@ -21098,7 +21098,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
 827:                                              ; preds = %.preheader862, %827
   %indvars.iv1078 = phi i64 [ 0, %.preheader862 ], [ %indvars.iv.next1079, %827 ]
   %828 = add nuw nsw i64 %indvars.iv1078, %825
-  %829 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %828
+  %829 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %828
   %830 = load float, ptr %829, align 4
   %gep1149 = getelementptr float, ptr %invariant.gep1148, i64 %indvars.iv1078
   %831 = load float, ptr %gep1149, align 4
@@ -21118,7 +21118,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 .preheader.preheader:                             ; preds = %834
   %835 = zext nneg i32 %52 to i64
-  %invariant.gep1150 = getelementptr inbounds float, ptr %12, i64 %835
+  %invariant.gep1150 = getelementptr inbounds nuw float, ptr %12, i64 %835
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %843
@@ -21129,9 +21129,9 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
 837:                                              ; preds = %.preheader, %837
   %indvars.iv1086 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1087, %837 ]
   %838 = add nuw nsw i64 %indvars.iv1086, %836
-  %839 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %838
+  %839 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %838
   %840 = load float, ptr %839, align 4
-  %gep1151 = getelementptr inbounds float, ptr %invariant.gep1150, i64 %indvars.iv1086
+  %gep1151 = getelementptr inbounds nuw float, ptr %invariant.gep1150, i64 %indvars.iv1086
   %841 = load float, ptr %gep1151, align 4
   %842 = fadd float %840, %841
   store float %842, ptr %gep1151, align 4
@@ -21151,7 +21151,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %846 = load float, ptr %16, align 4
   %847 = fadd float %.6794.lcssa, %846
   store float %847, ptr %16, align 4
-  %848 = getelementptr inbounds i8, ptr %.sroa.0852.0974, i64 16
+  %848 = getelementptr inbounds nuw i8, ptr %.sroa.0852.0974, i64 16
   %.not856 = icmp eq ptr %848, %43
   br i1 %.not856, label %._crit_edge, label %48
 
@@ -21165,62 +21165,62 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = load float, ptr %19, align 8
   %21 = fdiv float 5.000000e-01, %20
-  %22 = getelementptr inbounds i8, ptr %19, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %25 = load float, ptr %24, align 4
   %26 = fmul float %25, %25
   %27 = load i32, ptr %1, align 8
   %28 = shl nsw i32 %27, 1
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 176
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 112
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 108
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 288
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %44 = load ptr, ptr %43, align 8
   %.not889968 = icmp eq ptr %42, %44
   br i1 %.not889968, label %._crit_edge, label %.lr.ph970
 
 .lr.ph970:                                        ; preds = %5
-  %45 = getelementptr inbounds i8, ptr %1, i64 208
-  %46 = getelementptr inbounds i8, ptr %1, i64 200
-  %47 = getelementptr inbounds i8, ptr %23, i64 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 44
-  %49 = getelementptr inbounds i8, ptr %2, i64 32
-  %50 = getelementptr inbounds i8, ptr %2, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not855 = icmp eq ptr %13, null
   br label %51
 
 51:                                               ; preds = %.lr.ph970, %.loopexit903
   %.sroa.0885.0969 = phi ptr [ %42, %.lr.ph970 ], [ %1003, %.loopexit903 ]
-  %52 = getelementptr inbounds i8, ptr %.sroa.0885.0969, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0885.0969, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 127
-  %55 = getelementptr inbounds i8, ptr %.sroa.0885.0969, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0885.0969, i64 8
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.sroa.0885.0969, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0885.0969, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = load i32, ptr %.sroa.0885.0969, align 4
   %60 = icmp eq i32 %54, 22
@@ -21228,13 +21228,13 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %62 = and i32 %53, 384
   %or.cond = icmp ne i32 %62, 128
   %63 = load ptr, ptr %45, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = sext i32 %59 to i64
   %66 = load ptr, ptr %64, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %65
   %68 = load i32, ptr %67, align 4
   %69 = load i32, ptr %63, align 8
-  %70 = getelementptr inbounds i8, ptr %63, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %71 = load i32, ptr %70, align 8
   %72 = load i32, ptr %46, align 8
   br label %78
@@ -21246,7 +21246,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %76 = zext nneg i32 %73 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %77 = sext i32 %75 to i64
-  %invariant.gep1119 = getelementptr inbounds float, ptr %3, i64 %76
+  %invariant.gep1119 = getelementptr inbounds nuw float, ptr %3, i64 %76
   br label %.preheader901
 
 78:                                               ; preds = %51, %78
@@ -21256,7 +21256,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %81 = ashr i32 %68, %80
   %82 = and i32 %81, %71
   %83 = mul nsw i32 %82, %72
-  %84 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %83, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -21274,11 +21274,11 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %indvars.iv993 = phi i64 [ 0, %.preheader901 ], [ %indvars.iv.next994, %87 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv993
   %88 = load float, ptr %gep, align 4
-  %gep1120 = getelementptr inbounds float, ptr %invariant.gep1119, i64 %indvars.iv993
+  %gep1120 = getelementptr inbounds nuw float, ptr %invariant.gep1119, i64 %indvars.iv993
   %89 = load float, ptr %gep1120, align 4
   %90 = fadd float %88, %89
   %91 = add nuw nsw i64 %indvars.iv993, %86
-  %92 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %91
   store float %90, ptr %92, align 4
   %indvars.iv.next994 = add nuw nsw i64 %indvars.iv993, 1
   %exitcond996.not = icmp eq i64 %indvars.iv.next994, 3
@@ -21288,7 +21288,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %94 = getelementptr inbounds float, ptr %32, i64 %85
   %95 = load float, ptr %94, align 4
   %96 = fmul float %36, %95
-  %97 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %97 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %96, ptr %97, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond998.not = icmp eq i64 %indvar.next, 4
@@ -21314,10 +21314,10 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
 
 107:                                              ; preds = %.preheader905, %107
   %indvars.iv999 = phi i64 [ 0, %.preheader905 ], [ %indvars.iv.next1000, %107 ]
-  %108 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv999
+  %108 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv999
   %109 = load i32, ptr %108, align 4
   %110 = load ptr, ptr %45, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds i32, ptr %112, i64 %65
   %114 = load i32, ptr %113, align 4
@@ -21325,11 +21325,11 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %116 = trunc nuw nsw i64 %indvars.iv999 to i32
   %117 = mul nsw i32 %115, %116
   %118 = ashr i32 %114, %117
-  %119 = getelementptr inbounds i8, ptr %110, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %120 = load i32, ptr %119, align 8
   %121 = and i32 %118, %120
   %122 = add nsw i32 %121, %109
-  %123 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv999
+  %123 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv999
   %124 = load float, ptr %123, align 4
   %gep1122 = getelementptr float, ptr %invariant.gep1121, i64 %indvars.iv999
   %125 = load float, ptr %gep1122, align 4
@@ -21366,7 +21366,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
 138:                                              ; preds = %134
   %139 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %40, i64 %indvars.iv1027
   %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds i8, ptr %139, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 4
   br i1 %spec.select, label %142, label %305
 
 142:                                              ; preds = %138
@@ -21383,22 +21383,22 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %149 = mul nsw i32 %148, %28
   %150 = shl nuw nsw i64 %indvars.iv1023, 2
   %151 = mul nuw nsw i64 %indvars.iv1023, 3
-  %152 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %151
   %153 = load float, ptr %152, align 4
   %154 = add nuw nsw i64 %151, 1
-  %155 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %154
   %156 = load float, ptr %155, align 4
   %157 = add nuw nsw i64 %151, 2
-  %158 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %157
   %159 = load float, ptr %158, align 4
   %160 = icmp samesign ult i64 %indvars.iv1023, 2
-  %161 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1023
+  %161 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1023
   %162 = load float, ptr %161, align 4
-  %163 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1023
+  %163 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1023
   %164 = load i32, ptr %163, align 4
-  %165 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %151
-  %166 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %154
-  %167 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %157
+  %165 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %151
+  %166 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %154
+  %167 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %157
   %.promoted926 = load float, ptr %165, align 4
   %.promoted928 = load float, ptr %166, align 4
   %.promoted930 = load float, ptr %167, align 4
@@ -21443,7 +21443,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %201 = fmul float %198, %200
   %202 = fmul float %201, %201
   %203 = load ptr, ptr %45, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %205 = load ptr, ptr %204, align 8
   %206 = getelementptr inbounds i32, ptr %205, i64 %145
   %207 = load i32, ptr %206, align 4
@@ -21451,7 +21451,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %209 = trunc nuw nsw i64 %indvars.iv1019 to i32
   %210 = mul nsw i32 %208, %209
   %211 = ashr i32 %207, %210
-  %212 = getelementptr inbounds i8, ptr %203, i64 32
+  %212 = getelementptr inbounds nuw i8, ptr %203, i64 32
   %213 = load i32, ptr %212, align 8
   %214 = and i32 %211, %213
   br i1 %160, label %215, label %._crit_edge1085
@@ -21588,21 +21588,21 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %313 = mul nsw i32 %312, %28
   %314 = shl nuw nsw i64 %indvars.iv1015, 2
   %315 = mul nuw nsw i64 %indvars.iv1015, 3
-  %316 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %315
   %317 = load float, ptr %316, align 4
   %318 = add nuw nsw i64 %315, 1
-  %319 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %318
+  %319 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %318
   %320 = load float, ptr %319, align 4
   %321 = add nuw nsw i64 %315, 2
-  %322 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %321
+  %322 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %321
   %323 = load float, ptr %322, align 4
-  %324 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1015
+  %324 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1015
   %325 = load i32, ptr %324, align 4
-  %326 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1015
+  %326 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1015
   %327 = load float, ptr %326, align 4
-  %328 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %315
-  %329 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %318
-  %330 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %321
+  %328 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %315
+  %329 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %318
+  %330 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %321
   %.promoted918 = load float, ptr %328, align 4
   %.promoted920 = load float, ptr %329, align 4
   %.promoted922 = load float, ptr %330, align 4
@@ -21647,7 +21647,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %364 = fmul float %361, %363
   %365 = fmul float %364, %364
   %366 = load ptr, ptr %45, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 8
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
   %368 = load ptr, ptr %367, align 8
   %369 = getelementptr inbounds i32, ptr %368, i64 %309
   %370 = load i32, ptr %369, align 4
@@ -21655,7 +21655,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %372 = trunc nuw nsw i64 %indvars.iv1011 to i32
   %373 = mul nsw i32 %371, %372
   %374 = ashr i32 %370, %373
-  %375 = getelementptr inbounds i8, ptr %366, i64 32
+  %375 = getelementptr inbounds nuw i8, ptr %366, i64 32
   %376 = load i32, ptr %375, align 8
   %377 = and i32 %374, %376
   %378 = getelementptr inbounds i32, ptr %34, i64 %343
@@ -21774,19 +21774,19 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %471 = mul nsw i32 %470, %28
   %472 = shl nuw nsw i64 %indvars.iv1007, 2
   %473 = mul nuw nsw i64 %indvars.iv1007, 3
-  %474 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %473
+  %474 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %473
   %475 = load float, ptr %474, align 4
   %476 = add nuw nsw i64 %473, 1
-  %477 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %476
+  %477 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %476
   %478 = load float, ptr %477, align 4
   %479 = add nuw nsw i64 %473, 2
-  %480 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %479
+  %480 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %479
   %481 = load float, ptr %480, align 4
-  %482 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1007
+  %482 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1007
   %483 = load i32, ptr %482, align 4
-  %484 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %473
-  %485 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %476
-  %486 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %479
+  %484 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %473
+  %485 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %476
+  %486 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %479
   %.promoted = load float, ptr %484, align 4
   %.promoted912 = load float, ptr %485, align 4
   %.promoted914 = load float, ptr %486, align 4
@@ -21828,7 +21828,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %517 = fmul float %514, %516
   %518 = fmul float %517, %517
   %519 = load ptr, ptr %45, align 8
-  %520 = getelementptr inbounds i8, ptr %519, i64 8
+  %520 = getelementptr inbounds nuw i8, ptr %519, i64 8
   %521 = load ptr, ptr %520, align 8
   %522 = getelementptr inbounds i32, ptr %521, i64 %467
   %523 = load i32, ptr %522, align 4
@@ -21836,7 +21836,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %525 = trunc nuw nsw i64 %indvars.iv1003 to i32
   %526 = mul nsw i32 %524, %525
   %527 = ashr i32 %523, %526
-  %528 = getelementptr inbounds i8, ptr %519, i64 32
+  %528 = getelementptr inbounds nuw i8, ptr %519, i64 32
   %529 = load i32, ptr %528, align 8
   %530 = and i32 %527, %529
   %531 = getelementptr inbounds i32, ptr %34, i64 %497
@@ -21939,22 +21939,22 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %589 = load i32, ptr %gep1134, align 4
   %590 = mul nsw i32 %589, %28
   %591 = mul nuw nsw i64 %indvars.iv1060, 3
-  %592 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %591
+  %592 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %591
   %593 = load float, ptr %592, align 4
   %594 = add nuw nsw i64 %591, 1
-  %595 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %594
+  %595 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %594
   %596 = load float, ptr %595, align 4
   %597 = add nuw nsw i64 %591, 2
-  %598 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %597
+  %598 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %597
   %599 = load float, ptr %598, align 4
   %600 = icmp samesign ult i64 %indvars.iv1060, 2
-  %601 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1060
+  %601 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1060
   %602 = load float, ptr %601, align 4
-  %603 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1060
+  %603 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1060
   %604 = load i32, ptr %603, align 4
-  %605 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %591
-  %606 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %594
-  %607 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %597
+  %605 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %591
+  %606 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %594
+  %607 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %597
   %.promoted953.us = load float, ptr %605, align 4
   %.promoted955.us = load float, ptr %606, align 4
   %.promoted957.us = load float, ptr %607, align 4
@@ -21998,7 +21998,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %633 = fmul float %630, %632
   %634 = fmul float %633, %633
   %635 = load ptr, ptr %45, align 8
-  %636 = getelementptr inbounds i8, ptr %635, i64 8
+  %636 = getelementptr inbounds nuw i8, ptr %635, i64 8
   %637 = load ptr, ptr %636, align 8
   %638 = getelementptr inbounds i32, ptr %637, i64 %586
   %639 = load i32, ptr %638, align 4
@@ -22006,7 +22006,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %641 = trunc nuw nsw i64 %indvars.iv1056 to i32
   %642 = mul nsw i32 %640, %641
   %643 = ashr i32 %639, %642
-  %644 = getelementptr inbounds i8, ptr %635, i64 32
+  %644 = getelementptr inbounds nuw i8, ptr %635, i64 32
   %645 = load i32, ptr %644, align 8
   %646 = and i32 %643, %645
   br i1 %600, label %647, label %._crit_edge1086
@@ -22137,21 +22137,21 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %738 = load i32, ptr %gep1132, align 4
   %739 = mul nsw i32 %738, %28
   %740 = mul nuw nsw i64 %indvars.iv1047, 3
-  %741 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %740
+  %741 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %740
   %742 = load float, ptr %741, align 4
   %743 = add nuw nsw i64 %740, 1
-  %744 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %743
+  %744 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %743
   %745 = load float, ptr %744, align 4
   %746 = add nuw nsw i64 %740, 2
-  %747 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %746
+  %747 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %746
   %748 = load float, ptr %747, align 4
-  %749 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1047
+  %749 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1047
   %750 = load i32, ptr %749, align 4
-  %751 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1047
+  %751 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1047
   %752 = load float, ptr %751, align 4
-  %753 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %740
-  %754 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %743
-  %755 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %746
+  %753 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %740
+  %754 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %743
+  %755 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %746
   %.promoted945.us = load float, ptr %753, align 4
   %.promoted947.us = load float, ptr %754, align 4
   %.promoted949.us = load float, ptr %755, align 4
@@ -22195,7 +22195,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %781 = fmul float %778, %780
   %782 = fmul float %781, %781
   %783 = load ptr, ptr %45, align 8
-  %784 = getelementptr inbounds i8, ptr %783, i64 8
+  %784 = getelementptr inbounds nuw i8, ptr %783, i64 8
   %785 = load ptr, ptr %784, align 8
   %786 = getelementptr inbounds i32, ptr %785, i64 %735
   %787 = load i32, ptr %786, align 4
@@ -22203,7 +22203,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %789 = trunc nuw nsw i64 %indvars.iv1043 to i32
   %790 = mul nsw i32 %788, %789
   %791 = ashr i32 %787, %790
-  %792 = getelementptr inbounds i8, ptr %783, i64 32
+  %792 = getelementptr inbounds nuw i8, ptr %783, i64 32
   %793 = load i32, ptr %792, align 8
   %794 = and i32 %791, %793
   %795 = getelementptr inbounds i32, ptr %34, i64 %761
@@ -22317,19 +22317,19 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %883 = load i32, ptr %gep1130, align 4
   %884 = mul nsw i32 %883, %28
   %885 = mul nuw nsw i64 %indvars.iv1035, 3
-  %886 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %885
+  %886 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %885
   %887 = load float, ptr %886, align 4
   %888 = add nuw nsw i64 %885, 1
-  %889 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %888
+  %889 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %888
   %890 = load float, ptr %889, align 4
   %891 = add nuw nsw i64 %885, 2
-  %892 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %891
+  %892 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %891
   %893 = load float, ptr %892, align 4
-  %894 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1035
+  %894 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1035
   %895 = load i32, ptr %894, align 4
-  %896 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %885
-  %897 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %888
-  %898 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %891
+  %896 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %885
+  %897 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %888
+  %898 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %891
   %.promoted937 = load float, ptr %896, align 4
   %.promoted939 = load float, ptr %897, align 4
   %.promoted941 = load float, ptr %898, align 4
@@ -22365,7 +22365,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %923 = fmul float %920, %922
   %924 = fmul float %923, %923
   %925 = load ptr, ptr %45, align 8
-  %926 = getelementptr inbounds i8, ptr %925, i64 8
+  %926 = getelementptr inbounds nuw i8, ptr %925, i64 8
   %927 = load ptr, ptr %926, align 8
   %928 = getelementptr inbounds i32, ptr %927, i64 %880
   %929 = load i32, ptr %928, align 4
@@ -22373,7 +22373,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   %931 = trunc nuw nsw i64 %indvars.iv1031 to i32
   %932 = mul nsw i32 %930, %931
   %933 = ashr i32 %929, %932
-  %934 = getelementptr inbounds i8, ptr %925, i64 32
+  %934 = getelementptr inbounds nuw i8, ptr %925, i64 32
   %935 = load i32, ptr %934, align 8
   %936 = and i32 %933, %935
   %937 = getelementptr inbounds i32, ptr %34, i64 %903
@@ -22457,7 +22457,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
 986:                                              ; preds = %.preheader895, %986
   %indvars.iv1069 = phi i64 [ 0, %.preheader895 ], [ %indvars.iv.next1070, %986 ]
   %987 = add nuw nsw i64 %indvars.iv1069, %984
-  %988 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %987
+  %988 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %987
   %989 = load float, ptr %988, align 4
   %gep1136 = getelementptr float, ptr %invariant.gep1135, i64 %indvars.iv1069
   %990 = load float, ptr %gep1136, align 4
@@ -22477,7 +22477,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
 
 .preheader.preheader:                             ; preds = %993
   %994 = zext nneg i32 %73 to i64
-  %invariant.gep1137 = getelementptr inbounds float, ptr %13, i64 %994
+  %invariant.gep1137 = getelementptr inbounds nuw float, ptr %13, i64 %994
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1002
@@ -22488,9 +22488,9 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
 996:                                              ; preds = %.preheader, %996
   %indvars.iv1077 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1078, %996 ]
   %997 = add nuw nsw i64 %indvars.iv1077, %995
-  %998 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %997
+  %998 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %997
   %999 = load float, ptr %998, align 4
-  %gep1138 = getelementptr inbounds float, ptr %invariant.gep1137, i64 %indvars.iv1077
+  %gep1138 = getelementptr inbounds nuw float, ptr %invariant.gep1137, i64 %indvars.iv1077
   %1000 = load float, ptr %gep1138, align 4
   %1001 = fadd float %999, %1000
   store float %1001, ptr %gep1138, align 4
@@ -22504,7 +22504,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJ_VgrpF_refPK16NbnxnPairlistCpuPK16n
   br i1 %exitcond1084.not, label %.loopexit903, label %.preheader, !llvm.loop !383
 
 .loopexit903:                                     ; preds = %1002, %993
-  %1003 = getelementptr inbounds i8, ptr %.sroa.0885.0969, i64 16
+  %1003 = getelementptr inbounds nuw i8, ptr %.sroa.0885.0969, i64 16
   %.not889 = icmp eq ptr %1003, %44
   br i1 %.not889, label %._crit_edge, label %51
 
@@ -22517,57 +22517,57 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load float, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %19 = load float, ptr %18, align 4
   %20 = fmul float %19, %19
   %21 = load i32, ptr %1, align 8
   %22 = shl nsw i32 %21, 1
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 176
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 108
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %30 = load float, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 288
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %38 = load ptr, ptr %37, align 8
   %.not825901 = icmp eq ptr %36, %38
   br i1 %.not825901, label %._crit_edge, label %.lr.ph903
 
 .lr.ph903:                                        ; preds = %5
-  %39 = getelementptr inbounds i8, ptr %2, i64 20
-  %40 = getelementptr inbounds i8, ptr %2, i64 24
-  %41 = getelementptr inbounds i8, ptr %2, i64 28
-  %42 = getelementptr inbounds i8, ptr %2, i64 36
-  %43 = getelementptr inbounds i8, ptr %2, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.not787 = icmp eq ptr %12, null
   br label %44
 
 44:                                               ; preds = %.lr.ph903, %.loopexit839
   %.sroa.0821.0902 = phi ptr [ %36, %.lr.ph903 ], [ %840, %.loopexit839 ]
-  %45 = getelementptr inbounds i8, ptr %.sroa.0821.0902, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0821.0902, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 127
   %48 = mul nuw nsw i32 %47, 3
-  %49 = getelementptr inbounds i8, ptr %.sroa.0821.0902, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0821.0902, i64 8
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.sroa.0821.0902, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0821.0902, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %.sroa.0821.0902, align 4
   %54 = icmp eq i32 %47, 22
@@ -22580,7 +22580,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %59 = zext nneg i32 %48 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %60 = sext i32 %58 to i64
-  %invariant.gep1049 = getelementptr inbounds float, ptr %3, i64 %59
+  %invariant.gep1049 = getelementptr inbounds nuw float, ptr %3, i64 %59
   br label %.preheader837
 
 .preheader841:                                    ; preds = %216
@@ -22613,7 +22613,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
 67:                                               ; preds = %.lr.ph.split.us
   %68 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %34, i64 %indvars.iv957
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %68, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = icmp eq i32 %69, %61
   %72 = shl nsw i32 %69, 2
   %73 = sext i32 %72 to i64
@@ -22626,20 +22626,20 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %76 = mul nsw i32 %75, %22
   %77 = shl nuw nsw i64 %indvars.iv953, 2
   %78 = mul nuw nsw i64 %indvars.iv953, 3
-  %79 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %78
   %80 = load float, ptr %79, align 4
   %81 = add nuw nsw i64 %78, 1
-  %82 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %81
   %83 = load float, ptr %82, align 4
   %84 = add nuw nsw i64 %78, 2
-  %85 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = icmp samesign ult i64 %indvars.iv953, 2
-  %88 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv953
+  %88 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv953
   %89 = load float, ptr %88, align 4
-  %90 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %78
-  %91 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %81
-  %92 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %84
+  %90 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %78
+  %91 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %81
+  %92 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %84
   %.promoted858.us = load float, ptr %90, align 4
   %.promoted860.us = load float, ptr %91, align 4
   %.promoted862.us = load float, ptr %92, align 4
@@ -22804,11 +22804,11 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %indvars.iv = phi i64 [ 0, %.preheader837 ], [ %indvars.iv.next, %210 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %211 = load float, ptr %gep, align 4
-  %gep1050 = getelementptr inbounds float, ptr %invariant.gep1049, i64 %indvars.iv
+  %gep1050 = getelementptr inbounds nuw float, ptr %invariant.gep1049, i64 %indvars.iv
   %212 = load float, ptr %gep1050, align 4
   %213 = fadd float %211, %212
   %214 = add nuw nsw i64 %indvars.iv, %209
-  %215 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %214
+  %215 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %214
   store float %213, ptr %215, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -22818,7 +22818,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %217 = getelementptr inbounds float, ptr %26, i64 %208
   %218 = load float, ptr %217, align 4
   %219 = fmul float %30, %218
-  %220 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %220 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %219, ptr %220, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond928.not = icmp eq i64 %indvar.next, 4
@@ -22835,7 +22835,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
 224:                                              ; preds = %.lr.ph.split
   %225 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %34, i64 %indvars.iv945
   %226 = load i32, ptr %225, align 4
-  %227 = getelementptr inbounds i8, ptr %225, i64 4
+  %227 = getelementptr inbounds nuw i8, ptr %225, i64 4
   br i1 %56, label %228, label %362
 
 228:                                              ; preds = %224
@@ -22851,19 +22851,19 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %234 = mul nsw i32 %233, %22
   %235 = shl nuw nsw i64 %indvars.iv941, 2
   %236 = mul nuw nsw i64 %indvars.iv941, 3
-  %237 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %236
   %238 = load float, ptr %237, align 4
   %239 = add nuw nsw i64 %236, 1
-  %240 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %239
   %241 = load float, ptr %240, align 4
   %242 = add nuw nsw i64 %236, 2
-  %243 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %242
   %244 = load float, ptr %243, align 4
-  %245 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv941
+  %245 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv941
   %246 = load float, ptr %245, align 4
-  %247 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %236
-  %248 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %239
-  %249 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %242
+  %247 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %236
+  %248 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %239
+  %249 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %242
   %.promoted850 = load float, ptr %247, align 4
   %.promoted852 = load float, ptr %248, align 4
   %.promoted854 = load float, ptr %249, align 4
@@ -23010,17 +23010,17 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %367 = mul nsw i32 %366, %22
   %368 = shl nuw nsw i64 %indvars.iv933, 2
   %369 = mul nuw nsw i64 %indvars.iv933, 3
-  %370 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %369
+  %370 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %369
   %371 = load float, ptr %370, align 4
   %372 = add nuw nsw i64 %369, 1
-  %373 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %372
+  %373 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %372
   %374 = load float, ptr %373, align 4
   %375 = add nuw nsw i64 %369, 2
-  %376 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %375
   %377 = load float, ptr %376, align 4
-  %378 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %369
-  %379 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %372
-  %380 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %375
+  %378 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %369
+  %379 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %372
+  %380 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %375
   %.promoted = load float, ptr %378, align 4
   %.promoted844 = load float, ptr %379, align 4
   %.promoted846 = load float, ptr %380, align 4
@@ -23170,20 +23170,20 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %478 = load i32, ptr %gep1062, align 4
   %479 = mul nsw i32 %478, %22
   %480 = mul nuw nsw i64 %indvars.iv991, 3
-  %481 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %480
+  %481 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %480
   %482 = load float, ptr %481, align 4
   %483 = add nuw nsw i64 %480, 1
-  %484 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %483
   %485 = load float, ptr %484, align 4
   %486 = add nuw nsw i64 %480, 2
-  %487 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %486
+  %487 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %486
   %488 = load float, ptr %487, align 4
   %489 = icmp samesign ult i64 %indvars.iv991, 2
-  %490 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv991
+  %490 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv991
   %491 = load float, ptr %490, align 4
-  %492 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %480
-  %493 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %483
-  %494 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %486
+  %492 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %480
+  %493 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %483
+  %494 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %486
   %.promoted886.us = load float, ptr %492, align 4
   %.promoted888.us = load float, ptr %493, align 4
   %.promoted890.us = load float, ptr %494, align 4
@@ -23342,19 +23342,19 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %604 = load i32, ptr %gep1060, align 4
   %605 = mul nsw i32 %604, %22
   %606 = mul nuw nsw i64 %indvars.iv978, 3
-  %607 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %606
+  %607 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %606
   %608 = load float, ptr %607, align 4
   %609 = add nuw nsw i64 %606, 1
-  %610 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %609
+  %610 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %609
   %611 = load float, ptr %610, align 4
   %612 = add nuw nsw i64 %606, 2
-  %613 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %612
+  %613 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %612
   %614 = load float, ptr %613, align 4
-  %615 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv978
+  %615 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv978
   %616 = load float, ptr %615, align 4
-  %617 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %606
-  %618 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %609
-  %619 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %612
+  %617 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %606
+  %618 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %609
+  %619 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %612
   %.promoted878.us = load float, ptr %617, align 4
   %.promoted880.us = load float, ptr %618, align 4
   %.promoted882.us = load float, ptr %619, align 4
@@ -23497,17 +23497,17 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   %726 = load i32, ptr %gep1058, align 4
   %727 = mul nsw i32 %726, %22
   %728 = mul nuw nsw i64 %indvars.iv965, 3
-  %729 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %728
+  %729 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %728
   %730 = load float, ptr %729, align 4
   %731 = add nuw nsw i64 %728, 1
-  %732 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %731
+  %732 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %731
   %733 = load float, ptr %732, align 4
   %734 = add nuw nsw i64 %728, 2
-  %735 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %734
+  %735 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %734
   %736 = load float, ptr %735, align 4
-  %737 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %728
-  %738 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %731
-  %739 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %734
+  %737 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %728
+  %738 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %731
+  %739 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %734
   %.promoted870 = load float, ptr %737, align 4
   %.promoted872 = load float, ptr %738, align 4
   %.promoted874 = load float, ptr %739, align 4
@@ -23630,7 +23630,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
 823:                                              ; preds = %.preheader831, %823
   %indvars.iv1000 = phi i64 [ 0, %.preheader831 ], [ %indvars.iv.next1001, %823 ]
   %824 = add nuw nsw i64 %indvars.iv1000, %821
-  %825 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %824
+  %825 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %824
   %826 = load float, ptr %825, align 4
   %gep1064 = getelementptr float, ptr %invariant.gep1063, i64 %indvars.iv1000
   %827 = load float, ptr %gep1064, align 4
@@ -23650,7 +23650,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
 
 .preheader.preheader:                             ; preds = %830
   %831 = zext nneg i32 %48 to i64
-  %invariant.gep1065 = getelementptr inbounds float, ptr %12, i64 %831
+  %invariant.gep1065 = getelementptr inbounds nuw float, ptr %12, i64 %831
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %839
@@ -23661,9 +23661,9 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
 833:                                              ; preds = %.preheader, %833
   %indvars.iv1008 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1009, %833 ]
   %834 = add nuw nsw i64 %indvars.iv1008, %832
-  %835 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %834
+  %835 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %834
   %836 = load float, ptr %835, align 4
-  %gep1066 = getelementptr inbounds float, ptr %invariant.gep1065, i64 %indvars.iv1008
+  %gep1066 = getelementptr inbounds nuw float, ptr %invariant.gep1065, i64 %indvars.iv1008
   %837 = load float, ptr %gep1066, align 4
   %838 = fadd float %836, %837
   store float %838, ptr %gep1066, align 4
@@ -23677,7 +23677,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJFsw_F_refPK16NbnxnPairlistCpuPK16nb
   br i1 %exitcond1015.not, label %.loopexit839, label %.preheader, !llvm.loop !403
 
 .loopexit839:                                     ; preds = %839, %830
-  %840 = getelementptr inbounds i8, ptr %.sroa.0821.0902, i64 16
+  %840 = getelementptr inbounds nuw i8, ptr %.sroa.0821.0902, i64 16
   %.not825 = icmp eq ptr %840, %38
   br i1 %.not825, label %._crit_edge, label %44
 
@@ -23690,66 +23690,66 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %18 = load ptr, ptr %17, align 8
   %19 = load float, ptr %18, align 8
   %20 = fdiv float 5.000000e-01, %19
-  %21 = getelementptr inbounds i8, ptr %18, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 76
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %24 = load float, ptr %23, align 4
   %25 = fmul float %24, %24
   %26 = load i32, ptr %1, align 8
   %27 = shl nsw i32 %26, 1
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 176
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 108
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 288
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %43 = load ptr, ptr %42, align 8
   %.not10701187 = icmp eq ptr %41, %43
   br i1 %.not10701187, label %._crit_edge, label %.lr.ph1189
 
 .lr.ph1189:                                       ; preds = %5
-  %44 = getelementptr inbounds i8, ptr %22, i64 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 36
-  %46 = getelementptr inbounds i8, ptr %2, i64 44
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
-  %48 = getelementptr inbounds i8, ptr %2, i64 32
-  %49 = getelementptr inbounds i8, ptr %2, i64 20
-  %50 = getelementptr inbounds i8, ptr %2, i64 28
-  %51 = getelementptr inbounds i8, ptr %2, i64 40
-  %52 = getelementptr inbounds i8, ptr %2, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1032 = icmp eq ptr %12, null
   br label %53
 
 53:                                               ; preds = %.lr.ph1189, %.loopexit1084
   %.sroa.01066.01188 = phi ptr [ %41, %.lr.ph1189 ], [ %1065, %.loopexit1084 ]
-  %54 = getelementptr inbounds i8, ptr %.sroa.01066.01188, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.01066.01188, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 127
   %57 = mul nuw nsw i32 %56, 3
-  %58 = getelementptr inbounds i8, ptr %.sroa.01066.01188, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.01066.01188, i64 8
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %.sroa.01066.01188, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.01066.01188, i64 12
   %61 = load i32, ptr %60, align 4
   %62 = load i32, ptr %.sroa.01066.01188, align 4
   %63 = icmp eq i32 %56, 22
@@ -23760,7 +23760,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %67 = zext nneg i32 %57 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %68 = sext i32 %66 to i64
-  %invariant.gep1350 = getelementptr inbounds float, ptr %3, i64 %67
+  %invariant.gep1350 = getelementptr inbounds nuw float, ptr %3, i64 %67
   br label %.preheader1082
 
 .preheader1082:                                   ; preds = %53, %77
@@ -23775,11 +23775,11 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %indvars.iv = phi i64 [ 0, %.preheader1082 ], [ %indvars.iv.next, %71 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %72 = load float, ptr %gep, align 4
-  %gep1351 = getelementptr inbounds float, ptr %invariant.gep1350, i64 %indvars.iv
+  %gep1351 = getelementptr inbounds nuw float, ptr %invariant.gep1350, i64 %indvars.iv
   %73 = load float, ptr %gep1351, align 4
   %74 = fadd float %72, %73
   %75 = add nuw nsw i64 %indvars.iv, %70
-  %76 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %75
   store float %74, ptr %76, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -23789,7 +23789,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %78 = getelementptr inbounds float, ptr %31, i64 %69
   %79 = load float, ptr %78, align 4
   %80 = fmul float %35, %79
-  %81 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %81 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %80, ptr %81, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1221.not = icmp eq i64 %indvar.next, 4
@@ -23818,7 +23818,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
 92:                                               ; preds = %.preheader1086, %92
   %indvars.iv1222 = phi i64 [ 0, %.preheader1086 ], [ %indvars.iv.next1223, %92 ]
   %93 = phi float [ %.promoted, %.preheader1086 ], [ %99, %92 ]
-  %94 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1222
+  %94 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1222
   %95 = load float, ptr %94, align 4
   %gep1353 = getelementptr float, ptr %invariant.gep1352, i64 %indvars.iv1222
   %96 = load float, ptr %gep1353, align 4
@@ -23854,7 +23854,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
 106:                                              ; preds = %102
   %107 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %39, i64 %indvars.iv1250
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %107, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 4
   br i1 %spec.select, label %110, label %287
 
 110:                                              ; preds = %106
@@ -23872,20 +23872,20 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %116 = mul nsw i32 %115, %27
   %117 = shl nuw nsw i64 %indvars.iv1246, 2
   %118 = mul nuw nsw i64 %indvars.iv1246, 3
-  %119 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %118
   %120 = load float, ptr %119, align 4
   %121 = add nuw nsw i64 %118, 1
-  %122 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %121
   %123 = load float, ptr %122, align 4
   %124 = add nuw nsw i64 %118, 2
-  %125 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %124
   %126 = load float, ptr %125, align 4
   %127 = icmp samesign ult i64 %indvars.iv1246, 2
-  %128 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1246
+  %128 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1246
   %129 = load float, ptr %128, align 4
-  %130 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %118
-  %131 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %121
-  %132 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %124
+  %130 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %118
+  %131 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %121
+  %132 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %124
   %.promoted1112 = load float, ptr %130, align 4
   %.promoted1114 = load float, ptr %131, align 4
   %.promoted1116 = load float, ptr %132, align 4
@@ -24093,19 +24093,19 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %294 = mul nsw i32 %293, %27
   %295 = shl nuw nsw i64 %indvars.iv1238, 2
   %296 = mul nuw nsw i64 %indvars.iv1238, 3
-  %297 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %296
+  %297 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %296
   %298 = load float, ptr %297, align 4
   %299 = add nuw nsw i64 %296, 1
-  %300 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %299
   %301 = load float, ptr %300, align 4
   %302 = add nuw nsw i64 %296, 2
-  %303 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %302
   %304 = load float, ptr %303, align 4
-  %305 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1238
+  %305 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1238
   %306 = load float, ptr %305, align 4
-  %307 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %296
-  %308 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %299
-  %309 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %302
+  %307 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %296
+  %308 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %299
+  %309 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %302
   %.promoted1100 = load float, ptr %307, align 4
   %.promoted1102 = load float, ptr %308, align 4
   %.promoted1104 = load float, ptr %309, align 4
@@ -24294,17 +24294,17 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %466 = mul nsw i32 %465, %27
   %467 = shl nuw nsw i64 %indvars.iv1230, 2
   %468 = mul nuw nsw i64 %indvars.iv1230, 3
-  %469 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %468
+  %469 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %468
   %470 = load float, ptr %469, align 4
   %471 = add nuw nsw i64 %468, 1
-  %472 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %471
+  %472 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %471
   %473 = load float, ptr %472, align 4
   %474 = add nuw nsw i64 %468, 2
-  %475 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %474
+  %475 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %474
   %476 = load float, ptr %475, align 4
-  %477 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %468
-  %478 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %471
-  %479 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %474
+  %477 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %468
+  %478 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %471
+  %479 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %474
   %.promoted1091 = load float, ptr %477, align 4
   %.promoted1092 = load float, ptr %478, align 4
   %.promoted1094 = load float, ptr %479, align 4
@@ -24484,20 +24484,20 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %601 = load i32, ptr %gep1365, align 4
   %602 = mul nsw i32 %601, %27
   %603 = mul nuw nsw i64 %indvars.iv1283, 3
-  %604 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %603
+  %604 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %603
   %605 = load float, ptr %604, align 4
   %606 = add nuw nsw i64 %603, 1
-  %607 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %606
+  %607 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %606
   %608 = load float, ptr %607, align 4
   %609 = add nuw nsw i64 %603, 2
-  %610 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %609
+  %610 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %609
   %611 = load float, ptr %610, align 4
   %612 = icmp samesign ult i64 %indvars.iv1283, 2
-  %613 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1283
+  %613 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1283
   %614 = load float, ptr %613, align 4
-  %615 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %603
-  %616 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %606
-  %617 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %609
+  %615 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %603
+  %616 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %606
+  %617 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %609
   %.promoted1155.us = load float, ptr %615, align 4
   %.promoted1157.us = load float, ptr %616, align 4
   %.promoted1159.us = load float, ptr %617, align 4
@@ -24700,19 +24700,19 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %764 = load i32, ptr %gep1363, align 4
   %765 = mul nsw i32 %764, %27
   %766 = mul nuw nsw i64 %indvars.iv1270, 3
-  %767 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %766
+  %767 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %766
   %768 = load float, ptr %767, align 4
   %769 = add nuw nsw i64 %766, 1
-  %770 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %769
+  %770 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %769
   %771 = load float, ptr %770, align 4
   %772 = add nuw nsw i64 %766, 2
-  %773 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %772
+  %773 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %772
   %774 = load float, ptr %773, align 4
-  %775 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1270
+  %775 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1270
   %776 = load float, ptr %775, align 4
-  %777 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %766
-  %778 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %769
-  %779 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %772
+  %777 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %766
+  %778 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %769
+  %779 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %772
   %.promoted1143.us = load float, ptr %777, align 4
   %.promoted1145.us = load float, ptr %778, align 4
   %.promoted1147.us = load float, ptr %779, align 4
@@ -24901,17 +24901,17 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %923 = load i32, ptr %gep1361, align 4
   %924 = mul nsw i32 %923, %27
   %925 = mul nuw nsw i64 %indvars.iv1258, 3
-  %926 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %925
+  %926 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %925
   %927 = load float, ptr %926, align 4
   %928 = add nuw nsw i64 %925, 1
-  %929 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %928
+  %929 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %928
   %930 = load float, ptr %929, align 4
   %931 = add nuw nsw i64 %925, 2
-  %932 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %931
+  %932 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %931
   %933 = load float, ptr %932, align 4
-  %934 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %925
-  %935 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %928
-  %936 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %931
+  %934 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %925
+  %935 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %928
+  %936 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %931
   %.promoted1133 = load float, ptr %934, align 4
   %.promoted1135 = load float, ptr %935, align 4
   %.promoted1137 = load float, ptr %936, align 4
@@ -25056,7 +25056,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
 1044:                                             ; preds = %.preheader1076, %1044
   %indvars.iv1292 = phi i64 [ 0, %.preheader1076 ], [ %indvars.iv.next1293, %1044 ]
   %1045 = add nuw nsw i64 %indvars.iv1292, %1042
-  %1046 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1045
+  %1046 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1045
   %1047 = load float, ptr %1046, align 4
   %gep1367 = getelementptr float, ptr %invariant.gep1366, i64 %indvars.iv1292
   %1048 = load float, ptr %gep1367, align 4
@@ -25076,7 +25076,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 .preheader.preheader:                             ; preds = %1051
   %1052 = zext nneg i32 %57 to i64
-  %invariant.gep1368 = getelementptr inbounds float, ptr %12, i64 %1052
+  %invariant.gep1368 = getelementptr inbounds nuw float, ptr %12, i64 %1052
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1060
@@ -25087,9 +25087,9 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
 1054:                                             ; preds = %.preheader, %1054
   %indvars.iv1300 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1301, %1054 ]
   %1055 = add nuw nsw i64 %indvars.iv1300, %1053
-  %1056 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1055
+  %1056 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1055
   %1057 = load float, ptr %1056, align 4
-  %gep1369 = getelementptr inbounds float, ptr %invariant.gep1368, i64 %indvars.iv1300
+  %gep1369 = getelementptr inbounds nuw float, ptr %invariant.gep1368, i64 %indvars.iv1300
   %1058 = load float, ptr %gep1369, align 4
   %1059 = fadd float %1057, %1058
   store float %1059, ptr %gep1369, align 4
@@ -25109,7 +25109,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %1063 = load float, ptr %16, align 4
   %1064 = fadd float %.61004.lcssa, %1063
   store float %1064, ptr %16, align 4
-  %1065 = getelementptr inbounds i8, ptr %.sroa.01066.01188, i64 16
+  %1065 = getelementptr inbounds nuw i8, ptr %.sroa.01066.01188, i64 16
   %.not1070 = icmp eq ptr %1065, %43
   br i1 %.not1070, label %._crit_edge, label %53
 
@@ -25123,67 +25123,67 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = load float, ptr %19, align 8
   %21 = fdiv float 5.000000e-01, %20
-  %22 = getelementptr inbounds i8, ptr %19, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %25 = load float, ptr %24, align 4
   %26 = fmul float %25, %25
   %27 = load i32, ptr %1, align 8
   %28 = shl nsw i32 %27, 1
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 176
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 112
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 108
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 288
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %44 = load ptr, ptr %43, align 8
   %.not11051184 = icmp eq ptr %42, %44
   br i1 %.not11051184, label %._crit_edge, label %.lr.ph1186
 
 .lr.ph1186:                                       ; preds = %5
-  %45 = getelementptr inbounds i8, ptr %1, i64 208
-  %46 = getelementptr inbounds i8, ptr %1, i64 200
-  %47 = getelementptr inbounds i8, ptr %23, i64 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 36
-  %49 = getelementptr inbounds i8, ptr %2, i64 44
-  %50 = getelementptr inbounds i8, ptr %2, i64 24
-  %51 = getelementptr inbounds i8, ptr %2, i64 32
-  %52 = getelementptr inbounds i8, ptr %2, i64 20
-  %53 = getelementptr inbounds i8, ptr %2, i64 28
-  %54 = getelementptr inbounds i8, ptr %2, i64 40
-  %55 = getelementptr inbounds i8, ptr %2, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1065 = icmp eq ptr %13, null
   br label %56
 
 56:                                               ; preds = %.lr.ph1186, %.loopexit1119
   %.sroa.01101.01185 = phi ptr [ %42, %.lr.ph1186 ], [ %1220, %.loopexit1119 ]
-  %57 = getelementptr inbounds i8, ptr %.sroa.01101.01185, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.01101.01185, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 127
-  %60 = getelementptr inbounds i8, ptr %.sroa.01101.01185, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.01101.01185, i64 8
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %.sroa.01101.01185, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.01101.01185, i64 12
   %63 = load i32, ptr %62, align 4
   %64 = load i32, ptr %.sroa.01101.01185, align 4
   %65 = icmp eq i32 %59, 22
@@ -25191,13 +25191,13 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %67 = and i32 %58, 384
   %or.cond = icmp ne i32 %67, 128
   %68 = load ptr, ptr %45, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = sext i32 %64 to i64
   %71 = load ptr, ptr %69, align 8
   %72 = getelementptr inbounds i32, ptr %71, i64 %70
   %73 = load i32, ptr %72, align 4
   %74 = load i32, ptr %68, align 8
-  %75 = getelementptr inbounds i8, ptr %68, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %76 = load i32, ptr %75, align 8
   %77 = load i32, ptr %46, align 8
   br label %83
@@ -25209,7 +25209,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %81 = zext nneg i32 %78 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %82 = sext i32 %80 to i64
-  %invariant.gep1339 = getelementptr inbounds float, ptr %3, i64 %81
+  %invariant.gep1339 = getelementptr inbounds nuw float, ptr %3, i64 %81
   br label %.preheader1117
 
 83:                                               ; preds = %56, %83
@@ -25219,7 +25219,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %86 = ashr i32 %73, %85
   %87 = and i32 %86, %76
   %88 = mul nsw i32 %87, %77
-  %89 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %88, ptr %89, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -25237,11 +25237,11 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %indvars.iv1209 = phi i64 [ 0, %.preheader1117 ], [ %indvars.iv.next1210, %92 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1209
   %93 = load float, ptr %gep, align 4
-  %gep1340 = getelementptr inbounds float, ptr %invariant.gep1339, i64 %indvars.iv1209
+  %gep1340 = getelementptr inbounds nuw float, ptr %invariant.gep1339, i64 %indvars.iv1209
   %94 = load float, ptr %gep1340, align 4
   %95 = fadd float %93, %94
   %96 = add nuw nsw i64 %indvars.iv1209, %91
-  %97 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %96
   store float %95, ptr %97, align 4
   %indvars.iv.next1210 = add nuw nsw i64 %indvars.iv1209, 1
   %exitcond1212.not = icmp eq i64 %indvars.iv.next1210, 3
@@ -25251,7 +25251,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %99 = getelementptr inbounds float, ptr %32, i64 %90
   %100 = load float, ptr %99, align 4
   %101 = fmul float %36, %100
-  %102 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %102 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %101, ptr %102, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1214.not = icmp eq i64 %indvar.next, 4
@@ -25277,10 +25277,10 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
 
 112:                                              ; preds = %.preheader1121, %112
   %indvars.iv1215 = phi i64 [ 0, %.preheader1121 ], [ %indvars.iv.next1216, %112 ]
-  %113 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1215
+  %113 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1215
   %114 = load i32, ptr %113, align 4
   %115 = load ptr, ptr %45, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i32, ptr %117, i64 %70
   %119 = load i32, ptr %118, align 4
@@ -25288,11 +25288,11 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %121 = trunc nuw nsw i64 %indvars.iv1215 to i32
   %122 = mul nsw i32 %120, %121
   %123 = ashr i32 %119, %122
-  %124 = getelementptr inbounds i8, ptr %115, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %125 = load i32, ptr %124, align 8
   %126 = and i32 %123, %125
   %127 = add nsw i32 %126, %114
-  %128 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1215
+  %128 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1215
   %129 = load float, ptr %128, align 4
   %gep1342 = getelementptr float, ptr %invariant.gep1341, i64 %indvars.iv1215
   %130 = load float, ptr %gep1342, align 4
@@ -25329,7 +25329,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
 143:                                              ; preds = %139
   %144 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %40, i64 %indvars.iv1243
   %145 = load i32, ptr %144, align 4
-  %146 = getelementptr inbounds i8, ptr %144, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 4
   br i1 %spec.select, label %147, label %345
 
 147:                                              ; preds = %143
@@ -25346,22 +25346,22 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %154 = mul nsw i32 %153, %28
   %155 = shl nuw nsw i64 %indvars.iv1239, 2
   %156 = mul nuw nsw i64 %indvars.iv1239, 3
-  %157 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %156
   %158 = load float, ptr %157, align 4
   %159 = add nuw nsw i64 %156, 1
-  %160 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %159
   %161 = load float, ptr %160, align 4
   %162 = add nuw nsw i64 %156, 2
-  %163 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %162
   %164 = load float, ptr %163, align 4
   %165 = icmp samesign ult i64 %indvars.iv1239, 2
-  %166 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1239
+  %166 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1239
   %167 = load float, ptr %166, align 4
-  %168 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1239
+  %168 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1239
   %169 = load i32, ptr %168, align 4
-  %170 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %156
-  %171 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %159
-  %172 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %162
+  %170 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %156
+  %171 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %159
+  %172 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %162
   %.promoted1142 = load float, ptr %170, align 4
   %.promoted1144 = load float, ptr %171, align 4
   %.promoted1146 = load float, ptr %172, align 4
@@ -25406,7 +25406,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %206 = fmul float %203, %205
   %207 = fmul float %206, %206
   %208 = load ptr, ptr %45, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds i32, ptr %210, i64 %150
   %212 = load i32, ptr %211, align 4
@@ -25414,7 +25414,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %214 = trunc nuw nsw i64 %indvars.iv1235 to i32
   %215 = mul nsw i32 %213, %214
   %216 = ashr i32 %212, %215
-  %217 = getelementptr inbounds i8, ptr %208, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %218 = load i32, ptr %217, align 8
   %219 = and i32 %216, %218
   br i1 %165, label %220, label %._crit_edge1301
@@ -25588,21 +25588,21 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %353 = mul nsw i32 %352, %28
   %354 = shl nuw nsw i64 %indvars.iv1231, 2
   %355 = mul nuw nsw i64 %indvars.iv1231, 3
-  %356 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %355
+  %356 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %355
   %357 = load float, ptr %356, align 4
   %358 = add nuw nsw i64 %355, 1
-  %359 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %358
   %360 = load float, ptr %359, align 4
   %361 = add nuw nsw i64 %355, 2
-  %362 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %361
+  %362 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %361
   %363 = load float, ptr %362, align 4
-  %364 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1231
+  %364 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1231
   %365 = load i32, ptr %364, align 4
-  %366 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1231
+  %366 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1231
   %367 = load float, ptr %366, align 4
-  %368 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %355
-  %369 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %358
-  %370 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %361
+  %368 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %355
+  %369 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %358
+  %370 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %361
   %.promoted1134 = load float, ptr %368, align 4
   %.promoted1136 = load float, ptr %369, align 4
   %.promoted1138 = load float, ptr %370, align 4
@@ -25647,7 +25647,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %404 = fmul float %401, %403
   %405 = fmul float %404, %404
   %406 = load ptr, ptr %45, align 8
-  %407 = getelementptr inbounds i8, ptr %406, i64 8
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %408 = load ptr, ptr %407, align 8
   %409 = getelementptr inbounds i32, ptr %408, i64 %349
   %410 = load i32, ptr %409, align 4
@@ -25655,7 +25655,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %412 = trunc nuw nsw i64 %indvars.iv1227 to i32
   %413 = mul nsw i32 %411, %412
   %414 = ashr i32 %410, %413
-  %415 = getelementptr inbounds i8, ptr %406, i64 32
+  %415 = getelementptr inbounds nuw i8, ptr %406, i64 32
   %416 = load i32, ptr %415, align 8
   %417 = and i32 %414, %416
   %418 = getelementptr inbounds i32, ptr %34, i64 %383
@@ -25809,19 +25809,19 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %546 = mul nsw i32 %545, %28
   %547 = shl nuw nsw i64 %indvars.iv1223, 2
   %548 = mul nuw nsw i64 %indvars.iv1223, 3
-  %549 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %548
+  %549 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %548
   %550 = load float, ptr %549, align 4
   %551 = add nuw nsw i64 %548, 1
-  %552 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %551
+  %552 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %551
   %553 = load float, ptr %552, align 4
   %554 = add nuw nsw i64 %548, 2
-  %555 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %554
+  %555 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %554
   %556 = load float, ptr %555, align 4
-  %557 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1223
+  %557 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1223
   %558 = load i32, ptr %557, align 4
-  %559 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %548
-  %560 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %551
-  %561 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %554
+  %559 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %548
+  %560 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %551
+  %561 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %554
   %.promoted = load float, ptr %559, align 4
   %.promoted1128 = load float, ptr %560, align 4
   %.promoted1130 = load float, ptr %561, align 4
@@ -25863,7 +25863,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %592 = fmul float %589, %591
   %593 = fmul float %592, %592
   %594 = load ptr, ptr %45, align 8
-  %595 = getelementptr inbounds i8, ptr %594, i64 8
+  %595 = getelementptr inbounds nuw i8, ptr %594, i64 8
   %596 = load ptr, ptr %595, align 8
   %597 = getelementptr inbounds i32, ptr %596, i64 %542
   %598 = load i32, ptr %597, align 4
@@ -25871,7 +25871,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %600 = trunc nuw nsw i64 %indvars.iv1219 to i32
   %601 = mul nsw i32 %599, %600
   %602 = ashr i32 %598, %601
-  %603 = getelementptr inbounds i8, ptr %594, i64 32
+  %603 = getelementptr inbounds nuw i8, ptr %594, i64 32
   %604 = load i32, ptr %603, align 8
   %605 = and i32 %602, %604
   %606 = getelementptr inbounds i32, ptr %34, i64 %572
@@ -26010,22 +26010,22 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %700 = load i32, ptr %gep1354, align 4
   %701 = mul nsw i32 %700, %28
   %702 = mul nuw nsw i64 %indvars.iv1276, 3
-  %703 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %702
+  %703 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %702
   %704 = load float, ptr %703, align 4
   %705 = add nuw nsw i64 %702, 1
-  %706 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %705
+  %706 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %705
   %707 = load float, ptr %706, align 4
   %708 = add nuw nsw i64 %702, 2
-  %709 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %708
+  %709 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %708
   %710 = load float, ptr %709, align 4
   %711 = icmp samesign ult i64 %indvars.iv1276, 2
-  %712 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1276
+  %712 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1276
   %713 = load float, ptr %712, align 4
-  %714 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1276
+  %714 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1276
   %715 = load i32, ptr %714, align 4
-  %716 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %702
-  %717 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %705
-  %718 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %708
+  %716 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %702
+  %717 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %705
+  %718 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %708
   %.promoted1169.us = load float, ptr %716, align 4
   %.promoted1171.us = load float, ptr %717, align 4
   %.promoted1173.us = load float, ptr %718, align 4
@@ -26069,7 +26069,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %744 = fmul float %741, %743
   %745 = fmul float %744, %744
   %746 = load ptr, ptr %45, align 8
-  %747 = getelementptr inbounds i8, ptr %746, i64 8
+  %747 = getelementptr inbounds nuw i8, ptr %746, i64 8
   %748 = load ptr, ptr %747, align 8
   %749 = getelementptr inbounds i32, ptr %748, i64 %697
   %750 = load i32, ptr %749, align 4
@@ -26077,7 +26077,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %752 = trunc nuw nsw i64 %indvars.iv1272 to i32
   %753 = mul nsw i32 %751, %752
   %754 = ashr i32 %750, %753
-  %755 = getelementptr inbounds i8, ptr %746, i64 32
+  %755 = getelementptr inbounds nuw i8, ptr %746, i64 32
   %756 = load i32, ptr %755, align 8
   %757 = and i32 %754, %756
   br i1 %711, label %758, label %._crit_edge1302
@@ -26245,21 +26245,21 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %884 = load i32, ptr %gep1352, align 4
   %885 = mul nsw i32 %884, %28
   %886 = mul nuw nsw i64 %indvars.iv1263, 3
-  %887 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %886
+  %887 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %886
   %888 = load float, ptr %887, align 4
   %889 = add nuw nsw i64 %886, 1
-  %890 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %889
+  %890 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %889
   %891 = load float, ptr %890, align 4
   %892 = add nuw nsw i64 %886, 2
-  %893 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %892
+  %893 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %892
   %894 = load float, ptr %893, align 4
-  %895 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1263
+  %895 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1263
   %896 = load i32, ptr %895, align 4
-  %897 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1263
+  %897 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1263
   %898 = load float, ptr %897, align 4
-  %899 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %886
-  %900 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %889
-  %901 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %892
+  %899 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %886
+  %900 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %889
+  %901 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %892
   %.promoted1161.us = load float, ptr %899, align 4
   %.promoted1163.us = load float, ptr %900, align 4
   %.promoted1165.us = load float, ptr %901, align 4
@@ -26303,7 +26303,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %927 = fmul float %924, %926
   %928 = fmul float %927, %927
   %929 = load ptr, ptr %45, align 8
-  %930 = getelementptr inbounds i8, ptr %929, i64 8
+  %930 = getelementptr inbounds nuw i8, ptr %929, i64 8
   %931 = load ptr, ptr %930, align 8
   %932 = getelementptr inbounds i32, ptr %931, i64 %881
   %933 = load i32, ptr %932, align 4
@@ -26311,7 +26311,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %935 = trunc nuw nsw i64 %indvars.iv1259 to i32
   %936 = mul nsw i32 %934, %935
   %937 = ashr i32 %933, %936
-  %938 = getelementptr inbounds i8, ptr %929, i64 32
+  %938 = getelementptr inbounds nuw i8, ptr %929, i64 32
   %939 = load i32, ptr %938, align 8
   %940 = and i32 %937, %939
   %941 = getelementptr inbounds i32, ptr %34, i64 %907
@@ -26460,19 +26460,19 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %1064 = load i32, ptr %gep1350, align 4
   %1065 = mul nsw i32 %1064, %28
   %1066 = mul nuw nsw i64 %indvars.iv1251, 3
-  %1067 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1066
+  %1067 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1066
   %1068 = load float, ptr %1067, align 4
   %1069 = add nuw nsw i64 %1066, 1
-  %1070 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1069
+  %1070 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1069
   %1071 = load float, ptr %1070, align 4
   %1072 = add nuw nsw i64 %1066, 2
-  %1073 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1072
+  %1073 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1072
   %1074 = load float, ptr %1073, align 4
-  %1075 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1251
+  %1075 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1251
   %1076 = load i32, ptr %1075, align 4
-  %1077 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1066
-  %1078 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1069
-  %1079 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1072
+  %1077 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1066
+  %1078 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1069
+  %1079 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1072
   %.promoted1153 = load float, ptr %1077, align 4
   %.promoted1155 = load float, ptr %1078, align 4
   %.promoted1157 = load float, ptr %1079, align 4
@@ -26508,7 +26508,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %1104 = fmul float %1101, %1103
   %1105 = fmul float %1104, %1104
   %1106 = load ptr, ptr %45, align 8
-  %1107 = getelementptr inbounds i8, ptr %1106, i64 8
+  %1107 = getelementptr inbounds nuw i8, ptr %1106, i64 8
   %1108 = load ptr, ptr %1107, align 8
   %1109 = getelementptr inbounds i32, ptr %1108, i64 %1061
   %1110 = load i32, ptr %1109, align 4
@@ -26516,7 +26516,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %1112 = trunc nuw nsw i64 %indvars.iv1247 to i32
   %1113 = mul nsw i32 %1111, %1112
   %1114 = ashr i32 %1110, %1113
-  %1115 = getelementptr inbounds i8, ptr %1106, i64 32
+  %1115 = getelementptr inbounds nuw i8, ptr %1106, i64 32
   %1116 = load i32, ptr %1115, align 8
   %1117 = and i32 %1114, %1116
   %1118 = getelementptr inbounds i32, ptr %34, i64 %1084
@@ -26636,7 +26636,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
 1203:                                             ; preds = %.preheader1111, %1203
   %indvars.iv1285 = phi i64 [ 0, %.preheader1111 ], [ %indvars.iv.next1286, %1203 ]
   %1204 = add nuw nsw i64 %indvars.iv1285, %1201
-  %1205 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1204
+  %1205 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1204
   %1206 = load float, ptr %1205, align 4
   %gep1356 = getelementptr float, ptr %invariant.gep1355, i64 %indvars.iv1285
   %1207 = load float, ptr %gep1356, align 4
@@ -26656,7 +26656,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
 
 .preheader.preheader:                             ; preds = %1210
   %1211 = zext nneg i32 %78 to i64
-  %invariant.gep1357 = getelementptr inbounds float, ptr %13, i64 %1211
+  %invariant.gep1357 = getelementptr inbounds nuw float, ptr %13, i64 %1211
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1219
@@ -26667,9 +26667,9 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
 1213:                                             ; preds = %.preheader, %1213
   %indvars.iv1293 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1294, %1213 ]
   %1214 = add nuw nsw i64 %indvars.iv1293, %1212
-  %1215 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1214
+  %1215 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1214
   %1216 = load float, ptr %1215, align 4
-  %gep1358 = getelementptr inbounds float, ptr %invariant.gep1357, i64 %indvars.iv1293
+  %gep1358 = getelementptr inbounds nuw float, ptr %invariant.gep1357, i64 %indvars.iv1293
   %1217 = load float, ptr %gep1358, align 4
   %1218 = fadd float %1216, %1217
   store float %1218, ptr %gep1358, align 4
@@ -26683,7 +26683,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJFsw_VgrpF_refPK16NbnxnPairlistCpuPK
   br i1 %exitcond1300.not, label %.loopexit1119, label %.preheader, !llvm.loop !446
 
 .loopexit1119:                                    ; preds = %1219, %1210
-  %1220 = getelementptr inbounds i8, ptr %.sroa.01101.01185, i64 16
+  %1220 = getelementptr inbounds nuw i8, ptr %.sroa.01101.01185, i64 16
   %.not1105 = icmp eq ptr %1220, %44
   br i1 %.not1105, label %._crit_edge, label %56
 
@@ -26696,64 +26696,64 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %14 = load float, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %18 = load float, ptr %17, align 8
   %19 = fmul float %14, 3.000000e+00
   %20 = fmul float %16, 4.000000e+00
   %21 = fmul float %18, 5.000000e+00
-  %22 = getelementptr inbounds i8, ptr %2, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %23 = load ptr, ptr %22, align 8
   %24 = load float, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 76
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %28 = load float, ptr %27, align 4
   %29 = fmul float %28, %28
   %30 = load i32, ptr %1, align 8
   %31 = shl nsw i32 %30, 1
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 176
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 108
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %39 = load float, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 288
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load ptr, ptr %46, align 8
   %.not918994 = icmp eq ptr %45, %47
   br i1 %.not918994, label %._crit_edge, label %.lr.ph996
 
 .lr.ph996:                                        ; preds = %5
-  %48 = getelementptr inbounds i8, ptr %2, i64 44
-  %49 = getelementptr inbounds i8, ptr %2, i64 32
-  %50 = getelementptr inbounds i8, ptr %2, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %.not880 = icmp eq ptr %12, null
   br label %51
 
 51:                                               ; preds = %.lr.ph996, %.loopexit932
   %.sroa.0914.0995 = phi ptr [ %45, %.lr.ph996 ], [ %880, %.loopexit932 ]
-  %52 = getelementptr inbounds i8, ptr %.sroa.0914.0995, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0914.0995, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 127
   %55 = mul nuw nsw i32 %54, 3
-  %56 = getelementptr inbounds i8, ptr %.sroa.0914.0995, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0914.0995, i64 8
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.sroa.0914.0995, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0914.0995, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %.sroa.0914.0995, align 4
   %61 = icmp eq i32 %54, 22
@@ -26766,7 +26766,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %66 = zext nneg i32 %55 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %67 = sext i32 %65 to i64
-  %invariant.gep1142 = getelementptr inbounds float, ptr %3, i64 %66
+  %invariant.gep1142 = getelementptr inbounds nuw float, ptr %3, i64 %66
   br label %.preheader930
 
 .preheader934:                                    ; preds = %229
@@ -26799,7 +26799,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
 74:                                               ; preds = %.lr.ph.split.us
   %75 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv1050
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %75, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %78 = icmp eq i32 %76, %68
   %79 = shl nsw i32 %76, 2
   %80 = sext i32 %79 to i64
@@ -26812,20 +26812,20 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %83 = mul nsw i32 %82, %31
   %84 = shl nuw nsw i64 %indvars.iv1046, 2
   %85 = mul nuw nsw i64 %indvars.iv1046, 3
-  %86 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %85
   %87 = load float, ptr %86, align 4
   %88 = add nuw nsw i64 %85, 1
-  %89 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %88
   %90 = load float, ptr %89, align 4
   %91 = add nuw nsw i64 %85, 2
-  %92 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %91
   %93 = load float, ptr %92, align 4
   %94 = icmp samesign ult i64 %indvars.iv1046, 2
-  %95 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1046
+  %95 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1046
   %96 = load float, ptr %95, align 4
-  %97 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %85
-  %98 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %88
-  %99 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %91
+  %97 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %85
+  %98 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %88
+  %99 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %91
   %.promoted951.us = load float, ptr %97, align 4
   %.promoted953.us = load float, ptr %98, align 4
   %.promoted955.us = load float, ptr %99, align 4
@@ -26996,11 +26996,11 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %indvars.iv = phi i64 [ 0, %.preheader930 ], [ %indvars.iv.next, %223 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %224 = load float, ptr %gep, align 4
-  %gep1143 = getelementptr inbounds float, ptr %invariant.gep1142, i64 %indvars.iv
+  %gep1143 = getelementptr inbounds nuw float, ptr %invariant.gep1142, i64 %indvars.iv
   %225 = load float, ptr %gep1143, align 4
   %226 = fadd float %224, %225
   %227 = add nuw nsw i64 %indvars.iv, %222
-  %228 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %227
   store float %226, ptr %228, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -27010,7 +27010,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %230 = getelementptr inbounds float, ptr %35, i64 %221
   %231 = load float, ptr %230, align 4
   %232 = fmul float %39, %231
-  %233 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %233 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %232, ptr %233, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1021.not = icmp eq i64 %indvar.next, 4
@@ -27027,7 +27027,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
 237:                                              ; preds = %.lr.ph.split
   %238 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv1038
   %239 = load i32, ptr %238, align 4
-  %240 = getelementptr inbounds i8, ptr %238, i64 4
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 4
   br i1 %63, label %241, label %381
 
 241:                                              ; preds = %237
@@ -27043,19 +27043,19 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %247 = mul nsw i32 %246, %31
   %248 = shl nuw nsw i64 %indvars.iv1034, 2
   %249 = mul nuw nsw i64 %indvars.iv1034, 3
-  %250 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %249
   %251 = load float, ptr %250, align 4
   %252 = add nuw nsw i64 %249, 1
-  %253 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %252
   %254 = load float, ptr %253, align 4
   %255 = add nuw nsw i64 %249, 2
-  %256 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %255
   %257 = load float, ptr %256, align 4
-  %258 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1034
+  %258 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1034
   %259 = load float, ptr %258, align 4
-  %260 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %249
-  %261 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %252
-  %262 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %255
+  %260 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %249
+  %261 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %252
+  %262 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %255
   %.promoted943 = load float, ptr %260, align 4
   %.promoted945 = load float, ptr %261, align 4
   %.promoted947 = load float, ptr %262, align 4
@@ -27208,17 +27208,17 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %386 = mul nsw i32 %385, %31
   %387 = shl nuw nsw i64 %indvars.iv1026, 2
   %388 = mul nuw nsw i64 %indvars.iv1026, 3
-  %389 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %388
+  %389 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %388
   %390 = load float, ptr %389, align 4
   %391 = add nuw nsw i64 %388, 1
-  %392 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %391
   %393 = load float, ptr %392, align 4
   %394 = add nuw nsw i64 %388, 2
-  %395 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %394
   %396 = load float, ptr %395, align 4
-  %397 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %388
-  %398 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %391
-  %399 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %394
+  %397 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %388
+  %398 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %391
+  %399 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %394
   %.promoted = load float, ptr %397, align 4
   %.promoted937 = load float, ptr %398, align 4
   %.promoted939 = load float, ptr %399, align 4
@@ -27374,20 +27374,20 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %503 = load i32, ptr %gep1155, align 4
   %504 = mul nsw i32 %503, %31
   %505 = mul nuw nsw i64 %indvars.iv1084, 3
-  %506 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %505
+  %506 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %505
   %507 = load float, ptr %506, align 4
   %508 = add nuw nsw i64 %505, 1
-  %509 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %508
+  %509 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %508
   %510 = load float, ptr %509, align 4
   %511 = add nuw nsw i64 %505, 2
-  %512 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %511
+  %512 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %511
   %513 = load float, ptr %512, align 4
   %514 = icmp samesign ult i64 %indvars.iv1084, 2
-  %515 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1084
+  %515 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1084
   %516 = load float, ptr %515, align 4
-  %517 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %505
-  %518 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %508
-  %519 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %511
+  %517 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %505
+  %518 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %508
+  %519 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %511
   %.promoted979.us = load float, ptr %517, align 4
   %.promoted981.us = load float, ptr %518, align 4
   %.promoted983.us = load float, ptr %519, align 4
@@ -27551,19 +27551,19 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %634 = load i32, ptr %gep1153, align 4
   %635 = mul nsw i32 %634, %31
   %636 = mul nuw nsw i64 %indvars.iv1071, 3
-  %637 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %636
+  %637 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %636
   %638 = load float, ptr %637, align 4
   %639 = add nuw nsw i64 %636, 1
-  %640 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %639
+  %640 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %639
   %641 = load float, ptr %640, align 4
   %642 = add nuw nsw i64 %636, 2
-  %643 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %642
+  %643 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %642
   %644 = load float, ptr %643, align 4
-  %645 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1071
+  %645 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1071
   %646 = load float, ptr %645, align 4
-  %647 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %636
-  %648 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %639
-  %649 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %642
+  %647 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %636
+  %648 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %639
+  %649 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %642
   %.promoted971.us = load float, ptr %647, align 4
   %.promoted973.us = load float, ptr %648, align 4
   %.promoted975.us = load float, ptr %649, align 4
@@ -27711,17 +27711,17 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   %761 = load i32, ptr %gep1151, align 4
   %762 = mul nsw i32 %761, %31
   %763 = mul nuw nsw i64 %indvars.iv1058, 3
-  %764 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %763
+  %764 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %763
   %765 = load float, ptr %764, align 4
   %766 = add nuw nsw i64 %763, 1
-  %767 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %766
+  %767 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %766
   %768 = load float, ptr %767, align 4
   %769 = add nuw nsw i64 %763, 2
-  %770 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %769
+  %770 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %769
   %771 = load float, ptr %770, align 4
-  %772 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %763
-  %773 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %766
-  %774 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %769
+  %772 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %763
+  %773 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %766
+  %774 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %769
   %.promoted963 = load float, ptr %772, align 4
   %.promoted965 = load float, ptr %773, align 4
   %.promoted967 = load float, ptr %774, align 4
@@ -27849,7 +27849,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
 863:                                              ; preds = %.preheader924, %863
   %indvars.iv1093 = phi i64 [ 0, %.preheader924 ], [ %indvars.iv.next1094, %863 ]
   %864 = add nuw nsw i64 %indvars.iv1093, %861
-  %865 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %864
+  %865 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %864
   %866 = load float, ptr %865, align 4
   %gep1157 = getelementptr float, ptr %invariant.gep1156, i64 %indvars.iv1093
   %867 = load float, ptr %gep1157, align 4
@@ -27869,7 +27869,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
 
 .preheader.preheader:                             ; preds = %870
   %871 = zext nneg i32 %55 to i64
-  %invariant.gep1158 = getelementptr inbounds float, ptr %12, i64 %871
+  %invariant.gep1158 = getelementptr inbounds nuw float, ptr %12, i64 %871
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %879
@@ -27880,9 +27880,9 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
 873:                                              ; preds = %.preheader, %873
   %indvars.iv1101 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1102, %873 ]
   %874 = add nuw nsw i64 %indvars.iv1101, %872
-  %875 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %874
+  %875 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %874
   %876 = load float, ptr %875, align 4
-  %gep1159 = getelementptr inbounds float, ptr %invariant.gep1158, i64 %indvars.iv1101
+  %gep1159 = getelementptr inbounds nuw float, ptr %invariant.gep1158, i64 %indvars.iv1101
   %877 = load float, ptr %gep1159, align 4
   %878 = fadd float %876, %877
   store float %878, ptr %gep1159, align 4
@@ -27896,7 +27896,7 @@ define void @_Z37nbnxn_kernel_ElecQSTab_VdwLJPsw_F_refPK16NbnxnPairlistCpuPK16nb
   br i1 %exitcond1108.not, label %.loopexit932, label %.preheader, !llvm.loop !466
 
 .loopexit932:                                     ; preds = %879, %870
-  %880 = getelementptr inbounds i8, ptr %.sroa.0914.0995, i64 16
+  %880 = getelementptr inbounds nuw i8, ptr %.sroa.0914.0995, i64 16
   %.not918 = icmp eq ptr %880, %47
   br i1 %.not918, label %._crit_edge, label %51
 
@@ -27909,71 +27909,71 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %18 = load float, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %22 = load float, ptr %21, align 8
   %23 = fmul float %18, 3.000000e+00
   %24 = fmul float %20, 4.000000e+00
   %25 = fmul float %22, 5.000000e+00
-  %26 = getelementptr inbounds i8, ptr %2, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %27 = load ptr, ptr %26, align 8
   %28 = load float, ptr %27, align 8
   %29 = fdiv float 5.000000e-01, %28
-  %30 = getelementptr inbounds i8, ptr %27, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %33 = load float, ptr %32, align 4
   %34 = fmul float %33, %33
   %35 = load i32, ptr %1, align 8
   %36 = shl nsw i32 %35, 1
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 176
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 108
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %1, i64 288
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %52 = load ptr, ptr %51, align 8
   %.not10281145 = icmp eq ptr %50, %52
   br i1 %.not10281145, label %._crit_edge, label %.lr.ph1147
 
 .lr.ph1147:                                       ; preds = %5
-  %53 = getelementptr inbounds i8, ptr %31, i64 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 44
-  %55 = getelementptr inbounds i8, ptr %2, i64 32
-  %56 = getelementptr inbounds i8, ptr %2, i64 20
-  %57 = getelementptr inbounds i8, ptr %2, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not990 = icmp eq ptr %12, null
   br label %58
 
 58:                                               ; preds = %.lr.ph1147, %.loopexit1042
   %.sroa.01024.01146 = phi ptr [ %50, %.lr.ph1147 ], [ %974, %.loopexit1042 ]
-  %59 = getelementptr inbounds i8, ptr %.sroa.01024.01146, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.01024.01146, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 127
   %62 = mul nuw nsw i32 %61, 3
-  %63 = getelementptr inbounds i8, ptr %.sroa.01024.01146, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.01024.01146, i64 8
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.sroa.01024.01146, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.01024.01146, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %.sroa.01024.01146, align 4
   %68 = icmp eq i32 %61, 22
@@ -27984,7 +27984,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %72 = zext nneg i32 %62 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %73 = sext i32 %71 to i64
-  %invariant.gep1308 = getelementptr inbounds float, ptr %3, i64 %72
+  %invariant.gep1308 = getelementptr inbounds nuw float, ptr %3, i64 %72
   br label %.preheader1040
 
 .preheader1040:                                   ; preds = %58, %82
@@ -27999,11 +27999,11 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %indvars.iv = phi i64 [ 0, %.preheader1040 ], [ %indvars.iv.next, %76 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %77 = load float, ptr %gep, align 4
-  %gep1309 = getelementptr inbounds float, ptr %invariant.gep1308, i64 %indvars.iv
+  %gep1309 = getelementptr inbounds nuw float, ptr %invariant.gep1308, i64 %indvars.iv
   %78 = load float, ptr %gep1309, align 4
   %79 = fadd float %77, %78
   %80 = add nuw nsw i64 %indvars.iv, %75
-  %81 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %80
   store float %79, ptr %81, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -28013,7 +28013,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %83 = getelementptr inbounds float, ptr %40, i64 %74
   %84 = load float, ptr %83, align 4
   %85 = fmul float %44, %84
-  %86 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %86 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %85, ptr %86, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1179.not = icmp eq i64 %indvar.next, 4
@@ -28042,7 +28042,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
 97:                                               ; preds = %.preheader1044, %97
   %indvars.iv1180 = phi i64 [ 0, %.preheader1044 ], [ %indvars.iv.next1181, %97 ]
   %98 = phi float [ %.promoted, %.preheader1044 ], [ %104, %97 ]
-  %99 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1180
+  %99 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1180
   %100 = load float, ptr %99, align 4
   %gep1311 = getelementptr float, ptr %invariant.gep1310, i64 %indvars.iv1180
   %101 = load float, ptr %gep1311, align 4
@@ -28078,7 +28078,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
 111:                                              ; preds = %107
   %112 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %48, i64 %indvars.iv1208
   %113 = load i32, ptr %112, align 4
-  %114 = getelementptr inbounds i8, ptr %112, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 4
   br i1 %spec.select, label %115, label %276
 
 115:                                              ; preds = %111
@@ -28096,20 +28096,20 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %121 = mul nsw i32 %120, %36
   %122 = shl nuw nsw i64 %indvars.iv1204, 2
   %123 = mul nuw nsw i64 %indvars.iv1204, 3
-  %124 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %123
   %125 = load float, ptr %124, align 4
   %126 = add nuw nsw i64 %123, 1
-  %127 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %126
   %128 = load float, ptr %127, align 4
   %129 = add nuw nsw i64 %123, 2
-  %130 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %129
   %131 = load float, ptr %130, align 4
   %132 = icmp samesign ult i64 %indvars.iv1204, 2
-  %133 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1204
+  %133 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1204
   %134 = load float, ptr %133, align 4
-  %135 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %123
-  %136 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %126
-  %137 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %129
+  %135 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %123
+  %136 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %126
+  %137 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %129
   %.promoted1070 = load float, ptr %135, align 4
   %.promoted1072 = load float, ptr %136, align 4
   %.promoted1074 = load float, ptr %137, align 4
@@ -28301,19 +28301,19 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %283 = mul nsw i32 %282, %36
   %284 = shl nuw nsw i64 %indvars.iv1196, 2
   %285 = mul nuw nsw i64 %indvars.iv1196, 3
-  %286 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %285
   %287 = load float, ptr %286, align 4
   %288 = add nuw nsw i64 %285, 1
-  %289 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %288
   %290 = load float, ptr %289, align 4
   %291 = add nuw nsw i64 %285, 2
-  %292 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %291
+  %292 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %291
   %293 = load float, ptr %292, align 4
-  %294 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1196
+  %294 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1196
   %295 = load float, ptr %294, align 4
-  %296 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %285
-  %297 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %288
-  %298 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %291
+  %296 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %285
+  %297 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %288
+  %298 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %291
   %.promoted1058 = load float, ptr %296, align 4
   %.promoted1060 = load float, ptr %297, align 4
   %.promoted1062 = load float, ptr %298, align 4
@@ -28486,17 +28486,17 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %439 = mul nsw i32 %438, %36
   %440 = shl nuw nsw i64 %indvars.iv1188, 2
   %441 = mul nuw nsw i64 %indvars.iv1188, 3
-  %442 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %441
+  %442 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %441
   %443 = load float, ptr %442, align 4
   %444 = add nuw nsw i64 %441, 1
-  %445 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %444
+  %445 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %444
   %446 = load float, ptr %445, align 4
   %447 = add nuw nsw i64 %441, 2
-  %448 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %447
+  %448 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %447
   %449 = load float, ptr %448, align 4
-  %450 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %441
-  %451 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %444
-  %452 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %447
+  %450 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %441
+  %451 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %444
+  %452 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %447
   %.promoted1049 = load float, ptr %450, align 4
   %.promoted1050 = load float, ptr %451, align 4
   %.promoted1052 = load float, ptr %452, align 4
@@ -28660,20 +28660,20 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %558 = load i32, ptr %gep1323, align 4
   %559 = mul nsw i32 %558, %36
   %560 = mul nuw nsw i64 %indvars.iv1241, 3
-  %561 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %560
+  %561 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %560
   %562 = load float, ptr %561, align 4
   %563 = add nuw nsw i64 %560, 1
-  %564 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %563
+  %564 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %563
   %565 = load float, ptr %564, align 4
   %566 = add nuw nsw i64 %560, 2
-  %567 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %566
+  %567 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %566
   %568 = load float, ptr %567, align 4
   %569 = icmp samesign ult i64 %indvars.iv1241, 2
-  %570 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1241
+  %570 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1241
   %571 = load float, ptr %570, align 4
-  %572 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %560
-  %573 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %563
-  %574 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %566
+  %572 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %560
+  %573 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %563
+  %574 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %566
   %.promoted1113.us = load float, ptr %572, align 4
   %.promoted1115.us = load float, ptr %573, align 4
   %.promoted1117.us = load float, ptr %574, align 4
@@ -28860,19 +28860,19 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %705 = load i32, ptr %gep1321, align 4
   %706 = mul nsw i32 %705, %36
   %707 = mul nuw nsw i64 %indvars.iv1228, 3
-  %708 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %707
+  %708 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %707
   %709 = load float, ptr %708, align 4
   %710 = add nuw nsw i64 %707, 1
-  %711 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %710
+  %711 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %710
   %712 = load float, ptr %711, align 4
   %713 = add nuw nsw i64 %707, 2
-  %714 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %713
+  %714 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %713
   %715 = load float, ptr %714, align 4
-  %716 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1228
+  %716 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1228
   %717 = load float, ptr %716, align 4
-  %718 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %707
-  %719 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %710
-  %720 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %713
+  %718 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %707
+  %719 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %710
+  %720 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %713
   %.promoted1101.us = load float, ptr %718, align 4
   %.promoted1103.us = load float, ptr %719, align 4
   %.promoted1105.us = load float, ptr %720, align 4
@@ -29045,17 +29045,17 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %848 = load i32, ptr %gep1319, align 4
   %849 = mul nsw i32 %848, %36
   %850 = mul nuw nsw i64 %indvars.iv1216, 3
-  %851 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %850
+  %851 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %850
   %852 = load float, ptr %851, align 4
   %853 = add nuw nsw i64 %850, 1
-  %854 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %853
+  %854 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %853
   %855 = load float, ptr %854, align 4
   %856 = add nuw nsw i64 %850, 2
-  %857 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %856
+  %857 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %856
   %858 = load float, ptr %857, align 4
-  %859 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %850
-  %860 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %853
-  %861 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %856
+  %859 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %850
+  %860 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %853
+  %861 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %856
   %.promoted1091 = load float, ptr %859, align 4
   %.promoted1093 = load float, ptr %860, align 4
   %.promoted1095 = load float, ptr %861, align 4
@@ -29184,7 +29184,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
 953:                                              ; preds = %.preheader1034, %953
   %indvars.iv1250 = phi i64 [ 0, %.preheader1034 ], [ %indvars.iv.next1251, %953 ]
   %954 = add nuw nsw i64 %indvars.iv1250, %951
-  %955 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %954
+  %955 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %954
   %956 = load float, ptr %955, align 4
   %gep1325 = getelementptr float, ptr %invariant.gep1324, i64 %indvars.iv1250
   %957 = load float, ptr %gep1325, align 4
@@ -29204,7 +29204,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 .preheader.preheader:                             ; preds = %960
   %961 = zext nneg i32 %62 to i64
-  %invariant.gep1326 = getelementptr inbounds float, ptr %12, i64 %961
+  %invariant.gep1326 = getelementptr inbounds nuw float, ptr %12, i64 %961
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %969
@@ -29215,9 +29215,9 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
 963:                                              ; preds = %.preheader, %963
   %indvars.iv1258 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1259, %963 ]
   %964 = add nuw nsw i64 %indvars.iv1258, %962
-  %965 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %964
+  %965 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %964
   %966 = load float, ptr %965, align 4
-  %gep1327 = getelementptr inbounds float, ptr %invariant.gep1326, i64 %indvars.iv1258
+  %gep1327 = getelementptr inbounds nuw float, ptr %invariant.gep1326, i64 %indvars.iv1258
   %967 = load float, ptr %gep1327, align 4
   %968 = fadd float %966, %967
   store float %968, ptr %gep1327, align 4
@@ -29237,7 +29237,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %972 = load float, ptr %16, align 4
   %973 = fadd float %.6962.lcssa, %972
   store float %973, ptr %16, align 4
-  %974 = getelementptr inbounds i8, ptr %.sroa.01024.01146, i64 16
+  %974 = getelementptr inbounds nuw i8, ptr %.sroa.01024.01146, i64 16
   %.not1028 = icmp eq ptr %974, %52
   br i1 %.not1028, label %._crit_edge, label %58
 
@@ -29251,72 +29251,72 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %19 = load float, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %23 = load float, ptr %22, align 8
   %24 = fmul float %19, 3.000000e+00
   %25 = fmul float %21, 4.000000e+00
   %26 = fmul float %23, 5.000000e+00
-  %27 = getelementptr inbounds i8, ptr %2, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = load float, ptr %28, align 8
   %30 = fdiv float 5.000000e-01, %29
-  %31 = getelementptr inbounds i8, ptr %28, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 76
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %34 = load float, ptr %33, align 4
   %35 = fmul float %34, %34
   %36 = load i32, ptr %1, align 8
   %37 = shl nsw i32 %36, 1
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 176
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 108
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %1, i64 288
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 128
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %53 = load ptr, ptr %52, align 8
   %.not10631142 = icmp eq ptr %51, %53
   br i1 %.not10631142, label %._crit_edge, label %.lr.ph1144
 
 .lr.ph1144:                                       ; preds = %5
-  %54 = getelementptr inbounds i8, ptr %1, i64 208
-  %55 = getelementptr inbounds i8, ptr %1, i64 200
-  %56 = getelementptr inbounds i8, ptr %32, i64 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 44
-  %58 = getelementptr inbounds i8, ptr %2, i64 32
-  %59 = getelementptr inbounds i8, ptr %2, i64 20
-  %60 = getelementptr inbounds i8, ptr %2, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %56 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1023 = icmp eq ptr %13, null
   br label %61
 
 61:                                               ; preds = %.lr.ph1144, %.loopexit1077
   %.sroa.01059.01143 = phi ptr [ %51, %.lr.ph1144 ], [ %1129, %.loopexit1077 ]
-  %62 = getelementptr inbounds i8, ptr %.sroa.01059.01143, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.01059.01143, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 127
-  %65 = getelementptr inbounds i8, ptr %.sroa.01059.01143, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.01059.01143, i64 8
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %.sroa.01059.01143, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.01059.01143, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = load i32, ptr %.sroa.01059.01143, align 4
   %70 = icmp eq i32 %64, 22
@@ -29324,13 +29324,13 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %72 = and i32 %63, 384
   %or.cond = icmp ne i32 %72, 128
   %73 = load ptr, ptr %54, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = sext i32 %69 to i64
   %76 = load ptr, ptr %74, align 8
   %77 = getelementptr inbounds i32, ptr %76, i64 %75
   %78 = load i32, ptr %77, align 4
   %79 = load i32, ptr %73, align 8
-  %80 = getelementptr inbounds i8, ptr %73, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %81 = load i32, ptr %80, align 8
   %82 = load i32, ptr %55, align 8
   br label %88
@@ -29342,7 +29342,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %86 = zext nneg i32 %83 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %87 = sext i32 %85 to i64
-  %invariant.gep1297 = getelementptr inbounds float, ptr %3, i64 %86
+  %invariant.gep1297 = getelementptr inbounds nuw float, ptr %3, i64 %86
   br label %.preheader1075
 
 88:                                               ; preds = %61, %88
@@ -29352,7 +29352,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %91 = ashr i32 %78, %90
   %92 = and i32 %91, %81
   %93 = mul nsw i32 %92, %82
-  %94 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %93, ptr %94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -29370,11 +29370,11 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %indvars.iv1167 = phi i64 [ 0, %.preheader1075 ], [ %indvars.iv.next1168, %97 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1167
   %98 = load float, ptr %gep, align 4
-  %gep1298 = getelementptr inbounds float, ptr %invariant.gep1297, i64 %indvars.iv1167
+  %gep1298 = getelementptr inbounds nuw float, ptr %invariant.gep1297, i64 %indvars.iv1167
   %99 = load float, ptr %gep1298, align 4
   %100 = fadd float %98, %99
   %101 = add nuw nsw i64 %indvars.iv1167, %96
-  %102 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %101
   store float %100, ptr %102, align 4
   %indvars.iv.next1168 = add nuw nsw i64 %indvars.iv1167, 1
   %exitcond1170.not = icmp eq i64 %indvars.iv.next1168, 3
@@ -29384,7 +29384,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %104 = getelementptr inbounds float, ptr %41, i64 %95
   %105 = load float, ptr %104, align 4
   %106 = fmul float %45, %105
-  %107 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %107 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %106, ptr %107, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1172.not = icmp eq i64 %indvar.next, 4
@@ -29410,10 +29410,10 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
 
 117:                                              ; preds = %.preheader1079, %117
   %indvars.iv1173 = phi i64 [ 0, %.preheader1079 ], [ %indvars.iv.next1174, %117 ]
-  %118 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1173
+  %118 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1173
   %119 = load i32, ptr %118, align 4
   %120 = load ptr, ptr %54, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i32, ptr %122, i64 %75
   %124 = load i32, ptr %123, align 4
@@ -29421,11 +29421,11 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %126 = trunc nuw nsw i64 %indvars.iv1173 to i32
   %127 = mul nsw i32 %125, %126
   %128 = ashr i32 %124, %127
-  %129 = getelementptr inbounds i8, ptr %120, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %130 = load i32, ptr %129, align 8
   %131 = and i32 %128, %130
   %132 = add nsw i32 %131, %119
-  %133 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1173
+  %133 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1173
   %134 = load float, ptr %133, align 4
   %gep1300 = getelementptr float, ptr %invariant.gep1299, i64 %indvars.iv1173
   %135 = load float, ptr %gep1300, align 4
@@ -29462,7 +29462,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
 148:                                              ; preds = %144
   %149 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %49, i64 %indvars.iv1201
   %150 = load i32, ptr %149, align 4
-  %151 = getelementptr inbounds i8, ptr %149, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 4
   br i1 %spec.select, label %152, label %334
 
 152:                                              ; preds = %148
@@ -29479,22 +29479,22 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %159 = mul nsw i32 %158, %37
   %160 = shl nuw nsw i64 %indvars.iv1197, 2
   %161 = mul nuw nsw i64 %indvars.iv1197, 3
-  %162 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %161
   %163 = load float, ptr %162, align 4
   %164 = add nuw nsw i64 %161, 1
-  %165 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %164
   %166 = load float, ptr %165, align 4
   %167 = add nuw nsw i64 %161, 2
-  %168 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %167
   %169 = load float, ptr %168, align 4
   %170 = icmp samesign ult i64 %indvars.iv1197, 2
-  %171 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1197
+  %171 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1197
   %172 = load float, ptr %171, align 4
-  %173 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1197
+  %173 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1197
   %174 = load i32, ptr %173, align 4
-  %175 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %161
-  %176 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %164
-  %177 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %167
+  %175 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %161
+  %176 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %164
+  %177 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %167
   %.promoted1100 = load float, ptr %175, align 4
   %.promoted1102 = load float, ptr %176, align 4
   %.promoted1104 = load float, ptr %177, align 4
@@ -29539,7 +29539,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %211 = fmul float %208, %210
   %212 = fmul float %211, %211
   %213 = load ptr, ptr %54, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds i32, ptr %215, i64 %155
   %217 = load i32, ptr %216, align 4
@@ -29547,7 +29547,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %219 = trunc nuw nsw i64 %indvars.iv1193 to i32
   %220 = mul nsw i32 %218, %219
   %221 = ashr i32 %217, %220
-  %222 = getelementptr inbounds i8, ptr %213, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %213, i64 32
   %223 = load i32, ptr %222, align 8
   %224 = and i32 %221, %223
   br i1 %170, label %225, label %._crit_edge1259
@@ -29705,21 +29705,21 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %342 = mul nsw i32 %341, %37
   %343 = shl nuw nsw i64 %indvars.iv1189, 2
   %344 = mul nuw nsw i64 %indvars.iv1189, 3
-  %345 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %344
+  %345 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %344
   %346 = load float, ptr %345, align 4
   %347 = add nuw nsw i64 %344, 1
-  %348 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %347
+  %348 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %347
   %349 = load float, ptr %348, align 4
   %350 = add nuw nsw i64 %344, 2
-  %351 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %350
   %352 = load float, ptr %351, align 4
-  %353 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1189
+  %353 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1189
   %354 = load i32, ptr %353, align 4
-  %355 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1189
+  %355 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1189
   %356 = load float, ptr %355, align 4
-  %357 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %344
-  %358 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %347
-  %359 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %350
+  %357 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %344
+  %358 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %347
+  %359 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %350
   %.promoted1092 = load float, ptr %357, align 4
   %.promoted1094 = load float, ptr %358, align 4
   %.promoted1096 = load float, ptr %359, align 4
@@ -29764,7 +29764,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %393 = fmul float %390, %392
   %394 = fmul float %393, %393
   %395 = load ptr, ptr %54, align 8
-  %396 = getelementptr inbounds i8, ptr %395, i64 8
+  %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
   %397 = load ptr, ptr %396, align 8
   %398 = getelementptr inbounds i32, ptr %397, i64 %338
   %399 = load i32, ptr %398, align 4
@@ -29772,7 +29772,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %401 = trunc nuw nsw i64 %indvars.iv1185 to i32
   %402 = mul nsw i32 %400, %401
   %403 = ashr i32 %399, %402
-  %404 = getelementptr inbounds i8, ptr %395, i64 32
+  %404 = getelementptr inbounds nuw i8, ptr %395, i64 32
   %405 = load i32, ptr %404, align 8
   %406 = and i32 %403, %405
   %407 = getelementptr inbounds i32, ptr %43, i64 %372
@@ -29910,19 +29910,19 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %519 = mul nsw i32 %518, %37
   %520 = shl nuw nsw i64 %indvars.iv1181, 2
   %521 = mul nuw nsw i64 %indvars.iv1181, 3
-  %522 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %521
+  %522 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %521
   %523 = load float, ptr %522, align 4
   %524 = add nuw nsw i64 %521, 1
-  %525 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %524
+  %525 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %524
   %526 = load float, ptr %525, align 4
   %527 = add nuw nsw i64 %521, 2
-  %528 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %527
+  %528 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %527
   %529 = load float, ptr %528, align 4
-  %530 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1181
+  %530 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1181
   %531 = load i32, ptr %530, align 4
-  %532 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %521
-  %533 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %524
-  %534 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %527
+  %532 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %521
+  %533 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %524
+  %534 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %527
   %.promoted = load float, ptr %532, align 4
   %.promoted1086 = load float, ptr %533, align 4
   %.promoted1088 = load float, ptr %534, align 4
@@ -29964,7 +29964,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %565 = fmul float %562, %564
   %566 = fmul float %565, %565
   %567 = load ptr, ptr %54, align 8
-  %568 = getelementptr inbounds i8, ptr %567, i64 8
+  %568 = getelementptr inbounds nuw i8, ptr %567, i64 8
   %569 = load ptr, ptr %568, align 8
   %570 = getelementptr inbounds i32, ptr %569, i64 %515
   %571 = load i32, ptr %570, align 4
@@ -29972,7 +29972,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %573 = trunc nuw nsw i64 %indvars.iv1177 to i32
   %574 = mul nsw i32 %572, %573
   %575 = ashr i32 %571, %574
-  %576 = getelementptr inbounds i8, ptr %567, i64 32
+  %576 = getelementptr inbounds nuw i8, ptr %567, i64 32
   %577 = load i32, ptr %576, align 8
   %578 = and i32 %575, %577
   %579 = getelementptr inbounds i32, ptr %43, i64 %545
@@ -30095,22 +30095,22 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %657 = load i32, ptr %gep1312, align 4
   %658 = mul nsw i32 %657, %37
   %659 = mul nuw nsw i64 %indvars.iv1234, 3
-  %660 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %659
+  %660 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %659
   %661 = load float, ptr %660, align 4
   %662 = add nuw nsw i64 %659, 1
-  %663 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %662
+  %663 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %662
   %664 = load float, ptr %663, align 4
   %665 = add nuw nsw i64 %659, 2
-  %666 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %665
+  %666 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %665
   %667 = load float, ptr %666, align 4
   %668 = icmp samesign ult i64 %indvars.iv1234, 2
-  %669 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1234
+  %669 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1234
   %670 = load float, ptr %669, align 4
-  %671 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1234
+  %671 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1234
   %672 = load i32, ptr %671, align 4
-  %673 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %659
-  %674 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %662
-  %675 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %665
+  %673 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %659
+  %674 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %662
+  %675 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %665
   %.promoted1127.us = load float, ptr %673, align 4
   %.promoted1129.us = load float, ptr %674, align 4
   %.promoted1131.us = load float, ptr %675, align 4
@@ -30154,7 +30154,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %701 = fmul float %698, %700
   %702 = fmul float %701, %701
   %703 = load ptr, ptr %54, align 8
-  %704 = getelementptr inbounds i8, ptr %703, i64 8
+  %704 = getelementptr inbounds nuw i8, ptr %703, i64 8
   %705 = load ptr, ptr %704, align 8
   %706 = getelementptr inbounds i32, ptr %705, i64 %654
   %707 = load i32, ptr %706, align 4
@@ -30162,7 +30162,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %709 = trunc nuw nsw i64 %indvars.iv1230 to i32
   %710 = mul nsw i32 %708, %709
   %711 = ashr i32 %707, %710
-  %712 = getelementptr inbounds i8, ptr %703, i64 32
+  %712 = getelementptr inbounds nuw i8, ptr %703, i64 32
   %713 = load i32, ptr %712, align 8
   %714 = and i32 %711, %713
   br i1 %668, label %715, label %._crit_edge1260
@@ -30314,21 +30314,21 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %825 = load i32, ptr %gep1310, align 4
   %826 = mul nsw i32 %825, %37
   %827 = mul nuw nsw i64 %indvars.iv1221, 3
-  %828 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %827
+  %828 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %827
   %829 = load float, ptr %828, align 4
   %830 = add nuw nsw i64 %827, 1
-  %831 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %830
+  %831 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %830
   %832 = load float, ptr %831, align 4
   %833 = add nuw nsw i64 %827, 2
-  %834 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %833
+  %834 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %833
   %835 = load float, ptr %834, align 4
-  %836 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1221
+  %836 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1221
   %837 = load i32, ptr %836, align 4
-  %838 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1221
+  %838 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1221
   %839 = load float, ptr %838, align 4
-  %840 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %827
-  %841 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %830
-  %842 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %833
+  %840 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %827
+  %841 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %830
+  %842 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %833
   %.promoted1119.us = load float, ptr %840, align 4
   %.promoted1121.us = load float, ptr %841, align 4
   %.promoted1123.us = load float, ptr %842, align 4
@@ -30372,7 +30372,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %868 = fmul float %865, %867
   %869 = fmul float %868, %868
   %870 = load ptr, ptr %54, align 8
-  %871 = getelementptr inbounds i8, ptr %870, i64 8
+  %871 = getelementptr inbounds nuw i8, ptr %870, i64 8
   %872 = load ptr, ptr %871, align 8
   %873 = getelementptr inbounds i32, ptr %872, i64 %822
   %874 = load i32, ptr %873, align 4
@@ -30380,7 +30380,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %876 = trunc nuw nsw i64 %indvars.iv1217 to i32
   %877 = mul nsw i32 %875, %876
   %878 = ashr i32 %874, %877
-  %879 = getelementptr inbounds i8, ptr %870, i64 32
+  %879 = getelementptr inbounds nuw i8, ptr %870, i64 32
   %880 = load i32, ptr %879, align 8
   %881 = and i32 %878, %880
   %882 = getelementptr inbounds i32, ptr %43, i64 %848
@@ -30513,19 +30513,19 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %989 = load i32, ptr %gep1308, align 4
   %990 = mul nsw i32 %989, %37
   %991 = mul nuw nsw i64 %indvars.iv1209, 3
-  %992 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %991
+  %992 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %991
   %993 = load float, ptr %992, align 4
   %994 = add nuw nsw i64 %991, 1
-  %995 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %994
+  %995 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %994
   %996 = load float, ptr %995, align 4
   %997 = add nuw nsw i64 %991, 2
-  %998 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %997
+  %998 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %997
   %999 = load float, ptr %998, align 4
-  %1000 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1209
+  %1000 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1209
   %1001 = load i32, ptr %1000, align 4
-  %1002 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %991
-  %1003 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %994
-  %1004 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %997
+  %1002 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %991
+  %1003 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %994
+  %1004 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %997
   %.promoted1111 = load float, ptr %1002, align 4
   %.promoted1113 = load float, ptr %1003, align 4
   %.promoted1115 = load float, ptr %1004, align 4
@@ -30561,7 +30561,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %1029 = fmul float %1026, %1028
   %1030 = fmul float %1029, %1029
   %1031 = load ptr, ptr %54, align 8
-  %1032 = getelementptr inbounds i8, ptr %1031, i64 8
+  %1032 = getelementptr inbounds nuw i8, ptr %1031, i64 8
   %1033 = load ptr, ptr %1032, align 8
   %1034 = getelementptr inbounds i32, ptr %1033, i64 %986
   %1035 = load i32, ptr %1034, align 4
@@ -30569,7 +30569,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   %1037 = trunc nuw nsw i64 %indvars.iv1205 to i32
   %1038 = mul nsw i32 %1036, %1037
   %1039 = ashr i32 %1035, %1038
-  %1040 = getelementptr inbounds i8, ptr %1031, i64 32
+  %1040 = getelementptr inbounds nuw i8, ptr %1031, i64 32
   %1041 = load i32, ptr %1040, align 8
   %1042 = and i32 %1039, %1041
   %1043 = getelementptr inbounds i32, ptr %43, i64 %1009
@@ -30673,7 +30673,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
 1112:                                             ; preds = %.preheader1069, %1112
   %indvars.iv1243 = phi i64 [ 0, %.preheader1069 ], [ %indvars.iv.next1244, %1112 ]
   %1113 = add nuw nsw i64 %indvars.iv1243, %1110
-  %1114 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1113
+  %1114 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1113
   %1115 = load float, ptr %1114, align 4
   %gep1314 = getelementptr float, ptr %invariant.gep1313, i64 %indvars.iv1243
   %1116 = load float, ptr %gep1314, align 4
@@ -30693,7 +30693,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
 
 .preheader.preheader:                             ; preds = %1119
   %1120 = zext nneg i32 %83 to i64
-  %invariant.gep1315 = getelementptr inbounds float, ptr %13, i64 %1120
+  %invariant.gep1315 = getelementptr inbounds nuw float, ptr %13, i64 %1120
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1128
@@ -30704,9 +30704,9 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
 1122:                                             ; preds = %.preheader, %1122
   %indvars.iv1251 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1252, %1122 ]
   %1123 = add nuw nsw i64 %indvars.iv1251, %1121
-  %1124 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1123
+  %1124 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1123
   %1125 = load float, ptr %1124, align 4
-  %gep1316 = getelementptr inbounds float, ptr %invariant.gep1315, i64 %indvars.iv1251
+  %gep1316 = getelementptr inbounds nuw float, ptr %invariant.gep1315, i64 %indvars.iv1251
   %1126 = load float, ptr %gep1316, align 4
   %1127 = fadd float %1125, %1126
   store float %1127, ptr %gep1316, align 4
@@ -30720,7 +30720,7 @@ define void @_Z41nbnxn_kernel_ElecQSTab_VdwLJPsw_VgrpF_refPK16NbnxnPairlistCpuPK
   br i1 %exitcond1258.not, label %.loopexit1077, label %.preheader, !llvm.loop !509
 
 .loopexit1077:                                    ; preds = %1128, %1119
-  %1129 = getelementptr inbounds i8, ptr %.sroa.01059.01143, i64 16
+  %1129 = getelementptr inbounds nuw i8, ptr %.sroa.01059.01143, i64 16
   %.not1063 = icmp eq ptr %1129, %53
   br i1 %.not1063, label %._crit_edge, label %61
 
@@ -30733,43 +30733,43 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %14 = load float, ptr %13, align 8
   %15 = fmul float %14, %14
   %16 = fmul float %15, %15
   %17 = fmul float %15, %16
   %18 = fdiv float %17, 6.000000e+00
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %22 = load ptr, ptr %21, align 8
   %23 = load float, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 76
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %27 = load float, ptr %26, align 4
   %28 = fmul float %27, %27
   %29 = load i32, ptr %1, align 8
   %30 = shl nsw i32 %29, 1
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 176
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 108
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %1, i64 288
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 128
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = load ptr, ptr %45, align 8
   %.not836912 = icmp eq ptr %44, %46
   br i1 %.not836912, label %._crit_edge, label %.lr.ph914
@@ -30780,13 +30780,13 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
 
 47:                                               ; preds = %.lr.ph914, %.loopexit850
   %.sroa.0832.0913 = phi ptr [ %44, %.lr.ph914 ], [ %856, %.loopexit850 ]
-  %48 = getelementptr inbounds i8, ptr %.sroa.0832.0913, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0832.0913, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 127
   %51 = mul nuw nsw i32 %50, 3
-  %52 = getelementptr inbounds i8, ptr %.sroa.0832.0913, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0832.0913, i64 8
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.sroa.0832.0913, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0832.0913, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = load i32, ptr %.sroa.0832.0913, align 4
   %57 = icmp eq i32 %50, 22
@@ -30799,7 +30799,7 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %62 = zext nneg i32 %51 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %63 = sext i32 %61 to i64
-  %invariant.gep1056 = getelementptr inbounds float, ptr %3, i64 %62
+  %invariant.gep1056 = getelementptr inbounds nuw float, ptr %3, i64 %62
   br label %.preheader848
 
 .preheader852:                                    ; preds = %223
@@ -30832,7 +30832,7 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
 70:                                               ; preds = %.lr.ph.split.us
   %71 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %42, i64 %indvars.iv968
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %71, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %74 = icmp eq i32 %72, %64
   %75 = shl nsw i32 %72, 2
   %76 = sext i32 %75 to i64
@@ -30845,20 +30845,20 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %79 = mul nsw i32 %78, %30
   %80 = shl nuw nsw i64 %indvars.iv964, 2
   %81 = mul nuw nsw i64 %indvars.iv964, 3
-  %82 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %81
   %83 = load float, ptr %82, align 4
   %84 = add nuw nsw i64 %81, 1
-  %85 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = add nuw nsw i64 %81, 2
-  %88 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %87
   %89 = load float, ptr %88, align 4
   %90 = icmp samesign ult i64 %indvars.iv964, 2
-  %91 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv964
+  %91 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv964
   %92 = load float, ptr %91, align 4
-  %93 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %81
-  %94 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %84
-  %95 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %87
+  %93 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %81
+  %94 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %84
+  %95 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %87
   %.promoted869.us = load float, ptr %93, align 4
   %.promoted871.us = load float, ptr %94, align 4
   %.promoted873.us = load float, ptr %95, align 4
@@ -31022,11 +31022,11 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %indvars.iv = phi i64 [ 0, %.preheader848 ], [ %indvars.iv.next, %217 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %218 = load float, ptr %gep, align 4
-  %gep1057 = getelementptr inbounds float, ptr %invariant.gep1056, i64 %indvars.iv
+  %gep1057 = getelementptr inbounds nuw float, ptr %invariant.gep1056, i64 %indvars.iv
   %219 = load float, ptr %gep1057, align 4
   %220 = fadd float %218, %219
   %221 = add nuw nsw i64 %indvars.iv, %216
-  %222 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %221
   store float %220, ptr %222, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -31036,7 +31036,7 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %224 = getelementptr inbounds float, ptr %34, i64 %215
   %225 = load float, ptr %224, align 4
   %226 = fmul float %38, %225
-  %227 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %227 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %226, ptr %227, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond939.not = icmp eq i64 %indvar.next, 4
@@ -31053,7 +31053,7 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
 231:                                              ; preds = %.lr.ph.split
   %232 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %42, i64 %indvars.iv956
   %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %232, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %232, i64 4
   %235 = icmp eq i32 %233, %64
   %236 = shl nsw i32 %233, 2
   %237 = sext i32 %236 to i64
@@ -31066,19 +31066,19 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %239 = mul nsw i32 %238, %30
   %240 = shl nuw nsw i64 %indvars.iv952, 2
   %241 = mul nuw nsw i64 %indvars.iv952, 3
-  %242 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %241
   %243 = load float, ptr %242, align 4
   %244 = add nuw nsw i64 %241, 1
-  %245 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %244
   %246 = load float, ptr %245, align 4
   %247 = add nuw nsw i64 %241, 2
-  %248 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %247
   %249 = load float, ptr %248, align 4
-  %250 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv952
+  %250 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv952
   %251 = load float, ptr %250, align 4
-  %252 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %241
-  %253 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %244
-  %254 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %247
+  %252 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %241
+  %253 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %244
+  %254 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %247
   %.promoted861 = load float, ptr %252, align 4
   %.promoted863 = load float, ptr %253, align 4
   %.promoted865 = load float, ptr %254, align 4
@@ -31224,17 +31224,17 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %372 = mul nsw i32 %371, %30
   %373 = shl nuw nsw i64 %indvars.iv944, 2
   %374 = mul nuw nsw i64 %indvars.iv944, 3
-  %375 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %374
+  %375 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %374
   %376 = load float, ptr %375, align 4
   %377 = add nuw nsw i64 %374, 1
-  %378 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %377
+  %378 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %377
   %379 = load float, ptr %378, align 4
   %380 = add nuw nsw i64 %374, 2
-  %381 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %380
+  %381 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %380
   %382 = load float, ptr %381, align 4
-  %383 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %374
-  %384 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %377
-  %385 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %380
+  %383 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %374
+  %384 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %377
+  %385 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %380
   %.promoted = load float, ptr %383, align 4
   %.promoted855 = load float, ptr %384, align 4
   %.promoted857 = load float, ptr %385, align 4
@@ -31390,20 +31390,20 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %489 = load i32, ptr %gep1069, align 4
   %490 = mul nsw i32 %489, %30
   %491 = mul nuw nsw i64 %indvars.iv1002, 3
-  %492 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %491
+  %492 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %491
   %493 = load float, ptr %492, align 4
   %494 = add nuw nsw i64 %491, 1
-  %495 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %494
+  %495 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %494
   %496 = load float, ptr %495, align 4
   %497 = add nuw nsw i64 %491, 2
-  %498 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %497
+  %498 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %497
   %499 = load float, ptr %498, align 4
   %500 = icmp samesign ult i64 %indvars.iv1002, 2
-  %501 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1002
+  %501 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1002
   %502 = load float, ptr %501, align 4
-  %503 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %491
-  %504 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %494
-  %505 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %497
+  %503 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %491
+  %504 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %494
+  %505 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %497
   %.promoted897.us = load float, ptr %503, align 4
   %.promoted899.us = load float, ptr %504, align 4
   %.promoted901.us = load float, ptr %505, align 4
@@ -31559,19 +31559,19 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %617 = load i32, ptr %gep1067, align 4
   %618 = mul nsw i32 %617, %30
   %619 = mul nuw nsw i64 %indvars.iv989, 3
-  %620 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %619
+  %620 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %619
   %621 = load float, ptr %620, align 4
   %622 = add nuw nsw i64 %619, 1
-  %623 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %622
+  %623 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %622
   %624 = load float, ptr %623, align 4
   %625 = add nuw nsw i64 %619, 2
-  %626 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %625
+  %626 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %625
   %627 = load float, ptr %626, align 4
-  %628 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv989
+  %628 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv989
   %629 = load float, ptr %628, align 4
-  %630 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %619
-  %631 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %622
-  %632 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %625
+  %630 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %619
+  %631 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %622
+  %632 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %625
   %.promoted889.us = load float, ptr %630, align 4
   %.promoted891.us = load float, ptr %631, align 4
   %.promoted893.us = load float, ptr %632, align 4
@@ -31716,17 +31716,17 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   %741 = load i32, ptr %gep1065, align 4
   %742 = mul nsw i32 %741, %30
   %743 = mul nuw nsw i64 %indvars.iv976, 3
-  %744 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %743
+  %744 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %743
   %745 = load float, ptr %744, align 4
   %746 = add nuw nsw i64 %743, 1
-  %747 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %746
+  %747 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %746
   %748 = load float, ptr %747, align 4
   %749 = add nuw nsw i64 %743, 2
-  %750 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %749
+  %750 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %749
   %751 = load float, ptr %750, align 4
-  %752 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %743
-  %753 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %746
-  %754 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %749
+  %752 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %743
+  %753 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %746
+  %754 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %749
   %.promoted881 = load float, ptr %752, align 4
   %.promoted883 = load float, ptr %753, align 4
   %.promoted885 = load float, ptr %754, align 4
@@ -31850,7 +31850,7 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
 839:                                              ; preds = %.preheader842, %839
   %indvars.iv1011 = phi i64 [ 0, %.preheader842 ], [ %indvars.iv.next1012, %839 ]
   %840 = add nuw nsw i64 %indvars.iv1011, %837
-  %841 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %840
+  %841 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %840
   %842 = load float, ptr %841, align 4
   %gep1071 = getelementptr float, ptr %invariant.gep1070, i64 %indvars.iv1011
   %843 = load float, ptr %gep1071, align 4
@@ -31870,7 +31870,7 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
 
 .preheader.preheader:                             ; preds = %846
   %847 = zext nneg i32 %51 to i64
-  %invariant.gep1072 = getelementptr inbounds float, ptr %12, i64 %847
+  %invariant.gep1072 = getelementptr inbounds nuw float, ptr %12, i64 %847
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %855
@@ -31881,9 +31881,9 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
 849:                                              ; preds = %.preheader, %849
   %indvars.iv1019 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1020, %849 ]
   %850 = add nuw nsw i64 %indvars.iv1019, %848
-  %851 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %850
+  %851 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %850
   %852 = load float, ptr %851, align 4
-  %gep1073 = getelementptr inbounds float, ptr %invariant.gep1072, i64 %indvars.iv1019
+  %gep1073 = getelementptr inbounds nuw float, ptr %invariant.gep1072, i64 %indvars.iv1019
   %853 = load float, ptr %gep1073, align 4
   %854 = fadd float %852, %853
   store float %854, ptr %gep1073, align 4
@@ -31897,7 +31897,7 @@ define void @_Z44nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_F_refPK16NbnxnPairlistCp
   br i1 %exitcond1026.not, label %.loopexit850, label %.preheader, !llvm.loop !529
 
 .loopexit850:                                     ; preds = %855, %846
-  %856 = getelementptr inbounds i8, ptr %.sroa.0832.0913, i64 16
+  %856 = getelementptr inbounds nuw i8, ptr %.sroa.0832.0913, i64 16
   %.not836 = icmp eq ptr %856, %46
   br i1 %.not836, label %._crit_edge, label %47
 
@@ -31910,72 +31910,72 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %18 = load float, ptr %17, align 8
   %19 = fmul float %18, %18
   %20 = fmul float %19, %19
   %21 = fmul float %19, %20
   %22 = fdiv float %21, 6.000000e+00
-  %23 = getelementptr inbounds i8, ptr %2, i64 100
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %24 = load float, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = load float, ptr %28, align 8
   %30 = fdiv float 5.000000e-01, %29
-  %31 = getelementptr inbounds i8, ptr %28, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 76
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %34 = load float, ptr %33, align 4
   %35 = fmul float %34, %34
   %36 = load i32, ptr %1, align 8
   %37 = shl nsw i32 %36, 1
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 176
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 108
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %1, i64 288
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 128
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %53 = load ptr, ptr %52, align 8
   %.not10421158 = icmp eq ptr %51, %53
   br i1 %.not10421158, label %._crit_edge, label %.lr.ph1160
 
 .lr.ph1160:                                       ; preds = %5
-  %54 = getelementptr inbounds i8, ptr %32, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %55 = fpext float %22 to double
-  %56 = getelementptr inbounds i8, ptr %2, i64 44
-  %57 = getelementptr inbounds i8, ptr %2, i64 32
-  %58 = getelementptr inbounds i8, ptr %2, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1002 = icmp eq ptr %12, null
   br label %59
 
 59:                                               ; preds = %.lr.ph1160, %.loopexit1056
   %.sroa.01038.01159 = phi ptr [ %51, %.lr.ph1160 ], [ %1033, %.loopexit1056 ]
-  %60 = getelementptr inbounds i8, ptr %.sroa.01038.01159, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.01038.01159, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 127
   %63 = mul nuw nsw i32 %62, 3
-  %64 = getelementptr inbounds i8, ptr %.sroa.01038.01159, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.01038.01159, i64 8
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.sroa.01038.01159, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.01038.01159, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = load i32, ptr %.sroa.01038.01159, align 4
   %69 = icmp eq i32 %62, 22
@@ -31986,7 +31986,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %73 = zext nneg i32 %63 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %74 = sext i32 %72 to i64
-  %invariant.gep1317 = getelementptr inbounds float, ptr %3, i64 %73
+  %invariant.gep1317 = getelementptr inbounds nuw float, ptr %3, i64 %73
   br label %.preheader1054
 
 .preheader1054:                                   ; preds = %59, %83
@@ -32001,11 +32001,11 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %indvars.iv = phi i64 [ 0, %.preheader1054 ], [ %indvars.iv.next, %77 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %78 = load float, ptr %gep, align 4
-  %gep1318 = getelementptr inbounds float, ptr %invariant.gep1317, i64 %indvars.iv
+  %gep1318 = getelementptr inbounds nuw float, ptr %invariant.gep1317, i64 %indvars.iv
   %79 = load float, ptr %gep1318, align 4
   %80 = fadd float %78, %79
   %81 = add nuw nsw i64 %indvars.iv, %76
-  %82 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %81
   store float %80, ptr %82, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -32015,7 +32015,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %84 = getelementptr inbounds float, ptr %41, i64 %75
   %85 = load float, ptr %84, align 4
   %86 = fmul float %45, %85
-  %87 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %87 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %86, ptr %87, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1192.not = icmp eq i64 %indvar.next, 4
@@ -32035,7 +32035,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
 
 .preheader1058:                                   ; preds = %88, %.preheader1058
   %indvars.iv1193 = phi i64 [ %indvars.iv.next1194, %.preheader1058 ], [ 0, %88 ]
-  %97 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1193
+  %97 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1193
   %98 = load float, ptr %97, align 4
   %99 = add nuw nsw i64 %indvars.iv1193, %74
   %100 = getelementptr inbounds float, ptr %41, i64 %99
@@ -32091,7 +32091,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
 129:                                              ; preds = %125
   %130 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %49, i64 %indvars.iv1221
   %131 = load i32, ptr %130, align 4
-  %132 = getelementptr inbounds i8, ptr %130, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %133 = icmp eq i32 %131, %89
   %134 = shl nsw i32 %131, 2
   %135 = sext i32 %134 to i64
@@ -32106,20 +32106,20 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %137 = mul nsw i32 %136, %37
   %138 = shl nuw nsw i64 %indvars.iv1217, 2
   %139 = mul nuw nsw i64 %indvars.iv1217, 3
-  %140 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %139
   %141 = load float, ptr %140, align 4
   %142 = add nuw nsw i64 %139, 1
-  %143 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %142
   %144 = load float, ptr %143, align 4
   %145 = add nuw nsw i64 %139, 2
-  %146 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %145
   %147 = load float, ptr %146, align 4
   %148 = icmp samesign ult i64 %indvars.iv1217, 2
-  %149 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1217
+  %149 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1217
   %150 = load float, ptr %149, align 4
-  %151 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %139
-  %152 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %142
-  %153 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %145
+  %151 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %139
+  %152 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %142
+  %153 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %145
   %.promoted1083 = load float, ptr %151, align 4
   %.promoted1085 = load float, ptr %152, align 4
   %.promoted1087 = load float, ptr %153, align 4
@@ -32310,19 +32310,19 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %304 = mul nsw i32 %303, %37
   %305 = shl nuw nsw i64 %indvars.iv1209, 2
   %306 = mul nuw nsw i64 %indvars.iv1209, 3
-  %307 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %306
+  %307 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %306
   %308 = load float, ptr %307, align 4
   %309 = add nuw nsw i64 %306, 1
-  %310 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %309
+  %310 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %309
   %311 = load float, ptr %310, align 4
   %312 = add nuw nsw i64 %306, 2
-  %313 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %312
   %314 = load float, ptr %313, align 4
-  %315 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1209
+  %315 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1209
   %316 = load float, ptr %315, align 4
-  %317 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %306
-  %318 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %309
-  %319 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %312
+  %317 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %306
+  %318 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %309
+  %319 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %312
   %.promoted1071 = load float, ptr %317, align 4
   %.promoted1073 = load float, ptr %318, align 4
   %.promoted1075 = load float, ptr %319, align 4
@@ -32500,17 +32500,17 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %466 = mul nsw i32 %465, %37
   %467 = shl nuw nsw i64 %indvars.iv1201, 2
   %468 = mul nuw nsw i64 %indvars.iv1201, 3
-  %469 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %468
+  %469 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %468
   %470 = load float, ptr %469, align 4
   %471 = add nuw nsw i64 %468, 1
-  %472 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %471
+  %472 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %471
   %473 = load float, ptr %472, align 4
   %474 = add nuw nsw i64 %468, 2
-  %475 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %474
+  %475 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %474
   %476 = load float, ptr %475, align 4
-  %477 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %468
-  %478 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %471
-  %479 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %474
+  %477 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %468
+  %478 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %471
+  %479 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %474
   %.promoted = load float, ptr %477, align 4
   %.promoted1063 = load float, ptr %478, align 4
   %.promoted1065 = load float, ptr %479, align 4
@@ -32686,20 +32686,20 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %597 = load i32, ptr %gep1330, align 4
   %598 = mul nsw i32 %597, %37
   %599 = mul nuw nsw i64 %indvars.iv1254, 3
-  %600 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %599
+  %600 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %599
   %601 = load float, ptr %600, align 4
   %602 = add nuw nsw i64 %599, 1
-  %603 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %602
+  %603 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %602
   %604 = load float, ptr %603, align 4
   %605 = add nuw nsw i64 %599, 2
-  %606 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %605
+  %606 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %605
   %607 = load float, ptr %606, align 4
   %608 = icmp samesign ult i64 %indvars.iv1254, 2
-  %609 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1254
+  %609 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1254
   %610 = load float, ptr %609, align 4
-  %611 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %599
-  %612 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %602
-  %613 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %605
+  %611 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %599
+  %612 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %602
+  %613 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %605
   %.promoted1126.us = load float, ptr %611, align 4
   %.promoted1128.us = load float, ptr %612, align 4
   %.promoted1130.us = load float, ptr %613, align 4
@@ -32888,19 +32888,19 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %751 = load i32, ptr %gep1328, align 4
   %752 = mul nsw i32 %751, %37
   %753 = mul nuw nsw i64 %indvars.iv1241, 3
-  %754 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %753
+  %754 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %753
   %755 = load float, ptr %754, align 4
   %756 = add nuw nsw i64 %753, 1
-  %757 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %756
+  %757 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %756
   %758 = load float, ptr %757, align 4
   %759 = add nuw nsw i64 %753, 2
-  %760 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %759
+  %760 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %759
   %761 = load float, ptr %760, align 4
-  %762 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1241
+  %762 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1241
   %763 = load float, ptr %762, align 4
-  %764 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %753
-  %765 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %756
-  %766 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %759
+  %764 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %753
+  %765 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %756
+  %766 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %759
   %.promoted1114.us = load float, ptr %764, align 4
   %.promoted1116.us = load float, ptr %765, align 4
   %.promoted1118.us = load float, ptr %766, align 4
@@ -33080,17 +33080,17 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %901 = load i32, ptr %gep1326, align 4
   %902 = mul nsw i32 %901, %37
   %903 = mul nuw nsw i64 %indvars.iv1229, 3
-  %904 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %903
+  %904 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %903
   %905 = load float, ptr %904, align 4
   %906 = add nuw nsw i64 %903, 1
-  %907 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %906
+  %907 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %906
   %908 = load float, ptr %907, align 4
   %909 = add nuw nsw i64 %903, 2
-  %910 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %909
+  %910 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %909
   %911 = load float, ptr %910, align 4
-  %912 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %903
-  %913 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %906
-  %914 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %909
+  %912 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %903
+  %913 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %906
+  %914 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %909
   %.promoted1104 = load float, ptr %912, align 4
   %.promoted1106 = load float, ptr %913, align 4
   %.promoted1108 = load float, ptr %914, align 4
@@ -33225,7 +33225,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
 1012:                                             ; preds = %.preheader1048, %1012
   %indvars.iv1263 = phi i64 [ 0, %.preheader1048 ], [ %indvars.iv.next1264, %1012 ]
   %1013 = add nuw nsw i64 %indvars.iv1263, %1010
-  %1014 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1013
+  %1014 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1013
   %1015 = load float, ptr %1014, align 4
   %gep1332 = getelementptr float, ptr %invariant.gep1331, i64 %indvars.iv1263
   %1016 = load float, ptr %gep1332, align 4
@@ -33245,7 +33245,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
 
 .preheader.preheader:                             ; preds = %1019
   %1020 = zext nneg i32 %63 to i64
-  %invariant.gep1333 = getelementptr inbounds float, ptr %12, i64 %1020
+  %invariant.gep1333 = getelementptr inbounds nuw float, ptr %12, i64 %1020
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1028
@@ -33256,9 +33256,9 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
 1022:                                             ; preds = %.preheader, %1022
   %indvars.iv1271 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1272, %1022 ]
   %1023 = add nuw nsw i64 %indvars.iv1271, %1021
-  %1024 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1023
+  %1024 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1023
   %1025 = load float, ptr %1024, align 4
-  %gep1334 = getelementptr inbounds float, ptr %invariant.gep1333, i64 %indvars.iv1271
+  %gep1334 = getelementptr inbounds nuw float, ptr %invariant.gep1333, i64 %indvars.iv1271
   %1026 = load float, ptr %gep1334, align 4
   %1027 = fadd float %1025, %1026
   store float %1027, ptr %gep1334, align 4
@@ -33278,7 +33278,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %1031 = load float, ptr %16, align 4
   %1032 = fadd float %.6974.lcssa, %1031
   store float %1032, ptr %16, align 4
-  %1033 = getelementptr inbounds i8, ptr %.sroa.01038.01159, i64 16
+  %1033 = getelementptr inbounds nuw i8, ptr %.sroa.01038.01159, i64 16
   %.not1042 = icmp eq ptr %1033, %53
   br i1 %.not1042, label %._crit_edge, label %59
 
@@ -33292,73 +33292,73 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %19 = load float, ptr %18, align 8
   %20 = fmul float %19, %19
   %21 = fmul float %20, %20
   %22 = fmul float %20, %21
   %23 = fdiv float %22, 6.000000e+00
-  %24 = getelementptr inbounds i8, ptr %2, i64 100
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %29 = load ptr, ptr %28, align 8
   %30 = load float, ptr %29, align 8
   %31 = fdiv float 5.000000e-01, %30
-  %32 = getelementptr inbounds i8, ptr %29, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 76
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %35 = load float, ptr %34, align 4
   %36 = fmul float %35, %35
   %37 = load i32, ptr %1, align 8
   %38 = shl nsw i32 %37, 1
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 176
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 108
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %46 = load float, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 288
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %54 = load ptr, ptr %53, align 8
   %.not10761155 = icmp eq ptr %52, %54
   br i1 %.not10761155, label %._crit_edge, label %.lr.ph1157
 
 .lr.ph1157:                                       ; preds = %5
-  %55 = getelementptr inbounds i8, ptr %1, i64 208
-  %56 = getelementptr inbounds i8, ptr %1, i64 200
-  %57 = getelementptr inbounds i8, ptr %33, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %57 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %58 = fpext float %23 to double
-  %59 = getelementptr inbounds i8, ptr %2, i64 44
-  %60 = getelementptr inbounds i8, ptr %2, i64 32
-  %61 = getelementptr inbounds i8, ptr %2, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1036 = icmp eq ptr %13, null
   br label %62
 
 62:                                               ; preds = %.lr.ph1157, %.loopexit1090
   %.sroa.01072.01156 = phi ptr [ %52, %.lr.ph1157 ], [ %1187, %.loopexit1090 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.01072.01156, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.01072.01156, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 127
-  %66 = getelementptr inbounds i8, ptr %.sroa.01072.01156, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.01072.01156, i64 8
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %.sroa.01072.01156, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.01072.01156, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %.sroa.01072.01156, align 4
   %71 = icmp eq i32 %65, 22
@@ -33366,13 +33366,13 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %73 = and i32 %64, 384
   %or.cond = icmp ne i32 %73, 128
   %74 = load ptr, ptr %55, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = sext i32 %70 to i64
   %77 = load ptr, ptr %75, align 8
   %78 = getelementptr inbounds i32, ptr %77, i64 %76
   %79 = load i32, ptr %78, align 4
   %80 = load i32, ptr %74, align 8
-  %81 = getelementptr inbounds i8, ptr %74, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %82 = load i32, ptr %81, align 8
   %83 = load i32, ptr %56, align 8
   br label %89
@@ -33384,7 +33384,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %87 = zext nneg i32 %84 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %88 = sext i32 %86 to i64
-  %invariant.gep1306 = getelementptr inbounds float, ptr %3, i64 %87
+  %invariant.gep1306 = getelementptr inbounds nuw float, ptr %3, i64 %87
   br label %.preheader1088
 
 89:                                               ; preds = %62, %89
@@ -33394,7 +33394,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %92 = ashr i32 %79, %91
   %93 = and i32 %92, %82
   %94 = mul nsw i32 %93, %83
-  %95 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %94, ptr %95, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -33412,11 +33412,11 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %indvars.iv1180 = phi i64 [ 0, %.preheader1088 ], [ %indvars.iv.next1181, %98 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1180
   %99 = load float, ptr %gep, align 4
-  %gep1307 = getelementptr inbounds float, ptr %invariant.gep1306, i64 %indvars.iv1180
+  %gep1307 = getelementptr inbounds nuw float, ptr %invariant.gep1306, i64 %indvars.iv1180
   %100 = load float, ptr %gep1307, align 4
   %101 = fadd float %99, %100
   %102 = add nuw nsw i64 %indvars.iv1180, %97
-  %103 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %102
   store float %101, ptr %103, align 4
   %indvars.iv.next1181 = add nuw nsw i64 %indvars.iv1180, 1
   %exitcond1183.not = icmp eq i64 %indvars.iv.next1181, 3
@@ -33426,7 +33426,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %105 = getelementptr inbounds float, ptr %42, i64 %96
   %106 = load float, ptr %105, align 4
   %107 = fmul float %46, %106
-  %108 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %108 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %107, ptr %108, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1185.not = icmp eq i64 %indvar.next, 4
@@ -33445,10 +33445,10 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
 
 .preheader1092:                                   ; preds = %109, %.preheader1092
   %indvars.iv1186 = phi i64 [ %indvars.iv.next1187, %.preheader1092 ], [ 0, %109 ]
-  %117 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1186
+  %117 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1186
   %118 = load i32, ptr %117, align 4
   %119 = load ptr, ptr %55, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i32, ptr %121, i64 %76
   %123 = load i32, ptr %122, align 4
@@ -33456,11 +33456,11 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %125 = trunc nuw nsw i64 %indvars.iv1186 to i32
   %126 = mul nsw i32 %124, %125
   %127 = ashr i32 %123, %126
-  %128 = getelementptr inbounds i8, ptr %119, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %129 = load i32, ptr %128, align 8
   %130 = and i32 %127, %129
   %131 = add nsw i32 %130, %118
-  %132 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1186
+  %132 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1186
   %133 = load float, ptr %132, align 4
   %134 = add nuw nsw i64 %indvars.iv1186, %88
   %135 = getelementptr inbounds float, ptr %42, i64 %134
@@ -33517,7 +33517,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
 167:                                              ; preds = %163
   %168 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %50, i64 %indvars.iv1214
   %169 = load i32, ptr %168, align 4
-  %170 = getelementptr inbounds i8, ptr %168, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %171 = icmp eq i32 %169, %110
   %172 = shl nsw i32 %169, 2
   %173 = sext i32 %169 to i64
@@ -33531,22 +33531,22 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %176 = mul nsw i32 %175, %38
   %177 = shl nuw nsw i64 %indvars.iv1210, 2
   %178 = mul nuw nsw i64 %indvars.iv1210, 3
-  %179 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %178
   %180 = load float, ptr %179, align 4
   %181 = add nuw nsw i64 %178, 1
-  %182 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %181
   %183 = load float, ptr %182, align 4
   %184 = add nuw nsw i64 %178, 2
-  %185 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %184
   %186 = load float, ptr %185, align 4
   %187 = icmp samesign ult i64 %indvars.iv1210, 2
-  %188 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1210
+  %188 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1210
   %189 = load float, ptr %188, align 4
-  %190 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1210
+  %190 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1210
   %191 = load i32, ptr %190, align 4
-  %192 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %178
-  %193 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %181
-  %194 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %184
+  %192 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %178
+  %193 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %181
+  %194 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %184
   %.promoted1113 = load float, ptr %192, align 4
   %.promoted1115 = load float, ptr %193, align 4
   %.promoted1117 = load float, ptr %194, align 4
@@ -33591,7 +33591,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %228 = fmul float %225, %227
   %229 = fmul float %228, %228
   %230 = load ptr, ptr %55, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds i32, ptr %232, i64 %173
   %234 = load i32, ptr %233, align 4
@@ -33599,7 +33599,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %236 = trunc nuw nsw i64 %indvars.iv1206 to i32
   %237 = mul nsw i32 %235, %236
   %238 = ashr i32 %234, %237
-  %239 = getelementptr inbounds i8, ptr %230, i64 32
+  %239 = getelementptr inbounds nuw i8, ptr %230, i64 32
   %240 = load i32, ptr %239, align 8
   %241 = and i32 %238, %240
   br i1 %187, label %242, label %._crit_edge1272
@@ -33758,21 +33758,21 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %363 = mul nsw i32 %362, %38
   %364 = shl nuw nsw i64 %indvars.iv1202, 2
   %365 = mul nuw nsw i64 %indvars.iv1202, 3
-  %366 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %365
+  %366 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %365
   %367 = load float, ptr %366, align 4
   %368 = add nuw nsw i64 %365, 1
-  %369 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %368
+  %369 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %368
   %370 = load float, ptr %369, align 4
   %371 = add nuw nsw i64 %365, 2
-  %372 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %371
   %373 = load float, ptr %372, align 4
-  %374 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1202
+  %374 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1202
   %375 = load i32, ptr %374, align 4
-  %376 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1202
+  %376 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1202
   %377 = load float, ptr %376, align 4
-  %378 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %365
-  %379 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %368
-  %380 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %371
+  %378 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %365
+  %379 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %368
+  %380 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %371
   %.promoted1105 = load float, ptr %378, align 4
   %.promoted1107 = load float, ptr %379, align 4
   %.promoted1109 = load float, ptr %380, align 4
@@ -33817,7 +33817,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %414 = fmul float %411, %413
   %415 = fmul float %414, %414
   %416 = load ptr, ptr %55, align 8
-  %417 = getelementptr inbounds i8, ptr %416, i64 8
+  %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
   %418 = load ptr, ptr %417, align 8
   %419 = getelementptr inbounds i32, ptr %418, i64 %173
   %420 = load i32, ptr %419, align 4
@@ -33825,7 +33825,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %422 = trunc nuw nsw i64 %indvars.iv1198 to i32
   %423 = mul nsw i32 %421, %422
   %424 = ashr i32 %420, %423
-  %425 = getelementptr inbounds i8, ptr %416, i64 32
+  %425 = getelementptr inbounds nuw i8, ptr %416, i64 32
   %426 = load i32, ptr %425, align 8
   %427 = and i32 %424, %426
   %428 = getelementptr inbounds i32, ptr %44, i64 %393
@@ -33967,19 +33967,19 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %545 = mul nsw i32 %544, %38
   %546 = shl nuw nsw i64 %indvars.iv1194, 2
   %547 = mul nuw nsw i64 %indvars.iv1194, 3
-  %548 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %547
+  %548 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %547
   %549 = load float, ptr %548, align 4
   %550 = add nuw nsw i64 %547, 1
-  %551 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %550
+  %551 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %550
   %552 = load float, ptr %551, align 4
   %553 = add nuw nsw i64 %547, 2
-  %554 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %553
+  %554 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %553
   %555 = load float, ptr %554, align 4
-  %556 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1194
+  %556 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1194
   %557 = load i32, ptr %556, align 4
-  %558 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %547
-  %559 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %550
-  %560 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %553
+  %558 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %547
+  %559 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %550
+  %560 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %553
   %.promoted = load float, ptr %558, align 4
   %.promoted1099 = load float, ptr %559, align 4
   %.promoted1101 = load float, ptr %560, align 4
@@ -34024,7 +34024,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %594 = fmul float %591, %593
   %595 = fmul float %594, %594
   %596 = load ptr, ptr %55, align 8
-  %597 = getelementptr inbounds i8, ptr %596, i64 8
+  %597 = getelementptr inbounds nuw i8, ptr %596, i64 8
   %598 = load ptr, ptr %597, align 8
   %599 = getelementptr inbounds i32, ptr %598, i64 %173
   %600 = load i32, ptr %599, align 4
@@ -34032,7 +34032,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %602 = trunc nuw nsw i64 %indvars.iv1190 to i32
   %603 = mul nsw i32 %601, %602
   %604 = ashr i32 %600, %603
-  %605 = getelementptr inbounds i8, ptr %596, i64 32
+  %605 = getelementptr inbounds nuw i8, ptr %596, i64 32
   %606 = load i32, ptr %605, align 8
   %607 = and i32 %604, %606
   %608 = getelementptr inbounds i32, ptr %44, i64 %573
@@ -34164,22 +34164,22 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %695 = load i32, ptr %gep1319, align 4
   %696 = mul nsw i32 %695, %38
   %697 = mul nuw nsw i64 %indvars.iv1247, 3
-  %698 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %697
+  %698 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %697
   %699 = load float, ptr %698, align 4
   %700 = add nuw nsw i64 %697, 1
-  %701 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %700
+  %701 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %700
   %702 = load float, ptr %701, align 4
   %703 = add nuw nsw i64 %697, 2
-  %704 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %703
+  %704 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %703
   %705 = load float, ptr %704, align 4
   %706 = icmp samesign ult i64 %indvars.iv1247, 2
-  %707 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1247
+  %707 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1247
   %708 = load float, ptr %707, align 4
-  %709 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1247
+  %709 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1247
   %710 = load i32, ptr %709, align 4
-  %711 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %697
-  %712 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %700
-  %713 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %703
+  %711 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %697
+  %712 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %700
+  %713 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %703
   %.promoted1140.us = load float, ptr %711, align 4
   %.promoted1142.us = load float, ptr %712, align 4
   %.promoted1144.us = load float, ptr %713, align 4
@@ -34223,7 +34223,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %739 = fmul float %736, %738
   %740 = fmul float %739, %739
   %741 = load ptr, ptr %55, align 8
-  %742 = getelementptr inbounds i8, ptr %741, i64 8
+  %742 = getelementptr inbounds nuw i8, ptr %741, i64 8
   %743 = load ptr, ptr %742, align 8
   %744 = getelementptr inbounds i32, ptr %743, i64 %692
   %745 = load i32, ptr %744, align 4
@@ -34231,7 +34231,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %747 = trunc nuw nsw i64 %indvars.iv1243 to i32
   %748 = mul nsw i32 %746, %747
   %749 = ashr i32 %745, %748
-  %750 = getelementptr inbounds i8, ptr %741, i64 32
+  %750 = getelementptr inbounds nuw i8, ptr %741, i64 32
   %751 = load i32, ptr %750, align 8
   %752 = and i32 %749, %751
   br i1 %706, label %753, label %._crit_edge1273
@@ -34388,21 +34388,21 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %870 = load i32, ptr %gep1317, align 4
   %871 = mul nsw i32 %870, %38
   %872 = mul nuw nsw i64 %indvars.iv1234, 3
-  %873 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %872
+  %873 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %872
   %874 = load float, ptr %873, align 4
   %875 = add nuw nsw i64 %872, 1
-  %876 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %875
+  %876 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %875
   %877 = load float, ptr %876, align 4
   %878 = add nuw nsw i64 %872, 2
-  %879 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %878
+  %879 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %878
   %880 = load float, ptr %879, align 4
-  %881 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1234
+  %881 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1234
   %882 = load i32, ptr %881, align 4
-  %883 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1234
+  %883 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1234
   %884 = load float, ptr %883, align 4
-  %885 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %872
-  %886 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %875
-  %887 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %878
+  %885 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %872
+  %886 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %875
+  %887 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %878
   %.promoted1132.us = load float, ptr %885, align 4
   %.promoted1134.us = load float, ptr %886, align 4
   %.promoted1136.us = load float, ptr %887, align 4
@@ -34446,7 +34446,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %913 = fmul float %910, %912
   %914 = fmul float %913, %913
   %915 = load ptr, ptr %55, align 8
-  %916 = getelementptr inbounds i8, ptr %915, i64 8
+  %916 = getelementptr inbounds nuw i8, ptr %915, i64 8
   %917 = load ptr, ptr %916, align 8
   %918 = getelementptr inbounds i32, ptr %917, i64 %867
   %919 = load i32, ptr %918, align 4
@@ -34454,7 +34454,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %921 = trunc nuw nsw i64 %indvars.iv1230 to i32
   %922 = mul nsw i32 %920, %921
   %923 = ashr i32 %919, %922
-  %924 = getelementptr inbounds i8, ptr %915, i64 32
+  %924 = getelementptr inbounds nuw i8, ptr %915, i64 32
   %925 = load i32, ptr %924, align 8
   %926 = and i32 %923, %925
   %927 = getelementptr inbounds i32, ptr %44, i64 %893
@@ -34594,19 +34594,19 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %1041 = load i32, ptr %gep1315, align 4
   %1042 = mul nsw i32 %1041, %38
   %1043 = mul nuw nsw i64 %indvars.iv1222, 3
-  %1044 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1043
+  %1044 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1043
   %1045 = load float, ptr %1044, align 4
   %1046 = add nuw nsw i64 %1043, 1
-  %1047 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1046
+  %1047 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1046
   %1048 = load float, ptr %1047, align 4
   %1049 = add nuw nsw i64 %1043, 2
-  %1050 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1049
+  %1050 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1049
   %1051 = load float, ptr %1050, align 4
-  %1052 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1222
+  %1052 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1222
   %1053 = load i32, ptr %1052, align 4
-  %1054 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1043
-  %1055 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1046
-  %1056 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1049
+  %1054 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1043
+  %1055 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1046
+  %1056 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1049
   %.promoted1124 = load float, ptr %1054, align 4
   %.promoted1126 = load float, ptr %1055, align 4
   %.promoted1128 = load float, ptr %1056, align 4
@@ -34642,7 +34642,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %1081 = fmul float %1078, %1080
   %1082 = fmul float %1081, %1081
   %1083 = load ptr, ptr %55, align 8
-  %1084 = getelementptr inbounds i8, ptr %1083, i64 8
+  %1084 = getelementptr inbounds nuw i8, ptr %1083, i64 8
   %1085 = load ptr, ptr %1084, align 8
   %1086 = getelementptr inbounds i32, ptr %1085, i64 %1038
   %1087 = load i32, ptr %1086, align 4
@@ -34650,7 +34650,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   %1089 = trunc nuw nsw i64 %indvars.iv1218 to i32
   %1090 = mul nsw i32 %1088, %1089
   %1091 = ashr i32 %1087, %1090
-  %1092 = getelementptr inbounds i8, ptr %1083, i64 32
+  %1092 = getelementptr inbounds nuw i8, ptr %1083, i64 32
   %1093 = load i32, ptr %1092, align 8
   %1094 = and i32 %1091, %1093
   %1095 = getelementptr inbounds i32, ptr %44, i64 %1061
@@ -34760,7 +34760,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
 1170:                                             ; preds = %.preheader1082, %1170
   %indvars.iv1256 = phi i64 [ 0, %.preheader1082 ], [ %indvars.iv.next1257, %1170 ]
   %1171 = add nuw nsw i64 %indvars.iv1256, %1168
-  %1172 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1171
+  %1172 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1171
   %1173 = load float, ptr %1172, align 4
   %gep1321 = getelementptr float, ptr %invariant.gep1320, i64 %indvars.iv1256
   %1174 = load float, ptr %gep1321, align 4
@@ -34780,7 +34780,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
 
 .preheader.preheader:                             ; preds = %1177
   %1178 = zext nneg i32 %84 to i64
-  %invariant.gep1322 = getelementptr inbounds float, ptr %13, i64 %1178
+  %invariant.gep1322 = getelementptr inbounds nuw float, ptr %13, i64 %1178
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1186
@@ -34791,9 +34791,9 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
 1180:                                             ; preds = %.preheader, %1180
   %indvars.iv1264 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1265, %1180 ]
   %1181 = add nuw nsw i64 %indvars.iv1264, %1179
-  %1182 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1181
+  %1182 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1181
   %1183 = load float, ptr %1182, align 4
-  %gep1323 = getelementptr inbounds float, ptr %invariant.gep1322, i64 %indvars.iv1264
+  %gep1323 = getelementptr inbounds nuw float, ptr %invariant.gep1322, i64 %indvars.iv1264
   %1184 = load float, ptr %gep1323, align 4
   %1185 = fadd float %1183, %1184
   store float %1185, ptr %gep1323, align 4
@@ -34807,7 +34807,7 @@ define void @_Z48nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VgrpF_refPK16NbnxnPairli
   br i1 %exitcond1271.not, label %.loopexit1090, label %.preheader, !llvm.loop !572
 
 .loopexit1090:                                    ; preds = %1186, %1177
-  %1187 = getelementptr inbounds i8, ptr %.sroa.01072.01156, i64 16
+  %1187 = getelementptr inbounds nuw i8, ptr %.sroa.01072.01156, i64 16
   %.not1076 = icmp eq ptr %1187, %54
   br i1 %.not1076, label %._crit_edge, label %62
 
@@ -34820,43 +34820,43 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %14 = load float, ptr %13, align 8
   %15 = fmul float %14, %14
   %16 = fmul float %15, %15
   %17 = fmul float %15, %16
   %18 = fdiv float %17, 6.000000e+00
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %22 = load ptr, ptr %21, align 8
   %23 = load float, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 76
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %27 = load float, ptr %26, align 4
   %28 = fmul float %27, %27
   %29 = load i32, ptr %1, align 8
   %30 = shl nsw i32 %29, 1
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 176
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 108
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %1, i64 288
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 128
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = load ptr, ptr %45, align 8
   %.not908984 = icmp eq ptr %44, %46
   br i1 %.not908984, label %._crit_edge, label %.lr.ph986
@@ -34867,13 +34867,13 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
 
 47:                                               ; preds = %.lr.ph986, %.loopexit922
   %.sroa.0904.0985 = phi ptr [ %44, %.lr.ph986 ], [ %934, %.loopexit922 ]
-  %48 = getelementptr inbounds i8, ptr %.sroa.0904.0985, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0904.0985, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 127
   %51 = mul nuw nsw i32 %50, 3
-  %52 = getelementptr inbounds i8, ptr %.sroa.0904.0985, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0904.0985, i64 8
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.sroa.0904.0985, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0904.0985, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = load i32, ptr %.sroa.0904.0985, align 4
   %57 = icmp eq i32 %50, 22
@@ -34886,7 +34886,7 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %62 = zext nneg i32 %51 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %63 = sext i32 %61 to i64
-  %invariant.gep1128 = getelementptr inbounds float, ptr %3, i64 %62
+  %invariant.gep1128 = getelementptr inbounds nuw float, ptr %3, i64 %62
   br label %.preheader920
 
 .preheader924:                                    ; preds = %236
@@ -34919,7 +34919,7 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
 70:                                               ; preds = %.lr.ph.split.us
   %71 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %42, i64 %indvars.iv1040
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %71, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %74 = icmp eq i32 %72, %64
   %75 = shl nsw i32 %72, 2
   %76 = sext i32 %75 to i64
@@ -34932,20 +34932,20 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %79 = mul nsw i32 %78, %30
   %80 = shl nuw nsw i64 %indvars.iv1036, 2
   %81 = mul nuw nsw i64 %indvars.iv1036, 3
-  %82 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %81
   %83 = load float, ptr %82, align 4
   %84 = add nuw nsw i64 %81, 1
-  %85 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = add nuw nsw i64 %81, 2
-  %88 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %87
   %89 = load float, ptr %88, align 4
   %90 = icmp samesign ult i64 %indvars.iv1036, 2
-  %91 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1036
+  %91 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1036
   %92 = load float, ptr %91, align 4
-  %93 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %81
-  %94 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %84
-  %95 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %87
+  %93 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %81
+  %94 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %84
+  %95 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %87
   %.promoted941.us = load float, ptr %93, align 4
   %.promoted943.us = load float, ptr %94, align 4
   %.promoted945.us = load float, ptr %95, align 4
@@ -35122,11 +35122,11 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %indvars.iv = phi i64 [ 0, %.preheader920 ], [ %indvars.iv.next, %230 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %231 = load float, ptr %gep, align 4
-  %gep1129 = getelementptr inbounds float, ptr %invariant.gep1128, i64 %indvars.iv
+  %gep1129 = getelementptr inbounds nuw float, ptr %invariant.gep1128, i64 %indvars.iv
   %232 = load float, ptr %gep1129, align 4
   %233 = fadd float %231, %232
   %234 = add nuw nsw i64 %indvars.iv, %229
-  %235 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %234
   store float %233, ptr %235, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -35136,7 +35136,7 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %237 = getelementptr inbounds float, ptr %34, i64 %228
   %238 = load float, ptr %237, align 4
   %239 = fmul float %38, %238
-  %240 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %240 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %239, ptr %240, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1011.not = icmp eq i64 %indvar.next, 4
@@ -35153,7 +35153,7 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
 244:                                              ; preds = %.lr.ph.split
   %245 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %42, i64 %indvars.iv1028
   %246 = load i32, ptr %245, align 4
-  %247 = getelementptr inbounds i8, ptr %245, i64 4
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 4
   %248 = icmp eq i32 %246, %64
   %249 = shl nsw i32 %246, 2
   %250 = sext i32 %249 to i64
@@ -35166,19 +35166,19 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %252 = mul nsw i32 %251, %30
   %253 = shl nuw nsw i64 %indvars.iv1024, 2
   %254 = mul nuw nsw i64 %indvars.iv1024, 3
-  %255 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %254
   %256 = load float, ptr %255, align 4
   %257 = add nuw nsw i64 %254, 1
-  %258 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %257
+  %258 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %257
   %259 = load float, ptr %258, align 4
   %260 = add nuw nsw i64 %254, 2
-  %261 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %260
   %262 = load float, ptr %261, align 4
-  %263 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1024
+  %263 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1024
   %264 = load float, ptr %263, align 4
-  %265 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %254
-  %266 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %257
-  %267 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %260
+  %265 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %254
+  %266 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %257
+  %267 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %260
   %.promoted933 = load float, ptr %265, align 4
   %.promoted935 = load float, ptr %266, align 4
   %.promoted937 = load float, ptr %267, align 4
@@ -35337,17 +35337,17 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %398 = mul nsw i32 %397, %30
   %399 = shl nuw nsw i64 %indvars.iv1016, 2
   %400 = mul nuw nsw i64 %indvars.iv1016, 3
-  %401 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %400
   %402 = load float, ptr %401, align 4
   %403 = add nuw nsw i64 %400, 1
-  %404 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %403
+  %404 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %403
   %405 = load float, ptr %404, align 4
   %406 = add nuw nsw i64 %400, 2
-  %407 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %406
+  %407 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %406
   %408 = load float, ptr %407, align 4
-  %409 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %400
-  %410 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %403
-  %411 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %406
+  %409 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %400
+  %410 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %403
+  %411 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %406
   %.promoted = load float, ptr %409, align 4
   %.promoted927 = load float, ptr %410, align 4
   %.promoted929 = load float, ptr %411, align 4
@@ -35516,20 +35516,20 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %528 = load i32, ptr %gep1141, align 4
   %529 = mul nsw i32 %528, %30
   %530 = mul nuw nsw i64 %indvars.iv1074, 3
-  %531 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %530
+  %531 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %530
   %532 = load float, ptr %531, align 4
   %533 = add nuw nsw i64 %530, 1
-  %534 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %533
+  %534 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %533
   %535 = load float, ptr %534, align 4
   %536 = add nuw nsw i64 %530, 2
-  %537 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %536
+  %537 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %536
   %538 = load float, ptr %537, align 4
   %539 = icmp samesign ult i64 %indvars.iv1074, 2
-  %540 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1074
+  %540 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1074
   %541 = load float, ptr %540, align 4
-  %542 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %530
-  %543 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %533
-  %544 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %536
+  %542 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %530
+  %543 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %533
+  %544 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %536
   %.promoted969.us = load float, ptr %542, align 4
   %.promoted971.us = load float, ptr %543, align 4
   %.promoted973.us = load float, ptr %544, align 4
@@ -35698,19 +35698,19 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %669 = load i32, ptr %gep1139, align 4
   %670 = mul nsw i32 %669, %30
   %671 = mul nuw nsw i64 %indvars.iv1061, 3
-  %672 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %671
+  %672 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %671
   %673 = load float, ptr %672, align 4
   %674 = add nuw nsw i64 %671, 1
-  %675 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %674
+  %675 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %674
   %676 = load float, ptr %675, align 4
   %677 = add nuw nsw i64 %671, 2
-  %678 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %677
+  %678 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %677
   %679 = load float, ptr %678, align 4
-  %680 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1061
+  %680 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1061
   %681 = load float, ptr %680, align 4
-  %682 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %671
-  %683 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %674
-  %684 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %677
+  %682 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %671
+  %683 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %674
+  %684 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %677
   %.promoted961.us = load float, ptr %682, align 4
   %.promoted963.us = load float, ptr %683, align 4
   %.promoted965.us = load float, ptr %684, align 4
@@ -35868,17 +35868,17 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   %806 = load i32, ptr %gep1137, align 4
   %807 = mul nsw i32 %806, %30
   %808 = mul nuw nsw i64 %indvars.iv1048, 3
-  %809 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %808
+  %809 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %808
   %810 = load float, ptr %809, align 4
   %811 = add nuw nsw i64 %808, 1
-  %812 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %811
+  %812 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %811
   %813 = load float, ptr %812, align 4
   %814 = add nuw nsw i64 %808, 2
-  %815 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %814
+  %815 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %814
   %816 = load float, ptr %815, align 4
-  %817 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %808
-  %818 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %811
-  %819 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %814
+  %817 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %808
+  %818 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %811
+  %819 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %814
   %.promoted953 = load float, ptr %817, align 4
   %.promoted955 = load float, ptr %818, align 4
   %.promoted957 = load float, ptr %819, align 4
@@ -36015,7 +36015,7 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
 917:                                              ; preds = %.preheader914, %917
   %indvars.iv1083 = phi i64 [ 0, %.preheader914 ], [ %indvars.iv.next1084, %917 ]
   %918 = add nuw nsw i64 %indvars.iv1083, %915
-  %919 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %918
+  %919 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %918
   %920 = load float, ptr %919, align 4
   %gep1143 = getelementptr float, ptr %invariant.gep1142, i64 %indvars.iv1083
   %921 = load float, ptr %gep1143, align 4
@@ -36035,7 +36035,7 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
 
 .preheader.preheader:                             ; preds = %924
   %925 = zext nneg i32 %51 to i64
-  %invariant.gep1144 = getelementptr inbounds float, ptr %12, i64 %925
+  %invariant.gep1144 = getelementptr inbounds nuw float, ptr %12, i64 %925
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %933
@@ -36046,9 +36046,9 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
 927:                                              ; preds = %.preheader, %927
   %indvars.iv1091 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1092, %927 ]
   %928 = add nuw nsw i64 %indvars.iv1091, %926
-  %929 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %928
+  %929 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %928
   %930 = load float, ptr %929, align 4
-  %gep1145 = getelementptr inbounds float, ptr %invariant.gep1144, i64 %indvars.iv1091
+  %gep1145 = getelementptr inbounds nuw float, ptr %invariant.gep1144, i64 %indvars.iv1091
   %931 = load float, ptr %gep1145, align 4
   %932 = fadd float %930, %931
   store float %932, ptr %gep1145, align 4
@@ -36062,7 +36062,7 @@ define void @_Z42nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_F_refPK16NbnxnPairlistCpuP
   br i1 %exitcond1098.not, label %.loopexit922, label %.preheader, !llvm.loop !592
 
 .loopexit922:                                     ; preds = %933, %924
-  %934 = getelementptr inbounds i8, ptr %.sroa.0904.0985, i64 16
+  %934 = getelementptr inbounds nuw i8, ptr %.sroa.0904.0985, i64 16
   %.not908 = icmp eq ptr %934, %46
   br i1 %.not908, label %._crit_edge, label %47
 
@@ -36075,72 +36075,72 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %18 = load float, ptr %17, align 8
   %19 = fmul float %18, %18
   %20 = fmul float %19, %19
   %21 = fmul float %19, %20
   %22 = fdiv float %21, 6.000000e+00
-  %23 = getelementptr inbounds i8, ptr %2, i64 100
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %24 = load float, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = load float, ptr %28, align 8
   %30 = fdiv float 5.000000e-01, %29
-  %31 = getelementptr inbounds i8, ptr %28, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 76
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %34 = load float, ptr %33, align 4
   %35 = fmul float %34, %34
   %36 = load i32, ptr %1, align 8
   %37 = shl nsw i32 %36, 1
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 176
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 108
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %1, i64 288
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 128
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %53 = load ptr, ptr %52, align 8
   %.not11141230 = icmp eq ptr %51, %53
   br i1 %.not11141230, label %._crit_edge, label %.lr.ph1232
 
 .lr.ph1232:                                       ; preds = %5
-  %54 = getelementptr inbounds i8, ptr %32, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %55 = fpext float %22 to double
-  %56 = getelementptr inbounds i8, ptr %2, i64 44
-  %57 = getelementptr inbounds i8, ptr %2, i64 32
-  %58 = getelementptr inbounds i8, ptr %2, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1074 = icmp eq ptr %12, null
   br label %59
 
 59:                                               ; preds = %.lr.ph1232, %.loopexit1128
   %.sroa.01110.01231 = phi ptr [ %51, %.lr.ph1232 ], [ %1111, %.loopexit1128 ]
-  %60 = getelementptr inbounds i8, ptr %.sroa.01110.01231, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.01110.01231, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 127
   %63 = mul nuw nsw i32 %62, 3
-  %64 = getelementptr inbounds i8, ptr %.sroa.01110.01231, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.01110.01231, i64 8
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.sroa.01110.01231, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.01110.01231, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = load i32, ptr %.sroa.01110.01231, align 4
   %69 = icmp eq i32 %62, 22
@@ -36151,7 +36151,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %73 = zext nneg i32 %63 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %74 = sext i32 %72 to i64
-  %invariant.gep1389 = getelementptr inbounds float, ptr %3, i64 %73
+  %invariant.gep1389 = getelementptr inbounds nuw float, ptr %3, i64 %73
   br label %.preheader1126
 
 .preheader1126:                                   ; preds = %59, %83
@@ -36166,11 +36166,11 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %indvars.iv = phi i64 [ 0, %.preheader1126 ], [ %indvars.iv.next, %77 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %78 = load float, ptr %gep, align 4
-  %gep1390 = getelementptr inbounds float, ptr %invariant.gep1389, i64 %indvars.iv
+  %gep1390 = getelementptr inbounds nuw float, ptr %invariant.gep1389, i64 %indvars.iv
   %79 = load float, ptr %gep1390, align 4
   %80 = fadd float %78, %79
   %81 = add nuw nsw i64 %indvars.iv, %76
-  %82 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %81
   store float %80, ptr %82, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -36180,7 +36180,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %84 = getelementptr inbounds float, ptr %41, i64 %75
   %85 = load float, ptr %84, align 4
   %86 = fmul float %45, %85
-  %87 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %87 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %86, ptr %87, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1264.not = icmp eq i64 %indvar.next, 4
@@ -36200,7 +36200,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
 
 .preheader1130:                                   ; preds = %88, %.preheader1130
   %indvars.iv1265 = phi i64 [ %indvars.iv.next1266, %.preheader1130 ], [ 0, %88 ]
-  %97 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1265
+  %97 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1265
   %98 = load float, ptr %97, align 4
   %99 = add nuw nsw i64 %indvars.iv1265, %74
   %100 = getelementptr inbounds float, ptr %41, i64 %99
@@ -36256,7 +36256,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
 129:                                              ; preds = %125
   %130 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %49, i64 %indvars.iv1293
   %131 = load i32, ptr %130, align 4
-  %132 = getelementptr inbounds i8, ptr %130, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %133 = icmp eq i32 %131, %89
   %134 = shl nsw i32 %131, 2
   %135 = sext i32 %134 to i64
@@ -36271,20 +36271,20 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %137 = mul nsw i32 %136, %37
   %138 = shl nuw nsw i64 %indvars.iv1289, 2
   %139 = mul nuw nsw i64 %indvars.iv1289, 3
-  %140 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %139
   %141 = load float, ptr %140, align 4
   %142 = add nuw nsw i64 %139, 1
-  %143 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %142
   %144 = load float, ptr %143, align 4
   %145 = add nuw nsw i64 %139, 2
-  %146 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %145
   %147 = load float, ptr %146, align 4
   %148 = icmp samesign ult i64 %indvars.iv1289, 2
-  %149 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1289
+  %149 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1289
   %150 = load float, ptr %149, align 4
-  %151 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %139
-  %152 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %142
-  %153 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %145
+  %151 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %139
+  %152 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %142
+  %153 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %145
   %.promoted1155 = load float, ptr %151, align 4
   %.promoted1157 = load float, ptr %152, align 4
   %.promoted1159 = load float, ptr %153, align 4
@@ -36488,19 +36488,19 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %317 = mul nsw i32 %316, %37
   %318 = shl nuw nsw i64 %indvars.iv1281, 2
   %319 = mul nuw nsw i64 %indvars.iv1281, 3
-  %320 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %319
   %321 = load float, ptr %320, align 4
   %322 = add nuw nsw i64 %319, 1
-  %323 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %322
+  %323 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %322
   %324 = load float, ptr %323, align 4
   %325 = add nuw nsw i64 %319, 2
-  %326 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %325
+  %326 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %325
   %327 = load float, ptr %326, align 4
-  %328 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1281
+  %328 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1281
   %329 = load float, ptr %328, align 4
-  %330 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %319
-  %331 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %322
-  %332 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %325
+  %330 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %319
+  %331 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %322
+  %332 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %325
   %.promoted1143 = load float, ptr %330, align 4
   %.promoted1145 = load float, ptr %331, align 4
   %.promoted1147 = load float, ptr %332, align 4
@@ -36691,17 +36691,17 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %492 = mul nsw i32 %491, %37
   %493 = shl nuw nsw i64 %indvars.iv1273, 2
   %494 = mul nuw nsw i64 %indvars.iv1273, 3
-  %495 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %494
+  %495 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %494
   %496 = load float, ptr %495, align 4
   %497 = add nuw nsw i64 %494, 1
-  %498 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %497
+  %498 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %497
   %499 = load float, ptr %498, align 4
   %500 = add nuw nsw i64 %494, 2
-  %501 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %500
+  %501 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %500
   %502 = load float, ptr %501, align 4
-  %503 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %494
-  %504 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %497
-  %505 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %500
+  %503 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %494
+  %504 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %497
+  %505 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %500
   %.promoted = load float, ptr %503, align 4
   %.promoted1135 = load float, ptr %504, align 4
   %.promoted1137 = load float, ptr %505, align 4
@@ -36890,20 +36890,20 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %636 = load i32, ptr %gep1402, align 4
   %637 = mul nsw i32 %636, %37
   %638 = mul nuw nsw i64 %indvars.iv1326, 3
-  %639 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %638
+  %639 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %638
   %640 = load float, ptr %639, align 4
   %641 = add nuw nsw i64 %638, 1
-  %642 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %641
+  %642 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %641
   %643 = load float, ptr %642, align 4
   %644 = add nuw nsw i64 %638, 2
-  %645 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %644
+  %645 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %644
   %646 = load float, ptr %645, align 4
   %647 = icmp samesign ult i64 %indvars.iv1326, 2
-  %648 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1326
+  %648 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1326
   %649 = load float, ptr %648, align 4
-  %650 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %638
-  %651 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %641
-  %652 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %644
+  %650 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %638
+  %651 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %641
+  %652 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %644
   %.promoted1198.us = load float, ptr %650, align 4
   %.promoted1200.us = load float, ptr %651, align 4
   %.promoted1202.us = load float, ptr %652, align 4
@@ -37105,19 +37105,19 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %803 = load i32, ptr %gep1400, align 4
   %804 = mul nsw i32 %803, %37
   %805 = mul nuw nsw i64 %indvars.iv1313, 3
-  %806 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %805
+  %806 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %805
   %807 = load float, ptr %806, align 4
   %808 = add nuw nsw i64 %805, 1
-  %809 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %808
+  %809 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %808
   %810 = load float, ptr %809, align 4
   %811 = add nuw nsw i64 %805, 2
-  %812 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %811
+  %812 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %811
   %813 = load float, ptr %812, align 4
-  %814 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1313
+  %814 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1313
   %815 = load float, ptr %814, align 4
-  %816 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %805
-  %817 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %808
-  %818 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %811
+  %816 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %805
+  %817 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %808
+  %818 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %811
   %.promoted1186.us = load float, ptr %816, align 4
   %.promoted1188.us = load float, ptr %817, align 4
   %.promoted1190.us = load float, ptr %818, align 4
@@ -37310,17 +37310,17 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %966 = load i32, ptr %gep1398, align 4
   %967 = mul nsw i32 %966, %37
   %968 = mul nuw nsw i64 %indvars.iv1301, 3
-  %969 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %968
+  %969 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %968
   %970 = load float, ptr %969, align 4
   %971 = add nuw nsw i64 %968, 1
-  %972 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %971
+  %972 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %971
   %973 = load float, ptr %972, align 4
   %974 = add nuw nsw i64 %968, 2
-  %975 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %974
+  %975 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %974
   %976 = load float, ptr %975, align 4
-  %977 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %968
-  %978 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %971
-  %979 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %974
+  %977 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %968
+  %978 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %971
+  %979 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %974
   %.promoted1176 = load float, ptr %977, align 4
   %.promoted1178 = load float, ptr %978, align 4
   %.promoted1180 = load float, ptr %979, align 4
@@ -37468,7 +37468,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
 1090:                                             ; preds = %.preheader1120, %1090
   %indvars.iv1335 = phi i64 [ 0, %.preheader1120 ], [ %indvars.iv.next1336, %1090 ]
   %1091 = add nuw nsw i64 %indvars.iv1335, %1088
-  %1092 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1091
+  %1092 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1091
   %1093 = load float, ptr %1092, align 4
   %gep1404 = getelementptr float, ptr %invariant.gep1403, i64 %indvars.iv1335
   %1094 = load float, ptr %gep1404, align 4
@@ -37488,7 +37488,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
 
 .preheader.preheader:                             ; preds = %1097
   %1098 = zext nneg i32 %63 to i64
-  %invariant.gep1405 = getelementptr inbounds float, ptr %12, i64 %1098
+  %invariant.gep1405 = getelementptr inbounds nuw float, ptr %12, i64 %1098
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1106
@@ -37499,9 +37499,9 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
 1100:                                             ; preds = %.preheader, %1100
   %indvars.iv1343 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1344, %1100 ]
   %1101 = add nuw nsw i64 %indvars.iv1343, %1099
-  %1102 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1101
+  %1102 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1101
   %1103 = load float, ptr %1102, align 4
-  %gep1406 = getelementptr inbounds float, ptr %invariant.gep1405, i64 %indvars.iv1343
+  %gep1406 = getelementptr inbounds nuw float, ptr %invariant.gep1405, i64 %indvars.iv1343
   %1104 = load float, ptr %gep1406, align 4
   %1105 = fadd float %1103, %1104
   store float %1105, ptr %gep1406, align 4
@@ -37521,7 +37521,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %1109 = load float, ptr %16, align 4
   %1110 = fadd float %.61046.lcssa, %1109
   store float %1110, ptr %16, align 4
-  %1111 = getelementptr inbounds i8, ptr %.sroa.01110.01231, i64 16
+  %1111 = getelementptr inbounds nuw i8, ptr %.sroa.01110.01231, i64 16
   %.not1114 = icmp eq ptr %1111, %53
   br i1 %.not1114, label %._crit_edge, label %59
 
@@ -37535,73 +37535,73 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %19 = load float, ptr %18, align 8
   %20 = fmul float %19, %19
   %21 = fmul float %20, %20
   %22 = fmul float %20, %21
   %23 = fdiv float %22, 6.000000e+00
-  %24 = getelementptr inbounds i8, ptr %2, i64 100
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %29 = load ptr, ptr %28, align 8
   %30 = load float, ptr %29, align 8
   %31 = fdiv float 5.000000e-01, %30
-  %32 = getelementptr inbounds i8, ptr %29, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 76
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %35 = load float, ptr %34, align 4
   %36 = fmul float %35, %35
   %37 = load i32, ptr %1, align 8
   %38 = shl nsw i32 %37, 1
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 176
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 108
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %46 = load float, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 288
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %54 = load ptr, ptr %53, align 8
   %.not11481227 = icmp eq ptr %52, %54
   br i1 %.not11481227, label %._crit_edge, label %.lr.ph1229
 
 .lr.ph1229:                                       ; preds = %5
-  %55 = getelementptr inbounds i8, ptr %1, i64 208
-  %56 = getelementptr inbounds i8, ptr %1, i64 200
-  %57 = getelementptr inbounds i8, ptr %33, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %57 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %58 = fpext float %23 to double
-  %59 = getelementptr inbounds i8, ptr %2, i64 44
-  %60 = getelementptr inbounds i8, ptr %2, i64 32
-  %61 = getelementptr inbounds i8, ptr %2, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1108 = icmp eq ptr %13, null
   br label %62
 
 62:                                               ; preds = %.lr.ph1229, %.loopexit1162
   %.sroa.01144.01228 = phi ptr [ %52, %.lr.ph1229 ], [ %1265, %.loopexit1162 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.01144.01228, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.01144.01228, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 127
-  %66 = getelementptr inbounds i8, ptr %.sroa.01144.01228, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.01144.01228, i64 8
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %.sroa.01144.01228, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.01144.01228, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %.sroa.01144.01228, align 4
   %71 = icmp eq i32 %65, 22
@@ -37609,13 +37609,13 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %73 = and i32 %64, 384
   %or.cond = icmp ne i32 %73, 128
   %74 = load ptr, ptr %55, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = sext i32 %70 to i64
   %77 = load ptr, ptr %75, align 8
   %78 = getelementptr inbounds i32, ptr %77, i64 %76
   %79 = load i32, ptr %78, align 4
   %80 = load i32, ptr %74, align 8
-  %81 = getelementptr inbounds i8, ptr %74, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %82 = load i32, ptr %81, align 8
   %83 = load i32, ptr %56, align 8
   br label %89
@@ -37627,7 +37627,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %87 = zext nneg i32 %84 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %88 = sext i32 %86 to i64
-  %invariant.gep1378 = getelementptr inbounds float, ptr %3, i64 %87
+  %invariant.gep1378 = getelementptr inbounds nuw float, ptr %3, i64 %87
   br label %.preheader1160
 
 89:                                               ; preds = %62, %89
@@ -37637,7 +37637,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %92 = ashr i32 %79, %91
   %93 = and i32 %92, %82
   %94 = mul nsw i32 %93, %83
-  %95 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %94, ptr %95, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -37655,11 +37655,11 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %indvars.iv1252 = phi i64 [ 0, %.preheader1160 ], [ %indvars.iv.next1253, %98 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1252
   %99 = load float, ptr %gep, align 4
-  %gep1379 = getelementptr inbounds float, ptr %invariant.gep1378, i64 %indvars.iv1252
+  %gep1379 = getelementptr inbounds nuw float, ptr %invariant.gep1378, i64 %indvars.iv1252
   %100 = load float, ptr %gep1379, align 4
   %101 = fadd float %99, %100
   %102 = add nuw nsw i64 %indvars.iv1252, %97
-  %103 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %102
   store float %101, ptr %103, align 4
   %indvars.iv.next1253 = add nuw nsw i64 %indvars.iv1252, 1
   %exitcond1255.not = icmp eq i64 %indvars.iv.next1253, 3
@@ -37669,7 +37669,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %105 = getelementptr inbounds float, ptr %42, i64 %96
   %106 = load float, ptr %105, align 4
   %107 = fmul float %46, %106
-  %108 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %108 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %107, ptr %108, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1257.not = icmp eq i64 %indvar.next, 4
@@ -37688,10 +37688,10 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
 
 .preheader1164:                                   ; preds = %109, %.preheader1164
   %indvars.iv1258 = phi i64 [ %indvars.iv.next1259, %.preheader1164 ], [ 0, %109 ]
-  %117 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1258
+  %117 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1258
   %118 = load i32, ptr %117, align 4
   %119 = load ptr, ptr %55, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i32, ptr %121, i64 %76
   %123 = load i32, ptr %122, align 4
@@ -37699,11 +37699,11 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %125 = trunc nuw nsw i64 %indvars.iv1258 to i32
   %126 = mul nsw i32 %124, %125
   %127 = ashr i32 %123, %126
-  %128 = getelementptr inbounds i8, ptr %119, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %129 = load i32, ptr %128, align 8
   %130 = and i32 %127, %129
   %131 = add nsw i32 %130, %118
-  %132 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1258
+  %132 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1258
   %133 = load float, ptr %132, align 4
   %134 = add nuw nsw i64 %indvars.iv1258, %88
   %135 = getelementptr inbounds float, ptr %42, i64 %134
@@ -37760,7 +37760,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
 167:                                              ; preds = %163
   %168 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %50, i64 %indvars.iv1286
   %169 = load i32, ptr %168, align 4
-  %170 = getelementptr inbounds i8, ptr %168, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %171 = icmp eq i32 %169, %110
   %172 = shl nsw i32 %169, 2
   %173 = sext i32 %169 to i64
@@ -37774,22 +37774,22 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %176 = mul nsw i32 %175, %38
   %177 = shl nuw nsw i64 %indvars.iv1282, 2
   %178 = mul nuw nsw i64 %indvars.iv1282, 3
-  %179 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %178
   %180 = load float, ptr %179, align 4
   %181 = add nuw nsw i64 %178, 1
-  %182 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %181
   %183 = load float, ptr %182, align 4
   %184 = add nuw nsw i64 %178, 2
-  %185 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %184
   %186 = load float, ptr %185, align 4
   %187 = icmp samesign ult i64 %indvars.iv1282, 2
-  %188 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1282
+  %188 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1282
   %189 = load float, ptr %188, align 4
-  %190 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1282
+  %190 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1282
   %191 = load i32, ptr %190, align 4
-  %192 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %178
-  %193 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %181
-  %194 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %184
+  %192 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %178
+  %193 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %181
+  %194 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %184
   %.promoted1185 = load float, ptr %192, align 4
   %.promoted1187 = load float, ptr %193, align 4
   %.promoted1189 = load float, ptr %194, align 4
@@ -37834,7 +37834,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %228 = fmul float %225, %227
   %229 = fmul float %228, %228
   %230 = load ptr, ptr %55, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds i32, ptr %232, i64 %173
   %234 = load i32, ptr %233, align 4
@@ -37842,7 +37842,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %236 = trunc nuw nsw i64 %indvars.iv1278 to i32
   %237 = mul nsw i32 %235, %236
   %238 = ashr i32 %234, %237
-  %239 = getelementptr inbounds i8, ptr %230, i64 32
+  %239 = getelementptr inbounds nuw i8, ptr %230, i64 32
   %240 = load i32, ptr %239, align 8
   %241 = and i32 %238, %240
   br i1 %187, label %242, label %._crit_edge1344
@@ -38014,21 +38014,21 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %376 = mul nsw i32 %375, %38
   %377 = shl nuw nsw i64 %indvars.iv1274, 2
   %378 = mul nuw nsw i64 %indvars.iv1274, 3
-  %379 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %378
+  %379 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %378
   %380 = load float, ptr %379, align 4
   %381 = add nuw nsw i64 %378, 1
-  %382 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %381
   %383 = load float, ptr %382, align 4
   %384 = add nuw nsw i64 %378, 2
-  %385 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %384
   %386 = load float, ptr %385, align 4
-  %387 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1274
+  %387 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1274
   %388 = load i32, ptr %387, align 4
-  %389 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1274
+  %389 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1274
   %390 = load float, ptr %389, align 4
-  %391 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %378
-  %392 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %381
-  %393 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %384
+  %391 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %378
+  %392 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %381
+  %393 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %384
   %.promoted1177 = load float, ptr %391, align 4
   %.promoted1179 = load float, ptr %392, align 4
   %.promoted1181 = load float, ptr %393, align 4
@@ -38073,7 +38073,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %427 = fmul float %424, %426
   %428 = fmul float %427, %427
   %429 = load ptr, ptr %55, align 8
-  %430 = getelementptr inbounds i8, ptr %429, i64 8
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 8
   %431 = load ptr, ptr %430, align 8
   %432 = getelementptr inbounds i32, ptr %431, i64 %173
   %433 = load i32, ptr %432, align 4
@@ -38081,7 +38081,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %435 = trunc nuw nsw i64 %indvars.iv1270 to i32
   %436 = mul nsw i32 %434, %435
   %437 = ashr i32 %433, %436
-  %438 = getelementptr inbounds i8, ptr %429, i64 32
+  %438 = getelementptr inbounds nuw i8, ptr %429, i64 32
   %439 = load i32, ptr %438, align 8
   %440 = and i32 %437, %439
   %441 = getelementptr inbounds i32, ptr %44, i64 %406
@@ -38236,19 +38236,19 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %571 = mul nsw i32 %570, %38
   %572 = shl nuw nsw i64 %indvars.iv1266, 2
   %573 = mul nuw nsw i64 %indvars.iv1266, 3
-  %574 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %573
+  %574 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %573
   %575 = load float, ptr %574, align 4
   %576 = add nuw nsw i64 %573, 1
-  %577 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %576
+  %577 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %576
   %578 = load float, ptr %577, align 4
   %579 = add nuw nsw i64 %573, 2
-  %580 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %579
+  %580 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %579
   %581 = load float, ptr %580, align 4
-  %582 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1266
+  %582 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1266
   %583 = load i32, ptr %582, align 4
-  %584 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %573
-  %585 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %576
-  %586 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %579
+  %584 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %573
+  %585 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %576
+  %586 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %579
   %.promoted = load float, ptr %584, align 4
   %.promoted1171 = load float, ptr %585, align 4
   %.promoted1173 = load float, ptr %586, align 4
@@ -38293,7 +38293,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %620 = fmul float %617, %619
   %621 = fmul float %620, %620
   %622 = load ptr, ptr %55, align 8
-  %623 = getelementptr inbounds i8, ptr %622, i64 8
+  %623 = getelementptr inbounds nuw i8, ptr %622, i64 8
   %624 = load ptr, ptr %623, align 8
   %625 = getelementptr inbounds i32, ptr %624, i64 %173
   %626 = load i32, ptr %625, align 4
@@ -38301,7 +38301,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %628 = trunc nuw nsw i64 %indvars.iv1262 to i32
   %629 = mul nsw i32 %627, %628
   %630 = ashr i32 %626, %629
-  %631 = getelementptr inbounds i8, ptr %622, i64 32
+  %631 = getelementptr inbounds nuw i8, ptr %622, i64 32
   %632 = load i32, ptr %631, align 8
   %633 = and i32 %630, %632
   %634 = getelementptr inbounds i32, ptr %44, i64 %599
@@ -38446,22 +38446,22 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %734 = load i32, ptr %gep1391, align 4
   %735 = mul nsw i32 %734, %38
   %736 = mul nuw nsw i64 %indvars.iv1319, 3
-  %737 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %736
+  %737 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %736
   %738 = load float, ptr %737, align 4
   %739 = add nuw nsw i64 %736, 1
-  %740 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %739
+  %740 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %739
   %741 = load float, ptr %740, align 4
   %742 = add nuw nsw i64 %736, 2
-  %743 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %742
+  %743 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %742
   %744 = load float, ptr %743, align 4
   %745 = icmp samesign ult i64 %indvars.iv1319, 2
-  %746 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1319
+  %746 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1319
   %747 = load float, ptr %746, align 4
-  %748 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1319
+  %748 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1319
   %749 = load i32, ptr %748, align 4
-  %750 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %736
-  %751 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %739
-  %752 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %742
+  %750 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %736
+  %751 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %739
+  %752 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %742
   %.promoted1212.us = load float, ptr %750, align 4
   %.promoted1214.us = load float, ptr %751, align 4
   %.promoted1216.us = load float, ptr %752, align 4
@@ -38505,7 +38505,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %778 = fmul float %775, %777
   %779 = fmul float %778, %778
   %780 = load ptr, ptr %55, align 8
-  %781 = getelementptr inbounds i8, ptr %780, i64 8
+  %781 = getelementptr inbounds nuw i8, ptr %780, i64 8
   %782 = load ptr, ptr %781, align 8
   %783 = getelementptr inbounds i32, ptr %782, i64 %731
   %784 = load i32, ptr %783, align 4
@@ -38513,7 +38513,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %786 = trunc nuw nsw i64 %indvars.iv1315 to i32
   %787 = mul nsw i32 %785, %786
   %788 = ashr i32 %784, %787
-  %789 = getelementptr inbounds i8, ptr %780, i64 32
+  %789 = getelementptr inbounds nuw i8, ptr %780, i64 32
   %790 = load i32, ptr %789, align 8
   %791 = and i32 %788, %790
   br i1 %745, label %792, label %._crit_edge1345
@@ -38683,21 +38683,21 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %922 = load i32, ptr %gep1389, align 4
   %923 = mul nsw i32 %922, %38
   %924 = mul nuw nsw i64 %indvars.iv1306, 3
-  %925 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %924
+  %925 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %924
   %926 = load float, ptr %925, align 4
   %927 = add nuw nsw i64 %924, 1
-  %928 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %927
+  %928 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %927
   %929 = load float, ptr %928, align 4
   %930 = add nuw nsw i64 %924, 2
-  %931 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %930
+  %931 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %930
   %932 = load float, ptr %931, align 4
-  %933 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1306
+  %933 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1306
   %934 = load i32, ptr %933, align 4
-  %935 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1306
+  %935 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1306
   %936 = load float, ptr %935, align 4
-  %937 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %924
-  %938 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %927
-  %939 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %930
+  %937 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %924
+  %938 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %927
+  %939 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %930
   %.promoted1204.us = load float, ptr %937, align 4
   %.promoted1206.us = load float, ptr %938, align 4
   %.promoted1208.us = load float, ptr %939, align 4
@@ -38741,7 +38741,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %965 = fmul float %962, %964
   %966 = fmul float %965, %965
   %967 = load ptr, ptr %55, align 8
-  %968 = getelementptr inbounds i8, ptr %967, i64 8
+  %968 = getelementptr inbounds nuw i8, ptr %967, i64 8
   %969 = load ptr, ptr %968, align 8
   %970 = getelementptr inbounds i32, ptr %969, i64 %919
   %971 = load i32, ptr %970, align 4
@@ -38749,7 +38749,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %973 = trunc nuw nsw i64 %indvars.iv1302 to i32
   %974 = mul nsw i32 %972, %973
   %975 = ashr i32 %971, %974
-  %976 = getelementptr inbounds i8, ptr %967, i64 32
+  %976 = getelementptr inbounds nuw i8, ptr %967, i64 32
   %977 = load i32, ptr %976, align 8
   %978 = and i32 %975, %977
   %979 = getelementptr inbounds i32, ptr %44, i64 %945
@@ -38902,19 +38902,19 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %1106 = load i32, ptr %gep1387, align 4
   %1107 = mul nsw i32 %1106, %38
   %1108 = mul nuw nsw i64 %indvars.iv1294, 3
-  %1109 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1108
+  %1109 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1108
   %1110 = load float, ptr %1109, align 4
   %1111 = add nuw nsw i64 %1108, 1
-  %1112 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1111
+  %1112 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1111
   %1113 = load float, ptr %1112, align 4
   %1114 = add nuw nsw i64 %1108, 2
-  %1115 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1114
+  %1115 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1114
   %1116 = load float, ptr %1115, align 4
-  %1117 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1294
+  %1117 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1294
   %1118 = load i32, ptr %1117, align 4
-  %1119 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1108
-  %1120 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1111
-  %1121 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1114
+  %1119 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1108
+  %1120 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1111
+  %1121 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1114
   %.promoted1196 = load float, ptr %1119, align 4
   %.promoted1198 = load float, ptr %1120, align 4
   %.promoted1200 = load float, ptr %1121, align 4
@@ -38950,7 +38950,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %1146 = fmul float %1143, %1145
   %1147 = fmul float %1146, %1146
   %1148 = load ptr, ptr %55, align 8
-  %1149 = getelementptr inbounds i8, ptr %1148, i64 8
+  %1149 = getelementptr inbounds nuw i8, ptr %1148, i64 8
   %1150 = load ptr, ptr %1149, align 8
   %1151 = getelementptr inbounds i32, ptr %1150, i64 %1103
   %1152 = load i32, ptr %1151, align 4
@@ -38958,7 +38958,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   %1154 = trunc nuw nsw i64 %indvars.iv1290 to i32
   %1155 = mul nsw i32 %1153, %1154
   %1156 = ashr i32 %1152, %1155
-  %1157 = getelementptr inbounds i8, ptr %1148, i64 32
+  %1157 = getelementptr inbounds nuw i8, ptr %1148, i64 32
   %1158 = load i32, ptr %1157, align 8
   %1159 = and i32 %1156, %1158
   %1160 = getelementptr inbounds i32, ptr %44, i64 %1126
@@ -39081,7 +39081,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
 1248:                                             ; preds = %.preheader1154, %1248
   %indvars.iv1328 = phi i64 [ 0, %.preheader1154 ], [ %indvars.iv.next1329, %1248 ]
   %1249 = add nuw nsw i64 %indvars.iv1328, %1246
-  %1250 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1249
+  %1250 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1249
   %1251 = load float, ptr %1250, align 4
   %gep1393 = getelementptr float, ptr %invariant.gep1392, i64 %indvars.iv1328
   %1252 = load float, ptr %gep1393, align 4
@@ -39101,7 +39101,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
 
 .preheader.preheader:                             ; preds = %1255
   %1256 = zext nneg i32 %84 to i64
-  %invariant.gep1394 = getelementptr inbounds float, ptr %13, i64 %1256
+  %invariant.gep1394 = getelementptr inbounds nuw float, ptr %13, i64 %1256
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1264
@@ -39112,9 +39112,9 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
 1258:                                             ; preds = %.preheader, %1258
   %indvars.iv1336 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1337, %1258 ]
   %1259 = add nuw nsw i64 %indvars.iv1336, %1257
-  %1260 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1259
+  %1260 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1259
   %1261 = load float, ptr %1260, align 4
-  %gep1395 = getelementptr inbounds float, ptr %invariant.gep1394, i64 %indvars.iv1336
+  %gep1395 = getelementptr inbounds nuw float, ptr %invariant.gep1394, i64 %indvars.iv1336
   %1262 = load float, ptr %gep1395, align 4
   %1263 = fadd float %1261, %1262
   store float %1263, ptr %gep1395, align 4
@@ -39128,7 +39128,7 @@ define void @_Z46nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VgrpF_refPK16NbnxnPairlist
   br i1 %exitcond1343.not, label %.loopexit1162, label %.preheader, !llvm.loop !635
 
 .loopexit1162:                                    ; preds = %1264, %1255
-  %1265 = getelementptr inbounds i8, ptr %.sroa.01144.01228, i64 16
+  %1265 = getelementptr inbounds nuw i8, ptr %.sroa.01144.01228, i64 16
   %.not1148 = icmp eq ptr %1265, %54
   br i1 %.not1148, label %._crit_edge, label %62
 
@@ -39141,38 +39141,38 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load float, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %19 = load float, ptr %18, align 4
   %20 = fmul float %19, %19
-  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = load float, ptr %21, align 8
   %23 = fmul float %22, %22
   %24 = load i32, ptr %1, align 8
   %25 = shl nsw i32 %24, 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 108
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 288
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load ptr, ptr %40, align 8
   %.not725801 = icmp eq ptr %39, %41
   br i1 %.not725801, label %._crit_edge, label %.lr.ph803
@@ -39183,13 +39183,13 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
 
 42:                                               ; preds = %.lr.ph803, %.loopexit739
   %.sroa.0721.0802 = phi ptr [ %39, %.lr.ph803 ], [ %734, %.loopexit739 ]
-  %43 = getelementptr inbounds i8, ptr %.sroa.0721.0802, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0721.0802, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 127
   %46 = mul nuw nsw i32 %45, 3
-  %47 = getelementptr inbounds i8, ptr %.sroa.0721.0802, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0721.0802, i64 8
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %.sroa.0721.0802, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0721.0802, i64 12
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %.sroa.0721.0802, align 4
   %52 = icmp eq i32 %45, 22
@@ -39202,7 +39202,7 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %57 = zext nneg i32 %46 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %58 = sext i32 %56 to i64
-  %invariant.gep945 = getelementptr inbounds float, ptr %3, i64 %57
+  %invariant.gep945 = getelementptr inbounds nuw float, ptr %3, i64 %57
   br label %.preheader737
 
 .preheader741:                                    ; preds = %197
@@ -39235,7 +39235,7 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
 65:                                               ; preds = %.lr.ph.split.us
   %66 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %37, i64 %indvars.iv857
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %66, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %69 = icmp eq i32 %67, %59
   %70 = shl nsw i32 %67, 2
   %71 = sext i32 %70 to i64
@@ -39248,20 +39248,20 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %74 = mul nsw i32 %73, %25
   %75 = shl nuw nsw i64 %indvars.iv853, 2
   %76 = mul nuw nsw i64 %indvars.iv853, 3
-  %77 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %76
   %78 = load float, ptr %77, align 4
   %79 = add nuw nsw i64 %76, 1
-  %80 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %79
   %81 = load float, ptr %80, align 4
   %82 = add nuw nsw i64 %76, 2
-  %83 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %82
   %84 = load float, ptr %83, align 4
   %85 = icmp samesign ult i64 %indvars.iv853, 2
-  %86 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv853
+  %86 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv853
   %87 = load float, ptr %86, align 4
-  %88 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %76
-  %89 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %79
-  %90 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %82
+  %88 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %76
+  %89 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %79
+  %90 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %82
   %.promoted758.us = load float, ptr %88, align 4
   %.promoted760.us = load float, ptr %89, align 4
   %.promoted762.us = load float, ptr %90, align 4
@@ -39404,11 +39404,11 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %indvars.iv = phi i64 [ 0, %.preheader737 ], [ %indvars.iv.next, %191 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %192 = load float, ptr %gep, align 4
-  %gep946 = getelementptr inbounds float, ptr %invariant.gep945, i64 %indvars.iv
+  %gep946 = getelementptr inbounds nuw float, ptr %invariant.gep945, i64 %indvars.iv
   %193 = load float, ptr %gep946, align 4
   %194 = fadd float %192, %193
   %195 = add nuw nsw i64 %indvars.iv, %190
-  %196 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %195
   store float %194, ptr %196, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -39418,7 +39418,7 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %198 = getelementptr inbounds float, ptr %29, i64 %189
   %199 = load float, ptr %198, align 4
   %200 = fmul float %33, %199
-  %201 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %201 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %200, ptr %201, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond828.not = icmp eq i64 %indvar.next, 4
@@ -39435,7 +39435,7 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
 205:                                              ; preds = %.lr.ph.split
   %206 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %37, i64 %indvars.iv845
   %207 = load i32, ptr %206, align 4
-  %208 = getelementptr inbounds i8, ptr %206, i64 4
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 4
   br i1 %54, label %209, label %326
 
 209:                                              ; preds = %205
@@ -39451,19 +39451,19 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %215 = mul nsw i32 %214, %25
   %216 = shl nuw nsw i64 %indvars.iv841, 2
   %217 = mul nuw nsw i64 %indvars.iv841, 3
-  %218 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %217
+  %218 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %217
   %219 = load float, ptr %218, align 4
   %220 = add nuw nsw i64 %217, 1
-  %221 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %220
+  %221 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %220
   %222 = load float, ptr %221, align 4
   %223 = add nuw nsw i64 %217, 2
-  %224 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %223
   %225 = load float, ptr %224, align 4
-  %226 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv841
+  %226 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv841
   %227 = load float, ptr %226, align 4
-  %228 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %217
-  %229 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %220
-  %230 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %223
+  %228 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %217
+  %229 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %220
+  %230 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %223
   %.promoted750 = load float, ptr %228, align 4
   %.promoted752 = load float, ptr %229, align 4
   %.promoted754 = load float, ptr %230, align 4
@@ -39593,17 +39593,17 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %331 = mul nsw i32 %330, %25
   %332 = shl nuw nsw i64 %indvars.iv833, 2
   %333 = mul nuw nsw i64 %indvars.iv833, 3
-  %334 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %333
+  %334 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %333
   %335 = load float, ptr %334, align 4
   %336 = add nuw nsw i64 %333, 1
-  %337 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %336
+  %337 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %336
   %338 = load float, ptr %337, align 4
   %339 = add nuw nsw i64 %333, 2
-  %340 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %339
+  %340 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %339
   %341 = load float, ptr %340, align 4
-  %342 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %333
-  %343 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %336
-  %344 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %339
+  %342 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %333
+  %343 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %336
+  %344 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %339
   %.promoted = load float, ptr %342, align 4
   %.promoted744 = load float, ptr %343, align 4
   %.promoted746 = load float, ptr %344, align 4
@@ -39735,20 +39735,20 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %424 = load i32, ptr %gep958, align 4
   %425 = mul nsw i32 %424, %25
   %426 = mul nuw nsw i64 %indvars.iv891, 3
-  %427 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %426
+  %427 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %426
   %428 = load float, ptr %427, align 4
   %429 = add nuw nsw i64 %426, 1
-  %430 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %429
+  %430 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %429
   %431 = load float, ptr %430, align 4
   %432 = add nuw nsw i64 %426, 2
-  %433 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %432
+  %433 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %432
   %434 = load float, ptr %433, align 4
   %435 = icmp samesign ult i64 %indvars.iv891, 2
-  %436 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv891
+  %436 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv891
   %437 = load float, ptr %436, align 4
-  %438 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %426
-  %439 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %429
-  %440 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %432
+  %438 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %426
+  %439 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %429
+  %440 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %432
   %.promoted786.us = load float, ptr %438, align 4
   %.promoted788.us = load float, ptr %439, align 4
   %.promoted790.us = load float, ptr %440, align 4
@@ -39885,19 +39885,19 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %533 = load i32, ptr %gep956, align 4
   %534 = mul nsw i32 %533, %25
   %535 = mul nuw nsw i64 %indvars.iv878, 3
-  %536 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %535
+  %536 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %535
   %537 = load float, ptr %536, align 4
   %538 = add nuw nsw i64 %535, 1
-  %539 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %538
+  %539 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %538
   %540 = load float, ptr %539, align 4
   %541 = add nuw nsw i64 %535, 2
-  %542 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %541
+  %542 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %541
   %543 = load float, ptr %542, align 4
-  %544 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv878
+  %544 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv878
   %545 = load float, ptr %544, align 4
-  %546 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %535
-  %547 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %538
-  %548 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %541
+  %546 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %535
+  %547 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %538
+  %548 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %541
   %.promoted778.us = load float, ptr %546, align 4
   %.promoted780.us = load float, ptr %547, align 4
   %.promoted782.us = load float, ptr %548, align 4
@@ -40023,17 +40023,17 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   %638 = load i32, ptr %gep954, align 4
   %639 = mul nsw i32 %638, %25
   %640 = mul nuw nsw i64 %indvars.iv865, 3
-  %641 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %640
+  %641 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %640
   %642 = load float, ptr %641, align 4
   %643 = add nuw nsw i64 %640, 1
-  %644 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %643
+  %644 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %643
   %645 = load float, ptr %644, align 4
   %646 = add nuw nsw i64 %640, 2
-  %647 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %646
+  %647 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %646
   %648 = load float, ptr %647, align 4
-  %649 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %640
-  %650 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %643
-  %651 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %646
+  %649 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %640
+  %650 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %643
+  %651 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %646
   %.promoted770 = load float, ptr %649, align 4
   %.promoted772 = load float, ptr %650, align 4
   %.promoted774 = load float, ptr %651, align 4
@@ -40138,7 +40138,7 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
 717:                                              ; preds = %.preheader731, %717
   %indvars.iv900 = phi i64 [ 0, %.preheader731 ], [ %indvars.iv.next901, %717 ]
   %718 = add nuw nsw i64 %indvars.iv900, %715
-  %719 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %718
+  %719 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %718
   %720 = load float, ptr %719, align 4
   %gep960 = getelementptr float, ptr %invariant.gep959, i64 %indvars.iv900
   %721 = load float, ptr %gep960, align 4
@@ -40158,7 +40158,7 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
 
 .preheader.preheader:                             ; preds = %724
   %725 = zext nneg i32 %46 to i64
-  %invariant.gep961 = getelementptr inbounds float, ptr %12, i64 %725
+  %invariant.gep961 = getelementptr inbounds nuw float, ptr %12, i64 %725
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %733
@@ -40169,9 +40169,9 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
 727:                                              ; preds = %.preheader, %727
   %indvars.iv908 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next909, %727 ]
   %728 = add nuw nsw i64 %indvars.iv908, %726
-  %729 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %728
+  %729 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %728
   %730 = load float, ptr %729, align 4
-  %gep962 = getelementptr inbounds float, ptr %invariant.gep961, i64 %indvars.iv908
+  %gep962 = getelementptr inbounds nuw float, ptr %invariant.gep961, i64 %indvars.iv908
   %731 = load float, ptr %gep962, align 4
   %732 = fadd float %730, %731
   store float %732, ptr %gep962, align 4
@@ -40185,7 +40185,7 @@ define void @_Z41nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_F_refPK16NbnxnPairlistCpuPK
   br i1 %exitcond915.not, label %.loopexit739, label %.preheader, !llvm.loop !655
 
 .loopexit739:                                     ; preds = %733, %724
-  %734 = getelementptr inbounds i8, ptr %.sroa.0721.0802, i64 16
+  %734 = getelementptr inbounds nuw i8, ptr %.sroa.0721.0802, i64 16
   %.not725 = icmp eq ptr %734, %41
   br i1 %.not725, label %._crit_edge, label %42
 
@@ -40198,64 +40198,64 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %18 = load ptr, ptr %17, align 8
   %19 = load float, ptr %18, align 8
   %20 = fdiv float 5.000000e-01, %19
-  %21 = getelementptr inbounds i8, ptr %18, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 76
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %24 = load float, ptr %23, align 4
   %25 = fmul float %24, %24
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load float, ptr %26, align 8
   %28 = fmul float %27, %27
   %29 = load i32, ptr %1, align 8
   %30 = shl nsw i32 %29, 1
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 176
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 108
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %1, i64 288
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 128
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = load ptr, ptr %45, align 8
   %.not880997 = icmp eq ptr %44, %46
   br i1 %.not880997, label %._crit_edge, label %.lr.ph999
 
 .lr.ph999:                                        ; preds = %5
-  %47 = getelementptr inbounds i8, ptr %22, i64 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 44
-  %49 = getelementptr inbounds i8, ptr %2, i64 32
-  %50 = getelementptr inbounds i8, ptr %2, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not842 = icmp eq ptr %12, null
   br label %51
 
 51:                                               ; preds = %.lr.ph999, %.loopexit894
   %.sroa.0876.0998 = phi ptr [ %44, %.lr.ph999 ], [ %869, %.loopexit894 ]
-  %52 = getelementptr inbounds i8, ptr %.sroa.0876.0998, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0876.0998, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 127
   %55 = mul nuw nsw i32 %54, 3
-  %56 = getelementptr inbounds i8, ptr %.sroa.0876.0998, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0876.0998, i64 8
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.sroa.0876.0998, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0876.0998, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %.sroa.0876.0998, align 4
   %61 = icmp eq i32 %54, 22
@@ -40266,7 +40266,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %65 = zext nneg i32 %55 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %66 = sext i32 %64 to i64
-  %invariant.gep1156 = getelementptr inbounds float, ptr %3, i64 %65
+  %invariant.gep1156 = getelementptr inbounds nuw float, ptr %3, i64 %65
   br label %.preheader892
 
 .preheader892:                                    ; preds = %51, %75
@@ -40281,11 +40281,11 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %indvars.iv = phi i64 [ 0, %.preheader892 ], [ %indvars.iv.next, %69 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %70 = load float, ptr %gep, align 4
-  %gep1157 = getelementptr inbounds float, ptr %invariant.gep1156, i64 %indvars.iv
+  %gep1157 = getelementptr inbounds nuw float, ptr %invariant.gep1156, i64 %indvars.iv
   %71 = load float, ptr %gep1157, align 4
   %72 = fadd float %70, %71
   %73 = add nuw nsw i64 %indvars.iv, %68
-  %74 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %73
   store float %72, ptr %74, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -40295,7 +40295,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %76 = getelementptr inbounds float, ptr %34, i64 %67
   %77 = load float, ptr %76, align 4
   %78 = fmul float %38, %77
-  %79 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %79 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %78, ptr %79, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1031.not = icmp eq i64 %indvar.next, 4
@@ -40324,7 +40324,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
 90:                                               ; preds = %.preheader896, %90
   %indvars.iv1032 = phi i64 [ 0, %.preheader896 ], [ %indvars.iv.next1033, %90 ]
   %91 = phi float [ %.promoted, %.preheader896 ], [ %97, %90 ]
-  %92 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1032
+  %92 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1032
   %93 = load float, ptr %92, align 4
   %gep1159 = getelementptr float, ptr %invariant.gep1158, i64 %indvars.iv1032
   %94 = load float, ptr %gep1159, align 4
@@ -40360,7 +40360,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
 104:                                              ; preds = %100
   %105 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %42, i64 %indvars.iv1060
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %105, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 4
   br i1 %spec.select, label %108, label %253
 
 108:                                              ; preds = %104
@@ -40378,20 +40378,20 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %114 = mul nsw i32 %113, %30
   %115 = shl nuw nsw i64 %indvars.iv1056, 2
   %116 = mul nuw nsw i64 %indvars.iv1056, 3
-  %117 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %116
   %118 = load float, ptr %117, align 4
   %119 = add nuw nsw i64 %116, 1
-  %120 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %119
   %121 = load float, ptr %120, align 4
   %122 = add nuw nsw i64 %116, 2
-  %123 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %122
   %124 = load float, ptr %123, align 4
   %125 = icmp samesign ult i64 %indvars.iv1056, 2
-  %126 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1056
+  %126 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1056
   %127 = load float, ptr %126, align 4
-  %128 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %116
-  %129 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %119
-  %130 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %122
+  %128 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %116
+  %129 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %119
+  %130 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %122
   %.promoted922 = load float, ptr %128, align 4
   %.promoted924 = load float, ptr %129, align 4
   %.promoted926 = load float, ptr %130, align 4
@@ -40562,19 +40562,19 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %260 = mul nsw i32 %259, %30
   %261 = shl nuw nsw i64 %indvars.iv1048, 2
   %262 = mul nuw nsw i64 %indvars.iv1048, 3
-  %263 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %262
   %264 = load float, ptr %263, align 4
   %265 = add nuw nsw i64 %262, 1
-  %266 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %265
+  %266 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %265
   %267 = load float, ptr %266, align 4
   %268 = add nuw nsw i64 %262, 2
-  %269 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %268
+  %269 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %268
   %270 = load float, ptr %269, align 4
-  %271 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1048
+  %271 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1048
   %272 = load float, ptr %271, align 4
-  %273 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %262
-  %274 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %265
-  %275 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %268
+  %273 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %262
+  %274 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %265
+  %275 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %268
   %.promoted910 = load float, ptr %273, align 4
   %.promoted912 = load float, ptr %274, align 4
   %.promoted914 = load float, ptr %275, align 4
@@ -40731,17 +40731,17 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %400 = mul nsw i32 %399, %30
   %401 = shl nuw nsw i64 %indvars.iv1040, 2
   %402 = mul nuw nsw i64 %indvars.iv1040, 3
-  %403 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %402
+  %403 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %402
   %404 = load float, ptr %403, align 4
   %405 = add nuw nsw i64 %402, 1
-  %406 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %405
+  %406 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %405
   %407 = load float, ptr %406, align 4
   %408 = add nuw nsw i64 %402, 2
-  %409 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %408
+  %409 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %408
   %410 = load float, ptr %409, align 4
-  %411 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %402
-  %412 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %405
-  %413 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %408
+  %411 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %402
+  %412 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %405
+  %413 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %408
   %.promoted901 = load float, ptr %411, align 4
   %.promoted902 = load float, ptr %412, align 4
   %.promoted904 = load float, ptr %413, align 4
@@ -40888,20 +40888,20 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %502 = load i32, ptr %gep1171, align 4
   %503 = mul nsw i32 %502, %30
   %504 = mul nuw nsw i64 %indvars.iv1093, 3
-  %505 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %504
+  %505 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %504
   %506 = load float, ptr %505, align 4
   %507 = add nuw nsw i64 %504, 1
-  %508 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %507
+  %508 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %507
   %509 = load float, ptr %508, align 4
   %510 = add nuw nsw i64 %504, 2
-  %511 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %510
+  %511 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %510
   %512 = load float, ptr %511, align 4
   %513 = icmp samesign ult i64 %indvars.iv1093, 2
-  %514 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1093
+  %514 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1093
   %515 = load float, ptr %514, align 4
-  %516 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %504
-  %517 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %507
-  %518 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %510
+  %516 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %504
+  %517 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %507
+  %518 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %510
   %.promoted965.us = load float, ptr %516, align 4
   %.promoted967.us = load float, ptr %517, align 4
   %.promoted969.us = load float, ptr %518, align 4
@@ -41067,19 +41067,19 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %633 = load i32, ptr %gep1169, align 4
   %634 = mul nsw i32 %633, %30
   %635 = mul nuw nsw i64 %indvars.iv1080, 3
-  %636 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %635
+  %636 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %635
   %637 = load float, ptr %636, align 4
   %638 = add nuw nsw i64 %635, 1
-  %639 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %638
+  %639 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %638
   %640 = load float, ptr %639, align 4
   %641 = add nuw nsw i64 %635, 2
-  %642 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %641
+  %642 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %641
   %643 = load float, ptr %642, align 4
-  %644 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1080
+  %644 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1080
   %645 = load float, ptr %644, align 4
-  %646 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %635
-  %647 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %638
-  %648 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %641
+  %646 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %635
+  %647 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %638
+  %648 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %641
   %.promoted953.us = load float, ptr %646, align 4
   %.promoted955.us = load float, ptr %647, align 4
   %.promoted957.us = load float, ptr %648, align 4
@@ -41236,17 +41236,17 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %760 = load i32, ptr %gep1167, align 4
   %761 = mul nsw i32 %760, %30
   %762 = mul nuw nsw i64 %indvars.iv1068, 3
-  %763 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %762
+  %763 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %762
   %764 = load float, ptr %763, align 4
   %765 = add nuw nsw i64 %762, 1
-  %766 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %765
+  %766 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %765
   %767 = load float, ptr %766, align 4
   %768 = add nuw nsw i64 %762, 2
-  %769 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %768
+  %769 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %768
   %770 = load float, ptr %769, align 4
-  %771 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %762
-  %772 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %765
-  %773 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %768
+  %771 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %762
+  %772 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %765
+  %773 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %768
   %.promoted943 = load float, ptr %771, align 4
   %.promoted945 = load float, ptr %772, align 4
   %.promoted947 = load float, ptr %773, align 4
@@ -41358,7 +41358,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
 848:                                              ; preds = %.preheader886, %848
   %indvars.iv1102 = phi i64 [ 0, %.preheader886 ], [ %indvars.iv.next1103, %848 ]
   %849 = add nuw nsw i64 %indvars.iv1102, %846
-  %850 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %849
+  %850 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %849
   %851 = load float, ptr %850, align 4
   %gep1173 = getelementptr float, ptr %invariant.gep1172, i64 %indvars.iv1102
   %852 = load float, ptr %gep1173, align 4
@@ -41378,7 +41378,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
 
 .preheader.preheader:                             ; preds = %855
   %856 = zext nneg i32 %55 to i64
-  %invariant.gep1174 = getelementptr inbounds float, ptr %12, i64 %856
+  %invariant.gep1174 = getelementptr inbounds nuw float, ptr %12, i64 %856
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %864
@@ -41389,9 +41389,9 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
 858:                                              ; preds = %.preheader, %858
   %indvars.iv1110 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1111, %858 ]
   %859 = add nuw nsw i64 %indvars.iv1110, %857
-  %860 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %859
+  %860 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %859
   %861 = load float, ptr %860, align 4
-  %gep1175 = getelementptr inbounds float, ptr %invariant.gep1174, i64 %indvars.iv1110
+  %gep1175 = getelementptr inbounds nuw float, ptr %invariant.gep1174, i64 %indvars.iv1110
   %862 = load float, ptr %gep1175, align 4
   %863 = fadd float %861, %862
   store float %863, ptr %gep1175, align 4
@@ -41411,7 +41411,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %867 = load float, ptr %16, align 4
   %868 = fadd float %.6814.lcssa, %867
   store float %868, ptr %16, align 4
-  %869 = getelementptr inbounds i8, ptr %.sroa.0876.0998, i64 16
+  %869 = getelementptr inbounds nuw i8, ptr %.sroa.0876.0998, i64 16
   %.not880 = icmp eq ptr %869, %46
   br i1 %.not880, label %._crit_edge, label %51
 
@@ -41425,65 +41425,65 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = load float, ptr %19, align 8
   %21 = fdiv float 5.000000e-01, %20
-  %22 = getelementptr inbounds i8, ptr %19, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %25 = load float, ptr %24, align 4
   %26 = fmul float %25, %25
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load float, ptr %27, align 8
   %29 = fmul float %28, %28
   %30 = load i32, ptr %1, align 8
   %31 = shl nsw i32 %30, 1
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 176
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 108
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %39 = load float, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 288
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load ptr, ptr %46, align 8
   %.not915994 = icmp eq ptr %45, %47
   br i1 %.not915994, label %._crit_edge, label %.lr.ph996
 
 .lr.ph996:                                        ; preds = %5
-  %48 = getelementptr inbounds i8, ptr %1, i64 208
-  %49 = getelementptr inbounds i8, ptr %1, i64 200
-  %50 = getelementptr inbounds i8, ptr %23, i64 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 44
-  %52 = getelementptr inbounds i8, ptr %2, i64 32
-  %53 = getelementptr inbounds i8, ptr %2, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not875 = icmp eq ptr %13, null
   br label %54
 
 54:                                               ; preds = %.lr.ph996, %.loopexit929
   %.sroa.0911.0995 = phi ptr [ %45, %.lr.ph996 ], [ %1024, %.loopexit929 ]
-  %55 = getelementptr inbounds i8, ptr %.sroa.0911.0995, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0911.0995, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 127
-  %58 = getelementptr inbounds i8, ptr %.sroa.0911.0995, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0911.0995, i64 8
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %.sroa.0911.0995, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0911.0995, i64 12
   %61 = load i32, ptr %60, align 4
   %62 = load i32, ptr %.sroa.0911.0995, align 4
   %63 = icmp eq i32 %57, 22
@@ -41491,13 +41491,13 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %65 = and i32 %56, 384
   %or.cond = icmp ne i32 %65, 128
   %66 = load ptr, ptr %48, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = sext i32 %62 to i64
   %69 = load ptr, ptr %67, align 8
   %70 = getelementptr inbounds i32, ptr %69, i64 %68
   %71 = load i32, ptr %70, align 4
   %72 = load i32, ptr %66, align 8
-  %73 = getelementptr inbounds i8, ptr %66, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %74 = load i32, ptr %73, align 8
   %75 = load i32, ptr %49, align 8
   br label %81
@@ -41509,7 +41509,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %79 = zext nneg i32 %76 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %80 = sext i32 %78 to i64
-  %invariant.gep1145 = getelementptr inbounds float, ptr %3, i64 %79
+  %invariant.gep1145 = getelementptr inbounds nuw float, ptr %3, i64 %79
   br label %.preheader927
 
 81:                                               ; preds = %54, %81
@@ -41519,7 +41519,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %84 = ashr i32 %71, %83
   %85 = and i32 %84, %74
   %86 = mul nsw i32 %85, %75
-  %87 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %86, ptr %87, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -41537,11 +41537,11 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %indvars.iv1019 = phi i64 [ 0, %.preheader927 ], [ %indvars.iv.next1020, %90 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1019
   %91 = load float, ptr %gep, align 4
-  %gep1146 = getelementptr inbounds float, ptr %invariant.gep1145, i64 %indvars.iv1019
+  %gep1146 = getelementptr inbounds nuw float, ptr %invariant.gep1145, i64 %indvars.iv1019
   %92 = load float, ptr %gep1146, align 4
   %93 = fadd float %91, %92
   %94 = add nuw nsw i64 %indvars.iv1019, %89
-  %95 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %94
   store float %93, ptr %95, align 4
   %indvars.iv.next1020 = add nuw nsw i64 %indvars.iv1019, 1
   %exitcond1022.not = icmp eq i64 %indvars.iv.next1020, 3
@@ -41551,7 +41551,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %97 = getelementptr inbounds float, ptr %35, i64 %88
   %98 = load float, ptr %97, align 4
   %99 = fmul float %39, %98
-  %100 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %100 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %99, ptr %100, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1024.not = icmp eq i64 %indvar.next, 4
@@ -41577,10 +41577,10 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
 
 110:                                              ; preds = %.preheader931, %110
   %indvars.iv1025 = phi i64 [ 0, %.preheader931 ], [ %indvars.iv.next1026, %110 ]
-  %111 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1025
+  %111 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1025
   %112 = load i32, ptr %111, align 4
   %113 = load ptr, ptr %48, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i32, ptr %115, i64 %68
   %117 = load i32, ptr %116, align 4
@@ -41588,11 +41588,11 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %119 = trunc nuw nsw i64 %indvars.iv1025 to i32
   %120 = mul nsw i32 %118, %119
   %121 = ashr i32 %117, %120
-  %122 = getelementptr inbounds i8, ptr %113, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %123 = load i32, ptr %122, align 8
   %124 = and i32 %121, %123
   %125 = add nsw i32 %124, %112
-  %126 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1025
+  %126 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1025
   %127 = load float, ptr %126, align 4
   %gep1148 = getelementptr float, ptr %invariant.gep1147, i64 %indvars.iv1025
   %128 = load float, ptr %gep1148, align 4
@@ -41629,7 +41629,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
 141:                                              ; preds = %137
   %142 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv1053
   %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %142, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 4
   br i1 %spec.select, label %145, label %311
 
 145:                                              ; preds = %141
@@ -41646,22 +41646,22 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %152 = mul nsw i32 %151, %31
   %153 = shl nuw nsw i64 %indvars.iv1049, 2
   %154 = mul nuw nsw i64 %indvars.iv1049, 3
-  %155 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %154
   %156 = load float, ptr %155, align 4
   %157 = add nuw nsw i64 %154, 1
-  %158 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %157
   %159 = load float, ptr %158, align 4
   %160 = add nuw nsw i64 %154, 2
-  %161 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %160
   %162 = load float, ptr %161, align 4
   %163 = icmp samesign ult i64 %indvars.iv1049, 2
-  %164 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1049
+  %164 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1049
   %165 = load float, ptr %164, align 4
-  %166 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1049
+  %166 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1049
   %167 = load i32, ptr %166, align 4
-  %168 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %154
-  %169 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %157
-  %170 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %160
+  %168 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %154
+  %169 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %157
+  %170 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %160
   %.promoted952 = load float, ptr %168, align 4
   %.promoted954 = load float, ptr %169, align 4
   %.promoted956 = load float, ptr %170, align 4
@@ -41706,7 +41706,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %204 = fmul float %201, %203
   %205 = fmul float %204, %204
   %206 = load ptr, ptr %48, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = load ptr, ptr %207, align 8
   %209 = getelementptr inbounds i32, ptr %208, i64 %148
   %210 = load i32, ptr %209, align 4
@@ -41714,7 +41714,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %212 = trunc nuw nsw i64 %indvars.iv1045 to i32
   %213 = mul nsw i32 %211, %212
   %214 = ashr i32 %210, %213
-  %215 = getelementptr inbounds i8, ptr %206, i64 32
+  %215 = getelementptr inbounds nuw i8, ptr %206, i64 32
   %216 = load i32, ptr %215, align 8
   %217 = and i32 %214, %216
   br i1 %163, label %218, label %._crit_edge1111
@@ -41854,21 +41854,21 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %319 = mul nsw i32 %318, %31
   %320 = shl nuw nsw i64 %indvars.iv1041, 2
   %321 = mul nuw nsw i64 %indvars.iv1041, 3
-  %322 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %321
+  %322 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %321
   %323 = load float, ptr %322, align 4
   %324 = add nuw nsw i64 %321, 1
-  %325 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %324
+  %325 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %324
   %326 = load float, ptr %325, align 4
   %327 = add nuw nsw i64 %321, 2
-  %328 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %327
+  %328 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %327
   %329 = load float, ptr %328, align 4
-  %330 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1041
+  %330 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1041
   %331 = load i32, ptr %330, align 4
-  %332 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1041
+  %332 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1041
   %333 = load float, ptr %332, align 4
-  %334 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %321
-  %335 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %324
-  %336 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %327
+  %334 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %321
+  %335 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %324
+  %336 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %327
   %.promoted944 = load float, ptr %334, align 4
   %.promoted946 = load float, ptr %335, align 4
   %.promoted948 = load float, ptr %336, align 4
@@ -41913,7 +41913,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %370 = fmul float %367, %369
   %371 = fmul float %370, %370
   %372 = load ptr, ptr %48, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %374 = load ptr, ptr %373, align 8
   %375 = getelementptr inbounds i32, ptr %374, i64 %315
   %376 = load i32, ptr %375, align 4
@@ -41921,7 +41921,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %378 = trunc nuw nsw i64 %indvars.iv1037 to i32
   %379 = mul nsw i32 %377, %378
   %380 = ashr i32 %376, %379
-  %381 = getelementptr inbounds i8, ptr %372, i64 32
+  %381 = getelementptr inbounds nuw i8, ptr %372, i64 32
   %382 = load i32, ptr %381, align 8
   %383 = and i32 %380, %382
   %384 = getelementptr inbounds i32, ptr %37, i64 %349
@@ -42043,19 +42043,19 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %480 = mul nsw i32 %479, %31
   %481 = shl nuw nsw i64 %indvars.iv1033, 2
   %482 = mul nuw nsw i64 %indvars.iv1033, 3
-  %483 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %482
+  %483 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %482
   %484 = load float, ptr %483, align 4
   %485 = add nuw nsw i64 %482, 1
-  %486 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %485
+  %486 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %485
   %487 = load float, ptr %486, align 4
   %488 = add nuw nsw i64 %482, 2
-  %489 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %488
+  %489 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %488
   %490 = load float, ptr %489, align 4
-  %491 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1033
+  %491 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1033
   %492 = load i32, ptr %491, align 4
-  %493 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %482
-  %494 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %485
-  %495 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %488
+  %493 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %482
+  %494 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %485
+  %495 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %488
   %.promoted = load float, ptr %493, align 4
   %.promoted938 = load float, ptr %494, align 4
   %.promoted940 = load float, ptr %495, align 4
@@ -42097,7 +42097,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %526 = fmul float %523, %525
   %527 = fmul float %526, %526
   %528 = load ptr, ptr %48, align 8
-  %529 = getelementptr inbounds i8, ptr %528, i64 8
+  %529 = getelementptr inbounds nuw i8, ptr %528, i64 8
   %530 = load ptr, ptr %529, align 8
   %531 = getelementptr inbounds i32, ptr %530, i64 %476
   %532 = load i32, ptr %531, align 4
@@ -42105,7 +42105,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %534 = trunc nuw nsw i64 %indvars.iv1029 to i32
   %535 = mul nsw i32 %533, %534
   %536 = ashr i32 %532, %535
-  %537 = getelementptr inbounds i8, ptr %528, i64 32
+  %537 = getelementptr inbounds nuw i8, ptr %528, i64 32
   %538 = load i32, ptr %537, align 8
   %539 = and i32 %536, %538
   %540 = getelementptr inbounds i32, ptr %37, i64 %506
@@ -42211,22 +42211,22 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %601 = load i32, ptr %gep1160, align 4
   %602 = mul nsw i32 %601, %31
   %603 = mul nuw nsw i64 %indvars.iv1086, 3
-  %604 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %603
+  %604 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %603
   %605 = load float, ptr %604, align 4
   %606 = add nuw nsw i64 %603, 1
-  %607 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %606
+  %607 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %606
   %608 = load float, ptr %607, align 4
   %609 = add nuw nsw i64 %603, 2
-  %610 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %609
+  %610 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %609
   %611 = load float, ptr %610, align 4
   %612 = icmp samesign ult i64 %indvars.iv1086, 2
-  %613 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1086
+  %613 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1086
   %614 = load float, ptr %613, align 4
-  %615 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1086
+  %615 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1086
   %616 = load i32, ptr %615, align 4
-  %617 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %603
-  %618 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %606
-  %619 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %609
+  %617 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %603
+  %618 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %606
+  %619 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %609
   %.promoted979.us = load float, ptr %617, align 4
   %.promoted981.us = load float, ptr %618, align 4
   %.promoted983.us = load float, ptr %619, align 4
@@ -42270,7 +42270,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %645 = fmul float %642, %644
   %646 = fmul float %645, %645
   %647 = load ptr, ptr %48, align 8
-  %648 = getelementptr inbounds i8, ptr %647, i64 8
+  %648 = getelementptr inbounds nuw i8, ptr %647, i64 8
   %649 = load ptr, ptr %648, align 8
   %650 = getelementptr inbounds i32, ptr %649, i64 %598
   %651 = load i32, ptr %650, align 4
@@ -42278,7 +42278,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %653 = trunc nuw nsw i64 %indvars.iv1082 to i32
   %654 = mul nsw i32 %652, %653
   %655 = ashr i32 %651, %654
-  %656 = getelementptr inbounds i8, ptr %647, i64 32
+  %656 = getelementptr inbounds nuw i8, ptr %647, i64 32
   %657 = load i32, ptr %656, align 8
   %658 = and i32 %655, %657
   br i1 %612, label %659, label %._crit_edge1112
@@ -42412,21 +42412,21 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %753 = load i32, ptr %gep1158, align 4
   %754 = mul nsw i32 %753, %31
   %755 = mul nuw nsw i64 %indvars.iv1073, 3
-  %756 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %755
+  %756 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %755
   %757 = load float, ptr %756, align 4
   %758 = add nuw nsw i64 %755, 1
-  %759 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %758
+  %759 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %758
   %760 = load float, ptr %759, align 4
   %761 = add nuw nsw i64 %755, 2
-  %762 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %761
+  %762 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %761
   %763 = load float, ptr %762, align 4
-  %764 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1073
+  %764 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1073
   %765 = load i32, ptr %764, align 4
-  %766 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1073
+  %766 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1073
   %767 = load float, ptr %766, align 4
-  %768 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %755
-  %769 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %758
-  %770 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %761
+  %768 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %755
+  %769 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %758
+  %770 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %761
   %.promoted971.us = load float, ptr %768, align 4
   %.promoted973.us = load float, ptr %769, align 4
   %.promoted975.us = load float, ptr %770, align 4
@@ -42470,7 +42470,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %796 = fmul float %793, %795
   %797 = fmul float %796, %796
   %798 = load ptr, ptr %48, align 8
-  %799 = getelementptr inbounds i8, ptr %798, i64 8
+  %799 = getelementptr inbounds nuw i8, ptr %798, i64 8
   %800 = load ptr, ptr %799, align 8
   %801 = getelementptr inbounds i32, ptr %800, i64 %750
   %802 = load i32, ptr %801, align 4
@@ -42478,7 +42478,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %804 = trunc nuw nsw i64 %indvars.iv1069 to i32
   %805 = mul nsw i32 %803, %804
   %806 = ashr i32 %802, %805
-  %807 = getelementptr inbounds i8, ptr %798, i64 32
+  %807 = getelementptr inbounds nuw i8, ptr %798, i64 32
   %808 = load i32, ptr %807, align 8
   %809 = and i32 %806, %808
   %810 = getelementptr inbounds i32, ptr %37, i64 %776
@@ -42595,19 +42595,19 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %901 = load i32, ptr %gep1156, align 4
   %902 = mul nsw i32 %901, %31
   %903 = mul nuw nsw i64 %indvars.iv1061, 3
-  %904 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %903
+  %904 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %903
   %905 = load float, ptr %904, align 4
   %906 = add nuw nsw i64 %903, 1
-  %907 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %906
+  %907 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %906
   %908 = load float, ptr %907, align 4
   %909 = add nuw nsw i64 %903, 2
-  %910 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %909
+  %910 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %909
   %911 = load float, ptr %910, align 4
-  %912 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1061
+  %912 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1061
   %913 = load i32, ptr %912, align 4
-  %914 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %903
-  %915 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %906
-  %916 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %909
+  %914 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %903
+  %915 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %906
+  %916 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %909
   %.promoted963 = load float, ptr %914, align 4
   %.promoted965 = load float, ptr %915, align 4
   %.promoted967 = load float, ptr %916, align 4
@@ -42643,7 +42643,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %941 = fmul float %938, %940
   %942 = fmul float %941, %941
   %943 = load ptr, ptr %48, align 8
-  %944 = getelementptr inbounds i8, ptr %943, i64 8
+  %944 = getelementptr inbounds nuw i8, ptr %943, i64 8
   %945 = load ptr, ptr %944, align 8
   %946 = getelementptr inbounds i32, ptr %945, i64 %898
   %947 = load i32, ptr %946, align 4
@@ -42651,7 +42651,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   %949 = trunc nuw nsw i64 %indvars.iv1057 to i32
   %950 = mul nsw i32 %948, %949
   %951 = ashr i32 %947, %950
-  %952 = getelementptr inbounds i8, ptr %943, i64 32
+  %952 = getelementptr inbounds nuw i8, ptr %943, i64 32
   %953 = load i32, ptr %952, align 8
   %954 = and i32 %951, %953
   %955 = getelementptr inbounds i32, ptr %37, i64 %921
@@ -42738,7 +42738,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
 1007:                                             ; preds = %.preheader921, %1007
   %indvars.iv1095 = phi i64 [ 0, %.preheader921 ], [ %indvars.iv.next1096, %1007 ]
   %1008 = add nuw nsw i64 %indvars.iv1095, %1005
-  %1009 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1008
+  %1009 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1008
   %1010 = load float, ptr %1009, align 4
   %gep1162 = getelementptr float, ptr %invariant.gep1161, i64 %indvars.iv1095
   %1011 = load float, ptr %gep1162, align 4
@@ -42758,7 +42758,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
 
 .preheader.preheader:                             ; preds = %1014
   %1015 = zext nneg i32 %76 to i64
-  %invariant.gep1163 = getelementptr inbounds float, ptr %13, i64 %1015
+  %invariant.gep1163 = getelementptr inbounds nuw float, ptr %13, i64 %1015
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1023
@@ -42769,9 +42769,9 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
 1017:                                             ; preds = %.preheader, %1017
   %indvars.iv1103 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1104, %1017 ]
   %1018 = add nuw nsw i64 %indvars.iv1103, %1016
-  %1019 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1018
+  %1019 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1018
   %1020 = load float, ptr %1019, align 4
-  %gep1164 = getelementptr inbounds float, ptr %invariant.gep1163, i64 %indvars.iv1103
+  %gep1164 = getelementptr inbounds nuw float, ptr %invariant.gep1163, i64 %indvars.iv1103
   %1021 = load float, ptr %gep1164, align 4
   %1022 = fadd float %1020, %1021
   store float %1022, ptr %gep1164, align 4
@@ -42785,7 +42785,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VgrpF_refPK16NbnxnPairlistC
   br i1 %exitcond1110.not, label %.loopexit929, label %.preheader, !llvm.loop !698
 
 .loopexit929:                                     ; preds = %1023, %1014
-  %1024 = getelementptr inbounds i8, ptr %.sroa.0911.0995, i64 16
+  %1024 = getelementptr inbounds nuw i8, ptr %.sroa.0911.0995, i64 16
   %.not915 = icmp eq ptr %1024, %47
   br i1 %.not915, label %._crit_edge, label %54
 
@@ -42798,60 +42798,60 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load float, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %19 = load float, ptr %18, align 4
   %20 = fmul float %19, %19
-  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = load float, ptr %21, align 8
   %23 = fmul float %22, %22
   %24 = load i32, ptr %1, align 8
   %25 = shl nsw i32 %24, 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 108
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 288
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load ptr, ptr %40, align 8
   %.not845921 = icmp eq ptr %39, %41
   br i1 %.not845921, label %._crit_edge, label %.lr.ph923
 
 .lr.ph923:                                        ; preds = %5
-  %42 = getelementptr inbounds i8, ptr %2, i64 20
-  %43 = getelementptr inbounds i8, ptr %2, i64 24
-  %44 = getelementptr inbounds i8, ptr %2, i64 28
-  %45 = getelementptr inbounds i8, ptr %2, i64 36
-  %46 = getelementptr inbounds i8, ptr %2, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.not807 = icmp eq ptr %12, null
   br label %47
 
 47:                                               ; preds = %.lr.ph923, %.loopexit859
   %.sroa.0841.0922 = phi ptr [ %39, %.lr.ph923 ], [ %861, %.loopexit859 ]
-  %48 = getelementptr inbounds i8, ptr %.sroa.0841.0922, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0841.0922, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 127
   %51 = mul nuw nsw i32 %50, 3
-  %52 = getelementptr inbounds i8, ptr %.sroa.0841.0922, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0841.0922, i64 8
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.sroa.0841.0922, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0841.0922, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = load i32, ptr %.sroa.0841.0922, align 4
   %57 = icmp eq i32 %50, 22
@@ -42864,7 +42864,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %62 = zext nneg i32 %51 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %63 = sext i32 %61 to i64
-  %invariant.gep1069 = getelementptr inbounds float, ptr %3, i64 %62
+  %invariant.gep1069 = getelementptr inbounds nuw float, ptr %3, i64 %62
   br label %.preheader857
 
 .preheader861:                                    ; preds = %222
@@ -42897,7 +42897,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
 70:                                               ; preds = %.lr.ph.split.us
   %71 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %37, i64 %indvars.iv977
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %71, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %74 = icmp eq i32 %72, %64
   %75 = shl nsw i32 %72, 2
   %76 = sext i32 %75 to i64
@@ -42910,20 +42910,20 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %79 = mul nsw i32 %78, %25
   %80 = shl nuw nsw i64 %indvars.iv973, 2
   %81 = mul nuw nsw i64 %indvars.iv973, 3
-  %82 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %81
   %83 = load float, ptr %82, align 4
   %84 = add nuw nsw i64 %81, 1
-  %85 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = add nuw nsw i64 %81, 2
-  %88 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %87
   %89 = load float, ptr %88, align 4
   %90 = icmp samesign ult i64 %indvars.iv973, 2
-  %91 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv973
+  %91 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv973
   %92 = load float, ptr %91, align 4
-  %93 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %81
-  %94 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %84
-  %95 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %87
+  %93 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %81
+  %94 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %84
+  %95 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %87
   %.promoted878.us = load float, ptr %93, align 4
   %.promoted880.us = load float, ptr %94, align 4
   %.promoted882.us = load float, ptr %95, align 4
@@ -43091,11 +43091,11 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %indvars.iv = phi i64 [ 0, %.preheader857 ], [ %indvars.iv.next, %216 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %217 = load float, ptr %gep, align 4
-  %gep1070 = getelementptr inbounds float, ptr %invariant.gep1069, i64 %indvars.iv
+  %gep1070 = getelementptr inbounds nuw float, ptr %invariant.gep1069, i64 %indvars.iv
   %218 = load float, ptr %gep1070, align 4
   %219 = fadd float %217, %218
   %220 = add nuw nsw i64 %indvars.iv, %215
-  %221 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %220
+  %221 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %220
   store float %219, ptr %221, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -43105,7 +43105,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %223 = getelementptr inbounds float, ptr %29, i64 %214
   %224 = load float, ptr %223, align 4
   %225 = fmul float %33, %224
-  %226 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %226 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %225, ptr %226, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond948.not = icmp eq i64 %indvar.next, 4
@@ -43122,7 +43122,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
 230:                                              ; preds = %.lr.ph.split
   %231 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %37, i64 %indvars.iv965
   %232 = load i32, ptr %231, align 4
-  %233 = getelementptr inbounds i8, ptr %231, i64 4
+  %233 = getelementptr inbounds nuw i8, ptr %231, i64 4
   br i1 %59, label %234, label %371
 
 234:                                              ; preds = %230
@@ -43138,19 +43138,19 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %240 = mul nsw i32 %239, %25
   %241 = shl nuw nsw i64 %indvars.iv961, 2
   %242 = mul nuw nsw i64 %indvars.iv961, 3
-  %243 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %242
   %244 = load float, ptr %243, align 4
   %245 = add nuw nsw i64 %242, 1
-  %246 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %245
   %247 = load float, ptr %246, align 4
   %248 = add nuw nsw i64 %242, 2
-  %249 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %248
   %250 = load float, ptr %249, align 4
-  %251 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv961
+  %251 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv961
   %252 = load float, ptr %251, align 4
-  %253 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %242
-  %254 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %245
-  %255 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %248
+  %253 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %242
+  %254 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %245
+  %255 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %248
   %.promoted870 = load float, ptr %253, align 4
   %.promoted872 = load float, ptr %254, align 4
   %.promoted874 = load float, ptr %255, align 4
@@ -43300,17 +43300,17 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %376 = mul nsw i32 %375, %25
   %377 = shl nuw nsw i64 %indvars.iv953, 2
   %378 = mul nuw nsw i64 %indvars.iv953, 3
-  %379 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %378
+  %379 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %378
   %380 = load float, ptr %379, align 4
   %381 = add nuw nsw i64 %378, 1
-  %382 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %381
   %383 = load float, ptr %382, align 4
   %384 = add nuw nsw i64 %378, 2
-  %385 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %384
   %386 = load float, ptr %385, align 4
-  %387 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %378
-  %388 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %381
-  %389 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %384
+  %387 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %378
+  %388 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %381
+  %389 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %384
   %.promoted = load float, ptr %387, align 4
   %.promoted864 = load float, ptr %388, align 4
   %.promoted866 = load float, ptr %389, align 4
@@ -43463,20 +43463,20 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %490 = load i32, ptr %gep1082, align 4
   %491 = mul nsw i32 %490, %25
   %492 = mul nuw nsw i64 %indvars.iv1011, 3
-  %493 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %492
+  %493 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %492
   %494 = load float, ptr %493, align 4
   %495 = add nuw nsw i64 %492, 1
-  %496 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %495
+  %496 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %495
   %497 = load float, ptr %496, align 4
   %498 = add nuw nsw i64 %492, 2
-  %499 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %498
+  %499 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %498
   %500 = load float, ptr %499, align 4
   %501 = icmp samesign ult i64 %indvars.iv1011, 2
-  %502 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1011
+  %502 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1011
   %503 = load float, ptr %502, align 4
-  %504 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %492
-  %505 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %495
-  %506 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %498
+  %504 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %492
+  %505 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %495
+  %506 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %498
   %.promoted906.us = load float, ptr %504, align 4
   %.promoted908.us = load float, ptr %505, align 4
   %.promoted910.us = load float, ptr %506, align 4
@@ -43638,19 +43638,19 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %619 = load i32, ptr %gep1080, align 4
   %620 = mul nsw i32 %619, %25
   %621 = mul nuw nsw i64 %indvars.iv998, 3
-  %622 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %621
+  %622 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %621
   %623 = load float, ptr %622, align 4
   %624 = add nuw nsw i64 %621, 1
-  %625 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %624
+  %625 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %624
   %626 = load float, ptr %625, align 4
   %627 = add nuw nsw i64 %621, 2
-  %628 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %627
+  %628 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %627
   %629 = load float, ptr %628, align 4
-  %630 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv998
+  %630 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv998
   %631 = load float, ptr %630, align 4
-  %632 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %621
-  %633 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %624
-  %634 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %627
+  %632 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %621
+  %633 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %624
+  %634 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %627
   %.promoted898.us = load float, ptr %632, align 4
   %.promoted900.us = load float, ptr %633, align 4
   %.promoted902.us = load float, ptr %634, align 4
@@ -43796,17 +43796,17 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   %744 = load i32, ptr %gep1078, align 4
   %745 = mul nsw i32 %744, %25
   %746 = mul nuw nsw i64 %indvars.iv985, 3
-  %747 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %746
+  %747 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %746
   %748 = load float, ptr %747, align 4
   %749 = add nuw nsw i64 %746, 1
-  %750 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %749
+  %750 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %749
   %751 = load float, ptr %750, align 4
   %752 = add nuw nsw i64 %746, 2
-  %753 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %752
+  %753 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %752
   %754 = load float, ptr %753, align 4
-  %755 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %746
-  %756 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %749
-  %757 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %752
+  %755 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %746
+  %756 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %749
+  %757 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %752
   %.promoted890 = load float, ptr %755, align 4
   %.promoted892 = load float, ptr %756, align 4
   %.promoted894 = load float, ptr %757, align 4
@@ -43932,7 +43932,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
 844:                                              ; preds = %.preheader851, %844
   %indvars.iv1020 = phi i64 [ 0, %.preheader851 ], [ %indvars.iv.next1021, %844 ]
   %845 = add nuw nsw i64 %indvars.iv1020, %842
-  %846 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %845
+  %846 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %845
   %847 = load float, ptr %846, align 4
   %gep1084 = getelementptr float, ptr %invariant.gep1083, i64 %indvars.iv1020
   %848 = load float, ptr %gep1084, align 4
@@ -43952,7 +43952,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
 
 .preheader.preheader:                             ; preds = %851
   %852 = zext nneg i32 %51 to i64
-  %invariant.gep1085 = getelementptr inbounds float, ptr %12, i64 %852
+  %invariant.gep1085 = getelementptr inbounds nuw float, ptr %12, i64 %852
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %860
@@ -43963,9 +43963,9 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
 854:                                              ; preds = %.preheader, %854
   %indvars.iv1028 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1029, %854 ]
   %855 = add nuw nsw i64 %indvars.iv1028, %853
-  %856 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %855
+  %856 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %855
   %857 = load float, ptr %856, align 4
-  %gep1086 = getelementptr inbounds float, ptr %invariant.gep1085, i64 %indvars.iv1028
+  %gep1086 = getelementptr inbounds nuw float, ptr %invariant.gep1085, i64 %indvars.iv1028
   %858 = load float, ptr %gep1086, align 4
   %859 = fadd float %857, %858
   store float %859, ptr %gep1086, align 4
@@ -43979,7 +43979,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_F_refPK16NbnxnPairlistCp
   br i1 %exitcond1035.not, label %.loopexit859, label %.preheader, !llvm.loop !718
 
 .loopexit859:                                     ; preds = %860, %851
-  %861 = getelementptr inbounds i8, ptr %.sroa.0841.0922, i64 16
+  %861 = getelementptr inbounds nuw i8, ptr %.sroa.0841.0922, i64 16
   %.not845 = icmp eq ptr %861, %41
   br i1 %.not845, label %._crit_edge, label %47
 
@@ -43992,69 +43992,69 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %18 = load ptr, ptr %17, align 8
   %19 = load float, ptr %18, align 8
   %20 = fdiv float 5.000000e-01, %19
-  %21 = getelementptr inbounds i8, ptr %18, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 76
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %24 = load float, ptr %23, align 4
   %25 = fmul float %24, %24
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load float, ptr %26, align 8
   %28 = fmul float %27, %27
   %29 = load i32, ptr %1, align 8
   %30 = shl nsw i32 %29, 1
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 176
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 108
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %1, i64 288
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 128
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = load ptr, ptr %45, align 8
   %.not10901207 = icmp eq ptr %44, %46
   br i1 %.not10901207, label %._crit_edge, label %.lr.ph1209
 
 .lr.ph1209:                                       ; preds = %5
-  %47 = getelementptr inbounds i8, ptr %22, i64 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 36
-  %49 = getelementptr inbounds i8, ptr %2, i64 44
-  %50 = getelementptr inbounds i8, ptr %2, i64 24
-  %51 = getelementptr inbounds i8, ptr %2, i64 32
-  %52 = getelementptr inbounds i8, ptr %2, i64 20
-  %53 = getelementptr inbounds i8, ptr %2, i64 28
-  %54 = getelementptr inbounds i8, ptr %2, i64 40
-  %55 = getelementptr inbounds i8, ptr %2, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1052 = icmp eq ptr %12, null
   br label %56
 
 56:                                               ; preds = %.lr.ph1209, %.loopexit1104
   %.sroa.01086.01208 = phi ptr [ %44, %.lr.ph1209 ], [ %1086, %.loopexit1104 ]
-  %57 = getelementptr inbounds i8, ptr %.sroa.01086.01208, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.01086.01208, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 127
   %60 = mul nuw nsw i32 %59, 3
-  %61 = getelementptr inbounds i8, ptr %.sroa.01086.01208, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.01086.01208, i64 8
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %.sroa.01086.01208, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.01086.01208, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = load i32, ptr %.sroa.01086.01208, align 4
   %66 = icmp eq i32 %59, 22
@@ -44065,7 +44065,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %70 = zext nneg i32 %60 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %71 = sext i32 %69 to i64
-  %invariant.gep1370 = getelementptr inbounds float, ptr %3, i64 %70
+  %invariant.gep1370 = getelementptr inbounds nuw float, ptr %3, i64 %70
   br label %.preheader1102
 
 .preheader1102:                                   ; preds = %56, %80
@@ -44080,11 +44080,11 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %indvars.iv = phi i64 [ 0, %.preheader1102 ], [ %indvars.iv.next, %74 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %75 = load float, ptr %gep, align 4
-  %gep1371 = getelementptr inbounds float, ptr %invariant.gep1370, i64 %indvars.iv
+  %gep1371 = getelementptr inbounds nuw float, ptr %invariant.gep1370, i64 %indvars.iv
   %76 = load float, ptr %gep1371, align 4
   %77 = fadd float %75, %76
   %78 = add nuw nsw i64 %indvars.iv, %73
-  %79 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %78
   store float %77, ptr %79, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -44094,7 +44094,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %81 = getelementptr inbounds float, ptr %34, i64 %72
   %82 = load float, ptr %81, align 4
   %83 = fmul float %38, %82
-  %84 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %84 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %83, ptr %84, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1241.not = icmp eq i64 %indvar.next, 4
@@ -44123,7 +44123,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
 95:                                               ; preds = %.preheader1106, %95
   %indvars.iv1242 = phi i64 [ 0, %.preheader1106 ], [ %indvars.iv.next1243, %95 ]
   %96 = phi float [ %.promoted, %.preheader1106 ], [ %102, %95 ]
-  %97 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1242
+  %97 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1242
   %98 = load float, ptr %97, align 4
   %gep1373 = getelementptr float, ptr %invariant.gep1372, i64 %indvars.iv1242
   %99 = load float, ptr %gep1373, align 4
@@ -44159,7 +44159,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
 109:                                              ; preds = %105
   %110 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %42, i64 %indvars.iv1270
   %111 = load i32, ptr %110, align 4
-  %112 = getelementptr inbounds i8, ptr %110, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 4
   br i1 %spec.select, label %113, label %293
 
 113:                                              ; preds = %109
@@ -44177,20 +44177,20 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %119 = mul nsw i32 %118, %30
   %120 = shl nuw nsw i64 %indvars.iv1266, 2
   %121 = mul nuw nsw i64 %indvars.iv1266, 3
-  %122 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %121
   %123 = load float, ptr %122, align 4
   %124 = add nuw nsw i64 %121, 1
-  %125 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %124
   %126 = load float, ptr %125, align 4
   %127 = add nuw nsw i64 %121, 2
-  %128 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %127
   %129 = load float, ptr %128, align 4
   %130 = icmp samesign ult i64 %indvars.iv1266, 2
-  %131 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1266
+  %131 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1266
   %132 = load float, ptr %131, align 4
-  %133 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %121
-  %134 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %124
-  %135 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %127
+  %133 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %121
+  %134 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %124
+  %135 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %127
   %.promoted1132 = load float, ptr %133, align 4
   %.promoted1134 = load float, ptr %134, align 4
   %.promoted1136 = load float, ptr %135, align 4
@@ -44401,19 +44401,19 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %300 = mul nsw i32 %299, %30
   %301 = shl nuw nsw i64 %indvars.iv1258, 2
   %302 = mul nuw nsw i64 %indvars.iv1258, 3
-  %303 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %302
   %304 = load float, ptr %303, align 4
   %305 = add nuw nsw i64 %302, 1
-  %306 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %305
+  %306 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %305
   %307 = load float, ptr %306, align 4
   %308 = add nuw nsw i64 %302, 2
-  %309 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %308
   %310 = load float, ptr %309, align 4
-  %311 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1258
+  %311 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1258
   %312 = load float, ptr %311, align 4
-  %313 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %302
-  %314 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %305
-  %315 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %308
+  %313 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %302
+  %314 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %305
+  %315 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %308
   %.promoted1120 = load float, ptr %313, align 4
   %.promoted1122 = load float, ptr %314, align 4
   %.promoted1124 = load float, ptr %315, align 4
@@ -44605,17 +44605,17 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %475 = mul nsw i32 %474, %30
   %476 = shl nuw nsw i64 %indvars.iv1250, 2
   %477 = mul nuw nsw i64 %indvars.iv1250, 3
-  %478 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %477
+  %478 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %477
   %479 = load float, ptr %478, align 4
   %480 = add nuw nsw i64 %477, 1
-  %481 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %480
+  %481 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %480
   %482 = load float, ptr %481, align 4
   %483 = add nuw nsw i64 %477, 2
-  %484 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %483
   %485 = load float, ptr %484, align 4
-  %486 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %477
-  %487 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %480
-  %488 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %483
+  %486 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %477
+  %487 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %480
+  %488 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %483
   %.promoted1111 = load float, ptr %486, align 4
   %.promoted1112 = load float, ptr %487, align 4
   %.promoted1114 = load float, ptr %488, align 4
@@ -44798,20 +44798,20 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %613 = load i32, ptr %gep1385, align 4
   %614 = mul nsw i32 %613, %30
   %615 = mul nuw nsw i64 %indvars.iv1303, 3
-  %616 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %615
+  %616 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %615
   %617 = load float, ptr %616, align 4
   %618 = add nuw nsw i64 %615, 1
-  %619 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %618
+  %619 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %618
   %620 = load float, ptr %619, align 4
   %621 = add nuw nsw i64 %615, 2
-  %622 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %621
+  %622 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %621
   %623 = load float, ptr %622, align 4
   %624 = icmp samesign ult i64 %indvars.iv1303, 2
-  %625 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1303
+  %625 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1303
   %626 = load float, ptr %625, align 4
-  %627 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %615
-  %628 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %618
-  %629 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %621
+  %627 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %615
+  %628 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %618
+  %629 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %621
   %.promoted1175.us = load float, ptr %627, align 4
   %.promoted1177.us = load float, ptr %628, align 4
   %.promoted1179.us = load float, ptr %629, align 4
@@ -45017,19 +45017,19 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %779 = load i32, ptr %gep1383, align 4
   %780 = mul nsw i32 %779, %30
   %781 = mul nuw nsw i64 %indvars.iv1290, 3
-  %782 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %781
+  %782 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %781
   %783 = load float, ptr %782, align 4
   %784 = add nuw nsw i64 %781, 1
-  %785 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %784
+  %785 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %784
   %786 = load float, ptr %785, align 4
   %787 = add nuw nsw i64 %781, 2
-  %788 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %787
+  %788 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %787
   %789 = load float, ptr %788, align 4
-  %790 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1290
+  %790 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1290
   %791 = load float, ptr %790, align 4
-  %792 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %781
-  %793 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %784
-  %794 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %787
+  %792 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %781
+  %793 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %784
+  %794 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %787
   %.promoted1163.us = load float, ptr %792, align 4
   %.promoted1165.us = load float, ptr %793, align 4
   %.promoted1167.us = load float, ptr %794, align 4
@@ -45221,17 +45221,17 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %941 = load i32, ptr %gep1381, align 4
   %942 = mul nsw i32 %941, %30
   %943 = mul nuw nsw i64 %indvars.iv1278, 3
-  %944 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %943
+  %944 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %943
   %945 = load float, ptr %944, align 4
   %946 = add nuw nsw i64 %943, 1
-  %947 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %946
+  %947 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %946
   %948 = load float, ptr %947, align 4
   %949 = add nuw nsw i64 %943, 2
-  %950 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %949
+  %950 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %949
   %951 = load float, ptr %950, align 4
-  %952 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %943
-  %953 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %946
-  %954 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %949
+  %952 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %943
+  %953 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %946
+  %954 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %949
   %.promoted1153 = load float, ptr %952, align 4
   %.promoted1155 = load float, ptr %953, align 4
   %.promoted1157 = load float, ptr %954, align 4
@@ -45379,7 +45379,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
 1065:                                             ; preds = %.preheader1096, %1065
   %indvars.iv1312 = phi i64 [ 0, %.preheader1096 ], [ %indvars.iv.next1313, %1065 ]
   %1066 = add nuw nsw i64 %indvars.iv1312, %1063
-  %1067 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1066
+  %1067 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1066
   %1068 = load float, ptr %1067, align 4
   %gep1387 = getelementptr float, ptr %invariant.gep1386, i64 %indvars.iv1312
   %1069 = load float, ptr %gep1387, align 4
@@ -45399,7 +45399,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
 
 .preheader.preheader:                             ; preds = %1072
   %1073 = zext nneg i32 %60 to i64
-  %invariant.gep1388 = getelementptr inbounds float, ptr %12, i64 %1073
+  %invariant.gep1388 = getelementptr inbounds nuw float, ptr %12, i64 %1073
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1081
@@ -45410,9 +45410,9 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
 1075:                                             ; preds = %.preheader, %1075
   %indvars.iv1320 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1321, %1075 ]
   %1076 = add nuw nsw i64 %indvars.iv1320, %1074
-  %1077 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1076
+  %1077 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1076
   %1078 = load float, ptr %1077, align 4
-  %gep1389 = getelementptr inbounds float, ptr %invariant.gep1388, i64 %indvars.iv1320
+  %gep1389 = getelementptr inbounds nuw float, ptr %invariant.gep1388, i64 %indvars.iv1320
   %1079 = load float, ptr %gep1389, align 4
   %1080 = fadd float %1078, %1079
   store float %1080, ptr %gep1389, align 4
@@ -45432,7 +45432,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %1084 = load float, ptr %16, align 4
   %1085 = fadd float %.61024.lcssa, %1084
   store float %1085, ptr %16, align 4
-  %1086 = getelementptr inbounds i8, ptr %.sroa.01086.01208, i64 16
+  %1086 = getelementptr inbounds nuw i8, ptr %.sroa.01086.01208, i64 16
   %.not1090 = icmp eq ptr %1086, %46
   br i1 %.not1090, label %._crit_edge, label %56
 
@@ -45446,70 +45446,70 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = load float, ptr %19, align 8
   %21 = fdiv float 5.000000e-01, %20
-  %22 = getelementptr inbounds i8, ptr %19, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %25 = load float, ptr %24, align 4
   %26 = fmul float %25, %25
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load float, ptr %27, align 8
   %29 = fmul float %28, %28
   %30 = load i32, ptr %1, align 8
   %31 = shl nsw i32 %30, 1
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 176
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 108
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %39 = load float, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 288
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load ptr, ptr %46, align 8
   %.not11251204 = icmp eq ptr %45, %47
   br i1 %.not11251204, label %._crit_edge, label %.lr.ph1206
 
 .lr.ph1206:                                       ; preds = %5
-  %48 = getelementptr inbounds i8, ptr %1, i64 208
-  %49 = getelementptr inbounds i8, ptr %1, i64 200
-  %50 = getelementptr inbounds i8, ptr %23, i64 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 36
-  %52 = getelementptr inbounds i8, ptr %2, i64 44
-  %53 = getelementptr inbounds i8, ptr %2, i64 24
-  %54 = getelementptr inbounds i8, ptr %2, i64 32
-  %55 = getelementptr inbounds i8, ptr %2, i64 20
-  %56 = getelementptr inbounds i8, ptr %2, i64 28
-  %57 = getelementptr inbounds i8, ptr %2, i64 40
-  %58 = getelementptr inbounds i8, ptr %2, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1085 = icmp eq ptr %13, null
   br label %59
 
 59:                                               ; preds = %.lr.ph1206, %.loopexit1139
   %.sroa.01121.01205 = phi ptr [ %45, %.lr.ph1206 ], [ %1241, %.loopexit1139 ]
-  %60 = getelementptr inbounds i8, ptr %.sroa.01121.01205, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.01121.01205, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 127
-  %63 = getelementptr inbounds i8, ptr %.sroa.01121.01205, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.01121.01205, i64 8
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.sroa.01121.01205, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.01121.01205, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %.sroa.01121.01205, align 4
   %68 = icmp eq i32 %62, 22
@@ -45517,13 +45517,13 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %70 = and i32 %61, 384
   %or.cond = icmp ne i32 %70, 128
   %71 = load ptr, ptr %48, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = sext i32 %67 to i64
   %74 = load ptr, ptr %72, align 8
   %75 = getelementptr inbounds i32, ptr %74, i64 %73
   %76 = load i32, ptr %75, align 4
   %77 = load i32, ptr %71, align 8
-  %78 = getelementptr inbounds i8, ptr %71, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %79 = load i32, ptr %78, align 8
   %80 = load i32, ptr %49, align 8
   br label %86
@@ -45535,7 +45535,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %84 = zext nneg i32 %81 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %85 = sext i32 %83 to i64
-  %invariant.gep1359 = getelementptr inbounds float, ptr %3, i64 %84
+  %invariant.gep1359 = getelementptr inbounds nuw float, ptr %3, i64 %84
   br label %.preheader1137
 
 86:                                               ; preds = %59, %86
@@ -45545,7 +45545,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %89 = ashr i32 %76, %88
   %90 = and i32 %89, %79
   %91 = mul nsw i32 %90, %80
-  %92 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %91, ptr %92, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -45563,11 +45563,11 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %indvars.iv1229 = phi i64 [ 0, %.preheader1137 ], [ %indvars.iv.next1230, %95 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1229
   %96 = load float, ptr %gep, align 4
-  %gep1360 = getelementptr inbounds float, ptr %invariant.gep1359, i64 %indvars.iv1229
+  %gep1360 = getelementptr inbounds nuw float, ptr %invariant.gep1359, i64 %indvars.iv1229
   %97 = load float, ptr %gep1360, align 4
   %98 = fadd float %96, %97
   %99 = add nuw nsw i64 %indvars.iv1229, %94
-  %100 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %99
   store float %98, ptr %100, align 4
   %indvars.iv.next1230 = add nuw nsw i64 %indvars.iv1229, 1
   %exitcond1232.not = icmp eq i64 %indvars.iv.next1230, 3
@@ -45577,7 +45577,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %102 = getelementptr inbounds float, ptr %35, i64 %93
   %103 = load float, ptr %102, align 4
   %104 = fmul float %39, %103
-  %105 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %105 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %104, ptr %105, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1234.not = icmp eq i64 %indvar.next, 4
@@ -45603,10 +45603,10 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
 
 115:                                              ; preds = %.preheader1141, %115
   %indvars.iv1235 = phi i64 [ 0, %.preheader1141 ], [ %indvars.iv.next1236, %115 ]
-  %116 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1235
+  %116 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1235
   %117 = load i32, ptr %116, align 4
   %118 = load ptr, ptr %48, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds i32, ptr %120, i64 %73
   %122 = load i32, ptr %121, align 4
@@ -45614,11 +45614,11 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %124 = trunc nuw nsw i64 %indvars.iv1235 to i32
   %125 = mul nsw i32 %123, %124
   %126 = ashr i32 %122, %125
-  %127 = getelementptr inbounds i8, ptr %118, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %128 = load i32, ptr %127, align 8
   %129 = and i32 %126, %128
   %130 = add nsw i32 %129, %117
-  %131 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1235
+  %131 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1235
   %132 = load float, ptr %131, align 4
   %gep1362 = getelementptr float, ptr %invariant.gep1361, i64 %indvars.iv1235
   %133 = load float, ptr %gep1362, align 4
@@ -45655,7 +45655,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
 146:                                              ; preds = %142
   %147 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %43, i64 %indvars.iv1263
   %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds i8, ptr %147, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 4
   br i1 %spec.select, label %150, label %351
 
 150:                                              ; preds = %146
@@ -45672,22 +45672,22 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %157 = mul nsw i32 %156, %31
   %158 = shl nuw nsw i64 %indvars.iv1259, 2
   %159 = mul nuw nsw i64 %indvars.iv1259, 3
-  %160 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %159
   %161 = load float, ptr %160, align 4
   %162 = add nuw nsw i64 %159, 1
-  %163 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %162
   %164 = load float, ptr %163, align 4
   %165 = add nuw nsw i64 %159, 2
-  %166 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %165
   %167 = load float, ptr %166, align 4
   %168 = icmp samesign ult i64 %indvars.iv1259, 2
-  %169 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1259
+  %169 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1259
   %170 = load float, ptr %169, align 4
-  %171 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1259
+  %171 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1259
   %172 = load i32, ptr %171, align 4
-  %173 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %159
-  %174 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %162
-  %175 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %165
+  %173 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %159
+  %174 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %162
+  %175 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %165
   %.promoted1162 = load float, ptr %173, align 4
   %.promoted1164 = load float, ptr %174, align 4
   %.promoted1166 = load float, ptr %175, align 4
@@ -45732,7 +45732,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %209 = fmul float %206, %208
   %210 = fmul float %209, %209
   %211 = load ptr, ptr %48, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds i32, ptr %213, i64 %153
   %215 = load i32, ptr %214, align 4
@@ -45740,7 +45740,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %217 = trunc nuw nsw i64 %indvars.iv1255 to i32
   %218 = mul nsw i32 %216, %217
   %219 = ashr i32 %215, %218
-  %220 = getelementptr inbounds i8, ptr %211, i64 32
+  %220 = getelementptr inbounds nuw i8, ptr %211, i64 32
   %221 = load i32, ptr %220, align 8
   %222 = and i32 %219, %221
   br i1 %168, label %223, label %._crit_edge1321
@@ -45917,21 +45917,21 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %359 = mul nsw i32 %358, %31
   %360 = shl nuw nsw i64 %indvars.iv1251, 2
   %361 = mul nuw nsw i64 %indvars.iv1251, 3
-  %362 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %361
+  %362 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %361
   %363 = load float, ptr %362, align 4
   %364 = add nuw nsw i64 %361, 1
-  %365 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %364
   %366 = load float, ptr %365, align 4
   %367 = add nuw nsw i64 %361, 2
-  %368 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %367
+  %368 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %367
   %369 = load float, ptr %368, align 4
-  %370 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1251
+  %370 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1251
   %371 = load i32, ptr %370, align 4
-  %372 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1251
+  %372 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1251
   %373 = load float, ptr %372, align 4
-  %374 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %361
-  %375 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %364
-  %376 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %367
+  %374 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %361
+  %375 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %364
+  %376 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %367
   %.promoted1154 = load float, ptr %374, align 4
   %.promoted1156 = load float, ptr %375, align 4
   %.promoted1158 = load float, ptr %376, align 4
@@ -45976,7 +45976,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %410 = fmul float %407, %409
   %411 = fmul float %410, %410
   %412 = load ptr, ptr %48, align 8
-  %413 = getelementptr inbounds i8, ptr %412, i64 8
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 8
   %414 = load ptr, ptr %413, align 8
   %415 = getelementptr inbounds i32, ptr %414, i64 %355
   %416 = load i32, ptr %415, align 4
@@ -45984,7 +45984,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %418 = trunc nuw nsw i64 %indvars.iv1247 to i32
   %419 = mul nsw i32 %417, %418
   %420 = ashr i32 %416, %419
-  %421 = getelementptr inbounds i8, ptr %412, i64 32
+  %421 = getelementptr inbounds nuw i8, ptr %412, i64 32
   %422 = load i32, ptr %421, align 8
   %423 = and i32 %420, %422
   %424 = getelementptr inbounds i32, ptr %37, i64 %389
@@ -46141,19 +46141,19 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %555 = mul nsw i32 %554, %31
   %556 = shl nuw nsw i64 %indvars.iv1243, 2
   %557 = mul nuw nsw i64 %indvars.iv1243, 3
-  %558 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %557
+  %558 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %557
   %559 = load float, ptr %558, align 4
   %560 = add nuw nsw i64 %557, 1
-  %561 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %560
+  %561 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %560
   %562 = load float, ptr %561, align 4
   %563 = add nuw nsw i64 %557, 2
-  %564 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %563
+  %564 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %563
   %565 = load float, ptr %564, align 4
-  %566 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1243
+  %566 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1243
   %567 = load i32, ptr %566, align 4
-  %568 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %557
-  %569 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %560
-  %570 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %563
+  %568 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %557
+  %569 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %560
+  %570 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %563
   %.promoted = load float, ptr %568, align 4
   %.promoted1148 = load float, ptr %569, align 4
   %.promoted1150 = load float, ptr %570, align 4
@@ -46195,7 +46195,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %601 = fmul float %598, %600
   %602 = fmul float %601, %601
   %603 = load ptr, ptr %48, align 8
-  %604 = getelementptr inbounds i8, ptr %603, i64 8
+  %604 = getelementptr inbounds nuw i8, ptr %603, i64 8
   %605 = load ptr, ptr %604, align 8
   %606 = getelementptr inbounds i32, ptr %605, i64 %551
   %607 = load i32, ptr %606, align 4
@@ -46203,7 +46203,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %609 = trunc nuw nsw i64 %indvars.iv1239 to i32
   %610 = mul nsw i32 %608, %609
   %611 = ashr i32 %607, %610
-  %612 = getelementptr inbounds i8, ptr %603, i64 32
+  %612 = getelementptr inbounds nuw i8, ptr %603, i64 32
   %613 = load i32, ptr %612, align 8
   %614 = and i32 %611, %613
   %615 = getelementptr inbounds i32, ptr %37, i64 %581
@@ -46345,22 +46345,22 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %712 = load i32, ptr %gep1374, align 4
   %713 = mul nsw i32 %712, %31
   %714 = mul nuw nsw i64 %indvars.iv1296, 3
-  %715 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %714
+  %715 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %714
   %716 = load float, ptr %715, align 4
   %717 = add nuw nsw i64 %714, 1
-  %718 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %717
+  %718 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %717
   %719 = load float, ptr %718, align 4
   %720 = add nuw nsw i64 %714, 2
-  %721 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %720
+  %721 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %720
   %722 = load float, ptr %721, align 4
   %723 = icmp samesign ult i64 %indvars.iv1296, 2
-  %724 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1296
+  %724 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1296
   %725 = load float, ptr %724, align 4
-  %726 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1296
+  %726 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1296
   %727 = load i32, ptr %726, align 4
-  %728 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %714
-  %729 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %717
-  %730 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %720
+  %728 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %714
+  %729 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %717
+  %730 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %720
   %.promoted1189.us = load float, ptr %728, align 4
   %.promoted1191.us = load float, ptr %729, align 4
   %.promoted1193.us = load float, ptr %730, align 4
@@ -46404,7 +46404,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %756 = fmul float %753, %755
   %757 = fmul float %756, %756
   %758 = load ptr, ptr %48, align 8
-  %759 = getelementptr inbounds i8, ptr %758, i64 8
+  %759 = getelementptr inbounds nuw i8, ptr %758, i64 8
   %760 = load ptr, ptr %759, align 8
   %761 = getelementptr inbounds i32, ptr %760, i64 %709
   %762 = load i32, ptr %761, align 4
@@ -46412,7 +46412,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %764 = trunc nuw nsw i64 %indvars.iv1292 to i32
   %765 = mul nsw i32 %763, %764
   %766 = ashr i32 %762, %765
-  %767 = getelementptr inbounds i8, ptr %758, i64 32
+  %767 = getelementptr inbounds nuw i8, ptr %758, i64 32
   %768 = load i32, ptr %767, align 8
   %769 = and i32 %766, %768
   br i1 %723, label %770, label %._crit_edge1322
@@ -46583,21 +46583,21 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %899 = load i32, ptr %gep1372, align 4
   %900 = mul nsw i32 %899, %31
   %901 = mul nuw nsw i64 %indvars.iv1283, 3
-  %902 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %901
+  %902 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %901
   %903 = load float, ptr %902, align 4
   %904 = add nuw nsw i64 %901, 1
-  %905 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %904
+  %905 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %904
   %906 = load float, ptr %905, align 4
   %907 = add nuw nsw i64 %901, 2
-  %908 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %907
+  %908 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %907
   %909 = load float, ptr %908, align 4
-  %910 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1283
+  %910 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1283
   %911 = load i32, ptr %910, align 4
-  %912 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1283
+  %912 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1283
   %913 = load float, ptr %912, align 4
-  %914 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %901
-  %915 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %904
-  %916 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %907
+  %914 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %901
+  %915 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %904
+  %916 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %907
   %.promoted1181.us = load float, ptr %914, align 4
   %.promoted1183.us = load float, ptr %915, align 4
   %.promoted1185.us = load float, ptr %916, align 4
@@ -46641,7 +46641,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %942 = fmul float %939, %941
   %943 = fmul float %942, %942
   %944 = load ptr, ptr %48, align 8
-  %945 = getelementptr inbounds i8, ptr %944, i64 8
+  %945 = getelementptr inbounds nuw i8, ptr %944, i64 8
   %946 = load ptr, ptr %945, align 8
   %947 = getelementptr inbounds i32, ptr %946, i64 %896
   %948 = load i32, ptr %947, align 4
@@ -46649,7 +46649,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %950 = trunc nuw nsw i64 %indvars.iv1279 to i32
   %951 = mul nsw i32 %949, %950
   %952 = ashr i32 %948, %951
-  %953 = getelementptr inbounds i8, ptr %944, i64 32
+  %953 = getelementptr inbounds nuw i8, ptr %944, i64 32
   %954 = load i32, ptr %953, align 8
   %955 = and i32 %952, %954
   %956 = getelementptr inbounds i32, ptr %37, i64 %922
@@ -46801,19 +46801,19 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %1082 = load i32, ptr %gep1370, align 4
   %1083 = mul nsw i32 %1082, %31
   %1084 = mul nuw nsw i64 %indvars.iv1271, 3
-  %1085 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1084
+  %1085 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1084
   %1086 = load float, ptr %1085, align 4
   %1087 = add nuw nsw i64 %1084, 1
-  %1088 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1087
+  %1088 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1087
   %1089 = load float, ptr %1088, align 4
   %1090 = add nuw nsw i64 %1084, 2
-  %1091 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1090
+  %1091 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1090
   %1092 = load float, ptr %1091, align 4
-  %1093 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1271
+  %1093 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1271
   %1094 = load i32, ptr %1093, align 4
-  %1095 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1084
-  %1096 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1087
-  %1097 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1090
+  %1095 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1084
+  %1096 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1087
+  %1097 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1090
   %.promoted1173 = load float, ptr %1095, align 4
   %.promoted1175 = load float, ptr %1096, align 4
   %.promoted1177 = load float, ptr %1097, align 4
@@ -46849,7 +46849,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %1122 = fmul float %1119, %1121
   %1123 = fmul float %1122, %1122
   %1124 = load ptr, ptr %48, align 8
-  %1125 = getelementptr inbounds i8, ptr %1124, i64 8
+  %1125 = getelementptr inbounds nuw i8, ptr %1124, i64 8
   %1126 = load ptr, ptr %1125, align 8
   %1127 = getelementptr inbounds i32, ptr %1126, i64 %1079
   %1128 = load i32, ptr %1127, align 4
@@ -46857,7 +46857,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   %1130 = trunc nuw nsw i64 %indvars.iv1267 to i32
   %1131 = mul nsw i32 %1129, %1130
   %1132 = ashr i32 %1128, %1131
-  %1133 = getelementptr inbounds i8, ptr %1124, i64 32
+  %1133 = getelementptr inbounds nuw i8, ptr %1124, i64 32
   %1134 = load i32, ptr %1133, align 8
   %1135 = and i32 %1132, %1134
   %1136 = getelementptr inbounds i32, ptr %37, i64 %1102
@@ -46980,7 +46980,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
 1224:                                             ; preds = %.preheader1131, %1224
   %indvars.iv1305 = phi i64 [ 0, %.preheader1131 ], [ %indvars.iv.next1306, %1224 ]
   %1225 = add nuw nsw i64 %indvars.iv1305, %1222
-  %1226 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1225
+  %1226 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1225
   %1227 = load float, ptr %1226, align 4
   %gep1376 = getelementptr float, ptr %invariant.gep1375, i64 %indvars.iv1305
   %1228 = load float, ptr %gep1376, align 4
@@ -47000,7 +47000,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
 
 .preheader.preheader:                             ; preds = %1231
   %1232 = zext nneg i32 %81 to i64
-  %invariant.gep1377 = getelementptr inbounds float, ptr %13, i64 %1232
+  %invariant.gep1377 = getelementptr inbounds nuw float, ptr %13, i64 %1232
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1240
@@ -47011,9 +47011,9 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
 1234:                                             ; preds = %.preheader, %1234
   %indvars.iv1313 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1314, %1234 ]
   %1235 = add nuw nsw i64 %indvars.iv1313, %1233
-  %1236 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1235
+  %1236 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1235
   %1237 = load float, ptr %1236, align 4
-  %gep1378 = getelementptr inbounds float, ptr %invariant.gep1377, i64 %indvars.iv1313
+  %gep1378 = getelementptr inbounds nuw float, ptr %invariant.gep1377, i64 %indvars.iv1313
   %1238 = load float, ptr %gep1378, align 4
   %1239 = fadd float %1237, %1238
   store float %1239, ptr %gep1378, align 4
@@ -47027,7 +47027,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VgrpF_refPK16NbnxnPairli
   br i1 %exitcond1320.not, label %.loopexit1139, label %.preheader, !llvm.loop !761
 
 .loopexit1139:                                    ; preds = %1240, %1231
-  %1241 = getelementptr inbounds i8, ptr %.sroa.01121.01205, i64 16
+  %1241 = getelementptr inbounds nuw i8, ptr %.sroa.01121.01205, i64 16
   %.not1125 = icmp eq ptr %1241, %47
   br i1 %.not1125, label %._crit_edge, label %59
 
@@ -47040,67 +47040,67 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %14 = load float, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %18 = load float, ptr %17, align 8
   %19 = fmul float %14, 3.000000e+00
   %20 = fmul float %16, 4.000000e+00
   %21 = fmul float %18, 5.000000e+00
-  %22 = getelementptr inbounds i8, ptr %2, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %23 = load ptr, ptr %22, align 8
   %24 = load float, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 76
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %28 = load float, ptr %27, align 4
   %29 = fmul float %28, %28
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load float, ptr %30, align 8
   %32 = fmul float %31, %31
   %33 = load i32, ptr %1, align 8
   %34 = shl nsw i32 %33, 1
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 176
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 108
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %42 = load float, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 288
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %50 = load ptr, ptr %49, align 8
   %.not9381014 = icmp eq ptr %48, %50
   br i1 %.not9381014, label %._crit_edge, label %.lr.ph1016
 
 .lr.ph1016:                                       ; preds = %5
-  %51 = getelementptr inbounds i8, ptr %2, i64 44
-  %52 = getelementptr inbounds i8, ptr %2, i64 32
-  %53 = getelementptr inbounds i8, ptr %2, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %.not900 = icmp eq ptr %12, null
   br label %54
 
 54:                                               ; preds = %.lr.ph1016, %.loopexit952
   %.sroa.0934.01015 = phi ptr [ %48, %.lr.ph1016 ], [ %901, %.loopexit952 ]
-  %55 = getelementptr inbounds i8, ptr %.sroa.0934.01015, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0934.01015, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 127
   %58 = mul nuw nsw i32 %57, 3
-  %59 = getelementptr inbounds i8, ptr %.sroa.0934.01015, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0934.01015, i64 8
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %.sroa.0934.01015, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0934.01015, i64 12
   %62 = load i32, ptr %61, align 4
   %63 = load i32, ptr %.sroa.0934.01015, align 4
   %64 = icmp eq i32 %57, 22
@@ -47113,7 +47113,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %69 = zext nneg i32 %58 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %70 = sext i32 %68 to i64
-  %invariant.gep1162 = getelementptr inbounds float, ptr %3, i64 %69
+  %invariant.gep1162 = getelementptr inbounds nuw float, ptr %3, i64 %69
   br label %.preheader950
 
 .preheader954:                                    ; preds = %235
@@ -47146,7 +47146,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
 77:                                               ; preds = %.lr.ph.split.us
   %78 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %46, i64 %indvars.iv1070
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %78, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %81 = icmp eq i32 %79, %71
   %82 = shl nsw i32 %79, 2
   %83 = sext i32 %82 to i64
@@ -47159,20 +47159,20 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %86 = mul nsw i32 %85, %34
   %87 = shl nuw nsw i64 %indvars.iv1066, 2
   %88 = mul nuw nsw i64 %indvars.iv1066, 3
-  %89 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %88
   %90 = load float, ptr %89, align 4
   %91 = add nuw nsw i64 %88, 1
-  %92 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %91
   %93 = load float, ptr %92, align 4
   %94 = add nuw nsw i64 %88, 2
-  %95 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %94
   %96 = load float, ptr %95, align 4
   %97 = icmp samesign ult i64 %indvars.iv1066, 2
-  %98 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1066
+  %98 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1066
   %99 = load float, ptr %98, align 4
-  %100 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %88
-  %101 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %91
-  %102 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %94
+  %100 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %88
+  %101 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %91
+  %102 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %94
   %.promoted971.us = load float, ptr %100, align 4
   %.promoted973.us = load float, ptr %101, align 4
   %.promoted975.us = load float, ptr %102, align 4
@@ -47346,11 +47346,11 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %indvars.iv = phi i64 [ 0, %.preheader950 ], [ %indvars.iv.next, %229 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %230 = load float, ptr %gep, align 4
-  %gep1163 = getelementptr inbounds float, ptr %invariant.gep1162, i64 %indvars.iv
+  %gep1163 = getelementptr inbounds nuw float, ptr %invariant.gep1162, i64 %indvars.iv
   %231 = load float, ptr %gep1163, align 4
   %232 = fadd float %230, %231
   %233 = add nuw nsw i64 %indvars.iv, %228
-  %234 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %233
   store float %232, ptr %234, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -47360,7 +47360,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %236 = getelementptr inbounds float, ptr %38, i64 %227
   %237 = load float, ptr %236, align 4
   %238 = fmul float %42, %237
-  %239 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %239 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %238, ptr %239, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1041.not = icmp eq i64 %indvar.next, 4
@@ -47377,7 +47377,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
 243:                                              ; preds = %.lr.ph.split
   %244 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %46, i64 %indvars.iv1058
   %245 = load i32, ptr %244, align 4
-  %246 = getelementptr inbounds i8, ptr %244, i64 4
+  %246 = getelementptr inbounds nuw i8, ptr %244, i64 4
   br i1 %66, label %247, label %390
 
 247:                                              ; preds = %243
@@ -47393,19 +47393,19 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %253 = mul nsw i32 %252, %34
   %254 = shl nuw nsw i64 %indvars.iv1054, 2
   %255 = mul nuw nsw i64 %indvars.iv1054, 3
-  %256 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %255
   %257 = load float, ptr %256, align 4
   %258 = add nuw nsw i64 %255, 1
-  %259 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %258
   %260 = load float, ptr %259, align 4
   %261 = add nuw nsw i64 %255, 2
-  %262 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %261
+  %262 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %261
   %263 = load float, ptr %262, align 4
-  %264 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1054
+  %264 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1054
   %265 = load float, ptr %264, align 4
-  %266 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %255
-  %267 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %258
-  %268 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %261
+  %266 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %255
+  %267 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %258
+  %268 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %261
   %.promoted963 = load float, ptr %266, align 4
   %.promoted965 = load float, ptr %267, align 4
   %.promoted967 = load float, ptr %268, align 4
@@ -47561,17 +47561,17 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %395 = mul nsw i32 %394, %34
   %396 = shl nuw nsw i64 %indvars.iv1046, 2
   %397 = mul nuw nsw i64 %indvars.iv1046, 3
-  %398 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %397
+  %398 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %397
   %399 = load float, ptr %398, align 4
   %400 = add nuw nsw i64 %397, 1
-  %401 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %400
   %402 = load float, ptr %401, align 4
   %403 = add nuw nsw i64 %397, 2
-  %404 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %403
+  %404 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %403
   %405 = load float, ptr %404, align 4
-  %406 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %397
-  %407 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %400
-  %408 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %403
+  %406 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %397
+  %407 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %400
+  %408 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %403
   %.promoted = load float, ptr %406, align 4
   %.promoted957 = load float, ptr %407, align 4
   %.promoted959 = load float, ptr %408, align 4
@@ -47730,20 +47730,20 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %515 = load i32, ptr %gep1175, align 4
   %516 = mul nsw i32 %515, %34
   %517 = mul nuw nsw i64 %indvars.iv1104, 3
-  %518 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %517
+  %518 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %517
   %519 = load float, ptr %518, align 4
   %520 = add nuw nsw i64 %517, 1
-  %521 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %520
+  %521 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %520
   %522 = load float, ptr %521, align 4
   %523 = add nuw nsw i64 %517, 2
-  %524 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %523
+  %524 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %523
   %525 = load float, ptr %524, align 4
   %526 = icmp samesign ult i64 %indvars.iv1104, 2
-  %527 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1104
+  %527 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1104
   %528 = load float, ptr %527, align 4
-  %529 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %517
-  %530 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %520
-  %531 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %523
+  %529 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %517
+  %530 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %520
+  %531 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %523
   %.promoted999.us = load float, ptr %529, align 4
   %.promoted1001.us = load float, ptr %530, align 4
   %.promoted1003.us = load float, ptr %531, align 4
@@ -47910,19 +47910,19 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %649 = load i32, ptr %gep1173, align 4
   %650 = mul nsw i32 %649, %34
   %651 = mul nuw nsw i64 %indvars.iv1091, 3
-  %652 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %651
+  %652 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %651
   %653 = load float, ptr %652, align 4
   %654 = add nuw nsw i64 %651, 1
-  %655 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %654
+  %655 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %654
   %656 = load float, ptr %655, align 4
   %657 = add nuw nsw i64 %651, 2
-  %658 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %657
+  %658 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %657
   %659 = load float, ptr %658, align 4
-  %660 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1091
+  %660 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1091
   %661 = load float, ptr %660, align 4
-  %662 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %651
-  %663 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %654
-  %664 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %657
+  %662 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %651
+  %663 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %654
+  %664 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %657
   %.promoted991.us = load float, ptr %662, align 4
   %.promoted993.us = load float, ptr %663, align 4
   %.promoted995.us = load float, ptr %664, align 4
@@ -48073,17 +48073,17 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   %779 = load i32, ptr %gep1171, align 4
   %780 = mul nsw i32 %779, %34
   %781 = mul nuw nsw i64 %indvars.iv1078, 3
-  %782 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %781
+  %782 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %781
   %783 = load float, ptr %782, align 4
   %784 = add nuw nsw i64 %781, 1
-  %785 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %784
+  %785 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %784
   %786 = load float, ptr %785, align 4
   %787 = add nuw nsw i64 %781, 2
-  %788 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %787
+  %788 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %787
   %789 = load float, ptr %788, align 4
-  %790 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %781
-  %791 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %784
-  %792 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %787
+  %790 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %781
+  %791 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %784
+  %792 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %787
   %.promoted983 = load float, ptr %790, align 4
   %.promoted985 = load float, ptr %791, align 4
   %.promoted987 = load float, ptr %792, align 4
@@ -48214,7 +48214,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
 884:                                              ; preds = %.preheader944, %884
   %indvars.iv1113 = phi i64 [ 0, %.preheader944 ], [ %indvars.iv.next1114, %884 ]
   %885 = add nuw nsw i64 %indvars.iv1113, %882
-  %886 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %885
+  %886 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %885
   %887 = load float, ptr %886, align 4
   %gep1177 = getelementptr float, ptr %invariant.gep1176, i64 %indvars.iv1113
   %888 = load float, ptr %gep1177, align 4
@@ -48234,7 +48234,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
 
 .preheader.preheader:                             ; preds = %891
   %892 = zext nneg i32 %58 to i64
-  %invariant.gep1178 = getelementptr inbounds float, ptr %12, i64 %892
+  %invariant.gep1178 = getelementptr inbounds nuw float, ptr %12, i64 %892
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %900
@@ -48245,9 +48245,9 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
 894:                                              ; preds = %.preheader, %894
   %indvars.iv1121 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1122, %894 ]
   %895 = add nuw nsw i64 %indvars.iv1121, %893
-  %896 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %895
+  %896 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %895
   %897 = load float, ptr %896, align 4
-  %gep1179 = getelementptr inbounds float, ptr %invariant.gep1178, i64 %indvars.iv1121
+  %gep1179 = getelementptr inbounds nuw float, ptr %invariant.gep1178, i64 %indvars.iv1121
   %898 = load float, ptr %gep1179, align 4
   %899 = fadd float %897, %898
   store float %899, ptr %gep1179, align 4
@@ -48261,7 +48261,7 @@ define void @_Z44nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_F_refPK16NbnxnPairlistCp
   br i1 %exitcond1128.not, label %.loopexit952, label %.preheader, !llvm.loop !781
 
 .loopexit952:                                     ; preds = %900, %891
-  %901 = getelementptr inbounds i8, ptr %.sroa.0934.01015, i64 16
+  %901 = getelementptr inbounds nuw i8, ptr %.sroa.0934.01015, i64 16
   %.not938 = icmp eq ptr %901, %50
   br i1 %.not938, label %._crit_edge, label %54
 
@@ -48274,74 +48274,74 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %18 = load float, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %22 = load float, ptr %21, align 8
   %23 = fmul float %18, 3.000000e+00
   %24 = fmul float %20, 4.000000e+00
   %25 = fmul float %22, 5.000000e+00
-  %26 = getelementptr inbounds i8, ptr %2, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %27 = load ptr, ptr %26, align 8
   %28 = load float, ptr %27, align 8
   %29 = fdiv float 5.000000e-01, %28
-  %30 = getelementptr inbounds i8, ptr %27, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %33 = load float, ptr %32, align 4
   %34 = fmul float %33, %33
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = load float, ptr %35, align 8
   %37 = fmul float %36, %36
   %38 = load i32, ptr %1, align 8
   %39 = shl nsw i32 %38, 1
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 176
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 108
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %1, i64 288
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 128
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 80
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %55 = load ptr, ptr %54, align 8
   %.not10481165 = icmp eq ptr %53, %55
   br i1 %.not10481165, label %._crit_edge, label %.lr.ph1167
 
 .lr.ph1167:                                       ; preds = %5
-  %56 = getelementptr inbounds i8, ptr %31, i64 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 44
-  %58 = getelementptr inbounds i8, ptr %2, i64 32
-  %59 = getelementptr inbounds i8, ptr %2, i64 20
-  %60 = getelementptr inbounds i8, ptr %2, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1010 = icmp eq ptr %12, null
   br label %61
 
 61:                                               ; preds = %.lr.ph1167, %.loopexit1062
   %.sroa.01044.01166 = phi ptr [ %53, %.lr.ph1167 ], [ %995, %.loopexit1062 ]
-  %62 = getelementptr inbounds i8, ptr %.sroa.01044.01166, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.01044.01166, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 127
   %65 = mul nuw nsw i32 %64, 3
-  %66 = getelementptr inbounds i8, ptr %.sroa.01044.01166, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.01044.01166, i64 8
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %.sroa.01044.01166, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.01044.01166, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %.sroa.01044.01166, align 4
   %71 = icmp eq i32 %64, 22
@@ -48352,7 +48352,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %75 = zext nneg i32 %65 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %76 = sext i32 %74 to i64
-  %invariant.gep1328 = getelementptr inbounds float, ptr %3, i64 %75
+  %invariant.gep1328 = getelementptr inbounds nuw float, ptr %3, i64 %75
   br label %.preheader1060
 
 .preheader1060:                                   ; preds = %61, %85
@@ -48367,11 +48367,11 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %indvars.iv = phi i64 [ 0, %.preheader1060 ], [ %indvars.iv.next, %79 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %80 = load float, ptr %gep, align 4
-  %gep1329 = getelementptr inbounds float, ptr %invariant.gep1328, i64 %indvars.iv
+  %gep1329 = getelementptr inbounds nuw float, ptr %invariant.gep1328, i64 %indvars.iv
   %81 = load float, ptr %gep1329, align 4
   %82 = fadd float %80, %81
   %83 = add nuw nsw i64 %indvars.iv, %78
-  %84 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %83
   store float %82, ptr %84, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -48381,7 +48381,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %86 = getelementptr inbounds float, ptr %43, i64 %77
   %87 = load float, ptr %86, align 4
   %88 = fmul float %47, %87
-  %89 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %89 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %88, ptr %89, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1199.not = icmp eq i64 %indvar.next, 4
@@ -48410,7 +48410,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
 100:                                              ; preds = %.preheader1064, %100
   %indvars.iv1200 = phi i64 [ 0, %.preheader1064 ], [ %indvars.iv.next1201, %100 ]
   %101 = phi float [ %.promoted, %.preheader1064 ], [ %107, %100 ]
-  %102 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1200
+  %102 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1200
   %103 = load float, ptr %102, align 4
   %gep1331 = getelementptr float, ptr %invariant.gep1330, i64 %indvars.iv1200
   %104 = load float, ptr %gep1331, align 4
@@ -48446,7 +48446,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
 114:                                              ; preds = %110
   %115 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %51, i64 %indvars.iv1228
   %116 = load i32, ptr %115, align 4
-  %117 = getelementptr inbounds i8, ptr %115, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 4
   br i1 %spec.select, label %118, label %282
 
 118:                                              ; preds = %114
@@ -48464,20 +48464,20 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %124 = mul nsw i32 %123, %39
   %125 = shl nuw nsw i64 %indvars.iv1224, 2
   %126 = mul nuw nsw i64 %indvars.iv1224, 3
-  %127 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %126
   %128 = load float, ptr %127, align 4
   %129 = add nuw nsw i64 %126, 1
-  %130 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %129
   %131 = load float, ptr %130, align 4
   %132 = add nuw nsw i64 %126, 2
-  %133 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %132
   %134 = load float, ptr %133, align 4
   %135 = icmp samesign ult i64 %indvars.iv1224, 2
-  %136 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1224
+  %136 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1224
   %137 = load float, ptr %136, align 4
-  %138 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %126
-  %139 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %129
-  %140 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %132
+  %138 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %126
+  %139 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %129
+  %140 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %132
   %.promoted1090 = load float, ptr %138, align 4
   %.promoted1092 = load float, ptr %139, align 4
   %.promoted1094 = load float, ptr %140, align 4
@@ -48672,19 +48672,19 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %289 = mul nsw i32 %288, %39
   %290 = shl nuw nsw i64 %indvars.iv1216, 2
   %291 = mul nuw nsw i64 %indvars.iv1216, 3
-  %292 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %291
+  %292 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %291
   %293 = load float, ptr %292, align 4
   %294 = add nuw nsw i64 %291, 1
-  %295 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %294
   %296 = load float, ptr %295, align 4
   %297 = add nuw nsw i64 %291, 2
-  %298 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %297
+  %298 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %297
   %299 = load float, ptr %298, align 4
-  %300 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1216
+  %300 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1216
   %301 = load float, ptr %300, align 4
-  %302 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %291
-  %303 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %294
-  %304 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %297
+  %302 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %291
+  %303 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %294
+  %304 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %297
   %.promoted1078 = load float, ptr %302, align 4
   %.promoted1080 = load float, ptr %303, align 4
   %.promoted1082 = load float, ptr %304, align 4
@@ -48860,17 +48860,17 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %448 = mul nsw i32 %447, %39
   %449 = shl nuw nsw i64 %indvars.iv1208, 2
   %450 = mul nuw nsw i64 %indvars.iv1208, 3
-  %451 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %450
   %452 = load float, ptr %451, align 4
   %453 = add nuw nsw i64 %450, 1
-  %454 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %453
+  %454 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %453
   %455 = load float, ptr %454, align 4
   %456 = add nuw nsw i64 %450, 2
-  %457 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %456
+  %457 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %456
   %458 = load float, ptr %457, align 4
-  %459 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %450
-  %460 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %453
-  %461 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %456
+  %459 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %450
+  %460 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %453
+  %461 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %456
   %.promoted1069 = load float, ptr %459, align 4
   %.promoted1070 = load float, ptr %460, align 4
   %.promoted1072 = load float, ptr %461, align 4
@@ -49037,20 +49037,20 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %570 = load i32, ptr %gep1343, align 4
   %571 = mul nsw i32 %570, %39
   %572 = mul nuw nsw i64 %indvars.iv1261, 3
-  %573 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %572
+  %573 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %572
   %574 = load float, ptr %573, align 4
   %575 = add nuw nsw i64 %572, 1
-  %576 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %575
+  %576 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %575
   %577 = load float, ptr %576, align 4
   %578 = add nuw nsw i64 %572, 2
-  %579 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %578
+  %579 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %578
   %580 = load float, ptr %579, align 4
   %581 = icmp samesign ult i64 %indvars.iv1261, 2
-  %582 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1261
+  %582 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1261
   %583 = load float, ptr %582, align 4
-  %584 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %572
-  %585 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %575
-  %586 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %578
+  %584 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %572
+  %585 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %575
+  %586 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %578
   %.promoted1133.us = load float, ptr %584, align 4
   %.promoted1135.us = load float, ptr %585, align 4
   %.promoted1137.us = load float, ptr %586, align 4
@@ -49240,19 +49240,19 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %720 = load i32, ptr %gep1341, align 4
   %721 = mul nsw i32 %720, %39
   %722 = mul nuw nsw i64 %indvars.iv1248, 3
-  %723 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %722
+  %723 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %722
   %724 = load float, ptr %723, align 4
   %725 = add nuw nsw i64 %722, 1
-  %726 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %725
+  %726 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %725
   %727 = load float, ptr %726, align 4
   %728 = add nuw nsw i64 %722, 2
-  %729 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %728
+  %729 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %728
   %730 = load float, ptr %729, align 4
-  %731 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1248
+  %731 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1248
   %732 = load float, ptr %731, align 4
-  %733 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %722
-  %734 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %725
-  %735 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %728
+  %733 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %722
+  %734 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %725
+  %735 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %728
   %.promoted1121.us = load float, ptr %733, align 4
   %.promoted1123.us = load float, ptr %734, align 4
   %.promoted1125.us = load float, ptr %735, align 4
@@ -49428,17 +49428,17 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %866 = load i32, ptr %gep1339, align 4
   %867 = mul nsw i32 %866, %39
   %868 = mul nuw nsw i64 %indvars.iv1236, 3
-  %869 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %868
+  %869 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %868
   %870 = load float, ptr %869, align 4
   %871 = add nuw nsw i64 %868, 1
-  %872 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %871
+  %872 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %871
   %873 = load float, ptr %872, align 4
   %874 = add nuw nsw i64 %868, 2
-  %875 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %874
+  %875 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %874
   %876 = load float, ptr %875, align 4
-  %877 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %868
-  %878 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %871
-  %879 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %874
+  %877 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %868
+  %878 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %871
+  %879 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %874
   %.promoted1111 = load float, ptr %877, align 4
   %.promoted1113 = load float, ptr %878, align 4
   %.promoted1115 = load float, ptr %879, align 4
@@ -49570,7 +49570,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
 974:                                              ; preds = %.preheader1054, %974
   %indvars.iv1270 = phi i64 [ 0, %.preheader1054 ], [ %indvars.iv.next1271, %974 ]
   %975 = add nuw nsw i64 %indvars.iv1270, %972
-  %976 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %975
+  %976 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %975
   %977 = load float, ptr %976, align 4
   %gep1345 = getelementptr float, ptr %invariant.gep1344, i64 %indvars.iv1270
   %978 = load float, ptr %gep1345, align 4
@@ -49590,7 +49590,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
 
 .preheader.preheader:                             ; preds = %981
   %982 = zext nneg i32 %65 to i64
-  %invariant.gep1346 = getelementptr inbounds float, ptr %12, i64 %982
+  %invariant.gep1346 = getelementptr inbounds nuw float, ptr %12, i64 %982
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %990
@@ -49601,9 +49601,9 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
 984:                                              ; preds = %.preheader, %984
   %indvars.iv1278 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1279, %984 ]
   %985 = add nuw nsw i64 %indvars.iv1278, %983
-  %986 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %985
+  %986 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %985
   %987 = load float, ptr %986, align 4
-  %gep1347 = getelementptr inbounds float, ptr %invariant.gep1346, i64 %indvars.iv1278
+  %gep1347 = getelementptr inbounds nuw float, ptr %invariant.gep1346, i64 %indvars.iv1278
   %988 = load float, ptr %gep1347, align 4
   %989 = fadd float %987, %988
   store float %989, ptr %gep1347, align 4
@@ -49623,7 +49623,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %993 = load float, ptr %16, align 4
   %994 = fadd float %.6982.lcssa, %993
   store float %994, ptr %16, align 4
-  %995 = getelementptr inbounds i8, ptr %.sroa.01044.01166, i64 16
+  %995 = getelementptr inbounds nuw i8, ptr %.sroa.01044.01166, i64 16
   %.not1048 = icmp eq ptr %995, %55
   br i1 %.not1048, label %._crit_edge, label %61
 
@@ -49637,75 +49637,75 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %19 = load float, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %23 = load float, ptr %22, align 8
   %24 = fmul float %19, 3.000000e+00
   %25 = fmul float %21, 4.000000e+00
   %26 = fmul float %23, 5.000000e+00
-  %27 = getelementptr inbounds i8, ptr %2, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = load float, ptr %28, align 8
   %30 = fdiv float 5.000000e-01, %29
-  %31 = getelementptr inbounds i8, ptr %28, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 76
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %34 = load float, ptr %33, align 4
   %35 = fmul float %34, %34
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %37 = load float, ptr %36, align 8
   %38 = fmul float %37, %37
   %39 = load i32, ptr %1, align 8
   %40 = shl nsw i32 %39, 1
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 108
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %48 = load float, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 288
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %56 = load ptr, ptr %55, align 8
   %.not10831162 = icmp eq ptr %54, %56
   br i1 %.not10831162, label %._crit_edge, label %.lr.ph1164
 
 .lr.ph1164:                                       ; preds = %5
-  %57 = getelementptr inbounds i8, ptr %1, i64 208
-  %58 = getelementptr inbounds i8, ptr %1, i64 200
-  %59 = getelementptr inbounds i8, ptr %32, i64 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 44
-  %61 = getelementptr inbounds i8, ptr %2, i64 32
-  %62 = getelementptr inbounds i8, ptr %2, i64 20
-  %63 = getelementptr inbounds i8, ptr %2, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %59 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1043 = icmp eq ptr %13, null
   br label %64
 
 64:                                               ; preds = %.lr.ph1164, %.loopexit1097
   %.sroa.01079.01163 = phi ptr [ %54, %.lr.ph1164 ], [ %1150, %.loopexit1097 ]
-  %65 = getelementptr inbounds i8, ptr %.sroa.01079.01163, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.01079.01163, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, 127
-  %68 = getelementptr inbounds i8, ptr %.sroa.01079.01163, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.01079.01163, i64 8
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %.sroa.01079.01163, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.01079.01163, i64 12
   %71 = load i32, ptr %70, align 4
   %72 = load i32, ptr %.sroa.01079.01163, align 4
   %73 = icmp eq i32 %67, 22
@@ -49713,13 +49713,13 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %75 = and i32 %66, 384
   %or.cond = icmp ne i32 %75, 128
   %76 = load ptr, ptr %57, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = sext i32 %72 to i64
   %79 = load ptr, ptr %77, align 8
   %80 = getelementptr inbounds i32, ptr %79, i64 %78
   %81 = load i32, ptr %80, align 4
   %82 = load i32, ptr %76, align 8
-  %83 = getelementptr inbounds i8, ptr %76, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %84 = load i32, ptr %83, align 8
   %85 = load i32, ptr %58, align 8
   br label %91
@@ -49731,7 +49731,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %89 = zext nneg i32 %86 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %90 = sext i32 %88 to i64
-  %invariant.gep1317 = getelementptr inbounds float, ptr %3, i64 %89
+  %invariant.gep1317 = getelementptr inbounds nuw float, ptr %3, i64 %89
   br label %.preheader1095
 
 91:                                               ; preds = %64, %91
@@ -49741,7 +49741,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %94 = ashr i32 %81, %93
   %95 = and i32 %94, %84
   %96 = mul nsw i32 %95, %85
-  %97 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %96, ptr %97, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -49759,11 +49759,11 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %indvars.iv1187 = phi i64 [ 0, %.preheader1095 ], [ %indvars.iv.next1188, %100 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1187
   %101 = load float, ptr %gep, align 4
-  %gep1318 = getelementptr inbounds float, ptr %invariant.gep1317, i64 %indvars.iv1187
+  %gep1318 = getelementptr inbounds nuw float, ptr %invariant.gep1317, i64 %indvars.iv1187
   %102 = load float, ptr %gep1318, align 4
   %103 = fadd float %101, %102
   %104 = add nuw nsw i64 %indvars.iv1187, %99
-  %105 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %104
   store float %103, ptr %105, align 4
   %indvars.iv.next1188 = add nuw nsw i64 %indvars.iv1187, 1
   %exitcond1190.not = icmp eq i64 %indvars.iv.next1188, 3
@@ -49773,7 +49773,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %107 = getelementptr inbounds float, ptr %44, i64 %98
   %108 = load float, ptr %107, align 4
   %109 = fmul float %48, %108
-  %110 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %110 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %109, ptr %110, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1192.not = icmp eq i64 %indvar.next, 4
@@ -49799,10 +49799,10 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
 
 120:                                              ; preds = %.preheader1099, %120
   %indvars.iv1193 = phi i64 [ 0, %.preheader1099 ], [ %indvars.iv.next1194, %120 ]
-  %121 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1193
+  %121 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1193
   %122 = load i32, ptr %121, align 4
   %123 = load ptr, ptr %57, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i32, ptr %125, i64 %78
   %127 = load i32, ptr %126, align 4
@@ -49810,11 +49810,11 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %129 = trunc nuw nsw i64 %indvars.iv1193 to i32
   %130 = mul nsw i32 %128, %129
   %131 = ashr i32 %127, %130
-  %132 = getelementptr inbounds i8, ptr %123, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %133 = load i32, ptr %132, align 8
   %134 = and i32 %131, %133
   %135 = add nsw i32 %134, %122
-  %136 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1193
+  %136 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1193
   %137 = load float, ptr %136, align 4
   %gep1320 = getelementptr float, ptr %invariant.gep1319, i64 %indvars.iv1193
   %138 = load float, ptr %gep1320, align 4
@@ -49851,7 +49851,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
 151:                                              ; preds = %147
   %152 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %52, i64 %indvars.iv1221
   %153 = load i32, ptr %152, align 4
-  %154 = getelementptr inbounds i8, ptr %152, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 4
   br i1 %spec.select, label %155, label %340
 
 155:                                              ; preds = %151
@@ -49868,22 +49868,22 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %162 = mul nsw i32 %161, %40
   %163 = shl nuw nsw i64 %indvars.iv1217, 2
   %164 = mul nuw nsw i64 %indvars.iv1217, 3
-  %165 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %164
   %166 = load float, ptr %165, align 4
   %167 = add nuw nsw i64 %164, 1
-  %168 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %167
   %169 = load float, ptr %168, align 4
   %170 = add nuw nsw i64 %164, 2
-  %171 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %170
   %172 = load float, ptr %171, align 4
   %173 = icmp samesign ult i64 %indvars.iv1217, 2
-  %174 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1217
+  %174 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1217
   %175 = load float, ptr %174, align 4
-  %176 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1217
+  %176 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1217
   %177 = load i32, ptr %176, align 4
-  %178 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %164
-  %179 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %167
-  %180 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %170
+  %178 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %164
+  %179 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %167
+  %180 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %170
   %.promoted1120 = load float, ptr %178, align 4
   %.promoted1122 = load float, ptr %179, align 4
   %.promoted1124 = load float, ptr %180, align 4
@@ -49928,7 +49928,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %214 = fmul float %211, %213
   %215 = fmul float %214, %214
   %216 = load ptr, ptr %57, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr inbounds i32, ptr %218, i64 %158
   %220 = load i32, ptr %219, align 4
@@ -49936,7 +49936,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %222 = trunc nuw nsw i64 %indvars.iv1213 to i32
   %223 = mul nsw i32 %221, %222
   %224 = ashr i32 %220, %223
-  %225 = getelementptr inbounds i8, ptr %216, i64 32
+  %225 = getelementptr inbounds nuw i8, ptr %216, i64 32
   %226 = load i32, ptr %225, align 8
   %227 = and i32 %224, %226
   br i1 %173, label %228, label %._crit_edge1279
@@ -50097,21 +50097,21 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %348 = mul nsw i32 %347, %40
   %349 = shl nuw nsw i64 %indvars.iv1209, 2
   %350 = mul nuw nsw i64 %indvars.iv1209, 3
-  %351 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %350
   %352 = load float, ptr %351, align 4
   %353 = add nuw nsw i64 %350, 1
-  %354 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %353
+  %354 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %353
   %355 = load float, ptr %354, align 4
   %356 = add nuw nsw i64 %350, 2
-  %357 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %356
   %358 = load float, ptr %357, align 4
-  %359 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1209
+  %359 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1209
   %360 = load i32, ptr %359, align 4
-  %361 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1209
+  %361 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1209
   %362 = load float, ptr %361, align 4
-  %363 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %350
-  %364 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %353
-  %365 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %356
+  %363 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %350
+  %364 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %353
+  %365 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %356
   %.promoted1112 = load float, ptr %363, align 4
   %.promoted1114 = load float, ptr %364, align 4
   %.promoted1116 = load float, ptr %365, align 4
@@ -50156,7 +50156,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %399 = fmul float %396, %398
   %400 = fmul float %399, %399
   %401 = load ptr, ptr %57, align 8
-  %402 = getelementptr inbounds i8, ptr %401, i64 8
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 8
   %403 = load ptr, ptr %402, align 8
   %404 = getelementptr inbounds i32, ptr %403, i64 %344
   %405 = load i32, ptr %404, align 4
@@ -50164,7 +50164,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %407 = trunc nuw nsw i64 %indvars.iv1205 to i32
   %408 = mul nsw i32 %406, %407
   %409 = ashr i32 %405, %408
-  %410 = getelementptr inbounds i8, ptr %401, i64 32
+  %410 = getelementptr inbounds nuw i8, ptr %401, i64 32
   %411 = load i32, ptr %410, align 8
   %412 = and i32 %409, %411
   %413 = getelementptr inbounds i32, ptr %46, i64 %378
@@ -50305,19 +50305,19 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %528 = mul nsw i32 %527, %40
   %529 = shl nuw nsw i64 %indvars.iv1201, 2
   %530 = mul nuw nsw i64 %indvars.iv1201, 3
-  %531 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %530
+  %531 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %530
   %532 = load float, ptr %531, align 4
   %533 = add nuw nsw i64 %530, 1
-  %534 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %533
+  %534 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %533
   %535 = load float, ptr %534, align 4
   %536 = add nuw nsw i64 %530, 2
-  %537 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %536
+  %537 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %536
   %538 = load float, ptr %537, align 4
-  %539 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1201
+  %539 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1201
   %540 = load i32, ptr %539, align 4
-  %541 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %530
-  %542 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %533
-  %543 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %536
+  %541 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %530
+  %542 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %533
+  %543 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %536
   %.promoted = load float, ptr %541, align 4
   %.promoted1106 = load float, ptr %542, align 4
   %.promoted1108 = load float, ptr %543, align 4
@@ -50359,7 +50359,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %574 = fmul float %571, %573
   %575 = fmul float %574, %574
   %576 = load ptr, ptr %57, align 8
-  %577 = getelementptr inbounds i8, ptr %576, i64 8
+  %577 = getelementptr inbounds nuw i8, ptr %576, i64 8
   %578 = load ptr, ptr %577, align 8
   %579 = getelementptr inbounds i32, ptr %578, i64 %524
   %580 = load i32, ptr %579, align 4
@@ -50367,7 +50367,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %582 = trunc nuw nsw i64 %indvars.iv1197 to i32
   %583 = mul nsw i32 %581, %582
   %584 = ashr i32 %580, %583
-  %585 = getelementptr inbounds i8, ptr %576, i64 32
+  %585 = getelementptr inbounds nuw i8, ptr %576, i64 32
   %586 = load i32, ptr %585, align 8
   %587 = and i32 %584, %586
   %588 = getelementptr inbounds i32, ptr %46, i64 %554
@@ -50493,22 +50493,22 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %669 = load i32, ptr %gep1332, align 4
   %670 = mul nsw i32 %669, %40
   %671 = mul nuw nsw i64 %indvars.iv1254, 3
-  %672 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %671
+  %672 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %671
   %673 = load float, ptr %672, align 4
   %674 = add nuw nsw i64 %671, 1
-  %675 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %674
+  %675 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %674
   %676 = load float, ptr %675, align 4
   %677 = add nuw nsw i64 %671, 2
-  %678 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %677
+  %678 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %677
   %679 = load float, ptr %678, align 4
   %680 = icmp samesign ult i64 %indvars.iv1254, 2
-  %681 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1254
+  %681 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1254
   %682 = load float, ptr %681, align 4
-  %683 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1254
+  %683 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1254
   %684 = load i32, ptr %683, align 4
-  %685 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %671
-  %686 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %674
-  %687 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %677
+  %685 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %671
+  %686 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %674
+  %687 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %677
   %.promoted1147.us = load float, ptr %685, align 4
   %.promoted1149.us = load float, ptr %686, align 4
   %.promoted1151.us = load float, ptr %687, align 4
@@ -50552,7 +50552,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %713 = fmul float %710, %712
   %714 = fmul float %713, %713
   %715 = load ptr, ptr %57, align 8
-  %716 = getelementptr inbounds i8, ptr %715, i64 8
+  %716 = getelementptr inbounds nuw i8, ptr %715, i64 8
   %717 = load ptr, ptr %716, align 8
   %718 = getelementptr inbounds i32, ptr %717, i64 %666
   %719 = load i32, ptr %718, align 4
@@ -50560,7 +50560,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %721 = trunc nuw nsw i64 %indvars.iv1250 to i32
   %722 = mul nsw i32 %720, %721
   %723 = ashr i32 %719, %722
-  %724 = getelementptr inbounds i8, ptr %715, i64 32
+  %724 = getelementptr inbounds nuw i8, ptr %715, i64 32
   %725 = load i32, ptr %724, align 8
   %726 = and i32 %723, %725
   br i1 %680, label %727, label %._crit_edge1280
@@ -50715,21 +50715,21 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %840 = load i32, ptr %gep1330, align 4
   %841 = mul nsw i32 %840, %40
   %842 = mul nuw nsw i64 %indvars.iv1241, 3
-  %843 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %842
+  %843 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %842
   %844 = load float, ptr %843, align 4
   %845 = add nuw nsw i64 %842, 1
-  %846 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %845
+  %846 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %845
   %847 = load float, ptr %846, align 4
   %848 = add nuw nsw i64 %842, 2
-  %849 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %848
+  %849 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %848
   %850 = load float, ptr %849, align 4
-  %851 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1241
+  %851 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1241
   %852 = load i32, ptr %851, align 4
-  %853 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1241
+  %853 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1241
   %854 = load float, ptr %853, align 4
-  %855 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %842
-  %856 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %845
-  %857 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %848
+  %855 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %842
+  %856 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %845
+  %857 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %848
   %.promoted1139.us = load float, ptr %855, align 4
   %.promoted1141.us = load float, ptr %856, align 4
   %.promoted1143.us = load float, ptr %857, align 4
@@ -50773,7 +50773,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %883 = fmul float %880, %882
   %884 = fmul float %883, %883
   %885 = load ptr, ptr %57, align 8
-  %886 = getelementptr inbounds i8, ptr %885, i64 8
+  %886 = getelementptr inbounds nuw i8, ptr %885, i64 8
   %887 = load ptr, ptr %886, align 8
   %888 = getelementptr inbounds i32, ptr %887, i64 %837
   %889 = load i32, ptr %888, align 4
@@ -50781,7 +50781,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %891 = trunc nuw nsw i64 %indvars.iv1237 to i32
   %892 = mul nsw i32 %890, %891
   %893 = ashr i32 %889, %892
-  %894 = getelementptr inbounds i8, ptr %885, i64 32
+  %894 = getelementptr inbounds nuw i8, ptr %885, i64 32
   %895 = load i32, ptr %894, align 8
   %896 = and i32 %893, %895
   %897 = getelementptr inbounds i32, ptr %46, i64 %863
@@ -50917,19 +50917,19 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %1007 = load i32, ptr %gep1328, align 4
   %1008 = mul nsw i32 %1007, %40
   %1009 = mul nuw nsw i64 %indvars.iv1229, 3
-  %1010 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1009
+  %1010 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1009
   %1011 = load float, ptr %1010, align 4
   %1012 = add nuw nsw i64 %1009, 1
-  %1013 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1012
+  %1013 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1012
   %1014 = load float, ptr %1013, align 4
   %1015 = add nuw nsw i64 %1009, 2
-  %1016 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1015
+  %1016 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1015
   %1017 = load float, ptr %1016, align 4
-  %1018 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1229
+  %1018 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1229
   %1019 = load i32, ptr %1018, align 4
-  %1020 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1009
-  %1021 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1012
-  %1022 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1015
+  %1020 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1009
+  %1021 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1012
+  %1022 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1015
   %.promoted1131 = load float, ptr %1020, align 4
   %.promoted1133 = load float, ptr %1021, align 4
   %.promoted1135 = load float, ptr %1022, align 4
@@ -50965,7 +50965,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %1047 = fmul float %1044, %1046
   %1048 = fmul float %1047, %1047
   %1049 = load ptr, ptr %57, align 8
-  %1050 = getelementptr inbounds i8, ptr %1049, i64 8
+  %1050 = getelementptr inbounds nuw i8, ptr %1049, i64 8
   %1051 = load ptr, ptr %1050, align 8
   %1052 = getelementptr inbounds i32, ptr %1051, i64 %1004
   %1053 = load i32, ptr %1052, align 4
@@ -50973,7 +50973,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   %1055 = trunc nuw nsw i64 %indvars.iv1225 to i32
   %1056 = mul nsw i32 %1054, %1055
   %1057 = ashr i32 %1053, %1056
-  %1058 = getelementptr inbounds i8, ptr %1049, i64 32
+  %1058 = getelementptr inbounds nuw i8, ptr %1049, i64 32
   %1059 = load i32, ptr %1058, align 8
   %1060 = and i32 %1057, %1059
   %1061 = getelementptr inbounds i32, ptr %46, i64 %1027
@@ -51080,7 +51080,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
 1133:                                             ; preds = %.preheader1089, %1133
   %indvars.iv1263 = phi i64 [ 0, %.preheader1089 ], [ %indvars.iv.next1264, %1133 ]
   %1134 = add nuw nsw i64 %indvars.iv1263, %1131
-  %1135 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1134
+  %1135 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1134
   %1136 = load float, ptr %1135, align 4
   %gep1334 = getelementptr float, ptr %invariant.gep1333, i64 %indvars.iv1263
   %1137 = load float, ptr %gep1334, align 4
@@ -51100,7 +51100,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
 
 .preheader.preheader:                             ; preds = %1140
   %1141 = zext nneg i32 %86 to i64
-  %invariant.gep1335 = getelementptr inbounds float, ptr %13, i64 %1141
+  %invariant.gep1335 = getelementptr inbounds nuw float, ptr %13, i64 %1141
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1149
@@ -51111,9 +51111,9 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
 1143:                                             ; preds = %.preheader, %1143
   %indvars.iv1271 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1272, %1143 ]
   %1144 = add nuw nsw i64 %indvars.iv1271, %1142
-  %1145 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1144
+  %1145 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1144
   %1146 = load float, ptr %1145, align 4
-  %gep1336 = getelementptr inbounds float, ptr %invariant.gep1335, i64 %indvars.iv1271
+  %gep1336 = getelementptr inbounds nuw float, ptr %invariant.gep1335, i64 %indvars.iv1271
   %1147 = load float, ptr %gep1336, align 4
   %1148 = fadd float %1146, %1147
   store float %1148, ptr %gep1336, align 4
@@ -51127,7 +51127,7 @@ define void @_Z48nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VgrpF_refPK16NbnxnPairli
   br i1 %exitcond1278.not, label %.loopexit1097, label %.preheader, !llvm.loop !824
 
 .loopexit1097:                                    ; preds = %1149, %1140
-  %1150 = getelementptr inbounds i8, ptr %.sroa.01079.01163, i64 16
+  %1150 = getelementptr inbounds nuw i8, ptr %.sroa.01079.01163, i64 16
   %.not1083 = icmp eq ptr %1150, %56
   br i1 %.not1083, label %._crit_edge, label %64
 
@@ -51140,46 +51140,46 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %14 = load float, ptr %13, align 8
   %15 = fmul float %14, %14
   %16 = fmul float %15, %15
   %17 = fmul float %15, %16
   %18 = fdiv float %17, 6.000000e+00
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %22 = load ptr, ptr %21, align 8
   %23 = load float, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 76
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %27 = load float, ptr %26, align 4
   %28 = fmul float %27, %27
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load float, ptr %29, align 8
   %31 = fmul float %30, %30
   %32 = load i32, ptr %1, align 8
   %33 = shl nsw i32 %32, 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 176
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 108
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %41 = load float, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 288
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %49 = load ptr, ptr %48, align 8
   %.not860936 = icmp eq ptr %47, %49
   br i1 %.not860936, label %._crit_edge, label %.lr.ph938
@@ -51190,13 +51190,13 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
 
 50:                                               ; preds = %.lr.ph938, %.loopexit874
   %.sroa.0856.0937 = phi ptr [ %47, %.lr.ph938 ], [ %877, %.loopexit874 ]
-  %51 = getelementptr inbounds i8, ptr %.sroa.0856.0937, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0856.0937, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 127
   %54 = mul nuw nsw i32 %53, 3
-  %55 = getelementptr inbounds i8, ptr %.sroa.0856.0937, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0856.0937, i64 8
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.sroa.0856.0937, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0856.0937, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = load i32, ptr %.sroa.0856.0937, align 4
   %60 = icmp eq i32 %53, 22
@@ -51209,7 +51209,7 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %65 = zext nneg i32 %54 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %66 = sext i32 %64 to i64
-  %invariant.gep1080 = getelementptr inbounds float, ptr %3, i64 %65
+  %invariant.gep1080 = getelementptr inbounds nuw float, ptr %3, i64 %65
   br label %.preheader872
 
 .preheader876:                                    ; preds = %229
@@ -51242,7 +51242,7 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
 73:                                               ; preds = %.lr.ph.split.us
   %74 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %45, i64 %indvars.iv992
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %74, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %77 = icmp eq i32 %75, %67
   %78 = shl nsw i32 %75, 2
   %79 = sext i32 %78 to i64
@@ -51255,20 +51255,20 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %82 = mul nsw i32 %81, %33
   %83 = shl nuw nsw i64 %indvars.iv988, 2
   %84 = mul nuw nsw i64 %indvars.iv988, 3
-  %85 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = add nuw nsw i64 %84, 1
-  %88 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %87
   %89 = load float, ptr %88, align 4
   %90 = add nuw nsw i64 %84, 2
-  %91 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %90
   %92 = load float, ptr %91, align 4
   %93 = icmp samesign ult i64 %indvars.iv988, 2
-  %94 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv988
+  %94 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv988
   %95 = load float, ptr %94, align 4
-  %96 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %84
-  %97 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %87
-  %98 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %90
+  %96 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %84
+  %97 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %87
+  %98 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %90
   %.promoted893.us = load float, ptr %96, align 4
   %.promoted895.us = load float, ptr %97, align 4
   %.promoted897.us = load float, ptr %98, align 4
@@ -51435,11 +51435,11 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %indvars.iv = phi i64 [ 0, %.preheader872 ], [ %indvars.iv.next, %223 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %224 = load float, ptr %gep, align 4
-  %gep1081 = getelementptr inbounds float, ptr %invariant.gep1080, i64 %indvars.iv
+  %gep1081 = getelementptr inbounds nuw float, ptr %invariant.gep1080, i64 %indvars.iv
   %225 = load float, ptr %gep1081, align 4
   %226 = fadd float %224, %225
   %227 = add nuw nsw i64 %indvars.iv, %222
-  %228 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %227
   store float %226, ptr %228, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -51449,7 +51449,7 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %230 = getelementptr inbounds float, ptr %37, i64 %221
   %231 = load float, ptr %230, align 4
   %232 = fmul float %41, %231
-  %233 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %233 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %232, ptr %233, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond963.not = icmp eq i64 %indvar.next, 4
@@ -51466,7 +51466,7 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
 237:                                              ; preds = %.lr.ph.split
   %238 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %45, i64 %indvars.iv980
   %239 = load i32, ptr %238, align 4
-  %240 = getelementptr inbounds i8, ptr %238, i64 4
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 4
   %241 = icmp eq i32 %239, %67
   %242 = shl nsw i32 %239, 2
   %243 = sext i32 %242 to i64
@@ -51479,19 +51479,19 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %245 = mul nsw i32 %244, %33
   %246 = shl nuw nsw i64 %indvars.iv976, 2
   %247 = mul nuw nsw i64 %indvars.iv976, 3
-  %248 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %247
   %249 = load float, ptr %248, align 4
   %250 = add nuw nsw i64 %247, 1
-  %251 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %250
   %252 = load float, ptr %251, align 4
   %253 = add nuw nsw i64 %247, 2
-  %254 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %253
   %255 = load float, ptr %254, align 4
-  %256 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv976
+  %256 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv976
   %257 = load float, ptr %256, align 4
-  %258 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %247
-  %259 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %250
-  %260 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %253
+  %258 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %247
+  %259 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %250
+  %260 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %253
   %.promoted885 = load float, ptr %258, align 4
   %.promoted887 = load float, ptr %259, align 4
   %.promoted889 = load float, ptr %260, align 4
@@ -51640,17 +51640,17 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %381 = mul nsw i32 %380, %33
   %382 = shl nuw nsw i64 %indvars.iv968, 2
   %383 = mul nuw nsw i64 %indvars.iv968, 3
-  %384 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %383
+  %384 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %383
   %385 = load float, ptr %384, align 4
   %386 = add nuw nsw i64 %383, 1
-  %387 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %386
   %388 = load float, ptr %387, align 4
   %389 = add nuw nsw i64 %383, 2
-  %390 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %389
+  %390 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %389
   %391 = load float, ptr %390, align 4
-  %392 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %383
-  %393 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %386
-  %394 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %389
+  %392 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %383
+  %393 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %386
+  %394 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %389
   %.promoted = load float, ptr %392, align 4
   %.promoted879 = load float, ptr %393, align 4
   %.promoted881 = load float, ptr %394, align 4
@@ -51809,20 +51809,20 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %501 = load i32, ptr %gep1093, align 4
   %502 = mul nsw i32 %501, %33
   %503 = mul nuw nsw i64 %indvars.iv1026, 3
-  %504 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %503
+  %504 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %503
   %505 = load float, ptr %504, align 4
   %506 = add nuw nsw i64 %503, 1
-  %507 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %506
+  %507 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %506
   %508 = load float, ptr %507, align 4
   %509 = add nuw nsw i64 %503, 2
-  %510 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %509
+  %510 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %509
   %511 = load float, ptr %510, align 4
   %512 = icmp samesign ult i64 %indvars.iv1026, 2
-  %513 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1026
+  %513 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1026
   %514 = load float, ptr %513, align 4
-  %515 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %503
-  %516 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %506
-  %517 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %509
+  %515 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %503
+  %516 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %506
+  %517 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %509
   %.promoted921.us = load float, ptr %515, align 4
   %.promoted923.us = load float, ptr %516, align 4
   %.promoted925.us = load float, ptr %517, align 4
@@ -51981,19 +51981,19 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %632 = load i32, ptr %gep1091, align 4
   %633 = mul nsw i32 %632, %33
   %634 = mul nuw nsw i64 %indvars.iv1013, 3
-  %635 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %634
+  %635 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %634
   %636 = load float, ptr %635, align 4
   %637 = add nuw nsw i64 %634, 1
-  %638 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %637
+  %638 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %637
   %639 = load float, ptr %638, align 4
   %640 = add nuw nsw i64 %634, 2
-  %641 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %640
+  %641 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %640
   %642 = load float, ptr %641, align 4
-  %643 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1013
+  %643 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1013
   %644 = load float, ptr %643, align 4
-  %645 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %634
-  %646 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %637
-  %647 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %640
+  %645 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %634
+  %646 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %637
+  %647 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %640
   %.promoted913.us = load float, ptr %645, align 4
   %.promoted915.us = load float, ptr %646, align 4
   %.promoted917.us = load float, ptr %647, align 4
@@ -52141,17 +52141,17 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   %759 = load i32, ptr %gep1089, align 4
   %760 = mul nsw i32 %759, %33
   %761 = mul nuw nsw i64 %indvars.iv1000, 3
-  %762 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %761
+  %762 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %761
   %763 = load float, ptr %762, align 4
   %764 = add nuw nsw i64 %761, 1
-  %765 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %764
+  %765 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %764
   %766 = load float, ptr %765, align 4
   %767 = add nuw nsw i64 %761, 2
-  %768 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %767
+  %768 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %767
   %769 = load float, ptr %768, align 4
-  %770 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %761
-  %771 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %764
-  %772 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %767
+  %770 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %761
+  %771 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %764
+  %772 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %767
   %.promoted905 = load float, ptr %770, align 4
   %.promoted907 = load float, ptr %771, align 4
   %.promoted909 = load float, ptr %772, align 4
@@ -52278,7 +52278,7 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
 860:                                              ; preds = %.preheader866, %860
   %indvars.iv1035 = phi i64 [ 0, %.preheader866 ], [ %indvars.iv.next1036, %860 ]
   %861 = add nuw nsw i64 %indvars.iv1035, %858
-  %862 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %861
+  %862 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %861
   %863 = load float, ptr %862, align 4
   %gep1095 = getelementptr float, ptr %invariant.gep1094, i64 %indvars.iv1035
   %864 = load float, ptr %gep1095, align 4
@@ -52298,7 +52298,7 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
 
 .preheader.preheader:                             ; preds = %867
   %868 = zext nneg i32 %54 to i64
-  %invariant.gep1096 = getelementptr inbounds float, ptr %12, i64 %868
+  %invariant.gep1096 = getelementptr inbounds nuw float, ptr %12, i64 %868
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %876
@@ -52309,9 +52309,9 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
 870:                                              ; preds = %.preheader, %870
   %indvars.iv1043 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1044, %870 ]
   %871 = add nuw nsw i64 %indvars.iv1043, %869
-  %872 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %871
+  %872 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %871
   %873 = load float, ptr %872, align 4
-  %gep1097 = getelementptr inbounds float, ptr %invariant.gep1096, i64 %indvars.iv1043
+  %gep1097 = getelementptr inbounds nuw float, ptr %invariant.gep1096, i64 %indvars.iv1043
   %874 = load float, ptr %gep1097, align 4
   %875 = fadd float %873, %874
   store float %875, ptr %gep1097, align 4
@@ -52325,7 +52325,7 @@ define void @_Z51nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_F_refPK16NbnxnPai
   br i1 %exitcond1050.not, label %.loopexit874, label %.preheader, !llvm.loop !844
 
 .loopexit874:                                     ; preds = %876, %867
-  %877 = getelementptr inbounds i8, ptr %.sroa.0856.0937, i64 16
+  %877 = getelementptr inbounds nuw i8, ptr %.sroa.0856.0937, i64 16
   %.not860 = icmp eq ptr %877, %49
   br i1 %.not860, label %._crit_edge, label %50
 
@@ -52338,75 +52338,75 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %18 = load float, ptr %17, align 8
   %19 = fmul float %18, %18
   %20 = fmul float %19, %19
   %21 = fmul float %19, %20
   %22 = fdiv float %21, 6.000000e+00
-  %23 = getelementptr inbounds i8, ptr %2, i64 100
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %24 = load float, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = load float, ptr %28, align 8
   %30 = fdiv float 5.000000e-01, %29
-  %31 = getelementptr inbounds i8, ptr %28, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 76
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %34 = load float, ptr %33, align 4
   %35 = fmul float %34, %34
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %37 = load float, ptr %36, align 8
   %38 = fmul float %37, %37
   %39 = load i32, ptr %1, align 8
   %40 = shl nsw i32 %39, 1
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 108
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %48 = load float, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 288
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %56 = load ptr, ptr %55, align 8
   %.not10661182 = icmp eq ptr %54, %56
   br i1 %.not10661182, label %._crit_edge, label %.lr.ph1184
 
 .lr.ph1184:                                       ; preds = %5
-  %57 = getelementptr inbounds i8, ptr %32, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %58 = fpext float %22 to double
-  %59 = getelementptr inbounds i8, ptr %2, i64 44
-  %60 = getelementptr inbounds i8, ptr %2, i64 32
-  %61 = getelementptr inbounds i8, ptr %2, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1022 = icmp eq ptr %12, null
   br label %62
 
 62:                                               ; preds = %.lr.ph1184, %.loopexit1080
   %.sroa.01062.01183 = phi ptr [ %54, %.lr.ph1184 ], [ %1054, %.loopexit1080 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.01062.01183, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.01062.01183, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 127
   %66 = mul nuw nsw i32 %65, 3
-  %67 = getelementptr inbounds i8, ptr %.sroa.01062.01183, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.01062.01183, i64 8
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %.sroa.01062.01183, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.01062.01183, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = load i32, ptr %.sroa.01062.01183, align 4
   %72 = icmp eq i32 %65, 22
@@ -52417,7 +52417,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %76 = zext nneg i32 %66 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %77 = sext i32 %75 to i64
-  %invariant.gep1341 = getelementptr inbounds float, ptr %3, i64 %76
+  %invariant.gep1341 = getelementptr inbounds nuw float, ptr %3, i64 %76
   br label %.preheader1078
 
 .preheader1078:                                   ; preds = %62, %86
@@ -52432,11 +52432,11 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %indvars.iv = phi i64 [ 0, %.preheader1078 ], [ %indvars.iv.next, %80 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %81 = load float, ptr %gep, align 4
-  %gep1342 = getelementptr inbounds float, ptr %invariant.gep1341, i64 %indvars.iv
+  %gep1342 = getelementptr inbounds nuw float, ptr %invariant.gep1341, i64 %indvars.iv
   %82 = load float, ptr %gep1342, align 4
   %83 = fadd float %81, %82
   %84 = add nuw nsw i64 %indvars.iv, %79
-  %85 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %84
   store float %83, ptr %85, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -52446,7 +52446,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %87 = getelementptr inbounds float, ptr %44, i64 %78
   %88 = load float, ptr %87, align 4
   %89 = fmul float %48, %88
-  %90 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %90 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %89, ptr %90, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1216.not = icmp eq i64 %indvar.next, 4
@@ -52466,7 +52466,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
 
 .preheader1082:                                   ; preds = %91, %.preheader1082
   %indvars.iv1217 = phi i64 [ %indvars.iv.next1218, %.preheader1082 ], [ 0, %91 ]
-  %100 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1217
+  %100 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1217
   %101 = load float, ptr %100, align 4
   %102 = add nuw nsw i64 %indvars.iv1217, %77
   %103 = getelementptr inbounds float, ptr %44, i64 %102
@@ -52522,7 +52522,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
 132:                                              ; preds = %128
   %133 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %52, i64 %indvars.iv1245
   %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds i8, ptr %133, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %136 = icmp eq i32 %134, %92
   %137 = shl nsw i32 %134, 2
   %138 = sext i32 %137 to i64
@@ -52537,20 +52537,20 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %140 = mul nsw i32 %139, %40
   %141 = shl nuw nsw i64 %indvars.iv1241, 2
   %142 = mul nuw nsw i64 %indvars.iv1241, 3
-  %143 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %142
   %144 = load float, ptr %143, align 4
   %145 = add nuw nsw i64 %142, 1
-  %146 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %145
   %147 = load float, ptr %146, align 4
   %148 = add nuw nsw i64 %142, 2
-  %149 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %148
   %150 = load float, ptr %149, align 4
   %151 = icmp samesign ult i64 %indvars.iv1241, 2
-  %152 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1241
+  %152 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1241
   %153 = load float, ptr %152, align 4
-  %154 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %142
-  %155 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %145
-  %156 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %148
+  %154 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %142
+  %155 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %145
+  %156 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %148
   %.promoted1107 = load float, ptr %154, align 4
   %.promoted1109 = load float, ptr %155, align 4
   %.promoted1111 = load float, ptr %156, align 4
@@ -52744,19 +52744,19 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %310 = mul nsw i32 %309, %40
   %311 = shl nuw nsw i64 %indvars.iv1233, 2
   %312 = mul nuw nsw i64 %indvars.iv1233, 3
-  %313 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %312
   %314 = load float, ptr %313, align 4
   %315 = add nuw nsw i64 %312, 1
-  %316 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %315
   %317 = load float, ptr %316, align 4
   %318 = add nuw nsw i64 %312, 2
-  %319 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %318
+  %319 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %318
   %320 = load float, ptr %319, align 4
-  %321 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1233
+  %321 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1233
   %322 = load float, ptr %321, align 4
-  %323 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %312
-  %324 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %315
-  %325 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %318
+  %323 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %312
+  %324 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %315
+  %325 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %318
   %.promoted1095 = load float, ptr %323, align 4
   %.promoted1097 = load float, ptr %324, align 4
   %.promoted1099 = load float, ptr %325, align 4
@@ -52937,17 +52937,17 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %475 = mul nsw i32 %474, %40
   %476 = shl nuw nsw i64 %indvars.iv1225, 2
   %477 = mul nuw nsw i64 %indvars.iv1225, 3
-  %478 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %477
+  %478 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %477
   %479 = load float, ptr %478, align 4
   %480 = add nuw nsw i64 %477, 1
-  %481 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %480
+  %481 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %480
   %482 = load float, ptr %481, align 4
   %483 = add nuw nsw i64 %477, 2
-  %484 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %483
   %485 = load float, ptr %484, align 4
-  %486 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %477
-  %487 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %480
-  %488 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %483
+  %486 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %477
+  %487 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %480
+  %488 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %483
   %.promoted = load float, ptr %486, align 4
   %.promoted1087 = load float, ptr %487, align 4
   %.promoted1089 = load float, ptr %488, align 4
@@ -53126,20 +53126,20 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %609 = load i32, ptr %gep1354, align 4
   %610 = mul nsw i32 %609, %40
   %611 = mul nuw nsw i64 %indvars.iv1278, 3
-  %612 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %611
+  %612 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %611
   %613 = load float, ptr %612, align 4
   %614 = add nuw nsw i64 %611, 1
-  %615 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %614
+  %615 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %614
   %616 = load float, ptr %615, align 4
   %617 = add nuw nsw i64 %611, 2
-  %618 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %617
+  %618 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %617
   %619 = load float, ptr %618, align 4
   %620 = icmp samesign ult i64 %indvars.iv1278, 2
-  %621 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1278
+  %621 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1278
   %622 = load float, ptr %621, align 4
-  %623 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %611
-  %624 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %614
-  %625 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %617
+  %623 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %611
+  %624 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %614
+  %625 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %617
   %.promoted1150.us = load float, ptr %623, align 4
   %.promoted1152.us = load float, ptr %624, align 4
   %.promoted1154.us = load float, ptr %625, align 4
@@ -53331,19 +53331,19 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %766 = load i32, ptr %gep1352, align 4
   %767 = mul nsw i32 %766, %40
   %768 = mul nuw nsw i64 %indvars.iv1265, 3
-  %769 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %768
+  %769 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %768
   %770 = load float, ptr %769, align 4
   %771 = add nuw nsw i64 %768, 1
-  %772 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %771
+  %772 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %771
   %773 = load float, ptr %772, align 4
   %774 = add nuw nsw i64 %768, 2
-  %775 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %774
+  %775 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %774
   %776 = load float, ptr %775, align 4
-  %777 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1265
+  %777 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1265
   %778 = load float, ptr %777, align 4
-  %779 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %768
-  %780 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %771
-  %781 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %774
+  %779 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %768
+  %780 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %771
+  %781 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %774
   %.promoted1138.us = load float, ptr %779, align 4
   %.promoted1140.us = load float, ptr %780, align 4
   %.promoted1142.us = load float, ptr %781, align 4
@@ -53526,17 +53526,17 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %919 = load i32, ptr %gep1350, align 4
   %920 = mul nsw i32 %919, %40
   %921 = mul nuw nsw i64 %indvars.iv1253, 3
-  %922 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %921
+  %922 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %921
   %923 = load float, ptr %922, align 4
   %924 = add nuw nsw i64 %921, 1
-  %925 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %924
+  %925 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %924
   %926 = load float, ptr %925, align 4
   %927 = add nuw nsw i64 %921, 2
-  %928 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %927
+  %928 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %927
   %929 = load float, ptr %928, align 4
-  %930 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %921
-  %931 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %924
-  %932 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %927
+  %930 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %921
+  %931 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %924
+  %932 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %927
   %.promoted1128 = load float, ptr %930, align 4
   %.promoted1130 = load float, ptr %931, align 4
   %.promoted1132 = load float, ptr %932, align 4
@@ -53674,7 +53674,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
 1033:                                             ; preds = %.preheader1072, %1033
   %indvars.iv1287 = phi i64 [ 0, %.preheader1072 ], [ %indvars.iv.next1288, %1033 ]
   %1034 = add nuw nsw i64 %indvars.iv1287, %1031
-  %1035 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1034
+  %1035 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1034
   %1036 = load float, ptr %1035, align 4
   %gep1356 = getelementptr float, ptr %invariant.gep1355, i64 %indvars.iv1287
   %1037 = load float, ptr %gep1356, align 4
@@ -53694,7 +53694,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
 
 .preheader.preheader:                             ; preds = %1040
   %1041 = zext nneg i32 %66 to i64
-  %invariant.gep1357 = getelementptr inbounds float, ptr %12, i64 %1041
+  %invariant.gep1357 = getelementptr inbounds nuw float, ptr %12, i64 %1041
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1049
@@ -53705,9 +53705,9 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
 1043:                                             ; preds = %.preheader, %1043
   %indvars.iv1295 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1296, %1043 ]
   %1044 = add nuw nsw i64 %indvars.iv1295, %1042
-  %1045 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1044
+  %1045 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1044
   %1046 = load float, ptr %1045, align 4
-  %gep1358 = getelementptr inbounds float, ptr %invariant.gep1357, i64 %indvars.iv1295
+  %gep1358 = getelementptr inbounds nuw float, ptr %invariant.gep1357, i64 %indvars.iv1295
   %1047 = load float, ptr %gep1358, align 4
   %1048 = fadd float %1046, %1047
   store float %1048, ptr %gep1358, align 4
@@ -53727,7 +53727,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %1052 = load float, ptr %16, align 4
   %1053 = fadd float %.6994.lcssa, %1052
   store float %1053, ptr %16, align 4
-  %1054 = getelementptr inbounds i8, ptr %.sroa.01062.01183, i64 16
+  %1054 = getelementptr inbounds nuw i8, ptr %.sroa.01062.01183, i64 16
   %.not1066 = icmp eq ptr %1054, %56
   br i1 %.not1066, label %._crit_edge, label %62
 
@@ -53741,76 +53741,76 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %19 = load float, ptr %18, align 8
   %20 = fmul float %19, %19
   %21 = fmul float %20, %20
   %22 = fmul float %20, %21
   %23 = fdiv float %22, 6.000000e+00
-  %24 = getelementptr inbounds i8, ptr %2, i64 100
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %29 = load ptr, ptr %28, align 8
   %30 = load float, ptr %29, align 8
   %31 = fdiv float 5.000000e-01, %30
-  %32 = getelementptr inbounds i8, ptr %29, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 76
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %35 = load float, ptr %34, align 4
   %36 = fmul float %35, %35
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load float, ptr %37, align 8
   %39 = fmul float %38, %38
   %40 = load i32, ptr %1, align 8
   %41 = shl nsw i32 %40, 1
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 176
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 108
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 288
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 128
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 88
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %57 = load ptr, ptr %56, align 8
   %.not11021181 = icmp eq ptr %55, %57
   br i1 %.not11021181, label %._crit_edge, label %.lr.ph1183
 
 .lr.ph1183:                                       ; preds = %5
-  %58 = getelementptr inbounds i8, ptr %1, i64 208
-  %59 = getelementptr inbounds i8, ptr %1, i64 200
-  %60 = getelementptr inbounds i8, ptr %33, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %60 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %61 = fpext float %23 to double
-  %62 = getelementptr inbounds i8, ptr %2, i64 44
-  %63 = getelementptr inbounds i8, ptr %2, i64 32
-  %64 = getelementptr inbounds i8, ptr %2, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1056 = icmp eq ptr %13, null
   br label %65
 
 65:                                               ; preds = %.lr.ph1183, %.loopexit1116
   %.sroa.01098.01182 = phi ptr [ %55, %.lr.ph1183 ], [ %1208, %.loopexit1116 ]
-  %66 = getelementptr inbounds i8, ptr %.sroa.01098.01182, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.01098.01182, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 127
-  %69 = getelementptr inbounds i8, ptr %.sroa.01098.01182, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.01098.01182, i64 8
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.sroa.01098.01182, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.01098.01182, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = load i32, ptr %.sroa.01098.01182, align 4
   %74 = icmp eq i32 %68, 22
@@ -53818,13 +53818,13 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %76 = and i32 %67, 384
   %or.cond = icmp ne i32 %76, 128
   %77 = load ptr, ptr %58, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = sext i32 %73 to i64
   %80 = load ptr, ptr %78, align 8
   %81 = getelementptr inbounds i32, ptr %80, i64 %79
   %82 = load i32, ptr %81, align 4
   %83 = load i32, ptr %77, align 8
-  %84 = getelementptr inbounds i8, ptr %77, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %85 = load i32, ptr %84, align 8
   %86 = load i32, ptr %59, align 8
   br label %92
@@ -53836,7 +53836,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %90 = zext nneg i32 %87 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %91 = sext i32 %89 to i64
-  %invariant.gep1332 = getelementptr inbounds float, ptr %3, i64 %90
+  %invariant.gep1332 = getelementptr inbounds nuw float, ptr %3, i64 %90
   br label %.preheader1114
 
 92:                                               ; preds = %65, %92
@@ -53846,7 +53846,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %95 = ashr i32 %82, %94
   %96 = and i32 %95, %85
   %97 = mul nsw i32 %96, %86
-  %98 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %97, ptr %98, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -53864,11 +53864,11 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %indvars.iv1206 = phi i64 [ 0, %.preheader1114 ], [ %indvars.iv.next1207, %101 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1206
   %102 = load float, ptr %gep, align 4
-  %gep1333 = getelementptr inbounds float, ptr %invariant.gep1332, i64 %indvars.iv1206
+  %gep1333 = getelementptr inbounds nuw float, ptr %invariant.gep1332, i64 %indvars.iv1206
   %103 = load float, ptr %gep1333, align 4
   %104 = fadd float %102, %103
   %105 = add nuw nsw i64 %indvars.iv1206, %100
-  %106 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %105
   store float %104, ptr %106, align 4
   %indvars.iv.next1207 = add nuw nsw i64 %indvars.iv1206, 1
   %exitcond1209.not = icmp eq i64 %indvars.iv.next1207, 3
@@ -53878,7 +53878,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %108 = getelementptr inbounds float, ptr %45, i64 %99
   %109 = load float, ptr %108, align 4
   %110 = fmul float %49, %109
-  %111 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %111 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %110, ptr %111, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1211.not = icmp eq i64 %indvar.next, 4
@@ -53897,10 +53897,10 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
 
 .preheader1118:                                   ; preds = %112, %.preheader1118
   %indvars.iv1212 = phi i64 [ %indvars.iv.next1213, %.preheader1118 ], [ 0, %112 ]
-  %120 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1212
+  %120 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1212
   %121 = load i32, ptr %120, align 4
   %122 = load ptr, ptr %58, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds i32, ptr %124, i64 %79
   %126 = load i32, ptr %125, align 4
@@ -53908,11 +53908,11 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %128 = trunc nuw nsw i64 %indvars.iv1212 to i32
   %129 = mul nsw i32 %127, %128
   %130 = ashr i32 %126, %129
-  %131 = getelementptr inbounds i8, ptr %122, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %132 = load i32, ptr %131, align 8
   %133 = and i32 %130, %132
   %134 = add nsw i32 %133, %121
-  %135 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1212
+  %135 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1212
   %136 = load float, ptr %135, align 4
   %137 = add nuw nsw i64 %indvars.iv1212, %91
   %138 = getelementptr inbounds float, ptr %45, i64 %137
@@ -53969,7 +53969,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
 170:                                              ; preds = %166
   %171 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %53, i64 %indvars.iv1240
   %172 = load i32, ptr %171, align 4
-  %173 = getelementptr inbounds i8, ptr %171, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 4
   %174 = icmp eq i32 %172, %113
   %175 = shl nsw i32 %172, 2
   %176 = sext i32 %172 to i64
@@ -53983,22 +53983,22 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %179 = mul nsw i32 %178, %41
   %180 = shl nuw nsw i64 %indvars.iv1236, 2
   %181 = mul nuw nsw i64 %indvars.iv1236, 3
-  %182 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %181
   %183 = load float, ptr %182, align 4
   %184 = add nuw nsw i64 %181, 1
-  %185 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %184
   %186 = load float, ptr %185, align 4
   %187 = add nuw nsw i64 %181, 2
-  %188 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %187
   %189 = load float, ptr %188, align 4
   %190 = icmp samesign ult i64 %indvars.iv1236, 2
-  %191 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1236
+  %191 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1236
   %192 = load float, ptr %191, align 4
-  %193 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1236
+  %193 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1236
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %181
-  %196 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %184
-  %197 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %187
+  %195 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %181
+  %196 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %184
+  %197 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %187
   %.promoted1139 = load float, ptr %195, align 4
   %.promoted1141 = load float, ptr %196, align 4
   %.promoted1143 = load float, ptr %197, align 4
@@ -54043,7 +54043,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %231 = fmul float %228, %230
   %232 = fmul float %231, %231
   %233 = load ptr, ptr %58, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr inbounds i32, ptr %235, i64 %176
   %237 = load i32, ptr %236, align 4
@@ -54051,7 +54051,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %239 = trunc nuw nsw i64 %indvars.iv1232 to i32
   %240 = mul nsw i32 %238, %239
   %241 = ashr i32 %237, %240
-  %242 = getelementptr inbounds i8, ptr %233, i64 32
+  %242 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %243 = load i32, ptr %242, align 8
   %244 = and i32 %241, %243
   br i1 %190, label %245, label %._crit_edge1298
@@ -54213,21 +54213,21 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %369 = mul nsw i32 %368, %41
   %370 = shl nuw nsw i64 %indvars.iv1228, 2
   %371 = mul nuw nsw i64 %indvars.iv1228, 3
-  %372 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %371
   %373 = load float, ptr %372, align 4
   %374 = add nuw nsw i64 %371, 1
-  %375 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %374
+  %375 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %374
   %376 = load float, ptr %375, align 4
   %377 = add nuw nsw i64 %371, 2
-  %378 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %377
+  %378 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %377
   %379 = load float, ptr %378, align 4
-  %380 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1228
+  %380 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1228
   %381 = load i32, ptr %380, align 4
-  %382 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1228
+  %382 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1228
   %383 = load float, ptr %382, align 4
-  %384 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %371
-  %385 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %374
-  %386 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %377
+  %384 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %371
+  %385 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %374
+  %386 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %377
   %.promoted1131 = load float, ptr %384, align 4
   %.promoted1133 = load float, ptr %385, align 4
   %.promoted1135 = load float, ptr %386, align 4
@@ -54272,7 +54272,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %420 = fmul float %417, %419
   %421 = fmul float %420, %420
   %422 = load ptr, ptr %58, align 8
-  %423 = getelementptr inbounds i8, ptr %422, i64 8
+  %423 = getelementptr inbounds nuw i8, ptr %422, i64 8
   %424 = load ptr, ptr %423, align 8
   %425 = getelementptr inbounds i32, ptr %424, i64 %176
   %426 = load i32, ptr %425, align 4
@@ -54280,7 +54280,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %428 = trunc nuw nsw i64 %indvars.iv1224 to i32
   %429 = mul nsw i32 %427, %428
   %430 = ashr i32 %426, %429
-  %431 = getelementptr inbounds i8, ptr %422, i64 32
+  %431 = getelementptr inbounds nuw i8, ptr %422, i64 32
   %432 = load i32, ptr %431, align 8
   %433 = and i32 %430, %432
   %434 = getelementptr inbounds i32, ptr %47, i64 %399
@@ -54425,19 +54425,19 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %554 = mul nsw i32 %553, %41
   %555 = shl nuw nsw i64 %indvars.iv1220, 2
   %556 = mul nuw nsw i64 %indvars.iv1220, 3
-  %557 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %556
+  %557 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %556
   %558 = load float, ptr %557, align 4
   %559 = add nuw nsw i64 %556, 1
-  %560 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %559
+  %560 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %559
   %561 = load float, ptr %560, align 4
   %562 = add nuw nsw i64 %556, 2
-  %563 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %562
+  %563 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %562
   %564 = load float, ptr %563, align 4
-  %565 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1220
+  %565 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1220
   %566 = load i32, ptr %565, align 4
-  %567 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %556
-  %568 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %559
-  %569 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %562
+  %567 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %556
+  %568 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %559
+  %569 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %562
   %.promoted = load float, ptr %567, align 4
   %.promoted1125 = load float, ptr %568, align 4
   %.promoted1127 = load float, ptr %569, align 4
@@ -54482,7 +54482,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %603 = fmul float %600, %602
   %604 = fmul float %603, %603
   %605 = load ptr, ptr %58, align 8
-  %606 = getelementptr inbounds i8, ptr %605, i64 8
+  %606 = getelementptr inbounds nuw i8, ptr %605, i64 8
   %607 = load ptr, ptr %606, align 8
   %608 = getelementptr inbounds i32, ptr %607, i64 %176
   %609 = load i32, ptr %608, align 4
@@ -54490,7 +54490,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %611 = trunc nuw nsw i64 %indvars.iv1216 to i32
   %612 = mul nsw i32 %610, %611
   %613 = ashr i32 %609, %612
-  %614 = getelementptr inbounds i8, ptr %605, i64 32
+  %614 = getelementptr inbounds nuw i8, ptr %605, i64 32
   %615 = load i32, ptr %614, align 8
   %616 = and i32 %613, %615
   %617 = getelementptr inbounds i32, ptr %47, i64 %582
@@ -54625,22 +54625,22 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %707 = load i32, ptr %gep1345, align 4
   %708 = mul nsw i32 %707, %41
   %709 = mul nuw nsw i64 %indvars.iv1273, 3
-  %710 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %709
+  %710 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %709
   %711 = load float, ptr %710, align 4
   %712 = add nuw nsw i64 %709, 1
-  %713 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %712
+  %713 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %712
   %714 = load float, ptr %713, align 4
   %715 = add nuw nsw i64 %709, 2
-  %716 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %715
+  %716 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %715
   %717 = load float, ptr %716, align 4
   %718 = icmp samesign ult i64 %indvars.iv1273, 2
-  %719 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1273
+  %719 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1273
   %720 = load float, ptr %719, align 4
-  %721 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1273
+  %721 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1273
   %722 = load i32, ptr %721, align 4
-  %723 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %709
-  %724 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %712
-  %725 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %715
+  %723 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %709
+  %724 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %712
+  %725 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %715
   %.promoted1166.us = load float, ptr %723, align 4
   %.promoted1168.us = load float, ptr %724, align 4
   %.promoted1170.us = load float, ptr %725, align 4
@@ -54684,7 +54684,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %751 = fmul float %748, %750
   %752 = fmul float %751, %751
   %753 = load ptr, ptr %58, align 8
-  %754 = getelementptr inbounds i8, ptr %753, i64 8
+  %754 = getelementptr inbounds nuw i8, ptr %753, i64 8
   %755 = load ptr, ptr %754, align 8
   %756 = getelementptr inbounds i32, ptr %755, i64 %704
   %757 = load i32, ptr %756, align 4
@@ -54692,7 +54692,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %759 = trunc nuw nsw i64 %indvars.iv1269 to i32
   %760 = mul nsw i32 %758, %759
   %761 = ashr i32 %757, %760
-  %762 = getelementptr inbounds i8, ptr %753, i64 32
+  %762 = getelementptr inbounds nuw i8, ptr %753, i64 32
   %763 = load i32, ptr %762, align 8
   %764 = and i32 %761, %763
   br i1 %718, label %765, label %._crit_edge1299
@@ -54852,21 +54852,21 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %885 = load i32, ptr %gep1343, align 4
   %886 = mul nsw i32 %885, %41
   %887 = mul nuw nsw i64 %indvars.iv1260, 3
-  %888 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %887
+  %888 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %887
   %889 = load float, ptr %888, align 4
   %890 = add nuw nsw i64 %887, 1
-  %891 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %890
+  %891 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %890
   %892 = load float, ptr %891, align 4
   %893 = add nuw nsw i64 %887, 2
-  %894 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %893
+  %894 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %893
   %895 = load float, ptr %894, align 4
-  %896 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1260
+  %896 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1260
   %897 = load i32, ptr %896, align 4
-  %898 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1260
+  %898 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1260
   %899 = load float, ptr %898, align 4
-  %900 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %887
-  %901 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %890
-  %902 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %893
+  %900 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %887
+  %901 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %890
+  %902 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %893
   %.promoted1158.us = load float, ptr %900, align 4
   %.promoted1160.us = load float, ptr %901, align 4
   %.promoted1162.us = load float, ptr %902, align 4
@@ -54910,7 +54910,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %928 = fmul float %925, %927
   %929 = fmul float %928, %928
   %930 = load ptr, ptr %58, align 8
-  %931 = getelementptr inbounds i8, ptr %930, i64 8
+  %931 = getelementptr inbounds nuw i8, ptr %930, i64 8
   %932 = load ptr, ptr %931, align 8
   %933 = getelementptr inbounds i32, ptr %932, i64 %882
   %934 = load i32, ptr %933, align 4
@@ -54918,7 +54918,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %936 = trunc nuw nsw i64 %indvars.iv1256 to i32
   %937 = mul nsw i32 %935, %936
   %938 = ashr i32 %934, %937
-  %939 = getelementptr inbounds i8, ptr %930, i64 32
+  %939 = getelementptr inbounds nuw i8, ptr %930, i64 32
   %940 = load i32, ptr %939, align 8
   %941 = and i32 %938, %940
   %942 = getelementptr inbounds i32, ptr %47, i64 %908
@@ -55061,19 +55061,19 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %1059 = load i32, ptr %gep1341, align 4
   %1060 = mul nsw i32 %1059, %41
   %1061 = mul nuw nsw i64 %indvars.iv1248, 3
-  %1062 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1061
+  %1062 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1061
   %1063 = load float, ptr %1062, align 4
   %1064 = add nuw nsw i64 %1061, 1
-  %1065 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1064
+  %1065 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1064
   %1066 = load float, ptr %1065, align 4
   %1067 = add nuw nsw i64 %1061, 2
-  %1068 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1067
+  %1068 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1067
   %1069 = load float, ptr %1068, align 4
-  %1070 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1248
+  %1070 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1248
   %1071 = load i32, ptr %1070, align 4
-  %1072 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1061
-  %1073 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1064
-  %1074 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1067
+  %1072 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1061
+  %1073 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1064
+  %1074 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1067
   %.promoted1150 = load float, ptr %1072, align 4
   %.promoted1152 = load float, ptr %1073, align 4
   %.promoted1154 = load float, ptr %1074, align 4
@@ -55109,7 +55109,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %1099 = fmul float %1096, %1098
   %1100 = fmul float %1099, %1099
   %1101 = load ptr, ptr %58, align 8
-  %1102 = getelementptr inbounds i8, ptr %1101, i64 8
+  %1102 = getelementptr inbounds nuw i8, ptr %1101, i64 8
   %1103 = load ptr, ptr %1102, align 8
   %1104 = getelementptr inbounds i32, ptr %1103, i64 %1056
   %1105 = load i32, ptr %1104, align 4
@@ -55117,7 +55117,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   %1107 = trunc nuw nsw i64 %indvars.iv1244 to i32
   %1108 = mul nsw i32 %1106, %1107
   %1109 = ashr i32 %1105, %1108
-  %1110 = getelementptr inbounds i8, ptr %1101, i64 32
+  %1110 = getelementptr inbounds nuw i8, ptr %1101, i64 32
   %1111 = load i32, ptr %1110, align 8
   %1112 = and i32 %1109, %1111
   %1113 = getelementptr inbounds i32, ptr %47, i64 %1079
@@ -55230,7 +55230,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
 1191:                                             ; preds = %.preheader1108, %1191
   %indvars.iv1282 = phi i64 [ 0, %.preheader1108 ], [ %indvars.iv.next1283, %1191 ]
   %1192 = add nuw nsw i64 %indvars.iv1282, %1189
-  %1193 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1192
+  %1193 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1192
   %1194 = load float, ptr %1193, align 4
   %gep1347 = getelementptr float, ptr %invariant.gep1346, i64 %indvars.iv1282
   %1195 = load float, ptr %gep1347, align 4
@@ -55250,7 +55250,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
 
 .preheader.preheader:                             ; preds = %1198
   %1199 = zext nneg i32 %87 to i64
-  %invariant.gep1348 = getelementptr inbounds float, ptr %13, i64 %1199
+  %invariant.gep1348 = getelementptr inbounds nuw float, ptr %13, i64 %1199
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1207
@@ -55261,9 +55261,9 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
 1201:                                             ; preds = %.preheader, %1201
   %indvars.iv1290 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1291, %1201 ]
   %1202 = add nuw nsw i64 %indvars.iv1290, %1200
-  %1203 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1202
+  %1203 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1202
   %1204 = load float, ptr %1203, align 4
-  %gep1349 = getelementptr inbounds float, ptr %invariant.gep1348, i64 %indvars.iv1290
+  %gep1349 = getelementptr inbounds nuw float, ptr %invariant.gep1348, i64 %indvars.iv1290
   %1205 = load float, ptr %gep1349, align 4
   %1206 = fadd float %1204, %1205
   store float %1206, ptr %gep1349, align 4
@@ -55277,7 +55277,7 @@ define void @_Z55nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VgrpF_refPK16Nbnx
   br i1 %exitcond1297.not, label %.loopexit1116, label %.preheader, !llvm.loop !887
 
 .loopexit1116:                                    ; preds = %1207, %1198
-  %1208 = getelementptr inbounds i8, ptr %.sroa.01098.01182, i64 16
+  %1208 = getelementptr inbounds nuw i8, ptr %.sroa.01098.01182, i64 16
   %.not1102 = icmp eq ptr %1208, %57
   br i1 %.not1102, label %._crit_edge, label %65
 
@@ -55290,46 +55290,46 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %14 = load float, ptr %13, align 8
   %15 = fmul float %14, %14
   %16 = fmul float %15, %15
   %17 = fmul float %15, %16
   %18 = fdiv float %17, 6.000000e+00
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %22 = load ptr, ptr %21, align 8
   %23 = load float, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 76
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %27 = load float, ptr %26, align 4
   %28 = fmul float %27, %27
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load float, ptr %29, align 8
   %31 = fmul float %30, %30
   %32 = load i32, ptr %1, align 8
   %33 = shl nsw i32 %32, 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 176
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 108
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %41 = load float, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 288
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %49 = load ptr, ptr %48, align 8
   %.not9321008 = icmp eq ptr %47, %49
   br i1 %.not9321008, label %._crit_edge, label %.lr.ph1010
@@ -55340,13 +55340,13 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
 
 50:                                               ; preds = %.lr.ph1010, %.loopexit946
   %.sroa.0928.01009 = phi ptr [ %47, %.lr.ph1010 ], [ %955, %.loopexit946 ]
-  %51 = getelementptr inbounds i8, ptr %.sroa.0928.01009, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0928.01009, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 127
   %54 = mul nuw nsw i32 %53, 3
-  %55 = getelementptr inbounds i8, ptr %.sroa.0928.01009, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0928.01009, i64 8
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.sroa.0928.01009, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0928.01009, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = load i32, ptr %.sroa.0928.01009, align 4
   %60 = icmp eq i32 %53, 22
@@ -55359,7 +55359,7 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %65 = zext nneg i32 %54 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %66 = sext i32 %64 to i64
-  %invariant.gep1152 = getelementptr inbounds float, ptr %3, i64 %65
+  %invariant.gep1152 = getelementptr inbounds nuw float, ptr %3, i64 %65
   br label %.preheader944
 
 .preheader948:                                    ; preds = %242
@@ -55392,7 +55392,7 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
 73:                                               ; preds = %.lr.ph.split.us
   %74 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %45, i64 %indvars.iv1064
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %74, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %77 = icmp eq i32 %75, %67
   %78 = shl nsw i32 %75, 2
   %79 = sext i32 %78 to i64
@@ -55405,20 +55405,20 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %82 = mul nsw i32 %81, %33
   %83 = shl nuw nsw i64 %indvars.iv1060, 2
   %84 = mul nuw nsw i64 %indvars.iv1060, 3
-  %85 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = add nuw nsw i64 %84, 1
-  %88 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %87
   %89 = load float, ptr %88, align 4
   %90 = add nuw nsw i64 %84, 2
-  %91 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %90
   %92 = load float, ptr %91, align 4
   %93 = icmp samesign ult i64 %indvars.iv1060, 2
-  %94 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1060
+  %94 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1060
   %95 = load float, ptr %94, align 4
-  %96 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %84
-  %97 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %87
-  %98 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %90
+  %96 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %84
+  %97 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %87
+  %98 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %90
   %.promoted965.us = load float, ptr %96, align 4
   %.promoted967.us = load float, ptr %97, align 4
   %.promoted969.us = load float, ptr %98, align 4
@@ -55598,11 +55598,11 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %indvars.iv = phi i64 [ 0, %.preheader944 ], [ %indvars.iv.next, %236 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %237 = load float, ptr %gep, align 4
-  %gep1153 = getelementptr inbounds float, ptr %invariant.gep1152, i64 %indvars.iv
+  %gep1153 = getelementptr inbounds nuw float, ptr %invariant.gep1152, i64 %indvars.iv
   %238 = load float, ptr %gep1153, align 4
   %239 = fadd float %237, %238
   %240 = add nuw nsw i64 %indvars.iv, %235
-  %241 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %240
   store float %239, ptr %241, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -55612,7 +55612,7 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %243 = getelementptr inbounds float, ptr %37, i64 %234
   %244 = load float, ptr %243, align 4
   %245 = fmul float %41, %244
-  %246 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %246 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %245, ptr %246, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1035.not = icmp eq i64 %indvar.next, 4
@@ -55629,7 +55629,7 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
 250:                                              ; preds = %.lr.ph.split
   %251 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %45, i64 %indvars.iv1052
   %252 = load i32, ptr %251, align 4
-  %253 = getelementptr inbounds i8, ptr %251, i64 4
+  %253 = getelementptr inbounds nuw i8, ptr %251, i64 4
   %254 = icmp eq i32 %252, %67
   %255 = shl nsw i32 %252, 2
   %256 = sext i32 %255 to i64
@@ -55642,19 +55642,19 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %258 = mul nsw i32 %257, %33
   %259 = shl nuw nsw i64 %indvars.iv1048, 2
   %260 = mul nuw nsw i64 %indvars.iv1048, 3
-  %261 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %260
   %262 = load float, ptr %261, align 4
   %263 = add nuw nsw i64 %260, 1
-  %264 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %263
+  %264 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %263
   %265 = load float, ptr %264, align 4
   %266 = add nuw nsw i64 %260, 2
-  %267 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %266
   %268 = load float, ptr %267, align 4
-  %269 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1048
+  %269 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1048
   %270 = load float, ptr %269, align 4
-  %271 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %260
-  %272 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %263
-  %273 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %266
+  %271 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %260
+  %272 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %263
+  %273 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %266
   %.promoted957 = load float, ptr %271, align 4
   %.promoted959 = load float, ptr %272, align 4
   %.promoted961 = load float, ptr %273, align 4
@@ -55816,17 +55816,17 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %407 = mul nsw i32 %406, %33
   %408 = shl nuw nsw i64 %indvars.iv1040, 2
   %409 = mul nuw nsw i64 %indvars.iv1040, 3
-  %410 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %409
+  %410 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %409
   %411 = load float, ptr %410, align 4
   %412 = add nuw nsw i64 %409, 1
-  %413 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %412
+  %413 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %412
   %414 = load float, ptr %413, align 4
   %415 = add nuw nsw i64 %409, 2
-  %416 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %415
+  %416 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %415
   %417 = load float, ptr %416, align 4
-  %418 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %409
-  %419 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %412
-  %420 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %415
+  %418 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %409
+  %419 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %412
+  %420 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %415
   %.promoted = load float, ptr %418, align 4
   %.promoted951 = load float, ptr %419, align 4
   %.promoted953 = load float, ptr %420, align 4
@@ -55998,20 +55998,20 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %540 = load i32, ptr %gep1165, align 4
   %541 = mul nsw i32 %540, %33
   %542 = mul nuw nsw i64 %indvars.iv1098, 3
-  %543 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %542
+  %543 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %542
   %544 = load float, ptr %543, align 4
   %545 = add nuw nsw i64 %542, 1
-  %546 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %545
+  %546 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %545
   %547 = load float, ptr %546, align 4
   %548 = add nuw nsw i64 %542, 2
-  %549 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %548
+  %549 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %548
   %550 = load float, ptr %549, align 4
   %551 = icmp samesign ult i64 %indvars.iv1098, 2
-  %552 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1098
+  %552 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1098
   %553 = load float, ptr %552, align 4
-  %554 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %542
-  %555 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %545
-  %556 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %548
+  %554 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %542
+  %555 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %545
+  %556 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %548
   %.promoted993.us = load float, ptr %554, align 4
   %.promoted995.us = load float, ptr %555, align 4
   %.promoted997.us = load float, ptr %556, align 4
@@ -56183,19 +56183,19 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %684 = load i32, ptr %gep1163, align 4
   %685 = mul nsw i32 %684, %33
   %686 = mul nuw nsw i64 %indvars.iv1085, 3
-  %687 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %686
+  %687 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %686
   %688 = load float, ptr %687, align 4
   %689 = add nuw nsw i64 %686, 1
-  %690 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %689
+  %690 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %689
   %691 = load float, ptr %690, align 4
   %692 = add nuw nsw i64 %686, 2
-  %693 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %692
+  %693 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %692
   %694 = load float, ptr %693, align 4
-  %695 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1085
+  %695 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1085
   %696 = load float, ptr %695, align 4
-  %697 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %686
-  %698 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %689
-  %699 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %692
+  %697 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %686
+  %698 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %689
+  %699 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %692
   %.promoted985.us = load float, ptr %697, align 4
   %.promoted987.us = load float, ptr %698, align 4
   %.promoted989.us = load float, ptr %699, align 4
@@ -56356,17 +56356,17 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   %824 = load i32, ptr %gep1161, align 4
   %825 = mul nsw i32 %824, %33
   %826 = mul nuw nsw i64 %indvars.iv1072, 3
-  %827 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %826
+  %827 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %826
   %828 = load float, ptr %827, align 4
   %829 = add nuw nsw i64 %826, 1
-  %830 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %829
+  %830 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %829
   %831 = load float, ptr %830, align 4
   %832 = add nuw nsw i64 %826, 2
-  %833 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %832
+  %833 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %832
   %834 = load float, ptr %833, align 4
-  %835 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %826
-  %836 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %829
-  %837 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %832
+  %835 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %826
+  %836 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %829
+  %837 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %832
   %.promoted977 = load float, ptr %835, align 4
   %.promoted979 = load float, ptr %836, align 4
   %.promoted981 = load float, ptr %837, align 4
@@ -56506,7 +56506,7 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
 938:                                              ; preds = %.preheader938, %938
   %indvars.iv1107 = phi i64 [ 0, %.preheader938 ], [ %indvars.iv.next1108, %938 ]
   %939 = add nuw nsw i64 %indvars.iv1107, %936
-  %940 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %939
+  %940 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %939
   %941 = load float, ptr %940, align 4
   %gep1167 = getelementptr float, ptr %invariant.gep1166, i64 %indvars.iv1107
   %942 = load float, ptr %gep1167, align 4
@@ -56526,7 +56526,7 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
 
 .preheader.preheader:                             ; preds = %945
   %946 = zext nneg i32 %54 to i64
-  %invariant.gep1168 = getelementptr inbounds float, ptr %12, i64 %946
+  %invariant.gep1168 = getelementptr inbounds nuw float, ptr %12, i64 %946
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %954
@@ -56537,9 +56537,9 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
 948:                                              ; preds = %.preheader, %948
   %indvars.iv1115 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1116, %948 ]
   %949 = add nuw nsw i64 %indvars.iv1115, %947
-  %950 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %949
+  %950 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %949
   %951 = load float, ptr %950, align 4
-  %gep1169 = getelementptr inbounds float, ptr %invariant.gep1168, i64 %indvars.iv1115
+  %gep1169 = getelementptr inbounds nuw float, ptr %invariant.gep1168, i64 %indvars.iv1115
   %952 = load float, ptr %gep1169, align 4
   %953 = fadd float %951, %952
   store float %953, ptr %gep1169, align 4
@@ -56553,7 +56553,7 @@ define void @_Z49nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_F_refPK16NbnxnPairl
   br i1 %exitcond1122.not, label %.loopexit946, label %.preheader, !llvm.loop !907
 
 .loopexit946:                                     ; preds = %954, %945
-  %955 = getelementptr inbounds i8, ptr %.sroa.0928.01009, i64 16
+  %955 = getelementptr inbounds nuw i8, ptr %.sroa.0928.01009, i64 16
   %.not932 = icmp eq ptr %955, %49
   br i1 %.not932, label %._crit_edge, label %50
 
@@ -56566,75 +56566,75 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %6 = alloca [12 x float], align 16
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %18 = load float, ptr %17, align 8
   %19 = fmul float %18, %18
   %20 = fmul float %19, %19
   %21 = fmul float %19, %20
   %22 = fdiv float %21, 6.000000e+00
-  %23 = getelementptr inbounds i8, ptr %2, i64 100
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %24 = load float, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = load float, ptr %28, align 8
   %30 = fdiv float 5.000000e-01, %29
-  %31 = getelementptr inbounds i8, ptr %28, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 76
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %34 = load float, ptr %33, align 4
   %35 = fmul float %34, %34
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %37 = load float, ptr %36, align 8
   %38 = fmul float %37, %37
   %39 = load i32, ptr %1, align 8
   %40 = shl nsw i32 %39, 1
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 108
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %48 = load float, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 288
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %56 = load ptr, ptr %55, align 8
   %.not11381254 = icmp eq ptr %54, %56
   br i1 %.not11381254, label %._crit_edge, label %.lr.ph1256
 
 .lr.ph1256:                                       ; preds = %5
-  %57 = getelementptr inbounds i8, ptr %32, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %58 = fpext float %22 to double
-  %59 = getelementptr inbounds i8, ptr %2, i64 44
-  %60 = getelementptr inbounds i8, ptr %2, i64 32
-  %61 = getelementptr inbounds i8, ptr %2, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1094 = icmp eq ptr %12, null
   br label %62
 
 62:                                               ; preds = %.lr.ph1256, %.loopexit1152
   %.sroa.01134.01255 = phi ptr [ %54, %.lr.ph1256 ], [ %1132, %.loopexit1152 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.01134.01255, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.01134.01255, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 127
   %66 = mul nuw nsw i32 %65, 3
-  %67 = getelementptr inbounds i8, ptr %.sroa.01134.01255, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.01134.01255, i64 8
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %.sroa.01134.01255, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.01134.01255, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = load i32, ptr %.sroa.01134.01255, align 4
   %72 = icmp eq i32 %65, 22
@@ -56645,7 +56645,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %76 = zext nneg i32 %66 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %77 = sext i32 %75 to i64
-  %invariant.gep1413 = getelementptr inbounds float, ptr %3, i64 %76
+  %invariant.gep1413 = getelementptr inbounds nuw float, ptr %3, i64 %76
   br label %.preheader1150
 
 .preheader1150:                                   ; preds = %62, %86
@@ -56660,11 +56660,11 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %indvars.iv = phi i64 [ 0, %.preheader1150 ], [ %indvars.iv.next, %80 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %81 = load float, ptr %gep, align 4
-  %gep1414 = getelementptr inbounds float, ptr %invariant.gep1413, i64 %indvars.iv
+  %gep1414 = getelementptr inbounds nuw float, ptr %invariant.gep1413, i64 %indvars.iv
   %82 = load float, ptr %gep1414, align 4
   %83 = fadd float %81, %82
   %84 = add nuw nsw i64 %indvars.iv, %79
-  %85 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %84
   store float %83, ptr %85, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -56674,7 +56674,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %87 = getelementptr inbounds float, ptr %44, i64 %78
   %88 = load float, ptr %87, align 4
   %89 = fmul float %48, %88
-  %90 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %90 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %89, ptr %90, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1288.not = icmp eq i64 %indvar.next, 4
@@ -56694,7 +56694,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
 
 .preheader1154:                                   ; preds = %91, %.preheader1154
   %indvars.iv1289 = phi i64 [ %indvars.iv.next1290, %.preheader1154 ], [ 0, %91 ]
-  %100 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1289
+  %100 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1289
   %101 = load float, ptr %100, align 4
   %102 = add nuw nsw i64 %indvars.iv1289, %77
   %103 = getelementptr inbounds float, ptr %44, i64 %102
@@ -56750,7 +56750,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
 132:                                              ; preds = %128
   %133 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %52, i64 %indvars.iv1317
   %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds i8, ptr %133, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %136 = icmp eq i32 %134, %92
   %137 = shl nsw i32 %134, 2
   %138 = sext i32 %137 to i64
@@ -56765,20 +56765,20 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %140 = mul nsw i32 %139, %40
   %141 = shl nuw nsw i64 %indvars.iv1313, 2
   %142 = mul nuw nsw i64 %indvars.iv1313, 3
-  %143 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %142
   %144 = load float, ptr %143, align 4
   %145 = add nuw nsw i64 %142, 1
-  %146 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %145
   %147 = load float, ptr %146, align 4
   %148 = add nuw nsw i64 %142, 2
-  %149 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %148
   %150 = load float, ptr %149, align 4
   %151 = icmp samesign ult i64 %indvars.iv1313, 2
-  %152 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1313
+  %152 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1313
   %153 = load float, ptr %152, align 4
-  %154 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %142
-  %155 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %145
-  %156 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %148
+  %154 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %142
+  %155 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %145
+  %156 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %148
   %.promoted1179 = load float, ptr %154, align 4
   %.promoted1181 = load float, ptr %155, align 4
   %.promoted1183 = load float, ptr %156, align 4
@@ -56985,19 +56985,19 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %323 = mul nsw i32 %322, %40
   %324 = shl nuw nsw i64 %indvars.iv1305, 2
   %325 = mul nuw nsw i64 %indvars.iv1305, 3
-  %326 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %325
+  %326 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %325
   %327 = load float, ptr %326, align 4
   %328 = add nuw nsw i64 %325, 1
-  %329 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %328
   %330 = load float, ptr %329, align 4
   %331 = add nuw nsw i64 %325, 2
-  %332 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %331
+  %332 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %331
   %333 = load float, ptr %332, align 4
-  %334 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1305
+  %334 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1305
   %335 = load float, ptr %334, align 4
-  %336 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %325
-  %337 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %328
-  %338 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %331
+  %336 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %325
+  %337 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %328
+  %338 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %331
   %.promoted1167 = load float, ptr %336, align 4
   %.promoted1169 = load float, ptr %337, align 4
   %.promoted1171 = load float, ptr %338, align 4
@@ -57191,17 +57191,17 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %501 = mul nsw i32 %500, %40
   %502 = shl nuw nsw i64 %indvars.iv1297, 2
   %503 = mul nuw nsw i64 %indvars.iv1297, 3
-  %504 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %503
+  %504 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %503
   %505 = load float, ptr %504, align 4
   %506 = add nuw nsw i64 %503, 1
-  %507 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %506
+  %507 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %506
   %508 = load float, ptr %507, align 4
   %509 = add nuw nsw i64 %503, 2
-  %510 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %509
+  %510 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %509
   %511 = load float, ptr %510, align 4
-  %512 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %503
-  %513 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %506
-  %514 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %509
+  %512 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %503
+  %513 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %506
+  %514 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %509
   %.promoted = load float, ptr %512, align 4
   %.promoted1159 = load float, ptr %513, align 4
   %.promoted1161 = load float, ptr %514, align 4
@@ -57393,20 +57393,20 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %648 = load i32, ptr %gep1426, align 4
   %649 = mul nsw i32 %648, %40
   %650 = mul nuw nsw i64 %indvars.iv1350, 3
-  %651 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %650
+  %651 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %650
   %652 = load float, ptr %651, align 4
   %653 = add nuw nsw i64 %650, 1
-  %654 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %653
+  %654 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %653
   %655 = load float, ptr %654, align 4
   %656 = add nuw nsw i64 %650, 2
-  %657 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %656
+  %657 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %656
   %658 = load float, ptr %657, align 4
   %659 = icmp samesign ult i64 %indvars.iv1350, 2
-  %660 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1350
+  %660 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1350
   %661 = load float, ptr %660, align 4
-  %662 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %650
-  %663 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %653
-  %664 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %656
+  %662 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %650
+  %663 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %653
+  %664 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %656
   %.promoted1222.us = load float, ptr %662, align 4
   %.promoted1224.us = load float, ptr %663, align 4
   %.promoted1226.us = load float, ptr %664, align 4
@@ -57611,19 +57611,19 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %818 = load i32, ptr %gep1424, align 4
   %819 = mul nsw i32 %818, %40
   %820 = mul nuw nsw i64 %indvars.iv1337, 3
-  %821 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %820
+  %821 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %820
   %822 = load float, ptr %821, align 4
   %823 = add nuw nsw i64 %820, 1
-  %824 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %823
+  %824 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %823
   %825 = load float, ptr %824, align 4
   %826 = add nuw nsw i64 %820, 2
-  %827 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %826
+  %827 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %826
   %828 = load float, ptr %827, align 4
-  %829 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1337
+  %829 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1337
   %830 = load float, ptr %829, align 4
-  %831 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %820
-  %832 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %823
-  %833 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %826
+  %831 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %820
+  %832 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %823
+  %833 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %826
   %.promoted1210.us = load float, ptr %831, align 4
   %.promoted1212.us = load float, ptr %832, align 4
   %.promoted1214.us = load float, ptr %833, align 4
@@ -57819,17 +57819,17 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %984 = load i32, ptr %gep1422, align 4
   %985 = mul nsw i32 %984, %40
   %986 = mul nuw nsw i64 %indvars.iv1325, 3
-  %987 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %986
+  %987 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %986
   %988 = load float, ptr %987, align 4
   %989 = add nuw nsw i64 %986, 1
-  %990 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %989
+  %990 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %989
   %991 = load float, ptr %990, align 4
   %992 = add nuw nsw i64 %986, 2
-  %993 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %992
+  %993 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %992
   %994 = load float, ptr %993, align 4
-  %995 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %986
-  %996 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %989
-  %997 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %992
+  %995 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %986
+  %996 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %989
+  %997 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %992
   %.promoted1200 = load float, ptr %995, align 4
   %.promoted1202 = load float, ptr %996, align 4
   %.promoted1204 = load float, ptr %997, align 4
@@ -57980,7 +57980,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
 1111:                                             ; preds = %.preheader1144, %1111
   %indvars.iv1359 = phi i64 [ 0, %.preheader1144 ], [ %indvars.iv.next1360, %1111 ]
   %1112 = add nuw nsw i64 %indvars.iv1359, %1109
-  %1113 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1112
+  %1113 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1112
   %1114 = load float, ptr %1113, align 4
   %gep1428 = getelementptr float, ptr %invariant.gep1427, i64 %indvars.iv1359
   %1115 = load float, ptr %gep1428, align 4
@@ -58000,7 +58000,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
 
 .preheader.preheader:                             ; preds = %1118
   %1119 = zext nneg i32 %66 to i64
-  %invariant.gep1429 = getelementptr inbounds float, ptr %12, i64 %1119
+  %invariant.gep1429 = getelementptr inbounds nuw float, ptr %12, i64 %1119
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1127
@@ -58011,9 +58011,9 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
 1121:                                             ; preds = %.preheader, %1121
   %indvars.iv1367 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1368, %1121 ]
   %1122 = add nuw nsw i64 %indvars.iv1367, %1120
-  %1123 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1122
+  %1123 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1122
   %1124 = load float, ptr %1123, align 4
-  %gep1430 = getelementptr inbounds float, ptr %invariant.gep1429, i64 %indvars.iv1367
+  %gep1430 = getelementptr inbounds nuw float, ptr %invariant.gep1429, i64 %indvars.iv1367
   %1125 = load float, ptr %gep1430, align 4
   %1126 = fadd float %1124, %1125
   store float %1126, ptr %gep1430, align 4
@@ -58033,7 +58033,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %1130 = load float, ptr %16, align 4
   %1131 = fadd float %.61066.lcssa, %1130
   store float %1131, ptr %16, align 4
-  %1132 = getelementptr inbounds i8, ptr %.sroa.01134.01255, i64 16
+  %1132 = getelementptr inbounds nuw i8, ptr %.sroa.01134.01255, i64 16
   %.not1138 = icmp eq ptr %1132, %56
   br i1 %.not1138, label %._crit_edge, label %62
 
@@ -58047,76 +58047,76 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %7 = alloca [12 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x i32], align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %19 = load float, ptr %18, align 8
   %20 = fmul float %19, %19
   %21 = fmul float %20, %20
   %22 = fmul float %20, %21
   %23 = fdiv float %22, 6.000000e+00
-  %24 = getelementptr inbounds i8, ptr %2, i64 100
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %29 = load ptr, ptr %28, align 8
   %30 = load float, ptr %29, align 8
   %31 = fdiv float 5.000000e-01, %30
-  %32 = getelementptr inbounds i8, ptr %29, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 76
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %35 = load float, ptr %34, align 4
   %36 = fmul float %35, %35
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load float, ptr %37, align 8
   %39 = fmul float %38, %38
   %40 = load i32, ptr %1, align 8
   %41 = shl nsw i32 %40, 1
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 176
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 108
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 288
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 128
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 88
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %57 = load ptr, ptr %56, align 8
   %.not11741253 = icmp eq ptr %55, %57
   br i1 %.not11741253, label %._crit_edge, label %.lr.ph1255
 
 .lr.ph1255:                                       ; preds = %5
-  %58 = getelementptr inbounds i8, ptr %1, i64 208
-  %59 = getelementptr inbounds i8, ptr %1, i64 200
-  %60 = getelementptr inbounds i8, ptr %33, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %60 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %61 = fpext float %23 to double
-  %62 = getelementptr inbounds i8, ptr %2, i64 44
-  %63 = getelementptr inbounds i8, ptr %2, i64 32
-  %64 = getelementptr inbounds i8, ptr %2, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.not1128 = icmp eq ptr %13, null
   br label %65
 
 65:                                               ; preds = %.lr.ph1255, %.loopexit1188
   %.sroa.01170.01254 = phi ptr [ %55, %.lr.ph1255 ], [ %1286, %.loopexit1188 ]
-  %66 = getelementptr inbounds i8, ptr %.sroa.01170.01254, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.01170.01254, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 127
-  %69 = getelementptr inbounds i8, ptr %.sroa.01170.01254, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.01170.01254, i64 8
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.sroa.01170.01254, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.01170.01254, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = load i32, ptr %.sroa.01170.01254, align 4
   %74 = icmp eq i32 %68, 22
@@ -58124,13 +58124,13 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %76 = and i32 %67, 384
   %or.cond = icmp ne i32 %76, 128
   %77 = load ptr, ptr %58, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = sext i32 %73 to i64
   %80 = load ptr, ptr %78, align 8
   %81 = getelementptr inbounds i32, ptr %80, i64 %79
   %82 = load i32, ptr %81, align 4
   %83 = load i32, ptr %77, align 8
-  %84 = getelementptr inbounds i8, ptr %77, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %85 = load i32, ptr %84, align 8
   %86 = load i32, ptr %59, align 8
   br label %92
@@ -58142,7 +58142,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %90 = zext nneg i32 %87 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %91 = sext i32 %89 to i64
-  %invariant.gep1404 = getelementptr inbounds float, ptr %3, i64 %90
+  %invariant.gep1404 = getelementptr inbounds nuw float, ptr %3, i64 %90
   br label %.preheader1186
 
 92:                                               ; preds = %65, %92
@@ -58152,7 +58152,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %95 = ashr i32 %82, %94
   %96 = and i32 %95, %85
   %97 = mul nsw i32 %96, %86
-  %98 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %97, ptr %98, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -58170,11 +58170,11 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %indvars.iv1278 = phi i64 [ 0, %.preheader1186 ], [ %indvars.iv.next1279, %101 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1278
   %102 = load float, ptr %gep, align 4
-  %gep1405 = getelementptr inbounds float, ptr %invariant.gep1404, i64 %indvars.iv1278
+  %gep1405 = getelementptr inbounds nuw float, ptr %invariant.gep1404, i64 %indvars.iv1278
   %103 = load float, ptr %gep1405, align 4
   %104 = fadd float %102, %103
   %105 = add nuw nsw i64 %indvars.iv1278, %100
-  %106 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %105
   store float %104, ptr %106, align 4
   %indvars.iv.next1279 = add nuw nsw i64 %indvars.iv1278, 1
   %exitcond1281.not = icmp eq i64 %indvars.iv.next1279, 3
@@ -58184,7 +58184,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %108 = getelementptr inbounds float, ptr %45, i64 %99
   %109 = load float, ptr %108, align 4
   %110 = fmul float %49, %109
-  %111 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvar
+  %111 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvar
   store float %110, ptr %111, align 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond1283.not = icmp eq i64 %indvar.next, 4
@@ -58203,10 +58203,10 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
 
 .preheader1190:                                   ; preds = %112, %.preheader1190
   %indvars.iv1284 = phi i64 [ %indvars.iv.next1285, %.preheader1190 ], [ 0, %112 ]
-  %120 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1284
+  %120 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1284
   %121 = load i32, ptr %120, align 4
   %122 = load ptr, ptr %58, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds i32, ptr %124, i64 %79
   %126 = load i32, ptr %125, align 4
@@ -58214,11 +58214,11 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %128 = trunc nuw nsw i64 %indvars.iv1284 to i32
   %129 = mul nsw i32 %127, %128
   %130 = ashr i32 %126, %129
-  %131 = getelementptr inbounds i8, ptr %122, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %132 = load i32, ptr %131, align 8
   %133 = and i32 %130, %132
   %134 = add nsw i32 %133, %121
-  %135 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1284
+  %135 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1284
   %136 = load float, ptr %135, align 4
   %137 = add nuw nsw i64 %indvars.iv1284, %91
   %138 = getelementptr inbounds float, ptr %45, i64 %137
@@ -58275,7 +58275,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
 170:                                              ; preds = %166
   %171 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %53, i64 %indvars.iv1312
   %172 = load i32, ptr %171, align 4
-  %173 = getelementptr inbounds i8, ptr %171, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 4
   %174 = icmp eq i32 %172, %113
   %175 = shl nsw i32 %172, 2
   %176 = sext i32 %172 to i64
@@ -58289,22 +58289,22 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %179 = mul nsw i32 %178, %41
   %180 = shl nuw nsw i64 %indvars.iv1308, 2
   %181 = mul nuw nsw i64 %indvars.iv1308, 3
-  %182 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %181
   %183 = load float, ptr %182, align 4
   %184 = add nuw nsw i64 %181, 1
-  %185 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %184
   %186 = load float, ptr %185, align 4
   %187 = add nuw nsw i64 %181, 2
-  %188 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %187
   %189 = load float, ptr %188, align 4
   %190 = icmp samesign ult i64 %indvars.iv1308, 2
-  %191 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1308
+  %191 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1308
   %192 = load float, ptr %191, align 4
-  %193 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1308
+  %193 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1308
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %181
-  %196 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %184
-  %197 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %187
+  %195 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %181
+  %196 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %184
+  %197 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %187
   %.promoted1211 = load float, ptr %195, align 4
   %.promoted1213 = load float, ptr %196, align 4
   %.promoted1215 = load float, ptr %197, align 4
@@ -58349,7 +58349,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %231 = fmul float %228, %230
   %232 = fmul float %231, %231
   %233 = load ptr, ptr %58, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr inbounds i32, ptr %235, i64 %176
   %237 = load i32, ptr %236, align 4
@@ -58357,7 +58357,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %239 = trunc nuw nsw i64 %indvars.iv1304 to i32
   %240 = mul nsw i32 %238, %239
   %241 = ashr i32 %237, %240
-  %242 = getelementptr inbounds i8, ptr %233, i64 32
+  %242 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %243 = load i32, ptr %242, align 8
   %244 = and i32 %241, %243
   br i1 %190, label %245, label %._crit_edge1370
@@ -58532,21 +58532,21 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %382 = mul nsw i32 %381, %41
   %383 = shl nuw nsw i64 %indvars.iv1300, 2
   %384 = mul nuw nsw i64 %indvars.iv1300, 3
-  %385 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %384
   %386 = load float, ptr %385, align 4
   %387 = add nuw nsw i64 %384, 1
-  %388 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %387
+  %388 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %387
   %389 = load float, ptr %388, align 4
   %390 = add nuw nsw i64 %384, 2
-  %391 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %390
+  %391 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %390
   %392 = load float, ptr %391, align 4
-  %393 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1300
+  %393 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1300
   %394 = load i32, ptr %393, align 4
-  %395 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1300
+  %395 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1300
   %396 = load float, ptr %395, align 4
-  %397 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %384
-  %398 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %387
-  %399 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %390
+  %397 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %384
+  %398 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %387
+  %399 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %390
   %.promoted1203 = load float, ptr %397, align 4
   %.promoted1205 = load float, ptr %398, align 4
   %.promoted1207 = load float, ptr %399, align 4
@@ -58591,7 +58591,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %433 = fmul float %430, %432
   %434 = fmul float %433, %433
   %435 = load ptr, ptr %58, align 8
-  %436 = getelementptr inbounds i8, ptr %435, i64 8
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
   %437 = load ptr, ptr %436, align 8
   %438 = getelementptr inbounds i32, ptr %437, i64 %176
   %439 = load i32, ptr %438, align 4
@@ -58599,7 +58599,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %441 = trunc nuw nsw i64 %indvars.iv1296 to i32
   %442 = mul nsw i32 %440, %441
   %443 = ashr i32 %439, %442
-  %444 = getelementptr inbounds i8, ptr %435, i64 32
+  %444 = getelementptr inbounds nuw i8, ptr %435, i64 32
   %445 = load i32, ptr %444, align 8
   %446 = and i32 %443, %445
   %447 = getelementptr inbounds i32, ptr %47, i64 %412
@@ -58757,19 +58757,19 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %580 = mul nsw i32 %579, %41
   %581 = shl nuw nsw i64 %indvars.iv1292, 2
   %582 = mul nuw nsw i64 %indvars.iv1292, 3
-  %583 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %582
+  %583 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %582
   %584 = load float, ptr %583, align 4
   %585 = add nuw nsw i64 %582, 1
-  %586 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %585
+  %586 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %585
   %587 = load float, ptr %586, align 4
   %588 = add nuw nsw i64 %582, 2
-  %589 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %588
+  %589 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %588
   %590 = load float, ptr %589, align 4
-  %591 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1292
+  %591 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1292
   %592 = load i32, ptr %591, align 4
-  %593 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %582
-  %594 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %585
-  %595 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %588
+  %593 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %582
+  %594 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %585
+  %595 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %588
   %.promoted = load float, ptr %593, align 4
   %.promoted1197 = load float, ptr %594, align 4
   %.promoted1199 = load float, ptr %595, align 4
@@ -58814,7 +58814,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %629 = fmul float %626, %628
   %630 = fmul float %629, %629
   %631 = load ptr, ptr %58, align 8
-  %632 = getelementptr inbounds i8, ptr %631, i64 8
+  %632 = getelementptr inbounds nuw i8, ptr %631, i64 8
   %633 = load ptr, ptr %632, align 8
   %634 = getelementptr inbounds i32, ptr %633, i64 %176
   %635 = load i32, ptr %634, align 4
@@ -58822,7 +58822,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %637 = trunc nuw nsw i64 %indvars.iv1288 to i32
   %638 = mul nsw i32 %636, %637
   %639 = ashr i32 %635, %638
-  %640 = getelementptr inbounds i8, ptr %631, i64 32
+  %640 = getelementptr inbounds nuw i8, ptr %631, i64 32
   %641 = load i32, ptr %640, align 8
   %642 = and i32 %639, %641
   %643 = getelementptr inbounds i32, ptr %47, i64 %608
@@ -58970,22 +58970,22 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %746 = load i32, ptr %gep1417, align 4
   %747 = mul nsw i32 %746, %41
   %748 = mul nuw nsw i64 %indvars.iv1345, 3
-  %749 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %748
+  %749 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %748
   %750 = load float, ptr %749, align 4
   %751 = add nuw nsw i64 %748, 1
-  %752 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %751
+  %752 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %751
   %753 = load float, ptr %752, align 4
   %754 = add nuw nsw i64 %748, 2
-  %755 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %754
+  %755 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %754
   %756 = load float, ptr %755, align 4
   %757 = icmp samesign ult i64 %indvars.iv1345, 2
-  %758 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1345
+  %758 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1345
   %759 = load float, ptr %758, align 4
-  %760 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1345
+  %760 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1345
   %761 = load i32, ptr %760, align 4
-  %762 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %748
-  %763 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %751
-  %764 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %754
+  %762 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %748
+  %763 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %751
+  %764 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %754
   %.promoted1238.us = load float, ptr %762, align 4
   %.promoted1240.us = load float, ptr %763, align 4
   %.promoted1242.us = load float, ptr %764, align 4
@@ -59029,7 +59029,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %790 = fmul float %787, %789
   %791 = fmul float %790, %790
   %792 = load ptr, ptr %58, align 8
-  %793 = getelementptr inbounds i8, ptr %792, i64 8
+  %793 = getelementptr inbounds nuw i8, ptr %792, i64 8
   %794 = load ptr, ptr %793, align 8
   %795 = getelementptr inbounds i32, ptr %794, i64 %743
   %796 = load i32, ptr %795, align 4
@@ -59037,7 +59037,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %798 = trunc nuw nsw i64 %indvars.iv1341 to i32
   %799 = mul nsw i32 %797, %798
   %800 = ashr i32 %796, %799
-  %801 = getelementptr inbounds i8, ptr %792, i64 32
+  %801 = getelementptr inbounds nuw i8, ptr %792, i64 32
   %802 = load i32, ptr %801, align 8
   %803 = and i32 %800, %802
   br i1 %757, label %804, label %._crit_edge1371
@@ -59210,21 +59210,21 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %937 = load i32, ptr %gep1415, align 4
   %938 = mul nsw i32 %937, %41
   %939 = mul nuw nsw i64 %indvars.iv1332, 3
-  %940 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %939
+  %940 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %939
   %941 = load float, ptr %940, align 4
   %942 = add nuw nsw i64 %939, 1
-  %943 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %942
+  %943 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %942
   %944 = load float, ptr %943, align 4
   %945 = add nuw nsw i64 %939, 2
-  %946 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %945
+  %946 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %945
   %947 = load float, ptr %946, align 4
-  %948 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1332
+  %948 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1332
   %949 = load i32, ptr %948, align 4
-  %950 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %indvars.iv1332
+  %950 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %indvars.iv1332
   %951 = load float, ptr %950, align 4
-  %952 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %939
-  %953 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %942
-  %954 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %945
+  %952 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %939
+  %953 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %942
+  %954 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %945
   %.promoted1230.us = load float, ptr %952, align 4
   %.promoted1232.us = load float, ptr %953, align 4
   %.promoted1234.us = load float, ptr %954, align 4
@@ -59268,7 +59268,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %980 = fmul float %977, %979
   %981 = fmul float %980, %980
   %982 = load ptr, ptr %58, align 8
-  %983 = getelementptr inbounds i8, ptr %982, i64 8
+  %983 = getelementptr inbounds nuw i8, ptr %982, i64 8
   %984 = load ptr, ptr %983, align 8
   %985 = getelementptr inbounds i32, ptr %984, i64 %934
   %986 = load i32, ptr %985, align 4
@@ -59276,7 +59276,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %988 = trunc nuw nsw i64 %indvars.iv1328 to i32
   %989 = mul nsw i32 %987, %988
   %990 = ashr i32 %986, %989
-  %991 = getelementptr inbounds i8, ptr %982, i64 32
+  %991 = getelementptr inbounds nuw i8, ptr %982, i64 32
   %992 = load i32, ptr %991, align 8
   %993 = and i32 %990, %992
   %994 = getelementptr inbounds i32, ptr %47, i64 %960
@@ -59432,19 +59432,19 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %1124 = load i32, ptr %gep1413, align 4
   %1125 = mul nsw i32 %1124, %41
   %1126 = mul nuw nsw i64 %indvars.iv1320, 3
-  %1127 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1126
+  %1127 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1126
   %1128 = load float, ptr %1127, align 4
   %1129 = add nuw nsw i64 %1126, 1
-  %1130 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1129
+  %1130 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1129
   %1131 = load float, ptr %1130, align 4
   %1132 = add nuw nsw i64 %1126, 2
-  %1133 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %1132
+  %1133 = getelementptr inbounds nuw [12 x float], ptr %6, i64 0, i64 %1132
   %1134 = load float, ptr %1133, align 4
-  %1135 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv1320
+  %1135 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv1320
   %1136 = load i32, ptr %1135, align 4
-  %1137 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1126
-  %1138 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1129
-  %1139 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1132
+  %1137 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1126
+  %1138 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1129
+  %1139 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1132
   %.promoted1222 = load float, ptr %1137, align 4
   %.promoted1224 = load float, ptr %1138, align 4
   %.promoted1226 = load float, ptr %1139, align 4
@@ -59480,7 +59480,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %1164 = fmul float %1161, %1163
   %1165 = fmul float %1164, %1164
   %1166 = load ptr, ptr %58, align 8
-  %1167 = getelementptr inbounds i8, ptr %1166, i64 8
+  %1167 = getelementptr inbounds nuw i8, ptr %1166, i64 8
   %1168 = load ptr, ptr %1167, align 8
   %1169 = getelementptr inbounds i32, ptr %1168, i64 %1121
   %1170 = load i32, ptr %1169, align 4
@@ -59488,7 +59488,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   %1172 = trunc nuw nsw i64 %indvars.iv1316 to i32
   %1173 = mul nsw i32 %1171, %1172
   %1174 = ashr i32 %1170, %1173
-  %1175 = getelementptr inbounds i8, ptr %1166, i64 32
+  %1175 = getelementptr inbounds nuw i8, ptr %1166, i64 32
   %1176 = load i32, ptr %1175, align 8
   %1177 = and i32 %1174, %1176
   %1178 = getelementptr inbounds i32, ptr %47, i64 %1144
@@ -59614,7 +59614,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
 1269:                                             ; preds = %.preheader1180, %1269
   %indvars.iv1354 = phi i64 [ 0, %.preheader1180 ], [ %indvars.iv.next1355, %1269 ]
   %1270 = add nuw nsw i64 %indvars.iv1354, %1267
-  %1271 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1270
+  %1271 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1270
   %1272 = load float, ptr %1271, align 4
   %gep1419 = getelementptr float, ptr %invariant.gep1418, i64 %indvars.iv1354
   %1273 = load float, ptr %gep1419, align 4
@@ -59634,7 +59634,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
 
 .preheader.preheader:                             ; preds = %1276
   %1277 = zext nneg i32 %87 to i64
-  %invariant.gep1420 = getelementptr inbounds float, ptr %13, i64 %1277
+  %invariant.gep1420 = getelementptr inbounds nuw float, ptr %13, i64 %1277
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %1285
@@ -59645,9 +59645,9 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
 1279:                                             ; preds = %.preheader, %1279
   %indvars.iv1362 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1363, %1279 ]
   %1280 = add nuw nsw i64 %indvars.iv1362, %1278
-  %1281 = getelementptr inbounds [12 x float], ptr %7, i64 0, i64 %1280
+  %1281 = getelementptr inbounds nuw [12 x float], ptr %7, i64 0, i64 %1280
   %1282 = load float, ptr %1281, align 4
-  %gep1421 = getelementptr inbounds float, ptr %invariant.gep1420, i64 %indvars.iv1362
+  %gep1421 = getelementptr inbounds nuw float, ptr %invariant.gep1420, i64 %indvars.iv1362
   %1283 = load float, ptr %gep1421, align 4
   %1284 = fadd float %1282, %1283
   store float %1284, ptr %gep1421, align 4
@@ -59661,7 +59661,7 @@ define void @_Z53nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VgrpF_refPK16NbnxnP
   br i1 %exitcond1369.not, label %.loopexit1188, label %.preheader, !llvm.loop !950
 
 .loopexit1188:                                    ; preds = %1285, %1276
-  %1286 = getelementptr inbounds i8, ptr %.sroa.01170.01254, i64 16
+  %1286 = getelementptr inbounds nuw i8, ptr %.sroa.01170.01254, i64 16
   %.not1174 = icmp eq ptr %1286, %57
   br i1 %.not1174, label %._crit_edge, label %65
 

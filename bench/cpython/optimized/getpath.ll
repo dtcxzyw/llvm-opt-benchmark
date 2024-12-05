@@ -369,7 +369,7 @@ lor.lhs.false79:                                  ; preds = %lor.lhs.false76
   br i1 %tobool82.not, label %if.then93, label %lor.lhs.false83
 
 lor.lhs.false83:                                  ; preds = %lor.lhs.false79
-  %pathconfig_warnings = getelementptr inbounds i8, ptr %config, i64 272
+  %pathconfig_warnings = getelementptr inbounds nuw i8, ptr %config, i64 272
   %16 = load i32, ptr %pathconfig_warnings, align 8
   %call84 = call fastcc i32 @funcs_to_dict(ptr noundef %call8, i32 noundef %16)
   %tobool85.not = icmp eq i32 %call84, 0
@@ -1143,7 +1143,7 @@ if.end:                                           ; preds = %entry
 if.then.i.i:                                      ; preds = %if.end
   %call4 = call i32 @_Py_wstat(ptr noundef nonnull %call1, ptr noundef nonnull %st) #11
   %cmp = icmp eq i32 %call4, 0
-  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
   %1 = load i32, ptr %st_mode, align 8
   %and = and i32 %1, 61440
   %cmp5 = icmp eq i32 %and, 16384
@@ -1182,7 +1182,7 @@ if.end:                                           ; preds = %entry
 if.then.i.i:                                      ; preds = %if.end
   %call4 = call i32 @_Py_wstat(ptr noundef nonnull %call1, ptr noundef nonnull %st) #11
   %cmp = icmp eq i32 %call4, 0
-  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
   %1 = load i32, ptr %st_mode, align 8
   %and = and i32 %1, 61440
   %cmp5 = icmp eq i32 %and, 32768
@@ -1225,7 +1225,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp, label %land.lhs.true, label %if.then.i.i
 
 land.lhs.true:                                    ; preds = %if.then3
-  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
   %1 = load i32, ptr %st_mode, align 8
   %and = and i32 %1, 61440
   %cmp5 = icmp eq i32 %and, 32768
@@ -1293,7 +1293,7 @@ for.end42.thread:                                 ; preds = %if.end5
   br label %if.end46
 
 for.body.lr.ph:                                   ; preds = %if.end5
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end28

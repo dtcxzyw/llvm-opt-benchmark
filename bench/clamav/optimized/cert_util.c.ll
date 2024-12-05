@@ -143,7 +143,7 @@ define void @cert_store_free_cert_list_int(ptr noundef %0) local_unnamed_addr #1
   br i1 %.not12, label %15, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not14 = icmp eq i64 %5, 0
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -259,7 +259,7 @@ define range(i32 0, 21) i32 @x509_get_cert_name(ptr noundef %0, ptr noundef writ
   br label %25
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %23 = load ptr, ptr %22, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %23, i64 %17, i1 false)
   %24 = getelementptr inbounds i8, ptr %19, i64 %17
@@ -342,7 +342,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %20 = phi i64 [ %27, %25 ], [ 0, %.lr.ph ]
   %.04677.us = phi i32 [ %26, %25 ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8
   %24 = call fastcc i32 @_x509_to_pem_append(ptr noundef %23, ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %.not64.us = icmp eq i32 %24, 0
@@ -369,7 +369,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %31 = phi i64 [ %38, %36 ], [ 0, %.lr.ph81 ]
   %.14779.us = phi i32 [ %37, %36 ], [ 0, %.lr.ph81 ]
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8
   %35 = call fastcc i32 @_x509_to_pem_append(ptr noundef %34, ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %.not62.us = icmp eq i32 %35, 0
@@ -387,7 +387,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %.078 = phi i1 [ %spec.select, %46 ], [ true, %.lr.ph ]
   %.04677 = phi i32 [ %54, %46 ], [ 0, %.lr.ph ]
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8
   %45 = call fastcc i32 @_x509_to_pem_append(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %.not64 = icmp eq i32 %45, 0
@@ -396,7 +396,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
 46:                                               ; preds = %.lr.ph.split
   store i32 0, ptr %5, align 4
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
-  %48 = getelementptr inbounds ptr, ptr %47, i64 %41
+  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %41
   %49 = load ptr, ptr %48, align 8
   %50 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %49, ptr noundef %2, ptr noundef %5)
   %51 = icmp ne i32 %50, 0
@@ -415,7 +415,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %.280 = phi i1 [ %spec.select68, %63 ], [ %.0.lcssa, %.lr.ph81 ]
   %.14779 = phi i32 [ %71, %63 ], [ 0, %.lr.ph81 ]
   %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %58
   %61 = load ptr, ptr %60, align 8
   %62 = call fastcc i32 @_x509_to_pem_append(ptr noundef %61, ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %.not62 = icmp eq i32 %62, 0
@@ -424,7 +424,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
 63:                                               ; preds = %.lr.ph81.split
   store i32 0, ptr %6, align 4
   %64 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8
   %67 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %66, ptr noundef %2, ptr noundef %6)
   %68 = icmp ne i32 %67, 0
@@ -561,7 +561,7 @@ define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, 
 
 29:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %21, i64 %19, i1 false)
-  %30 = getelementptr inbounds i8, ptr %26, i64 %19
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %19
   store i8 0, ptr %30, align 1
   %31 = trunc i64 %19 to i32
   call void @BIO_free_all(ptr noundef nonnull %14) #15
@@ -662,10 +662,10 @@ define internal fastcc range(i32 0, 21) i32 @x509_cert_name_cmp(ptr noundef %0, 
 22:                                               ; preds = %16
   %23 = call i64 @BIO_ctrl(ptr noundef nonnull %10, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %5) #15
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load i64, ptr %24, align 8
   %31 = load i64, ptr %27, align 8

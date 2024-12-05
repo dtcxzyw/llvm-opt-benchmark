@@ -63,8 +63,8 @@ define noalias ptr @findHintOutputs(ptr nocapture noundef readonly %0) local_unn
   br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %calloc.i, i64 4
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   br label %6
 
 6:                                                ; preds = %.lr.ph, %42
@@ -73,7 +73,7 @@ define noalias ptr @findHintOutputs(ptr nocapture noundef readonly %0) local_unn
   %.01216 = phi i32 [ 0, %.lr.ph ], [ %.1, %42 ]
   %7 = getelementptr i8, ptr %.val18, i64 8
   %.val13.val = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val13.val, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val13.val, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @Abc_ObjName(ptr noundef %9) #15
   %11 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str) #16
@@ -185,7 +185,7 @@ define range(i32 -2147483648, 2147483647) i32 @findPendingSignal(ptr nocapture n
   %.val12 = phi ptr [ %.val, %10 ], [ %.val9, %1 ]
   %5 = getelementptr i8, ptr %.val12, i64 8
   %.val8.val = load ptr, ptr %5, align 8
-  %6 = getelementptr inbounds ptr, ptr %.val8.val, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %.val8.val, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @Abc_ObjName(ptr noundef %7) #15
   %9 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.1) #16
@@ -224,7 +224,7 @@ define noundef i32 @checkSanityOfKnownMonotone(ptr nocapture noundef readonly %0
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.val25 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i32, ptr %.val25, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %.val25, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -247,7 +247,7 @@ define noundef i32 @checkSanityOfKnownMonotone(ptr nocapture noundef readonly %0
 16:                                               ; preds = %.lr.ph32, %16
   %indvars.iv37 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next38, %16 ]
   %.val26 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i32, ptr %.val26, i64 %indvars.iv37
+  %17 = getelementptr inbounds nuw i32, ptr %.val26, i64 %indvars.iv37
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %18)
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
@@ -270,7 +270,7 @@ define noundef i32 @checkSanityOfKnownMonotone(ptr nocapture noundef readonly %0
 25:                                               ; preds = %.lr.ph35, %25
   %indvars.iv40 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next41, %25 ]
   %.val27 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i32, ptr %.val27, i64 %indvars.iv40
+  %26 = getelementptr inbounds nuw i32, ptr %.val27, i64 %indvars.iv40
   %27 = load i32, ptr %26, align 4
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %27)
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
@@ -290,10 +290,10 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define noundef ptr @createMonotoneTester(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
   %5 = load i32, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %0, i64 32
   %.val237 = load ptr, ptr %11, align 8
@@ -307,13 +307,13 @@ define noundef ptr @createMonotoneTester(ptr nocapture noundef readonly %0, ptr 
   store ptr %17, ptr %13, align 8
   %18 = load ptr, ptr %0, align 8
   %19 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %18, ptr noundef nonnull @.str.5) #15
-  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr null, ptr %20, align 8
   %21 = getelementptr i8, ptr %0, i64 48
   %.val238 = load ptr, ptr %21, align 8
   %22 = getelementptr i8, ptr %13, i64 48
   %.val239 = load ptr, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.val238, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.val238, i64 40
   store ptr %.val239, ptr %23, align 8
   %24 = getelementptr i8, ptr %0, i64 108
   %.val241313 = load i32, ptr %24, align 4
@@ -321,7 +321,7 @@ define noundef ptr @createMonotoneTester(ptr nocapture noundef readonly %0, ptr 
   br i1 %25, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %4
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %30
 
 .critedge.preheader:                              ; preds = %30, %4
@@ -331,7 +331,7 @@ define noundef ptr @createMonotoneTester(ptr nocapture noundef readonly %0, ptr 
   br i1 %28, label %.lr.ph318, label %.critedge2
 
 .lr.ph318:                                        ; preds = %.critedge.preheader
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.critedge
 
 30:                                               ; preds = %.lr.ph, %30
@@ -339,10 +339,10 @@ define noundef ptr @createMonotoneTester(ptr nocapture noundef readonly %0, ptr 
   %31 = load ptr, ptr %26, align 8
   %32 = getelementptr i8, ptr %31, i64 8
   %.val219 = load ptr, ptr %32, align 8
-  %33 = getelementptr inbounds ptr, ptr %.val219, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %.val219, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %13) #15
-  %36 = getelementptr inbounds i8, ptr %34, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store ptr %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val241 = load i32, ptr %24, align 4
@@ -362,7 +362,7 @@ define noundef ptr @createMonotoneTester(ptr nocapture noundef readonly %0, ptr 
   %44 = load ptr, ptr %43, align 8
   %45 = add nuw nsw i32 %.1317, 1
   %46 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %13) #15
-  %47 = getelementptr inbounds i8, ptr %44, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store ptr %46, ptr %47, align 8
   %.val243 = load i32, ptr %27, align 8
   %48 = icmp slt i32 %45, %.val243
@@ -377,7 +377,7 @@ define noundef ptr @createMonotoneTester(ptr nocapture noundef readonly %0, ptr 
   %52 = add i32 %.val233, -1
   %or.cond.i = icmp ult i32 %52, 7
   %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %.val233
-  %53 = getelementptr inbounds i8, ptr %51, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 0, ptr %53, align 4
   store i32 %spec.store.select.i, ptr %51, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -391,7 +391,7 @@ define noundef ptr @createMonotoneTester(ptr nocapture noundef readonly %0, ptr 
 
 Vec_PtrAlloc.exit:                                ; preds = %.critedge2, %54
   %58 = phi ptr [ %57, %54 ], [ null, %.critedge2 ]
-  %59 = getelementptr inbounds i8, ptr %51, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %58, ptr %59, align 8
   %60 = icmp sgt i32 %.val233, 0
   br i1 %60, label %.lr.ph322, label %.critedge4
@@ -482,7 +482,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv361 = phi i64 [ %indvars.iv.next362, %134 ], [ 0, %.critedge4 ]
   %98 = getelementptr i8, ptr %97, i64 8
   %.val221 = load ptr, ptr %98, align 8
-  %99 = getelementptr inbounds ptr, ptr %.val221, i64 %indvars.iv361
+  %99 = getelementptr inbounds nuw ptr, ptr %.val221, i64 %indvars.iv361
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %134, label %102
@@ -506,7 +506,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 111:                                              ; preds = %107
   %112 = inttoptr i64 %110 to ptr
-  %113 = getelementptr inbounds i8, ptr %112, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
   %114 = load ptr, ptr %113, align 8
   %115 = and i64 %109, 1
   %116 = ptrtoint ptr %114 to i64
@@ -525,7 +525,7 @@ Aig_ObjChild0Copy.exit:                           ; preds = %107, %111
 
 123:                                              ; preds = %Aig_ObjChild0Copy.exit
   %124 = inttoptr i64 %122 to ptr
-  %125 = getelementptr inbounds i8, ptr %124, i64 40
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 40
   %126 = load ptr, ptr %125, align 8
   %127 = and i64 %121, 1
   %128 = ptrtoint ptr %126 to i64
@@ -536,7 +536,7 @@ Aig_ObjChild0Copy.exit:                           ; preds = %107, %111
 Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit, %123
   %131 = phi ptr [ %130, %123 ], [ null, %Aig_ObjChild0Copy.exit ]
   %132 = tail call ptr @Aig_And(ptr noundef nonnull %13, ptr noundef %119, ptr noundef %131) #15
-  %133 = getelementptr inbounds i8, ptr %100, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %100, i64 40
   store ptr %132, ptr %133, align 8
   %.pre = load ptr, ptr %11, align 8
   br label %134
@@ -566,14 +566,14 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   br i1 %.not, label %147, label %150
 
 147:                                              ; preds = %.critedge6
-  %148 = getelementptr inbounds i8, ptr %.val246, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %.val246, i64 40
   %149 = load ptr, ptr %148, align 8
   br label %158
 
 150:                                              ; preds = %.critedge6
   %151 = and i64 %145, -2
   %152 = inttoptr i64 %151 to ptr
-  %153 = getelementptr inbounds i8, ptr %152, i64 40
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %154 = load ptr, ptr %153, align 8
   %155 = ptrtoint ptr %154 to i64
   %156 = xor i64 %155, 1
@@ -607,7 +607,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   %indvars.iv364 = phi i64 [ 0, %.lr.ph330 ], [ %indvars.iv.next365, %190 ]
   %.0206328 = phi ptr [ %.val240, %.lr.ph330 ], [ %205, %190 ]
   %.val235 = load ptr, ptr %164, align 8
-  %168 = getelementptr inbounds i32, ptr %.val235, i64 %indvars.iv364
+  %168 = getelementptr inbounds nuw i32, ptr %.val235, i64 %indvars.iv364
   %169 = load i32, ptr %168, align 4
   %170 = add i32 %166, %169
   %171 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %170)
@@ -625,14 +625,14 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   br i1 %.not215, label %179, label %182
 
 179:                                              ; preds = %167
-  %180 = getelementptr inbounds i8, ptr %.val247, i64 40
+  %180 = getelementptr inbounds nuw i8, ptr %.val247, i64 40
   %181 = load ptr, ptr %180, align 8
   br label %190
 
 182:                                              ; preds = %167
   %183 = and i64 %177, -2
   %184 = inttoptr i64 %183 to ptr
-  %185 = getelementptr inbounds i8, ptr %184, i64 40
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 40
   %186 = load ptr, ptr %185, align 8
   %187 = ptrtoint ptr %186 to i64
   %188 = xor i64 %187, 1
@@ -674,7 +674,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   %211 = add i32 %.val230, -1
   %or.cond.i266 = icmp ult i32 %211, 7
   %spec.store.select.i267 = select i1 %or.cond.i266, i32 8, i32 %.val230
-  %212 = getelementptr inbounds i8, ptr %210, i64 4
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 4
   store i32 0, ptr %212, align 4
   store i32 %spec.store.select.i267, ptr %210, align 8
   %.not.i268 = icmp eq i32 %spec.store.select.i267, 0
@@ -688,10 +688,10 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 Vec_PtrAlloc.exit269:                             ; preds = %209, %213
   %217 = phi ptr [ %216, %213 ], [ null, %209 ]
-  %218 = getelementptr inbounds i8, ptr %210, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %210, i64 8
   store ptr %217, ptr %218, align 8
   %219 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
-  %220 = getelementptr inbounds i8, ptr %219, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 4
   store i32 0, ptr %220, align 4
   store i32 %spec.store.select.i267, ptr %219, align 8
   br i1 %.not.i268, label %Vec_PtrAlloc.exit273, label %221
@@ -704,15 +704,15 @@ Vec_PtrAlloc.exit269:                             ; preds = %209, %213
 
 Vec_PtrAlloc.exit273:                             ; preds = %Vec_PtrAlloc.exit269, %221
   %225 = phi ptr [ %224, %221 ], [ null, %Vec_PtrAlloc.exit269 ]
-  %226 = getelementptr inbounds i8, ptr %219, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %219, i64 8
   store ptr %225, ptr %226, align 8
   %227 = icmp sgt i32 %.val230, 0
   br i1 %227, label %.lr.ph335, label %.critedge10.preheader
 
 .lr.ph335:                                        ; preds = %Vec_PtrAlloc.exit273
   %228 = getelementptr i8, ptr %10, i64 8
-  %229 = getelementptr inbounds i8, ptr %8, i64 4
-  %230 = getelementptr inbounds i8, ptr %8, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %233
 
 .critedge10.preheader:                            ; preds = %356, %Vec_PtrAlloc.exit273
@@ -725,7 +725,7 @@ Vec_PtrAlloc.exit273:                             ; preds = %Vec_PtrAlloc.exit26
   %indvars.iv367 = phi i64 [ 0, %.lr.ph335 ], [ %indvars.iv.next368, %356 ]
   %.val228334 = phi i32 [ %.val230, %.lr.ph335 ], [ %.val228, %356 ]
   %.val234 = load ptr, ptr %228, align 8
-  %234 = getelementptr inbounds i32, ptr %.val234, i64 %indvars.iv367
+  %234 = getelementptr inbounds nuw i32, ptr %.val234, i64 %indvars.iv367
   %235 = load i32, ptr %234, align 4
   %.val258 = load ptr, ptr %139, align 8
   %236 = getelementptr i8, ptr %.val258, i64 8
@@ -741,14 +741,14 @@ Vec_PtrAlloc.exit273:                             ; preds = %Vec_PtrAlloc.exit26
   br i1 %.not213, label %243, label %246
 
 243:                                              ; preds = %233
-  %244 = getelementptr inbounds i8, ptr %.val248, i64 40
+  %244 = getelementptr inbounds nuw i8, ptr %.val248, i64 40
   %245 = load ptr, ptr %244, align 8
   br label %254
 
 246:                                              ; preds = %233
   %247 = and i64 %241, -2
   %248 = inttoptr i64 %247 to ptr
-  %249 = getelementptr inbounds i8, ptr %248, i64 40
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 40
   %250 = load ptr, ptr %249, align 8
   %251 = ptrtoint ptr %250 to i64
   %252 = xor i64 %251, 1
@@ -771,7 +771,7 @@ Vec_PtrAlloc.exit273:                             ; preds = %Vec_PtrAlloc.exit26
 
 260:                                              ; preds = %264, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %264 ]
-  %261 = getelementptr inbounds i32, ptr %259, i64 %indvars.iv.i
+  %261 = getelementptr inbounds nuw i32, ptr %259, i64 %indvars.iv.i
   %262 = load i32, ptr %261, align 4
   %263 = icmp eq i32 %262, %235
   br i1 %263, label %Vec_IntFind.exit, label %264
@@ -852,7 +852,7 @@ Vec_IntFind.exit.thread:                          ; preds = %264, %256, %254
 
 291:                                              ; preds = %295, %.lr.ph.i282
   %indvars.iv.i284 = phi i64 [ 0, %.lr.ph.i282 ], [ %indvars.iv.next.i285, %295 ]
-  %292 = getelementptr inbounds i32, ptr %.val234, i64 %indvars.iv.i284
+  %292 = getelementptr inbounds nuw i32, ptr %.val234, i64 %indvars.iv.i284
   %293 = load i32, ptr %292, align 4
   %294 = icmp eq i32 %293, %235
   br i1 %294, label %._crit_edge.loopexit.split.loop.exit12.i287, label %295
@@ -1016,7 +1016,7 @@ Vec_PtrPush.exit302:                              ; preds = %.Vec_PtrGrow.exit11
   %361 = load ptr, ptr %139, align 8
   %362 = getelementptr i8, ptr %361, i64 8
   %.val224 = load ptr, ptr %362, align 8
-  %363 = getelementptr inbounds ptr, ptr %.val224, i64 %indvars.iv370
+  %363 = getelementptr inbounds nuw ptr, ptr %.val224, i64 %indvars.iv370
   %364 = load ptr, ptr %363, align 8
   %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
   %365 = getelementptr i8, ptr %364, i64 8
@@ -1028,7 +1028,7 @@ Vec_PtrPush.exit302:                              ; preds = %.Vec_PtrGrow.exit11
 
 368:                                              ; preds = %.lr.ph339
   %369 = inttoptr i64 %367 to ptr
-  %370 = getelementptr inbounds i8, ptr %369, i64 40
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 40
   %371 = load ptr, ptr %370, align 8
   %372 = and i64 %366, 1
   %373 = ptrtoint ptr %371 to i64
@@ -1039,7 +1039,7 @@ Vec_PtrPush.exit302:                              ; preds = %.Vec_PtrGrow.exit11
 Aig_ObjChild0Copy.exit304:                        ; preds = %.lr.ph339, %368
   %376 = phi ptr [ %375, %368 ], [ null, %.lr.ph339 ]
   %377 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %13, ptr noundef %376) #15
-  %378 = getelementptr inbounds i8, ptr %364, i64 40
+  %378 = getelementptr inbounds nuw i8, ptr %364, i64 40
   store ptr %377, ptr %378, align 8
   %.val261 = load i32, ptr %231, align 8
   %379 = sext i32 %.val261 to i64
@@ -1070,7 +1070,7 @@ Aig_ObjChild0Copy.exit304:                        ; preds = %.lr.ph339, %368
 
 383:                                              ; preds = %.lr.ph344, %383
   %indvars.iv375 = phi i64 [ 0, %.lr.ph344 ], [ %indvars.iv.next376, %383 ]
-  %384 = getelementptr inbounds ptr, ptr %.val225, i64 %indvars.iv375
+  %384 = getelementptr inbounds nuw ptr, ptr %.val225, i64 %indvars.iv375
   %385 = load ptr, ptr %384, align 8
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
   %386 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %13, ptr noundef %385) #15
@@ -1096,7 +1096,7 @@ Aig_ObjChild0Copy.exit304:                        ; preds = %.lr.ph339, %368
 
 396:                                              ; preds = %.lr.ph348
   %397 = inttoptr i64 %395 to ptr
-  %398 = getelementptr inbounds i8, ptr %397, i64 40
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 40
   %399 = load ptr, ptr %398, align 8
   %400 = and i64 %394, 1
   %401 = ptrtoint ptr %399 to i64
@@ -1125,7 +1125,7 @@ Aig_ObjChild0Copy.exit306:                        ; preds = %.lr.ph348, %396
 
 410:                                              ; preds = %.lr.ph351, %410
   %indvars.iv380 = phi i64 [ 0, %.lr.ph351 ], [ %indvars.iv.next381, %410 ]
-  %411 = getelementptr inbounds ptr, ptr %.val227, i64 %indvars.iv380
+  %411 = getelementptr inbounds nuw ptr, ptr %.val227, i64 %indvars.iv380
   %412 = load ptr, ptr %411, align 8
   %413 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %13, ptr noundef %412) #15
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
@@ -1173,7 +1173,7 @@ define noalias ptr @findNewMonotone(ptr nocapture noundef readonly %0, ptr nocap
   %4 = alloca i32, align 4
   %5 = alloca %struct.Pdr_Par_t_, align 8
   %6 = load i32, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = call ptr @createMonotoneTester(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4)
   %10 = getelementptr i8, ptr %0, i64 140
@@ -1191,13 +1191,13 @@ define noalias ptr @findNewMonotone(ptr nocapture noundef readonly %0, ptr nocap
 
 .lr.ph:                                           ; preds = %3
   %16 = getelementptr i8, ptr %9, i64 24
-  %17 = getelementptr inbounds i8, ptr %5, i64 100
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 100
   %.neg = sub i32 %8, %.val36
   %18 = add i32 %.neg, %.val37
   %.neg34 = xor i32 %6, -1
   %19 = add i32 %8, %.neg34
   %20 = getelementptr i8, ptr %calloc.i, i64 4
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %21 = sext i32 %13 to i64
   br label %22
 
@@ -1208,7 +1208,7 @@ define noalias ptr @findNewMonotone(ptr nocapture noundef readonly %0, ptr nocap
   %.val35.val = load ptr, ptr %23, align 8
   %24 = getelementptr inbounds ptr, ptr %.val35.val, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = xor i64 %28, 1
@@ -1335,16 +1335,16 @@ define noundef ptr @findRemainingMonotoneCandidates(ptr noundef readonly %0, ptr
 
 .lr.ph:                                           ; preds = %7
   %10 = getelementptr i8, ptr %1, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %calloc.i, i64 4
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %Vec_IntFind.exit
   %.val21 = phi i32 [ %.val18, %.lr.ph ], [ %.val, %Vec_IntFind.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntFind.exit ]
   %.val16 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i32, ptr %.val16, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %.val16, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %5, align 4
   %17 = icmp sgt i32 %16, 0
@@ -1357,7 +1357,7 @@ define noundef ptr @findRemainingMonotoneCandidates(ptr noundef readonly %0, ptr
 
 19:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %20 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, %15
   br i1 %22, label %Vec_IntFind.exit, label %23
@@ -1458,7 +1458,7 @@ define noalias noundef ptr @findMonotoneSignals(ptr noundef %0) local_unnamed_ad
   %.val12.i = phi ptr [ %.val.i, %10 ], [ %.val9.i, %1 ]
   %5 = getelementptr i8, ptr %.val12.i, i64 8
   %.val8.val.i = load ptr, ptr %5, align 8
-  %6 = getelementptr inbounds ptr, ptr %.val8.val.i, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw ptr, ptr %.val8.val.i, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @Abc_ObjName(ptr noundef %7) #15
   %9 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.1) #16
@@ -1510,7 +1510,7 @@ findPendingSignal.exit.thread:                    ; preds = %10, %1
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds i32, ptr %.val48.pre, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %.val48.pre, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %.val = load ptr, ptr %2, align 8
   %30 = getelementptr i8, ptr %.val, i64 8
@@ -1531,17 +1531,17 @@ findPendingSignal.exit.thread:                    ; preds = %10, %1
   %39 = getelementptr i8, ptr %38, i64 -4
   %40 = load i32, ptr %39, align 4
   %41 = tail call noalias noundef dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
-  %42 = getelementptr inbounds i8, ptr %41, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 -1, ptr %42, align 4
   store i32 %14, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 %37, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 %40, ptr %44, align 4
   %calloc.i = tail call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
-  %45 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %21, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   store ptr %21, ptr %46, align 8
   %.val49 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %.val49, 3

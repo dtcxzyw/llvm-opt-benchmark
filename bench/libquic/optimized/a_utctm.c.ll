@@ -14,25 +14,25 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @asn1_utctime_to_tm(ptr noundef %tm, ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %d, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %d, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp.not = icmp eq i32 %0, 23
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %d, align 8
-  %data = getelementptr inbounds i8, ptr %d, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %d, i64 8
   %2 = load ptr, ptr %data, align 8
   %cmp1 = icmp slt i32 %1, 11
   br i1 %cmp1, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
   %tobool77.not = icmp eq ptr %tm, null
-  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
-  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
-  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
-  %tm_mon = getelementptr inbounds i8, ptr %tm, i64 16
-  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
+  %tm_min = getelementptr inbounds nuw i8, ptr %tm, i64 4
+  %tm_hour = getelementptr inbounds nuw i8, ptr %tm, i64 8
+  %tm_mday = getelementptr inbounds nuw i8, ptr %tm, i64 12
+  %tm_mon = getelementptr inbounds nuw i8, ptr %tm, i64 16
+  %tm_year = getelementptr inbounds nuw i8, ptr %tm, i64 20
   %3 = zext nneg i32 %1 to i64
   br i1 %tobool77.not, label %for.body.us, label %for.body
 
@@ -40,7 +40,7 @@ for.body.us:                                      ; preds = %for.cond.preheader,
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %if.end76.us ], [ 0, %for.cond.preheader ]
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %if.end76.us ], [ 0, %for.cond.preheader ]
   %cmp5.us = icmp eq i64 %indvars.iv133, 5
-  %arrayidx.us = getelementptr inbounds i8, ptr %2, i64 %indvars.iv130
+  %arrayidx.us = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv130
   %4 = load i8, ptr %arrayidx.us, align 1
   br i1 %cmp5.us, label %land.lhs.true.us, label %if.end22.us
 
@@ -60,7 +60,7 @@ if.end22.us:                                      ; preds = %for.body.us, %land.
 
 if.end43.us:                                      ; preds = %if.end22.us
   %6 = or disjoint i64 %indvars.iv130, 1
-  %arrayidx45.us = getelementptr inbounds i8, ptr %2, i64 %6
+  %arrayidx45.us = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %7 = load i8, ptr %arrayidx45.us, align 1
   %8 = add i8 %7, -58
   %or.cond91.us = icmp ult i8 %8, -10
@@ -78,13 +78,13 @@ if.end56.us:                                      ; preds = %if.end43.us
   br i1 %cmp62.us, label %return, label %if.end65.us
 
 if.end65.us:                                      ; preds = %if.end56.us
-  %arrayidx67.us = getelementptr inbounds [8 x i32], ptr @asn1_utctime_to_tm.min, i64 0, i64 %indvars.iv133
+  %arrayidx67.us = getelementptr inbounds nuw [8 x i32], ptr @asn1_utctime_to_tm.min, i64 0, i64 %indvars.iv133
   %10 = load i32, ptr %arrayidx67.us, align 4
   %cmp68.us = icmp slt i32 %sub60.us, %10
   br i1 %cmp68.us, label %return, label %lor.lhs.false70.us
 
 lor.lhs.false70.us:                               ; preds = %if.end65.us
-  %arrayidx72.us = getelementptr inbounds [8 x i32], ptr @asn1_utctime_to_tm.max, i64 0, i64 %indvars.iv133
+  %arrayidx72.us = getelementptr inbounds nuw [8 x i32], ptr @asn1_utctime_to_tm.max, i64 0, i64 %indvars.iv133
   %11 = load i32, ptr %arrayidx72.us, align 4
   %cmp73.us = icmp sgt i32 %sub60.us, %11
   br i1 %cmp73.us, label %return, label %if.end76.us
@@ -98,7 +98,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %for.inc ], [ 0, %for.cond.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
   %cmp5 = icmp eq i64 %indvars.iv125, 5
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %12 = load i8, ptr %arrayidx, align 1
   br i1 %cmp5, label %land.lhs.true, label %if.end22
 
@@ -127,7 +127,7 @@ if.end22:                                         ; preds = %for.body, %land.lhs
 
 if.end43:                                         ; preds = %if.end22
   %14 = or disjoint i64 %indvars.iv, 1
-  %arrayidx45 = getelementptr inbounds i8, ptr %2, i64 %14
+  %arrayidx45 = getelementptr inbounds nuw i8, ptr %2, i64 %14
   %15 = load i8, ptr %arrayidx45, align 1
   %16 = add i8 %15, -58
   %or.cond91 = icmp ult i8 %16, -10
@@ -145,13 +145,13 @@ if.end56:                                         ; preds = %if.end43
   br i1 %cmp62, label %return, label %if.end65
 
 if.end65:                                         ; preds = %if.end56
-  %arrayidx67 = getelementptr inbounds [8 x i32], ptr @asn1_utctime_to_tm.min, i64 0, i64 %indvars.iv125
+  %arrayidx67 = getelementptr inbounds nuw [8 x i32], ptr @asn1_utctime_to_tm.min, i64 0, i64 %indvars.iv125
   %18 = load i32, ptr %arrayidx67, align 4
   %cmp68 = icmp slt i32 %sub60, %18
   br i1 %cmp68, label %return, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %if.end65
-  %arrayidx72 = getelementptr inbounds [8 x i32], ptr @asn1_utctime_to_tm.max, i64 0, i64 %indvars.iv125
+  %arrayidx72 = getelementptr inbounds nuw [8 x i32], ptr @asn1_utctime_to_tm.max, i64 0, i64 %indvars.iv125
   %19 = load i32, ptr %arrayidx72, align 4
   %cmp73 = icmp sgt i32 %sub60, %19
   br i1 %cmp73, label %return, label %if.end76
@@ -206,7 +206,7 @@ for.inc:                                          ; preds = %sw.bb87, %sw.bb86, 
 for.end:                                          ; preds = %for.inc, %if.end76.us, %if.then19, %if.then20
   %o.0103 = phi i32 [ %.us-phi, %if.then19 ], [ %.us-phi157, %if.then20 ], [ 12, %if.end76.us ], [ 12, %for.inc ]
   %idxprom91 = zext nneg i32 %o.0103 to i64
-  %arrayidx92 = getelementptr inbounds i8, ptr %2, i64 %idxprom91
+  %arrayidx92 = getelementptr inbounds nuw i8, ptr %2, i64 %idxprom91
   %21 = load i8, ptr %arrayidx92, align 1
   switch i8 %21, label %if.end201 [
     i8 90, label %if.then96
@@ -231,14 +231,14 @@ if.end121:                                        ; preds = %if.then109
 for.body125.us:                                   ; preds = %if.end121, %if.end173.us
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %if.end173.us ], [ 6, %if.end121 ]
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %if.end173.us ], [ %22, %if.end121 ]
-  %arrayidx127.us = getelementptr inbounds i8, ptr %2, i64 %indvars.iv147
+  %arrayidx127.us = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv147
   %23 = load i8, ptr %arrayidx127.us, align 1
   %24 = add i8 %23, -58
   %or.cond92.us = icmp ult i8 %24, -10
   br i1 %or.cond92.us, label %return, label %if.end138.us
 
 if.end138.us:                                     ; preds = %for.body125.us
-  %arrayidx145.us = getelementptr inbounds i8, ptr %arrayidx127.us, i64 1
+  %arrayidx145.us = getelementptr inbounds nuw i8, ptr %arrayidx127.us, i64 1
   %25 = load i8, ptr %arrayidx145.us, align 1
   %26 = add i8 %25, -58
   %or.cond93.us = icmp ult i8 %26, -10
@@ -250,13 +250,13 @@ if.end156.us:                                     ; preds = %if.end138.us
   %28 = sext i8 %27 to i32
   %add161.us = add nsw i32 %28, -16
   %sub162.us = add nsw i32 %add161.us, %conv146.us
-  %arrayidx164.us = getelementptr inbounds [8 x i32], ptr @asn1_utctime_to_tm.min, i64 0, i64 %indvars.iv149
+  %arrayidx164.us = getelementptr inbounds nuw [8 x i32], ptr @asn1_utctime_to_tm.min, i64 0, i64 %indvars.iv149
   %29 = load i32, ptr %arrayidx164.us, align 4
   %cmp165.us = icmp slt i32 %sub162.us, %29
   br i1 %cmp165.us, label %return, label %lor.lhs.false167.us
 
 lor.lhs.false167.us:                              ; preds = %if.end156.us
-  %arrayidx169.us = getelementptr inbounds [8 x i32], ptr @asn1_utctime_to_tm.max, i64 0, i64 %indvars.iv149
+  %arrayidx169.us = getelementptr inbounds nuw [8 x i32], ptr @asn1_utctime_to_tm.max, i64 0, i64 %indvars.iv149
   %30 = load i32, ptr %arrayidx169.us, align 4
   %cmp170.us = icmp sgt i32 %sub162.us, %30
   br i1 %cmp170.us, label %return, label %if.end173.us
@@ -275,14 +275,14 @@ for.body125:                                      ; preds = %if.end121, %if.end1
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %if.end173 ], [ 6, %if.end121 ]
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %if.end173 ], [ %22, %if.end121 ]
   %offset.0109 = phi i32 [ %offset.1, %if.end173 ], [ 0, %if.end121 ]
-  %arrayidx127 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv139
+  %arrayidx127 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv139
   %31 = load i8, ptr %arrayidx127, align 1
   %32 = add i8 %31, -58
   %or.cond92 = icmp ult i8 %32, -10
   br i1 %or.cond92, label %return, label %if.end138
 
 if.end138:                                        ; preds = %for.body125
-  %arrayidx145 = getelementptr inbounds i8, ptr %arrayidx127, i64 1
+  %arrayidx145 = getelementptr inbounds nuw i8, ptr %arrayidx127, i64 1
   %33 = load i8, ptr %arrayidx145, align 1
   %34 = add i8 %33, -58
   %or.cond93 = icmp ult i8 %34, -10
@@ -294,13 +294,13 @@ if.end156:                                        ; preds = %if.end138
   %36 = sext i8 %35 to i32
   %add161 = add nsw i32 %36, -16
   %sub162 = add nsw i32 %add161, %conv146
-  %arrayidx164 = getelementptr inbounds [8 x i32], ptr @asn1_utctime_to_tm.min, i64 0, i64 %indvars.iv141
+  %arrayidx164 = getelementptr inbounds nuw [8 x i32], ptr @asn1_utctime_to_tm.min, i64 0, i64 %indvars.iv141
   %37 = load i32, ptr %arrayidx164, align 4
   %cmp165 = icmp slt i32 %sub162, %37
   br i1 %cmp165, label %return, label %lor.lhs.false167
 
 lor.lhs.false167:                                 ; preds = %if.end156
-  %arrayidx169 = getelementptr inbounds [8 x i32], ptr @asn1_utctime_to_tm.max, i64 0, i64 %indvars.iv141
+  %arrayidx169 = getelementptr inbounds nuw [8 x i32], ptr @asn1_utctime_to_tm.max, i64 0, i64 %indvars.iv141
   %38 = load i32, ptr %arrayidx169, align 4
   %cmp170 = icmp sgt i32 %sub162, %38
   br i1 %cmp170, label %return, label %if.end173
@@ -353,12 +353,12 @@ entry:
 define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %t = alloca %struct.asn1_string_st, align 8
-  %type = getelementptr inbounds i8, ptr %t, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %t, i64 4
   store i32 23, ptr %type, align 4
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #6
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %t, align 8
-  %data = getelementptr inbounds i8, ptr %t, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %t, i64 8
   store ptr %str, ptr %data, align 8
   %call.i = call range(i32 0, 2) i32 @asn1_utctime_to_tm(ptr noundef null, ptr noundef nonnull readonly %t)
   %tobool.not = icmp eq i32 %call.i, 0
@@ -374,7 +374,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %tobool6.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then3
-  %type8 = getelementptr inbounds i8, ptr %s, i64 4
+  %type8 = getelementptr inbounds nuw i8, ptr %s, i64 4
   store i32 23, ptr %type8, align 4
   br label %return
 
@@ -427,14 +427,14 @@ if.then9:                                         ; preds = %if.end7
   br i1 %tobool11.not, label %err, label %if.end14
 
 if.end14:                                         ; preds = %if.then9, %if.end7
-  %tm_year = getelementptr inbounds i8, ptr %call4, i64 20
+  %tm_year = getelementptr inbounds nuw i8, ptr %call4, i64 20
   %0 = load i32, ptr %tm_year, align 4
   %1 = add i32 %0, -150
   %or.cond32 = icmp ult i32 %1, -100
   br i1 %or.cond32, label %err, label %if.end20
 
 if.end20:                                         ; preds = %if.end14
-  %data21 = getelementptr inbounds i8, ptr %s.addr.035, i64 8
+  %data21 = getelementptr inbounds nuw i8, ptr %s.addr.035, i64 8
   %2 = load ptr, ptr %data21, align 8
   %cmp22 = icmp eq ptr %2, null
   br i1 %cmp22, label %if.then26, label %lor.lhs.false23
@@ -472,21 +472,21 @@ if.end39:                                         ; preds = %if.end37, %lor.lhs.
   %4 = phi i32 [ %.pre, %if.end37 ], [ %0, %lor.lhs.false23 ]
   %p.0 = phi ptr [ %call273942, %if.end37 ], [ %2, %lor.lhs.false23 ]
   %rem = srem i32 %4, 100
-  %tm_mon = getelementptr inbounds i8, ptr %call4, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %call4, i64 16
   %5 = load i32, ptr %tm_mon, align 8
   %add = add nsw i32 %5, 1
-  %tm_mday = getelementptr inbounds i8, ptr %call4, i64 12
+  %tm_mday = getelementptr inbounds nuw i8, ptr %call4, i64 12
   %6 = load i32, ptr %tm_mday, align 4
-  %tm_hour = getelementptr inbounds i8, ptr %call4, i64 8
+  %tm_hour = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %7 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds i8, ptr %call4, i64 4
+  %tm_min = getelementptr inbounds nuw i8, ptr %call4, i64 4
   %8 = load i32, ptr %tm_min, align 4
   %9 = load i32, ptr %call4, align 8
   %call41 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %p.0, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %rem, i32 noundef %add, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) #5
   %call42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p.0) #6
   %conv43 = trunc i64 %call42 to i32
   store i32 %conv43, ptr %s.addr.035, align 8
-  %type = getelementptr inbounds i8, ptr %s.addr.035, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %s.addr.035, i64 4
   store i32 23, ptr %type, align 4
   br label %return
 

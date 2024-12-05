@@ -106,7 +106,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
   %.sroa.5.8.insert.ext.i = zext nneg i32 %.024.ph85 to i64
   %.sroa.5.8.insert.shift.i = shl nuw nsw i64 %.sroa.5.8.insert.ext.i, 32
   store i64 %.sroa.0.0.insert.insert.i, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.5.8.insert.shift.i, ptr %.sroa.2.0..sroa_idx, align 8
   %24 = load i32, ptr @globalUtilOptind, align 4
   %25 = add nsw i32 %24, 1
@@ -121,7 +121,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
   br label %42
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %0, i64 288
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %36
@@ -137,7 +137,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 368
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 368
   call void @Abc_FrameReplaceCex(ptr noundef nonnull %0, ptr noundef nonnull %41)
   br label %42
 

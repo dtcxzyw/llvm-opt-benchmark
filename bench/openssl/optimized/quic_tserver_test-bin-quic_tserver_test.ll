@@ -247,19 +247,19 @@ if.end44.i:                                       ; preds = %if.end39.i
 
 if.end48.i:                                       ; preds = %if.end44.i
   store i64 1000000000, ptr @fake_time.0, align 8
-  %net_rbio.i = getelementptr inbounds i8, ptr %tserver_args.i, i64 24
+  %net_rbio.i = getelementptr inbounds nuw i8, ptr %tserver_args.i, i64 24
   store ptr %call40.i, ptr %net_rbio.i, align 8
-  %net_wbio.i = getelementptr inbounds i8, ptr %tserver_args.i, i64 32
+  %net_wbio.i = getelementptr inbounds nuw i8, ptr %tserver_args.i, i64 32
   store ptr %call40.i, ptr %net_wbio.i, align 8
-  %alpn50.i = getelementptr inbounds i8, ptr %tserver_args.i, i64 56
+  %alpn50.i = getelementptr inbounds nuw i8, ptr %tserver_args.i, i64 56
   store ptr null, ptr %alpn50.i, align 8
-  %ctx.i = getelementptr inbounds i8, ptr %tserver_args.i, i64 16
+  %ctx.i = getelementptr inbounds nuw i8, ptr %tserver_args.i, i64 16
   store ptr null, ptr %ctx.i, align 8
   %tobool51.i = icmp ne i32 %rem3, 0
   br i1 %tobool51.i, label %if.then52.i, label %if.end53.i
 
 if.then52.i:                                      ; preds = %if.end48.i
-  %now_cb.i = getelementptr inbounds i8, ptr %tserver_args.i, i64 40
+  %now_cb.i = getelementptr inbounds nuw i8, ptr %tserver_args.i, i64 40
   store ptr @fake_now, ptr %now_cb.i, align 8
   br label %if.end53.i
 
@@ -393,9 +393,9 @@ if.end138.i:                                      ; preds = %if.end131.i
 
 if.end158.lr.ph.i:                                ; preds = %if.end138.i
   %or.cond6.i = and i1 %tobool4, %tobool51.i
-  %6 = getelementptr inbounds i8, ptr %tv.i, i64 8
-  %data_len.i = getelementptr inbounds i8, ptr %rmsg.i, i64 8
-  %7 = getelementptr inbounds i8, ptr %rmsg.i, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %tv.i, i64 8
+  %data_len.i = getelementptr inbounds nuw i8, ptr %rmsg.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %rmsg.i, i64 16
   br label %if.end158.i
 
 if.then157.i:                                     ; preds = %if.end393.i, %if.end138.i
@@ -507,7 +507,7 @@ if.end219.i:                                      ; preds = %if.else213.i, %if.e
   br i1 %or.cond3.i, label %if.then224.i, label %if.end240.i
 
 if.then224.i:                                     ; preds = %if.end219.i
-  %add.ptr225.i = getelementptr inbounds i8, ptr @msg2, i64 %s_total_written.0144.i
+  %add.ptr225.i = getelementptr inbounds nuw i8, ptr @msg2, i64 %s_total_written.0144.i
   %sub226.i = sub nuw nsw i64 46, %s_total_written.0144.i
   %call227.i = call i32 @ossl_quic_tserver_write(ptr noundef %call54.i, i64 noundef 0, ptr noundef nonnull %add.ptr225.i, i64 noundef %sub226.i, ptr noundef nonnull %l.i) #8
   %cmp228.i = icmp ne i32 %call227.i, 0
@@ -535,7 +535,7 @@ if.end240.i:                                      ; preds = %if.then237.i, %if.e
   br i1 %or.cond4.i, label %if.then245.i, label %if.end271.i
 
 if.then245.i:                                     ; preds = %if.end240.i
-  %add.ptr246.i = getelementptr inbounds i8, ptr @msg3, i64 %c_total_read.0145.i
+  %add.ptr246.i = getelementptr inbounds nuw i8, ptr @msg3, i64 %c_total_read.0145.i
   %sub247.i = sub nuw nsw i64 46, %c_total_read.0145.i
   %call248.i = call i32 @SSL_read_ex(ptr noundef %call100.i, ptr noundef nonnull %add.ptr246.i, i64 noundef %sub247.i, ptr noundef nonnull %l.i) #8
   %cmp249.i = icmp eq i32 %call248.i, 1

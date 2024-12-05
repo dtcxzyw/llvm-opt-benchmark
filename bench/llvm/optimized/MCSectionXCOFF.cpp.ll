@@ -63,7 +63,7 @@ define dso_local void @_ZNK4llvm14MCSectionXCOFF19printCsectDirectiveERNS_11raw_
 13:                                               ; preds = %2
   store i64 2338603393890856457, ptr %6, align 1
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %15, ptr %5, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -80,7 +80,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %21 = getelementptr inbounds i8, ptr %17, i64 -8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i64, ptr %22, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %26 = load ptr, ptr %25, align 8
@@ -123,7 +123,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %_ZN4llvm11raw_ostre
 46:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
   store i8 44, ptr %42, align 1
   %47 = load ptr, ptr %41, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %48, ptr %41, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit6
 
@@ -145,7 +145,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %44, %46
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 58:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit6
-  %59 = getelementptr inbounds i8, ptr %53, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 1
   store ptr %59, ptr %52, align 8
   store i8 10, ptr %53, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -400,7 +400,7 @@ define dso_local void @_ZNK4llvm14MCSectionXCOFF20printSwitchToSectionERKNS_9MCA
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 75:                                               ; preds = %63
-  %76 = getelementptr inbounds i8, ptr %70, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 1
   store ptr %76, ptr %69, align 8
   store i8 10, ptr %70, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -408,7 +408,7 @@ define dso_local void @_ZNK4llvm14MCSectionXCOFF20printSwitchToSectionERKNS_9MCA
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %73, %75
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sroa.0.0.copyload.i29 = load ptr, ptr %77, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 136
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %78 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.sroa.0.0.copyload.i29, i64 %.sroa.2.0.copyload.i)
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
@@ -423,7 +423,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %73, %75
   br label %_ZN4llvm11raw_ostreamlsEc.exit32
 
 85:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %86 = getelementptr inbounds i8, ptr %80, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 1
   store ptr %86, ptr %79, align 8
   store i8 58, ptr %80, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit32
@@ -442,7 +442,7 @@ _ZN4llvm11raw_ostreamlsEc.exit32:                 ; preds = %83, %85
   br label %_ZN4llvm11raw_ostreamlsEc.exit35
 
 93:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit32
-  %94 = getelementptr inbounds i8, ptr %88, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 1
   store ptr %94, ptr %87, align 8
   store i8 10, ptr %88, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit35

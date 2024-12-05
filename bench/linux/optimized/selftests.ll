@@ -35,7 +35,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_net_selftest
 define dso_local void @net_selftest(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 56)) %2) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   store i8 0, ptr @net_test_next_id, align 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %.preheader, label %7
@@ -116,7 +116,7 @@ declare dso_local void @ethtool_sprintf(ptr noundef, ptr noundef, ...) local_unn
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
 define internal range(i32 -67, 1) i32 @net_test_netif_carrier(ptr noundef %0) #6 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 352
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 4
   %5 = icmp eq i64 %4, 0
@@ -126,7 +126,7 @@ define internal range(i32 -67, 1) i32 @net_test_netif_carrier(ptr noundef %0) #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal range(i32 -95, 1) i32 @net_test_phy_phydev(ptr nocapture noundef readonly %0) #7 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = select i1 %4, i32 -95, i32 0
@@ -135,7 +135,7 @@ define internal range(i32 -95, 1) i32 @net_test_phy_phydev(ptr nocapture noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @net_test_phy_loopback_enable(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -154,9 +154,9 @@ define internal range(i32 -2147483648, 1) i32 @net_test_phy_loopback_udp(ptr nou
   %2 = alloca %struct.net_packet_attrs, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 968
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
   %6 = call fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #11
@@ -168,13 +168,13 @@ define internal range(i32 -2147483648, 1) i32 @net_test_phy_loopback_udp_mtu(ptr
   %2 = alloca %struct.net_packet_attrs, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 968
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %7, ptr %8, align 8
   %9 = call fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #11
@@ -186,11 +186,11 @@ define internal range(i32 -2147483648, 1) i32 @net_test_phy_loopback_tcp(ptr nou
   %2 = alloca %struct.net_packet_attrs, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 968
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 1, ptr %6, align 8
   %7 = call fastcc i32 @__net_test_loopback(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #11
@@ -199,7 +199,7 @@ define internal range(i32 -2147483648, 1) i32 @net_test_phy_loopback_tcp(ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @net_test_phy_loopback_disable(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -224,30 +224,30 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   br i1 %5, label %217, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 88
-  tail call void @__init_swait_queue_head(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef nonnull @init_completion.__key) #11
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  tail call void @__init_swait_queue_head(ptr noundef nonnull %9, ptr noundef nonnull @.str.3, ptr noundef nonnull @init_completion.__key) #11
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i16 8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @net_test_loopback_validate, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %4, ptr %13, align 8
   store ptr %1, ptr %4, align 8
-  tail call void @dev_add_pack(ptr noundef %10) #11
-  %14 = getelementptr inbounds i8, ptr %1, i64 36
+  tail call void @dev_add_pack(ptr noundef nonnull %10) #11
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i8, ptr %16, align 8, !range !9, !noundef !10
   %18 = icmp eq i8 %17, 0
   %19 = select i1 %18, i32 55, i32 67
   %20 = add i32 %19, %15
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   %24 = tail call i32 @llvm.smax.i32(i32 %22, i32 %20)
@@ -257,22 +257,22 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %6
-  %29 = getelementptr inbounds i8, ptr %26, i64 200
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 200
   %30 = load ptr, ptr %29, align 8
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09prefetcht0 ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 6*32+ 8)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09prefetchw ${1:P}\0A6651:\0A.popsection\0A", "i,*m,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i8) %30) #11, !srcloc !11
   %31 = tail call ptr @skb_push(ptr noundef nonnull %26, i32 noundef 14) #11
   %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds i8, ptr %26, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 192
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %32 to i64
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = trunc i64 %37 to i16
-  %39 = getelementptr inbounds i8, ptr %26, i64 182
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 182
   store i16 %38, ptr %39, align 2
-  %40 = getelementptr inbounds i8, ptr %26, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 112
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %26, i64 180
+  %42 = getelementptr inbounds nuw i8, ptr %26, i64 180
   %43 = trunc i32 %41 to i16
   %44 = add i16 %38, %43
   store i16 %44, ptr %42, align 4
@@ -284,7 +284,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
   %52 = trunc i64 %51 to i16
-  %53 = getelementptr inbounds i8, ptr %26, i64 178
+  %53 = getelementptr inbounds nuw i8, ptr %26, i64 178
   %54 = trunc i32 %46 to i16
   %55 = add i16 %52, %54
   store i16 %55, ptr %53, align 2
@@ -309,7 +309,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   br i1 %66, label %73, label %67
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %31, i64 6
+  %68 = getelementptr inbounds nuw i8, ptr %31, i64 6
   %69 = load i32, ptr %65, align 4
   store i32 %69, ptr %68, align 4
   %70 = getelementptr i8, ptr %65, i64 4
@@ -319,7 +319,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   br label %73
 
 73:                                               ; preds = %67, %62
-  %74 = getelementptr inbounds i8, ptr %1, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %82, label %77
@@ -334,28 +334,28 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   br label %82
 
 82:                                               ; preds = %77, %73
-  %83 = getelementptr inbounds i8, ptr %31, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i16 8, ptr %83, align 1
   %84 = load i8, ptr %16, align 8, !range !9, !noundef !10
   %85 = icmp eq i8 %84, 0
-  %86 = getelementptr inbounds i8, ptr %1, i64 26
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %87 = load i16, ptr %86, align 2
   %88 = tail call i16 @llvm.bswap.i16(i16 %87)
-  %89 = getelementptr inbounds i8, ptr %1, i64 28
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 28
   br i1 %85, label %99, label %90
 
 90:                                               ; preds = %82
   store i16 %88, ptr %64, align 4
   %91 = load i16, ptr %89, align 4
   %92 = tail call i16 @llvm.bswap.i16(i16 %91)
-  %93 = getelementptr inbounds i8, ptr %64, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %64, i64 2
   store i16 %92, ptr %93, align 2
-  %94 = getelementptr inbounds i8, ptr %64, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %95 = load i16, ptr %94, align 4
   %96 = and i16 %95, -241
   %97 = or disjoint i16 %96, 80
   store i16 %97, ptr %94, align 4
-  %98 = getelementptr inbounds i8, ptr %64, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i16 0, ptr %98, align 4
   br label %116
 
@@ -363,13 +363,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   store i16 %88, ptr %63, align 2
   %100 = load i16, ptr %89, align 4
   %101 = tail call i16 @llvm.bswap.i16(i16 %100)
-  %102 = getelementptr inbounds i8, ptr %63, i64 2
+  %102 = getelementptr inbounds nuw i8, ptr %63, i64 2
   store i16 %101, ptr %102, align 2
   %103 = load i32, ptr %14, align 4
   %104 = trunc i32 %103 to i16
   %105 = add i16 %104, 21
   %106 = tail call i16 @llvm.bswap.i16(i16 %105)
-  %107 = getelementptr inbounds i8, ptr %63, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i16 %106, ptr %107, align 2
   %108 = load i32, ptr %21, align 8
   %109 = icmp eq i32 %108, 0
@@ -383,17 +383,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   br label %114
 
 114:                                              ; preds = %110, %99
-  %115 = getelementptr inbounds i8, ptr %63, i64 6
+  %115 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store i16 0, ptr %115, align 2
   br label %116
 
 116:                                              ; preds = %114, %90
-  %117 = getelementptr inbounds i8, ptr %45, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i8 32, ptr %117, align 4
   store i8 69, ptr %45, align 4
   %118 = load i8, ptr %16, align 8, !range !9, !noundef !10
   %119 = icmp eq i8 %118, 0
-  %120 = getelementptr inbounds i8, ptr %45, i64 9
+  %120 = getelementptr inbounds nuw i8, ptr %45, i64 9
   %121 = select i1 %119, i8 17, i8 6
   store i8 %121, ptr %120, align 1
   %122 = load i32, ptr %14, align 4
@@ -407,35 +407,35 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   %130 = select i1 %128, i32 %126, i32 %129
   %131 = trunc i32 %130 to i16
   %132 = tail call i16 @llvm.bswap.i16(i16 %131)
-  %133 = getelementptr inbounds i8, ptr %45, i64 2
+  %133 = getelementptr inbounds nuw i8, ptr %45, i64 2
   store i16 %132, ptr %133, align 2
-  %134 = getelementptr inbounds i8, ptr %45, i64 6
+  %134 = getelementptr inbounds nuw i8, ptr %45, i64 6
   store i16 0, ptr %134, align 2
-  %135 = getelementptr inbounds i8, ptr %1, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %136 = load i32, ptr %135, align 8
   %137 = tail call i32 @llvm.bswap.i32(i32 %136)
-  %138 = getelementptr inbounds i8, ptr %45, i64 12
+  %138 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %137, ptr %138, align 4
-  %139 = getelementptr inbounds i8, ptr %1, i64 20
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %140 = load i32, ptr %139, align 4
   %141 = tail call i32 @llvm.bswap.i32(i32 %140)
-  %142 = getelementptr inbounds i8, ptr %45, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i32 %141, ptr %142, align 4
-  %143 = getelementptr inbounds i8, ptr %45, i64 1
+  %143 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store i8 0, ptr %143, align 1
-  %144 = getelementptr inbounds i8, ptr %45, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i16 0, ptr %144, align 4
   tail call void @ip_send_check(ptr noundef %45) #11
   %145 = tail call ptr @skb_put(ptr noundef nonnull %26, i32 noundef 13) #11
   store i32 0, ptr %145, align 1
-  %146 = getelementptr inbounds i8, ptr %145, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
   store i64 -5918012712506708514, ptr %146, align 1
   %147 = load i8, ptr @net_test_next_id, align 1
-  %148 = getelementptr inbounds i8, ptr %1, i64 44
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i8 %147, ptr %148, align 4
   %149 = add i8 %147, 1
   store i8 %149, ptr @net_test_next_id, align 1
-  %150 = getelementptr inbounds i8, ptr %145, i64 12
+  %150 = getelementptr inbounds nuw i8, ptr %145, i64 12
   store i8 %147, ptr %150, align 1
   %151 = load i32, ptr %14, align 4
   %152 = icmp eq i32 %151, 0
@@ -461,8 +461,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   br label %164
 
 164:                                              ; preds = %161, %158, %155
-  %165 = getelementptr inbounds i8, ptr %26, i64 128
-  %166 = getelementptr inbounds i8, ptr %26, i64 136
+  %165 = getelementptr inbounds nuw i8, ptr %26, i64 128
+  %166 = getelementptr inbounds nuw i8, ptr %26, i64 136
   store i32 0, ptr %166, align 8
   %167 = load i8, ptr %165, align 8
   %168 = or i8 %167, 96
@@ -485,11 +485,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   %182 = lshr i32 %181, 16
   %183 = trunc nuw i32 %182 to i16
   %184 = xor i16 %183, -1
-  %185 = getelementptr inbounds i8, ptr %64, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i16 %184, ptr %185, align 4
   %186 = load i16, ptr %53, align 2
   store i16 %186, ptr %166, align 8
-  %187 = getelementptr inbounds i8, ptr %26, i64 138
+  %187 = getelementptr inbounds nuw i8, ptr %26, i64 138
   store i16 16, ptr %187, align 2
   br label %191
 
@@ -500,14 +500,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   br label %191
 
 191:                                              ; preds = %188, %171
-  %192 = getelementptr inbounds i8, ptr %26, i64 176
+  %192 = getelementptr inbounds nuw i8, ptr %26, i64 176
   store i16 8, ptr %192, align 8
   %193 = load i8, ptr %165, align 8
   %194 = and i8 %193, -8
   store i8 %194, ptr %165, align 8
-  %195 = getelementptr inbounds i8, ptr %26, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %0, ptr %195, align 8
-  %196 = getelementptr inbounds i8, ptr %1, i64 46
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 46
   %197 = load i16, ptr %196, align 2
   %198 = tail call i32 @__dev_direct_xmit(ptr noundef nonnull %26, i16 noundef zeroext %197) #11
   %199 = icmp slt i32 %198, 15
@@ -526,7 +526,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
   br i1 %203, label %204, label %.thread
 
 204:                                              ; preds = %202
-  %205 = getelementptr inbounds i8, ptr %1, i64 32
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %206 = load i32, ptr %205, align 8
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %208, label %209
@@ -538,7 +538,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
 209:                                              ; preds = %208, %204
   %210 = phi i32 [ 200, %208 ], [ %206, %204 ]
   %211 = sext i32 %210 to i64
-  %212 = tail call i64 @wait_for_completion_timeout(ptr noundef %8, i64 noundef %211) #11
+  %212 = tail call i64 @wait_for_completion_timeout(ptr noundef nonnull %8, i64 noundef %211) #11
   %213 = load i32, ptr %7, align 8
   %214 = icmp eq i32 %213, 0
   %215 = select i1 %214, i32 -110, i32 0
@@ -546,7 +546,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
 
 .thread:                                          ; preds = %6, %.thread11, %209, %202, %200
   %216 = phi i32 [ %198, %200 ], [ %215, %209 ], [ -101, %202 ], [ -101, %.thread11 ], [ -12, %6 ]
-  tail call void @dev_remove_pack(ptr noundef %10) #11
+  tail call void @dev_remove_pack(ptr noundef nonnull %10) #11
   tail call void @kfree(ptr noundef nonnull %4) #11
   br label %217
 
@@ -557,26 +557,26 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 126
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %12 = load i8, ptr %11, align 2
   %13 = and i8 %12, 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %29, label %15
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 188
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
   %21 = getelementptr i8, ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load volatile i32, ptr %22, align 4
   %24 = and i32 %23, 65535
   %25 = icmp eq i32 %24, 1
@@ -601,7 +601,7 @@ define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr noca
 
 31:                                               ; preds = %.thread5, %29
   %32 = phi ptr [ %27, %.thread5 ], [ %0, %29 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 116
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 116
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %39, label %36
@@ -617,16 +617,16 @@ define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr noca
 
 39:                                               ; preds = %._crit_edge, %31
   %40 = phi i32 [ %.pre, %._crit_edge ], [ 0, %31 ]
-  %41 = getelementptr inbounds i8, ptr %32, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 112
   %42 = load i32, ptr %41, align 8
   %43 = sub i32 %42, %40
   %44 = icmp ult i32 %43, 33
   br i1 %44, label %142, label %45
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %32, i64 192
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 192
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %32, i64 182
+  %48 = getelementptr inbounds nuw i8, ptr %32, i64 182
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i64
   %51 = getelementptr i8, ptr %47, i64 %50
@@ -652,7 +652,7 @@ define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr noca
   br i1 %66, label %80, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %51, i64 6
+  %68 = getelementptr inbounds nuw i8, ptr %51, i64 6
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %8, align 4
   %71 = xor i32 %70, %69
@@ -667,20 +667,20 @@ define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr noca
   br i1 %79, label %80, label %142
 
 80:                                               ; preds = %67, %65
-  %81 = getelementptr inbounds i8, ptr %32, i64 180
+  %81 = getelementptr inbounds nuw i8, ptr %32, i64 180
   %82 = load i16, ptr %81, align 4
   %83 = zext i16 %82 to i64
   %84 = getelementptr i8, ptr %47, i64 %83
-  %85 = getelementptr inbounds i8, ptr %6, i64 112
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %86 = load i32, ptr %85, align 8
   %87 = icmp eq i32 %86, 0
   %88 = select i1 %87, i64 0, i64 4
   %89 = getelementptr i8, ptr %84, i64 %88
   %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load i8, ptr %91, align 8, !range !9, !noundef !10
   %93 = icmp eq i8 %92, 0
-  %94 = getelementptr inbounds i8, ptr %89, i64 9
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 9
   %95 = load i8, ptr %94, align 1
   br i1 %93, label %112, label %96
 
@@ -694,9 +694,9 @@ define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr noca
   %101 = and i8 %100, 60
   %102 = zext nneg i8 %101 to i64
   %103 = getelementptr i8, ptr %89, i64 %102
-  %104 = getelementptr inbounds i8, ptr %103, i64 2
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 2
   %105 = load i16, ptr %104, align 2
-  %106 = getelementptr inbounds i8, ptr %90, i64 28
+  %106 = getelementptr inbounds nuw i8, ptr %90, i64 28
   %107 = load i16, ptr %106, align 4
   %108 = tail call i16 @llvm.bswap.i16(i16 %107)
   %109 = icmp eq i16 %105, %108
@@ -716,9 +716,9 @@ define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr noca
   %117 = and i8 %116, 60
   %118 = zext nneg i8 %117 to i64
   %119 = getelementptr i8, ptr %89, i64 %118
-  %120 = getelementptr inbounds i8, ptr %119, i64 2
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 2
   %121 = load i16, ptr %120, align 2
-  %122 = getelementptr inbounds i8, ptr %90, i64 28
+  %122 = getelementptr inbounds nuw i8, ptr %90, i64 28
   %123 = load i16, ptr %122, align 4
   %124 = tail call i16 @llvm.bswap.i16(i16 %123)
   %125 = icmp eq i16 %121, %124
@@ -730,24 +730,24 @@ define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr noca
 
 128:                                              ; preds = %126, %110
   %129 = phi ptr [ %111, %110 ], [ %127, %126 ]
-  %130 = getelementptr inbounds i8, ptr %129, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i64, ptr %130, align 1
   %132 = icmp eq i64 %131, -5918012712506708514
   br i1 %132, label %133, label %142
 
 133:                                              ; preds = %128
-  %134 = getelementptr inbounds i8, ptr %90, i64 44
+  %134 = getelementptr inbounds nuw i8, ptr %90, i64 44
   %135 = load i8, ptr %134, align 4
-  %136 = getelementptr inbounds i8, ptr %129, i64 12
+  %136 = getelementptr inbounds nuw i8, ptr %129, i64 12
   %137 = load i8, ptr %136, align 1
   %138 = icmp eq i8 %135, %137
   br i1 %138, label %139, label %142
 
 139:                                              ; preds = %133
-  %140 = getelementptr inbounds i8, ptr %6, i64 120
+  %140 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i32 1, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %6, i64 80
-  tail call void @complete(ptr noundef %141) #11
+  %141 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  tail call void @complete(ptr noundef nonnull %141) #11
   br label %142
 
 142:                                              ; preds = %.thread, %139, %133, %128, %114, %112, %98, %96, %67, %53, %39, %36, %29

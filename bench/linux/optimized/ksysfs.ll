@@ -313,10 +313,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_setup_data_size(i32 no
   br i1 %10, label %11, label %38
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -2147483648
-  %15 = getelementptr inbounds i8, ptr %7, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %16 = load i32, ptr %15, align 4
   br i1 %14, label %17, label %33
 
@@ -329,18 +329,18 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_setup_data_size(i32 no
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, -2147483648
   br i1 %25, label %29, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %20, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %28 = load i64, ptr %27, align 8
   br label %35
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %20, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
   br label %35
@@ -410,13 +410,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @setup_data_data_read(ptr
   br i1 %21, label %.thread, label %28
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %20, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, -2147483648
   br i1 %31, label %32, label %53
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %20, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
   %36 = add nuw nsw i64 %35, 16
@@ -426,28 +426,28 @@ define internal range(i64 -2147483648, 2147483648) i64 @setup_data_data_read(ptr
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, -2147483648
   br i1 %42, label %48, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %37, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %37, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %47 = load i64, ptr %46, align 8
   br label %58
 
 48:                                               ; preds = %39
   %49 = add i64 %17, 16
-  %50 = getelementptr inbounds i8, ptr %37, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
   br label %58
 
 53:                                               ; preds = %28
   %54 = add i64 %17, 16
-  %55 = getelementptr inbounds i8, ptr %20, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
   br label %58
@@ -534,13 +534,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @type_show(ptr nocapture 
   br i1 %18, label %.thread, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %17, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, -2147483648
   br i1 %28, label %29, label %39
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %17, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %31, 16
   call void @memunmap(ptr noundef nonnull %17) #11
@@ -550,7 +550,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @type_show(ptr nocapture 
   br i1 %35, label %.thread, label %36
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %34, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = load i32, ptr %37, align 8
   br label %39
 

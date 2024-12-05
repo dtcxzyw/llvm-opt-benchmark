@@ -44,7 +44,7 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
   %.0446631.us = phi ptr [ %.0446.be.us, %.backedge.us ], [ %.0446.ph1812, %.lr.ph ]
-  %14 = getelementptr inbounds i8, ptr %.0446631.us, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 4
   %15 = load i32, ptr %.0446631.us, align 4
   switch i32 %15, label %.split.us [
     i32 10, label %.split634.us
@@ -98,23 +98,23 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   ]
 
 16:                                               ; preds = %.lr.ph.split.us
-  %17 = getelementptr inbounds i8, ptr %.0446631.us, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 12
   br label %.backedge.us
 
 18:                                               ; preds = %.lr.ph.split.us
-  %19 = getelementptr inbounds i8, ptr %.0446631.us, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 12
   %20 = load i64, ptr %14, align 8
   %.not458.us = icmp eq i64 %20, 0
   br i1 %.not458.us, label %.outer, label %.backedge.us
 
 21:                                               ; preds = %.lr.ph.split.us
-  %22 = getelementptr inbounds i8, ptr %.0446631.us, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 12
   %23 = load i64, ptr %14, align 8
   %.not460.us = icmp eq i64 %23, 0
   br i1 %.not460.us, label %.outer, label %.backedge.us
 
 24:                                               ; preds = %.lr.ph.split.us
-  %25 = getelementptr inbounds i8, ptr %.0446631.us, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 12
   br label %.backedge.us
 
 .backedge.us:                                     ; preds = %21, %18, %24, %16
@@ -176,55 +176,55 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   ]
 
 .split634.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %28 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split634.us
 
 .split634.us:                                     ; preds = %.lr.ph.split.us, %.split634.split.split
   %.us-phi635 = phi ptr [ %28, %.split634.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi636 = phi ptr [ %.0446.ph1812, %.split634.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %29 = load i32, ptr %.us-phi635, align 4
-  %30 = getelementptr inbounds i8, ptr %.us-phi636, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.us-phi636, i64 8
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %.us-phi636, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %.us-phi636, i64 12
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %.us-phi636, i64 20
-  %35 = getelementptr inbounds i8, ptr %.us-phi636, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.us-phi636, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %.us-phi636, i64 16
   %36 = load i32, ptr %35, align 4
   tail call void @OGLRenderer_DrawLine(ptr noundef %.fr1955, i32 noundef %29, i32 noundef %31, i32 noundef %33, i32 noundef %36) #4
   br label %.outer
 
 .split638.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %37 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split638.us
 
 .split638.us:                                     ; preds = %.lr.ph.split.us, %.split638.split.split
   %.us-phi639 = phi ptr [ %37, %.split638.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi640 = phi ptr [ %.0446.ph1812, %.split638.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %38 = load i32, ptr %.us-phi639, align 4
-  %39 = getelementptr inbounds i8, ptr %.us-phi640, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.us-phi640, i64 8
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %.us-phi640, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %.us-phi640, i64 12
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %.us-phi640, i64 20
-  %44 = getelementptr inbounds i8, ptr %.us-phi640, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.us-phi640, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %.us-phi640, i64 16
   %45 = load i32, ptr %44, align 4
   tail call void @OGLRenderer_DrawRect(ptr noundef %.fr1955, i32 noundef %38, i32 noundef %40, i32 noundef %42, i32 noundef %45) #4
   br label %.outer
 
 .split642.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %46 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split642.us
 
 .split642.us:                                     ; preds = %.lr.ph.split.us, %.split642.split.split
   %.us-phi643 = phi ptr [ %46, %.split642.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi644 = phi ptr [ %.0446.ph1812, %.split642.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %47 = load i32, ptr %.us-phi643, align 4
-  %48 = getelementptr inbounds i8, ptr %.us-phi644, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.us-phi644, i64 8
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %.us-phi644, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %.us-phi644, i64 12
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %.us-phi644, i64 20
-  %53 = getelementptr inbounds i8, ptr %.us-phi644, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.us-phi644, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %.us-phi644, i64 16
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %47 to i64
   %56 = getelementptr inbounds i32, ptr %52, i64 %55
@@ -235,9 +235,9 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split806.us:                                     ; preds = %.lr.ph.split.split.split.split
-  %60 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
-  %61 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 12
-  %62 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 8
   %63 = load i32, ptr %62, align 4
   %64 = load i32, ptr %60, align 4
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef 1)
@@ -250,13 +250,13 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split646.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %69 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split646.us
 
 .split646.us:                                     ; preds = %.lr.ph.split.us, %.split646.split.split
   %.us-phi647 = phi ptr [ %69, %.split646.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi648 = phi ptr [ %.0446.ph1812, %.split646.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %70 = getelementptr inbounds i8, ptr %.us-phi648, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.us-phi648, i64 8
   %71 = load i32, ptr %.us-phi647, align 4
   tail call void @OGLRenderer_DrawScanlines(ptr noundef %.fr1955, i32 noundef %71, ptr noundef nonnull %70) #4
   %72 = sext i32 %71 to i64
@@ -265,84 +265,84 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split650.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %75 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split650.us
 
 .split650.us:                                     ; preds = %.lr.ph.split.us, %.split650.split.split
   %.us-phi651 = phi ptr [ %75, %.split650.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi652 = phi ptr [ %.0446.ph1812, %.split650.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %76 = load float, ptr %.us-phi651, align 4
-  %77 = getelementptr inbounds i8, ptr %.us-phi652, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.us-phi652, i64 8
   %78 = load float, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %.us-phi652, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %.us-phi652, i64 12
   %80 = load float, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %.us-phi652, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.us-phi652, i64 16
   %82 = load float, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %.us-phi652, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %.us-phi652, i64 20
   %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %.us-phi652, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %.us-phi652, i64 24
   %86 = load float, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %.us-phi652, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %.us-phi652, i64 28
   %88 = load float, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %.us-phi652, i64 36
-  %90 = getelementptr inbounds i8, ptr %.us-phi652, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %.us-phi652, i64 36
+  %90 = getelementptr inbounds nuw i8, ptr %.us-phi652, i64 32
   %91 = load float, ptr %90, align 4
   tail call void @OGLRenderer_DrawParallelogram(ptr noundef %.fr1955, float noundef %76, float noundef %78, float noundef %80, float noundef %82, float noundef %84, float noundef %86, float noundef %88, float noundef %91) #4
   br label %.outer
 
 .split654.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %92 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split654.us
 
 .split654.us:                                     ; preds = %.lr.ph.split.us, %.split654.split.split
   %.us-phi655 = phi ptr [ %92, %.split654.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi656 = phi ptr [ %.0446.ph1812, %.split654.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %93 = load float, ptr %.us-phi655, align 4
-  %94 = getelementptr inbounds i8, ptr %.us-phi656, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.us-phi656, i64 8
   %95 = load float, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %.us-phi656, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %.us-phi656, i64 12
   %97 = load float, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %.us-phi656, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.us-phi656, i64 16
   %99 = load float, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %.us-phi656, i64 20
+  %100 = getelementptr inbounds nuw i8, ptr %.us-phi656, i64 20
   %101 = load float, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %.us-phi656, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %.us-phi656, i64 24
   %103 = load float, ptr %102, align 4
-  %104 = getelementptr inbounds i8, ptr %.us-phi656, i64 28
+  %104 = getelementptr inbounds nuw i8, ptr %.us-phi656, i64 28
   %105 = load float, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %.us-phi656, i64 36
-  %107 = getelementptr inbounds i8, ptr %.us-phi656, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %.us-phi656, i64 36
+  %107 = getelementptr inbounds nuw i8, ptr %.us-phi656, i64 32
   %108 = load float, ptr %107, align 4
   %109 = load ptr, ptr @dstOps, align 8
   tail call void @OGLRenderer_DrawAAParallelogram(ptr noundef %.fr1955, ptr noundef %109, float noundef %93, float noundef %95, float noundef %97, float noundef %99, float noundef %101, float noundef %103, float noundef %105, float noundef %108) #4
   br label %.outer
 
 .split658.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %110 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split658.us
 
 .split658.us:                                     ; preds = %.lr.ph.split.us, %.split658.split.split
   %.us-phi659 = phi ptr [ %110, %.split658.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi660 = phi ptr [ %.0446.ph1812, %.split658.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %111 = load i32, ptr %.us-phi659, align 4
-  %112 = getelementptr inbounds i8, ptr %.us-phi660, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.us-phi660, i64 8
   %113 = load i32, ptr %112, align 4
-  %114 = getelementptr inbounds i8, ptr %.us-phi660, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %.us-phi660, i64 12
   %115 = load i32, ptr %114, align 4
-  %116 = getelementptr inbounds i8, ptr %.us-phi660, i64 20
-  %117 = getelementptr inbounds i8, ptr %.us-phi660, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %.us-phi660, i64 20
+  %117 = getelementptr inbounds nuw i8, ptr %.us-phi660, i64 16
   %118 = load i32, ptr %117, align 4
   tail call void @OGLRenderer_FillRect(ptr noundef %.fr1955, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef %118) #4
   br label %.outer
 
 .split662.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %119 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split662.us
 
 .split662.us:                                     ; preds = %.lr.ph.split.us, %.split662.split.split
   %.us-phi663 = phi ptr [ %119, %.split662.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi664 = phi ptr [ %.0446.ph1812, %.split662.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %120 = getelementptr inbounds i8, ptr %.us-phi664, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.us-phi664, i64 8
   %121 = load i32, ptr %.us-phi663, align 4
   tail call void @OGLRenderer_FillSpans(ptr noundef %.fr1955, i32 noundef %121, ptr noundef nonnull %120) #4
   %122 = sext i32 %121 to i64
@@ -351,64 +351,64 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split666.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %125 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split666.us
 
 .split666.us:                                     ; preds = %.lr.ph.split.us, %.split666.split.split
   %.us-phi667 = phi ptr [ %125, %.split666.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi668 = phi ptr [ %.0446.ph1812, %.split666.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %126 = load float, ptr %.us-phi667, align 4
-  %127 = getelementptr inbounds i8, ptr %.us-phi668, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %.us-phi668, i64 8
   %128 = load float, ptr %127, align 4
-  %129 = getelementptr inbounds i8, ptr %.us-phi668, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %.us-phi668, i64 12
   %130 = load float, ptr %129, align 4
-  %131 = getelementptr inbounds i8, ptr %.us-phi668, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %.us-phi668, i64 16
   %132 = load float, ptr %131, align 4
-  %133 = getelementptr inbounds i8, ptr %.us-phi668, i64 20
+  %133 = getelementptr inbounds nuw i8, ptr %.us-phi668, i64 20
   %134 = load float, ptr %133, align 4
-  %135 = getelementptr inbounds i8, ptr %.us-phi668, i64 28
-  %136 = getelementptr inbounds i8, ptr %.us-phi668, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %.us-phi668, i64 28
+  %136 = getelementptr inbounds nuw i8, ptr %.us-phi668, i64 24
   %137 = load float, ptr %136, align 4
   tail call void @OGLRenderer_FillParallelogram(ptr noundef %.fr1955, float noundef %126, float noundef %128, float noundef %130, float noundef %132, float noundef %134, float noundef %137) #4
   br label %.outer
 
 .split670.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %138 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split670.us
 
 .split670.us:                                     ; preds = %.lr.ph.split.us, %.split670.split.split
   %.us-phi671 = phi ptr [ %138, %.split670.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi672 = phi ptr [ %.0446.ph1812, %.split670.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %139 = load float, ptr %.us-phi671, align 4
-  %140 = getelementptr inbounds i8, ptr %.us-phi672, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %.us-phi672, i64 8
   %141 = load float, ptr %140, align 4
-  %142 = getelementptr inbounds i8, ptr %.us-phi672, i64 12
+  %142 = getelementptr inbounds nuw i8, ptr %.us-phi672, i64 12
   %143 = load float, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %.us-phi672, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %.us-phi672, i64 16
   %145 = load float, ptr %144, align 4
-  %146 = getelementptr inbounds i8, ptr %.us-phi672, i64 20
+  %146 = getelementptr inbounds nuw i8, ptr %.us-phi672, i64 20
   %147 = load float, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %.us-phi672, i64 28
-  %149 = getelementptr inbounds i8, ptr %.us-phi672, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %.us-phi672, i64 28
+  %149 = getelementptr inbounds nuw i8, ptr %.us-phi672, i64 24
   %150 = load float, ptr %149, align 4
   %151 = load ptr, ptr @dstOps, align 8
   tail call void @OGLRenderer_FillAAParallelogram(ptr noundef %.fr1955, ptr noundef %151, float noundef %139, float noundef %141, float noundef %143, float noundef %145, float noundef %147, float noundef %150) #4
   br label %.outer
 
 .split674.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %152 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split674.us
 
 .split674.us:                                     ; preds = %.lr.ph.split.us, %.split674.split.split
   %.us-phi675 = phi ptr [ %152, %.split674.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi676 = phi ptr [ %.0446.ph1812, %.split674.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %153 = load i32, ptr %.us-phi675, align 4
-  %154 = getelementptr inbounds i8, ptr %.us-phi676, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %.us-phi676, i64 8
   %155 = load i32, ptr %154, align 4
-  %156 = getelementptr inbounds i8, ptr %.us-phi676, i64 12
+  %156 = getelementptr inbounds nuw i8, ptr %.us-phi676, i64 12
   %157 = load float, ptr %156, align 4
-  %158 = getelementptr inbounds i8, ptr %.us-phi676, i64 20
-  %159 = getelementptr inbounds i8, ptr %.us-phi676, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %.us-phi676, i64 20
+  %159 = getelementptr inbounds nuw i8, ptr %.us-phi676, i64 16
   %160 = load float, ptr %159, align 4
   %161 = trunc i32 %155 to i8
   %162 = and i8 %161, 1
@@ -432,56 +432,56 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split678.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %177 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %177 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split678.us
 
 .split678.us:                                     ; preds = %.lr.ph.split.us, %.split678.split.split
   %.us-phi679 = phi ptr [ %177, %.split678.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi680 = phi ptr [ %.0446.ph1812, %.split678.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %178 = load i32, ptr %.us-phi679, align 4
-  %179 = getelementptr inbounds i8, ptr %.us-phi680, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %.us-phi680, i64 8
   %180 = load i32, ptr %179, align 4
-  %181 = getelementptr inbounds i8, ptr %.us-phi680, i64 12
+  %181 = getelementptr inbounds nuw i8, ptr %.us-phi680, i64 12
   %182 = load i32, ptr %181, align 4
-  %183 = getelementptr inbounds i8, ptr %.us-phi680, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %.us-phi680, i64 16
   %184 = load i32, ptr %183, align 4
-  %185 = getelementptr inbounds i8, ptr %.us-phi680, i64 20
+  %185 = getelementptr inbounds nuw i8, ptr %.us-phi680, i64 20
   %186 = load i32, ptr %185, align 4
-  %187 = getelementptr inbounds i8, ptr %.us-phi680, i64 28
-  %188 = getelementptr inbounds i8, ptr %.us-phi680, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %.us-phi680, i64 28
+  %188 = getelementptr inbounds nuw i8, ptr %.us-phi680, i64 24
   %189 = load i32, ptr %188, align 4
   %190 = load ptr, ptr @dstOps, align 8
   tail call void @OGLBlitLoops_CopyArea(ptr noundef %0, ptr noundef %.fr1955, ptr noundef %190, i32 noundef %178, i32 noundef %180, i32 noundef %182, i32 noundef %184, i32 noundef %186, i32 noundef %189) #4
   br label %.outer
 
 .split682.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %191 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split682.us
 
 .split682.us:                                     ; preds = %.lr.ph.split.us, %.split682.split.split
   %.us-phi683 = phi ptr [ %191, %.split682.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi684 = phi ptr [ %.0446.ph1812, %.split682.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %192 = load i32, ptr %.us-phi683, align 4
-  %193 = getelementptr inbounds i8, ptr %.us-phi684, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %.us-phi684, i64 8
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds i8, ptr %.us-phi684, i64 12
+  %195 = getelementptr inbounds nuw i8, ptr %.us-phi684, i64 12
   %196 = load i32, ptr %195, align 4
-  %197 = getelementptr inbounds i8, ptr %.us-phi684, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %.us-phi684, i64 16
   %198 = load i32, ptr %197, align 4
-  %199 = getelementptr inbounds i8, ptr %.us-phi684, i64 20
+  %199 = getelementptr inbounds nuw i8, ptr %.us-phi684, i64 20
   %200 = load i32, ptr %199, align 4
-  %201 = getelementptr inbounds i8, ptr %.us-phi684, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %.us-phi684, i64 24
   %202 = load double, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %.us-phi684, i64 32
+  %203 = getelementptr inbounds nuw i8, ptr %.us-phi684, i64 32
   %204 = load double, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %.us-phi684, i64 40
+  %205 = getelementptr inbounds nuw i8, ptr %.us-phi684, i64 40
   %206 = load double, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %.us-phi684, i64 48
+  %207 = getelementptr inbounds nuw i8, ptr %.us-phi684, i64 48
   %208 = load double, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %.us-phi684, i64 56
+  %209 = getelementptr inbounds nuw i8, ptr %.us-phi684, i64 56
   %210 = load i64, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %.us-phi684, i64 72
-  %212 = getelementptr inbounds i8, ptr %.us-phi684, i64 64
+  %211 = getelementptr inbounds nuw i8, ptr %.us-phi684, i64 72
+  %212 = getelementptr inbounds nuw i8, ptr %.us-phi684, i64 64
   %213 = load i64, ptr %212, align 8
   %214 = lshr i32 %192, 8
   %215 = and i32 %214, 255
@@ -507,53 +507,53 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split686.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %228 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %228 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split686.us
 
 .split686.us:                                     ; preds = %.lr.ph.split.us, %.split686.split.split
   %.us-phi687 = phi ptr [ %228, %.split686.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi688 = phi ptr [ %.0446.ph1812, %.split686.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %229 = load i32, ptr %.us-phi687, align 4
-  %230 = getelementptr inbounds i8, ptr %.us-phi688, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %.us-phi688, i64 8
   %231 = load i32, ptr %230, align 4
-  %232 = getelementptr inbounds i8, ptr %.us-phi688, i64 12
+  %232 = getelementptr inbounds nuw i8, ptr %.us-phi688, i64 12
   %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %.us-phi688, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %.us-phi688, i64 16
   %235 = load i32, ptr %234, align 4
-  %236 = getelementptr inbounds i8, ptr %.us-phi688, i64 20
+  %236 = getelementptr inbounds nuw i8, ptr %.us-phi688, i64 20
   %237 = load i32, ptr %236, align 4
-  %238 = getelementptr inbounds i8, ptr %.us-phi688, i64 24
+  %238 = getelementptr inbounds nuw i8, ptr %.us-phi688, i64 24
   %239 = load i32, ptr %238, align 4
-  %240 = getelementptr inbounds i8, ptr %.us-phi688, i64 28
+  %240 = getelementptr inbounds nuw i8, ptr %.us-phi688, i64 28
   %241 = load i32, ptr %240, align 4
-  %242 = getelementptr inbounds i8, ptr %.us-phi688, i64 32
+  %242 = getelementptr inbounds nuw i8, ptr %.us-phi688, i64 32
   %243 = load i64, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %.us-phi688, i64 48
-  %245 = getelementptr inbounds i8, ptr %.us-phi688, i64 40
+  %244 = getelementptr inbounds nuw i8, ptr %.us-phi688, i64 48
+  %245 = getelementptr inbounds nuw i8, ptr %.us-phi688, i64 40
   %246 = load i64, ptr %245, align 8
   tail call void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef %.fr1955, i64 noundef %243, i64 noundef %246, i32 noundef %241, i32 noundef %229, i32 noundef %231, i32 noundef %233, i32 noundef %235, i32 noundef %237, i32 noundef %239) #4
   br label %.outer
 
 .split690.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %247 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %247 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split690.us
 
 .split690.us:                                     ; preds = %.lr.ph.split.us, %.split690.split.split
   %.us-phi691 = phi ptr [ %247, %.split690.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi692 = phi ptr [ %.0446.ph1812, %.split690.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %248 = load i32, ptr %.us-phi691, align 4
-  %249 = getelementptr inbounds i8, ptr %.us-phi692, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %.us-phi692, i64 8
   %250 = load i32, ptr %249, align 4
-  %251 = getelementptr inbounds i8, ptr %.us-phi692, i64 12
+  %251 = getelementptr inbounds nuw i8, ptr %.us-phi692, i64 12
   %252 = load i32, ptr %251, align 4
-  %253 = getelementptr inbounds i8, ptr %.us-phi692, i64 16
+  %253 = getelementptr inbounds nuw i8, ptr %.us-phi692, i64 16
   %254 = load i32, ptr %253, align 4
-  %255 = getelementptr inbounds i8, ptr %.us-phi692, i64 20
+  %255 = getelementptr inbounds nuw i8, ptr %.us-phi692, i64 20
   %256 = load i32, ptr %255, align 4
-  %257 = getelementptr inbounds i8, ptr %.us-phi692, i64 24
+  %257 = getelementptr inbounds nuw i8, ptr %.us-phi692, i64 24
   %258 = load i32, ptr %257, align 4
-  %259 = getelementptr inbounds i8, ptr %.us-phi692, i64 32
-  %260 = getelementptr inbounds i8, ptr %.us-phi692, i64 28
+  %259 = getelementptr inbounds nuw i8, ptr %.us-phi692, i64 32
+  %260 = getelementptr inbounds nuw i8, ptr %.us-phi692, i64 28
   %261 = load i32, ptr %260, align 4
   %262 = icmp sgt i32 %261, 0
   %263 = select i1 %262, ptr %259, ptr null
@@ -563,19 +563,19 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split694.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %266 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %266 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split694.us
 
 .split694.us:                                     ; preds = %.lr.ph.split.us, %.split694.split.split
   %.us-phi695 = phi ptr [ %266, %.split694.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi696 = phi ptr [ %.0446.ph1812, %.split694.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %267 = load i32, ptr %.us-phi695, align 4
-  %268 = getelementptr inbounds i8, ptr %.us-phi696, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %.us-phi696, i64 8
   %269 = load i32, ptr %268, align 4
-  %270 = getelementptr inbounds i8, ptr %.us-phi696, i64 12
+  %270 = getelementptr inbounds nuw i8, ptr %.us-phi696, i64 12
   %271 = load i32, ptr %270, align 4
-  %272 = getelementptr inbounds i8, ptr %.us-phi696, i64 20
-  %273 = getelementptr inbounds i8, ptr %.us-phi696, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %.us-phi696, i64 20
+  %273 = getelementptr inbounds nuw i8, ptr %.us-phi696, i64 16
   %274 = load i32, ptr %273, align 4
   %275 = shl i32 %271, 2
   %276 = mul i32 %275, %274
@@ -585,26 +585,26 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split698.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %279 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %279 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split698.us
 
 .split698.us:                                     ; preds = %.lr.ph.split.us, %.split698.split.split
   %.us-phi699 = phi ptr [ %279, %.split698.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi700 = phi ptr [ %.0446.ph1812, %.split698.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %280 = load i32, ptr %.us-phi699, align 4
-  %281 = getelementptr inbounds i8, ptr %.us-phi700, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %.us-phi700, i64 8
   %282 = load i32, ptr %281, align 4
-  %283 = getelementptr inbounds i8, ptr %.us-phi700, i64 12
+  %283 = getelementptr inbounds nuw i8, ptr %.us-phi700, i64 12
   %284 = load i32, ptr %283, align 4
-  %285 = getelementptr inbounds i8, ptr %.us-phi700, i64 20
-  %286 = getelementptr inbounds i8, ptr %.us-phi700, i64 16
+  %285 = getelementptr inbounds nuw i8, ptr %.us-phi700, i64 20
+  %286 = getelementptr inbounds nuw i8, ptr %.us-phi700, i64 16
   %287 = load i32, ptr %286, align 4
   %288 = load ptr, ptr @dstOps, align 8
   tail call void @OGLContext_SetRectClip(ptr noundef %.fr1955, ptr noundef %288, i32 noundef %280, i32 noundef %282, i32 noundef %284, i32 noundef %287) #4
   br label %.outer
 
 .split702.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %289 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %289 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split702.us
 
 .split702.us:                                     ; preds = %.lr.ph.split.us, %.split702.split.split
@@ -613,13 +613,13 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split705.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %290 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %290 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split705.us
 
 .split705.us:                                     ; preds = %.lr.ph.split.us, %.split705.split.split
   %.us-phi706 = phi ptr [ %290, %.split705.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi707 = phi ptr [ %.0446.ph1812, %.split705.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %291 = getelementptr inbounds i8, ptr %.us-phi707, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %.us-phi707, i64 8
   %292 = load i32, ptr %.us-phi706, align 4
   tail call void @OGLRenderer_FillSpans(ptr noundef %.fr1955, i32 noundef %292, ptr noundef nonnull %291) #4
   %293 = sext i32 %292 to i64
@@ -628,7 +628,7 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split709.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %296 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %296 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split709.us
 
 .split709.us:                                     ; preds = %.lr.ph.split.us, %.split709.split.split
@@ -638,7 +638,7 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split712.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %298 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %298 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split712.us
 
 .split712.us:                                     ; preds = %.lr.ph.split.us, %.split712.split.split
@@ -647,35 +647,35 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split715.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %299 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %299 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split715.us
 
 .split715.us:                                     ; preds = %.lr.ph.split.us, %.split715.split.split
   %.us-phi716 = phi ptr [ %299, %.split715.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi717 = phi ptr [ %.0446.ph1812, %.split715.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %300 = load i32, ptr %.us-phi716, align 4
-  %301 = getelementptr inbounds i8, ptr %.us-phi717, i64 8
+  %301 = getelementptr inbounds nuw i8, ptr %.us-phi717, i64 8
   %302 = load float, ptr %301, align 4
-  %303 = getelementptr inbounds i8, ptr %.us-phi717, i64 16
-  %304 = getelementptr inbounds i8, ptr %.us-phi717, i64 12
+  %303 = getelementptr inbounds nuw i8, ptr %.us-phi717, i64 16
+  %304 = getelementptr inbounds nuw i8, ptr %.us-phi717, i64 12
   %305 = load i32, ptr %304, align 4
   tail call void @OGLContext_SetAlphaComposite(ptr noundef %.fr1955, i32 noundef %300, float noundef %302, i32 noundef %305) #4
   br label %.outer
 
 .split719.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %306 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %306 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split719.us
 
 .split719.us:                                     ; preds = %.lr.ph.split.us, %.split719.split.split
   %.us-phi720 = phi ptr [ %306, %.split719.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi721 = phi ptr [ %.0446.ph1812, %.split719.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %307 = getelementptr inbounds i8, ptr %.us-phi721, i64 8
+  %307 = getelementptr inbounds nuw i8, ptr %.us-phi721, i64 8
   %308 = load i32, ptr %.us-phi720, align 4
   tail call void @OGLContext_SetXorComposite(ptr noundef %.fr1955, i32 noundef %308) #4
   br label %.outer
 
 .split723.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %309 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %309 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split723.us
 
 .split723.us:                                     ; preds = %.lr.ph.split.us, %.split723.split.split
@@ -684,29 +684,29 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split726.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %310 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %310 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split726.us
 
 .split726.us:                                     ; preds = %.lr.ph.split.us, %.split726.split.split
   %.us-phi727 = phi ptr [ %310, %.split726.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi728 = phi ptr [ %.0446.ph1812, %.split726.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %311 = load double, ptr %.us-phi727, align 8
-  %312 = getelementptr inbounds i8, ptr %.us-phi728, i64 12
+  %312 = getelementptr inbounds nuw i8, ptr %.us-phi728, i64 12
   %313 = load double, ptr %312, align 8
-  %314 = getelementptr inbounds i8, ptr %.us-phi728, i64 20
+  %314 = getelementptr inbounds nuw i8, ptr %.us-phi728, i64 20
   %315 = load double, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %.us-phi728, i64 28
+  %316 = getelementptr inbounds nuw i8, ptr %.us-phi728, i64 28
   %317 = load double, ptr %316, align 8
-  %318 = getelementptr inbounds i8, ptr %.us-phi728, i64 36
+  %318 = getelementptr inbounds nuw i8, ptr %.us-phi728, i64 36
   %319 = load double, ptr %318, align 8
-  %320 = getelementptr inbounds i8, ptr %.us-phi728, i64 52
-  %321 = getelementptr inbounds i8, ptr %.us-phi728, i64 44
+  %320 = getelementptr inbounds nuw i8, ptr %.us-phi728, i64 52
+  %321 = getelementptr inbounds nuw i8, ptr %.us-phi728, i64 44
   %322 = load double, ptr %321, align 8
   tail call void @OGLContext_SetTransform(ptr noundef %.fr1955, double noundef %311, double noundef %313, double noundef %315, double noundef %317, double noundef %319, double noundef %322) #4
   br label %.outer
 
 .split730.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %323 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %323 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split730.us
 
 .split730.us:                                     ; preds = %.lr.ph.split.us, %.split730.split.split
@@ -715,17 +715,17 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   br label %.outer
 
 .split733.us.thread:                              ; preds = %.lr.ph.split.split.split.split
-  %324 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %324 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   %325 = load i64, ptr %324, align 8
-  %326 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 20
-  %327 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 12
+  %326 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 20
+  %327 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
   %328 = load i64, ptr %327, align 8
   br label %333
 
 .split733.us:                                     ; preds = %.lr.ph.split.us
   %329 = load i64, ptr %14, align 8
-  %330 = getelementptr inbounds i8, ptr %.0446631.us, i64 20
-  %331 = getelementptr inbounds i8, ptr %.0446631.us, i64 12
+  %330 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 20
+  %331 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 12
   %332 = load i64, ptr %331, align 8
   %.not462 = icmp eq ptr %.fr1955, null
   br i1 %.not462, label %OGLRenderQueue_CheckPreviousOp.exit, label %333
@@ -785,13 +785,13 @@ OGLRenderQueue_CheckPreviousOp.exit:              ; preds = %333, %347, %.split7
   br label %.outer
 
 .split737.us.thread:                              ; preds = %.lr.ph.split.split.split.split
-  %353 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
-  %354 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 12
+  %353 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %354 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
   %355 = load i64, ptr %353, align 8
   br label %358
 
 .split737.us:                                     ; preds = %.lr.ph.split.us
-  %356 = getelementptr inbounds i8, ptr %.0446631.us, i64 12
+  %356 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 12
   %357 = load i64, ptr %14, align 8
   %.not461 = icmp eq ptr %.fr1955, null
   br i1 %.not461, label %OGLRenderQueue_CheckPreviousOp.exit466, label %358
@@ -848,8 +848,8 @@ OGLRenderQueue_CheckPreviousOp.exit466:           ; preds = %358, %371, %.split7
   br label %.outer
 
 .split1586.us:                                    ; preds = %.lr.ph.split.split.split.split
-  %375 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
-  %376 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 12
+  %375 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %376 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
   %377 = load i64, ptr %375, align 8
   %.not460 = icmp eq i64 %377, 0
   br i1 %.not460, label %.outer, label %.split801.us
@@ -901,8 +901,8 @@ OGLRenderQueue_CheckPreviousOp.exit467:           ; preds = %.split801.us, %389
   br label %.outer
 
 .split1296.us:                                    ; preds = %.lr.ph.split.split.split.split
-  %390 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
-  %391 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 12
+  %390 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %391 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
   %392 = load i64, ptr %390, align 8
   %.not458 = icmp eq i64 %392, 0
   br i1 %.not458, label %.outer, label %.split796.us
@@ -951,7 +951,7 @@ OGLRenderQueue_CheckPreviousOp.exit467:           ; preds = %.split801.us, %389
 
 OGLRenderQueue_CheckPreviousOp.exit468:           ; preds = %.split796.us, %404
   tail call void @OGLSD_Delete(ptr noundef %0, ptr noundef nonnull %393) #4
-  %405 = getelementptr inbounds i8, ptr %393, i64 56
+  %405 = getelementptr inbounds nuw i8, ptr %393, i64 56
   %406 = load ptr, ptr %405, align 8
   %.not459 = icmp eq ptr %406, null
   br i1 %.not459, label %.outer, label %407
@@ -961,8 +961,8 @@ OGLRenderQueue_CheckPreviousOp.exit468:           ; preds = %.split796.us, %404
   br label %.outer
 
 .split1020.us:                                    ; preds = %.lr.ph.split.split.split.split
-  %408 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
-  %409 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 12
+  %408 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %409 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
   %410 = load i64, ptr %408, align 8
   %411 = load i32, ptr @previousOp, align 4
   switch i32 %411, label %419 [
@@ -1011,7 +1011,7 @@ OGLRenderQueue_CheckPreviousOp.exit469:           ; preds = %.split1020.us, %421
   br label %.outer
 
 .split741.us.thread:                              ; preds = %.lr.ph.split.split.split.split
-  %422 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %422 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %423
 
 .split741.us:                                     ; preds = %.lr.ph.split.us
@@ -1072,17 +1072,17 @@ OGLRenderQueue_CheckPreviousOp.exit470:           ; preds = %423, %434
   br label %.outer
 
 .split744.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %437 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %437 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.outer
 
 .split747.us.thread:                              ; preds = %.lr.ph.split.split.split.split
-  %438 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
-  %439 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 12
+  %438 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
+  %439 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 12
   %440 = load i64, ptr %438, align 8
   br label %443
 
 .split747.us:                                     ; preds = %.lr.ph.split.us
-  %441 = getelementptr inbounds i8, ptr %.0446631.us, i64 12
+  %441 = getelementptr inbounds nuw i8, ptr %.0446631.us, i64 12
   %442 = load i64, ptr %14, align 8
   %.not456 = icmp eq ptr %.fr1955, null
   br i1 %.not456, label %OGLRenderQueue_CheckPreviousOp.exit471, label %443
@@ -1137,7 +1137,7 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %.outer
 
 .split752.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %459 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %459 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split752.us
 
 .split752.us:                                     ; preds = %.lr.ph.split.us, %.split752.split.split
@@ -1146,19 +1146,19 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %.outer
 
 .split755.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %460 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %460 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split755.us
 
 .split755.us:                                     ; preds = %.lr.ph.split.us, %.split755.split.split
   %.us-phi756 = phi ptr [ %460, %.split755.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi757 = phi ptr [ %.0446.ph1812, %.split755.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
-  %461 = getelementptr inbounds i8, ptr %.us-phi757, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %.us-phi757, i64 8
   %462 = load i32, ptr %.us-phi756, align 4
   tail call void @OGLPaints_SetColor(ptr noundef %.fr1955, i32 noundef %462) #4
   br label %.outer
 
 .split759.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %463 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %463 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split759.us
 
 .split759.us:                                     ; preds = %.lr.ph.split.us, %.split759.split.split
@@ -1166,25 +1166,25 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   %.us-phi761 = phi ptr [ %.0446.ph1812, %.split759.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %464 = load i32, ptr %.us-phi760, align 4
   %465 = trunc i32 %464 to i8
-  %466 = getelementptr inbounds i8, ptr %.us-phi761, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %.us-phi761, i64 8
   %467 = load i32, ptr %466, align 4
   %468 = trunc i32 %467 to i8
-  %469 = getelementptr inbounds i8, ptr %.us-phi761, i64 12
+  %469 = getelementptr inbounds nuw i8, ptr %.us-phi761, i64 12
   %470 = load double, ptr %469, align 8
-  %471 = getelementptr inbounds i8, ptr %.us-phi761, i64 20
+  %471 = getelementptr inbounds nuw i8, ptr %.us-phi761, i64 20
   %472 = load double, ptr %471, align 8
-  %473 = getelementptr inbounds i8, ptr %.us-phi761, i64 28
+  %473 = getelementptr inbounds nuw i8, ptr %.us-phi761, i64 28
   %474 = load double, ptr %473, align 8
-  %475 = getelementptr inbounds i8, ptr %.us-phi761, i64 36
+  %475 = getelementptr inbounds nuw i8, ptr %.us-phi761, i64 36
   %476 = load i32, ptr %475, align 4
-  %477 = getelementptr inbounds i8, ptr %.us-phi761, i64 44
-  %478 = getelementptr inbounds i8, ptr %.us-phi761, i64 40
+  %477 = getelementptr inbounds nuw i8, ptr %.us-phi761, i64 44
+  %478 = getelementptr inbounds nuw i8, ptr %.us-phi761, i64 40
   %479 = load i32, ptr %478, align 4
   tail call void @OGLPaints_SetGradientPaint(ptr noundef %.fr1955, i8 noundef zeroext %465, i8 noundef zeroext %468, double noundef %470, double noundef %472, double noundef %474, i32 noundef %476, i32 noundef %479) #4
   br label %.outer
 
 .split763.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %480 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %480 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split763.us
 
 .split763.us:                                     ; preds = %.lr.ph.split.us, %.split763.split.split
@@ -1192,19 +1192,19 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   %.us-phi765 = phi ptr [ %.0446.ph1812, %.split763.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %481 = load i32, ptr %.us-phi764, align 4
   %482 = trunc i32 %481 to i8
-  %483 = getelementptr inbounds i8, ptr %.us-phi765, i64 8
+  %483 = getelementptr inbounds nuw i8, ptr %.us-phi765, i64 8
   %484 = load i32, ptr %483, align 4
   %485 = trunc i32 %484 to i8
-  %486 = getelementptr inbounds i8, ptr %.us-phi765, i64 12
+  %486 = getelementptr inbounds nuw i8, ptr %.us-phi765, i64 12
   %487 = load i32, ptr %486, align 4
-  %488 = getelementptr inbounds i8, ptr %.us-phi765, i64 16
+  %488 = getelementptr inbounds nuw i8, ptr %.us-phi765, i64 16
   %489 = load i32, ptr %488, align 4
-  %490 = getelementptr inbounds i8, ptr %.us-phi765, i64 20
+  %490 = getelementptr inbounds nuw i8, ptr %.us-phi765, i64 20
   %491 = load float, ptr %490, align 4
-  %492 = getelementptr inbounds i8, ptr %.us-phi765, i64 24
+  %492 = getelementptr inbounds nuw i8, ptr %.us-phi765, i64 24
   %493 = load float, ptr %492, align 4
-  %494 = getelementptr inbounds i8, ptr %.us-phi765, i64 32
-  %495 = getelementptr inbounds i8, ptr %.us-phi765, i64 28
+  %494 = getelementptr inbounds nuw i8, ptr %.us-phi765, i64 32
+  %495 = getelementptr inbounds nuw i8, ptr %.us-phi765, i64 28
   %496 = load float, ptr %495, align 4
   %497 = sext i32 %489 to i64
   %498 = shl nsw i64 %497, 2
@@ -1215,7 +1215,7 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %.outer
 
 .split767.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %502 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %502 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split767.us
 
 .split767.us:                                     ; preds = %.lr.ph.split.us, %.split767.split.split
@@ -1223,27 +1223,27 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   %.us-phi769 = phi ptr [ %.0446.ph1812, %.split767.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %503 = load i32, ptr %.us-phi768, align 4
   %504 = trunc i32 %503 to i8
-  %505 = getelementptr inbounds i8, ptr %.us-phi769, i64 8
+  %505 = getelementptr inbounds nuw i8, ptr %.us-phi769, i64 8
   %506 = load i32, ptr %505, align 4
   %507 = trunc i32 %506 to i8
-  %508 = getelementptr inbounds i8, ptr %.us-phi769, i64 12
+  %508 = getelementptr inbounds nuw i8, ptr %.us-phi769, i64 12
   %509 = load i32, ptr %508, align 4
-  %510 = getelementptr inbounds i8, ptr %.us-phi769, i64 16
+  %510 = getelementptr inbounds nuw i8, ptr %.us-phi769, i64 16
   %511 = load i32, ptr %510, align 4
-  %512 = getelementptr inbounds i8, ptr %.us-phi769, i64 20
+  %512 = getelementptr inbounds nuw i8, ptr %.us-phi769, i64 20
   %513 = load float, ptr %512, align 4
-  %514 = getelementptr inbounds i8, ptr %.us-phi769, i64 24
+  %514 = getelementptr inbounds nuw i8, ptr %.us-phi769, i64 24
   %515 = load float, ptr %514, align 4
-  %516 = getelementptr inbounds i8, ptr %.us-phi769, i64 28
+  %516 = getelementptr inbounds nuw i8, ptr %.us-phi769, i64 28
   %517 = load float, ptr %516, align 4
-  %518 = getelementptr inbounds i8, ptr %.us-phi769, i64 32
+  %518 = getelementptr inbounds nuw i8, ptr %.us-phi769, i64 32
   %519 = load float, ptr %518, align 4
-  %520 = getelementptr inbounds i8, ptr %.us-phi769, i64 36
+  %520 = getelementptr inbounds nuw i8, ptr %.us-phi769, i64 36
   %521 = load float, ptr %520, align 4
-  %522 = getelementptr inbounds i8, ptr %.us-phi769, i64 40
+  %522 = getelementptr inbounds nuw i8, ptr %.us-phi769, i64 40
   %523 = load float, ptr %522, align 4
-  %524 = getelementptr inbounds i8, ptr %.us-phi769, i64 48
-  %525 = getelementptr inbounds i8, ptr %.us-phi769, i64 44
+  %524 = getelementptr inbounds nuw i8, ptr %.us-phi769, i64 48
+  %525 = getelementptr inbounds nuw i8, ptr %.us-phi769, i64 44
   %526 = load float, ptr %525, align 4
   %527 = sext i32 %509 to i64
   %528 = shl nsw i64 %527, 2
@@ -1254,7 +1254,7 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %.outer
 
 .split771.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %532 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %532 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split771.us
 
 .split771.us:                                     ; preds = %.lr.ph.split.us, %.split771.split.split
@@ -1262,42 +1262,42 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   %.us-phi773 = phi ptr [ %.0446.ph1812, %.split771.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %533 = load i32, ptr %.us-phi772, align 4
   %534 = trunc i32 %533 to i8
-  %535 = getelementptr inbounds i8, ptr %.us-phi773, i64 8
+  %535 = getelementptr inbounds nuw i8, ptr %.us-phi773, i64 8
   %536 = load i32, ptr %535, align 4
   %537 = trunc i32 %536 to i8
-  %538 = getelementptr inbounds i8, ptr %.us-phi773, i64 12
+  %538 = getelementptr inbounds nuw i8, ptr %.us-phi773, i64 12
   %539 = load i64, ptr %538, align 8
-  %540 = getelementptr inbounds i8, ptr %.us-phi773, i64 20
+  %540 = getelementptr inbounds nuw i8, ptr %.us-phi773, i64 20
   %541 = load double, ptr %540, align 8
-  %542 = getelementptr inbounds i8, ptr %.us-phi773, i64 28
+  %542 = getelementptr inbounds nuw i8, ptr %.us-phi773, i64 28
   %543 = load double, ptr %542, align 8
-  %544 = getelementptr inbounds i8, ptr %.us-phi773, i64 36
+  %544 = getelementptr inbounds nuw i8, ptr %.us-phi773, i64 36
   %545 = load double, ptr %544, align 8
-  %546 = getelementptr inbounds i8, ptr %.us-phi773, i64 44
+  %546 = getelementptr inbounds nuw i8, ptr %.us-phi773, i64 44
   %547 = load double, ptr %546, align 8
-  %548 = getelementptr inbounds i8, ptr %.us-phi773, i64 52
+  %548 = getelementptr inbounds nuw i8, ptr %.us-phi773, i64 52
   %549 = load double, ptr %548, align 8
-  %550 = getelementptr inbounds i8, ptr %.us-phi773, i64 68
-  %551 = getelementptr inbounds i8, ptr %.us-phi773, i64 60
+  %550 = getelementptr inbounds nuw i8, ptr %.us-phi773, i64 68
+  %551 = getelementptr inbounds nuw i8, ptr %.us-phi773, i64 60
   %552 = load double, ptr %551, align 8
   tail call void @OGLPaints_SetTexturePaint(ptr noundef %.fr1955, i8 noundef zeroext %534, i64 noundef %539, i8 noundef zeroext %537, double noundef %541, double noundef %543, double noundef %545, double noundef %547, double noundef %549, double noundef %552) #4
   br label %.outer
 
 .split775.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %553 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %553 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split775.us
 
 .split775.us:                                     ; preds = %.lr.ph.split.us, %.split775.split.split
   %.us-phi776 = phi ptr [ %553, %.split775.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi777 = phi ptr [ %.0446.ph1812, %.split775.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %554 = load i64, ptr %.us-phi776, align 8
-  %555 = getelementptr inbounds i8, ptr %.us-phi777, i64 12
+  %555 = getelementptr inbounds nuw i8, ptr %.us-phi777, i64 12
   %556 = load i32, ptr %555, align 4
   %557 = trunc i32 %556 to i8
-  %558 = getelementptr inbounds i8, ptr %.us-phi777, i64 16
+  %558 = getelementptr inbounds nuw i8, ptr %.us-phi777, i64 16
   %559 = load i32, ptr %558, align 4
-  %560 = getelementptr inbounds i8, ptr %.us-phi777, i64 24
-  %561 = getelementptr inbounds i8, ptr %.us-phi777, i64 20
+  %560 = getelementptr inbounds nuw i8, ptr %.us-phi777, i64 24
+  %561 = getelementptr inbounds nuw i8, ptr %.us-phi777, i64 20
   %562 = load i32, ptr %561, align 4
   tail call void @OGLBufImgOps_EnableConvolveOp(ptr noundef %.fr1955, i64 noundef %554, i8 noundef zeroext %557, i32 noundef %559, i32 noundef %562, ptr noundef nonnull %560) #4
   %563 = mul nsw i32 %562, %559
@@ -1307,7 +1307,7 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %.outer
 
 .split779.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %567 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %567 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split779.us
 
 .split779.us:                                     ; preds = %.lr.ph.split.us, %.split779.split.split
@@ -1316,24 +1316,24 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %.outer
 
 .split782.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %568 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %568 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split782.us
 
 .split782.us:                                     ; preds = %.lr.ph.split.us, %.split782.split.split
   %.us-phi783 = phi ptr [ %568, %.split782.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi784 = phi ptr [ %.0446.ph1812, %.split782.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %569 = load i64, ptr %.us-phi783, align 8
-  %570 = getelementptr inbounds i8, ptr %.us-phi784, i64 16
-  %571 = getelementptr inbounds i8, ptr %.us-phi784, i64 12
+  %570 = getelementptr inbounds nuw i8, ptr %.us-phi784, i64 16
+  %571 = getelementptr inbounds nuw i8, ptr %.us-phi784, i64 12
   %572 = load i32, ptr %571, align 4
   %573 = trunc i32 %572 to i8
-  %574 = getelementptr inbounds i8, ptr %.us-phi784, i64 32
+  %574 = getelementptr inbounds nuw i8, ptr %.us-phi784, i64 32
   tail call void @OGLBufImgOps_EnableRescaleOp(ptr noundef %.fr1955, i64 noundef %569, i8 noundef zeroext %573, ptr noundef nonnull %570, ptr noundef nonnull %574) #4
-  %575 = getelementptr inbounds i8, ptr %.us-phi784, i64 48
+  %575 = getelementptr inbounds nuw i8, ptr %.us-phi784, i64 48
   br label %.outer
 
 .split786.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %576 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %576 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split786.us
 
 .split786.us:                                     ; preds = %.lr.ph.split.us, %.split786.split.split
@@ -1342,25 +1342,25 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %.outer
 
 .split789.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %577 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %577 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split789.us
 
 .split789.us:                                     ; preds = %.lr.ph.split.us, %.split789.split.split
   %.us-phi790 = phi ptr [ %577, %.split789.split.split ], [ %14, %.lr.ph.split.us ]
   %.us-phi791 = phi ptr [ %.0446.ph1812, %.split789.split.split ], [ %.0446631.us, %.lr.ph.split.us ]
   %578 = load i64, ptr %.us-phi790, align 8
-  %579 = getelementptr inbounds i8, ptr %.us-phi791, i64 12
+  %579 = getelementptr inbounds nuw i8, ptr %.us-phi791, i64 12
   %580 = load i32, ptr %579, align 4
   %581 = trunc i32 %580 to i8
-  %582 = getelementptr inbounds i8, ptr %.us-phi791, i64 16
+  %582 = getelementptr inbounds nuw i8, ptr %.us-phi791, i64 16
   %583 = load i32, ptr %582, align 4
   %584 = trunc i32 %583 to i8
-  %585 = getelementptr inbounds i8, ptr %.us-phi791, i64 20
+  %585 = getelementptr inbounds nuw i8, ptr %.us-phi791, i64 20
   %586 = load i32, ptr %585, align 4
-  %587 = getelementptr inbounds i8, ptr %.us-phi791, i64 24
+  %587 = getelementptr inbounds nuw i8, ptr %.us-phi791, i64 24
   %588 = load i32, ptr %587, align 4
-  %589 = getelementptr inbounds i8, ptr %.us-phi791, i64 32
-  %590 = getelementptr inbounds i8, ptr %.us-phi791, i64 28
+  %589 = getelementptr inbounds nuw i8, ptr %.us-phi791, i64 32
+  %590 = getelementptr inbounds nuw i8, ptr %.us-phi791, i64 28
   %591 = load i32, ptr %590, align 4
   %592 = and i32 %583, 255
   %.not455 = icmp ne i32 %592, 0
@@ -1373,7 +1373,7 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %.outer
 
 .split793.split.split:                            ; preds = %.lr.ph.split.split.split.split
-  %598 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %598 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.split793.us
 
 .split793.us:                                     ; preds = %.lr.ph.split.us, %.split793.split.split
@@ -1393,7 +1393,7 @@ OGLRenderQueue_CheckPreviousOp.exit471:           ; preds = %443, %456, %.split7
   br label %617
 
 .loopexit.split.split.loopexit.split.loopexit:    ; preds = %.lr.ph.split.split.split.split
-  %601 = getelementptr inbounds i8, ptr %.0446.ph1812, i64 4
+  %601 = getelementptr inbounds nuw i8, ptr %.0446.ph1812, i64 4
   br label %.outer
 
 .outer.loopexit3101:                              ; preds = %.lr.ph.split.us

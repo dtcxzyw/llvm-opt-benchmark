@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.13956 = add nsw i32 %4, -1
   %5 = icmp sgt i32 %4, 0
@@ -13,8 +13,8 @@ define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr nocapture noundef 
 
 .lr.ph58:                                         ; preds = %2
   %.not = icmp eq ptr %1, null
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not, label %.lr.ph58.split.us, label %.lr.ph58.split
 
 .lr.ph58.split.us:                                ; preds = %.lr.ph58
@@ -33,8 +33,8 @@ define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr nocapture noundef 
 12:                                               ; preds = %.lr.ph.us, %19
   %.14155.us = phi ptr [ %.14152.us, %.lr.ph.us ], [ %.141.us, %19 ]
   %.254.us = phi i32 [ 0, %.lr.ph.us ], [ %.3.us, %19 ]
-  %13 = getelementptr inbounds i8, ptr %.14155.us, i64 16
-  %14 = getelementptr inbounds [1 x i32], ptr %13, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %.14155.us, i64 16
+  %14 = getelementptr inbounds nuw [1 x i32], ptr %13, i64 0, i64 %10
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, %11
   %.not48.us = icmp eq i32 %16, 0
@@ -59,7 +59,7 @@ define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr nocapture noundef 
   %.13957 = phi i32 [ %.139, %.loopexit ], [ %.13956, %.lr.ph58 ]
   %21 = lshr i32 %.13957, 5
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [1 x i32], ptr %6, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %.13957, 31
   %26 = shl nuw i32 1, %25
@@ -75,8 +75,8 @@ define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr nocapture noundef 
 .lr.ph:                                           ; preds = %28, %35
   %.14155 = phi ptr [ %.141, %35 ], [ %.14152, %28 ]
   %.254 = phi i32 [ %.3, %35 ], [ 0, %28 ]
-  %29 = getelementptr inbounds i8, ptr %.14155, i64 16
-  %30 = getelementptr inbounds [1 x i32], ptr %29, i64 0, i64 %22
+  %29 = getelementptr inbounds nuw i8, ptr %.14155, i64 16
+  %30 = getelementptr inbounds nuw [1 x i32], ptr %29, i64 0, i64 %22
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, %26
   %.not48 = icmp eq i32 %32, 0
@@ -104,15 +104,15 @@ define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr nocapture noundef 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Mvc_CoverBestLiteral(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph48, label %._crit_edge49.thread
 
 .lr.ph48:                                         ; preds = %2
   %.not = icmp eq ptr %1, null
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not, label %.lr.ph48.split.us, label %.lr.ph48.split
 
 .lr.ph48.split.us:                                ; preds = %.lr.ph48
@@ -132,8 +132,8 @@ define i32 @Mvc_CoverBestLiteral(ptr nocapture noundef readonly %0, ptr noundef 
 11:                                               ; preds = %.lr.ph.us, %11
   %.03343.us = phi ptr [ %.03340.us, %.lr.ph.us ], [ %.033.us, %11 ]
   %.02742.us = phi i32 [ 0, %.lr.ph.us ], [ %spec.select.us, %11 ]
-  %12 = getelementptr inbounds i8, ptr %.03343.us, i64 16
-  %13 = getelementptr inbounds [1 x i32], ptr %12, i64 0, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %.03343.us, i64 16
+  %13 = getelementptr inbounds nuw [1 x i32], ptr %12, i64 0, i64 %10
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, %9
   %16 = and i32 %15, 1
@@ -156,7 +156,7 @@ define i32 @Mvc_CoverBestLiteral(ptr nocapture noundef readonly %0, ptr noundef 
   %.03244 = phi i32 [ %34, %33 ], [ 0, %.lr.ph48 ]
   %19 = lshr i32 %.03244, 5
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [1 x i32], ptr %6, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %.03244, 31
   %24 = shl nuw i32 1, %23
@@ -172,8 +172,8 @@ define i32 @Mvc_CoverBestLiteral(ptr nocapture noundef readonly %0, ptr noundef 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.03343 = phi ptr [ %.033, %.lr.ph ], [ %.03340, %26 ]
   %.02742 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %26 ]
-  %27 = getelementptr inbounds i8, ptr %.03343, i64 16
-  %28 = getelementptr inbounds [1 x i32], ptr %27, i64 0, i64 %20
+  %27 = getelementptr inbounds nuw i8, ptr %.03343, i64 16
+  %28 = getelementptr inbounds nuw [1 x i32], ptr %27, i64 0, i64 %20
   %29 = load i32, ptr %28, align 4
   %30 = lshr i32 %29, %23
   %31 = and i32 %30, 1
@@ -211,15 +211,15 @@ define i32 @Mvc_CoverBestLiteral(ptr nocapture noundef readonly %0, ptr noundef 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Mvc_CoverWorstLiteral(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph49, label %._crit_edge50.thread
 
 .lr.ph49:                                         ; preds = %2
   %.not = icmp eq ptr %1, null
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not, label %.lr.ph49.split.us, label %.lr.ph49.split
 
 .lr.ph49.split.us:                                ; preds = %.lr.ph49
@@ -239,8 +239,8 @@ define i32 @Mvc_CoverWorstLiteral(ptr nocapture noundef readonly %0, ptr noundef
 11:                                               ; preds = %.lr.ph.us, %11
   %.03444.us = phi ptr [ %.03441.us, %.lr.ph.us ], [ %.034.us, %11 ]
   %.02843.us = phi i32 [ 0, %.lr.ph.us ], [ %spec.select.us, %11 ]
-  %12 = getelementptr inbounds i8, ptr %.03444.us, i64 16
-  %13 = getelementptr inbounds [1 x i32], ptr %12, i64 0, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %.03444.us, i64 16
+  %13 = getelementptr inbounds nuw [1 x i32], ptr %12, i64 0, i64 %10
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, %9
   %16 = and i32 %15, 1
@@ -265,7 +265,7 @@ define i32 @Mvc_CoverWorstLiteral(ptr nocapture noundef readonly %0, ptr noundef
   %.03345 = phi i32 [ %36, %35 ], [ 0, %.lr.ph49 ]
   %20 = lshr i32 %.03345, 5
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds [1 x i32], ptr %6, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [1 x i32], ptr %6, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %.03345, 31
   %25 = shl nuw i32 1, %24
@@ -281,8 +281,8 @@ define i32 @Mvc_CoverWorstLiteral(ptr nocapture noundef readonly %0, ptr noundef
 .lr.ph:                                           ; preds = %27, %.lr.ph
   %.03444 = phi ptr [ %.034, %.lr.ph ], [ %.03441, %27 ]
   %.02843 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %27 ]
-  %28 = getelementptr inbounds i8, ptr %.03444, i64 16
-  %29 = getelementptr inbounds [1 x i32], ptr %28, i64 0, i64 %21
+  %28 = getelementptr inbounds nuw i8, ptr %.03444, i64 16
+  %29 = getelementptr inbounds nuw [1 x i32], ptr %28, i64 0, i64 %21
   %30 = load i32, ptr %29, align 4
   %31 = lshr i32 %30, %24
   %32 = and i32 %31, 1
@@ -324,10 +324,10 @@ define i32 @Mvc_CoverWorstLiteral(ptr nocapture noundef readonly %0, ptr noundef
 define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @Mvc_CoverClone(ptr noundef %0) #5
   %4 = tail call ptr @Mvc_CubeAlloc(ptr noundef %3) #5
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 16777215
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   switch i32 %7, label %.preheader [
     i32 0, label %12
     i32 1, label %13
@@ -347,21 +347,21 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
 
 13:                                               ; preds = %2
   store i32 0, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %14, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %13, %12
   %15 = tail call ptr @Mvc_CoverReadCubeHead(ptr noundef %1) #5
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph48.i, label %Mvc_CoverBestLiteral.exit
 
 .lr.ph48.i:                                       ; preds = %.loopexit
   %.not.i = icmp eq ptr %15, null
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not.i, label %.lr.ph48.split.us.i, label %.lr.ph48.split.i
 
 .lr.ph48.split.us.i:                              ; preds = %.lr.ph48.i
@@ -381,8 +381,8 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
 24:                                               ; preds = %24, %.lr.ph.us.i
   %.03343.us.i = phi ptr [ %.03340.us.i, %.lr.ph.us.i ], [ %.033.us.i, %24 ]
   %.02742.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %spec.select.us.i, %24 ]
-  %25 = getelementptr inbounds i8, ptr %.03343.us.i, i64 16
-  %26 = getelementptr inbounds [1 x i32], ptr %25, i64 0, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %.03343.us.i, i64 16
+  %26 = getelementptr inbounds nuw [1 x i32], ptr %25, i64 0, i64 %23
   %27 = load i32, ptr %26, align 4
   %28 = lshr i32 %27, %22
   %29 = and i32 %28, 1
@@ -405,7 +405,7 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
   %.03244.i = phi i32 [ %47, %46 ], [ 0, %.lr.ph48.i ]
   %32 = lshr i32 %.03244.i, 5
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds [1 x i32], ptr %19, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [1 x i32], ptr %19, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %.03244.i, 31
   %37 = shl nuw i32 1, %36
@@ -421,8 +421,8 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
 .lr.ph.i:                                         ; preds = %39, %.lr.ph.i
   %.03343.i = phi ptr [ %.033.i, %.lr.ph.i ], [ %.03340.i, %39 ]
   %.02742.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %39 ]
-  %40 = getelementptr inbounds i8, ptr %.03343.i, i64 16
-  %41 = getelementptr inbounds [1 x i32], ptr %40, i64 0, i64 %33
+  %40 = getelementptr inbounds nuw i8, ptr %.03343.i, i64 16
+  %41 = getelementptr inbounds nuw [1 x i32], ptr %40, i64 0, i64 %33
   %42 = load i32, ptr %41, align 4
   %43 = lshr i32 %42, %36
   %44 = and i32 %43, 1
@@ -457,14 +457,14 @@ Mvc_CoverBestLiteral.exit:                        ; preds = %.lr.ph48.split.us.i
   %49 = phi i32 [ -1, %.loopexit ], [ %spec.select63.i, %._crit_edge49.i ], [ -1, %.lr.ph48.split.us.i ]
   %50 = and i32 %49, 31
   %51 = shl nuw i32 1, %50
-  %52 = getelementptr inbounds i8, ptr %4, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = ashr i32 %49, 5
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds [1 x i32], ptr %52, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = or i32 %51, %56
   store i32 %57, ptr %55, align 4
-  %58 = getelementptr inbounds i8, ptr %3, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %62
@@ -474,16 +474,16 @@ Mvc_CoverBestLiteral.exit:                        ; preds = %.lr.ph48.split.us.i
   br label %65
 
 62:                                               ; preds = %Mvc_CoverBestLiteral.exit
-  %63 = getelementptr inbounds i8, ptr %3, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load ptr, ptr %63, align 8
   store ptr %4, ptr %64, align 8
   br label %65
 
 65:                                               ; preds = %62, %61
-  %66 = getelementptr inbounds i8, ptr %3, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %4, ptr %66, align 8
   store ptr null, ptr %4, align 8
-  %67 = getelementptr inbounds i8, ptr %3, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %68 = load i32, ptr %67, align 8
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %67, align 8
@@ -499,8 +499,8 @@ declare ptr @Mvc_CoverReadCubeHead(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 2147483647) i32 @Mvc_CoverFirstCubeFirstLit(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @Mvc_CoverReadCubeHead(ptr noundef %0) #5
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.critedge
@@ -509,7 +509,7 @@ define range(i32 -2147483648, 2147483647) i32 @Mvc_CoverFirstCubeFirstLit(ptr no
   %.0910 = phi i32 [ %15, %14 ], [ 0, %1 ]
   %7 = lshr i32 %.0910, 5
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds [1 x i32], ptr %3, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [1 x i32], ptr %3, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %.0910, 31
   %12 = shl nuw i32 1, %11
@@ -529,13 +529,13 @@ define range(i32 -2147483648, 2147483647) i32 @Mvc_CoverFirstCubeFirstLit(ptr no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Mvc_CoverCountLiterals(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph25, label %._crit_edge26
 
 .lr.ph25:                                         ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.01618 = load ptr, ptr %5, align 8
   %.not19 = icmp eq ptr %.01618, null
   br i1 %.not19, label %._crit_edge26, label %.lr.ph
@@ -551,8 +551,8 @@ define i32 @Mvc_CoverCountLiterals(ptr nocapture noundef readonly %0) local_unna
 9:                                                ; preds = %.lr.ph, %9
   %.01621 = phi ptr [ %.01618, %.lr.ph ], [ %.016, %9 ]
   %.020 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %9 ]
-  %10 = getelementptr inbounds i8, ptr %.01621, i64 16
-  %11 = getelementptr inbounds [1 x i32], ptr %10, i64 0, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
+  %11 = getelementptr inbounds nuw [1 x i32], ptr %10, i64 0, i64 %8
   %12 = load i32, ptr %11, align 4
   %13 = lshr i32 %12, %7
   %14 = and i32 %13, 1
@@ -580,13 +580,13 @@ define range(i32 0, 2) i32 @Mvc_CoverIsOneLiteral(ptr noundef %0) local_unnamed_
 
 3:                                                ; preds = %1
   %4 = tail call ptr @Mvc_CoverReadCubeHead(ptr noundef %0) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %18
@@ -594,7 +594,7 @@ define range(i32 0, 2) i32 @Mvc_CoverIsOneLiteral(ptr noundef %0) local_unnamed_
   %.01114 = phi i32 [ 0, %.lr.ph ], [ %19, %18 ]
   %10 = lshr i32 %.01114, 5
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds [1 x i32], ptr %8, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [1 x i32], ptr %8, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %.01114, 31
   %15 = shl nuw i32 1, %14

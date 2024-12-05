@@ -64,16 +64,16 @@ define noundef i32 @ompi_group_translate_ranks_bmap(ptr nocapture noundef readno
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %3, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %.loopexit41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit41 ]
-  %9 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, -2
-  %12 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   br i1 %11, label %.loopexit41.sink.split, label %13
 
 13:                                               ; preds = %8
@@ -102,7 +102,7 @@ define noundef i32 @ompi_group_translate_ranks_bmap(ptr nocapture noundef readno
   %.047 = phi i32 [ 0, %.preheader.lr.ph ], [ %41, %.loopexit ]
   %.03446 = phi i32 [ 0, %.preheader.lr.ph ], [ %.3, %.loopexit ]
   %27 = zext nneg i32 %.047 to i64
-  %28 = getelementptr inbounds i8, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = icmp eq i32 %.047, %18
@@ -163,14 +163,14 @@ define noundef i32 @ompi_group_translate_ranks_bmap_reverse(ptr nocapture nounde
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.loopexit32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit32 ]
-  %10 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, -2
   br i1 %12, label %16, label %.preheader31
@@ -181,11 +181,11 @@ define noundef i32 @ompi_group_translate_ranks_bmap_reverse(ptr nocapture nounde
   br i1 %14, label %.preheader.lr.ph, label %.loopexit32
 
 .preheader.lr.ph:                                 ; preds = %.preheader31
-  %15 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   br label %.preheader
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 -2, ptr %17, align 4
   br label %.loopexit32
 
@@ -268,8 +268,8 @@ define range(i32 0, 10) i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1
   br i1 %18, label %opal_thread_add_fetch_32.exit, label %.preheader40
 
 .preheader40:                                     ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %17, i64 56
-  %20 = getelementptr inbounds i8, ptr %17, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %.preheader
@@ -285,7 +285,7 @@ define range(i32 0, 10) i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1
 .lr.ph:                                           ; preds = %.preheader40, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader40 ]
   %24 = load ptr, ptr %19, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv
   store i8 0, ptr %25, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %20, align 8
@@ -295,7 +295,7 @@ define range(i32 0, 10) i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
   %indvars.iv45 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next46, %.lr.ph43 ]
-  %29 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv45
+  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv45
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 7
   %32 = shl nuw nsw i32 1, %31
@@ -312,9 +312,9 @@ define range(i32 0, 10) i32 @ompi_group_incl_bmap(ptr noundef %0, i32 noundef %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph43, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph43, %.preheader
-  %40 = getelementptr inbounds i8, ptr %17, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i8, ptr @opal_uses_threads, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %46
@@ -334,10 +334,10 @@ opal_thread_add_fetch_32.exit39:                  ; preds = %44, %46
   %50 = load ptr, ptr %40, align 8
   tail call void @ompi_group_increment_proc_count(ptr noundef %50) #5
   tail call void @ompi_group_increment_proc_count(ptr noundef nonnull %17) #5
-  %51 = getelementptr inbounds i8, ptr %0, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %52 = load i32, ptr %51, align 4
   store i32 %52, ptr %5, align 4
-  %53 = getelementptr inbounds i8, ptr %17, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %54 = call i32 @ompi_group_translate_ranks(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %17, ptr noundef nonnull %53) #5
   store ptr %17, ptr %3, align 8
   br label %opal_thread_add_fetch_32.exit

@@ -202,19 +202,19 @@ define internal void @hda_audio_base_class_init(ptr noundef %klass, ptr nocaptur
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_CLASS) #10
-  %exit = getelementptr inbounds i8, ptr %call.i7, i64 184
+  %exit = getelementptr inbounds nuw i8, ptr %call.i7, i64 184
   store ptr @hda_audio_exit, ptr %exit, align 8
-  %command = getelementptr inbounds i8, ptr %call.i7, i64 192
+  %command = getelementptr inbounds nuw i8, ptr %call.i7, i64 192
   store ptr @hda_audio_command, ptr %command, align 8
-  %stream = getelementptr inbounds i8, ptr %call.i7, i64 200
+  %stream = getelementptr inbounds nuw i8, ptr %call.i7, i64 200
   store ptr @hda_audio_stream, ptr %stream, align 8
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 64
   store i64 %or.i, ptr %categories, align 8
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @hda_audio_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_hda_audio, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @hda_audio_properties) #10
   ret void
@@ -224,14 +224,14 @@ entry:
 define internal void @hda_audio_exit(ptr noundef %hda) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
-  %debug = getelementptr inbounds i8, ptr %call.i, i64 34504
+  %debug = getelementptr inbounds nuw i8, ptr %call.i, i64 34504
   %0 = load i32, ptr %debug, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %name = getelementptr inbounds i8, ptr %call.i, i64 168
+  %name = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %2 = load ptr, ptr %name, align 8
   %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %2) #11
   %3 = load ptr, ptr @stderr, align 8
@@ -239,15 +239,15 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %st5 = getelementptr inbounds i8, ptr %call.i, i64 216
-  %use_timer = getelementptr inbounds i8, ptr %call.i, i64 34509
-  %card14 = getelementptr inbounds i8, ptr %call.i, i64 176
+  %st5 = getelementptr inbounds nuw i8, ptr %call.i, i64 216
+  %use_timer = getelementptr inbounds nuw i8, ptr %call.i, i64 34509
+  %card14 = getelementptr inbounds nuw i8, ptr %call.i, i64 176
   br label %for.body
 
 for.body:                                         ; preds = %do.end, %for.inc
   %indvars.iv = phi i64 [ 0, %do.end ], [ %indvars.iv.next, %for.inc ]
   %add.ptr = getelementptr %struct.HDAAudioStream, ptr %st5, i64 %indvars.iv
-  %node = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %node = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %4 = load ptr, ptr %node, align 8
   %cmp6 = icmp eq ptr %4, null
   br i1 %cmp6, label %for.inc, label %if.end9
@@ -258,16 +258,16 @@ if.end9:                                          ; preds = %for.body
   br i1 %tobool, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end9
-  %buft = getelementptr inbounds i8, ptr %add.ptr, i64 8544
+  %buft = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8544
   %6 = load ptr, ptr %buft, align 8
   tail call void @timer_del(ptr noundef %6) #10
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end9
-  %output = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %output = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %7 = load i8, ptr %output, align 8
   %tobool12 = trunc i8 %7 to i1
-  %voice = getelementptr inbounds i8, ptr %add.ptr, i64 64
+  %voice = getelementptr inbounds nuw i8, ptr %add.ptr, i64 64
   %8 = load ptr, ptr %voice, align 8
   br i1 %tobool12, label %if.then13, label %if.else
 
@@ -300,15 +300,15 @@ entry:
   %.175 = select i1 %cmp, i32 255, i32 65535
   %and4 = and i32 %shr, %.
   %and5 = and i32 %data, %.175
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 208
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   %0 = load ptr, ptr %desc, align 8
-  %nnodes.i = getelementptr inbounds i8, ptr %0, i64 24
+  %nnodes.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i32, ptr %nnodes.i, align 8
   %cmp6.not.i = icmp eq i32 %1, 0
   br i1 %cmp6.not.i, label %do.body195, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %nodes.i = getelementptr inbounds i8, ptr %0, i64 16
+  %nodes.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %nodes.i, align 8
   br label %for.body.i
 
@@ -330,18 +330,18 @@ hda_codec_find_node.exit:                         ; preds = %for.body.i
   br i1 %cmp7, label %do.body195, label %do.body
 
 do.body:                                          ; preds = %hda_codec_find_node.exit
-  %debug = getelementptr inbounds i8, ptr %call.i, i64 34504
+  %debug = getelementptr inbounds nuw i8, ptr %call.i, i64 34504
   %4 = load i32, ptr %debug, align 8
   %cmp10 = icmp ugt i32 %4, 1
   br i1 %cmp10, label %if.then11, label %do.end
 
 if.then11:                                        ; preds = %do.body
   %5 = load ptr, ptr @stderr, align 8
-  %name = getelementptr inbounds i8, ptr %call.i, i64 168
+  %name = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %6 = load ptr, ptr %name, align 8
   %call12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, ptr noundef %6) #11
   %7 = load ptr, ptr @stderr, align 8
-  %name13 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %name13 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %8 = load ptr, ptr %name13, align 8
   %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.hda_audio_command, i32 noundef %nid, ptr noundef %8, i32 noundef %and4, i32 noundef %and5) #11
   br label %do.end
@@ -366,13 +366,13 @@ do.end:                                           ; preds = %do.body, %if.then11
   ]
 
 sw.bb:                                            ; preds = %do.end
-  %nparams.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %nparams.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %9 = load i32, ptr %nparams.i, align 8
   %cmp8.not.i = icmp eq i32 %9, 0
   br i1 %cmp8.not.i, label %do.body195, label %for.body.lr.ph.i118
 
 for.body.lr.ph.i118:                              ; preds = %sw.bb
-  %params.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %params.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %10 = load ptr, ptr %params.i, align 8
   br label %for.body.i119
 
@@ -396,18 +396,18 @@ if.end19:                                         ; preds = %for.body.i119
 
 sw.bb20:                                          ; preds = %do.end
   %13 = load ptr, ptr %desc, align 8
-  %iid = getelementptr inbounds i8, ptr %13, i64 8
+  %iid = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load i32, ptr %iid, align 8
   br label %return
 
 sw.bb22:                                          ; preds = %do.end
-  %nparams.i127 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %nparams.i127 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %15 = load i32, ptr %nparams.i127, align 8
   %cmp8.not.i128 = icmp eq i32 %15, 0
   br i1 %cmp8.not.i128, label %cond.end, label %for.body.lr.ph.i129
 
 for.body.lr.ph.i129:                              ; preds = %sw.bb22
-  %params.i130 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %params.i130 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %16 = load ptr, ptr %params.i130, align 8
   br label %for.body.i131
 
@@ -435,7 +435,7 @@ cond.end:                                         ; preds = %for.cond.i136, %sw.
   br i1 %cmp25157, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %cond.end
-  %conn = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %conn = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %19 = load ptr, ptr %conn, align 8
   %20 = zext nneg i32 %and5 to i64
   %21 = zext i32 %cond to i64
@@ -457,17 +457,17 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %23, label %while.body, label %return, !llvm.loop !9
 
 sw.bb27:                                          ; preds = %do.end
-  %config = getelementptr inbounds i8, ptr %arrayidx.i, i64 28
+  %config = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 28
   %24 = load i32, ptr %config, align 4
   br label %return
 
 sw.bb28:                                          ; preds = %do.end
-  %pinctl = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %pinctl = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %25 = load i32, ptr %pinctl, align 8
   br label %return
 
 sw.bb29:                                          ; preds = %do.end
-  %pinctl30 = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %pinctl30 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %26 = load i32, ptr %pinctl30, align 8
   %cmp31.not = icmp eq i32 %26, %and5
   br i1 %cmp31.not, label %return, label %do.body33
@@ -479,7 +479,7 @@ do.body33:                                        ; preds = %sw.bb29
 
 if.then36:                                        ; preds = %do.body33
   %28 = load ptr, ptr @stderr, align 8
-  %name37 = getelementptr inbounds i8, ptr %call.i, i64 168
+  %name37 = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %29 = load ptr, ptr %name37, align 8
   %call38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.5, ptr noundef %29) #11
   %30 = load ptr, ptr @stderr, align 8
@@ -487,12 +487,12 @@ if.then36:                                        ; preds = %do.body33
   br label %return
 
 sw.bb43:                                          ; preds = %do.end
-  %st44 = getelementptr inbounds i8, ptr %call.i, i64 216
-  %stindex = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
+  %st44 = getelementptr inbounds nuw i8, ptr %call.i, i64 216
+  %stindex = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 48
   %32 = load i32, ptr %stindex, align 8
   %idx.ext = zext i32 %32 to i64
   %add.ptr = getelementptr %struct.HDAAudioStream, ptr %st44, i64 %idx.ext
-  %node45 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %node45 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %33 = load ptr, ptr %node45, align 8
   %cmp46 = icmp eq ptr %33, null
   br i1 %cmp46, label %do.body195, label %if.end48
@@ -501,10 +501,10 @@ if.end48:                                         ; preds = %sw.bb43
   tail call fastcc void @hda_audio_set_running(ptr noundef %add.ptr, i1 noundef zeroext false)
   %shr49 = lshr i32 %data, 4
   %and50 = and i32 %shr49, 15
-  %stream = getelementptr inbounds i8, ptr %add.ptr, i64 20
+  %stream = getelementptr inbounds nuw i8, ptr %add.ptr, i64 20
   store i32 %and50, ptr %stream, align 4
   %and51 = and i32 %data, 15
-  %channel = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %channel = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   store i32 %and51, ptr %channel, align 8
   %34 = load i32, ptr %debug, align 8
   %cmp54 = icmp ugt i32 %34, 1
@@ -512,12 +512,12 @@ if.end48:                                         ; preds = %sw.bb43
 
 if.then55:                                        ; preds = %if.end48
   %35 = load ptr, ptr @stderr, align 8
-  %name56 = getelementptr inbounds i8, ptr %call.i, i64 168
+  %name56 = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %36 = load ptr, ptr %name56, align 8
   %call57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.5, ptr noundef %36) #11
   %37 = load ptr, ptr @stderr, align 8
   %38 = load ptr, ptr %node45, align 8
-  %name59 = getelementptr inbounds i8, ptr %38, i64 8
+  %name59 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %39 = load ptr, ptr %name59, align 8
   %40 = load i32, ptr %stream, align 4
   %41 = load i32, ptr %channel, align 8
@@ -527,8 +527,8 @@ if.then55:                                        ; preds = %if.end48
 
 do.end64:                                         ; preds = %if.end48, %if.then55
   %42 = phi i32 [ %and50, %if.end48 ], [ %.pre, %if.then55 ]
-  %running_real = getelementptr inbounds i8, ptr %call.i, i64 34472
-  %output = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %running_real = getelementptr inbounds nuw i8, ptr %call.i, i64 34472
+  %output = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %43 = load i8, ptr %output, align 8
   %44 = shl i8 %43, 4
   %45 = and i8 %44, 16
@@ -542,40 +542,40 @@ do.end64:                                         ; preds = %if.end48, %if.then5
   br label %return
 
 sw.bb71:                                          ; preds = %do.end
-  %st72 = getelementptr inbounds i8, ptr %call.i, i64 216
-  %stindex74 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
+  %st72 = getelementptr inbounds nuw i8, ptr %call.i, i64 216
+  %stindex74 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 48
   %47 = load i32, ptr %stindex74, align 8
   %idx.ext75 = zext i32 %47 to i64
   %add.ptr76 = getelementptr %struct.HDAAudioStream, ptr %st72, i64 %idx.ext75
-  %node77 = getelementptr inbounds i8, ptr %add.ptr76, i64 8
+  %node77 = getelementptr inbounds nuw i8, ptr %add.ptr76, i64 8
   %48 = load ptr, ptr %node77, align 8
   %cmp78 = icmp eq ptr %48, null
   br i1 %cmp78, label %do.body195, label %if.end81
 
 if.end81:                                         ; preds = %sw.bb71
-  %stream82 = getelementptr inbounds i8, ptr %add.ptr76, i64 20
+  %stream82 = getelementptr inbounds nuw i8, ptr %add.ptr76, i64 20
   %49 = load i32, ptr %stream82, align 4
   %shl83 = shl i32 %49, 4
-  %channel84 = getelementptr inbounds i8, ptr %add.ptr76, i64 24
+  %channel84 = getelementptr inbounds nuw i8, ptr %add.ptr76, i64 24
   %50 = load i32, ptr %channel84, align 8
   %or85 = or i32 %shl83, %50
   br label %return
 
 sw.bb86:                                          ; preds = %do.end
-  %st87 = getelementptr inbounds i8, ptr %call.i, i64 216
-  %stindex89 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
+  %st87 = getelementptr inbounds nuw i8, ptr %call.i, i64 216
+  %stindex89 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 48
   %51 = load i32, ptr %stindex89, align 8
   %idx.ext90 = zext i32 %51 to i64
   %add.ptr91 = getelementptr %struct.HDAAudioStream, ptr %st87, i64 %idx.ext90
-  %node92 = getelementptr inbounds i8, ptr %add.ptr91, i64 8
+  %node92 = getelementptr inbounds nuw i8, ptr %add.ptr91, i64 8
   %52 = load ptr, ptr %node92, align 8
   %cmp93 = icmp eq ptr %52, null
   br i1 %cmp93, label %do.body195, label %if.end96
 
 if.end96:                                         ; preds = %sw.bb86
-  %format = getelementptr inbounds i8, ptr %add.ptr91, i64 28
+  %format = getelementptr inbounds nuw i8, ptr %add.ptr91, i64 28
   store i32 %and5, ptr %format, align 4
-  %as = getelementptr inbounds i8, ptr %add.ptr91, i64 44
+  %as = getelementptr inbounds nuw i8, ptr %add.ptr91, i64 44
   %tobool.not.i = icmp samesign ult i32 %and5, 32768
   br i1 %tobool.not.i, label %if.end.i, label %hda_codec_parse_fmt.exit
 
@@ -675,14 +675,14 @@ sw.bb38.i:                                        ; preds = %sw.epilog33.i
 
 sw.epilog40.sink.split.i:                         ; preds = %sw.bb38.i, %sw.bb36.i, %sw.epilog33.i
   %.sink.i = phi i32 [ 5, %sw.bb38.i ], [ 3, %sw.bb36.i ], [ 1, %sw.epilog33.i ]
-  %fmt39.i = getelementptr inbounds i8, ptr %add.ptr91, i64 52
+  %fmt39.i = getelementptr inbounds nuw i8, ptr %add.ptr91, i64 52
   store i32 %.sink.i, ptr %fmt39.i, align 4
   br label %sw.epilog40.i
 
 sw.epilog40.i:                                    ; preds = %sw.epilog40.sink.split.i, %sw.epilog33.i
   %and41.i = and i32 %data, 15
   %add.i = add nuw nsw i32 %and41.i, 1
-  %nchannels.i = getelementptr inbounds i8, ptr %add.ptr91, i64 48
+  %nchannels.i = getelementptr inbounds nuw i8, ptr %add.ptr91, i64 48
   store i32 %add.i, ptr %nchannels.i, align 4
   br label %hda_codec_parse_fmt.exit
 
@@ -691,28 +691,28 @@ hda_codec_parse_fmt.exit:                         ; preds = %if.end96, %sw.epilo
   br label %return
 
 sw.bb98:                                          ; preds = %do.end
-  %st99 = getelementptr inbounds i8, ptr %call.i, i64 216
-  %stindex101 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
+  %st99 = getelementptr inbounds nuw i8, ptr %call.i, i64 216
+  %stindex101 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 48
   %54 = load i32, ptr %stindex101, align 8
   %idx.ext102 = zext i32 %54 to i64
   %add.ptr103 = getelementptr %struct.HDAAudioStream, ptr %st99, i64 %idx.ext102
-  %node104 = getelementptr inbounds i8, ptr %add.ptr103, i64 8
+  %node104 = getelementptr inbounds nuw i8, ptr %add.ptr103, i64 8
   %55 = load ptr, ptr %node104, align 8
   %cmp105 = icmp eq ptr %55, null
   br i1 %cmp105, label %do.body195, label %if.end108
 
 if.end108:                                        ; preds = %sw.bb98
-  %format109 = getelementptr inbounds i8, ptr %add.ptr103, i64 28
+  %format109 = getelementptr inbounds nuw i8, ptr %add.ptr103, i64 28
   %56 = load i32, ptr %format109, align 4
   br label %return
 
 sw.bb110:                                         ; preds = %do.end
-  %st111 = getelementptr inbounds i8, ptr %call.i, i64 216
-  %stindex113 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
+  %st111 = getelementptr inbounds nuw i8, ptr %call.i, i64 216
+  %stindex113 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 48
   %57 = load i32, ptr %stindex113, align 8
   %idx.ext114 = zext i32 %57 to i64
   %add.ptr115 = getelementptr %struct.HDAAudioStream, ptr %st111, i64 %idx.ext114
-  %node116 = getelementptr inbounds i8, ptr %add.ptr115, i64 8
+  %node116 = getelementptr inbounds nuw i8, ptr %add.ptr115, i64 8
   %58 = load ptr, ptr %node116, align 8
   %cmp117 = icmp eq ptr %58, null
   br i1 %cmp117, label %do.body195, label %if.end120
@@ -722,8 +722,8 @@ if.end120:                                        ; preds = %sw.bb110
   %tobool122.not = icmp eq i32 %and121, 0
   %.181 = select i1 %tobool122.not, i64 36, i64 32
   %.182 = select i1 %tobool122.not, i64 41, i64 40
-  %gain_right = getelementptr inbounds i8, ptr %add.ptr115, i64 %.181
-  %mute_right = getelementptr inbounds i8, ptr %add.ptr115, i64 %.182
+  %gain_right = getelementptr inbounds nuw i8, ptr %add.ptr115, i64 %.181
+  %mute_right = getelementptr inbounds nuw i8, ptr %add.ptr115, i64 %.182
   %.sink172 = load i32, ptr %gain_right, align 4
   %.sink173 = load i8, ptr %mute_right, align 1
   %tobool129 = trunc i8 %.sink173 to i1
@@ -732,12 +732,12 @@ if.end120:                                        ; preds = %sw.bb110
   br label %return
 
 sw.bb134:                                         ; preds = %do.end
-  %st135 = getelementptr inbounds i8, ptr %call.i, i64 216
-  %stindex137 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
+  %st135 = getelementptr inbounds nuw i8, ptr %call.i, i64 216
+  %stindex137 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 48
   %59 = load i32, ptr %stindex137, align 8
   %idx.ext138 = zext i32 %59 to i64
   %add.ptr139 = getelementptr %struct.HDAAudioStream, ptr %st135, i64 %idx.ext138
-  %node140 = getelementptr inbounds i8, ptr %add.ptr139, i64 8
+  %node140 = getelementptr inbounds nuw i8, ptr %add.ptr139, i64 8
   %60 = load ptr, ptr %node140, align 8
   %cmp141 = icmp eq ptr %60, null
   br i1 %cmp141, label %do.body195, label %do.body145
@@ -753,12 +753,12 @@ do.body145.do.end174_crit_edge:                   ; preds = %do.body145
 
 if.then149:                                       ; preds = %do.body145
   %62 = load ptr, ptr @stderr, align 8
-  %name150 = getelementptr inbounds i8, ptr %call.i, i64 168
+  %name150 = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %63 = load ptr, ptr %name150, align 8
   %call151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.5, ptr noundef %63) #11
   %64 = load ptr, ptr @stderr, align 8
   %65 = load ptr, ptr %node140, align 8
-  %name153 = getelementptr inbounds i8, ptr %65, i64 8
+  %name153 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %66 = load ptr, ptr %name153, align 8
   %tobool155.not = icmp samesign ult i32 %and5, 32768
   %cond156 = select i1 %tobool155.not, ptr @.str.13, ptr @.str.12
@@ -787,11 +787,11 @@ do.end174:                                        ; preds = %do.body145.do.end17
 
 if.then177:                                       ; preds = %do.end174
   %and178 = and i32 %data, 127
-  %gain_left179 = getelementptr inbounds i8, ptr %add.ptr139, i64 32
+  %gain_left179 = getelementptr inbounds nuw i8, ptr %add.ptr139, i64 32
   store i32 %and178, ptr %gain_left179, align 8
   %and180 = and i32 %data, 128
   %tobool181 = icmp ne i32 %and180, 0
-  %mute_left182 = getelementptr inbounds i8, ptr %add.ptr139, i64 40
+  %mute_left182 = getelementptr inbounds nuw i8, ptr %add.ptr139, i64 40
   %frombool = zext i1 %tobool181 to i8
   store i8 %frombool, ptr %mute_left182, align 8
   br label %if.end183
@@ -803,11 +803,11 @@ if.end183:                                        ; preds = %if.then177, %do.end
 
 if.then186:                                       ; preds = %if.end183
   %and187 = and i32 %data, 127
-  %gain_right188 = getelementptr inbounds i8, ptr %add.ptr139, i64 36
+  %gain_right188 = getelementptr inbounds nuw i8, ptr %add.ptr139, i64 36
   store i32 %and187, ptr %gain_right188, align 4
   %and189 = and i32 %data, 128
   %tobool190 = icmp ne i32 %and189, 0
-  %mute_right191 = getelementptr inbounds i8, ptr %add.ptr139, i64 41
+  %mute_right191 = getelementptr inbounds nuw i8, ptr %add.ptr139, i64 41
   %frombool192 = zext i1 %tobool190 to i8
   store i8 %frombool192, ptr %mute_right191, align 1
   br label %if.end193
@@ -818,25 +818,25 @@ if.end193:                                        ; preds = %if.then186, %if.end
   br i1 %cmp.i, label %return, label %if.end.i143
 
 if.end.i143:                                      ; preds = %if.end193
-  %mute_left.i = getelementptr inbounds i8, ptr %add.ptr139, i64 40
+  %mute_left.i = getelementptr inbounds nuw i8, ptr %add.ptr139, i64 40
   %68 = load i8, ptr %mute_left.i, align 8
   %tobool.i = trunc i8 %68 to i1
   br i1 %tobool.i, label %land.end.thread.i, label %cond.false.i
 
 land.end.thread.i:                                ; preds = %if.end.i143
-  %mute_right.i = getelementptr inbounds i8, ptr %add.ptr139, i64 41
+  %mute_right.i = getelementptr inbounds nuw i8, ptr %add.ptr139, i64 41
   %69 = load i8, ptr %mute_right.i, align 1
   %70 = and i8 %69, 1
   %71 = zext nneg i8 %70 to i32
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end.i143
-  %gain_left.i = getelementptr inbounds i8, ptr %add.ptr139, i64 32
+  %gain_left.i = getelementptr inbounds nuw i8, ptr %add.ptr139, i64 32
   %72 = load i32, ptr %gain_left.i, align 8
   %73 = mul i32 %72, 255
   %74 = udiv i32 %73, 74
   %75 = trunc i32 %74 to i8
-  %mute_right4.phi.trans.insert.i = getelementptr inbounds i8, ptr %add.ptr139, i64 41
+  %mute_right4.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %add.ptr139, i64 41
   %.pre.i = load i8, ptr %mute_right4.phi.trans.insert.i, align 1
   br label %cond.end.i
 
@@ -848,7 +848,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %land
   br i1 %tobool5.i, label %cond.end8.i, label %cond.false7.i
 
 cond.false7.i:                                    ; preds = %cond.end.i
-  %gain_right.i = getelementptr inbounds i8, ptr %add.ptr139, i64 36
+  %gain_right.i = getelementptr inbounds nuw i8, ptr %add.ptr139, i64 36
   %77 = load i32, ptr %gain_right.i, align 4
   %78 = mul i32 %77, 255
   %79 = udiv i32 %78, 74
@@ -858,16 +858,16 @@ cond.false7.i:                                    ; preds = %cond.end.i
 cond.end8.i:                                      ; preds = %cond.false7.i, %cond.end.i
   %cond9.i = phi i8 [ %80, %cond.false7.i ], [ 0, %cond.end.i ]
   %81 = load ptr, ptr %add.ptr139, align 8
-  %mixer.i = getelementptr inbounds i8, ptr %81, i64 34508
+  %mixer.i = getelementptr inbounds nuw i8, ptr %81, i64 34508
   %82 = load i8, ptr %mixer.i, align 4
   %tobool12.i = trunc i8 %82 to i1
   br i1 %tobool12.i, label %if.end14.i, label %return
 
 if.end14.i:                                       ; preds = %cond.end8.i
-  %output.i = getelementptr inbounds i8, ptr %add.ptr139, i64 16
+  %output.i = getelementptr inbounds nuw i8, ptr %add.ptr139, i64 16
   %83 = load i8, ptr %output.i, align 8
   %tobool15.i = trunc i8 %83 to i1
-  %voice.i = getelementptr inbounds i8, ptr %add.ptr139, i64 64
+  %voice.i = getelementptr inbounds nuw i8, ptr %add.ptr139, i64 64
   %84 = load ptr, ptr %voice.i, align 8
   br i1 %tobool15.i, label %if.then16.i, label %if.else.i
 
@@ -882,21 +882,21 @@ if.else.i:                                        ; preds = %if.end14.i
 do.body195:                                       ; preds = %for.cond.i, %for.cond.i123, %sw.bb, %entry, %hda_codec_find_node.exit, %sw.bb43, %sw.bb71, %sw.bb86, %sw.bb98, %sw.bb110, %sw.bb134, %do.end
   %cmp7148 = phi i1 [ true, %hda_codec_find_node.exit ], [ false, %sw.bb43 ], [ false, %sw.bb71 ], [ false, %sw.bb86 ], [ false, %sw.bb98 ], [ false, %sw.bb110 ], [ false, %sw.bb134 ], [ false, %do.end ], [ true, %entry ], [ false, %sw.bb ], [ false, %for.cond.i123 ], [ true, %for.cond.i ]
   %retval.0.i147 = phi ptr [ null, %hda_codec_find_node.exit ], [ %arrayidx.i, %sw.bb43 ], [ %arrayidx.i, %sw.bb71 ], [ %arrayidx.i, %sw.bb86 ], [ %arrayidx.i, %sw.bb98 ], [ %arrayidx.i, %sw.bb110 ], [ %arrayidx.i, %sw.bb134 ], [ %arrayidx.i, %do.end ], [ null, %entry ], [ %arrayidx.i, %sw.bb ], [ %arrayidx.i, %for.cond.i123 ], [ null, %for.cond.i ]
-  %debug196 = getelementptr inbounds i8, ptr %call.i, i64 34504
+  %debug196 = getelementptr inbounds nuw i8, ptr %call.i, i64 34504
   %85 = load i32, ptr %debug196, align 8
   %cmp197.not = icmp eq i32 %85, 0
   br i1 %cmp197.not, label %return, label %if.then199
 
 if.then199:                                       ; preds = %do.body195
   %86 = load ptr, ptr @stderr, align 8
-  %name200 = getelementptr inbounds i8, ptr %call.i, i64 168
+  %name200 = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %87 = load ptr, ptr %name200, align 8
   %call201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.5, ptr noundef %87) #11
   %88 = load ptr, ptr @stderr, align 8
   br i1 %cmp7148, label %cond.end206, label %cond.true203
 
 cond.true203:                                     ; preds = %if.then199
-  %name204 = getelementptr inbounds i8, ptr %retval.0.i147, i64 8
+  %name204 = getelementptr inbounds nuw i8, ptr %retval.0.i147, i64 8
   %89 = load ptr, ptr %name204, align 8
   br label %cond.end206
 
@@ -916,36 +916,36 @@ define internal void @hda_audio_stream(ptr noundef %hda, i32 noundef %stnr, i1 n
 entry:
   %frombool = zext i1 %running to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
-  %running_compat = getelementptr inbounds i8, ptr %call.i, i64 34456
+  %running_compat = getelementptr inbounds nuw i8, ptr %call.i, i64 34456
   %idxprom = zext i32 %stnr to i64
   %arrayidx = getelementptr [16 x i8], ptr %running_compat, i64 0, i64 %idxprom
   store i8 %frombool, ptr %arrayidx, align 1
-  %running_real = getelementptr inbounds i8, ptr %call.i, i64 34472
+  %running_real = getelementptr inbounds nuw i8, ptr %call.i, i64 34472
   %mul = select i1 %output, i32 16, i32 0
   %add = add i32 %mul, %stnr
   %idxprom5 = zext i32 %add to i64
   %arrayidx6 = getelementptr [32 x i8], ptr %running_real, i64 0, i64 %idxprom5
   store i8 %frombool, ptr %arrayidx6, align 1
-  %st = getelementptr inbounds i8, ptr %call.i, i64 216
+  %st = getelementptr inbounds nuw i8, ptr %call.i, i64 216
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %arrayidx11 = getelementptr [4 x %struct.HDAAudioStream], ptr %st, i64 0, i64 %indvars.iv
-  %node = getelementptr inbounds i8, ptr %arrayidx11, i64 8
+  %node = getelementptr inbounds nuw i8, ptr %arrayidx11, i64 8
   %0 = load ptr, ptr %node, align 8
   %cmp12 = icmp eq ptr %0, null
   br i1 %cmp12, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %output17 = getelementptr inbounds i8, ptr %arrayidx11, i64 16
+  %output17 = getelementptr inbounds nuw i8, ptr %arrayidx11, i64 16
   %1 = load i8, ptr %output17, align 8
   %2 = trunc i8 %1 to i1
   %3 = xor i1 %output, %2
   br i1 %3, label %for.inc, label %if.end25
 
 if.end25:                                         ; preds = %if.end
-  %stream = getelementptr inbounds i8, ptr %arrayidx11, i64 20
+  %stream = getelementptr inbounds nuw i8, ptr %arrayidx11, i64 20
   %4 = load i32, ptr %stream, align 4
   %cmp29.not = icmp eq i32 %4, %stnr
   br i1 %cmp29.not, label %if.end32, label %for.inc
@@ -967,14 +967,14 @@ for.end:                                          ; preds = %for.inc
 define internal void @hda_audio_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
-  %debug = getelementptr inbounds i8, ptr %call.i, i64 34504
+  %debug = getelementptr inbounds nuw i8, ptr %call.i, i64 34504
   %0 = load i32, ptr %debug, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %name = getelementptr inbounds i8, ptr %call.i, i64 168
+  %name = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %2 = load ptr, ptr %name, align 8
   %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %2) #11
   %3 = load ptr, ptr @stderr, align 8
@@ -982,13 +982,13 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %st5 = getelementptr inbounds i8, ptr %call.i, i64 216
+  %st5 = getelementptr inbounds nuw i8, ptr %call.i, i64 216
   br label %for.body
 
 for.body:                                         ; preds = %do.end, %for.inc
   %indvars.iv = phi i64 [ 0, %do.end ], [ %indvars.iv.next, %for.inc ]
   %add.ptr = getelementptr %struct.HDAAudioStream, ptr %st5, i64 %indvars.iv
-  %node = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %node = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %4 = load ptr, ptr %node, align 8
   %cmp6.not = icmp eq ptr %4, null
   br i1 %cmp6.not, label %for.inc, label %if.then8
@@ -1030,13 +1030,13 @@ define internal fastcc void @hda_audio_set_running(ptr nocapture noundef %st, i1
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %frombool = zext i1 %running to i8
-  %node = getelementptr inbounds i8, ptr %st, i64 8
+  %node = getelementptr inbounds nuw i8, ptr %st, i64 8
   %0 = load ptr, ptr %node, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end31, label %if.end
 
 if.end:                                           ; preds = %entry
-  %running1 = getelementptr inbounds i8, ptr %st, i64 17
+  %running1 = getelementptr inbounds nuw i8, ptr %st, i64 17
   %1 = load i8, ptr %running1, align 1
   %2 = trunc i8 %1 to i1
   %3 = xor i1 %running, %2
@@ -1044,9 +1044,9 @@ if.end:                                           ; preds = %entry
 
 if.end7:                                          ; preds = %if.end
   store i8 %frombool, ptr %running1, align 1
-  %name = getelementptr inbounds i8, ptr %0, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %name, align 8
-  %stream = getelementptr inbounds i8, ptr %st, i64 20
+  %stream = getelementptr inbounds nuw i8, ptr %st, i64 20
   %5 = load i32, ptr %stream, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1071,7 +1071,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %running to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, i32 noundef %5, i32 noundef %conv12.i.i) #10
@@ -1085,7 +1085,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_hda_audio_running.exit:                     ; preds = %if.end7, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %12 = load ptr, ptr %st, align 8
-  %use_timer = getelementptr inbounds i8, ptr %12, i64 34509
+  %use_timer = getelementptr inbounds nuw i8, ptr %12, i64 34509
   %13 = load i8, ptr %use_timer, align 1
   %tobool14 = trunc i8 %13 to i1
   br i1 %tobool14, label %if.then15, label %if.end20
@@ -1095,27 +1095,27 @@ if.then15:                                        ; preds = %trace_hda_audio_run
 
 if.then17:                                        ; preds = %if.then15
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
-  %rpos = getelementptr inbounds i8, ptr %st, i64 8528
-  %buft_start = getelementptr inbounds i8, ptr %st, i64 8552
+  %rpos = getelementptr inbounds nuw i8, ptr %st, i64 8528
+  %buft_start = getelementptr inbounds nuw i8, ptr %st, i64 8552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rpos, i8 0, i64 16, i1 false)
   store i64 %call, ptr %buft_start, align 8
-  %buft = getelementptr inbounds i8, ptr %st, i64 8544
+  %buft = getelementptr inbounds nuw i8, ptr %st, i64 8544
   %14 = load ptr, ptr %buft, align 8
   %add = add i64 %call, 1000000
   tail call void @timer_mod_anticipate_ns(ptr noundef %14, i64 noundef %add) #10
   br label %if.end20
 
 if.else:                                          ; preds = %if.then15
-  %buft18 = getelementptr inbounds i8, ptr %st, i64 8544
+  %buft18 = getelementptr inbounds nuw i8, ptr %st, i64 8544
   %15 = load ptr, ptr %buft18, align 8
   tail call void @timer_del(ptr noundef %15) #10
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then17, %if.else, %trace_hda_audio_running.exit
-  %output = getelementptr inbounds i8, ptr %st, i64 16
+  %output = getelementptr inbounds nuw i8, ptr %st, i64 16
   %16 = load i8, ptr %output, align 8
   %tobool21 = trunc i8 %16 to i1
-  %voice = getelementptr inbounds i8, ptr %st, i64 64
+  %voice = getelementptr inbounds nuw i8, ptr %st, i64 64
   %17 = load ptr, ptr %voice, align 8
   %18 = load i8, ptr %running1, align 1
   %19 = and i8 %18, 1
@@ -1139,21 +1139,21 @@ define internal fastcc void @hda_audio_setup(ptr noundef %st) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %st, align 8
-  %use_timer1 = getelementptr inbounds i8, ptr %0, i64 34509
+  %use_timer1 = getelementptr inbounds nuw i8, ptr %0, i64 34509
   %1 = load i8, ptr %use_timer1, align 1
   %tobool = trunc i8 %1 to i1
-  %node = getelementptr inbounds i8, ptr %st, i64 8
+  %node = getelementptr inbounds nuw i8, ptr %st, i64 8
   %2 = load ptr, ptr %node, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.end31, label %if.end
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds i8, ptr %2, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %name, align 8
-  %as = getelementptr inbounds i8, ptr %st, i64 44
-  %nchannels = getelementptr inbounds i8, ptr %st, i64 48
+  %as = getelementptr inbounds nuw i8, ptr %st, i64 44
+  %nchannels = getelementptr inbounds nuw i8, ptr %st, i64 48
   %4 = load i32, ptr %nchannels, align 4
-  %fmt = getelementptr inbounds i8, ptr %st, i64 52
+  %fmt = getelementptr inbounds nuw i8, ptr %st, i64 52
   %5 = load i32, ptr %fmt, align 4
   %idxprom = zext i32 %5 to i64
   %arrayidx = getelementptr [6 x ptr], ptr @fmt2name, i64 0, i64 %idxprom
@@ -1182,7 +1182,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %12 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef %3, i32 noundef %4, ptr noundef %6, i32 noundef %7) #10
   br label %trace_hda_audio_format.exit
@@ -1193,7 +1193,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_hda_audio_format.exit:                      ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %output = getelementptr inbounds i8, ptr %st, i64 16
+  %output = getelementptr inbounds nuw i8, ptr %st, i64 16
   %14 = load i8, ptr %output, align 8
   %tobool5 = trunc i8 %14 to i1
   br i1 %tobool5, label %if.then6, label %if.else16
@@ -1204,18 +1204,18 @@ if.then6:                                         ; preds = %trace_hda_audio_for
 if.then8:                                         ; preds = %if.then6
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #12
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @hda_audio_output_timer, ptr noundef nonnull %st) #10
-  %buft = getelementptr inbounds i8, ptr %st, i64 8544
+  %buft = getelementptr inbounds nuw i8, ptr %st, i64 8544
   store ptr %call.i.i.i, ptr %buft, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %if.then8
   %cb.0 = phi ptr [ @hda_audio_output_cb, %if.then8 ], [ @hda_audio_compat_output_cb, %if.then6 ]
   %15 = load ptr, ptr %st, align 8
-  %card = getelementptr inbounds i8, ptr %15, i64 176
-  %voice = getelementptr inbounds i8, ptr %st, i64 64
+  %card = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %voice = getelementptr inbounds nuw i8, ptr %st, i64 64
   %16 = load ptr, ptr %voice, align 8
   %17 = load ptr, ptr %node, align 8
-  %name12 = getelementptr inbounds i8, ptr %17, i64 8
+  %name12 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %18 = load ptr, ptr %name12, align 8
   %call14 = tail call ptr @AUD_open_out(ptr noundef nonnull %card, ptr noundef %16, ptr noundef %18, ptr noundef nonnull %st, ptr noundef nonnull %cb.0, ptr noundef nonnull %as) #10
   store ptr %call14, ptr %voice, align 8
@@ -1227,18 +1227,18 @@ if.else16:                                        ; preds = %trace_hda_audio_for
 if.then18:                                        ; preds = %if.else16
   %call.i.i.i25 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #12
   tail call void @timer_init_full(ptr noundef %call.i.i.i25, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @hda_audio_input_timer, ptr noundef nonnull %st) #10
-  %buft20 = getelementptr inbounds i8, ptr %st, i64 8544
+  %buft20 = getelementptr inbounds nuw i8, ptr %st, i64 8544
   store ptr %call.i.i.i25, ptr %buft20, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else16, %if.then18
   %cb.1 = phi ptr [ @hda_audio_input_cb, %if.then18 ], [ @hda_audio_compat_input_cb, %if.else16 ]
   %19 = load ptr, ptr %st, align 8
-  %card24 = getelementptr inbounds i8, ptr %19, i64 176
-  %voice25 = getelementptr inbounds i8, ptr %st, i64 64
+  %card24 = getelementptr inbounds nuw i8, ptr %19, i64 176
+  %voice25 = getelementptr inbounds nuw i8, ptr %st, i64 64
   %20 = load ptr, ptr %voice25, align 8
   %21 = load ptr, ptr %node, align 8
-  %name27 = getelementptr inbounds i8, ptr %21, i64 8
+  %name27 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %22 = load ptr, ptr %name27, align 8
   %call29 = tail call ptr @AUD_open_in(ptr noundef nonnull %card24, ptr noundef %20, ptr noundef %22, ptr noundef nonnull %st, ptr noundef nonnull %cb.1, ptr noundef nonnull %as) #10
   store ptr %call29, ptr %voice25, align 8
@@ -1267,9 +1267,9 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 define internal void @hda_audio_output_cb(ptr noundef %opaque, i32 noundef %avail) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %wpos1 = getelementptr inbounds i8, ptr %opaque, i64 8536
+  %wpos1 = getelementptr inbounds nuw i8, ptr %opaque, i64 8536
   %0 = load i64, ptr %wpos1, align 8
-  %rpos2 = getelementptr inbounds i8, ptr %opaque, i64 8528
+  %rpos2 = getelementptr inbounds nuw i8, ptr %opaque, i64 8528
   %1 = load i64, ptr %rpos2, align 8
   %sub = sub i64 %0, %1
   %cmp5 = icmp eq i64 %sub, 8192
@@ -1278,11 +1278,11 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rpos2, i8 0, i64 16, i1 false)
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
-  %buft_start = getelementptr inbounds i8, ptr %opaque, i64 8552
+  %buft_start = getelementptr inbounds nuw i8, ptr %opaque, i64 8552
   store i64 %call, ptr %buft_start, align 8
-  %node = getelementptr inbounds i8, ptr %opaque, i64 8
+  %node = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %2 = load ptr, ptr %node, align 8
-  %name = getelementptr inbounds i8, ptr %2, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1307,7 +1307,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %3) #10
   br label %trace_hda_audio_overrun.exit
@@ -1327,8 +1327,8 @@ while.cond:                                       ; preds = %entry
   br i1 %tobool.old.not, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %while.cond
-  %voice = getelementptr inbounds i8, ptr %opaque, i64 64
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 332
+  %voice = getelementptr inbounds nuw i8, ptr %opaque, i64 64
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 332
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -1368,12 +1368,12 @@ return:                                           ; preds = %while.end, %trace_h
 define internal void @hda_audio_output_timer(ptr noundef %opaque) #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
-  %buft_start = getelementptr inbounds i8, ptr %opaque, i64 8552
+  %buft_start = getelementptr inbounds nuw i8, ptr %opaque, i64 8552
   %0 = load i64, ptr %buft_start, align 8
   %sub = sub i64 %call, %0
-  %wpos1 = getelementptr inbounds i8, ptr %opaque, i64 8536
+  %wpos1 = getelementptr inbounds nuw i8, ptr %opaque, i64 8536
   %1 = load i64, ptr %wpos1, align 8
-  %rpos2 = getelementptr inbounds i8, ptr %opaque, i64 8528
+  %rpos2 = getelementptr inbounds nuw i8, ptr %opaque, i64 8528
   %2 = load i64, ptr %rpos2, align 8
   %cmp = icmp slt i64 %sub, 1
   br i1 %cmp, label %out_timer, label %if.end
@@ -1403,8 +1403,8 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool.not30, label %out_timer, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end7
-  %stream = getelementptr inbounds i8, ptr %opaque, i64 20
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 332
+  %stream = getelementptr inbounds nuw i8, ptr %opaque, i64 20
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 332
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end27
@@ -1430,13 +1430,13 @@ if.end27:                                         ; preds = %while.body
   br i1 %tobool.not, label %out_timer, label %while.body, !llvm.loop !13
 
 out_timer:                                        ; preds = %while.body, %if.end27, %if.end7, %if.end, %entry
-  %running = getelementptr inbounds i8, ptr %opaque, i64 17
+  %running = getelementptr inbounds nuw i8, ptr %opaque, i64 17
   %8 = load i8, ptr %running, align 1
   %tobool34 = trunc i8 %8 to i1
   br i1 %tobool34, label %if.then35, label %if.end37
 
 if.then35:                                        ; preds = %out_timer
-  %buft = getelementptr inbounds i8, ptr %opaque, i64 8544
+  %buft = getelementptr inbounds nuw i8, ptr %opaque, i64 8544
   %9 = load ptr, ptr %buft, align 8
   %add36 = add i64 %call, 1000000
   tail call void @timer_mod_anticipate_ns(ptr noundef %9, i64 noundef %add36) #10
@@ -1449,10 +1449,10 @@ if.end37:                                         ; preds = %if.then35, %out_tim
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_compat_output_cb(ptr noundef %opaque, i32 noundef %avail) #0 {
 entry:
-  %compat_bpos = getelementptr inbounds i8, ptr %opaque, i64 328
-  %stream = getelementptr inbounds i8, ptr %opaque, i64 20
-  %compat_buf = getelementptr inbounds i8, ptr %opaque, i64 72
-  %voice = getelementptr inbounds i8, ptr %opaque, i64 64
+  %compat_bpos = getelementptr inbounds nuw i8, ptr %opaque, i64 328
+  %stream = getelementptr inbounds nuw i8, ptr %opaque, i64 20
+  %compat_buf = getelementptr inbounds nuw i8, ptr %opaque, i64 72
+  %voice = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end7, %entry
@@ -1500,9 +1500,9 @@ declare ptr @AUD_open_out(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @hda_audio_input_cb(ptr noundef %opaque, i32 noundef %avail) #0 {
 entry:
-  %wpos1 = getelementptr inbounds i8, ptr %opaque, i64 8536
+  %wpos1 = getelementptr inbounds nuw i8, ptr %opaque, i64 8536
   %0 = load i64, ptr %wpos1, align 8
-  %rpos2 = getelementptr inbounds i8, ptr %opaque, i64 8528
+  %rpos2 = getelementptr inbounds nuw i8, ptr %opaque, i64 8528
   %1 = load i64, ptr %rpos2, align 8
   %reass.sub = sub i64 %1, %0
   %sub3 = add i64 %reass.sub, 8192
@@ -1512,8 +1512,8 @@ entry:
   br i1 %tobool.old.not, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %voice = getelementptr inbounds i8, ptr %opaque, i64 64
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 332
+  %voice = getelementptr inbounds nuw i8, ptr %opaque, i64 64
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 332
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -1550,12 +1550,12 @@ while.end:                                        ; preds = %while.body, %entry
 define internal void @hda_audio_input_timer(ptr noundef %opaque) #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
-  %buft_start = getelementptr inbounds i8, ptr %opaque, i64 8552
+  %buft_start = getelementptr inbounds nuw i8, ptr %opaque, i64 8552
   %0 = load i64, ptr %buft_start, align 8
   %sub = sub i64 %call, %0
-  %wpos1 = getelementptr inbounds i8, ptr %opaque, i64 8536
+  %wpos1 = getelementptr inbounds nuw i8, ptr %opaque, i64 8536
   %1 = load i64, ptr %wpos1, align 8
-  %rpos2 = getelementptr inbounds i8, ptr %opaque, i64 8528
+  %rpos2 = getelementptr inbounds nuw i8, ptr %opaque, i64 8528
   %2 = load i64, ptr %rpos2, align 8
   %cmp = icmp slt i64 %sub, 1
   br i1 %cmp, label %out_timer, label %if.end
@@ -1584,8 +1584,8 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool.not30, label %out_timer, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end7
-  %stream = getelementptr inbounds i8, ptr %opaque, i64 20
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 332
+  %stream = getelementptr inbounds nuw i8, ptr %opaque, i64 20
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 332
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end26
@@ -1611,13 +1611,13 @@ if.end26:                                         ; preds = %while.body
   br i1 %tobool.not, label %out_timer, label %while.body, !llvm.loop !16
 
 out_timer:                                        ; preds = %while.body, %if.end26, %if.end7, %if.end, %entry
-  %running = getelementptr inbounds i8, ptr %opaque, i64 17
+  %running = getelementptr inbounds nuw i8, ptr %opaque, i64 17
   %8 = load i8, ptr %running, align 1
   %tobool33 = trunc i8 %8 to i1
   br i1 %tobool33, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %out_timer
-  %buft = getelementptr inbounds i8, ptr %opaque, i64 8544
+  %buft = getelementptr inbounds nuw i8, ptr %opaque, i64 8544
   %9 = load ptr, ptr %buft, align 8
   %add35 = add i64 %call, 1000000
   tail call void @timer_mod_anticipate_ns(ptr noundef %9, i64 noundef %add35) #10
@@ -1634,10 +1634,10 @@ entry:
   br i1 %cmp13, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %compat_bpos = getelementptr inbounds i8, ptr %opaque, i64 328
-  %voice = getelementptr inbounds i8, ptr %opaque, i64 64
-  %compat_buf = getelementptr inbounds i8, ptr %opaque, i64 72
-  %stream = getelementptr inbounds i8, ptr %opaque, i64 20
+  %compat_bpos = getelementptr inbounds nuw i8, ptr %opaque, i64 328
+  %voice = getelementptr inbounds nuw i8, ptr %opaque, i64 64
+  %compat_buf = getelementptr inbounds nuw i8, ptr %opaque, i64 72
+  %stream = getelementptr inbounds nuw i8, ptr %opaque, i64 20
   %.pre = load i32, ptr %compat_bpos, align 8
   br label %while.body
 
@@ -1696,9 +1696,9 @@ entry:
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %entry
-  %node = getelementptr inbounds i8, ptr %st, i64 8
+  %node = getelementptr inbounds nuw i8, ptr %st, i64 8
   %0 = load ptr, ptr %node, align 8
-  %name = getelementptr inbounds i8, ptr %0, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %name, align 8
   %conv = trunc i64 %target_pos to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1724,7 +1724,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, i32 noundef %conv) #10
   br label %trace_hda_audio_adjust.exit
@@ -1735,7 +1735,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_hda_audio_adjust.exit:                      ; preds = %if.end10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %buft_start = getelementptr inbounds i8, ptr %st, i64 8552
+  %buft_start = getelementptr inbounds nuw i8, ptr %st, i64 8552
   %8 = load i64, ptr %buft_start, align 8
   %add = add i64 %8, %spec.store.select2
   store i64 %add, ptr %buft_start, align 8
@@ -1761,14 +1761,14 @@ declare void @AUD_set_volume_in(ptr noundef, i32 noundef, i8 noundef zeroext, i8
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @hda_audio_post_load(ptr noundef %opaque, i32 noundef %version) #0 {
 entry:
-  %debug = getelementptr inbounds i8, ptr %opaque, i64 34504
+  %debug = getelementptr inbounds nuw i8, ptr %opaque, i64 34504
   %0 = load i32, ptr %debug, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %name = getelementptr inbounds i8, ptr %opaque, i64 168
+  %name = getelementptr inbounds nuw i8, ptr %opaque, i64 168
   %2 = load ptr, ptr %name, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %2) #11
   %3 = load ptr, ptr @stderr, align 8
@@ -1780,8 +1780,8 @@ do.end:                                           ; preds = %entry, %if.then
   br i1 %cmp2, label %for.cond.preheader, label %if.end8
 
 for.cond.preheader:                               ; preds = %do.end
-  %running_compat = getelementptr inbounds i8, ptr %opaque, i64 34456
-  %running_real = getelementptr inbounds i8, ptr %opaque, i64 34472
+  %running_compat = getelementptr inbounds nuw i8, ptr %opaque, i64 34456
+  %running_real = getelementptr inbounds nuw i8, ptr %opaque, i64 34472
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -1797,22 +1797,22 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond.not, label %if.end8, label %for.body, !llvm.loop !18
 
 if.end8:                                          ; preds = %for.body, %do.end
-  %st14 = getelementptr inbounds i8, ptr %opaque, i64 216
-  %running_real19 = getelementptr inbounds i8, ptr %opaque, i64 34472
+  %st14 = getelementptr inbounds nuw i8, ptr %opaque, i64 216
+  %running_real19 = getelementptr inbounds nuw i8, ptr %opaque, i64 34472
   br label %for.body13
 
 for.body13:                                       ; preds = %if.end8, %for.inc26
   %indvars.iv25 = phi i64 [ 0, %if.end8 ], [ %indvars.iv.next26, %for.inc26 ]
   %add.ptr = getelementptr %struct.HDAAudioStream, ptr %st14, i64 %indvars.iv25
-  %node = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %node = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %6 = load ptr, ptr %node, align 8
   %cmp15 = icmp eq ptr %6, null
   br i1 %cmp15, label %for.inc26, label %if.end18
 
 if.end18:                                         ; preds = %for.body13
-  %format = getelementptr inbounds i8, ptr %add.ptr, i64 28
+  %format = getelementptr inbounds nuw i8, ptr %add.ptr, i64 28
   %7 = load i32, ptr %format, align 4
-  %as = getelementptr inbounds i8, ptr %add.ptr, i64 44
+  %as = getelementptr inbounds nuw i8, ptr %add.ptr, i64 44
   %and.i = and i32 %7, 32768
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %hda_codec_parse_fmt.exit
@@ -1914,14 +1914,14 @@ sw.bb38.i:                                        ; preds = %sw.epilog33.i
 
 sw.epilog40.sink.split.i:                         ; preds = %sw.bb38.i, %sw.bb36.i, %sw.epilog33.i
   %.sink.i = phi i32 [ 5, %sw.bb38.i ], [ 3, %sw.bb36.i ], [ 1, %sw.epilog33.i ]
-  %fmt39.i = getelementptr inbounds i8, ptr %add.ptr, i64 52
+  %fmt39.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 52
   store i32 %.sink.i, ptr %fmt39.i, align 4
   br label %sw.epilog40.i
 
 sw.epilog40.i:                                    ; preds = %sw.epilog40.sink.split.i, %sw.epilog33.i
   %and41.i = and i32 %7, 15
   %add.i = add nuw nsw i32 %and41.i, 1
-  %nchannels.i = getelementptr inbounds i8, ptr %add.ptr, i64 48
+  %nchannels.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 48
   store i32 %add.i, ptr %nchannels.i, align 4
   br label %hda_codec_parse_fmt.exit
 
@@ -1932,25 +1932,25 @@ hda_codec_parse_fmt.exit:                         ; preds = %if.end18, %sw.epilo
   br i1 %cmp.i, label %hda_audio_set_amp.exit, label %if.end.i19
 
 if.end.i19:                                       ; preds = %hda_codec_parse_fmt.exit
-  %mute_left.i = getelementptr inbounds i8, ptr %add.ptr, i64 40
+  %mute_left.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 40
   %10 = load i8, ptr %mute_left.i, align 8
   %tobool.i = trunc i8 %10 to i1
   br i1 %tobool.i, label %land.end.thread.i, label %cond.false.i
 
 land.end.thread.i:                                ; preds = %if.end.i19
-  %mute_right.i = getelementptr inbounds i8, ptr %add.ptr, i64 41
+  %mute_right.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 41
   %11 = load i8, ptr %mute_right.i, align 1
   %12 = and i8 %11, 1
   %13 = zext nneg i8 %12 to i32
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end.i19
-  %gain_left.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
+  %gain_left.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   %14 = load i32, ptr %gain_left.i, align 8
   %15 = mul i32 %14, 255
   %16 = udiv i32 %15, 74
   %17 = trunc i32 %16 to i8
-  %mute_right4.phi.trans.insert.i = getelementptr inbounds i8, ptr %add.ptr, i64 41
+  %mute_right4.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 41
   %.pre.i = load i8, ptr %mute_right4.phi.trans.insert.i, align 1
   br label %cond.end.i
 
@@ -1962,7 +1962,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %land
   br i1 %tobool5.i, label %cond.end8.i, label %cond.false7.i
 
 cond.false7.i:                                    ; preds = %cond.end.i
-  %gain_right.i = getelementptr inbounds i8, ptr %add.ptr, i64 36
+  %gain_right.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 36
   %19 = load i32, ptr %gain_right.i, align 4
   %20 = mul i32 %19, 255
   %21 = udiv i32 %20, 74
@@ -1972,16 +1972,16 @@ cond.false7.i:                                    ; preds = %cond.end.i
 cond.end8.i:                                      ; preds = %cond.false7.i, %cond.end.i
   %cond9.i = phi i8 [ %22, %cond.false7.i ], [ 0, %cond.end.i ]
   %23 = load ptr, ptr %add.ptr, align 8
-  %mixer.i = getelementptr inbounds i8, ptr %23, i64 34508
+  %mixer.i = getelementptr inbounds nuw i8, ptr %23, i64 34508
   %24 = load i8, ptr %mixer.i, align 4
   %tobool12.i = trunc i8 %24 to i1
   br i1 %tobool12.i, label %if.end14.i, label %hda_audio_set_amp.exit
 
 if.end14.i:                                       ; preds = %cond.end8.i
-  %output.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %output.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %25 = load i8, ptr %output.i, align 8
   %tobool15.i = trunc i8 %25 to i1
-  %voice.i = getelementptr inbounds i8, ptr %add.ptr, i64 64
+  %voice.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 64
   %26 = load ptr, ptr %voice.i, align 8
   br i1 %tobool15.i, label %if.then16.i, label %if.else.i
 
@@ -1994,12 +1994,12 @@ if.else.i:                                        ; preds = %if.end14.i
   br label %hda_audio_set_amp.exit
 
 hda_audio_set_amp.exit:                           ; preds = %hda_codec_parse_fmt.exit, %cond.end8.i, %if.then16.i, %if.else.i
-  %output = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %output = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %27 = load i8, ptr %output, align 8
   %28 = shl i8 %27, 4
   %29 = and i8 %28, 16
   %mul = zext nneg i8 %29 to i32
-  %stream = getelementptr inbounds i8, ptr %add.ptr, i64 20
+  %stream = getelementptr inbounds nuw i8, ptr %add.ptr, i64 20
   %30 = load i32, ptr %stream, align 4
   %add22 = add i32 %30, %mul
   %idxprom23 = zext i32 %add22 to i64
@@ -2026,7 +2026,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %use_timer = getelementptr inbounds i8, ptr %0, i64 34509
+  %use_timer = getelementptr inbounds nuw i8, ptr %0, i64 34509
   %1 = load i8, ptr %use_timer, align 1
   %tobool2 = trunc i8 %1 to i1
   br label %land.end
@@ -2041,9 +2041,9 @@ define internal void @hda_audio_output_class_init(ptr noundef %klass, ptr nocapt
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_CLASS) #10
-  %init = getelementptr inbounds i8, ptr %call.i2, i64 176
+  %init = getelementptr inbounds nuw i8, ptr %call.i2, i64 176
   store ptr @hda_audio_init_output, ptr %init, align 8
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.62, ptr %desc, align 8
   ret void
 }
@@ -2052,7 +2052,7 @@ entry:
 define internal void @hda_audio_init_output(ptr noundef %hda, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
-  %mixer = getelementptr inbounds i8, ptr %call.i, i64 34508
+  %mixer = getelementptr inbounds nuw i8, ptr %call.i, i64 34508
   %0 = load i8, ptr %mixer, align 4
   %tobool = trunc i8 %0 to i1
   %spec.store.select = select i1 %tobool, ptr @output_mixemu, ptr @output_nomixemu
@@ -2064,17 +2064,17 @@ entry:
 define internal fastcc void @hda_audio_init(ptr noundef %hda, ptr noundef %desc, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
-  %card = getelementptr inbounds i8, ptr %call.i, i64 176
+  %card = getelementptr inbounds nuw i8, ptr %call.i, i64 176
   %call1 = tail call zeroext i1 @AUD_register_card(ptr noundef nonnull @.str.70, ptr noundef nonnull %card, ptr noundef %errp) #10
   br i1 %call1, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
-  %desc2 = getelementptr inbounds i8, ptr %call.i, i64 208
+  %desc2 = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   store ptr %desc, ptr %desc2, align 8
   %call3 = tail call ptr @object_get_typename(ptr noundef %call.i) #10
-  %name = getelementptr inbounds i8, ptr %call.i, i64 168
+  %name = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %call3, ptr %name, align 8
-  %debug = getelementptr inbounds i8, ptr %call.i, i64 34504
+  %debug = getelementptr inbounds nuw i8, ptr %call.i, i64 34504
   %0 = load i32, ptr %debug, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %do.end, label %if.then4
@@ -2083,35 +2083,35 @@ if.then4:                                         ; preds = %if.end
   %1 = load ptr, ptr @stderr, align 8
   %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %call3) #11
   %2 = load ptr, ptr @stderr, align 8
-  %cad = getelementptr inbounds i8, ptr %call.i, i64 160
+  %cad = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   %3 = load i32, ptr %cad, align 8
   %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__.hda_audio_init, i32 noundef %3) #11
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %if.then4
   %4 = load ptr, ptr %desc2, align 8
-  %nnodes31 = getelementptr inbounds i8, ptr %4, i64 24
+  %nnodes31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %5 = load i32, ptr %nnodes31, align 8
   %cmp1132.not = icmp eq i32 %5, 0
   br i1 %cmp1132.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end
-  %st21 = getelementptr inbounds i8, ptr %call.i, i64 216
+  %st21 = getelementptr inbounds nuw i8, ptr %call.i, i64 216
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %6 = phi ptr [ %4, %for.body.lr.ph ], [ %14, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %nodes = getelementptr inbounds i8, ptr %6, i64 16
+  %nodes = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %nodes, align 8
   %add.ptr = getelementptr %struct.desc_node, ptr %7, i64 %indvars.iv
-  %nparams.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %nparams.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %8 = load i32, ptr %nparams.i, align 8
   %cmp8.not.i = icmp eq i32 %8, 0
   br i1 %cmp8.not.i, label %for.inc, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body
-  %params.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %params.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %9 = load ptr, ptr %params.i, align 8
   br label %for.body.i
 
@@ -2137,7 +2137,7 @@ if.end16:                                         ; preds = %for.body.i
   br i1 %switch, label %sw.bb, label %for.inc
 
 sw.bb:                                            ; preds = %if.end16
-  %stindex = getelementptr inbounds i8, ptr %add.ptr, i64 48
+  %stindex = getelementptr inbounds nuw i8, ptr %add.ptr, i64 48
   %12 = load i32, ptr %stindex, align 8
   %cmp17 = icmp ult i32 %12, 4
   br i1 %cmp17, label %if.end20, label %if.else
@@ -2150,31 +2150,31 @@ if.end20:                                         ; preds = %sw.bb
   %conv = zext nneg i32 %12 to i64
   %add.ptr24 = getelementptr %struct.HDAAudioStream, ptr %st21, i64 %conv
   store ptr %call.i, ptr %add.ptr24, align 8
-  %node25 = getelementptr inbounds i8, ptr %add.ptr24, i64 8
+  %node25 = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 8
   store ptr %add.ptr, ptr %node25, align 8
   %cmp26 = icmp eq i32 %shr, 0
   br i1 %cmp26, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.end20
-  %gain_left = getelementptr inbounds i8, ptr %add.ptr24, i64 32
+  %gain_left = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 32
   store i32 74, ptr %gain_left, align 8
-  %gain_right = getelementptr inbounds i8, ptr %add.ptr24, i64 36
+  %gain_right = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 36
   store i32 74, ptr %gain_right, align 4
-  %compat_bpos = getelementptr inbounds i8, ptr %add.ptr24, i64 328
+  %compat_bpos = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 328
   store i32 256, ptr %compat_bpos, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end20, %if.then28
   %.sink = phi i8 [ 1, %if.then28 ], [ 0, %if.end20 ]
-  %13 = getelementptr inbounds i8, ptr %add.ptr24, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 16
   store i8 %.sink, ptr %13, align 8
-  %format = getelementptr inbounds i8, ptr %add.ptr24, i64 28
+  %format = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 28
   store i32 17, ptr %format, align 4
-  %as = getelementptr inbounds i8, ptr %add.ptr24, i64 44
+  %as = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 44
   store i32 48000, ptr %as, align 4
-  %fmt39.i = getelementptr inbounds i8, ptr %add.ptr24, i64 52
+  %fmt39.i = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 52
   store i32 3, ptr %fmt39.i, align 4
-  %nchannels.i = getelementptr inbounds i8, ptr %add.ptr24, i64 48
+  %nchannels.i = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 48
   store i32 2, ptr %nchannels.i, align 4
   tail call fastcc void @hda_audio_setup(ptr noundef nonnull %add.ptr24)
   %.pre = load ptr, ptr %desc2, align 8
@@ -2183,7 +2183,7 @@ if.end31:                                         ; preds = %if.end20, %if.then2
 for.inc:                                          ; preds = %for.cond.i, %for.body, %if.end16, %if.end31
   %14 = phi ptr [ %6, %for.body ], [ %6, %if.end16 ], [ %.pre, %if.end31 ], [ %6, %for.cond.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %nnodes = getelementptr inbounds i8, ptr %14, i64 24
+  %nnodes = getelementptr inbounds nuw i8, ptr %14, i64 24
   %15 = load i32, ptr %nnodes, align 8
   %16 = zext i32 %15 to i64
   %cmp11 = icmp samesign ult i64 %indvars.iv.next, %16
@@ -2205,9 +2205,9 @@ define internal void @hda_audio_duplex_class_init(ptr noundef %klass, ptr nocapt
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_CLASS) #10
-  %init = getelementptr inbounds i8, ptr %call.i2, i64 176
+  %init = getelementptr inbounds nuw i8, ptr %call.i2, i64 176
   store ptr @hda_audio_init_duplex, ptr %init, align 8
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.74, ptr %desc, align 8
   ret void
 }
@@ -2216,7 +2216,7 @@ entry:
 define internal void @hda_audio_init_duplex(ptr noundef %hda, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
-  %mixer = getelementptr inbounds i8, ptr %call.i, i64 34508
+  %mixer = getelementptr inbounds nuw i8, ptr %call.i, i64 34508
   %0 = load i8, ptr %mixer, align 4
   %tobool = trunc i8 %0 to i1
   %spec.store.select = select i1 %tobool, ptr @duplex_mixemu, ptr @duplex_nomixemu
@@ -2229,9 +2229,9 @@ define internal void @hda_audio_micro_class_init(ptr noundef %klass, ptr nocaptu
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.HDA_CODEC_DEVICE_CLASS) #10
-  %init = getelementptr inbounds i8, ptr %call.i2, i64 176
+  %init = getelementptr inbounds nuw i8, ptr %call.i2, i64 176
   store ptr @hda_audio_init_micro, ptr %init, align 8
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.83, ptr %desc, align 8
   ret void
 }
@@ -2240,7 +2240,7 @@ entry:
 define internal void @hda_audio_init_micro(ptr noundef %hda, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hda, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 150, ptr noundef nonnull @__func__.HDA_AUDIO) #10
-  %mixer = getelementptr inbounds i8, ptr %call.i, i64 34508
+  %mixer = getelementptr inbounds nuw i8, ptr %call.i, i64 34508
   %0 = load i8, ptr %mixer, align 4
   %tobool = trunc i8 %0 to i1
   %spec.store.select = select i1 %tobool, ptr @micro_mixemu, ptr @micro_nomixemu

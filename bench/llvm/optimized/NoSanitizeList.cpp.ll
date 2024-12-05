@@ -72,7 +72,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang14NoSanitizeList14containsGlobalE
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = load ptr, ptr %0, align 8
   store ptr %3, ptr %7, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %4, ptr %.sroa.22.0..sroa_idx, align 8
   %9 = tail call noundef zeroext i1 @_ZNK5clang24SanitizerSpecialCaseList9inSectionENS_13SanitizerMaskEN4llvm9StringRefES3_S3_(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 %1, i64 %2, ptr nonnull @.str, i64 6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5) #6
   ret i1 %9
@@ -85,7 +85,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang14NoSanitizeList12containsTypeENS
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = load ptr, ptr %0, align 8
   store ptr %3, ptr %7, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %4, ptr %.sroa.22.0..sroa_idx, align 8
   %9 = tail call noundef zeroext i1 @_ZNK5clang24SanitizerSpecialCaseList9inSectionENS_13SanitizerMaskEN4llvm9StringRefES3_S3_(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 %1, i64 %2, ptr nonnull @.str.1, i64 4, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5) #6
   ret i1 %9
@@ -97,7 +97,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang14NoSanitizeList16containsFunctio
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = load ptr, ptr %0, align 8
   store ptr %3, ptr %6, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.22.0..sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %9 = tail call noundef zeroext i1 @_ZNK5clang24SanitizerSpecialCaseList9inSectionENS_13SanitizerMaskEN4llvm9StringRefES3_S3_(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 %1, i64 %2, ptr nonnull @.str.2, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7) #6
@@ -112,7 +112,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang14NoSanitizeList12containsFileENS
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = load ptr, ptr %0, align 8
   store ptr %3, ptr %7, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %4, ptr %.sroa.22.0..sroa_idx, align 8
   %9 = tail call noundef zeroext i1 @_ZNK5clang24SanitizerSpecialCaseList9inSectionENS_13SanitizerMaskEN4llvm9StringRefES3_S3_(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 %1, i64 %2, ptr nonnull @.str.3, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5) #6
   ret i1 %9
@@ -123,7 +123,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang14NoSanitizeList16containsMainFil
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = load ptr, ptr %0, align 8
   store ptr %3, ptr %7, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %4, ptr %.sroa.22.0..sroa_idx, align 8
   %9 = tail call noundef zeroext i1 @_ZNK5clang24SanitizerSpecialCaseList9inSectionENS_13SanitizerMaskEN4llvm9StringRefES3_S3_(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 %1, i64 %2, ptr nonnull @.str.4, i64 8, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5) #6
   ret i1 %9
@@ -154,11 +154,11 @@ _ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit: ; preds = %9, %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %4, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %5, ptr %.sroa.2.0..sroa_idx, align 8
   %18 = load ptr, ptr %0, align 8
   store ptr %16, ptr %7, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %17, ptr %.sroa.22.0..sroa_idx.i, align 8
   %19 = tail call noundef zeroext i1 @_ZNK5clang24SanitizerSpecialCaseList9inSectionENS_13SanitizerMaskEN4llvm9StringRefES3_S3_(ptr noundef nonnull align 8 dereferenceable(48) %18, i64 %1, i64 %2, ptr nonnull @.str.3, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)

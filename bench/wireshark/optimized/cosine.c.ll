@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -1, 2) i32 @cosine_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [240 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %4, i64 239
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 239
   store i8 0, ptr %5, align 1
   br label %6
 
@@ -90,18 +90,18 @@ define hidden range(i32 -1, 2) i32 @cosine_open(ptr noundef %0, ptr noundef %1, 
   br i1 %26, label %35, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 34, ptr %28, align 8
   %29 = load i32, ptr @cosine_file_type_subtype, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @cosine_read, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @cosine_seek_read, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 148
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 2, ptr %34, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #9
   br label %35
@@ -173,7 +173,7 @@ cosine_seek_next_packet.exit:                     ; preds = %19, %21
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @cosine_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca [240 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @file_seek(ptr noundef %9, i64 noundef %1, i32 noundef 0, ptr noundef %4) #9
   %11 = icmp eq i64 %10, -1
@@ -247,8 +247,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_cosine_packet(ptr noundef %0, 
   %23 = alloca [128 x i8], align 16
   %24 = alloca [6 x i8], align 1
   %25 = alloca %struct.tm, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 64
-  %27 = getelementptr inbounds i8, ptr %1, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %23, i8 0, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %24, i8 0, i64 6, i1 false)
   %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #9
@@ -311,40 +311,40 @@ define internal fastcc range(i32 0, 2) i32 @parse_cosine_packet(ptr noundef %0, 
 48:                                               ; preds = %44
   store i32 0, ptr %1, align 8
   %49 = call ptr @wtap_block_create(i32 noundef 5) #9
-  %50 = getelementptr inbounds i8, ptr %1, i64 232
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 3, ptr %51, align 4
   %52 = load i32, ptr %8, align 4
   %53 = add i32 %52, -1900
-  %54 = getelementptr inbounds i8, ptr %25, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i32 %53, ptr %54, align 4
   %55 = load i32, ptr %9, align 4
   %56 = add i32 %55, -1
-  %57 = getelementptr inbounds i8, ptr %25, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 %56, ptr %57, align 8
   %58 = load i32, ptr %10, align 4
-  %59 = getelementptr inbounds i8, ptr %25, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 %58, ptr %59, align 4
   %60 = load i32, ptr %11, align 4
-  %61 = getelementptr inbounds i8, ptr %25, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 %60, ptr %61, align 8
   %62 = load i32, ptr %12, align 4
-  %63 = getelementptr inbounds i8, ptr %25, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %62, ptr %63, align 4
   %64 = load i32, ptr %13, align 4
   store i32 %64, ptr %25, align 8
-  %65 = getelementptr inbounds i8, ptr %25, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i32 -1, ptr %65, align 8
   %66 = call i64 @mktime(ptr noundef nonnull %25) #9
-  %67 = getelementptr inbounds i8, ptr %1, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %66, ptr %67, align 8
   %68 = load i32, ptr %14, align 4
   %69 = mul i32 %68, 10000000
-  %70 = getelementptr inbounds i8, ptr %1, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %69, ptr %70, align 8
   %71 = load i32, ptr %15, align 4
-  %72 = getelementptr inbounds i8, ptr %1, i64 68
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %71, ptr %72, align 4
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %23, ptr noundef nonnull dereferenceable(5) @.str.10, i64 5)
   %73 = icmp eq i32 %bcmp, 0
@@ -396,38 +396,38 @@ define internal fastcc range(i32 0, 2) i32 @parse_cosine_packet(ptr noundef %0, 
 
 .sink.split:                                      ; preds = %86, %84
   %.sink105 = phi i8 [ 1, %84 ], [ 2, %86 ]
-  %88 = getelementptr inbounds i8, ptr %1, i64 81
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 81
   store i8 %.sink105, ptr %88, align 1
   br label %89
 
 89:                                               ; preds = %.sink.split, %86
-  %90 = getelementptr inbounds i8, ptr %1, i64 82
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 82
   %91 = call i64 @g_strlcpy(ptr noundef nonnull %90, ptr noundef nonnull %23, i64 noundef 128) #9
   %92 = load i32, ptr %16, align 4
   %93 = trunc i32 %92 to i16
-  %94 = getelementptr inbounds i8, ptr %1, i64 210
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 210
   store i16 %93, ptr %94, align 2
   %95 = load i32, ptr %17, align 4
   %96 = trunc i32 %95 to i16
-  %97 = getelementptr inbounds i8, ptr %1, i64 212
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i16 %96, ptr %97, align 4
   %98 = load i32, ptr %18, align 4
   %99 = trunc i32 %98 to i16
-  %100 = getelementptr inbounds i8, ptr %1, i64 214
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 214
   store i16 %99, ptr %100, align 2
   %101 = load i32, ptr %19, align 4
   %102 = trunc i32 %101 to i16
-  %103 = getelementptr inbounds i8, ptr %1, i64 216
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store i16 %102, ptr %103, align 8
   %104 = load i32, ptr %20, align 4
   %105 = trunc i32 %104 to i16
-  %106 = getelementptr inbounds i8, ptr %1, i64 218
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 218
   store i16 %105, ptr %106, align 2
   %107 = load i32, ptr %15, align 4
   %108 = sext i32 %107 to i64
   call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef %108) #9
   %109 = load ptr, ptr %2, align 8
-  %110 = getelementptr inbounds i8, ptr %2, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %111 = load i64, ptr %110, align 8
   %112 = getelementptr i8, ptr %109, i64 %111
   %113 = load i32, ptr %15, align 4
@@ -441,21 +441,21 @@ define internal fastcc range(i32 0, 2) i32 @parse_cosine_packet(ptr noundef %0, 
 
 .lr.ph:                                           ; preds = %89
   %119 = load ptr, ptr @g_ascii_table, align 8
-  %120 = getelementptr inbounds i8, ptr %7, i64 4
-  %121 = getelementptr inbounds i8, ptr %7, i64 8
-  %122 = getelementptr inbounds i8, ptr %7, i64 12
-  %123 = getelementptr inbounds i8, ptr %7, i64 16
-  %124 = getelementptr inbounds i8, ptr %7, i64 20
-  %125 = getelementptr inbounds i8, ptr %7, i64 24
-  %126 = getelementptr inbounds i8, ptr %7, i64 28
-  %127 = getelementptr inbounds i8, ptr %7, i64 32
-  %128 = getelementptr inbounds i8, ptr %7, i64 36
-  %129 = getelementptr inbounds i8, ptr %7, i64 40
-  %130 = getelementptr inbounds i8, ptr %7, i64 44
-  %131 = getelementptr inbounds i8, ptr %7, i64 48
-  %132 = getelementptr inbounds i8, ptr %7, i64 52
-  %133 = getelementptr inbounds i8, ptr %7, i64 56
-  %134 = getelementptr inbounds i8, ptr %7, i64 60
+  %120 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %125 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  %131 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %7, i64 52
+  %133 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %134 = getelementptr inbounds nuw i8, ptr %7, i64 60
   br label %135
 
 135:                                              ; preds = %.lr.ph, %165

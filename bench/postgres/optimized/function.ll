@@ -112,7 +112,7 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   br i1 %42, label %.lr.ph57, label %._crit_edge58
 
 .lr.ph57:                                         ; preds = %._crit_edge52
-  %43 = getelementptr inbounds i8, ptr %28, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %44 = trunc nuw nsw i64 %indvars.iv71 to i32
   br label %45
 
@@ -122,13 +122,13 @@ define dso_local void @get_loadable_libraries() local_unnamed_addr #0 {
   %.354 = phi i32 [ %.2.lcssa, %.lr.ph57 ], [ %.4, %62 ]
   %47 = load ptr, ptr %43, align 8
   %48 = getelementptr %struct.LogicalSlotInfo, ptr %47, i64 %indvars.iv68
-  %49 = getelementptr inbounds i8, ptr %48, i64 18
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 18
   %50 = load i8, ptr %49, align 2
   %51 = trunc i8 %50 to i1
   br i1 %51, label %62, label %52
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %48, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr @pg_strdup(ptr noundef %54) #9
   %56 = load ptr, ptr getelementptr inbounds (i8, ptr @os_info, i64 40), align 8
@@ -331,9 +331,9 @@ define internal i32 @library_name_compare(ptr nocapture noundef readonly %0, ptr
   br i1 %.not17, label %11, label %17
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %13, i32 %15)
   br label %17

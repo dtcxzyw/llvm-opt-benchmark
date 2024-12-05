@@ -211,13 +211,13 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 256) i32 @nlm_msg_res_unmatched_hash(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
@@ -243,17 +243,17 @@ define internal range(i32 0, 256) i32 @nlm_msg_res_unmatched_hash(ptr nocapture 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @nlm_msg_res_unmatched_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %15
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %4 to i64
   %bcmp = tail call i32 @bcmp(ptr %9, ptr %11, i64 %12)
@@ -322,16 +322,16 @@ define internal i32 @dissect_nlm_gen_reply(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %nlm_match_fhandle_reply.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, -4
   %switch = icmp eq i32 %10, 12
   br i1 %switch, label %11, label %nlm_match_fhandle_reply.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 50
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 50
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 8
   %.not26 = icmp eq i16 %16, 0
@@ -344,7 +344,7 @@ define internal i32 @dissect_nlm_gen_reply(ptr noundef %0, ptr noundef %1, ptr n
 18:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %19 = load ptr, ptr @nlm_msg_res_matched, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
   %23 = inttoptr i64 %22 to ptr
@@ -356,8 +356,8 @@ define internal i32 @dissect_nlm_gen_reply(ptr noundef %0, ptr noundef %1, ptr n
   %26 = load i32, ptr @hf_nlm_request_in, align 4
   %27 = load i32, ptr %24, align 8
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %27) #8
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %29, ptr noundef nonnull %30) #8
   %31 = load i32, ptr @hf_nlm_time, align 4
   %32 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #8
@@ -374,7 +374,7 @@ nlm_print_msgres_reply.exit:                      ; preds = %18, %25
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr @nlm_msg_res_matched, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
   %40 = inttoptr i64 %39 to ptr
@@ -383,7 +383,7 @@ nlm_print_msgres_reply.exit:                      ; preds = %18, %25
   br i1 %.not.i29, label %nlm_match_fhandle_reply.exit, label %42
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %41, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %44 = load i32, ptr %43, align 4
   %.not6.i = icmp eq i32 %44, 0
   br i1 %.not6.i, label %nlm_match_fhandle_reply.exit, label %45
@@ -401,7 +401,7 @@ nlm_match_fhandle_reply.exit:                     ; preds = %45, %42, %35, %7, %
   br i1 %.not28, label %54, label %50
 
 50:                                               ; preds = %nlm_match_fhandle_reply.exit
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = call ptr @val_to_str(i32 noundef %49, ptr noundef nonnull @names_nlm_stats, ptr noundef nonnull @.str.108) #8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.107, ptr noundef %53) #8
@@ -438,15 +438,15 @@ define internal fastcc i32 @dissect_nlm_test(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 6
   br i1 %10, label %11, label %nlm_match_fhandle_request.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 50
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 50
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 8
   %.not23 = icmp eq i16 %16, 0
@@ -468,7 +468,7 @@ define internal fastcc i32 @dissect_nlm_test(ptr noundef %0, ptr noundef %1, ptr
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @hf_nlm_reply_in, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %27) #8
   br label %nlm_print_msgres_request.exit
@@ -480,7 +480,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
 
 30:                                               ; preds = %nlm_print_msgres_request.exit
   %31 = load ptr, ptr @nlm_msg_res_matched, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   %35 = inttoptr i64 %34 to ptr
@@ -489,7 +489,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
   br i1 %.not.i25, label %nlm_match_fhandle_request.exit, label %37
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %36, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
   %.not7.i = icmp eq i32 %39, 0
   br i1 %.not7.i, label %nlm_match_fhandle_request.exit, label %40
@@ -512,19 +512,19 @@ nlm_match_fhandle_request.exit:                   ; preds = %40, %37, %30, %7, %
 define internal fastcc void @nlm_register_unmatched_msg(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @wmem_file_scope() #8
   %4 = tail call noalias ptr @wmem_alloc(ptr noundef %3, i64 noundef 40) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   store i32 %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %9 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 0) #8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %9, ptr %10, align 8
   %11 = tail call ptr @wmem_file_scope() #8
   %12 = sext i32 %9 to i64
   %13 = tail call ptr @tvb_memdup(ptr noundef %11, ptr noundef %1, i32 noundef 4, i64 noundef %12) #8
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr @nlm_msg_res_unmatched, align 8
   %16 = tail call ptr @wmem_map_lookup(ptr noundef %15, ptr noundef nonnull %4) #8
@@ -568,7 +568,7 @@ define internal fastcc i32 @dissect_lock(ptr noundef %0, ptr noundef %1, ptr nou
   %15 = load i32, ptr @hf_nlm_lock_caller_name, align 4
   %16 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %.051, i32 noundef %15, i32 noundef %4, ptr noundef null) #8
   %17 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %16, ptr noundef %1, ptr noundef %.051, ptr noundef nonnull @.str.103, ptr noundef nonnull %7, ptr noundef %5) #8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.104, i32 noundef %20) #8
@@ -654,15 +654,15 @@ define internal fastcc i32 @dissect_nlm_test_res(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %nlm_match_fhandle_reply.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %nlm_match_fhandle_reply.exit
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 50
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 50
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 8
   %.not57 = icmp eq i16 %17, 0
@@ -675,7 +675,7 @@ define internal fastcc i32 @dissect_nlm_test_res(ptr noundef %0, ptr noundef %1,
 19:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %20 = load ptr, ptr @nlm_msg_res_matched, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
   %24 = inttoptr i64 %23 to ptr
@@ -687,8 +687,8 @@ define internal fastcc i32 @dissect_nlm_test_res(ptr noundef %0, ptr noundef %1,
   %27 = load i32, ptr @hf_nlm_request_in, align 4
   %28 = load i32, ptr %25, align 8
   %29 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %28) #8
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %30, ptr noundef nonnull %31) #8
   %32 = load i32, ptr @hf_nlm_time, align 4
   %33 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #8
@@ -705,7 +705,7 @@ nlm_print_msgres_reply.exit:                      ; preds = %19, %26
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr @nlm_msg_res_matched, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
   %41 = inttoptr i64 %40 to ptr
@@ -714,7 +714,7 @@ nlm_print_msgres_reply.exit:                      ; preds = %19, %26
   br i1 %.not.i61, label %nlm_match_fhandle_reply.exit, label %43
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %42, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %45 = load i32, ptr %44, align 4
   %.not6.i = icmp eq i32 %45, 0
   br i1 %.not6.i, label %nlm_match_fhandle_reply.exit, label %46
@@ -793,10 +793,10 @@ nlm_match_fhandle_reply.exit:                     ; preds = %46, %43, %36, %8, %
 define internal fastcc void @nlm_register_unmatched_res(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._nlm_msg_res_unmatched_data, align 8
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 0) #8
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %4, ptr %5, align 8
   %6 = tail call ptr @tvb_get_ptr(ptr noundef %1, i32 noundef 4, i32 noundef -1) #8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %6, ptr %7, align 8
   %8 = load ptr, ptr @nlm_msg_res_unmatched, align 8
   %9 = call ptr @wmem_map_lookup(ptr noundef %8, ptr noundef nonnull %3) #8
@@ -808,12 +808,12 @@ define internal fastcc void @nlm_register_unmatched_res(ptr nocapture noundef re
   %12 = call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef 24) #8
   %13 = load i32, ptr %9, align 8
   store i32 %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %12, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   %19 = call ptr @wmem_file_scope() #8
   %20 = call noalias ptr @wmem_memdup(ptr noundef %19, ptr noundef nonnull %12, i64 noundef 24) #8
@@ -823,7 +823,7 @@ define internal fastcc void @nlm_register_unmatched_res(ptr nocapture noundef re
   %24 = inttoptr i64 %23 to ptr
   %25 = call ptr @wmem_map_insert(ptr noundef %21, ptr noundef %24, ptr noundef nonnull %12) #8
   %26 = load ptr, ptr @nlm_msg_res_matched, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = inttoptr i64 %29 to ptr
@@ -853,15 +853,15 @@ define internal fastcc i32 @dissect_nlm_lock(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 7
   br i1 %10, label %11, label %nlm_match_fhandle_request.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 50
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 50
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 8
   %.not31 = icmp eq i16 %16, 0
@@ -883,7 +883,7 @@ define internal fastcc i32 @dissect_nlm_lock(ptr noundef %0, ptr noundef %1, ptr
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @hf_nlm_reply_in, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %27) #8
   br label %nlm_print_msgres_request.exit
@@ -895,7 +895,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
 
 30:                                               ; preds = %nlm_print_msgres_request.exit
   %31 = load ptr, ptr @nlm_msg_res_matched, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   %35 = inttoptr i64 %34 to ptr
@@ -904,7 +904,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
   br i1 %.not.i33, label %nlm_match_fhandle_request.exit, label %37
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %36, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
   %.not7.i = icmp eq i32 %39, 0
   br i1 %.not7.i, label %nlm_match_fhandle_request.exit, label %40
@@ -937,15 +937,15 @@ define internal fastcc i32 @dissect_nlm_cancel(ptr noundef %0, ptr noundef %1, p
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 8
   br i1 %10, label %11, label %nlm_match_fhandle_request.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 50
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 50
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 8
   %.not25 = icmp eq i16 %16, 0
@@ -967,7 +967,7 @@ define internal fastcc i32 @dissect_nlm_cancel(ptr noundef %0, ptr noundef %1, p
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @hf_nlm_reply_in, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %27) #8
   br label %nlm_print_msgres_request.exit
@@ -979,7 +979,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
 
 30:                                               ; preds = %nlm_print_msgres_request.exit
   %31 = load ptr, ptr @nlm_msg_res_matched, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   %35 = inttoptr i64 %34 to ptr
@@ -988,7 +988,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
   br i1 %.not.i27, label %nlm_match_fhandle_request.exit, label %37
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %36, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
   %.not7.i = icmp eq i32 %39, 0
   br i1 %.not7.i, label %nlm_match_fhandle_request.exit, label %40
@@ -1015,15 +1015,15 @@ define internal fastcc i32 @dissect_nlm_unlock(ptr noundef %0, ptr noundef %1, p
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 9
   br i1 %10, label %11, label %nlm_match_fhandle_request.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 50
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 50
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 8
   %.not19 = icmp eq i16 %16, 0
@@ -1045,7 +1045,7 @@ define internal fastcc i32 @dissect_nlm_unlock(ptr noundef %0, ptr noundef %1, p
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @hf_nlm_reply_in, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %27) #8
   br label %nlm_print_msgres_request.exit
@@ -1057,7 +1057,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
 
 30:                                               ; preds = %nlm_print_msgres_request.exit
   %31 = load ptr, ptr @nlm_msg_res_matched, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   %35 = inttoptr i64 %34 to ptr
@@ -1066,7 +1066,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
   br i1 %.not.i21, label %nlm_match_fhandle_request.exit, label %37
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %36, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
   %.not7.i = icmp eq i32 %39, 0
   br i1 %.not7.i, label %nlm_match_fhandle_request.exit, label %40
@@ -1089,15 +1089,15 @@ define internal fastcc i32 @dissect_nlm_granted(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %nlm_match_fhandle_request.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 10
   br i1 %10, label %11, label %nlm_match_fhandle_request.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 50
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 50
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 8
   %.not22 = icmp eq i16 %16, 0
@@ -1119,7 +1119,7 @@ define internal fastcc i32 @dissect_nlm_granted(ptr noundef %0, ptr noundef %1, 
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @hf_nlm_reply_in, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %27) #8
   br label %nlm_print_msgres_request.exit
@@ -1131,7 +1131,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
 
 30:                                               ; preds = %nlm_print_msgres_request.exit
   %31 = load ptr, ptr @nlm_msg_res_matched, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   %35 = inttoptr i64 %34 to ptr
@@ -1140,7 +1140,7 @@ nlm_print_msgres_request.exit:                    ; preds = %24, %18, %17
   br i1 %.not.i24, label %nlm_match_fhandle_request.exit, label %37
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %36, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
   %.not7.i = icmp eq i32 %39, 0
   br i1 %.not7.i, label %nlm_match_fhandle_request.exit, label %40
@@ -1203,7 +1203,7 @@ define internal fastcc i32 @dissect_nlm_share(ptr noundef %0, ptr noundef %1, pt
   %15 = load i32, ptr @hf_nlm_lock_caller_name, align 4
   %16 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %.0, i32 noundef %15, i32 noundef %7, ptr noundef null) #8
   %17 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef %16, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull @.str.103, ptr noundef nonnull %5, ptr noundef %3) #8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.104, i32 noundef %20) #8
@@ -1227,7 +1227,7 @@ define internal fastcc i32 @dissect_nlm_shareres(ptr noundef %0, ptr nocapture n
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @names_nlm_stats, ptr noundef nonnull @.str.108) #8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.107, ptr noundef %10) #8

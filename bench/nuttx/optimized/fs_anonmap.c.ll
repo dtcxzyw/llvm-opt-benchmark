@@ -5,31 +5,31 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @map_anonymous(ptr noundef initializes((8, 16)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = tail call noalias ptr @zalloc(i64 noundef %4) #5
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %6, align 8
   %7 = icmp eq ptr %5, null
   br i1 %7, label %26, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @unmap_anonymous, ptr %9, align 8
   %10 = zext i1 %1 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %10, ptr %11, align 8
   %12 = tail call ptr @nxsched_self() #6
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 16
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %8
   %16 = tail call ptr @nxsched_self() #6
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 16
-  %19 = getelementptr inbounds i8, ptr %18, i64 944
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 944
   br label %20
 
 20:                                               ; preds = %8, %15
@@ -55,14 +55,14 @@ declare noalias ptr @zalloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @unmap_anonymous(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = ptrtoint ptr %2 to i64
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = sub i64 %5, %8
   %sext = shl i64 %9, 32
   %10 = ashr exact i64 %sext, 32
   %11 = add i64 %10, %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %11, %13
   br i1 %14, label %23, label %15
@@ -75,7 +75,7 @@ define internal i32 @unmap_anonymous(ptr noundef %0, ptr noundef %1, ptr noundef
 17:                                               ; preds = %15
   tail call void @free(ptr noundef %7)
   %.not31 = icmp eq ptr %0, null
-  %18 = getelementptr inbounds i8, ptr %0, i64 944
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %19 = select i1 %.not31, ptr null, ptr %18
   %20 = tail call i32 @mm_map_remove(ptr noundef %19, ptr noundef nonnull %1) #6
   br label %23

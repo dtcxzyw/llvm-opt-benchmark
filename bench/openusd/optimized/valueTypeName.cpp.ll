@@ -42,9 +42,9 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__18SdfTupleDimen
   br i1 %.not9, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8
   %.not8 = icmp eq i64 %14, %16
   br i1 %.not8, label %.thread, label %17
@@ -255,7 +255,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeN
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds i8, ptr %.sroa.01.04.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i, i64 8
   %.not7.i = icmp eq ptr %9, %.val3
   %or.cond = select i1 %8, i1 true, i1 %.not7.i
   br i1 %or.cond, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19IsValueInISt6vectorINS_7TfTokenESaIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_T0_.exit, label %.lr.ph.i
@@ -312,7 +312,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %8, %2
   %16 = ptrtoint ptr %15 to i64
   %17 = xor i64 %.sroa.0.0, %16
   %18 = icmp ult i64 %17, 8
-  %19 = getelementptr inbounds i8, ptr %.sroa.03.06.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i, i64 8
   %.not9.i = icmp eq ptr %19, %.val2
   %or.cond = select i1 %18, i1 true, i1 %.not9.i
   br i1 %or.cond, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19IsValueInISt6vectorINS_7TfTokenESaIS3_EES3_EEbRKT_T0_.exit, label %.lr.ph.i
@@ -394,7 +394,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName18GetAliase
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %14
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #16
   store ptr %16, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 %11
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %17, ptr %18, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -425,8 +425,8 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName18GetAliase
   br label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %26, %21, %.lr.ph.i.i.i.i.i
-  %31 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %32 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %31, %7
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EEC2ERKS3_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 

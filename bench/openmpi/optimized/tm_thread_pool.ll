@@ -37,15 +37,15 @@ define hidden void @tm_set_max_nb_threads(i32 noundef %0) local_unnamed_addr #0 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @tm_wait_work_completion(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #17
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8
   %.not4 = icmp eq i32 %5, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
@@ -75,34 +75,34 @@ define hidden range(i32 0, 2) i32 @tm_submit_work(ptr noundef %0, i32 noundef %1
   br i1 %7, label %8, label %29
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 124
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 %1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds %union.pthread_mutex_t, ptr %11, i64 %12
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %11, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %struct._work_t, ptr %17, i64 %12
+  %18 = getelementptr inbounds nuw %struct._work_t, ptr %17, i64 %12
   %19 = tail call i32 @pthread_mutex_lock(ptr noundef %13) #17
   br label %20
 
 20:                                               ; preds = %20, %8
   %.0.i = phi ptr [ %18, %8 ], [ %22, %20 ]
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %add_work.exit, label %20, !llvm.loop !6
 
 add_work.exit:                                    ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %24 = getelementptr inbounds %union.pthread_cond_t, ptr %15, i64 %12
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
+  %24 = getelementptr inbounds nuw %union.pthread_cond_t, ptr %15, i64 %12
   store ptr %0, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %26, align 8
   %27 = tail call i32 @pthread_cond_signal(ptr noundef %24) #17
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef %13) #17
@@ -123,16 +123,16 @@ define hidden void @tm_terminate_thread_pool() local_unnamed_addr #1 {
   br i1 %.not, label %81, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr %3, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 124
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
-  %10 = getelementptr inbounds i8, ptr %2, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 124
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 120
   br label %12
 
 .preheader:                                       ; preds = %add_work.exit.i
@@ -144,27 +144,27 @@ define hidden void @tm_terminate_thread_pool() local_unnamed_addr #1 {
   %13 = phi ptr [ %3, %.lr.ph ], [ %31, %add_work.exit.i ]
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %8, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %union.pthread_mutex_t, ptr %16, i64 %indvars.iv
-  %18 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct._work_t, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %struct._work_t, ptr %21, i64 %indvars.iv
   %23 = call i32 @pthread_mutex_lock(ptr noundef %17) #17
   br label %24
 
 24:                                               ; preds = %24, %12
   %.0.i.i = phi ptr [ %22, %12 ], [ %26, %24 ]
-  %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %add_work.exit.i, label %24, !llvm.loop !6
 
 add_work.exit.i:                                  ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  %28 = getelementptr inbounds %union.pthread_cond_t, ptr %19, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %28 = getelementptr inbounds nuw %union.pthread_cond_t, ptr %19, i64 %indvars.iv
   store ptr %2, ptr %27, align 8
   store ptr null, ptr %9, align 8
   store i32 0, ptr %10, align 8
@@ -180,27 +180,27 @@ add_work.exit.i:                                  ; preds = %24
 .lr.ph14:                                         ; preds = %.preheader, %63
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %63 ], [ 0, %.preheader ]
   %35 = phi ptr [ %64, %63 ], [ %31, %.preheader ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i64, ptr %37, i64 %indvars.iv17
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv17
   %39 = load i64, ptr %38, align 8
   %40 = call i32 @pthread_join(i64 noundef %39, ptr noundef nonnull %1) #17
   %41 = load ptr, ptr %1, align 8
   call void @free(ptr noundef %41) #17
   %42 = load ptr, ptr @pool, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %union.pthread_cond_t, ptr %44, i64 %indvars.iv17
+  %45 = getelementptr inbounds nuw %union.pthread_cond_t, ptr %44, i64 %indvars.iv17
   %46 = call i32 @pthread_cond_destroy(ptr noundef %45) #17
   %47 = load ptr, ptr @pool, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds %union.pthread_mutex_t, ptr %49, i64 %indvars.iv17
+  %50 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %49, i64 %indvars.iv17
   %51 = call i32 @pthread_mutex_destroy(ptr noundef %50) #17
   %52 = load ptr, ptr @pool, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct._work_t, ptr %54, i64 %indvars.iv17, i32 3
+  %55 = getelementptr inbounds nuw %struct._work_t, ptr %54, i64 %indvars.iv17, i32 3
   %56 = load ptr, ptr %55, align 8
   %57 = icmp ne ptr %56, null
   %58 = load i32, ptr @verbose_level, align 4
@@ -224,23 +224,23 @@ add_work.exit.i:                                  ; preds = %24
 
 ._crit_edge:                                      ; preds = %63, %4, %.preheader
   %.lcssa = phi ptr [ %31, %.preheader ], [ %3, %4 ], [ %64, %63 ]
-  %68 = getelementptr inbounds i8, ptr %.lcssa, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 48
   %69 = load ptr, ptr %68, align 8
   call void @hwloc_topology_destroy(ptr noundef %69) #17
   %70 = load ptr, ptr @pool, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   call void @free(ptr noundef %72) #17
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %74 = load ptr, ptr %73, align 8
   call void @free(ptr noundef %74) #17
-  %75 = getelementptr inbounds i8, ptr %70, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %76 = load ptr, ptr %75, align 8
   call void @free(ptr noundef %76) #17
-  %77 = getelementptr inbounds i8, ptr %70, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %78 = load ptr, ptr %77, align 8
   call void @free(ptr noundef %78) #17
-  %79 = getelementptr inbounds i8, ptr %70, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %80 = load ptr, ptr %79, align 8
   call void @free(ptr noundef %80) #17
   call void @free(ptr noundef %70) #17
@@ -318,27 +318,27 @@ define hidden i32 @tm_get_nb_threads() local_unnamed_addr #1 {
   %29 = phi ptr [ %.pre.i.i, %26 ], [ %9, %19 ]
   %30 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #21
   store ptr %30, ptr @pool, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   store ptr %29, ptr %31, align 8
   store i32 %23, ptr %30, align 8
   %32 = sext i32 %23 to i64
   %33 = shl nsw i64 %32, 3
   %34 = call noalias ptr @malloc(i64 noundef %33) #21
-  %35 = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %34, ptr %35, align 8
   %36 = call noalias ptr @calloc(i64 noundef %32, i64 noundef 128) #22
-  %37 = getelementptr inbounds i8, ptr %30, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %36, ptr %37, align 8
   %38 = mul nsw i64 %32, 48
   %39 = call noalias ptr @malloc(i64 noundef %38) #21
-  %40 = getelementptr inbounds i8, ptr %30, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %39, ptr %40, align 8
   %41 = mul nsw i64 %32, 40
   %42 = call noalias ptr @malloc(i64 noundef %41) #21
-  %43 = getelementptr inbounds i8, ptr %30, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr %42, ptr %43, align 8
   %44 = call noalias ptr @malloc(i64 noundef %41) #21
-  %45 = getelementptr inbounds i8, ptr %30, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store ptr %44, ptr %45, align 8
   %46 = icmp sgt i32 %23, 0
   br i1 %46, label %.lr.ph.preheader.i.i, label %create_threads.exit.i
@@ -350,40 +350,40 @@ define hidden i32 @tm_get_nb_threads() local_unnamed_addr #1 {
 .lr.ph.i.i:                                       ; preds = %85, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %85 ]
   %47 = load ptr, ptr %1, align 8
-  %48 = getelementptr inbounds %struct.local_thread_t, ptr %44, i64 %indvars.iv.i.i
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %48 = getelementptr inbounds nuw %struct.local_thread_t, ptr %44, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %47, ptr %49, align 8
   %50 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %50, ptr %48, align 8
   %51 = load ptr, ptr @pool, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds %struct._work_t, ptr %53, i64 %indvars.iv.i.i
-  %55 = getelementptr inbounds i8, ptr %48, i64 16
+  %54 = getelementptr inbounds nuw %struct._work_t, ptr %53, i64 %indvars.iv.i.i
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %51, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %union.pthread_cond_t, ptr %57, i64 %indvars.iv.i.i
+  %58 = getelementptr inbounds nuw %union.pthread_cond_t, ptr %57, i64 %indvars.iv.i.i
   %59 = call i32 @pthread_cond_init(ptr noundef %58, ptr noundef null) #17
   %60 = load ptr, ptr @pool, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %union.pthread_cond_t, ptr %62, i64 %indvars.iv.i.i
-  %64 = getelementptr inbounds i8, ptr %48, i64 24
+  %63 = getelementptr inbounds nuw %union.pthread_cond_t, ptr %62, i64 %indvars.iv.i.i
+  %64 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %60, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds %union.pthread_mutex_t, ptr %66, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %66, i64 %indvars.iv.i.i
   %68 = call i32 @pthread_mutex_init(ptr noundef %67, ptr noundef null) #17
   %69 = load ptr, ptr @pool, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds %union.pthread_mutex_t, ptr %71, i64 %indvars.iv.i.i
-  %73 = getelementptr inbounds i8, ptr %48, i64 32
+  %72 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %71, i64 %indvars.iv.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %69, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv.i.i
+  %76 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv.i.i
   %77 = call i32 @pthread_create(ptr noundef %76, ptr noundef null, ptr noundef nonnull @thread_loop, ptr noundef nonnull %48) #17
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %79, label %85
@@ -423,15 +423,15 @@ get_thread_pool.exit:                             ; preds = %0, %create_threads.
 define hidden noundef ptr @tm_create_work(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   store i32 %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = tail call i32 @pthread_cond_init(ptr noundef nonnull %8, ptr noundef null) #17
-  %10 = getelementptr inbounds i8, ptr %4, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %11 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %10, ptr noundef null) #17
   %12 = load i32, ptr @verbose_level, align 4
   %13 = icmp sgt i32 %12, 5
@@ -456,9 +456,9 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @tm_destroy_work(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %2) #17
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %4) #17
   tail call void @free(ptr noundef %0) #17
   ret void
@@ -478,19 +478,19 @@ define hidden noundef i32 @tm_test_main() local_unnamed_addr #1 {
   %8 = tail call i32 @tm_get_nb_threads()
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %8)
   store ptr %1, ptr %4, align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %10, align 8
   %11 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   store i32 2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @f1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 120
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %16 = call i32 @pthread_cond_init(ptr noundef nonnull %15, ptr noundef null) #17
-  %17 = getelementptr inbounds i8, ptr %11, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %18 = call i32 @pthread_mutex_init(ptr noundef nonnull %17, ptr noundef null) #17
   %19 = load i32, ptr @verbose_level, align 4
   %20 = icmp sgt i32 %19, 5
@@ -505,7 +505,7 @@ tm_create_work.exit.preheader:                    ; preds = %0, %21
 
 tm_create_work.exit:                              ; preds = %tm_create_work.exit.preheader, %tm_create_work.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %tm_create_work.exit ], [ 0, %tm_create_work.exit.preheader ]
-  %23 = getelementptr inbounds [100 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [100 x i32], ptr %6, i64 0, i64 %indvars.iv
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %24, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -515,21 +515,21 @@ tm_create_work.exit:                              ; preds = %tm_create_work.exit
 25:                                               ; preds = %tm_create_work.exit
   store i32 100, ptr %2, align 4
   store ptr %2, ptr %5, align 16
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %27, align 16
   %28 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   store i32 3, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %5, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @f2, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 120
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %33 = call i32 @pthread_cond_init(ptr noundef nonnull %32, ptr noundef null) #17
-  %34 = getelementptr inbounds i8, ptr %28, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %35 = call i32 @pthread_mutex_init(ptr noundef nonnull %34, ptr noundef null) #17
   %36 = load i32, ptr @verbose_level, align 4
   %37 = icmp sgt i32 %36, 5
@@ -542,15 +542,15 @@ tm_create_work.exit:                              ; preds = %tm_create_work.exit
 tm_create_work.exit16:                            ; preds = %25, %38
   %40 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   store i32 4, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %5, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr @f2, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 120
   store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %40, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %45 = call i32 @pthread_cond_init(ptr noundef nonnull %44, ptr noundef null) #17
-  %46 = getelementptr inbounds i8, ptr %40, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %47 = call i32 @pthread_mutex_init(ptr noundef nonnull %46, ptr noundef null) #17
   %48 = load i32, ptr @verbose_level, align 4
   %49 = icmp sgt i32 %48, 5
@@ -563,15 +563,15 @@ tm_create_work.exit16:                            ; preds = %25, %38
 tm_create_work.exit17:                            ; preds = %tm_create_work.exit16, %50
   %52 = call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #21
   store i32 5, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr %5, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr @f2, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %52, i64 120
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 120
   store i32 0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %57 = call i32 @pthread_cond_init(ptr noundef nonnull %56, ptr noundef null) #17
-  %58 = getelementptr inbounds i8, ptr %52, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %59 = call i32 @pthread_mutex_init(ptr noundef nonnull %58, ptr noundef null) #17
   %60 = load i32, ptr @verbose_level, align 4
   %61 = icmp sgt i32 %60, 5
@@ -588,28 +588,28 @@ tm_create_work.exit18:                            ; preds = %tm_create_work.exit
   br i1 %66, label %67, label %tm_submit_work.exit33
 
 67:                                               ; preds = %tm_create_work.exit18
-  %68 = getelementptr inbounds i8, ptr %11, i64 124
+  %68 = getelementptr inbounds nuw i8, ptr %11, i64 124
   store i32 0, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %64, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %64, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %64, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = call i32 @pthread_mutex_lock(ptr noundef %70) #17
   br label %76
 
 76:                                               ; preds = %76, %67
   %.0.i.i = phi ptr [ %74, %67 ], [ %78, %76 ]
-  %77 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %78 = load ptr, ptr %77, align 8
   %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %tm_submit_work.exit, label %76, !llvm.loop !6
 
 tm_submit_work.exit:                              ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   store ptr %11, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %11, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %80, align 8
   store i32 0, ptr %14, align 8
   %81 = call i32 @pthread_cond_signal(ptr noundef %72) #17
@@ -620,31 +620,31 @@ tm_submit_work.exit:                              ; preds = %76
   br i1 %83, label %84, label %tm_submit_work.exit33
 
 84:                                               ; preds = %tm_submit_work.exit
-  %85 = getelementptr inbounds i8, ptr %28, i64 124
+  %85 = getelementptr inbounds nuw i8, ptr %28, i64 124
   store i32 1, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %.pre, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 40
-  %89 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 128
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 128
   %94 = call i32 @pthread_mutex_lock(ptr noundef nonnull %88) #17
   br label %95
 
 95:                                               ; preds = %95, %84
   %.0.i.i20 = phi ptr [ %93, %84 ], [ %97, %95 ]
-  %96 = getelementptr inbounds i8, ptr %.0.i.i20, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i21 = icmp eq ptr %97, null
   br i1 %.not.i.i21, label %tm_submit_work.exit23, label %95, !llvm.loop !6
 
 tm_submit_work.exit23:                            ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %.0.i.i20, i64 24
-  %99 = getelementptr inbounds i8, ptr %90, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %90, i64 48
   store ptr %28, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %28, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr null, ptr %100, align 8
   store i32 0, ptr %31, align 8
   %101 = call i32 @pthread_cond_signal(ptr noundef nonnull %99) #17
@@ -655,31 +655,31 @@ tm_submit_work.exit23:                            ; preds = %95
   br i1 %103, label %104, label %tm_submit_work.exit33
 
 104:                                              ; preds = %tm_submit_work.exit23
-  %105 = getelementptr inbounds i8, ptr %40, i64 124
+  %105 = getelementptr inbounds nuw i8, ptr %40, i64 124
   store i32 1, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %.pre52, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %.pre52, i64 32
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 40
-  %109 = getelementptr inbounds i8, ptr %.pre52, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %.pre52, i64 24
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %.pre52, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 128
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 128
   %114 = call i32 @pthread_mutex_lock(ptr noundef nonnull %108) #17
   br label %115
 
 115:                                              ; preds = %115, %104
   %.0.i.i25 = phi ptr [ %113, %104 ], [ %117, %115 ]
-  %116 = getelementptr inbounds i8, ptr %.0.i.i25, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %.0.i.i25, i64 24
   %117 = load ptr, ptr %116, align 8
   %.not.i.i26 = icmp eq ptr %117, null
   br i1 %.not.i.i26, label %tm_submit_work.exit28, label %115, !llvm.loop !6
 
 tm_submit_work.exit28:                            ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %.0.i.i25, i64 24
-  %119 = getelementptr inbounds i8, ptr %110, i64 48
+  %118 = getelementptr inbounds nuw i8, ptr %.0.i.i25, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %110, i64 48
   store ptr %40, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %40, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr null, ptr %120, align 8
   store i32 0, ptr %43, align 8
   %121 = call i32 @pthread_cond_signal(ptr noundef nonnull %119) #17
@@ -690,31 +690,31 @@ tm_submit_work.exit28:                            ; preds = %115
   br i1 %123, label %124, label %tm_submit_work.exit33
 
 124:                                              ; preds = %tm_submit_work.exit28
-  %125 = getelementptr inbounds i8, ptr %52, i64 124
+  %125 = getelementptr inbounds nuw i8, ptr %52, i64 124
   store i32 1, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %.pre54, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %.pre54, i64 32
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 40
-  %129 = getelementptr inbounds i8, ptr %.pre54, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %.pre54, i64 24
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %.pre54, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %.pre54, i64 16
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 128
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 128
   %134 = call i32 @pthread_mutex_lock(ptr noundef nonnull %128) #17
   br label %135
 
 135:                                              ; preds = %135, %124
   %.0.i.i30 = phi ptr [ %133, %124 ], [ %137, %135 ]
-  %136 = getelementptr inbounds i8, ptr %.0.i.i30, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %.0.i.i30, i64 24
   %137 = load ptr, ptr %136, align 8
   %.not.i.i31 = icmp eq ptr %137, null
   br i1 %.not.i.i31, label %add_work.exit.i32, label %135, !llvm.loop !6
 
 add_work.exit.i32:                                ; preds = %135
-  %138 = getelementptr inbounds i8, ptr %.0.i.i30, i64 24
-  %139 = getelementptr inbounds i8, ptr %130, i64 48
+  %138 = getelementptr inbounds nuw i8, ptr %.0.i.i30, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %130, i64 48
   store ptr %52, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %52, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr null, ptr %140, align 8
   store i32 0, ptr %55, align 8
   %141 = call i32 @pthread_cond_signal(ptr noundef nonnull %139) #17
@@ -792,7 +792,7 @@ tm_wait_work_completion.exit45:                   ; preds = %.lr.ph.i43, %tm_wai
 define internal void @f1(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #7 {
   %4 = load ptr, ptr %1, align 8
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %2, i32 noundef %0, i32 noundef %5, i32 noundef %8)
@@ -803,9 +803,9 @@ define internal void @f1(i32 noundef %0, ptr nocapture noundef readonly %1, i32 
 define internal void @f2(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #7 {
   %4 = load ptr, ptr %1, align 8
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp sgt i32 %5, 0
   br i1 %10, label %.lr.ph.us.preheader, label %.split
@@ -822,7 +822,7 @@ define internal void @f2(i32 noundef %0, ptr nocapture noundef readonly %1, i32 
 11:                                               ; preds = %.lr.ph.us, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %11 ]
   %12 = phi i32 [ 0, %.lr.ph.us ], [ %15, %11 ]
-  %13 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %12, %14
   store i32 %15, ptr %9, align 4
@@ -878,13 +878,13 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal noundef ptr @thread_loop(ptr nocapture noundef readonly %0) #11 {
   %2 = alloca ptr, align 8
   %3 = load i32, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -907,7 +907,7 @@ define internal noundef ptr @thread_loop(ptr nocapture noundef readonly %0) #11 
   br i1 %.not.i, label %45, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %23, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 184
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noalias ptr @hwloc_bitmap_dup(ptr noundef %26) #17
   %28 = tail call i32 @hwloc_bitmap_singlify(ptr noundef %27) #17
@@ -950,7 +950,7 @@ define internal noundef ptr @thread_loop(ptr nocapture noundef readonly %0) #11 
 
 bind_myself_to_core.exit:                         ; preds = %42, %44, %45, %48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %50 = getelementptr inbounds i8, ptr %7, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %51
 
 51:                                               ; preds = %64, %bind_myself_to_core.exit
@@ -967,11 +967,11 @@ bind_myself_to_core.exit:                         ; preds = %42, %44, %45, %48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %51
   %.lcssa = phi ptr [ %53, %51 ], [ %56, %.lr.ph ]
-  %58 = getelementptr inbounds i8, ptr %.lcssa, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %50, align 8
   %60 = call i32 @pthread_mutex_unlock(ptr noundef %11) #17
-  %61 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %62 = load ptr, ptr %61, align 8
   %.not = icmp eq ptr %62, null
   br i1 %.not, label %63, label %64
@@ -983,17 +983,17 @@ bind_myself_to_core.exit:                         ; preds = %42, %44, %45, %48
 
 64:                                               ; preds = %._crit_edge
   %65 = load i32, ptr %.lcssa, align 8
-  %66 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.lcssa, i64 124
+  %68 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 124
   %69 = load i32, ptr %68, align 4
   call void %62(i32 noundef %65, ptr noundef %67, i32 noundef %69) #17
-  %70 = getelementptr inbounds i8, ptr %.lcssa, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 80
   %71 = call i32 @pthread_mutex_lock(ptr noundef nonnull %70) #17
-  %72 = getelementptr inbounds i8, ptr %.lcssa, i64 120
+  %72 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 120
   store i32 1, ptr %72, align 8
   %73 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %70) #17
-  %74 = getelementptr inbounds i8, ptr %.lcssa, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
   %75 = call i32 @pthread_cond_signal(ptr noundef nonnull %74) #17
   br label %51
 }

@@ -526,11 +526,11 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 .preheader37:                                     ; preds = %308, %.preheader37
   %311 = phi i64 [ %317, %.preheader37 ], [ 1, %308 ]
-  %312 = getelementptr inbounds double, ptr %54, i64 %311
-  %313 = getelementptr inbounds double, ptr %55, i64 %311
-  %314 = getelementptr inbounds double, ptr %56, i64 %311
+  %312 = getelementptr inbounds nuw double, ptr %54, i64 %311
+  %313 = getelementptr inbounds nuw double, ptr %55, i64 %311
+  %314 = getelementptr inbounds nuw double, ptr %56, i64 %311
   %315 = call i32 (ptr, ptr, ptr, ...) %3(ptr noundef nonnull %312, ptr noundef nonnull %313, ptr noundef nonnull %314) #6
-  %316 = getelementptr inbounds i32, ptr %62, i64 %311
+  %316 = getelementptr inbounds nuw i32, ptr %62, i64 %311
   store i32 %315, ptr %316, align 4, !tbaa !3
   %317 = add nuw nsw i64 %311, 1
   %318 = load i32, ptr %27, align 4, !tbaa !3
@@ -576,7 +576,7 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %338 = load double, ptr %37, align 8, !tbaa !7
   store double %338, ptr %18, align 8, !tbaa !7
   %339 = load double, ptr %38, align 8, !tbaa !7
-  %340 = getelementptr inbounds i8, ptr %18, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store double %339, ptr %340, align 8, !tbaa !7
   switch i32 %323, label %346 [
     i32 4, label %341
@@ -586,9 +586,9 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 341:                                              ; preds = %337, %337, %336
   %342 = load double, ptr %43, align 16, !tbaa !7
   store double %342, ptr %19, align 8, !tbaa !7
-  %343 = getelementptr inbounds i8, ptr %43, i64 8
+  %343 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %344 = load double, ptr %343, align 8, !tbaa !7
-  %345 = getelementptr inbounds i8, ptr %19, i64 8
+  %345 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double %344, ptr %345, align 8, !tbaa !7
   br label %346
 
@@ -648,13 +648,13 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 375:                                              ; preds = %422, %366
   %376 = phi i64 [ 1, %366 ], [ %423, %422 ]
   %377 = trunc i64 %376 to i32
-  %378 = getelementptr inbounds double, ptr %55, i64 %376
+  %378 = getelementptr inbounds nuw double, ptr %55, i64 %376
   %379 = load double, ptr %378, align 8, !tbaa !7
   %380 = fcmp une double %379, 0.000000e+00
   br i1 %380, label %381, label %422
 
 381:                                              ; preds = %375
-  %382 = getelementptr inbounds double, ptr %54, i64 %376
+  %382 = getelementptr inbounds nuw double, ptr %54, i64 %376
   %383 = load double, ptr %382, align 8, !tbaa !7
   %384 = fdiv double %383, %367
   %385 = fcmp ogt double %384, %370
@@ -695,7 +695,7 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %411 = fneg double %.sink57
   %412 = select i1 %410, double %.sink57, double %411
   store double %412, ptr %20, align 8, !tbaa !7
-  %413 = getelementptr inbounds double, ptr %56, i64 %376
+  %413 = getelementptr inbounds nuw double, ptr %56, i64 %376
   %414 = load double, ptr %413, align 8, !tbaa !7
   %415 = fmul double %412, %414
   store double %415, ptr %413, align 8, !tbaa !7
@@ -736,13 +736,13 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 
 437:                                              ; preds = %469, %428
   %438 = phi i64 [ 1, %428 ], [ %470, %469 ]
-  %439 = getelementptr inbounds double, ptr %55, i64 %438
+  %439 = getelementptr inbounds nuw double, ptr %55, i64 %438
   %440 = load double, ptr %439, align 8, !tbaa !7
   %441 = fcmp une double %440, 0.000000e+00
   br i1 %441, label %442, label %469
 
 442:                                              ; preds = %437
-  %443 = getelementptr inbounds double, ptr %56, i64 %438
+  %443 = getelementptr inbounds nuw double, ptr %56, i64 %438
   %444 = load double, ptr %443, align 8, !tbaa !7
   %445 = fdiv double %444, %429
   %446 = fcmp ogt double %445, %432
@@ -766,7 +766,7 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %461 = fmul double %460, %459
   store double %461, ptr %443, align 8, !tbaa !7
   %462 = load double, ptr %20, align 8, !tbaa !7
-  %463 = getelementptr inbounds double, ptr %54, i64 %438
+  %463 = getelementptr inbounds nuw double, ptr %54, i64 %438
   %464 = load double, ptr %463, align 8, !tbaa !7
   %465 = fmul double %462, %464
   store double %465, ptr %463, align 8, !tbaa !7
@@ -813,9 +813,9 @@ define void @dggesx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %480 = phi i32 [ %510, %.thread30 ], [ 1, %476 ]
   %481 = phi i32 [ %511, %.thread30 ], [ 0, %476 ]
   %482 = phi i32 [ %512, %.thread30 ], [ 1, %476 ]
-  %483 = getelementptr inbounds double, ptr %54, i64 %479
-  %484 = getelementptr inbounds double, ptr %55, i64 %479
-  %485 = getelementptr inbounds double, ptr %56, i64 %479
+  %483 = getelementptr inbounds nuw double, ptr %54, i64 %479
+  %484 = getelementptr inbounds nuw double, ptr %55, i64 %479
+  %485 = getelementptr inbounds nuw double, ptr %56, i64 %479
   %486 = call i32 (ptr, ptr, ptr, ...) %3(ptr noundef nonnull %483, ptr noundef nonnull %484, ptr noundef nonnull %485) #6
   %487 = load double, ptr %484, align 8, !tbaa !7
   %488 = fcmp oeq double %487, 0.000000e+00

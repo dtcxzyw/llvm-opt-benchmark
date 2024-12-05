@@ -64,25 +64,25 @@ define hidden void @_ZN19XWeakRootsProcessor18process_weak_rootsEv(ptr nocapture
   %2 = alloca %class.XProcessWeakRootsTask, align 8
   call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(616) %2, ptr noundef nonnull @.str) #6
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21XProcessWeakRootsTask, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(576) %3, i8 0, i64 576, i1 false)
   call void @_ZN26XWeakOopStorageSetIteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(576) %3) #6
-  %4 = getelementptr inbounds i8, ptr %2, i64 608
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 608
   store volatile i8 0, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
   call void @_ZN8XWorkers3runEP5XTask(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %2) #6
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21XProcessWeakRootsTask, i64 16), ptr %2, align 8
   call void @_ZN18XWeakRootsIterator15report_num_deadEv(ptr noundef nonnull align 8 dereferenceable(576) %3) #6
-  %6 = getelementptr inbounds i8, ptr %2, i64 120
-  %7 = getelementptr inbounds i8, ptr %2, i64 168
-  %8 = getelementptr inbounds i8, ptr %2, i64 216
-  %9 = getelementptr inbounds i8, ptr %2, i64 264
-  %10 = getelementptr inbounds i8, ptr %2, i64 312
-  %11 = getelementptr inbounds i8, ptr %2, i64 360
-  %12 = getelementptr inbounds i8, ptr %2, i64 408
-  %13 = getelementptr inbounds i8, ptr %2, i64 456
-  %14 = getelementptr inbounds i8, ptr %2, i64 504
-  %15 = getelementptr inbounds i8, ptr %2, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 312
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 360
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 456
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 504
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 552
   call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %15) #6
   call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %14) #6
   call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %13) #6
@@ -107,7 +107,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define linkonce_odr hidden void @_ZN21XProcessWeakRootsTask4workEv(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca %class.XPhantomCleanOopClosure, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23XPhantomCleanOopClosure, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @_ZN18XWeakRootsIterator5applyEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(576) %3, ptr noundef nonnull %2) #6
   ret void
 }

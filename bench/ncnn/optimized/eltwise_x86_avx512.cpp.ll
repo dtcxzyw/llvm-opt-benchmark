@@ -73,15 +73,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Eltwise_x86_avx5127forw
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %39 = icmp sgt i32 %13, 0
   br i1 %39, label %.lr.ph1973, label %thread-pre-split
 
 .lr.ph1973:                                       ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %42 = getelementptr inbounds i8, ptr %37, i64 136
-  %43 = getelementptr inbounds i8, ptr %37, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 136
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 88
   %44 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %45 = icmp sgt i32 %18, 15
   %46 = and i32 %18, -16
@@ -143,8 +143,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Eltwise_x86_avx5127forw
   %75 = load float, ptr %.313601997.us, align 4
   %76 = fmul fast float %75, %74
   store float %76, ptr %.313601997.us, align 4
-  %77 = getelementptr inbounds i8, ptr %.313561998.us, i64 4
-  %78 = getelementptr inbounds i8, ptr %.313601997.us, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.313561998.us, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.313601997.us, i64 4
   %79 = add nuw nsw i32 %.313641996.us, 1
   %exitcond2313.not = icmp eq i32 %79, %18
   br i1 %exitcond2313.not, label %._crit_edge2000.us, label %.lr.ph1999.us, !llvm.loop !6
@@ -157,8 +157,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Eltwise_x86_avx5127forw
   %81 = load <4 x float>, ptr %.213551991.us, align 16
   %82 = fmul fast <4 x float> %81, %80
   store <4 x float> %82, ptr %.213591990.us, align 16
-  %83 = getelementptr inbounds i8, ptr %.213551991.us, i64 16
-  %84 = getelementptr inbounds i8, ptr %.213591990.us, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.213551991.us, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.213591990.us, i64 16
   %85 = add nuw nsw i32 %.213631989.us, 4
   %86 = or disjoint i32 %85, 3
   %87 = icmp slt i32 %86, %18
@@ -172,8 +172,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Eltwise_x86_avx5127forw
   %89 = load <8 x float>, ptr %.113541984.us, align 1
   %90 = fmul fast <8 x float> %89, %88
   store <8 x float> %90, ptr %.113581983.us, align 1
-  %91 = getelementptr inbounds i8, ptr %.113541984.us, i64 32
-  %92 = getelementptr inbounds i8, ptr %.113581983.us, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %.113541984.us, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %.113581983.us, i64 32
   %93 = add nuw nsw i32 %.113621982.us, 8
   %94 = or disjoint i32 %93, 7
   %95 = icmp slt i32 %94, %18
@@ -187,8 +187,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Eltwise_x86_avx5127forw
   %97 = load <16 x float>, ptr %.013531976.us, align 1
   %98 = fmul fast <16 x float> %97, %96
   store <16 x float> %98, ptr %.013571975.us, align 1
-  %99 = getelementptr inbounds i8, ptr %.013531976.us, i64 64
-  %100 = getelementptr inbounds i8, ptr %.013571975.us, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %.013531976.us, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %.013571975.us, i64 64
   %101 = add nuw nsw i32 %.013611974.us, 16
   %102 = or disjoint i32 %101, 15
   %103 = icmp slt i32 %102, %18
@@ -268,9 +268,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Eltwise_x86_avx5127forw
   %139 = load <16 x float>, ptr %.013391943, align 1
   %140 = fmul fast <16 x float> %139, %138
   store <16 x float> %140, ptr %.013431942, align 1
-  %141 = getelementptr inbounds i8, ptr %.013351944, i64 64
-  %142 = getelementptr inbounds i8, ptr %.013391943, i64 64
-  %143 = getelementptr inbounds i8, ptr %.013431942, i64 64
+  %141 = getelementptr inbounds nuw i8, ptr %.013351944, i64 64
+  %142 = getelementptr inbounds nuw i8, ptr %.013391943, i64 64
+  %143 = getelementptr inbounds nuw i8, ptr %.013431942, i64 64
   %144 = add nuw nsw i32 %.013471941, 16
   %145 = or disjoint i32 %144, 15
   %146 = icmp slt i32 %145, %18
@@ -294,9 +294,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Eltwise_x86_avx5127forw
   %150 = load <8 x float>, ptr %.113401950, align 1
   %151 = fmul fast <8 x float> %150, %149
   store <8 x float> %151, ptr %.113441949, align 1
-  %152 = getelementptr inbounds i8, ptr %.113361951, i64 32
-  %153 = getelementptr inbounds i8, ptr %.113401950, i64 32
-  %154 = getelementptr inbounds i8, ptr %.113441949, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %.113361951, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %.113401950, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %.113441949, i64 32
   %155 = add nuw nsw i32 %.113481948, 8
   %156 = or disjoint i32 %155, 7
   %157 = icmp slt i32 %156, %18
@@ -319,9 +319,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Eltwise_x86_avx5127forw
   %160 = load <4 x float>, ptr %.213411959, align 16
   %161 = fmul fast <4 x float> %160, %159
   store <4 x float> %161, ptr %.213451958, align 16
-  %162 = getelementptr inbounds i8, ptr %.213371960, i64 16
-  %163 = getelementptr inbounds i8, ptr %.213411959, i64 16
-  %164 = getelementptr inbounds i8, ptr %.213451958, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %.213371960, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %.213411959, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %.213451958, i64 16
   %165 = add nuw nsw i32 %.213491957, 4
   %166 = or disjoint i32 %165, 3
   %167 = icmp slt i32 %166, %18
@@ -336,9 +336,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18Eltwise_x86_avx5127forw
   %169 = load float, ptr %.313421968, align 4
   %170 = fmul fast float %169, %168
   store float %170, ptr %.313461967, align 4
-  %171 = getelementptr inbounds i8, ptr %.313381969, i64 4
-  %172 = getelementptr inbounds i8, ptr %.313421968, i64 4
-  %173 = getelementptr inbounds i8, ptr %.313461967, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %.313381969, i64 4
+  %172 = getelementptr inbounds nuw i8, ptr %.313421968, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %.313461967, i64 4
   %174 = add nuw nsw i32 %.313501966, 1
   %exitcond.not = icmp eq i32 %174, %18
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph1970, !llvm.loop !14
@@ -363,7 +363,7 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %181 = load i32, ptr %180, align 4
   %182 = icmp eq i32 %181, 0
   %183 = load ptr, ptr %1, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 72
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 72
   %185 = icmp sgt i32 %13, 0
   br i1 %182, label %186, label %325
 
@@ -373,8 +373,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
 .lr.ph2121:                                       ; preds = %186
   %187 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %188 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %189 = getelementptr inbounds i8, ptr %183, i64 136
-  %190 = getelementptr inbounds i8, ptr %183, i64 88
+  %189 = getelementptr inbounds nuw i8, ptr %183, i64 136
+  %190 = getelementptr inbounds nuw i8, ptr %183, i64 88
   %191 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %192 = icmp sgt i32 %18, 15
   %193 = and i32 %18, -16
@@ -443,9 +443,9 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %227 = load <16 x float>, ptr %.013872087, align 1
   %228 = fadd fast <16 x float> %227, %226
   store <16 x float> %228, ptr %.013912086, align 1
-  %229 = getelementptr inbounds i8, ptr %.013702088, i64 64
-  %230 = getelementptr inbounds i8, ptr %.013872087, i64 64
-  %231 = getelementptr inbounds i8, ptr %.013912086, i64 64
+  %229 = getelementptr inbounds nuw i8, ptr %.013702088, i64 64
+  %230 = getelementptr inbounds nuw i8, ptr %.013872087, i64 64
+  %231 = getelementptr inbounds nuw i8, ptr %.013912086, i64 64
   %232 = add nuw nsw i32 %.013952085, 16
   %233 = or disjoint i32 %232, 15
   %234 = icmp slt i32 %233, %18
@@ -469,9 +469,9 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %238 = load <8 x float>, ptr %.113882097, align 1
   %239 = fadd fast <8 x float> %238, %237
   store <8 x float> %239, ptr %.113922096, align 1
-  %240 = getelementptr inbounds i8, ptr %.113712098, i64 32
-  %241 = getelementptr inbounds i8, ptr %.113882097, i64 32
-  %242 = getelementptr inbounds i8, ptr %.113922096, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %.113712098, i64 32
+  %241 = getelementptr inbounds nuw i8, ptr %.113882097, i64 32
+  %242 = getelementptr inbounds nuw i8, ptr %.113922096, i64 32
   %243 = add nuw nsw i32 %.113962095, 8
   %244 = or disjoint i32 %243, 7
   %245 = icmp slt i32 %244, %18
@@ -494,9 +494,9 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %248 = load <4 x float>, ptr %.213892106, align 16
   %249 = fadd fast <4 x float> %248, %247
   store <4 x float> %249, ptr %.213932105, align 16
-  %250 = getelementptr inbounds i8, ptr %.213722107, i64 16
-  %251 = getelementptr inbounds i8, ptr %.213892106, i64 16
-  %252 = getelementptr inbounds i8, ptr %.213932105, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %.213722107, i64 16
+  %251 = getelementptr inbounds nuw i8, ptr %.213892106, i64 16
+  %252 = getelementptr inbounds nuw i8, ptr %.213932105, i64 16
   %253 = add nuw nsw i32 %.213972104, 4
   %254 = or disjoint i32 %253, 3
   %255 = icmp slt i32 %254, %18
@@ -511,9 +511,9 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %257 = load float, ptr %.313902115, align 4
   %258 = fadd fast float %257, %256
   store float %258, ptr %.313942114, align 4
-  %259 = getelementptr inbounds i8, ptr %.313732116, i64 4
-  %260 = getelementptr inbounds i8, ptr %.313902115, i64 4
-  %261 = getelementptr inbounds i8, ptr %.313942114, i64 4
+  %259 = getelementptr inbounds nuw i8, ptr %.313732116, i64 4
+  %260 = getelementptr inbounds nuw i8, ptr %.313902115, i64 4
+  %261 = getelementptr inbounds nuw i8, ptr %.313942114, i64 4
   %262 = add nuw nsw i32 %.313982113, 1
   %exitcond2331.not = icmp eq i32 %262, %18
   br i1 %exitcond2331.not, label %._crit_edge2118, label %.lr.ph2117, !llvm.loop !19
@@ -567,8 +567,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %285 = load <16 x float>, ptr %.014012124, align 1
   %286 = fadd fast <16 x float> %285, %284
   store <16 x float> %286, ptr %.014052123, align 1
-  %287 = getelementptr inbounds i8, ptr %.014012124, i64 64
-  %288 = getelementptr inbounds i8, ptr %.014052123, i64 64
+  %287 = getelementptr inbounds nuw i8, ptr %.014012124, i64 64
+  %288 = getelementptr inbounds nuw i8, ptr %.014052123, i64 64
   %289 = add nuw nsw i32 %.014092122, 16
   %290 = or disjoint i32 %289, 15
   %291 = icmp slt i32 %290, %18
@@ -590,8 +590,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %295 = load <8 x float>, ptr %.114022132, align 1
   %296 = fadd fast <8 x float> %295, %294
   store <8 x float> %296, ptr %.114062131, align 1
-  %297 = getelementptr inbounds i8, ptr %.114022132, i64 32
-  %298 = getelementptr inbounds i8, ptr %.114062131, i64 32
+  %297 = getelementptr inbounds nuw i8, ptr %.114022132, i64 32
+  %298 = getelementptr inbounds nuw i8, ptr %.114062131, i64 32
   %299 = add nuw nsw i32 %.114102130, 8
   %300 = or disjoint i32 %299, 7
   %301 = icmp slt i32 %300, %18
@@ -612,8 +612,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %304 = load <4 x float>, ptr %.214032139, align 16
   %305 = fadd fast <4 x float> %304, %303
   store <4 x float> %305, ptr %.214072138, align 16
-  %306 = getelementptr inbounds i8, ptr %.214032139, i64 16
-  %307 = getelementptr inbounds i8, ptr %.214072138, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %.214032139, i64 16
+  %307 = getelementptr inbounds nuw i8, ptr %.214072138, i64 16
   %308 = add nuw nsw i32 %.214112137, 4
   %309 = or disjoint i32 %308, 3
   %310 = icmp slt i32 %309, %18
@@ -627,8 +627,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %312 = load float, ptr %.314082145, align 4
   %313 = fadd fast float %312, %311
   store float %313, ptr %.314082145, align 4
-  %314 = getelementptr inbounds i8, ptr %.314042146, i64 4
-  %315 = getelementptr inbounds i8, ptr %.314082145, i64 4
+  %314 = getelementptr inbounds nuw i8, ptr %.314042146, i64 4
+  %315 = getelementptr inbounds nuw i8, ptr %.314082145, i64 4
   %316 = add nuw nsw i32 %.314122144, 1
   %exitcond2337.not = icmp eq i32 %316, %18
   br i1 %exitcond2337.not, label %._crit_edge2148, label %.lr.ph2147, !llvm.loop !24
@@ -660,8 +660,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
 .lr.ph2047:                                       ; preds = %325
   %326 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %327 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %328 = getelementptr inbounds i8, ptr %183, i64 136
-  %329 = getelementptr inbounds i8, ptr %183, i64 88
+  %328 = getelementptr inbounds nuw i8, ptr %183, i64 136
+  %329 = getelementptr inbounds nuw i8, ptr %183, i64 88
   %330 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %331 = icmp sgt i32 %18, 15
   %332 = and i32 %18, -16
@@ -749,8 +749,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %375 = load float, ptr %.313272075.us, align 4
   %376 = fadd fast float %375, %374
   store float %376, ptr %.313272075.us, align 4
-  %377 = getelementptr inbounds i8, ptr %.313312074.us, i64 4
-  %378 = getelementptr inbounds i8, ptr %.313272075.us, i64 4
+  %377 = getelementptr inbounds nuw i8, ptr %.313312074.us, i64 4
+  %378 = getelementptr inbounds nuw i8, ptr %.313272075.us, i64 4
   %379 = add nuw nsw i32 %.313222076.us, 1
   %exitcond2325.not = icmp eq i32 %379, %18
   br i1 %exitcond2325.not, label %._crit_edge2078.us, label %.lr.ph2077.us, !llvm.loop !28
@@ -764,8 +764,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %382 = fmul fast <4 x float> %380, %370
   %383 = fadd fast <4 x float> %382, %381
   store <4 x float> %383, ptr %.213262067.us, align 16
-  %384 = getelementptr inbounds i8, ptr %.213302066.us, i64 16
-  %385 = getelementptr inbounds i8, ptr %.213262067.us, i64 16
+  %384 = getelementptr inbounds nuw i8, ptr %.213302066.us, i64 16
+  %385 = getelementptr inbounds nuw i8, ptr %.213262067.us, i64 16
   %386 = add nuw nsw i32 %.213212068.us, 4
   %387 = or disjoint i32 %386, 3
   %388 = icmp slt i32 %387, %18
@@ -779,8 +779,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %390 = load <8 x float>, ptr %.113292057.us, align 1
   %391 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %390, <8 x float> %366, <8 x float> %389)
   store <8 x float> %391, ptr %.113252058.us, align 1
-  %392 = getelementptr inbounds i8, ptr %.113292057.us, i64 32
-  %393 = getelementptr inbounds i8, ptr %.113252058.us, i64 32
+  %392 = getelementptr inbounds nuw i8, ptr %.113292057.us, i64 32
+  %393 = getelementptr inbounds nuw i8, ptr %.113252058.us, i64 32
   %394 = add nuw nsw i32 %.113202059.us, 8
   %395 = or disjoint i32 %394, 7
   %396 = icmp slt i32 %395, %18
@@ -794,8 +794,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %398 = load <16 x float>, ptr %.013282048.us, align 1
   %399 = tail call fast noundef <16 x float> @llvm.fma.v16f32(<16 x float> %398, <16 x float> %364, <16 x float> %397)
   store <16 x float> %399, ptr %.013242049.us, align 1
-  %400 = getelementptr inbounds i8, ptr %.013282048.us, i64 64
-  %401 = getelementptr inbounds i8, ptr %.013242049.us, i64 64
+  %400 = getelementptr inbounds nuw i8, ptr %.013282048.us, i64 64
+  %401 = getelementptr inbounds nuw i8, ptr %.013242049.us, i64 64
   %402 = add nuw nsw i32 %.013192050.us, 16
   %403 = or disjoint i32 %402, 15
   %404 = icmp slt i32 %403, %18
@@ -841,7 +841,7 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %432 = getelementptr inbounds i8, ptr %427, i64 %431
   %433 = load ptr, ptr %179, align 8
   %434 = load float, ptr %433, align 4
-  %435 = getelementptr inbounds i8, ptr %433, i64 4
+  %435 = getelementptr inbounds nuw i8, ptr %433, i64 4
   %436 = load float, ptr %435, align 4
   %437 = insertelement <16 x float> poison, float %434, i64 0
   %438 = shufflevector <16 x float> %437, <16 x float> poison, <16 x i32> zeroinitializer
@@ -859,9 +859,9 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %443 = fmul fast <16 x float> %441, %438
   %444 = tail call fast noundef <16 x float> @llvm.fma.v16f32(<16 x float> %442, <16 x float> %440, <16 x float> %443)
   store <16 x float> %444, ptr %.013742009, align 1
-  %445 = getelementptr inbounds i8, ptr %.013822007, i64 64
-  %446 = getelementptr inbounds i8, ptr %.013782008, i64 64
-  %447 = getelementptr inbounds i8, ptr %.013742009, i64 64
+  %445 = getelementptr inbounds nuw i8, ptr %.013822007, i64 64
+  %446 = getelementptr inbounds nuw i8, ptr %.013782008, i64 64
+  %447 = getelementptr inbounds nuw i8, ptr %.013742009, i64 64
   %448 = add nuw nsw i32 %.013652010, 16
   %449 = or disjoint i32 %448, 15
   %450 = icmp slt i32 %449, %18
@@ -890,9 +890,9 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %459 = fmul fast <8 x float> %457, %452
   %460 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %458, <8 x float> %454, <8 x float> %459)
   store <8 x float> %460, ptr %.113752020, align 1
-  %461 = getelementptr inbounds i8, ptr %.113832018, i64 32
-  %462 = getelementptr inbounds i8, ptr %.113792019, i64 32
-  %463 = getelementptr inbounds i8, ptr %.113752020, i64 32
+  %461 = getelementptr inbounds nuw i8, ptr %.113832018, i64 32
+  %462 = getelementptr inbounds nuw i8, ptr %.113792019, i64 32
+  %463 = getelementptr inbounds nuw i8, ptr %.113752020, i64 32
   %464 = add nuw nsw i32 %.113662021, 8
   %465 = or disjoint i32 %464, 7
   %466 = icmp slt i32 %465, %18
@@ -930,9 +930,9 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %477 = fmul fast <4 x float> %475, %470
   %478 = fadd fast <4 x float> %477, %476
   store <4 x float> %478, ptr %.213762031, align 16
-  %479 = getelementptr inbounds i8, ptr %.213842029, i64 16
-  %480 = getelementptr inbounds i8, ptr %.213802030, i64 16
-  %481 = getelementptr inbounds i8, ptr %.213762031, i64 16
+  %479 = getelementptr inbounds nuw i8, ptr %.213842029, i64 16
+  %480 = getelementptr inbounds nuw i8, ptr %.213802030, i64 16
+  %481 = getelementptr inbounds nuw i8, ptr %.213762031, i64 16
   %482 = add nuw nsw i32 %.213672032, 4
   %483 = or disjoint i32 %482, 3
   %484 = icmp slt i32 %483, %18
@@ -949,9 +949,9 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %488 = fmul fast float %487, %436
   %489 = fadd fast float %488, %486
   store float %489, ptr %.313772041, align 4
-  %490 = getelementptr inbounds i8, ptr %.313852039, i64 4
-  %491 = getelementptr inbounds i8, ptr %.313812040, i64 4
-  %492 = getelementptr inbounds i8, ptr %.313772041, i64 4
+  %490 = getelementptr inbounds nuw i8, ptr %.313852039, i64 4
+  %491 = getelementptr inbounds nuw i8, ptr %.313812040, i64 4
+  %492 = getelementptr inbounds nuw i8, ptr %.313772041, i64 4
   %493 = add nuw nsw i32 %.313682042, 1
   %exitcond2319.not = icmp eq i32 %493, %18
   br i1 %exitcond2319.not, label %._crit_edge2044, label %.lr.ph2043, !llvm.loop !36
@@ -968,15 +968,15 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
 
 496:                                              ; preds = %.loopexit
   %497 = load ptr, ptr %1, align 8
-  %498 = getelementptr inbounds i8, ptr %497, i64 72
+  %498 = getelementptr inbounds nuw i8, ptr %497, i64 72
   %499 = icmp sgt i32 %13, 0
   br i1 %499, label %.lr.ph2191, label %.preheader1919
 
 .lr.ph2191:                                       ; preds = %496
   %500 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %501 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %502 = getelementptr inbounds i8, ptr %497, i64 136
-  %503 = getelementptr inbounds i8, ptr %497, i64 88
+  %502 = getelementptr inbounds nuw i8, ptr %497, i64 136
+  %503 = getelementptr inbounds nuw i8, ptr %497, i64 88
   %504 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %505 = icmp sgt i32 %18, 15
   %506 = and i32 %18, -16
@@ -1045,9 +1045,9 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %540 = load <16 x float>, ptr %.013102156, align 1
   %541 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %539, <16 x float> %540, i32 4)
   store <16 x float> %541, ptr %.013062157, align 1
-  %542 = getelementptr inbounds i8, ptr %.013142155, i64 64
-  %543 = getelementptr inbounds i8, ptr %.013102156, i64 64
-  %544 = getelementptr inbounds i8, ptr %.013062157, i64 64
+  %542 = getelementptr inbounds nuw i8, ptr %.013142155, i64 64
+  %543 = getelementptr inbounds nuw i8, ptr %.013102156, i64 64
+  %544 = getelementptr inbounds nuw i8, ptr %.013062157, i64 64
   %545 = add nuw nsw i32 %.013022158, 16
   %546 = or disjoint i32 %545, 15
   %547 = icmp slt i32 %546, %18
@@ -1071,9 +1071,9 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %551 = load <8 x float>, ptr %.113112166, align 1
   %552 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %550, <8 x float> %551)
   store <8 x float> %552, ptr %.113072167, align 1
-  %553 = getelementptr inbounds i8, ptr %.113152165, i64 32
-  %554 = getelementptr inbounds i8, ptr %.113112166, i64 32
-  %555 = getelementptr inbounds i8, ptr %.113072167, i64 32
+  %553 = getelementptr inbounds nuw i8, ptr %.113152165, i64 32
+  %554 = getelementptr inbounds nuw i8, ptr %.113112166, i64 32
+  %555 = getelementptr inbounds nuw i8, ptr %.113072167, i64 32
   %556 = add nuw nsw i32 %.113032168, 8
   %557 = or disjoint i32 %556, 7
   %558 = icmp slt i32 %557, %18
@@ -1096,9 +1096,9 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %561 = load <4 x float>, ptr %.213122175, align 16
   %562 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %560, <4 x float> %561)
   store <4 x float> %562, ptr %.213082176, align 16
-  %563 = getelementptr inbounds i8, ptr %.213162174, i64 16
-  %564 = getelementptr inbounds i8, ptr %.213122175, i64 16
-  %565 = getelementptr inbounds i8, ptr %.213082176, i64 16
+  %563 = getelementptr inbounds nuw i8, ptr %.213162174, i64 16
+  %564 = getelementptr inbounds nuw i8, ptr %.213122175, i64 16
+  %565 = getelementptr inbounds nuw i8, ptr %.213082176, i64 16
   %566 = add nuw nsw i32 %.213042177, 4
   %567 = or disjoint i32 %566, 3
   %568 = icmp slt i32 %567, %18
@@ -1114,9 +1114,9 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %571 = fcmp fast olt float %569, %570
   %572 = select i1 %571, float %570, float %569
   store float %572, ptr %.313092185, align 4
-  %573 = getelementptr inbounds i8, ptr %.313172183, i64 4
-  %574 = getelementptr inbounds i8, ptr %.313132184, i64 4
-  %575 = getelementptr inbounds i8, ptr %.313092185, i64 4
+  %573 = getelementptr inbounds nuw i8, ptr %.313172183, i64 4
+  %574 = getelementptr inbounds nuw i8, ptr %.313132184, i64 4
+  %575 = getelementptr inbounds nuw i8, ptr %.313092185, i64 4
   %576 = add nuw nsw i32 %.313052186, 1
   %exitcond2343.not = icmp eq i32 %576, %18
   br i1 %exitcond2343.not, label %._crit_edge2188, label %.lr.ph2187, !llvm.loop !41
@@ -1170,8 +1170,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %599 = load <16 x float>, ptr %.012962192, align 1
   %600 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %598, <16 x float> %599, i32 4)
   store <16 x float> %600, ptr %.012922193, align 1
-  %601 = getelementptr inbounds i8, ptr %.012962192, i64 64
-  %602 = getelementptr inbounds i8, ptr %.012922193, i64 64
+  %601 = getelementptr inbounds nuw i8, ptr %.012962192, i64 64
+  %602 = getelementptr inbounds nuw i8, ptr %.012922193, i64 64
   %603 = add nuw nsw i32 %.02194, 16
   %604 = or disjoint i32 %603, 15
   %605 = icmp slt i32 %604, %18
@@ -1193,8 +1193,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %609 = load <8 x float>, ptr %.112972200, align 1
   %610 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %608, <8 x float> %609)
   store <8 x float> %610, ptr %.112932201, align 1
-  %611 = getelementptr inbounds i8, ptr %.112972200, i64 32
-  %612 = getelementptr inbounds i8, ptr %.112932201, i64 32
+  %611 = getelementptr inbounds nuw i8, ptr %.112972200, i64 32
+  %612 = getelementptr inbounds nuw i8, ptr %.112932201, i64 32
   %613 = add nuw nsw i32 %.12202, 8
   %614 = or disjoint i32 %613, 7
   %615 = icmp slt i32 %614, %18
@@ -1215,8 +1215,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %618 = load <4 x float>, ptr %.212982207, align 16
   %619 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %617, <4 x float> %618)
   store <4 x float> %619, ptr %.212942208, align 16
-  %620 = getelementptr inbounds i8, ptr %.212982207, i64 16
-  %621 = getelementptr inbounds i8, ptr %.212942208, i64 16
+  %620 = getelementptr inbounds nuw i8, ptr %.212982207, i64 16
+  %621 = getelementptr inbounds nuw i8, ptr %.212942208, i64 16
   %622 = add nuw nsw i32 %.22209, 4
   %623 = or disjoint i32 %622, 3
   %624 = icmp slt i32 %623, %18
@@ -1231,8 +1231,8 @@ thread-pre-split:                                 ; preds = %._crit_edge2004.us,
   %627 = fcmp fast olt float %625, %626
   %628 = select i1 %627, float %626, float %625
   store float %628, ptr %.312952215, align 4
-  %629 = getelementptr inbounds i8, ptr %.312992214, i64 4
-  %630 = getelementptr inbounds i8, ptr %.312952215, i64 4
+  %629 = getelementptr inbounds nuw i8, ptr %.312992214, i64 4
+  %630 = getelementptr inbounds nuw i8, ptr %.312952215, i64 4
   %631 = add nuw nsw i32 %.32216, 1
   %exitcond2349.not = icmp eq i32 %631, %18
   br i1 %exitcond2349.not, label %._crit_edge2218, label %.lr.ph2217, !llvm.loop !46
@@ -1290,7 +1290,7 @@ define linkonce_odr hidden void @_ZN4ncnn18Eltwise_x86_avx512D2Ev(ptr noundef no
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %_ZN4ncnn7EltwiseD2Ev.exit unwind label %18
@@ -1343,7 +1343,7 @@ define linkonce_odr hidden void @_ZN4ncnn18Eltwise_x86_avx512D0Ev(ptr noundef no
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %_ZN4ncnn18Eltwise_x86_avx512D2Ev.exit unwind label %18

@@ -1165,7 +1165,7 @@ define dso_local noundef ptr @_ZN4Luau3ptrENS_7VariantIJPKNS_4TypeEPKNS_11TypePa
   br label %5
 
 5:                                                ; preds = %1, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0 = load ptr, ptr %6, align 8
   ret ptr %.0
 }
@@ -1174,7 +1174,7 @@ define dso_local noundef ptr @_ZN4Luau3ptrENS_7VariantIJPKNS_4TypeEPKNS_11TypePa
 define dso_local void @_ZN4Luau6followENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Luau::Variant") align 8 initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, 0
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %2
@@ -1193,7 +1193,7 @@ define dso_local void @_ZN4Luau6followENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVa
   %.sink5 = phi i32 [ 0, %5 ], [ 1, %8 ]
   %.sink = phi ptr [ %7, %5 ], [ %11, %8 ]
   store i32 %.sink5, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %13, align 8
   ret void
 }

@@ -62,24 +62,24 @@ define internal i64 @H5Z__filter_deflate(i32 noundef %0, i64 noundef %1, ptr noc
   br label %.thread
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %27, i8 0, i64 104, i1 false)
   %28 = load ptr, ptr %5, align 8
   store ptr %28, ptr %7, align 8
   %29 = trunc i64 %3 to i32
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %20, ptr %31, align 8
   %32 = trunc i64 %19 to i32
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %32, ptr %33, align 8
   %34 = call i32 @inflateInit_(ptr noundef nonnull %7, ptr noundef nonnull @.str.4, i32 noundef 112) #4
   %.not64 = icmp eq i32 %34, 0
   br i1 %.not64, label %.preheader, label %36
 
 .preheader:                                       ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %7, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
   br label %.outer
 
 .outer:                                           ; preds = %59, %.preheader

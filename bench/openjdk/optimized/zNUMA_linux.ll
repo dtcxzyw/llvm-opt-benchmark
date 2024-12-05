@@ -59,7 +59,7 @@ define hidden noundef i32 @_ZN5ZNUMA2idEv() local_unnamed_addr #1 align 2 {
   %5 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4ZCPU4_cpuE)
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds %class.PaddedEnd, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw %class.PaddedEnd, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4ZCPU5_selfE)
   %11 = load ptr, ptr %10, align 8

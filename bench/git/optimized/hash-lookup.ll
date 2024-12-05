@@ -21,9 +21,9 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo66 = getelementptr inbounds i8, ptr %0, i64 256
+  %hash_algo66 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo66, align 8
-  %rawsz67 = getelementptr inbounds i8, ptr %1, i64 16
+  %rawsz67 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz67, align 8
   %cmp269.not = icmp eq i64 %2, 2
   br i1 %cmp269.not, label %do.body.preheader, label %for.body.lr.ph
@@ -35,9 +35,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %if.end18
   %add = add i64 %ofs.070, 2
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds i8, ptr %3, i64 256
+  %hash_algo = getelementptr inbounds nuw i8, ptr %3, i64 256
   %4 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds i8, ptr %4, i64 16
+  %rawsz = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load i64, ptr %rawsz, align 8
   %sub = add i64 %5, -2
   %cmp2 = icmp ult i64 %add, %sub
@@ -120,14 +120,14 @@ do.body:                                          ; preds = %do.body.preheader, 
   %lo.0 = phi i64 [ %lo.1, %if.end39 ], [ 0, %do.body.preheader ]
   %hi.0 = phi i64 [ %hi.1, %if.end39 ], [ %nr, %do.body.preheader ]
   %call34 = tail call ptr %fn(i64 noundef %mi.1, ptr noundef %table) #4
-  %algo.i = getelementptr inbounds i8, ptr %call34, i64 32
+  %algo.i = getelementptr inbounds nuw i8, ptr %call34, i64 32
   %12 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %12, 0
   br i1 %tobool.not.i, label %if.then.i51, label %if.else.i
 
 if.then.i51:                                      ; preds = %do.body
   %13 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %13, i64 256
+  %hash_algo.i = getelementptr inbounds nuw i8, ptr %13, i64 256
   %14 = load ptr, ptr %hash_algo.i, align 8
   br label %oidcmp.exit
 
@@ -187,7 +187,7 @@ define dso_local range(i32 0, 2) i32 @bsearch_hash(ptr nocapture noundef readonl
 entry:
   %0 = load i8, ptr %hash, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %fanout_nbo, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %fanout_nbo, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %2 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1) #7, !srcloc !8
   %cmp = icmp eq i8 %0, 0
@@ -196,7 +196,7 @@ entry:
 if.else.i17:                                      ; preds = %entry
   %sub = add nuw nsw i64 %idxprom, 4294967295
   %idxprom3 = and i64 %sub, 4294967295
-  %arrayidx4 = getelementptr inbounds i32, ptr %fanout_nbo, i64 %idxprom3
+  %arrayidx4 = getelementptr inbounds nuw i32, ptr %fanout_nbo, i64 %idxprom3
   %3 = load i32, ptr %arrayidx4, align 4
   %4 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %3) #7, !srcloc !8
   br label %cond.end
@@ -208,7 +208,7 @@ cond.end:                                         ; preds = %if.else.i17, %entry
 
 while.body.lr.ph:                                 ; preds = %cond.end
   %5 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %5, i64 256
+  %hash_algo.i = getelementptr inbounds nuw i8, ptr %5, i64 256
   %6 = load ptr, ptr %hash_algo.i, align 8
   %7 = getelementptr i8, ptr %6, i64 16
   %.val.i = load i64, ptr %7, align 8

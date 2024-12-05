@@ -67,12 +67,12 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   call void @"_ZN13prost_reflect10descriptor3api59_$LT$impl$u20$prost_reflect..descriptor..DescriptorPool$GT$8services17h4b72fc432f63fcd8E"(ptr nonnull sret({ ptr, { i32, i32 } }) align 8 %31, ptr align 8 %1)
   call void @_ZN9itertools9Itertools13partition_map17ha340c6623b0f1886E(ptr nonnull sret({ { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 } }) align 8 %32, ptr nonnull align 8 %31)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
-  %35 = getelementptr inbounds i8, ptr %32, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  %36 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %37 = load i64, ptr %36, align 8, !noundef !3
   store i64 %37, ptr %30, align 8
-  %38 = getelementptr inbounds i8, ptr %33, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %39 = load i64, ptr %38, align 8, !noundef !3
   store i64 %39, ptr %29, align 8
   %40 = icmp eq i64 %37, %39
@@ -104,12 +104,12 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   %46 = extractvalue { ptr, ptr } %43, 0
   %47 = extractvalue { ptr, ptr } %43, 1
   store ptr %46, ptr %27, align 8
-  %48 = getelementptr inbounds i8, ptr %27, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %24, i64 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 16
-  %50 = getelementptr inbounds i8, ptr %22, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %51
 
 51:                                               ; preds = %257, %45
@@ -139,9 +139,9 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   %57 = extractvalue { i64, i64 } %56, 0
   %58 = extractvalue { i64, i64 } %56, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) @anon.c2c254bac7312232f49bd554ba5b0ae2.12, i64 32, i1 false), !noalias !4
-  %.sroa.28.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 32
+  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 %57, ptr %.sroa.28.0..sroa_idx.i, align 8, !noalias !4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 40
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i64 %58, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !4
   invoke void @"_ZN13prost_reflect10descriptor3api59_$LT$impl$u20$prost_reflect..descriptor..DescriptorPool$GT$22file_descriptor_protos17ha35690caa4ba252cE"(ptr nonnull sret({ ptr, { i32, i32 } }) align 8 %14, ptr align 8 %1)
           to label %60 unwind label %.loopexit.split-lp.i, !noalias !4
@@ -174,7 +174,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   br i1 %64, label %89, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %62, i64 504
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 504
   %67 = load ptr, ptr %66, align 8, !noalias !4, !noundef !3
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %70
@@ -184,7 +184,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
           to label %74 unwind label %.loopexit.split-lp.i, !noalias !4
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %62, i64 520
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 520
   %72 = load i64, ptr %71, align 8, !noalias !4, !noundef !3
   %73 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { ptr, [2 x i64] } }, ptr %67, i64 %72
   invoke void @"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LP$K$C$V$RP$$GT$$GT$9from_iter17h7b1cac1d8231e6e1E"(ptr nonnull sret({ { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }) align 8 %12, ptr nonnull %67, ptr nonnull %73)
@@ -285,11 +285,11 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   %92 = extractvalue { ptr, ptr } %90, 0
   %93 = extractvalue { ptr, ptr } %90, 1
   store ptr %92, ptr %20, align 8
-  %94 = getelementptr inbounds i8, ptr %20, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %93, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %19, i64 8
-  %.fca.1.gep.i55 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.5.0..sroa_idx65 = getelementptr inbounds i8, ptr %3, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %.fca.1.gep.i55 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.5.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %.loopexit99
 
 .loopexit99:                                      ; preds = %206, %91
@@ -305,7 +305,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
           to label %104 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %96, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %103 = invoke { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h68eb6a308e734143E"(ptr nonnull align 8 %102)
           to label %201 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -313,14 +313,14 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   %105 = extractvalue { ptr, ptr } %100, 0
   %106 = extractvalue { ptr, ptr } %100, 1
   store ptr %105, ptr %18, align 8
-  %107 = getelementptr inbounds i8, ptr %18, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %106, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %17, i64 8
-  %.fca.1.gep.i = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.569.0..sroa_idx71 = getelementptr inbounds i8, ptr %7, i64 8
-  %109 = getelementptr inbounds i8, ptr %16, i64 8
-  %.fca.1.gep.i46 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.575.0..sroa_idx77 = getelementptr inbounds i8, ptr %5, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.569.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.fca.1.gep.i46 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.575.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.loopexit90
 
 .loopexit90:                                      ; preds = %161, %104
@@ -333,13 +333,13 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
 
 113:                                              ; preds = %111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
-  %114 = getelementptr inbounds i8, ptr %0, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
   call void @"_ZN4core3ptr51drop_in_place$LT$anki_proto_gen..MethodComments$GT$17h9653b9082da42610E"(ptr nonnull align 8 %21)
   ret void
 
 115:                                              ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %110, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %117 = invoke { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h68eb6a308e734143E"(ptr nonnull align 8 %116)
           to label %118 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -359,12 +359,12 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %123
-  %126 = getelementptr inbounds i8, ptr %110, i64 48
+  %126 = getelementptr inbounds nuw i8, ptr %110, i64 48
   %127 = invoke { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h68eb6a308e734143E"(ptr nonnull align 8 %126)
           to label %156 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 128:                                              ; preds = %123
-  %129 = getelementptr inbounds i8, ptr %122, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %122, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %130 = invoke { ptr, i32 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$11parent_file17hd27ae0e6d42ed4e7E"(ptr nonnull align 8 %129)
@@ -409,7 +409,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
           to label %142 unwind label %132
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds i8, ptr %147, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %150 = load i64, ptr %149, align 8, !noalias !7, !noundef !3
   %151 = icmp eq i64 %150, 0
   br i1 %151, label %.thread.i39, label %152
@@ -450,7 +450,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   br i1 %162, label %.loopexit90, label %163
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %160, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %160, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %165 = invoke { ptr, i32 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$11parent_file17hd27ae0e6d42ed4e7E"(ptr nonnull align 8 %164)
@@ -495,7 +495,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
           to label %177 unwind label %167
 
 183:                                              ; preds = %177
-  %184 = getelementptr inbounds i8, ptr %182, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %185 = load i64, ptr %184, align 8, !noalias !10, !noundef !3
   %186 = icmp eq i64 %185, 0
   br i1 %186, label %.thread.i47, label %187
@@ -523,7 +523,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
 191:                                              ; preds = %.thread.i47
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %192 = getelementptr inbounds i8, ptr %160, i64 56
+  %192 = getelementptr inbounds nuw i8, ptr %160, i64 56
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8a51ae078d990a19E"(ptr nonnull align 8 %192)
           to label %195 unwind label %193
 
@@ -531,20 +531,20 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   %194 = landingpad { ptr, i32 }
           cleanup
   store ptr %.sroa.072.0, ptr %192, align 8
-  %.sroa.575.0..sroa_idx = getelementptr inbounds i8, ptr %160, i64 64
+  %.sroa.575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.575.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.575, i64 16, i1 false)
   br label %.body42
 
 195:                                              ; preds = %191
   store ptr %.sroa.072.0, ptr %192, align 8
-  %.sroa.575.0..sroa_idx76 = getelementptr inbounds i8, ptr %160, i64 64
+  %.sroa.575.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %160, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.575.0..sroa_idx76, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.575, i64 16, i1 false)
   br label %159
 
 196:                                              ; preds = %.thread.i39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %197 = getelementptr inbounds i8, ptr %122, i64 56
+  %197 = getelementptr inbounds nuw i8, ptr %122, i64 56
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8a51ae078d990a19E"(ptr nonnull align 8 %197)
           to label %200 unwind label %198
 
@@ -552,13 +552,13 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   %199 = landingpad { ptr, i32 }
           cleanup
   store ptr %.sroa.066.0, ptr %197, align 8
-  %.sroa.569.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 64
+  %.sroa.569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.569.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.569, i64 16, i1 false)
   br label %.body42
 
 200:                                              ; preds = %196
   store ptr %.sroa.066.0, ptr %197, align 8
-  %.sroa.569.0..sroa_idx70 = getelementptr inbounds i8, ptr %122, i64 64
+  %.sroa.569.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %122, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.569.0..sroa_idx70, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.569, i64 16, i1 false)
   br label %121
 
@@ -578,7 +578,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   br i1 %207, label %.loopexit99, label %208
 
 208:                                              ; preds = %206
-  %209 = getelementptr inbounds i8, ptr %205, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %205, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %210 = invoke { ptr, i32 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$11parent_file17hd27ae0e6d42ed4e7E"(ptr nonnull align 8 %209)
@@ -623,7 +623,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
           to label %222 unwind label %212
 
 228:                                              ; preds = %222
-  %229 = getelementptr inbounds i8, ptr %227, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %227, i64 16
   %230 = load i64, ptr %229, align 8, !noalias !13, !noundef !3
   %231 = icmp eq i64 %230, 0
   br i1 %231, label %.thread.i56, label %232
@@ -651,7 +651,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
 236:                                              ; preds = %.thread.i56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %237 = getelementptr inbounds i8, ptr %205, i64 56
+  %237 = getelementptr inbounds nuw i8, ptr %205, i64 56
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8a51ae078d990a19E"(ptr nonnull align 8 %237)
           to label %240 unwind label %238
 
@@ -659,13 +659,13 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   %239 = landingpad { ptr, i32 }
           cleanup
   store ptr %.sroa.0.0, ptr %237, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %205, i64 64
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %205, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   br label %.body42
 
 240:                                              ; preds = %236
   store ptr %.sroa.0.0, ptr %237, align 8
-  %.sroa.5.0..sroa_idx64 = getelementptr inbounds i8, ptr %205, i64 64
+  %.sroa.5.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %205, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx64, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   br label %204
 
@@ -680,12 +680,12 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
   br i1 %.not, label %251, label %244
 
 244:                                              ; preds = %243
-  %245 = getelementptr inbounds i8, ptr %88, i64 24
+  %245 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %246 = load ptr, ptr %245, align 8, !nonnull !3, !noundef !3
-  %247 = getelementptr inbounds i8, ptr %88, i64 40
+  %247 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %248 = load i64, ptr %247, align 8, !noundef !3
   %249 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }, ptr %246, i64 %248
-  %250 = getelementptr inbounds i8, ptr %52, i64 24
+  %250 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr %246, ptr %22, align 8
   store ptr %249, ptr %.sroa.26.0..sroa_idx, align 8
   store ptr %250, ptr %.sroa.3.0..sroa_idx, align 8
@@ -695,13 +695,13 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr nocapture
 
 251:                                              ; preds = %243
   store ptr %52, ptr %25, align 8
-  %252 = getelementptr inbounds i8, ptr %25, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h76f3ecf32ebc7d2dE", ptr %252, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h9a1d8b638af5c93dE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %26, ptr nonnull align 8 @anon.c2c254bac7312232f49bd554ba5b0ae2.3, i64 1, ptr nonnull align 8 %25, i64 1)
           to label %258 unwind label %.thread87.loopexit.split-lp
 
 253:                                              ; preds = %244
-  %254 = getelementptr inbounds i8, ptr %52, i64 48
+  %254 = getelementptr inbounds nuw i8, ptr %52, i64 48
   invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$anki_proto_gen..Method$GT$$GT$17hfc18336c487e1317E"(ptr nonnull align 8 %254)
           to label %257 unwind label %255
 
@@ -741,7 +741,7 @@ define void @_ZN14anki_proto_gen17CollectionService10from_proto17h3c3cec6cba8b28
   %8 = alloca { { { ptr, i64 }, i64 } }, align 8
   %9 = alloca { ptr, i32 }, align 8
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %2, ptr %10, align 8
   %11 = invoke { ptr, i64 } @"_ZN13prost_reflect10descriptor3api62_$LT$impl$u20$prost_reflect..descriptor..ServiceDescriptor$GT$4name17h8cf2ee7705855eaaE"(ptr nonnull align 8 %9)
           to label %15 unwind label %13
@@ -784,13 +784,13 @@ define void @_ZN14anki_proto_gen17CollectionService10from_proto17h3c3cec6cba8b28
   %25 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %26 = load i32, ptr %10, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %24, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %25, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %26, ptr %30, align 8
   ret void
 
@@ -813,7 +813,7 @@ define void @_ZN14anki_proto_gen14BackendService10from_proto17h89b6cf5547bbcf0cE
   %8 = alloca { { { ptr, i64 }, i64 } }, align 8
   %9 = alloca { ptr, i32 }, align 8
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %2, ptr %10, align 8
   %11 = invoke { ptr, i64 } @"_ZN13prost_reflect10descriptor3api62_$LT$impl$u20$prost_reflect..descriptor..ServiceDescriptor$GT$4name17h8cf2ee7705855eaaE"(ptr nonnull align 8 %9)
           to label %15 unwind label %13
@@ -856,17 +856,17 @@ define void @_ZN14anki_proto_gen14BackendService10from_proto17h89b6cf5547bbcf0cE
   %25 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %26 = load i32, ptr %10, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %27 = getelementptr inbounds i8, ptr %0, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %24, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr inttoptr (i64 8 to ptr), ptr %29, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr %25, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %26, ptr %31, align 8
   ret void
 
@@ -882,14 +882,14 @@ define void @_ZN14anki_proto_gen14BackendService10from_proto17h89b6cf5547bbcf0cE
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN14anki_proto_gen14BackendService11all_methods17ha5ec3409aa604103E(ptr sret({ { ptr, ptr }, { ptr, ptr } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load i64, ptr %10, align 8, !noundef !3
   %12 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }, ptr %9, i64 %11
   tail call void @_ZN4core4iter6traits8iterator8Iterator5chain17h5db219fe9bb28099E(ptr sret({ { ptr, ptr }, { ptr, ptr } }) align 8 %0, ptr nonnull %4, ptr nonnull %7, ptr nonnull %9, ptr nonnull %12)
@@ -916,16 +916,16 @@ define void @_ZN14anki_proto_gen6Method10from_proto17h9af885af6456d9a2E(ptr noca
           to label %11 unwind label %6
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8, !noundef !3
   %14 = zext i32 %13 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
 
@@ -942,13 +942,13 @@ define void @_ZN14anki_proto_gen6Method10from_proto17h9af885af6456d9a2E(ptr noca
 ; Function Attrs: nonlazybind uwtable
 define { ptr, i32 } @_ZN14anki_proto_gen6Method5input17h365368cd04bdfe87E(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, i32 }, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = tail call { ptr, i32 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$5input17h29d60a13b9006a01E"(ptr nonnull align 8 %3)
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %5, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %7, align 8
   %8 = invoke { ptr, i64 } @"_ZN13prost_reflect10descriptor3api62_$LT$impl$u20$prost_reflect..descriptor..MessageDescriptor$GT$9full_name17h07b3cc7660d784cdE"(ptr nonnull align 8 %2)
           to label %11 unwind label %9
@@ -997,13 +997,13 @@ _ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit: ; preds = %14, %
 ; Function Attrs: nonlazybind uwtable
 define { ptr, i32 } @_ZN14anki_proto_gen6Method6output17hc1049834832083d4E(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, i32 }, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = tail call { ptr, i32 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$6output17h8102691bd2648bd4E"(ptr nonnull align 8 %3)
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %5, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %7, align 8
   %8 = invoke { ptr, i64 } @"_ZN13prost_reflect10descriptor3api62_$LT$impl$u20$prost_reflect..descriptor..MessageDescriptor$GT$9full_name17h07b3cc7660d784cdE"(ptr nonnull align 8 %2)
           to label %11 unwind label %9
@@ -1060,7 +1060,7 @@ define zeroext i1 @_ZN14anki_proto_gen29determine_if_message_is_empty17h7f0f623c
   %12 = alloca { ptr, i64 }, align 8
   %13 = alloca { ptr, i64 }, align 8
   store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %4, ptr %14, align 8
   %15 = tail call { ptr, i64 } @_ZN6camino8Utf8Path9file_stem17h163d7176bcea94f9E(ptr align 1 %1, i64 %2)
   %.fca.0.extract = extractvalue { ptr, i64 } %15, 0
@@ -1074,20 +1074,20 @@ define zeroext i1 @_ZN14anki_proto_gen29determine_if_message_is_empty17h7f0f623c
 18:                                               ; preds = %5
   %.fca.1.extract = extractvalue { ptr, i64 } %15, 1
   store ptr %.fca.0.extract, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %.fca.1.extract, ptr %19, align 8
   store ptr %12, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h294dcedd2617214cE", ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %13, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h294dcedd2617214cE", ptr %22, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a1d8b638af5c93dE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %9, ptr nonnull align 8 @anon.c2c254bac7312232f49bd554ba5b0ae2.18, i64 2, ptr nonnull align 8 %8, i64 2)
   call void @_ZN5alloc3fmt6format17h0d304e18b1a9258eE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %10, ptr nonnull align 8 %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %23 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
-  %24 = getelementptr inbounds i8, ptr %11, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %25 = load i64, ptr %24, align 8, !noundef !3
   %26 = invoke { ptr, i32 } @"_ZN13prost_reflect10descriptor3api59_$LT$impl$u20$prost_reflect..descriptor..DescriptorPool$GT$19get_message_by_name17h6740c5745d5660d9E"(ptr align 8 %0, ptr nonnull align 1 %23, i64 %25)
           to label %29 unwind label %27
@@ -1106,7 +1106,7 @@ define zeroext i1 @_ZN14anki_proto_gen29determine_if_message_is_empty17h7f0f623c
 30:                                               ; preds = %29
   %.fca.1.extract6 = extractvalue { ptr, i32 } %26, 1
   store ptr %.fca.0.extract5, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.fca.1.extract6, ptr %31, align 8
   invoke void @"_ZN13prost_reflect10descriptor3api62_$LT$impl$u20$prost_reflect..descriptor..MessageDescriptor$GT$6fields17hf9fe008fc2a5c571E"(ptr nonnull sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }, ptr }) align 8 %6, ptr nonnull align 8 %7)
           to label %34 unwind label %32
@@ -1168,7 +1168,7 @@ define void @_ZN14anki_proto_gen16descriptors_path17hc14410e1147f4958E(ptr sret(
           to label %17 unwind label %15
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   br label %26
 
@@ -1195,7 +1195,7 @@ define void @_ZN14anki_proto_gen16descriptors_path17hc14410e1147f4958E(ptr sret(
 18:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %19 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17h11f3d0a5a47f375fE(ptr sret({ { { { { ptr, i64 }, i64 } } } }) align 8 %0, ptr nonnull align 1 %19, i64 %21, ptr nonnull align 1 @anon.c2c254bac7312232f49bd554ba5b0ae2.22, i64 26)
           to label %24 unwind label %22
@@ -1218,7 +1218,7 @@ define void @_ZN14anki_proto_gen16descriptors_path17hc14410e1147f4958E(ptr sret(
   ret void
 
 .thread10:                                        ; preds = %.thread
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdedbe70fbef286E"(ptr nonnull align 8 %27)
   br label %26
 
@@ -1229,7 +1229,7 @@ define void @_ZN14anki_proto_gen16descriptors_path17hc14410e1147f4958E(ptr sret(
   unreachable
 
 30:                                               ; preds = %12
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdedbe70fbef286E"(ptr nonnull align 8 %31) #9
           to label %33 unwind label %28
 
@@ -1247,9 +1247,9 @@ define hidden void @"_ZN61_$LT$anki_proto_gen..Method$u20$as$u20$core..clone..Cl
   %4 = alloca { ptr, [2 x i64] }, align 8
   %5 = alloca { { { ptr, i64 }, i64 } }, align 8
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hec36f09858d8a4fdE"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %5, ptr align 8 %1)
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load ptr, ptr %8, align 8, !noundef !3
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
@@ -1263,7 +1263,7 @@ define hidden void @"_ZN61_$LT$anki_proto_gen..Method$u20$as$u20$core..clone..Cl
           to label %19 unwind label %17
 
 13:                                               ; preds = %19, %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = invoke ptr @"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5fbbddf29432047cE"(ptr nonnull align 8 %14)
           to label %22 unwind label %20
 
@@ -1288,22 +1288,22 @@ define hidden void @"_ZN61_$LT$anki_proto_gen..Method$u20$as$u20$core..clone..Cl
           to label %16 unwind label %31
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i32, ptr %23, align 8, !noundef !3
   %25 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds i8, ptr %1, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = load i32, ptr %26, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %7, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %30, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %24, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %27, ptr %.sroa.31.0..sroa_idx, align 8
   ret void
 

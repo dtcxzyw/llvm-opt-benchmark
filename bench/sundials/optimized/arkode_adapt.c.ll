@@ -43,55 +43,55 @@ define void @arkPrintAdaptMem(ptr noundef readonly %0, ptr noundef %1) local_unn
 3:                                                ; preds = %2
   %4 = load double, ptr %0, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, double noundef %4) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, double noundef %7) #8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %10) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load double, ptr %12, align 8
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, double noundef %13) #8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.4, i32 noundef %16) #8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load double, ptr %18, align 8
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, double noundef %19) #8
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load double, ptr %21, align 8
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.6, double noundef %22) #8
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load double, ptr %24, align 8
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.7, double noundef %25) #8
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load double, ptr %27, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.8, double noundef %28) #8
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load double, ptr %30, align 8
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.9, double noundef %31) #8
-  %33 = getelementptr inbounds i8, ptr %0, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %34 = load double, ptr %33, align 8
   %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.10, double noundef %34) #8
-  %36 = getelementptr inbounds i8, ptr %0, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = load i64, ptr %36, align 8
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.11, i64 noundef %37) #8
-  %39 = getelementptr inbounds i8, ptr %0, i64 144
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %40 = load i64, ptr %39, align 8
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.12, i64 noundef %40) #8
-  %42 = getelementptr inbounds i8, ptr %0, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %43) #8
-  %45 = getelementptr inbounds i8, ptr %0, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = load i32, ptr %45, align 8
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, i32 noundef %46) #8
-  %48 = getelementptr inbounds i8, ptr %0, i64 92
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %49 = load i32, ptr %48, align 4
   %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.15, i32 noundef %49) #8
-  %51 = getelementptr inbounds i8, ptr %0, i64 100
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %52 = load i32, ptr %51, align 4
   %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.16, i32 noundef %52) #8
-  %54 = getelementptr inbounds i8, ptr %0, i64 120
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, @arkExpStab
   br i1 %56, label %57, label %59
@@ -102,13 +102,13 @@ define void @arkPrintAdaptMem(ptr noundef readonly %0, ptr noundef %1) local_unn
 
 59:                                               ; preds = %3
   %60 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 56, i64 1, ptr %1)
-  %61 = getelementptr inbounds i8, ptr %0, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef %62) #8
   br label %64
 
 64:                                               ; preds = %59, %57
-  %65 = getelementptr inbounds i8, ptr %0, i64 104
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %66 = load ptr, ptr %65, align 8
   %67 = tail call i32 @SUNAdaptController_Write(ptr noundef %66, ptr noundef %1) #8
   br label %68
@@ -136,7 +136,7 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
   br label %115
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %1, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %27 [
     i32 0, label %15
@@ -144,35 +144,35 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
   ]
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, %17
   br label %35
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %1, i64 92
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 100
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, %23
   br label %35
 
 27:                                               ; preds = %12
-  %28 = getelementptr inbounds i8, ptr %1, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 92
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %31 = load i32, ptr %30, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %29, i32 %31)
-  %32 = getelementptr inbounds i8, ptr %1, i64 100
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %., %33
   br label %35
 
 35:                                               ; preds = %21, %27, %15
   %.0 = phi i32 [ %20, %15 ], [ %26, %21 ], [ %34, %27 ]
-  %36 = getelementptr inbounds i8, ptr %1, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 @SUNAdaptController_EstimateStep(ptr noundef %37, double noundef %4, i32 noundef %.0, double noundef %5, ptr noundef nonnull %8) #8
   %.not = icmp eq i32 %38, 0
@@ -184,9 +184,9 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
 
 40:                                               ; preds = %35
   %41 = call double @llvm.fabs.f64(double %4)
-  %42 = getelementptr inbounds i8, ptr %1, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 %43(ptr noundef %2, double noundef %3, ptr noundef nonnull %9, ptr noundef %45) #8
   %.not83 = icmp eq i32 %46, 0
@@ -202,11 +202,11 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
   %51 = fcmp ugt double %50, 0.000000e+00
   %52 = fmul double %41, 1.000000e+30
   %53 = select i1 %51, double %50, double %52
-  %54 = getelementptr inbounds i8, ptr %1, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %55 = load double, ptr %54, align 8
   %56 = load double, ptr %8, align 8
   %57 = fmul double %55, %56
-  %58 = getelementptr inbounds i8, ptr %1, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %59 = load double, ptr %58, align 8
   %60 = fmul double %49, %59
   %61 = fmul double %53, %60
@@ -218,7 +218,7 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
   %.84 = select i1 %66, double %62, double %65
   %67 = fmul double %49, %.84
   %68 = call double @llvm.fabs.f64(double %67)
-  %69 = getelementptr inbounds i8, ptr %1, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %70 = load double, ptr %69, align 8
   %71 = fmul double %4, %70
   %72 = call double @llvm.fabs.f64(double %71)
@@ -230,7 +230,7 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
   %78 = fcmp olt double %76, %77
   %.sink89 = select i1 %78, i64 136, i64 144
   %.85 = select i1 %78, double %76, double %77
-  %79 = getelementptr inbounds i8, ptr %1, i64 %.sink89
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink89
   %80 = load i64, ptr %79, align 8
   %81 = add nsw i64 %80, 1
   store i64 %81, ptr %79, align 8
@@ -240,7 +240,7 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
 
 84:                                               ; preds = %48
   %85 = call double @llvm.fabs.f64(double %82)
-  %86 = getelementptr inbounds i8, ptr %1, i64 72
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %87 = load double, ptr %86, align 8
   %88 = fmul double %4, %87
   %89 = fmul double %88, 0x3FEFFFFDE7210BE9
@@ -249,7 +249,7 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
   br i1 %91, label %92, label %100
 
 92:                                               ; preds = %84
-  %93 = getelementptr inbounds i8, ptr %1, i64 80
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %94 = load double, ptr %93, align 8
   %95 = fmul double %4, %94
   %96 = fmul double %95, 0x3FF000010C6F7A0B
@@ -263,13 +263,13 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
 100:                                              ; preds = %84, %92, %99, %48
   %101 = phi double [ %82, %84 ], [ %82, %92 ], [ %4, %99 ], [ %82, %48 ]
   %102 = fdiv double %101, %4
-  %103 = getelementptr inbounds i8, ptr %0, i64 416
-  %104 = getelementptr inbounds i8, ptr %0, i64 384
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %105 = load double, ptr %104, align 8
   %106 = fdiv double %105, %41
   %107 = fcmp ogt double %102, %106
   %.86 = select i1 %107, double %102, double %106
-  %108 = getelementptr inbounds i8, ptr %0, i64 392
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %109 = load double, ptr %108, align 8
   %110 = fmul double %41, %109
   %111 = fmul double %110, %.86

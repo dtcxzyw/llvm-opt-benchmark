@@ -119,7 +119,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not150, label %23, label %19
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %21, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i32 noundef %18) #3
   br label %23
@@ -155,7 +155,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not147, label %43, label %39
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %41, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %38) #3
   br label %43
@@ -185,7 +185,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 54:                                               ; preds = %52
   %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #3
-  %56 = getelementptr inbounds i8, ptr %1, i64 408
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %57 = load ptr, ptr %56, align 8
   %58 = zext i8 %55 to i32
   %59 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %57, ptr noundef nonnull @.str.38, i32 noundef %58) #3
@@ -200,7 +200,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.0128 = phi i32 [ 2, %30 ], [ 14, %50 ], [ 14, %54 ], [ 14, %43 ], [ 14, %52 ]
   %.0127 = phi i32 [ %12, %30 ], [ %51, %50 ], [ %34, %54 ], [ %34, %43 ], [ %34, %52 ]
   %.0126 = phi i32 [ %24, %30 ], [ %44, %50 ], [ %45, %54 ], [ %45, %43 ], [ %45, %52 ]
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load ptr, ptr %61, align 8
   tail call void @col_set_str(ptr noundef %62, i32 noundef 34, ptr noundef nonnull @.str.15) #3
   %63 = add i32 %.0127, %.0128
@@ -272,7 +272,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %102
 
 102:                                              ; preds = %99, %97
-  %103 = getelementptr inbounds i8, ptr %5, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %switch.tableidx = add i8 %.0136, -40
   %104 = icmp ult i8 %switch.tableidx, 7
   %switch.cast = zext i8 %switch.tableidx to i56

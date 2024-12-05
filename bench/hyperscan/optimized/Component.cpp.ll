@@ -15,10 +15,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN3ue29ComponentC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue29ComponentE, i64 16), ptr %this, align 8
-  %pos_begin = getelementptr inbounds i8, ptr %this, i64 8
+  %pos_begin = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
   store i32 %0, ptr %pos_begin, align 8
-  %pos_end = getelementptr inbounds i8, ptr %this, i64 12
+  %pos_end = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %0, ptr %pos_end, align 4
   ret void
 }
@@ -48,9 +48,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3ue29Component15recordPosBoundsEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this, i32 noundef %b, i32 noundef %e) local_unnamed_addr #0 align 2 {
 entry:
-  %pos_begin = getelementptr inbounds i8, ptr %this, i64 8
+  %pos_begin = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %b, ptr %pos_begin, align 8
-  %pos_end = getelementptr inbounds i8, ptr %this, i64 12
+  %pos_end = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %e, ptr %pos_end, align 4
   ret void
 }

@@ -130,7 +130,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost4urls15static_url_baseC2EPcm(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5boost4urls13url_view_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(192) %4) #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls15static_url_baseE, i64 16), ptr %0, align 8, !tbaa !3
@@ -139,7 +139,7 @@ define void @_ZN5boost4urls15static_url_baseC2EPcm(ptr noundef nonnull align 8 d
   store i64 %2, ptr %6, align 8, !tbaa !17
   store i8 0, ptr %1, align 1, !tbaa !18
   %7 = load ptr, ptr %5, align 8, !tbaa !6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !19
   ret void
 }
@@ -149,7 +149,7 @@ define void @_ZN5boost4urls15static_url_baseC2EPcmNS_4core17basic_string_viewIcE
   %6 = alloca %"class.boost::urls::url_view", align 8
   %7 = alloca %"class.boost::system::result", align 8
   %8 = alloca %"struct.boost::source_location", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5boost4urls13url_view_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(192) %9) #19
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls15static_url_baseE, i64 16), ptr %0, align 8, !tbaa !3
@@ -158,7 +158,7 @@ define void @_ZN5boost4urls15static_url_baseC2EPcmNS_4core17basic_string_viewIcE
   store i64 %2, ptr %11, align 8, !tbaa !17
   store i8 0, ptr %1, align 1, !tbaa !18
   %12 = load ptr, ptr %10, align 8, !tbaa !6
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #19
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #19
@@ -196,14 +196,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5boost4urls15static_url_base10clear_implEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((16, 178), (180, 187)) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(154) %.sroa.4.0..sroa_idx, i8 0, i64 154, i1 false)
-  %.sroa.51.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 180
+  %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i32 0, ptr %.sroa.51.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 184
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i16 0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 186
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i8 1, ptr %.sroa.7.0..sroa_idx, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8, !tbaa !6
@@ -373,7 +373,7 @@ define linkonce_odr hidden void @_ZN5boost6detail19with_throw_locationINS_6syste
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !35
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !37
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6detail19with_throw_locationINS_6system12system_errorEEE, i64 16), ptr %0, align 8, !tbaa !3
   ret void
@@ -659,7 +659,7 @@ define linkonce_odr hidden void @_ZNK5boost6system10error_code7messageB5cxx11Ev(
   %9 = load ptr, ptr %8, align 8, !tbaa !42, !noalias !44
   %10 = load i32, ptr %1, align 8, !tbaa !47, !noalias !44
   %11 = load ptr, ptr %9, align 8, !tbaa !3, !noalias !44
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !44
   tail call void %13(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %10)
   br label %37
@@ -725,7 +725,7 @@ _ZNK5boost6system10error_code8categoryEv.exit.thread: ; preds = %2
   %32 = load ptr, ptr %31, align 8, !tbaa !18
   %33 = load i32, ptr %1, align 8, !tbaa !18
   %34 = load ptr, ptr %32, align 8, !tbaa !3
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %32, i32 noundef %33)
   br label %37
@@ -757,7 +757,7 @@ define linkonce_odr hidden void @_ZNK5boost6system10error_code9to_stringB5cxx11E
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !42
   %13 = load ptr, ptr %12, align 8, !tbaa !3
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %12) #19
   %17 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #19

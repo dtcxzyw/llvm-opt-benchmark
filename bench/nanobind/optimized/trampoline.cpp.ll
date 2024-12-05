@@ -22,7 +22,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = ptrtoint ptr %2 to i64
   %7 = lshr i64 %6, 33
   %8 = xor i64 %7, %6
@@ -33,11 +33,11 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr nocapture noundef w
   %13 = lshr i64 %12, 33
   %14 = xor i64 %13, %12
   %15 = load i64, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %17 = load ptr, ptr %16, align 8
   %.0812.i.i.i.i.i = and i64 %15, %14
   %18 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %.0812.i.i.i.i.i
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i16, ptr %19, align 4
   %.not13.i.i.i.i.i = icmp slt i16 %20, 0
   br i1 %.not13.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -46,7 +46,7 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr nocapture noundef w
   %21 = phi ptr [ %28, %25 ], [ %18, %3 ]
   %.0815.i.i.i.i.i = phi i64 [ %.08.i.i.i.i.i, %25 ], [ %.0812.i.i.i.i.i, %3 ]
   %.014.i.i.i.i.i = phi i16 [ %27, %25 ], [ 0, %3 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %2
   br i1 %24, label %.loopexit.loopexit, label %25
@@ -56,19 +56,19 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr nocapture noundef w
   %27 = add i16 %.014.i.i.i.i.i, 1
   %.08.i.i.i.i.i = and i64 %26, %15
   %28 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %.08.i.i.i.i.i
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i16, ptr %29, align 4
   %.not.i.i.i.i.i = icmp sgt i16 %27, %30
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %25, %3
-  %31 = getelementptr inbounds i8, ptr %4, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds %"class.tsl::detail_robin_hash::bucket_entry", ptr %17, i64 %32
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i.i.i.i.i
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 120
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 120
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %.loopexit
 
@@ -80,7 +80,7 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr nocapture noundef w
   br i1 %.not, label %.critedge, label %36
 
 36:                                               ; preds = %.loopexit
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, 1
@@ -93,7 +93,7 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr nocapture noundef w
 
 41:                                               ; preds = %36
   store ptr %38, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = shl i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %42, i8 0, i64 %43, i1 false)
   ret void
@@ -194,9 +194,9 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noc
 
 17:                                               ; preds = %16
   %18 = tail call i32 @PyGILState_Ensure()
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %13, ptr %20, align 8
   br label %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
 
@@ -234,9 +234,9 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noc
   br i1 %.not99.i, label %38, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %4, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %24, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %31, ptr %37, align 8
   br label %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
 
@@ -285,7 +285,7 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noc
   br i1 %.not97.i, label %._crit_edge116.thread.i, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = load i64, ptr %56, align 8
   %61 = add nsw i64 %60, -1
@@ -299,19 +299,19 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noc
 
 _ZL10_Py_DECREFP7_object.exit.i:                  ; preds = %62, %57
   %63 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %59, %65
   br i1 %66, label %75, label %67
 
 67:                                               ; preds = %_ZL10_Py_DECREFP7_object.exit.i
-  %68 = getelementptr inbounds i8, ptr %63, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %59, %69
   br i1 %70, label %75, label %71
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %63, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %59, %73
   br i1 %74, label %75, label %86
@@ -355,9 +355,9 @@ _ZL10_Py_DECREFP7_object.exit102.i:               ; preds = %78, %75
   br i1 %.not98.i, label %95, label %92
 
 92:                                               ; preds = %86
-  %93 = getelementptr inbounds i8, ptr %4, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %50, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %4, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %53, ptr %94, align 8
   br label %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
 
@@ -369,16 +369,16 @@ _ZL10_Py_DECREFP7_object.exit102.i:               ; preds = %78, %75
   %.084.i = phi ptr [ @.str.1, %22 ], [ @.str.1, %38 ], [ @.str.2, %._crit_edge116.i ], [ @.str.3, %52 ], [ @.str.4, %54 ], [ @.str.1, %_ZL10_Py_DECREFP7_object.exit102.i ], [ @.str.2, %48 ]
   %.0.i = phi i32 [ %23, %22 ], [ %24, %38 ], [ %50, %._crit_edge116.i ], [ %50, %52 ], [ %50, %54 ], [ %50, %_ZL10_Py_DECREFP7_object.exit102.i ], [ %24, %48 ]
   %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
   tail call void @PyGILState_Release(i32 noundef %.0.i)
-  %99 = getelementptr inbounds i8, ptr %98, i64 896
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 896
   %100 = load ptr, ptr %99, align 8
   tail call void (ptr, ...) @_ZN8nanobind6detail5raiseEPKcz(ptr noundef nonnull @.str.5, ptr noundef %100, ptr noundef %2, ptr noundef nonnull %.084.i) #11
   unreachable
 
 _ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit: ; preds = %17, %21, %35, %39, %92, %95
-  %101 = getelementptr inbounds i8, ptr %4, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %102 = load ptr, ptr %101, align 8
   %.not = icmp eq ptr %102, null
   br i1 %.not, label %120, label %103
@@ -388,7 +388,7 @@ _ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit: ; pr
   store ptr %104, ptr %4, align 8
   %105 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8nanobind6detail14current_ticketE)
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %4, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %106, ptr %107, align 8
   %.not32 = icmp eq ptr %106, null
   br i1 %.not32, label %119, label %108
@@ -399,13 +399,13 @@ _ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit: ; pr
   br i1 %110, label %111, label %119
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %106, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, %102
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %4, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %117 = load i32, ptr %116, align 8
   tail call void @PyGILState_Release(i32 noundef %117)
@@ -433,17 +433,17 @@ declare void @_ZN8nanobind6detail5raiseEPKcz(ptr noundef, ...) local_unnamed_add
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8nanobind6detail16trampoline_leaveEPNS0_6ticketE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8nanobind6detail14current_ticketE)
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   invoke void @PyGILState_Release(i32 noundef %9)
           to label %10 unwind label %11

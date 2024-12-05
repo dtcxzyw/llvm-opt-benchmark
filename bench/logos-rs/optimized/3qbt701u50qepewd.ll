@@ -35,9 +35,9 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
   br label %9
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h081703c16b7fec56E"(ptr align 1 %14, i64 %16, ptr nonnull align 1 @anon.ef210b60d2e439ef389dcbe29160292b.0, i64 4)
           to label %20 unwind label %18
@@ -66,19 +66,19 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
 
 28:                                               ; preds = %27
   store ptr %14, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %16, ptr %29, align 8
   store ptr %7, ptr %4, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h58114125a2488963E", ptr %.sroa.26.0..sroa_idx, align 8
   store ptr @anon.ef210b60d2e439ef389dcbe29160292b.4, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 2, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %33, align 8
   invoke void @_ZN5alloc3fmt6format17h0016d02633801bf4E(ptr nonnull sret([24 x i8]) align 8 %6, ptr nonnull align 8 %5)
           to label %38 unwind label %18
@@ -90,13 +90,13 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
   br i1 %37, label %48, label %50
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load i8, ptr %39, align 8
   %41 = icmp eq i8 %40, 2
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %1, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %44 = load i32, ptr %43, align 4
   br label %45
 
@@ -120,7 +120,7 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
   br label %.sink.split
 
 50:                                               ; preds = %34
-  %51 = getelementptr inbounds i8, ptr %1, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %52 = load i8, ptr %51, align 8
   %53 = icmp eq i8 %52, 2
   br i1 %53, label %.invoke.sink.split, label %.invoke
@@ -130,14 +130,14 @@ define internal fastcc noundef zeroext i1 @_ZN13logos_codegen6parser12ignore_fla
   br label %.sink.split
 
 56:                                               ; preds = %23
-  %57 = getelementptr inbounds i8, ptr %1, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load i8, ptr %57, align 8
   %59 = icmp eq i8 %58, 2
   br i1 %59, label %.invoke.sink.split, label %.invoke
 
 .invoke.sink.split:                               ; preds = %56, %50
   %.ph = phi ptr [ @anon.ef210b60d2e439ef389dcbe29160292b.6, %50 ], [ @anon.ef210b60d2e439ef389dcbe29160292b.7, %56 ]
-  %60 = getelementptr inbounds i8, ptr %1, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %61 = load i32, ptr %60, align 4
   br label %.invoke
 
@@ -196,8 +196,8 @@ define hidden void @_ZN13logos_codegen6parser12ignore_flags11IgnoreFlags11parse_
   br label %24
 
 thread-pre-split:                                 ; preds = %4
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
-  %28 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br label %29
 
 29:                                               ; preds = %.backedge, %thread-pre-split
@@ -244,7 +244,7 @@ default.unreachable:                              ; preds = %29
   br i1 %.not49.not, label %40, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load i8, ptr %37, align 8
   %39 = icmp eq i8 %38, 2
   br i1 %39, label %49, label %52
@@ -299,7 +299,7 @@ default.unreachable:                              ; preds = %29
   br label %29
 
 49:                                               ; preds = %36
-  %50 = getelementptr inbounds i8, ptr %1, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %51 = load i32, ptr %50, align 4
   br label %52
 
@@ -392,16 +392,16 @@ switch.early.test.thread:                         ; preds = %95, %62, %.invoke10
 
 75:                                               ; preds = %70
   store ptr %13, ptr %14, align 8
-  %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Debug$GT$3fmt17h6518019b2a5245fcE", ptr %.sroa.232.0..sroa_idx, align 8
   store ptr @anon.ef210b60d2e439ef389dcbe29160292b.10, ptr %15, align 8
-  %76 = getelementptr inbounds i8, ptr %15, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 1, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %15, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %15, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %14, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %15, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 1, ptr %79, align 8
   invoke void @_ZN5alloc3fmt6format17h0016d02633801bf4E(ptr nonnull sret([24 x i8]) align 8 %16, ptr nonnull align 8 %15)
           to label %82 unwind label %80
@@ -504,16 +504,16 @@ switch.early.test55:                              ; preds = %97
 
 108:                                              ; preds = %99
   store ptr %5, ptr %6, align 8
-  %.sroa.236.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Debug$GT$3fmt17h6518019b2a5245fcE", ptr %.sroa.236.0..sroa_idx, align 8
   store ptr @anon.ef210b60d2e439ef389dcbe29160292b.10, ptr %7, align 8
-  %109 = getelementptr inbounds i8, ptr %7, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %7, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %7, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %7, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %112, align 8
   invoke void @_ZN5alloc3fmt6format17h0016d02633801bf4E(ptr nonnull sret([24 x i8]) align 8 %8, ptr nonnull align 8 %7)
           to label %115 unwind label %113

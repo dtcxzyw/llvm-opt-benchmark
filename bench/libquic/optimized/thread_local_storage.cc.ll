@@ -56,13 +56,13 @@ for.body.preheader.i:                             ; preds = %while.body.i
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ %2, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %need_to_scan_destructors.112.i = phi i1 [ false, %for.body.preheader.i ], [ %need_to_scan_destructors.2.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [256 x ptr], ptr %stack_allocated_tls_data.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x ptr], ptr %stack_allocated_tls_data.i, i64 0, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %cmp3.i = icmp eq ptr %3, null
   br i1 %cmp3.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %arrayidx5.i = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %indvars.iv.i
   %4 = load volatile ptr, ptr %arrayidx5.i, align 8
   %cmp6.i = icmp eq ptr %4, null
   br i1 %cmp6.i, label %for.inc.i, label %if.end8.i
@@ -112,7 +112,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end9:                                          ; preds = %lor.lhs.false, %if.then
   %1 = atomicrmw volatile add ptr @_ZN12_GLOBAL__N_119g_last_used_tls_keyE, i32 1 monotonic, align 4
   %add.i = add nsw i32 %1, 1
-  %slot_ = getelementptr inbounds i8, ptr %this, i64 4
+  %slot_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %add.i, ptr %slot_, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v1.addr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v2.addr.i)
@@ -237,7 +237,7 @@ declare void @_ZN7logging10LogMessageC1EPKciPNSt7__cxx1112basic_stringIcSt11char
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
 define dso_local void @_ZN4base18ThreadLocalStorage10StaticSlot4FreeEv(ptr noundef nonnull align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
-  %slot_ = getelementptr inbounds i8, ptr %this, i64 4
+  %slot_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %slot_, align 4
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %idxprom
@@ -261,7 +261,7 @@ if.then:                                          ; preds = %entry
 
 if.end18:                                         ; preds = %if.then, %entry
   %tls_data.0 = phi ptr [ %call2, %entry ], [ %call3, %if.then ]
-  %slot_ = getelementptr inbounds i8, ptr %this, i64 4
+  %slot_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %slot_, align 4
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %tls_data.0, i64 %idxprom
@@ -283,7 +283,7 @@ if.then:                                          ; preds = %entry
 
 if.end18:                                         ; preds = %if.then, %entry
   %tls_data.0 = phi ptr [ %call2, %entry ], [ %call3, %if.then ]
-  %slot_ = getelementptr inbounds i8, ptr %this, i64 4
+  %slot_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %slot_, align 4
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %tls_data.0, i64 %idxprom
@@ -301,7 +301,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
 define dso_local void @_ZN4base18ThreadLocalStorage4SlotD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %slot_.i, align 4
   %idxprom.i = sext i32 %0 to i64
   %arrayidx.i = getelementptr inbounds [256 x ptr], ptr @_ZN12_GLOBAL__N_117g_tls_destructorsE, i64 0, i64 %idxprom.i
@@ -325,7 +325,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZNK4base18ThreadLocalStorage10StaticSlot3GetEv.exit: ; preds = %entry, %if.then.i
   %tls_data.0.i = phi ptr [ %call2.i, %entry ], [ %call3.i, %if.then.i ]
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %slot_.i, align 4
   %idxprom.i = sext i32 %1 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %tls_data.0.i, i64 %idxprom.i
@@ -347,7 +347,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN4base18ThreadLocalStorage10StaticSlot3SetEPv.exit: ; preds = %entry, %if.then.i
   %tls_data.0.i = phi ptr [ %call2.i, %entry ], [ %call3.i, %if.then.i ]
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %slot_.i, align 4
   %idxprom.i = sext i32 %1 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %tls_data.0.i, i64 %idxprom.i

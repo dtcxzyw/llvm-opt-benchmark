@@ -85,7 +85,7 @@ define hidden noundef zeroext i1 @_ZN27ShenandoahPassiveHeuristics15should_start
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN27ShenandoahPassiveHeuristics21should_unload_classesEv(ptr noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(193) %0) #8
   ret i1 %5
@@ -100,10 +100,10 @@ define hidden noundef zeroext i1 @_ZN27ShenandoahPassiveHeuristics23should_degen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27ShenandoahPassiveHeuristics37choose_collection_set_from_regiondataEP23ShenandoahCollectionSetPN20ShenandoahHeuristics10RegionDataEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(193) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
   %12 = udiv i64 %11, 100
@@ -114,7 +114,7 @@ define hidden void @_ZN27ShenandoahPassiveHeuristics37choose_collection_set_from
   %17 = load double, ptr @ShenandoahEvacWaste, align 8
   %18 = fdiv double %16, %17
   %19 = fptoui double %18 to i64
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %38, label %21
 
@@ -185,7 +185,7 @@ _Z25proper_unit_for_byte_sizem.exit29:            ; preds = %.thread37, %_Z24byt
   %.02141 = phi i64 [ %64, %63 ], [ 0, %38 ]
   %43 = getelementptr inbounds %"struct.ShenandoahHeuristics::RegionData", ptr %2, i64 %.02141
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %46 = load volatile i64, ptr %45, align 8
   %47 = shl i64 %46, 3
   %48 = add i64 %47, %.042
@@ -193,9 +193,9 @@ _Z25proper_unit_for_byte_sizem.exit29:            ; preds = %.thread37, %_Z24byt
   br i1 %49, label %50, label %63
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds i8, ptr %44, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %44, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %54 = load ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %52 to i64

@@ -89,22 +89,22 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9xmlStream10initializeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(152) initializes((56, 76)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %6, ptr %8, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @_ZN9TimeStamp9update_toEl(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 1) #8
   br label %11
 
@@ -116,14 +116,14 @@ declare void @_ZN9TimeStamp9update_toEl(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9xmlStream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %1, i64 noundef %2) #8
   %10 = tail call noundef zeroext i1 @_ZN12outputStream15update_positionEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %2) #8
@@ -137,7 +137,7 @@ declare noundef zeroext i1 @_ZN12outputStream15update_positionEPKcm(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9xmlStream10write_textEPKcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %34, label %.preheader
@@ -181,7 +181,7 @@ define hidden void @_ZN9xmlStream10write_textEPKcm(ptr nocapture noundef nonnull
   %15 = getelementptr inbounds i8, ptr %1, i64 %.02230
   %16 = sub nuw i64 %.02328, %.02230
   %17 = load ptr, ptr %.pre32, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(56) %.pre32, ptr noundef %15, i64 noundef %16) #8
   %.pre = load ptr, ptr %4, align 8
@@ -211,7 +211,7 @@ define hidden void @_ZN9xmlStream10write_textEPKcm(ptr nocapture noundef nonnull
   %29 = getelementptr inbounds i8, ptr %1, i64 %.022.lcssa
   %30 = sub nuw i64 %2, %.022.lcssa
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef %29, i64 noundef %30) #8
   br label %34
@@ -224,7 +224,7 @@ define hidden void @_ZN9xmlStream10write_textEPKcm(ptr nocapture noundef nonnull
 define hidden void @_ZN9xmlStream4textEPKcz(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef %1, ...) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   call void @_ZN12outputStream6vprintEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %1, ptr noundef nonnull %3) #8
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -243,17 +243,17 @@ define hidden void @_ZN9xmlStream6va_tagEbPKcP13__va_list_tag(ptr noundef nonnul
   %6 = alloca i64, align 8
   %7 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %6) #8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %7, i1 noundef zeroext %1) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.8, i64 noundef 1) #8
   %11 = load i64, ptr %6, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %7, i64 noundef %11) #8
   %15 = select i1 %1, i32 1, i32 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %15, ptr %16, align 8
   ret void
 }
@@ -270,16 +270,16 @@ define hidden void @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 derefere
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i1 noundef zeroext false) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.8, i64 noundef 1) #8
   %10 = load i64, ptr %4, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 2, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -297,16 +297,16 @@ define hidden void @_ZN9xmlStream7va_elemEPKcP13__va_list_tag(ptr noundef nonnul
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i1 noundef zeroext false) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.8, i64 noundef 1) #8
   %10 = load i64, ptr %5, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 2, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -323,16 +323,16 @@ define hidden void @_ZN9xmlStream13va_begin_elemEPKcP13__va_list_tag(ptr noundef
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i1 noundef zeroext false) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.8, i64 noundef 1) #8
   %10 = load i64, ptr %5, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 2, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -342,7 +342,7 @@ define hidden void @_ZN9xmlStream13va_begin_elemEPKcP13__va_list_tag(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9xmlStream8end_elemEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.9, i64 noundef 3) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
   ret void
 }
@@ -357,16 +357,16 @@ define hidden void @_ZN9xmlStream10begin_elemEPKcz(ptr noundef nonnull align 8 d
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i1 noundef zeroext false) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.8, i64 noundef 1) #8
   %10 = load i64, ptr %4, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 2, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -378,12 +378,12 @@ define hidden void @_ZN9xmlStream10begin_elemEPKcz(ptr noundef nonnull align 8 d
 define hidden void @_ZN9xmlStream8end_elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, ...) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   call void @_ZN12outputStream6vprintEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %1, ptr noundef nonnull %3) #8
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.9, i64 noundef 3) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %6, align 8
   ret void
 }
@@ -400,16 +400,16 @@ define hidden void @_ZN9xmlStream4headEPKcz(ptr noundef nonnull align 8 derefere
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i1 noundef zeroext true) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.8, i64 noundef 1) #8
   %10 = load i64, ptr %4, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 1, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -427,16 +427,16 @@ define hidden void @_ZN9xmlStream7va_headEPKcP13__va_list_tag(ptr noundef nonnul
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i1 noundef zeroext true) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.8, i64 noundef 1) #8
   %10 = load i64, ptr %5, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 1, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -453,16 +453,16 @@ define hidden void @_ZN9xmlStream13va_begin_headEPKcP13__va_list_tag(ptr noundef
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i1 noundef zeroext true) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.8, i64 noundef 1) #8
   %10 = load i64, ptr %5, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 1, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -472,7 +472,7 @@ define hidden void @_ZN9xmlStream13va_begin_headEPKcP13__va_list_tag(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9xmlStream8end_headEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.10, i64 noundef 2) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
   ret void
 }
@@ -487,16 +487,16 @@ define hidden void @_ZN9xmlStream10begin_headEPKcz(ptr noundef nonnull align 8 d
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %6 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i1 noundef zeroext true) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.8, i64 noundef 1) #8
   %10 = load i64, ptr %4, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %6, i64 noundef %10) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 1, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -508,12 +508,12 @@ define hidden void @_ZN9xmlStream10begin_headEPKcz(ptr noundef nonnull align 8 d
 define hidden void @_ZN9xmlStream8end_headEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, ...) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   call void @_ZN12outputStream6vprintEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %1, ptr noundef nonnull %3) #8
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.10, i64 noundef 2) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %6, align 8
   ret void
 }
@@ -521,7 +521,7 @@ define hidden void @_ZN9xmlStream8end_headEPKcz(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9xmlStream4tailEPKc(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.11, i64 noundef 2) #8
@@ -580,21 +580,21 @@ define hidden void @_ZN9xmlStream7va_doneEPKcP13__va_list_tag(ptr noundef nonnul
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %24 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %5) #8
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %24, i1 noundef zeroext false) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.8, i64 noundef 1) #8
   %28 = load i64, ptr %5, align 8
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %24, i64 noundef %28) #8
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 2, ptr %32, align 8
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.20, i64 noundef 8) #8
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8
   call void @_ZN12outputStream5stampEv(ptr noundef nonnull align 8 dereferenceable(56) %34) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.21, i64 noundef 1) #8
@@ -603,7 +603,7 @@ define hidden void @_ZN9xmlStream7va_doneEPKcP13__va_list_tag(ptr noundef nonnul
   %35 = getelementptr inbounds [200 x i8], ptr %6, i64 0, i64 %.0
   store i8 0, ptr %35, align 1
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %6) #8
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.11, i64 noundef 2) #8
@@ -619,7 +619,7 @@ define hidden void @_ZN9xmlStream8done_rawEPKc(ptr noundef nonnull align 8 deref
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %3) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.12, i64 noundef 13) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN12outputStream5stampEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.13, i64 noundef 3) #8
@@ -648,7 +648,7 @@ declare noundef i32 @_ZN2os8snprintfEPcmPKcz(ptr noundef, i64 noundef, ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9xmlStream5stampEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.20, i64 noundef 8) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN12outputStream5stampEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, i64 noundef 1) #8
@@ -663,9 +663,9 @@ define hidden void @_ZN9xmlStream6methodEP6Method(ptr noundef nonnull align 8 de
 4:                                                ; preds = %2
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.22, i64 noundef 9) #8
   tail call void @_ZN9xmlStream11method_textEP6Method(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %1)
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 34
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 34
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.23, i32 noundef %9) #8
@@ -682,13 +682,13 @@ define hidden void @_ZN9xmlStream6methodEP6Method(ptr noundef nonnull align 8 de
 13:                                               ; preds = %12, %4
   %14 = tail call noundef i32 @_ZNK6Method16invocation_countEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.26, i32 noundef %14) #8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %_ZNK6Method26interpreter_throwout_countEv.exit.thread, label %_ZNK6Method26interpreter_throwout_countEv.exit
 
 _ZNK6Method26interpreter_throwout_countEv.exit:   ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %16, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %19 = load i16, ptr %18, align 8
   %.not37 = icmp eq i16 %19, 0
   br i1 %.not37, label %_ZNK6Method26interpreter_throwout_countEv.exit.thread, label %20
@@ -699,13 +699,13 @@ _ZNK6Method26interpreter_throwout_countEv.exit:   ; preds = %13
   br label %_ZNK6Method26interpreter_throwout_countEv.exit.thread
 
 _ZNK6Method26interpreter_throwout_countEv.exit.thread: ; preds = %13, %20, %_ZNK6Method26interpreter_throwout_countEv.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not38 = icmp eq ptr %23, null
   br i1 %.not38, label %48, label %24
 
 24:                                               ; preds = %_ZNK6Method26interpreter_throwout_countEv.exit.thread
-  %25 = getelementptr inbounds i8, ptr %23, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 128
   %26 = load i32, ptr %25, align 8
   %.not39 = icmp eq i32 %26, 0
   br i1 %.not39, label %28, label %27
@@ -715,12 +715,12 @@ _ZNK6Method26interpreter_throwout_countEv.exit.thread: ; preds = %13, %20, %_ZNK
   br label %28
 
 28:                                               ; preds = %27, %24
-  %29 = getelementptr inbounds i8, ptr %23, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 144
   br label %30
 
 30:                                               ; preds = %28, %39
   %indvars.iv = phi i64 [ 0, %28 ], [ %indvars.iv.next, %39 ]
-  %31 = getelementptr inbounds [60 x i8], ptr %29, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [60 x i8], ptr %29, i64 0, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1
   %33 = add i8 %32, 1
   %34 = zext i8 %33 to i32
@@ -740,7 +740,7 @@ _ZNK6Method26interpreter_throwout_countEv.exit.thread: ; preds = %13, %20, %_ZNK
   br i1 %exitcond.not, label %40, label %30, !llvm.loop !8
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %23, i64 136
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %42 = load i32, ptr %41, align 8
   %.not40 = icmp eq i32 %42, 0
   br i1 %.not40, label %44, label %43
@@ -750,7 +750,7 @@ _ZNK6Method26interpreter_throwout_countEv.exit.thread: ; preds = %13, %20, %_ZNK
   br label %44
 
 44:                                               ; preds = %43, %40
-  %45 = getelementptr inbounds i8, ptr %23, i64 132
+  %45 = getelementptr inbounds nuw i8, ptr %23, i64 132
   %46 = load i32, ptr %45, align 4
   %.not41 = icmp eq i32 %46, 0
   br i1 %.not41, label %48, label %47
@@ -767,51 +767,51 @@ _ZNK6Method26interpreter_throwout_countEv.exit.thread: ; preds = %13, %20, %_ZNK
 define hidden void @_ZN9xmlStream11method_textEP6Method(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 800
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq ptr %1, null
   br i1 %15, label %46, label %16
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %24) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull @.str.32, ptr noundef %25) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.33, i64 noundef 1) #8
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 36
   %30 = load i16, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %28, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %32 = zext i16 %30 to i64
-  %33 = getelementptr inbounds i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %17, align 8
   tail call void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef %35) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.33, i64 noundef 1) #8
   %36 = load ptr, ptr %19, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 38
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 38
   %40 = load i16, ptr %39, align 2
-  %41 = getelementptr inbounds i8, ptr %38, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %42 = zext i16 %40 to i64
-  %43 = getelementptr inbounds i64, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %17, align 8
   tail call void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %44, ptr noundef %45) #8
@@ -861,9 +861,9 @@ define hidden void @_ZN9xmlStream5klassEP5Klass(ptr noundef nonnull align 8 dere
 
 _ZN9xmlStream10klass_textEP5Klass.exit:           ; preds = %2
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.34, i64 noundef 8) #8
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef %7) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, i64 noundef 1) #8
@@ -879,9 +879,9 @@ define hidden void @_ZN9xmlStream10klass_textEP5Klass(ptr nocapture noundef nonn
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef %8) #8
   br label %9
@@ -897,7 +897,7 @@ define hidden void @_ZN9xmlStream4nameEPK6Symbol(ptr noundef nonnull align 8 der
 
 _ZN9xmlStream9name_textEPK6Symbol.exit:           ; preds = %2
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35, i64 noundef 7) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %5) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, i64 noundef 1) #8
@@ -913,7 +913,7 @@ define hidden void @_ZN9xmlStream9name_textEPK6Symbol(ptr nocapture noundef nonn
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %6) #8
   br label %7
@@ -942,7 +942,7 @@ _ZNK6HandleeqEP7oopDesc.exit.i:                   ; preds = %_ZNK6HandleeqEP7oop
   br i1 %9, label %_ZN9xmlStream11object_textE6Handle.exit, label %10
 
 10:                                               ; preds = %_ZNK6HandleeqEP7oopDesc.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8
   tail call void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %12) #8
   br label %_ZN9xmlStream11object_textE6Handle.exit
@@ -966,7 +966,7 @@ _ZNK6HandleeqEP7oopDesc.exit:                     ; preds = %2
   br i1 %5, label %_ZNK6HandleeqEP7oopDesc.exit.thread, label %6
 
 6:                                                ; preds = %_ZNK6HandleeqEP7oopDesc.exit
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %8) #8
   br label %_ZNK6HandleeqEP7oopDesc.exit.thread
@@ -988,7 +988,7 @@ define hidden void @_ZN9xmlStream6objectEPKcP8Metadata(ptr noundef nonnull align
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %6) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.36, i64 noundef 2) #8
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %2) #8
   br i1 %10, label %11, label %12
@@ -999,15 +999,15 @@ define hidden void @_ZN9xmlStream6objectEPKcP8Metadata(ptr noundef nonnull align
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %2) #8
   br i1 %16, label %_ZN9xmlStream10klass_textEP5Klass.exit.i, label %21
 
 _ZN9xmlStream10klass_textEP5Klass.exit.i:         ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef %20) #8
   br label %_ZN9xmlStream11object_textEP8Metadata.exit
@@ -1033,7 +1033,7 @@ define hidden void @_ZN9xmlStream11object_textEP8Metadata(ptr noundef nonnull al
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %1) #8
   br i1 %8, label %9, label %10
@@ -1044,15 +1044,15 @@ define hidden void @_ZN9xmlStream11object_textEP8Metadata(ptr noundef nonnull al
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %1) #8
   br i1 %14, label %_ZN9xmlStream10klass_textEP5Klass.exit, label %19
 
 _ZN9xmlStream10klass_textEP5Klass.exit:           ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   tail call void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef %18) #8
   br label %21
@@ -1072,25 +1072,25 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9xmlStream5flushEv(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((64, 72)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
   %11 = add i64 %7, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %11, ptr %12, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13xmlTextStream5flushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -1107,7 +1107,7 @@ define hidden void @_ZN13xmlTextStream5flushEv(ptr nocapture noundef nonnull rea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13xmlTextStream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7

@@ -963,7 +963,7 @@ define internal i32 @get_openwire_pdu_len(ptr nocapture readnone %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_openwire(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.500) #2
   %7 = load ptr, ptr %5, align 8
@@ -1013,7 +1013,7 @@ define internal i32 @dissect_openwire(ptr noundef %0, ptr noundef %1, ptr nounde
   %27 = tail call ptr @wmem_file_scope() #2
   %28 = tail call noalias ptr @wmem_alloc(ptr noundef %27, i64 noundef 8) #2
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 0, ptr %29, align 4
   %30 = icmp sgt i32 %26, 16777216
   br i1 %30, label %31, label %32
@@ -1057,7 +1057,7 @@ define internal i32 @dissect_openwire(ptr noundef %0, ptr noundef %1, ptr nounde
 48:                                               ; preds = %44
   %49 = tail call ptr @wmem_file_scope() #2
   %50 = tail call noalias ptr @wmem_alloc(ptr noundef %49, i64 noundef 8) #2
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 1, ptr %51, align 4
   store i32 0, ptr %50, align 4
   %52 = load i32, ptr @proto_openwire, align 4
@@ -1084,7 +1084,7 @@ detect_protocol_options.exit:                     ; preds = %18, %19, %36, %38, 
   br i1 %.not.i52, label %retrieve_tight.exit.thread, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %63, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %66 = load i32, ptr %65, align 4
   %.not5.i = icmp eq i32 %66, 0
   br i1 %.not5.i, label %retrieve_tight.exit.thread, label %retrieve_tight.exit
@@ -1666,7 +1666,7 @@ retrieve_caching.exit:                            ; preds = %10
   %21 = add i32 %3, 1
   %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %21) #2
   %23 = zext i16 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %25, ptr noundef nonnull @.str.592, i32 noundef %23) #2
   %27 = load i32, ptr @openwire_verbose_type, align 4
@@ -1688,13 +1688,13 @@ retrieve_caching.exit:                            ; preds = %10
   br i1 %or.cond, label %proto_item_set_hidden.exit, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %33, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not5.i = icmp eq ptr %37, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %37, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %40 = load i32, ptr %39, align 4
   %41 = or i32 %40, 1
   store i32 %41, ptr %39, align 4

@@ -8,8 +8,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @timelib_do_rel_normalize(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i64, ptr %3, align 8
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %7, label %14
@@ -48,7 +48,7 @@ do_range_limit.exitthread-pre-split:              ; preds = %14
 
 do_range_limit.exit:                              ; preds = %do_range_limit.exitthread-pre-split, %16
   %21 = phi i64 [ %.pr, %do_range_limit.exitthread-pre-split ], [ %19, %16 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = icmp slt i64 %21, 0
   br i1 %23, label %24, label %31
 
@@ -86,7 +86,7 @@ do_range_limit.exit22thread-pre-split:            ; preds = %31
 
 do_range_limit.exit22:                            ; preds = %do_range_limit.exit22thread-pre-split, %33
   %38 = phi i64 [ %.pr44, %do_range_limit.exit22thread-pre-split ], [ %36, %33 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = icmp slt i64 %38, 0
   br i1 %40, label %41, label %48
 
@@ -124,7 +124,7 @@ do_range_limit.exit27thread-pre-split:            ; preds = %48
 
 do_range_limit.exit27:                            ; preds = %do_range_limit.exit27thread-pre-split, %50
   %55 = phi i64 [ %.pr45, %do_range_limit.exit27thread-pre-split ], [ %53, %50 ]
-  %56 = getelementptr inbounds i8, ptr %1, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = icmp slt i64 %55, 0
   br i1 %57, label %58, label %65
 
@@ -157,7 +157,7 @@ do_range_limit.exit27:                            ; preds = %do_range_limit.exit
   br label %do_range_limit.exit32
 
 do_range_limit.exit32:                            ; preds = %65, %67
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = load i64, ptr %72, align 8
   %74 = icmp slt i64 %73, 0
   br i1 %74, label %75, label %82
@@ -191,8 +191,8 @@ do_range_limit.exit32:                            ; preds = %65, %67
   br label %do_range_limit.exit37
 
 do_range_limit.exit37:                            ; preds = %82, %84
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 68
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %91 = load i32, ptr %90, align 4
   %92 = load i64, ptr %89, align 8
   %93 = icmp slt i64 %92, 1
@@ -354,13 +354,13 @@ do_range_limit.exit43:                            ; preds = %150, %152
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @timelib_do_normalize(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, -9999999
   br i1 %.not, label %do_range_limit.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = icmp slt i64 %3, 0
   br i1 %6, label %7, label %14
 
@@ -393,13 +393,13 @@ define hidden void @timelib_do_normalize(ptr nocapture noundef %0) local_unnamed
   br label %do_range_limit.exit
 
 do_range_limit.exit:                              ; preds = %16, %14, %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i64, ptr %21, align 8
   %.not23 = icmp eq i64 %22, -9999999
   br i1 %.not23, label %do_range_limit.exit42, label %23
 
 23:                                               ; preds = %do_range_limit.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = icmp slt i64 %22, 0
   br i1 %25, label %26, label %33
 
@@ -441,7 +441,7 @@ do_range_limit.exit32._crit_edge:                 ; preds = %do_range_limit.exit
 
 38:                                               ; preds = %do_range_limit.exit32._crit_edge, %do_range_limit.exit32.thread58
   %39 = phi i64 [ %.pre, %do_range_limit.exit32._crit_edge ], [ %36, %do_range_limit.exit32.thread58 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = icmp slt i64 %39, 0
   %.pre104.pre = load i64, ptr %40, align 8
   br i1 %41, label %42, label %48
@@ -475,7 +475,7 @@ do_range_limit.exit32._crit_edge:                 ; preds = %do_range_limit.exit
 
 do_range_limit.exit37:                            ; preds = %48, %50
   %54 = phi i64 [ %.pre104, %48 ], [ %52, %50 ]
-  %55 = getelementptr inbounds i8, ptr %0, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = icmp slt i64 %54, 0
   br i1 %56, label %57, label %64
 
@@ -508,7 +508,7 @@ do_range_limit.exit37:                            ; preds = %48, %50
   br label %do_range_limit.exit42
 
 do_range_limit.exit42:                            ; preds = %do_range_limit.exit, %do_range_limit.exit32, %66, %64
-  %71 = getelementptr inbounds i8, ptr %0, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load i64, ptr %71, align 8
   %73 = icmp slt i64 %72, 1
   br i1 %73, label %74, label %82
@@ -556,7 +556,7 @@ do_range_limit.exit47:                            ; preds = %do_range_limit.exit
   br i1 %93, label %94, label %magic_date_calc.exit
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %0, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %96 = load i64, ptr %95, align 8
   %.not26 = icmp eq i64 %96, 1
   %97 = icmp slt i64 %96, -719498
@@ -615,7 +615,7 @@ do_range_limit.exit47:                            ; preds = %do_range_limit.exit
 magic_date_calc.exit:                             ; preds = %111, %94, %92, %do_range_limit.exit47
   %.promoted76 = phi i64 [ %117, %111 ], [ 1, %94 ], [ %89, %92 ], [ %89, %do_range_limit.exit47 ]
   %.promoted75 = phi i64 [ %119, %111 ], [ 1970, %94 ], [ 1970, %92 ], [ %90, %do_range_limit.exit47 ]
-  %124 = getelementptr inbounds i8, ptr %0, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted74 = load i64, ptr %124, align 8
   br label %125
 
@@ -826,7 +826,7 @@ do_range_limit.exit55:                            ; preds = %213, %216
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i64 -9223372036854775808, 9223372036854056340) i64 @timelib_epoch_days_from_time(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp slt i64 %4, 3
   %.neg = sext i1 %5 to i64
@@ -843,7 +843,7 @@ define hidden range(i64 -9223372036854775808, 9223372036854056340) i64 @timelib_
   %15 = mul nsw i64 %14, 153
   %16 = add nsw i64 %15, 2
   %17 = sdiv i64 %16, 5
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = mul nsw i64 %11, 365
   %21 = sdiv i64 %11, 4
@@ -869,13 +869,13 @@ define hidden void @timelib_update_ts(ptr noundef %0, ptr noundef %1) local_unna
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 188
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %13 = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %32, label %14
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %16 = load i32, ptr %15, align 8
   switch i32 %16, label %32 [
     i32 2, label %17
@@ -883,11 +883,11 @@ define hidden void @timelib_update_ts(ptr noundef %0, ptr noundef %1) local_unna
   ]
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = add nsw i64 %22, %20
   store i64 %23, ptr %21, align 8
@@ -895,12 +895,12 @@ define hidden void @timelib_update_ts(ptr noundef %0, ptr noundef %1) local_unna
   br label %32
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %27 = load i64, ptr %26, align 8
   %28 = add nsw i64 %27, 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = add nsw i64 %28, %30
   store i64 %31, ptr %29, align 8
@@ -908,7 +908,7 @@ define hidden void @timelib_update_ts(ptr noundef %0, ptr noundef %1) local_unna
   br label %32
 
 32:                                               ; preds = %24, %17, %14, %2
-  %33 = getelementptr inbounds i8, ptr %0, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %34 = load i32, ptr %33, align 8
   switch i32 %34, label %do_adjust_special_early.exit [
     i32 1, label %35
@@ -916,14 +916,14 @@ define hidden void @timelib_update_ts(ptr noundef %0, ptr noundef %1) local_unna
   ]
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %36, align 8
   br label %do_adjust_special_early.exit
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = add nsw i64 %40, 1
   store i64 %41, ptr %39, align 8
@@ -931,27 +931,27 @@ define hidden void @timelib_update_ts(ptr noundef %0, ptr noundef %1) local_unna
 
 do_adjust_special_early.exit:                     ; preds = %32, %35, %37
   tail call void @timelib_do_normalize(ptr noundef nonnull %0)
-  %42 = getelementptr inbounds i8, ptr %0, i64 88
-  %43 = getelementptr inbounds i8, ptr %0, i64 184
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = load i32, ptr %43, align 8
   %.not.i18 = icmp eq i32 %44, 0
   br i1 %.not.i18, label %do_adjust_for_weekday.exit.i, label %45
 
 45:                                               ; preds = %do_adjust_special_early.exit
   %46 = load i64, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = tail call i64 @timelib_day_of_week(i64 noundef %46, i64 noundef %48, i64 noundef %50) #6
-  %52 = getelementptr inbounds i8, ptr %0, i64 148
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 2
   br i1 %54, label %55, label %68
 
 55:                                               ; preds = %45
   %56 = icmp eq i64 %51, 0
-  %57 = getelementptr inbounds i8, ptr %0, i64 144
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %58 = load i32, ptr %57, align 8
   %.not36.i.i = icmp eq i32 %58, 0
   br i1 %56, label %59, label %62
@@ -981,11 +981,11 @@ do_adjust_special_early.exit:                     ; preds = %32, %35, %37
   br label %do_adjust_for_weekday.exit.i
 
 68:                                               ; preds = %45
-  %69 = getelementptr inbounds i8, ptr %0, i64 144
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %70 = load i32, ptr %69, align 8
   %71 = sext i32 %70 to i64
   %72 = sub nsw i64 %71, %51
-  %73 = getelementptr inbounds i8, ptr %0, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %74 = load i64, ptr %73, align 8
   %75 = icmp slt i64 %74, 0
   %76 = icmp slt i64 %72, 0
@@ -1033,45 +1033,45 @@ do_adjust_special_early.exit:                     ; preds = %32, %35, %37
 
 do_adjust_for_weekday.exit.i:                     ; preds = %94, %.thread.i.i, %do_adjust_special_early.exit
   tail call void @timelib_do_normalize(ptr noundef nonnull %0)
-  %95 = getelementptr inbounds i8, ptr %0, i64 212
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %96 = load i32, ptr %95, align 4
   %.not23.i = icmp eq i32 %96, 0
   br i1 %.not23.i, label %131, label %97
 
 97:                                               ; preds = %do_adjust_for_weekday.exit.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 136
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %101 = load i64, ptr %100, align 8
   %102 = add nsw i64 %101, %99
   store i64 %102, ptr %100, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 128
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %104 = load i64, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %106 = load i64, ptr %105, align 8
   %107 = add nsw i64 %106, %104
   store i64 %107, ptr %105, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 120
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %111 = load i64, ptr %110, align 8
   %112 = add nsw i64 %111, %109
   store i64 %112, ptr %110, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 112
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %116 = load i64, ptr %115, align 8
   %117 = add nsw i64 %116, %114
   store i64 %117, ptr %115, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 104
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %121 = load i64, ptr %120, align 8
   %122 = add nsw i64 %121, %119
   store i64 %122, ptr %120, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 96
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %124 = load i64, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %126 = load i64, ptr %125, align 8
   %127 = add nsw i64 %126, %124
   store i64 %127, ptr %125, align 8
@@ -1089,14 +1089,14 @@ do_adjust_for_weekday.exit.i:                     ; preds = %94, %.thread.i.i, %
   ]
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %0, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %134, align 8
   br label %do_adjust_relative.exit
 
 135:                                              ; preds = %131
-  %136 = getelementptr inbounds i8, ptr %0, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %138 = load i64, ptr %137, align 8
   %139 = add nsw i64 %138, 1
   store i64 %139, ptr %137, align 8
@@ -1109,18 +1109,18 @@ do_adjust_relative.exit:                          ; preds = %131, %133, %135
   br i1 %.not.i19, label %do_adjust_special.exit, label %141
 
 141:                                              ; preds = %do_adjust_relative.exit
-  %142 = getelementptr inbounds i8, ptr %0, i64 168
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %143 = load i32, ptr %142, align 8
   %cond.i = icmp eq i32 %143, 1
   br i1 %cond.i, label %144, label %do_adjust_special.exit
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %0, i64 176
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %146 = load i64, ptr %145, align 8
   %147 = load i64, ptr %0, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %149 = load i64, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %0, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %151 = load i64, ptr %150, align 8
   %152 = tail call i64 @timelib_day_of_week(i64 noundef %147, i64 noundef %149, i64 noundef %151) #6
   %153 = sdiv i64 %146, 5
@@ -1204,18 +1204,18 @@ do_adjust_special_weekday.exit.i:                 ; preds = %184, %182, %178, %1
 
 do_adjust_special.exit:                           ; preds = %do_adjust_relative.exit, %141, %do_adjust_special_weekday.exit.i
   tail call void @timelib_do_normalize(ptr noundef nonnull %0)
-  %190 = getelementptr inbounds i8, ptr %0, i64 168
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, i8 0, i64 16, i1 false)
-  %191 = getelementptr inbounds i8, ptr %0, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %192 = load i64, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %0, i64 32
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %194 = load i64, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %0, i64 40
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %196 = load i64, ptr %195, align 8
   %197 = tail call i64 @timelib_hms_to_seconds(i64 noundef %192, i64 noundef %194, i64 noundef %196) #6
-  %198 = getelementptr inbounds i8, ptr %0, i64 192
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %199 = load i64, ptr %0, align 8
-  %200 = getelementptr inbounds i8, ptr %0, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %201 = load i64, ptr %200, align 8
   %202 = icmp slt i64 %201, 3
   %.neg.i = sext i1 %202 to i64
@@ -1232,7 +1232,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   %212 = mul nsw i64 %211, 153
   %213 = add nsw i64 %212, 2
   %214 = sdiv i64 %213, 5
-  %215 = getelementptr inbounds i8, ptr %0, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %216 = load i64, ptr %215, align 8
   %217 = mul nsw i64 %208, 365
   %218 = sdiv i64 %208, 4
@@ -1256,7 +1256,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %227 = getelementptr inbounds i8, ptr %0, i64 232
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %228 = load i32, ptr %227, align 8
   switch i32 %228, label %248 [
     i32 1, label %229
@@ -1265,9 +1265,9 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   ]
 
 229:                                              ; preds = %do_adjust_special.exit
-  %230 = getelementptr inbounds i8, ptr %0, i64 228
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 1, ptr %230, align 4
-  %231 = getelementptr inbounds i8, ptr %0, i64 56
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %232 = load i32, ptr %231, align 8
   %233 = sub nsw i32 0, %232
   %234 = sext i32 %233 to i64
@@ -1276,11 +1276,11 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   br label %do_adjust_timezone.exit
 
 236:                                              ; preds = %do_adjust_special.exit
-  %237 = getelementptr inbounds i8, ptr %0, i64 228
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 1, ptr %237, align 4
-  %238 = getelementptr inbounds i8, ptr %0, i64 56
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %239 = load i32, ptr %238, align 8
-  %240 = getelementptr inbounds i8, ptr %0, i64 80
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %241 = load i32, ptr %240, align 8
   %.neg.i25 = mul i32 %241, -3600
   %242 = sub i32 %.neg.i25, %239
@@ -1290,7 +1290,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   br label %do_adjust_timezone.exit
 
 245:                                              ; preds = %do_adjust_special.exit
-  %246 = getelementptr inbounds i8, ptr %0, i64 72
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %247 = load ptr, ptr %246, align 8
   br label %248
 
@@ -1318,7 +1318,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   br i1 %259, label %260, label %302
 
 260:                                              ; preds = %249
-  %261 = getelementptr inbounds i8, ptr %0, i64 208
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %262 = load i32, ptr %261, align 8
   %.not53.i = icmp eq i32 %262, 0
   br i1 %.not53.i, label %302, label %263
@@ -1329,7 +1329,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   br i1 %264, label %265, label %284
 
 265:                                              ; preds = %263
-  %266 = getelementptr inbounds i8, ptr %0, i64 80
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %267 = load i32, ptr %266, align 8
   %268 = icmp eq i32 %267, 0
   %269 = icmp ne i32 %.pre.i, 0
@@ -1365,7 +1365,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   br i1 %or.cond3.i, label %287, label %302
 
 287:                                              ; preds = %284
-  %288 = getelementptr inbounds i8, ptr %0, i64 80
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %289 = load i32, ptr %288, align 8
   %.not55.i = icmp eq i32 %289, 0
   br i1 %.not55.i, label %290, label %302
@@ -1394,7 +1394,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
 302:                                              ; preds = %297, %290, %287, %284, %277, %270, %260, %249
   %.043.i = phi i32 [ %256, %287 ], [ %256, %290 ], [ %256, %284 ], [ %256, %270 ], [ %256, %260 ], [ %256, %249 ], [ %spec.select.i, %277 ], [ %spec.select61.i, %297 ]
   %.0.i = phi i64 [ %257, %287 ], [ %257, %290 ], [ %257, %284 ], [ %257, %270 ], [ %257, %260 ], [ %257, %249 ], [ %spec.select60.i, %277 ], [ %spec.select62.i, %297 ]
-  %303 = getelementptr inbounds i8, ptr %0, i64 228
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 1, ptr %303, align 4
   %.not58.i = icmp eq i64 %.0.i, -9223372036854775808
   %.pre68.i = load i64, ptr %198, align 8
@@ -1432,7 +1432,7 @@ do_adjust_timezone.exit:                          ; preds = %229, %236, %248, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %314 = getelementptr inbounds i8, ptr %0, i64 220
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 1, ptr %314, align 4
   store i32 0, ptr %33, align 8
   store i32 0, ptr %12, align 4

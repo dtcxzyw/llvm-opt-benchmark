@@ -87,14 +87,14 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort12sort4
   %14 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.val24, i64 noundef %.val25, ptr noalias noundef nonnull readonly align 1 %.val26, i64 noundef %.val27), !range !5
   %15 = icmp eq i8 %14, -1
   %16 = zext i1 %9 to i64
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %16
   %18 = xor i1 %9, true
   %19 = zext i1 %18 to i64
-  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %19
   %21 = select i1 %15, i64 3, i64 2
-  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %21
   %23 = select i1 %15, i64 2, i64 3
-  %24 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %23
   %25 = getelementptr i8, ptr %22, i64 8
   %.val28 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
   %26 = getelementptr i8, ptr %22, i64 16
@@ -134,11 +134,11 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort12sort4
   %.sroa.010.0 = select i1 %42, ptr %.sroa.06.0, ptr %.sroa.02.0
   %.sroa.011.0 = select i1 %42, ptr %.sroa.02.0, ptr %.sroa.06.0
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %., i64 24, i1 false)
-  %43 = getelementptr inbounds i8, ptr %1, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.0, i64 24, i1 false)
-  %44 = getelementptr inbounds i8, ptr %1, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.011.0, i64 24, i1 false)
-  %45 = getelementptr inbounds i8, ptr %1, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.0, i64 24, i1 false)
   ret void
 }
@@ -186,10 +186,10 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort19bidir
   %22 = xor i1 %21, true
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.035, ptr noundef nonnull align 8 dereferenceable(24) %..i23, i64 24, i1 false), !noalias !16
   %23 = zext i1 %21 to i64
-  %24 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.06.036, i64 %23
+  %24 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.06.036, i64 %23
   %25 = zext i1 %22 to i64
-  %26 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.037, i64 %25
-  %27 = getelementptr inbounds i8, ptr %.sroa.010.035, i64 24
+  %26 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.037, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.010.035, i64 24
   %28 = getelementptr i8, ptr %.sroa.015.033, i64 8
   %.sroa.015.0.val = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
   %29 = getelementptr i8, ptr %.sroa.015.033, i64 16
@@ -216,10 +216,10 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort19bidir
   %.sroa.0.0..sroa.06.0 = select i1 %39, ptr %26, ptr %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0..sroa.06.0, i64 24, i1 false)
   %40 = zext i1 %39 to i64
-  %41 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %26, i64 %40
+  %41 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %26, i64 %40
   %42 = xor i1 %39, true
   %43 = zext i1 %42 to i64
-  %44 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %24, i64 %43
+  %44 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %24, i64 %43
   br label %45
 
 45:                                               ; preds = %._crit_edge, %38
@@ -319,7 +319,7 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort25inser
   resume { ptr, i32 } %27
 
 _RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort11insert_tailNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB18_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %.lr.ph, %25
-  %28 = getelementptr inbounds i8, ptr %.sroa.0.07, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 24
   %.not = icmp eq ptr %28, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
@@ -338,8 +338,8 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort31small
 11:                                               ; preds = %8
   %12 = lshr i64 %1, 1
   %13 = icmp ugt i64 %1, 7
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %12
-  %15 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %12
+  %14 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %12
+  %15 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %12
   br i1 %13, label %17, label %18
 
 16:                                               ; preds = %8
@@ -360,11 +360,11 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort31small
   %.sroa.0.0 = phi i64 [ 4, %17 ], [ 1, %18 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  %.sroa.08.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.08.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %12, ptr %.sroa.08.sroa.4.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 2, ptr %.sroa.5.0..sroa_idx, align 8
   %20 = sub i64 %1, %12
   br label %.loopexit

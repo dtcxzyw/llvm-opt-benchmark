@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @nxtask_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i16, ptr %10, align 16
   %12 = trunc i16 %11 to i8
   %13 = and i8 %12, 3
@@ -18,7 +18,7 @@ define i32 @nxtask_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   br i1 %15, label %48, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 16
   %19 = tail call i32 @env_dup(ptr noundef %18, ptr noundef %7) #3
   %20 = icmp slt i32 %19, 0
@@ -72,7 +72,7 @@ define i32 @nxtask_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   br i1 %.not47, label %43, label %47
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %45 = load ptr, ptr %44, align 16
   %.not48 = icmp eq ptr %45, null
   br i1 %.not48, label %47, label %46
@@ -116,7 +116,7 @@ declare void @group_leave(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @nxtask_uninit(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
@@ -130,12 +130,12 @@ define void @nxtask_uninit(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %7, align 8
   br label %8
 
 8:                                                ; preds = %6, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %10 = load i16, ptr %9, align 16
   %11 = trunc i16 %10 to i8

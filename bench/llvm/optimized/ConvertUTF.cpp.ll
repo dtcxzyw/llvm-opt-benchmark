@@ -26,7 +26,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF32toUTF16EPPKj
   br i1 %.not.us.us, label %10, label %._crit_edge
 
 10:                                               ; preds = %.lr.ph.split.us.split.us
-  %11 = getelementptr inbounds i8, ptr %.03141.us.us, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.03141.us.us, i64 4
   %12 = load i32, ptr %.03141.us.us, align 4
   %13 = icmp ult i32 %12, 65536
   br i1 %13, label %27, label %14
@@ -36,7 +36,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF32toUTF16EPPKj
   br i1 %15, label %32, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %.042.us.us, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.042.us.us, i64 2
   %.not39.us.us = icmp ult ptr %17, %3
   br i1 %.not39.us.us, label %18, label %._crit_edge
 
@@ -49,7 +49,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF32toUTF16EPPKj
   %23 = trunc i32 %12 to i16
   %24 = and i16 %23, 1023
   %25 = or disjoint i16 %24, -9216
-  %26 = getelementptr inbounds i8, ptr %.042.us.us, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.042.us.us, i64 4
   store i16 %25, ptr %17, align 2
   br label %32
 
@@ -60,7 +60,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF32toUTF16EPPKj
 
 29:                                               ; preds = %27
   %30 = trunc nuw i32 %12 to i16
-  %31 = getelementptr inbounds i8, ptr %.042.us.us, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.042.us.us, i64 2
   store i16 %30, ptr %.042.us.us, align 2
   br label %32
 
@@ -77,7 +77,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF32toUTF16EPPKj
   br i1 %.not, label %34, label %._crit_edge
 
 34:                                               ; preds = %.lr.ph.split.split
-  %35 = getelementptr inbounds i8, ptr %.03141, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.03141, i64 4
   %36 = load i32, ptr %.03141, align 4
   %37 = icmp ult i32 %36, 65536
   br i1 %37, label %38, label %45
@@ -88,19 +88,19 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF32toUTF16EPPKj
   br i1 %or.cond, label %40, label %42
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %.042, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %.042, i64 2
   store i16 -3, ptr %.042, align 2
   br label %59
 
 42:                                               ; preds = %38
   %43 = trunc nuw i32 %36 to i16
-  %44 = getelementptr inbounds i8, ptr %.042, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %.042, i64 2
   store i16 %43, ptr %.042, align 2
   br label %59
 
 45:                                               ; preds = %34
   %46 = icmp ugt i32 %36, 1114111
-  %47 = getelementptr inbounds i8, ptr %.042, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %.042, i64 2
   br i1 %46, label %48, label %49
 
 48:                                               ; preds = %45
@@ -120,7 +120,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF32toUTF16EPPKj
   %55 = trunc i32 %36 to i16
   %56 = and i16 %55, 1023
   %57 = or disjoint i16 %56, -9216
-  %58 = getelementptr inbounds i8, ptr %.042, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.042, i64 4
   store i16 %57, ptr %47, align 2
   br label %59
 
@@ -152,7 +152,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF16toUTF32EPPKt
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %26
   %.03747.us = phi ptr [ %.2.us, %26 ], [ %6, %.lr.ph ]
   %.03946.us = phi ptr [ %27, %26 ], [ %7, %.lr.ph ]
-  %10 = getelementptr inbounds i8, ptr %.03747.us, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.03747.us, i64 2
   %11 = load i16, ptr %.03747.us, align 2
   %12 = zext i16 %11 to i32
   %13 = and i16 %11, -1024
@@ -174,7 +174,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF16toUTF32EPPKt
   %21 = shl nuw nsw i32 %12, 10
   %22 = add nsw i32 %21, -56613888
   %23 = add nuw nsw i32 %22, %20
-  %24 = getelementptr inbounds i8, ptr %.03747.us, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.03747.us, i64 4
   br label %25
 
 25:                                               ; preds = %16, %.lr.ph.split.us.split, %19
@@ -184,7 +184,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF16toUTF32EPPKt
   br i1 %.not.us, label %26, label %._crit_edge
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %.03946.us, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.03946.us, i64 4
   store i32 %.038.us, ptr %.03946.us, align 4
   %28 = icmp ult ptr %.2.us, %1
   br i1 %28, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !6
@@ -192,7 +192,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF16toUTF32EPPKt
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %45
   %.03747.us77 = phi ptr [ %.2.us82, %45 ], [ %6, %.lr.ph ]
   %.03946.us78 = phi ptr [ %46, %45 ], [ %7, %.lr.ph ]
-  %29 = getelementptr inbounds i8, ptr %.03747.us77, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.03747.us77, i64 2
   %30 = load i16, ptr %.03747.us77, align 2
   %31 = zext i16 %30 to i32
   %32 = and i16 %30, -1024
@@ -216,7 +216,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF16toUTF32EPPKt
   %40 = shl nuw nsw i32 %31, 10
   %41 = add nsw i32 %40, -56613888
   %42 = add nsw i32 %41, %39
-  %43 = getelementptr inbounds i8, ptr %.03747.us77, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.03747.us77, i64 4
   br label %44
 
 44:                                               ; preds = %.lr.ph.split.split.us, %38
@@ -226,7 +226,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm19ConvertUTF16toUTF32EPPKt
   br i1 %.not.us83, label %45, label %._crit_edge
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %.03946.us78, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.03946.us78, i64 4
   store i32 %.038.us81, ptr %.03946.us78, align 4
   %47 = icmp ult ptr %.2.us82, %1
   br i1 %47, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !6
@@ -254,7 +254,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %54
   %.05879.us = phi ptr [ %.2.us, %54 ], [ %6, %.lr.ph ]
   %.05978.us = phi ptr [ %60, %54 ], [ %7, %.lr.ph ]
-  %10 = getelementptr inbounds i8, ptr %.05879.us, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.05879.us, i64 2
   %11 = load i16, ptr %.05879.us, align 2
   %12 = zext i16 %11 to i32
   %13 = and i16 %11, -1024
@@ -276,7 +276,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %21 = shl nuw nsw i32 %12, 10
   %22 = add nsw i32 %21, -56613888
   %23 = add nuw nsw i32 %22, %20
-  %24 = getelementptr inbounds i8, ptr %.05879.us, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.05879.us, i64 4
   br label %25
 
 25:                                               ; preds = %16, %.lr.ph.split.us.split, %19
@@ -297,7 +297,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
 31:                                               ; preds = %29, %27, %25
   %.067.us = phi i16 [ 1, %25 ], [ 2, %27 ], [ %spec.select.us, %29 ]
   %32 = zext nneg i16 %.067.us to i64
-  %33 = getelementptr inbounds i8, ptr %.05978.us, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %.05978.us, i64 %32
   %34 = icmp ugt ptr %33, %3
   br i1 %34, label %._crit_edge, label %35
 
@@ -343,20 +343,20 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
 54:                                               ; preds = %48, %35
   %.466.us = phi i32 [ %.062.us, %35 ], [ %53, %48 ]
   %.5.us = phi ptr [ %33, %35 ], [ %52, %48 ]
-  %55 = getelementptr inbounds [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %32
+  %55 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %32
   %56 = load i8, ptr %55, align 1
   %57 = trunc i32 %.466.us to i8
   %58 = or i8 %56, %57
   %59 = getelementptr inbounds i8, ptr %.5.us, i64 -1
   store i8 %58, ptr %59, align 1
-  %60 = getelementptr inbounds i8, ptr %59, i64 %32
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %32
   %61 = icmp ult ptr %.2.us, %1
   br i1 %61, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !7
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %106
   %.05879.us109 = phi ptr [ %.2.us114, %106 ], [ %6, %.lr.ph ]
   %.05978.us110 = phi ptr [ %112, %106 ], [ %7, %.lr.ph ]
-  %62 = getelementptr inbounds i8, ptr %.05879.us109, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %.05879.us109, i64 2
   %63 = load i16, ptr %.05879.us109, align 2
   %64 = zext i16 %63 to i32
   %65 = and i16 %63, -1024
@@ -380,7 +380,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %73 = shl nuw nsw i32 %64, 10
   %74 = add nsw i32 %73, -56613888
   %75 = add nsw i32 %74, %72
-  %76 = getelementptr inbounds i8, ptr %.05879.us109, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.05879.us109, i64 4
   br label %77
 
 77:                                               ; preds = %.lr.ph.split.split.us, %71
@@ -401,7 +401,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
 83:                                               ; preds = %81, %79, %77
   %.067.us116 = phi i16 [ 1, %77 ], [ 2, %79 ], [ %spec.select.us115, %81 ]
   %84 = zext nneg i16 %.067.us116 to i64
-  %85 = getelementptr inbounds i8, ptr %.05978.us110, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %.05978.us110, i64 %84
   %86 = icmp ugt ptr %85, %3
   br i1 %86, label %._crit_edge, label %87
 
@@ -447,13 +447,13 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
 106:                                              ; preds = %100, %87
   %.466.us121 = phi i32 [ %.062.us113, %87 ], [ %105, %100 ]
   %.5.us122 = phi ptr [ %85, %87 ], [ %104, %100 ]
-  %107 = getelementptr inbounds [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %84
+  %107 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %84
   %108 = load i8, ptr %107, align 1
   %109 = trunc i32 %.466.us121 to i8
   %110 = or i8 %108, %109
   %111 = getelementptr inbounds i8, ptr %.5.us122, i64 -1
   store i8 %110, ptr %111, align 1
-  %112 = getelementptr inbounds i8, ptr %111, i64 %84
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 %84
   %113 = icmp ult ptr %.2.us114, %1
   br i1 %113, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !7
 
@@ -484,7 +484,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   %.060.us = phi i32 [ %.2.us, %42 ], [ 0, %.lr.ph ]
   %.04059.us = phi ptr [ %10, %42 ], [ %6, %.lr.ph ]
   %.04658.us = phi ptr [ %48, %42 ], [ %7, %.lr.ph ]
-  %10 = getelementptr inbounds i8, ptr %.04059.us, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.04059.us, i64 4
   %11 = load i32, ptr %.04059.us, align 4
   %12 = icmp ult i32 %11, 128
   br i1 %12, label %19, label %13
@@ -509,7 +509,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   %.042.us = phi i16 [ 1, %.lr.ph.split.us ], [ 2, %13 ], [ 3, %15 ], [ %.55.us, %17 ]
   %.2.us = phi i32 [ %.060.us, %.lr.ph.split.us ], [ %.060.us, %13 ], [ %.060.us, %15 ], [ %.0..us, %17 ]
   %20 = zext nneg i16 %.042.us to i64
-  %21 = getelementptr inbounds i8, ptr %.04658.us, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.04658.us, i64 %20
   %22 = icmp ugt ptr %21, %3
   br i1 %22, label %._crit_edge, label %23
 
@@ -555,13 +555,13 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
 42:                                               ; preds = %36, %23
   %.5.us = phi ptr [ %21, %23 ], [ %40, %36 ]
   %.3.us = phi i32 [ %.043.us, %23 ], [ %41, %36 ]
-  %43 = getelementptr inbounds [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %20
+  %43 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %20
   %44 = load i8, ptr %43, align 1
   %45 = trunc i32 %.3.us to i8
   %46 = or i8 %44, %45
   %47 = getelementptr inbounds i8, ptr %.5.us, i64 -1
   store i8 %46, ptr %47, align 1
-  %48 = getelementptr inbounds i8, ptr %47, i64 %20
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %20
   %49 = icmp ult ptr %10, %1
   br i1 %49, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
 
@@ -569,7 +569,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   %.060 = phi i32 [ %.2, %84 ], [ 0, %.lr.ph ]
   %.04059 = phi ptr [ %50, %84 ], [ %6, %.lr.ph ]
   %.04658 = phi ptr [ %90, %84 ], [ %7, %.lr.ph ]
-  %50 = getelementptr inbounds i8, ptr %.04059, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.04059, i64 4
   %51 = load i32, ptr %.04059, align 4
   %52 = and i32 %51, -2048
   %or.cond = icmp eq i32 %52, 55296
@@ -599,7 +599,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   %.042 = phi i16 [ 1, %53 ], [ 2, %55 ], [ 3, %57 ], [ %.55, %59 ]
   %.2 = phi i32 [ %.060, %53 ], [ %.060, %55 ], [ %.060, %57 ], [ %.0., %59 ]
   %62 = zext nneg i16 %.042 to i64
-  %63 = getelementptr inbounds i8, ptr %.04658, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %.04658, i64 %62
   %64 = icmp ugt ptr %63, %3
   br i1 %64, label %._crit_edge, label %65
 
@@ -645,13 +645,13 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
 84:                                               ; preds = %78, %65
   %.5 = phi ptr [ %63, %65 ], [ %82, %78 ]
   %.3 = phi i32 [ %.043, %65 ], [ %83, %78 ]
-  %85 = getelementptr inbounds [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %62
+  %85 = getelementptr inbounds nuw [7 x i8], ptr @_ZN4llvmL13firstByteMarkE, i64 0, i64 %62
   %86 = load i8, ptr %85, align 1
   %87 = trunc i32 %.3 to i8
   %88 = or i8 %86, %87
   %89 = getelementptr inbounds i8, ptr %.5, i64 -1
   store i8 %88, ptr %89, align 1
-  %90 = getelementptr inbounds i8, ptr %89, i64 %62
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %62
   %91 = icmp ult ptr %50, %1
   br i1 %91, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
@@ -671,7 +671,7 @@ default.unreachable81:                            ; preds = %23, %65
 define dso_local noundef zeroext range(i8 0, 2) i8 @_ZN4llvm19isLegalUTF8SequenceEPKhS1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = sext i8 %6 to i32
   %8 = add nsw i32 %7, 1
@@ -771,7 +771,7 @@ define internal fastcc noundef zeroext range(i8 0, 2) i8 @_ZN4llvmL11isLegalUTF8
 define dso_local noundef range(i32 -127, 129) i32 @_ZN4llvm19getUTF8SequenceSizeEPKhS1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = sext i8 %6 to i32
   %8 = add nsw i32 %7, 1
@@ -796,7 +796,7 @@ define dso_local noundef range(i32 -127, 129) i32 @_ZN4llvm19getUTF8SequenceSize
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 -127, 129) i32 @_ZN4llvm18getNumBytesForUTF8Eh(i8 noundef zeroext %0) local_unnamed_addr #2 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = sext i8 %4 to i32
   %6 = add nsw i32 %5, 1
@@ -817,7 +817,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @_ZN4llvm17isLegalUTF8StringE
   %5 = phi ptr [ %.promoted, %.lr.ph ], [ %19, %18 ]
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = sext i8 %9 to i32
   %11 = add nsw i32 %10, 1
@@ -860,7 +860,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %.06595 = phi ptr [ %6, %.lr.ph ], [ %.267, %104 ]
   %12 = load i8, ptr %.06595, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = sext i8 %15 to i16
   %17 = zext i16 %16 to i64
@@ -887,7 +887,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   ]
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %.06595, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.06595, i64 1
   %27 = zext i8 %12 to i32
   %28 = shl nuw nsw i32 %27, 6
   %.pre = load i8, ptr %26, align 1
@@ -897,7 +897,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %30 = phi i8 [ %12, %24 ], [ %.pre, %25 ]
   %.368 = phi ptr [ %.06595, %24 ], [ %26, %25 ]
   %.1 = phi i32 [ 0, %24 ], [ %28, %25 ]
-  %31 = getelementptr inbounds i8, ptr %.368, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.368, i64 1
   %32 = zext i8 %30 to i32
   %33 = add nuw nsw i32 %.1, %32
   %34 = shl nuw nsw i32 %33, 6
@@ -908,7 +908,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %36 = phi i8 [ %12, %24 ], [ %.pre117, %29 ]
   %.469 = phi ptr [ %.06595, %24 ], [ %31, %29 ]
   %.2 = phi i32 [ 0, %24 ], [ %34, %29 ]
-  %37 = getelementptr inbounds i8, ptr %.469, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.469, i64 1
   %38 = zext i8 %36 to i32
   %39 = add nuw nsw i32 %.2, %38
   %40 = shl nuw nsw i32 %39, 6
@@ -919,7 +919,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %42 = phi i8 [ %12, %24 ], [ %.pre118, %35 ]
   %.570 = phi ptr [ %.06595, %24 ], [ %37, %35 ]
   %.3 = phi i32 [ 0, %24 ], [ %40, %35 ]
-  %43 = getelementptr inbounds i8, ptr %.570, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.570, i64 1
   %44 = zext i8 %42 to i32
   %45 = add nuw nsw i32 %.3, %44
   %46 = shl i32 %45, 6
@@ -930,7 +930,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %48 = phi i8 [ %12, %24 ], [ %.pre119, %41 ]
   %.6 = phi ptr [ %.06595, %24 ], [ %43, %41 ]
   %.4 = phi i32 [ 0, %24 ], [ %46, %41 ]
-  %49 = getelementptr inbounds i8, ptr %.6, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   %50 = zext i8 %48 to i32
   %51 = add i32 %.4, %50
   %52 = shl i32 %51, 6
@@ -941,7 +941,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %54 = phi i8 [ %12, %24 ], [ %.pre120, %47 ]
   %.7 = phi ptr [ %.06595, %24 ], [ %49, %47 ]
   %.5 = phi i32 [ 0, %24 ], [ %52, %47 ]
-  %55 = getelementptr inbounds i8, ptr %.7, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   %56 = zext i8 %54 to i32
   %57 = add i32 %.5, %56
   br label %58
@@ -949,7 +949,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
 58:                                               ; preds = %53, %24
   %.267 = phi ptr [ %.06595, %24 ], [ %55, %53 ]
   %.062 = phi i32 [ 0, %24 ], [ %57, %53 ]
-  %59 = getelementptr inbounds [6 x i32], ptr @_ZN4llvmL15offsetsFromUTF8E, i64 0, i64 %17
+  %59 = getelementptr inbounds nuw [6 x i32], ptr @_ZN4llvmL15offsetsFromUTF8E, i64 0, i64 %17
   %60 = load i32, ptr %59, align 4
   %61 = sub i32 %.062, %60
   %.not78 = icmp ult ptr %.06396, %3
@@ -980,13 +980,13 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   br label %.loopexit
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %.06396, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %.06396, i64 2
   store i16 -3, ptr %.06396, align 2
   br label %104
 
 77:                                               ; preds = %68
   %78 = trunc nuw i32 %61 to i16
-  %79 = getelementptr inbounds i8, ptr %.06396, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %.06396, i64 2
   store i16 %78, ptr %.06396, align 2
   br label %104
 
@@ -1004,12 +1004,12 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   br label %.loopexit
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %.06396, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %.06396, i64 2
   store i16 -3, ptr %.06396, align 2
   br label %104
 
 89:                                               ; preds = %80
-  %90 = getelementptr inbounds i8, ptr %.06396, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %.06396, i64 2
   %.not79 = icmp ult ptr %90, %3
   br i1 %.not79, label %95, label %91
 
@@ -1028,7 +1028,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF8toUTF16EPPKhS
   %100 = trunc i32 %61 to i16
   %101 = and i16 %100, 1023
   %102 = or disjoint i16 %101, -9216
-  %103 = getelementptr inbounds i8, ptr %.06396, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %.06396, i64 4
   store i16 %102, ptr %90, align 2
   br label %104
 
@@ -1072,7 +1072,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvmL22ConvertUTF8toUTF3
   %.06590 = phi ptr [ %7, %.lr.ph ], [ %.065.be, %.backedge ]
   %14 = load i8, ptr %.06590, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4llvmL20trailingBytesForUTF8E, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i16
   %19 = zext i16 %18 to i64
@@ -1085,7 +1085,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvmL22ConvertUTF8toUTF3
   br i1 %or.cond, label %.loopexit, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %.06590, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.06590, i64 1
   %25 = add i8 %14, 62
   %or.cond.i = icmp ult i8 %25, 30
   %26 = icmp eq ptr %24, %1
@@ -1094,7 +1094,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvmL22ConvertUTF8toUTF3
 
 27:                                               ; preds = %23
   %28 = load i8, ptr %24, align 1
-  %29 = getelementptr inbounds i8, ptr %.06590, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.06590, i64 2
   %30 = icmp eq i8 %14, -32
   br i1 %30, label %31, label %35
 
@@ -1189,7 +1189,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvmL22ConvertUTF8toUTF3
 
 _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit: ; preds = %23, %31, %37, %42, %47, %52, %54, %56, %62, %63, %65, %69, %71, %73
   %.0.i = phi i64 [ %34, %31 ], [ %39, %37 ], [ %44, %42 ], [ %49, %47 ], [ %59, %56 ], [ %68, %65 ], [ %76, %73 ], [ 1, %23 ], [ 2, %54 ], [ 1, %52 ], [ 2, %63 ], [ 1, %62 ], [ 2, %71 ], [ 1, %69 ]
-  %77 = getelementptr inbounds i8, ptr %.06590, i64 %.0.i
+  %77 = getelementptr inbounds nuw i8, ptr %.06590, i64 %.0.i
   br label %.backedge
 
 .backedge:                                        ; preds = %179, %174, %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit, %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit86
@@ -1197,7 +1197,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit: ; preds = %23,
   %.065.be = phi ptr [ %77, %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit ], [ %139, %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit86 ], [ %.267, %179 ], [ %.267, %174 ]
   %.0.be = phi i32 [ 3, %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit ], [ 3, %_ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit86 ], [ %.092, %179 ], [ 3, %174 ]
   store i32 %.sink, ptr %.06391, align 4
-  %.063.be = getelementptr inbounds i8, ptr %.06391, i64 4
+  %.063.be = getelementptr inbounds nuw i8, ptr %.06391, i64 4
   %78 = icmp ult ptr %.065.be, %1
   br i1 %78, label %13, label %.loopexit, !llvm.loop !11
 
@@ -1216,7 +1216,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit: ; preds = %23,
   br i1 %11, label %.loopexit, label %85
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %.06590, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.06590, i64 1
   %87 = add i8 %14, 62
   %or.cond.i76 = icmp ult i8 %87, 30
   %88 = icmp eq ptr %86, %1
@@ -1225,7 +1225,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit: ; preds = %23,
 
 89:                                               ; preds = %85
   %90 = load i8, ptr %86, align 1
-  %91 = getelementptr inbounds i8, ptr %.06590, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %.06590, i64 2
   %92 = icmp eq i8 %14, -32
   br i1 %92, label %93, label %97
 
@@ -1320,7 +1320,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit: ; preds = %23,
 
 _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit86: ; preds = %85, %93, %99, %104, %109, %114, %116, %118, %124, %125, %127, %131, %133, %135
   %.0.i83 = phi i64 [ %96, %93 ], [ %101, %99 ], [ %106, %104 ], [ %111, %109 ], [ %121, %118 ], [ %130, %127 ], [ %138, %135 ], [ 1, %85 ], [ 2, %116 ], [ 1, %114 ], [ 2, %125 ], [ 1, %124 ], [ 2, %133 ], [ 1, %131 ]
-  %139 = getelementptr inbounds i8, ptr %.06590, i64 %.0.i83
+  %139 = getelementptr inbounds nuw i8, ptr %.06590, i64 %.0.i83
   br label %.backedge
 
 140:                                              ; preds = %80
@@ -1334,7 +1334,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit86: ; preds = %8
   ]
 
 141:                                              ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %.06590, i64 1
+  %142 = getelementptr inbounds nuw i8, ptr %.06590, i64 1
   %143 = zext i8 %14 to i32
   %144 = shl nuw nsw i32 %143, 6
   %.pre = load i8, ptr %142, align 1
@@ -1344,7 +1344,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit86: ; preds = %8
   %146 = phi i8 [ %14, %140 ], [ %.pre, %141 ]
   %.368 = phi ptr [ %.06590, %140 ], [ %142, %141 ]
   %.161 = phi i32 [ 0, %140 ], [ %144, %141 ]
-  %147 = getelementptr inbounds i8, ptr %.368, i64 1
+  %147 = getelementptr inbounds nuw i8, ptr %.368, i64 1
   %148 = zext i8 %146 to i32
   %149 = add nuw nsw i32 %.161, %148
   %150 = shl nuw nsw i32 %149, 6
@@ -1355,7 +1355,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit86: ; preds = %8
   %152 = phi i8 [ %14, %140 ], [ %.pre108, %145 ]
   %.469 = phi ptr [ %.06590, %140 ], [ %147, %145 ]
   %.262 = phi i32 [ 0, %140 ], [ %150, %145 ]
-  %153 = getelementptr inbounds i8, ptr %.469, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %.469, i64 1
   %154 = zext i8 %152 to i32
   %155 = add nuw nsw i32 %.262, %154
   %156 = shl nuw nsw i32 %155, 6
@@ -1366,7 +1366,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit86: ; preds = %8
   %158 = phi i8 [ %14, %140 ], [ %.pre109, %151 ]
   %.570 = phi ptr [ %.06590, %140 ], [ %153, %151 ]
   %.3 = phi i32 [ 0, %140 ], [ %156, %151 ]
-  %159 = getelementptr inbounds i8, ptr %.570, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %.570, i64 1
   %160 = zext i8 %158 to i32
   %161 = add nuw nsw i32 %.3, %160
   %162 = shl i32 %161, 6
@@ -1377,7 +1377,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit86: ; preds = %8
   %164 = phi i8 [ %14, %140 ], [ %.pre110, %157 ]
   %.6 = phi ptr [ %.06590, %140 ], [ %159, %157 ]
   %.4 = phi i32 [ 0, %140 ], [ %162, %157 ]
-  %165 = getelementptr inbounds i8, ptr %.6, i64 1
+  %165 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   %166 = zext i8 %164 to i32
   %167 = add i32 %.4, %166
   %168 = shl i32 %167, 6
@@ -1388,7 +1388,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit86: ; preds = %8
   %170 = phi i8 [ %14, %140 ], [ %.pre111, %163 ]
   %.7 = phi ptr [ %.06590, %140 ], [ %165, %163 ]
   %.5 = phi i32 [ 0, %140 ], [ %168, %163 ]
-  %171 = getelementptr inbounds i8, ptr %.7, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   %172 = zext i8 %170 to i32
   %173 = add i32 %.5, %172
   br label %174
@@ -1396,7 +1396,7 @@ _ZN4llvmL41findMaximalSubpartOfIllFormedUTF8SequenceEPKhS1_.exit86: ; preds = %8
 174:                                              ; preds = %169, %140
   %.267 = phi ptr [ %.06590, %140 ], [ %171, %169 ]
   %.060 = phi i32 [ 0, %140 ], [ %173, %169 ]
-  %175 = getelementptr inbounds [6 x i32], ptr @_ZN4llvmL15offsetsFromUTF8E, i64 0, i64 %19
+  %175 = getelementptr inbounds nuw [6 x i32], ptr @_ZN4llvmL15offsetsFromUTF8E, i64 0, i64 %19
   %176 = load i32, ptr %175, align 4
   %177 = sub i32 %.060, %176
   %178 = icmp ult i32 %177, 1114112

@@ -54,11 +54,11 @@ define dso_local void @_ZN28btScaledBvhTriangleMeshShapeC2EP22btBvhTriangleMeshS
 entry:
   tail call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTV28btScaledBvhTriangleMeshShape, i64 16), ptr %this, align 8
-  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
+  %m_localScaling = getelementptr inbounds nuw i8, ptr %this, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_localScaling, ptr noundef nonnull align 4 dereferenceable(16) %localScaling, i64 16, i1 false)
-  %m_bvhTriMeshShape = getelementptr inbounds i8, ptr %this, i64 56
+  %m_bvhTriMeshShape = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %childShape, ptr %m_bvhTriMeshShape, align 8
-  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
+  %m_shapeType = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 22, ptr %m_shapeType, align 8
   ret void
 }
@@ -102,18 +102,18 @@ entry:
   %scaledCallback = alloca %class.btScaledTriangleCallback, align 8
   %scaledAabbMin = alloca %class.btVector3, align 4
   %scaledAabbMax = alloca %class.btVector3, align 4
-  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
+  %m_localScaling = getelementptr inbounds nuw i8, ptr %this, i64 36
   store ptr getelementptr inbounds (i8, ptr @_ZTV24btScaledTriangleCallback, i64 16), ptr %scaledCallback, align 8
-  %m_originalCallback.i = getelementptr inbounds i8, ptr %scaledCallback, i64 8
+  %m_originalCallback.i = getelementptr inbounds nuw i8, ptr %scaledCallback, i64 8
   store ptr %callback, ptr %m_originalCallback.i, align 8
-  %m_localScaling.i = getelementptr inbounds i8, ptr %scaledCallback, i64 16
+  %m_localScaling.i = getelementptr inbounds nuw i8, ptr %scaledCallback, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_localScaling.i, ptr noundef nonnull align 4 dereferenceable(16) %m_localScaling, i64 16, i1 false)
   %0 = load float, ptr %m_localScaling, align 4
   %div = fdiv float 1.000000e+00, %0
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load float, ptr %arrayidx.i, align 8
   %div7 = fdiv float 1.000000e+00, %1
-  %arrayidx.i11 = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx.i11 = getelementptr inbounds nuw i8, ptr %this, i64 44
   %2 = load float, ptr %arrayidx.i11, align 4
   %div12 = fdiv float 1.000000e+00, %2
   %cmp = fcmp ult float %0, 0.000000e+00
@@ -123,24 +123,24 @@ entry:
   %cond = fmul float %div, %cond.v
   store float %cond, ptr %scaledAabbMin, align 4
   %cmp38 = fcmp ult float %1, 0.000000e+00
-  %arrayidx42 = getelementptr inbounds i8, ptr %aabbMin, i64 4
+  %arrayidx42 = getelementptr inbounds nuw i8, ptr %aabbMin, i64 4
   %5 = load float, ptr %arrayidx42, align 4
-  %arrayidx50 = getelementptr inbounds i8, ptr %aabbMax, i64 4
+  %arrayidx50 = getelementptr inbounds nuw i8, ptr %aabbMax, i64 4
   %6 = load float, ptr %arrayidx50, align 4
   %cond56.v = select i1 %cmp38, float %6, float %5
   %cond56 = fmul float %div7, %cond56.v
-  %arrayidx59 = getelementptr inbounds i8, ptr %scaledAabbMin, i64 4
+  %arrayidx59 = getelementptr inbounds nuw i8, ptr %scaledAabbMin, i64 4
   store float %cond56, ptr %arrayidx59, align 4
   %cmp64 = fcmp ult float %2, 0.000000e+00
-  %arrayidx68 = getelementptr inbounds i8, ptr %aabbMin, i64 8
+  %arrayidx68 = getelementptr inbounds nuw i8, ptr %aabbMin, i64 8
   %7 = load float, ptr %arrayidx68, align 4
-  %arrayidx76 = getelementptr inbounds i8, ptr %aabbMax, i64 8
+  %arrayidx76 = getelementptr inbounds nuw i8, ptr %aabbMax, i64 8
   %8 = load float, ptr %arrayidx76, align 4
   %cond82.v = select i1 %cmp64, float %8, float %7
   %cond82 = fmul float %div12, %cond82.v
-  %arrayidx85 = getelementptr inbounds i8, ptr %scaledAabbMin, i64 8
+  %arrayidx85 = getelementptr inbounds nuw i8, ptr %scaledAabbMin, i64 8
   store float %cond82, ptr %arrayidx85, align 4
-  %arrayidx88 = getelementptr inbounds i8, ptr %scaledAabbMin, i64 12
+  %arrayidx88 = getelementptr inbounds nuw i8, ptr %scaledAabbMin, i64 12
   store float 0.000000e+00, ptr %arrayidx88, align 4
   %cmp93 = fcmp ugt float %0, 0.000000e+00
   %cond111.v = select i1 %cmp93, float %4, float %3
@@ -149,19 +149,19 @@ entry:
   %cmp119 = fcmp ugt float %1, 0.000000e+00
   %cond137.v = select i1 %cmp119, float %6, float %5
   %cond137 = fmul float %div7, %cond137.v
-  %arrayidx140 = getelementptr inbounds i8, ptr %scaledAabbMax, i64 4
+  %arrayidx140 = getelementptr inbounds nuw i8, ptr %scaledAabbMax, i64 4
   store float %cond137, ptr %arrayidx140, align 4
   %cmp145 = fcmp ugt float %2, 0.000000e+00
   %cond163.v = select i1 %cmp145, float %8, float %7
   %cond163 = fmul float %div12, %cond163.v
-  %arrayidx166 = getelementptr inbounds i8, ptr %scaledAabbMax, i64 8
+  %arrayidx166 = getelementptr inbounds nuw i8, ptr %scaledAabbMax, i64 8
   store float %cond163, ptr %arrayidx166, align 4
-  %arrayidx169 = getelementptr inbounds i8, ptr %scaledAabbMax, i64 12
+  %arrayidx169 = getelementptr inbounds nuw i8, ptr %scaledAabbMax, i64 12
   store float 0.000000e+00, ptr %arrayidx169, align 4
-  %m_bvhTriMeshShape = getelementptr inbounds i8, ptr %this, i64 56
+  %m_bvhTriMeshShape = getelementptr inbounds nuw i8, ptr %this, i64 56
   %9 = load ptr, ptr %m_bvhTriMeshShape, align 8
   %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %10 = load ptr, ptr %vfn, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(109) %9, ptr noundef nonnull %scaledCallback, ptr noundef nonnull align 4 dereferenceable(16) %scaledAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %scaledAabbMax)
           to label %invoke.cont170 unwind label %lpad
@@ -189,27 +189,27 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK28btScaledBvhTriangleMeshShape7getAabbERK11btTransformR9btVector3S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMax) unnamed_addr #5 align 2 {
 entry:
-  %m_bvhTriMeshShape = getelementptr inbounds i8, ptr %this, i64 56
+  %m_bvhTriMeshShape = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_bvhTriMeshShape, align 8
-  %m_localAabbMin.i = getelementptr inbounds i8, ptr %0, i64 36
+  %m_localAabbMin.i = getelementptr inbounds nuw i8, ptr %0, i64 36
   %localAabbMin.sroa.0.0.copyload = load float, ptr %m_localAabbMin.i, align 4
-  %localAabbMin.sroa.5.0.m_localAabbMin.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %localAabbMin.sroa.5.0.m_localAabbMin.i.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %localAabbMin.sroa.5.0.copyload = load float, ptr %localAabbMin.sroa.5.0.m_localAabbMin.i.sroa_idx, align 4
-  %localAabbMin.sroa.9.0.m_localAabbMin.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 44
+  %localAabbMin.sroa.9.0.m_localAabbMin.i.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
   %localAabbMin.sroa.9.0.copyload = load float, ptr %localAabbMin.sroa.9.0.m_localAabbMin.i.sroa_idx, align 4
-  %m_localAabbMax.i = getelementptr inbounds i8, ptr %0, i64 52
+  %m_localAabbMax.i = getelementptr inbounds nuw i8, ptr %0, i64 52
   %localAabbMax.sroa.0.0.copyload = load float, ptr %m_localAabbMax.i, align 4
-  %localAabbMax.sroa.5.0.m_localAabbMax.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %localAabbMax.sroa.5.0.m_localAabbMax.i.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   %localAabbMax.sroa.5.0.copyload = load float, ptr %localAabbMax.sroa.5.0.m_localAabbMax.i.sroa_idx, align 4
-  %localAabbMax.sroa.9.0.m_localAabbMax.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 60
+  %localAabbMax.sroa.9.0.m_localAabbMax.i.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
   %localAabbMax.sroa.9.0.copyload = load float, ptr %localAabbMax.sroa.9.0.m_localAabbMax.i.sroa_idx, align 4
-  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
+  %m_localScaling = getelementptr inbounds nuw i8, ptr %this, i64 36
   %1 = load float, ptr %m_localScaling, align 4
   %mul.i = fmul float %localAabbMin.sroa.0.0.copyload, %1
-  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load float, ptr %arrayidx7.i, align 8
   %mul8.i = fmul float %localAabbMin.sroa.5.0.copyload, %2
-  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %this, i64 44
   %3 = load float, ptr %arrayidx13.i, align 4
   %mul14.i = fmul float %localAabbMin.sroa.9.0.copyload, %3
   %mul.i2 = fmul float %localAabbMax.sroa.0.0.copyload, %1
@@ -234,7 +234,7 @@ entry:
   %mul4.i.i = fmul float %sub8.i, 5.000000e-01
   %mul8.i.i = fmul float %sub14.i, 5.000000e-01
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
   %4 = load ptr, ptr %vfn, align 8
   %call91 = tail call noundef float %4(ptr noundef nonnull align 8 dereferenceable(36) %0)
   %add.i = fadd float %mul.i.i, %call91
@@ -248,28 +248,28 @@ entry:
   %mul8.i.i45 = fmul float %add14.i, 5.000000e-01
   %5 = load float, ptr %trans, align 4, !noalias !5
   %6 = tail call noundef float @llvm.fabs.f32(float %5)
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %trans, i64 4
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %trans, i64 4
   %7 = load float, ptr %arrayidx.i.i, align 4, !noalias !5
   %8 = tail call noundef float @llvm.fabs.f32(float %7)
-  %arrayidx.i1.i = getelementptr inbounds i8, ptr %trans, i64 8
+  %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %trans, i64 8
   %9 = load float, ptr %arrayidx.i1.i, align 4, !noalias !5
   %10 = tail call noundef float @llvm.fabs.f32(float %9)
-  %arrayidx15.i = getelementptr inbounds i8, ptr %trans, i64 16
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %trans, i64 16
   %11 = load float, ptr %arrayidx15.i, align 4, !noalias !5
   %12 = tail call noundef float @llvm.fabs.f32(float %11)
-  %arrayidx.i2.i = getelementptr inbounds i8, ptr %trans, i64 20
+  %arrayidx.i2.i = getelementptr inbounds nuw i8, ptr %trans, i64 20
   %13 = load float, ptr %arrayidx.i2.i, align 4, !noalias !5
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %trans, i64 24
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %trans, i64 24
   %15 = load float, ptr %arrayidx.i3.i, align 4, !noalias !5
   %16 = tail call noundef float @llvm.fabs.f32(float %15)
-  %arrayidx30.i = getelementptr inbounds i8, ptr %trans, i64 32
+  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %trans, i64 32
   %17 = load float, ptr %arrayidx30.i, align 4, !noalias !5
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
-  %arrayidx.i4.i = getelementptr inbounds i8, ptr %trans, i64 36
+  %arrayidx.i4.i = getelementptr inbounds nuw i8, ptr %trans, i64 36
   %19 = load float, ptr %arrayidx.i4.i, align 4, !noalias !5
   %20 = tail call noundef float @llvm.fabs.f32(float %19)
-  %arrayidx.i5.i = getelementptr inbounds i8, ptr %trans, i64 40
+  %arrayidx.i5.i = getelementptr inbounds nuw i8, ptr %trans, i64 40
   %21 = load float, ptr %arrayidx.i5.i, align 4, !noalias !5
   %22 = tail call noundef float @llvm.fabs.f32(float %21)
   %mul8.i.i.i = fmul float %mul4.i.i43, %7
@@ -281,13 +281,13 @@ entry:
   %mul8.i8.i.i = fmul float %mul4.i.i43, %19
   %27 = tail call float @llvm.fmuladd.f32(float %mul.i.i41, float %17, float %mul8.i8.i.i)
   %28 = tail call noundef float @llvm.fmuladd.f32(float %mul8.i.i45, float %21, float %27)
-  %m_origin.i = getelementptr inbounds i8, ptr %trans, i64 48
+  %m_origin.i = getelementptr inbounds nuw i8, ptr %trans, i64 48
   %29 = load float, ptr %m_origin.i, align 4
   %add.i.i = fadd float %24, %29
-  %arrayidx7.i.i54 = getelementptr inbounds i8, ptr %trans, i64 52
+  %arrayidx7.i.i54 = getelementptr inbounds nuw i8, ptr %trans, i64 52
   %30 = load float, ptr %arrayidx7.i.i54, align 4
   %add8.i.i = fadd float %26, %30
-  %arrayidx13.i.i = getelementptr inbounds i8, ptr %trans, i64 56
+  %arrayidx13.i.i = getelementptr inbounds nuw i8, ptr %trans, i64 56
   %31 = load float, ptr %arrayidx13.i.i, align 4
   %add14.i.i = fadd float %28, %31
   %mul8.i.i59 = fmul float %add8.i, %8
@@ -306,7 +306,7 @@ entry:
   %retval.sroa.0.4.vec.insert.i73 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i72, float %sub8.i68, i64 1
   %retval.sroa.3.12.vec.insert.i74 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i71, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i73, ptr %aabbMin, align 4
-  %ref.tmp108.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %aabbMin, i64 8
+  %ref.tmp108.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %aabbMin, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i74, ptr %ref.tmp108.sroa.2.0..sroa_idx, align 4
   %add.i77 = fadd float %33, %add.i.i
   %add8.i80 = fadd float %35, %add8.i.i
@@ -315,7 +315,7 @@ entry:
   %retval.sroa.0.4.vec.insert.i85 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i84, float %add8.i80, i64 1
   %retval.sroa.3.12.vec.insert.i86 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i83, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i85, ptr %aabbMax, align 4
-  %ref.tmp111.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %aabbMax, i64 8
+  %ref.tmp111.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %aabbMax, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i86, ptr %ref.tmp111.sroa.2.0..sroa_idx, align 4
   ret void
 }
@@ -323,7 +323,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN28btScaledBvhTriangleMeshShape15setLocalScalingERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((36, 52)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %scaling) unnamed_addr #6 align 2 {
 entry:
-  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
+  %m_localScaling = getelementptr inbounds nuw i8, ptr %this, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_localScaling, ptr noundef nonnull align 4 dereferenceable(16) %scaling, i64 16, i1 false)
   ret void
 }
@@ -331,7 +331,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZNK28btScaledBvhTriangleMeshShape15getLocalScalingEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
-  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
+  %m_localScaling = getelementptr inbounds nuw i8, ptr %this, i64 36
   ret ptr %m_localScaling
 }
 
@@ -362,7 +362,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14btConcaveShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(36) %this, float noundef %collisionMargin) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
+  %m_collisionMargin = getelementptr inbounds nuw i8, ptr %this, i64 32
   store float %collisionMargin, ptr %m_collisionMargin, align 8
   ret void
 }
@@ -370,7 +370,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK14btConcaveShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
+  %m_collisionMargin = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load float, ptr %m_collisionMargin, align 8
   ret float %0
 }
@@ -384,23 +384,23 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK28btScaledBvhTriangleMeshShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_bvhTriMeshShape = getelementptr inbounds i8, ptr %this, i64 56
+  %m_bvhTriMeshShape = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_bvhTriMeshShape, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(109) %0, ptr noundef %dataBuffer, ptr noundef %serializer)
-  %m_shapeType = getelementptr inbounds i8, ptr %dataBuffer, i64 8
+  %m_shapeType = getelementptr inbounds nuw i8, ptr %dataBuffer, i64 8
   store i32 22, ptr %m_shapeType, align 8
-  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
-  %m_localScaling3 = getelementptr inbounds i8, ptr %dataBuffer, i64 80
+  %m_localScaling = getelementptr inbounds nuw i8, ptr %this, i64 36
+  %m_localScaling3 = getelementptr inbounds nuw i8, ptr %dataBuffer, i64 80
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [4 x float], ptr %m_localScaling, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x float], ptr %m_localScaling, i64 0, i64 %indvars.iv.i
   %2 = load float, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds [4 x float], ptr %m_localScaling3, i64 0, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds nuw [4 x float], ptr %m_localScaling3, i64 0, i64 %indvars.iv.i
   store float %2, ptr %arrayidx4.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -438,62 +438,62 @@ entry:
 define linkonce_odr dso_local void @_ZN24btScaledTriangleCallback15processTriangleEP9btVector3ii(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %triangle, i32 noundef %partId, i32 noundef %triangleIndex) unnamed_addr #5 comdat align 2 {
 entry:
   %newTriangle = alloca [3 x %class.btVector3], align 16
-  %m_localScaling = getelementptr inbounds i8, ptr %this, i64 16
+  %m_localScaling = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load float, ptr %triangle, align 4
   %1 = load float, ptr %m_localScaling, align 8
   %mul.i = fmul float %0, %1
-  %arrayidx5.i = getelementptr inbounds i8, ptr %triangle, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %triangle, i64 4
   %2 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %3 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %2, %3
-  %arrayidx11.i = getelementptr inbounds i8, ptr %triangle, i64 8
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %triangle, i64 8
   %4 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load float, ptr %arrayidx13.i, align 8
   %mul14.i = fmul float %4, %5
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %mul8.i, i64 1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul14.i, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %newTriangle, align 16
-  %ref.tmp.sroa.2.0.arrayidx2.sroa_idx = getelementptr inbounds i8, ptr %newTriangle, i64 8
+  %ref.tmp.sroa.2.0.arrayidx2.sroa_idx = getelementptr inbounds nuw i8, ptr %newTriangle, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp.sroa.2.0.arrayidx2.sroa_idx, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %triangle, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %triangle, i64 16
   %6 = load float, ptr %arrayidx4, align 4
   %mul.i3 = fmul float %1, %6
-  %arrayidx5.i4 = getelementptr inbounds i8, ptr %triangle, i64 20
+  %arrayidx5.i4 = getelementptr inbounds nuw i8, ptr %triangle, i64 20
   %7 = load float, ptr %arrayidx5.i4, align 4
   %mul8.i6 = fmul float %3, %7
-  %arrayidx11.i7 = getelementptr inbounds i8, ptr %triangle, i64 24
+  %arrayidx11.i7 = getelementptr inbounds nuw i8, ptr %triangle, i64 24
   %8 = load float, ptr %arrayidx11.i7, align 4
   %mul14.i9 = fmul float %5, %8
   %retval.sroa.0.0.vec.insert.i10 = insertelement <2 x float> poison, float %mul.i3, i64 0
   %retval.sroa.0.4.vec.insert.i11 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i10, float %mul8.i6, i64 1
   %retval.sroa.3.12.vec.insert.i12 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul14.i9, i64 0
-  %arrayidx8 = getelementptr inbounds i8, ptr %newTriangle, i64 16
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %newTriangle, i64 16
   store <2 x float> %retval.sroa.0.4.vec.insert.i11, ptr %arrayidx8, align 16
-  %ref.tmp3.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %newTriangle, i64 24
+  %ref.tmp3.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %newTriangle, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i12, ptr %ref.tmp3.sroa.2.0.arrayidx8.sroa_idx, align 8
-  %arrayidx10 = getelementptr inbounds i8, ptr %triangle, i64 32
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %triangle, i64 32
   %9 = load float, ptr %arrayidx10, align 4
   %mul.i15 = fmul float %1, %9
-  %arrayidx5.i16 = getelementptr inbounds i8, ptr %triangle, i64 36
+  %arrayidx5.i16 = getelementptr inbounds nuw i8, ptr %triangle, i64 36
   %10 = load float, ptr %arrayidx5.i16, align 4
   %mul8.i18 = fmul float %3, %10
-  %arrayidx11.i19 = getelementptr inbounds i8, ptr %triangle, i64 40
+  %arrayidx11.i19 = getelementptr inbounds nuw i8, ptr %triangle, i64 40
   %11 = load float, ptr %arrayidx11.i19, align 4
   %mul14.i21 = fmul float %5, %11
   %retval.sroa.0.0.vec.insert.i22 = insertelement <2 x float> poison, float %mul.i15, i64 0
   %retval.sroa.0.4.vec.insert.i23 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i22, float %mul8.i18, i64 1
   %retval.sroa.3.12.vec.insert.i24 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul14.i21, i64 0
-  %arrayidx14 = getelementptr inbounds i8, ptr %newTriangle, i64 32
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %newTriangle, i64 32
   store <2 x float> %retval.sroa.0.4.vec.insert.i23, ptr %arrayidx14, align 16
-  %ref.tmp9.sroa.2.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %newTriangle, i64 40
+  %ref.tmp9.sroa.2.0.arrayidx14.sroa_idx = getelementptr inbounds nuw i8, ptr %newTriangle, i64 40
   store <2 x float> %retval.sroa.3.12.vec.insert.i24, ptr %ref.tmp9.sroa.2.0.arrayidx14.sroa_idx, align 8
-  %m_originalCallback = getelementptr inbounds i8, ptr %this, i64 8
+  %m_originalCallback = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %m_originalCallback, align 8
   %vtable = load ptr, ptr %12, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %newTriangle, i32 noundef %partId, i32 noundef %triangleIndex)
   ret void

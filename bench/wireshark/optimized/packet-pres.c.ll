@@ -471,13 +471,13 @@ define hidden ptr @find_oid_by_pres_ctx_id(ptr noundef %0, i32 noundef %1) local
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load i32, ptr %6, align 8
   br label %8
 
 8:                                                ; preds = %2, %5
   %.sink = phi i32 [ %7, %5 ], [ 0, %2 ]
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %.sink, ptr %9, align 8
   %10 = load ptr, ptr @pres_ctx_oid_table, align 8
   %11 = call ptr @wmem_map_lookup(ptr noundef %10, ptr noundef nonnull %3) #6
@@ -485,7 +485,7 @@ define hidden ptr @find_oid_by_pres_ctx_id(ptr noundef %0, i32 noundef %1) local
   br i1 %.not10, label %15, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
   br label %find_oid_in_users_table.exit
 
@@ -512,7 +512,7 @@ define hidden ptr @find_oid_by_pres_ctx_id(ptr noundef %0, i32 noundef %1) local
   br i1 %22, label %23, label %18
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %25 = load ptr, ptr %24, align 8
   call fastcc void @register_ctx_id_and_oid(ptr noundef %0, i32 noundef %1, ptr noundef %25)
   %26 = load ptr, ptr %24, align 8
@@ -579,7 +579,7 @@ declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr n
 define internal void @pres_users_oid_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #6
   store ptr %7, ptr %8, align 8
@@ -588,7 +588,7 @@ define internal void @pres_users_oid_set_cb(ptr nocapture noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @pres_users_oid_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -618,17 +618,17 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 define internal noundef ptr @pres_copy_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @g_strdup(ptr noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @pres_free_cb(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #6
   ret void
@@ -673,7 +673,7 @@ define internal i32 @dissect_pres(ptr noundef %0, ptr noundef %1, ptr noundef %2
 18:                                               ; preds = %.thread, %17
   %19 = load i8, ptr %3, align 4
   %20 = icmp eq i8 %19, 64
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   br i1 %20, label %23, label %35
 
@@ -711,7 +711,7 @@ define internal i32 @dissect_pres(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %38, label %39, label %.split.preheader
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %3, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %41 = load i8, ptr %40, align 2
   %42 = zext i8 %41 to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -721,13 +721,13 @@ define internal i32 @dissect_pres(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %47, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %43, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %46 = load i32, ptr %45, align 8
   br label %47
 
 47:                                               ; preds = %44, %39
   %.sink.i = phi i32 [ %46, %44 ], [ 0, %39 ]
-  %48 = getelementptr inbounds i8, ptr %6, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sink.i, ptr %48, align 8
   %49 = load ptr, ptr @pres_ctx_oid_table, align 8
   %50 = call ptr @wmem_map_lookup(ptr noundef %49, ptr noundef nonnull %6) #6
@@ -735,7 +735,7 @@ define internal i32 @dissect_pres(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not10.i, label %53, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %50, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   br label %find_oid_by_pres_ctx_id.exit
 
 53:                                               ; preds = %47
@@ -761,7 +761,7 @@ define internal i32 @dissect_pres(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %60, label %61, label %56
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %58, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %63 = load ptr, ptr %62, align 8
   call fastcc void @register_ctx_id_and_oid(ptr noundef %1, i32 noundef %42, ptr noundef %63)
   br label %find_oid_by_pres_ctx_id.exit
@@ -792,12 +792,12 @@ find_oid_by_pres_ctx_id.exit:                     ; preds = %51, %61
   br label %132
 
 .split.preheader:                                 ; preds = %35
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
-  %73 = getelementptr inbounds i8, ptr %5, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 48
   br label %.split
 
 .split.us:                                        ; preds = %17
-  %74 = getelementptr inbounds i8, ptr %1, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load ptr, ptr %74, align 8
   tail call void @col_set_str(ptr noundef %75, i32 noundef 34, ptr noundef nonnull @.str.180) #6
   %76 = load ptr, ptr %74, align 8
@@ -953,9 +953,9 @@ define internal range(i32 0, 2) i32 @pres_ctx_oid_equal(ptr nocapture noundef re
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %8, %10
   %12 = zext i1 %11 to i32
@@ -986,20 +986,20 @@ define internal fastcc void @register_ctx_id_and_oid(ptr noundef %0, i32 noundef
   store i32 %1, ptr %6, align 8
   %7 = tail call ptr @wmem_file_scope() #6
   %8 = tail call noalias ptr @wmem_strdup(ptr noundef %7, ptr noundef nonnull %2) #6
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @find_conversation_pinfo(ptr noundef %0, i32 noundef 0) #6
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %14, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %13 = load i32, ptr %12, align 8
   br label %14
 
 14:                                               ; preds = %4, %11
   %.sink = phi i32 [ %13, %11 ], [ 0, %4 ]
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.sink, ptr %15, align 8
   %16 = load ptr, ptr @pres_ctx_oid_table, align 8
   %17 = tail call ptr @wmem_map_lookup(ptr noundef %16, ptr noundef nonnull %6) #6
@@ -1107,7 +1107,7 @@ define internal i32 @dissect_pres_Context_list_item(i1 noundef zeroext %0, ptr n
   store ptr null, ptr @abstract_syntax_name_oid, align 8
   %7 = load i32, ptr @ett_pres_Context_list_item, align 4
   %8 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Context_list_item_sequence, i32 noundef %5, i32 noundef %7) #6
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @presentation_context_identifier, align 4
   %12 = load ptr, ptr @abstract_syntax_name_oid, align 8
@@ -1118,7 +1118,7 @@ define internal i32 @dissect_pres_Context_list_item(i1 noundef zeroext %0, ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pres_Presentation_context_identifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca %struct._pres_ctx_oid_t, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @presentation_context_identifier) #6
   %.not = icmp eq ptr %9, null
@@ -1127,12 +1127,12 @@ define internal i32 @dissect_pres_Presentation_context_identifier(i1 noundef zer
 11:                                               ; preds = %6
   %12 = load i32, ptr @presentation_context_identifier, align 4
   %13 = trunc i32 %12 to i8
-  %14 = getelementptr inbounds i8, ptr %9, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i8 %13, ptr %14, align 2
   br label %15
 
 15:                                               ; preds = %11, %6
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @presentation_context_identifier, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -1142,13 +1142,13 @@ define internal i32 @dissect_pres_Presentation_context_identifier(i1 noundef zer
   br i1 %.not.i, label %23, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %22 = load i32, ptr %21, align 8
   br label %23
 
 23:                                               ; preds = %20, %15
   %.sink.i = phi i32 [ %22, %20 ], [ 0, %15 ]
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %.sink.i, ptr %24, align 8
   %25 = load ptr, ptr @pres_ctx_oid_table, align 8
   %26 = call ptr @wmem_map_lookup(ptr noundef %25, ptr noundef nonnull %7) #6
@@ -1156,7 +1156,7 @@ define internal i32 @dissect_pres_Presentation_context_identifier(i1 noundef zer
   br i1 %.not10.i, label %29, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   br label %find_oid_by_pres_ctx_id.exit
 
 29:                                               ; preds = %23
@@ -1182,7 +1182,7 @@ define internal i32 @dissect_pres_Presentation_context_identifier(i1 noundef zer
   br i1 %36, label %37, label %32
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load ptr, ptr %38, align 8
   call fastcc void @register_ctx_id_and_oid(ptr noundef %17, i32 noundef %18, ptr noundef %39)
   br label %find_oid_by_pres_ctx_id.exit
@@ -1200,14 +1200,14 @@ find_oid_by_pres_ctx_id.exit:                     ; preds = %27, %37
 
 40:                                               ; preds = %find_oid_by_pres_ctx_id.exit
   %41 = load ptr, ptr %16, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr @oid_resolved_from_string(ptr noundef %43, ptr noundef nonnull %.0.i) #6
   %.not18 = icmp eq ptr %44, null
   br i1 %.not18, label %48, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %3, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %47 = load ptr, ptr %46, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.246, ptr noundef nonnull %44) #6
   br label %48
@@ -1277,7 +1277,7 @@ define internal i32 @dissect_pres_T_presentation_data_values(i1 zeroext %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_pres_T_single_ASN1_type(i1 zeroext %0, ptr noundef %1, i32 noundef returned %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca %struct._pres_ctx_oid_t, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @presentation_context_identifier, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -1287,13 +1287,13 @@ define internal noundef i32 @dissect_pres_T_single_ASN1_type(i1 zeroext %0, ptr 
   br i1 %.not.i, label %15, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load i32, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %12, %6
   %.sink.i = phi i32 [ %14, %12 ], [ 0, %6 ]
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %.sink.i, ptr %16, align 8
   %17 = load ptr, ptr @pres_ctx_oid_table, align 8
   %18 = call ptr @wmem_map_lookup(ptr noundef %17, ptr noundef nonnull %7) #6
@@ -1301,7 +1301,7 @@ define internal noundef i32 @dissect_pres_T_single_ASN1_type(i1 zeroext %0, ptr 
   br i1 %.not10.i, label %21, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %find_oid_by_pres_ctx_id.exit
 
 21:                                               ; preds = %15
@@ -1327,7 +1327,7 @@ define internal noundef i32 @dissect_pres_T_single_ASN1_type(i1 zeroext %0, ptr 
   br i1 %28, label %29, label %24
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = load ptr, ptr %30, align 8
   call fastcc void @register_ctx_id_and_oid(ptr noundef %9, i32 noundef %10, ptr noundef %31)
   br label %find_oid_by_pres_ctx_id.exit
@@ -1347,7 +1347,7 @@ find_oid_by_pres_ctx_id.exit:                     ; preds = %19, %29
   %33 = call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2) #6
   %34 = load ptr, ptr %8, align 8
   %35 = load ptr, ptr @global_tree, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 @call_ber_oid_callback(ptr noundef nonnull %.0.i, ptr noundef %33, i32 noundef %2, ptr noundef %34, ptr noundef %35, ptr noundef %37) #6
   br label %42
@@ -1365,7 +1365,7 @@ find_oid_by_pres_ctx_id.exit:                     ; preds = %19, %29
 define internal i32 @dissect_pres_T_octet_aligned(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca %struct._pres_ctx_oid_t, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @presentation_context_identifier, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -1375,13 +1375,13 @@ define internal i32 @dissect_pres_T_octet_aligned(i1 noundef zeroext %0, ptr nou
   br i1 %.not.i, label %16, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = load i32, ptr %14, align 8
   br label %16
 
 16:                                               ; preds = %13, %6
   %.sink.i = phi i32 [ %15, %13 ], [ 0, %6 ]
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %.sink.i, ptr %17, align 8
   %18 = load ptr, ptr @pres_ctx_oid_table, align 8
   %19 = call ptr @wmem_map_lookup(ptr noundef %18, ptr noundef nonnull %7) #6
@@ -1389,7 +1389,7 @@ define internal i32 @dissect_pres_T_octet_aligned(i1 noundef zeroext %0, ptr nou
   br i1 %.not10.i, label %22, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %find_oid_by_pres_ctx_id.exit
 
 22:                                               ; preds = %16
@@ -1415,7 +1415,7 @@ define internal i32 @dissect_pres_T_octet_aligned(i1 noundef zeroext %0, ptr nou
   br i1 %29, label %30, label %25
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = load ptr, ptr %31, align 8
   call fastcc void @register_ctx_id_and_oid(ptr noundef %10, i32 noundef %11, ptr noundef %32)
   br label %find_oid_by_pres_ctx_id.exit
@@ -1436,7 +1436,7 @@ find_oid_by_pres_ctx_id.exit:                     ; preds = %20, %30
   %35 = load ptr, ptr %8, align 8
   %36 = load ptr, ptr %9, align 8
   %37 = load ptr, ptr @global_tree, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 @call_ber_oid_callback(ptr noundef nonnull %.0.i, ptr noundef %35, i32 noundef %2, ptr noundef %36, ptr noundef %37, ptr noundef %39) #6
   br label %45
@@ -1607,9 +1607,9 @@ define internal i32 @dissect_pres_Presentation_context_identifier_list_item(i1 n
 define internal i32 @dissect_pres_Abort_reason(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #6
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %7, align 4
   %14 = call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @pres_Abort_reason_vals, ptr noundef nonnull @.str.249) #6

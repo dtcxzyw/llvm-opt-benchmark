@@ -73,24 +73,24 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN20ShenandoahHeuristics18compare_b
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahHeuristicsC2EP19ShenandoahSpaceInfo(ptr noundef nonnull align 8 dereferenceable(193) initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV20ShenandoahHeuristics, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = tail call noundef double @_ZN2os11elapsedTimeEv() #14
   store double %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 72, i8 noundef zeroext 9, i32 noundef 0) #14
   %10 = load double, ptr @ShenandoahAdaptiveDecayFactor, align 8
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %9, i32 noundef 10, double noundef %10) #14
   store ptr %9, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %11) #14, !srcloc !6
   %13 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 544
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 544
   %15 = load i64, ptr %14, align 8
   %16 = shl i64 %15, 4
   %17 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %16, i8 noundef zeroext 5, i32 noundef 0) #14
@@ -107,7 +107,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahHeuristicsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(193) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV20ShenandoahHeuristics, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #14
   ret void
@@ -127,15 +127,15 @@ declare void @llvm.trap() #4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahHeuristics21choose_collection_setEP23ShenandoahCollectionSet(ptr noundef nonnull align 8 dereferenceable(193) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 544
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 544
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not123 = icmp eq i64 %5, 0
   br i1 %.not123, label %.thread, label %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph
 
 _ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph:    ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 552
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 552
   br label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit.lr.ph, %46
@@ -150,19 +150,19 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.073113
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %15 to i64
-  %20 = getelementptr inbounds i8, ptr %13, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %21 = load volatile i64, ptr %20, align 8
   %22 = shl i64 %21, 3
   %23 = add i64 %22, %19
   %24 = sub i64 %18, %23
   %25 = add i64 %24, %.064118
-  %26 = getelementptr inbounds i8, ptr %13, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %27 = load i32, ptr %26, align 8
   %spec.select.i = icmp ult i32 %27, 2
   br i1 %spec.select.i, label %28, label %31
@@ -193,7 +193,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
 36:                                               ; preds = %32
   %37 = getelementptr inbounds %"struct.ShenandoahHeuristics::RegionData", ptr %7, i64 %.0119
   store ptr %13, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %24, ptr %38, align 8
   %39 = add i64 %.0119, 1
   br label %46
@@ -245,7 +245,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
   br i1 %53, label %.thread92, label %.thread91
 
 .thread92:                                        ; preds = %.thread
-  %58 = getelementptr inbounds i8, ptr %1, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %.065.lcssa129
   br label %69
@@ -254,7 +254,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
   %.064.lcssa132 = phi i64 [ %.064.lcssa133, %.thread ], [ %25, %49 ]
   %.065.lcssa131 = phi i64 [ %.065.lcssa129, %.thread ], [ %.166, %49 ]
   %61 = phi i64 [ %54, %.thread ], [ %51, %49 ]
-  %62 = getelementptr inbounds i8, ptr %1, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %63 = load i64, ptr %62, align 8
   %64 = mul i64 %63, 100
   %65 = udiv i64 %64, %.064.lcssa132
@@ -270,7 +270,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
   %72 = phi i64 [ %65, %.thread91 ], [ 0, %.thread92 ]
   %73 = phi i64 [ %61, %.thread91 ], [ %54, %.thread92 ]
   %74 = phi i64 [ %68, %.thread91 ], [ 0, %.thread92 ]
-  %75 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %75 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not108 = icmp eq ptr %75, null
   br i1 %.not108, label %101, label %76
 
@@ -373,7 +373,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahHeuristics18record_cycle_startEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(193) initializes((24, 32)) %0) unnamed_addr #1 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %2, ptr %3, align 8
   ret void
 }
@@ -381,21 +381,21 @@ define hidden void @_ZN20ShenandoahHeuristics18record_cycle_startEv(ptr nocaptur
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahHeuristics16record_cycle_endEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(193) initializes((32, 40)) %0) unnamed_addr #1 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %2, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics15should_start_gcEv(ptr noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load volatile i8, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   %4 = icmp eq i8 %3, 1
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not6 = icmp eq ptr %6, null
   br i1 %.not6, label %23, label %7
 
@@ -411,7 +411,7 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics15should_start_gcEv(p
 
 11:                                               ; preds = %9
   %12 = tail call noundef double @_ZN2os11elapsedTimeEv() #14
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load double, ptr %13, align 8
   %15 = fsub double %12, %14
   %16 = fmul double %15, 1.000000e+03
@@ -421,7 +421,7 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics15should_start_gcEv(p
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %11
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %21 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not5 = icmp eq ptr %21, null
   br i1 %.not5, label %23, label %22
 
@@ -448,9 +448,9 @@ declare noundef ptr @_ZN7GCCause9to_stringENS_5CauseE(i32 noundef) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics23should_degenerate_cycleEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1632
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1632
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = load i64, ptr @ShenandoahFullGCThreshold, align 8
@@ -460,7 +460,7 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics23should_degenerate_c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN20ShenandoahHeuristics14adjust_penaltyEl(ptr nocapture noundef nonnull align 8 dereferenceable(193) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, %1
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
@@ -471,21 +471,21 @@ define hidden void @_ZN20ShenandoahHeuristics14adjust_penaltyEl(ptr nocapture no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahHeuristics25record_success_concurrentEv(ptr nocapture noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef double @_ZN2os11elapsedTimeEv() #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load double, ptr %5, align 8
   %7 = fsub double %4, %6
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(72) %3, double noundef %7) #14
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, 1
   store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i64, ptr %14, align 8
   %16 = tail call i64 @llvm.smax.i64(i64 %15, i64 1)
   %spec.store.select.i = add nsw i64 %16, -1
@@ -497,7 +497,7 @@ define hidden void @_ZN20ShenandoahHeuristics25record_success_concurrentEv(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK20ShenandoahHeuristics18time_since_last_gcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(193) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load double, ptr %3, align 8
   %5 = fsub double %2, %4
   ret double %5
@@ -505,7 +505,7 @@ define hidden noundef double @_ZNK20ShenandoahHeuristics18time_since_last_gcEv(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN20ShenandoahHeuristics26record_success_degeneratedEv(ptr nocapture noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @llvm.smax.i64(i64 %3, i64 -10)
   %spec.store.select.i = add nsw i64 %4, 10
@@ -516,7 +516,7 @@ define hidden void @_ZN20ShenandoahHeuristics26record_success_degeneratedEv(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN20ShenandoahHeuristics19record_success_fullEv(ptr nocapture noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @llvm.smax.i64(i64 %3, i64 -20)
   %spec.store.select.i = add nsw i64 %4, 20
@@ -532,7 +532,7 @@ define hidden void @_ZN20ShenandoahHeuristics28record_allocation_failure_gcEv(pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN20ShenandoahHeuristics19record_requested_gcEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(193) initializes((40, 48)) %0) unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %2, align 8
   ret void
 }
@@ -547,13 +547,13 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics18can_unload_classesE
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics21should_unload_classesEv(ptr noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(193) %0) #14
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load volatile i8, ptr %7, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   %9 = icmp eq i8 %8, 1

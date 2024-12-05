@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN11DwarfParser8read_lebEb(ptr nocapture noundef nonnull align 8 dereferenceable(61) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted = load ptr, ptr %3, align 8
   br label %4
 
@@ -16,7 +16,7 @@ define hidden noundef i64 @_ZN11DwarfParser8read_lebEb(ptr nocapture noundef non
   %5 = phi ptr [ %.promoted, %2 ], [ %6, %4 ]
   %.013 = phi i64 [ 0, %2 ], [ %12, %4 ]
   %.0 = phi i32 [ 0, %2 ], [ %13, %4 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %6, ptr %3, align 8
   %7 = load i8, ptr %5, align 1
   %8 = and i8 %7, 127
@@ -43,18 +43,18 @@ define hidden noundef i64 @_ZN11DwarfParser8read_lebEb(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN11DwarfParser16get_entry_lengthEv(ptr nocapture noundef nonnull align 8 dereferenceable(61) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store ptr %6, ptr %2, align 8
   %7 = icmp eq i32 %4, -1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
   %9 = load i64, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store ptr %10, ptr %2, align 8
   br label %11
 
@@ -65,7 +65,7 @@ define hidden noundef i64 @_ZN11DwarfParser16get_entry_lengthEv(ptr nocapture no
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN11DwarfParser11process_cieEPhj(ptr nocapture noundef nonnull align 8 dereferenceable(61) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %2 to i64
   %7 = sub nsw i64 0, %6
@@ -73,14 +73,14 @@ define hidden noundef zeroext i1 @_ZN11DwarfParser11process_cieEPhj(ptr nocaptur
   store ptr %8, ptr %4, align 8
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %8, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store ptr %11, ptr %4, align 8
   %12 = icmp eq i32 %9, -1
   br i1 %12, label %13, label %_ZN11DwarfParser16get_entry_lengthEv.exit
 
 13:                                               ; preds = %3
   %14 = load i64, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store ptr %15, ptr %4, align 8
   br label %_ZN11DwarfParser16get_entry_lengthEv.exit
 
@@ -92,7 +92,7 @@ _ZN11DwarfParser16get_entry_lengthEv.exit:        ; preds = %3, %13
 
 sub_0:                                            ; preds = %_ZN11DwarfParser16get_entry_lengthEv.exit
   %18 = getelementptr inbounds i8, ptr %16, i64 %.0.i
-  %19 = getelementptr inbounds i8, ptr %16, i64 5
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 5
   store ptr %19, ptr %4, align 8
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
@@ -101,7 +101,7 @@ sub_0:                                            ; preds = %_ZN11DwarfParser16g
   br i1 %.not35, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %23 = getelementptr inbounds i8, ptr %16, i64 6
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = sub nsw i32 104, %25
@@ -109,7 +109,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not36, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %27 = getelementptr inbounds i8, ptr %16, i64 7
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = sub nsw i32 0, %29
@@ -128,7 +128,7 @@ sub_2:                                            ; preds = %sub_1
   %36 = phi ptr [ %spec.select, %.tail ], [ %37, %35 ]
   %.013.i = phi i64 [ 0, %.tail ], [ %43, %35 ]
   %.0.i14 = phi i32 [ 0, %.tail ], [ %44, %35 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %37, ptr %4, align 8
   %38 = load i8, ptr %36, align 1
   %39 = and i8 %38, 127
@@ -142,7 +142,7 @@ sub_2:                                            ; preds = %sub_1
 
 _ZN11DwarfParser8read_lebEb.exit:                 ; preds = %35
   %46 = trunc i64 %43 to i32
-  %47 = getelementptr inbounds i8, ptr %0, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %46, ptr %47, align 4
   br label %48
 
@@ -150,7 +150,7 @@ _ZN11DwarfParser8read_lebEb.exit:                 ; preds = %35
   %49 = phi ptr [ %37, %_ZN11DwarfParser8read_lebEb.exit ], [ %50, %48 ]
   %.013.i16 = phi i64 [ 0, %_ZN11DwarfParser8read_lebEb.exit ], [ %56, %48 ]
   %.0.i17 = phi i32 [ 0, %_ZN11DwarfParser8read_lebEb.exit ], [ %57, %48 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %50, ptr %4, align 8
   %51 = load i8, ptr %49, align 1
   %52 = and i8 %51, 127
@@ -171,13 +171,13 @@ _ZN11DwarfParser8read_lebEb.exit19:               ; preds = %48
   %62 = select i1 %or.cond15.i, i64 0, i64 %61
   %.1.i = or i64 %56, %62
   %63 = trunc i64 %.1.i to i32
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %49, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %49, i64 2
   store ptr %65, ptr %4, align 8
   %66 = load i8, ptr %50, align 1
   %67 = zext i8 %66 to i32
-  %68 = getelementptr inbounds i8, ptr %0, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %67, ptr %68, align 8
   %69 = tail call noundef ptr @strpbrk(ptr noundef nonnull %19, ptr noundef nonnull @.str.1) #6
   %.not = icmp eq ptr %69, null
@@ -190,27 +190,27 @@ _ZN11DwarfParser8read_lebEb.exit19:               ; preds = %48
 
 .preheader:                                       ; preds = %70, %.preheader
   %72 = phi ptr [ %73, %.preheader ], [ %65, %70 ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   store ptr %73, ptr %4, align 8
   %74 = load i8, ptr %72, align 1
   %75 = icmp sgt i8 %74, -1
   br i1 %75, label %_ZN11DwarfParser8read_lebEb.exit26, label %.preheader, !llvm.loop !6
 
 _ZN11DwarfParser8read_lebEb.exit26:               ; preds = %.preheader
-  %76 = getelementptr inbounds i8, ptr %72, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 2
   store ptr %76, ptr %4, align 8
   %77 = load i8, ptr %73, align 1
-  %78 = getelementptr inbounds i8, ptr %0, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %77, ptr %78, align 8
   br label %79
 
 79:                                               ; preds = %70, %_ZN11DwarfParser8read_lebEb.exit26
-  %80 = getelementptr inbounds i8, ptr %0, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 20
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 7, ptr %81, align 4
   store i32 16, ptr %68, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %82, i8 0, i64 13, i1 false)
   tail call void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr noundef nonnull align 8 dereferenceable(61) %0, i64 noundef 0, i64 noundef -1, ptr noundef nonnull %18)
   store ptr %5, ptr %4, align 8
@@ -232,9 +232,9 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr nocapture noundef nonnull align 8 dereferenceable(61) initializes((40, 48)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readnone %3) local_unnamed_addr #2 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted = load ptr, ptr %6, align 8
   %7 = icmp ult ptr %.promoted, %3
   %8 = icmp ult i64 %1, %2
@@ -242,23 +242,23 @@ define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr nocaptu
   br i1 %or.cond82, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = getelementptr inbounds i8, ptr %0, i64 52
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 60
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i8, ptr %18, align 8
   %20 = and i8 %19, 7
   %21 = and i8 %19, 112
   %22 = icmp eq i8 %21, 16
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4392
-  %25 = getelementptr inbounds i8, ptr %23, i64 4400
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4392
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 4400
   %spec.select113 = select i1 %22, i64 2, i64 4
   br label %26
 
@@ -269,7 +269,7 @@ define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr nocaptu
   %.02683 = phi i32 [ 0, %.lr.ph ], [ %.127, %149 ]
   %27 = phi ptr [ %.promoted, %.lr.ph ], [ %151, %149 ]
   %28 = phi i64 [ %1, %.lr.ph ], [ %150, %149 ]
-  %29 = getelementptr inbounds i8, ptr %27, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %29, ptr %6, align 8
   %30 = load i8, ptr %27, align 1
   %31 = and i8 %30, 63
@@ -328,7 +328,7 @@ define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr nocaptu
 .thread21.i:                                      ; preds = %.thread21.i.sink.split, %.thread14.i
   %.19.i = phi i64 [ 4, %.thread14.i ], [ %.19.i.ph, %.thread21.i.sink.split ]
   %.1.i = phi i64 [ %39, %.thread14.i ], [ %46, %.thread21.i.sink.split ]
-  %47 = getelementptr inbounds i8, ptr %29, i64 %.19.i
+  %47 = getelementptr inbounds nuw i8, ptr %29, i64 %.19.i
   store ptr %47, ptr %6, align 8
   %48 = and i64 %.1.i, 4294967295
   br label %_ZN11DwarfParser17get_decoded_valueEv.exit
@@ -347,7 +347,7 @@ _ZN11DwarfParser17get_decoded_valueEv.exit:       ; preds = %33, %.thread21.i
   %51 = phi ptr [ %52, %.preheader ], [ %29, %26 ]
   %.013.i = phi i64 [ %58, %.preheader ], [ 0, %26 ]
   %.0.i = phi i32 [ %59, %.preheader ], [ 0, %26 ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
   store ptr %52, ptr %6, align 8
   %53 = load i8, ptr %51, align 1
   %54 = and i8 %53, 127
@@ -368,7 +368,7 @@ _ZN11DwarfParser8read_lebEb.exit:                 ; preds = %.preheader
   %63 = phi ptr [ %52, %_ZN11DwarfParser8read_lebEb.exit ], [ %64, %62 ]
   %.013.i44 = phi i64 [ 0, %_ZN11DwarfParser8read_lebEb.exit ], [ %70, %62 ]
   %.0.i45 = phi i32 [ 0, %_ZN11DwarfParser8read_lebEb.exit ], [ %71, %62 ]
-  %64 = getelementptr inbounds i8, ptr %63, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store ptr %64, ptr %6, align 8
   %65 = load i8, ptr %63, align 1
   %66 = and i8 %65, 127
@@ -389,7 +389,7 @@ _ZN11DwarfParser8read_lebEb.exit48:               ; preds = %62
   %74 = phi ptr [ %75, %.preheader69 ], [ %29, %26 ]
   %.013.i50 = phi i64 [ %81, %.preheader69 ], [ 0, %26 ]
   %.0.i51 = phi i32 [ %82, %.preheader69 ], [ 0, %26 ]
-  %75 = getelementptr inbounds i8, ptr %74, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
   store ptr %75, ptr %6, align 8
   %76 = load i8, ptr %74, align 1
   %77 = and i8 %76, 127
@@ -424,7 +424,7 @@ _ZN11DwarfParser8read_lebEb.exit54:               ; preds = %.preheader69
   %90 = phi ptr [ %91, %.preheader70 ], [ %29, %26 ]
   %.013.i56 = phi i64 [ %97, %.preheader70 ], [ 0, %26 ]
   %.0.i57 = phi i32 [ %98, %.preheader70 ], [ 0, %26 ]
-  %91 = getelementptr inbounds i8, ptr %90, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1
   store ptr %91, ptr %6, align 8
   %92 = load i8, ptr %90, align 1
   %93 = and i8 %92, 127
@@ -454,7 +454,7 @@ _ZN11DwarfParser8read_lebEb.exit60:               ; preds = %.preheader70
   br label %149
 
 107:                                              ; preds = %26
-  %108 = getelementptr inbounds i8, ptr %27, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %27, i64 2
   store ptr %108, ptr %6, align 8
   %.not38 = icmp eq i64 %28, 0
   br i1 %.not38, label %149, label %109
@@ -470,7 +470,7 @@ _ZN11DwarfParser8read_lebEb.exit60:               ; preds = %.preheader70
 
 115:                                              ; preds = %26
   %116 = load i16, ptr %29, align 2
-  %117 = getelementptr inbounds i8, ptr %27, i64 3
+  %117 = getelementptr inbounds nuw i8, ptr %27, i64 3
   store ptr %117, ptr %6, align 8
   %.not37 = icmp eq i64 %28, 0
   br i1 %.not37, label %149, label %118
@@ -485,7 +485,7 @@ _ZN11DwarfParser8read_lebEb.exit60:               ; preds = %.preheader70
 
 123:                                              ; preds = %26
   %124 = load i32, ptr %29, align 4
-  %125 = getelementptr inbounds i8, ptr %27, i64 5
+  %125 = getelementptr inbounds nuw i8, ptr %27, i64 5
   store ptr %125, ptr %6, align 8
   %.not36 = icmp eq i64 %28, 0
   br i1 %.not36, label %149, label %126
@@ -501,7 +501,7 @@ _ZN11DwarfParser8read_lebEb.exit60:               ; preds = %.preheader70
   %130 = phi ptr [ %131, %.preheader71 ], [ %29, %26 ]
   %.013.i62 = phi i64 [ %137, %.preheader71 ], [ 0, %26 ]
   %.0.i63 = phi i32 [ %138, %.preheader71 ], [ 0, %26 ]
-  %131 = getelementptr inbounds i8, ptr %130, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 1
   store ptr %131, ptr %6, align 8
   %132 = load i8, ptr %130, align 1
   %133 = and i8 %132, 127
@@ -555,7 +555,7 @@ _ZN11DwarfParser8read_lebEb.exit66:               ; preds = %.preheader71
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN11DwarfParser17get_decoded_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(61) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 7
   switch i8 %4, label %57 [
@@ -566,13 +566,13 @@ define hidden noundef i32 @_ZN11DwarfParser17get_decoded_valueEv(ptr nocapture n
   ]
 
 5:                                                ; preds = %1, %1
-  %.0.ph.in.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.0.ph.in.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0.ph.in = load ptr, ptr %.0.ph.in.in, align 8
   %.0.ph = load i64, ptr %.0.ph.in, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4392
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4392
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 4400
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4400
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %.0.ph.in to i64
   %12 = ptrtoint ptr %10 to i64
@@ -582,7 +582,7 @@ define hidden noundef i32 @_ZN11DwarfParser17get_decoded_valueEv(ptr nocapture n
   br label %.thread21
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
@@ -591,7 +591,7 @@ define hidden noundef i32 @_ZN11DwarfParser17get_decoded_valueEv(ptr nocapture n
   br i1 %22, label %29, label %41
 
 .thread14:                                        ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
@@ -604,9 +604,9 @@ define hidden noundef i32 @_ZN11DwarfParser17get_decoded_valueEv(ptr nocapture n
   %.019 = phi i64 [ %26, %.thread14 ], [ %20, %16 ]
   %.0817 = phi i64 [ 4, %.thread14 ], [ 2, %16 ]
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 4392
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4392
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 4400
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 4400
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %30 to i64
   %37 = ptrtoint ptr %35 to i64
@@ -618,9 +618,9 @@ define hidden noundef i32 @_ZN11DwarfParser17get_decoded_valueEv(ptr nocapture n
 41:                                               ; preds = %16
   %42 = zext i32 %19 to i64
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 4392
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4392
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 4400
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 4400
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %18 to i64
   %49 = ptrtoint ptr %47 to i64
@@ -633,8 +633,8 @@ define hidden noundef i32 @_ZN11DwarfParser17get_decoded_valueEv(ptr nocapture n
   %53 = phi ptr [ %.0.ph.in, %5 ], [ %30, %29 ], [ %18, %41 ], [ %24, %.thread14 ]
   %.19 = phi i64 [ 4, %5 ], [ %.0817, %29 ], [ 4, %41 ], [ 4, %.thread14 ]
   %.1 = phi i64 [ %15, %5 ], [ %40, %29 ], [ %52, %41 ], [ %26, %.thread14 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 %.19
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %.19
   store ptr %55, ptr %54, align 8
   %56 = trunc i64 %.1 to i32
   br label %57
@@ -648,7 +648,7 @@ declare void @print_debug(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN11DwarfParser12get_pc_rangeEv(ptr nocapture noundef nonnull align 8 dereferenceable(61) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 7
   switch i8 %4, label %28 [
@@ -659,27 +659,27 @@ define hidden noundef i32 @_ZN11DwarfParser12get_pc_rangeEv(ptr nocapture nounde
   ]
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
   br label %23
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
   br label %23
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
   br label %23
 
 19:                                               ; preds = %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %21, align 8
   br label %23
@@ -687,8 +687,8 @@ define hidden noundef i32 @_ZN11DwarfParser12get_pc_rangeEv(ptr nocapture nounde
 23:                                               ; preds = %19, %14, %9, %5
   %24 = phi ptr [ %21, %19 ], [ %16, %14 ], [ %11, %9 ], [ %7, %5 ]
   %.0 = phi i64 [ %22, %19 ], [ %18, %14 ], [ %13, %9 ], [ %8, %5 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store ptr %26, ptr %25, align 8
   %27 = trunc i64 %.0 to i32
   br label %28
@@ -701,11 +701,11 @@ define hidden noundef i32 @_ZN11DwarfParser12get_pc_rangeEv(ptr nocapture nounde
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN11DwarfParser13process_dwarfEm(ptr nocapture noundef nonnull align 8 dereferenceable(61) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4400
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4400
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 4408
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4408
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %5, i64 %9
@@ -713,13 +713,13 @@ define hidden noundef zeroext i1 @_ZN11DwarfParser13process_dwarfEm(ptr nocaptur
   br i1 %.not35, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = and i8 %12, 7
   %14 = and i8 %12, 112
   %15 = icmp eq i8 %14, 16
-  %16 = getelementptr inbounds i8, ptr %3, i64 4392
-  %17 = getelementptr inbounds i8, ptr %3, i64 4384
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4392
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4384
   %spec.select = select i1 %15, i64 2, i64 4
   br label %18
 
@@ -727,14 +727,14 @@ define hidden noundef zeroext i1 @_ZN11DwarfParser13process_dwarfEm(ptr nocaptur
   %19 = phi ptr [ %5, %.lr.ph ], [ %30, %82 ]
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %19, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store ptr %22, ptr %6, align 8
   %23 = icmp eq i32 %20, -1
   br i1 %23, label %24, label %_ZN11DwarfParser16get_entry_lengthEv.exit
 
 24:                                               ; preds = %18
   %25 = load i64, ptr %22, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store ptr %26, ptr %6, align 8
   br label %_ZN11DwarfParser16get_entry_lengthEv.exit
 
@@ -747,7 +747,7 @@ _ZN11DwarfParser16get_entry_lengthEv.exit:        ; preds = %18, %24
 29:                                               ; preds = %_ZN11DwarfParser16get_entry_lengthEv.exit
   %30 = getelementptr inbounds i8, ptr %27, i64 %.0.i
   %31 = load i32, ptr %27, align 4
-  %32 = getelementptr inbounds i8, ptr %27, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store ptr %32, ptr %6, align 8
   %.not21 = icmp eq i32 %31, 0
   br i1 %.not21, label %82, label %33
@@ -789,7 +789,7 @@ _ZN11DwarfParser16get_entry_lengthEv.exit:        ; preds = %18, %24
 .thread21.i:                                      ; preds = %.thread21.i.sink.split, %.thread14.i
   %.19.i = phi i64 [ 4, %.thread14.i ], [ %.19.i.ph, %.thread21.i.sink.split ]
   %.1.i = phi i64 [ %39, %.thread14.i ], [ %46, %.thread21.i.sink.split ]
-  %47 = getelementptr inbounds i8, ptr %32, i64 %.19.i
+  %47 = getelementptr inbounds nuw i8, ptr %32, i64 %.19.i
   store ptr %47, ptr %6, align 8
   %48 = and i64 %.1.i, 4294967295
   br label %_ZN11DwarfParser17get_decoded_valueEv.exit
@@ -826,7 +826,7 @@ _ZN11DwarfParser17get_decoded_valueEv.exit:       ; preds = %33, %.thread21.i
 
 62:                                               ; preds = %60, %57, %54, %52
   %.0.i25 = phi i64 [ %61, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %52 ]
-  %63 = getelementptr inbounds i8, ptr %49, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store ptr %63, ptr %6, align 8
   %64 = and i64 %.0.i25, 4294967295
   br label %_ZN11DwarfParser12get_pc_rangeEv.exit
@@ -851,7 +851,7 @@ _ZN11DwarfParser12get_pc_rangeEv.exit:            ; preds = %_ZN11DwarfParser17g
   %71 = phi ptr [ %.promoted.i, %69 ], [ %72, %70 ]
   %.013.i = phi i64 [ 0, %69 ], [ %78, %70 ]
   %.0.i26 = phi i32 [ 0, %69 ], [ %79, %70 ]
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   store ptr %72, ptr %6, align 8
   %73 = load i8, ptr %71, align 1
   %74 = and i8 %73, 127

@@ -204,7 +204,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(250) %out, i8 0, i64 250, i1 false)
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.21, ptr noundef nonnull %sz) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx2 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp3) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx2, ptr noundef nonnull align 8 dereferenceable(40) %tmp3, i64 40, i1 false)
   %call5 = call i32 @EVP_MD_CTX_set_params(ptr noundef %call, ptr noundef nonnull %params) #4
@@ -246,7 +246,7 @@ lor.lhs.false22:                                  ; preds = %lor.lhs.false18
 lor.lhs.false28:                                  ; preds = %lor.lhs.false22
   %3 = load i32, ptr %digest_length, align 4
   %idxprom = zext i32 %3 to i64
-  %arrayidx29 = getelementptr inbounds [250 x i8], ptr %out, i64 0, i64 %idxprom
+  %arrayidx29 = getelementptr inbounds nuw [250 x i8], ptr %out, i64 0, i64 %idxprom
   %4 = load i8, ptr %arrayidx29, align 1
   %call30 = call i32 @test_uchar_eq(ptr noundef nonnull @.str.7, i32 noundef 252, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, i8 noundef zeroext %4, i8 noundef zeroext 0) #4
   %tobool31.not = icmp ne i32 %call30, 0
@@ -294,7 +294,7 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %cmp6 = icmp ugt i64 %add5, 684
   %sub = sub nuw nsw i64 684, %i.017
   %spec.select = select i1 %cmp6, i64 %sub, i64 %add
-  %add.ptr = getelementptr inbounds i8, ptr @shake256_largemsg_input, i64 %i.017
+  %add.ptr = getelementptr inbounds nuw i8, ptr @shake256_largemsg_input, i64 %i.017
   %call9 = call i32 @EVP_DigestUpdate(ptr noundef %call, ptr noundef nonnull %add.ptr, i64 noundef %spec.select) #4
   %cmp10 = icmp ne i32 %call9, 0
   %conv = zext i1 %cmp10 to i32
@@ -449,7 +449,7 @@ while.body.i:                                     ; preds = %if.end6.i, %if.end3
   %cmp14.i = icmp samesign ugt i64 %add.i, 1000
   %sub.i = sub nuw nsw i64 1000, %i.04.i
   %spec.select.i = select i1 %cmp14.i, i64 %sub.i, i64 %sz.05.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 %i.04.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 %i.04.i
   %call18.i = call i32 @EVP_DigestSqueeze(ptr noundef %cur.02.i, ptr noundef %add.ptr.i, i64 noundef %spec.select.i) #4
   %cmp19.i = icmp ne i32 %call18.i, 0
   %conv20.i = zext i1 %cmp19.i to i32
@@ -605,7 +605,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool9.not, label %err, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end6
-  %incsz = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %incsz = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end24

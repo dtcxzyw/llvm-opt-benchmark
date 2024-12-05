@@ -95,13 +95,13 @@ if.end.i:                                         ; preds = %if.end5
 
 if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call ptr @gpr_malloc(i64 noundef %received_bytes_size)
-  %unused_bytes.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %unused_bytes.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr %call3.i, ptr %unused_bytes.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call3.i, ptr readonly align 1 %received_bytes, i64 %received_bytes_size, i1 false)
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i
-  %unused_bytes_size.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %unused_bytes_size.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store i64 %received_bytes_size, ptr %unused_bytes_size.i, align 8
   store ptr @_ZN12_GLOBAL__N_113result_vtableE, ptr %call.i.i, align 8
   store ptr %call.i.i, ptr %result, align 8
@@ -151,10 +151,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %unused_bytes_size = getelementptr inbounds i8, ptr %self, i64 16
+  %unused_bytes_size = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %unused_bytes_size, align 8
   store i64 %0, ptr %bytes_size, align 8
-  %unused_bytes = getelementptr inbounds i8, ptr %self, i64 8
+  %unused_bytes = getelementptr inbounds nuw i8, ptr %self, i64 8
   %1 = load ptr, ptr %unused_bytes, align 8
   store ptr %1, ptr %bytes, align 8
   br label %return
@@ -171,7 +171,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %unused_bytes = getelementptr inbounds i8, ptr %self, i64 8
+  %unused_bytes = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load ptr, ptr %unused_bytes, align 8
   tail call void @gpr_free(ptr noundef %0)
   tail call void @gpr_free(ptr noundef nonnull %self)

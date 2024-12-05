@@ -40,20 +40,20 @@ define internal range(i32 0, 57) i32 @rpm_bidder_bid(ptr nocapture readnone %0, 
   br i1 %.not, label %7, label %16
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = load i8, ptr %8, align 1
   %.off = add i8 %9, -3
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %10, label %16
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %12 = load i8, ptr %11, align 1
   %.not18 = icmp eq i8 %12, 0
   br i1 %.not18, label %13, label %16
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 7
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 7
   %15 = load i8, ptr %14, align 1
   %switch21 = icmp ult i8 %15, 2
   %spec.select = select i1 %switch21, i32 56, i32 0
@@ -66,24 +66,24 @@ define internal range(i32 0, 57) i32 @rpm_bidder_bid(ptr nocapture readnone %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @rpm_bidder_init(ptr nocapture noundef initializes((48, 60)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 8, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @.str, ptr %3, align 8
   %4 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 48, i64 noundef 1) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %8, i32 noundef 12, ptr noundef nonnull @.str.2) #9
   br label %12
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @rpm_reader_vtable, ptr %11, align 8
   br label %12
 
@@ -102,27 +102,27 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 ; Function Attrs: nounwind uwtable
 define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   store ptr null, ptr %1, align 8
   store i64 0, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
-  %11 = getelementptr inbounds i8, ptr %5, i64 25
-  %12 = getelementptr inbounds i8, ptr %5, i64 26
-  %13 = getelementptr inbounds i8, ptr %5, i64 27
-  %14 = getelementptr inbounds i8, ptr %5, i64 44
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
-  %16 = getelementptr inbounds i8, ptr %5, i64 35
-  %17 = getelementptr inbounds i8, ptr %5, i64 34
-  %18 = getelementptr inbounds i8, ptr %5, i64 33
-  %19 = getelementptr inbounds i8, ptr %5, i64 36
-  %20 = getelementptr inbounds i8, ptr %5, i64 39
-  %21 = getelementptr inbounds i8, ptr %5, i64 38
-  %22 = getelementptr inbounds i8, ptr %5, i64 37
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 25
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 26
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 27
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 35
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 34
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 39
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 38
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 37
   br label %23
 
 23:                                               ; preds = %131, %2
@@ -225,7 +225,7 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   br i1 %.not107, label %71, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %0, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %70 = load ptr, ptr %69, align 8
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %70, i32 noundef 84, ptr noundef nonnull @.str.3) #9
   br label %.thread
@@ -305,7 +305,7 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   br label %.loopexit
 
 119:                                              ; preds = %.lr.ph
-  %120 = getelementptr inbounds i8, ptr %.4117, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %.4117, i64 1
   %121 = add i64 %.392116, 1
   %exitcond.not = icmp eq i64 %121, %34
   br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !5
@@ -365,7 +365,7 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @rpm_filter_close(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #9
   ret i32 0

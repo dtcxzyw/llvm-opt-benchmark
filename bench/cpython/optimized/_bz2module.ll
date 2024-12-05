@@ -94,7 +94,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %bz2_decompressor_type = getelementptr inbounds i8, ptr %call.i, i64 8
+  %bz2_decompressor_type = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %bz2_decompressor_type, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -138,7 +138,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i11, %if.then1.i14, %if.then, %entry
-  %bz2_decompressor_type = getelementptr inbounds i8, ptr %call.i, i64 8
+  %bz2_decompressor_type = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %bz2_decompressor_type, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.end7, label %if.then5
@@ -190,7 +190,7 @@ if.then1.i14.i:                                   ; preds = %if.end.i11.i
   br label %do.body1.i
 
 do.body1.i:                                       ; preds = %if.then1.i14.i, %if.end.i11.i, %if.then.i, %entry
-  %bz2_decompressor_type.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %bz2_decompressor_type.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %3 = load ptr, ptr %bz2_decompressor_type.i, align 8
   %cmp4.not.i = icmp eq ptr %3, null
   br i1 %cmp4.not.i, label %_bz2_clear.exit, label %if.then5.i
@@ -232,7 +232,7 @@ if.end:                                           ; preds = %entry
 
 if.end7:                                          ; preds = %if.end
   %call8 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %module, ptr noundef nonnull @bz2_decompressor_type_spec, ptr noundef null) #6
-  %bz2_decompressor_type = getelementptr inbounds i8, ptr %call.i, i64 8
+  %bz2_decompressor_type = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call8, ptr %bz2_decompressor_type, align 8
   %cmp10 = icmp eq ptr %call8, null
   br i1 %cmp10, label %return, label %if.end12
@@ -256,9 +256,9 @@ declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @BZ2Compressor_dealloc(ptr noundef %self) #0 {
 entry:
-  %bzs = getelementptr inbounds i8, ptr %self, i64 16
+  %bzs = getelementptr inbounds nuw i8, ptr %self, i64 16
   %call = tail call i32 @BZ2_bzCompressEnd(ptr noundef nonnull %bzs) #6
-  %lock = getelementptr inbounds i8, ptr %self, i64 104
+  %lock = getelementptr inbounds nuw i8, ptr %self, i64 104
   %0 = load ptr, ptr %lock, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -270,7 +270,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %1, align 8
-  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %self.val, i64 320
   %2 = load ptr, ptr %tp_free, align 8
   tail call void %2(ptr noundef nonnull %self) #6
   %3 = load i64, ptr %self.val, align 8
@@ -302,9 +302,9 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %tp_init = getelementptr inbounds i8, ptr %type, i64 296
+  %tp_init = getelementptr inbounds nuw i8, ptr %type, i64 296
   %1 = load ptr, ptr %tp_init, align 8
-  %tp_init1 = getelementptr inbounds i8, ptr %0, i64 296
+  %tp_init1 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %2 = load ptr, ptr %tp_init1, align 8
   %cmp2 = icmp ne ptr %1, %2
   %cmp3 = icmp eq ptr %kwargs, null
@@ -341,7 +341,7 @@ if.end16:                                         ; preds = %if.end, %if.end16th
   br i1 %cmp18, label %if.end.i, label %if.end20
 
 if.end20:                                         ; preds = %if.end16
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   %4 = load ptr, ptr %ob_item, align 8
   %call21 = tail call i32 @PyLong_AsInt(ptr noundef %4) #6
   %cmp22 = icmp eq i32 %call21, -1
@@ -364,7 +364,7 @@ if.then.i:                                        ; preds = %land.lhs.true23, %s
 
 if.end.i:                                         ; preds = %if.end16, %skip_optional
   %compresslevel.017 = phi i32 [ %call21, %skip_optional ], [ 9, %if.end16 ]
-  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc.i = getelementptr inbounds nuw i8, ptr %type, i64 304
   %7 = load ptr, ptr %tp_alloc.i, align 8
   %call.i14 = tail call ptr %7(ptr noundef %type, i64 noundef 0) #6
   %cmp2.i = icmp eq ptr %call.i14, null
@@ -372,7 +372,7 @@ if.end.i:                                         ; preds = %if.end16, %skip_opt
 
 if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call ptr @PyThread_allocate_lock() #6
-  %lock.i = getelementptr inbounds i8, ptr %call.i14, i64 104
+  %lock.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 104
   store ptr %call5.i, ptr %lock.i, align 8
   %cmp7.i = icmp eq ptr %call5.i, null
   br i1 %cmp7.i, label %if.then8.i, label %if.end9.i
@@ -399,12 +399,12 @@ Py_DECREF.exit25.i:                               ; preds = %if.then1.i23.i, %if
   br label %exit
 
 if.end9.i:                                        ; preds = %if.end4.i
-  %bzs.i = getelementptr inbounds i8, ptr %call.i14, i64 16
-  %opaque.i = getelementptr inbounds i8, ptr %call.i14, i64 88
+  %bzs.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 16
+  %opaque.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 88
   store ptr null, ptr %opaque.i, align 8
-  %bzalloc.i = getelementptr inbounds i8, ptr %call.i14, i64 72
+  %bzalloc.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 72
   store ptr @BZ2_Malloc, ptr %bzalloc.i, align 8
-  %bzfree.i = getelementptr inbounds i8, ptr %call.i14, i64 80
+  %bzfree.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 80
   store ptr @BZ2_Free, ptr %bzfree.i, align 8
   %call13.i = tail call i32 @BZ2_bzCompressInit(ptr noundef nonnull %bzs.i, i32 noundef %compresslevel.017, i32 noundef 0, i32 noundef 0) #6
   %call14.i = tail call fastcc i32 @catch_bz2_error(i32 noundef %call13.i)
@@ -469,7 +469,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %exit
 
 if.end:                                           ; preds = %entry
-  %lock.i = getelementptr inbounds i8, ptr %self, i64 104
+  %lock.i = getelementptr inbounds nuw i8, ptr %self, i64 104
   %0 = load ptr, ptr %lock.i, align 8
   %call.i = call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 0) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -483,7 +483,7 @@ if.then.i:                                        ; preds = %if.end
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %if.end
-  %flushed.i = getelementptr inbounds i8, ptr %self, i64 96
+  %flushed.i = getelementptr inbounds nuw i8, ptr %self, i64 96
   %2 = load i32, ptr %flushed.i, align 8
   %tobool4.not.i = icmp eq i32 %2, 0
   br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
@@ -495,7 +495,7 @@ if.then5.i:                                       ; preds = %do.end.i
 
 if.else.i:                                        ; preds = %do.end.i
   %4 = load ptr, ptr %data, align 8
-  %len.i = getelementptr inbounds i8, ptr %data, i64 16
+  %len.i = getelementptr inbounds nuw i8, ptr %data, i64 16
   %5 = load i64, ptr %len.i, align 8
   %call6.i = call fastcc ptr @compress(ptr noundef nonnull %self, ptr noundef %4, i64 noundef %5, i32 noundef 0)
   br label %_bz2_BZ2Compressor_compress_impl.exit
@@ -508,7 +508,7 @@ _bz2_BZ2Compressor_compress_impl.exit:            ; preds = %if.then5.i, %if.els
 
 exit:                                             ; preds = %entry, %_bz2_BZ2Compressor_compress_impl.exit
   %return_value.0 = phi ptr [ null, %entry ], [ %result.0.i, %_bz2_BZ2Compressor_compress_impl.exit ]
-  %obj = getelementptr inbounds i8, ptr %data, i64 8
+  %obj = getelementptr inbounds nuw i8, ptr %data, i64 8
   %7 = load ptr, ptr %obj, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end3, label %if.then2
@@ -524,7 +524,7 @@ if.end3:                                          ; preds = %if.then2, %exit
 ; Function Attrs: nounwind uwtable
 define internal ptr @_bz2_BZ2Compressor_flush(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %lock.i = getelementptr inbounds i8, ptr %self, i64 104
+  %lock.i = getelementptr inbounds nuw i8, ptr %self, i64 104
   %0 = load ptr, ptr %lock.i, align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 0) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -538,7 +538,7 @@ if.then.i:                                        ; preds = %entry
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %entry
-  %flushed.i = getelementptr inbounds i8, ptr %self, i64 96
+  %flushed.i = getelementptr inbounds nuw i8, ptr %self, i64 96
   %2 = load i32, ptr %flushed.i, align 8
   %tobool4.not.i = icmp eq i32 %2, 0
   br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
@@ -580,9 +580,9 @@ define internal fastcc ptr @compress(ptr noundef initializes((48, 52)) %c, ptr n
 entry:
   %buffer = alloca %struct._BlocksOutputBuffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
-  %bzs = getelementptr inbounds i8, ptr %c, i64 16
-  %next_out = getelementptr inbounds i8, ptr %c, i64 40
-  %avail_out = getelementptr inbounds i8, ptr %c, i64 48
+  %bzs = getelementptr inbounds nuw i8, ptr %c, i64 16
+  %next_out = getelementptr inbounds nuw i8, ptr %c, i64 40
+  %avail_out = getelementptr inbounds nuw i8, ptr %c, i64 48
   %call.i.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef 32768) #6
   %cmp2.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.i.i, label %OutputBuffer_InitAndGrow.exit.thread, label %if.end4.i.i
@@ -617,15 +617,15 @@ if.end:                                           ; preds = %if.end4.i.i
   %2 = getelementptr i8, ptr %call5.i.i, i64 24
   %call5.val.i.i = load ptr, ptr %2, align 8
   store ptr %call.i.i, ptr %call5.val.i.i, align 8
-  %allocated.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
+  %allocated.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   store i64 32768, ptr %allocated.i.i, align 8
-  %max_length11.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
+  %max_length11.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   store i64 -1, ptr %max_length11.i.i, align 8
-  %ob_sval.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %ob_sval.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store ptr %ob_sval.i.i.i, ptr %next_out, align 8
   store i32 32768, ptr %avail_out, align 4
   store ptr %data, ptr %bzs, align 8
-  %avail_in = getelementptr inbounds i8, ptr %c, i64 24
+  %avail_in = getelementptr inbounds nuw i8, ptr %c, i64 24
   store i32 0, ptr %avail_in, align 8
   switch i32 %action, label %for.cond.us29 [
     i32 0, label %for.cond.us.us
@@ -802,9 +802,9 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end3.i:                                        ; preds = %if.then2.i, %if.end.i
   %block_size.0.i = phi i64 [ %4, %if.then2.i ], [ 268435456, %if.end.i ]
-  %max_length.i = getelementptr inbounds i8, ptr %buffer, i64 16
+  %max_length.i = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %5 = load i64, ptr %max_length.i, align 8
-  %allocated.i = getelementptr inbounds i8, ptr %buffer, i64 8
+  %allocated.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %6 = load i64, ptr %allocated.i, align 8
   %sub.i = sub i64 %5, %6
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %block_size.0.i, i64 %sub.i)
@@ -868,7 +868,7 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   %12 = load i64, ptr %allocated.i, align 8
   %add.i = add i64 %12, %block_size.1.i
   store i64 %add.i, ptr %allocated.i, align 8
-  %ob_sval.i.i = getelementptr inbounds i8, ptr %call16.i, i64 32
+  %ob_sval.i.i = getelementptr inbounds nuw i8, ptr %call16.i, i64 32
   store ptr %ob_sval.i.i, ptr %next_out, align 8
   br label %_BlocksOutputBuffer_Grow.exit
 
@@ -957,7 +957,7 @@ entry:
   br i1 %or.cond.i, label %entry.if.then_crit_edge.i, label %lor.lhs.false.i
 
 entry.if.then_crit_edge.i:                        ; preds = %entry
-  %ob_item8.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 24
+  %ob_item8.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre.i = load ptr, ptr %ob_item8.phi.trans.insert.i, align 8
   br label %if.then.i
 
@@ -966,7 +966,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp2.i, label %land.lhs.true3.i, label %if.end13.i
 
 land.lhs.true3.i:                                 ; preds = %lor.lhs.false.i
-  %ob_item.i = getelementptr inbounds i8, ptr %0, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load ptr, ptr %ob_item.i, align 8
   %arrayidx.i = getelementptr i8, ptr %2, i64 8
   %3 = load ptr, ptr %arrayidx.i, align 8
@@ -1008,7 +1008,7 @@ if.then1.i50.i:                                   ; preds = %if.end.i47.i
   br label %_BlocksOutputBuffer_Finish.exit
 
 if.end13.i:                                       ; preds = %land.lhs.true3.i, %lor.lhs.false.i
-  %allocated.i = getelementptr inbounds i8, ptr %buffer, i64 8
+  %allocated.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %11 = load i64, ptr %allocated.i, align 8
   %sub.i = sub i64 %11, %conv
   %call14.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %sub.i) #6
@@ -1025,7 +1025,7 @@ if.end17.i:                                       ; preds = %if.end13.i
   br i1 %cmp18.i, label %if.then19.i, label %do.body36.i
 
 if.then19.i:                                      ; preds = %if.end17.i
-  %ob_sval.i.i = getelementptr inbounds i8, ptr %call14.i, i64 32
+  %ob_sval.i.i = getelementptr inbounds nuw i8, ptr %call14.i, i64 32
   %sub21.i = add nsw i64 %.val41.i, -1
   br i1 %cmp.i, label %for.end.i, label %for.body.i
 
@@ -1033,11 +1033,11 @@ for.body.i:                                       ; preds = %if.then19.i, %for.b
   %i.046.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then19.i ]
   %posi.045.i = phi ptr [ %add.ptr.i, %for.body.i ], [ %ob_sval.i.i, %if.then19.i ]
   %13 = load ptr, ptr %buffer, align 8
-  %ob_item24.i = getelementptr inbounds i8, ptr %13, i64 24
+  %ob_item24.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %14 = load ptr, ptr %ob_item24.i, align 8
   %arrayidx25.i = getelementptr ptr, ptr %14, i64 %i.046.i
   %15 = load ptr, ptr %arrayidx25.i, align 8
-  %ob_sval.i42.i = getelementptr inbounds i8, ptr %15, i64 32
+  %ob_sval.i42.i = getelementptr inbounds nuw i8, ptr %15, i64 32
   %16 = getelementptr i8, ptr %15, i64 16
   %.val39.i = load i64, ptr %16, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %posi.045.i, ptr nonnull align 1 %ob_sval.i42.i, i64 %.val39.i, i1 false)
@@ -1051,11 +1051,11 @@ for.end.i:                                        ; preds = %for.body.i, %if.the
   %posi.0.lcssa.i = phi ptr [ %ob_sval.i.i, %if.then19.i ], [ %add.ptr.i, %for.body.i ]
   %i.0.lcssa.i = phi i64 [ 0, %if.then19.i ], [ %sub21.i, %for.body.i ]
   %17 = load ptr, ptr %buffer, align 8
-  %ob_item30.i = getelementptr inbounds i8, ptr %17, i64 24
+  %ob_item30.i = getelementptr inbounds nuw i8, ptr %17, i64 24
   %18 = load ptr, ptr %ob_item30.i, align 8
   %arrayidx31.i = getelementptr ptr, ptr %18, i64 %i.0.lcssa.i
   %19 = load ptr, ptr %arrayidx31.i, align 8
-  %ob_sval.i43.i = getelementptr inbounds i8, ptr %19, i64 32
+  %ob_sval.i43.i = getelementptr inbounds nuw i8, ptr %19, i64 32
   %20 = getelementptr i8, ptr %19, i64 16
   %.val.i = load i64, ptr %20, align 8
   %sub34.i = sub i64 %.val.i, %conv
@@ -1149,7 +1149,7 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @BZ2Decompressor_dealloc(ptr noundef %self) #0 {
 entry:
-  %input_buffer = getelementptr inbounds i8, ptr %self, i64 120
+  %input_buffer = getelementptr inbounds nuw i8, ptr %self, i64 120
   %0 = load ptr, ptr %input_buffer, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1159,9 +1159,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %bzs = getelementptr inbounds i8, ptr %self, i64 16
+  %bzs = getelementptr inbounds nuw i8, ptr %self, i64 16
   %call = tail call i32 @BZ2_bzDecompressEnd(ptr noundef nonnull %bzs) #6
-  %unused_data = getelementptr inbounds i8, ptr %self, i64 104
+  %unused_data = getelementptr inbounds nuw i8, ptr %self, i64 104
   %1 = load ptr, ptr %unused_data, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %do.end, label %if.then3
@@ -1184,7 +1184,7 @@ if.then1.i16:                                     ; preds = %if.end.i13
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %if.then3, %if.then1.i16, %if.end.i13
-  %lock = getelementptr inbounds i8, ptr %self, i64 144
+  %lock = getelementptr inbounds nuw i8, ptr %self, i64 144
   %4 = load ptr, ptr %lock, align 8
   %cmp5.not = icmp eq ptr %4, null
   br i1 %cmp5.not, label %if.end8, label %if.then6
@@ -1196,7 +1196,7 @@ if.then6:                                         ; preds = %do.end
 if.end8:                                          ; preds = %if.then6, %do.end
   %5 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %5, align 8
-  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %self.val, i64 320
   %6 = load ptr, ptr %tp_free, align 8
   tail call void %6(ptr noundef nonnull %self) #6
   %7 = load i64, ptr %self.val, align 8
@@ -1223,15 +1223,15 @@ define internal ptr @_bz2_BZ2Decompressor(ptr noundef %type, ptr noundef %args, 
 entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_bz2module) #6
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %call.i) #6
-  %bz2_decompressor_type = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %bz2_decompressor_type = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %0 = load ptr, ptr %bz2_decompressor_type, align 8
   %cmp = icmp eq ptr %type, %0
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %tp_init = getelementptr inbounds i8, ptr %type, i64 296
+  %tp_init = getelementptr inbounds nuw i8, ptr %type, i64 296
   %1 = load ptr, ptr %tp_init, align 8
-  %tp_init1 = getelementptr inbounds i8, ptr %0, i64 296
+  %tp_init1 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %2 = load ptr, ptr %tp_init1, align 8
   %cmp2 = icmp ne ptr %1, %2
   %cmp3 = icmp eq ptr %args, null
@@ -1275,7 +1275,7 @@ lor.lhs.false13:                                  ; preds = %lor.lhs.false7, %la
   br i1 %tobool15.not, label %exit, label %if.end17
 
 if.end17:                                         ; preds = %lor.lhs.false13, %land.lhs.true11, %lor.lhs.false7
-  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc.i = getelementptr inbounds nuw i8, ptr %type, i64 304
   %5 = load ptr, ptr %tp_alloc.i, align 8
   %call.i13 = tail call ptr %5(ptr noundef %type, i64 noundef 0) #6
   %cmp.i = icmp eq ptr %call.i13, null
@@ -1283,7 +1283,7 @@ if.end17:                                         ; preds = %lor.lhs.false13, %l
 
 if.end.i:                                         ; preds = %if.end17
   %call1.i = tail call ptr @PyThread_allocate_lock() #6
-  %lock.i = getelementptr inbounds i8, ptr %call.i13, i64 144
+  %lock.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 144
   store ptr %call1.i, ptr %lock.i, align 8
   %cmp3.i = icmp eq ptr %call1.i, null
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
@@ -1310,18 +1310,18 @@ Py_DECREF.exit23.i:                               ; preds = %if.then1.i21.i, %if
   br label %exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %needs_input.i = getelementptr inbounds i8, ptr %call.i13, i64 112
+  %needs_input.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 112
   store i8 1, ptr %needs_input.i, align 8
-  %input_buffer.i = getelementptr inbounds i8, ptr %call.i13, i64 120
+  %input_buffer.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %input_buffer.i, i8 0, i64 24, i1 false)
   %call6.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef 0) #6
-  %unused_data.i = getelementptr inbounds i8, ptr %call.i13, i64 104
+  %unused_data.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 104
   store ptr %call6.i, ptr %unused_data.i, align 8
   %cmp8.i = icmp eq ptr %call6.i, null
   br i1 %cmp8.i, label %error.i, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end5.i
-  %bzs.i = getelementptr inbounds i8, ptr %call.i13, i64 16
+  %bzs.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 16
   %call11.i = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %bzs.i, i32 noundef 0, i32 noundef 0) #6
   %call12.i = tail call fastcc i32 @catch_bz2_error(i32 noundef %call11.i)
   %tobool.not.i = icmp eq i32 %call12.i, 0
@@ -1449,7 +1449,7 @@ land.lhs.true26:                                  ; preds = %if.end18, %if.end24
 
 skip_optional_pos:                                ; preds = %if.end24, %land.lhs.true26, %if.end15
   %max_length.0 = phi i64 [ -1, %if.end15 ], [ -1, %land.lhs.true26 ], [ %call23, %if.end24 ]
-  %lock.i = getelementptr inbounds i8, ptr %self, i64 144
+  %lock.i = getelementptr inbounds nuw i8, ptr %self, i64 144
   %8 = load ptr, ptr %lock.i, align 8
   %call.i = call i32 @PyThread_acquire_lock(ptr noundef %8, i32 noundef 0) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -1463,7 +1463,7 @@ if.then.i:                                        ; preds = %skip_optional_pos
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %skip_optional_pos
-  %eof.i = getelementptr inbounds i8, ptr %self, i64 96
+  %eof.i = getelementptr inbounds nuw i8, ptr %self, i64 96
   %10 = load i8, ptr %eof.i, align 8
   %tobool4.not.i = icmp eq i8 %10, 0
   br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
@@ -1475,20 +1475,20 @@ if.then5.i:                                       ; preds = %do.end.i
 
 if.else.i:                                        ; preds = %do.end.i
   %12 = load ptr, ptr %data, align 8
-  %len.i = getelementptr inbounds i8, ptr %data, i64 16
+  %len.i = getelementptr inbounds nuw i8, ptr %data, i64 16
   %13 = load i64, ptr %len.i, align 8
-  %bzs1.i.i = getelementptr inbounds i8, ptr %self, i64 16
+  %bzs1.i.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %14 = load ptr, ptr %bzs1.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i, label %if.else37.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %input_buffer.i.i = getelementptr inbounds i8, ptr %self, i64 120
+  %input_buffer.i.i = getelementptr inbounds nuw i8, ptr %self, i64 120
   %15 = load ptr, ptr %input_buffer.i.i, align 8
-  %input_buffer_size.i.i = getelementptr inbounds i8, ptr %self, i64 128
+  %input_buffer_size.i.i = getelementptr inbounds nuw i8, ptr %self, i64 128
   %16 = load i64, ptr %input_buffer_size.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %15, i64 %16
-  %bzs_avail_in_real.i.i = getelementptr inbounds i8, ptr %self, i64 136
+  %bzs_avail_in_real.i.i = getelementptr inbounds nuw i8, ptr %self, i64 136
   %17 = load i64, ptr %bzs_avail_in_real.i.i, align 8
   %add.ptr3.i.i = getelementptr i8, ptr %14, i64 %17
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
@@ -1546,15 +1546,15 @@ if.end31.i.i:                                     ; preds = %if.end31.sink.split
 
 if.else37.i.i:                                    ; preds = %if.else.i
   store ptr %12, ptr %bzs1.i.i, align 8
-  %bzs_avail_in_real39.i.i = getelementptr inbounds i8, ptr %self, i64 136
+  %bzs_avail_in_real39.i.i = getelementptr inbounds nuw i8, ptr %self, i64 136
   store i64 %13, ptr %bzs_avail_in_real39.i.i, align 8
   br label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.else37.i.i, %if.end31.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buffer.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer.i.i.i, i8 0, i64 24, i1 false)
-  %next_out.i.i.i = getelementptr inbounds i8, ptr %self, i64 40
-  %avail_out.i.i.i = getelementptr inbounds i8, ptr %self, i64 48
+  %next_out.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 40
+  %avail_out.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 48
   %block_size.0.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %max_length.0, i64 32768)
   %call.i.i.i.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %block_size.0.i.i.i.i.i) #6
   %cmp2.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
@@ -1590,16 +1590,16 @@ OutputBuffer_InitAndGrow.exit.i.i.i:              ; preds = %if.end4.i.i.i.i.i
   %25 = getelementptr i8, ptr %call5.i.i.i.i.i, i64 24
   %call5.val.i.i.i.i.i = load ptr, ptr %25, align 8
   store ptr %call.i.i.i.i.i, ptr %call5.val.i.i.i.i.i, align 8
-  %allocated.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i, i64 8
+  %allocated.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i, i64 8
   store i64 %block_size.0.i.i.i.i.i, ptr %allocated.i.i.i.i.i, align 8
-  %max_length11.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i, i64 16
+  %max_length11.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i, i64 16
   store i64 %max_length.0, ptr %max_length11.i.i.i.i.i, align 8
-  %ob_sval.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
+  %ob_sval.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 32
   store ptr %ob_sval.i.i.i.i.i.i, ptr %next_out.i.i.i, align 8
   %conv.i.i.i.i = trunc nuw nsw i64 %block_size.0.i.i.i.i.i to i32
   store i32 %conv.i.i.i.i, ptr %avail_out.i.i.i, align 4
-  %bzs_avail_in_real.i.i.i = getelementptr inbounds i8, ptr %self, i64 136
-  %avail_in.i.i.i = getelementptr inbounds i8, ptr %self, i64 24
+  %bzs_avail_in_real.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 136
+  %avail_in.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.backedge, %OutputBuffer_InitAndGrow.exit.i.i.i
@@ -1691,14 +1691,14 @@ if.end45.i.i:                                     ; preds = %for.end.i.i.i
   br i1 %tobool.not.i.i, label %if.else58.i.i, label %if.then46.i.i
 
 if.then46.i.i:                                    ; preds = %if.end45.i.i
-  %needs_input.i.i = getelementptr inbounds i8, ptr %self, i64 112
+  %needs_input.i.i = getelementptr inbounds nuw i8, ptr %self, i64 112
   store i8 0, ptr %needs_input.i.i, align 8
   %36 = load i64, ptr %bzs_avail_in_real.i.i.i, align 8
   %cmp48.not.i.i = icmp eq i64 %36, 0
   br i1 %cmp48.not.i.i, label %_bz2_BZ2Decompressor_decompress_impl.exit, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.then46.i.i
-  %unused_data.i.i = getelementptr inbounds i8, ptr %self, i64 104
+  %unused_data.i.i = getelementptr inbounds nuw i8, ptr %self, i64 104
   %37 = load ptr, ptr %unused_data.i.i, align 8
   %38 = load ptr, ptr %bzs1.i.i, align 8
   %call52.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef %38, i64 noundef %36) #6
@@ -1738,23 +1738,23 @@ if.else58.i.i:                                    ; preds = %if.end45.i.i
 
 if.then61.i.i:                                    ; preds = %if.else58.i.i
   store ptr null, ptr %bzs1.i.i, align 8
-  %needs_input63.i.i = getelementptr inbounds i8, ptr %self, i64 112
+  %needs_input63.i.i = getelementptr inbounds nuw i8, ptr %self, i64 112
   store i8 1, ptr %needs_input63.i.i, align 8
   br label %_bz2_BZ2Decompressor_decompress_impl.exit
 
 if.else64.i.i:                                    ; preds = %if.else58.i.i
-  %needs_input65.i.i = getelementptr inbounds i8, ptr %self, i64 112
+  %needs_input65.i.i = getelementptr inbounds nuw i8, ptr %self, i64 112
   store i8 0, ptr %needs_input65.i.i, align 8
   br i1 %cmp.not.i.i, label %if.then67.i.i, label %_bz2_BZ2Decompressor_decompress_impl.exit
 
 if.then67.i.i:                                    ; preds = %if.else64.i.i
-  %input_buffer68.i.i = getelementptr inbounds i8, ptr %self, i64 120
+  %input_buffer68.i.i = getelementptr inbounds nuw i8, ptr %self, i64 120
   %43 = load ptr, ptr %input_buffer68.i.i, align 8
   %cmp69.not.i.i = icmp eq ptr %43, null
   br i1 %cmp69.not.i.i, label %if.then79.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then67.i.i
-  %input_buffer_size70.i.i = getelementptr inbounds i8, ptr %self, i64 128
+  %input_buffer_size70.i.i = getelementptr inbounds nuw i8, ptr %self, i64 128
   %44 = load i64, ptr %input_buffer_size70.i.i, align 8
   %cmp72.i.i = icmp ult i64 %44, %42
   br i1 %cmp72.i.i, label %if.then73.i.i, label %if.end89.i.i
@@ -1779,7 +1779,7 @@ if.then85.i.i:                                    ; preds = %if.then79.i.i
 
 if.end86.i.i:                                     ; preds = %if.then79.i.i
   %47 = load i64, ptr %bzs_avail_in_real.i.i.i, align 8
-  %input_buffer_size88.i.i = getelementptr inbounds i8, ptr %self, i64 128
+  %input_buffer_size88.i.i = getelementptr inbounds nuw i8, ptr %self, i64 128
   store i64 %47, ptr %input_buffer_size88.i.i, align 8
   br label %if.end89.i.i
 
@@ -1816,7 +1816,7 @@ _bz2_BZ2Decompressor_decompress_impl.exit:        ; preds = %if.then5.i, %if.the
 
 exit:                                             ; preds = %land.lhs.true26, %if.end, %cond.end9, %_bz2_BZ2Decompressor_decompress_impl.exit
   %return_value.0 = phi ptr [ null, %if.end ], [ null, %land.lhs.true26 ], [ %result.0.i, %_bz2_BZ2Decompressor_decompress_impl.exit ], [ null, %cond.end9 ]
-  %obj = getelementptr inbounds i8, ptr %data, i64 8
+  %obj = getelementptr inbounds nuw i8, ptr %data, i64 8
   %55 = load ptr, ptr %obj, align 8
   %tobool32.not = icmp eq ptr %55, null
   br i1 %tobool32.not, label %if.end34, label %if.then33

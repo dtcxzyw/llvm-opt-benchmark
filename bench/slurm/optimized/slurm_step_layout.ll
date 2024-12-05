@@ -84,7 +84,7 @@ define void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16
   br i1 %.not89, label %8, label %.loopexit
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not91 = icmp eq ptr %10, null
   br i1 %.not91, label %15, label %11
@@ -98,7 +98,7 @@ define void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16
 15:                                               ; preds = %11, %8
   %.077 = phi i32 [ %14, %11 ], [ 0, %8 ]
   tail call void @packmem(ptr noundef %10, i32 noundef %.077, ptr noundef %1) #7
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   %.not92 = icmp eq ptr %17, null
   br i1 %.not92, label %22, label %18
@@ -112,16 +112,16 @@ define void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16
 22:                                               ; preds = %18, %15
   %.076 = phi i32 [ %21, %18 ], [ 0, %15 ]
   tail call void @packmem(ptr noundef %17, i32 noundef %.076, ptr noundef %1) #7
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 8
   tail call void @pack32(i32 noundef %24, ptr noundef %1) #7
-  %25 = getelementptr inbounds i8, ptr %0, i64 58
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 58
   %26 = load i16, ptr %25, align 2
   tail call void @pack16(i16 noundef zeroext %26, ptr noundef %1) #7
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load i32, ptr %27, align 8
   tail call void @pack32(i32 noundef %28, ptr noundef %1) #7
-  %29 = getelementptr inbounds i8, ptr %0, i64 76
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %30 = load i32, ptr %29, align 4
   tail call void @pack32(i32 noundef %30, ptr noundef %1) #7
   %31 = load i32, ptr %23, align 8
@@ -129,17 +129,17 @@ define void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16
   br i1 %.not100, label %._crit_edge, label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %22
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %34
 
 34:                                               ; preds = %.lr.ph98, %34
   %indvars.iv102 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next103, %34 ]
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv102
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv102
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %33, align 8
-  %39 = getelementptr inbounds i16, ptr %38, i64 %indvars.iv102
+  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv102
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
   tail call void @pack32_array(ptr noundef %37, i32 noundef %41, ptr noundef %1) #7
@@ -151,14 +151,14 @@ define void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16
 
 ._crit_edge:                                      ; preds = %34, %22
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i32, ptr %46, align 8
   tail call void @pack16_array(ptr noundef %45, i32 noundef %47, ptr noundef %1) #7
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %46, align 8
   tail call void @pack32_array(ptr noundef %49, i32 noundef %50, ptr noundef %1) #7
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8
   %.not93 = icmp eq ptr %52, null
   br i1 %.not93, label %60, label %53
@@ -196,7 +196,7 @@ define void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16
   br i1 %.not, label %64, label %.loopexit
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load ptr, ptr %65, align 8
   %.not87 = icmp eq ptr %66, null
   br i1 %.not87, label %71, label %67
@@ -210,7 +210,7 @@ define void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16
 71:                                               ; preds = %67, %64
   %.074 = phi i32 [ %70, %67 ], [ 0, %64 ]
   tail call void @packmem(ptr noundef %66, i32 noundef %.074, ptr noundef %1) #7
-  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = load ptr, ptr %72, align 8
   %.not88 = icmp eq ptr %73, null
   br i1 %.not88, label %78, label %74
@@ -224,16 +224,16 @@ define void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16
 78:                                               ; preds = %74, %71
   %.0 = phi i32 [ %77, %74 ], [ 0, %71 ]
   tail call void @packmem(ptr noundef %73, i32 noundef %.0, ptr noundef %1) #7
-  %79 = getelementptr inbounds i8, ptr %0, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = load i32, ptr %79, align 8
   tail call void @pack32(i32 noundef %80, ptr noundef %1) #7
-  %81 = getelementptr inbounds i8, ptr %0, i64 58
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 58
   %82 = load i16, ptr %81, align 2
   tail call void @pack16(i16 noundef zeroext %82, ptr noundef %1) #7
-  %83 = getelementptr inbounds i8, ptr %0, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %84 = load i32, ptr %83, align 8
   tail call void @pack32(i32 noundef %84, ptr noundef %1) #7
-  %85 = getelementptr inbounds i8, ptr %0, i64 76
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %86 = load i32, ptr %85, align 4
   tail call void @pack32(i32 noundef %86, ptr noundef %1) #7
   %87 = load i32, ptr %79, align 8
@@ -241,17 +241,17 @@ define void @pack_slurm_step_layout(ptr noundef readonly %0, ptr noundef %1, i16
   br i1 %.not99, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %78
-  %88 = getelementptr inbounds i8, ptr %0, i64 80
-  %89 = getelementptr inbounds i8, ptr %0, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %90
 
 90:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
   %91 = load ptr, ptr %88, align 8
-  %92 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %89, align 8
-  %95 = getelementptr inbounds i16, ptr %94, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i32
   tail call void @pack32_array(ptr noundef %93, i32 noundef %97, ptr noundef %1) #7
@@ -298,37 +298,37 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
 19:                                               ; preds = %17
   %20 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 88, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 394, ptr noundef nonnull @__func__.unpack_slurm_step_layout) #7
   store ptr %20, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %21, ptr noundef nonnull %8, ptr noundef %1) #7
   %.not119 = icmp eq i32 %22, 0
   br i1 %.not119, label %23, label %.loopexit
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %20, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %25 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %24, ptr noundef nonnull %9, ptr noundef %1) #7
   %.not120 = icmp eq i32 %25, 0
   br i1 %.not120, label %26, label %.loopexit
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %20, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %28 = call i32 @unpack32(ptr noundef nonnull %27, ptr noundef %1) #7
   %.not121 = icmp eq i32 %28, 0
   br i1 %.not121, label %29, label %.loopexit
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %20, i64 58
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 58
   %31 = call i32 @unpack16(ptr noundef nonnull %30, ptr noundef %1) #7
   %.not122 = icmp eq i32 %31, 0
   br i1 %.not122, label %32, label %.loopexit
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %20, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %34 = call i32 @unpack32(ptr noundef nonnull %33, ptr noundef %1) #7
   %.not123 = icmp eq i32 %34, 0
   br i1 %.not123, label %35, label %.loopexit
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %20, i64 76
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 76
   %37 = call i32 @unpack32(ptr noundef nonnull %36, ptr noundef %1) #7
   %.not124 = icmp eq i32 %37, 0
   br i1 %.not124, label %38, label %.loopexit
@@ -339,14 +339,14 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
   br i1 %.not125, label %.thread, label %41
 
 .thread:                                          ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %20, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store ptr null, ptr %40, align 8
   br label %.thread155
 
 41:                                               ; preds = %38
   %42 = zext i32 %39 to i64
   %43 = call ptr @slurm_xcalloc(i64 noundef %42, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str, i32 noundef 405, ptr noundef nonnull @__func__.unpack_slurm_step_layout) #7
-  %44 = getelementptr inbounds i8, ptr %20, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store ptr %43, ptr %44, align 8
   %.not126 = icmp eq ptr %43, null
   br i1 %.not126, label %.loopexit, label %45
@@ -357,14 +357,14 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
   br i1 %.not127, label %.thread155, label %47
 
 .thread155:                                       ; preds = %45, %.thread
-  %46 = getelementptr inbounds i8, ptr %20, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 80
   store ptr null, ptr %46, align 8
   br label %._crit_edge
 
 47:                                               ; preds = %45
   %48 = zext i32 %.pr to i64
   %49 = call ptr @slurm_xcalloc(i64 noundef %48, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str, i32 noundef 407, ptr noundef nonnull @__func__.unpack_slurm_step_layout) #7
-  %50 = getelementptr inbounds i8, ptr %20, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 80
   store ptr %49, ptr %50, align 8
   %.not128 = icmp eq ptr %49, null
   br i1 %.not128, label %.loopexit, label %51
@@ -375,14 +375,14 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
   br i1 %52, label %._crit_edge, label %.lr.ph144
 
 .lr.ph144:                                        ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %20, i64 80
-  %54 = getelementptr inbounds i8, ptr %20, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %20, i64 64
   br label %55
 
 55:                                               ; preds = %.lr.ph144, %59
   %indvars.iv149 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next150, %59 ]
   %56 = load ptr, ptr %53, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv149
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv149
   %58 = call i32 @unpack32_array(ptr noundef %57, ptr noundef nonnull %5, ptr noundef %1) #7
   %.not134 = icmp eq i32 %58, 0
   br i1 %.not134, label %59, label %.loopexit
@@ -391,7 +391,7 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
   %60 = load i32, ptr %5, align 4
   %61 = trunc i32 %60 to i16
   %62 = load ptr, ptr %54, align 8
-  %63 = getelementptr inbounds i16, ptr %62, i64 %indvars.iv149
+  %63 = getelementptr inbounds nuw i16, ptr %62, i64 %indvars.iv149
   store i16 %61, ptr %63, align 2
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %64 = load i32, ptr %27, align 8
@@ -400,13 +400,13 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
   br i1 %66, label %55, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %59, %.thread155, %51
-  %67 = getelementptr inbounds i8, ptr %20, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %68 = call i32 @unpack16_array(ptr noundef nonnull %20, ptr noundef nonnull %67, ptr noundef %1) #7
   %.not129 = icmp eq i32 %68, 0
   br i1 %.not129, label %69, label %.loopexit
 
 69:                                               ; preds = %._crit_edge
-  %70 = getelementptr inbounds i8, ptr %20, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %71 = call i32 @unpack32_array(ptr noundef nonnull %70, ptr noundef nonnull %6, ptr noundef %1) #7
   %.not130 = icmp eq i32 %71, 0
   br i1 %.not130, label %72, label %.loopexit
@@ -431,7 +431,7 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
 
 79:                                               ; preds = %77
   %80 = call ptr @extract_net_cred(ptr noundef nonnull %78, i16 noundef zeroext %2) #7
-  %81 = getelementptr inbounds i8, ptr %20, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %80, ptr %81, align 8
   %.not133 = icmp eq ptr %80, null
   br i1 %.not133, label %82, label %83
@@ -442,7 +442,7 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %7, align 8
-  %85 = getelementptr inbounds i8, ptr %80, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %84, ptr %85, align 8
   br label %.loopexit140
 
@@ -463,37 +463,37 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
 92:                                               ; preds = %90
   %93 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 88, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 442, ptr noundef nonnull @__func__.unpack_slurm_step_layout) #7
   store ptr %93, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %94, ptr noundef nonnull %11, ptr noundef %1) #7
   %.not106 = icmp eq i32 %95, 0
   br i1 %.not106, label %96, label %.loopexit
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %93, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %98 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %97, ptr noundef nonnull %12, ptr noundef %1) #7
   %.not107 = icmp eq i32 %98, 0
   br i1 %.not107, label %99, label %.loopexit
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %93, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %93, i64 40
   %101 = call i32 @unpack32(ptr noundef nonnull %100, ptr noundef %1) #7
   %.not108 = icmp eq i32 %101, 0
   br i1 %.not108, label %102, label %.loopexit
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %93, i64 58
+  %103 = getelementptr inbounds nuw i8, ptr %93, i64 58
   %104 = call i32 @unpack16(ptr noundef nonnull %103, ptr noundef %1) #7
   %.not109 = icmp eq i32 %104, 0
   br i1 %.not109, label %105, label %.loopexit
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %93, i64 72
+  %106 = getelementptr inbounds nuw i8, ptr %93, i64 72
   %107 = call i32 @unpack32(ptr noundef nonnull %106, ptr noundef %1) #7
   %.not110 = icmp eq i32 %107, 0
   br i1 %.not110, label %108, label %.loopexit
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %93, i64 76
+  %109 = getelementptr inbounds nuw i8, ptr %93, i64 76
   %110 = call i32 @unpack32(ptr noundef nonnull %109, ptr noundef %1) #7
   %.not111 = icmp eq i32 %110, 0
   br i1 %.not111, label %111, label %.loopexit
@@ -504,14 +504,14 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
   br i1 %.not112, label %.thread138, label %114
 
 .thread138:                                       ; preds = %111
-  %113 = getelementptr inbounds i8, ptr %93, i64 64
+  %113 = getelementptr inbounds nuw i8, ptr %93, i64 64
   store ptr null, ptr %113, align 8
   br label %.thread157
 
 114:                                              ; preds = %111
   %115 = zext i32 %112 to i64
   %116 = call ptr @slurm_xcalloc(i64 noundef %115, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str, i32 noundef 453, ptr noundef nonnull @__func__.unpack_slurm_step_layout) #7
-  %117 = getelementptr inbounds i8, ptr %93, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %93, i64 64
   store ptr %116, ptr %117, align 8
   %.not113 = icmp eq ptr %116, null
   br i1 %.not113, label %.loopexit, label %118
@@ -522,14 +522,14 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
   br i1 %.not114, label %.thread157, label %120
 
 .thread157:                                       ; preds = %118, %.thread138
-  %119 = getelementptr inbounds i8, ptr %93, i64 80
+  %119 = getelementptr inbounds nuw i8, ptr %93, i64 80
   store ptr null, ptr %119, align 8
   br label %.loopexit140
 
 120:                                              ; preds = %118
   %121 = zext i32 %.pr137 to i64
   %122 = call ptr @slurm_xcalloc(i64 noundef %121, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str, i32 noundef 455, ptr noundef nonnull @__func__.unpack_slurm_step_layout) #7
-  %123 = getelementptr inbounds i8, ptr %93, i64 80
+  %123 = getelementptr inbounds nuw i8, ptr %93, i64 80
   store ptr %122, ptr %123, align 8
   %.not115 = icmp eq ptr %122, null
   br i1 %.not115, label %.loopexit, label %124
@@ -540,14 +540,14 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
   br i1 %125, label %.loopexit140, label %.lr.ph
 
 .lr.ph:                                           ; preds = %124
-  %126 = getelementptr inbounds i8, ptr %93, i64 80
-  %127 = getelementptr inbounds i8, ptr %93, i64 64
+  %126 = getelementptr inbounds nuw i8, ptr %93, i64 80
+  %127 = getelementptr inbounds nuw i8, ptr %93, i64 64
   br label %128
 
 128:                                              ; preds = %.lr.ph, %132
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %132 ]
   %129 = load ptr, ptr %126, align 8
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv
   %131 = call i32 @unpack32_array(ptr noundef %130, ptr noundef nonnull %5, ptr noundef %1) #7
   %.not116 = icmp eq i32 %131, 0
   br i1 %.not116, label %132, label %.loopexit
@@ -556,7 +556,7 @@ define range(i32 -1, 1) i32 @unpack_slurm_step_layout(ptr nocapture noundef writ
   %133 = load i32, ptr %5, align 4
   %134 = trunc i32 %133 to i16
   %135 = load ptr, ptr %127, align 8
-  %136 = getelementptr inbounds i16, ptr %135, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw i16, ptr %135, i64 %indvars.iv
   store i16 %134, ptr %136, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %137 = load i32, ptr %100, align 8
@@ -585,9 +585,9 @@ define ptr @slurm_step_layout_create(ptr nocapture noundef %0) local_unnamed_add
   store ptr null, ptr %2, align 8
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 88, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 80, ptr noundef nonnull @__func__.slurm_step_layout_create) #7
   %4 = tail call i32 @slurmdb_setup_cluster_flags() #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 76
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i32 %6, ptr %7, align 4
   %8 = and i32 %6, 65535
   %9 = icmp eq i32 %8, 3
@@ -602,7 +602,7 @@ define ptr @slurm_step_layout_create(ptr nocapture noundef %0) local_unnamed_add
   tail call void @hostlist_uniq(ptr noundef %14) #7
   %15 = tail call ptr @hostlist_ranged_string_xmalloc(ptr noundef %14) #7
   %16 = tail call i32 @hostlist_count(ptr noundef %14) #7
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %16, ptr %17, align 8
   tail call void @hostlist_destroy(ptr noundef %14) #7
   br label %18
@@ -610,24 +610,24 @@ define ptr @slurm_step_layout_create(ptr nocapture noundef %0) local_unnamed_add
 18:                                               ; preds = %1, %12
   %19 = phi ptr [ %11, %12 ], [ null, %1 ]
   %.sink = phi ptr [ %15, %12 ], [ %11, %1 ]
-  %20 = getelementptr inbounds i8, ptr %3, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %.sink, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %3, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 %22, ptr %23, align 8
   %24 = and i32 %4, 512
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %25, label %28
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i32, ptr %26, align 8
   br label %28
 
 28:                                               ; preds = %18, %25
   %.sink24 = phi i32 [ %27, %25 ], [ 1, %18 ]
-  %29 = getelementptr inbounds i8, ptr %3, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %.sink24, ptr %29, align 8
   %30 = tail call fastcc i32 @_init_task_layout(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %19)
   %.not23 = icmp eq i32 %30, 0
@@ -665,7 +665,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %5 = alloca [1 x i16], align 2
   %6 = alloca [1 x i32], align 4
   %7 = tail call i32 @slurmdb_setup_cluster_flags() #7
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = alloca i16, i64 %10, align 16
@@ -673,24 +673,24 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   br i1 %12, label %_task_layout_cyclic.exit, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %_task_layout_cyclic.exit
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not81 = icmp eq ptr %18, null
   br i1 %.not81, label %.thread, label %22
 
 .thread:                                          ; preds = %16
   store i16 1, ptr %5, align 2
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %6, align 4
   store ptr %5, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %6, ptr %21, align 8
   br label %28
 
@@ -703,17 +703,17 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
 
 23:                                               ; preds = %22, %22
   store i16 1, ptr %18, align 2
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8
   store i32 %25, ptr %27, align 4
   br label %28
 
 28:                                               ; preds = %.thread, %22, %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %30 = load i16, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i16 %30, ptr %31, align 8
   %32 = load i32, ptr %8, align 8
   %33 = zext i32 %32 to i64
@@ -722,9 +722,9 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %35 = load i32, ptr %8, align 8
   %36 = zext i32 %35 to i64
   %37 = call ptr @slurm_xcalloc(i64 noundef %36, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 554, ptr noundef nonnull @__func__._init_task_layout) #7
-  %38 = getelementptr inbounds i8, ptr %1, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr @hostlist_create(ptr noundef %40) #7
   %42 = call i32 @hostlist_count(ptr noundef %41) #7
@@ -743,11 +743,11 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   br i1 %48, label %49, label %56
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %1, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %51 = load i32, ptr %50, align 8
   %52 = load i32, ptr %8, align 8
   %53 = load ptr, ptr %39, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 76
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %55 = load i32, ptr %54, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.9, i32 noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %55) #7
   br label %56
@@ -758,15 +758,15 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   br i1 %58, label %68, label %.preheader
 
 .preheader:                                       ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %17, align 8
   %62 = load i16, ptr %31, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 76
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %wide.trip.count = zext i32 %57 to i64
   br label %70
 
@@ -781,13 +781,13 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %.071110 = phi i32 [ 0, %.preheader ], [ %.172, %87 ]
   %.073109 = phi i32 [ 0, %.preheader ], [ %.174, %87 ]
   %71 = zext nneg i32 %.069111 to i64
-  %72 = getelementptr inbounds i16, ptr %60, i64 %71
+  %72 = getelementptr inbounds nuw i16, ptr %60, i64 %71
   %73 = load i16, ptr %72, align 2
   %74 = zext nneg i32 %.073109 to i64
-  %75 = getelementptr inbounds i16, ptr %61, i64 %74
+  %75 = getelementptr inbounds nuw i16, ptr %61, i64 %74
   %76 = load i16, ptr %75, align 2
   %77 = udiv i16 %73, %76
-  %78 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
   %79 = icmp ugt i16 %76, %73
   %spec.select = select i1 %79, i16 1, i16 %77
   store i16 %spec.select, ptr %78, align 2
@@ -813,14 +813,14 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
 
 87:                                               ; preds = %70, %70, %83, %86, %80
   %88 = add nsw i32 %.068112, 1
-  %89 = getelementptr inbounds i32, ptr %64, i64 %71
+  %89 = getelementptr inbounds nuw i32, ptr %64, i64 %71
   %90 = load i32, ptr %89, align 4
   %.not86 = icmp uge i32 %88, %90
   %91 = zext i1 %.not86 to i32
   %spec.select88 = add nuw nsw i32 %.069111, %91
   %spec.select89 = select i1 %.not86, i32 0, i32 %88
   %92 = add nsw i32 %.071110, 1
-  %93 = getelementptr inbounds i32, ptr %66, i64 %74
+  %93 = getelementptr inbounds nuw i32, ptr %66, i64 %74
   %94 = load i32, ptr %93, align 4
   %.not87 = icmp uge i32 %92, %94
   %95 = zext i1 %.not87 to i32
@@ -839,7 +839,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
 .lr.ph.i:                                         ; preds = %96, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %96 ]
   %.04661.i = phi i32 [ %103, %.lr.ph.i ], [ 0, %96 ]
-  %100 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i32
   %103 = add nuw nsw i32 %.04661.i, %102
@@ -848,7 +848,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %104 = getelementptr inbounds i8, ptr %1, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %105 = load i32, ptr %104, align 8
   %106 = icmp ult i32 %103, %105
   br i1 %106, label %.thread.i, label %111
@@ -902,7 +902,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %indvars.iv89.i113 = phi i64 [ %indvars.iv.next90.i, %.lr.ph66.split.us.i ], [ 0, %.lr.ph66.split.us.i.preheader ]
   %119 = phi i32 [ %151, %.lr.ph66.split.us.i ], [ %114, %.lr.ph66.split.us.i.preheader ]
   %120 = phi i32 [ %150, %.lr.ph66.split.us.i ], [ %113, %.lr.ph66.split.us.i.preheader ]
-  %121 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv89.i113
+  %121 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv89.i113
   %122 = load i16, ptr %121, align 2
   %123 = zext i16 %122 to i32
   %124 = icmp samesign ult i32 %.05175.i, %123
@@ -910,26 +910,26 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
 
 125:                                              ; preds = %.lr.ph
   %126 = load ptr, ptr %38, align 8
-  %127 = getelementptr inbounds ptr, ptr %126, i64 %indvars.iv89.i113
+  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv89.i113
   %128 = load ptr, ptr %14, align 8
-  %129 = getelementptr inbounds i16, ptr %128, i64 %indvars.iv89.i113
+  %129 = getelementptr inbounds nuw i16, ptr %128, i64 %indvars.iv89.i113
   %130 = load i16, ptr %129, align 2
   %131 = zext i16 %130 to i64
   %132 = shl nuw nsw i64 %131, 2
   %133 = add nuw nsw i64 %132, 4
   %134 = call ptr @slurm_xrecalloc(ptr noundef %127, i64 noundef 1, i64 noundef %133, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 862, ptr noundef nonnull @__func__._task_layout_cyclic) #7
   %135 = load ptr, ptr %38, align 8
-  %136 = getelementptr inbounds ptr, ptr %135, i64 %indvars.iv89.i113
+  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv89.i113
   %137 = load ptr, ptr %136, align 8
   %138 = load ptr, ptr %14, align 8
-  %139 = getelementptr inbounds i16, ptr %138, i64 %indvars.iv89.i113
+  %139 = getelementptr inbounds nuw i16, ptr %138, i64 %indvars.iv89.i113
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i64
-  %142 = getelementptr inbounds i32, ptr %137, i64 %141
+  %142 = getelementptr inbounds nuw i32, ptr %137, i64 %141
   store i32 %.14864.us.i115, ptr %142, align 4
   %143 = add nuw nsw i32 %.14864.us.i115, 1
   %144 = load ptr, ptr %14, align 8
-  %145 = getelementptr inbounds i16, ptr %144, i64 %indvars.iv89.i113
+  %145 = getelementptr inbounds nuw i16, ptr %144, i64 %indvars.iv89.i113
   %146 = load i16, ptr %145, align 2
   %147 = add i16 %146, 1
   store i16 %147, ptr %145, align 2
@@ -958,7 +958,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %.065.i126 = phi i1 [ %.1.i, %.lr.ph66.split.i ], [ false, %.lr.ph66.split.i.preheader ]
   %indvars.iv91.i125 = phi i64 [ %indvars.iv.next92.i, %.lr.ph66.split.i ], [ 0, %.lr.ph66.split.i.preheader ]
   %156 = phi i32 [ %188, %.lr.ph66.split.i ], [ %113, %.lr.ph66.split.i.preheader ]
-  %157 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv91.i125
+  %157 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv91.i125
   %158 = load i16, ptr %157, align 2
   %159 = zext i16 %158 to i32
   %160 = icmp samesign ult i32 %.05175.i, %159
@@ -969,26 +969,26 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
 
 163:                                              ; preds = %.lr.ph128
   %164 = load ptr, ptr %38, align 8
-  %165 = getelementptr inbounds ptr, ptr %164, i64 %indvars.iv91.i125
+  %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv91.i125
   %166 = load ptr, ptr %14, align 8
-  %167 = getelementptr inbounds i16, ptr %166, i64 %indvars.iv91.i125
+  %167 = getelementptr inbounds nuw i16, ptr %166, i64 %indvars.iv91.i125
   %168 = load i16, ptr %167, align 2
   %169 = zext i16 %168 to i64
   %170 = shl nuw nsw i64 %169, 2
   %171 = add nuw nsw i64 %170, 4
   %172 = call ptr @slurm_xrecalloc(ptr noundef %165, i64 noundef 1, i64 noundef %171, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 862, ptr noundef nonnull @__func__._task_layout_cyclic) #7
   %173 = load ptr, ptr %38, align 8
-  %174 = getelementptr inbounds ptr, ptr %173, i64 %indvars.iv91.i125
+  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv91.i125
   %175 = load ptr, ptr %174, align 8
   %176 = load ptr, ptr %14, align 8
-  %177 = getelementptr inbounds i16, ptr %176, i64 %indvars.iv91.i125
+  %177 = getelementptr inbounds nuw i16, ptr %176, i64 %indvars.iv91.i125
   %178 = load i16, ptr %177, align 2
   %179 = zext i16 %178 to i64
-  %180 = getelementptr inbounds i32, ptr %175, i64 %179
+  %180 = getelementptr inbounds nuw i32, ptr %175, i64 %179
   store i32 %.14864.i127, ptr %180, align 4
   %181 = add nuw nsw i32 %.14864.i127, 1
   %182 = load ptr, ptr %14, align 8
-  %183 = getelementptr inbounds i16, ptr %182, i64 %indvars.iv91.i125
+  %183 = getelementptr inbounds nuw i16, ptr %182, i64 %indvars.iv91.i125
   %184 = load i16, ptr %183, align 2
   %185 = add i16 %184, 1
   store i16 %185, ptr %183, align 2
@@ -1057,7 +1057,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
 212:                                              ; preds = %211, %208
   %213 = call ptr @hostlist_create(ptr noundef nonnull %2) #7
   %214 = call i32 @hostlist_count(ptr noundef %213) #7
-  %215 = getelementptr inbounds i8, ptr %1, i64 72
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %216 = load i32, ptr %215, align 8
   %.not82.i = icmp eq i32 %214, %216
   br i1 %.not82.i, label %221, label %217
@@ -1102,7 +1102,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
   %234 = phi ptr [ %237, %.lr.ph.i91 ], [ %232, %231 ]
   %235 = call ptr @find_node_record_no_alias(ptr noundef nonnull %234) #7
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
-  %236 = getelementptr inbounds ptr, ptr %228, i64 %indvars.iv.i92
+  %236 = getelementptr inbounds nuw ptr, ptr %228, i64 %indvars.iv.i92
   store ptr %235, ptr %236, align 8
   call void @free(ptr noundef nonnull %234) #7
   %237 = call ptr @hostlist_next(ptr noundef %225) #7
@@ -1127,7 +1127,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
 .lr.ph92.i:                                       ; preds = %240, %254
   %indvars.iv103.i = phi i64 [ %indvars.iv.next104.i, %254 ], [ 0, %240 ]
   %.27090.i = phi i32 [ %.3.i, %254 ], [ %.068.i, %240 ]
-  %245 = getelementptr inbounds ptr, ptr %228, i64 %indvars.iv103.i
+  %245 = getelementptr inbounds nuw ptr, ptr %228, i64 %indvars.iv103.i
   %246 = load ptr, ptr %245, align 8
   %247 = icmp eq ptr %241, %246
   br i1 %247, label %248, label %254
@@ -1182,7 +1182,7 @@ define internal fastcc range(i32 -1, 1) i32 @_init_task_layout(ptr nocapture nou
 .lr.ph99.i:                                       ; preds = %269, %284
   %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %284 ], [ 0, %269 ]
   %.07295.i = phi i32 [ %.173.i, %284 ], [ 0, %269 ]
-  %274 = getelementptr inbounds ptr, ptr %228, i64 %indvars.iv106.i
+  %274 = getelementptr inbounds nuw ptr, ptr %228, i64 %indvars.iv106.i
   %275 = load ptr, ptr %274, align 8
   %276 = icmp eq ptr %241, %275
   br i1 %276, label %277, label %284
@@ -1266,31 +1266,31 @@ define noundef i32 @slurm_step_layout_destroy(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %20, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call void @slurm_free_node_alias_addrs(ptr noundef %5) #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %6) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @slurm_xfree(ptr noundef nonnull %7) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @slurm_xfree(ptr noundef nonnull %8) #7
   tail call void @slurm_xfree(ptr noundef nonnull %0) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %9) #7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %.not5 = icmp eq i32 %11, 0
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %15) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %10, align 8
@@ -1299,7 +1299,7 @@ define noundef i32 @slurm_step_layout_destroy(ptr noundef %0) local_unnamed_addr
   br i1 %18, label %13, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %13, %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @slurm_xfree(ptr noundef nonnull %19) #7
   call void @slurm_xfree(ptr noundef nonnull %2) #7
   br label %20
@@ -1330,20 +1330,20 @@ define ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly %
 14:                                               ; preds = %8
   %15 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 88, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 153, ptr noundef nonnull @__func__.fake_slurm_step_layout_create) #7
   %16 = tail call ptr @xstrdup(ptr noundef nonnull %0) #7
-  %17 = getelementptr inbounds i8, ptr %15, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 58
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 58
   store i16 %5, ptr %19, align 2
   %20 = zext i32 %3 to i64
   %21 = tail call ptr @slurm_xcalloc(i64 noundef %20, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @__func__.fake_slurm_step_layout_create) #7
-  %22 = getelementptr inbounds i8, ptr %15, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store ptr %21, ptr %22, align 8
   %23 = tail call ptr @slurm_xcalloc(i64 noundef %20, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 158, ptr noundef nonnull @__func__.fake_slurm_step_layout_create) #7
-  %24 = getelementptr inbounds i8, ptr %15, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 80
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %15, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store i32 0, ptr %25, align 8
   %26 = load i32, ptr %18, align 8
   %.not104 = icmp eq i32 %26, 0
@@ -1365,20 +1365,20 @@ define ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly %
   %.080100.us = phi i32 [ 0, %.lr.ph103.split.us.preheader ], [ %spec.select93.us, %._crit_edge.us ]
   %.08299.us = phi i32 [ 0, %.lr.ph103.split.us.preheader ], [ %spec.select.us, %._crit_edge.us ]
   %30 = zext nneg i32 %.080100.us to i64
-  %31 = getelementptr inbounds i16, ptr %1, i64 %30
+  %31 = getelementptr inbounds nuw i16, ptr %1, i64 %30
   %32 = load i16, ptr %31, align 2
-  %33 = getelementptr inbounds i16, ptr %29, i64 %indvars.iv116
+  %33 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv116
   store i16 %32, ptr %33, align 2
   %34 = load ptr, ptr %22, align 8
-  %35 = getelementptr inbounds i16, ptr %34, i64 %indvars.iv116
+  %35 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv116
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i64
   %38 = tail call ptr @slurm_xcalloc(i64 noundef %37, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 165, ptr noundef nonnull @__func__.fake_slurm_step_layout_create) #7
   %39 = load ptr, ptr %24, align 8
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv116
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv116
   store ptr %38, ptr %40, align 8
   %41 = load ptr, ptr %22, align 8
-  %42 = getelementptr inbounds i16, ptr %41, i64 %indvars.iv116
+  %42 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv116
   %43 = load i16, ptr %42, align 2
   %.not106 = icmp eq i16 %43, 0
   br i1 %.not106, label %._crit_edge.us, label %.lr.ph98.us
@@ -1386,7 +1386,7 @@ define ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly %
 ._crit_edge.us:                                   ; preds = %.lr.ph98.us, %.lr.ph103.split.us
   %44 = phi ptr [ %41, %.lr.ph103.split.us ], [ %58, %.lr.ph98.us ]
   %45 = add nsw i32 %.08299.us, 1
-  %46 = getelementptr inbounds i32, ptr %2, i64 %30
+  %46 = getelementptr inbounds nuw i32, ptr %2, i64 %30
   %47 = load i32, ptr %46, align 4
   %.not92.us = icmp uge i32 %45, %47
   %spec.select.us = select i1 %.not92.us, i32 0, i32 %45
@@ -1404,13 +1404,13 @@ define ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly %
   %53 = add i32 %52, 1
   store i32 %53, ptr %25, align 8
   %54 = load ptr, ptr %24, align 8
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv116
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv116
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv113
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv113
   store i32 %52, ptr %57, align 4
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %58 = load ptr, ptr %22, align 8
-  %59 = getelementptr inbounds i16, ptr %58, i64 %indvars.iv116
+  %59 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv116
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i64
   %62 = icmp samesign ult i64 %indvars.iv.next114, %61
@@ -1424,10 +1424,10 @@ define ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly %
 
 64:                                               ; preds = %.lr.ph103.split
   %65 = load ptr, ptr %22, align 8
-  %66 = getelementptr inbounds i16, ptr %65, i64 %indvars.iv110
+  %66 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv110
   store i16 0, ptr %66, align 2
   %67 = load ptr, ptr %24, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv110
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv110
   store ptr null, ptr %68, align 8
   br label %.loopexit
 
@@ -1439,12 +1439,12 @@ define ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly %
   %74 = udiv i32 %73, %71
   %75 = trunc i32 %74 to i16
   %76 = load ptr, ptr %22, align 8
-  %77 = getelementptr inbounds i16, ptr %76, i64 %indvars.iv110
+  %77 = getelementptr inbounds nuw i16, ptr %76, i64 %indvars.iv110
   store i16 %75, ptr %77, align 2
   %78 = zext i32 %74 to i64
   %79 = tail call ptr @slurm_xcalloc(i64 noundef %78, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 185, ptr noundef nonnull @__func__.fake_slurm_step_layout_create) #7
   %80 = load ptr, ptr %24, align 8
-  %81 = getelementptr inbounds ptr, ptr %80, i64 %indvars.iv110
+  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv110
   store ptr %79, ptr %81, align 8
   %.not105 = icmp ugt i32 %71, %73
   br i1 %.not105, label %.loopexit, label %.lr.ph.preheader
@@ -1459,9 +1459,9 @@ define ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly %
   %83 = add i32 %82, 1
   store i32 %83, ptr %25, align 8
   %84 = load ptr, ptr %24, align 8
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv110
+  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv110
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i32, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv
   store i32 %82, ptr %87, align 4
   %88 = load i32, ptr %25, align 8
   %.not91 = icmp ult i32 %88, %4
@@ -1471,7 +1471,7 @@ define ptr @fake_slurm_step_layout_create(ptr noundef %0, ptr noundef readonly %
   %90 = trunc i64 %indvars.iv to i16
   %91 = add i16 %90, 1
   %92 = load ptr, ptr %22, align 8
-  %93 = getelementptr inbounds i16, ptr %92, i64 %indvars.iv110
+  %93 = getelementptr inbounds nuw i16, ptr %92, i64 %indvars.iv110
   store i16 %91, ptr %93, align 2
   br label %.loopexit
 
@@ -1501,58 +1501,58 @@ define ptr @slurm_step_layout_copy(ptr noundef readonly %0) local_unnamed_addr #
 
 2:                                                ; preds = %1
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 88, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 213, ptr noundef nonnull @__func__.slurm_step_layout_copy) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not53 = icmp eq ptr %5, null
   br i1 %.not53, label %10, label %6
 
 6:                                                ; preds = %2
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 215, ptr noundef nonnull @__func__.slurm_step_layout_copy) #7
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %7, ptr %8, align 8
   %9 = load ptr, ptr %4, align 8
   tail call void @slurm_copy_node_alias_addrs_members(ptr noundef %7, ptr noundef %9) #7
   br label %10
 
 10:                                               ; preds = %6, %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @xstrdup(ptr noundef %12) #7
-  %14 = getelementptr inbounds i8, ptr %3, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 58
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 58
   %19 = load i16, ptr %18, align 2
-  %20 = getelementptr inbounds i8, ptr %3, i64 58
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 58
   store i16 %19, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %3, i64 76
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i32 %25, ptr %26, align 4
   %27 = zext i32 %16 to i64
   %28 = tail call ptr @slurm_xcalloc(i64 noundef %27, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 225, ptr noundef nonnull @__func__.slurm_step_layout_copy) #7
-  %29 = getelementptr inbounds i8, ptr %3, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %17, align 8
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %28, ptr align 2 %31, i64 %34, i1 false)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i32, ptr %35, align 8
   %.not54 = icmp eq i32 %36, 0
   br i1 %.not54, label %48, label %37
 
 37:                                               ; preds = %10
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %36, ptr %38, align 8
   %39 = zext i32 %36 to i64
   %40 = tail call ptr @slurm_xcalloc(i64 noundef %39, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @__func__.slurm_step_layout_copy) #7
@@ -1561,9 +1561,9 @@ define ptr @slurm_step_layout_copy(ptr noundef readonly %0) local_unnamed_addr #
   %42 = shl nuw nsw i64 %39, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %40, ptr align 2 %41, i64 %42, i1 false)
   %43 = tail call ptr @slurm_xcalloc(i64 noundef %39, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.slurm_step_layout_copy) #7
-  %44 = getelementptr inbounds i8, ptr %3, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = shl nuw nsw i64 %39, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %43, ptr align 4 %46, i64 %47, i1 false)
@@ -1573,34 +1573,34 @@ define ptr @slurm_step_layout_copy(ptr noundef readonly %0) local_unnamed_addr #
   %49 = load i32, ptr %17, align 8
   %50 = zext i32 %49 to i64
   %51 = tail call ptr @slurm_xcalloc(i64 noundef %50, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 246, ptr noundef nonnull @__func__.slurm_step_layout_copy) #7
-  %52 = getelementptr inbounds i8, ptr %3, i64 80
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %51, ptr %52, align 8
   %53 = load i32, ptr %17, align 8
   %.not56 = icmp eq i32 %53, 0
   br i1 %.not56, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %0, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %55
 
 55:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %56 = load ptr, ptr %29, align 8
-  %57 = getelementptr inbounds i16, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv
   %58 = load i16, ptr %57, align 2
   %59 = zext i16 %58 to i64
   %60 = tail call ptr @slurm_xcalloc(i64 noundef %59, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @__func__.slurm_step_layout_copy) #7
   %61 = load ptr, ptr %52, align 8
-  %62 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
   store ptr %60, ptr %62, align 8
   %63 = load ptr, ptr %52, align 8
-  %64 = getelementptr inbounds ptr, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %54, align 8
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %29, align 8
-  %70 = getelementptr inbounds i16, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv
   %71 = load i16, ptr %70, align 2
   %72 = zext i16 %71 to i64
   %73 = shl nuw nsw i64 %72, 2
@@ -1623,10 +1623,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define void @slurm_step_layout_merge(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @hostlist_create(ptr noundef %4) #7
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @hostlist_create(ptr noundef %7) #7
   %9 = tail call ptr @hostlist_iterator_create(ptr noundef %8) #7
@@ -1635,11 +1635,11 @@ define void @slurm_step_layout_merge(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not50, label %._crit_edge54, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %16
 
 16:                                               ; preds = %.lr.ph53, %._crit_edge
@@ -1669,7 +1669,7 @@ define void @slurm_step_layout_merge(ptr noundef %0, ptr nocapture noundef reado
   %32 = getelementptr inbounds i16, ptr %30, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = load ptr, ptr %14, align 8
-  %35 = getelementptr inbounds i16, ptr %34, i64 %indvars.iv61
+  %35 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv61
   %36 = load i16, ptr %35, align 2
   %37 = add i16 %36, %33
   store i16 %37, ptr %32, align 2
@@ -1681,7 +1681,7 @@ define void @slurm_step_layout_merge(ptr noundef %0, ptr nocapture noundef reado
   %43 = zext i16 %42 to i64
   %44 = tail call ptr @slurm_xrecalloc(ptr noundef %39, i64 noundef %43, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 299, ptr noundef nonnull @__func__.slurm_step_layout_merge) #7
   %45 = load ptr, ptr %14, align 8
-  %46 = getelementptr inbounds i16, ptr %45, i64 %indvars.iv61
+  %46 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv61
   %47 = load i16, ptr %46, align 2
   %.not55 = icmp eq i16 %47, 0
   br i1 %.not55, label %._crit_edge, label %.lr.ph.preheader
@@ -1694,19 +1694,19 @@ define void @slurm_step_layout_merge(ptr noundef %0, ptr nocapture noundef reado
   %indvars.iv56 = phi i64 [ %48, %.lr.ph.preheader ], [ %indvars.iv.next57, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %49 = load ptr, ptr %15, align 8
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv61
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv61
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4
   %54 = load ptr, ptr %13, align 8
   %55 = getelementptr inbounds ptr, ptr %54, i64 %31
   %56 = load ptr, ptr %55, align 8
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv56
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv56
   store i32 %53, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load ptr, ptr %14, align 8
-  %59 = getelementptr inbounds i16, ptr %58, i64 %indvars.iv61
+  %59 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv61
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i64
   %62 = icmp samesign ult i64 %indvars.iv.next, %61
@@ -1720,9 +1720,9 @@ define void @slurm_step_layout_merge(ptr noundef %0, ptr nocapture noundef reado
 
 ._crit_edge54:                                    ; preds = %._crit_edge, %2
   tail call void @hostlist_iterator_destroy(ptr noundef %9) #7
-  %64 = getelementptr inbounds i8, ptr %1, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %65 = load i32, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %67 = load i32, ptr %66, align 8
   %68 = add i32 %67, %65
   store i32 %68, ptr %66, align 8
@@ -1782,26 +1782,26 @@ declare void @slurm_free_node_alias_addrs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @slurm_step_layout_host_id(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not19 = icmp eq ptr %7, null
   br i1 %.not19, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, -1
   %12 = icmp ugt i32 %1, %11
   br i1 %12, label %.loopexit, label %.preheader20
 
 .preheader20:                                     ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %.not25 = icmp eq i32 %14, 0
   br i1 %.not25, label %.loopexit, label %.preheader.preheader
@@ -1812,13 +1812,13 @@ define i32 @slurm_step_layout_host_id(ptr nocapture noundef readonly %0, i32 nou
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv30 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next31, %._crit_edge ]
-  %15 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv30
+  %15 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv30
   %16 = load i16, ptr %15, align 2
   %.not26 = icmp eq i16 %16, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %17 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv30
+  %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv30
   %18 = load ptr, ptr %17, align 8
   %wide.trip.count = zext i16 %16 to i64
   br label %20
@@ -1830,7 +1830,7 @@ define i32 @slurm_step_layout_host_id(ptr nocapture noundef readonly %0, i32 nou
 
 20:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %21 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %.loopexit.loopexit, label %19
@@ -1851,26 +1851,26 @@ define i32 @slurm_step_layout_host_id(ptr nocapture noundef readonly %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define ptr @slurm_step_layout_host_name(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %slurm_step_layout_host_id.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not19.i = icmp eq ptr %7, null
   br i1 %.not19.i, label %slurm_step_layout_host_id.exit.thread, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, -1
   %12 = icmp ugt i32 %1, %11
   br i1 %12, label %slurm_step_layout_host_id.exit.thread, label %.preheader20.i
 
 .preheader20.i:                                   ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %.not25.i = icmp eq i32 %14, 0
   br i1 %.not25.i, label %slurm_step_layout_host_id.exit.thread, label %.preheader.preheader.i
@@ -1881,13 +1881,13 @@ define ptr @slurm_step_layout_host_name(ptr nocapture noundef readonly %0, i32 n
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.preheader.i
   %indvars.iv30.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next31.i, %._crit_edge.i ]
-  %15 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv30.i
+  %15 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv30.i
   %16 = load i16, ptr %15, align 2
   %.not26.i = icmp eq i16 %16, 0
   br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %17 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv30.i
+  %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv30.i
   %18 = load ptr, ptr %17, align 8
   %wide.trip.count.i = zext i16 %16 to i64
   br label %20
@@ -1899,7 +1899,7 @@ define ptr @slurm_step_layout_host_name(ptr nocapture noundef readonly %0, i32 n
 
 20:                                               ; preds = %19, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %19 ]
-  %21 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %slurm_step_layout_host_id.exit, label %19
@@ -1911,7 +1911,7 @@ define ptr @slurm_step_layout_host_name(ptr nocapture noundef readonly %0, i32 n
 
 slurm_step_layout_host_id.exit:                   ; preds = %20
   %24 = trunc nuw nsw i64 %indvars.iv30.i to i32
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @nodelist_nth_host(ptr noundef %26, i32 noundef %24) #7
   br label %slurm_step_layout_host_id.exit.thread
@@ -1940,14 +1940,14 @@ define ptr @slurm_step_layout_type_name(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond, label %.loopexit.thread, label %6, !llvm.loop !29
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds [29 x %struct.layout_type_name_t], ptr @layout_type_names, i64 0, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw [29 x %struct.layout_type_name_t], ptr @layout_type_names, i64 0, i64 %indvars.iv.next
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %8, %4
   br i1 %9, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %6, %1
   %.lcssa = phi ptr [ @layout_type_names, %1 ], [ %7, %6 ]
-  %10 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %11 = load ptr, ptr %10, align 8
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef %11) #7
   %.pre = load ptr, ptr %2, align 8
@@ -1989,7 +1989,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %6 = alloca i32, i64 %5, align 16
@@ -1998,29 +1998,29 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
   %13 = load i32, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load i32, ptr %14, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.17, i32 noundef %12, i32 noundef %13, i32 noundef %15) #7
   br label %16
 
 16:                                               ; preds = %9, %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load i16, ptr %17, align 8
   %19 = icmp eq i16 %18, 0
   br i1 %19, label %._crit_edge.thread, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %._crit_edge.thread, label %.preheader109
 
 .preheader109:                                    ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load i32, ptr %24, align 8
   %.not165 = icmp eq i32 %25, 0
   %.pre192 = load i32, ptr %3, align 8
@@ -2035,7 +2035,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   br i1 %.not168217, label %._crit_edge.thread, label %.lr.ph146
 
 .lr.ph146:                                        ; preds = %.preheader107.thread, %.preheader107
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %106
 
 .lr.ph143:                                        ; preds = %.preheader109, %.critedge2
@@ -2066,7 +2066,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %indvars.iv251 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %32 = add nuw nsw i32 %.295111252, 1
   %33 = load ptr, ptr %21, align 8
-  %34 = getelementptr inbounds i16, ptr %33, i64 %indvars.iv251
+  %34 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv251
   %35 = load i16, ptr %34, align 2
   %36 = add i16 %35, 1
   store i16 %36, ptr %34, align 2
@@ -2119,7 +2119,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   br i1 %49, label %.lr.ph130.split.us, label %.critedge2, !llvm.loop !31
 
 .lr.ph118.us:                                     ; preds = %44
-  %50 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv181
+  %50 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv181
   br label %51
 
 51:                                               ; preds = %54, %.lr.ph118.us
@@ -2132,14 +2132,14 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %21, align 8
-  %56 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv181
+  %56 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv181
   %57 = load i16, ptr %56, align 2
   %58 = add nuw nsw i32 %.4116.us.us, 1
   %59 = add i16 %57, 1
   store i16 %59, ptr %56, align 2
   %60 = load i16, ptr %50, align 2
   %61 = load ptr, ptr %21, align 8
-  %62 = getelementptr inbounds i16, ptr %61, i64 %indvars.iv181
+  %62 = getelementptr inbounds nuw i16, ptr %61, i64 %indvars.iv181
   %63 = load i16, ptr %62, align 2
   %64 = icmp ult i16 %63, %60
   %spec.select.us.us = select i1 %64, i1 true, i1 %.1117.us.us
@@ -2165,7 +2165,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   br i1 %74, label %.lr.ph118, label %.critedge4
 
 .lr.ph118:                                        ; preds = %72
-  %75 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv179
+  %75 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv179
   br label %76
 
 76:                                               ; preds = %.lr.ph118, %93
@@ -2180,7 +2180,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
 80:                                               ; preds = %76
   %81 = load i16, ptr %75, align 2
   %82 = load ptr, ptr %21, align 8
-  %83 = getelementptr inbounds i16, ptr %82, i64 %indvars.iv179
+  %83 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv179
   %84 = load i16, ptr %83, align 2
   %.not103.not = icmp eq i16 %81, %84
   br i1 %.not103.not, label %93, label %85
@@ -2191,7 +2191,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   store i16 %87, ptr %83, align 2
   %88 = load i16, ptr %75, align 2
   %89 = load ptr, ptr %21, align 8
-  %90 = getelementptr inbounds i16, ptr %89, i64 %indvars.iv179
+  %90 = getelementptr inbounds nuw i16, ptr %89, i64 %indvars.iv179
   %91 = load i16, ptr %90, align 2
   %92 = icmp ult i16 %91, %88
   %spec.select = select i1 %92, i1 true, i1 %.1117
@@ -2245,7 +2245,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   br i1 %.not169212, label %._crit_edge.thread, label %.preheader105.us.preheader
 
 .preheader105.lr.ph:                              ; preds = %.preheader106
-  %105 = getelementptr inbounds i8, ptr %0, i64 80
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.not170 = icmp eq i32 %115, 0
   br i1 %.not170, label %.preheader105.us.preheader, label %.preheader105
 
@@ -2258,14 +2258,14 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
 106:                                              ; preds = %.lr.ph146, %106
   %indvars.iv183 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next184, %106 ]
   %107 = load ptr, ptr %21, align 8
-  %108 = getelementptr inbounds i16, ptr %107, i64 %indvars.iv183
+  %108 = getelementptr inbounds nuw i16, ptr %107, i64 %indvars.iv183
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i64
   %111 = tail call ptr @slurm_xcalloc(i64 noundef %110, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 952, ptr noundef nonnull @__func__._task_layout_plane) #7
   %112 = load ptr, ptr %26, align 8
-  %113 = getelementptr inbounds ptr, ptr %112, i64 %indvars.iv183
+  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv183
   store ptr %111, ptr %113, align 8
-  %114 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv183
+  %114 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv183
   store i32 0, ptr %114, align 4
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %115 = load i32, ptr %3, align 8
@@ -2290,7 +2290,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %.7155259 = phi i32 [ %.8.lcssa, %.critedge8 ], [ %.6161, %.lr.ph157.preheader ]
   %indvars.iv186257 = phi i64 [ %indvars.iv.next187, %.critedge8 ], [ 0, %.lr.ph157.preheader ]
   %123 = phi i32 [ %147, %.critedge8 ], [ %119, %.lr.ph157.preheader ]
-  %124 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv186257
+  %124 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv186257
   %125 = load i16, ptr %17, align 8
   %.not173 = icmp eq i16 %125, 0
   br i1 %.not173, label %.critedge8, label %.lr.ph149.preheader
@@ -2304,7 +2304,7 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
   %.8148 = phi i32 [ %141, %135 ], [ %.7155259, %.lr.ph149.preheader ]
   %.198147 = phi i32 [ %143, %135 ], [ 0, %.lr.ph149.preheader ]
   %127 = load ptr, ptr %21, align 8
-  %128 = getelementptr inbounds i16, ptr %127, i64 %indvars.iv186257
+  %128 = getelementptr inbounds nuw i16, ptr %127, i64 %indvars.iv186257
   %129 = load i16, ptr %128, align 2
   %130 = zext i16 %129 to i32
   %131 = icmp ult i32 %126, %130
@@ -2317,10 +2317,10 @@ define internal fastcc range(i32 -1, 1) i32 @_task_layout_plane(ptr nocapture no
 
 135:                                              ; preds = %132
   %136 = load ptr, ptr %105, align 8
-  %137 = getelementptr inbounds ptr, ptr %136, i64 %indvars.iv186257
+  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv186257
   %138 = load ptr, ptr %137, align 8
   %139 = zext nneg i32 %126 to i64
-  %140 = getelementptr inbounds i32, ptr %138, i64 %139
+  %140 = getelementptr inbounds nuw i32, ptr %138, i64 %139
   store i32 %.8148, ptr %140, align 4
   %141 = add nuw nsw i32 %.8148, 1
   %142 = add nuw nsw i32 %126, 1
@@ -2381,7 +2381,7 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
 
 7:                                                ; preds = %5, %2
   %8 = phi i16 [ %6, %5 ], [ %3, %2 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 76
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 8388608
   %.not = icmp eq i32 %11, 0
@@ -2396,14 +2396,14 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   br i1 %or.cond, label %.critedge98, label %.critedge96
 
 .critedge96:                                      ; preds = %12, %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %.not149 = icmp eq i32 %17, 0
   br i1 %.not149, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge96
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %19
 
 19:                                               ; preds = %.lr.ph, %33
@@ -2416,9 +2416,9 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %18, align 8
-  %25 = getelementptr inbounds i16, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2
-  %27 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2
   %29 = icmp ult i16 %26, %28
   br i1 %29, label %30, label %33
@@ -2445,7 +2445,7 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   br i1 %.not150, label %.critedge2, label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %.critedge
-  %38 = getelementptr inbounds i8, ptr %0, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %39
 
 39:                                               ; preds = %.lr.ph114, %.critedge4
@@ -2457,9 +2457,9 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   br i1 %42, label %.preheader102, label %.critedge2
 
 .preheader102:                                    ; preds = %39
-  %43 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv164
+  %43 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv164
   %44 = load ptr, ptr %38, align 8
-  %45 = getelementptr inbounds i16, ptr %44, i64 %indvars.iv164
+  %45 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv164
   %46 = load i16, ptr %45, align 2
   %47 = load i16, ptr %43, align 2
   %48 = icmp ult i16 %46, %47
@@ -2478,7 +2478,7 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   store i16 %54, ptr %50, align 2
   %55 = add nuw nsw i32 %.3107, 1
   %56 = load ptr, ptr %38, align 8
-  %57 = getelementptr inbounds i16, ptr %56, i64 %indvars.iv164
+  %57 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv164
   %58 = load i16, ptr %57, align 2
   %59 = load i16, ptr %43, align 2
   %60 = icmp ult i16 %58, %59
@@ -2505,7 +2505,7 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   br i1 %66, label %.preheader100.lr.ph, label %.loopexit
 
 .preheader100.lr.ph:                              ; preds = %.critedge2
-  %67 = getelementptr inbounds i8, ptr %0, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not151 = icmp eq i32 %64, 0
   br i1 %.not151, label %.preheader100.us, label %.preheader100
 
@@ -2529,7 +2529,7 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   %.511922 = phi i32 [ %77, %.lr.ph23 ], [ %.4124, %.lr.ph120.preheader ]
   %indvars.iv16721 = phi i64 [ %indvars.iv.next168, %.lr.ph23 ], [ 0, %.lr.ph120.preheader ]
   %73 = load ptr, ptr %67, align 8
-  %74 = getelementptr inbounds i16, ptr %73, i64 %indvars.iv16721
+  %74 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv16721
   %75 = load i16, ptr %74, align 2
   %76 = add i16 %75, 1
   store i16 %76, ptr %74, align 2
@@ -2552,10 +2552,10 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   br i1 %86, label %.preheader100, label %.loopexit, !llvm.loop !42
 
 .critedge98:                                      ; preds = %12
-  %87 = getelementptr inbounds i8, ptr %0, i64 72
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %88 = load i32, ptr %87, align 8
   %.not153 = icmp eq i32 %88, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %.not153, label %.critedge98..loopexit_crit_edge, label %.preheader.lr.ph
 
 .critedge98..loopexit_crit_edge:                  ; preds = %.critedge98
@@ -2563,7 +2563,7 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   br label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.critedge98
-  %89 = getelementptr inbounds i8, ptr %0, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %90 = load i32, ptr %.phi.trans.insert, align 8
   %.not154 = icmp eq i32 %90, 0
   br i1 %.not154, label %.preheader.us, label %.preheader
@@ -2602,9 +2602,9 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   %.7126.us41 = phi i32 [ %102, %.lr.ph128.split.us ], [ %.6138, %.lr.ph128.split.us.preheader ]
   %.0127.us40 = phi i1 [ %spec.select.us, %.lr.ph128.split.us ], [ false, %.lr.ph128.split.us.preheader ]
   %indvars.iv17239 = phi i64 [ %indvars.iv.next173, %.lr.ph128.split.us ], [ 0, %.lr.ph128.split.us.preheader ]
-  %97 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv17239
+  %97 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv17239
   %98 = load ptr, ptr %89, align 8
-  %99 = getelementptr inbounds i16, ptr %98, i64 %indvars.iv17239
+  %99 = getelementptr inbounds nuw i16, ptr %98, i64 %indvars.iv17239
   %100 = load i16, ptr %99, align 2
   %101 = add i16 %100, 1
   store i16 %101, ptr %99, align 2
@@ -2629,7 +2629,7 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   %.012728 = phi i1 [ %.1, %.lr.ph128.split ], [ false, %.lr.ph128.split.preheader ]
   %indvars.iv17027 = phi i64 [ %indvars.iv.next171, %.lr.ph128.split ], [ 0, %.lr.ph128.split.preheader ]
   %111 = phi i32 [ %126, %.lr.ph128.split ], [ %91, %.lr.ph128.split.preheader ]
-  %112 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv17027
+  %112 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv17027
   %113 = load i16, ptr %112, align 2
   %114 = zext i16 %113 to i32
   %115 = icmp samesign ult i32 %.086137, %114
@@ -2637,7 +2637,7 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
 
 116:                                              ; preds = %.lr.ph30
   %117 = load ptr, ptr %89, align 8
-  %118 = getelementptr inbounds i16, ptr %117, i64 %indvars.iv17027
+  %118 = getelementptr inbounds nuw i16, ptr %117, i64 %indvars.iv17027
   %119 = load i16, ptr %118, align 2
   %120 = add i16 %119, 1
   store i16 %120, ptr %118, align 2
@@ -2671,13 +2671,13 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
 
 .loopexit:                                        ; preds = %.critedge6, %.critedge8, %.critedge98..loopexit_crit_edge, %.critedge2
   %133 = phi i32 [ %.pre183, %.critedge98..loopexit_crit_edge ], [ %64, %.critedge2 ], [ %129, %.critedge8 ], [ %83, %.critedge6 ]
-  %134 = getelementptr inbounds i8, ptr %0, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not157 = icmp eq i32 %133, 0
   br i1 %.not157, label %._crit_edge148, label %.lr.ph147
 
 .lr.ph147:                                        ; preds = %.loopexit
-  %135 = getelementptr inbounds i8, ptr %0, i64 64
-  %136 = getelementptr inbounds i8, ptr %0, i64 80
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre184 = load ptr, ptr %135, align 8
   br label %137
 
@@ -2685,15 +2685,15 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   %138 = phi ptr [ %.pre184, %.lr.ph147 ], [ %158, %._crit_edge ]
   %indvars.iv177 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next178, %._crit_edge ]
   %.9145 = phi i32 [ 0, %.lr.ph147 ], [ %.10.lcssa, %._crit_edge ]
-  %139 = getelementptr inbounds i16, ptr %138, i64 %indvars.iv177
+  %139 = getelementptr inbounds nuw i16, ptr %138, i64 %indvars.iv177
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i64
   %142 = tail call ptr @slurm_xcalloc(i64 noundef %141, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 817, ptr noundef nonnull @__func__._task_layout_block) #7
   %143 = load ptr, ptr %136, align 8
-  %144 = getelementptr inbounds ptr, ptr %143, i64 %indvars.iv177
+  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv177
   store ptr %142, ptr %144, align 8
   %145 = load ptr, ptr %135, align 8
-  %146 = getelementptr inbounds i16, ptr %145, i64 %indvars.iv177
+  %146 = getelementptr inbounds nuw i16, ptr %145, i64 %indvars.iv177
   %147 = load i16, ptr %146, align 2
   %.not158 = icmp eq i16 %147, 0
   br i1 %.not158, label %._crit_edge, label %.lr.ph142
@@ -2702,14 +2702,14 @@ define internal fastcc void @_task_layout_block(ptr nocapture noundef readonly %
   %indvars.iv174 = phi i64 [ %indvars.iv.next175, %.lr.ph142 ], [ 0, %137 ]
   %.10141 = phi i32 [ %152, %.lr.ph142 ], [ %.9145, %137 ]
   %148 = load ptr, ptr %136, align 8
-  %149 = getelementptr inbounds ptr, ptr %148, i64 %indvars.iv177
+  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv177
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i32, ptr %150, i64 %indvars.iv174
+  %151 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv174
   store i32 %.10141, ptr %151, align 4
   %152 = add nsw i32 %.10141, 1
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %153 = load ptr, ptr %135, align 8
-  %154 = getelementptr inbounds i16, ptr %153, i64 %indvars.iv177
+  %154 = getelementptr inbounds nuw i16, ptr %153, i64 %indvars.iv177
   %155 = load i16, ptr %154, align 2
   %156 = zext i16 %155 to i64
   %157 = icmp samesign ult i64 %indvars.iv.next175, %156

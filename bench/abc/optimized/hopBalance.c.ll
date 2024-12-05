@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @Hop_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr (...) @Hop_ManStart() #9
-  %4 = getelementptr inbounds i8, ptr %3, i64 132
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 132
   store i32 0, ptr %4, align 4
   tail call void @Hop_ManCleanData(ptr noundef %0) #9
   %5 = getelementptr i8, ptr %3, i64 24
@@ -28,7 +28,7 @@ define ptr @Hop_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %10 = phi ptr [ %15, %.lr.ph ], [ %7, %2 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val30 = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds ptr, ptr %.val30, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %.val30, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @Hop_ObjCreatePi(ptr noundef %3) #9
   store ptr %14, ptr %13, align 8
@@ -42,13 +42,13 @@ define ptr @Hop_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %19 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 0, ptr %20, align 4
   store i32 50, ptr %19, align 8
   %21 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #10
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 4
   %.val2936 = load i32, ptr %25, align 4
@@ -60,7 +60,7 @@ define ptr @Hop_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %27 = phi ptr [ %42, %.lr.ph38 ], [ %24, %.critedge ]
   %28 = getelementptr i8, ptr %27, i64 8
   %.val31 = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds ptr, ptr %.val31, i64 %indvars.iv40
+  %29 = getelementptr inbounds nuw ptr, ptr %.val31, i64 %indvars.iv40
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %30, i64 16
   %.val32 = load ptr, ptr %31, align 8
@@ -95,13 +95,13 @@ define ptr @Hop_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %54
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %54 ], [ 0, %.lr.ph.i.preheader ]
-  %48 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv.i
   %49 = load ptr, ptr %48, align 8
   %.not.i = icmp eq ptr %49, null
   br i1 %.not.i, label %54, label %50
 
 50:                                               ; preds = %.lr.ph.i
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %53
@@ -172,7 +172,7 @@ define internal fastcc ptr @Hop_NodeBalance_rec(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i.not.i.i, label %Vec_PtrGrow.exit.i.i, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not9.i.i.i = icmp eq ptr %14, null
   %15 = sext i32 %10 to i64
@@ -201,7 +201,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %21, %9
   br i1 %.not151.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %Vec_PtrGrow.exit.i.i
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = sext i32 %23 to i64
   br label %26
 
@@ -223,14 +223,14 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %21, %9
   %30 = sext i32 %3 to i64
   %31 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %30
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = load i32, ptr %32, align 8
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %.Vec_PtrGrow.exit11_crit_edge.i.i.i
 
 .Vec_PtrGrow.exit11_crit_edge.i.i.i:              ; preds = %.loopexit.i
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %Vec_VecPush.exit.i
 
@@ -239,7 +239,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %21, %9
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %32, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not9.i.i.i.i = icmp eq ptr %41, null
   br i1 %.not9.i.i.i.i, label %44, label %42
@@ -260,7 +260,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %44, %42
 
 47:                                               ; preds = %37
   %48 = shl nuw nsw i32 %34, 1
-  %49 = getelementptr inbounds i8, ptr %32, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not9.i10.i.i.i = icmp eq ptr %50, null
   %51 = zext nneg i32 %48 to i64
@@ -297,7 +297,7 @@ Vec_VecPush.exit.i:                               ; preds = %57, %Vec_PtrGrow.ex
   %.val21.i = load ptr, ptr %65, align 8
   %66 = getelementptr inbounds ptr, ptr %.val21.i, i64 %.pre-phi.i
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 0, ptr %68, align 4
   %69 = tail call i32 @Hop_NodeBalanceCone_rec(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef %67)
   %.val22.i = load i32, ptr %68, align 4
@@ -311,12 +311,12 @@ Vec_VecPush.exit.i:                               ; preds = %57, %Vec_PtrGrow.ex
 72:                                               ; preds = %72, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
   %.val19.i = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds ptr, ptr %.val19.i, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i
   %74 = load ptr, ptr %73, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = and i64 %75, -2
   %77 = inttoptr i64 %76 to ptr
-  %78 = getelementptr inbounds i8, ptr %77, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, -33
   store i32 %80, ptr %78, align 8
@@ -358,21 +358,21 @@ Hop_NodeBalanceCone.exit:                         ; preds = %.critedge.i
   br i1 %93, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90, %92
-  %94 = getelementptr inbounds i8, ptr %67, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %95 = add nsw i32 %3, 1
   br label %96
 
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
   %97 = load ptr, ptr %94, align 8
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8
   %100 = ptrtoint ptr %99 to i64
   %101 = and i64 %100, -2
   %102 = inttoptr i64 %101 to ptr
   %103 = tail call fastcc ptr @Hop_NodeBalance_rec(ptr noundef %0, ptr noundef %102, ptr noundef %2, i32 noundef %95, i32 noundef %4)
   %104 = load ptr, ptr %94, align 8
-  %105 = getelementptr inbounds ptr, ptr %104, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
   %106 = load ptr, ptr %105, align 8
   %107 = ptrtoint ptr %106 to i64
   %108 = and i64 %107, 1
@@ -412,20 +412,20 @@ define range(i32 -1, 2) i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 32
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %29, label %.preheader49
 
 .preheader49:                                     ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader49
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %20
@@ -436,7 +436,7 @@ define range(i32 -1, 2) i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
   br i1 %exitcond.not, label %.lr.ph54, label %20, !llvm.loop !11
 
 .lr.ph54:                                         ; preds = %15
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = xor i64 %4, 1
   %19 = inttoptr i64 %18 to ptr
@@ -445,7 +445,7 @@ define range(i32 -1, 2) i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 
 20:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %21 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %1
   br i1 %23, label %.loopexit, label %15
@@ -457,7 +457,7 @@ define range(i32 -1, 2) i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 
 25:                                               ; preds = %.lr.ph54, %24
   %indvars.iv60 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next61, %24 ]
-  %26 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv60
+  %26 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv60
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %19
   br i1 %28, label %.loopexit, label %24
@@ -490,14 +490,14 @@ define range(i32 -1, 2) i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
   br i1 %40, label %41, label %75
 
 41:                                               ; preds = %38, %32, %30
-  %42 = getelementptr inbounds i8, ptr %2, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = load i32, ptr %2, align 8
   %45 = icmp eq i32 %43, %44
   br i1 %45, label %46, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %41
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -506,7 +506,7 @@ define range(i32 -1, 2) i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not9.i.i = icmp eq ptr %50, null
   br i1 %.not9.i.i, label %53, label %51
@@ -527,7 +527,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %53, %51
 
 56:                                               ; preds = %46
   %57 = shl nuw nsw i32 %43, 1
-  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not9.i10.i = icmp eq ptr %59, null
   %60 = zext nneg i32 %57 to i64
@@ -610,9 +610,9 @@ define range(i32 -1, 2) i32 @Hop_NodeCompareLevelsDecrease(ptr nocapture noundef
   br i1 %18, label %26, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %6, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %12, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %21, %23
   br i1 %24, label %26, label %25
@@ -629,13 +629,13 @@ define range(i32 -1, 2) i32 @Hop_NodeCompareLevelsDecrease(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define ptr @Hop_NodeBalanceBuildSuper(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %6, 2
   br i1 %7, label %._crit_edge, label %Vec_PtrSort.exit
 
 Vec_PtrSort.exit:                                 ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %6 to i64
   tail call void @qsort(ptr noundef %9, i64 noundef %10, i64 noundef 8, ptr noundef nonnull @Hop_NodeCompareLevelsDecrease) #9
@@ -647,12 +647,12 @@ Vec_PtrSort.exit:                                 ; preds = %4
   %.not = icmp eq i32 %3, 0
   %12 = getelementptr i8, ptr %1, i64 8
   %.not22 = icmp eq i32 %2, 5
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = select i1 %.not22, i32 5, i32 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %Hop_NodeBalancePushUniqueOrderByLevel.exit
@@ -678,7 +678,7 @@ Vec_PtrSort.exit:                                 ; preds = %4
 
 32:                                               ; preds = %39, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %31, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
-  %33 = getelementptr inbounds ptr, ptr %.val19.i, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, -2
@@ -729,7 +729,7 @@ Hop_NodeBalanceFindLeft.exit:                     ; preds = %39, %._crit_edge.sp
   br i1 %or.cond62.i, label %Hop_NodeBalancePermute.exit, label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %46
-  %63 = getelementptr inbounds i8, ptr %56, i64 36
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 36
   %64 = add nsw i64 %47, -2
   %65 = sext i32 %43 to i64
   br label %67
@@ -757,7 +757,7 @@ Hop_NodeBalanceFindLeft.exit:                     ; preds = %39, %._crit_edge.sp
   %78 = or disjoint i32 %77, %14
   store i32 %78, ptr %15, align 8
   %79 = load i32, ptr %63, align 4
-  %80 = getelementptr inbounds i8, ptr %72, i64 36
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 36
   %81 = load i32, ptr %80, align 4
   %82 = icmp slt i32 %79, %81
   %spec.select.i.i = select i1 %82, ptr %50, ptr %69
@@ -815,7 +815,7 @@ Hop_NodeBalancePermute.exit:                      ; preds = %66, %Hop_NodeBalanc
 
 104:                                              ; preds = %103, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %103 ]
-  %105 = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv.i.i
+  %105 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv.i.i
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, %99
   br i1 %107, label %Hop_NodeBalancePushUniqueOrderByLevel.exit, label %103
@@ -894,10 +894,10 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %116, %114
   %indvars.iv.i19 = phi i64 [ %138, %.lr.ph.preheader.i ], [ %indvars.iv.next.i20, %155 ]
   %indvars.iv.next.i20 = add nsw i64 %indvars.iv.i19, -1
   %139 = load ptr, ptr %12, align 8
-  %140 = getelementptr inbounds ptr, ptr %139, i64 %indvars.iv.next.i20
+  %140 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv.next.i20
   %141 = load ptr, ptr %140, align 8
   %142 = add nsw i64 %indvars.iv.i19, -2
-  %143 = getelementptr inbounds ptr, ptr %139, i64 %142
+  %143 = getelementptr inbounds nuw ptr, ptr %139, i64 %142
   %144 = load ptr, ptr %143, align 8
   %145 = ptrtoint ptr %141 to i64
   %146 = and i64 %145, -2
@@ -917,7 +917,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %116, %114
 155:                                              ; preds = %.lr.ph.i18
   store ptr %144, ptr %140, align 8
   %156 = load ptr, ptr %12, align 8
-  %157 = getelementptr inbounds ptr, ptr %156, i64 %142
+  %157 = getelementptr inbounds nuw ptr, ptr %156, i64 %142
   store ptr %141, ptr %157, align 8
   %158 = icmp samesign ugt i64 %indvars.iv.i19, 2
   br i1 %158, label %.lr.ph.i18, label %Hop_NodeBalancePushUniqueOrderByLevel.exit.loopexit, !llvm.loop !16

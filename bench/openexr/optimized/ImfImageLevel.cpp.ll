@@ -51,19 +51,19 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN7Imf_3_210ImageLevelC2ERNS_5ImageEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef nonnull align 1 %image, i32 noundef %xLevelNumber, i32 noundef %yLevelNumber) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_210ImageLevelE, i64 16), ptr %this, align 8
-  %_image = getelementptr inbounds i8, ptr %this, i64 8
+  %_image = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %image, ptr %_image, align 8
-  %_xLevelNumber = getelementptr inbounds i8, ptr %this, i64 16
+  %_xLevelNumber = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %xLevelNumber, ptr %_xLevelNumber, align 8
-  %_yLevelNumber = getelementptr inbounds i8, ptr %this, i64 20
+  %_yLevelNumber = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %yLevelNumber, ptr %_yLevelNumber, align 4
-  %_dataWindow = getelementptr inbounds i8, ptr %this, i64 24
-  %max.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_dataWindow = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %max.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %_dataWindow, align 8
-  %y3.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %y3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %y3.i.i, align 4
   store i32 -1, ptr %max.i, align 8
-  %y3.i2.i = getelementptr inbounds i8, ptr %this, i64 36
+  %y3.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 -1, ptr %y3.i2.i, align 4
   ret void
 }
@@ -88,7 +88,7 @@ declare void @llvm.trap() #6
 define void @_ZN7Imf_3_210ImageLevel6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %max = getelementptr inbounds i8, ptr %dataWindow, i64 8
+  %max = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max, align 4
   %1 = load i32, ptr %dataWindow, align 4
   %sub = add nsw i32 %1, -1
@@ -96,9 +96,9 @@ entry:
   br i1 %cmp, label %do.body, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %y = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %y = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %2 = load i32, ptr %y, align 4
-  %y5 = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %y5 = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %3 = load i32, ptr %y5, align 4
   %sub6 = add nsw i32 %3, -1
   %cmp7 = icmp slt i32 %2, %sub6
@@ -107,7 +107,7 @@ lor.lhs.false:                                    ; preds = %entry
 do.body:                                          ; preds = %entry, %lor.lhs.false
   tail call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s)
-  %add.ptr = getelementptr inbounds i8, ptr %_iex_throw_s, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %_iex_throw_s, i64 16
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
@@ -121,7 +121,7 @@ invoke.cont10:                                    ; preds = %invoke.cont
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %y15 = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %y15 = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %5 = load i32, ptr %y15, align 4
   %call17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call13, i32 noundef %5)
           to label %invoke.cont16 unwind label %lpad
@@ -140,7 +140,7 @@ invoke.cont22:                                    ; preds = %invoke.cont18
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont22
-  %y27 = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %y27 = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %7 = load i32, ptr %y27, align 4
   %call29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call25, i32 noundef %7)
           to label %invoke.cont28 unwind label %lpad
@@ -175,16 +175,16 @@ ehcleanup:                                        ; preds = %lpad32, %lpad
   resume { ptr, i32 } %.pn
 
 if.end:                                           ; preds = %lor.lhs.false
-  %_dataWindow = getelementptr inbounds i8, ptr %this, i64 24
+  %_dataWindow = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %1, ptr %_dataWindow, align 8
   %10 = load i32, ptr %y5, align 4
-  %y3.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %y3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %10, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds i8, ptr %this, i64 32
+  %max.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %11 = load i32, ptr %max, align 4
   store i32 %11, ptr %max.i, align 8
   %12 = load i32, ptr %y, align 4
-  %y3.i3.i = getelementptr inbounds i8, ptr %this, i64 36
+  %y3.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 %12, ptr %y3.i3.i, align 4
   ret void
 
@@ -220,19 +220,19 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7Imf_3_210ImageLevel11shiftPixelsEii(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %dx, i32 noundef %dy) unnamed_addr #9 align 2 {
 entry:
-  %_dataWindow = getelementptr inbounds i8, ptr %this, i64 24
+  %_dataWindow = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_dataWindow, align 8
   %add = add nsw i32 %0, %dx
   store i32 %add, ptr %_dataWindow, align 8
-  %y = getelementptr inbounds i8, ptr %this, i64 28
+  %y = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %y, align 4
   %add4 = add nsw i32 %1, %dy
   store i32 %add4, ptr %y, align 4
-  %max = getelementptr inbounds i8, ptr %this, i64 32
+  %max = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i32, ptr %max, align 8
   %add7 = add nsw i32 %2, %dx
   store i32 %add7, ptr %max, align 8
-  %y10 = getelementptr inbounds i8, ptr %this, i64 36
+  %y10 = getelementptr inbounds nuw i8, ptr %this, i64 36
   %3 = load i32, ptr %y10, align 4
   %add11 = add nsw i32 %3, %dy
   store i32 %add11, ptr %y10, align 4
@@ -245,7 +245,7 @@ entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   tail call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s)
-  %add.ptr = getelementptr inbounds i8, ptr %_iex_throw_s, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %_iex_throw_s, i64 16
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.4)
           to label %invoke.cont unwind label %lpad
 
@@ -294,7 +294,7 @@ entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   tail call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s)
-  %add.ptr = getelementptr inbounds i8, ptr %_iex_throw_s, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %_iex_throw_s, i64 16
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.6)
           to label %invoke.cont unwind label %lpad
 
@@ -341,7 +341,7 @@ entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   tail call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s)
-  %add.ptr = getelementptr inbounds i8, ptr %_iex_throw_s, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %_iex_throw_s, i64 16
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.8)
           to label %invoke.cont unwind label %lpad
 

@@ -1843,7 +1843,7 @@ define internal i32 @dissect_DEVMODE(ptr noundef %0, i32 noundef %1, ptr noundef
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %148
@@ -1864,7 +1864,7 @@ define internal i32 @dissect_DEVMODE(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %22, label %dissect_spoolss_uint16uni.exit, label %23
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %2, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @tvb_get_string_enc(ptr noundef %25, ptr noundef %0, i32 noundef %.026.i, i32 noundef %21, i32 noundef -2147483644) #5
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #6
@@ -1890,13 +1890,13 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %13, %23
   br i1 %.not.i.i, label %dissect_DEVMODE_fields.exit, label %42
 
 42:                                               ; preds = %dissect_spoolss_uint16uni.exit
-  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not5.i.i = icmp eq ptr %44, null
   br i1 %.not5.i.i, label %dissect_DEVMODE_fields.exit, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %44, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = or i32 %47, 1
   store i32 %48, ptr %46, align 4
@@ -1970,7 +1970,7 @@ dissect_DEVMODE_fields.exit:                      ; preds = %dissect_spoolss_uin
   br i1 %102, label %dissect_spoolss_uint16uni.exit240, label %103
 
 103:                                              ; preds = %87
-  %104 = getelementptr inbounds i8, ptr %2, i64 408
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %105 = load ptr, ptr %104, align 8
   %106 = call ptr @tvb_get_string_enc(ptr noundef %105, ptr noundef %0, i32 noundef %.026.i238, i32 noundef %101, i32 noundef -2147483644) #5
   %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #6
@@ -2035,7 +2035,7 @@ dissect_spoolss_uint16uni.exit240:                ; preds = %87, %103
 define hidden i32 @dissect_USER_LEVEL_CTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %22
@@ -2090,7 +2090,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dissect_NOTIFY_OPTIONS_ARRAY_CTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %23
@@ -2274,13 +2274,13 @@ define hidden i32 @dissect_NOTIFY_INFO(ptr noundef %0, i32 noundef %1, ptr nound
   %11 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, ptr noundef null) #5
   %12 = load i32, ptr @hf_notify_info_count, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7) #5
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %21
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %7, align 4
   %20 = icmp eq i32 %19, 1
@@ -2663,13 +2663,13 @@ job_notify_hf_index.exit80.i:                     ; preds = %164, %162, %160, %1
   br i1 %.not.i.i, label %dissect_NOTIFY_INFO_DATA_job.exit, label %168
 
 168:                                              ; preds = %job_notify_hf_index.exit80.i
-  %169 = getelementptr inbounds i8, ptr %167, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %170 = load ptr, ptr %169, align 8
   %.not5.i.i = icmp eq ptr %170, null
   br i1 %.not5.i.i, label %dissect_NOTIFY_INFO_DATA_job.exit, label %171
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %170, i64 28
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 28
   %173 = load i32, ptr %172, align 4
   %174 = or i32 %173, 1
   store i32 %174, ptr %172, align 4
@@ -2771,7 +2771,7 @@ define internal i32 @dissect_NOTIFY_OPTION(ptr noundef %0, i32 noundef %1, ptr n
   %7 = alloca ptr, align 8
   %8 = alloca i16, align 2
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_NOTIFY_OPTION, align 4
   %13 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %12, ptr noundef nonnull %7, ptr noundef nonnull @.str.756) #5
@@ -2798,7 +2798,7 @@ define internal i32 @dissect_NOTIFY_OPTION(ptr noundef %0, i32 noundef %1, ptr n
   %31 = load i16, ptr %8, align 2
   %32 = zext i16 %31 to i64
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %11, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 80
   store ptr %33, ptr %34, align 8
   %35 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %13, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_NOTIFY_OPTION_DATA, i32 noundef 2, ptr noundef nonnull @.str.759, i32 noundef -1) #5
   ret i32 %35
@@ -2812,17 +2812,17 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 define internal i32 @dissect_NOTIFY_OPTION_DATA(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %.loopexit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %4, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @hf_notify_option_data_count, align 4
   %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %8) #5
-  %16 = getelementptr inbounds i8, ptr %13, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i16
@@ -2877,7 +2877,7 @@ declare i32 @dissect_nt_sec_desc(ptr noundef, i32 noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_spoolss_doc_info_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %18
@@ -2925,7 +2925,7 @@ define internal void @cb_notify_str_postprocess(ptr nocapture noundef readonly %
   %12 = sub i32 %reass.sub, %11
   %.039 = select i1 %.not, i32 %5, i32 %12
   %13 = tail call i32 @tvb_get_letohl(ptr noundef %4, i32 noundef %.039) #5
-  %14 = getelementptr inbounds i8, ptr %0, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = add i32 %.039, 4
   %17 = add i32 %6, -4
@@ -2943,7 +2943,7 @@ define internal void @cb_notify_str_postprocess(ptr nocapture noundef readonly %
 
 24:                                               ; preds = %22
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.757, ptr noundef nonnull %19) #5
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load ptr, ptr %25, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.757, ptr noundef nonnull %19) #5
   br label %27
@@ -2958,13 +2958,13 @@ define internal void @cb_notify_str_postprocess(ptr nocapture noundef readonly %
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %30, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not5.i = icmp eq ptr %33, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %33, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 28
   %36 = load i32, ptr %35, align 4
   %37 = or i32 %36, 1
   store i32 %37, ptr %35, align 4
@@ -2981,29 +2981,29 @@ declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_SYSTEM_TIME_ptr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = call fastcc i32 @dissect_SYSTEM_TIME(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef null, i32 noundef 0, ptr noundef nonnull %7)
   %11 = call ptr @wmem_file_scope() #5
   %12 = load ptr, ptr %7, align 8
   %13 = call noalias ptr @wmem_strdup(ptr noundef %11, ptr noundef %12) #5
-  %14 = getelementptr inbounds i8, ptr %9, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr %13, ptr %14, align 8
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @notify_job_time_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, i32 %5, i32 %6, ptr nocapture readnone %7) #0 {
-  %9 = getelementptr inbounds i8, ptr %3, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.757, ptr noundef %12) #5
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.757, ptr noundef %12) #5
   br label %16
@@ -3049,7 +3049,7 @@ define internal fastcc i32 @dissect_SYSTEM_TIME(ptr noundef %0, i32 noundef %1, 
   %35 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %16) #5
   %36 = load i32, ptr @hf_time_msec, align 4
   %37 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %17) #5
-  %38 = getelementptr inbounds i8, ptr %2, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = load i16, ptr %11, align 2
   %41 = zext i16 %40 to i32
@@ -3093,7 +3093,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 define internal i32 @SpoolssEnumPrinters_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %8) #5
   %12 = add i32 %11, -4
@@ -3106,9 +3106,9 @@ define internal i32 @SpoolssEnumPrinters_q(ptr noundef %0, i32 noundef %1, ptr n
   %19 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.160, i32 noundef %18, i32 noundef 0) #5
   %20 = load i32, ptr @hf_level, align 4
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %7) #5
-  %22 = getelementptr inbounds i8, ptr %2, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 50
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 50
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 8
   %.not = icmp eq i16 %26, 0
@@ -3118,15 +3118,15 @@ define internal i32 @SpoolssEnumPrinters_q(ptr noundef %0, i32 noundef %1, ptr n
 27:                                               ; preds = %6
   %28 = sext i32 %.pre to i64
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %10, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %29, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %27, %6
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %.pre) #5
-  %34 = getelementptr inbounds i8, ptr %4, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr null, ptr %34, align 8
   %35 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %21, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %36 = load i32, ptr @hf_offered, align 4
@@ -3139,19 +3139,19 @@ define internal i32 @SpoolssEnumPrinters_r(ptr noundef %0, i32 noundef %1, ptr n
   %7 = alloca i32, align 4
   %8 = alloca %struct.BUFFER, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %sext = shl i32 %15, 16
   %18 = ashr exact i32 %sext, 16
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %18) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %19 = getelementptr inbounds i8, ptr %4, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %8, ptr %19, align 8
   %20 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %21 = load ptr, ptr %8, align 8
@@ -3159,7 +3159,7 @@ define internal i32 @SpoolssEnumPrinters_r(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not, label %57, label %22
 
 22:                                               ; preds = %6
-  %23 = getelementptr inbounds i8, ptr %8, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr @ett_PRINTER_INFO, align 4
   %26 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %24, ptr noundef nonnull %21, i32 noundef 0, i32 noundef -1, i32 noundef %25, ptr noundef nonnull %9, ptr noundef nonnull @.str.1208, i32 noundef %18) #5
@@ -3251,7 +3251,7 @@ define internal i32 @SpoolssSetJob_q(ptr noundef %0, i32 noundef %1, ptr noundef
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, ptr noundef null) #5
   %15 = load i32, ptr @hf_setjob_cmd, align 4
   %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #5
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %8, align 4
   %20 = call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @setjob_commands, ptr noundef nonnull @.str.758) #5
@@ -3271,7 +3271,7 @@ define internal i32 @SpoolssSetJob_r(ptr noundef %0, i32 noundef %1, ptr noundef
 define internal i32 @SpoolssGetJob_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @hf_hnd, align 4
   %12 = tail call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %11, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
@@ -3279,9 +3279,9 @@ define internal i32 @SpoolssGetJob_q(ptr noundef %0, i32 noundef %1, ptr noundef
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, ptr noundef nonnull %8) #5
   %15 = load i32, ptr @hf_level, align 4
   %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7) #5
-  %17 = getelementptr inbounds i8, ptr %2, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 50
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 50
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 8
   %.not = icmp eq i16 %21, 0
@@ -3291,16 +3291,16 @@ define internal i32 @SpoolssGetJob_q(ptr noundef %0, i32 noundef %1, ptr noundef
 22:                                               ; preds = %6
   %23 = sext i32 %.pre to i64
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %10, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %24, ptr %25, align 8
   br label %26
 
 26:                                               ; preds = %22, %6
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %8, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.1211, i32 noundef %.pre, i32 noundef %29) #5
-  %30 = getelementptr inbounds i8, ptr %4, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr null, ptr %30, align 8
   %31 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %16, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %32 = load i32, ptr @hf_offered, align 4
@@ -3311,14 +3311,14 @@ define internal i32 @SpoolssGetJob_q(ptr noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @SpoolssGetJob_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.BUFFER, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %14 = getelementptr inbounds i8, ptr %4, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %7, ptr %14, align 8
   %15 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %16 = load ptr, ptr %7, align 8
@@ -3327,7 +3327,7 @@ define internal i32 @SpoolssGetJob_r(ptr noundef %0, i32 noundef %1, ptr noundef
 
 17:                                               ; preds = %6
   %cond = icmp eq i32 %13, 1
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8
   br i1 %cond, label %20, label %22
 
@@ -3350,7 +3350,7 @@ define internal i32 @SpoolssGetJob_r(ptr noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @SpoolssEnumJobs_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @hf_hnd, align 4
   %11 = tail call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
@@ -3360,9 +3360,9 @@ define internal i32 @SpoolssEnumJobs_q(ptr noundef %0, i32 noundef %1, ptr nound
   %15 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %14, ptr noundef null) #5
   %16 = load i32, ptr @hf_level, align 4
   %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %7) #5
-  %18 = getelementptr inbounds i8, ptr %2, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 50
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 50
   %21 = load i16, ptr %20, align 2
   %22 = and i16 %21, 8
   %.not = icmp eq i16 %22, 0
@@ -3372,15 +3372,15 @@ define internal i32 @SpoolssEnumJobs_q(ptr noundef %0, i32 noundef %1, ptr nound
 23:                                               ; preds = %6
   %24 = sext i32 %.pre to i64
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %9, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %25, ptr %26, align 8
   br label %27
 
 27:                                               ; preds = %23, %6
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %.pre) #5
-  %30 = getelementptr inbounds i8, ptr %4, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr null, ptr %30, align 8
   %31 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %17, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %32 = load i32, ptr @hf_offered, align 4
@@ -3397,12 +3397,12 @@ define internal i32 @SpoolssEnumJobs_r(ptr noundef %0, i32 noundef %1, ptr nound
   %11 = alloca i32, align 4
   %12 = alloca %struct.BUFFER, align 8
   %13 = alloca i32, align 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %18 = getelementptr inbounds i8, ptr %4, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %12, ptr %18, align 8
   %19 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %20 = load i32, ptr @hf_needed, align 4
@@ -3418,7 +3418,7 @@ define internal i32 @SpoolssEnumJobs_r(ptr noundef %0, i32 noundef %1, ptr nound
   %26 = trunc i64 %25 to i32
   %sext = shl i32 %26, 16
   %27 = ashr exact i32 %sext, 16
-  %28 = getelementptr inbounds i8, ptr %12, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
   switch i32 %27, label %.lr.ph.split [
     i32 1, label %.lr.ph.split.us
     i32 2, label %.lr.ph.split.us42
@@ -3558,7 +3558,7 @@ define internal i32 @SpoolssSetPrinter_q(ptr noundef %0, i32 noundef %1, ptr nou
   %9 = tail call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
   %10 = load i32, ptr @hf_level, align 4
   %11 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull %7) #5
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %14) #5
@@ -3578,15 +3578,15 @@ define internal i32 @SpoolssSetPrinter_r(ptr noundef %0, i32 noundef %1, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @SpoolssGetPrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @hf_hnd, align 4
   %11 = tail call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
   %12 = load i32, ptr @hf_level, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7) #5
-  %14 = getelementptr inbounds i8, ptr %2, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 50
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 50
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8
   %.not = icmp eq i16 %18, 0
@@ -3596,15 +3596,15 @@ define internal i32 @SpoolssGetPrinter_q(ptr noundef %0, i32 noundef %1, ptr nou
 19:                                               ; preds = %6
   %20 = sext i32 %.pre to i64
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %9, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %21, ptr %22, align 8
   br label %23
 
 23:                                               ; preds = %19, %6
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %.pre) #5
-  %26 = getelementptr inbounds i8, ptr %4, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr null, ptr %26, align 8
   %27 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %28 = load i32, ptr @hf_offered, align 4
@@ -3616,20 +3616,20 @@ define internal i32 @SpoolssGetPrinter_q(ptr noundef %0, i32 noundef %1, ptr nou
 define internal i32 @SpoolssGetPrinter_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.BUFFER, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = trunc i64 %13 to i32
   store ptr null, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8
   %sext = shl i32 %14, 16
   %17 = ashr exact i32 %sext, 16
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %17) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %18 = getelementptr inbounds i8, ptr %4, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %7, ptr %18, align 8
   %19 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %20 = load ptr, ptr %7, align 8
@@ -3637,7 +3637,7 @@ define internal i32 @SpoolssGetPrinter_r(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not, label %56, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr @ett_PRINTER_INFO, align 4
   %25 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %23, ptr noundef nonnull %20, i32 noundef 0, i32 noundef -1, i32 noundef %24, ptr noundef nonnull %8, ptr noundef nonnull @.str.1208, i32 noundef %17) #5
@@ -3715,7 +3715,7 @@ define internal i32 @SpoolssAddPrinterDriver_r(ptr noundef %0, i32 noundef %1, p
 ; Function Attrs: nounwind uwtable
 define internal i32 @SpoolssEnumPrinterDrivers_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @hf_servername, align 4
   %11 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.387, i32 noundef %10, i32 noundef 0) #5
@@ -3723,9 +3723,9 @@ define internal i32 @SpoolssEnumPrinterDrivers_q(ptr noundef %0, i32 noundef %1,
   %13 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1217, i32 noundef %12, i32 noundef 0) #5
   %14 = load i32, ptr @hf_level, align 4
   %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %7) #5
-  %16 = getelementptr inbounds i8, ptr %2, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 50
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 8
   %.not = icmp eq i16 %20, 0
@@ -3735,15 +3735,15 @@ define internal i32 @SpoolssEnumPrinterDrivers_q(ptr noundef %0, i32 noundef %1,
 21:                                               ; preds = %6
   %22 = sext i32 %.pre to i64
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %9, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %23, ptr %24, align 8
   br label %25
 
 25:                                               ; preds = %21, %6
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %.pre) #5
-  %28 = getelementptr inbounds i8, ptr %4, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr null, ptr %28, align 8
   %29 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %15, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %30 = load i32, ptr @hf_offered, align 4
@@ -3755,14 +3755,14 @@ define internal i32 @SpoolssEnumPrinterDrivers_q(ptr noundef %0, i32 noundef %1,
 define internal i32 @SpoolssEnumPrinterDrivers_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.BUFFER, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = trunc i64 %13 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %15 = getelementptr inbounds i8, ptr %4, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %8, ptr %15, align 8
   %16 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %17 = load i32, ptr @hf_needed, align 4
@@ -3774,7 +3774,7 @@ define internal i32 @SpoolssEnumPrinterDrivers_r(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   switch i32 %14, label %.lr.ph.split [
     i32 1, label %.lr.ph.split.us
     i32 2, label %.lr.ph.split.us61
@@ -3877,7 +3877,7 @@ define internal i32 @SpoolssGetPrinterDriverDirectory_q(ptr noundef %0, i32 noun
   %11 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1217, i32 noundef %10, i32 noundef 0) #5
   %12 = load i32, ptr @hf_level, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7) #5
-  %14 = getelementptr inbounds i8, ptr %4, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr null, ptr %14, align 8
   %15 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %16 = load i32, ptr @hf_offered, align 4
@@ -3902,7 +3902,7 @@ define internal i32 @SpoolssStartDocPrinter_q(ptr noundef %0, i32 noundef %1, pt
   %9 = alloca ptr, align 8
   %10 = load i32, ptr @hf_hnd, align 4
   %11 = call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull %8, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
-  %12 = getelementptr inbounds i8, ptr %2, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %13) #5
   %15 = load ptr, ptr %9, align 8
@@ -3910,7 +3910,7 @@ define internal i32 @SpoolssStartDocPrinter_q(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %15) #5
   br label %19
@@ -3945,7 +3945,7 @@ define internal i32 @SpoolssStartPagePrinter_q(ptr noundef %0, i32 noundef %1, p
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_hnd, align 4
   %10 = call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
-  %11 = getelementptr inbounds i8, ptr %2, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %12) #5
   %14 = load ptr, ptr %8, align 8
@@ -3953,7 +3953,7 @@ define internal i32 @SpoolssStartPagePrinter_q(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %14) #5
   br label %18
@@ -3977,7 +3977,7 @@ define internal i32 @SpoolssWritePrinter_q(ptr noundef %0, i32 noundef %1, ptr n
   %10 = alloca ptr, align 8
   %11 = load i32, ptr @hf_hnd, align 4
   %12 = call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %11, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
-  %13 = getelementptr inbounds i8, ptr %2, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %14) #5
   %16 = load ptr, ptr %8, align 8
@@ -3985,7 +3985,7 @@ define internal i32 @SpoolssWritePrinter_q(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %16) #5
   br label %20
@@ -3993,7 +3993,7 @@ define internal i32 @SpoolssWritePrinter_q(ptr noundef %0, i32 noundef %1, ptr n
 20:                                               ; preds = %17, %6
   %21 = load i32, ptr @hf_buffer_size, align 4
   %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %9) #5
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %9, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.1229, i32 noundef %25) #5
@@ -4016,7 +4016,7 @@ define internal i32 @SpoolssWritePrinter_r(ptr noundef %0, i32 noundef %1, ptr n
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_writeprinter_numwritten, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7) #5
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.1230, i32 noundef %12) #5
@@ -4031,7 +4031,7 @@ define internal i32 @SpoolssEndPagePrinter_q(ptr noundef %0, i32 noundef %1, ptr
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_hnd, align 4
   %10 = call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
-  %11 = getelementptr inbounds i8, ptr %2, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %12) #5
   %14 = load ptr, ptr %8, align 8
@@ -4039,7 +4039,7 @@ define internal i32 @SpoolssEndPagePrinter_q(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %14) #5
   br label %18
@@ -4061,7 +4061,7 @@ define internal i32 @SpoolssEndDocPrinter_q(ptr noundef %0, i32 noundef %1, ptr 
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_hnd, align 4
   %10 = call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
-  %11 = getelementptr inbounds i8, ptr %2, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %12) #5
   %14 = load ptr, ptr %8, align 8
@@ -4069,7 +4069,7 @@ define internal i32 @SpoolssEndDocPrinter_q(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %14) #5
   br label %18
@@ -4088,7 +4088,7 @@ define internal i32 @SpoolssEndDocPrinter_r(ptr noundef %0, i32 noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal i32 @SpoolssGetPrinterData_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @hf_printerdata, align 4
   %11 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 1) #5
@@ -4096,13 +4096,13 @@ define internal i32 @SpoolssGetPrinterData_q(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -4114,9 +4114,9 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
   store ptr null, ptr %7, align 8
   %21 = load i32, ptr @hf_printerdata_value, align 4
   %22 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 2, i32 noundef %21, i32 noundef 1, ptr noundef nonnull %7) #5
-  %23 = getelementptr inbounds i8, ptr %2, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 50
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 50
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 8
   %.not = icmp eq i16 %27, 0
@@ -4124,7 +4124,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
   br i1 %.not, label %28, label %37
 
 28:                                               ; preds = %proto_item_set_hidden.exit
-  %29 = getelementptr inbounds i8, ptr %9, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   %32 = icmp ne ptr %.pre28, null
@@ -4141,7 +4141,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
 
 37:                                               ; preds = %28, %33, %proto_item_set_hidden.exit
   %38 = phi ptr [ %.pre28, %28 ], [ %.pre, %33 ], [ %.pre28, %proto_item_set_hidden.exit ]
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load ptr, ptr %39, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %40, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef %38) #5
   %41 = load i32, ptr @hf_offered, align 4
@@ -4152,7 +4152,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
 ; Function Attrs: nounwind uwtable
 define internal i32 @SpoolssGetPrinterData_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @hf_printerdata, align 4
   %11 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 1) #5
@@ -4160,13 +4160,13 @@ define internal i32 @SpoolssGetPrinterData_r(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -4175,11 +4175,11 @@ define internal i32 @SpoolssGetPrinterData_r(ptr noundef %0, i32 noundef %1, ptr
 proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
   %19 = load i32, ptr @hf_printerdata_type, align 4
   %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %7) #5
-  %21 = getelementptr inbounds i8, ptr %9, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   %spec.select = select i1 %.not, ptr @.str.1231, ptr %22
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load ptr, ptr %23, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %spec.select) #5
   %25 = load i32, ptr %7, align 4
@@ -4195,7 +4195,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
 define internal i32 @SpoolssSetPrinterData_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @hf_printerdata, align 4
   %12 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %11, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 1) #5
@@ -4203,13 +4203,13 @@ define internal i32 @SpoolssSetPrinterData_q(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not5.i = icmp eq ptr %15, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 1
   store i32 %19, ptr %17, align 4
@@ -4221,13 +4221,13 @@ proto_item_set_hidden.exit:                       ; preds = %6, %13, %16
   store ptr null, ptr %7, align 8
   %22 = load i32, ptr @hf_printerdata_value, align 4
   %23 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 2, i32 noundef %22, i32 noundef 1, ptr noundef nonnull %7) #5
-  %24 = getelementptr inbounds i8, ptr %2, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 50
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 50
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 8
   %.not = icmp eq i16 %28, 0
-  %29 = getelementptr inbounds i8, ptr %10, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %30 = load ptr, ptr %29, align 8
   br i1 %.not, label %31, label %proto_item_set_hidden.exit._crit_edge
 
@@ -4251,7 +4251,7 @@ proto_item_set_hidden.exit._crit_edge:            ; preds = %proto_item_set_hidd
 
 .thread:                                          ; preds = %31, %proto_item_set_hidden.exit._crit_edge
   %38 = phi ptr [ %37, %proto_item_set_hidden.exit._crit_edge ], [ %30, %31 ]
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load ptr, ptr %39, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %40, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %38) #5
   br label %41
@@ -4274,13 +4274,13 @@ define internal i32 @SpoolssSetPrinterData_r(ptr noundef %0, i32 noundef %1, ptr
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -4298,7 +4298,7 @@ define internal i32 @SpoolssClosePrinter_q(ptr noundef %0, i32 noundef %1, ptr n
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_hnd, align 4
   %10 = call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, i32 noundef 1) #5
-  %11 = getelementptr inbounds i8, ptr %2, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %12) #5
   %14 = load ptr, ptr %8, align 8
@@ -4306,7 +4306,7 @@ define internal i32 @SpoolssClosePrinter_q(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %14) #5
   br label %18
@@ -4327,7 +4327,7 @@ define internal i32 @SpoolssClosePrinter_r(ptr noundef %0, i32 noundef %1, ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @SpoolssAddForm_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @hf_form, align 4
   %11 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 1) #5
@@ -4335,13 +4335,13 @@ define internal i32 @SpoolssAddForm_q(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -4352,13 +4352,13 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
   %20 = tail call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
   %21 = load i32, ptr @hf_form_level, align 4
   %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %7) #5
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %25) #5
-  %26 = getelementptr inbounds i8, ptr %2, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 50
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 50
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 8
   %.not = icmp eq i16 %30, 0
@@ -4368,7 +4368,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
   %32 = load i32, ptr %7, align 4
   %33 = sext i32 %32 to i64
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %9, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %34, ptr %35, align 8
   br label %36
 
@@ -4385,13 +4385,13 @@ define internal i32 @SpoolssAddForm_r(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -4413,13 +4413,13 @@ define internal i32 @SpoolssDeleteForm_q(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -4435,7 +4435,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %10, %13
   br i1 %.not, label %25, label %22
 
 22:                                               ; preds = %proto_item_set_hidden.exit
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load ptr, ptr %23, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %21) #5
   br label %25
@@ -4452,13 +4452,13 @@ define internal i32 @SpoolssDeleteForm_r(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -4474,7 +4474,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %9, %12
 define internal i32 @SpoolssGetForm_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @hf_form, align 4
   %12 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %11, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 1) #5
@@ -4482,13 +4482,13 @@ define internal i32 @SpoolssGetForm_q(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not5.i = icmp eq ptr %15, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 1
   store i32 %19, ptr %17, align 4
@@ -4499,15 +4499,15 @@ proto_item_set_hidden.exit:                       ; preds = %6, %13, %16
   %21 = tail call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
   %22 = load i32, ptr @hf_form_name, align 4
   %23 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 2, i32 noundef %22, i32 noundef 1, ptr noundef nonnull %8) #5
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef %26) #5
   %27 = load i32, ptr @hf_form_level, align 4
   %28 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %7) #5
-  %29 = getelementptr inbounds i8, ptr %2, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 50
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 50
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 8
   %.not = icmp eq i16 %33, 0
@@ -4517,14 +4517,14 @@ proto_item_set_hidden.exit:                       ; preds = %6, %13, %16
 34:                                               ; preds = %proto_item_set_hidden.exit
   %35 = sext i32 %.pre to i64
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i8, ptr %10, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %36, ptr %37, align 8
   br label %38
 
 38:                                               ; preds = %34, %proto_item_set_hidden.exit
   %39 = load ptr, ptr %24, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %.pre) #5
-  %40 = getelementptr inbounds i8, ptr %4, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr null, ptr %40, align 8
   %41 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %28, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %42 = load i32, ptr @hf_offered, align 4
@@ -4535,9 +4535,9 @@ proto_item_set_hidden.exit:                       ; preds = %6, %13, %16
 ; Function Attrs: nounwind uwtable
 define internal i32 @SpoolssGetForm_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.BUFFER, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i32
@@ -4547,13 +4547,13 @@ define internal i32 @SpoolssGetForm_r(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %16
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not5.i = icmp eq ptr %18, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 1
   store i32 %22, ptr %20, align 4
@@ -4561,12 +4561,12 @@ define internal i32 @SpoolssGetForm_r(ptr noundef %0, i32 noundef %1, ptr nounde
 
 proto_item_set_hidden.exit:                       ; preds = %6, %16, %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %23 = getelementptr inbounds i8, ptr %4, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %7, ptr %23, align 8
   %24 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %25 = load i32, ptr @hf_needed, align 4
   %26 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %13) #5
   %29 = load ptr, ptr %7, align 8
@@ -4582,7 +4582,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %16, %19
   br label %37
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %7, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %35, ptr noundef nonnull %2, ptr noundef nonnull @ei_form_level, ptr noundef nonnull %29, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.10, i32 noundef %13) #5
   br label %37
@@ -4604,13 +4604,13 @@ define internal i32 @SpoolssSetForm_q(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %10, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not5.i = icmp eq ptr %13, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 1
   store i32 %17, ptr %15, align 4
@@ -4626,7 +4626,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %11, %14
   br i1 %.not, label %26, label %23
 
 23:                                               ; preds = %proto_item_set_hidden.exit
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %22) #5
   br label %26
@@ -4634,7 +4634,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %11, %14
 26:                                               ; preds = %23, %proto_item_set_hidden.exit
   %27 = load i32, ptr @hf_form_level, align 4
   %28 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %8) #5
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %8, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %31) #5
@@ -4650,13 +4650,13 @@ define internal i32 @SpoolssSetForm_r(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -4671,7 +4671,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %9, %12
 ; Function Attrs: nounwind uwtable
 define internal i32 @SpoolssEnumForms_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @hf_form, align 4
   %11 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 1) #5
@@ -4679,13 +4679,13 @@ define internal i32 @SpoolssEnumForms_q(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -4696,9 +4696,9 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
   %20 = tail call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
   %21 = load i32, ptr @hf_level, align 4
   %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %7) #5
-  %23 = getelementptr inbounds i8, ptr %2, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 50
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 50
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 8
   %.not = icmp eq i16 %27, 0
@@ -4708,15 +4708,15 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
 28:                                               ; preds = %proto_item_set_hidden.exit
   %29 = sext i32 %.pre to i64
   %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds i8, ptr %9, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %30, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %28, %proto_item_set_hidden.exit
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %.pre) #5
-  %35 = getelementptr inbounds i8, ptr %4, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr null, ptr %35, align 8
   %36 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %37 = load i32, ptr @hf_offered, align 4
@@ -4728,9 +4728,9 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
 define internal i32 @SpoolssEnumForms_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.BUFFER, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = trunc i64 %13 to i32
@@ -4740,13 +4740,13 @@ define internal i32 @SpoolssEnumForms_r(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %17
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %16, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not5.i = icmp eq ptr %19, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = or i32 %22, 1
   store i32 %23, ptr %21, align 4
@@ -4754,12 +4754,12 @@ define internal i32 @SpoolssEnumForms_r(ptr noundef %0, i32 noundef %1, ptr noun
 
 proto_item_set_hidden.exit:                       ; preds = %6, %17, %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %24 = getelementptr inbounds i8, ptr %4, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %7, ptr %24, align 8
   %25 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %26 = load i32, ptr @hf_needed, align 4
   %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef null) #5
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %14) #5
   %30 = load i32, ptr @hf_enumforms_num, align 4
@@ -4769,7 +4769,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %17, %20
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %proto_item_set_hidden.exit
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
@@ -4794,14 +4794,14 @@ define internal i32 @SpoolssGetPrinterDriver2_q(ptr noundef %0, i32 noundef %1, 
   %7 = alloca %struct._e_ctx_hnd, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @hf_hnd, align 4
   %13 = call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
-  %14 = getelementptr inbounds i8, ptr %2, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %15) #5
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef %19) #5
@@ -4809,9 +4809,9 @@ define internal i32 @SpoolssGetPrinterDriver2_q(ptr noundef %0, i32 noundef %1, 
   %21 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1217, i32 noundef %20, i32 noundef 0) #5
   %22 = load i32, ptr @hf_level, align 4
   %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9) #5
-  %24 = getelementptr inbounds i8, ptr %2, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 50
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 50
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 8
   %.not = icmp eq i16 %28, 0
@@ -4821,14 +4821,14 @@ define internal i32 @SpoolssGetPrinterDriver2_q(ptr noundef %0, i32 noundef %1, 
 29:                                               ; preds = %6
   %30 = sext i32 %.pre to i64
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %11, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store ptr %31, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %29, %6
   %34 = load ptr, ptr %17, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.1206, i32 noundef %.pre) #5
-  %35 = getelementptr inbounds i8, ptr %4, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr null, ptr %35, align 8
   %36 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %23, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %37 = load i32, ptr @hf_offered, align 4
@@ -4843,14 +4843,14 @@ define internal i32 @SpoolssGetPrinterDriver2_q(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @SpoolssGetPrinterDriver2_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((88, 96)) %4, ptr noundef %5) #0 {
   %7 = alloca %struct.BUFFER, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %14 = getelementptr inbounds i8, ptr %4, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %7, ptr %14, align 8
   %15 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %16 = load ptr, ptr %7, align 8
@@ -4858,7 +4858,7 @@ define internal i32 @SpoolssGetPrinterDriver2_r(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %45, label %17
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8
   switch i32 %13, label %43 [
     i32 1, label %20
@@ -4938,21 +4938,21 @@ define internal i32 @SpoolssFCPN_r(ptr noundef %0, i32 noundef %1, ptr noundef %
 define internal i32 @SpoolssReplyOpenPrinter_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %8, align 8
   %11 = load i32, ptr @hf_servername, align 4
   %12 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %11, i32 noundef 1, ptr noundef nonnull %8) #5
-  %13 = getelementptr inbounds i8, ptr %2, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 50
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 50
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 8
   %.not = icmp eq i16 %17, 0
   br i1 %.not, label %18, label %thread-pre-split
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %10, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   %22 = load ptr, ptr %8, align 8
@@ -4977,7 +4977,7 @@ thread-pre-split:                                 ; preds = %6, %24
   br i1 %.not36, label %33, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %29) #5
   br label %33
@@ -4999,7 +4999,7 @@ define internal i32 @SpoolssReplyOpenPrinter_r(ptr noundef %0, i32 noundef %1, p
   %7 = alloca %struct._e_ctx_hnd, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @hf_hnd, align 4
   %13 = call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 0) #5
@@ -5010,22 +5010,22 @@ define internal i32 @SpoolssReplyOpenPrinter_r(ptr noundef %0, i32 noundef %1, p
   br i1 %17, label %18, label %35
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %11, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %2, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %23, ptr noundef nonnull @.str.1237, ptr noundef nonnull %20) #5
   br label %25
 
 25:                                               ; preds = %18, %21
   %.0 = phi ptr [ %24, %21 ], [ @.str.1238, %18 ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 50
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 50
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 8
   %.not22 = icmp eq i16 %30, 0
@@ -5120,7 +5120,7 @@ define internal i32 @SpoolssRRPCN_q(ptr noundef %0, i32 noundef %1, ptr noundef 
   %9 = tail call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
   %10 = load i32, ptr @hf_rrpcn_changelow, align 4
   %11 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull %7) #5
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.1241, i32 noundef %14) #5
@@ -5150,7 +5150,7 @@ define internal i32 @SpoolssRFNPCNEX_q(ptr noundef %0, i32 noundef %1, ptr nound
   %9 = tail call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
   %10 = load i32, ptr @hf_rrpcn_changelow, align 4
   %11 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull %7) #5
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.1241, i32 noundef %14) #5
@@ -5169,23 +5169,23 @@ define internal i32 @SpoolssRFNPCNEX_r(ptr noundef %0, i32 noundef %1, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @SpoolssOpenPrinterEx_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr null, ptr %10, align 8
   %11 = load i32, ptr @hf_printername, align 4
   %12 = tail call i32 @dissect_ndr_pointer_cb(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_ndr_wchar_cvstring, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %11, ptr noundef nonnull @cb_wstr_postprocess, ptr noundef nonnull inttoptr (i64 805306369 to ptr)) #5
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 50
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 50
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8
   %.not = icmp eq i16 %18, 0
   br i1 %.not, label %19, label %26
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %9, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %21 = load ptr, ptr %20, align 8
   %.not58 = icmp eq ptr %21, null
   br i1 %.not58, label %22, label %26
@@ -5207,7 +5207,7 @@ define internal i32 @SpoolssOpenPrinterEx_q(ptr noundef %0, i32 noundef %1, ptr 
   %31 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %2, ptr noundef %29, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %7) #5
   %32 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %31, ptr noundef nonnull %2, ptr noundef %29, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_DEVMODE, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef -1) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %33 = getelementptr inbounds i8, ptr %9, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %34 = load ptr, ptr %33, align 8
   %.not60 = icmp eq ptr %34, null
   br i1 %.not60, label %49, label %35
@@ -5256,7 +5256,7 @@ define internal i32 @SpoolssOpenPrinterEx_r(ptr noundef %0, i32 noundef %1, ptr 
   %7 = alloca %struct._e_ctx_hnd, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @hf_hnd, align 4
   %13 = call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 0) #5
@@ -5267,22 +5267,22 @@ define internal i32 @SpoolssOpenPrinterEx_r(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %17, label %18, label %35
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %11, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %2, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %23, ptr noundef nonnull @.str.1246, ptr noundef nonnull %20) #5
   br label %25
 
 25:                                               ; preds = %18, %21
   %.0 = phi ptr [ %24, %21 ], [ @.str.1247, %18 ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 50
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 50
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 8
   %.not22 = icmp eq i16 %30, 0
@@ -5310,7 +5310,7 @@ define internal i32 @SpoolssAddPrinterEx_r(ptr noundef %0, i32 noundef %1, ptr n
   %7 = alloca %struct._e_ctx_hnd, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @hf_hnd, align 4
   %13 = call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 0) #5
@@ -5321,22 +5321,22 @@ define internal i32 @SpoolssAddPrinterEx_r(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %17, label %18, label %35
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %11, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %2, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %23, ptr noundef nonnull @.str.1248, ptr noundef nonnull %20) #5
   br label %25
 
 25:                                               ; preds = %18, %21
   %.0 = phi ptr [ %24, %21 ], [ @.str.1249, %18 ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 50
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 50
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 8
   %.not22 = icmp eq i16 %30, 0
@@ -5368,13 +5368,13 @@ define internal i32 @SpoolssEnumPrinterData_q(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -5385,7 +5385,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %10, %13
   %18 = tail call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
   %19 = load i32, ptr @hf_enumprinterdata_enumindex, align 4
   %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %7) #5
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.1250, i32 noundef %23) #5
@@ -5407,13 +5407,13 @@ define internal i32 @SpoolssEnumPrinterData_r(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -5437,7 +5437,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
   %.026.i = select i1 %.not.i57, i32 %22, i32 %27
   %28 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.026.i) #5
   %29 = icmp slt i32 %28, 1
-  %30 = getelementptr inbounds i8, ptr %2, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %31 = load ptr, ptr %30, align 8
   br i1 %29, label %32, label %34
 
@@ -5467,7 +5467,7 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %32, %34
   br i1 %.not56, label %48, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load ptr, ptr %46, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %.063) #5
   br label %48
@@ -5481,13 +5481,13 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %32, %34
   br i1 %.not.i58, label %proto_item_set_hidden.exit60, label %52
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %51, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %54 = load ptr, ptr %53, align 8
   %.not5.i59 = icmp eq ptr %54, null
   br i1 %.not5.i59, label %proto_item_set_hidden.exit60, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %54, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 28
   %57 = load i32, ptr %56, align 4
   %58 = or i32 %57, 1
   store i32 %58, ptr %56, align 4
@@ -5522,13 +5522,13 @@ define internal i32 @SpoolssDeletePrinterData_q(ptr noundef %0, i32 noundef %1, 
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -5539,7 +5539,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %10, %13
   %18 = tail call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
   %19 = load i32, ptr @hf_printerdata_value, align 4
   %20 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %19, i32 noundef 1, ptr noundef nonnull %7) #5
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef %23) #5
@@ -5554,13 +5554,13 @@ define internal i32 @SpoolssDeletePrinterData_r(ptr noundef %0, i32 noundef %1, 
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -5576,7 +5576,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %9, %12
 define internal i32 @SpoolssGetPrinterDataEx_q(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @hf_printerdata, align 4
   %12 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %11, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 1) #5
@@ -5584,13 +5584,13 @@ define internal i32 @SpoolssGetPrinterDataEx_q(ptr noundef %0, i32 noundef %1, p
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not5.i = icmp eq ptr %15, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 1
   store i32 %19, ptr %17, align 4
@@ -5605,13 +5605,13 @@ proto_item_set_hidden.exit:                       ; preds = %6, %13, %16
   store ptr null, ptr %8, align 8
   %24 = load i32, ptr @hf_printerdata_value, align 4
   %25 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 2, i32 noundef %24, i32 noundef 1, ptr noundef nonnull %8) #5
-  %26 = getelementptr inbounds i8, ptr %2, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 50
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 50
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 8
   %.not = icmp eq i16 %30, 0
-  %31 = getelementptr inbounds i8, ptr %10, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %32 = load ptr, ptr %31, align 8
   br i1 %.not, label %33, label %proto_item_set_hidden.exit._crit_edge
 
@@ -5638,7 +5638,7 @@ proto_item_set_hidden.exit._crit_edge:            ; preds = %proto_item_set_hidd
 
 .thread:                                          ; preds = %33, %proto_item_set_hidden.exit._crit_edge
   %42 = phi ptr [ %41, %proto_item_set_hidden.exit._crit_edge ], [ %32, %33 ]
-  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %42) #5
   br label %45
@@ -5653,7 +5653,7 @@ proto_item_set_hidden.exit._crit_edge:            ; preds = %proto_item_set_hidd
 define internal i32 @SpoolssGetPrinterDataEx_r(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @hf_printerdata, align 4
   %12 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %11, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 1) #5
@@ -5661,13 +5661,13 @@ define internal i32 @SpoolssGetPrinterDataEx_r(ptr noundef %0, i32 noundef %1, p
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not5.i = icmp eq ptr %15, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 1
   store i32 %19, ptr %17, align 4
@@ -5678,13 +5678,13 @@ proto_item_set_hidden.exit:                       ; preds = %6, %13, %16
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %8) #5
   %22 = load i32, ptr @hf_returned, align 4
   %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %7) #5
-  %24 = getelementptr inbounds i8, ptr %10, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %29, label %26
 
 26:                                               ; preds = %proto_item_set_hidden.exit
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %25) #5
   br label %29
@@ -5721,13 +5721,13 @@ define internal i32 @SpoolssSetPrinterDataEx_q(ptr noundef %0, i32 noundef %1, p
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -5740,7 +5740,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
   %22 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %21, i32 noundef 1, ptr noundef nonnull %7) #5
   %23 = load i32, ptr @hf_printerdata_value, align 4
   %24 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %23, i32 noundef 1, ptr noundef nonnull %8) #5
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %7, align 8
   %28 = load ptr, ptr %8, align 8
@@ -5765,13 +5765,13 @@ define internal i32 @SpoolssSetPrinterDataEx_r(ptr noundef %0, i32 noundef %1, p
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -5792,13 +5792,13 @@ define internal i32 @SpoolssEnumPrinterDataEx_q(ptr noundef %0, i32 noundef %1, 
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -5809,7 +5809,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %10, %13
   %18 = tail call i32 @dissect_nt_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0) #5
   %19 = load i32, ptr @hf_printerdata_key, align 4
   %20 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %19, i32 noundef 1, ptr noundef nonnull %7) #5
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef %23) #5
@@ -5836,13 +5836,13 @@ define internal i32 @SpoolssEnumPrinterDataEx_r(ptr noundef %0, i32 noundef %1, 
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %19
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %18, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not5.i = icmp eq ptr %21, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %21, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = or i32 %24, 1
   store i32 %25, ptr %23, align 4
@@ -5868,7 +5868,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %19, %22
   br i1 %.not50, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %2, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 408
   br label %39
 
 39:                                               ; preds = %.lr.ph, %dissect_spoolss_printer_enum_values.exit
@@ -6074,7 +6074,7 @@ define internal i32 @SpoolssEnumPrinterKey_q(ptr noundef %0, i32 noundef %1, ptr
 
 15:                                               ; preds = %14, %6
   %16 = phi ptr [ @.str.1260, %14 ], [ %12, %6 ]
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef nonnull %16) #5
   %19 = load i32, ptr @hf_needed, align 4
@@ -6118,11 +6118,11 @@ define internal i32 @SpoolssGetCorePrinterDrivers_r(ptr noundef %0, i32 noundef 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
-  %15 = getelementptr inbounds i8, ptr %2, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %.pre = load ptr, ptr %13, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 96
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %.pre29 = load i32, ptr %.phi.trans.insert, align 8
   br label %16
 
@@ -6190,7 +6190,7 @@ define internal i32 @SpoolssGetCorePrinterDrivers_r(ptr noundef %0, i32 noundef 
 dissect_spoolss_uint16uni.exit.i:                 ; preds = %44, %30
   %51 = add i32 %38, 520
   %52 = load ptr, ptr %13, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, 1
   %.not46.i = icmp eq i32 %55, 0
@@ -6233,7 +6233,7 @@ define internal i32 @SpoolssGetPrinterDriverPackagePath_q(ptr noundef %0, i32 no
   %12 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1262, i32 noundef %11, i32 noundef 0) #5
   %13 = load i32, ptr @hf_package_id, align 4
   %14 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.200, i32 noundef %13, i32 noundef 0) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr null, ptr %15, align 8
   %16 = tail call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_spoolss_buffer_data, i32 noundef 2, ptr noundef nonnull @.str.435, i32 noundef -1) #5
   %17 = load i32, ptr @hf_driver_package_cab_size, align 4
@@ -6260,9 +6260,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define internal i32 @dissect_spoolss_buffer_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %36
@@ -6295,11 +6295,11 @@ define internal i32 @dissect_spoolss_buffer_data(ptr noundef %0, i32 noundef %1,
   %31 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %29, i32 noundef %30, i32 noundef %30) #5
   store ptr %31, ptr %10, align 8
   call void @add_new_data_source(ptr noundef %2, ptr noundef %31, ptr noundef nonnull @.str.1207) #5
-  %32 = getelementptr inbounds i8, ptr %10, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %27, ptr %32, align 8
   %33 = load i32, ptr @ett_BUFFER, align 4
   %34 = call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %33) #5
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %34, ptr %35, align 8
   br label %36
 
@@ -6492,7 +6492,7 @@ define internal fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %
   %.026.i = select i1 %.not.i, i32 %14, i32 %18
   %19 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.026.i) #5
   %20 = icmp slt i32 %19, 1
-  %21 = getelementptr inbounds i8, ptr %2, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %22 = load ptr, ptr %21, align 8
   br i1 %20, label %23, label %25
 
@@ -6511,7 +6511,7 @@ define internal fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %
   br label %dissect_spoolss_uint16uni.exit
 
 33:                                               ; preds = %9
-  %34 = getelementptr inbounds i8, ptr %2, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = call noalias ptr @wmem_strdup(ptr noundef %35, ptr noundef nonnull @.str.755) #5
   br label %dissect_spoolss_uint16uni.exit
@@ -6542,7 +6542,7 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %25, %23, %33
   br i1 %50, label %dissect_spoolss_uint16uni.exit39, label %51
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %2, i64 408
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %53 = load ptr, ptr %52, align 8
   %54 = call ptr @tvb_get_string_enc(ptr noundef %53, ptr noundef %0, i32 noundef %.026.i37, i32 noundef %49, i32 noundef -2147483644) #5
   %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #6
@@ -6811,7 +6811,7 @@ define internal fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noun
   %.026.i = select i1 %.not.i, i32 %17, i32 %20
   %21 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.026.i) #5
   %22 = icmp slt i32 %21, 1
-  %23 = getelementptr inbounds i8, ptr %2, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %24 = load ptr, ptr %23, align 8
   br i1 %22, label %25, label %27
 
@@ -6828,7 +6828,7 @@ define internal fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noun
   br label %dissect_spoolss_uint16uni.exit
 
 33:                                               ; preds = %8
-  %34 = getelementptr inbounds i8, ptr %2, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = call noalias ptr @wmem_strdup(ptr noundef %35, ptr noundef nonnull @.str.1222) #5
   br label %dissect_spoolss_uint16uni.exit
@@ -6845,7 +6845,7 @@ declare i32 @dissect_ndr_nt_NTTIME(ptr noundef, i32 noundef, ptr noundef, ptr no
 define internal i32 @dissect_spoolss_string_parm_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %33
@@ -6853,7 +6853,7 @@ define internal i32 @dissect_spoolss_string_parm_data(ptr noundef %0, i32 nounde
 11:                                               ; preds = %6
   %12 = load i32, ptr @hf_string_parm_size, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7) #5
-  %14 = getelementptr inbounds i8, ptr %2, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr @tvb_get_stringz_enc(ptr noundef %15, ptr noundef %0, i32 noundef %13, ptr noundef nonnull %8, i32 noundef -2147483644) #5
   %17 = icmp ne ptr %3, null
@@ -6874,7 +6874,7 @@ define internal i32 @dissect_spoolss_string_parm_data(ptr noundef %0, i32 nounde
   %25 = phi i32 [ %.pre, %20 ], [ %18, %11 ]
   %.0 = phi ptr [ %23, %20 ], [ null, %11 ]
   %26 = add i32 %25, %13
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.1228, ptr noundef %16) #5
   %29 = icmp ne ptr %.0, null
@@ -6882,7 +6882,7 @@ define internal i32 @dissect_spoolss_string_parm_data(ptr noundef %0, i32 nounde
   br i1 %or.cond3, label %30, label %33
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %.0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %32 = load ptr, ptr %31, align 8
   %.not36 = icmp eq ptr %32, null
   %.0. = select i1 %.not36, ptr %.0, ptr %32
@@ -6928,20 +6928,20 @@ define internal fastcc i32 @dissect_printerdata_data(ptr noundef %0, i32 noundef
   %20 = load i32, ptr @hf_printerdata_data_sz, align 4
   %21 = load i32, ptr %9, align 4
   %22 = sub i32 %18, %21
-  %23 = getelementptr inbounds i8, ptr %2, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @proto_tree_add_item_ret_string(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %22, i32 noundef %21, i32 noundef -2147483644, ptr noundef %24, ptr noundef nonnull %10) #5
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %25, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not5.i = icmp eq ptr %28, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %28, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = or i32 %31, 1
   store i32 %32, ptr %30, align 4
@@ -6951,7 +6951,7 @@ proto_item_set_hidden.exit:                       ; preds = %19, %26, %29
   %33 = load ptr, ptr %8, align 8
   %34 = load ptr, ptr %10, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef nonnull @.str.757, ptr noundef %34) #5
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %10, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.1232, ptr noundef %37) #5
@@ -6963,7 +6963,7 @@ proto_item_set_hidden.exit:                       ; preds = %19, %26, %29
   %41 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %40) #5
   %42 = load ptr, ptr %8, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %42, ptr noundef nonnull @.str.1233, i32 noundef %41) #5
-  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.1234, i32 noundef %41) #5
   %45 = load i32, ptr @hf_printerdata_data_dword, align 4
@@ -6974,20 +6974,20 @@ proto_item_set_hidden.exit:                       ; preds = %19, %26, %29
   br i1 %.not.i34, label %proto_item_set_hidden.exit36, label %49
 
 49:                                               ; preds = %38
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %51 = load ptr, ptr %50, align 8
   %.not5.i35 = icmp eq ptr %51, null
   br i1 %.not5.i35, label %proto_item_set_hidden.exit36, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %51, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 28
   %54 = load i32, ptr %53, align 4
   %55 = or i32 %54, 1
   store i32 %55, ptr %53, align 4
   br label %proto_item_set_hidden.exit36
 
 56:                                               ; preds = %16
-  %57 = getelementptr inbounds i8, ptr %2, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %58 = load ptr, ptr %57, align 8
   call void @col_append_str(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.1235) #5
   br label %proto_item_set_hidden.exit36
@@ -7053,7 +7053,7 @@ declare void @cb_wstr_postprocess(ptr noundef, ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_PRINTER_DATATYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %12
@@ -7088,7 +7088,7 @@ declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_spoolss_keybuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %.loopexit
@@ -7115,7 +7115,7 @@ define internal fastcc i32 @dissect_spoolss_keybuffer(ptr noundef %0, i32 nounde
   br i1 %23, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %2, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 408
   br label %25
 
 25:                                               ; preds = %.lr.ph, %dissect_spoolss_uint16uni.exit

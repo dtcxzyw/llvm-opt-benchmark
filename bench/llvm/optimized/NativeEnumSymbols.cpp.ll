@@ -74,7 +74,7 @@ define dso_local void @_ZNK4llvm3pdb17NativeEnumSymbols15getChildAtIndexEj(ptr d
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = getelementptr inbounds i32, ptr %8, i64 %4
+  %18 = getelementptr inbounds nuw i32, ptr %8, i64 %4
   %19 = load i32, ptr %18, align 4
   tail call void @_ZNK4llvm3pdb11SymbolCache13getSymbolByIdEj(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %17, i32 noundef %19) #7
   br label %21
@@ -96,7 +96,7 @@ define dso_local void @_ZN4llvm3pdb17NativeEnumSymbols7getNextEv(ptr dead_on_unw
   %5 = add i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %4) #7
   ret void

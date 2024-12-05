@@ -21,16 +21,16 @@ define hidden range(i32 0, 82) i32 @FT_Stream_Open(ptr noundef %0, ptr noundef %
   %8 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %5, i32 noundef 2, i32 noundef 1) #14
   %9 = call i32 @fstat(i32 noundef %5, ptr noundef nonnull %3) #14
   %10 = icmp slt i32 %9, 0
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   %or.cond5 = select i1 %10, i1 true, i1 %13
   br i1 %or.cond5, label %45, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %12, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %16, align 8
   %17 = tail call ptr @mmap(ptr noundef null, i64 noundef %12, i32 noundef 1, i32 noundef 2, i32 noundef %5, i64 noundef 0) #14
   store ptr %17, ptr %0, align 8
@@ -76,15 +76,15 @@ define hidden range(i32 0, 82) i32 @FT_Stream_Open(ptr noundef %0, ptr noundef %
 
 .loopexit:                                        ; preds = %35, %14
   %ft_close_stream_by_free.sink = phi ptr [ @ft_close_stream_by_munmap, %14 ], [ @ft_close_stream_by_free, %35 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %ft_close_stream_by_free.sink, ptr %37, align 8
   %38 = tail call i32 @close(i32 noundef %5) #14
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %42, align 8
   br label %47
 
@@ -116,9 +116,9 @@ declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @ft_close_stream_by_munmap(ptr nocapture noundef initializes((0, 8)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = tail call i32 @munmap(ptr noundef %3, i64 noundef %5) #14
   store ptr null, ptr %2, align 8
@@ -140,7 +140,7 @@ declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @ft_close_stream_by_free(ptr nocapture noundef initializes((0, 16)) %0) #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #14
   store ptr null, ptr %2, align 8
@@ -164,11 +164,11 @@ define hidden noalias noundef ptr @FT_New_Memory() local_unnamed_addr #9 {
 
 2:                                                ; preds = %0
   store ptr null, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @ft_alloc, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @ft_realloc, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @ft_free, ptr %5, align 8
   br label %6
 
@@ -187,7 +187,7 @@ define internal noalias noundef ptr @ft_realloc(ptr nocapture readnone %0, i64 %
 
 ; Function Attrs: nounwind uwtable
 define hidden void @FT_Done_Memory(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void %3(ptr noundef %0, ptr noundef %0) #14
   ret void

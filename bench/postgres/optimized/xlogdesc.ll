@@ -58,11 +58,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, -16
   %10 = lshr i8 %8, 4
@@ -79,38 +79,38 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %14 = lshr i64 %13, 32
   %15 = trunc nuw i64 %14 to i32
   %16 = trunc i64 %13 to i32
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   %24 = select i1 %23, ptr @.str.6, ptr @.str.7
-  %25 = getelementptr inbounds i8, ptr %6, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = lshr i64 %26, 32
   %28 = trunc nuw i64 %27 to i32
   %29 = trunc i64 %26 to i32
-  %30 = getelementptr inbounds i8, ptr %6, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %6, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 44
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %6, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 52
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %6, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 76
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 76
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %6, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %49 = load i32, ptr %48, align 8
   %50 = select i1 %12, ptr @.str.8, ptr @.str.9
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %15, i32 noundef %16, i32 noundef %18, i32 noundef %20, ptr noundef nonnull %24, i32 noundef %28, i32 noundef %29, i32 noundef %31, i32 noundef %33, i32 noundef %35, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %45, i32 noundef %47, i32 noundef %49, ptr noundef nonnull %50) #3
@@ -122,7 +122,7 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
   br label %86
 
 52:                                               ; preds = %2
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %53) #3
   br label %86
 
@@ -147,19 +147,19 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
 
 61:                                               ; preds = %56
   %.sroa.013.0.copyload = load i32, ptr %6, align 1
-  %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 4
+  %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.214.0.copyload = load i32, ptr %.sroa.214.0..sroa_idx, align 1
-  %.sroa.315.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.315.0.copyload = load i32, ptr %.sroa.315.0..sroa_idx, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 12
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 20
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 20
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 1
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 1
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 25
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 25
   %.sroa.8.0.copyload = load i8, ptr %.sroa.8.0..sroa_idx, align 1
   %62 = icmp eq i32 %.sroa.6.0.copyload, 0
   br i1 %62, label %._crit_edge, label %.lr.ph
@@ -205,9 +205,9 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
 
 79:                                               ; preds = %78
   %.sroa.07.0.copyload = load i64, ptr %6, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 12
+  %.sroa.38.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 12
   %.sroa.38.0.copyload = load i32, ptr %.sroa.38.0..sroa_idx, align 1
   %80 = tail call ptr @timestamptz_to_str(i64 noundef %.sroa.07.0.copyload) #3
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.38.0.copyload, ptr noundef %80) #3
@@ -215,7 +215,7 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
 
 81:                                               ; preds = %78
   %.sroa.0.0.copyload = load i64, ptr %6, align 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 1
   %82 = lshr i64 %.sroa.0.0.copyload, 32
   %83 = trunc nuw i64 %82 to i32
@@ -242,7 +242,7 @@ define dso_local noundef ptr @xlog_identify(i8 noundef zeroext %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.xlog_identify, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.xlog_identify, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -265,16 +265,16 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   br label %10
 
 10:                                               ; preds = %5, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 84
   %14 = load i32, ptr %13, align 4
   %.not80 = icmp slt i32 %14, 0
   br i1 %.not80, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.not68 = icmp eq ptr %4, null
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -307,21 +307,21 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %30 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.32, i32 noundef %.06481.us, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef %29, i32 noundef %30) #3
   %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %33 = sext i32 %.06481.us to i64
   %34 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %32, i64 0, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 29
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 29
   %36 = load i8, ptr %35, align 1
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %89
 
 38:                                               ; preds = %22
-  %39 = getelementptr inbounds i8, ptr %34, i64 46
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 46
   %40 = load i8, ptr %39, align 2
   br i1 %.not68, label %47, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %34, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 44
   %43 = load i16, ptr %42, align 4
   %44 = zext i16 %43 to i32
   %45 = load i32, ptr %4, align 4
@@ -354,19 +354,19 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
 56:                                               ; preds = %54, %52, %50
   %.0.us = phi ptr [ @.str.33, %50 ], [ @.str.34, %52 ], [ %.str.36..str.35.us, %54 ]
   %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 88
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 88
   %59 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %58, i64 0, i64 %33
-  %60 = getelementptr inbounds i8, ptr %59, i64 30
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 30
   %61 = load i8, ptr %60, align 2
   %62 = trunc i8 %61 to i1
   %63 = select i1 %62, ptr @.str.38, ptr @.str.39
-  %64 = getelementptr inbounds i8, ptr %59, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %65 = load i16, ptr %64, align 8
   %66 = zext i16 %65 to i32
-  %67 = getelementptr inbounds i8, ptr %59, i64 42
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 42
   %68 = load i16, ptr %67, align 2
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds i8, ptr %59, i64 44
+  %70 = getelementptr inbounds nuw i8, ptr %59, i64 44
   %71 = load i16, ptr %70, align 4
   %72 = zext i16 %71 to i32
   %73 = add nuw nsw i32 %69, %72
@@ -376,16 +376,16 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
 
 75:                                               ; preds = %47
   %76 = load ptr, ptr %11, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 88
   %78 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %77, i64 0, i64 %33
-  %79 = getelementptr inbounds i8, ptr %78, i64 30
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 30
   %80 = load i8, ptr %79, align 2
   %81 = trunc i8 %80 to i1
   %82 = select i1 %81, ptr @.str.38, ptr @.str.39
-  %83 = getelementptr inbounds i8, ptr %78, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 40
   %84 = load i16, ptr %83, align 8
   %85 = zext i16 %84 to i32
-  %86 = getelementptr inbounds i8, ptr %78, i64 42
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 42
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.40, ptr noundef nonnull %82, i32 noundef %85, i32 noundef %88) #3
@@ -401,7 +401,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
 91:                                               ; preds = %90, %89, %.lr.ph.split.us
   %92 = add i32 %.06481.us, 1
   %93 = load ptr, ptr %11, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 84
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 84
   %95 = load i32, ptr %94, align 4
   %.not.us = icmp sgt i32 %92, %95
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !7
@@ -435,10 +435,10 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
 
 110:                                              ; preds = %108, %103
   %111 = load ptr, ptr %11, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 88
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 88
   %113 = sext i32 %.06481 to i64
   %114 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %112, i64 0, i64 %113
-  %115 = getelementptr inbounds i8, ptr %114, i64 29
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 29
   %116 = load i8, ptr %115, align 1
   %117 = trunc i8 %116 to i1
   br i1 %117, label %118, label %130
@@ -447,7 +447,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   br i1 %.not68, label %.sink.split84, label %119
 
 119:                                              ; preds = %118
-  %120 = getelementptr inbounds i8, ptr %114, i64 44
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 44
   %121 = load i16, ptr %120, align 4
   %122 = zext i16 %121 to i32
   %123 = load i32, ptr %4, align 4
@@ -470,7 +470,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
 130:                                              ; preds = %.sink.split84, %110, %.lr.ph.split
   %131 = add i32 %.06481, 1
   %132 = load ptr, ptr %11, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 84
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 84
   %134 = load i32, ptr %133, align 4
   %.not = icmp sgt i32 %131, %134
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7

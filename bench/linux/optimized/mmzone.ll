@@ -31,7 +31,7 @@ define dso_local ptr @first_online_pgdat() local_unnamed_addr #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
 define dso_local ptr @next_online_pgdat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 13120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 13120
   %3 = load i32, ptr %2, align 64
   %4 = add i32 %3, 1
   %5 = icmp ugt i32 %4, 63
@@ -64,7 +64,7 @@ define dso_local ptr @next_online_pgdat(ptr nocapture noundef readonly %0) local
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
 define dso_local ptr @next_zone(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 3648
   %5 = icmp ugt ptr %4, %0
@@ -75,7 +75,7 @@ define dso_local ptr @next_zone(ptr noundef readonly %0) local_unnamed_addr #0 a
   br label %.thread
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 13120
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 13120
   %10 = load i32, ptr %9, align 64
   %11 = add i32 %10, 1
   %12 = icmp ugt i32 %11, 63
@@ -113,7 +113,7 @@ define dso_local ptr @__next_zones_zonelist(ptr noundef readonly %0, i32 noundef
 
 .preheader:                                       ; preds = %3, %.preheader
   %5 = phi ptr [ %9, %.preheader ], [ %0, %3 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp ugt i32 %7, %1
   %9 = getelementptr i8, ptr %5, i64 16
@@ -121,7 +121,7 @@ define dso_local ptr @__next_zones_zonelist(ptr noundef readonly %0, i32 noundef
 
 .preheader1:                                      ; preds = %3, %24
   %10 = phi ptr [ %25, %24 ], [ %0, %3 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp ugt i32 %12, %1
   br i1 %13, label %24, label %14
@@ -132,7 +132,7 @@ define dso_local ptr @__next_zones_zonelist(ptr noundef readonly %0, i32 noundef
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %19 = load i32, ptr %18, align 16
   %20 = sext i32 %19 to i64
   %21 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %20) #7, !srcloc !10
@@ -159,7 +159,7 @@ define dso_local void @lruvec_init(ptr noundef initializes((0, 136)) %0) local_u
   %3 = phi i64 [ 0, %1 ], [ %6, %2 ]
   %4 = getelementptr [5 x %struct.list_head], ptr %0, i64 0, i64 %3
   store volatile ptr %4, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile ptr %4, ptr %5, align 8
   %6 = add nuw nsw i64 %3, 1
   %7 = icmp eq i64 %6, 5
@@ -170,7 +170,7 @@ define dso_local void @lruvec_init(ptr noundef initializes((0, 136)) %0) local_u
   %10 = getelementptr i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %11, ptr %13, align 8
   store volatile ptr %12, ptr %11, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %9, align 8

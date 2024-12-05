@@ -180,7 +180,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_cattp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [1 x %struct.vec_t], align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.52) #3
   %8 = load ptr, ptr %6, align 8
@@ -257,7 +257,7 @@ define internal i32 @dissect_cattp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 60:                                               ; preds = %53
   %61 = add nuw nsw i32 %35, %11
-  %62 = getelementptr inbounds i8, ptr %5, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %61, ptr %62, align 8
   %63 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %61) #3
   store ptr %63, ptr %5, align 16
@@ -297,7 +297,7 @@ define internal i32 @dissect_cattp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %or.cond5.i, label %87, label %101
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %1, i64 408
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %89 = load ptr, ptr %88, align 8
   %90 = call noalias ptr @wmem_strbuf_new(ptr noundef %89, ptr noundef nonnull @.str.82) #3
   br label %91

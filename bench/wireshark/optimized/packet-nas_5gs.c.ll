@@ -3294,7 +3294,7 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   br i1 %.not224, label %._crit_edge223, label %.lr.ph222
 
 .lr.ph222:                                        ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %2, i64 384
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 384
   br label %15
 
 15:                                               ; preds = %.lr.ph222, %.backedge
@@ -3979,7 +3979,7 @@ define internal noundef zeroext i16 @de_nas_5gs_cmn_eap_msg(ptr noundef %0, ptr 
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.1307) #12
   %12 = load ptr, ptr %10, align 8
@@ -4061,7 +4061,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_5gmm_cause(ptr noundef %0, pt
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_nas_5gs_mm_5gmm_cause, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %8, align 4
   %14 = call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @nas_5gs_mm_cause_vals, ptr noundef nonnull @.str.49) #12
@@ -4115,7 +4115,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_5gs_mobile_id(ptr noundef %0,
 18:                                               ; preds = %13
   %19 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %14, i32 noundef 0, i32 noundef 1) #12
   %20 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %19, i32 noundef 2) #12
-  %21 = getelementptr inbounds i8, ptr %2, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %20, i32 noundef 1) #12
   %24 = icmp eq i8 %23, -1
@@ -4212,13 +4212,13 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_5gs_mobile_id(ptr noundef %0,
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %93
 
 93:                                               ; preds = %76
-  %94 = getelementptr inbounds i8, ptr %92, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %95 = load ptr, ptr %94, align 8
   %.not5.i = icmp eq ptr %95, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %95, i64 28
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 28
   %98 = load i32, ptr %97, align 4
   %99 = or i32 %98, 1
   store i32 %99, ptr %97, align 4
@@ -4248,13 +4248,13 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_5gs_mobile_id(ptr noundef %0,
   br i1 %.not.i167, label %proto_item_set_hidden.exit, label %116
 
 116:                                              ; preds = %103
-  %117 = getelementptr inbounds i8, ptr %115, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %118 = load ptr, ptr %117, align 8
   %.not5.i168 = icmp eq ptr %118, null
   br i1 %.not5.i168, label %proto_item_set_hidden.exit, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %118, i64 28
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 28
   %121 = load i32, ptr %120, align 4
   %122 = or i32 %121, 1
   store i32 %122, ptr %120, align 4
@@ -4584,16 +4584,16 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_ciphering_key_data(ptr nounde
 
 .lr.ph:                                           ; preds = %7
   %14 = shl i32 %3, 3
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
-  %16 = getelementptr inbounds i8, ptr %11, i64 28
-  %17 = getelementptr inbounds i8, ptr %11, i64 32
-  %18 = getelementptr inbounds i8, ptr %11, i64 20
-  %19 = getelementptr inbounds i8, ptr %11, i64 16
-  %20 = getelementptr inbounds i8, ptr %11, i64 12
-  %21 = getelementptr inbounds i8, ptr %11, i64 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 4
-  %23 = getelementptr inbounds i8, ptr %12, i64 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 408
   br label %25
 
 25:                                               ; preds = %.lr.ph, %147
@@ -4839,7 +4839,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_eps_nas_msg_cont(ptr noundef 
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.1307) #12
   %12 = load ptr, ptr %10, align 8
@@ -5314,10 +5314,10 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_pld_cont(ptr noundef %0, ptr 
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca ptr, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr @proto_nas_5gs, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 376
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %22 = load i8, ptr %21, align 8
   %23 = zext i8 %22 to i32
   %24 = tail call ptr @p_get_proto_data(ptr noundef %19, ptr noundef %2, i32 noundef %20, i32 noundef %23) #12
@@ -5625,10 +5625,10 @@ de_nas_5gs_cmn_dnn.exit:                          ; preds = %146, %145, %128, %1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i16 @de_nas_5gs_mm_pld_cont_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #0 {
-  %8 = getelementptr inbounds i8, ptr %2, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nas_5gs, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 376
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i32
   %14 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %2, i32 noundef %10, i32 noundef %13) #12
@@ -6237,7 +6237,7 @@ define internal noundef zeroext i16 @de_nas_5gs_mm_paging_restriction(ptr nounde
 define internal noundef zeroext i16 @de_nas_5gs_mm_nid(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
   %8 = load i32, ptr @hf_nas_5gs_mm_nid_assign_mode, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #12
-  %10 = getelementptr inbounds i8, ptr %2, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @tvb_get_bcd_string(ptr noundef %11, ptr noundef %0, i32 noundef %3, i32 noundef 6, ptr noundef nonnull @dgt0_f_bcd, i32 noundef 1, i32 noundef 1, i32 noundef 0) #12
   %13 = load i32, ptr @hf_nas_5gs_mm_nid_value, align 4
@@ -6537,7 +6537,7 @@ define internal noundef zeroext i16 @de_nas_5gs_sm_5gsm_cause(ptr noundef %0, pt
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_nas_5gs_sm_5gsm_cause, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %8, align 4
   %14 = call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @nas_5gs_sm_cause_vals, ptr noundef nonnull @.str.49) #12
@@ -6721,31 +6721,31 @@ define internal noundef zeroext i16 @de_nas_5gs_sm_pdu_address(ptr noundef %0, p
   %21 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %15, i64 noundef 8) #12
   %22 = load i32, ptr @hf_nas_5gs_sm_pdu_addr_inf_ipv6, align 4
   %.val = load i8, ptr %10, align 1
-  %23 = getelementptr inbounds i8, ptr %10, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %.val35 = load i8, ptr %23, align 1
   %24 = zext i8 %.val to i32
   %25 = shl nuw nsw i32 %24, 8
   %26 = zext i8 %.val35 to i32
   %27 = or disjoint i32 %25, %26
-  %28 = getelementptr inbounds i8, ptr %10, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %.val36 = load i8, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %10, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 3
   %.val37 = load i8, ptr %29, align 1
   %30 = zext i8 %.val36 to i32
   %31 = shl nuw nsw i32 %30, 8
   %32 = zext i8 %.val37 to i32
   %33 = or disjoint i32 %31, %32
-  %34 = getelementptr inbounds i8, ptr %10, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.val38 = load i8, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %10, i64 5
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 5
   %.val39 = load i8, ptr %35, align 1
   %36 = zext i8 %.val38 to i32
   %37 = shl nuw nsw i32 %36, 8
   %38 = zext i8 %.val39 to i32
   %39 = or disjoint i32 %37, %38
-  %40 = getelementptr inbounds i8, ptr %10, i64 6
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %.val40 = load i8, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %10, i64 7
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 7
   %.val41 = load i8, ptr %41, align 1
   %42 = zext i8 %.val40 to i32
   %43 = shl nuw nsw i32 %42, 8
@@ -6758,31 +6758,31 @@ define internal noundef zeroext i16 @de_nas_5gs_sm_pdu_address(ptr noundef %0, p
   %48 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %15, i64 noundef 8) #12
   %49 = load i32, ptr @hf_nas_5gs_sm_pdu_addr_inf_ipv6, align 4
   %.val42 = load i8, ptr %10, align 1
-  %50 = getelementptr inbounds i8, ptr %10, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %.val43 = load i8, ptr %50, align 1
   %51 = zext i8 %.val42 to i32
   %52 = shl nuw nsw i32 %51, 8
   %53 = zext i8 %.val43 to i32
   %54 = or disjoint i32 %52, %53
-  %55 = getelementptr inbounds i8, ptr %10, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %.val44 = load i8, ptr %55, align 1
-  %56 = getelementptr inbounds i8, ptr %10, i64 3
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 3
   %.val45 = load i8, ptr %56, align 1
   %57 = zext i8 %.val44 to i32
   %58 = shl nuw nsw i32 %57, 8
   %59 = zext i8 %.val45 to i32
   %60 = or disjoint i32 %58, %59
-  %61 = getelementptr inbounds i8, ptr %10, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.val46 = load i8, ptr %61, align 1
-  %62 = getelementptr inbounds i8, ptr %10, i64 5
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 5
   %.val47 = load i8, ptr %62, align 1
   %63 = zext i8 %.val46 to i32
   %64 = shl nuw nsw i32 %63, 8
   %65 = zext i8 %.val47 to i32
   %66 = or disjoint i32 %64, %65
-  %67 = getelementptr inbounds i8, ptr %10, i64 6
+  %67 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %.val48 = load i8, ptr %67, align 1
-  %68 = getelementptr inbounds i8, ptr %10, i64 7
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 7
   %.val49 = load i8, ptr %68, align 1
   %69 = zext i8 %.val48 to i32
   %70 = shl nuw nsw i32 %69, 8
@@ -7757,91 +7757,91 @@ define hidden void @de_nas_5gs_s1_mode_to_n1_mode_nas_transparent_cont(ptr nound
 define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
   %1 = alloca [278 x ptr], align 16
   store ptr @ett_nas_5gs, ptr %1, align 16
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @ett_nas_5gs_mm_nssai, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @ett_nas_5gs_mm_pdu_ses_id, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @ett_nas_5gs_sm_qos_rules, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr @ett_nas_5gs_sm_qos_params, ptr %5, align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr @ett_nas_5gs_plain, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr @ett_nas_5gs_sec, ptr %7, align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr @ett_nas_5gs_mm_part_sal, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr @ett_nas_5gs_mm_part_tal, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr @ett_nas_5gs_sm_mapd_eps_b_cont, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr @ett_nas_5gs_sm_mapd_eps_b_cont_params_list, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr @ett_nas_5gs_enc, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr @ett_nas_5gs_mm_ladn_indic, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr @ett_nas_5gs_mm_sor, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr @ett_nas_5gs_sm_pkt_filter_components, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %1, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr @ett_nas_5gs_updp_ue_policy_section_mgm_lst, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr @ett_nas_5gs_updp_ue_policy_section_mgm_sublst, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %1, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store ptr @ett_nas_5gs_ue_policies_ursp, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr @ett_nas_5gs_ursp_traff_desc, ptr %19, align 16
-  %20 = getelementptr inbounds i8, ptr %1, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr @ett_nas_5gs_usrp_r_sel_list, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 160
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr @ett_nas_5gs_usrp_r_sel, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %1, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr @ett_nas_5gs_ursp_r_sel_desc_cont, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr @ett_nas_5gs_updp_upsi_list, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store ptr @ett_nas_5gs_mm_rej_nssai, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 192
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store ptr @ett_nas_5gs_mm_scheme_output, ptr %25, align 16
-  %26 = getelementptr inbounds i8, ptr %1, i64 200
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr @ett_nas_5gs_mm_pld_cont_pld_entry, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 208
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store ptr @ett_nas_5gs_mm_pld_cont_opt_ie, ptr %27, align 16
-  %28 = getelementptr inbounds i8, ptr %1, i64 216
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr @ett_nas_5gs_mm_cag_info_entry, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 224
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr @ett_nas_5gs_ciot_small_data_cont_data_contents, ptr %29, align 16
-  %30 = getelementptr inbounds i8, ptr %1, i64 232
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr @ett_nas_5gs_user_data_cont, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 240
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr @ett_nas_5gs_ciph_data_set, ptr %31, align 16
-  %32 = getelementptr inbounds i8, ptr %1, i64 248
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr @ett_nas_5gs_mm_mapped_nssai, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 256
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 256
   store ptr @ett_nas_5gs_mm_partial_extended_rejected_nssai_list, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %1, i64 264
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store ptr @ett_nas_5gs_mm_ext_rej_nssai, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr @ett_nas_5gs_mm_op_def_acc_cat_def, ptr %35, align 16
-  %36 = getelementptr inbounds i8, ptr %1, i64 280
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store ptr @ett_nas_5gs_mm_op_def_acc_cat_criteria_component, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 288
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store ptr @ett_nas_5gs_mm_op_def_acc_cat_criteria, ptr %37, align 16
-  %38 = getelementptr inbounds i8, ptr %1, i64 296
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr @ett_nas_5gs_cmn_service_level_aa_cont_param, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 304
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store ptr @ett_nas_5gs_mm_pld_cont_event_notif_ind, ptr %39, align 16
-  %40 = getelementptr inbounds i8, ptr %1, i64 312
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store ptr @ett_nas_5gs_mm_peips_assist_info, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 320
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 320
   store ptr @ett_nas_5gs_mm_nssrg_info, ptr %41, align 16
-  %42 = getelementptr inbounds i8, ptr %1, i64 328
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 328
   store ptr @ett_nas_5gs_mm_plmns_list_disaster_cond, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 336
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store ptr @ett_nas_5gs_mm_reg_wait_range, ptr %43, align 16
-  %44 = getelementptr inbounds i8, ptr %1, i64 344
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 344
   store ptr @ett_nas_5gs_mm_nsag_info, ptr %44, align 8
   br label %45
 
@@ -7997,7 +7997,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nas_5gs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_sep_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.1307, ptr noundef nonnull @.str.1267) #12
   %7 = load i32, ptr @proto_nas_5gs, align 4
@@ -8130,7 +8130,7 @@ define internal range(i32 0, 2) i32 @dissect_nas_5gs_heur(ptr noundef %0, ptr no
   br i1 %.not, label %9, label %15
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_clear(ptr noundef %11, i32 noundef 34) #12
   %12 = load ptr, ptr %10, align 8
@@ -8152,7 +8152,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nas_5gs_media_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_json, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #12
@@ -8162,7 +8162,7 @@ define internal i32 @dissect_nas_5gs_media_type(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %11, label %.thread112
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.thread112, label %14
@@ -8243,13 +8243,13 @@ sub_0:                                            ; preds = %45
   br i1 %.not115, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %48 = getelementptr inbounds i8, ptr %.072, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.072, i64 1
   %49 = load i8, ptr %48, align 1
   %.not116 = icmp eq i8 %49, 77
   br i1 %.not116, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %50 = getelementptr inbounds i8, ptr %.072, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %.072, i64 2
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %66, label %.tail.thread
@@ -8457,7 +8457,7 @@ define internal fastcc void @nas_5gs_decode_user_data_cont(ptr noundef %0, ptr n
   br i1 %.not51, label %92, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @col_append_str(ptr noundef %35, i32 noundef 34, ptr noundef nonnull @.str.1307) #12
   %36 = load ptr, ptr %34, align 8
@@ -8468,10 +8468,10 @@ define internal fastcc void @nas_5gs_decode_user_data_cont(ptr noundef %0, ptr n
   call void @col_set_fence(ptr noundef %38, i32 noundef 25) #12
   store volatile i32 0, ptr %9, align 4
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @nas_5gs_decode_user_data_cont.catch_spec, i64 noundef 1) #12
-  %39 = getelementptr inbounds i8, ptr %11, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %40 = call i32 @_setjmp(ptr noundef nonnull %39) #14
   %.not52 = icmp eq i32 %40, 0
-  %41 = getelementptr inbounds i8, ptr %11, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink57 = select i1 %.not52, ptr null, ptr %41
   store volatile ptr %.sink57, ptr %8, align 8
   %.0..0..0..0.8 = load volatile i32, ptr %9, align 4
@@ -8516,35 +8516,35 @@ define internal fastcc void @nas_5gs_decode_user_data_cont(ptr noundef %0, ptr n
 
 56:                                               ; preds = %55
   %.0..0..0..0.17 = load volatile ptr, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %.0..0..0..0.17, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.17, i64 8
   %58 = load volatile i64, ptr %57, align 8
   %59 = icmp eq i64 %58, 1
   br i1 %59, label %76, label %60
 
 60:                                               ; preds = %56
   %.0..0..0..0.18 = load volatile ptr, ptr %8, align 8
-  %61 = getelementptr inbounds i8, ptr %.0..0..0..0.18, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.18, i64 8
   %62 = load volatile i64, ptr %61, align 8
   %63 = icmp eq i64 %62, 4
   br i1 %63, label %76, label %64
 
 64:                                               ; preds = %60
   %.0..0..0..0.19 = load volatile ptr, ptr %8, align 8
-  %65 = getelementptr inbounds i8, ptr %.0..0..0..0.19, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.19, i64 8
   %66 = load volatile i64, ptr %65, align 8
   %67 = icmp eq i64 %66, 3
   br i1 %67, label %76, label %68
 
 68:                                               ; preds = %64
   %.0..0..0..0.20 = load volatile ptr, ptr %8, align 8
-  %69 = getelementptr inbounds i8, ptr %.0..0..0..0.20, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.20, i64 8
   %70 = load volatile i64, ptr %69, align 8
   %71 = icmp eq i64 %70, 2
   br i1 %71, label %76, label %72
 
 72:                                               ; preds = %68
   %.0..0..0..0.21 = load volatile ptr, ptr %8, align 8
-  %73 = getelementptr inbounds i8, ptr %.0..0..0..0.21, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.21, i64 8
   %74 = load volatile i64, ptr %73, align 8
   %75 = icmp eq i64 %74, 7
   br i1 %75, label %76, label %84
@@ -8556,10 +8556,10 @@ define internal fastcc void @nas_5gs_decode_user_data_cont(ptr noundef %0, ptr n
   %78 = load i32, ptr @ett_nas_5gs_user_data_cont, align 4
   %79 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %78) #12
   %.0..0..0..0.22 = load volatile ptr, ptr %8, align 8
-  %80 = getelementptr inbounds i8, ptr %.0..0..0..0.22, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.22, i64 8
   %81 = load volatile i64, ptr %80, align 8
   %.0..0..0..0.23 = load volatile ptr, ptr %8, align 8
-  %82 = getelementptr inbounds i8, ptr %.0..0..0..0.23, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.23, i64 16
   %83 = load volatile ptr, ptr %82, align 8
   call void @show_exception(ptr noundef %15, ptr noundef nonnull %2, ptr noundef %79, i64 noundef %81, ptr noundef %83) #12
   br label %84
@@ -8581,7 +8581,7 @@ define internal fastcc void @nas_5gs_decode_user_data_cont(ptr noundef %0, ptr n
   unreachable
 
 88:                                               ; preds = %86, %84
-  %89 = getelementptr inbounds i8, ptr %11, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %90 = load volatile ptr, ptr %89, align 8
   call void @except_free(ptr noundef %90) #12
   %91 = call ptr @except_pop() #12
@@ -8678,7 +8678,7 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
   %38 = getelementptr [46 x ptr], ptr @nas_5gs_mm_msg_fcn, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   call void @col_append_sep_str(ptr noundef %41, i32 noundef 25, ptr noundef null, ptr noundef nonnull %33) #12
   %42 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %35, ptr noundef %0, i32 noundef range(i32 2, 11) %27, i32 noundef 1, i32 noundef 0) #12
@@ -8726,7 +8726,7 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
   %66 = getelementptr [28 x ptr], ptr @nas_5gs_sm_msg_fcn, i64 0, i64 %65
   %67 = load ptr, ptr %66, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load ptr, ptr %68, align 8
   call void @col_append_sep_str(ptr noundef %69, i32 noundef 25, ptr noundef null, ptr noundef nonnull %61) #12
   %70 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %63, ptr noundef %0, i32 noundef range(i32 2, 11) %27, i32 noundef 1, i32 noundef 0) #12
@@ -8788,7 +8788,7 @@ define internal fastcc void @dissect_nas_5gs_updp(ptr noundef %0, ptr noundef %1
   %15 = getelementptr [8 x ptr], ptr @nas_5gs_updp_msg_fcn, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   call void @col_append_sep_str(ptr noundef %18, i32 noundef 25, ptr noundef null, ptr noundef nonnull %10) #12
   %19 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #12
@@ -8882,12 +8882,12 @@ declare ptr @try_val_to_str_idx_ext(i32 noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_mm_registration_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @proto_nas_5gs, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 376
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %11 = load i8, ptr %10, align 8
   %12 = zext i8 %11 to i32
   %13 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %2, i32 noundef %9, i32 noundef %12) #12
@@ -10310,7 +10310,7 @@ define internal void @nas_5gs_mm_service_acc(ptr noundef %0, ptr noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_mm_control_plane_service_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %11, label %.thread
@@ -11478,12 +11478,12 @@ define internal void @nas_5gs_mm_notification_resp(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_mm_ul_nas_transp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @proto_nas_5gs, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 376
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %11 = load i8, ptr %10, align 8
   %12 = zext i8 %11 to i32
   %13 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %2, i32 noundef %9, i32 noundef %12) #12
@@ -11624,12 +11624,12 @@ nas5gs_get_private_data.exit:                     ; preds = %5, %14
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_mm_dl_nas_transp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @proto_nas_5gs, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 376
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %11 = load i8, ptr %10, align 8
   %12 = zext i8 %11 to i32
   %13 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %2, i32 noundef %9, i32 noundef %12) #12
@@ -12043,7 +12043,7 @@ declare zeroext i16 @elem_v(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_est_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -12216,7 +12216,7 @@ define internal void @nas_5gs_sm_pdu_ses_est_req(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_est_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = load i32, ptr @hf_nas_5gs_sm_sel_sc_mode, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #12
@@ -12443,7 +12443,7 @@ define internal void @nas_5gs_sm_pdu_ses_est_acc(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_est_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -12536,7 +12536,7 @@ define internal void @nas_5gs_sm_pdu_ses_est_rej(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_auth_cmd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -12581,7 +12581,7 @@ define internal void @nas_5gs_sm_pdu_ses_auth_cmd(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_auth_comp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -12626,7 +12626,7 @@ define internal void @nas_5gs_sm_pdu_ses_auth_comp(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_auth_res(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %21, label %8
@@ -12657,7 +12657,7 @@ define internal void @nas_5gs_sm_pdu_ses_auth_res(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_mod_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %93, label %8
@@ -12784,7 +12784,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_req(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_mod_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -12853,7 +12853,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_rej(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_mod_cmd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %99, label %8
@@ -12988,7 +12988,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_cmd(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_mod_comp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %33, label %8
@@ -13035,7 +13035,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_comp(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_mod_com_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -13080,7 +13080,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_com_rej(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_rel_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %21, label %8
@@ -13111,7 +13111,7 @@ define internal void @nas_5gs_sm_pdu_ses_rel_req(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_rel_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -13156,7 +13156,7 @@ define internal void @nas_5gs_sm_pdu_ses_rel_rej(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_rel_cmd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -13241,7 +13241,7 @@ define internal void @nas_5gs_sm_pdu_ses_rel_cmd(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_sm_pdu_ses_rel_comp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %21, label %8
@@ -13419,7 +13419,7 @@ define internal void @nas_5gs_sm_remote_ue_resp(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_updp_manage_ue_policy_cmd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -13456,14 +13456,14 @@ define internal void @nas_5gs_updp_manage_ue_policy_cmd(ptr noundef %0, ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @nas_5gs_updp_manage_ue_policy_cmd_cmpl(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((384, 388)) %2, i32 %3, i32 %4) #6 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_updp_manage_ue_policy_cmd_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %10
@@ -13484,7 +13484,7 @@ define internal void @nas_5gs_updp_manage_ue_policy_cmd_rej(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_updp_ue_state_indication(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %14
@@ -13543,7 +13543,7 @@ define internal void @nas_5gs_updp_ue_state_indication(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_updp_ue_policy_prov_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %10
@@ -13564,7 +13564,7 @@ define internal void @nas_5gs_updp_ue_policy_prov_req(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_updp_ue_policy_prov_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %8, label %10
@@ -13631,7 +13631,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_nas_5gs_sm_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_sep_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.1307, ptr noundef nonnull @.str.1267) #12
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
@@ -13673,7 +13673,7 @@ declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_n1_sm_info_from_ue(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %81, label %8
@@ -13784,7 +13784,7 @@ define internal void @nas_5gs_n1_sm_info_from_ue(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_n1_sm_info_to_ue(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %51, label %8
@@ -13855,7 +13855,7 @@ define internal void @nas_5gs_n1_sm_info_to_ue(ptr noundef %0, ptr noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @nas_5gs_unknown_n1_sm_info(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %7
@@ -13880,7 +13880,7 @@ define internal range(i32 2, 65538) i32 @get_nas_5gs_tcp_len(ptr nocapture readn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nas_5gs_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #12
   %7 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2) #12

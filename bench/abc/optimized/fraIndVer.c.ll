@@ -29,7 +29,7 @@ define range(i32 0, 2) i32 @Fra_InvariantVerify(ptr noundef %0, i32 noundef %1, 
 9:                                                ; preds = %4
   %10 = load i64, ptr %6, align 8
   %.neg142 = mul i64 %10, -1000000
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8
   %.neg = sdiv i64 %12, -1000
   %.neg143 = add i64 %.neg, %.neg142
@@ -66,7 +66,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %.0110152 = phi i32 [ 0, %.lr.ph154 ], [ %spec.select, %._crit_edge148 ]
   %.0117150 = phi i32 [ 0, %.lr.ph154 ], [ %24, %._crit_edge148 ]
   %.val137 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i32, ptr %.val137, i64 %indvars.iv180
+  %23 = getelementptr inbounds nuw i32, ptr %.val137, i64 %indvars.iv180
   %24 = load i32, ptr %23, align 4
   %25 = icmp slt i32 %.0117150, %24
   %26 = sext i32 %.0117150 to i64
@@ -140,7 +140,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %indvars.iv183 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next184, %47 ]
   %.1118156 = phi i32 [ 0, %.lr.ph158 ], [ %52, %47 ]
   %.val138 = load ptr, ptr %46, align 8
-  %51 = getelementptr inbounds i32, ptr %.val138, i64 %indvars.iv183
+  %51 = getelementptr inbounds nuw i32, ptr %.val138, i64 %indvars.iv183
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %.1118156 to i64
   %54 = getelementptr inbounds i32, ptr %.val129, i64 %53
@@ -158,9 +158,9 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 
 .critedge2:                                       ; preds = %47, %.critedge
   %.val133167200 = phi i32 [ %.val132155, %.critedge ], [ %.val132, %47 ]
-  %60 = getelementptr inbounds i8, ptr %44, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %44, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %63 = load i32, ptr %62, align 8
   %.not123 = icmp eq i32 %61, %63
   br i1 %.not123, label %66, label %64
@@ -178,7 +178,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 
 .lr.ph172:                                        ; preds = %66
   %68 = getelementptr i8, ptr %2, i64 8
-  %69 = getelementptr inbounds i8, ptr %16, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %70
 
 70:                                               ; preds = %.lr.ph172, %._crit_edge166
@@ -186,7 +186,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %.0109170 = phi i32 [ 0, %.lr.ph172 ], [ %spec.select127, %._crit_edge166 ]
   %.2119168 = phi i32 [ 0, %.lr.ph172 ], [ %72, %._crit_edge166 ]
   %.val139 = load ptr, ptr %68, align 8
-  %71 = getelementptr inbounds i32, ptr %.val139, i64 %indvars.iv196
+  %71 = getelementptr inbounds nuw i32, ptr %.val139, i64 %indvars.iv196
   %72 = load i32, ptr %71, align 4
   %73 = icmp slt i32 %.2119168, %72
   %74 = sext i32 %.2119168 to i64
@@ -281,7 +281,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 109:                                              ; preds = %105
   %110 = load i64, ptr %5, align 8
   %111 = mul nsw i64 %110, 1000000
-  %112 = getelementptr inbounds i8, ptr %5, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %113 = load i64, ptr %112, align 8
   %114 = sdiv i64 %113, 1000
   %115 = add nsw i64 %114, %111

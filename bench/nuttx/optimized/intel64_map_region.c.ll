@@ -34,7 +34,7 @@ define range(i32 -1, 1) i32 @up_map_region(ptr noundef %0, i32 noundef %1, i32 n
   %16 = and i64 %15, 134217727
   %17 = or i64 %.01518, %13
   %18 = load ptr, ptr @g_pt, align 8
-  %19 = getelementptr inbounds i64, ptr %18, i64 %16
+  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %16
   store volatile i64 %17, ptr %19, align 8
   %20 = add i64 %.01518, 4096
   %21 = add nuw i32 %.019, 1

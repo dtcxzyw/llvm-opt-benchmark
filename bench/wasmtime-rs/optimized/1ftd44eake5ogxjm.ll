@@ -10,9 +10,9 @@ define hidden nonnull ptr @_ZN6anyhow9__private10format_err17h9b07504fa2bfccd6E(
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !3
   switch i64 %6, label %19 [
     i64 0, label %9
@@ -29,7 +29,7 @@ define hidden nonnull ptr @_ZN6anyhow9__private10format_err17h9b07504fa2bfccd6E(
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !3
   br label %17
 

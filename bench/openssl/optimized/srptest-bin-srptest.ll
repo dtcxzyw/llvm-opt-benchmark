@@ -110,9 +110,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = call i32 @BN_hex2bn(ptr noundef nonnull %s, ptr noundef nonnull @.str.28) #2
-  %N = getelementptr inbounds i8, ptr %call, i64 16
+  %N = getelementptr inbounds nuw i8, ptr %call, i64 16
   %0 = load ptr, ptr %N, align 8
-  %g = getelementptr inbounds i8, ptr %call, i64 8
+  %g = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr %g, align 8
   %call3 = call i32 @SRP_create_verifier_BN(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.30, ptr noundef nonnull %s, ptr noundef nonnull %v, ptr noundef %0, ptr noundef %1) #2
   %cmp = icmp ne i32 %call3, 0
@@ -267,9 +267,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %N = getelementptr inbounds i8, ptr %call, i64 16
+  %N = getelementptr inbounds nuw i8, ptr %call, i64 16
   %0 = load ptr, ptr %N, align 8
-  %g = getelementptr inbounds i8, ptr %call, i64 8
+  %g = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr %g, align 8
   %call2 = call i32 @SRP_create_verifier_BN(ptr noundef nonnull @.str.5, ptr noundef %server_pass, ptr noundef nonnull %s, ptr noundef nonnull %v, ptr noundef %0, ptr noundef %1) #2
   %cmp = icmp ne i32 %call2, 0

@@ -225,11 +225,11 @@ define signext range(i8 -1, 5) i8 @lv_area_diff(ptr nocapture noundef writeonly 
 
 26:                                               ; preds = %22
   store i32 %4, ptr %0, align 4, !tbaa !11
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %13, ptr %.sroa.10.0..sroa_idx, align 4, !tbaa !11
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %.sroa.14.0..sroa_idx, align 4, !tbaa !11
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %20, ptr %.sroa.18.0..sroa_idx, align 4, !tbaa !11
   %.pre = load i32, ptr %14, align 4, !tbaa !10
   %.pre100 = load i32, ptr %12, align 4, !tbaa !8
@@ -254,13 +254,13 @@ define signext range(i8 -1, 5) i8 @lv_area_diff(ptr nocapture noundef writeonly 
   %36 = add i32 %28, %24
   %37 = add nuw nsw i8 %.086, 1
   %38 = zext nneg i8 %.086 to i64
-  %39 = getelementptr inbounds %struct.lv_area_t, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw %struct.lv_area_t, ptr %0, i64 %38
   store i32 %34, ptr %39, align 4, !tbaa !11
-  %.sroa.10.0..sroa_idx23 = getelementptr inbounds i8, ptr %39, i64 4
+  %.sroa.10.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %29, ptr %.sroa.10.0..sroa_idx23, align 4, !tbaa !11
-  %.sroa.14.0..sroa_idx29 = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.14.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %35, ptr %.sroa.14.0..sroa_idx29, align 4, !tbaa !11
-  %.sroa.18.0..sroa_idx35 = getelementptr inbounds i8, ptr %39, i64 12
+  %.sroa.18.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 %36, ptr %.sroa.18.0..sroa_idx35, align 4, !tbaa !11
   %.pre101 = load i32, ptr %12, align 4, !tbaa !8
   %.pre102 = load i32, ptr %14, align 4, !tbaa !10
@@ -285,13 +285,13 @@ define signext range(i8 -1, 5) i8 @lv_area_diff(ptr nocapture noundef writeonly 
 50:                                               ; preds = %40
   %51 = add nuw nsw i8 %.1, 1
   %52 = zext nneg i8 %.1 to i64
-  %53 = getelementptr inbounds %struct.lv_area_t, ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw %struct.lv_area_t, ptr %0, i64 %52
   store i32 %47, ptr %53, align 4, !tbaa !11
-  %.sroa.10.0..sroa_idx25 = getelementptr inbounds i8, ptr %53, i64 4
+  %.sroa.10.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 %., ptr %.sroa.10.0..sroa_idx25, align 4, !tbaa !11
-  %.sroa.14.0..sroa_idx31 = getelementptr inbounds i8, ptr %53, i64 8
+  %.sroa.14.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 %46, ptr %.sroa.14.0..sroa_idx31, align 4, !tbaa !11
-  %.sroa.18.0..sroa_idx37 = getelementptr inbounds i8, ptr %53, i64 12
+  %.sroa.18.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 %45, ptr %.sroa.18.0..sroa_idx37, align 4, !tbaa !11
   %.pre105 = load i32, ptr %1, align 4, !tbaa !3
   br label %54
@@ -309,13 +309,13 @@ define signext range(i8 -1, 5) i8 @lv_area_diff(ptr nocapture noundef writeonly 
   %60 = add i32 %55, %23
   %61 = add nuw nsw i8 %.2, 1
   %62 = zext nneg i8 %.2 to i64
-  %63 = getelementptr inbounds %struct.lv_area_t, ptr %0, i64 %62
+  %63 = getelementptr inbounds nuw %struct.lv_area_t, ptr %0, i64 %62
   store i32 %56, ptr %63, align 4, !tbaa !11
-  %.sroa.10.0..sroa_idx27 = getelementptr inbounds i8, ptr %63, i64 4
+  %.sroa.10.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 %., ptr %.sroa.10.0..sroa_idx27, align 4, !tbaa !11
-  %.sroa.14.0..sroa_idx33 = getelementptr inbounds i8, ptr %63, i64 8
+  %.sroa.14.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 %60, ptr %.sroa.14.0..sroa_idx33, align 4, !tbaa !11
-  %.sroa.18.0..sroa_idx39 = getelementptr inbounds i8, ptr %63, i64 12
+  %.sroa.18.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i32 %45, ptr %.sroa.18.0..sroa_idx39, align 4, !tbaa !11
   br label %lv_area_is_on.exit
 

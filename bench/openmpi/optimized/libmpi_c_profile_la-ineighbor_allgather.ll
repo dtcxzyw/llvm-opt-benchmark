@@ -55,7 +55,7 @@ define i32 @PMPI_Ineighbor_allgather(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %or.cond.i, label %.thread108.sink.split, label %ompi_comm_invalid.exit
 
 ompi_comm_invalid.exit:                           ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %6, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 49
   %or.cond114 = icmp eq i32 %22, 0
@@ -83,9 +83,9 @@ ompi_comm_invalid.exit:                           ; preds = %17
   br i1 %or.cond4, label %33, label %39
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %6, i64 296
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 304
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %37 = load i32, ptr %36, align 8
   %38 = tail call i32 @ompi_errhandler_invoke(ptr noundef %35, ptr noundef nonnull %6, i32 noundef %37, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #4
   br label %147
@@ -109,9 +109,9 @@ ompi_comm_invalid.exit:                           ; preds = %17
 
 .thread:                                          ; preds = %44, %42, %39, %28, %25
   %.075106 = phi i32 [ 3, %44 ], [ 2, %42 ], [ 3, %39 ], [ 2, %28 ], [ 3, %25 ]
-  %47 = getelementptr inbounds i8, ptr %6, i64 296
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 304
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %50 = load i32, ptr %49, align 8
   %51 = tail call i32 @ompi_errhandler_invoke(ptr noundef %48, ptr noundef nonnull %6, i32 noundef %50, i32 noundef %.075106, ptr noundef nonnull @FUNC_NAME) #4
   br label %147
@@ -122,26 +122,26 @@ ompi_comm_invalid.exit:                           ; preds = %17
   br label %.thread108
 
 .thread108:                                       ; preds = %.thread108.sink.split, %44
-  %53 = getelementptr inbounds i8, ptr %6, i64 224
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, 256
   %.not85 = icmp eq i32 %55, 0
   br i1 %.not85, label %70, label %56
 
 56:                                               ; preds = %.thread108
-  %57 = getelementptr inbounds i8, ptr %6, i64 280
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 96
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %64, label %102
 
 64:                                               ; preds = %56
-  %65 = getelementptr inbounds i8, ptr %6, i64 296
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 304
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %68 = load i32, ptr %67, align 8
   %69 = tail call i32 @ompi_errhandler_invoke(ptr noundef %66, ptr noundef nonnull %6, i32 noundef %68, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #4
   br label %147
@@ -160,9 +160,9 @@ ompi_comm_invalid.exit:                           ; preds = %17
   br i1 %76, label %77, label %102
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %6, i64 296
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %6, i64 304
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %81 = load i32, ptr %80, align 8
   %82 = call i32 @ompi_errhandler_invoke(ptr noundef %79, ptr noundef nonnull %6, i32 noundef %81, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #4
   br label %147
@@ -173,13 +173,13 @@ ompi_comm_invalid.exit:                           ; preds = %17
   br i1 %.not87, label %102, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %6, i64 280
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 96
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 96
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 48
   %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %89, i64 52
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 52
   %93 = load i32, ptr %92, align 4
   %94 = icmp slt i32 %91, 0
   %95 = icmp slt i32 %93, 0
@@ -187,19 +187,19 @@ ompi_comm_invalid.exit:                           ; preds = %17
   br i1 %or.cond8, label %96, label %102
 
 96:                                               ; preds = %85
-  %97 = getelementptr inbounds i8, ptr %6, i64 296
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %6, i64 304
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %100 = load i32, ptr %99, align 8
   %101 = tail call i32 @ompi_errhandler_invoke(ptr noundef %98, ptr noundef nonnull %6, i32 noundef %100, i32 noundef 13, ptr noundef nonnull @FUNC_NAME) #4
   br label %147
 
 102:                                              ; preds = %56, %83, %85, %72, %8
-  %103 = getelementptr inbounds i8, ptr %6, i64 328
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 328
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 896
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 896
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %104, i64 904
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 904
   %108 = load ptr, ptr %107, align 8
   %109 = call i32 %106(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %108) #4
   %cond = icmp eq i32 %109, 0
@@ -248,7 +248,7 @@ ompi_comm_invalid.exit:                           ; preds = %17
 127:                                              ; preds = %125, %.lr.ph.i
   %128 = phi i8 [ %121, %.lr.ph.i ], [ %.pre.i.i, %125 ]
   %129 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv.i
   %131 = load ptr, ptr %130, align 8
   %132 = trunc i8 %128 to i1
   br i1 %132, label %133, label %opal_pointer_array_get_item.exit.i
@@ -260,21 +260,21 @@ ompi_comm_invalid.exit:                           ; preds = %17
 
 opal_pointer_array_get_item.exit.i:               ; preds = %133, %127
   %135 = phi i8 [ %128, %127 ], [ %.pre.i, %133 ]
-  %136 = getelementptr inbounds i8, ptr %131, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %137 = load i32, ptr %136, align 8
   %138 = icmp eq i32 %137, %109
   br i1 %138, label %139, label %117
 
 139:                                              ; preds = %opal_pointer_array_get_item.exit.i
-  %140 = getelementptr inbounds i8, ptr %131, i64 20
+  %140 = getelementptr inbounds nuw i8, ptr %131, i64 20
   %141 = load i32, ptr %140, align 4
   br label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %117, %113, %.preheader.i, %139
   %.0.i101 = phi i32 [ %109, %113 ], [ %141, %139 ], [ 14, %.preheader.i ], [ 14, %117 ]
-  %142 = getelementptr inbounds i8, ptr %6, i64 296
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %6, i64 304
+  %144 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %145 = load i32, ptr %144, align 8
   %146 = call i32 @ompi_errhandler_invoke(ptr noundef %143, ptr noundef %6, i32 noundef %145, i32 noundef %.0.i101, ptr noundef nonnull @FUNC_NAME) #4
   br label %147

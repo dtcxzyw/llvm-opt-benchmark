@@ -14,18 +14,18 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @start_progress_monitor(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 124
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 124
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
   store ptr @progress_monitor, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %10, align 8
   br label %11
 
@@ -35,21 +35,21 @@ define dso_local void @start_progress_monitor(ptr nocapture noundef %0, ptr noun
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @progress_monitor(ptr nocapture noundef readonly %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %.not25 = icmp eq i32 %8, 0
   br i1 %.not25, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 172
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, %5
   br i1 %12, label %13, label %16
@@ -61,25 +61,25 @@ define internal void @progress_monitor(ptr nocapture noundef readonly %0) #1 {
   unreachable
 
 16:                                               ; preds = %9, %6, %1
-  %17 = getelementptr inbounds i8, ptr %3, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %18 = load i32, ptr %17, align 4
   %.not26 = icmp eq i32 %18, 0
   br i1 %.not26, label %50, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %3, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, %21
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = mul nsw i64 %26, 100
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = sdiv i64 %27, %29
   %31 = trunc i64 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %3, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %33 = load i32, ptr %32, align 8
   %.not27 = icmp eq i32 %33, %31
   br i1 %.not27, label %50, label %34
@@ -91,9 +91,9 @@ define internal void @progress_monitor(ptr nocapture noundef readonly %0) #1 {
   br i1 %35, label %37, label %45
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %3, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %39, 1
   %43 = add i32 %42, %41
@@ -116,7 +116,7 @@ define internal void @progress_monitor(ptr nocapture noundef readonly %0) #1 {
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @end_progress_monitor(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 124
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %11
@@ -149,9 +149,9 @@ define dso_local range(i32 0, 2) i32 @keymatch(ptr nocapture noundef readonly %0
   %.pn = phi ptr [ %6, %22 ], [ %0, %3 ]
   %.020 = phi i32 [ %23, %22 ], [ 0, %3 ]
   %.01219 = phi ptr [ %8, %22 ], [ %1, %3 ]
-  %6 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %7 = sext i8 %5 to i32
-  %8 = getelementptr inbounds i8, ptr %.01219, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.01219, i64 1
   %9 = load i8, ptr %.01219, align 1
   %10 = sext i8 %9 to i32
   %11 = icmp eq i8 %9, 0

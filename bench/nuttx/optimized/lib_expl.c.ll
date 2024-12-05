@@ -23,7 +23,7 @@ define x86_fp80 @expl(x86_fp80 noundef %0) local_unnamed_addr #0 {
   %.026 = phi i64 [ 0, %3 ], [ %14, %9 ]
   %.01825 = phi x86_fp80 [ 0xK3FFF8000000000000000, %3 ], [ %13, %9 ]
   %.01924 = phi x86_fp80 [ 0xK00000000000000000000, %3 ], [ %12, %9 ]
-  %10 = getelementptr inbounds [19 x x86_fp80], ptr @_ldbl_inv_fact, i64 0, i64 %.026
+  %10 = getelementptr inbounds nuw [19 x x86_fp80], ptr @_ldbl_inv_fact, i64 0, i64 %.026
   %11 = load x86_fp80, ptr %10, align 16
   %12 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.01825, x86_fp80 %11, x86_fp80 %.01924)
   %13 = fmul x86_fp80 %8, %.01825

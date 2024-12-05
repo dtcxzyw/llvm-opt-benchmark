@@ -54,9 +54,9 @@ $_ZTIN5ceres17EuclideanManifoldILin1EEE = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5ceres15GradientProblemC2EPNS_18FirstOrderFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = invoke noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %8 unwind label %23
@@ -79,7 +79,7 @@ _ZNSt10unique_ptrIN5ceres17EuclideanManifoldILin1EEESt14default_deleteIS2_EED2Ev
   store ptr %9, ptr %3, align 8
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = invoke noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %17 unwind label %26
@@ -98,7 +98,7 @@ _ZNSt10unique_ptrIN5ceres17EuclideanManifoldILin1EEESt14default_deleteIS2_EED2Ev
   br label %.body
 
 .critedge:                                        ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %25, align 8
   ret void
 
@@ -111,7 +111,7 @@ _ZNSt10unique_ptrIN5ceres17EuclideanManifoldILin1EEESt14default_deleteIS2_EED2Ev
 
 _ZNKSt14default_deleteIN5ceres8ManifoldEEclEPS1_.exit.i: ; preds = %26
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #13
   br label %_ZNSt10unique_ptrIN5ceres8ManifoldESt14default_deleteIS1_EED2Ev.exit
@@ -128,7 +128,7 @@ _ZNSt10unique_ptrIN5ceres8ManifoldESt14default_deleteIS1_EED2Ev.exit: ; preds = 
 
 _ZNKSt14default_deleteIN5ceres18FirstOrderFunctionEEclEPS1_.exit.i: ; preds = %.body
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %32) #13
   br label %_ZNSt10unique_ptrIN5ceres18FirstOrderFunctionESt14default_deleteIS1_EED2Ev.exit
@@ -156,11 +156,11 @@ define hidden void @_ZN5ceres15GradientProblemC2EPNS_18FirstOrderFunctionEPNS_8M
   %5 = alloca %"struct.google::CheckOpString", align 8
   %6 = alloca %"class.google::LogMessageFatal", align 8
   store ptr %1, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %13 unwind label %19
@@ -211,7 +211,7 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %.body, %_ZNKS
 26:                                               ; preds = %.critedge
   %27 = load ptr, ptr %0, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %32 unwind label %21
@@ -239,7 +239,7 @@ _ZSt11make_uniqueIN5ceres17EuclideanManifoldILin1EEEJiEENSt8__detail9_MakeUniqIT
 _ZNSt10unique_ptrIN5ceres8ManifoldESt14default_deleteIS1_EE5resetEPS1_.exit.sink.split: ; preds = %_ZSt11make_uniqueIN5ceres17EuclideanManifoldILin1EEEJiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %24
   %.sink25 = phi ptr [ %25, %24 ], [ %36, %_ZSt11make_uniqueIN5ceres17EuclideanManifoldILin1EEEJiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
   %37 = load ptr, ptr %.sink25, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %.sink25) #13
   br label %_ZNSt10unique_ptrIN5ceres8ManifoldESt14default_deleteIS1_EE5resetEPS1_.exit
@@ -247,7 +247,7 @@ _ZNSt10unique_ptrIN5ceres8ManifoldESt14default_deleteIS1_EE5resetEPS1_.exit.sink
 _ZNSt10unique_ptrIN5ceres8ManifoldESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8ManifoldESt14default_deleteIS1_EE5resetEPS1_.exit.sink.split, %_ZSt11make_uniqueIN5ceres17EuclideanManifoldILin1EEEJiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %24
   %40 = load ptr, ptr %0, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = invoke noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %45 unwind label %21
@@ -255,7 +255,7 @@ _ZNSt10unique_ptrIN5ceres8ManifoldESt14default_deleteIS1_EE5resetEPS1_.exit: ; p
 45:                                               ; preds = %_ZNSt10unique_ptrIN5ceres8ManifoldESt14default_deleteIS1_EE5resetEPS1_.exit
   %46 = load ptr, ptr %7, align 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = invoke noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(8) %46)
           to label %51 unwind label %21
@@ -328,7 +328,7 @@ _ZN6google12Check_EQImplB5cxx11EiiPKc.exit.thread: ; preds = %51, %_ZN6google12C
 
 _ZNKSt14default_deleteIN5ceres8ManifoldEEclEPS1_.exit.i: ; preds = %68
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(8) %69) #13
   br label %_ZNSt10unique_ptrIN5ceres8ManifoldESt14default_deleteIS1_EED2Ev.exit
@@ -341,7 +341,7 @@ _ZNSt10unique_ptrIN5ceres8ManifoldESt14default_deleteIS1_EED2Ev.exit: ; preds = 
 
 _ZNKSt14default_deleteIN5ceres18FirstOrderFunctionEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN5ceres8ManifoldESt14default_deleteIS1_EED2Ev.exit
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
   call void %76(ptr noundef nonnull align 8 dereferenceable(8) %73) #13
   br label %_ZNSt10unique_ptrIN5ceres18FirstOrderFunctionESt14default_deleteIS1_EED2Ev.exit
@@ -357,7 +357,7 @@ declare void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr nounde
 define hidden noundef i32 @_ZNK5ceres15GradientProblem13NumParametersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %2)
   ret i32 %6
@@ -365,10 +365,10 @@ define hidden noundef i32 @_ZNK5ceres15GradientProblem13NumParametersEv(ptr noca
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK5ceres15GradientProblem20NumTangentParametersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret i32 %7
@@ -382,26 +382,26 @@ define hidden noundef zeroext i1 @_ZNK5ceres15GradientProblem8EvaluateEPKdPdS3_(
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %27
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %1, ptr noundef %2, ptr noundef %14)
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %13, align 8
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %1, i32 noundef 1, ptr noundef %22, ptr noundef nonnull %3)
   br label %27
@@ -413,10 +413,10 @@ define hidden noundef zeroext i1 @_ZNK5ceres15GradientProblem8EvaluateEPKdPdS3_(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK5ceres15GradientProblem4PlusEPKdS2_Pd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i1 %10
@@ -442,7 +442,7 @@ define linkonce_odr hidden void @_ZN5ceres17EuclideanManifoldILin1EEC2Ei(ptr nou
   %4 = alloca %"struct.google::CheckOpString", align 8
   %5 = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres17EuclideanManifoldILin1EEE, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %6, align 8
   %.not.i.i = icmp slt i32 %1, 0
   br i1 %.not.i.i, label %7, label %_ZN6google12Check_GEImplB5cxx11EiiPKc.exit.thread
@@ -539,21 +539,21 @@ define linkonce_odr hidden void @_ZN5ceres17EuclideanManifoldILin1EED0Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5ceres17EuclideanManifoldILin1EE11AmbientSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5ceres17EuclideanManifoldILin1EE11TangentSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5ceres17EuclideanManifoldILin1EE4PlusEPKdS3_Pd(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -578,10 +578,10 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i: ; p
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i ]
-  %19 = getelementptr inbounds double, ptr %3, i64 %.05.i.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds double, ptr %1, i64 %.05.i.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw double, ptr %3, i64 %.05.i.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw double, ptr %1, i64 %.05.i.i.i.i.i.i.i.i.i
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds double, ptr %2, i64 %.05.i.i.i.i.i.i.i.i.i
+  %22 = getelementptr inbounds nuw double, ptr %2, i64 %.05.i.i.i.i.i.i.i.i.i
   %23 = load double, ptr %22, align 8
   %24 = fadd double %21, %23
   store double %24, ptr %19, align 8
@@ -629,7 +629,7 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIN
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5ceres17EuclideanManifoldILin1EE12PlusJacobianEPKdPd(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = icmp sgt i32 %5, 0
@@ -662,7 +662,7 @@ _ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi0ENS_6Stri
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5ceres17EuclideanManifoldILin1EE27RightMultiplyByPlusJacobianEPKdiS3_Pd(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 comdat align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = mul nsw i32 %7, %2
   %9 = icmp slt i32 %8, 1
@@ -680,7 +680,7 @@ _ZSt6copy_nIPKdiPdET1_T_T0_S3_.exit:              ; preds = %5, %_ZSt8__copy_nIP
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5ceres17EuclideanManifoldILin1EE5MinusEPKdS3_Pd(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -705,10 +705,10 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i: ; p
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i ]
-  %19 = getelementptr inbounds double, ptr %3, i64 %.05.i.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds double, ptr %1, i64 %.05.i.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw double, ptr %3, i64 %.05.i.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw double, ptr %1, i64 %.05.i.i.i.i.i.i.i.i.i
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds double, ptr %2, i64 %.05.i.i.i.i.i.i.i.i.i
+  %22 = getelementptr inbounds nuw double, ptr %2, i64 %.05.i.i.i.i.i.i.i.i.i
   %23 = load double, ptr %22, align 8
   %24 = fsub double %21, %23
   store double %24, ptr %19, align 8
@@ -756,7 +756,7 @@ _ZN5Eigen3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEaSIN
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5ceres17EuclideanManifoldILin1EE13MinusJacobianEPKdPd(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = icmp sgt i32 %5, 0

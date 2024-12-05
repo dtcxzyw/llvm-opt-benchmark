@@ -92,13 +92,13 @@ define ptr @auth_get_plugin_name(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 16
   %6 = icmp eq i32 %0, %5
   br i1 %6, label %7, label %2
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %.loopexit
 
@@ -143,7 +143,7 @@ define noundef zeroext i1 @auth_is_plugin_type_inited(i32 noundef %0) local_unna
 
 5:                                                ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds %struct.auth_ops_t, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.auth_ops_t, ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %0, %8
@@ -195,13 +195,13 @@ define range(i32 -1, 1) i32 @auth_g_init() local_unnamed_addr #1 {
 
 14:                                               ; preds = %13, %12
   %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %13 ]
-  %15 = getelementptr inbounds [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 16
   %17 = icmp eq i32 %16, 102
   br i1 %17, label %18, label %13
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load ptr, ptr %19, align 8
   br label %auth_get_plugin_name.exit
 
@@ -227,13 +227,13 @@ auth_get_plugin_name.exit:                        ; preds = %13, %18
 
 26:                                               ; preds = %25, %24
   %indvars.iv.i20 = phi i64 [ 0, %24 ], [ %indvars.iv.next.i21, %25 ]
-  %27 = getelementptr inbounds [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv.i20
+  %27 = getelementptr inbounds nuw [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv.i20
   %28 = load i32, ptr %27, align 16
   %29 = icmp eq i32 %28, 103
   br i1 %29, label %30, label %25
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = load ptr, ptr %31, align 8
   br label %auth_get_plugin_name.exit24
 
@@ -290,7 +290,7 @@ thread-pre-split:                                 ; preds = %22
   br i1 %.not15, label %54, label %56
 
 54:                                               ; preds = %.lr.ph
-  %55 = getelementptr inbounds i8, ptr %.pre, i64 5
+  %55 = getelementptr inbounds nuw i8, ptr %.pre, i64 5
   store ptr %55, ptr %2, align 8
   br label %56
 
@@ -429,7 +429,7 @@ define range(i32 -1, 1) i32 @auth_g_fini() local_unnamed_addr #1 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
   %.01118 = phi i32 [ %.1, %22 ], [ 0, %.preheader ]
   %8 = load ptr, ptr @g_context, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @plugin_context_destroy(ptr noundef %10) #11
   %.not17 = icmp eq i32 %11, 0
@@ -442,9 +442,9 @@ define range(i32 -1, 1) i32 @auth_g_fini() local_unnamed_addr #1 {
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @g_context, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @slurm_strerror(i32 noundef %11) #11
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.auth_g_fini, ptr noundef %20, ptr noundef %21) #11
@@ -733,7 +733,7 @@ define ptr @auth_g_get_host(ptr noundef readonly %0) local_unnamed_addr #1 {
   br i1 %.not, label %53, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %.not31 = icmp eq ptr %5, null
   br i1 %.not31, label %53, label %6
@@ -780,13 +780,13 @@ define ptr @auth_g_get_host(ptr noundef readonly %0) local_unnamed_addr #1 {
   br label %53
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 176
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %27 = load ptr, ptr %26, align 8
   %.not35 = icmp eq ptr %27, null
   br i1 %.not35, label %36, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %27, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %30 = load ptr, ptr %29, align 8
   %.not36 = icmp eq ptr %30, null
   br i1 %.not36, label %36, label %31
@@ -802,7 +802,7 @@ define ptr @auth_g_get_host(ptr noundef readonly %0) local_unnamed_addr #1 {
   br label %53
 
 36:                                               ; preds = %28, %25
-  %37 = getelementptr inbounds i8, ptr %0, i64 184
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %38 = load i32, ptr %37, align 8
   %39 = call i32 @slurm_get_peer_addr(i32 noundef %38, ptr noundef nonnull %2) #11
   %.not37 = icmp eq i32 %39, 0
@@ -992,14 +992,14 @@ define ptr @auth_g_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
 
 11:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %12 = getelementptr inbounds %struct.auth_ops_t, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.auth_ops_t, ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %.pre, %14
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr %18(ptr noundef nonnull %0, i16 noundef zeroext %1) #11
   %.not19 = icmp eq ptr %19, null
@@ -1025,13 +1025,13 @@ define ptr @auth_g_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
 
 ._crit_edge:                                      ; preds = %._crit_edge.preheader, %23
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %23 ], [ 0, %._crit_edge.preheader ]
-  %24 = getelementptr inbounds [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x %struct.auth_plugin_types_t], ptr @auth_plugin_types, i64 0, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 16
   %26 = icmp eq i32 %.pre, %25
   br i1 %26, label %27, label %23
 
 27:                                               ; preds = %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %auth_get_plugin_name.exit
 
@@ -1066,7 +1066,7 @@ define i32 @auth_g_thread_config(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @ops, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1) #11
   %11 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #11
@@ -1097,7 +1097,7 @@ define void @auth_g_thread_clear() local_unnamed_addr #1 {
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @ops, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8
   tail call void %7() #11
   %8 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #11
@@ -1143,14 +1143,14 @@ define ptr @auth_g_token_generate(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds %struct.auth_ops_t, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.auth_ops_t, ptr %7, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %0, %14
   br i1 %15, label %16, label %10
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %12, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef %1, i32 noundef %2) #11
   br label %.loopexit

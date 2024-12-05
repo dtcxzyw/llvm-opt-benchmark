@@ -14,7 +14,7 @@ define i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   br label %82
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 2
   %11 = icmp eq i16 %10, 0
@@ -26,16 +26,16 @@ define i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   br label %.thread83
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %2, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %2, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not78 = icmp eq ptr %20, null
-  %21 = getelementptr inbounds i8, ptr %2, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %22 = load ptr, ptr %21, align 8
   br i1 %.not78, label %25, label %23
 
@@ -60,9 +60,9 @@ define i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   br i1 %32, label %.thread83, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %2, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %35 to i64
   %39 = ptrtoint ptr %37 to i64
@@ -97,10 +97,10 @@ define i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
 .thread:                                          ; preds = %33, %51
   %.06482 = phi ptr [ %46, %51 ], [ %0, %33 ]
   %.06681 = phi i64 [ %43, %51 ], [ %1, %33 ]
-  %53 = getelementptr inbounds i8, ptr %2, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %54 = load ptr, ptr %53, align 8
   %.not77 = icmp eq ptr %54, null
-  %55 = getelementptr inbounds i8, ptr %2, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %56 = load ptr, ptr %55, align 8
   br i1 %.not77, label %59, label %57
 
@@ -120,7 +120,7 @@ define i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   br i1 %64, label %.thread83, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %.06482, i64 %.2
+  %66 = getelementptr inbounds nuw i8, ptr %.06482, i64 %.2
   br label %73
 
 67:                                               ; preds = %51
@@ -131,7 +131,7 @@ define i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
   %69 = load ptr, ptr %36, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %46, i64 %43, i1 false)
   %70 = load ptr, ptr %36, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 %43
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %43
   store ptr %71, ptr %36, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 %1
   br label %73
@@ -150,7 +150,7 @@ define i64 @lib_fwrite_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) 
 
 .thread83:                                        ; preds = %63, %48, %30, %12, %77
   %.06385 = phi i64 [ %.063, %77 ], [ -1, %12 ], [ -1, %30 ], [ -1, %48 ], [ -1, %63 ]
-  %79 = getelementptr inbounds i8, ptr %2, i64 194
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 194
   %80 = load i8, ptr %79, align 2
   %81 = or i8 %80, 2
   store i8 %81, ptr %79, align 2

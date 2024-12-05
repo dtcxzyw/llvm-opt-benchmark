@@ -88,25 +88,25 @@ define hidden void @_ZN4cvc58internal3smt17SolverEngineStateC2ERNS0_3EnvE(ptr no
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt17SolverEngineStateE, i64 16), ptr %this, align 8
-  %d_fullyInited = getelementptr inbounds i8, ptr %this, i64 16
+  %d_fullyInited = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 0, ptr %d_fullyInited, align 8
-  %d_queryMade = getelementptr inbounds i8, ptr %this, i64 17
+  %d_queryMade = getelementptr inbounds nuw i8, ptr %this, i64 17
   store i8 0, ptr %d_queryMade, align 1
-  %d_status = getelementptr inbounds i8, ptr %this, i64 24
+  %d_status = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZN4cvc58internal6ResultC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %d_status)
-  %d_expectedStatus = getelementptr inbounds i8, ptr %this, i64 64
+  %d_expectedStatus = getelementptr inbounds nuw i8, ptr %this, i64 64
   invoke void @_ZN4cvc58internal6ResultC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %d_expectedStatus)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
-  %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
+  %d_smtMode = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 0, ptr %d_smtMode, align 8
   ret void
 
 lpad2:                                            ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  %d_inputName.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_inputName.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i) #15
   resume { ptr, i32 } %0
 }
@@ -123,19 +123,19 @@ entry:
   %ref.tmp = alloca %"class.cvc5::internal::Result", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %driver = getelementptr inbounds i8, ptr %call, i64 280
+  %driver = getelementptr inbounds nuw i8, ptr %call, i64 280
   %0 = load ptr, ptr %driver, align 8
-  %filename = getelementptr inbounds i8, ptr %0, i64 16
+  %filename = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %filename)
   invoke void @_ZN4cvc58internal6ResultC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_expectedStatus = getelementptr inbounds i8, ptr %this, i64 64
+  %d_expectedStatus = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load i64, ptr %ref.tmp, align 8
   store i64 %1, ptr %d_expectedStatus, align 8
-  %d_inputName.i = getelementptr inbounds i8, ptr %this, i64 72
-  %d_inputName3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %d_inputName.i = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %d_inputName3.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #15
@@ -160,7 +160,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState17notifyDeclarationEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((104, 108)) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
+  %d_smtMode = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 1, ptr %d_smtMode, align 8
   ret void
 }
@@ -168,16 +168,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState14notifyCheckSatEv(ptr noundef nonnull align 8 dereferenceable(108) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_queryMade = getelementptr inbounds i8, ptr %this, i64 17
+  %d_queryMade = getelementptr inbounds nuw i8, ptr %this, i64 17
   %0 = load i8, ptr %d_queryMade, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %base = getelementptr inbounds i8, ptr %call, i64 208
+  %base = getelementptr inbounds nuw i8, ptr %call, i64 208
   %1 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds i8, ptr %1, i64 137
+  %incrementalSolving = getelementptr inbounds nuw i8, ptr %1, i64 137
   %2 = load i8, ptr %incrementalSolving, align 1
   %tobool2 = trunc i8 %2 to i1
   br i1 %tobool2, label %if.end, label %if.then
@@ -199,7 +199,7 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   store i8 1, ptr %d_queryMade, align 1
-  %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
+  %d_smtMode = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 1, ptr %d_smtMode, align 8
   ret void
 }
@@ -220,7 +220,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define linkonce_odr hidden void @_ZN4cvc58internal14ModalExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #15
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #15
   ret void
@@ -234,13 +234,13 @@ define hidden void @_ZN4cvc58internal3smt17SolverEngineState20notifyCheckSatResu
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
   %ref.tmp24 = alloca %"class.cvc5::internal::Result", align 8
-  %d_status = getelementptr inbounds i8, ptr %this, i64 24
+  %d_status = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %r, align 8
   store i64 %0, ptr %d_status, align 8
-  %d_inputName.i = getelementptr inbounds i8, ptr %this, i64 32
-  %d_inputName3.i = getelementptr inbounds i8, ptr %r, i64 8
+  %d_inputName.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %d_inputName3.i = getelementptr inbounds nuw i8, ptr %r, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i)
-  %d_expectedStatus = getelementptr inbounds i8, ptr %this, i64 64
+  %d_expectedStatus = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load i32, ptr %d_expectedStatus, align 8
   switch i32 %1, label %land.lhs.true [
     i32 0, label %if.end23
@@ -291,12 +291,12 @@ if.end23:                                         ; preds = %entry, %entry, %lan
   call void @_ZN4cvc58internal6ResultC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp24)
   %4 = load i64, ptr %ref.tmp24, align 8
   store i64 %4, ptr %d_expectedStatus, align 8
-  %d_inputName.i2 = getelementptr inbounds i8, ptr %this, i64 72
-  %d_inputName3.i3 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
+  %d_inputName.i2 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %d_inputName3.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp24, i64 8
   %call.i4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i2, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i3) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i3) #15
   %5 = load i32, ptr %d_status, align 8
-  %d_smtMode31 = getelementptr inbounds i8, ptr %this, i64 104
+  %d_smtMode31 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %switch.selectcmp = icmp eq i32 %5, 2
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 3
   %switch.selectcmp6 = icmp eq i32 %5, 1
@@ -324,7 +324,7 @@ entry:
   %call = tail call noundef i32 @_ZNK4cvc58internal11SynthResult9getStatusEv(ptr noundef nonnull align 4 dereferenceable(8) %r)
   %cmp = icmp eq i32 %call, 1
   %spec.select = select i1 %cmp, i32 7, i32 1
-  %0 = getelementptr inbounds i8, ptr %this, i64 104
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 %spec.select, ptr %0, align 8
   ret void
 }
@@ -335,7 +335,7 @@ declare noundef i32 @_ZNK4cvc58internal11SynthResult9getStatusEv(ptr noundef non
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState15notifyGetAbductEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((104, 108)) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
 entry:
   %spec.select = select i1 %success, i32 5, i32 1
-  %0 = getelementptr inbounds i8, ptr %this, i64 104
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 %spec.select, ptr %0, align 8
   ret void
 }
@@ -344,7 +344,7 @@ entry:
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState17notifyGetInterpolEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((104, 108)) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
 entry:
   %spec.select = select i1 %success, i32 6, i32 1
-  %0 = getelementptr inbounds i8, ptr %this, i64 104
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 %spec.select, ptr %0, align 8
   ret void
 }
@@ -353,7 +353,7 @@ entry:
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState15notifyFindSynthEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((104, 108)) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
 entry:
   %spec.select = select i1 %success, i32 8, i32 1
-  %0 = getelementptr inbounds i8, ptr %this, i64 104
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 %spec.select, ptr %0, align 8
   ret void
 }
@@ -361,7 +361,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState14markFinishInitEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) initializes((16, 17)) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %d_fullyInited = getelementptr inbounds i8, ptr %this, i64 16
+  %d_fullyInited = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 1, ptr %d_fullyInited, align 8
   ret void
 }
@@ -370,9 +370,9 @@ entry:
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState14notifyUserPushEv(ptr noundef nonnull align 8 dereferenceable(108) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %base = getelementptr inbounds i8, ptr %call, i64 208
+  %base = getelementptr inbounds nuw i8, ptr %call, i64 208
   %0 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds i8, ptr %0, i64 137
+  %incrementalSolving = getelementptr inbounds nuw i8, ptr %0, i64 137
   %1 = load i8, ptr %incrementalSolving, align 1
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.end, label %if.then
@@ -393,7 +393,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %entry
-  %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
+  %d_smtMode = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 1, ptr %d_smtMode, align 8
   ret void
 }
@@ -402,9 +402,9 @@ if.end:                                           ; preds = %entry
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState13notifyUserPopEv(ptr noundef nonnull align 8 dereferenceable(108) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %base = getelementptr inbounds i8, ptr %call, i64 208
+  %base = getelementptr inbounds nuw i8, ptr %call, i64 208
   %0 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds i8, ptr %0, i64 137
+  %incrementalSolving = getelementptr inbounds nuw i8, ptr %0, i64 137
   %1 = load i8, ptr %incrementalSolving, align 1
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.end, label %if.then
@@ -425,7 +425,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %entry
-  %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
+  %d_smtMode = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 1, ptr %d_smtMode, align 8
   ret void
 }
@@ -433,11 +433,11 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal3smt17SolverEngineState9getStatusEv(ptr noalias sret(%"class.cvc5::internal::Result") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(108) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_status = getelementptr inbounds i8, ptr %this, i64 24
+  %d_status = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %d_status, align 8
   store i64 %0, ptr %agg.result, align 8
-  %d_inputName.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %d_inputName3.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_inputName.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %d_inputName3.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i)
   ret void
 }
@@ -445,7 +445,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt17SolverEngineState13isFullyInitedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %d_fullyInited = getelementptr inbounds i8, ptr %this, i64 16
+  %d_fullyInited = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %d_fullyInited, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -454,7 +454,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt17SolverEngineState11isQueryMadeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %d_queryMade = getelementptr inbounds i8, ptr %this, i64 17
+  %d_queryMade = getelementptr inbounds nuw i8, ptr %this, i64 17
   %0 = load i8, ptr %d_queryMade, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -463,7 +463,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK4cvc58internal3smt17SolverEngineState7getModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
+  %d_smtMode = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i32, ptr %d_smtMode, align 8
   ret i32 %0
 }
@@ -472,9 +472,9 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc58internal3smt17SolverEngineStateD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt17SolverEngineStateE, i64 16), ptr %this, align 8
-  %d_inputName.i = getelementptr inbounds i8, ptr %this, i64 72
+  %d_inputName.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i) #15
-  %d_inputName.i1 = getelementptr inbounds i8, ptr %this, i64 32
+  %d_inputName.i1 = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i1) #15
   ret void
 }
@@ -483,9 +483,9 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc58internal3smt17SolverEngineStateD0Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt17SolverEngineStateE, i64 16), ptr %this, align 8
-  %d_inputName.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %d_inputName.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i.i) #15
-  %d_inputName.i1.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_inputName.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i1.i) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
@@ -499,7 +499,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9ExceptionC2EPKc(ptr noundef n
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg)
           to label %call.i.noexc unwind label %lpad
@@ -551,7 +551,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define linkonce_odr hidden void @_ZN4cvc58internal14ModalExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #15
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
@@ -561,7 +561,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #15
   ret ptr %call
 }

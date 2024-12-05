@@ -131,7 +131,7 @@ define void @dlarrj_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %109 = phi i64 [ %122, %108 ], [ 2, %.preheader20 ]
   %110 = phi i32 [ %121, %108 ], [ %107, %.preheader20 ]
   %111 = phi double [ %118, %108 ], [ %105, %.preheader20 ]
-  %112 = getelementptr inbounds double, ptr %19, i64 %109
+  %112 = getelementptr inbounds nuw double, ptr %19, i64 %109
   %113 = load double, ptr %112, align 8, !tbaa !7
   %114 = fsub double %113, %103
   %115 = getelementptr double, ptr %38, i64 %109
@@ -189,7 +189,7 @@ define void @dlarrj_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %146 = phi i64 [ %159, %145 ], [ 2, %.preheader ]
   %147 = phi i32 [ %158, %145 ], [ %144, %.preheader ]
   %148 = phi double [ %155, %145 ], [ %142, %.preheader ]
-  %149 = getelementptr inbounds double, ptr %19, i64 %146
+  %149 = getelementptr inbounds nuw double, ptr %19, i64 %146
   %150 = load double, ptr %149, align 8, !tbaa !7
   %151 = fsub double %150, %140
   %152 = getelementptr double, ptr %38, i64 %146
@@ -359,7 +359,7 @@ define void @dlarrj_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %257 = phi i64 [ 2, %253 ], [ %270, %256 ]
   %258 = phi i32 [ %250, %253 ], [ %269, %256 ]
   %259 = phi double [ %248, %253 ], [ %266, %256 ]
-  %260 = getelementptr inbounds double, ptr %19, i64 %257
+  %260 = getelementptr inbounds nuw double, ptr %19, i64 %257
   %261 = load double, ptr %260, align 8, !tbaa !7
   %262 = fsub double %261, %224
   %263 = getelementptr double, ptr %44, i64 %257

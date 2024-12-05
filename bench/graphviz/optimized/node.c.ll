@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @agfindnode_by_id(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   store i64 %1, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
   store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %4, ptr noundef nonnull @agfindnode_by_id.template, i32 noundef 4) #5
@@ -31,7 +31,7 @@ define ptr @agfindnode_by_id(ptr nocapture noundef readonly %0, i64 noundef %1) 
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -42,7 +42,7 @@ define ptr @agfindnode_by_id(ptr nocapture noundef readonly %0, i64 noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define ptr @agfstnode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %4(ptr noundef nonnull %3, ptr noundef null, i32 noundef 128) #5
@@ -50,7 +50,7 @@ define ptr @agfstnode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -66,7 +66,7 @@ define ptr @agnxtnode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not, label %.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 8) #5
@@ -74,7 +74,7 @@ define ptr @agnxtnode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not9, label %.thread, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   br label %.thread
 
@@ -87,7 +87,7 @@ declare ptr @agsubrep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @aglstnode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %4(ptr noundef nonnull %3, ptr noundef null, i32 noundef 256) #5
@@ -95,7 +95,7 @@ define ptr @aglstnode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -111,7 +111,7 @@ define ptr @agprvnode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not, label %.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 16) #5
@@ -119,7 +119,7 @@ define ptr @agprvnode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not9, label %.thread, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   br label %.thread
 
@@ -132,7 +132,7 @@ define ptr @agprvnode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 define ptr @agidnode(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   store i64 %1, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
   store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %5, ptr noundef nonnull @agfindnode_by_id.template, i32 noundef 4) #5
@@ -140,7 +140,7 @@ define ptr @agidnode(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnam
   br i1 %.not.i, label %agfindnode_by_id.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load ptr, ptr %9, align 8
   br label %agfindnode_by_id.exit
 
@@ -159,7 +159,7 @@ agfindnode_by_id.exit:                            ; preds = %3, %8
 16:                                               ; preds = %14
   store i64 %1, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
   store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %18, ptr noundef nonnull @agfindnode_by_id.template, i32 noundef 4) #5
@@ -167,7 +167,7 @@ agfindnode_by_id.exit:                            ; preds = %3, %8
   br i1 %.not.i26, label %agfindnode_by_id.exit27.thread, label %agfindnode_by_id.exit27
 
 agfindnode_by_id.exit27:                          ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not24 = icmp eq ptr %22, null
   br i1 %.not24, label %agfindnode_by_id.exit27.thread, label %23
@@ -185,7 +185,7 @@ agfindnode_by_id.exit27.thread:                   ; preds = %16, %agfindnode_by_
   %27 = tail call i64 @agnextseq(ptr noundef nonnull %0, i32 noundef 1) #5
   %28 = tail call ptr @agalloc(ptr noundef nonnull %0, i64 noundef 104) #5
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %1, ptr %30, align 8
   %31 = trunc i64 %27 to i32
   %32 = shl i32 %31, 4
@@ -194,10 +194,10 @@ agfindnode_by_id.exit27.thread:                   ; preds = %16, %agfindnode_by_
   %35 = or disjoint i32 %34, 1
   store i32 %35, ptr %28, align 8
   %36 = tail call ptr @agroot(ptr noundef nonnull %0) #5
-  %37 = getelementptr inbounds i8, ptr %28, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %36, ptr %37, align 8
   %38 = tail call ptr @agroot(ptr noundef nonnull %0) #5
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i8, ptr %39, align 8
   %41 = and i8 %40, 32
   %.not.i28 = icmp eq i8 %41, 0
@@ -209,12 +209,12 @@ agfindnode_by_id.exit27.thread:                   ; preds = %16, %agfindnode_by_
   br label %newnode.exit
 
 newnode.exit:                                     ; preds = %26, %42
-  %45 = getelementptr inbounds i8, ptr %28, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %28, i64 32
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %installnode.exit.i, %newnode.exit
   %.tr.i = phi ptr [ %0, %newnode.exit ], [ %61, %installnode.exit.i ]
-  %46 = getelementptr inbounds i8, ptr %.tr.i, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 72
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @dtsize(ptr noundef %47) #5
   %49 = tail call ptr @agroot(ptr noundef nonnull %.tr.i) #5
@@ -227,12 +227,12 @@ tailrecurse.i:                                    ; preds = %installnode.exit.i,
 
 installnode.exit.i:                               ; preds = %51, %tailrecurse.i
   %.0.i.i = phi ptr [ %52, %51 ], [ %45, %tailrecurse.i ]
-  %53 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   store ptr %28, ptr %53, align 8
   %54 = load ptr, ptr %46, align 8
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr %55(ptr noundef nonnull %54, ptr noundef %.0.i.i, i32 noundef 1) #5
-  %57 = getelementptr inbounds i8, ptr %.tr.i, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 64
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr %59(ptr noundef nonnull %58, ptr noundef %.0.i.i, i32 noundef 1) #5
@@ -242,7 +242,7 @@ installnode.exit.i:                               ; preds = %51, %tailrecurse.i
 
 installnodetoroot.exit:                           ; preds = %installnode.exit.i
   %62 = tail call ptr @agroot(ptr noundef %0) #5
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load i8, ptr %63, align 8
   %65 = and i8 %64, 32
   %.not.i30 = icmp eq i8 %65, 0
@@ -266,17 +266,17 @@ declare ptr @agroot(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @agsubnode(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @agroot(ptr noundef %0) #5
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %4, %6
   br i1 %.not, label %7, label %40
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
   store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %11, ptr noundef nonnull @agfindnode_by_id.template, i32 noundef 4) #5
@@ -284,7 +284,7 @@ define ptr @agsubnode(ptr noundef %0, ptr nocapture noundef readonly %1, i32 nou
   br i1 %.not.i, label %agfindnode_by_id.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %16 = load ptr, ptr %15, align 8
   br label %agfindnode_by_id.exit
 
@@ -309,7 +309,7 @@ agfindnode_by_id.exit:                            ; preds = %7, %14
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %23, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 32
   br label %installnode.exit
 
 30:                                               ; preds = %22
@@ -318,12 +318,12 @@ agfindnode_by_id.exit:                            ; preds = %7, %14
 
 installnode.exit:                                 ; preds = %28, %30
   %.0.i = phi ptr [ %29, %28 ], [ %31, %30 ]
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store ptr %23, ptr %32, align 8
   %33 = load ptr, ptr %10, align 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef nonnull %33, ptr noundef %.0.i, i32 noundef 1) #5
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef nonnull %37, ptr noundef %.0.i, i32 noundef 1) #5
@@ -350,7 +350,7 @@ define ptr @agnode(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   %8 = load i64, ptr %4, align 8
   store i64 %8, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
   store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr %11(ptr noundef nonnull %10, ptr noundef nonnull @agfindnode_by_id.template, i32 noundef 4) #5
@@ -358,7 +358,7 @@ define ptr @agnode(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   br i1 %.not.i, label %agfindnode_by_id.exit.thread, label %agfindnode_by_id.exit
 
 agfindnode_by_id.exit:                            ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not27 = icmp eq ptr %14, null
   br i1 %.not27, label %agfindnode_by_id.exit.thread, label %69
@@ -373,7 +373,7 @@ agfindnode_by_id.exit.thread:                     ; preds = %7, %agfindnode_by_i
   %16 = load i64, ptr %4, align 8
   store i64 %16, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
   store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr %19(ptr noundef nonnull %18, ptr noundef nonnull @agfindnode_by_id.template, i32 noundef 4) #5
@@ -381,7 +381,7 @@ agfindnode_by_id.exit.thread:                     ; preds = %7, %agfindnode_by_i
   br i1 %.not.i33, label %.thread, label %agfindnode_by_id.exit34
 
 agfindnode_by_id.exit34:                          ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not30 = icmp eq ptr %22, null
   br i1 %.not30, label %.thread, label %23
@@ -404,7 +404,7 @@ agfindnode_by_id.exit34:                          ; preds = %15
   %29 = call i64 @agnextseq(ptr noundef %0, i32 noundef 1) #5
   %30 = call ptr @agalloc(ptr noundef %0, i64 noundef 104) #5
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %28, ptr %32, align 8
   %33 = trunc i64 %29 to i32
   %34 = shl i32 %33, 4
@@ -413,10 +413,10 @@ agfindnode_by_id.exit34:                          ; preds = %15
   %37 = or disjoint i32 %36, 1
   store i32 %37, ptr %30, align 8
   %38 = call ptr @agroot(ptr noundef %0) #5
-  %39 = getelementptr inbounds i8, ptr %30, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %38, ptr %39, align 8
   %40 = call ptr @agroot(ptr noundef %0) #5
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i8, ptr %41, align 8
   %43 = and i8 %42, 32
   %.not.i35 = icmp eq i8 %43, 0
@@ -428,12 +428,12 @@ agfindnode_by_id.exit34:                          ; preds = %15
   br label %newnode.exit
 
 newnode.exit:                                     ; preds = %27, %44
-  %47 = getelementptr inbounds i8, ptr %30, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 32
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %installnode.exit.i, %newnode.exit
   %.tr.i = phi ptr [ %0, %newnode.exit ], [ %63, %installnode.exit.i ]
-  %48 = getelementptr inbounds i8, ptr %.tr.i, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 72
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 @dtsize(ptr noundef %49) #5
   %51 = call ptr @agroot(ptr noundef %.tr.i) #5
@@ -446,12 +446,12 @@ tailrecurse.i:                                    ; preds = %installnode.exit.i,
 
 installnode.exit.i:                               ; preds = %53, %tailrecurse.i
   %.0.i.i = phi ptr [ %54, %53 ], [ %47, %tailrecurse.i ]
-  %55 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   store ptr %30, ptr %55, align 8
   %56 = load ptr, ptr %48, align 8
   %57 = load ptr, ptr %56, align 8
   %58 = call ptr %57(ptr noundef nonnull %56, ptr noundef %.0.i.i, i32 noundef 1) #5
-  %59 = getelementptr inbounds i8, ptr %.tr.i, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 64
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr %61(ptr noundef nonnull %60, ptr noundef %.0.i.i, i32 noundef 1) #5
@@ -461,7 +461,7 @@ installnode.exit.i:                               ; preds = %53, %tailrecurse.i
 
 installnodetoroot.exit:                           ; preds = %installnode.exit.i
   %64 = call ptr @agroot(ptr noundef %0) #5
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load i8, ptr %65, align 8
   %67 = and i8 %66, 32
   %.not.i37 = icmp eq i8 %67, 0
@@ -500,11 +500,11 @@ define void @agdelnodeimage(ptr noundef %0, ptr noundef %1, ptr nocapture readno
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %7, ptr noundef nonnull @agdelnodeimage.template, i32 noundef 2) #5
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %11, ptr noundef nonnull @agdelnodeimage.template, i32 noundef 2) #5
@@ -519,11 +519,11 @@ declare void @agdeledgeimage(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @agdelnode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
   store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %6, ptr noundef nonnull @agfindnode_by_id.template, i32 noundef 4) #5
@@ -531,7 +531,7 @@ define range(i32 -1, 1) i32 @agdelnode(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not.i, label %agfindnode_by_id.exit.thread, label %agfindnode_by_id.exit
 
 agfindnode_by_id.exit:                            ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %agfindnode_by_id.exit.thread, label %11
@@ -554,7 +554,7 @@ agfindnode_by_id.exit:                            ; preds = %2
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i8, ptr %18, align 8
   %20 = and i8 %19, 32
   %.not29 = icmp eq i8 %20, 0
@@ -619,7 +619,7 @@ define range(i32 -1, 1) i32 @agrelabel_node(ptr noundef %0, ptr noundef %1) loca
   %9 = load i64, ptr %3, align 8
   store i64 %9, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
   store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr %12(ptr noundef nonnull %11, ptr noundef nonnull @agfindnode_by_id.template, i32 noundef 4) #5
@@ -631,7 +631,7 @@ agfindnode_by_name.exit.thread:                   ; preds = %2, %8
   br label %16
 
 agfindnode_by_name.exit:                          ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not = icmp eq ptr %15, null
@@ -647,7 +647,7 @@ agfindnode_by_name.exit:                          ; preds = %8
   %20 = load i64, ptr %4, align 8
   store i64 %20, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
   store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds (i8, ptr @agfindnode_by_id.template, i64 32), align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr %23(ptr noundef nonnull %22, ptr noundef nonnull @agfindnode_by_id.template, i32 noundef 4) #5
@@ -655,13 +655,13 @@ agfindnode_by_name.exit:                          ; preds = %8
   br i1 %.not.i12, label %agfindnode_by_id.exit.thread, label %agfindnode_by_id.exit
 
 agfindnode_by_id.exit:                            ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %agfindnode_by_id.exit.thread, label %31
 
 agfindnode_by_id.exit.thread:                     ; preds = %18, %agfindnode_by_id.exit
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   call void @agfreeid(ptr noundef %6, i32 noundef 1, i64 noundef %29) #5
   %30 = call i32 @agapply(ptr noundef %6, ptr noundef %0, ptr noundef nonnull @dict_relabel, ptr noundef nonnull %4, i32 noundef 0) #5
@@ -683,11 +683,11 @@ declare ptr @agraphof(ptr noundef) local_unnamed_addr #1
 define internal void @dict_relabel(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = tail call ptr @agraphof(ptr noundef %1) #5
   %5 = load i64, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %7, ptr noundef %1, i32 noundef 2) #5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %5, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
   %12 = load ptr, ptr %11, align 8
@@ -699,13 +699,13 @@ declare ptr @agparent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @agsubnodeidcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %8, i64 %12)
   ret i32 %.0
@@ -713,14 +713,14 @@ define internal range(i32 -1, 2) i32 @agsubnodeidcmpf(ptr nocapture readnone %0,
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_subnode(ptr noundef %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = icmp eq ptr %0, %5
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @agfree(ptr noundef %9, ptr noundef nonnull %0) #5
   br label %10
@@ -731,11 +731,11 @@ define internal void @free_subnode(ptr noundef %0, ptr nocapture readnone %1) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @agsubnodeseqcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = lshr i32 %7, 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   %12 = lshr i32 %11, 4
@@ -759,9 +759,9 @@ define range(i32 -1, 1) i32 @agnodebefore(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not, label %11, label %.loopexit
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %3, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = load i32, ptr %1, align 8
@@ -780,7 +780,7 @@ define range(i32 -1, 1) i32 @agnodebefore(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not.i, label %agprvnode.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %3, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %27, ptr noundef nonnull %24, i32 noundef 16) #5
@@ -788,13 +788,13 @@ define range(i32 -1, 1) i32 @agnodebefore(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not9.i, label %agprvnode.exit, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %29, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %32 = load ptr, ptr %31, align 8
   br label %agprvnode.exit
 
 agprvnode.exit:                                   ; preds = %23, %25, %30
   %33 = phi ptr [ %32, %30 ], [ null, %25 ], [ null, %23 ]
-  %34 = getelementptr inbounds i8, ptr %3, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %35
 
 35:                                               ; preds = %55, %agprvnode.exit
@@ -811,7 +811,7 @@ agprvnode.exit:                                   ; preds = %23, %25, %30
   br i1 %.not9.i48, label %agprvnode.exit49, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %40, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %43 = load ptr, ptr %42, align 8
   br label %agprvnode.exit49
 
@@ -867,7 +867,7 @@ agprvnode.exit49:                                 ; preds = %35, %37, %41
 ; Function Attrs: nounwind uwtable
 define internal void @agnodesetfinger(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   store ptr %1, ptr getelementptr inbounds (i8, ptr @agnodesetfinger.template, i64 32), align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %5, ptr noundef nonnull @agnodesetfinger.template, i32 noundef 4) #5
@@ -876,25 +876,25 @@ define internal void @agnodesetfinger(ptr nocapture noundef readonly %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @agnoderenew(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %9, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %18 = load ptr, ptr %17, align 8
   br label %23
 

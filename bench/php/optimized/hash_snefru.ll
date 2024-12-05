@@ -22,7 +22,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define void @PHP_SNEFRUUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
   %6 = xor i32 %5, -1
   %7 = zext i32 %6 to i64
@@ -31,7 +31,7 @@ define void @PHP_SNEFRUUpdate(ptr noundef %0, ptr nocapture noundef readonly %1,
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -50,140 +50,139 @@ define void @PHP_SNEFRUUpdate(ptr noundef %0, ptr nocapture noundef readonly %1,
 21:                                               ; preds = %17, %10
   %storemerge = phi i32 [ %20, %17 ], [ %16, %10 ]
   store i32 %storemerge, ptr %4, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load i8, ptr %22, align 4
   %24 = zext i8 %23 to i64
   %25 = add i64 %2, %24
   %26 = icmp ult i64 %25, 32
-  br i1 %26, label %27, label %33
+  br i1 %26, label %27, label %32
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 73
-  %29 = getelementptr inbounds [32 x i8], ptr %28, i64 0, i64 %24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 0, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %1, i64 %2, i1 false)
   %30 = trunc i64 %2 to i8
-  %31 = load i8, ptr %22, align 4
-  %32 = add i8 %31, %30
-  br label %100
+  %31 = add i8 %23, %30
+  br label %99
 
-33:                                               ; preds = %21
-  %34 = and i64 %25, 31
+32:                                               ; preds = %21
+  %33 = and i64 %25, 31
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %64, label %35
+  br i1 %.not, label %63, label %34
 
-35:                                               ; preds = %33
-  %36 = sub nsw i64 32, %24
-  %37 = getelementptr inbounds i8, ptr %0, i64 73
-  %38 = getelementptr inbounds [32 x i8], ptr %37, i64 0, i64 %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %1, i64 %36, i1 false)
-  br label %39
+34:                                               ; preds = %32
+  %35 = sub nsw i64 32, %24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 0, i64 %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %1, i64 %35, i1 false)
+  br label %38
 
-39:                                               ; preds = %39, %35
-  %indvars.iv17.i = phi i64 [ 0, %35 ], [ %indvars.iv.next18.i, %39 ]
-  %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %39 ]
-  %40 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv17.i
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i32
-  %43 = shl nuw i32 %42, 24
-  %44 = or disjoint i64 %indvars.iv17.i, 1
-  %45 = getelementptr inbounds i8, ptr %37, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = shl nuw nsw i32 %47, 16
-  %49 = or disjoint i32 %48, %43
-  %50 = or disjoint i64 %indvars.iv17.i, 2
-  %51 = getelementptr inbounds i8, ptr %37, i64 %50
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = shl nuw nsw i32 %53, 8
-  %55 = or disjoint i32 %49, %54
-  %56 = or disjoint i64 %indvars.iv17.i, 3
-  %57 = getelementptr inbounds i8, ptr %37, i64 %56
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = or disjoint i32 %55, %59
-  %61 = add nuw nsw i64 %indvars.iv.i, 8
-  %62 = getelementptr inbounds [16 x i32], ptr %0, i64 0, i64 %61
-  store i32 %60, ptr %62, align 4
+38:                                               ; preds = %38, %34
+  %indvars.iv17.i = phi i64 [ 0, %34 ], [ %indvars.iv.next18.i, %38 ]
+  %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv17.i
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i32
+  %42 = shl nuw i32 %41, 24
+  %43 = or disjoint i64 %indvars.iv17.i, 1
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 %43
+  %45 = load i8, ptr %44, align 1
+  %46 = zext i8 %45 to i32
+  %47 = shl nuw nsw i32 %46, 16
+  %48 = or disjoint i32 %47, %42
+  %49 = or disjoint i64 %indvars.iv17.i, 2
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 %49
+  %51 = load i8, ptr %50, align 1
+  %52 = zext i8 %51 to i32
+  %53 = shl nuw nsw i32 %52, 8
+  %54 = or disjoint i32 %48, %53
+  %55 = or disjoint i64 %indvars.iv17.i, 3
+  %56 = getelementptr inbounds nuw i8, ptr %36, i64 %55
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = or disjoint i32 %54, %58
+  %60 = add nuw nsw i64 %indvars.iv.i, 8
+  %61 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %60
+  store i32 %59, ptr %61, align 4
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %SnefruTransform.exit, label %39
+  br i1 %exitcond.not.i, label %SnefruTransform.exit, label %38
 
-SnefruTransform.exit:                             ; preds = %39
+SnefruTransform.exit:                             ; preds = %38
   tail call fastcc void @Snefru(ptr noundef nonnull %0)
-  %63 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @explicit_bzero(ptr noundef nonnull %63, i64 noundef 32) #7
-  br label %64
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @explicit_bzero(ptr noundef nonnull %62, i64 noundef 32) #7
+  br label %63
 
-64:                                               ; preds = %SnefruTransform.exit, %33
-  %.0 = phi i64 [ %36, %SnefruTransform.exit ], [ 0, %33 ]
-  %65 = add nsw i64 %.0, 32
-  %.not4553 = icmp ugt i64 %65, %2
+63:                                               ; preds = %SnefruTransform.exit, %32
+  %.0 = phi i64 [ %35, %SnefruTransform.exit ], [ 0, %32 ]
+  %64 = add nsw i64 %.0, 32
+  %.not4553 = icmp ugt i64 %64, %2
   br i1 %.not4553, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %67
+.lr.ph:                                           ; preds = %63
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %66
 
-67:                                               ; preds = %.lr.ph, %SnefruTransform.exit52
-  %68 = phi i64 [ %65, %.lr.ph ], [ %94, %SnefruTransform.exit52 ]
-  %.154 = phi i64 [ %.0, %.lr.ph ], [ %68, %SnefruTransform.exit52 ]
-  %69 = getelementptr inbounds i8, ptr %1, i64 %.154
-  br label %70
+66:                                               ; preds = %.lr.ph, %SnefruTransform.exit52
+  %67 = phi i64 [ %64, %.lr.ph ], [ %93, %SnefruTransform.exit52 ]
+  %.154 = phi i64 [ %.0, %.lr.ph ], [ %67, %SnefruTransform.exit52 ]
+  %68 = getelementptr inbounds i8, ptr %1, i64 %.154
+  br label %69
 
-70:                                               ; preds = %70, %67
-  %indvars.iv17.i47 = phi i64 [ 0, %67 ], [ %indvars.iv.next18.i49, %70 ]
-  %indvars.iv.i48 = phi i64 [ 0, %67 ], [ %indvars.iv.next.i50, %70 ]
-  %71 = getelementptr inbounds i8, ptr %69, i64 %indvars.iv17.i47
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = shl nuw i32 %73, 24
-  %75 = or disjoint i64 %indvars.iv17.i47, 1
-  %76 = getelementptr inbounds i8, ptr %69, i64 %75
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = shl nuw nsw i32 %78, 16
-  %80 = or disjoint i32 %79, %74
-  %81 = or disjoint i64 %indvars.iv17.i47, 2
-  %82 = getelementptr inbounds i8, ptr %69, i64 %81
-  %83 = load i8, ptr %82, align 1
-  %84 = zext i8 %83 to i32
-  %85 = shl nuw nsw i32 %84, 8
-  %86 = or disjoint i32 %80, %85
-  %87 = or disjoint i64 %indvars.iv17.i47, 3
-  %88 = getelementptr inbounds i8, ptr %69, i64 %87
-  %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i32
-  %91 = or disjoint i32 %86, %90
-  %92 = add nuw nsw i64 %indvars.iv.i48, 8
-  %93 = getelementptr inbounds [16 x i32], ptr %0, i64 0, i64 %92
-  store i32 %91, ptr %93, align 4
+69:                                               ; preds = %69, %66
+  %indvars.iv17.i47 = phi i64 [ 0, %66 ], [ %indvars.iv.next18.i49, %69 ]
+  %indvars.iv.i48 = phi i64 [ 0, %66 ], [ %indvars.iv.next.i50, %69 ]
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv17.i47
+  %71 = load i8, ptr %70, align 1
+  %72 = zext i8 %71 to i32
+  %73 = shl nuw i32 %72, 24
+  %74 = or disjoint i64 %indvars.iv17.i47, 1
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 %74
+  %76 = load i8, ptr %75, align 1
+  %77 = zext i8 %76 to i32
+  %78 = shl nuw nsw i32 %77, 16
+  %79 = or disjoint i32 %78, %73
+  %80 = or disjoint i64 %indvars.iv17.i47, 2
+  %81 = getelementptr inbounds nuw i8, ptr %68, i64 %80
+  %82 = load i8, ptr %81, align 1
+  %83 = zext i8 %82 to i32
+  %84 = shl nuw nsw i32 %83, 8
+  %85 = or disjoint i32 %79, %84
+  %86 = or disjoint i64 %indvars.iv17.i47, 3
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 %86
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = or disjoint i32 %85, %89
+  %91 = add nuw nsw i64 %indvars.iv.i48, 8
+  %92 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %91
+  store i32 %90, ptr %92, align 4
   %indvars.iv.next18.i49 = add nuw nsw i64 %indvars.iv17.i47, 4
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 8
-  br i1 %exitcond.not.i51, label %SnefruTransform.exit52, label %70
+  br i1 %exitcond.not.i51, label %SnefruTransform.exit52, label %69
 
-SnefruTransform.exit52:                           ; preds = %70
+SnefruTransform.exit52:                           ; preds = %69
   tail call fastcc void @Snefru(ptr noundef nonnull %0)
-  tail call void @explicit_bzero(ptr noundef nonnull %66, i64 noundef 32) #7
-  %94 = add i64 %68, 32
-  %.not45 = icmp ugt i64 %94, %2
-  br i1 %.not45, label %._crit_edge, label %67
+  tail call void @explicit_bzero(ptr noundef nonnull %65, i64 noundef 32) #7
+  %93 = add i64 %67, 32
+  %.not45 = icmp ugt i64 %93, %2
+  br i1 %.not45, label %._crit_edge, label %66
 
-._crit_edge:                                      ; preds = %SnefruTransform.exit52, %64
-  %.1.lcssa = phi i64 [ %.0, %64 ], [ %68, %SnefruTransform.exit52 ]
-  %95 = getelementptr inbounds i8, ptr %0, i64 73
-  %96 = getelementptr inbounds i8, ptr %1, i64 %.1.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr align 1 %96, i64 %34, i1 false)
-  %97 = getelementptr inbounds [32 x i8], ptr %95, i64 0, i64 %34
-  %98 = sub nuw nsw i64 32, %34
-  tail call void @explicit_bzero(ptr noundef nonnull %97, i64 noundef %98) #7
-  %99 = trunc nuw nsw i64 %34 to i8
-  br label %100
+._crit_edge:                                      ; preds = %SnefruTransform.exit52, %63
+  %.1.lcssa = phi i64 [ %.0, %63 ], [ %67, %SnefruTransform.exit52 ]
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %95 = getelementptr inbounds i8, ptr %1, i64 %.1.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr align 1 %95, i64 %33, i1 false)
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %94, i64 0, i64 %33
+  %97 = sub nuw nsw i64 32, %33
+  tail call void @explicit_bzero(ptr noundef nonnull %96, i64 noundef %97) #7
+  %98 = trunc nuw nsw i64 %33 to i8
+  br label %99
 
-100:                                              ; preds = %._crit_edge, %27
-  %storemerge46 = phi i8 [ %99, %._crit_edge ], [ %32, %27 ]
+99:                                               ; preds = %._crit_edge, %27
+  %storemerge46 = phi i8 [ %98, %._crit_edge ], [ %31, %27 ]
   store i8 %storemerge46, ptr %22, align 4
   ret void
 }
@@ -196,41 +195,41 @@ declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @PHP_SNEFRUFinal(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 4
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %32, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 73
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 73
   br label %7
 
 7:                                                ; preds = %7, %5
   %indvars.iv17.i = phi i64 [ 0, %5 ], [ %indvars.iv.next18.i, %7 ]
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv17.i
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv17.i
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = shl nuw i32 %10, 24
   %12 = or disjoint i64 %indvars.iv17.i, 1
-  %13 = getelementptr inbounds i8, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 16
   %17 = or disjoint i32 %16, %11
   %18 = or disjoint i64 %indvars.iv17.i, 2
-  %19 = getelementptr inbounds i8, ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = shl nuw nsw i32 %21, 8
   %23 = or disjoint i32 %17, %22
   %24 = or disjoint i64 %indvars.iv17.i, 3
-  %25 = getelementptr inbounds i8, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = or disjoint i32 %23, %27
   %29 = add nuw nsw i64 %indvars.iv.i, 8
-  %30 = getelementptr inbounds [16 x i32], ptr %1, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i32], ptr %1, i64 0, i64 %29
   store i32 %28, ptr %30, align 4
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -239,18 +238,18 @@ define void @PHP_SNEFRUFinal(ptr nocapture noundef writeonly %0, ptr noundef %1)
 
 SnefruTransform.exit:                             ; preds = %7
   tail call fastcc void @Snefru(ptr noundef nonnull %1)
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @explicit_bzero(ptr noundef nonnull %31, i64 noundef 32) #7
   br label %32
 
 32:                                               ; preds = %SnefruTransform.exit, %2
-  %33 = getelementptr inbounds i8, ptr %1, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 68
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 60
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i32 %37, ptr %38, align 4
   tail call fastcc void @Snefru(ptr noundef nonnull %1)
   br label %39
@@ -258,28 +257,28 @@ SnefruTransform.exit:                             ; preds = %7
 39:                                               ; preds = %32, %39
   %indvars.iv30 = phi i64 [ 0, %32 ], [ %indvars.iv.next31, %39 ]
   %indvars.iv = phi i64 [ 0, %32 ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds [16 x i32], ptr %1, i64 0, i64 %indvars.iv30
+  %40 = getelementptr inbounds nuw [16 x i32], ptr %1, i64 0, i64 %indvars.iv30
   %41 = load i32, ptr %40, align 4
   %42 = lshr i32 %41, 24
   %43 = trunc nuw i32 %42 to i8
-  %44 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %43, ptr %44, align 1
   %45 = load i32, ptr %40, align 4
   %46 = lshr i32 %45, 16
   %47 = trunc i32 %46 to i8
   %48 = or disjoint i64 %indvars.iv, 1
-  %49 = getelementptr inbounds i8, ptr %0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
   store i8 %47, ptr %49, align 1
   %50 = load i32, ptr %40, align 4
   %51 = lshr i32 %50, 8
   %52 = trunc i32 %51 to i8
   %53 = or disjoint i64 %indvars.iv, 2
-  %54 = getelementptr inbounds i8, ptr %0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %53
   store i8 %52, ptr %54, align 1
   %55 = load i32, ptr %40, align 4
   %56 = trunc i32 %55 to i8
   %57 = or disjoint i64 %indvars.iv, 3
-  %58 = getelementptr inbounds i8, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %57
   store i8 %56, ptr %58, align 1
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
@@ -294,35 +293,35 @@ SnefruTransform.exit:                             ; preds = %7
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @Snefru(ptr nocapture noundef %0) unnamed_addr #5 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 60
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %32 = load i32, ptr %31, align 4
   br label %33
 
@@ -345,9 +344,9 @@ define internal fastcc void @Snefru(ptr nocapture noundef %0) unnamed_addr #5 {
   %.0225250 = phi i32 [ %4, %1 ], [ %143, %186 ]
   %.0227249 = phi i32 [ %2, %1 ], [ %140, %186 ]
   %34 = shl nuw nsw i64 %indvars.iv281, 1
-  %35 = getelementptr inbounds [16 x [256 x i32]], ptr @tables, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [16 x [256 x i32]], ptr @tables, i64 0, i64 %34
   %36 = or disjoint i64 %34, 1
-  %37 = getelementptr inbounds [16 x [256 x i32]], ptr @tables, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [16 x [256 x i32]], ptr @tables, i64 0, i64 %36
   br label %38
 
 38:                                               ; preds = %33, %38
@@ -370,101 +369,101 @@ define internal fastcc void @Snefru(ptr nocapture noundef %0) unnamed_addr #5 {
   %.1228232 = phi i32 [ %.0227249, %33 ], [ %140, %38 ]
   %39 = and i32 %.1228232, 255
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %35, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %35, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = xor i32 %42, %.1247
   %44 = xor i32 %42, %.1226233
   %45 = and i32 %44, 255
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %35, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %35, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = xor i32 %48, %.1228232
   %50 = xor i32 %48, %.1224234
   %51 = and i32 %50, 255
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %37, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr %37, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = xor i32 %54, %44
   %56 = xor i32 %54, %.1222235
   %57 = and i32 %56, 255
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %37, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %37, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = xor i32 %60, %50
   %62 = xor i32 %60, %.1220236
   %63 = and i32 %62, 255
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %35, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr %35, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = xor i32 %66, %56
   %68 = xor i32 %66, %.1218237
   %69 = and i32 %68, 255
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %35, i64 %70
+  %71 = getelementptr inbounds nuw i32, ptr %35, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = xor i32 %72, %62
   %74 = xor i32 %72, %.1216238
   %75 = and i32 %74, 255
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %37, i64 %76
+  %77 = getelementptr inbounds nuw i32, ptr %37, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = xor i32 %78, %68
   %80 = xor i32 %78, %.1214239
   %81 = and i32 %80, 255
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds i32, ptr %37, i64 %82
+  %83 = getelementptr inbounds nuw i32, ptr %37, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = xor i32 %84, %74
   %86 = xor i32 %84, %.1212240
   %87 = and i32 %86, 255
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %35, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr %35, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = xor i32 %90, %80
   %92 = xor i32 %90, %.1210241
   %93 = and i32 %92, 255
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds i32, ptr %35, i64 %94
+  %95 = getelementptr inbounds nuw i32, ptr %35, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = xor i32 %96, %86
   %98 = xor i32 %96, %.1208242
   %99 = and i32 %98, 255
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds i32, ptr %37, i64 %100
+  %101 = getelementptr inbounds nuw i32, ptr %37, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = xor i32 %102, %92
   %104 = xor i32 %102, %.1206243
   %105 = and i32 %104, 255
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds i32, ptr %37, i64 %106
+  %107 = getelementptr inbounds nuw i32, ptr %37, i64 %106
   %108 = load i32, ptr %107, align 4
   %109 = xor i32 %108, %98
   %110 = xor i32 %108, %.1204244
   %111 = and i32 %110, 255
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds i32, ptr %35, i64 %112
+  %113 = getelementptr inbounds nuw i32, ptr %35, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = xor i32 %114, %104
   %116 = xor i32 %114, %.1202245
   %117 = and i32 %116, 255
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds i32, ptr %35, i64 %118
+  %119 = getelementptr inbounds nuw i32, ptr %35, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = xor i32 %120, %110
   %122 = xor i32 %120, %.1200246
   %123 = and i32 %122, 255
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds i32, ptr %37, i64 %124
+  %125 = getelementptr inbounds nuw i32, ptr %37, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = xor i32 %126, %116
   %128 = xor i32 %43, %126
   %129 = and i32 %128, 255
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds i32, ptr %37, i64 %130
+  %131 = getelementptr inbounds nuw i32, ptr %37, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = xor i32 %132, %122
   %134 = xor i32 %49, %132
-  %135 = getelementptr inbounds [4 x i32], ptr @Snefru.shifts, i64 0, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [4 x i32], ptr @Snefru.shifts, i64 0, i64 %indvars.iv
   %136 = load i32, ptr %135, align 4
   %137 = sub nsw i32 32, %136
   %138 = lshr i32 %134, %136
@@ -550,7 +549,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_snefru_unserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i64 %1, 2
   br i1 %6, label %7, label %.thread
@@ -561,7 +560,7 @@ define internal i32 @php_snefru_unserialize(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %12 = load i8, ptr %11, align 4
   %13 = icmp ult i8 %12, 32
   %spec.select = select i1 %13, i32 0, i32 -2000

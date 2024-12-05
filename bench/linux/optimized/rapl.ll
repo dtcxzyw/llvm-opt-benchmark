@@ -139,16 +139,16 @@ define internal noundef i32 @rapl_pmu_init() #0 section ".init.text" align 16 {
   br i1 %2, label %.thread, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr @rapl_msrs, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = tail call i64 @perf_msr_probe(ptr noundef %7, i32 noundef 5, i1 noundef zeroext false, ptr noundef %8) #9
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = tail call i64 @perf_msr_probe(ptr noundef %7, i32 noundef 5, i1 noundef zeroext false, ptr noundef nonnull %8) #9
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr @rapl_cntr_mask, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = tail call { i32, i64, i64 } asm sideeffect "1: rdmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=11 \0A.purgem extable_type_reg\0A .popsection\0A", "=r,={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %12) #9, !srcloc !5
   %14 = extractvalue { i32, i64, i64 } %13, 0
@@ -182,7 +182,7 @@ define internal noundef i32 @rapl_pmu_init() #0 section ".init.text" align 16 {
   br i1 %30, label %31, label %26, !llvm.loop !7
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %6, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %33 = load i32, ptr %32, align 4
   switch i32 %33, label %36 [
     i32 1, label %34
@@ -260,7 +260,7 @@ declare dso_local void @perf_pmu_unregister(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @cleanup_rapl_pmus() unnamed_addr #2 align 16 {
   %1 = load ptr, ptr @rapl_pmus, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %.preheader
@@ -268,14 +268,14 @@ define internal fastcc void @cleanup_rapl_pmus() unnamed_addr #2 align 16 {
 .preheader:                                       ; preds = %0, %.preheader
   %5 = phi ptr [ %12, %.preheader ], [ %1, %0 ]
   %6 = phi i32 [ %11, %.preheader ], [ 0, %0 ]
-  %7 = getelementptr inbounds i8, ptr %5, i64 312
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 312
   %8 = sext i32 %6 to i64
   %9 = getelementptr [0 x ptr], ptr %7, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @kfree(ptr noundef %10) #9
   %11 = add nuw i32 %6, 1
   %12 = load ptr, ptr @rapl_pmus, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 304
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 304
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %11, %14
   br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !11
@@ -306,29 +306,29 @@ define internal fastcc noundef range(i32 -12, 1) i32 @init_rapl_pmus() unnamed_a
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %0
-  %10 = getelementptr inbounds i8, ptr %7, i64 304
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 304
   store i32 %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @rapl_attr_groups, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @rapl_attr_update, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 92
   store i32 -1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %7, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store ptr @rapl_pmu_event_init, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store ptr @rapl_pmu_event_add, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store ptr @rapl_pmu_event_del, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store ptr @rapl_pmu_event_start, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store ptr @rapl_pmu_event_stop, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store ptr @rapl_pmu_event_read, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 68
   store i32 64, ptr %21, align 4
   br label %22
 
@@ -344,16 +344,16 @@ define internal noundef range(i32 -12, 1) i32 @rapl_cpu_online(i32 noundef %0) #
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_info to i64)
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 244
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 244
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr @rapl_pmus, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 304
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 304
   %11 = load i32, ptr %10, align 8
   %12 = icmp ult i32 %8, %11
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %9, i64 312
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 312
   %15 = zext i32 %8 to i64
   %16 = getelementptr [0 x ptr], ptr %14, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
@@ -374,27 +374,27 @@ define internal noundef range(i32 -12, 1) i32 @rapl_cpu_online(i32 noundef %0) #
 
 28:                                               ; preds = %.thread
   store i32 0, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store volatile ptr %29, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store volatile ptr %29, ptr %30, align 8
   %31 = load ptr, ptr @rapl_pmus, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr %31, ptr %32, align 8
   %33 = load i64, ptr @rapl_timer_ms, align 8
   %34 = mul i64 %33, 1000000
-  %35 = getelementptr inbounds i8, ptr %26, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i64 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %26, i64 48
-  tail call void @hrtimer_init(ptr noundef %36, i32 noundef 1, i32 noundef 1) #9
-  %37 = getelementptr inbounds i8, ptr %26, i64 88
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  tail call void @hrtimer_init(ptr noundef nonnull %36, i32 noundef 1, i32 noundef 1) #9
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 88
   store ptr @rapl_hrtimer_handle, ptr %37, align 8
   %38 = load ptr, ptr @rapl_pmus, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 312
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 312
   %40 = load i64, ptr %3, align 8
   %41 = add i64 %40, ptrtoint (ptr @cpu_info to i64)
   %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 244
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 244
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
   %46 = getelementptr [0 x ptr], ptr %39, i64 0, i64 %45
@@ -426,7 +426,7 @@ define internal noundef range(i32 -12, 1) i32 @rapl_cpu_online(i32 noundef %0) #
 
 63:                                               ; preds = %59
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @rapl_cpu_mask, i64 %2) #9, !srcloc !13
-  %64 = getelementptr inbounds i8, ptr %49, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 %0, ptr %64, align 8
   br label %65
 
@@ -442,16 +442,16 @@ define internal noundef i32 @rapl_cpu_offline(i32 noundef %0) #2 align 16 {
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_info to i64)
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 244
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 244
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr @rapl_pmus, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 304
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 304
   %11 = load i32, ptr %10, align 8
   %12 = icmp ult i32 %8, %11
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %9, i64 312
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 312
   %15 = zext i32 %8 to i64
   %16 = getelementptr [0 x ptr], ptr %14, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
@@ -466,7 +466,7 @@ define internal noundef i32 @rapl_cpu_offline(i32 noundef %0) #2 align 16 {
   br i1 %22, label %52, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 -1, ptr %24, align 8
   %25 = load i64, ptr %3, align 8
   %26 = add i64 %25, ptrtoint (ptr @cpu_die_map to i64)
@@ -506,7 +506,7 @@ define internal noundef i32 @rapl_cpu_offline(i32 noundef %0) #2 align 16 {
   %49 = and i64 %45, 4294967295
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @rapl_cpu_mask, i64 %49) #9, !srcloc !13
   store i32 %44, ptr %24, align 8
-  %50 = getelementptr inbounds i8, ptr %19, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %51 = load ptr, ptr %50, align 8
   tail call void @perf_pmu_migrate_context(ptr noundef %51, i32 noundef %0, i32 noundef %44) #9
   br label %52
@@ -579,13 +579,13 @@ declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @rapl_pmu_event_init(ptr nocapture noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
-  %3 = getelementptr inbounds i8, ptr %0, i64 224
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 255
   %6 = load i32, ptr %2, align 8
   %7 = load ptr, ptr @rapl_pmus, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %6, %9
   br i1 %10, label %11, label %.thread
@@ -595,13 +595,13 @@ define internal noundef range(i32 -22, 1) i32 @rapl_pmu_event_init(ptr nocapture
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 652
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 132
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, 2
   store i32 %20, ptr %18, align 4
@@ -621,7 +621,7 @@ define internal noundef range(i32 -22, 1) i32 @rapl_pmu_event_init(ptr nocapture
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %23
-  %33 = getelementptr inbounds i8, ptr %0, i64 232
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %36, label %.thread
@@ -633,16 +633,16 @@ define internal noundef range(i32 -22, 1) i32 @rapl_pmu_event_init(ptr nocapture
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, ptrtoint (ptr @cpu_info to i64)
   %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 244
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 244
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr @rapl_pmus, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 304
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 304
   %47 = load i32, ptr %46, align 8
   %48 = icmp ult i32 %44, %47
   br i1 %48, label %49, label %.thread
 
 49:                                               ; preds = %36
-  %50 = getelementptr inbounds i8, ptr %45, i64 312
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 312
   %51 = zext i32 %44 to i64
   %52 = getelementptr [0 x ptr], ptr %50, i64 0, i64 %51
   %53 = load ptr, ptr %52, align 8
@@ -650,20 +650,20 @@ define internal noundef range(i32 -22, 1) i32 @rapl_pmu_event_init(ptr nocapture
   br i1 %54, label %.thread, label %55
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load i32, ptr %56, align 8
   store i32 %57, ptr %14, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 160
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %53, ptr %58, align 8
   %59 = load ptr, ptr @rapl_msrs, align 8
   %60 = sext i32 %27 to i64
   %61 = getelementptr %struct.perf_msr, ptr %59, i64 %60
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 360
-  %64 = getelementptr inbounds i8, ptr %0, i64 384
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i64 %62, ptr %64, align 8
   store i64 %25, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 396
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 %27, ptr %65, align 4
   br label %.thread
 
@@ -674,10 +674,10 @@ define internal noundef range(i32 -22, 1) i32 @rapl_pmu_event_init(ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @rapl_pmu_event_add(ptr noundef initializes((480, 484)) %0, i32 noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 480
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 3, ptr %6, align 8
   %7 = and i32 %1, 1
   %8 = icmp eq i32 %7, 0
@@ -685,17 +685,17 @@ define internal noundef i32 @rapl_pmu_event_add(ptr noundef initializes((480, 48
 
 9:                                                ; preds = %2
   store i32 0, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load ptr, ptr %12, align 8
   store ptr %10, ptr %12, align 8
   store ptr %11, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %13, ptr %14, align 8
   store volatile ptr %10, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 488
-  %16 = getelementptr inbounds i8, ptr %0, i64 384
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
   %19 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %18) #9, !srcloc !21
@@ -712,7 +712,7 @@ define internal noundef i32 @rapl_pmu_event_add(ptr noundef initializes((480, 48
 
 25:                                               ; preds = %24, %9
   store volatile i64 %23, ptr %15, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 4
@@ -720,10 +720,10 @@ define internal noundef i32 @rapl_pmu_event_add(ptr noundef initializes((480, 48
   br i1 %29, label %30, label %__rapl_pmu_event_start.exit
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %4, i64 48
-  %32 = getelementptr inbounds i8, ptr %4, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %33 = load i64, ptr %32, align 8
-  tail call void @hrtimer_start_range_ns(ptr noundef %31, i64 noundef %33, i64 noundef 0, i32 noundef 3) #9
+  tail call void @hrtimer_start_range_ns(ptr noundef nonnull %31, i64 noundef %33, i64 noundef 0, i32 noundef 3) #9
   br label %__rapl_pmu_event_start.exit
 
 __rapl_pmu_event_start.exit:                      ; preds = %30, %25, %2
@@ -739,10 +739,10 @@ define internal void @rapl_pmu_event_del(ptr noundef %0, i32 %1) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @rapl_pmu_event_start(ptr noundef %0, i32 %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 480
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1
   %9 = icmp eq i32 %8, 0
@@ -756,17 +756,17 @@ define internal void @rapl_pmu_event_start(ptr noundef %0, i32 %1) #2 align 16 {
 
 11:                                               ; preds = %2
   store i32 0, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %15 = load ptr, ptr %14, align 8
   store ptr %12, ptr %14, align 8
   store ptr %13, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %15, ptr %16, align 8
   store volatile ptr %12, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 488
-  %18 = getelementptr inbounds i8, ptr %0, i64 384
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
   %21 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %20) #9, !srcloc !21
@@ -783,7 +783,7 @@ define internal void @rapl_pmu_event_start(ptr noundef %0, i32 %1) #2 align 16 {
 
 27:                                               ; preds = %26, %11
   store volatile i64 %25, ptr %17, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 4
@@ -791,10 +791,10 @@ define internal void @rapl_pmu_event_start(ptr noundef %0, i32 %1) #2 align 16 {
   br i1 %31, label %32, label %__rapl_pmu_event_start.exit
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %4, i64 48
-  %34 = getelementptr inbounds i8, ptr %4, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %35 = load i64, ptr %34, align 8
-  tail call void @hrtimer_start_range_ns(ptr noundef %33, i64 noundef %35, i64 noundef 0, i32 noundef 3) #9
+  tail call void @hrtimer_start_range_ns(ptr noundef nonnull %33, i64 noundef %35, i64 noundef 0, i32 noundef 3) #9
   br label %__rapl_pmu_event_start.exit
 
 __rapl_pmu_event_start.exit:                      ; preds = %10, %27, %32
@@ -804,17 +804,17 @@ __rapl_pmu_event_start.exit:                      ; preds = %10, %27, %32
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @rapl_pmu_event_stop(ptr noundef %0, i32 noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 480
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %35
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %14, label %15, !prof !15
@@ -834,16 +834,16 @@ define internal void @rapl_pmu_event_stop(ptr noundef %0, i32 noundef %1) #2 ali
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
-  %21 = tail call i32 @hrtimer_cancel(ptr noundef %20) #9
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %21 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %20) #9
   br label %22
 
 22:                                               ; preds = %19, %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
-  %24 = getelementptr inbounds i8, ptr %0, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %25, ptr %27, align 8
   store volatile ptr %26, ptr %25, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %23, align 8
@@ -876,9 +876,9 @@ define internal void @rapl_pmu_event_stop(ptr noundef %0, i32 noundef %1) #2 ali
   br i1 %or.cond, label %41, label %86
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %0, i64 488
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %43 = load volatile i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 384
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %45
 
 45:                                               ; preds = %60, %41
@@ -898,7 +898,7 @@ define internal void @rapl_pmu_event_stop(ptr noundef %0, i32 noundef %1) #2 ali
   br label %55
 
 55:                                               ; preds = %54, %45
-  %56 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %42, i64 %53, ptr elementtype(i64) %42, i64 %46) #9, !srcloc !32
+  %56 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %42, i64 %53, ptr nonnull elementtype(i64) %42, i64 %46) #9, !srcloc !32
   %57 = extractvalue { i8, i64 } %56, 0
   %58 = icmp ult i8 %57, 2
   tail call void @llvm.assume(i1 %58)
@@ -910,7 +910,7 @@ define internal void @rapl_pmu_event_stop(ptr noundef %0, i32 noundef %1) #2 ali
   br label %45, !llvm.loop !33
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %0, i64 360
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %64 = sub i64 %50, %46
   %65 = shl i64 %64, 32
   %66 = ashr exact i64 %65, 32
@@ -936,8 +936,8 @@ define internal void @rapl_pmu_event_stop(ptr noundef %0, i32 noundef %1) #2 ali
 
 81:                                               ; preds = %72, %70
   %82 = phi i64 [ %66, %70 ], [ %80, %72 ]
-  %83 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %83, i64 %82, ptr elementtype(i64) %83) #9, !srcloc !34
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %83, i64 %82, ptr nonnull elementtype(i64) %83) #9, !srcloc !34
   %84 = load i32, ptr %6, align 8
   %85 = or i32 %84, 2
   store i32 %85, ptr %6, align 8
@@ -950,9 +950,9 @@ define internal void @rapl_pmu_event_stop(ptr noundef %0, i32 noundef %1) #2 ali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @rapl_pmu_event_read(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 488
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load volatile i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 384
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %5
 
 5:                                                ; preds = %20, %1
@@ -972,7 +972,7 @@ define internal void @rapl_pmu_event_read(ptr noundef %0) #2 align 16 {
   br label %15
 
 15:                                               ; preds = %14, %5
-  %16 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 %13, ptr elementtype(i64) %2, i64 %6) #9, !srcloc !32
+  %16 = tail call { i8, i64 } asm sideeffect "cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %13, ptr nonnull elementtype(i64) %2, i64 %6) #9, !srcloc !32
   %17 = extractvalue { i8, i64 } %16, 0
   %18 = icmp ult i8 %17, 2
   tail call void @llvm.assume(i1 %18)
@@ -984,7 +984,7 @@ define internal void @rapl_pmu_event_read(ptr noundef %0) #2 align 16 {
   br label %5, !llvm.loop !33
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 360
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %24 = sub i64 %10, %6
   %25 = shl i64 %24, 32
   %26 = ashr exact i64 %25, 32
@@ -1010,8 +1010,8 @@ define internal void @rapl_pmu_event_read(ptr noundef %0) #2 align 16 {
 
 41:                                               ; preds = %32, %30
   %42 = phi i64 [ %26, %30 ], [ %40, %32 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %43, i64 %42, ptr elementtype(i64) %43) #9, !srcloc !34
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %43, i64 %42, ptr nonnull elementtype(i64) %43) #9, !srcloc !34
   ret void
 }
 
@@ -1143,9 +1143,9 @@ define internal noundef range(i32 0, 2) i32 @rapl_hrtimer_handle(ptr noundef %0)
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %7) #9
   %56 = getelementptr i8, ptr %0, i64 -8
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = load ptr, ptr %60, align 16
   %62 = tail call i64 %61() #9
   %63 = tail call i64 @hrtimer_forward(ptr noundef %0, i64 noundef %62, i64 noundef %57) #9

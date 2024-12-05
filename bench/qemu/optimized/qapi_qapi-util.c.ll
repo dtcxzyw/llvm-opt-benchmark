@@ -35,7 +35,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %deprecated_input = getelementptr inbounds i8, ptr %policy, i64 4
+  %deprecated_input = getelementptr inbounds nuw i8, ptr %policy, i64 4
   %0 = load i32, ptr %deprecated_input, align 4
   switch i32 %0, label %sw.default.i [
     i32 0, label %if.end
@@ -52,7 +52,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %tobool2.not, label %return, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %if.end
-  %unstable_input = getelementptr inbounds i8, ptr %policy, i64 20
+  %unstable_input = getelementptr inbounds nuw i8, ptr %policy, i64 20
   %1 = load i32, ptr %unstable_input, align 4
   switch i32 %1, label %sw.default.i9 [
     i32 0, label %return
@@ -80,7 +80,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %size = getelementptr inbounds i8, ptr %lookup, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %lookup, i64 16
   %0 = load i32, ptr %size, align 8
   %cmp1 = icmp slt i32 %val, %0
   br i1 %cmp1, label %if.end, label %if.else
@@ -107,7 +107,7 @@ entry:
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %size = getelementptr inbounds i8, ptr %lookup, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %lookup, i64 16
   %0 = load i32, ptr %size, align 8
   %cmp9 = icmp sgt i32 %0, 0
   br i1 %cmp9, label %for.body.lr.ph, label %for.end

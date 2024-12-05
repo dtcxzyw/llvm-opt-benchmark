@@ -180,7 +180,7 @@ define hidden void @NET_ThrowUnknownHostExceptionWithGaiError(ptr noundef %0, pt
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %17) #13
   br label %23
@@ -222,7 +222,7 @@ define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr nound
   %7 = alloca [16 x i8], align 16
   %8 = tail call i32 @getInetAddress_family(ptr noundef %0, ptr noundef %1) #13
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1824
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1824
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i8 %11(ptr noundef nonnull %0) #13
   %.not = icmp eq i8 %12, 0
@@ -247,7 +247,7 @@ define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %19 = tail call i32 @getInetAddress_addr(ptr noundef nonnull %0, ptr noundef %1) #13
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #13
   %.not49 = icmp eq i8 %23, 0
@@ -258,24 +258,24 @@ define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr nound
   br i1 %25, label %42, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %7, i64 10
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 10
   store i8 -1, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %7, i64 11
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 11
   store i8 -1, ptr %28, align 1
   %29 = lshr i32 %19, 24
   %30 = trunc nuw i32 %29 to i8
-  %31 = getelementptr inbounds i8, ptr %7, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 %30, ptr %31, align 4
   %32 = lshr i32 %19, 16
   %33 = trunc i32 %32 to i8
-  %34 = getelementptr inbounds i8, ptr %7, i64 13
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 13
   store i8 %33, ptr %34, align 1
   %35 = lshr i32 %19, 8
   %36 = trunc i32 %35 to i8
-  %37 = getelementptr inbounds i8, ptr %7, i64 14
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 14
   store i8 %36, ptr %37, align 2
   %38 = trunc i32 %19 to i8
-  %39 = getelementptr inbounds i8, ptr %7, i64 15
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 15
   store i8 %38, ptr %39, align 1
   br label %42
 
@@ -286,9 +286,9 @@ define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr nound
 42:                                               ; preds = %26, %24, %40
   %43 = trunc i32 %2 to i16
   %44 = call zeroext i16 @htons(i16 noundef zeroext %43) #14
-  %45 = getelementptr inbounds i8, ptr %3, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %44, ptr %45, align 2
-  %46 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
   store i16 10, ptr %3, align 4
   %.not50 = icmp eq ptr %4, null
@@ -307,7 +307,7 @@ define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr nound
 
 52:                                               ; preds = %48
   %53 = call i32 @getInet6Address_scopeid(ptr noundef nonnull %0, ptr noundef %1) #13
-  %54 = getelementptr inbounds i8, ptr %3, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %53, ptr %54, align 4
   br label %69
 
@@ -321,7 +321,7 @@ define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr nound
 .thread:                                          ; preds = %15, %55
   %57 = tail call i32 @getInetAddress_addr(ptr noundef nonnull %0, ptr noundef %1) #13
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1824
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1824
   %60 = load ptr, ptr %59, align 8
   %61 = tail call zeroext i8 %60(ptr noundef nonnull %0) #13
   %.not52 = icmp eq i8 %61, 0
@@ -330,10 +330,10 @@ define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr nound
 62:                                               ; preds = %.thread
   %63 = trunc i32 %2 to i16
   %64 = tail call zeroext i16 @htons(i16 noundef zeroext %63) #14
-  %65 = getelementptr inbounds i8, ptr %3, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %64, ptr %65, align 2
   %66 = tail call i32 @htonl(i32 noundef %57) #14
-  %67 = getelementptr inbounds i8, ptr %3, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %66, ptr %67, align 4
   store i16 2, ptr %3, align 4
   %.not53 = icmp eq ptr %4, null
@@ -381,19 +381,19 @@ define hidden range(i32 0, 2) i32 @NET_IsIPv4Mapped(ptr nocapture noundef readon
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %2, label %.loopexit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, -1
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 11
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, -1
   br i1 %13, label %.loopexit, label %14
@@ -408,21 +408,21 @@ define hidden range(i32 0, 2) i32 @NET_IsIPv4Mapped(ptr nocapture noundef readon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @NET_IPv4MappedToIPv4(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
   %5 = shl nuw i32 %4, 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 13
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = shl nuw nsw i32 %8, 16
   %10 = or disjoint i32 %9, %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 14
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 8
   %15 = or disjoint i32 %10, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %15, %18
@@ -440,9 +440,9 @@ define hidden range(i32 0, 2) i32 @NET_IsEqual(ptr nocapture noundef readonly %0
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
-  %7 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %.not = icmp eq i8 %6, %8
   br i1 %.not, label %3, label %9
@@ -463,7 +463,7 @@ define hidden range(i32 0, 2) i32 @NET_IsZeroAddr(ptr nocapture noundef readonly
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %2, label %6
@@ -565,7 +565,7 @@ define i32 @NET_Bind(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnam
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @ntohl(i32 noundef %8) #14
   %10 = and i32 %9, 2130706687
@@ -598,7 +598,7 @@ define hidden i32 @NET_Wait(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %6 = tail call i64 @JVM_NanoTime(ptr noundef %0, ptr noundef null) #13
   %7 = sext i32 %3 to i64
   %8 = mul nsw i64 %7, 1000000
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = trunc i32 %2 to i16
   %spec.select = and i16 %10, 1
   %11 = shl i16 %10, 1

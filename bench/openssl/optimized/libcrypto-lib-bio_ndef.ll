@@ -14,13 +14,13 @@ entry:
   %val.addr = alloca ptr, align 8
   %sarg = alloca %struct.ASN1_STREAM_ARG_st, align 8
   store ptr %val, ptr %val.addr, align 8
-  %funcs = getelementptr inbounds i8, ptr %it, i64 32
+  %funcs = getelementptr inbounds nuw i8, ptr %it, i64 32
   %0 = load ptr, ptr %funcs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %asn1_cb = getelementptr inbounds i8, ptr %0, i64 24
+  %asn1_cb = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %asn1_cb, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then, label %if.end
@@ -62,7 +62,7 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false14
 
 if.end21:                                         ; preds = %lor.lhs.false17
   store ptr %call8, ptr %sarg, align 8
-  %ndef_bio = getelementptr inbounds i8, ptr %sarg, i64 8
+  %ndef_bio = getelementptr inbounds nuw i8, ptr %sarg, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ndef_bio, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %asn1_cb, align 8
   %call24 = call i32 %2(i32 noundef 10, ptr noundef nonnull %val.addr, ptr noundef nonnull %it, ptr noundef nonnull %sarg) #3
@@ -70,18 +70,18 @@ if.end21:                                         ; preds = %lor.lhs.false17
   br i1 %cmp25, label %err, label %if.end27
 
 if.end27:                                         ; preds = %if.end21
-  %boundary = getelementptr inbounds i8, ptr %sarg, i64 16
+  %boundary = getelementptr inbounds nuw i8, ptr %sarg, i64 16
   %3 = load ptr, ptr %val.addr, align 8
   store ptr %3, ptr %call, align 8
-  %it29 = getelementptr inbounds i8, ptr %call, i64 8
+  %it29 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %it, ptr %it29, align 8
   %4 = load ptr, ptr %ndef_bio, align 8
-  %ndef_bio31 = getelementptr inbounds i8, ptr %call, i64 16
+  %ndef_bio31 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %4, ptr %ndef_bio31, align 8
   %5 = load ptr, ptr %boundary, align 8
-  %boundary33 = getelementptr inbounds i8, ptr %call, i64 32
+  %boundary33 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %5, ptr %boundary33, align 8
-  %out34 = getelementptr inbounds i8, ptr %call, i64 24
+  %out34 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %call8, ptr %out34, align 8
   br label %return
 
@@ -124,7 +124,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %parg, align 8
   %1 = load ptr, ptr %0, align 8
-  %it = getelementptr inbounds i8, ptr %0, i64 8
+  %it = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %it, align 8
   %call = tail call i32 @ASN1_item_ndef_i2d(ptr noundef %1, ptr noundef null, ptr noundef %2) #3
   %cmp1 = icmp slt i32 %call, 0
@@ -138,13 +138,13 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end3
-  %derbuf = getelementptr inbounds i8, ptr %0, i64 40
+  %derbuf = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %call4, ptr %derbuf, align 8
   store ptr %call4, ptr %pbuf, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %it, align 8
   %call11 = call i32 @ASN1_item_ndef_i2d(ptr noundef %3, ptr noundef nonnull %p, ptr noundef %4) #3
-  %boundary = getelementptr inbounds i8, ptr %0, i64 32
+  %boundary = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %boundary, align 8
   %6 = load ptr, ptr %5, align 8
   %cmp12 = icmp eq ptr %6, null
@@ -176,7 +176,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %derbuf = getelementptr inbounds i8, ptr %0, i64 40
+  %derbuf = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %derbuf, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 171) #3
   store ptr null, ptr %derbuf, align 8
@@ -201,22 +201,22 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %parg, align 8
-  %it = getelementptr inbounds i8, ptr %0, i64 8
+  %it = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %it, align 8
-  %funcs = getelementptr inbounds i8, ptr %1, i64 32
+  %funcs = getelementptr inbounds nuw i8, ptr %1, i64 32
   %2 = load ptr, ptr %funcs, align 8
-  %ndef_bio = getelementptr inbounds i8, ptr %0, i64 16
+  %ndef_bio = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %ndef_bio, align 8
-  %ndef_bio1 = getelementptr inbounds i8, ptr %sarg, i64 8
+  %ndef_bio1 = getelementptr inbounds nuw i8, ptr %sarg, i64 8
   store ptr %3, ptr %ndef_bio1, align 8
-  %out = getelementptr inbounds i8, ptr %0, i64 24
+  %out = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %out, align 8
   store ptr %4, ptr %sarg, align 8
-  %boundary = getelementptr inbounds i8, ptr %0, i64 32
+  %boundary = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %boundary, align 8
-  %boundary3 = getelementptr inbounds i8, ptr %sarg, i64 16
+  %boundary3 = getelementptr inbounds nuw i8, ptr %sarg, i64 16
   store ptr %5, ptr %boundary3, align 8
-  %asn1_cb = getelementptr inbounds i8, ptr %2, i64 24
+  %asn1_cb = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %asn1_cb, align 8
   %call = call i32 %6(i32 noundef 11, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %sarg) #3
   %cmp5 = icmp slt i32 %call, 1
@@ -237,7 +237,7 @@ if.end13:                                         ; preds = %if.end7
   br i1 %cmp15, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end13
-  %derbuf = getelementptr inbounds i8, ptr %0, i64 40
+  %derbuf = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %call14, ptr %derbuf, align 8
   store ptr %call14, ptr %pbuf, align 8
   %9 = load ptr, ptr %0, align 8
@@ -278,7 +278,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
-  %derbuf.i = getelementptr inbounds i8, ptr %0, i64 40
+  %derbuf.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %derbuf.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 171) #3
   store ptr null, ptr %derbuf.i, align 8

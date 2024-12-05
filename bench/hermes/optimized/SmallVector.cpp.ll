@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readnone %FirstEl, i64 noundef %MinCapacity, i64 noundef %TSize) local_unnamed_addr #0 align 2 {
 entry:
-  %Capacity.i = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %Capacity.i, align 4
   %conv.i = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv.i, 1
@@ -48,7 +48,7 @@ if.then.i:                                        ; preds = %if.then9
 
 _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.then9, %if.then.i
   %2 = phi ptr [ %1, %if.then9 ], [ %.pre, %if.then.i ]
-  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i32, ptr %Size.i, align 8
   %conv.i10 = zext i32 %3 to i64
   %mul14 = mul i64 %TSize, %conv.i10

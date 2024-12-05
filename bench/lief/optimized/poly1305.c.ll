@@ -38,54 +38,54 @@ define hidden void @mbedtls_poly1305_free(ptr noundef %0) local_unnamed_addr #0 
 define hidden noundef i32 @mbedtls_poly1305_starts(ptr noundef initializes((0, 52)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i16, ptr %1, align 1
   %4 = zext i16 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = shl nuw nsw i32 %7, 16
   %9 = or disjoint i32 %8, %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = shl nuw i32 %12, 24
   %.masked = and i32 %13, 251658240
   %14 = or disjoint i32 %9, %.masked
   store i32 %14, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 1
   %17 = and i32 %16, 268435452
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 1
   %21 = and i32 %20, 268435452
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %24 = load i32, ptr %23, align 1
   %25 = and i32 %24, 268435452
-  %26 = getelementptr inbounds i8, ptr %0, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load i32, ptr %27, align 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %31 = load i32, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i32, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %37 = load i32, ptr %36, align 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
-  %40 = getelementptr inbounds i8, ptr %0, i64 52
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %39, i8 0, i64 20, i1 false)
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %40, i64 noundef 16) #8
-  %41 = getelementptr inbounds i8, ptr %0, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %41, align 8
   ret i32 0
 }
@@ -96,7 +96,7 @@ define hidden noundef i32 @mbedtls_poly1305_update(ptr nocapture noundef %0, ptr
   br i1 %.not, label %.thread48, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %.not44 = icmp eq i64 %6, 0
   br i1 %.not44, label %17, label %7
@@ -104,7 +104,7 @@ define hidden noundef i32 @mbedtls_poly1305_update(ptr nocapture noundef %0, ptr
 7:                                                ; preds = %4
   %8 = sub i64 16, %6
   %9 = icmp ult i64 %2, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %11 = getelementptr inbounds [16 x i8], ptr %10, i64 0, i64 %6
   br i1 %9, label %12, label %15
 
@@ -145,7 +145,7 @@ define hidden noundef i32 @mbedtls_poly1305_update(ptr nocapture noundef %0, ptr
 
 26:                                               ; preds = %25
   store i64 %.139, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %28 = getelementptr inbounds i8, ptr %1, i64 %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %27, ptr align 1 %28, i64 %.139, i1 false)
   br label %.thread48
@@ -160,11 +160,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noundef range(i64 1, 1152921504606846976) %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
   %5 = load i32, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %7, 2
   %13 = add i32 %12, %7
@@ -172,15 +172,15 @@ define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noun
   %15 = add i32 %14, %9
   %16 = lshr i32 %11, 2
   %17 = add i32 %16, %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %5 to i64
   %29 = zext i32 %17 to i64
@@ -393,13 +393,13 @@ define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noun
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef i32 @mbedtls_poly1305_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = getelementptr inbounds [16 x i8], ptr %6, i64 0, i64 %4
   store i8 1, ptr %7, align 1
   %8 = load i64, ptr %3, align 8
@@ -412,15 +412,15 @@ define hidden noundef i32 @mbedtls_poly1305_finish(ptr nocapture noundef %0, ptr
   br label %12
 
 12:                                               ; preds = %5, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %14 to i64
   %24 = add nuw nsw i64 %23, 5
@@ -455,25 +455,25 @@ define hidden noundef i32 @mbedtls_poly1305_finish(ptr nocapture noundef %0, ptr
   %53 = and i32 %43, %20
   %54 = and i32 %42, %37
   %55 = or i32 %53, %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i32, ptr %56, align 8
   %add.narrowed.i = add i32 %46, %57
   %add.narrowed.overflow.i = icmp ult i32 %add.narrowed.i, %46
   %58 = zext i32 %49 to i64
-  %59 = getelementptr inbounds i8, ptr %0, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %60 = load i32, ptr %59, align 4
   %61 = zext i32 %60 to i64
   %62 = add nuw nsw i64 %58, %61
   %63 = zext i1 %add.narrowed.overflow.i to i64
   %64 = add nuw nsw i64 %62, %63
   %65 = zext i32 %52 to i64
-  %66 = getelementptr inbounds i8, ptr %0, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
   %69 = add nuw nsw i64 %65, %68
   %70 = lshr i64 %64, 32
   %71 = add nuw nsw i64 %69, %70
-  %72 = getelementptr inbounds i8, ptr %0, i64 28
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %73 = load i32, ptr %72, align 4
   %74 = lshr i64 %71, 32
   %75 = trunc nuw nsw i64 %74 to i32
@@ -483,60 +483,60 @@ define hidden noundef i32 @mbedtls_poly1305_finish(ptr nocapture noundef %0, ptr
   store i8 %78, ptr %1, align 1
   %79 = lshr i32 %add.narrowed.i, 8
   %80 = trunc i32 %79 to i8
-  %81 = getelementptr inbounds i8, ptr %1, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %80, ptr %81, align 1
   %82 = lshr i32 %add.narrowed.i, 16
   %83 = trunc i32 %82 to i8
-  %84 = getelementptr inbounds i8, ptr %1, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %83, ptr %84, align 1
   %85 = lshr i32 %add.narrowed.i, 24
   %86 = trunc nuw i32 %85 to i8
-  %87 = getelementptr inbounds i8, ptr %1, i64 3
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %86, ptr %87, align 1
   %88 = trunc i64 %64 to i8
-  %89 = getelementptr inbounds i8, ptr %1, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 %88, ptr %89, align 1
   %90 = lshr i64 %64, 8
   %91 = trunc i64 %90 to i8
-  %92 = getelementptr inbounds i8, ptr %1, i64 5
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 5
   store i8 %91, ptr %92, align 1
   %93 = lshr i64 %64, 16
   %94 = trunc i64 %93 to i8
-  %95 = getelementptr inbounds i8, ptr %1, i64 6
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i8 %94, ptr %95, align 1
   %96 = lshr i64 %64, 24
   %97 = trunc i64 %96 to i8
-  %98 = getelementptr inbounds i8, ptr %1, i64 7
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 7
   store i8 %97, ptr %98, align 1
   %99 = trunc i64 %71 to i8
-  %100 = getelementptr inbounds i8, ptr %1, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %99, ptr %100, align 1
   %101 = lshr i64 %71, 8
   %102 = trunc i64 %101 to i8
-  %103 = getelementptr inbounds i8, ptr %1, i64 9
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %102, ptr %103, align 1
   %104 = lshr i64 %71, 16
   %105 = trunc i64 %104 to i8
-  %106 = getelementptr inbounds i8, ptr %1, i64 10
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 %105, ptr %106, align 1
   %107 = lshr i64 %71, 24
   %108 = trunc i64 %107 to i8
-  %109 = getelementptr inbounds i8, ptr %1, i64 11
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 11
   store i8 %108, ptr %109, align 1
   %110 = trunc i32 %77 to i8
-  %111 = getelementptr inbounds i8, ptr %1, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 %110, ptr %111, align 1
   %112 = lshr i32 %77, 8
   %113 = trunc i32 %112 to i8
-  %114 = getelementptr inbounds i8, ptr %1, i64 13
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 13
   store i8 %113, ptr %114, align 1
   %115 = lshr i32 %77, 16
   %116 = trunc i32 %115 to i8
-  %117 = getelementptr inbounds i8, ptr %1, i64 14
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 14
   store i8 %116, ptr %117, align 1
   %118 = lshr i32 %77, 24
   %119 = trunc nuw i32 %118 to i8
-  %120 = getelementptr inbounds i8, ptr %1, i64 15
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 15
   store i8 %119, ptr %120, align 1
   ret i32 0
 }
@@ -550,54 +550,54 @@ define hidden noundef i32 @mbedtls_poly1305_mac(ptr nocapture noundef readonly %
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 80) #8
   %6 = load i16, ptr %0, align 1
   %7 = zext i16 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 16
   %12 = or disjoint i32 %11, %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = shl nuw i32 %15, 24
   %.masked.i = and i32 %16, 251658240
   %17 = or disjoint i32 %12, %.masked.i
   store i32 %17, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 1
   %20 = and i32 %19, 268435452
-  %21 = getelementptr inbounds i8, ptr %5, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 1
   %24 = and i32 %23, 268435452
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %27 = load i32, ptr %26, align 1
   %28 = and i32 %27, 268435452
-  %29 = getelementptr inbounds i8, ptr %5, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i32, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load i32, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %5, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i32, ptr %36, align 1
-  %38 = getelementptr inbounds i8, ptr %5, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %40 = load i32, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %5, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %40, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %5, i64 32
-  %43 = getelementptr inbounds i8, ptr %5, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %42, i8 0, i64 20, i1 false)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %43, i64 noundef 16) #8
-  %44 = getelementptr inbounds i8, ptr %5, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i64 0, ptr %44, align 8
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %mbedtls_poly1305_update.exit, label %45
@@ -637,12 +637,12 @@ define hidden range(i32 -1, 1) i32 @mbedtls_poly1305_self_test(i32 noundef %0) l
 .split.us:                                        ; preds = %1, %11
   %3 = phi i1 [ false, %11 ], [ true, %1 ]
   %indvars.iv26 = phi i64 [ 1, %11 ], [ 0, %1 ]
-  %4 = getelementptr inbounds [2 x [32 x i8]], ptr @test_keys, i64 0, i64 %indvars.iv26
-  %5 = getelementptr inbounds [2 x [127 x i8]], ptr @test_data, i64 0, i64 %indvars.iv26
-  %6 = getelementptr inbounds [2 x i64], ptr @test_data_len, i64 0, i64 %indvars.iv26
+  %4 = getelementptr inbounds nuw [2 x [32 x i8]], ptr @test_keys, i64 0, i64 %indvars.iv26
+  %5 = getelementptr inbounds nuw [2 x [127 x i8]], ptr @test_data, i64 0, i64 %indvars.iv26
+  %6 = getelementptr inbounds nuw [2 x i64], ptr @test_data_len, i64 0, i64 %indvars.iv26
   %7 = load i64, ptr %6, align 8
   %8 = call i32 @mbedtls_poly1305_mac(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %7, ptr noundef nonnull %2)
-  %9 = getelementptr inbounds [2 x [16 x i8]], ptr @test_mac, i64 0, i64 %indvars.iv26
+  %9 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @test_mac, i64 0, i64 %indvars.iv26
   %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %9, i64 16)
   %10 = icmp eq i32 %bcmp.us, 0
   br i1 %10, label %11, label %.critedge
@@ -655,12 +655,12 @@ define hidden range(i32 -1, 1) i32 @mbedtls_poly1305_self_test(i32 noundef %0) l
   %indvars.iv = phi i64 [ 1, %22 ], [ 0, %1 ]
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %13)
-  %15 = getelementptr inbounds [2 x [32 x i8]], ptr @test_keys, i64 0, i64 %indvars.iv
-  %16 = getelementptr inbounds [2 x [127 x i8]], ptr @test_data, i64 0, i64 %indvars.iv
-  %17 = getelementptr inbounds [2 x i64], ptr @test_data_len, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [2 x [32 x i8]], ptr @test_keys, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x [127 x i8]], ptr @test_data, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i64], ptr @test_data_len, i64 0, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = call i32 @mbedtls_poly1305_mac(ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef %18, ptr noundef nonnull %2)
-  %20 = getelementptr inbounds [2 x [16 x i8]], ptr @test_mac, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @test_mac, i64 0, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %2, ptr noundef nonnull dereferenceable(16) %20, i64 16)
   %21 = icmp eq i32 %bcmp, 0
   br i1 %21, label %22, label %.split21.us

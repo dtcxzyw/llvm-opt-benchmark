@@ -128,7 +128,7 @@ define void @LAPACKE_dtp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %93 = lshr i32 %92, 1
   %94 = add nuw nsw i32 %93, %75
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds double, ptr %5, i64 %95
+  %96 = getelementptr inbounds nuw double, ptr %5, i64 %95
   store double %89, ptr %96, align 8, !tbaa !6
   %exitcond.not = icmp eq i64 %90, %44
   br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !11

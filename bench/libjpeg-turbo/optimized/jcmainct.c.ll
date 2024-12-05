@@ -5,23 +5,23 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @jinit_c_main_controller(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 432
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   %.not30 = icmp eq i32 %8, 8
   br i1 %.not30, label %17, label %9
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 15, ptr %11, align 8
   %12 = load i32, ptr %7, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 44
   store i32 %12, ptr %14, align 4
   %15 = load ptr, ptr %0, align 8
   %16 = load ptr, ptr %15, align 8
@@ -29,14 +29,14 @@ define void @jinit_c_main_controller(ptr noundef %0, i32 noundef %1) local_unnam
   br label %17
 
 17:                                               ; preds = %9, %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 128) #1
-  %22 = getelementptr inbounds i8, ptr %0, i64 440
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store ptr %21, ptr %22, align 8
   store ptr @start_pass_main, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 256
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %24 = load i32, ptr %23, align 8
   %.not31 = icmp eq i32 %24, 0
   br i1 %.not31, label %25, label %.loopexit
@@ -47,7 +47,7 @@ define void @jinit_c_main_controller(ptr noundef %0, i32 noundef %1) local_unnam
 
 26:                                               ; preds = %25
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store i32 4, ptr %28, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = load ptr, ptr %29, align 8
@@ -55,35 +55,35 @@ define void @jinit_c_main_controller(ptr noundef %0, i32 noundef %1) local_unnam
   br label %.loopexit
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %36 = load ptr, ptr %35, align 8
   %37 = select i1 %.not, i32 3, i32 0
-  %38 = getelementptr inbounds i8, ptr %21, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 48
   br label %39
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %.02933 = phi ptr [ %36, %.lr.ph ], [ %51, %39 ]
   %40 = load ptr, ptr %18, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %.02933, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %.02933, i64 28
   %44 = load i32, ptr %43, align 4
   %45 = shl i32 %44, %37
-  %46 = getelementptr inbounds i8, ptr %.02933, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %.02933, i64 12
   %47 = load i32, ptr %46, align 4
   %48 = shl i32 %47, %37
   %49 = tail call ptr %42(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %45, i32 noundef %48) #1
-  %50 = getelementptr inbounds [10 x ptr], ptr %38, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [10 x ptr], ptr %38, i64 0, i64 %indvars.iv
   store ptr %49, ptr %50, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = getelementptr inbounds i8, ptr %.02933, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %.02933, i64 96
   %52 = load i32, ptr %32, align 4
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
@@ -95,9 +95,9 @@ define void @jinit_c_main_controller(ptr noundef %0, i32 noundef %1) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 440
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %19
@@ -108,7 +108,7 @@ define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
 
 8:                                                ; preds = %7
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 4, ptr %10, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
@@ -116,15 +116,15 @@ define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
   br label %13
 
 13:                                               ; preds = %8, %7
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %4, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %1, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @process_data_simple_main, ptr %18, align 8
   br label %19
 
@@ -134,27 +134,27 @@ define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @process_data_simple_main(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 440
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 432
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
   %11 = select i1 %.not, i32 8, i32 1
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %14 = load i32, ptr %12, align 8
   %15 = load i32, ptr %13, align 8
   %16 = icmp ult i32 %14, %15
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %6, i64 36
-  %18 = getelementptr inbounds i8, ptr %0, i64 448
-  %19 = getelementptr inbounds i8, ptr %6, i64 48
-  %20 = getelementptr inbounds i8, ptr %0, i64 456
-  %21 = getelementptr inbounds i8, ptr %6, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %.pre = load i32, ptr %17, align 4
   br label %22
 
@@ -165,7 +165,7 @@ define internal void @process_data_simple_main(ptr noundef %0, ptr noundef %1, p
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %18, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %19, ptr noundef nonnull %17, i32 noundef %11) #1
   %.pre31 = load i32, ptr %17, align 4
@@ -178,7 +178,7 @@ define internal void @process_data_simple_main(ptr noundef %0, ptr noundef %1, p
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr %20, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 %34(ptr noundef nonnull %0, ptr noundef nonnull %19) #1
   %.not27 = icmp eq i32 %35, 0

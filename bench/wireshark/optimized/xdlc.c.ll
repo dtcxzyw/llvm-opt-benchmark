@@ -111,7 +111,7 @@ define hidden range(i32 0, 65536) i32 @get_xdlc_control(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 65536) i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #1 {
-  %14 = getelementptr inbounds i8, ptr %2, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef 80) #4
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #4
@@ -143,7 +143,7 @@ switch.lookup:                                    ; preds = %22, %20
   %26 = lshr i32 %25, 2
   %27 = and i32 %26, 3
   %28 = zext nneg i32 %27 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_xdlc_control, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_xdlc_control, i64 0, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.not206 = icmp eq i32 %10, 0
   %29 = select i1 %.not206, ptr @.str.35, ptr @.str.34
@@ -169,7 +169,7 @@ switch.lookup:                                    ; preds = %22, %20
 41:                                               ; preds = %35, %30
   %.0187 = phi i16 [ %31, %30 ], [ %36, %35 ]
   %.not209 = icmp eq i32 %12, 0
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
   br i1 %.not209, label %46, label %44
 
@@ -199,7 +199,7 @@ switch.lookup:                                    ; preds = %22, %20
 54:                                               ; preds = %48
   %.not212 = icmp eq i32 %10, 0
   %.in213.in.v = select i1 %.not212, i64 16, i64 24
-  %.in213.in = getelementptr inbounds i8, ptr %.0190, i64 %.in213.in.v
+  %.in213.in = getelementptr inbounds nuw i8, ptr %.0190, i64 %.in213.in.v
   %.in213 = load ptr, ptr %.in213.in, align 8
   %55 = load i32, ptr %.in213, align 4
   %56 = zext i16 %.0194 to i64
@@ -207,11 +207,11 @@ switch.lookup:                                    ; preds = %22, %20
   br label %58
 
 58:                                               ; preds = %54, %48
-  %59 = getelementptr inbounds i8, ptr %.0190, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %.0190, i64 32
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %60, align 4
   %62 = tail call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %61, ptr noundef %0, i32 noundef %1, i32 noundef %.0192, i32 noundef %25) #4
-  %63 = getelementptr inbounds i8, ptr %.0190, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %.0190, i64 64
   %64 = load ptr, ptr %63, align 8
   %65 = load i32, ptr %64, align 4
   %66 = tail call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %65, ptr noundef %0, i32 noundef %1, i32 noundef %.0192, i32 noundef %25) #4
@@ -236,7 +236,7 @@ switch.lookup:                                    ; preds = %22, %20
   %78 = select i1 %.not199, ptr @.str.36, ptr %74
   %79 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 80, ptr noundef nonnull @.str.39, ptr noundef nonnull %78, ptr noundef %75) #4
   %.not200 = icmp eq i32 %12, 0
-  %80 = getelementptr inbounds i8, ptr %2, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %81 = load ptr, ptr %80, align 8
   br i1 %.not200, label %84, label %82
 
@@ -261,7 +261,7 @@ switch.lookup:                                    ; preds = %22, %20
 
 89:                                               ; preds = %86
   %.in.in.v = select i1 %.not, i64 16, i64 24
-  %.in.in = getelementptr inbounds i8, ptr %6, i64 %.in.in.v
+  %.in.in = getelementptr inbounds nuw i8, ptr %6, i64 %.in.in.v
   %.in = load ptr, ptr %.in.in, align 8
   %90 = load i32, ptr %.in, align 4
   %91 = zext i8 %68 to i64
@@ -270,11 +270,11 @@ switch.lookup:                                    ; preds = %22, %20
 
 93:                                               ; preds = %89, %86
   %.in203.in.v = select i1 %.not, i64 40, i64 48
-  %.in203.in = getelementptr inbounds i8, ptr %6, i64 %.in203.in.v
+  %.in203.in = getelementptr inbounds nuw i8, ptr %6, i64 %.in203.in.v
   %.in203 = load ptr, ptr %.in203.in, align 8
   %94 = load i32, ptr %.in203, align 4
   %95 = tail call ptr @proto_tree_add_uint(ptr noundef %88, i32 noundef %94, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %76) #4
-  %96 = getelementptr inbounds i8, ptr %6, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %97 = load ptr, ptr %96, align 8
   %98 = load i32, ptr %97, align 4
   %99 = tail call ptr @proto_tree_add_uint(ptr noundef %88, i32 noundef %98, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %76) #4
@@ -316,7 +316,7 @@ switch.lookup:                                    ; preds = %22, %20
   %.1189 = phi ptr [ @.str.27, %101 ], [ @.str.28, %110 ]
   %.1.in = phi i32 [ %104, %101 ], [ %114, %110 ]
   %.not217 = icmp eq i32 %12, 0
-  %121 = getelementptr inbounds i8, ptr %2, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %122 = load ptr, ptr %121, align 8
   br i1 %.not217, label %125, label %123
 
@@ -341,7 +341,7 @@ switch.lookup:                                    ; preds = %22, %20
   %131 = load ptr, ptr %.1191, align 8
   %132 = load i32, ptr %131, align 4
   %133 = tail call ptr @proto_tree_add_uint(ptr noundef %130, i32 noundef %132, ptr noundef %0, i32 noundef %1, i32 noundef %.1193, i32 noundef %128) #4
-  %134 = getelementptr inbounds i8, ptr %.1191, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.1191, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = load i32, ptr %135, align 4
   %137 = tail call ptr @proto_tree_add_uint(ptr noundef %130, i32 noundef %136, ptr noundef %0, i32 noundef %1, i32 noundef %.1193, i32 noundef %128) #4
@@ -349,7 +349,7 @@ switch.lookup:                                    ; preds = %22, %20
   br i1 %.not219, label %144, label %138
 
 138:                                              ; preds = %127
-  %139 = getelementptr inbounds i8, ptr %.1191, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %.1191, i64 16
   %140 = load ptr, ptr %139, align 8
   %141 = load i32, ptr %140, align 4
   %142 = zext i16 %.2 to i64
@@ -357,7 +357,7 @@ switch.lookup:                                    ; preds = %22, %20
   br label %144
 
 144:                                              ; preds = %138, %127
-  %145 = getelementptr inbounds i8, ptr %.1191, i64 56
+  %145 = getelementptr inbounds nuw i8, ptr %.1191, i64 56
   %146 = load ptr, ptr %145, align 8
   %147 = load i32, ptr %146, align 4
   %148 = tail call ptr @proto_tree_add_uint(ptr noundef %130, i32 noundef %147, ptr noundef %0, i32 noundef %1, i32 noundef %.1193, i32 noundef %128) #4

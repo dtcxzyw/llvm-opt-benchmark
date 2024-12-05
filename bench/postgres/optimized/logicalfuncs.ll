@@ -39,12 +39,12 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %7 = alloca %struct.XLogReaderRoutine, align 8
   %8 = alloca ptr, align 8
   %9 = zext i1 %2 to i8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @CheckSlotPermissions() #7
   call void @CheckLogicalDecodingRequirements() #7
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %20
@@ -58,7 +58,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   unreachable
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr i8, ptr %0, i64 56
@@ -107,15 +107,15 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %50 = inttoptr i64 %49 to ptr
   %51 = call ptr @pg_detoast_datum(ptr noundef %50) #7
   %52 = call ptr @palloc0(i64 noundef 32) #7
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i8 %9, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %11, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %57, ptr @CurrentMemoryContext, align 8
-  %59 = getelementptr inbounds i8, ptr %51, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = icmp ugt i32 %60, 1
   br i1 %61, label %62, label %66
@@ -190,12 +190,12 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %72
   %.062 = phi ptr [ null, %72 ], [ null, %.preheader ], [ %97, %.lr.ph ]
   call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #7
-  %101 = getelementptr inbounds i8, ptr %11, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %102 = load ptr, ptr %101, align 8
   store ptr %102, ptr %52, align 8
-  %103 = getelementptr inbounds i8, ptr %11, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %52, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %104, ptr %105, align 8
   %106 = call zeroext i1 @RecoveryInProgress() #7
   br i1 %106, label %109, label %107
@@ -220,16 +220,16 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 116:                                              ; preds = %111
   store ptr %6, ptr @PG_exception_stack, align 8
   store ptr @read_local_xlog_page, ptr %7, align 8
-  %117 = getelementptr inbounds i8, ptr %7, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @wal_segment_open, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %7, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @wal_segment_close, ptr %118, align 8
   %119 = call ptr @CreateDecodingContext(i64 noundef 0, ptr noundef %.062, i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef nonnull @LogicalOutputPrepareWrite, ptr noundef nonnull @LogicalOutputWrite, ptr noundef null) #7
   store ptr %58, ptr @CurrentMemoryContext, align 8
   br i1 %2, label %133, label %120
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %119, i64 216
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 216
   %122 = load i32, ptr %121, align 8
   %.not66 = icmp eq i32 %122, 1
   br i1 %.not66, label %133, label %123
@@ -239,9 +239,9 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   call void @llvm.assume(i1 %124)
   %125 = call i32 @errcode(i32 noundef 1088) #7
   %126 = load ptr, ptr @MyReplicationSlot, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 137
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 137
   %128 = load ptr, ptr %0, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load i32, ptr %129, align 8
   %131 = call ptr @format_procedure(i32 noundef %130) #7
   %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %127, ptr noundef %131) #7
@@ -249,17 +249,17 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   unreachable
 
 133:                                              ; preds = %120, %116
-  %134 = getelementptr inbounds i8, ptr %119, i64 272
+  %134 = getelementptr inbounds nuw i8, ptr %119, i64 272
   store ptr %52, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %119, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr @MyReplicationSlot, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 104
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 104
   %139 = load i64, ptr %138, align 8
   call void @XLogBeginRead(ptr noundef %136, i64 noundef %139) #7
   call void @InvalidateSystemCaches() #7
   %140 = load ptr, ptr %135, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 48
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 48
   %142 = load i64, ptr %141, align 8
   %143 = icmp ult i64 %142, %.061
   br i1 %143, label %.lr.ph78, label %._crit_edge
@@ -268,7 +268,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %.not69 = icmp eq i64 %.0, 0
   %.not71 = icmp eq i32 %.060, 0
   %144 = sext i32 %.060 to i64
-  %145 = getelementptr inbounds i8, ptr %52, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %52, i64 24
   br i1 %.not69, label %.lr.ph78.split.us, label %.lr.ph78.split
 
 .lr.ph78.split.us:                                ; preds = %.lr.ph78
@@ -302,7 +302,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 155:                                              ; preds = %154, %152
   %156 = load ptr, ptr %135, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 48
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 48
   %158 = load i64, ptr %157, align 8
   %159 = icmp ult i64 %158, %.061
   br i1 %159, label %.lr.ph78.split.us.split.us, label %._crit_edge, !llvm.loop !7
@@ -344,7 +344,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 171:                                              ; preds = %170, %168
   %172 = load ptr, ptr %135, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 48
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 48
   %174 = load i64, ptr %173, align 8
   %175 = icmp ult i64 %174, %.061
   br i1 %175, label %.lr.ph78.split.us.split, label %._crit_edge, !llvm.loop !7
@@ -371,7 +371,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 182:                                              ; preds = %180, %179
   %183 = load ptr, ptr %135, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 48
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 48
   %185 = load i64, ptr %184, align 8
   %.not70.us = icmp ugt i64 %.0, %185
   br i1 %.not70.us, label %186, label %._crit_edge
@@ -384,7 +384,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 188:                                              ; preds = %186
   call void @ProcessInterrupts() #7
   %.pre92 = load ptr, ptr %135, align 8
-  %.phi.trans.insert93 = getelementptr inbounds i8, ptr %.pre92, i64 48
+  %.phi.trans.insert93 = getelementptr inbounds nuw i8, ptr %.pre92, i64 48
   %.pre94 = load i64, ptr %.phi.trans.insert93, align 8
   br label %189
 
@@ -421,7 +421,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 202:                                              ; preds = %200, %199
   %203 = load ptr, ptr %135, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 48
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 48
   %205 = load i64, ptr %204, align 8
   %.not70 = icmp ugt i64 %.0, %205
   br i1 %.not70, label %206, label %._crit_edge
@@ -439,7 +439,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 210:                                              ; preds = %208
   call void @ProcessInterrupts() #7
   %.pre = load ptr, ptr %135, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %.pre91 = load i64, ptr %.phi.trans.insert, align 8
   br label %211
 
@@ -452,7 +452,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 ._crit_edge:                                      ; preds = %211, %202, %206, %189, %182, %171, %155, %.._crit_edge.loopexit86_crit_edge, %133
   %215 = phi ptr [ %140, %133 ], [ %.pre95.pre, %.._crit_edge.loopexit86_crit_edge ], [ %156, %155 ], [ %172, %171 ], [ %191, %189 ], [ %183, %182 ], [ %213, %211 ], [ %203, %202 ], [ %203, %206 ]
   store ptr %12, ptr @CurrentResourceOwner, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 48
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 48
   %217 = load i64, ptr %216, align 8
   %.not74 = icmp ne i64 %217, 0
   %brmerge.not = and i1 %1, %.not74
@@ -499,7 +499,7 @@ define dso_local noundef i64 @pg_logical_slot_peek_binary_changes(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_logical_emit_message_bytea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -516,7 +516,7 @@ define dso_local i64 @pg_logical_emit_message_bytea(ptr nocapture noundef readon
   %16 = zext i8 %15 to i32
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %19 = icmp eq i8 %15, 1
   br i1 %19, label %20, label %28
 
@@ -551,7 +551,7 @@ define dso_local i64 @pg_logical_emit_message_bytea(ptr nocapture noundef readon
   %39 = phi i64 [ %27, %20 ], [ %32, %29 ], [ %37, %33 ]
   %40 = icmp ne i64 %14, 0
   %41 = icmp ne i64 %3, 0
-  %42 = getelementptr inbounds i8, ptr %12, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %43 = select i1 %.not, ptr %42, ptr %18
   %44 = tail call i64 @LogLogicalMessage(ptr noundef %8, ptr noundef nonnull %43, i64 noundef %39, i1 noundef zeroext %41, i1 noundef zeroext %40) #7
   ret i64 %44
@@ -619,7 +619,7 @@ declare void @wal_segment_close(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @LogicalOutputPrepareWrite(ptr nocapture noundef readonly %0, i64 %1, i32 %2, i1 zeroext %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8
   tail call void @resetStringInfo(ptr noundef %6) #7
   ret void
@@ -629,9 +629,9 @@ define internal void @LogicalOutputPrepareWrite(ptr nocapture noundef readonly %
 define internal void @LogicalOutputWrite(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i1 zeroext %3) #0 {
   %5 = alloca [3 x i64], align 16
   %6 = alloca [3 x i8], align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp ugt i32 %10, 1073741819
   br i1 %11, label %12, label %15
@@ -644,23 +644,23 @@ define internal void @LogicalOutputWrite(ptr nocapture noundef readonly %0, i64 
   unreachable
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %17 = load ptr, ptr %16, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, i8 0, i64 3, i1 false)
   store i64 %1, ptr %5, align 16
   %18 = zext i32 %2 to i64
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %18, ptr %19, align 8
   %20 = load ptr, ptr %8, align 8
   %21 = tail call ptr @cstring_to_text_with_len(ptr noundef %20, i32 noundef %10) #7
   %22 = ptrtoint ptr %21 to i64
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %22, ptr %23, align 16
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %26 = load ptr, ptr %25, align 8
   call void @tuplestore_putvalues(ptr noundef %24, ptr noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
-  %27 = getelementptr inbounds i8, ptr %17, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8

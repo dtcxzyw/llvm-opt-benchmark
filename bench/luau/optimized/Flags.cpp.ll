@@ -31,7 +31,7 @@ define dso_local void @_Z19setLuauFlagsDefaultv() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %_ZN4Luau18isFlagExperimentalEPKc.exit.thread
   %.08 = phi ptr [ %.0, %_ZN4Luau18isFlagExperimentalEPKc.exit.thread ], [ %.06, %0 ]
-  %1 = getelementptr inbounds i8, ptr %.08, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %2 = load ptr, ptr %1, align 8
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 4) #7
   %4 = icmp eq i32 %3, 0
@@ -39,7 +39,7 @@ define dso_local void @_Z19setLuauFlagsDefaultv() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.lr.ph, %9
   %.08.idx11.i = phi i64 [ %.08.add.i, %9 ], [ 0, %.lr.ph ]
-  %.08.ptr.i = getelementptr inbounds i8, ptr @_ZZN4Luau18isFlagExperimentalEPKcE5kList, i64 %.08.idx11.i
+  %.08.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZN4Luau18isFlagExperimentalEPKcE5kList, i64 %.08.idx11.i
   %5 = load ptr, ptr %.08.ptr.i, align 8
   %.not10.i = icmp eq ptr %5, null
   br i1 %.not10.i, label %9, label %6
@@ -59,7 +59,7 @@ _ZN4Luau18isFlagExperimentalEPKc.exit:            ; preds = %9
   br label %_ZN4Luau18isFlagExperimentalEPKc.exit.thread
 
 _ZN4Luau18isFlagExperimentalEPKc.exit.thread:     ; preds = %6, %.lr.ph, %_ZN4Luau18isFlagExperimentalEPKc.exit
-  %10 = getelementptr inbounds i8, ptr %.08, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.08, i64 16
   %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -97,7 +97,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt11char_traitsI
   br i1 %7, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit, label %8
 
 8:                                                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %9 = getelementptr inbounds i8, ptr %6, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %10 = ptrtoint ptr %9 to i64
   %11 = sub i64 %5, %10
   %.not25.i.i = icmp eq i64 %11, 0
@@ -166,21 +166,21 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %30
   %.09.us.i = phi ptr [ %.0.us.i, %30 ], [ %.07.i, %.lr.ph.i ]
-  %27 = getelementptr inbounds i8, ptr %.09.us.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.09.us.i, i64 8
   %28 = load ptr, ptr %27, align 8
   %char0.i = load i8, ptr %28, align 1
   %29 = icmp eq i8 %char0.i, 0
   br i1 %29, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i, label %30
 
 30:                                               ; preds = %.lr.ph.split.us.i
-  %31 = getelementptr inbounds i8, ptr %.09.us.i, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.09.us.i, i64 16
   %.0.us.i = load ptr, ptr %31, align 8
   %.not.us.i = icmp eq ptr %.0.us.i, null
   br i1 %.not.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !8
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %37
   %.09.i = phi ptr [ %.0.i39, %37 ], [ %.07.i, %.lr.ph.i ]
-  %32 = getelementptr inbounds i8, ptr %.09.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #8
   %35 = icmp eq i64 %.sroa.speculated.i28, %34
@@ -197,7 +197,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %_ZL11setLuauFlagSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
 37:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.split.i
-  %38 = getelementptr inbounds i8, ptr %.09.i, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
   %.0.i39 = load ptr, ptr %38, align 8
   %.not.i40 = icmp eq ptr %.0.i39, null
   br i1 %.not.i40, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !8
@@ -229,21 +229,21 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 .lr.ph.split.us.i63:                              ; preds = %.lr.ph.i53, %48
   %.09.us.i64 = phi ptr [ %.0.us.i66, %48 ], [ %.07.i51, %.lr.ph.i53 ]
-  %45 = getelementptr inbounds i8, ptr %.09.us.i64, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.09.us.i64, i64 8
   %46 = load ptr, ptr %45, align 8
   %char0.i65 = load i8, ptr %46, align 1
   %47 = icmp eq i8 %char0.i65, 0
   br i1 %47, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i61, label %48
 
 48:                                               ; preds = %.lr.ph.split.us.i63
-  %49 = getelementptr inbounds i8, ptr %.09.us.i64, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.09.us.i64, i64 16
   %.0.us.i66 = load ptr, ptr %49, align 8
   %.not.us.i67 = icmp eq ptr %.0.us.i66, null
   br i1 %.not.us.i67, label %._crit_edge.i58, label %.lr.ph.split.us.i63, !llvm.loop !8
 
 .lr.ph.split.i54:                                 ; preds = %.lr.ph.i53, %55
   %.09.i55 = phi ptr [ %.0.i56, %55 ], [ %.07.i51, %.lr.ph.i53 ]
-  %50 = getelementptr inbounds i8, ptr %.09.i55, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.09.i55, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #8
   %53 = icmp eq i64 %.sroa.speculated.i28, %52
@@ -260,7 +260,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %_ZL11setLuauFlagSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
 55:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i59, %.lr.ph.split.i54
-  %56 = getelementptr inbounds i8, ptr %.09.i55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.09.i55, i64 16
   %.0.i56 = load ptr, ptr %56, align 8
   %.not.i57 = icmp eq ptr %.0.i56, null
   br i1 %.not.i57, label %._crit_edge.i58, label %.lr.ph.split.i54, !llvm.loop !8
@@ -308,7 +308,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 .lr.ph.i77:                                       ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit72, %72
   %.06.i = phi ptr [ %.0.i78, %72 ], [ %.04.i, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit72 ]
-  %67 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 4) #7
   %70 = icmp eq i32 %69, 0
@@ -319,7 +319,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %72
 
 72:                                               ; preds = %71, %.lr.ph.i77
-  %73 = getelementptr inbounds i8, ptr %.06.i, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
   %.0.i78 = load ptr, ptr %73, align 8
   %.not.i79 = icmp eq ptr %.0.i78, null
   br i1 %.not.i79, label %_ZL11setLuauFlagSt17basic_string_viewIcSt11char_traitsIcEEb.exit, label %.lr.ph.i77, !llvm.loop !9
@@ -342,7 +342,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 .lr.ph.i91:                                       ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit84, %81
   %.06.i92 = phi ptr [ %.0.i93, %81 ], [ %.04.i89, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit84 ]
-  %76 = getelementptr inbounds i8, ptr %.06.i92, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.06.i92, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 4) #7
   %79 = icmp eq i32 %78, 0
@@ -353,7 +353,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %81
 
 81:                                               ; preds = %80, %.lr.ph.i91
-  %82 = getelementptr inbounds i8, ptr %.06.i92, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.06.i92, i64 16
   %.0.i93 = load ptr, ptr %82, align 8
   %.not.i94 = icmp eq ptr %.0.i93, null
   br i1 %.not.i94, label %_ZL11setLuauFlagSt17basic_string_viewIcSt11char_traitsIcEEb.exit, label %.lr.ph.i91, !llvm.loop !9
@@ -371,21 +371,21 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 .lr.ph.split.us.i110:                             ; preds = %.lr.ph.i100, %87
   %.09.us.i111 = phi ptr [ %.0.us.i113, %87 ], [ %.07.i98, %.lr.ph.i100 ]
-  %84 = getelementptr inbounds i8, ptr %.09.us.i111, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.09.us.i111, i64 8
   %85 = load ptr, ptr %84, align 8
   %char0.i112 = load i8, ptr %85, align 1
   %86 = icmp eq i8 %char0.i112, 0
   br i1 %86, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i108, label %87
 
 87:                                               ; preds = %.lr.ph.split.us.i110
-  %88 = getelementptr inbounds i8, ptr %.09.us.i111, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.09.us.i111, i64 16
   %.0.us.i113 = load ptr, ptr %88, align 8
   %.not.us.i114 = icmp eq ptr %.0.us.i113, null
   br i1 %.not.us.i114, label %._crit_edge.i105, label %.lr.ph.split.us.i110, !llvm.loop !8
 
 .lr.ph.split.i101:                                ; preds = %.lr.ph.i100, %94
   %.09.i102 = phi ptr [ %.0.i103, %94 ], [ %.07.i98, %.lr.ph.i100 ]
-  %89 = getelementptr inbounds i8, ptr %.09.i102, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.09.i102, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #8
   %92 = icmp eq i64 %.fr11.i97205, %91
@@ -402,7 +402,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br label %_ZL11setLuauFlagSt17basic_string_viewIcSt11char_traitsIcEEb.exit
 
 94:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i106, %.lr.ph.split.i101
-  %95 = getelementptr inbounds i8, ptr %.09.i102, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.09.i102, i64 16
   %.0.i103 = load ptr, ptr %95, align 8
   %.not.i104 = icmp eq ptr %.0.i103, null
   br i1 %.not.i104, label %._crit_edge.i105, label %.lr.ph.split.i101, !llvm.loop !8

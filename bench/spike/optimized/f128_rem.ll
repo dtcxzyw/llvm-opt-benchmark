@@ -57,9 +57,9 @@ define { i64, i64 } @f128_rem(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 29:                                               ; preds = %27
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %5, i64 noundef %14, i64 noundef %2) #3
   %.sroa.086.0.copyload = load i64, ptr %5, align 8
-  %.sroa.489.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.489.sroa.0.0.copyload = load i64, ptr %.sroa.489.0..sroa_idx, align 8
-  %.sroa.489.sroa.4.0..sroa.489.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.489.sroa.4.0..sroa.489.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.489.sroa.4.0.copyload = load i64, ptr %.sroa.489.sroa.4.0..sroa.489.0..sroa_idx.sroa_idx, align 8
   br label %30
 
@@ -83,9 +83,9 @@ define { i64, i64 } @f128_rem(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 36:                                               ; preds = %31
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %6, i64 noundef %11, i64 noundef %0) #3
   %.sroa.086.0.copyload88 = load i64, ptr %6, align 8
-  %.sroa.489.0..sroa_idx90 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.489.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.489.sroa.0.0.copyload118 = load i64, ptr %.sroa.489.0..sroa_idx90, align 8
-  %.sroa.489.sroa.4.0..sroa.489.0..sroa_idx90.sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.489.sroa.4.0..sroa.489.0..sroa_idx90.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.489.sroa.4.0.copyload120 = load i64, ptr %.sroa.489.sroa.4.0..sroa.489.0..sroa_idx90.sroa_idx, align 8
   br label %37
 

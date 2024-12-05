@@ -5,11 +5,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hc9a4b36870ac4372E"(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = add i64 %5, %2
   store i64 %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %22, label %10
@@ -22,7 +22,7 @@ define void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..
   %15 = shl i64 %14, 3
   %16 = and i64 %15, 56
   %17 = shl i64 %13, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load i64, ptr %18, align 8, !noundef !3
   %20 = or i64 %17, %19
   store i64 %20, ptr %18, align 8
@@ -38,11 +38,11 @@ define void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %39
 
 28:                                               ; preds = %10
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i64, ptr %29, align 8, !noundef !3
   %31 = xor i64 %30, %20
   store i64 %31, ptr %29, align 8
@@ -61,7 +61,7 @@ define void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..
 ._crit_edge:                                      ; preds = %39, %22
   %.09.lcssa = phi i64 [ %.0, %22 ], [ %45, %39 ]
   %37 = tail call i64 @_ZN4core4hash3sip9u8to64_le17heec10e43a3e70f05E(ptr align 1 %1, i64 %2, i64 %.09.lcssa, i64 %24)
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %37, ptr %38, align 8
   br label %47
 
@@ -90,13 +90,13 @@ define void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..
 define noundef i64 @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$6finish17h95d334a0b306645cE"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = alloca { i64, i64, i64, i64 }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = shl i64 %4, 56
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i64, ptr %6, align 8, !noundef !3
   %8 = or i64 %5, %7
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !3
   %11 = xor i64 %10, %8
   store i64 %11, ptr %9, align 8
@@ -104,13 +104,13 @@ define noundef i64 @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core.
   %12 = load i64, ptr %2, align 8, !noundef !3
   %13 = xor i64 %12, %8
   store i64 %13, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = xor i64 %15, 255
   store i64 %16, ptr %14, align 8
   call void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..hash..sip..Sip$GT$8d_rounds17h1c8824a2aaa6d09bE"(ptr nonnull align 8 %2)
   %17 = load i64, ptr %2, align 8, !noundef !3
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !3
   %20 = xor i64 %19, %17
   %21 = load i64, ptr %14, align 8, !noundef !3

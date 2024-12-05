@@ -121,7 +121,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_java_awt_image_BufferedImage_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #1
   store ptr %6, ptr @g_BImgRasterID, align 8
@@ -130,7 +130,7 @@ define void @Java_java_awt_image_BufferedImage_initIDs(ptr noundef %0, ptr nound
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #1
   store ptr %12, ptr @g_BImgTypeID, align 8
@@ -139,7 +139,7 @@ define void @Java_java_awt_image_BufferedImage_initIDs(ptr noundef %0, ptr nound
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #1
   store ptr %18, ptr @g_BImgCMID, align 8
@@ -148,7 +148,7 @@ define void @Java_java_awt_image_BufferedImage_initIDs(ptr noundef %0, ptr nound
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 264
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 264
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #1
   store ptr %24, ptr @g_BImgGetRGBMID, align 8
@@ -157,7 +157,7 @@ define void @Java_java_awt_image_BufferedImage_initIDs(ptr noundef %0, ptr nound
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 264
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 264
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #1
   store ptr %30, ptr @g_BImgSetRGBMID, align 8
@@ -170,7 +170,7 @@ define void @Java_java_awt_image_BufferedImage_initIDs(ptr noundef %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define void @Java_java_awt_image_Raster_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.3) #1
   store ptr %6, ptr @g_RasterWidthID, align 8
@@ -179,7 +179,7 @@ define void @Java_java_awt_image_Raster_initIDs(ptr noundef %0, ptr noundef %1) 
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3) #1
   store ptr %12, ptr @g_RasterHeightID, align 8
@@ -188,7 +188,7 @@ define void @Java_java_awt_image_Raster_initIDs(ptr noundef %0, ptr noundef %1) 
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.3) #1
   store ptr %18, ptr @g_RasterNumBandsID, align 8
@@ -197,7 +197,7 @@ define void @Java_java_awt_image_Raster_initIDs(ptr noundef %0, ptr noundef %1) 
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.3) #1
   store ptr %24, ptr @g_RasterMinXID, align 8
@@ -206,7 +206,7 @@ define void @Java_java_awt_image_Raster_initIDs(ptr noundef %0, ptr noundef %1) 
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.3) #1
   store ptr %30, ptr @g_RasterMinYID, align 8
@@ -215,7 +215,7 @@ define void @Java_java_awt_image_Raster_initIDs(ptr noundef %0, ptr noundef %1) 
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 752
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 752
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.3) #1
   store ptr %36, ptr @g_RasterBaseOriginXID, align 8
@@ -224,7 +224,7 @@ define void @Java_java_awt_image_Raster_initIDs(ptr noundef %0, ptr noundef %1) 
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 752
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 752
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.3) #1
   store ptr %42, ptr @g_RasterBaseOriginYID, align 8
@@ -233,7 +233,7 @@ define void @Java_java_awt_image_Raster_initIDs(ptr noundef %0, ptr noundef %1) 
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 752
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 752
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #1
   store ptr %48, ptr @g_RasterSampleModelID, align 8
@@ -242,7 +242,7 @@ define void @Java_java_awt_image_Raster_initIDs(ptr noundef %0, ptr noundef %1) 
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 752
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 752
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.3) #1
   store ptr %54, ptr @g_RasterNumDataElementsID, align 8
@@ -251,7 +251,7 @@ define void @Java_java_awt_image_Raster_initIDs(ptr noundef %0, ptr noundef %1) 
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 752
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 752
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.3) #1
   store ptr %60, ptr @g_RasterNumBandsID, align 8
@@ -260,7 +260,7 @@ define void @Java_java_awt_image_Raster_initIDs(ptr noundef %0, ptr noundef %1) 
 
 62:                                               ; preds = %56
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 752
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 752
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #1
   store ptr %66, ptr @g_RasterDataBufferID, align 8
@@ -273,7 +273,7 @@ define void @Java_java_awt_image_Raster_initIDs(ptr noundef %0, ptr noundef %1) 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_image_ByteComponentRaster_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #1
   store ptr %6, ptr @g_BCRdataID, align 8
@@ -282,7 +282,7 @@ define void @Java_sun_awt_image_ByteComponentRaster_initIDs(ptr noundef %0, ptr 
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.3) #1
   store ptr %12, ptr @g_BCRscanstrID, align 8
@@ -291,7 +291,7 @@ define void @Java_sun_awt_image_ByteComponentRaster_initIDs(ptr noundef %0, ptr 
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.3) #1
   store ptr %18, ptr @g_BCRpixstrID, align 8
@@ -300,7 +300,7 @@ define void @Java_sun_awt_image_ByteComponentRaster_initIDs(ptr noundef %0, ptr 
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #1
   store ptr %24, ptr @g_BCRdataOffsetsID, align 8
@@ -309,7 +309,7 @@ define void @Java_sun_awt_image_ByteComponentRaster_initIDs(ptr noundef %0, ptr 
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.3) #1
   store ptr %30, ptr @g_BCRtypeID, align 8
@@ -322,7 +322,7 @@ define void @Java_sun_awt_image_ByteComponentRaster_initIDs(ptr noundef %0, ptr 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_image_BytePackedRaster_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #1
   store ptr %6, ptr @g_BPRdataID, align 8
@@ -331,7 +331,7 @@ define void @Java_sun_awt_image_BytePackedRaster_initIDs(ptr noundef %0, ptr nou
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.3) #1
   store ptr %12, ptr @g_BPRscanstrID, align 8
@@ -340,7 +340,7 @@ define void @Java_sun_awt_image_BytePackedRaster_initIDs(ptr noundef %0, ptr nou
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.3) #1
   store ptr %18, ptr @g_BPRpixstrID, align 8
@@ -349,7 +349,7 @@ define void @Java_sun_awt_image_BytePackedRaster_initIDs(ptr noundef %0, ptr nou
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.3) #1
   store ptr %24, ptr @g_BPRtypeID, align 8
@@ -358,7 +358,7 @@ define void @Java_sun_awt_image_BytePackedRaster_initIDs(ptr noundef %0, ptr nou
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.3) #1
   store ptr %30, ptr @g_BPRdataBitOffsetID, align 8
@@ -371,7 +371,7 @@ define void @Java_sun_awt_image_BytePackedRaster_initIDs(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_image_ShortComponentRaster_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.31) #1
   store ptr %6, ptr @g_SCRdataID, align 8
@@ -380,7 +380,7 @@ define void @Java_sun_awt_image_ShortComponentRaster_initIDs(ptr noundef %0, ptr
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.3) #1
   store ptr %12, ptr @g_SCRscanstrID, align 8
@@ -389,7 +389,7 @@ define void @Java_sun_awt_image_ShortComponentRaster_initIDs(ptr noundef %0, ptr
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.3) #1
   store ptr %18, ptr @g_SCRpixstrID, align 8
@@ -398,7 +398,7 @@ define void @Java_sun_awt_image_ShortComponentRaster_initIDs(ptr noundef %0, ptr
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #1
   store ptr %24, ptr @g_SCRdataOffsetsID, align 8
@@ -407,7 +407,7 @@ define void @Java_sun_awt_image_ShortComponentRaster_initIDs(ptr noundef %0, ptr
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.3) #1
   store ptr %30, ptr @g_SCRtypeID, align 8
@@ -420,7 +420,7 @@ define void @Java_sun_awt_image_ShortComponentRaster_initIDs(ptr noundef %0, ptr
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_image_IntegerComponentRaster_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.27) #1
   store ptr %6, ptr @g_ICRdataID, align 8
@@ -429,7 +429,7 @@ define void @Java_sun_awt_image_IntegerComponentRaster_initIDs(ptr noundef %0, p
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.3) #1
   store ptr %12, ptr @g_ICRscanstrID, align 8
@@ -438,7 +438,7 @@ define void @Java_sun_awt_image_IntegerComponentRaster_initIDs(ptr noundef %0, p
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.3) #1
   store ptr %18, ptr @g_ICRpixstrID, align 8
@@ -447,7 +447,7 @@ define void @Java_sun_awt_image_IntegerComponentRaster_initIDs(ptr noundef %0, p
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #1
   store ptr %24, ptr @g_ICRdataOffsetsID, align 8
@@ -456,7 +456,7 @@ define void @Java_sun_awt_image_IntegerComponentRaster_initIDs(ptr noundef %0, p
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.3) #1
   store ptr %30, ptr @g_ICRtypeID, align 8
@@ -469,7 +469,7 @@ define void @Java_sun_awt_image_IntegerComponentRaster_initIDs(ptr noundef %0, p
 ; Function Attrs: nounwind uwtable
 define void @Java_java_awt_image_SinglePixelPackedSampleModel_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.27) #1
   store ptr %6, ptr @g_SPPSMmaskArrID, align 8
@@ -478,7 +478,7 @@ define void @Java_java_awt_image_SinglePixelPackedSampleModel_initIDs(ptr nounde
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.27) #1
   store ptr %12, ptr @g_SPPSMmaskOffID, align 8
@@ -487,7 +487,7 @@ define void @Java_java_awt_image_SinglePixelPackedSampleModel_initIDs(ptr nounde
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.27) #1
   store ptr %18, ptr @g_SPPSMnBitsID, align 8
@@ -496,7 +496,7 @@ define void @Java_java_awt_image_SinglePixelPackedSampleModel_initIDs(ptr nounde
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.3) #1
   store ptr %24, ptr @g_SPPSMmaxBitID, align 8
@@ -509,7 +509,7 @@ define void @Java_java_awt_image_SinglePixelPackedSampleModel_initIDs(ptr nounde
 ; Function Attrs: nounwind uwtable
 define void @Java_java_awt_image_ColorModel_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.27) #1
   store ptr %6, ptr @g_CMnBitsID, align 8
@@ -518,7 +518,7 @@ define void @Java_java_awt_image_ColorModel_initIDs(ptr noundef %0, ptr noundef 
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38) #1
   store ptr %12, ptr @g_CMcspaceID, align 8
@@ -527,7 +527,7 @@ define void @Java_java_awt_image_ColorModel_initIDs(ptr noundef %0, ptr noundef 
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.3) #1
   store ptr %18, ptr @g_CMnumComponentsID, align 8
@@ -536,7 +536,7 @@ define void @Java_java_awt_image_ColorModel_initIDs(ptr noundef %0, ptr noundef 
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41) #1
   store ptr %24, ptr @g_CMsuppAlphaID, align 8
@@ -545,7 +545,7 @@ define void @Java_java_awt_image_ColorModel_initIDs(ptr noundef %0, ptr noundef 
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.41) #1
   store ptr %30, ptr @g_CMisAlphaPreID, align 8
@@ -554,7 +554,7 @@ define void @Java_java_awt_image_ColorModel_initIDs(ptr noundef %0, ptr noundef 
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 752
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 752
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.3) #1
   store ptr %36, ptr @g_CMtransparencyID, align 8
@@ -563,7 +563,7 @@ define void @Java_java_awt_image_ColorModel_initIDs(ptr noundef %0, ptr noundef 
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 752
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 752
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.3) #1
   store ptr %42, ptr @g_CMcsTypeID, align 8
@@ -572,7 +572,7 @@ define void @Java_java_awt_image_ColorModel_initIDs(ptr noundef %0, ptr noundef 
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 752
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 752
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.41) #1
   store ptr %48, ptr @g_CMis_sRGBID, align 8
@@ -581,7 +581,7 @@ define void @Java_java_awt_image_ColorModel_initIDs(ptr noundef %0, ptr noundef 
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 904
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 904
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47) #1
   store ptr %54, ptr @g_CMgetRGBdefaultMID, align 8
@@ -594,7 +594,7 @@ define void @Java_java_awt_image_ColorModel_initIDs(ptr noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define void @Java_java_awt_image_IndexColorModel_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3) #1
   store ptr %6, ptr @g_ICMtransIdxID, align 8
@@ -603,7 +603,7 @@ define void @Java_java_awt_image_IndexColorModel_initIDs(ptr noundef %0, ptr nou
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3) #1
   store ptr %12, ptr @g_ICMmapSizeID, align 8
@@ -612,7 +612,7 @@ define void @Java_java_awt_image_IndexColorModel_initIDs(ptr noundef %0, ptr nou
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.27) #1
   store ptr %18, ptr @g_ICMrgbID, align 8
@@ -625,7 +625,7 @@ define void @Java_java_awt_image_IndexColorModel_initIDs(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define void @Java_java_awt_image_SampleModel_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.3) #1
   store ptr %6, ptr @g_SMWidthID, align 8
@@ -634,7 +634,7 @@ define void @Java_java_awt_image_SampleModel_initIDs(ptr noundef %0, ptr noundef
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3) #1
   store ptr %12, ptr @g_SMHeightID, align 8
@@ -643,7 +643,7 @@ define void @Java_java_awt_image_SampleModel_initIDs(ptr noundef %0, ptr noundef
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 264
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 264
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52) #1
   store ptr %18, ptr @g_SMGetPixelsMID, align 8
@@ -652,7 +652,7 @@ define void @Java_java_awt_image_SampleModel_initIDs(ptr noundef %0, ptr noundef
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 264
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 264
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54) #1
   store ptr %24, ptr @g_SMSetPixelsMID, align 8
@@ -665,7 +665,7 @@ define void @Java_java_awt_image_SampleModel_initIDs(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define void @Java_java_awt_image_Kernel_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.3) #1
   store ptr %6, ptr @g_KernelWidthID, align 8
@@ -674,7 +674,7 @@ define void @Java_java_awt_image_Kernel_initIDs(ptr noundef %0, ptr noundef %1) 
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3) #1
   store ptr %12, ptr @g_KernelHeightID, align 8
@@ -683,7 +683,7 @@ define void @Java_java_awt_image_Kernel_initIDs(ptr noundef %0, ptr noundef %1) 
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.55) #1
   store ptr %18, ptr @g_KernelDataID, align 8

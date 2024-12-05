@@ -195,18 +195,18 @@ entry:
 define void @_ZN5arrow4util8ArrowLogC2EPKciNS0_13ArrowLogLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr noundef %file_name, i32 noundef %line_number, i32 noundef %severity) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util8ArrowLogE, i64 16), ptr %this, align 8
-  %logging_provider_ = getelementptr inbounds i8, ptr %this, i64 8
+  %logging_provider_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %logging_provider_, align 8
-  %is_enabled_ = getelementptr inbounds i8, ptr %this, i64 16
+  %is_enabled_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr @_ZN5arrow4util8ArrowLog19severity_threshold_E, align 4
   %cmp = icmp sge i32 %severity, %0
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %is_enabled_, align 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util7CerrLogE, i64 16), ptr %call, align 8
-  %severity_.i = getelementptr inbounds i8, ptr %call, i64 8
+  %severity_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %severity, ptr %severity_.i, align 8
-  %has_logged_.i = getelementptr inbounds i8, ptr %call, i64 12
+  %has_logged_.i = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i8 0, ptr %has_logged_.i, align 4
   %cmp.not.i = icmp eq i32 %severity, -1
   br i1 %cmp.not.i, label %invoke.cont10, label %if.then.i20
@@ -230,9 +230,9 @@ invoke.cont10:                                    ; preds = %if.then.i20, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow4util8ArrowLog6StreamEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) unnamed_addr #9 align 2 {
 entry:
-  %logging_provider_ = getelementptr inbounds i8, ptr %this, i64 8
+  %logging_provider_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %logging_provider_, align 8
-  %has_logged_.i = getelementptr inbounds i8, ptr %0, i64 12
+  %has_logged_.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 1, ptr %has_logged_.i, align 4
   ret ptr @_ZSt4cerr
 }
@@ -240,7 +240,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK5arrow4util8ArrowLog9IsEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) unnamed_addr #10 align 2 {
 entry:
-  %is_enabled_ = getelementptr inbounds i8, ptr %this, i64 16
+  %is_enabled_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %is_enabled_, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -250,14 +250,14 @@ entry:
 define void @_ZN5arrow4util8ArrowLogD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util8ArrowLogE, i64 16), ptr %this, align 8
-  %logging_provider_ = getelementptr inbounds i8, ptr %this, i64 8
+  %logging_provider_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %logging_provider_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %0) #15
   store ptr null, ptr %logging_provider_, align 8
@@ -279,7 +279,7 @@ entry:
 define linkonce_odr void @_ZN5arrow4util7CerrLogD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util7CerrLogE, i64 16), ptr %this, align 8
-  %has_logged_ = getelementptr inbounds i8, ptr %this, i64 12
+  %has_logged_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %has_logged_, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -289,7 +289,7 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %severity_ = getelementptr inbounds i8, ptr %this, i64 8
+  %severity_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %severity_, align 8
   %cmp = icmp eq i32 %1, 3
   br i1 %cmp, label %if.then2, label %if.end4
@@ -317,7 +317,7 @@ terminate.lpad:                                   ; preds = %if.then2, %if.then
 define linkonce_odr void @_ZN5arrow4util7CerrLogD0Ev(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow4util7CerrLogE, i64 16), ptr %this, align 8
-  %has_logged_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %has_logged_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %has_logged_.i, align 4
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
@@ -327,7 +327,7 @@ if.then.i:                                        ; preds = %entry
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %severity_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %severity_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %severity_.i, align 8
   %cmp.i = icmp eq i32 %1, 3
   br i1 %cmp.i, label %if.then2.i, label %_ZN5arrow4util7CerrLogD2Ev.exit

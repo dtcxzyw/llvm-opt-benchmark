@@ -10,7 +10,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 .preheader:                                       ; preds = %6, %.preheader
   %.0150173 = phi i64 [ %8, %.preheader ], [ 0, %6 ]
-  %7 = getelementptr inbounds double, ptr %5, i64 %.0150173
+  %7 = getelementptr inbounds nuw double, ptr %5, i64 %.0150173
   store double -1.000000e+00, ptr %7, align 8
   %8 = add nuw nsw i64 %.0150173, 1
   %exitcond.not = icmp eq i64 %8, 20
@@ -18,7 +18,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 9:                                                ; preds = %.preheader
   %10 = sitofp i64 %0 to double
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %10, ptr %11, align 8
   store double 0.000000e+00, ptr %5, align 8
   br label %12
@@ -45,7 +45,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %20, label %108, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i64, ptr %1, i64 %0
+  %22 = getelementptr inbounds nuw i64, ptr %1, i64 %0
   %23 = load i64, ptr %22, align 8
   br i1 %.not, label %24, label %.thread
 
@@ -55,7 +55,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 .thread:                                          ; preds = %21
   %26 = sitofp i64 %23 to double
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %26, ptr %27, align 8
   %28 = icmp slt i64 %23, 0
   br i1 %28, label %29, label %.thread165
@@ -197,7 +197,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 94:                                               ; preds = %93
   %95 = fmul double %83, 8.000000e+00
-  %96 = getelementptr inbounds i8, ptr %5, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double %95, ptr %96, align 8
   tail call void @amd_l1(i64 noundef %0, ptr noundef %.0146, ptr noundef %.0145, ptr noundef %3, ptr noundef nonnull %44, ptr noundef nonnull %43, i64 noundef %77, ptr noundef nonnull %87, ptr noundef %4, ptr noundef nonnull %5) #3
   %97 = tail call ptr @SuiteSparse_free(ptr noundef %.0148) #3

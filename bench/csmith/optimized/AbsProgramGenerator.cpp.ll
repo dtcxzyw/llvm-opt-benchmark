@@ -38,7 +38,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local noundef ptr @_ZN19AbsProgramGenerator12GetOutputMgrEv() local_unnamed_addr #3 align 2 {
   %1 = load ptr, ptr @_ZN19AbsProgramGenerator18current_generator_E, align 8
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret ptr %5
@@ -82,7 +82,7 @@ define dso_local noundef ptr @_ZN19AbsProgramGenerator14CreateInstanceEiPPcm(i32
   %storemerge = phi ptr [ %13, %12 ], [ %17, %16 ]
   store ptr %storemerge, ptr @_ZN19AbsProgramGenerator18current_generator_E, align 8
   %21 = load ptr, ptr %storemerge, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %storemerge)
   call void @_ZN9CGOptions26dump_default_probabilitiesB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4)

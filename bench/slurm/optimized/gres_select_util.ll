@@ -27,23 +27,23 @@ define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 n
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
   %13 = phi ptr [ %30, %.backedge.us ], [ %11, %.lr.ph ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %.not39.us = icmp eq i32 %15, %9
   br i1 %.not39.us, label %16, label %.backedge.us
 
 16:                                               ; preds = %.lr.ph.split.us
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not40.us = icmp eq ptr %18, null
   br i1 %.not40.us, label %.backedge.us, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 66
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 66
   store i16 %12, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %18, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 72
   store i64 %3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 18
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 18
   %23 = load i16, ptr %22, align 2
   %.not41.us = icmp eq i16 %23, 0
   br i1 %.not41.us, label %24, label %25
@@ -53,7 +53,7 @@ define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 n
   br label %25
 
 25:                                               ; preds = %24, %19
-  %26 = getelementptr inbounds i8, ptr %18, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %27 = load i64, ptr %26, align 8
   %.not43.us = icmp eq i64 %27, 0
   br i1 %.not43.us, label %28, label %.backedge.us
@@ -76,23 +76,23 @@ define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 n
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.backedge.us59
   %31 = phi ptr [ %57, %.backedge.us59 ], [ %11, %.lr.ph.split.split ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %.not39.us54 = icmp eq i32 %33, %9
   br i1 %.not39.us54, label %34, label %.backedge.us59
 
 34:                                               ; preds = %.lr.ph.split.split.split.us
-  %35 = getelementptr inbounds i8, ptr %31, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not40.us55 = icmp eq ptr %36, null
   br i1 %.not40.us55, label %.backedge.us59, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %36, i64 66
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 66
   store i16 %12, ptr %38, align 2
-  %39 = getelementptr inbounds i8, ptr %36, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 72
   store i64 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 18
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 18
   %41 = load i16, ptr %40, align 2
   %.not41.us56 = icmp eq i16 %41, 0
   br i1 %.not41.us56, label %42, label %43
@@ -103,7 +103,7 @@ define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 n
   br label %43
 
 43:                                               ; preds = %42, %37
-  %44 = getelementptr inbounds i8, ptr %36, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %45 = load i64, ptr %44, align 8
   %.not43.us57 = icmp eq i64 %45, 0
   br i1 %.not43.us57, label %46, label %47
@@ -113,7 +113,7 @@ define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 n
   br label %47
 
 47:                                               ; preds = %46, %43
-  %48 = getelementptr inbounds i8, ptr %36, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %49 = load i64, ptr %48, align 8
   %.not46.us58 = icmp eq i64 %49, 0
   br i1 %.not46.us58, label %.backedge.us59, label %50
@@ -135,23 +135,23 @@ define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 n
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.backedge
   %58 = phi ptr [ %84, %.backedge ], [ %11, %.lr.ph.split.split ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
   %.not39 = icmp eq i32 %60, %9
   br i1 %.not39, label %61, label %.backedge
 
 61:                                               ; preds = %.lr.ph.split.split.split
-  %62 = getelementptr inbounds i8, ptr %58, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not40 = icmp eq ptr %63, null
   br i1 %.not40, label %.backedge, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %63, i64 66
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 66
   store i16 %12, ptr %65, align 2
-  %66 = getelementptr inbounds i8, ptr %63, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 72
   store i64 %3, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %63, i64 18
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 18
   %68 = load i16, ptr %67, align 2
   %.not41 = icmp eq i16 %68, 0
   br i1 %.not41, label %69, label %70
@@ -162,7 +162,7 @@ define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 n
   br label %70
 
 70:                                               ; preds = %69, %64
-  %71 = getelementptr inbounds i8, ptr %63, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %72 = load i64, ptr %71, align 8
   %.not43 = icmp eq i64 %72, 0
   br i1 %.not43, label %73, label %74
@@ -173,7 +173,7 @@ define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 n
   br label %74
 
 74:                                               ; preds = %73, %70
-  %75 = getelementptr inbounds i8, ptr %63, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %76 = load i64, ptr %75, align 8
   %.not46 = icmp eq i64 %76, 0
   br i1 %.not46, label %.backedge, label %77
@@ -239,28 +239,28 @@ define range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpu_node(i32 noun
   br i1 %.not34, label %38, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 18
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 18
   %17 = load i16, ptr %16, align 2
   %.not35 = icmp eq i16 %17, 0
   br i1 %.not35, label %18, label %.thread
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %15, i64 66
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 66
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %20, 0
   br i1 %21, label %11, label %.thread, !llvm.loop !8
 
 .thread:                                          ; preds = %13, %18
   %.02540 = phi i16 [ %20, %18 ], [ %17, %13 ]
-  %22 = getelementptr inbounds i8, ptr %15, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %23 = load i64, ptr %22, align 8
   %.not36 = icmp eq i64 %23, 0
   br i1 %.not36, label %24, label %33
 
 24:                                               ; preds = %.thread
-  %25 = getelementptr inbounds i8, ptr %15, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %26 = load i64, ptr %25, align 8
   %.not37 = icmp eq i64 %26, 0
   br i1 %.not37, label %29, label %27
@@ -270,7 +270,7 @@ define range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpu_node(i32 noun
   br label %33
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %15, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %31 = load i64, ptr %30, align 8
   %.not38 = icmp eq i64 %31, 0
   %32 = mul i64 %31, %10
@@ -356,27 +356,27 @@ define range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i32 noundef
 
 27:                                               ; preds = %.backedge.us.us, %.lr.ph.us
   %28 = phi ptr [ %22, %.lr.ph.us ], [ %42, %.backedge.us.us ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i64, ptr %31, align 8
   %.not48.us.us = icmp eq i64 %32, 0
   br i1 %.not48.us.us, label %33, label %.outer.us
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %30, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load i64, ptr %34, align 8
   %.not49.us.us = icmp eq i64 %35, 0
   br i1 %.not49.us.us, label %36, label %.split.us.us
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %30, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %38 = load i64, ptr %37, align 8
   %.not50.us.us = icmp eq i64 %38, 0
   br i1 %.not50.us.us, label %39, label %.split64.us.us
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %30, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %41 = load i64, ptr %40, align 8
   %.not51.us.us = icmp eq i64 %41, 0
   br i1 %.not51.us.us, label %.backedge.us.us, label %.split67.us.us
@@ -405,7 +405,7 @@ define range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i32 noundef
 
 47:                                               ; preds = %.lr.ph, %.backedge
   %48 = phi ptr [ %46, %.lr.ph ], [ %51, %.backedge ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %.not47 = icmp eq i32 %.033, %50
   br i1 %.not47, label %52, label %.backedge
@@ -416,15 +416,15 @@ define range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i32 noundef
   br i1 %.not45, label %.outer._crit_edge, label %47, !llvm.loop !9
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %48, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load i64, ptr %55, align 8
   %.not48 = icmp eq i64 %56, 0
   br i1 %.not48, label %57, label %.outer
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %54, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %59 = load i64, ptr %58, align 8
   %.not49 = icmp eq i64 %59, 0
   br i1 %.not49, label %61, label %.split
@@ -434,7 +434,7 @@ define range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i32 noundef
   br label %.outer
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %54, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %63 = load i64, ptr %62, align 8
   %.not50 = icmp eq i64 %63, 0
   br i1 %.not50, label %65, label %.split64
@@ -444,7 +444,7 @@ define range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i32 noundef
   br label %.outer
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %54, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %67 = load i64, ptr %66, align 8
   %.not51 = icmp eq i64 %67, 0
   br i1 %.not51, label %.backedge, label %.split67
@@ -481,7 +481,7 @@ define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noca
   br i1 %.not, label %62, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @slurm_bit_set_count(ptr noundef %6) #3
   %.not40 = icmp eq i32 %7, 0
@@ -494,8 +494,8 @@ define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noca
   br i1 %.not415055, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 154
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 154
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %57, %.preheader
@@ -511,28 +511,28 @@ define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noca
 
 15:                                               ; preds = %.lr.ph, %31
   %16 = phi ptr [ %14, %.lr.ph ], [ %32, %31 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load i64, ptr %19, align 8
   %.not42 = icmp eq i64 %20, 0
   br i1 %.not42, label %21, label %.thread
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %18, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %31, label %.thread
 
 .thread:                                          ; preds = %15, %21
   %.03347 = phi i64 [ %23, %21 ], [ %20, %15 ]
-  %25 = getelementptr inbounds i8, ptr %18, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %26 = load ptr, ptr %25, align 8
   %.not43 = icmp eq ptr %26, null
   br i1 %.not43, label %31, label %.preheader
 
 .preheader:                                       ; preds = %.thread
-  %27 = getelementptr inbounds i8, ptr %18, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 96
   store i32 0, ptr %3, align 4
   %28 = load ptr, ptr %5, align 8
   %29 = call ptr @next_node_bitmap(ptr noundef %28, ptr noundef nonnull %3) #3
@@ -540,7 +540,7 @@ define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noca
   br i1 %.not4452, label %.loopexit, label %.lr.ph54, !llvm.loop !10
 
 .lr.ph54:                                         ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %16, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 4
   br label %33
 
 31:                                               ; preds = %.thread, %21
@@ -557,16 +557,16 @@ define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noca
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %34, i64 184
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 184
   %39 = load ptr, ptr %38, align 8
   %40 = call ptr @slurm_list_find_first(ptr noundef %39, ptr noundef nonnull @slurm_gres_find_id, ptr noundef nonnull %30) #3
   %.not45 = icmp eq ptr %40, null
   br i1 %.not45, label %57, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   br label %50
 
 45:                                               ; preds = %33
@@ -651,15 +651,15 @@ define range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpus(i32 noundef 
 
 16:                                               ; preds = %.lr.ph, %.backedge
   %17 = phi ptr [ %15, %.lr.ph ], [ %26, %.backedge ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 18
   %21 = load i16, ptr %20, align 2
   %.not40 = icmp eq i16 %21, 0
   br i1 %.not40, label %22, label %.thread
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %19, i64 66
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 66
   %24 = load i16, ptr %23, align 2
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %.backedge, label %.thread
@@ -671,13 +671,13 @@ define range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpus(i32 noundef 
 
 .thread:                                          ; preds = %16, %22
   %.02946 = phi i16 [ %24, %22 ], [ %21, %16 ]
-  %27 = getelementptr inbounds i8, ptr %19, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %28 = load i64, ptr %27, align 8
   %.not41 = icmp eq i64 %28, 0
   br i1 %.not41, label %29, label %.outer
 
 29:                                               ; preds = %.thread
-  %30 = getelementptr inbounds i8, ptr %19, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %31 = load i64, ptr %30, align 8
   %.not42 = icmp eq i64 %31, 0
   br i1 %.not42, label %34, label %32
@@ -687,7 +687,7 @@ define range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpus(i32 noundef 
   br label %.outer
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %19, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %36 = load i64, ptr %35, align 8
   %.not43 = icmp eq i64 %36, 0
   br i1 %.not43, label %39, label %37
@@ -697,7 +697,7 @@ define range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpus(i32 noundef 
   br label %.outer
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %19, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %41 = load i64, ptr %40, align 8
   %.not44 = icmp eq i64 %41, 0
   br i1 %.not44, label %.backedge, label %42
@@ -740,15 +740,15 @@ define i64 @gres_select_util_job_mem_max(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %2, %13
   %5 = phi ptr [ %15, %13 ], [ %4, %2 ]
   %.01321 = phi i64 [ %14, %13 ], [ 0, %2 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load i64, ptr %8, align 8
   %.not19 = icmp eq i64 %9, 0
   br i1 %.not19, label %10, label %13
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %7, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %12 = load i64, ptr %11, align 8
   br label %13
 
@@ -784,9 +784,9 @@ define noundef zeroext i1 @gres_select_util_job_tres_per_task(ptr noundef %0) lo
   br i1 %.not10.not.not.not.not.not, label %6, label %11
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load i64, ptr %9, align 8
   %.not11 = icmp eq i64 %10, 0
   br i1 %.not11, label %4, label %11, !llvm.loop !14
@@ -815,17 +815,17 @@ define range(i32 0, -1) i32 @gres_select_util_get_task_limit(ptr noundef %0) loc
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %3, label %13, !llvm.loop !15
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %4, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %15 = load i64, ptr %14, align 8
   %16 = udiv i64 %15, %11
   %17 = zext i32 %.0.ph to i64
@@ -861,53 +861,53 @@ declare i32 @slurm_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_accumulate_gres_device_req(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = tail call ptr @slurm_list_find_first(ptr noundef %1, ptr noundef nonnull @slurm_gres_find_id, ptr noundef nonnull %3) #3
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %35, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %11
   store i64 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %16
   store i64 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, %21
   store i64 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %26
   store i64 %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %9, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %31
   store i64 %34, ptr %32, align 8
   br label %41
 
 35:                                               ; preds = %2
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr @gres_job_state_dup(ptr noundef %37) #3
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %39) #3
   store i32 0, ptr %38, align 8
   %40 = tail call ptr @gres_create_state(ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %38) #3

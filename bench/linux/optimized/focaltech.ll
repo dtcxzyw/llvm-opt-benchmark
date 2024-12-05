@@ -26,9 +26,9 @@ define dso_local range(i32 -19, 1) i32 @focaltech_detect(ptr noundef %0, i1 noun
   br i1 %4, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr @.str, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr @.str.1, ptr %8, align 8
   br label %9
 
@@ -50,40 +50,40 @@ define dso_local range(i32 -12, 1) i32 @focaltech_init(ptr noundef initializes((
   br i1 %5, label %68, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = tail call i32 @ps2_command(ptr noundef %7, ptr noundef null, i32 noundef 246) #8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = tail call i32 @ps2_command(ptr noundef nonnull %7, ptr noundef null, i32 noundef 246) #8
   %9 = tail call i32 @psmouse_reset(ptr noundef %0) #8
   %10 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2, i8 0, i64 3, i1 false), !annotation !5
-  %11 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 230) #8
+  %11 = call i32 @ps2_command(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef 230) #8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %6
   store i8 0, ptr %2, align 1
-  %14 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 4328) #8
+  %14 = call i32 @ps2_command(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef 4328) #8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
-  %17 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 4328) #8
+  %17 = call i32 @ps2_command(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef 4328) #8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %16
-  %20 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 4328) #8
+  %20 = call i32 @ps2_command(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef 4328) #8
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %19
   store i8 2, ptr %2, align 1
-  %23 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 4328) #8
+  %23 = call i32 @ps2_command(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef 4328) #8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %22
-  %26 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 1001) #8
+  %26 = call i32 @ps2_command(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef 1001) #8
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.thread
 
@@ -92,16 +92,16 @@ define dso_local range(i32 -12, 1) i32 @focaltech_init(ptr noundef initializes((
   br label %61
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %2, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = shl nuw nsw i32 %31, 7
   store i32 %32, ptr %10, align 4
-  %33 = getelementptr inbounds i8, ptr %2, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 7
-  %37 = getelementptr inbounds i8, ptr %10, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %36, ptr %37, align 4
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %2) #8
   %38 = call fastcc i32 @focaltech_switch_protocol(ptr noundef %0), !range !6
@@ -109,44 +109,44 @@ define dso_local range(i32 -12, 1) i32 @focaltech_init(ptr noundef initializes((
   br i1 %39, label %40, label %61
 
 40:                                               ; preds = %28
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 40
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %44, i64 2) #8, !srcloc !7
-  %45 = getelementptr inbounds i8, ptr %42, i64 144
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %45, i64 0) #8, !srcloc !7
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %45, i64 1) #8, !srcloc !7
-  %46 = getelementptr inbounds i8, ptr %42, i64 48
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %46, i64 273) #8, !srcloc !7
-  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %46, i64 274) #8, !srcloc !7
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %44, i64 3) #8, !srcloc !8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %44, i64 2) #8, !srcloc !7
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 144
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %45, i64 0) #8, !srcloc !7
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %45, i64 1) #8, !srcloc !7
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %46, i64 273) #8, !srcloc !7
+  call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %46, i64 274) #8, !srcloc !7
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %44, i64 3) #8, !srcloc !8
   %47 = load i32, ptr %43, align 4
   call void @input_set_abs_params(ptr noundef %42, i32 noundef 53, i32 noundef 0, i32 noundef %47, i32 noundef 0, i32 noundef 0) #8
-  %48 = getelementptr inbounds i8, ptr %43, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %49 = load i32, ptr %48, align 4
   call void @input_set_abs_params(ptr noundef %42, i32 noundef 54, i32 noundef 0, i32 noundef %49, i32 noundef 0, i32 noundef 0) #8
   call void @input_set_abs_params(ptr noundef %42, i32 noundef 28, i32 noundef 0, i32 noundef 15, i32 noundef 0, i32 noundef 0) #8
   %50 = call i32 @input_mt_init_slots(ptr noundef %42, i32 noundef 5, i32 noundef 1) #8
-  %51 = getelementptr inbounds i8, ptr %42, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %51, i64 2) #8, !srcloc !8
-  %52 = getelementptr inbounds i8, ptr %0, i64 400
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %51, i64 2) #8, !srcloc !8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr @focaltech_process_byte, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 242
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 242
   store i8 6, ptr %53, align 2
-  %54 = getelementptr inbounds i8, ptr %0, i64 448
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr @focaltech_disconnect, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 432
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr @focaltech_reconnect, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 456
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr @focaltech_reset, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 392
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i32 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 416
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr @focaltech_set_resolution, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 408
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr @focaltech_set_rate, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 424
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store ptr @focaltech_set_scale, ptr %60, align 8
   br label %68
 
@@ -154,9 +154,9 @@ define dso_local range(i32 -12, 1) i32 @focaltech_init(ptr noundef initializes((
   %62 = phi ptr [ @.str.3, %28 ], [ @.str.2, %.thread ]
   %63 = phi i32 [ %38, %28 ], [ -5, %.thread ]
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 344
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %65, ptr noundef nonnull %62) #10
-  %66 = call i32 @ps2_command(ptr noundef %7, ptr noundef null, i32 noundef 246) #8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 344
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %65, ptr noundef nonnull %62) #10
+  %66 = call i32 @ps2_command(ptr noundef nonnull %7, ptr noundef null, i32 noundef 246) #8
   %67 = call i32 @psmouse_reset(ptr noundef %0) #8
   call void @kfree(ptr noundef nonnull %4) #8
   br label %68
@@ -171,8 +171,8 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @focaltech_reset(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = tail call i32 @ps2_command(ptr noundef %2, ptr noundef null, i32 noundef 246) #8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = tail call i32 @ps2_command(ptr noundef nonnull %2, ptr noundef null, i32 noundef 246) #8
   %4 = tail call i32 @psmouse_reset(ptr noundef %0) #8
   ret void
 }
@@ -183,36 +183,36 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -5, 1) i32 @focaltech_switch_protocol(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca [3 x i8], align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2, i8 0, i64 3, i1 false)
-  %4 = call i32 @ps2_command(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 4344) #8
+  %4 = call i32 @ps2_command(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 4344) #8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %22
 
 6:                                                ; preds = %1
-  %7 = call i32 @ps2_command(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 4344) #8
+  %7 = call i32 @ps2_command(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 4344) #8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %22
 
 9:                                                ; preds = %6
-  %10 = call i32 @ps2_command(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 4344) #8
+  %10 = call i32 @ps2_command(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 4344) #8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %9
   store i8 1, ptr %2, align 1
-  %13 = call i32 @ps2_command(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 4344) #8
+  %13 = call i32 @ps2_command(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 4344) #8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %12
-  %16 = call i32 @ps2_command(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 230) #8
+  %16 = call i32 @ps2_command(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 230) #8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %15
-  %19 = call i32 @ps2_command(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 244) #8
+  %19 = call i32 @ps2_command(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 244) #8
   %20 = icmp eq i32 %19, 0
   %21 = select i1 %20, i32 0, i32 -5
   br label %22
@@ -225,13 +225,13 @@ define internal fastcc range(i32 -5, 1) i32 @focaltech_switch_protocol(ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 241
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 241
   %3 = load i8, ptr %2, align 1
   %4 = icmp ugt i8 %3, 5
   br i1 %4, label %5, label %168
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = and i32 %8, 15
@@ -243,10 +243,10 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = getelementptr i8, ptr %0, i64 233
   %14 = load i8, ptr %13, align 1
-  %15 = getelementptr inbounds i8, ptr %11, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %16 = lshr i8 %7, 4
   %17 = and i8 %16, 1
   store i8 %17, ptr %15, align 4
@@ -262,7 +262,7 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
   br i1 %22, label %24, label %26
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %23, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 0, ptr %25, align 1
   br label %26
 
@@ -282,16 +282,16 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %40, ptr noundef nonnull @.str.9, i32 noundef %35) #10
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 344
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %40, ptr noundef nonnull @.str.9, i32 noundef %35) #10
   br label %.loopexit
 
 41:                                               ; preds = %30
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 72
   %45 = lshr i8 %7, 4
   %46 = and i8 %45, 1
   store i8 %46, ptr %44, align 4
@@ -305,7 +305,7 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
   %54 = or disjoint i32 %50, %53
   %55 = zext nneg i32 %35 to i64
   %56 = getelementptr [5 x %struct.focaltech_finger_state], ptr %43, i64 0, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 %54, ptr %57, align 4
   %58 = getelementptr i8, ptr %0, i64 235
   %59 = load i8, ptr %58, align 1
@@ -315,22 +315,22 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = or disjoint i32 %61, %64
-  %66 = getelementptr inbounds i8, ptr %56, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 %65, ptr %66, align 4
   %67 = getelementptr i8, ptr %0, i64 237
   %68 = load i8, ptr %67, align 1
   %69 = lshr i8 %68, 4
   %70 = zext nneg i8 %69 to i32
-  %71 = getelementptr inbounds i8, ptr %42, i64 68
+  %71 = getelementptr inbounds nuw i8, ptr %42, i64 68
   store i32 %70, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %56, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store i8 1, ptr %72, align 1
   br label %.loopexit
 
 73:                                               ; preds = %5
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
-  %76 = getelementptr inbounds i8, ptr %74, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 72
   %77 = lshr i8 %7, 7
   store i8 %77, ptr %76, align 4
   %78 = load i8, ptr %6, align 1
@@ -347,24 +347,24 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
   %87 = sext i8 %86 to i32
   %88 = sext i32 %82 to i64
   %89 = getelementptr [5 x %struct.focaltech_finger_state], ptr %75, i64 0, i64 %88
-  %90 = getelementptr inbounds i8, ptr %89, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = add i32 %91, %87
   store i32 %92, ptr %90, align 4
   %93 = getelementptr i8, ptr %0, i64 234
   %94 = load i8, ptr %93, align 1
   %95 = sext i8 %94 to i32
-  %96 = getelementptr inbounds i8, ptr %89, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, %95
   store i32 %98, ptr %96, align 4
   br label %103
 
 99:                                               ; preds = %73
-  %100 = getelementptr inbounds i8, ptr %0, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %102, ptr noundef nonnull @.str.10, i32 noundef %82) #10
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 344
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %102, ptr noundef nonnull @.str.10, i32 noundef %82) #10
   br label %103
 
 103:                                              ; preds = %99, %84
@@ -382,33 +382,33 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
   %113 = load i8, ptr %112, align 1
   %114 = sext i8 %113 to i32
   %115 = getelementptr [5 x %struct.focaltech_finger_state], ptr %75, i64 0, i64 %111
-  %116 = getelementptr inbounds i8, ptr %115, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %117 = load i32, ptr %116, align 4
   %118 = add i32 %117, %114
   store i32 %118, ptr %116, align 4
   %119 = getelementptr i8, ptr %0, i64 237
   %120 = load i8, ptr %119, align 1
   %121 = sext i8 %120 to i32
-  %122 = getelementptr inbounds i8, ptr %115, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %123 = load i32, ptr %122, align 4
   %124 = add i32 %123, %121
   store i32 %124, ptr %122, align 4
   br label %.loopexit
 
 125:                                              ; preds = %5
-  %126 = getelementptr inbounds i8, ptr %0, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %128, ptr noundef nonnull @.str.8, i32 noundef %8) #10
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 344
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %128, ptr noundef nonnull @.str.8, i32 noundef %8) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %125, %109, %103, %41, %37
   %129 = load ptr, ptr %0, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %129, i64 4
-  %134 = getelementptr inbounds i8, ptr %129, i64 68
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %129, i64 68
   br label %135
 
 135:                                              ; preds = %161, %.loopexit
@@ -419,7 +419,7 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
   br i1 %139, label %158, label %140
 
 140:                                              ; preds = %135
-  %141 = getelementptr inbounds i8, ptr %137, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %142 = load i8, ptr %141, align 1, !range !12, !noundef !13
   %143 = icmp ne i8 %142, 0
   %144 = trunc i64 %136 to i32
@@ -428,11 +428,11 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
   br i1 %143, label %146, label %161
 
 146:                                              ; preds = %140
-  %147 = getelementptr inbounds i8, ptr %137, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %148 = load i32, ptr %147, align 4
   %149 = load i32, ptr %129, align 4
   %150 = tail call i32 @llvm.umin.i32(i32 %148, i32 %149)
-  %151 = getelementptr inbounds i8, ptr %137, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %152 = load i32, ptr %151, align 4
   %153 = load i32, ptr %133, align 4
   %154 = tail call i32 @llvm.umin.i32(i32 %152, i32 %153)
@@ -457,7 +457,7 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
 
 164:                                              ; preds = %161
   tail call void @input_mt_report_pointer_emulation(ptr noundef %132, i1 noundef zeroext true) #8
-  %165 = getelementptr inbounds i8, ptr %129, i64 72
+  %165 = getelementptr inbounds nuw i8, ptr %129, i64 72
   %166 = load i8, ptr %165, align 4, !range !12, !noundef !13
   %167 = zext nneg i8 %166 to i32
   tail call void @input_event(ptr noundef %132, i32 noundef 1, i32 noundef 272, i32 noundef %167) #8
@@ -471,8 +471,8 @@ define internal noundef range(i32 1, 3) i32 @focaltech_process_byte(ptr nocaptur
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @focaltech_disconnect(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = tail call i32 @ps2_command(ptr noundef %2, ptr noundef null, i32 noundef 246) #8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = tail call i32 @ps2_command(ptr noundef nonnull %2, ptr noundef null, i32 noundef 246) #8
   %4 = tail call i32 @psmouse_reset(ptr noundef %0) #8
   %5 = load ptr, ptr %0, align 8
   tail call void @kfree(ptr noundef %5) #8
@@ -482,8 +482,8 @@ define internal void @focaltech_disconnect(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -5, 1) i32 @focaltech_reconnect(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = tail call i32 @ps2_command(ptr noundef %2, ptr noundef null, i32 noundef 246) #8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = tail call i32 @ps2_command(ptr noundef nonnull %2, ptr noundef null, i32 noundef 246) #8
   %4 = tail call i32 @psmouse_reset(ptr noundef %0) #8
   %5 = tail call fastcc i32 @focaltech_switch_protocol(ptr noundef %0), !range !6
   %6 = icmp eq i32 %5, 0
@@ -491,8 +491,8 @@ define internal range(i32 -5, 1) i32 @focaltech_reconnect(ptr noundef %0) #0 ali
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %9, ptr noundef nonnull @.str.3) #10
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 344
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %9, ptr noundef nonnull @.str.3) #10
   br label %10
 
 10:                                               ; preds = %7, %1

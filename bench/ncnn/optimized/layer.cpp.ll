@@ -5894,7 +5894,7 @@ define hidden void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceab
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %14)
           to label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i unwind label %21
@@ -5920,7 +5920,7 @@ _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i:      ; preds = %20, %19, %15, %8, %
   store i64 0, ptr %25, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.05.i.i.i.i, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %24, i8 0, i64 20, i1 false)
-  %26 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 72
   %.not.i.i.i.i = icmp eq ptr %26, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
@@ -5971,7 +5971,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %45, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   invoke void %50(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %46)
           to label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i5 unwind label %53
@@ -5997,7 +5997,7 @@ _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i5:     ; preds = %52, %51, %47, %40, 
   store i64 0, ptr %57, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.05.i.i.i.i3, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %56, i8 0, i64 20, i1 false)
-  %58 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3, i64 72
   %.not.i.i.i.i6 = icmp eq ptr %58, %37
   br i1 %.not.i.i.i.i6, label %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i7, label %.lr.ph.i.i.i.i2, !llvm.loop !4
 
@@ -6137,11 +6137,11 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKSt6vectorINS_3MatESaIS2_EER
 39:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %40 = load ptr, ptr %1, align 8
-  %41 = getelementptr inbounds %"class.ncnn::Mat", ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %20, align 8
   call void @_ZNK4ncnn3Mat5cloneEPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %5, ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef %42)
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds %"class.ncnn::Mat", ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %43, i64 %indvars.iv
   %45 = icmp eq ptr %44, %5
   br i1 %45, label %87, label %46
 
@@ -6174,7 +6174,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKSt6vectorINS_3MatESaIS2_EER
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %58, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   invoke void %63(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef %59)
           to label %66 unwind label %117
@@ -6242,7 +6242,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKSt6vectorINS_3MatESaIS2_EER
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr %93, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load ptr, ptr %97, align 8
   invoke void %98(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef %94)
           to label %101 unwind label %106
@@ -6260,7 +6260,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKSt6vectorINS_3MatESaIS2_EER
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %25, i8 0, i64 20, i1 false)
   %102 = load ptr, ptr %2, align 8
-  %103 = getelementptr inbounds %"class.ncnn::Mat", ptr %102, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %102, i64 %indvars.iv
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %.critedge, label %109
@@ -6302,7 +6302,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKSt6vectorINS_3MatESaIS2_EER
 
 126:                                              ; preds = %123
   %127 = load ptr, ptr %124, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %129 = load ptr, ptr %128, align 8
   invoke void %129(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef %125)
           to label %132 unwind label %133
@@ -6327,7 +6327,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKSt6vectorINS_3MatESaIS2_EER
 
 ._crit_edge:                                      ; preds = %31, %9
   %136 = load ptr, ptr %0, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 64
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 64
   %138 = load ptr, ptr %137, align 8
   %139 = call noundef i32 %138(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br label %.critedge
@@ -6425,8 +6425,8 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EE11_M_allocateEm.exit.i: ; preds = %17
   br label %_ZSt10_ConstructIN4ncnn3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN4ncnn3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %53, %.lr.ph.i.i.i.i.i
-  %55 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i, i64 72
-  %56 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq ptr %55, %5
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4ncnn3MatESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
@@ -6462,7 +6462,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_ite
 
 69:                                               ; preds = %65
   %70 = load ptr, ptr %67, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
   invoke void %72(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %68)
           to label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i unwind label %75
@@ -6488,7 +6488,7 @@ _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i:        ; preds = %74, %73, %69, %62, 
   store i64 0, ptr %79, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.05.i.i.i, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %78, i8 0, i64 20, i1 false)
-  %80 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 72
+  %80 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 72
   %.not.i.i.i = icmp eq ptr %80, %59
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !4
 
@@ -6556,7 +6556,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_Z
 
 108:                                              ; preds = %104
   %109 = load ptr, ptr %106, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = load ptr, ptr %110, align 8
   invoke void %111(ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef %107)
           to label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i28 unwind label %114
@@ -6582,7 +6582,7 @@ _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i28:      ; preds = %113, %112, %108, %1
   store i64 0, ptr %118, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.01.05.i.i.i, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %117, i8 0, i64 20, i1 false)
-  %119 = getelementptr inbounds i8, ptr %.sroa.01.05.i.i.i, i64 72
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i.i, i64 72
   %.not.i.i.i29 = icmp eq ptr %119, %95
   br i1 %.not.i.i.i29, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN4ncnn3MatESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RSaIT0_E.exit, label %.lr.ph.i.i.i26, !llvm.loop !8
 
@@ -6653,8 +6653,8 @@ _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i28:      ; preds = %113, %112, %108, %1
   br label %_ZSt10_ConstructIN4ncnn3MatEJRS1_EEvPT_DpOT0_.exit.i.i.i.i
 
 _ZSt10_ConstructIN4ncnn3MatEJRS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %162, %.lr.ph.i.i.i.i
-  %164 = getelementptr inbounds i8, ptr %.01214.i.i.i.i, i64 72
-  %165 = getelementptr inbounds i8, ptr %.015.i.i.i.i, i64 72
+  %164 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i, i64 72
+  %165 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i, i64 72
   %.not.i.i.i.i33 = icmp eq ptr %164, %130
   br i1 %.not.i.i.i.i33, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN4ncnn3MatESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RSaIT0_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
@@ -6716,7 +6716,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKNS_3MatERS1_RKNS_6OptionE(p
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
   invoke void %29(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %25)
           to label %32 unwind label %92
@@ -6791,7 +6791,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKNS_3MatERS1_RKNS_6OptionE(p
 
 70:                                               ; preds = %66
   %71 = load ptr, ptr %68, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
   invoke void %73(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef %69)
           to label %76 unwind label %81
@@ -6852,7 +6852,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKNS_3MatERS1_RKNS_6OptionE(p
 
 102:                                              ; preds = %98
   %103 = load ptr, ptr %100, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %105 = load ptr, ptr %104, align 8
   invoke void %105(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef %101)
           to label %108 unwind label %109
@@ -6877,7 +6877,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKNS_3MatERS1_RKNS_6OptionE(p
 
 112:                                              ; preds = %84
   %113 = load ptr, ptr %0, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 72
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 72
   %115 = load ptr, ptr %114, align 8
   %116 = call noundef i32 %115(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br label %.critedge
@@ -6903,7 +6903,7 @@ define hidden noundef range(i32 -1, 105) i32 @_ZN4ncnn14layer_to_indexEPKc(ptr n
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 16
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #21
   %6 = icmp eq i32 %5, 0
@@ -6932,7 +6932,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEPKc(ptr nocapture noundef read
 
 2:                                                ; preds = %7, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %7 ]
-  %3 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 16
   %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #21
   %6 = icmp eq i32 %5, 0
@@ -6965,7 +6965,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL21layer_registry_avx512E, i64 0, i64 %5, i32 1
+  %6 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL21layer_registry_avx512E, i64 0, i64 %5, i32 1
   br label %19
 
 7:                                                ; preds = %2
@@ -6975,7 +6975,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL18layer_registry_fmaE, i64 0, i64 %10, i32 1
+  %11 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL18layer_registry_fmaE, i64 0, i64 %10, i32 1
   br label %19
 
 12:                                               ; preds = %7
@@ -6985,11 +6985,11 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
   br i1 %.not17.i, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL18layer_registry_avxE, i64 0, i64 %14, i32 1
+  %16 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL18layer_registry_avxE, i64 0, i64 %14, i32 1
   br label %19
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL19layer_registry_archE, i64 0, i64 %14, i32 1
+  %18 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL19layer_registry_archE, i64 0, i64 %14, i32 1
   br label %19
 
 19:                                               ; preds = %17, %15, %9, %4
@@ -7000,7 +7000,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
 
 20:                                               ; preds = %19
   %21 = zext nneg i32 %0 to i64
-  %22 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %21, i32 1
+  %22 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %21, i32 1
   %23 = load ptr, ptr %22, align 8
   switch i32 %0, label %24 [
     i32 34, label %_ZN4ncnn16create_layer_cpuEi.exit.thread
@@ -7099,7 +7099,7 @@ define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEPKc(ptr nocapture nounde
 
 2:                                                ; preds = %7, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %7 ]
-  %3 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 16
   %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #21
   %6 = icmp eq i32 %5, 0
@@ -7122,7 +7122,7 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   ]
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
+  %11 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr %12(ptr noundef null)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -7147,7 +7147,7 @@ define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEi(i32 noundef %0) local_
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %4, i32 1
+  %5 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %4, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr %6(ptr noundef null)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -7165,7 +7165,7 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEPKc(ptr nocapture noundef 
 
 2:                                                ; preds = %7, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %7 ]
-  %3 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 16
   %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #21
   %6 = icmp eq i32 %5, 0
@@ -7199,13 +7199,13 @@ _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
 
 15:                                               ; preds = %13, %11, %9
   %_ZN4ncnnL19layer_registry_archE.sink = phi ptr [ @_ZN4ncnnL21layer_registry_avx512E, %9 ], [ @_ZN4ncnnL18layer_registry_fmaE, %11 ], [ %_ZN4ncnnL19layer_registry_archE._ZN4ncnnL18layer_registry_avxE, %13 ]
-  %16 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr %_ZN4ncnnL19layer_registry_archE.sink, i64 0, i64 %indvars.iv.i, i32 1
+  %16 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr %_ZN4ncnnL19layer_registry_archE.sink, i64 0, i64 %indvars.iv.i, i32 1
   %.014.i = load ptr, ptr %16, align 8
   %.not18.i = icmp eq ptr %.014.i, null
   br i1 %.not18.i, label %17, label %.thread.i
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
+  %18 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
   %19 = load ptr, ptr %18, align 8
   switch i32 %8, label %.thread.i [
     i32 34, label %_ZN4ncnn16create_layer_cpuEi.exit
@@ -7236,7 +7236,7 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_un
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL21layer_registry_avx512E, i64 0, i64 %5, i32 1
+  %6 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL21layer_registry_avx512E, i64 0, i64 %5, i32 1
   br label %19
 
 7:                                                ; preds = %2
@@ -7246,7 +7246,7 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_un
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL18layer_registry_fmaE, i64 0, i64 %10, i32 1
+  %11 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL18layer_registry_fmaE, i64 0, i64 %10, i32 1
   br label %19
 
 12:                                               ; preds = %7
@@ -7256,11 +7256,11 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_un
   br i1 %.not17, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL18layer_registry_avxE, i64 0, i64 %14, i32 1
+  %16 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL18layer_registry_avxE, i64 0, i64 %14, i32 1
   br label %19
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL19layer_registry_archE, i64 0, i64 %14, i32 1
+  %18 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL19layer_registry_archE, i64 0, i64 %14, i32 1
   br label %19
 
 19:                                               ; preds = %9, %17, %15, %4
@@ -7271,7 +7271,7 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef %0) local_un
 
 20:                                               ; preds = %19
   %21 = zext nneg i32 %0 to i64
-  %22 = getelementptr inbounds [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %21, i32 1
+  %22 = getelementptr inbounds nuw [105 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %21, i32 1
   %23 = load ptr, ptr %22, align 8
   switch i32 %0, label %.thread [
     i32 34, label %26
@@ -7325,7 +7325,7 @@ define linkonce_odr hidden void @_ZN4ncnn11Layer_finalD2Ev(ptr noundef nonnull a
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(208) %3) #18
   br label %9
@@ -7345,7 +7345,7 @@ define linkonce_odr hidden void @_ZN4ncnn11Layer_finalD0Ev(ptr noundef nonnull a
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(208) %3) #18
   br label %_ZN4ncnn11Layer_finalD2Ev.exit
@@ -7387,7 +7387,7 @@ define linkonce_odr hidden noundef i32 @_ZN4ncnn11Layer_final10load_paramERKNS_9
   store i32 %25, ptr %27, align 4
   %28 = load ptr, ptr %5, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(208) %28, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %33 = load ptr, ptr %5, align 8
@@ -7435,7 +7435,7 @@ define linkonce_odr hidden noundef i32 @_ZN4ncnn11Layer_final10load_modelERKNS_8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %9 = load ptr, ptr %3, align 8
@@ -7509,7 +7509,7 @@ define linkonce_odr hidden noundef i32 @_ZN4ncnn11Layer_final15create_pipelineER
   store i32 %25, ptr %27, align 4
   %28 = load ptr, ptr %5, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(208) %28, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %33 = load ptr, ptr %5, align 8
@@ -7557,7 +7557,7 @@ define linkonce_odr hidden noundef i32 @_ZN4ncnn11Layer_final16destroy_pipelineE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(64) %1)
   ret i32 %8
@@ -7568,7 +7568,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4ncnn11Layer_final7forwardERKSt6vect
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(64) %3)
   ret i32 %10
@@ -7579,7 +7579,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4ncnn11Layer_final7forwardERKNS_3Mat
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(64) %3)
   ret i32 %10
@@ -7590,7 +7590,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4ncnn11Layer_final15forward_inplaceE
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(64) %2)
   ret i32 %9
@@ -7601,7 +7601,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4ncnn11Layer_final15forward_inplaceE
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(64) %2)
   ret i32 %9
@@ -7655,7 +7655,7 @@ _ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit, %22
   store ptr %20, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 %9
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %9
   store ptr %23, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit
 
@@ -7772,7 +7772,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_ac
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %24)
   br label %31
@@ -7832,8 +7832,8 @@ define linkonce_odr hidden noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_ac
   br label %61
 
 61:                                               ; preds = %.lr.ph, %31
-  %62 = getelementptr inbounds i8, ptr %.03038, i64 72
-  %63 = getelementptr inbounds i8, ptr %.02939, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %.03038, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %.02939, i64 72
   %64 = add nsw i64 %.040, -1
   %65 = icmp sgt i64 %.040, 1
   br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !11
@@ -7892,7 +7892,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_ac
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %24)
   br label %31
@@ -7952,8 +7952,8 @@ define linkonce_odr hidden noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_ac
   br label %61
 
 61:                                               ; preds = %.lr.ph, %31
-  %62 = getelementptr inbounds i8, ptr %.03038, i64 72
-  %63 = getelementptr inbounds i8, ptr %.02939, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %.03038, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %.02939, i64 72
   %64 = add nsw i64 %.040, -1
   %65 = icmp sgt i64 %.040, 1
   br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !12

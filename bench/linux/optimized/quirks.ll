@@ -92,35 +92,35 @@ define dso_local void @efi_delete_dummy_variable() local_unnamed_addr #1 align 1
   %1 = alloca %struct.guid_t, align 4
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 152), align 8
   store i8 87, ptr %1, align 4
-  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 -84, ptr %3, align 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 36, ptr %4, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 68, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 75, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 5
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 5
   store i8 -66, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i8 -35, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %1, i64 7
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 7
   store i8 71, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 -98, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 9
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 -105, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 10
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 -19, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %1, i64 11
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 11
   store i8 80, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 -16, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 13
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 13
   store i8 -97, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 14
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 14
   store i8 -110, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %1, i64 15
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 15
   store i8 -87, ptr %17, align 1
   %18 = call i64 %2(ptr noundef nonnull @efi_dummy_name, ptr noundef nonnull %1, i32 noundef 7, i64 noundef 0, ptr noundef null) #16
   ret void
@@ -200,35 +200,35 @@ define dso_local i64 @efi_query_variable_store(i32 noundef %0, i64 noundef %1, i
 37:                                               ; preds = %33
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @efi, i64 144), align 8
   store i8 87, ptr %10, align 4
-  %39 = getelementptr inbounds i8, ptr %10, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 -84, ptr %39, align 1
-  %40 = getelementptr inbounds i8, ptr %10, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 36, ptr %40, align 2
-  %41 = getelementptr inbounds i8, ptr %10, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store i8 68, ptr %41, align 1
-  %42 = getelementptr inbounds i8, ptr %10, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 75, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %10, i64 5
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 5
   store i8 -66, ptr %43, align 1
-  %44 = getelementptr inbounds i8, ptr %10, i64 6
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 6
   store i8 -35, ptr %44, align 2
-  %45 = getelementptr inbounds i8, ptr %10, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 7
   store i8 71, ptr %45, align 1
-  %46 = getelementptr inbounds i8, ptr %10, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 -98, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %10, i64 9
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 -105, ptr %47, align 1
-  %48 = getelementptr inbounds i8, ptr %10, i64 10
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 10
   store i8 -19, ptr %48, align 2
-  %49 = getelementptr inbounds i8, ptr %10, i64 11
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 11
   store i8 80, ptr %49, align 1
-  %50 = getelementptr inbounds i8, ptr %10, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i8 -16, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %10, i64 13
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 13
   store i8 -97, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %10, i64 14
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 14
   store i8 -110, ptr %52, align 2
-  %53 = getelementptr inbounds i8, ptr %10, i64 15
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 15
   store i8 -87, ptr %53, align 1
   %54 = call i64 %38(ptr noundef nonnull @efi_dummy_name, ptr noundef nonnull %10, i32 noundef 7, i64 noundef %34, ptr noundef nonnull %35) #16
   %55 = icmp eq i64 %54, 0
@@ -296,9 +296,9 @@ define dso_local void @efi_arch_mem_reserve(i64 noundef %0, i64 noundef %1) loca
 
 14:                                               ; preds = %2
   %15 = add i64 %0, %1
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = shl i64 %19, 12
   %21 = add i64 %20, %17
@@ -319,12 +319,12 @@ define dso_local void @efi_arch_mem_reserve(i64 noundef %0, i64 noundef %1) loca
   store i64 %31, ptr %3, align 8
   store i64 %31, ptr %5, align 8
   %32 = add i64 %29, %31
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %35 = load i64, ptr %34, align 8
   %36 = or i64 %35, -9223372036854775808
-  %37 = getelementptr inbounds i8, ptr %5, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %36, ptr %37, align 8
   %38 = call i32 @efi_memmap_split_count(ptr noundef nonnull %6, ptr noundef nonnull %5) #18
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @efi, i64 232), align 8
@@ -339,7 +339,7 @@ define dso_local void @efi_arch_mem_reserve(i64 noundef %0, i64 noundef %1) loca
 
 45:                                               ; preds = %25
   %46 = load i64, ptr %4, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = load i64, ptr @__default_kernel_pte_mask, align 8
   %50 = and i64 %49, -9223372036854775453
@@ -421,9 +421,9 @@ define dso_local void @efi_reserve_boot_services() local_unnamed_addr #5 section
 
 .preheader:                                       ; preds = %4, %30
   %12 = phi ptr [ %32, %30 ], [ %5, %4 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = shl i64 %16, 12
   %18 = load i32, ptr %12, align 8
@@ -441,7 +441,7 @@ define dso_local void @efi_reserve_boot_services() local_unnamed_addr #5 section
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %23, %21
-  %27 = getelementptr inbounds i8, ptr %12, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %28 = load i64, ptr %27, align 8
   %29 = or i64 %28, -9223372036854775808
   store i64 %29, ptr %27, align 8
@@ -515,9 +515,9 @@ define dso_local void @efi_free_boot_services() local_unnamed_addr #5 section ".
 16:                                               ; preds = %60, %13
   %17 = phi ptr [ %6, %13 ], [ %63, %60 ]
   %18 = phi i32 [ 0, %13 ], [ %61, %60 ]
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = shl i64 %22, 12
   %24 = load i32, ptr %17, align 8
@@ -530,7 +530,7 @@ define dso_local void @efi_free_boot_services() local_unnamed_addr #5 section ".
   br label %60
 
 29:                                               ; preds = %16
-  %30 = getelementptr inbounds i8, ptr %17, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %31 = load i64, ptr %30, align 8
   %32 = icmp sgt i64 %31, -1
   br i1 %32, label %35, label %33
@@ -599,7 +599,7 @@ define dso_local void @efi_free_boot_services() local_unnamed_addr #5 section ".
 
 74:                                               ; preds = %71
   %75 = load i64, ptr %1, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load i64, ptr %76, align 8
   %78 = call ptr @memremap(i64 noundef %75, i64 noundef %77, i64 noundef 1) #16
   %79 = icmp eq ptr %78, null
@@ -620,7 +620,7 @@ define dso_local void @efi_free_boot_services() local_unnamed_addr #5 section ".
   %89 = phi i64 [ %104, %102 ], [ %83, %80 ]
   %90 = phi ptr [ %106, %102 ], [ %81, %80 ]
   %91 = phi ptr [ %105, %102 ], [ %78, %80 ]
-  %92 = getelementptr inbounds i8, ptr %90, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %93 = load i64, ptr %92, align 8
   %94 = icmp sgt i64 %93, -1
   br i1 %94, label %95, label %99
@@ -668,9 +668,9 @@ define dso_local void @efi_free_boot_services() local_unnamed_addr #5 section ".
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @efi_unmap_pages(ptr nocapture noundef nonnull readonly %0) unnamed_addr #5 section ".init.text" align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @efi_mm, i64 128), align 64
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %8 = and i64 %7, 32
@@ -678,7 +678,7 @@ define internal fastcc void @efi_unmap_pages(ptr nocapture noundef nonnull reado
   br i1 %9, label %23, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = tail call i32 @kernel_unmap_pages_in_pgd(ptr noundef %2, i64 noundef %4, i64 noundef %12) #18
   %14 = icmp eq i32 %13, 0
@@ -736,7 +736,7 @@ define dso_local noundef range(i32 -12, 1) i32 @efi_reuse_config(i64 noundef %0,
   br i1 %15, label %49, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %47, label %20
@@ -753,8 +753,8 @@ define dso_local noundef range(i32 -12, 1) i32 @efi_reuse_config(i64 noundef %0,
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %32
 
 30:                                               ; preds = %20
@@ -765,7 +765,7 @@ define dso_local noundef range(i32 -12, 1) i32 @efi_reuse_config(i64 noundef %0,
   %33 = phi i32 [ 0, %27 ], [ %45, %43 ]
   %34 = phi ptr [ %23, %27 ], [ %44, %43 ]
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i64, ptr %36, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -781,7 +781,7 @@ define dso_local noundef range(i32 -12, 1) i32 @efi_reuse_config(i64 noundef %0,
 
 40:                                               ; preds = %32
   %41 = load i64, ptr %17, align 8
-  %42 = getelementptr inbounds i8, ptr %34, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 %41, ptr %42, align 8
   br label %43
 
@@ -881,11 +881,11 @@ define dso_local void @efi_crash_gracefully_on_page_fault(i64 noundef %0) local_
   %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #18
   %20 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #22, !srcloc !20
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   br label %23
 
 23:                                               ; preds = %23, %18
-  %24 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22, i32 1026, ptr elementtype(i32) %22) #16, !srcloc !21
+  %24 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %22, i32 1026, ptr nonnull elementtype(i32) %22) #16, !srcloc !21
   tail call void @schedule() #16
   br label %23, !llvm.loop !22
 

@@ -12,10 +12,10 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1010DebugUtils13errorAsStringEj(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef i32 @llvm.umin.i32(i32 %0, i32 70)
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr inbounds [71 x i16], ptr @_ZZN6asmjit9_abi_1_1010DebugUtils13errorAsStringEjE11sErrorIndex, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [71 x i16], ptr @_ZZN6asmjit9_abi_1_1010DebugUtils13errorAsStringEjE11sErrorIndex, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !3
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds i8, ptr @_ZZN6asmjit9_abi_1_1010DebugUtils13errorAsStringEjE12sErrorString, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @_ZZN6asmjit9_abi_1_1010DebugUtils13errorAsStringEjE12sErrorString, i64 %6
   ret ptr %7
 }
 

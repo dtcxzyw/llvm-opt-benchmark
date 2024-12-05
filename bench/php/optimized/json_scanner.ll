@@ -11,22 +11,22 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @php_json_scanner_init(ptr nocapture noundef writeonly initializes((0, 8), (16, 24), (76, 84)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 76
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 0, ptr %8, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 16), (64, 68)) %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %6, 2
   %.promoted = load ptr, ptr %0, align 8
@@ -44,11 +44,11 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 .preheader1626:                                   ; preds = %.lr.ph, %109
   %.promoted1694 = phi ptr [ %110, %109 ], [ %.promoted, %.lr.ph ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 92
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %.backedge1629
 
 ._crit_edge:                                      ; preds = %1
@@ -206,28 +206,28 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %75, label %237, label %208
 
 76:                                               ; preds = %23
-  %77 = getelementptr inbounds i8, ptr %17, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %77, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = icmp ult ptr %79, %77
   br i1 %80, label %php_json_scanner_copy_string.exit, label %81
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds i8, ptr %0, i64 84
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 3, ptr %82, align 4
   br label %php_json_scanner_copy_string.exit
 
 .loopexit1636:                                    ; preds = %30, %26, %23
-  %83 = getelementptr inbounds i8, ptr %17, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %83, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 84
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 3, ptr %84, align 4
   br label %php_json_scanner_copy_string.exit
 
 85:                                               ; preds = %32, %89, %24
   %86 = phi ptr [ %17, %32 ], [ %90, %89 ], [ %17, %24 ]
-  %87 = getelementptr inbounds i8, ptr %86, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1
   store ptr %87, ptr %0, align 8
   %88 = load i8, ptr %87, align 1
   br label %89
@@ -236,7 +236,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   %90 = phi ptr [ %87, %85 ], [ %102, %101 ]
   %.01358 = phi i8 [ %88, %85 ], [ %103, %101 ]
   %91 = zext i8 %.01358 to i64
-  %92 = getelementptr inbounds [256 x i8], ptr @php_json_scan.yybm, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [256 x i8], ptr @php_json_scan.yybm, i64 0, i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = and i8 %93, 64
   %.not1511 = icmp eq i8 %94, 0
@@ -251,12 +251,12 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 98:                                               ; preds = %101, %26
   %99 = phi ptr [ %102, %101 ], [ %17, %26 ]
-  %100 = getelementptr inbounds i8, ptr %99, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
   store ptr %100, ptr %0, align 8
   br label %.lr.ph.split
 
 101:                                              ; preds = %30
-  %102 = getelementptr inbounds i8, ptr %17, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %102, ptr %0, align 8
   %103 = load i8, ptr %102, align 1
   %104 = icmp eq i8 %103, 10
@@ -264,36 +264,36 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 .loopexit1635:                                    ; preds = %32, %58, %45, %38, %278, %212, %63, %56, %52, %51, %43, %37
   %105 = phi ptr [ %.lcssa1844, %58 ], [ %17, %45 ], [ %17, %38 ], [ %281, %278 ], [ %213, %212 ], [ %.lcssa1844, %63 ], [ %.lcssa1844, %56 ], [ %.lcssa1844, %52 ], [ %.lcssa1844, %51 ], [ %17, %43 ], [ %17, %37 ], [ %17, %32 ]
-  %106 = getelementptr inbounds i8, ptr %105, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1
   store ptr %106, ptr %0, align 8
   br label %107
 
 107:                                              ; preds = %250, %199, %194, %189, %123, %117, %.loopexit1635
-  %108 = getelementptr inbounds i8, ptr %0, i64 84
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 4, ptr %108, align 4
   br label %php_json_scanner_copy_string.exit
 
 109:                                              ; preds = %32
-  %110 = getelementptr inbounds i8, ptr %17, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %110, ptr %0, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %110, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 72
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 88
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 92
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %114, align 4
   store i32 1, ptr %5, align 4
   br label %.preheader1626
 
 115:                                              ; preds = %37
-  %116 = getelementptr inbounds i8, ptr %17, i64 1
+  %116 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %116, ptr %0, align 8
   br label %php_json_scanner_copy_string.exit
 
 117:                                              ; preds = %38
-  %118 = getelementptr inbounds i8, ptr %17, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %118, ptr %0, align 8
   %119 = load i8, ptr %118, align 1
   %120 = icmp ult i8 %119, 48
@@ -309,14 +309,14 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 .preheader1634:                                   ; preds = %41, %123
   %.promoted1691 = phi ptr [ %17, %41 ], [ %118, %123 ]
-  %125 = getelementptr inbounds i8, ptr %0, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %170
 
 126:                                              ; preds = %38, %121
   %127 = phi ptr [ %17, %38 ], [ %118, %121 ]
-  %128 = getelementptr inbounds i8, ptr %127, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 1
   store ptr %128, ptr %0, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %128, ptr %129, align 8
   %130 = load i8, ptr %128, align 1
   %131 = icmp ult i8 %130, 69
@@ -350,7 +350,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 148:                                              ; preds = %146
   %149 = zext i1 %140 to i64
-  %150 = getelementptr inbounds i8, ptr %137, i64 %149
+  %150 = getelementptr inbounds nuw i8, ptr %137, i64 %149
   %151 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %150, ptr noundef nonnull dereferenceable(20) @.str, i64 noundef 19) #8
   %152 = icmp slt i32 %151, 0
   %153 = icmp eq i32 %151, 0
@@ -365,7 +365,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br label %php_json_scanner_copy_string.exit
 
 155:                                              ; preds = %148, %146
-  %156 = getelementptr inbounds i8, ptr %0, i64 80
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %157 = load i32, ptr %156, align 8
   %158 = and i32 %157, 2
   %.not1482 = icmp eq i32 %158, 0
@@ -376,13 +376,13 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   %161 = add i64 %160, 32
   %162 = tail call noalias ptr @_emalloc(i64 noundef %161) #10
   store i32 1, ptr %162, align 4
-  %163 = getelementptr inbounds i8, ptr %162, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
   store i32 22, ptr %163, align 4
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i64 0, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %162, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store i64 %143, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %162, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %162, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %166, ptr nonnull align 1 %137, i64 %143, i1 false)
   %167 = getelementptr inbounds [1 x i8], ptr %166, i64 0, i64 %143
   store i8 0, ptr %167, align 1
@@ -398,12 +398,12 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 170:                                              ; preds = %.preheader1634, %170
   %171 = phi ptr [ %.promoted1691, %.preheader1634 ], [ %172, %170 ]
-  %172 = getelementptr inbounds i8, ptr %171, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 1
   store ptr %172, ptr %0, align 8
   store ptr %172, ptr %125, align 8
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i64
-  %175 = getelementptr inbounds [256 x i8], ptr @php_json_scan.yybm, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [256 x i8], ptr @php_json_scan.yybm, i64 0, i64 %174
   %176 = load i8, ptr %175, align 1
   %.not1481 = icmp sgt i8 %176, -1
   br i1 %.not1481, label %177, label %170
@@ -422,59 +422,59 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond5, label %254, label %136
 
 183:                                              ; preds = %43
-  %184 = getelementptr inbounds i8, ptr %17, i64 1
+  %184 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %184, ptr %0, align 8
   br label %php_json_scanner_copy_string.exit
 
 185:                                              ; preds = %45
-  %186 = getelementptr inbounds i8, ptr %17, i64 1
+  %186 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %186, ptr %0, align 8
   br label %php_json_scanner_copy_string.exit
 
 187:                                              ; preds = %45
-  %188 = getelementptr inbounds i8, ptr %17, i64 1
+  %188 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %188, ptr %0, align 8
   br label %php_json_scanner_copy_string.exit
 
 189:                                              ; preds = %51
-  %190 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %190 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   store ptr %190, ptr %0, align 8
-  %191 = getelementptr inbounds i8, ptr %0, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %190, ptr %191, align 8
   %192 = load i8, ptr %190, align 1
   %193 = icmp eq i8 %192, 97
   br i1 %193, label %266, label %107
 
 194:                                              ; preds = %52
-  %195 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %195 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   store ptr %195, ptr %0, align 8
-  %196 = getelementptr inbounds i8, ptr %0, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %195, ptr %196, align 8
   %197 = load i8, ptr %195, align 1
   %198 = icmp eq i8 %197, 117
   br i1 %198, label %270, label %107
 
 199:                                              ; preds = %56
-  %200 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %200 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   store ptr %200, ptr %0, align 8
-  %201 = getelementptr inbounds i8, ptr %0, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %200, ptr %201, align 8
   %202 = load i8, ptr %200, align 1
   %203 = icmp eq i8 %202, 114
   br i1 %203, label %274, label %107
 
 204:                                              ; preds = %58
-  %205 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   store ptr %205, ptr %0, align 8
   br label %php_json_scanner_copy_string.exit
 
 206:                                              ; preds = %58
-  %207 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %207 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   store ptr %207, ptr %0, align 8
   br label %php_json_scanner_copy_string.exit
 
 208:                                              ; preds = %74, %63
-  %209 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %278, %283, %208
@@ -483,21 +483,21 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br label %210
 
 210:                                              ; preds = %.sink.split, %237, %233, %228, %224, %220, %215, %212
-  %211 = getelementptr inbounds i8, ptr %0, i64 84
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 5, ptr %211, align 4
   br label %php_json_scanner_copy_string.exit
 
 212:                                              ; preds = %65
-  %213 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   store ptr %213, ptr %0, align 8
   %214 = load i8, ptr %213, align 1
   %or.cond8 = icmp slt i8 %214, -64
   br i1 %or.cond8, label %.loopexit1635, label %210
 
 215:                                              ; preds = %67
-  %216 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %216 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   store ptr %216, ptr %0, align 8
-  %217 = getelementptr inbounds i8, ptr %0, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %216, ptr %217, align 8
   %218 = load i8, ptr %216, align 1
   %219 = and i8 %218, -32
@@ -505,27 +505,27 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond11, label %278, label %210
 
 220:                                              ; preds = %71, %67
-  %221 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %221 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   store ptr %221, ptr %0, align 8
-  %222 = getelementptr inbounds i8, ptr %0, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %221, ptr %222, align 8
   %223 = load i8, ptr %221, align 1
   %or.cond14 = icmp slt i8 %223, -64
   br i1 %or.cond14, label %278, label %210
 
 224:                                              ; preds = %71
-  %225 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %225 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   store ptr %225, ptr %0, align 8
-  %226 = getelementptr inbounds i8, ptr %0, i64 24
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %225, ptr %226, align 8
   %227 = load i8, ptr %225, align 1
   %or.cond17 = icmp slt i8 %227, -96
   br i1 %or.cond17, label %278, label %210
 
 228:                                              ; preds = %71
-  %229 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %229 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   store ptr %229, ptr %0, align 8
-  %230 = getelementptr inbounds i8, ptr %0, i64 24
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %229, ptr %230, align 8
   %231 = load i8, ptr %229, align 1
   %232 = add i8 %231, 112
@@ -533,18 +533,18 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond20, label %283, label %210
 
 233:                                              ; preds = %72
-  %234 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %234 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   store ptr %234, ptr %0, align 8
-  %235 = getelementptr inbounds i8, ptr %0, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %234, ptr %235, align 8
   %236 = load i8, ptr %234, align 1
   %or.cond23 = icmp slt i8 %236, -64
   br i1 %or.cond23, label %283, label %210
 
 237:                                              ; preds = %74
-  %238 = getelementptr inbounds i8, ptr %.lcssa1844, i64 1
+  %238 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 1
   store ptr %238, ptr %0, align 8
-  %239 = getelementptr inbounds i8, ptr %0, i64 24
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %238, ptr %239, align 8
   %240 = load i8, ptr %238, align 1
   %or.cond26 = icmp slt i8 %240, -112
@@ -552,7 +552,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 241:                                              ; preds = %179, %132
   %242 = phi ptr [ %172, %179 ], [ %128, %132 ]
-  %243 = getelementptr inbounds i8, ptr %242, i64 1
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 1
   store ptr %243, ptr %0, align 8
   %244 = load i8, ptr %243, align 1
   %245 = add i8 %244, -48
@@ -560,7 +560,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond29, label %.preheader1632, label %.thread
 
 .preheader1632:                                   ; preds = %241
-  %246 = getelementptr inbounds i8, ptr %0, i64 24
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %287
 
 .thread:                                          ; preds = %241, %317, %305, %266, %309, %270, %313, %274
@@ -585,7 +585,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   %255 = phi ptr [ %289, %294 ], [ %128, %134 ], [ %172, %181 ]
   %256 = phi i1 [ false, %294 ], [ true, %134 ], [ true, %181 ]
   %.1 = phi i32 [ 3, %294 ], [ 0, %134 ], [ 0, %181 ]
-  %257 = getelementptr inbounds i8, ptr %255, i64 1
+  %257 = getelementptr inbounds nuw i8, ptr %255, i64 1
   store ptr %257, ptr %0, align 8
   %258 = load i8, ptr %257, align 1
   %259 = icmp ult i8 %258, 45
@@ -605,21 +605,21 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond32, label %.preheader1630.preheader, label %249
 
 266:                                              ; preds = %189
-  %267 = getelementptr inbounds i8, ptr %.lcssa1844, i64 2
+  %267 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 2
   store ptr %267, ptr %0, align 8
   %268 = load i8, ptr %267, align 1
   %269 = icmp eq i8 %268, 108
   br i1 %269, label %305, label %.thread
 
 270:                                              ; preds = %194
-  %271 = getelementptr inbounds i8, ptr %.lcssa1844, i64 2
+  %271 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 2
   store ptr %271, ptr %0, align 8
   %272 = load i8, ptr %271, align 1
   %273 = icmp eq i8 %272, 108
   br i1 %273, label %309, label %.thread
 
 274:                                              ; preds = %199
-  %275 = getelementptr inbounds i8, ptr %.lcssa1844, i64 2
+  %275 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 2
   store ptr %275, ptr %0, align 8
   %276 = load i8, ptr %275, align 1
   %277 = icmp eq i8 %276, 117
@@ -628,7 +628,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 278:                                              ; preds = %283, %224, %220, %215
   %279 = phi ptr [ %284, %283 ], [ %225, %224 ], [ %221, %220 ], [ %216, %215 ]
   %280 = phi ptr [ %285, %283 ], [ %225, %224 ], [ %221, %220 ], [ %216, %215 ]
-  %281 = getelementptr inbounds i8, ptr %280, i64 1
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 1
   store ptr %281, ptr %0, align 8
   %282 = load i8, ptr %281, align 1
   %or.cond35 = icmp slt i8 %282, -64
@@ -636,7 +636,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 283:                                              ; preds = %237, %233, %228
   %284 = phi ptr [ %238, %237 ], [ %234, %233 ], [ %229, %228 ]
-  %285 = getelementptr inbounds i8, ptr %.lcssa1844, i64 2
+  %285 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 2
   store ptr %285, ptr %0, align 8
   %286 = load i8, ptr %285, align 1
   %or.cond38 = icmp slt i8 %286, -64
@@ -644,7 +644,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 287:                                              ; preds = %.preheader1632, %292
   %288 = phi ptr [ %243, %.preheader1632 ], [ %289, %292 ]
-  %289 = getelementptr inbounds i8, ptr %288, i64 1
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 1
   store ptr %289, ptr %0, align 8
   store ptr %289, ptr %246, align 8
   %290 = load i8, ptr %289, align 1
@@ -668,7 +668,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br label %php_json_scanner_copy_string.exit
 
 297:                                              ; preds = %262, %260
-  %298 = getelementptr inbounds i8, ptr %255, i64 2
+  %298 = getelementptr inbounds nuw i8, ptr %255, i64 2
   store ptr %298, ptr %0, align 8
   %299 = load i8, ptr %298, align 1
   %300 = add i8 %299, -58
@@ -681,7 +681,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 .preheader1630:                                   ; preds = %.preheader1630.preheader, %.preheader1630
   %301 = phi ptr [ %302, %.preheader1630 ], [ %.ph1876, %.preheader1630.preheader ]
-  %302 = getelementptr inbounds i8, ptr %301, i64 1
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 1
   store ptr %302, ptr %0, align 8
   %303 = load i8, ptr %302, align 1
   %304 = add i8 %303, -48
@@ -689,47 +689,47 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond50, label %.preheader1630, label %.loopexit1631
 
 305:                                              ; preds = %266
-  %306 = getelementptr inbounds i8, ptr %.lcssa1844, i64 3
+  %306 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 3
   store ptr %306, ptr %0, align 8
   %307 = load i8, ptr %306, align 1
   %308 = icmp eq i8 %307, 115
   br i1 %308, label %317, label %.thread
 
 309:                                              ; preds = %270
-  %310 = getelementptr inbounds i8, ptr %.lcssa1844, i64 3
+  %310 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 3
   store ptr %310, ptr %0, align 8
   %311 = load i8, ptr %310, align 1
   %312 = icmp eq i8 %311, 108
   br i1 %312, label %321, label %.thread
 
 313:                                              ; preds = %274
-  %314 = getelementptr inbounds i8, ptr %.lcssa1844, i64 3
+  %314 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 3
   store ptr %314, ptr %0, align 8
   %315 = load i8, ptr %314, align 1
   %316 = icmp eq i8 %315, 101
   br i1 %316, label %323, label %.thread
 
 317:                                              ; preds = %305
-  %318 = getelementptr inbounds i8, ptr %.lcssa1844, i64 4
+  %318 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 4
   store ptr %318, ptr %0, align 8
   %319 = load i8, ptr %318, align 1
   %320 = icmp eq i8 %319, 101
   br i1 %320, label %325, label %.thread
 
 321:                                              ; preds = %309
-  %322 = getelementptr inbounds i8, ptr %.lcssa1844, i64 4
+  %322 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 4
   store ptr %322, ptr %0, align 8
   store i32 1, ptr %3, align 8
   br label %php_json_scanner_copy_string.exit
 
 323:                                              ; preds = %313
-  %324 = getelementptr inbounds i8, ptr %.lcssa1844, i64 4
+  %324 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 4
   store ptr %324, ptr %0, align 8
   store i32 3, ptr %3, align 8
   br label %php_json_scanner_copy_string.exit
 
 325:                                              ; preds = %317
-  %326 = getelementptr inbounds i8, ptr %.lcssa1844, i64 5
+  %326 = getelementptr inbounds nuw i8, ptr %.lcssa1844, i64 5
   store ptr %326, ptr %0, align 8
   store i32 2, ptr %3, align 8
   br label %php_json_scanner_copy_string.exit
@@ -769,7 +769,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %343, label %344, label %347
 
 344:                                              ; preds = %342
-  %345 = getelementptr inbounds i8, ptr %327, i64 1
+  %345 = getelementptr inbounds nuw i8, ptr %327, i64 1
   store ptr %345, ptr %0, align 8
   store ptr %345, ptr %10, align 8
   %346 = load i8, ptr %345, align 1
@@ -791,15 +791,15 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %352, label %454, label %423
 
 353:                                              ; preds = %332
-  %354 = getelementptr inbounds i8, ptr %327, i64 1
+  %354 = getelementptr inbounds nuw i8, ptr %327, i64 1
   store ptr %354, ptr %0, align 8
-  %355 = getelementptr inbounds i8, ptr %0, i64 84
+  %355 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 3, ptr %355, align 4
   br label %php_json_scanner_copy_string.exit
 
 356:                                              ; preds = %484, %440, %338, %334
   %357 = phi ptr [ %487, %484 ], [ %441, %440 ], [ %327, %338 ], [ %327, %334 ]
-  %358 = getelementptr inbounds i8, ptr %357, i64 1
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 1
   store ptr %358, ptr %0, align 8
   br label %.backedge1629.backedge
 
@@ -808,9 +808,9 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br label %.backedge1629
 
 359:                                              ; preds = %334
-  %360 = getelementptr inbounds i8, ptr %327, i64 1
+  %360 = getelementptr inbounds nuw i8, ptr %327, i64 1
   store ptr %360, ptr %0, align 8
-  %361 = getelementptr inbounds i8, ptr %0, i64 40
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %362 = load ptr, ptr %361, align 8
   %363 = ptrtoint ptr %360 to i64
   %364 = ptrtoint ptr %362 to i64
@@ -837,13 +837,13 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   %378 = add i64 %377, 32
   %379 = tail call noalias ptr @_emalloc(i64 noundef %378) #10
   store i32 1, ptr %379, align 4
-  %380 = getelementptr inbounds i8, ptr %379, i64 4
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 4
   store i32 22, ptr %380, align 4
-  %381 = getelementptr inbounds i8, ptr %379, i64 8
+  %381 = getelementptr inbounds nuw i8, ptr %379, i64 8
   store i64 0, ptr %381, align 8
-  %382 = getelementptr inbounds i8, ptr %379, i64 16
+  %382 = getelementptr inbounds nuw i8, ptr %379, i64 16
   store i64 %372, ptr %382, align 8
-  %383 = getelementptr inbounds i8, ptr %379, i64 24
+  %383 = getelementptr inbounds nuw i8, ptr %379, i64 24
   %384 = getelementptr inbounds [1 x i8], ptr %383, i64 0, i64 %372
   store i8 0, ptr %384, align 1
   store ptr %379, ptr %2, align 8
@@ -862,14 +862,14 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %.not1491, label %395, label %.thread1747
 
 .thread1747:                                      ; preds = %389
-  %390 = getelementptr inbounds i8, ptr %0, i64 48
+  %390 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %383, ptr %390, align 8
   %391 = load ptr, ptr %361, align 8
   store ptr %391, ptr %0, align 8
   br label %.preheader
 
 392:                                              ; preds = %376
-  %393 = getelementptr inbounds i8, ptr %0, i64 48
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %383, ptr %393, align 8
   %394 = load ptr, ptr %361, align 8
   store ptr %394, ptr %0, align 8
@@ -883,7 +883,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br label %php_json_scanner_copy_string.exit
 
 397:                                              ; preds = %336
-  %398 = getelementptr inbounds i8, ptr %327, i64 1
+  %398 = getelementptr inbounds nuw i8, ptr %327, i64 1
   store ptr %398, ptr %0, align 8
   store ptr %398, ptr %10, align 8
   %399 = load i8, ptr %398, align 1
@@ -938,12 +938,12 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %421, label %461, label %.loopexit1627
 
 .loopexit1627:                                    ; preds = %403, %412, %406, %408, %416, %420, %.thread1611
-  %422 = getelementptr inbounds i8, ptr %0, i64 84
+  %422 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 4, ptr %422, align 4
   br label %php_json_scanner_copy_string.exit
 
 423:                                              ; preds = %351, %340
-  %424 = getelementptr inbounds i8, ptr %327, i64 1
+  %424 = getelementptr inbounds nuw i8, ptr %327, i64 1
   br label %.sink.split1801
 
 .sink.split1801:                                  ; preds = %489, %484, %423
@@ -969,7 +969,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %433, label %434, label %436
 
 434:                                              ; preds = %432
-  %435 = getelementptr inbounds i8, ptr %0, i64 84
+  %435 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 5, ptr %435, align 4
   br label %php_json_scanner_copy_string.exit
 
@@ -981,12 +981,12 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br label %.backedge1629.backedge
 
 438:                                              ; preds = %425
-  %439 = getelementptr inbounds i8, ptr %0, i64 84
+  %439 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 5, ptr %439, align 4
   br label %php_json_scanner_copy_string.exit
 
 440:                                              ; preds = %340
-  %441 = getelementptr inbounds i8, ptr %327, i64 1
+  %441 = getelementptr inbounds nuw i8, ptr %327, i64 1
   store ptr %441, ptr %0, align 8
   %442 = load i8, ptr %441, align 1
   %or.cond59 = icmp slt i8 %442, -64
@@ -1006,7 +1006,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond68, label %484, label %425
 
 447:                                              ; preds = %347
-  %448 = getelementptr inbounds i8, ptr %327, i64 1
+  %448 = getelementptr inbounds nuw i8, ptr %327, i64 1
   store ptr %448, ptr %0, align 8
   store ptr %448, ptr %10, align 8
   %449 = load i8, ptr %448, align 1
@@ -1015,7 +1015,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond71, label %489, label %425
 
 451:                                              ; preds = %349
-  %452 = getelementptr inbounds i8, ptr %327, i64 1
+  %452 = getelementptr inbounds nuw i8, ptr %327, i64 1
   store ptr %452, ptr %0, align 8
   store ptr %452, ptr %10, align 8
   %453 = load i8, ptr %452, align 1
@@ -1023,7 +1023,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond74, label %489, label %425
 
 454:                                              ; preds = %351
-  %455 = getelementptr inbounds i8, ptr %327, i64 1
+  %455 = getelementptr inbounds nuw i8, ptr %327, i64 1
   store ptr %455, ptr %0, align 8
   store ptr %455, ptr %10, align 8
   %456 = load i8, ptr %455, align 1
@@ -1031,7 +1031,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond77, label %489, label %425
 
 457:                                              ; preds = %403, %403, %418, %416, %412, %408, %406
-  %458 = getelementptr inbounds i8, ptr %327, i64 2
+  %458 = getelementptr inbounds nuw i8, ptr %327, i64 2
   store ptr %458, ptr %0, align 8
   %459 = load i32, ptr %14, align 8
   %460 = add nsw i32 %459, 1
@@ -1039,7 +1039,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br label %.backedge1629.backedge
 
 461:                                              ; preds = %420
-  %462 = getelementptr inbounds i8, ptr %327, i64 2
+  %462 = getelementptr inbounds nuw i8, ptr %327, i64 2
   store ptr %462, ptr %0, align 8
   %463 = load i8, ptr %462, align 1
   %464 = icmp ult i8 %463, 69
@@ -1083,7 +1083,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %481, label %509, label %.thread1611.loopexit
 
 .thread1611.loopexit:                             ; preds = %467, %497, %542, %592, %601, %546, %555, %610, %564, %505, %507, %513, %471, %524, %526, %619, %573, %476, %480, %515, %548, %557, %566, %575, %594, %603, %612, %621
-  %482 = getelementptr inbounds i8, ptr %327, i64 1
+  %482 = getelementptr inbounds nuw i8, ptr %327, i64 1
   br label %.thread1611
 
 .thread1611:                                      ; preds = %.thread1611.loopexit, %630, %585, %535, %530, %583, %628
@@ -1094,7 +1094,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 484:                                              ; preds = %489, %446, %445, %443
   %485 = phi ptr [ %490, %489 ], [ %345, %446 ], [ %345, %445 ], [ %345, %443 ]
   %486 = phi ptr [ %491, %489 ], [ %345, %446 ], [ %345, %445 ], [ %345, %443 ]
-  %487 = getelementptr inbounds i8, ptr %486, i64 1
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 1
   store ptr %487, ptr %0, align 8
   %488 = load i8, ptr %487, align 1
   %or.cond83 = icmp slt i8 %488, -64
@@ -1102,14 +1102,14 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 489:                                              ; preds = %454, %451, %447
   %490 = phi ptr [ %455, %454 ], [ %452, %451 ], [ %448, %447 ]
-  %491 = getelementptr inbounds i8, ptr %327, i64 2
+  %491 = getelementptr inbounds nuw i8, ptr %327, i64 2
   store ptr %491, ptr %0, align 8
   %492 = load i8, ptr %491, align 1
   %or.cond86 = icmp slt i8 %492, -64
   br i1 %or.cond86, label %484, label %.sink.split1801
 
 493:                                              ; preds = %469
-  %494 = getelementptr inbounds i8, ptr %327, i64 3
+  %494 = getelementptr inbounds nuw i8, ptr %327, i64 3
   store ptr %494, ptr %0, align 8
   %495 = load i8, ptr %494, align 1
   %496 = icmp ult i8 %495, 58
@@ -1141,7 +1141,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond89, label %560, label %.thread1611.loopexit
 
 509:                                              ; preds = %480, %476, %473, %469
-  %510 = getelementptr inbounds i8, ptr %327, i64 3
+  %510 = getelementptr inbounds nuw i8, ptr %327, i64 3
   store ptr %510, ptr %0, align 8
   %511 = load i8, ptr %510, align 1
   %512 = icmp ult i8 %511, 65
@@ -1160,7 +1160,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1515, label %560, label %.thread1611.loopexit
 
 518:                                              ; preds = %478, %473
-  %519 = getelementptr inbounds i8, ptr %327, i64 3
+  %519 = getelementptr inbounds nuw i8, ptr %327, i64 3
   store ptr %519, ptr %0, align 8
   %520 = load i8, ptr %519, align 1
   %521 = icmp ult i8 %520, 67
@@ -1184,7 +1184,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %529, label %530, label %533
 
 530:                                              ; preds = %528
-  %531 = getelementptr inbounds i8, ptr %327, i64 1
+  %531 = getelementptr inbounds nuw i8, ptr %327, i64 1
   %532 = icmp samesign ult i8 %520, 71
   br i1 %532, label %578, label %.thread1611
 
@@ -1193,12 +1193,12 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %534, label %569, label %535
 
 535:                                              ; preds = %533
-  %536 = getelementptr inbounds i8, ptr %327, i64 1
+  %536 = getelementptr inbounds nuw i8, ptr %327, i64 1
   %537 = icmp ult i8 %520, 103
   br i1 %537, label %578, label %.thread1611
 
 538:                                              ; preds = %499
-  %539 = getelementptr inbounds i8, ptr %327, i64 4
+  %539 = getelementptr inbounds nuw i8, ptr %327, i64 4
   store ptr %539, ptr %0, align 8
   %540 = load i8, ptr %539, align 1
   %541 = icmp ult i8 %540, 65
@@ -1224,7 +1224,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1516, label %597, label %.thread1611.loopexit
 
 551:                                              ; preds = %501
-  %552 = getelementptr inbounds i8, ptr %327, i64 4
+  %552 = getelementptr inbounds nuw i8, ptr %327, i64 4
   store ptr %552, ptr %0, align 8
   %553 = load i8, ptr %552, align 1
   %554 = icmp ult i8 %553, 65
@@ -1243,7 +1243,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1517, label %597, label %.thread1611.loopexit
 
 560:                                              ; preds = %513, %507, %524, %515, %505, %501
-  %561 = getelementptr inbounds i8, ptr %327, i64 4
+  %561 = getelementptr inbounds nuw i8, ptr %327, i64 4
   store ptr %561, ptr %0, align 8
   %562 = load i8, ptr %561, align 1
   %563 = icmp ult i8 %562, 65
@@ -1262,7 +1262,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1518, label %606, label %.thread1611.loopexit
 
 569:                                              ; preds = %533, %526
-  %570 = getelementptr inbounds i8, ptr %327, i64 4
+  %570 = getelementptr inbounds nuw i8, ptr %327, i64 4
   store ptr %570, ptr %0, align 8
   %571 = load i8, ptr %570, align 1
   %572 = icmp ult i8 %571, 65
@@ -1282,7 +1282,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 578:                                              ; preds = %535, %530
   %579 = phi ptr [ %536, %535 ], [ %531, %530 ]
-  %580 = getelementptr inbounds i8, ptr %327, i64 4
+  %580 = getelementptr inbounds nuw i8, ptr %327, i64 4
   store ptr %580, ptr %0, align 8
   %581 = load i8, ptr %580, align 1
   %582 = icmp ult i8 %581, 65
@@ -1301,7 +1301,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1520, label %624, label %.thread1611
 
 588:                                              ; preds = %544
-  %589 = getelementptr inbounds i8, ptr %327, i64 5
+  %589 = getelementptr inbounds nuw i8, ptr %327, i64 5
   store ptr %589, ptr %0, align 8
   %590 = load i8, ptr %589, align 1
   %591 = icmp ult i8 %590, 65
@@ -1320,7 +1320,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1521, label %633, label %.thread1611.loopexit
 
 597:                                              ; preds = %555, %557, %548, %546
-  %598 = getelementptr inbounds i8, ptr %327, i64 5
+  %598 = getelementptr inbounds nuw i8, ptr %327, i64 5
   store ptr %598, ptr %0, align 8
   %599 = load i8, ptr %598, align 1
   %600 = icmp ult i8 %599, 65
@@ -1339,7 +1339,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1522, label %637, label %.thread1611.loopexit
 
 606:                                              ; preds = %564, %566
-  %607 = getelementptr inbounds i8, ptr %327, i64 5
+  %607 = getelementptr inbounds nuw i8, ptr %327, i64 5
   store ptr %607, ptr %0, align 8
   %608 = load i8, ptr %607, align 1
   %609 = icmp ult i8 %608, 65
@@ -1358,7 +1358,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1523, label %641, label %.thread1611.loopexit
 
 615:                                              ; preds = %573, %575
-  %616 = getelementptr inbounds i8, ptr %327, i64 5
+  %616 = getelementptr inbounds nuw i8, ptr %327, i64 5
   store ptr %616, ptr %0, align 8
   %617 = load i8, ptr %616, align 1
   %618 = icmp ult i8 %617, 65
@@ -1377,7 +1377,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1524, label %645, label %.thread1611.loopexit
 
 624:                                              ; preds = %583, %585
-  %625 = getelementptr inbounds i8, ptr %327, i64 5
+  %625 = getelementptr inbounds nuw i8, ptr %327, i64 5
   store ptr %625, ptr %0, align 8
   %626 = load i8, ptr %625, align 1
   %627 = icmp ult i8 %626, 65
@@ -1396,7 +1396,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1525, label %.loopexit1628.sink.split, label %.thread1611
 
 633:                                              ; preds = %592, %594
-  %634 = getelementptr inbounds i8, ptr %327, i64 6
+  %634 = getelementptr inbounds nuw i8, ptr %327, i64 6
   store ptr %634, ptr %0, align 8
   %635 = load i32, ptr %14, align 8
   %636 = add nsw i32 %635, 5
@@ -1404,7 +1404,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br label %.backedge1629.backedge
 
 637:                                              ; preds = %601, %603
-  %638 = getelementptr inbounds i8, ptr %327, i64 6
+  %638 = getelementptr inbounds nuw i8, ptr %327, i64 6
   store ptr %638, ptr %0, align 8
   %639 = load i32, ptr %14, align 8
   %640 = add nsw i32 %639, 4
@@ -1412,7 +1412,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br label %.backedge1629.backedge
 
 641:                                              ; preds = %610, %612
-  %642 = getelementptr inbounds i8, ptr %327, i64 6
+  %642 = getelementptr inbounds nuw i8, ptr %327, i64 6
   store ptr %642, ptr %0, align 8
   %643 = load i32, ptr %14, align 8
   %644 = add nsw i32 %643, 3
@@ -1420,7 +1420,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br label %.backedge1629.backedge
 
 645:                                              ; preds = %619, %621
-  %646 = getelementptr inbounds i8, ptr %327, i64 6
+  %646 = getelementptr inbounds nuw i8, ptr %327, i64 6
   store ptr %646, ptr %0, align 8
   store ptr %646, ptr %10, align 8
   %647 = load i8, ptr %646, align 1
@@ -1428,24 +1428,24 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %648, label %651, label %.loopexit1628
 
 .loopexit1628.sink.split:                         ; preds = %651, %658, %669, %678, %654, %662, %671, %680, %630, %628
-  %649 = getelementptr inbounds i8, ptr %327, i64 6
+  %649 = getelementptr inbounds nuw i8, ptr %327, i64 6
   store ptr %649, ptr %0, align 8
   br label %.loopexit1628
 
 .loopexit1628:                                    ; preds = %645, %.loopexit1628.sink.split
-  %650 = getelementptr inbounds i8, ptr %0, i64 84
+  %650 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 10, ptr %650, align 4
   br label %php_json_scanner_copy_string.exit
 
 651:                                              ; preds = %645
-  %652 = getelementptr inbounds i8, ptr %327, i64 7
+  %652 = getelementptr inbounds nuw i8, ptr %327, i64 7
   store ptr %652, ptr %0, align 8
   %653 = load i8, ptr %652, align 1
   %.not1486 = icmp eq i8 %653, 117
   br i1 %.not1486, label %654, label %.loopexit1628.sink.split
 
 654:                                              ; preds = %651
-  %655 = getelementptr inbounds i8, ptr %327, i64 8
+  %655 = getelementptr inbounds nuw i8, ptr %327, i64 8
   store ptr %655, ptr %0, align 8
   %656 = load i8, ptr %655, align 1
   %657 = and i8 %656, -33
@@ -1453,7 +1453,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond158.not, label %658, label %.loopexit1628.sink.split
 
 658:                                              ; preds = %654
-  %659 = getelementptr inbounds i8, ptr %327, i64 9
+  %659 = getelementptr inbounds nuw i8, ptr %327, i64 9
   store ptr %659, ptr %0, align 8
   %660 = load i8, ptr %659, align 1
   %661 = icmp ult i8 %660, 67
@@ -1467,7 +1467,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1526, label %.loopexit1628.sink.split, label %665
 
 665:                                              ; preds = %662
-  %666 = getelementptr inbounds i8, ptr %327, i64 10
+  %666 = getelementptr inbounds nuw i8, ptr %327, i64 10
   store ptr %666, ptr %0, align 8
   %667 = load i8, ptr %666, align 1
   %668 = icmp ult i8 %667, 65
@@ -1486,7 +1486,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1527, label %.loopexit1628.sink.split, label %674
 
 674:                                              ; preds = %669, %671
-  %675 = getelementptr inbounds i8, ptr %327, i64 11
+  %675 = getelementptr inbounds nuw i8, ptr %327, i64 11
   store ptr %675, ptr %0, align 8
   %676 = load i8, ptr %675, align 1
   %677 = icmp ult i8 %676, 65
@@ -1505,7 +1505,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1528, label %.loopexit1628.sink.split, label %683
 
 683:                                              ; preds = %678, %680
-  %684 = getelementptr inbounds i8, ptr %327, i64 12
+  %684 = getelementptr inbounds nuw i8, ptr %327, i64 12
   store ptr %684, ptr %0, align 8
   %685 = load i32, ptr %14, align 8
   %686 = add nsw i32 %685, 8
@@ -1543,7 +1543,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %701, label %702, label %705
 
 702:                                              ; preds = %700
-  %703 = getelementptr inbounds i8, ptr %687, i64 1
+  %703 = getelementptr inbounds nuw i8, ptr %687, i64 1
   store ptr %703, ptr %0, align 8
   store ptr %703, ptr %1436, align 8
   %704 = load i8, ptr %703, align 1
@@ -1566,12 +1566,12 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 711:                                              ; preds = %818, %780, %692, %696
   %712 = phi ptr [ %821, %818 ], [ %781, %780 ], [ %687, %692 ], [ %687, %696 ]
-  %713 = getelementptr inbounds i8, ptr %712, i64 1
+  %713 = getelementptr inbounds nuw i8, ptr %712, i64 1
   store ptr %713, ptr %0, align 8
   br label %.backedge.backedge
 
 714:                                              ; preds = %692
-  %715 = getelementptr inbounds i8, ptr %687, i64 1
+  %715 = getelementptr inbounds nuw i8, ptr %687, i64 1
   store ptr %715, ptr %0, align 8
   store i32 0, ptr %5, align 4
   %716 = load ptr, ptr %1438, align 8
@@ -1591,7 +1591,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br label %php_json_scanner_copy_string.exit
 
 725:                                              ; preds = %694
-  %726 = getelementptr inbounds i8, ptr %687, i64 1
+  %726 = getelementptr inbounds nuw i8, ptr %687, i64 1
   store ptr %726, ptr %0, align 8
   store ptr %726, ptr %1436, align 8
   %727 = load i8, ptr %726, align 1
@@ -1646,18 +1646,18 @@ php_json_scanner_copy_string.exit1565:            ; preds = %729, %735
   br label %748
 
 746:                                              ; preds = %php_json_scanner_copy_string.exit1565
-  %747 = getelementptr inbounds i8, ptr %0, i64 84
+  %747 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 4, ptr %747, align 4
   br label %php_json_scanner_copy_string.exit
 
 748:                                              ; preds = %php_json_scanner_copy_string.exit1565, %745, %744, %743, %742, %741
   %.01361 = phi i8 [ %740, %745 ], [ 9, %744 ], [ 13, %743 ], [ 10, %742 ], [ 12, %741 ], [ 8, %php_json_scanner_copy_string.exit1565 ]
   %749 = load ptr, ptr %1439, align 8
-  %750 = getelementptr inbounds i8, ptr %749, i64 1
+  %750 = getelementptr inbounds nuw i8, ptr %749, i64 1
   store ptr %750, ptr %1439, align 8
   store i8 %.01361, ptr %749, align 1
   %751 = load ptr, ptr %0, align 8
-  %752 = getelementptr inbounds i8, ptr %751, i64 1
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 1
   store ptr %752, ptr %0, align 8
   store ptr %752, ptr %1438, align 8
   %753 = load i32, ptr %1437, align 8
@@ -1665,7 +1665,7 @@ php_json_scanner_copy_string.exit1565:            ; preds = %729, %735
   br i1 %.not1502, label %.preheader1624, label %.backedge.backedge
 
 754:                                              ; preds = %709, %698
-  %755 = getelementptr inbounds i8, ptr %687, i64 1
+  %755 = getelementptr inbounds nuw i8, ptr %687, i64 1
   br label %.sink.split1806
 
 .sink.split1806:                                  ; preds = %818, %823, %754
@@ -1708,15 +1708,15 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
 
 771:                                              ; preds = %php_json_scanner_copy_string.exit1567
   %772 = load ptr, ptr %1439, align 8
-  %773 = getelementptr inbounds i8, ptr %772, i64 1
+  %773 = getelementptr inbounds nuw i8, ptr %772, i64 1
   store ptr %773, ptr %1439, align 8
   store i8 -17, ptr %772, align 1
   %774 = load ptr, ptr %1439, align 8
-  %775 = getelementptr inbounds i8, ptr %774, i64 1
+  %775 = getelementptr inbounds nuw i8, ptr %774, i64 1
   store ptr %775, ptr %1439, align 8
   store i8 -65, ptr %774, align 1
   %776 = load ptr, ptr %1439, align 8
-  %777 = getelementptr inbounds i8, ptr %776, i64 1
+  %777 = getelementptr inbounds nuw i8, ptr %776, i64 1
   store ptr %777, ptr %1439, align 8
   store i8 -67, ptr %776, align 1
   br label %778
@@ -1727,7 +1727,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br label %.backedge.backedge
 
 780:                                              ; preds = %698
-  %781 = getelementptr inbounds i8, ptr %687, i64 1
+  %781 = getelementptr inbounds nuw i8, ptr %687, i64 1
   store ptr %781, ptr %0, align 8
   %782 = load i8, ptr %781, align 1
   %or.cond176 = icmp slt i8 %782, -64
@@ -1747,7 +1747,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond185, label %818, label %756
 
 787:                                              ; preds = %705
-  %788 = getelementptr inbounds i8, ptr %687, i64 1
+  %788 = getelementptr inbounds nuw i8, ptr %687, i64 1
   store ptr %788, ptr %0, align 8
   store ptr %788, ptr %1436, align 8
   %789 = load i8, ptr %788, align 1
@@ -1756,7 +1756,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond188, label %823, label %756
 
 791:                                              ; preds = %707
-  %792 = getelementptr inbounds i8, ptr %687, i64 1
+  %792 = getelementptr inbounds nuw i8, ptr %687, i64 1
   store ptr %792, ptr %0, align 8
   store ptr %792, ptr %1436, align 8
   %793 = load i8, ptr %792, align 1
@@ -1764,7 +1764,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond191, label %823, label %756
 
 794:                                              ; preds = %709
-  %795 = getelementptr inbounds i8, ptr %687, i64 1
+  %795 = getelementptr inbounds nuw i8, ptr %687, i64 1
   store ptr %795, ptr %0, align 8
   store ptr %795, ptr %1436, align 8
   %796 = load i8, ptr %795, align 1
@@ -1772,7 +1772,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond194, label %823, label %756
 
 797:                                              ; preds = %725
-  %798 = getelementptr inbounds i8, ptr %687, i64 2
+  %798 = getelementptr inbounds nuw i8, ptr %687, i64 2
   store ptr %798, ptr %0, align 8
   %799 = load i8, ptr %798, align 1
   %800 = icmp ult i8 %799, 69
@@ -1822,7 +1822,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
 818:                                              ; preds = %823, %786, %785, %783
   %819 = phi ptr [ %824, %823 ], [ %703, %786 ], [ %703, %785 ], [ %703, %783 ]
   %820 = phi ptr [ %825, %823 ], [ %703, %786 ], [ %703, %785 ], [ %703, %783 ]
-  %821 = getelementptr inbounds i8, ptr %820, i64 1
+  %821 = getelementptr inbounds nuw i8, ptr %820, i64 1
   store ptr %821, ptr %0, align 8
   %822 = load i8, ptr %821, align 1
   %or.cond200 = icmp slt i8 %822, -64
@@ -1830,14 +1830,14 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
 
 823:                                              ; preds = %794, %791, %787
   %824 = phi ptr [ %795, %794 ], [ %792, %791 ], [ %788, %787 ]
-  %825 = getelementptr inbounds i8, ptr %687, i64 2
+  %825 = getelementptr inbounds nuw i8, ptr %687, i64 2
   store ptr %825, ptr %0, align 8
   %826 = load i8, ptr %825, align 1
   %or.cond203 = icmp slt i8 %826, -64
   br i1 %or.cond203, label %818, label %.sink.split1806
 
 827:                                              ; preds = %805
-  %828 = getelementptr inbounds i8, ptr %687, i64 3
+  %828 = getelementptr inbounds nuw i8, ptr %687, i64 3
   store ptr %828, ptr %0, align 8
   %829 = load i8, ptr %828, align 1
   %830 = icmp ult i8 %829, 58
@@ -1869,7 +1869,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond206, label %887, label %.thread1614
 
 843:                                              ; preds = %816, %812, %809, %805
-  %844 = getelementptr inbounds i8, ptr %687, i64 3
+  %844 = getelementptr inbounds nuw i8, ptr %687, i64 3
   store ptr %844, ptr %0, align 8
   %845 = load i8, ptr %844, align 1
   %846 = icmp ult i8 %845, 65
@@ -1888,7 +1888,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond1529, label %887, label %.thread1614
 
 852:                                              ; preds = %814, %809
-  %853 = getelementptr inbounds i8, ptr %687, i64 3
+  %853 = getelementptr inbounds nuw i8, ptr %687, i64 3
   store ptr %853, ptr %0, align 8
   %854 = load i8, ptr %853, align 1
   %855 = icmp ult i8 %854, 65
@@ -1914,7 +1914,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond1530, label %896, label %.thread1614
 
 865:                                              ; preds = %833
-  %866 = getelementptr inbounds i8, ptr %687, i64 4
+  %866 = getelementptr inbounds nuw i8, ptr %687, i64 4
   store ptr %866, ptr %0, align 8
   %867 = load i8, ptr %866, align 1
   %868 = icmp ult i8 %867, 65
@@ -1940,7 +1940,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond1531, label %914, label %.thread1614
 
 878:                                              ; preds = %835
-  %879 = getelementptr inbounds i8, ptr %687, i64 4
+  %879 = getelementptr inbounds nuw i8, ptr %687, i64 4
   store ptr %879, ptr %0, align 8
   %880 = load i8, ptr %879, align 1
   %881 = icmp ult i8 %880, 65
@@ -1959,7 +1959,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond1532, label %914, label %.thread1614
 
 887:                                              ; preds = %847, %841, %858, %849, %839, %835
-  %888 = getelementptr inbounds i8, ptr %687, i64 4
+  %888 = getelementptr inbounds nuw i8, ptr %687, i64 4
   store ptr %888, ptr %0, align 8
   %889 = load i8, ptr %888, align 1
   %890 = icmp ult i8 %889, 65
@@ -1978,7 +1978,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond1533, label %923, label %.thread1614
 
 896:                                              ; preds = %862, %860
-  %897 = getelementptr inbounds i8, ptr %687, i64 4
+  %897 = getelementptr inbounds nuw i8, ptr %687, i64 4
   store ptr %897, ptr %0, align 8
   %898 = load i8, ptr %897, align 1
   %899 = icmp ult i8 %898, 65
@@ -1997,7 +1997,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond1534, label %932, label %.thread1614
 
 905:                                              ; preds = %871
-  %906 = getelementptr inbounds i8, ptr %687, i64 5
+  %906 = getelementptr inbounds nuw i8, ptr %687, i64 5
   store ptr %906, ptr %0, align 8
   %907 = load i8, ptr %906, align 1
   %908 = icmp ult i8 %907, 65
@@ -2016,7 +2016,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond1535, label %941, label %.thread1614
 
 914:                                              ; preds = %882, %884, %875, %873
-  %915 = getelementptr inbounds i8, ptr %687, i64 5
+  %915 = getelementptr inbounds nuw i8, ptr %687, i64 5
   store ptr %915, ptr %0, align 8
   %916 = load i8, ptr %915, align 1
   %917 = icmp ult i8 %916, 65
@@ -2035,7 +2035,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond1536, label %956, label %.thread1614
 
 923:                                              ; preds = %891, %893
-  %924 = getelementptr inbounds i8, ptr %687, i64 5
+  %924 = getelementptr inbounds nuw i8, ptr %687, i64 5
   store ptr %924, ptr %0, align 8
   %925 = load i8, ptr %924, align 1
   %926 = icmp ult i8 %925, 65
@@ -2054,7 +2054,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond1537, label %978, label %.thread1614
 
 932:                                              ; preds = %900, %902
-  %933 = getelementptr inbounds i8, ptr %687, i64 5
+  %933 = getelementptr inbounds nuw i8, ptr %687, i64 5
   store ptr %933, ptr %0, align 8
   %934 = load i8, ptr %933, align 1
   %935 = icmp ult i8 %934, 65
@@ -2073,7 +2073,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
   br i1 %or.cond1538, label %1022, label %.thread1614
 
 941:                                              ; preds = %909, %911
-  %942 = getelementptr inbounds i8, ptr %687, i64 6
+  %942 = getelementptr inbounds nuw i8, ptr %687, i64 6
   store ptr %942, ptr %0, align 8
   %943 = tail call fastcc i32 @php_json_ucs2_to_int(ptr nonnull %942, i32 noundef 2)
   %944 = load ptr, ptr %1438, align 8
@@ -2094,7 +2094,7 @@ php_json_scanner_copy_string.exit1567:            ; preds = %759, %765
 php_json_scanner_copy_string.exit1569:            ; preds = %941, %948
   %951 = phi ptr [ %.pre1745, %941 ], [ %950, %948 ]
   %952 = trunc i32 %943 to i8
-  %953 = getelementptr inbounds i8, ptr %951, i64 1
+  %953 = getelementptr inbounds nuw i8, ptr %951, i64 1
   store ptr %953, ptr %1439, align 8
   store i8 %952, ptr %951, align 1
   %954 = load ptr, ptr %0, align 8
@@ -2104,7 +2104,7 @@ php_json_scanner_copy_string.exit1569:            ; preds = %941, %948
   br i1 %.not1499, label %.preheader1624, label %.backedge.backedge
 
 956:                                              ; preds = %918, %920
-  %957 = getelementptr inbounds i8, ptr %687, i64 6
+  %957 = getelementptr inbounds nuw i8, ptr %687, i64 6
   store ptr %957, ptr %0, align 8
   %958 = tail call fastcc i32 @php_json_ucs2_to_int(ptr nonnull %957, i32 noundef 3)
   %959 = load ptr, ptr %1438, align 8
@@ -2127,14 +2127,14 @@ php_json_scanner_copy_string.exit1571:            ; preds = %956, %963
   %967 = lshr i32 %958, 6
   %968 = trunc i32 %967 to i8
   %969 = or i8 %968, -64
-  %970 = getelementptr inbounds i8, ptr %966, i64 1
+  %970 = getelementptr inbounds nuw i8, ptr %966, i64 1
   store ptr %970, ptr %1439, align 8
   store i8 %969, ptr %966, align 1
   %971 = trunc i32 %958 to i8
   %972 = and i8 %971, 63
   %973 = or disjoint i8 %972, -128
   %974 = load ptr, ptr %1439, align 8
-  %975 = getelementptr inbounds i8, ptr %974, i64 1
+  %975 = getelementptr inbounds nuw i8, ptr %974, i64 1
   store ptr %975, ptr %1439, align 8
   store i8 %973, ptr %974, align 1
   %976 = load ptr, ptr %0, align 8
@@ -2144,7 +2144,7 @@ php_json_scanner_copy_string.exit1571:            ; preds = %956, %963
   br i1 %.not1498, label %.preheader1624, label %.backedge.backedge
 
 978:                                              ; preds = %927, %929
-  %979 = getelementptr inbounds i8, ptr %687, i64 6
+  %979 = getelementptr inbounds nuw i8, ptr %687, i64 6
   store ptr %979, ptr %0, align 8
   br label %980
 
@@ -2209,7 +2209,7 @@ php_json_scanner_copy_string.exit1573:            ; preds = %php_json_ucs2_to_in
   %1005 = lshr i32 %995, 12
   %1006 = trunc i32 %1005 to i8
   %1007 = or i8 %1006, -32
-  %1008 = getelementptr inbounds i8, ptr %1004, i64 1
+  %1008 = getelementptr inbounds nuw i8, ptr %1004, i64 1
   store ptr %1008, ptr %1439, align 8
   store i8 %1007, ptr %1004, align 1
   %1009 = lshr i32 %995, 6
@@ -2217,14 +2217,14 @@ php_json_scanner_copy_string.exit1573:            ; preds = %php_json_ucs2_to_in
   %1011 = and i8 %1010, 63
   %1012 = or disjoint i8 %1011, -128
   %1013 = load ptr, ptr %1439, align 8
-  %1014 = getelementptr inbounds i8, ptr %1013, i64 1
+  %1014 = getelementptr inbounds nuw i8, ptr %1013, i64 1
   store ptr %1014, ptr %1439, align 8
   store i8 %1012, ptr %1013, align 1
   %1015 = trunc i32 %995 to i8
   %1016 = and i8 %1015, 63
   %1017 = or disjoint i8 %1016, -128
   %1018 = load ptr, ptr %1439, align 8
-  %1019 = getelementptr inbounds i8, ptr %1018, i64 1
+  %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 1
   store ptr %1019, ptr %1439, align 8
   store i8 %1017, ptr %1018, align 1
   %1020 = load ptr, ptr %0, align 8
@@ -2234,21 +2234,21 @@ php_json_scanner_copy_string.exit1573:            ; preds = %php_json_ucs2_to_in
   br i1 %.not1497, label %.preheader1624, label %.backedge.backedge
 
 1022:                                             ; preds = %936, %938
-  %1023 = getelementptr inbounds i8, ptr %687, i64 6
+  %1023 = getelementptr inbounds nuw i8, ptr %687, i64 6
   store ptr %1023, ptr %0, align 8
   %1024 = load i8, ptr %1023, align 1
   %.not1494 = icmp eq i8 %1024, 92
   br i1 %.not1494, label %1025, label %.thread1614
 
 1025:                                             ; preds = %1022
-  %1026 = getelementptr inbounds i8, ptr %687, i64 7
+  %1026 = getelementptr inbounds nuw i8, ptr %687, i64 7
   store ptr %1026, ptr %0, align 8
   %1027 = load i8, ptr %1026, align 1
   %.not1495 = icmp eq i8 %1027, 117
   br i1 %.not1495, label %1028, label %.thread1614
 
 1028:                                             ; preds = %1025
-  %1029 = getelementptr inbounds i8, ptr %687, i64 8
+  %1029 = getelementptr inbounds nuw i8, ptr %687, i64 8
   store ptr %1029, ptr %0, align 8
   %1030 = load i8, ptr %1029, align 1
   %1031 = and i8 %1030, -33
@@ -2256,7 +2256,7 @@ php_json_scanner_copy_string.exit1573:            ; preds = %php_json_ucs2_to_in
   br i1 %or.cond263.not, label %1032, label %.thread1614
 
 1032:                                             ; preds = %1028
-  %1033 = getelementptr inbounds i8, ptr %687, i64 9
+  %1033 = getelementptr inbounds nuw i8, ptr %687, i64 9
   store ptr %1033, ptr %0, align 8
   %1034 = load i8, ptr %1033, align 1
   %1035 = icmp ult i8 %1034, 67
@@ -2270,7 +2270,7 @@ php_json_scanner_copy_string.exit1573:            ; preds = %php_json_ucs2_to_in
   br i1 %or.cond1539, label %.thread1614, label %1039
 
 1039:                                             ; preds = %1036
-  %1040 = getelementptr inbounds i8, ptr %687, i64 10
+  %1040 = getelementptr inbounds nuw i8, ptr %687, i64 10
   store ptr %1040, ptr %0, align 8
   %1041 = load i8, ptr %1040, align 1
   %1042 = icmp ult i8 %1041, 65
@@ -2289,7 +2289,7 @@ php_json_scanner_copy_string.exit1573:            ; preds = %php_json_ucs2_to_in
   br i1 %or.cond1540, label %.thread1614, label %1048
 
 1048:                                             ; preds = %1043, %1045
-  %1049 = getelementptr inbounds i8, ptr %687, i64 11
+  %1049 = getelementptr inbounds nuw i8, ptr %687, i64 11
   store ptr %1049, ptr %0, align 8
   %1050 = load i8, ptr %1049, align 1
   %1051 = icmp ult i8 %1050, 65
@@ -2308,7 +2308,7 @@ php_json_scanner_copy_string.exit1573:            ; preds = %php_json_ucs2_to_in
   br i1 %or.cond1541, label %.thread1614, label %1057
 
 1057:                                             ; preds = %1052, %1054
-  %1058 = getelementptr inbounds i8, ptr %687, i64 12
+  %1058 = getelementptr inbounds nuw i8, ptr %687, i64 12
   store ptr %1058, ptr %0, align 8
   %1059 = tail call fastcc i32 @php_json_ucs2_to_int(ptr nonnull %1058, i32 noundef 4)
   %1060 = tail call fastcc i32 @php_json_ucs2_to_int_ex(ptr nonnull %1058, i32 noundef 4, i32 noundef 7)
@@ -2337,7 +2337,7 @@ php_json_scanner_copy_string.exit1575:            ; preds = %1057, %1070
   %1074 = lshr i32 %1065, 18
   %1075 = trunc nuw nsw i32 %1074 to i8
   %1076 = or disjoint i8 %1075, -16
-  %1077 = getelementptr inbounds i8, ptr %1073, i64 1
+  %1077 = getelementptr inbounds nuw i8, ptr %1073, i64 1
   store ptr %1077, ptr %1439, align 8
   store i8 %1076, ptr %1073, align 1
   %1078 = lshr i32 %1065, 12
@@ -2345,7 +2345,7 @@ php_json_scanner_copy_string.exit1575:            ; preds = %1057, %1070
   %1080 = and i8 %1079, 63
   %1081 = or disjoint i8 %1080, -128
   %1082 = load ptr, ptr %1439, align 8
-  %1083 = getelementptr inbounds i8, ptr %1082, i64 1
+  %1083 = getelementptr inbounds nuw i8, ptr %1082, i64 1
   store ptr %1083, ptr %1439, align 8
   store i8 %1081, ptr %1082, align 1
   %1084 = lshr i32 %1064, 6
@@ -2353,14 +2353,14 @@ php_json_scanner_copy_string.exit1575:            ; preds = %1057, %1070
   %1086 = and i8 %1085, 63
   %1087 = or disjoint i8 %1086, -128
   %1088 = load ptr, ptr %1439, align 8
-  %1089 = getelementptr inbounds i8, ptr %1088, i64 1
+  %1089 = getelementptr inbounds nuw i8, ptr %1088, i64 1
   store ptr %1089, ptr %1439, align 8
   store i8 %1087, ptr %1088, align 1
   %1090 = trunc i32 %1059 to i8
   %1091 = and i8 %1090, 63
   %1092 = or disjoint i8 %1091, -128
   %1093 = load ptr, ptr %1439, align 8
-  %1094 = getelementptr inbounds i8, ptr %1093, i64 1
+  %1094 = getelementptr inbounds nuw i8, ptr %1093, i64 1
   store ptr %1094, ptr %1439, align 8
   store i8 %1092, ptr %1093, align 1
   %1095 = load ptr, ptr %0, align 8
@@ -2371,16 +2371,16 @@ php_json_scanner_copy_string.exit1575:            ; preds = %1057, %1070
 
 .preheader1624:                                   ; preds = %php_json_scanner_copy_string.exit1575, %php_json_scanner_copy_string.exit1573, %php_json_scanner_copy_string.exit1571, %php_json_scanner_copy_string.exit1569, %748, %._crit_edge, %392
   %1097 = phi ptr [ %.promoted, %._crit_edge ], [ %394, %392 ], [ %752, %748 ], [ %954, %php_json_scanner_copy_string.exit1569 ], [ %976, %php_json_scanner_copy_string.exit1571 ], [ %1020, %php_json_scanner_copy_string.exit1573 ], [ %1095, %php_json_scanner_copy_string.exit1575 ]
-  %1098 = getelementptr inbounds i8, ptr %0, i64 24
-  %1099 = getelementptr inbounds i8, ptr %0, i64 40
-  %1100 = getelementptr inbounds i8, ptr %0, i64 48
-  %1101 = getelementptr inbounds i8, ptr %0, i64 88
+  %1098 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1099 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1100 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %1101 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %.backedge1625
 
 .backedge1625:                                    ; preds = %.backedge1625.backedge, %.preheader1624
   %1102 = phi ptr [ %1097, %.preheader1624 ], [ %.be, %.backedge1625.backedge ]
   %1103 = load i8, ptr %1102, align 1
-  %1104 = getelementptr inbounds i8, ptr %1102, i64 1
+  %1104 = getelementptr inbounds nuw i8, ptr %1102, i64 1
   store ptr %1104, ptr %0, align 8
   switch i8 %1103, label %.backedge1625.backedge [
     i8 34, label %1105
@@ -2463,18 +2463,18 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br label %1137
 
 1135:                                             ; preds = %php_json_scanner_copy_string.exit1579
-  %1136 = getelementptr inbounds i8, ptr %0, i64 84
+  %1136 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 4, ptr %1136, align 4
   br label %php_json_scanner_copy_string.exit
 
 1137:                                             ; preds = %php_json_scanner_copy_string.exit1579, %1134, %1133, %1132, %1131, %1130
   %.01362 = phi i8 [ %1129, %1134 ], [ 9, %1133 ], [ 13, %1132 ], [ 10, %1131 ], [ 12, %1130 ], [ 8, %php_json_scanner_copy_string.exit1579 ]
   %1138 = load ptr, ptr %1100, align 8
-  %1139 = getelementptr inbounds i8, ptr %1138, i64 1
+  %1139 = getelementptr inbounds nuw i8, ptr %1138, i64 1
   store ptr %1139, ptr %1100, align 8
   store i8 %.01362, ptr %1138, align 1
   %1140 = load ptr, ptr %0, align 8
-  %1141 = getelementptr inbounds i8, ptr %1140, i64 1
+  %1141 = getelementptr inbounds nuw i8, ptr %1140, i64 1
   store ptr %1141, ptr %0, align 8
   store ptr %1141, ptr %1099, align 8
   %1142 = load i32, ptr %1101, align 8
@@ -2482,7 +2482,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %.not1510, label %.backedge1625.backedge, label %.preheader.loopexit
 
 1143:                                             ; preds = %1115
-  %1144 = getelementptr inbounds i8, ptr %1102, i64 2
+  %1144 = getelementptr inbounds nuw i8, ptr %1102, i64 2
   store ptr %1144, ptr %0, align 8
   %1145 = load i8, ptr %1144, align 1
   %1146 = icmp ult i8 %1145, 69
@@ -2530,7 +2530,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br label %1118
 
 1165:                                             ; preds = %1151
-  %1166 = getelementptr inbounds i8, ptr %1102, i64 3
+  %1166 = getelementptr inbounds nuw i8, ptr %1102, i64 3
   store ptr %1166, ptr %0, align 8
   %1167 = load i8, ptr %1166, align 1
   %1168 = icmp ult i8 %1167, 58
@@ -2562,7 +2562,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %or.cond284, label %1225, label %1164
 
 1181:                                             ; preds = %1162, %1158, %1155, %1151
-  %1182 = getelementptr inbounds i8, ptr %1102, i64 3
+  %1182 = getelementptr inbounds nuw i8, ptr %1102, i64 3
   store ptr %1182, ptr %0, align 8
   %1183 = load i8, ptr %1182, align 1
   %1184 = icmp ult i8 %1183, 65
@@ -2581,7 +2581,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %or.cond1542, label %1225, label %1164
 
 1190:                                             ; preds = %1160, %1155
-  %1191 = getelementptr inbounds i8, ptr %1102, i64 3
+  %1191 = getelementptr inbounds nuw i8, ptr %1102, i64 3
   store ptr %1191, ptr %0, align 8
   %1192 = load i8, ptr %1191, align 1
   %1193 = icmp ult i8 %1192, 65
@@ -2607,7 +2607,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %or.cond1543, label %1234, label %1164
 
 1203:                                             ; preds = %1171
-  %1204 = getelementptr inbounds i8, ptr %1102, i64 4
+  %1204 = getelementptr inbounds nuw i8, ptr %1102, i64 4
   store ptr %1204, ptr %0, align 8
   %1205 = load i8, ptr %1204, align 1
   %1206 = icmp ult i8 %1205, 65
@@ -2633,7 +2633,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %or.cond1544, label %1252, label %1164
 
 1216:                                             ; preds = %1173
-  %1217 = getelementptr inbounds i8, ptr %1102, i64 4
+  %1217 = getelementptr inbounds nuw i8, ptr %1102, i64 4
   store ptr %1217, ptr %0, align 8
   %1218 = load i8, ptr %1217, align 1
   %1219 = icmp ult i8 %1218, 65
@@ -2652,7 +2652,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %or.cond1545, label %1252, label %1164
 
 1225:                                             ; preds = %1185, %1179, %1196, %1187, %1177, %1173
-  %1226 = getelementptr inbounds i8, ptr %1102, i64 4
+  %1226 = getelementptr inbounds nuw i8, ptr %1102, i64 4
   store ptr %1226, ptr %0, align 8
   %1227 = load i8, ptr %1226, align 1
   %1228 = icmp ult i8 %1227, 65
@@ -2671,7 +2671,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %or.cond1546, label %1261, label %1164
 
 1234:                                             ; preds = %1200, %1198
-  %1235 = getelementptr inbounds i8, ptr %1102, i64 4
+  %1235 = getelementptr inbounds nuw i8, ptr %1102, i64 4
   store ptr %1235, ptr %0, align 8
   %1236 = load i8, ptr %1235, align 1
   %1237 = icmp ult i8 %1236, 65
@@ -2690,7 +2690,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %or.cond1547, label %1270, label %1164
 
 1243:                                             ; preds = %1209
-  %1244 = getelementptr inbounds i8, ptr %1102, i64 5
+  %1244 = getelementptr inbounds nuw i8, ptr %1102, i64 5
   store ptr %1244, ptr %0, align 8
   %1245 = load i8, ptr %1244, align 1
   %1246 = icmp ult i8 %1245, 65
@@ -2709,7 +2709,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %or.cond1548, label %1279, label %1164
 
 1252:                                             ; preds = %1220, %1222, %1213, %1211
-  %1253 = getelementptr inbounds i8, ptr %1102, i64 5
+  %1253 = getelementptr inbounds nuw i8, ptr %1102, i64 5
   store ptr %1253, ptr %0, align 8
   %1254 = load i8, ptr %1253, align 1
   %1255 = icmp ult i8 %1254, 65
@@ -2728,7 +2728,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %or.cond1549, label %1294, label %1164
 
 1261:                                             ; preds = %1229, %1231
-  %1262 = getelementptr inbounds i8, ptr %1102, i64 5
+  %1262 = getelementptr inbounds nuw i8, ptr %1102, i64 5
   store ptr %1262, ptr %0, align 8
   %1263 = load i8, ptr %1262, align 1
   %1264 = icmp ult i8 %1263, 65
@@ -2747,7 +2747,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %or.cond1550, label %1316, label %1164
 
 1270:                                             ; preds = %1238, %1240
-  %1271 = getelementptr inbounds i8, ptr %1102, i64 5
+  %1271 = getelementptr inbounds nuw i8, ptr %1102, i64 5
   store ptr %1271, ptr %0, align 8
   %1272 = load i8, ptr %1271, align 1
   %1273 = icmp ult i8 %1272, 65
@@ -2766,7 +2766,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
   br i1 %or.cond1551, label %1360, label %1164
 
 1279:                                             ; preds = %1247, %1249
-  %1280 = getelementptr inbounds i8, ptr %1102, i64 6
+  %1280 = getelementptr inbounds nuw i8, ptr %1102, i64 6
   store ptr %1280, ptr %0, align 8
   %1281 = tail call fastcc i32 @php_json_ucs2_to_int(ptr nonnull %1280, i32 noundef 2)
   %1282 = load ptr, ptr %1099, align 8
@@ -2787,7 +2787,7 @@ php_json_scanner_copy_string.exit1579:            ; preds = %1118, %1124
 php_json_scanner_copy_string.exit1581:            ; preds = %1279, %1286
   %1289 = phi ptr [ %.pre1740, %1279 ], [ %1288, %1286 ]
   %1290 = trunc i32 %1281 to i8
-  %1291 = getelementptr inbounds i8, ptr %1289, i64 1
+  %1291 = getelementptr inbounds nuw i8, ptr %1289, i64 1
   store ptr %1291, ptr %1100, align 8
   store i8 %1290, ptr %1289, align 1
   %1292 = load ptr, ptr %0, align 8
@@ -2797,7 +2797,7 @@ php_json_scanner_copy_string.exit1581:            ; preds = %1279, %1286
   br i1 %.not1509, label %.backedge1625.backedge, label %.preheader.loopexit
 
 1294:                                             ; preds = %1256, %1258
-  %1295 = getelementptr inbounds i8, ptr %1102, i64 6
+  %1295 = getelementptr inbounds nuw i8, ptr %1102, i64 6
   store ptr %1295, ptr %0, align 8
   %1296 = tail call fastcc i32 @php_json_ucs2_to_int(ptr nonnull %1295, i32 noundef 3)
   %1297 = load ptr, ptr %1099, align 8
@@ -2820,14 +2820,14 @@ php_json_scanner_copy_string.exit1583:            ; preds = %1294, %1301
   %1305 = lshr i32 %1296, 6
   %1306 = trunc i32 %1305 to i8
   %1307 = or i8 %1306, -64
-  %1308 = getelementptr inbounds i8, ptr %1304, i64 1
+  %1308 = getelementptr inbounds nuw i8, ptr %1304, i64 1
   store ptr %1308, ptr %1100, align 8
   store i8 %1307, ptr %1304, align 1
   %1309 = trunc i32 %1296 to i8
   %1310 = and i8 %1309, 63
   %1311 = or disjoint i8 %1310, -128
   %1312 = load ptr, ptr %1100, align 8
-  %1313 = getelementptr inbounds i8, ptr %1312, i64 1
+  %1313 = getelementptr inbounds nuw i8, ptr %1312, i64 1
   store ptr %1313, ptr %1100, align 8
   store i8 %1311, ptr %1312, align 1
   %1314 = load ptr, ptr %0, align 8
@@ -2837,7 +2837,7 @@ php_json_scanner_copy_string.exit1583:            ; preds = %1294, %1301
   br i1 %.not1508, label %.backedge1625.backedge, label %.preheader.loopexit
 
 1316:                                             ; preds = %1265, %1267
-  %1317 = getelementptr inbounds i8, ptr %1102, i64 6
+  %1317 = getelementptr inbounds nuw i8, ptr %1102, i64 6
   store ptr %1317, ptr %0, align 8
   br label %1318
 
@@ -2902,7 +2902,7 @@ php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_in
   %1343 = lshr i32 %1333, 12
   %1344 = trunc i32 %1343 to i8
   %1345 = or i8 %1344, -32
-  %1346 = getelementptr inbounds i8, ptr %1342, i64 1
+  %1346 = getelementptr inbounds nuw i8, ptr %1342, i64 1
   store ptr %1346, ptr %1100, align 8
   store i8 %1345, ptr %1342, align 1
   %1347 = lshr i32 %1333, 6
@@ -2910,14 +2910,14 @@ php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_in
   %1349 = and i8 %1348, 63
   %1350 = or disjoint i8 %1349, -128
   %1351 = load ptr, ptr %1100, align 8
-  %1352 = getelementptr inbounds i8, ptr %1351, i64 1
+  %1352 = getelementptr inbounds nuw i8, ptr %1351, i64 1
   store ptr %1352, ptr %1100, align 8
   store i8 %1350, ptr %1351, align 1
   %1353 = trunc i32 %1333 to i8
   %1354 = and i8 %1353, 63
   %1355 = or disjoint i8 %1354, -128
   %1356 = load ptr, ptr %1100, align 8
-  %1357 = getelementptr inbounds i8, ptr %1356, i64 1
+  %1357 = getelementptr inbounds nuw i8, ptr %1356, i64 1
   store ptr %1357, ptr %1100, align 8
   store i8 %1355, ptr %1356, align 1
   %1358 = load ptr, ptr %0, align 8
@@ -2927,21 +2927,21 @@ php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_in
   br i1 %.not1507, label %.backedge1625.backedge, label %.preheader.loopexit
 
 1360:                                             ; preds = %1274, %1276
-  %1361 = getelementptr inbounds i8, ptr %1102, i64 6
+  %1361 = getelementptr inbounds nuw i8, ptr %1102, i64 6
   store ptr %1361, ptr %0, align 8
   %1362 = load i8, ptr %1361, align 1
   %.not1504 = icmp eq i8 %1362, 92
   br i1 %.not1504, label %1363, label %1164
 
 1363:                                             ; preds = %1360
-  %1364 = getelementptr inbounds i8, ptr %1102, i64 7
+  %1364 = getelementptr inbounds nuw i8, ptr %1102, i64 7
   store ptr %1364, ptr %0, align 8
   %1365 = load i8, ptr %1364, align 1
   %.not1505 = icmp eq i8 %1365, 117
   br i1 %.not1505, label %1366, label %1164
 
 1366:                                             ; preds = %1363
-  %1367 = getelementptr inbounds i8, ptr %1102, i64 8
+  %1367 = getelementptr inbounds nuw i8, ptr %1102, i64 8
   store ptr %1367, ptr %0, align 8
   %1368 = load i8, ptr %1367, align 1
   %1369 = and i8 %1368, -33
@@ -2949,7 +2949,7 @@ php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_in
   br i1 %or.cond341.not, label %1370, label %1164
 
 1370:                                             ; preds = %1366
-  %1371 = getelementptr inbounds i8, ptr %1102, i64 9
+  %1371 = getelementptr inbounds nuw i8, ptr %1102, i64 9
   store ptr %1371, ptr %0, align 8
   %1372 = load i8, ptr %1371, align 1
   %1373 = icmp ult i8 %1372, 67
@@ -2963,7 +2963,7 @@ php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_in
   br i1 %or.cond1552, label %1164, label %1377
 
 1377:                                             ; preds = %1374
-  %1378 = getelementptr inbounds i8, ptr %1102, i64 10
+  %1378 = getelementptr inbounds nuw i8, ptr %1102, i64 10
   store ptr %1378, ptr %0, align 8
   %1379 = load i8, ptr %1378, align 1
   %1380 = icmp ult i8 %1379, 65
@@ -2982,7 +2982,7 @@ php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_in
   br i1 %or.cond1553, label %1164, label %1386
 
 1386:                                             ; preds = %1381, %1383
-  %1387 = getelementptr inbounds i8, ptr %1102, i64 11
+  %1387 = getelementptr inbounds nuw i8, ptr %1102, i64 11
   store ptr %1387, ptr %0, align 8
   %1388 = load i8, ptr %1387, align 1
   %1389 = icmp ult i8 %1388, 65
@@ -3001,7 +3001,7 @@ php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_in
   br i1 %or.cond1554, label %1164, label %1395
 
 1395:                                             ; preds = %1390, %1392
-  %1396 = getelementptr inbounds i8, ptr %1102, i64 12
+  %1396 = getelementptr inbounds nuw i8, ptr %1102, i64 12
   store ptr %1396, ptr %0, align 8
   %1397 = tail call fastcc i32 @php_json_ucs2_to_int(ptr nonnull %1396, i32 noundef 4)
   %1398 = tail call fastcc i32 @php_json_ucs2_to_int_ex(ptr nonnull %1396, i32 noundef 4, i32 noundef 7)
@@ -3030,7 +3030,7 @@ php_json_scanner_copy_string.exit1599:            ; preds = %1395, %1408
   %1412 = lshr i32 %1403, 18
   %1413 = trunc nuw nsw i32 %1412 to i8
   %1414 = or disjoint i8 %1413, -16
-  %1415 = getelementptr inbounds i8, ptr %1411, i64 1
+  %1415 = getelementptr inbounds nuw i8, ptr %1411, i64 1
   store ptr %1415, ptr %1100, align 8
   store i8 %1414, ptr %1411, align 1
   %1416 = lshr i32 %1403, 12
@@ -3038,7 +3038,7 @@ php_json_scanner_copy_string.exit1599:            ; preds = %1395, %1408
   %1418 = and i8 %1417, 63
   %1419 = or disjoint i8 %1418, -128
   %1420 = load ptr, ptr %1100, align 8
-  %1421 = getelementptr inbounds i8, ptr %1420, i64 1
+  %1421 = getelementptr inbounds nuw i8, ptr %1420, i64 1
   store ptr %1421, ptr %1100, align 8
   store i8 %1419, ptr %1420, align 1
   %1422 = lshr i32 %1402, 6
@@ -3046,14 +3046,14 @@ php_json_scanner_copy_string.exit1599:            ; preds = %1395, %1408
   %1424 = and i8 %1423, 63
   %1425 = or disjoint i8 %1424, -128
   %1426 = load ptr, ptr %1100, align 8
-  %1427 = getelementptr inbounds i8, ptr %1426, i64 1
+  %1427 = getelementptr inbounds nuw i8, ptr %1426, i64 1
   store ptr %1427, ptr %1100, align 8
   store i8 %1425, ptr %1426, align 1
   %1428 = trunc i32 %1397 to i8
   %1429 = and i8 %1428, 63
   %1430 = or disjoint i8 %1429, -128
   %1431 = load ptr, ptr %1100, align 8
-  %1432 = getelementptr inbounds i8, ptr %1431, i64 1
+  %1432 = getelementptr inbounds nuw i8, ptr %1431, i64 1
   store ptr %1432, ptr %1100, align 8
   store i8 %1430, ptr %1431, align 1
   %1433 = load ptr, ptr %0, align 8
@@ -3068,11 +3068,11 @@ php_json_scanner_copy_string.exit1599:            ; preds = %1395, %1408
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.thread1747, %._crit_edge, %392
   %1435 = phi ptr [ %.promoted, %._crit_edge ], [ %394, %392 ], [ %391, %.thread1747 ], [ %.ph, %.preheader.loopexit ]
-  %1436 = getelementptr inbounds i8, ptr %0, i64 24
-  %1437 = getelementptr inbounds i8, ptr %0, i64 88
-  %1438 = getelementptr inbounds i8, ptr %0, i64 40
-  %1439 = getelementptr inbounds i8, ptr %0, i64 48
-  %1440 = getelementptr inbounds i8, ptr %0, i64 80
+  %1436 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1437 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %1438 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1439 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %1440 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %.backedge
 
 php_json_scanner_copy_string.exit:                ; preds = %1111, %1105, %721, %714, %76, %1135, %746, %.loopexit1628, %438, %434, %.loopexit1627, %395, %374, %353, %325, %323, %321, %.loopexit1631, %210, %206, %204, %187, %185, %183, %168, %159, %.critedge, %115, %107, %.loopexit1636, %81

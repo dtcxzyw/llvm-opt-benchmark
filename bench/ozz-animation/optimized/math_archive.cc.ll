@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @_ZN3ozz2io6ExternINS_4math6Float2EE4SaveERNS0_8OArchiveEPKS3_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca float, align 4
   %5 = shl i64 %2, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.preheader.i.i, label %30
@@ -49,7 +49,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   store float %23, ptr %4, align 4
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -61,7 +61,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   %31 = shl i64 %2, 3
   %32 = load ptr, ptr %0, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %1, i64 noundef %31)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit
@@ -73,10 +73,10 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %_ZN3ozz2i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternINS_4math6Float2EE4LoadERNS0_8IArchiveEPS3_mj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = shl i64 %2, 3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %5)
   %12 = load i8, ptr %6, align 8
@@ -114,7 +114,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 define dso_local void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca float, align 4
   %5 = mul i64 %2, 3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.preheader.i.i, label %30
@@ -160,7 +160,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   store float %23, ptr %4, align 4
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -172,7 +172,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   %31 = mul i64 %2, 12
   %32 = load ptr, ptr %0, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %1, i64 noundef %31)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit
@@ -183,11 +183,11 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %_ZN3ozz2i
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternINS_4math6Float3EE4LoadERNS0_8IArchiveEPS3_mj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = mul i64 %2, 12
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %6)
   %12 = load i8, ptr %5, align 8
@@ -225,7 +225,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 define dso_local void @_ZN3ozz2io6ExternINS_4math6Float4EE4SaveERNS0_8OArchiveEPKS3_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca float, align 4
   %5 = shl i64 %2, 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.preheader.i.i, label %30
@@ -267,7 +267,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   store float %23, ptr %4, align 4
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -279,7 +279,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   %31 = shl i64 %2, 4
   %32 = load ptr, ptr %0, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %1, i64 noundef %31)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit
@@ -291,10 +291,10 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %_ZN3ozz2i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternINS_4math6Float4EE4LoadERNS0_8IArchiveEPS3_mj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = shl i64 %2, 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %5)
   %12 = load i8, ptr %6, align 8
@@ -332,7 +332,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 define dso_local void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4SaveERNS0_8OArchiveEPKS3_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca float, align 4
   %5 = shl i64 %2, 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.preheader.i.i, label %30
@@ -374,7 +374,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   store float %23, ptr %4, align 4
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -386,7 +386,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   %31 = shl i64 %2, 4
   %32 = load ptr, ptr %0, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %1, i64 noundef %31)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit
@@ -398,10 +398,10 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %_ZN3ozz2i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4LoadERNS0_8IArchiveEPS3_mj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = shl i64 %2, 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %5)
   %12 = load i8, ptr %6, align 8
@@ -439,7 +439,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 define dso_local void @_ZN3ozz2io6ExternINS_4math9TransformEE4SaveERNS0_8OArchiveEPKS3_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca float, align 4
   %5 = mul i64 %2, 10
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.preheader.i.i, label %30
@@ -481,7 +481,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   store float %23, ptr %4, align 4
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -493,7 +493,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   %31 = mul i64 %2, 40
   %32 = load ptr, ptr %0, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %1, i64 noundef %31)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit
@@ -504,11 +504,11 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %_ZN3ozz2i
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternINS_4math9TransformEE4LoadERNS0_8IArchiveEPS3_mj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = mul i64 %2, 40
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %6)
   %12 = load i8, ptr %5, align 8
@@ -546,7 +546,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 define dso_local void @_ZN3ozz2io6ExternINS_4math3BoxEE4SaveERNS0_8OArchiveEPKS3_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca float, align 4
   %5 = mul i64 %2, 6
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.preheader.i.i, label %30
@@ -588,7 +588,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   store float %23, ptr %4, align 4
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -600,7 +600,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   %31 = mul i64 %2, 24
   %32 = load ptr, ptr %0, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %1, i64 noundef %31)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit
@@ -611,11 +611,11 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %_ZN3ozz2i
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternINS_4math3BoxEE4LoadERNS0_8IArchiveEPS3_mj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = mul i64 %2, 24
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %6)
   %12 = load i8, ptr %5, align 8
@@ -653,7 +653,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 define dso_local void @_ZN3ozz2io6ExternINS_4math9RectFloatEE4SaveERNS0_8OArchiveEPKS3_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca float, align 4
   %5 = shl i64 %2, 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.preheader.i.i, label %30
@@ -695,7 +695,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   store float %23, ptr %4, align 4
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -707,7 +707,7 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i:                 ; preds = %13, %.lr.ph.i.i
   %31 = shl i64 %2, 4
   %32 = load ptr, ptr %0, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %1, i64 noundef %31)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit
@@ -719,10 +719,10 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %_ZN3ozz2i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternINS_4math9RectFloatEE4LoadERNS0_8IArchiveEPS3_mj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = shl i64 %2, 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %5)
   %12 = load i8, ptr %6, align 8
@@ -760,7 +760,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 define dso_local void @_ZN3ozz2io6ExternINS_4math7RectIntEE4SaveERNS0_8OArchiveEPKS3_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i32, align 4
   %5 = shl i64 %2, 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.preheader.i.i, label %20
@@ -781,7 +781,7 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math7RectIntEE4SaveERNS0_8OArchiveE
   store i32 %13, ptr %4, align 4
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -793,7 +793,7 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math7RectIntEE4SaveERNS0_8OArchiveE
   %21 = shl i64 %2, 4
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %1, i64 noundef %21)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKiEEEEvRKT_.exit
@@ -805,10 +805,10 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKiEEEEvRKT_.exit: ; preds = %.lr.ph.i.
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternINS_4math7RectIntEE4LoadERNS0_8IArchiveEPS3_mj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = shl i64 %2, 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1, i64 noundef %5)
   %12 = load i8, ptr %6, align 8

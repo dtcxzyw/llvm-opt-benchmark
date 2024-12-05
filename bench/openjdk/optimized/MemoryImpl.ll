@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_management_MemoryImpl_setVerboseGC(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 %6(ptr noundef %0, i32 noundef 21, i8 noundef zeroext %2) #1
   ret void
@@ -17,7 +17,7 @@ define void @Java_sun_management_MemoryImpl_setVerboseGC(ptr noundef %0, ptr noc
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_management_MemoryImpl_getMemoryPools0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0, ptr noundef null) #1
   ret ptr %6
@@ -26,7 +26,7 @@ define ptr @Java_sun_management_MemoryImpl_getMemoryPools0(ptr noundef %0, ptr n
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_management_MemoryImpl_getMemoryManagers0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0, ptr noundef null) #1
   ret ptr %6
@@ -35,7 +35,7 @@ define ptr @Java_sun_management_MemoryImpl_getMemoryManagers0(ptr noundef %0, pt
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_management_MemoryImpl_getMemoryUsage0(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %0, i8 noundef zeroext %2) #1
   ret ptr %7

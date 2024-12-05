@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @dtview(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4096
@@ -21,7 +21,7 @@ define ptr @dtview(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not29, label %._crit_edge, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 4096
@@ -33,9 +33,9 @@ define ptr @dtview(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %17
 
 17:                                               ; preds = %10, %15
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not31 = icmp eq ptr %19, %21
   br i1 %.not31, label %.lr.ph, label %.loopexit
@@ -46,19 +46,19 @@ define ptr @dtview(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.035, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.035, i64 40
   %25 = load ptr, ptr %24, align 8
   %.not32 = icmp eq ptr %25, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %23, %9
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8
   %.not33 = icmp eq ptr %27, null
   br i1 %.not33, label %32, label %28
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %27, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = add nsw i32 %30, -1
   store i32 %31, ptr %29, align 8
@@ -69,7 +69,7 @@ define ptr @dtview(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not29, label %33, label %37
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %0, align 8
@@ -78,7 +78,7 @@ define ptr @dtview(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 37:                                               ; preds = %32
   store ptr %1, ptr %26, align 8
   store ptr @dtvsearch, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 8
@@ -98,7 +98,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef %0, ptr noundef %1, i32 noundef %2) #4
@@ -112,9 +112,9 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 12:                                               ; preds = %10
   %13 = and i32 %2, 384
   %.not131 = icmp ne i32 %13, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert193 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.phi.trans.insert193 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre194 = load i32, ptr %.phi.trans.insert193, align 8
   %14 = and i32 %.pre194, 12
   %.not132 = icmp eq i32 %14, 0
@@ -130,7 +130,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %.0104158 = phi ptr [ %22, %20 ], [ %0, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds i8, ptr %.0104158, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.0104158, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %.0104158, ptr noundef %1, i32 noundef %2) #4
@@ -138,7 +138,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br i1 %.not150, label %20, label %._crit_edge
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %.0104158, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.0104158, i64 40
   %22 = load ptr, ptr %21, align 8
   %.not149 = icmp eq ptr %22, null
   br i1 %.not149, label %._crit_edge, label %.lr.ph
@@ -146,7 +146,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 ._crit_edge:                                      ; preds = %20, %.lr.ph, %15
   %.0104.lcssa = phi ptr [ null, %15 ], [ %.0104158, %.lr.ph ], [ null, %20 ]
   %.1112 = phi ptr [ null, %15 ], [ %19, %.lr.ph ], [ null, %20 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.0104.lcssa, ptr %23, align 8
   br label %.loopexit
 
@@ -172,7 +172,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %.0108166 = phi ptr [ null, %.lr.ph168 ], [ %.1109, %66 ]
   %.0115165 = phi ptr [ null, %.lr.ph168 ], [ %.1116, %66 ]
   %.0117164 = phi ptr [ null, %.lr.ph168 ], [ %.1118, %66 ]
-  %32 = getelementptr inbounds i8, ptr %.1105167, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.1105167, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef nonnull %.1105167, ptr noundef %1, i32 noundef %2) #4
@@ -180,12 +180,12 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br i1 %.not146, label %66, label %36
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %.1105167, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.1105167, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %38, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = icmp slt i32 %41, 0
   %45 = sext i32 %39 to i64
@@ -238,13 +238,13 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %.1118 = phi ptr [ %35, %65 ], [ %.0117164, %31 ], [ %.0117164, %61 ]
   %.1116 = phi ptr [ %50, %65 ], [ %.0115165, %31 ], [ %.0115165, %61 ]
   %.1109 = phi ptr [ %.1105167, %65 ], [ %.0108166, %31 ], [ %.0108166, %61 ]
-  %67 = getelementptr inbounds i8, ptr %.1105167, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.1105167, i64 40
   %68 = load ptr, ptr %67, align 8
   %.not145 = icmp eq ptr %68, null
   br i1 %.not145, label %._crit_edge169, label %31
 
 ._crit_edge169:                                   ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %0, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.1109, ptr %69, align 8
   br label %.loopexit
 
@@ -254,25 +254,25 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br i1 %.not134, label %.loopexit, label %72
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %0, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %74 = load ptr, ptr %73, align 8
   %.not135 = icmp eq ptr %74, null
   br i1 %.not135, label %.lr.ph175.preheader, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %74, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i32, ptr %78, align 8
   %80 = icmp slt i32 %79, 0
-  %81 = getelementptr inbounds i8, ptr %74, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
   br i1 %80, label %85, label %88
 
 85:                                               ; preds = %75
-  %86 = getelementptr inbounds i8, ptr %84, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %87 = load ptr, ptr %86, align 8
   br label %92
 
@@ -296,7 +296,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 
 .lr.ph175:                                        ; preds = %.lr.ph175.preheader, %98
   %.2106173 = phi ptr [ %100, %98 ], [ %0, %.lr.ph175.preheader ]
-  %94 = getelementptr inbounds i8, ptr %.2106173, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %.2106173, i64 24
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %95, align 8
   %97 = tail call ptr %96(ptr noundef nonnull %.2106173, ptr noundef %1, i32 noundef 4) #4
@@ -304,7 +304,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br i1 %.not138, label %98, label %101
 
 98:                                               ; preds = %.lr.ph175
-  %99 = getelementptr inbounds i8, ptr %.2106173, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %.2106173, i64 40
   %100 = load ptr, ptr %99, align 8
   %.not137 = icmp eq ptr %100, null
   br i1 %.not137, label %.thread, label %.lr.ph175
@@ -316,7 +316,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 102:                                              ; preds = %101, %92
   %103 = phi ptr [ %.2106173, %101 ], [ %74, %92 ]
   %.0103 = phi ptr [ %97, %101 ], [ %1, %92 ]
-  %104 = getelementptr inbounds i8, ptr %103, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %105, align 8
   %107 = tail call ptr %106(ptr noundef nonnull %103, ptr noundef %.0103, i32 noundef %2) #4
@@ -333,7 +333,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 
 .preheader.lr.ph:                                 ; preds = %109
   %110 = icmp eq ptr %0, %.3107
-  %111 = getelementptr inbounds i8, ptr %.3107, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %.3107, i64 24
   br i1 %110, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %121
@@ -342,7 +342,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 
 112:                                              ; preds = %.preheader, %117
   %.2110177 = phi ptr [ %0, %.preheader ], [ %119, %117 ]
-  %113 = getelementptr inbounds i8, ptr %.2110177, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %.2110177, i64 24
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %114, align 8
   %116 = tail call ptr %115(ptr noundef %.2110177, ptr noundef nonnull %.2182, i32 noundef 4) #4
@@ -350,7 +350,7 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br i1 %.not143, label %117, label %121
 
 117:                                              ; preds = %112
-  %118 = getelementptr inbounds i8, ptr %.2110177, i64 40
+  %118 = getelementptr inbounds nuw i8, ptr %.2110177, i64 40
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, %.3107
   br i1 %120, label %.loopexit, label %112
@@ -363,14 +363,14 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br i1 %.not140, label %._crit_edge183, label %.preheader
 
 ._crit_edge183:                                   ; preds = %121, %109
-  %125 = getelementptr inbounds i8, ptr %.3107, i64 40
+  %125 = getelementptr inbounds nuw i8, ptr %.3107, i64 40
   %126 = load ptr, ptr %125, align 8
   store ptr %126, ptr %73, align 8
   %.not141 = icmp eq ptr %126, null
   br i1 %.not141, label %.loopexit, label %127
 
 127:                                              ; preds = %._crit_edge183
-  %128 = getelementptr inbounds i8, ptr %126, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %129, align 8
   %131 = tail call ptr %130(ptr noundef nonnull %126, ptr noundef null, i32 noundef %.) #4

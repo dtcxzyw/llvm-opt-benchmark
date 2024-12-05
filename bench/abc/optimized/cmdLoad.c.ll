@@ -19,11 +19,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CmdCommandLoad(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
   store i32 100, ptr %4, align 8
   %6 = tail call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #9
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   tail call fastcc void @Vec_StrAppend(ptr noundef nonnull %4, ptr noundef nonnull @.str)
   %8 = load ptr, ptr %2, align 8
@@ -114,7 +114,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   tail call fastcc void @Vec_StrAppend(ptr noundef nonnull %4, ptr noundef nonnull @.str.4)
-  %43 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   tail call fastcc void @Vec_StrAppend(ptr noundef nonnull %4, ptr noundef %44)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -221,14 +221,14 @@ define internal fastcc void @Vec_StrAppend(ptr nocapture noundef %0, ptr nocaptu
   br i1 %5, label %.lr.ph.i, label %Vec_StrPrintStr.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count.i = and i64 %3, 2147483647
   br label %7
 
 7:                                                ; preds = %Vec_StrPush.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Vec_StrPush.exit.i ]
-  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = load i32, ptr %6, align 4
   %11 = load i32, ptr %0, align 8

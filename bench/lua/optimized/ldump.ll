@@ -26,13 +26,13 @@ dumpBlock.exit.i:
   %x.i.i = alloca i8, align 1
   %D = alloca %struct.DumpState, align 8
   store ptr %L, ptr %D, align 8
-  %writer = getelementptr inbounds i8, ptr %D, i64 8
+  %writer = getelementptr inbounds nuw i8, ptr %D, i64 8
   store ptr %w, ptr %writer, align 8
-  %data2 = getelementptr inbounds i8, ptr %D, i64 16
+  %data2 = getelementptr inbounds nuw i8, ptr %D, i64 16
   store ptr %data, ptr %data2, align 8
-  %strip3 = getelementptr inbounds i8, ptr %D, i64 24
+  %strip3 = getelementptr inbounds nuw i8, ptr %D, i64 24
   store i32 %strip, ptr %strip3, align 8
-  %status = getelementptr inbounds i8, ptr %D, i64 28
+  %status = getelementptr inbounds nuw i8, ptr %D, i64 28
   %call.i.i = tail call i32 %w(ptr noundef %L, ptr noundef nonnull @.str, i64 noundef 4, ptr noundef %data) #2
   store i32 %call.i.i, ptr %status, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i.i)
@@ -142,7 +142,7 @@ dumpHeader.exit:                                  ; preds = %dumpInteger.exit.i
   %call.i.i60.i = call i32 %w(ptr noundef %L, ptr noundef nonnull %x.addr.i54.i, i64 noundef 8, ptr noundef %data) #2
   store i32 %call.i.i60.i, ptr %status, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.addr.i54.i)
-  %sizeupvalues = getelementptr inbounds i8, ptr %f, i64 16
+  %sizeupvalues = getelementptr inbounds nuw i8, ptr %f, i64 16
   %6 = load i32, ptr %sizeupvalues, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i)
   %conv.i = trunc i32 %6 to i8
@@ -189,31 +189,31 @@ entry:
   %buff.i.i32 = alloca [10 x i8], align 1
   %buff.i.i24 = alloca [10 x i8], align 1
   %buff.i.i = alloca [10 x i8], align 1
-  %strip = getelementptr inbounds i8, ptr %D, i64 24
+  %strip = getelementptr inbounds nuw i8, ptr %D, i64 24
   %0 = load i32, ptr %strip, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %source = getelementptr inbounds i8, ptr %f, i64 112
+  %source = getelementptr inbounds nuw i8, ptr %f, i64 112
   %1 = load ptr, ptr %source, align 8
   %cmp = icmp eq ptr %1, %psource
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i)
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %buff.i.i, i64 9
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %buff.i.i, i64 9
   store i8 -128, ptr %arrayidx3.i.i, align 1
-  %status.i.i.i = getelementptr inbounds i8, ptr %D, i64 28
+  %status.i.i.i = getelementptr inbounds nuw i8, ptr %D, i64 28
   %2 = load i32, ptr %status.i.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %dumpString.exit
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %writer.i.i.i = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   %3 = load ptr, ptr %writer.i.i.i, align 8
   %4 = load ptr, ptr %D, align 8
-  %data.i.i.i = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i.i = getelementptr inbounds nuw i8, ptr %D, i64 16
   %5 = load ptr, ptr %data.i.i.i, align 8
   %call.i.i.i = call i32 %3(ptr noundef %4, ptr noundef nonnull %arrayidx3.i.i, i64 noundef 1, ptr noundef %5) #2
   store i32 %call.i.i.i, ptr %status.i.i.i, align 4
@@ -228,7 +228,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %dumpString.exit
-  %linedefined = getelementptr inbounds i8, ptr %f, i64 44
+  %linedefined = getelementptr inbounds nuw i8, ptr %f, i64 44
   %6 = load i32, ptr %linedefined, align 4
   %conv.i = sext i32 %6 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i24)
@@ -248,23 +248,23 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   br i1 %cmp.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !5
 
 do.end.i.i:                                       ; preds = %do.body.i.i
-  %arrayidx3.i.i25 = getelementptr inbounds i8, ptr %buff.i.i24, i64 9
+  %arrayidx3.i.i25 = getelementptr inbounds nuw i8, ptr %buff.i.i24, i64 9
   %8 = load i8, ptr %arrayidx3.i.i25, align 1
   %9 = or i8 %8, -128
   store i8 %9, ptr %arrayidx3.i.i25, align 1
-  %status.i.i.i26 = getelementptr inbounds i8, ptr %D, i64 28
+  %status.i.i.i26 = getelementptr inbounds nuw i8, ptr %D, i64 28
   %10 = load i32, ptr %status.i.i.i26, align 4
   %cmp.i.i.i27 = icmp eq i32 %10, 0
   br i1 %cmp.i.i.i27, label %if.then.i.i.i28, label %dumpInt.exit
 
 if.then.i.i.i28:                                  ; preds = %do.end.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %buff.i.i24, i64 10
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buff.i.i24, i64 10
   %idx.neg.i.i = xor i64 %indvars.iv.i.i, -1
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.neg.i.i
-  %writer.i.i.i29 = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i.i29 = getelementptr inbounds nuw i8, ptr %D, i64 8
   %11 = load ptr, ptr %writer.i.i.i29, align 8
   %12 = load ptr, ptr %D, align 8
-  %data.i.i.i30 = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i.i30 = getelementptr inbounds nuw i8, ptr %D, i64 16
   %13 = load ptr, ptr %data.i.i.i30, align 8
   %call.i.i.i31 = call i32 %11(ptr noundef %12, ptr noundef nonnull %add.ptr6.i.i, i64 noundef %indvars.iv.next.i.i, ptr noundef %13) #2
   store i32 %call.i.i.i31, ptr %status.i.i.i26, align 4
@@ -274,7 +274,7 @@ if.then.i.i.i28:                                  ; preds = %do.end.i.i
 dumpInt.exit:                                     ; preds = %do.end.i.i, %if.then.i.i.i28
   %cmp.i.i.i46 = phi i1 [ false, %do.end.i.i ], [ %14, %if.then.i.i.i28 ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i24)
-  %lastlinedefined = getelementptr inbounds i8, ptr %f, i64 48
+  %lastlinedefined = getelementptr inbounds nuw i8, ptr %f, i64 48
   %15 = load i32, ptr %lastlinedefined, align 8
   %conv.i33 = sext i32 %15 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i32)
@@ -294,7 +294,7 @@ do.body.i.i34:                                    ; preds = %do.body.i.i34, %dum
   br i1 %cmp.not.i.i42, label %do.end.i.i43, label %do.body.i.i34, !llvm.loop !5
 
 do.end.i.i43:                                     ; preds = %do.body.i.i34
-  %arrayidx3.i.i44 = getelementptr inbounds i8, ptr %buff.i.i32, i64 9
+  %arrayidx3.i.i44 = getelementptr inbounds nuw i8, ptr %buff.i.i32, i64 9
   %17 = load i8, ptr %arrayidx3.i.i44, align 1
   %18 = or i8 %17, -128
   store i8 %18, ptr %arrayidx3.i.i44, align 1
@@ -306,18 +306,18 @@ dumpInt.exit54.thread:                            ; preds = %do.end.i.i43
   br label %dumpByte.exit.thread
 
 dumpInt.exit54:                                   ; preds = %do.end.i.i43
-  %add.ptr.i.i48 = getelementptr inbounds i8, ptr %buff.i.i32, i64 10
+  %add.ptr.i.i48 = getelementptr inbounds nuw i8, ptr %buff.i.i32, i64 10
   %idx.neg.i.i49 = xor i64 %indvars.iv.i.i35, -1
   %add.ptr6.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i48, i64 %idx.neg.i.i49
-  %writer.i.i.i51 = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i.i51 = getelementptr inbounds nuw i8, ptr %D, i64 8
   %19 = load ptr, ptr %writer.i.i.i51, align 8
   %20 = load ptr, ptr %D, align 8
-  %data.i.i.i52 = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i.i52 = getelementptr inbounds nuw i8, ptr %D, i64 16
   %21 = load ptr, ptr %data.i.i.i52, align 8
   %call.i.i.i53 = call i32 %19(ptr noundef %20, ptr noundef nonnull %add.ptr6.i.i50, i64 noundef %indvars.iv.next.i.i38, ptr noundef %21) #2
   store i32 %call.i.i.i53, ptr %status.i.i.i26, align 4
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i32)
-  %numparams = getelementptr inbounds i8, ptr %f, i64 10
+  %numparams = getelementptr inbounds nuw i8, ptr %f, i64 10
   %22 = load i8, ptr %numparams, align 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i)
   store i8 %22, ptr %x.i, align 1
@@ -337,7 +337,7 @@ dumpByte.exit:                                    ; preds = %dumpInt.exit54
   store i32 %call.i.i, ptr %status.i.i.i26, align 4
   %26 = icmp eq i32 %call.i.i, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i)
-  %is_vararg = getelementptr inbounds i8, ptr %f, i64 11
+  %is_vararg = getelementptr inbounds nuw i8, ptr %f, i64 11
   %27 = load i8, ptr %is_vararg, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i56)
   store i8 %27, ptr %x.i56, align 1
@@ -349,26 +349,26 @@ dumpByte.exit64.thread:                           ; preds = %dumpByte.exit.threa
   br label %dumpByte.exit73
 
 dumpByte.exit64:                                  ; preds = %dumpByte.exit
-  %writer.i.i61 = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i61 = getelementptr inbounds nuw i8, ptr %D, i64 8
   %28 = load ptr, ptr %writer.i.i61, align 8
   %29 = load ptr, ptr %D, align 8
-  %data.i.i62 = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i62 = getelementptr inbounds nuw i8, ptr %D, i64 16
   %30 = load ptr, ptr %data.i.i62, align 8
   %call.i.i63 = call i32 %28(ptr noundef %29, ptr noundef nonnull %x.i56, i64 noundef 1, ptr noundef %30) #2
   store i32 %call.i.i63, ptr %status.i.i.i26, align 4
   %31 = icmp eq i32 %call.i.i63, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i56)
-  %maxstacksize = getelementptr inbounds i8, ptr %f, i64 12
+  %maxstacksize = getelementptr inbounds nuw i8, ptr %f, i64 12
   %32 = load i8, ptr %maxstacksize, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i65)
   store i8 %32, ptr %x.i65, align 1
   br i1 %31, label %if.then.i.i69, label %dumpByte.exit73
 
 if.then.i.i69:                                    ; preds = %dumpByte.exit64
-  %writer.i.i70 = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i70 = getelementptr inbounds nuw i8, ptr %D, i64 8
   %33 = load ptr, ptr %writer.i.i70, align 8
   %34 = load ptr, ptr %D, align 8
-  %data.i.i71 = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i71 = getelementptr inbounds nuw i8, ptr %D, i64 16
   %35 = load ptr, ptr %data.i.i71, align 8
   %call.i.i72 = call i32 %33(ptr noundef %34, ptr noundef nonnull %x.i65, i64 noundef 1, ptr noundef %35) #2
   store i32 %call.i.i72, ptr %status.i.i.i26, align 4
@@ -378,7 +378,7 @@ if.then.i.i69:                                    ; preds = %dumpByte.exit64
 dumpByte.exit73:                                  ; preds = %dumpByte.exit64.thread, %dumpByte.exit64, %if.then.i.i69
   %cmp.i.i.i.i = phi i1 [ false, %dumpByte.exit64 ], [ %36, %if.then.i.i69 ], [ false, %dumpByte.exit64.thread ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i65)
-  %sizecode.i = getelementptr inbounds i8, ptr %f, i64 24
+  %sizecode.i = getelementptr inbounds nuw i8, ptr %f, i64 24
   %37 = load i32, ptr %sizecode.i, align 8
   %conv.i.i74 = sext i32 %37 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i.i)
@@ -398,7 +398,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %dum
   br i1 %cmp.not.i.i.i, label %do.end.i.i.i, label %do.body.i.i.i, !llvm.loop !5
 
 do.end.i.i.i:                                     ; preds = %do.body.i.i.i
-  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %buff.i.i.i, i64 9
+  %arrayidx3.i.i.i = getelementptr inbounds nuw i8, ptr %buff.i.i.i, i64 9
   %39 = load i8, ptr %arrayidx3.i.i.i, align 1
   %40 = or i8 %39, -128
   store i8 %40, ptr %arrayidx3.i.i.i, align 1
@@ -409,13 +409,13 @@ dumpInt.exit.thread.i:                            ; preds = %do.end.i.i.i
   br label %dumpCode.exit
 
 dumpInt.exit.i:                                   ; preds = %do.end.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buff.i.i.i, i64 10
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buff.i.i.i, i64 10
   %idx.neg.i.i.i = xor i64 %indvars.iv.i.i.i, -1
   %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %idx.neg.i.i.i
-  %writer.i.i.i.i = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i.i.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   %41 = load ptr, ptr %writer.i.i.i.i, align 8
   %42 = load ptr, ptr %D, align 8
-  %data.i.i.i.i = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i.i.i = getelementptr inbounds nuw i8, ptr %D, i64 16
   %43 = load ptr, ptr %data.i.i.i.i, align 8
   %call.i.i.i.i = call i32 %41(ptr noundef %42, ptr noundef nonnull %add.ptr6.i.i.i, i64 noundef %indvars.iv.next.i.i.i, ptr noundef %43) #2
   store i32 %call.i.i.i.i, ptr %status.i.i.i26, align 4
@@ -429,7 +429,7 @@ dumpInt.exit.i:                                   ; preds = %do.end.i.i.i
 if.then.i.i75:                                    ; preds = %dumpInt.exit.i
   %conv.i76 = sext i32 %.pre.i to i64
   %mul.i = shl nsw i64 %conv.i76, 2
-  %code.i = getelementptr inbounds i8, ptr %f, i64 64
+  %code.i = getelementptr inbounds nuw i8, ptr %f, i64 64
   %45 = load ptr, ptr %code.i, align 8
   %46 = load ptr, ptr %writer.i.i.i.i, align 8
   %47 = load ptr, ptr %D, align 8
@@ -440,7 +440,7 @@ if.then.i.i75:                                    ; preds = %dumpInt.exit.i
 
 dumpCode.exit:                                    ; preds = %dumpInt.exit.thread.i, %dumpInt.exit.i, %if.then.i.i75
   %49 = phi i32 [ 1, %dumpInt.exit.thread.i ], [ %call.i.i.i.i, %dumpInt.exit.i ], [ %call.i.i79, %if.then.i.i75 ]
-  %sizek.i = getelementptr inbounds i8, ptr %f, i64 20
+  %sizek.i = getelementptr inbounds nuw i8, ptr %f, i64 20
   %50 = load i32, ptr %sizek.i, align 4
   %conv.i.i81 = sext i32 %50 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i.i80)
@@ -460,7 +460,7 @@ do.body.i.i.i82:                                  ; preds = %do.body.i.i.i82, %d
   br i1 %cmp.not.i.i.i90, label %do.end.i.i.i91, label %do.body.i.i.i82, !llvm.loop !5
 
 do.end.i.i.i91:                                   ; preds = %do.body.i.i.i82
-  %arrayidx3.i.i.i92 = getelementptr inbounds i8, ptr %buff.i.i.i80, i64 9
+  %arrayidx3.i.i.i92 = getelementptr inbounds nuw i8, ptr %buff.i.i.i80, i64 9
   %52 = load i8, ptr %arrayidx3.i.i.i92, align 1
   %53 = or i8 %52, -128
   store i8 %53, ptr %arrayidx3.i.i.i92, align 1
@@ -468,13 +468,13 @@ do.end.i.i.i91:                                   ; preds = %do.body.i.i.i82
   br i1 %cmp.i.i.i.i94, label %if.then.i.i.i.i, label %dumpInt.exit.i95
 
 if.then.i.i.i.i:                                  ; preds = %do.end.i.i.i91
-  %add.ptr.i.i.i101 = getelementptr inbounds i8, ptr %buff.i.i.i80, i64 10
+  %add.ptr.i.i.i101 = getelementptr inbounds nuw i8, ptr %buff.i.i.i80, i64 10
   %idx.neg.i.i.i102 = xor i64 %indvars.iv.i.i.i83, -1
   %add.ptr6.i.i.i103 = getelementptr inbounds i8, ptr %add.ptr.i.i.i101, i64 %idx.neg.i.i.i102
-  %writer.i.i.i.i104 = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i.i.i104 = getelementptr inbounds nuw i8, ptr %D, i64 8
   %54 = load ptr, ptr %writer.i.i.i.i104, align 8
   %55 = load ptr, ptr %D, align 8
-  %data.i.i.i.i105 = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i.i.i105 = getelementptr inbounds nuw i8, ptr %D, i64 16
   %56 = load ptr, ptr %data.i.i.i.i105, align 8
   %call.i.i.i.i106 = call i32 %54(ptr noundef %55, ptr noundef nonnull %add.ptr6.i.i.i103, i64 noundef %indvars.iv.next.i.i.i86, ptr noundef %56) #2
   store i32 %call.i.i.i.i106, ptr %status.i.i.i26, align 4
@@ -486,17 +486,17 @@ dumpInt.exit.i95:                                 ; preds = %if.then.i.i.i.i, %d
   br i1 %cmp27.i, label %for.body.lr.ph.i, label %dumpConstants.exit
 
 for.body.lr.ph.i:                                 ; preds = %dumpInt.exit.i95
-  %k.i = getelementptr inbounds i8, ptr %f, i64 56
-  %writer.i.i.i96 = getelementptr inbounds i8, ptr %D, i64 8
-  %data.i.i.i97 = getelementptr inbounds i8, ptr %D, i64 16
+  %k.i = getelementptr inbounds nuw i8, ptr %f, i64 56
+  %writer.i.i.i96 = getelementptr inbounds nuw i8, ptr %D, i64 8
+  %data.i.i.i97 = getelementptr inbounds nuw i8, ptr %D, i64 16
   %wide.trip.count.i = zext nneg i32 %50 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %57 = load ptr, ptr %k.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.TValue, ptr %57, i64 %indvars.iv.i
-  %tt_.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %arrayidx.i = getelementptr inbounds nuw %struct.TValue, ptr %57, i64 %indvars.iv.i
+  %tt_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %58 = load i8, ptr %tt_.i, align 8
   %59 = and i8 %58, 63
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i.i)
@@ -571,7 +571,7 @@ for.inc.i:                                        ; preds = %sw.bb3.i, %dumpInte
   br i1 %exitcond.not.i, label %dumpConstants.exit, label %for.body.i, !llvm.loop !7
 
 dumpConstants.exit:                               ; preds = %for.inc.i, %dumpInt.exit.i95
-  %sizeupvalues.i = getelementptr inbounds i8, ptr %f, i64 16
+  %sizeupvalues.i = getelementptr inbounds nuw i8, ptr %f, i64 16
   %74 = load i32, ptr %sizeupvalues.i, align 8
   %conv.i.i109 = sext i32 %74 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i.i108)
@@ -591,7 +591,7 @@ do.body.i.i.i110:                                 ; preds = %do.body.i.i.i110, %
   br i1 %cmp.not.i.i.i118, label %do.end.i.i.i119, label %do.body.i.i.i110, !llvm.loop !5
 
 do.end.i.i.i119:                                  ; preds = %do.body.i.i.i110
-  %arrayidx3.i.i.i120 = getelementptr inbounds i8, ptr %buff.i.i.i108, i64 9
+  %arrayidx3.i.i.i120 = getelementptr inbounds nuw i8, ptr %buff.i.i.i108, i64 9
   %76 = load i8, ptr %arrayidx3.i.i.i120, align 1
   %77 = or i8 %76, -128
   store i8 %77, ptr %arrayidx3.i.i.i120, align 1
@@ -600,13 +600,13 @@ do.end.i.i.i119:                                  ; preds = %do.body.i.i.i110
   br i1 %cmp.i.i.i.i122, label %if.then.i.i.i.i136, label %dumpInt.exit.i123
 
 if.then.i.i.i.i136:                               ; preds = %do.end.i.i.i119
-  %add.ptr.i.i.i137 = getelementptr inbounds i8, ptr %buff.i.i.i108, i64 10
+  %add.ptr.i.i.i137 = getelementptr inbounds nuw i8, ptr %buff.i.i.i108, i64 10
   %idx.neg.i.i.i138 = xor i64 %indvars.iv.i.i.i111, -1
   %add.ptr6.i.i.i139 = getelementptr inbounds i8, ptr %add.ptr.i.i.i137, i64 %idx.neg.i.i.i138
-  %writer.i.i.i.i140 = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i.i.i140 = getelementptr inbounds nuw i8, ptr %D, i64 8
   %79 = load ptr, ptr %writer.i.i.i.i140, align 8
   %80 = load ptr, ptr %D, align 8
-  %data.i.i.i.i141 = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i.i.i141 = getelementptr inbounds nuw i8, ptr %D, i64 16
   %81 = load ptr, ptr %data.i.i.i.i141, align 8
   %call.i.i.i.i142 = call i32 %79(ptr noundef %80, ptr noundef nonnull %add.ptr6.i.i.i139, i64 noundef %indvars.iv.next.i.i.i114, ptr noundef %81) #2
   store i32 %call.i.i.i.i142, ptr %status.i.i.i26, align 4
@@ -619,9 +619,9 @@ dumpInt.exit.i123:                                ; preds = %if.then.i.i.i.i136,
   br i1 %cmp33.i, label %for.body.lr.ph.i124, label %dumpUpvalues.exit
 
 for.body.lr.ph.i124:                              ; preds = %dumpInt.exit.i123
-  %upvalues.i = getelementptr inbounds i8, ptr %f, i64 80
-  %writer.i.i.i125 = getelementptr inbounds i8, ptr %D, i64 8
-  %data.i.i.i126 = getelementptr inbounds i8, ptr %D, i64 16
+  %upvalues.i = getelementptr inbounds nuw i8, ptr %f, i64 80
+  %writer.i.i.i125 = getelementptr inbounds nuw i8, ptr %D, i64 8
+  %data.i.i.i126 = getelementptr inbounds nuw i8, ptr %D, i64 16
   %wide.trip.count.i127 = zext nneg i32 %74 to i64
   br label %for.body.i128
 
@@ -629,7 +629,7 @@ for.body.i128:                                    ; preds = %dumpByte.exit30.i, 
   %.pr36.i = phi i32 [ %82, %for.body.lr.ph.i124 ], [ %.pr37.i, %dumpByte.exit30.i ]
   %indvars.iv.i129 = phi i64 [ 0, %for.body.lr.ph.i124 ], [ %indvars.iv.next.i131, %dumpByte.exit30.i ]
   %83 = load ptr, ptr %upvalues.i, align 8
-  %instack.i = getelementptr inbounds %struct.Upvaldesc, ptr %83, i64 %indvars.iv.i129, i32 1
+  %instack.i = getelementptr inbounds nuw %struct.Upvaldesc, ptr %83, i64 %indvars.iv.i129, i32 1
   %84 = load i8, ptr %instack.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i.i107)
   store i8 %84, ptr %x.i.i107, align 1
@@ -649,7 +649,7 @@ dumpByte.exit.i133:                               ; preds = %for.body.i128
   store i32 %call.i.i.i134, ptr %status.i.i.i26, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i.i107)
   %88 = load ptr, ptr %upvalues.i, align 8
-  %idx.i = getelementptr inbounds %struct.Upvaldesc, ptr %88, i64 %indvars.iv.i129, i32 2
+  %idx.i = getelementptr inbounds nuw %struct.Upvaldesc, ptr %88, i64 %indvars.iv.i129, i32 2
   %89 = load i8, ptr %idx.i, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i13.i)
   store i8 %89, ptr %x.i13.i, align 1
@@ -670,7 +670,7 @@ dumpByte.exit21.i:                                ; preds = %dumpByte.exit.i133
   store i32 %call.i.i20.i, ptr %status.i.i.i26, align 4
   %.pre.i135 = load ptr, ptr %upvalues.i, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i13.i)
-  %kind.i = getelementptr inbounds %struct.Upvaldesc, ptr %.pre.i135, i64 %indvars.iv.i129, i32 3
+  %kind.i = getelementptr inbounds nuw %struct.Upvaldesc, ptr %.pre.i135, i64 %indvars.iv.i129, i32 3
   %93 = load i8, ptr %kind.i, align 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i22.i)
   store i8 %93, ptr %x.i22.i, align 1
@@ -694,7 +694,7 @@ dumpByte.exit30.i:                                ; preds = %if.then.i.i26.i, %d
 
 dumpUpvalues.exit:                                ; preds = %dumpByte.exit30.i, %dumpInt.exit.i123
   %97 = phi i32 [ %82, %dumpInt.exit.i123 ], [ %.pr37.i, %dumpByte.exit30.i ]
-  %sizep.i = getelementptr inbounds i8, ptr %f, i64 32
+  %sizep.i = getelementptr inbounds nuw i8, ptr %f, i64 32
   %98 = load i32, ptr %sizep.i, align 8
   %conv.i185 = sext i32 %98 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i184)
@@ -714,7 +714,7 @@ do.body.i.i186:                                   ; preds = %do.body.i.i186, %du
   br i1 %cmp.not.i.i194, label %do.end.i.i195, label %do.body.i.i186, !llvm.loop !5
 
 do.end.i.i195:                                    ; preds = %do.body.i.i186
-  %arrayidx3.i.i196 = getelementptr inbounds i8, ptr %buff.i.i184, i64 9
+  %arrayidx3.i.i196 = getelementptr inbounds nuw i8, ptr %buff.i.i184, i64 9
   %100 = load i8, ptr %arrayidx3.i.i196, align 1
   %101 = or i8 %100, -128
   store i8 %101, ptr %arrayidx3.i.i196, align 1
@@ -722,13 +722,13 @@ do.end.i.i195:                                    ; preds = %do.body.i.i186
   br i1 %cmp.i.i.i198, label %if.then.i.i.i199, label %dumpInt.exit206
 
 if.then.i.i.i199:                                 ; preds = %do.end.i.i195
-  %add.ptr.i.i200 = getelementptr inbounds i8, ptr %buff.i.i184, i64 10
+  %add.ptr.i.i200 = getelementptr inbounds nuw i8, ptr %buff.i.i184, i64 10
   %idx.neg.i.i201 = xor i64 %indvars.iv.i.i187, -1
   %add.ptr6.i.i202 = getelementptr inbounds i8, ptr %add.ptr.i.i200, i64 %idx.neg.i.i201
-  %writer.i.i.i203 = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i.i203 = getelementptr inbounds nuw i8, ptr %D, i64 8
   %102 = load ptr, ptr %writer.i.i.i203, align 8
   %103 = load ptr, ptr %D, align 8
-  %data.i.i.i204 = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i.i204 = getelementptr inbounds nuw i8, ptr %D, i64 16
   %104 = load ptr, ptr %data.i.i.i204, align 8
   %call.i.i.i205 = call i32 %102(ptr noundef %103, ptr noundef nonnull %add.ptr6.i.i202, i64 noundef %indvars.iv.next.i.i190, ptr noundef %104) #2
   store i32 %call.i.i.i205, ptr %status.i.i.i26, align 4
@@ -740,15 +740,15 @@ dumpInt.exit206:                                  ; preds = %do.end.i.i195, %if.
   br i1 %cmp.i211, label %for.body.i143.lr.ph, label %dumpProtos.exit
 
 for.body.i143.lr.ph:                              ; preds = %dumpInt.exit206
-  %p.i = getelementptr inbounds i8, ptr %f, i64 72
-  %source.i = getelementptr inbounds i8, ptr %f, i64 112
+  %p.i = getelementptr inbounds nuw i8, ptr %f, i64 72
+  %source.i = getelementptr inbounds nuw i8, ptr %f, i64 112
   %wide.trip.count = zext nneg i32 %98 to i64
   br label %for.body.i143
 
 for.body.i143:                                    ; preds = %for.body.i143.lr.ph, %for.body.i143
   %indvars.iv = phi i64 [ 0, %for.body.i143.lr.ph ], [ %indvars.iv.next, %for.body.i143 ]
   %105 = load ptr, ptr %p.i, align 8
-  %arrayidx.i144 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv
+  %arrayidx.i144 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv
   %106 = load ptr, ptr %arrayidx.i144, align 8
   %107 = load ptr, ptr %source.i, align 8
   call fastcc void @dumpFunction(ptr noundef nonnull %D, ptr noundef %106, ptr noundef %107)
@@ -762,7 +762,7 @@ dumpProtos.exit:                                  ; preds = %for.body.i143, %dum
   br i1 %tobool.not.i, label %cond.false.i, label %cond.end.i
 
 cond.false.i:                                     ; preds = %dumpProtos.exit
-  %sizelineinfo.i = getelementptr inbounds i8, ptr %f, i64 28
+  %sizelineinfo.i = getelementptr inbounds nuw i8, ptr %f, i64 28
   %109 = load i32, ptr %sizelineinfo.i, align 4
   %110 = sext i32 %109 to i64
   br label %cond.end.i
@@ -786,7 +786,7 @@ do.body.i.i.i146:                                 ; preds = %do.body.i.i.i146, %
   br i1 %cmp.not.i.i.i154, label %do.end.i.i.i155, label %do.body.i.i.i146, !llvm.loop !5
 
 do.end.i.i.i155:                                  ; preds = %do.body.i.i.i146
-  %arrayidx3.i.i.i156 = getelementptr inbounds i8, ptr %buff.i.i.i145, i64 9
+  %arrayidx3.i.i.i156 = getelementptr inbounds nuw i8, ptr %buff.i.i.i145, i64 9
   %112 = load i8, ptr %arrayidx3.i.i.i156, align 1
   %113 = or i8 %112, -128
   store i8 %113, ptr %arrayidx3.i.i.i156, align 1
@@ -799,13 +799,13 @@ dumpInt.exit.thread.i159:                         ; preds = %do.end.i.i.i155
   br label %dumpBlock.exit.i
 
 dumpInt.exit.i170:                                ; preds = %do.end.i.i.i155
-  %add.ptr.i.i.i171 = getelementptr inbounds i8, ptr %buff.i.i.i145, i64 10
+  %add.ptr.i.i.i171 = getelementptr inbounds nuw i8, ptr %buff.i.i.i145, i64 10
   %idx.neg.i.i.i172 = xor i64 %indvars.iv.i.i.i147, -1
   %add.ptr6.i.i.i173 = getelementptr inbounds i8, ptr %add.ptr.i.i.i171, i64 %idx.neg.i.i.i172
-  %writer.i.i.i.i174 = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i.i.i174 = getelementptr inbounds nuw i8, ptr %D, i64 8
   %115 = load ptr, ptr %writer.i.i.i.i174, align 8
   %116 = load ptr, ptr %D, align 8
-  %data.i.i.i.i175 = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i.i.i175 = getelementptr inbounds nuw i8, ptr %D, i64 16
   %117 = load ptr, ptr %data.i.i.i.i175, align 8
   %call.i.i.i.i176 = call i32 %115(ptr noundef %116, ptr noundef nonnull %add.ptr6.i.i.i173, i64 noundef %indvars.iv.next.i.i.i150, ptr noundef %117) #2
   store i32 %call.i.i.i.i176, ptr %status.i.i.i26, align 4
@@ -816,7 +816,7 @@ dumpInt.exit.i170:                                ; preds = %do.end.i.i.i155
   br i1 %or.cond.i.i179, label %if.then.i.i180, label %dumpBlock.exit.i
 
 if.then.i.i180:                                   ; preds = %dumpInt.exit.i170
-  %lineinfo.i = getelementptr inbounds i8, ptr %f, i64 88
+  %lineinfo.i = getelementptr inbounds nuw i8, ptr %f, i64 88
   %118 = load ptr, ptr %lineinfo.i, align 8
   %119 = load ptr, ptr %writer.i.i.i.i174, align 8
   %120 = load ptr, ptr %D, align 8
@@ -832,7 +832,7 @@ dumpBlock.exit.i:                                 ; preds = %if.then.i.i180, %du
   br i1 %tobool2.not.i, label %cond.false4.i, label %cond.end5.i
 
 cond.false4.i:                                    ; preds = %dumpBlock.exit.i
-  %sizeabslineinfo.i = getelementptr inbounds i8, ptr %f, i64 40
+  %sizeabslineinfo.i = getelementptr inbounds nuw i8, ptr %f, i64 40
   %124 = load i32, ptr %sizeabslineinfo.i, align 8
   br label %cond.end5.i
 
@@ -856,7 +856,7 @@ do.body.i.i45.i:                                  ; preds = %do.body.i.i45.i, %c
   br i1 %cmp.not.i.i53.i, label %do.end.i.i54.i, label %do.body.i.i45.i, !llvm.loop !5
 
 do.end.i.i54.i:                                   ; preds = %do.body.i.i45.i
-  %arrayidx3.i.i55.i = getelementptr inbounds i8, ptr %buff.i.i43.i, i64 9
+  %arrayidx3.i.i55.i = getelementptr inbounds nuw i8, ptr %buff.i.i43.i, i64 9
   %126 = load i8, ptr %arrayidx3.i.i55.i, align 1
   %127 = or i8 %126, -128
   store i8 %127, ptr %arrayidx3.i.i55.i, align 1
@@ -864,13 +864,13 @@ do.end.i.i54.i:                                   ; preds = %do.body.i.i45.i
   br i1 %cmp.i.i.i57.i, label %if.then.i.i.i58.i, label %dumpInt.exit65.i
 
 if.then.i.i.i58.i:                                ; preds = %do.end.i.i54.i
-  %add.ptr.i.i59.i = getelementptr inbounds i8, ptr %buff.i.i43.i, i64 10
+  %add.ptr.i.i59.i = getelementptr inbounds nuw i8, ptr %buff.i.i43.i, i64 10
   %idx.neg.i.i60.i = xor i64 %indvars.iv.i.i46.i, -1
   %add.ptr6.i.i61.i = getelementptr inbounds i8, ptr %add.ptr.i.i59.i, i64 %idx.neg.i.i60.i
-  %writer.i.i.i62.i = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i.i62.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   %128 = load ptr, ptr %writer.i.i.i62.i, align 8
   %129 = load ptr, ptr %D, align 8
-  %data.i.i.i63.i = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i.i63.i = getelementptr inbounds nuw i8, ptr %D, i64 16
   %130 = load ptr, ptr %data.i.i.i63.i, align 8
   %call.i.i.i64.i = call i32 %128(ptr noundef %129, ptr noundef nonnull %add.ptr6.i.i61.i, i64 noundef %indvars.iv.next.i.i49.i, ptr noundef %130) #2
   store i32 %call.i.i.i64.i, ptr %status.i.i.i26, align 4
@@ -883,13 +883,13 @@ dumpInt.exit65.i:                                 ; preds = %if.then.i.i.i58.i, 
   br i1 %cmp204.i, label %for.body.lr.ph.i162, label %for.end.i
 
 for.body.lr.ph.i162:                              ; preds = %dumpInt.exit65.i
-  %abslineinfo.i = getelementptr inbounds i8, ptr %f, i64 96
-  %arrayidx3.i.i78.i = getelementptr inbounds i8, ptr %buff.i.i66.i, i64 9
-  %add.ptr.i.i82.i = getelementptr inbounds i8, ptr %buff.i.i66.i, i64 10
-  %writer.i.i.i85.i = getelementptr inbounds i8, ptr %D, i64 8
-  %data.i.i.i86.i = getelementptr inbounds i8, ptr %D, i64 16
-  %arrayidx3.i.i101.i = getelementptr inbounds i8, ptr %buff.i.i89.i, i64 9
-  %add.ptr.i.i105.i = getelementptr inbounds i8, ptr %buff.i.i89.i, i64 10
+  %abslineinfo.i = getelementptr inbounds nuw i8, ptr %f, i64 96
+  %arrayidx3.i.i78.i = getelementptr inbounds nuw i8, ptr %buff.i.i66.i, i64 9
+  %add.ptr.i.i82.i = getelementptr inbounds nuw i8, ptr %buff.i.i66.i, i64 10
+  %writer.i.i.i85.i = getelementptr inbounds nuw i8, ptr %D, i64 8
+  %data.i.i.i86.i = getelementptr inbounds nuw i8, ptr %D, i64 16
+  %arrayidx3.i.i101.i = getelementptr inbounds nuw i8, ptr %buff.i.i89.i, i64 9
+  %add.ptr.i.i105.i = getelementptr inbounds nuw i8, ptr %buff.i.i89.i, i64 10
   %wide.trip.count.i163 = zext nneg i32 %cond6.i to i64
   br label %for.body.i164
 
@@ -897,7 +897,7 @@ for.body.i164:                                    ; preds = %dumpInt.exit111.i, 
   %132 = phi i32 [ %131, %for.body.lr.ph.i162 ], [ %150, %dumpInt.exit111.i ]
   %indvars.iv.i165 = phi i64 [ 0, %for.body.lr.ph.i162 ], [ %indvars.iv.next.i167, %dumpInt.exit111.i ]
   %133 = load ptr, ptr %abslineinfo.i, align 8
-  %arrayidx.i166 = getelementptr inbounds %struct.AbsLineInfo, ptr %133, i64 %indvars.iv.i165
+  %arrayidx.i166 = getelementptr inbounds nuw %struct.AbsLineInfo, ptr %133, i64 %indvars.iv.i165
   %134 = load i32, ptr %arrayidx.i166, align 4
   %conv.i67.i = sext i32 %134 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i66.i)
@@ -938,7 +938,7 @@ dumpInt.exit88.i:                                 ; preds = %if.then.i.i.i81.i, 
   %141 = phi i32 [ %132, %do.end.i.i77.i ], [ %call.i.i.i87.i, %if.then.i.i.i81.i ]
   %142 = phi ptr [ %133, %do.end.i.i77.i ], [ %.pre.i169, %if.then.i.i.i81.i ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i66.i)
-  %line.i = getelementptr inbounds %struct.AbsLineInfo, ptr %142, i64 %indvars.iv.i165, i32 1
+  %line.i = getelementptr inbounds nuw %struct.AbsLineInfo, ptr %142, i64 %indvars.iv.i165, i32 1
   %143 = load i32, ptr %line.i, align 4
   %conv.i90.i = sext i32 %143 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i89.i)
@@ -988,7 +988,7 @@ for.end.i:                                        ; preds = %dumpInt.exit111.i, 
   br i1 %tobool12.not.i, label %cond.false14.i, label %cond.end15.i
 
 cond.false14.i:                                   ; preds = %for.end.i
-  %sizelocvars.i = getelementptr inbounds i8, ptr %f, i64 36
+  %sizelocvars.i = getelementptr inbounds nuw i8, ptr %f, i64 36
   %153 = load i32, ptr %sizelocvars.i, align 4
   br label %cond.end15.i
 
@@ -1012,7 +1012,7 @@ do.body.i.i114.i:                                 ; preds = %do.body.i.i114.i, %
   br i1 %cmp.not.i.i122.i, label %do.end.i.i123.i, label %do.body.i.i114.i, !llvm.loop !5
 
 do.end.i.i123.i:                                  ; preds = %do.body.i.i114.i
-  %arrayidx3.i.i124.i = getelementptr inbounds i8, ptr %buff.i.i112.i, i64 9
+  %arrayidx3.i.i124.i = getelementptr inbounds nuw i8, ptr %buff.i.i112.i, i64 9
   %155 = load i8, ptr %arrayidx3.i.i124.i, align 1
   %156 = or i8 %155, -128
   store i8 %156, ptr %arrayidx3.i.i124.i, align 1
@@ -1020,13 +1020,13 @@ do.end.i.i123.i:                                  ; preds = %do.body.i.i114.i
   br i1 %cmp.i.i.i126.i, label %if.then.i.i.i127.i, label %dumpInt.exit134.i
 
 if.then.i.i.i127.i:                               ; preds = %do.end.i.i123.i
-  %add.ptr.i.i128.i = getelementptr inbounds i8, ptr %buff.i.i112.i, i64 10
+  %add.ptr.i.i128.i = getelementptr inbounds nuw i8, ptr %buff.i.i112.i, i64 10
   %idx.neg.i.i129.i = xor i64 %indvars.iv.i.i115.i, -1
   %add.ptr6.i.i130.i = getelementptr inbounds i8, ptr %add.ptr.i.i128.i, i64 %idx.neg.i.i129.i
-  %writer.i.i.i131.i = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i.i131.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   %157 = load ptr, ptr %writer.i.i.i131.i, align 8
   %158 = load ptr, ptr %D, align 8
-  %data.i.i.i132.i = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i.i132.i = getelementptr inbounds nuw i8, ptr %D, i64 16
   %159 = load ptr, ptr %data.i.i.i132.i, align 8
   %call.i.i.i133.i = call i32 %157(ptr noundef %158, ptr noundef nonnull %add.ptr6.i.i130.i, i64 noundef %indvars.iv.next.i.i118.i, ptr noundef %159) #2
   store i32 %call.i.i.i133.i, ptr %status.i.i.i26, align 4
@@ -1039,24 +1039,24 @@ dumpInt.exit134.i:                                ; preds = %if.then.i.i.i127.i,
   br i1 %cmp18206.i, label %for.body20.lr.ph.i, label %for.end31.i
 
 for.body20.lr.ph.i:                               ; preds = %dumpInt.exit134.i
-  %locvars.i = getelementptr inbounds i8, ptr %f, i64 104
-  %arrayidx3.i.i147.i = getelementptr inbounds i8, ptr %buff.i.i135.i, i64 9
-  %add.ptr.i.i151.i = getelementptr inbounds i8, ptr %buff.i.i135.i, i64 10
-  %writer.i.i.i154.i = getelementptr inbounds i8, ptr %D, i64 8
-  %data.i.i.i155.i = getelementptr inbounds i8, ptr %D, i64 16
-  %arrayidx3.i.i170.i = getelementptr inbounds i8, ptr %buff.i.i158.i, i64 9
-  %add.ptr.i.i174.i = getelementptr inbounds i8, ptr %buff.i.i158.i, i64 10
+  %locvars.i = getelementptr inbounds nuw i8, ptr %f, i64 104
+  %arrayidx3.i.i147.i = getelementptr inbounds nuw i8, ptr %buff.i.i135.i, i64 9
+  %add.ptr.i.i151.i = getelementptr inbounds nuw i8, ptr %buff.i.i135.i, i64 10
+  %writer.i.i.i154.i = getelementptr inbounds nuw i8, ptr %D, i64 8
+  %data.i.i.i155.i = getelementptr inbounds nuw i8, ptr %D, i64 16
+  %arrayidx3.i.i170.i = getelementptr inbounds nuw i8, ptr %buff.i.i158.i, i64 9
+  %add.ptr.i.i174.i = getelementptr inbounds nuw i8, ptr %buff.i.i158.i, i64 10
   %wide.trip.count214.i = zext nneg i32 %cond16.i to i64
   br label %for.body20.i
 
 for.body20.i:                                     ; preds = %dumpInt.exit180.i, %for.body20.lr.ph.i
   %indvars.iv211.i = phi i64 [ 0, %for.body20.lr.ph.i ], [ %indvars.iv.next212.i, %dumpInt.exit180.i ]
   %161 = load ptr, ptr %locvars.i, align 8
-  %arrayidx22.i = getelementptr inbounds %struct.LocVar, ptr %161, i64 %indvars.iv211.i
+  %arrayidx22.i = getelementptr inbounds nuw %struct.LocVar, ptr %161, i64 %indvars.iv211.i
   %162 = load ptr, ptr %arrayidx22.i, align 8
   call fastcc void @dumpString(ptr noundef nonnull %D, ptr noundef %162)
   %163 = load ptr, ptr %locvars.i, align 8
-  %startpc.i = getelementptr inbounds %struct.LocVar, ptr %163, i64 %indvars.iv211.i, i32 1
+  %startpc.i = getelementptr inbounds nuw %struct.LocVar, ptr %163, i64 %indvars.iv211.i, i32 1
   %164 = load i32, ptr %startpc.i, align 8
   %conv.i136.i = sext i32 %164 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i135.i)
@@ -1098,7 +1098,7 @@ dumpInt.exit157.i:                                ; preds = %if.then.i.i.i150.i,
   %172 = phi i32 [ %168, %do.end.i.i146.i ], [ %call.i.i.i156.i, %if.then.i.i.i150.i ]
   %173 = phi ptr [ %163, %do.end.i.i146.i ], [ %.pre221.i, %if.then.i.i.i150.i ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buff.i.i135.i)
-  %endpc.i = getelementptr inbounds %struct.LocVar, ptr %173, i64 %indvars.iv211.i, i32 2
+  %endpc.i = getelementptr inbounds nuw %struct.LocVar, ptr %173, i64 %indvars.iv211.i, i32 2
   %174 = load i32, ptr %endpc.i, align 4
   %conv.i159.i = sext i32 %174 to i64
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i.i158.i)
@@ -1171,7 +1171,7 @@ do.body.i.i183.i:                                 ; preds = %do.body.i.i183.i, %
   br i1 %cmp.not.i.i191.i, label %do.end.i.i192.i, label %do.body.i.i183.i, !llvm.loop !5
 
 do.end.i.i192.i:                                  ; preds = %do.body.i.i183.i
-  %arrayidx3.i.i193.i = getelementptr inbounds i8, ptr %buff.i.i181.i, i64 9
+  %arrayidx3.i.i193.i = getelementptr inbounds nuw i8, ptr %buff.i.i181.i, i64 9
   %186 = load i8, ptr %arrayidx3.i.i193.i, align 1
   %187 = or i8 %186, -128
   store i8 %187, ptr %arrayidx3.i.i193.i, align 1
@@ -1179,13 +1179,13 @@ do.end.i.i192.i:                                  ; preds = %do.body.i.i183.i
   br i1 %cmp.i.i.i195.i, label %if.then.i.i.i196.i, label %dumpInt.exit203.i
 
 if.then.i.i.i196.i:                               ; preds = %do.end.i.i192.i
-  %add.ptr.i.i197.i = getelementptr inbounds i8, ptr %buff.i.i181.i, i64 10
+  %add.ptr.i.i197.i = getelementptr inbounds nuw i8, ptr %buff.i.i181.i, i64 10
   %idx.neg.i.i198.i = xor i64 %indvars.iv.i.i184.i, -1
   %add.ptr6.i.i199.i = getelementptr inbounds i8, ptr %add.ptr.i.i197.i, i64 %idx.neg.i.i198.i
-  %writer.i.i.i200.i = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i.i200.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   %188 = load ptr, ptr %writer.i.i.i200.i, align 8
   %189 = load ptr, ptr %D, align 8
-  %data.i.i.i201.i = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i.i201.i = getelementptr inbounds nuw i8, ptr %D, i64 16
   %190 = load ptr, ptr %data.i.i.i201.i, align 8
   %call.i.i.i202.i = call i32 %188(ptr noundef %189, ptr noundef nonnull %add.ptr6.i.i199.i, i64 noundef %indvars.iv.next.i.i187.i, ptr noundef %190) #2
   store i32 %call.i.i.i202.i, ptr %status.i.i.i26, align 4
@@ -1197,14 +1197,14 @@ dumpInt.exit203.i:                                ; preds = %if.then.i.i.i196.i,
   br i1 %cmp39208.i, label %for.body41.lr.ph.i, label %dumpDebug.exit
 
 for.body41.lr.ph.i:                               ; preds = %dumpInt.exit203.i
-  %upvalues.i160 = getelementptr inbounds i8, ptr %f, i64 80
+  %upvalues.i160 = getelementptr inbounds nuw i8, ptr %f, i64 80
   %wide.trip.count219.i = zext nneg i32 %cond37.i to i64
   br label %for.body41.i
 
 for.body41.i:                                     ; preds = %for.body41.i, %for.body41.lr.ph.i
   %indvars.iv216.i = phi i64 [ 0, %for.body41.lr.ph.i ], [ %indvars.iv.next217.i, %for.body41.i ]
   %191 = load ptr, ptr %upvalues.i160, align 8
-  %arrayidx43.i = getelementptr inbounds %struct.Upvaldesc, ptr %191, i64 %indvars.iv216.i
+  %arrayidx43.i = getelementptr inbounds nuw %struct.Upvaldesc, ptr %191, i64 %indvars.iv216.i
   %192 = load ptr, ptr %arrayidx43.i, align 8
   call fastcc void @dumpString(ptr noundef nonnull %D, ptr noundef %192)
   %indvars.iv.next217.i = add nuw nsw i64 %indvars.iv216.i, 1
@@ -1225,18 +1225,18 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buff.i)
-  %arrayidx3.i = getelementptr inbounds i8, ptr %buff.i, i64 9
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %buff.i, i64 9
   store i8 -128, ptr %arrayidx3.i, align 1
-  %status.i.i = getelementptr inbounds i8, ptr %D, i64 28
+  %status.i.i = getelementptr inbounds nuw i8, ptr %D, i64 28
   %0 = load i32, ptr %status.i.i, align 4
   %cmp.i.i = icmp eq i32 %0, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %dumpSize.exit
 
 if.then.i.i:                                      ; preds = %if.then
-  %writer.i.i = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   %1 = load ptr, ptr %writer.i.i, align 8
   %2 = load ptr, ptr %D, align 8
-  %data.i.i = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i = getelementptr inbounds nuw i8, ptr %D, i64 16
   %3 = load ptr, ptr %data.i.i, align 8
   %call.i.i = call i32 %1(ptr noundef %2, ptr noundef nonnull %arrayidx3.i, i64 noundef 1, ptr noundef %3) #2
   store i32 %call.i.i, ptr %status.i.i, align 4
@@ -1247,7 +1247,7 @@ dumpSize.exit:                                    ; preds = %if.then, %if.then.i
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %shrlen = getelementptr inbounds i8, ptr %s, i64 11
+  %shrlen = getelementptr inbounds nuw i8, ptr %s, i64 11
   %4 = load i8, ptr %shrlen, align 1
   %cmp1.not = icmp eq i8 %4, -1
   br i1 %cmp1.not, label %cond.false, label %cond.true
@@ -1257,7 +1257,7 @@ cond.true:                                        ; preds = %if.else
   br label %cond.end
 
 cond.false:                                       ; preds = %if.else
-  %u = getelementptr inbounds i8, ptr %s, i64 16
+  %u = getelementptr inbounds nuw i8, ptr %s, i64 16
   %5 = load i64, ptr %u, align 8
   br label %cond.end
 
@@ -1281,12 +1281,12 @@ do.body.i9:                                       ; preds = %do.body.i9, %cond.e
   br i1 %cmp.not.i17, label %do.end.i18, label %do.body.i9, !llvm.loop !5
 
 do.end.i18:                                       ; preds = %do.body.i9
-  %contents = getelementptr inbounds i8, ptr %s, i64 24
-  %arrayidx3.i19 = getelementptr inbounds i8, ptr %buff.i8, i64 9
+  %contents = getelementptr inbounds nuw i8, ptr %s, i64 24
+  %arrayidx3.i19 = getelementptr inbounds nuw i8, ptr %buff.i8, i64 9
   %7 = load i8, ptr %arrayidx3.i19, align 1
   %8 = or i8 %7, -128
   store i8 %8, ptr %arrayidx3.i19, align 1
-  %status.i.i20 = getelementptr inbounds i8, ptr %D, i64 28
+  %status.i.i20 = getelementptr inbounds nuw i8, ptr %D, i64 28
   %9 = load i32, ptr %status.i.i20, align 4
   %cmp.i.i21 = icmp eq i32 %9, 0
   br i1 %cmp.i.i21, label %dumpSize.exit29, label %dumpSize.exit29.thread
@@ -1296,13 +1296,13 @@ dumpSize.exit29.thread:                           ; preds = %do.end.i18
   br label %if.end
 
 dumpSize.exit29:                                  ; preds = %do.end.i18
-  %add.ptr.i23 = getelementptr inbounds i8, ptr %buff.i8, i64 10
+  %add.ptr.i23 = getelementptr inbounds nuw i8, ptr %buff.i8, i64 10
   %idx.neg.i24 = xor i64 %indvars.iv.i10, -1
   %add.ptr6.i25 = getelementptr inbounds i8, ptr %add.ptr.i23, i64 %idx.neg.i24
-  %writer.i.i26 = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i.i26 = getelementptr inbounds nuw i8, ptr %D, i64 8
   %10 = load ptr, ptr %writer.i.i26, align 8
   %11 = load ptr, ptr %D, align 8
-  %data.i.i27 = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i.i27 = getelementptr inbounds nuw i8, ptr %D, i64 16
   %12 = load ptr, ptr %data.i.i27, align 8
   %call.i.i28 = call i32 %10(ptr noundef %11, ptr noundef nonnull %add.ptr6.i25, i64 noundef %indvars.iv.next.i13, ptr noundef %12) #2
   store i32 %call.i.i28, ptr %status.i.i20, align 4
@@ -1313,10 +1313,10 @@ dumpSize.exit29:                                  ; preds = %do.end.i18
   br i1 %or.cond.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %dumpSize.exit29
-  %writer.i = getelementptr inbounds i8, ptr %D, i64 8
+  %writer.i = getelementptr inbounds nuw i8, ptr %D, i64 8
   %14 = load ptr, ptr %writer.i, align 8
   %15 = load ptr, ptr %D, align 8
-  %data.i = getelementptr inbounds i8, ptr %D, i64 16
+  %data.i = getelementptr inbounds nuw i8, ptr %D, i64 16
   %16 = load ptr, ptr %data.i, align 8
   %call.i = call i32 %14(ptr noundef %15, ptr noundef nonnull %contents, i64 noundef %cond, ptr noundef %16) #2
   store i32 %call.i, ptr %status.i.i20, align 4

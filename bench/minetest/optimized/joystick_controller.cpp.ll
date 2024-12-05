@@ -90,10 +90,10 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local noundef zeroext i1 @_ZNK17JoystickButtonCmb11isTriggeredERKN3irr6SEvent14SJoystickEventE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(44) %ev) unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %ev, align 4, !tbaa !4
-  %filter_mask = getelementptr inbounds i8, ptr %this, i64 12
+  %filter_mask = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %filter_mask, align 4, !tbaa !10
   %and = and i32 %1, %0
-  %compare_mask = getelementptr inbounds i8, ptr %this, i64 16
+  %compare_mask = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %compare_mask, align 8, !tbaa !14
   %cmp = icmp eq i32 %and, %2
   ret i1 %cmp
@@ -108,17 +108,17 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK15JoystickAxisCmb11isTriggeredERKN3irr6SEvent14SJoystickEventE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(22) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(44) %ev) unnamed_addr #3 align 2 {
 entry:
-  %Axis = getelementptr inbounds i8, ptr %ev, i64 4
-  %axis_to_compare = getelementptr inbounds i8, ptr %this, i64 12
+  %Axis = getelementptr inbounds nuw i8, ptr %ev, i64 4
+  %axis_to_compare = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i16, ptr %axis_to_compare, align 4, !tbaa !15
   %idxprom = zext i16 %0 to i64
-  %arrayidx = getelementptr inbounds [18 x i16], ptr %Axis, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [18 x i16], ptr %Axis, i64 0, i64 %idxprom
   %1 = load i16, ptr %arrayidx, align 2, !tbaa !17
   %conv = sext i16 %1 to i32
-  %direction = getelementptr inbounds i8, ptr %this, i64 16
+  %direction = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %direction, align 8, !tbaa !18
   %mul = mul nsw i32 %2, %conv
-  %thresh = getelementptr inbounds i8, ptr %this, i64 20
+  %thresh = getelementptr inbounds nuw i8, ptr %this, i64 20
   %3 = load i16, ptr %thresh, align 4, !tbaa !19
   %conv2 = sext i16 %3 to i32
   %sub = sub nsw i32 0, %conv2
@@ -179,7 +179,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i8 0, i64 48, i1 false)
   %0 = load ptr, ptr @g_settings, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #22
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %1, ptr %ref.tmp, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #22
   store i64 17, ptr %__dnew.i.i, align 8, !tbaa !24
@@ -191,7 +191,7 @@ call2.i11.i.noexc:                                ; preds = %entry
   %2 = load i64, ptr %__dnew.i.i, align 8, !tbaa !24
   store i64 %2, ptr %1, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %call2.i11.i193, ptr noundef nonnull align 1 dereferenceable(17) @.str, i64 17, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %2, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !26
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %2
@@ -201,7 +201,7 @@ call2.i11.i.noexc:                                ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %call2.i11.i.noexc
-  %axes_deadzone = getelementptr inbounds i8, ptr %agg.result, i64 80
+  %axes_deadzone = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
   store i16 %call, ptr %axes_deadzone, align 8, !tbaa !30
   %4 = load ptr, ptr %ref.tmp, align 8, !tbaa !26
   %cmp.i.i.i = icmp eq ptr %4, %1
@@ -219,7 +219,7 @@ if.then.i.i194:                                   ; preds = %invoke.cont3
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i194, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #22
-  %axes6 = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %axes6 = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %axes6, ptr noundef nonnull align 16 dereferenceable(32) @__const._Z33create_dragonrise_gamecube_layoutv.axes, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp8) #22
   store i32 10, ptr %ref.tmp8, align 4, !tbaa !40
@@ -227,22 +227,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   store i32 64, ptr %ref.tmp9, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp10) #22
   store i32 64, ptr %ref.tmp10, align 4, !tbaa !41
-  %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8, !tbaa !20
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %7 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !42
   %cmp.not.i = icmp eq ptr %6, %7
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %6, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
+  %filter_mask2.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 64, ptr %filter_mask2.i.i.i.i, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %compare_mask3.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 64, ptr %compare_mask3.i.i.i.i, align 8, !tbaa !14
-  %key4.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %key4.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 10, ptr %key4.i.i.i.i, align 8, !tbaa !45
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont12
 
@@ -272,13 +272,13 @@ invoke.cont12:                                    ; preds = %if.else.i.invoke.co
 
 if.then.i198:                                     ; preds = %invoke.cont12
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %9, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i199 = getelementptr inbounds i8, ptr %9, i64 12
+  %filter_mask2.i.i.i.i199 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 132, ptr %filter_mask2.i.i.i.i199, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i200 = getelementptr inbounds i8, ptr %9, i64 16
+  %compare_mask3.i.i.i.i200 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 4, ptr %compare_mask3.i.i.i.i200, align 8, !tbaa !14
-  %key4.i.i.i.i201 = getelementptr inbounds i8, ptr %9, i64 8
+  %key4.i.i.i.i201 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 6, ptr %key4.i.i.i.i201, align 8, !tbaa !45
-  %incdec.ptr.i202 = getelementptr inbounds i8, ptr %9, i64 24
+  %incdec.ptr.i202 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %incdec.ptr.i202, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont23
 
@@ -308,13 +308,13 @@ invoke.cont23:                                    ; preds = %if.else.i204.invoke
 
 if.then.i210:                                     ; preds = %invoke.cont23
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %11, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i211 = getelementptr inbounds i8, ptr %11, i64 12
+  %filter_mask2.i.i.i.i211 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 24, ptr %filter_mask2.i.i.i.i211, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i212 = getelementptr inbounds i8, ptr %11, i64 16
+  %compare_mask3.i.i.i.i212 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 16, ptr %compare_mask3.i.i.i.i212, align 8, !tbaa !14
-  %key4.i.i.i.i213 = getelementptr inbounds i8, ptr %11, i64 8
+  %key4.i.i.i.i213 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 8, ptr %key4.i.i.i.i213, align 8, !tbaa !45
-  %incdec.ptr.i214 = getelementptr inbounds i8, ptr %11, i64 24
+  %incdec.ptr.i214 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %incdec.ptr.i214, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont34
 
@@ -344,13 +344,13 @@ invoke.cont34:                                    ; preds = %if.else.i216.invoke
 
 if.then.i223:                                     ; preds = %invoke.cont34
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %13, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i224 = getelementptr inbounds i8, ptr %13, i64 12
+  %filter_mask2.i.i.i.i224 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 40, ptr %filter_mask2.i.i.i.i224, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i225 = getelementptr inbounds i8, ptr %13, i64 16
+  %compare_mask3.i.i.i.i225 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 32, ptr %compare_mask3.i.i.i.i225, align 8, !tbaa !14
-  %key4.i.i.i.i226 = getelementptr inbounds i8, ptr %13, i64 8
+  %key4.i.i.i.i226 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 9, ptr %key4.i.i.i.i226, align 8, !tbaa !45
-  %incdec.ptr.i227 = getelementptr inbounds i8, ptr %13, i64 24
+  %incdec.ptr.i227 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %incdec.ptr.i227, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont45
 
@@ -380,13 +380,13 @@ invoke.cont45:                                    ; preds = %if.else.i229.invoke
 
 if.then.i236:                                     ; preds = %invoke.cont45
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %15, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i237 = getelementptr inbounds i8, ptr %15, i64 12
+  %filter_mask2.i.i.i.i237 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 137, ptr %filter_mask2.i.i.i.i237, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i238 = getelementptr inbounds i8, ptr %15, i64 16
+  %compare_mask3.i.i.i.i238 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 1, ptr %compare_mask3.i.i.i.i238, align 8, !tbaa !14
-  %key4.i.i.i.i239 = getelementptr inbounds i8, ptr %15, i64 8
+  %key4.i.i.i.i239 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 4, ptr %key4.i.i.i.i239, align 8, !tbaa !45
-  %incdec.ptr.i240 = getelementptr inbounds i8, ptr %15, i64 24
+  %incdec.ptr.i240 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %incdec.ptr.i240, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont56
 
@@ -416,13 +416,13 @@ invoke.cont56:                                    ; preds = %if.else.i242.invoke
 
 if.then.i249:                                     ; preds = %invoke.cont56
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %17, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i250 = getelementptr inbounds i8, ptr %17, i64 12
+  %filter_mask2.i.i.i.i250 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 138, ptr %filter_mask2.i.i.i.i250, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i251 = getelementptr inbounds i8, ptr %17, i64 16
+  %compare_mask3.i.i.i.i251 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 2, ptr %compare_mask3.i.i.i.i251, align 8, !tbaa !14
-  %key4.i.i.i.i252 = getelementptr inbounds i8, ptr %17, i64 8
+  %key4.i.i.i.i252 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 5, ptr %key4.i.i.i.i252, align 8, !tbaa !45
-  %incdec.ptr.i253 = getelementptr inbounds i8, ptr %17, i64 24
+  %incdec.ptr.i253 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %incdec.ptr.i253, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont67
 
@@ -452,13 +452,13 @@ invoke.cont67:                                    ; preds = %if.else.i255.invoke
 
 if.then.i262:                                     ; preds = %invoke.cont67
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %19, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i263 = getelementptr inbounds i8, ptr %19, i64 12
+  %filter_mask2.i.i.i.i263 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 138, ptr %filter_mask2.i.i.i.i263, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i264 = getelementptr inbounds i8, ptr %19, i64 16
+  %compare_mask3.i.i.i.i264 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 10, ptr %compare_mask3.i.i.i.i264, align 8, !tbaa !14
-  %key4.i.i.i.i265 = getelementptr inbounds i8, ptr %19, i64 8
+  %key4.i.i.i.i265 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 11, ptr %key4.i.i.i.i265, align 8, !tbaa !45
-  %incdec.ptr.i266 = getelementptr inbounds i8, ptr %19, i64 24
+  %incdec.ptr.i266 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %incdec.ptr.i266, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont79
 
@@ -488,13 +488,13 @@ invoke.cont79:                                    ; preds = %if.else.i268.invoke
 
 if.then.i274:                                     ; preds = %invoke.cont79
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %21, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i275 = getelementptr inbounds i8, ptr %21, i64 12
+  %filter_mask2.i.i.i.i275 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 152, ptr %filter_mask2.i.i.i.i275, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i276 = getelementptr inbounds i8, ptr %21, i64 16
+  %compare_mask3.i.i.i.i276 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 24, ptr %compare_mask3.i.i.i.i276, align 8, !tbaa !14
-  %key4.i.i.i.i277 = getelementptr inbounds i8, ptr %21, i64 8
+  %key4.i.i.i.i277 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 22, ptr %key4.i.i.i.i277, align 8, !tbaa !45
-  %incdec.ptr.i278 = getelementptr inbounds i8, ptr %21, i64 24
+  %incdec.ptr.i278 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %incdec.ptr.i278, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont91
 
@@ -524,13 +524,13 @@ invoke.cont91:                                    ; preds = %if.else.i280.invoke
 
 if.then.i287:                                     ; preds = %invoke.cont91
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %23, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i288 = getelementptr inbounds i8, ptr %23, i64 12
+  %filter_mask2.i.i.i.i288 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 168, ptr %filter_mask2.i.i.i.i288, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i289 = getelementptr inbounds i8, ptr %23, i64 16
+  %compare_mask3.i.i.i.i289 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 40, ptr %compare_mask3.i.i.i.i289, align 8, !tbaa !14
-  %key4.i.i.i.i290 = getelementptr inbounds i8, ptr %23, i64 8
+  %key4.i.i.i.i290 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 23, ptr %key4.i.i.i.i290, align 8, !tbaa !45
-  %incdec.ptr.i291 = getelementptr inbounds i8, ptr %23, i64 24
+  %incdec.ptr.i291 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %incdec.ptr.i291, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont103
 
@@ -542,16 +542,16 @@ invoke.cont103:                                   ; preds = %if.else.i293, %if.t
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp100) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp98) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp97) #22
-  %axis_keys = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %axis_keys = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp108) #22
   store i32 0, ptr %ref.tmp108, align 4, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp109) #22
   store i32 1, ptr %ref.tmp109, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp110) #22
   store i32 1, ptr %ref.tmp110, align 4, !tbaa !41
-  %_M_finish.i297 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_finish.i297 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   %24 = load ptr, ptr %_M_finish.i297, align 8, !tbaa !20
-  %_M_end_of_storage.i298 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_end_of_storage.i298 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   %25 = load ptr, ptr %_M_end_of_storage.i298, align 8, !tbaa !47
   %cmp.not.i299 = icmp eq ptr %24, %25
   br i1 %cmp.not.i299, label %if.else.i303, label %if.then.i300
@@ -559,15 +559,15 @@ invoke.cont103:                                   ; preds = %if.else.i293, %if.t
 if.then.i300:                                     ; preds = %invoke.cont103
   %26 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %24, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 12
+  %axis_to_compare2.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i, align 4, !tbaa !15
-  %direction3.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 16
+  %direction3.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 1, ptr %direction3.i.i.i.i, align 8, !tbaa !18
-  %thresh4.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 20
+  %thresh4.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i16 %26, ptr %thresh4.i.i.i.i, align 4, !tbaa !19
-  %key5.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %key5.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 0, ptr %key5.i.i.i.i, align 8, !tbaa !45
-  %incdec.ptr.i301 = getelementptr inbounds i8, ptr %24, i64 24
+  %incdec.ptr.i301 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %incdec.ptr.i301, ptr %_M_finish.i297, align 8, !tbaa !48
   br label %invoke.cont113
 
@@ -598,15 +598,15 @@ invoke.cont113:                                   ; preds = %if.else.i303.invoke
 if.then.i309:                                     ; preds = %invoke.cont113
   %29 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %28, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i311 = getelementptr inbounds i8, ptr %28, i64 12
+  %axis_to_compare2.i.i.i.i311 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i311, align 4, !tbaa !15
-  %direction3.i.i.i.i312 = getelementptr inbounds i8, ptr %28, i64 16
+  %direction3.i.i.i.i312 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 -1, ptr %direction3.i.i.i.i312, align 8, !tbaa !18
-  %thresh4.i.i.i.i313 = getelementptr inbounds i8, ptr %28, i64 20
+  %thresh4.i.i.i.i313 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i16 %29, ptr %thresh4.i.i.i.i313, align 4, !tbaa !19
-  %key5.i.i.i.i314 = getelementptr inbounds i8, ptr %28, i64 8
+  %key5.i.i.i.i314 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 1, ptr %key5.i.i.i.i314, align 8, !tbaa !45
-  %incdec.ptr.i315 = getelementptr inbounds i8, ptr %28, i64 24
+  %incdec.ptr.i315 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %incdec.ptr.i315, ptr %_M_finish.i297, align 8, !tbaa !48
   br label %invoke.cont124
 
@@ -637,15 +637,15 @@ invoke.cont124:                                   ; preds = %if.else.i317.invoke
 if.then.i324:                                     ; preds = %invoke.cont124
   %32 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %31, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i326 = getelementptr inbounds i8, ptr %31, i64 12
+  %axis_to_compare2.i.i.i.i326 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i326, align 4, !tbaa !15
-  %direction3.i.i.i.i327 = getelementptr inbounds i8, ptr %31, i64 16
+  %direction3.i.i.i.i327 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 1, ptr %direction3.i.i.i.i327, align 8, !tbaa !18
-  %thresh4.i.i.i.i328 = getelementptr inbounds i8, ptr %31, i64 20
+  %thresh4.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i16 %32, ptr %thresh4.i.i.i.i328, align 4, !tbaa !19
-  %key5.i.i.i.i329 = getelementptr inbounds i8, ptr %31, i64 8
+  %key5.i.i.i.i329 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 2, ptr %key5.i.i.i.i329, align 8, !tbaa !45
-  %incdec.ptr.i330 = getelementptr inbounds i8, ptr %31, i64 24
+  %incdec.ptr.i330 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %incdec.ptr.i330, ptr %_M_finish.i297, align 8, !tbaa !48
   br label %invoke.cont135
 
@@ -676,15 +676,15 @@ invoke.cont135:                                   ; preds = %if.else.i332.invoke
 if.then.i339:                                     ; preds = %invoke.cont135
   %35 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %34, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i341 = getelementptr inbounds i8, ptr %34, i64 12
+  %axis_to_compare2.i.i.i.i341 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i341, align 4, !tbaa !15
-  %direction3.i.i.i.i342 = getelementptr inbounds i8, ptr %34, i64 16
+  %direction3.i.i.i.i342 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 -1, ptr %direction3.i.i.i.i342, align 8, !tbaa !18
-  %thresh4.i.i.i.i343 = getelementptr inbounds i8, ptr %34, i64 20
+  %thresh4.i.i.i.i343 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i16 %35, ptr %thresh4.i.i.i.i343, align 4, !tbaa !19
-  %key5.i.i.i.i344 = getelementptr inbounds i8, ptr %34, i64 8
+  %key5.i.i.i.i344 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 3, ptr %key5.i.i.i.i344, align 8, !tbaa !45
-  %incdec.ptr.i345 = getelementptr inbounds i8, ptr %34, i64 24
+  %incdec.ptr.i345 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %incdec.ptr.i345, ptr %_M_finish.i297, align 8, !tbaa !48
   br label %invoke.cont146
 
@@ -715,15 +715,15 @@ invoke.cont146:                                   ; preds = %if.else.i347.invoke
 if.then.i354:                                     ; preds = %invoke.cont146
   %38 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %37, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i356 = getelementptr inbounds i8, ptr %37, i64 12
+  %axis_to_compare2.i.i.i.i356 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i16 2, ptr %axis_to_compare2.i.i.i.i356, align 4, !tbaa !15
-  %direction3.i.i.i.i357 = getelementptr inbounds i8, ptr %37, i64 16
+  %direction3.i.i.i.i357 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i32 -1, ptr %direction3.i.i.i.i357, align 8, !tbaa !18
-  %thresh4.i.i.i.i358 = getelementptr inbounds i8, ptr %37, i64 20
+  %thresh4.i.i.i.i358 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i16 %38, ptr %thresh4.i.i.i.i358, align 4, !tbaa !19
-  %key5.i.i.i.i359 = getelementptr inbounds i8, ptr %37, i64 8
+  %key5.i.i.i.i359 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 22, ptr %key5.i.i.i.i359, align 8, !tbaa !45
-  %incdec.ptr.i360 = getelementptr inbounds i8, ptr %37, i64 24
+  %incdec.ptr.i360 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %incdec.ptr.i360, ptr %_M_finish.i297, align 8, !tbaa !48
   br label %invoke.cont157
 
@@ -754,15 +754,15 @@ invoke.cont157:                                   ; preds = %if.else.i362.invoke
 if.then.i369:                                     ; preds = %invoke.cont157
   %41 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %40, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i371 = getelementptr inbounds i8, ptr %40, i64 12
+  %axis_to_compare2.i.i.i.i371 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i16 5, ptr %axis_to_compare2.i.i.i.i371, align 4, !tbaa !15
-  %direction3.i.i.i.i372 = getelementptr inbounds i8, ptr %40, i64 16
+  %direction3.i.i.i.i372 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i32 -1, ptr %direction3.i.i.i.i372, align 8, !tbaa !18
-  %thresh4.i.i.i.i373 = getelementptr inbounds i8, ptr %40, i64 20
+  %thresh4.i.i.i.i373 = getelementptr inbounds nuw i8, ptr %40, i64 20
   store i16 %41, ptr %thresh4.i.i.i.i373, align 4, !tbaa !19
-  %key5.i.i.i.i374 = getelementptr inbounds i8, ptr %40, i64 8
+  %key5.i.i.i.i374 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 23, ptr %key5.i.i.i.i374, align 8, !tbaa !45
-  %incdec.ptr.i375 = getelementptr inbounds i8, ptr %40, i64 24
+  %incdec.ptr.i375 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr %incdec.ptr.i375, ptr %_M_finish.i297, align 8, !tbaa !48
   br label %invoke.cont168
 
@@ -939,9 +939,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14JoystickLayoutD2Ev(ptr noundef nonnull align 8 dereferenceable(82) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %axis_keys = getelementptr inbounds i8, ptr %this, i64 24
+  %axis_keys = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %axis_keys, align 8, !tbaa !49
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !48
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -949,10 +949,10 @@ entry:
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
   %vtable.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i, align 8, !tbaa !43
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.04.i.i.i.i) #22
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !50
 
@@ -971,7 +971,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 
 _ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit:  ; preds = %if.then.i.i.i, %invoke.cont.i
   %4 = load ptr, ptr %this, align 8, !tbaa !52
-  %_M_finish.i2 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load ptr, ptr %_M_finish.i2, align 8, !tbaa !46
   %cmp.not3.i.i.i.i3 = icmp eq ptr %4, %5
   br i1 %cmp.not3.i.i.i.i3, label %invoke.cont.i12, label %for.body.i.i.i.i4
@@ -979,10 +979,10 @@ _ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit:  ; preds = %if.then.i.i.i, %inv
 for.body.i.i.i.i4:                                ; preds = %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit, %for.body.i.i.i.i4
   %__first.addr.04.i.i.i.i5 = phi ptr [ %incdec.ptr.i.i.i.i8, %for.body.i.i.i.i4 ], [ %4, %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit ]
   %vtable.i.i.i.i.i6 = load ptr, ptr %__first.addr.04.i.i.i.i5, align 8, !tbaa !43
-  %vfn.i.i.i.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i6, i64 8
+  %vfn.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i6, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i.i7, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.04.i.i.i.i5) #22
-  %incdec.ptr.i.i.i.i8 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i5, i64 24
+  %incdec.ptr.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i5, i64 24
   %cmp.not.i.i.i.i9 = icmp eq ptr %incdec.ptr.i.i.i.i8, %5
   br i1 %cmp.not.i.i.i.i9, label %invoke.contthread-pre-split.i10, label %for.body.i.i.i.i4, !llvm.loop !53
 
@@ -1067,9 +1067,9 @@ if.else.i:
   %ref.tmp135 = alloca i32, align 4
   %ref.tmp136 = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i8 0, i64 48, i1 false)
-  %axes_deadzone = getelementptr inbounds i8, ptr %agg.result, i64 80
+  %axes_deadzone = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
   store i16 7000, ptr %axes_deadzone, align 8, !tbaa !30
-  %axes1 = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %axes1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %axes1, ptr noundef nonnull align 16 dereferenceable(32) @__const._Z18create_xbox_layoutv.axes, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #22
   store i32 10, ptr %ref.tmp, align 4, !tbaa !40
@@ -1077,8 +1077,8 @@ if.else.i:
   store i32 256, ptr %ref.tmp3, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp4) #22
   store i32 256, ptr %ref.tmp4, align 4, !tbaa !41
-  %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr null, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4)
           to label %invoke.cont unwind label %lpad
 
@@ -1099,13 +1099,13 @@ invoke.cont:                                      ; preds = %if.else.i
 
 if.then.i147:                                     ; preds = %invoke.cont
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %.pre, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i148 = getelementptr inbounds i8, ptr %.pre, i64 12
+  %filter_mask2.i.i.i.i148 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
   store i32 512, ptr %filter_mask2.i.i.i.i148, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i149 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %compare_mask3.i.i.i.i149 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   store i32 512, ptr %compare_mask3.i.i.i.i149, align 8, !tbaa !14
-  %key4.i.i.i.i150 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %key4.i.i.i.i150 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   store i32 10, ptr %key4.i.i.i.i150, align 8, !tbaa !45
-  %incdec.ptr.i151 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %incdec.ptr.i151 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   store ptr %incdec.ptr.i151, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont10
 
@@ -1135,13 +1135,13 @@ invoke.cont10:                                    ; preds = %if.else.i153.invoke
 
 if.then.i160:                                     ; preds = %invoke.cont10
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %1, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i161 = getelementptr inbounds i8, ptr %1, i64 12
+  %filter_mask2.i.i.i.i161 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 1, ptr %filter_mask2.i.i.i.i161, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i162 = getelementptr inbounds i8, ptr %1, i64 16
+  %compare_mask3.i.i.i.i162 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 1, ptr %compare_mask3.i.i.i.i162, align 8, !tbaa !14
-  %key4.i.i.i.i163 = getelementptr inbounds i8, ptr %1, i64 8
+  %key4.i.i.i.i163 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %key4.i.i.i.i163, align 8, !tbaa !45
-  %incdec.ptr.i164 = getelementptr inbounds i8, ptr %1, i64 24
+  %incdec.ptr.i164 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %incdec.ptr.i164, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont17
 
@@ -1171,13 +1171,13 @@ invoke.cont17:                                    ; preds = %if.else.i166.invoke
 
 if.then.i173:                                     ; preds = %invoke.cont17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %3, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i174 = getelementptr inbounds i8, ptr %3, i64 12
+  %filter_mask2.i.i.i.i174 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 2, ptr %filter_mask2.i.i.i.i174, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i175 = getelementptr inbounds i8, ptr %3, i64 16
+  %compare_mask3.i.i.i.i175 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %compare_mask3.i.i.i.i175, align 8, !tbaa !14
-  %key4.i.i.i.i176 = getelementptr inbounds i8, ptr %3, i64 8
+  %key4.i.i.i.i176 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 10, ptr %key4.i.i.i.i176, align 8, !tbaa !45
-  %incdec.ptr.i177 = getelementptr inbounds i8, ptr %3, i64 24
+  %incdec.ptr.i177 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i177, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont24
 
@@ -1207,13 +1207,13 @@ invoke.cont24:                                    ; preds = %if.else.i179.invoke
 
 if.then.i186:                                     ; preds = %invoke.cont24
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %5, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i187 = getelementptr inbounds i8, ptr %5, i64 12
+  %filter_mask2.i.i.i.i187 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 4, ptr %filter_mask2.i.i.i.i187, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i188 = getelementptr inbounds i8, ptr %5, i64 16
+  %compare_mask3.i.i.i.i188 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 4, ptr %compare_mask3.i.i.i.i188, align 8, !tbaa !14
-  %key4.i.i.i.i189 = getelementptr inbounds i8, ptr %5, i64 8
+  %key4.i.i.i.i189 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 5, ptr %key4.i.i.i.i189, align 8, !tbaa !45
-  %incdec.ptr.i190 = getelementptr inbounds i8, ptr %5, i64 24
+  %incdec.ptr.i190 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %incdec.ptr.i190, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont31
 
@@ -1243,13 +1243,13 @@ invoke.cont31:                                    ; preds = %if.else.i192.invoke
 
 if.then.i199:                                     ; preds = %invoke.cont31
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %7, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i200 = getelementptr inbounds i8, ptr %7, i64 12
+  %filter_mask2.i.i.i.i200 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 8, ptr %filter_mask2.i.i.i.i200, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i201 = getelementptr inbounds i8, ptr %7, i64 16
+  %compare_mask3.i.i.i.i201 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 8, ptr %compare_mask3.i.i.i.i201, align 8, !tbaa !14
-  %key4.i.i.i.i202 = getelementptr inbounds i8, ptr %7, i64 8
+  %key4.i.i.i.i202 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 12, ptr %key4.i.i.i.i202, align 8, !tbaa !45
-  %incdec.ptr.i203 = getelementptr inbounds i8, ptr %7, i64 24
+  %incdec.ptr.i203 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %incdec.ptr.i203, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont38
 
@@ -1279,13 +1279,13 @@ invoke.cont38:                                    ; preds = %if.else.i205.invoke
 
 if.then.i212:                                     ; preds = %invoke.cont38
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %9, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i213 = getelementptr inbounds i8, ptr %9, i64 12
+  %filter_mask2.i.i.i.i213 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 2048, ptr %filter_mask2.i.i.i.i213, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i214 = getelementptr inbounds i8, ptr %9, i64 16
+  %compare_mask3.i.i.i.i214 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 2048, ptr %compare_mask3.i.i.i.i214, align 8, !tbaa !14
-  %key4.i.i.i.i215 = getelementptr inbounds i8, ptr %9, i64 8
+  %key4.i.i.i.i215 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 5, ptr %key4.i.i.i.i215, align 8, !tbaa !45
-  %incdec.ptr.i216 = getelementptr inbounds i8, ptr %9, i64 24
+  %incdec.ptr.i216 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %incdec.ptr.i216, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont45
 
@@ -1315,13 +1315,13 @@ invoke.cont45:                                    ; preds = %if.else.i218.invoke
 
 if.then.i225:                                     ; preds = %invoke.cont45
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %11, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i226 = getelementptr inbounds i8, ptr %11, i64 12
+  %filter_mask2.i.i.i.i226 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 4096, ptr %filter_mask2.i.i.i.i226, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i227 = getelementptr inbounds i8, ptr %11, i64 16
+  %compare_mask3.i.i.i.i227 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 4096, ptr %compare_mask3.i.i.i.i227, align 8, !tbaa !14
-  %key4.i.i.i.i228 = getelementptr inbounds i8, ptr %11, i64 8
+  %key4.i.i.i.i228 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 6, ptr %key4.i.i.i.i228, align 8, !tbaa !45
-  %incdec.ptr.i229 = getelementptr inbounds i8, ptr %11, i64 24
+  %incdec.ptr.i229 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %incdec.ptr.i229, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont52
 
@@ -1351,13 +1351,13 @@ invoke.cont52:                                    ; preds = %if.else.i231.invoke
 
 if.then.i238:                                     ; preds = %invoke.cont52
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %13, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i239 = getelementptr inbounds i8, ptr %13, i64 12
+  %filter_mask2.i.i.i.i239 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 64, ptr %filter_mask2.i.i.i.i239, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i240 = getelementptr inbounds i8, ptr %13, i64 16
+  %compare_mask3.i.i.i.i240 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 64, ptr %compare_mask3.i.i.i.i240, align 8, !tbaa !14
-  %key4.i.i.i.i241 = getelementptr inbounds i8, ptr %13, i64 8
+  %key4.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 8, ptr %key4.i.i.i.i241, align 8, !tbaa !45
-  %incdec.ptr.i242 = getelementptr inbounds i8, ptr %13, i64 24
+  %incdec.ptr.i242 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %incdec.ptr.i242, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont59
 
@@ -1387,13 +1387,13 @@ invoke.cont59:                                    ; preds = %if.else.i244.invoke
 
 if.then.i251:                                     ; preds = %invoke.cont59
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %15, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i252 = getelementptr inbounds i8, ptr %15, i64 12
+  %filter_mask2.i.i.i.i252 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 128, ptr %filter_mask2.i.i.i.i252, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i253 = getelementptr inbounds i8, ptr %15, i64 16
+  %compare_mask3.i.i.i.i253 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 128, ptr %compare_mask3.i.i.i.i253, align 8, !tbaa !14
-  %key4.i.i.i.i254 = getelementptr inbounds i8, ptr %15, i64 8
+  %key4.i.i.i.i254 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 9, ptr %key4.i.i.i.i254, align 8, !tbaa !45
-  %incdec.ptr.i255 = getelementptr inbounds i8, ptr %15, i64 24
+  %incdec.ptr.i255 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %incdec.ptr.i255, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont66
 
@@ -1423,13 +1423,13 @@ invoke.cont66:                                    ; preds = %if.else.i257.invoke
 
 if.then.i264:                                     ; preds = %invoke.cont66
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %17, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i265 = getelementptr inbounds i8, ptr %17, i64 12
+  %filter_mask2.i.i.i.i265 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 16, ptr %filter_mask2.i.i.i.i265, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i266 = getelementptr inbounds i8, ptr %17, i64 16
+  %compare_mask3.i.i.i.i266 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 16, ptr %compare_mask3.i.i.i.i266, align 8, !tbaa !14
-  %key4.i.i.i.i267 = getelementptr inbounds i8, ptr %17, i64 8
+  %key4.i.i.i.i267 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 22, ptr %key4.i.i.i.i267, align 8, !tbaa !45
-  %incdec.ptr.i268 = getelementptr inbounds i8, ptr %17, i64 24
+  %incdec.ptr.i268 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %incdec.ptr.i268, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont73
 
@@ -1459,13 +1459,13 @@ invoke.cont73:                                    ; preds = %if.else.i270.invoke
 
 if.then.i277:                                     ; preds = %invoke.cont73
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %19, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i278 = getelementptr inbounds i8, ptr %19, i64 12
+  %filter_mask2.i.i.i.i278 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 32, ptr %filter_mask2.i.i.i.i278, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i279 = getelementptr inbounds i8, ptr %19, i64 16
+  %compare_mask3.i.i.i.i279 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 32, ptr %compare_mask3.i.i.i.i279, align 8, !tbaa !14
-  %key4.i.i.i.i280 = getelementptr inbounds i8, ptr %19, i64 8
+  %key4.i.i.i.i280 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 23, ptr %key4.i.i.i.i280, align 8, !tbaa !45
-  %incdec.ptr.i281 = getelementptr inbounds i8, ptr %19, i64 24
+  %incdec.ptr.i281 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %incdec.ptr.i281, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont80
 
@@ -1495,13 +1495,13 @@ invoke.cont80:                                    ; preds = %if.else.i283.invoke
 
 if.then.i290:                                     ; preds = %invoke.cont80
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %21, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i291 = getelementptr inbounds i8, ptr %21, i64 12
+  %filter_mask2.i.i.i.i291 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 32768, ptr %filter_mask2.i.i.i.i291, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i292 = getelementptr inbounds i8, ptr %21, i64 16
+  %compare_mask3.i.i.i.i292 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 32768, ptr %compare_mask3.i.i.i.i292, align 8, !tbaa !14
-  %key4.i.i.i.i293 = getelementptr inbounds i8, ptr %21, i64 8
+  %key4.i.i.i.i293 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 40, ptr %key4.i.i.i.i293, align 8, !tbaa !45
-  %incdec.ptr.i294 = getelementptr inbounds i8, ptr %21, i64 24
+  %incdec.ptr.i294 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %incdec.ptr.i294, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont87
 
@@ -1531,13 +1531,13 @@ invoke.cont87:                                    ; preds = %if.else.i296.invoke
 
 if.then.i303:                                     ; preds = %invoke.cont87
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %23, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i304 = getelementptr inbounds i8, ptr %23, i64 12
+  %filter_mask2.i.i.i.i304 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 8192, ptr %filter_mask2.i.i.i.i304, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i305 = getelementptr inbounds i8, ptr %23, i64 16
+  %compare_mask3.i.i.i.i305 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 8192, ptr %compare_mask3.i.i.i.i305, align 8, !tbaa !14
-  %key4.i.i.i.i306 = getelementptr inbounds i8, ptr %23, i64 8
+  %key4.i.i.i.i306 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 11, ptr %key4.i.i.i.i306, align 8, !tbaa !45
-  %incdec.ptr.i307 = getelementptr inbounds i8, ptr %23, i64 24
+  %incdec.ptr.i307 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %incdec.ptr.i307, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont94
 
@@ -1567,13 +1567,13 @@ invoke.cont94:                                    ; preds = %if.else.i309.invoke
 
 if.then.i316:                                     ; preds = %invoke.cont94
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %25, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i317 = getelementptr inbounds i8, ptr %25, i64 12
+  %filter_mask2.i.i.i.i317 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 16384, ptr %filter_mask2.i.i.i.i317, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i318 = getelementptr inbounds i8, ptr %25, i64 16
+  %compare_mask3.i.i.i.i318 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 16384, ptr %compare_mask3.i.i.i.i318, align 8, !tbaa !14
-  %key4.i.i.i.i319 = getelementptr inbounds i8, ptr %25, i64 8
+  %key4.i.i.i.i319 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 28, ptr %key4.i.i.i.i319, align 8, !tbaa !45
-  %incdec.ptr.i320 = getelementptr inbounds i8, ptr %25, i64 24
+  %incdec.ptr.i320 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %incdec.ptr.i320, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont101
 
@@ -1603,13 +1603,13 @@ invoke.cont101:                                   ; preds = %if.else.i322.invoke
 
 if.then.i329:                                     ; preds = %invoke.cont101
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %27, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i330 = getelementptr inbounds i8, ptr %27, i64 12
+  %filter_mask2.i.i.i.i330 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 65536, ptr %filter_mask2.i.i.i.i330, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i331 = getelementptr inbounds i8, ptr %27, i64 16
+  %compare_mask3.i.i.i.i331 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 65536, ptr %compare_mask3.i.i.i.i331, align 8, !tbaa !14
-  %key4.i.i.i.i332 = getelementptr inbounds i8, ptr %27, i64 8
+  %key4.i.i.i.i332 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 18, ptr %key4.i.i.i.i332, align 8, !tbaa !45
-  %incdec.ptr.i333 = getelementptr inbounds i8, ptr %27, i64 24
+  %incdec.ptr.i333 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %incdec.ptr.i333, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont108
 
@@ -1621,16 +1621,16 @@ invoke.cont108:                                   ; preds = %if.else.i335, %if.t
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp106) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp105) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp104) #22
-  %axis_keys = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %axis_keys = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp110) #22
   store i32 0, ptr %ref.tmp110, align 4, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp111) #22
   store i32 1, ptr %ref.tmp111, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp112) #22
   store i32 1, ptr %ref.tmp112, align 4, !tbaa !41
-  %_M_finish.i339 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_finish.i339 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   %28 = load ptr, ptr %_M_finish.i339, align 8, !tbaa !20
-  %_M_end_of_storage.i340 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_end_of_storage.i340 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   %29 = load ptr, ptr %_M_end_of_storage.i340, align 8, !tbaa !47
   %cmp.not.i341 = icmp eq ptr %28, %29
   br i1 %cmp.not.i341, label %if.else.i345, label %if.then.i342
@@ -1638,15 +1638,15 @@ invoke.cont108:                                   ; preds = %if.else.i335, %if.t
 if.then.i342:                                     ; preds = %invoke.cont108
   %30 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %28, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 12
+  %axis_to_compare2.i.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i, align 4, !tbaa !15
-  %direction3.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 16
+  %direction3.i.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 1, ptr %direction3.i.i.i.i, align 8, !tbaa !18
-  %thresh4.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 20
+  %thresh4.i.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i16 %30, ptr %thresh4.i.i.i.i, align 4, !tbaa !19
-  %key5.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
+  %key5.i.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 0, ptr %key5.i.i.i.i, align 8, !tbaa !45
-  %incdec.ptr.i343 = getelementptr inbounds i8, ptr %28, i64 24
+  %incdec.ptr.i343 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %incdec.ptr.i343, ptr %_M_finish.i339, align 8, !tbaa !48
   br label %invoke.cont115
 
@@ -1677,15 +1677,15 @@ invoke.cont115:                                   ; preds = %if.else.i345.invoke
 if.then.i351:                                     ; preds = %invoke.cont115
   %33 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %32, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i353 = getelementptr inbounds i8, ptr %32, i64 12
+  %axis_to_compare2.i.i.i.i353 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i353, align 4, !tbaa !15
-  %direction3.i.i.i.i354 = getelementptr inbounds i8, ptr %32, i64 16
+  %direction3.i.i.i.i354 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 -1, ptr %direction3.i.i.i.i354, align 8, !tbaa !18
-  %thresh4.i.i.i.i355 = getelementptr inbounds i8, ptr %32, i64 20
+  %thresh4.i.i.i.i355 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i16 %33, ptr %thresh4.i.i.i.i355, align 4, !tbaa !19
-  %key5.i.i.i.i356 = getelementptr inbounds i8, ptr %32, i64 8
+  %key5.i.i.i.i356 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 1, ptr %key5.i.i.i.i356, align 8, !tbaa !45
-  %incdec.ptr.i357 = getelementptr inbounds i8, ptr %32, i64 24
+  %incdec.ptr.i357 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %incdec.ptr.i357, ptr %_M_finish.i339, align 8, !tbaa !48
   br label %invoke.cont123
 
@@ -1716,15 +1716,15 @@ invoke.cont123:                                   ; preds = %if.else.i359.invoke
 if.then.i366:                                     ; preds = %invoke.cont123
   %36 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %35, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i368 = getelementptr inbounds i8, ptr %35, i64 12
+  %axis_to_compare2.i.i.i.i368 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i368, align 4, !tbaa !15
-  %direction3.i.i.i.i369 = getelementptr inbounds i8, ptr %35, i64 16
+  %direction3.i.i.i.i369 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 1, ptr %direction3.i.i.i.i369, align 8, !tbaa !18
-  %thresh4.i.i.i.i370 = getelementptr inbounds i8, ptr %35, i64 20
+  %thresh4.i.i.i.i370 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i16 %36, ptr %thresh4.i.i.i.i370, align 4, !tbaa !19
-  %key5.i.i.i.i371 = getelementptr inbounds i8, ptr %35, i64 8
+  %key5.i.i.i.i371 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 2, ptr %key5.i.i.i.i371, align 8, !tbaa !45
-  %incdec.ptr.i372 = getelementptr inbounds i8, ptr %35, i64 24
+  %incdec.ptr.i372 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %incdec.ptr.i372, ptr %_M_finish.i339, align 8, !tbaa !48
   br label %invoke.cont131
 
@@ -1755,15 +1755,15 @@ invoke.cont131:                                   ; preds = %if.else.i374.invoke
 if.then.i381:                                     ; preds = %invoke.cont131
   %39 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %38, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i383 = getelementptr inbounds i8, ptr %38, i64 12
+  %axis_to_compare2.i.i.i.i383 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i383, align 4, !tbaa !15
-  %direction3.i.i.i.i384 = getelementptr inbounds i8, ptr %38, i64 16
+  %direction3.i.i.i.i384 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 -1, ptr %direction3.i.i.i.i384, align 8, !tbaa !18
-  %thresh4.i.i.i.i385 = getelementptr inbounds i8, ptr %38, i64 20
+  %thresh4.i.i.i.i385 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i16 %39, ptr %thresh4.i.i.i.i385, align 4, !tbaa !19
-  %key5.i.i.i.i386 = getelementptr inbounds i8, ptr %38, i64 8
+  %key5.i.i.i.i386 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 3, ptr %key5.i.i.i.i386, align 8, !tbaa !45
-  %incdec.ptr.i387 = getelementptr inbounds i8, ptr %38, i64 24
+  %incdec.ptr.i387 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %incdec.ptr.i387, ptr %_M_finish.i339, align 8, !tbaa !48
   br label %invoke.cont139
 
@@ -1989,9 +1989,9 @@ if.else.i:
   %ref.tmp95 = alloca i32, align 4
   %ref.tmp96 = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i8 0, i64 48, i1 false)
-  %axes_deadzone = getelementptr inbounds i8, ptr %agg.result, i64 80
+  %axes_deadzone = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
   store i16 7000, ptr %axes_deadzone, align 8, !tbaa !30
-  %axes1 = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %axes1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %axes1, ptr noundef nonnull align 16 dereferenceable(32) @__const._Z33create_dragonrise_gamecube_layoutv.axes, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #22
   store i32 10, ptr %ref.tmp, align 4, !tbaa !40
@@ -1999,8 +1999,8 @@ if.else.i:
   store i32 512, ptr %ref.tmp3, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp4) #22
   store i32 512, ptr %ref.tmp4, align 4, !tbaa !41
-  %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   invoke void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr null, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp4)
           to label %invoke.cont unwind label %lpad
 
@@ -2021,13 +2021,13 @@ invoke.cont:                                      ; preds = %if.else.i
 
 if.then.i107:                                     ; preds = %invoke.cont
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %.pre, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i108 = getelementptr inbounds i8, ptr %.pre, i64 12
+  %filter_mask2.i.i.i.i108 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
   store i32 4, ptr %filter_mask2.i.i.i.i108, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i109 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %compare_mask3.i.i.i.i109 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   store i32 4, ptr %compare_mask3.i.i.i.i109, align 8, !tbaa !14
-  %key4.i.i.i.i110 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %key4.i.i.i.i110 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   store i32 4, ptr %key4.i.i.i.i110, align 8, !tbaa !45
-  %incdec.ptr.i111 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %incdec.ptr.i111 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   store ptr %incdec.ptr.i111, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont10
 
@@ -2057,13 +2057,13 @@ invoke.cont10:                                    ; preds = %if.else.i113.invoke
 
 if.then.i120:                                     ; preds = %invoke.cont10
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %1, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i121 = getelementptr inbounds i8, ptr %1, i64 12
+  %filter_mask2.i.i.i.i121 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 8, ptr %filter_mask2.i.i.i.i121, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i122 = getelementptr inbounds i8, ptr %1, i64 16
+  %compare_mask3.i.i.i.i122 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 8, ptr %compare_mask3.i.i.i.i122, align 8, !tbaa !14
-  %key4.i.i.i.i123 = getelementptr inbounds i8, ptr %1, i64 8
+  %key4.i.i.i.i123 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %key4.i.i.i.i123, align 8, !tbaa !45
-  %incdec.ptr.i124 = getelementptr inbounds i8, ptr %1, i64 24
+  %incdec.ptr.i124 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %incdec.ptr.i124, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont17
 
@@ -2093,13 +2093,13 @@ invoke.cont17:                                    ; preds = %if.else.i126.invoke
 
 if.then.i133:                                     ; preds = %invoke.cont17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %3, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i134 = getelementptr inbounds i8, ptr %3, i64 12
+  %filter_mask2.i.i.i.i134 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %filter_mask2.i.i.i.i134, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i135 = getelementptr inbounds i8, ptr %3, i64 16
+  %compare_mask3.i.i.i.i135 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 1, ptr %compare_mask3.i.i.i.i135, align 8, !tbaa !14
-  %key4.i.i.i.i136 = getelementptr inbounds i8, ptr %3, i64 8
+  %key4.i.i.i.i136 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 11, ptr %key4.i.i.i.i136, align 8, !tbaa !45
-  %incdec.ptr.i137 = getelementptr inbounds i8, ptr %3, i64 24
+  %incdec.ptr.i137 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %incdec.ptr.i137, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont24
 
@@ -2129,13 +2129,13 @@ invoke.cont24:                                    ; preds = %if.else.i139.invoke
 
 if.then.i146:                                     ; preds = %invoke.cont24
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %5, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i147 = getelementptr inbounds i8, ptr %5, i64 12
+  %filter_mask2.i.i.i.i147 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 2, ptr %filter_mask2.i.i.i.i147, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i148 = getelementptr inbounds i8, ptr %5, i64 16
+  %compare_mask3.i.i.i.i148 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 2, ptr %compare_mask3.i.i.i.i148, align 8, !tbaa !14
-  %key4.i.i.i.i149 = getelementptr inbounds i8, ptr %5, i64 8
+  %key4.i.i.i.i149 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 5, ptr %key4.i.i.i.i149, align 8, !tbaa !45
-  %incdec.ptr.i150 = getelementptr inbounds i8, ptr %5, i64 24
+  %incdec.ptr.i150 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %incdec.ptr.i150, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont31
 
@@ -2165,13 +2165,13 @@ invoke.cont31:                                    ; preds = %if.else.i152.invoke
 
 if.then.i159:                                     ; preds = %invoke.cont31
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %7, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i160 = getelementptr inbounds i8, ptr %7, i64 12
+  %filter_mask2.i.i.i.i160 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 16, ptr %filter_mask2.i.i.i.i160, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i161 = getelementptr inbounds i8, ptr %7, i64 16
+  %compare_mask3.i.i.i.i161 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 16, ptr %compare_mask3.i.i.i.i161, align 8, !tbaa !14
-  %key4.i.i.i.i162 = getelementptr inbounds i8, ptr %7, i64 8
+  %key4.i.i.i.i162 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 8, ptr %key4.i.i.i.i162, align 8, !tbaa !45
-  %incdec.ptr.i163 = getelementptr inbounds i8, ptr %7, i64 24
+  %incdec.ptr.i163 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %incdec.ptr.i163, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont38
 
@@ -2201,13 +2201,13 @@ invoke.cont38:                                    ; preds = %if.else.i165.invoke
 
 if.then.i172:                                     ; preds = %invoke.cont38
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %9, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i173 = getelementptr inbounds i8, ptr %9, i64 12
+  %filter_mask2.i.i.i.i173 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 32, ptr %filter_mask2.i.i.i.i173, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i174 = getelementptr inbounds i8, ptr %9, i64 16
+  %compare_mask3.i.i.i.i174 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 32, ptr %compare_mask3.i.i.i.i174, align 8, !tbaa !14
-  %key4.i.i.i.i175 = getelementptr inbounds i8, ptr %9, i64 8
+  %key4.i.i.i.i175 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 9, ptr %key4.i.i.i.i175, align 8, !tbaa !45
-  %incdec.ptr.i176 = getelementptr inbounds i8, ptr %9, i64 24
+  %incdec.ptr.i176 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %incdec.ptr.i176, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont45
 
@@ -2237,13 +2237,13 @@ invoke.cont45:                                    ; preds = %if.else.i178.invoke
 
 if.then.i185:                                     ; preds = %invoke.cont45
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %11, align 8, !tbaa !43
-  %filter_mask2.i.i.i.i186 = getelementptr inbounds i8, ptr %11, i64 12
+  %filter_mask2.i.i.i.i186 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 64, ptr %filter_mask2.i.i.i.i186, align 4, !tbaa !10
-  %compare_mask3.i.i.i.i187 = getelementptr inbounds i8, ptr %11, i64 16
+  %compare_mask3.i.i.i.i187 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 64, ptr %compare_mask3.i.i.i.i187, align 8, !tbaa !14
-  %key4.i.i.i.i188 = getelementptr inbounds i8, ptr %11, i64 8
+  %key4.i.i.i.i188 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 12, ptr %key4.i.i.i.i188, align 8, !tbaa !45
-  %incdec.ptr.i189 = getelementptr inbounds i8, ptr %11, i64 24
+  %incdec.ptr.i189 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %incdec.ptr.i189, ptr %_M_finish.i, align 8, !tbaa !46
   br label %invoke.cont52
 
@@ -2255,16 +2255,16 @@ invoke.cont52:                                    ; preds = %if.else.i191, %if.t
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp50) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp49) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp48) #22
-  %axis_keys = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %axis_keys = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp54) #22
   store i32 22, ptr %ref.tmp54, align 4, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp55) #22
   store i32 5, ptr %ref.tmp55, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp56) #22
   store i32 1, ptr %ref.tmp56, align 4, !tbaa !41
-  %_M_finish.i195 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_finish.i195 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   %12 = load ptr, ptr %_M_finish.i195, align 8, !tbaa !20
-  %_M_end_of_storage.i196 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_end_of_storage.i196 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   %13 = load ptr, ptr %_M_end_of_storage.i196, align 8, !tbaa !47
   %cmp.not.i197 = icmp eq ptr %12, %13
   br i1 %cmp.not.i197, label %if.else.i201, label %if.then.i198
@@ -2272,15 +2272,15 @@ invoke.cont52:                                    ; preds = %if.else.i191, %if.t
 if.then.i198:                                     ; preds = %invoke.cont52
   %14 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %12, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 12
+  %axis_to_compare2.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i16 5, ptr %axis_to_compare2.i.i.i.i, align 4, !tbaa !15
-  %direction3.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %direction3.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 1, ptr %direction3.i.i.i.i, align 8, !tbaa !18
-  %thresh4.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 20
+  %thresh4.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i16 %14, ptr %thresh4.i.i.i.i, align 4, !tbaa !19
-  %key5.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %key5.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 22, ptr %key5.i.i.i.i, align 8, !tbaa !45
-  %incdec.ptr.i199 = getelementptr inbounds i8, ptr %12, i64 24
+  %incdec.ptr.i199 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %incdec.ptr.i199, ptr %_M_finish.i195, align 8, !tbaa !48
   br label %invoke.cont59
 
@@ -2311,15 +2311,15 @@ invoke.cont59:                                    ; preds = %if.else.i201.invoke
 if.then.i207:                                     ; preds = %invoke.cont59
   %17 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %16, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i209 = getelementptr inbounds i8, ptr %16, i64 12
+  %axis_to_compare2.i.i.i.i209 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i16 5, ptr %axis_to_compare2.i.i.i.i209, align 4, !tbaa !15
-  %direction3.i.i.i.i210 = getelementptr inbounds i8, ptr %16, i64 16
+  %direction3.i.i.i.i210 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 -1, ptr %direction3.i.i.i.i210, align 8, !tbaa !18
-  %thresh4.i.i.i.i211 = getelementptr inbounds i8, ptr %16, i64 20
+  %thresh4.i.i.i.i211 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i16 %17, ptr %thresh4.i.i.i.i211, align 4, !tbaa !19
-  %key5.i.i.i.i212 = getelementptr inbounds i8, ptr %16, i64 8
+  %key5.i.i.i.i212 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 23, ptr %key5.i.i.i.i212, align 8, !tbaa !45
-  %incdec.ptr.i213 = getelementptr inbounds i8, ptr %16, i64 24
+  %incdec.ptr.i213 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %incdec.ptr.i213, ptr %_M_finish.i195, align 8, !tbaa !48
   br label %invoke.cont67
 
@@ -2350,15 +2350,15 @@ invoke.cont67:                                    ; preds = %if.else.i215.invoke
 if.then.i222:                                     ; preds = %invoke.cont67
   %20 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %19, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i224 = getelementptr inbounds i8, ptr %19, i64 12
+  %axis_to_compare2.i.i.i.i224 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i224, align 4, !tbaa !15
-  %direction3.i.i.i.i225 = getelementptr inbounds i8, ptr %19, i64 16
+  %direction3.i.i.i.i225 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 1, ptr %direction3.i.i.i.i225, align 8, !tbaa !18
-  %thresh4.i.i.i.i226 = getelementptr inbounds i8, ptr %19, i64 20
+  %thresh4.i.i.i.i226 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i16 %20, ptr %thresh4.i.i.i.i226, align 4, !tbaa !19
-  %key5.i.i.i.i227 = getelementptr inbounds i8, ptr %19, i64 8
+  %key5.i.i.i.i227 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 2, ptr %key5.i.i.i.i227, align 8, !tbaa !45
-  %incdec.ptr.i228 = getelementptr inbounds i8, ptr %19, i64 24
+  %incdec.ptr.i228 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %incdec.ptr.i228, ptr %_M_finish.i195, align 8, !tbaa !48
   br label %invoke.cont75
 
@@ -2389,15 +2389,15 @@ invoke.cont75:                                    ; preds = %if.else.i230.invoke
 if.then.i237:                                     ; preds = %invoke.cont75
   %23 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %22, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i239 = getelementptr inbounds i8, ptr %22, i64 12
+  %axis_to_compare2.i.i.i.i239 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i16 0, ptr %axis_to_compare2.i.i.i.i239, align 4, !tbaa !15
-  %direction3.i.i.i.i240 = getelementptr inbounds i8, ptr %22, i64 16
+  %direction3.i.i.i.i240 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 -1, ptr %direction3.i.i.i.i240, align 8, !tbaa !18
-  %thresh4.i.i.i.i241 = getelementptr inbounds i8, ptr %22, i64 20
+  %thresh4.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i16 %23, ptr %thresh4.i.i.i.i241, align 4, !tbaa !19
-  %key5.i.i.i.i242 = getelementptr inbounds i8, ptr %22, i64 8
+  %key5.i.i.i.i242 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 3, ptr %key5.i.i.i.i242, align 8, !tbaa !45
-  %incdec.ptr.i243 = getelementptr inbounds i8, ptr %22, i64 24
+  %incdec.ptr.i243 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %incdec.ptr.i243, ptr %_M_finish.i195, align 8, !tbaa !48
   br label %invoke.cont83
 
@@ -2428,15 +2428,15 @@ invoke.cont83:                                    ; preds = %if.else.i245.invoke
 if.then.i252:                                     ; preds = %invoke.cont83
   %26 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %25, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i254 = getelementptr inbounds i8, ptr %25, i64 12
+  %axis_to_compare2.i.i.i.i254 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i254, align 4, !tbaa !15
-  %direction3.i.i.i.i255 = getelementptr inbounds i8, ptr %25, i64 16
+  %direction3.i.i.i.i255 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 1, ptr %direction3.i.i.i.i255, align 8, !tbaa !18
-  %thresh4.i.i.i.i256 = getelementptr inbounds i8, ptr %25, i64 20
+  %thresh4.i.i.i.i256 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i16 %26, ptr %thresh4.i.i.i.i256, align 4, !tbaa !19
-  %key5.i.i.i.i257 = getelementptr inbounds i8, ptr %25, i64 8
+  %key5.i.i.i.i257 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 0, ptr %key5.i.i.i.i257, align 8, !tbaa !45
-  %incdec.ptr.i258 = getelementptr inbounds i8, ptr %25, i64 24
+  %incdec.ptr.i258 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %incdec.ptr.i258, ptr %_M_finish.i195, align 8, !tbaa !48
   br label %invoke.cont91
 
@@ -2467,15 +2467,15 @@ invoke.cont91:                                    ; preds = %if.else.i260.invoke
 if.then.i267:                                     ; preds = %invoke.cont91
   %29 = load i16, ptr %axes_deadzone, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %28, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i.i269 = getelementptr inbounds i8, ptr %28, i64 12
+  %axis_to_compare2.i.i.i.i269 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i16 1, ptr %axis_to_compare2.i.i.i.i269, align 4, !tbaa !15
-  %direction3.i.i.i.i270 = getelementptr inbounds i8, ptr %28, i64 16
+  %direction3.i.i.i.i270 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 -1, ptr %direction3.i.i.i.i270, align 8, !tbaa !18
-  %thresh4.i.i.i.i271 = getelementptr inbounds i8, ptr %28, i64 20
+  %thresh4.i.i.i.i271 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i16 %29, ptr %thresh4.i.i.i.i271, align 4, !tbaa !19
-  %key5.i.i.i.i272 = getelementptr inbounds i8, ptr %28, i64 8
+  %key5.i.i.i.i272 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 1, ptr %key5.i.i.i.i272, align 8, !tbaa !45
-  %incdec.ptr.i273 = getelementptr inbounds i8, ptr %28, i64 24
+  %incdec.ptr.i273 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %incdec.ptr.i273, ptr %_M_finish.i195, align 8, !tbaa !48
   br label %invoke.cont99
 
@@ -2612,17 +2612,17 @@ define dso_local void @_ZN18JoystickControllerC2Ev(ptr noundef nonnull align 8 d
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_layout = getelementptr inbounds i8, ptr %this, i64 8
+  %m_layout = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_layout, i8 0, i64 48, i1 false)
-  %m_joystick_id = getelementptr inbounds i8, ptr %this, i64 104
+  %m_joystick_id = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i8 0, ptr %m_joystick_id, align 8, !tbaa !54
-  %m_keys_down = getelementptr inbounds i8, ptr %this, i64 112
-  %m_past_keys_pressed = getelementptr inbounds i8, ptr %this, i64 456
+  %m_keys_down = getelementptr inbounds nuw i8, ptr %this, i64 112
+  %m_past_keys_pressed = getelementptr inbounds nuw i8, ptr %this, i64 456
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_keys_down, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_past_keys_pressed, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr @g_settings, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #22
-  %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store ptr %1, ptr %ref.tmp2, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #22
   store i64 27, ptr %__dnew.i.i, align 8, !tbaa !24
@@ -2634,7 +2634,7 @@ call2.i11.i.noexc:                                ; preds = %entry
   %2 = load i64, ptr %__dnew.i.i, align 8, !tbaa !24
   store i64 %2, ptr %1, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %call2.i11.i24, ptr noundef nonnull align 1 dereferenceable(27) @.str.1, i64 27, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   store i64 %2, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
   %3 = load ptr, ptr %ref.tmp2, align 8, !tbaa !26
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %2
@@ -2663,10 +2663,10 @@ if.then.i.i25:                                    ; preds = %invoke.cont5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #22
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 148
-  %axes_deadzone = getelementptr inbounds i8, ptr %this, i64 88
+  %scevgep = getelementptr inbounds nuw i8, ptr %this, i64 148
+  %axes_deadzone = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i16 0, ptr %axes_deadzone, align 8, !tbaa !60
-  %m_axes_vals.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_axes_vals.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i64 0, ptr %m_axes_vals.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_keys_down, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(340) %scevgep, i8 0, i64 340, i1 false)
@@ -2706,9 +2706,9 @@ declare noundef float @_ZNK8Settings8getFloatERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN18JoystickController5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(488) initializes((96, 104), (112, 144), (456, 488)) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_keys_down = getelementptr inbounds i8, ptr %this, i64 112
-  %m_past_keys_pressed = getelementptr inbounds i8, ptr %this, i64 456
-  %m_axes_vals = getelementptr inbounds i8, ptr %this, i64 96
+  %m_keys_down = getelementptr inbounds nuw i8, ptr %this, i64 112
+  %m_past_keys_pressed = getelementptr inbounds nuw i8, ptr %this, i64 456
+  %m_axes_vals = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i64 0, ptr %m_axes_vals, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_keys_down, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_past_keys_pressed, i8 0, i64 32, i1 false)
@@ -2726,12 +2726,12 @@ entry:
   %ref.tmp32 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr @g_settings, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #22
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %1, ptr %ref.tmp, align 8, !tbaa !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1, ptr noundef nonnull align 1 dereferenceable(11) @.str.2, i64 11, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 11, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 27
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 27
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !28
   %call = invoke noundef i32 @_ZNK8Settings6getS32ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -2756,21 +2756,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %layout) #22
   %4 = load ptr, ptr @g_settings, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp7) #22
-  %5 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 16
   store ptr %5, ptr %ref.tmp7, align 8, !tbaa !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %5, ptr noundef nonnull align 1 dereferenceable(13) @.str.3, i64 13, i1 false)
-  %_M_string_length.i.i.i.i84 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
+  %_M_string_length.i.i.i.i84 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
   store i64 13, ptr %_M_string_length.i.i.i.i84, align 8, !tbaa !29
-  %arrayidx.i.i.i85 = getelementptr inbounds i8, ptr %ref.tmp7, i64 29
+  %arrayidx.i.i.i85 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 29
   store i8 0, ptr %arrayidx.i.i.i85, align 1, !tbaa !28
   %call13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8Settings3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236) %4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %6 = getelementptr inbounds i8, ptr %layout, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %layout, i64 16
   store ptr %6, ptr %layout, align 8, !tbaa !22
   %7 = load ptr, ptr %call13, align 8, !tbaa !26
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %call13, i64 8
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %call13, i64 8
   %8 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i92) #22
   store i64 %8, ptr %__dnew.i.i92, align 8, !tbaa !24
@@ -2805,7 +2805,7 @@ if.end.i.i.i.i.i98:                               ; preds = %if.end.i.i94
 
 invoke.cont14:                                    ; preds = %if.end.i.i.i.i.i98, %if.then.i.i.i.i97, %if.end.i.i94
   %12 = load i64, ptr %__dnew.i.i92, align 8, !tbaa !24
-  %_M_string_length.i.i.i.i95 = getelementptr inbounds i8, ptr %layout, i64 8
+  %_M_string_length.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %layout, i64 8
   store i64 %12, ptr %_M_string_length.i.i.i.i95, align 8, !tbaa !29
   %13 = load ptr, ptr %layout, align 8, !tbaa !26
   %arrayidx.i.i.i96 = getelementptr inbounds i8, ptr %13, i64 %12
@@ -2828,7 +2828,7 @@ if.then.i.i102:                                   ; preds = %invoke.cont14
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %if.then.i.i102, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #22
   %cmp = icmp slt i32 %call, 0
-  %_M_finish.i119.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %joystick_infos, i64 8
+  %_M_finish.i119.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %joystick_infos, i64 8
   %.pre.pre = load ptr, ptr %_M_finish.i119.phi.trans.insert.phi.trans.insert, align 8, !tbaa !61
   %.pre163.pre = load ptr, ptr %joystick_infos, align 8, !tbaa !63
   %.pre172 = ptrtoint ptr %.pre.pre to i64
@@ -2902,9 +2902,9 @@ if.then31:                                        ; preds = %lor.lhs.false27.if.
   %23 = phi ptr [ %.pre164, %lor.lhs.false27.if.then31_crit_edge ], [ %.pre163.pre, %if.then25 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp32) #22
   %conv33 = zext nneg i32 %id.0 to i64
-  %Name = getelementptr inbounds %"struct.irr::SJoystickInfo", ptr %23, i64 %conv33, i32 2
+  %Name = getelementptr inbounds nuw %"struct.irr::SJoystickInfo", ptr %23, i64 %conv33, i32 2
   %24 = load ptr, ptr %Name, align 8, !tbaa !26
-  %25 = getelementptr inbounds i8, ptr %ref.tmp32, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 16
   store ptr %25, ptr %ref.tmp32, align 8, !tbaa !22
   %cmp.i127 = icmp eq ptr %24, null
   br i1 %cmp.i127, label %if.then.i, label %if.end.i
@@ -2951,7 +2951,7 @@ if.end.i.i.i.i.i134:                              ; preds = %if.end.i.i130
 
 invoke.cont40:                                    ; preds = %if.end.i.i.i.i.i134, %if.then.i.i.i.i133, %if.end.i.i130
   %29 = load i64, ptr %__dnew.i.i126, align 8, !tbaa !24
-  %_M_string_length.i.i.i.i131 = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
+  %_M_string_length.i.i.i.i131 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 8
   store i64 %29, ptr %_M_string_length.i.i.i.i131, align 8, !tbaa !29
   %30 = load ptr, ptr %ref.tmp32, align 8, !tbaa !26
   %arrayidx.i.i.i132 = getelementptr inbounds i8, ptr %30, i64 %29
@@ -3018,7 +3018,7 @@ if.else:                                          ; preds = %lor.lhs.false27
 if.end49:                                         ; preds = %if.else, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106
   %38 = call i32 @llvm.umin.i32(i32 %id.0, i32 255)
   %conv56 = trunc nuw i32 %38 to i8
-  %m_joystick_id = getelementptr inbounds i8, ptr %this, i64 104
+  %m_joystick_id = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i8 %conv56, ptr %m_joystick_id, align 8, !tbaa !54
   %39 = load ptr, ptr %layout, align 8, !tbaa !26
   %cmp.i.i.i151 = icmp eq ptr %39, %6
@@ -3078,12 +3078,12 @@ entry:
   %ref.tmp15 = alloca %struct.JoystickLayout, align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #22
   %0 = load ptr, ptr %name, align 8, !tbaa !26
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %name, i64 8
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   %1 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %2, ptr %ref.tmp, align 8, !tbaa !22, !alias.scope !64
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29, !alias.scope !64
   store i8 0, ptr %2, align 8, !tbaa !28, !alias.scope !64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef %1, i8 noundef signext 0)
@@ -3152,15 +3152,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 if.then:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %ref.tmp3) #22
   call void @_Z18create_xbox_layoutv(ptr dead_on_unwind nonnull writable sret(%struct.JoystickLayout) align 8 %ref.tmp3)
-  %m_layout = getelementptr inbounds i8, ptr %this, i64 8
+  %m_layout = getelementptr inbounds nuw i8, ptr %this, i64 8
   %10 = load ptr, ptr %m_layout, align 8, !tbaa !52
-  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !46
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %_M_finish.i3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_M_finish.i3.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   %12 = load <2 x ptr>, ptr %ref.tmp3, align 16, !tbaa !20
   store <2 x ptr> %12, ptr %m_layout, align 8, !tbaa !20
-  %_M_end_of_storage.i5.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
+  %_M_end_of_storage.i5.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 16
   %13 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i, align 16, !tbaa !42
   store ptr %13, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !42
   %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %10, %11
@@ -3170,10 +3170,10 @@ if.then:                                          ; preds = %_ZNSt7__cxx1112basi
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.then, %for.body.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %10, %if.then ]
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8, !tbaa !43
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
   %14 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.04.i.i.i.i.i.i.i) #22
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 24
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %11
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !53
 
@@ -3186,16 +3186,16 @@ if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i.i.i.i
   br label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i
 
 _ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i.i.i
-  %axis_keys.i = getelementptr inbounds i8, ptr %this, i64 32
-  %axis_keys3.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
+  %axis_keys.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %axis_keys3.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 24
   %15 = load ptr, ptr %axis_keys.i, align 8, !tbaa !49
-  %_M_finish.i.i.i.i8.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish.i.i.i.i8.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %16 = load ptr, ptr %_M_finish.i.i.i.i8.i, align 8, !tbaa !48
-  %_M_end_of_storage.i.i.i.i9.i = getelementptr inbounds i8, ptr %this, i64 48
-  %_M_finish.i3.i.i.i10.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
+  %_M_end_of_storage.i.i.i.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %_M_finish.i3.i.i.i10.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 32
   %17 = load <2 x ptr>, ptr %axis_keys3.i, align 8, !tbaa !20
   store <2 x ptr> %17, ptr %axis_keys.i, align 8, !tbaa !20
-  %_M_end_of_storage.i5.i.i.i11.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
+  %_M_end_of_storage.i5.i.i.i11.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 40
   %18 = load ptr, ptr %_M_end_of_storage.i5.i.i.i11.i, align 8, !tbaa !47
   store ptr %18, ptr %_M_end_of_storage.i.i.i.i9.i, align 8, !tbaa !47
   %cmp.not3.i.i.i.i.i.i12.i = icmp eq ptr %15, %16
@@ -3205,10 +3205,10 @@ _ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i: ; preds = %if.then.i.i.i
 for.body.i.i.i.i.i.i13.i:                         ; preds = %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i, %for.body.i.i.i.i.i.i13.i
   %__first.addr.04.i.i.i.i.i.i14.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i17.i, %for.body.i.i.i.i.i.i13.i ], [ %15, %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i ]
   %vtable.i.i.i.i.i.i.i15.i = load ptr, ptr %__first.addr.04.i.i.i.i.i.i14.i, align 8, !tbaa !43
-  %vfn.i.i.i.i.i.i.i16.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i15.i, i64 8
+  %vfn.i.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i15.i, i64 8
   %19 = load ptr, ptr %vfn.i.i.i.i.i.i.i16.i, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.04.i.i.i.i.i.i14.i) #22
-  %incdec.ptr.i.i.i.i.i.i17.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i14.i, i64 24
+  %incdec.ptr.i.i.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i14.i, i64 24
   %cmp.not.i.i.i.i.i.i18.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i17.i, %16
   br i1 %cmp.not.i.i.i.i.i.i18.i, label %invoke.cont.i.i.i19.i, label %for.body.i.i.i.i.i.i13.i, !llvm.loop !50
 
@@ -3221,8 +3221,8 @@ if.then.i.i.i.i.i21.i:                            ; preds = %invoke.cont.i.i.i19
   br label %_ZN14JoystickLayoutaSEOS_.exit
 
 _ZN14JoystickLayoutaSEOS_.exit:                   ; preds = %if.then.i.i.i.i.i21.i, %invoke.cont.i.i.i19.i
-  %axes.i = getelementptr inbounds i8, ptr %this, i64 56
-  %axes5.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 48
+  %axes.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %axes5.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %axes.i, ptr noundef nonnull align 16 dereferenceable(34) %axes5.i, i64 34, i1 false)
   %20 = load ptr, ptr %axis_keys3.i, align 8, !tbaa !49
   %21 = load ptr, ptr %_M_finish.i3.i.i.i10.i, align 16, !tbaa !48
@@ -3232,10 +3232,10 @@ _ZN14JoystickLayoutaSEOS_.exit:                   ; preds = %if.then.i.i.i.i.i21
 for.body.i.i.i.i.i:                               ; preds = %_ZN14JoystickLayoutaSEOS_.exit, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %20, %_ZN14JoystickLayoutaSEOS_.exit ]
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8, !tbaa !43
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %22 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.04.i.i.i.i.i) #22
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %21
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !50
 
@@ -3261,10 +3261,10 @@ _ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %
 for.body.i.i.i.i4.i:                              ; preds = %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit.i, %for.body.i.i.i.i4.i
   %__first.addr.04.i.i.i.i5.i = phi ptr [ %incdec.ptr.i.i.i.i8.i, %for.body.i.i.i.i4.i ], [ %24, %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit.i ]
   %vtable.i.i.i.i.i6.i = load ptr, ptr %__first.addr.04.i.i.i.i5.i, align 8, !tbaa !43
-  %vfn.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i6.i, i64 8
+  %vfn.i.i.i.i.i7.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i6.i, i64 8
   %26 = load ptr, ptr %vfn.i.i.i.i.i7.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.04.i.i.i.i5.i) #22
-  %incdec.ptr.i.i.i.i8.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i5.i, i64 24
+  %incdec.ptr.i.i.i.i8.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i5.i, i64 24
   %cmp.not.i.i.i.i9.i = icmp eq ptr %incdec.ptr.i.i.i.i8.i, %25
   br i1 %cmp.not.i.i.i.i9.i, label %invoke.contthread-pre-split.i10.i, label %for.body.i.i.i.i4.i, !llvm.loop !53
 
@@ -3290,9 +3290,9 @@ if.else:                                          ; preds = %_ZNSt7__cxx1112basi
   %28 = load ptr, ptr %name, align 8, !tbaa !26
   %29 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !29
   call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  %30 = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
   store ptr %30, ptr %ref.tmp5, align 8, !tbaa !22, !alias.scope !68
-  %_M_string_length.i.i.i.i24 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+  %_M_string_length.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i24, align 8, !tbaa !29, !alias.scope !68
   store i8 0, ptr %30, align 8, !tbaa !28, !alias.scope !68
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, i64 noundef %29, i8 noundef signext 0)
@@ -3352,9 +3352,9 @@ if.then.i.i46:                                    ; preds = %_Z9lowercaseB5cxx11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %if.then.i.i46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i47
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5) #22
-  %m_layout16 = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_finish.i.i.i.i.i114 = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_end_of_storage.i.i.i.i.i115 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_layout16 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_finish.i.i.i.i.i114 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_end_of_storage.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %this, i64 24
   br i1 %cmp9.not, label %if.else14, label %if.then10
 
 if.then10:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50
@@ -3362,10 +3362,10 @@ if.then10:                                        ; preds = %_ZNSt7__cxx1112basi
   call void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind nonnull writable sret(%struct.JoystickLayout) align 8 %ref.tmp11)
   %38 = load ptr, ptr %m_layout16, align 8, !tbaa !52
   %39 = load ptr, ptr %_M_finish.i.i.i.i.i114, align 8, !tbaa !46
-  %_M_finish.i3.i.i.i.i53 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  %_M_finish.i3.i.i.i.i53 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   %40 = load <2 x ptr>, ptr %ref.tmp11, align 16, !tbaa !20
   store <2 x ptr> %40, ptr %m_layout16, align 8, !tbaa !20
-  %_M_end_of_storage.i5.i.i.i.i54 = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
+  %_M_end_of_storage.i5.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
   %41 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i54, align 16, !tbaa !42
   store ptr %41, ptr %_M_end_of_storage.i.i.i.i.i115, align 8, !tbaa !42
   %cmp.not3.i.i.i.i.i.i.i55 = icmp eq ptr %38, %39
@@ -3375,10 +3375,10 @@ if.then10:                                        ; preds = %_ZNSt7__cxx1112basi
 for.body.i.i.i.i.i.i.i56:                         ; preds = %if.then10, %for.body.i.i.i.i.i.i.i56
   %__first.addr.04.i.i.i.i.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i60, %for.body.i.i.i.i.i.i.i56 ], [ %38, %if.then10 ]
   %vtable.i.i.i.i.i.i.i.i58 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i57, align 8, !tbaa !43
-  %vfn.i.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i58, i64 8
+  %vfn.i.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i58, i64 8
   %42 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i59, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.04.i.i.i.i.i.i.i57) #22
-  %incdec.ptr.i.i.i.i.i.i.i60 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i57, i64 24
+  %incdec.ptr.i.i.i.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i57, i64 24
   %cmp.not.i.i.i.i.i.i.i61 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i60, %39
   br i1 %cmp.not.i.i.i.i.i.i.i61, label %invoke.cont.i.i.i.i62, label %for.body.i.i.i.i.i.i.i56, !llvm.loop !53
 
@@ -3391,16 +3391,16 @@ if.then.i.i.i.i.i.i64:                            ; preds = %invoke.cont.i.i.i.i
   br label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i65
 
 _ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i65: ; preds = %if.then.i.i.i.i.i.i64, %invoke.cont.i.i.i.i62
-  %axis_keys.i66 = getelementptr inbounds i8, ptr %this, i64 32
-  %axis_keys3.i67 = getelementptr inbounds i8, ptr %ref.tmp11, i64 24
+  %axis_keys.i66 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %axis_keys3.i67 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 24
   %43 = load ptr, ptr %axis_keys.i66, align 8, !tbaa !49
-  %_M_finish.i.i.i.i8.i68 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish.i.i.i.i8.i68 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %44 = load ptr, ptr %_M_finish.i.i.i.i8.i68, align 8, !tbaa !48
-  %_M_end_of_storage.i.i.i.i9.i69 = getelementptr inbounds i8, ptr %this, i64 48
-  %_M_finish.i3.i.i.i10.i70 = getelementptr inbounds i8, ptr %ref.tmp11, i64 32
+  %_M_end_of_storage.i.i.i.i9.i69 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %_M_finish.i3.i.i.i10.i70 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 32
   %45 = load <2 x ptr>, ptr %axis_keys3.i67, align 8, !tbaa !20
   store <2 x ptr> %45, ptr %axis_keys.i66, align 8, !tbaa !20
-  %_M_end_of_storage.i5.i.i.i11.i71 = getelementptr inbounds i8, ptr %ref.tmp11, i64 40
+  %_M_end_of_storage.i5.i.i.i11.i71 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 40
   %46 = load ptr, ptr %_M_end_of_storage.i5.i.i.i11.i71, align 8, !tbaa !47
   store ptr %46, ptr %_M_end_of_storage.i.i.i.i9.i69, align 8, !tbaa !47
   %cmp.not3.i.i.i.i.i.i12.i72 = icmp eq ptr %43, %44
@@ -3410,10 +3410,10 @@ _ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i65: ; preds = %if.then.i.i
 for.body.i.i.i.i.i.i13.i73:                       ; preds = %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i65, %for.body.i.i.i.i.i.i13.i73
   %__first.addr.04.i.i.i.i.i.i14.i74 = phi ptr [ %incdec.ptr.i.i.i.i.i.i17.i77, %for.body.i.i.i.i.i.i13.i73 ], [ %43, %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i65 ]
   %vtable.i.i.i.i.i.i.i15.i75 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i14.i74, align 8, !tbaa !43
-  %vfn.i.i.i.i.i.i.i16.i76 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i15.i75, i64 8
+  %vfn.i.i.i.i.i.i.i16.i76 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i15.i75, i64 8
   %47 = load ptr, ptr %vfn.i.i.i.i.i.i.i16.i76, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.04.i.i.i.i.i.i14.i74) #22
-  %incdec.ptr.i.i.i.i.i.i17.i77 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i14.i74, i64 24
+  %incdec.ptr.i.i.i.i.i.i17.i77 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i14.i74, i64 24
   %cmp.not.i.i.i.i.i.i18.i78 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i17.i77, %44
   br i1 %cmp.not.i.i.i.i.i.i18.i78, label %invoke.cont.i.i.i19.i79, label %for.body.i.i.i.i.i.i13.i73, !llvm.loop !50
 
@@ -3426,8 +3426,8 @@ if.then.i.i.i.i.i21.i81:                          ; preds = %invoke.cont.i.i.i19
   br label %_ZN14JoystickLayoutaSEOS_.exit84
 
 _ZN14JoystickLayoutaSEOS_.exit84:                 ; preds = %if.then.i.i.i.i.i21.i81, %invoke.cont.i.i.i19.i79
-  %axes.i82 = getelementptr inbounds i8, ptr %this, i64 56
-  %axes5.i83 = getelementptr inbounds i8, ptr %ref.tmp11, i64 48
+  %axes.i82 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %axes5.i83 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %axes.i82, ptr noundef nonnull align 16 dereferenceable(34) %axes5.i83, i64 34, i1 false)
   %48 = load ptr, ptr %axis_keys3.i67, align 8, !tbaa !49
   %49 = load ptr, ptr %_M_finish.i3.i.i.i10.i70, align 16, !tbaa !48
@@ -3437,10 +3437,10 @@ _ZN14JoystickLayoutaSEOS_.exit84:                 ; preds = %if.then.i.i.i.i.i21
 for.body.i.i.i.i.i88:                             ; preds = %_ZN14JoystickLayoutaSEOS_.exit84, %for.body.i.i.i.i.i88
   %__first.addr.04.i.i.i.i.i89 = phi ptr [ %incdec.ptr.i.i.i.i.i92, %for.body.i.i.i.i.i88 ], [ %48, %_ZN14JoystickLayoutaSEOS_.exit84 ]
   %vtable.i.i.i.i.i.i90 = load ptr, ptr %__first.addr.04.i.i.i.i.i89, align 8, !tbaa !43
-  %vfn.i.i.i.i.i.i91 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i90, i64 8
+  %vfn.i.i.i.i.i.i91 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i90, i64 8
   %50 = load ptr, ptr %vfn.i.i.i.i.i.i91, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.04.i.i.i.i.i89) #22
-  %incdec.ptr.i.i.i.i.i92 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i89, i64 24
+  %incdec.ptr.i.i.i.i.i92 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i89, i64 24
   %cmp.not.i.i.i.i.i93 = icmp eq ptr %incdec.ptr.i.i.i.i.i92, %49
   br i1 %cmp.not.i.i.i.i.i93, label %invoke.contthread-pre-split.i.i94, label %for.body.i.i.i.i.i88, !llvm.loop !50
 
@@ -3466,10 +3466,10 @@ _ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit.i99: ; preds = %if.then.i.i.i.i9
 for.body.i.i.i.i4.i102:                           ; preds = %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit.i99, %for.body.i.i.i.i4.i102
   %__first.addr.04.i.i.i.i5.i103 = phi ptr [ %incdec.ptr.i.i.i.i8.i106, %for.body.i.i.i.i4.i102 ], [ %52, %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit.i99 ]
   %vtable.i.i.i.i.i6.i104 = load ptr, ptr %__first.addr.04.i.i.i.i5.i103, align 8, !tbaa !43
-  %vfn.i.i.i.i.i7.i105 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i6.i104, i64 8
+  %vfn.i.i.i.i.i7.i105 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i6.i104, i64 8
   %54 = load ptr, ptr %vfn.i.i.i.i.i7.i105, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.04.i.i.i.i5.i103) #22
-  %incdec.ptr.i.i.i.i8.i106 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i5.i103, i64 24
+  %incdec.ptr.i.i.i.i8.i106 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i5.i103, i64 24
   %cmp.not.i.i.i.i9.i107 = icmp eq ptr %incdec.ptr.i.i.i.i8.i106, %53
   br i1 %cmp.not.i.i.i.i9.i107, label %invoke.contthread-pre-split.i10.i108, label %for.body.i.i.i.i4.i102, !llvm.loop !53
 
@@ -3495,10 +3495,10 @@ if.else14:                                        ; preds = %_ZNSt7__cxx1112basi
   call void @_Z21create_default_layoutv(ptr dead_on_unwind nonnull writable sret(%struct.JoystickLayout) align 8 %ref.tmp15)
   %56 = load ptr, ptr %m_layout16, align 8, !tbaa !52
   %57 = load ptr, ptr %_M_finish.i.i.i.i.i114, align 8, !tbaa !46
-  %_M_finish.i3.i.i.i.i116 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
+  %_M_finish.i3.i.i.i.i116 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 8
   %58 = load <2 x ptr>, ptr %ref.tmp15, align 16, !tbaa !20
   store <2 x ptr> %58, ptr %m_layout16, align 8, !tbaa !20
-  %_M_end_of_storage.i5.i.i.i.i117 = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
+  %_M_end_of_storage.i5.i.i.i.i117 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 16
   %59 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i117, align 16, !tbaa !42
   store ptr %59, ptr %_M_end_of_storage.i.i.i.i.i115, align 8, !tbaa !42
   %cmp.not3.i.i.i.i.i.i.i118 = icmp eq ptr %56, %57
@@ -3508,10 +3508,10 @@ if.else14:                                        ; preds = %_ZNSt7__cxx1112basi
 for.body.i.i.i.i.i.i.i119:                        ; preds = %if.else14, %for.body.i.i.i.i.i.i.i119
   %__first.addr.04.i.i.i.i.i.i.i120 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i123, %for.body.i.i.i.i.i.i.i119 ], [ %56, %if.else14 ]
   %vtable.i.i.i.i.i.i.i.i121 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i.i120, align 8, !tbaa !43
-  %vfn.i.i.i.i.i.i.i.i122 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i121, i64 8
+  %vfn.i.i.i.i.i.i.i.i122 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i121, i64 8
   %60 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i122, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.04.i.i.i.i.i.i.i120) #22
-  %incdec.ptr.i.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i120, i64 24
+  %incdec.ptr.i.i.i.i.i.i.i123 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i120, i64 24
   %cmp.not.i.i.i.i.i.i.i124 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i123, %57
   br i1 %cmp.not.i.i.i.i.i.i.i124, label %invoke.cont.i.i.i.i125, label %for.body.i.i.i.i.i.i.i119, !llvm.loop !53
 
@@ -3524,16 +3524,16 @@ if.then.i.i.i.i.i.i127:                           ; preds = %invoke.cont.i.i.i.i
   br label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i128
 
 _ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i128: ; preds = %if.then.i.i.i.i.i.i127, %invoke.cont.i.i.i.i125
-  %axis_keys.i129 = getelementptr inbounds i8, ptr %this, i64 32
-  %axis_keys3.i130 = getelementptr inbounds i8, ptr %ref.tmp15, i64 24
+  %axis_keys.i129 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %axis_keys3.i130 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 24
   %61 = load ptr, ptr %axis_keys.i129, align 8, !tbaa !49
-  %_M_finish.i.i.i.i8.i131 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish.i.i.i.i8.i131 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %62 = load ptr, ptr %_M_finish.i.i.i.i8.i131, align 8, !tbaa !48
-  %_M_end_of_storage.i.i.i.i9.i132 = getelementptr inbounds i8, ptr %this, i64 48
-  %_M_finish.i3.i.i.i10.i133 = getelementptr inbounds i8, ptr %ref.tmp15, i64 32
+  %_M_end_of_storage.i.i.i.i9.i132 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %_M_finish.i3.i.i.i10.i133 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 32
   %63 = load <2 x ptr>, ptr %axis_keys3.i130, align 8, !tbaa !20
   store <2 x ptr> %63, ptr %axis_keys.i129, align 8, !tbaa !20
-  %_M_end_of_storage.i5.i.i.i11.i134 = getelementptr inbounds i8, ptr %ref.tmp15, i64 40
+  %_M_end_of_storage.i5.i.i.i11.i134 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 40
   %64 = load ptr, ptr %_M_end_of_storage.i5.i.i.i11.i134, align 8, !tbaa !47
   store ptr %64, ptr %_M_end_of_storage.i.i.i.i9.i132, align 8, !tbaa !47
   %cmp.not3.i.i.i.i.i.i12.i135 = icmp eq ptr %61, %62
@@ -3543,10 +3543,10 @@ _ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i128: ; preds = %if.then.i.
 for.body.i.i.i.i.i.i13.i136:                      ; preds = %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i128, %for.body.i.i.i.i.i.i13.i136
   %__first.addr.04.i.i.i.i.i.i14.i137 = phi ptr [ %incdec.ptr.i.i.i.i.i.i17.i140, %for.body.i.i.i.i.i.i13.i136 ], [ %61, %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EEaSEOS2_.exit.i128 ]
   %vtable.i.i.i.i.i.i.i15.i138 = load ptr, ptr %__first.addr.04.i.i.i.i.i.i14.i137, align 8, !tbaa !43
-  %vfn.i.i.i.i.i.i.i16.i139 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i15.i138, i64 8
+  %vfn.i.i.i.i.i.i.i16.i139 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i15.i138, i64 8
   %65 = load ptr, ptr %vfn.i.i.i.i.i.i.i16.i139, align 8
   call void %65(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.04.i.i.i.i.i.i14.i137) #22
-  %incdec.ptr.i.i.i.i.i.i17.i140 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i14.i137, i64 24
+  %incdec.ptr.i.i.i.i.i.i17.i140 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i14.i137, i64 24
   %cmp.not.i.i.i.i.i.i18.i141 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i17.i140, %62
   br i1 %cmp.not.i.i.i.i.i.i18.i141, label %invoke.cont.i.i.i19.i142, label %for.body.i.i.i.i.i.i13.i136, !llvm.loop !50
 
@@ -3559,8 +3559,8 @@ if.then.i.i.i.i.i21.i144:                         ; preds = %invoke.cont.i.i.i19
   br label %_ZN14JoystickLayoutaSEOS_.exit147
 
 _ZN14JoystickLayoutaSEOS_.exit147:                ; preds = %if.then.i.i.i.i.i21.i144, %invoke.cont.i.i.i19.i142
-  %axes.i145 = getelementptr inbounds i8, ptr %this, i64 56
-  %axes5.i146 = getelementptr inbounds i8, ptr %ref.tmp15, i64 48
+  %axes.i145 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %axes5.i146 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %axes.i145, ptr noundef nonnull align 16 dereferenceable(34) %axes5.i146, i64 34, i1 false)
   %66 = load ptr, ptr %axis_keys3.i130, align 8, !tbaa !49
   %67 = load ptr, ptr %_M_finish.i3.i.i.i10.i133, align 16, !tbaa !48
@@ -3570,10 +3570,10 @@ _ZN14JoystickLayoutaSEOS_.exit147:                ; preds = %if.then.i.i.i.i.i21
 for.body.i.i.i.i.i151:                            ; preds = %_ZN14JoystickLayoutaSEOS_.exit147, %for.body.i.i.i.i.i151
   %__first.addr.04.i.i.i.i.i152 = phi ptr [ %incdec.ptr.i.i.i.i.i155, %for.body.i.i.i.i.i151 ], [ %66, %_ZN14JoystickLayoutaSEOS_.exit147 ]
   %vtable.i.i.i.i.i.i153 = load ptr, ptr %__first.addr.04.i.i.i.i.i152, align 8, !tbaa !43
-  %vfn.i.i.i.i.i.i154 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i153, i64 8
+  %vfn.i.i.i.i.i.i154 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i153, i64 8
   %68 = load ptr, ptr %vfn.i.i.i.i.i.i154, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.04.i.i.i.i.i152) #22
-  %incdec.ptr.i.i.i.i.i155 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i152, i64 24
+  %incdec.ptr.i.i.i.i.i155 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i152, i64 24
   %cmp.not.i.i.i.i.i156 = icmp eq ptr %incdec.ptr.i.i.i.i.i155, %67
   br i1 %cmp.not.i.i.i.i.i156, label %invoke.contthread-pre-split.i.i157, label %for.body.i.i.i.i.i151, !llvm.loop !50
 
@@ -3599,10 +3599,10 @@ _ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit.i162: ; preds = %if.then.i.i.i.i
 for.body.i.i.i.i4.i165:                           ; preds = %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit.i162, %for.body.i.i.i.i4.i165
   %__first.addr.04.i.i.i.i5.i166 = phi ptr [ %incdec.ptr.i.i.i.i8.i169, %for.body.i.i.i.i4.i165 ], [ %70, %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EED2Ev.exit.i162 ]
   %vtable.i.i.i.i.i6.i167 = load ptr, ptr %__first.addr.04.i.i.i.i5.i166, align 8, !tbaa !43
-  %vfn.i.i.i.i.i7.i168 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i6.i167, i64 8
+  %vfn.i.i.i.i.i7.i168 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i6.i167, i64 8
   %72 = load ptr, ptr %vfn.i.i.i.i.i7.i168, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.04.i.i.i.i5.i166) #22
-  %incdec.ptr.i.i.i.i8.i169 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i5.i166, i64 24
+  %incdec.ptr.i.i.i.i8.i169 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i5.i166, i64 24
   %cmp.not.i.i.i.i9.i170 = icmp eq ptr %incdec.ptr.i.i.i.i8.i169, %71
   br i1 %cmp.not.i.i.i.i9.i170, label %invoke.contthread-pre-split.i10.i171, label %for.body.i.i.i.i4.i165, !llvm.loop !53
 
@@ -3632,9 +3632,9 @@ define dso_local noundef zeroext i1 @_ZN18JoystickController11handleEventERKN3ir
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %keys_pressed = alloca %"class.std::bitset", align 8
-  %Joystick = getelementptr inbounds i8, ptr %ev, i64 42
+  %Joystick = getelementptr inbounds nuw i8, ptr %ev, i64 42
   %0 = load i8, ptr %Joystick, align 2, !tbaa !71
-  %m_joystick_id = getelementptr inbounds i8, ptr %this, i64 104
+  %m_joystick_id = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load i8, ptr %m_joystick_id, align 8, !tbaa !54
   %cmp.not = icmp eq i8 %0, %1
   br i1 %cmp.not, label %if.end, label %return
@@ -3644,28 +3644,28 @@ if.end:                                           ; preds = %entry
   %call.i.i = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i) #22
   %2 = load i64, ptr %ts.i, align 8, !tbaa !72
   %mul.i = mul i64 %2, 1000
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %3 = load i64, ptr %tv_nsec.i, align 8, !tbaa !74
   %div.i = udiv i64 %3, 1000000
   %add.i = add i64 %div.i, %mul.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i) #22
   %conv3 = uitofp i64 %add.i to float
   %div = fdiv nsz float %conv3, 1.000000e+03
-  %m_internal_time = getelementptr inbounds i8, ptr %this, i64 144
+  %m_internal_time = getelementptr inbounds nuw i8, ptr %this, i64 144
   store float %div, ptr %m_internal_time, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %keys_pressed) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %keys_pressed, i8 0, i64 16, i1 false)
-  %m_layout = getelementptr inbounds i8, ptr %this, i64 8
+  %m_layout = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_layout, align 8, !tbaa !20
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_finish.i, align 8, !tbaa !20
   %cmp.i.not226 = icmp eq ptr %4, %5
   br i1 %cmp.i.not226, label %for.cond.cleanup, label %for.body
 
 for.cond.cleanup:                                 ; preds = %if.end13, %if.end
-  %axis_keys = getelementptr inbounds i8, ptr %this, i64 32
+  %axis_keys = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load ptr, ptr %axis_keys, align 8, !tbaa !20
-  %_M_finish.i130 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish.i130 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %7 = load ptr, ptr %_M_finish.i130, align 8, !tbaa !20
   %cmp.i131.not228 = icmp eq ptr %6, %7
   br i1 %cmp.i131.not228, label %for.cond39.preheader, label %for.body26
@@ -3678,7 +3678,7 @@ for.body:                                         ; preds = %if.end, %if.end13
   br i1 %call9, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %for.body
-  %key = getelementptr inbounds i8, ptr %__begin1.sroa.0.0227, i64 8
+  %key = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0227, i64 8
   %9 = load i32, ptr %key, align 8, !tbaa !45
   %conv11 = zext i32 %9 to i64
   %cmp.i.i = icmp ugt i32 %9, 76
@@ -3692,26 +3692,26 @@ _ZNSt6bitsetILm77EE3setEmb.exit:                  ; preds = %if.then10
   %rem.i.i8.i.i = and i64 %conv11, 63
   %shl.i9.i.i = shl nuw i64 1, %rem.i.i8.i.i
   %div1.i.i.i.i = lshr i64 %conv11, 6
-  %arrayidx.i.i.i = getelementptr inbounds [2 x i64], ptr %keys_pressed, i64 0, i64 %div1.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [2 x i64], ptr %keys_pressed, i64 0, i64 %div1.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !24
   %or.i.i = or i64 %10, %shl.i9.i.i
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8, !tbaa !24
   br label %if.end13
 
 if.end13:                                         ; preds = %_ZNSt6bitsetILm77EE3setEmb.exit, %for.body
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0227, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0227, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %5
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
 for.cond39.preheader:                             ; preds = %if.end35, %for.cond.cleanup
-  %m_past_keys_pressed = getelementptr inbounds i8, ptr %this, i64 456
-  %m_past_pressed_time = getelementptr inbounds i8, ptr %this, i64 148
+  %m_past_keys_pressed = getelementptr inbounds nuw i8, ptr %this, i64 456
+  %m_past_pressed_time = getelementptr inbounds nuw i8, ptr %this, i64 148
   %11 = load float, ptr %m_internal_time, align 8
   %12 = load float, ptr %this, align 8
   %sub = fsub nsz float %11, %12
-  %m_keys_down68 = getelementptr inbounds i8, ptr %this, i64 112
-  %m_keys_pressed = getelementptr inbounds i8, ptr %this, i64 128
-  %m_keys_released = getelementptr inbounds i8, ptr %this, i64 472
+  %m_keys_down68 = getelementptr inbounds nuw i8, ptr %this, i64 112
+  %m_keys_pressed = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %m_keys_released = getelementptr inbounds nuw i8, ptr %this, i64 472
   br label %for.body42
 
 for.body26:                                       ; preds = %for.cond.cleanup, %if.end35
@@ -3722,7 +3722,7 @@ for.body26:                                       ; preds = %for.cond.cleanup, %
   br i1 %call30, label %if.then31, label %if.end35
 
 if.then31:                                        ; preds = %for.body26
-  %key32 = getelementptr inbounds i8, ptr %__begin117.sroa.0.0229, i64 8
+  %key32 = getelementptr inbounds nuw i8, ptr %__begin117.sroa.0.0229, i64 8
   %14 = load i32, ptr %key32, align 8, !tbaa !45
   %conv33 = zext i32 %14 to i64
   %cmp.i.i132 = icmp ugt i32 %14, 76
@@ -3736,62 +3736,62 @@ _ZNSt6bitsetILm77EE3setEmb.exit139:               ; preds = %if.then31
   %rem.i.i8.i.i133 = and i64 %conv33, 63
   %shl.i9.i.i134 = shl nuw i64 1, %rem.i.i8.i.i133
   %div1.i.i.i.i135 = lshr i64 %conv33, 6
-  %arrayidx.i.i.i136 = getelementptr inbounds [2 x i64], ptr %keys_pressed, i64 0, i64 %div1.i.i.i.i135
+  %arrayidx.i.i.i136 = getelementptr inbounds nuw [2 x i64], ptr %keys_pressed, i64 0, i64 %div1.i.i.i.i135
   %15 = load i64, ptr %arrayidx.i.i.i136, align 8, !tbaa !24
   %or.i.i137 = or i64 %15, %shl.i9.i.i134
   store i64 %or.i.i137, ptr %arrayidx.i.i.i136, align 8, !tbaa !24
   br label %if.end35
 
 if.end35:                                         ; preds = %_ZNSt6bitsetILm77EE3setEmb.exit139, %for.body26
-  %incdec.ptr.i140 = getelementptr inbounds i8, ptr %__begin117.sroa.0.0229, i64 24
+  %incdec.ptr.i140 = getelementptr inbounds nuw i8, ptr %__begin117.sroa.0.0229, i64 24
   %cmp.i131.not = icmp eq ptr %incdec.ptr.i140, %7
   br i1 %cmp.i131.not, label %for.cond39.preheader, label %for.body26
 
 for.cond91.preheader:                             ; preds = %_ZNSt6bitsetILm77EE9referenceaSERKS1_.exit
-  %axes = getelementptr inbounds i8, ptr %this, i64 56
-  %Axis = getelementptr inbounds i8, ptr %ev, i64 4
-  %m_axes_vals = getelementptr inbounds i8, ptr %this, i64 96
-  %invert = getelementptr inbounds i8, ptr %this, i64 60
+  %axes = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %Axis = getelementptr inbounds nuw i8, ptr %ev, i64 4
+  %m_axes_vals = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %invert = getelementptr inbounds nuw i8, ptr %this, i64 60
   %16 = load i32, ptr %invert, align 4, !tbaa !76
   %17 = load i16, ptr %axes, align 8, !tbaa !78
   %idxprom = zext i16 %17 to i64
-  %arrayidx97 = getelementptr inbounds [18 x i16], ptr %Axis, i64 0, i64 %idxprom
+  %arrayidx97 = getelementptr inbounds nuw [18 x i16], ptr %Axis, i64 0, i64 %idxprom
   %18 = load i16, ptr %arrayidx97, align 2, !tbaa !17
   %19 = trunc i32 %16 to i16
   %conv99 = mul i16 %18, %19
   store i16 %conv99, ptr %m_axes_vals, align 8, !tbaa !17
-  %arrayidx96.1 = getelementptr inbounds i8, ptr %this, i64 64
-  %invert.1 = getelementptr inbounds i8, ptr %this, i64 68
+  %arrayidx96.1 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %invert.1 = getelementptr inbounds nuw i8, ptr %this, i64 68
   %20 = load i32, ptr %invert.1, align 4, !tbaa !76
   %21 = load i16, ptr %arrayidx96.1, align 8, !tbaa !78
   %idxprom.1 = zext i16 %21 to i64
-  %arrayidx97.1 = getelementptr inbounds [18 x i16], ptr %Axis, i64 0, i64 %idxprom.1
+  %arrayidx97.1 = getelementptr inbounds nuw [18 x i16], ptr %Axis, i64 0, i64 %idxprom.1
   %22 = load i16, ptr %arrayidx97.1, align 2, !tbaa !17
   %23 = trunc i32 %20 to i16
   %conv99.1 = mul i16 %22, %23
-  %arrayidx100.1 = getelementptr inbounds i8, ptr %this, i64 98
+  %arrayidx100.1 = getelementptr inbounds nuw i8, ptr %this, i64 98
   store i16 %conv99.1, ptr %arrayidx100.1, align 2, !tbaa !17
-  %arrayidx96.2 = getelementptr inbounds i8, ptr %this, i64 72
-  %invert.2 = getelementptr inbounds i8, ptr %this, i64 76
+  %arrayidx96.2 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %invert.2 = getelementptr inbounds nuw i8, ptr %this, i64 76
   %24 = load i32, ptr %invert.2, align 4, !tbaa !76
   %25 = load i16, ptr %arrayidx96.2, align 8, !tbaa !78
   %idxprom.2 = zext i16 %25 to i64
-  %arrayidx97.2 = getelementptr inbounds [18 x i16], ptr %Axis, i64 0, i64 %idxprom.2
+  %arrayidx97.2 = getelementptr inbounds nuw [18 x i16], ptr %Axis, i64 0, i64 %idxprom.2
   %26 = load i16, ptr %arrayidx97.2, align 2, !tbaa !17
   %27 = trunc i32 %24 to i16
   %conv99.2 = mul i16 %26, %27
-  %arrayidx100.2 = getelementptr inbounds i8, ptr %this, i64 100
+  %arrayidx100.2 = getelementptr inbounds nuw i8, ptr %this, i64 100
   store i16 %conv99.2, ptr %arrayidx100.2, align 4, !tbaa !17
-  %arrayidx96.3 = getelementptr inbounds i8, ptr %this, i64 80
-  %invert.3 = getelementptr inbounds i8, ptr %this, i64 84
+  %arrayidx96.3 = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %invert.3 = getelementptr inbounds nuw i8, ptr %this, i64 84
   %28 = load i32, ptr %invert.3, align 4, !tbaa !76
   %29 = load i16, ptr %arrayidx96.3, align 8, !tbaa !78
   %idxprom.3 = zext i16 %29 to i64
-  %arrayidx97.3 = getelementptr inbounds [18 x i16], ptr %Axis, i64 0, i64 %idxprom.3
+  %arrayidx97.3 = getelementptr inbounds nuw [18 x i16], ptr %Axis, i64 0, i64 %idxprom.3
   %30 = load i16, ptr %arrayidx97.3, align 2, !tbaa !17
   %31 = trunc i32 %28 to i16
   %conv99.3 = mul i16 %30, %31
-  %arrayidx100.3 = getelementptr inbounds i8, ptr %this, i64 102
+  %arrayidx100.3 = getelementptr inbounds nuw i8, ptr %this, i64 102
   store i16 %conv99.3, ptr %arrayidx100.3, align 2, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %keys_pressed) #22
   br label %return
@@ -3799,7 +3799,7 @@ for.cond91.preheader:                             ; preds = %_ZNSt6bitsetILm77EE
 for.body42:                                       ; preds = %_ZNSt6bitsetILm77EE9referenceaSERKS1_.exit, %for.cond39.preheader
   %i.0230 = phi i64 [ 0, %for.cond39.preheader ], [ %inc, %_ZNSt6bitsetILm77EE9referenceaSERKS1_.exit ]
   %div1.i.i.i.i141 = lshr i64 %i.0230, 6
-  %arrayidx.i.i.i142 = getelementptr inbounds [2 x i64], ptr %keys_pressed, i64 0, i64 %div1.i.i.i.i141
+  %arrayidx.i.i.i142 = getelementptr inbounds nuw [2 x i64], ptr %keys_pressed, i64 0, i64 %div1.i.i.i.i141
   %rem.i.i.i = and i64 %i.0230, 63
   %32 = load i64, ptr %arrayidx.i.i.i142, align 8, !tbaa !24
   %shl.i.i = shl nuw i64 1, %rem.i.i.i
@@ -3808,14 +3808,14 @@ for.body42:                                       ; preds = %_ZNSt6bitsetILm77EE
   br i1 %cmp.i144.not, label %if.else, label %if.then44
 
 if.then44:                                        ; preds = %for.body42
-  %arrayidx.i.i.i146 = getelementptr inbounds [2 x i64], ptr %m_past_keys_pressed, i64 0, i64 %div1.i.i.i.i141
+  %arrayidx.i.i.i146 = getelementptr inbounds nuw [2 x i64], ptr %m_past_keys_pressed, i64 0, i64 %div1.i.i.i.i141
   %33 = load i64, ptr %arrayidx.i.i.i146, align 8, !tbaa !24
   %and.i152 = and i64 %33, %shl.i.i
   %cmp.i153.not = icmp eq i64 %and.i152, 0
   br i1 %cmp.i153.not, label %land.rhs, label %cleanup.done74
 
 land.rhs:                                         ; preds = %if.then44
-  %arrayidx = getelementptr inbounds [77 x float], ptr %m_past_pressed_time, i64 0, i64 %i.0230
+  %arrayidx = getelementptr inbounds nuw [77 x float], ptr %m_past_pressed_time, i64 0, i64 %i.0230
   %34 = load float, ptr %arrayidx, align 4, !tbaa !79
   %cmp48 = fcmp nsz olt float %34, %sub
   br i1 %cmp48, label %if.then49, label %cleanup.done74
@@ -3827,28 +3827,28 @@ if.then49:                                        ; preds = %land.rhs
   br label %cleanup.done74
 
 if.else:                                          ; preds = %for.body42
-  %arrayidx.i.i.i162 = getelementptr inbounds [2 x i64], ptr %m_keys_down68, i64 0, i64 %div1.i.i.i.i141
+  %arrayidx.i.i.i162 = getelementptr inbounds nuw [2 x i64], ptr %m_keys_down68, i64 0, i64 %div1.i.i.i.i141
   %35 = load i64, ptr %arrayidx.i.i.i162, align 8, !tbaa !24
   %and.i168 = and i64 %35, %shl.i.i
   %cmp.i169.not = icmp eq i64 %and.i168, 0
   br i1 %cmp.i169.not, label %if.else.i, label %if.then59
 
 if.then59:                                        ; preds = %if.else
-  %arrayidx.i.i.i171 = getelementptr inbounds [2 x i64], ptr %m_keys_released, i64 0, i64 %div1.i.i.i.i141
+  %arrayidx.i.i.i171 = getelementptr inbounds nuw [2 x i64], ptr %m_keys_released, i64 0, i64 %div1.i.i.i.i141
   %36 = load i64, ptr %arrayidx.i.i.i171, align 8, !tbaa !24
   %or.i177 = or i64 %36, %shl.i.i
   store i64 %or.i177, ptr %arrayidx.i.i.i171, align 8, !tbaa !24
   br label %if.else.i
 
 cleanup.done74:                                   ; preds = %if.then49, %land.rhs, %if.then44
-  %arrayidx.i.i.i188 = getelementptr inbounds [2 x i64], ptr %m_keys_down68, i64 0, i64 %div1.i.i.i.i141
+  %arrayidx.i.i.i188 = getelementptr inbounds nuw [2 x i64], ptr %m_keys_down68, i64 0, i64 %div1.i.i.i.i141
   %37 = load i64, ptr %arrayidx.i.i.i188, align 8, !tbaa !24
   %and.i194 = and i64 %37, %shl.i.i
   %cmp.i195.not = icmp eq i64 %and.i194, 0
   br i1 %cmp.i195.not, label %if.then78, label %if.then.i
 
 if.then78:                                        ; preds = %cleanup.done74
-  %arrayidx.i.i.i197 = getelementptr inbounds [2 x i64], ptr %m_keys_pressed, i64 0, i64 %div1.i.i.i.i141
+  %arrayidx.i.i.i197 = getelementptr inbounds nuw [2 x i64], ptr %m_keys_pressed, i64 0, i64 %div1.i.i.i.i141
   %38 = load i64, ptr %arrayidx.i.i.i197, align 8, !tbaa !24
   %or.i203 = or i64 %38, %shl.i.i
   store i64 %or.i203, ptr %arrayidx.i.i.i197, align 8, !tbaa !24
@@ -3880,13 +3880,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef float @_ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis(ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %this, i32 noundef %axis) local_unnamed_addr #3 align 2 {
 entry:
-  %m_axes_vals = getelementptr inbounds i8, ptr %this, i64 96
+  %m_axes_vals = getelementptr inbounds nuw i8, ptr %this, i64 96
   %idxprom = zext i32 %axis to i64
-  %arrayidx = getelementptr inbounds [4 x i16], ptr %m_axes_vals, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i16], ptr %m_axes_vals, i64 0, i64 %idxprom
   %0 = load i16, ptr %arrayidx, align 2, !tbaa !17
   %1 = tail call i16 @llvm.abs.i16(i16 %0, i1 false)
   %2 = zext i16 %1 to i32
-  %axes_deadzone = getelementptr inbounds i8, ptr %this, i64 88
+  %axes_deadzone = getelementptr inbounds nuw i8, ptr %this, i64 88
   %3 = load i16, ptr %axes_deadzone, align 8, !tbaa !60
   %conv2 = sext i16 %3 to i32
   %cmp = icmp slt i32 %2, %conv2
@@ -3911,11 +3911,11 @@ cleanup:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef float @_ZN18JoystickController20getMovementDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %m_axes_vals.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_axes_vals.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i16, ptr %m_axes_vals.i, align 8, !tbaa !17
   %1 = tail call i16 @llvm.abs.i16(i16 %0, i1 false)
   %2 = zext i16 %1 to i32
-  %axes_deadzone.i = getelementptr inbounds i8, ptr %this, i64 88
+  %axes_deadzone.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %3 = load i16, ptr %axes_deadzone.i, align 8, !tbaa !60
   %conv2.i = sext i16 %3 to i32
   %cmp.i = icmp slt i32 %2, %conv2.i
@@ -3934,7 +3934,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis.exit: ; preds = %if.end.i, %entry
   %retval.0.i = phi float [ %div.i, %if.end.i ], [ 0.000000e+00, %entry ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 98
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 98
   %4 = load i16, ptr %arrayidx.i, align 2, !tbaa !17
   %5 = tail call i16 @llvm.abs.i16(i16 %4, i1 false)
   %6 = zext i16 %5 to i32
@@ -3962,12 +3962,12 @@ _ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis.exit18: ; preds = %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef float @_ZN18JoystickController16getMovementSpeedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_axes_vals.i = getelementptr inbounds i8, ptr %this, i64 96
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 98
+  %m_axes_vals.i = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 98
   %0 = load i16, ptr %arrayidx.i, align 2, !tbaa !17
   %1 = tail call i16 @llvm.abs.i16(i16 %0, i1 false)
   %2 = zext i16 %1 to i32
-  %axes_deadzone.i = getelementptr inbounds i8, ptr %this, i64 88
+  %axes_deadzone.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %3 = load i16, ptr %axes_deadzone.i, align 8, !tbaa !60
   %conv2.i = sext i16 %3 to i32
   %cmp.i = icmp slt i32 %2, %conv2.i
@@ -4074,7 +4074,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !46
   %1 = load ptr, ptr %this, align 8, !tbaa !20
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4096,57 +4096,50 @@ _ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %en
   %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %invoke.cont, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit
+  %cmp.not.i = icmp ne i64 %cond.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #27
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %cond.true.i, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit
-  %cond.i51 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %struct.JoystickButtonCmb, ptr %cond.i51, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %3 = load i32, ptr %__args, align 4, !tbaa !40
   %4 = load i32, ptr %__args1, align 4, !tbaa !41
   %5 = load i32, ptr %__args3, align 4, !tbaa !41
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %add.ptr, align 8, !tbaa !43
-  %filter_mask2.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %filter_mask2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   store i32 %4, ptr %filter_mask2.i.i.i, align 4, !tbaa !10
-  %compare_mask3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %compare_mask3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   store i32 %5, ptr %compare_mask3.i.i.i, align 8, !tbaa !14
-  %key4.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %key4.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i32 %3, ptr %key4.i.i.i, align 8, !tbaa !45
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not6.i.i.i, label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
-  %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i51, %invoke.cont ]
-  %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
+for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
+  %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit ]
+  %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  %key.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 8
-  %key2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
+  %key.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
+  %key2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 8
   %6 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !84, !noalias !81
   store i32 %6, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !81, !noalias !84
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !81, !noalias !84
-  %filter_mask.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 12
-  %filter_mask2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 12
+  %filter_mask.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 12
+  %filter_mask2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 12
   %7 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i, align 4, !alias.scope !84, !noalias !81
   store i64 %7, ptr %filter_mask.i.i.i.i.i.i.i, align 4, !alias.scope !81, !noalias !84
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.07.i.i.i, align 8, !tbaa !43, !alias.scope !84, !noalias !81
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !86
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i) #22, !noalias !81
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
-  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i, !llvm.loop !87
 
-_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %for.body.i.i.i, %invoke.cont
-  %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i51, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
+_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit
+  %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i, i64 24
   %cmp.not6.i.i.i52 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i52, label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit66, label %for.body.i.i.i53
 
@@ -4155,21 +4148,21 @@ for.body.i.i.i53:                                 ; preds = %_ZNSt6vectorI17Joys
   %__first.addr.07.i.i.i55 = phi ptr [ %incdec.ptr.i.i.i62, %for.body.i.i.i53 ], [ %__position.coerce, %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
-  %key.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 8
-  %key2.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 8
+  %key.i.i.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i54, i64 8
+  %key2.i.i.i.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 8
   %9 = load i32, ptr %key2.i.i.i.i.i.i.i.i57, align 8, !tbaa !45, !alias.scope !91, !noalias !88
   store i32 %9, ptr %key.i.i.i.i.i.i.i.i56, align 8, !tbaa !45, !alias.scope !88, !noalias !91
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !88, !noalias !91
-  %filter_mask.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 12
-  %filter_mask2.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 12
+  %filter_mask.i.i.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i54, i64 12
+  %filter_mask2.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 12
   %10 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i59, align 4, !alias.scope !91, !noalias !88
   store i64 %10, ptr %filter_mask.i.i.i.i.i.i.i58, align 4, !alias.scope !88, !noalias !91
   %vtable.i.i.i.i.i.i60 = load ptr, ptr %__first.addr.07.i.i.i55, align 8, !tbaa !43, !alias.scope !91, !noalias !88
-  %vfn.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i60, i64 8
+  %vfn.i.i.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i60, i64 8
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i61, align 8, !noalias !93
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i55) #22, !noalias !88
-  %incdec.ptr.i.i.i62 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 24
-  %incdec.ptr1.i.i.i63 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 24
+  %incdec.ptr.i.i.i62 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 24
+  %incdec.ptr1.i.i.i63 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i54, i64 24
   %cmp.not.i.i.i64 = icmp eq ptr %incdec.ptr.i.i.i62, %0
   br i1 %cmp.not.i.i.i64, label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit66, label %for.body.i.i.i53, !llvm.loop !87
 
@@ -4183,10 +4176,10 @@ if.then.i67:                                      ; preds = %_ZNSt6vectorI17Joys
   br label %_ZNSt12_Vector_baseI17JoystickButtonCmbSaIS0_EE13_M_deallocateEPS0_m.exit
 
 _ZNSt12_Vector_baseI17JoystickButtonCmbSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %if.then.i67, %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit66
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %cond.i51, ptr %this, align 8, !tbaa !52
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
+  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !52
   store ptr %__cur.0.lcssa.i.i.i65, ptr %_M_finish.i.i, align 8, !tbaa !46
-  %add.ptr30 = getelementptr inbounds %struct.JoystickButtonCmb, ptr %cond.i51, i64 %cond.i
+  %add.ptr30 = getelementptr inbounds nuw %struct.JoystickButtonCmb, ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr30, ptr %_M_end_of_storage, align 8, !tbaa !42
   ret void
 }
@@ -4200,7 +4193,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !46
   %1 = load ptr, ptr %this, align 8, !tbaa !20
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4222,57 +4215,50 @@ _ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %en
   %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %invoke.cont, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit
+  %cmp.not.i = icmp ne i64 %cond.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #27
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %cond.true.i, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit
-  %cond.i51 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %struct.JoystickButtonCmb, ptr %cond.i51, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %3 = load i32, ptr %__args, align 4, !tbaa !40
   %4 = load i32, ptr %__args1, align 4, !tbaa !41
   %5 = load i32, ptr %__args3, align 4, !tbaa !41
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %add.ptr, align 8, !tbaa !43
-  %filter_mask2.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %filter_mask2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   store i32 %4, ptr %filter_mask2.i.i.i, align 4, !tbaa !10
-  %compare_mask3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %compare_mask3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   store i32 %5, ptr %compare_mask3.i.i.i, align 8, !tbaa !14
-  %key4.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %key4.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i32 %3, ptr %key4.i.i.i, align 8, !tbaa !45
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not6.i.i.i, label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
-  %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i51, %invoke.cont ]
-  %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
+for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
+  %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit ]
+  %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  %key.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 8
-  %key2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
+  %key.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
+  %key2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 8
   %6 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !97, !noalias !94
   store i32 %6, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !94, !noalias !97
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !94, !noalias !97
-  %filter_mask.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 12
-  %filter_mask2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 12
+  %filter_mask.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 12
+  %filter_mask2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 12
   %7 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i, align 4, !alias.scope !97, !noalias !94
   store i64 %7, ptr %filter_mask.i.i.i.i.i.i.i, align 4, !alias.scope !94, !noalias !97
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.07.i.i.i, align 8, !tbaa !43, !alias.scope !97, !noalias !94
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !99
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i) #22, !noalias !94
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
-  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i, !llvm.loop !87
 
-_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %for.body.i.i.i, %invoke.cont
-  %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i51, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
+_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit
+  %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i, i64 24
   %cmp.not6.i.i.i52 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i52, label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit66, label %for.body.i.i.i53
 
@@ -4281,21 +4267,21 @@ for.body.i.i.i53:                                 ; preds = %_ZNSt6vectorI17Joys
   %__first.addr.07.i.i.i55 = phi ptr [ %incdec.ptr.i.i.i62, %for.body.i.i.i53 ], [ %__position.coerce, %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %key.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 8
-  %key2.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 8
+  %key.i.i.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i54, i64 8
+  %key2.i.i.i.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 8
   %9 = load i32, ptr %key2.i.i.i.i.i.i.i.i57, align 8, !tbaa !45, !alias.scope !103, !noalias !100
   store i32 %9, ptr %key.i.i.i.i.i.i.i.i56, align 8, !tbaa !45, !alias.scope !100, !noalias !103
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !100, !noalias !103
-  %filter_mask.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 12
-  %filter_mask2.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 12
+  %filter_mask.i.i.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i54, i64 12
+  %filter_mask2.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 12
   %10 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i59, align 4, !alias.scope !103, !noalias !100
   store i64 %10, ptr %filter_mask.i.i.i.i.i.i.i58, align 4, !alias.scope !100, !noalias !103
   %vtable.i.i.i.i.i.i60 = load ptr, ptr %__first.addr.07.i.i.i55, align 8, !tbaa !43, !alias.scope !103, !noalias !100
-  %vfn.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i60, i64 8
+  %vfn.i.i.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i60, i64 8
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i61, align 8, !noalias !105
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i55) #22, !noalias !100
-  %incdec.ptr.i.i.i62 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 24
-  %incdec.ptr1.i.i.i63 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 24
+  %incdec.ptr.i.i.i62 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 24
+  %incdec.ptr1.i.i.i63 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i54, i64 24
   %cmp.not.i.i.i64 = icmp eq ptr %incdec.ptr.i.i.i62, %0
   br i1 %cmp.not.i.i.i64, label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit66, label %for.body.i.i.i53, !llvm.loop !87
 
@@ -4309,10 +4295,10 @@ if.then.i67:                                      ; preds = %_ZNSt6vectorI17Joys
   br label %_ZNSt12_Vector_baseI17JoystickButtonCmbSaIS0_EE13_M_deallocateEPS0_m.exit
 
 _ZNSt12_Vector_baseI17JoystickButtonCmbSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %if.then.i67, %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit66
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %cond.i51, ptr %this, align 8, !tbaa !52
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
+  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !52
   store ptr %__cur.0.lcssa.i.i.i65, ptr %_M_finish.i.i, align 8, !tbaa !46
-  %add.ptr30 = getelementptr inbounds %struct.JoystickButtonCmb, ptr %cond.i51, i64 %cond.i
+  %add.ptr30 = getelementptr inbounds nuw %struct.JoystickButtonCmb, ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr30, ptr %_M_end_of_storage, align 8, !tbaa !42
   ret void
 }
@@ -4320,7 +4306,7 @@ _ZNSt12_Vector_baseI17JoystickButtonCmbSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEjjEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !46
   %1 = load ptr, ptr %this, align 8, !tbaa !20
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4342,57 +4328,50 @@ _ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %en
   %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %invoke.cont, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit
+  %cmp.not.i = icmp ne i64 %cond.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #27
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %cond.true.i, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit
-  %cond.i51 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %struct.JoystickButtonCmb, ptr %cond.i51, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %3 = load i32, ptr %__args, align 4, !tbaa !40
   %4 = load i32, ptr %__args1, align 4, !tbaa !41
   %5 = load i32, ptr %__args3, align 4, !tbaa !41
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %add.ptr, align 8, !tbaa !43
-  %filter_mask2.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %filter_mask2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   store i32 %4, ptr %filter_mask2.i.i.i, align 4, !tbaa !10
-  %compare_mask3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %compare_mask3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   store i32 %5, ptr %compare_mask3.i.i.i, align 8, !tbaa !14
-  %key4.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %key4.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i32 %3, ptr %key4.i.i.i, align 8, !tbaa !45
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not6.i.i.i, label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
-  %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i51, %invoke.cont ]
-  %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
+for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
+  %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit ]
+  %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
-  %key.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 8
-  %key2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
+  %key.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
+  %key2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 8
   %6 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !109, !noalias !106
   store i32 %6, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !106, !noalias !109
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !106, !noalias !109
-  %filter_mask.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 12
-  %filter_mask2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 12
+  %filter_mask.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 12
+  %filter_mask2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 12
   %7 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i, align 4, !alias.scope !109, !noalias !106
   store i64 %7, ptr %filter_mask.i.i.i.i.i.i.i, align 4, !alias.scope !106, !noalias !109
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.07.i.i.i, align 8, !tbaa !43, !alias.scope !109, !noalias !106
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !111
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i) #22, !noalias !106
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
-  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i, !llvm.loop !87
 
-_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %for.body.i.i.i, %invoke.cont
-  %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i51, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
+_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit
+  %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorI17JoystickButtonCmbSaIS0_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i, i64 24
   %cmp.not6.i.i.i52 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i52, label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit66, label %for.body.i.i.i53
 
@@ -4401,21 +4380,21 @@ for.body.i.i.i53:                                 ; preds = %_ZNSt6vectorI17Joys
   %__first.addr.07.i.i.i55 = phi ptr [ %incdec.ptr.i.i.i62, %for.body.i.i.i53 ], [ %__position.coerce, %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  %key.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 8
-  %key2.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 8
+  %key.i.i.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i54, i64 8
+  %key2.i.i.i.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 8
   %9 = load i32, ptr %key2.i.i.i.i.i.i.i.i57, align 8, !tbaa !45, !alias.scope !115, !noalias !112
   store i32 %9, ptr %key.i.i.i.i.i.i.i.i56, align 8, !tbaa !45, !alias.scope !112, !noalias !115
   store ptr getelementptr inbounds (i8, ptr @_ZTV17JoystickButtonCmb, i64 16), ptr %__cur.08.i.i.i54, align 8, !tbaa !43, !alias.scope !112, !noalias !115
-  %filter_mask.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 12
-  %filter_mask2.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 12
+  %filter_mask.i.i.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i54, i64 12
+  %filter_mask2.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 12
   %10 = load i64, ptr %filter_mask2.i.i.i.i.i.i.i59, align 4, !alias.scope !115, !noalias !112
   store i64 %10, ptr %filter_mask.i.i.i.i.i.i.i58, align 4, !alias.scope !112, !noalias !115
   %vtable.i.i.i.i.i.i60 = load ptr, ptr %__first.addr.07.i.i.i55, align 8, !tbaa !43, !alias.scope !115, !noalias !112
-  %vfn.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i60, i64 8
+  %vfn.i.i.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i60, i64 8
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i61, align 8, !noalias !117
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i55) #22, !noalias !112
-  %incdec.ptr.i.i.i62 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i55, i64 24
-  %incdec.ptr1.i.i.i63 = getelementptr inbounds i8, ptr %__cur.08.i.i.i54, i64 24
+  %incdec.ptr.i.i.i62 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i55, i64 24
+  %incdec.ptr1.i.i.i63 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i54, i64 24
   %cmp.not.i.i.i64 = icmp eq ptr %incdec.ptr.i.i.i62, %0
   br i1 %cmp.not.i.i.i64, label %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit66, label %for.body.i.i.i53, !llvm.loop !87
 
@@ -4429,10 +4408,10 @@ if.then.i67:                                      ; preds = %_ZNSt6vectorI17Joys
   br label %_ZNSt12_Vector_baseI17JoystickButtonCmbSaIS0_EE13_M_deallocateEPS0_m.exit
 
 _ZNSt12_Vector_baseI17JoystickButtonCmbSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %if.then.i67, %_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit66
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %cond.i51, ptr %this, align 8, !tbaa !52
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
+  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !52
   store ptr %__cur.0.lcssa.i.i.i65, ptr %_M_finish.i.i, align 8, !tbaa !46
-  %add.ptr30 = getelementptr inbounds %struct.JoystickButtonCmb, ptr %cond.i51, i64 %cond.i
+  %add.ptr30 = getelementptr inbounds nuw %struct.JoystickButtonCmb, ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr30, ptr %_M_end_of_storage, align 8, !tbaa !42
   ret void
 }
@@ -4440,7 +4419,7 @@ _ZNSt12_Vector_baseI17JoystickButtonCmbSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiRsEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3, ptr noundef nonnull align 2 dereferenceable(2) %__args5) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !48
   %1 = load ptr, ptr %this, align 8, !tbaa !20
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4462,60 +4441,53 @@ _ZNKSt6vectorI15JoystickAxisCmbSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %entr
   %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %cmp.not.i = icmp eq i64 %cond.i, 0
-  br i1 %cmp.not.i, label %invoke.cont, label %cond.true.i
-
-cond.true.i:                                      ; preds = %_ZNKSt6vectorI15JoystickAxisCmbSaIS0_EE12_M_check_lenEmPKc.exit
+  %cmp.not.i = icmp ne i64 %cond.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i)
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #27
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %cond.true.i, %_ZNKSt6vectorI15JoystickAxisCmbSaIS0_EE12_M_check_lenEmPKc.exit
-  %cond.i53 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorI15JoystickAxisCmbSaIS0_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds %struct.JoystickAxisCmb, ptr %cond.i53, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %3 = load i32, ptr %__args, align 4, !tbaa !40
   %4 = load i32, ptr %__args1, align 4, !tbaa !41
   %conv.i.i = trunc i32 %4 to i16
   %5 = load i32, ptr %__args3, align 4, !tbaa !41
   %6 = load i16, ptr %__args5, align 2, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %add.ptr, align 8, !tbaa !43
-  %axis_to_compare2.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %axis_to_compare2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   store i16 %conv.i.i, ptr %axis_to_compare2.i.i.i, align 4, !tbaa !15
-  %direction3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %direction3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   store i32 %5, ptr %direction3.i.i.i, align 8, !tbaa !18
-  %thresh4.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 20
+  %thresh4.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 20
   store i16 %6, ptr %thresh4.i.i.i, align 4, !tbaa !19
-  %key5.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %key5.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i32 %3, ptr %key5.i.i.i, align 8, !tbaa !45
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not6.i.i.i, label %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
-  %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i53, %invoke.cont ]
-  %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
+for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorI15JoystickAxisCmbSaIS0_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
+  %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorI15JoystickAxisCmbSaIS0_EE12_M_check_lenEmPKc.exit ]
+  %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorI15JoystickAxisCmbSaIS0_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
-  %key.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 8
-  %key2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
+  %key.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
+  %key2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 8
   %7 = load i32, ptr %key2.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !121, !noalias !118
   store i32 %7, ptr %key.i.i.i.i.i.i.i.i, align 8, !tbaa !45, !alias.scope !118, !noalias !121
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %__cur.08.i.i.i, align 8, !tbaa !43, !alias.scope !118, !noalias !121
-  %axis_to_compare.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 12
-  %axis_to_compare2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 12
+  %axis_to_compare.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 12
+  %axis_to_compare2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %axis_to_compare.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(10) %axis_to_compare2.i.i.i.i.i.i.i, i64 10, i1 false), !alias.scope !123
   %vtable.i.i.i.i.i.i = load ptr, ptr %__first.addr.07.i.i.i, align 8, !tbaa !43, !alias.scope !121, !noalias !118
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !123
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.07.i.i.i) #22, !noalias !118
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
-  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i, !llvm.loop !124
 
-_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %for.body.i.i.i, %invoke.cont
-  %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i53, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
+_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorI15JoystickAxisCmbSaIS0_EE12_M_check_lenEmPKc.exit
+  %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorI15JoystickAxisCmbSaIS0_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i, i64 24
   %cmp.not6.i.i.i54 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i54, label %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit68, label %for.body.i.i.i55
 
@@ -4524,20 +4496,20 @@ for.body.i.i.i55:                                 ; preds = %_ZNSt6vectorI15Joys
   %__first.addr.07.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i64, %for.body.i.i.i55 ], [ %__position.coerce, %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  %key.i.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__cur.08.i.i.i56, i64 8
-  %key2.i.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i57, i64 8
+  %key.i.i.i.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i56, i64 8
+  %key2.i.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i57, i64 8
   %9 = load i32, ptr %key2.i.i.i.i.i.i.i.i59, align 8, !tbaa !45, !alias.scope !128, !noalias !125
   store i32 %9, ptr %key.i.i.i.i.i.i.i.i58, align 8, !tbaa !45, !alias.scope !125, !noalias !128
   store ptr getelementptr inbounds (i8, ptr @_ZTV15JoystickAxisCmb, i64 16), ptr %__cur.08.i.i.i56, align 8, !tbaa !43, !alias.scope !125, !noalias !128
-  %axis_to_compare.i.i.i.i.i.i.i60 = getelementptr inbounds i8, ptr %__cur.08.i.i.i56, i64 12
-  %axis_to_compare2.i.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i57, i64 12
+  %axis_to_compare.i.i.i.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i56, i64 12
+  %axis_to_compare2.i.i.i.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i57, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %axis_to_compare.i.i.i.i.i.i.i60, ptr noundef nonnull align 4 dereferenceable(10) %axis_to_compare2.i.i.i.i.i.i.i61, i64 10, i1 false), !alias.scope !130
   %vtable.i.i.i.i.i.i62 = load ptr, ptr %__first.addr.07.i.i.i57, align 8, !tbaa !43, !alias.scope !128, !noalias !125
-  %vfn.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i62, i64 8
+  %vfn.i.i.i.i.i.i63 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i62, i64 8
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i63, align 8, !noalias !130
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(22) %__first.addr.07.i.i.i57) #22, !noalias !125
-  %incdec.ptr.i.i.i64 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i57, i64 24
-  %incdec.ptr1.i.i.i65 = getelementptr inbounds i8, ptr %__cur.08.i.i.i56, i64 24
+  %incdec.ptr.i.i.i64 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i57, i64 24
+  %incdec.ptr1.i.i.i65 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i56, i64 24
   %cmp.not.i.i.i66 = icmp eq ptr %incdec.ptr.i.i.i64, %0
   br i1 %cmp.not.i.i.i66, label %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit68, label %for.body.i.i.i55, !llvm.loop !124
 
@@ -4551,10 +4523,10 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorI15Joys
   br label %_ZNSt12_Vector_baseI15JoystickAxisCmbSaIS0_EE13_M_deallocateEPS0_m.exit
 
 _ZNSt12_Vector_baseI15JoystickAxisCmbSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %if.then.i69, %_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit68
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %cond.i53, ptr %this, align 8, !tbaa !49
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
+  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !49
   store ptr %__cur.0.lcssa.i.i.i67, ptr %_M_finish.i.i, align 8, !tbaa !48
-  %add.ptr32 = getelementptr inbounds %struct.JoystickAxisCmb, ptr %cond.i53, i64 %cond.i
+  %add.ptr32 = getelementptr inbounds nuw %struct.JoystickAxisCmb, ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr32, ptr %_M_end_of_storage, align 8, !tbaa !47
   ret void
 }

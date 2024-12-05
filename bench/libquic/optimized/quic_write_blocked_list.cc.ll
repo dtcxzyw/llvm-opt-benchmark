@@ -128,19 +128,19 @@ $_ZTIN3net22PriorityWriteSchedulerIjEE = comdat any
 define dso_local void @_ZN3net20QuicWriteBlockedListC2Ev(ptr noundef nonnull align 8 dereferenceable(843) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i64 16), ptr %this, align 8
-  %num_ready_streams_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %num_ready_streams_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %num_ready_streams_.i, align 8
   br label %arrayctor.loop.i
 
 arrayctor.loop.i:                                 ; preds = %invoke.cont.i, %entry
   %arrayctor.cur.idx.i = phi i64 [ 16, %entry ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
-  %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx.i
+  %arrayctor.cur.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 %arrayctor.cur.idx.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayctor.cur.ptr.ptr.i, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(88) %arrayctor.cur.ptr.ptr.i, i64 noundef 0)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %last_event_time_usec.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 80
+  %last_event_time_usec.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr.i, i64 80
   store i64 0, ptr %last_event_time_usec.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 88
   %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 720
@@ -164,16 +164,16 @@ arraydestroy.done2.i:                             ; preds = %arraydestroy.body.i
   resume { ptr, i32 } %0
 
 _ZN3net22PriorityWriteSchedulerIjEC2Ev.exit:      ; preds = %invoke.cont.i
-  %stream_infos_.i = getelementptr inbounds i8, ptr %this, i64 720
-  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
+  %stream_infos_.i = getelementptr inbounds nuw i8, ptr %this, i64 720
+  %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 768
   store ptr %_M_single_bucket.i.i.i, ptr %stream_infos_.i, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   store i64 1, ptr %_M_bucket_count.i.i.i, align 8
-  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
-  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %this, i64 752
+  %_M_before_begin.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
+  %_M_rehash_policy.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 752
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8
-  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 760
+  %_M_next_resize.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 760
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %_M_next_resize.i.i.i.i, i8 0, i64 83, i1 false)
   ret void
 }
@@ -192,8 +192,8 @@ entry:
 define linkonce_odr dso_local void @_ZN3net22PriorityWriteSchedulerIjED2Ev(ptr noundef nonnull align 8 dereferenceable(776) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i64 16), ptr %this, align 8
-  %stream_infos_ = getelementptr inbounds i8, ptr %this, i64 720
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
+  %stream_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 720
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -207,13 +207,13 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %entry
   %2 = load ptr, ptr %stream_infos_, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %3 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %mul.i.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %stream_infos_, align 8
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 768
   %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %arraydestroy.body.preheader, label %if.end.i.i.i.i
 
@@ -233,11 +233,11 @@ arraydestroy.body:                                ; preds = %arraydestroy.body.p
   br i1 %tobool.not.i.i.i, label %_ZN3net22PriorityWriteSchedulerIjE12PriorityInfoD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %arraydestroy.body
-  %_M_node5.i.i6.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr, i64 72
-  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr, i64 40
+  %_M_node5.i.i6.i.i = getelementptr inbounds nuw i8, ptr %arraydestroy.element.ptr, i64 72
+  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %arraydestroy.element.ptr, i64 40
   %6 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %7 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %cmp3.i.i.i.i = icmp ult ptr %6, %add.ptr.i.i.i
   br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i
 
@@ -245,7 +245,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   %__n.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %6, %if.then.i.i.i ]
   %8 = load ptr, ptr %__n.04.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %8) #15
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %7
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i, !llvm.loop !7
 
@@ -276,11 +276,11 @@ entry:
   br i1 %tobool.not.i.i, label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %this, i64 72
-  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node5.i.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %_M_node5.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node5.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %cmp3.i.i.i = icmp ult ptr %1, %add.ptr.i.i
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i
 
@@ -288,7 +288,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %if.then.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %2
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i, !llvm.loop !7
 
@@ -330,7 +330,7 @@ land.lhs.true:                                    ; preds = %entry
 
 cond.false:                                       ; preds = %land.lhs.true
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 48, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont5 unwind label %lpad
 
@@ -339,7 +339,7 @@ invoke.cont5:                                     ; preds = %cond.false
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %land.lhs.true, %entry, %invoke.cont5
-  %1 = getelementptr inbounds i8, ptr %precedence, i64 4
+  %1 = getelementptr inbounds nuw i8, ptr %precedence, i64 4
   %cmp = icmp eq i32 %stream_id, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -349,7 +349,7 @@ if.then:                                          ; preds = %cleanup.done
 
 cond.false14:                                     ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp16, ptr noundef nonnull @.str, i32 noundef 57, i32 noundef 2)
-  %stream_.i6 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
+  %stream_.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp16, i64 8
   %call22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i6, ptr noundef nonnull @.str.2)
           to label %invoke.cont21 unwind label %lpad18
 
@@ -381,20 +381,20 @@ cond.true.i:                                      ; preds = %if.end
   br label %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
 
 cond.false.i:                                     ; preds = %if.end
-  %weight.i = getelementptr inbounds i8, ptr %precedence, i64 8
+  %weight.i = getelementptr inbounds nuw i8, ptr %precedence, i64 8
   %6 = load i32, ptr %weight.i, align 4
   %call.i = call noundef zeroext i8 @_ZN3net26Http2WeightToSpdy3PriorityEi(i32 noundef %6)
   br label %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
 
 _ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit: ; preds = %cond.true.i, %cond.false.i
   %cond.i8 = phi i8 [ %5, %cond.true.i ], [ %call.i, %cond.false.i ]
-  %stream_infos_ = getelementptr inbounds i8, ptr %this, i64 720
+  %stream_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 720
   %stream_info.sroa.210.4.insert.ext = zext i32 %stream_id to i64
   %retval.sroa.0.sroa.2.0.insert.ext.i = zext i8 %cond.i8 to i64
   %retval.sroa.0.sroa.2.0.insert.shift.i = shl nuw nsw i64 %retval.sroa.0.sroa.2.0.insert.ext.i, 32
   %retval.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.sroa.2.0.insert.shift.i, %stream_info.sroa.210.4.insert.ext
   store i64 %retval.sroa.0.sroa.0.0.insert.insert.i, ptr %ref.tmp38, align 8
-  %7 = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 8
   store i64 %stream_info.sroa.210.4.insert.ext, ptr %7, align 8
   %call.i.i = call { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS0_IjS5_EEEES0_INS8_14_Node_iteratorIS6_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %stream_infos_, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp38)
   %call41 = call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -407,7 +407,7 @@ land.lhs.true42:                                  ; preds = %_ZNK3net16StreamPre
 
 cond.false45:                                     ; preds = %land.lhs.true42
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp47, ptr noundef nonnull @.str, i32 noundef 63, i32 noundef 2)
-  %stream_.i9 = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
+  %stream_.i9 = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 8
   %call53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i9, ptr noundef nonnull @.str.2)
           to label %invoke.cont52 unwind label %lpad49
 
@@ -449,14 +449,14 @@ entry:
   %ref.tmp.i = alloca ptr, align 8
   %tmp.i = alloca %"struct.std::_Deque_iterator", align 8
   %ref.tmp10 = alloca %"class.logging::LogMessage", align 8
-  %stream_infos_ = getelementptr inbounds i8, ptr %this, i64 720
-  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
+  %stream_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 720
+  %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 744
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -466,25 +466,25 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %cmp.i.not.i.i, label %if.then, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %stream_id, %1
   br i1 %cmp.i.i.i.i, label %if.end, label %for.cond.i.i, !llvm.loop !8
 
 if.end15.i.i:                                     ; preds = %entry
   %conv.i.i.i.i = zext i32 %stream_id to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr %stream_infos_, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %if.then, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %5 = load ptr, ptr %4, align 8
-  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr8.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %add.ptr8.i.i.i.i, align 4
   %cmp.i.i.i9.i.i.i.i = icmp eq i32 %stream_id, %6
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.end, label %if.end3.i.i.i.i
@@ -500,7 +500,7 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %fo
   br i1 %tobool5.not.i.i.i.i, label %if.then, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %add.ptr7.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %8 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %2
@@ -513,7 +513,7 @@ if.then:                                          ; preds = %lor.lhs.false.i.i.i
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp10, ptr noundef nonnull @.str, i32 noundef 69, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad
 
@@ -537,53 +537,53 @@ lpad:                                             ; preds = %invoke.cont13, %inv
 
 if.end:                                           ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 8
-  %ready = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 20
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 8
+  %ready = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 20
   %10 = load i8, ptr %ready, align 4
   %tobool = trunc i8 %10 to i1
   br i1 %tobool, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.end
-  %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 12
-  %priority_infos_ = getelementptr inbounds i8, ptr %this, i64 16
+  %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 12
+  %priority_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load i8, ptr %second, align 4
   %idxprom = zext i8 %11 to i64
-  %arrayidx = getelementptr inbounds [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %idxprom
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %it.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
-  %_M_start.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %_M_start.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %12 = load ptr, ptr %_M_start.i.i, align 8, !noalias !10
-  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %_M_first3.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %13 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !10
-  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %_M_last4.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %14 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !10
-  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %_M_node5.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   %15 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !10
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   %16 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !13
-  %_M_first3.i.i5.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  %_M_first3.i.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 56
   %17 = load ptr, ptr %_M_first3.i.i5.i, align 8, !noalias !13
-  %_M_last4.i.i7.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %_M_last4.i.i7.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 64
   %18 = load ptr, ptr %_M_last4.i.i7.i, align 8, !noalias !13
-  %_M_node5.i.i9.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
+  %_M_node5.i.i9.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 72
   %19 = load ptr, ptr %_M_node5.i.i9.i, align 8, !noalias !13
   store ptr %second, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !16
   store ptr %12, ptr %agg.tmp.i.i.i, align 8, !noalias !19
-  %_M_first.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  %_M_first.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %13, ptr %_M_first.i.i.i.i, align 8, !noalias !19
-  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
+  %_M_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 16
   store ptr %14, ptr %_M_last.i.i.i.i, align 8, !noalias !19
-  %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
+  %_M_node.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 24
   store ptr %15, ptr %_M_node.i.i.i.i, align 8, !noalias !19
   store ptr %16, ptr %agg.tmp1.i.i.i, align 8, !noalias !19
-  %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
+  %_M_first.i1.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 8
   store ptr %17, ptr %_M_first.i1.i.i.i, align 8, !noalias !19
-  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
+  %_M_last.i3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 16
   store ptr %18, ptr %_M_last.i3.i.i.i, align 8, !noalias !19
-  %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
+  %_M_node.i5.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 24
   store ptr %19, ptr %_M_node.i5.i.i.i, align 8, !noalias !19
   call void @_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_St26random_access_iterator_tag(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %it.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr nonnull align 8 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !16
@@ -594,22 +594,22 @@ if.then21:                                        ; preds = %if.end
   br i1 %cmp.i.i.not, label %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then21
-  %_M_node5.i.i = getelementptr inbounds i8, ptr %it.i, i64 24
+  %_M_node5.i.i = getelementptr inbounds nuw i8, ptr %it.i, i64 24
   %22 = load ptr, ptr %_M_node5.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   store ptr %21, ptr %agg.tmp.i.i, align 8, !alias.scope !25, !noalias !28
-  %_M_first.i.i.i21.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
+  %_M_first.i.i.i21.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %23 = load ptr, ptr %22, align 8, !noalias !31
   store ptr %23, ptr %_M_first.i.i.i21.i, align 8, !alias.scope !25, !noalias !28
-  %_M_last.i.i.i22.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 512
+  %_M_last.i.i.i22.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 512
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i.i22.i, align 8, !alias.scope !25, !noalias !28
-  %_M_node.i.i.i23.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
+  %_M_node.i.i.i23.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   store ptr %22, ptr %_M_node.i.i.i23.i, align 8, !alias.scope !25, !noalias !28
   call void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8_M_eraseESt15_Deque_iteratorIS4_RS4_PS4_E(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(80) %arrayidx, ptr noundef nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  %num_ready_streams_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %num_ready_streams_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %24 = load i64, ptr %num_ready_streams_.i, align 8
   %dec.i = add i64 %24, -1
   store i64 %dec.i, ptr %num_ready_streams_.i, align 8
@@ -624,12 +624,12 @@ _ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS
 
 if.end23:                                         ; preds = %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit, %if.end
   %25 = phi i32 [ %.pre, %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit ], [ %stream_id, %if.end ]
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %26 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %conv.i.i.i.i.i.i.i = zext i32 %25 to i64
   %rem.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i, %26
   %27 = load ptr, ptr %stream_infos_, align 8
-  %arrayidx.i.i.i.i3 = getelementptr inbounds ptr, ptr %27, i64 %rem.i.i.i.i.i.i
+  %arrayidx.i.i.i.i3 = getelementptr inbounds nuw ptr, ptr %27, i64 %rem.i.i.i.i.i.i
   %28 = load ptr, ptr %arrayidx.i.i.i.i3, align 8
   br label %while.cond.i.i.i.i
 
@@ -649,7 +649,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt10_HashtableIj
   br i1 %tobool.not.i.i.i.i6, label %if.end.i.i.i.i.i, label %cond.end.i.i.i.i
 
 cond.end.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i8 = getelementptr inbounds i8, ptr %30, i64 8
+  %add.ptr.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load i32, ptr %add.ptr.i.i.i.i8, align 4
   %conv.i.i.i.i.i.i.i.i9 = zext i32 %31 to i64
   %rem.i.i.i.i.i.i.i10 = urem i64 %conv.i.i.i.i.i.i.i.i9, %26
@@ -657,18 +657,18 @@ cond.end.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit, label %if.then3.i.i.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %cond.end.i.i.i.i
-  %arrayidx5.i.i.i.i.i = getelementptr inbounds ptr, ptr %27, i64 %rem.i.i.i.i.i.i.i10
+  %arrayidx5.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %27, i64 %rem.i.i.i.i.i.i.i10
   store ptr %28, ptr %arrayidx5.i.i.i.i.i, align 8
   %.pre.i.i.i.i = load ptr, ptr %stream_infos_, align 8
-  %arrayidx7.i.phi.trans.insert.i.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i.i, i64 %rem.i.i.i.i.i.i
+  %arrayidx7.i.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i.i, i64 %rem.i.i.i.i.i.i
   %.pre24.i.i.i.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then3.i.i.i.i.i, %if.then.i.i.i.i
   %32 = phi ptr [ %28, %if.then.i.i.i.i ], [ %.pre24.i.i.i.i, %if.then3.i.i.i.i.i ]
   %33 = phi ptr [ %27, %if.then.i.i.i.i ], [ %.pre.i.i.i.i, %if.then3.i.i.i.i.i ]
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
-  %arrayidx7.i.i.i.i.i = getelementptr inbounds ptr, ptr %33, i64 %rem.i.i.i.i.i.i
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
+  %arrayidx7.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %33, i64 %rem.i.i.i.i.i.i
   %cmp8.i.i.i.i.i = icmp eq ptr %_M_before_begin.i.i.i.i.i, %32
   br i1 %cmp8.i.i.i.i.i, label %if.then9.i.i.i.i.i, label %if.end11.i.i.i.i.i
 
@@ -684,7 +684,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt10_HashtableIj
   br i1 %tobool.not.i.i.i.i6, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit, label %if.then6.i.i.i.i
 
 if.then6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
-  %add.ptr8.i.i.i.i7 = getelementptr inbounds i8, ptr %30, i64 8
+  %add.ptr8.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load i32, ptr %add.ptr8.i.i.i.i7, align 4
   %conv.i.i.i.i14.i.i.i.i = zext i32 %34 to i64
   %rem.i.i.i15.i.i.i.i = urem i64 %conv.i.i.i.i14.i.i.i.i, %26
@@ -692,7 +692,7 @@ if.then6.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   br i1 %cmp10.not.i.i.i.i, label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit, label %if.then11.i.i.i.i
 
 if.then11.i.i.i.i:                                ; preds = %if.then6.i.i.i.i
-  %arrayidx13.i.i.i.i = getelementptr inbounds ptr, ptr %27, i64 %rem.i.i.i15.i.i.i.i
+  %arrayidx13.i.i.i.i = getelementptr inbounds nuw ptr, ptr %27, i64 %rem.i.i.i15.i.i.i.i
   store ptr %__prev_n.0.i.i.i.i, ptr %arrayidx13.i.i.i.i, align 8
   br label %_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE5eraseENSt8__detail14_Node_iteratorISA_Lb0ELb0EEE.exit
 
@@ -712,13 +712,13 @@ return:                                           ; preds = %if.then, %cleanup.a
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK3net22PriorityWriteSchedulerIjE16StreamRegisteredEj(ptr noundef nonnull align 8 dereferenceable(776) %this, i32 noundef %stream_id) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
+  %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 744
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -728,26 +728,26 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %cmp.i.not.i.i, label %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %stream_id, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %for.cond.i.i, !llvm.loop !33
 
 if.end15.i.i:                                     ; preds = %entry
-  %stream_infos_ = getelementptr inbounds i8, ptr %this, i64 720
+  %stream_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 720
   %conv.i.i.i.i = zext i32 %stream_id to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr %stream_infos_, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %5 = load ptr, ptr %4, align 8
-  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr8.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %add.ptr8.i.i.i.i, align 4
   %cmp.i.i.i9.i.i.i.i = icmp eq i32 %stream_id, %6
   br i1 %cmp.i.i.i9.i.i.i.i, label %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %if.end3.i.i.i.i
@@ -763,7 +763,7 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %fo
   br i1 %tobool5.not.i.i.i.i, label %_ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %add.ptr7.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %8 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %2
@@ -779,13 +779,13 @@ _ZNKSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { i64, i64 } @_ZNK3net22PriorityWriteSchedulerIjE19GetStreamPrecedenceEj(ptr noundef nonnull align 8 dereferenceable(776) %this, i32 noundef %stream_id) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
+  %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 744
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -795,26 +795,26 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %cmp.i.not.i.i, label %return, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %stream_id, %1
   br i1 %cmp.i.i.i.i, label %if.end, label %for.cond.i.i, !llvm.loop !33
 
 if.end15.i.i:                                     ; preds = %entry
-  %stream_infos_ = getelementptr inbounds i8, ptr %this, i64 720
+  %stream_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 720
   %conv.i.i.i.i = zext i32 %stream_id to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr %stream_infos_, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %return, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %5 = load ptr, ptr %4, align 8
-  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr8.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %add.ptr8.i.i.i.i, align 4
   %cmp.i.i.i9.i.i.i.i = icmp eq i32 %stream_id, %6
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.end, label %if.end3.i.i.i.i
@@ -830,7 +830,7 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %fo
   br i1 %tobool5.not.i.i.i.i, label %return, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %add.ptr7.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %8 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %2
@@ -839,7 +839,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
 
 if.end:                                           ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
-  %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 12
+  %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 12
   %9 = load i8, ptr %second, align 4
   br label %return
 
@@ -875,7 +875,7 @@ land.lhs.true:                                    ; preds = %entry
 
 cond.false:                                       ; preds = %land.lhs.true
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 97, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont unwind label %lpad
 
@@ -887,14 +887,14 @@ invoke.cont:                                      ; preds = %cond.false
 cleanup.done:                                     ; preds = %land.lhs.true, %entry, %invoke.cont
   %0 = phi i8 [ %.pre28, %land.lhs.true ], [ %.pre28, %entry ], [ %.pre, %invoke.cont ]
   %tobool.i10 = trunc i8 %0 to i1
-  %1 = getelementptr inbounds i8, ptr %precedence, i64 4
-  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
+  %1 = getelementptr inbounds nuw i8, ptr %precedence, i64 4
+  %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 744
   %2 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %2, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %cleanup.done
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -904,26 +904,26 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %cmp.i.not.i.i, label %return, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 8
   %3 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %stream_id, %3
   br i1 %cmp.i.i.i.i, label %if.end, label %for.cond.i.i, !llvm.loop !8
 
 if.end15.i.i:                                     ; preds = %cleanup.done
-  %stream_infos_ = getelementptr inbounds i8, ptr %this, i64 720
+  %stream_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 720
   %conv.i.i.i.i = zext i32 %stream_id to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %4 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %4
   %5 = load ptr, ptr %stream_infos_, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %5, i64 %rem.i.i.i.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %return, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %7 = load ptr, ptr %6, align 8
-  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %add.ptr8.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %add.ptr8.i.i.i.i, align 4
   %cmp.i.i.i9.i.i.i.i = icmp eq i32 %stream_id, %8
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.end, label %if.end3.i.i.i.i
@@ -939,7 +939,7 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %fo
   br i1 %tobool5.not.i.i.i.i, label %return, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load i32, ptr %add.ptr7.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %10 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %4
@@ -954,7 +954,7 @@ lpad:                                             ; preds = %cond.false
 
 if.end:                                           ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %7, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %9, %for.cond.i.i.i.i ]
-  %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 12
+  %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 12
   br i1 %tobool.i10, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.end
@@ -962,7 +962,7 @@ cond.true.i:                                      ; preds = %if.end
   br label %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
 
 cond.false.i:                                     ; preds = %if.end
-  %weight.i = getelementptr inbounds i8, ptr %precedence, i64 8
+  %weight.i = getelementptr inbounds nuw i8, ptr %precedence, i64 8
   %13 = load i32, ptr %weight.i, align 4
   %call.i = call noundef zeroext i8 @_ZN3net26Http2WeightToSpdy3PriorityEi(i32 noundef %13)
   br label %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
@@ -974,50 +974,50 @@ _ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit: ; preds = %cond.true.i, %c
   br i1 %cmp, label %return, label %if.end22
 
 if.end22:                                         ; preds = %_ZNK3net16StreamPrecedenceIjE14spdy3_priorityEv.exit
-  %ready = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 20
+  %ready = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 20
   %15 = load i8, ptr %ready, align 4
   %tobool = trunc i8 %15 to i1
   br i1 %tobool, label %if.then23, label %if.end31
 
 if.then23:                                        ; preds = %if.end22
-  %priority_infos_ = getelementptr inbounds i8, ptr %this, i64 16
+  %priority_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %idxprom = zext i8 %14 to i64
-  %arrayidx = getelementptr inbounds [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %idxprom
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %it.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
-  %_M_start.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %_M_start.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %16 = load ptr, ptr %_M_start.i.i, align 8, !noalias !34
-  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %_M_first3.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %17 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !34
-  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %_M_last4.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %18 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !34
-  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %_M_node5.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   %19 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !34
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   %20 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !37
-  %_M_first3.i.i5.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  %_M_first3.i.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 56
   %21 = load ptr, ptr %_M_first3.i.i5.i, align 8, !noalias !37
-  %_M_last4.i.i7.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %_M_last4.i.i7.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 64
   %22 = load ptr, ptr %_M_last4.i.i7.i, align 8, !noalias !37
-  %_M_node5.i.i9.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
+  %_M_node5.i.i9.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 72
   %23 = load ptr, ptr %_M_node5.i.i9.i, align 8, !noalias !37
   store ptr %second, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !40
   store ptr %16, ptr %agg.tmp.i.i.i, align 8, !noalias !43
-  %_M_first.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  %_M_first.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %17, ptr %_M_first.i.i.i.i, align 8, !noalias !43
-  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
+  %_M_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 16
   store ptr %18, ptr %_M_last.i.i.i.i, align 8, !noalias !43
-  %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
+  %_M_node.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 24
   store ptr %19, ptr %_M_node.i.i.i.i, align 8, !noalias !43
   store ptr %20, ptr %agg.tmp1.i.i.i, align 8, !noalias !43
-  %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
+  %_M_first.i1.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 8
   store ptr %21, ptr %_M_first.i1.i.i.i, align 8, !noalias !43
-  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
+  %_M_last.i3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 16
   store ptr %22, ptr %_M_last.i3.i.i.i, align 8, !noalias !43
-  %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
+  %_M_node.i5.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 24
   store ptr %23, ptr %_M_node.i5.i.i.i, align 8, !noalias !43
   call void @_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_St26random_access_iterator_tag(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %it.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr nonnull align 8 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !40
@@ -1028,22 +1028,22 @@ if.then23:                                        ; preds = %if.end22
   br i1 %cmp.i.i.not, label %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then23
-  %_M_node5.i.i = getelementptr inbounds i8, ptr %it.i, i64 24
+  %_M_node5.i.i = getelementptr inbounds nuw i8, ptr %it.i, i64 24
   %26 = load ptr, ptr %_M_node5.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   store ptr %25, ptr %agg.tmp.i.i, align 8, !alias.scope !49, !noalias !52
-  %_M_first.i.i.i21.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
+  %_M_first.i.i.i21.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %27 = load ptr, ptr %26, align 8, !noalias !55
   store ptr %27, ptr %_M_first.i.i.i21.i, align 8, !alias.scope !49, !noalias !52
-  %_M_last.i.i.i22.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 512
+  %_M_last.i.i.i22.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 512
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i.i22.i, align 8, !alias.scope !49, !noalias !52
-  %_M_node.i.i.i23.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
+  %_M_node.i.i.i23.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   store ptr %26, ptr %_M_node.i.i.i23.i, align 8, !alias.scope !49, !noalias !52
   call void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8_M_eraseESt15_Deque_iteratorIS4_RS4_PS4_E(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(80) %arrayidx, ptr noundef nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  %num_ready_streams_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %num_ready_streams_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %28 = load i64, ptr %num_ready_streams_.i, align 8
   %dec.i = add i64 %28, -1
   store i64 %dec.i, ptr %num_ready_streams_.i, align 8
@@ -1054,11 +1054,11 @@ _ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
   %idxprom27 = zext i8 %cond.i12 to i64
-  %arrayidx28 = getelementptr inbounds [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %idxprom27
+  %arrayidx28 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %idxprom27
   store ptr %second, ptr %ref.tmp30, align 8
-  %_M_finish.i.i13 = getelementptr inbounds i8, ptr %arrayidx28, i64 48
+  %_M_finish.i.i13 = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 48
   %29 = load ptr, ptr %_M_finish.i.i13, align 8
-  %_M_last.i.i = getelementptr inbounds i8, ptr %arrayidx28, i64 64
+  %_M_last.i.i = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 64
   %30 = load ptr, ptr %_M_last.i.i, align 8
   %add.ptr.i.i14 = getelementptr inbounds i8, ptr %30, i64 -8
   %cmp.not.i.i = icmp eq ptr %29, %add.ptr.i.i14
@@ -1067,7 +1067,7 @@ _ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS
 if.then.i.i15:                                    ; preds = %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit
   store ptr %second, ptr %29, align 8
   %31 = load ptr, ptr %_M_finish.i.i13, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %31, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i13, align 8
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9push_backEOS4_.exit
 
@@ -1076,7 +1076,7 @@ if.else.i.i:                                      ; preds = %_ZN3net22PriorityWr
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9push_backEOS4_.exit
 
 _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9push_backEOS4_.exit: ; preds = %if.then.i.i15, %if.else.i.i
-  %num_ready_streams_ = getelementptr inbounds i8, ptr %this, i64 8
+  %num_ready_streams_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %32 = load i64, ptr %num_ready_streams_, align 8
   %inc = add i64 %32, 1
   store i64 %inc, ptr %num_ready_streams_, align 8
@@ -1101,13 +1101,13 @@ entry:
 define linkonce_odr dso_local void @_ZN3net22PriorityWriteSchedulerIjE21RecordStreamEventTimeEjl(ptr noundef nonnull align 8 dereferenceable(776) %this, i32 noundef %stream_id, i64 noundef %now_in_usec) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.logging::LogMessage", align 8
-  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
+  %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 744
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -1117,26 +1117,26 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %cmp.i.not.i.i, label %if.then, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %stream_id, %1
   br i1 %cmp.i.i.i.i, label %if.end, label %for.cond.i.i, !llvm.loop !8
 
 if.end15.i.i:                                     ; preds = %entry
-  %stream_infos_ = getelementptr inbounds i8, ptr %this, i64 720
+  %stream_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 720
   %conv.i.i.i.i = zext i32 %stream_id to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr %stream_infos_, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %if.then, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %5 = load ptr, ptr %4, align 8
-  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr8.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %add.ptr8.i.i.i.i, align 4
   %cmp.i.i.i9.i.i.i.i = icmp eq i32 %stream_id, %6
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.end, label %if.end3.i.i.i.i
@@ -1152,7 +1152,7 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %fo
   br i1 %tobool5.not.i.i.i.i, label %if.then, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %add.ptr7.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %8 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %2
@@ -1165,7 +1165,7 @@ if.then:                                          ; preds = %lor.lhs.false.i.i.i
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp10, ptr noundef nonnull @.str, i32 noundef 135, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad
 
@@ -1189,11 +1189,11 @@ lpad:                                             ; preds = %invoke.cont13, %inv
 
 if.end:                                           ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
-  %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 12
+  %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 12
   %10 = load i8, ptr %second, align 4
   %idxprom = zext i8 %10 to i64
   %last_event_time_usec.idx = mul nuw nsw i64 %idxprom, 88
-  %11 = getelementptr inbounds i8, ptr %this, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %last_event_time_usec = getelementptr i8, ptr %11, i64 %last_event_time_usec.idx
   %12 = load i64, ptr %last_event_time_usec, align 8
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %12, i64 %now_in_usec)
@@ -1208,13 +1208,13 @@ return:                                           ; preds = %if.then, %cleanup.a
 define linkonce_odr dso_local noundef i64 @_ZNK3net22PriorityWriteSchedulerIjE28GetLatestEventWithPrecedenceEj(ptr noundef nonnull align 8 dereferenceable(776) %this, i32 noundef %stream_id) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.logging::LogMessage", align 8
-  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
+  %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 744
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -1224,26 +1224,26 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %cmp.i.not.i.i, label %if.then, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %stream_id, %1
   br i1 %cmp.i.i.i.i, label %if.end, label %for.cond.i.i, !llvm.loop !33
 
 if.end15.i.i:                                     ; preds = %entry
-  %stream_infos_ = getelementptr inbounds i8, ptr %this, i64 720
+  %stream_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 720
   %conv.i.i.i.i = zext i32 %stream_id to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr %stream_infos_, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %if.then, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %5 = load ptr, ptr %4, align 8
-  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr8.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %add.ptr8.i.i.i.i, align 4
   %cmp.i.i.i9.i.i.i.i = icmp eq i32 %stream_id, %6
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.end, label %if.end3.i.i.i.i
@@ -1259,7 +1259,7 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %fo
   br i1 %tobool5.not.i.i.i.i, label %if.then, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %add.ptr7.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %8 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %2
@@ -1272,7 +1272,7 @@ if.then:                                          ; preds = %lor.lhs.false.i.i.i
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp10, ptr noundef nonnull @.str, i32 noundef 146, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad
 
@@ -1296,13 +1296,13 @@ lpad:                                             ; preds = %invoke.cont13, %inv
 
 if.end:                                           ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
-  %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 12
+  %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 12
   %10 = load i8, ptr %second, align 4
   %cmp16.not = icmp eq i8 %10, 0
   br i1 %cmp16.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %11 = getelementptr inbounds i8, ptr %this, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %wide.trip.count = zext i8 %10 to i64
   br label %for.body
 
@@ -1327,10 +1327,10 @@ define linkonce_odr dso_local noundef i32 @_ZN3net22PriorityWriteSchedulerIjE18P
 entry:
   %ref.tmp = alloca %"class.std::tuple", align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::tuple") align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(776) %this)
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %1 = load i32, ptr %add.ptr.i.i.i, align 4
   ret i32 %1
 }
@@ -1339,7 +1339,7 @@ entry:
 define linkonce_odr dso_local void @_ZN3net22PriorityWriteSchedulerIjE31PopNextReadyStreamAndPrecedenceEv(ptr noalias sret(%"class.std::tuple") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(776) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.logging::LogMessage", align 8
-  %priority_infos_ = getelementptr inbounds i8, ptr %this, i64 16
+  %priority_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -1349,58 +1349,58 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %indvars.iv
-  %_M_finish.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
-  %_M_start.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %indvars.iv
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %for.cond, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %_M_start.i.le = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %_M_start.i.le = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %1, align 8
-  %_M_last.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %3 = load ptr, ptr %_M_last.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 -8
   %cmp.not.i = icmp eq ptr %1, %add.ptr.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit
 
 if.else.i:                                        ; preds = %if.then
-  %_M_first.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %_M_first.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %4 = load ptr, ptr %_M_first.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #15
-  %_M_node.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %_M_node.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   %5 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %add.ptr.i.i, ptr %_M_node.i.i, align 8
   %6 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %6, ptr %_M_first.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 512
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 512
   store ptr %add.ptr.i.i.i, ptr %_M_last.i, align 8
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit
 
 _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit: ; preds = %if.then.i, %if.else.i
   %storemerge.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %6, %if.else.i ]
   store ptr %storemerge.i, ptr %_M_start.i.le, align 8
-  %num_ready_streams_ = getelementptr inbounds i8, ptr %this, i64 8
+  %num_ready_streams_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load i64, ptr %num_ready_streams_, align 8
   %dec = add i64 %7, -1
   store i64 %dec, ptr %num_ready_streams_, align 8
-  %ready = getelementptr inbounds i8, ptr %2, i64 8
+  %ready = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 0, ptr %ready, align 4
-  %stream_id = getelementptr inbounds i8, ptr %2, i64 4
+  %stream_id = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = load i8, ptr %2, align 4
   %call.i = tail call noundef zeroext i8 @_ZN3net18ClampSpdy3PriorityEh(i8 noundef zeroext %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   store i8 1, ptr %agg.result, align 4
-  %ref.tmp.sroa.211.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %ref.tmp.sroa.211.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i8 %call.i, ptr %ref.tmp.sroa.211.0.agg.result.sroa_idx, align 4
-  %9 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %10 = load i32, ptr %stream_id, align 4, !noalias !58
   store i32 %10, ptr %9, align 4, !alias.scope !58
   br label %return
@@ -1411,7 +1411,7 @@ for.end:                                          ; preds = %for.cond
 
 cond.false:                                       ; preds = %for.end
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6, ptr noundef nonnull @.str, i32 noundef 178, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.6)
           to label %cleanup.action unwind label %lpad
 
@@ -1422,9 +1422,9 @@ cleanup.action:                                   ; preds = %cond.false
 cleanup.done:                                     ; preds = %for.end, %cleanup.action
   %call.i8 = call noundef zeroext i8 @_ZN3net18ClampSpdy3PriorityEh(i8 noundef zeroext 7)
   store i8 1, ptr %agg.result, align 4
-  %ref.tmp12.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %ref.tmp12.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i8 %call.i8, ptr %ref.tmp12.sroa.3.0.agg.result.sroa_idx, align 4
-  %11 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 0, ptr %11, align 4
   br label %return
 
@@ -1442,13 +1442,13 @@ return:                                           ; preds = %cleanup.done, %_ZNS
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK3net22PriorityWriteSchedulerIjE11ShouldYieldEj(ptr noundef nonnull align 8 dereferenceable(776) %this, i32 noundef %stream_id) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.logging::LogMessage", align 8
-  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
+  %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 744
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -1458,26 +1458,26 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %cmp.i.not.i.i, label %if.then, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %stream_id, %1
   br i1 %cmp.i.i.i.i, label %if.end, label %for.cond.i.i, !llvm.loop !33
 
 if.end15.i.i:                                     ; preds = %entry
-  %stream_infos_ = getelementptr inbounds i8, ptr %this, i64 720
+  %stream_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 720
   %conv.i.i.i.i = zext i32 %stream_id to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr %stream_infos_, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %if.then, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %5 = load ptr, ptr %4, align 8
-  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr8.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %add.ptr8.i.i.i.i, align 4
   %cmp.i.i.i9.i.i.i.i = icmp eq i32 %stream_id, %6
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.end, label %if.end3.i.i.i.i
@@ -1493,7 +1493,7 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %fo
   br i1 %tobool5.not.i.i.i.i, label %if.then, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %add.ptr7.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %8 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %2
@@ -1506,7 +1506,7 @@ if.then:                                          ; preds = %lor.lhs.false.i.i.i
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp10, ptr noundef nonnull @.str, i32 noundef 185, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad
 
@@ -1530,13 +1530,13 @@ lpad:                                             ; preds = %invoke.cont13, %inv
 
 if.end:                                           ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
-  %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 12
+  %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 12
   %10 = load i8, ptr %second, align 4
   %cmp21.not = icmp eq i8 %10, 0
   br i1 %cmp21.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %priority_infos_ = getelementptr inbounds i8, ptr %this, i64 16
+  %priority_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count = zext i8 %10 to i64
   br label %for.body
 
@@ -1547,9 +1547,9 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %indvars.iv
-  %_M_finish.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
-  %_M_start.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %indvars.iv
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %11 = load ptr, ptr %_M_finish.i, align 8
   %12 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i = icmp eq ptr %11, %12
@@ -1557,10 +1557,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.cond, %if.end
   %idxprom30.pre-phi = phi i64 [ 0, %if.end ], [ %wide.trip.count, %for.cond ]
-  %priority_infos_26 = getelementptr inbounds i8, ptr %this, i64 16
-  %arrayidx31 = getelementptr inbounds [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_26, i64 0, i64 %idxprom30.pre-phi
-  %_M_finish.i5 = getelementptr inbounds i8, ptr %arrayidx31, i64 48
-  %_M_start.i6 = getelementptr inbounds i8, ptr %arrayidx31, i64 16
+  %priority_infos_26 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %arrayidx31 = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_26, i64 0, i64 %idxprom30.pre-phi
+  %_M_finish.i5 = getelementptr inbounds nuw i8, ptr %arrayidx31, i64 48
+  %_M_start.i6 = getelementptr inbounds nuw i8, ptr %arrayidx31, i64 16
   %13 = load ptr, ptr %_M_finish.i5, align 8
   %14 = load ptr, ptr %_M_start.i6, align 8
   %cmp.i.i7 = icmp eq ptr %13, %14
@@ -1568,7 +1568,7 @@ for.end:                                          ; preds = %for.cond, %if.end
 
 lor.lhs.false:                                    ; preds = %for.end
   %15 = load ptr, ptr %14, align 8
-  %stream_id35 = getelementptr inbounds i8, ptr %15, i64 4
+  %stream_id35 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %16 = load i32, ptr %stream_id35, align 4
   %cmp36 = icmp ne i32 %16, %stream_id
   br label %return
@@ -1584,13 +1584,13 @@ entry:
   %ref.tmp10 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp26 = alloca ptr, align 8
   %ref.tmp27 = alloca ptr, align 8
-  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
+  %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 744
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -1600,26 +1600,26 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %cmp.i.not.i.i, label %if.then, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %stream_id, %1
   br i1 %cmp.i.i.i.i, label %if.end, label %for.cond.i.i, !llvm.loop !8
 
 if.end15.i.i:                                     ; preds = %entry
-  %stream_infos_ = getelementptr inbounds i8, ptr %this, i64 720
+  %stream_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 720
   %conv.i.i.i.i = zext i32 %stream_id to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr %stream_infos_, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %if.then, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %5 = load ptr, ptr %4, align 8
-  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr8.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %add.ptr8.i.i.i.i, align 4
   %cmp.i.i.i9.i.i.i.i = icmp eq i32 %stream_id, %6
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.end, label %if.end3.i.i.i.i
@@ -1635,7 +1635,7 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %fo
   br i1 %tobool5.not.i.i.i.i, label %if.then, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %add.ptr7.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %8 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %2
@@ -1648,7 +1648,7 @@ if.then:                                          ; preds = %lor.lhs.false.i.i.i
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp10, ptr noundef nonnull @.str, i32 noundef 212, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad
 
@@ -1672,17 +1672,17 @@ lpad:                                             ; preds = %invoke.cont13, %inv
 
 if.end:                                           ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
-  %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 12
-  %ready = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 20
+  %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 12
+  %ready = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 20
   %10 = load i8, ptr %ready, align 4
   %tobool = trunc i8 %10 to i1
   br i1 %tobool, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end
-  %priority_infos_ = getelementptr inbounds i8, ptr %this, i64 16
+  %priority_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load i8, ptr %second, align 4
   %idxprom = zext i8 %11 to i64
-  %arrayidx = getelementptr inbounds [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %idxprom
   br i1 %add_to_front, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %if.end22
@@ -1692,9 +1692,9 @@ if.then25:                                        ; preds = %if.end22
 
 if.else:                                          ; preds = %if.end22
   store ptr %second, ptr %ref.tmp27, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   %12 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_last.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %_M_last.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 64
   %13 = load ptr, ptr %_M_last.i.i, align 8
   %add.ptr.i.i6 = getelementptr inbounds i8, ptr %13, i64 -8
   %cmp.not.i.i = icmp eq ptr %12, %add.ptr.i.i6
@@ -1703,7 +1703,7 @@ if.else:                                          ; preds = %if.end22
 if.then.i.i7:                                     ; preds = %if.else
   store ptr %second, ptr %12, align 8
   %14 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end28
 
@@ -1712,7 +1712,7 @@ if.else.i.i:                                      ; preds = %if.else
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else.i.i, %if.then.i.i7, %if.then25
-  %num_ready_streams_ = getelementptr inbounds i8, ptr %this, i64 8
+  %num_ready_streams_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %15 = load i64, ptr %num_ready_streams_, align 8
   %inc = add i64 %15, 1
   store i64 %inc, ptr %num_ready_streams_, align 8
@@ -1733,13 +1733,13 @@ entry:
   %ref.tmp.i = alloca ptr, align 8
   %tmp.i = alloca %"struct.std::_Deque_iterator", align 8
   %ref.tmp10 = alloca %"class.logging::LogMessage", align 8
-  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 744
+  %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 744
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 736
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 736
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -1749,26 +1749,26 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %cmp.i.not.i.i, label %if.then, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 8
   %1 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %stream_id, %1
   br i1 %cmp.i.i.i.i, label %if.end, label %for.cond.i.i, !llvm.loop !8
 
 if.end15.i.i:                                     ; preds = %entry
-  %stream_infos_ = getelementptr inbounds i8, ptr %this, i64 720
+  %stream_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 720
   %conv.i.i.i.i = zext i32 %stream_id to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 728
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr %stream_infos_, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i, label %if.then, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
   %5 = load ptr, ptr %4, align 8
-  %add.ptr8.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr8.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %add.ptr8.i.i.i.i, align 4
   %cmp.i.i.i9.i.i.i.i = icmp eq i32 %stream_id, %6
   br i1 %cmp.i.i.i9.i.i.i.i, label %if.end, label %if.end3.i.i.i.i
@@ -1784,7 +1784,7 @@ if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %fo
   br i1 %tobool5.not.i.i.i.i, label %if.then, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
-  %add.ptr7.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %add.ptr7.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %add.ptr7.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i = zext i32 %8 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i.i, %2
@@ -1797,7 +1797,7 @@ if.then:                                          ; preds = %lor.lhs.false.i.i.i
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp10, ptr noundef nonnull @.str, i32 noundef 232, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad
 
@@ -1821,52 +1821,52 @@ lpad:                                             ; preds = %invoke.cont13, %inv
 
 if.end:                                           ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
-  %ready = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 20
+  %ready = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 20
   %10 = load i8, ptr %ready, align 4
   %tobool = trunc i8 %10 to i1
   br i1 %tobool, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.end
-  %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 12
-  %priority_infos_ = getelementptr inbounds i8, ptr %this, i64 16
+  %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.1.i.i, i64 12
+  %priority_infos_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load i8, ptr %second, align 4
   %idxprom = zext i8 %11 to i64
-  %arrayidx = getelementptr inbounds [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], ptr %priority_infos_, i64 0, i64 %idxprom
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %it.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
-  %_M_start.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %_M_start.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %12 = load ptr, ptr %_M_start.i.i, align 8, !noalias !62
-  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %_M_first3.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %13 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !62
-  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %_M_last4.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %14 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !62
-  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %_M_node5.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   %15 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !62
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   %16 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !65
-  %_M_first3.i.i5.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  %_M_first3.i.i5.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 56
   %17 = load ptr, ptr %_M_first3.i.i5.i, align 8, !noalias !65
-  %_M_last4.i.i7.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %_M_last4.i.i7.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 64
   %18 = load ptr, ptr %_M_last4.i.i7.i, align 8, !noalias !65
-  %_M_node5.i.i9.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
+  %_M_node5.i.i9.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 72
   %19 = load ptr, ptr %_M_node5.i.i9.i, align 8, !noalias !65
   store ptr %second, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !68
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !68
   store ptr %12, ptr %agg.tmp.i.i.i, align 8, !noalias !71
-  %_M_first.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  %_M_first.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %13, ptr %_M_first.i.i.i.i, align 8, !noalias !71
-  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
+  %_M_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 16
   store ptr %14, ptr %_M_last.i.i.i.i, align 8, !noalias !71
-  %_M_node.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
+  %_M_node.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 24
   store ptr %15, ptr %_M_node.i.i.i.i, align 8, !noalias !71
   store ptr %16, ptr %agg.tmp1.i.i.i, align 8, !noalias !71
-  %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
+  %_M_first.i1.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 8
   store ptr %17, ptr %_M_first.i1.i.i.i, align 8, !noalias !71
-  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
+  %_M_last.i3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 16
   store ptr %18, ptr %_M_last.i3.i.i.i, align 8, !noalias !71
-  %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
+  %_M_node.i5.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 24
   store ptr %19, ptr %_M_node.i5.i.i.i, align 8, !noalias !71
   call void @_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_St26random_access_iterator_tag(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %it.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr nonnull align 8 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !68
@@ -1877,22 +1877,22 @@ if.end22:                                         ; preds = %if.end
   br i1 %cmp.i.i.not, label %_ZN3net22PriorityWriteSchedulerIjE5EraseEPSt5dequeIPNS1_10StreamInfoESaIS4_EERKS3_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end22
-  %_M_node5.i.i = getelementptr inbounds i8, ptr %it.i, i64 24
+  %_M_node5.i.i = getelementptr inbounds nuw i8, ptr %it.i, i64 24
   %22 = load ptr, ptr %_M_node5.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !77)
   store ptr %21, ptr %agg.tmp.i.i, align 8, !alias.scope !77, !noalias !80
-  %_M_first.i.i.i21.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
+  %_M_first.i.i.i21.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %23 = load ptr, ptr %22, align 8, !noalias !83
   store ptr %23, ptr %_M_first.i.i.i21.i, align 8, !alias.scope !77, !noalias !80
-  %_M_last.i.i.i22.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 512
+  %_M_last.i.i.i22.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 512
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i.i22.i, align 8, !alias.scope !77, !noalias !80
-  %_M_node.i.i.i23.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
+  %_M_node.i.i.i23.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   store ptr %22, ptr %_M_node.i.i.i23.i, align 8, !alias.scope !77, !noalias !80
   call void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8_M_eraseESt15_Deque_iteratorIS4_RS4_PS4_E(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(80) %arrayidx, ptr noundef nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  %num_ready_streams_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %num_ready_streams_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %24 = load i64, ptr %num_ready_streams_.i, align 8
   %dec.i = add i64 %24, -1
   store i64 %dec.i, ptr %num_ready_streams_.i, align 8
@@ -1912,7 +1912,7 @@ return:                                           ; preds = %if.then, %if.end, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK3net22PriorityWriteSchedulerIjE15HasReadyStreamsEv(ptr noundef nonnull align 8 dereferenceable(776) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %num_ready_streams_ = getelementptr inbounds i8, ptr %this, i64 8
+  %num_ready_streams_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %num_ready_streams_, align 8
   %cmp = icmp ne i64 %0, 0
   ret i1 %cmp
@@ -1921,7 +1921,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK3net22PriorityWriteSchedulerIjE15NumReadyStreamsEv(ptr noundef nonnull align 8 dereferenceable(776) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %num_ready_streams_ = getelementptr inbounds i8, ptr %this, i64 8
+  %num_ready_streams_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %num_ready_streams_, align 8
   ret i64 %0
 }
@@ -1933,15 +1933,15 @@ entry:
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_map_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
   store ptr %call5.i.i2.i, ptr %this, align 8
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds ptr, ptr %add.ptr, i64 %add
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
+  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
@@ -1951,7 +1951,7 @@ for.body.i:                                       ; preds = %entry, %invoke.cont
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !84
 
@@ -1967,7 +1967,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #15
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i, !llvm.loop !7
 
@@ -2007,28 +2007,28 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_start = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 48
   %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
-  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node.i10 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i11 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 512
-  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i12 = getelementptr inbounds nuw i8, ptr %13, i64 512
+  %_M_last.i13 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 63
-  %add.ptr36 = getelementptr inbounds ptr, ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw ptr, ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8
   ret void
 
@@ -2092,30 +2092,30 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN3net22P
 entry:
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
   store ptr null, ptr %call5.i.i.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 8
   %0 = load i32, ptr %__args, align 4
   store i32 %0, ptr %add.ptr.i.i, align 4
-  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 12
-  %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 4
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 12
+  %second3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %second.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %second3.i.i.i.i.i, i64 12, i1 false)
-  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %1, 0
   br i1 %cmp.not.not, label %if.then, label %invoke.cont21.thread
 
 invoke.cont21.thread:                             ; preds = %entry
   %conv.i.i22 = zext i32 %0 to i64
-  %_M_bucket_count.i23 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count.i23 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i23, align 8
   %rem.i.i.i24 = urem i64 %conv.i.i22, %2
   %3 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i24
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i24
   %4 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.end34, label %if.end.i.i
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %invoke.cont, %if.then
@@ -2125,7 +2125,7 @@ for.cond:                                         ; preds = %invoke.cont, %if.th
   br i1 %cmp.i.not, label %invoke.cont21, label %invoke.cont
 
 invoke.cont:                                      ; preds = %for.cond
-  %add.ptr12 = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %__it.sroa.0.0, i64 8
   %5 = load i32, ptr %add.ptr12, align 4
   %cmp.i.i = icmp eq i32 %0, %5
   br i1 %cmp.i.i, label %if.then.i15, label %for.cond, !llvm.loop !85
@@ -2138,14 +2138,14 @@ _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6
 
 invoke.cont21:                                    ; preds = %for.cond
   %conv.i.i = zext i32 %0 to i64
-  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %conv.i.i, %7
   br label %if.end34
 
 if.end.i.i:                                       ; preds = %invoke.cont21.thread
   %8 = load ptr, ptr %4, align 8
-  %add.ptr8.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i32, ptr %add.ptr8.i.i, align 4
   %cmp.i.i.i9.i.i = icmp eq i32 %0, %9
   br i1 %cmp.i.i.i9.i.i, label %if.then.i15, label %if.end3.i.i
@@ -2161,7 +2161,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i, %for.co
   br i1 %tobool5.not.i.i, label %if.end34, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
-  %add.ptr7.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load i32, ptr %add.ptr7.i.i, align 4
   %conv.i.i.i.i.i.i = zext i32 %11 to i64
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i, %2
@@ -2190,12 +2190,12 @@ _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS8_10_Hash_nodeIS6_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
-  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_rehash_policy = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -2258,7 +2258,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_before_begin.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %17 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %17, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -2268,12 +2268,12 @@ if.else.i:                                        ; preds = %if.end
 
 if.then14.i:                                      ; preds = %if.else.i
   %19 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %_M_bucket_count, align 8
   %21 = load i32, ptr %add.ptr.i, align 4
   %conv.i.i.i.i.i = zext i32 %21 to i64
   %rem.i.i.i.i = urem i64 %conv.i.i.i.i.i, %20
-  %arrayidx17.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i
+  %arrayidx17.i = getelementptr inbounds nuw ptr, ptr %19, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8
   br label %if.end.i
 
@@ -2302,7 +2302,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_single_bucket.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -2330,7 +2330,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjN3net22PriorityWri
 
 _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEELb0EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEELb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_before_begin.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -2340,11 +2340,11 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIj
   %__p.022 = phi ptr [ %1, %if.end22 ], [ %0, %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %__p.022, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
   %2 = load i32, ptr %add.ptr, align 4
   %conv.i.i.i = zext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -2377,7 +2377,7 @@ if.end22:                                         ; preds = %if.then, %if.then15
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -2386,7 +2386,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -2395,9 +2395,9 @@ _ZNSt10_HashtableIjSt4pairIKjN3net22PriorityWriteSchedulerIjE10StreamInfoEESaIS6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt9__find_ifISt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS5_PS5_EN9__gnu_cxx5__ops16_Iter_equals_valIKPKS4_EEET_SG_SG_T0_St26random_access_iterator_tag(ptr noalias sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef %__first, ptr noundef %__last, ptr %__pred.coerce) local_unnamed_addr #0 comdat {
 entry:
-  %_M_node.i = getelementptr inbounds i8, ptr %__last, i64 24
+  %_M_node.i = getelementptr inbounds nuw i8, ptr %__last, i64 24
   %0 = load ptr, ptr %_M_node.i, align 8
-  %_M_node1.i = getelementptr inbounds i8, ptr %__first, i64 24
+  %_M_node1.i = getelementptr inbounds nuw i8, ptr %__first, i64 24
   %1 = load ptr, ptr %_M_node1.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -2408,14 +2408,14 @@ entry:
   %sub.i = add nsw i64 %sub.ptr.div.i, %conv.neg.i
   %mul.i = shl nsw i64 %sub.i, 6
   %2 = load ptr, ptr %__last, align 8
-  %_M_first.i = getelementptr inbounds i8, ptr %__last, i64 8
+  %_M_first.i = getelementptr inbounds nuw i8, ptr %__last, i64 8
   %3 = load ptr, ptr %_M_first.i, align 8
   %sub.ptr.lhs.cast3.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i = sub i64 %sub.ptr.lhs.cast3.i, %sub.ptr.rhs.cast4.i
   %sub.ptr.div6.i = ashr exact i64 %sub.ptr.sub5.i, 3
   %add.i = add nsw i64 %mul.i, %sub.ptr.div6.i
-  %_M_last.i = getelementptr inbounds i8, ptr %__first, i64 16
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %__first, i64 16
   %4 = load ptr, ptr %_M_last.i, align 8
   %5 = load ptr, ptr %__first, align 8
   %sub.ptr.lhs.cast8.i = ptrtoint ptr %4 to i64
@@ -2428,7 +2428,7 @@ entry:
   br i1 %cmp192, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
+  %_M_first3.i = getelementptr inbounds nuw i8, ptr %__first, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit79
@@ -2443,27 +2443,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 if.then:                                          ; preds = %for.body
   store ptr %8, ptr %agg.result, align 8
-  %_M_first.i5 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_first.i5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %11 = load ptr, ptr %_M_first3.i, align 8
   store ptr %11, ptr %_M_first.i5, align 8
-  %_M_last.i7 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_last.i7 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %6, ptr %_M_last.i7, align 8
-  %_M_node.i9 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_node.i9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %7, ptr %_M_node.i9, align 8
   br label %return
 
 if.end:                                           ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %incdec.ptr.i, ptr %__first, align 8
   %cmp.i12 = icmp eq ptr %incdec.ptr.i, %6
   br i1 %cmp.i12, label %if.then.i, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
 
 if.then.i:                                        ; preds = %if.end
-  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %add.ptr.i, ptr %_M_node1.i, align 8
   %12 = load ptr, ptr %add.ptr.i, align 8
   store ptr %12, ptr %_M_first3.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 512
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %12, i64 512
   store ptr %add.ptr.i.i, ptr %_M_last.i, align 8
   store ptr %12, ptr %__first, align 8
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
@@ -2479,27 +2479,27 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
 
 if.then5:                                         ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
   store ptr %14, ptr %agg.result, align 8
-  %_M_first.i21 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_first.i21 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %18 = load ptr, ptr %_M_first3.i, align 8
   store ptr %18, ptr %_M_first.i21, align 8
-  %_M_last.i23 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_last.i23 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %13, ptr %_M_last.i23, align 8
-  %_M_node.i25 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_node.i25 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %15, ptr %_M_node.i25, align 8
   br label %return
 
 if.end6:                                          ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
-  %incdec.ptr.i27 = getelementptr inbounds i8, ptr %14, i64 8
+  %incdec.ptr.i27 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %incdec.ptr.i27, ptr %__first, align 8
   %cmp.i29 = icmp eq ptr %incdec.ptr.i27, %13
   br i1 %cmp.i29, label %if.then.i30, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit35
 
 if.then.i30:                                      ; preds = %if.end6
-  %add.ptr.i32 = getelementptr inbounds i8, ptr %15, i64 8
+  %add.ptr.i32 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %add.ptr.i32, ptr %_M_node1.i, align 8
   %19 = load ptr, ptr %add.ptr.i32, align 8
   store ptr %19, ptr %_M_first3.i, align 8
-  %add.ptr.i.i34 = getelementptr inbounds i8, ptr %19, i64 512
+  %add.ptr.i.i34 = getelementptr inbounds nuw i8, ptr %19, i64 512
   store ptr %add.ptr.i.i34, ptr %_M_last.i, align 8
   store ptr %19, ptr %__first, align 8
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit35
@@ -2515,27 +2515,27 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
 
 if.then10:                                        ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit35
   store ptr %21, ptr %agg.result, align 8
-  %_M_first.i43 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_first.i43 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %25 = load ptr, ptr %_M_first3.i, align 8
   store ptr %25, ptr %_M_first.i43, align 8
-  %_M_last.i45 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_last.i45 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %20, ptr %_M_last.i45, align 8
-  %_M_node.i47 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_node.i47 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %22, ptr %_M_node.i47, align 8
   br label %return
 
 if.end11:                                         ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit35
-  %incdec.ptr.i49 = getelementptr inbounds i8, ptr %21, i64 8
+  %incdec.ptr.i49 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %incdec.ptr.i49, ptr %__first, align 8
   %cmp.i51 = icmp eq ptr %incdec.ptr.i49, %20
   br i1 %cmp.i51, label %if.then.i52, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit57
 
 if.then.i52:                                      ; preds = %if.end11
-  %add.ptr.i54 = getelementptr inbounds i8, ptr %22, i64 8
+  %add.ptr.i54 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %add.ptr.i54, ptr %_M_node1.i, align 8
   %26 = load ptr, ptr %add.ptr.i54, align 8
   store ptr %26, ptr %_M_first3.i, align 8
-  %add.ptr.i.i56 = getelementptr inbounds i8, ptr %26, i64 512
+  %add.ptr.i.i56 = getelementptr inbounds nuw i8, ptr %26, i64 512
   store ptr %add.ptr.i.i56, ptr %_M_last.i, align 8
   store ptr %26, ptr %__first, align 8
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit57
@@ -2551,27 +2551,27 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
 
 if.then15:                                        ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit57
   store ptr %28, ptr %agg.result, align 8
-  %_M_first.i65 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_first.i65 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %32 = load ptr, ptr %_M_first3.i, align 8
   store ptr %32, ptr %_M_first.i65, align 8
-  %_M_last.i67 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_last.i67 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %27, ptr %_M_last.i67, align 8
-  %_M_node.i69 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_node.i69 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %29, ptr %_M_node.i69, align 8
   br label %return
 
 if.end16:                                         ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit57
-  %incdec.ptr.i71 = getelementptr inbounds i8, ptr %28, i64 8
+  %incdec.ptr.i71 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %incdec.ptr.i71, ptr %__first, align 8
   %cmp.i73 = icmp eq ptr %incdec.ptr.i71, %27
   br i1 %cmp.i73, label %if.then.i74, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit79
 
 if.then.i74:                                      ; preds = %if.end16
-  %add.ptr.i76 = getelementptr inbounds i8, ptr %29, i64 8
+  %add.ptr.i76 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %add.ptr.i76, ptr %_M_node1.i, align 8
   %33 = load ptr, ptr %add.ptr.i76, align 8
   store ptr %33, ptr %_M_first3.i, align 8
-  %add.ptr.i.i78 = getelementptr inbounds i8, ptr %33, i64 512
+  %add.ptr.i.i78 = getelementptr inbounds nuw i8, ptr %33, i64 512
   store ptr %add.ptr.i.i78, ptr %_M_last.i, align 8
   store ptr %33, ptr %__first, align 8
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit79
@@ -2623,7 +2623,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   ]
 
 sw.bb:                                            ; preds = %for.end
-  %_M_first3.i103 = getelementptr inbounds i8, ptr %__first, i64 8
+  %_M_first3.i103 = getelementptr inbounds nuw i8, ptr %__first, i64 8
   %41 = load ptr, ptr %37, align 8
   %42 = load ptr, ptr %__pred.coerce, align 8
   %cmp.i108 = icmp eq ptr %41, %42
@@ -2631,27 +2631,27 @@ sw.bb:                                            ; preds = %for.end
 
 if.then21:                                        ; preds = %sw.bb
   store ptr %37, ptr %agg.result, align 8
-  %_M_first.i109 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_first.i109 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %43 = load ptr, ptr %_M_first3.i103, align 8
   store ptr %43, ptr %_M_first.i109, align 8
-  %_M_last.i111 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_last.i111 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %38, ptr %_M_last.i111, align 8
-  %_M_node.i113 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_node.i113 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %39, ptr %_M_node.i113, align 8
   br label %return
 
 if.end22:                                         ; preds = %sw.bb
-  %incdec.ptr.i115 = getelementptr inbounds i8, ptr %37, i64 8
+  %incdec.ptr.i115 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %incdec.ptr.i115, ptr %__first, align 8
   %cmp.i117 = icmp eq ptr %incdec.ptr.i115, %38
   br i1 %cmp.i117, label %if.then.i118, label %sw.bb24
 
 if.then.i118:                                     ; preds = %if.end22
-  %add.ptr.i120 = getelementptr inbounds i8, ptr %39, i64 8
+  %add.ptr.i120 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %add.ptr.i120, ptr %_M_node1.i, align 8
   %44 = load ptr, ptr %add.ptr.i120, align 8
   store ptr %44, ptr %_M_first3.i103, align 8
-  %add.ptr.i.i122 = getelementptr inbounds i8, ptr %44, i64 512
+  %add.ptr.i.i122 = getelementptr inbounds nuw i8, ptr %44, i64 512
   store ptr %add.ptr.i.i122, ptr %_M_last.i, align 8
   store ptr %44, ptr %__first, align 8
   br label %sw.bb24
@@ -2660,7 +2660,7 @@ sw.bb24:                                          ; preds = %if.then.i118, %if.e
   %45 = phi ptr [ %add.ptr.i120, %if.then.i118 ], [ %39, %if.end22 ], [ %39, %for.end ]
   %46 = phi ptr [ %add.ptr.i.i122, %if.then.i118 ], [ %38, %if.end22 ], [ %38, %for.end ]
   %47 = phi ptr [ %44, %if.then.i118 ], [ %incdec.ptr.i115, %if.end22 ], [ %37, %for.end ]
-  %_M_first3.i125 = getelementptr inbounds i8, ptr %__first, i64 8
+  %_M_first3.i125 = getelementptr inbounds nuw i8, ptr %__first, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %__pred.coerce, align 8
   %cmp.i130 = icmp eq ptr %48, %49
@@ -2668,27 +2668,27 @@ sw.bb24:                                          ; preds = %if.then.i118, %if.e
 
 if.then27:                                        ; preds = %sw.bb24
   store ptr %47, ptr %agg.result, align 8
-  %_M_first.i131 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_first.i131 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %50 = load ptr, ptr %_M_first3.i125, align 8
   store ptr %50, ptr %_M_first.i131, align 8
-  %_M_last.i133 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_last.i133 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %46, ptr %_M_last.i133, align 8
-  %_M_node.i135 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_node.i135 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %45, ptr %_M_node.i135, align 8
   br label %return
 
 if.end28:                                         ; preds = %sw.bb24
-  %incdec.ptr.i137 = getelementptr inbounds i8, ptr %47, i64 8
+  %incdec.ptr.i137 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %incdec.ptr.i137, ptr %__first, align 8
   %cmp.i139 = icmp eq ptr %incdec.ptr.i137, %46
   br i1 %cmp.i139, label %if.then.i140, label %sw.bb30
 
 if.then.i140:                                     ; preds = %if.end28
-  %add.ptr.i142 = getelementptr inbounds i8, ptr %45, i64 8
+  %add.ptr.i142 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %add.ptr.i142, ptr %_M_node1.i, align 8
   %51 = load ptr, ptr %add.ptr.i142, align 8
   store ptr %51, ptr %_M_first3.i125, align 8
-  %add.ptr.i.i144 = getelementptr inbounds i8, ptr %51, i64 512
+  %add.ptr.i.i144 = getelementptr inbounds nuw i8, ptr %51, i64 512
   store ptr %add.ptr.i.i144, ptr %_M_last.i, align 8
   store ptr %51, ptr %__first, align 8
   br label %sw.bb30
@@ -2697,7 +2697,7 @@ sw.bb30:                                          ; preds = %if.then.i140, %if.e
   %52 = phi ptr [ %add.ptr.i142, %if.then.i140 ], [ %45, %if.end28 ], [ %39, %for.end ]
   %53 = phi ptr [ %add.ptr.i.i144, %if.then.i140 ], [ %46, %if.end28 ], [ %38, %for.end ]
   %54 = phi ptr [ %51, %if.then.i140 ], [ %incdec.ptr.i137, %if.end28 ], [ %37, %for.end ]
-  %_M_first3.i147 = getelementptr inbounds i8, ptr %__first, i64 8
+  %_M_first3.i147 = getelementptr inbounds nuw i8, ptr %__first, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %__pred.coerce, align 8
   %cmp.i152 = icmp eq ptr %55, %56
@@ -2705,27 +2705,27 @@ sw.bb30:                                          ; preds = %if.then.i140, %if.e
 
 if.then33:                                        ; preds = %sw.bb30
   store ptr %54, ptr %agg.result, align 8
-  %_M_first.i153 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_first.i153 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %57 = load ptr, ptr %_M_first3.i147, align 8
   store ptr %57, ptr %_M_first.i153, align 8
-  %_M_last.i155 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_last.i155 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %53, ptr %_M_last.i155, align 8
-  %_M_node.i157 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_node.i157 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %52, ptr %_M_node.i157, align 8
   br label %return
 
 if.end34:                                         ; preds = %sw.bb30
-  %incdec.ptr.i159 = getelementptr inbounds i8, ptr %54, i64 8
+  %incdec.ptr.i159 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %incdec.ptr.i159, ptr %__first, align 8
   %cmp.i161 = icmp eq ptr %incdec.ptr.i159, %53
   br i1 %cmp.i161, label %if.then.i162, label %sw.default
 
 if.then.i162:                                     ; preds = %if.end34
-  %add.ptr.i164 = getelementptr inbounds i8, ptr %52, i64 8
+  %add.ptr.i164 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %add.ptr.i164, ptr %_M_node1.i, align 8
   %58 = load ptr, ptr %add.ptr.i164, align 8
   store ptr %58, ptr %_M_first3.i147, align 8
-  %add.ptr.i.i166 = getelementptr inbounds i8, ptr %58, i64 512
+  %add.ptr.i.i166 = getelementptr inbounds nuw i8, ptr %58, i64 512
   store ptr %add.ptr.i.i166, ptr %_M_last.i, align 8
   store ptr %58, ptr %__first, align 8
   br label %sw.default
@@ -2733,14 +2733,14 @@ if.then.i162:                                     ; preds = %if.end34
 sw.default:                                       ; preds = %if.then.i162, %if.end34, %for.end
   %59 = load ptr, ptr %__last, align 8
   store ptr %59, ptr %agg.result, align 8
-  %_M_first.i168 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_first.i168 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %60 = load ptr, ptr %_M_first.i, align 8
   store ptr %60, ptr %_M_first.i168, align 8
-  %_M_last.i170 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_M_last4.i171 = getelementptr inbounds i8, ptr %__last, i64 16
+  %_M_last.i170 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_M_last4.i171 = getelementptr inbounds nuw i8, ptr %__last, i64 16
   %61 = load ptr, ptr %_M_last4.i171, align 8
   store ptr %61, ptr %_M_last.i170, align 8
-  %_M_node.i172 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_node.i172 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   %62 = load ptr, ptr %_M_node.i, align 8
   store ptr %62, ptr %_M_node.i172, align 8
   br label %return
@@ -2761,20 +2761,20 @@ entry:
   %agg.tmp2.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %0 = load ptr, ptr %__position, align 8
-  %_M_first3.i = getelementptr inbounds i8, ptr %__position, i64 8
+  %_M_first3.i = getelementptr inbounds nuw i8, ptr %__position, i64 8
   %1 = load ptr, ptr %_M_first3.i, align 8
-  %_M_last4.i = getelementptr inbounds i8, ptr %__position, i64 16
+  %_M_last4.i = getelementptr inbounds nuw i8, ptr %__position, i64 16
   %2 = load ptr, ptr %_M_last4.i, align 8
-  %_M_node5.i = getelementptr inbounds i8, ptr %__position, i64 24
+  %_M_node5.i = getelementptr inbounds nuw i8, ptr %__position, i64 24
   %3 = load ptr, ptr %_M_node5.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %cmp.i = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i, label %if.then.i, label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
 
 if.then.i:                                        ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 512
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 512
   br label %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
 
 _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit: ; preds = %entry, %if.then.i
@@ -2782,12 +2782,12 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   %__next.sroa.7.0 = phi ptr [ %4, %if.then.i ], [ %1, %entry ]
   %__next.sroa.11.0 = phi ptr [ %add.ptr.i.i, %if.then.i ], [ %2, %entry ]
   %__next.sroa.16.0 = phi ptr [ %add.ptr.i, %if.then.i ], [ %3, %entry ]
-  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_start.i, align 8, !noalias !88
-  %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_first3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_M_last4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !88
-  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %7 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !88
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -2807,8 +2807,8 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   %sub.ptr.div11.i = ashr exact i64 %sub.ptr.sub10.i, 3
   %add.i = add nsw i64 %sub.ptr.div11.i, %sub.ptr.div6.i
   %add12.i = add i64 %add.i, %mul.i
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
-  %_M_node.i.i9 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %_M_node.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %8 = load ptr, ptr %_M_node.i.i9, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
@@ -2818,7 +2818,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_Epp
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
   %9 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i10 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %10 = load ptr, ptr %_M_first.i.i10, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %10 to i64
@@ -2841,25 +2841,25 @@ if.then6:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !97
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !97
   store ptr %5, ptr %agg.tmp.i.i.i, align 8, !noalias !100
-  %_M_first.i.i25.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  %_M_first.i.i25.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %11, ptr %_M_first.i.i25.i.i, align 8, !noalias !100
-  %_M_last.i.i27.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
+  %_M_last.i.i27.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 16
   store ptr %6, ptr %_M_last.i.i27.i.i, align 8, !noalias !100
-  %_M_node.i.i29.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
+  %_M_node.i.i29.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i.i29.i.i, align 8, !noalias !100
   store ptr %0, ptr %agg.tmp1.i.i.i, align 8, !noalias !100
-  %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
+  %_M_first.i1.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 8
   store ptr %1, ptr %_M_first.i1.i.i.i, align 8, !noalias !100
-  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
+  %_M_last.i3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 16
   store ptr %2, ptr %_M_last.i3.i.i.i, align 8, !noalias !100
-  %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
+  %_M_node.i5.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i5.i.i.i, align 8, !noalias !100
   store ptr %__next.sroa.0.0, ptr %agg.tmp2.i.i.i, align 8, !noalias !100
-  %_M_first.i7.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
+  %_M_first.i7.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i, i64 8
   store ptr %__next.sroa.7.0, ptr %_M_first.i7.i.i.i, align 8, !noalias !100
-  %_M_last.i9.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
+  %_M_last.i9.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i, i64 16
   store ptr %__next.sroa.11.0, ptr %_M_last.i9.i.i.i, align 8, !noalias !100
-  %_M_node.i11.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
+  %_M_node.i11.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i, i64 24
   store ptr %__next.sroa.16.0, ptr %_M_node.i11.i.i.i, align 8, !noalias !100
   call void @_ZSt24__copy_move_backward_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i), !noalias !97
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !97
@@ -2878,18 +2878,18 @@ if.end:                                           ; preds = %if.then6, %if.then
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i44
 
 if.then.i44:                                      ; preds = %if.end
-  %incdec.ptr.i45 = getelementptr inbounds i8, ptr %13, i64 8
+  %incdec.ptr.i45 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit
 
 if.else.i:                                        ; preds = %if.end
   %14 = load ptr, ptr %_M_first3.i.i, align 8
   call void @_ZdlPv(ptr noundef %14) #15
   %15 = load ptr, ptr %_M_node5.i.i, align 8
-  %add.ptr.i.i48 = getelementptr inbounds i8, ptr %15, i64 8
+  %add.ptr.i.i48 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %add.ptr.i.i48, ptr %_M_node5.i.i, align 8
   %16 = load ptr, ptr %add.ptr.i.i48, align 8
   store ptr %16, ptr %_M_first3.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %16, i64 512
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 512
   store ptr %add.ptr.i.i.i, ptr %_M_last4.i.i, align 8
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.exit
 
@@ -2900,7 +2900,7 @@ _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE9pop_frontEv.e
   br label %if.end17
 
 if.else:                                          ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EppEv.exit
-  %_M_last4.i.i53 = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_last4.i.i53 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %cmp.i.i56.not = icmp eq ptr %__next.sroa.0.0, %9
   br i1 %cmp.i.i56.not, label %if.end16, label %if.then11
 
@@ -2911,25 +2911,25 @@ if.then11:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i77), !noalias !109
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i78), !noalias !109
   store ptr %__next.sroa.0.0, ptr %agg.tmp.i.i.i76, align 8, !noalias !112
-  %_M_first.i.i25.i.i89 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i76, i64 8
+  %_M_first.i.i25.i.i89 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i76, i64 8
   store ptr %__next.sroa.7.0, ptr %_M_first.i.i25.i.i89, align 8, !noalias !112
-  %_M_last.i.i27.i.i90 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i76, i64 16
+  %_M_last.i.i27.i.i90 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i76, i64 16
   store ptr %__next.sroa.11.0, ptr %_M_last.i.i27.i.i90, align 8, !noalias !112
-  %_M_node.i.i29.i.i91 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i76, i64 24
+  %_M_node.i.i29.i.i91 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i76, i64 24
   store ptr %__next.sroa.16.0, ptr %_M_node.i.i29.i.i91, align 8, !noalias !112
   store ptr %9, ptr %agg.tmp1.i.i.i77, align 8, !noalias !112
-  %_M_first.i1.i.i.i92 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i77, i64 8
+  %_M_first.i1.i.i.i92 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i77, i64 8
   store ptr %10, ptr %_M_first.i1.i.i.i92, align 8, !noalias !112
-  %_M_last.i3.i.i.i93 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i77, i64 16
+  %_M_last.i3.i.i.i93 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i77, i64 16
   store ptr %18, ptr %_M_last.i3.i.i.i93, align 8, !noalias !112
-  %_M_node.i5.i.i.i94 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i77, i64 24
+  %_M_node.i5.i.i.i94 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i.i77, i64 24
   store ptr %8, ptr %_M_node.i5.i.i.i94, align 8, !noalias !112
   store ptr %0, ptr %agg.tmp2.i.i.i78, align 8, !noalias !112
-  %_M_first.i7.i.i.i95 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i78, i64 8
+  %_M_first.i7.i.i.i95 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i78, i64 8
   store ptr %1, ptr %_M_first.i7.i.i.i95, align 8, !noalias !112
-  %_M_last.i9.i.i.i96 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i78, i64 16
+  %_M_last.i9.i.i.i96 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i78, i64 16
   store ptr %2, ptr %_M_last.i9.i.i.i96, align 8, !noalias !112
-  %_M_node.i11.i.i.i97 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i78, i64 24
+  %_M_node.i11.i.i.i97 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i78, i64 24
   store ptr %3, ptr %_M_node.i11.i.i.i97, align 8, !noalias !112
   call void @_ZSt15__copy_move_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i79, ptr noundef nonnull %agg.tmp.i.i.i76, ptr noundef nonnull %agg.tmp1.i.i.i77, ptr noundef nonnull %agg.tmp2.i.i.i78), !noalias !109
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i76), !noalias !109
@@ -2957,9 +2957,9 @@ if.else.i110:                                     ; preds = %if.end16
   store ptr %add.ptr.i.i112, ptr %_M_node.i.i9, align 8
   %22 = load ptr, ptr %add.ptr.i.i112, align 8
   store ptr %22, ptr %_M_first.i.i10, align 8
-  %add.ptr.i.i.i113 = getelementptr inbounds i8, ptr %22, i64 512
+  %add.ptr.i.i.i113 = getelementptr inbounds nuw i8, ptr %22, i64 512
   store ptr %add.ptr.i.i.i113, ptr %_M_last4.i.i53, align 8
-  %add.ptr8.i.i = getelementptr inbounds i8, ptr %22, i64 504
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %22, i64 504
   br label %_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.exit
 
 _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE8pop_backEv.exit: ; preds = %if.then.i107, %if.else.i110
@@ -2975,11 +2975,11 @@ if.end17:                                         ; preds = %_ZNSt5dequeIPN3net2
   %25 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !115
   %26 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !115
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  %_M_first.i.i121 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_first.i.i121 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %25, ptr %_M_first.i.i121, align 8, !alias.scope !118
-  %_M_last.i.i123 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_last.i.i123 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %23, ptr %_M_last.i.i123, align 8, !alias.scope !118
-  %_M_node.i.i125 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_node.i.i125 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %26, ptr %_M_node.i.i125, align 8, !alias.scope !118
   %sub.ptr.lhs.cast.i.i127 = ptrtoint ptr %24 to i64
   %sub.ptr.rhs.cast.i.i128 = ptrtoint ptr %25 to i64
@@ -3011,7 +3011,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   store ptr %add.ptr11.i.i, ptr %_M_node.i.i125, align 8, !alias.scope !118
   %27 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !118
   store ptr %27, ptr %_M_first.i.i121, align 8, !alias.scope !118
-  %add.ptr.i.i.i133 = getelementptr inbounds i8, ptr %27, i64 512
+  %add.ptr.i.i.i133 = getelementptr inbounds nuw i8, ptr %27, i64 512
   store ptr %add.ptr.i.i.i133, ptr %_M_last.i.i123, align 8, !alias.scope !118
   %mul.i.i134 = shl nsw i64 %cond.i.i, 6
   %sub14.i.i = sub nsw i64 %add.i.i131, %mul.i.i134
@@ -3027,23 +3027,23 @@ _ZStplRKSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr noalias sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #0 comdat {
 entry:
-  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
+  %_M_node = getelementptr inbounds nuw i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node1 = getelementptr inbounds i8, ptr %__last, i64 24
+  %_M_node1 = getelementptr inbounds nuw i8, ptr %__last, i64 24
   %1 = load ptr, ptr %_M_node1, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
+  %_M_first = getelementptr inbounds nuw i8, ptr %__last, i64 8
   %2 = load ptr, ptr %_M_first, align 8
   %3 = load ptr, ptr %__last, align 8
   %4 = load ptr, ptr %__result, align 8
-  %_M_first3.i = getelementptr inbounds i8, ptr %__result, i64 8
+  %_M_first3.i = getelementptr inbounds nuw i8, ptr %__result, i64 8
   %5 = load ptr, ptr %_M_first3.i, align 8
-  %_M_last4.i = getelementptr inbounds i8, ptr %__result, i64 16
+  %_M_last4.i = getelementptr inbounds nuw i8, ptr %__result, i64 16
   %6 = load ptr, ptr %_M_last4.i, align 8
-  %_M_node5.i = getelementptr inbounds i8, ptr %__result, i64 24
+  %_M_node5.i = getelementptr inbounds nuw i8, ptr %__result, i64 24
   %7 = load ptr, ptr %_M_node5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
@@ -3065,7 +3065,7 @@ while.body.i:                                     ; preds = %if.then, %_ZNSt15_D
 if.end.thread.i:                                  ; preds = %while.body.i
   %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.12.0, i64 -8
   %9 = load ptr, ptr %add.ptr.i, align 8, !noalias !121
-  %add.ptr6.i = getelementptr inbounds i8, ptr %9, i64 512
+  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %9, i64 512
   %10 = tail call i64 @llvm.umin.i64(i64 %storemerge12.i, i64 64)
   %.pre239 = ptrtoint ptr %agg.tmp.sroa.0.0 to i64
   %.pre240 = ptrtoint ptr %8 to i64
@@ -3114,7 +3114,7 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i.i
   %11 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !121
-  %add.ptr.i.i.i7.i = getelementptr inbounds i8, ptr %11, i64 512
+  %add.ptr.i.i.i7.i = getelementptr inbounds nuw i8, ptr %11, i64 512
   %mul.i.i.i = shl nsw i64 %cond.i.i.i, 6
   %sub14.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
   %add.ptr15.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %sub14.i.i.i
@@ -3151,7 +3151,7 @@ for.body:                                         ; preds = %_ZSt23__copy_move_b
   %19 = phi ptr [ %storemerge.i.i.i66, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit78 ], [ %13, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ]
   %__node.0235 = phi ptr [ %__node.0, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit78 ], [ %__node.0233, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ]
   %20 = load ptr, ptr %__node.0235, align 8
-  %add.ptr6 = getelementptr inbounds i8, ptr %20, i64 512
+  %add.ptr6 = getelementptr inbounds nuw i8, ptr %20, i64 512
   br label %while.body.i30
 
 while.body.i30:                                   ; preds = %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i65, %for.body
@@ -3167,7 +3167,7 @@ while.body.i30:                                   ; preds = %_ZNSt15_Deque_itera
 if.end.thread.i75:                                ; preds = %while.body.i30
   %add.ptr.i76 = getelementptr inbounds i8, ptr %agg.tmp7.sroa.11.0, i64 -8
   %22 = load ptr, ptr %add.ptr.i76, align 8, !noalias !125
-  %add.ptr6.i77 = getelementptr inbounds i8, ptr %22, i64 512
+  %add.ptr6.i77 = getelementptr inbounds nuw i8, ptr %22, i64 512
   %23 = tail call i64 @llvm.umin.i64(i64 %storemerge12.i32, i64 64)
   %.pre247 = ptrtoint ptr %agg.tmp7.sroa.0.0 to i64
   %.pre248 = ptrtoint ptr %21 to i64
@@ -3216,7 +3216,7 @@ cond.end.i.i.i58:                                 ; preds = %cond.false.i.i.i56,
   %cond.i.i.i59 = phi i64 [ %div911.i.i.i72, %cond.true.i.i.i71 ], [ %sub10.i.i.i57, %cond.false.i.i.i56 ]
   %add.ptr11.i.i.i60 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i.i59
   %24 = load ptr, ptr %add.ptr11.i.i.i60, align 8, !noalias !125
-  %add.ptr.i.i.i7.i61 = getelementptr inbounds i8, ptr %24, i64 512
+  %add.ptr.i.i.i7.i61 = getelementptr inbounds nuw i8, ptr %24, i64 512
   %mul.i.i.i62 = shl nsw i64 %cond.i.i.i59, 6
   %sub14.i.i.i63 = sub nsw i64 %add.i.i.i54, %mul.i.i.i62
   %add.ptr15.i.i.i64 = getelementptr inbounds ptr, ptr %24, i64 %sub14.i.i.i63
@@ -3247,7 +3247,7 @@ for.end:                                          ; preds = %_ZSt23__copy_move_b
   %28 = phi ptr [ %12, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ], [ %agg.tmp7.sroa.4.1, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit78 ]
   %29 = phi ptr [ %13, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ], [ %storemerge.i.i.i66, %_ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit78 ]
   %30 = load ptr, ptr %__first, align 8
-  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
+  %_M_last = getelementptr inbounds nuw i8, ptr %__first, i64 16
   %31 = load ptr, ptr %_M_last, align 8
   %sub.ptr.lhs.cast.i85 = ptrtoint ptr %31 to i64
   %sub.ptr.rhs.cast.i86 = ptrtoint ptr %30 to i64
@@ -3269,7 +3269,7 @@ while.body.i103:                                  ; preds = %for.end, %_ZNSt15_D
 if.end.thread.i148:                               ; preds = %while.body.i103
   %add.ptr.i149 = getelementptr inbounds i8, ptr %agg.tmp9.sroa.12.0, i64 -8
   %33 = load ptr, ptr %add.ptr.i149, align 8, !noalias !129
-  %add.ptr6.i150 = getelementptr inbounds i8, ptr %33, i64 512
+  %add.ptr6.i150 = getelementptr inbounds nuw i8, ptr %33, i64 512
   %34 = tail call i64 @llvm.umin.i64(i64 %storemerge12.i105, i64 64)
   %.pre243 = ptrtoint ptr %agg.tmp9.sroa.0.0 to i64
   %.pre244 = ptrtoint ptr %32 to i64
@@ -3318,7 +3318,7 @@ cond.end.i.i.i131:                                ; preds = %cond.false.i.i.i129
   %cond.i.i.i132 = phi i64 [ %div911.i.i.i145, %cond.true.i.i.i144 ], [ %sub10.i.i.i130, %cond.false.i.i.i129 ]
   %add.ptr11.i.i.i133 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i.i132
   %35 = load ptr, ptr %add.ptr11.i.i.i133, align 8, !noalias !129
-  %add.ptr.i.i.i7.i134 = getelementptr inbounds i8, ptr %35, i64 512
+  %add.ptr.i.i.i7.i134 = getelementptr inbounds nuw i8, ptr %35, i64 512
   %mul.i.i.i135 = shl nsw i64 %cond.i.i.i132, 6
   %sub14.i.i.i136 = sub nsw i64 %add.i.i.i127, %mul.i.i.i135
   %add.ptr15.i.i.i137 = getelementptr inbounds ptr, ptr %35, i64 %sub14.i.i.i136
@@ -3337,11 +3337,11 @@ if.end:                                           ; preds = %entry
   %36 = load ptr, ptr %__first, align 8
   %37 = load ptr, ptr %__last, align 8
   %38 = load ptr, ptr %__result, align 8
-  %_M_first3.i153 = getelementptr inbounds i8, ptr %__result, i64 8
+  %_M_first3.i153 = getelementptr inbounds nuw i8, ptr %__result, i64 8
   %39 = load ptr, ptr %_M_first3.i153, align 8
-  %_M_last4.i155 = getelementptr inbounds i8, ptr %__result, i64 16
+  %_M_last4.i155 = getelementptr inbounds nuw i8, ptr %__result, i64 16
   %40 = load ptr, ptr %_M_last4.i155, align 8
-  %_M_node5.i157 = getelementptr inbounds i8, ptr %__result, i64 24
+  %_M_node5.i157 = getelementptr inbounds nuw i8, ptr %__result, i64 24
   %41 = load ptr, ptr %_M_node5.i157, align 8
   %sub.ptr.lhs.cast.i158 = ptrtoint ptr %37 to i64
   %sub.ptr.rhs.cast.i159 = ptrtoint ptr %36 to i64
@@ -3363,7 +3363,7 @@ while.body.i176:                                  ; preds = %if.end, %_ZNSt15_De
 if.end.thread.i221:                               ; preds = %while.body.i176
   %add.ptr.i222 = getelementptr inbounds i8, ptr %agg.tmp12.sroa.12.0, i64 -8
   %43 = load ptr, ptr %add.ptr.i222, align 8, !noalias !132
-  %add.ptr6.i223 = getelementptr inbounds i8, ptr %43, i64 512
+  %add.ptr6.i223 = getelementptr inbounds nuw i8, ptr %43, i64 512
   %44 = tail call i64 @llvm.umin.i64(i64 %storemerge12.i178, i64 64)
   %.pre = ptrtoint ptr %agg.tmp12.sroa.0.0 to i64
   %.pre236 = ptrtoint ptr %42 to i64
@@ -3412,7 +3412,7 @@ cond.end.i.i.i204:                                ; preds = %cond.false.i.i.i202
   %cond.i.i.i205 = phi i64 [ %div911.i.i.i218, %cond.true.i.i.i217 ], [ %sub10.i.i.i203, %cond.false.i.i.i202 ]
   %add.ptr11.i.i.i206 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i.i205
   %45 = load ptr, ptr %add.ptr11.i.i.i206, align 8, !noalias !132
-  %add.ptr.i.i.i7.i207 = getelementptr inbounds i8, ptr %45, i64 512
+  %add.ptr.i.i.i7.i207 = getelementptr inbounds nuw i8, ptr %45, i64 512
   %mul.i.i.i208 = shl nsw i64 %cond.i.i.i205, 6
   %sub14.i.i.i209 = sub nsw i64 %add.i.i.i200, %mul.i.i.i208
   %add.ptr15.i.i.i210 = getelementptr inbounds ptr, ptr %45, i64 %sub14.i.i.i209
@@ -3433,11 +3433,11 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
   %agg.tmp12.sroa.9.2.sink = phi ptr [ %27, %for.end ], [ %40, %if.end ], [ %agg.tmp12.sroa.9.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i211 ], [ %agg.tmp9.sroa.9.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i138 ]
   %agg.tmp12.sroa.12.2.sink = phi ptr [ %26, %for.end ], [ %41, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i211 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmIEl.exit.i138 ]
   store ptr %.sink251, ptr %agg.result, align 8
-  %_M_first.i.i167 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_first.i.i167 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %_M_first.i.i167, align 8
-  %_M_last.i.i168 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_last.i.i168 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %agg.tmp12.sroa.9.2.sink, ptr %_M_last.i.i168, align 8
-  %_M_node.i.i170 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_node.i.i170 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %agg.tmp12.sroa.12.2.sink, ptr %_M_node.i.i170, align 8
   ret void
 }
@@ -3448,9 +3448,9 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt15__copy_move_ditILb1EPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_St15_Deque_iteratorIS4_S5_S6_EET3_S7_IT0_T1_T2_ESD_S9_(ptr noalias sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #0 comdat {
 entry:
-  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
+  %_M_node = getelementptr inbounds nuw i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node1 = getelementptr inbounds i8, ptr %__last, i64 24
+  %_M_node1 = getelementptr inbounds nuw i8, ptr %__last, i64 24
   %1 = load ptr, ptr %_M_node1, align 8
   %cmp.not = icmp eq ptr %0, %1
   %2 = load ptr, ptr %__first, align 8
@@ -3458,14 +3458,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
+  %_M_last = getelementptr inbounds nuw i8, ptr %__first, i64 16
   %3 = load ptr, ptr %_M_last, align 8
   %4 = load ptr, ptr %__result, align 8
-  %_M_first3.i = getelementptr inbounds i8, ptr %__result, i64 8
+  %_M_first3.i = getelementptr inbounds nuw i8, ptr %__result, i64 8
   %5 = load ptr, ptr %_M_first3.i, align 8
-  %_M_last4.i = getelementptr inbounds i8, ptr %__result, i64 16
+  %_M_last4.i = getelementptr inbounds nuw i8, ptr %__result, i64 16
   %6 = load ptr, ptr %_M_last4.i, align 8
-  %_M_node5.i = getelementptr inbounds i8, ptr %__result, i64 24
+  %_M_node5.i = getelementptr inbounds nuw i8, ptr %__result, i64 24
   %7 = load ptr, ptr %_M_node5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i142
@@ -3522,7 +3522,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i
   %8 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !135
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 512
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 512
   %mul.i.i = shl nsw i64 %cond.i.i, 6
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
   %add.ptr15.i.i = getelementptr inbounds ptr, ptr %8, i64 %sub14.i.i
@@ -3547,7 +3547,7 @@ _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__
   store ptr %agg.tmp.sroa.8.2, ptr %_M_last4.i, align 8
   store ptr %agg.tmp.sroa.12.2, ptr %_M_node5.i, align 8
   %11 = load ptr, ptr %_M_node, align 8
-  %__node.0208 = getelementptr inbounds i8, ptr %11, i64 8
+  %__node.0208 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_node1, align 8
   %cmp4.not209 = icmp eq ptr %__node.0208, %12
   br i1 %cmp4.not209, label %for.end, label %for.body
@@ -3610,7 +3610,7 @@ cond.end.i.i52:                                   ; preds = %cond.false.i.i50, %
   %cond.i.i53 = phi i64 [ %div911.i.i66, %cond.true.i.i65 ], [ %sub10.i.i51, %cond.false.i.i50 ]
   %add.ptr11.i.i54 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i53
   %18 = load ptr, ptr %add.ptr11.i.i54, align 8, !noalias !139
-  %add.ptr.i.i.i55 = getelementptr inbounds i8, ptr %18, i64 512
+  %add.ptr.i.i.i55 = getelementptr inbounds nuw i8, ptr %18, i64 512
   %mul.i.i56 = shl nsw i64 %cond.i.i53, 6
   %sub14.i.i57 = sub nsw i64 %add.i.i48, %mul.i.i56
   %add.ptr15.i.i58 = getelementptr inbounds ptr, ptr %18, i64 %sub14.i.i57
@@ -3630,7 +3630,7 @@ _ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__
   store ptr %agg.tmp7.sroa.4.1, ptr %_M_first3.i, align 8
   store ptr %agg.tmp7.sroa.7.1, ptr %_M_last4.i, align 8
   store ptr %agg.tmp7.sroa.11.1, ptr %_M_node5.i, align 8
-  %__node.0 = getelementptr inbounds i8, ptr %__node.0210, i64 8
+  %__node.0 = getelementptr inbounds nuw i8, ptr %__node.0210, i64 8
   %19 = load ptr, ptr %_M_node1, align 8
   %cmp4.not = icmp eq ptr %__node.0, %19
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !142
@@ -3640,7 +3640,7 @@ for.end:                                          ; preds = %_ZSt14__copy_move_a
   %21 = phi ptr [ %agg.tmp.sroa.8.2, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ], [ %agg.tmp7.sroa.7.1, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit69 ]
   %22 = phi ptr [ %9, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ], [ %agg.tmp7.sroa.4.1, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit69 ]
   %23 = phi ptr [ %10, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit ], [ %storemerge.i.i60, %_ZSt14__copy_move_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfoES4_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSA_PSA_EE6__typeES8_S8_SD_.exit69 ]
-  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
+  %_M_first = getelementptr inbounds nuw i8, ptr %__last, i64 8
   %24 = load ptr, ptr %_M_first, align 8
   %25 = load ptr, ptr %__last, align 8
   %sub.ptr.lhs.cast.i76 = ptrtoint ptr %25 to i64
@@ -3699,7 +3699,7 @@ cond.end.i.i117:                                  ; preds = %cond.false.i.i115, 
   %cond.i.i118 = phi i64 [ %div911.i.i131, %cond.true.i.i130 ], [ %sub10.i.i116, %cond.false.i.i115 ]
   %add.ptr11.i.i119 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i118
   %26 = load ptr, ptr %add.ptr11.i.i119, align 8, !noalias !143
-  %add.ptr.i.i.i120 = getelementptr inbounds i8, ptr %26, i64 512
+  %add.ptr.i.i.i120 = getelementptr inbounds nuw i8, ptr %26, i64 512
   %mul.i.i121 = shl nsw i64 %cond.i.i118, 6
   %sub14.i.i122 = sub nsw i64 %add.i.i113, %mul.i.i121
   %add.ptr15.i.i123 = getelementptr inbounds ptr, ptr %26, i64 %sub14.i.i122
@@ -3717,11 +3717,11 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpL
 if.end:                                           ; preds = %entry
   %27 = load ptr, ptr %__last, align 8
   %28 = load ptr, ptr %__result, align 8
-  %_M_first3.i136 = getelementptr inbounds i8, ptr %__result, i64 8
+  %_M_first3.i136 = getelementptr inbounds nuw i8, ptr %__result, i64 8
   %29 = load ptr, ptr %_M_first3.i136, align 8
-  %_M_last4.i138 = getelementptr inbounds i8, ptr %__result, i64 16
+  %_M_last4.i138 = getelementptr inbounds nuw i8, ptr %__result, i64 16
   %30 = load ptr, ptr %_M_last4.i138, align 8
-  %_M_node5.i140 = getelementptr inbounds i8, ptr %__result, i64 24
+  %_M_node5.i140 = getelementptr inbounds nuw i8, ptr %__result, i64 24
   %31 = load ptr, ptr %_M_node5.i140, align 8
   %sub.ptr.lhs.cast.i141 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i143 = sub i64 %sub.ptr.lhs.cast.i141, %sub.ptr.rhs.cast.i142
@@ -3778,7 +3778,7 @@ cond.end.i.i182:                                  ; preds = %cond.false.i.i180, 
   %cond.i.i183 = phi i64 [ %div911.i.i196, %cond.true.i.i195 ], [ %sub10.i.i181, %cond.false.i.i180 ]
   %add.ptr11.i.i184 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i183
   %32 = load ptr, ptr %add.ptr11.i.i184, align 8, !noalias !146
-  %add.ptr.i.i.i185 = getelementptr inbounds i8, ptr %32, i64 512
+  %add.ptr.i.i.i185 = getelementptr inbounds nuw i8, ptr %32, i64 512
   %mul.i.i186 = shl nsw i64 %cond.i.i183, 6
   %sub14.i.i187 = sub nsw i64 %add.i.i178, %mul.i.i186
   %add.ptr15.i.i188 = getelementptr inbounds ptr, ptr %32, i64 %sub14.i.i187
@@ -3799,11 +3799,11 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
   %agg.tmp12.sroa.8.2.sink = phi ptr [ %21, %for.end ], [ %30, %if.end ], [ %agg.tmp12.sroa.8.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i189 ], [ %agg.tmp9.sroa.8.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i124 ]
   %agg.tmp12.sroa.12.2.sink = phi ptr [ %20, %for.end ], [ %31, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i189 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EpLEl.exit.i124 ]
   store ptr %.sink211, ptr %agg.result, align 8
-  %_M_first.i8.i150 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_first.i8.i150 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %_M_first.i8.i150, align 8
-  %_M_last.i.i151 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_last.i.i151 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %agg.tmp12.sroa.8.2.sink, ptr %_M_last.i.i151, align 8
-  %_M_node.i9.i153 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_node.i9.i153 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %agg.tmp12.sroa.12.2.sink, ptr %_M_node.i9.i153, align 8
   ret void
 }
@@ -3813,11 +3813,11 @@ declare noundef zeroext i8 @_ZN3net18ClampSpdy3PriorityEh(i8 noundef zeroext) lo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE16_M_push_back_auxIJS4_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
-  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -3828,14 +3828,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -3851,7 +3851,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_map_size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -3869,18 +3869,18 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #16
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load ptr, ptr %__args, align 8
   store ptr %10, ptr %9, align 8
   %11 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %11, i64 8
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %12 = load ptr, ptr %add.ptr12, align 8
   store ptr %12, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %12, ptr %_M_finish.i, align 8
   ret void
@@ -3892,9 +3892,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node3 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -3902,7 +3902,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_map_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -3912,11 +3912,11 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub = sub i64 %2, %add4
   %div17 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds ptr, ptr %3, i64 %div17
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div17
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -3966,10 +3966,10 @@ _ZNSt11_Deque_baseIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE15_M_al
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
   %sub40 = sub i64 %add38, %add4
   %div4116 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
+  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPPN3net22PriorityWriteSchedulerIjE10StreamInfoES6_ET0_T_S8_S7_.exit30, label %if.then.i.i.i.i.i28
 
@@ -3990,19 +3990,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN3net22PriorityWriteSchedulerIjE10StreamInfoES6_ET0_T_S8_S7_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 512
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i32 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i32 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i32, align 8
-  %add.ptr.i33 = getelementptr inbounds i8, ptr %6, i64 512
-  %_M_last.i34 = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i33 = getelementptr inbounds nuw i8, ptr %6, i64 512
+  %_M_last.i34 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i33, ptr %_M_last.i34, align 8
   ret void
 }
@@ -4010,9 +4010,9 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE13emplace_frontIJS4_EEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_start = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_start, align 8
-  %_M_first = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_first = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_first, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.else, label %if.then
@@ -4027,10 +4027,10 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %_M_node.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %4 = load ptr, ptr %_M_node.i.i.i, align 8
-  %_M_node1.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node1.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load ptr, ptr %_M_node1.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
@@ -4041,14 +4041,14 @@ if.else:                                          ; preds = %entry
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, %conv.neg.i.i.i
   %mul.i.i.i = shl nsw i64 %sub.i.i.i, 6
   %6 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_first.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %7 = load ptr, ptr %_M_first.i.i.i, align 8
   %sub.ptr.lhs.cast3.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast4.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub5.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i, %sub.ptr.rhs.cast4.i.i.i
   %sub.ptr.div6.i.i.i = ashr exact i64 %sub.ptr.sub5.i.i.i, 3
   %add.i.i.i = add nsw i64 %mul.i.i.i, %sub.ptr.div6.i.i.i
-  %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %8 = load ptr, ptr %_M_last.i.i.i, align 8
   %sub.ptr.lhs.cast8.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast9.i.i.i = ptrtoint ptr %0 to i64
@@ -4082,9 +4082,9 @@ _ZNSt5dequeIPN3net22PriorityWriteSchedulerIjE10StreamInfoESaIS4_EE17_M_push_fron
   store ptr %add.ptr9.i, ptr %_M_node1.i.i.i, align 8
   %12 = load ptr, ptr %add.ptr9.i, align 8
   store ptr %12, ptr %_M_first, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 512
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %12, i64 512
   store ptr %add.ptr.i.i, ptr %_M_last.i.i.i, align 8
-  %add.ptr12.i = getelementptr inbounds i8, ptr %12, i64 504
+  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %12, i64 504
   store ptr %add.ptr12.i, ptr %_M_start, align 8
   %13 = load ptr, ptr %__args, align 8
   store ptr %13, ptr %add.ptr12.i, align 8

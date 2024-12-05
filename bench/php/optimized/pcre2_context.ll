@@ -25,7 +25,7 @@ define hidden ptr @_pcre2_memctl_malloc_8(i64 noundef %0, ptr noundef readonly %
 
 .thread:                                          ; preds = %2
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %7(i64 noundef %0, ptr noundef %9) #11
   %11 = icmp eq ptr %10, null
@@ -33,9 +33,9 @@ define hidden ptr @_pcre2_memctl_malloc_8(i64 noundef %0, ptr noundef readonly %
 
 12:                                               ; preds = %4
   store ptr @default_malloc, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @default_free, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %14, align 8
   br label %15
 
@@ -78,9 +78,9 @@ define ptr @php_pcre2_general_context_create(ptr noundef %0, ptr noundef %1, ptr
   %8 = icmp eq ptr %1, null
   %spec.store.select1 = select i1 %8, ptr @default_free, ptr %1
   store ptr %spec.store.select, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %spec.store.select1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %10, align 8
   br label %11
 
@@ -100,7 +100,7 @@ define ptr @php_pcre2_compile_context_create(ptr noundef readonly %0) local_unna
 
 .thread.i:                                        ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %6(i64 noundef 72, ptr noundef %8) #11
   %10 = icmp eq ptr %9, null
@@ -133,7 +133,7 @@ define ptr @php_pcre2_match_context_create(ptr noundef readonly %0) local_unname
 
 .thread.i:                                        ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %6(i64 noundef 96, ptr noundef %8) #11
   %10 = icmp eq ptr %9, null
@@ -166,7 +166,7 @@ define ptr @php_pcre2_convert_context_create(ptr noundef readonly %0) local_unna
 
 .thread.i:                                        ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %6(i64 noundef 32, ptr noundef %8) #11
   %10 = icmp eq ptr %9, null
@@ -190,7 +190,7 @@ _pcre2_memctl_malloc_8.exit.thread:               ; preds = %.thread.i, %3, %_pc
 ; Function Attrs: nounwind uwtable
 define ptr @php_pcre2_general_context_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %2(i64 noundef 24, ptr noundef %4) #11
   %6 = icmp eq ptr %5, null
@@ -207,7 +207,7 @@ define ptr @php_pcre2_general_context_copy(ptr nocapture noundef readonly %0) lo
 ; Function Attrs: nounwind uwtable
 define ptr @php_pcre2_compile_context_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %2(i64 noundef 72, ptr noundef %4) #11
   %6 = icmp eq ptr %5, null
@@ -224,7 +224,7 @@ define ptr @php_pcre2_compile_context_copy(ptr nocapture noundef readonly %0) lo
 ; Function Attrs: nounwind uwtable
 define ptr @php_pcre2_match_context_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %2(i64 noundef 96, ptr noundef %4) #11
   %6 = icmp eq ptr %5, null
@@ -241,7 +241,7 @@ define ptr @php_pcre2_match_context_copy(ptr nocapture noundef readonly %0) loca
 ; Function Attrs: nounwind uwtable
 define ptr @php_pcre2_convert_context_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %2(i64 noundef 32, ptr noundef %4) #11
   %6 = icmp eq ptr %5, null
@@ -261,9 +261,9 @@ define void @php_pcre2_general_context_free(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %4(ptr noundef nonnull %0, ptr noundef %6) #11
   br label %7
@@ -278,9 +278,9 @@ define void @php_pcre2_compile_context_free(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %4(ptr noundef nonnull %0, ptr noundef %6) #11
   br label %7
@@ -295,9 +295,9 @@ define void @php_pcre2_match_context_free(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %4(ptr noundef nonnull %0, ptr noundef %6) #11
   br label %7
@@ -312,9 +312,9 @@ define void @php_pcre2_convert_context_free(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %4(ptr noundef nonnull %0, ptr noundef %6) #11
   br label %7
@@ -325,7 +325,7 @@ define void @php_pcre2_convert_context_free(ptr noundef %0) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @php_pcre2_set_character_tables(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret i32 0
 }
@@ -338,7 +338,7 @@ define range(i32 -29, 1) i32 @php_pcre2_set_bsr(ptr nocapture noundef writeonly 
 
 3:                                                ; preds = %2
   %4 = trunc nuw i32 %1 to i16
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i16 %4, ptr %5, align 8
   br label %6
 
@@ -349,7 +349,7 @@ define range(i32 -29, 1) i32 @php_pcre2_set_bsr(ptr nocapture noundef writeonly 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @php_pcre2_set_max_pattern_length(ptr nocapture noundef writeonly initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   ret i32 0
 }
@@ -362,7 +362,7 @@ define range(i32 -29, 1) i32 @php_pcre2_set_newline(ptr nocapture noundef writeo
 
 3:                                                ; preds = %2
   %4 = trunc nuw i32 %1 to i16
-  %5 = getelementptr inbounds i8, ptr %0, i64 58
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 58
   store i16 %4, ptr %5, align 2
   br label %6
 
@@ -373,83 +373,83 @@ define range(i32 -29, 1) i32 @php_pcre2_set_newline(ptr nocapture noundef writeo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @pcre2_set_max_varlookbehind_8(ptr nocapture noundef writeonly initializes((68, 72)) %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %1, ptr %3, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @php_pcre2_set_parens_nest_limit(ptr nocapture noundef writeonly initializes((60, 64)) %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 60
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %1, ptr %3, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @php_pcre2_set_compile_extra_options(ptr nocapture noundef writeonly initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @php_pcre2_set_compile_recursion_guard(ptr nocapture noundef writeonly initializes((24, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %5, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @php_pcre2_set_callout(ptr nocapture noundef writeonly initializes((40, 56)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %2, ptr %5, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @pcre2_set_substitute_callout_8(ptr nocapture noundef writeonly initializes((56, 72)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %2, ptr %5, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @php_pcre2_set_heap_limit(ptr nocapture noundef writeonly initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @php_pcre2_set_match_limit(ptr nocapture noundef writeonly initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 84
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %1, ptr %3, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @php_pcre2_set_depth_limit(ptr nocapture noundef writeonly initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @php_pcre2_set_offset_limit(ptr nocapture noundef writeonly initializes((72, 80)) %0, i64 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @php_pcre2_set_recursion_limit(ptr nocapture noundef writeonly initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %1, ptr %3, align 8
   ret i32 0
 }
@@ -468,7 +468,7 @@ define range(i32 -29, 1) i32 @php_pcre2_set_glob_separator(ptr nocapture noundef
   ]
 
 3:                                                ; preds = %2, %2, %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %4, align 8
   br label %5
 
@@ -490,14 +490,14 @@ define range(i32 -29, 1) i32 @php_pcre2_set_glob_escape(ptr nocapture noundef wr
   %6 = tail call ptr @__ctype_b_loc() #12
   %7 = load ptr, ptr %6, align 8
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds i16, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw i16, ptr %7, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 4
   %.not6 = icmp eq i16 %11, 0
   br i1 %.not6, label %14, label %12
 
 12:                                               ; preds = %5, %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %1, ptr %13, align 4
   br label %14
 

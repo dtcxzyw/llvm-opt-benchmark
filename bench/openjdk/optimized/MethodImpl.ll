@@ -70,7 +70,7 @@ define internal noundef zeroext i8 @lineTable(ptr noundef %0, ptr noundef %1) #0
   %23 = load i64, ptr %6, align 8
   %24 = call zeroext i16 @outStream_writeLocation(ptr noundef %1, i64 noundef %23) #2
   %25 = load ptr, ptr @gdata, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 528
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 528
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 4
   %.not33 = icmp eq i32 %28, 0
@@ -86,7 +86,7 @@ define internal noundef zeroext i8 @lineTable(ptr noundef %0, ptr noundef %1) #0
   %31 = phi ptr [ %25, %20 ], [ %.pre, %29 ]
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 552
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 552
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 %35(ptr noundef nonnull %32, ptr noundef %11, ptr noundef nonnull %3, ptr noundef nonnull %4) #2
   switch i32 %36, label %58 [
@@ -113,11 +113,11 @@ define internal noundef zeroext i8 @lineTable(ptr noundef %0, ptr noundef %1) #0
 
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.jvmtiLineNumberEntry, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw %struct.jvmtiLineNumberEntry, ptr %46, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8
   %49 = call zeroext i16 @outStream_writeLocation(ptr noundef %1, i64 noundef %48) #2
   %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.jvmtiLineNumberEntry, ptr %50, i64 %indvars.iv, i32 1
+  %51 = getelementptr inbounds nuw %struct.jvmtiLineNumberEntry, ptr %50, i64 %indvars.iv, i32 1
   %52 = load i32, ptr %51, align 8
   %53 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %52) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -171,7 +171,7 @@ define internal noundef zeroext i8 @bytecodes(ptr noundef %0, ptr noundef %1) #0
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr @gdata, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 528
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 528
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 4
   %.not13 = icmp eq i32 %17, 0
@@ -187,7 +187,7 @@ define internal noundef zeroext i8 @bytecodes(ptr noundef %0, ptr noundef %1) #0
   %20 = phi ptr [ %.pre, %18 ], [ %14, %13 ]
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 592
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 592
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 %24(ptr noundef nonnull %21, ptr noundef %9, ptr noundef nonnull %4, ptr noundef nonnull %3) #2
   %.not14 = icmp eq i32 %25, 0
@@ -300,7 +300,7 @@ define internal fastcc void @doVariableTable(ptr noundef %0, ptr noundef %1, i32
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @gdata, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 528
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 528
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 4
   %.not43 = icmp eq i32 %20, 0
@@ -316,7 +316,7 @@ define internal fastcc void @doVariableTable(ptr noundef %0, ptr noundef %1, i32
   %23 = phi ptr [ %17, %16 ], [ %.pre, %21 ]
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 544
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 544
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 %27(ptr noundef nonnull %24, ptr noundef %11, ptr noundef nonnull %6) #2
   %.not44 = icmp eq i32 %28, 0
@@ -329,7 +329,7 @@ define internal fastcc void @doVariableTable(ptr noundef %0, ptr noundef %1, i32
 
 31:                                               ; preds = %22
   %32 = load ptr, ptr @gdata, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 528
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 528
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 4
   %.not45 = icmp eq i32 %35, 0
@@ -345,7 +345,7 @@ define internal fastcc void @doVariableTable(ptr noundef %0, ptr noundef %1, i32
   %38 = phi ptr [ %32, %31 ], [ %.pre56, %36 ]
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 568
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 568
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 %42(ptr noundef nonnull %39, ptr noundef %11, ptr noundef nonnull %4, ptr noundef nonnull %5) #2
   %44 = icmp eq i32 %43, 0
@@ -372,26 +372,26 @@ define internal fastcc void @doVariableTable(ptr noundef %0, ptr noundef %1, i32
 
 53:                                               ; preds = %.lr.ph.split.us
   %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.jvmtiLocalVariableEntry, ptr %54, i64 %indvars.iv53
+  %55 = getelementptr inbounds nuw %struct.jvmtiLocalVariableEntry, ptr %54, i64 %indvars.iv53
   %56 = load i64, ptr %55, align 8
   %57 = call zeroext i16 @outStream_writeLocation(ptr noundef %1, i64 noundef %56) #2
-  %58 = getelementptr inbounds i8, ptr %55, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %59) #2
-  %61 = getelementptr inbounds i8, ptr %55, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %62) #2
-  %64 = getelementptr inbounds i8, ptr %55, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %65) #2
-  %67 = getelementptr inbounds i8, ptr %55, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %68 = load i32, ptr %67, align 8
   %69 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %68) #2
   %70 = load ptr, ptr %58, align 8
   call void @jvmtiDeallocate(ptr noundef %70) #2
   %71 = load ptr, ptr %61, align 8
   call void @jvmtiDeallocate(ptr noundef %71) #2
-  %72 = getelementptr inbounds i8, ptr %55, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %73 = load ptr, ptr %72, align 8
   %.not48.us = icmp eq ptr %73, null
   br i1 %.not48.us, label %75, label %74
@@ -415,22 +415,22 @@ define internal fastcc void @doVariableTable(ptr noundef %0, ptr noundef %1, i32
 
 80:                                               ; preds = %.lr.ph.split
   %81 = load ptr, ptr %5, align 8
-  %82 = getelementptr inbounds %struct.jvmtiLocalVariableEntry, ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw %struct.jvmtiLocalVariableEntry, ptr %81, i64 %indvars.iv
   %83 = load i64, ptr %82, align 8
   %84 = call zeroext i16 @outStream_writeLocation(ptr noundef %1, i64 noundef %83) #2
-  %85 = getelementptr inbounds i8, ptr %82, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %86) #2
-  %88 = getelementptr inbounds i8, ptr %82, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %89 = load ptr, ptr %88, align 8
   %90 = call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %89) #2
-  %91 = getelementptr inbounds i8, ptr %82, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %92 = load ptr, ptr %91, align 8
   call void @writeGenericSignature(ptr noundef %1, ptr noundef %92) #2
-  %93 = getelementptr inbounds i8, ptr %82, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %94 = load i32, ptr %93, align 8
   %95 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %94) #2
-  %96 = getelementptr inbounds i8, ptr %82, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %97 = load i32, ptr %96, align 8
   %98 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %97) #2
   %99 = load ptr, ptr %85, align 8

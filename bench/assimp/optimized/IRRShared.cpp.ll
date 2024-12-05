@@ -176,9 +176,9 @@ $_ZTV17DeadlyImportError = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4pugi14xpath_node_setD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_begin = getelementptr inbounds i8, ptr %this, i64 24
+  %_begin = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_begin, align 8
-  %_storage = getelementptr inbounds i8, ptr %this, i64 8
+  %_storage = getelementptr inbounds nuw i8, ptr %this, i64 8
   %cmp.not = icmp eq ptr %0, %_storage
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -211,18 +211,18 @@ entry:
   br i1 %tobool.not.i.i, label %for.end, label %_ZNK4pugi8xml_node10attributesEv.exit
 
 _ZNK4pugi8xml_node10attributesEv.exit:            ; preds = %entry
-  %first_attribute.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %first_attribute.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %first_attribute.i.i, align 8, !noalias !4
   %cmp.not.i.not53 = icmp eq ptr %1, null
   br i1 %cmp.not.i.not53, label %for.end, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %_ZNK4pugi8xml_node10attributesEv.exit
-  %value = getelementptr inbounds i8, ptr %out, i64 32
+  %value = getelementptr inbounds nuw i8, ptr %out, i64 32
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %for.inc
   %__begin1.sroa.0.054 = phi ptr [ %1, %if.end.i.lr.ph ], [ %19, %for.inc ]
-  %name3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.054, i64 8
+  %name3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.054, i64 8
   %2 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i = icmp eq ptr %2, null
   %cond.i = select i1 %tobool4.not.i, ptr @.str.56, ptr %2
@@ -231,11 +231,11 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
   %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %if.end.i ], [ %incdec.ptr.i, %do.body.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s1.addr.0.i, i64 1
   %3 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %3 to i32
   %call.i = call i32 @tolower(i32 noundef %conv.i) #19
-  %incdec.ptr2.i = getelementptr inbounds i8, ptr %s2.addr.0.i, i64 1
+  %incdec.ptr2.i = getelementptr inbounds nuw i8, ptr %s2.addr.0.i, i64 1
   %4 = load i8, ptr %s2.addr.0.i, align 1
   %conv3.i = zext i8 %4 to i32
   %call4.i = call i32 @tolower(i32 noundef %conv3.i) #19
@@ -251,7 +251,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %do.body.i
   br i1 %cmp.i, label %if.end.i8, label %do.body.i23
 
 if.end.i8:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit
-  %value3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.054, i64 16
+  %value3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.054, i64 16
   %7 = load ptr, ptr %value3.i, align 8
   %tobool4.not.i9 = icmp eq ptr %7, null
   %cond.i10 = select i1 %tobool4.not.i9, ptr @.str.56, ptr %7
@@ -294,11 +294,11 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 do.body.i23:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i23
   %s2.addr.0.i24 = phi ptr [ %incdec.ptr2.i29, %do.body.i23 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
   %s1.addr.0.i25 = phi ptr [ %incdec.ptr.i26, %do.body.i23 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %s1.addr.0.i25, i64 1
+  %incdec.ptr.i26 = getelementptr inbounds nuw i8, ptr %s1.addr.0.i25, i64 1
   %10 = load i8, ptr %s1.addr.0.i25, align 1
   %conv.i27 = zext i8 %10 to i32
   %call.i28 = call i32 @tolower(i32 noundef %conv.i27) #19
-  %incdec.ptr2.i29 = getelementptr inbounds i8, ptr %s2.addr.0.i24, i64 1
+  %incdec.ptr2.i29 = getelementptr inbounds nuw i8, ptr %s2.addr.0.i24, i64 1
   %11 = load i8, ptr %s2.addr.0.i24, align 1
   %conv3.i30 = zext i8 %11 to i32
   %call4.i31 = call i32 @tolower(i32 noundef %conv3.i30) #19
@@ -314,7 +314,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit39:         ; preds = %do.body.i23
   br i1 %cmp.i37, label %if.end.i41, label %for.inc
 
 if.end.i41:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit39
-  %value3.i42 = getelementptr inbounds i8, ptr %__begin1.sroa.0.054, i64 16
+  %value3.i42 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.054, i64 16
   %14 = load ptr, ptr %value3.i42, align 8
   %tobool4.not.i43 = icmp eq ptr %14, null
   %cond.i44 = select i1 %tobool4.not.i43, ptr @.str.56, ptr %14
@@ -360,7 +360,7 @@ if.then21.i:                                      ; preds = %if.else15.i
 
 if.end29.i:                                       ; preds = %if.then21.i, %if.then9.i, %if.then.i
   %value.1.i = phi i32 [ %add.i, %if.then.i ], [ %add14.i, %if.then9.i ], [ %add26.i, %if.then21.i ]
-  %incdec.ptr.i47 = getelementptr inbounds i8, ptr %in.addr.0.i, i64 1
+  %incdec.ptr.i47 = getelementptr inbounds nuw i8, ptr %in.addr.0.i, i64 1
   br label %for.cond.i, !llvm.loop !9
 
 _ZN6Assimp9strtoul16EPKcPS1_.exit:                ; preds = %if.else15.i
@@ -368,7 +368,7 @@ _ZN6Assimp9strtoul16EPKcPS1_.exit:                ; preds = %if.else15.i
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont, %_ZN6Assimp9strtoul16EPKcPS1_.exit, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit39
-  %next_attribute.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.054, i64 32
+  %next_attribute.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.054, i64 32
   %19 = load ptr, ptr %next_attribute.i, align 8
   %cmp.not.i.not = icmp eq ptr %19, null
   br i1 %cmp.not.i.not, label %for.end, label %if.end.i
@@ -405,18 +405,18 @@ entry:
   br i1 %tobool.not.i.i, label %for.end, label %_ZNK4pugi8xml_node10attributesEv.exit
 
 _ZNK4pugi8xml_node10attributesEv.exit:            ; preds = %entry
-  %first_attribute.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %first_attribute.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %first_attribute.i.i, align 8, !noalias !10
   %cmp.not.i.not60 = icmp eq ptr %1, null
   br i1 %cmp.not.i.not60, label %for.end, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %_ZNK4pugi8xml_node10attributesEv.exit
-  %value = getelementptr inbounds i8, ptr %out, i64 32
+  %value = getelementptr inbounds nuw i8, ptr %out, i64 32
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %for.inc
   %__begin1.sroa.0.061 = phi ptr [ %1, %if.end.i.lr.ph ], [ %22, %for.inc ]
-  %name3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.061, i64 8
+  %name3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.061, i64 8
   %2 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i = icmp eq ptr %2, null
   %cond.i = select i1 %tobool4.not.i, ptr @.str.56, ptr %2
@@ -425,11 +425,11 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
   %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %if.end.i ], [ %incdec.ptr.i, %do.body.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s1.addr.0.i, i64 1
   %3 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %3 to i32
   %call.i = call i32 @tolower(i32 noundef %conv.i) #19
-  %incdec.ptr2.i = getelementptr inbounds i8, ptr %s2.addr.0.i, i64 1
+  %incdec.ptr2.i = getelementptr inbounds nuw i8, ptr %s2.addr.0.i, i64 1
   %4 = load i8, ptr %s2.addr.0.i, align 1
   %conv3.i = zext i8 %4 to i32
   %call4.i = call i32 @tolower(i32 noundef %conv3.i) #19
@@ -445,7 +445,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %do.body.i
   br i1 %cmp.i, label %if.end.i8, label %do.body.i23
 
 if.end.i8:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit
-  %value3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.061, i64 16
+  %value3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.061, i64 16
   %7 = load ptr, ptr %value3.i, align 8
   %tobool4.not.i9 = icmp eq ptr %7, null
   %cond.i10 = select i1 %tobool4.not.i9, ptr @.str.56, ptr %7
@@ -488,11 +488,11 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 do.body.i23:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i23
   %s2.addr.0.i24 = phi ptr [ %incdec.ptr2.i29, %do.body.i23 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
   %s1.addr.0.i25 = phi ptr [ %incdec.ptr.i26, %do.body.i23 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %s1.addr.0.i25, i64 1
+  %incdec.ptr.i26 = getelementptr inbounds nuw i8, ptr %s1.addr.0.i25, i64 1
   %10 = load i8, ptr %s1.addr.0.i25, align 1
   %conv.i27 = zext i8 %10 to i32
   %call.i28 = call i32 @tolower(i32 noundef %conv.i27) #19
-  %incdec.ptr2.i29 = getelementptr inbounds i8, ptr %s2.addr.0.i24, i64 1
+  %incdec.ptr2.i29 = getelementptr inbounds nuw i8, ptr %s2.addr.0.i24, i64 1
   %11 = load i8, ptr %s2.addr.0.i24, align 1
   %conv3.i30 = zext i8 %11 to i32
   %call4.i31 = call i32 @tolower(i32 noundef %conv3.i30) #19
@@ -508,7 +508,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit39:         ; preds = %do.body.i23
   br i1 %cmp.i37, label %if.end.i41, label %for.inc
 
 if.end.i41:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit39
-  %value3.i42 = getelementptr inbounds i8, ptr %__begin1.sroa.0.061, i64 16
+  %value3.i42 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.061, i64 16
   %14 = load ptr, ptr %value3.i42, align 8
   %tobool4.not.i43 = icmp eq ptr %14, null
   %cond.i44 = select i1 %tobool4.not.i43, ptr @.str.56, ptr %14
@@ -522,7 +522,7 @@ if.end.i41:                                       ; preds = %_ZN6Assimp14ASSIMP_
   ]
 
 if.then.i:                                        ; preds = %if.end.i41, %if.end.i41
-  %incdec.ptr.i48 = getelementptr inbounds i8, ptr %cond.i44, i64 1
+  %incdec.ptr.i48 = getelementptr inbounds nuw i8, ptr %cond.i44, i64 1
   store ptr %incdec.ptr.i48, ptr %in.addr.i, align 8
   %.pre.i = load i8, ptr %incdec.ptr.i48, align 1
   br label %if.end.i49
@@ -542,7 +542,7 @@ if.end.i.i:                                       ; preds = %if.end.i49, %if.end
   %narrow.i.i = add nsw i8 %19, -48
   %sub.i.i = zext nneg i8 %narrow.i.i to i32
   %add.i.i = add i32 %mul.i.i, %sub.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %in.addr.08.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %in.addr.08.i.i, i64 1
   %20 = load i8, ptr %incdec.ptr.i.i, align 1
   %21 = add i8 %20, -58
   %or.cond.i.i = icmp ult i8 %21, -10
@@ -575,7 +575,7 @@ _ZN6Assimp8strtol10EPKcPS1_.exit:                 ; preds = %for.end.i.i.thread,
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont, %_ZN6Assimp8strtol10EPKcPS1_.exit, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit39
-  %next_attribute.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.061, i64 32
+  %next_attribute.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.061, i64 32
   %22 = load ptr, ptr %next_attribute.i, align 8
   %cmp.not.i.not = icmp eq ptr %22, null
   br i1 %cmp.not.i.not, label %for.end, label %if.end.i
@@ -596,18 +596,18 @@ entry:
   br i1 %tobool.not.i.i, label %for.end, label %_ZNK4pugi8xml_node10attributesEv.exit
 
 _ZNK4pugi8xml_node10attributesEv.exit:            ; preds = %entry
-  %first_attribute.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %first_attribute.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %first_attribute.i.i, align 8, !noalias !14
   %cmp.not.i.not62 = icmp eq ptr %1, null
   br i1 %cmp.not.i.not62, label %for.end, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %_ZNK4pugi8xml_node10attributesEv.exit
-  %value = getelementptr inbounds i8, ptr %out, i64 32
+  %value = getelementptr inbounds nuw i8, ptr %out, i64 32
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %for.inc
   %__begin1.sroa.0.063 = phi ptr [ %1, %if.end.i.lr.ph ], [ %17, %for.inc ]
-  %name3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.063, i64 8
+  %name3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.063, i64 8
   %2 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i = icmp eq ptr %2, null
   %cond.i = select i1 %tobool4.not.i, ptr @.str.56, ptr %2
@@ -616,11 +616,11 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
   %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %if.end.i ], [ %incdec.ptr.i, %do.body.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s1.addr.0.i, i64 1
   %3 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %3 to i32
   %call.i = call i32 @tolower(i32 noundef %conv.i) #19
-  %incdec.ptr2.i = getelementptr inbounds i8, ptr %s2.addr.0.i, i64 1
+  %incdec.ptr2.i = getelementptr inbounds nuw i8, ptr %s2.addr.0.i, i64 1
   %4 = load i8, ptr %s2.addr.0.i, align 1
   %conv3.i = zext i8 %4 to i32
   %call4.i = call i32 @tolower(i32 noundef %conv3.i) #19
@@ -636,7 +636,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %do.body.i
   br i1 %cmp.i, label %if.end.i9, label %do.body.i24
 
 if.end.i9:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit
-  %value3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.063, i64 16
+  %value3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.063, i64 16
   %7 = load ptr, ptr %value3.i, align 8
   %tobool4.not.i10 = icmp eq ptr %7, null
   %cond.i11 = select i1 %tobool4.not.i10, ptr @.str.56, ptr %7
@@ -672,11 +672,11 @@ lpad:                                             ; preds = %call.i13.noexc, %if
 do.body.i24:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i24
   %s2.addr.0.i25 = phi ptr [ %incdec.ptr2.i30, %do.body.i24 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
   %s1.addr.0.i26 = phi ptr [ %incdec.ptr.i27, %do.body.i24 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i27 = getelementptr inbounds i8, ptr %s1.addr.0.i26, i64 1
+  %incdec.ptr.i27 = getelementptr inbounds nuw i8, ptr %s1.addr.0.i26, i64 1
   %10 = load i8, ptr %s1.addr.0.i26, align 1
   %conv.i28 = zext i8 %10 to i32
   %call.i29 = call i32 @tolower(i32 noundef %conv.i28) #19
-  %incdec.ptr2.i30 = getelementptr inbounds i8, ptr %s2.addr.0.i25, i64 1
+  %incdec.ptr2.i30 = getelementptr inbounds nuw i8, ptr %s2.addr.0.i25, i64 1
   %11 = load i8, ptr %s2.addr.0.i25, align 1
   %conv3.i31 = zext i8 %11 to i32
   %call4.i32 = call i32 @tolower(i32 noundef %conv3.i31) #19
@@ -692,7 +692,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit40:         ; preds = %do.body.i24
   br i1 %cmp.i38, label %if.end.i42, label %for.inc
 
 if.end.i42:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit40
-  %value3.i43 = getelementptr inbounds i8, ptr %__begin1.sroa.0.063, i64 16
+  %value3.i43 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.063, i64 16
   %14 = load ptr, ptr %value3.i43, align 8
   %tobool4.not.i44 = icmp eq ptr %14, null
   %cond.i45 = select i1 %tobool4.not.i44, ptr @.str.56, ptr %14
@@ -733,7 +733,7 @@ for.inc.sink.split:                               ; preds = %invoke.cont19, %inv
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit40
-  %next_attribute.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.063, i64 32
+  %next_attribute.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.063, i64 32
   %17 = load ptr, ptr %next_attribute.i, align 8
   %cmp.not.i.not = icmp eq ptr %17, null
   br i1 %cmp.not.i.not, label %for.end, label %if.end.i
@@ -758,18 +758,18 @@ entry:
   br i1 %tobool.not.i.i, label %for.end, label %_ZNK4pugi8xml_node10attributesEv.exit
 
 _ZNK4pugi8xml_node10attributesEv.exit:            ; preds = %entry
-  %first_attribute.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %first_attribute.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %first_attribute.i.i, align 8, !noalias !17
   %cmp.not.i.not68 = icmp eq ptr %1, null
   br i1 %cmp.not.i.not68, label %for.end, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %_ZNK4pugi8xml_node10attributesEv.exit
-  %value = getelementptr inbounds i8, ptr %out, i64 32
+  %value = getelementptr inbounds nuw i8, ptr %out, i64 32
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %for.inc
   %__begin1.sroa.0.069 = phi ptr [ %1, %if.end.i.lr.ph ], [ %19, %for.inc ]
-  %name3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.069, i64 8
+  %name3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.069, i64 8
   %2 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i = icmp eq ptr %2, null
   %cond.i = select i1 %tobool4.not.i, ptr @.str.56, ptr %2
@@ -778,11 +778,11 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
   %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %if.end.i ], [ %incdec.ptr.i, %do.body.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s1.addr.0.i, i64 1
   %3 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %3 to i32
   %call.i = call i32 @tolower(i32 noundef %conv.i) #19
-  %incdec.ptr2.i = getelementptr inbounds i8, ptr %s2.addr.0.i, i64 1
+  %incdec.ptr2.i = getelementptr inbounds nuw i8, ptr %s2.addr.0.i, i64 1
   %4 = load i8, ptr %s2.addr.0.i, align 1
   %conv3.i = zext i8 %4 to i32
   %call4.i = call i32 @tolower(i32 noundef %conv3.i) #19
@@ -798,7 +798,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %do.body.i
   br i1 %cmp.i, label %if.end.i8, label %do.body.i23
 
 if.end.i8:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit
-  %value3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.069, i64 16
+  %value3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.069, i64 16
   %7 = load ptr, ptr %value3.i, align 8
   %tobool4.not.i9 = icmp eq ptr %7, null
   %cond.i10 = select i1 %tobool4.not.i9, ptr @.str.56, ptr %7
@@ -841,11 +841,11 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 do.body.i23:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i23
   %s2.addr.0.i24 = phi ptr [ %incdec.ptr2.i29, %do.body.i23 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
   %s1.addr.0.i25 = phi ptr [ %incdec.ptr.i26, %do.body.i23 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %s1.addr.0.i25, i64 1
+  %incdec.ptr.i26 = getelementptr inbounds nuw i8, ptr %s1.addr.0.i25, i64 1
   %10 = load i8, ptr %s1.addr.0.i25, align 1
   %conv.i27 = zext i8 %10 to i32
   %call.i28 = call i32 @tolower(i32 noundef %conv.i27) #19
-  %incdec.ptr2.i29 = getelementptr inbounds i8, ptr %s2.addr.0.i24, i64 1
+  %incdec.ptr2.i29 = getelementptr inbounds nuw i8, ptr %s2.addr.0.i24, i64 1
   %11 = load i8, ptr %s2.addr.0.i24, align 1
   %conv3.i30 = zext i8 %11 to i32
   %call4.i31 = call i32 @tolower(i32 noundef %conv3.i30) #19
@@ -861,7 +861,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit39:         ; preds = %do.body.i23
   br i1 %cmp.i37, label %if.end.i41, label %for.inc
 
 if.end.i41:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit39
-  %value3.i42 = getelementptr inbounds i8, ptr %__begin1.sroa.0.069, i64 16
+  %value3.i42 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.069, i64 16
   %14 = load ptr, ptr %value3.i42, align 8
   %tobool4.not.i43 = icmp eq ptr %14, null
   %cond.i44 = select i1 %tobool4.not.i43, ptr @.str.56, ptr %14
@@ -870,11 +870,11 @@ if.end.i41:                                       ; preds = %_ZN6Assimp14ASSIMP_
 do.body.i47:                                      ; preds = %do.body.i47, %if.end.i41
   %s2.addr.0.i48 = phi ptr [ @.str.3, %if.end.i41 ], [ %incdec.ptr2.i53, %do.body.i47 ]
   %s1.addr.0.i49 = phi ptr [ %cond.i44, %if.end.i41 ], [ %incdec.ptr.i50, %do.body.i47 ]
-  %incdec.ptr.i50 = getelementptr inbounds i8, ptr %s1.addr.0.i49, i64 1
+  %incdec.ptr.i50 = getelementptr inbounds nuw i8, ptr %s1.addr.0.i49, i64 1
   %15 = load i8, ptr %s1.addr.0.i49, align 1
   %conv.i51 = zext i8 %15 to i32
   %call.i52 = call i32 @tolower(i32 noundef %conv.i51) #19
-  %incdec.ptr2.i53 = getelementptr inbounds i8, ptr %s2.addr.0.i48, i64 1
+  %incdec.ptr2.i53 = getelementptr inbounds nuw i8, ptr %s2.addr.0.i48, i64 1
   %16 = load i8, ptr %s2.addr.0.i48, align 1
   %conv3.i54 = zext i8 %16 to i32
   %call4.i55 = call i32 @tolower(i32 noundef %conv3.i54) #19
@@ -892,7 +892,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit63:         ; preds = %do.body.i47
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit63, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit39
-  %next_attribute.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.069, i64 32
+  %next_attribute.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.069, i64 32
   %19 = load ptr, ptr %next_attribute.i, align 8
   %cmp.not.i.not = icmp eq ptr %19, null
   br i1 %cmp.not.i.not, label %for.end, label %if.end.i
@@ -912,18 +912,18 @@ entry:
   br i1 %tobool.not.i.i, label %for.end, label %_ZNK4pugi8xml_node10attributesEv.exit
 
 _ZNK4pugi8xml_node10attributesEv.exit:            ; preds = %entry
-  %first_attribute.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %first_attribute.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %first_attribute.i.i, align 8, !noalias !20
   %cmp.not.i.not52 = icmp eq ptr %1, null
   br i1 %cmp.not.i.not52, label %for.end, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %_ZNK4pugi8xml_node10attributesEv.exit
-  %value = getelementptr inbounds i8, ptr %out, i64 32
+  %value = getelementptr inbounds nuw i8, ptr %out, i64 32
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %for.inc
   %__begin1.sroa.0.053 = phi ptr [ %1, %if.end.i.lr.ph ], [ %16, %for.inc ]
-  %name3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 8
+  %name3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.053, i64 8
   %2 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i = icmp eq ptr %2, null
   %cond.i = select i1 %tobool4.not.i, ptr @.str.56, ptr %2
@@ -932,11 +932,11 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
   %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %if.end.i ], [ %incdec.ptr.i, %do.body.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s1.addr.0.i, i64 1
   %3 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %3 to i32
   %call.i = call i32 @tolower(i32 noundef %conv.i) #19
-  %incdec.ptr2.i = getelementptr inbounds i8, ptr %s2.addr.0.i, i64 1
+  %incdec.ptr2.i = getelementptr inbounds nuw i8, ptr %s2.addr.0.i, i64 1
   %4 = load i8, ptr %s2.addr.0.i, align 1
   %conv3.i = zext i8 %4 to i32
   %call4.i = call i32 @tolower(i32 noundef %conv3.i) #19
@@ -952,7 +952,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %do.body.i
   br i1 %cmp.i, label %if.end.i8, label %do.body.i23
 
 if.end.i8:                                        ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit
-  %value3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 16
+  %value3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.053, i64 16
   %7 = load ptr, ptr %value3.i, align 8
   %tobool4.not.i9 = icmp eq ptr %7, null
   %cond.i10 = select i1 %tobool4.not.i9, ptr @.str.56, ptr %7
@@ -995,11 +995,11 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 do.body.i23:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i23
   %s2.addr.0.i24 = phi ptr [ %incdec.ptr2.i29, %do.body.i23 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
   %s1.addr.0.i25 = phi ptr [ %incdec.ptr.i26, %do.body.i23 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %s1.addr.0.i25, i64 1
+  %incdec.ptr.i26 = getelementptr inbounds nuw i8, ptr %s1.addr.0.i25, i64 1
   %10 = load i8, ptr %s1.addr.0.i25, align 1
   %conv.i27 = zext i8 %10 to i32
   %call.i28 = call i32 @tolower(i32 noundef %conv.i27) #19
-  %incdec.ptr2.i29 = getelementptr inbounds i8, ptr %s2.addr.0.i24, i64 1
+  %incdec.ptr2.i29 = getelementptr inbounds nuw i8, ptr %s2.addr.0.i24, i64 1
   %11 = load i8, ptr %s2.addr.0.i24, align 1
   %conv3.i30 = zext i8 %11 to i32
   %call4.i31 = call i32 @tolower(i32 noundef %conv3.i30) #19
@@ -1015,7 +1015,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit39:         ; preds = %do.body.i23
   br i1 %cmp.i37, label %if.end.i41, label %for.inc
 
 if.end.i41:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit39
-  %value3.i42 = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 16
+  %value3.i42 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.053, i64 16
   %14 = load ptr, ptr %value3.i42, align 8
   %tobool4.not.i43 = icmp eq ptr %14, null
   %cond.i44 = select i1 %tobool4.not.i43, ptr @.str.56, ptr %14
@@ -1028,7 +1028,7 @@ if.end.i41:                                       ; preds = %_ZN6Assimp14ASSIMP_
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont, %if.end.i41, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit39
-  %next_attribute.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 32
+  %next_attribute.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.053, i64 32
   %16 = load ptr, ptr %next_attribute.i, align 8
   %cmp.not.i.not = icmp eq ptr %16, null
   br i1 %cmp.not.i.not, label %for.end, label %if.end.i
@@ -1047,20 +1047,20 @@ entry:
   br i1 %tobool.not.i.i, label %for.end, label %_ZNK4pugi8xml_node10attributesEv.exit
 
 _ZNK4pugi8xml_node10attributesEv.exit:            ; preds = %entry
-  %first_attribute.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %first_attribute.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %first_attribute.i.i, align 8, !noalias !23
   %cmp.not.i.not87 = icmp eq ptr %1, null
   br i1 %cmp.not.i.not87, label %for.end, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %_ZNK4pugi8xml_node10attributesEv.exit
-  %value = getelementptr inbounds i8, ptr %out, i64 32
-  %y = getelementptr inbounds i8, ptr %out, i64 36
-  %z = getelementptr inbounds i8, ptr %out, i64 40
+  %value = getelementptr inbounds nuw i8, ptr %out, i64 32
+  %y = getelementptr inbounds nuw i8, ptr %out, i64 36
+  %z = getelementptr inbounds nuw i8, ptr %out, i64 40
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %for.inc
   %__begin1.sroa.0.088 = phi ptr [ %1, %if.end.i.lr.ph ], [ %20, %for.inc ]
-  %name3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.088, i64 8
+  %name3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.088, i64 8
   %2 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i = icmp eq ptr %2, null
   %cond.i = select i1 %tobool4.not.i, ptr @.str.56, ptr %2
@@ -1069,11 +1069,11 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
   %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %if.end.i ], [ %incdec.ptr.i, %do.body.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s1.addr.0.i, i64 1
   %3 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %3 to i32
   %call.i = call i32 @tolower(i32 noundef %conv.i) #19
-  %incdec.ptr2.i = getelementptr inbounds i8, ptr %s2.addr.0.i, i64 1
+  %incdec.ptr2.i = getelementptr inbounds nuw i8, ptr %s2.addr.0.i, i64 1
   %4 = load i8, ptr %s2.addr.0.i, align 1
   %conv3.i = zext i8 %4 to i32
   %call4.i = call i32 @tolower(i32 noundef %conv3.i) #19
@@ -1089,7 +1089,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %do.body.i
   br i1 %cmp.i, label %if.end.i10, label %do.body.i25
 
 if.end.i10:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit
-  %value3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.088, i64 16
+  %value3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.088, i64 16
   %7 = load ptr, ptr %value3.i, align 8
   %tobool4.not.i11 = icmp eq ptr %7, null
   %cond.i12 = select i1 %tobool4.not.i11, ptr @.str.56, ptr %7
@@ -1132,11 +1132,11 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 do.body.i25:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i25
   %s2.addr.0.i26 = phi ptr [ %incdec.ptr2.i31, %do.body.i25 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
   %s1.addr.0.i27 = phi ptr [ %incdec.ptr.i28, %do.body.i25 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i28 = getelementptr inbounds i8, ptr %s1.addr.0.i27, i64 1
+  %incdec.ptr.i28 = getelementptr inbounds nuw i8, ptr %s1.addr.0.i27, i64 1
   %10 = load i8, ptr %s1.addr.0.i27, align 1
   %conv.i29 = zext i8 %10 to i32
   %call.i30 = call i32 @tolower(i32 noundef %conv.i29) #19
-  %incdec.ptr2.i31 = getelementptr inbounds i8, ptr %s2.addr.0.i26, i64 1
+  %incdec.ptr2.i31 = getelementptr inbounds nuw i8, ptr %s2.addr.0.i26, i64 1
   %11 = load i8, ptr %s2.addr.0.i26, align 1
   %conv3.i32 = zext i8 %11 to i32
   %call4.i33 = call i32 @tolower(i32 noundef %conv3.i32) #19
@@ -1152,7 +1152,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit41:         ; preds = %do.body.i25
   br i1 %cmp.i39, label %if.end.i43, label %for.inc
 
 if.end.i43:                                       ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit41
-  %value3.i44 = getelementptr inbounds i8, ptr %__begin1.sroa.0.088, i64 16
+  %value3.i44 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.088, i64 16
   %14 = load ptr, ptr %value3.i44, align 8
   %tobool4.not.i45 = icmp eq ptr %14, null
   %cond.i46 = select i1 %tobool4.not.i45, ptr @.str.56, ptr %14
@@ -1167,7 +1167,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
   ]
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %while.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %in.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %in.addr.0.i.i, i64 1
   br label %while.cond.i.i, !llvm.loop !26
 
 _ZN6Assimp10SkipSpacesIcEEbPPKT_.exit:            ; preds = %while.cond.i.i
@@ -1184,7 +1184,7 @@ while.cond.i.i49:                                 ; preds = %while.body.i.i51, %
   ]
 
 while.body.i.i51:                                 ; preds = %while.cond.i.i49, %while.cond.i.i49
-  %incdec.ptr.i.i52 = getelementptr inbounds i8, ptr %in.addr.0.i.i50, i64 1
+  %incdec.ptr.i.i52 = getelementptr inbounds nuw i8, ptr %in.addr.0.i.i50, i64 1
   br label %while.cond.i.i49, !llvm.loop !26
 
 if.then19:                                        ; preds = %while.cond.i.i49
@@ -1194,7 +1194,7 @@ if.then19:                                        ; preds = %while.cond.i.i49
 
 while.cond.i:                                     ; preds = %while.cond.i.i49, %while.cond.i.backedge
   %in.addr.0.i.i50.pn = phi ptr [ %in.addr.0.i, %while.cond.i.backedge ], [ %in.addr.0.i.i50, %while.cond.i.i49 ]
-  %in.addr.0.i = getelementptr inbounds i8, ptr %in.addr.0.i.i50.pn, i64 1
+  %in.addr.0.i = getelementptr inbounds nuw i8, ptr %in.addr.0.i.i50.pn, i64 1
   %17 = load i8, ptr %in.addr.0.i, align 1
   switch i8 %17, label %if.end [
     i8 32, label %while.cond.i.backedge
@@ -1219,7 +1219,7 @@ while.cond.i.i58:                                 ; preds = %while.body.i.i60, %
   ]
 
 while.body.i.i60:                                 ; preds = %while.cond.i.i58, %while.cond.i.i58
-  %incdec.ptr.i.i61 = getelementptr inbounds i8, ptr %in.addr.0.i.i59, i64 1
+  %incdec.ptr.i.i61 = getelementptr inbounds nuw i8, ptr %in.addr.0.i.i59, i64 1
   br label %while.cond.i.i58, !llvm.loop !26
 
 if.then28:                                        ; preds = %while.cond.i.i58
@@ -1229,7 +1229,7 @@ if.then28:                                        ; preds = %while.cond.i.i58
 
 while.cond.i66:                                   ; preds = %while.cond.i.i58, %while.cond.i66.backedge
   %in.addr.0.i.i59.pn = phi ptr [ %in.addr.0.i67, %while.cond.i66.backedge ], [ %in.addr.0.i.i59, %while.cond.i.i58 ]
-  %in.addr.0.i67 = getelementptr inbounds i8, ptr %in.addr.0.i.i59.pn, i64 1
+  %in.addr.0.i67 = getelementptr inbounds nuw i8, ptr %in.addr.0.i.i59.pn, i64 1
   %19 = load i8, ptr %in.addr.0.i67, align 1
   switch i8 %19, label %if.end33 [
     i8 32, label %while.cond.i66.backedge
@@ -1245,7 +1245,7 @@ if.end33:                                         ; preds = %while.cond.i66, %if
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont, %if.end33, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit41
-  %next_attribute.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.088, i64 32
+  %next_attribute.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.088, i64 32
   %20 = load ptr, ptr %next_attribute.i, align 8
   %cmp.not.i.not = icmp eq ptr %20, null
   br i1 %cmp.not.i.not, label %for.end, label %if.end.i
@@ -1269,7 +1269,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry, %entry
-  %incdec.ptr = getelementptr inbounds i8, ptr %c, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %c, i64 1
   store ptr %incdec.ptr, ptr %c.addr, align 8
   %.pre = load i8, ptr %incdec.ptr, align 1
   br label %if.end
@@ -1291,7 +1291,7 @@ land.lhs.true:                                    ; preds = %if.end, %if.end
 
 if.then11:                                        ; preds = %land.lhs.true
   store float 0x7FF8000000000000, ptr %out, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %2, i64 3
   br label %return
 
 if.end13:                                         ; preds = %land.lhs.true
@@ -1306,7 +1306,7 @@ land.lhs.true21:                                  ; preds = %if.end13, %if.end, 
 if.then24:                                        ; preds = %land.lhs.true21
   %storemerge = select i1 %cmp, float 0xFFF0000000000000, float 0x7FF0000000000000
   store float %storemerge, ptr %out, align 4
-  %add.ptr29 = getelementptr inbounds i8, ptr %2, i64 3
+  %add.ptr29 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %3 = load i8, ptr %add.ptr29, align 1
   switch i8 %3, label %return [
     i8 73, label %land.lhs.true37
@@ -1316,7 +1316,7 @@ if.then24:                                        ; preds = %land.lhs.true21
 land.lhs.true37:                                  ; preds = %if.then24, %if.then24
   %call.i26 = tail call i32 @strncasecmp(ptr noundef nonnull %add.ptr29, ptr noundef nonnull @.str.62, i64 noundef 5) #19
   %cmp39 = icmp eq i32 %call.i26, 0
-  %add.ptr41 = getelementptr inbounds i8, ptr %2, i64 8
+  %add.ptr41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %spec.select = select i1 %cmp39, ptr %add.ptr41, ptr %add.ptr29
   br label %return
 
@@ -1333,7 +1333,7 @@ land.lhs.true51:                                  ; preds = %if.end13, %land.lhs
   br i1 %or.cond, label %land.lhs.true61, label %if.then69
 
 land.lhs.true61:                                  ; preds = %land.lhs.true51
-  %arrayidx62 = getelementptr inbounds i8, ptr %2, i64 1
+  %arrayidx62 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %5 = load i8, ptr %arrayidx62, align 1
   %6 = add i8 %5, -48
   %or.cond18 = icmp ult i8 %6, 10
@@ -1401,7 +1401,7 @@ if.end86:                                         ; preds = %if.then83, %if.end7
   br i1 %or.cond24, label %land.lhs.true95, label %if.end114
 
 land.lhs.true95:                                  ; preds = %if.end86
-  %arrayidx96 = getelementptr inbounds i8, ptr %11, i64 1
+  %arrayidx96 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %12 = load i8, ptr %arrayidx96, align 1
   %13 = add i8 %12, -48
   %or.cond21 = icmp ult i8 %13, 10
@@ -1414,7 +1414,7 @@ if.then103:                                       ; preds = %land.lhs.true95
   %conv106 = uitofp i64 %call105 to double
   %14 = load i32, ptr %diff, align 4
   %idxprom = zext i32 %14 to i64
-  %arrayidx107 = getelementptr inbounds [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %idxprom
+  %arrayidx107 = getelementptr inbounds nuw [16 x double], ptr @_ZN6AssimpL15fast_atof_tableE, i64 0, i64 %idxprom
   %15 = load double, ptr %arrayidx107, align 8
   %mul = fmul double %15, %conv106
   %conv108 = fptrunc double %mul to float
@@ -1439,7 +1439,7 @@ if.end114:                                        ; preds = %if.end86, %if.else,
   ]
 
 if.then120:                                       ; preds = %if.end114, %if.end114
-  %incdec.ptr121 = getelementptr inbounds i8, ptr %16, i64 1
+  %incdec.ptr121 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %incdec.ptr121, ptr %c.addr, align 8
   %18 = load i8, ptr %incdec.ptr121, align 1
   %cmp123 = icmp eq i8 %18, 45
@@ -1449,7 +1449,7 @@ if.then120:                                       ; preds = %if.end114, %if.end1
   ]
 
 if.then129:                                       ; preds = %if.then120, %if.then120
-  %incdec.ptr130 = getelementptr inbounds i8, ptr %16, i64 2
+  %incdec.ptr130 = getelementptr inbounds nuw i8, ptr %16, i64 2
   store ptr %incdec.ptr130, ptr %c.addr, align 8
   br label %if.end131
 
@@ -1530,7 +1530,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %clr, i8 0, i64 16, i1 false)
   store i32 0, ptr %s, align 4
-  %data.i = getelementptr inbounds i8, ptr %s, i64 4
+  %data.i = getelementptr inbounds nuw i8, ptr %s, i64 4
   store i8 0, ptr %data.i, align 4
   store i32 0, ptr %matFlags, align 4
   %0 = load ptr, ptr %materialNode, align 8, !noalias !27
@@ -1538,19 +1538,19 @@ invoke.cont:                                      ; preds = %entry
   br i1 %tobool.not.i.i, label %for.end, label %_ZNK4pugi8xml_node8childrenEv.exit
 
 _ZNK4pugi8xml_node8childrenEv.exit:               ; preds = %invoke.cont
-  %first_child.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %first_child.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %first_child.i.i, align 8, !noalias !27
   %cmp.not.i.not408 = icmp eq ptr %1, null
   br i1 %cmp.not.i.not408, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK4pugi8xml_node8childrenEv.exit
-  %value.i = getelementptr inbounds i8, ptr %prop100, i64 32
-  %value84 = getelementptr inbounds i8, ptr %prop56, i64 32
-  %value47 = getelementptr inbounds i8, ptr %prop40, i64 32
-  %value29 = getelementptr inbounds i8, ptr %prop, i64 32
-  %a.i109 = getelementptr inbounds i8, ptr %clr, i64 12
-  %g.i118 = getelementptr inbounds i8, ptr %clr, i64 4
-  %b.i122 = getelementptr inbounds i8, ptr %clr, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %prop100, i64 32
+  %value84 = getelementptr inbounds nuw i8, ptr %prop56, i64 32
+  %value47 = getelementptr inbounds nuw i8, ptr %prop40, i64 32
+  %value29 = getelementptr inbounds nuw i8, ptr %prop, i64 32
+  %a.i109 = getelementptr inbounds nuw i8, ptr %clr, i64 12
+  %g.i118 = getelementptr inbounds nuw i8, ptr %clr, i64 4
+  %b.i122 = getelementptr inbounds nuw i8, ptr %clr, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1559,7 +1559,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__begin1.sroa.0.0409 = phi ptr [ %1, %for.body.lr.ph ], [ %55, %for.inc ]
   %2 = ptrtoint ptr %__begin1.sroa.0.0409 to i64
   store i64 %2, ptr %child, align 8
-  %name3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0409, i64 8
+  %name3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0409, i64 8
   %3 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i = icmp eq ptr %3, null
   %cond.i = select i1 %tobool4.not.i, ptr @.str.56, ptr %3
@@ -1568,11 +1568,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 do.body.i:                                        ; preds = %do.body.i, %for.body
   %s2.addr.0.i = phi ptr [ @.str.7, %for.body ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %for.body ], [ %incdec.ptr.i, %do.body.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s1.addr.0.i, i64 1
   %4 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %4 to i32
   %call.i = call i32 @tolower(i32 noundef %conv.i) #19
-  %incdec.ptr2.i = getelementptr inbounds i8, ptr %s2.addr.0.i, i64 1
+  %incdec.ptr2.i = getelementptr inbounds nuw i8, ptr %s2.addr.0.i, i64 1
   %5 = load i8, ptr %s2.addr.0.i, align 1
   %conv3.i = zext i8 %5 to i32
   %call4.i = call i32 @tolower(i32 noundef %conv3.i) #19
@@ -1646,11 +1646,11 @@ if.then28.invoke:                                 ; preds = %if.else24, %if.else
 do.body.i132:                                     ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i132
   %s2.addr.0.i133 = phi ptr [ %incdec.ptr2.i138, %do.body.i132 ], [ @.str.14, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
   %s1.addr.0.i134 = phi ptr [ %incdec.ptr.i135, %do.body.i132 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i135 = getelementptr inbounds i8, ptr %s1.addr.0.i134, i64 1
+  %incdec.ptr.i135 = getelementptr inbounds nuw i8, ptr %s1.addr.0.i134, i64 1
   %13 = load i8, ptr %s1.addr.0.i134, align 1
   %conv.i136 = zext i8 %13 to i32
   %call.i137 = call i32 @tolower(i32 noundef %conv.i136) #19
-  %incdec.ptr2.i138 = getelementptr inbounds i8, ptr %s2.addr.0.i133, i64 1
+  %incdec.ptr2.i138 = getelementptr inbounds nuw i8, ptr %s2.addr.0.i133, i64 1
   %14 = load i8, ptr %s2.addr.0.i133, align 1
   %conv3.i139 = zext i8 %14 to i32
   %call4.i140 = call i32 @tolower(i32 noundef %conv3.i139) #19
@@ -1688,11 +1688,11 @@ lpad41:                                           ; preds = %if.then46, %if.then
 do.body.i160:                                     ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit148, %do.body.i160
   %s2.addr.0.i161 = phi ptr [ %incdec.ptr2.i166, %do.body.i160 ], [ @.str.17, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit148 ]
   %s1.addr.0.i162 = phi ptr [ %incdec.ptr.i163, %do.body.i160 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit148 ]
-  %incdec.ptr.i163 = getelementptr inbounds i8, ptr %s1.addr.0.i162, i64 1
+  %incdec.ptr.i163 = getelementptr inbounds nuw i8, ptr %s1.addr.0.i162, i64 1
   %18 = load i8, ptr %s1.addr.0.i162, align 1
   %conv.i164 = zext i8 %18 to i32
   %call.i165 = call i32 @tolower(i32 noundef %conv.i164) #19
-  %incdec.ptr2.i166 = getelementptr inbounds i8, ptr %s2.addr.0.i161, i64 1
+  %incdec.ptr2.i166 = getelementptr inbounds nuw i8, ptr %s2.addr.0.i161, i64 1
   %19 = load i8, ptr %s2.addr.0.i161, align 1
   %conv3.i167 = zext i8 %19 to i32
   %call4.i168 = call i32 @tolower(i32 noundef %conv3.i167) #19
@@ -1764,11 +1764,11 @@ if.then82.invoke:                                 ; preds = %if.then62, %if.then
 do.body.i198:                                     ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit176, %do.body.i198
   %s2.addr.0.i199 = phi ptr [ %incdec.ptr2.i204, %do.body.i198 ], [ @.str.24, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit176 ]
   %s1.addr.0.i200 = phi ptr [ %incdec.ptr.i201, %do.body.i198 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit176 ]
-  %incdec.ptr.i201 = getelementptr inbounds i8, ptr %s1.addr.0.i200, i64 1
+  %incdec.ptr.i201 = getelementptr inbounds nuw i8, ptr %s1.addr.0.i200, i64 1
   %32 = load i8, ptr %s1.addr.0.i200, align 1
   %conv.i202 = zext i8 %32 to i32
   %call.i203 = call i32 @tolower(i32 noundef %conv.i202) #19
-  %incdec.ptr2.i204 = getelementptr inbounds i8, ptr %s2.addr.0.i199, i64 1
+  %incdec.ptr2.i204 = getelementptr inbounds nuw i8, ptr %s2.addr.0.i199, i64 1
   %33 = load i8, ptr %s2.addr.0.i199, align 1
   %conv3.i205 = zext i8 %33 to i32
   %call4.i206 = call i32 @tolower(i32 noundef %conv3.i205) #19
@@ -1786,11 +1786,11 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit214:        ; preds = %do.body.i198
 do.body.i222:                                     ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit214, %do.body.i222
   %s2.addr.0.i223 = phi ptr [ %incdec.ptr2.i228, %do.body.i222 ], [ @.str.25, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit214 ]
   %s1.addr.0.i224 = phi ptr [ %incdec.ptr.i225, %do.body.i222 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit214 ]
-  %incdec.ptr.i225 = getelementptr inbounds i8, ptr %s1.addr.0.i224, i64 1
+  %incdec.ptr.i225 = getelementptr inbounds nuw i8, ptr %s1.addr.0.i224, i64 1
   %36 = load i8, ptr %s1.addr.0.i224, align 1
   %conv.i226 = zext i8 %36 to i32
   %call.i227 = call i32 @tolower(i32 noundef %conv.i226) #19
-  %incdec.ptr2.i228 = getelementptr inbounds i8, ptr %s2.addr.0.i223, i64 1
+  %incdec.ptr2.i228 = getelementptr inbounds nuw i8, ptr %s2.addr.0.i223, i64 1
   %37 = load i8, ptr %s2.addr.0.i223, align 1
   %conv3.i229 = zext i8 %37 to i32
   %call4.i230 = call i32 @tolower(i32 noundef %conv3.i229) #19
@@ -1940,7 +1940,7 @@ if.end.i278:                                      ; preds = %if.then209
   %41 = load i32, ptr %s, align 4
   %conv5.i = zext i32 %41 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i, i64 %conv5.i, i1 false)
-  %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i
+  %arrayidx.i = getelementptr inbounds nuw [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -1985,7 +1985,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302.
   %43 = load i32, ptr %s, align 4
   %conv5.i300 = zext i32 %43 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i299, i64 %conv5.i300, i1 false)
-  %arrayidx.i301 = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i300
+  %arrayidx.i301 = getelementptr inbounds nuw [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i300
   store i8 0, ptr %arrayidx.i301, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302.invoke
 
@@ -2012,7 +2012,7 @@ if.end.i305:                                      ; preds = %if.then239
   %46 = load i32, ptr %s, align 4
   %conv5.i310 = zext i32 %46 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i309, i64 %conv5.i310, i1 false)
-  %arrayidx.i311 = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i310
+  %arrayidx.i311 = getelementptr inbounds nuw [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i310
   store i8 0, ptr %arrayidx.i311, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit312
 
@@ -2052,7 +2052,7 @@ if.end.i317:                                      ; preds = %if.then260
   %47 = load i32, ptr %s, align 4
   %conv5.i322 = zext i32 %47 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i321, i64 %conv5.i322, i1 false)
-  %arrayidx.i323 = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i322
+  %arrayidx.i323 = getelementptr inbounds nuw [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i322
   store i8 0, ptr %arrayidx.i323, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit324
 
@@ -2081,7 +2081,7 @@ if.end.i329:                                      ; preds = %if.then272
   %48 = load i32, ptr %s, align 4
   %conv5.i334 = zext i32 %48 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i333, i64 %conv5.i334, i1 false)
-  %arrayidx.i335 = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i334
+  %arrayidx.i335 = getelementptr inbounds nuw [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i334
   store i8 0, ptr %arrayidx.i335, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit336
 
@@ -2244,7 +2244,7 @@ for.inc.sink.split:                               ; preds = %if.else78, %if.then
 for.inc:                                          ; preds = %for.inc.sink.split, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit238
   %cnt.3 = phi i32 [ %cnt.0411, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit238 ], [ %cnt.3.ph, %for.inc.sink.split ]
   %nd.3 = phi i32 [ %nd.0412, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit238 ], [ %nd.3.ph, %for.inc.sink.split ]
-  %next_sibling.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0409, i64 48
+  %next_sibling.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0409, i64 48
   %55 = load ptr, ptr %next_sibling.i, align 8
   %cmp.not.i.not = icmp eq ptr %55, null
   br i1 %cmp.not.i.not, label %for.end, label %for.body
@@ -2638,8 +2638,8 @@ for.body.i.i:                                     ; preds = %.noexc, %for.body.i
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i8 %placeholder, i8 %0
   store i8 %cond.i.i.i, ptr %__result.sroa.0.06.i.i, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 1
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.07.i.i, i64 1
+  %incdec.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %__result.sroa.0.06.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call2.i
   br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !30
 
@@ -2736,7 +2736,7 @@ if.end18.us:                                      ; preds = %if.end12.us.prehead
   %add.us82 = phi i64 [ %sub.us79, %if.end12.us.preheader ], [ %add.us, %if.end12.us ]
   %incdec.ptr3032.us81 = phi ptr [ %in, %if.end12.us.preheader ], [ %incdec.ptr.us, %if.end12.us ]
   %cur.033.us80 = phi i32 [ 0, %if.end12.us.preheader ], [ %inc.us, %if.end12.us ]
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %incdec.ptr3032.us81, i64 1
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %incdec.ptr3032.us81, i64 1
   %inc.us = add i32 %cur.033.us80, 1
   %2 = load i8, ptr %incdec.ptr.us, align 1
   %3 = add i8 %2, -58
@@ -2805,7 +2805,7 @@ if.end18:                                         ; preds = %if.end12.lr.ph.spli
   %add77 = phi i64 [ %sub74, %if.end12.lr.ph.split ], [ %add, %if.end12 ]
   %incdec.ptr303276 = phi ptr [ %in, %if.end12.lr.ph.split ], [ %incdec.ptr, %if.end12 ]
   %cur.03375 = phi i32 [ 0, %if.end12.lr.ph.split ], [ %inc, %if.end12 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr303276, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr303276, i64 1
   %inc = add i32 %cur.03375, 1
   %cmp19 = icmp eq i32 %4, %inc
   br i1 %cmp19, label %if.then20, label %if.end29
@@ -2823,7 +2823,7 @@ while.cond.preheader:                             ; preds = %if.then20
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %incdec.ptr274042 = phi ptr [ %incdec.ptr27, %while.body ], [ %incdec.ptr, %while.cond.preheader ]
-  %incdec.ptr27 = getelementptr inbounds i8, ptr %incdec.ptr274042, i64 1
+  %incdec.ptr27 = getelementptr inbounds nuw i8, ptr %incdec.ptr274042, i64 1
   store ptr %incdec.ptr27, ptr %in.addr, align 8
   %10 = load i8, ptr %incdec.ptr27, align 1
   %11 = add i8 %10, -48
@@ -3404,18 +3404,18 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 define internal void @_GLOBAL__sub_I_IRRShared.cpp() #15 section ".text.startup" {
 entry:
   store i32 0, ptr @_ZN4pugi4implL14dummy_node_setE, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN4pugi4implL14dummy_node_setE, i64 8), i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZN4pugi4implL14dummy_node_setE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN4pugi4implL14dummy_node_setE, i64 24), align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN4pugi4implL14dummy_node_setE, i64 8), ptr getelementptr inbounds (i8, ptr @_ZN4pugi4implL14dummy_node_setE, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4pugi4implL14dummy_node_setE, i64 8), i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4pugi4implL14dummy_node_setE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN4pugi4implL14dummy_node_setE, i64 24), align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN4pugi4implL14dummy_node_setE, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN4pugi4implL14dummy_node_setE, i64 32), align 8
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4pugi14xpath_node_setD2Ev, ptr nonnull @_ZN4pugi4implL14dummy_node_setE, ptr nonnull @__dso_handle) #20
   store float 1.000000e+00, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 4), i8 0, i64 20, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 24), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 28), align 4
-  store float 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 32), align 4
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 36), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 40), i8 0, i64 20, i1 false)
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 60), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 4), i8 0, i64 20, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 24), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 28), align 4
+  store float 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 32), align 4
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 36), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 40), i8 0, i64 20, i1 false)
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Assimp16AI_TO_IRR_MATRIXE, i64 60), align 4
   ret void
 }
 

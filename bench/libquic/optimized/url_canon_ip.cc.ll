@@ -12,14 +12,14 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN3url17AppendIPv4AddressEPKhPNS_12CanonOutputTIcEE(ptr nocapture noundef readonly %address, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   %str = alloca [16 x i8], align 16
-  %cur_len_.i = getelementptr inbounds i8, ptr %output, i64 20
-  %buffer_len_.i = getelementptr inbounds i8, ptr %output, i64 16
-  %.sink.in.i = getelementptr inbounds i8, ptr %output, i64 8
+  %cur_len_.i = getelementptr inbounds nuw i8, ptr %output, i64 20
+  %buffer_len_.i = getelementptr inbounds nuw i8, ptr %output, i64 16
+  %.sink.in.i = getelementptr inbounds nuw i8, ptr %output, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc10
   %indvars.iv36 = phi i64 [ 0, %entry ], [ %indvars.iv.next37, %for.inc10 ]
-  %arrayidx = getelementptr inbounds i8, ptr %address, i64 %indvars.iv36
+  %arrayidx = getelementptr inbounds nuw i8, ptr %address, i64 %indvars.iv36
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
   %call.i = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %conv, ptr noundef nonnull align 1 dereferenceable(16) %str, i64 noundef 16, i32 noundef 10)
@@ -56,7 +56,7 @@ if.end.i.i:                                       ; preds = %do.body.i.i
 
 if.end5.i:                                        ; preds = %if.end.i.i
   %vtable.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i)
   %6 = load i32, ptr %cur_len_.i, align 4
@@ -76,7 +76,7 @@ return.sink.split.i:                              ; preds = %for.body6, %if.end5
 _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %do.body.i.i, %return.sink.split.i
   %8 = phi i32 [ %inc11.i, %return.sink.split.i ], [ %2, %do.body.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx3 = getelementptr inbounds [16 x i8], ptr %str, i64 0, i64 %indvars.iv.next
+  %arrayidx3 = getelementptr inbounds nuw [16 x i8], ptr %str, i64 0, i64 %indvars.iv.next
   %9 = load i8, ptr %arrayidx3, align 1
   %cmp5.not = icmp eq i8 %9, 0
   br i1 %cmp5.not, label %for.end, label %for.body6, !llvm.loop !7
@@ -108,7 +108,7 @@ if.end.i.i16:                                     ; preds = %do.body.i.i13
 
 if.end5.i19:                                      ; preds = %if.end.i.i16
   %vtable.i.i20 = load ptr, ptr %output, align 8
-  %vfn.i.i21 = getelementptr inbounds i8, ptr %vtable.i.i20, i64 16
+  %vfn.i.i21 = getelementptr inbounds nuw i8, ptr %vtable.i.i20, i64 16
   %12 = load ptr, ptr %vfn.i.i21, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i17)
   %13 = load i32, ptr %cur_len_.i, align 4
@@ -146,14 +146,14 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   %max_range.sroa.0.024.i = phi i32 [ 0, %entry ], [ %max_range.sroa.0.2.i, %for.inc.i ]
   %cur_range.sroa.0.023.i = phi i32 [ 0, %entry ], [ %cur_range.sroa.0.3.i, %for.inc.i ]
   %cur_range.sroa.4.022.i = phi i32 [ -1, %entry ], [ %cur_range.sroa.4.3.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %address, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %address, i64 %indvars.iv.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %cmp1.i = icmp eq i8 %0, 0
   br i1 %cmp1.i, label %land.end.i, label %if.then11.i
 
 land.end.i:                                       ; preds = %for.body.i
   %1 = or disjoint i64 %indvars.iv.i, 1
-  %arrayidx3.i = getelementptr inbounds i8, ptr %address, i64 %1
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %address, i64 %1
   %2 = load i8, ptr %arrayidx3.i, align 1
   %cmp5.i = icmp eq i8 %2, 0
   br i1 %cmp5.i, label %if.then.i, label %if.then11.i
@@ -188,9 +188,9 @@ for.inc.i:                                        ; preds = %if.then11.i, %if.th
 
 for.cond.preheader:                               ; preds = %for.inc.i
   %cmp2 = icmp sgt i32 %max_range.sroa.3.2.i, 0
-  %cur_len_.i42 = getelementptr inbounds i8, ptr %output, i64 20
-  %buffer_len_.i43 = getelementptr inbounds i8, ptr %output, i64 16
-  %.sink.in.i59 = getelementptr inbounds i8, ptr %output, i64 8
+  %cur_len_.i42 = getelementptr inbounds nuw i8, ptr %output, i64 20
+  %buffer_len_.i43 = getelementptr inbounds nuw i8, ptr %output, i64 16
+  %.sink.in.i59 = getelementptr inbounds nuw i8, ptr %output, i64 8
   %add.i = add nsw i32 %max_range.sroa.3.2.i, %max_range.sroa.0.2.i
   %cmp3 = icmp eq i32 %max_range.sroa.0.2.i, 0
   br label %for.body
@@ -227,7 +227,7 @@ if.end.i.i:                                       ; preds = %do.body.i.i
 
 if.end5.i:                                        ; preds = %if.end.i.i
   %vtable.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i)
   %6 = load i32, ptr %cur_len_.i42, align 4
@@ -311,7 +311,7 @@ if.end.i.i51:                                     ; preds = %do.body.i.i48
 
 if.end5.i54:                                      ; preds = %if.end.i.i51
   %vtable.i.i55 = load ptr, ptr %output, align 8
-  %vfn.i.i56 = getelementptr inbounds i8, ptr %vtable.i.i55, i64 16
+  %vfn.i.i56 = getelementptr inbounds nuw i8, ptr %vtable.i.i55, i64 16
   %16 = load ptr, ptr %vfn.i.i56, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i52)
   %17 = load i32, ptr %cur_len_.i42, align 4
@@ -331,7 +331,7 @@ return.sink.split.i57:                            ; preds = %for.body15, %if.end
 _ZN3url12CanonOutputTIcE9push_backEc.exit65:      ; preds = %do.body.i.i48, %return.sink.split.i57
   %19 = phi i32 [ %inc11.i63, %return.sink.split.i57 ], [ %13, %do.body.i.i48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx12 = getelementptr inbounds [5 x i8], ptr %str, i64 0, i64 %indvars.iv.next
+  %arrayidx12 = getelementptr inbounds nuw [5 x i8], ptr %str, i64 0, i64 %indvars.iv.next
   %20 = load i8, ptr %arrayidx12, align 1
   %cmp14.not = icmp eq i8 %20, 0
   br i1 %cmp14.not, label %for.end, label %for.body15, !llvm.loop !10
@@ -365,7 +365,7 @@ if.end21.sink.split.sink.split:                   ; preds = %if.end.i.i75, %if.e
   %mul.i.i76.lcssa.sink = phi i32 [ %mul.i.i27, %if.end.i.i26 ], [ %mul.i.i76, %if.end.i.i75 ]
   %i.1.ph.ph = phi i32 [ %add.i, %if.end.i.i26 ], [ %add8, %if.end.i.i75 ]
   %vtable.i.i79 = load ptr, ptr %output, align 8
-  %vfn.i.i80 = getelementptr inbounds i8, ptr %vtable.i.i79, i64 16
+  %vfn.i.i80 = getelementptr inbounds nuw i8, ptr %vtable.i.i79, i64 16
   %23 = load ptr, ptr %vfn.i.i80, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i76.lcssa.sink)
   %24 = load i32, ptr %cur_len_.i42, align 4
@@ -395,7 +395,7 @@ for.end22:                                        ; preds = %for.end, %if.end21
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr nocapture noundef writeonly %components) local_unnamed_addr #1 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %host, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
   %cmp.i.i = icmp sgt i32 %host.val1, 0
   br i1 %cmp.i.i, label %if.end.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit
@@ -428,7 +428,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %f
   %4 = trunc nsw i64 %indvars.iv.i to i32
   %sub.i = sub nsw i32 %4, %cur_component_begin.0.i.ph
   %idxprom5.i = zext nneg i32 %cur_component.0.i.ph to i64
-  %arrayidx6.i = getelementptr inbounds %"struct.url::Component", ptr %components, i64 %idxprom5.i
+  %arrayidx6.i = getelementptr inbounds nuw %"struct.url::Component", ptr %components, i64 %idxprom5.i
   %ref.tmp.sroa.2.0.insert.ext.i = zext i32 %sub.i to i64
   %ref.tmp.sroa.2.0.insert.shift.i = shl nuw i64 %ref.tmp.sroa.2.0.insert.ext.i, 32
   %ref.tmp.sroa.0.0.insert.ext.i = zext i32 %cur_component_begin.0.i.ph to i64
@@ -466,7 +466,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
 
 lor.lhs.false32.i:                                ; preds = %if.else.i
   %idxprom.i.i.i = zext nneg i8 %3 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i, align 1
   %9 = and i8 %8, 4
   %tobool.i.i.not.i = icmp eq i8 %9, 0
@@ -487,7 +487,7 @@ while.body.preheader.i:                           ; preds = %for.end.i
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
   %indvars.iv21.i = phi i64 [ %10, %while.body.preheader.i ], [ %indvars.iv.next22.i, %while.body.i ]
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %arrayidx44.i = getelementptr inbounds %"struct.url::Component", ptr %components, i64 %indvars.iv21.i
+  %arrayidx44.i = getelementptr inbounds nuw %"struct.url::Component", ptr %components, i64 %indvars.iv21.i
   store i64 -4294967296, ptr %arrayidx44.i, align 4
   %11 = and i64 %indvars.iv.next22.i, 4294967295
   %exitcond.not.i = icmp eq i64 %11, 4
@@ -501,7 +501,7 @@ _ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit: 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr nocapture noundef writeonly %components) local_unnamed_addr #1 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %host, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
   %cmp.i.i = icmp sgt i32 %host.val1, 0
   br i1 %cmp.i.i, label %if.end.i, label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit
@@ -534,7 +534,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %f
   %4 = trunc nsw i64 %indvars.iv.i to i32
   %sub.i = sub nsw i32 %4, %cur_component_begin.0.i.ph
   %idxprom5.i = zext nneg i32 %cur_component.0.i.ph to i64
-  %arrayidx6.i = getelementptr inbounds %"struct.url::Component", ptr %components, i64 %idxprom5.i
+  %arrayidx6.i = getelementptr inbounds nuw %"struct.url::Component", ptr %components, i64 %idxprom5.i
   %ref.tmp.sroa.2.0.insert.ext.i = zext i32 %sub.i to i64
   %ref.tmp.sroa.2.0.insert.shift.i = shl nuw i64 %ref.tmp.sroa.2.0.insert.ext.i, 32
   %ref.tmp.sroa.0.0.insert.ext.i = zext i32 %cur_component_begin.0.i.ph to i64
@@ -572,7 +572,7 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
 
 lor.lhs.false32.i:                                ; preds = %if.else.i
   %conv35.i = zext nneg i16 %3 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %conv35.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %conv35.i
   %9 = load i8, ptr %arrayidx.i.i.i, align 1
   %10 = and i8 %9, 4
   %tobool.i.i.not.i = icmp eq i8 %10, 0
@@ -593,7 +593,7 @@ while.body.preheader.i:                           ; preds = %for.end.i
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
   %indvars.iv21.i = phi i64 [ %11, %while.body.preheader.i ], [ %indvars.iv.next22.i, %while.body.i ]
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %arrayidx45.i = getelementptr inbounds %"struct.url::Component", ptr %components, i64 %indvars.iv21.i
+  %arrayidx45.i = getelementptr inbounds nuw %"struct.url::Component", ptr %components, i64 %indvars.iv21.i
   store i64 -4294967296, ptr %arrayidx45.i, align 4
   %12 = and i64 %indvars.iv.next22.i, 4294967295
   %exitcond.not.i = icmp eq i64 %12, 4
@@ -607,8 +607,8 @@ _ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit: 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3url21CanonicalizeIPAddressEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef %host_info) local_unnamed_addr #0 {
 entry:
-  %address.i = getelementptr inbounds i8, ptr %host_info, i64 16
-  %num_ipv4_components.i = getelementptr inbounds i8, ptr %host_info, i64 4
+  %address.i = getelementptr inbounds nuw i8, ptr %host_info, i64 16
+  %num_ipv4_components.i = getelementptr inbounds nuw i8, ptr %host_info, i64 4
   %call.i = tail call noundef i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr noundef readonly %spec, ptr noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef nonnull %address.i, ptr noundef nonnull %num_ipv4_components.i)
   store i32 %call.i, ptr %host_info, align 4
   switch i32 %call.i, label %if.end [
@@ -617,15 +617,15 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
+  %cur_len_.i.i = getelementptr inbounds nuw i8, ptr %output, i64 20
   %0 = load i32, ptr %cur_len_.i.i, align 4
-  %out_host.i = getelementptr inbounds i8, ptr %host_info, i64 8
+  %out_host.i = getelementptr inbounds nuw i8, ptr %host_info, i64 8
   store i32 %0, ptr %out_host.i, align 4
   tail call void @_ZN3url17AppendIPv4AddressEPKhPNS_12CanonOutputTIcEE(ptr noundef nonnull %address.i, ptr noundef nonnull %output)
   %1 = load i32, ptr %cur_len_.i.i, align 4
   %2 = load i32, ptr %out_host.i, align 4
   %sub.i = sub nsw i32 %1, %2
-  %len.i = getelementptr inbounds i8, ptr %host_info, i64 12
+  %len.i = getelementptr inbounds nuw i8, ptr %host_info, i64 12
   store i32 %sub.i, ptr %len.i, align 4
   br label %if.end3
 
@@ -634,7 +634,7 @@ if.end:                                           ; preds = %entry
   br i1 %call.i6, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %len.i.i = getelementptr inbounds i8, ptr %host, i64 4
+  %len.i.i = getelementptr inbounds nuw i8, ptr %host, i64 4
   %3 = load i32, ptr %len.i.i, align 4
   %cmp45.i = icmp sgt i32 %3, 0
   br i1 %cmp45.i, label %for.body.preheader.i, label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit
@@ -662,11 +662,11 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i, label %for.body.i, label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit, !llvm.loop !16
 
 if.end.i:                                         ; preds = %if.end
-  %cur_len_.i.i8 = getelementptr inbounds i8, ptr %output, i64 20
+  %cur_len_.i.i8 = getelementptr inbounds nuw i8, ptr %output, i64 20
   %8 = load i32, ptr %cur_len_.i.i8, align 4
-  %out_host.i9 = getelementptr inbounds i8, ptr %host_info, i64 8
+  %out_host.i9 = getelementptr inbounds nuw i8, ptr %host_info, i64 8
   store i32 %8, ptr %out_host.i9, align 4
-  %buffer_len_.i.i = getelementptr inbounds i8, ptr %output, i64 16
+  %buffer_len_.i.i = getelementptr inbounds nuw i8, ptr %output, i64 16
   %9 = load i32, ptr %buffer_len_.i.i, align 8
   %cmp.i.i = icmp slt i32 %8, %9
   br i1 %cmp.i.i, label %return.sink.split.i.i, label %if.end.i.i
@@ -688,7 +688,7 @@ if.end.i.i.i:                                     ; preds = %do.body.i.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i.i
   %vtable.i.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i)
   %11 = load i32, ptr %cur_len_.i.i8, align 4
@@ -696,7 +696,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i.i
 
 return.sink.split.i.i:                            ; preds = %if.end5.i.i, %if.end.i
   %.sink2.i.i = phi i32 [ %11, %if.end5.i.i ], [ %8, %if.end.i ]
-  %.sink.in.i.i = getelementptr inbounds i8, ptr %output, i64 8
+  %.sink.in.i.i = getelementptr inbounds nuw i8, ptr %output, i64 8
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8
   %idxprom8.i.i = sext i32 %.sink2.i.i to i64
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 %idxprom8.i.i
@@ -730,7 +730,7 @@ if.end.i.i27.i:                                   ; preds = %do.body.i.i24.i
 
 if.end5.i30.i:                                    ; preds = %if.end.i.i27.i
   %vtable.i.i31.i = load ptr, ptr %output, align 8
-  %vfn.i.i32.i = getelementptr inbounds i8, ptr %vtable.i.i31.i, i64 16
+  %vfn.i.i32.i = getelementptr inbounds nuw i8, ptr %vtable.i.i31.i, i64 16
   %15 = load ptr, ptr %vfn.i.i32.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i28.i)
   %16 = load i32, ptr %cur_len_.i.i8, align 4
@@ -738,7 +738,7 @@ if.end5.i30.i:                                    ; preds = %if.end.i.i27.i
 
 return.sink.split.i33.i:                          ; preds = %if.end5.i30.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
   %.sink2.i34.i = phi i32 [ %16, %if.end5.i30.i ], [ %13, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i ]
-  %.sink.in.i35.i = getelementptr inbounds i8, ptr %output, i64 8
+  %.sink.in.i35.i = getelementptr inbounds nuw i8, ptr %output, i64 8
   %.sink.i36.i = load ptr, ptr %.sink.in.i35.i, align 8
   %idxprom8.i37.i = sext i32 %.sink2.i34.i to i64
   %arrayidx9.i38.i = getelementptr inbounds i8, ptr %.sink.i36.i, i64 %idxprom8.i37.i
@@ -752,7 +752,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit41.i:    ; preds = %do.body.i.i24.i, %r
   %18 = phi i32 [ %inc11.i39.i, %return.sink.split.i33.i ], [ %13, %do.body.i.i24.i ]
   %19 = load i32, ptr %out_host.i9, align 4
   %sub.i10 = sub nsw i32 %18, %19
-  %len.i11 = getelementptr inbounds i8, ptr %host_info, i64 12
+  %len.i11 = getelementptr inbounds nuw i8, ptr %host_info, i64 12
   store i32 %sub.i10, ptr %len.i11, align 4
   br label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit
 
@@ -768,8 +768,8 @@ if.end3:                                          ; preds = %entry, %sw.bb.i, %_
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3url21CanonicalizeIPAddressEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef %host_info) local_unnamed_addr #0 {
 entry:
-  %address.i = getelementptr inbounds i8, ptr %host_info, i64 16
-  %num_ipv4_components.i = getelementptr inbounds i8, ptr %host_info, i64 4
+  %address.i = getelementptr inbounds nuw i8, ptr %host_info, i64 16
+  %num_ipv4_components.i = getelementptr inbounds nuw i8, ptr %host_info, i64 4
   %call.i = tail call noundef i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr noundef readonly %spec, ptr noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef nonnull %address.i, ptr noundef nonnull %num_ipv4_components.i)
   store i32 %call.i, ptr %host_info, align 4
   switch i32 %call.i, label %if.end [
@@ -778,15 +778,15 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
+  %cur_len_.i.i = getelementptr inbounds nuw i8, ptr %output, i64 20
   %0 = load i32, ptr %cur_len_.i.i, align 4
-  %out_host.i = getelementptr inbounds i8, ptr %host_info, i64 8
+  %out_host.i = getelementptr inbounds nuw i8, ptr %host_info, i64 8
   store i32 %0, ptr %out_host.i, align 4
   tail call void @_ZN3url17AppendIPv4AddressEPKhPNS_12CanonOutputTIcEE(ptr noundef nonnull %address.i, ptr noundef nonnull %output)
   %1 = load i32, ptr %cur_len_.i.i, align 4
   %2 = load i32, ptr %out_host.i, align 4
   %sub.i = sub nsw i32 %1, %2
-  %len.i = getelementptr inbounds i8, ptr %host_info, i64 12
+  %len.i = getelementptr inbounds nuw i8, ptr %host_info, i64 12
   store i32 %sub.i, ptr %len.i, align 4
   br label %if.end3
 
@@ -795,7 +795,7 @@ if.end:                                           ; preds = %entry
   br i1 %call.i6, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %len.i.i = getelementptr inbounds i8, ptr %host, i64 4
+  %len.i.i = getelementptr inbounds nuw i8, ptr %host, i64 4
   %3 = load i32, ptr %len.i.i, align 4
   %cmp45.i = icmp sgt i32 %3, 0
   br i1 %cmp45.i, label %for.body.preheader.i, label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit
@@ -823,11 +823,11 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i, label %for.body.i, label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit, !llvm.loop !17
 
 if.end.i:                                         ; preds = %if.end
-  %cur_len_.i.i8 = getelementptr inbounds i8, ptr %output, i64 20
+  %cur_len_.i.i8 = getelementptr inbounds nuw i8, ptr %output, i64 20
   %8 = load i32, ptr %cur_len_.i.i8, align 4
-  %out_host.i9 = getelementptr inbounds i8, ptr %host_info, i64 8
+  %out_host.i9 = getelementptr inbounds nuw i8, ptr %host_info, i64 8
   store i32 %8, ptr %out_host.i9, align 4
-  %buffer_len_.i.i = getelementptr inbounds i8, ptr %output, i64 16
+  %buffer_len_.i.i = getelementptr inbounds nuw i8, ptr %output, i64 16
   %9 = load i32, ptr %buffer_len_.i.i, align 8
   %cmp.i.i = icmp slt i32 %8, %9
   br i1 %cmp.i.i, label %return.sink.split.i.i, label %if.end.i.i
@@ -849,7 +849,7 @@ if.end.i.i.i:                                     ; preds = %do.body.i.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i.i
   %vtable.i.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i)
   %11 = load i32, ptr %cur_len_.i.i8, align 4
@@ -857,7 +857,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i.i
 
 return.sink.split.i.i:                            ; preds = %if.end5.i.i, %if.end.i
   %.sink2.i.i = phi i32 [ %11, %if.end5.i.i ], [ %8, %if.end.i ]
-  %.sink.in.i.i = getelementptr inbounds i8, ptr %output, i64 8
+  %.sink.in.i.i = getelementptr inbounds nuw i8, ptr %output, i64 8
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8
   %idxprom8.i.i = sext i32 %.sink2.i.i to i64
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 %idxprom8.i.i
@@ -891,7 +891,7 @@ if.end.i.i27.i:                                   ; preds = %do.body.i.i24.i
 
 if.end5.i30.i:                                    ; preds = %if.end.i.i27.i
   %vtable.i.i31.i = load ptr, ptr %output, align 8
-  %vfn.i.i32.i = getelementptr inbounds i8, ptr %vtable.i.i31.i, i64 16
+  %vfn.i.i32.i = getelementptr inbounds nuw i8, ptr %vtable.i.i31.i, i64 16
   %15 = load ptr, ptr %vfn.i.i32.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i28.i)
   %16 = load i32, ptr %cur_len_.i.i8, align 4
@@ -899,7 +899,7 @@ if.end5.i30.i:                                    ; preds = %if.end.i.i27.i
 
 return.sink.split.i33.i:                          ; preds = %if.end5.i30.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
   %.sink2.i34.i = phi i32 [ %16, %if.end5.i30.i ], [ %13, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i ]
-  %.sink.in.i35.i = getelementptr inbounds i8, ptr %output, i64 8
+  %.sink.in.i35.i = getelementptr inbounds nuw i8, ptr %output, i64 8
   %.sink.i36.i = load ptr, ptr %.sink.in.i35.i, align 8
   %idxprom8.i37.i = sext i32 %.sink2.i34.i to i64
   %arrayidx9.i38.i = getelementptr inbounds i8, ptr %.sink.i36.i, i64 %idxprom8.i37.i
@@ -913,7 +913,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit41.i:    ; preds = %do.body.i.i24.i, %r
   %18 = phi i32 [ %inc11.i39.i, %return.sink.split.i33.i ], [ %13, %do.body.i.i24.i ]
   %19 = load i32, ptr %out_host.i9, align 4
   %sub.i10 = sub nsw i32 %18, %19
-  %len.i11 = getelementptr inbounds i8, ptr %host_info, i64 12
+  %len.i11 = getelementptr inbounds nuw i8, ptr %host_info, i64 12
   store i32 %sub.i10, ptr %len.i11, align 4
   br label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit
 
@@ -933,7 +933,7 @@ entry:
   %components.i = alloca [4 x %"struct.url::Component"], align 16
   %component_values.i = alloca [4 x i32], align 16
   %host.val = load i32, ptr %host, align 4
-  %0 = getelementptr inbounds i8, ptr %host, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %components.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %component_values.i)
@@ -941,9 +941,9 @@ entry:
 
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %entry
   %arrayctor.cur.idx.i = phi i64 [ 0, %entry ], [ %arrayctor.cur.add.i, %arrayctor.loop.i ]
-  %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %components.i, i64 %arrayctor.cur.idx.i
+  %arrayctor.cur.ptr.i = getelementptr inbounds nuw i8, ptr %components.i, i64 %arrayctor.cur.idx.i
   store i32 0, ptr %arrayctor.cur.ptr.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 4
+  %len.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.i, i64 4
   store i32 -1, ptr %len.i.i, align 4
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 8
   %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 32
@@ -980,7 +980,7 @@ if.then4.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
   %4 = trunc nsw i64 %indvars.iv.i.i.i to i32
   %sub.i.i.i = sub nsw i32 %4, %cur_component_begin.0.i.i.i.ph
   %idxprom5.i.i.i = zext nneg i32 %cur_component.0.i.i.i.ph to i64
-  %arrayidx6.i.i.i = getelementptr inbounds %"struct.url::Component", ptr %components.i, i64 %idxprom5.i.i.i
+  %arrayidx6.i.i.i = getelementptr inbounds nuw %"struct.url::Component", ptr %components.i, i64 %idxprom5.i.i.i
   %ref.tmp.sroa.2.0.insert.ext.i.i.i = zext i32 %sub.i.i.i to i64
   %ref.tmp.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %ref.tmp.sroa.2.0.insert.ext.i.i.i, 32
   %ref.tmp.sroa.0.0.insert.ext.i.i.i = zext i32 %cur_component_begin.0.i.i.i.ph to i64
@@ -1018,7 +1018,7 @@ if.else.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
 
 lor.lhs.false32.i.i.i:                            ; preds = %if.else.i.i.i
   %idxprom.i.i.i.i.i = zext nneg i8 %3 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %9 = and i8 %8, 4
   %tobool.i.i.not.i.i.i = icmp eq i8 %9, 0
@@ -1039,7 +1039,7 @@ while.body.preheader.i.i.i:                       ; preds = %for.end.i.i.i
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body.preheader.i.i.i
   %indvars.iv21.i.i.i = phi i64 [ %10, %while.body.preheader.i.i.i ], [ %indvars.iv.next22.i.i.i, %while.body.i.i.i ]
   %indvars.iv.next22.i.i.i = add nuw nsw i64 %indvars.iv21.i.i.i, 1
-  %arrayidx44.i.i.i = getelementptr inbounds %"struct.url::Component", ptr %components.i, i64 %indvars.iv21.i.i.i
+  %arrayidx44.i.i.i = getelementptr inbounds nuw %"struct.url::Component", ptr %components.i, i64 %indvars.iv21.i.i.i
   store i64 -4294967296, ptr %arrayidx44.i.i.i, align 8
   %11 = and i64 %indvars.iv.next22.i.i.i, 4294967295
   %exitcond.not.i.i.i = icmp eq i64 %11, 4
@@ -1052,8 +1052,8 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %broken.016.i = phi i1 [ %broken.1.i, %for.inc.i ], [ false, %for.body.i.preheader ]
   %existing_components.015.i = phi i32 [ %existing_components.1.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i = getelementptr inbounds [4 x %"struct.url::Component"], ptr %components.i, i64 0, i64 %indvars.iv.i
-  %len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %arrayidx.i = getelementptr inbounds nuw [4 x %"struct.url::Component"], ptr %components.i, i64 0, i64 %indvars.iv.i
+  %len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %12 = load i32, ptr %len.i, align 4
   %cmp1.i = icmp slt i32 %12, 1
   br i1 %cmp1.i, label %for.inc.i, label %if.end3.i
@@ -1127,7 +1127,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %arrayidx31.i.i = getelementptr inbounds i8, ptr %spec, i64 %indvars.iv11.i.i
   %20 = load i8, ptr %arrayidx31.i.i, align 1
   %idxprom.i.i.i = zext i8 %20 to i64
-  %arrayidx.i.i23.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i23.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i.i
   %21 = load i8, ptr %arrayidx.i.i23.i, align 1
   %conv.i.i.i = zext i8 %21 to i32
   %and.i.i.i = and i32 %base.0.i.i, %conv.i.i.i
@@ -1222,14 +1222,14 @@ for.body21.preheader.i:                           ; preds = %for.cond19.preheade
 
 for.body21.i:                                     ; preds = %if.end27.i, %for.body21.preheader.i
   %indvars.iv31.i = phi i64 [ 0, %for.body21.preheader.i ], [ %indvars.iv.next32.i, %if.end27.i ]
-  %arrayidx23.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %indvars.iv31.i
+  %arrayidx23.i = getelementptr inbounds nuw [4 x i32], ptr %component_values.i, i64 0, i64 %indvars.iv31.i
   %24 = load i32, ptr %arrayidx23.i, align 4
   %cmp25.i = icmp ugt i32 %24, 255
   br i1 %cmp25.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit, label %if.end27.i
 
 if.end27.i:                                       ; preds = %for.body21.i
   %conv30.i = trunc nuw i32 %24 to i8
-  %arrayidx32.i = getelementptr inbounds i8, ptr %address, i64 %indvars.iv31.i
+  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %address, i64 %indvars.iv31.i
   store i8 %conv30.i, ptr %arrayidx32.i, align 1
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count.i
@@ -1281,7 +1281,7 @@ entry:
   %components.i = alloca [4 x %"struct.url::Component"], align 16
   %component_values.i = alloca [4 x i32], align 16
   %host.val = load i32, ptr %host, align 4
-  %0 = getelementptr inbounds i8, ptr %host, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %components.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %component_values.i)
@@ -1289,9 +1289,9 @@ entry:
 
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %entry
   %arrayctor.cur.idx.i = phi i64 [ 0, %entry ], [ %arrayctor.cur.add.i, %arrayctor.loop.i ]
-  %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %components.i, i64 %arrayctor.cur.idx.i
+  %arrayctor.cur.ptr.i = getelementptr inbounds nuw i8, ptr %components.i, i64 %arrayctor.cur.idx.i
   store i32 0, ptr %arrayctor.cur.ptr.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 4
+  %len.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.i, i64 4
   store i32 -1, ptr %len.i.i, align 4
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 8
   %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 32
@@ -1328,7 +1328,7 @@ if.then4.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
   %4 = trunc nsw i64 %indvars.iv.i.i.i to i32
   %sub.i.i.i = sub nsw i32 %4, %cur_component_begin.0.i.i.i.ph
   %idxprom5.i.i.i = zext nneg i32 %cur_component.0.i.i.i.ph to i64
-  %arrayidx6.i.i.i = getelementptr inbounds %"struct.url::Component", ptr %components.i, i64 %idxprom5.i.i.i
+  %arrayidx6.i.i.i = getelementptr inbounds nuw %"struct.url::Component", ptr %components.i, i64 %idxprom5.i.i.i
   %ref.tmp.sroa.2.0.insert.ext.i.i.i = zext i32 %sub.i.i.i to i64
   %ref.tmp.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %ref.tmp.sroa.2.0.insert.ext.i.i.i, 32
   %ref.tmp.sroa.0.0.insert.ext.i.i.i = zext i32 %cur_component_begin.0.i.i.i.ph to i64
@@ -1366,7 +1366,7 @@ if.else.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
 
 lor.lhs.false32.i.i.i:                            ; preds = %if.else.i.i.i
   %conv35.i.i.i = zext nneg i16 %3 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %conv35.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %conv35.i.i.i
   %9 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %10 = and i8 %9, 4
   %tobool.i.i.not.i.i.i = icmp eq i8 %10, 0
@@ -1387,7 +1387,7 @@ while.body.preheader.i.i.i:                       ; preds = %for.end.i.i.i
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body.preheader.i.i.i
   %indvars.iv21.i.i.i = phi i64 [ %11, %while.body.preheader.i.i.i ], [ %indvars.iv.next22.i.i.i, %while.body.i.i.i ]
   %indvars.iv.next22.i.i.i = add nuw nsw i64 %indvars.iv21.i.i.i, 1
-  %arrayidx45.i.i.i = getelementptr inbounds %"struct.url::Component", ptr %components.i, i64 %indvars.iv21.i.i.i
+  %arrayidx45.i.i.i = getelementptr inbounds nuw %"struct.url::Component", ptr %components.i, i64 %indvars.iv21.i.i.i
   store i64 -4294967296, ptr %arrayidx45.i.i.i, align 8
   %12 = and i64 %indvars.iv.next22.i.i.i, 4294967295
   %exitcond.not.i.i.i = icmp eq i64 %12, 4
@@ -1400,8 +1400,8 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %broken.016.i = phi i1 [ %broken.1.i, %for.inc.i ], [ false, %for.body.i.preheader ]
   %existing_components.015.i = phi i32 [ %existing_components.1.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i = getelementptr inbounds [4 x %"struct.url::Component"], ptr %components.i, i64 0, i64 %indvars.iv.i
-  %len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %arrayidx.i = getelementptr inbounds nuw [4 x %"struct.url::Component"], ptr %components.i, i64 0, i64 %indvars.iv.i
+  %len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %13 = load i32, ptr %len.i, align 4
   %cmp1.i = icmp slt i32 %13, 1
   br i1 %cmp1.i, label %for.inc.i, label %if.end3.i
@@ -1477,7 +1477,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %conv32.i.i = trunc i16 %21 to i8
   %conv32.mask.i.i = and i16 %21, 255
   %idxprom.i.i.i = zext nneg i16 %conv32.mask.i.i to i64
-  %arrayidx.i.i23.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i23.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i.i
   %22 = load i8, ptr %arrayidx.i.i23.i, align 1
   %conv.i.i.i = zext i8 %22 to i32
   %and.i.i.i = and i32 %base.0.i.i, %conv.i.i.i
@@ -1572,14 +1572,14 @@ for.body21.preheader.i:                           ; preds = %for.cond19.preheade
 
 for.body21.i:                                     ; preds = %if.end27.i, %for.body21.preheader.i
   %indvars.iv31.i = phi i64 [ 0, %for.body21.preheader.i ], [ %indvars.iv.next32.i, %if.end27.i ]
-  %arrayidx23.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %indvars.iv31.i
+  %arrayidx23.i = getelementptr inbounds nuw [4 x i32], ptr %component_values.i, i64 0, i64 %indvars.iv31.i
   %25 = load i32, ptr %arrayidx23.i, align 4
   %cmp25.i = icmp ugt i32 %25, 255
   br i1 %cmp25.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit, label %if.end27.i
 
 if.end27.i:                                       ; preds = %for.body21.i
   %conv30.i = trunc nuw i32 %25 to i8
-  %arrayidx32.i = getelementptr inbounds i8, ptr %address, i64 %indvars.iv31.i
+  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %address, i64 %indvars.iv31.i
   store i8 %conv30.i, ptr %arrayidx32.i, align 1
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count.i
@@ -1631,7 +1631,7 @@ entry:
   %ipv6_parsed.i = alloca %"struct.url::(anonymous namespace)::IPv6Parsed", align 4
   %ignored_num_ipv4_components.i = alloca i32, align 4
   %host.val = load i32, ptr %host, align 4
-  %0 = getelementptr inbounds i8, ptr %host, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ipv6_parsed.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ignored_num_ipv4_components.i)
@@ -1656,9 +1656,9 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
 
 arrayctor.loop.i.i:                               ; preds = %lor.lhs.false2.i, %arrayctor.loop.i.i
   %arrayctor.cur.idx.i.i = phi i64 [ %arrayctor.cur.add.i.i, %arrayctor.loop.i.i ], [ 0, %lor.lhs.false2.i ]
-  %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 %arrayctor.cur.idx.i.i
+  %arrayctor.cur.ptr.i.i = getelementptr inbounds nuw i8, ptr %ipv6_parsed.i, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i, align 4
-  %len.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.i, i64 4
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.i.i, i64 4
   store i32 -1, ptr %len.i.i.i, align 4
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 8
   %arrayctor.done.i.i = icmp eq i64 %arrayctor.cur.add.i.i, 64
@@ -1666,11 +1666,11 @@ arrayctor.loop.i.i:                               ; preds = %lor.lhs.false2.i, %
 
 _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %arrayctor.loop.i.i
   %add.i = add nsw i32 %host.val, 1
-  %ipv4_component.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 72
-  %len.i1.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 76
-  %num_hex_components.i.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 64
+  %ipv4_component.i.i = getelementptr inbounds nuw i8, ptr %ipv6_parsed.i, i64 72
+  %len.i1.i.i = getelementptr inbounds nuw i8, ptr %ipv6_parsed.i, i64 76
+  %num_hex_components.i.i.i = getelementptr inbounds nuw i8, ptr %ipv6_parsed.i, i64 64
   store i32 0, ptr %num_hex_components.i.i.i, align 4
-  %index_of_contraction.i.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 68
+  %index_of_contraction.i.i.i = getelementptr inbounds nuw i8, ptr %ipv6_parsed.i, i64 68
   store i32 -1, ptr %index_of_contraction.i.i.i, align 4
   store i32 0, ptr %ipv4_component.i.i, align 4
   store i32 -1, ptr %len.i1.i.i, align 4
@@ -1786,7 +1786,7 @@ if.else.i.i:                                      ; preds = %if.end51.i.if.else.
 
 if.end60.i.i:                                     ; preds = %if.else.i.i
   %idxprom.i.i.i.i = zext nneg i8 %11 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %idxprom.i.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %13 = and i8 %12, 8
   %tobool.i.i.not.i.i = icmp eq i8 %13, 0
@@ -1878,7 +1878,7 @@ if.end24.us.i:                                    ; preds = %for.body20.us.prehe
   br i1 %cmp26.not.us.i, label %for.inc43.us.i, label %if.then27.us.i
 
 if.then27.us.i:                                   ; preds = %if.end24.us.i
-  %arrayidx29.us.i = getelementptr inbounds [8 x %"struct.url::Component"], ptr %ipv6_parsed.i, i64 0, i64 %indvars.iv24.i
+  %arrayidx29.us.i = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %ipv6_parsed.i, i64 0, i64 %indvars.iv24.i
   %arrayidx29.val.us.i = load i32, ptr %arrayidx29.us.i, align 4
   %27 = getelementptr i8, ptr %arrayidx29.us.i, i64 4
   %arrayidx29.val21.us.i = load i32, ptr %27, align 4
@@ -1923,7 +1923,7 @@ for.body.i:                                       ; preds = %for.inc43.i, %for.b
   br i1 %cmp26.not.i, label %for.inc43.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %for.body.i
-  %arrayidx29.i = getelementptr inbounds [8 x %"struct.url::Component"], ptr %ipv6_parsed.i, i64 0, i64 %indvars.iv28.i
+  %arrayidx29.i = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %ipv6_parsed.i, i64 0, i64 %indvars.iv28.i
   %arrayidx29.val.i = load i32, ptr %arrayidx29.i, align 4
   %30 = getelementptr i8, ptr %arrayidx29.i, i64 4
   %arrayidx29.val21.i = load i32, ptr %30, align 4
@@ -1989,7 +1989,7 @@ entry:
   %ipv6_parsed.i = alloca %"struct.url::(anonymous namespace)::IPv6Parsed", align 4
   %ignored_num_ipv4_components.i = alloca i32, align 4
   %host.val = load i32, ptr %host, align 4
-  %0 = getelementptr inbounds i8, ptr %host, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %host, i64 4
   %host.val1 = load i32, ptr %0, align 4
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ipv6_parsed.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ignored_num_ipv4_components.i)
@@ -2014,9 +2014,9 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
 
 arrayctor.loop.i.i:                               ; preds = %lor.lhs.false2.i, %arrayctor.loop.i.i
   %arrayctor.cur.idx.i.i = phi i64 [ %arrayctor.cur.add.i.i, %arrayctor.loop.i.i ], [ 0, %lor.lhs.false2.i ]
-  %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 %arrayctor.cur.idx.i.i
+  %arrayctor.cur.ptr.i.i = getelementptr inbounds nuw i8, ptr %ipv6_parsed.i, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i, align 4
-  %len.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.i, i64 4
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.i.i, i64 4
   store i32 -1, ptr %len.i.i.i, align 4
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 8
   %arrayctor.done.i.i = icmp eq i64 %arrayctor.cur.add.i.i, 64
@@ -2024,11 +2024,11 @@ arrayctor.loop.i.i:                               ; preds = %lor.lhs.false2.i, %
 
 _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %arrayctor.loop.i.i
   %add.i = add nsw i32 %host.val, 1
-  %ipv4_component.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 72
-  %len.i1.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 76
-  %num_hex_components.i.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 64
+  %ipv4_component.i.i = getelementptr inbounds nuw i8, ptr %ipv6_parsed.i, i64 72
+  %len.i1.i.i = getelementptr inbounds nuw i8, ptr %ipv6_parsed.i, i64 76
+  %num_hex_components.i.i.i = getelementptr inbounds nuw i8, ptr %ipv6_parsed.i, i64 64
   store i32 0, ptr %num_hex_components.i.i.i, align 4
-  %index_of_contraction.i.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 68
+  %index_of_contraction.i.i.i = getelementptr inbounds nuw i8, ptr %ipv6_parsed.i, i64 68
   store i32 -1, ptr %index_of_contraction.i.i.i, align 4
   store i32 0, ptr %ipv4_component.i.i, align 4
   store i32 -1, ptr %len.i1.i.i, align 4
@@ -2144,7 +2144,7 @@ if.else.i.i:                                      ; preds = %if.end51.i.if.else.
 
 if.end60.i.i:                                     ; preds = %if.else.i.i
   %conv63.i.i = zext nneg i16 %11 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %conv63.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %conv63.i.i
   %12 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %13 = and i8 %12, 8
   %tobool.i.i.not.i.i = icmp eq i8 %13, 0
@@ -2236,7 +2236,7 @@ if.end24.us.i:                                    ; preds = %for.body20.us.prehe
   br i1 %cmp26.not.us.i, label %for.inc43.us.i, label %if.then27.us.i
 
 if.then27.us.i:                                   ; preds = %if.end24.us.i
-  %arrayidx29.us.i = getelementptr inbounds [8 x %"struct.url::Component"], ptr %ipv6_parsed.i, i64 0, i64 %indvars.iv24.i
+  %arrayidx29.us.i = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %ipv6_parsed.i, i64 0, i64 %indvars.iv24.i
   %arrayidx29.val.us.i = load i32, ptr %arrayidx29.us.i, align 4
   %27 = getelementptr i8, ptr %arrayidx29.us.i, i64 4
   %arrayidx29.val21.us.i = load i32, ptr %27, align 4
@@ -2255,7 +2255,7 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i, %f
   %gep.i.us.i = getelementptr i16, ptr %invariant.gep.i.us.i, i64 %indvars.iv.i.us.i
   %29 = load i16, ptr %gep.i.us.i, align 2
   %conv.i.us.i = trunc i16 %29 to i8
-  %arrayidx2.i.us.i = getelementptr inbounds [5 x i8], ptr %buf.i.i, i64 0, i64 %indvars.iv.i.us.i
+  %arrayidx2.i.us.i = getelementptr inbounds nuw [5 x i8], ptr %buf.i.i, i64 0, i64 %indvars.iv.i.us.i
   store i8 %conv.i.us.i, ptr %arrayidx2.i.us.i, align 1
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.us.i
@@ -2291,7 +2291,7 @@ for.body.i:                                       ; preds = %for.inc43.i, %for.b
   br i1 %cmp26.not.i, label %for.inc43.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %for.body.i
-  %arrayidx29.i = getelementptr inbounds [8 x %"struct.url::Component"], ptr %ipv6_parsed.i, i64 0, i64 %indvars.iv28.i
+  %arrayidx29.i = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %ipv6_parsed.i, i64 0, i64 %indvars.iv28.i
   %arrayidx29.val.i = load i32, ptr %arrayidx29.i, align 4
   %30 = getelementptr i8, ptr %arrayidx29.i, i64 4
   %arrayidx29.val21.i = load i32, ptr %30, align 4
@@ -2310,7 +2310,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %gep.i.i = getelementptr i16, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %32 = load i16, ptr %gep.i.i, align 2
   %conv.i.i = trunc i16 %32 to i8
-  %arrayidx2.i.i = getelementptr inbounds [5 x i8], ptr %buf.i.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx2.i.i = getelementptr inbounds nuw [5 x i8], ptr %buf.i.i, i64 0, i64 %indvars.iv.i.i
   store i8 %conv.i.i, ptr %arrayidx2.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i

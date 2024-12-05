@@ -30,7 +30,7 @@ define zeroext i8 @AWTIsHeadless() local_unnamed_addr #0 {
   %5 = tail call ptr @JNU_GetEnv(ptr noundef %4, i32 noundef 65538) #6
   store ptr %5, ptr @AWTIsHeadless.env, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %5, ptr noundef nonnull @.str) #6
   %10 = icmp eq ptr %9, null
@@ -39,7 +39,7 @@ define zeroext i8 @AWTIsHeadless() local_unnamed_addr #0 {
 11:                                               ; preds = %3
   %12 = load ptr, ptr @AWTIsHeadless.env, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 904
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %12, ptr noundef nonnull %9, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #6
   %17 = icmp eq ptr %16, null
@@ -48,13 +48,13 @@ define zeroext i8 @AWTIsHeadless() local_unnamed_addr #0 {
 18:                                               ; preds = %11
   %19 = load ptr, ptr @AWTIsHeadless.env, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 936
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 936
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 (ptr, ptr, ptr, ...) %22(ptr noundef nonnull %19, ptr noundef nonnull %9, ptr noundef nonnull %16) #6
   store i8 %23, ptr @AWTIsHeadless.isHeadless, align 1
   %24 = load ptr, ptr @AWTIsHeadless.env, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1824
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1824
   %27 = load ptr, ptr %26, align 8
   %28 = tail call zeroext i8 %27(ptr noundef nonnull %24) #6
   %.not = icmp eq i8 %28, 0
@@ -63,7 +63,7 @@ define zeroext i8 @AWTIsHeadless() local_unnamed_addr #0 {
 29:                                               ; preds = %18
   %30 = load ptr, ptr @AWTIsHeadless.env, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 136
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull %30) #6
   br label %36
@@ -104,7 +104,7 @@ define hidden noundef i32 @AWT_OnLoad(ptr noundef %0, ptr nocapture readnone %1)
   %17 = call ptr @JNU_GetEnv(ptr noundef %16, i32 noundef 65538) #6
   store ptr %17, ptr @AWTIsHeadless.env, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr %20(ptr noundef nonnull %17, ptr noundef nonnull @.str) #6
   %22 = icmp eq ptr %21, null
@@ -113,7 +113,7 @@ define hidden noundef i32 @AWT_OnLoad(ptr noundef %0, ptr nocapture readnone %1)
 23:                                               ; preds = %15
   %24 = load ptr, ptr @AWTIsHeadless.env, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 904
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 904
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr %27(ptr noundef nonnull %24, ptr noundef nonnull %21, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #6
   %29 = icmp eq ptr %28, null
@@ -122,13 +122,13 @@ define hidden noundef i32 @AWT_OnLoad(ptr noundef %0, ptr nocapture readnone %1)
 30:                                               ; preds = %23
   %31 = load ptr, ptr @AWTIsHeadless.env, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 936
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 936
   %34 = load ptr, ptr %33, align 8
   %35 = call zeroext i8 (ptr, ptr, ptr, ...) %34(ptr noundef nonnull %31, ptr noundef nonnull %21, ptr noundef nonnull %28) #6
   store i8 %35, ptr @AWTIsHeadless.isHeadless, align 1
   %36 = load ptr, ptr @AWTIsHeadless.env, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1824
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1824
   %39 = load ptr, ptr %38, align 8
   %40 = call zeroext i8 %39(ptr noundef nonnull %36) #6
   %.not.i = icmp eq i8 %40, 0
@@ -137,7 +137,7 @@ define hidden noundef i32 @AWT_OnLoad(ptr noundef %0, ptr nocapture readnone %1)
 41:                                               ; preds = %30
   %42 = load ptr, ptr @AWTIsHeadless.env, align 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 136
   %45 = load ptr, ptr %44, align 8
   call void %45(ptr noundef nonnull %42) #6
   br label %AWTIsHeadless.exit.thread
@@ -157,7 +157,7 @@ AWTIsHeadless.exit.thread:                        ; preds = %AWTIsHeadless.exit,
   %50 = call ptr @strncpy(ptr noundef %12, ptr noundef nonnull %47, i64 noundef %49) #6
   %51 = call ptr @JNU_NewStringPlatform(ptr noundef %5, ptr noundef nonnull %4) #6
   %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1824
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1824
   %54 = load ptr, ptr %53, align 8
   %55 = call zeroext i8 %54(ptr noundef nonnull %5) #6
   %.not16 = icmp eq i8 %55, 0
@@ -165,11 +165,11 @@ AWTIsHeadless.exit.thread:                        ; preds = %AWTIsHeadless.exit,
 
 56:                                               ; preds = %AWTIsHeadless.exit.thread
   %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 136
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 136
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull %5) #6
   %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 144
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 144
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull %5, ptr noundef nonnull @.str.5) #6
   br label %63

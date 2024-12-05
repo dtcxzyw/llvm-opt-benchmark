@@ -99,7 +99,7 @@ if.then51:                                        ; preds = %if.end45
   br label %return
 
 if.end53:                                         ; preds = %if.end45
-  %size = getelementptr inbounds i8, ptr %local, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %local, i64 16
   %1 = load i64, ptr %size, align 8
   %cmp54 = icmp ult i64 %1, %add48
   br i1 %cmp54, label %if.then56, label %for.body.lr.ph
@@ -115,7 +115,7 @@ if.end59:                                         ; preds = %if.then56
   br i1 %tobool61.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end53, %if.end59
-  %aligned = getelementptr inbounds i8, ptr %local, i64 8
+  %aligned = getelementptr inbounds nuw i8, ptr %local, i64 8
   %2 = load ptr, ptr %aligned, align 8
   %add.ptr = getelementptr i8, ptr %2, i64 %mul38
   %add.ptr65 = getelementptr i8, ptr %add.ptr, i64 %mul40
@@ -452,21 +452,21 @@ define internal fastcc void @salsa20_8(ptr nocapture noundef %B) unnamed_addr #4
 entry:
   %x = alloca [16 x i32], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %x, ptr noundef nonnull readonly align 4 dereferenceable(64) %B, i64 64, i1 false)
-  %arrayidx1 = getelementptr inbounds i8, ptr %x, i64 48
-  %arrayidx5 = getelementptr inbounds i8, ptr %x, i64 16
-  %arrayidx15 = getelementptr inbounds i8, ptr %x, i64 32
-  %arrayidx39 = getelementptr inbounds i8, ptr %x, i64 20
-  %arrayidx40 = getelementptr inbounds i8, ptr %x, i64 4
-  %arrayidx48 = getelementptr inbounds i8, ptr %x, i64 36
-  %arrayidx59 = getelementptr inbounds i8, ptr %x, i64 52
-  %arrayidx83 = getelementptr inbounds i8, ptr %x, i64 40
-  %arrayidx84 = getelementptr inbounds i8, ptr %x, i64 24
-  %arrayidx92 = getelementptr inbounds i8, ptr %x, i64 56
-  %arrayidx103 = getelementptr inbounds i8, ptr %x, i64 8
-  %arrayidx127 = getelementptr inbounds i8, ptr %x, i64 60
-  %arrayidx128 = getelementptr inbounds i8, ptr %x, i64 44
-  %arrayidx136 = getelementptr inbounds i8, ptr %x, i64 12
-  %arrayidx147 = getelementptr inbounds i8, ptr %x, i64 28
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %x, i64 48
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %x, i64 16
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %x, i64 32
+  %arrayidx39 = getelementptr inbounds nuw i8, ptr %x, i64 20
+  %arrayidx40 = getelementptr inbounds nuw i8, ptr %x, i64 4
+  %arrayidx48 = getelementptr inbounds nuw i8, ptr %x, i64 36
+  %arrayidx59 = getelementptr inbounds nuw i8, ptr %x, i64 52
+  %arrayidx83 = getelementptr inbounds nuw i8, ptr %x, i64 40
+  %arrayidx84 = getelementptr inbounds nuw i8, ptr %x, i64 24
+  %arrayidx92 = getelementptr inbounds nuw i8, ptr %x, i64 56
+  %arrayidx103 = getelementptr inbounds nuw i8, ptr %x, i64 8
+  %arrayidx127 = getelementptr inbounds nuw i8, ptr %x, i64 60
+  %arrayidx128 = getelementptr inbounds nuw i8, ptr %x, i64 44
+  %arrayidx136 = getelementptr inbounds nuw i8, ptr %x, i64 12
+  %arrayidx147 = getelementptr inbounds nuw i8, ptr %x, i64 28
   %x.promoted = load i32, ptr %x, align 16
   %arrayidx1.promoted = load i32, ptr %arrayidx1, align 16
   %arrayidx5.promoted = load i32, ptr %arrayidx5, align 16

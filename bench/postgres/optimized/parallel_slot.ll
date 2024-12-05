@@ -21,7 +21,7 @@ define dso_local ptr @ParallelSlotsGetIdle(ptr noundef %0, ptr noundef %1) local
   br i1 %5, label %.lr.ph.i.lr.ph, label %find_any_idle_slot.exit.thread.thread
 
 .lr.ph.i.lr.ph:                                   ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = icmp eq ptr %1, null
   %8 = getelementptr i8, ptr %0, i64 48
   br label %.lr.ph.i
@@ -37,7 +37,7 @@ define dso_local ptr @ParallelSlotsGetIdle(ptr noundef %0, ptr noundef %1) local
 .lr.ph.split.us.i:                                ; preds = %17, %.lr.ph.split.us.preheader.i
   %indvars.iv25.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next26.i, %17 ]
   %10 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv25.i
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %17, label %14
@@ -56,7 +56,7 @@ define dso_local ptr @ParallelSlotsGetIdle(ptr noundef %0, ptr noundef %1) local
   %18 = phi i32 [ %31, %30 ], [ %9, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.lr.ph.i ]
   %19 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv.i
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   br i1 %22, label %30, label %23
@@ -96,7 +96,7 @@ find_matching_idle_slot.exit.find_matching_idle_slot.exit.thread_crit_edge: ; pr
 36:                                               ; preds = %find_matching_idle_slot.exit
   %37 = and i64 %.012.i.in, 2147483647
   %38 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i8 1, ptr %39, align 8
   br label %137
 
@@ -112,7 +112,7 @@ find_matching_idle_slot.exit.thread:              ; preds = %30, %17, %find_matc
 41:                                               ; preds = %49, %.lr.ph.i33
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i35, %49 ]
   %42 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv.i34
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i8, ptr %43, align 8
   %45 = trunc i8 %44 to i1
   br i1 %45, label %49, label %46
@@ -132,7 +132,7 @@ find_unconnected_slot.exit:                       ; preds = %46
   call fastcc void @connect_slot(ptr noundef nonnull %0, i32 noundef %50, ptr noundef %1)
   %51 = and i64 %indvars.iv.i34, 4294967295
   %52 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i8 1, ptr %53, align 8
   br label %137
 
@@ -157,7 +157,7 @@ find_any_idle_slot.exit:                          ; preds = %.lr.ph.i36
   call void @disconnectDatabase(ptr noundef %61) #9
   store ptr null, ptr %60, align 8
   call fastcc void @connect_slot(ptr noundef nonnull %0, i32 noundef %58, ptr noundef %1)
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i8 1, ptr %62, align 8
   br label %137
 
@@ -296,8 +296,8 @@ wait_on_slots.exit.thread67:                      ; preds = %select_loop.exit.i
   br i1 %.not5463.i, label %.lr.ph65.i, label %.loopexit.i
 
 .lr.ph65.i:                                       ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %100, i64 16
-  %120 = getelementptr inbounds i8, ptr %100, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %100, i64 24
   br label %121
 
 121:                                              ; preds = %processQueryResult.exit.i, %.lr.ph65.i
@@ -321,7 +321,7 @@ processQueryResult.exit.i:                        ; preds = %124
   br i1 %.not54.i, label %121, label %.loopexit.i
 
 131:                                              ; preds = %121
-  %132 = getelementptr inbounds i8, ptr %100, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i8 0, ptr %132, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
   br label %.loopexit.i
@@ -349,12 +349,12 @@ wait_on_slots.exit:                               ; preds = %.loopexit.i
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @connect_slot(ptr nocapture noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = zext nneg i32 %1 to i64
   %6 = getelementptr [0 x %struct.ParallelSlot], ptr %4, i64 0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %11
@@ -366,15 +366,15 @@ define internal fastcc void @connect_slot(ptr nocapture noundef %0, i32 noundef 
 
 12:                                               ; preds = %11, %3
   %13 = phi ptr [ %.pre, %11 ], [ %8, %3 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   %19 = tail call ptr @connectDatabase(ptr noundef %13, ptr noundef %15, i1 noundef zeroext %18, i1 noundef zeroext false, i1 noundef zeroext true) #9
   store ptr %19, ptr %6, align 8
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store ptr %10, ptr %21, align 8
   %22 = load ptr, ptr %6, align 8
   %23 = tail call i32 @PQsocket(ptr noundef %22) #9
@@ -388,7 +388,7 @@ define internal fastcc void @connect_slot(ptr nocapture noundef %0, i32 noundef 
   unreachable
 
 26:                                               ; preds = %12
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not20 = icmp eq ptr %28, null
   br i1 %.not20, label %33, label %29
@@ -414,13 +414,13 @@ define dso_local noundef ptr @ParallelSlotsSetup(i32 noundef %0, ptr noundef %1,
   %9 = add nsw i64 %8, 40
   %10 = tail call ptr @palloc0(i64 noundef %9) #9
   store i32 %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i8 %6, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %4, ptr %14, align 8
   ret ptr %10
 }
@@ -434,14 +434,14 @@ define dso_local void @ParallelSlotsAdoptConn(ptr nocapture noundef %0, ptr noun
   br i1 %4, label %.lr.ph.i, label %find_unconnected_slot.exit.thread
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %wide.trip.count.i = zext nneg i32 %3 to i64
   br label %6
 
 6:                                                ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
   %7 = getelementptr [0 x %struct.ParallelSlot], ptr %5, i64 0, i64 %indvars.iv.i
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %14, label %11
@@ -477,7 +477,7 @@ define dso_local void @ParallelSlotsTerminate(ptr nocapture noundef readonly %0)
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %5
 
 5:                                                ; preds = %.lr.ph, %11
@@ -511,7 +511,7 @@ define dso_local noundef zeroext i1 @ParallelSlotsWaitCompletion(ptr nocapture n
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %5
 
 5:                                                ; preds = %.lr.ph, %27
@@ -534,8 +534,8 @@ consumeQueryResult.exit.thread:                   ; preds = %10
   br label %24
 
 .lr.ph.i:                                         ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %15
 
 15:                                               ; preds = %processQueryResult.exit.i, %.lr.ph.i
@@ -563,9 +563,9 @@ consumeQueryResult.exit:                          ; preds = %processQueryResult.
   br i1 %spec.select.i, label %24, label %._crit_edge
 
 24:                                               ; preds = %consumeQueryResult.exit.thread, %consumeQueryResult.exit
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %.pre = load i32, ptr %0, align 8
   br label %27

@@ -603,13 +603,13 @@ define internal range(i32 0, 4) i32 @dissect_t30_hdlc(ptr noundef %0, ptr nounde
 7:                                                ; preds = %4
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #7
   %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_t30_bad_length, ptr noundef %0, i32 noundef 0, i32 noundef %8, ptr noundef nonnull @.str.384) #7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_str(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.385) #7
   br label %69
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_append_str(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.386) #7
   %15 = load i32, ptr @proto_t30, align 4
@@ -649,7 +649,7 @@ define internal range(i32 0, 4) i32 @dissect_t30_hdlc(ptr noundef %0, ptr nounde
   br i1 %.not114, label %40, label %38
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %3, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %32, ptr %39, align 8
   br label %40
 
@@ -777,7 +777,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
 8:                                                ; preds = %6
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 3) #7
   %10 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_t30_bad_length, ptr noundef %0, i32 noundef 3, i32 noundef %9, ptr noundef nonnull @.str.391) #7
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_append_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.392) #7
   br label %315
@@ -804,7 +804,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #7
   %30 = load i32, ptr @hf_t30_fif_dsr, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %30, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #7
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = lshr i8 %25, 2
   %35 = and i8 %34, 15
@@ -815,7 +815,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   br i1 %.not432, label %57, label %38
 
 38:                                               ; preds = %20
-  %39 = getelementptr inbounds i8, ptr %5, i64 25
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 25
   %40 = tail call ptr @val_to_str_ext_const(i32 noundef %36, ptr noundef nonnull @t30_data_signalling_rate_vals_ext, ptr noundef nonnull @.str.389) #7
   %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %39, i64 noundef 128, ptr noundef nonnull @.str.394, ptr noundef %40) #7
   br label %57
@@ -826,7 +826,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %43, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #7
   %45 = load i32, ptr @hf_t30_fif_dsr_dcs, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %45, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #7
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = lshr i8 %42, 2
   %50 = and i8 %49, 15
@@ -837,7 +837,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
   br i1 %.not431, label %57, label %53
 
 53:                                               ; preds = %.critedge
-  %54 = getelementptr inbounds i8, ptr %5, i64 25
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 25
   %55 = tail call ptr @val_to_str_ext_const(i32 noundef %51, ptr noundef nonnull @t30_data_signalling_rate_dcs_vals_ext, ptr noundef nonnull @.str.389) #7
   %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %54, i64 noundef 128, ptr noundef nonnull @.str.394, ptr noundef %55) #7
   br label %57
@@ -1182,7 +1182,7 @@ define internal fastcc void @dissect_t30_dis_dtc(ptr noundef %0, ptr noundef %1,
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_t30_numbers(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #1 {
   %6 = alloca [21 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %6)
   %.not.i = icmp eq i32 %2, 20
@@ -1206,7 +1206,7 @@ t30_get_string_numbers.exit.thread:               ; preds = %5
   br i1 %exitcond.not.i, label %t30_get_string_numbers.exit, label %.preheader.i, !llvm.loop !4
 
 t30_get_string_numbers.exit:                      ; preds = %.preheader.i
-  %14 = getelementptr inbounds i8, ptr %6, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %14, align 4
   %15 = call ptr @g_strchug(ptr noundef nonnull %6) #7
   %16 = call ptr @g_strchomp(ptr noundef %15) #7
@@ -1220,20 +1220,20 @@ t30_get_string_numbers.exit:                      ; preds = %.preheader.i
 20:                                               ; preds = %t30_get_string_numbers.exit
   %21 = load i32, ptr @hf_t30_fif_number, align 4
   %22 = call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %21, ptr noundef %0, i32 noundef 3, i32 noundef 20, ptr noundef nonnull %19) #7
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.395, ptr noundef nonnull %19) #7
   %.not19 = icmp eq ptr %4, null
   br i1 %.not19, label %32, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %4, i64 25
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %26, i64 noundef 128, ptr noundef nonnull @.str.396, ptr noundef nonnull %19) #7
   br label %32
 
 28:                                               ; preds = %t30_get_string_numbers.exit.thread, %t30_get_string_numbers.exit
   %29 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_t30_bad_length, ptr noundef %0, i32 noundef 3, i32 noundef -1, ptr noundef nonnull @.str.397) #7
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   call void @col_append_str(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.398) #7
   br label %32
@@ -1250,7 +1250,7 @@ define internal fastcc void @dissect_t30_non_standard_cap(ptr noundef %0, ptr no
 6:                                                ; preds = %4
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 3) #7
   %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_t30_bad_length, ptr noundef %0, i32 noundef 3, i32 noundef %7, ptr noundef nonnull @.str.399) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.392) #7
   br label %17
@@ -1275,7 +1275,7 @@ define internal fastcc void @dissect_t30_facsimile_coded_data(ptr noundef %0, pt
 7:                                                ; preds = %5
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 3) #7
   %9 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_t30_bad_length, ptr noundef %0, i32 noundef 3, i32 noundef %8, ptr noundef nonnull @.str.400) #7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_str(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.392) #7
   br label %26
@@ -1286,14 +1286,14 @@ define internal fastcc void @dissect_t30_facsimile_coded_data(ptr noundef %0, pt
   %rev.i = tail call noundef i8 @llvm.bitreverse.i8(i8 %13)
   %15 = zext i8 %rev.i to i32
   %16 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %14, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %15) #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.401, i32 noundef %15) #7
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %4, i64 25
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 128, ptr noundef nonnull @.str.402, i32 noundef %15) #7
   br label %22
 
@@ -1315,7 +1315,7 @@ define internal fastcc void @dissect_t30_partial_page_signal(ptr noundef %0, ptr
 6:                                                ; preds = %5
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 3) #7
   %8 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_t30_bad_length, ptr noundef %0, i32 noundef 3, i32 noundef %7, ptr noundef nonnull @.str.403) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.392) #7
   br label %31
@@ -1338,14 +1338,14 @@ define internal fastcc void @dissect_t30_partial_page_signal(ptr noundef %0, ptr
   %23 = load i32, ptr @hf_t30_partial_page_i3, align 4
   %24 = zext i8 %rev.i46 to i32
   %25 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %23, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %24) #7
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.404, i32 noundef %16, i32 noundef %20, i32 noundef %24) #7
   %.not44 = icmp eq ptr %4, null
   br i1 %.not44, label %31, label %28
 
 28:                                               ; preds = %11
-  %29 = getelementptr inbounds i8, ptr %4, i64 25
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %29, i64 noundef 128, ptr noundef nonnull @.str.405, i32 noundef %16, i32 noundef %20, i32 noundef %24) #7
   br label %31
 
@@ -1355,7 +1355,7 @@ define internal fastcc void @dissect_t30_partial_page_signal(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_t30_partial_page_request(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef 1171) #7
   %.not = icmp eq i32 %2, 32
@@ -1368,7 +1368,7 @@ define internal fastcc void @dissect_t30_partial_page_request(ptr noundef %0, pt
 9:                                                ; preds = %4
   %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 3) #7
   %11 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull @ei_t30_bad_length, ptr noundef %0, i32 noundef 3, i32 noundef %10, ptr noundef nonnull @.str.406) #7
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_append_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.392) #7
   br label %49
@@ -1438,7 +1438,7 @@ define internal fastcc void @dissect_t30_partial_page_request(ptr noundef %0, pt
   br label %46
 
 46:                                               ; preds = %41, %36
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.412, i32 noundef %.247) #7
   br label %49

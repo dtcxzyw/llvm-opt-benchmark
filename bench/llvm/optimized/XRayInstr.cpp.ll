@@ -99,7 +99,7 @@ define dso_local void @_ZN5clang23serializeXRayInstrValueENS_12XRayInstrSetERN4l
   br i1 %.not.i.i.i10, label %17, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit12
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %18, i64 noundef %15, i64 noundef 16) #4
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit12
 
@@ -108,7 +108,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit12: ; pr
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #4
   %21 = getelementptr inbounds %"class.llvm::StringRef", ptr %19, i64 %20
   store ptr @.str.1, ptr %21, align 1
-  %.sroa.2.0..sroa_idx.i11 = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.2.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 6, ptr %.sroa.2.0..sroa_idx.i11, align 1
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #4
   %23 = add i64 %22, 1
@@ -128,7 +128,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit12: ; pr
   br i1 %.not.i.i.i13, label %30, label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit15
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %31, i64 noundef %28, i64 noundef 16) #4
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit15
 
@@ -137,7 +137,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit15: ; pr
   %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #4
   %34 = getelementptr inbounds %"class.llvm::StringRef", ptr %32, i64 %33
   store ptr @.str.5, ptr %34, align 1
-  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds i8, ptr %34, i64 8
+  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 5, ptr %.sroa.2.0..sroa_idx.i14, align 1
   %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #4
   %36 = add i64 %35, 1
@@ -174,7 +174,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit15: ; pr
   %.sink53 = phi i64 [ %5, %3 ], [ %9, %7 ], [ %47, %45 ], [ %42, %40 ]
   %.str.3.sink.ph = phi ptr [ @.str, %3 ], [ @.str.6, %7 ], [ @.str.4, %45 ], [ %.str.3..str.2, %40 ]
   %.sink.ph = phi i64 [ 3, %3 ], [ 4, %7 ], [ 13, %45 ], [ %., %40 ]
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %49, i64 noundef %.sink53, i64 noundef 16) #4
   br label %.sink.split
 
@@ -185,7 +185,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit15: ; pr
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #4
   %52 = getelementptr inbounds %"class.llvm::StringRef", ptr %50, i64 %51
   store ptr %.str.3.sink, ptr %52, align 1
-  %.sroa.2.0..sroa_idx.i20 = getelementptr inbounds i8, ptr %52, i64 8
+  %.sroa.2.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %.sink, ptr %.sroa.2.0..sroa_idx.i20, align 1
   %53 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #4
   %54 = add i64 %53, 1

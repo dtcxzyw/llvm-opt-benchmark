@@ -7,17 +7,17 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @wmem_block_fast_allocator_init(ptr nocapture noundef writeonly initializes((0, 48), (56, 64)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 16) #5
   store ptr @wmem_block_fast_alloc, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @wmem_block_fast_realloc, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @wmem_block_fast_free, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @wmem_block_fast_free_all, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @wmem_block_fast_gc, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @wmem_block_fast_allocator_cleanup, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -33,9 +33,9 @@ define internal ptr @wmem_block_fast_alloc(ptr nocapture noundef %0, i64 noundef
 4:                                                ; preds = %2
   %5 = add i64 %1, 32
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %5) #5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
   %.not29 = icmp eq ptr %8, null
   br i1 %.not29, label %11, label %10
@@ -62,7 +62,7 @@ define internal ptr @wmem_block_fast_alloc(ptr nocapture noundef %0, i64 noundef
   br i1 %.not, label %25, label %20
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sub i32 2097152, %22
   %24 = icmp slt i32 %23, %18
@@ -70,7 +70,7 @@ define internal ptr @wmem_block_fast_alloc(ptr nocapture noundef %0, i64 noundef
 
 25:                                               ; preds = %20, %14
   %26 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 2097152) #5
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 16, ptr %27, align 8
   %28 = load ptr, ptr %0, align 8
   store ptr %28, ptr %26, align 8
@@ -84,7 +84,7 @@ define internal ptr @wmem_block_fast_alloc(ptr nocapture noundef %0, i64 noundef
   %33 = getelementptr i8, ptr %31, i64 %32
   store i32 %15, ptr %33, align 4
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, %18
   store i32 %37, ptr %35, align 8
@@ -110,9 +110,9 @@ define internal ptr @wmem_block_fast_realloc(ptr nocapture noundef %0, ptr nound
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   %. = select i1 %.not, ptr %0, ptr %11
-  %12 = getelementptr inbounds i8, ptr %., i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %., i64 8
   store ptr %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not28 = icmp eq ptr %14, null
   br i1 %.not28, label %16, label %15
@@ -137,9 +137,9 @@ define internal ptr @wmem_block_fast_realloc(ptr nocapture noundef %0, ptr nound
 23:                                               ; preds = %21
   %24 = add i64 %2, 32
   %25 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %24) #5
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %27, ptr %28, align 8
   %.not29.i = icmp eq ptr %27, null
   br i1 %.not29.i, label %30, label %29
@@ -166,7 +166,7 @@ define internal ptr @wmem_block_fast_realloc(ptr nocapture noundef %0, ptr nound
   br i1 %.not.i, label %44, label %39
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = sub i32 2097152, %41
   %43 = icmp slt i32 %42, %37
@@ -174,7 +174,7 @@ define internal ptr @wmem_block_fast_realloc(ptr nocapture noundef %0, ptr nound
 
 44:                                               ; preds = %39, %33
   %45 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 2097152) #5
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 16, ptr %46, align 8
   %47 = load ptr, ptr %0, align 8
   store ptr %47, ptr %45, align 8
@@ -188,7 +188,7 @@ define internal ptr @wmem_block_fast_realloc(ptr nocapture noundef %0, ptr nound
   %52 = getelementptr i8, ptr %50, i64 %51
   store i32 %34, ptr %52, align 4
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = add i32 %55, %37
   store i32 %56, ptr %54, align 8
@@ -219,7 +219,7 @@ define internal void @wmem_block_fast_free_all(ptr nocapture noundef %0) #0 {
   br i1 %.not, label %._crit_edge, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 16, ptr %4, align 8
   %5 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
@@ -234,14 +234,14 @@ define internal void @wmem_block_fast_free_all(ptr nocapture noundef %0) #0 {
   br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not2124 = icmp eq ptr %8, null
   br i1 %.not2124, label %._crit_edge28, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %._crit_edge, %.lr.ph27
   %.01725 = phi ptr [ %10, %.lr.ph27 ], [ %8, %._crit_edge ]
-  %9 = getelementptr inbounds i8, ptr %.01725, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.01725, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.01725) #5
   %.not21 = icmp eq ptr %10, null

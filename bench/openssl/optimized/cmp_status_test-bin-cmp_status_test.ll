@@ -46,13 +46,13 @@ entry:
 
 set_up.exit:                                      ; preds = %entry
   store ptr @.str, ptr %call.i, align 8
-  %pkistatus = getelementptr inbounds i8, ptr %call.i, i64 8
+  %pkistatus = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 5, ptr %pkistatus, align 8
-  %str = getelementptr inbounds i8, ptr %call.i, i64 16
+  %str = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr @.str.1, ptr %str, align 8
-  %text = getelementptr inbounds i8, ptr %call.i, i64 24
+  %text = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr @.str.2, ptr %text, align 8
-  %pkifailure = getelementptr inbounds i8, ptr %call.i, i64 32
+  %pkifailure = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i32 4194336, ptr %pkifailure, align 8
   %call.i8 = tail call ptr @OSSL_CMP_STATUSINFO_new(i32 noundef 5, i32 noundef 4194336, ptr noundef nonnull @.str.2) #4
   %call1.i9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 49, ptr noundef nonnull @.str.5, ptr noundef %call.i8) #4
@@ -83,7 +83,7 @@ if.end10.i:                                       ; preds = %lor.lhs.false.i
 lor.lhs.false16.i:                                ; preds = %if.end10.i
   %2 = load ptr, ptr %text, align 8
   %call19.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #5
-  %data.i = getelementptr inbounds i8, ptr %call13.i, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %call13.i, i64 8
   %3 = load ptr, ptr %data.i, align 8
   %4 = load i32, ptr %call13.i, align 8
   %conv.i = sext i32 %4 to i64

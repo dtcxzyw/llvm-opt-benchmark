@@ -9,17 +9,17 @@ define i64 @ADIOI_GEN_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1, i
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load ptr, ptr %9, align 8
   call void @ADIOI_Datatype_iscontig(ptr noundef %10, ptr noundef nonnull %6) #2
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load i64, ptr %11, align 8
   %13 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %19, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %16 = load i64, ptr %15, align 8
   %17 = mul nsw i64 %12, %1
   %18 = add nsw i64 %16, %17
@@ -41,13 +41,13 @@ define i64 @ADIOI_GEN_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1, i
   %29 = sdiv i64 %1, %28
   %30 = srem i64 %1, %28
   %31 = mul nsw i64 %30, %12
-  %32 = getelementptr inbounds i8, ptr %21, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = icmp sgt i64 %33, 0
   br i1 %34, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %21, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %36 = load ptr, ptr %35, align 8
   br label %38
 
@@ -59,16 +59,16 @@ define i64 @ADIOI_GEN_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1, i
 38:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.03749 = phi i64 [ 0, %.lr.ph ], [ %41, %37 ]
-  %39 = getelementptr inbounds i64, ptr %36, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8
   %41 = add nsw i64 %40, %.03749
   %42 = icmp sgt i64 %41, %31
   br i1 %42, label %43, label %37
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %21, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i64, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv
   %47 = load i64, ptr %46, align 8
   %48 = sub i64 %31, %.03749
   %49 = add i64 %48, %47
@@ -76,7 +76,7 @@ define i64 @ADIOI_GEN_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1, i
 
 .loopexit:                                        ; preds = %37, %27, %43
   %.039 = phi i64 [ %49, %43 ], [ 0, %27 ], [ 0, %37 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 104
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %8, align 8
   %53 = mul nsw i64 %52, %29
@@ -86,7 +86,7 @@ define i64 @ADIOI_GEN_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1, i
 
 56:                                               ; preds = %.loopexit, %14
   %.038 = phi i64 [ %18, %14 ], [ %55, %.loopexit ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.038, ptr %57, align 8
   br label %58
 

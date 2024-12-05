@@ -173,7 +173,7 @@ define linkonce_odr void @_ZN3fLS20StringFlagDestructorD2Ev(ptr noundef nonnull 
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #10
-  %defvalue_storage_ = getelementptr inbounds i8, ptr %this, i64 8
+  %defvalue_storage_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %defvalue_storage_, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #10
   ret void
@@ -324,7 +324,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %call.i)
   tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL49o_velox_save_input_on_expression_any_failure_pathE, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.2, ptr noundef nonnull %call.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, i64 32))
   store ptr @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, ptr @_ZN3fLSL49d_velox_save_input_on_expression_any_failure_pathE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL49d_velox_save_input_on_expression_any_failure_pathE, i64 8), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL49s_velox_save_input_on_expression_any_failure_pathE, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL49d_velox_save_input_on_expression_any_failure_pathE, i64 8), align 8
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL49d_velox_save_input_on_expression_any_failure_pathE, ptr nonnull @__dso_handle) #10
   %1 = load ptr, ptr @_ZN3fLSL55FLAGS_novelox_save_input_on_expression_any_failure_pathB5cxx11E, align 8
   store ptr %1, ptr @_ZN3fLS53FLAGS_velox_save_input_on_expression_any_failure_pathB5cxx11E, align 8
@@ -333,7 +333,7 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, i64 32), ptr noundef nonnull align 8 dereferenceable(32) %call.i1)
   tail call void @_ZN6google14FlagRegistererC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcS9_S9_PT_SB_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN3fLSL52o_velox_save_input_on_expression_system_failure_pathE, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.2, ptr noundef nonnull %call.i1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, i64 32))
   store ptr @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, ptr @_ZN3fLSL52d_velox_save_input_on_expression_system_failure_pathE, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, i64 32), ptr getelementptr inbounds (i8, ptr @_ZN3fLSL52d_velox_save_input_on_expression_system_failure_pathE, i64 8), align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZN3fLSL52s_velox_save_input_on_expression_system_failure_pathE, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZN3fLSL52d_velox_save_input_on_expression_system_failure_pathE, i64 8), align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3fLS20StringFlagDestructorD2Ev, ptr nonnull @_ZN3fLSL52d_velox_save_input_on_expression_system_failure_pathE, ptr nonnull @__dso_handle) #10
   %3 = load ptr, ptr @_ZN3fLSL58FLAGS_novelox_save_input_on_expression_system_failure_pathB5cxx11E, align 8
   store ptr %3, ptr @_ZN3fLS56FLAGS_velox_save_input_on_expression_system_failure_pathB5cxx11E, align 8

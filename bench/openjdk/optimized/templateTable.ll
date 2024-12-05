@@ -15,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN8Template10initializeEi8TosStateS0_PFviEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 12), (16, 28)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %5, ptr %10, align 8
   ret void
 }
@@ -44,9 +44,9 @@ define hidden noundef i32 @_ZNK8Template8bytecodeEv(ptr noundef nonnull align 8 
 define hidden void @_ZN8Template8generateEP25InterpreterMacroAssembler(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   store ptr %0, ptr @_ZN13TemplateTable5_descE, align 8
   store ptr %1, ptr @_ZN13TemplateTable5_masmE, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   tail call void %4(i32 noundef %6) #6
   tail call void @_ZN17AbstractAssembler5flushEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #6
@@ -181,13 +181,13 @@ define hidden void @_ZN13TemplateTable3defEN9Bytecodes4CodeEi8TosStateS2_PFvvEc(
   %10 = getelementptr inbounds [239 x %class.Template], ptr @_ZN13TemplateTable15_template_tableE, i64 0, i64 %8
   %11 = select i1 %.not.i, ptr %10, ptr %9
   store i32 %1, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %2, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %4, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 0, ptr %15, align 8
   ret void
 }
@@ -201,13 +201,13 @@ define hidden void @_ZN13TemplateTable3defEN9Bytecodes4CodeEi8TosStateS2_PFviEi(
   %10 = getelementptr inbounds [239 x %class.Template], ptr @_ZN13TemplateTable15_template_tableE, i64 0, i64 %8
   %11 = select i1 %.not, ptr %10, ptr %9
   store i32 %1, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %2, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %4, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %5, ptr %15, align 8
   ret void
 }
@@ -221,13 +221,13 @@ define hidden void @_ZN13TemplateTable3defEN9Bytecodes4CodeEi8TosStateS2_PFvNS_9
   %10 = getelementptr inbounds [239 x %class.Template], ptr @_ZN13TemplateTable15_template_tableE, i64 0, i64 %8
   %11 = select i1 %.not.i, ptr %10, ptr %9
   store i32 %1, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %2, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %4, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %5, ptr %15, align 8
   ret void
 }
@@ -241,13 +241,13 @@ define hidden void @_ZN13TemplateTable3defEN9Bytecodes4CodeEi8TosStateS2_PFvNS_7
   %10 = getelementptr inbounds [239 x %class.Template], ptr @_ZN13TemplateTable15_template_tableE, i64 0, i64 %8
   %11 = select i1 %.not.i, ptr %10, ptr %9
   store i32 %1, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %2, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %4, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %5, ptr %15, align 8
   ret void
 }
@@ -261,13 +261,13 @@ define hidden void @_ZN13TemplateTable3defEN9Bytecodes4CodeEi8TosStateS2_PFvS2_E
   %10 = getelementptr inbounds [239 x %class.Template], ptr @_ZN13TemplateTable15_template_tableE, i64 0, i64 %8
   %11 = select i1 %.not.i, ptr %10, ptr %9
   store i32 %1, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %2, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %4, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %5, ptr %15, align 8
   ret void
 }
@@ -281,13 +281,13 @@ define hidden void @_ZN13TemplateTable3defEN9Bytecodes4CodeEi8TosStateS2_PFvNS_9
   %10 = getelementptr inbounds [239 x %class.Template], ptr @_ZN13TemplateTable15_template_tableE, i64 0, i64 %8
   %11 = select i1 %.not.i, ptr %10, ptr %9
   store i32 %1, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %2, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %4, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %5, ptr %15, align 8
   ret void
 }
@@ -295,10 +295,10 @@ define hidden void @_ZN13TemplateTable3defEN9Bytecodes4CodeEi8TosStateS2_PFvNS_9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @_ZN13TemplateTable10initializeEv() local_unnamed_addr #5 align 2 {
   store i32 0, ptr @_ZN13TemplateTable15_template_tableE, align 16
-  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN13TemplateTable15_template_tableE, i64 4), align 4
-  store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN13TemplateTable15_template_tableE, i64 8), align 8
-  store ptr @_ZN13TemplateTable3nopEv, ptr getelementptr inbounds (i8, ptr @_ZN13TemplateTable15_template_tableE, i64 16), align 16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN13TemplateTable15_template_tableE, i64 24), align 8
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN13TemplateTable15_template_tableE, i64 4), align 4
+  store i32 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN13TemplateTable15_template_tableE, i64 8), align 8
+  store ptr @_ZN13TemplateTable3nopEv, ptr getelementptr inbounds nuw (i8, ptr @_ZN13TemplateTable15_template_tableE, i64 16), align 16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN13TemplateTable15_template_tableE, i64 24), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN13TemplateTable15_template_tableE, i64 32), align 16
   store i32 9, ptr getelementptr inbounds (i8, ptr @_ZN13TemplateTable15_template_tableE, i64 36), align 4
   store i32 8, ptr getelementptr inbounds (i8, ptr @_ZN13TemplateTable15_template_tableE, i64 40), align 8

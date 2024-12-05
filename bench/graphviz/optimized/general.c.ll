@@ -42,7 +42,7 @@ define noalias noundef ptr @random_permutation(i32 noundef %0) local_unnamed_add
 
 6:                                                ; preds = %3, %6
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %8, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -118,9 +118,9 @@ define noundef ptr @vector_subtract_to(i32 noundef %0, ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %8 = load double, ptr %7, align 8
   %9 = fsub double %6, %8
   store double %9, ptr %7, align 8
@@ -144,9 +144,9 @@ define double @vector_product(i32 noundef %0, ptr nocapture noundef readonly %1,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.089 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %5 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %8 = load double, ptr %7, align 8
   %9 = tail call double @llvm.fmuladd.f64(double %6, double %8, double %.089)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -172,9 +172,9 @@ define noundef ptr @vector_saxpy(i32 noundef %0, ptr nocapture noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %9 = load double, ptr %8, align 8
   %10 = tail call double @llvm.fmuladd.f64(double %3, double %9, double %7)
   store double %10, ptr %8, align 8
@@ -197,9 +197,9 @@ define noundef ptr @vector_saxpy2(i32 noundef %0, ptr noundef returned %1, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %9 = load double, ptr %8, align 8
   %10 = tail call double @llvm.fmuladd.f64(double %3, double %9, double %7)
   store double %10, ptr %6, align 8
@@ -233,13 +233,13 @@ define void @vector_float_take(i32 noundef %0, ptr nocapture noundef readonly %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %1, i64 %14
   %16 = load float, ptr %15, align 4
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds float, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
   store float %16, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -283,11 +283,11 @@ define void @vector_ordering(i32 noundef %0, ptr nocapture noundef readonly %1, 
   %15 = uitofp nneg i32 %14 to double
   %16 = shl nuw nsw i64 %indvars.iv, 1
   %17 = or disjoint i64 %16, 1
-  %18 = getelementptr inbounds double, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw double, ptr %11, i64 %17
   store double %15, ptr %18, align 8
-  %19 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds double, ptr %11, i64 %16
+  %21 = getelementptr inbounds nuw double, ptr %11, i64 %16
   store double %20, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -303,11 +303,11 @@ define void @vector_ordering(i32 noundef %0, ptr nocapture noundef readonly %1, 
   %indvars.iv30 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next31, %.lr.ph27 ]
   %23 = shl nuw nsw i64 %indvars.iv30, 1
   %24 = or disjoint i64 %23, 1
-  %25 = getelementptr inbounds double, ptr %11, i64 %24
+  %25 = getelementptr inbounds nuw double, ptr %11, i64 %24
   %26 = load double, ptr %25, align 8
   %27 = fptosi double %26 to i32
   %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv30
+  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv30
   store i32 %27, ptr %29, align 4
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
@@ -437,9 +437,9 @@ define double @point_distance(ptr nocapture noundef readonly %0, ptr nocapture n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.014 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %5 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %8 = load double, ptr %7, align 8
   %9 = fsub double %6, %8
   %10 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %.014)

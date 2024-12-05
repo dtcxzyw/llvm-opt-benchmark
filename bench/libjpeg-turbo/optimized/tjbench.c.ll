@@ -362,7 +362,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   unreachable
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 46) #22
   %.not = icmp eq ptr %28, null
@@ -406,7 +406,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   unreachable
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @atoi(ptr nocapture noundef %44) #22
   %46 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %44, i32 noundef 45) #22
@@ -419,7 +419,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %46, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %52 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %51, ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #21
   %53 = icmp eq i32 %52, 1
   %54 = load i32, ptr %5, align 4
@@ -674,13 +674,13 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 
 147:                                              ; preds = %.lr.ph, %157
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %157 ]
-  %148 = getelementptr inbounds %struct.tjscalingfactor, ptr %145, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %145, i64 %indvars.iv
   %149 = load i32, ptr %148, align 4
   %150 = icmp eq i32 %144, %149
   br i1 %150, label %151, label %157
 
 151:                                              ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %148, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %153 = load i32, ptr %152, align 4
   %154 = icmp eq i32 %146, %153
   br i1 %154, label %155, label %157
@@ -1832,9 +1832,9 @@ define internal fastcc void @usage(ptr noundef %0) unnamed_addr #3 {
 .lr.ph:                                           ; preds = %1, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %1 ]
   %7 = load ptr, ptr @scalingFactors, align 8
-  %8 = getelementptr inbounds %struct.tjscalingfactor, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %9, i32 noundef %11)
   %13 = load i32, ptr @nsf, align 4
@@ -1947,7 +1947,7 @@ define internal noundef i32 @dummyDCTFilter(ptr nocapture noundef %0, i64 %1, i6
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2
   %13 = sub i16 0, %12
   store i16 %13, ptr %11, align 2
@@ -2852,7 +2852,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 449:                                              ; preds = %444
   %450 = call ptr @tj3Alloc(i64 noundef %.0551) #21
-  %451 = getelementptr inbounds ptr, ptr %calloc909, i64 %indvars.iv
+  %451 = getelementptr inbounds nuw ptr, ptr %calloc909, i64 %indvars.iv
   store ptr %450, ptr %451, align 8
   %452 = icmp eq ptr %450, null
   br i1 %452, label %453, label %438
@@ -3191,19 +3191,19 @@ switch.early.test:                                ; preds = %569
   %627 = sub nsw i32 %.2582, %626
   %.0587..us = call i32 @llvm.smin.i32(i32 %.0587, i32 %627)
   %628 = getelementptr inbounds %struct.tjtransform, ptr %560, i64 %indvars.iv873
-  %629 = getelementptr inbounds i8, ptr %628, i64 8
+  %629 = getelementptr inbounds nuw i8, ptr %628, i64 8
   store i32 %.0587..us, ptr %629, align 8
-  %630 = getelementptr inbounds i8, ptr %628, i64 12
+  %630 = getelementptr inbounds nuw i8, ptr %628, i64 12
   store i32 %620, ptr %630, align 4
   store i32 %626, ptr %628, align 8
-  %631 = getelementptr inbounds i8, ptr %628, i64 4
+  %631 = getelementptr inbounds nuw i8, ptr %628, i64 4
   store i32 %618, ptr %631, align 4
-  %632 = getelementptr inbounds i8, ptr %628, i64 16
+  %632 = getelementptr inbounds nuw i8, ptr %628, i64 16
   store i32 %625, ptr %632, align 8
   %633 = or i32 %624, 2
-  %634 = getelementptr inbounds i8, ptr %628, i64 20
+  %634 = getelementptr inbounds nuw i8, ptr %628, i64 20
   store i32 %633, ptr %634, align 4
-  %635 = getelementptr inbounds i8, ptr %628, i64 32
+  %635 = getelementptr inbounds nuw i8, ptr %628, i64 32
   store ptr %623, ptr %635, align 8
   %636 = and i32 %624, 16
   %.not711.us = icmp eq i32 %636, 0
@@ -3325,7 +3325,7 @@ switch.early.test:                                ; preds = %569
 .lr.ph820:                                        ; preds = %.lr.ph820.preheader, %.lr.ph820
   %indvars.iv878 = phi i64 [ 0, %.lr.ph820.preheader ], [ %indvars.iv.next879, %.lr.ph820 ]
   %.0554819 = phi i64 [ 0, %.lr.ph820.preheader ], [ %685, %.lr.ph820 ]
-  %683 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv878
+  %683 = getelementptr inbounds nuw i64, ptr %calloc, i64 %indvars.iv878
   %684 = load i64, ptr %683, align 8
   %685 = add i64 %684, %.0554819
   %indvars.iv.next879 = add nuw nsw i64 %indvars.iv878, 1
@@ -3427,7 +3427,7 @@ switch.early.test:                                ; preds = %569
 
 .lr.ph823:                                        ; preds = %.lr.ph823.preheader, %.lr.ph823
   %indvars.iv883 = phi i64 [ 0, %.lr.ph823.preheader ], [ %indvars.iv.next884, %.lr.ph823 ]
-  %735 = getelementptr inbounds ptr, ptr %calloc909, i64 %indvars.iv883
+  %735 = getelementptr inbounds nuw ptr, ptr %calloc909, i64 %indvars.iv883
   %736 = load ptr, ptr %735, align 8
   call void @tj3Free(ptr noundef %736) #21
   store ptr null, ptr %735, align 8
@@ -3462,7 +3462,7 @@ switch.early.test:                                ; preds = %569
 
 .lr.ph827:                                        ; preds = %.lr.ph827.preheader, %.lr.ph827
   %indvars.iv888 = phi i64 [ 0, %.lr.ph827.preheader ], [ %indvars.iv.next889, %.lr.ph827 ]
-  %743 = getelementptr inbounds ptr, ptr %calloc909, i64 %indvars.iv888
+  %743 = getelementptr inbounds nuw ptr, ptr %calloc909, i64 %indvars.iv888
   %744 = load ptr, ptr %743, align 8
   call void @tj3Free(ptr noundef %744) #21
   %indvars.iv.next889 = add nuw nsw i64 %indvars.iv888, 1
@@ -3630,7 +3630,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 89:                                               ; preds = %.lr.ph
   %90 = call ptr @tj3Alloc(i64 noundef %84) #21
-  %91 = getelementptr inbounds ptr, ptr %calloc1209, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw ptr, ptr %calloc1209, i64 %indvars.iv
   store ptr %90, ptr %91, align 8
   %92 = icmp eq ptr %90, null
   br i1 %92, label %93, label %83
@@ -4717,7 +4717,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 .lr.ph988:                                        ; preds = %.lr.ph988.preheader, %.lr.ph988
   %indvars.iv1190 = phi i64 [ 0, %.lr.ph988.preheader ], [ %indvars.iv.next1191, %.lr.ph988 ]
-  %643 = getelementptr inbounds ptr, ptr %calloc1209, i64 %indvars.iv1190
+  %643 = getelementptr inbounds nuw ptr, ptr %calloc1209, i64 %indvars.iv1190
   %644 = load ptr, ptr %643, align 8
   call void @tj3Free(ptr noundef %644) #21
   store ptr null, ptr %643, align 8
@@ -4766,7 +4766,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 .lr.ph990:                                        ; preds = %.lr.ph990.preheader, %.lr.ph990
   %indvars.iv1195 = phi i64 [ 0, %.lr.ph990.preheader ], [ %indvars.iv.next1196, %.lr.ph990 ]
-  %659 = getelementptr inbounds ptr, ptr %calloc1209, i64 %indvars.iv1195
+  %659 = getelementptr inbounds nuw ptr, ptr %calloc1209, i64 %indvars.iv1195
   %660 = load ptr, ptr %659, align 8
   call void @tj3Free(ptr noundef %660) #21
   %indvars.iv.next1196 = add nuw nsw i64 %indvars.iv1195, 1
@@ -4960,7 +4960,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
 37:                                               ; preds = %26
   %38 = select i1 %.not, ptr @.str.240, ptr @.str.239
   %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 16, ptr noundef nonnull @.str.238, ptr noundef nonnull %38, i32 noundef %6) #21
-  %40 = getelementptr inbounds i8, ptr %13, i64 15
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 15
   store i8 0, ptr %40, align 1
   br label %41
 
@@ -5470,7 +5470,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %306 = getelementptr inbounds i16, ptr %.1, i64 %indvars.iv
+  %306 = getelementptr inbounds nuw i16, ptr %.1, i64 %indvars.iv
   store i16 2047, ptr %306, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5478,7 +5478,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef nonnul
 
 .lr.ph637:                                        ; preds = %.lr.ph637.preheader, %.lr.ph637
   %indvars.iv721 = phi i64 [ 0, %.lr.ph637.preheader ], [ %indvars.iv.next722, %.lr.ph637 ]
-  %307 = getelementptr inbounds i16, ptr %.1, i64 %indvars.iv721
+  %307 = getelementptr inbounds nuw i16, ptr %.1, i64 %indvars.iv721
   store i16 32767, ptr %307, align 2
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
   %exitcond725.not = icmp eq i64 %indvars.iv.next722, %wide.trip.count724

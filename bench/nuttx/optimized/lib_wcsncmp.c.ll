@@ -21,8 +21,8 @@ define i32 @wcsncmp(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 7:                                                ; preds = %.lr.ph
   %8 = add i64 %.022, -1
-  %9 = getelementptr inbounds i8, ptr %.01120, i64 4
-  %10 = getelementptr inbounds i8, ptr %.01021, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.01120, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.01021, i64 4
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.critedge17, label %.lr.ph, !llvm.loop !6
 

@@ -363,7 +363,7 @@ define internal range(i32 0, 65536) i32 @get_opsi_pdu_len(ptr nocapture readnone
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_opsi_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.91) #3
   %8 = load ptr, ptr %6, align 8
@@ -496,18 +496,18 @@ get_opsi_attribute_index.exit.i:                  ; preds = %._crit_edge.i, %.lr
   %.0.i.ph.i = phi i32 [ 26, %52 ], [ %.sext.i.i, %tailrecurse.i.i ], [ %.sext30.i.i, %tailrecurse.outer.i.i ]
   %75 = zext nneg i32 %.0.i.ph.i to i64
   %76 = getelementptr [53 x %struct.opsi_attribute_handle_t], ptr @opsi_attributes, i64 0, i64 %75
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %76, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %0, i32 noundef %.059.i, i32 noundef %50, i32 noundef %79, ptr noundef nonnull %5, ptr noundef nonnull @.str.159, ptr noundef %81, i32 noundef %47) #3
   %83 = load i32, ptr @hf_opsi_attribute_length, align 4
   %84 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %0, i32 noundef %48, i32 noundef 2, i32 noundef 0) #3
-  %85 = getelementptr inbounds i8, ptr %76, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds i8, ptr %76, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %89 = load ptr, ptr %88, align 8
   call void %86(ptr noundef %0, ptr noundef %1, ptr noundef %82, ptr noundef %87, ptr noundef %89, i32 noundef %.059.i, i32 noundef %50) #3
   br label %90

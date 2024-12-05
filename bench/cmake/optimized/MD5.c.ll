@@ -33,16 +33,16 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @cmsysMD5_Initialize(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   store i32 0, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1732584193, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -271733879, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1732584194, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 271733878, ptr %6, align 4
   ret void
 }
@@ -74,7 +74,7 @@ define dso_local void @cmsysMD5_Append(ptr noundef %0, ptr noundef %1, i32 nound
   %16 = shl i32 %.tr.i, 3
   %17 = lshr i64 %.0, 29
   %18 = trunc i64 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, %18
   store i32 %21, ptr %19, align 4
@@ -97,8 +97,8 @@ define dso_local void @cmsysMD5_Append(ptr noundef %0, ptr noundef %1, i32 nound
   %29 = icmp ugt i64 %28, 64
   %30 = sub nuw nsw i64 64, %13
   %31 = select i1 %29, i64 %30, i64 %.0
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  %33 = getelementptr inbounds i8, ptr %32, i64 %13
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %1, i64 %31, i1 false)
   %34 = add i64 %31, %13
   %35 = icmp ult i64 %34, 64
@@ -120,7 +120,7 @@ define dso_local void @cmsysMD5_Append(ptr noundef %0, ptr noundef %1, i32 nound
   %.143.i = phi ptr [ %41, %.lr.ph.i ], [ %.0.i, %39 ]
   %.13842.i = phi i64 [ %42, %.lr.ph.i ], [ %.037.i, %39 ]
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.143.i)
-  %41 = getelementptr inbounds i8, ptr %.143.i, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %.143.i, i64 64
   %42 = add i64 %.13842.i, -64
   %43 = icmp ugt i64 %42, 63
   br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
@@ -132,7 +132,7 @@ define dso_local void @cmsysMD5_Append(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not41.i, label %md5_append.exit, label %44
 
 44:                                               ; preds = %._crit_edge.i
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %45, ptr align 1 %.1.lcssa.i, i64 %.138.lcssa.i, i1 false)
   br label %md5_append.exit
 
@@ -153,14 +153,14 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr nocapture noundef w
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
   %5 = lshr i64 %indvars.iv.i, 2
   %6 = and i64 %5, 1073741823
-  %7 = getelementptr inbounds [2 x i32], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
   %9 = shl i32 %indvars.iv.tr.i, 3
   %10 = and i32 %9, 24
   %11 = lshr i32 %8, %10
   %12 = trunc i32 %11 to i8
-  %13 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i
   store i8 %12, ptr %13, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -176,7 +176,7 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr nocapture noundef w
   %21 = and i32 %16, 63
   %22 = zext nneg i32 %21 to i64
   %23 = shl nuw nsw i32 %19, 3
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %23, %15
   store i32 %26, ptr %0, align 4
@@ -197,15 +197,15 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr nocapture noundef w
   %33 = icmp samesign ugt i64 %32, 64
   %34 = sub nuw nsw i64 64, %22
   %35 = select i1 %33, i64 %34, i64 %20
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
-  %37 = getelementptr inbounds i8, ptr %36, i64 %22
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 16 dereferenceable(1) @md5_finish.pad, i64 %35, i1 false)
   %38 = add nuw nsw i64 %35, %22
   %39 = icmp samesign ult i64 %38, 64
   br i1 %39, label %md5_append.exit.i, label %40
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr @md5_finish.pad, i64 %35
+  %41 = getelementptr inbounds nuw i8, ptr @md5_finish.pad, i64 %35
   %42 = sub nsw i64 %20, %35
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %36)
   br label %43
@@ -220,7 +220,7 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr nocapture noundef w
   %.143.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %.0.i.i, %43 ]
   %.13842.i.i = phi i64 [ %46, %.lr.ph.i.i ], [ %.037.i.i, %43 ]
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.143.i.i)
-  %45 = getelementptr inbounds i8, ptr %.143.i.i, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %.143.i.i, i64 64
   %46 = add i64 %.13842.i.i, -64
   %47 = icmp ugt i64 %46, 63
   br i1 %47, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !5
@@ -232,7 +232,7 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr nocapture noundef w
   br i1 %.not41.i.i, label %md5_append.exit.i, label %48
 
 48:                                               ; preds = %._crit_edge.i.i
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %49, ptr align 1 %.1.lcssa.i.i, i64 %.138.lcssa.i.i, i1 false)
   br label %md5_append.exit.i
 
@@ -260,15 +260,15 @@ md5_append.exit.i:                                ; preds = %48, %._crit_edge.i.
   %61 = icmp samesign ugt i32 %52, 56
   %62 = sub nuw nsw i64 64, %53
   %63 = select i1 %61, i64 %62, i64 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
-  %65 = getelementptr inbounds i8, ptr %64, i64 %53
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %63, i1 false)
   %66 = add nuw nsw i64 %63, %53
   %67 = icmp samesign ult i64 %66, 64
   br i1 %67, label %md5_append.exit25.i, label %68
 
 68:                                               ; preds = %60
-  %69 = getelementptr inbounds i8, ptr %3, i64 %63
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %63
   %70 = sub nsw i64 8, %63
   tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %64)
   %71 = icmp ugt i64 %70, 63
@@ -278,7 +278,7 @@ md5_append.exit.i:                                ; preds = %48, %._crit_edge.i.
   %.143.i23.i = phi ptr [ %72, %.lr.ph.i22.i ], [ %69, %68 ]
   %.13842.i24.i = phi i64 [ %73, %.lr.ph.i22.i ], [ %70, %68 ]
   call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %.143.i23.i)
-  %72 = getelementptr inbounds i8, ptr %.143.i23.i, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %.143.i23.i, i64 64
   %73 = add i64 %.13842.i24.i, -64
   %74 = icmp ugt i64 %73, 63
   br i1 %74, label %.lr.ph.i22.i, label %._crit_edge.i18.i, !llvm.loop !5
@@ -292,26 +292,26 @@ md5_append.exit.i:                                ; preds = %48, %._crit_edge.i.
 ._crit_edge.i18.thread.i:                         ; preds = %._crit_edge.i18.i, %59
   %.1.lcssa.i2032.i = phi ptr [ %.1.lcssa.i20.i, %._crit_edge.i18.i ], [ %3, %59 ]
   %.138.lcssa.i1931.i = phi i64 [ %.138.lcssa.i19.i, %._crit_edge.i18.i ], [ 8, %59 ]
-  %75 = getelementptr inbounds i8, ptr %0, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %75, ptr noundef nonnull align 1 dereferenceable(1) %.1.lcssa.i2032.i, i64 %.138.lcssa.i1931.i, i1 false)
   br label %md5_append.exit25.i
 
 md5_append.exit25.i:                              ; preds = %._crit_edge.i18.thread.i, %._crit_edge.i18.i, %60
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %77
 
 77:                                               ; preds = %77, %md5_append.exit25.i
   %indvars.iv42.i = phi i64 [ 0, %md5_append.exit25.i ], [ %indvars.iv.next43.i, %77 ]
   %78 = lshr i64 %indvars.iv42.i, 2
   %79 = and i64 %78, 1073741823
-  %80 = getelementptr inbounds [4 x i32], ptr %76, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i32], ptr %76, i64 0, i64 %79
   %81 = load i32, ptr %80, align 4
   %indvars.iv42.tr.i = trunc i64 %indvars.iv42.i to i32
   %82 = shl i32 %indvars.iv42.tr.i, 3
   %83 = and i32 %82, 24
   %84 = lshr i32 %81, %83
   %85 = trunc i32 %84 to i8
-  %86 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv42.i
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv42.i
   store i8 %85, ptr %86, align 1
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next43.i, 16
@@ -331,19 +331,19 @@ define dso_local void @cmsysMD5_FinalizeHex(ptr noundef %0, ptr nocapture nounde
 4:                                                ; preds = %4, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
   %.089.i = phi ptr [ %1, %2 ], [ %16, %4 ]
-  %5 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
   %6 = load i8, ptr %5, align 1
   %7 = lshr i8 %6, 4
   %8 = zext nneg i8 %7 to i64
-  %9 = getelementptr inbounds [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %.089.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.089.i, i64 1
   store i8 %10, ptr %.089.i, align 1
   %12 = and i8 %6, 15
   %13 = zext nneg i8 %12 to i64
-  %14 = getelementptr inbounds [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %.089.i, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.089.i, i64 2
   store i8 %15, ptr %11, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -360,20 +360,20 @@ define dso_local void @cmsysMD5_DigestToHex(ptr nocapture noundef readonly %0, p
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %.089 = phi ptr [ %1, %2 ], [ %16, %3 ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = lshr i8 %5, 4
   %7 = zext nneg i8 %6 to i64
-  %8 = getelementptr inbounds [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %.089, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.089, i64 1
   store i8 %9, ptr %.089, align 1
   %11 = load i8, ptr %4, align 1
   %12 = and i8 %11, 15
   %13 = zext nneg i8 %12 to i64
-  %14 = getelementptr inbounds [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @cmsysMD5_DigestToHex.hex, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %.089, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.089, i64 2
   store i8 %15, ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -388,44 +388,44 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @md5_process(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #10 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
-  %.0568.sroa.gep611 = getelementptr inbounds i8, ptr %1, i64 60
+  %.0568.sroa.gep611 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %.0568.sroa.phi609.sroa.speculated = load i32, ptr %.0568.sroa.gep611, align 1
-  %.0568.sroa.gep608 = getelementptr inbounds i8, ptr %1, i64 56
+  %.0568.sroa.gep608 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.0568.sroa.phi606.sroa.speculated = load i32, ptr %.0568.sroa.gep608, align 1
-  %.0568.sroa.gep605 = getelementptr inbounds i8, ptr %1, i64 52
+  %.0568.sroa.gep605 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %.0568.sroa.phi603.sroa.speculated = load i32, ptr %.0568.sroa.gep605, align 1
-  %.0568.sroa.gep602 = getelementptr inbounds i8, ptr %1, i64 48
+  %.0568.sroa.gep602 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.0568.sroa.phi600.sroa.speculated = load i32, ptr %.0568.sroa.gep602, align 1
-  %.0568.sroa.gep599 = getelementptr inbounds i8, ptr %1, i64 44
+  %.0568.sroa.gep599 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %.0568.sroa.phi597.sroa.speculated = load i32, ptr %.0568.sroa.gep599, align 1
-  %.0568.sroa.gep596 = getelementptr inbounds i8, ptr %1, i64 40
+  %.0568.sroa.gep596 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.0568.sroa.phi594.sroa.speculated = load i32, ptr %.0568.sroa.gep596, align 1
-  %.0568.sroa.gep593 = getelementptr inbounds i8, ptr %1, i64 36
+  %.0568.sroa.gep593 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.0568.sroa.phi591.sroa.speculated = load i32, ptr %.0568.sroa.gep593, align 1
-  %.0568.sroa.gep590 = getelementptr inbounds i8, ptr %1, i64 32
+  %.0568.sroa.gep590 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.0568.sroa.phi588.sroa.speculated = load i32, ptr %.0568.sroa.gep590, align 1
   %11 = load i32, ptr %1, align 1
-  %.0568.sroa.gep569 = getelementptr inbounds i8, ptr %1, i64 4
+  %.0568.sroa.gep569 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %.0568.sroa.gep569, align 1
-  %.0568.sroa.gep572 = getelementptr inbounds i8, ptr %1, i64 8
+  %.0568.sroa.gep572 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %.0568.sroa.gep572, align 1
-  %.0568.sroa.gep575 = getelementptr inbounds i8, ptr %1, i64 12
+  %.0568.sroa.gep575 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %.0568.sroa.gep575, align 1
-  %.0568.sroa.gep578 = getelementptr inbounds i8, ptr %1, i64 16
+  %.0568.sroa.gep578 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %.0568.sroa.gep578, align 1
-  %.0568.sroa.gep581 = getelementptr inbounds i8, ptr %1, i64 20
+  %.0568.sroa.gep581 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i32, ptr %.0568.sroa.gep581, align 1
-  %.0568.sroa.gep584 = getelementptr inbounds i8, ptr %1, i64 24
+  %.0568.sroa.gep584 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %.0568.sroa.gep584, align 1
-  %.0568.sroa.gep587 = getelementptr inbounds i8, ptr %1, i64 28
+  %.0568.sroa.gep587 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %18 = load i32, ptr %.0568.sroa.gep587, align 1
   %19 = and i32 %8, %6
   %20 = xor i32 %6, -1

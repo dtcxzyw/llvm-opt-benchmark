@@ -25,13 +25,13 @@ define dso_local zeroext i1 @i915_syncmap_is_later(ptr nocapture noundef %0, i64
 
 .preheader4:                                      ; preds = %6, %14
   %10 = phi ptr [ %12, %14 ], [ %4, %6 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %.preheader4
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = zext nneg i32 %16 to i64
   %18 = lshr i64 %1, %17
@@ -57,7 +57,7 @@ define dso_local zeroext i1 @i915_syncmap_is_later(ptr nocapture noundef %0, i64
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = zext nneg i32 %35 to i64
   %37 = lshr i64 %1, %36
@@ -73,7 +73,7 @@ define dso_local zeroext i1 @i915_syncmap_is_later(ptr nocapture noundef %0, i64
 42:                                               ; preds = %41, %6
   %43 = phi ptr [ %4, %6 ], [ %23, %41 ]
   %44 = and i64 %1, 15
-  %45 = getelementptr inbounds i8, ptr %43, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = zext i32 %46 to i64
   %48 = shl nuw nsw i64 1, %44
@@ -111,7 +111,7 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_syncmap_set(ptr nocapture n
   %12 = and i32 %11, 15
   %13 = and i64 %1, 15
   %14 = shl nuw nsw i32 1, %12
-  %15 = getelementptr inbounds i8, ptr %4, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, %14
   store i32 %17, ptr %15, align 4
@@ -142,21 +142,21 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr nocapture n
   br i1 %9, label %.thread, label %10, !prof !9
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = lshr i64 %1, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i64 %12, ptr %8, align 8
   br label %.thread13
 
 .preheader:                                       ; preds = %3, %17
   %13 = phi ptr [ %15, %17 ], [ %4, %3 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %25, label %17
 
 17:                                               ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -172,7 +172,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr nocapture n
 
 28:                                               ; preds = %84, %25
   %29 = phi ptr [ %26, %25 ], [ %89, %84 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = zext nneg i32 %31 to i64
   %33 = lshr i64 %1, %32
@@ -198,19 +198,19 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr nocapture n
   %49 = or i32 %48, 3
   %50 = add i32 %42, 1
   %51 = add i32 %50, %49
-  %52 = getelementptr inbounds i8, ptr %39, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %51, ptr %52, align 8
   %53 = zext nneg i32 %51 to i64
   %54 = lshr i64 %1, %53
   %55 = lshr i64 %54, 4
   store i64 %55, ptr %39, align 8
-  %56 = getelementptr inbounds i8, ptr %29, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %67, label %59
 
 59:                                               ; preds = %41
-  %60 = getelementptr inbounds i8, ptr %57, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = zext nneg i32 %61 to i64
   %63 = lshr i64 %1, %62
@@ -223,7 +223,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr nocapture n
 
 67:                                               ; preds = %41, %59
   %68 = phi ptr [ null, %41 ], [ %.pre, %59 ]
-  %69 = getelementptr inbounds i8, ptr %39, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %68, ptr %69, align 8
   %70 = load i64, ptr %29, align 8
   %71 = and i32 %48, -4
@@ -231,7 +231,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr nocapture n
   %73 = lshr i64 %70, %72
   %74 = and i64 %73, 15
   %75 = shl nuw nsw i64 1, %74
-  %76 = getelementptr inbounds i8, ptr %39, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %77 = load i32, ptr %76, align 4
   %78 = trunc nuw nsw i64 %75 to i32
   %79 = or i32 %77, %78
@@ -267,15 +267,15 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr nocapture n
 
 95:                                               ; preds = %91
   %96 = getelementptr ptr, ptr %87, i64 %86
-  %97 = getelementptr inbounds i8, ptr %93, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store ptr %85, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %93, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 0, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %93, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 12
   store i32 0, ptr %99, align 4
   store i64 %27, ptr %93, align 8
   %100 = shl nuw nsw i64 1, %86
-  %101 = getelementptr inbounds i8, ptr %85, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %85, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = trunc nuw nsw i64 %100 to i32
   %104 = or i32 %102, %103
@@ -289,7 +289,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__sync_set(ptr nocapture n
   %107 = and i32 %106, 15
   %108 = and i64 %1, 15
   %109 = shl nuw nsw i32 1, %107
-  %110 = getelementptr inbounds i8, ptr %105, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 12
   %111 = load i32, ptr %110, align 4
   %112 = or i32 %111, %109
   store i32 %112, ptr %110, align 4
@@ -312,7 +312,7 @@ define dso_local void @i915_syncmap_free(ptr nocapture noundef %0) local_unnamed
 
 .preheader:                                       ; preds = %1, %.preheader
   %4 = phi ptr [ %6, %.preheader ], [ %2, %1 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %.preheader, !llvm.loop !12
@@ -328,13 +328,13 @@ define dso_local void @i915_syncmap_free(ptr nocapture noundef %0) local_unnamed
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @__sync_free(ptr noundef %0) unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = getelementptr i8, ptr %0, i64 24
   %8 = load i32, ptr %6, align 4
   %9 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %8, i32 -1) #7, !srcloc !14

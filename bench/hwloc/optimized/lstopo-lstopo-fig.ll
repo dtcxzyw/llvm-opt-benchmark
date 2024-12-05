@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @output_fig(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %4) #9
   %.not = icmp eq ptr %5, null
@@ -42,15 +42,15 @@ define hidden range(i32 -1, 1) i32 @output_fig(ptr noundef %0, ptr noundef %1) l
   br label %32
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 1600
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   store ptr @fig_draw_methods, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 1592
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %16 = load i64, ptr %15, align 8
   %17 = or i64 %16, 2
   store i64 %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 1608
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   store i32 0, ptr %18, align 8
   tail call void @output_draw(ptr noundef nonnull %0) #9
   store i32 1, ptr %18, align 8
@@ -107,12 +107,12 @@ declare void @destroy_colors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @fig_declare_color(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((16, 20)) %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %5, 255
   %11 = icmp eq i32 %7, 255
@@ -122,7 +122,7 @@ define internal noundef i32 @fig_declare_color(ptr nocapture noundef readonly %0
   br i1 %or.cond3, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 7, ptr %14, align 8
   br label %26
 
@@ -135,7 +135,7 @@ define internal noundef i32 @fig_declare_color(ptr nocapture noundef readonly %0
   br i1 %or.cond7, label %21, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 0, ptr %20, align 8
   br label %26
 
@@ -143,7 +143,7 @@ define internal noundef i32 @fig_declare_color(ptr nocapture noundef readonly %0
   %22 = load i32, ptr @fig_color_index, align 4
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr @fig_color_index, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %22, ptr %24, align 8
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.10, i32 noundef %22, i32 noundef %5, i32 noundef %7, i32 noundef %9) #9
   br label %26
@@ -154,7 +154,7 @@ define internal noundef i32 @fig_declare_color(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @fig_box(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, i32 %8) #5 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %0, i64 1304
   %.val = load i32, ptr %12, align 8
@@ -164,13 +164,13 @@ define internal void @fig_box(ptr nocapture noundef readonly %0, ptr nocapture n
   br i1 %or.cond.i, label %15, label %lstopo_obj_cpukind_style.exit
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %7, i64 232
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %20 = load i32, ptr %19, align 4
   br label %lstopo_obj_cpukind_style.exit
 
@@ -182,7 +182,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
   br i1 %or.cond, label %23, label %43
 
 23:                                               ; preds = %lstopo_obj_cpukind_style.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 944
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %25 = load i32, ptr %24, align 8
   %.not = icmp ne i32 %.0.i, 0
   %26 = shl nuw i32 1, %.0.i
@@ -192,7 +192,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
   %.040 = select i1 %.not, i32 %26, i32 0
   %29 = mul i32 %3, 20
   %30 = mul i32 %5, 20
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.11, i32 noundef %.041, i32 noundef %28, i32 noundef %32, i32 noundef %2, i32 noundef %.040) #9
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.12, i32 noundef %29, i32 noundef %30) #9
@@ -213,13 +213,13 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @fig_line(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture readnone %6, i32 %7) #5 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = mul i32 %2, 20
   %12 = mul i32 %3, 20
   %13 = mul i32 %4, 20
   %14 = mul i32 %5, 20
-  %15 = getelementptr inbounds i8, ptr %0, i64 944
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %16 = load i32, ptr %15, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.14, i32 noundef %16, i32 noundef %1) #9
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.12, i32 noundef %11, i32 noundef %12) #9
@@ -230,7 +230,7 @@ define internal void @fig_line(ptr nocapture noundef readonly %0, i32 noundef %1
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @fig_text(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly %7, i32 %8) #5 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %0, i64 1304
   %.val = load i32, ptr %12, align 8
@@ -240,13 +240,13 @@ define internal void @fig_text(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %or.cond.i, label %15, label %lstopo_obj_cpukind_style.exit
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %7, i64 232
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %20 = load i32, ptr %19, align 4
   %21 = shl i32 %20, 1
   %22 = and i32 %21, 2
@@ -256,7 +256,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
   %.0.i = phi i32 [ %22, %18 ], [ 0, %15 ], [ 0, %9 ]
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #12
   %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = mul i32 %4, 20
   %28 = mul i32 %5, 20

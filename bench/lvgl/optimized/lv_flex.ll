@@ -23,9 +23,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define void @lv_flex_init() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 176), align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @flex_update, ptr %2, align 8, !tbaa !19
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %3, align 8, !tbaa !21
   ret void
 }
@@ -730,7 +730,7 @@ get_next_item.exit:                               ; preds = %114
   %119 = load ptr, ptr %118, align 8, !tbaa !31
   %120 = load ptr, ptr %119, align 8, !tbaa !54
   %121 = zext nneg i32 %2 to i64
-  %122 = getelementptr inbounds ptr, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr %120, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !55
   %124 = load i8, ptr %10, align 4
   %125 = and i8 %124, 4
@@ -1006,7 +1006,7 @@ place_content.exit:                               ; preds = %.critedge, %89, %92
   %133 = load ptr, ptr %118, align 8, !tbaa !31
   %134 = load ptr, ptr %133, align 8, !tbaa !54
   %135 = zext nneg i32 %132 to i64
-  %136 = getelementptr inbounds ptr, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw ptr, ptr %134, i64 %135
   br label %get_next_item.exit
 
 137:                                              ; preds = %126
@@ -1307,7 +1307,7 @@ get_next_item.exit:                               ; preds = %131, %144
   %305 = load ptr, ptr %118, align 8, !tbaa !31
   %306 = load ptr, ptr %305, align 8, !tbaa !54
   %307 = zext nneg i32 %304 to i64
-  %308 = getelementptr inbounds ptr, ptr %306, i64 %307
+  %308 = getelementptr inbounds nuw ptr, ptr %306, i64 %307
   br label %get_next_item.exit232
 
 309:                                              ; preds = %298

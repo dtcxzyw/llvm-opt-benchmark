@@ -120,7 +120,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %88 = getelementptr double, ptr %gep, i64 %87
   %89 = load double, ptr %88, align 8, !tbaa !7
   %90 = fcmp oeq double %89, 0.000000e+00
-  %91 = getelementptr inbounds i32, ptr %30, i64 %79
+  %91 = getelementptr inbounds nuw i32, ptr %30, i64 %79
   %92 = load i32, ptr %91, align 4, !tbaa !3
   %93 = icmp eq i32 %92, 0
   br i1 %90, label %94, label %95
@@ -280,7 +280,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br i1 %170, label %171, label %209
 
 171:                                              ; preds = %167
-  %172 = getelementptr inbounds i32, ptr %30, i64 %168
+  %172 = getelementptr inbounds nuw i32, ptr %30, i64 %168
   %173 = load i32, ptr %172, align 4, !tbaa !3
   %174 = load i32, ptr %3, align 4, !tbaa !3
   %175 = sext i32 %174 to i64
@@ -466,9 +466,9 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %276 = sext i32 %275 to i64
   %277 = getelementptr inbounds double, ptr %34, i64 %276
   %278 = load double, ptr %277, align 8, !tbaa !7
-  %279 = getelementptr inbounds double, ptr %35, i64 %273
+  %279 = getelementptr inbounds nuw double, ptr %35, i64 %273
   store double %278, ptr %279, align 8, !tbaa !7
-  %280 = getelementptr inbounds double, ptr %36, i64 %273
+  %280 = getelementptr inbounds nuw double, ptr %36, i64 %273
   store double 0.000000e+00, ptr %280, align 8, !tbaa !7
   %281 = add nuw nsw i64 %273, 1
   %282 = icmp eq i64 %281, %271
@@ -511,7 +511,7 @@ define void @dtrsen_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %311 = select i1 %309, double %308, double %310
   %312 = call double @sqrt(double noundef %311) #6
   %313 = fmul double %307, %312
-  %314 = getelementptr inbounds double, ptr %36, i64 %290
+  %314 = getelementptr inbounds nuw double, ptr %36, i64 %290
   store double %313, ptr %314, align 8, !tbaa !7
   %315 = fneg double %313
   %316 = getelementptr double, ptr %9, i64 %290

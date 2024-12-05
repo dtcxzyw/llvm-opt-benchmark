@@ -71,9 +71,9 @@ declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @blkverify_recurse_can_replace(ptr nocapture noundef readonly %bs, ptr noundef %to_replace) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call zeroext i1 @bdrv_recurse_can_replace(ptr noundef %2, ptr noundef %to_replace) #9
@@ -131,7 +131,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -2147483648, 1) i32 @blkverify_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call ptr @qemu_opts_create(ptr noundef nonnull @runtime_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #9
   %call1 = tail call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef %call, ptr noundef %options, ptr noundef %errp) #9
@@ -151,9 +151,9 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool.not, label %fail, label %if.end10
 
 if.end10:                                         ; preds = %if.end5
-  %supported_write_flags = getelementptr inbounds i8, ptr %bs, i64 16588
+  %supported_write_flags = getelementptr inbounds nuw i8, ptr %bs, i64 16588
   store i32 64, ptr %supported_write_flags, align 4
-  %supported_zero_flags = getelementptr inbounds i8, ptr %bs, i64 16592
+  %supported_zero_flags = getelementptr inbounds nuw i8, ptr %bs, i64 16592
   store i32 64, ptr %supported_zero_flags, align 8
   br label %fail
 
@@ -166,7 +166,7 @@ fail:                                             ; preds = %if.end5, %entry, %i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blkverify_close(ptr noundef %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @bdrv_graph_wrlock(ptr noundef null) #9
   %1 = load ptr, ptr %0, align 8
@@ -179,26 +179,26 @@ entry:
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal void @blkverify_refresh_filename(ptr nocapture noundef %bs) #2 {
 entry:
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
-  %exact_filename = getelementptr inbounds i8, ptr %1, i64 12368
+  %exact_filename = getelementptr inbounds nuw i8, ptr %1, i64 12368
   %2 = load i8, ptr %exact_filename, align 8
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end21, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %3 = load ptr, ptr %opaque, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %exact_filename3 = getelementptr inbounds i8, ptr %5, i64 12368
+  %exact_filename3 = getelementptr inbounds nuw i8, ptr %5, i64 12368
   %6 = load i8, ptr %exact_filename3, align 8
   %tobool6.not = icmp eq i8 %6, 0
   br i1 %tobool6.not, label %if.end21, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %exact_filename7 = getelementptr inbounds i8, ptr %bs, i64 12368
+  %exact_filename7 = getelementptr inbounds nuw i8, ptr %bs, i64 12368
   %call = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %exact_filename7, i64 noundef 4096, ptr noundef nonnull @.str.10, ptr noundef nonnull %exact_filename, ptr noundef nonnull %exact_filename3) #9
   %cmp = icmp ugt i32 %call, 4095
   br i1 %cmp, label %if.then18, label %if.end21
@@ -225,13 +225,13 @@ define internal i32 @blkverify_co_preadv(ptr noundef %bs, i64 noundef %offset, i
 entry:
   %r = alloca %struct.BlkverifyRequest, align 8
   %raw_qiov = alloca %struct.QEMUIOVector, align 8
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
-  %size = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   %2 = load i64, ptr %size, align 8
   %call = tail call ptr @qemu_blockalign(ptr noundef %1, i64 noundef %2) #9
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   %3 = load i32, ptr %niov, align 8
   call void @qemu_iovec_init(ptr noundef nonnull %raw_qiov, i32 noundef %3) #9
   call void @qemu_iovec_clone(ptr noundef nonnull %raw_qiov, ptr noundef %qiov, ptr noundef %call) #9
@@ -263,7 +263,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @blkverify_co_flush(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
@@ -274,7 +274,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @blkverify_co_getlength(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
@@ -331,27 +331,27 @@ entry:
   %call = tail call ptr @qemu_coroutine_self() #9
   %cond = select i1 %is_write, ptr @bdrv_co_pwritev, ptr @bdrv_co_preadv
   store ptr %call, ptr %r, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %r, i64 8
+  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %r, i64 8
   store ptr %bs, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
-  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %r, i64 16
+  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %r, i64 16
   store i8 %frombool, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 8
-  %.compoundliteral.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %r, i64 24
+  %.compoundliteral.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %r, i64 24
   store i64 %offset, ptr %.compoundliteral.sroa.41.0..sroa_idx, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %r, i64 32
+  %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %r, i64 32
   store i64 %bytes, ptr %.compoundliteral.sroa.5.0..sroa_idx, align 8
-  %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %r, i64 40
+  %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %r, i64 40
   store i32 %flags, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 8
-  %.compoundliteral.sroa.72.0..sroa_idx = getelementptr inbounds i8, ptr %r, i64 48
+  %.compoundliteral.sroa.72.0..sroa_idx = getelementptr inbounds nuw i8, ptr %r, i64 48
   store ptr %cond, ptr %.compoundliteral.sroa.72.0..sroa_idx, align 8
-  %.compoundliteral.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %r, i64 56
+  %.compoundliteral.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %r, i64 56
   store i32 0, ptr %.compoundliteral.sroa.8.0..sroa_idx, align 8
-  %.compoundliteral.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %r, i64 60
+  %.compoundliteral.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %r, i64 60
   store i32 0, ptr %.compoundliteral.sroa.9.0..sroa_idx, align 4
-  %.compoundliteral.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %r, i64 64
+  %.compoundliteral.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %r, i64 64
   store i32 0, ptr %.compoundliteral.sroa.10.0..sroa_idx, align 8
-  %.compoundliteral.sroa.113.0..sroa_idx = getelementptr inbounds i8, ptr %r, i64 72
+  %.compoundliteral.sroa.113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %r, i64 72
   store ptr %qiov, ptr %.compoundliteral.sroa.113.0..sroa_idx, align 8
-  %.compoundliteral.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %r, i64 80
+  %.compoundliteral.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %r, i64 80
   store ptr %raw_qiov, ptr %.compoundliteral.sroa.12.0..sroa_idx, align 8
   %call10 = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @blkverify_do_test_req, ptr noundef nonnull %r) #9
   %call11 = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @blkverify_do_raw_req, ptr noundef nonnull %r) #9
@@ -389,13 +389,13 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %0 = load ptr, ptr @stderr, align 8
-  %is_write = getelementptr inbounds i8, ptr %r, i64 16
+  %is_write = getelementptr inbounds nuw i8, ptr %r, i64 16
   %1 = load i8, ptr %is_write, align 8
   %tobool = trunc i8 %1 to i1
   %cond = select i1 %tobool, ptr @.str.15, ptr @.str.16
-  %offset = getelementptr inbounds i8, ptr %r, i64 24
+  %offset = getelementptr inbounds nuw i8, ptr %r, i64 24
   %2 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %r, i64 32
+  %bytes = getelementptr inbounds nuw i8, ptr %r, i64 32
   %3 = load i64, ptr %bytes, align 8
   %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %cond, i64 noundef %2, i64 noundef %3) #11
   %4 = load ptr, ptr @stderr, align 8
@@ -422,27 +422,27 @@ declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blkverify_do_test_req(ptr nocapture noundef initializes((56, 60)) %opaque) #0 {
 entry:
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 8
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %bs, align 8
-  %opaque1 = getelementptr inbounds i8, ptr %0, i64 24
+  %opaque1 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque1, align 8
   tail call void @bdrv_graph_co_rdlock() #9
-  %request_fn = getelementptr inbounds i8, ptr %opaque, i64 48
+  %request_fn = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load ptr, ptr %request_fn, align 8
   %3 = load ptr, ptr %1, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 24
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %4 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %5 = load i64, ptr %bytes, align 8
-  %qiov = getelementptr inbounds i8, ptr %opaque, i64 72
+  %qiov = getelementptr inbounds nuw i8, ptr %opaque, i64 72
   %6 = load ptr, ptr %qiov, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 40
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %7 = load i32, ptr %flags, align 8
   %call = tail call i32 %2(ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i32 noundef %7) #9
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 56
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #9
-  %done = getelementptr inbounds i8, ptr %opaque, i64 64
+  %done = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %8 = load i32, ptr %done, align 8
   %inc = add i32 %8, 1
   store i32 %inc, ptr %done, align 8
@@ -455,25 +455,25 @@ entry:
 define internal void @blkverify_do_raw_req(ptr nocapture noundef initializes((60, 64)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #9
-  %request_fn = getelementptr inbounds i8, ptr %opaque, i64 48
+  %request_fn = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %0 = load ptr, ptr %request_fn, align 8
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 8
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %bs, align 8
-  %file = getelementptr inbounds i8, ptr %1, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %1, i64 16840
   %2 = load ptr, ptr %file, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 24
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %3 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %4 = load i64, ptr %bytes, align 8
-  %raw_qiov = getelementptr inbounds i8, ptr %opaque, i64 80
+  %raw_qiov = getelementptr inbounds nuw i8, ptr %opaque, i64 80
   %5 = load ptr, ptr %raw_qiov, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 40
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %6 = load i32, ptr %flags, align 8
   %call = tail call i32 %0(ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6) #9
-  %raw_ret = getelementptr inbounds i8, ptr %opaque, i64 60
+  %raw_ret = getelementptr inbounds nuw i8, ptr %opaque, i64 60
   store i32 %call, ptr %raw_ret, align 4
   tail call void @bdrv_graph_co_rdunlock() #9
-  %done = getelementptr inbounds i8, ptr %opaque, i64 64
+  %done = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %7 = load i32, ptr %done, align 8
   %inc = add i32 %7, 1
   store i32 %inc, ptr %done, align 8

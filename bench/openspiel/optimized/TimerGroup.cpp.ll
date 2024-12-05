@@ -102,14 +102,14 @@ define void @_ZN10TimerGroupC2Ev(ptr noundef nonnull align 8 dereferenceable(56)
   br i1 %.not.i, label %_ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit.i, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %5, i64 3600
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 3600
   %.not.i.i.i = icmp eq ptr %4, %15
   br i1 %.not.i.i.i, label %_ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %14, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i.i ], [ %15, %14 ]
   tail call void @_ZN5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i.i.i) #15
-  %16 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i.i = icmp eq ptr %16, %4
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !4
 
@@ -127,7 +127,7 @@ _ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit.i:      ; preds = %_ZSt8_DestroyIP5Tim
   %19 = phi ptr [ %25, %.noexc2 ], [ %18, %_ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit.i ]
   %20 = phi i64 [ %23, %.noexc2 ], [ 0, %_ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit.i ]
   %.04.i = phi i32 [ %22, %.noexc2 ], [ 0, %_ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit.i ]
-  %21 = getelementptr inbounds %class.Timer, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw %class.Timer, ptr %19, i64 %20
   invoke void @_ZN5Timer5ResetEv(ptr noundef nonnull align 8 dereferenceable(72) %21)
           to label %.noexc2 unwind label %.loopexit
 
@@ -189,14 +189,14 @@ define void @_ZN10TimerGroup5ResetEv(ptr noundef nonnull align 8 dereferenceable
   br i1 %.not, label %_ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %4, i64 3600
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 3600
   %.not.i.i = icmp eq ptr %3, %14
   br i1 %.not.i.i, label %_ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %13, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i ], [ %14, %13 ]
   tail call void @_ZN5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i.i) #15
-  %15 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq ptr %15, %3
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
@@ -214,7 +214,7 @@ _ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit:        ; preds = %10, %12, %13, %_ZSt
   %18 = phi ptr [ %24, %.lr.ph ], [ %17, %_ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit ]
   %19 = phi i64 [ %22, %.lr.ph ], [ 0, %_ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit ]
   %.04 = phi i32 [ %21, %.lr.ph ], [ 0, %_ZNSt6vectorI5TimerSaIS0_EE6resizeEm.exit ]
-  %20 = getelementptr inbounds %class.Timer, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw %class.Timer, ptr %18, i64 %19
   tail call void @_ZN5Timer5ResetEv(ptr noundef nonnull align 8 dereferenceable(72) %20)
   %21 = add i32 %.04, 1
   %22 = zext i32 %21 to i64
@@ -247,7 +247,7 @@ define linkonce_odr void @_ZNSt6vectorI5TimerSaIS0_EED2Ev(ptr noundef nonnull al
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
   tail call void @_ZN5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i) #15
-  %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 72
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !4
 
@@ -286,7 +286,7 @@ define void @_ZN10TimerGroupD2Ev(ptr noundef nonnull align 8 dereferenceable(56)
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i ], [ %3, %1 ]
   tail call void @_ZN5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i) #15
-  %6 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 72
   %.not.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
@@ -385,7 +385,7 @@ define void @_ZN10TimerGroup8SetNamesERKNSt7__cxx1112basic_stringIcSt11char_trai
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds %class.Timer, ptr %35, i64 %16
+  %36 = getelementptr inbounds nuw %class.Timer, ptr %35, i64 %16
   invoke void @_ZN5Timer7SetNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %37 unwind label %.loopexit29
 
@@ -456,7 +456,7 @@ define void @_ZN10TimerGroup8SetNamesERKNSt7__cxx1112basic_stringIcSt11char_trai
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #15
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds %class.Timer, ptr %59, i64 %55
+  %60 = getelementptr inbounds nuw %class.Timer, ptr %59, i64 %55
   invoke void @_ZN5Timer7SetNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %60, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %61 unwind label %.loopexit.split-lp.loopexit
 
@@ -575,17 +575,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %32 = udiv i32 %.020.i, 100
   %33 = or disjoint i32 %31, 1
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = zext i32 %.01819.i to i64
-  %38 = getelementptr inbounds i8, ptr %24, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 %37
   store i8 %36, ptr %38, align 1
   %39 = zext nneg i32 %31 to i64
-  %40 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %39
   %41 = load i8, ptr %40, align 2
   %42 = add i32 %.01819.i, -1
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %24, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 %43
   store i8 %41, ptr %44, align 1
   %45 = add i32 %.01819.i, -2
   %46 = icmp ugt i32 %.020.i, 9999
@@ -600,12 +600,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %49 = shl nuw nsw i32 %.0.lcssa.i, 1
   %50 = or disjoint i32 %49, 1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %24, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 %53, ptr %54, align 1
   %55 = zext nneg i32 %49 to i64
-  %56 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %55
   %57 = load i8, ptr %56, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -642,7 +642,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define void @_ZN10TimerGroup5StartEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = zext i32 %1 to i64
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds %class.Timer, ptr %4, i64 %3
+  %5 = getelementptr inbounds nuw %class.Timer, ptr %4, i64 %3
   tail call void @_ZN5Timer5StartEv(ptr noundef nonnull align 8 dereferenceable(72) %5)
   ret void
 }
@@ -653,7 +653,7 @@ declare void @_ZN5Timer5StartEv(ptr noundef nonnull align 8 dereferenceable(72))
 define void @_ZN10TimerGroup3EndEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = zext i32 %1 to i64
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds %class.Timer, ptr %4, i64 %3
+  %5 = getelementptr inbounds nuw %class.Timer, ptr %4, i64 %3
   tail call void @_ZN5Timer3EndEv(ptr noundef nonnull align 8 dereferenceable(72) %5)
   ret void
 }
@@ -684,7 +684,7 @@ define noundef zeroext i1 @_ZNK10TimerGroup4UsedEv(ptr nocapture noundef nonnull
   %15 = phi ptr [ %9, %5 ], [ %4, %1 ]
   %16 = phi i64 [ %7, %5 ], [ 0, %1 ]
   %.06 = phi i32 [ %6, %5 ], [ 0, %1 ]
-  %17 = getelementptr inbounds %class.Timer, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw %class.Timer, ptr %15, i64 %16
   %18 = tail call noundef zeroext i1 @_ZNK5Timer4UsedEv(ptr noundef nonnull align 8 dereferenceable(72) %17)
   br i1 %18, label %._crit_edge, label %5
 
@@ -719,9 +719,9 @@ define void @_ZN10TimerGroup13DifferentiateEv(ptr nocapture noundef nonnull read
   %13 = add nsw i64 %9, %12
   %14 = add nsw i64 %13, 4294967295
   %15 = and i64 %14, 4294967295
-  %16 = getelementptr inbounds %class.Timer, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw %class.Timer, ptr %10, i64 %15
   %17 = and i64 %13, 4294967295
-  %18 = getelementptr inbounds %class.Timer, ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw %class.Timer, ptr %10, i64 %17
   tail call void @_ZN5TimermIERKS_(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(72) %16)
   %19 = add i32 %.06, 1
   %20 = zext i32 %19 to i64
@@ -762,7 +762,7 @@ define void @_ZNK10TimerGroup3SumER5Timer(ptr nocapture noundef nonnull readonly
   %15 = phi ptr [ %21, %.lr.ph ], [ %9, %2 ]
   %16 = phi i64 [ %19, %.lr.ph ], [ 1, %2 ]
   %.06 = phi i32 [ %18, %.lr.ph ], [ 1, %2 ]
-  %17 = getelementptr inbounds %class.Timer, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw %class.Timer, ptr %15, i64 %16
   tail call void @_ZN5TimerpLERKS_(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %17)
   %18 = add i32 %.06, 1
   %19 = zext i32 %18 to i64
@@ -794,8 +794,8 @@ define void @_ZN10TimerGroupmIERKS_(ptr nocapture noundef nonnull readonly align
   %7 = phi i64 [ %12, %.lr.ph ], [ 0, %2 ]
   %.06 = phi i32 [ %11, %.lr.ph ], [ 0, %2 ]
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds %class.Timer, ptr %8, i64 %7
-  %10 = getelementptr inbounds %class.Timer, ptr %6, i64 %7
+  %9 = getelementptr inbounds nuw %class.Timer, ptr %8, i64 %7
+  %10 = getelementptr inbounds nuw %class.Timer, ptr %6, i64 %7
   tail call void @_ZN5TimermIERKS_(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %9)
   %11 = add i32 %.06, 1
   %12 = zext i32 %11 to i64
@@ -816,7 +816,7 @@ define void @_ZN10TimerGroupmIERKS_(ptr nocapture noundef nonnull readonly align
 define void @_ZNK10TimerGroup6HeaderB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 14)
           to label %6 unwind label %44
 
@@ -944,7 +944,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 define void @_ZNK10TimerGroup12DetailHeaderB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 14)
           to label %6 unwind label %36
 
@@ -1045,7 +1045,7 @@ define void @_ZNK10TimerGroup7SumLineB5cxx11ERK5Timer(ptr dead_on_unwind noalias
   %17 = phi ptr [ %23, %.noexc3 ], [ %11, %.noexc ]
   %18 = phi i64 [ %21, %.noexc3 ], [ 1, %.noexc ]
   %.06.i = phi i32 [ %20, %.noexc3 ], [ 1, %.noexc ]
-  %19 = getelementptr inbounds %class.Timer, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw %class.Timer, ptr %17, i64 %18
   invoke void @_ZN5TimerpLERKS_(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %19)
           to label %.noexc3 unwind label %.loopexit
 
@@ -1140,7 +1140,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %21 = xor i64 %20, -1
   %22 = add nsw i64 %18, %21
   %23 = and i64 %22, 4294967295
-  %24 = getelementptr inbounds %class.Timer, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw %class.Timer, ptr %19, i64 %23
   %25 = invoke noundef zeroext i1 @_ZNK5Timer4UsedEv(ptr noundef nonnull align 8 dereferenceable(72) %24)
           to label %26 unwind label %38
 
@@ -1149,7 +1149,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds %class.Timer, ptr %28, i64 %23
+  %29 = getelementptr inbounds nuw %class.Timer, ptr %28, i64 %23
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   %30 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc20 unwind label %40
@@ -1268,14 +1268,14 @@ define void @_ZNK10TimerGroup11DetailLinesB5cxx11Ev(ptr dead_on_unwind noalias w
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %23
   %10 = phi ptr [ %7, %.lr.ph ], [ %27, %23 ]
   %11 = phi i64 [ 0, %.lr.ph ], [ %25, %23 ]
   %.0710 = phi i32 [ 0, %.lr.ph ], [ %24, %23 ]
-  %12 = getelementptr inbounds %class.Timer, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw %class.Timer, ptr %10, i64 %11
   %13 = invoke noundef zeroext i1 @_ZNK5Timer4UsedEv(ptr noundef nonnull align 8 dereferenceable(72) %12)
           to label %14 unwind label %.loopexit
 
@@ -1284,7 +1284,7 @@ define void @_ZNK10TimerGroup11DetailLinesB5cxx11Ev(ptr dead_on_unwind noalias w
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds %class.Timer, ptr %16, i64 %11
+  %17 = getelementptr inbounds nuw %class.Timer, ptr %16, i64 %11
   invoke void @_ZNK5Timer10DetailLineB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(72) %17)
           to label %18 unwind label %.loopexit
 
@@ -1467,7 +1467,7 @@ define linkonce_odr void @_ZNSt6vectorI5TimerSaIS0_EE17_M_default_appendEm(ptr n
 
 _ZSt10_ConstructI5TimerJEEvPT_DpOT0_.exit.i.i.i:  ; preds = %.lr.ph.i.i.i
   %19 = add i64 %.01013.i.i.i, -1
-  %20 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 72
   %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIP5TimermS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !20
 
@@ -1482,7 +1482,7 @@ _ZSt10_ConstructI5TimerJEEvPT_DpOT0_.exit.i.i.i:  ; preds = %.lr.ph.i.i.i
 .lr.ph.i.i.i.i.i:                                 ; preds = %21, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %5, %21 ]
   tail call void @_ZN5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i.i) #15
-  %25 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq ptr %25, %.014.i.i.i
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIP5TimerEvT_S2_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
@@ -1539,7 +1539,7 @@ _ZNKSt6vectorI5TimerSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %32
 
 _ZSt10_ConstructI5TimerJEEvPT_DpOT0_.exit.i.i.i48: ; preds = %.lr.ph.i.i.i40
   %40 = add i64 %.01013.i.i.i42, -1
-  %41 = getelementptr inbounds i8, ptr %.014.i.i.i41, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i41, i64 72
   %.not.i.i.i49 = icmp eq i64 %40, 0
   br i1 %.not.i.i.i49, label %_ZSt27__uninitialized_default_n_aIP5TimermS0_ET_S2_T0_RSaIT1_E.exit51, label %.lr.ph.i.i.i40, !llvm.loop !20
 
@@ -1554,7 +1554,7 @@ _ZSt10_ConstructI5TimerJEEvPT_DpOT0_.exit.i.i.i48: ; preds = %.lr.ph.i.i.i40
 .lr.ph.i.i.i.i.i44:                               ; preds = %42, %.lr.ph.i.i.i.i.i44
   %.05.i.i.i.i.i45 = phi ptr [ %46, %.lr.ph.i.i.i.i.i44 ], [ %39, %42 ]
   tail call void @_ZN5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i.i45) #15
-  %46 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i45, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i45, i64 72
   %.not.i.i.i.i.i46 = icmp eq ptr %46, %.014.i.i.i41
   br i1 %.not.i.i.i.i.i46, label %_ZSt8_DestroyIP5TimerEvT_S2_.exit.i.i.i47, label %.lr.ph.i.i.i.i.i44, !llvm.loop !4
 
@@ -1597,8 +1597,8 @@ _ZSt27__uninitialized_default_n_aIP5TimermS0_ET_S2_T0_RSaIT1_E.exit51: ; preds =
   %56 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(40) %57, i64 40, i1 false)
-  %58 = getelementptr inbounds i8, ptr %.01215.i.i.i.i.i, i64 72
-  %59 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i53 = icmp eq ptr %58, %5
   br i1 %.not.i.i.i.i.i53, label %.lr.ph.i.i.i60, label %.lr.ph.i.i.i.i.i52, !llvm.loop !21
 
@@ -1613,7 +1613,7 @@ _ZSt27__uninitialized_default_n_aIP5TimermS0_ET_S2_T0_RSaIT1_E.exit51: ; preds =
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %60, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i.i.i.i ], [ %38, %60 ]
   tail call void @_ZN5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i.i.i.i.i) #15
-  %64 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i.i.i = icmp eq ptr %64, %.016.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIP5TimerEvT_S2_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -1646,7 +1646,7 @@ _ZSt8_DestroyIP5TimerEvT_S2_.exit.i.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.
 .lr.ph.i.i.i56:                                   ; preds = %.body, %.lr.ph.i.i.i56
   %.05.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i56 ], [ %39, %.body ]
   tail call void @_ZN5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i) #15
-  %74 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 72
   %.not.i.i.i57 = icmp eq ptr %74, %73
   br i1 %.not.i.i.i57, label %_ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exit, label %.lr.ph.i.i.i56, !llvm.loop !4
 
@@ -1664,7 +1664,7 @@ _ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exit:     ; preds = %.lr.ph.i.i.i56, %.b
 .lr.ph.i.i.i60:                                   ; preds = %55, %.lr.ph.i.i.i60
   %.05.i.i.i61 = phi ptr [ %77, %.lr.ph.i.i.i60 ], [ %6, %55 ]
   tail call void @_ZN5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.05.i.i.i61) #15
-  %77 = getelementptr inbounds i8, ptr %.05.i.i.i61, i64 72
+  %77 = getelementptr inbounds nuw i8, ptr %.05.i.i.i61, i64 72
   %.not.i.i.i62 = icmp eq ptr %77, %5
   br i1 %.not.i.i.i62, label %_ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exit63, label %.lr.ph.i.i.i60, !llvm.loop !4
 
@@ -1683,7 +1683,7 @@ _ZNSt12_Vector_baseI5TimerSaIS0_EE13_M_deallocateEPS0_m.exit65: ; preds = %_ZSt8
   store ptr %38, ptr %0, align 8
   %82 = getelementptr inbounds %class.Timer, ptr %39, i64 %1
   store ptr %82, ptr %4, align 8
-  %83 = getelementptr inbounds %class.Timer, ptr %38, i64 %36
+  %83 = getelementptr inbounds nuw %class.Timer, ptr %38, i64 %36
   store ptr %83, ptr %11, align 8
   br label %84
 

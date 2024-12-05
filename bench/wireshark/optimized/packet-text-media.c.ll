@@ -68,7 +68,7 @@ define internal i32 @dissect_text_lines(ptr noundef %0, ptr noundef %1, ptr noun
   br label %48
 
 14:                                               ; preds = %8, %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %19, label %17
@@ -83,7 +83,7 @@ define internal i32 @dissect_text_lines(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not46 = icmp eq ptr %23, null
   br i1 %.not46, label %.thread, label %24
@@ -99,7 +99,7 @@ define internal i32 @dissect_text_lines(ptr noundef %0, ptr noundef %1, ptr noun
 
 .thread55:                                        ; preds = %24, %17
   %.039 = phi ptr [ %16, %17 ], [ %23, %24 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull %.039) #2
   %.not4958 = icmp eq ptr %2, null

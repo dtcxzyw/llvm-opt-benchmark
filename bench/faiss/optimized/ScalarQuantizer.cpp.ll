@@ -335,7 +335,7 @@ define void @_ZN5faiss15ScalarQuantizer5trainEmPKf(ptr noundef nonnull align 8 d
   %10 = alloca ptr, align 8
   %11 = alloca %"class.std::vector", align 8
   %12 = alloca %"class.std::vector", align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %15 [
     i32 3, label %18
@@ -361,29 +361,29 @@ define void @_ZN5faiss15ScalarQuantizer5trainEmPKf(ptr noundef nonnull align 8 d
 
 .thread:                                          ; preds = %3, %18, %18
   %20 = phi i32 [ %19, %18 ], [ %19, %18 ], [ 8, %3 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load float, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = mul i64 %26, %1
   %28 = shl nuw nsw i32 1, %20
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call fastcc void @_ZN5faiss12_GLOBAL__N_113train_UniformENS_15ScalarQuantizer9RangeStatEfliPKfRSt6vectorIfSaIfEE(i32 noundef %22, float noundef %24, i64 noundef %27, i32 noundef %28, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %29)
   br label %144
 
 .thread7:                                         ; preds = %3, %18, %18, %18
   %30 = phi i32 [ %19, %18 ], [ %19, %18 ], [ %19, %18 ], [ %14, %3 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load float, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = trunc i64 %36 to i32
   %38 = shl nuw nsw i32 1, %30
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -400,7 +400,7 @@ define void @_ZN5faiss15ScalarQuantizer5trainEmPKf(ptr noundef nonnull align 8 d
   store i32 %38, ptr %8, align 4
   %40 = shl nsw i32 %37, 1
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %39, align 8
   %45 = ptrtoint ptr %43 to i64
@@ -551,7 +551,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIfS
   %111 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %110) #28
   store ptr %111, ptr %11, align 8
   %112 = getelementptr float, ptr %111, i64 %108
-  %113 = getelementptr inbounds i8, ptr %11, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %112, ptr %113, align 8
   store float 0.000000e+00, ptr %111, align 4
   %114 = getelementptr i8, ptr %111, i64 4
@@ -566,7 +566,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc55.i
 117:                                              ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i, %.noexc55.i, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i
   %118 = phi ptr [ %111, %.noexc55.i ], [ %111, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i ]
   %.0.i.i.i.i.i.i = phi ptr [ %114, %.noexc55.i ], [ %112, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i ]
-  %119 = getelementptr inbounds i8, ptr %11, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.0.i.i.i.i.i.i, ptr %119, align 8
   %120 = icmp ugt i64 %1, 1
   br i1 %120, label %.lr.ph68.i.preheader, label %._crit_edge69.i
@@ -611,13 +611,13 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc55.i
 
 132:                                              ; preds = %._crit_edge69.i
   store ptr %131, ptr %12, align 8
-  %133 = getelementptr inbounds i8, ptr %131, i64 8
-  %134 = getelementptr inbounds i8, ptr %12, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %133, ptr %134, align 8
   store float 0.000000e+00, ptr %131, align 4
-  %135 = getelementptr inbounds i8, ptr %131, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 4
   store i32 0, ptr %135, align 4
-  %136 = getelementptr inbounds i8, ptr %12, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %133, ptr %136, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZN5faiss12_GLOBAL__N_116train_NonUniformENS_15ScalarQuantizer9RangeStatEfliiPKfRSt6vectorIfSaIfEE.omp_outlined, ptr nonnull %7, ptr nonnull %4, ptr nonnull %5, ptr nonnull %6, ptr nonnull %8, ptr nonnull %11, ptr nonnull %12, ptr nonnull %9, ptr nonnull %10)
   %137 = load ptr, ptr %12, align 8
@@ -677,7 +677,7 @@ define void @_ZNK5faiss15ScalarQuantizer13compute_codesEPKfPhm(ptr noundef nonnu
   store i64 %3, ptr %7, align 8
   %9 = tail call noundef ptr @_ZNK5faiss15ScalarQuantizer16select_quantizerEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = mul i64 %3, %11
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %12, i1 false)
@@ -688,7 +688,7 @@ define void @_ZNK5faiss15ScalarQuantizer13compute_codesEPKfPhm(ptr noundef nonnu
 
 _ZNKSt14default_deleteIN5faiss15ScalarQuantizer10SQuantizerEEclEPS2_.exit.i: ; preds = %4
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13) #16
   br label %_ZNSt10unique_ptrIN5faiss15ScalarQuantizer10SQuantizerESt14default_deleteIS2_EED2Ev.exit
@@ -715,7 +715,7 @@ define void @_ZNK5faiss15ScalarQuantizer6decodeEPKhPfm(ptr noundef nonnull align
 
 _ZNKSt14default_deleteIN5faiss15ScalarQuantizer10SQuantizerEEclEPS2_.exit.i: ; preds = %4
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
   br label %_ZNSt10unique_ptrIN5faiss15ScalarQuantizer10SQuantizerESt14default_deleteIS2_EED2Ev.exit
@@ -727,7 +727,7 @@ _ZNSt10unique_ptrIN5faiss15ScalarQuantizer10SQuantizerESt14default_deleteIS2_EED
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss15ScalarQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss15ScalarQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -743,7 +743,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss15ScalarQuantizerD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss15ScalarQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss15ScalarQuantizerD2Ev.exit, label %4
@@ -759,18 +759,18 @@ _ZN5faiss15ScalarQuantizerD2Ev.exit:              ; preds = %1, %4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5faiss15ScalarQuantizerC2EmNS0_13QuantizerTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 36), (40, 72)) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss15ScalarQuantizerE, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   switch i32 %2, label %_ZN5faiss15ScalarQuantizer17set_derived_sizesEv.exit [
     i32 0, label %.sink.split.i
@@ -810,7 +810,7 @@ _ZN5faiss15ScalarQuantizer17set_derived_sizesEv.exit: ; preds = %3, %.sink.split
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5faiss15ScalarQuantizer17set_derived_sizesEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %24 [
     i32 0, label %4
@@ -823,19 +823,19 @@ define void @_ZN5faiss15ScalarQuantizer17set_derived_sizesEv(ptr nocapture nound
   ]
 
 4:                                                ; preds = %1, %1, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.sink.split
 
 7:                                                ; preds = %1, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 1
   %11 = lshr i64 %10, 1
   br label %.sink.split
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = mul i64 %14, 6
   %16 = add i64 %15, 7
@@ -843,7 +843,7 @@ define void @_ZN5faiss15ScalarQuantizer17set_derived_sizesEv(ptr nocapture nound
   br label %.sink.split
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = shl i64 %20, 1
   br label %.sink.split
@@ -851,9 +851,9 @@ define void @_ZN5faiss15ScalarQuantizer17set_derived_sizesEv(ptr nocapture nound
 .sink.split:                                      ; preds = %4, %7, %12, %18
   %.sink2 = phi i64 [ %21, %18 ], [ %17, %12 ], [ %11, %7 ], [ %6, %4 ]
   %.sink = phi i64 [ 16, %18 ], [ 6, %12 ], [ 4, %7 ], [ 8, %4 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink2, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sink, ptr %23, align 8
   br label %24
 
@@ -880,16 +880,16 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5faiss15ScalarQuantizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 36), (40, 72)) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss15ScalarQuantizerE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   ret void
 }
@@ -898,7 +898,7 @@ define void @_ZN5faiss15ScalarQuantizerC2Ev(ptr nocapture noundef nonnull writeo
 define internal fastcc void @_ZN5faiss12_GLOBAL__N_113train_UniformENS_15ScalarQuantizer9RangeStatEfliPKfRSt6vectorIfSaIfEE(i32 noundef %0, float noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.0", align 1
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %5, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -919,7 +919,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_113train_UniformENS_15ScalarQ
   br i1 %.not, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %11, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.not.i.i = icmp eq ptr %10, %21
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %22
 
@@ -929,7 +929,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_113train_UniformENS_15ScalarQ
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %20, %22
   %23 = phi ptr [ %.pre, %17 ], [ %11, %19 ], [ %11, %20 ], [ %11, %22 ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   switch i32 %0, label %171 [
     i32 0, label %25
     i32 1, label %.preheader
@@ -1080,8 +1080,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %87 = load float, ptr %86, align 4
   store float %87, ptr %23, align 4
   %88 = xor i64 %85, -1
-  %89 = add nsw i64 %2, %88
-  %90 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %89
+  %89 = getelementptr float, ptr %.sroa.0.0, i64 %2
+  %90 = getelementptr float, ptr %89, i64 %88
   %91 = load float, ptr %90, align 4
   store float %91, ptr %24, align 4
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #29
@@ -1189,7 +1189,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %.0164217.us = phi float [ 0.000000e+00, %.preheader211.us ], [ %154, %137 ]
   %.0165216.us = phi float [ 0.000000e+00, %.preheader211.us ], [ %153, %137 ]
   %.0166215.us = phi float [ 0.000000e+00, %.preheader211.us ], [ %152, %137 ]
-  %138 = getelementptr inbounds float, ptr %4, i64 %.0162219.us
+  %138 = getelementptr inbounds nuw float, ptr %4, i64 %.0162219.us
   %139 = load float, ptr %138, align 4
   %140 = fsub float %139, %.0176227.us
   %141 = fdiv float %140, %.0177226.us
@@ -1352,7 +1352,7 @@ declare void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
   ret void
@@ -1375,14 +1375,14 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -1459,7 +1459,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35: ; preds = %_ZNSt6vectorIf
   store ptr %31, ptr %0, align 8
   %40 = getelementptr inbounds float, ptr %32, i64 %1
   store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds float, ptr %31, i64 %29
+  %41 = getelementptr inbounds nuw float, ptr %31, i64 %29
   store ptr %41, ptr %11, align 8
   br label %42
 
@@ -1497,7 +1497,7 @@ define linkonce_odr void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPfSt6vector
 .lr.ph.i.i:                                       ; preds = %3, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i
   %.sroa.0.018.i.idx.i = phi i64 [ %.sroa.0.018.i.add.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i ], [ 4, %3 ]
   %.pn17.i.i = phi ptr [ %.sroa.0.018.i.ptr.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i ], [ %0, %3 ]
-  %.sroa.0.018.i.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.018.i.idx.i
+  %.sroa.0.018.i.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.018.i.idx.i
   %12 = load float, ptr %.sroa.0.018.i.ptr.i, align 4
   %13 = load float, ptr %0, align 4
   %14 = fcmp olt float %12, %13
@@ -1530,7 +1530,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIf
   br i1 %.not.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit.i: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not4.i.i = icmp eq ptr %21, %1
   br i1 %.not4.i.i, label %_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %.lr.ph.i6.i
 
@@ -1555,7 +1555,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i: ; preds = %.lr.ph.i.i9.i, %.lr.ph.i6.i
   %.sroa.04.0.lcssa.i.i.i = phi ptr [ %.sroa.0.05.i.i, %.lr.ph.i6.i ], [ %.sroa.0.09.i.i10.i, %.lr.ph.i.i9.i ]
   store float %22, ptr %.sroa.04.0.lcssa.i.i.i, align 4
-  %28 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i, i64 4
   %.not.i8.i = icmp eq ptr %28, %1
   br i1 %.not.i8.i, label %_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %.lr.ph.i6.i, !llvm.loop !18
 
@@ -1572,7 +1572,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIf
   br i1 %32, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i27.i, label %39
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i27.i: ; preds = %.lr.ph.i16.i
-  %33 = getelementptr inbounds i8, ptr %.pn17.i18.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.pn17.i18.i, i64 8
   %34 = ptrtoint ptr %.sroa.0.018.i17.i to i64
   %35 = sub i64 %34, %5
   %36 = ashr exact i64 %35, 2
@@ -1599,7 +1599,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i: ; preds = %.lr.ph.i.i23.i, %39, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i27.i
   %.sink.i20.i = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit.i27.i ], [ %.sroa.0.018.i17.i, %39 ], [ %.sroa.0.09.i.i24.i, %.lr.ph.i.i23.i ]
   store float %30, ptr %.sink.i20.i, align 4
-  %.sroa.0.0.i21.i = getelementptr inbounds i8, ptr %.sroa.0.018.i17.i, i64 4
+  %.sroa.0.0.i21.i = getelementptr inbounds nuw i8, ptr %.sroa.0.018.i17.i, i64 4
   %.not.i22.i = icmp eq ptr %.sroa.0.0.i21.i, %1
   br i1 %.not.i22.i, label %_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit, label %.lr.ph.i16.i, !llvm.loop !17
 
@@ -1618,7 +1618,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   br i1 %9, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit
@@ -1696,13 +1696,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.019.i.i.i.i.i = phi i64 [ %.0920.i.i56.i.i.i, %53 ], [ %.1.i.i.i.i, %48 ]
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
   %.0920.i.i56.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
-  %50 = getelementptr inbounds float, ptr %0, i64 %.0920.i.i56.i.i.i
+  %50 = getelementptr inbounds nuw float, ptr %0, i64 %.0920.i.i56.i.i.i
   %51 = load float, ptr %50, align 4
   %52 = fcmp olt float %51, %16
   br i1 %52, label %53, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i
 
 53:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %54 = getelementptr inbounds float, ptr %0, i64 %.019.i.i.i.i.i
+  %54 = getelementptr inbounds nuw float, ptr %0, i64 %.019.i.i.i.i.i
   store float %51, ptr %54, align 4
   %.not.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !20
@@ -1717,7 +1717,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops1
 57:                                               ; preds = %11
   %58 = add nsw i64 %.018, -1
   %59 = lshr i64 %12, 1
-  %60 = getelementptr inbounds float, ptr %0, i64 %59
+  %60 = getelementptr inbounds nuw float, ptr %0, i64 %59
   %61 = getelementptr inbounds i8, ptr %storemerge17, i64 -4
   %62 = load float, ptr %10, align 4
   %63 = load float, ptr %60, align 4
@@ -1788,7 +1788,7 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEE
   %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_S9_T0_.exit.i ], [ %88, %85 ]
   %86 = load float, ptr %.sroa.010.1.i.i, align 4
   %87 = fcmp olt float %86, %84
-  %88 = getelementptr inbounds i8, ptr %.sroa.010.1.i.i, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 4
   br i1 %87, label %85, label %.preheader.i.i, !llvm.loop !22
 
 .preheader.i.i:                                   ; preds = %85, %.preheader.i.i
@@ -1842,7 +1842,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6
 .split.split.preheader:                           ; preds = %.split
   %16 = or disjoint i64 %9, 1
   %17 = getelementptr inbounds float, ptr %0, i64 %16
-  %18 = getelementptr inbounds float, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw float, ptr %0, i64 %15
   br label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
@@ -2118,7 +2118,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_116train_NonUniformENS_15ScalarQuant
   %36 = getelementptr inbounds float, ptr %35, i64 %indvars.iv
   store float %34, ptr %36, align 4
   %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load float, ptr %38, align 4
   %40 = load ptr, ptr %10, align 8
   %41 = getelementptr inbounds float, ptr %40, i64 %indvars.iv
@@ -2157,11 +2157,11 @@ declare !callback !27 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_a
 define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantizerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.0", align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
@@ -2178,11 +2178,11 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
 9:                                                ; preds = %1
   %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb0ELi1EEE, i64 16), ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %7, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.val, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = getelementptr inbounds float, ptr %.val, i64 %7
   store ptr %14, ptr %13, align 8
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
@@ -2190,11 +2190,11 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
 15:                                               ; preds = %1
   %16 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELb0ELi1EEE, i64 16), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %.val, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = getelementptr inbounds float, ptr %.val, i64 %7
   store ptr %20, ptr %19, align 8
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
@@ -2202,11 +2202,11 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
 21:                                               ; preds = %1
   %22 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb0ELi1EEE, i64 16), ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %7, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %.val, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %26 = getelementptr inbounds float, ptr %.val, i64 %7
   store ptr %26, ptr %25, align 8
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
@@ -2214,13 +2214,13 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
 27:                                               ; preds = %1
   %28 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb1ELi1EEE, i64 16), ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %7, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = load float, ptr %.val, align 4
   store float %31, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 20
-  %33 = getelementptr inbounds i8, ptr %.val, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %34 = load float, ptr %33, align 4
   store float %34, ptr %32, align 4
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
@@ -2228,13 +2228,13 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
 35:                                               ; preds = %1
   %36 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb1ELi1EEE, i64 16), ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %7, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %39 = load float, ptr %.val, align 4
   store float %39, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 20
-  %41 = getelementptr inbounds i8, ptr %.val, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %42 = load float, ptr %41, align 4
   store float %42, ptr %40, align 4
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
@@ -2242,14 +2242,14 @@ define noalias noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer16select_quantize
 43:                                               ; preds = %1
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_113QuantizerFP16ILi1EEE, i64 16), ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 %7, ptr %45, align 8
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 46:                                               ; preds = %1
   %47 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EEE, i64 16), ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %7, ptr %48, align 8
   br label %_ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuantizerENS2_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
@@ -2302,14 +2302,14 @@ _ZN5faiss12_GLOBAL__N_118select_quantizer_1ILi1EEEPNS_15ScalarQuantizer10SQuanti
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb0ELi1EE13encode_vectorEPKfPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #17 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %8
 
 8:                                                ; preds = %.lr.ph, %24
@@ -2356,14 +2356,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bit
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb0ELi1EE13decode_vectorEPKhPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #17 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
@@ -2406,14 +2406,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELb0ELi1EE13encode_vectorEPKfPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #17 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %8
 
 8:                                                ; preds = %.lr.ph, %62
@@ -2472,7 +2472,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bit
   %41 = or i8 %39, %40
   store i8 %41, ptr %32, align 1
   %42 = lshr i32 %28, 2
-  %43 = getelementptr inbounds i8, ptr %32, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = trunc i32 %42 to i8
   %46 = or i8 %44, %45
@@ -2480,14 +2480,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bit
   br label %62
 
 47:                                               ; preds = %24
-  %48 = getelementptr inbounds i8, ptr %32, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %49 = load i8, ptr %48, align 1
   %.tr31 = trunc i32 %28 to i8
   %50 = shl i8 %.tr31, 4
   %51 = or i8 %49, %50
   store i8 %51, ptr %48, align 1
   %52 = lshr i32 %28, 4
-  %53 = getelementptr inbounds i8, ptr %32, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %54 = load i8, ptr %53, align 1
   %55 = trunc i32 %52 to i8
   %56 = or i8 %54, %55
@@ -2495,7 +2495,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bit
   br label %62
 
 57:                                               ; preds = %24
-  %58 = getelementptr inbounds i8, ptr %32, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %59 = load i8, ptr %58, align 1
   %.tr = trunc i32 %28 to i8
   %60 = shl i8 %.tr, 2
@@ -2518,14 +2518,14 @@ default.unreachable34:                            ; preds = %24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELb0ELi1EE13decode_vectorEPKhPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #17 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %39
@@ -2551,7 +2551,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bit
 18:                                               ; preds = %8
   %19 = load i8, ptr %13, align 1
   %20 = lshr i8 %19, 6
-  %21 = getelementptr inbounds i8, ptr %13, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = shl i8 %22, 2
   %24 = and i8 %23, 60
@@ -2559,10 +2559,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bit
   br label %39
 
 26:                                               ; preds = %8
-  %27 = getelementptr inbounds i8, ptr %13, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = lshr i8 %28, 4
-  %30 = getelementptr inbounds i8, ptr %13, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = shl i8 %31, 4
   %33 = and i8 %32, 48
@@ -2570,7 +2570,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bit
   br label %39
 
 35:                                               ; preds = %8
-  %36 = getelementptr inbounds i8, ptr %13, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %37 = load i8, ptr %36, align 1
   %38 = lshr i8 %37, 2
   br label %39
@@ -2614,14 +2614,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb0ELi1EE13encode_vectorEPKfPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #17 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %8
 
 8:                                                ; preds = %.lr.ph, %24
@@ -2675,14 +2675,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bit
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb0ELi1EE13decode_vectorEPKhPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #17 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
@@ -2731,14 +2731,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb1ELi1EE13encode_vectorEPKfPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #19 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %8
 
 8:                                                ; preds = %.lr.ph, %20
@@ -2781,14 +2781,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bit
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb1ELi1EE13decode_vectorEPKhPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #19 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
@@ -2827,14 +2827,14 @@ define internal void @_ZN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb1ELi1EE13encode_vectorEPKfPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #19 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %8
 
 8:                                                ; preds = %.lr.ph, %20
@@ -2884,14 +2884,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bit
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb1ELi1EE13decode_vectorEPKhPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #19 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
@@ -2936,7 +2936,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13encode_vectorEPKfPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #19 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -2977,7 +2977,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13encode_vect
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_113QuantizerFP16ILi1EE13decode_vectorEPKhPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #19 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3027,7 +3027,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_113QuantizerFP16ILi1EED0Ev(ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EE13encode_vectorEPKfPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #19 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3050,7 +3050,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EE13encod
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @_ZNK5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EE13decode_vectorEPKhPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #19 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3111,8 +3111,8 @@ define internal void @_ZNK5faiss15ScalarQuantizer13compute_codesEPKfPhm.omp_outl
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %21
 
 21:                                               ; preds = %.lr.ph, %33
@@ -3182,8 +3182,8 @@ define internal void @_ZNK5faiss15ScalarQuantizer6decodeEPKhPfm.omp_outlined(ptr
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %21
 
 21:                                               ; preds = %.lr.ph, %34
@@ -3198,7 +3198,7 @@ define internal void @_ZNK5faiss15ScalarQuantizer6decodeEPKhPfm.omp_outlined(ptr
   %29 = mul i64 %28, %.016
   %30 = getelementptr inbounds float, ptr %27, i64 %29
   %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %26, ptr noundef %30)
           to label %34 unwind label %40
@@ -3280,11 +3280,11 @@ common.resume:                                    ; preds = %181, %193, %195, %9
 
 24:                                               ; preds = %2
   %25 = icmp eq i32 %1, 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val = load ptr, ptr %30, align 8
   br i1 %25, label %31, label %114
 
@@ -3303,96 +3303,96 @@ common.resume:                                    ; preds = %181, %193, %195, %9
 
 32:                                               ; preds = %31
   %33 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb1ELi1EEE, i64 16), ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store i64 %29, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %33, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %38 = load float, ptr %.val, align 4
   store float %38, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %33, i64 52
-  %40 = getelementptr inbounds i8, ptr %.val, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 52
+  %40 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %41 = load float, ptr %40, align 4
   store float %41, ptr %39, align 4
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 42:                                               ; preds = %31
   %43 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb1ELi1EEE, i64 16), ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store i64 %29, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %48 = load float, ptr %.val, align 4
   store float %48, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %43, i64 52
-  %50 = getelementptr inbounds i8, ptr %.val, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %51 = load float, ptr %50, align 4
   store float %51, ptr %49, align 4
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 52:                                               ; preds = %31
   %53 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb0ELi1EEE, i64 16), ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 40
   store i64 %29, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %53, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 48
   store ptr %.val, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %53, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %59 = getelementptr inbounds float, ptr %.val, i64 %29
   store ptr %59, ptr %58, align 8
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 60:                                               ; preds = %31
   %61 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELb0ELi1EEE, i64 16), ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i64 %29, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %61, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store ptr %.val, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %61, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 56
   %67 = getelementptr inbounds float, ptr %.val, i64 %29
   store ptr %67, ptr %66, align 8
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 68:                                               ; preds = %31
   %69 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %69, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb0ELi1EEE, i64 16), ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store i64 %29, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %69, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store ptr %.val, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %69, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 56
   %75 = getelementptr inbounds float, ptr %.val, i64 %29
   store ptr %75, ptr %74, align 8
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 76:                                               ; preds = %31
   %77 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_113QuantizerFP16ILi1EEE, i64 16), ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %77, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 40
   store i64 %29, ptr %80, align 8
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
@@ -3404,12 +3404,12 @@ common.resume:                                    ; preds = %181, %193, %195, %9
 84:                                               ; preds = %81
   %85 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
   %86 = trunc i64 %29 to i32
-  %87 = getelementptr inbounds i8, ptr %85, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %85, align 8
-  %88 = getelementptr inbounds i8, ptr %85, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 32
   store i32 %86, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %85, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %sext.i = shl i64 %29, 32
   %90 = ashr exact i64 %sext.i, 32
   %91 = icmp slt i32 %86, 0
@@ -3434,17 +3434,17 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %84
 .noexc28.i:                                       ; preds = %.noexc4.i.i
   store ptr %92, ptr %89, align 8
   %93 = getelementptr i8, ptr %92, i64 %90
-  %94 = getelementptr inbounds i8, ptr %85, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %85, i64 56
   store ptr %93, ptr %94, align 8
   store i8 0, ptr %92, align 1
-  %95 = getelementptr inbounds i8, ptr %92, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 1
   %96 = add nsw i64 %90, -1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %95, i8 0, i64 %96, i1 false)
   br label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEC2EiRKSt6vectorIfSaIfEE.exit.i
 
 _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEC2EiRKSt6vectorIfSaIfEE.exit.i: ; preds = %.noexc28.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %.0.i.i.i.i.i.i.i = phi ptr [ %93, %.noexc28.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
-  %97 = getelementptr inbounds i8, ptr %85, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %85, i64 48
   store ptr %.0.i.i.i.i.i.i.i, ptr %97, align 8
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
@@ -3456,12 +3456,12 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEC2Ei
 
 100:                                              ; preds = %81
   %101 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %101, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EEE, i64 16), ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %101, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 40
   store i64 %29, ptr %104, align 8
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
@@ -3522,96 +3522,96 @@ _ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS
 
 115:                                              ; preds = %114
   %116 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %116, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb1ELi1EEE, i64 16), ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %116, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 40
   store i64 %29, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %116, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 48
   %121 = load float, ptr %.val, align 4
   store float %121, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %116, i64 52
-  %123 = getelementptr inbounds i8, ptr %.val, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %116, i64 52
+  %123 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %124 = load float, ptr %123, align 4
   store float %124, ptr %122, align 4
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityIPILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 125:                                              ; preds = %114
   %126 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
-  %127 = getelementptr inbounds i8, ptr %126, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %126, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb1ELi1EEE, i64 16), ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %126, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 40
   store i64 %29, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %126, i64 48
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 48
   %131 = load float, ptr %.val, align 4
   store float %131, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %126, i64 52
-  %133 = getelementptr inbounds i8, ptr %.val, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %126, i64 52
+  %133 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %134 = load float, ptr %133, align 4
   store float %134, ptr %132, align 4
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityIPILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 135:                                              ; preds = %114
   %136 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
-  %137 = getelementptr inbounds i8, ptr %136, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %136, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb0ELi1EEE, i64 16), ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %136, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 40
   store i64 %29, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %136, i64 48
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 48
   store ptr %.val, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %136, i64 56
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 56
   %142 = getelementptr inbounds float, ptr %.val, i64 %29
   store ptr %142, ptr %141, align 8
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityIPILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 143:                                              ; preds = %114
   %144 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
-  %145 = getelementptr inbounds i8, ptr %144, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %144, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELb0ELi1EEE, i64 16), ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %144, i64 40
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 40
   store i64 %29, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %144, i64 48
+  %148 = getelementptr inbounds nuw i8, ptr %144, i64 48
   store ptr %.val, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %144, i64 56
+  %149 = getelementptr inbounds nuw i8, ptr %144, i64 56
   %150 = getelementptr inbounds float, ptr %.val, i64 %29
   store ptr %150, ptr %149, align 8
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityIPILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 151:                                              ; preds = %114
   %152 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
-  %153 = getelementptr inbounds i8, ptr %152, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %152, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb0ELi1EEE, i64 16), ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %152, i64 40
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 40
   store i64 %29, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %152, i64 48
+  %156 = getelementptr inbounds nuw i8, ptr %152, i64 48
   store ptr %.val, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %152, i64 56
+  %157 = getelementptr inbounds nuw i8, ptr %152, i64 56
   %158 = getelementptr inbounds float, ptr %.val, i64 %29
   store ptr %158, ptr %157, align 8
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityIPILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
 159:                                              ; preds = %114
   %160 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
-  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %161, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %160, i64 32
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_113QuantizerFP16ILi1EEE, i64 16), ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %160, i64 40
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 40
   store i64 %29, ptr %163, align 8
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityIPILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
@@ -3623,12 +3623,12 @@ _ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityL2ILi1EEEEEPNS
 167:                                              ; preds = %164
   %168 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
   %169 = trunc i64 %29 to i32
-  %170 = getelementptr inbounds i8, ptr %168, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %170, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %168, align 8
-  %171 = getelementptr inbounds i8, ptr %168, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 32
   store i32 %169, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %168, i64 40
+  %172 = getelementptr inbounds nuw i8, ptr %168, i64 40
   %sext.i13 = shl i64 %29, 32
   %173 = ashr exact i64 %sext.i13, 32
   %174 = icmp slt i32 %169, 0
@@ -3653,17 +3653,17 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i14: ; preds = %167
 .noexc28.i18:                                     ; preds = %.noexc4.i.i16
   store ptr %175, ptr %172, align 8
   %176 = getelementptr i8, ptr %175, i64 %173
-  %177 = getelementptr inbounds i8, ptr %168, i64 56
+  %177 = getelementptr inbounds nuw i8, ptr %168, i64 56
   store ptr %176, ptr %177, align 8
   store i8 0, ptr %175, align 1
-  %178 = getelementptr inbounds i8, ptr %175, i64 1
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 1
   %179 = add nsw i64 %173, -1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %178, i8 0, i64 %179, i1 false)
   br label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEC2EiRKSt6vectorIfSaIfEE.exit.i
 
 _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEC2EiRKSt6vectorIfSaIfEE.exit.i: ; preds = %.noexc28.i18, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i14
   %.0.i.i.i.i.i.i.i19 = phi ptr [ %176, %.noexc28.i18 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i14 ]
-  %180 = getelementptr inbounds i8, ptr %168, i64 48
+  %180 = getelementptr inbounds nuw i8, ptr %168, i64 48
   store ptr %.0.i.i.i.i.i.i.i19, ptr %180, align 8
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityIPILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
@@ -3675,12 +3675,12 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEC2Ei
 
 183:                                              ; preds = %164
   %184 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
-  %185 = getelementptr inbounds i8, ptr %184, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %185, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %184, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EEE, i64 16), ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %184, i64 40
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 40
   store i64 %29, ptr %187, align 8
   br label %_ZN5faiss12_GLOBAL__N_124select_distance_computerINS0_12SimilarityIPILi1EEEEEPNS_15ScalarQuantizer18SQDistanceComputerENS4_13QuantizerTypeEmRKSt6vectorIfSaIfEE.exit
 
@@ -3749,21 +3749,21 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef float @_ZN5faiss25FlatCodesDistanceComputerclEl(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef float %11(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %8)
   ret float %12
@@ -3772,19 +3772,19 @@ define linkonce_odr noundef float @_ZN5faiss25FlatCodesDistanceComputerclEl(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5faiss16DistanceComputer17distances_batch_4EllllRfS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8) unnamed_addr #0 comdat align 2 {
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef float %12(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1)
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef float %16(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %2)
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef float %20(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %3)
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef float %24(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %4)
   store float %13, ptr %5, align 4
@@ -3796,23 +3796,23 @@ define linkonce_odr void @_ZN5faiss16DistanceComputer17distances_batch_4EllllRfS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load float, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %17 = load float, ptr %16, align 4
   br label %18
 
@@ -3858,7 +3858,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef float @_ZN5faiss15ScalarQuantizer18SQDistanceComputer16distance_to_codeEPKh(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef float %5(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1)
   ret float %6
@@ -3866,17 +3866,17 @@ define linkonce_odr noundef float @_ZN5faiss15ScalarQuantizer18SQDistanceCompute
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %10 = load float, ptr %9, align 4
   br label %11
 
@@ -3892,7 +3892,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   %16 = fadd float %15, 5.000000e-01
   %17 = fdiv float %16, 2.550000e+02
   %18 = tail call noundef float @llvm.fmuladd.f32(float %17, float %10, float %8)
-  %19 = getelementptr inbounds i8, ptr %.sroa.2.019.i, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i, i64 4
   %20 = load float, ptr %.sroa.2.019.i, align 4
   %21 = fsub float %20, %18
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %21, float %.sroa.5.020.i)
@@ -3907,30 +3907,30 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load float, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %17 = load float, ptr %16, align 4
   br label %18
 
@@ -3984,17 +3984,17 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %10 = load float, ptr %9, align 4
   br label %11
 
@@ -4016,7 +4016,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %25 = tail call noundef float @llvm.fmuladd.f32(float %24, float %10, float %8)
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.020.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i, i64 4
   %27 = load float, ptr %.sroa.2.020.i, align 4
   %28 = fsub float %27, %25
   %29 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %.sroa.5.021.i)
@@ -4031,30 +4031,30 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -4103,17 +4103,17 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -4133,7 +4133,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   %20 = getelementptr inbounds float, ptr %10, i64 %12
   %21 = load float, ptr %20, align 4
   %22 = tail call noundef float @llvm.fmuladd.f32(float %17, float %21, float %19)
-  %23 = getelementptr inbounds i8, ptr %.sroa.2.021.i, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.2.021.i, i64 4
   %24 = load float, ptr %.sroa.2.021.i, align 4
   %25 = fsub float %24, %22
   %26 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %.sroa.5.022.i)
@@ -4148,31 +4148,31 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
   %invariant.gep.i = getelementptr i8, ptr %11, i64 2
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -4216,7 +4216,7 @@ default.unreachable:                              ; preds = %18
 40:                                               ; preds = %18
   %41 = load i8, ptr %23, align 1
   %42 = lshr i8 %41, 6
-  %43 = getelementptr inbounds i8, ptr %23, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = shl i8 %44, 2
   %46 = and i8 %45, 60
@@ -4234,7 +4234,7 @@ default.unreachable:                              ; preds = %18
   %57 = getelementptr inbounds i8, ptr %11, i64 %22
   %58 = load i8, ptr %57, align 1
   %59 = lshr i8 %58, 6
-  %60 = getelementptr inbounds i8, ptr %57, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = shl i8 %61, 2
   %63 = and i8 %62, 60
@@ -4242,10 +4242,10 @@ default.unreachable:                              ; preds = %18
   br label %107
 
 65:                                               ; preds = %18
-  %66 = getelementptr inbounds i8, ptr %23, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = lshr i8 %67, 4
-  %69 = getelementptr inbounds i8, ptr %23, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %70 = load i8, ptr %69, align 1
   %71 = shl i8 %70, 4
   %72 = and i8 %71, 48
@@ -4261,10 +4261,10 @@ default.unreachable:                              ; preds = %18
   %81 = load float, ptr %80, align 4
   %82 = tail call noundef float @llvm.fmuladd.f32(float %76, float %81, float %79)
   %83 = getelementptr inbounds i8, ptr %11, i64 %22
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   %85 = load i8, ptr %84, align 1
   %86 = lshr i8 %85, 4
-  %87 = getelementptr inbounds i8, ptr %83, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 2
   %88 = load i8, ptr %87, align 1
   %89 = shl i8 %88, 4
   %90 = and i8 %89, 48
@@ -4272,7 +4272,7 @@ default.unreachable:                              ; preds = %18
   br label %107
 
 92:                                               ; preds = %18
-  %93 = getelementptr inbounds i8, ptr %23, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %94 = load i8, ptr %93, align 1
   %95 = lshr i8 %94, 2
   %96 = uitofp nneg i8 %95 to float
@@ -4323,17 +4323,17 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -4362,7 +4362,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
 21:                                               ; preds = %11
   %22 = load i8, ptr %16, align 1
   %23 = lshr i8 %22, 6
-  %24 = getelementptr inbounds i8, ptr %16, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = shl i8 %25, 2
   %27 = and i8 %26, 60
@@ -4370,10 +4370,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   br label %42
 
 29:                                               ; preds = %11
-  %30 = getelementptr inbounds i8, ptr %16, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = lshr i8 %31, 4
-  %33 = getelementptr inbounds i8, ptr %16, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %34 = load i8, ptr %33, align 1
   %35 = shl i8 %34, 4
   %36 = and i8 %35, 48
@@ -4381,7 +4381,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   br label %42
 
 38:                                               ; preds = %11
-  %39 = getelementptr inbounds i8, ptr %16, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = lshr i8 %40, 2
   br label %42
@@ -4401,7 +4401,7 @@ default.unreachable:                              ; preds = %11
   %49 = getelementptr inbounds float, ptr %10, i64 %46
   %50 = load float, ptr %49, align 4
   %51 = tail call noundef float @llvm.fmuladd.f32(float %45, float %50, float %48)
-  %52 = getelementptr inbounds i8, ptr %.sroa.2.033.i, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.2.033.i, i64 4
   %53 = load float, ptr %.sroa.2.033.i, align 4
   %54 = fsub float %53, %51
   %55 = tail call float @llvm.fmuladd.f32(float %54, float %54, float %.sroa.5.034.i)
@@ -4416,30 +4416,30 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -4499,17 +4499,17 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -4537,7 +4537,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   %28 = getelementptr inbounds float, ptr %10, i64 %25
   %29 = load float, ptr %28, align 4
   %30 = tail call noundef float @llvm.fmuladd.f32(float %24, float %29, float %27)
-  %31 = getelementptr inbounds i8, ptr %.sroa.2.022.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.2.022.i, i64 4
   %32 = load float, ptr %.sroa.2.022.i, align 4
   %33 = fsub float %32, %30
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %.sroa.5.023.i)
@@ -4552,22 +4552,22 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %.val, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS8_.exit, label %.lr.ph.i
@@ -4641,13 +4641,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.val, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   br label %.lr.ph.i
 
@@ -4677,7 +4677,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13Quanti
   %23 = select i1 %22, i32 %14, i32 %20
   %24 = or i32 %23, %21
   %25 = bitcast i32 %24 to float
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.02.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i, i64 4
   %27 = load float, ptr %.sroa.2.02.i, align 4
   %28 = fsub float %27, %25
   %29 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %.sroa.5.03.i)
@@ -4692,23 +4692,23 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #23 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
   %10 = fptosi float %9 to i32
   %11 = trunc i32 %10 to i8
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   store i8 %11, ptr %13, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %3, align 8
@@ -4722,15 +4722,15 @@ define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12Simila
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load i32, ptr %12, align 8
   %13 = icmp sgt i32 %.val, 0
   br i1 %13, label %.lr.ph.preheader.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit
@@ -4742,10 +4742,10 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %22, %.lr.ph.i ]
-  %14 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = sub nsw i32 %16, %19
@@ -4767,7 +4767,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21c
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %4
@@ -4783,7 +4783,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev.exit, label %4
@@ -4799,9 +4799,9 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load i32, ptr %5, align 8
   %6 = icmp sgt i32 %.val, 0
   br i1 %6, label %.lr.ph.preheader.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit
@@ -4813,10 +4813,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %15, %.lr.ph.i ]
-  %7 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = sub nsw i32 %9, %12
@@ -4837,22 +4837,22 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %.val, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS8_.exit, label %.lr.ph.i
@@ -4892,13 +4892,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDir
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.val, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   br label %.lr.ph.i
 
@@ -4911,7 +4911,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quanti
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = uitofp i8 %8 to float
-  %10 = getelementptr inbounds i8, ptr %.sroa.2.02.i, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i, i64 4
   %11 = load float, ptr %.sroa.2.02.i, align 4
   %12 = fsub float %11, %9
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %.sroa.5.03.i)
@@ -4926,30 +4926,30 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load float, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %17 = load float, ptr %16, align 4
   br label %18
 
@@ -4993,17 +4993,17 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %10 = load float, ptr %9, align 4
   br label %11
 
@@ -5019,7 +5019,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   %16 = fadd float %15, 5.000000e-01
   %17 = fdiv float %16, 2.550000e+02
   %18 = tail call noundef float @llvm.fmuladd.f32(float %17, float %10, float %8)
-  %19 = getelementptr inbounds i8, ptr %.sroa.2.017.i, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.2.017.i, i64 4
   %20 = load float, ptr %.sroa.2.017.i, align 4
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %18, float %.sroa.5.018.i)
   %22 = add nuw i64 %.019.i, 1
@@ -5033,30 +5033,30 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load float, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %17 = load float, ptr %16, align 4
   br label %18
 
@@ -5109,17 +5109,17 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %10 = load float, ptr %9, align 4
   br label %11
 
@@ -5141,7 +5141,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %25 = tail call noundef float @llvm.fmuladd.f32(float %24, float %10, float %8)
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.018.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.2.018.i, i64 4
   %27 = load float, ptr %.sroa.2.018.i, align 4
   %28 = tail call float @llvm.fmuladd.f32(float %27, float %25, float %.sroa.5.019.i)
   %29 = add nuw i64 %.020.i, 1
@@ -5155,30 +5155,30 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -5226,17 +5226,17 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -5256,7 +5256,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   %20 = getelementptr inbounds float, ptr %10, i64 %12
   %21 = load float, ptr %20, align 4
   %22 = tail call noundef float @llvm.fmuladd.f32(float %17, float %21, float %19)
-  %23 = getelementptr inbounds i8, ptr %.sroa.2.019.i, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i, i64 4
   %24 = load float, ptr %.sroa.2.019.i, align 4
   %25 = tail call float @llvm.fmuladd.f32(float %24, float %22, float %.sroa.5.020.i)
   %26 = add nuw i64 %.021.i, 1
@@ -5270,31 +5270,31 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
   %invariant.gep.i = getelementptr i8, ptr %11, i64 2
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -5338,7 +5338,7 @@ default.unreachable:                              ; preds = %18
 40:                                               ; preds = %18
   %41 = load i8, ptr %23, align 1
   %42 = lshr i8 %41, 6
-  %43 = getelementptr inbounds i8, ptr %23, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = shl i8 %44, 2
   %46 = and i8 %45, 60
@@ -5356,7 +5356,7 @@ default.unreachable:                              ; preds = %18
   %57 = getelementptr inbounds i8, ptr %11, i64 %22
   %58 = load i8, ptr %57, align 1
   %59 = lshr i8 %58, 6
-  %60 = getelementptr inbounds i8, ptr %57, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = shl i8 %61, 2
   %63 = and i8 %62, 60
@@ -5364,10 +5364,10 @@ default.unreachable:                              ; preds = %18
   br label %107
 
 65:                                               ; preds = %18
-  %66 = getelementptr inbounds i8, ptr %23, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = lshr i8 %67, 4
-  %69 = getelementptr inbounds i8, ptr %23, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %70 = load i8, ptr %69, align 1
   %71 = shl i8 %70, 4
   %72 = and i8 %71, 48
@@ -5383,10 +5383,10 @@ default.unreachable:                              ; preds = %18
   %81 = load float, ptr %80, align 4
   %82 = tail call noundef float @llvm.fmuladd.f32(float %76, float %81, float %79)
   %83 = getelementptr inbounds i8, ptr %11, i64 %22
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   %85 = load i8, ptr %84, align 1
   %86 = lshr i8 %85, 4
-  %87 = getelementptr inbounds i8, ptr %83, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 2
   %88 = load i8, ptr %87, align 1
   %89 = shl i8 %88, 4
   %90 = and i8 %89, 48
@@ -5394,7 +5394,7 @@ default.unreachable:                              ; preds = %18
   br label %107
 
 92:                                               ; preds = %18
-  %93 = getelementptr inbounds i8, ptr %23, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %94 = load i8, ptr %93, align 1
   %95 = lshr i8 %94, 2
   %96 = uitofp nneg i8 %95 to float
@@ -5444,17 +5444,17 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -5483,7 +5483,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
 21:                                               ; preds = %11
   %22 = load i8, ptr %16, align 1
   %23 = lshr i8 %22, 6
-  %24 = getelementptr inbounds i8, ptr %16, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = shl i8 %25, 2
   %27 = and i8 %26, 60
@@ -5491,10 +5491,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   br label %42
 
 29:                                               ; preds = %11
-  %30 = getelementptr inbounds i8, ptr %16, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = lshr i8 %31, 4
-  %33 = getelementptr inbounds i8, ptr %16, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %34 = load i8, ptr %33, align 1
   %35 = shl i8 %34, 4
   %36 = and i8 %35, 48
@@ -5502,7 +5502,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   br label %42
 
 38:                                               ; preds = %11
-  %39 = getelementptr inbounds i8, ptr %16, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = lshr i8 %40, 2
   br label %42
@@ -5522,7 +5522,7 @@ default.unreachable:                              ; preds = %11
   %49 = getelementptr inbounds float, ptr %10, i64 %46
   %50 = load float, ptr %49, align 4
   %51 = tail call noundef float @llvm.fmuladd.f32(float %45, float %50, float %48)
-  %52 = getelementptr inbounds i8, ptr %.sroa.2.031.i, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.2.031.i, i64 4
   %53 = load float, ptr %.sroa.2.031.i, align 4
   %54 = tail call float @llvm.fmuladd.f32(float %53, float %51, float %.sroa.5.032.i)
   %55 = add nuw i64 %.033.i, 1
@@ -5536,30 +5536,30 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -5618,17 +5618,17 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -5656,7 +5656,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   %28 = getelementptr inbounds float, ptr %10, i64 %25
   %29 = load float, ptr %28, align 4
   %30 = tail call noundef float @llvm.fmuladd.f32(float %24, float %29, float %27)
-  %31 = getelementptr inbounds i8, ptr %.sroa.2.020.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i, i64 4
   %32 = load float, ptr %.sroa.2.020.i, align 4
   %33 = tail call float @llvm.fmuladd.f32(float %32, float %30, float %.sroa.5.021.i)
   %34 = add nuw i64 %.022.i, 1
@@ -5670,22 +5670,22 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %.val, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS8_.exit, label %.lr.ph.i
@@ -5758,13 +5758,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.val, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   br label %.lr.ph.i
 
@@ -5794,7 +5794,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13Quanti
   %23 = select i1 %22, i32 %14, i32 %20
   %24 = or i32 %23, %21
   %25 = bitcast i32 %24 to float
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.02.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i, i64 4
   %27 = load float, ptr %.sroa.2.02.i, align 4
   %28 = tail call float @llvm.fmuladd.f32(float %27, float %25, float %.sroa.5.03.i)
   %29 = add nuw i64 %.04.i, 1
@@ -5808,23 +5808,23 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #23 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %9 = load float, ptr %8, align 4
   %10 = fptosi float %9 to i32
   %11 = trunc i32 %10 to i8
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   store i8 %11, ptr %13, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %3, align 8
@@ -5838,15 +5838,15 @@ define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12Simila
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load i32, ptr %12, align 8
   %13 = icmp sgt i32 %.val, 0
   br i1 %13, label %.lr.ph.preheader.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit
@@ -5858,10 +5858,10 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.081.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %21, %.lr.ph.i ]
-  %14 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, %16
@@ -5882,7 +5882,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21c
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %4
@@ -5898,7 +5898,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev.exit, label %4
@@ -5914,9 +5914,9 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load i32, ptr %5, align 8
   %6 = icmp sgt i32 %.val, 0
   br i1 %6, label %.lr.ph.preheader.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit
@@ -5928,10 +5928,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.081.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %14, %.lr.ph.i ]
-  %7 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = mul nuw nsw i32 %12, %9
@@ -5951,22 +5951,22 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((24, 32)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = mul i64 %7, %2
   %11 = getelementptr inbounds i8, ptr %5, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %12, align 8
   %.not.i = icmp eq i64 %.val, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS8_.exit, label %.lr.ph.i
@@ -6005,13 +6005,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDir
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.val, 0
   br i1 %.not.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE16compute_distanceEPKfPKh.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   br label %.lr.ph.i
 
@@ -6024,7 +6024,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quanti
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = uitofp i8 %8 to float
-  %10 = getelementptr inbounds i8, ptr %.sroa.2.02.i, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i, i64 4
   %11 = load float, ptr %.sroa.2.02.i, align 4
   %12 = tail call float @llvm.fmuladd.f32(float %11, float %9, float %.sroa.5.03.i)
   %13 = add nuw i64 %.04.i, 1
@@ -6054,7 +6054,7 @@ define noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer26select_InvertedListScan
 13:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %685 [
     i32 2, label %16
@@ -6069,36 +6069,36 @@ define noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer26select_InvertedListScan
 16:                                               ; preds = %13
   %.not.i.i.i.i = icmp eq ptr %4, null
   %17 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #28
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 -1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i8 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 17
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 17
   store i8 0, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %17, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   br i1 %.not.i.i.i.i, label %74, label %28
 
 28:                                               ; preds = %16
-  %29 = getelementptr inbounds i8, ptr %17, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %sext.i.i.i.i.i = shl i64 %19, 32
   %30 = ashr exact i64 %sext.i.i.i.i.i, 32
-  %31 = getelementptr inbounds i8, ptr %17, i64 48
-  %32 = getelementptr inbounds i8, ptr %17, i64 72
-  %33 = getelementptr inbounds i8, ptr %17, i64 80
-  %34 = getelementptr inbounds i8, ptr %17, i64 88
-  %35 = getelementptr inbounds i8, ptr %17, i64 92
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 92
   %36 = zext i1 %5 to i8
-  %37 = getelementptr inbounds i8, ptr %17, i64 96
-  %38 = getelementptr inbounds i8, ptr %17, i64 104
-  %39 = getelementptr inbounds i8, ptr %17, i64 112
-  %40 = getelementptr inbounds i8, ptr %17, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %41 = icmp slt i32 %20, 0
   br i1 %3, label %42, label %58
 
@@ -6111,7 +6111,7 @@ define noundef nonnull ptr @_ZNK5faiss15ScalarQuantizer26select_InvertedListScan
   %43 = load ptr, ptr %21, align 8
   %44 = load float, ptr %43, align 4
   store float %44, ptr %34, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %46 = load float, ptr %45, align 4
   store float %46, ptr %35, align 4
   store i8 %36, ptr %37, align 8
@@ -6139,7 +6139,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i: ; preds = %42
 .noexc8.i.i.i.i.i:                                ; preds = %.noexc12.i.i.i.i.i.i
   store ptr %48, ptr %40, align 8
   %49 = getelementptr float, ptr %48, i64 %30
-  %50 = getelementptr inbounds i8, ptr %17, i64 136
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 136
   store ptr %49, ptr %50, align 8
   store float 0.000000e+00, ptr %48, align 4
   %51 = getelementptr i8, ptr %48, i64 4
@@ -6167,8 +6167,8 @@ common.resume.i.i.i.i:                            ; preds = %99, %70, %54
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i.i, %.noexc8.i.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %51, %.noexc8.i.i.i.i.i ], [ %49, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i ]
-  %56 = getelementptr inbounds i8, ptr %17, i64 32
-  %57 = getelementptr inbounds i8, ptr %17, i64 128
+  %56 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %17, i64 128
   store ptr %.0.i.i.i.i.i.i.i.i.i.i.i, ptr %57, align 8
   store i8 1, ptr %26, align 1
   store ptr %4, ptr %27, align 8
@@ -6184,7 +6184,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   %59 = load ptr, ptr %21, align 8
   %60 = load float, ptr %59, align 4
   store float %60, ptr %34, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %62 = load float, ptr %61, align 4
   store float %62, ptr %35, align 4
   store i8 %36, ptr %37, align 8
@@ -6212,7 +6212,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i.i: ; preds = %
 .noexc8.i24.i.i.i.i:                              ; preds = %.noexc12.i.i23.i.i.i.i
   store ptr %64, ptr %40, align 8
   %65 = getelementptr float, ptr %64, i64 %30
-  %66 = getelementptr inbounds i8, ptr %17, i64 136
+  %66 = getelementptr inbounds nuw i8, ptr %17, i64 136
   store ptr %65, ptr %66, align 8
   store float 0.000000e+00, ptr %64, align 4
   %67 = getelementptr i8, ptr %64, i64 4
@@ -6231,8 +6231,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i.i.i: ; preds = 
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i.i.i, %.noexc8.i24.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i.i
   %.0.i.i.i.i.i.i.i26.i.i.i.i = phi ptr [ %67, %.noexc8.i24.i.i.i.i ], [ %65, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i.i ]
-  %72 = getelementptr inbounds i8, ptr %17, i64 32
-  %73 = getelementptr inbounds i8, ptr %17, i64 128
+  %72 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %17, i64 128
   store ptr %.0.i.i.i.i.i.i.i26.i.i.i.i, ptr %73, align 8
   store i8 0, ptr %26, align 1
   store ptr %4, ptr %27, align 8
@@ -6241,32 +6241,32 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 
 74:                                               ; preds = %16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %17, align 8
-  %75 = getelementptr inbounds i8, ptr %17, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %sext.i29.i.i.i.i = shl i64 %19, 32
   %76 = ashr exact i64 %sext.i29.i.i.i.i, 32
-  %77 = getelementptr inbounds i8, ptr %17, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %17, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %75, align 8
-  %78 = getelementptr inbounds i8, ptr %17, i64 72
+  %78 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb1ELi1EEE, i64 16), ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %17, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %17, i64 80
   store i64 %76, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %17, i64 88
+  %80 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %81 = load ptr, ptr %21, align 8
   %82 = load float, ptr %81, align 4
   store float %82, ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %17, i64 92
-  %84 = getelementptr inbounds i8, ptr %81, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %17, i64 92
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %85 = load float, ptr %84, align 4
   store float %85, ptr %83, align 4
   %86 = zext i1 %5 to i8
-  %87 = getelementptr inbounds i8, ptr %17, i64 96
+  %87 = getelementptr inbounds nuw i8, ptr %17, i64 96
   store i8 %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %17, i64 104
+  %88 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store ptr %2, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %17, i64 112
+  %89 = getelementptr inbounds nuw i8, ptr %17, i64 112
   store ptr null, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %17, i64 120
+  %90 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %91 = icmp slt i32 %20, 0
   br i1 %91, label %.noexc.i.i36.i.i.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i.i.i
 
@@ -6290,7 +6290,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i.i.i: ; preds = %
 .noexc8.i33.i.i.i.i:                              ; preds = %.noexc12.i.i32.i.i.i.i
   store ptr %93, ptr %90, align 8
   %94 = getelementptr float, ptr %93, i64 %76
-  %95 = getelementptr inbounds i8, ptr %17, i64 136
+  %95 = getelementptr inbounds nuw i8, ptr %17, i64 136
   store ptr %94, ptr %95, align 8
   store float 0.000000e+00, ptr %93, align 4
   %96 = getelementptr i8, ptr %93, i64 4
@@ -6309,8 +6309,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i.i.i: ; preds = 
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i.i.i, %.noexc8.i33.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i.i.i
   %.0.i.i.i.i.i.i.i35.i.i.i.i = phi ptr [ %96, %.noexc8.i33.i.i.i.i ], [ %94, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i.i.i ]
-  %101 = getelementptr inbounds i8, ptr %17, i64 32
-  %102 = getelementptr inbounds i8, ptr %17, i64 128
+  %101 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %17, i64 128
   store ptr %.0.i.i.i.i.i.i.i35.i.i.i.i, ptr %102, align 8
   %103 = zext i1 %3 to i8
   store i8 %103, ptr %26, align 1
@@ -6321,36 +6321,36 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 104:                                              ; preds = %13
   %.not.i.i49.i.i = icmp eq ptr %4, null
   %105 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #28
-  %106 = getelementptr inbounds i8, ptr %0, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %107 = load i64, ptr %106, align 8
   %108 = trunc i64 %107 to i32
-  %109 = getelementptr inbounds i8, ptr %0, i64 48
-  %110 = getelementptr inbounds i8, ptr %0, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %111 = load i64, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %105, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i64 -1, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %105, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store i8 0, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %105, i64 17
+  %114 = getelementptr inbounds nuw i8, ptr %105, i64 17
   store i8 0, ptr %114, align 1
-  %115 = getelementptr inbounds i8, ptr %105, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %105, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
   br i1 %.not.i.i49.i.i, label %162, label %116
 
 116:                                              ; preds = %104
-  %117 = getelementptr inbounds i8, ptr %105, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %sext.i.i.i50.i.i = shl i64 %107, 32
   %118 = ashr exact i64 %sext.i.i.i50.i.i, 32
-  %119 = getelementptr inbounds i8, ptr %105, i64 48
-  %120 = getelementptr inbounds i8, ptr %105, i64 72
-  %121 = getelementptr inbounds i8, ptr %105, i64 80
-  %122 = getelementptr inbounds i8, ptr %105, i64 88
-  %123 = getelementptr inbounds i8, ptr %105, i64 92
+  %119 = getelementptr inbounds nuw i8, ptr %105, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %105, i64 72
+  %121 = getelementptr inbounds nuw i8, ptr %105, i64 80
+  %122 = getelementptr inbounds nuw i8, ptr %105, i64 88
+  %123 = getelementptr inbounds nuw i8, ptr %105, i64 92
   %124 = zext i1 %5 to i8
-  %125 = getelementptr inbounds i8, ptr %105, i64 96
-  %126 = getelementptr inbounds i8, ptr %105, i64 104
-  %127 = getelementptr inbounds i8, ptr %105, i64 112
-  %128 = getelementptr inbounds i8, ptr %105, i64 120
+  %125 = getelementptr inbounds nuw i8, ptr %105, i64 96
+  %126 = getelementptr inbounds nuw i8, ptr %105, i64 104
+  %127 = getelementptr inbounds nuw i8, ptr %105, i64 112
+  %128 = getelementptr inbounds nuw i8, ptr %105, i64 120
   %129 = icmp slt i32 %108, 0
   br i1 %3, label %130, label %146
 
@@ -6363,7 +6363,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   %131 = load ptr, ptr %109, align 8
   %132 = load float, ptr %131, align 4
   store float %132, ptr %122, align 8
-  %133 = getelementptr inbounds i8, ptr %131, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %134 = load float, ptr %133, align 4
   store float %134, ptr %123, align 4
   store i8 %124, ptr %125, align 8
@@ -6391,7 +6391,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i61.i.i: ; preds = %
 .noexc8.i.i.i64.i.i:                              ; preds = %.noexc12.i.i.i.i63.i.i
   store ptr %136, ptr %128, align 8
   %137 = getelementptr float, ptr %136, i64 %118
-  %138 = getelementptr inbounds i8, ptr %105, i64 136
+  %138 = getelementptr inbounds nuw i8, ptr %105, i64 136
   store ptr %137, ptr %138, align 8
   store float 0.000000e+00, ptr %136, align 4
   %139 = getelementptr i8, ptr %136, i64 4
@@ -6415,8 +6415,8 @@ common.resume.i.i54.i.i:                          ; preds = %187, %158, %142
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i65.i.i, %.noexc8.i.i.i64.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i61.i.i
   %.0.i.i.i.i.i.i.i.i.i66.i.i = phi ptr [ %139, %.noexc8.i.i.i64.i.i ], [ %137, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i65.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i61.i.i ]
-  %144 = getelementptr inbounds i8, ptr %105, i64 32
-  %145 = getelementptr inbounds i8, ptr %105, i64 128
+  %144 = getelementptr inbounds nuw i8, ptr %105, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %105, i64 128
   store ptr %.0.i.i.i.i.i.i.i.i.i66.i.i, ptr %145, align 8
   store i8 1, ptr %114, align 1
   store ptr %4, ptr %115, align 8
@@ -6432,7 +6432,7 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
   %147 = load ptr, ptr %109, align 8
   %148 = load float, ptr %147, align 4
   store float %148, ptr %122, align 8
-  %149 = getelementptr inbounds i8, ptr %147, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 4
   %150 = load float, ptr %149, align 4
   store float %150, ptr %123, align 4
   store i8 %124, ptr %125, align 8
@@ -6460,7 +6460,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i51.i.i: ; preds =
 .noexc8.i24.i.i56.i.i:                            ; preds = %.noexc12.i.i23.i.i53.i.i
   store ptr %152, ptr %128, align 8
   %153 = getelementptr float, ptr %152, i64 %118
-  %154 = getelementptr inbounds i8, ptr %105, i64 136
+  %154 = getelementptr inbounds nuw i8, ptr %105, i64 136
   store ptr %153, ptr %154, align 8
   store float 0.000000e+00, ptr %152, align 4
   %155 = getelementptr i8, ptr %152, i64 4
@@ -6479,8 +6479,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i57.i.i: ; preds 
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i57.i.i, %.noexc8.i24.i.i56.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i51.i.i
   %.0.i.i.i.i.i.i.i26.i.i58.i.i = phi ptr [ %155, %.noexc8.i24.i.i56.i.i ], [ %153, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i57.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i51.i.i ]
-  %160 = getelementptr inbounds i8, ptr %105, i64 32
-  %161 = getelementptr inbounds i8, ptr %105, i64 128
+  %160 = getelementptr inbounds nuw i8, ptr %105, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %105, i64 128
   store ptr %.0.i.i.i.i.i.i.i26.i.i58.i.i, ptr %161, align 8
   store i8 0, ptr %114, align 1
   store ptr %4, ptr %115, align 8
@@ -6489,32 +6489,32 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 
 162:                                              ; preds = %104
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %105, align 8
-  %163 = getelementptr inbounds i8, ptr %105, i64 40
+  %163 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %sext.i29.i.i69.i.i = shl i64 %107, 32
   %164 = ashr exact i64 %sext.i29.i.i69.i.i, 32
-  %165 = getelementptr inbounds i8, ptr %105, i64 48
+  %165 = getelementptr inbounds nuw i8, ptr %105, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %165, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %163, align 8
-  %166 = getelementptr inbounds i8, ptr %105, i64 72
+  %166 = getelementptr inbounds nuw i8, ptr %105, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb1ELi1EEE, i64 16), ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %105, i64 80
+  %167 = getelementptr inbounds nuw i8, ptr %105, i64 80
   store i64 %164, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %105, i64 88
+  %168 = getelementptr inbounds nuw i8, ptr %105, i64 88
   %169 = load ptr, ptr %109, align 8
   %170 = load float, ptr %169, align 4
   store float %170, ptr %168, align 8
-  %171 = getelementptr inbounds i8, ptr %105, i64 92
-  %172 = getelementptr inbounds i8, ptr %169, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %105, i64 92
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 4
   %173 = load float, ptr %172, align 4
   store float %173, ptr %171, align 4
   %174 = zext i1 %5 to i8
-  %175 = getelementptr inbounds i8, ptr %105, i64 96
+  %175 = getelementptr inbounds nuw i8, ptr %105, i64 96
   store i8 %174, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %105, i64 104
+  %176 = getelementptr inbounds nuw i8, ptr %105, i64 104
   store ptr %2, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %105, i64 112
+  %177 = getelementptr inbounds nuw i8, ptr %105, i64 112
   store ptr null, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %105, i64 120
+  %178 = getelementptr inbounds nuw i8, ptr %105, i64 120
   %179 = icmp slt i32 %108, 0
   br i1 %179, label %.noexc.i.i36.i.i76.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i70.i.i
 
@@ -6538,7 +6538,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i70.i.i: ; preds =
 .noexc8.i33.i.i73.i.i:                            ; preds = %.noexc12.i.i32.i.i72.i.i
   store ptr %181, ptr %178, align 8
   %182 = getelementptr float, ptr %181, i64 %164
-  %183 = getelementptr inbounds i8, ptr %105, i64 136
+  %183 = getelementptr inbounds nuw i8, ptr %105, i64 136
   store ptr %182, ptr %183, align 8
   store float 0.000000e+00, ptr %181, align 4
   %184 = getelementptr i8, ptr %181, i64 4
@@ -6557,8 +6557,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i74.i.i: ; preds 
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i74.i.i, %.noexc8.i33.i.i73.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i70.i.i
   %.0.i.i.i.i.i.i.i35.i.i75.i.i = phi ptr [ %184, %.noexc8.i33.i.i73.i.i ], [ %182, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i74.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i70.i.i ]
-  %189 = getelementptr inbounds i8, ptr %105, i64 32
-  %190 = getelementptr inbounds i8, ptr %105, i64 128
+  %189 = getelementptr inbounds nuw i8, ptr %105, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %105, i64 128
   store ptr %.0.i.i.i.i.i.i.i35.i.i75.i.i, ptr %190, align 8
   %191 = zext i1 %3 to i8
   store i8 %191, ptr %114, align 1
@@ -6569,36 +6569,36 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 192:                                              ; preds = %13
   %.not.i.i78.i.i = icmp eq ptr %4, null
   %193 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
-  %194 = getelementptr inbounds i8, ptr %0, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %195 = load i64, ptr %194, align 8
   %196 = trunc i64 %195 to i32
-  %197 = getelementptr inbounds i8, ptr %0, i64 48
-  %198 = getelementptr inbounds i8, ptr %0, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %199 = load i64, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %193, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store i64 -1, ptr %200, align 8
-  %201 = getelementptr inbounds i8, ptr %193, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store i8 0, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %193, i64 17
+  %202 = getelementptr inbounds nuw i8, ptr %193, i64 17
   store i8 0, ptr %202, align 1
-  %203 = getelementptr inbounds i8, ptr %193, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %193, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %203, i8 0, i64 16, i1 false)
   br i1 %.not.i.i78.i.i, label %246, label %204
 
 204:                                              ; preds = %192
-  %205 = getelementptr inbounds i8, ptr %193, i64 40
+  %205 = getelementptr inbounds nuw i8, ptr %193, i64 40
   %sext.i.i.i79.i.i = shl i64 %195, 32
   %206 = ashr exact i64 %sext.i.i.i79.i.i, 32
-  %207 = getelementptr inbounds i8, ptr %193, i64 48
-  %208 = getelementptr inbounds i8, ptr %193, i64 72
-  %209 = getelementptr inbounds i8, ptr %193, i64 80
-  %210 = getelementptr inbounds i8, ptr %193, i64 88
-  %211 = getelementptr inbounds i8, ptr %193, i64 96
+  %207 = getelementptr inbounds nuw i8, ptr %193, i64 48
+  %208 = getelementptr inbounds nuw i8, ptr %193, i64 72
+  %209 = getelementptr inbounds nuw i8, ptr %193, i64 80
+  %210 = getelementptr inbounds nuw i8, ptr %193, i64 88
+  %211 = getelementptr inbounds nuw i8, ptr %193, i64 96
   %212 = zext i1 %5 to i8
-  %213 = getelementptr inbounds i8, ptr %193, i64 104
-  %214 = getelementptr inbounds i8, ptr %193, i64 112
-  %215 = getelementptr inbounds i8, ptr %193, i64 120
-  %216 = getelementptr inbounds i8, ptr %193, i64 128
+  %213 = getelementptr inbounds nuw i8, ptr %193, i64 104
+  %214 = getelementptr inbounds nuw i8, ptr %193, i64 112
+  %215 = getelementptr inbounds nuw i8, ptr %193, i64 120
+  %216 = getelementptr inbounds nuw i8, ptr %193, i64 128
   %217 = icmp slt i32 %196, 0
   br i1 %3, label %218, label %232
 
@@ -6637,7 +6637,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i90.i.i: ; preds = %
 .noexc8.i.i.i93.i.i:                              ; preds = %.noexc12.i.i.i.i92.i.i
   store ptr %222, ptr %216, align 8
   %223 = getelementptr float, ptr %222, i64 %206
-  %224 = getelementptr inbounds i8, ptr %193, i64 144
+  %224 = getelementptr inbounds nuw i8, ptr %193, i64 144
   store ptr %223, ptr %224, align 8
   store float 0.000000e+00, ptr %222, align 4
   %225 = getelementptr i8, ptr %222, i64 4
@@ -6661,8 +6661,8 @@ common.resume.i.i83.i.i:                          ; preds = %269, %242, %228
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i94.i.i, %.noexc8.i.i.i93.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i90.i.i
   %.0.i.i.i.i.i.i.i.i.i95.i.i = phi ptr [ %225, %.noexc8.i.i.i93.i.i ], [ %223, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i94.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i90.i.i ]
-  %230 = getelementptr inbounds i8, ptr %193, i64 32
-  %231 = getelementptr inbounds i8, ptr %193, i64 136
+  %230 = getelementptr inbounds nuw i8, ptr %193, i64 32
+  %231 = getelementptr inbounds nuw i8, ptr %193, i64 136
   store ptr %.0.i.i.i.i.i.i.i.i.i95.i.i, ptr %231, align 8
   store i8 1, ptr %202, align 1
   store ptr %4, ptr %203, align 8
@@ -6704,7 +6704,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i80.i.i: ; preds =
 .noexc8.i24.i.i85.i.i:                            ; preds = %.noexc12.i.i23.i.i82.i.i
   store ptr %236, ptr %216, align 8
   %237 = getelementptr float, ptr %236, i64 %206
-  %238 = getelementptr inbounds i8, ptr %193, i64 144
+  %238 = getelementptr inbounds nuw i8, ptr %193, i64 144
   store ptr %237, ptr %238, align 8
   store float 0.000000e+00, ptr %236, align 4
   %239 = getelementptr i8, ptr %236, i64 4
@@ -6723,8 +6723,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i86.i.i: ; preds 
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i86.i.i, %.noexc8.i24.i.i85.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i80.i.i
   %.0.i.i.i.i.i.i.i26.i.i87.i.i = phi ptr [ %239, %.noexc8.i24.i.i85.i.i ], [ %237, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i86.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i80.i.i ]
-  %244 = getelementptr inbounds i8, ptr %193, i64 32
-  %245 = getelementptr inbounds i8, ptr %193, i64 136
+  %244 = getelementptr inbounds nuw i8, ptr %193, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %193, i64 136
   store ptr %.0.i.i.i.i.i.i.i26.i.i87.i.i, ptr %245, align 8
   store i8 0, ptr %202, align 1
   store ptr %4, ptr %203, align 8
@@ -6733,30 +6733,30 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 
 246:                                              ; preds = %192
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %193, align 8
-  %247 = getelementptr inbounds i8, ptr %193, i64 40
+  %247 = getelementptr inbounds nuw i8, ptr %193, i64 40
   %sext.i29.i.i98.i.i = shl i64 %195, 32
   %248 = ashr exact i64 %sext.i29.i.i98.i.i, 32
-  %249 = getelementptr inbounds i8, ptr %193, i64 48
+  %249 = getelementptr inbounds nuw i8, ptr %193, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %249, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %247, align 8
-  %250 = getelementptr inbounds i8, ptr %193, i64 72
+  %250 = getelementptr inbounds nuw i8, ptr %193, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb0ELi1EEE, i64 16), ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %193, i64 80
+  %251 = getelementptr inbounds nuw i8, ptr %193, i64 80
   store i64 %248, ptr %251, align 8
-  %252 = getelementptr inbounds i8, ptr %193, i64 88
+  %252 = getelementptr inbounds nuw i8, ptr %193, i64 88
   %253 = load ptr, ptr %197, align 8
   store ptr %253, ptr %252, align 8
-  %254 = getelementptr inbounds i8, ptr %193, i64 96
+  %254 = getelementptr inbounds nuw i8, ptr %193, i64 96
   %255 = getelementptr inbounds float, ptr %253, i64 %248
   store ptr %255, ptr %254, align 8
   %256 = zext i1 %5 to i8
-  %257 = getelementptr inbounds i8, ptr %193, i64 104
+  %257 = getelementptr inbounds nuw i8, ptr %193, i64 104
   store i8 %256, ptr %257, align 8
-  %258 = getelementptr inbounds i8, ptr %193, i64 112
+  %258 = getelementptr inbounds nuw i8, ptr %193, i64 112
   store ptr %2, ptr %258, align 8
-  %259 = getelementptr inbounds i8, ptr %193, i64 120
+  %259 = getelementptr inbounds nuw i8, ptr %193, i64 120
   store ptr null, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %193, i64 128
+  %260 = getelementptr inbounds nuw i8, ptr %193, i64 128
   %261 = icmp slt i32 %196, 0
   br i1 %261, label %.noexc.i.i36.i.i105.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i99.i.i
 
@@ -6780,7 +6780,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i99.i.i: ; preds =
 .noexc8.i33.i.i102.i.i:                           ; preds = %.noexc12.i.i32.i.i101.i.i
   store ptr %263, ptr %260, align 8
   %264 = getelementptr float, ptr %263, i64 %248
-  %265 = getelementptr inbounds i8, ptr %193, i64 144
+  %265 = getelementptr inbounds nuw i8, ptr %193, i64 144
   store ptr %264, ptr %265, align 8
   store float 0.000000e+00, ptr %263, align 4
   %266 = getelementptr i8, ptr %263, i64 4
@@ -6799,8 +6799,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i103.i.i: ; preds
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i103.i.i, %.noexc8.i33.i.i102.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i99.i.i
   %.0.i.i.i.i.i.i.i35.i.i104.i.i = phi ptr [ %266, %.noexc8.i33.i.i102.i.i ], [ %264, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i103.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i99.i.i ]
-  %271 = getelementptr inbounds i8, ptr %193, i64 32
-  %272 = getelementptr inbounds i8, ptr %193, i64 136
+  %271 = getelementptr inbounds nuw i8, ptr %193, i64 32
+  %272 = getelementptr inbounds nuw i8, ptr %193, i64 136
   store ptr %.0.i.i.i.i.i.i.i35.i.i104.i.i, ptr %272, align 8
   %273 = zext i1 %3 to i8
   store i8 %273, ptr %202, align 1
@@ -6811,36 +6811,36 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 274:                                              ; preds = %13
   %.not.i.i107.i.i = icmp eq ptr %4, null
   %275 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
-  %276 = getelementptr inbounds i8, ptr %0, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %277 = load i64, ptr %276, align 8
   %278 = trunc i64 %277 to i32
-  %279 = getelementptr inbounds i8, ptr %0, i64 48
-  %280 = getelementptr inbounds i8, ptr %0, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %281 = load i64, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %275, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %275, i64 8
   store i64 -1, ptr %282, align 8
-  %283 = getelementptr inbounds i8, ptr %275, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %275, i64 16
   store i8 0, ptr %283, align 8
-  %284 = getelementptr inbounds i8, ptr %275, i64 17
+  %284 = getelementptr inbounds nuw i8, ptr %275, i64 17
   store i8 0, ptr %284, align 1
-  %285 = getelementptr inbounds i8, ptr %275, i64 24
+  %285 = getelementptr inbounds nuw i8, ptr %275, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %285, i8 0, i64 16, i1 false)
   br i1 %.not.i.i107.i.i, label %328, label %286
 
 286:                                              ; preds = %274
-  %287 = getelementptr inbounds i8, ptr %275, i64 40
+  %287 = getelementptr inbounds nuw i8, ptr %275, i64 40
   %sext.i.i.i108.i.i = shl i64 %277, 32
   %288 = ashr exact i64 %sext.i.i.i108.i.i, 32
-  %289 = getelementptr inbounds i8, ptr %275, i64 48
-  %290 = getelementptr inbounds i8, ptr %275, i64 72
-  %291 = getelementptr inbounds i8, ptr %275, i64 80
-  %292 = getelementptr inbounds i8, ptr %275, i64 88
-  %293 = getelementptr inbounds i8, ptr %275, i64 96
+  %289 = getelementptr inbounds nuw i8, ptr %275, i64 48
+  %290 = getelementptr inbounds nuw i8, ptr %275, i64 72
+  %291 = getelementptr inbounds nuw i8, ptr %275, i64 80
+  %292 = getelementptr inbounds nuw i8, ptr %275, i64 88
+  %293 = getelementptr inbounds nuw i8, ptr %275, i64 96
   %294 = zext i1 %5 to i8
-  %295 = getelementptr inbounds i8, ptr %275, i64 104
-  %296 = getelementptr inbounds i8, ptr %275, i64 112
-  %297 = getelementptr inbounds i8, ptr %275, i64 120
-  %298 = getelementptr inbounds i8, ptr %275, i64 128
+  %295 = getelementptr inbounds nuw i8, ptr %275, i64 104
+  %296 = getelementptr inbounds nuw i8, ptr %275, i64 112
+  %297 = getelementptr inbounds nuw i8, ptr %275, i64 120
+  %298 = getelementptr inbounds nuw i8, ptr %275, i64 128
   %299 = icmp slt i32 %278, 0
   br i1 %3, label %300, label %314
 
@@ -6879,7 +6879,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i119.i.i: ; preds = 
 .noexc8.i.i.i122.i.i:                             ; preds = %.noexc12.i.i.i.i121.i.i
   store ptr %304, ptr %298, align 8
   %305 = getelementptr float, ptr %304, i64 %288
-  %306 = getelementptr inbounds i8, ptr %275, i64 144
+  %306 = getelementptr inbounds nuw i8, ptr %275, i64 144
   store ptr %305, ptr %306, align 8
   store float 0.000000e+00, ptr %304, align 4
   %307 = getelementptr i8, ptr %304, i64 4
@@ -6903,8 +6903,8 @@ common.resume.i.i112.i.i:                         ; preds = %351, %324, %310
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i123.i.i, %.noexc8.i.i.i122.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i119.i.i
   %.0.i.i.i.i.i.i.i.i.i124.i.i = phi ptr [ %307, %.noexc8.i.i.i122.i.i ], [ %305, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i123.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i119.i.i ]
-  %312 = getelementptr inbounds i8, ptr %275, i64 32
-  %313 = getelementptr inbounds i8, ptr %275, i64 136
+  %312 = getelementptr inbounds nuw i8, ptr %275, i64 32
+  %313 = getelementptr inbounds nuw i8, ptr %275, i64 136
   store ptr %.0.i.i.i.i.i.i.i.i.i124.i.i, ptr %313, align 8
   store i8 1, ptr %284, align 1
   store ptr %4, ptr %285, align 8
@@ -6946,7 +6946,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i109.i.i: ; preds 
 .noexc8.i24.i.i114.i.i:                           ; preds = %.noexc12.i.i23.i.i111.i.i
   store ptr %318, ptr %298, align 8
   %319 = getelementptr float, ptr %318, i64 %288
-  %320 = getelementptr inbounds i8, ptr %275, i64 144
+  %320 = getelementptr inbounds nuw i8, ptr %275, i64 144
   store ptr %319, ptr %320, align 8
   store float 0.000000e+00, ptr %318, align 4
   %321 = getelementptr i8, ptr %318, i64 4
@@ -6965,8 +6965,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i115.i.i: ; preds
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i115.i.i, %.noexc8.i24.i.i114.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i109.i.i
   %.0.i.i.i.i.i.i.i26.i.i116.i.i = phi ptr [ %321, %.noexc8.i24.i.i114.i.i ], [ %319, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i115.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i109.i.i ]
-  %326 = getelementptr inbounds i8, ptr %275, i64 32
-  %327 = getelementptr inbounds i8, ptr %275, i64 136
+  %326 = getelementptr inbounds nuw i8, ptr %275, i64 32
+  %327 = getelementptr inbounds nuw i8, ptr %275, i64 136
   store ptr %.0.i.i.i.i.i.i.i26.i.i116.i.i, ptr %327, align 8
   store i8 0, ptr %284, align 1
   store ptr %4, ptr %285, align 8
@@ -6975,30 +6975,30 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 
 328:                                              ; preds = %274
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %275, align 8
-  %329 = getelementptr inbounds i8, ptr %275, i64 40
+  %329 = getelementptr inbounds nuw i8, ptr %275, i64 40
   %sext.i29.i.i127.i.i = shl i64 %277, 32
   %330 = ashr exact i64 %sext.i29.i.i127.i.i, 32
-  %331 = getelementptr inbounds i8, ptr %275, i64 48
+  %331 = getelementptr inbounds nuw i8, ptr %275, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %331, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %329, align 8
-  %332 = getelementptr inbounds i8, ptr %275, i64 72
+  %332 = getelementptr inbounds nuw i8, ptr %275, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb0ELi1EEE, i64 16), ptr %332, align 8
-  %333 = getelementptr inbounds i8, ptr %275, i64 80
+  %333 = getelementptr inbounds nuw i8, ptr %275, i64 80
   store i64 %330, ptr %333, align 8
-  %334 = getelementptr inbounds i8, ptr %275, i64 88
+  %334 = getelementptr inbounds nuw i8, ptr %275, i64 88
   %335 = load ptr, ptr %279, align 8
   store ptr %335, ptr %334, align 8
-  %336 = getelementptr inbounds i8, ptr %275, i64 96
+  %336 = getelementptr inbounds nuw i8, ptr %275, i64 96
   %337 = getelementptr inbounds float, ptr %335, i64 %330
   store ptr %337, ptr %336, align 8
   %338 = zext i1 %5 to i8
-  %339 = getelementptr inbounds i8, ptr %275, i64 104
+  %339 = getelementptr inbounds nuw i8, ptr %275, i64 104
   store i8 %338, ptr %339, align 8
-  %340 = getelementptr inbounds i8, ptr %275, i64 112
+  %340 = getelementptr inbounds nuw i8, ptr %275, i64 112
   store ptr %2, ptr %340, align 8
-  %341 = getelementptr inbounds i8, ptr %275, i64 120
+  %341 = getelementptr inbounds nuw i8, ptr %275, i64 120
   store ptr null, ptr %341, align 8
-  %342 = getelementptr inbounds i8, ptr %275, i64 128
+  %342 = getelementptr inbounds nuw i8, ptr %275, i64 128
   %343 = icmp slt i32 %278, 0
   br i1 %343, label %.noexc.i.i36.i.i134.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i128.i.i
 
@@ -7022,7 +7022,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i128.i.i: ; preds 
 .noexc8.i33.i.i131.i.i:                           ; preds = %.noexc12.i.i32.i.i130.i.i
   store ptr %345, ptr %342, align 8
   %346 = getelementptr float, ptr %345, i64 %330
-  %347 = getelementptr inbounds i8, ptr %275, i64 144
+  %347 = getelementptr inbounds nuw i8, ptr %275, i64 144
   store ptr %346, ptr %347, align 8
   store float 0.000000e+00, ptr %345, align 4
   %348 = getelementptr i8, ptr %345, i64 4
@@ -7041,8 +7041,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i132.i.i: ; preds
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i132.i.i, %.noexc8.i33.i.i131.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i128.i.i
   %.0.i.i.i.i.i.i.i35.i.i133.i.i = phi ptr [ %348, %.noexc8.i33.i.i131.i.i ], [ %346, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i132.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i128.i.i ]
-  %353 = getelementptr inbounds i8, ptr %275, i64 32
-  %354 = getelementptr inbounds i8, ptr %275, i64 136
+  %353 = getelementptr inbounds nuw i8, ptr %275, i64 32
+  %354 = getelementptr inbounds nuw i8, ptr %275, i64 136
   store ptr %.0.i.i.i.i.i.i.i35.i.i133.i.i, ptr %354, align 8
   %355 = zext i1 %3 to i8
   store i8 %355, ptr %284, align 1
@@ -7053,36 +7053,36 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 356:                                              ; preds = %13
   %.not.i.i136.i.i = icmp eq ptr %4, null
   %357 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
-  %358 = getelementptr inbounds i8, ptr %0, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %359 = load i64, ptr %358, align 8
   %360 = trunc i64 %359 to i32
-  %361 = getelementptr inbounds i8, ptr %0, i64 48
-  %362 = getelementptr inbounds i8, ptr %0, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %363 = load i64, ptr %362, align 8
-  %364 = getelementptr inbounds i8, ptr %357, i64 8
+  %364 = getelementptr inbounds nuw i8, ptr %357, i64 8
   store i64 -1, ptr %364, align 8
-  %365 = getelementptr inbounds i8, ptr %357, i64 16
+  %365 = getelementptr inbounds nuw i8, ptr %357, i64 16
   store i8 0, ptr %365, align 8
-  %366 = getelementptr inbounds i8, ptr %357, i64 17
+  %366 = getelementptr inbounds nuw i8, ptr %357, i64 17
   store i8 0, ptr %366, align 1
-  %367 = getelementptr inbounds i8, ptr %357, i64 24
+  %367 = getelementptr inbounds nuw i8, ptr %357, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %367, i8 0, i64 16, i1 false)
   br i1 %.not.i.i136.i.i, label %410, label %368
 
 368:                                              ; preds = %356
-  %369 = getelementptr inbounds i8, ptr %357, i64 40
+  %369 = getelementptr inbounds nuw i8, ptr %357, i64 40
   %sext.i.i.i137.i.i = shl i64 %359, 32
   %370 = ashr exact i64 %sext.i.i.i137.i.i, 32
-  %371 = getelementptr inbounds i8, ptr %357, i64 48
-  %372 = getelementptr inbounds i8, ptr %357, i64 72
-  %373 = getelementptr inbounds i8, ptr %357, i64 80
-  %374 = getelementptr inbounds i8, ptr %357, i64 88
-  %375 = getelementptr inbounds i8, ptr %357, i64 96
+  %371 = getelementptr inbounds nuw i8, ptr %357, i64 48
+  %372 = getelementptr inbounds nuw i8, ptr %357, i64 72
+  %373 = getelementptr inbounds nuw i8, ptr %357, i64 80
+  %374 = getelementptr inbounds nuw i8, ptr %357, i64 88
+  %375 = getelementptr inbounds nuw i8, ptr %357, i64 96
   %376 = zext i1 %5 to i8
-  %377 = getelementptr inbounds i8, ptr %357, i64 104
-  %378 = getelementptr inbounds i8, ptr %357, i64 112
-  %379 = getelementptr inbounds i8, ptr %357, i64 120
-  %380 = getelementptr inbounds i8, ptr %357, i64 128
+  %377 = getelementptr inbounds nuw i8, ptr %357, i64 104
+  %378 = getelementptr inbounds nuw i8, ptr %357, i64 112
+  %379 = getelementptr inbounds nuw i8, ptr %357, i64 120
+  %380 = getelementptr inbounds nuw i8, ptr %357, i64 128
   %381 = icmp slt i32 %360, 0
   br i1 %3, label %382, label %396
 
@@ -7121,7 +7121,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i148.i.i: ; preds = 
 .noexc8.i.i.i151.i.i:                             ; preds = %.noexc12.i.i.i.i150.i.i
   store ptr %386, ptr %380, align 8
   %387 = getelementptr float, ptr %386, i64 %370
-  %388 = getelementptr inbounds i8, ptr %357, i64 144
+  %388 = getelementptr inbounds nuw i8, ptr %357, i64 144
   store ptr %387, ptr %388, align 8
   store float 0.000000e+00, ptr %386, align 4
   %389 = getelementptr i8, ptr %386, i64 4
@@ -7145,8 +7145,8 @@ common.resume.i.i141.i.i:                         ; preds = %433, %406, %392
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i152.i.i, %.noexc8.i.i.i151.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i148.i.i
   %.0.i.i.i.i.i.i.i.i.i153.i.i = phi ptr [ %389, %.noexc8.i.i.i151.i.i ], [ %387, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i152.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i148.i.i ]
-  %394 = getelementptr inbounds i8, ptr %357, i64 32
-  %395 = getelementptr inbounds i8, ptr %357, i64 136
+  %394 = getelementptr inbounds nuw i8, ptr %357, i64 32
+  %395 = getelementptr inbounds nuw i8, ptr %357, i64 136
   store ptr %.0.i.i.i.i.i.i.i.i.i153.i.i, ptr %395, align 8
   store i8 1, ptr %366, align 1
   store ptr %4, ptr %367, align 8
@@ -7188,7 +7188,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i138.i.i: ; preds 
 .noexc8.i24.i.i143.i.i:                           ; preds = %.noexc12.i.i23.i.i140.i.i
   store ptr %400, ptr %380, align 8
   %401 = getelementptr float, ptr %400, i64 %370
-  %402 = getelementptr inbounds i8, ptr %357, i64 144
+  %402 = getelementptr inbounds nuw i8, ptr %357, i64 144
   store ptr %401, ptr %402, align 8
   store float 0.000000e+00, ptr %400, align 4
   %403 = getelementptr i8, ptr %400, i64 4
@@ -7207,8 +7207,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i144.i.i: ; preds
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i144.i.i, %.noexc8.i24.i.i143.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i138.i.i
   %.0.i.i.i.i.i.i.i26.i.i145.i.i = phi ptr [ %403, %.noexc8.i24.i.i143.i.i ], [ %401, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i144.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i138.i.i ]
-  %408 = getelementptr inbounds i8, ptr %357, i64 32
-  %409 = getelementptr inbounds i8, ptr %357, i64 136
+  %408 = getelementptr inbounds nuw i8, ptr %357, i64 32
+  %409 = getelementptr inbounds nuw i8, ptr %357, i64 136
   store ptr %.0.i.i.i.i.i.i.i26.i.i145.i.i, ptr %409, align 8
   store i8 0, ptr %366, align 1
   store ptr %4, ptr %367, align 8
@@ -7217,30 +7217,30 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 
 410:                                              ; preds = %356
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %357, align 8
-  %411 = getelementptr inbounds i8, ptr %357, i64 40
+  %411 = getelementptr inbounds nuw i8, ptr %357, i64 40
   %sext.i29.i.i156.i.i = shl i64 %359, 32
   %412 = ashr exact i64 %sext.i29.i.i156.i.i, 32
-  %413 = getelementptr inbounds i8, ptr %357, i64 48
+  %413 = getelementptr inbounds nuw i8, ptr %357, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %413, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %411, align 8
-  %414 = getelementptr inbounds i8, ptr %357, i64 72
+  %414 = getelementptr inbounds nuw i8, ptr %357, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELb0ELi1EEE, i64 16), ptr %414, align 8
-  %415 = getelementptr inbounds i8, ptr %357, i64 80
+  %415 = getelementptr inbounds nuw i8, ptr %357, i64 80
   store i64 %412, ptr %415, align 8
-  %416 = getelementptr inbounds i8, ptr %357, i64 88
+  %416 = getelementptr inbounds nuw i8, ptr %357, i64 88
   %417 = load ptr, ptr %361, align 8
   store ptr %417, ptr %416, align 8
-  %418 = getelementptr inbounds i8, ptr %357, i64 96
+  %418 = getelementptr inbounds nuw i8, ptr %357, i64 96
   %419 = getelementptr inbounds float, ptr %417, i64 %412
   store ptr %419, ptr %418, align 8
   %420 = zext i1 %5 to i8
-  %421 = getelementptr inbounds i8, ptr %357, i64 104
+  %421 = getelementptr inbounds nuw i8, ptr %357, i64 104
   store i8 %420, ptr %421, align 8
-  %422 = getelementptr inbounds i8, ptr %357, i64 112
+  %422 = getelementptr inbounds nuw i8, ptr %357, i64 112
   store ptr %2, ptr %422, align 8
-  %423 = getelementptr inbounds i8, ptr %357, i64 120
+  %423 = getelementptr inbounds nuw i8, ptr %357, i64 120
   store ptr null, ptr %423, align 8
-  %424 = getelementptr inbounds i8, ptr %357, i64 128
+  %424 = getelementptr inbounds nuw i8, ptr %357, i64 128
   %425 = icmp slt i32 %360, 0
   br i1 %425, label %.noexc.i.i36.i.i163.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i157.i.i
 
@@ -7264,7 +7264,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i157.i.i: ; preds 
 .noexc8.i33.i.i160.i.i:                           ; preds = %.noexc12.i.i32.i.i159.i.i
   store ptr %427, ptr %424, align 8
   %428 = getelementptr float, ptr %427, i64 %412
-  %429 = getelementptr inbounds i8, ptr %357, i64 144
+  %429 = getelementptr inbounds nuw i8, ptr %357, i64 144
   store ptr %428, ptr %429, align 8
   store float 0.000000e+00, ptr %427, align 4
   %430 = getelementptr i8, ptr %427, i64 4
@@ -7283,8 +7283,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i161.i.i: ; preds
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i161.i.i, %.noexc8.i33.i.i160.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i157.i.i
   %.0.i.i.i.i.i.i.i35.i.i162.i.i = phi ptr [ %430, %.noexc8.i33.i.i160.i.i ], [ %428, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i161.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i157.i.i ]
-  %435 = getelementptr inbounds i8, ptr %357, i64 32
-  %436 = getelementptr inbounds i8, ptr %357, i64 136
+  %435 = getelementptr inbounds nuw i8, ptr %357, i64 32
+  %436 = getelementptr inbounds nuw i8, ptr %357, i64 136
   store ptr %.0.i.i.i.i.i.i.i35.i.i162.i.i, ptr %436, align 8
   %437 = zext i1 %3 to i8
   store i8 %437, ptr %366, align 1
@@ -7295,33 +7295,33 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_17Quantiz
 438:                                              ; preds = %13
   %.not.i.i.i = icmp eq ptr %4, null
   %439 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #28
-  %440 = getelementptr inbounds i8, ptr %0, i64 8
+  %440 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %441 = load i64, ptr %440, align 8
   %442 = trunc i64 %441 to i32
-  %443 = getelementptr inbounds i8, ptr %0, i64 16
+  %443 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %444 = load i64, ptr %443, align 8
-  %445 = getelementptr inbounds i8, ptr %439, i64 8
+  %445 = getelementptr inbounds nuw i8, ptr %439, i64 8
   store i64 -1, ptr %445, align 8
-  %446 = getelementptr inbounds i8, ptr %439, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %439, i64 16
   store i8 0, ptr %446, align 8
-  %447 = getelementptr inbounds i8, ptr %439, i64 17
+  %447 = getelementptr inbounds nuw i8, ptr %439, i64 17
   store i8 0, ptr %447, align 1
-  %448 = getelementptr inbounds i8, ptr %439, i64 24
+  %448 = getelementptr inbounds nuw i8, ptr %439, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %448, i8 0, i64 16, i1 false)
   br i1 %.not.i.i.i, label %485, label %449
 
 449:                                              ; preds = %438
-  %450 = getelementptr inbounds i8, ptr %439, i64 40
+  %450 = getelementptr inbounds nuw i8, ptr %439, i64 40
   %sext.i.i.i.i = shl i64 %441, 32
   %451 = ashr exact i64 %sext.i.i.i.i, 32
-  %452 = getelementptr inbounds i8, ptr %439, i64 48
-  %453 = getelementptr inbounds i8, ptr %439, i64 72
-  %454 = getelementptr inbounds i8, ptr %439, i64 80
+  %452 = getelementptr inbounds nuw i8, ptr %439, i64 48
+  %453 = getelementptr inbounds nuw i8, ptr %439, i64 72
+  %454 = getelementptr inbounds nuw i8, ptr %439, i64 80
   %455 = zext i1 %5 to i8
-  %456 = getelementptr inbounds i8, ptr %439, i64 88
-  %457 = getelementptr inbounds i8, ptr %439, i64 96
-  %458 = getelementptr inbounds i8, ptr %439, i64 104
-  %459 = getelementptr inbounds i8, ptr %439, i64 112
+  %456 = getelementptr inbounds nuw i8, ptr %439, i64 88
+  %457 = getelementptr inbounds nuw i8, ptr %439, i64 96
+  %458 = getelementptr inbounds nuw i8, ptr %439, i64 104
+  %459 = getelementptr inbounds nuw i8, ptr %439, i64 112
   %460 = icmp slt i32 %442, 0
   br i1 %3, label %461, label %473
 
@@ -7356,7 +7356,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i: ; preds = %461
 .noexc8.i.i.i.i:                                  ; preds = %.noexc12.i.i.i.i.i
   store ptr %463, ptr %459, align 8
   %464 = getelementptr float, ptr %463, i64 %451
-  %465 = getelementptr inbounds i8, ptr %439, i64 128
+  %465 = getelementptr inbounds nuw i8, ptr %439, i64 128
   store ptr %464, ptr %465, align 8
   store float 0.000000e+00, ptr %463, align 4
   %466 = getelementptr i8, ptr %463, i64 4
@@ -7380,8 +7380,8 @@ common.resume.i.i.i:                              ; preds = %504, %481, %469
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i, %.noexc8.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i.i.i.i = phi ptr [ %466, %.noexc8.i.i.i.i ], [ %464, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i ]
-  %471 = getelementptr inbounds i8, ptr %439, i64 32
-  %472 = getelementptr inbounds i8, ptr %439, i64 120
+  %471 = getelementptr inbounds nuw i8, ptr %439, i64 32
+  %472 = getelementptr inbounds nuw i8, ptr %439, i64 120
   store ptr %.0.i.i.i.i.i.i.i.i.i.i, ptr %472, align 8
   store i8 1, ptr %447, align 1
   store ptr %4, ptr %448, align 8
@@ -7419,7 +7419,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i: ; preds = %47
 .noexc8.i24.i.i.i:                                ; preds = %.noexc12.i.i23.i.i.i
   store ptr %475, ptr %459, align 8
   %476 = getelementptr float, ptr %475, i64 %451
-  %477 = getelementptr inbounds i8, ptr %439, i64 128
+  %477 = getelementptr inbounds nuw i8, ptr %439, i64 128
   store ptr %476, ptr %477, align 8
   store float 0.000000e+00, ptr %475, align 4
   %478 = getelementptr i8, ptr %475, i64 4
@@ -7438,8 +7438,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i.i: ; preds = %.
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i.i, %.noexc8.i24.i.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i
   %.0.i.i.i.i.i.i.i26.i.i.i = phi ptr [ %478, %.noexc8.i24.i.i.i ], [ %476, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i.i.i ]
-  %483 = getelementptr inbounds i8, ptr %439, i64 32
-  %484 = getelementptr inbounds i8, ptr %439, i64 120
+  %483 = getelementptr inbounds nuw i8, ptr %439, i64 32
+  %484 = getelementptr inbounds nuw i8, ptr %439, i64 120
   store ptr %.0.i.i.i.i.i.i.i26.i.i.i, ptr %484, align 8
   store i8 0, ptr %447, align 1
   store ptr %4, ptr %448, align 8
@@ -7448,24 +7448,24 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
 
 485:                                              ; preds = %438
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %439, align 8
-  %486 = getelementptr inbounds i8, ptr %439, i64 40
+  %486 = getelementptr inbounds nuw i8, ptr %439, i64 40
   %sext.i29.i.i.i = shl i64 %441, 32
   %487 = ashr exact i64 %sext.i29.i.i.i, 32
-  %488 = getelementptr inbounds i8, ptr %439, i64 48
+  %488 = getelementptr inbounds nuw i8, ptr %439, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %488, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %486, align 8
-  %489 = getelementptr inbounds i8, ptr %439, i64 72
+  %489 = getelementptr inbounds nuw i8, ptr %439, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_113QuantizerFP16ILi1EEE, i64 16), ptr %489, align 8
-  %490 = getelementptr inbounds i8, ptr %439, i64 80
+  %490 = getelementptr inbounds nuw i8, ptr %439, i64 80
   store i64 %487, ptr %490, align 8
   %491 = zext i1 %5 to i8
-  %492 = getelementptr inbounds i8, ptr %439, i64 88
+  %492 = getelementptr inbounds nuw i8, ptr %439, i64 88
   store i8 %491, ptr %492, align 8
-  %493 = getelementptr inbounds i8, ptr %439, i64 96
+  %493 = getelementptr inbounds nuw i8, ptr %439, i64 96
   store ptr %2, ptr %493, align 8
-  %494 = getelementptr inbounds i8, ptr %439, i64 104
+  %494 = getelementptr inbounds nuw i8, ptr %439, i64 104
   store ptr null, ptr %494, align 8
-  %495 = getelementptr inbounds i8, ptr %439, i64 112
+  %495 = getelementptr inbounds nuw i8, ptr %439, i64 112
   %496 = icmp slt i32 %442, 0
   br i1 %496, label %.noexc.i.i36.i.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i.i
 
@@ -7489,7 +7489,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i.i: ; preds = %48
 .noexc8.i33.i.i.i:                                ; preds = %.noexc12.i.i32.i.i.i
   store ptr %498, ptr %495, align 8
   %499 = getelementptr float, ptr %498, i64 %487
-  %500 = getelementptr inbounds i8, ptr %439, i64 128
+  %500 = getelementptr inbounds nuw i8, ptr %439, i64 128
   store ptr %499, ptr %500, align 8
   store float 0.000000e+00, ptr %498, align 4
   %501 = getelementptr i8, ptr %498, i64 4
@@ -7508,8 +7508,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i.i: ; preds = %.
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i.i, %.noexc8.i33.i.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i.i
   %.0.i.i.i.i.i.i.i35.i.i.i = phi ptr [ %501, %.noexc8.i33.i.i.i ], [ %499, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i.i.i ]
-  %506 = getelementptr inbounds i8, ptr %439, i64 32
-  %507 = getelementptr inbounds i8, ptr %439, i64 120
+  %506 = getelementptr inbounds nuw i8, ptr %439, i64 32
+  %507 = getelementptr inbounds nuw i8, ptr %439, i64 120
   store ptr %.0.i.i.i.i.i.i.i35.i.i.i, ptr %507, align 8
   %508 = zext i1 %3 to i8
   store i8 %508, ptr %447, align 1
@@ -7518,33 +7518,33 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
   br label %_ZN5faiss12_GLOBAL__N_124sel1_InvertedListScannerINS0_12SimilarityL2ILi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i
 
 509:                                              ; preds = %13
-  %510 = getelementptr inbounds i8, ptr %0, i64 8
+  %510 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %511 = load i64, ptr %510, align 8
   %512 = and i64 %511, 15
   %513 = icmp eq i64 %512, 0
   %.not.i166.i.i = icmp eq ptr %4, null
   %514 = trunc i64 %511 to i32
-  %515 = getelementptr inbounds i8, ptr %0, i64 16
+  %515 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %513, label %516, label %618
 
 516:                                              ; preds = %509
   %517 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
   %518 = load i64, ptr %515, align 8
-  %519 = getelementptr inbounds i8, ptr %517, i64 8
+  %519 = getelementptr inbounds nuw i8, ptr %517, i64 8
   store i64 -1, ptr %519, align 8
-  %520 = getelementptr inbounds i8, ptr %517, i64 16
+  %520 = getelementptr inbounds nuw i8, ptr %517, i64 16
   store i8 0, ptr %520, align 8
-  %521 = getelementptr inbounds i8, ptr %517, i64 17
+  %521 = getelementptr inbounds nuw i8, ptr %517, i64 17
   store i8 0, ptr %521, align 1
-  %522 = getelementptr inbounds i8, ptr %517, i64 24
+  %522 = getelementptr inbounds nuw i8, ptr %517, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %522, i8 0, i64 16, i1 false)
   br i1 %.not.i166.i.i, label %584, label %523
 
 523:                                              ; preds = %516
-  %524 = getelementptr inbounds i8, ptr %517, i64 40
-  %525 = getelementptr inbounds i8, ptr %517, i64 48
-  %526 = getelementptr inbounds i8, ptr %517, i64 72
-  %527 = getelementptr inbounds i8, ptr %517, i64 80
+  %524 = getelementptr inbounds nuw i8, ptr %517, i64 40
+  %525 = getelementptr inbounds nuw i8, ptr %517, i64 48
+  %526 = getelementptr inbounds nuw i8, ptr %517, i64 72
+  %527 = getelementptr inbounds nuw i8, ptr %517, i64 80
   %sext.i.i167.i.i = shl i64 %511, 32
   %528 = ashr exact i64 %sext.i.i167.i.i, 32
   %529 = icmp slt i32 %514, 0
@@ -7576,20 +7576,20 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i: ; preds = %53
 .noexc8.i.i172.i.i:                               ; preds = %.noexc4.i.i.i.i.i.i
   store ptr %531, ptr %527, align 8
   %532 = getelementptr i8, ptr %531, i64 %528
-  %533 = getelementptr inbounds i8, ptr %517, i64 96
+  %533 = getelementptr inbounds nuw i8, ptr %517, i64 96
   store ptr %532, ptr %533, align 8
   store i8 0, ptr %531, align 1
-  %534 = getelementptr inbounds i8, ptr %531, i64 1
+  %534 = getelementptr inbounds nuw i8, ptr %531, i64 1
   %535 = add nsw i64 %528, -1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %534, i8 0, i64 %535, i1 false)
-  %536 = getelementptr inbounds i8, ptr %517, i64 120
+  %536 = getelementptr inbounds nuw i8, ptr %517, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %536, i8 0, i64 32, i1 false)
   %.sink.i.i.i.i = zext i1 %5 to i8
-  %537 = getelementptr inbounds i8, ptr %517, i64 88
+  %537 = getelementptr inbounds nuw i8, ptr %517, i64 88
   store ptr %532, ptr %537, align 8
-  %538 = getelementptr inbounds i8, ptr %517, i64 104
+  %538 = getelementptr inbounds nuw i8, ptr %517, i64 104
   store i8 %.sink.i.i.i.i, ptr %538, align 8
-  %539 = getelementptr inbounds i8, ptr %517, i64 112
+  %539 = getelementptr inbounds nuw i8, ptr %517, i64 112
   store ptr %2, ptr %539, align 8
   %540 = lshr exact i64 %sext.i.i167.i.i, 30
   %541 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %540) #28
@@ -7597,19 +7597,19 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i: ; preds = %53
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i.i
   %542 = zext i1 %5 to i8
-  %543 = getelementptr inbounds i8, ptr %517, i64 104
+  %543 = getelementptr inbounds nuw i8, ptr %517, i64 104
   store i8 %542, ptr %543, align 8
-  %544 = getelementptr inbounds i8, ptr %517, i64 112
+  %544 = getelementptr inbounds nuw i8, ptr %517, i64 112
   store ptr %2, ptr %544, align 8
-  %545 = getelementptr inbounds i8, ptr %517, i64 120
+  %545 = getelementptr inbounds nuw i8, ptr %517, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %545, i8 0, i64 32, i1 false)
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 .noexc14.i.i.i.i.i:                               ; preds = %.noexc8.i.i172.i.i
-  %546 = getelementptr inbounds i8, ptr %517, i64 128
+  %546 = getelementptr inbounds nuw i8, ptr %517, i64 128
   store ptr %541, ptr %546, align 8
   %547 = getelementptr float, ptr %541, i64 %528
-  %548 = getelementptr inbounds i8, ptr %517, i64 144
+  %548 = getelementptr inbounds nuw i8, ptr %517, i64 144
   store ptr %547, ptr %548, align 8
   store float 0.000000e+00, ptr %541, align 4
   %549 = getelementptr i8, ptr %541, i64 4
@@ -7640,8 +7640,8 @@ common.resume.i168.i.i:                           ; preds = %613, %_ZN5faiss12_G
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i174.i.i, %.noexc14.i.i.i.i.i, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i.i175.i.i = phi ptr [ %549, %.noexc14.i.i.i.i.i ], [ %547, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i174.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i.i.i.i ]
-  %555 = getelementptr inbounds i8, ptr %517, i64 32
-  %556 = getelementptr inbounds i8, ptr %517, i64 136
+  %555 = getelementptr inbounds nuw i8, ptr %517, i64 32
+  %556 = getelementptr inbounds nuw i8, ptr %517, i64 136
   store ptr %.0.i.i.i.i.i.i.i.i175.i.i, ptr %556, align 8
   store i8 1, ptr %521, align 1
   store ptr %4, ptr %522, align 8
@@ -7674,20 +7674,20 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i21.i.i.i: ; preds = %
 .noexc8.i26.i.i.i:                                ; preds = %.noexc4.i.i.i23.i.i.i
   store ptr %558, ptr %527, align 8
   %559 = getelementptr i8, ptr %558, i64 %528
-  %560 = getelementptr inbounds i8, ptr %517, i64 96
+  %560 = getelementptr inbounds nuw i8, ptr %517, i64 96
   store ptr %559, ptr %560, align 8
   store i8 0, ptr %558, align 1
-  %561 = getelementptr inbounds i8, ptr %558, i64 1
+  %561 = getelementptr inbounds nuw i8, ptr %558, i64 1
   %562 = add nsw i64 %528, -1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %561, i8 0, i64 %562, i1 false)
-  %563 = getelementptr inbounds i8, ptr %517, i64 120
+  %563 = getelementptr inbounds nuw i8, ptr %517, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %563, i8 0, i64 32, i1 false)
   %.sink.i30.i.i.i = zext i1 %5 to i8
-  %564 = getelementptr inbounds i8, ptr %517, i64 88
+  %564 = getelementptr inbounds nuw i8, ptr %517, i64 88
   store ptr %559, ptr %564, align 8
-  %565 = getelementptr inbounds i8, ptr %517, i64 104
+  %565 = getelementptr inbounds nuw i8, ptr %517, i64 104
   store i8 %.sink.i30.i.i.i, ptr %565, align 8
-  %566 = getelementptr inbounds i8, ptr %517, i64 112
+  %566 = getelementptr inbounds nuw i8, ptr %517, i64 112
   store ptr %2, ptr %566, align 8
   %567 = lshr exact i64 %sext.i.i167.i.i, 30
   %568 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %567) #28
@@ -7695,19 +7695,19 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i21.i.i.i: ; preds = %
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i35.i.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i21.i.i.i
   %569 = zext i1 %5 to i8
-  %570 = getelementptr inbounds i8, ptr %517, i64 104
+  %570 = getelementptr inbounds nuw i8, ptr %517, i64 104
   store i8 %569, ptr %570, align 8
-  %571 = getelementptr inbounds i8, ptr %517, i64 112
+  %571 = getelementptr inbounds nuw i8, ptr %517, i64 112
   store ptr %2, ptr %571, align 8
-  %572 = getelementptr inbounds i8, ptr %517, i64 120
+  %572 = getelementptr inbounds nuw i8, ptr %517, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %572, i8 0, i64 32, i1 false)
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 .noexc14.i.i32.i.i.i:                             ; preds = %.noexc8.i26.i.i.i
-  %573 = getelementptr inbounds i8, ptr %517, i64 128
+  %573 = getelementptr inbounds nuw i8, ptr %517, i64 128
   store ptr %568, ptr %573, align 8
   %574 = getelementptr float, ptr %568, i64 %528
-  %575 = getelementptr inbounds i8, ptr %517, i64 144
+  %575 = getelementptr inbounds nuw i8, ptr %517, i64 144
   store ptr %574, ptr %575, align 8
   store float 0.000000e+00, ptr %568, align 4
   %576 = getelementptr i8, ptr %568, i64 4
@@ -7733,8 +7733,8 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i33.i.i.i, %.noexc14.i.i32.i.i.i, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i35.i.i.i
   %.0.i.i.i.i.i.i.i34.i.i.i = phi ptr [ %576, %.noexc14.i.i32.i.i.i ], [ %574, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i33.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i35.i.i.i ]
-  %582 = getelementptr inbounds i8, ptr %517, i64 32
-  %583 = getelementptr inbounds i8, ptr %517, i64 136
+  %582 = getelementptr inbounds nuw i8, ptr %517, i64 32
+  %583 = getelementptr inbounds nuw i8, ptr %517, i64 136
   store ptr %.0.i.i.i.i.i.i.i34.i.i.i, ptr %583, align 8
   store i8 0, ptr %521, align 1
   store ptr %4, ptr %522, align 8
@@ -7743,13 +7743,13 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0
 
 584:                                              ; preds = %516
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %517, align 8
-  %585 = getelementptr inbounds i8, ptr %517, i64 40
-  %586 = getelementptr inbounds i8, ptr %517, i64 48
+  %585 = getelementptr inbounds nuw i8, ptr %517, i64 40
+  %586 = getelementptr inbounds nuw i8, ptr %517, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %586, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %585, align 8
-  %587 = getelementptr inbounds i8, ptr %517, i64 72
+  %587 = getelementptr inbounds nuw i8, ptr %517, i64 72
   store i32 %514, ptr %587, align 8
-  %588 = getelementptr inbounds i8, ptr %517, i64 80
+  %588 = getelementptr inbounds nuw i8, ptr %517, i64 80
   %sext.i38.i.i.i = shl i64 %511, 32
   %589 = ashr exact i64 %sext.i38.i.i.i, 32
   %590 = icmp slt i32 %514, 0
@@ -7774,20 +7774,20 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i39.i.i.i: ; preds = %
 .noexc8.i44.i.i.i:                                ; preds = %.noexc4.i.i.i41.i.i.i
   store ptr %591, ptr %588, align 8
   %592 = getelementptr i8, ptr %591, i64 %589
-  %593 = getelementptr inbounds i8, ptr %517, i64 96
+  %593 = getelementptr inbounds nuw i8, ptr %517, i64 96
   store ptr %592, ptr %593, align 8
   store i8 0, ptr %591, align 1
-  %594 = getelementptr inbounds i8, ptr %591, i64 1
+  %594 = getelementptr inbounds nuw i8, ptr %591, i64 1
   %595 = add nsw i64 %589, -1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %594, i8 0, i64 %595, i1 false)
-  %596 = getelementptr inbounds i8, ptr %517, i64 120
+  %596 = getelementptr inbounds nuw i8, ptr %517, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %596, i8 0, i64 32, i1 false)
   %.sink.i47.i.i.i = zext i1 %5 to i8
-  %597 = getelementptr inbounds i8, ptr %517, i64 88
+  %597 = getelementptr inbounds nuw i8, ptr %517, i64 88
   store ptr %592, ptr %597, align 8
-  %598 = getelementptr inbounds i8, ptr %517, i64 104
+  %598 = getelementptr inbounds nuw i8, ptr %517, i64 104
   store i8 %.sink.i47.i.i.i, ptr %598, align 8
-  %599 = getelementptr inbounds i8, ptr %517, i64 112
+  %599 = getelementptr inbounds nuw i8, ptr %517, i64 112
   store ptr %2, ptr %599, align 8
   %600 = lshr exact i64 %sext.i38.i.i.i, 30
   %601 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %600) #28
@@ -7795,19 +7795,19 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i39.i.i.i: ; preds = %
 
 _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i52.i.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i39.i.i.i
   %602 = zext i1 %5 to i8
-  %603 = getelementptr inbounds i8, ptr %517, i64 104
+  %603 = getelementptr inbounds nuw i8, ptr %517, i64 104
   store i8 %602, ptr %603, align 8
-  %604 = getelementptr inbounds i8, ptr %517, i64 112
+  %604 = getelementptr inbounds nuw i8, ptr %517, i64 112
   store ptr %2, ptr %604, align 8
-  %605 = getelementptr inbounds i8, ptr %517, i64 120
+  %605 = getelementptr inbounds nuw i8, ptr %517, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %605, i8 0, i64 32, i1 false)
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
 
 .noexc14.i.i49.i.i.i:                             ; preds = %.noexc8.i44.i.i.i
-  %606 = getelementptr inbounds i8, ptr %517, i64 128
+  %606 = getelementptr inbounds nuw i8, ptr %517, i64 128
   store ptr %601, ptr %606, align 8
   %607 = getelementptr float, ptr %601, i64 %589
-  %608 = getelementptr inbounds i8, ptr %517, i64 144
+  %608 = getelementptr inbounds nuw i8, ptr %517, i64 144
   store ptr %607, ptr %608, align 8
   store float 0.000000e+00, ptr %601, align 4
   %609 = getelementptr i8, ptr %601, i64 4
@@ -7833,8 +7833,8 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i50.i.i.i, %.noexc14.i.i49.i.i.i, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i52.i.i.i
   %.0.i.i.i.i.i.i.i51.i.i.i = phi ptr [ %609, %.noexc14.i.i49.i.i.i ], [ %607, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i50.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i.i.i52.i.i.i ]
-  %615 = getelementptr inbounds i8, ptr %517, i64 32
-  %616 = getelementptr inbounds i8, ptr %517, i64 136
+  %615 = getelementptr inbounds nuw i8, ptr %517, i64 32
+  %616 = getelementptr inbounds nuw i8, ptr %517, i64 136
   store ptr %.0.i.i.i.i.i.i.i51.i.i.i, ptr %616, align 8
   %617 = zext i1 %3 to i8
   store i8 %617, ptr %521, align 1
@@ -7845,28 +7845,28 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0
 618:                                              ; preds = %509
   %619 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #28
   %620 = load i64, ptr %515, align 8
-  %621 = getelementptr inbounds i8, ptr %619, i64 8
+  %621 = getelementptr inbounds nuw i8, ptr %619, i64 8
   store i64 -1, ptr %621, align 8
-  %622 = getelementptr inbounds i8, ptr %619, i64 16
+  %622 = getelementptr inbounds nuw i8, ptr %619, i64 16
   store i8 0, ptr %622, align 8
-  %623 = getelementptr inbounds i8, ptr %619, i64 17
+  %623 = getelementptr inbounds nuw i8, ptr %619, i64 17
   store i8 0, ptr %623, align 1
-  %624 = getelementptr inbounds i8, ptr %619, i64 24
+  %624 = getelementptr inbounds nuw i8, ptr %619, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %624, i8 0, i64 16, i1 false)
   br i1 %.not.i166.i.i, label %661, label %625
 
 625:                                              ; preds = %618
-  %626 = getelementptr inbounds i8, ptr %619, i64 40
+  %626 = getelementptr inbounds nuw i8, ptr %619, i64 40
   %sext.i.i179.i.i = shl i64 %511, 32
   %627 = ashr exact i64 %sext.i.i179.i.i, 32
-  %628 = getelementptr inbounds i8, ptr %619, i64 48
-  %629 = getelementptr inbounds i8, ptr %619, i64 72
-  %630 = getelementptr inbounds i8, ptr %619, i64 80
+  %628 = getelementptr inbounds nuw i8, ptr %619, i64 48
+  %629 = getelementptr inbounds nuw i8, ptr %619, i64 72
+  %630 = getelementptr inbounds nuw i8, ptr %619, i64 80
   %631 = zext i1 %5 to i8
-  %632 = getelementptr inbounds i8, ptr %619, i64 88
-  %633 = getelementptr inbounds i8, ptr %619, i64 96
-  %634 = getelementptr inbounds i8, ptr %619, i64 104
-  %635 = getelementptr inbounds i8, ptr %619, i64 112
+  %632 = getelementptr inbounds nuw i8, ptr %619, i64 88
+  %633 = getelementptr inbounds nuw i8, ptr %619, i64 96
+  %634 = getelementptr inbounds nuw i8, ptr %619, i64 104
+  %635 = getelementptr inbounds nuw i8, ptr %619, i64 112
   %636 = icmp slt i32 %514, 0
   br i1 %3, label %637, label %649
 
@@ -7901,7 +7901,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i190.i.i: ; preds = %6
 .noexc8.i.i193.i.i:                               ; preds = %.noexc12.i.i.i192.i.i
   store ptr %639, ptr %635, align 8
   %640 = getelementptr float, ptr %639, i64 %627
-  %641 = getelementptr inbounds i8, ptr %619, i64 128
+  %641 = getelementptr inbounds nuw i8, ptr %619, i64 128
   store ptr %640, ptr %641, align 8
   store float 0.000000e+00, ptr %639, align 4
   %642 = getelementptr i8, ptr %639, i64 4
@@ -7925,8 +7925,8 @@ common.resume.i183.i.i:                           ; preds = %680, %657, %645
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i194.i.i, %.noexc8.i.i193.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i190.i.i
   %.0.i.i.i.i.i.i.i.i195.i.i = phi ptr [ %642, %.noexc8.i.i193.i.i ], [ %640, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i194.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i190.i.i ]
-  %647 = getelementptr inbounds i8, ptr %619, i64 32
-  %648 = getelementptr inbounds i8, ptr %619, i64 120
+  %647 = getelementptr inbounds nuw i8, ptr %619, i64 32
+  %648 = getelementptr inbounds nuw i8, ptr %619, i64 120
   store ptr %.0.i.i.i.i.i.i.i.i195.i.i, ptr %648, align 8
   store i8 1, ptr %623, align 1
   store ptr %4, ptr %624, align 8
@@ -7964,7 +7964,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i180.i.i: ; preds = 
 .noexc8.i24.i185.i.i:                             ; preds = %.noexc12.i.i23.i182.i.i
   store ptr %651, ptr %635, align 8
   %652 = getelementptr float, ptr %651, i64 %627
-  %653 = getelementptr inbounds i8, ptr %619, i64 128
+  %653 = getelementptr inbounds nuw i8, ptr %619, i64 128
   store ptr %652, ptr %653, align 8
   store float 0.000000e+00, ptr %651, align 4
   %654 = getelementptr i8, ptr %651, i64 4
@@ -7983,8 +7983,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i186.i.i: ; preds =
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i186.i.i, %.noexc8.i24.i185.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i180.i.i
   %.0.i.i.i.i.i.i.i26.i187.i.i = phi ptr [ %654, %.noexc8.i24.i185.i.i ], [ %652, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i25.i186.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i21.i180.i.i ]
-  %659 = getelementptr inbounds i8, ptr %619, i64 32
-  %660 = getelementptr inbounds i8, ptr %619, i64 120
+  %659 = getelementptr inbounds nuw i8, ptr %619, i64 32
+  %660 = getelementptr inbounds nuw i8, ptr %619, i64 120
   store ptr %.0.i.i.i.i.i.i.i26.i187.i.i, ptr %660, align 8
   store i8 0, ptr %623, align 1
   store ptr %4, ptr %624, align 8
@@ -7993,24 +7993,24 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantiz
 
 661:                                              ; preds = %618
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %619, align 8
-  %662 = getelementptr inbounds i8, ptr %619, i64 40
+  %662 = getelementptr inbounds nuw i8, ptr %619, i64 40
   %sext.i29.i198.i.i = shl i64 %511, 32
   %663 = ashr exact i64 %sext.i29.i198.i.i, 32
-  %664 = getelementptr inbounds i8, ptr %619, i64 48
+  %664 = getelementptr inbounds nuw i8, ptr %619, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %664, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %662, align 8
-  %665 = getelementptr inbounds i8, ptr %619, i64 72
+  %665 = getelementptr inbounds nuw i8, ptr %619, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EEE, i64 16), ptr %665, align 8
-  %666 = getelementptr inbounds i8, ptr %619, i64 80
+  %666 = getelementptr inbounds nuw i8, ptr %619, i64 80
   store i64 %663, ptr %666, align 8
   %667 = zext i1 %5 to i8
-  %668 = getelementptr inbounds i8, ptr %619, i64 88
+  %668 = getelementptr inbounds nuw i8, ptr %619, i64 88
   store i8 %667, ptr %668, align 8
-  %669 = getelementptr inbounds i8, ptr %619, i64 96
+  %669 = getelementptr inbounds nuw i8, ptr %619, i64 96
   store ptr %2, ptr %669, align 8
-  %670 = getelementptr inbounds i8, ptr %619, i64 104
+  %670 = getelementptr inbounds nuw i8, ptr %619, i64 104
   store ptr null, ptr %670, align 8
-  %671 = getelementptr inbounds i8, ptr %619, i64 112
+  %671 = getelementptr inbounds nuw i8, ptr %619, i64 112
   %672 = icmp slt i32 %514, 0
   br i1 %672, label %.noexc.i.i36.i205.i.i, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i199.i.i
 
@@ -8034,7 +8034,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i199.i.i: ; preds = 
 .noexc8.i33.i202.i.i:                             ; preds = %.noexc12.i.i32.i201.i.i
   store ptr %674, ptr %671, align 8
   %675 = getelementptr float, ptr %674, i64 %663
-  %676 = getelementptr inbounds i8, ptr %619, i64 128
+  %676 = getelementptr inbounds nuw i8, ptr %619, i64 128
   store ptr %675, ptr %676, align 8
   store float 0.000000e+00, ptr %674, align 4
   %677 = getelementptr i8, ptr %674, i64 4
@@ -8053,8 +8053,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i203.i.i: ; preds =
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i203.i.i, %.noexc8.i33.i202.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i199.i.i
   %.0.i.i.i.i.i.i.i35.i204.i.i = phi ptr [ %677, %.noexc8.i33.i202.i.i ], [ %675, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i34.i203.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i30.i199.i.i ]
-  %682 = getelementptr inbounds i8, ptr %619, i64 32
-  %683 = getelementptr inbounds i8, ptr %619, i64 120
+  %682 = getelementptr inbounds nuw i8, ptr %619, i64 32
+  %683 = getelementptr inbounds nuw i8, ptr %619, i64 120
   store ptr %.0.i.i.i.i.i.i.i35.i204.i.i, ptr %683, align 8
   %684 = zext i1 %3 to i8
   store i8 %684, ptr %623, align 1
@@ -8107,7 +8107,7 @@ _ZN5faiss12_GLOBAL__N_124sel1_InvertedListScannerINS0_12SimilarityL2ILi1EEEEEPNS
 694:                                              ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  %695 = getelementptr inbounds i8, ptr %0, i64 24
+  %695 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %696 = load i32, ptr %695, align 8
   switch i32 %696, label %1053 [
     i32 2, label %697
@@ -8122,27 +8122,27 @@ _ZN5faiss12_GLOBAL__N_124sel1_InvertedListScannerINS0_12SimilarityL2ILi1EEEEEPNS
 697:                                              ; preds = %694
   %.not.i.i.i38.i = icmp eq ptr %4, null
   %698 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #28
-  %699 = getelementptr inbounds i8, ptr %0, i64 8
+  %699 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %700 = load i64, ptr %699, align 8
-  %701 = getelementptr inbounds i8, ptr %0, i64 48
-  %702 = getelementptr inbounds i8, ptr %0, i64 16
+  %701 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %702 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %703 = load i64, ptr %702, align 8
-  %704 = getelementptr inbounds i8, ptr %698, i64 8
+  %704 = getelementptr inbounds nuw i8, ptr %698, i64 8
   store i64 -1, ptr %704, align 8
   br i1 %.not.i.i.i38.i, label %726, label %705
 
 705:                                              ; preds = %697
-  %706 = getelementptr inbounds i8, ptr %698, i64 40
+  %706 = getelementptr inbounds nuw i8, ptr %698, i64 40
   %sext.i.i.i.i39.i = shl i64 %700, 32
   %707 = ashr exact i64 %sext.i.i.i.i39.i, 32
-  %708 = getelementptr inbounds i8, ptr %698, i64 48
-  %709 = getelementptr inbounds i8, ptr %698, i64 72
-  %710 = getelementptr inbounds i8, ptr %698, i64 80
-  %711 = getelementptr inbounds i8, ptr %698, i64 88
-  %712 = getelementptr inbounds i8, ptr %698, i64 92
+  %708 = getelementptr inbounds nuw i8, ptr %698, i64 48
+  %709 = getelementptr inbounds nuw i8, ptr %698, i64 72
+  %710 = getelementptr inbounds nuw i8, ptr %698, i64 80
+  %711 = getelementptr inbounds nuw i8, ptr %698, i64 88
+  %712 = getelementptr inbounds nuw i8, ptr %698, i64 92
   %713 = zext i1 %5 to i8
-  %714 = getelementptr inbounds i8, ptr %698, i64 96
-  %715 = getelementptr inbounds i8, ptr %698, i64 100
+  %714 = getelementptr inbounds nuw i8, ptr %698, i64 96
+  %715 = getelementptr inbounds nuw i8, ptr %698, i64 100
   br i1 %3, label %716, label %721
 
 716:                                              ; preds = %705
@@ -8154,7 +8154,7 @@ _ZN5faiss12_GLOBAL__N_124sel1_InvertedListScannerINS0_12SimilarityL2ILi1EEEEEPNS
   %717 = load ptr, ptr %701, align 8
   %718 = load float, ptr %717, align 4
   store float %718, ptr %711, align 8
-  %719 = getelementptr inbounds i8, ptr %717, i64 4
+  %719 = getelementptr inbounds nuw i8, ptr %717, i64 4
   %720 = load float, ptr %719, align 4
   store float %720, ptr %712, align 4
   store i8 %713, ptr %714, align 8
@@ -8170,7 +8170,7 @@ _ZN5faiss12_GLOBAL__N_124sel1_InvertedListScannerINS0_12SimilarityL2ILi1EEEEEPNS
   %722 = load ptr, ptr %701, align 8
   %723 = load float, ptr %722, align 4
   store float %723, ptr %711, align 8
-  %724 = getelementptr inbounds i8, ptr %722, i64 4
+  %724 = getelementptr inbounds nuw i8, ptr %722, i64 4
   %725 = load float, ptr %724, align 4
   store float %725, ptr %712, align 4
   store i8 %713, ptr %714, align 8
@@ -8179,38 +8179,38 @@ _ZN5faiss12_GLOBAL__N_124sel1_InvertedListScannerINS0_12SimilarityL2ILi1EEEEEPNS
 
 726:                                              ; preds = %697
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EEE, i64 16), ptr %698, align 8
-  %727 = getelementptr inbounds i8, ptr %698, i64 40
+  %727 = getelementptr inbounds nuw i8, ptr %698, i64 40
   %sext.i21.i.i.i.i = shl i64 %700, 32
   %728 = ashr exact i64 %sext.i21.i.i.i.i, 32
-  %729 = getelementptr inbounds i8, ptr %698, i64 48
+  %729 = getelementptr inbounds nuw i8, ptr %698, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %729, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %727, align 8
-  %730 = getelementptr inbounds i8, ptr %698, i64 72
+  %730 = getelementptr inbounds nuw i8, ptr %698, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb1ELi1EEE, i64 16), ptr %730, align 8
-  %731 = getelementptr inbounds i8, ptr %698, i64 80
+  %731 = getelementptr inbounds nuw i8, ptr %698, i64 80
   store i64 %728, ptr %731, align 8
-  %732 = getelementptr inbounds i8, ptr %698, i64 88
+  %732 = getelementptr inbounds nuw i8, ptr %698, i64 88
   %733 = load ptr, ptr %701, align 8
   %734 = load float, ptr %733, align 4
   store float %734, ptr %732, align 8
-  %735 = getelementptr inbounds i8, ptr %698, i64 92
-  %736 = getelementptr inbounds i8, ptr %733, i64 4
+  %735 = getelementptr inbounds nuw i8, ptr %698, i64 92
+  %736 = getelementptr inbounds nuw i8, ptr %733, i64 4
   %737 = load float, ptr %736, align 4
   store float %737, ptr %735, align 4
   %738 = zext i1 %5 to i8
   %739 = zext i1 %3 to i8
-  %740 = getelementptr inbounds i8, ptr %698, i64 96
+  %740 = getelementptr inbounds nuw i8, ptr %698, i64 96
   store i8 %738, ptr %740, align 8
-  %741 = getelementptr inbounds i8, ptr %698, i64 100
+  %741 = getelementptr inbounds nuw i8, ptr %698, i64 100
   store float 0.000000e+00, ptr %741, align 4
   br label %_ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_9Codec8bitELb1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i
 
 _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_9Codec8bitELb1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i: ; preds = %726, %721, %716
   %.sink1.i.i.i.i = phi i8 [ %739, %726 ], [ 0, %721 ], [ 1, %716 ]
-  %742 = getelementptr inbounds i8, ptr %698, i64 32
-  %743 = getelementptr inbounds i8, ptr %698, i64 24
-  %744 = getelementptr inbounds i8, ptr %698, i64 17
-  %745 = getelementptr inbounds i8, ptr %698, i64 16
+  %742 = getelementptr inbounds nuw i8, ptr %698, i64 32
+  %743 = getelementptr inbounds nuw i8, ptr %698, i64 24
+  %744 = getelementptr inbounds nuw i8, ptr %698, i64 17
+  %745 = getelementptr inbounds nuw i8, ptr %698, i64 16
   store i8 %.sink1.i.i.i.i, ptr %744, align 1
   store ptr %4, ptr %743, align 8
   store i64 %703, ptr %742, align 8
@@ -8220,27 +8220,27 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 746:                                              ; preds = %694
   %.not.i.i49.i36.i = icmp eq ptr %4, null
   %747 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #28
-  %748 = getelementptr inbounds i8, ptr %0, i64 8
+  %748 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %749 = load i64, ptr %748, align 8
-  %750 = getelementptr inbounds i8, ptr %0, i64 48
-  %751 = getelementptr inbounds i8, ptr %0, i64 16
+  %750 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %751 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %752 = load i64, ptr %751, align 8
-  %753 = getelementptr inbounds i8, ptr %747, i64 8
+  %753 = getelementptr inbounds nuw i8, ptr %747, i64 8
   store i64 -1, ptr %753, align 8
   br i1 %.not.i.i49.i36.i, label %775, label %754
 
 754:                                              ; preds = %746
-  %755 = getelementptr inbounds i8, ptr %747, i64 40
+  %755 = getelementptr inbounds nuw i8, ptr %747, i64 40
   %sext.i.i.i50.i37.i = shl i64 %749, 32
   %756 = ashr exact i64 %sext.i.i.i50.i37.i, 32
-  %757 = getelementptr inbounds i8, ptr %747, i64 48
-  %758 = getelementptr inbounds i8, ptr %747, i64 72
-  %759 = getelementptr inbounds i8, ptr %747, i64 80
-  %760 = getelementptr inbounds i8, ptr %747, i64 88
-  %761 = getelementptr inbounds i8, ptr %747, i64 92
+  %757 = getelementptr inbounds nuw i8, ptr %747, i64 48
+  %758 = getelementptr inbounds nuw i8, ptr %747, i64 72
+  %759 = getelementptr inbounds nuw i8, ptr %747, i64 80
+  %760 = getelementptr inbounds nuw i8, ptr %747, i64 88
+  %761 = getelementptr inbounds nuw i8, ptr %747, i64 92
   %762 = zext i1 %5 to i8
-  %763 = getelementptr inbounds i8, ptr %747, i64 96
-  %764 = getelementptr inbounds i8, ptr %747, i64 100
+  %763 = getelementptr inbounds nuw i8, ptr %747, i64 96
+  %764 = getelementptr inbounds nuw i8, ptr %747, i64 100
   br i1 %3, label %765, label %770
 
 765:                                              ; preds = %754
@@ -8252,7 +8252,7 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
   %766 = load ptr, ptr %750, align 8
   %767 = load float, ptr %766, align 4
   store float %767, ptr %760, align 8
-  %768 = getelementptr inbounds i8, ptr %766, i64 4
+  %768 = getelementptr inbounds nuw i8, ptr %766, i64 4
   %769 = load float, ptr %768, align 4
   store float %769, ptr %761, align 4
   store i8 %762, ptr %763, align 8
@@ -8268,7 +8268,7 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
   %771 = load ptr, ptr %750, align 8
   %772 = load float, ptr %771, align 4
   store float %772, ptr %760, align 8
-  %773 = getelementptr inbounds i8, ptr %771, i64 4
+  %773 = getelementptr inbounds nuw i8, ptr %771, i64 4
   %774 = load float, ptr %773, align 4
   store float %774, ptr %761, align 4
   store i8 %762, ptr %763, align 8
@@ -8277,38 +8277,38 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 
 775:                                              ; preds = %746
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EEE, i64 16), ptr %747, align 8
-  %776 = getelementptr inbounds i8, ptr %747, i64 40
+  %776 = getelementptr inbounds nuw i8, ptr %747, i64 40
   %sext.i21.i.i52.i.i = shl i64 %749, 32
   %777 = ashr exact i64 %sext.i21.i.i52.i.i, 32
-  %778 = getelementptr inbounds i8, ptr %747, i64 48
+  %778 = getelementptr inbounds nuw i8, ptr %747, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %778, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %776, align 8
-  %779 = getelementptr inbounds i8, ptr %747, i64 72
+  %779 = getelementptr inbounds nuw i8, ptr %747, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb1ELi1EEE, i64 16), ptr %779, align 8
-  %780 = getelementptr inbounds i8, ptr %747, i64 80
+  %780 = getelementptr inbounds nuw i8, ptr %747, i64 80
   store i64 %777, ptr %780, align 8
-  %781 = getelementptr inbounds i8, ptr %747, i64 88
+  %781 = getelementptr inbounds nuw i8, ptr %747, i64 88
   %782 = load ptr, ptr %750, align 8
   %783 = load float, ptr %782, align 4
   store float %783, ptr %781, align 8
-  %784 = getelementptr inbounds i8, ptr %747, i64 92
-  %785 = getelementptr inbounds i8, ptr %782, i64 4
+  %784 = getelementptr inbounds nuw i8, ptr %747, i64 92
+  %785 = getelementptr inbounds nuw i8, ptr %782, i64 4
   %786 = load float, ptr %785, align 4
   store float %786, ptr %784, align 4
   %787 = zext i1 %5 to i8
   %788 = zext i1 %3 to i8
-  %789 = getelementptr inbounds i8, ptr %747, i64 96
+  %789 = getelementptr inbounds nuw i8, ptr %747, i64 96
   store i8 %787, ptr %789, align 8
-  %790 = getelementptr inbounds i8, ptr %747, i64 100
+  %790 = getelementptr inbounds nuw i8, ptr %747, i64 100
   store float 0.000000e+00, ptr %790, align 4
   br label %_ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_9Codec4bitELb1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i
 
 _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_9Codec4bitELb1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i: ; preds = %775, %770, %765
   %.sink1.i.i51.i.i = phi i8 [ %788, %775 ], [ 0, %770 ], [ 1, %765 ]
-  %791 = getelementptr inbounds i8, ptr %747, i64 32
-  %792 = getelementptr inbounds i8, ptr %747, i64 24
-  %793 = getelementptr inbounds i8, ptr %747, i64 17
-  %794 = getelementptr inbounds i8, ptr %747, i64 16
+  %791 = getelementptr inbounds nuw i8, ptr %747, i64 32
+  %792 = getelementptr inbounds nuw i8, ptr %747, i64 24
+  %793 = getelementptr inbounds nuw i8, ptr %747, i64 17
+  %794 = getelementptr inbounds nuw i8, ptr %747, i64 16
   store i8 %.sink1.i.i51.i.i, ptr %793, align 1
   store ptr %4, ptr %792, align 8
   store i64 %752, ptr %791, align 8
@@ -8318,27 +8318,27 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 795:                                              ; preds = %694
   %.not.i.i53.i.i = icmp eq ptr %4, null
   %796 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #28
-  %797 = getelementptr inbounds i8, ptr %0, i64 8
+  %797 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %798 = load i64, ptr %797, align 8
-  %799 = getelementptr inbounds i8, ptr %0, i64 48
-  %800 = getelementptr inbounds i8, ptr %0, i64 16
+  %799 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %800 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %801 = load i64, ptr %800, align 8
-  %802 = getelementptr inbounds i8, ptr %796, i64 8
+  %802 = getelementptr inbounds nuw i8, ptr %796, i64 8
   store i64 -1, ptr %802, align 8
   br i1 %.not.i.i53.i.i, label %820, label %803
 
 803:                                              ; preds = %795
-  %804 = getelementptr inbounds i8, ptr %796, i64 40
+  %804 = getelementptr inbounds nuw i8, ptr %796, i64 40
   %sext.i.i.i54.i.i = shl i64 %798, 32
   %805 = ashr exact i64 %sext.i.i.i54.i.i, 32
-  %806 = getelementptr inbounds i8, ptr %796, i64 48
-  %807 = getelementptr inbounds i8, ptr %796, i64 72
-  %808 = getelementptr inbounds i8, ptr %796, i64 80
-  %809 = getelementptr inbounds i8, ptr %796, i64 88
-  %810 = getelementptr inbounds i8, ptr %796, i64 96
+  %806 = getelementptr inbounds nuw i8, ptr %796, i64 48
+  %807 = getelementptr inbounds nuw i8, ptr %796, i64 72
+  %808 = getelementptr inbounds nuw i8, ptr %796, i64 80
+  %809 = getelementptr inbounds nuw i8, ptr %796, i64 88
+  %810 = getelementptr inbounds nuw i8, ptr %796, i64 96
   %811 = zext i1 %5 to i8
-  %812 = getelementptr inbounds i8, ptr %796, i64 104
-  %813 = getelementptr inbounds i8, ptr %796, i64 108
+  %812 = getelementptr inbounds nuw i8, ptr %796, i64 104
+  %813 = getelementptr inbounds nuw i8, ptr %796, i64 108
   br i1 %3, label %814, label %817
 
 814:                                              ; preds = %803
@@ -8371,36 +8371,36 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 
 820:                                              ; preds = %795
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EEE, i64 16), ptr %796, align 8
-  %821 = getelementptr inbounds i8, ptr %796, i64 40
+  %821 = getelementptr inbounds nuw i8, ptr %796, i64 40
   %sext.i21.i.i56.i.i = shl i64 %798, 32
   %822 = ashr exact i64 %sext.i21.i.i56.i.i, 32
-  %823 = getelementptr inbounds i8, ptr %796, i64 48
+  %823 = getelementptr inbounds nuw i8, ptr %796, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %823, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %821, align 8
-  %824 = getelementptr inbounds i8, ptr %796, i64 72
+  %824 = getelementptr inbounds nuw i8, ptr %796, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec8bitELb0ELi1EEE, i64 16), ptr %824, align 8
-  %825 = getelementptr inbounds i8, ptr %796, i64 80
+  %825 = getelementptr inbounds nuw i8, ptr %796, i64 80
   store i64 %822, ptr %825, align 8
-  %826 = getelementptr inbounds i8, ptr %796, i64 88
+  %826 = getelementptr inbounds nuw i8, ptr %796, i64 88
   %827 = load ptr, ptr %799, align 8
   store ptr %827, ptr %826, align 8
-  %828 = getelementptr inbounds i8, ptr %796, i64 96
+  %828 = getelementptr inbounds nuw i8, ptr %796, i64 96
   %829 = getelementptr inbounds float, ptr %827, i64 %822
   store ptr %829, ptr %828, align 8
   %830 = zext i1 %5 to i8
   %831 = zext i1 %3 to i8
-  %832 = getelementptr inbounds i8, ptr %796, i64 104
+  %832 = getelementptr inbounds nuw i8, ptr %796, i64 104
   store i8 %830, ptr %832, align 8
-  %833 = getelementptr inbounds i8, ptr %796, i64 108
+  %833 = getelementptr inbounds nuw i8, ptr %796, i64 108
   store float 0.000000e+00, ptr %833, align 4
   br label %_ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_9Codec8bitELb0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i
 
 _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_9Codec8bitELb0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i: ; preds = %820, %817, %814
   %.sink1.i.i55.i.i = phi i8 [ %831, %820 ], [ 0, %817 ], [ 1, %814 ]
-  %834 = getelementptr inbounds i8, ptr %796, i64 32
-  %835 = getelementptr inbounds i8, ptr %796, i64 24
-  %836 = getelementptr inbounds i8, ptr %796, i64 17
-  %837 = getelementptr inbounds i8, ptr %796, i64 16
+  %834 = getelementptr inbounds nuw i8, ptr %796, i64 32
+  %835 = getelementptr inbounds nuw i8, ptr %796, i64 24
+  %836 = getelementptr inbounds nuw i8, ptr %796, i64 17
+  %837 = getelementptr inbounds nuw i8, ptr %796, i64 16
   store i8 %.sink1.i.i55.i.i, ptr %836, align 1
   store ptr %4, ptr %835, align 8
   store i64 %801, ptr %834, align 8
@@ -8410,27 +8410,27 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 838:                                              ; preds = %694
   %.not.i.i57.i.i = icmp eq ptr %4, null
   %839 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #28
-  %840 = getelementptr inbounds i8, ptr %0, i64 8
+  %840 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %841 = load i64, ptr %840, align 8
-  %842 = getelementptr inbounds i8, ptr %0, i64 48
-  %843 = getelementptr inbounds i8, ptr %0, i64 16
+  %842 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %843 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %844 = load i64, ptr %843, align 8
-  %845 = getelementptr inbounds i8, ptr %839, i64 8
+  %845 = getelementptr inbounds nuw i8, ptr %839, i64 8
   store i64 -1, ptr %845, align 8
   br i1 %.not.i.i57.i.i, label %863, label %846
 
 846:                                              ; preds = %838
-  %847 = getelementptr inbounds i8, ptr %839, i64 40
+  %847 = getelementptr inbounds nuw i8, ptr %839, i64 40
   %sext.i.i.i58.i.i = shl i64 %841, 32
   %848 = ashr exact i64 %sext.i.i.i58.i.i, 32
-  %849 = getelementptr inbounds i8, ptr %839, i64 48
-  %850 = getelementptr inbounds i8, ptr %839, i64 72
-  %851 = getelementptr inbounds i8, ptr %839, i64 80
-  %852 = getelementptr inbounds i8, ptr %839, i64 88
-  %853 = getelementptr inbounds i8, ptr %839, i64 96
+  %849 = getelementptr inbounds nuw i8, ptr %839, i64 48
+  %850 = getelementptr inbounds nuw i8, ptr %839, i64 72
+  %851 = getelementptr inbounds nuw i8, ptr %839, i64 80
+  %852 = getelementptr inbounds nuw i8, ptr %839, i64 88
+  %853 = getelementptr inbounds nuw i8, ptr %839, i64 96
   %854 = zext i1 %5 to i8
-  %855 = getelementptr inbounds i8, ptr %839, i64 104
-  %856 = getelementptr inbounds i8, ptr %839, i64 108
+  %855 = getelementptr inbounds nuw i8, ptr %839, i64 104
+  %856 = getelementptr inbounds nuw i8, ptr %839, i64 108
   br i1 %3, label %857, label %860
 
 857:                                              ; preds = %846
@@ -8463,36 +8463,36 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 
 863:                                              ; preds = %838
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EEE, i64 16), ptr %839, align 8
-  %864 = getelementptr inbounds i8, ptr %839, i64 40
+  %864 = getelementptr inbounds nuw i8, ptr %839, i64 40
   %sext.i21.i.i60.i.i = shl i64 %841, 32
   %865 = ashr exact i64 %sext.i21.i.i60.i.i, 32
-  %866 = getelementptr inbounds i8, ptr %839, i64 48
+  %866 = getelementptr inbounds nuw i8, ptr %839, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %866, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %864, align 8
-  %867 = getelementptr inbounds i8, ptr %839, i64 72
+  %867 = getelementptr inbounds nuw i8, ptr %839, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bitELb0ELi1EEE, i64 16), ptr %867, align 8
-  %868 = getelementptr inbounds i8, ptr %839, i64 80
+  %868 = getelementptr inbounds nuw i8, ptr %839, i64 80
   store i64 %865, ptr %868, align 8
-  %869 = getelementptr inbounds i8, ptr %839, i64 88
+  %869 = getelementptr inbounds nuw i8, ptr %839, i64 88
   %870 = load ptr, ptr %842, align 8
   store ptr %870, ptr %869, align 8
-  %871 = getelementptr inbounds i8, ptr %839, i64 96
+  %871 = getelementptr inbounds nuw i8, ptr %839, i64 96
   %872 = getelementptr inbounds float, ptr %870, i64 %865
   store ptr %872, ptr %871, align 8
   %873 = zext i1 %5 to i8
   %874 = zext i1 %3 to i8
-  %875 = getelementptr inbounds i8, ptr %839, i64 104
+  %875 = getelementptr inbounds nuw i8, ptr %839, i64 104
   store i8 %873, ptr %875, align 8
-  %876 = getelementptr inbounds i8, ptr %839, i64 108
+  %876 = getelementptr inbounds nuw i8, ptr %839, i64 108
   store float 0.000000e+00, ptr %876, align 4
   br label %_ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_9Codec4bitELb0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i
 
 _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_9Codec4bitELb0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i: ; preds = %863, %860, %857
   %.sink1.i.i59.i.i = phi i8 [ %874, %863 ], [ 0, %860 ], [ 1, %857 ]
-  %877 = getelementptr inbounds i8, ptr %839, i64 32
-  %878 = getelementptr inbounds i8, ptr %839, i64 24
-  %879 = getelementptr inbounds i8, ptr %839, i64 17
-  %880 = getelementptr inbounds i8, ptr %839, i64 16
+  %877 = getelementptr inbounds nuw i8, ptr %839, i64 32
+  %878 = getelementptr inbounds nuw i8, ptr %839, i64 24
+  %879 = getelementptr inbounds nuw i8, ptr %839, i64 17
+  %880 = getelementptr inbounds nuw i8, ptr %839, i64 16
   store i8 %.sink1.i.i59.i.i, ptr %879, align 1
   store ptr %4, ptr %878, align 8
   store i64 %844, ptr %877, align 8
@@ -8502,27 +8502,27 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 881:                                              ; preds = %694
   %.not.i.i61.i.i = icmp eq ptr %4, null
   %882 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #28
-  %883 = getelementptr inbounds i8, ptr %0, i64 8
+  %883 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %884 = load i64, ptr %883, align 8
-  %885 = getelementptr inbounds i8, ptr %0, i64 48
-  %886 = getelementptr inbounds i8, ptr %0, i64 16
+  %885 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %886 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %887 = load i64, ptr %886, align 8
-  %888 = getelementptr inbounds i8, ptr %882, i64 8
+  %888 = getelementptr inbounds nuw i8, ptr %882, i64 8
   store i64 -1, ptr %888, align 8
   br i1 %.not.i.i61.i.i, label %906, label %889
 
 889:                                              ; preds = %881
-  %890 = getelementptr inbounds i8, ptr %882, i64 40
+  %890 = getelementptr inbounds nuw i8, ptr %882, i64 40
   %sext.i.i.i62.i.i = shl i64 %884, 32
   %891 = ashr exact i64 %sext.i.i.i62.i.i, 32
-  %892 = getelementptr inbounds i8, ptr %882, i64 48
-  %893 = getelementptr inbounds i8, ptr %882, i64 72
-  %894 = getelementptr inbounds i8, ptr %882, i64 80
-  %895 = getelementptr inbounds i8, ptr %882, i64 88
-  %896 = getelementptr inbounds i8, ptr %882, i64 96
+  %892 = getelementptr inbounds nuw i8, ptr %882, i64 48
+  %893 = getelementptr inbounds nuw i8, ptr %882, i64 72
+  %894 = getelementptr inbounds nuw i8, ptr %882, i64 80
+  %895 = getelementptr inbounds nuw i8, ptr %882, i64 88
+  %896 = getelementptr inbounds nuw i8, ptr %882, i64 96
   %897 = zext i1 %5 to i8
-  %898 = getelementptr inbounds i8, ptr %882, i64 104
-  %899 = getelementptr inbounds i8, ptr %882, i64 108
+  %898 = getelementptr inbounds nuw i8, ptr %882, i64 104
+  %899 = getelementptr inbounds nuw i8, ptr %882, i64 108
   br i1 %3, label %900, label %903
 
 900:                                              ; preds = %889
@@ -8555,36 +8555,36 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 
 906:                                              ; preds = %881
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EEE, i64 16), ptr %882, align 8
-  %907 = getelementptr inbounds i8, ptr %882, i64 40
+  %907 = getelementptr inbounds nuw i8, ptr %882, i64 40
   %sext.i21.i.i64.i.i = shl i64 %884, 32
   %908 = ashr exact i64 %sext.i21.i.i64.i.i, 32
-  %909 = getelementptr inbounds i8, ptr %882, i64 48
+  %909 = getelementptr inbounds nuw i8, ptr %882, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %909, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %907, align 8
-  %910 = getelementptr inbounds i8, ptr %882, i64 72
+  %910 = getelementptr inbounds nuw i8, ptr %882, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec6bitELb0ELi1EEE, i64 16), ptr %910, align 8
-  %911 = getelementptr inbounds i8, ptr %882, i64 80
+  %911 = getelementptr inbounds nuw i8, ptr %882, i64 80
   store i64 %908, ptr %911, align 8
-  %912 = getelementptr inbounds i8, ptr %882, i64 88
+  %912 = getelementptr inbounds nuw i8, ptr %882, i64 88
   %913 = load ptr, ptr %885, align 8
   store ptr %913, ptr %912, align 8
-  %914 = getelementptr inbounds i8, ptr %882, i64 96
+  %914 = getelementptr inbounds nuw i8, ptr %882, i64 96
   %915 = getelementptr inbounds float, ptr %913, i64 %908
   store ptr %915, ptr %914, align 8
   %916 = zext i1 %5 to i8
   %917 = zext i1 %3 to i8
-  %918 = getelementptr inbounds i8, ptr %882, i64 104
+  %918 = getelementptr inbounds nuw i8, ptr %882, i64 104
   store i8 %916, ptr %918, align 8
-  %919 = getelementptr inbounds i8, ptr %882, i64 108
+  %919 = getelementptr inbounds nuw i8, ptr %882, i64 108
   store float 0.000000e+00, ptr %919, align 4
   br label %_ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_9Codec6bitELb0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i
 
 _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_9Codec6bitELb0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i: ; preds = %906, %903, %900
   %.sink1.i.i63.i.i = phi i8 [ %917, %906 ], [ 0, %903 ], [ 1, %900 ]
-  %920 = getelementptr inbounds i8, ptr %882, i64 32
-  %921 = getelementptr inbounds i8, ptr %882, i64 24
-  %922 = getelementptr inbounds i8, ptr %882, i64 17
-  %923 = getelementptr inbounds i8, ptr %882, i64 16
+  %920 = getelementptr inbounds nuw i8, ptr %882, i64 32
+  %921 = getelementptr inbounds nuw i8, ptr %882, i64 24
+  %922 = getelementptr inbounds nuw i8, ptr %882, i64 17
+  %923 = getelementptr inbounds nuw i8, ptr %882, i64 16
   store i8 %.sink1.i.i63.i.i, ptr %922, align 1
   store ptr %4, ptr %921, align 8
   store i64 %887, ptr %920, align 8
@@ -8594,24 +8594,24 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 924:                                              ; preds = %694
   %.not.i.i34.i = icmp eq ptr %4, null
   %925 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #28
-  %926 = getelementptr inbounds i8, ptr %0, i64 8
+  %926 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %927 = load i64, ptr %926, align 8
-  %928 = getelementptr inbounds i8, ptr %0, i64 16
+  %928 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %929 = load i64, ptr %928, align 8
-  %930 = getelementptr inbounds i8, ptr %925, i64 8
+  %930 = getelementptr inbounds nuw i8, ptr %925, i64 8
   store i64 -1, ptr %930, align 8
   br i1 %.not.i.i34.i, label %942, label %931
 
 931:                                              ; preds = %924
-  %932 = getelementptr inbounds i8, ptr %925, i64 40
+  %932 = getelementptr inbounds nuw i8, ptr %925, i64 40
   %sext.i.i.i35.i = shl i64 %927, 32
   %933 = ashr exact i64 %sext.i.i.i35.i, 32
-  %934 = getelementptr inbounds i8, ptr %925, i64 48
-  %935 = getelementptr inbounds i8, ptr %925, i64 72
-  %936 = getelementptr inbounds i8, ptr %925, i64 80
+  %934 = getelementptr inbounds nuw i8, ptr %925, i64 48
+  %935 = getelementptr inbounds nuw i8, ptr %925, i64 72
+  %936 = getelementptr inbounds nuw i8, ptr %925, i64 80
   %937 = zext i1 %5 to i8
-  %938 = getelementptr inbounds i8, ptr %925, i64 88
-  %939 = getelementptr inbounds i8, ptr %925, i64 92
+  %938 = getelementptr inbounds nuw i8, ptr %925, i64 88
+  %939 = getelementptr inbounds nuw i8, ptr %925, i64 92
   br i1 %3, label %940, label %941
 
 940:                                              ; preds = %931
@@ -8636,30 +8636,30 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
 
 942:                                              ; preds = %924
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EEE, i64 16), ptr %925, align 8
-  %943 = getelementptr inbounds i8, ptr %925, i64 40
+  %943 = getelementptr inbounds nuw i8, ptr %925, i64 40
   %sext.i21.i.i.i = shl i64 %927, 32
   %944 = ashr exact i64 %sext.i21.i.i.i, 32
-  %945 = getelementptr inbounds i8, ptr %925, i64 48
+  %945 = getelementptr inbounds nuw i8, ptr %925, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %945, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %943, align 8
-  %946 = getelementptr inbounds i8, ptr %925, i64 72
+  %946 = getelementptr inbounds nuw i8, ptr %925, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_113QuantizerFP16ILi1EEE, i64 16), ptr %946, align 8
-  %947 = getelementptr inbounds i8, ptr %925, i64 80
+  %947 = getelementptr inbounds nuw i8, ptr %925, i64 80
   store i64 %944, ptr %947, align 8
   %948 = zext i1 %5 to i8
   %949 = zext i1 %3 to i8
-  %950 = getelementptr inbounds i8, ptr %925, i64 88
+  %950 = getelementptr inbounds nuw i8, ptr %925, i64 88
   store i8 %948, ptr %950, align 8
-  %951 = getelementptr inbounds i8, ptr %925, i64 92
+  %951 = getelementptr inbounds nuw i8, ptr %925, i64 92
   store float 0.000000e+00, ptr %951, align 4
   br label %_ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i
 
 _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i: ; preds = %942, %941, %940
   %.sink1.i.i.i = phi i8 [ %949, %942 ], [ 0, %941 ], [ 1, %940 ]
-  %952 = getelementptr inbounds i8, ptr %925, i64 32
-  %953 = getelementptr inbounds i8, ptr %925, i64 24
-  %954 = getelementptr inbounds i8, ptr %925, i64 17
-  %955 = getelementptr inbounds i8, ptr %925, i64 16
+  %952 = getelementptr inbounds nuw i8, ptr %925, i64 32
+  %953 = getelementptr inbounds nuw i8, ptr %925, i64 24
+  %954 = getelementptr inbounds nuw i8, ptr %925, i64 17
+  %955 = getelementptr inbounds nuw i8, ptr %925, i64 16
   store i8 %.sink1.i.i.i, ptr %954, align 1
   store ptr %4, ptr %953, align 8
   store i64 %929, ptr %952, align 8
@@ -8667,7 +8667,7 @@ _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
   br label %_ZN5faiss12_GLOBAL__N_124sel1_InvertedListScannerINS0_12SimilarityIPILi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i
 
 956:                                              ; preds = %694
-  %957 = getelementptr inbounds i8, ptr %0, i64 8
+  %957 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %958 = load i64, ptr %957, align 8
   %959 = and i64 %958, 15
   %960 = icmp eq i64 %959, 0
@@ -8677,23 +8677,23 @@ _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
 961:                                              ; preds = %956
   %962 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #28
   %963 = trunc i64 %958 to i32
-  %964 = getelementptr inbounds i8, ptr %0, i64 16
+  %964 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %965 = load i64, ptr %964, align 8
-  %966 = getelementptr inbounds i8, ptr %962, i64 8
+  %966 = getelementptr inbounds nuw i8, ptr %962, i64 8
   store i64 -1, ptr %966, align 8
-  %967 = getelementptr inbounds i8, ptr %962, i64 16
+  %967 = getelementptr inbounds nuw i8, ptr %962, i64 16
   store i8 0, ptr %967, align 8
-  %968 = getelementptr inbounds i8, ptr %962, i64 17
+  %968 = getelementptr inbounds nuw i8, ptr %962, i64 17
   store i8 0, ptr %968, align 1
-  %969 = getelementptr inbounds i8, ptr %962, i64 24
+  %969 = getelementptr inbounds nuw i8, ptr %962, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %969, i8 0, i64 16, i1 false)
   br i1 %.not.i65.i.i, label %1003, label %970
 
 970:                                              ; preds = %961
-  %971 = getelementptr inbounds i8, ptr %962, i64 40
-  %972 = getelementptr inbounds i8, ptr %962, i64 48
-  %973 = getelementptr inbounds i8, ptr %962, i64 72
-  %974 = getelementptr inbounds i8, ptr %962, i64 80
+  %971 = getelementptr inbounds nuw i8, ptr %962, i64 40
+  %972 = getelementptr inbounds nuw i8, ptr %962, i64 48
+  %973 = getelementptr inbounds nuw i8, ptr %962, i64 72
+  %974 = getelementptr inbounds nuw i8, ptr %962, i64 80
   %sext.i.i66.i.i = shl i64 %958, 32
   %975 = ashr exact i64 %sext.i.i66.i.i, 32
   %976 = icmp slt i32 %963, 0
@@ -8725,10 +8725,10 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i28.i: ; preds = %
 .noexc7.i.i.i.i:                                  ; preds = %.noexc4.i.i.i.i.i30.i
   store ptr %978, ptr %974, align 8
   %979 = getelementptr i8, ptr %978, i64 %975
-  %980 = getelementptr inbounds i8, ptr %962, i64 96
+  %980 = getelementptr inbounds nuw i8, ptr %962, i64 96
   store ptr %979, ptr %980, align 8
   store i8 0, ptr %978, align 1
-  %981 = getelementptr inbounds i8, ptr %978, i64 1
+  %981 = getelementptr inbounds nuw i8, ptr %978, i64 1
   %982 = add nsw i64 %975, -1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %981, i8 0, i64 %982, i1 false)
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
@@ -8745,13 +8745,13 @@ common.resume.i.i24.i:                            ; preds = %1015, %996, %983
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i: ; preds = %.noexc7.i.i.i.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i28.i
   %.0.i.i.i.i.i.i.i.i.i.i31.i = phi ptr [ %979, %.noexc7.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i.i28.i ]
-  %985 = getelementptr inbounds i8, ptr %962, i64 32
-  %986 = getelementptr inbounds i8, ptr %962, i64 88
+  %985 = getelementptr inbounds nuw i8, ptr %962, i64 32
+  %986 = getelementptr inbounds nuw i8, ptr %962, i64 88
   store ptr %.0.i.i.i.i.i.i.i.i.i.i31.i, ptr %986, align 8
   %987 = zext i1 %5 to i8
-  %988 = getelementptr inbounds i8, ptr %962, i64 104
+  %988 = getelementptr inbounds nuw i8, ptr %962, i64 104
   store i8 %987, ptr %988, align 8
-  %989 = getelementptr inbounds i8, ptr %962, i64 108
+  %989 = getelementptr inbounds nuw i8, ptr %962, i64 108
   store float 0.000000e+00, ptr %989, align 4
   store i8 1, ptr %968, align 1
   store ptr %4, ptr %969, align 8
@@ -8784,10 +8784,10 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i21.i.i21.i: ; preds =
 .noexc7.i24.i.i.i:                                ; preds = %.noexc4.i.i.i23.i.i23.i
   store ptr %991, ptr %974, align 8
   %992 = getelementptr i8, ptr %991, i64 %975
-  %993 = getelementptr inbounds i8, ptr %962, i64 96
+  %993 = getelementptr inbounds nuw i8, ptr %962, i64 96
   store ptr %992, ptr %993, align 8
   store i8 0, ptr %991, align 1
-  %994 = getelementptr inbounds i8, ptr %991, i64 1
+  %994 = getelementptr inbounds nuw i8, ptr %991, i64 1
   %995 = add nsw i64 %975, -1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %994, i8 0, i64 %995, i1 false)
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
@@ -8799,13 +8799,13 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i21.i.i21.i: ; preds =
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i: ; preds = %.noexc7.i24.i.i.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i21.i.i21.i
   %.0.i.i.i.i.i.i.i.i25.i.i.i = phi ptr [ %992, %.noexc7.i24.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i21.i.i21.i ]
-  %998 = getelementptr inbounds i8, ptr %962, i64 32
-  %999 = getelementptr inbounds i8, ptr %962, i64 88
+  %998 = getelementptr inbounds nuw i8, ptr %962, i64 32
+  %999 = getelementptr inbounds nuw i8, ptr %962, i64 88
   store ptr %.0.i.i.i.i.i.i.i.i25.i.i.i, ptr %999, align 8
   %1000 = zext i1 %5 to i8
-  %1001 = getelementptr inbounds i8, ptr %962, i64 104
+  %1001 = getelementptr inbounds nuw i8, ptr %962, i64 104
   store i8 %1000, ptr %1001, align 8
-  %1002 = getelementptr inbounds i8, ptr %962, i64 108
+  %1002 = getelementptr inbounds nuw i8, ptr %962, i64 108
   store float 0.000000e+00, ptr %1002, align 4
   store i8 0, ptr %968, align 1
   store ptr %4, ptr %969, align 8
@@ -8814,13 +8814,13 @@ _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0
 
 1003:                                             ; preds = %961
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EEE, i64 16), ptr %962, align 8
-  %1004 = getelementptr inbounds i8, ptr %962, i64 40
-  %1005 = getelementptr inbounds i8, ptr %962, i64 48
+  %1004 = getelementptr inbounds nuw i8, ptr %962, i64 40
+  %1005 = getelementptr inbounds nuw i8, ptr %962, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1005, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %1004, align 8
-  %1006 = getelementptr inbounds i8, ptr %962, i64 72
+  %1006 = getelementptr inbounds nuw i8, ptr %962, i64 72
   store i32 %963, ptr %1006, align 8
-  %1007 = getelementptr inbounds i8, ptr %962, i64 80
+  %1007 = getelementptr inbounds nuw i8, ptr %962, i64 80
   %sext.i28.i.i.i = shl i64 %958, 32
   %1008 = ashr exact i64 %sext.i28.i.i.i, 32
   %1009 = icmp slt i32 %963, 0
@@ -8845,10 +8845,10 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i29.i.i.i: ; preds = %
 .noexc7.i32.i.i.i:                                ; preds = %.noexc4.i.i.i31.i.i.i
   store ptr %1010, ptr %1007, align 8
   %1011 = getelementptr i8, ptr %1010, i64 %1008
-  %1012 = getelementptr inbounds i8, ptr %962, i64 96
+  %1012 = getelementptr inbounds nuw i8, ptr %962, i64 96
   store ptr %1011, ptr %1012, align 8
   store i8 0, ptr %1010, align 1
-  %1013 = getelementptr inbounds i8, ptr %1010, i64 1
+  %1013 = getelementptr inbounds nuw i8, ptr %1010, i64 1
   %1014 = add nsw i64 %1008, -1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1013, i8 0, i64 %1014, i1 false)
   br label %_ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i
@@ -8860,14 +8860,14 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i29.i.i.i: ; preds = %
 
 _ZN5faiss12_GLOBAL__N_124sel3_InvertedListScannerINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i.i: ; preds = %.noexc7.i32.i.i.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i29.i.i.i
   %.0.i.i.i.i.i.i.i.i33.i.i.i = phi ptr [ %1011, %.noexc7.i32.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i29.i.i.i ]
-  %1017 = getelementptr inbounds i8, ptr %962, i64 32
-  %1018 = getelementptr inbounds i8, ptr %962, i64 88
+  %1017 = getelementptr inbounds nuw i8, ptr %962, i64 32
+  %1018 = getelementptr inbounds nuw i8, ptr %962, i64 88
   store ptr %.0.i.i.i.i.i.i.i.i33.i.i.i, ptr %1018, align 8
   %1019 = zext i1 %5 to i8
   %1020 = zext i1 %3 to i8
-  %1021 = getelementptr inbounds i8, ptr %962, i64 104
+  %1021 = getelementptr inbounds nuw i8, ptr %962, i64 104
   store i8 %1019, ptr %1021, align 8
-  %1022 = getelementptr inbounds i8, ptr %962, i64 108
+  %1022 = getelementptr inbounds nuw i8, ptr %962, i64 108
   store float 0.000000e+00, ptr %1022, align 4
   store i8 %1020, ptr %968, align 1
   store ptr null, ptr %969, align 8
@@ -8880,22 +8880,22 @@ _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_20DistanceComputerByteINS0
 
 1023:                                             ; preds = %956
   %1024 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #28
-  %1025 = getelementptr inbounds i8, ptr %0, i64 16
+  %1025 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1026 = load i64, ptr %1025, align 8
-  %1027 = getelementptr inbounds i8, ptr %1024, i64 8
+  %1027 = getelementptr inbounds nuw i8, ptr %1024, i64 8
   store i64 -1, ptr %1027, align 8
   br i1 %.not.i65.i.i, label %1039, label %1028
 
 1028:                                             ; preds = %1023
-  %1029 = getelementptr inbounds i8, ptr %1024, i64 40
+  %1029 = getelementptr inbounds nuw i8, ptr %1024, i64 40
   %sext.i.i68.i.i = shl i64 %958, 32
   %1030 = ashr exact i64 %sext.i.i68.i.i, 32
-  %1031 = getelementptr inbounds i8, ptr %1024, i64 48
-  %1032 = getelementptr inbounds i8, ptr %1024, i64 72
-  %1033 = getelementptr inbounds i8, ptr %1024, i64 80
+  %1031 = getelementptr inbounds nuw i8, ptr %1024, i64 48
+  %1032 = getelementptr inbounds nuw i8, ptr %1024, i64 72
+  %1033 = getelementptr inbounds nuw i8, ptr %1024, i64 80
   %1034 = zext i1 %5 to i8
-  %1035 = getelementptr inbounds i8, ptr %1024, i64 88
-  %1036 = getelementptr inbounds i8, ptr %1024, i64 92
+  %1035 = getelementptr inbounds nuw i8, ptr %1024, i64 88
+  %1036 = getelementptr inbounds nuw i8, ptr %1024, i64 92
   br i1 %3, label %1037, label %1038
 
 1037:                                             ; preds = %1028
@@ -8920,30 +8920,30 @@ _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_20DistanceComputerByteINS0
 
 1039:                                             ; preds = %1023
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EEE, i64 16), ptr %1024, align 8
-  %1040 = getelementptr inbounds i8, ptr %1024, i64 40
+  %1040 = getelementptr inbounds nuw i8, ptr %1024, i64 40
   %sext.i21.i71.i.i = shl i64 %958, 32
   %1041 = ashr exact i64 %sext.i21.i71.i.i, 32
-  %1042 = getelementptr inbounds i8, ptr %1024, i64 48
+  %1042 = getelementptr inbounds nuw i8, ptr %1024, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1042, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %1040, align 8
-  %1043 = getelementptr inbounds i8, ptr %1024, i64 72
+  %1043 = getelementptr inbounds nuw i8, ptr %1024, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_119Quantizer8bitDirectILi1EEE, i64 16), ptr %1043, align 8
-  %1044 = getelementptr inbounds i8, ptr %1024, i64 80
+  %1044 = getelementptr inbounds nuw i8, ptr %1024, i64 80
   store i64 %1041, ptr %1044, align 8
   %1045 = zext i1 %5 to i8
   %1046 = zext i1 %3 to i8
-  %1047 = getelementptr inbounds i8, ptr %1024, i64 88
+  %1047 = getelementptr inbounds nuw i8, ptr %1024, i64 88
   store i8 %1045, ptr %1047, align 8
-  %1048 = getelementptr inbounds i8, ptr %1024, i64 92
+  %1048 = getelementptr inbounds nuw i8, ptr %1024, i64 92
   store float 0.000000e+00, ptr %1048, align 4
   br label %_ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i
 
 _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i: ; preds = %1039, %1038, %1037
   %.sink1.i69.i.i = phi i8 [ %1046, %1039 ], [ 0, %1038 ], [ 1, %1037 ]
-  %1049 = getelementptr inbounds i8, ptr %1024, i64 32
-  %1050 = getelementptr inbounds i8, ptr %1024, i64 24
-  %1051 = getelementptr inbounds i8, ptr %1024, i64 17
-  %1052 = getelementptr inbounds i8, ptr %1024, i64 16
+  %1049 = getelementptr inbounds nuw i8, ptr %1024, i64 32
+  %1050 = getelementptr inbounds nuw i8, ptr %1024, i64 24
+  %1051 = getelementptr inbounds nuw i8, ptr %1024, i64 17
+  %1052 = getelementptr inbounds nuw i8, ptr %1024, i64 16
   store i8 %.sink1.i69.i.i, ptr %1051, align 1
   store ptr %4, ptr %1050, align 8
   store i64 %1026, ptr %1049, align 8
@@ -9037,15 +9037,15 @@ _ZN5faiss12_GLOBAL__N_124sel0_InvertedListScannerILi1EEEPNS_19InvertedListScanne
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((112, 120)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -9055,51 +9055,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %10 = load float, ptr %9, align 4
   br label %11
 
@@ -9115,7 +9115,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %16 = fadd float %15, 5.000000e-01
   %17 = fdiv float %16, 2.550000e+02
   %18 = tail call noundef float @llvm.fmuladd.f32(float %17, float %10, float %8)
-  %19 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %20 = load float, ptr %.sroa.2.019.i.i, align 4
   %21 = fsub float %20, %18
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %21, float %.sroa.5.020.i.i)
@@ -9134,18 +9134,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 92
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %93
@@ -9181,7 +9181,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %34 = fadd float %33, 5.000000e-01
   %35 = fdiv float %34, 2.550000e+02
   %36 = tail call noundef float @llvm.fmuladd.f32(float %35, float %28, float %27)
-  %37 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %38 = load float, ptr %.sroa.2.019.i.i, align 4
   %39 = fsub float %38, %36
   %40 = tail call float @llvm.fmuladd.f32(float %39, float %39, float %.sroa.5.020.i.i)
@@ -9311,14 +9311,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %51
@@ -9353,7 +9353,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %30 = fadd float %29, 5.000000e-01
   %31 = fdiv float %30, 2.550000e+02
   %32 = tail call noundef float @llvm.fmuladd.f32(float %31, float %24, float %23)
-  %33 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %34 = load float, ptr %.sroa.2.019.i.i, align 4
   %35 = fsub float %34, %32
   %36 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %.sroa.5.020.i.i)
@@ -9403,7 +9403,7 @@ declare void @_ZNK5faiss19InvertedListScanner19iterate_codes_rangeEPNS_21Inverte
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -9419,7 +9419,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit, label %4
@@ -9437,15 +9437,15 @@ declare void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((112, 120)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -9455,51 +9455,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %10 = load float, ptr %9, align 4
   br label %11
 
@@ -9515,7 +9515,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %16 = fadd float %15, 5.000000e-01
   %17 = fdiv float %16, 2.550000e+02
   %18 = tail call noundef float @llvm.fmuladd.f32(float %17, float %10, float %8)
-  %19 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %20 = load float, ptr %.sroa.2.019.i.i, align 4
   %21 = fsub float %20, %18
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %21, float %.sroa.5.020.i.i)
@@ -9534,18 +9534,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 92
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %94
@@ -9583,7 +9583,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %36 = fadd float %35, 5.000000e-01
   %37 = fdiv float %36, 2.550000e+02
   %38 = tail call noundef float @llvm.fmuladd.f32(float %37, float %30, float %29)
-  %39 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %40 = load float, ptr %.sroa.2.019.i.i, align 4
   %41 = fsub float %40, %38
   %42 = tail call float @llvm.fmuladd.f32(float %41, float %41, float %.sroa.5.020.i.i)
@@ -9710,14 +9710,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %52
@@ -9754,7 +9754,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %32 = fadd float %31, 5.000000e-01
   %33 = fdiv float %32, 2.550000e+02
   %34 = tail call noundef float @llvm.fmuladd.f32(float %33, float %26, float %25)
-  %35 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %36 = load float, ptr %.sroa.2.019.i.i, align 4
   %37 = fsub float %36, %34
   %38 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %.sroa.5.020.i.i)
@@ -9801,7 +9801,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -9817,7 +9817,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit, label %4
@@ -9833,15 +9833,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((112, 120)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -9851,51 +9851,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %10 = load float, ptr %9, align 4
   br label %11
 
@@ -9911,7 +9911,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %16 = fadd float %15, 5.000000e-01
   %17 = fdiv float %16, 2.550000e+02
   %18 = tail call noundef float @llvm.fmuladd.f32(float %17, float %10, float %8)
-  %19 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %20 = load float, ptr %.sroa.2.019.i.i, align 4
   %21 = fsub float %20, %18
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %21, float %.sroa.5.020.i.i)
@@ -9930,17 +9930,17 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 -4
   %15 = getelementptr inbounds i8, ptr %5, i64 -8
   %16 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %14, i64 %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %49
@@ -9969,7 +9969,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %27 = fadd float %26, 5.000000e-01
   %28 = fdiv float %27, 2.550000e+02
   %29 = tail call noundef float @llvm.fmuladd.f32(float %28, float %21, float %20)
-  %30 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i.us, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i.us, i64 4
   %31 = load float, ptr %.sroa.2.019.i.i.us, align 4
   %32 = fsub float %31, %29
   %33 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %.sroa.5.020.i.i.us)
@@ -10040,7 +10040,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %40
   %62 = fadd float %61, 5.000000e-01
   %63 = fdiv float %62, 2.550000e+02
   %64 = tail call noundef float @llvm.fmuladd.f32(float %63, float %56, float %55)
-  %65 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %66 = load float, ptr %.sroa.2.019.i.i, align 4
   %67 = fsub float %66, %64
   %68 = tail call float @llvm.fmuladd.f32(float %67, float %67, float %.sroa.5.020.i.i)
@@ -10168,13 +10168,13 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = getelementptr inbounds i8, ptr %0, i64 92
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %45
@@ -10202,7 +10202,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %24 = fadd float %23, 5.000000e-01
   %25 = fdiv float %24, 2.550000e+02
   %26 = tail call noundef float @llvm.fmuladd.f32(float %25, float %18, float %17)
-  %27 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %28 = load float, ptr %.sroa.2.019.i.i, align 4
   %29 = fsub float %28, %26
   %30 = tail call float @llvm.fmuladd.f32(float %29, float %29, float %.sroa.5.020.i.i)
@@ -10250,7 +10250,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -10266,7 +10266,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit, label %4
@@ -10282,15 +10282,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((112, 120)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -10300,51 +10300,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %10 = load float, ptr %9, align 4
   br label %11
 
@@ -10366,7 +10366,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %25 = tail call noundef float @llvm.fmuladd.f32(float %24, float %10, float %8)
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %27 = load float, ptr %.sroa.2.020.i.i, align 4
   %28 = fsub float %27, %25
   %29 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %.sroa.5.021.i.i)
@@ -10385,18 +10385,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 92
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %100
@@ -10438,7 +10438,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %41 = fadd float %40, 5.000000e-01
   %42 = fdiv float %41, 1.500000e+01
   %43 = tail call noundef float @llvm.fmuladd.f32(float %42, float %28, float %27)
-  %44 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %45 = load float, ptr %.sroa.2.020.i.i, align 4
   %46 = fsub float %45, %43
   %47 = tail call float @llvm.fmuladd.f32(float %46, float %46, float %.sroa.5.021.i.i)
@@ -10566,14 +10566,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %58
@@ -10614,7 +10614,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %37 = fadd float %36, 5.000000e-01
   %38 = fdiv float %37, 1.500000e+01
   %39 = tail call noundef float @llvm.fmuladd.f32(float %38, float %24, float %23)
-  %40 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %41 = load float, ptr %.sroa.2.020.i.i, align 4
   %42 = fsub float %41, %39
   %43 = tail call float @llvm.fmuladd.f32(float %42, float %42, float %.sroa.5.021.i.i)
@@ -10662,7 +10662,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -10678,7 +10678,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit, label %4
@@ -10694,15 +10694,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((112, 120)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -10712,51 +10712,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %10 = load float, ptr %9, align 4
   br label %11
 
@@ -10778,7 +10778,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %25 = tail call noundef float @llvm.fmuladd.f32(float %24, float %10, float %8)
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %27 = load float, ptr %.sroa.2.020.i.i, align 4
   %28 = fsub float %27, %25
   %29 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %.sroa.5.021.i.i)
@@ -10797,18 +10797,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 92
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %101
@@ -10852,7 +10852,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %43 = fadd float %42, 5.000000e-01
   %44 = fdiv float %43, 1.500000e+01
   %45 = tail call noundef float @llvm.fmuladd.f32(float %44, float %30, float %29)
-  %46 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %47 = load float, ptr %.sroa.2.020.i.i, align 4
   %48 = fsub float %47, %45
   %49 = tail call float @llvm.fmuladd.f32(float %48, float %48, float %.sroa.5.021.i.i)
@@ -10979,14 +10979,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %59
@@ -11029,7 +11029,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %39 = fadd float %38, 5.000000e-01
   %40 = fdiv float %39, 1.500000e+01
   %41 = tail call noundef float @llvm.fmuladd.f32(float %40, float %26, float %25)
-  %42 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %43 = load float, ptr %.sroa.2.020.i.i, align 4
   %44 = fsub float %43, %41
   %45 = tail call float @llvm.fmuladd.f32(float %44, float %44, float %.sroa.5.021.i.i)
@@ -11076,7 +11076,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -11092,7 +11092,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit, label %4
@@ -11108,15 +11108,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((112, 120)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -11126,51 +11126,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load float, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %10 = load float, ptr %9, align 4
   br label %11
 
@@ -11192,7 +11192,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %25 = tail call noundef float @llvm.fmuladd.f32(float %24, float %10, float %8)
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %27 = load float, ptr %.sroa.2.020.i.i, align 4
   %28 = fsub float %27, %25
   %29 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %.sroa.5.021.i.i)
@@ -11211,17 +11211,17 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 -4
   %15 = getelementptr inbounds i8, ptr %5, i64 -8
   %16 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %14, i64 %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %18
 
 18:                                               ; preds = %.lr.ph, %94
@@ -11256,7 +11256,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %35 = fadd float %34, 5.000000e-01
   %36 = fdiv float %35, 1.500000e+01
   %37 = tail call noundef float @llvm.fmuladd.f32(float %36, float %22, float %21)
-  %38 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %39 = load float, ptr %.sroa.2.020.i.i, align 4
   %40 = fsub float %39, %37
   %41 = tail call float @llvm.fmuladd.f32(float %40, float %40, float %.sroa.5.021.i.i)
@@ -11384,13 +11384,13 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = getelementptr inbounds i8, ptr %0, i64 92
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %52
@@ -11424,7 +11424,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %31 = fadd float %30, 5.000000e-01
   %32 = fdiv float %31, 1.500000e+01
   %33 = tail call noundef float @llvm.fmuladd.f32(float %32, float %18, float %17)
-  %34 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %35 = load float, ptr %.sroa.2.020.i.i, align 4
   %36 = fsub float %35, %33
   %37 = tail call float @llvm.fmuladd.f32(float %36, float %36, float %.sroa.5.021.i.i)
@@ -11472,7 +11472,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -11488,7 +11488,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit, label %4
@@ -11504,15 +11504,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -11522,51 +11522,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -11586,7 +11586,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %20 = getelementptr inbounds float, ptr %10, i64 %12
   %21 = load float, ptr %20, align 4
   %22 = tail call noundef float @llvm.fmuladd.f32(float %17, float %21, float %19)
-  %23 = getelementptr inbounds i8, ptr %.sroa.2.021.i.i, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.2.021.i.i, i64 4
   %24 = load float, ptr %.sroa.2.021.i.i, align 4
   %25 = fsub float %24, %22
   %26 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %.sroa.5.022.i.i)
@@ -11605,18 +11605,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %97
@@ -11656,7 +11656,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %38 = getelementptr inbounds float, ptr %28, i64 %30
   %39 = load float, ptr %38, align 4
   %40 = tail call noundef float @llvm.fmuladd.f32(float %35, float %39, float %37)
-  %41 = getelementptr inbounds i8, ptr %.sroa.2.021.i.i, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.2.021.i.i, i64 4
   %42 = load float, ptr %.sroa.2.021.i.i, align 4
   %43 = fsub float %42, %40
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %43, float %.sroa.5.022.i.i)
@@ -11784,14 +11784,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %55
@@ -11830,7 +11830,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %34 = getelementptr inbounds float, ptr %24, i64 %26
   %35 = load float, ptr %34, align 4
   %36 = tail call noundef float @llvm.fmuladd.f32(float %31, float %35, float %33)
-  %37 = getelementptr inbounds i8, ptr %.sroa.2.021.i.i, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.2.021.i.i, i64 4
   %38 = load float, ptr %.sroa.2.021.i.i, align 4
   %39 = fsub float %38, %36
   %40 = tail call float @llvm.fmuladd.f32(float %39, float %39, float %.sroa.5.022.i.i)
@@ -11878,7 +11878,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -11894,7 +11894,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit, label %4
@@ -11910,15 +11910,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -11928,51 +11928,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -11992,7 +11992,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %20 = getelementptr inbounds float, ptr %10, i64 %12
   %21 = load float, ptr %20, align 4
   %22 = tail call noundef float @llvm.fmuladd.f32(float %17, float %21, float %19)
-  %23 = getelementptr inbounds i8, ptr %.sroa.2.021.i.i, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.2.021.i.i, i64 4
   %24 = load float, ptr %.sroa.2.021.i.i, align 4
   %25 = fsub float %24, %22
   %26 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %.sroa.5.022.i.i)
@@ -12011,18 +12011,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %98
@@ -12064,7 +12064,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %40 = getelementptr inbounds float, ptr %30, i64 %32
   %41 = load float, ptr %40, align 4
   %42 = tail call noundef float @llvm.fmuladd.f32(float %37, float %41, float %39)
-  %43 = getelementptr inbounds i8, ptr %.sroa.2.021.i.i, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.2.021.i.i, i64 4
   %44 = load float, ptr %.sroa.2.021.i.i, align 4
   %45 = fsub float %44, %42
   %46 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %.sroa.5.022.i.i)
@@ -12191,14 +12191,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %56
@@ -12239,7 +12239,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %36 = getelementptr inbounds float, ptr %26, i64 %28
   %37 = load float, ptr %36, align 4
   %38 = tail call noundef float @llvm.fmuladd.f32(float %33, float %37, float %35)
-  %39 = getelementptr inbounds i8, ptr %.sroa.2.021.i.i, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.2.021.i.i, i64 4
   %40 = load float, ptr %.sroa.2.021.i.i, align 4
   %41 = fsub float %40, %38
   %42 = tail call float @llvm.fmuladd.f32(float %41, float %41, float %.sroa.5.022.i.i)
@@ -12286,7 +12286,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -12302,7 +12302,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit, label %4
@@ -12318,15 +12318,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -12336,51 +12336,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -12400,7 +12400,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %20 = getelementptr inbounds float, ptr %10, i64 %12
   %21 = load float, ptr %20, align 4
   %22 = tail call noundef float @llvm.fmuladd.f32(float %17, float %21, float %19)
-  %23 = getelementptr inbounds i8, ptr %.sroa.2.021.i.i, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.2.021.i.i, i64 4
   %24 = load float, ptr %.sroa.2.021.i.i, align 4
   %25 = fsub float %24, %22
   %26 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %.sroa.5.022.i.i)
@@ -12419,17 +12419,17 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 -4
   %15 = getelementptr inbounds i8, ptr %5, i64 -8
   %16 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %14, i64 %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %53
@@ -12462,7 +12462,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %31 = getelementptr inbounds float, ptr %21, i64 %23
   %32 = load float, ptr %31, align 4
   %33 = tail call noundef float @llvm.fmuladd.f32(float %28, float %32, float %30)
-  %34 = getelementptr inbounds i8, ptr %.sroa.2.021.i.i.us, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.2.021.i.i.us, i64 4
   %35 = load float, ptr %.sroa.2.021.i.i.us, align 4
   %36 = fsub float %35, %33
   %37 = tail call float @llvm.fmuladd.f32(float %36, float %36, float %.sroa.5.022.i.i.us)
@@ -12537,7 +12537,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %47, %44
   %70 = getelementptr inbounds float, ptr %60, i64 %62
   %71 = load float, ptr %70, align 4
   %72 = tail call noundef float @llvm.fmuladd.f32(float %67, float %71, float %69)
-  %73 = getelementptr inbounds i8, ptr %.sroa.2.021.i.i, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.2.021.i.i, i64 4
   %74 = load float, ptr %.sroa.2.021.i.i, align 4
   %75 = fsub float %74, %72
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %75, float %.sroa.5.022.i.i)
@@ -12665,13 +12665,13 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %49
@@ -12703,7 +12703,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %28 = getelementptr inbounds float, ptr %18, i64 %20
   %29 = load float, ptr %28, align 4
   %30 = tail call noundef float @llvm.fmuladd.f32(float %25, float %29, float %27)
-  %31 = getelementptr inbounds i8, ptr %.sroa.2.021.i.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.2.021.i.i, i64 4
   %32 = load float, ptr %.sroa.2.021.i.i, align 4
   %33 = fsub float %32, %30
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %.sroa.5.022.i.i)
@@ -12751,7 +12751,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -12767,7 +12767,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit, label %4
@@ -12783,15 +12783,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -12801,51 +12801,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -12873,7 +12873,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %28 = getelementptr inbounds float, ptr %10, i64 %25
   %29 = load float, ptr %28, align 4
   %30 = tail call noundef float @llvm.fmuladd.f32(float %24, float %29, float %27)
-  %31 = getelementptr inbounds i8, ptr %.sroa.2.022.i.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.2.022.i.i, i64 4
   %32 = load float, ptr %.sroa.2.022.i.i, align 4
   %33 = fsub float %32, %30
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %.sroa.5.023.i.i)
@@ -12892,18 +12892,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %105
@@ -12951,7 +12951,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %46 = getelementptr inbounds float, ptr %28, i64 %43
   %47 = load float, ptr %46, align 4
   %48 = tail call noundef float @llvm.fmuladd.f32(float %42, float %47, float %45)
-  %49 = getelementptr inbounds i8, ptr %.sroa.2.022.i.i, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.2.022.i.i, i64 4
   %50 = load float, ptr %.sroa.2.022.i.i, align 4
   %51 = fsub float %50, %48
   %52 = tail call float @llvm.fmuladd.f32(float %51, float %51, float %.sroa.5.023.i.i)
@@ -13079,14 +13079,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %63
@@ -13133,7 +13133,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %42 = getelementptr inbounds float, ptr %24, i64 %39
   %43 = load float, ptr %42, align 4
   %44 = tail call noundef float @llvm.fmuladd.f32(float %38, float %43, float %41)
-  %45 = getelementptr inbounds i8, ptr %.sroa.2.022.i.i, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.2.022.i.i, i64 4
   %46 = load float, ptr %.sroa.2.022.i.i, align 4
   %47 = fsub float %46, %44
   %48 = tail call float @llvm.fmuladd.f32(float %47, float %47, float %.sroa.5.023.i.i)
@@ -13181,7 +13181,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -13197,7 +13197,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit, label %4
@@ -13213,15 +13213,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -13231,51 +13231,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -13303,7 +13303,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %28 = getelementptr inbounds float, ptr %10, i64 %25
   %29 = load float, ptr %28, align 4
   %30 = tail call noundef float @llvm.fmuladd.f32(float %24, float %29, float %27)
-  %31 = getelementptr inbounds i8, ptr %.sroa.2.022.i.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.2.022.i.i, i64 4
   %32 = load float, ptr %.sroa.2.022.i.i, align 4
   %33 = fsub float %32, %30
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %.sroa.5.023.i.i)
@@ -13322,18 +13322,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %106
@@ -13383,7 +13383,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %48 = getelementptr inbounds float, ptr %30, i64 %45
   %49 = load float, ptr %48, align 4
   %50 = tail call noundef float @llvm.fmuladd.f32(float %44, float %49, float %47)
-  %51 = getelementptr inbounds i8, ptr %.sroa.2.022.i.i, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.2.022.i.i, i64 4
   %52 = load float, ptr %.sroa.2.022.i.i, align 4
   %53 = fsub float %52, %50
   %54 = tail call float @llvm.fmuladd.f32(float %53, float %53, float %.sroa.5.023.i.i)
@@ -13510,14 +13510,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %64
@@ -13566,7 +13566,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %44 = getelementptr inbounds float, ptr %26, i64 %41
   %45 = load float, ptr %44, align 4
   %46 = tail call noundef float @llvm.fmuladd.f32(float %40, float %45, float %43)
-  %47 = getelementptr inbounds i8, ptr %.sroa.2.022.i.i, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.2.022.i.i, i64 4
   %48 = load float, ptr %.sroa.2.022.i.i, align 4
   %49 = fsub float %48, %46
   %50 = tail call float @llvm.fmuladd.f32(float %49, float %49, float %.sroa.5.023.i.i)
@@ -13613,7 +13613,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -13629,7 +13629,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit, label %4
@@ -13645,15 +13645,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -13663,51 +13663,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -13735,7 +13735,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %28 = getelementptr inbounds float, ptr %10, i64 %25
   %29 = load float, ptr %28, align 4
   %30 = tail call noundef float @llvm.fmuladd.f32(float %24, float %29, float %27)
-  %31 = getelementptr inbounds i8, ptr %.sroa.2.022.i.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.2.022.i.i, i64 4
   %32 = load float, ptr %.sroa.2.022.i.i, align 4
   %33 = fsub float %32, %30
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %.sroa.5.023.i.i)
@@ -13754,17 +13754,17 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 -4
   %15 = getelementptr inbounds i8, ptr %5, i64 -8
   %16 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %14, i64 %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %18
 
 18:                                               ; preds = %.lr.ph, %99
@@ -13805,7 +13805,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %40 = getelementptr inbounds float, ptr %22, i64 %37
   %41 = load float, ptr %40, align 4
   %42 = tail call noundef float @llvm.fmuladd.f32(float %36, float %41, float %39)
-  %43 = getelementptr inbounds i8, ptr %.sroa.2.022.i.i, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.2.022.i.i, i64 4
   %44 = load float, ptr %.sroa.2.022.i.i, align 4
   %45 = fsub float %44, %42
   %46 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %.sroa.5.023.i.i)
@@ -13933,13 +13933,13 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %57
@@ -13979,7 +13979,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %36 = getelementptr inbounds float, ptr %18, i64 %33
   %37 = load float, ptr %36, align 4
   %38 = tail call noundef float @llvm.fmuladd.f32(float %32, float %37, float %35)
-  %39 = getelementptr inbounds i8, ptr %.sroa.2.022.i.i, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.2.022.i.i, i64 4
   %40 = load float, ptr %.sroa.2.022.i.i, align 4
   %41 = fsub float %40, %38
   %42 = tail call float @llvm.fmuladd.f32(float %41, float %41, float %.sroa.5.023.i.i)
@@ -14027,7 +14027,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -14043,7 +14043,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit, label %4
@@ -14059,15 +14059,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -14077,51 +14077,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -14150,7 +14150,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
 21:                                               ; preds = %11
   %22 = load i8, ptr %16, align 1
   %23 = lshr i8 %22, 6
-  %24 = getelementptr inbounds i8, ptr %16, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = shl i8 %25, 2
   %27 = and i8 %26, 60
@@ -14158,10 +14158,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   br label %42
 
 29:                                               ; preds = %11
-  %30 = getelementptr inbounds i8, ptr %16, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = lshr i8 %31, 4
-  %33 = getelementptr inbounds i8, ptr %16, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %34 = load i8, ptr %33, align 1
   %35 = shl i8 %34, 4
   %36 = and i8 %35, 48
@@ -14169,7 +14169,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   br label %42
 
 38:                                               ; preds = %11
-  %39 = getelementptr inbounds i8, ptr %16, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = lshr i8 %40, 2
   br label %42
@@ -14189,7 +14189,7 @@ default.unreachable:                              ; preds = %11
   %49 = getelementptr inbounds float, ptr %10, i64 %46
   %50 = load float, ptr %49, align 4
   %51 = tail call noundef float @llvm.fmuladd.f32(float %45, float %50, float %48)
-  %52 = getelementptr inbounds i8, ptr %.sroa.2.033.i.i, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.2.033.i.i, i64 4
   %53 = load float, ptr %.sroa.2.033.i.i, align 4
   %54 = fsub float %53, %51
   %55 = tail call float @llvm.fmuladd.f32(float %54, float %54, float %.sroa.5.034.i.i)
@@ -14208,18 +14208,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %126
@@ -14268,7 +14268,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
 39:                                               ; preds = %29
   %40 = load i8, ptr %34, align 1
   %41 = lshr i8 %40, 6
-  %42 = getelementptr inbounds i8, ptr %34, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = shl i8 %43, 2
   %45 = and i8 %44, 60
@@ -14276,10 +14276,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br label %60
 
 47:                                               ; preds = %29
-  %48 = getelementptr inbounds i8, ptr %34, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = lshr i8 %49, 4
-  %51 = getelementptr inbounds i8, ptr %34, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %52 = load i8, ptr %51, align 1
   %53 = shl i8 %52, 4
   %54 = and i8 %53, 48
@@ -14287,7 +14287,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br label %60
 
 56:                                               ; preds = %29
-  %57 = getelementptr inbounds i8, ptr %34, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %58 = load i8, ptr %57, align 1
   %59 = lshr i8 %58, 2
   br label %60
@@ -14307,7 +14307,7 @@ default.unreachable:                              ; preds = %29
   %67 = getelementptr inbounds float, ptr %28, i64 %64
   %68 = load float, ptr %67, align 4
   %69 = tail call noundef float @llvm.fmuladd.f32(float %63, float %68, float %66)
-  %70 = getelementptr inbounds i8, ptr %.sroa.2.033.i.i, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.2.033.i.i, i64 4
   %71 = load float, ptr %.sroa.2.033.i.i, align 4
   %72 = fsub float %71, %69
   %73 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %.sroa.5.034.i.i)
@@ -14435,14 +14435,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %84
@@ -14490,7 +14490,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
 35:                                               ; preds = %25
   %36 = load i8, ptr %30, align 1
   %37 = lshr i8 %36, 6
-  %38 = getelementptr inbounds i8, ptr %30, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = shl i8 %39, 2
   %41 = and i8 %40, 60
@@ -14498,10 +14498,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br label %56
 
 43:                                               ; preds = %25
-  %44 = getelementptr inbounds i8, ptr %30, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = lshr i8 %45, 4
-  %47 = getelementptr inbounds i8, ptr %30, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %48 = load i8, ptr %47, align 1
   %49 = shl i8 %48, 4
   %50 = and i8 %49, 48
@@ -14509,7 +14509,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br label %56
 
 52:                                               ; preds = %25
-  %53 = getelementptr inbounds i8, ptr %30, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %54 = load i8, ptr %53, align 1
   %55 = lshr i8 %54, 2
   br label %56
@@ -14529,7 +14529,7 @@ default.unreachable:                              ; preds = %25
   %63 = getelementptr inbounds float, ptr %24, i64 %60
   %64 = load float, ptr %63, align 4
   %65 = tail call noundef float @llvm.fmuladd.f32(float %59, float %64, float %62)
-  %66 = getelementptr inbounds i8, ptr %.sroa.2.033.i.i, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.2.033.i.i, i64 4
   %67 = load float, ptr %.sroa.2.033.i.i, align 4
   %68 = fsub float %67, %65
   %69 = tail call float @llvm.fmuladd.f32(float %68, float %68, float %.sroa.5.034.i.i)
@@ -14577,7 +14577,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -14593,7 +14593,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit, label %4
@@ -14609,15 +14609,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -14627,51 +14627,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -14700,7 +14700,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
 21:                                               ; preds = %11
   %22 = load i8, ptr %16, align 1
   %23 = lshr i8 %22, 6
-  %24 = getelementptr inbounds i8, ptr %16, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = shl i8 %25, 2
   %27 = and i8 %26, 60
@@ -14708,10 +14708,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   br label %42
 
 29:                                               ; preds = %11
-  %30 = getelementptr inbounds i8, ptr %16, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = lshr i8 %31, 4
-  %33 = getelementptr inbounds i8, ptr %16, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %34 = load i8, ptr %33, align 1
   %35 = shl i8 %34, 4
   %36 = and i8 %35, 48
@@ -14719,7 +14719,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   br label %42
 
 38:                                               ; preds = %11
-  %39 = getelementptr inbounds i8, ptr %16, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = lshr i8 %40, 2
   br label %42
@@ -14739,7 +14739,7 @@ default.unreachable:                              ; preds = %11
   %49 = getelementptr inbounds float, ptr %10, i64 %46
   %50 = load float, ptr %49, align 4
   %51 = tail call noundef float @llvm.fmuladd.f32(float %45, float %50, float %48)
-  %52 = getelementptr inbounds i8, ptr %.sroa.2.033.i.i, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.2.033.i.i, i64 4
   %53 = load float, ptr %.sroa.2.033.i.i, align 4
   %54 = fsub float %53, %51
   %55 = tail call float @llvm.fmuladd.f32(float %54, float %54, float %.sroa.5.034.i.i)
@@ -14758,18 +14758,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %127
@@ -14820,7 +14820,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
 41:                                               ; preds = %31
   %42 = load i8, ptr %36, align 1
   %43 = lshr i8 %42, 6
-  %44 = getelementptr inbounds i8, ptr %36, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = shl i8 %45, 2
   %47 = and i8 %46, 60
@@ -14828,10 +14828,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br label %62
 
 49:                                               ; preds = %31
-  %50 = getelementptr inbounds i8, ptr %36, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = lshr i8 %51, 4
-  %53 = getelementptr inbounds i8, ptr %36, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %54 = load i8, ptr %53, align 1
   %55 = shl i8 %54, 4
   %56 = and i8 %55, 48
@@ -14839,7 +14839,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br label %62
 
 58:                                               ; preds = %31
-  %59 = getelementptr inbounds i8, ptr %36, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %60 = load i8, ptr %59, align 1
   %61 = lshr i8 %60, 2
   br label %62
@@ -14859,7 +14859,7 @@ default.unreachable:                              ; preds = %31
   %69 = getelementptr inbounds float, ptr %30, i64 %66
   %70 = load float, ptr %69, align 4
   %71 = tail call noundef float @llvm.fmuladd.f32(float %65, float %70, float %68)
-  %72 = getelementptr inbounds i8, ptr %.sroa.2.033.i.i, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.2.033.i.i, i64 4
   %73 = load float, ptr %.sroa.2.033.i.i, align 4
   %74 = fsub float %73, %71
   %75 = tail call float @llvm.fmuladd.f32(float %74, float %74, float %.sroa.5.034.i.i)
@@ -14986,14 +14986,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %85
@@ -15043,7 +15043,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
 37:                                               ; preds = %27
   %38 = load i8, ptr %32, align 1
   %39 = lshr i8 %38, 6
-  %40 = getelementptr inbounds i8, ptr %32, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %41 = load i8, ptr %40, align 1
   %42 = shl i8 %41, 2
   %43 = and i8 %42, 60
@@ -15051,10 +15051,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br label %58
 
 45:                                               ; preds = %27
-  %46 = getelementptr inbounds i8, ptr %32, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = lshr i8 %47, 4
-  %49 = getelementptr inbounds i8, ptr %32, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %50 = load i8, ptr %49, align 1
   %51 = shl i8 %50, 4
   %52 = and i8 %51, 48
@@ -15062,7 +15062,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br label %58
 
 54:                                               ; preds = %27
-  %55 = getelementptr inbounds i8, ptr %32, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = lshr i8 %56, 2
   br label %58
@@ -15082,7 +15082,7 @@ default.unreachable:                              ; preds = %27
   %65 = getelementptr inbounds float, ptr %26, i64 %62
   %66 = load float, ptr %65, align 4
   %67 = tail call noundef float @llvm.fmuladd.f32(float %61, float %66, float %64)
-  %68 = getelementptr inbounds i8, ptr %.sroa.2.033.i.i, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.2.033.i.i, i64 4
   %69 = load float, ptr %.sroa.2.033.i.i, align 4
   %70 = fsub float %69, %67
   %71 = tail call float @llvm.fmuladd.f32(float %70, float %70, float %.sroa.5.034.i.i)
@@ -15129,7 +15129,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -15145,7 +15145,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit, label %4
@@ -15161,15 +15161,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -15179,51 +15179,51 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -15252,7 +15252,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
 21:                                               ; preds = %11
   %22 = load i8, ptr %16, align 1
   %23 = lshr i8 %22, 6
-  %24 = getelementptr inbounds i8, ptr %16, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = shl i8 %25, 2
   %27 = and i8 %26, 60
@@ -15260,10 +15260,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   br label %42
 
 29:                                               ; preds = %11
-  %30 = getelementptr inbounds i8, ptr %16, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = lshr i8 %31, 4
-  %33 = getelementptr inbounds i8, ptr %16, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %34 = load i8, ptr %33, align 1
   %35 = shl i8 %34, 4
   %36 = and i8 %35, 48
@@ -15271,7 +15271,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   br label %42
 
 38:                                               ; preds = %11
-  %39 = getelementptr inbounds i8, ptr %16, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = lshr i8 %40, 2
   br label %42
@@ -15291,7 +15291,7 @@ default.unreachable:                              ; preds = %11
   %49 = getelementptr inbounds float, ptr %10, i64 %46
   %50 = load float, ptr %49, align 4
   %51 = tail call noundef float @llvm.fmuladd.f32(float %45, float %50, float %48)
-  %52 = getelementptr inbounds i8, ptr %.sroa.2.033.i.i, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.2.033.i.i, i64 4
   %53 = load float, ptr %.sroa.2.033.i.i, align 4
   %54 = fsub float %53, %51
   %55 = tail call float @llvm.fmuladd.f32(float %54, float %54, float %.sroa.5.034.i.i)
@@ -15310,17 +15310,17 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 -4
   %15 = getelementptr inbounds i8, ptr %5, i64 -8
   %16 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %14, i64 %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %18
 
 18:                                               ; preds = %.lr.ph, %120
@@ -15362,7 +15362,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
 33:                                               ; preds = %23
   %34 = load i8, ptr %28, align 1
   %35 = lshr i8 %34, 6
-  %36 = getelementptr inbounds i8, ptr %28, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = shl i8 %37, 2
   %39 = and i8 %38, 60
@@ -15370,10 +15370,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br label %54
 
 41:                                               ; preds = %23
-  %42 = getelementptr inbounds i8, ptr %28, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = lshr i8 %43, 4
-  %45 = getelementptr inbounds i8, ptr %28, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %46 = load i8, ptr %45, align 1
   %47 = shl i8 %46, 4
   %48 = and i8 %47, 48
@@ -15381,7 +15381,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br label %54
 
 50:                                               ; preds = %23
-  %51 = getelementptr inbounds i8, ptr %28, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %52 = load i8, ptr %51, align 1
   %53 = lshr i8 %52, 2
   br label %54
@@ -15401,7 +15401,7 @@ default.unreachable:                              ; preds = %23
   %61 = getelementptr inbounds float, ptr %22, i64 %58
   %62 = load float, ptr %61, align 4
   %63 = tail call noundef float @llvm.fmuladd.f32(float %57, float %62, float %60)
-  %64 = getelementptr inbounds i8, ptr %.sroa.2.033.i.i, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.2.033.i.i, i64 4
   %65 = load float, ptr %.sroa.2.033.i.i, align 4
   %66 = fsub float %65, %63
   %67 = tail call float @llvm.fmuladd.f32(float %66, float %66, float %.sroa.5.034.i.i)
@@ -15529,13 +15529,13 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %78
@@ -15576,7 +15576,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
 29:                                               ; preds = %19
   %30 = load i8, ptr %24, align 1
   %31 = lshr i8 %30, 6
-  %32 = getelementptr inbounds i8, ptr %24, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = shl i8 %33, 2
   %35 = and i8 %34, 60
@@ -15584,10 +15584,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br label %50
 
 37:                                               ; preds = %19
-  %38 = getelementptr inbounds i8, ptr %24, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = lshr i8 %39, 4
-  %41 = getelementptr inbounds i8, ptr %24, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %42 = load i8, ptr %41, align 1
   %43 = shl i8 %42, 4
   %44 = and i8 %43, 48
@@ -15595,7 +15595,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br label %50
 
 46:                                               ; preds = %19
-  %47 = getelementptr inbounds i8, ptr %24, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %48 = load i8, ptr %47, align 1
   %49 = lshr i8 %48, 2
   br label %50
@@ -15615,7 +15615,7 @@ default.unreachable:                              ; preds = %19
   %57 = getelementptr inbounds float, ptr %18, i64 %54
   %58 = load float, ptr %57, align 4
   %59 = tail call noundef float @llvm.fmuladd.f32(float %53, float %58, float %56)
-  %60 = getelementptr inbounds i8, ptr %.sroa.2.033.i.i, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.2.033.i.i, i64 4
   %61 = load float, ptr %.sroa.2.033.i.i, align 4
   %62 = fsub float %61, %59
   %63 = tail call float @llvm.fmuladd.f32(float %62, float %62, float %.sroa.5.034.i.i)
@@ -15663,7 +15663,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -15679,7 +15679,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit, label %4
@@ -15695,15 +15695,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_17QuantizerTemplate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -15713,47 +15713,47 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %.lr.ph.i.i
 
@@ -15783,7 +15783,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %23 = select i1 %22, i32 %14, i32 %20
   %24 = or i32 %23, %21
   %25 = bitcast i32 %24 to float
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %27 = load float, ptr %.sroa.2.02.i.i, align 4
   %28 = fsub float %27, %25
   %29 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %.sroa.5.03.i.i)
@@ -15802,16 +15802,16 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds i8, ptr %4, i64 -4
   %14 = getelementptr inbounds i8, ptr %5, i64 -8
   %15 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %13, i64 %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %17
 
 17:                                               ; preds = %.lr.ph, %100
@@ -15859,7 +15859,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %41 = select i1 %40, i32 %32, i32 %38
   %42 = or i32 %41, %39
   %43 = bitcast i32 %42 to float
-  %44 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %45 = load float, ptr %.sroa.2.02.i.i, align 4
   %46 = fsub float %45, %43
   %47 = tail call float @llvm.fmuladd.f32(float %46, float %46, float %.sroa.5.03.i.i)
@@ -15987,12 +15987,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %13
 
 13:                                               ; preds = %.lr.ph, %58
@@ -16039,7 +16039,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %37 = select i1 %36, i32 %28, i32 %34
   %38 = or i32 %37, %35
   %39 = bitcast i32 %38 to float
-  %40 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %41 = load float, ptr %.sroa.2.02.i.i, align 4
   %42 = fsub float %41, %39
   %43 = tail call float @llvm.fmuladd.f32(float %42, float %42, float %.sroa.5.03.i.i)
@@ -16087,7 +16087,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -16103,7 +16103,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit, label %4
@@ -16119,15 +16119,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -16137,47 +16137,47 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %.lr.ph.i.i
 
@@ -16207,7 +16207,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %23 = select i1 %22, i32 %14, i32 %20
   %24 = or i32 %23, %21
   %25 = bitcast i32 %24 to float
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %27 = load float, ptr %.sroa.2.02.i.i, align 4
   %28 = fsub float %27, %25
   %29 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %.sroa.5.03.i.i)
@@ -16226,16 +16226,16 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds i8, ptr %4, i64 -4
   %14 = getelementptr inbounds i8, ptr %5, i64 -8
   %15 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %13, i64 %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %17
 
 17:                                               ; preds = %.lr.ph, %101
@@ -16285,7 +16285,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %43 = select i1 %42, i32 %34, i32 %40
   %44 = or i32 %43, %41
   %45 = bitcast i32 %44 to float
-  %46 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %47 = load float, ptr %.sroa.2.02.i.i, align 4
   %48 = fsub float %47, %45
   %49 = tail call float @llvm.fmuladd.f32(float %48, float %48, float %.sroa.5.03.i.i)
@@ -16412,12 +16412,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %13
 
 13:                                               ; preds = %.lr.ph, %59
@@ -16466,7 +16466,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %39 = select i1 %38, i32 %30, i32 %36
   %40 = or i32 %39, %37
   %41 = bitcast i32 %40 to float
-  %42 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %43 = load float, ptr %.sroa.2.02.i.i, align 4
   %44 = fsub float %43, %41
   %45 = tail call float @llvm.fmuladd.f32(float %44, float %44, float %.sroa.5.03.i.i)
@@ -16513,7 +16513,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -16529,7 +16529,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit, label %4
@@ -16545,15 +16545,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -16563,47 +16563,47 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %.lr.ph.i.i
 
@@ -16633,7 +16633,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %23 = select i1 %22, i32 %14, i32 %20
   %24 = or i32 %23, %21
   %25 = bitcast i32 %24 to float
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %27 = load float, ptr %.sroa.2.02.i.i, align 4
   %28 = fsub float %27, %25
   %29 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %.sroa.5.03.i.i)
@@ -16652,15 +16652,15 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds i8, ptr %4, i64 -4
   %13 = getelementptr inbounds i8, ptr %5, i64 -8
   %14 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %12, i64 %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph, %94
@@ -16701,7 +16701,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %35 = select i1 %34, i32 %26, i32 %32
   %36 = or i32 %35, %33
   %37 = bitcast i32 %36 to float
-  %38 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %39 = load float, ptr %.sroa.2.02.i.i, align 4
   %40 = fsub float %39, %37
   %41 = tail call float @llvm.fmuladd.f32(float %40, float %40, float %.sroa.5.03.i.i)
@@ -16829,11 +16829,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 17
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %12
 
 12:                                               ; preds = %.lr.ph, %52
@@ -16873,7 +16873,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %31 = select i1 %30, i32 %22, i32 %28
   %32 = or i32 %31, %29
   %33 = bitcast i32 %32 to float
-  %34 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %35 = load float, ptr %.sroa.2.02.i.i, align 4
   %36 = fsub float %35, %33
   %37 = tail call float @llvm.fmuladd.f32(float %36, float %36, float %.sroa.5.03.i.i)
@@ -16921,7 +16921,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -16937,7 +16937,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit, label %4
@@ -16953,31 +16953,31 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_13QuantizerFP16ILi1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #23 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit
 
 .lr.ph.i:                                         ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %11
 
 11:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4
   %14 = fptosi float %13 to i32
   %15 = trunc i32 %14 to i8
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i
   store i8 %15, ptr %17, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load i32, ptr %7, align 8
@@ -16991,42 +16991,42 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %33
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit
 
 .lr.ph.i:                                         ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %23
 
 23:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %24 = getelementptr inbounds float, ptr %18, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i
   %25 = load float, ptr %24, align 4
   %26 = fptosi float %25 to i32
   %27 = trunc i32 %26 to i8
   %28 = load ptr, ptr %22, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.i
   store i8 %27, ptr %29, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %30 = load i32, ptr %19, align 8
@@ -17035,25 +17035,25 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   br i1 %32, label %23, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit, !llvm.loop !55
 
 33:                                               ; preds = %3
-  %34 = getelementptr inbounds i8, ptr %0, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph.i2, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit
 
 .lr.ph.i2:                                        ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %40
 
 40:                                               ; preds = %40, %.lr.ph.i2
   %indvars.iv.i3 = phi i64 [ 0, %.lr.ph.i2 ], [ %indvars.iv.next.i4, %40 ]
-  %41 = getelementptr inbounds float, ptr %35, i64 %indvars.iv.i3
+  %41 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i3
   %42 = load float, ptr %41, align 4
   %43 = fptosi float %42 to i32
   %44 = trunc i32 %43 to i8
   %45 = load ptr, ptr %39, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %indvars.iv.i3
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv.i3
   store i8 %44, ptr %46, align 1
   %indvars.iv.next.i4 = add nuw nsw i64 %indvars.iv.i3, 1
   %47 = load i32, ptr %36, align 8
@@ -17067,9 +17067,9 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val.i = load i32, ptr %5, align 8
   %6 = icmp sgt i32 %.val.i, 0
   br i1 %6, label %.lr.ph.preheader.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
@@ -17081,10 +17081,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Di
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %15, %.lr.ph.i.i ]
-  %7 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = sub nsw i32 %9, %12
@@ -17109,16 +17109,16 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Dist
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds i8, ptr %4, i64 -4
   %14 = getelementptr inbounds i8, ptr %5, i64 -8
   %15 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %13, i64 %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %48
@@ -17144,10 +17144,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Dist
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.us, %.lr.ph.preheader.i.i.us
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.preheader.i.i.us ], [ %indvars.iv.next.i.i.us, %.lr.ph.i.i.us ]
   %.02.i.i.us = phi i32 [ 0, %.lr.ph.preheader.i.i.us ], [ %32, %.lr.ph.i.i.us ]
-  %24 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv.i.i.us
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i.i.us
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %.027.us, i64 %indvars.iv.i.i.us
+  %27 = getelementptr inbounds nuw i8, ptr %.027.us, i64 %indvars.iv.i.i.us
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = sub nsw i32 %26, %29
@@ -17221,10 +17221,10 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %42, %39
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %67, %.lr.ph.i.i ]
-  %59 = getelementptr inbounds i8, ptr %57, i64 %indvars.iv.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv.i.i
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
-  %62 = getelementptr inbounds i8, ptr %.027, i64 %indvars.iv.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %.027, i64 %indvars.iv.i.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = sub nsw i32 %61, %64
@@ -17358,12 +17358,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceCom
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %13
 
 13:                                               ; preds = %.lr.ph, %44
@@ -17388,10 +17388,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceCom
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %29, %.lr.ph.i.i ]
-  %21 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.i.i
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %.018, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %.018, i64 %indvars.iv.i.i
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = sub nsw i32 %23, %26
@@ -17445,7 +17445,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -17455,9 +17455,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev.exit, label %8
@@ -17473,7 +17473,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %4
@@ -17483,9 +17483,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit, label %8
@@ -17501,31 +17501,31 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12Similar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #23 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit
 
 .lr.ph.i:                                         ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %11
 
 11:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4
   %14 = fptosi float %13 to i32
   %15 = trunc i32 %14 to i8
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i
   store i8 %15, ptr %17, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load i32, ptr %7, align 8
@@ -17539,42 +17539,42 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %33
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit
 
 .lr.ph.i:                                         ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %23
 
 23:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %24 = getelementptr inbounds float, ptr %18, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i
   %25 = load float, ptr %24, align 4
   %26 = fptosi float %25 to i32
   %27 = trunc i32 %26 to i8
   %28 = load ptr, ptr %22, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.i
   store i8 %27, ptr %29, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %30 = load i32, ptr %19, align 8
@@ -17583,25 +17583,25 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   br i1 %32, label %23, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit, !llvm.loop !55
 
 33:                                               ; preds = %3
-  %34 = getelementptr inbounds i8, ptr %0, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph.i2, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit
 
 .lr.ph.i2:                                        ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %40
 
 40:                                               ; preds = %40, %.lr.ph.i2
   %indvars.iv.i3 = phi i64 [ 0, %.lr.ph.i2 ], [ %indvars.iv.next.i4, %40 ]
-  %41 = getelementptr inbounds float, ptr %35, i64 %indvars.iv.i3
+  %41 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i3
   %42 = load float, ptr %41, align 4
   %43 = fptosi float %42 to i32
   %44 = trunc i32 %43 to i8
   %45 = load ptr, ptr %39, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %indvars.iv.i3
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv.i3
   store i8 %44, ptr %46, align 1
   %indvars.iv.next.i4 = add nuw nsw i64 %indvars.iv.i3, 1
   %47 = load i32, ptr %36, align 8
@@ -17615,9 +17615,9 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val.i = load i32, ptr %5, align 8
   %6 = icmp sgt i32 %.val.i, 0
   br i1 %6, label %.lr.ph.preheader.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
@@ -17629,10 +17629,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Di
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %15, %.lr.ph.i.i ]
-  %7 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = sub nsw i32 %9, %12
@@ -17657,16 +17657,16 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Dist
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds i8, ptr %4, i64 -4
   %14 = getelementptr inbounds i8, ptr %5, i64 -8
   %15 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %13, i64 %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %49
@@ -17694,10 +17694,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Dist
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.us, %.lr.ph.preheader.i.i.us
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.preheader.i.i.us ], [ %indvars.iv.next.i.i.us, %.lr.ph.i.i.us ]
   %.02.i.i.us = phi i32 [ 0, %.lr.ph.preheader.i.i.us ], [ %34, %.lr.ph.i.i.us ]
-  %26 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv.i.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.i.i.us
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %.028.us, i64 %indvars.iv.i.i.us
+  %29 = getelementptr inbounds nuw i8, ptr %.028.us, i64 %indvars.iv.i.i.us
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = sub nsw i32 %28, %31
@@ -17772,10 +17772,10 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %41
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %70, %.lr.ph.i.i ]
-  %62 = getelementptr inbounds i8, ptr %60, i64 %indvars.iv.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv.i.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
-  %65 = getelementptr inbounds i8, ptr %.028, i64 %indvars.iv.i.i
+  %65 = getelementptr inbounds nuw i8, ptr %.028, i64 %indvars.iv.i.i
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = sub nsw i32 %64, %67
@@ -17908,12 +17908,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceCom
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %13
 
 13:                                               ; preds = %.lr.ph, %45
@@ -17940,10 +17940,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceCom
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %31, %.lr.ph.i.i ]
-  %23 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i.i
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %.019, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %.019, i64 %indvars.iv.i.i
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = sub nsw i32 %25, %28
@@ -17996,7 +17996,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -18006,9 +18006,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev.exit, label %8
@@ -18024,7 +18024,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %4
@@ -18034,9 +18034,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit, label %8
@@ -18052,31 +18052,31 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12Similar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %0, ptr noundef %1) unnamed_addr #23 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit
 
 .lr.ph.i:                                         ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %11
 
 11:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4
   %14 = fptosi float %13 to i32
   %15 = trunc i32 %14 to i8
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i
   store i8 %15, ptr %17, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load i32, ptr %7, align 8
@@ -18090,42 +18090,42 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %33
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit
 
 .lr.ph.i:                                         ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %23
 
 23:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %24 = getelementptr inbounds float, ptr %18, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i
   %25 = load float, ptr %24, align 4
   %26 = fptosi float %25 to i32
   %27 = trunc i32 %26 to i8
   %28 = load ptr, ptr %22, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.i
   store i8 %27, ptr %29, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %30 = load i32, ptr %19, align 8
@@ -18134,25 +18134,25 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   br i1 %32, label %23, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit, !llvm.loop !55
 
 33:                                               ; preds = %3
-  %34 = getelementptr inbounds i8, ptr %0, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph.i2, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set_queryEPKf.exit
 
 .lr.ph.i2:                                        ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %40
 
 40:                                               ; preds = %40, %.lr.ph.i2
   %indvars.iv.i3 = phi i64 [ 0, %.lr.ph.i2 ], [ %indvars.iv.next.i4, %40 ]
-  %41 = getelementptr inbounds float, ptr %35, i64 %indvars.iv.i3
+  %41 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i3
   %42 = load float, ptr %41, align 4
   %43 = fptosi float %42 to i32
   %44 = trunc i32 %43 to i8
   %45 = load ptr, ptr %39, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %indvars.iv.i3
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv.i3
   store i8 %44, ptr %46, align 1
   %indvars.iv.next.i4 = add nuw nsw i64 %indvars.iv.i3, 1
   %47 = load i32, ptr %36, align 8
@@ -18166,9 +18166,9 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE9set
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val.i = load i32, ptr %5, align 8
   %6 = icmp sgt i32 %.val.i, 0
   br i1 %6, label %.lr.ph.preheader.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
@@ -18180,10 +18180,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Di
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %15, %.lr.ph.i.i ]
-  %7 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = sub nsw i32 %9, %12
@@ -18208,15 +18208,15 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Dist
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds i8, ptr %4, i64 -4
   %13 = getelementptr inbounds i8, ptr %5, i64 -8
   %14 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %12, i64 %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %14, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %42
@@ -18235,10 +18235,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Dist
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.us, %.lr.ph.preheader.i.i.us
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.preheader.i.i.us ], [ %indvars.iv.next.i.i.us, %.lr.ph.i.i.us ]
   %.02.i.i.us = phi i32 [ 0, %.lr.ph.preheader.i.i.us ], [ %26, %.lr.ph.i.i.us ]
-  %18 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i.i.us
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i.i.us
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %.026.us, i64 %indvars.iv.i.i.us
+  %21 = getelementptr inbounds nuw i8, ptr %.026.us, i64 %indvars.iv.i.i.us
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = sub nsw i32 %20, %23
@@ -18305,10 +18305,10 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %36, %33
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %56, %.lr.ph.i.i ]
-  %48 = getelementptr inbounds i8, ptr %46, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %indvars.iv.i.i
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
-  %51 = getelementptr inbounds i8, ptr %.026, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %.026, i64 %indvars.iv.i.i
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = sub nsw i32 %50, %53
@@ -18442,11 +18442,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceCom
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = getelementptr inbounds i8, ptr %0, i64 17
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %12
 
 12:                                               ; preds = %.lr.ph, %38
@@ -18464,10 +18464,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceCom
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %23, %.lr.ph.i.i ]
-  %15 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i.i
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %.017, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %.017, i64 %indvars.iv.i.i
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = sub nsw i32 %17, %20
@@ -18521,7 +18521,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13q
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -18531,9 +18531,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev.exit, label %8
@@ -18549,7 +18549,7 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %4
@@ -18559,9 +18559,9 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComp
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEE, i64 16), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit, label %8
@@ -18577,15 +18577,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceComputerByteINS0_12Similar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -18595,47 +18595,47 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %.lr.ph.i.i
 
@@ -18648,7 +18648,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = uitofp i8 %8 to float
-  %10 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %11 = load float, ptr %.sroa.2.02.i.i, align 4
   %12 = fsub float %11, %9
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %.sroa.5.03.i.i)
@@ -18667,16 +18667,16 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds i8, ptr %4, i64 -4
   %14 = getelementptr inbounds i8, ptr %5, i64 -8
   %15 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %13, i64 %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %46
@@ -18707,7 +18707,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %24 = getelementptr inbounds i8, ptr %.025.us, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = uitofp i8 %25 to float
-  %27 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i.us, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i.us, i64 4
   %28 = load float, ptr %.sroa.2.02.i.i.us, align 4
   %29 = fsub float %28, %26
   %30 = tail call float @llvm.fmuladd.f32(float %29, float %29, float %.sroa.5.03.i.i.us)
@@ -18780,7 +18780,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %40, %37
   %57 = getelementptr inbounds i8, ptr %.025, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = uitofp i8 %58 to float
-  %60 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %61 = load float, ptr %.sroa.2.02.i.i, align 4
   %62 = fsub float %61, %59
   %63 = tail call float @llvm.fmuladd.f32(float %62, float %62, float %.sroa.5.03.i.i)
@@ -18908,12 +18908,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %13
 
 13:                                               ; preds = %.lr.ph, %42
@@ -18943,7 +18943,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %21 = getelementptr inbounds i8, ptr %.018, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = uitofp i8 %22 to float
-  %24 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %25 = load float, ptr %.sroa.2.02.i.i, align 4
   %26 = fsub float %25, %23
   %27 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %.sroa.5.03.i.i)
@@ -18991,7 +18991,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -19007,7 +19007,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi2EED2Ev.exit, label %4
@@ -19023,15 +19023,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDire
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -19041,47 +19041,47 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %.lr.ph.i.i
 
@@ -19094,7 +19094,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = uitofp i8 %8 to float
-  %10 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %11 = load float, ptr %.sroa.2.02.i.i, align 4
   %12 = fsub float %11, %9
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %.sroa.5.03.i.i)
@@ -19113,16 +19113,16 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds i8, ptr %4, i64 -4
   %14 = getelementptr inbounds i8, ptr %5, i64 -8
   %15 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %13, i64 %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %47
@@ -19155,7 +19155,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %26 = getelementptr inbounds i8, ptr %.026.us, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = uitofp i8 %27 to float
-  %29 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i.us, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i.us, i64 4
   %30 = load float, ptr %.sroa.2.02.i.i.us, align 4
   %31 = fsub float %30, %28
   %32 = tail call float @llvm.fmuladd.f32(float %31, float %31, float %.sroa.5.03.i.i.us)
@@ -19229,7 +19229,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %41, %39
   %60 = getelementptr inbounds i8, ptr %.026, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = uitofp i8 %61 to float
-  %63 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %64 = load float, ptr %.sroa.2.02.i.i, align 4
   %65 = fsub float %64, %62
   %66 = tail call float @llvm.fmuladd.f32(float %65, float %65, float %.sroa.5.03.i.i)
@@ -19356,12 +19356,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %13
 
 13:                                               ; preds = %.lr.ph, %43
@@ -19393,7 +19393,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %23 = getelementptr inbounds i8, ptr %.019, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = uitofp i8 %24 to float
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %27 = load float, ptr %.sroa.2.02.i.i, align 4
   %28 = fsub float %27, %25
   %29 = tail call float @llvm.fmuladd.f32(float %28, float %28, float %.sroa.5.03.i.i)
@@ -19440,7 +19440,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -19456,7 +19456,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi1EED2Ev.exit, label %4
@@ -19472,15 +19472,15 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDire
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -19490,47 +19490,47 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %12, ptr noundef %14, i64 noundef %1)
   br label %20
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %20
 
 20:                                               ; preds = %18, %8
   %.sink.in = phi ptr [ %13, %8 ], [ %19, %18 ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %.lr.ph.i.i
 
@@ -19543,7 +19543,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = uitofp i8 %8 to float
-  %10 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %11 = load float, ptr %.sroa.2.02.i.i, align 4
   %12 = fsub float %11, %9
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %.sroa.5.03.i.i)
@@ -19562,15 +19562,15 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds i8, ptr %4, i64 -4
   %13 = getelementptr inbounds i8, ptr %5, i64 -8
   %14 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %12, i64 %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %14, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %40
@@ -19594,7 +19594,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %18 = getelementptr inbounds i8, ptr %.024.us, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = uitofp i8 %19 to float
-  %21 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i.us, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i.us, i64 4
   %22 = load float, ptr %.sroa.2.02.i.i.us, align 4
   %23 = fsub float %22, %20
   %24 = tail call float @llvm.fmuladd.f32(float %23, float %23, float %.sroa.5.03.i.i.us)
@@ -19660,7 +19660,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %34, %31
   %46 = getelementptr inbounds i8, ptr %.024, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = uitofp i8 %47 to float
-  %49 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %50 = load float, ptr %.sroa.2.02.i.i, align 4
   %51 = fsub float %50, %48
   %52 = tail call float @llvm.fmuladd.f32(float %51, float %51, float %.sroa.5.03.i.i)
@@ -19788,11 +19788,11 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 17
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %12
 
 12:                                               ; preds = %.lr.ph, %36
@@ -19815,7 +19815,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %15 = getelementptr inbounds i8, ptr %.017, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = uitofp i8 %16 to float
-  %18 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %19 = load float, ptr %.sroa.2.02.i.i, align 4
   %20 = fsub float %19, %17
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %20, float %.sroa.5.03.i.i)
@@ -19863,7 +19863,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -19879,7 +19879,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityL2ILi1EEELi1EEELi0EED2Ev.exit, label %4
@@ -19895,39 +19895,39 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateINS0_19Quantizer8bitDire
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 16), (100, 104)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load float, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %12 = load float, ptr %11, align 4
   br label %13
 
@@ -19943,7 +19943,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %18 = fadd float %17, 5.000000e-01
   %19 = fdiv float %18, 2.550000e+02
   %20 = tail call noundef float @llvm.fmuladd.f32(float %19, float %12, float %10)
-  %21 = getelementptr inbounds i8, ptr %.sroa.2.017.i.i, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.2.017.i.i, i64 4
   %22 = load float, ptr %.sroa.2.017.i.i, align 4
   %23 = tail call float @llvm.fmuladd.f32(float %22, float %20, float %.sroa.5.018.i.i)
   %24 = add nuw i64 %.019.i.i, 1
@@ -19962,19 +19962,19 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 100
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 92
-  %14 = getelementptr inbounds i8, ptr %0, i64 17
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %4, i64 -4
   %17 = getelementptr inbounds i8, ptr %5, i64 -8
   %18 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %16, i64 %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %20
 
 20:                                               ; preds = %.lr.ph, %95
@@ -20011,7 +20011,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %36 = fadd float %35, 5.000000e-01
   %37 = fdiv float %36, 2.550000e+02
   %38 = tail call noundef float @llvm.fmuladd.f32(float %37, float %30, float %29)
-  %39 = getelementptr inbounds i8, ptr %.sroa.2.017.i.i, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.2.017.i.i, i64 4
   %40 = load float, ptr %.sroa.2.017.i.i, align 4
   %41 = tail call float @llvm.fmuladd.f32(float %40, float %38, float %.sroa.5.018.i.i)
   %42 = add nuw i64 %.019.i.i, 1
@@ -20139,15 +20139,15 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 100
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 92
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph, %53
@@ -20183,7 +20183,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %32 = fadd float %31, 5.000000e-01
   %33 = fdiv float %32, 2.550000e+02
   %34 = tail call noundef float @llvm.fmuladd.f32(float %33, float %26, float %25)
-  %35 = getelementptr inbounds i8, ptr %.sroa.2.017.i.i, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.2.017.i.i, i64 4
   %36 = load float, ptr %.sroa.2.017.i.i, align 4
   %37 = tail call float @llvm.fmuladd.f32(float %36, float %34, float %.sroa.5.018.i.i)
   %38 = add nuw i64 %.019.i.i, 1
@@ -20241,39 +20241,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 16), (100, 104)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load float, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %12 = load float, ptr %11, align 4
   br label %13
 
@@ -20289,7 +20289,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %18 = fadd float %17, 5.000000e-01
   %19 = fdiv float %18, 2.550000e+02
   %20 = tail call noundef float @llvm.fmuladd.f32(float %19, float %12, float %10)
-  %21 = getelementptr inbounds i8, ptr %.sroa.2.017.i.i, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.2.017.i.i, i64 4
   %22 = load float, ptr %.sroa.2.017.i.i, align 4
   %23 = tail call float @llvm.fmuladd.f32(float %22, float %20, float %.sroa.5.018.i.i)
   %24 = add nuw i64 %.019.i.i, 1
@@ -20308,19 +20308,19 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 100
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 92
-  %14 = getelementptr inbounds i8, ptr %0, i64 17
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %4, i64 -4
   %17 = getelementptr inbounds i8, ptr %5, i64 -8
   %18 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %16, i64 %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %20
 
 20:                                               ; preds = %.lr.ph, %96
@@ -20359,7 +20359,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %38 = fadd float %37, 5.000000e-01
   %39 = fdiv float %38, 2.550000e+02
   %40 = tail call noundef float @llvm.fmuladd.f32(float %39, float %32, float %31)
-  %41 = getelementptr inbounds i8, ptr %.sroa.2.017.i.i, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.2.017.i.i, i64 4
   %42 = load float, ptr %.sroa.2.017.i.i, align 4
   %43 = tail call float @llvm.fmuladd.f32(float %42, float %40, float %.sroa.5.018.i.i)
   %44 = add nuw i64 %.019.i.i, 1
@@ -20486,15 +20486,15 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 100
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 92
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph, %54
@@ -20532,7 +20532,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %34 = fadd float %33, 5.000000e-01
   %35 = fdiv float %34, 2.550000e+02
   %36 = tail call noundef float @llvm.fmuladd.f32(float %35, float %28, float %27)
-  %37 = getelementptr inbounds i8, ptr %.sroa.2.017.i.i, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.2.017.i.i, i64 4
   %38 = load float, ptr %.sroa.2.017.i.i, align 4
   %39 = tail call float @llvm.fmuladd.f32(float %38, float %36, float %.sroa.5.018.i.i)
   %40 = add nuw i64 %.019.i.i, 1
@@ -20589,39 +20589,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 16), (100, 104)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load float, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %12 = load float, ptr %11, align 4
   br label %13
 
@@ -20637,7 +20637,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %18 = fadd float %17, 5.000000e-01
   %19 = fdiv float %18, 2.550000e+02
   %20 = tail call noundef float @llvm.fmuladd.f32(float %19, float %12, float %10)
-  %21 = getelementptr inbounds i8, ptr %.sroa.2.017.i.i, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.2.017.i.i, i64 4
   %22 = load float, ptr %.sroa.2.017.i.i, align 4
   %23 = tail call float @llvm.fmuladd.f32(float %22, float %20, float %.sroa.5.018.i.i)
   %24 = add nuw i64 %.019.i.i, 1
@@ -20656,18 +20656,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 100
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 92
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %51
@@ -20697,7 +20697,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %29 = fadd float %28, 5.000000e-01
   %30 = fdiv float %29, 2.550000e+02
   %31 = tail call noundef float @llvm.fmuladd.f32(float %30, float %23, float %22)
-  %32 = getelementptr inbounds i8, ptr %.sroa.2.017.i.i.us, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.2.017.i.i.us, i64 4
   %33 = load float, ptr %.sroa.2.017.i.i.us, align 4
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %31, float %.sroa.5.018.i.i.us)
   %35 = add nuw i64 %.019.i.i.us, 1
@@ -20769,7 +20769,7 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %42
   %65 = fadd float %64, 5.000000e-01
   %66 = fdiv float %65, 2.550000e+02
   %67 = tail call noundef float @llvm.fmuladd.f32(float %66, float %59, float %58)
-  %68 = getelementptr inbounds i8, ptr %.sroa.2.017.i.i, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.2.017.i.i, i64 4
   %69 = load float, ptr %.sroa.2.017.i.i, align 4
   %70 = tail call float @llvm.fmuladd.f32(float %69, float %67, float %.sroa.5.018.i.i)
   %71 = add nuw i64 %.019.i.i, 1
@@ -20897,14 +20897,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 100
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %47
@@ -20933,7 +20933,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %26 = fadd float %25, 5.000000e-01
   %27 = fdiv float %26, 2.550000e+02
   %28 = tail call noundef float @llvm.fmuladd.f32(float %27, float %20, float %19)
-  %29 = getelementptr inbounds i8, ptr %.sroa.2.017.i.i, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.2.017.i.i, i64 4
   %30 = load float, ptr %.sroa.2.017.i.i, align 4
   %31 = tail call float @llvm.fmuladd.f32(float %30, float %28, float %.sroa.5.018.i.i)
   %32 = add nuw i64 %.019.i.i, 1
@@ -20991,39 +20991,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 16), (100, 104)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load float, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %12 = load float, ptr %11, align 4
   br label %13
 
@@ -21045,7 +21045,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %25 = fadd float %24, 5.000000e-01
   %26 = fdiv float %25, 1.500000e+01
   %27 = tail call noundef float @llvm.fmuladd.f32(float %26, float %12, float %10)
-  %28 = getelementptr inbounds i8, ptr %.sroa.2.018.i.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.2.018.i.i, i64 4
   %29 = load float, ptr %.sroa.2.018.i.i, align 4
   %30 = tail call float @llvm.fmuladd.f32(float %29, float %27, float %.sroa.5.019.i.i)
   %31 = add nuw i64 %.020.i.i, 1
@@ -21064,19 +21064,19 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 100
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 92
-  %14 = getelementptr inbounds i8, ptr %0, i64 17
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %4, i64 -4
   %17 = getelementptr inbounds i8, ptr %5, i64 -8
   %18 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %16, i64 %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %20
 
 20:                                               ; preds = %.lr.ph, %102
@@ -21119,7 +21119,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %43 = fadd float %42, 5.000000e-01
   %44 = fdiv float %43, 1.500000e+01
   %45 = tail call noundef float @llvm.fmuladd.f32(float %44, float %30, float %29)
-  %46 = getelementptr inbounds i8, ptr %.sroa.2.018.i.i, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.2.018.i.i, i64 4
   %47 = load float, ptr %.sroa.2.018.i.i, align 4
   %48 = tail call float @llvm.fmuladd.f32(float %47, float %45, float %.sroa.5.019.i.i)
   %49 = add nuw i64 %.020.i.i, 1
@@ -21247,15 +21247,15 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 100
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 92
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph, %60
@@ -21297,7 +21297,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %39 = fadd float %38, 5.000000e-01
   %40 = fdiv float %39, 1.500000e+01
   %41 = tail call noundef float @llvm.fmuladd.f32(float %40, float %26, float %25)
-  %42 = getelementptr inbounds i8, ptr %.sroa.2.018.i.i, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.2.018.i.i, i64 4
   %43 = load float, ptr %.sroa.2.018.i.i, align 4
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %41, float %.sroa.5.019.i.i)
   %45 = add nuw i64 %.020.i.i, 1
@@ -21355,39 +21355,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 16), (100, 104)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load float, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %12 = load float, ptr %11, align 4
   br label %13
 
@@ -21409,7 +21409,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %25 = fadd float %24, 5.000000e-01
   %26 = fdiv float %25, 1.500000e+01
   %27 = tail call noundef float @llvm.fmuladd.f32(float %26, float %12, float %10)
-  %28 = getelementptr inbounds i8, ptr %.sroa.2.018.i.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.2.018.i.i, i64 4
   %29 = load float, ptr %.sroa.2.018.i.i, align 4
   %30 = tail call float @llvm.fmuladd.f32(float %29, float %27, float %.sroa.5.019.i.i)
   %31 = add nuw i64 %.020.i.i, 1
@@ -21428,19 +21428,19 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 100
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 92
-  %14 = getelementptr inbounds i8, ptr %0, i64 17
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %4, i64 -4
   %17 = getelementptr inbounds i8, ptr %5, i64 -8
   %18 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %16, i64 %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %20
 
 20:                                               ; preds = %.lr.ph, %103
@@ -21485,7 +21485,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %45 = fadd float %44, 5.000000e-01
   %46 = fdiv float %45, 1.500000e+01
   %47 = tail call noundef float @llvm.fmuladd.f32(float %46, float %32, float %31)
-  %48 = getelementptr inbounds i8, ptr %.sroa.2.018.i.i, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.2.018.i.i, i64 4
   %49 = load float, ptr %.sroa.2.018.i.i, align 4
   %50 = tail call float @llvm.fmuladd.f32(float %49, float %47, float %.sroa.5.019.i.i)
   %51 = add nuw i64 %.020.i.i, 1
@@ -21612,15 +21612,15 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 100
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 92
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph, %61
@@ -21664,7 +21664,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %41 = fadd float %40, 5.000000e-01
   %42 = fdiv float %41, 1.500000e+01
   %43 = tail call noundef float @llvm.fmuladd.f32(float %42, float %28, float %27)
-  %44 = getelementptr inbounds i8, ptr %.sroa.2.018.i.i, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.2.018.i.i, i64 4
   %45 = load float, ptr %.sroa.2.018.i.i, align 4
   %46 = tail call float @llvm.fmuladd.f32(float %45, float %43, float %.sroa.5.019.i.i)
   %47 = add nuw i64 %.020.i.i, 1
@@ -21721,39 +21721,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 16), (100, 104)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load float, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %12 = load float, ptr %11, align 4
   br label %13
 
@@ -21775,7 +21775,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %25 = fadd float %24, 5.000000e-01
   %26 = fdiv float %25, 1.500000e+01
   %27 = tail call noundef float @llvm.fmuladd.f32(float %26, float %12, float %10)
-  %28 = getelementptr inbounds i8, ptr %.sroa.2.018.i.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.2.018.i.i, i64 4
   %29 = load float, ptr %.sroa.2.018.i.i, align 4
   %30 = tail call float @llvm.fmuladd.f32(float %29, float %27, float %.sroa.5.019.i.i)
   %31 = add nuw i64 %.020.i.i, 1
@@ -21794,18 +21794,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 100
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 92
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %96
@@ -21841,7 +21841,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %37 = fadd float %36, 5.000000e-01
   %38 = fdiv float %37, 1.500000e+01
   %39 = tail call noundef float @llvm.fmuladd.f32(float %38, float %24, float %23)
-  %40 = getelementptr inbounds i8, ptr %.sroa.2.018.i.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.2.018.i.i, i64 4
   %41 = load float, ptr %.sroa.2.018.i.i, align 4
   %42 = tail call float @llvm.fmuladd.f32(float %41, float %39, float %.sroa.5.019.i.i)
   %43 = add nuw i64 %.020.i.i, 1
@@ -21969,14 +21969,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 100
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 92
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %54
@@ -22011,7 +22011,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %33 = fadd float %32, 5.000000e-01
   %34 = fdiv float %33, 1.500000e+01
   %35 = tail call noundef float @llvm.fmuladd.f32(float %34, float %20, float %19)
-  %36 = getelementptr inbounds i8, ptr %.sroa.2.018.i.i, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.2.018.i.i, i64 4
   %37 = load float, ptr %.sroa.2.018.i.i, align 4
   %38 = tail call float @llvm.fmuladd.f32(float %37, float %35, float %.sroa.5.019.i.i)
   %39 = add nuw i64 %.020.i.i, 1
@@ -22069,39 +22069,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -22121,7 +22121,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %22 = getelementptr inbounds float, ptr %12, i64 %14
   %23 = load float, ptr %22, align 4
   %24 = tail call noundef float @llvm.fmuladd.f32(float %19, float %23, float %21)
-  %25 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %26 = load float, ptr %.sroa.2.019.i.i, align 4
   %27 = tail call float @llvm.fmuladd.f32(float %26, float %24, float %.sroa.5.020.i.i)
   %28 = add nuw i64 %.021.i.i, 1
@@ -22140,19 +22140,19 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
-  %14 = getelementptr inbounds i8, ptr %0, i64 17
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %4, i64 -4
   %17 = getelementptr inbounds i8, ptr %5, i64 -8
   %18 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %16, i64 %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %20
 
 20:                                               ; preds = %.lr.ph, %99
@@ -22193,7 +22193,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %40 = getelementptr inbounds float, ptr %30, i64 %32
   %41 = load float, ptr %40, align 4
   %42 = tail call noundef float @llvm.fmuladd.f32(float %37, float %41, float %39)
-  %43 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %44 = load float, ptr %.sroa.2.019.i.i, align 4
   %45 = tail call float @llvm.fmuladd.f32(float %44, float %42, float %.sroa.5.020.i.i)
   %46 = add nuw i64 %.021.i.i, 1
@@ -22321,15 +22321,15 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph, %57
@@ -22369,7 +22369,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %36 = getelementptr inbounds float, ptr %26, i64 %28
   %37 = load float, ptr %36, align 4
   %38 = tail call noundef float @llvm.fmuladd.f32(float %33, float %37, float %35)
-  %39 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %40 = load float, ptr %.sroa.2.019.i.i, align 4
   %41 = tail call float @llvm.fmuladd.f32(float %40, float %38, float %.sroa.5.020.i.i)
   %42 = add nuw i64 %.021.i.i, 1
@@ -22427,39 +22427,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -22479,7 +22479,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %22 = getelementptr inbounds float, ptr %12, i64 %14
   %23 = load float, ptr %22, align 4
   %24 = tail call noundef float @llvm.fmuladd.f32(float %19, float %23, float %21)
-  %25 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %26 = load float, ptr %.sroa.2.019.i.i, align 4
   %27 = tail call float @llvm.fmuladd.f32(float %26, float %24, float %.sroa.5.020.i.i)
   %28 = add nuw i64 %.021.i.i, 1
@@ -22498,19 +22498,19 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
-  %14 = getelementptr inbounds i8, ptr %0, i64 17
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %4, i64 -4
   %17 = getelementptr inbounds i8, ptr %5, i64 -8
   %18 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %16, i64 %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %20
 
 20:                                               ; preds = %.lr.ph, %100
@@ -22553,7 +22553,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %42 = getelementptr inbounds float, ptr %32, i64 %34
   %43 = load float, ptr %42, align 4
   %44 = tail call noundef float @llvm.fmuladd.f32(float %39, float %43, float %41)
-  %45 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %46 = load float, ptr %.sroa.2.019.i.i, align 4
   %47 = tail call float @llvm.fmuladd.f32(float %46, float %44, float %.sroa.5.020.i.i)
   %48 = add nuw i64 %.021.i.i, 1
@@ -22680,15 +22680,15 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph, %58
@@ -22730,7 +22730,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %38 = getelementptr inbounds float, ptr %28, i64 %30
   %39 = load float, ptr %38, align 4
   %40 = tail call noundef float @llvm.fmuladd.f32(float %35, float %39, float %37)
-  %41 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %42 = load float, ptr %.sroa.2.019.i.i, align 4
   %43 = tail call float @llvm.fmuladd.f32(float %42, float %40, float %.sroa.5.020.i.i)
   %44 = add nuw i64 %.021.i.i, 1
@@ -22787,39 +22787,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -22839,7 +22839,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %22 = getelementptr inbounds float, ptr %12, i64 %14
   %23 = load float, ptr %22, align 4
   %24 = tail call noundef float @llvm.fmuladd.f32(float %19, float %23, float %21)
-  %25 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %26 = load float, ptr %.sroa.2.019.i.i, align 4
   %27 = tail call float @llvm.fmuladd.f32(float %26, float %24, float %.sroa.5.020.i.i)
   %28 = add nuw i64 %.021.i.i, 1
@@ -22858,18 +22858,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %55
@@ -22903,7 +22903,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %33 = getelementptr inbounds float, ptr %23, i64 %25
   %34 = load float, ptr %33, align 4
   %35 = tail call noundef float @llvm.fmuladd.f32(float %30, float %34, float %32)
-  %36 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i.us, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i.us, i64 4
   %37 = load float, ptr %.sroa.2.019.i.i.us, align 4
   %38 = tail call float @llvm.fmuladd.f32(float %37, float %35, float %.sroa.5.020.i.i.us)
   %39 = add nuw i64 %.021.i.i.us, 1
@@ -22979,7 +22979,7 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %49, %46
   %73 = getelementptr inbounds float, ptr %63, i64 %65
   %74 = load float, ptr %73, align 4
   %75 = tail call noundef float @llvm.fmuladd.f32(float %70, float %74, float %72)
-  %76 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %77 = load float, ptr %.sroa.2.019.i.i, align 4
   %78 = tail call float @llvm.fmuladd.f32(float %77, float %75, float %.sroa.5.020.i.i)
   %79 = add nuw i64 %.021.i.i, 1
@@ -23107,14 +23107,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 108
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %51
@@ -23147,7 +23147,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %30 = getelementptr inbounds float, ptr %20, i64 %22
   %31 = load float, ptr %30, align 4
   %32 = tail call noundef float @llvm.fmuladd.f32(float %27, float %31, float %29)
-  %33 = getelementptr inbounds i8, ptr %.sroa.2.019.i.i, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.2.019.i.i, i64 4
   %34 = load float, ptr %.sroa.2.019.i.i, align 4
   %35 = tail call float @llvm.fmuladd.f32(float %34, float %32, float %.sroa.5.020.i.i)
   %36 = add nuw i64 %.021.i.i, 1
@@ -23205,39 +23205,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -23265,7 +23265,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %30 = getelementptr inbounds float, ptr %12, i64 %27
   %31 = load float, ptr %30, align 4
   %32 = tail call noundef float @llvm.fmuladd.f32(float %26, float %31, float %29)
-  %33 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %34 = load float, ptr %.sroa.2.020.i.i, align 4
   %35 = tail call float @llvm.fmuladd.f32(float %34, float %32, float %.sroa.5.021.i.i)
   %36 = add nuw i64 %.022.i.i, 1
@@ -23284,19 +23284,19 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
-  %14 = getelementptr inbounds i8, ptr %0, i64 17
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %4, i64 -4
   %17 = getelementptr inbounds i8, ptr %5, i64 -8
   %18 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %16, i64 %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %20
 
 20:                                               ; preds = %.lr.ph, %107
@@ -23345,7 +23345,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %48 = getelementptr inbounds float, ptr %30, i64 %45
   %49 = load float, ptr %48, align 4
   %50 = tail call noundef float @llvm.fmuladd.f32(float %44, float %49, float %47)
-  %51 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %52 = load float, ptr %.sroa.2.020.i.i, align 4
   %53 = tail call float @llvm.fmuladd.f32(float %52, float %50, float %.sroa.5.021.i.i)
   %54 = add nuw i64 %.022.i.i, 1
@@ -23473,15 +23473,15 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph, %65
@@ -23529,7 +23529,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %44 = getelementptr inbounds float, ptr %26, i64 %41
   %45 = load float, ptr %44, align 4
   %46 = tail call noundef float @llvm.fmuladd.f32(float %40, float %45, float %43)
-  %47 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %48 = load float, ptr %.sroa.2.020.i.i, align 4
   %49 = tail call float @llvm.fmuladd.f32(float %48, float %46, float %.sroa.5.021.i.i)
   %50 = add nuw i64 %.022.i.i, 1
@@ -23587,39 +23587,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -23647,7 +23647,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %30 = getelementptr inbounds float, ptr %12, i64 %27
   %31 = load float, ptr %30, align 4
   %32 = tail call noundef float @llvm.fmuladd.f32(float %26, float %31, float %29)
-  %33 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %34 = load float, ptr %.sroa.2.020.i.i, align 4
   %35 = tail call float @llvm.fmuladd.f32(float %34, float %32, float %.sroa.5.021.i.i)
   %36 = add nuw i64 %.022.i.i, 1
@@ -23666,19 +23666,19 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
-  %14 = getelementptr inbounds i8, ptr %0, i64 17
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %4, i64 -4
   %17 = getelementptr inbounds i8, ptr %5, i64 -8
   %18 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %16, i64 %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %20
 
 20:                                               ; preds = %.lr.ph, %108
@@ -23729,7 +23729,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %50 = getelementptr inbounds float, ptr %32, i64 %47
   %51 = load float, ptr %50, align 4
   %52 = tail call noundef float @llvm.fmuladd.f32(float %46, float %51, float %49)
-  %53 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %54 = load float, ptr %.sroa.2.020.i.i, align 4
   %55 = tail call float @llvm.fmuladd.f32(float %54, float %52, float %.sroa.5.021.i.i)
   %56 = add nuw i64 %.022.i.i, 1
@@ -23856,15 +23856,15 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph, %66
@@ -23914,7 +23914,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %46 = getelementptr inbounds float, ptr %28, i64 %43
   %47 = load float, ptr %46, align 4
   %48 = tail call noundef float @llvm.fmuladd.f32(float %42, float %47, float %45)
-  %49 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %50 = load float, ptr %.sroa.2.020.i.i, align 4
   %51 = tail call float @llvm.fmuladd.f32(float %50, float %48, float %.sroa.5.021.i.i)
   %52 = add nuw i64 %.022.i.i, 1
@@ -23971,39 +23971,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -24031,7 +24031,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %30 = getelementptr inbounds float, ptr %12, i64 %27
   %31 = load float, ptr %30, align 4
   %32 = tail call noundef float @llvm.fmuladd.f32(float %26, float %31, float %29)
-  %33 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %34 = load float, ptr %.sroa.2.020.i.i, align 4
   %35 = tail call float @llvm.fmuladd.f32(float %34, float %32, float %.sroa.5.021.i.i)
   %36 = add nuw i64 %.022.i.i, 1
@@ -24050,18 +24050,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %101
@@ -24103,7 +24103,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %42 = getelementptr inbounds float, ptr %24, i64 %39
   %43 = load float, ptr %42, align 4
   %44 = tail call noundef float @llvm.fmuladd.f32(float %38, float %43, float %41)
-  %45 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %46 = load float, ptr %.sroa.2.020.i.i, align 4
   %47 = tail call float @llvm.fmuladd.f32(float %46, float %44, float %.sroa.5.021.i.i)
   %48 = add nuw i64 %.022.i.i, 1
@@ -24231,14 +24231,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 108
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %59
@@ -24279,7 +24279,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %38 = getelementptr inbounds float, ptr %20, i64 %35
   %39 = load float, ptr %38, align 4
   %40 = tail call noundef float @llvm.fmuladd.f32(float %34, float %39, float %37)
-  %41 = getelementptr inbounds i8, ptr %.sroa.2.020.i.i, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.2.020.i.i, i64 4
   %42 = load float, ptr %.sroa.2.020.i.i, align 4
   %43 = tail call float @llvm.fmuladd.f32(float %42, float %40, float %.sroa.5.021.i.i)
   %44 = add nuw i64 %.022.i.i, 1
@@ -24337,39 +24337,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -24398,7 +24398,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
 23:                                               ; preds = %13
   %24 = load i8, ptr %18, align 1
   %25 = lshr i8 %24, 6
-  %26 = getelementptr inbounds i8, ptr %18, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = shl i8 %27, 2
   %29 = and i8 %28, 60
@@ -24406,10 +24406,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   br label %44
 
 31:                                               ; preds = %13
-  %32 = getelementptr inbounds i8, ptr %18, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = lshr i8 %33, 4
-  %35 = getelementptr inbounds i8, ptr %18, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = shl i8 %36, 4
   %38 = and i8 %37, 48
@@ -24417,7 +24417,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   br label %44
 
 40:                                               ; preds = %13
-  %41 = getelementptr inbounds i8, ptr %18, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %42 = load i8, ptr %41, align 1
   %43 = lshr i8 %42, 2
   br label %44
@@ -24437,7 +24437,7 @@ default.unreachable:                              ; preds = %13
   %51 = getelementptr inbounds float, ptr %12, i64 %48
   %52 = load float, ptr %51, align 4
   %53 = tail call noundef float @llvm.fmuladd.f32(float %47, float %52, float %50)
-  %54 = getelementptr inbounds i8, ptr %.sroa.2.031.i.i, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.2.031.i.i, i64 4
   %55 = load float, ptr %.sroa.2.031.i.i, align 4
   %56 = tail call float @llvm.fmuladd.f32(float %55, float %53, float %.sroa.5.032.i.i)
   %57 = add nuw i64 %.033.i.i, 1
@@ -24456,19 +24456,19 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
-  %14 = getelementptr inbounds i8, ptr %0, i64 17
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %4, i64 -4
   %17 = getelementptr inbounds i8, ptr %5, i64 -8
   %18 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %16, i64 %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %20
 
 20:                                               ; preds = %.lr.ph, %128
@@ -24518,7 +24518,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 41:                                               ; preds = %31
   %42 = load i8, ptr %36, align 1
   %43 = lshr i8 %42, 6
-  %44 = getelementptr inbounds i8, ptr %36, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = shl i8 %45, 2
   %47 = and i8 %46, 60
@@ -24526,10 +24526,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br label %62
 
 49:                                               ; preds = %31
-  %50 = getelementptr inbounds i8, ptr %36, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = lshr i8 %51, 4
-  %53 = getelementptr inbounds i8, ptr %36, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %54 = load i8, ptr %53, align 1
   %55 = shl i8 %54, 4
   %56 = and i8 %55, 48
@@ -24537,7 +24537,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br label %62
 
 58:                                               ; preds = %31
-  %59 = getelementptr inbounds i8, ptr %36, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %60 = load i8, ptr %59, align 1
   %61 = lshr i8 %60, 2
   br label %62
@@ -24557,7 +24557,7 @@ default.unreachable:                              ; preds = %31
   %69 = getelementptr inbounds float, ptr %30, i64 %66
   %70 = load float, ptr %69, align 4
   %71 = tail call noundef float @llvm.fmuladd.f32(float %65, float %70, float %68)
-  %72 = getelementptr inbounds i8, ptr %.sroa.2.031.i.i, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.2.031.i.i, i64 4
   %73 = load float, ptr %.sroa.2.031.i.i, align 4
   %74 = tail call float @llvm.fmuladd.f32(float %73, float %71, float %.sroa.5.032.i.i)
   %75 = add nuw i64 %.033.i.i, 1
@@ -24685,15 +24685,15 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph, %86
@@ -24742,7 +24742,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
 37:                                               ; preds = %27
   %38 = load i8, ptr %32, align 1
   %39 = lshr i8 %38, 6
-  %40 = getelementptr inbounds i8, ptr %32, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %41 = load i8, ptr %40, align 1
   %42 = shl i8 %41, 2
   %43 = and i8 %42, 60
@@ -24750,10 +24750,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br label %58
 
 45:                                               ; preds = %27
-  %46 = getelementptr inbounds i8, ptr %32, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = lshr i8 %47, 4
-  %49 = getelementptr inbounds i8, ptr %32, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %50 = load i8, ptr %49, align 1
   %51 = shl i8 %50, 4
   %52 = and i8 %51, 48
@@ -24761,7 +24761,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br label %58
 
 54:                                               ; preds = %27
-  %55 = getelementptr inbounds i8, ptr %32, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = lshr i8 %56, 2
   br label %58
@@ -24781,7 +24781,7 @@ default.unreachable:                              ; preds = %27
   %65 = getelementptr inbounds float, ptr %26, i64 %62
   %66 = load float, ptr %65, align 4
   %67 = tail call noundef float @llvm.fmuladd.f32(float %61, float %66, float %64)
-  %68 = getelementptr inbounds i8, ptr %.sroa.2.031.i.i, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.2.031.i.i, i64 4
   %69 = load float, ptr %.sroa.2.031.i.i, align 4
   %70 = tail call float @llvm.fmuladd.f32(float %69, float %67, float %.sroa.5.032.i.i)
   %71 = add nuw i64 %.033.i.i, 1
@@ -24839,39 +24839,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -24900,7 +24900,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
 23:                                               ; preds = %13
   %24 = load i8, ptr %18, align 1
   %25 = lshr i8 %24, 6
-  %26 = getelementptr inbounds i8, ptr %18, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = shl i8 %27, 2
   %29 = and i8 %28, 60
@@ -24908,10 +24908,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   br label %44
 
 31:                                               ; preds = %13
-  %32 = getelementptr inbounds i8, ptr %18, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = lshr i8 %33, 4
-  %35 = getelementptr inbounds i8, ptr %18, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = shl i8 %36, 4
   %38 = and i8 %37, 48
@@ -24919,7 +24919,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   br label %44
 
 40:                                               ; preds = %13
-  %41 = getelementptr inbounds i8, ptr %18, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %42 = load i8, ptr %41, align 1
   %43 = lshr i8 %42, 2
   br label %44
@@ -24939,7 +24939,7 @@ default.unreachable:                              ; preds = %13
   %51 = getelementptr inbounds float, ptr %12, i64 %48
   %52 = load float, ptr %51, align 4
   %53 = tail call noundef float @llvm.fmuladd.f32(float %47, float %52, float %50)
-  %54 = getelementptr inbounds i8, ptr %.sroa.2.031.i.i, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.2.031.i.i, i64 4
   %55 = load float, ptr %.sroa.2.031.i.i, align 4
   %56 = tail call float @llvm.fmuladd.f32(float %55, float %53, float %.sroa.5.032.i.i)
   %57 = add nuw i64 %.033.i.i, 1
@@ -24958,19 +24958,19 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
-  %14 = getelementptr inbounds i8, ptr %0, i64 17
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds i8, ptr %4, i64 -4
   %17 = getelementptr inbounds i8, ptr %5, i64 -8
   %18 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %16, i64 %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %20
 
 20:                                               ; preds = %.lr.ph, %129
@@ -25022,7 +25022,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 43:                                               ; preds = %33
   %44 = load i8, ptr %38, align 1
   %45 = lshr i8 %44, 6
-  %46 = getelementptr inbounds i8, ptr %38, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = shl i8 %47, 2
   %49 = and i8 %48, 60
@@ -25030,10 +25030,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br label %64
 
 51:                                               ; preds = %33
-  %52 = getelementptr inbounds i8, ptr %38, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %53 = load i8, ptr %52, align 1
   %54 = lshr i8 %53, 4
-  %55 = getelementptr inbounds i8, ptr %38, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = shl i8 %56, 4
   %58 = and i8 %57, 48
@@ -25041,7 +25041,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br label %64
 
 60:                                               ; preds = %33
-  %61 = getelementptr inbounds i8, ptr %38, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %62 = load i8, ptr %61, align 1
   %63 = lshr i8 %62, 2
   br label %64
@@ -25061,7 +25061,7 @@ default.unreachable:                              ; preds = %33
   %71 = getelementptr inbounds float, ptr %32, i64 %68
   %72 = load float, ptr %71, align 4
   %73 = tail call noundef float @llvm.fmuladd.f32(float %67, float %72, float %70)
-  %74 = getelementptr inbounds i8, ptr %.sroa.2.031.i.i, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.2.031.i.i, i64 4
   %75 = load float, ptr %.sroa.2.031.i.i, align 4
   %76 = tail call float @llvm.fmuladd.f32(float %75, float %73, float %.sroa.5.032.i.i)
   %77 = add nuw i64 %.033.i.i, 1
@@ -25188,15 +25188,15 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph, %87
@@ -25247,7 +25247,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
 39:                                               ; preds = %29
   %40 = load i8, ptr %34, align 1
   %41 = lshr i8 %40, 6
-  %42 = getelementptr inbounds i8, ptr %34, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = shl i8 %43, 2
   %45 = and i8 %44, 60
@@ -25255,10 +25255,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br label %60
 
 47:                                               ; preds = %29
-  %48 = getelementptr inbounds i8, ptr %34, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = lshr i8 %49, 4
-  %51 = getelementptr inbounds i8, ptr %34, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %52 = load i8, ptr %51, align 1
   %53 = shl i8 %52, 4
   %54 = and i8 %53, 48
@@ -25266,7 +25266,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br label %60
 
 56:                                               ; preds = %29
-  %57 = getelementptr inbounds i8, ptr %34, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %58 = load i8, ptr %57, align 1
   %59 = lshr i8 %58, 2
   br label %60
@@ -25286,7 +25286,7 @@ default.unreachable:                              ; preds = %29
   %67 = getelementptr inbounds float, ptr %28, i64 %64
   %68 = load float, ptr %67, align 4
   %69 = tail call noundef float @llvm.fmuladd.f32(float %63, float %68, float %66)
-  %70 = getelementptr inbounds i8, ptr %.sroa.2.031.i.i, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.2.031.i.i, i64 4
   %71 = load float, ptr %.sroa.2.031.i.i, align 4
   %72 = tail call float @llvm.fmuladd.f32(float %71, float %69, float %.sroa.5.032.i.i)
   %73 = add nuw i64 %.033.i.i, 1
@@ -25343,39 +25343,39 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -25404,7 +25404,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
 23:                                               ; preds = %13
   %24 = load i8, ptr %18, align 1
   %25 = lshr i8 %24, 6
-  %26 = getelementptr inbounds i8, ptr %18, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = shl i8 %27, 2
   %29 = and i8 %28, 60
@@ -25412,10 +25412,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   br label %44
 
 31:                                               ; preds = %13
-  %32 = getelementptr inbounds i8, ptr %18, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = lshr i8 %33, 4
-  %35 = getelementptr inbounds i8, ptr %18, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = shl i8 %36, 4
   %38 = and i8 %37, 48
@@ -25423,7 +25423,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   br label %44
 
 40:                                               ; preds = %13
-  %41 = getelementptr inbounds i8, ptr %18, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %42 = load i8, ptr %41, align 1
   %43 = lshr i8 %42, 2
   br label %44
@@ -25443,7 +25443,7 @@ default.unreachable:                              ; preds = %13
   %51 = getelementptr inbounds float, ptr %12, i64 %48
   %52 = load float, ptr %51, align 4
   %53 = tail call noundef float @llvm.fmuladd.f32(float %47, float %52, float %50)
-  %54 = getelementptr inbounds i8, ptr %.sroa.2.031.i.i, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.2.031.i.i, i64 4
   %55 = load float, ptr %.sroa.2.031.i.i, align 4
   %56 = tail call float @llvm.fmuladd.f32(float %55, float %53, float %.sroa.5.032.i.i)
   %57 = add nuw i64 %.033.i.i, 1
@@ -25462,18 +25462,18 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds i8, ptr %4, i64 -4
   %16 = getelementptr inbounds i8, ptr %5, i64 -8
   %17 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %15, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 19:                                               ; preds = %.lr.ph, %122
@@ -25516,7 +25516,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 35:                                               ; preds = %25
   %36 = load i8, ptr %30, align 1
   %37 = lshr i8 %36, 6
-  %38 = getelementptr inbounds i8, ptr %30, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = shl i8 %39, 2
   %41 = and i8 %40, 60
@@ -25524,10 +25524,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br label %56
 
 43:                                               ; preds = %25
-  %44 = getelementptr inbounds i8, ptr %30, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = lshr i8 %45, 4
-  %47 = getelementptr inbounds i8, ptr %30, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %48 = load i8, ptr %47, align 1
   %49 = shl i8 %48, 4
   %50 = and i8 %49, 48
@@ -25535,7 +25535,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br label %56
 
 52:                                               ; preds = %25
-  %53 = getelementptr inbounds i8, ptr %30, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %54 = load i8, ptr %53, align 1
   %55 = lshr i8 %54, 2
   br label %56
@@ -25555,7 +25555,7 @@ default.unreachable:                              ; preds = %25
   %63 = getelementptr inbounds float, ptr %24, i64 %60
   %64 = load float, ptr %63, align 4
   %65 = tail call noundef float @llvm.fmuladd.f32(float %59, float %64, float %62)
-  %66 = getelementptr inbounds i8, ptr %.sroa.2.031.i.i, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.2.031.i.i, i64 4
   %67 = load float, ptr %.sroa.2.031.i.i, align 4
   %68 = tail call float @llvm.fmuladd.f32(float %67, float %65, float %.sroa.5.032.i.i)
   %69 = add nuw i64 %.033.i.i, 1
@@ -25683,14 +25683,14 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 108
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %15
 
 15:                                               ; preds = %.lr.ph, %80
@@ -25732,7 +25732,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
 31:                                               ; preds = %21
   %32 = load i8, ptr %26, align 1
   %33 = lshr i8 %32, 6
-  %34 = getelementptr inbounds i8, ptr %26, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = shl i8 %35, 2
   %37 = and i8 %36, 60
@@ -25740,10 +25740,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br label %52
 
 39:                                               ; preds = %21
-  %40 = getelementptr inbounds i8, ptr %26, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %41 = load i8, ptr %40, align 1
   %42 = lshr i8 %41, 4
-  %43 = getelementptr inbounds i8, ptr %26, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %26, i64 2
   %44 = load i8, ptr %43, align 1
   %45 = shl i8 %44, 4
   %46 = and i8 %45, 48
@@ -25751,7 +25751,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br label %52
 
 48:                                               ; preds = %21
-  %49 = getelementptr inbounds i8, ptr %26, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %26, i64 2
   %50 = load i8, ptr %49, align 1
   %51 = lshr i8 %50, 2
   br label %52
@@ -25771,7 +25771,7 @@ default.unreachable:                              ; preds = %21
   %59 = getelementptr inbounds float, ptr %20, i64 %56
   %60 = load float, ptr %59, align 4
   %61 = tail call noundef float @llvm.fmuladd.f32(float %55, float %60, float %58)
-  %62 = getelementptr inbounds i8, ptr %.sroa.2.031.i.i, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.2.031.i.i, i64 4
   %63 = load float, ptr %.sroa.2.031.i.i, align 4
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %61, float %.sroa.5.032.i.i)
   %65 = add nuw i64 %.033.i.i, 1
@@ -25829,35 +25829,35 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (92, 96)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %.lr.ph.i.i
 
@@ -25887,7 +25887,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %25 = select i1 %24, i32 %16, i32 %22
   %26 = or i32 %25, %23
   %27 = bitcast i32 %26 to float
-  %28 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %29 = load float, ptr %.sroa.2.02.i.i, align 4
   %30 = tail call float @llvm.fmuladd.f32(float %29, float %27, float %.sroa.5.03.i.i)
   %31 = add nuw i64 %.04.i.i, 1
@@ -25906,17 +25906,17 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 -4
   %15 = getelementptr inbounds i8, ptr %5, i64 -8
   %16 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %14, i64 %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %18
 
 18:                                               ; preds = %.lr.ph, %102
@@ -25965,7 +25965,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %43 = select i1 %42, i32 %34, i32 %40
   %44 = or i32 %43, %41
   %45 = bitcast i32 %44 to float
-  %46 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %47 = load float, ptr %.sroa.2.02.i.i, align 4
   %48 = tail call float @llvm.fmuladd.f32(float %47, float %45, float %.sroa.5.03.i.i)
   %49 = add nuw i64 %.04.i.i, 1
@@ -26093,13 +26093,13 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %60
@@ -26147,7 +26147,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %39 = select i1 %38, i32 %30, i32 %36
   %40 = or i32 %39, %37
   %41 = bitcast i32 %40 to float
-  %42 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %43 = load float, ptr %.sroa.2.02.i.i, align 4
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %41, float %.sroa.5.03.i.i)
   %45 = add nuw i64 %.04.i.i, 1
@@ -26205,35 +26205,35 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (92, 96)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %.lr.ph.i.i
 
@@ -26263,7 +26263,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %25 = select i1 %24, i32 %16, i32 %22
   %26 = or i32 %25, %23
   %27 = bitcast i32 %26 to float
-  %28 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %29 = load float, ptr %.sroa.2.02.i.i, align 4
   %30 = tail call float @llvm.fmuladd.f32(float %29, float %27, float %.sroa.5.03.i.i)
   %31 = add nuw i64 %.04.i.i, 1
@@ -26282,17 +26282,17 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 -4
   %15 = getelementptr inbounds i8, ptr %5, i64 -8
   %16 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %14, i64 %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %18
 
 18:                                               ; preds = %.lr.ph, %103
@@ -26343,7 +26343,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %45 = select i1 %44, i32 %36, i32 %42
   %46 = or i32 %45, %43
   %47 = bitcast i32 %46 to float
-  %48 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %49 = load float, ptr %.sroa.2.02.i.i, align 4
   %50 = tail call float @llvm.fmuladd.f32(float %49, float %47, float %.sroa.5.03.i.i)
   %51 = add nuw i64 %.04.i.i, 1
@@ -26470,13 +26470,13 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %61
@@ -26526,7 +26526,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %41 = select i1 %40, i32 %32, i32 %38
   %42 = or i32 %41, %39
   %43 = bitcast i32 %42 to float
-  %44 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %45 = load float, ptr %.sroa.2.02.i.i, align 4
   %46 = tail call float @llvm.fmuladd.f32(float %45, float %43, float %.sroa.5.03.i.i)
   %47 = add nuw i64 %.04.i.i, 1
@@ -26583,35 +26583,35 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (92, 96)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %.lr.ph.i.i
 
@@ -26641,7 +26641,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %25 = select i1 %24, i32 %16, i32 %22
   %26 = or i32 %25, %23
   %27 = bitcast i32 %26 to float
-  %28 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %29 = load float, ptr %.sroa.2.02.i.i, align 4
   %30 = tail call float @llvm.fmuladd.f32(float %29, float %27, float %.sroa.5.03.i.i)
   %31 = add nuw i64 %.04.i.i, 1
@@ -26660,16 +26660,16 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds i8, ptr %4, i64 -4
   %14 = getelementptr inbounds i8, ptr %5, i64 -8
   %15 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %13, i64 %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %17
 
 17:                                               ; preds = %.lr.ph, %96
@@ -26711,7 +26711,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %37 = select i1 %36, i32 %28, i32 %34
   %38 = or i32 %37, %35
   %39 = bitcast i32 %38 to float
-  %40 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %41 = load float, ptr %.sroa.2.02.i.i, align 4
   %42 = tail call float @llvm.fmuladd.f32(float %41, float %39, float %.sroa.5.03.i.i)
   %43 = add nuw i64 %.04.i.i, 1
@@ -26839,12 +26839,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 92
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %13
 
 13:                                               ; preds = %.lr.ph, %54
@@ -26885,7 +26885,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %33 = select i1 %32, i32 %24, i32 %30
   %34 = or i32 %33, %31
   %35 = bitcast i32 %34 to float
-  %36 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %37 = load float, ptr %.sroa.2.02.i.i, align 4
   %38 = tail call float @llvm.fmuladd.f32(float %37, float %35, float %.sroa.5.03.i.i)
   %39 = add nuw i64 %.04.i.i, 1
@@ -26943,23 +26943,23 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #23 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %7
 
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %9 = load float, ptr %8, align 4
   %10 = fptosi float %9 to i32
   %11 = trunc i32 %10 to i8
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i
   store i8 %11, ptr %13, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i32, ptr %3, align 8
@@ -26973,24 +26973,24 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE9set
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val.i = load i32, ptr %7, align 8
   %8 = icmp sgt i32 %.val.i, 0
   br i1 %8, label %.lr.ph.preheader.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
@@ -27002,10 +27002,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Di
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.081.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %16, %.lr.ph.i.i ]
-  %9 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = mul nuw nsw i32 %14, %11
@@ -27030,17 +27030,17 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Dist
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 -4
   %15 = getelementptr inbounds i8, ptr %5, i64 -8
   %16 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %14, i64 %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %50
@@ -27067,10 +27067,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Dist
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.us, %.lr.ph.preheader.i.i.us
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.preheader.i.i.us ], [ %indvars.iv.next.i.i.us, %.lr.ph.i.i.us ]
   %.081.i.i.us = phi i32 [ 0, %.lr.ph.preheader.i.i.us ], [ %33, %.lr.ph.i.i.us ]
-  %26 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv.i.i.us
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.i.i.us
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %.026.us, i64 %indvars.iv.i.i.us
+  %29 = getelementptr inbounds nuw i8, ptr %.026.us, i64 %indvars.iv.i.i.us
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = mul nuw nsw i32 %31, %28
@@ -27145,10 +27145,10 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %44, %41
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.081.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %69, %.lr.ph.i.i ]
-  %62 = getelementptr inbounds i8, ptr %60, i64 %indvars.iv.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv.i.i
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
-  %65 = getelementptr inbounds i8, ptr %.026, i64 %indvars.iv.i.i
+  %65 = getelementptr inbounds nuw i8, ptr %.026, i64 %indvars.iv.i.i
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = mul nuw nsw i32 %67, %64
@@ -27282,13 +27282,13 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceCom
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %46
@@ -27314,10 +27314,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceCom
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.081.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %30, %.lr.ph.i.i ]
-  %23 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i.i
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %.018, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %.018, i64 %indvars.iv.i.i
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = mul nuw nsw i32 %28, %25
@@ -27371,9 +27371,9 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev.exit, label %5
@@ -27389,9 +27389,9 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi2EED2Ev.exit, label %5
@@ -27407,23 +27407,23 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12Similar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #23 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %7
 
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %9 = load float, ptr %8, align 4
   %10 = fptosi float %9 to i32
   %11 = trunc i32 %10 to i8
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i
   store i8 %11, ptr %13, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i32, ptr %3, align 8
@@ -27437,24 +27437,24 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE9set
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val.i = load i32, ptr %7, align 8
   %8 = icmp sgt i32 %.val.i, 0
   br i1 %8, label %.lr.ph.preheader.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
@@ -27466,10 +27466,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Di
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.081.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %16, %.lr.ph.i.i ]
-  %9 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = mul nuw nsw i32 %14, %11
@@ -27494,17 +27494,17 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Dist
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 -4
   %15 = getelementptr inbounds i8, ptr %5, i64 -8
   %16 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %14, i64 %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %51
@@ -27533,10 +27533,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Dist
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.us, %.lr.ph.preheader.i.i.us
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.preheader.i.i.us ], [ %indvars.iv.next.i.i.us, %.lr.ph.i.i.us ]
   %.081.i.i.us = phi i32 [ 0, %.lr.ph.preheader.i.i.us ], [ %35, %.lr.ph.i.i.us ]
-  %28 = getelementptr inbounds i8, ptr %26, i64 %indvars.iv.i.i.us
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv.i.i.us
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %.027.us, i64 %indvars.iv.i.i.us
+  %31 = getelementptr inbounds nuw i8, ptr %.027.us, i64 %indvars.iv.i.i.us
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = mul nuw nsw i32 %33, %30
@@ -27612,10 +27612,10 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %43
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.081.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %72, %.lr.ph.i.i ]
-  %65 = getelementptr inbounds i8, ptr %63, i64 %indvars.iv.i.i
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv.i.i
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
-  %68 = getelementptr inbounds i8, ptr %.027, i64 %indvars.iv.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %.027, i64 %indvars.iv.i.i
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = mul nuw nsw i32 %70, %67
@@ -27748,13 +27748,13 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceCom
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %47
@@ -27782,10 +27782,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceCom
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.081.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %32, %.lr.ph.i.i ]
-  %25 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv.i.i
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %.019, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %.019, i64 %indvars.iv.i.i
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = mul nuw nsw i32 %30, %27
@@ -27838,9 +27838,9 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev.exit, label %5
@@ -27856,9 +27856,9 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi1EED2Ev.exit, label %5
@@ -27874,23 +27874,23 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12Similar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #23 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE9set_queryEPKf.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %7
 
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %9 = load float, ptr %8, align 4
   %10 = fptosi float %9 to i32
   %11 = trunc i32 %10 to i8
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i
   store i8 %11, ptr %13, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i32, ptr %3, align 8
@@ -27904,24 +27904,24 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE9set
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 16), (108, 112)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val.i = load i32, ptr %7, align 8
   %8 = icmp sgt i32 %.val.i, 0
   br i1 %8, label %.lr.ph.preheader.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
@@ -27933,10 +27933,10 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Di
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.081.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %16, %.lr.ph.i.i ]
-  %9 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = mul nuw nsw i32 %14, %11
@@ -27961,16 +27961,16 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Dist
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds i8, ptr %4, i64 -4
   %14 = getelementptr inbounds i8, ptr %5, i64 -8
   %15 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %13, i64 %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %44
@@ -27990,10 +27990,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Dist
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.us, %.lr.ph.preheader.i.i.us
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.preheader.i.i.us ], [ %indvars.iv.next.i.i.us, %.lr.ph.i.i.us ]
   %.081.i.i.us = phi i32 [ 0, %.lr.ph.preheader.i.i.us ], [ %27, %.lr.ph.i.i.us ]
-  %20 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv.i.i.us
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i.i.us
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %.025.us, i64 %indvars.iv.i.i.us
+  %23 = getelementptr inbounds nuw i8, ptr %.025.us, i64 %indvars.iv.i.i.us
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = mul nuw nsw i32 %25, %22
@@ -28061,10 +28061,10 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %38, %35
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.081.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %58, %.lr.ph.i.i ]
-  %51 = getelementptr inbounds i8, ptr %49, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv.i.i
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
-  %54 = getelementptr inbounds i8, ptr %.025, i64 %indvars.iv.i.i
+  %54 = getelementptr inbounds nuw i8, ptr %.025, i64 %indvars.iv.i.i
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = mul nuw nsw i32 %56, %53
@@ -28198,12 +28198,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceCom
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 108
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %13
 
 13:                                               ; preds = %.lr.ph, %40
@@ -28222,10 +28222,10 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceCom
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.081.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %24, %.lr.ph.i.i ]
-  %17 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv.i.i
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %.017, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %.017, i64 %indvars.iv.i.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = mul nuw nsw i32 %22, %19
@@ -28279,9 +28279,9 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev.exit, label %5
@@ -28297,9 +28297,9 @@ _ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EEELi0EED2Ev.exit, label %5
@@ -28315,35 +28315,35 @@ _ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceComputerByteINS0_12Similar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (92, 96)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi2EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %.lr.ph.i.i
 
@@ -28356,7 +28356,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = uitofp i8 %10 to float
-  %12 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %13 = load float, ptr %.sroa.2.02.i.i, align 4
   %14 = tail call float @llvm.fmuladd.f32(float %13, float %11, float %.sroa.5.03.i.i)
   %15 = add nuw i64 %.04.i.i, 1
@@ -28375,17 +28375,17 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 -4
   %15 = getelementptr inbounds i8, ptr %5, i64 -8
   %16 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %14, i64 %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %48
@@ -28417,7 +28417,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %26 = getelementptr inbounds i8, ptr %.025.us, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = uitofp i8 %27 to float
-  %29 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i.us, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i.us, i64 4
   %30 = load float, ptr %.sroa.2.02.i.i.us, align 4
   %31 = tail call float @llvm.fmuladd.f32(float %30, float %28, float %.sroa.5.03.i.i.us)
   %32 = add nuw i64 %.04.i.i.us, 1
@@ -28491,7 +28491,7 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %42, %39
   %60 = getelementptr inbounds i8, ptr %.025, i64 %59
   %61 = load i8, ptr %60, align 1
   %62 = uitofp i8 %61 to float
-  %63 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %64 = load float, ptr %.sroa.2.02.i.i, align 4
   %65 = tail call float @llvm.fmuladd.f32(float %64, float %62, float %.sroa.5.03.i.i)
   %66 = add nuw i64 %.04.i.i, 1
@@ -28619,13 +28619,13 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %44
@@ -28656,7 +28656,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %23 = getelementptr inbounds i8, ptr %.018, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = uitofp i8 %24 to float
-  %26 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %27 = load float, ptr %.sroa.2.02.i.i, align 4
   %28 = tail call float @llvm.fmuladd.f32(float %27, float %25, float %.sroa.5.03.i.i)
   %29 = add nuw i64 %.04.i.i, 1
@@ -28714,35 +28714,35 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (92, 96)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %.lr.ph.i.i
 
@@ -28755,7 +28755,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = uitofp i8 %10 to float
-  %12 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %13 = load float, ptr %.sroa.2.02.i.i, align 4
   %14 = tail call float @llvm.fmuladd.f32(float %13, float %11, float %.sroa.5.03.i.i)
   %15 = add nuw i64 %.04.i.i, 1
@@ -28774,17 +28774,17 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 -4
   %15 = getelementptr inbounds i8, ptr %5, i64 -8
   %16 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %14, i64 %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %49
@@ -28818,7 +28818,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %28 = getelementptr inbounds i8, ptr %.026.us, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = uitofp i8 %29 to float
-  %31 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i.us, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i.us, i64 4
   %32 = load float, ptr %.sroa.2.02.i.i.us, align 4
   %33 = tail call float @llvm.fmuladd.f32(float %32, float %30, float %.sroa.5.03.i.i.us)
   %34 = add nuw i64 %.04.i.i.us, 1
@@ -28893,7 +28893,7 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %41
   %63 = getelementptr inbounds i8, ptr %.026, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = uitofp i8 %64 to float
-  %66 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %67 = load float, ptr %.sroa.2.02.i.i, align 4
   %68 = tail call float @llvm.fmuladd.f32(float %67, float %65, float %.sroa.5.03.i.i)
   %69 = add nuw i64 %.04.i.i, 1
@@ -29020,13 +29020,13 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %45
@@ -29059,7 +29059,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %25 = getelementptr inbounds i8, ptr %.019, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = uitofp i8 %26 to float
-  %28 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %29 = load float, ptr %.sroa.2.02.i.i, align 4
   %30 = tail call float @llvm.fmuladd.f32(float %29, float %27, float %.sroa.5.03.i.i)
   %31 = add nuw i64 %.04.i.i, 1
@@ -29116,35 +29116,35 @@ define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateIN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((64, 72)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (92, 96)) %0, i64 noundef %1, float noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, float %2, float 0.000000e+00
-  %9 = getelementptr inbounds i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %8, ptr %9, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEELi0EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1) unnamed_addr #22 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val.i = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
   br i1 %.not.i.i, label %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %.lr.ph.i.i
 
@@ -29157,7 +29157,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = uitofp i8 %10 to float
-  %12 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %13 = load float, ptr %.sroa.2.02.i.i, align 4
   %14 = tail call float @llvm.fmuladd.f32(float %13, float %11, float %.sroa.5.03.i.i)
   %15 = add nuw i64 %.04.i.i, 1
@@ -29176,16 +29176,16 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds i8, ptr %4, i64 -4
   %14 = getelementptr inbounds i8, ptr %5, i64 -8
   %15 = icmp ult i64 %6, 2
   %.phi.trans.insert.i.i = getelementptr inbounds float, ptr %13, i64 %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %42
@@ -29210,7 +29210,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %20 = getelementptr inbounds i8, ptr %.024.us, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = uitofp i8 %21 to float
-  %23 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i.us, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i.us, i64 4
   %24 = load float, ptr %.sroa.2.02.i.i.us, align 4
   %25 = tail call float @llvm.fmuladd.f32(float %24, float %22, float %.sroa.5.03.i.i.us)
   %26 = add nuw i64 %.04.i.i.us, 1
@@ -29277,7 +29277,7 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %36, %33
   %49 = getelementptr inbounds i8, ptr %.024, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = uitofp i8 %50 to float
-  %52 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %53 = load float, ptr %.sroa.2.02.i.i, align 4
   %54 = tail call float @llvm.fmuladd.f32(float %53, float %51, float %.sroa.5.03.i.i)
   %55 = add nuw i64 %.04.i.i, 1
@@ -29405,12 +29405,12 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 92
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %13
 
 13:                                               ; preds = %.lr.ph, %38
@@ -29434,7 +29434,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %17 = getelementptr inbounds i8, ptr %.017, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = uitofp i8 %18 to float
-  %20 = getelementptr inbounds i8, ptr %.sroa.2.02.i.i, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.2.02.i.i, i64 4
   %21 = load float, ptr %.sroa.2.02.i.i, align 4
   %22 = tail call float @llvm.fmuladd.f32(float %21, float %19, float %.sroa.5.03.i.i)
   %23 = add nuw i64 %.04.i.i, 1

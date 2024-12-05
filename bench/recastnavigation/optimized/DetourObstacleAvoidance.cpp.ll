@@ -63,43 +63,43 @@ define void @_ZN28dtObstacleAvoidanceDebugDataC2Ev(ptr nocapture noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN28dtObstacleAvoidanceDebugDataD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z6dtFreePv(ptr noundef %3)
           to label %4 unwind label %23
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   invoke void @_Z6dtFreePv(ptr noundef %6)
           to label %7 unwind label %23
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   invoke void @_Z6dtFreePv(ptr noundef %9)
           to label %10 unwind label %23
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   invoke void @_Z6dtFreePv(ptr noundef %12)
           to label %13 unwind label %23
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   invoke void @_Z6dtFreePv(ptr noundef %15)
           to label %16 unwind label %23
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   invoke void @_Z6dtFreePv(ptr noundef %18)
           to label %19 unwind label %23
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8
   invoke void @_Z6dtFreePv(ptr noundef %21)
           to label %22 unwind label %23
@@ -142,12 +142,12 @@ define noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr nocaptur
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %8, align 4
   %9 = sext i32 %1 to i64
   %10 = mul nsw i64 %9, 12
   %11 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %10, i32 noundef 0)
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %12, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %49, label %13
@@ -157,7 +157,7 @@ define noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr nocaptur
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 2
   %17 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %16, i32 noundef 0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %17, ptr %18, align 8
   %.not7 = icmp eq ptr %17, null
   br i1 %.not7, label %49, label %19
@@ -167,7 +167,7 @@ define noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr nocaptur
   %21 = sext i32 %20 to i64
   %22 = shl nsw i64 %21, 2
   %23 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %22, i32 noundef 0)
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %24, align 8
   %.not8 = icmp eq ptr %23, null
   br i1 %.not8, label %49, label %25
@@ -177,7 +177,7 @@ define noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr nocaptur
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 2
   %29 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %28, i32 noundef 0)
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %29, ptr %30, align 8
   %.not9 = icmp eq ptr %29, null
   br i1 %.not9, label %49, label %31
@@ -187,7 +187,7 @@ define noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr nocaptur
   %33 = sext i32 %32 to i64
   %34 = shl nsw i64 %33, 2
   %35 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %34, i32 noundef 0)
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %35, ptr %36, align 8
   %.not10 = icmp eq ptr %35, null
   br i1 %.not10, label %49, label %37
@@ -197,7 +197,7 @@ define noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr nocaptur
   %39 = sext i32 %38 to i64
   %40 = shl nsw i64 %39, 2
   %41 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %40, i32 noundef 0)
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %41, ptr %42, align 8
   %.not11 = icmp eq ptr %41, null
   br i1 %.not11, label %49, label %43
@@ -207,7 +207,7 @@ define noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr nocaptur
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 2
   %47 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %46, i32 noundef 0)
-  %48 = getelementptr inbounds i8, ptr %0, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %47, ptr %48, align 8
   %.not12 = icmp ne ptr %47, null
   br label %49
@@ -228,7 +228,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData5resetEv(ptr nocapture noundef non
 ; Function Attrs: mustprogress uwtable
 define void @_ZN28dtObstacleAvoidanceDebugData9addSampleEPKfffffff(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #0 align 2 {
   %9 = load i32, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %.not = icmp slt i32 %9, %11
   br i1 %.not, label %12, label %93
@@ -236,7 +236,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData9addSampleEPKfffffff(ptr nocapture
 12:                                               ; preds = %8
   %13 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %14 = icmp ne ptr %13, null
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not28 = icmp eq ptr %16, null
   %or.cond = select i1 %14, i1 %.not28, i1 false
@@ -249,7 +249,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData9addSampleEPKfffffff(ptr nocapture
 18:                                               ; preds = %17, %12
   %19 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %20 = icmp ne ptr %19, null
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not29 = icmp eq ptr %22, null
   %or.cond37 = select i1 %20, i1 %.not29, i1 false
@@ -262,7 +262,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData9addSampleEPKfffffff(ptr nocapture
 24:                                               ; preds = %23, %18
   %25 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %26 = icmp ne ptr %25, null
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not30 = icmp eq ptr %28, null
   %or.cond39 = select i1 %26, i1 %.not30, i1 false
@@ -275,7 +275,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData9addSampleEPKfffffff(ptr nocapture
 30:                                               ; preds = %29, %24
   %31 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %32 = icmp ne ptr %31, null
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8
   %.not31 = icmp eq ptr %34, null
   %or.cond41 = select i1 %32, i1 %.not31, i1 false
@@ -288,7 +288,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData9addSampleEPKfffffff(ptr nocapture
 36:                                               ; preds = %35, %30
   %37 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %38 = icmp ne ptr %37, null
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8
   %.not32 = icmp eq ptr %40, null
   %or.cond43 = select i1 %38, i1 %.not32, i1 false
@@ -301,7 +301,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData9addSampleEPKfffffff(ptr nocapture
 42:                                               ; preds = %41, %36
   %43 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %44 = icmp ne ptr %43, null
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %46 = load ptr, ptr %45, align 8
   %.not33 = icmp eq ptr %46, null
   %or.cond45 = select i1 %44, i1 %.not33, i1 false
@@ -314,7 +314,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData9addSampleEPKfffffff(ptr nocapture
 48:                                               ; preds = %47, %42
   %49 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %50 = icmp ne ptr %49, null
-  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = load ptr, ptr %51, align 8
   %.not34 = icmp eq ptr %52, null
   %or.cond47 = select i1 %50, i1 %.not34, i1 false
@@ -332,13 +332,13 @@ define void @_ZN28dtObstacleAvoidanceDebugData9addSampleEPKfffffff(ptr nocapture
   %59 = getelementptr inbounds float, ptr %55, i64 %58
   %60 = load float, ptr %1, align 4
   store float %60, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %62 = load float, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %59, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store float %62, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load float, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %59, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store float %65, ptr %66, align 4
   %67 = load ptr, ptr %21, align 8
   %68 = load i32, ptr %0, align 8
@@ -381,7 +381,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData9addSampleEPKfffffff(ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN28dtObstacleAvoidanceDebugData16normalizeSamplesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 0
@@ -395,7 +395,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData16normalizeSamplesEv(ptr nocapture
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02127.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i ], [ %9, %.lr.ph.i ]
   %.02226.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader.i ], [ %11, %.lr.ph.i ]
-  %6 = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
   %7 = load float, ptr %6, align 4
   %8 = fcmp olt float %.02127.i, %7
   %9 = select i1 %8, float %.02127.i, float %7
@@ -414,7 +414,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData16normalizeSamplesEv(ptr nocapture
 
 .lr.ph31.i:                                       ; preds = %.lr.ph31.i, %._crit_edge.i
   %indvars.iv35.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next36.i, %.lr.ph31.i ]
-  %16 = getelementptr inbounds float, ptr %3, i64 %indvars.iv35.i
+  %16 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv35.i
   %17 = load float, ptr %16, align 4
   %18 = fsub float %17, %9
   %19 = fmul float %15, %18
@@ -429,7 +429,7 @@ define void @_ZN28dtObstacleAvoidanceDebugData16normalizeSamplesEv(ptr nocapture
 
 _ZL14normalizeArrayPfi.exit:                      ; preds = %.lr.ph31.i
   %.pr = load i32, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = icmp sgt i32 %.pr, 0
   br i1 %26, label %.lr.ph.preheader.i1, label %_ZL14normalizeArrayPfi.exit60
@@ -442,7 +442,7 @@ _ZL14normalizeArrayPfi.exit:                      ; preds = %.lr.ph31.i
   %indvars.iv.i4 = phi i64 [ 0, %.lr.ph.preheader.i1 ], [ %indvars.iv.next.i7, %.lr.ph.i3 ]
   %.02127.i5 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i1 ], [ %30, %.lr.ph.i3 ]
   %.02226.i6 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader.i1 ], [ %32, %.lr.ph.i3 ]
-  %27 = getelementptr inbounds float, ptr %25, i64 %indvars.iv.i4
+  %27 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv.i4
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %.02127.i5, %28
   %30 = select i1 %29, float %.02127.i5, float %28
@@ -461,7 +461,7 @@ _ZL14normalizeArrayPfi.exit:                      ; preds = %.lr.ph31.i
 
 .lr.ph31.i11:                                     ; preds = %.lr.ph31.i11, %._crit_edge.i9
   %indvars.iv35.i12 = phi i64 [ 0, %._crit_edge.i9 ], [ %indvars.iv.next36.i13, %.lr.ph31.i11 ]
-  %37 = getelementptr inbounds float, ptr %25, i64 %indvars.iv35.i12
+  %37 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv35.i12
   %38 = load float, ptr %37, align 4
   %39 = fsub float %38, %30
   %40 = fmul float %36, %39
@@ -476,7 +476,7 @@ _ZL14normalizeArrayPfi.exit:                      ; preds = %.lr.ph31.i
 
 _ZL14normalizeArrayPfi.exit15:                    ; preds = %.lr.ph31.i11
   %.pr61 = load i32, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = icmp sgt i32 %.pr61, 0
   br i1 %47, label %.lr.ph.preheader.i16, label %_ZL14normalizeArrayPfi.exit60
@@ -489,7 +489,7 @@ _ZL14normalizeArrayPfi.exit15:                    ; preds = %.lr.ph31.i11
   %indvars.iv.i19 = phi i64 [ 0, %.lr.ph.preheader.i16 ], [ %indvars.iv.next.i22, %.lr.ph.i18 ]
   %.02127.i20 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i16 ], [ %51, %.lr.ph.i18 ]
   %.02226.i21 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader.i16 ], [ %53, %.lr.ph.i18 ]
-  %48 = getelementptr inbounds float, ptr %46, i64 %indvars.iv.i19
+  %48 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i19
   %49 = load float, ptr %48, align 4
   %50 = fcmp olt float %.02127.i20, %49
   %51 = select i1 %50, float %.02127.i20, float %49
@@ -508,7 +508,7 @@ _ZL14normalizeArrayPfi.exit15:                    ; preds = %.lr.ph31.i11
 
 .lr.ph31.i26:                                     ; preds = %.lr.ph31.i26, %._crit_edge.i24
   %indvars.iv35.i27 = phi i64 [ 0, %._crit_edge.i24 ], [ %indvars.iv.next36.i28, %.lr.ph31.i26 ]
-  %58 = getelementptr inbounds float, ptr %46, i64 %indvars.iv35.i27
+  %58 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv35.i27
   %59 = load float, ptr %58, align 4
   %60 = fsub float %59, %51
   %61 = fmul float %57, %60
@@ -523,7 +523,7 @@ _ZL14normalizeArrayPfi.exit15:                    ; preds = %.lr.ph31.i11
 
 _ZL14normalizeArrayPfi.exit30:                    ; preds = %.lr.ph31.i26
   %.pr62.pr = load i32, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %67 = load ptr, ptr %66, align 8
   %68 = icmp sgt i32 %.pr62.pr, 0
   br i1 %68, label %.lr.ph.preheader.i31, label %_ZL14normalizeArrayPfi.exit60
@@ -536,7 +536,7 @@ _ZL14normalizeArrayPfi.exit30:                    ; preds = %.lr.ph31.i26
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.preheader.i31 ], [ %indvars.iv.next.i37, %.lr.ph.i33 ]
   %.02127.i35 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i31 ], [ %72, %.lr.ph.i33 ]
   %.02226.i36 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader.i31 ], [ %74, %.lr.ph.i33 ]
-  %69 = getelementptr inbounds float, ptr %67, i64 %indvars.iv.i34
+  %69 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv.i34
   %70 = load float, ptr %69, align 4
   %71 = fcmp olt float %.02127.i35, %70
   %72 = select i1 %71, float %.02127.i35, float %70
@@ -555,7 +555,7 @@ _ZL14normalizeArrayPfi.exit30:                    ; preds = %.lr.ph31.i26
 
 .lr.ph31.i41:                                     ; preds = %.lr.ph31.i41, %._crit_edge.i39
   %indvars.iv35.i42 = phi i64 [ 0, %._crit_edge.i39 ], [ %indvars.iv.next36.i43, %.lr.ph31.i41 ]
-  %79 = getelementptr inbounds float, ptr %67, i64 %indvars.iv35.i42
+  %79 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv35.i42
   %80 = load float, ptr %79, align 4
   %81 = fsub float %80, %72
   %82 = fmul float %78, %81
@@ -570,7 +570,7 @@ _ZL14normalizeArrayPfi.exit30:                    ; preds = %.lr.ph31.i26
 
 _ZL14normalizeArrayPfi.exit45:                    ; preds = %.lr.ph31.i41
   %.pr63 = load i32, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %88 = load ptr, ptr %87, align 8
   %89 = icmp sgt i32 %.pr63, 0
   br i1 %89, label %.lr.ph.preheader.i46, label %_ZL14normalizeArrayPfi.exit60
@@ -583,7 +583,7 @@ _ZL14normalizeArrayPfi.exit45:                    ; preds = %.lr.ph31.i41
   %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.preheader.i46 ], [ %indvars.iv.next.i52, %.lr.ph.i48 ]
   %.02127.i50 = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i46 ], [ %93, %.lr.ph.i48 ]
   %.02226.i51 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.preheader.i46 ], [ %95, %.lr.ph.i48 ]
-  %90 = getelementptr inbounds float, ptr %88, i64 %indvars.iv.i49
+  %90 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv.i49
   %91 = load float, ptr %90, align 4
   %92 = fcmp olt float %.02127.i50, %91
   %93 = select i1 %92, float %.02127.i50, float %91
@@ -602,7 +602,7 @@ _ZL14normalizeArrayPfi.exit45:                    ; preds = %.lr.ph31.i41
 
 .lr.ph31.i56:                                     ; preds = %.lr.ph31.i56, %._crit_edge.i54
   %indvars.iv35.i57 = phi i64 [ 0, %._crit_edge.i54 ], [ %indvars.iv.next36.i58, %.lr.ph31.i56 ]
-  %100 = getelementptr inbounds float, ptr %88, i64 %indvars.iv35.i57
+  %100 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv35.i57
   %101 = load float, ptr %100, align 4
   %102 = fsub float %101, %93
   %103 = fmul float %99, %102
@@ -649,8 +649,8 @@ define void @_Z28dtFreeObstacleAvoidanceQueryP24dtObstacleAvoidanceQuery(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN24dtObstacleAvoidanceQueryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((28, 44), (48, 76)) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 28, i1 false)
   ret void
@@ -658,13 +658,13 @@ define void @_ZN24dtObstacleAvoidanceQueryC2Ev(ptr nocapture noundef nonnull wri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN24dtObstacleAvoidanceQueryD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z6dtFreePv(ptr noundef %3)
           to label %4 unwind label %8
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   invoke void @_Z6dtFreePv(ptr noundef %6)
           to label %7 unwind label %8
@@ -682,14 +682,14 @@ define void @_ZN24dtObstacleAvoidanceQueryD2Ev(ptr nocapture noundef nonnull rea
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN24dtObstacleAvoidanceQuery4initEii(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((40, 44), (48, 60)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %5, align 8
   %6 = sext i32 %1 to i64
   %7 = shl nsw i64 %6, 6
   %8 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %7, i32 noundef 0)
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %8, ptr %9, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %24, label %10
@@ -699,14 +699,14 @@ define noundef zeroext i1 @_ZN24dtObstacleAvoidanceQuery4initEii(ptr nocapture n
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 6
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %8, i8 0, i64 %13, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 60
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %2, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %15, align 8
   %16 = sext i32 %2 to i64
   %17 = mul nsw i64 %16, 28
   %18 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %17, i32 noundef 0)
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %18, ptr %19, align 8
   %.not5 = icmp eq ptr %18, null
   br i1 %.not5, label %24, label %20
@@ -728,24 +728,24 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN24dtObstacleAvoidanceQuery5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((56, 60), (72, 76)) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN24dtObstacleAvoidanceQuery9addCircleEPKffS1_S1_(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, ptr nocapture noundef readonly %1, float noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #8 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %.not = icmp slt i32 %7, %9
   br i1 %.not, label %10, label %40
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i32 %7, 1
   store i32 %13, ptr %6, align 8
@@ -753,37 +753,37 @@ define void @_ZN24dtObstacleAvoidanceQuery9addCircleEPKffS1_S1_(ptr nocapture no
   %15 = getelementptr inbounds %struct.dtObstacleCircle, ptr %12, i64 %14
   %16 = load float, ptr %1, align 4
   store float %16, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %15, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store float %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %15, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 36
   store float %2, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %15, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %25 = load float, ptr %3, align 4
   store float %25, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %3, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %27 = load float, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %15, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store float %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load float, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %15, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store float %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %15, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %33 = load float, ptr %4, align 4
   store float %33, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %4, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %15, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store float %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %15, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store float %38, ptr %39, align 4
   br label %40
 
@@ -793,15 +793,15 @@ define void @_ZN24dtObstacleAvoidanceQuery9addCircleEPKffS1_S1_(ptr nocapture no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN24dtObstacleAvoidanceQuery10addSegmentEPKfS1_(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %5, %7
   br i1 %.not, label %8, label %29
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = add nsw i32 %5, 1
   store i32 %11, ptr %4, align 8
@@ -809,24 +809,24 @@ define void @_ZN24dtObstacleAvoidanceQuery10addSegmentEPKfS1_(ptr nocapture noun
   %13 = getelementptr inbounds %struct.dtObstacleSegment, ptr %10, i64 %12
   %14 = load float, ptr %1, align 4
   store float %14, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %13, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store float %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %13, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %22 = load float, ptr %2, align 4
   store float %22, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %2, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %24 = load float, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %13, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store float %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load float, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %13, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store float %27, ptr %28, align 4
   br label %29
 
@@ -837,48 +837,48 @@ define void @_ZN24dtObstacleAvoidanceQuery10addSegmentEPKfS1_(ptr nocapture noun
 ; Function Attrs: mustprogress uwtable
 define void @_ZN24dtObstacleAvoidanceQuery7prepareEPKfS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca float, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %16
 
 .preheader:                                       ; preds = %16, %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph34, label %._crit_edge
 
 .lr.ph34:                                         ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %61
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.dtObstacleCircle, ptr %17, i64 %indvars.iv
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %18 = getelementptr inbounds nuw %struct.dtObstacleCircle, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load float, ptr %18, align 4
   %21 = load float, ptr %1, align 4
   %22 = fsub float %20, %21
   store float %22, ptr %19, align 4
-  %23 = getelementptr inbounds i8, ptr %18, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %24 = load float, ptr %23, align 4
   %25 = load float, ptr %9, align 4
   %26 = fsub float %24, %25
-  %27 = getelementptr inbounds i8, ptr %18, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 44
   store float %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %18, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %29 = load float, ptr %28, align 4
   %30 = load float, ptr %10, align 4
   %31 = fsub float %29, %30
-  %32 = getelementptr inbounds i8, ptr %18, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %33 = fmul float %22, %22
   %34 = fmul float %26, %26
   %35 = fadd float %33, %34
@@ -892,11 +892,11 @@ define void @_ZN24dtObstacleAvoidanceQuery7prepareEPKfS1_(ptr nocapture noundef 
   store float %40, ptr %27, align 4
   %41 = fmul float %31, %38
   store float %41, ptr %32, align 4
-  %42 = getelementptr inbounds i8, ptr %18, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %43 = load float, ptr %42, align 4
   %44 = load float, ptr %2, align 4
   %45 = fsub float %43, %44
-  %46 = getelementptr inbounds i8, ptr %18, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %47 = load float, ptr %46, align 4
   %48 = load float, ptr %11, align 4
   %49 = fsub float %47, %48
@@ -908,9 +908,9 @@ define void @_ZN24dtObstacleAvoidanceQuery7prepareEPKfS1_(ptr nocapture noundef 
   %55 = fneg float %39
   %.sink39 = select i1 %53, float %54, float %41
   %.sink = select i1 %53, float %39, float %55
-  %56 = getelementptr inbounds i8, ptr %18, i64 52
+  %56 = getelementptr inbounds nuw i8, ptr %18, i64 52
   store float %.sink39, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %18, i64 60
+  %57 = getelementptr inbounds nuw i8, ptr %18, i64 60
   store float %.sink, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %5, align 8
@@ -921,11 +921,11 @@ define void @_ZN24dtObstacleAvoidanceQuery7prepareEPKfS1_(ptr nocapture noundef 
 61:                                               ; preds = %.lr.ph34, %61
   %indvars.iv36 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next37, %61 ]
   %62 = load ptr, ptr %15, align 8
-  %63 = getelementptr inbounds %struct.dtObstacleSegment, ptr %62, i64 %indvars.iv36
-  %64 = getelementptr inbounds i8, ptr %63, i64 12
+  %63 = getelementptr inbounds nuw %struct.dtObstacleSegment, ptr %62, i64 %indvars.iv36
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %65 = call noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef %1, ptr noundef %63, ptr noundef nonnull %64, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %66 = fcmp olt float %65, 0x3F1A36E2E0000000
-  %67 = getelementptr inbounds i8, ptr %63, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %68 = zext i1 %66 to i8
   store i8 %68, ptr %67, align 4
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
@@ -942,28 +942,28 @@ declare noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef, ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1_fP28dtObstacleAvoidanceDebugData(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, ptr nocapture noundef readonly %1, float noundef %2, ptr nocapture noundef readonly %3, float noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, float noundef %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load float, ptr %10, align 4
   %12 = load float, ptr %6, align 4
   %13 = load float, ptr %1, align 4
   %14 = fsub float %12, %13
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load float, ptr %17, align 4
   %19 = fsub float %16, %18
   %20 = fmul float %19, %19
   %21 = tail call float @llvm.fmuladd.f32(float %14, float %14, float %20)
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %21)
-  %22 = getelementptr inbounds i8, ptr %0, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %23 = load float, ptr %22, align 4
   %24 = fmul float %23, %sqrt.i
   %25 = fmul float %11, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load float, ptr %26, align 8
   %28 = load float, ptr %5, align 4
   %29 = fsub float %28, %13
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load float, ptr %30, align 4
   %32 = fsub float %31, %18
   %33 = fmul float %32, %32
@@ -973,11 +973,11 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   %36 = fmul float %27, %35
   %37 = fsub float %7, %25
   %38 = fsub float %37, %36
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load float, ptr %39, align 8
   %41 = fdiv float %40, %38
   %42 = fadd float %41, 0xBFB99999A0000000
-  %43 = getelementptr inbounds i8, ptr %0, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %44 = load float, ptr %43, align 4
   %45 = fmul float %44, %42
   %46 = fsub float %45, %44
@@ -985,14 +985,14 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   br i1 %47, label %.loopexit, label %.preheader108
 
 .preheader108:                                    ; preds = %9
-  %48 = getelementptr inbounds i8, ptr %0, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load i32, ptr %48, align 8
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %.preheader108
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %60
 
 .preheader.loopexit:                              ; preds = %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread
@@ -1003,15 +1003,15 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   %.067.lcssa = phi i32 [ 0, %.preheader108 ], [ %indvars.le, %.preheader.loopexit ]
   %.065.lcssa = phi float [ 0.000000e+00, %.preheader108 ], [ %97, %.preheader.loopexit ]
   %.064.lcssa = phi float [ %44, %.preheader108 ], [ %.1, %.preheader.loopexit ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %54 = load i32, ptr %53, align 8
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph122, label %._crit_edge
 
 .lr.ph122:                                        ; preds = %.preheader
-  %56 = getelementptr inbounds i8, ptr %0, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %3, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %wide.trip.count = zext nneg i32 %54 to i64
   %59 = load float, ptr %17, align 4
   br label %139
@@ -1021,7 +1021,7 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   %.064117 = phi float [ %44, %.lr.ph ], [ %.1, %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread ]
   %.065116 = phi float [ 0.000000e+00, %.lr.ph ], [ %97, %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread ]
   %61 = load ptr, ptr %51, align 8
-  %62 = getelementptr inbounds %struct.dtObstacleCircle, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw %struct.dtObstacleCircle, ptr %61, i64 %indvars.iv
   %63 = load float, ptr %1, align 4
   %64 = fmul float %63, 2.000000e+00
   %65 = load float, ptr %17, align 4
@@ -1030,22 +1030,22 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   %68 = fsub float %64, %67
   %69 = load float, ptr %30, align 4
   %70 = fsub float %66, %69
-  %71 = getelementptr inbounds i8, ptr %62, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %72 = load float, ptr %71, align 4
   %73 = fsub float %68, %72
-  %74 = getelementptr inbounds i8, ptr %62, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 20
   %75 = load float, ptr %74, align 4
   %76 = fsub float %70, %75
-  %77 = getelementptr inbounds i8, ptr %62, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %78 = load float, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %62, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %80 = load float, ptr %79, align 4
   %81 = fmul float %76, %80
   %82 = tail call noundef float @llvm.fmuladd.f32(float %78, float %73, float %81)
   %83 = tail call float @llvm.fmuladd.f32(float %82, float 5.000000e-01, float 5.000000e-01)
-  %84 = getelementptr inbounds i8, ptr %62, i64 52
+  %84 = getelementptr inbounds nuw i8, ptr %62, i64 52
   %85 = load float, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %62, i64 60
+  %86 = getelementptr inbounds nuw i8, ptr %62, i64 60
   %87 = load float, ptr %86, align 4
   %88 = fmul float %76, %87
   %89 = tail call noundef float @llvm.fmuladd.f32(float %85, float %73, float %88)
@@ -1064,12 +1064,12 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   br i1 %100, label %_ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread, label %101
 
 101:                                              ; preds = %60
-  %102 = getelementptr inbounds i8, ptr %62, i64 36
+  %102 = getelementptr inbounds nuw i8, ptr %62, i64 36
   %103 = load float, ptr %102, align 4
   %104 = load float, ptr %62, align 4
   %105 = load float, ptr %3, align 4
   %106 = fsub float %104, %105
-  %107 = getelementptr inbounds i8, ptr %62, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %108 = load float, ptr %107, align 4
   %109 = load float, ptr %52, align 4
   %110 = fsub float %108, %109
@@ -1117,17 +1117,17 @@ _ZL17sweepCircleCirclePKffS0_S0_fRfS1_.exit.thread: ; preds = %101, %60, %122, %
 139:                                              ; preds = %.lr.ph122, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread
   %indvars.iv131 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next132, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread ]
   %.2121 = phi float [ %.064.lcssa, %.lr.ph122 ], [ %.3, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread ]
-  %140 = getelementptr inbounds %struct.dtObstacleSegment, ptr %57, i64 %indvars.iv131
-  %141 = getelementptr inbounds i8, ptr %140, i64 24
+  %140 = getelementptr inbounds nuw %struct.dtObstacleSegment, ptr %57, i64 %indvars.iv131
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = load i8, ptr %141, align 4
   %143 = trunc i8 %142 to i1
-  %144 = getelementptr inbounds i8, ptr %140, i64 12
+  %144 = getelementptr inbounds nuw i8, ptr %140, i64 12
   %145 = load float, ptr %144, align 4
   %146 = load float, ptr %140, align 4
   %147 = fsub float %145, %146
-  %148 = getelementptr inbounds i8, ptr %140, i64 20
+  %148 = getelementptr inbounds nuw i8, ptr %140, i64 20
   %149 = load float, ptr %148, align 4
-  %150 = getelementptr inbounds i8, ptr %140, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %151 = load float, ptr %150, align 4
   %152 = fsub float %149, %151
   br i1 %143, label %153, label %159
@@ -1195,11 +1195,11 @@ _ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread:       ; preds = %168, %159, %183, %1
   %188 = uitofp nneg i32 %.067.lcssa to float
   %189 = fdiv float %.065.lcssa, %188
   %.166 = select i1 %.not, float %.065.lcssa, float %189
-  %190 = getelementptr inbounds i8, ptr %0, i64 12
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %191 = load float, ptr %190, align 4
   %192 = fmul float %.166, %191
   %193 = load float, ptr %39, align 8
-  %194 = getelementptr inbounds i8, ptr %0, i64 28
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %195 = load float, ptr %194, align 4
   %196 = tail call float @llvm.fmuladd.f32(float %.2.lcssa, float %195, float 0x3FB99999A0000000)
   %197 = fdiv float 1.000000e+00, %196
@@ -1227,22 +1227,22 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery18sampleVelocityGridEPKfffS1_S1
   %10 = alloca [3 x float], align 4
   tail call void @_ZN24dtObstacleAvoidanceQuery7prepareEPKfS1_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %5)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %7, i64 28, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load float, ptr %11, align 4
   %13 = fdiv float 1.000000e+00, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %3, ptr %15, align 8
   %16 = fcmp ogt float %3, 0.000000e+00
   %17 = fdiv float 1.000000e+00, %3
   %18 = select i1 %16, float %17, float 0x47EFFFFFE0000000
-  %19 = getelementptr inbounds i8, ptr %0, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store float %18, ptr %19, align 4
   store float 0.000000e+00, ptr %6, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 0.000000e+00, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float 0.000000e+00, ptr %21, align 4
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %23, label %22
@@ -1255,13 +1255,13 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery18sampleVelocityGridEPKfffS1_S1
   %24 = load float, ptr %5, align 4
   %25 = load float, ptr %0, align 8
   %26 = fmul float %24, %25
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load float, ptr %27, align 4
   %29 = fmul float %25, %28
   %30 = fmul float %3, 2.000000e+00
   %31 = fsub float 1.000000e+00, %25
   %32 = fmul float %30, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load i8, ptr %33, align 8
   %35 = zext i8 %34 to i32
   %36 = add nsw i32 %35, -1
@@ -1273,8 +1273,8 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery18sampleVelocityGridEPKfffS1_S1
   br i1 %.not56, label %._crit_edge54, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %23
-  %41 = getelementptr inbounds i8, ptr %10, i64 4
-  %42 = getelementptr inbounds i8, ptr %10, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %43 = fmul float %38, 5.000000e-01
   %44 = fadd float %3, %43
   %45 = fmul float %44, %44
@@ -1355,22 +1355,22 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery22sampleVelocityAdaptiveEPKfffS
   %12 = alloca [3 x float], align 4
   tail call void @_ZN24dtObstacleAvoidanceQuery7prepareEPKfS1_(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef %5)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %7, i64 28, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load float, ptr %13, align 4
   %15 = fdiv float 1.000000e+00, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %3, ptr %17, align 8
   %18 = fcmp ogt float %3, 0.000000e+00
   %19 = fdiv float 1.000000e+00, %3
   %20 = select i1 %18, float %19, float 0x47EFFFFFE0000000
-  %21 = getelementptr inbounds i8, ptr %0, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store float %20, ptr %21, align 4
   store float 0.000000e+00, ptr %6, align 4
-  %22 = getelementptr inbounds i8, ptr %6, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 0.000000e+00, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float 0.000000e+00, ptr %23, align 4
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %25, label %24
@@ -1380,11 +1380,11 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery22sampleVelocityAdaptiveEPKfffS
   br label %25
 
 25:                                               ; preds = %24, %9
-  %26 = getelementptr inbounds i8, ptr %0, i64 25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %29 = load i8, ptr %28, align 2
-  %30 = getelementptr inbounds i8, ptr %0, i64 27
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp eq i8 %27, 0
@@ -1403,13 +1403,13 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery22sampleVelocityAdaptiveEPKfffS
   %44 = tail call float @sinf(float noundef %42) #13
   %45 = load float, ptr %5, align 4
   store float %45, ptr %11, align 16
-  %46 = getelementptr inbounds i8, ptr %5, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %11, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %50 = load float, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %11, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store float %50, ptr %51, align 8
   %52 = fmul float %50, %50
   %53 = tail call float @llvm.fmuladd.f32(float %45, float %45, float %52)
@@ -1428,7 +1428,7 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery22sampleVelocityAdaptiveEPKfffS
 _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %59 = phi float [ %50, %25 ], [ %58, %55 ]
   %60 = phi float [ %45, %25 ], [ %57, %55 ]
-  %61 = getelementptr inbounds i8, ptr %11, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %62 = fmul float %42, 5.000000e-01
   %63 = tail call float @cosf(float noundef %62) #13
   %64 = tail call float @sinf(float noundef %62) #13
@@ -1438,12 +1438,12 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   store float %67, ptr %61, align 4
   %68 = fmul float %63, %59
   %69 = tail call float @llvm.fmuladd.f32(float %60, float %64, float %68)
-  %70 = getelementptr inbounds i8, ptr %11, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store float %69, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %11, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store float %47, ptr %71, align 16
   store float 0.000000e+00, ptr %10, align 16
-  %72 = getelementptr inbounds i8, ptr %10, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float 0.000000e+00, ptr %72, align 4
   %.not156 = icmp eq i8 %narrow118, 0
   br i1 %.not156, label %._crit_edge127, label %.lr.ph126
@@ -1466,7 +1466,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %82 = trunc i32 %.0111124.us to i1
   %83 = select i1 %82, i32 3, i32 0
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds [6 x float], ptr %11, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [6 x float], ptr %11, i64 0, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = fmul float %81, %86
   %88 = shl nsw i32 %.0125.us, 1
@@ -1475,7 +1475,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   store float %87, ptr %90, align 8
   %91 = add nuw nsw i32 %83, 2
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds [6 x float], ptr %11, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [6 x float], ptr %11, i64 0, i64 %92
   %94 = load float, ptr %93, align 4
   %95 = fmul float %81, %94
   %96 = or disjoint i32 %88, 1
@@ -1517,7 +1517,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %.0108121.us = phi i32 [ 1, %.lr.ph.us ], [ %147, %118 ]
   %.0109120.us = phi ptr [ %90, %.lr.ph.us ], [ %146, %118 ]
   %.0110119.us = phi ptr [ %90, %.lr.ph.us ], [ %125, %118 ]
-  %120 = getelementptr inbounds i8, ptr %.0110119.us, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %.0110119.us, i64 4
   %121 = load float, ptr %120, align 4
   %122 = fmul float %44, %121
   %123 = tail call float @llvm.fmuladd.f32(float %119, float %43, float %122)
@@ -1533,7 +1533,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %132 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %131
   store float %130, ptr %132, align 4
   %133 = load float, ptr %.0109120.us, align 4
-  %134 = getelementptr inbounds i8, ptr %.0109120.us, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %.0109120.us, i64 4
   %135 = load float, ptr %134, align 4
   %136 = fmul float %135, %76
   %137 = tail call float @llvm.fmuladd.f32(float %133, float %43, float %136)
@@ -1547,7 +1547,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %144 = add nsw i64 %124, 3
   %145 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %144
   store float %143, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %125, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %indvars.iv.next170 = add nsw i64 %indvars.iv169, 2
   %147 = add nuw nsw i32 %.0108121.us, 2
   %148 = icmp slt i32 %147, %74
@@ -1569,7 +1569,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %153 = trunc i32 %.0111124.us130 to i1
   %154 = select i1 %153, i32 3, i32 0
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds [6 x float], ptr %11, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [6 x float], ptr %11, i64 0, i64 %155
   %157 = load float, ptr %156, align 4
   %158 = fmul float %152, %157
   %159 = shl nuw i64 %indvars.iv165, 1
@@ -1577,7 +1577,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   store float %158, ptr %160, align 8
   %161 = add nuw nsw i32 %154, 2
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds [6 x float], ptr %11, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [6 x float], ptr %11, i64 0, i64 %162
   %164 = load float, ptr %163, align 4
   %165 = fmul float %152, %164
   %166 = or disjoint i64 %159, 1
@@ -1607,19 +1607,19 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %180 = trunc i32 %.0111124 to i1
   %181 = select i1 %180, i32 3, i32 0
   %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds [6 x float], ptr %11, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw [6 x float], ptr %11, i64 0, i64 %182
   %184 = load float, ptr %183, align 4
   %185 = fmul float %179, %184
   %186 = shl nuw nsw i64 %indvars.iv, 1
-  %187 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %186
   store float %185, ptr %187, align 8
   %188 = add nuw nsw i32 %181, 2
   %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds [6 x float], ptr %11, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw [6 x float], ptr %11, i64 0, i64 %189
   %191 = load float, ptr %190, align 4
   %192 = fmul float %179, %191
   %193 = or disjoint i64 %186, 1
-  %194 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %193
   store float %192, ptr %194, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %195 = add nuw nsw i32 %.0111124, 1
@@ -1646,8 +1646,8 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge127
   %203 = icmp sgt i32 %.0.lcssa, 0
-  %204 = getelementptr inbounds i8, ptr %12, i64 4
-  %205 = getelementptr inbounds i8, ptr %12, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %205 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %206 = fadd float %3, 0x3F50624DE0000000
   %207 = fmul float %206, %206
   br i1 %203, label %.preheader.us.preheader, label %._crit_edge146
@@ -1674,13 +1674,13 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %.sroa.0.0135.us = phi float [ 0.000000e+00, %.preheader.us ], [ %.sroa.0.1.us, %229 ]
   %.sroa.6.0134.us = phi float [ 0.000000e+00, %.preheader.us ], [ %.sroa.6.1.us, %229 ]
   %212 = shl nuw nsw i64 %indvars.iv173, 1
-  %213 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %212
   %214 = load float, ptr %213, align 8
   %215 = tail call float @llvm.fmuladd.f32(float %214, float %.0107143.us, float %.sroa.0115.0142.us)
   store float %215, ptr %12, align 4
   store float 0.000000e+00, ptr %204, align 4
   %216 = or disjoint i64 %212, 1
-  %217 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %216
   %218 = load float, ptr %217, align 4
   %219 = tail call float @llvm.fmuladd.f32(float %218, float %.0107143.us, float %.sroa.7.0141.us)
   store float %219, ptr %205, align 4

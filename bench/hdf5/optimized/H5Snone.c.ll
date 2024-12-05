@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @H5S__none_copy(ptr nocapture noundef writeonly initializes((352, 360)) %0, ptr nocapture readnone %1, i1 zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 352
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i64 0, ptr %4, align 8
   ret i32 0
 }
@@ -63,33 +63,33 @@ define internal noundef i64 @H5S__none_serial_size(ptr nocapture readnone %0) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @H5S__none_serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
   store i8 %7, ptr %3, align 1
-  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 8
   %12 = trunc i32 %11 to i8
   store i8 %12, ptr %8, align 1
-  %13 = getelementptr inbounds i8, ptr %3, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %14 = load ptr, ptr %4, align 8
   %15 = load i32, ptr %14, align 8
   %16 = lshr i32 %15, 16
   %17 = trunc i32 %16 to i8
   store i8 %17, ptr %13, align 1
-  %18 = getelementptr inbounds i8, ptr %3, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %19 = load ptr, ptr %4, align 8
   %20 = load i32, ptr %19, align 8
   %21 = lshr i32 %20, 24
   %22 = trunc nuw i32 %21 to i8
   store i8 %22, ptr %18, align 1
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 1, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %3, i64 5
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %24, i8 0, i64 11, i1 false)
   store ptr %25, ptr %1, align 8
   ret i32 0
@@ -145,25 +145,25 @@ define internal range(i32 -1, 1) i32 @H5S__none_deserialize(ptr nocapture nounde
 28:                                               ; preds = %18, %15
   %29 = load i8, ptr %.pre, align 1
   %30 = zext i8 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %.pre, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
   store ptr %31, ptr %1, align 8
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = shl nuw nsw i32 %33, 8
   %35 = or disjoint i32 %34, %30
-  %36 = getelementptr inbounds i8, ptr %.pre, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.pre, i64 2
   store ptr %36, ptr %1, align 8
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 16
   %40 = or disjoint i32 %35, %39
-  %41 = getelementptr inbounds i8, ptr %.pre, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %.pre, i64 3
   store ptr %41, ptr %1, align 8
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = shl nuw i32 %43, 24
   %45 = or disjoint i32 %40, %44
-  %46 = getelementptr inbounds i8, ptr %.pre, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   store ptr %46, ptr %1, align 8
   %or.cond.not = icmp eq i32 %45, 1
   br i1 %or.cond.not, label %51, label %47
@@ -196,7 +196,7 @@ define internal range(i32 -1, 1) i32 @H5S__none_deserialize(ptr nocapture nounde
   br label %80
 
 64:                                               ; preds = %51, %54
-  %65 = getelementptr inbounds i8, ptr %.pre, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
   store ptr %65, ptr %1, align 8
   %66 = tail call i32 @H5S_select_release(ptr noundef nonnull %.1) #6
   %67 = icmp slt i32 %66, 0
@@ -212,8 +212,8 @@ define internal range(i32 -1, 1) i32 @H5S__none_deserialize(ptr nocapture nounde
   br label %80
 
 75:                                               ; preds = %64
-  %76 = getelementptr inbounds i8, ptr %.1, i64 80
-  %77 = getelementptr inbounds i8, ptr %.1, i64 352
+  %76 = getelementptr inbounds nuw i8, ptr %.1, i64 80
+  %77 = getelementptr inbounds nuw i8, ptr %.1, i64 352
   store i64 0, ptr %77, align 8
   store ptr @H5S_sel_none, ptr %76, align 8
   %78 = load ptr, ptr %0, align 8
@@ -307,8 +307,8 @@ define internal range(i32 -1, 1) i32 @H5S__none_project_simple(ptr nocapture rea
   br i1 %5, label %8, label %H5S_select_none.exit
 
 H5S_select_none.exit:                             ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 80
-  %7 = getelementptr inbounds i8, ptr %1, i64 352
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 352
   store i64 0, ptr %7, align 8
   store ptr @H5S_sel_none, ptr %6, align 8
   br label %15
@@ -346,8 +346,8 @@ define range(i32 -1, 1) i32 @H5S_select_none(ptr noundef %0) local_unnamed_addr 
   br label %11
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 352
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i64 0, ptr %10, align 8
   store ptr @H5S_sel_none, ptr %9, align 8
   br label %11
@@ -423,8 +423,8 @@ define range(i32 -1, 1) i32 @H5Sselect_none(i64 noundef %0) local_unnamed_addr #
   br label %.thread20
 
 40:                                               ; preds = %29
-  %41 = getelementptr inbounds i8, ptr %23, i64 80
-  %42 = getelementptr inbounds i8, ptr %23, i64 352
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 352
   store i64 0, ptr %42, align 8
   store ptr @H5S_sel_none, ptr %41, align 8
   %43 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #6

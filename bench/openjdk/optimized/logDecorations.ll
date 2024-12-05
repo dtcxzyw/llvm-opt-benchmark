@@ -72,7 +72,7 @@ define hidden void @_ZN14LogDecorationsC2EN8LogLevel4typeERK9LogTagSetRK13LogDec
 9:                                                ; preds = %4, %7
   %10 = phi i64 [ %8, %7 ], [ 0, %4 ]
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %3, align 4
   %13 = and i32 %12, 32
   %.not = icmp eq i32 %13, 0
@@ -85,7 +85,7 @@ define hidden void @_ZN14LogDecorationsC2EN8LogLevel4typeERK9LogTagSetRK13LogDec
 16:                                               ; preds = %9, %14
   %17 = phi i64 [ %15, %14 ], [ 0, %9 ]
   store i64 %17, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %3, align 4
   %20 = and i32 %19, 84
   %or.cond16.not = icmp eq i32 %20, 0
@@ -109,11 +109,11 @@ define hidden void @_ZN14LogDecorationsC2EN8LogLevel4typeERK9LogTagSetRK13LogDec
 
 29:                                               ; preds = %23, %27
   %30 = phi i64 [ %28, %27 ], [ 0, %23 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %33, align 8
   ret void
 }
@@ -169,7 +169,7 @@ define hidden void @_ZNK14LogDecorations16print_decorationEN13LogDecorators9Deco
   br label %62
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load double, ptr %18, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.6, double noundef %19) #7
   br label %62
@@ -180,7 +180,7 @@ define hidden void @_ZNK14LogDecorations16print_decorationEN13LogDecorators9Deco
   br label %62
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load double, ptr %23, align 8
   %25 = fmul double %24, 1.000000e+03
   %26 = fptosi double %25 to i64
@@ -188,13 +188,13 @@ define hidden void @_ZNK14LogDecorations16print_decorationEN13LogDecorators9Deco
   br label %62
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.8, i64 noundef %29) #7
   br label %62
 
 30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load double, ptr %31, align 8
   %33 = fmul double %32, 1.000000e+09
   %34 = fptosi double %33 to i64
@@ -235,23 +235,23 @@ _ZNK14LogDecorations25print_hostname_decorationEP12outputStream.exit: ; preds = 
   br label %62
 
 47:                                               ; preds = %3
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load i64, ptr %48, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.10, i64 noundef %49) #7
   br label %62
 
 50:                                               ; preds = %3
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds [0 x ptr], ptr @_ZN8LogLevel5_nameE, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN8LogLevel5_nameE, i64 0, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %55, i64 noundef %56) #7
   br label %62
 
 57:                                               ; preds = %3
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8
   tail call void @_ZNK9LogTagSet5labelEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(112) %59, ptr noundef %2, ptr noundef nonnull @.str.11) #7
   br label %62
@@ -292,7 +292,7 @@ define hidden void @_ZNK14LogDecorations24print_utctime_decorationEP12outputStre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK14LogDecorations23print_uptime_decorationEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.6, double noundef %4) #7
   ret void
@@ -307,7 +307,7 @@ define hidden void @_ZNK14LogDecorations27print_timemillis_decorationEP12outputS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK14LogDecorations29print_uptimemillis_decorationEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8
   %5 = fmul double %4, 1.000000e+03
   %6 = fptosi double %5 to i64
@@ -317,7 +317,7 @@ define hidden void @_ZNK14LogDecorations29print_uptimemillis_decorationEP12outpu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK14LogDecorations26print_timenanos_decorationEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i64 noundef %4) #7
   ret void
@@ -325,7 +325,7 @@ define hidden void @_ZNK14LogDecorations26print_timenanos_decorationEP12outputSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK14LogDecorations28print_uptimenanos_decorationEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8
   %5 = fmul double %4, 1.000000e+09
   %6 = fptosi double %5 to i64
@@ -373,7 +373,7 @@ define hidden void @_ZNK14LogDecorations20print_pid_decorationEP12outputStream(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK14LogDecorations20print_tid_decorationEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, i64 noundef %4) #7
   ret void
@@ -381,10 +381,10 @@ define hidden void @_ZNK14LogDecorations20print_tid_decorationEP12outputStream(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK14LogDecorations22print_level_decorationEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds [0 x ptr], ptr @_ZN8LogLevel5_nameE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN8LogLevel5_nameE, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %7, i64 noundef %8) #7
@@ -393,7 +393,7 @@ define hidden void @_ZNK14LogDecorations22print_level_decorationEP12outputStream
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK14LogDecorations21print_tags_decorationEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNK9LogTagSet5labelEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef %1, ptr noundef nonnull @.str.11) #7
   ret void

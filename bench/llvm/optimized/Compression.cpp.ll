@@ -78,7 +78,7 @@ define dso_local void @_ZN4llvm11compression4zlib8compressENS_8ArrayRefIhEERNS_1
   br i1 %14, label %15, label %.sink.split.i.i
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %16, i64 noundef %6, i64 noundef 1) #7
   br label %.sink.split.i.i
 
@@ -163,7 +163,7 @@ define dso_local void @_ZN4llvm11compression4zstd8compressENS_8ArrayRefIhEERNS_1
   br i1 %28, label %29, label %.sink.split.i.i
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %2, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %30, i64 noundef %20, i64 noundef 1) #7
   br label %.sink.split.i.i
 
@@ -413,7 +413,7 @@ define dso_local void @_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEERN
   br i1 %15, label %16, label %.sink.split.i.i
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %17, i64 noundef %4, i64 noundef 1) #7
   br label %.sink.split.i.i
 
@@ -501,7 +501,7 @@ define dso_local void @_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEERN
   br i1 %14, label %15, label %.sink.split.i.i
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %16, i64 noundef %4, i64 noundef 1) #7
   br label %.sink.split.i.i
 

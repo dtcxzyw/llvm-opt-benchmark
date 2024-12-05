@@ -242,7 +242,7 @@ if.end114:                                        ; preds = %lor.end.thread, %if
   br i1 %or.cond2, label %if.then121, label %if.end144
 
 if.then121:                                       ; preds = %if.end114
-  %add.ptr = getelementptr inbounds i8, ptr @msg2, i64 %c_total_read.067
+  %add.ptr = getelementptr inbounds nuw i8, ptr @msg2, i64 %c_total_read.067
   %sub = sub nuw nsw i64 15999, %c_total_read.067
   %call122 = call i32 @SSL_read_ex(ptr noundef %call37, ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %l) #6
   %cmp123.not = icmp eq i32 %call122, 1

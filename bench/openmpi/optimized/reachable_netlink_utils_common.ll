@@ -58,7 +58,7 @@ define range(i32 -2147483648, 114) i32 @prte_reachable_netlink_rt_lookup(i32 nou
   tail call void @nl_socket_disable_seq_check(ptr noundef nonnull %11) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 1, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %19, align 8
   %20 = tail call i32 @nl_socket_get_fd(ptr noundef nonnull %11) #8
   %21 = call i32 @setsockopt(i32 noundef %20, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %5, i32 noundef 16) #8
@@ -84,13 +84,13 @@ define range(i32 -2147483648, 114) i32 @prte_reachable_netlink_rt_lookup(i32 nou
   store ptr %11, ptr %8, align 8
   %27 = call i64 @time(ptr noundef null) #8
   %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %28, ptr %29, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false)
   store i8 2, ptr %6, align 4
-  %30 = getelementptr inbounds i8, ptr %6, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 32, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %6, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 32, ptr %31, align 2
   %32 = call ptr @nlmsg_alloc_simple(i32 noundef 26, i32 noundef 0) #8
   %.not28 = icmp eq ptr %32, null
@@ -107,14 +107,14 @@ define range(i32 -2147483648, 114) i32 @prte_reachable_netlink_rt_lookup(i32 nou
   %38 = call i32 @nla_put_u32(ptr noundef nonnull %32, i32 noundef 2, i32 noundef %0) #8
   %39 = call ptr @nlmsg_hdr(ptr noundef nonnull %32) #8
   %40 = call i32 @nl_socket_get_local_port(ptr noundef nonnull %11) #8
-  %41 = getelementptr inbounds i8, ptr %39, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 %40, ptr %41, align 4
   %42 = add i32 %28, 1
   store i32 %42, ptr %29, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %42, ptr %43, align 4
   call void @nlmsg_set_proto(ptr noundef nonnull %32, i32 noundef 0) #8
-  %44 = getelementptr inbounds i8, ptr %39, i64 6
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 6
   store i16 1, ptr %44, align 2
   %45 = call i32 @nl_send(ptr noundef nonnull %11, ptr noundef nonnull %32) #8
   call void @nlmsg_free(ptr noundef nonnull %32) #8
@@ -129,7 +129,7 @@ define range(i32 -2147483648, 114) i32 @prte_reachable_netlink_rt_lookup(i32 nou
 49:                                               ; preds = %35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
   store i32 %2, ptr %7, align 8
-  %50 = getelementptr inbounds i8, ptr %7, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %50, align 8
   %51 = call i32 @nl_socket_modify_cb(ptr noundef nonnull %11, i32 noundef 5, i32 noundef 3, ptr noundef nonnull @prte_reachable_netlink_rt_raw_parse_cb, ptr noundef nonnull %7) #8
   %.not29 = icmp eq i32 %51, 0
@@ -154,13 +154,13 @@ define range(i32 -2147483648, 114) i32 @prte_reachable_netlink_rt_lookup(i32 nou
   br label %68
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds i8, ptr %7, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %63 = load i32, ptr %62, align 4
   %.not30 = icmp eq i32 %63, 0
   br i1 %.not30, label %67, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %7, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %66 = load i32, ptr %65, align 8
   store i32 %66, ptr %3, align 4
   br label %68
@@ -204,7 +204,7 @@ declare i32 @nl_socket_modify_cb(ptr noundef, i32 noundef, i32 noundef, ptr noun
 define internal range(i32 1, 3) i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca [31 x ptr], align 16
   %4 = tail call ptr @nlmsg_hdr(ptr noundef %0) #8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i16, ptr %5, align 4
   switch i16 %6, label %prte_reachable_netlink_is_nlreply_err.exit.thread [
     i16 2, label %7
@@ -237,7 +237,7 @@ define internal range(i32 1, 3) i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr 
   br i1 %18, label %prte_reachable_netlink_is_nlreply_err.exit.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %3, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %21 = load ptr, ptr %20, align 16
   %.not23 = icmp eq ptr %21, null
   br i1 %.not23, label %.thread, label %22
@@ -261,19 +261,19 @@ define internal range(i32 1, 3) i32 @prte_reachable_netlink_rt_raw_parse_cb(ptr 
   br label %.thread
 
 33:                                               ; preds = %22
-  %34 = getelementptr inbounds i8, ptr %3, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %.thread, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %37, align 8
   br label %.thread
 
 .thread:                                          ; preds = %19, %26, %29, %36, %33
   %.01928 = phi i32 [ 1, %36 ], [ 1, %33 ], [ 0, %29 ], [ 0, %26 ], [ 0, %19 ]
-  %38 = getelementptr inbounds i8, ptr %1, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.01928, ptr %38, align 4
   br label %prte_reachable_netlink_is_nlreply_err.exit.thread
 

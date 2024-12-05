@@ -160,14 +160,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV8TestBase, i64 16), ptr %this, align 8, !tbaa !4
-  %m_test_dir = getelementptr inbounds i8, ptr %this, i64 16
+  %m_test_dir = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_test_dir, align 8, !tbaa !7
-  %1 = getelementptr inbounds i8, ptr %this, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -216,9 +216,9 @@ entry:
   %ref.tmp115 = alloca %"class.std::function", align 8
   %ref.tmp119 = alloca %"class.std::function", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #20
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %0, align 8
   %1 = ptrtoint ptr %this to i64
   store i64 %1, ptr %ref.tmp, align 8, !tbaa !14
@@ -246,9 +246,9 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %if.then.i, %invoke.cont
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3) #20
-  %_M_manager.i.i125 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
-  %_M_invoker.i126 = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
-  %5 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %_M_manager.i.i125 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 16
+  %_M_invoker.i126 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   store i64 0, ptr %5, align 8
   store i64 %1, ptr %ref.tmp3, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i126, align 8, !tbaa !15
@@ -275,9 +275,9 @@ terminate.lpad.i132:                              ; preds = %if.then.i130
 _ZNSt14_Function_baseD2Ev.exit133:                ; preds = %if.then.i130, %invoke.cont6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp7) #20
-  %_M_manager.i.i134 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
-  %_M_invoker.i135 = getelementptr inbounds i8, ptr %ref.tmp7, i64 24
-  %9 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
+  %_M_manager.i.i134 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 16
+  %_M_invoker.i135 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
   store i64 0, ptr %9, align 8
   store i64 %1, ptr %ref.tmp7, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_2E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i135, align 8, !tbaa !15
@@ -304,9 +304,9 @@ terminate.lpad.i141:                              ; preds = %if.then.i139
 _ZNSt14_Function_baseD2Ev.exit142:                ; preds = %if.then.i139, %invoke.cont10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11) #20
-  %_M_manager.i.i143 = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
-  %_M_invoker.i144 = getelementptr inbounds i8, ptr %ref.tmp11, i64 24
-  %13 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  %_M_manager.i.i143 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
+  %_M_invoker.i144 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %13, align 8
   store i64 %1, ptr %ref.tmp11, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_3E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i144, align 8, !tbaa !15
@@ -333,9 +333,9 @@ terminate.lpad.i150:                              ; preds = %if.then.i148
 _ZNSt14_Function_baseD2Ev.exit151:                ; preds = %if.then.i148, %invoke.cont14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp15) #20
-  %_M_manager.i.i152 = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
-  %_M_invoker.i153 = getelementptr inbounds i8, ptr %ref.tmp15, i64 24
-  %17 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
+  %_M_manager.i.i152 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 16
+  %_M_invoker.i153 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 8
   store i64 0, ptr %17, align 8
   store i64 %1, ptr %ref.tmp15, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_4E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i153, align 8, !tbaa !15
@@ -362,9 +362,9 @@ terminate.lpad.i159:                              ; preds = %if.then.i157
 _ZNSt14_Function_baseD2Ev.exit160:                ; preds = %if.then.i157, %invoke.cont18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp15) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp19) #20
-  %_M_manager.i.i161 = getelementptr inbounds i8, ptr %ref.tmp19, i64 16
-  %_M_invoker.i162 = getelementptr inbounds i8, ptr %ref.tmp19, i64 24
-  %21 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
+  %_M_manager.i.i161 = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 16
+  %_M_invoker.i162 = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 8
   store i64 0, ptr %21, align 8
   store i64 %1, ptr %ref.tmp19, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_5E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i162, align 8, !tbaa !15
@@ -391,9 +391,9 @@ terminate.lpad.i168:                              ; preds = %if.then.i166
 _ZNSt14_Function_baseD2Ev.exit169:                ; preds = %if.then.i166, %invoke.cont22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp19) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp23) #20
-  %_M_manager.i.i170 = getelementptr inbounds i8, ptr %ref.tmp23, i64 16
-  %_M_invoker.i171 = getelementptr inbounds i8, ptr %ref.tmp23, i64 24
-  %25 = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  %_M_manager.i.i170 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 16
+  %_M_invoker.i171 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 8
   store i64 0, ptr %25, align 8
   store i64 %1, ptr %ref.tmp23, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_6E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i171, align 8, !tbaa !15
@@ -420,9 +420,9 @@ terminate.lpad.i177:                              ; preds = %if.then.i175
 _ZNSt14_Function_baseD2Ev.exit178:                ; preds = %if.then.i175, %invoke.cont26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp23) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp27) #20
-  %_M_manager.i.i179 = getelementptr inbounds i8, ptr %ref.tmp27, i64 16
-  %_M_invoker.i180 = getelementptr inbounds i8, ptr %ref.tmp27, i64 24
-  %29 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
+  %_M_manager.i.i179 = getelementptr inbounds nuw i8, ptr %ref.tmp27, i64 16
+  %_M_invoker.i180 = getelementptr inbounds nuw i8, ptr %ref.tmp27, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %ref.tmp27, i64 8
   store i64 0, ptr %29, align 8
   store i64 %1, ptr %ref.tmp27, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_7E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i180, align 8, !tbaa !15
@@ -449,9 +449,9 @@ terminate.lpad.i186:                              ; preds = %if.then.i184
 _ZNSt14_Function_baseD2Ev.exit187:                ; preds = %if.then.i184, %invoke.cont30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp27) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp31) #20
-  %_M_manager.i.i188 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
-  %_M_invoker.i189 = getelementptr inbounds i8, ptr %ref.tmp31, i64 24
-  %33 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
+  %_M_manager.i.i188 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 16
+  %_M_invoker.i189 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 8
   store i64 0, ptr %33, align 8
   store i64 %1, ptr %ref.tmp31, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_8E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i189, align 8, !tbaa !15
@@ -478,9 +478,9 @@ terminate.lpad.i195:                              ; preds = %if.then.i193
 _ZNSt14_Function_baseD2Ev.exit196:                ; preds = %if.then.i193, %invoke.cont34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp31) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp35) #20
-  %_M_manager.i.i197 = getelementptr inbounds i8, ptr %ref.tmp35, i64 16
-  %_M_invoker.i198 = getelementptr inbounds i8, ptr %ref.tmp35, i64 24
-  %37 = getelementptr inbounds i8, ptr %ref.tmp35, i64 8
+  %_M_manager.i.i197 = getelementptr inbounds nuw i8, ptr %ref.tmp35, i64 16
+  %_M_invoker.i198 = getelementptr inbounds nuw i8, ptr %ref.tmp35, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %ref.tmp35, i64 8
   store i64 0, ptr %37, align 8
   store i64 %1, ptr %ref.tmp35, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE3$_9E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i198, align 8, !tbaa !15
@@ -507,9 +507,9 @@ terminate.lpad.i204:                              ; preds = %if.then.i202
 _ZNSt14_Function_baseD2Ev.exit205:                ; preds = %if.then.i202, %invoke.cont38
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp39) #20
-  %_M_manager.i.i206 = getelementptr inbounds i8, ptr %ref.tmp39, i64 16
-  %_M_invoker.i207 = getelementptr inbounds i8, ptr %ref.tmp39, i64 24
-  %41 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
+  %_M_manager.i.i206 = getelementptr inbounds nuw i8, ptr %ref.tmp39, i64 16
+  %_M_invoker.i207 = getelementptr inbounds nuw i8, ptr %ref.tmp39, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %ref.tmp39, i64 8
   store i64 0, ptr %41, align 8
   store i64 %1, ptr %ref.tmp39, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_10E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i207, align 8, !tbaa !15
@@ -536,9 +536,9 @@ terminate.lpad.i213:                              ; preds = %if.then.i211
 _ZNSt14_Function_baseD2Ev.exit214:                ; preds = %if.then.i211, %invoke.cont42
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp39) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43) #20
-  %_M_manager.i.i215 = getelementptr inbounds i8, ptr %ref.tmp43, i64 16
-  %_M_invoker.i216 = getelementptr inbounds i8, ptr %ref.tmp43, i64 24
-  %45 = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
+  %_M_manager.i.i215 = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 16
+  %_M_invoker.i216 = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 8
   store i64 0, ptr %45, align 8
   store i64 %1, ptr %ref.tmp43, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_11E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i216, align 8, !tbaa !15
@@ -565,9 +565,9 @@ terminate.lpad.i222:                              ; preds = %if.then.i220
 _ZNSt14_Function_baseD2Ev.exit223:                ; preds = %if.then.i220, %invoke.cont46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp47) #20
-  %_M_manager.i.i224 = getelementptr inbounds i8, ptr %ref.tmp47, i64 16
-  %_M_invoker.i225 = getelementptr inbounds i8, ptr %ref.tmp47, i64 24
-  %49 = getelementptr inbounds i8, ptr %ref.tmp47, i64 8
+  %_M_manager.i.i224 = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 16
+  %_M_invoker.i225 = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 8
   store i64 0, ptr %49, align 8
   store i64 %1, ptr %ref.tmp47, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_12E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i225, align 8, !tbaa !15
@@ -594,9 +594,9 @@ terminate.lpad.i231:                              ; preds = %if.then.i229
 _ZNSt14_Function_baseD2Ev.exit232:                ; preds = %if.then.i229, %invoke.cont50
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp47) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp51) #20
-  %_M_manager.i.i233 = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
-  %_M_invoker.i234 = getelementptr inbounds i8, ptr %ref.tmp51, i64 24
-  %53 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  %_M_manager.i.i233 = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 16
+  %_M_invoker.i234 = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 8
   store i64 0, ptr %53, align 8
   store i64 %1, ptr %ref.tmp51, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_13E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i234, align 8, !tbaa !15
@@ -623,9 +623,9 @@ terminate.lpad.i240:                              ; preds = %if.then.i238
 _ZNSt14_Function_baseD2Ev.exit241:                ; preds = %if.then.i238, %invoke.cont54
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp51) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp55) #20
-  %_M_manager.i.i242 = getelementptr inbounds i8, ptr %ref.tmp55, i64 16
-  %_M_invoker.i243 = getelementptr inbounds i8, ptr %ref.tmp55, i64 24
-  %57 = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
+  %_M_manager.i.i242 = getelementptr inbounds nuw i8, ptr %ref.tmp55, i64 16
+  %_M_invoker.i243 = getelementptr inbounds nuw i8, ptr %ref.tmp55, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %ref.tmp55, i64 8
   store i64 0, ptr %57, align 8
   store i64 %1, ptr %ref.tmp55, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_14E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i243, align 8, !tbaa !15
@@ -652,9 +652,9 @@ terminate.lpad.i249:                              ; preds = %if.then.i247
 _ZNSt14_Function_baseD2Ev.exit250:                ; preds = %if.then.i247, %invoke.cont58
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp55) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp59) #20
-  %_M_manager.i.i251 = getelementptr inbounds i8, ptr %ref.tmp59, i64 16
-  %_M_invoker.i252 = getelementptr inbounds i8, ptr %ref.tmp59, i64 24
-  %61 = getelementptr inbounds i8, ptr %ref.tmp59, i64 8
+  %_M_manager.i.i251 = getelementptr inbounds nuw i8, ptr %ref.tmp59, i64 16
+  %_M_invoker.i252 = getelementptr inbounds nuw i8, ptr %ref.tmp59, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %ref.tmp59, i64 8
   store i64 0, ptr %61, align 8
   store i64 %1, ptr %ref.tmp59, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_15E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i252, align 8, !tbaa !15
@@ -681,9 +681,9 @@ terminate.lpad.i258:                              ; preds = %if.then.i256
 _ZNSt14_Function_baseD2Ev.exit259:                ; preds = %if.then.i256, %invoke.cont62
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp63) #20
-  %_M_manager.i.i260 = getelementptr inbounds i8, ptr %ref.tmp63, i64 16
-  %_M_invoker.i261 = getelementptr inbounds i8, ptr %ref.tmp63, i64 24
-  %65 = getelementptr inbounds i8, ptr %ref.tmp63, i64 8
+  %_M_manager.i.i260 = getelementptr inbounds nuw i8, ptr %ref.tmp63, i64 16
+  %_M_invoker.i261 = getelementptr inbounds nuw i8, ptr %ref.tmp63, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %ref.tmp63, i64 8
   store i64 0, ptr %65, align 8
   store i64 %1, ptr %ref.tmp63, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_16E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i261, align 8, !tbaa !15
@@ -710,9 +710,9 @@ terminate.lpad.i267:                              ; preds = %if.then.i265
 _ZNSt14_Function_baseD2Ev.exit268:                ; preds = %if.then.i265, %invoke.cont66
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp63) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp67) #20
-  %_M_manager.i.i269 = getelementptr inbounds i8, ptr %ref.tmp67, i64 16
-  %_M_invoker.i270 = getelementptr inbounds i8, ptr %ref.tmp67, i64 24
-  %69 = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
+  %_M_manager.i.i269 = getelementptr inbounds nuw i8, ptr %ref.tmp67, i64 16
+  %_M_invoker.i270 = getelementptr inbounds nuw i8, ptr %ref.tmp67, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %ref.tmp67, i64 8
   store i64 0, ptr %69, align 8
   store i64 %1, ptr %ref.tmp67, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_17E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i270, align 8, !tbaa !15
@@ -739,9 +739,9 @@ terminate.lpad.i276:                              ; preds = %if.then.i274
 _ZNSt14_Function_baseD2Ev.exit277:                ; preds = %if.then.i274, %invoke.cont70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp67) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp71) #20
-  %_M_manager.i.i278 = getelementptr inbounds i8, ptr %ref.tmp71, i64 16
-  %_M_invoker.i279 = getelementptr inbounds i8, ptr %ref.tmp71, i64 24
-  %73 = getelementptr inbounds i8, ptr %ref.tmp71, i64 8
+  %_M_manager.i.i278 = getelementptr inbounds nuw i8, ptr %ref.tmp71, i64 16
+  %_M_invoker.i279 = getelementptr inbounds nuw i8, ptr %ref.tmp71, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %ref.tmp71, i64 8
   store i64 0, ptr %73, align 8
   store i64 %1, ptr %ref.tmp71, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_18E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i279, align 8, !tbaa !15
@@ -768,9 +768,9 @@ terminate.lpad.i285:                              ; preds = %if.then.i283
 _ZNSt14_Function_baseD2Ev.exit286:                ; preds = %if.then.i283, %invoke.cont74
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp71) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp75) #20
-  %_M_manager.i.i287 = getelementptr inbounds i8, ptr %ref.tmp75, i64 16
-  %_M_invoker.i288 = getelementptr inbounds i8, ptr %ref.tmp75, i64 24
-  %77 = getelementptr inbounds i8, ptr %ref.tmp75, i64 8
+  %_M_manager.i.i287 = getelementptr inbounds nuw i8, ptr %ref.tmp75, i64 16
+  %_M_invoker.i288 = getelementptr inbounds nuw i8, ptr %ref.tmp75, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %ref.tmp75, i64 8
   store i64 0, ptr %77, align 8
   store i64 %1, ptr %ref.tmp75, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_19E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i288, align 8, !tbaa !15
@@ -797,9 +797,9 @@ terminate.lpad.i294:                              ; preds = %if.then.i292
 _ZNSt14_Function_baseD2Ev.exit295:                ; preds = %if.then.i292, %invoke.cont78
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp75) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp79) #20
-  %_M_manager.i.i296 = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
-  %_M_invoker.i297 = getelementptr inbounds i8, ptr %ref.tmp79, i64 24
-  %81 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
+  %_M_manager.i.i296 = getelementptr inbounds nuw i8, ptr %ref.tmp79, i64 16
+  %_M_invoker.i297 = getelementptr inbounds nuw i8, ptr %ref.tmp79, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %ref.tmp79, i64 8
   store i64 0, ptr %81, align 8
   store i64 %1, ptr %ref.tmp79, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_20E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i297, align 8, !tbaa !15
@@ -826,9 +826,9 @@ terminate.lpad.i303:                              ; preds = %if.then.i301
 _ZNSt14_Function_baseD2Ev.exit304:                ; preds = %if.then.i301, %invoke.cont82
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp79) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp83) #20
-  %_M_manager.i.i305 = getelementptr inbounds i8, ptr %ref.tmp83, i64 16
-  %_M_invoker.i306 = getelementptr inbounds i8, ptr %ref.tmp83, i64 24
-  %85 = getelementptr inbounds i8, ptr %ref.tmp83, i64 8
+  %_M_manager.i.i305 = getelementptr inbounds nuw i8, ptr %ref.tmp83, i64 16
+  %_M_invoker.i306 = getelementptr inbounds nuw i8, ptr %ref.tmp83, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %ref.tmp83, i64 8
   store i64 0, ptr %85, align 8
   store i64 %1, ptr %ref.tmp83, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_21E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i306, align 8, !tbaa !15
@@ -855,9 +855,9 @@ terminate.lpad.i312:                              ; preds = %if.then.i310
 _ZNSt14_Function_baseD2Ev.exit313:                ; preds = %if.then.i310, %invoke.cont86
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp83) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp87) #20
-  %_M_manager.i.i314 = getelementptr inbounds i8, ptr %ref.tmp87, i64 16
-  %_M_invoker.i315 = getelementptr inbounds i8, ptr %ref.tmp87, i64 24
-  %89 = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
+  %_M_manager.i.i314 = getelementptr inbounds nuw i8, ptr %ref.tmp87, i64 16
+  %_M_invoker.i315 = getelementptr inbounds nuw i8, ptr %ref.tmp87, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %ref.tmp87, i64 8
   store i64 0, ptr %89, align 8
   store i64 %1, ptr %ref.tmp87, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_22E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i315, align 8, !tbaa !15
@@ -884,9 +884,9 @@ terminate.lpad.i321:                              ; preds = %if.then.i319
 _ZNSt14_Function_baseD2Ev.exit322:                ; preds = %if.then.i319, %invoke.cont90
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp87) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp91) #20
-  %_M_manager.i.i323 = getelementptr inbounds i8, ptr %ref.tmp91, i64 16
-  %_M_invoker.i324 = getelementptr inbounds i8, ptr %ref.tmp91, i64 24
-  %93 = getelementptr inbounds i8, ptr %ref.tmp91, i64 8
+  %_M_manager.i.i323 = getelementptr inbounds nuw i8, ptr %ref.tmp91, i64 16
+  %_M_invoker.i324 = getelementptr inbounds nuw i8, ptr %ref.tmp91, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %ref.tmp91, i64 8
   store i64 0, ptr %93, align 8
   store i64 %1, ptr %ref.tmp91, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_23E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i324, align 8, !tbaa !15
@@ -913,9 +913,9 @@ terminate.lpad.i330:                              ; preds = %if.then.i328
 _ZNSt14_Function_baseD2Ev.exit331:                ; preds = %if.then.i328, %invoke.cont94
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp91) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp95) #20
-  %_M_manager.i.i332 = getelementptr inbounds i8, ptr %ref.tmp95, i64 16
-  %_M_invoker.i333 = getelementptr inbounds i8, ptr %ref.tmp95, i64 24
-  %97 = getelementptr inbounds i8, ptr %ref.tmp95, i64 8
+  %_M_manager.i.i332 = getelementptr inbounds nuw i8, ptr %ref.tmp95, i64 16
+  %_M_invoker.i333 = getelementptr inbounds nuw i8, ptr %ref.tmp95, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %ref.tmp95, i64 8
   store i64 0, ptr %97, align 8
   store i64 %1, ptr %ref.tmp95, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_24E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i333, align 8, !tbaa !15
@@ -942,9 +942,9 @@ terminate.lpad.i339:                              ; preds = %if.then.i337
 _ZNSt14_Function_baseD2Ev.exit340:                ; preds = %if.then.i337, %invoke.cont98
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp95) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp99) #20
-  %_M_manager.i.i341 = getelementptr inbounds i8, ptr %ref.tmp99, i64 16
-  %_M_invoker.i342 = getelementptr inbounds i8, ptr %ref.tmp99, i64 24
-  %101 = getelementptr inbounds i8, ptr %ref.tmp99, i64 8
+  %_M_manager.i.i341 = getelementptr inbounds nuw i8, ptr %ref.tmp99, i64 16
+  %_M_invoker.i342 = getelementptr inbounds nuw i8, ptr %ref.tmp99, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %ref.tmp99, i64 8
   store i64 0, ptr %101, align 8
   store i64 %1, ptr %ref.tmp99, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_25E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i342, align 8, !tbaa !15
@@ -971,9 +971,9 @@ terminate.lpad.i348:                              ; preds = %if.then.i346
 _ZNSt14_Function_baseD2Ev.exit349:                ; preds = %if.then.i346, %invoke.cont102
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp99) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp103) #20
-  %_M_manager.i.i350 = getelementptr inbounds i8, ptr %ref.tmp103, i64 16
-  %_M_invoker.i351 = getelementptr inbounds i8, ptr %ref.tmp103, i64 24
-  %105 = getelementptr inbounds i8, ptr %ref.tmp103, i64 8
+  %_M_manager.i.i350 = getelementptr inbounds nuw i8, ptr %ref.tmp103, i64 16
+  %_M_invoker.i351 = getelementptr inbounds nuw i8, ptr %ref.tmp103, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %ref.tmp103, i64 8
   store i64 0, ptr %105, align 8
   store i64 %1, ptr %ref.tmp103, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_26E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i351, align 8, !tbaa !15
@@ -1000,9 +1000,9 @@ terminate.lpad.i357:                              ; preds = %if.then.i355
 _ZNSt14_Function_baseD2Ev.exit358:                ; preds = %if.then.i355, %invoke.cont106
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp103) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp107) #20
-  %_M_manager.i.i359 = getelementptr inbounds i8, ptr %ref.tmp107, i64 16
-  %_M_invoker.i360 = getelementptr inbounds i8, ptr %ref.tmp107, i64 24
-  %109 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
+  %_M_manager.i.i359 = getelementptr inbounds nuw i8, ptr %ref.tmp107, i64 16
+  %_M_invoker.i360 = getelementptr inbounds nuw i8, ptr %ref.tmp107, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %ref.tmp107, i64 8
   store i64 0, ptr %109, align 8
   store i64 %1, ptr %ref.tmp107, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_27E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i360, align 8, !tbaa !15
@@ -1029,9 +1029,9 @@ terminate.lpad.i366:                              ; preds = %if.then.i364
 _ZNSt14_Function_baseD2Ev.exit367:                ; preds = %if.then.i364, %invoke.cont110
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp107) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp111) #20
-  %_M_manager.i.i368 = getelementptr inbounds i8, ptr %ref.tmp111, i64 16
-  %_M_invoker.i369 = getelementptr inbounds i8, ptr %ref.tmp111, i64 24
-  %113 = getelementptr inbounds i8, ptr %ref.tmp111, i64 8
+  %_M_manager.i.i368 = getelementptr inbounds nuw i8, ptr %ref.tmp111, i64 16
+  %_M_invoker.i369 = getelementptr inbounds nuw i8, ptr %ref.tmp111, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %ref.tmp111, i64 8
   store i64 0, ptr %113, align 8
   store i64 %1, ptr %ref.tmp111, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_28E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i369, align 8, !tbaa !15
@@ -1058,9 +1058,9 @@ terminate.lpad.i375:                              ; preds = %if.then.i373
 _ZNSt14_Function_baseD2Ev.exit376:                ; preds = %if.then.i373, %invoke.cont114
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp111) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp115) #20
-  %_M_manager.i.i377 = getelementptr inbounds i8, ptr %ref.tmp115, i64 16
-  %_M_invoker.i378 = getelementptr inbounds i8, ptr %ref.tmp115, i64 24
-  %117 = getelementptr inbounds i8, ptr %ref.tmp115, i64 8
+  %_M_manager.i.i377 = getelementptr inbounds nuw i8, ptr %ref.tmp115, i64 16
+  %_M_invoker.i378 = getelementptr inbounds nuw i8, ptr %ref.tmp115, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %ref.tmp115, i64 8
   store i64 0, ptr %117, align 8
   store i64 %1, ptr %ref.tmp115, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_29E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i378, align 8, !tbaa !15
@@ -1087,9 +1087,9 @@ terminate.lpad.i384:                              ; preds = %if.then.i382
 _ZNSt14_Function_baseD2Ev.exit385:                ; preds = %if.then.i382, %invoke.cont118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp115) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp119) #20
-  %_M_manager.i.i386 = getelementptr inbounds i8, ptr %ref.tmp119, i64 16
-  %_M_invoker.i387 = getelementptr inbounds i8, ptr %ref.tmp119, i64 24
-  %121 = getelementptr inbounds i8, ptr %ref.tmp119, i64 8
+  %_M_manager.i.i386 = getelementptr inbounds nuw i8, ptr %ref.tmp119, i64 16
+  %_M_invoker.i387 = getelementptr inbounds nuw i8, ptr %ref.tmp119, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %ref.tmp119, i64 8
   store i64 0, ptr %121, align 8
   store i64 %1, ptr %ref.tmp119, align 8, !tbaa !14
   store ptr @"_ZNSt17_Function_handlerIFvvEZN13TestVoxelArea8runTestsEP8IGameDefE4$_30E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i387, align 8, !tbaa !15
@@ -2033,7 +2033,7 @@ _ZN11TestManager14getTestModulesEv.exit:          ; preds = %init.i, %init.check
 if.then.i:                                        ; preds = %_ZN11TestManager14getTestModulesEv.exit
   store ptr %module, ptr %3, align 8, !tbaa !14
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !22
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !22
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 
@@ -2056,28 +2056,21 @@ _ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %7 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %7
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
   %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #23
-  br label %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i31.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i31.i.i, i64 %sub.ptr.div.i.i.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store ptr %module, ptr %add.ptr.i.i, align 8, !tbaa !14
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
 
-if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i31.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+if.then.i.i.i.i.i:                                ; preds = %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i, ptr align 8 %6, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
 
-_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIP8TestBaseSaIS1_EE11_M_allocateEm.exit.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i31.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
+_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt6vectorIP8TestBaseSaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i39.i.i
 
@@ -2086,9 +2079,9 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP8Test
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP8TestBaseSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP8TestBaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
-  store ptr %cond.i31.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !23
+  store ptr %call5.i.i.i.i.i, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, align 8, !tbaa !23
   store ptr %incdec.ptr.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 8), align 8, !tbaa !22
-  %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i31.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr getelementptr inbounds (i8, ptr @_ZZN11TestManager14getTestModulesEvE17m_modules_to_test, i64 16), align 8, !tbaa !20
   br label %_ZNSt6vectorIP8TestBaseSaIS1_EE9push_backERKS1_.exit
 

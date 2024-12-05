@@ -93,7 +93,7 @@ sw.default:                                       ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %status to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.snprint_PKIStatusInfo_parts, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.snprint_PKIStatusInfo_parts, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -115,7 +115,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %statusString = getelementptr inbounds i8, ptr %si, i64 8
+  %statusString = getelementptr inbounds nuw i8, ptr %si, i64 8
   %0 = load ptr, ptr %statusString, align 8
   br label %return
 
@@ -131,7 +131,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %failInfo = getelementptr inbounds i8, ptr %si, i64 16
+  %failInfo = getelementptr inbounds nuw i8, ptr %si, i64 16
   %0 = load ptr, ptr %failInfo, align 8
   %cmp5.not = icmp eq ptr %0, null
   br i1 %cmp5.not, label %return, label %for.body
@@ -163,7 +163,7 @@ entry:
   br i1 %cmp.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %failInfo = getelementptr inbounds i8, ptr %si, i64 16
+  %failInfo = getelementptr inbounds nuw i8, ptr %si, i64 16
   %0 = load ptr, ptr %failInfo, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %return, label %if.end
@@ -200,7 +200,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end.i:                                         ; preds = %entry
-  %failInfo.i = getelementptr inbounds i8, ptr %statusInfo, i64 16
+  %failInfo.i = getelementptr inbounds nuw i8, ptr %statusInfo, i64 16
   %0 = load ptr, ptr %failInfo.i, align 8
   %cmp5.not.i = icmp eq ptr %0, null
   br i1 %cmp5.not.i, label %ossl_cmp_pkisi_get_pkifailureinfo.exit, label %for.body.i
@@ -223,7 +223,7 @@ ossl_cmp_pkisi_get_pkifailureinfo.exit:           ; preds = %for.body.i, %if.end
   %2 = load ptr, ptr %statusInfo, align 8
   %call1 = tail call i64 @ASN1_INTEGER_get(ptr noundef %2) #3
   %conv = trunc i64 %call1 to i32
-  %statusString = getelementptr inbounds i8, ptr %statusInfo, i64 8
+  %statusString = getelementptr inbounds nuw i8, ptr %statusInfo, i64 8
   %3 = load ptr, ptr %statusString, align 8
   %call2 = tail call fastcc ptr @snprint_PKIStatusInfo_parts(i32 noundef %conv, i32 noundef %retval.0.i, ptr noundef %3, ptr noundef %buf, i64 noundef %bufsize)
   br label %return
@@ -253,7 +253,7 @@ ossl_cmp_PKIStatus_to_string.exit:                ; preds = %lor.lhs.false2
 
 switch.lookup:                                    ; preds = %lor.lhs.false2
   %1 = zext nneg i32 %status to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.snprint_PKIStatusInfo_parts, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.snprint_PKIStatusInfo_parts, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef %bufsize, ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load) #3
   %cmp5 = icmp slt i32 %call4, 0
@@ -265,7 +265,7 @@ lor.lhs.false6:                                   ; preds = %switch.lookup
   br i1 %cmp7.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %lor.lhs.false6
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %conv
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %conv
   %sub = sub nuw i64 %bufsize, %conv
   %2 = add i32 %fail_info, -1
   %or.cond1 = icmp ult i32 %2, -2
@@ -282,7 +282,7 @@ lor.lhs.false20:                                  ; preds = %if.then16
   br i1 %cmp22.not, label %if.end25, label %return
 
 if.end25:                                         ; preds = %lor.lhs.false20
-  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr, i64 %conv21
+  %add.ptr27 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %conv21
   %sub29 = sub nuw i64 %sub, %conv21
   br label %for.body
 
@@ -298,7 +298,7 @@ for.body:                                         ; preds = %if.end25, %for.inc
 
 switch.lookup110:                                 ; preds = %for.body
   %3 = zext nneg i32 %failure.096 to i64
-  %switch.gep111 = getelementptr inbounds [27 x ptr], ptr @switch.table.snprint_PKIStatusInfo_parts.1, i64 0, i64 %3
+  %switch.gep111 = getelementptr inbounds nuw [27 x ptr], ptr @switch.table.snprint_PKIStatusInfo_parts.1, i64 0, i64 %3
   %switch.load112 = load ptr, ptr %switch.gep111, align 8
   %tobool.not = icmp eq i32 %failinfo_found.198, 0
   %cond = select i1 %tobool.not, ptr @.str.13, ptr @.str.12
@@ -312,7 +312,7 @@ lor.lhs.false42:                                  ; preds = %switch.lookup110
   br i1 %cmp44.not, label %if.end47, label %return
 
 if.end47:                                         ; preds = %lor.lhs.false42
-  %add.ptr49 = getelementptr inbounds i8, ptr %write_ptr.199, i64 %conv43
+  %add.ptr49 = getelementptr inbounds nuw i8, ptr %write_ptr.199, i64 %conv43
   %sub51 = sub nuw i64 %bufsize.addr.197, %conv43
   br label %for.inc
 
@@ -347,7 +347,7 @@ lor.lhs.false66:                                  ; preds = %if.then62
   br i1 %cmp68.not, label %if.end71, label %return
 
 if.end71:                                         ; preds = %lor.lhs.false66
-  %add.ptr73 = getelementptr inbounds i8, ptr %write_ptr.0, i64 %conv67
+  %add.ptr73 = getelementptr inbounds nuw i8, ptr %write_ptr.0, i64 %conv67
   %sub75 = sub nuw i64 %bufsize.addr.0, %conv67
   br label %if.end76
 
@@ -372,7 +372,7 @@ lor.lhs.false88:                                  ; preds = %if.then81
 
 for.body101.lr.ph:                                ; preds = %lor.lhs.false88
   %sub97 = sub nuw i64 %bufsize.addr.3, %conv89
-  %add.ptr95 = getelementptr inbounds i8, ptr %write_ptr.3, i64 %conv89
+  %add.ptr95 = getelementptr inbounds nuw i8, ptr %write_ptr.3, i64 %conv89
   %sub106 = add nsw i32 %call78, -1
   br label %for.body101
 
@@ -395,7 +395,7 @@ lor.lhs.false113:                                 ; preds = %for.body101
   br i1 %cmp115.not, label %if.end118, label %return
 
 if.end118:                                        ; preds = %lor.lhs.false113
-  %add.ptr120 = getelementptr inbounds i8, ptr %write_ptr.4103, i64 %conv114
+  %add.ptr120 = getelementptr inbounds nuw i8, ptr %write_ptr.4103, i64 %conv114
   %sub122 = sub nuw i64 %bufsize.addr.4101, %conv114
   %inc124 = add nuw nsw i32 %i.0102, 1
   %exitcond107.not = icmp eq i32 %inc124, %call78
@@ -468,7 +468,7 @@ lor.lhs.false:                                    ; preds = %if.then7
 
 if.end14:                                         ; preds = %lor.lhs.false
   %call15 = tail call ptr @OPENSSL_sk_new_null() #3
-  %statusString = getelementptr inbounds i8, ptr %call, i64 8
+  %statusString = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call15, ptr %statusString, align 8
   %cmp16 = icmp eq ptr %call15, null
   br i1 %cmp16, label %err, label %if.end19
@@ -479,7 +479,7 @@ if.end19:                                         ; preds = %if.end14
   br i1 %tobool24.not, label %err, label %if.end27
 
 if.end27:                                         ; preds = %if.end19, %if.end4
-  %failInfo = getelementptr inbounds i8, ptr %call, i64 16
+  %failInfo = getelementptr inbounds nuw i8, ptr %call, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %if.end27, %for.inc

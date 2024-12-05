@@ -535,7 +535,7 @@ define internal range(i32 0, -1) i32 @dissect_mrcpv2_tcp(ptr noundef %0, ptr nou
   br i1 %.not51, label %10, label %37
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @tvb_get_string_enc(ptr noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(5) @.str.225) #5
@@ -618,7 +618,7 @@ define internal i32 @get_mrcpv2_pdu_len(ptr nocapture noundef readonly %0, ptr n
   %10 = sub i32 29, %6
   %11 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %9, i32 noundef %10, i8 noundef zeroext 32) #4
   %12 = icmp eq i32 %11, -1
-  %13 = getelementptr inbounds i8, ptr %0, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = sub i32 %11, %9
   %.sink = select i1 %12, i32 %10, i32 %15
@@ -640,7 +640,7 @@ define internal i32 @dissect_mrcpv2_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.221) #4
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
@@ -658,7 +658,7 @@ define internal i32 @dissect_mrcpv2_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond756.i, label %dissect_mrcpv2_common.exit, label %20
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @tvb_get_string_enc(ptr noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef %16, i32 noundef 0) #4
   %24 = add nuw i32 %16, 1

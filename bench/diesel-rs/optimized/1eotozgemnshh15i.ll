@@ -14,13 +14,13 @@ define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searc
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
   store ptr %1, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx, align 8
-  %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx, align 8
   ret void
 }
@@ -73,7 +73,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %4)
   call void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer21infer_expression_type17hf6fc9f664900196fE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %4, ptr nonnull align 8 %.val, ptr nonnull align 8 %2, ptr align 8 null), !noalias !6
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %6, ptr noundef nonnull align 8 dereferenceable(232) %4, i64 232, i1 false)
   store i64 18, ptr %0, align 8, !alias.scope !6
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %4)
@@ -106,16 +106,16 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   br label %"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints28_$u7b$$u7b$closure$u7d$$u7d$17h311607e3f80b384eE.exit"
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i64, ptr %16, align 8, !range !13, !noalias !9, !noundef !4
   %18 = icmp eq i64 %17, 6
   br i1 %18, label %23, label %14
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %1, align 8, !noalias !9, !nonnull !4, !align !5, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer21infer_expression_type17hf6fc9f664900196fE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %8, ptr nonnull align 8 %20, ptr nonnull align 8 %3, ptr nonnull align 8 %21), !noalias !9
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %22, ptr noundef nonnull align 8 dereferenceable(232) %8, i64 232, i1 false)
   store i64 18, ptr %0, align 8, !alias.scope !9
   br label %"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints28_$u7b$$u7b$closure$u7d$$u7d$17h311607e3f80b384eE.exit"
@@ -132,7 +132,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 27:                                               ; preds = %25
   call void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer14register_error17hc8d4db963ff7b04dE(ptr nonnull sret({ i64, [28 x i64] }) align 8 %7, ptr nonnull align 8 %24, ptr nonnull align 8 %6, i32 %26), !noalias !9
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %28, ptr noundef nonnull align 8 dereferenceable(232) %7, i64 232, i1 false)
   store i64 18, ptr %0, align 8, !alias.scope !9
   br label %"_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints28_$u7b$$u7b$closure$u7d$$u7d$17h311607e3f80b384eE.exit"
@@ -215,7 +215,7 @@ define hidden zeroext i1 @"_ZN13dsl_auto_type9auto_type25expression_type_inferen
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
   store ptr @anon.957b9859b5be8bca09ccd99e02c720b5.0, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 4, ptr %4, align 8
   %5 = call zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h1668ce3aa363a8c3E"(ptr nonnull align 8 %0, ptr nonnull align 8 %2)
   ret i1 %5

@@ -255,7 +255,7 @@ for.cond:                                         ; preds = %_ZN19OpenColorIO_v2
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds float, ptr %v, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %v, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 4
   %1 = bitcast float %0 to i32
   %2 = and i32 %1, 2139095040
@@ -299,7 +299,7 @@ for.cond:                                         ; preds = %_ZN19OpenColorIO_v2
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds double, ptr %v, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw double, ptr %v, i64 %indvars.iv
   %0 = load double, ptr %arrayidx, align 8
   %conv.i = fptrunc double %0 to float
   %1 = bitcast float %conv.i to i32
@@ -344,7 +344,7 @@ for.cond:                                         ; preds = %_ZN19OpenColorIO_v2
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds float, ptr %v, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %v, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 4
   %1 = bitcast float %0 to i32
   %2 = and i32 %1, 2139095040
@@ -388,7 +388,7 @@ for.cond:                                         ; preds = %_ZN19OpenColorIO_v2
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds double, ptr %v, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw double, ptr %v, i64 %indvars.iv
   %0 = load double, ptr %arrayidx, align 8
   %conv.i = fptrunc double %0 to float
   %1 = bitcast float %conv.i to i32
@@ -432,9 +432,9 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds float, ptr %v1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %v1, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 4
-  %arrayidx3 = getelementptr inbounds float, ptr %v2, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw float, ptr %v2, i64 %indvars.iv
   %1 = load float, ptr %arrayidx3, align 4
   %cmp.i = fcmp ogt float %0, %1
   %sub.i = fsub float %0, %1
@@ -471,9 +471,9 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds double, ptr %v1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw double, ptr %v1, i64 %indvars.iv
   %0 = load double, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds double, ptr %v2, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw double, ptr %v2, i64 %indvars.iv
   %1 = load double, ptr %arrayidx3, align 8
   %cmp.i = fcmp ogt double %0, %1
   %sub.i = fsub double %0, %1
@@ -688,7 +688,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds float, ptr %v, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %v, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 4
   %1 = bitcast float %0 to i32
   %2 = and i32 %1, 2139095040
@@ -732,7 +732,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds float, ptr %v, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %v, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 4
   %1 = bitcast float %0 to i32
   %2 = and i32 %1, 2139095040
@@ -859,36 +859,36 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds float, ptr %m_, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %m_, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 4
   %conv = fpext float %0 to double
-  %arrayidx2 = getelementptr inbounds [16 x double], ptr %m, i64 0, i64 %indvars.iv
+  %arrayidx2 = getelementptr inbounds nuw [16 x double], ptr %m, i64 0, i64 %indvars.iv
   store double %conv, ptr %arrayidx2, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body
-  %arrayidx3 = getelementptr inbounds i8, ptr %m, i64 32
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %m, i64 32
   %1 = load double, ptr %arrayidx3, align 16
-  %arrayidx4 = getelementptr inbounds i8, ptr %m, i64 72
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %m, i64 72
   %2 = load double, ptr %arrayidx4, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %m, i64 40
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %m, i64 40
   %3 = load double, ptr %arrayidx5, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %m, i64 64
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %m, i64 64
   %4 = load double, ptr %arrayidx6, align 16
   %5 = fneg double %4
   %neg = fmul double %3, %5
   %6 = tail call double @llvm.fmuladd.f64(double %1, double %2, double %neg)
-  %arrayidx9 = getelementptr inbounds i8, ptr %m, i64 80
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %m, i64 80
   %7 = load double, ptr %arrayidx9, align 16
-  %arrayidx10 = getelementptr inbounds i8, ptr %m, i64 48
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %m, i64 48
   %8 = load double, ptr %arrayidx10, align 16
   %neg13 = fmul double %8, %5
   %9 = tail call double @llvm.fmuladd.f64(double %1, double %7, double %neg13)
-  %arrayidx15 = getelementptr inbounds i8, ptr %m, i64 88
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %m, i64 88
   %10 = load double, ptr %arrayidx15, align 8
-  %arrayidx16 = getelementptr inbounds i8, ptr %m, i64 56
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %m, i64 56
   %11 = load double, ptr %arrayidx16, align 8
   %neg19 = fmul double %11, %5
   %12 = tail call double @llvm.fmuladd.f64(double %1, double %10, double %neg19)
@@ -900,20 +900,20 @@ for.end:                                          ; preds = %for.body
   %16 = fneg double %7
   %neg37 = fmul double %11, %16
   %17 = tail call double @llvm.fmuladd.f64(double %8, double %10, double %neg37)
-  %arrayidx38 = getelementptr inbounds i8, ptr %m, i64 104
+  %arrayidx38 = getelementptr inbounds nuw i8, ptr %m, i64 104
   %18 = load double, ptr %arrayidx38, align 8
-  %arrayidx39 = getelementptr inbounds i8, ptr %m, i64 112
+  %arrayidx39 = getelementptr inbounds nuw i8, ptr %m, i64 112
   %19 = load double, ptr %arrayidx39, align 16
   %20 = fneg double %15
   %neg41 = fmul double %19, %20
   %21 = tail call double @llvm.fmuladd.f64(double %18, double %17, double %neg41)
-  %arrayidx42 = getelementptr inbounds i8, ptr %m, i64 120
+  %arrayidx42 = getelementptr inbounds nuw i8, ptr %m, i64 120
   %22 = load double, ptr %arrayidx42, align 8
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %14, double %21)
   %24 = fneg double %9
   %neg46 = fmul double %22, %24
   %25 = tail call double @llvm.fmuladd.f64(double %19, double %12, double %neg46)
-  %arrayidx47 = getelementptr inbounds i8, ptr %m, i64 96
+  %arrayidx47 = getelementptr inbounds nuw i8, ptr %m, i64 96
   %26 = load double, ptr %arrayidx47, align 16
   %neg48 = fneg double %26
   %27 = tail call double @llvm.fmuladd.f64(double %neg48, double %17, double %25)
@@ -926,14 +926,14 @@ for.end:                                          ; preds = %for.body
   %32 = tail call double @llvm.fmuladd.f64(double %18, double %9, double %neg57)
   %33 = tail call double @llvm.fmuladd.f64(double %neg48, double %14, double %32)
   %34 = load double, ptr %m, align 16
-  %arrayidx61 = getelementptr inbounds i8, ptr %m, i64 8
+  %arrayidx61 = getelementptr inbounds nuw i8, ptr %m, i64 8
   %35 = load double, ptr %arrayidx61, align 8
   %mul62 = fmul double %27, %35
   %36 = tail call double @llvm.fmuladd.f64(double %23, double %34, double %mul62)
-  %arrayidx63 = getelementptr inbounds i8, ptr %m, i64 16
+  %arrayidx63 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %37 = load double, ptr %arrayidx63, align 16
   %38 = tail call double @llvm.fmuladd.f64(double %30, double %37, double %36)
-  %arrayidx64 = getelementptr inbounds i8, ptr %m, i64 24
+  %arrayidx64 = getelementptr inbounds nuw i8, ptr %m, i64 24
   %39 = load double, ptr %arrayidx64, align 8
   %40 = tail call double @llvm.fmuladd.f64(double %33, double %39, double %38)
   %conv65 = fptrunc double %40 to float
@@ -1024,63 +1024,63 @@ if.end:                                           ; preds = %for.end, %_ZN19Open
   store float %conv168, ptr %inverse_out, align 4
   %mul170 = fmul double %div, %55
   %conv171 = fptrunc double %mul170 to float
-  %arrayidx172 = getelementptr inbounds i8, ptr %inverse_out, i64 4
+  %arrayidx172 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 4
   store float %conv171, ptr %arrayidx172, align 4
   %mul173 = fmul double %div, %67
   %conv174 = fptrunc double %mul173 to float
-  %arrayidx175 = getelementptr inbounds i8, ptr %inverse_out, i64 8
+  %arrayidx175 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 8
   store float %conv174, ptr %arrayidx175, align 4
   %mul176 = fmul double %76, %div
   %conv177 = fptrunc double %mul176 to float
-  %arrayidx178 = getelementptr inbounds i8, ptr %inverse_out, i64 12
+  %arrayidx178 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 12
   store float %conv177, ptr %arrayidx178, align 4
   %mul179 = fmul double %27, %div
   %conv180 = fptrunc double %mul179 to float
-  %arrayidx181 = getelementptr inbounds i8, ptr %inverse_out, i64 16
+  %arrayidx181 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 16
   store float %conv180, ptr %arrayidx181, align 4
   %mul182 = fmul double %div, %58
   %conv183 = fptrunc double %mul182 to float
-  %arrayidx184 = getelementptr inbounds i8, ptr %inverse_out, i64 20
+  %arrayidx184 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 20
   store float %conv183, ptr %arrayidx184, align 4
   %mul185 = fmul double %div, %69
   %conv186 = fptrunc double %mul185 to float
-  %arrayidx187 = getelementptr inbounds i8, ptr %inverse_out, i64 24
+  %arrayidx187 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 24
   store float %conv186, ptr %arrayidx187, align 4
   %mul188 = fmul double %78, %div
   %conv189 = fptrunc double %mul188 to float
-  %arrayidx190 = getelementptr inbounds i8, ptr %inverse_out, i64 28
+  %arrayidx190 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 28
   store float %conv189, ptr %arrayidx190, align 4
   %mul191 = fmul double %30, %div
   %conv192 = fptrunc double %mul191 to float
-  %arrayidx193 = getelementptr inbounds i8, ptr %inverse_out, i64 32
+  %arrayidx193 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 32
   store float %conv192, ptr %arrayidx193, align 4
   %mul194 = fmul double %div, %61
   %conv195 = fptrunc double %mul194 to float
-  %arrayidx196 = getelementptr inbounds i8, ptr %inverse_out, i64 36
+  %arrayidx196 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 36
   store float %conv195, ptr %arrayidx196, align 4
   %mul197 = fmul double %div, %71
   %conv198 = fptrunc double %mul197 to float
-  %arrayidx199 = getelementptr inbounds i8, ptr %inverse_out, i64 40
+  %arrayidx199 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 40
   store float %conv198, ptr %arrayidx199, align 4
   %mul200 = fmul double %80, %div
   %conv201 = fptrunc double %mul200 to float
-  %arrayidx202 = getelementptr inbounds i8, ptr %inverse_out, i64 44
+  %arrayidx202 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 44
   store float %conv201, ptr %arrayidx202, align 4
   %mul203 = fmul double %33, %div
   %conv204 = fptrunc double %mul203 to float
-  %arrayidx205 = getelementptr inbounds i8, ptr %inverse_out, i64 48
+  %arrayidx205 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 48
   store float %conv204, ptr %arrayidx205, align 4
   %mul206 = fmul double %64, %div
   %conv207 = fptrunc double %mul206 to float
-  %arrayidx208 = getelementptr inbounds i8, ptr %inverse_out, i64 52
+  %arrayidx208 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 52
   store float %conv207, ptr %arrayidx208, align 4
   %mul209 = fmul double %div, %73
   %conv210 = fptrunc double %mul209 to float
-  %arrayidx211 = getelementptr inbounds i8, ptr %inverse_out, i64 56
+  %arrayidx211 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 56
   store float %conv210, ptr %arrayidx211, align 4
   %mul212 = fmul double %82, %div
   %conv213 = fptrunc double %mul212 to float
-  %arrayidx214 = getelementptr inbounds i8, ptr %inverse_out, i64 60
+  %arrayidx214 = getelementptr inbounds nuw i8, ptr %inverse_out, i64 60
   store float %conv213, ptr %arrayidx214, align 4
   br label %return
 
@@ -1096,66 +1096,66 @@ declare double @llvm.fmuladd.f64(double, double, double) #7
 define hidden void @_ZN19OpenColorIO_v2_4dev16GetM44M44ProductEPfPKfS2_(ptr nocapture noundef writeonly initializes((0, 64)) %mout, ptr nocapture noundef readonly %m1_, ptr nocapture noundef readonly %m2_) local_unnamed_addr #8 {
 entry:
   %m1.sroa.0.0.copyload = load float, ptr %m1_, align 4
-  %m1.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 4
+  %m1.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 4
   %m1.sroa.5.0.copyload = load float, ptr %m1.sroa.5.0..sroa_idx, align 4
-  %m1.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 8
+  %m1.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 8
   %m1.sroa.9.0.copyload = load float, ptr %m1.sroa.9.0..sroa_idx, align 4
-  %m1.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 12
+  %m1.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 12
   %m1.sroa.13.0.copyload = load float, ptr %m1.sroa.13.0..sroa_idx, align 4
-  %m1.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 16
+  %m1.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 16
   %m1.sroa.17.0.copyload = load float, ptr %m1.sroa.17.0..sroa_idx, align 4
-  %m1.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 20
+  %m1.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 20
   %m1.sroa.21.0.copyload = load float, ptr %m1.sroa.21.0..sroa_idx, align 4
-  %m1.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 24
+  %m1.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 24
   %m1.sroa.25.0.copyload = load float, ptr %m1.sroa.25.0..sroa_idx, align 4
-  %m1.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 28
+  %m1.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 28
   %m1.sroa.29.0.copyload = load float, ptr %m1.sroa.29.0..sroa_idx, align 4
-  %m1.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 32
+  %m1.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 32
   %m1.sroa.33.0.copyload = load float, ptr %m1.sroa.33.0..sroa_idx, align 4
-  %m1.sroa.37.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 36
+  %m1.sroa.37.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 36
   %m1.sroa.37.0.copyload = load float, ptr %m1.sroa.37.0..sroa_idx, align 4
-  %m1.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 40
+  %m1.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 40
   %m1.sroa.41.0.copyload = load float, ptr %m1.sroa.41.0..sroa_idx, align 4
-  %m1.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 44
+  %m1.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 44
   %m1.sroa.45.0.copyload = load float, ptr %m1.sroa.45.0..sroa_idx, align 4
-  %m1.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 48
+  %m1.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 48
   %m1.sroa.49.0.copyload = load float, ptr %m1.sroa.49.0..sroa_idx, align 4
-  %m1.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 52
+  %m1.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 52
   %m1.sroa.53.0.copyload = load float, ptr %m1.sroa.53.0..sroa_idx, align 4
-  %m1.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 56
+  %m1.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 56
   %m1.sroa.57.0.copyload = load float, ptr %m1.sroa.57.0..sroa_idx, align 4
-  %m1.sroa.61.0..sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 60
+  %m1.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 60
   %m1.sroa.61.0.copyload = load float, ptr %m1.sroa.61.0..sroa_idx, align 4
   %m2.sroa.0.0.copyload = load float, ptr %m2_, align 4
-  %m2.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 4
+  %m2.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 4
   %m2.sroa.5.0.copyload = load float, ptr %m2.sroa.5.0..sroa_idx, align 4
-  %m2.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 8
+  %m2.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 8
   %m2.sroa.9.0.copyload = load float, ptr %m2.sroa.9.0..sroa_idx, align 4
-  %m2.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 12
+  %m2.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 12
   %m2.sroa.13.0.copyload = load float, ptr %m2.sroa.13.0..sroa_idx, align 4
-  %m2.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 16
+  %m2.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 16
   %m2.sroa.17.0.copyload = load float, ptr %m2.sroa.17.0..sroa_idx, align 4
-  %m2.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 20
+  %m2.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 20
   %m2.sroa.21.0.copyload = load float, ptr %m2.sroa.21.0..sroa_idx, align 4
-  %m2.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 24
+  %m2.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 24
   %m2.sroa.25.0.copyload = load float, ptr %m2.sroa.25.0..sroa_idx, align 4
-  %m2.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 28
+  %m2.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 28
   %m2.sroa.29.0.copyload = load float, ptr %m2.sroa.29.0..sroa_idx, align 4
-  %m2.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 32
+  %m2.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 32
   %m2.sroa.33.0.copyload = load float, ptr %m2.sroa.33.0..sroa_idx, align 4
-  %m2.sroa.37.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 36
+  %m2.sroa.37.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 36
   %m2.sroa.37.0.copyload = load float, ptr %m2.sroa.37.0..sroa_idx, align 4
-  %m2.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 40
+  %m2.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 40
   %m2.sroa.41.0.copyload = load float, ptr %m2.sroa.41.0..sroa_idx, align 4
-  %m2.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 44
+  %m2.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 44
   %m2.sroa.45.0.copyload = load float, ptr %m2.sroa.45.0..sroa_idx, align 4
-  %m2.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 48
+  %m2.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 48
   %m2.sroa.49.0.copyload = load float, ptr %m2.sroa.49.0..sroa_idx, align 4
-  %m2.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 52
+  %m2.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 52
   %m2.sroa.53.0.copyload = load float, ptr %m2.sroa.53.0..sroa_idx, align 4
-  %m2.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 56
+  %m2.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 56
   %m2.sroa.57.0.copyload = load float, ptr %m2.sroa.57.0..sroa_idx, align 4
-  %m2.sroa.61.0..sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 60
+  %m2.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 60
   %m2.sroa.61.0.copyload = load float, ptr %m2.sroa.61.0..sroa_idx, align 4
   %mul5 = fmul float %m1.sroa.5.0.copyload, %m2.sroa.17.0.copyload
   %0 = tail call float @llvm.fmuladd.f32(float %m1.sroa.0.0.copyload, float %m2.sroa.0.0.copyload, float %mul5)
@@ -1166,91 +1166,91 @@ entry:
   %3 = tail call float @llvm.fmuladd.f32(float %m1.sroa.0.0.copyload, float %m2.sroa.5.0.copyload, float %mul15)
   %4 = tail call float @llvm.fmuladd.f32(float %m1.sroa.9.0.copyload, float %m2.sroa.37.0.copyload, float %3)
   %5 = tail call float @llvm.fmuladd.f32(float %m1.sroa.13.0.copyload, float %m2.sroa.53.0.copyload, float %4)
-  %arrayidx20 = getelementptr inbounds i8, ptr %mout, i64 4
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %mout, i64 4
   store float %5, ptr %arrayidx20, align 4
   %mul25 = fmul float %m1.sroa.5.0.copyload, %m2.sroa.25.0.copyload
   %6 = tail call float @llvm.fmuladd.f32(float %m1.sroa.0.0.copyload, float %m2.sroa.9.0.copyload, float %mul25)
   %7 = tail call float @llvm.fmuladd.f32(float %m1.sroa.9.0.copyload, float %m2.sroa.41.0.copyload, float %6)
   %8 = tail call float @llvm.fmuladd.f32(float %m1.sroa.13.0.copyload, float %m2.sroa.57.0.copyload, float %7)
-  %arrayidx30 = getelementptr inbounds i8, ptr %mout, i64 8
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %mout, i64 8
   store float %8, ptr %arrayidx30, align 4
   %mul35 = fmul float %m1.sroa.5.0.copyload, %m2.sroa.29.0.copyload
   %9 = tail call float @llvm.fmuladd.f32(float %m1.sroa.0.0.copyload, float %m2.sroa.13.0.copyload, float %mul35)
   %10 = tail call float @llvm.fmuladd.f32(float %m1.sroa.9.0.copyload, float %m2.sroa.45.0.copyload, float %9)
   %11 = tail call float @llvm.fmuladd.f32(float %m1.sroa.13.0.copyload, float %m2.sroa.61.0.copyload, float %10)
-  %arrayidx40 = getelementptr inbounds i8, ptr %mout, i64 12
+  %arrayidx40 = getelementptr inbounds nuw i8, ptr %mout, i64 12
   store float %11, ptr %arrayidx40, align 4
   %mul45 = fmul float %m1.sroa.21.0.copyload, %m2.sroa.17.0.copyload
   %12 = tail call float @llvm.fmuladd.f32(float %m1.sroa.17.0.copyload, float %m2.sroa.0.0.copyload, float %mul45)
   %13 = tail call float @llvm.fmuladd.f32(float %m1.sroa.25.0.copyload, float %m2.sroa.33.0.copyload, float %12)
   %14 = tail call float @llvm.fmuladd.f32(float %m1.sroa.29.0.copyload, float %m2.sroa.49.0.copyload, float %13)
-  %arrayidx50 = getelementptr inbounds i8, ptr %mout, i64 16
+  %arrayidx50 = getelementptr inbounds nuw i8, ptr %mout, i64 16
   store float %14, ptr %arrayidx50, align 4
   %mul55 = fmul float %m1.sroa.21.0.copyload, %m2.sroa.21.0.copyload
   %15 = tail call float @llvm.fmuladd.f32(float %m1.sroa.17.0.copyload, float %m2.sroa.5.0.copyload, float %mul55)
   %16 = tail call float @llvm.fmuladd.f32(float %m1.sroa.25.0.copyload, float %m2.sroa.37.0.copyload, float %15)
   %17 = tail call float @llvm.fmuladd.f32(float %m1.sroa.29.0.copyload, float %m2.sroa.53.0.copyload, float %16)
-  %arrayidx60 = getelementptr inbounds i8, ptr %mout, i64 20
+  %arrayidx60 = getelementptr inbounds nuw i8, ptr %mout, i64 20
   store float %17, ptr %arrayidx60, align 4
   %mul65 = fmul float %m1.sroa.21.0.copyload, %m2.sroa.25.0.copyload
   %18 = tail call float @llvm.fmuladd.f32(float %m1.sroa.17.0.copyload, float %m2.sroa.9.0.copyload, float %mul65)
   %19 = tail call float @llvm.fmuladd.f32(float %m1.sroa.25.0.copyload, float %m2.sroa.41.0.copyload, float %18)
   %20 = tail call float @llvm.fmuladd.f32(float %m1.sroa.29.0.copyload, float %m2.sroa.57.0.copyload, float %19)
-  %arrayidx70 = getelementptr inbounds i8, ptr %mout, i64 24
+  %arrayidx70 = getelementptr inbounds nuw i8, ptr %mout, i64 24
   store float %20, ptr %arrayidx70, align 4
   %mul75 = fmul float %m1.sroa.21.0.copyload, %m2.sroa.29.0.copyload
   %21 = tail call float @llvm.fmuladd.f32(float %m1.sroa.17.0.copyload, float %m2.sroa.13.0.copyload, float %mul75)
   %22 = tail call float @llvm.fmuladd.f32(float %m1.sroa.25.0.copyload, float %m2.sroa.45.0.copyload, float %21)
   %23 = tail call float @llvm.fmuladd.f32(float %m1.sroa.29.0.copyload, float %m2.sroa.61.0.copyload, float %22)
-  %arrayidx80 = getelementptr inbounds i8, ptr %mout, i64 28
+  %arrayidx80 = getelementptr inbounds nuw i8, ptr %mout, i64 28
   store float %23, ptr %arrayidx80, align 4
   %mul85 = fmul float %m1.sroa.37.0.copyload, %m2.sroa.17.0.copyload
   %24 = tail call float @llvm.fmuladd.f32(float %m1.sroa.33.0.copyload, float %m2.sroa.0.0.copyload, float %mul85)
   %25 = tail call float @llvm.fmuladd.f32(float %m1.sroa.41.0.copyload, float %m2.sroa.33.0.copyload, float %24)
   %26 = tail call float @llvm.fmuladd.f32(float %m1.sroa.45.0.copyload, float %m2.sroa.49.0.copyload, float %25)
-  %arrayidx90 = getelementptr inbounds i8, ptr %mout, i64 32
+  %arrayidx90 = getelementptr inbounds nuw i8, ptr %mout, i64 32
   store float %26, ptr %arrayidx90, align 4
   %mul95 = fmul float %m1.sroa.37.0.copyload, %m2.sroa.21.0.copyload
   %27 = tail call float @llvm.fmuladd.f32(float %m1.sroa.33.0.copyload, float %m2.sroa.5.0.copyload, float %mul95)
   %28 = tail call float @llvm.fmuladd.f32(float %m1.sroa.41.0.copyload, float %m2.sroa.37.0.copyload, float %27)
   %29 = tail call float @llvm.fmuladd.f32(float %m1.sroa.45.0.copyload, float %m2.sroa.53.0.copyload, float %28)
-  %arrayidx100 = getelementptr inbounds i8, ptr %mout, i64 36
+  %arrayidx100 = getelementptr inbounds nuw i8, ptr %mout, i64 36
   store float %29, ptr %arrayidx100, align 4
   %mul105 = fmul float %m1.sroa.37.0.copyload, %m2.sroa.25.0.copyload
   %30 = tail call float @llvm.fmuladd.f32(float %m1.sroa.33.0.copyload, float %m2.sroa.9.0.copyload, float %mul105)
   %31 = tail call float @llvm.fmuladd.f32(float %m1.sroa.41.0.copyload, float %m2.sroa.41.0.copyload, float %30)
   %32 = tail call float @llvm.fmuladd.f32(float %m1.sroa.45.0.copyload, float %m2.sroa.57.0.copyload, float %31)
-  %arrayidx110 = getelementptr inbounds i8, ptr %mout, i64 40
+  %arrayidx110 = getelementptr inbounds nuw i8, ptr %mout, i64 40
   store float %32, ptr %arrayidx110, align 4
   %mul115 = fmul float %m1.sroa.37.0.copyload, %m2.sroa.29.0.copyload
   %33 = tail call float @llvm.fmuladd.f32(float %m1.sroa.33.0.copyload, float %m2.sroa.13.0.copyload, float %mul115)
   %34 = tail call float @llvm.fmuladd.f32(float %m1.sroa.41.0.copyload, float %m2.sroa.45.0.copyload, float %33)
   %35 = tail call float @llvm.fmuladd.f32(float %m1.sroa.45.0.copyload, float %m2.sroa.61.0.copyload, float %34)
-  %arrayidx120 = getelementptr inbounds i8, ptr %mout, i64 44
+  %arrayidx120 = getelementptr inbounds nuw i8, ptr %mout, i64 44
   store float %35, ptr %arrayidx120, align 4
   %mul125 = fmul float %m1.sroa.53.0.copyload, %m2.sroa.17.0.copyload
   %36 = tail call float @llvm.fmuladd.f32(float %m1.sroa.49.0.copyload, float %m2.sroa.0.0.copyload, float %mul125)
   %37 = tail call float @llvm.fmuladd.f32(float %m1.sroa.57.0.copyload, float %m2.sroa.33.0.copyload, float %36)
   %38 = tail call float @llvm.fmuladd.f32(float %m1.sroa.61.0.copyload, float %m2.sroa.49.0.copyload, float %37)
-  %arrayidx130 = getelementptr inbounds i8, ptr %mout, i64 48
+  %arrayidx130 = getelementptr inbounds nuw i8, ptr %mout, i64 48
   store float %38, ptr %arrayidx130, align 4
   %mul135 = fmul float %m1.sroa.53.0.copyload, %m2.sroa.21.0.copyload
   %39 = tail call float @llvm.fmuladd.f32(float %m1.sroa.49.0.copyload, float %m2.sroa.5.0.copyload, float %mul135)
   %40 = tail call float @llvm.fmuladd.f32(float %m1.sroa.57.0.copyload, float %m2.sroa.37.0.copyload, float %39)
   %41 = tail call float @llvm.fmuladd.f32(float %m1.sroa.61.0.copyload, float %m2.sroa.53.0.copyload, float %40)
-  %arrayidx140 = getelementptr inbounds i8, ptr %mout, i64 52
+  %arrayidx140 = getelementptr inbounds nuw i8, ptr %mout, i64 52
   store float %41, ptr %arrayidx140, align 4
   %mul145 = fmul float %m1.sroa.53.0.copyload, %m2.sroa.25.0.copyload
   %42 = tail call float @llvm.fmuladd.f32(float %m1.sroa.49.0.copyload, float %m2.sroa.9.0.copyload, float %mul145)
   %43 = tail call float @llvm.fmuladd.f32(float %m1.sroa.57.0.copyload, float %m2.sroa.41.0.copyload, float %42)
   %44 = tail call float @llvm.fmuladd.f32(float %m1.sroa.61.0.copyload, float %m2.sroa.57.0.copyload, float %43)
-  %arrayidx150 = getelementptr inbounds i8, ptr %mout, i64 56
+  %arrayidx150 = getelementptr inbounds nuw i8, ptr %mout, i64 56
   store float %44, ptr %arrayidx150, align 4
   %mul155 = fmul float %m1.sroa.53.0.copyload, %m2.sroa.29.0.copyload
   %45 = tail call float @llvm.fmuladd.f32(float %m1.sroa.49.0.copyload, float %m2.sroa.13.0.copyload, float %mul155)
   %46 = tail call float @llvm.fmuladd.f32(float %m1.sroa.57.0.copyload, float %m2.sroa.45.0.copyload, float %45)
   %47 = tail call float @llvm.fmuladd.f32(float %m1.sroa.61.0.copyload, float %m2.sroa.61.0.copyload, float %46)
-  %arrayidx160 = getelementptr inbounds i8, ptr %mout, i64 60
+  %arrayidx160 = getelementptr inbounds nuw i8, ptr %mout, i64 60
   store float %47, ptr %arrayidx160, align 4
   ret void
 }
@@ -1266,73 +1266,73 @@ define hidden void @_ZN19OpenColorIO_v2_4dev13GetMxbCombineEPfS0_PKfS2_S2_S2_(pt
 entry:
   %v2 = alloca [4 x float], align 16
   %m1.sroa.0.0.copyload = load float, ptr %m1_, align 4
-  %m1.sroa.2.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 4
+  %m1.sroa.2.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 4
   %m1.sroa.2.0.copyload = load float, ptr %m1.sroa.2.0.m1_.sroa_idx, align 4
-  %m1.sroa.3.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 8
+  %m1.sroa.3.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 8
   %m1.sroa.3.0.copyload = load float, ptr %m1.sroa.3.0.m1_.sroa_idx, align 4
-  %m1.sroa.4.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 12
+  %m1.sroa.4.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 12
   %m1.sroa.4.0.copyload = load float, ptr %m1.sroa.4.0.m1_.sroa_idx, align 4
-  %m1.sroa.5.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 16
+  %m1.sroa.5.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 16
   %m1.sroa.5.0.copyload = load float, ptr %m1.sroa.5.0.m1_.sroa_idx, align 4
-  %m1.sroa.6.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 20
+  %m1.sroa.6.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 20
   %m1.sroa.6.0.copyload = load float, ptr %m1.sroa.6.0.m1_.sroa_idx, align 4
-  %m1.sroa.7.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 24
+  %m1.sroa.7.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 24
   %m1.sroa.7.0.copyload = load float, ptr %m1.sroa.7.0.m1_.sroa_idx, align 4
-  %m1.sroa.8.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 28
+  %m1.sroa.8.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 28
   %m1.sroa.8.0.copyload = load float, ptr %m1.sroa.8.0.m1_.sroa_idx, align 4
-  %m1.sroa.9.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 32
+  %m1.sroa.9.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 32
   %m1.sroa.9.0.copyload = load float, ptr %m1.sroa.9.0.m1_.sroa_idx, align 4
-  %m1.sroa.10.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 36
+  %m1.sroa.10.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 36
   %m1.sroa.10.0.copyload = load float, ptr %m1.sroa.10.0.m1_.sroa_idx, align 4
-  %m1.sroa.11.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 40
+  %m1.sroa.11.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 40
   %m1.sroa.11.0.copyload = load float, ptr %m1.sroa.11.0.m1_.sroa_idx, align 4
-  %m1.sroa.12.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 44
+  %m1.sroa.12.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 44
   %m1.sroa.12.0.copyload = load float, ptr %m1.sroa.12.0.m1_.sroa_idx, align 4
-  %m1.sroa.13.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 48
+  %m1.sroa.13.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 48
   %m1.sroa.13.0.copyload = load float, ptr %m1.sroa.13.0.m1_.sroa_idx, align 4
-  %m1.sroa.14.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 52
+  %m1.sroa.14.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 52
   %m1.sroa.14.0.copyload = load float, ptr %m1.sroa.14.0.m1_.sroa_idx, align 4
-  %m1.sroa.15.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 56
+  %m1.sroa.15.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 56
   %m1.sroa.15.0.copyload = load float, ptr %m1.sroa.15.0.m1_.sroa_idx, align 4
-  %m1.sroa.16.0.m1_.sroa_idx = getelementptr inbounds i8, ptr %m1_, i64 60
+  %m1.sroa.16.0.m1_.sroa_idx = getelementptr inbounds nuw i8, ptr %m1_, i64 60
   %m1.sroa.16.0.copyload = load float, ptr %m1.sroa.16.0.m1_.sroa_idx, align 4
   %v1.sroa.0.0.copyload = load float, ptr %v1_, align 4
-  %v1.sroa.2.0.v1_.sroa_idx = getelementptr inbounds i8, ptr %v1_, i64 4
+  %v1.sroa.2.0.v1_.sroa_idx = getelementptr inbounds nuw i8, ptr %v1_, i64 4
   %v1.sroa.2.0.copyload = load float, ptr %v1.sroa.2.0.v1_.sroa_idx, align 4
-  %v1.sroa.3.0.v1_.sroa_idx = getelementptr inbounds i8, ptr %v1_, i64 8
+  %v1.sroa.3.0.v1_.sroa_idx = getelementptr inbounds nuw i8, ptr %v1_, i64 8
   %v1.sroa.3.0.copyload = load float, ptr %v1.sroa.3.0.v1_.sroa_idx, align 4
-  %v1.sroa.4.0.v1_.sroa_idx = getelementptr inbounds i8, ptr %v1_, i64 12
+  %v1.sroa.4.0.v1_.sroa_idx = getelementptr inbounds nuw i8, ptr %v1_, i64 12
   %v1.sroa.4.0.copyload = load float, ptr %v1.sroa.4.0.v1_.sroa_idx, align 4
   %m2.sroa.0.0.copyload = load float, ptr %m2_, align 4
-  %m2.sroa.3.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 4
+  %m2.sroa.3.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 4
   %m2.sroa.3.0.copyload = load float, ptr %m2.sroa.3.0.m2_.sroa_idx, align 4
-  %m2.sroa.5.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 8
+  %m2.sroa.5.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 8
   %m2.sroa.5.0.copyload = load float, ptr %m2.sroa.5.0.m2_.sroa_idx, align 4
-  %m2.sroa.7.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 12
+  %m2.sroa.7.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 12
   %m2.sroa.7.0.copyload = load float, ptr %m2.sroa.7.0.m2_.sroa_idx, align 4
-  %m2.sroa.9.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 16
+  %m2.sroa.9.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 16
   %m2.sroa.9.0.copyload = load float, ptr %m2.sroa.9.0.m2_.sroa_idx, align 4
-  %m2.sroa.11.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 20
+  %m2.sroa.11.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 20
   %m2.sroa.11.0.copyload = load float, ptr %m2.sroa.11.0.m2_.sroa_idx, align 4
-  %m2.sroa.13.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 24
+  %m2.sroa.13.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 24
   %m2.sroa.13.0.copyload = load float, ptr %m2.sroa.13.0.m2_.sroa_idx, align 4
-  %m2.sroa.15.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 28
+  %m2.sroa.15.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 28
   %m2.sroa.15.0.copyload = load float, ptr %m2.sroa.15.0.m2_.sroa_idx, align 4
-  %m2.sroa.17.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 32
+  %m2.sroa.17.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 32
   %m2.sroa.17.0.copyload = load float, ptr %m2.sroa.17.0.m2_.sroa_idx, align 4
-  %m2.sroa.19.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 36
+  %m2.sroa.19.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 36
   %m2.sroa.19.0.copyload = load float, ptr %m2.sroa.19.0.m2_.sroa_idx, align 4
-  %m2.sroa.21.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 40
+  %m2.sroa.21.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 40
   %m2.sroa.21.0.copyload = load float, ptr %m2.sroa.21.0.m2_.sroa_idx, align 4
-  %m2.sroa.23.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 44
+  %m2.sroa.23.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 44
   %m2.sroa.23.0.copyload = load float, ptr %m2.sroa.23.0.m2_.sroa_idx, align 4
-  %m2.sroa.25.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 48
+  %m2.sroa.25.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 48
   %m2.sroa.25.0.copyload = load float, ptr %m2.sroa.25.0.m2_.sroa_idx, align 4
-  %m2.sroa.27.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 52
+  %m2.sroa.27.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 52
   %m2.sroa.27.0.copyload = load float, ptr %m2.sroa.27.0.m2_.sroa_idx, align 4
-  %m2.sroa.29.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 56
+  %m2.sroa.29.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 56
   %m2.sroa.29.0.copyload = load float, ptr %m2.sroa.29.0.m2_.sroa_idx, align 4
-  %m2.sroa.31.0.m2_.sroa_idx = getelementptr inbounds i8, ptr %m2_, i64 60
+  %m2.sroa.31.0.m2_.sroa_idx = getelementptr inbounds nuw i8, ptr %m2_, i64 60
   %m2.sroa.31.0.copyload = load float, ptr %m2.sroa.31.0.m2_.sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %v2, ptr noundef nonnull align 4 dereferenceable(16) %v2_, i64 16, i1 false)
   %mul5.i = fmul float %m1.sroa.5.0.copyload, %m2.sroa.3.0.copyload
@@ -1344,91 +1344,91 @@ entry:
   %3 = tail call float @llvm.fmuladd.f32(float %m2.sroa.0.0.copyload, float %m1.sroa.2.0.copyload, float %mul15.i)
   %4 = tail call float @llvm.fmuladd.f32(float %m2.sroa.5.0.copyload, float %m1.sroa.10.0.copyload, float %3)
   %5 = tail call float @llvm.fmuladd.f32(float %m2.sroa.7.0.copyload, float %m1.sroa.14.0.copyload, float %4)
-  %arrayidx20.i = getelementptr inbounds i8, ptr %mout, i64 4
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %mout, i64 4
   store float %5, ptr %arrayidx20.i, align 4
   %mul25.i = fmul float %m1.sroa.7.0.copyload, %m2.sroa.3.0.copyload
   %6 = tail call float @llvm.fmuladd.f32(float %m2.sroa.0.0.copyload, float %m1.sroa.3.0.copyload, float %mul25.i)
   %7 = tail call float @llvm.fmuladd.f32(float %m2.sroa.5.0.copyload, float %m1.sroa.11.0.copyload, float %6)
   %8 = tail call float @llvm.fmuladd.f32(float %m2.sroa.7.0.copyload, float %m1.sroa.15.0.copyload, float %7)
-  %arrayidx30.i = getelementptr inbounds i8, ptr %mout, i64 8
+  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %mout, i64 8
   store float %8, ptr %arrayidx30.i, align 4
   %mul35.i = fmul float %m1.sroa.8.0.copyload, %m2.sroa.3.0.copyload
   %9 = tail call float @llvm.fmuladd.f32(float %m2.sroa.0.0.copyload, float %m1.sroa.4.0.copyload, float %mul35.i)
   %10 = tail call float @llvm.fmuladd.f32(float %m2.sroa.5.0.copyload, float %m1.sroa.12.0.copyload, float %9)
   %11 = tail call float @llvm.fmuladd.f32(float %m2.sroa.7.0.copyload, float %m1.sroa.16.0.copyload, float %10)
-  %arrayidx40.i = getelementptr inbounds i8, ptr %mout, i64 12
+  %arrayidx40.i = getelementptr inbounds nuw i8, ptr %mout, i64 12
   store float %11, ptr %arrayidx40.i, align 4
   %mul45.i = fmul float %m1.sroa.5.0.copyload, %m2.sroa.11.0.copyload
   %12 = tail call float @llvm.fmuladd.f32(float %m2.sroa.9.0.copyload, float %m1.sroa.0.0.copyload, float %mul45.i)
   %13 = tail call float @llvm.fmuladd.f32(float %m2.sroa.13.0.copyload, float %m1.sroa.9.0.copyload, float %12)
   %14 = tail call float @llvm.fmuladd.f32(float %m2.sroa.15.0.copyload, float %m1.sroa.13.0.copyload, float %13)
-  %arrayidx50.i = getelementptr inbounds i8, ptr %mout, i64 16
+  %arrayidx50.i = getelementptr inbounds nuw i8, ptr %mout, i64 16
   store float %14, ptr %arrayidx50.i, align 4
   %mul55.i = fmul float %m1.sroa.6.0.copyload, %m2.sroa.11.0.copyload
   %15 = tail call float @llvm.fmuladd.f32(float %m2.sroa.9.0.copyload, float %m1.sroa.2.0.copyload, float %mul55.i)
   %16 = tail call float @llvm.fmuladd.f32(float %m2.sroa.13.0.copyload, float %m1.sroa.10.0.copyload, float %15)
   %17 = tail call float @llvm.fmuladd.f32(float %m2.sroa.15.0.copyload, float %m1.sroa.14.0.copyload, float %16)
-  %arrayidx60.i = getelementptr inbounds i8, ptr %mout, i64 20
+  %arrayidx60.i = getelementptr inbounds nuw i8, ptr %mout, i64 20
   store float %17, ptr %arrayidx60.i, align 4
   %mul65.i = fmul float %m1.sroa.7.0.copyload, %m2.sroa.11.0.copyload
   %18 = tail call float @llvm.fmuladd.f32(float %m2.sroa.9.0.copyload, float %m1.sroa.3.0.copyload, float %mul65.i)
   %19 = tail call float @llvm.fmuladd.f32(float %m2.sroa.13.0.copyload, float %m1.sroa.11.0.copyload, float %18)
   %20 = tail call float @llvm.fmuladd.f32(float %m2.sroa.15.0.copyload, float %m1.sroa.15.0.copyload, float %19)
-  %arrayidx70.i = getelementptr inbounds i8, ptr %mout, i64 24
+  %arrayidx70.i = getelementptr inbounds nuw i8, ptr %mout, i64 24
   store float %20, ptr %arrayidx70.i, align 4
   %mul75.i = fmul float %m1.sroa.8.0.copyload, %m2.sroa.11.0.copyload
   %21 = tail call float @llvm.fmuladd.f32(float %m2.sroa.9.0.copyload, float %m1.sroa.4.0.copyload, float %mul75.i)
   %22 = tail call float @llvm.fmuladd.f32(float %m2.sroa.13.0.copyload, float %m1.sroa.12.0.copyload, float %21)
   %23 = tail call float @llvm.fmuladd.f32(float %m2.sroa.15.0.copyload, float %m1.sroa.16.0.copyload, float %22)
-  %arrayidx80.i = getelementptr inbounds i8, ptr %mout, i64 28
+  %arrayidx80.i = getelementptr inbounds nuw i8, ptr %mout, i64 28
   store float %23, ptr %arrayidx80.i, align 4
   %mul85.i = fmul float %m1.sroa.5.0.copyload, %m2.sroa.19.0.copyload
   %24 = tail call float @llvm.fmuladd.f32(float %m2.sroa.17.0.copyload, float %m1.sroa.0.0.copyload, float %mul85.i)
   %25 = tail call float @llvm.fmuladd.f32(float %m2.sroa.21.0.copyload, float %m1.sroa.9.0.copyload, float %24)
   %26 = tail call float @llvm.fmuladd.f32(float %m2.sroa.23.0.copyload, float %m1.sroa.13.0.copyload, float %25)
-  %arrayidx90.i = getelementptr inbounds i8, ptr %mout, i64 32
+  %arrayidx90.i = getelementptr inbounds nuw i8, ptr %mout, i64 32
   store float %26, ptr %arrayidx90.i, align 4
   %mul95.i = fmul float %m1.sroa.6.0.copyload, %m2.sroa.19.0.copyload
   %27 = tail call float @llvm.fmuladd.f32(float %m2.sroa.17.0.copyload, float %m1.sroa.2.0.copyload, float %mul95.i)
   %28 = tail call float @llvm.fmuladd.f32(float %m2.sroa.21.0.copyload, float %m1.sroa.10.0.copyload, float %27)
   %29 = tail call float @llvm.fmuladd.f32(float %m2.sroa.23.0.copyload, float %m1.sroa.14.0.copyload, float %28)
-  %arrayidx100.i = getelementptr inbounds i8, ptr %mout, i64 36
+  %arrayidx100.i = getelementptr inbounds nuw i8, ptr %mout, i64 36
   store float %29, ptr %arrayidx100.i, align 4
   %mul105.i = fmul float %m1.sroa.7.0.copyload, %m2.sroa.19.0.copyload
   %30 = tail call float @llvm.fmuladd.f32(float %m2.sroa.17.0.copyload, float %m1.sroa.3.0.copyload, float %mul105.i)
   %31 = tail call float @llvm.fmuladd.f32(float %m2.sroa.21.0.copyload, float %m1.sroa.11.0.copyload, float %30)
   %32 = tail call float @llvm.fmuladd.f32(float %m2.sroa.23.0.copyload, float %m1.sroa.15.0.copyload, float %31)
-  %arrayidx110.i = getelementptr inbounds i8, ptr %mout, i64 40
+  %arrayidx110.i = getelementptr inbounds nuw i8, ptr %mout, i64 40
   store float %32, ptr %arrayidx110.i, align 4
   %mul115.i = fmul float %m1.sroa.8.0.copyload, %m2.sroa.19.0.copyload
   %33 = tail call float @llvm.fmuladd.f32(float %m2.sroa.17.0.copyload, float %m1.sroa.4.0.copyload, float %mul115.i)
   %34 = tail call float @llvm.fmuladd.f32(float %m2.sroa.21.0.copyload, float %m1.sroa.12.0.copyload, float %33)
   %35 = tail call float @llvm.fmuladd.f32(float %m2.sroa.23.0.copyload, float %m1.sroa.16.0.copyload, float %34)
-  %arrayidx120.i = getelementptr inbounds i8, ptr %mout, i64 44
+  %arrayidx120.i = getelementptr inbounds nuw i8, ptr %mout, i64 44
   store float %35, ptr %arrayidx120.i, align 4
   %mul125.i = fmul float %m1.sroa.5.0.copyload, %m2.sroa.27.0.copyload
   %36 = tail call float @llvm.fmuladd.f32(float %m2.sroa.25.0.copyload, float %m1.sroa.0.0.copyload, float %mul125.i)
   %37 = tail call float @llvm.fmuladd.f32(float %m2.sroa.29.0.copyload, float %m1.sroa.9.0.copyload, float %36)
   %38 = tail call float @llvm.fmuladd.f32(float %m2.sroa.31.0.copyload, float %m1.sroa.13.0.copyload, float %37)
-  %arrayidx130.i = getelementptr inbounds i8, ptr %mout, i64 48
+  %arrayidx130.i = getelementptr inbounds nuw i8, ptr %mout, i64 48
   store float %38, ptr %arrayidx130.i, align 4
   %mul135.i = fmul float %m1.sroa.6.0.copyload, %m2.sroa.27.0.copyload
   %39 = tail call float @llvm.fmuladd.f32(float %m2.sroa.25.0.copyload, float %m1.sroa.2.0.copyload, float %mul135.i)
   %40 = tail call float @llvm.fmuladd.f32(float %m2.sroa.29.0.copyload, float %m1.sroa.10.0.copyload, float %39)
   %41 = tail call float @llvm.fmuladd.f32(float %m2.sroa.31.0.copyload, float %m1.sroa.14.0.copyload, float %40)
-  %arrayidx140.i = getelementptr inbounds i8, ptr %mout, i64 52
+  %arrayidx140.i = getelementptr inbounds nuw i8, ptr %mout, i64 52
   store float %41, ptr %arrayidx140.i, align 4
   %mul145.i = fmul float %m1.sroa.7.0.copyload, %m2.sroa.27.0.copyload
   %42 = tail call float @llvm.fmuladd.f32(float %m2.sroa.25.0.copyload, float %m1.sroa.3.0.copyload, float %mul145.i)
   %43 = tail call float @llvm.fmuladd.f32(float %m2.sroa.29.0.copyload, float %m1.sroa.11.0.copyload, float %42)
   %44 = tail call float @llvm.fmuladd.f32(float %m2.sroa.31.0.copyload, float %m1.sroa.15.0.copyload, float %43)
-  %arrayidx150.i = getelementptr inbounds i8, ptr %mout, i64 56
+  %arrayidx150.i = getelementptr inbounds nuw i8, ptr %mout, i64 56
   store float %44, ptr %arrayidx150.i, align 4
   %mul155.i = fmul float %m1.sroa.8.0.copyload, %m2.sroa.27.0.copyload
   %45 = tail call float @llvm.fmuladd.f32(float %m2.sroa.25.0.copyload, float %m1.sroa.4.0.copyload, float %mul155.i)
   %46 = tail call float @llvm.fmuladd.f32(float %m2.sroa.29.0.copyload, float %m1.sroa.12.0.copyload, float %45)
   %47 = tail call float @llvm.fmuladd.f32(float %m2.sroa.31.0.copyload, float %m1.sroa.16.0.copyload, float %46)
-  %arrayidx160.i = getelementptr inbounds i8, ptr %mout, i64 60
+  %arrayidx160.i = getelementptr inbounds nuw i8, ptr %mout, i64 60
   store float %47, ptr %arrayidx160.i, align 4
   %mul4.i = fmul float %v1.sroa.2.0.copyload, %m2.sroa.3.0.copyload
   %48 = tail call float @llvm.fmuladd.f32(float %m2.sroa.0.0.copyload, float %v1.sroa.0.0.copyload, float %mul4.i)
@@ -1439,27 +1439,27 @@ entry:
   %51 = tail call float @llvm.fmuladd.f32(float %m2.sroa.9.0.copyload, float %v1.sroa.0.0.copyload, float %mul14.i)
   %52 = tail call float @llvm.fmuladd.f32(float %m2.sroa.13.0.copyload, float %v1.sroa.3.0.copyload, float %51)
   %53 = tail call float @llvm.fmuladd.f32(float %m2.sroa.15.0.copyload, float %v1.sroa.4.0.copyload, float %52)
-  %arrayidx19.i = getelementptr inbounds i8, ptr %vout, i64 4
+  %arrayidx19.i = getelementptr inbounds nuw i8, ptr %vout, i64 4
   store float %53, ptr %arrayidx19.i, align 4
   %mul24.i = fmul float %v1.sroa.2.0.copyload, %m2.sroa.19.0.copyload
   %54 = tail call float @llvm.fmuladd.f32(float %m2.sroa.17.0.copyload, float %v1.sroa.0.0.copyload, float %mul24.i)
   %55 = tail call float @llvm.fmuladd.f32(float %m2.sroa.21.0.copyload, float %v1.sroa.3.0.copyload, float %54)
   %56 = tail call float @llvm.fmuladd.f32(float %m2.sroa.23.0.copyload, float %v1.sroa.4.0.copyload, float %55)
-  %arrayidx29.i = getelementptr inbounds i8, ptr %vout, i64 8
+  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %vout, i64 8
   store float %56, ptr %arrayidx29.i, align 4
   %mul34.i = fmul float %v1.sroa.2.0.copyload, %m2.sroa.27.0.copyload
   %57 = tail call float @llvm.fmuladd.f32(float %m2.sroa.25.0.copyload, float %v1.sroa.0.0.copyload, float %mul34.i)
   %58 = tail call float @llvm.fmuladd.f32(float %m2.sroa.29.0.copyload, float %v1.sroa.3.0.copyload, float %57)
   %59 = tail call float @llvm.fmuladd.f32(float %m2.sroa.31.0.copyload, float %v1.sroa.4.0.copyload, float %58)
-  %arrayidx39.i = getelementptr inbounds i8, ptr %vout, i64 12
+  %arrayidx39.i = getelementptr inbounds nuw i8, ptr %vout, i64 12
   store float %59, ptr %arrayidx39.i, align 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds float, ptr %vout, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw float, ptr %vout, i64 %indvars.iv.i
   %60 = load float, ptr %arrayidx.i, align 4
-  %arrayidx2.i5 = getelementptr inbounds float, ptr %v2, i64 %indvars.iv.i
+  %arrayidx2.i5 = getelementptr inbounds nuw float, ptr %v2, i64 %indvars.iv.i
   %61 = load float, ptr %arrayidx2.i5, align 4
   %add.i = fadd float %60, %61
   store float %add.i, ptr %arrayidx.i, align 4
@@ -1483,7 +1483,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [4 x float], ptr %v, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x float], ptr %v, i64 0, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 4
   %fneg = fneg float %0
   store float %fneg, ptr %arrayidx, align 4
@@ -1493,65 +1493,65 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   %v.sroa.0.0.copyload.i = load float, ptr %v, align 16
-  %v.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %v, i64 4
+  %v.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %v, i64 4
   %v.sroa.5.0.copyload.i = load float, ptr %v.sroa.5.0..sroa_idx.i, align 4
-  %v.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %v, i64 8
+  %v.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %v, i64 8
   %v.sroa.9.0.copyload.i = load float, ptr %v.sroa.9.0..sroa_idx.i, align 8
-  %v.sroa.13.0..sroa_idx.i = getelementptr inbounds i8, ptr %v, i64 12
+  %v.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %v, i64 12
   %v.sroa.13.0.copyload.i = load float, ptr %v.sroa.13.0..sroa_idx.i, align 4
   %1 = load float, ptr %mout, align 4
-  %arrayidx2.i = getelementptr inbounds i8, ptr %mout, i64 4
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %mout, i64 4
   %2 = load float, ptr %arrayidx2.i, align 4
   %mul4.i = fmul float %v.sroa.5.0.copyload.i, %2
   %3 = tail call float @llvm.fmuladd.f32(float %1, float %v.sroa.0.0.copyload.i, float %mul4.i)
-  %arrayidx5.i = getelementptr inbounds i8, ptr %mout, i64 8
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %mout, i64 8
   %4 = load float, ptr %arrayidx5.i, align 4
   %5 = tail call float @llvm.fmuladd.f32(float %4, float %v.sroa.9.0.copyload.i, float %3)
-  %arrayidx7.i = getelementptr inbounds i8, ptr %mout, i64 12
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %mout, i64 12
   %6 = load float, ptr %arrayidx7.i, align 4
   %7 = tail call float @llvm.fmuladd.f32(float %6, float %v.sroa.13.0.copyload.i, float %5)
   store float %7, ptr %vout, align 4
-  %arrayidx10.i = getelementptr inbounds i8, ptr %mout, i64 16
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %mout, i64 16
   %8 = load float, ptr %arrayidx10.i, align 4
-  %arrayidx12.i = getelementptr inbounds i8, ptr %mout, i64 20
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %mout, i64 20
   %9 = load float, ptr %arrayidx12.i, align 4
   %mul14.i = fmul float %v.sroa.5.0.copyload.i, %9
   %10 = tail call float @llvm.fmuladd.f32(float %8, float %v.sroa.0.0.copyload.i, float %mul14.i)
-  %arrayidx15.i = getelementptr inbounds i8, ptr %mout, i64 24
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %mout, i64 24
   %11 = load float, ptr %arrayidx15.i, align 4
   %12 = tail call float @llvm.fmuladd.f32(float %11, float %v.sroa.9.0.copyload.i, float %10)
-  %arrayidx17.i = getelementptr inbounds i8, ptr %mout, i64 28
+  %arrayidx17.i = getelementptr inbounds nuw i8, ptr %mout, i64 28
   %13 = load float, ptr %arrayidx17.i, align 4
   %14 = tail call float @llvm.fmuladd.f32(float %13, float %v.sroa.13.0.copyload.i, float %12)
-  %arrayidx19.i = getelementptr inbounds i8, ptr %vout, i64 4
+  %arrayidx19.i = getelementptr inbounds nuw i8, ptr %vout, i64 4
   store float %14, ptr %arrayidx19.i, align 4
-  %arrayidx20.i = getelementptr inbounds i8, ptr %mout, i64 32
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %mout, i64 32
   %15 = load float, ptr %arrayidx20.i, align 4
-  %arrayidx22.i = getelementptr inbounds i8, ptr %mout, i64 36
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %mout, i64 36
   %16 = load float, ptr %arrayidx22.i, align 4
   %mul24.i = fmul float %v.sroa.5.0.copyload.i, %16
   %17 = tail call float @llvm.fmuladd.f32(float %15, float %v.sroa.0.0.copyload.i, float %mul24.i)
-  %arrayidx25.i = getelementptr inbounds i8, ptr %mout, i64 40
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %mout, i64 40
   %18 = load float, ptr %arrayidx25.i, align 4
   %19 = tail call float @llvm.fmuladd.f32(float %18, float %v.sroa.9.0.copyload.i, float %17)
-  %arrayidx27.i = getelementptr inbounds i8, ptr %mout, i64 44
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %mout, i64 44
   %20 = load float, ptr %arrayidx27.i, align 4
   %21 = tail call float @llvm.fmuladd.f32(float %20, float %v.sroa.13.0.copyload.i, float %19)
-  %arrayidx29.i = getelementptr inbounds i8, ptr %vout, i64 8
+  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %vout, i64 8
   store float %21, ptr %arrayidx29.i, align 4
-  %arrayidx30.i = getelementptr inbounds i8, ptr %mout, i64 48
+  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %mout, i64 48
   %22 = load float, ptr %arrayidx30.i, align 4
-  %arrayidx32.i = getelementptr inbounds i8, ptr %mout, i64 52
+  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %mout, i64 52
   %23 = load float, ptr %arrayidx32.i, align 4
   %mul34.i = fmul float %v.sroa.5.0.copyload.i, %23
   %24 = tail call float @llvm.fmuladd.f32(float %22, float %v.sroa.0.0.copyload.i, float %mul34.i)
-  %arrayidx35.i = getelementptr inbounds i8, ptr %mout, i64 56
+  %arrayidx35.i = getelementptr inbounds nuw i8, ptr %mout, i64 56
   %25 = load float, ptr %arrayidx35.i, align 4
   %26 = tail call float @llvm.fmuladd.f32(float %25, float %v.sroa.9.0.copyload.i, float %24)
-  %arrayidx37.i = getelementptr inbounds i8, ptr %mout, i64 60
+  %arrayidx37.i = getelementptr inbounds nuw i8, ptr %mout, i64 60
   %27 = load float, ptr %arrayidx37.i, align 4
   %28 = tail call float @llvm.fmuladd.f32(float %27, float %v.sroa.13.0.copyload.i, float %26)
-  %arrayidx39.i = getelementptr inbounds i8, ptr %vout, i64 12
+  %arrayidx39.i = getelementptr inbounds nuw i8, ptr %vout, i64 12
   store float %28, ptr %arrayidx39.i, align 4
   br label %return
 

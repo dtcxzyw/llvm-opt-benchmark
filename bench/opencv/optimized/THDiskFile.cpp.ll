@@ -79,7 +79,7 @@ define hidden noundef i32 @_ZN2TH25THDiskFile_isBigEndianCPUEv() local_unnamed_a
 define hidden void @_ZN2TH31THDiskFile_nativeEndianEncodingEPNS_8THFile__E(ptr nocapture noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %14
@@ -113,7 +113,7 @@ define hidden void @_ZN2TH31THDiskFile_nativeEndianEncodingEPNS_8THFile__E(ptr n
   resume { ptr, i32 } %.pn
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %15, align 8
   ret void
 }
@@ -138,7 +138,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define hidden void @_ZN2TH31THDiskFile_littleEndianEncodingEPNS_8THFile__E(ptr nocapture noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %14
@@ -172,7 +172,7 @@ define hidden void @_ZN2TH31THDiskFile_littleEndianEncodingEPNS_8THFile__E(ptr n
   resume { ptr, i32 } %.pn
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %15, align 8
   ret void
 }
@@ -181,7 +181,7 @@ define hidden void @_ZN2TH31THDiskFile_littleEndianEncodingEPNS_8THFile__E(ptr n
 define hidden void @_ZN2TH28THDiskFile_bigEndianEncodingEPNS_8THFile__E(ptr nocapture noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %14
@@ -215,7 +215,7 @@ define hidden void @_ZN2TH28THDiskFile_bigEndianEncodingEPNS_8THFile__E(ptr noca
   resume { ptr, i32 } %.pn
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %15, align 8
   ret void
 }
@@ -226,7 +226,7 @@ define hidden void @_ZN2TH19THDiskFile_longSizeEPNS_8THFile__Ei(ptr nocapture no
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %16
@@ -285,7 +285,7 @@ define hidden void @_ZN2TH19THDiskFile_longSizeEPNS_8THFile__Ei(ptr nocapture no
   br label %26
 
 24:                                               ; preds = %16, %16, %16
-  %25 = getelementptr inbounds i8, ptr %0, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %1, ptr %25, align 4
   ret void
 
@@ -301,7 +301,7 @@ define hidden void @_ZN2TH19THDiskFile_noBufferEPNS_8THFile__E(ptr nocapture nou
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %15
@@ -400,7 +400,7 @@ define hidden noalias noundef ptr @_ZN2TH14THDiskFile_newERKNSt7__cxx1112basic_s
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 119
   br i1 %22, label %23, label %24
@@ -520,24 +520,24 @@ define hidden noalias noundef ptr @_ZN2TH14THDiskFile_newERKNSt7__cxx1112basic_s
   br label %69
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %53, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 32
   store ptr %45, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %53, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 40
   store i32 1, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %53, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 44
   store i32 0, ptr %61, align 4
   store ptr @_ZZN2TH14THDiskFile_newERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKciE6vtable, ptr %53, align 8
-  %62 = getelementptr inbounds i8, ptr %53, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 %2, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %53, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 %.0..0..0.39, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %53, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i32 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %53, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %53, i64 20
   store i32 0, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %53, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store i32 1, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %53, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %53, i64 28
   store i32 0, ptr %67, align 4
   br label %68
 
@@ -552,7 +552,7 @@ define hidden noalias noundef ptr @_ZN2TH14THDiskFile_newERKNSt7__cxx1112basic_s
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef range(i32 0, 2) i32 @_ZN2THL19THDiskFile_isOpenedEPNS_8THFile__E(ptr nocapture noundef readonly %0) #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
   %5 = zext i1 %4 to i32
@@ -566,7 +566,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readByteEPNS_8THFile__EPhl(ptr 
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %19
@@ -600,7 +600,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readByteEPNS_8THFile__EPhl(ptr 
   br label %56
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
   %.not41 = icmp eq i32 %21, 0
   br i1 %.not41, label %22, label %30
@@ -634,7 +634,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readByteEPNS_8THFile__EPhl(ptr 
   br label %56
 
 30:                                               ; preds = %19
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
   %.not44 = icmp eq i32 %32, 0
   br i1 %.not44, label %35, label %33
@@ -649,7 +649,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readByteEPNS_8THFile__EPhl(ptr 
 
 37:                                               ; preds = %35
   %38 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef nonnull %10)
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8
   %.not51 = icmp eq i32 %40, 0
   br i1 %.not51, label %.thread, label %41
@@ -673,9 +673,9 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readByteEPNS_8THFile__EPhl(ptr 
   br i1 %.not45, label %55, label %47
 
 47:                                               ; preds = %.thread
-  %48 = getelementptr inbounds i8, ptr %0, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i32, ptr %49, align 8
   %.not46 = icmp eq i32 %50, 0
   br i1 %.not46, label %51, label %55
@@ -709,7 +709,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readCharEPNS_8THFile__EPcl(ptr 
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %19
@@ -743,7 +743,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readCharEPNS_8THFile__EPcl(ptr 
   br label %56
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
   %.not41 = icmp eq i32 %21, 0
   br i1 %.not41, label %22, label %30
@@ -777,7 +777,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readCharEPNS_8THFile__EPcl(ptr 
   br label %56
 
 30:                                               ; preds = %19
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
   %.not44 = icmp eq i32 %32, 0
   br i1 %.not44, label %35, label %33
@@ -792,7 +792,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readCharEPNS_8THFile__EPcl(ptr 
 
 37:                                               ; preds = %35
   %38 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef nonnull %10)
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8
   %.not51 = icmp eq i32 %40, 0
   br i1 %.not51, label %.thread, label %41
@@ -816,9 +816,9 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readCharEPNS_8THFile__EPcl(ptr 
   br i1 %.not45, label %55, label %47
 
 47:                                               ; preds = %.thread
-  %48 = getelementptr inbounds i8, ptr %0, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i32, ptr %49, align 8
   %.not46 = icmp eq i32 %50, 0
   br i1 %.not46, label %51, label %55
@@ -852,7 +852,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readShortEPNS_8THFile__EPsl(ptr
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %19
@@ -886,7 +886,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readShortEPNS_8THFile__EPsl(ptr
   br label %68
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
   %.not51 = icmp eq i32 %21, 0
   br i1 %.not51, label %22, label %30
@@ -920,7 +920,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readShortEPNS_8THFile__EPsl(ptr
   br label %68
 
 30:                                               ; preds = %19
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
   %.not54 = icmp eq i32 %32, 0
   br i1 %.not54, label %.preheader, label %34
@@ -931,7 +931,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readShortEPNS_8THFile__EPsl(ptr
 
 34:                                               ; preds = %30
   %35 = tail call i64 @fread(ptr noundef %1, i64 noundef 2, i64 noundef %2, ptr noundef nonnull %10)
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 0
   %39 = icmp sgt i64 %35, 0
@@ -942,7 +942,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readShortEPNS_8THFile__EPsl(ptr
   %.031.us.i = phi ptr [ %43, %.preheader.us.i ], [ %1, %34 ]
   %.02530.us.i = phi i64 [ %44, %.preheader.us.i ], [ 0, %34 ]
   %40 = load i8, ptr %.031.us.i, align 1
-  %41 = getelementptr inbounds i8, ptr %.031.us.i, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.031.us.i, i64 1
   %42 = load i8, ptr %41, align 1
   store i8 %42, ptr %.031.us.i, align 1
   store i8 %40, ptr %41, align 1
@@ -954,7 +954,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readShortEPNS_8THFile__EPsl(ptr
 .lr.ph:                                           ; preds = %.preheader, %49
   %.160 = phi i64 [ %50, %49 ], [ 0, %.preheader ]
   %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds i16, ptr %1, i64 %.160
+  %46 = getelementptr inbounds nuw i16, ptr %1, i64 %.160
   %47 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %45, ptr noundef nonnull @.str.11, ptr noundef %46)
   %48 = icmp slt i32 %47, 1
   br i1 %48, label %._crit_edge, label %49
@@ -966,7 +966,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readShortEPNS_8THFile__EPsl(ptr
 
 ._crit_edge:                                      ; preds = %49, %.lr.ph
   %.1.lcssa = phi i64 [ %2, %49 ], [ %.160, %.lr.ph ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load i32, ptr %51, align 8
   %.not65 = icmp eq i32 %52, 0
   br i1 %.not65, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %53
@@ -990,9 +990,9 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %.preheader.us.i, %.
   br i1 %.not55, label %67, label %59
 
 59:                                               ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
-  %60 = getelementptr inbounds i8, ptr %0, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load i32, ptr %61, align 8
   %.not56 = icmp eq i32 %62, 0
   br i1 %.not56, label %63, label %67
@@ -1026,7 +1026,7 @@ define internal noundef i64 @_ZN2THL18THDiskFile_readIntEPNS_8THFile__EPil(ptr n
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %19
@@ -1060,7 +1060,7 @@ define internal noundef i64 @_ZN2THL18THDiskFile_readIntEPNS_8THFile__EPil(ptr n
   br label %72
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
   %.not51 = icmp eq i32 %21, 0
   br i1 %.not51, label %22, label %30
@@ -1094,7 +1094,7 @@ define internal noundef i64 @_ZN2THL18THDiskFile_readIntEPNS_8THFile__EPil(ptr n
   br label %72
 
 30:                                               ; preds = %19
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
   %.not54 = icmp eq i32 %32, 0
   br i1 %.not54, label %.preheader, label %34
@@ -1105,7 +1105,7 @@ define internal noundef i64 @_ZN2THL18THDiskFile_readIntEPNS_8THFile__EPil(ptr n
 
 34:                                               ; preds = %30
   %35 = tail call i64 @fread(ptr noundef %1, i64 noundef 4, i64 noundef %2, ptr noundef nonnull %10)
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 0
   %39 = icmp sgt i64 %35, 0
@@ -1119,10 +1119,10 @@ define internal noundef i64 @_ZN2THL18THDiskFile_readIntEPNS_8THFile__EPil(ptr n
 
 40:                                               ; preds = %40, %.preheader.us.i
   %.02428.us.i = phi i64 [ 0, %.preheader.us.i ], [ %46, %40 ]
-  %41 = getelementptr inbounds i8, ptr %.031.us.i, i64 %.02428.us.i
+  %41 = getelementptr inbounds nuw i8, ptr %.031.us.i, i64 %.02428.us.i
   %42 = load i8, ptr %41, align 1
   %43 = sub nuw nsw i64 3, %.02428.us.i
-  %44 = getelementptr inbounds i8, ptr %.031.us.i, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %.031.us.i, i64 %43
   %45 = load i8, ptr %44, align 1
   store i8 %45, ptr %41, align 1
   store i8 %42, ptr %44, align 1
@@ -1139,7 +1139,7 @@ define internal noundef i64 @_ZN2THL18THDiskFile_readIntEPNS_8THFile__EPil(ptr n
 .lr.ph:                                           ; preds = %.preheader, %53
   %.160 = phi i64 [ %54, %53 ], [ 0, %.preheader ]
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds i32, ptr %1, i64 %.160
+  %50 = getelementptr inbounds nuw i32, ptr %1, i64 %.160
   %51 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %49, ptr noundef nonnull @.str.12, ptr noundef %50)
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %._crit_edge, label %53
@@ -1151,7 +1151,7 @@ define internal noundef i64 @_ZN2THL18THDiskFile_readIntEPNS_8THFile__EPil(ptr n
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph
   %.1.lcssa = phi i64 [ %2, %53 ], [ %.160, %.lr.ph ]
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8
   %.not65 = icmp eq i32 %56, 0
   br i1 %.not65, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %57
@@ -1175,9 +1175,9 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %
   br i1 %.not55, label %71, label %63
 
 63:                                               ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load i32, ptr %65, align 8
   %.not56 = icmp eq i32 %66, 0
   br i1 %.not56, label %67, label %71
@@ -1213,7 +1213,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readLongEPNS_8THFile__EPll(ptr 
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca i64, align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %21
@@ -1247,7 +1247,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readLongEPNS_8THFile__EPll(ptr 
   br label %127
 
 21:                                               ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = load i32, ptr %22, align 4
   %.not98 = icmp eq i32 %23, 0
   br i1 %.not98, label %24, label %32
@@ -1281,7 +1281,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readLongEPNS_8THFile__EPll(ptr 
   br label %127
 
 32:                                               ; preds = %21
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load i32, ptr %33, align 4
   %.not101 = icmp eq i32 %34, 0
   br i1 %.not101, label %.preheader, label %36
@@ -1291,7 +1291,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readLongEPNS_8THFile__EPll(ptr 
   br i1 %35, label %.lr.ph132, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %38 = load i32, ptr %37, align 4
   switch i32 %38, label %75 [
     i32 0, label %39
@@ -1301,7 +1301,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readLongEPNS_8THFile__EPll(ptr 
 
 39:                                               ; preds = %36, %36
   %40 = tail call i64 @fread(ptr noundef %1, i64 noundef 8, i64 noundef %2, ptr noundef nonnull %12)
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 0
   %44 = icmp sgt i64 %40, 0
@@ -1315,10 +1315,10 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readLongEPNS_8THFile__EPll(ptr 
 
 45:                                               ; preds = %45, %.preheader.us.i
   %.02428.us.i = phi i64 [ 0, %.preheader.us.i ], [ %51, %45 ]
-  %46 = getelementptr inbounds i8, ptr %.031.us.i, i64 %.02428.us.i
+  %46 = getelementptr inbounds nuw i8, ptr %.031.us.i, i64 %.02428.us.i
   %47 = load i8, ptr %46, align 1
   %48 = sub nuw nsw i64 7, %.02428.us.i
-  %49 = getelementptr inbounds i8, ptr %.031.us.i, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %.031.us.i, i64 %48
   %50 = load i8, ptr %49, align 1
   store i8 %50, ptr %46, align 1
   store i8 %47, ptr %49, align 1
@@ -1334,7 +1334,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readLongEPNS_8THFile__EPll(ptr 
 
 54:                                               ; preds = %36
   %55 = tail call i64 @fread(ptr noundef %1, i64 noundef 4, i64 noundef %2, ptr noundef nonnull %12)
-  %56 = getelementptr inbounds i8, ptr %0, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, 0
   %59 = icmp sgt i64 %55, 0
@@ -1348,10 +1348,10 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readLongEPNS_8THFile__EPll(ptr 
 
 60:                                               ; preds = %60, %.preheader.us.i107
   %.02428.us.i111 = phi i64 [ 0, %.preheader.us.i107 ], [ %66, %60 ]
-  %61 = getelementptr inbounds i8, ptr %.031.us.i108, i64 %.02428.us.i111
+  %61 = getelementptr inbounds nuw i8, ptr %.031.us.i108, i64 %.02428.us.i111
   %62 = load i8, ptr %61, align 1
   %63 = sub nuw nsw i64 3, %.02428.us.i111
-  %64 = getelementptr inbounds i8, ptr %.031.us.i108, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %.031.us.i108, i64 %63
   %65 = load i8, ptr %64, align 1
   store i8 %65, ptr %61, align 1
   store i8 %62, ptr %64, align 1
@@ -1418,7 +1418,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115: ; preds = %._crit_edge.us.i11
 
 ._crit_edge:                                      ; preds = %.lr.ph129, %82
   tail call void @free(ptr noundef nonnull %77) #14
-  %91 = getelementptr inbounds i8, ptr %0, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 0
   %or.cond5 = and i1 %84, %93
@@ -1431,10 +1431,10 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115: ; preds = %._crit_edge.us.i11
 
 94:                                               ; preds = %94, %.preheader.us.i116
   %.02428.us.i120 = phi i64 [ 0, %.preheader.us.i116 ], [ %100, %94 ]
-  %95 = getelementptr inbounds i8, ptr %.031.us.i117, i64 %.02428.us.i120
+  %95 = getelementptr inbounds nuw i8, ptr %.031.us.i117, i64 %.02428.us.i120
   %96 = load i8, ptr %95, align 1
   %97 = sub nuw nsw i64 3, %.02428.us.i120
-  %98 = getelementptr inbounds i8, ptr %.031.us.i117, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr %.031.us.i117, i64 %97
   %99 = load i8, ptr %98, align 1
   store i8 %99, ptr %95, align 1
   store i8 %96, ptr %98, align 1
@@ -1458,14 +1458,14 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115: ; preds = %._crit_edge.us.i11
 106:                                              ; preds = %.lr.ph132
   %107 = add nuw nsw i64 %.1131, 1
   %108 = load i64, ptr %9, align 8
-  %109 = getelementptr inbounds i64, ptr %1, i64 %.1131
+  %109 = getelementptr inbounds nuw i64, ptr %1, i64 %.1131
   store i64 %108, ptr %109, align 8
   %exitcond.not = icmp eq i64 %107, %2
   br i1 %exitcond.not, label %._crit_edge133, label %.lr.ph132, !llvm.loop !11
 
 ._crit_edge133:                                   ; preds = %106, %.lr.ph132
   %.1.lcssa = phi i64 [ %2, %106 ], [ %.1131, %.lr.ph132 ]
-  %110 = getelementptr inbounds i8, ptr %0, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %111 = load i32, ptr %110, align 8
   %.not142 = icmp eq i32 %111, 0
   br i1 %.not142, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %112
@@ -1489,9 +1489,9 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %.lr.ph, %._crit_edg
   br i1 %.not103, label %126, label %118
 
 118:                                              ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
-  %119 = getelementptr inbounds i8, ptr %0, i64 28
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %119, align 4
-  %120 = getelementptr inbounds i8, ptr %0, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %121 = load i32, ptr %120, align 8
   %.not104 = icmp eq i32 %121, 0
   br i1 %.not104, label %122, label %126
@@ -1525,7 +1525,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readFloatEPNS_8THFile__EPfl(ptr
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %19
@@ -1559,7 +1559,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readFloatEPNS_8THFile__EPfl(ptr
   br label %72
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
   %.not51 = icmp eq i32 %21, 0
   br i1 %.not51, label %22, label %30
@@ -1593,7 +1593,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readFloatEPNS_8THFile__EPfl(ptr
   br label %72
 
 30:                                               ; preds = %19
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
   %.not54 = icmp eq i32 %32, 0
   br i1 %.not54, label %.preheader, label %34
@@ -1604,7 +1604,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readFloatEPNS_8THFile__EPfl(ptr
 
 34:                                               ; preds = %30
   %35 = tail call i64 @fread(ptr noundef %1, i64 noundef 4, i64 noundef %2, ptr noundef nonnull %10)
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 0
   %39 = icmp sgt i64 %35, 0
@@ -1618,10 +1618,10 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readFloatEPNS_8THFile__EPfl(ptr
 
 40:                                               ; preds = %40, %.preheader.us.i
   %.02428.us.i = phi i64 [ 0, %.preheader.us.i ], [ %46, %40 ]
-  %41 = getelementptr inbounds i8, ptr %.031.us.i, i64 %.02428.us.i
+  %41 = getelementptr inbounds nuw i8, ptr %.031.us.i, i64 %.02428.us.i
   %42 = load i8, ptr %41, align 1
   %43 = sub nuw nsw i64 3, %.02428.us.i
-  %44 = getelementptr inbounds i8, ptr %.031.us.i, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %.031.us.i, i64 %43
   %45 = load i8, ptr %44, align 1
   store i8 %45, ptr %41, align 1
   store i8 %42, ptr %44, align 1
@@ -1638,7 +1638,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readFloatEPNS_8THFile__EPfl(ptr
 .lr.ph:                                           ; preds = %.preheader, %53
   %.160 = phi i64 [ %54, %53 ], [ 0, %.preheader ]
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds float, ptr %1, i64 %.160
+  %50 = getelementptr inbounds nuw float, ptr %1, i64 %.160
   %51 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %49, ptr noundef nonnull @.str.15, ptr noundef %50)
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %._crit_edge, label %53
@@ -1650,7 +1650,7 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readFloatEPNS_8THFile__EPfl(ptr
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph
   %.1.lcssa = phi i64 [ %2, %53 ], [ %.160, %.lr.ph ]
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8
   %.not65 = icmp eq i32 %56, 0
   br i1 %.not65, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %57
@@ -1674,9 +1674,9 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %
   br i1 %.not55, label %71, label %63
 
 63:                                               ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load i32, ptr %65, align 8
   %.not56 = icmp eq i32 %66, 0
   br i1 %.not56, label %67, label %71
@@ -1710,7 +1710,7 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readDoubleEPNS_8THFile__EPdl(pt
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %19
@@ -1744,7 +1744,7 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readDoubleEPNS_8THFile__EPdl(pt
   br label %72
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
   %.not51 = icmp eq i32 %21, 0
   br i1 %.not51, label %22, label %30
@@ -1778,7 +1778,7 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readDoubleEPNS_8THFile__EPdl(pt
   br label %72
 
 30:                                               ; preds = %19
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
   %.not54 = icmp eq i32 %32, 0
   br i1 %.not54, label %.preheader, label %34
@@ -1789,7 +1789,7 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readDoubleEPNS_8THFile__EPdl(pt
 
 34:                                               ; preds = %30
   %35 = tail call i64 @fread(ptr noundef %1, i64 noundef 8, i64 noundef %2, ptr noundef nonnull %10)
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 0
   %39 = icmp sgt i64 %35, 0
@@ -1803,10 +1803,10 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readDoubleEPNS_8THFile__EPdl(pt
 
 40:                                               ; preds = %40, %.preheader.us.i
   %.02428.us.i = phi i64 [ 0, %.preheader.us.i ], [ %46, %40 ]
-  %41 = getelementptr inbounds i8, ptr %.031.us.i, i64 %.02428.us.i
+  %41 = getelementptr inbounds nuw i8, ptr %.031.us.i, i64 %.02428.us.i
   %42 = load i8, ptr %41, align 1
   %43 = sub nuw nsw i64 7, %.02428.us.i
-  %44 = getelementptr inbounds i8, ptr %.031.us.i, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %.031.us.i, i64 %43
   %45 = load i8, ptr %44, align 1
   store i8 %45, ptr %41, align 1
   store i8 %42, ptr %44, align 1
@@ -1823,7 +1823,7 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readDoubleEPNS_8THFile__EPdl(pt
 .lr.ph:                                           ; preds = %.preheader, %53
   %.160 = phi i64 [ %54, %53 ], [ 0, %.preheader ]
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds double, ptr %1, i64 %.160
+  %50 = getelementptr inbounds nuw double, ptr %1, i64 %.160
   %51 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %49, ptr noundef nonnull @.str.16, ptr noundef %50)
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %._crit_edge, label %53
@@ -1835,7 +1835,7 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readDoubleEPNS_8THFile__EPdl(pt
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph
   %.1.lcssa = phi i64 [ %2, %53 ], [ %.160, %.lr.ph ]
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8
   %.not65 = icmp eq i32 %56, 0
   br i1 %.not65, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %57
@@ -1859,9 +1859,9 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %
   br i1 %.not55, label %71, label %63
 
 63:                                               ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load i32, ptr %65, align 8
   %.not56 = icmp eq i32 %66, 0
   br i1 %.not56, label %67, label %71
@@ -1902,7 +1902,7 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readStringEPNS_8THFile__EPKcPPc
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %26
@@ -1936,7 +1936,7 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readStringEPNS_8THFile__EPKcPPc
   br label %131
 
 26:                                               ; preds = %3
-  %27 = getelementptr inbounds i8, ptr %0, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %28 = load i32, ptr %27, align 4
   %.not94 = icmp eq i32 %28, 0
   br i1 %.not94, label %29, label %37
@@ -1980,7 +1980,7 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readStringEPNS_8THFile__EPKcPPc
   br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %1, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %45 = load i8, ptr %44, align 1
   switch i8 %45, label %.critedge [
     i8 97, label %53
@@ -2079,9 +2079,9 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readStringEPNS_8THFile__EPKcPPc
 
 78:                                               ; preds = %76
   tail call void @free(ptr noundef %.184) #14
-  %79 = getelementptr inbounds i8, ptr %0, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %0, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %81 = load i32, ptr %80, align 8
   %.not102 = icmp eq i32 %81, 0
   br i1 %.not102, label %82, label %130
@@ -2169,9 +2169,9 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readStringEPNS_8THFile__EPKcPPc
 
 111:                                              ; preds = %109
   tail call void @free(ptr noundef %.175) #14
-  %112 = getelementptr inbounds i8, ptr %0, i64 28
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %0, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %114 = load i32, ptr %113, align 8
   %.not101 = icmp eq i32 %114, 0
   br i1 %.not101, label %115, label %130
@@ -2226,7 +2226,7 @@ define internal void @_ZN2THL15THDiskFile_seekEPNS_8THFile__El(ptr nocapture nou
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %16
@@ -2265,9 +2265,9 @@ define internal void @_ZN2THL15THDiskFile_seekEPNS_8THFile__El(ptr nocapture nou
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %21, align 8
   %.not12 = icmp eq i32 %22, 0
   br i1 %.not12, label %23, label %27
@@ -2299,7 +2299,7 @@ define internal void @_ZN2THL18THDiskFile_seekEndEPNS_8THFile__E(ptr nocapture n
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %15
@@ -2338,9 +2338,9 @@ define internal void @_ZN2THL18THDiskFile_seekEndEPNS_8THFile__E(ptr nocapture n
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
   %.not10 = icmp eq i32 %21, 0
   br i1 %.not10, label %22, label %26
@@ -2372,7 +2372,7 @@ define internal noundef range(i64 0, -9223372036854775808) i64 @_ZN2THL19THDiskF
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %15
@@ -2411,7 +2411,7 @@ define internal noundef range(i64 0, -9223372036854775808) i64 @_ZN2THL19THDiskF
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i32, ptr %19, align 8
   %.not14 = icmp eq i32 %20, 0
   br i1 %.not14, label %21, label %25
@@ -2443,7 +2443,7 @@ define internal noundef range(i64 0, -9223372036854775808) i64 @_ZN2THL19THDiskF
 define internal void @_ZN2THL16THDiskFile_closeEPNS_8THFile__E(ptr nocapture noundef %0) #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %14
@@ -2484,7 +2484,7 @@ define internal void @_ZN2THL16THDiskFile_closeEPNS_8THFile__E(ptr nocapture nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2THL15THDiskFile_freeEPNS_8THFile__E(ptr nocapture noundef %0) #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4

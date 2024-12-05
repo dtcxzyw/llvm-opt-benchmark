@@ -29,15 +29,15 @@ define noundef ptr @prte_reachable_allocate(i32 noundef %0, i32 noundef %1) loca
 
 9:                                                ; preds = %8
   %10 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %4, ptr noundef null) #9
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @prte_reachable_t_class, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 56
-  %14 = getelementptr inbounds i8, ptr %4, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_reachable_t_class, i64 40), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_reachable_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -46,15 +46,15 @@ define noundef ptr @prte_reachable_allocate(i32 noundef %0, i32 noundef %1) loca
   %17 = phi ptr [ %19, %.lr.ph.i.i ], [ %16, %9 ]
   %.07.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %15, %9 ]
   tail call void %17(ptr noundef nonnull %4) #9
-  %18 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
-  %20 = getelementptr inbounds i8, ptr %4, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i32 %0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 124
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 124
   store i32 %1, ptr %21, align 4
   %22 = zext i32 %0 to i64
   %23 = zext i32 %1 to i64
@@ -66,25 +66,25 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %pmix_obj_new_tma.exit
-  %30 = getelementptr inbounds i8, ptr %4, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr %27, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr %27, ptr %31, align 8
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %29
   %32 = shl nuw nsw i64 %22, 3
-  %33 = getelementptr inbounds i8, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 %32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02426 = phi ptr [ %33, %.lr.ph.preheader ], [ %36, %.lr.ph ]
   %34 = load ptr, ptr %31, align 8
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   store ptr %.02426, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.02426, i64 %24
+  %36 = getelementptr inbounds nuw i8, ptr %.02426, i64 %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %22
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
@@ -99,14 +99,14 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @prte_reachable_construct(ptr nocapture noundef writeonly initializes((128, 136)) %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @prte_reachable_destruct(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

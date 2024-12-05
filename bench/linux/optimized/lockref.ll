@@ -50,7 +50,7 @@ define dso_local void @lockref_get(ptr noundef %0) #0 align 16 {
 
 .thread1:                                         ; preds = %13, %3
   tail call void @_raw_spin_lock(ptr noundef %0) #3
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 4
@@ -99,7 +99,7 @@ define dso_local range(i32 0, 2) i32 @lockref_get_not_zero(ptr noundef %0) #0 al
 
 19:                                               ; preds = %3, %15
   tail call void @_raw_spin_lock(ptr noundef %0) #3
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %25
@@ -154,7 +154,7 @@ define dso_local range(i32 0, 2) i32 @lockref_put_not_zero(ptr noundef %0) #0 al
 
 19:                                               ; preds = %3, %15
   tail call void @_raw_spin_lock(ptr noundef %0) #3
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, 1
   br i1 %22, label %23, label %25
@@ -245,7 +245,7 @@ define dso_local noundef range(i32 0, 2) i32 @lockref_put_or_lock(ptr noundef %0
 
 .thread:                                          ; preds = %15, %3
   tail call void @_raw_spin_lock(ptr noundef %0) #3
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %20, 2
   br i1 %21, label %.thread5, label %22
@@ -273,7 +273,7 @@ define dso_local void @lockref_mark_dead(ptr noundef %0) #0 align 16 {
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -128, ptr %6, align 4
   ret void
 }
@@ -312,7 +312,7 @@ define dso_local range(i32 0, 2) i32 @lockref_get_not_dead(ptr noundef %0) #0 al
 
 18:                                               ; preds = %3, %14
   tail call void @_raw_spin_lock(ptr noundef %0) #3
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %24

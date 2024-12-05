@@ -58,13 +58,13 @@ define noalias ptr @freshdbdir() local_unnamed_addr #1 {
 
 3:                                                ; preds = %0
   %4 = tail call ptr @optget(ptr noundef nonnull %2, ptr noundef nonnull @.str.2) #18
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
   %.not40 = icmp eq i32 %6, 0
   br i1 %.not40, label %55, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9) #19
   %.not41 = icmp eq i32 %10, 0
@@ -127,9 +127,9 @@ define noalias ptr @freshdbdir() local_unnamed_addr #1 {
 
 40:                                               ; preds = %38
   tail call void @free(ptr noundef nonnull %16) #18
-  %41 = getelementptr inbounds i8, ptr %30, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp ugt i32 %42, %44
   br i1 %45, label %46, label %48
@@ -251,9 +251,9 @@ define void @print_version(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not38, label %23, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   store i64 %22, ptr %2, align 8
@@ -273,13 +273,13 @@ define void @print_version(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not40, label %37, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp ugt i32 %30, %.0
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %27, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
   store i64 %35, ptr %2, align 8
@@ -352,7 +352,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_add
 
 4:                                                ; preds = %2
   %5 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.9) #18
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
   %.not20 = icmp eq i32 %7, 0
   br i1 %.not20, label %32, label %8
@@ -363,7 +363,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_add
   br i1 %.not21, label %10, label %19
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @fopen(ptr noundef %12, ptr noundef nonnull @.str.10)
   store ptr %13, ptr @filelist.fs, align 8
@@ -424,7 +424,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_add
   br label %.critedge
 
 32:                                               ; preds = %4, %2
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load ptr, ptr %33, align 8
   %.not27 = icmp eq ptr %34, null
   br i1 %.not27, label %.critedge, label %35
@@ -434,7 +434,7 @@ define ptr @filelist(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_add
   %37 = add i32 %36, 1
   store i32 %37, ptr @filelist.cnt, align 4
   %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds ptr, ptr %34, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %34, i64 %38
   %40 = load ptr, ptr %39, align 8
   br label %.critedge
 
@@ -466,10 +466,10 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
   %2 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.12, i32 noundef 0) #18
   store i32 %2, ptr %1, align 4
   %3 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.12, i32 noundef 1) #18
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %3, ptr %4, align 4
   %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.12, i32 noundef 1) #18
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %5, ptr %6, align 4
   %7 = icmp eq i32 %2, -1
   %8 = icmp eq i32 %3, -1
@@ -485,7 +485,7 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
 
 13:                                               ; preds = %10, %18
   %indvars.iv50 = phi i64 [ 0, %10 ], [ %indvars.iv.next51, %18 ]
-  %14 = getelementptr inbounds [3 x i32], ptr %1, i64 0, i64 %indvars.iv50
+  %14 = getelementptr inbounds nuw [3 x i32], ptr %1, i64 0, i64 %indvars.iv50
   %15 = load i32, ptr %14, align 4
   %.not28 = icmp eq i32 %15, -1
   br i1 %.not28, label %18, label %16
@@ -501,7 +501,7 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
 
 .preheader31:                                     ; preds = %0, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %0 ]
-  %19 = getelementptr inbounds [3 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [3 x i32], ptr %1, i64 0, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = tail call i32 @dup2(i32 noundef %20, i32 noundef %21) #18
@@ -515,7 +515,7 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
 
 27:                                               ; preds = %24, %32
   %indvars.iv46 = phi i64 [ 0, %24 ], [ %indvars.iv.next47, %32 ]
-  %28 = getelementptr inbounds [3 x i32], ptr %1, i64 0, i64 %indvars.iv46
+  %28 = getelementptr inbounds nuw [3 x i32], ptr %1, i64 0, i64 %indvars.iv46
   %29 = load i32, ptr %28, align 4
   %.not = icmp eq i32 %29, -1
   br i1 %.not, label %32, label %30
@@ -536,7 +536,7 @@ define range(i32 -1, 1) i32 @close_std_descriptors() local_unnamed_addr #1 {
 
 .preheader:                                       ; preds = %33, %39
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %39 ], [ 0, %33 ]
-  %34 = getelementptr inbounds [3 x i32], ptr %1, i64 0, i64 %indvars.iv42
+  %34 = getelementptr inbounds nuw [3 x i32], ptr %1, i64 0, i64 %indvars.iv42
   %35 = load i32, ptr %34, align 4
   %36 = icmp sgt i32 %35, 2
   br i1 %36, label %37, label %39
@@ -630,7 +630,7 @@ daemonize_all_return.exit.thread:                 ; preds = %2
 
 7:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %3, i8 0, i64 152, i1 false)
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = call i32 @sigemptyset(ptr noundef nonnull %8) #18
   store ptr @daemonize_child_initialized_handler, ptr %3, align 8
   %10 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #18
@@ -707,7 +707,7 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
   br label %61
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %7, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 @initgroups(ptr noundef nonnull %0, i32 noundef %15) #18
   %.not = icmp eq i32 %16, 0
@@ -724,7 +724,7 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not25, label %42, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = load i32, ptr %14, align 4
   %26 = tail call i32 @lchown(ptr noundef nonnull %1, i32 noundef %24, i32 noundef %25) #18
@@ -763,7 +763,7 @@ define range(i32 0, 2) i32 @drop_privileges(ptr noundef %0, ptr noundef %1) loca
   br label %61
 
 51:                                               ; preds = %42
-  %52 = getelementptr inbounds i8, ptr %7, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %53 = load i32, ptr %52, align 8
   %54 = tail call i32 @setuid(i32 noundef %53) #18
   %.not28 = icmp eq i32 %54, 0
@@ -844,7 +844,7 @@ define range(i32 0, 3) i32 @match_regex(ptr noundef %0, ptr noundef %1) local_un
   br label %16
 
 16:                                               ; preds = %14, %12
-  %17 = getelementptr inbounds i8, ptr %4, i64 512
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 512
   store i8 0, ptr %17, align 16
   %18 = call i32 @cli_regexec(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 0, ptr noundef null, i32 noundef 0) #18
   %19 = icmp ne i32 %18, 1

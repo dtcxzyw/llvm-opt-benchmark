@@ -80,7 +80,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @sapi_startup(ptr nocapture noundef initializes((256, 264)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr null, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) @sapi_module, ptr noundef nonnull align 8 dereferenceable(280) %0, i64 280, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) @sapi_globals, i8 0, i64 648, i1 false)
@@ -111,7 +111,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #2
 define hidden void @zif_header_register_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zend_fcall_info, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
   %8 = icmp eq i32 %7, -1
@@ -139,9 +139,9 @@ define hidden void @zif_header_register_callback(ptr nocapture noundef readonly 
   br i1 %.not11, label %17, label %26
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i32, ptr %20, align 8
   store ptr %19, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 504), align 8
   store i32 %21, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 512), align 8
@@ -156,7 +156,7 @@ define hidden void @zif_header_register_callback(ptr nocapture noundef readonly 
   br label %26
 
 26:                                               ; preds = %23, %17, %15
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %27, align 8
   br label %28
 
@@ -183,7 +183,7 @@ define void @sapi_handle_post(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not2, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull %4, ptr noundef %0) #18
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 88), align 8
@@ -237,9 +237,9 @@ define void @sapi_read_post_data() local_unnamed_addr #0 {
   %.135 = phi i32 [ %12, %9 ], [ %.03445, %13 ]
   %.1 = phi i8 [ %8, %9 ], [ %.03147, %13 ]
   store i8 %storemerge, ptr %.03246, align 1
-  %18 = getelementptr inbounds i8, ptr %.03246, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.03246, i64 1
   %19 = zext i32 %.135 to i64
-  %20 = getelementptr inbounds i8, ptr %4, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 %19
   %21 = icmp ult ptr %18, %20
   br i1 %21, label %7, label %._crit_edge
 
@@ -254,7 +254,7 @@ define void @sapi_read_post_data() local_unnamed_addr #0 {
 23:                                               ; preds = %._crit_edge
   %24 = load ptr, ptr %22, align 8, !nonnull !4, !noundef !4
   store ptr %24, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 80), align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   br label %31
 
@@ -541,12 +541,12 @@ define internal fastcc noalias ptr @get_default_content_type(i32 noundef range(i
   %22 = zext i32 %21 to i64
   %23 = tail call noalias ptr @_emalloc(i64 noundef %22) #20
   %24 = zext nneg i32 %0 to i64
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
   %26 = zext i32 %.099 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %25, ptr noundef nonnull align 1 %.0, i64 noundef %26, i1 false) #18
-  %27 = getelementptr inbounds i8, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %27, ptr noundef nonnull align 1 dereferenceable(10) @.str.30, i64 noundef 10, i1 false) #18
-  %28 = getelementptr inbounds i8, ptr %27, i64 10
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 10
   %29 = add i32 %.098, 1
   %30 = zext i32 %29 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 1 %.0101, i64 %30, i1 false)
@@ -559,7 +559,7 @@ define internal fastcc noalias ptr @get_default_content_type(i32 noundef range(i
   %34 = zext i32 %33 to i64
   %35 = tail call noalias ptr @_emalloc(i64 noundef %34) #20
   %36 = zext nneg i32 %0 to i64
-  %37 = getelementptr inbounds i8, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %36
   %38 = add i32 %.099, 1
   %39 = zext i32 %38 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr nonnull align 1 %.0, i64 %39, i1 false)
@@ -577,7 +577,7 @@ define void @sapi_get_default_content_type_header(ptr nocapture noundef writeonl
   store ptr %3, ptr %0, align 8
   %4 = load i32, ptr %2, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %5, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %3, ptr noundef nonnull align 1 dereferenceable(14) @.str.5, i64 14, i1 false)
   ret void
@@ -997,10 +997,10 @@ define void @sapi_initialize_empty_request() local_unnamed_addr #8 {
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @sapi_add_header_ex(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca %struct.sapi_header_line, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %6, align 8
   store ptr %0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %7, align 8
   %not. = xor i1 %3, true
   %8 = zext i1 %not. to i32
@@ -1079,7 +1079,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br i1 %.not209, label %sapi_update_response_code.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i64, ptr %28, align 8
   %.not210 = icmp eq i64 %29, 0
   br i1 %.not210, label %sapi_update_response_code.exit, label %30
@@ -1087,7 +1087,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
 30:                                               ; preds = %27
   %31 = tail call noalias ptr @_estrndup(ptr noundef nonnull %26, i64 noundef %29) #18
   %32 = load i64, ptr %28, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = trunc i64 %34 to i32
   %.not211 = icmp eq i64 %32, 0
@@ -1176,7 +1176,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
 
 69:                                               ; preds = %67
   store ptr %31, ptr %3, align 8
-  %70 = getelementptr inbounds i8, ptr %3, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.0185266, ptr %70, align 8
   %71 = call i32 %68(ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 160)) #18
   br label %72
@@ -1188,9 +1188,9 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
 
 .lr.ph.i:                                         ; preds = %72, %100
   %.02.i = phi ptr [ %75, %100 ], [ %73, %72 ]
-  %74 = getelementptr inbounds i8, ptr %.02.i, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.02.i, i64 16
   %75 = load ptr, ptr %.02.i, align 8
-  %76 = getelementptr inbounds i8, ptr %.02.i, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.02.i, i64 24
   %77 = load i64, ptr %76, align 8
   %78 = icmp ugt i64 %77, %.0185266
   br i1 %78, label %79, label %100
@@ -1208,7 +1208,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br i1 %.not27.i, label %86, label %100
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %.02.i, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %88 = load ptr, ptr %87, align 8
   %.not28.i = icmp eq ptr %88, null
   br i1 %.not28.i, label %90, label %89
@@ -1227,7 +1227,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br i1 %.not29.i, label %95, label %93
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %75, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %92, ptr %94, align 8
   br label %96
 
@@ -1255,7 +1255,7 @@ sapi_remove_header.exit:                          ; preds = %100, %72
 .lr.ph:                                           ; preds = %.preheader, %108
   %101 = phi i64 [ %110, %108 ], [ 0, %.preheader ]
   %.0187253 = phi i32 [ %109, %108 ], [ 0, %.preheader ]
-  %102 = getelementptr inbounds i8, ptr %31, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %31, i64 %101
   %103 = load i8, ptr %102, align 1
   switch i8 %103, label %108 [
     i8 10, label %104
@@ -1283,13 +1283,13 @@ sapi_remove_header.exit:                          ; preds = %100, %72
 
 ._crit_edge.thread:                               ; preds = %.preheader, %.thread
   store ptr %31, ptr %3, align 8
-  %112 = getelementptr inbounds i8, ptr %3, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %112, align 8
   br label %125
 
 ._crit_edge:                                      ; preds = %108
   store ptr %31, ptr %3, align 8
-  %113 = getelementptr inbounds i8, ptr %3, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.0185, ptr %113, align 8
   %114 = icmp samesign ugt i64 %.0185, 4
   br i1 %114, label %115, label %125
@@ -1343,7 +1343,7 @@ sapi_update_response_code.exit236:                ; preds = %117
   br i1 %.not218, label %130, label %159
 
 130:                                              ; preds = %128
-  %131 = getelementptr inbounds i8, ptr %127, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 1
   %132 = ptrtoint ptr %131 to i64
   %133 = ptrtoint ptr %31 to i64
   %.neg = add i64 %.0185267270272, %133
@@ -1355,7 +1355,7 @@ sapi_update_response_code.exit236:                ; preds = %117
 .lr.ph257:                                        ; preds = %130, %.lr.ph257
   %.0184255 = phi i64 [ %138, %.lr.ph257 ], [ %134, %130 ]
   %.0186254 = phi ptr [ %137, %.lr.ph257 ], [ %131, %130 ]
-  %137 = getelementptr inbounds i8, ptr %.0186254, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %.0186254, i64 1
   %138 = add i64 %.0184255, -1
   %139 = load i8, ptr %137, align 1
   %140 = icmp eq i8 %139, 32
@@ -1416,15 +1416,15 @@ sapi_update_response_code.exit236:                ; preds = %117
 161:                                              ; preds = %159
   %162 = tail call noalias ptr @_emalloc_48() #18
   store i32 1, ptr %162, align 4
-  %163 = getelementptr inbounds i8, ptr %162, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
   store i32 22, ptr %163, align 4
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i64 0, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %162, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store i64 23, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %162, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %162, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %166, ptr noundef nonnull align 1 dereferenceable(23) @.str.20, i64 23, i1 false)
-  %167 = getelementptr inbounds i8, ptr %162, i64 47
+  %167 = getelementptr inbounds nuw i8, ptr %162, i64 47
   store i8 0, ptr %167, align 1
   %168 = tail call i32 @zend_alter_ini_entry_chars(ptr noundef nonnull %162, ptr noundef nonnull @.str.21, i64 noundef 1, i32 noundef 1, i32 noundef 16) #18
   %169 = load i32, ptr %163, align 4
@@ -1617,18 +1617,18 @@ define internal fastcc i32 @sapi_extract_response_code(ptr nocapture noundef rea
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %6 = load i8, ptr %5, align 1
   %.not8 = icmp eq i8 %6, 32
   br i1 %.not8, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %.0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #19
   br label %.loopexit
 
 10:                                               ; preds = %2, %4
-  %11 = getelementptr inbounds i8, ptr %.0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %2
 
 .loopexit:                                        ; preds = %2, %7
@@ -1676,9 +1676,9 @@ define internal fastcc void @sapi_header_add_op(i32 noundef range(i32 3, 2) %0, 
 
 .lr.ph.i:                                         ; preds = %12, %43
   %.02.i = phi ptr [ %18, %43 ], [ %16, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.02.i, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.02.i, i64 16
   %18 = load ptr, ptr %.02.i, align 8
-  %19 = getelementptr inbounds i8, ptr %.02.i, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.02.i, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = icmp ugt i64 %20, %15
   br i1 %21, label %22, label %43
@@ -1696,7 +1696,7 @@ define internal fastcc void @sapi_header_add_op(i32 noundef range(i32 3, 2) %0, 
   br i1 %.not27.i, label %29, label %43
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.02.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not28.i = icmp eq ptr %31, null
   br i1 %.not28.i, label %33, label %32
@@ -1715,7 +1715,7 @@ define internal fastcc void @sapi_header_add_op(i32 noundef range(i32 3, 2) %0, 
   br i1 %.not29.i, label %38, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %18, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %35, ptr %37, align 8
   br label %39
 
@@ -1795,13 +1795,13 @@ define range(i32 -1, 1) i32 @sapi_send_headers() local_unnamed_addr #0 {
   store ptr %19, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 224), align 8
   %24 = zext i32 %21 to i64
   %25 = add nuw nsw i64 %24, 14
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %25, ptr %26, align 8
   %27 = add nuw nsw i64 %24, 15
   %28 = tail call noalias ptr @_emalloc(i64 noundef %27) #20
   store ptr %28, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %28, ptr noundef nonnull align 1 dereferenceable(14) @.str.5, i64 14, i1 false)
-  %29 = getelementptr inbounds i8, ptr %28, i64 14
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 14
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 224), align 8
   %31 = add i32 %21, 1
   %32 = zext i32 %31 to i64
@@ -1842,7 +1842,7 @@ sapi_header_add_op.exit:                          ; preds = %38, %37, %40
   %44 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 504), align 8
   %45 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 512), align 8
   store ptr %44, ptr %7, align 8
-  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %45, ptr %46, align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 512), align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
@@ -1854,7 +1854,7 @@ sapi_header_add_op.exit:                          ; preds = %38, %37, %40
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %2, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %4, ptr %50, align 8
   %51 = call i32 @zend_call_function(ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 520)) #18
   %52 = icmp eq i32 %51, -1
@@ -1921,7 +1921,7 @@ sapi_run_header_callback.exit:                    ; preds = %55, %57
 
 71:                                               ; preds = %67, %64
   %.sink = phi i64 [ %70, %67 ], [ %66, %64 ]
-  %72 = getelementptr inbounds i8, ptr %8, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sink, ptr %72, align 8
   %73 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 104), align 8
   %74 = load ptr, ptr @sapi_globals, align 8
@@ -1939,7 +1939,7 @@ sapi_run_header_callback.exit:                    ; preds = %55, %57
   store ptr %79, ptr %10, align 8
   %80 = load i32, ptr %1, align 4
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %10, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %81, ptr %82, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %79, ptr noundef nonnull align 1 dereferenceable(14) @.str.5, i64 14, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
@@ -1987,7 +1987,7 @@ define range(i32 -1, 1) i32 @sapi_register_post_entries(ptr nocapture noundef re
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %.06, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %.06, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -2015,25 +2015,25 @@ define range(i32 -1, 1) i32 @sapi_register_post_entry(ptr nocapture noundef read
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = add nuw nsw i64 %10, 32
   %12 = and i64 %11, 8589934584
   %13 = tail call noalias ptr @__zend_malloc(i64 noundef %12) #20
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 150, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %10, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr align 1 %7, i64 %10, i1 false)
-  %18 = getelementptr inbounds [1 x i8], ptr %17, i64 0, i64 %10
+  %18 = getelementptr inbounds nuw [1 x i8], ptr %17, i64 0, i64 %10
   store i8 0, ptr %18, align 1
   store ptr null, ptr %2, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 13, ptr %19, align 8
   %20 = call ptr @zend_hash_add(ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 448), ptr noundef nonnull %13, ptr noundef nonnull %2) #18
   %.not117 = icmp eq ptr %20, null
@@ -2097,7 +2097,7 @@ define void @sapi_unregister_post_entry(ptr nocapture noundef readonly %0) local
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = tail call i32 @zend_hash_str_del(ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 448), ptr noundef %6, i64 noundef %9) #18
@@ -2334,7 +2334,7 @@ define double @sapi_get_request_time() local_unnamed_addr #0 {
 11:                                               ; preds = %9
   %12 = load i64, ptr %1, align 8
   %13 = sitofp i64 %12 to double
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = sitofp i64 %15 to double
   %17 = fdiv double %16, 1.000000e+06
@@ -2384,32 +2384,32 @@ define void @sapi_add_request_header(ptr nocapture noundef readonly %0, i32 noun
   br i1 %9, label %10, label %57
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 84
   br i1 %13, label %14, label %57
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 84
   br i1 %17, label %18, label %57
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 80
   br i1 %21, label %22, label %57
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 95
   br i1 %25, label %26, label %57
 
 26:                                               ; preds = %22
   %27 = add i32 %1, -5
-  %28 = getelementptr inbounds i8, ptr %0, i64 5
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %29 = add i32 %1, -4
   %30 = icmp ult i32 %29, 32769
   %31 = zext i32 %29 to i64
@@ -2425,9 +2425,9 @@ define void @sapi_add_request_header(ptr nocapture noundef readonly %0, i32 noun
 
 36:                                               ; preds = %32, %34
   %37 = phi ptr [ %35, %34 ], [ %33, %32 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %39 = load i8, ptr %28, align 1
-  %40 = getelementptr inbounds i8, ptr %37, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store i8 %39, ptr %37, align 1
   br label %41
 
@@ -2441,28 +2441,28 @@ define void @sapi_add_request_header(ptr nocapture noundef readonly %0, i32 noun
   ]
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %.0, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 45, ptr %.0, align 1
-  %45 = getelementptr inbounds i8, ptr %.073, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.073, i64 1
   %46 = load i8, ptr %45, align 1
   %.not88 = icmp eq i8 %46, 0
   br i1 %.not88, label %.backedge, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %.073, i64 2
-  %49 = getelementptr inbounds i8, ptr %.0, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %.073, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   store i8 %46, ptr %44, align 1
   br label %.backedge
 
 50:                                               ; preds = %41
   %51 = add i8 %42, -65
   %or.cond = icmp ult i8 %51, 26
-  %52 = getelementptr inbounds i8, ptr %.073, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.073, i64 1
   br i1 %or.cond, label %53, label %55
 
 53:                                               ; preds = %50
   %narrow = or disjoint i8 %42, 32
-  %54 = getelementptr inbounds i8, ptr %.0, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %narrow, ptr %.0, align 1
   br label %.backedge
 
@@ -2472,7 +2472,7 @@ define void @sapi_add_request_header(ptr nocapture noundef readonly %0, i32 noun
   br label %41
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %.0, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %42, ptr %.0, align 1
   br label %.backedge
 

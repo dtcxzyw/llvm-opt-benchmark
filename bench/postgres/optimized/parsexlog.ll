@@ -62,12 +62,12 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
   %9 = alloca ptr, align 8
   %10 = alloca %struct.XLogPageReadPrivate, align 8
   %11 = alloca %struct.XLogReaderRoutine, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %2, ptr %12, align 8
   store ptr %4, ptr %10, align 8
   %13 = load i32, ptr @WalSegSz, align 4
   store ptr @SimpleXLogPageRead, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = call ptr @XLogReaderAllocate(i32 noundef %13, ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %10) #7
   %16 = icmp eq ptr %15, null
@@ -80,9 +80,9 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
 
 18:                                               ; preds = %5
   call void @XLogBeginRead(ptr noundef nonnull %15, i64 noundef %1) #7
-  %19 = getelementptr inbounds i8, ptr %15, i64 104
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 104
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 48
   br label %21
 
 21:                                               ; preds = %extractPageInfo.exit, %18
@@ -114,9 +114,9 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %33 = load ptr, ptr %19, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 57
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 57
   %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %33, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %37 = load i8, ptr %36, align 8
   %38 = zext i8 %37 to i32
   %39 = and i8 %37, -16
@@ -166,12 +166,12 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
   br i1 %.not4751.i, label %75, label %.thread52.i
 
 .thread52.i:                                      ; preds = %.thread.i
-  %57 = getelementptr inbounds i8, ptr %15, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %58 = load i64, ptr %57, align 8
   br label %63
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %15, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %61 = load i64, ptr %60, align 8
   %62 = icmp ult i8 %35, 22
   br i1 %62, label %63, label %68
@@ -195,7 +195,7 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
   unreachable
 
 75:                                               ; preds = %.thread.i, %54, %51, %51, %51, %51, %46, %44, %42, %32
-  %76 = getelementptr inbounds i8, ptr %33, i64 84
+  %76 = getelementptr inbounds nuw i8, ptr %33, i64 84
   %77 = load i32, ptr %76, align 4
   %.not4853.i = icmp slt i32 %77, 0
   br i1 %.not4853.i, label %extractPageInfo.exit, label %.lr.ph.i
@@ -219,7 +219,7 @@ define dso_local void @extractPageMap(ptr noundef %0, i64 noundef %1, i32 nounde
 84:                                               ; preds = %82, %.lr.ph.i
   %85 = add i32 %.054.i, 1
   %86 = load ptr, ptr %19, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 84
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 84
   %88 = load i32, ptr %87, align 4
   %.not48.i = icmp sgt i32 %85, %88
   br i1 %.not48.i, label %extractPageInfo.exit, label %.lr.ph.i, !llvm.loop !5
@@ -267,7 +267,7 @@ declare ptr @XLogReaderAllocate(i32 noundef, ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 noundef %1, i32 %2, i64 %3, ptr nocapture noundef %4) #0 {
   %6 = alloca [64 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @WalSegSz, align 4
   %10 = sext i32 %9 to i64
@@ -301,7 +301,7 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
 .preheader:                                       ; preds = %.thread, %22
   %.pre-phi55 = phi i64 [ %.pre49, %.thread ], [ %10, %22 ]
   %.pre-phi5154 = phi i64 [ %.pre50, %.thread ], [ %11, %22 ]
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %25 = load i32, ptr @targetNentries, align 4
   %26 = add i32 %25, -1
   %.promoted = load i32, ptr %24, align 8
@@ -361,7 +361,7 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
   %51 = urem i64 %.pre-phi5154, %48
   %52 = trunc nuw i64 %51 to i32
   %53 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.12, i32 noundef %47, i32 noundef %50, i32 noundef %52) #7
-  %54 = getelementptr inbounds i8, ptr %0, i64 180
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %55 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @xlogfpath, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %54, ptr noundef nonnull %6) #7
   %56 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @xlogfpath, i32 noundef 0, i32 noundef 0) #7
   store i32 %56, ptr @xlogreadfd, align 4
@@ -427,12 +427,12 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
 
 85:                                               ; preds = %77
   %86 = load ptr, ptr @targetHistory, align 8
-  %87 = getelementptr inbounds i8, ptr %8, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %88 = load i32, ptr %87, align 8
   %89 = sext i32 %88 to i64
   %90 = getelementptr %struct.TimeLineHistoryEntry, ptr %86, i64 %89
   %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 1224
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   store i32 %91, ptr %92, align 8
   br label %93
 
@@ -459,12 +459,12 @@ define dso_local i64 @readOneRecord(ptr noundef %0, i64 noundef %1, i32 noundef 
   %5 = alloca ptr, align 8
   %6 = alloca %struct.XLogPageReadPrivate, align 8
   %7 = alloca %struct.XLogReaderRoutine, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %2, ptr %8, align 8
   store ptr %3, ptr %6, align 8
   %9 = load i32, ptr @WalSegSz, align 4
   store ptr @SimpleXLogPageRead, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %11 = call ptr @XLogReaderAllocate(i32 noundef %9, ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %6) #7
   %12 = icmp eq ptr %11, null
@@ -500,7 +500,7 @@ define dso_local i64 @readOneRecord(ptr noundef %0, i64 noundef %1, i32 noundef 
   unreachable
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %11, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %26 = load i64, ptr %25, align 8
   call void @XLogReaderFree(ptr noundef nonnull %11) #7
   %27 = load i32, ptr @xlogreadfd, align 4
@@ -543,11 +543,11 @@ define dso_local void @findLastCheckpoint(ptr noundef %0, i64 noundef %1, i32 no
 
 22:                                               ; preds = %18, %20, %7
   %.0 = phi i64 [ %19, %18 ], [ %21, %20 ], [ %1, %7 ]
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %2, ptr %23, align 8
   store ptr %6, ptr %9, align 8
   store ptr @SimpleXLogPageRead, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = call ptr @XLogReaderAllocate(i32 noundef %.pre, ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %9) #7
   %26 = icmp eq ptr %25, null
@@ -560,7 +560,7 @@ define dso_local void @findLastCheckpoint(ptr noundef %0, i64 noundef %1, i32 no
   br i1 %28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %29 = getelementptr inbounds i8, ptr %25, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 104
   br label %37
 
 30:                                               ; preds = %22
@@ -595,9 +595,9 @@ define dso_local void @findLastCheckpoint(ptr noundef %0, i64 noundef %1, i32 no
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %29, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = load i8, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 57
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 57
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 0
   %or.cond = icmp ult i8 %43, 32
@@ -605,10 +605,10 @@ define dso_local void @findLastCheckpoint(ptr noundef %0, i64 noundef %1, i32 no
   br i1 %or.cond37, label %47, label %51
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %41, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %49 = load ptr, ptr %48, align 8
   %.sroa.0.0.copyload = load i64, ptr %49, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
   store i64 %.03139, ptr %3, align 8
   store i32 %.sroa.2.0.copyload, ptr %4, align 4
@@ -619,7 +619,7 @@ define dso_local void @findLastCheckpoint(ptr noundef %0, i64 noundef %1, i32 no
   br i1 %.not, label %58, label %56
 
 51:                                               ; preds = %40, %37
-  %52 = getelementptr inbounds i8, ptr %38, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %53 = load i64, ptr %52, align 8
   call void @XLogBeginRead(ptr noundef nonnull %25, i64 noundef %53) #7
   %54 = call ptr @XLogReadRecord(ptr noundef nonnull %25, ptr noundef nonnull %8) #7

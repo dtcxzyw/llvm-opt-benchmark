@@ -142,7 +142,7 @@ define hidden noundef i32 @_ZNK4ncnn12BNLL_x86_fma15forward_inplaceERNS_3MatERKN
   %97 = select <8 x i1> %32, <8 x float> %31, <8 x float> zeroinitializer
   %98 = fadd fast <8 x float> %96, %97
   store <8 x float> %98, ptr %.0584754, align 1
-  %99 = getelementptr inbounds i8, ptr %.0584754, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %.0584754, i64 32
   %100 = add nuw nsw i32 %.0585753, 8
   %101 = or disjoint i32 %100, 7
   %102 = icmp slt i32 %101, %16
@@ -222,7 +222,7 @@ define hidden noundef i32 @_ZNK4ncnn12BNLL_x86_fma15forward_inplaceERNS_3MatERKN
   %166 = select <4 x i1> %105, <4 x float> %104, <4 x float> zeroinitializer
   %167 = fadd fast <4 x float> %165, %166
   store <4 x float> %167, ptr %.1757, align 16
-  %168 = getelementptr inbounds i8, ptr %.1757, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %.1757, i64 16
   %169 = add nuw nsw i32 %.1586756, 4
   %170 = or disjoint i32 %169, 3
   %171 = icmp slt i32 %170, %16
@@ -252,7 +252,7 @@ define hidden noundef i32 @_ZNK4ncnn12BNLL_x86_fma15forward_inplaceERNS_3MatERKN
 184:                                              ; preds = %180, %174
   %storemerge = phi float [ %183, %180 ], [ %179, %174 ]
   store float %storemerge, ptr %.2762, align 4
-  %185 = getelementptr inbounds i8, ptr %.2762, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %.2762, i64 4
   %186 = add nuw nsw i32 %.2587761, 1
   %exitcond.not = icmp eq i32 %186, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph763, !llvm.loop !7

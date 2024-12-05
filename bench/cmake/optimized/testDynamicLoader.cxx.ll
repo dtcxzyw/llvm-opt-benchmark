@@ -64,9 +64,9 @@ define dso_local noundef range(i32 0, 11) i32 @_Z17testDynamicLoaderiPPc(i32 nou
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call fastcc noundef i32 @_ZL17TestDynamicLoaderPKcS0_iiii(ptr noundef %7, ptr noundef %9, i32 noundef 1, i32 noundef 1, i32 noundef 1)
   br label %54

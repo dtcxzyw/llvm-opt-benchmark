@@ -256,7 +256,7 @@ is_proxy_v1.exit.thread.i:                        ; preds = %24, %20, %18, %4
 28:                                               ; preds = %24
   %29 = load i32, ptr %5, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   call void @col_set_str(ptr noundef %31, i32 noundef 34, ptr noundef nonnull @.str.97) #7
   %32 = load i32, ptr @proto_proxy, align 4
@@ -356,11 +356,11 @@ proxy_v1_get_token_length.exit140.thread196.i:    ; preds = %63, %proxy_v1_get_t
   %80 = load i32, ptr %9, align 4
   %81 = call ptr @proto_tree_add_ipv4(ptr noundef %35, i32 noundef %79, ptr noundef %0, i32 noundef %58, i32 noundef %64, i32 noundef %80) #7
   store i32 2, ptr %13, align 8
-  %82 = getelementptr inbounds i8, ptr %13, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 4, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %13, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %9, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr null, ptr %84, align 8
   %85 = add nuw i32 %60, 1
   %86 = sub i32 %29, %85
@@ -455,11 +455,11 @@ proxy_v1_get_token_length.exit144.thread206.i:    ; preds = %115, %proxy_v1_get_
   %131 = load i32, ptr @hf_proxy_src_ipv6, align 4
   %132 = call ptr @proto_tree_add_ipv6(ptr noundef %35, i32 noundef %131, ptr noundef %0, i32 noundef %110, i32 noundef %116, ptr noundef nonnull %11) #7
   store i32 3, ptr %13, align 8
-  %133 = getelementptr inbounds i8, ptr %13, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 16, ptr %133, align 4
-  %134 = getelementptr inbounds i8, ptr %13, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %11, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %13, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr null, ptr %135, align 8
   %136 = add nuw i32 %112, 1
   %137 = sub i32 %29, %136
@@ -523,11 +523,11 @@ proxy_v1_get_token_length.exit146.thread211.i:    ; preds = %141, %proxy_v1_get_
   %.sink.i = phi ptr [ %12, %156 ], [ %10, %105 ]
   %.0127.in.i = phi i32 [ %138, %156 ], [ %87, %105 ]
   store i32 %.sink227.i, ptr %14, align 8
-  %167 = getelementptr inbounds i8, ptr %14, i64 4
+  %167 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %.sink225.i, ptr %167, align 4
-  %168 = getelementptr inbounds i8, ptr %14, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %.sink.i, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %14, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %169, align 8
   %.0127.i = add nuw i32 %.0127.in.i, 1
   %170 = sub i32 %29, %.0127.i
@@ -606,7 +606,7 @@ proxy_v1_get_token_length.exit148.thread216.i:    ; preds = %174, %proxy_v1_get_
   %212 = zext i16 %211 to i32
   %213 = call ptr @proto_tree_add_uint(ptr noundef %35, i32 noundef %210, ptr noundef %0, i32 noundef %194, i32 noundef %196, i32 noundef %212) #7
   %214 = load ptr, ptr %30, align 8
-  %215 = getelementptr inbounds i8, ptr %1, i64 408
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %216 = load ptr, ptr %215, align 8
   %217 = call ptr @address_to_str(ptr noundef %216, ptr noundef nonnull %13) #7
   %218 = load ptr, ptr %215, align 8
@@ -627,9 +627,9 @@ proxy_v1_get_token_length.exit148.thread216.i:    ; preds = %174, %proxy_v1_get_
   %229 = call noalias ptr @wmem_alloc(ptr noundef %228, i64 noundef 64) #7
   %230 = call ptr @wmem_file_scope() #7
   %231 = load i32, ptr %13, align 8
-  %232 = getelementptr inbounds i8, ptr %13, i64 4
+  %232 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %13, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %235 = load ptr, ptr %234, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %229, i8 0, i64 24, i1 false)
   store i32 %231, ptr %229, align 8
@@ -639,17 +639,17 @@ proxy_v1_get_token_length.exit148.thread216.i:    ; preds = %174, %proxy_v1_get_
 237:                                              ; preds = %227
   %238 = sext i32 %233 to i64
   %239 = call noalias ptr @wmem_memdup(ptr noundef %230, ptr noundef %235, i64 noundef %238) #7
-  %240 = getelementptr inbounds i8, ptr %229, i64 16
+  %240 = getelementptr inbounds nuw i8, ptr %229, i64 16
   store ptr %239, ptr %240, align 8
-  %241 = getelementptr inbounds i8, ptr %229, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store ptr %239, ptr %241, align 8
-  %242 = getelementptr inbounds i8, ptr %229, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 4
   store i32 %233, ptr %242, align 4
   br label %copy_address_wmem.exit.i
 
 copy_address_wmem.exit.i:                         ; preds = %237, %227
   %243 = call ptr @wmem_file_scope() #7
-  %244 = getelementptr inbounds i8, ptr %229, i64 24
+  %244 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %245 = load i32, ptr %14, align 8
   %246 = load i32, ptr %167, align 4
   %247 = load ptr, ptr %168, align 8
@@ -661,26 +661,26 @@ copy_address_wmem.exit.i:                         ; preds = %237, %227
 249:                                              ; preds = %copy_address_wmem.exit.i
   %250 = sext i32 %246 to i64
   %251 = call noalias ptr @wmem_memdup(ptr noundef %243, ptr noundef %247, i64 noundef %250) #7
-  %252 = getelementptr inbounds i8, ptr %229, i64 40
+  %252 = getelementptr inbounds nuw i8, ptr %229, i64 40
   store ptr %251, ptr %252, align 8
-  %253 = getelementptr inbounds i8, ptr %229, i64 32
+  %253 = getelementptr inbounds nuw i8, ptr %229, i64 32
   store ptr %251, ptr %253, align 8
-  %254 = getelementptr inbounds i8, ptr %229, i64 28
+  %254 = getelementptr inbounds nuw i8, ptr %229, i64 28
   store i32 %246, ptr %254, align 4
   br label %copy_address_wmem.exit149.i
 
 copy_address_wmem.exit149.i:                      ; preds = %249, %copy_address_wmem.exit.i
-  %255 = getelementptr inbounds i8, ptr %229, i64 48
+  %255 = getelementptr inbounds nuw i8, ptr %229, i64 48
   store i32 2, ptr %255, align 8
   %256 = load i16, ptr %6, align 2
-  %257 = getelementptr inbounds i8, ptr %229, i64 52
+  %257 = getelementptr inbounds nuw i8, ptr %229, i64 52
   store i16 %256, ptr %257, align 4
   %258 = load i16, ptr %7, align 2
-  %259 = getelementptr inbounds i8, ptr %229, i64 54
+  %259 = getelementptr inbounds nuw i8, ptr %229, i64 54
   store i16 %258, ptr %259, align 2
-  %260 = getelementptr inbounds i8, ptr %1, i64 20
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %261 = load i32, ptr %260, align 4
-  %262 = getelementptr inbounds i8, ptr %229, i64 56
+  %262 = getelementptr inbounds nuw i8, ptr %229, i64 56
   store i32 %261, ptr %262, align 8
   %263 = load i32, ptr @proto_proxy, align 4
   call void @conversation_add_proto_data(ptr noundef nonnull %223, i32 noundef %263, ptr noundef nonnull %229) #7
@@ -703,9 +703,9 @@ dissect_proxy_v1_header.exit:                     ; preds = %is_proxy_v1.exit.th
   br i1 %.not, label %276, label %266
 
 266:                                              ; preds = %dissect_proxy_v1_header.exit
-  %267 = getelementptr inbounds i8, ptr %1, i64 20
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %268 = load i32, ptr %267, align 4
-  %269 = getelementptr inbounds i8, ptr %265, i64 56
+  %269 = getelementptr inbounds nuw i8, ptr %265, i64 56
   %270 = load i32, ptr %269, align 8
   %.not18 = icmp ult i32 %268, %270
   br i1 %.not18, label %276, label %271
@@ -754,7 +754,7 @@ is_proxy_v2.exit.i:                               ; preds = %4
   br i1 %.not.i.not.i, label %16, label %dissect_proxy_v2_header.exit
 
 16:                                               ; preds = %is_proxy_v2.exit.i
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.111) #7
   %19 = load i32, ptr @proto_proxy, align 4
@@ -773,13 +773,13 @@ is_proxy_v2.exit.i:                               ; preds = %4
   br i1 %.not.i130.i, label %proto_item_set_generated.exit.i, label %31
 
 31:                                               ; preds = %16
-  %32 = getelementptr inbounds i8, ptr %30, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not5.i.i = icmp eq ptr %33, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %33, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 28
   %36 = load i32, ptr %35, align 4
   %37 = or i32 %36, 2
   store i32 %37, ptr %35, align 4
@@ -813,21 +813,21 @@ proto_item_set_generated.exit.i:                  ; preds = %34, %31, %16
   %53 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %52, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #7
   %54 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 16, i32 noundef 4) #7
   store i32 2, ptr %8, align 8
-  %55 = getelementptr inbounds i8, ptr %8, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 4, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %8, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %54, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %8, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %57, align 8
   %58 = load i32, ptr @hf_proxy_dst_ipv4, align 4
   %59 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %58, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #7
   %60 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 20, i32 noundef 4) #7
   store i32 2, ptr %9, align 8
-  %61 = getelementptr inbounds i8, ptr %9, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 4, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %9, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %60, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %9, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %63, align 8
   %64 = load i32, ptr @hf_proxy_srcport, align 4
   %65 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %64, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #7
@@ -843,21 +843,21 @@ proto_item_set_generated.exit.i:                  ; preds = %34, %31, %16
   %73 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %72, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0) #7
   %74 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 16, i32 noundef 16) #7
   store i32 3, ptr %8, align 8
-  %75 = getelementptr inbounds i8, ptr %8, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 16, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %8, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %74, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %8, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %77, align 8
   %78 = load i32, ptr @hf_proxy_dst_ipv6, align 4
   %79 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %78, ptr noundef %0, i32 noundef 32, i32 noundef 16, i32 noundef 0) #7
   %80 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 32, i32 noundef 16) #7
   store i32 3, ptr %9, align 8
-  %81 = getelementptr inbounds i8, ptr %9, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 16, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %9, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %80, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %9, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %83, align 8
   %84 = load i32, ptr @hf_proxy_srcport, align 4
   %85 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %84, ptr noundef %0, i32 noundef 48, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #7
@@ -911,7 +911,7 @@ proto_item_set_generated.exit.i:                  ; preds = %34, %31, %16
 
 110:                                              ; preds = %.thread139.i
   %111 = load ptr, ptr %17, align 8
-  %112 = getelementptr inbounds i8, ptr %1, i64 408
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %113 = load ptr, ptr %112, align 8
   %114 = call ptr @address_to_str(ptr noundef %113, ptr noundef nonnull %8) #7
   %115 = load ptr, ptr %112, align 8
@@ -930,7 +930,7 @@ proto_item_set_generated.exit.i:                  ; preds = %34, %31, %16
   br i1 %125, label %126, label %dissect_proxy_v2_header.exit
 
 126:                                              ; preds = %110
-  %127 = getelementptr inbounds i8, ptr %1, i64 280
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %128 = load i32, ptr %127, align 8
   %129 = icmp ne i32 %128, 3
   %130 = load i32, ptr %7, align 4
@@ -943,9 +943,9 @@ proto_item_set_generated.exit.i:                  ; preds = %34, %31, %16
   %134 = call noalias ptr @wmem_alloc(ptr noundef %133, i64 noundef 64) #7
   %135 = call ptr @wmem_file_scope() #7
   %136 = load i32, ptr %8, align 8
-  %137 = getelementptr inbounds i8, ptr %8, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %138 = load i32, ptr %137, align 4
-  %139 = getelementptr inbounds i8, ptr %8, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %140 = load ptr, ptr %139, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, i8 0, i64 24, i1 false)
   store i32 %136, ptr %134, align 8
@@ -955,21 +955,21 @@ proto_item_set_generated.exit.i:                  ; preds = %34, %31, %16
 142:                                              ; preds = %132
   %143 = sext i32 %138 to i64
   %144 = call noalias ptr @wmem_memdup(ptr noundef %135, ptr noundef %140, i64 noundef %143) #7
-  %145 = getelementptr inbounds i8, ptr %134, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store ptr %144, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %134, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %144, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %134, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 4
   store i32 %138, ptr %147, align 4
   br label %copy_address_wmem.exit.i
 
 copy_address_wmem.exit.i:                         ; preds = %142, %132
   %148 = call ptr @wmem_file_scope() #7
-  %149 = getelementptr inbounds i8, ptr %134, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %150 = load i32, ptr %9, align 8
-  %151 = getelementptr inbounds i8, ptr %9, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds i8, ptr %9, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %154 = load ptr, ptr %153, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %149, i8 0, i64 24, i1 false)
   store i32 %150, ptr %149, align 8
@@ -979,28 +979,28 @@ copy_address_wmem.exit.i:                         ; preds = %142, %132
 156:                                              ; preds = %copy_address_wmem.exit.i
   %157 = sext i32 %152 to i64
   %158 = call noalias ptr @wmem_memdup(ptr noundef %148, ptr noundef %154, i64 noundef %157) #7
-  %159 = getelementptr inbounds i8, ptr %134, i64 40
+  %159 = getelementptr inbounds nuw i8, ptr %134, i64 40
   store ptr %158, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %134, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %134, i64 32
   store ptr %158, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %134, i64 28
+  %161 = getelementptr inbounds nuw i8, ptr %134, i64 28
   store i32 %152, ptr %161, align 4
   br label %copy_address_wmem.exit131.i
 
 copy_address_wmem.exit131.i:                      ; preds = %156, %copy_address_wmem.exit.i
-  %162 = getelementptr inbounds i8, ptr %134, i64 48
+  %162 = getelementptr inbounds nuw i8, ptr %134, i64 48
   store i32 2, ptr %162, align 8
   %163 = load i32, ptr %10, align 4
   %164 = trunc i32 %163 to i16
-  %165 = getelementptr inbounds i8, ptr %134, i64 52
+  %165 = getelementptr inbounds nuw i8, ptr %134, i64 52
   store i16 %164, ptr %165, align 4
   %166 = load i32, ptr %11, align 4
   %167 = trunc i32 %166 to i16
-  %168 = getelementptr inbounds i8, ptr %134, i64 54
+  %168 = getelementptr inbounds nuw i8, ptr %134, i64 54
   store i16 %167, ptr %168, align 2
-  %169 = getelementptr inbounds i8, ptr %1, i64 20
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %170 = load i32, ptr %169, align 4
-  %171 = getelementptr inbounds i8, ptr %134, i64 56
+  %171 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store i32 %170, ptr %171, align 8
   %172 = load i32, ptr @proto_proxy, align 4
   call void @conversation_add_proto_data(ptr noundef nonnull %122, i32 noundef %172, ptr noundef nonnull %134) #7
@@ -1021,9 +1021,9 @@ dissect_proxy_v2_header.exit:                     ; preds = %4, %is_proxy_v2.exi
   br i1 %.not, label %185, label %175
 
 175:                                              ; preds = %dissect_proxy_v2_header.exit
-  %176 = getelementptr inbounds i8, ptr %1, i64 20
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %177 = load i32, ptr %176, align 4
-  %178 = getelementptr inbounds i8, ptr %174, i64 56
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 56
   %179 = load i32, ptr %178, align 8
   %.not18 = icmp ult i32 %177, %179
   br i1 %.not18, label %185, label %180
@@ -1156,7 +1156,7 @@ define internal fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef %1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_str(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.110) #7
   %12 = load ptr, ptr %10, align 8
@@ -1168,16 +1168,16 @@ define internal fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef %1
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 284
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 288
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 280
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 280
   br label %79
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %1, i64 208
-  %23 = getelementptr inbounds i8, ptr %7, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @conversation_key_addr1(ptr noundef %24) #7
   %26 = load i32, ptr %22, align 8
@@ -1186,9 +1186,9 @@ define internal fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef %1
   br i1 %28, label %29, label %addresses_equal.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 212
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %25, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %31, %33
   br i1 %34, label %35, label %addresses_equal.exit
@@ -1198,9 +1198,9 @@ define internal fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef %1
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %1, i64 216
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %25, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %31 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %39, ptr %41, i64 %42)
@@ -1208,7 +1208,7 @@ define internal fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef %1
   br i1 %43, label %44, label %addresses_equal.exit
 
 44:                                               ; preds = %37, %35
-  %45 = getelementptr inbounds i8, ptr %1, i64 284
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %46 = load i32, ptr %45, align 4
   %47 = load ptr, ptr %23, align 8
   %48 = tail call i32 @conversation_key_port1(ptr noundef %47) #7
@@ -1216,14 +1216,14 @@ define internal fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef %1
   br i1 %49, label %50, label %addresses_equal.exit
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %5, i64 24
-  %52 = getelementptr inbounds i8, ptr %5, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %53 = load i32, ptr %52, align 8
   %54 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %53) #7
-  %55 = getelementptr inbounds i8, ptr %5, i64 52
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %56 = load i16, ptr %55, align 4
   %57 = zext i16 %56 to i32
-  %58 = getelementptr inbounds i8, ptr %5, i64 54
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 54
   %59 = load i16, ptr %58, align 2
   %60 = zext i16 %59 to i32
   tail call void @conversation_set_conv_addr_port_endpoints(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %51, i32 noundef %54, i32 noundef %57, i32 noundef %60) #7
@@ -1234,14 +1234,14 @@ define internal fastcc i32 @dissect_proxy_proxied(ptr noundef %0, ptr noundef %1
   br label %79
 
 addresses_equal.exit:                             ; preds = %37, %29, %21, %44
-  %65 = getelementptr inbounds i8, ptr %5, i64 24
-  %66 = getelementptr inbounds i8, ptr %5, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %67 = load i32, ptr %66, align 8
   %68 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %67) #7
-  %69 = getelementptr inbounds i8, ptr %5, i64 54
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 54
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds i8, ptr %5, i64 52
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %73 = load i16, ptr %72, align 4
   %74 = zext i16 %73 to i32
   tail call void @conversation_set_conv_addr_port_endpoints(ptr noundef nonnull %1, ptr noundef nonnull %65, ptr noundef nonnull %5, i32 noundef %68, i32 noundef %71, i32 noundef %74) #7
@@ -1257,7 +1257,7 @@ addresses_equal.exit:                             ; preds = %37, %29, %21, %44
   %.0 = phi i32 [ %17, %15 ], [ %62, %50 ], [ %76, %addresses_equal.exit ]
   %.055 = load i32, ptr %.055.in, align 8
   %80 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %3) #7
-  %81 = getelementptr inbounds i8, ptr %1, i64 328
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %82 = load i16, ptr %81, align 8
   %.not58 = icmp eq i16 %82, 0
   br i1 %.not58, label %85, label %83
@@ -1287,13 +1287,13 @@ addresses_equal.exit:                             ; preds = %37, %29, %21, %44
   br label %92
 
 92:                                               ; preds = %90, %89, %86
-  %93 = getelementptr inbounds i8, ptr %1, i64 336
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %94 = load i32, ptr %93, align 8
   %.not59 = icmp eq i32 %94, 0
   br i1 %.not59, label %99, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %1, i64 332
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, %3
   store i32 %98, ptr %96, align 4
@@ -1390,7 +1390,7 @@ define internal fastcc i32 @dissect_proxy_v2_tlv(ptr noundef %0, ptr nocapture n
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %10
 
 10:                                               ; preds = %.lr.ph, %77

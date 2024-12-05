@@ -69,12 +69,12 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @queue, align 8
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  %mutex.i = getelementptr inbounds i8, ptr %1, i64 56
+  %mutex.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void %3(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.1, i32 noundef 74) #11
-  %rectangles = getelementptr inbounds i8, ptr %call, i64 8
+  %rectangles = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %rectangles, align 8
   %4 = load ptr, ptr @queue, align 8
-  %mutex.i4 = getelementptr inbounds i8, ptr %4, i64 56
+  %mutex.i4 = getelementptr inbounds nuw i8, ptr %4, i64 56
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i4, ptr noundef nonnull @.str.1, i32 noundef 79) #11
   ret ptr %call
 }
@@ -114,7 +114,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0, ptr noundef nonnull %job, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) #11
   br label %trace_vnc_job_add_rect.exit
@@ -126,35 +126,35 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_vnc_job_add_rect.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   store i32 %x, ptr %call, align 8
-  %y4 = getelementptr inbounds i8, ptr %call, i64 4
+  %y4 = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 %y, ptr %y4, align 4
-  %w6 = getelementptr inbounds i8, ptr %call, i64 8
+  %w6 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %w, ptr %w6, align 8
-  %h8 = getelementptr inbounds i8, ptr %call, i64 12
+  %h8 = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i32 %h, ptr %h8, align 4
   %7 = load ptr, ptr @queue, align 8
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
-  %mutex.i = getelementptr inbounds i8, ptr %7, i64 56
+  %mutex.i = getelementptr inbounds nuw i8, ptr %7, i64 56
   tail call void %9(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.1, i32 noundef 74) #11
-  %rectangles = getelementptr inbounds i8, ptr %job, i64 8
+  %rectangles = getelementptr inbounds nuw i8, ptr %job, i64 8
   %10 = load ptr, ptr %rectangles, align 8
-  %next = getelementptr inbounds i8, ptr %call, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %10, ptr %next, align 8
   %cmp.not = icmp eq ptr %10, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_vnc_job_add_rect.exit
-  %le_prev = getelementptr inbounds i8, ptr %10, i64 24
+  %le_prev = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %next, ptr %le_prev, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %trace_vnc_job_add_rect.exit
   store ptr %call, ptr %rectangles, align 8
-  %le_prev19 = getelementptr inbounds i8, ptr %call, i64 24
+  %le_prev19 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %rectangles, ptr %le_prev19, align 8
   %11 = load ptr, ptr @queue, align 8
-  %mutex.i17 = getelementptr inbounds i8, ptr %11, i64 56
+  %mutex.i17 = getelementptr inbounds nuw i8, ptr %11, i64 56
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i17, ptr noundef nonnull @.str.1, i32 noundef 79) #11
   ret i32 1
 }
@@ -165,16 +165,16 @@ entry:
   %0 = load ptr, ptr @queue, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %mutex.i = getelementptr inbounds i8, ptr %0, i64 56
+  %mutex.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void %2(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.1, i32 noundef 74) #11
   %3 = load ptr, ptr @queue, align 8
-  %exit = getelementptr inbounds i8, ptr %3, i64 112
+  %exit = getelementptr inbounds nuw i8, ptr %3, i64 112
   %4 = load i8, ptr %exit, align 8
   %tobool = trunc i8 %4 to i1
   br i1 %tobool, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %rectangles = getelementptr inbounds i8, ptr %job, i64 8
+  %rectangles = getelementptr inbounds nuw i8, ptr %job, i64 8
   %5 = load ptr, ptr %rectangles, align 8
   %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %if.then, label %do.body
@@ -184,11 +184,11 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end
 
 do.body:                                          ; preds = %lor.lhs.false
-  %next = getelementptr inbounds i8, ptr %job, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %job, i64 16
   store ptr null, ptr %next, align 8
-  %tql_prev = getelementptr inbounds i8, ptr %3, i64 128
+  %tql_prev = getelementptr inbounds nuw i8, ptr %3, i64 128
   %6 = load ptr, ptr %tql_prev, align 8
-  %tql_prev2 = getelementptr inbounds i8, ptr %job, i64 24
+  %tql_prev2 = getelementptr inbounds nuw i8, ptr %job, i64 24
   store ptr %6, ptr %tql_prev2, align 8
   store ptr %job, ptr %6, align 8
   store ptr %next, ptr %tql_prev, align 8
@@ -197,7 +197,7 @@ do.body:                                          ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %do.body, %if.then
   %7 = load ptr, ptr @queue, align 8
-  %mutex.i6 = getelementptr inbounds i8, ptr %7, i64 56
+  %mutex.i6 = getelementptr inbounds nuw i8, ptr %7, i64 56
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i6, ptr noundef nonnull @.str.1, i32 noundef 79) #11
   ret void
 }
@@ -212,10 +212,10 @@ entry:
   %0 = load ptr, ptr @queue, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %mutex.i = getelementptr inbounds i8, ptr %0, i64 56
+  %mutex.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void %2(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.1, i32 noundef 74) #11
   %3 = load ptr, ptr @queue, align 8
-  %jobs.i6 = getelementptr inbounds i8, ptr %3, i64 120
+  %jobs.i6 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %job.04.i7 = load ptr, ptr %jobs.i6, align 8
   %tobool.not5.not.i8 = icmp eq ptr %job.04.i7, null
   br i1 %tobool.not5.not.i8, label %while.end3, label %for.body.lr.ph.i.lr.ph
@@ -228,10 +228,10 @@ for.body.lr.ph.i.us:                              ; preds = %for.body.lr.ph.i.lr
   %4 = phi ptr [ %7, %for.body.lr.ph.i.us ], [ %3, %for.body.lr.ph.i.lr.ph ]
   %5 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
-  %mutex.us = getelementptr inbounds i8, ptr %4, i64 56
+  %mutex.us = getelementptr inbounds nuw i8, ptr %4, i64 56
   tail call void %6(ptr noundef nonnull %4, ptr noundef nonnull %mutex.us, ptr noundef nonnull @.str.1, i32 noundef 139) #11
   %7 = load ptr, ptr @queue, align 8
-  %jobs.i.us = getelementptr inbounds i8, ptr %7, i64 120
+  %jobs.i.us = getelementptr inbounds nuw i8, ptr %7, i64 120
   %job.04.i.us = load ptr, ptr %jobs.i.us, align 8
   %tobool.not5.not.i.us = icmp eq ptr %job.04.i.us, null
   br i1 %tobool.not5.not.i.us, label %while.end3, label %for.body.lr.ph.i.us, !llvm.loop !5
@@ -245,7 +245,7 @@ for.body.lr.ph.i:                                 ; preds = %for.body.lr.ph.i.lr
 
 for.cond.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
   %job.06.pn.i = phi ptr [ %job.0.i, %for.body.i ], [ %job.04.i9, %for.body.lr.ph.i ]
-  %next11.i = getelementptr inbounds i8, ptr %job.06.pn.i, i64 16
+  %next11.i = getelementptr inbounds nuw i8, ptr %job.06.pn.i, i64 16
   %job.0.i = load ptr, ptr %next11.i, align 8
   %tobool.not.not.not.i = icmp eq ptr %job.0.i, null
   br i1 %tobool.not.not.not.i, label %while.end3, label %for.body.i, !llvm.loop !7
@@ -258,17 +258,17 @@ for.body.i:                                       ; preds = %for.cond.i
 while.end:                                        ; preds = %for.body.i, %for.body.lr.ph.i
   %11 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
   %12 = inttoptr i64 %11 to ptr
-  %mutex = getelementptr inbounds i8, ptr %8, i64 56
+  %mutex = getelementptr inbounds nuw i8, ptr %8, i64 56
   tail call void %12(ptr noundef %8, ptr noundef nonnull %mutex, ptr noundef nonnull @.str.1, i32 noundef 139) #11
   %13 = load ptr, ptr @queue, align 8
-  %jobs.i = getelementptr inbounds i8, ptr %13, i64 120
+  %jobs.i = getelementptr inbounds nuw i8, ptr %13, i64 120
   %job.04.i = load ptr, ptr %jobs.i, align 8
   %tobool.not5.not.i = icmp eq ptr %job.04.i, null
   br i1 %tobool.not5.not.i, label %while.end3, label %for.body.lr.ph.i, !llvm.loop !5
 
 while.end3:                                       ; preds = %while.end, %for.cond.i, %for.body.lr.ph.i.us, %entry
   %14 = phi ptr [ %3, %entry ], [ %7, %for.body.lr.ph.i.us ], [ %8, %for.cond.i ], [ %13, %while.end ]
-  %mutex.i2 = getelementptr inbounds i8, ptr %14, i64 56
+  %mutex.i2 = getelementptr inbounds nuw i8, ptr %14, i64 56
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i2, ptr noundef nonnull @.str.1, i32 noundef 79) #11
   tail call void @vnc_jobs_consume_buffer(ptr noundef %vs)
   ret void
@@ -279,28 +279,28 @@ define dso_local void @vnc_jobs_consume_buffer(ptr noundef %vs) local_unnamed_ad
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %output_mutex.i = getelementptr inbounds i8, ptr %vs, i64 49504
+  %output_mutex.i = getelementptr inbounds nuw i8, ptr %vs, i64 49504
   tail call void %1(ptr noundef nonnull %output_mutex.i, ptr noundef nonnull @.str.5, i32 noundef 60) #11
-  %jobs_buffer = getelementptr inbounds i8, ptr %vs, i64 49560
-  %offset = getelementptr inbounds i8, ptr %vs, i64 49576
+  %jobs_buffer = getelementptr inbounds nuw i8, ptr %vs, i64 49560
+  %offset = getelementptr inbounds nuw i8, ptr %vs, i64 49576
   %2 = load i64, ptr %offset, align 8
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ioc = getelementptr inbounds i8, ptr %vs, i64 16
+  %ioc = getelementptr inbounds nuw i8, ptr %vs, i64 16
   %3 = load ptr, ptr %ioc, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.end13, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %output = getelementptr inbounds i8, ptr %vs, i64 49328
+  %output = getelementptr inbounds nuw i8, ptr %vs, i64 49328
   %call = tail call i32 @buffer_empty(ptr noundef nonnull %output) #11
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end13, label %if.then2
 
 if.then2:                                         ; preds = %land.lhs.true
-  %ioc_tag = getelementptr inbounds i8, ptr %vs, i64 24
+  %ioc_tag = getelementptr inbounds nuw i8, ptr %vs, i64 24
   %4 = load i32, ptr %ioc_tag, align 8
   %tobool3.not = icmp eq i32 %4, 0
   br i1 %tobool3.not, label %if.end, label %if.then4
@@ -310,7 +310,7 @@ if.then4:                                         ; preds = %if.then2
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then2
-  %disconnecting = getelementptr inbounds i8, ptr %vs, i64 28
+  %disconnecting = getelementptr inbounds nuw i8, ptr %vs, i64 28
   %5 = load i32, ptr %disconnecting, align 4
   %cmp7 = icmp eq i32 %5, 0
   br i1 %cmp7, label %if.then8, label %if.end13
@@ -322,17 +322,17 @@ if.then8:                                         ; preds = %if.end
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end, %if.then8, %land.lhs.true, %if.then
-  %output14 = getelementptr inbounds i8, ptr %vs, i64 49328
+  %output14 = getelementptr inbounds nuw i8, ptr %vs, i64 49328
   tail call void @buffer_move(ptr noundef nonnull %output14, ptr noundef nonnull %jobs_buffer) #11
-  %job_update = getelementptr inbounds i8, ptr %vs, i64 49204
+  %job_update = getelementptr inbounds nuw i8, ptr %vs, i64 49204
   %7 = load i32, ptr %job_update, align 4
   %cmp16 = icmp eq i32 %7, 2
   br i1 %cmp16, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %if.end13
-  %offset19 = getelementptr inbounds i8, ptr %vs, i64 49344
+  %offset19 = getelementptr inbounds nuw i8, ptr %vs, i64 49344
   %8 = load i64, ptr %offset19, align 8
-  %force_update_offset = getelementptr inbounds i8, ptr %vs, i64 49312
+  %force_update_offset = getelementptr inbounds nuw i8, ptr %vs, i64 49312
   store i64 %8, ptr %force_update_offset, align 8
   br label %if.end20
 
@@ -341,13 +341,13 @@ if.end20:                                         ; preds = %if.then17, %if.end1
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end20, %entry
-  %ioc23 = getelementptr inbounds i8, ptr %vs, i64 16
+  %ioc23 = getelementptr inbounds nuw i8, ptr %vs, i64 16
   %9 = load ptr, ptr %ioc23, align 8
   %cmp24.not = icmp eq ptr %9, null
   br i1 %cmp24.not, label %if.end30.critedge, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end22
-  %abort = getelementptr inbounds i8, ptr %vs, i64 49496
+  %abort = getelementptr inbounds nuw i8, ptr %vs, i64 49496
   %10 = load i8, ptr %abort, align 8
   %11 = and i8 %10, 1
   %cmp26 = icmp eq i8 %11, 0
@@ -388,13 +388,13 @@ entry:
 if.end:                                           ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #9
   tail call void @qemu_cond_init(ptr noundef %call.i) #11
-  %mutex.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %mutex.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   tail call void @qemu_mutex_init(ptr noundef nonnull %mutex.i) #11
-  %jobs.i = getelementptr inbounds i8, ptr %call.i, i64 120
+  %jobs.i = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr null, ptr %jobs.i, align 8
-  %tql_prev.i = getelementptr inbounds i8, ptr %call.i, i64 128
+  %tql_prev.i = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store ptr %jobs.i, ptr %tql_prev.i, align 8
-  %thread = getelementptr inbounds i8, ptr %call.i, i64 104
+  %thread = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   tail call void @qemu_thread_create(ptr noundef nonnull %thread, ptr noundef nonnull @.str.2, ptr noundef nonnull @vnc_worker_thread, ptr noundef %call.i, i32 noundef 1) #11
   store ptr %call.i, ptr @queue, align 8
   br label %return
@@ -413,33 +413,33 @@ entry:
   %_now.i.i35.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i.i = alloca %struct.timeval, align 8
   %vs.i = alloca %struct.VncState, align 8
-  %thread = getelementptr inbounds i8, ptr %arg, i64 104
+  %thread = getelementptr inbounds nuw i8, ptr %arg, i64 104
   tail call void @qemu_thread_get_self(ptr noundef nonnull %thread) #11
-  %mutex.i.i = getelementptr inbounds i8, ptr %arg, i64 56
-  %jobs.i = getelementptr inbounds i8, ptr %arg, i64 120
-  %exit.i = getelementptr inbounds i8, ptr %arg, i64 112
-  %output26.i = getelementptr inbounds i8, ptr %vs.i, i64 49328
-  %sioc.i.i = getelementptr inbounds i8, ptr %vs.i, i64 8
-  %vnc_encoding1.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49252
-  %features2.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49212
-  %vd3.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49192
-  %lossy_rect4.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49184
-  %write_pixels5.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49408
-  %client_pf.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49416
-  %client_be7.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49452
-  %tight8.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49600
-  %zlib.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49608
-  %hextile.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49808
-  %zrle11.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49816
-  %client_width12.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49232
-  %client_height13.i.i = getelementptr inbounds i8, ptr %vs.i, i64 49240
-  %offset.i = getelementptr inbounds i8, ptr %vs.i, i64 49344
-  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
-  %tv_usec.i.i48.i.i = getelementptr inbounds i8, ptr %_now.i.i35.i.i, i64 8
-  %tv_usec.i.i62.i.i = getelementptr inbounds i8, ptr %_now.i.i49.i.i, i64 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %buffer.i = getelementptr inbounds i8, ptr %vs.i, i64 49360
-  %tql_prev99.i = getelementptr inbounds i8, ptr %arg, i64 128
+  %mutex.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 56
+  %jobs.i = getelementptr inbounds nuw i8, ptr %arg, i64 120
+  %exit.i = getelementptr inbounds nuw i8, ptr %arg, i64 112
+  %output26.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49328
+  %sioc.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 8
+  %vnc_encoding1.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49252
+  %features2.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49212
+  %vd3.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49192
+  %lossy_rect4.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49184
+  %write_pixels5.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49408
+  %client_pf.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49416
+  %client_be7.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49452
+  %tight8.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49600
+  %zlib.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49608
+  %hextile.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49808
+  %zrle11.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49816
+  %client_width12.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49232
+  %client_height13.i.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49240
+  %offset.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49344
+  %tv_usec.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i, i64 8
+  %tv_usec.i.i48.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i35.i.i, i64 8
+  %tv_usec.i.i62.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i49.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
+  %buffer.i = getelementptr inbounds nuw i8, ptr %vs.i, i64 49360
+  %tql_prev99.i = getelementptr inbounds nuw i8, ptr %arg, i64 128
   br label %while.cond
 
 while.cond:                                       ; preds = %vnc_worker_thread_loop.exit, %entry
@@ -485,80 +485,80 @@ if.else.i:                                        ; preds = %if.end.i
 if.end12.i:                                       ; preds = %if.end.i
   %10 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %11 = inttoptr i64 %10 to ptr
-  %output_mutex.i.i = getelementptr inbounds i8, ptr %8, i64 49504
+  %output_mutex.i.i = getelementptr inbounds nuw i8, ptr %8, i64 49504
   call void %11(ptr noundef nonnull %output_mutex.i.i, ptr noundef nonnull @.str.5, i32 noundef 60) #11
   %12 = load ptr, ptr %.lcssa101.i, align 8
-  %ioc.i = getelementptr inbounds i8, ptr %12, i64 16
+  %ioc.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load ptr, ptr %ioc.i, align 8
   %cmp15.i = icmp eq ptr %13, null
   br i1 %cmp15.i, label %if.then20.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end12.i
-  %abort.i = getelementptr inbounds i8, ptr %12, i64 49496
+  %abort.i = getelementptr inbounds nuw i8, ptr %12, i64 49496
   %14 = load i8, ptr %abort.i, align 8
   %tobool17.i = trunc i8 %14 to i1
   br i1 %tobool17.i, label %if.then20.i, label %if.end22.i
 
 if.then20.i:                                      ; preds = %lor.lhs.false.i, %if.end12.i
-  %output_mutex.i59.i = getelementptr inbounds i8, ptr %12, i64 49504
+  %output_mutex.i59.i = getelementptr inbounds nuw i8, ptr %12, i64 49504
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i59.i, ptr noundef nonnull @.str.5, i32 noundef 65) #11
   br label %disconnected.i
 
 if.end22.i:                                       ; preds = %lor.lhs.false.i
-  %output.i = getelementptr inbounds i8, ptr %12, i64 49328
+  %output.i = getelementptr inbounds nuw i8, ptr %12, i64 49328
   %call.i = call i32 @buffer_empty(ptr noundef nonnull %output.i) #11
   %tobool24.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool24.not.i, label %if.end29.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end22.i
   %15 = load ptr, ptr %.lcssa101.i, align 8
-  %output28.i = getelementptr inbounds i8, ptr %15, i64 49328
+  %output28.i = getelementptr inbounds nuw i8, ptr %15, i64 49328
   call void @buffer_move_empty(ptr noundef nonnull %output26.i, ptr noundef nonnull %output28.i) #11
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then25.i, %if.end22.i
   %16 = load ptr, ptr %.lcssa101.i, align 8
-  %output_mutex.i60.i = getelementptr inbounds i8, ptr %16, i64 49504
+  %output_mutex.i60.i = getelementptr inbounds nuw i8, ptr %16, i64 49504
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i60.i, ptr noundef nonnull @.str.5, i32 noundef 65) #11
   %17 = load ptr, ptr %.lcssa101.i, align 8
   call void (ptr, ptr, ...) @buffer_init(ptr noundef nonnull %output26.i, ptr noundef nonnull @.str.7) #11
-  %vnc_encoding.i.i = getelementptr inbounds i8, ptr %17, i64 49252
+  %vnc_encoding.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49252
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sioc.i.i, i8 0, i64 16, i1 false)
   %18 = load i32, ptr %vnc_encoding.i.i, align 4
   store i32 %18, ptr %vnc_encoding1.i.i, align 4
-  %features.i.i = getelementptr inbounds i8, ptr %17, i64 49212
+  %features.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49212
   %19 = load i32, ptr %features.i.i, align 4
   store i32 %19, ptr %features2.i.i, align 4
-  %vd.i.i = getelementptr inbounds i8, ptr %17, i64 49192
+  %vd.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49192
   %20 = load ptr, ptr %vd.i.i, align 8
   store ptr %20, ptr %vd3.i.i, align 8
-  %lossy_rect.i.i = getelementptr inbounds i8, ptr %17, i64 49184
+  %lossy_rect.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49184
   %21 = load ptr, ptr %lossy_rect.i.i, align 8
   store ptr %21, ptr %lossy_rect4.i.i, align 8
-  %write_pixels.i.i = getelementptr inbounds i8, ptr %17, i64 49408
+  %write_pixels.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49408
   %22 = load ptr, ptr %write_pixels.i.i, align 8
   store ptr %22, ptr %write_pixels5.i.i, align 8
-  %client_pf6.i.i = getelementptr inbounds i8, ptr %17, i64 49416
+  %client_pf6.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %client_pf.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %client_pf6.i.i, i64 32, i1 false)
-  %client_be.i.i = getelementptr inbounds i8, ptr %17, i64 49452
+  %client_be.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49452
   %23 = load i8, ptr %client_be.i.i, align 4
   %frombool.i.i = and i8 %23, 1
   store i8 %frombool.i.i, ptr %client_be7.i.i, align 4
-  %tight.i.i = getelementptr inbounds i8, ptr %17, i64 49600
+  %tight.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49600
   %24 = load ptr, ptr %tight.i.i, align 8
   store ptr %24, ptr %tight8.i.i, align 8
-  %zlib9.i.i = getelementptr inbounds i8, ptr %17, i64 49608
+  %zlib9.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %zlib.i.i, ptr noundef nonnull readonly align 8 dereferenceable(200) %zlib9.i.i, i64 200, i1 false)
-  %hextile10.i.i = getelementptr inbounds i8, ptr %17, i64 49808
+  %hextile10.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49808
   %25 = load i64, ptr %hextile10.i.i, align 8
   store i64 %25, ptr %hextile.i.i, align 8
-  %zrle.i.i = getelementptr inbounds i8, ptr %17, i64 49816
+  %zrle.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49816
   %26 = load ptr, ptr %zrle.i.i, align 8
   store ptr %26, ptr %zrle11.i.i, align 8
-  %client_width.i.i = getelementptr inbounds i8, ptr %17, i64 49232
+  %client_width.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49232
   %27 = load i64, ptr %client_width.i.i, align 8
   store i64 %27, ptr %client_width12.i.i, align 8
-  %client_height.i.i = getelementptr inbounds i8, ptr %17, i64 49240
+  %client_height.i.i = getelementptr inbounds nuw i8, ptr %17, i64 49240
   %28 = load i64, ptr %client_height.i.i, align 8
   store i64 %28, ptr %client_height13.i.i, align 8
   store i64 410936327799964859, ptr %vs.i, align 8
@@ -567,13 +567,13 @@ if.end29.i:                                       ; preds = %if.then25.i, %if.en
   %29 = load i64, ptr %offset.i, align 8
   call void @vnc_write_u16(ptr noundef nonnull %vs.i, i16 noundef zeroext 0) #11
   %30 = load ptr, ptr %.lcssa101.i, align 8
-  %vd.i = getelementptr inbounds i8, ptr %30, i64 49192
+  %vd.i = getelementptr inbounds nuw i8, ptr %30, i64 49192
   %31 = load ptr, ptr %vd.i, align 8
   %32 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %33 = inttoptr i64 %32 to ptr
-  %mutex.i61.i = getelementptr inbounds i8, ptr %31, i64 152
+  %mutex.i61.i = getelementptr inbounds nuw i8, ptr %31, i64 152
   call void %33(ptr noundef nonnull %mutex.i61.i, ptr noundef nonnull @.str.5, i32 noundef 50) #11
-  %rectangles.i = getelementptr inbounds i8, ptr %.lcssa101.i, i64 8
+  %rectangles.i = getelementptr inbounds nuw i8, ptr %.lcssa101.i, i64 8
   %34 = load ptr, ptr %rectangles.i, align 8
   %tobool36.not104.i = icmp eq ptr %34, null
   br i1 %tobool36.not104.i, label %for.end.i, label %land.rhs37.i
@@ -581,44 +581,44 @@ if.end29.i:                                       ; preds = %if.then25.i, %if.en
 land.rhs37.i:                                     ; preds = %if.end29.i, %if.end59.i
   %entry1.0106.i = phi ptr [ %35, %if.end59.i ], [ %34, %if.end29.i ]
   %n_rectangles.0105.i = phi i32 [ %n_rectangles.1.i, %if.end59.i ], [ 0, %if.end29.i ]
-  %next.i = getelementptr inbounds i8, ptr %entry1.0106.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %entry1.0106.i, i64 16
   %35 = load ptr, ptr %next.i, align 8
   %36 = load ptr, ptr %.lcssa101.i, align 8
-  %ioc40.i = getelementptr inbounds i8, ptr %36, i64 16
+  %ioc40.i = getelementptr inbounds nuw i8, ptr %36, i64 16
   %37 = load ptr, ptr %ioc40.i, align 8
   %cmp41.i = icmp eq ptr %37, null
   br i1 %cmp41.i, label %if.then43.i, label %if.end47.i
 
 if.then43.i:                                      ; preds = %land.rhs37.i
-  %vd45.i = getelementptr inbounds i8, ptr %36, i64 49192
+  %vd45.i = getelementptr inbounds nuw i8, ptr %36, i64 49192
   %38 = load ptr, ptr %vd45.i, align 8
-  %mutex.i62.i = getelementptr inbounds i8, ptr %38, i64 152
+  %mutex.i62.i = getelementptr inbounds nuw i8, ptr %38, i64 152
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i62.i, ptr noundef nonnull @.str.5, i32 noundef 55) #11
   %39 = load ptr, ptr %.lcssa101.i, align 8
   call void @buffer_free(ptr noundef nonnull %output26.i) #11
   %40 = load ptr, ptr %tight8.i.i, align 8
-  %tight1.i.i = getelementptr inbounds i8, ptr %39, i64 49600
+  %tight1.i.i = getelementptr inbounds nuw i8, ptr %39, i64 49600
   store ptr %40, ptr %tight1.i.i, align 8
-  %zlib.i65.i = getelementptr inbounds i8, ptr %39, i64 49608
+  %zlib.i65.i = getelementptr inbounds nuw i8, ptr %39, i64 49608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %zlib.i65.i, ptr noundef nonnull align 8 dereferenceable(200) %zlib.i.i, i64 200, i1 false)
-  %hextile.i66.i = getelementptr inbounds i8, ptr %39, i64 49808
+  %hextile.i66.i = getelementptr inbounds nuw i8, ptr %39, i64 49808
   %41 = load i64, ptr %hextile.i.i, align 8
   store i64 %41, ptr %hextile.i66.i, align 8
   %42 = load ptr, ptr %zrle11.i.i, align 8
-  %zrle4.i.i = getelementptr inbounds i8, ptr %39, i64 49816
+  %zrle4.i.i = getelementptr inbounds nuw i8, ptr %39, i64 49816
   store ptr %42, ptr %zrle4.i.i, align 8
   %43 = load ptr, ptr %lossy_rect4.i.i, align 8
-  %lossy_rect5.i.i = getelementptr inbounds i8, ptr %39, i64 49184
+  %lossy_rect5.i.i = getelementptr inbounds nuw i8, ptr %39, i64 49184
   store ptr %43, ptr %lossy_rect5.i.i, align 8
   br label %disconnected.i
 
 if.end47.i:                                       ; preds = %land.rhs37.i
   %44 = load i32, ptr %entry1.0106.i, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %entry1.0106.i, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %entry1.0106.i, i64 4
   %45 = load i32, ptr %y.i.i, align 4
-  %w.i.i = getelementptr inbounds i8, ptr %entry1.0106.i, i64 8
+  %w.i.i = getelementptr inbounds nuw i8, ptr %entry1.0106.i, i64 8
   %46 = load i32, ptr %w.i.i, align 4
-  %h.i.i = getelementptr inbounds i8, ptr %entry1.0106.i, i64 12
+  %h.i.i = getelementptr inbounds nuw i8, ptr %entry1.0106.i, i64 12
   %47 = load i32, ptr %h.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %48 = load i32, ptr @trace_events_enabled_count, align 4
@@ -814,9 +814,9 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 trace_vnc_job_nrects.exit.i:                      ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %for.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %84 = load ptr, ptr %.lcssa101.i, align 8
-  %vd61.i = getelementptr inbounds i8, ptr %84, i64 49192
+  %vd61.i = getelementptr inbounds nuw i8, ptr %84, i64 49192
   %85 = load ptr, ptr %vd61.i, align 8
-  %mutex.i71.i = getelementptr inbounds i8, ptr %85, i64 152
+  %mutex.i71.i = getelementptr inbounds nuw i8, ptr %85, i64 152
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i71.i, ptr noundef nonnull @.str.5, i32 noundef 55) #11
   %shr.i = lshr i32 %n_rectangles.0.lcssa.i, 8
   %conv62.i = trunc i32 %shr.i to i8
@@ -834,35 +834,35 @@ trace_vnc_job_nrects.exit.i:                      ; preds = %if.else.i.i.i, %if.
   %88 = load ptr, ptr %.lcssa101.i, align 8
   %89 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %90 = inttoptr i64 %89 to ptr
-  %output_mutex.i72.i = getelementptr inbounds i8, ptr %88, i64 49504
+  %output_mutex.i72.i = getelementptr inbounds nuw i8, ptr %88, i64 49504
   call void %90(ptr noundef nonnull %output_mutex.i72.i, ptr noundef nonnull @.str.5, i32 noundef 60) #11
   %91 = load ptr, ptr %.lcssa101.i, align 8
-  %ioc73.i = getelementptr inbounds i8, ptr %91, i64 16
+  %ioc73.i = getelementptr inbounds nuw i8, ptr %91, i64 16
   %92 = load ptr, ptr %ioc73.i, align 8
   %cmp74.not.i = icmp eq ptr %92, null
   br i1 %cmp74.not.i, label %if.else81.i, label %if.then76.i
 
 if.then76.i:                                      ; preds = %trace_vnc_job_nrects.exit.i
-  %jobs_buffer.i = getelementptr inbounds i8, ptr %91, i64 49560
+  %jobs_buffer.i = getelementptr inbounds nuw i8, ptr %91, i64 49560
   call void @buffer_move(ptr noundef nonnull %jobs_buffer.i, ptr noundef nonnull %output26.i) #11
   %93 = load ptr, ptr %.lcssa101.i, align 8
   call void @buffer_free(ptr noundef nonnull %output26.i) #11
   %94 = load ptr, ptr %tight8.i.i, align 8
-  %tight1.i75.i = getelementptr inbounds i8, ptr %93, i64 49600
+  %tight1.i75.i = getelementptr inbounds nuw i8, ptr %93, i64 49600
   store ptr %94, ptr %tight1.i75.i, align 8
-  %zlib.i76.i = getelementptr inbounds i8, ptr %93, i64 49608
+  %zlib.i76.i = getelementptr inbounds nuw i8, ptr %93, i64 49608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %zlib.i76.i, ptr noundef nonnull align 8 dereferenceable(200) %zlib.i.i, i64 200, i1 false)
-  %hextile.i78.i = getelementptr inbounds i8, ptr %93, i64 49808
+  %hextile.i78.i = getelementptr inbounds nuw i8, ptr %93, i64 49808
   %95 = load i64, ptr %hextile.i.i, align 8
   store i64 %95, ptr %hextile.i78.i, align 8
   %96 = load ptr, ptr %zrle11.i.i, align 8
-  %zrle4.i81.i = getelementptr inbounds i8, ptr %93, i64 49816
+  %zrle4.i81.i = getelementptr inbounds nuw i8, ptr %93, i64 49816
   store ptr %96, ptr %zrle4.i81.i, align 8
   %97 = load ptr, ptr %lossy_rect4.i.i, align 8
-  %lossy_rect5.i83.i = getelementptr inbounds i8, ptr %93, i64 49184
+  %lossy_rect5.i83.i = getelementptr inbounds nuw i8, ptr %93, i64 49184
   store ptr %97, ptr %lossy_rect5.i83.i, align 8
   %98 = load ptr, ptr %.lcssa101.i, align 8
-  %bh.i = getelementptr inbounds i8, ptr %98, i64 49552
+  %bh.i = getelementptr inbounds nuw i8, ptr %98, i64 49552
   %99 = load ptr, ptr %bh.i, align 8
   call void @qemu_bh_schedule(ptr noundef %99) #11
   br label %if.end84.i
@@ -872,24 +872,24 @@ if.else81.i:                                      ; preds = %trace_vnc_job_nrect
   %100 = load ptr, ptr %.lcssa101.i, align 8
   call void @buffer_free(ptr noundef nonnull %output26.i) #11
   %101 = load ptr, ptr %tight8.i.i, align 8
-  %tight1.i86.i = getelementptr inbounds i8, ptr %100, i64 49600
+  %tight1.i86.i = getelementptr inbounds nuw i8, ptr %100, i64 49600
   store ptr %101, ptr %tight1.i86.i, align 8
-  %zlib.i87.i = getelementptr inbounds i8, ptr %100, i64 49608
+  %zlib.i87.i = getelementptr inbounds nuw i8, ptr %100, i64 49608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %zlib.i87.i, ptr noundef nonnull align 8 dereferenceable(200) %zlib.i.i, i64 200, i1 false)
-  %hextile.i89.i = getelementptr inbounds i8, ptr %100, i64 49808
+  %hextile.i89.i = getelementptr inbounds nuw i8, ptr %100, i64 49808
   %102 = load i64, ptr %hextile.i.i, align 8
   store i64 %102, ptr %hextile.i89.i, align 8
   %103 = load ptr, ptr %zrle11.i.i, align 8
-  %zrle4.i92.i = getelementptr inbounds i8, ptr %100, i64 49816
+  %zrle4.i92.i = getelementptr inbounds nuw i8, ptr %100, i64 49816
   store ptr %103, ptr %zrle4.i92.i, align 8
   %104 = load ptr, ptr %lossy_rect4.i.i, align 8
-  %lossy_rect5.i94.i = getelementptr inbounds i8, ptr %100, i64 49184
+  %lossy_rect5.i94.i = getelementptr inbounds nuw i8, ptr %100, i64 49184
   store ptr %104, ptr %lossy_rect5.i94.i, align 8
   br label %if.end84.i
 
 if.end84.i:                                       ; preds = %if.else81.i, %if.then76.i
   %105 = load ptr, ptr %.lcssa101.i, align 8
-  %output_mutex.i95.i = getelementptr inbounds i8, ptr %105, i64 49504
+  %output_mutex.i95.i = getelementptr inbounds nuw i8, ptr %105, i64 49504
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i95.i, ptr noundef nonnull @.str.5, i32 noundef 65) #11
   br label %disconnected.i
 
@@ -897,15 +897,15 @@ disconnected.i:                                   ; preds = %if.end84.i, %if.the
   %106 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %107 = inttoptr i64 %106 to ptr
   call void %107(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.1, i32 noundef 74) #11
-  %next87.i = getelementptr inbounds i8, ptr %.lcssa101.i, i64 16
+  %next87.i = getelementptr inbounds nuw i8, ptr %.lcssa101.i, i64 16
   %108 = load ptr, ptr %next87.i, align 8
   %cmp88.not.i = icmp eq ptr %108, null
-  %tql_prev97.i = getelementptr inbounds i8, ptr %.lcssa101.i, i64 24
+  %tql_prev97.i = getelementptr inbounds nuw i8, ptr %.lcssa101.i, i64 24
   %109 = load ptr, ptr %tql_prev97.i, align 8
   br i1 %cmp88.not.i, label %if.else95.i, label %if.then90.i
 
 if.then90.i:                                      ; preds = %disconnected.i
-  %tql_prev94.i = getelementptr inbounds i8, ptr %108, i64 24
+  %tql_prev94.i = getelementptr inbounds nuw i8, ptr %108, i64 24
   store ptr %109, ptr %tql_prev94.i, align 8
   br label %vnc_worker_thread_loop.exit
 
@@ -928,7 +928,7 @@ while.end:                                        ; preds = %while.end5.i
   %111 = load ptr, ptr @queue, align 8
   call void @qemu_cond_destroy(ptr noundef %111) #11
   %112 = load ptr, ptr @queue, align 8
-  %mutex.i = getelementptr inbounds i8, ptr %112, i64 56
+  %mutex.i = getelementptr inbounds nuw i8, ptr %112, i64 56
   call void @qemu_mutex_destroy(ptr noundef nonnull %mutex.i) #11
   call void @g_free(ptr noundef nonnull %arg) #11
   store ptr null, ptr @queue, align 8

@@ -34,7 +34,7 @@ define dso_local void @_ZN4node13AsyncResourceC2EPN2v87IsolateENS1_5LocalINS1_6O
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
-  %env_ = getelementptr inbounds i8, ptr %this, i64 8
+  %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
   %call.i = tail call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %isolate) #9
   br i1 %call.i, label %if.end.i4, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
@@ -79,7 +79,7 @@ _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %entry, %_ZN4no
   %retval.0.i = phi ptr [ %retval.0.i.i, %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %entry ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
   store ptr %retval.0.i, ptr %env_, align 8
-  %resource_ = getelementptr inbounds i8, ptr %this, i64 16
+  %resource_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp.i = icmp eq ptr %resource.coerce, null
   br i1 %cmp.i, label %_ZN2v814PersistentBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i
 
@@ -105,9 +105,9 @@ do.end11:                                         ; preds = %_ZN2v814PersistentB
   %call16 = call { double, double } @_ZN4node13EmitAsyncInitEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKcd(ptr noundef nonnull %isolate, ptr %resource.coerce, ptr noundef %name, double noundef %trigger_async_id) #9
   %12 = extractvalue { double, double } %call16, 0
   %13 = extractvalue { double, double } %call16, 1
-  %async_context_17 = getelementptr inbounds i8, ptr %this, i64 24
+  %async_context_17 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store double %12, ptr %async_context_17, align 8
-  %ref.tmp.sroa.2.0.async_context_17.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
+  %ref.tmp.sroa.2.0.async_context_17.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %13, ptr %ref.tmp.sroa.2.0.async_context_17.sroa_idx, align 8
   ret void
 }
@@ -123,14 +123,14 @@ declare { double, double } @_ZN4node13EmitAsyncInitEPN2v87IsolateENS0_5LocalINS0
 define dso_local void @_ZN4node13AsyncResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
-  %env_ = getelementptr inbounds i8, ptr %this, i64 8
+  %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %env_, align 8
-  %async_context_ = getelementptr inbounds i8, ptr %this, i64 24
+  %async_context_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload = load double, ptr %async_context_, align 8
-  %agg.tmp.sroa.2.0.async_context_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp.sroa.2.0.async_context_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.async_context_.sroa_idx, align 8
   tail call void @_ZN4node16EmitAsyncDestroyEPNS_11EnvironmentENS_13async_contextE(ptr noundef %0, double %agg.tmp.sroa.0.0.copyload, double %agg.tmp.sroa.2.0.copyload) #9
-  %resource_ = getelementptr inbounds i8, ptr %this, i64 16
+  %resource_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %resource_, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit, label %if.end.i
@@ -150,14 +150,14 @@ declare void @_ZN4node16EmitAsyncDestroyEPNS_11EnvironmentENS_13async_contextE(p
 define dso_local void @_ZN4node13AsyncResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
-  %env_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %env_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %env_.i, align 8
-  %async_context_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %async_context_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload.i = load double, ptr %async_context_.i, align 8
-  %agg.tmp.sroa.2.0.async_context_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp.sroa.2.0.async_context_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.2.0.copyload.i = load double, ptr %agg.tmp.sroa.2.0.async_context_.sroa_idx.i, align 8
   tail call void @_ZN4node16EmitAsyncDestroyEPNS_11EnvironmentENS_13async_contextE(ptr noundef %0, double %agg.tmp.sroa.0.0.copyload.i, double %agg.tmp.sroa.2.0.copyload.i) #9
-  %resource_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %resource_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %resource_.i, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %_ZN4node13AsyncResourceD2Ev.exit, label %if.end.i.i
@@ -177,11 +177,11 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZN4node13AsyncResource12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %callback.coerce, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #3 align 2 {
 entry:
-  %env_ = getelementptr inbounds i8, ptr %this, i64 8
+  %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %env_, align 8
-  %isolate_.i = getelementptr inbounds i8, ptr %0, i64 88
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = load ptr, ptr %isolate_.i, align 8
-  %resource_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %resource_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %resource_.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %_ZN4node13AsyncResource12get_resourceEv.exit, label %if.end.i.i
@@ -193,9 +193,9 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN4node13AsyncResource12get_resourceEv.exit:     ; preds = %entry, %if.end.i.i
   %retval.i13.sroa.0.0.i = phi ptr [ %call.i.i, %if.end.i.i ], [ null, %entry ]
-  %async_context_ = getelementptr inbounds i8, ptr %this, i64 24
+  %async_context_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp9.sroa.0.0.copyload = load double, ptr %async_context_, align 8
-  %agg.tmp9.sroa.2.0.async_context_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp9.sroa.2.0.async_context_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp9.sroa.2.0.copyload = load double, ptr %agg.tmp9.sroa.2.0.async_context_.sroa_idx, align 8
   %call16 = tail call ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_8FunctionEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef %1, ptr %retval.i13.sroa.0.0.i, ptr %callback.coerce, i32 noundef %argc, ptr noundef %argv, double %agg.tmp9.sroa.0.0.copyload, double %agg.tmp9.sroa.2.0.copyload) #9
   ret ptr %call16
@@ -206,15 +206,15 @@ declare ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_I
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4node13AsyncResource12get_resourceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %resource_ = getelementptr inbounds i8, ptr %this, i64 16
+  %resource_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %resource_, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN2v89LocalBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %env_ = getelementptr inbounds i8, ptr %this, i64 8
+  %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %env_, align 8
-  %isolate_.i = getelementptr inbounds i8, ptr %1, i64 88
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %1, i64 88
   %2 = load ptr, ptr %isolate_.i, align 8
   %3 = load i64, ptr %0, align 8
   %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %2, i64 noundef %3) #9
@@ -228,11 +228,11 @@ _ZN2v89LocalBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %entry, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZN4node13AsyncResource12MakeCallbackEPKciPN2v85LocalINS3_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %method, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #3 align 2 {
 entry:
-  %env_ = getelementptr inbounds i8, ptr %this, i64 8
+  %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %env_, align 8
-  %isolate_.i = getelementptr inbounds i8, ptr %0, i64 88
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = load ptr, ptr %isolate_.i, align 8
-  %resource_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %resource_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %resource_.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %_ZN4node13AsyncResource12get_resourceEv.exit, label %if.end.i.i
@@ -244,9 +244,9 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN4node13AsyncResource12get_resourceEv.exit:     ; preds = %entry, %if.end.i.i
   %retval.i13.sroa.0.0.i = phi ptr [ %call.i.i, %if.end.i.i ], [ null, %entry ]
-  %async_context_ = getelementptr inbounds i8, ptr %this, i64 24
+  %async_context_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp5.sroa.0.0.copyload = load double, ptr %async_context_, align 8
-  %agg.tmp5.sroa.2.0.async_context_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp5.sroa.2.0.async_context_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp5.sroa.2.0.copyload = load double, ptr %agg.tmp5.sroa.2.0.async_context_.sroa_idx, align 8
   %call9 = tail call ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKciPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef %1, ptr %retval.i13.sroa.0.0.i, ptr noundef %method, i32 noundef %argc, ptr noundef %argv, double %agg.tmp5.sroa.0.0.copyload, double %agg.tmp5.sroa.2.0.copyload) #9
   ret ptr %call9
@@ -257,11 +257,11 @@ declare ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKciP
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZN4node13AsyncResource12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %symbol.coerce, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #3 align 2 {
 entry:
-  %env_ = getelementptr inbounds i8, ptr %this, i64 8
+  %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %env_, align 8
-  %isolate_.i = getelementptr inbounds i8, ptr %0, i64 88
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = load ptr, ptr %isolate_.i, align 8
-  %resource_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %resource_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %resource_.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %_ZN4node13AsyncResource12get_resourceEv.exit, label %if.end.i.i
@@ -273,9 +273,9 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN4node13AsyncResource12get_resourceEv.exit:     ; preds = %entry, %if.end.i.i
   %retval.i13.sroa.0.0.i = phi ptr [ %call.i.i, %if.end.i.i ], [ null, %entry ]
-  %async_context_ = getelementptr inbounds i8, ptr %this, i64 24
+  %async_context_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp9.sroa.0.0.copyload = load double, ptr %async_context_, align 8
-  %agg.tmp9.sroa.2.0.async_context_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp9.sroa.2.0.async_context_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp9.sroa.2.0.copyload = load double, ptr %agg.tmp9.sroa.2.0.async_context_.sroa_idx, align 8
   %call16 = tail call ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_6StringEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef %1, ptr %retval.i13.sroa.0.0.i, ptr %symbol.coerce, i32 noundef %argc, ptr noundef %argv, double %agg.tmp9.sroa.0.0.copyload, double %agg.tmp9.sroa.2.0.copyload) #9
   ret ptr %call16
@@ -286,7 +286,7 @@ declare ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_I
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef double @_ZNK4node13AsyncResource12get_async_idEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %async_context_ = getelementptr inbounds i8, ptr %this, i64 24
+  %async_context_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %async_context_, align 8
   ret double %0
 }
@@ -294,7 +294,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef double @_ZNK4node13AsyncResource20get_trigger_async_idEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %trigger_async_id = getelementptr inbounds i8, ptr %this, i64 32
+  %trigger_async_id = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load double, ptr %trigger_async_id, align 8
   ret double %0
 }
@@ -302,15 +302,15 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node13AsyncResource13CallbackScopeC2EPS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %res) unnamed_addr #3 align 2 {
 entry:
-  %env_ = getelementptr inbounds i8, ptr %res, i64 8
+  %env_ = getelementptr inbounds nuw i8, ptr %res, i64 8
   %0 = load ptr, ptr %env_, align 8
-  %resource_ = getelementptr inbounds i8, ptr %res, i64 16
+  %resource_ = getelementptr inbounds nuw i8, ptr %res, i64 16
   %1 = load ptr, ptr %resource_, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %_ZN2v89LocalBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %isolate_.i = getelementptr inbounds i8, ptr %0, i64 88
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %2 = load ptr, ptr %isolate_.i, align 8
   %3 = load i64, ptr %1, align 8
   %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %2, i64 noundef %3) #9
@@ -318,9 +318,9 @@ if.end.i:                                         ; preds = %entry
 
 _ZN2v89LocalBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %entry, %if.end.i
   %retval.i15.sroa.0.0 = phi ptr [ %call.i, %if.end.i ], [ null, %entry ]
-  %async_context_ = getelementptr inbounds i8, ptr %res, i64 24
+  %async_context_ = getelementptr inbounds nuw i8, ptr %res, i64 24
   %agg.tmp6.sroa.0.0.copyload = load double, ptr %async_context_, align 8
-  %agg.tmp6.sroa.2.0.async_context_.sroa_idx = getelementptr inbounds i8, ptr %res, i64 32
+  %agg.tmp6.sroa.2.0.async_context_.sroa_idx = getelementptr inbounds nuw i8, ptr %res, i64 32
   %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.async_context_.sroa_idx, align 8
   tail call void @_ZN4node13CallbackScopeC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS_13async_contextE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %0, ptr %retval.i15.sroa.0.0, double %agg.tmp6.sroa.0.0.copyload, double %agg.tmp6.sroa.2.0.copyload) #9
   ret void

@@ -36,7 +36,7 @@ define void @Java_sun_security_smartcardio_PlatformPCSC_initialize(ptr noundef %
   %6 = alloca [256 x i8], align 16
   %7 = alloca [256 x i8], align 16
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1352
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1352
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #4
   %12 = icmp eq ptr %11, null
@@ -44,7 +44,7 @@ define void @Java_sun_security_smartcardio_PlatformPCSC_initialize(ptr noundef %
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #4
   %.not.i.i = icmp eq ptr %17, null
@@ -52,7 +52,7 @@ define void @Java_sun_security_smartcardio_PlatformPCSC_initialize(ptr noundef %
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull @.str) #4
   br label %throwNullPointerException.exit
@@ -61,7 +61,7 @@ define void @Java_sun_security_smartcardio_PlatformPCSC_initialize(ptr noundef %
   %24 = tail call ptr @dlopen(ptr noundef nonnull %11, i32 noundef 1) #4
   store ptr %24, ptr @hModule, align 8
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1360
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1360
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %11) #4
   %28 = load ptr, ptr @hModule, align 8
@@ -71,7 +71,7 @@ define void @Java_sun_security_smartcardio_PlatformPCSC_initialize(ptr noundef %
 30:                                               ; preds = %23
   %31 = tail call ptr @dlerror() #4
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #4
   %.not.i.i48 = icmp eq ptr %35, null
@@ -79,7 +79,7 @@ define void @Java_sun_security_smartcardio_PlatformPCSC_initialize(ptr noundef %
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 112
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef %31) #4
   br label %throwNullPointerException.exit
@@ -93,7 +93,7 @@ define void @Java_sun_security_smartcardio_PlatformPCSC_initialize(ptr noundef %
 44:                                               ; preds = %41
   %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 256, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1) #4
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr %48(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #4
   %.not.i.i.i = icmp eq ptr %49, null
@@ -101,7 +101,7 @@ define void @Java_sun_security_smartcardio_PlatformPCSC_initialize(ptr noundef %
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 %53(ptr noundef nonnull %0, ptr noundef nonnull %49, ptr noundef nonnull %7) #4
   br label %findFunction.exit
@@ -110,7 +110,7 @@ findFunction.exit:                                ; preds = %41, %44, %50
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
   store ptr %42, ptr @scardEstablishContext, align 8
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1824
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1824
   %57 = load ptr, ptr %56, align 8
   %58 = call zeroext i8 %57(ptr noundef nonnull %0) #4
   %.not = icmp eq i8 %58, 0
@@ -126,7 +126,7 @@ findFunction.exit:                                ; preds = %41, %44, %50
 63:                                               ; preds = %59
   %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 256, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2) #4
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %67 = load ptr, ptr %66, align 8
   %68 = call ptr %67(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #4
   %.not.i.i.i49 = icmp eq ptr %68, null
@@ -134,7 +134,7 @@ findFunction.exit:                                ; preds = %41, %44, %50
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 112
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 112
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 %72(ptr noundef nonnull %0, ptr noundef nonnull %68, ptr noundef nonnull %6) #4
   br label %findFunction.exit50
@@ -143,7 +143,7 @@ findFunction.exit50:                              ; preds = %59, %63, %69
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   store ptr %61, ptr @scardConnect, align 8
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1824
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1824
   %76 = load ptr, ptr %75, align 8
   %77 = call zeroext i8 %76(ptr noundef nonnull %0) #4
   %.not40 = icmp eq i8 %77, 0
@@ -159,7 +159,7 @@ findFunction.exit50:                              ; preds = %59, %63, %69
 82:                                               ; preds = %78
   %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.3) #4
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %86 = load ptr, ptr %85, align 8
   %87 = call ptr %86(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #4
   %.not.i.i.i51 = icmp eq ptr %87, null
@@ -167,7 +167,7 @@ findFunction.exit50:                              ; preds = %59, %63, %69
 
 88:                                               ; preds = %82
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 112
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 112
   %91 = load ptr, ptr %90, align 8
   %92 = call i32 %91(ptr noundef nonnull %0, ptr noundef nonnull %87, ptr noundef nonnull %5) #4
   br label %findFunction.exit52
@@ -176,7 +176,7 @@ findFunction.exit52:                              ; preds = %78, %82, %88
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   store ptr %80, ptr @scardDisconnect, align 8
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 1824
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1824
   %95 = load ptr, ptr %94, align 8
   %96 = call zeroext i8 %95(ptr noundef nonnull %0) #4
   %.not41 = icmp eq i8 %96, 0
@@ -192,7 +192,7 @@ findFunction.exit52:                              ; preds = %78, %82, %88
 101:                                              ; preds = %97
   %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.4) #4
   %103 = load ptr, ptr %0, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 48
   %105 = load ptr, ptr %104, align 8
   %106 = call ptr %105(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #4
   %.not.i.i.i53 = icmp eq ptr %106, null
@@ -200,7 +200,7 @@ findFunction.exit52:                              ; preds = %78, %82, %88
 
 107:                                              ; preds = %101
   %108 = load ptr, ptr %0, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 112
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 112
   %110 = load ptr, ptr %109, align 8
   %111 = call i32 %110(ptr noundef nonnull %0, ptr noundef nonnull %106, ptr noundef nonnull %4) #4
   br label %findFunction.exit54
@@ -209,7 +209,7 @@ findFunction.exit54:                              ; preds = %97, %101, %107
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   store ptr %99, ptr @scardStatus, align 8
   %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 1824
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1824
   %114 = load ptr, ptr %113, align 8
   %115 = call zeroext i8 %114(ptr noundef nonnull %0) #4
   %.not42 = icmp eq i8 %115, 0
@@ -220,7 +220,7 @@ findFunction.exit54:                              ; preds = %97, %101, %107
   %118 = call fastcc ptr @findFunction(ptr noundef nonnull %0, ptr noundef %117, ptr noundef nonnull @.str.5)
   store ptr %118, ptr @scardGetStatusChange, align 8
   %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 1824
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1824
   %121 = load ptr, ptr %120, align 8
   %122 = call zeroext i8 %121(ptr noundef nonnull %0) #4
   %.not43 = icmp eq i8 %122, 0
@@ -231,7 +231,7 @@ findFunction.exit54:                              ; preds = %97, %101, %107
   %125 = call fastcc ptr @findFunction(ptr noundef nonnull %0, ptr noundef %124, ptr noundef nonnull @.str.6)
   store ptr %125, ptr @scardTransmit, align 8
   %126 = load ptr, ptr %0, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 1824
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1824
   %128 = load ptr, ptr %127, align 8
   %129 = call zeroext i8 %128(ptr noundef nonnull %0) #4
   %.not44 = icmp eq i8 %129, 0
@@ -242,7 +242,7 @@ findFunction.exit54:                              ; preds = %97, %101, %107
   %132 = call fastcc ptr @findFunction(ptr noundef nonnull %0, ptr noundef %131, ptr noundef nonnull @.str.7)
   store ptr %132, ptr @scardListReaders, align 8
   %133 = load ptr, ptr %0, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 1824
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 1824
   %135 = load ptr, ptr %134, align 8
   %136 = call zeroext i8 %135(ptr noundef nonnull %0) #4
   %.not45 = icmp eq i8 %136, 0
@@ -253,7 +253,7 @@ findFunction.exit54:                              ; preds = %97, %101, %107
   %139 = call fastcc ptr @findFunction(ptr noundef nonnull %0, ptr noundef %138, ptr noundef nonnull @.str.8)
   store ptr %139, ptr @scardBeginTransaction, align 8
   %140 = load ptr, ptr %0, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 1824
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 1824
   %142 = load ptr, ptr %141, align 8
   %143 = call zeroext i8 %142(ptr noundef nonnull %0) #4
   %.not46 = icmp eq i8 %143, 0
@@ -264,7 +264,7 @@ findFunction.exit54:                              ; preds = %97, %101, %107
   %146 = call fastcc ptr @findFunction(ptr noundef nonnull %0, ptr noundef %145, ptr noundef nonnull @.str.9)
   store ptr %146, ptr @scardEndTransaction, align 8
   %147 = load ptr, ptr %0, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 1824
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 1824
   %149 = load ptr, ptr %148, align 8
   %150 = call zeroext i8 %149(ptr noundef nonnull %0) #4
   %.not47 = icmp eq i8 %150, 0
@@ -296,7 +296,7 @@ define internal fastcc ptr @findFunction(ptr noundef %0, ptr noundef %1, ptr nou
 7:                                                ; preds = %3
   %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.13, ptr noundef %2) #4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #4
   %.not.i.i = icmp eq ptr %12, null
@@ -304,7 +304,7 @@ define internal fastcc ptr @findFunction(ptr noundef %0, ptr noundef %1, ptr nou
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %4) #4
   br label %throwNullPointerException.exit

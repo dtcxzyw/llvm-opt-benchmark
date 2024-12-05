@@ -9,7 +9,7 @@ define range(i32 -1, 1) i32 @fclose(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.thread, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 2
   %.not48 = icmp eq i16 %5, 0
@@ -42,7 +42,7 @@ define range(i32 -1, 1) i32 @fclose(ptr noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %17
   %21 = tail call ptr @lib_get_streams() #3
   %22 = tail call i32 @nxmutex_lock(ptr noundef %21) #3
-  %23 = getelementptr inbounds i8, ptr %21, i64 640
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 640
   br label %24
 
 24:                                               ; preds = %25, %20
@@ -71,7 +71,7 @@ define range(i32 -1, 1) i32 @fclose(ptr noundef %0) local_unnamed_addr #0 {
   br label %33
 
 33:                                               ; preds = %32, %31
-  %34 = getelementptr inbounds i8, ptr %21, i64 648
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 648
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %0, %35
   br i1 %36, label %37, label %.loopexit
@@ -82,10 +82,10 @@ define range(i32 -1, 1) i32 @fclose(ptr noundef %0) local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %24, %33, %37
   %38 = tail call i32 @nxmutex_unlock(ptr noundef %21) #3
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %40 = load ptr, ptr %39, align 8
   %.not50 = icmp eq ptr %40, null
-  %41 = getelementptr inbounds i8, ptr %0, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %42 = load ptr, ptr %41, align 8
   br i1 %.not50, label %45, label %43
 
@@ -112,15 +112,15 @@ define range(i32 -1, 1) i32 @fclose(ptr noundef %0) local_unnamed_addr #0 {
 54:                                               ; preds = %51, %49
   %.242 = phi i32 [ %53, %51 ], [ %.040, %49 ]
   %.2 = phi i32 [ %.038, %51 ], [ %.039, %49 ]
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = tail call i32 @nxrmutex_destroy(ptr noundef nonnull %55) #3
-  %57 = getelementptr inbounds i8, ptr %0, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %58 = load ptr, ptr %57, align 8
   %.not51 = icmp eq ptr %58, null
   br i1 %.not51, label %65, label %59
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %0, i64 194
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %61 = load i8, ptr %60, align 2
   %62 = and i8 %61, 8
   %63 = icmp eq i8 %62, 0

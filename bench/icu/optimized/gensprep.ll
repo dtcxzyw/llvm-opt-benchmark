@@ -67,7 +67,7 @@ if.end.thread:                                    ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
   %sub = sub nsw i32 0, %call1
   %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %1) #13
   br label %if.then7
@@ -107,7 +107,7 @@ if.then15:                                        ; preds = %if.end9
   br label %return
 
 if.else17:                                        ; preds = %if.end9
-  %arrayidx18 = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %10 = load ptr, ptr %arrayidx18, align 8
   %11 = load i8, ptr getelementptr inbounds (i8, ptr @options, i64 474), align 2
   %tobool20.not = icmp eq i8 %11, 0
@@ -152,9 +152,9 @@ cond.end:                                         ; preds = %if.end26, %cond.fal
 
 if.then41:                                        ; preds = %cond.end
   store i8 46, ptr %call34, align 1
-  %arrayidx43 = getelementptr inbounds i8, ptr %call34, i64 1
+  %arrayidx43 = getelementptr inbounds nuw i8, ptr %call34, i64 1
   store i8 47, ptr %arrayidx43, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %call34, i64 2
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call34, i64 2
   br label %if.end47
 
 if.end47:                                         ; preds = %cond.end, %if.then41
@@ -172,7 +172,7 @@ land.lhs.true52:                                  ; preds = %if.end47
   br i1 %cmp55.not, label %if.end.i, label %if.then57
 
 if.then57:                                        ; preds = %land.lhs.true52
-  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr49, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %add.ptr49, i64 1
   store i8 47, ptr %add.ptr49, align 1
   br label %if.end.i
 
@@ -227,13 +227,13 @@ land.lhs.true73:                                  ; preds = %if.then67
   br i1 %cmp76.not, label %if.end.i52, label %if.then78
 
 if.then78:                                        ; preds = %land.lhs.true73
-  %incdec.ptr79 = getelementptr inbounds i8, ptr %add.ptr70, i64 1
+  %incdec.ptr79 = getelementptr inbounds nuw i8, ptr %add.ptr70, i64 1
   store i8 47, ptr %add.ptr70, align 1
   br label %if.end.i52
 
 if.end.i52:                                       ; preds = %if.then67, %land.lhs.true73, %if.then78
   %basename.1 = phi ptr [ %incdec.ptr79, %if.then78 ], [ %add.ptr70, %land.lhs.true73 ], [ %add.ptr70, %if.then67 ]
-  %incdec.ptr81 = getelementptr inbounds i8, ptr %basename.1, i64 1
+  %incdec.ptr81 = getelementptr inbounds nuw i8, ptr %basename.1, i64 1
   store i8 47, ptr %basename.1, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %incdec.ptr81, ptr noundef nonnull align 1 dereferenceable(29) @.str.5, i64 29, i1 false) #12
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %fields.i50)
@@ -372,10 +372,10 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %arrayidx6 = getelementptr inbounds i8, ptr %fields, i64 16
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %fields, i64 16
   %5 = load ptr, ptr %arrayidx6, align 8
   %call8 = call i32 @u_parseCodePoints(ptr noundef %5, ptr noundef nonnull %mapping, i32 noundef 40, ptr noundef nonnull %pErrorCode) #12
-  %arrayidx10 = getelementptr inbounds i8, ptr %fields, i64 48
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %fields, i64 48
   %6 = load ptr, ptr %arrayidx10, align 8
   call void @u_versionFromString_75(ptr noundef nonnull %version, ptr noundef %6) #12
   call void @u_versionFromString_75(ptr noundef nonnull %thisVersion, ptr noundef nonnull @.str.26) #12
@@ -403,9 +403,9 @@ lor.lhs.false:                                    ; preds = %if.end19
   br i1 %cmp30, label %land.lhs.true, label %if.end40
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %arrayidx32 = getelementptr inbounds i8, ptr %version, i64 1
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %version, i64 1
   %12 = load i8, ptr %arrayidx32, align 1
-  %arrayidx34 = getelementptr inbounds i8, ptr %thisVersion, i64 1
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %thisVersion, i64 1
   %13 = load i8, ptr %arrayidx34, align 1
   %cmp36 = icmp ugt i8 %12, %13
   br i1 %cmp36, label %if.then38, label %if.end40
@@ -449,8 +449,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end24
 
 if.then:                                          ; preds = %entry
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
-  %arrayidx4 = getelementptr inbounds i8, ptr %fields, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %fields, i64 8
   %2 = load ptr, ptr %arrayidx4, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %incdec.ptr to i64
@@ -489,9 +489,9 @@ if.else19:                                        ; preds = %if.then, %land.lhs.
 
 if.end24:                                         ; preds = %if.else19, %entry
   %s.0 = phi ptr [ %incdec.ptr, %if.else19 ], [ %call, %entry ]
-  %arrayidx25 = getelementptr inbounds i8, ptr %fields, i64 32
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %fields, i64 32
   %5 = load ptr, ptr %arrayidx25, align 8
-  %arrayidx27 = getelementptr inbounds i8, ptr %fields, i64 16
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %fields, i64 16
   %6 = load ptr, ptr %arrayidx27, align 8
   %call29 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.33) #14
   %cmp30.not = icmp eq ptr %call29, null
@@ -551,7 +551,7 @@ if.then56:                                        ; preds = %if.else52
   br i1 %cmp59.not, label %lor.lhs.false, label %if.then65
 
 lor.lhs.false:                                    ; preds = %if.then56
-  %arrayidx62 = getelementptr inbounds i8, ptr %fields, i64 8
+  %arrayidx62 = getelementptr inbounds nuw i8, ptr %fields, i64 8
   %16 = load ptr, ptr %arrayidx62, align 8
   %cmp63.not = icmp eq ptr %15, %16
   br i1 %cmp63.not, label %if.end69, label %if.then65

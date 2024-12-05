@@ -36,18 +36,18 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.z_stream_s, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %5, i64 -26
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = add nsw i32 %10, -12
   %12 = shl nuw i32 1, %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 4095
   %18 = lshr i64 %17, 12
@@ -101,7 +101,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef r
   br i1 %48, label %49, label %.loopexit51
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %7, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %51 = zext nneg i32 %39 to i64
   br label %52
 
@@ -128,7 +128,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef r
   br i1 %62, label %91, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %61, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load volatile i64, ptr %64, align 8
   %66 = and i64 %65, 1
   %67 = icmp eq i64 %66, 0
@@ -187,9 +187,9 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef r
   %95 = phi ptr [ %.pre107, %.loopexit51.loopexit ], [ %1, %45 ]
   %96 = getelementptr i8, ptr %5, i64 -27
   %97 = load i8, ptr %96, align 1
-  %98 = getelementptr inbounds i8, ptr %5, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 20
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 20
   %101 = load i8, ptr %100, align 4
   %102 = zext i8 %101 to i32
   %103 = icmp eq ptr %95, null
@@ -203,7 +203,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef r
 105:                                              ; preds = %.loopexit51
   %106 = load i8, ptr %8, align 1
   %107 = zext nneg i8 %106 to i32
-  %108 = getelementptr inbounds i8, ptr %95, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %109 = load i64, ptr %108, align 8
   %110 = shl i64 %109, 12
   %111 = add i64 %110, 4096
@@ -249,19 +249,19 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef r
   br i1 %141, label %142, label %.thread43
 
 142:                                              ; preds = %137
-  %143 = getelementptr inbounds i8, ptr %135, i64 40
+  %143 = getelementptr inbounds nuw i8, ptr %135, i64 40
   %144 = load ptr, ptr %143, align 8
   %145 = and i32 %132, %139
   %146 = zext nneg i32 %145 to i64
   %147 = getelementptr i8, ptr %144, i64 %146
   %148 = load i32, ptr %147, align 4
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds i8, ptr %3, i64 64
-  %151 = getelementptr inbounds i8, ptr %3, i64 32
-  %152 = getelementptr inbounds i8, ptr %3, i64 24
-  %153 = getelementptr inbounds i8, ptr %3, i64 8
-  %154 = getelementptr inbounds i8, ptr %5, i64 64
-  %155 = getelementptr inbounds i8, ptr %3, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %151 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %155 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %156
 
 156:                                              ; preds = %404, %142
@@ -288,7 +288,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef r
 
 173:                                              ; preds = %168, %156
   %174 = phi ptr [ %160, %156 ], [ %171, %168 ]
-  %175 = getelementptr inbounds i8, ptr %174, i64 40
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 40
   %176 = load ptr, ptr %175, align 8
   %177 = zext nneg i32 %166 to i64
   %178 = getelementptr i8, ptr %176, i64 %177
@@ -305,9 +305,9 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef r
   %184 = trunc nuw nsw i64 %162 to i32
   %185 = load i8, ptr %8, align 1
   %186 = load ptr, ptr %98, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %188 = load i64, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %186, i64 20
+  %189 = getelementptr inbounds nuw i8, ptr %186, i64 20
   %190 = load i8, ptr %189, align 4
   %191 = add i64 %188, 4294967295
   %192 = sub nuw nsw i64 %180, %164
@@ -508,7 +508,7 @@ define internal range(i32 -12, 1) i32 @zisofs_read_folio(ptr nocapture noundef r
 
 317:                                              ; preds = %312
   %318 = load ptr, ptr %305, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 40
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 40
   %320 = load ptr, ptr %319, align 8
   %321 = and i64 %267, %196
   %322 = getelementptr i8, ptr %320, i64 %321
@@ -727,7 +727,7 @@ thread-pre-split:                                 ; preds = %.preheader
   br i1 %438, label %471, label %439
 
 439:                                              ; preds = %437
-  %440 = getelementptr inbounds i8, ptr %435, i64 8
+  %440 = getelementptr inbounds nuw i8, ptr %435, i64 8
   %441 = load volatile i64, ptr %440, align 8
   %442 = and i64 %441, 1
   %443 = icmp eq i64 %442, 0
@@ -768,8 +768,8 @@ thread-pre-split:                                 ; preds = %.preheader
 
 464:                                              ; preds = %463, %456, %447, %444
   %465 = phi ptr [ %446, %444 ], [ %462, %456 ], [ %435, %463 ], [ %435, %447 ]
-  %466 = getelementptr inbounds i8, ptr %465, i64 52
-  %467 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %466, ptr elementtype(i32) %466) #9, !srcloc !24
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 52
+  %467 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %466, ptr nonnull elementtype(i32) %466) #9, !srcloc !24
   %468 = icmp ult i8 %467, 2
   call void @llvm.assume(i1 %468)
   %469 = icmp eq i8 %467, 0
@@ -796,7 +796,7 @@ thread-pre-split:                                 ; preds = %.preheader
   br i1 %479, label %480, label %509
 
 480:                                              ; preds = %478
-  %481 = getelementptr inbounds i8, ptr %476, i64 8
+  %481 = getelementptr inbounds nuw i8, ptr %476, i64 8
   %482 = load volatile i64, ptr %481, align 8
   %483 = and i64 %482, 1
   %484 = icmp eq i64 %483, 0
@@ -845,7 +845,7 @@ thread-pre-split:                                 ; preds = %.preheader
 
 509:                                              ; preds = %478
   call void @unlock_page(ptr noundef nonnull %476) #9
-  %510 = getelementptr inbounds i8, ptr %476, i64 8
+  %510 = getelementptr inbounds nuw i8, ptr %476, i64 8
   %511 = load volatile i64, ptr %510, align 8
   %512 = and i64 %511, 1
   %513 = icmp eq i64 %512, 0
@@ -886,8 +886,8 @@ thread-pre-split:                                 ; preds = %.preheader
 
 534:                                              ; preds = %533, %526, %517, %514
   %535 = phi ptr [ %516, %514 ], [ %532, %526 ], [ %476, %533 ], [ %476, %517 ]
-  %536 = getelementptr inbounds i8, ptr %535, i64 52
-  %537 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %536, ptr elementtype(i32) %536) #9, !srcloc !24
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 52
+  %537 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %536, ptr nonnull elementtype(i32) %536) #9, !srcloc !24
   %538 = icmp ult i8 %537, 2
   call void @llvm.assume(i1 %538)
   %539 = icmp eq i8 %537, 0

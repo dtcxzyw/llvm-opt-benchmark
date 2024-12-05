@@ -94,7 +94,7 @@ define internal noundef i64 @php_stream_output_write(ptr nocapture readnone %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i64 @php_stream_output_read(ptr nocapture noundef %0, ptr nocapture readnone %1, i64 %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i16, ptr %4, align 8
   %6 = or i16 %5, 8
   store i16 %6, ptr %4, align 8
@@ -113,7 +113,7 @@ define internal noundef i64 @php_stream_input_write(ptr nocapture readnone %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @php_stream_input_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 248), align 8
   %.not = icmp eq i8 %6, 0
@@ -121,7 +121,7 @@ define internal i64 @php_stream_input_read(ptr nocapture noundef %0, ptr noundef
 
 7:                                                ; preds = %3
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 240), align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %2
   %12 = icmp slt i64 %8, %11
@@ -141,13 +141,13 @@ define internal i64 @php_stream_input_read(ptr nocapture noundef %0, ptr noundef
 
 20:                                               ; preds = %13, %15, %7, %3
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not24 = icmp eq ptr %23, null
   br i1 %.not24, label %24, label %28
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = tail call i32 @_php_stream_seek(ptr noundef nonnull %21, i64 noundef %26, i32 noundef 0) #12
   %.pre = load ptr, ptr %5, align 8
@@ -161,14 +161,14 @@ define internal i64 @php_stream_input_read(ptr nocapture noundef %0, ptr noundef
   br i1 %or.cond, label %32, label %36
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load i16, ptr %33, align 8
   %35 = or i16 %34, 8
   store i16 %35, ptr %33, align 8
   br label %40
 
 36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = add nsw i64 %38, %30
   store i64 %39, ptr %37, align 8
@@ -180,7 +180,7 @@ define internal i64 @php_stream_input_read(ptr nocapture noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_stream_input_close(ptr nocapture noundef %0, i32 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_efree(ptr noundef %4) #12
   store ptr null, ptr %3, align 8
@@ -194,7 +194,7 @@ define internal noundef i32 @php_stream_input_flush(ptr nocapture readnone %0) #
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_stream_input_seek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -203,9 +203,9 @@ define internal i32 @php_stream_input_seek(ptr nocapture noundef readonly %0, i6
 8:                                                ; preds = %4
   %9 = tail call i32 @_php_stream_seek(ptr noundef nonnull %7, i64 noundef %1, i32 noundef %2) #12
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %12, ptr %13, align 8
   store i64 %12, ptr %3, align 8
   br label %14
@@ -224,19 +224,19 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
   %10 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.2, i64 noundef 6) #13
   %.not = icmp eq i32 %10, 0
   %spec.select.idx = select i1 %.not, i64 6, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
   %11 = tail call i32 @strncasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.3, i64 noundef 4) #13
   %.not116 = icmp eq i32 %11, 0
   br i1 %.not116, label %12, label %23
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %spec.select, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
   %14 = tail call i32 @strncasecmp(ptr noundef nonnull %13, ptr noundef nonnull @.str.4, i64 noundef 11) #13
   %.not117 = icmp eq i32 %14, 0
   br i1 %.not117, label %15, label %20
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %spec.select, i64 15
+  %16 = getelementptr inbounds nuw i8, ptr %spec.select, i64 15
   %17 = tail call i64 @strtoll(ptr nocapture noundef nonnull %16, ptr noundef null, i32 noundef 10) #12
   %18 = icmp slt i64 %17, 0
   br i1 %18, label %19, label %20
@@ -441,7 +441,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
   br label %191
 
 104:                                              ; preds = %98, %96
-  %105 = getelementptr inbounds i8, ptr %spec.select, i64 3
+  %105 = getelementptr inbounds nuw i8, ptr %spec.select, i64 3
   %106 = call i64 @strtoll(ptr noundef nonnull %105, ptr noundef nonnull %8, i32 noundef 10) #12
   %107 = load ptr, ptr %8, align 8
   %108 = icmp eq ptr %107, %105
@@ -521,7 +521,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
 
 140:                                              ; preds = %138, %136
   %.1 = phi i32 [ %139, %138 ], [ %.0101, %136 ]
-  %141 = getelementptr inbounds i8, ptr %spec.select, i64 6
+  %141 = getelementptr inbounds nuw i8, ptr %spec.select, i64 6
   %142 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %141) #13
   %143 = tail call noalias ptr @_estrndup(ptr noundef nonnull %141, i64 noundef %142) #12
   %144 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull dereferenceable(1) @.str.22) #13
@@ -534,7 +534,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
   br label %191
 
 146:                                              ; preds = %140
-  %147 = getelementptr inbounds i8, ptr %144, i64 10
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 10
   %148 = tail call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %147, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef null) #12
   %.not150 = icmp eq ptr %148, null
   br i1 %.not150, label %149, label %150
@@ -545,7 +545,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
 
 150:                                              ; preds = %146
   store i8 0, ptr %144, align 1
-  %151 = getelementptr inbounds i8, ptr %143, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %143, i64 1
   %152 = call ptr @strtok_r(ptr noundef nonnull %151, ptr noundef nonnull @.str.24, ptr noundef nonnull %7) #12
   %.not151159 = icmp eq ptr %152, null
   br i1 %.not151159, label %._crit_edge, label %.lr.ph
@@ -562,7 +562,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not153, label %157, label %159
 
 157:                                              ; preds = %155
-  %158 = getelementptr inbounds i8, ptr %.0105160, i64 5
+  %158 = getelementptr inbounds nuw i8, ptr %.0105160, i64 5
   call fastcc void @php_stream_apply_filter_list(ptr noundef %148, ptr noundef %158, i32 noundef 1, i32 noundef 0)
   br label %164
 
@@ -572,7 +572,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not154, label %161, label %163
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds i8, ptr %.0105160, i64 6
+  %162 = getelementptr inbounds nuw i8, ptr %.0105160, i64 6
   call fastcc void @php_stream_apply_filter_list(ptr noundef %148, ptr noundef %162, i32 noundef 0, i32 noundef 1)
   br label %164
 
@@ -614,7 +614,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %174, label %175, label %183
 
 175:                                              ; preds = %.thread
-  %176 = getelementptr inbounds i8, ptr %9, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %177 = load i32, ptr %176, align 8
   %178 = and i32 %177, 61440
   %179 = icmp eq i32 %178, 49152
@@ -726,10 +726,10 @@ define internal fastcc void @php_stream_apply_filter_list(ptr noundef nonnull %0
 
 .lr.ph:                                           ; preds = %4
   %.not17 = icmp eq i32 %2, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not19 = icmp eq i32 %3, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %.not17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph

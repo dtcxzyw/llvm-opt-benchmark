@@ -19,7 +19,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HmacSizeByType, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HmacSizeByType, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -86,7 +86,7 @@ sw.bb25:                                          ; preds = %entry
 
 sw.epilog:                                        ; preds = %entry, %sw.bb25, %sw.bb22, %sw.bb19, %sw.bb16, %sw.bb13, %sw.bb10, %sw.bb7, %sw.bb4, %sw.bb1, %sw.bb
   %ret.0 = phi i32 [ %call27, %sw.bb25 ], [ %call24, %sw.bb22 ], [ %call21, %sw.bb19 ], [ %call18, %sw.bb16 ], [ %call15, %sw.bb13 ], [ %call12, %sw.bb10 ], [ %call9, %sw.bb7 ], [ %call6, %sw.bb4 ], [ %call3, %sw.bb1 ], [ %call, %sw.bb ], [ -173, %entry ]
-  %heap28 = getelementptr inbounds i8, ptr %hmac, i64 768
+  %heap28 = getelementptr inbounds nuw i8, ptr %hmac, i64 768
   store ptr %heap, ptr %heap28, align 16
   ret i32 %ret.0
 }
@@ -138,7 +138,7 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false
   ]
 
 if.end:                                           ; preds = %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3, %lor.lhs.false3
-  %macType = getelementptr inbounds i8, ptr %hmac, i64 776
+  %macType = getelementptr inbounds nuw i8, ptr %hmac, i64 776
   %0 = load i8, ptr %macType, align 8
   %cmp23.not = icmp eq i8 %0, 0
   br i1 %cmp23.not, label %if.end26, label %if.then25
@@ -148,7 +148,7 @@ if.then25:                                        ; preds = %if.end
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then25, %if.end
-  %innerHashKeyed = getelementptr inbounds i8, ptr %hmac, i64 777
+  %innerHashKeyed = getelementptr inbounds nuw i8, ptr %hmac, i64 777
   store i8 0, ptr %innerHashKeyed, align 1
   %conv27 = trunc nuw i32 %type to i8
   store i8 %conv27, ptr %macType, align 8
@@ -157,8 +157,8 @@ if.end26:                                         ; preds = %if.then25, %if.end
   br i1 %cmp29.not, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.end26
-  %ipad = getelementptr inbounds i8, ptr %hmac, i64 416
-  %opad = getelementptr inbounds i8, ptr %hmac, i64 560
+  %ipad = getelementptr inbounds nuw i8, ptr %hmac, i64 416
+  %opad = getelementptr inbounds nuw i8, ptr %hmac, i64 560
   %1 = load i8, ptr %macType, align 8
   switch i8 %1, label %return [
     i8 3, label %sw.bb
@@ -356,7 +356,7 @@ if.then265:                                       ; preds = %if.then265.sink.spl
 
 if.then268:                                       ; preds = %if.then265
   %idx.ext = zext nneg i32 %length.addr.0186 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %ipad, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ipad, i64 %idx.ext
   %sub = sub nuw nsw i32 %hmac_block_size.0187, %length.addr.0186
   %conv269 = zext nneg i32 %sub to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %conv269, i1 false)
@@ -368,10 +368,10 @@ if.end270:                                        ; preds = %if.then268, %if.the
 
 for.body:                                         ; preds = %if.end270, %for.body
   %indvars.iv = phi i64 [ 0, %if.end270 ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds i8, ptr %ipad, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %ipad, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
   %3 = xor i8 %2, 92
-  %arrayidx276 = getelementptr inbounds i8, ptr %opad, i64 %indvars.iv
+  %arrayidx276 = getelementptr inbounds nuw i8, ptr %opad, i64 %indvars.iv
   store i8 %3, ptr %arrayidx276, align 1
   %4 = xor i8 %2, 54
   store i8 %4, ptr %arrayidx, align 1
@@ -391,7 +391,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %macType = getelementptr inbounds i8, ptr %hmac, i64 776
+  %macType = getelementptr inbounds nuw i8, ptr %hmac, i64 776
   %0 = load i8, ptr %macType, align 8
   switch i8 %0, label %sw.epilog [
     i8 3, label %sw.bb
@@ -463,7 +463,7 @@ while.body.i:                                     ; preds = %sw.epilog, %while.b
   %l.114.i = phi i32 [ %dec.i, %while.body.i ], [ %conv.i, %sw.epilog ]
   %z.013.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %hmac, %sw.epilog ]
   %dec.i = add nsw i32 %l.114.i, -1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %z.013.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %z.013.i, i64 1
   store volatile i8 0, ptr %z.013.i, align 1
   %tobool.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !6
@@ -475,7 +475,7 @@ while.cond9.preheader.i:                          ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %w.017.i.ph, %for.body.i.preheader ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %sub3.i, %for.body.i.preheader ]
-  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
+  %incdec.ptr7.i = getelementptr inbounds nuw i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
@@ -485,7 +485,7 @@ while.body12.i:                                   ; preds = %while.cond9.prehead
   %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %while.cond9.preheader.i ]
   %len.addr.121.i = phi i32 [ %dec10.i, %while.body12.i ], [ %sub8.i, %while.cond9.preheader.i ]
   %dec10.i = add i32 %len.addr.121.i, -1
-  %incdec.ptr13.i = getelementptr inbounds i8, ptr %z.122.i, i64 1
+  %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %z.122.i, i64 1
   store volatile i8 0, ptr %z.122.i, align 1
   %tobool11.not.i = icmp eq i32 %dec10.i, 0
   br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !8
@@ -553,7 +553,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %innerHashKeyed = getelementptr inbounds i8, ptr %hmac, i64 777
+  %innerHashKeyed = getelementptr inbounds nuw i8, ptr %hmac, i64 777
   %0 = load i8, ptr %innerHashKeyed, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.then3, label %if.end7
@@ -564,7 +564,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp4.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.then3, %if.end
-  %macType = getelementptr inbounds i8, ptr %hmac, i64 776
+  %macType = getelementptr inbounds nuw i8, ptr %hmac, i64 776
   %1 = load i8, ptr %macType, align 8
   switch i8 %1, label %return [
     i8 3, label %sw.bb
@@ -627,7 +627,7 @@ return:                                           ; preds = %sw.bb, %sw.bb9, %sw
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @HmacKeyInnerHash(ptr noundef nonnull %hmac) unnamed_addr #1 {
 entry:
-  %macType = getelementptr inbounds i8, ptr %hmac, i64 776
+  %macType = getelementptr inbounds nuw i8, ptr %hmac, i64 776
   %0 = load i8, ptr %macType, align 8
   switch i8 %0, label %if.then [
     i8 3, label %sw.bb
@@ -643,52 +643,52 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %ipad = getelementptr inbounds i8, ptr %hmac, i64 416
+  %ipad = getelementptr inbounds nuw i8, ptr %hmac, i64 416
   %call = tail call i32 @wc_Md5Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad, i32 noundef 64) #8
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %ipad3 = getelementptr inbounds i8, ptr %hmac, i64 416
+  %ipad3 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
   %call5 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad3, i32 noundef 64) #8
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
-  %ipad8 = getelementptr inbounds i8, ptr %hmac, i64 416
+  %ipad8 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
   %call10 = tail call i32 @wc_Sha224Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad8, i32 noundef 64) #8
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %ipad13 = getelementptr inbounds i8, ptr %hmac, i64 416
+  %ipad13 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
   %call15 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad13, i32 noundef 64) #8
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
-  %ipad18 = getelementptr inbounds i8, ptr %hmac, i64 416
+  %ipad18 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
   %call20 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad18, i32 noundef 128) #8
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %entry
-  %ipad23 = getelementptr inbounds i8, ptr %hmac, i64 416
+  %ipad23 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
   %call25 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad23, i32 noundef 128) #8
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %entry
-  %ipad28 = getelementptr inbounds i8, ptr %hmac, i64 416
+  %ipad28 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
   %call30 = tail call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad28, i32 noundef 144) #8
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %entry
-  %ipad33 = getelementptr inbounds i8, ptr %hmac, i64 416
+  %ipad33 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
   %call35 = tail call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad33, i32 noundef 136) #8
   br label %sw.epilog
 
 sw.bb36:                                          ; preds = %entry
-  %ipad38 = getelementptr inbounds i8, ptr %hmac, i64 416
+  %ipad38 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
   %call40 = tail call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad38, i32 noundef 104) #8
   br label %sw.epilog
 
 sw.bb41:                                          ; preds = %entry
-  %ipad43 = getelementptr inbounds i8, ptr %hmac, i64 416
+  %ipad43 = getelementptr inbounds nuw i8, ptr %hmac, i64 416
   %call45 = tail call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad43, i32 noundef 72) #8
   br label %sw.epilog
 
@@ -698,7 +698,7 @@ sw.epilog:                                        ; preds = %sw.bb41, %sw.bb36, 
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %sw.epilog
-  %innerHashKeyed = getelementptr inbounds i8, ptr %hmac, i64 777
+  %innerHashKeyed = getelementptr inbounds nuw i8, ptr %hmac, i64 777
   store i8 1, ptr %innerHashKeyed, align 1
   br label %if.end
 
@@ -716,7 +716,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %innerHashKeyed = getelementptr inbounds i8, ptr %hmac, i64 777
+  %innerHashKeyed = getelementptr inbounds nuw i8, ptr %hmac, i64 777
   %0 = load i8, ptr %innerHashKeyed, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.then2, label %if.end6
@@ -727,7 +727,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp3.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %macType = getelementptr inbounds i8, ptr %hmac, i64 776
+  %macType = getelementptr inbounds nuw i8, ptr %hmac, i64 776
   %1 = load i8, ptr %macType, align 8
   switch i8 %1, label %return [
     i8 3, label %sw.bb
@@ -743,13 +743,13 @@ if.end6:                                          ; preds = %if.then2, %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end6
-  %innerHash = getelementptr inbounds i8, ptr %hmac, i64 704
+  %innerHash = getelementptr inbounds nuw i8, ptr %hmac, i64 704
   %call8 = tail call i32 @wc_Md5Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash) #8
   %cmp9.not = icmp eq i32 %call8, 0
   br i1 %cmp9.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %sw.bb
-  %opad = getelementptr inbounds i8, ptr %hmac, i64 560
+  %opad = getelementptr inbounds nuw i8, ptr %hmac, i64 560
   %call15 = tail call i32 @wc_Md5Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad, i32 noundef 64) #8
   %cmp16.not = icmp eq i32 %call15, 0
   br i1 %cmp16.not, label %if.end19, label %return
@@ -764,13 +764,13 @@ if.end27:                                         ; preds = %if.end19
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %if.end6
-  %innerHash32 = getelementptr inbounds i8, ptr %hmac, i64 704
+  %innerHash32 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
   %call34 = tail call i32 @wc_ShaFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash32) #8
   %cmp35.not = icmp eq i32 %call34, 0
   br i1 %cmp35.not, label %if.end38, label %return
 
 if.end38:                                         ; preds = %sw.bb30
-  %opad40 = getelementptr inbounds i8, ptr %hmac, i64 560
+  %opad40 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
   %call42 = tail call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %opad40, i32 noundef 64) #8
   %cmp43.not = icmp eq i32 %call42, 0
   br i1 %cmp43.not, label %if.end46, label %return
@@ -785,13 +785,13 @@ if.end54:                                         ; preds = %if.end46
   br label %sw.epilog
 
 sw.bb57:                                          ; preds = %if.end6
-  %innerHash59 = getelementptr inbounds i8, ptr %hmac, i64 704
+  %innerHash59 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
   %call61 = tail call i32 @wc_Sha224Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash59) #8
   %cmp62.not = icmp eq i32 %call61, 0
   br i1 %cmp62.not, label %if.end65, label %return
 
 if.end65:                                         ; preds = %sw.bb57
-  %opad67 = getelementptr inbounds i8, ptr %hmac, i64 560
+  %opad67 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
   %call69 = tail call i32 @wc_Sha224Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad67, i32 noundef 64) #8
   %cmp70.not = icmp eq i32 %call69, 0
   br i1 %cmp70.not, label %if.end73, label %return
@@ -806,13 +806,13 @@ if.end81:                                         ; preds = %if.end73
   br label %sw.epilog
 
 sw.bb88:                                          ; preds = %if.end6
-  %innerHash90 = getelementptr inbounds i8, ptr %hmac, i64 704
+  %innerHash90 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
   %call92 = tail call i32 @wc_Sha256Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash90) #8
   %cmp93.not = icmp eq i32 %call92, 0
   br i1 %cmp93.not, label %if.end96, label %return
 
 if.end96:                                         ; preds = %sw.bb88
-  %opad98 = getelementptr inbounds i8, ptr %hmac, i64 560
+  %opad98 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
   %call100 = tail call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad98, i32 noundef 64) #8
   %cmp101.not = icmp eq i32 %call100, 0
   br i1 %cmp101.not, label %if.end104, label %return
@@ -827,13 +827,13 @@ if.end112:                                        ; preds = %if.end104
   br label %sw.epilog
 
 sw.bb115:                                         ; preds = %if.end6
-  %innerHash117 = getelementptr inbounds i8, ptr %hmac, i64 704
+  %innerHash117 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
   %call119 = tail call i32 @wc_Sha384Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash117) #8
   %cmp120.not = icmp eq i32 %call119, 0
   br i1 %cmp120.not, label %if.end123, label %return
 
 if.end123:                                        ; preds = %sw.bb115
-  %opad125 = getelementptr inbounds i8, ptr %hmac, i64 560
+  %opad125 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
   %call127 = tail call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad125, i32 noundef 128) #8
   %cmp128.not = icmp eq i32 %call127, 0
   br i1 %cmp128.not, label %if.end131, label %return
@@ -848,13 +848,13 @@ if.end139:                                        ; preds = %if.end131
   br label %sw.epilog
 
 sw.bb142:                                         ; preds = %if.end6
-  %innerHash144 = getelementptr inbounds i8, ptr %hmac, i64 704
+  %innerHash144 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
   %call146 = tail call i32 @wc_Sha512Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash144) #8
   %cmp147.not = icmp eq i32 %call146, 0
   br i1 %cmp147.not, label %if.end150, label %return
 
 if.end150:                                        ; preds = %sw.bb142
-  %opad152 = getelementptr inbounds i8, ptr %hmac, i64 560
+  %opad152 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
   %call154 = tail call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad152, i32 noundef 128) #8
   %cmp155.not = icmp eq i32 %call154, 0
   br i1 %cmp155.not, label %if.end158, label %return
@@ -869,13 +869,13 @@ if.end166:                                        ; preds = %if.end158
   br label %sw.epilog
 
 sw.bb169:                                         ; preds = %if.end6
-  %innerHash171 = getelementptr inbounds i8, ptr %hmac, i64 704
+  %innerHash171 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
   %call173 = tail call i32 @wc_Sha3_224_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash171) #8
   %cmp174.not = icmp eq i32 %call173, 0
   br i1 %cmp174.not, label %if.end177, label %return
 
 if.end177:                                        ; preds = %sw.bb169
-  %opad179 = getelementptr inbounds i8, ptr %hmac, i64 560
+  %opad179 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
   %call181 = tail call i32 @wc_Sha3_224_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad179, i32 noundef 144) #8
   %cmp182.not = icmp eq i32 %call181, 0
   br i1 %cmp182.not, label %if.end185, label %return
@@ -890,13 +890,13 @@ if.end193:                                        ; preds = %if.end185
   br label %sw.epilog
 
 sw.bb196:                                         ; preds = %if.end6
-  %innerHash198 = getelementptr inbounds i8, ptr %hmac, i64 704
+  %innerHash198 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
   %call200 = tail call i32 @wc_Sha3_256_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash198) #8
   %cmp201.not = icmp eq i32 %call200, 0
   br i1 %cmp201.not, label %if.end204, label %return
 
 if.end204:                                        ; preds = %sw.bb196
-  %opad206 = getelementptr inbounds i8, ptr %hmac, i64 560
+  %opad206 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
   %call208 = tail call i32 @wc_Sha3_256_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad206, i32 noundef 136) #8
   %cmp209.not = icmp eq i32 %call208, 0
   br i1 %cmp209.not, label %if.end212, label %return
@@ -911,13 +911,13 @@ if.end220:                                        ; preds = %if.end212
   br label %sw.epilog
 
 sw.bb223:                                         ; preds = %if.end6
-  %innerHash225 = getelementptr inbounds i8, ptr %hmac, i64 704
+  %innerHash225 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
   %call227 = tail call i32 @wc_Sha3_384_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash225) #8
   %cmp228.not = icmp eq i32 %call227, 0
   br i1 %cmp228.not, label %if.end231, label %return
 
 if.end231:                                        ; preds = %sw.bb223
-  %opad233 = getelementptr inbounds i8, ptr %hmac, i64 560
+  %opad233 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
   %call235 = tail call i32 @wc_Sha3_384_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad233, i32 noundef 104) #8
   %cmp236.not = icmp eq i32 %call235, 0
   br i1 %cmp236.not, label %if.end239, label %return
@@ -932,13 +932,13 @@ if.end247:                                        ; preds = %if.end239
   br label %sw.epilog
 
 sw.bb250:                                         ; preds = %if.end6
-  %innerHash252 = getelementptr inbounds i8, ptr %hmac, i64 704
+  %innerHash252 = getelementptr inbounds nuw i8, ptr %hmac, i64 704
   %call254 = tail call i32 @wc_Sha3_512_Final(ptr noundef nonnull %hmac, ptr noundef nonnull %innerHash252) #8
   %cmp255.not = icmp eq i32 %call254, 0
   br i1 %cmp255.not, label %if.end258, label %return
 
 if.end258:                                        ; preds = %sw.bb250
-  %opad260 = getelementptr inbounds i8, ptr %hmac, i64 560
+  %opad260 = getelementptr inbounds nuw i8, ptr %hmac, i64 560
   %call262 = tail call i32 @wc_Sha3_512_Update(ptr noundef nonnull %hmac, ptr noundef nonnull %opad260, i32 noundef 72) #8
   %cmp263.not = icmp eq i32 %call262, 0
   br i1 %cmp263.not, label %if.end266, label %return
@@ -973,7 +973,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %heap1 = getelementptr inbounds i8, ptr %hmac, i64 768
+  %heap1 = getelementptr inbounds nuw i8, ptr %hmac, i64 768
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %hmac, i8 0, i64 784, i1 false)
   store ptr %heap, ptr %heap1, align 16
   br label %return
@@ -1030,7 +1030,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 if.then2:                                         ; preds = %switch.lookup
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %conv = zext nneg i32 %switch.load to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %tmp, i8 0, i64 %conv, i1 false)
@@ -1039,7 +1039,7 @@ if.then2:                                         ; preds = %switch.lookup
 if.then9:                                         ; preds = %switch.lookup, %if.then2
   %saltSz.addr.0 = phi i32 [ %switch.load, %if.then2 ], [ %saltSz, %switch.lookup ]
   %localSalt.0 = phi ptr [ %tmp, %if.then2 ], [ %salt, %switch.lookup ]
-  %heap1.i = getelementptr inbounds i8, ptr %myHmac, i64 768
+  %heap1.i = getelementptr inbounds nuw i8, ptr %myHmac, i64 768
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %myHmac, i8 0, i64 784, i1 false)
   store ptr %heap, ptr %heap1.i, align 16
   %call11 = call i32 @wc_HmacSetKey(ptr noundef nonnull %myHmac, i32 noundef %type, ptr noundef nonnull %localSalt.0, i32 noundef %saltSz.addr.0)
@@ -1088,7 +1088,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 if.then2.i:                                       ; preds = %switch.lookup
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %conv.i = zext nneg i32 %switch.load to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %tmp.i, i8 0, i64 %conv.i, i1 false)
@@ -1142,7 +1142,7 @@ switch.hole_check:                                ; preds = %entry
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %cmp1 = icmp eq ptr %out, null
   br i1 %cmp1, label %return, label %lor.lhs.false
@@ -1157,7 +1157,7 @@ lor.lhs.false:                                    ; preds = %switch.lookup
   br i1 %cmp3, label %return, label %if.end11
 
 if.end11:                                         ; preds = %lor.lhs.false
-  %heap1.i = getelementptr inbounds i8, ptr %myHmac, i64 768
+  %heap1.i = getelementptr inbounds nuw i8, ptr %myHmac, i64 768
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %myHmac, i8 0, i64 784, i1 false)
   store ptr %heap, ptr %heap1.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %tmp, i8 0, i64 64, i1 false)
@@ -1197,7 +1197,7 @@ if.end42:                                         ; preds = %if.end36
 if.end49:                                         ; preds = %if.end42
   %cond.i = call range(i32 0, 65) i32 @llvm.umin.i32(i32 %sub, i32 range(i32 0, 65) %switch.load)
   %idx.ext = zext i32 %outIdx.029 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %out, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 %idx.ext
   %conv52 = zext nneg i32 %cond.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 16 %tmp, i64 %conv52, i1 false)
   %add53 = add i32 %outIdx.029, %switch.load

@@ -77,9 +77,9 @@ define void @png_set_bKGD(ptr noalias noundef readnone %0, ptr noalias noundef %
   br i1 %or.cond3, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 202
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 202
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %8, ptr noundef nonnull align 2 dereferenceable(10) %2, i64 10, i1 false)
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = or i32 %10, 32
   store i32 %11, ptr %9, align 8
@@ -102,27 +102,27 @@ define void @png_set_cHRM_fixed(ptr noalias noundef %0, ptr noalias noundef %1, 
 
 14:                                               ; preds = %10
   store i32 %4, ptr %11, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %5, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %6, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %11, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %7, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %11, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %8, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %11, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 %9, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %11, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %2, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %11, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 %3, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %23 = call i32 @png_colorspace_set_chromaticities(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %11, i32 noundef 2) #12
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %1, i64 126
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %26 = load i16, ptr %25, align 2
   %27 = or i16 %26, 16
   store i16 %27, ptr %25, align 2
@@ -150,29 +150,29 @@ define void @png_set_cHRM_XYZ_fixed(ptr noalias noundef %0, ptr noalias noundef 
 
 15:                                               ; preds = %11
   store i32 %2, ptr %12, align 4
-  %16 = getelementptr inbounds i8, ptr %12, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %3, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %4, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %12, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %5, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %12, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %6, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %12, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 %7, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %12, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %8, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %12, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store i32 %9, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %12, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 %10, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %25 = call i32 @png_colorspace_set_endpoints(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull %12, i32 noundef 2) #12
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %30, label %26
 
 26:                                               ; preds = %15
-  %27 = getelementptr inbounds i8, ptr %1, i64 126
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %28 = load i16, ptr %27, align 2
   %29 = or i16 %28, 16
   store i16 %29, ptr %27, align 2
@@ -208,27 +208,27 @@ define void @png_set_cHRM(ptr noalias noundef %0, ptr noalias noundef %1, double
 
 22:                                               ; preds = %10
   store i32 %14, ptr %11, align 4, !noalias !7
-  %23 = getelementptr inbounds i8, ptr %11, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %15, ptr %23, align 4, !noalias !7
-  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %16, ptr %24, align 4, !noalias !7
-  %25 = getelementptr inbounds i8, ptr %11, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %17, ptr %25, align 4, !noalias !7
-  %26 = getelementptr inbounds i8, ptr %11, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %18, ptr %26, align 4, !noalias !7
-  %27 = getelementptr inbounds i8, ptr %11, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 %19, ptr %27, align 4, !noalias !7
-  %28 = getelementptr inbounds i8, ptr %11, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %12, ptr %28, align 4, !noalias !7
-  %29 = getelementptr inbounds i8, ptr %11, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 %13, ptr %29, align 4, !noalias !7
-  %30 = getelementptr inbounds i8, ptr %1, i64 52
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %31 = call i32 @png_colorspace_set_chromaticities(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %11, i32 noundef 2) #12
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %36, label %32
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %1, i64 126
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %34 = load i16, ptr %33, align 2, !alias.scope !4, !noalias !9
   %35 = or i16 %34, 16
   store i16 %35, ptr %33, align 2, !alias.scope !4, !noalias !9
@@ -266,29 +266,29 @@ define void @png_set_cHRM_XYZ(ptr noalias noundef %0, ptr noalias noundef %1, do
 
 24:                                               ; preds = %11
   store i32 %13, ptr %12, align 4, !noalias !13
-  %25 = getelementptr inbounds i8, ptr %12, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %14, ptr %25, align 4, !noalias !13
-  %26 = getelementptr inbounds i8, ptr %12, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %15, ptr %26, align 4, !noalias !13
-  %27 = getelementptr inbounds i8, ptr %12, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %16, ptr %27, align 4, !noalias !13
-  %28 = getelementptr inbounds i8, ptr %12, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %17, ptr %28, align 4, !noalias !13
-  %29 = getelementptr inbounds i8, ptr %12, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 %18, ptr %29, align 4, !noalias !13
-  %30 = getelementptr inbounds i8, ptr %12, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %19, ptr %30, align 4, !noalias !13
-  %31 = getelementptr inbounds i8, ptr %12, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store i32 %20, ptr %31, align 4, !noalias !13
-  %32 = getelementptr inbounds i8, ptr %12, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 %21, ptr %32, align 4, !noalias !13
-  %33 = getelementptr inbounds i8, ptr %1, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %34 = call i32 @png_colorspace_set_endpoints(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef nonnull %12, i32 noundef 2) #12
   %.not.i = icmp eq i32 %34, 0
   br i1 %.not.i, label %39, label %35
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %1, i64 126
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %37 = load i16, ptr %36, align 2, !alias.scope !10, !noalias !15
   %38 = or i16 %37, 16
   store i16 %38, ptr %36, align 2, !alias.scope !10, !noalias !15
@@ -319,7 +319,7 @@ define void @png_set_eXIf_1(ptr noalias noundef %0, ptr noalias noundef %1, i32 
   br i1 %or.cond, label %25, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 300
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 16384
   %.not = icmp eq i32 %10, 0
@@ -338,15 +338,15 @@ define void @png_set_eXIf_1(ptr noalias noundef %0, ptr noalias noundef %1, i32 
 16:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %3, i64 %12, i1 false)
   tail call void @png_free_data(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 32768, i32 noundef 0) #12
-  %17 = getelementptr inbounds i8, ptr %1, i64 236
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 %2, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 240
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %13, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 300
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %20 = load i32, ptr %19, align 4
   %21 = or i32 %20, 32768
   store i32 %21, ptr %19, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = or i32 %23, 65536
   store i32 %24, ptr %22, align 8
@@ -368,7 +368,7 @@ define void @png_set_gAMA_fixed(ptr noalias noundef %0, ptr noalias noundef %1, 
   br i1 %or.cond, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
   tail call void @png_colorspace_set_gamma(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %2) #12
   tail call void @png_colorspace_sync_info(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   br label %8
@@ -388,7 +388,7 @@ define void @png_set_gAMA(ptr noalias noundef %0, ptr noalias noundef %1, double
   br i1 %or.cond.i, label %png_set_gAMA_fixed.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 52
   tail call void @png_colorspace_set_gamma(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %4) #12
   tail call void @png_colorspace_sync_info(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   br label %png_set_gAMA_fixed.exit
@@ -405,7 +405,7 @@ define void @png_set_hIST(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %or.cond, label %30, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i16, ptr %7, align 8
   %9 = add i16 %8, -257
   %or.cond23 = icmp ult i16 %9, -256
@@ -418,7 +418,7 @@ define void @png_set_hIST(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 11:                                               ; preds = %6
   tail call void @png_free_data(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 8, i32 noundef 0) #12
   %12 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef 512) #12
-  %13 = getelementptr inbounds i8, ptr %1, i64 256
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 256
   store ptr %12, ptr %13, align 8
   %14 = icmp eq ptr %12, null
   br i1 %14, label %16, label %.preheader
@@ -434,10 +434,10 @@ define void @png_set_hIST(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %17 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds i16, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
   store i16 %18, ptr %20, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i16, ptr %7, align 8
@@ -446,11 +446,11 @@ define void @png_set_hIST(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %24 = getelementptr inbounds i8, ptr %1, i64 300
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, 8
   store i32 %26, ptr %24, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = or i32 %28, 64
   store i32 %29, ptr %27, align 8
@@ -469,22 +469,22 @@ define void @png_set_IHDR(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
 
 12:                                               ; preds = %9
   store i32 %2, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %3, ptr %13, align 4
   %14 = trunc i32 %4 to i8
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i8 %14, ptr %15, align 4
   %16 = trunc i32 %5 to i8
-  %17 = getelementptr inbounds i8, ptr %1, i64 37
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 37
   store i8 %16, ptr %17, align 1
   %18 = trunc i32 %7 to i8
-  %19 = getelementptr inbounds i8, ptr %1, i64 38
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %18, ptr %19, align 2
   %20 = trunc i32 %8 to i8
-  %21 = getelementptr inbounds i8, ptr %1, i64 39
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %20, ptr %21, align 1
   %22 = trunc i32 %6 to i8
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 %22, ptr %23, align 8
   %24 = and i32 %4, 255
   %25 = and i32 %5, 255
@@ -497,14 +497,14 @@ define void @png_set_IHDR(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %30, label %.thread, label %32
 
 .thread:                                          ; preds = %12
-  %31 = getelementptr inbounds i8, ptr %1, i64 41
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 41
   store i8 1, ptr %31, align 1
   br label %38
 
 32:                                               ; preds = %12
   %33 = and i8 %29, 2
   %spec.select = or disjoint i8 %33, 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 41
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 41
   store i8 %spec.select, ptr %34, align 1
   %35 = and i8 %29, 4
   %.not42 = icmp eq i8 %35, 0
@@ -519,7 +519,7 @@ define void @png_set_IHDR(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   %39 = phi i8 [ 1, %.thread ], [ %37, %36 ], [ %spec.select, %32 ]
   %40 = load i8, ptr %15, align 4
   %41 = mul i8 %40, %39
-  %42 = getelementptr inbounds i8, ptr %1, i64 42
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 42
   store i8 %41, ptr %42, align 2
   %43 = icmp ugt i8 %41, 7
   %44 = zext i32 %2 to i64
@@ -540,7 +540,7 @@ define void @png_set_IHDR(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
 
 54:                                               ; preds = %49, %45
   %55 = phi i64 [ %48, %45 ], [ %53, %49 ]
-  %56 = getelementptr inbounds i8, ptr %1, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %55, ptr %56, align 8
   br label %57
 
@@ -558,14 +558,14 @@ define void @png_set_oFFs(ptr noalias noundef readnone %0, ptr noalias noundef %
   br i1 %or.cond, label %16, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 212
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 %2, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 216
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store i32 %3, ptr %10, align 8
   %11 = trunc i32 %4 to i8
-  %12 = getelementptr inbounds i8, ptr %1, i64 220
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 220
   store i8 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = or i32 %14, 256
   store i32 %15, ptr %13, align 8
@@ -625,7 +625,7 @@ define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %30, label %27
@@ -642,7 +642,7 @@ define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 
 ._crit_edge:                                      ; preds = %23, %.preheader
   %31 = tail call noalias ptr @png_malloc_warn(ptr noundef %0, i64 noundef %19) #12
-  %32 = getelementptr inbounds i8, ptr %1, i64 264
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
   br i1 %33, label %34, label %35
@@ -653,24 +653,24 @@ define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 
 35:                                               ; preds = %._crit_edge
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %2, i64 %19, i1 false)
-  %36 = getelementptr inbounds i8, ptr %1, i64 300
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %37 = load i32, ptr %36, align 4
   %38 = or i32 %37, 128
   store i32 %38, ptr %36, align 4
-  %39 = getelementptr inbounds i8, ptr %1, i64 272
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 %3, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 276
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 276
   store i32 %4, ptr %40, align 4
   %41 = trunc nuw nsw i32 %5 to i8
-  %42 = getelementptr inbounds i8, ptr %1, i64 296
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store i8 %41, ptr %42, align 8
   %43 = trunc nuw i32 %6 to i8
-  %44 = getelementptr inbounds i8, ptr %1, i64 297
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 297
   store i8 %43, ptr %44, align 1
   %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #13
   %46 = add i64 %45, 1
   %47 = tail call noalias ptr @png_malloc_warn(ptr noundef %0, i64 noundef %46) #12
-  %48 = getelementptr inbounds i8, ptr %1, i64 280
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store ptr %47, ptr %48, align 8
   %49 = icmp eq ptr %47, null
   br i1 %49, label %50, label %51
@@ -685,7 +685,7 @@ define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   %53 = add nuw nsw i32 %52, 8
   %54 = zext nneg i32 %53 to i64
   %55 = tail call noalias ptr @png_malloc_warn(ptr noundef %0, i64 noundef %54) #12
-  %56 = getelementptr inbounds i8, ptr %1, i64 288
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store ptr %55, ptr %56, align 8
   %57 = icmp eq ptr %55, null
   br i1 %57, label %58, label %59
@@ -705,16 +705,16 @@ define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 
 .lr.ph98:                                         ; preds = %.lr.ph98.preheader, %72
   %indvars.iv103 = phi i64 [ 0, %.lr.ph98.preheader ], [ %indvars.iv.next104, %72 ]
-  %60 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv103
+  %60 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv103
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #13
   %63 = add i64 %62, 1
   %64 = tail call noalias ptr @png_malloc_warn(ptr noundef %0, i64 noundef %63) #12
   %65 = load ptr, ptr %56, align 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv103
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv103
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %56, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv103
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv103
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %72
@@ -731,7 +731,7 @@ define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %exitcond107.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !19
 
 ._crit_edge99:                                    ; preds = %72, %59
-  %74 = getelementptr inbounds i8, ptr %1, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load i32, ptr %74, align 8
   %76 = or i32 %75, 1024
   store i32 %76, ptr %74, align 8
@@ -815,11 +815,11 @@ define void @png_set_sCAL_s(ptr noalias noundef %0, ptr noalias noundef %1, i32 
 
 33:                                               ; preds = %30
   %34 = trunc nuw i32 %2 to i8
-  %35 = getelementptr inbounds i8, ptr %1, i64 332
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i8 %34, ptr %35, align 4
   %36 = add i64 %14, 1
   %37 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef %36) #12
-  %38 = getelementptr inbounds i8, ptr %1, i64 336
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store ptr %37, ptr %38, align 8
   %39 = icmp eq ptr %37, null
   br i1 %39, label %40, label %41
@@ -832,7 +832,7 @@ define void @png_set_sCAL_s(ptr noalias noundef %0, ptr noalias noundef %1, i32 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %3, i64 %36, i1 false)
   %42 = add i64 %25, 1
   %43 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef %42) #12
-  %44 = getelementptr inbounds i8, ptr %1, i64 344
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 344
   store ptr %43, ptr %44, align 8
   %45 = icmp eq ptr %43, null
   br i1 %45, label %46, label %48
@@ -846,11 +846,11 @@ define void @png_set_sCAL_s(ptr noalias noundef %0, ptr noalias noundef %1, i32 
 
 48:                                               ; preds = %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %4, i64 %42, i1 false)
-  %49 = getelementptr inbounds i8, ptr %1, i64 300
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %50 = load i32, ptr %49, align 4
   %51 = or i32 %50, 256
   store i32 %51, ptr %49, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = or i32 %53, 16384
   store i32 %54, ptr %52, align 8
@@ -935,14 +935,14 @@ define void @png_set_pHYs(ptr noalias noundef readnone %0, ptr noalias noundef %
   br i1 %or.cond, label %16, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store i32 %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 228
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 228
   store i32 %3, ptr %10, align 4
   %11 = trunc i32 %4 to i8
-  %12 = getelementptr inbounds i8, ptr %1, i64 232
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i8 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = or i32 %14, 128
   store i32 %15, ptr %13, align 8
@@ -960,13 +960,13 @@ define void @png_set_PLTE(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %or.cond, label %47, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 37
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i8, ptr %12, align 4
   %14 = zext nneg i8 %13 to i32
   %15 = shl nuw i32 1, %14
@@ -998,7 +998,7 @@ define void @png_set_PLTE(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 992
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 1
   %28 = icmp eq i32 %27, 0
@@ -1011,7 +1011,7 @@ define void @png_set_PLTE(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 30:                                               ; preds = %24, %22
   tail call void @png_free_data(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 4096, i32 noundef 0) #12
   %31 = tail call noalias ptr @png_calloc(ptr noundef nonnull %0, i64 noundef 768) #12
-  %32 = getelementptr inbounds i8, ptr %0, i64 592
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store ptr %31, ptr %32, align 8
   br i1 %20, label %33, label %36
 
@@ -1022,18 +1022,18 @@ define void @png_set_PLTE(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br label %36
 
 36:                                               ; preds = %33, %30
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %31, ptr %37, align 8
   %38 = trunc i32 %3 to i16
-  %39 = getelementptr inbounds i8, ptr %0, i64 600
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store i16 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i16 %38, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 300
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %42 = load i32, ptr %41, align 4
   %43 = or i32 %42, 4096
   store i32 %43, ptr %41, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = or i32 %45, 8
   store i32 %46, ptr %44, align 8
@@ -1055,9 +1055,9 @@ define void @png_set_sBIT(ptr noalias noundef readnone %0, ptr noalias noundef %
   br i1 %or.cond3, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %8, ptr noundef nonnull align 1 dereferenceable(5) %2, i64 5, i1 false)
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = or i32 %10, 2
   store i32 %11, ptr %9, align 8
@@ -1075,7 +1075,7 @@ define void @png_set_sRGB(ptr noalias noundef %0, ptr noalias noundef %1, i32 no
   br i1 %or.cond, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %8 = tail call i32 @png_colorspace_set_sRGB(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %2) #12
   tail call void @png_colorspace_sync_info(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
   br label %9
@@ -1094,13 +1094,13 @@ define void @png_set_sRGB_gAMA_and_cHRM(ptr noalias noundef %0, ptr noalias noun
   br i1 %or.cond, label %14, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %8 = tail call i32 @png_colorspace_set_sRGB(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %2) #12
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 126
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %11 = load i16, ptr %10, align 2
   %12 = or i16 %11, 24
   store i16 %12, ptr %10, align 2
@@ -1134,8 +1134,8 @@ define void @png_set_iCCP(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br label %13
 
 13:                                               ; preds = %12, %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 52
-  %15 = getelementptr inbounds i8, ptr %1, i64 37
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = tail call i32 @png_colorspace_set_ICC(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %2, i32 noundef %5, ptr noundef nonnull %4, i32 noundef %17) #12
@@ -1144,7 +1144,7 @@ define void @png_set_iCCP(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %19, label %44, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %1, i64 126
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %22 = load i16, ptr %21, align 2
   %23 = or i16 %22, 24
   store i16 %23, ptr %21, align 2
@@ -1173,17 +1173,17 @@ define void @png_set_iCCP(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 34:                                               ; preds = %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %4, i64 %30, i1 false)
   tail call void @png_free_data(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 16, i32 noundef 0) #12
-  %35 = getelementptr inbounds i8, ptr %1, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 %5, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %26, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store ptr %31, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 300
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %39 = load i32, ptr %38, align 4
   %40 = or i32 %39, 16
   store i32 %40, ptr %38, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = or i32 %42, 4096
   store i32 %43, ptr %41, align 8
@@ -1225,9 +1225,9 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   br i1 %or.cond5, label %.loopexit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 148
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %13 = load i32, ptr %12, align 4
   %14 = sub nsw i32 %11, %13
   %15 = icmp sgt i32 %3, %14
@@ -1244,7 +1244,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   %21 = and i32 %19, -8
   %22 = add nsw i32 %21, 8
   %.1134 = select i1 %20, i32 %22, i32 2147483647
-  %23 = getelementptr inbounds i8, ptr %1, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %24 = load ptr, ptr %23, align 8
   %25 = sub nsw i32 %.1134, %13
   %26 = tail call noalias ptr @png_realloc_array(ptr noundef nonnull %0, ptr noundef %24, i32 noundef %13, i32 noundef %25, i64 noundef 56) #12
@@ -1255,7 +1255,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   %29 = load ptr, ptr %23, align 8
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef %29) #12
   store ptr %26, ptr %23, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 300
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %31 = load i32, ptr %30, align 4
   %32 = or i32 %31, 16384
   store i32 %32, ptr %30, align 4
@@ -1263,7 +1263,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %28
-  %33 = getelementptr inbounds i8, ptr %1, i64 160
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %34
 
@@ -1273,8 +1273,8 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   %36 = load i32, ptr %12, align 4
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds %struct.png_text_struct, ptr %35, i64 %37
-  %39 = getelementptr inbounds %struct.png_text_struct, ptr %2, i64 %indvars.iv
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %39 = getelementptr inbounds nuw %struct.png_text_struct, ptr %2, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %121, label %43
@@ -1295,7 +1295,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   br i1 %49, label %60, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %39, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %52 = load ptr, ptr %51, align 8
   %.not146 = icmp eq ptr %52, null
   br i1 %.not146, label %55, label %53
@@ -1306,7 +1306,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
 
 55:                                               ; preds = %50, %53
   %.1 = phi i64 [ %54, %53 ], [ 0, %50 ]
-  %56 = getelementptr inbounds i8, ptr %39, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %57 = load ptr, ptr %56, align 8
   %.not147 = icmp eq ptr %57, null
   br i1 %.not147, label %60, label %58
@@ -1318,7 +1318,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
 60:                                               ; preds = %55, %47, %58
   %.0129 = phi i64 [ %.1, %58 ], [ 0, %47 ], [ %.1, %55 ]
   %.0128 = phi i64 [ %59, %58 ], [ 0, %47 ], [ 0, %55 ]
-  %61 = getelementptr inbounds i8, ptr %39, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %67, label %64
@@ -1346,7 +1346,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   %73 = add i64 %72, %.0128
   %74 = add i64 %73, %.0131
   %75 = tail call noalias ptr @png_malloc_base(ptr noundef %0, i64 noundef %74) #12
-  %76 = getelementptr inbounds i8, ptr %38, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %75, ptr %76, align 8
   %77 = icmp eq ptr %75, null
   br i1 %77, label %.loopexit.sink.split, label %78
@@ -1364,10 +1364,10 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
 84:                                               ; preds = %78
   %85 = load ptr, ptr %76, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 %48
-  %87 = getelementptr inbounds i8, ptr %86, i64 1
-  %88 = getelementptr inbounds i8, ptr %38, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store ptr %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %39, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %90 = load ptr, ptr %89, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr align 1 %90, i64 %.0129, i1 false)
   %91 = load ptr, ptr %88, align 8
@@ -1375,10 +1375,10 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   store i8 0, ptr %92, align 1
   %93 = load ptr, ptr %88, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 %.0129
-  %95 = getelementptr inbounds i8, ptr %94, i64 1
-  %96 = getelementptr inbounds i8, ptr %38, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store ptr %95, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %39, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %98 = load ptr, ptr %97, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr align 1 %98, i64 %.0128, i1 false)
   %99 = load ptr, ptr %96, align 8
@@ -1389,7 +1389,7 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   br label %107
 
 103:                                              ; preds = %78
-  %104 = getelementptr inbounds i8, ptr %38, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %38, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
   %105 = load ptr, ptr %76, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 %48
@@ -1397,8 +1397,8 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
 
 107:                                              ; preds = %103, %84
   %.pn = phi ptr [ %102, %84 ], [ %106, %103 ]
-  %108 = getelementptr inbounds i8, ptr %.pn, i64 1
-  %109 = getelementptr inbounds i8, ptr %38, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %108, ptr %109, align 8
   %.not148 = icmp eq i64 %.0131, 0
   br i1 %.not148, label %112, label %110
@@ -1417,9 +1417,9 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   %116 = icmp sgt i32 %115, 0
   %spec.select = select i1 %116, i64 0, i64 %.0131
   %spec.select155 = select i1 %116, i64 %.0131, i64 0
-  %117 = getelementptr inbounds i8, ptr %38, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i64 %spec.select, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %38, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store i64 %spec.select155, ptr %118, align 8
   %119 = load i32, ptr %12, align 4
   %120 = add nsw i32 %119, 1
@@ -1455,40 +1455,40 @@ define void @png_set_tIME(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %or.cond3, label %38, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 300
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 512
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %38
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %2, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %13 = load i8, ptr %12, align 2
   %14 = add i8 %13, -13
   %or.cond22 = icmp ult i8 %14, -12
   br i1 %or.cond22, label %31, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %2, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %17 = load i8, ptr %16, align 1
   %18 = add i8 %17, -32
   %or.cond23 = icmp ult i8 %18, -31
   br i1 %or.cond23, label %31, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %21 = load i8, ptr %20, align 2
   %22 = icmp ugt i8 %21, 23
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %2, i64 5
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %25 = load i8, ptr %24, align 1
   %26 = icmp ugt i8 %25, 59
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %2, i64 6
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %29 = load i8, ptr %28, align 2
   %30 = icmp ugt i8 %29, 60
   br i1 %30, label %31, label %32
@@ -1498,10 +1498,10 @@ define void @png_set_tIME(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br label %38
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %1, i64 168
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %34 = load i64, ptr %2, align 2
   store i64 %34, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = or i32 %36, 512
   store i32 %37, ptr %35, align 8
@@ -1529,21 +1529,21 @@ define void @png_set_tRNS(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %or.cond3, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 184
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 184
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %21
 
 11:                                               ; preds = %9
   %12 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 256) #12
-  %13 = getelementptr inbounds i8, ptr %1, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store ptr %12, ptr %13, align 8
   %14 = zext nneg i32 %3 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr nonnull align 1 %2, i64 %14, i1 false)
-  %15 = getelementptr inbounds i8, ptr %1, i64 300
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 8192
   store i32 %17, ptr %15, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = or i32 %19, 16
   store i32 %20, ptr %18, align 8
@@ -1551,7 +1551,7 @@ define void @png_set_tRNS(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 
 21:                                               ; preds = %._crit_edge, %11
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %12, %11 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 744
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 744
   store ptr %22, ptr %23, align 8
   br label %24
 
@@ -1560,7 +1560,7 @@ define void @png_set_tRNS(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %.not47, label %58, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %1, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %27 = load i8, ptr %26, align 4
   %28 = icmp ult i8 %27, 16
   br i1 %28, label %29, label %.thread49
@@ -1569,7 +1569,7 @@ define void @png_set_tRNS(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   %30 = zext nneg i8 %27 to i32
   %notmask = shl nsw i32 -1, %30
   %31 = xor i32 %notmask, -1
-  %32 = getelementptr inbounds i8, ptr %1, i64 37
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %33 = load i8, ptr %32, align 1
   switch i8 %33, label %.thread49 [
     i8 0, label %34
@@ -1577,28 +1577,28 @@ define void @png_set_tRNS(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   ]
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
   %38 = icmp samesign ugt i32 %37, %31
   br i1 %38, label %54, label %.thread49
 
 39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %4, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i32
   %43 = icmp samesign ugt i32 %42, %31
   br i1 %43, label %54, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %4, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
   %48 = icmp samesign ugt i32 %47, %31
   br i1 %48, label %54, label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %4, i64 6
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i32
   %53 = icmp samesign ugt i32 %52, %31
@@ -1609,27 +1609,27 @@ define void @png_set_tRNS(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br label %.thread49
 
 .thread49:                                        ; preds = %29, %25, %54, %49, %34
-  %55 = getelementptr inbounds i8, ptr %1, i64 192
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %55, ptr noundef nonnull align 2 dereferenceable(10) %4, i64 10, i1 false)
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %3, i32 1)
   %56 = trunc i32 %spec.store.select to i16
-  %57 = getelementptr inbounds i8, ptr %1, i64 34
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 34
   store i16 %56, ptr %57, align 2
   br label %61
 
 58:                                               ; preds = %24
   %59 = trunc i32 %3 to i16
-  %60 = getelementptr inbounds i8, ptr %1, i64 34
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 34
   store i16 %59, ptr %60, align 2
   %.not48 = icmp eq i32 %3, 0
   br i1 %.not48, label %68, label %61
 
 61:                                               ; preds = %.thread49, %58
-  %62 = getelementptr inbounds i8, ptr %1, i64 300
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %63 = load i32, ptr %62, align 4
   %64 = or i32 %63, 8192
   store i32 %64, ptr %62, align 4
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = or i32 %66, 16
   store i32 %67, ptr %65, align 8
@@ -1653,9 +1653,9 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %or.cond5, label %.thread, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %13 = load i32, ptr %12, align 8
   %14 = tail call noalias ptr @png_realloc_array(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %13, i32 noundef %3, i64 noundef 32) #12
   %15 = icmp eq ptr %14, null
@@ -1665,14 +1665,14 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   %17 = load ptr, ptr %10, align 8
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef %17) #12
   store ptr %14, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 300
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, 32
   store i32 %20, ptr %18, align 4
   %21 = load i32, ptr %12, align 8
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds %struct.png_sPLT_struct, ptr %14, i64 %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %25
 
 25:                                               ; preds = %62, %16
@@ -1684,7 +1684,7 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %.0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %33
@@ -1694,9 +1694,9 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br label %62
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %.0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %35 = load i8, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.053, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.053, i64 8
   store i8 %35, ptr %36, align 8
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #13
   %38 = add i64 %37, 1
@@ -1708,10 +1708,10 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 41:                                               ; preds = %33
   %42 = load ptr, ptr %.0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %42, i64 %38, i1 false)
-  %43 = getelementptr inbounds i8, ptr %.0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %44 = load i32, ptr %43, align 8
   %45 = tail call noalias ptr @png_malloc_array(ptr noundef %0, i32 noundef %44, i64 noundef 10) #12
-  %46 = getelementptr inbounds i8, ptr %.053, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.053, i64 16
   store ptr %45, ptr %46, align 8
   %47 = icmp eq ptr %45, null
   br i1 %47, label %48, label %50
@@ -1724,7 +1724,7 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
 
 50:                                               ; preds = %41
   %51 = load i32, ptr %43, align 8
-  %52 = getelementptr inbounds i8, ptr %.053, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.053, i64 24
   store i32 %51, ptr %52, align 8
   %53 = load ptr, ptr %29, align 8
   %54 = zext i32 %51 to i64
@@ -1736,8 +1736,8 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   %58 = load i32, ptr %12, align 8
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr %12, align 8
-  %60 = getelementptr inbounds i8, ptr %.053, i64 32
-  %61 = getelementptr inbounds i8, ptr %.0, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %.053, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   br label %62
 
 62:                                               ; preds = %50, %32
@@ -1774,9 +1774,9 @@ define void @png_set_unknown_chunks(ptr noalias noundef %0, ptr noalias noundef 
   br i1 %or.cond5, label %.loopexit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 304
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 312
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %13 = load i32, ptr %12, align 8
   %14 = tail call noalias ptr @png_realloc_array(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %13, i32 noundef %3, i64 noundef 32) #12
   %15 = icmp eq ptr %14, null
@@ -1790,14 +1790,14 @@ define void @png_set_unknown_chunks(ptr noalias noundef %0, ptr noalias noundef 
   %17 = load ptr, ptr %10, align 8
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef %17) #12
   store ptr %14, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 300
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, 512
   store i32 %20, ptr %18, align 4
   %21 = load i32, ptr %12, align 8
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %14, i64 %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 300
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 300
   br label %25
 
 25:                                               ; preds = %.lr.ph, %64
@@ -1805,9 +1805,9 @@ define void @png_set_unknown_chunks(ptr noalias noundef %0, ptr noalias noundef 
   %.04555 = phi i32 [ %3, %.lr.ph ], [ %65, %64 ]
   %.04654 = phi ptr [ %2, %.lr.ph ], [ %66, %64 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.056, ptr noundef nonnull align 8 dereferenceable(5) %.04654, i64 5, i1 false)
-  %26 = getelementptr inbounds i8, ptr %.056, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.056, i64 4
   store i8 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %.04654, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.04654, i64 24
   %28 = load i8, ptr %27, align 8
   %29 = and i8 %28, 11
   %30 = zext nneg i8 %29 to i32
@@ -1845,21 +1845,21 @@ define void @png_set_unknown_chunks(ptr noalias noundef %0, ptr noalias noundef 
 
 check_location.exit:                              ; preds = %.preheader.i
   %43 = trunc nuw nsw i32 %.1.i to i8
-  %44 = getelementptr inbounds i8, ptr %.056, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.056, i64 24
   store i8 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %.04654, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.04654, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %check_location.exit
-  %49 = getelementptr inbounds i8, ptr %.056, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.056, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   br label %60
 
 50:                                               ; preds = %check_location.exit
   %51 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %46) #12
-  %52 = getelementptr inbounds i8, ptr %.056, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.056, i64 8
   store ptr %51, ptr %52, align 8
   %53 = icmp eq ptr %51, null
   br i1 %53, label %54, label %55
@@ -1869,16 +1869,16 @@ check_location.exit:                              ; preds = %.preheader.i
   br label %64
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %.04654, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.04654, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = load i64, ptr %45, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr align 1 %57, i64 %58, i1 false)
-  %59 = getelementptr inbounds i8, ptr %.056, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.056, i64 16
   store i64 %58, ptr %59, align 8
   br label %60
 
 60:                                               ; preds = %55, %48
-  %61 = getelementptr inbounds i8, ptr %.056, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %.056, i64 32
   %62 = load i32, ptr %12, align 8
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %12, align 8
@@ -1887,7 +1887,7 @@ check_location.exit:                              ; preds = %.preheader.i
 64:                                               ; preds = %60, %54
   %.1 = phi ptr [ %61, %60 ], [ %.056, %54 ]
   %65 = add nsw i32 %.04555, -1
-  %66 = getelementptr inbounds i8, ptr %.04654, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %.04654, i64 32
   %67 = icmp sgt i32 %.04555, 1
   br i1 %67, label %25, label %.loopexit, !llvm.loop !26
 
@@ -1905,7 +1905,7 @@ define void @png_set_unknown_chunk_location(ptr noalias noundef %0, ptr noalias 
   br i1 %or.cond3, label %8, label %37
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 312
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %10 = load i32, ptr %9, align 8
   %11 = icmp slt i32 %2, %10
   br i1 %11, label %12, label %37
@@ -1933,7 +1933,7 @@ define void @png_set_unknown_chunk_location(ptr noalias noundef %0, ptr noalias 
   br label %.preheader.i
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 300
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %22 = load i32, ptr %21, align 4, !alias.scope !27
   %23 = and i32 %22, 32768
   %24 = icmp eq i32 %23, 0
@@ -1960,10 +1960,10 @@ define void @png_set_unknown_chunk_location(ptr noalias noundef %0, ptr noalias 
 
 check_location.exit:                              ; preds = %.preheader.i
   %32 = trunc nuw nsw i32 %.1.i to i8
-  %33 = getelementptr inbounds i8, ptr %1, i64 304
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i32 %2 to i64
-  %36 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %34, i64 %35, i32 3
+  %36 = getelementptr inbounds nuw %struct.png_unknown_chunk_t, ptr %34, i64 %35, i32 3
   store i8 %32, ptr %36, align 8
   br label %37
 
@@ -1978,7 +1978,7 @@ define range(i32 0, 6) i32 @png_permit_mng_features(ptr noalias noundef writeonl
 
 4:                                                ; preds = %2
   %5 = and i32 %1, 5
-  %6 = getelementptr inbounds i8, ptr %0, i64 992
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 992
   store i32 %5, ptr %6, align 8
   br label %7
 
@@ -2005,7 +2005,7 @@ define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1,
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 960
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 960
   store i32 %1, ptr %11, align 8
   %12 = icmp eq i32 %3, 0
   br i1 %12, label %72, label %.thread
@@ -2021,9 +2021,9 @@ define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1,
 .thread:                                          ; preds = %10, %13
   %.070 = phi ptr [ %2, %13 ], [ @png_set_keep_unknown_chunks.chunks_to_ignore, %10 ]
   %.066 = phi i32 [ %3, %13 ], [ 18, %10 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 964
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 964
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 968
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %spec.store.select = select i1 %20, i32 0, i32 %17
@@ -2074,7 +2074,7 @@ define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1,
   %indvars.iv105 = phi i64 [ 0, %.lr.ph.i.preheader.us.preheader ], [ %indvars.iv.next106, %add_one_chunk.exit.us ]
   %36 = mul i64 %indvars.iv105, 5
   %37 = and i64 %36, 4294967295
-  %38 = getelementptr inbounds i8, ptr %.070, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %.070, i64 %37
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %40
@@ -2086,7 +2086,7 @@ define void @png_set_keep_unknown_chunks(ptr noalias noundef %0, i32 noundef %1,
 
 40:                                               ; preds = %.lr.ph.i.us
   %41 = add nuw i32 %.023.i.us, 1
-  %42 = getelementptr inbounds i8, ptr %.01722.i.us, i64 5
+  %42 = getelementptr inbounds nuw i8, ptr %.01722.i.us, i64 5
   %exitcond.not.i.us = icmp eq i32 %41, %spec.store.select
   br i1 %exitcond.not.i.us, label %add_one_chunk.exit.us, label %.lr.ph.i.us, !llvm.loop !30
 
@@ -2096,7 +2096,7 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   br i1 %exitcond110.not, label %.preheader, label %.lr.ph.i.preheader.us, !llvm.loop !31
 
 .sink.split.i.loopexit.us:                        ; preds = %.lr.ph.i.us
-  %43 = getelementptr inbounds i8, ptr %.01722.i.us, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.01722.i.us, i64 4
   store i8 0, ptr %43, align 1
   br label %add_one_chunk.exit.us
 
@@ -2111,7 +2111,7 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   %.06591 = phi i32 [ %spec.store.select, %.preheader89 ], [ %.016.ph.i, %.sink.split.i ]
   %44 = mul i64 %indvars.iv, 5
   %45 = and i64 %44, 4294967295
-  %46 = getelementptr inbounds i8, ptr %.070, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %.070, i64 %45
   %.not24.i = icmp eq i32 %.06591, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2124,7 +2124,7 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
 
 48:                                               ; preds = %.lr.ph.i
   %49 = add nuw i32 %.023.i, 1
-  %50 = getelementptr inbounds i8, ptr %.01722.i, i64 5
+  %50 = getelementptr inbounds nuw i8, ptr %.01722.i, i64 5
   %exitcond.not.i = icmp eq i32 %49, %.06591
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
 
@@ -2138,7 +2138,7 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
 .sink.split.i:                                    ; preds = %.lr.ph.i, %._crit_edge.i
   %.017.lcssa.sink.i = phi ptr [ %.017.lcssa.i, %._crit_edge.i ], [ %.01722.i, %.lr.ph.i ]
   %.016.ph.i = phi i32 [ %51, %._crit_edge.i ], [ %.06591, %.lr.ph.i ]
-  %53 = getelementptr inbounds i8, ptr %.017.lcssa.sink.i, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.017.lcssa.sink.i, i64 4
   store i8 %35, ptr %53, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2149,7 +2149,7 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   %.06297 = phi ptr [ %.163, %61 ], [ %.068115117, %.preheader ]
   %.06495 = phi ptr [ %63, %61 ], [ %.068115117, %.preheader ]
   %.16794 = phi i32 [ %.2, %61 ], [ 0, %.preheader ]
-  %54 = getelementptr inbounds i8, ptr %.06495, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.06495, i64 4
   %55 = load i8, ptr %54, align 1
   %.not84 = icmp eq i8 %55, 0
   br i1 %.not84, label %61, label %56
@@ -2163,7 +2163,7 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   br label %58
 
 58:                                               ; preds = %57, %56
-  %59 = getelementptr inbounds i8, ptr %.06297, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.06297, i64 5
   %60 = add i32 %.16794, 1
   br label %61
 
@@ -2171,7 +2171,7 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   %.2 = phi i32 [ %60, %58 ], [ %.16794, %.lr.ph ]
   %.163 = phi ptr [ %59, %58 ], [ %.06297, %.lr.ph ]
   %62 = add nuw i32 %.198, 1
-  %63 = getelementptr inbounds i8, ptr %.06495, i64 5
+  %63 = getelementptr inbounds nuw i8, ptr %.06495, i64 5
   %exitcond111.not = icmp eq i32 %62, %.us-phi
   br i1 %exitcond111.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
@@ -2224,9 +2224,9 @@ define void @png_set_read_user_chunk_fn(ptr noalias noundef writeonly %0, ptr no
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 952
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 952
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 944
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 944
   store ptr %1, ptr %7, align 8
   br label %8
 
@@ -2242,7 +2242,7 @@ define void @png_set_rows(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %or.cond, label %15, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 352
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   %.not14 = icmp eq ptr %8, %2
@@ -2259,7 +2259,7 @@ define void @png_set_rows(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   br i1 %.not15, label %15, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = or i32 %13, 32768
   store i32 %14, ptr %12, align 8
@@ -2284,7 +2284,7 @@ define void @png_set_compression_buffer_size(ptr noalias noundef %0, i64 noundef
   unreachable
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 300
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 32768
   %.not = icmp eq i32 %10, 0
@@ -2292,12 +2292,12 @@ define void @png_set_compression_buffer_size(ptr noalias noundef %0, i64 noundef
 
 11:                                               ; preds = %7
   %12 = trunc nuw nsw i64 %1 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 1136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store i32 %12, ptr %13, align 8
   br label %28
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 312
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %16 = load i32, ptr %15, align 8
   %.not22 = icmp eq i32 %16, 0
   br i1 %.not22, label %18, label %17
@@ -2315,14 +2315,14 @@ define void @png_set_compression_buffer_size(ptr noalias noundef %0, i64 noundef
   br label %28
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 440
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %.not23 = icmp eq i64 %1, %24
   br i1 %.not23, label %28, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 432
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @png_free_buffer_list(ptr noundef nonnull %0, ptr noundef nonnull %26) #12
   %27 = trunc nuw nsw i64 %1 to i32
   store i32 %27, ptr %22, align 8
@@ -2343,7 +2343,7 @@ define void @png_set_invalid(ptr noalias noundef readnone %0, ptr noalias nounde
 
 6:                                                ; preds = %3
   %7 = xor i32 %2, -1
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, %7
   store i32 %10, ptr %8, align 8
@@ -2359,9 +2359,9 @@ define void @png_set_user_limits(ptr noalias noundef writeonly %0, i32 noundef %
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 1060
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1060
   store i32 %1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 1064
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   store i32 %2, ptr %7, align 8
   br label %8
 
@@ -2375,7 +2375,7 @@ define void @png_set_chunk_cache_max(ptr noalias noundef writeonly %0, i32 nound
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 1068
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1068
   store i32 %1, ptr %4, align 4
   br label %5
 
@@ -2389,7 +2389,7 @@ define void @png_set_chunk_malloc_max(ptr noalias noundef writeonly %0, i64 noun
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 1072
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   store i64 %1, ptr %4, align 8
   br label %5
 
@@ -2400,7 +2400,7 @@ define void @png_set_chunk_malloc_max(ptr noalias noundef writeonly %0, i64 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @png_set_benign_errors(ptr noalias nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, -7340033
   %masksel = select i1 %.not, i32 0, i32 7340032
@@ -2413,7 +2413,7 @@ define void @png_set_benign_errors(ptr noalias nocapture noundef %0, i32 noundef
 define void @png_set_check_for_invalid_index(ptr noalias nocapture noundef writeonly initializes((604, 608)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp slt i32 %1, 1
   %spec.select = sext i1 %3 to i32
-  %4 = getelementptr inbounds i8, ptr %0, i64 604
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 604
   store i32 %spec.select, ptr %4, align 4
   ret void
 }
@@ -2440,7 +2440,7 @@ define range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noun
   %.04357 = phi i32 [ %.144, %23 ], [ 0, %.preheader ]
   %.04656 = phi ptr [ %9, %23 ], [ %1, %.preheader ]
   %.04755 = phi ptr [ %.148, %23 ], [ %2, %.preheader ]
-  %9 = getelementptr inbounds i8, ptr %.04656, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.04656, i64 1
   %10 = zext i8 %8 to i32
   %11 = add i8 %8, -127
   %or.cond = icmp ult i8 %11, -94
@@ -2449,7 +2449,7 @@ define range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noun
   br i1 %or.cond5.not, label %16, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.04755, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.04755, i64 1
   store i8 %8, ptr %.04755, align 1
   %15 = add nuw nsw i32 %.04357, 1
   br label %23
@@ -2459,7 +2459,7 @@ define range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noun
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.04755, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.04755, i64 1
   store i8 32, ptr %.04755, align 1
   %20 = add nuw nsw i32 %.04357, 1
   %.not53 = icmp eq i8 %8, 32

@@ -30,13 +30,13 @@ define dso_local void @SubTransSetParent(i32 noundef %0, i32 noundef %1) local_u
   %7 = zext i16 %6 to i64
   %8 = and i64 %7, %4
   %9 = load ptr, ptr @SubTransCtlData, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr %union.LWLockPadded, ptr %11, i64 %8
   %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #5
   %14 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @SubTransCtlData, i64 noundef %4, i1 noundef zeroext true, i32 noundef %0) #5
   %15 = load ptr, ptr @SubTransCtlData, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %14 to i64
   %19 = getelementptr ptr, ptr %17, i64 %18
@@ -50,7 +50,7 @@ define dso_local void @SubTransSetParent(i32 noundef %0, i32 noundef %1) local_u
 24:                                               ; preds = %2
   store i32 %1, ptr %22, align 4
   %25 = load ptr, ptr @SubTransCtlData, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 %18
   store i8 1, ptr %28, align 1
@@ -78,7 +78,7 @@ define dso_local i32 @SubTransGetParent(i32 noundef %0) local_unnamed_addr #0 {
   %6 = and i32 %0, 2047
   %7 = tail call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @SubTransCtlData, i64 noundef %5, i32 noundef %0) #5
   %8 = load ptr, ptr @SubTransCtlData, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %7 to i64
   %12 = getelementptr ptr, ptr %10, i64 %11
@@ -89,7 +89,7 @@ define dso_local i32 @SubTransGetParent(i32 noundef %0) local_unnamed_addr #0 {
   %17 = load i16, ptr getelementptr inbounds (i8, ptr @SubTransCtlData, i64 8), align 8
   %18 = zext i16 %17 to i64
   %19 = and i64 %18, %5
-  %20 = getelementptr inbounds i8, ptr %8, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr %union.LWLockPadded, ptr %21, i64 %19
   tail call void @LWLockRelease(ptr noundef %22) #5
@@ -127,7 +127,7 @@ SubTransGetParent.exit:                           ; preds = %5
   %9 = and i32 %.01114, 2047
   %10 = tail call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @SubTransCtlData, i64 noundef %8, i32 noundef %.01114) #5
   %11 = load ptr, ptr @SubTransCtlData, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %10 to i64
   %15 = getelementptr ptr, ptr %13, i64 %14
@@ -138,7 +138,7 @@ SubTransGetParent.exit:                           ; preds = %5
   %20 = load i16, ptr getelementptr inbounds (i8, ptr @SubTransCtlData, i64 8), align 8
   %21 = zext i16 %20 to i64
   %22 = and i64 %21, %8
-  %23 = getelementptr inbounds i8, ptr %11, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr %union.LWLockPadded, ptr %24, i64 %22
   tail call void @LWLockRelease(ptr noundef %25) #5
@@ -275,7 +275,7 @@ declare zeroext i1 @check_slru_buffers(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define dso_local void @BootStrapSUBTRANS() local_unnamed_addr #0 {
   %1 = load ptr, ptr @SubTransCtlData, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef %3, i32 noundef 0) #5
   %5 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SubTransCtlData, i64 noundef 0) #5
@@ -291,7 +291,7 @@ define dso_local void @StartupSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
   %2 = lshr i32 %0, 11
   %3 = zext nneg i32 %2 to i64
   %4 = load ptr, ptr @TransamVariables, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.0.0.copyload = load i64, ptr %5, align 8
   %6 = lshr i64 %.sroa.0.0.copyload, 11
   %7 = and i64 %6, 2097151
@@ -299,7 +299,7 @@ define dso_local void @StartupSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
   %9 = zext i16 %8 to i64
   %10 = and i64 %9, %3
   %11 = load ptr, ptr @SubTransCtlData, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr %union.LWLockPadded, ptr %13, i64 %10
   %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef %14, i32 noundef 0) #5
@@ -313,7 +313,7 @@ define dso_local void @StartupSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
   %17 = zext i16 %16 to i64
   %18 = and i64 %.02029, %17
   %19 = load ptr, ptr @SubTransCtlData, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr %union.LWLockPadded, ptr %21, i64 %18
   %.not26 = icmp eq ptr %.030, %22
@@ -340,7 +340,7 @@ define dso_local void @StartupSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
   %29 = zext i16 %28 to i64
   %30 = and i64 %.020.lcssa, %29
   %31 = load ptr, ptr @SubTransCtlData, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr %union.LWLockPadded, ptr %33, i64 %30
   %.not25 = icmp eq ptr %.0.lcssa, %34
@@ -380,7 +380,7 @@ define dso_local void @ExtendSUBTRANS(i32 noundef %0) local_unnamed_addr #0 {
   %9 = zext i16 %8 to i64
   %10 = and i64 %9, %7
   %11 = load ptr, ptr @SubTransCtlData, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr %union.LWLockPadded, ptr %13, i64 %10
   %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef %14, i32 noundef 0) #5

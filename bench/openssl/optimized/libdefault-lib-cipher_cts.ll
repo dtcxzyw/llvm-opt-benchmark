@@ -23,13 +23,13 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
-  %arrayidx = getelementptr inbounds [3 x %struct.cts_mode_name2id_st], ptr @cts_modes, i64 0, i64 %i.04
+  %arrayidx = getelementptr inbounds nuw [3 x %struct.cts_mode_name2id_st], ptr @cts_modes, i64 0, i64 %i.04
   %0 = load i32, ptr %arrayidx, align 16
   %cmp2 = icmp eq i32 %0, %id
   br i1 %cmp2, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %name = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %name, align 8
   br label %return
 
@@ -50,8 +50,8 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
-  %arrayidx = getelementptr inbounds [3 x %struct.cts_mode_name2id_st], ptr @cts_modes, i64 0, i64 %i.04
-  %name1 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [3 x %struct.cts_mode_name2id_st], ptr @cts_modes, i64 0, i64 %i.04
+  %name1 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %name1, align 8
   %call = tail call i32 @OPENSSL_strcasecmp(ptr noundef %name, ptr noundef %0) #7
   %cmp2 = icmp eq i32 %call, 0
@@ -81,7 +81,7 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp4, label %return.sink.split, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
-  %updated = getelementptr inbounds i8, ptr %vctx, i64 108
+  %updated = getelementptr inbounds nuw i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %updated, align 4
   %0 = and i8 %bf.load, 16
   %cmp7.not = icmp eq i8 %0, 0
@@ -90,7 +90,7 @@ if.end6:                                          ; preds = %if.end3
 if.end9:                                          ; preds = %if.end6
   %1 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %1, 0
-  %cts_mode30 = getelementptr inbounds i8, ptr %vctx, i64 104
+  %cts_mode30 = getelementptr inbounds nuw i8, ptr %vctx, i64 104
   %2 = load i32, ptr %cts_mode30, align 8
   br i1 %tobool.not, label %if.else29, label %if.then14
 
@@ -159,9 +159,9 @@ entry:
   %tmp_in = alloca %union.aligned_16bytes, align 8
   %rem = and i64 %len, 15
   %sub = and i64 %len, -16
-  %hw = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %hw, align 8
-  %cipher = getelementptr inbounds i8, ptr %0, i64 8
+  %cipher = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher, align 8
   %call = tail call i32 %1(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %sub) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -179,10 +179,10 @@ if.end2:                                          ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %tmp_in, ptr align 1 %add.ptr, i64 %rem, i1 false)
   %4 = load ptr, ptr %hw, align 8
-  %cipher6 = getelementptr inbounds i8, ptr %4, i64 8
+  %cipher6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %cipher6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr3, i64 -16
-  %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr7, i64 %rem
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 %rem
   %call10 = call i32 %5(ptr noundef nonnull %ctx, ptr noundef nonnull %add.ptr8, ptr noundef nonnull %tmp_in, i64 noundef 16) #7
   %tobool11.not = icmp eq i32 %call10, 0
   %.len = select i1 %tobool11.not, i64 0, i64 %len
@@ -202,9 +202,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end2
 
 if.then:                                          ; preds = %entry
-  %hw = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %hw, align 8
-  %cipher = getelementptr inbounds i8, ptr %0, i64 8
+  %cipher = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher, align 8
   %call = tail call i32 %1(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %len) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -217,9 +217,9 @@ if.end2:                                          ; preds = %entry
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end2
-  %hw.i = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw.i = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %2 = load ptr, ptr %hw.i, align 8
-  %cipher.i = getelementptr inbounds i8, ptr %2, i64 8
+  %cipher.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %cipher.i, align 8
   %call.i = tail call i32 %3(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef 16) #7
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -228,9 +228,9 @@ if.then2.i:                                       ; preds = %if.end2
 
 if.end3.i:                                        ; preds = %if.end2
   %sub.i = and i64 %len, -16
-  %hw7.i = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw7.i = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %4 = load ptr, ptr %hw7.i, align 8
-  %cipher8.i = getelementptr inbounds i8, ptr %4, i64 8
+  %cipher8.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %cipher8.i, align 8
   %call9.i = tail call i32 %5(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %sub.i) #7
   %tobool10.not.i = icmp eq i32 %call9.i, 0
@@ -246,7 +246,7 @@ if.end12.i:                                       ; preds = %if.end3.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %add.ptr13.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr13.i, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr15.i, i64 %rem, i1 false)
   %8 = load ptr, ptr %hw7.i, align 8
-  %cipher17.i = getelementptr inbounds i8, ptr %8, i64 8
+  %cipher17.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %cipher17.i, align 8
   %call20.i = call i32 %9(ptr noundef nonnull %ctx, ptr noundef nonnull %add.ptr15.i, ptr noundef nonnull %tmp_in.i, i64 noundef 16) #7
   %tobool21.not.i = icmp eq i32 %call20.i, 0
@@ -271,9 +271,9 @@ entry:
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %entry
-  %hw = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %hw, align 8
-  %cipher = getelementptr inbounds i8, ptr %0, i64 8
+  %cipher = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher, align 8
   %call = tail call i32 %1(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef 16) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -285,9 +285,9 @@ if.end3:                                          ; preds = %entry
   %cmp4 = icmp eq i64 %rem, 0
   %spec.store.select = select i1 %cmp4, i64 16, i64 %rem
   %sub = sub nuw i64 %len, %spec.store.select
-  %hw7 = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw7 = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %2 = load ptr, ptr %hw7, align 8
-  %cipher8 = getelementptr inbounds i8, ptr %2, i64 8
+  %cipher8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %cipher8, align 8
   %call9 = tail call i32 %3(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %sub) #7
   %tobool10.not = icmp eq i32 %call9, 0
@@ -303,7 +303,7 @@ if.end12:                                         ; preds = %if.end3
   %add.ptr15 = getelementptr inbounds i8, ptr %add.ptr13, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr13, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr15, i64 %spec.store.select, i1 false)
   %6 = load ptr, ptr %hw7, align 8
-  %cipher17 = getelementptr inbounds i8, ptr %6, i64 8
+  %cipher17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %cipher17, align 8
   %call20 = call i32 %7(ptr noundef nonnull %ctx, ptr noundef nonnull %add.ptr15, ptr noundef nonnull %tmp_in, i64 noundef 16) #7
   %tobool21.not = icmp eq i32 %call20, 0
@@ -327,9 +327,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end2
 
 if.then:                                          ; preds = %entry
-  %hw = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %hw, align 8
-  %cipher = getelementptr inbounds i8, ptr %0, i64 8
+  %cipher = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher, align 8
   %call = tail call i32 %1(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %len) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -343,9 +343,9 @@ if.end2:                                          ; preds = %entry
   br i1 %cmp3.not, label %if.end12, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
-  %hw5 = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw5 = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %2 = load ptr, ptr %hw5, align 8
-  %cipher6 = getelementptr inbounds i8, ptr %2, i64 8
+  %cipher6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %cipher6, align 8
   %call7 = tail call i32 %3(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %sub) #7
   %tobool8.not = icmp eq i32 %call7, 0
@@ -359,14 +359,14 @@ if.end10:                                         ; preds = %if.then4
 if.end12:                                         ; preds = %if.end10, %if.end2
   %in.addr.0 = phi ptr [ %add.ptr, %if.end10 ], [ %in, %if.end2 ]
   %out.addr.0 = phi ptr [ %add.ptr11, %if.end10 ], [ %out, %if.end2 ]
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mid_iv, ptr noundef nonnull align 8 dereferenceable(16) %iv, i64 16, i1 false)
-  %add.ptr15 = getelementptr inbounds i8, ptr %in.addr.0, i64 %rem
+  %add.ptr15 = getelementptr inbounds nuw i8, ptr %in.addr.0, i64 %rem
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cn, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr15, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iv, i8 0, i64 16, i1 false)
-  %hw18 = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw18 = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %4 = load ptr, ptr %hw18, align 8
-  %cipher19 = getelementptr inbounds i8, ptr %4, i64 8
+  %cipher19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %cipher19, align 8
   %call22 = call i32 %5(ptr noundef %ctx, ptr noundef nonnull %pt_last, ptr noundef nonnull %add.ptr15, i64 noundef 16) #7
   %tobool23.not = icmp eq i32 %call22, 0
@@ -374,21 +374,21 @@ if.end12:                                         ; preds = %if.end10, %if.end2
 
 if.end25:                                         ; preds = %if.end12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %ct_mid, ptr nonnull align 1 %in.addr.0, i64 %rem, i1 false)
-  %add.ptr28 = getelementptr inbounds i8, ptr %ct_mid, i64 %rem
-  %add.ptr30 = getelementptr inbounds i8, ptr %pt_last, i64 %rem
+  %add.ptr28 = getelementptr inbounds nuw i8, ptr %ct_mid, i64 %rem
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %pt_last, i64 %rem
   %sub31 = sub nuw nsw i64 16, %rem
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr28, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr30, i64 %sub31, i1 false)
-  %add.ptr34 = getelementptr inbounds i8, ptr %out.addr.0, i64 16
+  %add.ptr34 = getelementptr inbounds nuw i8, ptr %out.addr.0, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end25, %for.body.i
   %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end25 ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %ct_mid, i64 %i.07.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ct_mid, i64 %i.07.i
   %6 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx1.i = getelementptr inbounds i8, ptr %pt_last, i64 %i.07.i
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %pt_last, i64 %i.07.i
   %7 = load i8, ptr %arrayidx1.i, align 1
   %xor5.i = xor i8 %7, %6
-  %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr34, i64 %i.07.i
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %add.ptr34, i64 %i.07.i
   store i8 %xor5.i, ptr %arrayidx4.i, align 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %rem
@@ -397,7 +397,7 @@ for.body.i:                                       ; preds = %if.end25, %for.body
 do_xor.exit:                                      ; preds = %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iv, ptr noundef nonnull align 8 dereferenceable(16) %mid_iv, i64 16, i1 false)
   %8 = load ptr, ptr %hw18, align 8
-  %cipher39 = getelementptr inbounds i8, ptr %8, i64 8
+  %cipher39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %cipher39, align 8
   %call41 = call i32 %9(ptr noundef %ctx, ptr noundef nonnull %out.addr.0, ptr noundef nonnull %ct_mid, i64 noundef 16) #7
   %tobool42.not = icmp eq i32 %call41, 0
@@ -420,9 +420,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end2
 
 if.then:                                          ; preds = %entry
-  %hw = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %hw, align 8
-  %cipher = getelementptr inbounds i8, ptr %0, i64 8
+  %cipher = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher, align 8
   %call = tail call i32 %1(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %len) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -449,9 +449,9 @@ entry:
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %entry
-  %hw = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %hw, align 8
-  %cipher = getelementptr inbounds i8, ptr %0, i64 8
+  %cipher = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %cipher, align 8
   %call = tail call i32 %1(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef 16) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -468,9 +468,9 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp7.not, label %if.end16, label %if.then8
 
 if.then8:                                         ; preds = %if.end3
-  %hw9 = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw9 = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %2 = load ptr, ptr %hw9, align 8
-  %cipher10 = getelementptr inbounds i8, ptr %2, i64 8
+  %cipher10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %cipher10, align 8
   %call11 = tail call i32 %3(ptr noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %sub) #7
   %tobool12.not = icmp eq i32 %call11, 0
@@ -484,56 +484,56 @@ if.end14:                                         ; preds = %if.then8
 if.end16:                                         ; preds = %if.end14, %if.end3
   %in.addr.0 = phi ptr [ %add.ptr, %if.end14 ], [ %in, %if.end3 ]
   %out.addr.0 = phi ptr [ %add.ptr15, %if.end14 ], [ %out, %if.end3 ]
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mid_iv, ptr noundef nonnull align 8 dereferenceable(16) %iv, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cn, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iv, i8 0, i64 16, i1 false)
-  %hw21 = getelementptr inbounds i8, ptr %ctx, i64 168
+  %hw21 = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %4 = load ptr, ptr %hw21, align 8
-  %cipher22 = getelementptr inbounds i8, ptr %4, i64 8
+  %cipher22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %cipher22, align 8
   %call24 = call i32 %5(ptr noundef %ctx, ptr noundef nonnull %pt_last, ptr noundef %in.addr.0, i64 noundef 16) #7
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %return, label %if.end27
 
 if.end27:                                         ; preds = %if.end16
-  %add.ptr29 = getelementptr inbounds i8, ptr %in.addr.0, i64 16
+  %add.ptr29 = getelementptr inbounds nuw i8, ptr %in.addr.0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %ct_mid, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr29, i64 %spec.store.select, i1 false)
   br i1 %cmp4, label %if.end27.split, label %if.then31
 
 if.end27.split:                                   ; preds = %if.end27
-  %add.ptr4039 = getelementptr inbounds i8, ptr %out.addr.0, i64 16
+  %add.ptr4039 = getelementptr inbounds nuw i8, ptr %out.addr.0, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end27.split
   %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end27.split ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %ct_mid, i64 %i.07.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ct_mid, i64 %i.07.i
   %6 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx1.i = getelementptr inbounds i8, ptr %pt_last, i64 %i.07.i
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %pt_last, i64 %i.07.i
   %7 = load i8, ptr %arrayidx1.i, align 1
   %xor5.i = xor i8 %7, %6
-  %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr4039, i64 %i.07.i
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %add.ptr4039, i64 %i.07.i
   store i8 %xor5.i, ptr %arrayidx4.i, align 1
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 16
   br i1 %exitcond.not.i, label %if.end37, label %for.body.i, !llvm.loop !7
 
 if.then31:                                        ; preds = %if.end27
-  %add.ptr33 = getelementptr inbounds i8, ptr %ct_mid, i64 %rem
-  %add.ptr35 = getelementptr inbounds i8, ptr %pt_last, i64 %rem
+  %add.ptr33 = getelementptr inbounds nuw i8, ptr %ct_mid, i64 %rem
+  %add.ptr35 = getelementptr inbounds nuw i8, ptr %pt_last, i64 %rem
   %sub36 = sub nuw nsw i64 16, %rem
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr33, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr35, i64 %sub36, i1 false)
-  %add.ptr4040 = getelementptr inbounds i8, ptr %out.addr.0, i64 16
+  %add.ptr4040 = getelementptr inbounds nuw i8, ptr %out.addr.0, i64 16
   br label %for.body.i41
 
 for.body.i41:                                     ; preds = %if.then31, %for.body.i41
   %i.07.i42 = phi i64 [ %inc.i47, %for.body.i41 ], [ 0, %if.then31 ]
-  %arrayidx.i43 = getelementptr inbounds i8, ptr %ct_mid, i64 %i.07.i42
+  %arrayidx.i43 = getelementptr inbounds nuw i8, ptr %ct_mid, i64 %i.07.i42
   %8 = load i8, ptr %arrayidx.i43, align 1
-  %arrayidx1.i44 = getelementptr inbounds i8, ptr %pt_last, i64 %i.07.i42
+  %arrayidx1.i44 = getelementptr inbounds nuw i8, ptr %pt_last, i64 %i.07.i42
   %9 = load i8, ptr %arrayidx1.i44, align 1
   %xor5.i45 = xor i8 %9, %8
-  %arrayidx4.i46 = getelementptr inbounds i8, ptr %add.ptr4040, i64 %i.07.i42
+  %arrayidx4.i46 = getelementptr inbounds nuw i8, ptr %add.ptr4040, i64 %i.07.i42
   store i8 %xor5.i45, ptr %arrayidx4.i46, align 1
   %inc.i47 = add nuw nsw i64 %i.07.i42, 1
   %exitcond.not.i48 = icmp eq i64 %inc.i47, %spec.store.select
@@ -542,7 +542,7 @@ for.body.i41:                                     ; preds = %if.then31, %for.bod
 if.end37:                                         ; preds = %for.body.i41, %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %iv, ptr noundef nonnull align 8 dereferenceable(16) %mid_iv, i64 16, i1 false)
   %10 = load ptr, ptr %hw21, align 8
-  %cipher45 = getelementptr inbounds i8, ptr %10, i64 8
+  %cipher45 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %cipher45, align 8
   %call47 = call i32 %11(ptr noundef %ctx, ptr noundef nonnull %out.addr.0, ptr noundef nonnull %ct_mid, i64 noundef 16) #7
   %tobool48.not = icmp eq i32 %call47, 0

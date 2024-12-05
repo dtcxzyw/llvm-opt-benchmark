@@ -11,7 +11,7 @@ define i64 @amd_l_post_tree(i64 noundef %0, i64 noundef %1, ptr nocapture nounde
 7:                                                ; preds = %6, %22
   %.044 = phi i64 [ %1, %6 ], [ %.1, %22 ]
   %.02943 = phi i64 [ 0, %6 ], [ %.2, %22 ]
-  %8 = getelementptr inbounds i64, ptr %5, i64 %.02943
+  %8 = getelementptr inbounds nuw i64, ptr %5, i64 %.02943
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds i64, ptr %2, i64 %9
   %11 = load i64, ptr %10, align 8

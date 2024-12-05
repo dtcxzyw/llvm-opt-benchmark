@@ -131,7 +131,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   ]
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @xstrcmp(ptr noundef %12, ptr noundef nonnull @.str.13) #13
   %.not.i = icmp eq i32 %13, 0
@@ -150,7 +150,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) %17)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load ptr, ptr @environ, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv.next.i
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.next.i
   %20 = load ptr, ptr %19, align 8
   %.not12.i = icmp eq ptr %20, null
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
@@ -172,7 +172,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @xstrcmp(ptr noundef %29, ptr noundef nonnull @.str.16) #13
   %.not14.i = icmp eq i32 %30, 0
@@ -198,9 +198,9 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %37 = tail call i32 @xsignal_block(ptr noundef nonnull @slurmstepd_blocked_signals) #13
   %38 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4616, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 129, ptr noundef nonnull @__func__.main) #13
   store ptr %38, ptr @conf, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 %0, ptr %40, align 8
   tail call void @init_setproctitle(i32 noundef %0, ptr noundef %1) #13
   %41 = load ptr, ptr %1, align 8
@@ -220,16 +220,16 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   unreachable
 
 45:                                               ; preds = %_process_cmdline.exit
-  %46 = getelementptr inbounds i8, ptr %43, i64 4376
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 4376
   %47 = load i16, ptr %46, align 8
   %48 = zext i16 %47 to i32
   store i32 %48, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
-  %49 = getelementptr inbounds i8, ptr %43, i64 4352
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 4352
   %50 = load i32, ptr %49, align 8
   %51 = trunc i32 %50 to i16
   store i16 %51, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1304), align 8
   store i32 -2, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 656), align 8
-  %52 = getelementptr inbounds i8, ptr %43, i64 4272
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 4272
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef null, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, ptr noundef %53) #13
   tail call void @read_conf_recv_stepd(i32 noundef 0) #13
@@ -333,7 +333,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi151.i = phi i64 [ %57, %.lr.ph175.preheader.i.preheader ], [ %57, %.lr.ph191.i.preheader ], [ %75, %.lr.ph175.preheader.i ], [ %66, %.lr.ph191.i ]
   %.us-phi152.i = phi i32 [ %58, %.lr.ph175.preheader.i.preheader ], [ %58, %.lr.ph191.i.preheader ], [ %76, %.lr.ph175.preheader.i ], [ %67, %.lr.ph191.i ]
   %87 = and i64 %.us-phi151.i, 2147483647
-  %88 = getelementptr inbounds i8, ptr %.0288.ph193.i, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %.0288.ph193.i, i64 %87
   %89 = sub nsw i32 %.0285.ph195.i, %.us-phi152.i
   %90 = icmp sgt i32 %89, 0
   %91 = tail call i32 @get_log_level() #13
@@ -401,7 +401,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi203.i = phi i64 [ %120, %.lr.ph228.preheader.i.preheader ], [ %120, %.lr.ph244.i.preheader ], [ %138, %.lr.ph228.preheader.i ], [ %129, %.lr.ph244.i ]
   %.us-phi204.i = phi i32 [ %121, %.lr.ph228.preheader.i.preheader ], [ %121, %.lr.ph244.i.preheader ], [ %139, %.lr.ph228.preheader.i ], [ %130, %.lr.ph244.i ]
   %110 = and i64 %.us-phi203.i, 2147483647
-  %111 = getelementptr inbounds i8, ptr %.0292.ph247.i, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %.0292.ph247.i, i64 %110
   %112 = sub nsw i32 %.0289.ph249.i, %.us-phi204.i
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %114, label %.lr.ph251.i
@@ -516,7 +516,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi257.i = phi i64 [ %160, %.lr.ph282.preheader.i.preheader ], [ %160, %.lr.ph298.i.preheader ], [ %178, %.lr.ph282.preheader.i ], [ %169, %.lr.ph298.i ]
   %.us-phi258.i = phi i32 [ %161, %.lr.ph282.preheader.i.preheader ], [ %161, %.lr.ph298.i.preheader ], [ %179, %.lr.ph282.preheader.i ], [ %170, %.lr.ph298.i ]
   %150 = and i64 %.us-phi257.i, 2147483647
-  %151 = getelementptr inbounds i8, ptr %.0298.ph301.i, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr %.0298.ph301.i, i64 %150
   %152 = sub nsw i32 %.0295.ph303.i, %.us-phi258.i
   %153 = icmp sgt i32 %152, 0
   br i1 %153, label %154, label %.lr.ph305.i
@@ -631,7 +631,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi311.i = phi i64 [ %200, %.lr.ph336.preheader.i.preheader ], [ %200, %.lr.ph352.i.preheader ], [ %218, %.lr.ph336.preheader.i ], [ %209, %.lr.ph352.i ]
   %.us-phi312.i = phi i32 [ %201, %.lr.ph336.preheader.i.preheader ], [ %201, %.lr.ph352.i.preheader ], [ %219, %.lr.ph336.preheader.i ], [ %210, %.lr.ph352.i ]
   %190 = and i64 %.us-phi311.i, 2147483647
-  %191 = getelementptr inbounds i8, ptr %.0302.ph355.i, i64 %190
+  %191 = getelementptr inbounds nuw i8, ptr %.0302.ph355.i, i64 %190
   %192 = sub nsw i32 %.0301.ph357.i, %.us-phi312.i
   %193 = icmp sgt i32 %192, 0
   br i1 %193, label %194, label %.lr.ph359.i
@@ -746,7 +746,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi365.i = phi i64 [ %240, %.lr.ph390.preheader.i.preheader ], [ %240, %.lr.ph406.i.preheader ], [ %258, %.lr.ph390.preheader.i ], [ %249, %.lr.ph406.i ]
   %.us-phi366.i = phi i32 [ %241, %.lr.ph390.preheader.i.preheader ], [ %241, %.lr.ph406.i.preheader ], [ %259, %.lr.ph390.preheader.i ], [ %250, %.lr.ph406.i ]
   %230 = and i64 %.us-phi365.i, 2147483647
-  %231 = getelementptr inbounds i8, ptr %.0299.ph411.i, i64 %230
+  %231 = getelementptr inbounds nuw i8, ptr %.0299.ph411.i, i64 %230
   %232 = sub nsw i32 %.0300.ph409.i, %.us-phi366.i
   %233 = icmp sgt i32 %232, 0
   br i1 %233, label %234, label %.lr.ph413.i
@@ -861,7 +861,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi419.i = phi i64 [ %280, %.lr.ph444.preheader.i.preheader ], [ %280, %.lr.ph460.i.preheader ], [ %298, %.lr.ph444.preheader.i ], [ %289, %.lr.ph460.i ]
   %.us-phi420.i = phi i32 [ %281, %.lr.ph444.preheader.i.preheader ], [ %281, %.lr.ph460.i.preheader ], [ %299, %.lr.ph444.preheader.i ], [ %290, %.lr.ph460.i ]
   %270 = and i64 %.us-phi419.i, 2147483647
-  %271 = getelementptr inbounds i8, ptr %.0296.ph465.i, i64 %270
+  %271 = getelementptr inbounds nuw i8, ptr %.0296.ph465.i, i64 %270
   %272 = sub nsw i32 %.0297.ph463.i, %.us-phi420.i
   %273 = icmp sgt i32 %272, 0
   br i1 %273, label %274, label %.lr.ph467.i
@@ -976,7 +976,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi474.i = phi i64 [ %320, %.lr.ph499.preheader.i.preheader ], [ %320, %.lr.ph515.i.preheader ], [ %338, %.lr.ph499.preheader.i ], [ %329, %.lr.ph515.i ]
   %.us-phi475.i = phi i32 [ %321, %.lr.ph499.preheader.i.preheader ], [ %321, %.lr.ph515.i.preheader ], [ %339, %.lr.ph499.preheader.i ], [ %330, %.lr.ph515.i ]
   %310 = and i64 %.us-phi474.i, 2147483647
-  %311 = getelementptr inbounds i8, ptr %.0293.ph520.i, i64 %310
+  %311 = getelementptr inbounds nuw i8, ptr %.0293.ph520.i, i64 %310
   %312 = sub nsw i32 %.0294.ph518.i, %.us-phi475.i
   %313 = icmp sgt i32 %312, 0
   br i1 %313, label %314, label %.outer7._crit_edge.i
@@ -1170,7 +1170,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi528.i = phi i64 [ %348, %.lr.ph553.preheader.i.preheader ], [ %348, %.lr.ph569.i.preheader ], [ %366, %.lr.ph553.preheader.i ], [ %357, %.lr.ph569.i ]
   %.us-phi529.i = phi i32 [ %349, %.lr.ph553.preheader.i.preheader ], [ %349, %.lr.ph569.i.preheader ], [ %367, %.lr.ph553.preheader.i ], [ %358, %.lr.ph569.i ]
   %378 = and i64 %.us-phi528.i, 2147483647
-  %379 = getelementptr inbounds i8, ptr %.0290.ph574.i, i64 %378
+  %379 = getelementptr inbounds nuw i8, ptr %.0290.ph574.i, i64 %378
   %380 = sub nsw i32 %.0291.ph572.i, %.us-phi529.i
   %381 = icmp sgt i32 %380, 0
   br i1 %381, label %382, label %.loopexit.i
@@ -1323,7 +1323,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi583.i = phi i64 [ %403, %.lr.ph608.preheader.i.preheader ], [ %403, %.lr.ph624.i.preheader ], [ %421, %.lr.ph608.preheader.i ], [ %412, %.lr.ph624.i ]
   %.us-phi584.i = phi i32 [ %404, %.lr.ph608.preheader.i.preheader ], [ %404, %.lr.ph624.i.preheader ], [ %422, %.lr.ph608.preheader.i ], [ %413, %.lr.ph624.i ]
   %433 = and i64 %.us-phi583.i, 2147483647
-  %434 = getelementptr inbounds i8, ptr %.0286.ph629.i, i64 %433
+  %434 = getelementptr inbounds nuw i8, ptr %.0286.ph629.i, i64 %433
   %435 = sub nsw i32 %.0287.ph627.i, %.us-phi584.i
   %436 = icmp sgt i32 %435, 0
   br i1 %436, label %437, label %.outer4._crit_edge.i
@@ -1445,7 +1445,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi638.i = phi i64 [ %446, %.lr.ph663.preheader.i.preheader ], [ %446, %.lr.ph679.i.preheader ], [ %464, %.lr.ph663.preheader.i ], [ %455, %.lr.ph679.i ]
   %.us-phi639.i = phi i32 [ %447, %.lr.ph663.preheader.i.preheader ], [ %447, %.lr.ph679.i.preheader ], [ %465, %.lr.ph663.preheader.i ], [ %456, %.lr.ph679.i ]
   %476 = and i64 %.us-phi638.i, 2147483647
-  %477 = getelementptr inbounds i8, ptr %.0283.ph684.i, i64 %476
+  %477 = getelementptr inbounds nuw i8, ptr %.0283.ph684.i, i64 %476
   %478 = sub nsw i32 %.0284.ph682.i, %.us-phi639.i
   %479 = icmp sgt i32 %478, 0
   br i1 %479, label %480, label %.outer3._crit_edge.i
@@ -1585,7 +1585,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi692.i = phi i64 [ %495, %.lr.ph717.preheader.i.preheader ], [ %495, %.lr.ph733.i.preheader ], [ %513, %.lr.ph717.preheader.i ], [ %504, %.lr.ph733.i ]
   %.us-phi693.i = phi i32 [ %496, %.lr.ph717.preheader.i.preheader ], [ %496, %.lr.ph733.i.preheader ], [ %514, %.lr.ph717.preheader.i ], [ %505, %.lr.ph733.i ]
   %525 = and i64 %.us-phi692.i, 2147483647
-  %526 = getelementptr inbounds i8, ptr %.0281.ph738.i, i64 %525
+  %526 = getelementptr inbounds nuw i8, ptr %.0281.ph738.i, i64 %525
   %527 = sub nsw i32 %.0282.ph736.i, %.us-phi693.i
   %528 = icmp sgt i32 %527, 0
   br i1 %528, label %529, label %.lr.ph740.i
@@ -1634,7 +1634,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi747.i = phi i64 [ %552, %.lr.ph772.preheader.i.preheader ], [ %552, %.lr.ph788.i.preheader ], [ %570, %.lr.ph772.preheader.i ], [ %561, %.lr.ph788.i ]
   %.us-phi748.i = phi i32 [ %553, %.lr.ph772.preheader.i.preheader ], [ %553, %.lr.ph788.i.preheader ], [ %571, %.lr.ph772.preheader.i ], [ %562, %.lr.ph788.i ]
   %542 = and i64 %.us-phi747.i, 2147483647
-  %543 = getelementptr inbounds i8, ptr %.0279.ph793.i, i64 %542
+  %543 = getelementptr inbounds nuw i8, ptr %.0279.ph793.i, i64 %542
   %544 = sub nsw i32 %.0280.ph791.i, %.us-phi748.i
   %545 = icmp sgt i32 %544, 0
   br i1 %545, label %546, label %.outer1._crit_edge.i
@@ -1822,7 +1822,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %.us-phi802.i = phi i64 [ %577, %.lr.ph827.preheader.i.preheader ], [ %577, %.lr.ph843.i.preheader ], [ %595, %.lr.ph827.preheader.i ], [ %586, %.lr.ph843.i ]
   %.us-phi803.i = phi i32 [ %578, %.lr.ph827.preheader.i.preheader ], [ %578, %.lr.ph843.i.preheader ], [ %596, %.lr.ph827.preheader.i ], [ %587, %.lr.ph843.i ]
   %607 = and i64 %.us-phi802.i, 2147483647
-  %608 = getelementptr inbounds i8, ptr %.0.ph848.i, i64 %607
+  %608 = getelementptr inbounds nuw i8, ptr %.0.ph848.i, i64 %607
   %609 = sub nsw i32 %.0278.ph846.i, %.us-phi803.i
   %610 = icmp sgt i32 %609, 0
   br i1 %610, label %611, label %.outer._crit_edge.i
@@ -1843,7 +1843,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   %615 = tail call ptr @create_buf(ptr noundef %573, i32 noundef %.pre1300.i) #13
   %616 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 416, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 628, ptr noundef nonnull @__func__._init_from_slurmd) #13
   tail call void @slurm_msg_t_init(ptr noundef %616) #13
-  %617 = getelementptr inbounds i8, ptr %616, i64 206
+  %617 = getelementptr inbounds nuw i8, ptr %616, i64 206
   store i16 10496, ptr %617, align 2
   %618 = load i32, ptr %6, align 4
   switch i32 %618, label %620 [
@@ -1860,7 +1860,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
 
 621:                                              ; preds = %619, %.outer._crit_edge.i
   %.sink.i = phi i16 [ 6001, %619 ], [ 4005, %.outer._crit_edge.i ]
-  %622 = getelementptr inbounds i8, ptr %616, i64 204
+  %622 = getelementptr inbounds nuw i8, ptr %616, i64 204
   store i16 %.sink.i, ptr %622, align 4
   %623 = tail call i32 @switch_init(i1 noundef zeroext true) #13
   %.not355.i = icmp eq i32 %623, 0
@@ -1907,22 +1907,22 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
 
 637:                                              ; preds = %636, %635
   %switch.i = icmp eq i32 %618, 0
-  %638 = getelementptr inbounds i8, ptr %616, i64 192
+  %638 = getelementptr inbounds nuw i8, ptr %616, i64 192
   %639 = load ptr, ptr %638, align 8
   br i1 %switch.i, label %640, label %645
 
 640:                                              ; preds = %637
-  %641 = getelementptr inbounds i8, ptr %639, i64 56
+  %641 = getelementptr inbounds nuw i8, ptr %639, i64 56
   %642 = load i32, ptr %641, align 8
   store i32 %642, ptr %9, align 4
-  %643 = getelementptr inbounds i8, ptr %9, i64 8
+  %643 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 -5, ptr %643, align 4
-  %644 = getelementptr inbounds i8, ptr %9, i64 4
+  %644 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 -2, ptr %644, align 4
   br label %647
 
 645:                                              ; preds = %637
-  %646 = getelementptr inbounds i8, ptr %639, i64 104
+  %646 = getelementptr inbounds nuw i8, ptr %639, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %646, i64 12, i1 false)
   br label %647
 
@@ -2028,7 +2028,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
 
 682:                                              ; preds = %679
   %683 = icmp eq i32 %618, 1
-  %684 = getelementptr inbounds i8, ptr %9, i64 8
+  %684 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %683, label %switch.early.test.i, label %689
 
 switch.early.test.i:                              ; preds = %682
@@ -2049,21 +2049,21 @@ switch.early.test.i:                              ; preds = %682
 
 689:                                              ; preds = %686, %switch.early.test.i, %switch.early.test.i, %682
   %690 = load ptr, ptr @conf, align 8
-  %691 = getelementptr inbounds i8, ptr %690, i64 4256
+  %691 = getelementptr inbounds nuw i8, ptr %690, i64 4256
   %692 = load ptr, ptr %691, align 8
   %.not374.i = icmp eq ptr %692, null
   br i1 %.not374.i, label %693, label %_init_from_slurmd.exit
 
 693:                                              ; preds = %689
-  %694 = getelementptr inbounds i8, ptr %690, i64 4360
+  %694 = getelementptr inbounds nuw i8, ptr %690, i64 4360
   %695 = load ptr, ptr %694, align 8
   %696 = load i32, ptr %9, align 4
   %697 = load i32, ptr %684, align 4
   %698 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.62, ptr noundef %695, i32 noundef %696, i32 noundef %697) #13
   %699 = load ptr, ptr @conf, align 8
-  %700 = getelementptr inbounds i8, ptr %699, i64 4256
+  %700 = getelementptr inbounds nuw i8, ptr %699, i64 4256
   store ptr %698, ptr %700, align 8
-  %701 = getelementptr inbounds i8, ptr %9, i64 4
+  %701 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %702 = load i32, ptr %701, align 4
   %.not375.i = icmp eq i32 %702, -2
   br i1 %.not375.i, label %704, label %703
@@ -2075,7 +2075,7 @@ switch.early.test.i:                              ; preds = %682
 
 704:                                              ; preds = %703, %693
   %705 = phi ptr [ %.pre1306.i, %703 ], [ %699, %693 ]
-  %706 = getelementptr inbounds i8, ptr %705, i64 4256
+  %706 = getelementptr inbounds nuw i8, ptr %705, i64 4256
   call void @_xstrcat(ptr noundef nonnull %706, ptr noundef nonnull @.str.64) #13
   br label %_init_from_slurmd.exit
 
@@ -2140,7 +2140,7 @@ _init_from_slurmd.exit:                           ; preds = %689, %704
   br label %.split
 
 729:                                              ; preds = %726
-  %730 = getelementptr inbounds i8, ptr %.038.i, i64 8
+  %730 = getelementptr inbounds nuw i8, ptr %.038.i, i64 8
   %731 = load ptr, ptr %730, align 8
   %.not41.i = icmp eq ptr %731, null
   br i1 %.not41.i, label %756, label %732
@@ -2189,17 +2189,17 @@ _init_from_slurmd.exit:                           ; preds = %689, %704
 .sink.split.i:                                    ; preds = %750, %744
   %.str.74.sink.i = phi ptr [ @.str.74, %744 ], [ @.str.76, %750 ]
   %753 = load ptr, ptr %730, align 8
-  %754 = getelementptr inbounds i8, ptr %753, i64 8
+  %754 = getelementptr inbounds nuw i8, ptr %753, i64 8
   %755 = load ptr, ptr %754, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull %.str.74.sink.i, ptr noundef nonnull @__func__._step_setup, ptr noundef %755) #13
   br label %756
 
 756:                                              ; preds = %.sink.split.i, %750, %744, %729
   %757 = call i32 @getpid() #13
-  %758 = getelementptr inbounds i8, ptr %.038.i, i64 664
+  %758 = getelementptr inbounds nuw i8, ptr %.038.i, i64 664
   store i32 %757, ptr %758, align 8
   %759 = call ptr @jobacctinfo_create(ptr noundef null) #13
-  %760 = getelementptr inbounds i8, ptr %.038.i, i64 704
+  %760 = getelementptr inbounds nuw i8, ptr %.038.i, i64 704
   store ptr %759, ptr %760, align 8
   %761 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %762 = and i64 %761, 64
@@ -2207,33 +2207,33 @@ _init_from_slurmd.exit:                           ; preds = %689, %704
   br i1 %.not43.i, label %773, label %763
 
 763:                                              ; preds = %756
-  %764 = getelementptr inbounds i8, ptr %.038.i, i64 752
+  %764 = getelementptr inbounds nuw i8, ptr %.038.i, i64 752
   %765 = load ptr, ptr %764, align 8
-  %766 = getelementptr inbounds i8, ptr %.038.i, i64 112
+  %766 = getelementptr inbounds nuw i8, ptr %.038.i, i64 112
   %767 = load i32, ptr %766, align 8
   call void @gres_job_state_log(ptr noundef %765, i32 noundef %767) #13
-  %768 = getelementptr inbounds i8, ptr %.038.i, i64 760
+  %768 = getelementptr inbounds nuw i8, ptr %.038.i, i64 760
   %769 = load ptr, ptr %768, align 8
   %770 = load i32, ptr %766, align 8
-  %771 = getelementptr inbounds i8, ptr %.038.i, i64 120
+  %771 = getelementptr inbounds nuw i8, ptr %.038.i, i64 120
   %772 = load i32, ptr %771, align 8
   call void @gres_step_state_log(ptr noundef %769, i32 noundef %770, i32 noundef %772) #13
   br label %773
 
 773:                                              ; preds = %763, %756
-  %774 = getelementptr inbounds i8, ptr %.038.i, i64 433
+  %774 = getelementptr inbounds nuw i8, ptr %.038.i, i64 433
   %775 = load i8, ptr %774, align 1
   %776 = trunc i8 %775 to i1
   br i1 %776, label %785, label %777
 
 777:                                              ; preds = %773
-  %778 = getelementptr inbounds i8, ptr %.038.i, i64 120
+  %778 = getelementptr inbounds nuw i8, ptr %.038.i, i64 120
   %779 = load i32, ptr %778, align 8
   %780 = icmp eq i32 %779, -6
   br i1 %780, label %785, label %781
 
 781:                                              ; preds = %777
-  %782 = getelementptr inbounds i8, ptr %.038.i, i64 672
+  %782 = getelementptr inbounds nuw i8, ptr %.038.i, i64 672
   %783 = load i32, ptr %782, align 8
   %784 = and i32 %783, 32
   %.not44.i = icmp eq i32 %784, 0
@@ -2253,22 +2253,22 @@ _init_from_slurmd.exit:                           ; preds = %689, %704
   br label %790
 
 790:                                              ; preds = %789, %786, %785
-  %791 = getelementptr inbounds i8, ptr %.038.i, i64 272
+  %791 = getelementptr inbounds nuw i8, ptr %.038.i, i64 272
   %792 = load ptr, ptr @conf, align 8
-  %793 = getelementptr inbounds i8, ptr %792, i64 4280
+  %793 = getelementptr inbounds nuw i8, ptr %792, i64 4280
   %794 = load ptr, ptr %793, align 8
   %795 = call i32 @env_array_overwrite(ptr noundef nonnull %791, ptr noundef nonnull @.str.77, ptr noundef %794) #13
   %796 = load ptr, ptr @conf, align 8
-  %797 = getelementptr inbounds i8, ptr %796, i64 4288
+  %797 = getelementptr inbounds nuw i8, ptr %796, i64 4288
   %798 = load ptr, ptr %797, align 8
   %799 = call i32 @env_array_overwrite(ptr noundef nonnull %791, ptr noundef nonnull @.str.78, ptr noundef %798) #13
-  %800 = getelementptr inbounds i8, ptr %.038.i, i64 152
+  %800 = getelementptr inbounds nuw i8, ptr %.038.i, i64 152
   %801 = load ptr, ptr %800, align 8
   %.not45.i = icmp eq ptr %801, null
   br i1 %.not45.i, label %810, label %802
 
 802:                                              ; preds = %790
-  %803 = getelementptr inbounds i8, ptr %.038.i, i64 160
+  %803 = getelementptr inbounds nuw i8, ptr %.038.i, i64 160
   %804 = load ptr, ptr %803, align 8
   %805 = call i32 @add_remote_nodes_to_conf_tbls(ptr noundef %804, ptr noundef nonnull %801) #13
   %.not46.i = icmp eq i32 %805, 0
@@ -2300,7 +2300,7 @@ _init_from_slurmd.exit:                           ; preds = %689, %704
   br label %837
 
 814:                                              ; preds = %810
-  %815 = getelementptr inbounds i8, ptr %.038.i, i64 120
+  %815 = getelementptr inbounds nuw i8, ptr %.038.i, i64 120
   %816 = load i32, ptr %815, align 8
   %.not26 = icmp eq i32 %816, -4
   br i1 %.not26, label %818, label %817
@@ -2410,7 +2410,7 @@ define internal fastcc void @_send_fail_to_slurmd(i32 noundef range(i32 1, 0) %0
   %.us-phi = phi i64 [ %4, %.lr.ph.split.us ], [ %11, %10 ]
   %.us-phi19 = phi i32 [ %5, %.lr.ph.split.us ], [ %12, %10 ]
   %17 = and i64 %.us-phi, 2147483647
-  %18 = getelementptr inbounds i8, ptr %.011.ph28, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %.011.ph28, i64 %17
   %19 = sub nsw i32 %.0.ph30, %.us-phi19
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %.loopexit
@@ -2504,7 +2504,7 @@ define dso_local void @close_slurmd_conn(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi.i = phi i64 [ %12, %.lr.ph.split.us.i ], [ %19, %18 ]
   %.us-phi19.i = phi i32 [ %13, %.lr.ph.split.us.i ], [ %20, %18 ]
   %25 = and i64 %.us-phi.i, 2147483647
-  %26 = getelementptr inbounds i8, ptr %.011.ph28.i, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %.011.ph28.i, i64 %25
   %27 = sub nsw i32 %.0.ph30.i, %.us-phi19.i
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %29, label %_send_ok_to_slurmd.exit
@@ -2631,7 +2631,7 @@ _send_ok_to_slurmd.exit:                          ; preds = %.split.us.i, %33
   %.us-phi33.i = phi i64 [ %38, %.lr.ph57.preheader.i.preheader ], [ %38, %.lr.ph73.i.preheader ], [ %56, %.lr.ph57.preheader.i ], [ %47, %.lr.ph73.i ]
   %.us-phi34.i = phi i32 [ %39, %.lr.ph57.preheader.i.preheader ], [ %39, %.lr.ph73.i.preheader ], [ %57, %.lr.ph57.preheader.i ], [ %48, %.lr.ph73.i ]
   %68 = and i64 %.us-phi33.i, 2147483647
-  %69 = getelementptr inbounds i8, ptr %.017.ph75.i, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr %.017.ph75.i, i64 %68
   %70 = sub nsw i32 %.0.ph77.i, %.us-phi34.i
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %72, label %_got_ack_from_slurmd.exit
@@ -2700,7 +2700,7 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
   br i1 %4, label %.thread, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 433
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 433
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %19
@@ -2710,7 +2710,7 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
   br label %19
 
 19:                                               ; preds = %18, %14
-  %20 = getelementptr inbounds i8, ptr %1, i64 656
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 656
   %21 = load ptr, ptr %20, align 8
   %.not33 = icmp eq ptr %21, null
   br i1 %.not33, label %24, label %22
@@ -2720,7 +2720,7 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
   br label %24
 
 24:                                               ; preds = %19, %22
-  %25 = getelementptr inbounds i8, ptr %1, i64 648
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %26 = load i64, ptr %25, align 8
   %.not34 = icmp eq i64 %26, 0
   br i1 %.not34, label %.thread, label %27
@@ -2739,11 +2739,11 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
 
 .thread:                                          ; preds = %24, %29, %27, %13
   %32 = tail call i32 @mpi_fini() #13
-  %33 = getelementptr inbounds i8, ptr %1, i64 688
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 688
   %34 = load i64, ptr %33, align 8
   %35 = tail call i32 @proctrack_g_destroy(i64 noundef %34) #13
   %36 = load ptr, ptr @conf, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 4256
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4256
   %38 = load ptr, ptr %37, align 8
   %.not36 = icmp eq ptr %38, null
   br i1 %.not36, label %41, label %39
@@ -2753,7 +2753,7 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
   br label %41
 
 41:                                               ; preds = %39, %.thread
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not37 = icmp eq ptr %43, null
   br i1 %.not37, label %45, label %44
@@ -2764,8 +2764,8 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
 
 45:                                               ; preds = %44, %41
   tail call void @run_command_shutdown() #13
-  %46 = getelementptr inbounds i8, ptr %1, i64 112
-  %47 = getelementptr inbounds i8, ptr %1, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, -4
   br i1 %49, label %50, label %56
@@ -2882,7 +2882,7 @@ define internal fastcc i32 @_handle_spank_mode(ptr %.16.val) unnamed_addr #0 {
   %3 = alloca %struct.log_options_t, align 8
   store ptr null, ptr %2, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) @__const._handle_spank_mode.lopts, i64 20, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.17, ptr noundef %.16.val) #13
   %5 = load ptr, ptr %2, align 8
@@ -3140,7 +3140,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
   %.us-phi125 = phi i64 [ %12, %.lr.ph149.preheader.preheader ], [ %12, %.lr.ph165.preheader ], [ %28, %.lr.ph149.preheader ], [ %20, %.lr.ph165 ]
   %.us-phi126 = phi i32 [ %13, %.lr.ph149.preheader.preheader ], [ %13, %.lr.ph165.preheader ], [ %29, %.lr.ph149.preheader ], [ %21, %.lr.ph165 ]
   %40 = and i64 %.us-phi125, 2147483647
-  %41 = getelementptr inbounds i8, ptr %.072.ph169, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %.072.ph169, i64 %40
   %42 = sub nsw i32 %.073.ph167, %.us-phi126
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %.outer102._crit_edge
@@ -3164,7 +3164,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
   br i1 %50, label %.lr.ph171.preheader, label %.outer._crit_edge
 
 .lr.ph171.preheader:                              ; preds = %.outer102._crit_edge
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
   br label %.lr.ph171
 
@@ -3266,7 +3266,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
   %.us-phi178 = phi i64 [ %55, %.lr.ph203.preheader.preheader ], [ %55, %.lr.ph219.preheader ], [ %71, %.lr.ph203.preheader ], [ %63, %.lr.ph219 ]
   %.us-phi179 = phi i32 [ %56, %.lr.ph203.preheader.preheader ], [ %56, %.lr.ph219.preheader ], [ %72, %.lr.ph203.preheader ], [ %64, %.lr.ph219 ]
   %83 = and i64 %.us-phi178, 2147483647
-  %84 = getelementptr inbounds i8, ptr %.070.ph224, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %.070.ph224, i64 %83
   %85 = sub nsw i32 %.071.ph222, %.us-phi179
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %87, label %.outer._crit_edge
@@ -3320,17 +3320,17 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
   br label %103
 
 103:                                              ; preds = %102, %101
-  %104 = getelementptr inbounds i8, ptr %.074, i64 4388
-  %105 = getelementptr inbounds i8, ptr %.074, i64 4400
+  %104 = getelementptr inbounds nuw i8, ptr %.074, i64 4388
+  %105 = getelementptr inbounds nuw i8, ptr %.074, i64 4400
   store i8 1, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %.074, i64 4408
+  %106 = getelementptr inbounds nuw i8, ptr %.074, i64 4408
   %107 = load i32, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %.074, i64 4396
+  %108 = getelementptr inbounds nuw i8, ptr %.074, i64 4396
   store i32 %107, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %.074, i64 4424
+  %109 = getelementptr inbounds nuw i8, ptr %.074, i64 4424
   %110 = load i8, ptr %109, align 8
   %111 = trunc i8 %110 to i1
-  %112 = getelementptr inbounds i8, ptr %.074, i64 4352
+  %112 = getelementptr inbounds nuw i8, ptr %.074, i64 4352
   br i1 %111, label %113, label %.thread
 
 113:                                              ; preds = %103
@@ -3351,7 +3351,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
   br i1 %.not90, label %120, label %117
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds i8, ptr %.074, i64 4328
+  %118 = getelementptr inbounds nuw i8, ptr %.074, i64 4328
   %119 = load ptr, ptr %118, align 8
   %.not91 = icmp eq ptr %119, null
   br i1 %.not91, label %121, label %120
@@ -3361,9 +3361,9 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
 
 121:                                              ; preds = %.thread, %117, %113, %120
   %.sink = phi i32 [ 1, %120 ], [ %114, %113 ], [ %107, %117 ], [ %spec.select, %.thread ]
-  %122 = getelementptr inbounds i8, ptr %.074, i64 4392
+  %122 = getelementptr inbounds nuw i8, ptr %.074, i64 4392
   store i32 %.sink, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %.074, i64 4328
+  %123 = getelementptr inbounds nuw i8, ptr %.074, i64 4328
   %124 = load ptr, ptr %123, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %104, i64 20, i1 false)
   %125 = call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %5, i32 noundef 24, ptr noundef %124) #13
@@ -3382,7 +3382,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
   br label %134
 
 134:                                              ; preds = %130, %121
-  %135 = getelementptr inbounds i8, ptr %.074, i64 4472
+  %135 = getelementptr inbounds nuw i8, ptr %.074, i64 4472
   store i16 -2, ptr %135, align 8
   %136 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 448), align 8
   %137 = call i32 @acct_gather_parse_freq(i32 noundef 1, ptr noundef %136) #13

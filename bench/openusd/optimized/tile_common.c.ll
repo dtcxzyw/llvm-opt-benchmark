@@ -216,7 +216,7 @@ define hidden void @av1_calculate_tile_cols(ptr nocapture noundef readonly %0, i
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.08595 = phi i32 [ 0, %.lr.ph ], [ %28, %26 ]
-  %27 = getelementptr inbounds [65 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [65 x i32], ptr %25, i64 0, i64 %indvars.iv
   store i32 %.08595, ptr %27, align 4
   %28 = add nuw nsw i32 %.08595, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -232,7 +232,7 @@ define hidden void @av1_calculate_tile_cols(ptr nocapture noundef readonly %0, i
   store i32 %.0.lcssa, ptr %3, align 4
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %32 = zext nneg i32 %.0.lcssa to i64
-  %33 = getelementptr inbounds [65 x i32], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [65 x i32], ptr %31, i64 0, i64 %32
   store i32 %12, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %35 = load i32, ptr %34, align 4
@@ -283,7 +283,7 @@ tile_log2.exit:                                   ; preds = %47
   %.08198 = phi i32 [ 65536, %.lr.ph100 ], [ %.182, %57 ]
   %.08397 = phi i32 [ 1, %.lr.ph100 ], [ %62, %57 ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %59 = getelementptr inbounds [65 x i32], ptr %54, i64 0, i64 %indvars.iv.next107
+  %59 = getelementptr inbounds nuw [65 x i32], ptr %54, i64 0, i64 %indvars.iv.next107
   %60 = load i32, ptr %59, align 4
   %61 = sub nsw i32 %60, %58
   %62 = tail call i32 @llvm.smax.i32(i32 %.08397, i32 %61)
@@ -355,7 +355,7 @@ define hidden void @av1_calculate_tile_rows(ptr nocapture noundef readonly %0, i
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.03338 = phi i32 [ 0, %.lr.ph ], [ %23, %21 ]
-  %22 = getelementptr inbounds [65 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [65 x i32], ptr %20, i64 0, i64 %indvars.iv
   store i32 %.03338, ptr %22, align 4
   %23 = add nuw nsw i32 %.03338, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -372,7 +372,7 @@ define hidden void @av1_calculate_tile_rows(ptr nocapture noundef readonly %0, i
   store i32 %.0.lcssa, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %28 = zext nneg i32 %.0.lcssa to i64
-  %29 = getelementptr inbounds [65 x i32], ptr %27, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [65 x i32], ptr %27, i64 0, i64 %28
   store i32 %9, ptr %29, align 4
   %30 = load i32, ptr %4, align 4
   %31 = shl i32 %18, %30
@@ -569,9 +569,9 @@ define hidden void @av1_get_uniform_tile_size(ptr nocapture noundef readonly %0,
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds [65 x i32], ptr %9, i64 0, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [65 x i32], ptr %9, i64 0, i64 %indvars.iv.next
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds [65 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [65 x i32], ptr %9, i64 0, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = sub nsw i32 %23, %25
   %27 = load i32, ptr %10, align 16
@@ -585,9 +585,9 @@ define hidden void @av1_get_uniform_tile_size(ptr nocapture noundef readonly %0,
 32:                                               ; preds = %.lr.ph31, %32
   %indvars.iv33 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next34, %32 ]
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %33 = getelementptr inbounds [65 x i32], ptr %19, i64 0, i64 %indvars.iv.next34
+  %33 = getelementptr inbounds nuw [65 x i32], ptr %19, i64 0, i64 %indvars.iv.next34
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds [65 x i32], ptr %19, i64 0, i64 %indvars.iv33
+  %35 = getelementptr inbounds nuw [65 x i32], ptr %19, i64 0, i64 %indvars.iv33
   %36 = load i32, ptr %35, align 4
   %37 = sub nsw i32 %34, %36
   %38 = load i32, ptr %20, align 16

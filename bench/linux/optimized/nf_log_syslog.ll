@@ -381,17 +381,17 @@ define internal void @nf_log_ip_packet(ptr noundef %0, i8 zeroext %1, i32 %2, pt
   %14 = tail call ptr @nf_log_buf_open() #7
   %15 = icmp eq ptr %6, null
   %16 = select i1 %15, ptr @default_loginfo, ptr %6
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i8, ptr %17, align 4
   %19 = zext i8 %18 to i32
   %20 = add nuw nsw i32 %19, 48
   %21 = icmp eq ptr %4, null
-  %22 = getelementptr inbounds i8, ptr %4, i64 296
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %23 = select i1 %21, ptr @.str.4, ptr %22
   %24 = icmp eq ptr %5, null
-  %25 = getelementptr inbounds i8, ptr %5, i64 296
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %26 = select i1 %24, ptr @.str.4, ptr %25
-  %27 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %7, ptr noundef %23, ptr noundef %26) #7
+  %27 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %7, ptr noundef nonnull %23, ptr noundef nonnull %26) #7
   br i1 %21, label %29, label %28
 
 28:                                               ; preds = %13
@@ -399,13 +399,13 @@ define internal void @nf_log_ip_packet(ptr noundef %0, i8 zeroext %1, i32 %2, pt
   br label %29
 
 29:                                               ; preds = %28, %13
-  %30 = getelementptr inbounds i8, ptr %3, i64 192
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 180
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 180
   %33 = load i16, ptr %32, align 4
   %34 = zext i16 %33 to i64
   %35 = getelementptr i8, ptr %31, i64 %34
-  %36 = getelementptr inbounds i8, ptr %3, i64 200
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %35 to i64
   %39 = ptrtoint ptr %37 to i64
@@ -424,35 +424,35 @@ declare dso_local ptr @nf_log_buf_open() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @dump_mac_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #4 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %1, align 4
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %45
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 5
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 32
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %45, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %5, i64 552
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 552
   %15 = load i16, ptr %14, align 8
   %16 = icmp eq i16 %15, 1
   br i1 %16, label %17, label %45
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 192
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 182
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 182
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i64
   %23 = getelementptr i8, ptr %19, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 6
-  %25 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %24, ptr noundef %23) #7
-  %26 = getelementptr inbounds i8, ptr %2, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 6
+  %25 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %24, ptr noundef %23) #7
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %35, label %29
@@ -470,7 +470,7 @@ define internal fastcc void @dump_mac_header(ptr noundef %0, ptr nocapture nound
   %37 = load i16, ptr %20, align 2
   %38 = zext i16 %37 to i64
   %39 = getelementptr i8, ptr %36, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i16, ptr %40, align 1
   %42 = tail call i16 @llvm.bswap.i16(i16 %41)
   %43 = zext i16 %42 to i32
@@ -479,25 +479,25 @@ define internal fastcc void @dump_mac_header(ptr noundef %0, ptr nocapture nound
 
 45:                                               ; preds = %13, %8, %3
   %46 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  %47 = getelementptr inbounds i8, ptr %5, i64 172
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 172
   %48 = load i16, ptr %47, align 4
   %49 = icmp eq i16 %48, 0
   br i1 %49, label %95, label %50
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %2, i64 182
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 182
   %52 = load i16, ptr %51, align 2
-  %53 = getelementptr inbounds i8, ptr %2, i64 180
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 180
   %54 = load i16, ptr %53, align 4
   %55 = icmp eq i16 %52, %54
   br i1 %55, label %95, label %56
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %2, i64 192
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %58 = load ptr, ptr %57, align 8
   %59 = zext i16 %52 to i64
   %60 = getelementptr i8, ptr %58, i64 %59
-  %61 = getelementptr inbounds i8, ptr %5, i64 552
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 552
   %62 = load i16, ptr %61, align 8
   %63 = icmp eq i16 %62, 776
   %64 = getelementptr i8, ptr %60, i64 -14
@@ -538,9 +538,9 @@ define internal fastcc void @dump_mac_header(ptr noundef %0, ptr nocapture nound
   %89 = load i16, ptr %51, align 2
   %90 = zext i16 %89 to i64
   %91 = getelementptr i8, ptr %88, i64 %90
-  %92 = getelementptr inbounds i8, ptr %91, i64 12
-  %93 = getelementptr inbounds i8, ptr %91, i64 16
-  %94 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %92, ptr noundef %93) #7
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %94 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %92, ptr noundef nonnull %93) #7
   br label %95
 
 95:                                               ; preds = %87, %.loopexit, %50, %45
@@ -564,7 +564,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %2, i64 5
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   br label %17
@@ -572,9 +572,9 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
 17:                                               ; preds = %13, %5
   %18 = phi i32 [ %16, %13 ], [ 15, %5 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !8
-  %19 = getelementptr inbounds i8, ptr %3, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 116
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 116
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %4, %22
   %24 = sub i32 %20, %23
@@ -591,7 +591,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br i1 %30, label %.thread, label %.thread14, !prof !9
 
 31:                                               ; preds = %17
-  %32 = getelementptr inbounds i8, ptr %3, i64 200
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %4 to i64
   %35 = getelementptr i8, ptr %33, i64 %34
@@ -604,10 +604,10 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
 
 .thread14:                                        ; preds = %28, %31
   %38 = phi ptr [ %35, %31 ], [ %6, %28 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 12
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
-  %41 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %39, ptr noundef %40) #7
-  %42 = getelementptr inbounds i8, ptr %38, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %41 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull %39, ptr noundef nonnull %40) #7
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %43 = load i16, ptr %42, align 2
   %44 = call i16 @llvm.bswap.i16(i16 %43)
   %45 = zext i16 %44 to i32
@@ -615,19 +615,19 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br i1 %46, label %47, label %75
 
 47:                                               ; preds = %.thread14
-  %48 = getelementptr inbounds i8, ptr %3, i64 192
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %3, i64 188
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 188
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
   %53 = getelementptr i8, ptr %49, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i16, ptr %54, align 4
   %56 = icmp eq i16 %55, 0
   br i1 %56, label %75, label %57
 
 57:                                               ; preds = %47
-  %58 = getelementptr inbounds i8, ptr %53, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 17
   %61 = icmp eq i32 %60, 0
@@ -635,11 +635,11 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
 
 62:                                               ; preds = %57
   %63 = load i32, ptr %19, align 8
-  %64 = getelementptr inbounds i8, ptr %3, i64 180
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 180
   %65 = load i16, ptr %64, align 4
   %66 = zext i16 %65 to i64
   %67 = getelementptr i8, ptr %49, i64 %66
-  %68 = getelementptr inbounds i8, ptr %3, i64 200
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %69 = load ptr, ptr %68, align 8
   %70 = ptrtoint ptr %67 to i64
   %71 = ptrtoint ptr %69 to i64
@@ -650,20 +650,20 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
 
 75:                                               ; preds = %62, %57, %47, %.thread14
   %76 = phi i32 [ %74, %62 ], [ %45, %57 ], [ %45, %47 ], [ %45, %.thread14 ]
-  %77 = getelementptr inbounds i8, ptr %38, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = and i32 %79, 30
   %81 = and i32 %79, 224
-  %82 = getelementptr inbounds i8, ptr %38, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %83 = load i8, ptr %82, align 4
   %84 = zext i8 %83 to i32
-  %85 = getelementptr inbounds i8, ptr %38, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %86 = load i16, ptr %85, align 4
   %87 = call i16 @llvm.bswap.i16(i16 %86)
   %88 = zext i16 %87 to i32
   %89 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.15, i32 noundef %76, i32 noundef %80, i32 noundef %81, i32 noundef %84, i32 noundef %88) #7
-  %90 = getelementptr inbounds i8, ptr %38, i64 6
+  %90 = getelementptr inbounds nuw i8, ptr %38, i64 6
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 128
   %93 = icmp eq i16 %92, 0
@@ -746,7 +746,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br i1 %140, label %.thread17, label %.thread18, !prof !9
 
 141:                                              ; preds = %123
-  %142 = getelementptr inbounds i8, ptr %3, i64 200
+  %142 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %143 = load ptr, ptr %142, align 8
   %144 = sext i32 %129 to i64
   %145 = getelementptr i8, ptr %143, i64 %144
@@ -779,7 +779,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br label %161
 
 161:                                              ; preds = %.loopexit, %119, %116
-  %162 = getelementptr inbounds i8, ptr %38, i64 9
+  %162 = getelementptr inbounds nuw i8, ptr %38, i64 9
   %163 = load i8, ptr %162, align 1
   switch i8 %163, label %359 [
     i8 6, label %164
@@ -859,7 +859,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br label %.thread21
 
 209:                                              ; preds = %193
-  %210 = getelementptr inbounds i8, ptr %3, i64 200
+  %210 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %211 = load ptr, ptr %210, align 8
   %212 = sext i32 %198 to i64
   %213 = getelementptr i8, ptr %211, i64 %212
@@ -877,7 +877,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   %218 = phi ptr [ %213, %209 ], [ %8, %206 ]
   %219 = load i8, ptr %218, align 4
   %220 = zext i8 %219 to i32
-  %221 = getelementptr inbounds i8, ptr %218, i64 1
+  %221 = getelementptr inbounds nuw i8, ptr %218, i64 1
   %222 = load i8, ptr %221, align 1
   %223 = zext i8 %222 to i32
   %224 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.25, i32 noundef %220, i32 noundef %223) #7
@@ -922,11 +922,11 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   ]
 
 247:                                              ; preds = %246, %246
-  %248 = getelementptr inbounds i8, ptr %218, i64 4
+  %248 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %249 = load i16, ptr %248, align 4
   %250 = call i16 @llvm.bswap.i16(i16 %249)
   %251 = zext i16 %250 to i32
-  %252 = getelementptr inbounds i8, ptr %218, i64 6
+  %252 = getelementptr inbounds nuw i8, ptr %218, i64 6
   %253 = load i16, ptr %252, align 2
   %254 = call i16 @llvm.bswap.i16(i16 %253)
   %255 = zext i16 %254 to i32
@@ -934,15 +934,15 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br label %287
 
 257:                                              ; preds = %246
-  %258 = getelementptr inbounds i8, ptr %218, i64 4
+  %258 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %259 = load i32, ptr %258, align 4
   %260 = and i32 %259, 255
   %261 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.27, i32 noundef %260) #7
   br label %287
 
 262:                                              ; preds = %246
-  %263 = getelementptr inbounds i8, ptr %218, i64 4
-  %264 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef %263) #7
+  %263 = getelementptr inbounds nuw i8, ptr %218, i64 4
+  %264 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull %263) #7
   br label %265
 
 265:                                              ; preds = %262, %246, %246, %246
@@ -971,7 +971,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br i1 %280, label %281, label %287
 
 281:                                              ; preds = %278
-  %282 = getelementptr inbounds i8, ptr %218, i64 6
+  %282 = getelementptr inbounds nuw i8, ptr %218, i64 6
   %283 = load i16, ptr %282, align 2
   %284 = call i16 @llvm.bswap.i16(i16 %283)
   %285 = zext i16 %284 to i32
@@ -1023,7 +1023,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br label %.thread25
 
 309:                                              ; preds = %292
-  %310 = getelementptr inbounds i8, ptr %3, i64 200
+  %310 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %311 = load ptr, ptr %310, align 8
   %312 = sext i32 %298 to i64
   %313 = getelementptr i8, ptr %311, i64 %312
@@ -1039,7 +1039,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
 
 .thread26:                                        ; preds = %306, %309
   %318 = phi ptr [ %313, %309 ], [ %9, %306 ]
-  %319 = getelementptr inbounds i8, ptr %318, i64 4
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %320 = load i32, ptr %319, align 4
   %321 = call i32 @llvm.bswap.i32(i32 %320)
   %322 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.33, i32 noundef %321) #7
@@ -1090,7 +1090,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br label %.thread29
 
 345:                                              ; preds = %329
-  %346 = getelementptr inbounds i8, ptr %3, i64 200
+  %346 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %347 = load ptr, ptr %346, align 8
   %348 = sext i32 %334 to i64
   %349 = getelementptr i8, ptr %347, i64 %348
@@ -1128,13 +1128,13 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br i1 %366, label %406, label %367
 
 367:                                              ; preds = %362
-  %368 = getelementptr inbounds i8, ptr %3, i64 24
+  %368 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %369 = load ptr, ptr %368, align 8
   %370 = icmp eq ptr %369, null
   br i1 %370, label %.thread32, label %371
 
 371:                                              ; preds = %367
-  %372 = getelementptr inbounds i8, ptr %369, i64 18
+  %372 = getelementptr inbounds nuw i8, ptr %369, i64 18
   %373 = load volatile i8, ptr %372, align 2
   %374 = zext nneg i8 %373 to i32
   %375 = shl nuw i32 1, %374
@@ -1143,34 +1143,34 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br i1 %377, label %.thread32, label %378
 
 378:                                              ; preds = %371
-  %379 = getelementptr inbounds i8, ptr %369, i64 48
+  %379 = getelementptr inbounds nuw i8, ptr %369, i64 48
   %380 = load ptr, ptr %379, align 8
   %381 = icmp eq ptr %380, %0
   br i1 %381, label %382, label %.thread32
 
 382:                                              ; preds = %378
-  %383 = getelementptr inbounds i8, ptr %369, i64 536
-  call void @_raw_read_lock_bh(ptr noundef %383) #7
-  %384 = getelementptr inbounds i8, ptr %369, i64 624
+  %383 = getelementptr inbounds nuw i8, ptr %369, i64 536
+  call void @_raw_read_lock_bh(ptr noundef nonnull %383) #7
+  %384 = getelementptr inbounds nuw i8, ptr %369, i64 624
   %385 = load ptr, ptr %384, align 8
   %386 = icmp eq ptr %385, null
   br i1 %386, label %405, label %387
 
 387:                                              ; preds = %382
-  %388 = getelementptr inbounds i8, ptr %385, i64 16
+  %388 = getelementptr inbounds nuw i8, ptr %385, i64 16
   %389 = load ptr, ptr %388, align 16
   %390 = icmp eq ptr %389, null
   br i1 %390, label %405, label %391
 
 391:                                              ; preds = %387
-  %392 = getelementptr inbounds i8, ptr %389, i64 112
+  %392 = getelementptr inbounds nuw i8, ptr %389, i64 112
   %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds i8, ptr %393, i64 32
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 32
   %395 = load i32, ptr %394, align 8
   %396 = icmp eq i32 %395, -1
   %397 = load i32, ptr @overflowuid, align 4
   %398 = select i1 %396, i32 %397, i32 %395
-  %399 = getelementptr inbounds i8, ptr %393, i64 36
+  %399 = getelementptr inbounds nuw i8, ptr %393, i64 36
   %400 = load i32, ptr %399, align 4
   %401 = icmp eq i32 %400, -1
   %402 = load i32, ptr @overflowgid, align 4
@@ -1179,14 +1179,14 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, pt
   br label %405
 
 405:                                              ; preds = %391, %387, %382
-  call void @_raw_read_unlock_bh(ptr noundef %383) #7
+  call void @_raw_read_unlock_bh(ptr noundef nonnull %383) #7
   br label %.thread32
 
 406:                                              ; preds = %362
   br i1 %365, label %413, label %.thread32
 
 .thread32:                                        ; preds = %367, %371, %378, %405, %406
-  %407 = getelementptr inbounds i8, ptr %3, i64 164
+  %407 = getelementptr inbounds nuw i8, ptr %3, i64 164
   %408 = load i32, ptr %407, align 4
   %409 = icmp eq i32 %408, 0
   br i1 %409, label %413, label %410
@@ -1228,9 +1228,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
 
 10:                                               ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !8
-  %11 = getelementptr inbounds i8, ptr %1, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 116
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %3, %14
   %16 = sub i32 %12, %15
@@ -1251,7 +1251,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br label %.thread
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds i8, ptr %1, i64 200
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %3 to i64
   %27 = getelementptr i8, ptr %25, i64 %26
@@ -1269,7 +1269,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %33 = load i16, ptr %32, align 4
   %34 = call i16 @llvm.bswap.i16(i16 %33)
   %35 = zext i16 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %32, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %37 = load i16, ptr %36, align 2
   %38 = call i16 @llvm.bswap.i16(i16 %37)
   %39 = zext i16 %38 to i32
@@ -1279,17 +1279,17 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br i1 %42, label %51, label %43
 
 43:                                               ; preds = %.thread6
-  %44 = getelementptr inbounds i8, ptr %32, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = call i32 @llvm.bswap.i32(i32 %45)
-  %47 = getelementptr inbounds i8, ptr %32, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %48 = load i32, ptr %47, align 4
   %49 = call i32 @llvm.bswap.i32(i32 %48)
   %50 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %46, i32 noundef %49) #7
   br label %51
 
 51:                                               ; preds = %43, %.thread6
-  %52 = getelementptr inbounds i8, ptr %32, i64 14
+  %52 = getelementptr inbounds nuw i8, ptr %32, i64 14
   %53 = load i16, ptr %52, align 2
   %54 = call i16 @llvm.bswap.i16(i16 %53)
   %55 = zext i16 %54 to i32
@@ -1385,7 +1385,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br label %108
 
 108:                                              ; preds = %106, %102
-  %109 = getelementptr inbounds i8, ptr %32, i64 18
+  %109 = getelementptr inbounds nuw i8, ptr %32, i64 18
   %110 = load i16, ptr %109, align 2
   %111 = call i16 @llvm.bswap.i16(i16 %110)
   %112 = zext i16 %111 to i32
@@ -1425,7 +1425,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br i1 %135, label %.thread9, label %.thread10, !prof !9
 
 136:                                              ; preds = %121
-  %137 = getelementptr inbounds i8, ptr %1, i64 200
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %138 = load ptr, ptr %137, align 8
   %139 = sext i32 %124 to i64
   %140 = getelementptr i8, ptr %138, i64 %139
@@ -1476,9 +1476,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr n
 
 11:                                               ; preds = %5
   store i64 0, ptr %6, align 8, !annotation !8
-  %12 = getelementptr inbounds i8, ptr %1, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 116
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %4, %15
   %17 = sub i32 %13, %16
@@ -1499,7 +1499,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr n
   br label %.thread
 
 24:                                               ; preds = %11
-  %25 = getelementptr inbounds i8, ptr %1, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %4 to i64
   %28 = getelementptr i8, ptr %26, i64 %27
@@ -1517,11 +1517,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr n
   %34 = load i16, ptr %33, align 2
   %35 = call i16 @llvm.bswap.i16(i16 %34)
   %36 = zext i16 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %33, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %38 = load i16, ptr %37, align 2
   %39 = call i16 @llvm.bswap.i16(i16 %38)
   %40 = zext i16 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %33, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %42 = load i16, ptr %41, align 2
   %43 = call i16 @llvm.bswap.i16(i16 %42)
   %44 = zext i16 %43 to i32
@@ -1558,24 +1558,24 @@ define internal void @nf_log_arp_packet(ptr noundef readnone %0, i8 zeroext %1, 
   %14 = tail call ptr @nf_log_buf_open() #7
   %15 = icmp eq ptr %6, null
   %16 = select i1 %15, ptr @default_loginfo, ptr %6
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i8, ptr %17, align 4
   %19 = zext i8 %18 to i32
   %20 = add nuw nsw i32 %19, 48
   %21 = icmp eq ptr %4, null
-  %22 = getelementptr inbounds i8, ptr %4, i64 296
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %23 = select i1 %21, ptr @.str.4, ptr %22
   %24 = icmp eq ptr %5, null
-  %25 = getelementptr inbounds i8, ptr %5, i64 296
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %26 = select i1 %24, ptr @.str.4, ptr %25
-  %27 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %7, ptr noundef %23, ptr noundef %26) #7
-  %28 = getelementptr inbounds i8, ptr %3, i64 192
+  %27 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %7, ptr noundef nonnull %23, ptr noundef nonnull %26) #7
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 180
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 180
   %31 = load i16, ptr %30, align 4
   %32 = zext i16 %31 to i64
   %33 = getelementptr i8, ptr %29, i64 %32
-  %34 = getelementptr inbounds i8, ptr %3, i64 200
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %33 to i64
   %37 = ptrtoint ptr %35 to i64
@@ -1597,9 +1597,9 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr nocapture nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   store i64 0, ptr %6, align 8, !annotation !8
-  %7 = getelementptr inbounds i8, ptr %2, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 116
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %3, %10
   %12 = sub i32 %8, %11
@@ -1616,7 +1616,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr nocapture nound
   br i1 %18, label %.thread, label %.thread3, !prof !9
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %2, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %3 to i64
   %23 = getelementptr i8, ptr %21, i64 %22
@@ -1634,22 +1634,22 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr nocapture nound
   br i1 %28, label %29, label %62
 
 29:                                               ; preds = %.thread3
-  %30 = getelementptr inbounds i8, ptr %1, i64 5
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %31 = load i8, ptr %30, align 1
   %32 = and i8 %31, 32
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %62, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %2, i64 192
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 182
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 182
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i64
   %40 = getelementptr i8, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 6
-  %42 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %41, ptr noundef %40) #7
-  %43 = getelementptr inbounds i8, ptr %2, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 6
+  %42 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %41, ptr noundef %40) #7
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %52, label %46
@@ -1667,7 +1667,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr nocapture nound
   %54 = load i16, ptr %37, align 2
   %55 = zext i16 %54 to i64
   %56 = getelementptr i8, ptr %53, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %58 = load i16, ptr %57, align 1
   %59 = call i16 @llvm.bswap.i16(i16 %58)
   %60 = zext i16 %59 to i32
@@ -1678,11 +1678,11 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr nocapture nound
   %63 = load i16, ptr %26, align 2
   %64 = call i16 @llvm.bswap.i16(i16 %63)
   %65 = zext i16 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %26, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %26, i64 2
   %67 = load i16, ptr %66, align 2
   %68 = call i16 @llvm.bswap.i16(i16 %67)
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds i8, ptr %26, i64 6
+  %70 = getelementptr inbounds nuw i8, ptr %26, i64 6
   %71 = load i16, ptr %70, align 2
   %72 = call i16 @llvm.bswap.i16(i16 %71)
   %73 = zext i16 %72 to i32
@@ -1692,13 +1692,13 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr nocapture nound
   br i1 %76, label %77, label %113
 
 77:                                               ; preds = %62
-  %78 = getelementptr inbounds i8, ptr %26, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %79 = load i8, ptr %78, align 2
   %80 = icmp eq i8 %79, 6
   br i1 %80, label %81, label %113
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %26, i64 5
+  %82 = getelementptr inbounds nuw i8, ptr %26, i64 5
   %83 = load i8, ptr %82, align 1
   %84 = icmp eq i8 %83, 4
   br i1 %84, label %85, label %113
@@ -1727,7 +1727,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr nocapture nound
   br label %.thread6
 
 98:                                               ; preds = %85
-  %99 = getelementptr inbounds i8, ptr %2, i64 200
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %100 = load ptr, ptr %99, align 8
   %101 = sext i32 %86 to i64
   %102 = getelementptr i8, ptr %100, i64 %101
@@ -1743,10 +1743,10 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr nocapture nound
 
 .thread7:                                         ; preds = %95, %98
   %108 = phi ptr [ %102, %98 ], [ %5, %95 ]
-  %109 = getelementptr inbounds i8, ptr %108, i64 6
-  %110 = getelementptr inbounds i8, ptr %108, i64 10
-  %111 = getelementptr inbounds i8, ptr %108, i64 16
-  %112 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef nonnull %108, ptr noundef %109, ptr noundef %110, ptr noundef %111) #7
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 6
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 10
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %112 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef nonnull %108, ptr noundef nonnull %109, ptr noundef nonnull %110, ptr noundef nonnull %111) #7
   br label %113
 
 113:                                              ; preds = %.thread7, %.thread6, %81, %77, %62, %.thread
@@ -1767,17 +1767,17 @@ define internal void @nf_log_ip6_packet(ptr noundef %0, i8 zeroext %1, i32 %2, p
   %14 = tail call ptr @nf_log_buf_open() #7
   %15 = icmp eq ptr %6, null
   %16 = select i1 %15, ptr @default_loginfo, ptr %6
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i8, ptr %17, align 4
   %19 = zext i8 %18 to i32
   %20 = add nuw nsw i32 %19, 48
   %21 = icmp eq ptr %4, null
-  %22 = getelementptr inbounds i8, ptr %4, i64 296
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %23 = select i1 %21, ptr @.str.4, ptr %22
   %24 = icmp eq ptr %5, null
-  %25 = getelementptr inbounds i8, ptr %5, i64 296
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %26 = select i1 %24, ptr @.str.4, ptr %25
-  %27 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %7, ptr noundef %23, ptr noundef %26) #7
+  %27 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %7, ptr noundef nonnull %23, ptr noundef nonnull %26) #7
   br i1 %21, label %29, label %28
 
 28:                                               ; preds = %13
@@ -1785,13 +1785,13 @@ define internal void @nf_log_ip6_packet(ptr noundef %0, i8 zeroext %1, i32 %2, p
   br label %29
 
 29:                                               ; preds = %28, %13
-  %30 = getelementptr inbounds i8, ptr %3, i64 192
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 180
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 180
   %33 = load i16, ptr %32, align 4
   %34 = zext i16 %33 to i64
   %35 = getelementptr i8, ptr %31, i64 %34
-  %36 = getelementptr inbounds i8, ptr %3, i64 200
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %35 to i64
   %39 = ptrtoint ptr %37 to i64
@@ -1819,7 +1819,7 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, pt
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 5
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   br label %19
@@ -1827,9 +1827,9 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, pt
 19:                                               ; preds = %15, %6
   %20 = phi i32 [ %18, %15 ], [ 15, %6 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !8
-  %21 = getelementptr inbounds i8, ptr %3, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 116
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 116
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %4, %24
   %26 = sub i32 %22, %25
@@ -1846,7 +1846,7 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, pt
   br i1 %32, label %.thread, label %.thread16, !prof !9
 
 33:                                               ; preds = %19
-  %34 = getelementptr inbounds i8, ptr %3, i64 200
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %4 to i64
   %37 = getelementptr i8, ptr %35, i64 %36
@@ -1859,10 +1859,10 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, pt
 
 .thread16:                                        ; preds = %30, %33
   %40 = phi ptr [ %37, %33 ], [ %7, %30 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 24
-  %43 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.61, ptr noundef %41, ptr noundef %42) #7
-  %44 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %43 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.61, ptr noundef nonnull %41, ptr noundef nonnull %42) #7
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %45 = load i16, ptr %44, align 4
   %46 = call i16 @llvm.bswap.i16(i16 %45)
   %47 = zext i16 %46 to i64
@@ -1871,15 +1871,15 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, pt
   %50 = call i32 @llvm.bswap.i32(i32 %49)
   %51 = lshr i32 %50, 20
   %52 = and i32 %51, 255
-  %53 = getelementptr inbounds i8, ptr %40, i64 7
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 7
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = and i32 %50, 1048575
   %57 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.62, i64 noundef %48, i32 noundef %52, i32 noundef %55, i32 noundef %56) #7
   %58 = add i32 %4, 40
-  %59 = getelementptr inbounds i8, ptr %40, i64 6
+  %59 = getelementptr inbounds nuw i8, ptr %40, i64 6
   %60 = load i8, ptr %59, align 2
-  %61 = getelementptr inbounds i8, ptr %3, i64 200
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %62 = icmp eq ptr %3, null
   %63 = and i32 %20, 4
   %64 = icmp eq i32 %63, 0
@@ -1982,7 +1982,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
 
 .thread24:                                        ; preds = %96, %99
   %105 = phi ptr [ %102, %99 ], [ %9, %96 ]
-  %106 = getelementptr inbounds i8, ptr %105, i64 2
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %107 = load i16, ptr %106, align 2
   %108 = and i16 %107, -1793
   %109 = call i16 @llvm.bswap.i16(i16 %108)
@@ -1998,7 +1998,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
   br label %117
 
 117:                                              ; preds = %.thread24, %115
-  %118 = getelementptr inbounds i8, ptr %105, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = call i32 @llvm.bswap.i32(i32 %119)
   %121 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.68, i32 noundef %120) #7
@@ -2069,7 +2069,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
 
 .thread29:                                        ; preds = %144, %147
   %155 = phi ptr [ %150, %147 ], [ %10, %144 ]
-  %156 = getelementptr inbounds i8, ptr %155, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %157 = load i32, ptr %156, align 4
   %158 = call i32 @llvm.bswap.i32(i32 %157)
   %159 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.33, i32 noundef %158) #7
@@ -2139,7 +2139,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
 191:                                              ; preds = %.thread29, %131, %126
   %192 = phi i32 [ 3, %126 ], [ 2, %.thread29 ], [ 2, %131 ]
   %193 = phi i32 [ 0, %126 ], [ 0, %.thread29 ], [ %68, %131 ]
-  %194 = getelementptr inbounds i8, ptr %84, i64 1
+  %194 = getelementptr inbounds nuw i8, ptr %84, i64 1
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
   %197 = shl nuw nsw i32 %196, %192
@@ -2228,7 +2228,7 @@ skb_header_pointer.exit.thread38:                 ; preds = %225, %skb_header_po
   %235 = phi ptr [ %230, %skb_header_pointer.exit ], [ %12, %225 ]
   %236 = load i8, ptr %235, align 4
   %237 = zext i8 %236 to i32
-  %238 = getelementptr inbounds i8, ptr %235, i64 1
+  %238 = getelementptr inbounds nuw i8, ptr %235, i64 1
   %239 = load i8, ptr %238, align 1
   %240 = zext i8 %239 to i32
   %241 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.25, i32 noundef %237, i32 noundef %240) #7
@@ -2243,11 +2243,11 @@ skb_header_pointer.exit.thread38:                 ; preds = %225, %skb_header_po
   ]
 
 243:                                              ; preds = %skb_header_pointer.exit.thread38, %skb_header_pointer.exit.thread38
-  %244 = getelementptr inbounds i8, ptr %235, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %245 = load i16, ptr %244, align 4
   %246 = call i16 @llvm.bswap.i16(i16 %245)
   %247 = zext i16 %246 to i32
-  %248 = getelementptr inbounds i8, ptr %235, i64 6
+  %248 = getelementptr inbounds nuw i8, ptr %235, i64 6
   %249 = load i16, ptr %248, align 2
   %250 = call i16 @llvm.bswap.i16(i16 %249)
   %251 = zext i16 %250 to i32
@@ -2255,7 +2255,7 @@ skb_header_pointer.exit.thread38:                 ; preds = %225, %skb_header_po
   br label %272
 
 253:                                              ; preds = %skb_header_pointer.exit.thread38
-  %254 = getelementptr inbounds i8, ptr %235, i64 4
+  %254 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %255 = load i32, ptr %254, align 4
   %256 = call i32 @llvm.bswap.i32(i32 %255)
   %257 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.76, i32 noundef %256) #7
@@ -2278,7 +2278,7 @@ skb_header_pointer.exit.thread38:                 ; preds = %225, %skb_header_po
   br i1 %266, label %267, label %272
 
 267:                                              ; preds = %264
-  %268 = getelementptr inbounds i8, ptr %235, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %269 = load i32, ptr %268, align 4
   %270 = call i32 @llvm.bswap.i32(i32 %269)
   %271 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.31, i32 noundef %270) #7
@@ -2301,13 +2301,13 @@ skb_header_pointer.exit.thread38:                 ; preds = %225, %skb_header_po
   br i1 %280, label %281, label %320
 
 281:                                              ; preds = %276
-  %282 = getelementptr inbounds i8, ptr %3, i64 24
+  %282 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %283 = load ptr, ptr %282, align 8
   %284 = icmp eq ptr %283, null
   br i1 %284, label %.thread40, label %285
 
 285:                                              ; preds = %281
-  %286 = getelementptr inbounds i8, ptr %283, i64 18
+  %286 = getelementptr inbounds nuw i8, ptr %283, i64 18
   %287 = load volatile i8, ptr %286, align 2
   %288 = zext nneg i8 %287 to i32
   %289 = shl nuw i32 1, %288
@@ -2316,34 +2316,34 @@ skb_header_pointer.exit.thread38:                 ; preds = %225, %skb_header_po
   br i1 %291, label %.thread40, label %292
 
 292:                                              ; preds = %285
-  %293 = getelementptr inbounds i8, ptr %283, i64 48
+  %293 = getelementptr inbounds nuw i8, ptr %283, i64 48
   %294 = load ptr, ptr %293, align 8
   %295 = icmp eq ptr %294, %0
   br i1 %295, label %296, label %.thread40
 
 296:                                              ; preds = %292
-  %297 = getelementptr inbounds i8, ptr %283, i64 536
-  call void @_raw_read_lock_bh(ptr noundef %297) #7
-  %298 = getelementptr inbounds i8, ptr %283, i64 624
+  %297 = getelementptr inbounds nuw i8, ptr %283, i64 536
+  call void @_raw_read_lock_bh(ptr noundef nonnull %297) #7
+  %298 = getelementptr inbounds nuw i8, ptr %283, i64 624
   %299 = load ptr, ptr %298, align 8
   %300 = icmp eq ptr %299, null
   br i1 %300, label %319, label %301
 
 301:                                              ; preds = %296
-  %302 = getelementptr inbounds i8, ptr %299, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %303 = load ptr, ptr %302, align 16
   %304 = icmp eq ptr %303, null
   br i1 %304, label %319, label %305
 
 305:                                              ; preds = %301
-  %306 = getelementptr inbounds i8, ptr %303, i64 112
+  %306 = getelementptr inbounds nuw i8, ptr %303, i64 112
   %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 32
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 32
   %309 = load i32, ptr %308, align 8
   %310 = icmp eq i32 %309, -1
   %311 = load i32, ptr @overflowuid, align 4
   %312 = select i1 %310, i32 %311, i32 %309
-  %313 = getelementptr inbounds i8, ptr %307, i64 36
+  %313 = getelementptr inbounds nuw i8, ptr %307, i64 36
   %314 = load i32, ptr %313, align 4
   %315 = icmp eq i32 %314, -1
   %316 = load i32, ptr @overflowgid, align 4
@@ -2352,14 +2352,14 @@ skb_header_pointer.exit.thread38:                 ; preds = %225, %skb_header_po
   br label %319
 
 319:                                              ; preds = %305, %301, %296
-  call void @_raw_read_unlock_bh(ptr noundef %297) #7
+  call void @_raw_read_unlock_bh(ptr noundef nonnull %297) #7
   br label %.thread40
 
 320:                                              ; preds = %276
   br i1 %279, label %.thread40, label %326
 
 .thread40:                                        ; preds = %281, %285, %292, %319, %320
-  %321 = getelementptr inbounds i8, ptr %3, i64 164
+  %321 = getelementptr inbounds nuw i8, ptr %3, i64 164
   %322 = load i32, ptr %321, align 4
   %323 = icmp eq i32 %322, 0
   br i1 %323, label %326, label %324
@@ -2375,7 +2375,7 @@ skb_header_pointer.exit.thread38:                 ; preds = %225, %skb_header_po
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nf_log_netdev_packet(ptr noundef %0, i8 zeroext %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #4 align 16 {
-  %9 = getelementptr inbounds i8, ptr %3, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %10 = load i16, ptr %9, align 8
   switch i16 %10, label %78 [
     i16 8, label %11
@@ -2395,17 +2395,17 @@ define internal void @nf_log_netdev_packet(ptr noundef %0, i8 zeroext %1, i32 %2
   %17 = tail call ptr @nf_log_buf_open() #7
   %18 = icmp eq ptr %6, null
   %19 = select i1 %18, ptr @default_loginfo, ptr %6
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i8, ptr %20, align 4
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 48
   %24 = icmp eq ptr %4, null
-  %25 = getelementptr inbounds i8, ptr %4, i64 296
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %26 = select i1 %24, ptr @.str.4, ptr %25
   %27 = icmp eq ptr %5, null
-  %28 = getelementptr inbounds i8, ptr %5, i64 296
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %29 = select i1 %27, ptr @.str.4, ptr %28
-  %30 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %17, ptr noundef nonnull @.str.3, i32 noundef %23, ptr noundef %7, ptr noundef %26, ptr noundef %29) #7
+  %30 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %17, ptr noundef nonnull @.str.3, i32 noundef %23, ptr noundef %7, ptr noundef nonnull %26, ptr noundef nonnull %29) #7
   br i1 %24, label %32, label %31
 
 31:                                               ; preds = %16
@@ -2413,13 +2413,13 @@ define internal void @nf_log_netdev_packet(ptr noundef %0, i8 zeroext %1, i32 %2
   br label %32
 
 32:                                               ; preds = %31, %16
-  %33 = getelementptr inbounds i8, ptr %3, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 180
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 180
   %36 = load i16, ptr %35, align 4
   %37 = zext i16 %36 to i64
   %38 = getelementptr i8, ptr %34, i64 %37
-  %39 = getelementptr inbounds i8, ptr %3, i64 200
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %38 to i64
   %42 = ptrtoint ptr %40 to i64
@@ -2444,24 +2444,24 @@ define internal void @nf_log_netdev_packet(ptr noundef %0, i8 zeroext %1, i32 %2
   %52 = tail call ptr @nf_log_buf_open() #7
   %53 = icmp eq ptr %6, null
   %54 = select i1 %53, ptr @default_loginfo, ptr %6
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i8, ptr %55, align 4
   %57 = zext i8 %56 to i32
   %58 = add nuw nsw i32 %57, 48
   %59 = icmp eq ptr %4, null
-  %60 = getelementptr inbounds i8, ptr %4, i64 296
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %61 = select i1 %59, ptr @.str.4, ptr %60
   %62 = icmp eq ptr %5, null
-  %63 = getelementptr inbounds i8, ptr %5, i64 296
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %64 = select i1 %62, ptr @.str.4, ptr %63
-  %65 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %52, ptr noundef nonnull @.str.3, i32 noundef %58, ptr noundef %7, ptr noundef %61, ptr noundef %64) #7
-  %66 = getelementptr inbounds i8, ptr %3, i64 192
+  %65 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %52, ptr noundef nonnull @.str.3, i32 noundef %58, ptr noundef %7, ptr noundef nonnull %61, ptr noundef nonnull %64) #7
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %3, i64 180
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 180
   %69 = load i16, ptr %68, align 4
   %70 = zext i16 %69 to i64
   %71 = getelementptr i8, ptr %67, i64 %70
-  %72 = getelementptr inbounds i8, ptr %3, i64 200
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %73 = load ptr, ptr %72, align 8
   %74 = ptrtoint ptr %71 to i64
   %75 = ptrtoint ptr %73 to i64
@@ -2482,17 +2482,17 @@ define internal void @nf_log_netdev_packet(ptr noundef %0, i8 zeroext %1, i32 %2
   %84 = tail call ptr @nf_log_buf_open() #7
   %85 = icmp eq ptr %6, null
   %86 = select i1 %85, ptr @default_loginfo, ptr %6
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i8, ptr %87, align 4
   %89 = zext i8 %88 to i32
   %90 = add nuw nsw i32 %89, 48
   %91 = icmp eq ptr %4, null
-  %92 = getelementptr inbounds i8, ptr %4, i64 296
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %93 = select i1 %91, ptr @.str.4, ptr %92
   %94 = icmp eq ptr %5, null
-  %95 = getelementptr inbounds i8, ptr %5, i64 296
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %96 = select i1 %94, ptr @.str.4, ptr %95
-  %97 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %84, ptr noundef nonnull @.str.3, i32 noundef %90, ptr noundef %7, ptr noundef %93, ptr noundef %96) #7
+  %97 = tail call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %84, ptr noundef nonnull @.str.3, i32 noundef %90, ptr noundef %7, ptr noundef nonnull %93, ptr noundef nonnull %96) #7
   tail call fastcc void @dump_mac_header(ptr noundef %84, ptr noundef nonnull %86, ptr noundef %3)
   tail call void @nf_log_buf_close(ptr noundef %84) #7
   br label %nf_log_ip_packet.exit

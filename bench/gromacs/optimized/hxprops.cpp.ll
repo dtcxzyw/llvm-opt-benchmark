@@ -74,9 +74,9 @@ define noundef float @_Z11ellipticityiP4t_bb(i32 noundef %0, ptr nocapture nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv25 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next26, %.loopexit ]
   %.01921 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %.loopexit ]
-  %4 = getelementptr inbounds %struct.t_bb, ptr %1, i64 %indvars.iv25
+  %4 = getelementptr inbounds nuw %struct.t_bb, ptr %1, i64 %indvars.iv25
   %5 = load float, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load float, ptr %6, align 4
   br label %9
 
@@ -87,11 +87,11 @@ define noundef float @_Z11ellipticityiP4t_bb(i32 noundef %0, ptr nocapture nound
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds [12 x %struct.t_ppwstr], ptr @_ZZ11ellipticityiP4t_bbE3ppw, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [12 x %struct.t_ppwstr], ptr @_ZZ11ellipticityiP4t_bbE3ppw, i64 0, i64 %indvars.iv
   %11 = load float, ptr %10, align 4
   %12 = fsub float %5, %11
   %13 = fmul float %12, %12
-  %14 = getelementptr inbounds i8, ptr %10, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %15 = load float, ptr %14, align 4
   %16 = fsub float %7, %15
   %17 = fmul float %16, %16
@@ -100,11 +100,11 @@ define noundef float @_Z11ellipticityiP4t_bb(i32 noundef %0, ptr nocapture nound
   br i1 %19, label %20, label %8
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %4, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %21, align 4
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %25 = load float, ptr %24, align 4
   %26 = fadd float %.01921, %25
   br label %.loopexit
@@ -134,14 +134,14 @@ define noundef float @_Z7ahx_leniPKiPA3_f(i32 noundef %0, ptr nocapture noundef 
   %13 = load float, ptr %6, align 4
   %14 = load float, ptr %12, align 4
   %15 = fsub float %13, %14
-  %16 = getelementptr inbounds i8, ptr %6, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %17 = load float, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %12, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %19 = load float, ptr %18, align 4
   %20 = fsub float %17, %19
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %12, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %24 = load float, ptr %23, align 4
   %25 = fsub float %22, %24
   %26 = fmul float %20, %20
@@ -170,13 +170,13 @@ define noundef float @_Z6radiusP8_IO_FILEiPKiPA3_f(ptr noundef %0, i32 noundef %
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.022.us = phi float [ %16, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv26
+  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv26
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [3 x float], ptr %3, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fmul float %10, %10
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load float, ptr %12, align 4
   %14 = fmul float %13, %13
   %15 = fadd float %11, %14
@@ -188,13 +188,13 @@ define noundef float @_Z6radiusP8_IO_FILEiPKiPA3_f(ptr noundef %0, i32 noundef %
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.022 = phi float [ %29, %.lr.ph.split ], [ 0.000000e+00, %.lr.ph ]
-  %17 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds [3 x float], ptr %3, i64 %19
   %21 = load float, ptr %20, align 4
   %22 = fmul float %21, %21
-  %23 = getelementptr inbounds i8, ptr %20, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %24 = load float, ptr %23, align 4
   %25 = fmul float %24, %24
   %26 = fadd float %22, %25
@@ -238,7 +238,7 @@ define noundef float @_Z5twistiPKiPA3_f(i32 noundef %0, ptr nocapture noundef re
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.024 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %30, %.lr.ph ]
   %.01623 = phi i32 [ %5, %.lr.ph.preheader ], [ %7, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %.01623 to i64
   %9 = getelementptr inbounds [3 x float], ptr %2, i64 %8
@@ -251,7 +251,7 @@ define noundef float @_Z5twistiPKiPA3_f(i32 noundef %0, ptr nocapture noundef re
   %14 = tail call noundef float @cosf(float noundef %13) #19
   %15 = tail call noundef float @sinf(float noundef %13) #19
   %16 = load float, ptr %11, align 4
-  %17 = getelementptr inbounds i8, ptr %11, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %18 = load float, ptr %17, align 4
   %19 = fmul float %15, %18
   %20 = tail call float @llvm.fmuladd.f32(float %14, float %16, float %19)
@@ -308,14 +308,14 @@ define noundef float @_Z6ca_phiiPKiPA3_f(i32 noundef %0, ptr nocapture noundef r
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02428 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %34, %.lr.ph ]
-  %14 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %14, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %15 to i64
   %23 = getelementptr inbounds [3 x float], ptr %2, i64 %22
@@ -352,9 +352,9 @@ declare noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(pt
 define noundef float @_Z3dipiPKiPA3_KfPK6t_atom(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
   %5 = alloca [3 x float], align 4
   store float 0.000000e+00, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float 0.000000e+00, ptr %7, align 4
   %8 = icmp sgt i32 %0, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
@@ -365,7 +365,7 @@ define noundef float @_Z3dipiPKiPA3_KfPK6t_atom(i32 noundef %0, ptr nocapture no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv17 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next18, %20 ]
-  %9 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv17
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv17
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds %struct.t_atom, ptr %3, i64 %11, i32 1
@@ -376,7 +376,7 @@ define noundef float @_Z3dipiPKiPA3_KfPK6t_atom(i32 noundef %0, ptr nocapture no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = getelementptr inbounds [3 x float], ptr %2, i64 %11, i64 %indvars.iv
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv
   %18 = load float, ptr %17, align 4
   %19 = tail call float @llvm.fmuladd.f32(float %16, float %13, float %18)
   store float %19, ptr %17, align 4
@@ -423,7 +423,7 @@ define noundef float @_Z4riseiPKiPA3_f(i32 noundef %0, ptr nocapture noundef rea
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01519 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %15, %.lr.ph ]
   %.01618 = phi float [ %8, %.lr.ph.preheader ], [ %13, %.lr.ph ]
-  %9 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds [3 x float], ptr %2, i64 %11, i64 2
@@ -469,14 +469,14 @@ define void @_Z8av_hblenP8_IO_FILES0_S0_S0_S0_S0_fiP4t_bb(ptr nocapture noundef 
   %.04861 = phi i32 [ 0, %.lr.ph ], [ %.149, %48 ]
   %.05060 = phi i32 [ 0, %.lr.ph ], [ %.252, %48 ]
   %.05359 = phi i32 [ 0, %.lr.ph ], [ %.154, %48 ]
-  %17 = getelementptr inbounds %struct.t_bb, ptr %8, i64 %indvars.iv
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %17 = getelementptr inbounds nuw %struct.t_bb, ptr %8, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load i8, ptr %18, align 4
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %48
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %23 = load float, ptr %22, align 4
   %24 = fpext float %23 to double
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %24) #19
@@ -487,7 +487,7 @@ define void @_Z8av_hblenP8_IO_FILES0_S0_S0_S0_S0_fiP4t_bb(ptr nocapture noundef 
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %17, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %32 = load float, ptr %31, align 4
   %33 = fpext float %32 to double
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.2, double noundef %33) #19
@@ -503,7 +503,7 @@ define void @_Z8av_hblenP8_IO_FILES0_S0_S0_S0_S0_fiP4t_bb(ptr nocapture noundef 
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %17, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %42 = load float, ptr %41, align 4
   %43 = fpext float %42 to double
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.2, double noundef %43) #19
@@ -568,8 +568,8 @@ define void @_Z9av_phipsiP8_IO_FILES0_S0_S0_fiP4t_bb(ptr nocapture noundef %0, p
   %.040 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %28 ]
   %.03139 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.132, %28 ]
   %.03338 = phi i32 [ 0, %.lr.ph.preheader ], [ %.134, %28 ]
-  %12 = getelementptr inbounds %struct.t_bb, ptr %6, i64 %indvars.iv
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %12 = getelementptr inbounds nuw %struct.t_bb, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i8, ptr %13, align 4
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %28
@@ -577,7 +577,7 @@ define void @_Z9av_phipsiP8_IO_FILES0_S0_S0_fiP4t_bb(ptr nocapture noundef %0, p
 16:                                               ; preds = %.lr.ph
   %17 = load float, ptr %12, align 4
   %18 = fadd float %.03139, %17
-  %19 = getelementptr inbounds i8, ptr %12, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %20 = load float, ptr %19, align 4
   %21 = fadd float %.040, %20
   %22 = fpext float %17 to double
@@ -645,7 +645,7 @@ define noundef ptr @_Z7mkbbindPKcPiS1_iS1_PS1_PPPcP6t_atomP9t_resinfo(ptr nounde
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0170178 = phi i32 [ %23, %.lr.ph.preheader ], [ %.sroa.speculated146, %.lr.ph ]
   %.0171177 = phi i32 [ %23, %.lr.ph.preheader ], [ %.sroa.speculated139, %.lr.ph ]
-  %26 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds %struct.t_atom, ptr %7, i64 %28, i32 7
@@ -681,8 +681,8 @@ define noundef ptr @_Z7mkbbindPKcPiS1_iS1_PS1_PPPcP6t_atomP9t_resinfo(ptr nounde
 
 .lr.ph184:                                        ; preds = %.lr.ph184.preheader, %.lr.ph184
   %indvars.iv216 = phi i64 [ 0, %.lr.ph184.preheader ], [ %indvars.iv.next217, %.lr.ph184 ]
-  %41 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %indvars.iv216, i32 13
-  %42 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %indvars.iv216, i32 11
+  %41 = getelementptr inbounds nuw %struct.t_bb, ptr %36, i64 %indvars.iv216, i32 13
+  %42 = getelementptr inbounds nuw %struct.t_bb, ptr %36, i64 %indvars.iv216, i32 11
   %43 = trunc i64 %indvars.iv216 to i32
   %44 = add i32 %3, %43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %41, i8 -1, i64 20, i1 false)
@@ -703,7 +703,7 @@ define noundef ptr @_Z7mkbbindPKcPiS1_iS1_PS1_PPPcP6t_atomP9t_resinfo(ptr nounde
 .lr.ph187:                                        ; preds = %.preheader176, %.thread
   %indvars.iv225 = phi i64 [ %indvars.iv.next226, %.thread ], [ 0, %.preheader176 ]
   %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv225
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv225
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds %struct.t_atom, ptr %7, i64 %50, i32 7
@@ -726,13 +726,13 @@ sub_0:                                            ; preds = %.lr.ph187
   br i1 %.not, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %64 = getelementptr inbounds i8, ptr %62, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %65 = load i8, ptr %64, align 1
   %.not214 = icmp eq i8 %65, 68
   br i1 %.not214, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %66 = getelementptr inbounds i8, ptr %62, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %67 = load i8, ptr %66, align 1
   %68 = icmp eq i8 %67, 0
   br i1 %68, label %69, label %.tail.thread
@@ -751,7 +751,7 @@ sub_1:                                            ; preds = %sub_0
 
 75:                                               ; preds = %.tail.thread, %80
   %indvars.iv221 = phi i64 [ 0, %.tail.thread ], [ %indvars.iv.next222, %80 ]
-  %76 = getelementptr inbounds [6 x ptr], ptr @_ZZ7mkbbindPKcPiS1_iS1_PS1_PPPcP6t_atomP9t_resinfoE5bb_nm, i64 0, i64 %indvars.iv221
+  %76 = getelementptr inbounds nuw [6 x ptr], ptr @_ZZ7mkbbindPKcPiS1_iS1_PS1_PPPcP6t_atomP9t_resinfoE5bb_nm, i64 0, i64 %indvars.iv221
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) %74) #22
   %79 = icmp eq i32 %78, 0
@@ -812,32 +812,32 @@ sub_1:                                            ; preds = %sub_0
 
 .lr.ph190:                                        ; preds = %.lr.ph190.preheader, %116
   %indvars.iv228 = phi i64 [ 0, %.lr.ph190.preheader ], [ %indvars.iv.next229, %116 ]
-  %101 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %indvars.iv228
-  %102 = getelementptr inbounds i8, ptr %101, i64 52
+  %101 = getelementptr inbounds nuw %struct.t_bb, ptr %36, i64 %indvars.iv228
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 52
   %103 = load i32, ptr %102, align 4
   %.not123 = icmp eq i32 %103, -1
   br i1 %.not123, label %116, label %104
 
 104:                                              ; preds = %.lr.ph190
-  %105 = getelementptr inbounds i8, ptr %101, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 56
   %106 = load i32, ptr %105, align 4
   %.not124 = icmp eq i32 %106, -1
   br i1 %.not124, label %116, label %107
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %101, i64 60
+  %108 = getelementptr inbounds nuw i8, ptr %101, i64 60
   %109 = load i32, ptr %108, align 4
   %.not125 = icmp eq i32 %109, -1
   br i1 %.not125, label %116, label %110
 
 110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %101, i64 64
+  %111 = getelementptr inbounds nuw i8, ptr %101, i64 64
   %112 = load i32, ptr %111, align 4
   %.not126 = icmp eq i32 %112, -1
   br i1 %.not126, label %116, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %101, i64 68
+  %114 = getelementptr inbounds nuw i8, ptr %101, i64 68
   %115 = load i32, ptr %114, align 4
   %.not127 = icmp eq i32 %115, -1
   br i1 %.not127, label %116, label %._crit_edge191.split.loop.exit256
@@ -858,32 +858,32 @@ sub_1:                                            ; preds = %sub_0
 
 .lr.ph197:                                        ; preds = %.lr.ph197.preheader, %134
   %indvars.iv233 = phi i64 [ %118, %.lr.ph197.preheader ], [ %indvars.iv.next234, %134 ]
-  %119 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %indvars.iv233
-  %120 = getelementptr inbounds i8, ptr %119, i64 52
+  %119 = getelementptr inbounds nuw %struct.t_bb, ptr %36, i64 %indvars.iv233
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 52
   %121 = load i32, ptr %120, align 4
   %.not128 = icmp eq i32 %121, -1
   br i1 %.not128, label %134, label %122
 
 122:                                              ; preds = %.lr.ph197
-  %123 = getelementptr inbounds i8, ptr %119, i64 56
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 56
   %124 = load i32, ptr %123, align 4
   %.not129 = icmp eq i32 %124, -1
   br i1 %.not129, label %134, label %125
 
 125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %119, i64 60
+  %126 = getelementptr inbounds nuw i8, ptr %119, i64 60
   %127 = load i32, ptr %126, align 4
   %.not130 = icmp eq i32 %127, -1
   br i1 %.not130, label %134, label %128
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %119, i64 64
+  %129 = getelementptr inbounds nuw i8, ptr %119, i64 64
   %130 = load i32, ptr %129, align 4
   %.not131 = icmp eq i32 %130, -1
   br i1 %.not131, label %134, label %131
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %119, i64 68
+  %132 = getelementptr inbounds nuw i8, ptr %119, i64 68
   %133 = load i32, ptr %132, align 4
   %.not132 = icmp eq i32 %133, -1
   br i1 %.not132, label %134, label %._crit_edge198.loopexit.split.loop.exit
@@ -917,12 +917,12 @@ sub_1:                                            ; preds = %sub_0
   %indvars.iv236 = phi i64 [ %umax, %.lr.ph204.preheader ], [ %indvars.iv.next237, %.lr.ph204 ]
   %gep = getelementptr %struct.t_bb, ptr %invariant.gep, i64 %indvars.iv236
   %141 = load i32, ptr %gep, align 4
-  %142 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %indvars.iv236, i32 12
+  %142 = getelementptr inbounds nuw %struct.t_bb, ptr %36, i64 %indvars.iv236, i32 12
   store i32 %141, ptr %142, align 4
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
-  %143 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %indvars.iv.next237, i32 13
+  %143 = getelementptr inbounds nuw %struct.t_bb, ptr %36, i64 %indvars.iv.next237, i32 13
   %144 = load i32, ptr %143, align 4
-  %145 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %indvars.iv236, i32 18
+  %145 = getelementptr inbounds nuw %struct.t_bb, ptr %36, i64 %indvars.iv236, i32 18
   store i32 %144, ptr %145, align 4
   %146 = trunc nuw i64 %indvars.iv.next237 to i32
   %147 = icmp sgt i32 %.1, %146
@@ -934,7 +934,7 @@ sub_1:                                            ; preds = %sub_0
   %.sroa.speculated = add nsw i32 %149, 1
   %150 = load ptr, ptr @stderr, align 8
   %151 = zext nneg i32 %spec.select to i64
-  %152 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %151, i32 11
+  %152 = getelementptr inbounds nuw %struct.t_bb, ptr %36, i64 %151, i32 11
   %153 = load i32, ptr %152, align 4
   %154 = sext i32 %.1 to i64
   %155 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %154, i32 11
@@ -974,8 +974,8 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph209:                                        ; preds = %.lr.ph209.preheader, %.lr.ph209
   %indvars.iv242 = phi i64 [ %umax241, %.lr.ph209.preheader ], [ %indvars.iv.next243, %.lr.ph209 ]
   %indvars.iv239 = phi i64 [ 0, %.lr.ph209.preheader ], [ %indvars.iv.next240, %.lr.ph209 ]
-  %164 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %indvars.iv242
-  %165 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %indvars.iv239
+  %164 = getelementptr inbounds nuw %struct.t_bb, ptr %36, i64 %indvars.iv242
+  %165 = getelementptr inbounds nuw %struct.t_bb, ptr %36, i64 %indvars.iv239
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %165, ptr noundef nonnull align 4 dereferenceable(108) %164, i64 108, i1 false)
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
@@ -984,18 +984,18 @@ sub_1:                                            ; preds = %sub_0
 
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %.lr.ph212
   %indvars.iv247 = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next248, %.lr.ph212 ]
-  %166 = getelementptr inbounds %struct.t_bb, ptr %36, i64 %indvars.iv247
-  %167 = getelementptr inbounds i8, ptr %166, i64 60
+  %166 = getelementptr inbounds nuw %struct.t_bb, ptr %36, i64 %indvars.iv247
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 60
   %168 = load i32, ptr %167, align 4
   %169 = sext i32 %168 to i64
   %170 = getelementptr inbounds %struct.t_atom, ptr %7, i64 %169, i32 7
   %171 = load i32, ptr %170, align 4
-  %172 = getelementptr inbounds i8, ptr %166, i64 76
+  %172 = getelementptr inbounds nuw i8, ptr %166, i64 76
   %173 = sext i32 %171 to i64
   %174 = getelementptr inbounds %struct.t_resinfo, ptr %8, i64 %173
   %175 = load ptr, ptr %174, align 8
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %174, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %178 = load i32, ptr %177, align 8
   %179 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %172, ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %176, i32 noundef %178) #19
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
@@ -1029,7 +1029,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #19
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -1037,7 +1037,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -1088,7 +1088,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -1152,14 +1152,14 @@ define noundef float @_Z5pprmsP8_IO_FILEiP4t_bb(ptr nocapture noundef %0, i32 no
   %.028 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %19 ]
   %.02027 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.121, %19 ]
   %.02226 = phi i32 [ 0, %.lr.ph.preheader ], [ %.123, %19 ]
-  %5 = getelementptr inbounds %struct.t_bb, ptr %2, i64 %indvars.iv
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %5 = getelementptr inbounds nuw %struct.t_bb, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load float, ptr %10, align 4
   %12 = tail call noundef float @sqrtf(float noundef %11) #19
   %13 = fadd float %.02027, %12
@@ -1220,20 +1220,20 @@ define void @_Z12calc_hxpropsiP4t_bbPA3_Kf(i32 noundef %0, ptr nocapture noundef
 
 19:                                               ; preds = %.lr.ph, %100
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %100 ]
-  %20 = getelementptr inbounds %struct.t_bb, ptr %1, i64 %indvars.iv
-  %21 = getelementptr inbounds i8, ptr %20, i64 68
+  %20 = getelementptr inbounds nuw %struct.t_bb, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 68
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store float 0.000000e+00, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store float 0.000000e+00, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %20, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store float 0.000000e+00, ptr %25, align 4
   %26 = icmp slt i64 %indvars.iv, %16
   br i1 %26, label %27, label %50
 
 27:                                               ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %20, i64 376
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 376
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %22 to i64
   %31 = getelementptr inbounds [3 x float], ptr %2, i64 %30
@@ -1242,14 +1242,14 @@ define void @_Z12calc_hxpropsiP4t_bbPA3_Kf(i32 noundef %0, ptr nocapture noundef
   %34 = load float, ptr %31, align 4
   %35 = load float, ptr %33, align 4
   %36 = fsub float %34, %35
-  %37 = getelementptr inbounds i8, ptr %31, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %33, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %40 = load float, ptr %39, align 4
   %41 = fsub float %38, %40
-  %42 = getelementptr inbounds i8, ptr %31, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %33, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %45 = load float, ptr %44, align 4
   %46 = fsub float %43, %45
   %47 = fmul float %41, %41
@@ -1264,7 +1264,7 @@ define void @_Z12calc_hxpropsiP4t_bbPA3_Kf(i32 noundef %0, ptr nocapture noundef
   br i1 %51, label %52, label %75
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %20, i64 484
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 484
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %22 to i64
   %56 = getelementptr inbounds [3 x float], ptr %2, i64 %55
@@ -1273,14 +1273,14 @@ define void @_Z12calc_hxpropsiP4t_bbPA3_Kf(i32 noundef %0, ptr nocapture noundef
   %59 = load float, ptr %56, align 4
   %60 = load float, ptr %58, align 4
   %61 = fsub float %59, %60
-  %62 = getelementptr inbounds i8, ptr %56, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %58, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %65 = load float, ptr %64, align 4
   %66 = fsub float %63, %65
-  %67 = getelementptr inbounds i8, ptr %56, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %68 = load float, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %58, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %70 = load float, ptr %69, align 4
   %71 = fsub float %68, %70
   %72 = fmul float %66, %66
@@ -1295,7 +1295,7 @@ define void @_Z12calc_hxpropsiP4t_bbPA3_Kf(i32 noundef %0, ptr nocapture noundef
   br i1 %76, label %77, label %100
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %20, i64 592
+  %78 = getelementptr inbounds nuw i8, ptr %20, i64 592
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %22 to i64
   %81 = getelementptr inbounds [3 x float], ptr %2, i64 %80
@@ -1304,14 +1304,14 @@ define void @_Z12calc_hxpropsiP4t_bbPA3_Kf(i32 noundef %0, ptr nocapture noundef
   %84 = load float, ptr %81, align 4
   %85 = load float, ptr %83, align 4
   %86 = fsub float %84, %85
-  %87 = getelementptr inbounds i8, ptr %81, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %88 = load float, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %83, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %90 = load float, ptr %89, align 4
   %91 = fsub float %88, %90
-  %92 = getelementptr inbounds i8, ptr %81, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %93 = load float, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %83, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %95 = load float, ptr %94, align 4
   %96 = fsub float %93, %95
   %97 = fmul float %91, %91
@@ -1322,19 +1322,19 @@ define void @_Z12calc_hxpropsiP4t_bbPA3_Kf(i32 noundef %0, ptr nocapture noundef
   br label %100
 
 100:                                              ; preds = %77, %75
-  %101 = getelementptr inbounds i8, ptr %20, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds [3 x float], ptr %2, i64 %103
-  %105 = getelementptr inbounds i8, ptr %20, i64 52
+  %105 = getelementptr inbounds nuw i8, ptr %20, i64 52
   %106 = load i32, ptr %105, align 4
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds [3 x float], ptr %2, i64 %107
-  %109 = getelementptr inbounds i8, ptr %20, i64 60
+  %109 = getelementptr inbounds nuw i8, ptr %20, i64 60
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds [3 x float], ptr %2, i64 %111
-  %113 = getelementptr inbounds i8, ptr %20, i64 64
+  %113 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %114 = load i32, ptr %113, align 4
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds [3 x float], ptr %2, i64 %115
@@ -1352,7 +1352,7 @@ define void @_Z12calc_hxpropsiP4t_bbPA3_Kf(i32 noundef %0, ptr nocapture noundef
   %127 = load i32, ptr %113, align 4
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds [3 x float], ptr %2, i64 %128
-  %130 = getelementptr inbounds i8, ptr %20, i64 72
+  %130 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %131 = load i32, ptr %130, align 4
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds [3 x float], ptr %2, i64 %132
@@ -1360,7 +1360,7 @@ define void @_Z12calc_hxpropsiP4t_bbPA3_Kf(i32 noundef %0, ptr nocapture noundef
   %135 = fpext float %134 to double
   %136 = fmul double %135, 0x404CA5DC1A63C1F8
   %137 = fptrunc double %136 to float
-  %138 = getelementptr inbounds i8, ptr %20, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store float %137, ptr %138, align 4
   %139 = load float, ptr %20, align 4
   %140 = fpext float %139 to double
@@ -1371,7 +1371,7 @@ define void @_Z12calc_hxpropsiP4t_bbPA3_Kf(i32 noundef %0, ptr nocapture noundef
   %145 = fmul double %144, %144
   %146 = fadd double %142, %145
   %147 = fptrunc double %146 to float
-  %148 = getelementptr inbounds i8, ptr %20, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store float %147, ptr %148, align 4
   %149 = fadd double %143, 1.380000e+02
   %150 = fmul double %149, 0x3F91DF46A2529D39
@@ -1389,7 +1389,7 @@ define void @_Z12calc_hxpropsiP4t_bbPA3_Kf(i32 noundef %0, ptr nocapture noundef
   %162 = fmul double %161, 0x3FA1DF46A2529D39
   %163 = call double @cos(double noundef %162) #19
   %164 = call double @llvm.fmuladd.f64(double %163, double 2.000000e+00, double %158)
-  %165 = getelementptr inbounds i8, ptr %20, i64 12
+  %165 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %166 = load float, ptr %165, align 4
   %167 = fpext float %166 to double
   %168 = fadd double %164, %167
@@ -1428,8 +1428,8 @@ define void @_Z12do_start_endiP4t_bbPiS1_S1_S1_bii(i32 noundef %0, ptr nocapture
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
   %.06269 = phi i32 [ 0, %.lr.ph.preheader ], [ %.163, %16 ]
   %.06468 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %16 ]
-  %11 = getelementptr inbounds %struct.t_bb, ptr %1, i64 %indvars.iv
-  %12 = getelementptr inbounds i8, ptr %11, i64 44
+  %11 = getelementptr inbounds nuw %struct.t_bb, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %13 = load i32, ptr %12, align 4
   %.not54 = icmp slt i32 %13, %7
   %.not55 = icmp sgt i32 %13, %8
@@ -1437,7 +1437,7 @@ define void @_Z12do_start_endiP4t_bbPiS1_S1_S1_bii(i32 noundef %0, ptr nocapture
   br i1 %or.cond, label %16, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %11, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 1, ptr %15, align 4
   br label %16
 
@@ -1460,25 +1460,25 @@ define void @_Z12do_start_endiP4t_bbPiS1_S1_S1_bii(i32 noundef %0, ptr nocapture
 
 .lr.ph.i.i:                                       ; preds = %46, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %46 ]
-  %21 = getelementptr inbounds %struct.t_bb, ptr %1, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw %struct.t_bb, ptr %1, i64 %indvars.iv.i.i
   %22 = load float, ptr %21, align 4
   %23 = fpext float %22 to double
   %24 = fadd double %23, 5.500000e+01
   %25 = fmul double %24, %24
-  %26 = getelementptr inbounds i8, ptr %21, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %27 = load float, ptr %26, align 4
   %28 = fpext float %27 to double
   %29 = fadd double %28, 4.500000e+01
   %30 = fmul double %29, %29
   %31 = fadd double %25, %30
   %32 = fptrunc double %31 to float
-  %33 = getelementptr inbounds i8, ptr %21, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i8 0, ptr %33, align 4
   %34 = fcmp olt float %32, 2.500000e+03
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %.lr.ph.i.i
-  %36 = getelementptr inbounds i8, ptr %21, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %37 = load float, ptr %36, align 4
   %38 = fpext float %37 to double
   %39 = fcmp olt double %38, 3.600000e-01
@@ -1579,26 +1579,26 @@ _ZL9check_ahxiP4t_bbPiS1_.exit:                   ; preds = %71, %16, %.preheade
   %indvars.iv82 = phi i64 [ %73, %.lr.ph75.preheader ], [ %indvars.iv.next83, %.lr.ph75 ]
   %indvars.iv80 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next81, %.lr.ph75 ]
   %81 = getelementptr inbounds %struct.t_bb, ptr %1, i64 %indvars.iv82
-  %82 = getelementptr inbounds i8, ptr %81, i64 52
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 52
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv80
+  %84 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv80
   store i32 %83, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %81, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr i8, ptr %84, i64 4
   store i32 %86, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %81, i64 60
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 60
   %89 = load i32, ptr %88, align 4
   %90 = getelementptr i8, ptr %84, i64 8
   store i32 %89, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %81, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %81, i64 64
   %92 = load i32, ptr %91, align 4
   %93 = getelementptr i8, ptr %84, i64 12
   store i32 %92, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %81, i64 68
+  %94 = getelementptr inbounds nuw i8, ptr %81, i64 68
   %95 = load i32, ptr %94, align 4
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 5
-  %96 = getelementptr inbounds i8, ptr %84, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store i32 %95, ptr %96, align 4
   %97 = load i32, ptr %88, align 4
   %98 = sub nsw i64 %indvars.iv82, %73
@@ -1635,32 +1635,32 @@ define void @_Z5pr_bbP8_IO_FILEiP4t_bb(ptr nocapture noundef %0, i32 noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds %struct.t_bb, ptr %2, i64 %indvars.iv
-  %7 = getelementptr inbounds i8, ptr %6, i64 44
+  %6 = getelementptr inbounds nuw %struct.t_bb, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 60
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %16 = load i32, ptr %15, align 4
   %17 = load float, ptr %6, align 4
   %18 = fpext float %17 to double
-  %19 = getelementptr inbounds i8, ptr %6, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %20 = load float, ptr %19, align 4
   %21 = fpext float %20 to double
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %23 = load float, ptr %22, align 4
   %24 = fpext float %23 to double
-  %25 = getelementptr inbounds i8, ptr %6, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %26 = load float, ptr %25, align 4
   %27 = fpext float %26 to double
-  %28 = getelementptr inbounds i8, ptr %6, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %29 = load float, ptr %28, align 4
   %30 = fpext float %29 to double
-  %31 = getelementptr inbounds i8, ptr %6, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %32 = load i8, ptr %31, align 4
   %33 = trunc i8 %32 to i1
   %34 = select i1 %33, ptr @.str.32, ptr @.str.33

@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZN14arrow_vendored17double_conversion6Bignum8RawBigitEi(ptr noundef nonnull readnone align 4 dereferenceable(516) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
-  %bigits_buffer_ = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds [128 x i32], ptr %bigits_buffer_, i64 0, i64 %idxprom
   ret ptr %arrayidx
@@ -19,7 +19,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK14arrow_vendored17double_conversion6Bignum8RawBigitEi(ptr noundef nonnull readnone align 4 dereferenceable(516) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
-  %bigits_buffer_ = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds [128 x i32], ptr %bigits_buffer_, i64 0, i64 %idxprom
   ret ptr %arrayidx
@@ -29,14 +29,14 @@ entry:
 define void @_ZN14arrow_vendored17double_conversion6Bignum12AssignUInt16Et(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) initializes((0, 4)) %this, i16 noundef zeroext %value) local_unnamed_addr #1 align 2 {
 entry:
   store i16 0, ptr %this, align 4
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 0, ptr %exponent_.i, align 2
   %cmp.not = icmp eq i16 %value, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %conv = zext i16 %value to i32
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %conv, ptr %bigits_buffer_.i, align 4
   store i16 1, ptr %this, align 4
   br label %if.end
@@ -49,13 +49,13 @@ if.end:                                           ; preds = %if.then, %entry
 define void @_ZN14arrow_vendored17double_conversion6Bignum12AssignUInt64Em(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) initializes((0, 4)) %this, i64 noundef %value) local_unnamed_addr #2 align 2 {
 entry:
   store i16 0, ptr %this, align 4
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 0, ptr %exponent_.i, align 2
   %cmp.not4 = icmp eq i64 %value, 0
   br i1 %cmp.not4, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -64,7 +64,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %0 = phi i16 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %1 = trunc i64 %value.addr.05 to i32
   %conv = and i32 %1, 268435455
-  %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
   store i32 %conv, ptr %arrayidx.i, align 4
   %shr = lshr i64 %value.addr.05, 28
   %inc = add i16 %0, 1
@@ -83,24 +83,24 @@ for.end:                                          ; preds = %for.cond.for.end_cr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum12AssignBignumERKS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) initializes((2, 4)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #3 align 2 {
 entry:
-  %exponent_ = getelementptr inbounds i8, ptr %other, i64 2
+  %exponent_ = getelementptr inbounds nuw i8, ptr %other, i64 2
   %0 = load i16, ptr %exponent_, align 2
-  %exponent_2 = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_2 = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 %0, ptr %exponent_2, align 2
   %1 = load i16, ptr %other, align 4
   %cmp11 = icmp sgt i16 %1, 0
   br i1 %cmp11, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %other, i64 4
-  %bigits_buffer_.i7 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %other, i64 4
+  %bigits_buffer_.i7 = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx.i9 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i7, i64 0, i64 %indvars.iv
+  %arrayidx.i9 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i7, i64 0, i64 %indvars.iv
   store i32 %2, ptr %arrayidx.i9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i16, ptr %other, align 4
@@ -120,13 +120,13 @@ entry:
   %other.i19 = alloca %"class.arrow_vendored::double_conversion::Bignum", align 4
   %other.i = alloca %"class.arrow_vendored::double_conversion::Bignum", align 4
   store i16 0, ptr %this, align 4
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 0, ptr %exponent_.i, align 2
   %cmp43 = icmp sgt i32 %value.coerce1, 18
   br i1 %cmp43, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %bigits_buffer_.i.i.i = getelementptr inbounds i8, ptr %other.i, i64 4
+  %bigits_buffer_.i.i.i = getelementptr inbounds nuw i8, ptr %other.i, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN14arrow_vendored17double_conversion6Bignum9AddUInt64Em.exit
@@ -138,7 +138,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 for.body.i:                                       ; preds = %for.body.i, %while.body
   %indvars.iv.i = phi i64 [ %indvars.iv47, %while.body ], [ %indvars.iv.next.i, %for.body.i ]
   %result.07.i = phi i64 [ 0, %while.body ], [ %add2.i, %for.body.i ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %value.coerce0, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 %indvars.iv.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i = sext i8 %0 to i64
   %mul.i = mul i64 %result.07.i, 10
@@ -165,7 +165,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %value.addr.05.i.i = phi i64 [ %add2.i, %for.body.lr.ph.i.i ], [ %shr.i.i, %for.body.i.i ]
   %1 = trunc i64 %value.addr.05.i.i to i32
   %conv.i.i = and i32 %1, 268435455
-  %arrayidx.i.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %indvars.iv.i.i
   store i32 %conv.i.i, ptr %arrayidx.i.i.i, align 4
   %shr.i.i = lshr i64 %value.addr.05.i.i, 28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -208,7 +208,7 @@ for.body.preheader.i:                             ; preds = %while.end
 for.body.i8:                                      ; preds = %for.body.i8, %for.body.preheader.i
   %indvars.iv.i9 = phi i64 [ %3, %for.body.preheader.i ], [ %indvars.iv.next.i16, %for.body.i8 ]
   %result.07.i10 = phi i64 [ 0, %for.body.preheader.i ], [ %add2.i15, %for.body.i8 ]
-  %arrayidx.i.i11 = getelementptr inbounds i8, ptr %value.coerce0, i64 %indvars.iv.i9
+  %arrayidx.i.i11 = getelementptr inbounds nuw i8, ptr %value.coerce0, i64 %indvars.iv.i9
   %5 = load i8, ptr %arrayidx.i.i11, align 1
   %conv.i12 = sext i8 %5 to i64
   %mul.i13 = mul i64 %result.07.i10, 10
@@ -225,7 +225,7 @@ _ZN14arrow_vendored17double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit18: ;
   br i1 %cmp.i20, label %_ZN14arrow_vendored17double_conversion6Bignum9AddUInt64Em.exit33, label %for.body.lr.ph.i.i21
 
 for.body.lr.ph.i.i21:                             ; preds = %_ZN14arrow_vendored17double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit18
-  %bigits_buffer_.i.i.i22 = getelementptr inbounds i8, ptr %other.i19, i64 4
+  %bigits_buffer_.i.i.i22 = getelementptr inbounds nuw i8, ptr %other.i19, i64 4
   store i32 0, ptr %other.i19, align 4
   br label %for.body.i.i23
 
@@ -234,7 +234,7 @@ for.body.i.i23:                                   ; preds = %for.body.i.i23, %fo
   %value.addr.05.i.i25 = phi i64 [ %add2.i15, %for.body.lr.ph.i.i21 ], [ %shr.i.i28, %for.body.i.i23 ]
   %6 = trunc i64 %value.addr.05.i.i25 to i32
   %conv.i.i26 = and i32 %6, 268435455
-  %arrayidx.i.i.i27 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i.i22, i64 0, i64 %indvars.iv.i.i24
+  %arrayidx.i.i.i27 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i.i22, i64 0, i64 %indvars.iv.i.i24
   store i32 %conv.i.i26, ptr %arrayidx.i.i.i27, align 4
   %shr.i.i28 = lshr i64 %value.addr.05.i.i25, 28
   %indvars.iv.next.i.i29 = add nuw nsw i64 %indvars.iv.i.i24, 1
@@ -254,7 +254,7 @@ _ZN14arrow_vendored17double_conversion6Bignum9AddUInt64Em.exit33: ; preds = %_ZN
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %while.end.i
 
 land.rhs.lr.ph.i:                                 ; preds = %_ZN14arrow_vendored17double_conversion6Bignum9AddUInt64Em.exit33
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
@@ -262,7 +262,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %conv.i35 = zext nneg i16 %7 to i64
   %sub.i36 = add nuw nsw i64 %conv.i35, 4294967295
   %idxprom.i.i = and i64 %sub.i36, 4294967295
-  %arrayidx.i.i37 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i37 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %idxprom.i.i
   %8 = load i32, ptr %arrayidx.i.i37, align 4
   %cmp4.i = icmp eq i32 %8, 0
   br i1 %cmp4.i, label %while.body.i, label %_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit
@@ -299,7 +299,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp563, label %while.body.lr.ph, label %while.cond6.preheader
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = icmp sgt i16 %0, 0
   br i1 %1, label %while.body, label %while.body.us.preheader
 
@@ -320,7 +320,7 @@ while.cond6.preheader:                            ; preds = %_ZN14arrow_vendored
   br i1 %cmp765, label %while.body8.lr.ph, label %while.end10
 
 while.body8.lr.ph:                                ; preds = %while.cond6.preheader
-  %bigits_buffer_.i.i10 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %8 = icmp sgt i16 %7, 0
   br i1 %8, label %while.body8, label %while.body8.us.preheader
 
@@ -350,7 +350,7 @@ while.cond.preheader.i:                           ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %carry.024.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add22.i, %for.body.i ]
-  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %indvars.iv.i
   %15 = load i32, ptr %arrayidx.i.i, align 4
   %conv11.i = zext i32 %15 to i64
   %mul.i = mul nuw i64 %conv11.i, 4195354525
@@ -414,7 +414,7 @@ while.cond.preheader.i18:                         ; preds = %for.body.i11
 for.body.i11:                                     ; preds = %for.body.i11, %for.body.lr.ph.i8
   %indvars.iv.i12 = phi i64 [ 0, %for.body.lr.ph.i8 ], [ %indvars.iv.next.i16, %for.body.i11 ]
   %carry.018.i = phi i64 [ 0, %for.body.lr.ph.i8 ], [ %shr.i, %for.body.i11 ]
-  %arrayidx.i.i13 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i10, i64 0, i64 %indvars.iv.i12
+  %arrayidx.i.i13 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i10, i64 0, i64 %indvars.iv.i12
   %22 = load i32, ptr %arrayidx.i.i13, align 4
   %conv12.i = zext i32 %22 to i64
   %mul.i14 = mul nuw nsw i64 %conv12.i, 1220703125
@@ -465,7 +465,7 @@ while.end10:                                      ; preds = %_ZN14arrow_vendored
 if.then12:                                        ; preds = %while.end10
   %sub13 = add nsw i32 %remaining_exponent.1.lcssa, -1
   %idxprom = zext nneg i32 %sub13 to i64
-  %arrayidx = getelementptr inbounds [12 x i32], ptr @_ZZN14arrow_vendored17double_conversion6Bignum20MultiplyByPowerOfTenEiE12kFive1_to_12, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [12 x i32], ptr @_ZZN14arrow_vendored17double_conversion6Bignum20MultiplyByPowerOfTenEiE12kFive1_to_12, i64 0, i64 %idxprom
   %28 = load i32, ptr %arrayidx, align 4
   switch i32 %28, label %if.end4.i [
     i32 1, label %if.end14
@@ -474,7 +474,7 @@ if.then12:                                        ; preds = %while.end10
 
 if.end14.thread:                                  ; preds = %if.then12
   store i16 0, ptr %this, align 4
-  %exponent_.i.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 0, ptr %exponent_.i.i, align 2
   br label %return
 
@@ -485,7 +485,7 @@ if.end4.i:                                        ; preds = %if.then12
 for.body.lr.ph.i25:                               ; preds = %if.end4.i
   %conv9.i26 = zext nneg i16 %.pr to i64
   %conv11.i27 = zext i32 %28 to i64
-  %bigits_buffer_.i.i28 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i28 = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %for.body.i29
 
 while.cond.preheader.i40:                         ; preds = %for.body.i29
@@ -495,7 +495,7 @@ while.cond.preheader.i40:                         ; preds = %for.body.i29
 for.body.i29:                                     ; preds = %for.body.i29, %for.body.lr.ph.i25
   %indvars.iv.i30 = phi i64 [ 0, %for.body.lr.ph.i25 ], [ %indvars.iv.next.i38, %for.body.i29 ]
   %carry.018.i31 = phi i64 [ 0, %for.body.lr.ph.i25 ], [ %shr.i37, %for.body.i29 ]
-  %arrayidx.i.i32 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i28, i64 0, i64 %indvars.iv.i30
+  %arrayidx.i.i32 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i28, i64 0, i64 %indvars.iv.i30
   %29 = load i32, ptr %arrayidx.i.i32, align 4
   %conv12.i33 = zext i32 %29 to i64
   %mul.i34 = mul nuw i64 %conv12.i33, %conv11.i27
@@ -538,7 +538,7 @@ if.end14:                                         ; preds = %_ZN14arrow_vendored
 
 if.end.i:                                         ; preds = %if.end14
   %div.i = sdiv i32 %exponent, 28
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   %35 = load i16, ptr %exponent_.i, align 2
   %36 = trunc i32 %div.i to i16
   %conv5.i = add i16 %35, %36
@@ -557,14 +557,14 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i57: ; pred
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i57
   %conv.i.i = zext nneg i16 %34 to i64
-  %bigits_buffer_.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %sub.i.i = sub nsw i32 28, %rem.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %carry.019.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %shr.i.i, %for.body.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %indvars.iv.i.i
   %37 = load i32, ptr %arrayidx.i.i.i, align 4
   %shr.i.i = lshr i32 %37, %sub.i.i
   %shl.i.i = shl i32 %37, %rem.i
@@ -580,7 +580,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp4.not.i.i, label %return, label %if.then.i2.i
 
 if.then.i2.i:                                     ; preds = %for.end.i.i
-  %arrayidx.i16.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %conv.i.i
+  %arrayidx.i16.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %conv.i.i
   store i32 %shr.i.i, ptr %arrayidx.i16.i.i, align 4
   %inc9.i.i = add nuw i16 %34, 1
   store i16 %inc9.i.i, ptr %this, align 4
@@ -598,7 +598,7 @@ entry:
   br i1 %cmp, label %return, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %other, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %other, i64 4
   store i32 0, ptr %other, align 4
   br label %for.body.i
 
@@ -607,7 +607,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %value.addr.05.i = phi i64 [ %operand, %for.body.lr.ph.i ], [ %shr.i, %for.body.i ]
   %0 = trunc i64 %value.addr.05.i to i32
   %conv.i = and i32 %0, 268435455
-  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %indvars.iv.i
   store i32 %conv.i, ptr %arrayidx.i.i, align 4
   %shr.i = lshr i64 %value.addr.05.i, 28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -632,7 +632,7 @@ entry:
   br i1 %cmp3, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
@@ -640,7 +640,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %conv = zext nneg i16 %0 to i64
   %sub = add nuw nsw i64 %conv, 4294967295
   %idxprom.i = and i64 %sub, 4294967295
-  %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp4 = icmp eq i32 %1, 0
   br i1 %cmp4, label %while.body, label %if.end
@@ -656,7 +656,7 @@ while.end:                                        ; preds = %entry
   br i1 %cmp8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body, %while.end
-  %exponent_ = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_ = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 0, ptr %exponent_, align 2
   br label %if.end
 
@@ -668,7 +668,7 @@ if.end:                                           ; preds = %land.rhs, %if.then,
 define void @_ZN14arrow_vendored17double_conversion6Bignum15AssignHexStringENS0_6VectorIKcEE(ptr nocapture noundef nonnull align 4 dereferenceable(516) initializes((0, 4)) %this, ptr nocapture readonly %value.coerce0, i32 %value.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   store i16 0, ptr %this, align 4
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 0, ptr %exponent_.i, align 2
   %cmp.i = icmp sgt i32 %value.coerce1, 896
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader
@@ -679,7 +679,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp.i825, label %if.then.i17, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = sext i32 %value.coerce1 to i64
   br label %for.body
 
@@ -756,7 +756,7 @@ if.then11:                                        ; preds = %for.end
   %conv13 = and i32 %6, 268435455
   %inc15 = add i16 %.pr.i.pre30.pre, 1
   store i16 %inc15, ptr %this, align 4
-  %bigits_buffer_.i13 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i13 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %idxprom.i14 = sext i16 %.pr.i.pre30.pre to i64
   %arrayidx.i15 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i13, i64 0, i64 %idxprom.i14
   store i32 %conv13, ptr %arrayidx.i15, align 4
@@ -769,7 +769,7 @@ if.end18:                                         ; preds = %if.then11, %for.end
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %while.end.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end18
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
@@ -777,7 +777,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %conv.i19 = zext nneg i16 %7 to i64
   %sub.i = add nuw nsw i64 %conv.i19, 4294967295
   %idxprom.i.i = and i64 %sub.i, 4294967295
-  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %idxprom.i.i
   %8 = load i32, ptr %arrayidx.i.i, align 4
   %cmp4.i = icmp eq i32 %8, 0
   br i1 %cmp4.i, label %while.body.i, label %_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit
@@ -803,9 +803,9 @@ _ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit: ; preds = %land.rhs.
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum9AddBignumERKS1_(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
 entry:
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   %0 = load i16, ptr %exponent_.i, align 2
-  %exponent_2.i = getelementptr inbounds i8, ptr %other, i64 2
+  %exponent_2.i = getelementptr inbounds nuw i8, ptr %other, i64 2
   %1 = load i16, ptr %exponent_2.i, align 2
   %cmp.i = icmp sgt i16 %0, %1
   %.pre = load i16, ptr %this, align 4
@@ -825,7 +825,7 @@ for.cond.preheader.i:                             ; preds = %if.then.i
   br i1 %cmp1217.i, label %for.body.lr.ph.i, label %for.cond16.preheader.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = zext nneg i16 %.pre to i64
   %3 = sext i32 %sub.i to i64
   br label %for.body.i
@@ -839,7 +839,7 @@ for.cond16.preheader.i:                           ; preds = %for.body.i, %for.co
   br i1 %cmp1719.i, label %for.body18.lr.ph.i, label %for.end21.i
 
 for.body18.lr.ph.i:                               ; preds = %for.cond16.preheader.i
-  %bigits_buffer_.i14.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i14.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %4 = zext nneg i32 %sub.i to i64
   %5 = shl nuw nsw i64 %4, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %bigits_buffer_.i14.i, i8 0, i64 %5, i1 false)
@@ -848,7 +848,7 @@ for.body18.lr.ph.i:                               ; preds = %for.cond16.preheade
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ %2, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %indvars.iv.next.i
+  %arrayidx.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %indvars.iv.next.i
   %6 = load i32, ptr %arrayidx.i.i, align 4
   %7 = add nsw i64 %indvars.iv.next.i, %3
   %arrayidx.i13.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %7
@@ -913,8 +913,8 @@ for.cond13.preheader:                             ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp1656, label %for.body17.lr.ph, label %while.end
 
 for.body17.lr.ph:                                 ; preds = %for.cond13.preheader
-  %bigits_buffer_.i24 = getelementptr inbounds i8, ptr %this, i64 4
-  %bigits_buffer_.i27 = getelementptr inbounds i8, ptr %other, i64 4
+  %bigits_buffer_.i24 = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %bigits_buffer_.i27 = getelementptr inbounds nuw i8, ptr %other, i64 4
   %25 = sext i32 %sub9 to i64
   br label %for.body17
 
@@ -924,7 +924,7 @@ while.cond.preheader:                             ; preds = %cond.end
   br i1 %cmp30.not61, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %bigits_buffer_.i33 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i33 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %sext = shl i64 %indvars.iv.next67, 32
   %27 = ashr exact i64 %sext, 32
   br label %while.body
@@ -945,7 +945,7 @@ cond.true:                                        ; preds = %for.body17
 
 cond.end:                                         ; preds = %for.body17, %cond.true
   %cond = phi i32 [ %30, %cond.true ], [ 0, %for.body17 ]
-  %arrayidx.i29 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i27, i64 0, i64 %indvars.iv
+  %arrayidx.i29 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i27, i64 0, i64 %indvars.iv
   %31 = load i32, ptr %arrayidx.i29, align 4
   %add23 = add i32 %cond, %carry.059
   %add24 = add i32 %add23, %31
@@ -1001,9 +1001,9 @@ while.end:                                        ; preds = %for.cond13.preheade
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
 entry:
-  %exponent_ = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_ = getelementptr inbounds nuw i8, ptr %this, i64 2
   %0 = load i16, ptr %exponent_, align 2
-  %exponent_2 = getelementptr inbounds i8, ptr %other, i64 2
+  %exponent_2 = getelementptr inbounds nuw i8, ptr %other, i64 2
   %1 = load i16, ptr %exponent_2, align 2
   %cmp = icmp sgt i16 %0, %1
   br i1 %cmp, label %if.then, label %if.end
@@ -1023,7 +1023,7 @@ for.cond.preheader:                               ; preds = %if.then
   br i1 %cmp1217, label %for.body.lr.ph, label %for.cond16.preheader
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %3 = zext nneg i16 %2 to i64
   %4 = sext i32 %sub to i64
   br label %for.body
@@ -1037,7 +1037,7 @@ for.cond16.preheader:                             ; preds = %for.body, %for.cond
   br i1 %cmp1719, label %for.body18.lr.ph, label %for.end21
 
 for.body18.lr.ph:                                 ; preds = %for.cond16.preheader
-  %bigits_buffer_.i14 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i14 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %5 = zext nneg i32 %sub to i64
   %6 = shl nuw nsw i64 %5, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %bigits_buffer_.i14, i8 0, i64 %6, i1 false)
@@ -1046,7 +1046,7 @@ for.body18.lr.ph:                                 ; preds = %for.cond16.preheade
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %3, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv.next
+  %arrayidx.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv.next
   %7 = load i32, ptr %arrayidx.i, align 4
   %8 = add nsw i64 %indvars.iv.next, %4
   %arrayidx.i13 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %8
@@ -1071,9 +1071,9 @@ if.end:                                           ; preds = %for.end21, %entry
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum14SubtractBignumERKS1_(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
 entry:
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   %0 = load i16, ptr %exponent_.i, align 2
-  %exponent_2.i = getelementptr inbounds i8, ptr %other, i64 2
+  %exponent_2.i = getelementptr inbounds nuw i8, ptr %other, i64 2
   %1 = load i16, ptr %exponent_2.i, align 2
   %cmp.i = icmp sgt i16 %0, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit
@@ -1093,7 +1093,7 @@ for.cond.preheader.i:                             ; preds = %if.then.i
   br i1 %cmp1217.i, label %for.body.lr.ph.i, label %for.cond16.preheader.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %3 = zext nneg i16 %2 to i64
   %4 = sext i32 %sub.i to i64
   br label %for.body.i
@@ -1107,7 +1107,7 @@ for.cond16.preheader.i:                           ; preds = %for.body.i, %for.co
   br i1 %cmp1719.i, label %for.body18.lr.ph.i, label %for.end21.i
 
 for.body18.lr.ph.i:                               ; preds = %for.cond16.preheader.i
-  %bigits_buffer_.i14.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i14.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %5 = zext nneg i32 %sub.i to i64
   %6 = shl nuw nsw i64 %5, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %bigits_buffer_.i14.i, i8 0, i64 %6, i1 false)
@@ -1116,7 +1116,7 @@ for.body18.lr.ph.i:                               ; preds = %for.cond16.preheade
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ %3, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %indvars.iv.next.i
+  %arrayidx.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %indvars.iv.next.i
   %7 = load i32, ptr %arrayidx.i.i, align 4
   %8 = add nsw i64 %indvars.iv.next.i, %4
   %arrayidx.i13.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %8
@@ -1146,8 +1146,8 @@ _ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit: ; preds = %entry
   br i1 %cmp39, label %for.body.lr.ph, label %while.end
 
 for.body.lr.ph:                                   ; preds = %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
-  %bigits_buffer_.i18 = getelementptr inbounds i8, ptr %other, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %bigits_buffer_.i18 = getelementptr inbounds nuw i8, ptr %other, i64 4
   %15 = sext i32 %sub to i64
   br label %for.body
 
@@ -1157,7 +1157,7 @@ while.cond.preheader:                             ; preds = %for.body
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %17 = and i64 %indvars.iv.next, 4294967295
-  %bigits_buffer_.i24 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i24 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %18 = sext i32 %sub to i64
   br label %while.body
 
@@ -1167,7 +1167,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %19 = add nsw i64 %indvars.iv, %15
   %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %19
   %20 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx.i20 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i18, i64 0, i64 %indvars.iv
+  %arrayidx.i20 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i18, i64 0, i64 %indvars.iv
   %21 = load i32, ptr %arrayidx.i20, align 4
   %22 = add i32 %borrow.041, %21
   %sub7 = sub i32 %20, %22
@@ -1198,7 +1198,7 @@ while.end:                                        ; preds = %while.body, %_ZN14a
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %while.end.i
 
 land.rhs.lr.ph.i:                                 ; preds = %while.end
-  %bigits_buffer_.i.i32 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i32 = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
@@ -1206,7 +1206,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %conv.i33 = zext nneg i16 %27 to i64
   %sub.i34 = add nuw nsw i64 %conv.i33, 4294967295
   %idxprom.i.i = and i64 %sub.i34, 4294967295
-  %arrayidx.i.i35 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i32, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i35 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i32, i64 0, i64 %idxprom.i.i
   %28 = load i32, ptr %arrayidx.i.i35, align 4
   %cmp4.i = icmp eq i32 %28, 0
   br i1 %cmp4.i, label %while.body.i, label %_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit
@@ -1238,7 +1238,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %div = sdiv i32 %shift_amount, 28
-  %exponent_ = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_ = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %exponent_, align 2
   %2 = trunc i32 %div to i16
   %conv5 = add i16 %1, %2
@@ -1257,14 +1257,14 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = 
 
 for.body.lr.ph.i:                                 ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
   %conv.i = zext nneg i16 %0 to i64
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %sub.i = sub nsw i32 28, %rem
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %carry.019.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %shr.i, %for.body.i ]
-  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %indvars.iv.i
   %3 = load i32, ptr %arrayidx.i.i, align 4
   %shr.i = lshr i32 %3, %sub.i
   %shl.i = shl i32 %3, %rem
@@ -1280,7 +1280,7 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %cmp4.not.i, label %return, label %if.then.i2
 
 if.then.i2:                                       ; preds = %for.end.i
-  %arrayidx.i16.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %conv.i
+  %arrayidx.i16.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %conv.i
   store i32 %shr.i, ptr %arrayidx.i16.i, align 4
   %inc9.i = add nuw i16 %0, 1
   store i16 %inc9.i, ptr %this, align 4
@@ -1299,14 +1299,14 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv = zext nneg i16 %0 to i64
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %sub = sub nsw i32 28, %shift_amount
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %carry.019 = phi i32 [ 0, %for.body.lr.ph ], [ %shr, %for.body ]
-  %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx.i, align 4
   %shr = lshr i32 %1, %sub
   %shl = shl i32 %1, %shift_amount
@@ -1322,9 +1322,9 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %bigits_buffer_.i14 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i14 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %idxprom.i15 = zext nneg i16 %0 to i64
-  %arrayidx.i16 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i14, i64 0, i64 %idxprom.i15
+  %arrayidx.i16 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i14, i64 0, i64 %idxprom.i15
   store i32 %shr, ptr %arrayidx.i16, align 4
   %2 = load i16, ptr %this, align 4
   %inc9 = add i16 %2, 1
@@ -1345,7 +1345,7 @@ entry:
 
 if.then3:                                         ; preds = %entry
   store i16 0, ptr %this, align 4
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 0, ptr %exponent_.i, align 2
   br label %while.end
 
@@ -1357,7 +1357,7 @@ if.end4:                                          ; preds = %entry
 for.body.lr.ph:                                   ; preds = %if.end4
   %conv9 = zext nneg i16 %0 to i64
   %conv11 = zext i32 %factor to i64
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %for.body
 
 while.cond.preheader:                             ; preds = %for.body
@@ -1365,13 +1365,13 @@ while.cond.preheader:                             ; preds = %for.body
   br i1 %cmp15.not19, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %bigits_buffer_.i13 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i13 = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %while.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %carry.018 = phi i64 [ 0, %for.body.lr.ph ], [ %shr, %for.body ]
-  %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx.i, align 4
   %conv12 = zext i32 %1 to i64
   %mul = mul nuw i64 %conv12, %conv11
@@ -1421,7 +1421,7 @@ entry:
 
 if.then3:                                         ; preds = %entry
   store i16 0, ptr %this, align 4
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 0, ptr %exponent_.i, align 2
   br label %while.end
 
@@ -1437,7 +1437,7 @@ if.end7:                                          ; preds = %if.end4
 
 for.body.lr.ph:                                   ; preds = %if.end7
   %conv9 = zext nneg i16 %0 to i64
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = lshr i64 %factor, 28
   %mul14 = and i64 %1, 68719476720
   br label %for.body
@@ -1447,13 +1447,13 @@ while.cond.preheader:                             ; preds = %for.body
   br i1 %cmp23.not25, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %bigits_buffer_.i19 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i19 = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %while.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %carry.024 = phi i64 [ 0, %for.body.lr.ph ], [ %add22, %for.body ]
-  %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx.i, align 4
   %conv11 = zext i32 %2 to i64
   %mul = mul nuw i64 %and, %conv11
@@ -1512,7 +1512,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp852, label %for.body.lr.ph, label %for.cond11.preheader
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = zext nneg i16 %0 to i64
   %2 = load i16, ptr %this, align 4
   %3 = sext i16 %2 to i64
@@ -1532,17 +1532,17 @@ for.cond11.preheader:                             ; preds = %for.cond11.preheade
   br i1 %cmp1459, label %while.cond.preheader.lr.ph, label %for.cond34.preheader
 
 while.cond.preheader.lr.ph:                       ; preds = %for.cond11.preheader
-  %bigits_buffer_.i31 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i31 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %4 = sext i16 %0 to i64
   %wide.trip.count92 = zext nneg i32 %conv7.lcssa to i64
   br label %while.body.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
   %5 = load i32, ptr %arrayidx.i, align 4
   %6 = add nuw nsw i64 %indvars.iv, %1
-  %arrayidx.i30 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %6
+  %arrayidx.i30 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %6
   store i32 %5, ptr %arrayidx.i30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp8 = icmp slt i64 %indvars.iv.next, %3
@@ -1560,7 +1560,7 @@ for.cond34.preheader:                             ; preds = %while.end, %for.con
   br i1 %cmp3568, label %for.body36.lr.ph, label %for.end66
 
 for.body36.lr.ph:                                 ; preds = %for.cond34.preheader
-  %bigits_buffer_.i40 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i40 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %7 = sext i16 %0 to i64
   %8 = sext i32 %conv7.lcssa to i64
   %wide.trip.count = sext i32 %mul to i64
@@ -1589,7 +1589,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.end:                                        ; preds = %while.body
   %conv26 = trunc i64 %add24 to i32
   %and = and i32 %conv26, 268435455
-  %arrayidx.i39 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i31, i64 0, i64 %indvars.iv74
+  %arrayidx.i39 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i31, i64 0, i64 %indvars.iv74
   store i32 %and, ptr %arrayidx.i39, align 4
   %shr = lshr i64 %add24, 28
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
@@ -1650,7 +1650,7 @@ while.end59:                                      ; preds = %while.body46, %for.
 for.end66:                                        ; preds = %while.end59, %for.cond34.preheader
   %conv67 = trunc i32 %mul to i16
   store i16 %conv67, ptr %this, align 4
-  %exponent_ = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_ = getelementptr inbounds nuw i8, ptr %this, i64 2
   %21 = load i16, ptr %exponent_, align 2
   %mul70 = shl i16 %21, 1
   store i16 %mul70, ptr %exponent_, align 2
@@ -1658,7 +1658,7 @@ for.end66:                                        ; preds = %while.end59, %for.c
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %while.end.i
 
 land.rhs.lr.ph.i:                                 ; preds = %for.end66
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
@@ -1666,7 +1666,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %conv.i = zext nneg i16 %22 to i64
   %sub.i = add nuw nsw i64 %conv.i, 4294967295
   %idxprom.i.i = and i64 %sub.i, 4294967295
-  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %idxprom.i.i
   %23 = load i32, ptr %arrayidx.i.i, align 4
   %cmp4.i = icmp eq i32 %23, 0
   br i1 %cmp4.i, label %while.body.i, label %_ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit
@@ -1699,15 +1699,15 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exponent_.i.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 0, ptr %exponent_.i.i, align 2
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 1, ptr %bigits_buffer_.i.i, align 4
   br label %return.sink.split
 
 if.end:                                           ; preds = %entry
   store i16 0, ptr %this, align 4
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 0, ptr %exponent_.i, align 2
   %conv80 = zext i16 %base to i32
   %and81 = and i32 %conv80, 1
@@ -1789,7 +1789,7 @@ while.end36:                                      ; preds = %if.end34, %while.en
   br i1 %cmp.not4.i, label %_ZN14arrow_vendored17double_conversion6Bignum12AssignUInt64Em.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %while.end36
-  %bigits_buffer_.i.i31 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i31 = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1797,7 +1797,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %value.addr.05.i = phi i64 [ %this_value.0.lcssa, %for.body.lr.ph.i ], [ %shr.i, %for.body.i ]
   %4 = trunc i64 %value.addr.05.i to i32
   %conv.i = and i32 %4, 268435455
-  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i31, i64 0, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i31, i64 0, i64 %indvars.iv.i
   store i32 %conv.i, ptr %arrayidx.i.i, align 4
   %shr.i = lshr i64 %value.addr.05.i, 28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1830,7 +1830,7 @@ if.end4.i:                                        ; preds = %if.then38
 
 for.body.lr.ph.i33:                               ; preds = %if.end4.i
   %conv9.i = zext nneg i16 %5 to i64
-  %bigits_buffer_.i.i34 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i34 = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %for.body.i35
 
 while.cond.preheader.i:                           ; preds = %for.body.i35
@@ -1840,7 +1840,7 @@ while.cond.preheader.i:                           ; preds = %for.body.i35
 for.body.i35:                                     ; preds = %for.body.i35, %for.body.lr.ph.i33
   %indvars.iv.i36 = phi i64 [ 0, %for.body.lr.ph.i33 ], [ %indvars.iv.next.i39, %for.body.i35 ]
   %carry.018.i = phi i64 [ 0, %for.body.lr.ph.i33 ], [ %shr.i38, %for.body.i35 ]
-  %arrayidx.i.i37 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i34, i64 0, i64 %indvars.iv.i36
+  %arrayidx.i.i37 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i34, i64 0, i64 %indvars.iv.i36
   %6 = load i32, ptr %arrayidx.i.i37, align 4
   %conv12.i = zext i32 %6 to i64
   %mul.i = mul nuw nsw i64 %conv12.i, %conv17
@@ -1864,7 +1864,7 @@ if.then.i.i:                                      ; preds = %while.body.i
 if.end40.loopexit:                                ; preds = %while.body.i
   %8 = trunc nuw nsw i64 %shr.i38 to i32
   %idxprom.i14.i = zext nneg i16 %5 to i64
-  %arrayidx.i15.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i34, i64 0, i64 %idxprom.i14.i
+  %arrayidx.i15.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i34, i64 0, i64 %idxprom.i14.i
   store i32 %8, ptr %arrayidx.i15.i, align 4
   %9 = load i16, ptr %this, align 4
   %inc25.i = add i16 %9, 1
@@ -1877,7 +1877,7 @@ if.end40:                                         ; preds = %if.end40.loopexit, 
   br i1 %cmp42.not98, label %while.end50, label %while.body43.lr.ph
 
 while.body43.lr.ph:                               ; preds = %if.end40
-  %bigits_buffer_.i.i47 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i47 = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %while.body43
 
 while.body43:                                     ; preds = %while.body43.lr.ph, %if.end48
@@ -1914,7 +1914,7 @@ while.cond.preheader.i59:                         ; preds = %for.body.i48
 for.body.i48:                                     ; preds = %for.body.i48, %for.body.lr.ph.i44
   %indvars.iv.i49 = phi i64 [ 0, %for.body.lr.ph.i44 ], [ %indvars.iv.next.i57, %for.body.i48 ]
   %carry.018.i50 = phi i64 [ 0, %for.body.lr.ph.i44 ], [ %shr.i56, %for.body.i48 ]
-  %arrayidx.i.i51 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i47, i64 0, i64 %indvars.iv.i49
+  %arrayidx.i.i51 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i47, i64 0, i64 %indvars.iv.i49
   %12 = load i32, ptr %arrayidx.i.i51, align 4
   %conv12.i52 = zext i32 %12 to i64
   %mul.i53 = mul nuw nsw i64 %conv12.i52, %conv17
@@ -1938,7 +1938,7 @@ if.then.i.i73:                                    ; preds = %while.body.i63
 if.end48.loopexit:                                ; preds = %while.body.i63
   %14 = trunc nuw nsw i64 %shr.i56 to i32
   %idxprom.i14.i68 = zext nneg i16 %11 to i64
-  %arrayidx.i15.i69 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i47, i64 0, i64 %idxprom.i14.i68
+  %arrayidx.i15.i69 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i47, i64 0, i64 %idxprom.i14.i68
   store i32 %14, ptr %arrayidx.i15.i69, align 4
   %15 = load i16, ptr %this, align 4
   %inc25.i70 = add i16 %15, 1
@@ -1980,14 +1980,14 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i78: ; pred
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i78
   %conv.i.i = zext nneg i16 %16 to i64
-  %bigits_buffer_.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %sub.i.i = sub nsw i32 28, %rem.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %carry.019.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %shr.i.i, %for.body.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %indvars.iv.i.i
   %19 = load i32, ptr %arrayidx.i.i.i, align 4
   %shr.i.i = lshr i32 %19, %sub.i.i
   %shl.i.i = shl i32 %19, %rem.i
@@ -2003,7 +2003,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp4.not.i.i, label %return, label %if.then.i2.i
 
 if.then.i2.i:                                     ; preds = %for.end.i.i
-  %arrayidx.i16.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %conv.i.i
+  %arrayidx.i16.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %conv.i.i
   store i32 %shr.i.i, ptr %arrayidx.i16.i.i, align 4
   %inc9.i.i = add nuw i16 %16, 1
   br label %return.sink.split
@@ -2022,13 +2022,13 @@ define noundef zeroext i16 @_ZN14arrow_vendored17double_conversion6Bignum21Divid
 entry:
   %0 = load i16, ptr %this, align 4
   %conv.i = sext i16 %0 to i32
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %exponent_.i, align 2
   %conv2.i = sext i16 %1 to i32
   %add.i = add nsw i32 %conv2.i, %conv.i
   %2 = load i16, ptr %other, align 4
   %conv.i25 = sext i16 %2 to i32
-  %exponent_.i26 = getelementptr inbounds i8, ptr %other, i64 2
+  %exponent_.i26 = getelementptr inbounds nuw i8, ptr %other, i64 2
   %3 = load i16, ptr %exponent_.i26, align 2
   %conv2.i27 = sext i16 %3 to i32
   %add.i28 = add nsw i32 %conv2.i27, %conv.i25
@@ -2050,7 +2050,7 @@ for.cond.preheader.i:                             ; preds = %if.then.i
   br i1 %cmp1217.i, label %for.body.lr.ph.i, label %for.cond16.preheader.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %4 = zext nneg i16 %0 to i64
   %5 = sext i32 %sub.i to i64
   br label %for.body.i
@@ -2064,7 +2064,7 @@ for.cond16.preheader.i:                           ; preds = %for.body.i, %for.co
   br i1 %cmp1719.i, label %for.body18.lr.ph.i, label %for.end21.i
 
 for.body18.lr.ph.i:                               ; preds = %for.cond16.preheader.i
-  %bigits_buffer_.i14.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i14.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %6 = zext nneg i32 %sub.i to i64
   %7 = shl nuw nsw i64 %6, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %bigits_buffer_.i14.i, i8 0, i64 %7, i1 false)
@@ -2073,7 +2073,7 @@ for.body18.lr.ph.i:                               ; preds = %for.cond16.preheade
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ %4, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %indvars.iv.next.i
+  %arrayidx.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %indvars.iv.next.i
   %8 = load i32, ptr %arrayidx.i.i, align 4
   %9 = add nsw i64 %indvars.iv.next.i, %5
   %arrayidx.i13.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %9
@@ -2109,7 +2109,7 @@ _ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit: ; preds = %if.en
   br i1 %cmp571, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -2141,12 +2141,12 @@ while.end:                                        ; preds = %while.body, %_ZN14a
   %.lcssa = phi i16 [ %13, %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit ], [ %18, %while.body ]
   %conv.i36.lcssa = phi i32 [ %conv.i3668.pre-phi, %_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_.exit ], [ %conv.i36, %while.body ]
   %sub17 = add nsw i32 %conv.i32.lcssa, -1
-  %bigits_buffer_.i43 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i43 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %idxprom.i44 = sext i32 %sub17 to i64
   %arrayidx.i45 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i43, i64 0, i64 %idxprom.i44
   %20 = load i32, ptr %arrayidx.i45, align 4
   %sub21 = add nsw i32 %conv.i36.lcssa, -1
-  %bigits_buffer_.i46 = getelementptr inbounds i8, ptr %other, i64 4
+  %bigits_buffer_.i46 = getelementptr inbounds nuw i8, ptr %other, i64 4
   %idxprom.i47 = sext i32 %sub21 to i64
   %arrayidx.i48 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i46, i64 0, i64 %idxprom.i47
   %21 = load i32, ptr %arrayidx.i48, align 4
@@ -2169,7 +2169,7 @@ land.rhs.i:                                       ; preds = %if.then26, %while.b
   %conv.i55 = zext nneg i16 %23 to i64
   %sub.i56 = add nuw nsw i64 %conv.i55, 4294967295
   %idxprom.i.i = and i64 %sub.i56, 4294967295
-  %arrayidx.i.i57 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i43, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i57 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i43, i64 0, i64 %idxprom.i.i
   %24 = load i32, ptr %arrayidx.i.i57, align 4
   %cmp4.i = icmp eq i32 %24, 0
   br i1 %cmp4.i, label %while.body.i, label %return
@@ -2297,10 +2297,10 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !36
 
 if.end:                                           ; preds = %entry
-  %exponent_ = getelementptr inbounds i8, ptr %other, i64 2
+  %exponent_ = getelementptr inbounds nuw i8, ptr %other, i64 2
   %0 = load i16, ptr %exponent_, align 2
   %conv = sext i16 %0 to i32
-  %exponent_3 = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_3 = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %exponent_3, align 2
   %conv4 = sext i16 %1 to i32
   %sub = sub nsw i32 %conv, %conv4
@@ -2310,15 +2310,15 @@ if.end:                                           ; preds = %entry
 
 for.body9.lr.ph:                                  ; preds = %if.end
   %conv10 = zext nneg i32 %factor to i64
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %other, i64 4
-  %bigits_buffer_.i22 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %other, i64 4
+  %bigits_buffer_.i22 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %3 = sext i32 %sub to i64
   br label %for.body9
 
 for.body9:                                        ; preds = %for.body9.lr.ph, %for.body9
   %indvars.iv = phi i64 [ 0, %for.body9.lr.ph ], [ %indvars.iv.next, %for.body9 ]
   %borrow.040 = phi i32 [ 0, %for.body9.lr.ph ], [ %conv24, %for.body9 ]
-  %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx.i, align 4
   %conv11 = zext i32 %4 to i64
   %mul = mul nuw nsw i64 %conv11, %conv10
@@ -2353,7 +2353,7 @@ for.end27:                                        ; preds = %for.body9, %if.end
   br i1 %cmp3543, label %for.body36.lr.ph, label %for.end48
 
 for.body36.lr.ph:                                 ; preds = %for.end27
-  %bigits_buffer_.i28 = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i28 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %13 = sext i32 %add31 to i64
   br label %for.body36
 
@@ -2382,7 +2382,7 @@ for.end48:                                        ; preds = %if.end39, %for.end2
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %while.end.i
 
 land.rhs.lr.ph.i:                                 ; preds = %for.end48
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
@@ -2390,7 +2390,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %conv.i = zext nneg i16 %17 to i64
   %sub.i = add nuw nsw i64 %conv.i, 4294967295
   %idxprom.i.i = and i64 %sub.i, 4294967295
-  %arrayidx.i.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %idxprom.i.i
   %18 = load i32, ptr %arrayidx.i.i, align 4
   %cmp4.i = icmp eq i32 %18, 0
   br i1 %cmp4.i, label %while.body.i, label %return
@@ -2426,20 +2426,20 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   store i8 48, ptr %buffer, align 1
-  %arrayidx4 = getelementptr inbounds i8, ptr %buffer, i64 1
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %buffer, i64 1
   store i8 0, ptr %arrayidx4, align 1
   br label %return
 
 if.end5:                                          ; preds = %entry
   %conv.i = sext i16 %0 to i32
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %exponent_.i, align 2
   %conv2.i = sext i16 %1 to i32
   %add.i = add nsw i32 %conv2.i, %conv.i
   %2 = mul nsw i32 %add.i, 7
   %mul = add nsw i32 %2, -7
   %sub8 = add nsw i32 %conv.i, -1
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %idxprom.i = sext i32 %sub8 to i64
   %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
@@ -2504,7 +2504,7 @@ for.cond29.preheader.for.end49_crit_edge:         ; preds = %for.cond29.preheade
 for.body34:                                       ; preds = %for.cond29.preheader, %for.inc47
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %for.inc47 ], [ 0, %for.cond29.preheader ]
   %string_index.243 = phi i32 [ %11, %for.inc47 ], [ %string_index.0.lcssa, %for.cond29.preheader ]
-  %arrayidx.i21 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv58
+  %arrayidx.i21 = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %indvars.iv58
   %8 = load i32, ptr %arrayidx.i21, align 4
   %9 = sext i32 %string_index.243 to i64
   br label %for.body39
@@ -2574,7 +2574,7 @@ define noundef i32 @_ZNK14arrow_vendored17double_conversion6Bignum11BigitOrZeroE
 entry:
   %0 = load i16, ptr %this, align 4
   %conv.i = sext i16 %0 to i32
-  %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %exponent_.i, align 2
   %conv2.i = sext i16 %1 to i32
   %add.i = add nsw i32 %conv2.i, %conv.i
@@ -2585,7 +2585,7 @@ entry:
 
 if.end4:                                          ; preds = %entry
   %sub = sub nsw i32 %index, %conv2.i
-  %bigits_buffer_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %bigits_buffer_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %idxprom.i = sext i32 %sub to i64
   %arrayidx.i = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i, i64 0, i64 %idxprom.i
   %2 = load i32, ptr %arrayidx.i, align 4
@@ -2601,13 +2601,13 @@ define noundef range(i32 -1, 2) i32 @_ZN14arrow_vendored17double_conversion6Bign
 entry:
   %0 = load i16, ptr %a, align 4
   %conv.i = sext i16 %0 to i32
-  %exponent_.i = getelementptr inbounds i8, ptr %a, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %a, i64 2
   %1 = load i16, ptr %exponent_.i, align 2
   %conv2.i = sext i16 %1 to i32
   %add.i = add nsw i32 %conv2.i, %conv.i
   %2 = load i16, ptr %b, align 4
   %conv.i13 = sext i16 %2 to i32
-  %exponent_.i14 = getelementptr inbounds i8, ptr %b, i64 2
+  %exponent_.i14 = getelementptr inbounds nuw i8, ptr %b, i64 2
   %3 = load i16, ptr %exponent_.i14, align 2
   %conv2.i15 = sext i16 %3 to i32
   %add.i16 = add nsw i32 %conv2.i15, %conv.i13
@@ -2620,8 +2620,8 @@ if.end:                                           ; preds = %entry
 
 for.cond.preheader:                               ; preds = %if.end
   %4 = tail call i16 @llvm.smin.i16(i16 %3, i16 %1)
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %a, i64 4
-  %bigits_buffer_.i.i26 = getelementptr inbounds i8, ptr %b, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %a, i64 4
+  %bigits_buffer_.i.i26 = getelementptr inbounds nuw i8, ptr %b, i64 4
   %5 = sext i16 %0 to i64
   %6 = sext i16 %1 to i64
   %7 = add nsw i64 %5, %6
@@ -2681,7 +2681,7 @@ return:                                           ; preds = %for.cond, %if.end12
 define noundef range(i32 -1, 2) i32 @_ZN14arrow_vendored17double_conversion6Bignum11PlusCompareERKS1_S3_S3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %c) local_unnamed_addr #7 align 2 {
 entry:
   %.pre = load i16, ptr %a, align 4
-  %exponent_.i.phi.trans.insert = getelementptr inbounds i8, ptr %a, i64 2
+  %exponent_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %a, i64 2
   %.pre108 = load i16, ptr %exponent_.i.phi.trans.insert, align 2
   br label %tailrecurse
 
@@ -2695,7 +2695,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %entry
   %add.i = add nsw i32 %conv2.i, %conv.i
   %2 = load i16, ptr %b.tr, align 4
   %conv.i28 = sext i16 %2 to i32
-  %exponent_.i29 = getelementptr inbounds i8, ptr %b.tr, i64 2
+  %exponent_.i29 = getelementptr inbounds nuw i8, ptr %b.tr, i64 2
   %3 = load i16, ptr %exponent_.i29, align 2
   %conv2.i30 = sext i16 %3 to i32
   %add.i31 = add nsw i32 %conv2.i30, %conv.i28
@@ -2703,11 +2703,11 @@ tailrecurse:                                      ; preds = %tailrecurse, %entry
   br i1 %cmp, label %tailrecurse, label %if.end
 
 if.end:                                           ; preds = %tailrecurse
-  %exponent_.i.le = getelementptr inbounds i8, ptr %a.tr, i64 2
+  %exponent_.i.le = getelementptr inbounds nuw i8, ptr %a.tr, i64 2
   %add = add nsw i32 %add.i, 1
   %4 = load i16, ptr %c, align 4
   %conv.i36 = sext i16 %4 to i32
-  %exponent_.i37 = getelementptr inbounds i8, ptr %c, i64 2
+  %exponent_.i37 = getelementptr inbounds nuw i8, ptr %c, i64 2
   %5 = load i16, ptr %exponent_.i37, align 2
   %conv2.i38 = sext i16 %5 to i32
   %add.i39 = add nsw i32 %conv2.i38, %conv.i36
@@ -2734,9 +2734,9 @@ if.end19:                                         ; preds = %if.end12
   br i1 %cmp27.not.not99, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end19
-  %bigits_buffer_.i.i = getelementptr inbounds i8, ptr %a.tr, i64 4
-  %bigits_buffer_.i.i75 = getelementptr inbounds i8, ptr %b.tr, i64 4
-  %bigits_buffer_.i.i89 = getelementptr inbounds i8, ptr %c, i64 4
+  %bigits_buffer_.i.i = getelementptr inbounds nuw i8, ptr %a.tr, i64 4
+  %bigits_buffer_.i.i75 = getelementptr inbounds nuw i8, ptr %b.tr, i64 4
+  %bigits_buffer_.i.i89 = getelementptr inbounds nuw i8, ptr %c, i64 4
   %8 = sext i16 %4 to i64
   %9 = sext i16 %5 to i64
   %10 = add nsw i64 %8, %9

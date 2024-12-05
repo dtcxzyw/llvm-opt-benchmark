@@ -26,20 +26,20 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   store i64 4194304, ptr %.sroa.8, align 8
   %7 = load ptr, ptr @g_readytorun, align 8
   %.not = icmp eq ptr %2, null
-  %.062.sroa.gep = getelementptr inbounds i8, ptr %2, i64 3
-  %.062.sroa.gep69 = getelementptr inbounds i8, ptr %2, i64 8
-  %.062.sroa.gep75 = getelementptr inbounds i8, ptr %2, i64 16
-  %.062.sroa.gep78 = getelementptr inbounds i8, ptr %2, i64 2
+  %.062.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %.062.sroa.gep69 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.062.sroa.gep75 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.062.sroa.gep78 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br i1 %.not, label %8, label %15
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp slt i32 %10, 1
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %7, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %14 = load i8, ptr %13, align 4
   store i8 %14, ptr %.sroa.0, align 8
   br label %15
@@ -65,7 +65,7 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %16, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %25 = load i16, ptr %24, align 16
   %26 = or i16 %25, 4096
   store i16 %26, ptr %24, align 16
@@ -139,23 +139,23 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   br i1 %.not103, label %58, label %87
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %16, i64 976
-  %60 = getelementptr inbounds i8, ptr %7, i64 976
+  %59 = getelementptr inbounds nuw i8, ptr %16, i64 976
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 976
   %61 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %60, i64 noundef 31) #8
-  %62 = getelementptr inbounds i8, ptr %16, i64 1008
+  %62 = getelementptr inbounds nuw i8, ptr %16, i64 1008
   store ptr %0, ptr %62, align 16
-  %63 = getelementptr inbounds i8, ptr %16, i64 1016
+  %63 = getelementptr inbounds nuw i8, ptr %16, i64 1016
   store ptr %4, ptr %63, align 8
   %64 = call i32 @group_join(ptr noundef nonnull %16) #8
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %87, label %66
 
 66:                                               ; preds = %58
-  %67 = getelementptr inbounds i8, ptr %16, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %68 = load i16, ptr %67, align 16
   %69 = and i16 %68, -25
   store i16 %69, ptr %67, align 16
-  %70 = getelementptr inbounds i8, ptr %16, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %71 = load i32, ptr %70, align 8
   %72 = call i32 @sched_lock() #8
   %73 = icmp eq i32 %64, 0
@@ -176,7 +176,7 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
 
 78:                                               ; preds = %66
   %79 = call i32 @sched_unlock() #8
-  %80 = getelementptr inbounds i8, ptr %16, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %16, align 8
   %.not104 = icmp eq ptr %81, null
@@ -190,7 +190,7 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   br label %86
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr %81, ptr %85, align 8
   br label %86
 
@@ -200,7 +200,7 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
 
 87:                                               ; preds = %37, %45, %50, %17, %34, %55, %58
   %.066.ph = phi i32 [ 12, %58 ], [ 16, %55 ], [ 12, %34 ], [ 12, %17 ], [ %51, %50 ], [ %46, %45 ], [ %38, %37 ]
-  %88 = getelementptr inbounds i8, ptr %16, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr null, ptr %88, align 16
   br label %89
 
@@ -234,9 +234,9 @@ declare i32 @pthread_setup_scheduler(ptr noundef, i32 noundef, ptr noundef, ptr 
 ; Function Attrs: noreturn nounwind uwtable
 define internal void @pthread_start() #3 {
   %1 = load ptr, ptr @g_readytorun, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %3 = load i8, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 29
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %5 = load i8, ptr %4, align 1
   %6 = icmp ugt i8 %3, %5
   br i1 %6, label %7, label %10
@@ -247,11 +247,11 @@ define internal void @pthread_start() #3 {
   br label %10
 
 10:                                               ; preds = %7, %0
-  %11 = getelementptr inbounds i8, ptr %1, i64 1008
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1008
   %12 = load ptr, ptr %11, align 16
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 1016
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1016
   %16 = load ptr, ptr %15, align 8
   tail call void %12(ptr noundef %14, ptr noundef %16) #8
   tail call void @pthread_exit(ptr noundef null) #9

@@ -404,7 +404,7 @@ define internal i32 @dissect_mpeg(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %8, label %14
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.185) #3
   %11 = load ptr, ptr %9, align 8
@@ -438,7 +438,7 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   br i1 %.not163, label %10, label %205
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.189) #3
   %13 = load ptr, ptr %11, align 8
@@ -541,7 +541,7 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   %85 = mul nuw nsw i64 %83, 1000000000
   %86 = udiv i64 %85, 27000000
   %87 = trunc nuw nsw i64 %86 to i32
-  %88 = getelementptr inbounds i8, ptr %5, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %87, ptr %88, align 8
   %89 = load i32, ptr @hf_mpeg_pes_scr, align 4
   %90 = call ptr @proto_tree_add_time(ptr noundef %69, i32 noundef %89, ptr noundef %0, i32 noundef %62, i32 noundef 6, ptr noundef nonnull %5) #3
@@ -813,7 +813,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   %23 = mul nuw nsw i64 %21, 1000000000
   %24 = udiv i64 %23, 90000
   %25 = trunc nuw nsw i64 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %25, ptr %26, align 8
   %27 = load i32, ptr @hf_mpeg_pes_pts, align 4
   %28 = call ptr @proto_tree_add_time(ptr noundef %10, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 5, ptr noundef nonnull %4) #3
@@ -841,7 +841,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   %43 = mul nuw nsw i64 %41, 1000000000
   %44 = udiv i64 %43, 90000
   %45 = trunc nuw nsw i64 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %45, ptr %46, align 8
   %47 = load i32, ptr @hf_mpeg_pes_dts, align 4
   %48 = call ptr @proto_tree_add_time(ptr noundef %10, i32 noundef %47, ptr noundef %0, i32 noundef %.0, i32 noundef 5, ptr noundef nonnull %5) #3
@@ -874,7 +874,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   %68 = mul nuw nsw i64 %66, 1000000000
   %69 = udiv i64 %68, 27000000
   %70 = trunc nuw nsw i64 %69 to i32
-  %71 = getelementptr inbounds i8, ptr %6, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %70, ptr %71, align 8
   %72 = load i32, ptr @hf_mpeg_pes_escr, align 4
   %73 = call ptr @proto_tree_add_time(ptr noundef %10, i32 noundef %72, ptr noundef %0, i32 noundef %.1, i32 noundef 6, ptr noundef nonnull %6) #3

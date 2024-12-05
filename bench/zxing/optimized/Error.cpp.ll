@@ -39,22 +39,22 @@ define void @_ZNK5ZXing5Error8locationB5cxx11Ev(ptr dead_on_unwind noalias writa
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %0, align 8, !tbaa !13
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %12, align 8, !tbaa !14
   store i8 0, ptr %11, align 8, !tbaa !15
   br label %193
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %13, ptr %3, align 8, !tbaa !13
   %14 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #16
   %15 = getelementptr inbounds i8, ptr %8, i64 %14
@@ -71,15 +71,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %20 unwind label %156
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %21, ptr %4, align 8, !tbaa !13, !alias.scope !16
   %22 = load ptr, ptr %19, align 8, !tbaa !19
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %24 = icmp eq ptr %22, %23
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %19, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !14
   %28 = icmp ult i64 %27, 16
   call void @llvm.assume(i1 %28)
@@ -91,20 +91,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store ptr %22, ptr %4, align 8, !tbaa !19, !alias.scope !16
   %31 = load i64, ptr %23, align 8, !tbaa !15
   store i64 %31, ptr %21, align 8, !tbaa !15, !alias.scope !16
-  %32 = getelementptr inbounds i8, ptr %19, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !14
   br label %34
 
 34:                                               ; preds = %30, %25
   %35 = phi i64 [ %27, %25 ], [ %33, %30 ]
-  %36 = getelementptr inbounds i8, ptr %19, i64 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %35, ptr %37, align 8, !tbaa !14, !alias.scope !16
   store ptr %23, ptr %19, align 8, !tbaa !19
   store i64 0, ptr %36, align 8, !tbaa !14
   store i8 0, ptr %23, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
-  %38 = getelementptr inbounds i8, ptr %1, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load i16, ptr %38, align 8, !tbaa !20
   %40 = sext i16 %39 to i32
   %41 = call i32 @llvm.abs.i32(i32 %40, i1 true)
@@ -129,7 +129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %52 = lshr i32 %40, 31
   %53 = add nuw nsw i32 %51, %52
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %6, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %55, ptr %6, align 8, !tbaa !13, !alias.scope !21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %54, i8 noundef signext 45) #17
           to label %59 unwind label %56
@@ -144,11 +144,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 59:                                               ; preds = %50
   %60 = zext nneg i32 %52 to i64
   %61 = load ptr, ptr %6, align 8, !tbaa !19, !alias.scope !21
-  %62 = getelementptr inbounds i8, ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %60
   call void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr noundef nonnull %62, i32 noundef %51, i32 noundef %41) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %63 = load i64, ptr %37, align 8, !tbaa !14, !noalias !24
-  %64 = getelementptr inbounds i8, ptr %6, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !14, !noalias !24
   %66 = add i64 %65, %63
   %67 = load ptr, ptr %4, align 8, !tbaa !19, !noalias !24
@@ -187,15 +187,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %86 unwind label %158
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %87, ptr %0, align 8, !tbaa !13, !alias.scope !24
   %88 = load ptr, ptr %85, align 8, !tbaa !19
-  %89 = getelementptr inbounds i8, ptr %85, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %90 = icmp eq ptr %88, %89
   br i1 %90, label %91, label %96
 
 91:                                               ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %85, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %93 = load i64, ptr %92, align 8, !tbaa !14
   %94 = icmp ult i64 %93, 16
   call void @llvm.assume(i1 %94)
@@ -210,9 +210,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %98
 
 98:                                               ; preds = %96, %91
-  %99 = getelementptr inbounds i8, ptr %85, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %100 = load i64, ptr %99, align 8, !tbaa !14
-  %101 = getelementptr inbounds i8, ptr %0, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %100, ptr %101, align 8, !tbaa !14, !alias.scope !24
   store ptr %89, ptr %85, align 8, !tbaa !19
   br label %120
@@ -222,15 +222,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %104 unwind label %158
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %0, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %105, ptr %0, align 8, !tbaa !13, !alias.scope !24
   %106 = load ptr, ptr %103, align 8, !tbaa !19
-  %107 = getelementptr inbounds i8, ptr %103, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %108 = icmp eq ptr %106, %107
   br i1 %108, label %109, label %114
 
 109:                                              ; preds = %104
-  %110 = getelementptr inbounds i8, ptr %103, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %111 = load i64, ptr %110, align 8, !tbaa !14
   %112 = icmp ult i64 %111, 16
   call void @llvm.assume(i1 %112)
@@ -245,9 +245,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %116
 
 116:                                              ; preds = %114, %109
-  %117 = getelementptr inbounds i8, ptr %103, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %118 = load i64, ptr %117, align 8, !tbaa !14
-  %119 = getelementptr inbounds i8, ptr %0, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %118, ptr %119, align 8, !tbaa !14, !alias.scope !24
   store ptr %107, ptr %103, align 8, !tbaa !19
   br label %120
@@ -289,12 +289,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 136:                                              ; preds = %135, %132
   %137 = load ptr, ptr %5, align 8, !tbaa !19
-  %138 = getelementptr inbounds i8, ptr %5, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %139 = icmp eq ptr %137, %138
   br i1 %139, label %140, label %144
 
 140:                                              ; preds = %136
-  %141 = getelementptr inbounds i8, ptr %5, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %142 = load i64, ptr %141, align 8, !tbaa !14
   %143 = icmp ult i64 %142, 16
   call void @llvm.assume(i1 %143)
@@ -312,7 +312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %147, label %148, label %152
 
 148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %3, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %150 = load i64, ptr %149, align 8, !tbaa !14
   %151 = icmp ult i64 %150, 16
   call void @llvm.assume(i1 %151)
@@ -372,12 +372,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 173:                                              ; preds = %172, %169, %156
   %174 = phi { ptr, i32 } [ %157, %156 ], [ %159, %169 ], [ %159, %172 ]
   %175 = load ptr, ptr %5, align 8, !tbaa !19
-  %176 = getelementptr inbounds i8, ptr %5, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %177 = icmp eq ptr %175, %176
   br i1 %177, label %178, label %182
 
 178:                                              ; preds = %173
-  %179 = getelementptr inbounds i8, ptr %5, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %180 = load i64, ptr %179, align 8, !tbaa !14
   %181 = icmp ult i64 %180, 16
   call void @llvm.assume(i1 %181)
@@ -396,7 +396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %186, label %187, label %191
 
 187:                                              ; preds = %183
-  %188 = getelementptr inbounds i8, ptr %3, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %189 = load i64, ptr %188, align 8, !tbaa !14
   %190 = icmp ult i64 %189, 16
   call void @llvm.assume(i1 %190)
@@ -419,7 +419,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !13
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
@@ -451,7 +451,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 42
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %10 = load i8, ptr %9, align 2, !tbaa !27
   %11 = zext i8 %10 to i64
   %12 = shl nuw nsw i64 %11, 2
@@ -459,7 +459,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #15
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !14
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %82, label %17
@@ -475,15 +475,15 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
           to label %20 unwind label %60
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %21, ptr %4, align 8, !tbaa !13, !alias.scope !28
   %22 = load ptr, ptr %19, align 8, !tbaa !19
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %24 = icmp eq ptr %22, %23
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %19, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !14
   %28 = icmp ult i64 %27, 16
   call void @llvm.assume(i1 %28)
@@ -495,14 +495,14 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
   store ptr %22, ptr %4, align 8, !tbaa !19, !alias.scope !28
   %31 = load i64, ptr %23, align 8, !tbaa !15
   store i64 %31, ptr %21, align 8, !tbaa !15, !alias.scope !28
-  %32 = getelementptr inbounds i8, ptr %19, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !14
   br label %34
 
 34:                                               ; preds = %30, %25
   %35 = phi i64 [ %27, %25 ], [ %33, %30 ]
-  %36 = getelementptr inbounds i8, ptr %19, i64 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %35, ptr %37, align 8, !tbaa !14, !alias.scope !28
   store ptr %23, ptr %19, align 8, !tbaa !19
   store i64 0, ptr %36, align 8, !tbaa !14
@@ -529,12 +529,12 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
 
 48:                                               ; preds = %47, %44
   %49 = load ptr, ptr %5, align 8, !tbaa !19
-  %50 = getelementptr inbounds i8, ptr %5, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %51 = icmp eq ptr %49, %50
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %5, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !14
   %55 = icmp ult i64 %54, 16
   call void @llvm.assume(i1 %55)
@@ -579,12 +579,12 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
 70:                                               ; preds = %69, %66, %60
   %71 = phi { ptr, i32 } [ %61, %60 ], [ %63, %66 ], [ %63, %69 ]
   %72 = load ptr, ptr %5, align 8, !tbaa !19
-  %73 = getelementptr inbounds i8, ptr %5, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %74 = icmp eq ptr %72, %73
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %5, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %77 = load i64, ptr %76, align 8, !tbaa !14
   %78 = icmp ult i64 %77, 16
   call void @llvm.assume(i1 %78)
@@ -606,7 +606,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
           to label %83 unwind label %127
 
 83:                                               ; preds = %82
-  %84 = getelementptr inbounds i8, ptr %6, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %85 = load i64, ptr %84, align 8, !tbaa !14
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %160, label %87
@@ -622,15 +622,15 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
           to label %90 unwind label %131
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %7, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %91, ptr %7, align 8, !tbaa !13, !alias.scope !31
   %92 = load ptr, ptr %89, align 8, !tbaa !19
-  %93 = getelementptr inbounds i8, ptr %89, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %94 = icmp eq ptr %92, %93
   br i1 %94, label %95, label %100
 
 95:                                               ; preds = %90
-  %96 = getelementptr inbounds i8, ptr %89, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !14
   %98 = icmp ult i64 %97, 16
   call void @llvm.assume(i1 %98)
@@ -642,15 +642,15 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
   store ptr %92, ptr %7, align 8, !tbaa !19, !alias.scope !31
   %101 = load i64, ptr %93, align 8, !tbaa !15
   store i64 %101, ptr %91, align 8, !tbaa !15, !alias.scope !31
-  %102 = getelementptr inbounds i8, ptr %89, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %103 = load i64, ptr %102, align 8, !tbaa !14
   br label %104
 
 104:                                              ; preds = %100, %95
   %105 = phi ptr [ %91, %95 ], [ %92, %100 ]
   %106 = phi i64 [ %97, %95 ], [ %103, %100 ]
-  %107 = getelementptr inbounds i8, ptr %89, i64 8
-  %108 = getelementptr inbounds i8, ptr %7, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %106, ptr %108, align 8, !tbaa !14, !alias.scope !31
   store ptr %93, ptr %89, align 8, !tbaa !19
   store i64 0, ptr %107, align 8, !tbaa !14
@@ -675,12 +675,12 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
 
 117:                                              ; preds = %116, %113
   %118 = load ptr, ptr %8, align 8, !tbaa !19
-  %119 = getelementptr inbounds i8, ptr %8, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %120 = icmp eq ptr %118, %119
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %117
-  %122 = getelementptr inbounds i8, ptr %8, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %123 = load i64, ptr %122, align 8, !tbaa !14
   %124 = icmp ult i64 %123, 16
   call void @llvm.assume(i1 %124)
@@ -730,12 +730,12 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
 141:                                              ; preds = %140, %137, %131
   %142 = phi { ptr, i32 } [ %132, %131 ], [ %134, %137 ], [ %134, %140 ]
   %143 = load ptr, ptr %8, align 8, !tbaa !19
-  %144 = getelementptr inbounds i8, ptr %8, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %145 = icmp eq ptr %143, %144
   br i1 %145, label %146, label %150
 
 146:                                              ; preds = %141
-  %147 = getelementptr inbounds i8, ptr %8, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %148 = load i64, ptr %147, align 8, !tbaa !14
   %149 = icmp ult i64 %148, 16
   call void @llvm.assume(i1 %149)
@@ -750,7 +750,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
   %153 = load ptr, ptr %6, align 8, !tbaa !19
-  %154 = getelementptr inbounds i8, ptr %6, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %155 = icmp eq ptr %153, %154
   br i1 %155, label %156, label %159
 
@@ -766,7 +766,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
 
 160:                                              ; preds = %126, %83
   %161 = load ptr, ptr %6, align 8, !tbaa !19
-  %162 = getelementptr inbounds i8, ptr %6, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %163 = icmp eq ptr %161, %162
   br i1 %163, label %164, label %167
 
@@ -792,12 +792,12 @@ define void @_ZN5ZXing8ToStringB5cxx11ERKNS_5ErrorE(ptr dead_on_unwind noalias n
 171:                                              ; preds = %169, %80
   %172 = phi { ptr, i32 } [ %170, %169 ], [ %81, %80 ]
   %173 = load ptr, ptr %0, align 8, !tbaa !19
-  %174 = getelementptr inbounds i8, ptr %0, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %175 = icmp eq ptr %173, %174
   br i1 %175, label %176, label %180
 
 176:                                              ; preds = %171
-  %177 = getelementptr inbounds i8, ptr %0, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %178 = load i64, ptr %177, align 8, !tbaa !14
   %179 = icmp ult i64 %178, 16
   call void @llvm.assume(i1 %179)
@@ -817,12 +817,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %0, align 8, !tbaa !13
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8, !tbaa !14
   store i8 0, ptr %5, align 8, !tbaa !15
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !14
   %9 = add i64 %8, %4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %9) #17
@@ -891,17 +891,17 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
   %12 = udiv i32 %8, 100
   %13 = or disjoint i32 %11, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !15
   %17 = zext i32 %9 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   store i8 %16, ptr %18, align 1, !tbaa !15
   %19 = zext nneg i32 %11 to i64
-  %20 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %19
   %21 = load i8, ptr %20, align 2, !tbaa !15
   %22 = add i32 %9, -1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %23
   store i8 %21, ptr %24, align 1, !tbaa !15
   %25 = add i32 %9, -2
   %26 = icmp ugt i32 %8, 9999
@@ -916,12 +916,12 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
   %30 = shl nuw nsw i32 %27, 1
   %31 = or disjoint i32 %30, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !15
-  %35 = getelementptr inbounds i8, ptr %0, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %34, ptr %35, align 1, !tbaa !15
   %36 = zext nneg i32 %30 to i64
-  %37 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %36
   %38 = load i8, ptr %37, align 2, !tbaa !15
   br label %42
 
@@ -964,7 +964,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #17
   store ptr %12, ptr %0, align 8, !tbaa !19
   %13 = load i64, ptr %4, align 8, !tbaa !36
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %13, ptr %14, align 8, !tbaa !15
   br label %15
 
@@ -986,7 +986,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
 
 20:                                               ; preds = %19, %17, %15
   %21 = load i64, ptr %4, align 8, !tbaa !36
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %21, ptr %22, align 8, !tbaa !14
   %23 = load ptr, ptr %0, align 8, !tbaa !19
   %24 = getelementptr inbounds i8, ptr %23, i64 %21

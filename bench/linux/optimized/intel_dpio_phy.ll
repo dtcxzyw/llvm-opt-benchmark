@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @bxt_port_to_phy_channel(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 7184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 268435456
   %8 = icmp eq i32 %7, 0
@@ -49,7 +49,7 @@ define dso_local void @bxt_port_to_phy_channel(ptr nocapture noundef readonly %0
 11:                                               ; preds = %23, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %4 ]
   %12 = getelementptr %struct.bxt_ddi_phy_info, ptr %10, i64 %indvars.iv
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %.loopexit.loopexit, label %16
@@ -72,11 +72,11 @@ define dso_local void @bxt_port_to_phy_channel(ptr nocapture noundef readonly %0
 
 25:                                               ; preds = %23
   tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #6, !srcloc !10
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @dev_driver_string(ptr noundef %27) #6
   %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %35
@@ -127,7 +127,7 @@ define dso_local void @bxt_ddi_phy_set_signal_levels(ptr noundef %0, ptr noundef
   %5 = tail call i32 @intel_ddi_level(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
   store i32 0, ptr %3, align 4, !annotation !15
-  %6 = getelementptr inbounds i8, ptr %0, i64 352
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr %7(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #6
   %9 = icmp ne ptr %8, null
@@ -138,11 +138,11 @@ define dso_local void @bxt_ddi_phy_set_signal_levels(ptr noundef %0, ptr noundef
 12:                                               ; preds = %2
   store i1 true, ptr @bxt_ddi_phy_set_signal_levels.__already_done, align 1
   call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #6, !srcloc !17
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @dev_driver_string(ptr noundef %14) #6
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %.thread
@@ -164,9 +164,9 @@ define dso_local void @bxt_ddi_phy_set_signal_levels(ptr noundef %0, ptr noundef
   br i1 %9, label %24, label %138
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 132
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %4, i64 7184
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 7184
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 268435456
   %30 = icmp eq i32 %29, 0
@@ -177,7 +177,7 @@ define dso_local void @bxt_ddi_phy_set_signal_levels(ptr noundef %0, ptr noundef
 33:                                               ; preds = %45, %24
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %24 ]
   %34 = getelementptr %struct.bxt_ddi_phy_info, ptr %32, i64 %indvars.iv.i
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, %26
   br i1 %37, label %bxt_port_to_phy_channel.exit, label %38
@@ -200,11 +200,11 @@ define dso_local void @bxt_ddi_phy_set_signal_levels(ptr noundef %0, ptr noundef
 
 47:                                               ; preds = %45
   call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #6, !srcloc !10
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = call ptr @dev_driver_string(ptr noundef %49) #6
   %51 = load ptr, ptr %48, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 80
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %bxt_port_to_phy_channel.exit.thread
@@ -238,20 +238,20 @@ bxt_port_to_phy_channel.exit:                     ; preds = %33, %41
   %66 = shl nuw nsw i32 %64, 10
   %67 = add i32 %65, %66
   %68 = add i32 %67, 1064
-  %69 = getelementptr inbounds i8, ptr %4, i64 7368
-  %70 = getelementptr inbounds i8, ptr %4, i64 7512
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 7368
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 7512
   %71 = load ptr, ptr %70, align 8
-  %72 = call i32 %71(ptr noundef %69, i32 %68, i1 noundef zeroext true) #6
+  %72 = call i32 %71(ptr noundef nonnull %69, i32 %68, i1 noundef zeroext true) #6
   %73 = and i32 %72, 1073741823
   %74 = shl nuw nsw i32 %64, 9
   %75 = add i32 %65, %74
   %76 = add i32 %75, 3112
-  %77 = getelementptr inbounds i8, ptr %4, i64 7544
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 7544
   %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef %69, i32 %76, i32 noundef %73, i1 noundef zeroext true) #6
+  call void %78(ptr noundef nonnull %69, i32 %76, i32 noundef %73, i1 noundef zeroext true) #6
   %79 = add i32 %67, 1288
   %80 = load ptr, ptr %70, align 8
-  %81 = call i32 %80(ptr noundef %69, i32 %79, i1 noundef zeroext true) #6
+  %81 = call i32 %80(ptr noundef nonnull %69, i32 %79, i1 noundef zeroext true) #6
   %82 = and i32 %81, -16776961
   %83 = load ptr, ptr %8, align 8
   %84 = sext i32 %5 to i64
@@ -259,7 +259,7 @@ bxt_port_to_phy_channel.exit:                     ; preds = %33, %41
   %86 = load i8, ptr %85, align 4
   %87 = zext i8 %86 to i32
   %88 = shl nuw nsw i32 %87, 16
-  %89 = getelementptr inbounds i8, ptr %85, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = shl nuw nsw i32 %91, 8
@@ -267,14 +267,14 @@ bxt_port_to_phy_channel.exit:                     ; preds = %33, %41
   %94 = or disjoint i32 %93, %92
   %95 = add i32 %75, 3336
   %96 = load ptr, ptr %77, align 8
-  call void %96(ptr noundef %69, i32 %95, i32 noundef %94, i1 noundef zeroext true) #6
+  call void %96(ptr noundef nonnull %69, i32 %95, i32 noundef %94, i1 noundef zeroext true) #6
   %97 = add i32 %67, 1292
   %98 = load ptr, ptr %70, align 8
-  %99 = call i32 %98(ptr noundef %69, i32 %97, i1 noundef zeroext true) #6
+  %99 = call i32 %98(ptr noundef nonnull %69, i32 %97, i1 noundef zeroext true) #6
   %100 = and i32 %99, -67108865
   %101 = load ptr, ptr %8, align 8
   %102 = getelementptr %union.intel_ddi_buf_trans_entry, ptr %101, i64 %84
-  %103 = getelementptr inbounds i8, ptr %102, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 2
   %104 = load i8, ptr %103, align 2
   %105 = icmp eq i8 %104, 0
   %106 = select i1 %105, i32 0, i32 67108864
@@ -289,7 +289,7 @@ bxt_port_to_phy_channel.exit:                     ; preds = %33, %41
   br i1 %112, label %116, label %113
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds i8, ptr %4, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %115 = load ptr, ptr %114, align 8
   br label %116
 
@@ -301,26 +301,26 @@ bxt_port_to_phy_channel.exit:                     ; preds = %33, %41
 118:                                              ; preds = %116, %63
   %119 = add i32 %75, 3340
   %120 = load ptr, ptr %77, align 8
-  call void %120(ptr noundef %69, i32 %119, i32 noundef %107, i1 noundef zeroext true) #6
+  call void %120(ptr noundef nonnull %69, i32 %119, i32 noundef %107, i1 noundef zeroext true) #6
   %121 = add i32 %67, 1296
   %122 = load ptr, ptr %70, align 8
-  %123 = call i32 %122(ptr noundef %69, i32 %121, i1 noundef zeroext true) #6
+  %123 = call i32 %122(ptr noundef nonnull %69, i32 %121, i1 noundef zeroext true) #6
   %124 = and i32 %123, 16777215
   %125 = load ptr, ptr %8, align 8
   %126 = getelementptr %union.intel_ddi_buf_trans_entry, ptr %125, i64 %84
-  %127 = getelementptr inbounds i8, ptr %126, i64 3
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 3
   %128 = load i8, ptr %127, align 1
   %129 = zext i8 %128 to i32
   %130 = shl nuw i32 %129, 24
   %131 = or disjoint i32 %130, %124
   %132 = add i32 %75, 3344
   %133 = load ptr, ptr %77, align 8
-  call void %133(ptr noundef %69, i32 %132, i32 noundef %131, i1 noundef zeroext true) #6
+  call void %133(ptr noundef nonnull %69, i32 %132, i32 noundef %131, i1 noundef zeroext true) #6
   %134 = load ptr, ptr %70, align 8
-  %135 = call i32 %134(ptr noundef %69, i32 %68, i1 noundef zeroext true) #6
+  %135 = call i32 %134(ptr noundef nonnull %69, i32 %68, i1 noundef zeroext true) #6
   %136 = or i32 %135, -1073741824
   %137 = load ptr, ptr %77, align 8
-  call void %137(ptr noundef %69, i32 %76, i32 noundef %136, i1 noundef zeroext true) #6
+  call void %137(ptr noundef nonnull %69, i32 %76, i32 noundef %136, i1 noundef zeroext true) #6
   br label %138
 
 138:                                              ; preds = %.thread, %118, %23
@@ -336,16 +336,16 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @bxt_ddi_phy_is_enabled(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 7184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 268435456
   %6 = icmp eq i32 %5, 0
   %7 = select i1 %6, ptr @bxt_ddi_phy_info, ptr @glk_ddi_phy_info
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 7368
-  %10 = getelementptr inbounds i8, ptr %0, i64 7512
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %9, i32 1278096, i1 noundef zeroext true) #6
+  %12 = tail call i32 %11(ptr noundef nonnull %9, i32 1278096, i1 noundef zeroext true) #6
   %13 = getelementptr %struct.bxt_ddi_phy_info, ptr %7, i64 %8, i32 3
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, %12
@@ -358,7 +358,7 @@ define dso_local noundef zeroext i1 @bxt_ddi_phy_is_enabled(ptr noundef %0, i32 
   %20 = add i32 %19, 1445888
   %21 = select i1 %18, i32 442368, i32 %20
   %22 = load ptr, ptr %10, align 8
-  %23 = tail call i32 %22(ptr noundef %9, i32 %21, i1 noundef zeroext true) #6
+  %23 = tail call i32 %22(ptr noundef nonnull %9, i32 %21, i1 noundef zeroext true) #6
   %24 = and i32 %23, 65664
   %25 = icmp eq i32 %24, 65536
   br i1 %25, label %33, label %26
@@ -368,7 +368,7 @@ define dso_local noundef zeroext i1 @bxt_ddi_phy_is_enabled(ptr noundef %0, i32 
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -382,7 +382,7 @@ define dso_local noundef zeroext i1 @bxt_ddi_phy_is_enabled(ptr noundef %0, i32 
   %35 = add i32 %34, 412768
   %36 = select i1 %18, i32 412816, i32 %35
   %37 = load ptr, ptr %10, align 8
-  %38 = tail call i32 %37(ptr noundef %9, i32 %36, i1 noundef zeroext true) #6
+  %38 = tail call i32 %37(ptr noundef nonnull %9, i32 %36, i1 noundef zeroext true) #6
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %40, label %47
 
@@ -391,7 +391,7 @@ define dso_local noundef zeroext i1 @bxt_ddi_phy_is_enabled(ptr noundef %0, i32 
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
   br label %45
 
@@ -410,7 +410,7 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @bxt_ddi_phy_uninit(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 7184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 268435456
   %6 = icmp eq i32 %5, 0
@@ -420,28 +420,28 @@ define dso_local void @bxt_ddi_phy_uninit(ptr noundef %0, i32 noundef %1) local_
   %10 = shl i32 %1, 5
   %11 = add i32 %10, 412768
   %12 = select i1 %9, i32 412816, i32 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 7368
-  %14 = getelementptr inbounds i8, ptr %0, i64 7512
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %13, i32 %12, i1 noundef zeroext true) #6
+  %16 = tail call i32 %15(ptr noundef nonnull %13, i32 %12, i1 noundef zeroext true) #6
   %17 = and i32 %16, 2147483647
-  %18 = getelementptr inbounds i8, ptr %0, i64 7544
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef %13, i32 %12, i32 noundef %17, i1 noundef zeroext true) #6
+  tail call void %19(ptr noundef nonnull %13, i32 %12, i32 noundef %17, i1 noundef zeroext true) #6
   %20 = getelementptr %struct.bxt_ddi_phy_info, ptr %7, i64 %8, i32 3
   %21 = load i32, ptr %20, align 4
   %22 = load ptr, ptr %14, align 8
-  %23 = tail call i32 %22(ptr noundef %13, i32 1278096, i1 noundef zeroext true) #6
+  %23 = tail call i32 %22(ptr noundef nonnull %13, i32 1278096, i1 noundef zeroext true) #6
   %24 = xor i32 %21, -1
   %25 = and i32 %23, %24
   %26 = load ptr, ptr %18, align 8
-  tail call void %26(ptr noundef %13, i32 1278096, i32 noundef %25, i1 noundef zeroext true) #6
+  tail call void %26(ptr noundef nonnull %13, i32 1278096, i32 noundef %25, i1 noundef zeroext true) #6
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 7184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 268435456
   %6 = icmp eq i32 %5, 0
@@ -468,22 +468,22 @@ define dso_local void @bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) local_un
   %21 = shl i32 %10, 5
   %22 = add i32 %21, 412768
   %23 = select i1 %20, i32 412816, i32 %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 7368
-  %25 = getelementptr inbounds i8, ptr %0, i64 7512
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef %24, i32 %23, i1 noundef zeroext true) #6
+  %27 = tail call i32 %26(ptr noundef nonnull %24, i32 %23, i1 noundef zeroext true) #6
   %28 = and i32 %27, 2147483647
-  %29 = getelementptr inbounds i8, ptr %0, i64 7544
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef %24, i32 %23, i32 noundef %28, i1 noundef zeroext true) #6
+  tail call void %30(ptr noundef nonnull %24, i32 %23, i32 noundef %28, i1 noundef zeroext true) #6
   %31 = getelementptr %struct.bxt_ddi_phy_info, ptr %18, i64 %19, i32 3
   %32 = load i32, ptr %31, align 4
   %33 = load ptr, ptr %25, align 8
-  %34 = tail call i32 %33(ptr noundef %24, i32 1278096, i1 noundef zeroext true) #6
+  %34 = tail call i32 %33(ptr noundef nonnull %24, i32 1278096, i1 noundef zeroext true) #6
   %35 = xor i32 %32, -1
   %36 = and i32 %34, %35
   %37 = load ptr, ptr %29, align 8
-  tail call void %37(ptr noundef %24, i32 1278096, i32 noundef %36, i1 noundef zeroext true) #6
+  tail call void %37(ptr noundef nonnull %24, i32 1278096, i32 noundef %36, i1 noundef zeroext true) #6
   br label %39
 
 38:                                               ; preds = %12, %2
@@ -496,7 +496,7 @@ define dso_local void @bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 7184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 268435456
   %6 = icmp eq i32 %5, 0
@@ -507,7 +507,7 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
   br i1 %10, label %11, label %41
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %26, label %15
@@ -517,12 +517,12 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
   %17 = shl i32 %1, 12
   %18 = add i32 %17, 1446296
   %19 = select i1 %16, i32 442776, i32 %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 7368
-  %21 = getelementptr inbounds i8, ptr %0, i64 7512
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %20, i32 %19, i1 noundef zeroext true) #6
+  %23 = tail call i32 %22(ptr noundef nonnull %20, i32 %19, i1 noundef zeroext true) #6
   %24 = lshr i32 %23, 24
-  %25 = getelementptr inbounds i8, ptr %0, i64 3444
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 3444
   store i32 %24, ptr %25, align 4
   br label %26
 
@@ -535,7 +535,7 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
   br i1 %28, label %33, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   br label %33
 
@@ -548,7 +548,7 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
   br i1 %28, label %39, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   br label %39
 
@@ -558,21 +558,21 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
   br label %41
 
 41:                                               ; preds = %39, %2
-  %42 = getelementptr inbounds i8, ptr %9, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 7368
-  %45 = getelementptr inbounds i8, ptr %0, i64 7512
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 %46(ptr noundef %44, i32 1278096, i1 noundef zeroext true) #6
+  %47 = tail call i32 %46(ptr noundef nonnull %44, i32 1278096, i1 noundef zeroext true) #6
   %48 = or i32 %47, %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 7544
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef %44, i32 1278096, i32 noundef %48, i1 noundef zeroext true) #6
+  tail call void %50(ptr noundef nonnull %44, i32 1278096, i32 noundef %48, i1 noundef zeroext true) #6
   %51 = icmp eq i32 %1, 0
   %52 = shl i32 %1, 12
   %53 = add i32 %52, 1445888
   %54 = select i1 %51, i32 442368, i32 %53
-  %55 = tail call i32 @__intel_wait_for_register_fw(ptr noundef %44, i32 %54, i32 noundef 65664, i32 noundef 65536, i32 noundef 2, i32 noundef 1, ptr noundef null) #6
+  %55 = tail call i32 @__intel_wait_for_register_fw(ptr noundef nonnull %44, i32 %54, i32 noundef 65664, i32 noundef 65536, i32 noundef 2, i32 noundef 1, ptr noundef null) #6
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %64, label %57
 
@@ -581,7 +581,7 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %0, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load ptr, ptr %60, align 8
   br label %62
 
@@ -594,26 +594,26 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
   %65 = add i32 %52, 1445924
   %66 = select i1 %51, i32 442404, i32 %65
   %67 = load ptr, ptr %45, align 8
-  %68 = tail call i32 %67(ptr noundef %44, i32 %66, i1 noundef zeroext true) #6
+  %68 = tail call i32 %67(ptr noundef nonnull %44, i32 %66, i1 noundef zeroext true) #6
   %69 = and i32 %68, -65281
   %70 = or disjoint i32 %69, 58368
   %71 = load ptr, ptr %49, align 8
-  tail call void %71(ptr noundef %44, i32 %66, i32 noundef %70, i1 noundef zeroext true) #6
+  tail call void %71(ptr noundef nonnull %44, i32 %66, i32 noundef %70, i1 noundef zeroext true) #6
   %72 = add i32 %52, 1445928
   %73 = select i1 %51, i32 442408, i32 %72
   %74 = load ptr, ptr %45, align 8
-  %75 = tail call i32 %74(ptr noundef %44, i32 %73, i1 noundef zeroext true) #6
+  %75 = tail call i32 %74(ptr noundef nonnull %44, i32 %73, i1 noundef zeroext true) #6
   %76 = and i32 %75, -65281
   %77 = or disjoint i32 %76, 58368
   %78 = load ptr, ptr %49, align 8
-  tail call void %78(ptr noundef %44, i32 %73, i32 noundef %77, i1 noundef zeroext true) #6
+  tail call void %78(ptr noundef nonnull %44, i32 %73, i32 noundef %77, i1 noundef zeroext true) #6
   %79 = add i32 %52, 1446000
   %80 = select i1 %51, i32 442480, i32 %79
   %81 = load ptr, ptr %45, align 8
-  %82 = tail call i32 %81(ptr noundef %44, i32 %80, i1 noundef zeroext true) #6
+  %82 = tail call i32 %81(ptr noundef nonnull %44, i32 %80, i1 noundef zeroext true) #6
   %83 = or i32 %82, 12582915
   %84 = load ptr, ptr %49, align 8
-  tail call void %84(ptr noundef %44, i32 %80, i32 noundef %83, i1 noundef zeroext true) #6
+  tail call void %84(ptr noundef nonnull %44, i32 %80, i32 noundef %83, i1 noundef zeroext true) #6
   %85 = load i8, ptr %9, align 8, !range !5, !noundef !6
   %86 = icmp eq i8 %85, 0
   br i1 %86, label %94, label %87
@@ -622,14 +622,14 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
   %88 = add i32 %52, 1446744
   %89 = select i1 %51, i32 443224, i32 %88
   %90 = load ptr, ptr %45, align 8
-  %91 = tail call i32 %90(ptr noundef %44, i32 %89, i1 noundef zeroext true) #6
+  %91 = tail call i32 %90(ptr noundef nonnull %44, i32 %89, i1 noundef zeroext true) #6
   %92 = or i32 %91, 268435456
   %93 = load ptr, ptr %49, align 8
-  tail call void %93(ptr noundef %44, i32 %89, i32 noundef %92, i1 noundef zeroext true) #6
+  tail call void %93(ptr noundef nonnull %44, i32 %89, i32 noundef %92, i1 noundef zeroext true) #6
   br label %94
 
 94:                                               ; preds = %87, %64
-  %95 = getelementptr inbounds i8, ptr %9, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %96, -1
   br i1 %97, label %129, label %98
@@ -639,7 +639,7 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
   %100 = shl i32 %96, 12
   %101 = add i32 %100, 1446284
   %102 = select i1 %99, i32 442764, i32 %101
-  %103 = tail call i32 @__intel_wait_for_register(ptr noundef %44, i32 %102, i32 noundef 4194304, i32 noundef 4194304, i32 noundef 2, i32 noundef 10, ptr noundef null) #6
+  %103 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %44, i32 %102, i32 noundef 4194304, i32 noundef 4194304, i32 noundef 2, i32 noundef 10, ptr noundef null) #6
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %112, label %105
 
@@ -648,7 +648,7 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
   br i1 %106, label %110, label %107
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %0, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %109 = load ptr, ptr %108, align 8
   br label %110
 
@@ -661,26 +661,26 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
   %113 = add i32 %100, 1446296
   %114 = select i1 %99, i32 442776, i32 %113
   %115 = load ptr, ptr %45, align 8
-  %116 = tail call i32 %115(ptr noundef %44, i32 %114, i1 noundef zeroext true) #6
+  %116 = tail call i32 %115(ptr noundef nonnull %44, i32 %114, i1 noundef zeroext true) #6
   %117 = lshr i32 %116, 24
-  %118 = getelementptr inbounds i8, ptr %0, i64 3444
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 3444
   store i32 %117, ptr %118, align 4
   %119 = mul nuw nsw i32 %117, 65793
   %120 = add i32 %52, 1446296
   %121 = select i1 %51, i32 442776, i32 %120
   %122 = load ptr, ptr %49, align 8
-  tail call void %122(ptr noundef %44, i32 %121, i32 noundef %119, i1 noundef zeroext true) #6
+  tail call void %122(ptr noundef nonnull %44, i32 %121, i32 noundef %119, i1 noundef zeroext true) #6
   %123 = add i32 %52, 1446304
   %124 = select i1 %51, i32 442784, i32 %123
   %125 = load ptr, ptr %45, align 8
-  %126 = tail call i32 %125(ptr noundef %44, i32 %124, i1 noundef zeroext true) #6
+  %126 = tail call i32 %125(ptr noundef nonnull %44, i32 %124, i1 noundef zeroext true) #6
   %127 = or i32 %126, 32770
   %128 = load ptr, ptr %49, align 8
-  tail call void %128(ptr noundef %44, i32 %124, i32 noundef %127, i1 noundef zeroext true) #6
+  tail call void %128(ptr noundef nonnull %44, i32 %124, i32 noundef %127, i1 noundef zeroext true) #6
   br label %129
 
 129:                                              ; preds = %112, %94
-  %130 = getelementptr inbounds i8, ptr %9, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %131 = load i32, ptr %130, align 8
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %135, label %133
@@ -695,10 +695,10 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
   %137 = add i32 %136, 412768
   %138 = select i1 %51, i32 412816, i32 %137
   %139 = load ptr, ptr %45, align 8
-  %140 = tail call i32 %139(ptr noundef %44, i32 %138, i1 noundef zeroext true) #6
+  %140 = tail call i32 %139(ptr noundef nonnull %44, i32 %138, i1 noundef zeroext true) #6
   %141 = or i32 %140, -2147483648
   %142 = load ptr, ptr %49, align 8
-  tail call void %142(ptr noundef %44, i32 %138, i32 noundef %141, i1 noundef zeroext true) #6
+  tail call void %142(ptr noundef nonnull %44, i32 %138, i32 noundef %141, i1 noundef zeroext true) #6
   br label %143
 
 143:                                              ; preds = %135, %33
@@ -707,7 +707,7 @@ define internal fastcc void @_bxt_ddi_phy_init(ptr noundef %0, i32 noundef %1) u
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @bxt_ddi_phy_verify_state(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 7184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 268435456
   %6 = icmp eq i32 %5, 0
@@ -744,13 +744,13 @@ define dso_local zeroext i1 @bxt_ddi_phy_verify_state(ptr noundef %0, i32 nounde
 
 32:                                               ; preds = %27, %11
   %33 = phi i1 [ %31, %27 ], [ %24, %11 ]
-  %34 = getelementptr inbounds i8, ptr %9, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %52, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 3444
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 3444
   %39 = load i32, ptr %38, align 4
   %40 = shl i32 %39, 16
   %41 = shl i32 %39, 8
@@ -777,10 +777,10 @@ define internal noundef zeroext i1 @__phy_reg_verify_state(ptr noundef %0, i32 n
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 7368
-  %10 = getelementptr inbounds i8, ptr %0, i64 7512
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %9, i32 %2, i1 noundef zeroext true) #6
+  %12 = tail call i32 %11(ptr noundef nonnull %9, i32 %2, i1 noundef zeroext true) #6
   %13 = and i32 %12, %3
   %14 = icmp eq i32 %13, %4
   br i1 %14, label %26, label %15
@@ -789,13 +789,13 @@ define internal noundef zeroext i1 @__phy_reg_verify_state(ptr noundef %0, i32 n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, i8 0, i64 24, i1 false), !annotation !15
   call void @llvm.va_start.p0(ptr nonnull %8)
   store ptr %5, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %16, align 8
   %17 = icmp eq ptr %0, null
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   br label %21
 
@@ -846,9 +846,9 @@ define dso_local noundef zeroext range(i8 0, 14) i8 @bxt_ddi_phy_calc_lane_lat_o
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @bxt_ddi_phy_set_lane_optim_mask(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 132
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 7184
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 7184
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 268435456
   %9 = icmp eq i32 %8, 0
@@ -859,7 +859,7 @@ define dso_local void @bxt_ddi_phy_set_lane_optim_mask(ptr nocapture noundef rea
 12:                                               ; preds = %24, %2
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %24 ], [ 0, %2 ]
   %13 = getelementptr %struct.bxt_ddi_phy_info, ptr %11, i64 %indvars.iv.i
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %5
   br i1 %16, label %bxt_port_to_phy_channel.exit, label %17
@@ -882,11 +882,11 @@ define dso_local void @bxt_ddi_phy_set_lane_optim_mask(ptr nocapture noundef rea
 
 26:                                               ; preds = %24
   tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #6, !srcloc !10
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @dev_driver_string(ptr noundef %28) #6
   %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %bxt_port_to_phy_channel.exit.thread
@@ -917,10 +917,10 @@ bxt_port_to_phy_channel.exit:                     ; preds = %12, %20
 
 43:                                               ; preds = %bxt_port_to_phy_channel.exit, %bxt_port_to_phy_channel.exit.thread
   %44 = phi i32 [ 443704, %bxt_port_to_phy_channel.exit.thread ], [ %42, %bxt_port_to_phy_channel.exit ]
-  %45 = getelementptr inbounds i8, ptr %3, i64 7368
-  %46 = getelementptr inbounds i8, ptr %3, i64 7512
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %47 = zext i8 %1 to i64
-  %48 = getelementptr inbounds i8, ptr %3, i64 7544
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 7544
   br label %49
 
 49:                                               ; preds = %49, %43
@@ -933,7 +933,7 @@ bxt_port_to_phy_channel.exit:                     ; preds = %12, %20
   %56 = or disjoint i32 %53, %55
   %57 = add i32 %44, %56
   %58 = load ptr, ptr %46, align 8
-  %59 = tail call i32 %58(ptr noundef %45, i32 %57, i1 noundef zeroext true) #6
+  %59 = tail call i32 %58(ptr noundef nonnull %45, i32 %57, i1 noundef zeroext true) #6
   %60 = and i32 %59, -1073741825
   %61 = shl nuw nsw i64 1, %50
   %62 = and i64 %61, %47
@@ -941,7 +941,7 @@ bxt_port_to_phy_channel.exit:                     ; preds = %12, %20
   %64 = select i1 %63, i32 0, i32 1073741824
   %65 = or disjoint i32 %64, %60
   %66 = load ptr, ptr %48, align 8
-  tail call void %66(ptr noundef %45, i32 %57, i32 noundef %65, i1 noundef zeroext true) #6
+  tail call void %66(ptr noundef nonnull %45, i32 %57, i32 noundef %65, i1 noundef zeroext true) #6
   %67 = add nuw nsw i64 %50, 1
   %68 = icmp eq i64 %67, 4
   br i1 %68, label %69, label %49, !llvm.loop !27
@@ -953,9 +953,9 @@ bxt_port_to_phy_channel.exit:                     ; preds = %12, %20
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i8 @bxt_ddi_phy_get_lane_lat_optim_mask(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 132
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 7184
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 7184
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 268435456
   %8 = icmp eq i32 %7, 0
@@ -966,7 +966,7 @@ define dso_local zeroext i8 @bxt_ddi_phy_get_lane_lat_optim_mask(ptr nocapture n
 11:                                               ; preds = %23, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %23 ], [ 0, %1 ]
   %12 = getelementptr %struct.bxt_ddi_phy_info, ptr %10, i64 %indvars.iv.i
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %4
   br i1 %15, label %bxt_port_to_phy_channel.exit, label %16
@@ -989,11 +989,11 @@ define dso_local zeroext i8 @bxt_ddi_phy_get_lane_lat_optim_mask(ptr nocapture n
 
 25:                                               ; preds = %23
   tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #6, !srcloc !10
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @dev_driver_string(ptr noundef %27) #6
   %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %bxt_port_to_phy_channel.exit.thread
@@ -1024,8 +1024,8 @@ bxt_port_to_phy_channel.exit:                     ; preds = %11, %19
 
 42:                                               ; preds = %bxt_port_to_phy_channel.exit, %bxt_port_to_phy_channel.exit.thread
   %43 = phi i32 [ 443704, %bxt_port_to_phy_channel.exit.thread ], [ %41, %bxt_port_to_phy_channel.exit ]
-  %44 = getelementptr inbounds i8, ptr %2, i64 7368
-  %45 = getelementptr inbounds i8, ptr %2, i64 7512
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 7368
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 7512
   br label %46
 
 46:                                               ; preds = %46, %42
@@ -1039,7 +1039,7 @@ bxt_port_to_phy_channel.exit:                     ; preds = %11, %19
   %54 = or disjoint i32 %51, %53
   %55 = add i32 %43, %54
   %56 = load ptr, ptr %45, align 8
-  %57 = tail call i32 %56(ptr noundef %44, i32 %55, i1 noundef zeroext true) #6
+  %57 = tail call i32 %56(ptr noundef nonnull %44, i32 %55, i1 noundef zeroext true) #6
   %58 = and i32 %57, 1073741824
   %59 = icmp eq i32 %58, 0
   %60 = shl nuw nsw i64 1, %47
@@ -1056,7 +1056,7 @@ bxt_port_to_phy_channel.exit:                     ; preds = %11, %19
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @vlv_dig_port_to_channel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 132
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %4 [
     i32 1, label %8
@@ -1085,7 +1085,7 @@ define dso_local noundef range(i32 0, 2) i32 @vlv_dig_port_to_channel(ptr nocapt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @vlv_dig_port_to_phy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 132
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %4 [
     i32 1, label %8
@@ -1167,7 +1167,7 @@ define dso_local noundef range(i32 0, 2) i32 @vlv_pipe_to_channel(i32 noundef %0
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @chv_set_phy_signal_level(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 16 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %12 [
     i32 10, label %13
@@ -1178,7 +1178,7 @@ define dso_local void @chv_set_phy_signal_level(ptr nocapture noundef readonly %
   ]
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 392
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %11 = load ptr, ptr %10, align 8
   br label %13
 
@@ -1188,7 +1188,7 @@ define dso_local void @chv_set_phy_signal_level(ptr nocapture noundef readonly %
 13:                                               ; preds = %12, %9, %5, %5, %5, %5
   %14 = phi ptr [ %11, %9 ], [ %0, %5 ], [ %0, %5 ], [ %0, %5 ], [ %0, %5 ], [ null, %12 ]
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 132
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 132
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %18 [
     i32 1, label %22
@@ -1212,7 +1212,7 @@ define dso_local void @chv_set_phy_signal_level(ptr nocapture noundef readonly %
 
 22:                                               ; preds = %21, %18, %13, %13
   %23 = phi i32 [ 9216, %21 ], [ 0, %13 ], [ 0, %13 ], [ 0, %18 ]
-  %24 = getelementptr inbounds i8, ptr %15, i64 1648
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 1648
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %26 [
     i32 0, label %29
@@ -1240,7 +1240,7 @@ define dso_local void @chv_set_phy_signal_level(ptr nocapture noundef readonly %
   %32 = tail call i32 @vlv_dpio_read(ptr noundef %6, i32 noundef %30, i32 noundef %31) #6
   %33 = and i32 %32, 821100543
   tail call void @vlv_dpio_write(ptr noundef %6, i32 noundef %30, i32 noundef %31, i32 noundef %33) #6
-  %34 = getelementptr inbounds i8, ptr %1, i64 1457
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1457
   %35 = load i8, ptr %34, align 1
   %36 = icmp ugt i8 %35, 2
   br i1 %36, label %37, label %41
@@ -1370,7 +1370,7 @@ declare dso_local void @vlv_dpio_write(ptr noundef, i32 noundef, i32 noundef, i3
 define dso_local void @chv_data_lane_soft_reset(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %11 [
     i32 10, label %12
@@ -1381,7 +1381,7 @@ define dso_local void @chv_data_lane_soft_reset(ptr nocapture noundef readonly %
   ]
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %10 = load ptr, ptr %9, align 8
   br label %12
 
@@ -1390,7 +1390,7 @@ define dso_local void @chv_data_lane_soft_reset(ptr nocapture noundef readonly %
 
 12:                                               ; preds = %11, %8, %3, %3, %3, %3
   %13 = phi ptr [ %10, %8 ], [ %0, %3 ], [ %0, %3 ], [ %0, %3 ], [ %0, %3 ], [ null, %11 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 132
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 132
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %16 [
     i32 1, label %20
@@ -1414,7 +1414,7 @@ define dso_local void @chv_data_lane_soft_reset(ptr nocapture noundef readonly %
 
 20:                                               ; preds = %19, %16, %12, %12
   %21 = phi i32 [ 9216, %19 ], [ 0, %12 ], [ 0, %12 ], [ 0, %16 ]
-  %22 = getelementptr inbounds i8, ptr %5, i64 1648
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 1648
   %23 = load i32, ptr %22, align 8
   switch i32 %23, label %24 [
     i32 0, label %27
@@ -1443,7 +1443,7 @@ define dso_local void @chv_data_lane_soft_reset(ptr nocapture noundef readonly %
   %32 = select i1 %2, i32 0, i32 65664
   %33 = or disjoint i32 %31, %32
   tail call void @vlv_dpio_write(ptr noundef %4, i32 noundef %28, i32 noundef %29, i32 noundef %33) #6
-  %34 = getelementptr inbounds i8, ptr %1, i64 1457
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1457
   %35 = load i8, ptr %34, align 1
   %36 = icmp ugt i8 %35, 2
   br i1 %36, label %37, label %42
@@ -1484,7 +1484,7 @@ define dso_local void @chv_data_lane_soft_reset(ptr nocapture noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @chv_phy_pre_pll_enable(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %8 [
     i32 10, label %9
@@ -1495,7 +1495,7 @@ define dso_local void @chv_phy_pre_pll_enable(ptr noundef %0, ptr nocapture noun
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %7 = load ptr, ptr %6, align 8
   br label %9
 
@@ -1506,7 +1506,7 @@ define dso_local void @chv_phy_pre_pll_enable(ptr noundef %0, ptr nocapture noun
   %10 = phi ptr [ %7, %5 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %8 ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 132
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %15 [
     i32 1, label %19
@@ -1531,7 +1531,7 @@ define dso_local void @chv_phy_pre_pll_enable(ptr noundef %0, ptr nocapture noun
 19:                                               ; preds = %18, %15, %9, %9
   %20 = phi i1 [ false, %18 ], [ true, %9 ], [ true, %9 ], [ true, %15 ]
   %21 = phi i32 [ 1, %18 ], [ 0, %9 ], [ 0, %9 ], [ 0, %15 ]
-  %22 = getelementptr inbounds i8, ptr %12, i64 1648
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 1648
   %23 = load i32, ptr %22, align 8
   switch i32 %23, label %24 [
     i32 0, label %28
@@ -1551,13 +1551,13 @@ define dso_local void @chv_phy_pre_pll_enable(ptr noundef %0, ptr nocapture noun
   br label %28
 
 .thread:                                          ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %1, i64 1457
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1457
   %27 = load i8, ptr %26, align 1
   br label %39
 
 28:                                               ; preds = %24, %19, %19
   %29 = phi i32 [ %.pr, %24 ], [ %23, %19 ], [ %23, %19 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 1457
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1457
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i32 %29, 1
   %33 = select i1 %20, i1 %32, i1 false
@@ -1566,7 +1566,7 @@ define dso_local void @chv_phy_pre_pll_enable(ptr noundef %0, ptr nocapture noun
 34:                                               ; preds = %28
   %35 = tail call zeroext i1 @chv_phy_powergate_ch(ptr noundef %11, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #6
   %36 = xor i1 %35, true
-  %37 = getelementptr inbounds i8, ptr %10, i64 3904
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 3904
   %38 = zext i1 %36 to i8
   store i8 %38, ptr %37, align 8
   br label %39
@@ -1643,7 +1643,7 @@ declare dso_local void @chv_phy_powergate_lanes(ptr noundef, i1 noundef zeroext,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @chv_phy_pre_encoder_enable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %8 [
     i32 10, label %9
@@ -1654,7 +1654,7 @@ define dso_local void @chv_phy_pre_encoder_enable(ptr nocapture noundef readonly
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %7 = load ptr, ptr %6, align 8
   br label %9
 
@@ -1665,7 +1665,7 @@ define dso_local void @chv_phy_pre_encoder_enable(ptr nocapture noundef readonly
   %10 = phi ptr [ %7, %5 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %8 ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 132
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %15 [
     i32 1, label %19
@@ -1689,7 +1689,7 @@ define dso_local void @chv_phy_pre_encoder_enable(ptr nocapture noundef readonly
 
 19:                                               ; preds = %18, %15, %9, %9
   %20 = phi i32 [ 9216, %18 ], [ 0, %9 ], [ 0, %9 ], [ 0, %15 ]
-  %21 = getelementptr inbounds i8, ptr %12, i64 1648
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 1648
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %23 [
     i32 0, label %26
@@ -1717,7 +1717,7 @@ define dso_local void @chv_phy_pre_encoder_enable(ptr nocapture noundef readonly
   %29 = tail call i32 @vlv_dpio_read(ptr noundef %11, i32 noundef %27, i32 noundef %28) #6
   %30 = and i32 %29, -9
   tail call void @vlv_dpio_write(ptr noundef %11, i32 noundef %27, i32 noundef %28, i32 noundef %30) #6
-  %31 = getelementptr inbounds i8, ptr %1, i64 1457
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1457
   %32 = load i8, ptr %31, align 1
   %33 = icmp ugt i8 %32, 2
   br i1 %33, label %34, label %38
@@ -1756,7 +1756,7 @@ define dso_local void @chv_phy_pre_encoder_enable(ptr nocapture noundef readonly
   br i1 %52, label %41, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %41, %38
-  %53 = getelementptr inbounds i8, ptr %1, i64 1448
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 1448
   %54 = load i32, ptr %53, align 8
   %55 = icmp sgt i32 %54, 270000
   br i1 %55, label %63, label %56
@@ -1812,7 +1812,7 @@ define dso_local void @chv_phy_pre_encoder_enable(ptr nocapture noundef readonly
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @chv_phy_release_cl2_override(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %7 [
     i32 10, label %8
@@ -1823,7 +1823,7 @@ define dso_local void @chv_phy_release_cl2_override(ptr nocapture noundef %0) lo
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 392
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %6 = load ptr, ptr %5, align 8
   br label %8
 
@@ -1832,7 +1832,7 @@ define dso_local void @chv_phy_release_cl2_override(ptr nocapture noundef %0) lo
 
 8:                                                ; preds = %7, %4, %1, %1, %1, %1
   %9 = phi ptr [ %6, %4 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ null, %7 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 3904
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 3904
   %11 = load i8, ptr %10, align 8, !range !5, !noundef !6
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %16, label %13
@@ -1851,7 +1851,7 @@ define dso_local void @chv_phy_release_cl2_override(ptr nocapture noundef %0) lo
 define dso_local void @chv_phy_post_pll_disable(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1648
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1648
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %7 [
     i32 0, label %10
@@ -1889,7 +1889,7 @@ define dso_local void @chv_phy_post_pll_disable(ptr noundef %0, ptr nocapture no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @vlv_set_phy_signal_level(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %13 [
     i32 10, label %14
@@ -1900,7 +1900,7 @@ define dso_local void @vlv_set_phy_signal_level(ptr nocapture noundef readonly %
   ]
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 392
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %12 = load ptr, ptr %11, align 8
   br label %14
 
@@ -1910,7 +1910,7 @@ define dso_local void @vlv_set_phy_signal_level(ptr nocapture noundef readonly %
 14:                                               ; preds = %13, %10, %6, %6, %6, %6
   %15 = phi ptr [ %12, %10 ], [ %0, %6 ], [ %0, %6 ], [ %0, %6 ], [ %0, %6 ], [ null, %13 ]
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 132
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 132
   %18 = load i32, ptr %17, align 4
   switch i32 %18, label %19 [
     i32 1, label %23
@@ -1934,7 +1934,7 @@ define dso_local void @vlv_set_phy_signal_level(ptr nocapture noundef readonly %
 
 23:                                               ; preds = %22, %19, %14, %14
   %24 = phi i32 [ 1, %22 ], [ 0, %14 ], [ 0, %14 ], [ 0, %19 ]
-  %25 = getelementptr inbounds i8, ptr %16, i64 1648
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 1648
   %26 = load i32, ptr %25, align 8
   switch i32 %26, label %27 [
     i32 0, label %30
@@ -1988,7 +1988,7 @@ define dso_local void @vlv_set_phy_signal_level(ptr nocapture noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @vlv_phy_pre_pll_enable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %8 [
     i32 10, label %9
@@ -1999,7 +1999,7 @@ define dso_local void @vlv_phy_pre_pll_enable(ptr nocapture noundef readonly %0,
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %7 = load ptr, ptr %6, align 8
   br label %9
 
@@ -2010,7 +2010,7 @@ define dso_local void @vlv_phy_pre_pll_enable(ptr nocapture noundef readonly %0,
   %10 = phi ptr [ %7, %5 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %8 ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 132
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %15 [
     i32 1, label %19
@@ -2034,7 +2034,7 @@ define dso_local void @vlv_phy_pre_pll_enable(ptr nocapture noundef readonly %0,
 
 19:                                               ; preds = %18, %15, %9, %9
   %20 = phi i32 [ 512, %18 ], [ 0, %9 ], [ 0, %9 ], [ 0, %15 ]
-  %21 = getelementptr inbounds i8, ptr %12, i64 1648
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 1648
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %23 [
     i32 0, label %26
@@ -2074,7 +2074,7 @@ define dso_local void @vlv_phy_pre_pll_enable(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @vlv_phy_pre_encoder_enable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %8 [
     i32 10, label %9
@@ -2085,7 +2085,7 @@ define dso_local void @vlv_phy_pre_encoder_enable(ptr nocapture noundef readonly
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %7 = load ptr, ptr %6, align 8
   br label %9
 
@@ -2096,7 +2096,7 @@ define dso_local void @vlv_phy_pre_encoder_enable(ptr nocapture noundef readonly
   %10 = phi ptr [ %7, %5 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %8 ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 132
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %15 [
     i32 1, label %19
@@ -2120,7 +2120,7 @@ define dso_local void @vlv_phy_pre_encoder_enable(ptr nocapture noundef readonly
 
 19:                                               ; preds = %18, %15, %9, %9
   %20 = phi i32 [ 1, %18 ], [ 0, %9 ], [ 0, %9 ], [ 0, %15 ]
-  %21 = getelementptr inbounds i8, ptr %12, i64 1648
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 1648
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %23 [
     i32 0, label %26
@@ -2162,7 +2162,7 @@ define dso_local void @vlv_phy_pre_encoder_enable(ptr nocapture noundef readonly
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @vlv_phy_reset_lanes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %8 [
     i32 10, label %9
@@ -2173,7 +2173,7 @@ define dso_local void @vlv_phy_reset_lanes(ptr nocapture noundef readonly %0, pt
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %7 = load ptr, ptr %6, align 8
   br label %9
 
@@ -2184,7 +2184,7 @@ define dso_local void @vlv_phy_reset_lanes(ptr nocapture noundef readonly %0, pt
   %10 = phi ptr [ %7, %5 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %8 ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 132
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %15 [
     i32 1, label %19
@@ -2208,7 +2208,7 @@ define dso_local void @vlv_phy_reset_lanes(ptr nocapture noundef readonly %0, pt
 
 19:                                               ; preds = %18, %15, %9, %9
   %20 = phi i32 [ 512, %18 ], [ 0, %9 ], [ 0, %9 ], [ 0, %15 ]
-  %21 = getelementptr inbounds i8, ptr %12, i64 1648
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 1648
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %23 [
     i32 0, label %26

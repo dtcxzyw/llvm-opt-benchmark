@@ -69,7 +69,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Cast_x867forwardERKNS_3M
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26)
   br label %33
@@ -278,10 +278,10 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Cast_x867forwardERKNS_3M
   %.03.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %155, %150 ]
   %.0742.us.i = phi ptr [ %149, %.lr.ph.us.i ], [ %154, %150 ]
   %.0751.us.i = phi ptr [ %143, %.lr.ph.us.i ], [ %151, %150 ]
-  %151 = getelementptr inbounds i8, ptr %.0751.us.i, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %.0751.us.i, i64 4
   %152 = load float, ptr %.0751.us.i, align 4
   %153 = tail call noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %152)
-  %154 = getelementptr inbounds i8, ptr %.0742.us.i, i64 2
+  %154 = getelementptr inbounds nuw i8, ptr %.0742.us.i, i64 2
   store i16 %153, ptr %.0742.us.i, align 2
   %155 = add nuw nsw i32 %.03.us.i, 1
   %exitcond.not.i = icmp eq i32 %155, %133
@@ -347,10 +347,10 @@ _ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_Z
   %.03.us.i223 = phi i32 [ 0, %.lr.ph.us.i221 ], [ %190, %185 ]
   %.0742.us.i224 = phi ptr [ %184, %.lr.ph.us.i221 ], [ %189, %185 ]
   %.0751.us.i225 = phi ptr [ %178, %.lr.ph.us.i221 ], [ %186, %185 ]
-  %186 = getelementptr inbounds i8, ptr %.0751.us.i225, i64 2
+  %186 = getelementptr inbounds nuw i8, ptr %.0751.us.i225, i64 2
   %187 = load i16, ptr %.0751.us.i225, align 2
   %188 = tail call fast noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %187)
-  %189 = getelementptr inbounds i8, ptr %.0742.us.i224, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %.0742.us.i224, i64 4
   store float %188, ptr %.0742.us.i224, align 4
   %190 = add nuw nsw i32 %.03.us.i223, 1
   %exitcond.not.i226 = icmp eq i32 %190, %168
@@ -402,10 +402,10 @@ _ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_Z
 
 .lr.ph:                                           ; preds = %199, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %199 ]
-  %212 = getelementptr inbounds i8, ptr %205, i64 %indvars.iv
+  %212 = getelementptr inbounds nuw i8, ptr %205, i64 %indvars.iv
   %213 = load i8, ptr %212, align 1
   %214 = sitofp i8 %213 to float
-  %215 = getelementptr inbounds float, ptr %211, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw float, ptr %211, i64 %indvars.iv
   store float %214, ptr %215, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -478,11 +478,11 @@ _ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_Z
   %.18.us.i = phi i32 [ %251, %.lr.ph9.us.i ], [ %233, %..preheader_crit_edge.us.i ]
   %.11027.us.i = phi ptr [ %250, %.lr.ph9.us.i ], [ %264, %..preheader_crit_edge.us.i ]
   %.11046.us.i = phi ptr [ %246, %.lr.ph9.us.i ], [ %263, %..preheader_crit_edge.us.i ]
-  %246 = getelementptr inbounds i8, ptr %.11046.us.i, i64 4
+  %246 = getelementptr inbounds nuw i8, ptr %.11046.us.i, i64 4
   %247 = load i32, ptr %.11046.us.i, align 4
   %248 = lshr i32 %247, 16
   %249 = trunc nuw i32 %248 to i16
-  %250 = getelementptr inbounds i8, ptr %.11027.us.i, i64 2
+  %250 = getelementptr inbounds nuw i8, ptr %.11027.us.i, i64 2
   store i16 %249, ptr %.11027.us.i, align 2
   %251 = add nuw nsw i32 %.18.us.i, 1
   %exitcond27.not.i = icmp eq i32 %251, %228
@@ -493,7 +493,7 @@ _ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_Z
   %.01012.us.i = phi ptr [ %245, %.lr.ph.us.i235 ], [ %264, %252 ]
   %.01031.us.i = phi ptr [ %239, %.lr.ph.us.i235 ], [ %263, %252 ]
   %253 = load <8 x i16>, ptr %.01031.us.i, align 1
-  %254 = getelementptr inbounds i8, ptr %.01031.us.i, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %.01031.us.i, i64 16
   %255 = load <8 x i16>, ptr %254, align 1
   %256 = shufflevector <8 x i16> %253, <8 x i16> poison, <8 x i32> <i32 1, i32 3, i32 poison, i32 poison, i32 poison, i32 5, i32 poison, i32 7>
   %257 = shufflevector <8 x i16> %255, <8 x i16> poison, <8 x i32> <i32 1, i32 3, i32 poison, i32 poison, i32 poison, i32 5, i32 poison, i32 7>
@@ -503,8 +503,8 @@ _ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_Z
   %261 = bitcast <8 x i16> %259 to <4 x float>
   %262 = shufflevector <4 x float> %260, <4 x float> %261, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   store <4 x float> %262, ptr %.01012.us.i, align 16
-  %263 = getelementptr inbounds i8, ptr %.01031.us.i, i64 32
-  %264 = getelementptr inbounds i8, ptr %.01012.us.i, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %.01031.us.i, i64 32
+  %264 = getelementptr inbounds nuw i8, ptr %.01012.us.i, i64 16
   %265 = add nuw nsw i32 %.03.us.i236, 8
   %266 = or disjoint i32 %265, 7
   %267 = icmp slt i32 %266, %228
@@ -541,11 +541,11 @@ _ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %_Z
   %.18.us16.i = phi i32 [ 0, %.preheader.us14.i ], [ %287, %281 ]
   %.11027.us17.i = phi ptr [ %280, %.preheader.us14.i ], [ %286, %281 ]
   %.11046.us18.i = phi ptr [ %274, %.preheader.us14.i ], [ %282, %281 ]
-  %282 = getelementptr inbounds i8, ptr %.11046.us18.i, i64 4
+  %282 = getelementptr inbounds nuw i8, ptr %.11046.us18.i, i64 4
   %283 = load i32, ptr %.11046.us18.i, align 4
   %284 = lshr i32 %283, 16
   %285 = trunc nuw i32 %284 to i16
-  %286 = getelementptr inbounds i8, ptr %.11027.us17.i, i64 2
+  %286 = getelementptr inbounds nuw i8, ptr %.11027.us17.i, i64 2
   store i16 %285, ptr %.11027.us17.i, align 2
   %287 = add nuw nsw i32 %.18.us16.i, 1
   %exitcond.not.i232 = icmp eq i32 %287, %228
@@ -613,11 +613,11 @@ _ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
   %.18.us.i259 = phi i32 [ %323, %.lr.ph9.us.i258 ], [ %305, %..preheader_crit_edge.us.i254 ]
   %.1957.us.i = phi ptr [ %322, %.lr.ph9.us.i258 ], [ %330, %..preheader_crit_edge.us.i254 ]
   %.1976.us.i = phi ptr [ %318, %.lr.ph9.us.i258 ], [ %329, %..preheader_crit_edge.us.i254 ]
-  %318 = getelementptr inbounds i8, ptr %.1976.us.i, i64 2
+  %318 = getelementptr inbounds nuw i8, ptr %.1976.us.i, i64 2
   %319 = load i16, ptr %.1976.us.i, align 2
   %320 = zext i16 %319 to i32
   %321 = shl nuw i32 %320, 16
-  %322 = getelementptr inbounds i8, ptr %.1957.us.i, i64 4
+  %322 = getelementptr inbounds nuw i8, ptr %.1957.us.i, i64 4
   store i32 %321, ptr %.1957.us.i, align 4
   %323 = add nuw nsw i32 %.18.us.i259, 1
   %exitcond27.not.i260 = icmp eq i32 %323, %300
@@ -632,8 +632,8 @@ _ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
   %327 = bitcast <2 x i64> %326 to <8 x i16>
   %328 = shufflevector <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i16> %327, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %328, ptr %.0942.us.i, align 1
-  %329 = getelementptr inbounds i8, ptr %.0961.us.i, i64 8
-  %330 = getelementptr inbounds i8, ptr %.0942.us.i, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %.0961.us.i, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %.0942.us.i, i64 16
   %331 = add nuw nsw i32 %.03.us.i253, 4
   %332 = or disjoint i32 %331, 3
   %333 = icmp slt i32 %332, %300
@@ -670,11 +670,11 @@ _ZN4ncnnL21cast_fp32_to_bf16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
   %.18.us16.i244 = phi i32 [ 0, %.preheader.us14.i242 ], [ %353, %347 ]
   %.1957.us17.i = phi ptr [ %346, %.preheader.us14.i242 ], [ %352, %347 ]
   %.1976.us18.i = phi ptr [ %340, %.preheader.us14.i242 ], [ %348, %347 ]
-  %348 = getelementptr inbounds i8, ptr %.1976.us18.i, i64 2
+  %348 = getelementptr inbounds nuw i8, ptr %.1976.us18.i, i64 2
   %349 = load i16, ptr %.1976.us18.i, align 2
   %350 = zext i16 %349 to i32
   %351 = shl nuw i32 %350, 16
-  %352 = getelementptr inbounds i8, ptr %.1957.us17.i, i64 4
+  %352 = getelementptr inbounds nuw i8, ptr %.1957.us17.i, i64 4
   store i32 %351, ptr %.1957.us17.i, align 4
   %353 = add nuw nsw i32 %.18.us16.i244, 1
   %exitcond.not.i245 = icmp eq i32 %353, %300

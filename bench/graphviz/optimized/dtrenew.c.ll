@@ -5,9 +5,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 4096
@@ -21,19 +21,19 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 11:                                               ; preds = %2, %9
   %12 = phi ptr [ %6, %2 ], [ %.pre, %9 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not58 = icmp eq ptr %14, null
   br i1 %.not58, label %90, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %21 = load ptr, ptr %20, align 8
   br label %26
 
@@ -65,14 +65,14 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not63, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %14, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %13, align 8
   br label %80
 
 38:                                               ; preds = %33
   store ptr %34, ptr %13, align 8
-  %39 = getelementptr inbounds i8, ptr %14, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not64 = icmp eq ptr %40, null
   br i1 %.not64, label %80, label %41
@@ -83,27 +83,27 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 43:                                               ; preds = %43, %41
   %.050 = phi ptr [ %42, %41 ], [ %45, %43 ]
-  %44 = getelementptr inbounds i8, ptr %.050, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.050, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not65 = icmp eq ptr %45, null
   br i1 %.not65, label %46, label %43
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %.050, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.050, i64 8
   store ptr %40, ptr %47, align 8
   br label %80
 
 48:                                               ; preds = %31
-  %49 = getelementptr inbounds i8, ptr %12, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %14, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %12, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %54 = load i32, ptr %53, align 8
   %55 = add nsw i32 %54, -1
   %56 = and i32 %55, %52
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %50, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %50, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, %14
   br i1 %60, label %61, label %.preheader
@@ -125,7 +125,7 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %66
 
 66:                                               ; preds = %64, %61
-  %67 = getelementptr inbounds i8, ptr %4, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = icmp slt i32 %68, 0
   %70 = load i32, ptr %4, align 8
@@ -142,17 +142,17 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %77 = tail call i32 @dtstrhash(ptr noundef %76, i32 noundef %68) #2
   store i32 %77, ptr %51, align 8
   %78 = load ptr, ptr %5, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr null, ptr %79, align 8
   br label %80
 
 80:                                               ; preds = %75, %38, %46, %35
   %81 = load ptr, ptr %5, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = add nsw i32 %83, -1
   store i32 %84, ptr %82, align 4
-  %85 = getelementptr inbounds i8, ptr %0, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr %87(ptr noundef %0, ptr noundef nonnull %14, i32 noundef 32) #2

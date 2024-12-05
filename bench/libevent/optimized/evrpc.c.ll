@@ -22,22 +22,22 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @evtag_init() #11
-  %registered_rpcs = getelementptr inbounds i8, ptr %call, i64 56
+  %registered_rpcs = getelementptr inbounds nuw i8, ptr %call, i64 56
   store ptr null, ptr %registered_rpcs, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %call, i64 64
+  %tqh_last = getelementptr inbounds nuw i8, ptr %call, i64 64
   store ptr %registered_rpcs, ptr %tqh_last, align 8
   store ptr null, ptr %call, align 8
-  %tqh_last11 = getelementptr inbounds i8, ptr %call, i64 8
+  %tqh_last11 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call, ptr %tqh_last11, align 8
-  %out_hooks = getelementptr inbounds i8, ptr %call, i64 16
+  %out_hooks = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %out_hooks, align 8
-  %tqh_last21 = getelementptr inbounds i8, ptr %call, i64 24
+  %tqh_last21 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %out_hooks, ptr %tqh_last21, align 8
-  %pause_requests = getelementptr inbounds i8, ptr %call, i64 32
+  %pause_requests = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %pause_requests, align 8
-  %tqh_last31 = getelementptr inbounds i8, ptr %call, i64 40
+  %tqh_last31 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %pause_requests, ptr %tqh_last31, align 8
-  %http_server33 = getelementptr inbounds i8, ptr %call, i64 48
+  %http_server33 = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %http_server, ptr %http_server33, align 8
   br label %return
 
@@ -52,24 +52,24 @@ declare void @evtag_init() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @evrpc_free(ptr noundef %base) local_unnamed_addr #0 {
 entry:
-  %registered_rpcs = getelementptr inbounds i8, ptr %base, i64 56
+  %registered_rpcs = getelementptr inbounds nuw i8, ptr %base, i64 56
   %0 = load ptr, ptr %registered_rpcs, align 8
   %cmp.not35 = icmp eq ptr %0, null
   br i1 %cmp.not35, label %while.cond1.preheader, label %while.body
 
 while.cond1.preheader:                            ; preds = %while.body, %entry
-  %pause_requests = getelementptr inbounds i8, ptr %base, i64 32
+  %pause_requests = getelementptr inbounds nuw i8, ptr %base, i64 32
   %1 = load ptr, ptr %pause_requests, align 8
   %cmp3.not36 = icmp eq ptr %1, null
   br i1 %cmp3.not36, label %while.cond22.preheader, label %do.body5.lr.ph
 
 do.body5.lr.ph:                                   ; preds = %while.cond1.preheader
-  %tqh_last = getelementptr inbounds i8, ptr %base, i64 40
+  %tqh_last = getelementptr inbounds nuw i8, ptr %base, i64 40
   br label %do.body5
 
 while.body:                                       ; preds = %entry, %while.body
   %2 = phi ptr [ %4, %while.body ], [ %0, %entry ]
-  %uri = getelementptr inbounds i8, ptr %2, i64 16
+  %uri = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %uri, align 8
   %call = tail call i32 @evrpc_unregister_rpc(ptr noundef nonnull %base, ptr noundef %3)
   %4 = load ptr, ptr %registered_rpcs, align 8
@@ -85,12 +85,12 @@ do.body5:                                         ; preds = %do.body5.lr.ph, %if
   %6 = phi ptr [ %1, %do.body5.lr.ph ], [ %10, %if.end ]
   %7 = load ptr, ptr %6, align 8
   %cmp6.not = icmp eq ptr %7, null
-  %tqe_prev13 = getelementptr inbounds i8, ptr %6, i64 8
+  %tqe_prev13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %tqe_prev13, align 8
   br i1 %cmp6.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %do.body5
-  %tqe_prev11 = getelementptr inbounds i8, ptr %7, i64 8
+  %tqe_prev11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %tqe_prev11, align 8
   br label %if.end
 
@@ -111,7 +111,7 @@ for.cond.i.i.preheader:                           ; preds = %while.cond22.prehea
   br label %for.body.i.i
 
 while.cond31.preheader:                           ; preds = %evrpc_remove_hook.exit, %while.cond22.preheader
-  %out_hooks = getelementptr inbounds i8, ptr %base, i64 16
+  %out_hooks = getelementptr inbounds nuw i8, ptr %base, i64 16
   %12 = load ptr, ptr %out_hooks, align 8
   %cmp34.not40 = icmp eq ptr %12, null
   br i1 %cmp34.not40, label %while.end39, label %for.cond.i.i20.preheader
@@ -127,10 +127,10 @@ for.body.i.i:                                     ; preds = %for.cond.i.i.prehea
   br i1 %cmp1.i.i, label %do.body.i.i, label %for.cond.i.ithread-pre-split, !llvm.loop !7
 
 do.body.i.i:                                      ; preds = %for.body.i.i
-  %tqe_prev10.i.i = getelementptr inbounds i8, ptr %hook.0.i.i37, i64 8
+  %tqe_prev10.i.i = getelementptr inbounds nuw i8, ptr %hook.0.i.i37, i64 8
   %14 = load ptr, ptr %tqe_prev10.i.i, align 8
   %head..i.i = select i1 %cmp2.not.i.i, ptr %base, ptr %13
-  %tqh_last.i.i = getelementptr inbounds i8, ptr %head..i.i, i64 8
+  %tqh_last.i.i = getelementptr inbounds nuw i8, ptr %head..i.i, i64 8
   store ptr %14, ptr %tqh_last.i.i, align 8
   %15 = load ptr, ptr %hook.0.i.i37, align 8
   store ptr %15, ptr %14, align 8
@@ -158,10 +158,10 @@ for.body.i.i24:                                   ; preds = %for.cond.i.i20.preh
   br i1 %cmp1.i.i25, label %do.body.i.i26, label %for.cond.i.i20thread-pre-split, !llvm.loop !7
 
 do.body.i.i26:                                    ; preds = %for.body.i.i24
-  %tqe_prev10.i.i28 = getelementptr inbounds i8, ptr %hook.0.i.i2239, i64 8
+  %tqe_prev10.i.i28 = getelementptr inbounds nuw i8, ptr %hook.0.i.i2239, i64 8
   %19 = load ptr, ptr %tqe_prev10.i.i28, align 8
   %head..i.i29 = select i1 %cmp2.not.i.i27, ptr %out_hooks, ptr %18
-  %tqh_last.i.i30 = getelementptr inbounds i8, ptr %head..i.i29, i64 8
+  %tqh_last.i.i30 = getelementptr inbounds nuw i8, ptr %head..i.i29, i64 8
   store ptr %19, ptr %tqh_last.i.i30, align 8
   %20 = load ptr, ptr %hook.0.i.i2239, align 8
   store ptr %20, ptr %19, align 8
@@ -182,7 +182,7 @@ while.end39:                                      ; preds = %evrpc_remove_hook.e
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evrpc_unregister_rpc(ptr nocapture noundef %base, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %registered_rpcs = getelementptr inbounds i8, ptr %base, i64 56
+  %registered_rpcs = getelementptr inbounds nuw i8, ptr %base, i64 56
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %entry
@@ -192,27 +192,27 @@ for.cond:                                         ; preds = %for.body, %entry
   br i1 %cond, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %uri = getelementptr inbounds i8, ptr %rpc.0, i64 16
+  %uri = getelementptr inbounds nuw i8, ptr %rpc.0, i64 16
   %0 = load ptr, ptr %uri, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #12
   %cmp1 = icmp eq i32 %call, 0
   br i1 %cmp1, label %do.body, label %for.cond, !llvm.loop !10
 
 do.body:                                          ; preds = %for.body
-  %uri.le = getelementptr inbounds i8, ptr %rpc.0, i64 16
+  %uri.le = getelementptr inbounds nuw i8, ptr %rpc.0, i64 16
   %1 = load ptr, ptr %rpc.0, align 8
   %cmp7.not = icmp eq ptr %1, null
-  %tqe_prev15 = getelementptr inbounds i8, ptr %rpc.0, i64 8
+  %tqe_prev15 = getelementptr inbounds nuw i8, ptr %rpc.0, i64 8
   %2 = load ptr, ptr %tqe_prev15, align 8
   br i1 %cmp7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %do.body
-  %tqe_prev13 = getelementptr inbounds i8, ptr %1, i64 8
+  %tqe_prev13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %2, ptr %tqe_prev13, align 8
   br label %if.end17
 
 if.else:                                          ; preds = %do.body
-  %tqh_last = getelementptr inbounds i8, ptr %base, i64 64
+  %tqh_last = getelementptr inbounds nuw i8, ptr %base, i64 64
   store ptr %2, ptr %tqh_last, align 8
   br label %if.end17
 
@@ -231,13 +231,13 @@ if.then.i:                                        ; preds = %if.end17
 
 evrpc_construct_uri.exit:                         ; preds = %if.end17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %call2.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 6
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 6
   %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %name, i64 %call3.i, i1 false)
   %4 = getelementptr i8, ptr %call2.i, i64 %call.i
   %arrayidx.i = getelementptr i8, ptr %4, i64 6
   store i8 0, ptr %arrayidx.i, align 1
-  %http_server = getelementptr inbounds i8, ptr %base, i64 48
+  %http_server = getelementptr inbounds nuw i8, ptr %base, i64 48
   %5 = load ptr, ptr %http_server, align 8
   %call23 = tail call i32 @evhttp_del_cb(ptr noundef %5, ptr noundef nonnull %call2.i) #11
   tail call void @event_mm_free_(ptr noundef nonnull %call2.i) #11
@@ -265,7 +265,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %out_hooks = getelementptr inbounds i8, ptr %vbase, i64 16
+  %out_hooks = getelementptr inbounds nuw i8, ptr %vbase, i64 16
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb1, %sw.bb
@@ -285,10 +285,10 @@ for.body.i:                                       ; preds = %for.cond.i
 do.body.i:                                        ; preds = %for.body.i
   %0 = load ptr, ptr %hook.0.i, align 8
   %cmp2.not.i = icmp eq ptr %0, null
-  %tqe_prev10.i = getelementptr inbounds i8, ptr %hook.0.i, i64 8
+  %tqe_prev10.i = getelementptr inbounds nuw i8, ptr %hook.0.i, i64 8
   %1 = load ptr, ptr %tqe_prev10.i, align 8
   %head..i = select i1 %cmp2.not.i, ptr %head.0, ptr %0
-  %tqh_last.i = getelementptr inbounds i8, ptr %head..i, i64 8
+  %tqh_last.i = getelementptr inbounds nuw i8, ptr %head..i, i64 8
   store ptr %1, ptr %tqh_last.i, align 8
   %2 = load ptr, ptr %hook.0.i, align 8
   store ptr %2, ptr %1, align 8
@@ -312,20 +312,20 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %out_hooks = getelementptr inbounds i8, ptr %vbase, i64 16
+  %out_hooks = getelementptr inbounds nuw i8, ptr %vbase, i64 16
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb1, %sw.bb
   %head.0 = phi ptr [ null, %entry ], [ %out_hooks, %sw.bb1 ], [ %vbase, %sw.bb ]
   %call = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 32) #11
-  %process = getelementptr inbounds i8, ptr %call, i64 16
+  %process = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %cb, ptr %process, align 8
-  %process_arg = getelementptr inbounds i8, ptr %call, i64 24
+  %process_arg = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %cb_arg, ptr %process_arg, align 8
   store ptr null, ptr %call, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %head.0, i64 8
+  %tqh_last = getelementptr inbounds nuw i8, ptr %head.0, i64 8
   %0 = load ptr, ptr %tqh_last, align 8
-  %tqe_prev = getelementptr inbounds i8, ptr %call, i64 8
+  %tqe_prev = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %0, ptr %tqe_prev, align 8
   store ptr %call, ptr %0, align 8
   store ptr %call, ptr %tqh_last, align 8
@@ -335,7 +335,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb1, %sw
 ; Function Attrs: nounwind uwtable
 define noundef i32 @evrpc_register_rpc(ptr noundef %base, ptr noundef %rpc, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #0 {
 entry:
-  %uri = getelementptr inbounds i8, ptr %rpc, i64 16
+  %uri = getelementptr inbounds nuw i8, ptr %rpc, i64 16
   %0 = load ptr, ptr %uri, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %add1.i = add i64 %call.i, 7
@@ -349,26 +349,26 @@ if.then.i:                                        ; preds = %entry
 
 evrpc_construct_uri.exit:                         ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %call2.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 6
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 6
   %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %0, i64 %call3.i, i1 false)
   %1 = getelementptr i8, ptr %call2.i, i64 %call.i
   %arrayidx.i = getelementptr i8, ptr %1, i64 6
   store i8 0, ptr %arrayidx.i, align 1
-  %base1 = getelementptr inbounds i8, ptr %rpc, i64 112
+  %base1 = getelementptr inbounds nuw i8, ptr %rpc, i64 112
   store ptr %base, ptr %base1, align 8
-  %cb2 = getelementptr inbounds i8, ptr %rpc, i64 96
+  %cb2 = getelementptr inbounds nuw i8, ptr %rpc, i64 96
   store ptr %cb, ptr %cb2, align 8
-  %cb_arg3 = getelementptr inbounds i8, ptr %rpc, i64 104
+  %cb_arg3 = getelementptr inbounds nuw i8, ptr %rpc, i64 104
   store ptr %cb_arg, ptr %cb_arg3, align 8
   store ptr null, ptr %rpc, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %base, i64 64
+  %tqh_last = getelementptr inbounds nuw i8, ptr %base, i64 64
   %2 = load ptr, ptr %tqh_last, align 8
-  %tqe_prev = getelementptr inbounds i8, ptr %rpc, i64 8
+  %tqe_prev = getelementptr inbounds nuw i8, ptr %rpc, i64 8
   store ptr %2, ptr %tqe_prev, align 8
   store ptr %rpc, ptr %2, align 8
   store ptr %rpc, ptr %tqh_last, align 8
-  %http_server = getelementptr inbounds i8, ptr %base, i64 48
+  %http_server = getelementptr inbounds nuw i8, ptr %base, i64 48
   %3 = load ptr, ptr %http_server, align 8
   %call11 = tail call i32 @evhttp_set_cb(ptr noundef %3, ptr noundef nonnull %call2.i, ptr noundef nonnull @evrpc_request_cb, ptr noundef nonnull %rpc) #11
   tail call void @event_mm_free_(ptr noundef nonnull %call2.i) #11
@@ -380,13 +380,13 @@ declare i32 @evhttp_set_cb(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 ; Function Attrs: nounwind uwtable
 define internal void @evrpc_request_cb(ptr noundef %req, ptr noundef %arg) #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %req, i64 76
+  %type = getelementptr inbounds nuw i8, ptr %req, i64 76
   %0 = load i32, ptr %type, align 4
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %lor.lhs.false, label %if.end20
 
 lor.lhs.false:                                    ; preds = %entry
-  %input_buffer = getelementptr inbounds i8, ptr %req, i64 128
+  %input_buffer = getelementptr inbounds nuw i8, ptr %req, i64 128
   %1 = load ptr, ptr %input_buffer, align 8
   %call = tail call i64 @evbuffer_get_length(ptr noundef %1) #11
   %cmp1 = icmp eq i64 %call, 0
@@ -398,20 +398,20 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp3, label %if.end20, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %rpc6 = getelementptr inbounds i8, ptr %call2, i64 24
+  %rpc6 = getelementptr inbounds nuw i8, ptr %call2, i64 24
   store ptr %arg, ptr %rpc6, align 8
-  %http_req = getelementptr inbounds i8, ptr %call2, i64 32
+  %http_req = getelementptr inbounds nuw i8, ptr %call2, i64 32
   store ptr %req, ptr %http_req, align 8
-  %rpc_data = getelementptr inbounds i8, ptr %call2, i64 40
+  %rpc_data = getelementptr inbounds nuw i8, ptr %call2, i64 40
   store ptr null, ptr %rpc_data, align 8
-  %base = getelementptr inbounds i8, ptr %arg, i64 112
+  %base = getelementptr inbounds nuw i8, ptr %arg, i64 112
   %2 = load ptr, ptr %base, align 8
   %3 = load ptr, ptr %2, align 8
   %cmp7.not = icmp eq ptr %3, null
   br i1 %cmp7.not, label %if.end18, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
-  %evcon = getelementptr inbounds i8, ptr %req, i64 16
+  %evcon = getelementptr inbounds nuw i8, ptr %req, i64 16
   %4 = load ptr, ptr %evcon, align 8
   %5 = load ptr, ptr %call2, align 8
   %cmp.i = icmp eq ptr %5, null
@@ -420,16 +420,16 @@ if.then8:                                         ; preds = %if.end5
 if.then.i:                                        ; preds = %if.then8
   %call.i.i = tail call ptr @event_mm_malloc_(i64 noundef 24) #11
   store ptr null, ptr %call.i.i, align 8
-  %tqh_last.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %tqh_last.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr %call.i.i, ptr %tqh_last.i.i, align 8
-  %evcon.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %evcon.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr null, ptr %evcon.i.i, align 8
   store ptr %call.i.i, ptr %call2, align 8
   br label %evrpc_hook_associate_meta_.exit
 
 evrpc_hook_associate_meta_.exit:                  ; preds = %if.then8, %if.then.i
   %ctx.0.i = phi ptr [ %call.i.i, %if.then.i ], [ %5, %if.then8 ]
-  %evcon1.i = getelementptr inbounds i8, ptr %ctx.0.i, i64 16
+  %evcon1.i = getelementptr inbounds nuw i8, ptr %ctx.0.i, i64 16
   store ptr %4, ptr %evcon1.i, align 8
   %6 = load ptr, ptr %base, align 8
   %7 = load ptr, ptr %input_buffer, align 8
@@ -442,9 +442,9 @@ for.cond.i:                                       ; preds = %for.body.i, %evrpc_
   br i1 %cmp.not.i, label %if.end18.loopexit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %process.i = getelementptr inbounds i8, ptr %hook.0.i, i64 16
+  %process.i = getelementptr inbounds nuw i8, ptr %hook.0.i, i64 16
   %8 = load ptr, ptr %process.i, align 8
-  %process_arg.i = getelementptr inbounds i8, ptr %hook.0.i, i64 24
+  %process_arg.i = getelementptr inbounds nuw i8, ptr %hook.0.i, i64 24
   %9 = load ptr, ptr %process_arg.i, align 8
   %call.i = tail call i32 %8(ptr noundef nonnull %call2, ptr noundef %req, ptr noundef %7, ptr noundef %9) #11
   switch i32 %call.i, label %if.end18.loopexit [
@@ -460,14 +460,14 @@ sw.bb14:                                          ; preds = %for.body.i
   br i1 %cmp.i20, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb14
-  %ctx1.i = getelementptr inbounds i8, ptr %call.i19, i64 16
+  %ctx1.i = getelementptr inbounds nuw i8, ptr %call.i19, i64 16
   store ptr %call2, ptr %ctx1.i, align 8
-  %cb2.i = getelementptr inbounds i8, ptr %call.i19, i64 24
+  %cb2.i = getelementptr inbounds nuw i8, ptr %call.i19, i64 24
   store ptr @evrpc_request_cb_closure, ptr %cb2.i, align 8
   store ptr null, ptr %call.i19, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %10, i64 40
+  %tqh_last.i = getelementptr inbounds nuw i8, ptr %10, i64 40
   %11 = load ptr, ptr %tqh_last.i, align 8
-  %tqe_prev.i = getelementptr inbounds i8, ptr %call.i19, i64 8
+  %tqe_prev.i = getelementptr inbounds nuw i8, ptr %call.i19, i64 8
   store ptr %11, ptr %tqe_prev.i, align 8
   store ptr %call.i19, ptr %11, align 8
   store ptr %call.i19, ptr %tqh_last.i, align 8
@@ -481,40 +481,40 @@ if.end18.loopexit:                                ; preds = %for.cond.i, %for.bo
 if.end18:                                         ; preds = %if.end18.loopexit, %if.end5
   %12 = phi ptr [ %.pre27, %if.end18.loopexit ], [ %req, %if.end5 ]
   %13 = phi ptr [ %.pre, %if.end18.loopexit ], [ %arg, %if.end5 ]
-  %request_new.i = getelementptr inbounds i8, ptr %13, i64 24
+  %request_new.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %14 = load ptr, ptr %request_new.i, align 8
-  %request_new_arg.i = getelementptr inbounds i8, ptr %13, i64 32
+  %request_new_arg.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %request_new_arg.i, align 8
   %call.i23 = tail call ptr %14(ptr noundef %15) #11
-  %request.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %request.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr %call.i23, ptr %request.i, align 8
   %cmp3.i = icmp eq ptr %call.i23, null
   br i1 %cmp3.i, label %error.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end18
-  %request_unmarshal.i = getelementptr inbounds i8, ptr %13, i64 48
+  %request_unmarshal.i = getelementptr inbounds nuw i8, ptr %13, i64 48
   %16 = load ptr, ptr %request_unmarshal.i, align 8
-  %input_buffer.i = getelementptr inbounds i8, ptr %12, i64 128
+  %input_buffer.i = getelementptr inbounds nuw i8, ptr %12, i64 128
   %17 = load ptr, ptr %input_buffer.i, align 8
   %call7.i = tail call i32 %16(ptr noundef nonnull %call.i23, ptr noundef %17) #11
   %cmp8.i = icmp eq i32 %call7.i, -1
   br i1 %cmp8.i, label %error.i, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end5.i
-  %reply_new.i = getelementptr inbounds i8, ptr %13, i64 56
+  %reply_new.i = getelementptr inbounds nuw i8, ptr %13, i64 56
   %18 = load ptr, ptr %reply_new.i, align 8
-  %reply_new_arg.i = getelementptr inbounds i8, ptr %13, i64 64
+  %reply_new_arg.i = getelementptr inbounds nuw i8, ptr %13, i64 64
   %19 = load ptr, ptr %reply_new_arg.i, align 8
   %call11.i = tail call ptr %18(ptr noundef %19) #11
-  %reply.i = getelementptr inbounds i8, ptr %call2, i64 16
+  %reply.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr %call11.i, ptr %reply.i, align 8
   %cmp13.i = icmp eq ptr %call11.i, null
   br i1 %cmp13.i, label %error.i, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end10.i
-  %cb.i = getelementptr inbounds i8, ptr %13, i64 96
+  %cb.i = getelementptr inbounds nuw i8, ptr %13, i64 96
   %20 = load ptr, ptr %cb.i, align 8
-  %cb_arg.i = getelementptr inbounds i8, ptr %13, i64 104
+  %cb_arg.i = getelementptr inbounds nuw i8, ptr %13, i64 104
   %21 = load ptr, ptr %cb_arg.i, align 8
   tail call void %20(ptr noundef nonnull %call2, ptr noundef %21) #11
   br label %return
@@ -544,7 +544,7 @@ declare i32 @evhttp_del_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @evrpc_reqstate_free_(ptr noundef %rpc_state) local_unnamed_addr #0 {
 entry:
-  %rpc1 = getelementptr inbounds i8, ptr %rpc_state, i64 24
+  %rpc1 = getelementptr inbounds nuw i8, ptr %rpc_state, i64 24
   %0 = load ptr, ptr %rpc1, align 8
   %1 = load ptr, ptr %rpc_state, align 8
   %cmp.not = icmp eq ptr %1, null
@@ -556,19 +556,19 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not11.i.i, label %evrpc_hook_context_free_.exit, label %do.body2.lr.ph.i.i
 
 do.body2.lr.ph.i.i:                               ; preds = %if.then
-  %tqh_last.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %tqh_last.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %do.body2.i.i
 
 do.body2.i.i:                                     ; preds = %if.end.i.i, %do.body2.lr.ph.i.i
   %3 = phi ptr [ %2, %do.body2.lr.ph.i.i ], [ %9, %if.end.i.i ]
   %4 = load ptr, ptr %3, align 8
   %cmp3.not.i.i = icmp eq ptr %4, null
-  %tqe_prev10.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %tqe_prev10.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %tqe_prev10.i.i, align 8
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.body2.i.i
-  %tqe_prev8.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %tqe_prev8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %tqe_prev8.i.i, align 8
   br label %if.end.i.i
 
@@ -579,10 +579,10 @@ if.else.i.i:                                      ; preds = %do.body2.i.i
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %5, align 8
-  %key.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %key.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %key.i.i, align 8
   tail call void @event_mm_free_(ptr noundef %7) #11
-  %data.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %data.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load ptr, ptr %data.i.i, align 8
   tail call void @event_mm_free_(ptr noundef %8) #11
   tail call void @event_mm_free_(ptr noundef nonnull %3) #11
@@ -595,31 +595,31 @@ evrpc_hook_context_free_.exit:                    ; preds = %if.end.i.i, %if.the
   br label %if.end
 
 if.end:                                           ; preds = %evrpc_hook_context_free_.exit, %entry
-  %request = getelementptr inbounds i8, ptr %rpc_state, i64 8
+  %request = getelementptr inbounds nuw i8, ptr %rpc_state, i64 8
   %10 = load ptr, ptr %request, align 8
   %cmp3.not = icmp eq ptr %10, null
   br i1 %cmp3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %request_free = getelementptr inbounds i8, ptr %0, i64 40
+  %request_free = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %request_free, align 8
   tail call void %11(ptr noundef nonnull %10) #11
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %if.end
-  %reply = getelementptr inbounds i8, ptr %rpc_state, i64 16
+  %reply = getelementptr inbounds nuw i8, ptr %rpc_state, i64 16
   %12 = load ptr, ptr %reply, align 8
   %cmp7.not = icmp eq ptr %12, null
   br i1 %cmp7.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %reply_free = getelementptr inbounds i8, ptr %0, i64 72
+  %reply_free = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %reply_free, align 8
   tail call void %13(ptr noundef nonnull %12) #11
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then8, %if.end6
-  %rpc_data = getelementptr inbounds i8, ptr %rpc_state, i64 40
+  %rpc_data = getelementptr inbounds nuw i8, ptr %rpc_state, i64 40
   %14 = load ptr, ptr %rpc_data, align 8
   %cmp11.not = icmp eq ptr %14, null
   br i1 %cmp11.not, label %if.end14, label %if.then12
@@ -638,13 +638,13 @@ declare void @evbuffer_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @evrpc_request_done(ptr noundef %rpc_state) local_unnamed_addr #0 {
 entry:
-  %http_req = getelementptr inbounds i8, ptr %rpc_state, i64 32
+  %http_req = getelementptr inbounds nuw i8, ptr %rpc_state, i64 32
   %0 = load ptr, ptr %http_req, align 8
-  %rpc1 = getelementptr inbounds i8, ptr %rpc_state, i64 24
+  %rpc1 = getelementptr inbounds nuw i8, ptr %rpc_state, i64 24
   %1 = load ptr, ptr %rpc1, align 8
-  %reply_complete = getelementptr inbounds i8, ptr %1, i64 80
+  %reply_complete = getelementptr inbounds nuw i8, ptr %1, i64 80
   %2 = load ptr, ptr %reply_complete, align 8
-  %reply = getelementptr inbounds i8, ptr %rpc_state, i64 16
+  %reply = getelementptr inbounds nuw i8, ptr %rpc_state, i64 16
   %3 = load ptr, ptr %reply, align 8
   %call = tail call i32 %2(ptr noundef %3) #11
   %cmp = icmp eq i32 %call, -1
@@ -652,25 +652,25 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @evbuffer_new() #11
-  %rpc_data = getelementptr inbounds i8, ptr %rpc_state, i64 40
+  %rpc_data = getelementptr inbounds nuw i8, ptr %rpc_state, i64 40
   store ptr %call2, ptr %rpc_data, align 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %error, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %reply_marshal = getelementptr inbounds i8, ptr %1, i64 88
+  %reply_marshal = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %reply_marshal, align 8
   %5 = load ptr, ptr %reply, align 8
   tail call void %4(ptr noundef nonnull %call2, ptr noundef %5) #11
-  %base = getelementptr inbounds i8, ptr %1, i64 112
+  %base = getelementptr inbounds nuw i8, ptr %1, i64 112
   %6 = load ptr, ptr %base, align 8
-  %out_hooks = getelementptr inbounds i8, ptr %6, i64 16
+  %out_hooks = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %out_hooks, align 8
   %cmp8.not = icmp eq ptr %7, null
   br i1 %cmp8.not, label %if.end24, label %if.then9
 
 if.then9:                                         ; preds = %if.end5
-  %evcon = getelementptr inbounds i8, ptr %0, i64 16
+  %evcon = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %evcon, align 8
   %9 = load ptr, ptr %rpc_state, align 8
   %cmp.i = icmp eq ptr %9, null
@@ -679,19 +679,19 @@ if.then9:                                         ; preds = %if.end5
 if.then.i:                                        ; preds = %if.then9
   %call.i.i = tail call ptr @event_mm_malloc_(i64 noundef 24) #11
   store ptr null, ptr %call.i.i, align 8
-  %tqh_last.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %tqh_last.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr %call.i.i, ptr %tqh_last.i.i, align 8
-  %evcon.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %evcon.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr null, ptr %evcon.i.i, align 8
   store ptr %call.i.i, ptr %rpc_state, align 8
   br label %evrpc_hook_associate_meta_.exit
 
 evrpc_hook_associate_meta_.exit:                  ; preds = %if.then9, %if.then.i
   %ctx.0.i = phi ptr [ %call.i.i, %if.then.i ], [ %9, %if.then9 ]
-  %evcon1.i = getelementptr inbounds i8, ptr %ctx.0.i, i64 16
+  %evcon1.i = getelementptr inbounds nuw i8, ptr %ctx.0.i, i64 16
   store ptr %8, ptr %evcon1.i, align 8
   %10 = load ptr, ptr %base, align 8
-  %out_hooks12 = getelementptr inbounds i8, ptr %10, i64 16
+  %out_hooks12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %rpc_data, align 8
   br label %for.cond.i
 
@@ -702,9 +702,9 @@ for.cond.i:                                       ; preds = %for.body.i, %evrpc_
   br i1 %cmp.not.i, label %if.end24, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %process.i = getelementptr inbounds i8, ptr %hook.0.i, i64 16
+  %process.i = getelementptr inbounds nuw i8, ptr %hook.0.i, i64 16
   %12 = load ptr, ptr %process.i, align 8
-  %process_arg.i = getelementptr inbounds i8, ptr %hook.0.i, i64 24
+  %process_arg.i = getelementptr inbounds nuw i8, ptr %hook.0.i, i64 24
   %13 = load ptr, ptr %process_arg.i, align 8
   %call.i = tail call i32 %12(ptr noundef nonnull %rpc_state, ptr noundef %0, ptr noundef %11, ptr noundef %13) #11
   switch i32 %call.i, label %if.end24 [
@@ -720,14 +720,14 @@ sw.bb15:                                          ; preds = %for.body.i
   br i1 %cmp.i19, label %error, label %evrpc_pause_request.exit
 
 evrpc_pause_request.exit:                         ; preds = %sw.bb15
-  %ctx1.i = getelementptr inbounds i8, ptr %call.i18, i64 16
+  %ctx1.i = getelementptr inbounds nuw i8, ptr %call.i18, i64 16
   store ptr %rpc_state, ptr %ctx1.i, align 8
-  %cb2.i = getelementptr inbounds i8, ptr %call.i18, i64 24
+  %cb2.i = getelementptr inbounds nuw i8, ptr %call.i18, i64 24
   store ptr @evrpc_request_done_closure, ptr %cb2.i, align 8
   store ptr null, ptr %call.i18, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %14, i64 40
+  %tqh_last.i = getelementptr inbounds nuw i8, ptr %14, i64 40
   %15 = load ptr, ptr %tqh_last.i, align 8
-  %tqe_prev.i = getelementptr inbounds i8, ptr %call.i18, i64 8
+  %tqe_prev.i = getelementptr inbounds nuw i8, ptr %call.i18, i64 8
   store ptr %15, ptr %tqe_prev.i, align 8
   store ptr %call.i18, ptr %15, align 8
   store ptr %call.i18, ptr %tqh_last.i, align 8
@@ -735,7 +735,7 @@ evrpc_pause_request.exit:                         ; preds = %sw.bb15
 
 if.end24:                                         ; preds = %for.body.i, %for.cond.i, %if.end5
   %16 = load ptr, ptr %http_req, align 8
-  %output_headers.i = getelementptr inbounds i8, ptr %16, i64 40
+  %output_headers.i = getelementptr inbounds nuw i8, ptr %16, i64 40
   %17 = load ptr, ptr %output_headers.i, align 8
   %call.i22 = tail call ptr @evhttp_find_header(ptr noundef %17, ptr noundef nonnull @.str.2) #11
   %cmp1.i = icmp eq ptr %call.i22, null
@@ -766,13 +766,13 @@ declare ptr @evbuffer_new() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @evrpc_request_done_closure(ptr noundef %arg, i32 noundef %hook_res) #0 {
 entry:
-  %http_req = getelementptr inbounds i8, ptr %arg, i64 32
+  %http_req = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %0 = load ptr, ptr %http_req, align 8
   %cmp = icmp eq i32 %hook_res, -1
   br i1 %cmp, label %error, label %if.end
 
 if.end:                                           ; preds = %entry
-  %output_headers = getelementptr inbounds i8, ptr %0, i64 40
+  %output_headers = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %output_headers, align 8
   %call = tail call ptr @evhttp_find_header(ptr noundef %1, ptr noundef nonnull @.str.2) #11
   %cmp1 = icmp eq ptr %call, null
@@ -784,7 +784,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then2, %if.end
-  %rpc_data = getelementptr inbounds i8, ptr %arg, i64 40
+  %rpc_data = getelementptr inbounds nuw i8, ptr %arg, i64 40
   %3 = load ptr, ptr %rpc_data, align 8
   tail call void @evhttp_send_reply(ptr noundef nonnull %0, i32 noundef 200, ptr noundef nonnull @.str.4, ptr noundef %3) #11
   tail call void @evrpc_reqstate_free_(ptr noundef nonnull %arg)
@@ -804,7 +804,7 @@ declare void @evhttp_send_error(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @evrpc_get_request(ptr nocapture noundef readonly %req) local_unnamed_addr #3 {
 entry:
-  %request = getelementptr inbounds i8, ptr %req, i64 8
+  %request = getelementptr inbounds nuw i8, ptr %req, i64 8
   %0 = load ptr, ptr %request, align 8
   ret ptr %0
 }
@@ -812,7 +812,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @evrpc_get_reply(ptr nocapture noundef readonly %req) local_unnamed_addr #3 {
 entry:
-  %reply = getelementptr inbounds i8, ptr %req, i64 16
+  %reply = getelementptr inbounds nuw i8, ptr %req, i64 16
   %0 = load ptr, ptr %reply, align 8
   ret ptr %0
 }
@@ -825,28 +825,28 @@ entry:
   br i1 %cmp, label %return, label %do.body
 
 do.body:                                          ; preds = %entry
-  %connections = getelementptr inbounds i8, ptr %call, i64 56
+  %connections = getelementptr inbounds nuw i8, ptr %call, i64 56
   store ptr null, ptr %connections, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %call, i64 64
+  %tqh_last = getelementptr inbounds nuw i8, ptr %call, i64 64
   store ptr %connections, ptr %tqh_last, align 8
-  %requests = getelementptr inbounds i8, ptr %call, i64 80
+  %requests = getelementptr inbounds nuw i8, ptr %call, i64 80
   store ptr null, ptr %requests, align 8
-  %tqh_last9 = getelementptr inbounds i8, ptr %call, i64 88
+  %tqh_last9 = getelementptr inbounds nuw i8, ptr %call, i64 88
   store ptr %requests, ptr %tqh_last9, align 8
-  %pause_requests = getelementptr inbounds i8, ptr %call, i64 32
+  %pause_requests = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %pause_requests, align 8
-  %tqh_last18 = getelementptr inbounds i8, ptr %call, i64 40
+  %tqh_last18 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %pause_requests, ptr %tqh_last18, align 8
   store ptr null, ptr %call, align 8
-  %tqh_last28 = getelementptr inbounds i8, ptr %call, i64 8
+  %tqh_last28 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call, ptr %tqh_last28, align 8
-  %out_hooks = getelementptr inbounds i8, ptr %call, i64 16
+  %out_hooks = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %out_hooks, align 8
-  %tqh_last38 = getelementptr inbounds i8, ptr %call, i64 24
+  %tqh_last38 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %out_hooks, ptr %tqh_last38, align 8
-  %base40 = getelementptr inbounds i8, ptr %call, i64 48
+  %base40 = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %base, ptr %base40, align 8
-  %timeout = getelementptr inbounds i8, ptr %call, i64 72
+  %timeout = getelementptr inbounds nuw i8, ptr %call, i64 72
   store i32 -1, ptr %timeout, align 8
   br label %return
 
@@ -857,36 +857,36 @@ return:                                           ; preds = %entry, %do.body
 ; Function Attrs: nounwind uwtable
 define void @evrpc_pool_free(ptr noundef %pool) local_unnamed_addr #0 {
 entry:
-  %requests = getelementptr inbounds i8, ptr %pool, i64 80
+  %requests = getelementptr inbounds nuw i8, ptr %pool, i64 80
   %0 = load ptr, ptr %requests, align 8
   %cmp.not52 = icmp eq ptr %0, null
   br i1 %cmp.not52, label %while.cond14.preheader, label %do.body.lr.ph
 
 do.body.lr.ph:                                    ; preds = %entry
-  %tqh_last = getelementptr inbounds i8, ptr %pool, i64 88
+  %tqh_last = getelementptr inbounds nuw i8, ptr %pool, i64 88
   br label %do.body
 
 while.cond14.preheader:                           ; preds = %if.end, %entry
-  %pause_requests = getelementptr inbounds i8, ptr %pool, i64 32
+  %pause_requests = getelementptr inbounds nuw i8, ptr %pool, i64 32
   %1 = load ptr, ptr %pause_requests, align 8
   %cmp16.not53 = icmp eq ptr %1, null
   br i1 %cmp16.not53, label %while.cond42.preheader, label %do.body18.lr.ph
 
 do.body18.lr.ph:                                  ; preds = %while.cond14.preheader
-  %tqh_last34 = getelementptr inbounds i8, ptr %pool, i64 40
+  %tqh_last34 = getelementptr inbounds nuw i8, ptr %pool, i64 40
   br label %do.body18
 
 do.body:                                          ; preds = %do.body.lr.ph, %if.end
   %2 = phi ptr [ %0, %do.body.lr.ph ], [ %6, %if.end ]
-  %next = getelementptr inbounds i8, ptr %2, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %next, align 8
   %cmp1.not = icmp eq ptr %3, null
-  %tqe_prev8 = getelementptr inbounds i8, ptr %2, i64 16
+  %tqe_prev8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %tqe_prev8, align 8
   br i1 %cmp1.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %do.body
-  %tqe_prev6 = getelementptr inbounds i8, ptr %3, i64 16
+  %tqe_prev6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %tqe_prev6, align 8
   br label %if.end
 
@@ -903,25 +903,25 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp.not, label %while.cond14.preheader, label %do.body, !llvm.loop !12
 
 while.cond42.preheader:                           ; preds = %if.end35, %while.cond14.preheader
-  %connections = getelementptr inbounds i8, ptr %pool, i64 56
+  %connections = getelementptr inbounds nuw i8, ptr %pool, i64 56
   %7 = load ptr, ptr %connections, align 8
   %cmp44.not54 = icmp eq ptr %7, null
   br i1 %cmp44.not54, label %while.cond69.preheader, label %do.body46.lr.ph
 
 do.body46.lr.ph:                                  ; preds = %while.cond42.preheader
-  %tqh_last61 = getelementptr inbounds i8, ptr %pool, i64 64
+  %tqh_last61 = getelementptr inbounds nuw i8, ptr %pool, i64 64
   br label %do.body46
 
 do.body18:                                        ; preds = %do.body18.lr.ph, %if.end35
   %8 = phi ptr [ %1, %do.body18.lr.ph ], [ %12, %if.end35 ]
   %9 = load ptr, ptr %8, align 8
   %cmp21.not = icmp eq ptr %9, null
-  %tqe_prev31 = getelementptr inbounds i8, ptr %8, i64 8
+  %tqe_prev31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %tqe_prev31, align 8
   br i1 %cmp21.not, label %if.else29, label %if.then22
 
 if.then22:                                        ; preds = %do.body18
-  %tqe_prev28 = getelementptr inbounds i8, ptr %9, i64 8
+  %tqe_prev28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %tqe_prev28, align 8
   br label %if.end35
 
@@ -946,12 +946,12 @@ do.body46:                                        ; preds = %do.body46.lr.ph, %i
   %14 = phi ptr [ %7, %do.body46.lr.ph ], [ %18, %if.end62 ]
   %15 = load ptr, ptr %14, align 8
   %cmp49.not = icmp eq ptr %15, null
-  %tqe_prev59 = getelementptr inbounds i8, ptr %14, i64 8
+  %tqe_prev59 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %tqe_prev59, align 8
   br i1 %cmp49.not, label %if.else57, label %if.then50
 
 if.then50:                                        ; preds = %do.body46
-  %tqe_prev56 = getelementptr inbounds i8, ptr %15, i64 8
+  %tqe_prev56 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %16, ptr %tqe_prev56, align 8
   br label %if.end62
 
@@ -972,7 +972,7 @@ for.cond.i.i.preheader:                           ; preds = %while.cond69.prehea
   br label %for.body.i.i
 
 while.cond77.preheader:                           ; preds = %evrpc_remove_hook.exit, %while.cond69.preheader
-  %out_hooks = getelementptr inbounds i8, ptr %pool, i64 16
+  %out_hooks = getelementptr inbounds nuw i8, ptr %pool, i64 16
   %20 = load ptr, ptr %out_hooks, align 8
   %cmp80.not58 = icmp eq ptr %20, null
   br i1 %cmp80.not58, label %while.end85, label %for.cond.i.i37.preheader
@@ -988,10 +988,10 @@ for.body.i.i:                                     ; preds = %for.cond.i.i.prehea
   br i1 %cmp1.i.i, label %do.body.i.i, label %for.cond.i.ithread-pre-split, !llvm.loop !7
 
 do.body.i.i:                                      ; preds = %for.body.i.i
-  %tqe_prev10.i.i = getelementptr inbounds i8, ptr %hook.0.i.i55, i64 8
+  %tqe_prev10.i.i = getelementptr inbounds nuw i8, ptr %hook.0.i.i55, i64 8
   %22 = load ptr, ptr %tqe_prev10.i.i, align 8
   %head..i.i = select i1 %cmp2.not.i.i, ptr %pool, ptr %21
-  %tqh_last.i.i = getelementptr inbounds i8, ptr %head..i.i, i64 8
+  %tqh_last.i.i = getelementptr inbounds nuw i8, ptr %head..i.i, i64 8
   store ptr %22, ptr %tqh_last.i.i, align 8
   %23 = load ptr, ptr %hook.0.i.i55, align 8
   store ptr %23, ptr %22, align 8
@@ -1019,10 +1019,10 @@ for.body.i.i41:                                   ; preds = %for.cond.i.i37.preh
   br i1 %cmp1.i.i42, label %do.body.i.i43, label %for.cond.i.i37thread-pre-split, !llvm.loop !7
 
 do.body.i.i43:                                    ; preds = %for.body.i.i41
-  %tqe_prev10.i.i45 = getelementptr inbounds i8, ptr %hook.0.i.i3957, i64 8
+  %tqe_prev10.i.i45 = getelementptr inbounds nuw i8, ptr %hook.0.i.i3957, i64 8
   %27 = load ptr, ptr %tqe_prev10.i.i45, align 8
   %head..i.i46 = select i1 %cmp2.not.i.i44, ptr %out_hooks, ptr %26
-  %tqh_last.i.i47 = getelementptr inbounds i8, ptr %head..i.i46, i64 8
+  %tqh_last.i.i47 = getelementptr inbounds nuw i8, ptr %head..i.i46, i64 8
   store ptr %27, ptr %tqh_last.i.i47, align 8
   %28 = load ptr, ptr %hook.0.i.i3957, align 8
   store ptr %28, ptr %27, align 8
@@ -1053,19 +1053,19 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not11.i.i, label %evrpc_hook_context_free_.exit, label %do.body2.lr.ph.i.i
 
 do.body2.lr.ph.i.i:                               ; preds = %if.then
-  %tqh_last.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %tqh_last.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %do.body2.i.i
 
 do.body2.i.i:                                     ; preds = %if.end.i.i, %do.body2.lr.ph.i.i
   %2 = phi ptr [ %1, %do.body2.lr.ph.i.i ], [ %8, %if.end.i.i ]
   %3 = load ptr, ptr %2, align 8
   %cmp3.not.i.i = icmp eq ptr %3, null
-  %tqe_prev10.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %tqe_prev10.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %tqe_prev10.i.i, align 8
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.body2.i.i
-  %tqe_prev8.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %tqe_prev8.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %tqe_prev8.i.i, align 8
   br label %if.end.i.i
 
@@ -1076,10 +1076,10 @@ if.else.i.i:                                      ; preds = %do.body2.i.i
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %4, align 8
-  %key.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %key.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %key.i.i, align 8
   tail call void @event_mm_free_(ptr noundef %6) #11
-  %data.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %data.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %data.i.i, align 8
   tail call void @event_mm_free_(ptr noundef %7) #11
   tail call void @event_mm_free_(ptr noundef nonnull %2) #11
@@ -1092,7 +1092,7 @@ evrpc_hook_context_free_.exit:                    ; preds = %if.end.i.i, %if.the
   br label %if.end
 
 if.end:                                           ; preds = %evrpc_hook_context_free_.exit, %entry
-  %name = getelementptr inbounds i8, ptr %request, i64 168
+  %name = getelementptr inbounds nuw i8, ptr %request, i64 168
   %9 = load ptr, ptr %name, align 8
   tail call void @event_mm_free_(ptr noundef %9) #11
   tail call void @event_mm_free_(ptr noundef nonnull %request) #11
@@ -1105,13 +1105,13 @@ declare void @evhttp_connection_free(ptr noundef) local_unnamed_addr #1
 define void @evrpc_pool_add_connection(ptr nocapture noundef %pool, ptr noundef initializes((0, 16)) %connection) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %connection, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %pool, i64 64
+  %tqh_last = getelementptr inbounds nuw i8, ptr %pool, i64 64
   %0 = load ptr, ptr %tqh_last, align 8
-  %tqe_prev = getelementptr inbounds i8, ptr %connection, i64 8
+  %tqe_prev = getelementptr inbounds nuw i8, ptr %connection, i64 8
   store ptr %0, ptr %tqe_prev, align 8
   store ptr %connection, ptr %0, align 8
   store ptr %connection, ptr %tqh_last, align 8
-  %base = getelementptr inbounds i8, ptr %pool, i64 48
+  %base = getelementptr inbounds nuw i8, ptr %pool, i64 48
   %1 = load ptr, ptr %base, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1121,39 +1121,39 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %flags = getelementptr inbounds i8, ptr %connection, i64 200
+  %flags = getelementptr inbounds nuw i8, ptr %connection, i64 200
   %2 = load i32, ptr %flags, align 8
   %and = and i32 %2, 4194304
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end
-  %timeout = getelementptr inbounds i8, ptr %pool, i64 72
+  %timeout = getelementptr inbounds nuw i8, ptr %pool, i64 72
   %3 = load i32, ptr %timeout, align 8
   tail call void @evhttp_connection_set_timeout(ptr noundef nonnull %connection, i32 noundef %3) #11
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.end
-  %requests = getelementptr inbounds i8, ptr %pool, i64 80
+  %requests = getelementptr inbounds nuw i8, ptr %pool, i64 80
   %4 = load ptr, ptr %requests, align 8
   %cmp13.not = icmp eq ptr %4, null
   br i1 %cmp13.not, label %if.end38, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %next18 = getelementptr inbounds i8, ptr %4, i64 8
+  %next18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %next18, align 8
   %cmp20.not = icmp eq ptr %5, null
-  %tqe_prev29 = getelementptr inbounds i8, ptr %4, i64 16
+  %tqe_prev29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %tqe_prev29, align 8
   br i1 %cmp20.not, label %if.else, label %if.then21
 
 if.then21:                                        ; preds = %if.then14
-  %tqe_prev27 = getelementptr inbounds i8, ptr %5, i64 16
+  %tqe_prev27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %tqe_prev27, align 8
   br label %if.end32
 
 if.else:                                          ; preds = %if.then14
-  %tqh_last31 = getelementptr inbounds i8, ptr %pool, i64 88
+  %tqh_last31 = getelementptr inbounds nuw i8, ptr %pool, i64 88
   store ptr %6, ptr %tqh_last31, align 8
   br label %if.end32
 
@@ -1175,25 +1175,25 @@ declare void @evhttp_connection_set_timeout(ptr noundef, i32 noundef) local_unna
 define internal fastcc void @evrpc_schedule_request(ptr noundef %connection, ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %status = alloca %struct.evrpc_status, align 8
-  %pool1 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %pool1 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %pool1, align 8
   %call = tail call ptr @evhttp_request_new(ptr noundef nonnull @evrpc_reply_done, ptr noundef nonnull %ctx) #11
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %error, label %if.end
 
 if.end:                                           ; preds = %entry
-  %request_marshal = getelementptr inbounds i8, ptr %ctx, i64 208
+  %request_marshal = getelementptr inbounds nuw i8, ptr %ctx, i64 208
   %1 = load ptr, ptr %request_marshal, align 8
-  %output_buffer = getelementptr inbounds i8, ptr %call, i64 152
+  %output_buffer = getelementptr inbounds nuw i8, ptr %call, i64 152
   %2 = load ptr, ptr %output_buffer, align 8
-  %request = getelementptr inbounds i8, ptr %ctx, i64 192
+  %request = getelementptr inbounds nuw i8, ptr %ctx, i64 192
   %3 = load ptr, ptr %request, align 8
   tail call void %1(ptr noundef %2, ptr noundef %3) #11
-  %evcon = getelementptr inbounds i8, ptr %ctx, i64 32
+  %evcon = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store ptr %connection, ptr %evcon, align 8
-  %req2 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %req2 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store ptr %call, ptr %req2, align 8
-  %out_hooks = getelementptr inbounds i8, ptr %0, i64 16
+  %out_hooks = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %out_hooks, align 8
   %cmp3.not = icmp eq ptr %4, null
   br i1 %cmp3.not, label %if.end15, label %if.then4
@@ -1206,16 +1206,16 @@ if.then4:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then4
   %call.i.i = tail call ptr @event_mm_malloc_(i64 noundef 24) #11
   store ptr null, ptr %call.i.i, align 8
-  %tqh_last.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %tqh_last.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr %call.i.i, ptr %tqh_last.i.i, align 8
-  %evcon.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %evcon.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr null, ptr %evcon.i.i, align 8
   store ptr %call.i.i, ptr %ctx, align 8
   br label %evrpc_hook_associate_meta_.exit
 
 evrpc_hook_associate_meta_.exit:                  ; preds = %if.then4, %if.then.i
   %ctx.0.i = phi ptr [ %call.i.i, %if.then.i ], [ %5, %if.then4 ]
-  %evcon1.i = getelementptr inbounds i8, ptr %ctx.0.i, i64 16
+  %evcon1.i = getelementptr inbounds nuw i8, ptr %ctx.0.i, i64 16
   store ptr %connection, ptr %evcon1.i, align 8
   %6 = load ptr, ptr %output_buffer, align 8
   br label %for.cond.i
@@ -1227,9 +1227,9 @@ for.cond.i:                                       ; preds = %for.body.i, %evrpc_
   br i1 %cmp.not.i, label %if.end15, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %process.i = getelementptr inbounds i8, ptr %hook.0.i, i64 16
+  %process.i = getelementptr inbounds nuw i8, ptr %hook.0.i, i64 16
   %7 = load ptr, ptr %process.i, align 8
-  %process_arg.i = getelementptr inbounds i8, ptr %hook.0.i, i64 24
+  %process_arg.i = getelementptr inbounds nuw i8, ptr %hook.0.i, i64 24
   %8 = load ptr, ptr %process_arg.i, align 8
   %call.i = tail call i32 %7(ptr noundef nonnull %ctx, ptr noundef nonnull %call, ptr noundef %6, ptr noundef %8) #11
   switch i32 %call.i, label %if.end15 [
@@ -1244,14 +1244,14 @@ sw.bb9:                                           ; preds = %for.body.i
   br i1 %cmp.i22, label %error, label %evrpc_pause_request.exit
 
 evrpc_pause_request.exit:                         ; preds = %sw.bb9
-  %ctx1.i = getelementptr inbounds i8, ptr %call.i21, i64 16
+  %ctx1.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 16
   store ptr %ctx, ptr %ctx1.i, align 8
-  %cb2.i = getelementptr inbounds i8, ptr %call.i21, i64 24
+  %cb2.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 24
   store ptr @evrpc_schedule_request_closure, ptr %cb2.i, align 8
   store ptr null, ptr %call.i21, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %0, i64 40
+  %tqh_last.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %tqh_last.i, align 8
-  %tqe_prev.i = getelementptr inbounds i8, ptr %call.i21, i64 8
+  %tqe_prev.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 8
   store ptr %9, ptr %tqe_prev.i, align 8
   store ptr %call.i21, ptr %9, align 8
   store ptr %call.i21, ptr %tqh_last.i, align 8
@@ -1264,13 +1264,13 @@ if.end15:                                         ; preds = %for.body.i, %for.co
 error:                                            ; preds = %for.body.i, %sw.bb9, %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status, i8 0, i64 16, i1 false)
   store i32 3, ptr %status, align 8
-  %cb = getelementptr inbounds i8, ptr %ctx, i64 176
+  %cb = getelementptr inbounds nuw i8, ptr %ctx, i64 176
   %10 = load ptr, ptr %cb, align 8
-  %request17 = getelementptr inbounds i8, ptr %ctx, i64 192
+  %request17 = getelementptr inbounds nuw i8, ptr %ctx, i64 192
   %11 = load ptr, ptr %request17, align 8
-  %reply = getelementptr inbounds i8, ptr %ctx, i64 200
+  %reply = getelementptr inbounds nuw i8, ptr %ctx, i64 200
   %12 = load ptr, ptr %reply, align 8
-  %cb_arg = getelementptr inbounds i8, ptr %ctx, i64 184
+  %cb_arg = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %13 = load ptr, ptr %cb_arg, align 8
   call void %10(ptr noundef nonnull %status, ptr noundef %11, ptr noundef %12, ptr noundef %13) #11
   call fastcc void @evrpc_request_wrapper_free(ptr noundef nonnull %ctx)
@@ -1285,17 +1285,17 @@ define void @evrpc_pool_remove_connection(ptr nocapture noundef writeonly %pool,
 entry:
   %0 = load ptr, ptr %connection, align 8
   %cmp.not = icmp eq ptr %0, null
-  %tqe_prev7 = getelementptr inbounds i8, ptr %connection, i64 8
+  %tqe_prev7 = getelementptr inbounds nuw i8, ptr %connection, i64 8
   %1 = load ptr, ptr %tqe_prev7, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tqe_prev5 = getelementptr inbounds i8, ptr %0, i64 8
+  %tqe_prev5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %tqe_prev5, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %tqh_last = getelementptr inbounds i8, ptr %pool, i64 64
+  %tqh_last = getelementptr inbounds nuw i8, ptr %pool, i64 64
   store ptr %1, ptr %tqh_last, align 8
   br label %if.end
 
@@ -1308,7 +1308,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind uwtable
 define void @evrpc_pool_set_timeout(ptr nocapture noundef %pool, i32 noundef %timeout_in_secs) local_unnamed_addr #0 {
 entry:
-  %connections = getelementptr inbounds i8, ptr %pool, i64 56
+  %connections = getelementptr inbounds nuw i8, ptr %pool, i64 56
   %evcon.05 = load ptr, ptr %connections, align 8
   %cmp.not6 = icmp eq ptr %evcon.05, null
   br i1 %cmp.not6, label %for.end, label %for.body
@@ -1321,7 +1321,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %entry
-  %timeout = getelementptr inbounds i8, ptr %pool, i64 72
+  %timeout = getelementptr inbounds nuw i8, ptr %pool, i64 72
   store i32 %timeout_in_secs, ptr %timeout, align 8
   ret void
 }
@@ -1329,7 +1329,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evrpc_resume_request(ptr nocapture noundef %vbase, ptr noundef readnone %ctx, i32 noundef %res) local_unnamed_addr #0 {
 entry:
-  %pause_requests = getelementptr inbounds i8, ptr %vbase, i64 32
+  %pause_requests = getelementptr inbounds nuw i8, ptr %vbase, i64 32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %entry
@@ -1339,28 +1339,28 @@ for.cond:                                         ; preds = %for.body, %entry
   br i1 %cond, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %ctx1 = getelementptr inbounds i8, ptr %pause.0, i64 16
+  %ctx1 = getelementptr inbounds nuw i8, ptr %pause.0, i64 16
   %0 = load ptr, ptr %ctx1, align 8
   %cmp2 = icmp eq ptr %0, %ctx
   br i1 %cmp2, label %if.end5, label %for.cond, !llvm.loop !18
 
 if.end5:                                          ; preds = %for.body
-  %cb = getelementptr inbounds i8, ptr %pause.0, i64 24
+  %cb = getelementptr inbounds nuw i8, ptr %pause.0, i64 24
   %1 = load ptr, ptr %cb, align 8
   tail call void %1(ptr noundef %0, i32 noundef %res) #11
   %2 = load ptr, ptr %pause.0, align 8
   %cmp9.not = icmp eq ptr %2, null
-  %tqe_prev17 = getelementptr inbounds i8, ptr %pause.0, i64 8
+  %tqe_prev17 = getelementptr inbounds nuw i8, ptr %pause.0, i64 8
   %3 = load ptr, ptr %tqe_prev17, align 8
   br i1 %cmp9.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end5
-  %tqe_prev15 = getelementptr inbounds i8, ptr %2, i64 8
+  %tqe_prev15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %tqe_prev15, align 8
   br label %if.end18
 
 if.else:                                          ; preds = %if.end5
-  %tqh_last = getelementptr inbounds i8, ptr %vbase, i64 40
+  %tqh_last = getelementptr inbounds nuw i8, ptr %vbase, i64 40
   store ptr %3, ptr %tqh_last, align 8
   br label %if.end18
 
@@ -1378,27 +1378,27 @@ return:                                           ; preds = %for.cond, %if.end18
 ; Function Attrs: nounwind uwtable
 define noundef i32 @evrpc_make_request(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %pool1 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %pool1 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %pool1, align 8
-  %ev_timeout = getelementptr inbounds i8, ptr %ctx, i64 48
-  %base = getelementptr inbounds i8, ptr %0, i64 48
+  %ev_timeout = getelementptr inbounds nuw i8, ptr %ctx, i64 48
+  %base = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %base, align 8
   %call = tail call i32 @event_assign(ptr noundef nonnull %ev_timeout, ptr noundef %1, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @evrpc_request_timeout, ptr noundef %ctx) #11
-  %next = getelementptr inbounds i8, ptr %ctx, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr null, ptr %next, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %0, i64 88
+  %tqh_last = getelementptr inbounds nuw i8, ptr %0, i64 88
   %2 = load ptr, ptr %tqh_last, align 8
-  %tqe_prev = getelementptr inbounds i8, ptr %ctx, i64 16
+  %tqe_prev = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store ptr %2, ptr %tqe_prev, align 8
   store ptr %ctx, ptr %2, align 8
   store ptr %next, ptr %tqh_last, align 8
-  %requests.i = getelementptr inbounds i8, ptr %0, i64 80
+  %requests.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %requests.i, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %evrpc_pool_schedule.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %connections.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %connections.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.end.i
@@ -1408,21 +1408,21 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %cmp.not.i.i, label %evrpc_pool_schedule.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %requests.i.i = getelementptr inbounds i8, ptr %connection.0.i.i, i64 296
+  %requests.i.i = getelementptr inbounds nuw i8, ptr %connection.0.i.i, i64 296
   %4 = load ptr, ptr %requests.i.i, align 8
   %cmp2.i.i = icmp eq ptr %4, null
   br i1 %cmp2.i.i, label %do.body.i, label %for.cond.i.i, !llvm.loop !19
 
 do.body.i:                                        ; preds = %for.body.i.i
-  %next.i = getelementptr inbounds i8, ptr %3, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %next.i, align 8
   %cmp3.not.i = icmp eq ptr %5, null
-  %tqe_prev11.i = getelementptr inbounds i8, ptr %3, i64 16
+  %tqe_prev11.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %tqe_prev11.i, align 8
   br i1 %cmp3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %do.body.i
-  %tqe_prev9.i = getelementptr inbounds i8, ptr %5, i64 16
+  %tqe_prev9.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %tqe_prev9.i, align 8
   br label %if.end13.i
 
@@ -1445,7 +1445,7 @@ declare i32 @event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef sig
 ; Function Attrs: nounwind uwtable
 define internal void @evrpc_request_timeout(i32 %fd, i16 signext %what, ptr nocapture noundef readonly %arg) #0 {
 entry:
-  %evcon1 = getelementptr inbounds i8, ptr %arg, i64 32
+  %evcon1 = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %0 = load ptr, ptr %evcon1, align 8
   tail call void @evhttp_connection_fail_(ptr noundef %0, i32 noundef 0) #11
   ret void
@@ -1459,13 +1459,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pool1 = getelementptr inbounds i8, ptr %call, i64 24
+  %pool1 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %pool, ptr %pool1, align 8
   store ptr null, ptr %call, align 8
-  %evcon = getelementptr inbounds i8, ptr %call, i64 32
+  %evcon = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %evcon, align 8
   %call2 = tail call ptr @event_mm_strdup_(ptr noundef %rpcname) #11
-  %name = getelementptr inbounds i8, ptr %call, i64 168
+  %name = getelementptr inbounds nuw i8, ptr %call, i64 168
   store ptr %call2, ptr %name, align 8
   %cmp4 = icmp eq ptr %call2, null
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -1475,19 +1475,19 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %cb7 = getelementptr inbounds i8, ptr %call, i64 176
+  %cb7 = getelementptr inbounds nuw i8, ptr %call, i64 176
   store ptr %cb, ptr %cb7, align 8
-  %cb_arg = getelementptr inbounds i8, ptr %call, i64 184
+  %cb_arg = getelementptr inbounds nuw i8, ptr %call, i64 184
   store ptr %cbarg, ptr %cb_arg, align 8
-  %request8 = getelementptr inbounds i8, ptr %call, i64 192
+  %request8 = getelementptr inbounds nuw i8, ptr %call, i64 192
   store ptr %request, ptr %request8, align 8
-  %reply9 = getelementptr inbounds i8, ptr %call, i64 200
+  %reply9 = getelementptr inbounds nuw i8, ptr %call, i64 200
   store ptr %reply, ptr %reply9, align 8
-  %request_marshal = getelementptr inbounds i8, ptr %call, i64 208
+  %request_marshal = getelementptr inbounds nuw i8, ptr %call, i64 208
   store ptr %req_marshal, ptr %request_marshal, align 8
-  %reply_clear = getelementptr inbounds i8, ptr %call, i64 216
+  %reply_clear = getelementptr inbounds nuw i8, ptr %call, i64 216
   store ptr %rpl_clear, ptr %reply_clear, align 8
-  %reply_unmarshal = getelementptr inbounds i8, ptr %call, i64 224
+  %reply_unmarshal = getelementptr inbounds nuw i8, ptr %call, i64 224
   store ptr %rpl_unmarshal, ptr %reply_unmarshal, align 8
   br label %return
 
@@ -1510,9 +1510,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @event_mm_malloc_(i64 noundef 24) #11
   store ptr null, ptr %call.i, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %tqh_last.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call.i, ptr %tqh_last.i, align 8
-  %evcon.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %evcon.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr null, ptr %evcon.i, align 8
   store ptr %call.i, ptr %ctx, align 8
   br label %if.end
@@ -1521,18 +1521,18 @@ if.end:                                           ; preds = %if.then, %entry
   %store.0 = phi ptr [ %call.i, %if.then ], [ %0, %entry ]
   %call2 = tail call ptr @event_mm_malloc_(i64 noundef 40) #11
   %call3 = tail call ptr @event_mm_strdup_(ptr noundef %key) #11
-  %key4 = getelementptr inbounds i8, ptr %call2, i64 16
+  %key4 = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr %call3, ptr %key4, align 8
-  %data_size7 = getelementptr inbounds i8, ptr %call2, i64 32
+  %data_size7 = getelementptr inbounds nuw i8, ptr %call2, i64 32
   store i64 %data_size, ptr %data_size7, align 8
   %call8 = tail call ptr @event_mm_malloc_(i64 noundef %data_size) #11
-  %data9 = getelementptr inbounds i8, ptr %call2, i64 24
+  %data9 = getelementptr inbounds nuw i8, ptr %call2, i64 24
   store ptr %call8, ptr %data9, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8, ptr align 1 %data, i64 %data_size, i1 false)
   store ptr null, ptr %call2, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %store.0, i64 8
+  %tqh_last = getelementptr inbounds nuw i8, ptr %store.0, i64 8
   %1 = load ptr, ptr %tqh_last, align 8
-  %tqe_prev = getelementptr inbounds i8, ptr %call2, i64 8
+  %tqe_prev = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr %1, ptr %tqe_prev, align 8
   store ptr %call2, ptr %1, align 8
   store ptr %call2, ptr %tqh_last, align 8
@@ -1556,17 +1556,17 @@ for.cond:                                         ; preds = %entry, %for.body
   br i1 %cmp2.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %key3 = getelementptr inbounds i8, ptr %meta.0, i64 16
+  %key3 = getelementptr inbounds nuw i8, ptr %meta.0, i64 16
   %1 = load ptr, ptr %key3, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %key) #12
   %cmp4 = icmp eq i32 %call, 0
   br i1 %cmp4, label %if.then5, label %for.cond, !llvm.loop !20
 
 if.then5:                                         ; preds = %for.body
-  %data6 = getelementptr inbounds i8, ptr %meta.0, i64 24
+  %data6 = getelementptr inbounds nuw i8, ptr %meta.0, i64 24
   %2 = load ptr, ptr %data6, align 8
   store ptr %2, ptr %data, align 8
-  %data_size7 = getelementptr inbounds i8, ptr %meta.0, i64 32
+  %data_size7 = getelementptr inbounds nuw i8, ptr %meta.0, i64 32
   %3 = load i64, ptr %data_size7, align 8
   store i64 %3, ptr %data_size, align 8
   br label %return
@@ -1584,7 +1584,7 @@ entry:
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %evcon = getelementptr inbounds i8, ptr %0, i64 16
+  %evcon = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %evcon, align 8
   br label %cond.end
 
@@ -1602,13 +1602,13 @@ entry:
   br i1 %cmp.i, label %error, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %pool1.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %pool1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %pool, ptr %pool1.i, align 8
   store ptr null, ptr %call.i, align 8
-  %evcon.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %evcon.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr null, ptr %evcon.i, align 8
   %call2.i = tail call ptr @event_mm_strdup_(ptr noundef %rpcname) #11
-  %name.i = getelementptr inbounds i8, ptr %call.i, i64 168
+  %name.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr %call2.i, ptr %name.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
   br i1 %cmp4.i, label %if.then5.i, label %if.end
@@ -1618,40 +1618,40 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %error
 
 if.end:                                           ; preds = %if.end.i
-  %cb7.i = getelementptr inbounds i8, ptr %call.i, i64 176
+  %cb7.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
   store ptr %cb, ptr %cb7.i, align 8
-  %cb_arg.i = getelementptr inbounds i8, ptr %call.i, i64 184
+  %cb_arg.i = getelementptr inbounds nuw i8, ptr %call.i, i64 184
   store ptr %cb_arg, ptr %cb_arg.i, align 8
-  %request8.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %request8.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store ptr %request, ptr %request8.i, align 8
-  %reply9.i = getelementptr inbounds i8, ptr %call.i, i64 200
+  %reply9.i = getelementptr inbounds nuw i8, ptr %call.i, i64 200
   store ptr %reply, ptr %reply9.i, align 8
-  %request_marshal.i = getelementptr inbounds i8, ptr %call.i, i64 208
+  %request_marshal.i = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   store ptr %req_marshal, ptr %request_marshal.i, align 8
-  %reply_clear.i = getelementptr inbounds i8, ptr %call.i, i64 216
+  %reply_clear.i = getelementptr inbounds nuw i8, ptr %call.i, i64 216
   store ptr %rpl_clear, ptr %reply_clear.i, align 8
-  %reply_unmarshal.i = getelementptr inbounds i8, ptr %call.i, i64 224
+  %reply_unmarshal.i = getelementptr inbounds nuw i8, ptr %call.i, i64 224
   store ptr %rpl_unmarshal, ptr %reply_unmarshal.i, align 8
   %0 = load ptr, ptr %pool1.i, align 8
-  %ev_timeout.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  %base.i = getelementptr inbounds i8, ptr %0, i64 48
+  %ev_timeout.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
+  %base.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %base.i, align 8
   %call.i7 = tail call i32 @event_assign(ptr noundef nonnull %ev_timeout.i, ptr noundef %1, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @evrpc_request_timeout, ptr noundef nonnull %call.i) #11
-  %next.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr null, ptr %next.i, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %0, i64 88
+  %tqh_last.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %2 = load ptr, ptr %tqh_last.i, align 8
-  %tqe_prev.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %tqe_prev.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %2, ptr %tqe_prev.i, align 8
   store ptr %call.i, ptr %2, align 8
   store ptr %next.i, ptr %tqh_last.i, align 8
-  %requests.i.i = getelementptr inbounds i8, ptr %0, i64 80
+  %requests.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %requests.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  %connections.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %connections.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i
@@ -1661,21 +1661,21 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %cmp.not.i.i.i, label %return, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
-  %requests.i.i.i = getelementptr inbounds i8, ptr %connection.0.i.i.i, i64 296
+  %requests.i.i.i = getelementptr inbounds nuw i8, ptr %connection.0.i.i.i, i64 296
   %4 = load ptr, ptr %requests.i.i.i, align 8
   %cmp2.i.i.i = icmp eq ptr %4, null
   br i1 %cmp2.i.i.i, label %do.body.i.i, label %for.cond.i.i.i, !llvm.loop !19
 
 do.body.i.i:                                      ; preds = %for.body.i.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %next.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %next.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %5, null
-  %tqe_prev11.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %tqe_prev11.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %tqe_prev11.i.i, align 8
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %do.body.i.i
-  %tqe_prev9.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %tqe_prev9.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %tqe_prev9.i.i, align 8
   br label %if.end13.i.i
 
@@ -1712,7 +1712,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @event_mm_strdup_(ptr noundef %name) #11
-  %uri.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %uri.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %call1.i, ptr %uri.i, align 8
   %cmp3.i = icmp eq ptr %call1.i, null
   br i1 %cmp3.i, label %if.then4.i, label %if.end
@@ -1722,23 +1722,23 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %if.end.i
-  %request_new.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %request_new.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %req_new, ptr %request_new.i, align 8
-  %request_new_arg.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %request_new_arg.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %req_new_arg, ptr %request_new_arg.i, align 8
-  %request_free.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %request_free.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %req_free, ptr %request_free.i, align 8
-  %request_unmarshal.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %request_unmarshal.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store ptr %req_unmarshal, ptr %request_unmarshal.i, align 8
-  %reply_new.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %reply_new.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store ptr %rpl_new, ptr %reply_new.i, align 8
-  %reply_new_arg.i = getelementptr inbounds i8, ptr %call.i, i64 64
+  %reply_new_arg.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   store ptr %rpl_new_arg, ptr %reply_new_arg.i, align 8
-  %reply_free.i = getelementptr inbounds i8, ptr %call.i, i64 72
+  %reply_free.i = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   store ptr %rpl_free, ptr %reply_free.i, align 8
-  %reply_complete.i = getelementptr inbounds i8, ptr %call.i, i64 80
+  %reply_complete.i = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   store ptr %rpl_complete, ptr %reply_complete.i, align 8
-  %reply_marshal.i = getelementptr inbounds i8, ptr %call.i, i64 88
+  %reply_marshal.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   store ptr %rpl_marshal, ptr %reply_marshal.i, align 8
   %call1 = tail call i32 @evrpc_register_rpc(ptr noundef %base, ptr noundef nonnull %call.i, ptr noundef %callback, ptr noundef %cbarg)
   br label %return
@@ -1751,7 +1751,7 @@ return:                                           ; preds = %entry, %if.then4.i,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @evrpc_request_get_pool(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %pool = getelementptr inbounds i8, ptr %ctx, i64 24
+  %pool = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %pool, align 8
   ret ptr %0
 }
@@ -1759,7 +1759,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @evrpc_request_set_pool(ptr nocapture noundef writeonly initializes((24, 32)) %ctx, ptr noundef %pool) local_unnamed_addr #9 {
 entry:
-  %pool1 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %pool1 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store ptr %pool, ptr %pool1, align 8
   ret void
 }
@@ -1767,9 +1767,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @evrpc_request_set_cb(ptr nocapture noundef writeonly initializes((176, 192)) %ctx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #9 {
 entry:
-  %cb1 = getelementptr inbounds i8, ptr %ctx, i64 176
+  %cb1 = getelementptr inbounds nuw i8, ptr %ctx, i64 176
   store ptr %cb, ptr %cb1, align 8
-  %cb_arg2 = getelementptr inbounds i8, ptr %ctx, i64 184
+  %cb_arg2 = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   store ptr %cb_arg, ptr %cb_arg2, align 8
   ret void
 }
@@ -1785,48 +1785,48 @@ declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @evrpc_request_cb_closure(ptr noundef %arg, i32 noundef %hook_res) #0 {
 entry:
-  %rpc1 = getelementptr inbounds i8, ptr %arg, i64 24
+  %rpc1 = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %0 = load ptr, ptr %rpc1, align 8
-  %http_req = getelementptr inbounds i8, ptr %arg, i64 32
+  %http_req = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %1 = load ptr, ptr %http_req, align 8
   %cmp = icmp eq i32 %hook_res, -1
   br i1 %cmp, label %error, label %if.end
 
 if.end:                                           ; preds = %entry
-  %request_new = getelementptr inbounds i8, ptr %0, i64 24
+  %request_new = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load ptr, ptr %request_new, align 8
-  %request_new_arg = getelementptr inbounds i8, ptr %0, i64 32
+  %request_new_arg = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %request_new_arg, align 8
   %call = tail call ptr %2(ptr noundef %3) #11
-  %request = getelementptr inbounds i8, ptr %arg, i64 8
+  %request = getelementptr inbounds nuw i8, ptr %arg, i64 8
   store ptr %call, ptr %request, align 8
   %cmp3 = icmp eq ptr %call, null
   br i1 %cmp3, label %error, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %request_unmarshal = getelementptr inbounds i8, ptr %0, i64 48
+  %request_unmarshal = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %request_unmarshal, align 8
-  %input_buffer = getelementptr inbounds i8, ptr %1, i64 128
+  %input_buffer = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load ptr, ptr %input_buffer, align 8
   %call7 = tail call i32 %4(ptr noundef nonnull %call, ptr noundef %5) #11
   %cmp8 = icmp eq i32 %call7, -1
   br i1 %cmp8, label %error, label %if.end10
 
 if.end10:                                         ; preds = %if.end5
-  %reply_new = getelementptr inbounds i8, ptr %0, i64 56
+  %reply_new = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %reply_new, align 8
-  %reply_new_arg = getelementptr inbounds i8, ptr %0, i64 64
+  %reply_new_arg = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %reply_new_arg, align 8
   %call11 = tail call ptr %6(ptr noundef %7) #11
-  %reply = getelementptr inbounds i8, ptr %arg, i64 16
+  %reply = getelementptr inbounds nuw i8, ptr %arg, i64 16
   store ptr %call11, ptr %reply, align 8
   %cmp13 = icmp eq ptr %call11, null
   br i1 %cmp13, label %error, label %if.end15
 
 if.end15:                                         ; preds = %if.end10
-  %cb = getelementptr inbounds i8, ptr %0, i64 96
+  %cb = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %cb, align 8
-  %cb_arg = getelementptr inbounds i8, ptr %0, i64 104
+  %cb_arg = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %cb_arg, align 8
   tail call void %8(ptr noundef nonnull %arg, ptr noundef %9) #11
   br label %return
@@ -1851,11 +1851,11 @@ declare ptr @evhttp_request_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @evrpc_reply_done(ptr noundef %req, ptr noundef %arg) #0 {
 entry:
-  %pool1 = getelementptr inbounds i8, ptr %arg, i64 24
+  %pool1 = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %0 = load ptr, ptr %pool1, align 8
-  %ev_timeout = getelementptr inbounds i8, ptr %arg, i64 48
+  %ev_timeout = getelementptr inbounds nuw i8, ptr %arg, i64 48
   %call = tail call i32 @event_del(ptr noundef nonnull %ev_timeout) #11
-  %req2 = getelementptr inbounds i8, ptr %arg, i64 40
+  %req2 = getelementptr inbounds nuw i8, ptr %arg, i64 40
   store ptr %req, ptr %req2, align 8
   %cmp = icmp eq ptr %req, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1870,7 +1870,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %if.end10, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %evcon = getelementptr inbounds i8, ptr %arg, i64 32
+  %evcon = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %2 = load ptr, ptr %evcon, align 8
   %3 = load ptr, ptr %arg, align 8
   %cmp.i = icmp eq ptr %3, null
@@ -1879,18 +1879,18 @@ if.then4:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.then4
   %call.i.i = tail call ptr @event_mm_malloc_(i64 noundef 24) #11
   store ptr null, ptr %call.i.i, align 8
-  %tqh_last.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %tqh_last.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr %call.i.i, ptr %tqh_last.i.i, align 8
-  %evcon.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %evcon.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr null, ptr %evcon.i.i, align 8
   store ptr %call.i.i, ptr %arg, align 8
   br label %evrpc_hook_associate_meta_.exit
 
 evrpc_hook_associate_meta_.exit:                  ; preds = %if.then4, %if.then.i
   %ctx.0.i = phi ptr [ %call.i.i, %if.then.i ], [ %3, %if.then4 ]
-  %evcon1.i = getelementptr inbounds i8, ptr %ctx.0.i, i64 16
+  %evcon1.i = getelementptr inbounds nuw i8, ptr %ctx.0.i, i64 16
   store ptr %2, ptr %evcon1.i, align 8
-  %input_buffer = getelementptr inbounds i8, ptr %req, i64 128
+  %input_buffer = getelementptr inbounds nuw i8, ptr %req, i64 128
   %4 = load ptr, ptr %input_buffer, align 8
   br label %for.cond.i
 
@@ -1901,9 +1901,9 @@ for.cond.i:                                       ; preds = %for.body.i, %evrpc_
   br i1 %cmp.not.i, label %if.end10, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %process.i = getelementptr inbounds i8, ptr %hook.0.i, i64 16
+  %process.i = getelementptr inbounds nuw i8, ptr %hook.0.i, i64 16
   %5 = load ptr, ptr %process.i, align 8
-  %process_arg.i = getelementptr inbounds i8, ptr %hook.0.i, i64 24
+  %process_arg.i = getelementptr inbounds nuw i8, ptr %hook.0.i, i64 24
   %6 = load ptr, ptr %process_arg.i, align 8
   %call.i = tail call i32 %5(ptr noundef nonnull %arg, ptr noundef nonnull %req, ptr noundef %4, ptr noundef %6) #11
   switch i32 %call.i, label %if.end10 [
@@ -1918,14 +1918,14 @@ sw.bb8:                                           ; preds = %for.body.i
   br i1 %cmp.i17, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb8
-  %ctx1.i = getelementptr inbounds i8, ptr %call.i16, i64 16
+  %ctx1.i = getelementptr inbounds nuw i8, ptr %call.i16, i64 16
   store ptr %arg, ptr %ctx1.i, align 8
-  %cb2.i = getelementptr inbounds i8, ptr %call.i16, i64 24
+  %cb2.i = getelementptr inbounds nuw i8, ptr %call.i16, i64 24
   store ptr @evrpc_reply_done_closure, ptr %cb2.i, align 8
   store ptr null, ptr %call.i16, align 8
-  %tqh_last.i = getelementptr inbounds i8, ptr %0, i64 40
+  %tqh_last.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %tqh_last.i, align 8
-  %tqe_prev.i = getelementptr inbounds i8, ptr %call.i16, i64 8
+  %tqe_prev.i = getelementptr inbounds nuw i8, ptr %call.i16, i64 8
   store ptr %7, ptr %tqe_prev.i, align 8
   store ptr %call.i16, ptr %7, align 8
   store ptr %call.i16, ptr %tqh_last.i, align 8
@@ -1945,17 +1945,17 @@ define internal void @evrpc_schedule_request_closure(ptr noundef %arg, i32 nound
 entry:
   %status = alloca %struct.evrpc_status, align 8
   %tv = alloca %struct.timeval, align 8
-  %evcon = getelementptr inbounds i8, ptr %arg, i64 32
+  %evcon = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %0 = load ptr, ptr %evcon, align 8
-  %req1 = getelementptr inbounds i8, ptr %arg, i64 40
+  %req1 = getelementptr inbounds nuw i8, ptr %arg, i64 40
   %1 = load ptr, ptr %req1, align 8
-  %pool2 = getelementptr inbounds i8, ptr %arg, i64 24
+  %pool2 = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %2 = load ptr, ptr %pool2, align 8
   %cmp = icmp eq i32 %hook_res, -1
   br i1 %cmp, label %error, label %if.end
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds i8, ptr %arg, i64 168
+  %name = getelementptr inbounds nuw i8, ptr %arg, i64 168
   %3 = load ptr, ptr %name, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
   %add1.i = add i64 %call.i, 7
@@ -1969,23 +1969,23 @@ if.then.i:                                        ; preds = %if.end
 
 evrpc_construct_uri.exit:                         ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %call2.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 6
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 6
   %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %3, i64 %call3.i, i1 false)
   %4 = getelementptr i8, ptr %call2.i, i64 %call.i
   %arrayidx.i = getelementptr i8, ptr %4, i64 6
   store i8 0, ptr %arrayidx.i, align 1
-  %timeout = getelementptr inbounds i8, ptr %2, i64 72
+  %timeout = getelementptr inbounds nuw i8, ptr %2, i64 72
   %5 = load i32, ptr %timeout, align 8
   %cmp6 = icmp sgt i32 %5, 0
   br i1 %cmp6, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %evrpc_construct_uri.exit
-  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
+  %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
   store i64 0, ptr %tv_usec, align 8
   %conv = zext nneg i32 %5 to i64
   store i64 %conv, ptr %tv, align 8
-  %ev_timeout = getelementptr inbounds i8, ptr %arg, i64 48
+  %ev_timeout = getelementptr inbounds nuw i8, ptr %arg, i64 48
   %call10 = call i32 @event_add(ptr noundef nonnull %ev_timeout, ptr noundef nonnull %tv) #11
   br label %if.end11
 
@@ -1998,13 +1998,13 @@ if.end11:                                         ; preds = %if.then7, %evrpc_co
 error:                                            ; preds = %if.end11, %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status, i8 0, i64 16, i1 false)
   store i32 3, ptr %status, align 8
-  %cb = getelementptr inbounds i8, ptr %arg, i64 176
+  %cb = getelementptr inbounds nuw i8, ptr %arg, i64 176
   %6 = load ptr, ptr %cb, align 8
-  %request = getelementptr inbounds i8, ptr %arg, i64 192
+  %request = getelementptr inbounds nuw i8, ptr %arg, i64 192
   %7 = load ptr, ptr %request, align 8
-  %reply = getelementptr inbounds i8, ptr %arg, i64 200
+  %reply = getelementptr inbounds nuw i8, ptr %arg, i64 200
   %8 = load ptr, ptr %reply, align 8
-  %cb_arg = getelementptr inbounds i8, ptr %arg, i64 184
+  %cb_arg = getelementptr inbounds nuw i8, ptr %arg, i64 184
   %9 = load ptr, ptr %cb_arg, align 8
   call void %6(ptr noundef nonnull %status, ptr noundef %7, ptr noundef %8, ptr noundef %9) #11
   call fastcc void @evrpc_request_wrapper_free(ptr noundef nonnull %arg)
@@ -2020,12 +2020,12 @@ declare i32 @event_del(ptr noundef) local_unnamed_addr #1
 define internal void @evrpc_reply_done_closure(ptr noundef %arg, i32 noundef %hook_res) #0 {
 entry:
   %status = alloca %struct.evrpc_status, align 8
-  %req1 = getelementptr inbounds i8, ptr %arg, i64 40
+  %req1 = getelementptr inbounds nuw i8, ptr %arg, i64 40
   %0 = load ptr, ptr %req1, align 8
-  %pool2 = getelementptr inbounds i8, ptr %arg, i64 24
+  %pool2 = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %1 = load ptr, ptr %pool2, align 8
   store i64 0, ptr %status, align 8
-  %http_req = getelementptr inbounds i8, ptr %status, i64 8
+  %http_req = getelementptr inbounds nuw i8, ptr %status, i64 8
   store ptr %0, ptr %http_req, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then13.critedge, label %if.else
@@ -2035,11 +2035,11 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then13.critedge, label %if.else6
 
 if.else6:                                         ; preds = %if.else
-  %reply_unmarshal = getelementptr inbounds i8, ptr %arg, i64 224
+  %reply_unmarshal = getelementptr inbounds nuw i8, ptr %arg, i64 224
   %2 = load ptr, ptr %reply_unmarshal, align 8
-  %reply = getelementptr inbounds i8, ptr %arg, i64 200
+  %reply = getelementptr inbounds nuw i8, ptr %arg, i64 200
   %3 = load ptr, ptr %reply, align 8
-  %input_buffer = getelementptr inbounds i8, ptr %0, i64 128
+  %input_buffer = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %input_buffer, align 8
   %call = tail call i32 %2(ptr noundef %3, ptr noundef %4) #11
   %cmp7 = icmp eq i32 %call, -1
@@ -2048,21 +2048,21 @@ if.else6:                                         ; preds = %if.else
 if.then13.critedge:                               ; preds = %if.else6, %if.else, %entry
   %.sink = phi i32 [ 1, %entry ], [ 4, %if.else ], [ 2, %if.else6 ]
   store i32 %.sink, ptr %status, align 8
-  %reply_clear = getelementptr inbounds i8, ptr %arg, i64 216
+  %reply_clear = getelementptr inbounds nuw i8, ptr %arg, i64 216
   %5 = load ptr, ptr %reply_clear, align 8
-  %reply14 = getelementptr inbounds i8, ptr %arg, i64 200
+  %reply14 = getelementptr inbounds nuw i8, ptr %arg, i64 200
   %6 = load ptr, ptr %reply14, align 8
   tail call void %5(ptr noundef %6) #11
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else6, %if.then13.critedge
-  %cb = getelementptr inbounds i8, ptr %arg, i64 176
+  %cb = getelementptr inbounds nuw i8, ptr %arg, i64 176
   %7 = load ptr, ptr %cb, align 8
-  %request = getelementptr inbounds i8, ptr %arg, i64 192
+  %request = getelementptr inbounds nuw i8, ptr %arg, i64 192
   %8 = load ptr, ptr %request, align 8
-  %reply16 = getelementptr inbounds i8, ptr %arg, i64 200
+  %reply16 = getelementptr inbounds nuw i8, ptr %arg, i64 200
   %9 = load ptr, ptr %reply16, align 8
-  %cb_arg = getelementptr inbounds i8, ptr %arg, i64 184
+  %cb_arg = getelementptr inbounds nuw i8, ptr %arg, i64 184
   %10 = load ptr, ptr %cb_arg, align 8
   call void %7(ptr noundef nonnull %status, ptr noundef %8, ptr noundef %9, ptr noundef %10) #11
   call fastcc void @evrpc_request_wrapper_free(ptr noundef nonnull %arg)
@@ -2078,13 +2078,13 @@ if.then19:                                        ; preds = %land.lhs.true
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then19, %land.lhs.true, %if.end15
-  %requests.i = getelementptr inbounds i8, ptr %1, i64 80
+  %requests.i = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = load ptr, ptr %requests.i, align 8
   %cmp.i = icmp eq ptr %11, null
   br i1 %cmp.i, label %evrpc_pool_schedule.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end20
-  %connections.i.i = getelementptr inbounds i8, ptr %1, i64 56
+  %connections.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.end.i
@@ -2094,26 +2094,26 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %cmp.not.i.i, label %evrpc_pool_schedule.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %requests.i.i = getelementptr inbounds i8, ptr %connection.0.i.i, i64 296
+  %requests.i.i = getelementptr inbounds nuw i8, ptr %connection.0.i.i, i64 296
   %12 = load ptr, ptr %requests.i.i, align 8
   %cmp2.i.i = icmp eq ptr %12, null
   br i1 %cmp2.i.i, label %do.body.i, label %for.cond.i.i, !llvm.loop !19
 
 do.body.i:                                        ; preds = %for.body.i.i
-  %next.i = getelementptr inbounds i8, ptr %11, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %next.i, align 8
   %cmp3.not.i = icmp eq ptr %13, null
-  %tqe_prev11.i = getelementptr inbounds i8, ptr %11, i64 16
+  %tqe_prev11.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load ptr, ptr %tqe_prev11.i, align 8
   br i1 %cmp3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %do.body.i
-  %tqe_prev9.i = getelementptr inbounds i8, ptr %13, i64 16
+  %tqe_prev9.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %14, ptr %tqe_prev9.i, align 8
   br label %if.end13.i
 
 if.else.i:                                        ; preds = %do.body.i
-  %tqh_last.i = getelementptr inbounds i8, ptr %1, i64 88
+  %tqh_last.i = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %14, ptr %tqh_last.i, align 8
   br label %if.end13.i
 

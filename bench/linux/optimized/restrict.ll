@@ -33,13 +33,13 @@ sub_0:                                            ; preds = %1
   br i1 %.not, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
   %.not1 = icmp eq i8 %5, 100
   br i1 %.not1, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 58
   br i1 %8, label %9, label %.tail.thread
@@ -145,7 +145,7 @@ define dso_local i32 @restrict_link_by_signature(ptr nocapture readnone %0, ptr 
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %36, i64 128
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 128
   %42 = load volatile i64, ptr %41, align 8
   %43 = and i64 %42, 64
   %44 = icmp eq i64 %43, 0
@@ -188,7 +188,7 @@ define dso_local noundef range(i32 -126, 1) i32 @restrict_link_by_ca(ptr nocaptu
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %11 = load volatile i64, ptr %10, align 8
   %12 = and i64 %11, 1
   %13 = icmp eq i64 %12, 0
@@ -217,7 +217,7 @@ define dso_local i32 @restrict_link_by_digsig(ptr nocapture noundef readnone %0,
   br i1 %8, label %24, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %11 = load volatile i64, ptr %10, align 8
   %12 = and i64 %11, 2
   %13 = icmp eq i64 %12, 0
@@ -256,7 +256,7 @@ define internal fastcc i32 @key_or_keyring_common(ptr noundef %0, ptr noundef re
   br i1 %6, label %.thread8, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @key_type_keyring
   br i1 %10, label %11, label %.thread8
@@ -297,7 +297,7 @@ define internal fastcc i32 @key_or_keyring_common(ptr noundef %0, ptr noundef re
   br i1 %12, label %32, label %70
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %3, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, @key_type_keyring
   br i1 %35, label %36, label %44

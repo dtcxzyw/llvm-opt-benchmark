@@ -65,21 +65,21 @@ define dso_local void @_Z19TestStreamInterfaced(double noundef %0) local_unnamed
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::JsValue", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7JsValueC1Ed(ptr noundef nonnull align 8 dereferenceable(16) %4, double noundef %0)
-  %.sink27.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink27.sroa.gep28 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sink27.sroa.gep30 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink27.sroa.gep31 = getelementptr inbounds i8, ptr %2, i64 16
-  %.sink27.sroa.gep33 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink27.sroa.gep34 = getelementptr inbounds i8, ptr %2, i64 24
-  %.sink27.sroa.gep36 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sink27.sroa.gep37 = getelementptr inbounds i8, ptr %2, i64 32
+  %.sink27.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink27.sroa.gep28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sink27.sroa.gep30 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink27.sroa.gep31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sink27.sroa.gep33 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink27.sroa.gep34 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sink27.sroa.gep36 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink27.sroa.gep37 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sink27.sroa.gep39 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.sink27.sroa.gep40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
           to label %8 unwind label %97
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__15JsWriteToStreamERKNS_7JsValueERSo(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %10 unwind label %99
 
@@ -158,7 +158,7 @@ define dso_local void @_Z19TestStreamInterfaced(double noundef %0) local_unnamed
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 0, ptr %33, align 4
   %34 = load ptr, ptr %26, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #9
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -184,7 +184,7 @@ define dso_local void @_Z19TestStreamInterfaced(double noundef %0) local_unnamed
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %26, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(16) %26) #9
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 12
@@ -209,7 +209,7 @@ define dso_local void @_Z19TestStreamInterfaced(double noundef %0) local_unnamed
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %56, %32
   %58 = load ptr, ptr %26, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(16) %26) #9
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueD2Ev.exit
@@ -233,7 +233,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7JsValueD2Ev.exit: ; preds = %24, %43, %56,
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 12
   store i32 0, ptr %69, align 4
   %70 = load ptr, ptr %62, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(16) %62) #9
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i14
@@ -259,7 +259,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7JsValueD2Ev.exit: ; preds = %24, %43, %56,
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %62, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(16) %62) #9
   %85 = getelementptr inbounds nuw i8, ptr %62, i64 12
@@ -284,7 +284,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7JsValueD2Ev.exit: ; preds = %24, %43, %56,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i14: ; preds = %92, %68
   %94 = load ptr, ptr %62, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(16) %62) #9
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueD2Ev.exit15
@@ -369,7 +369,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7JsValu
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -395,7 +395,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7JsValu
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -420,7 +420,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7JsValu
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #9
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__7JsValue7_HolderEED2Ev.exit
@@ -441,15 +441,15 @@ define dso_local void @_Z19TestWriterInterfaced(double noundef %0) local_unnamed
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::JsValue", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sink20.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink20.sroa.gep21 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sink20.sroa.gep23 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink20.sroa.gep24 = getelementptr inbounds i8, ptr %2, i64 16
-  %.sink20.sroa.gep26 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink20.sroa.gep27 = getelementptr inbounds i8, ptr %2, i64 24
-  %.sink20.sroa.gep29 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sink20.sroa.gep30 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink20.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink20.sroa.gep21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sink20.sroa.gep23 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink20.sroa.gep24 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sink20.sroa.gep26 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink20.sroa.gep27 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sink20.sroa.gep29 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink20.sroa.gep30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sink20.sroa.gep32 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.sink20.sroa.gep33 = getelementptr inbounds nuw i8, ptr %2, i64 40
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8JsWriterC1ERSoNS0_5StyleE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef 0)
@@ -534,7 +534,7 @@ define dso_local void @_Z19TestWriterInterfaced(double noundef %0) local_unnamed
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 0, ptr %34, align 4
   %35 = load ptr, ptr %27, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -560,7 +560,7 @@ define dso_local void @_Z19TestWriterInterfaced(double noundef %0) local_unnamed
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr %27, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
   %50 = getelementptr inbounds nuw i8, ptr %27, i64 12
@@ -585,7 +585,7 @@ define dso_local void @_Z19TestWriterInterfaced(double noundef %0) local_unnamed
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %57, %33
   %59 = load ptr, ptr %27, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull align 8 dereferenceable(16) %27) #9
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueD2Ev.exit

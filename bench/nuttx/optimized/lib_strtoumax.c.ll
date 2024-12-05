@@ -41,7 +41,7 @@ define i64 @strtoumax(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) 
   %20 = sext i32 %19 to i64
   %21 = add i64 %18, %20
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %23, ptr %4, align 8
   %24 = icmp ult i64 %21, %.1
   br i1 %24, label %25, label %12, !llvm.loop !6

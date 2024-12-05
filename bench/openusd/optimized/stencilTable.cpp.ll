@@ -639,7 +639,7 @@ define weak_odr noundef ptr @_ZNK10OpenSubdiv6v3_6_03Far11StencilRealIfE10GetWei
 define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far11StencilRealIfE4NextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -714,7 +714,7 @@ define weak_odr noundef ptr @_ZNK10OpenSubdiv6v3_6_03Far11StencilRealIdE10GetWei
 define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far11StencilRealIdE4NextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -787,7 +787,7 @@ define weak_odr noundef ptr @_ZNK10OpenSubdiv6v3_6_03Far16LimitStencilRealIfE13G
 define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far16LimitStencilRealIfE4NextEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -915,7 +915,7 @@ define weak_odr noundef ptr @_ZNK10OpenSubdiv6v3_6_03Far16LimitStencilRealIdE13G
 define weak_odr void @_ZN10OpenSubdiv6v3_6_03Far16LimitStencilRealIdE4NextEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1934,7 +1934,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i32, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -2048,7 +2048,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35: ; preds = %_ZNSt6vectorIf
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds float, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds float, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw float, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -2320,10 +2320,10 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
   %.078 = phi i32 [ %34, %.lr.ph ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   store i32 %.078, ptr %30, align 4
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %33, %.078
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2485,7 +2485,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %25, %_ZNSt6vec
   store ptr %22, ptr %4, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 %20
   store ptr %26, ptr %17, align 8
-  %27 = getelementptr inbounds i32, ptr %22, i64 %5
+  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %5
   store ptr %27, ptr %9, align 8
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit
 
@@ -2536,7 +2536,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i6: ; preds = %49, %_ZNSt6ve
   store ptr %46, ptr %28, align 8
   %50 = getelementptr inbounds i8, ptr %46, i64 %44
   store ptr %50, ptr %41, align 8
-  %51 = getelementptr inbounds i32, ptr %46, i64 %29
+  %51 = getelementptr inbounds nuw i32, ptr %46, i64 %29
   store ptr %51, ptr %33, align 8
   br label %52
 
@@ -2578,7 +2578,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i: ; preds = %70, %_ZNSt6vec
   store ptr %67, ptr %53, align 8
   %71 = getelementptr inbounds i8, ptr %67, i64 %65
   store ptr %71, ptr %62, align 8
-  %72 = getelementptr inbounds float, ptr %67, i64 %29
+  %72 = getelementptr inbounds nuw float, ptr %67, i64 %29
   store ptr %72, ptr %54, align 8
   br label %_ZNSt6vectorIfSaIfEE7reserveEm.exit
 
@@ -2771,10 +2771,10 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %25, %23, %21, %19
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ]
   %.078.i = phi i32 [ %34, %.lr.ph.i ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ]
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i
   store i32 %.078.i, ptr %30, align 4
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %33, %.078.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3757,7 +3757,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35: ; preds = %_ZNSt6vectorId
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds double, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds double, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw double, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -4029,10 +4029,10 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
   %.078 = phi i32 [ %34, %.lr.ph ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   store i32 %.078, ptr %30, align 4
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %33, %.078
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4194,7 +4194,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %25, %_ZNSt6vec
   store ptr %22, ptr %4, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 %20
   store ptr %26, ptr %17, align 8
-  %27 = getelementptr inbounds i32, ptr %22, i64 %5
+  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %5
   store ptr %27, ptr %9, align 8
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit
 
@@ -4245,7 +4245,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i6: ; preds = %49, %_ZNSt6ve
   store ptr %46, ptr %28, align 8
   %50 = getelementptr inbounds i8, ptr %46, i64 %44
   store ptr %50, ptr %41, align 8
-  %51 = getelementptr inbounds i32, ptr %46, i64 %29
+  %51 = getelementptr inbounds nuw i32, ptr %46, i64 %29
   store ptr %51, ptr %33, align 8
   br label %52
 
@@ -4287,7 +4287,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %70, %_ZNSt6vec
   store ptr %67, ptr %53, align 8
   %71 = getelementptr inbounds i8, ptr %67, i64 %65
   store ptr %71, ptr %62, align 8
-  %72 = getelementptr inbounds double, ptr %67, i64 %29
+  %72 = getelementptr inbounds nuw double, ptr %67, i64 %29
   store ptr %72, ptr %54, align 8
   br label %_ZNSt6vectorIdSaIdEE7reserveEm.exit
 
@@ -4480,10 +4480,10 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %25, %23, %21, %19
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ]
   %.078.i = phi i32 [ %34, %.lr.ph.i ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i ]
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i
   store i32 %.078.i, ptr %30, align 4
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %33, %.078.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

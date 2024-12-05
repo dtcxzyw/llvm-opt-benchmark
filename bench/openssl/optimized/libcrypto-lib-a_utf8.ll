@@ -29,7 +29,7 @@ if.then11:                                        ; preds = %if.else
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then11
-  %arrayidx = getelementptr inbounds i8, ptr %str, i64 1
+  %arrayidx = getelementptr inbounds nuw i8, ptr %str, i64 1
   %1 = load i8, ptr %arrayidx, align 1
   %conv16 = zext i8 %1 to i32
   %and17 = and i32 %conv16, 192
@@ -58,7 +58,7 @@ if.then39:                                        ; preds = %if.else34
   br i1 %cmp40, label %return, label %if.end43
 
 if.end43:                                         ; preds = %if.then39
-  %arrayidx44 = getelementptr inbounds i8, ptr %str, i64 1
+  %arrayidx44 = getelementptr inbounds nuw i8, ptr %str, i64 1
   %2 = load i8, ptr %arrayidx44, align 1
   %conv45 = zext i8 %2 to i32
   %and46 = and i32 %conv45, 192
@@ -66,7 +66,7 @@ if.end43:                                         ; preds = %if.then39
   br i1 %cmp47.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end43
-  %arrayidx49 = getelementptr inbounds i8, ptr %str, i64 2
+  %arrayidx49 = getelementptr inbounds nuw i8, ptr %str, i64 2
   %3 = load i8, ptr %arrayidx49, align 1
   %cmp52.not = icmp slt i8 %3, -64
   br i1 %cmp52.not, label %if.end55, label %return
@@ -99,7 +99,7 @@ if.then83:                                        ; preds = %if.else78
   br i1 %cmp84, label %return, label %if.end87
 
 if.end87:                                         ; preds = %if.then83
-  %arrayidx88 = getelementptr inbounds i8, ptr %str, i64 1
+  %arrayidx88 = getelementptr inbounds nuw i8, ptr %str, i64 1
   %8 = load i8, ptr %arrayidx88, align 1
   %conv89 = zext i8 %8 to i32
   %and90 = and i32 %conv89, 192
@@ -107,13 +107,13 @@ if.end87:                                         ; preds = %if.then83
   br i1 %cmp91.not, label %lor.lhs.false93, label %return
 
 lor.lhs.false93:                                  ; preds = %if.end87
-  %arrayidx94 = getelementptr inbounds i8, ptr %str, i64 2
+  %arrayidx94 = getelementptr inbounds nuw i8, ptr %str, i64 2
   %9 = load i8, ptr %arrayidx94, align 1
   %cmp97.not = icmp slt i8 %9, -64
   br i1 %cmp97.not, label %lor.lhs.false99, label %return
 
 lor.lhs.false99:                                  ; preds = %lor.lhs.false93
-  %arrayidx100 = getelementptr inbounds i8, ptr %str, i64 3
+  %arrayidx100 = getelementptr inbounds nuw i8, ptr %str, i64 3
   %10 = load i8, ptr %arrayidx100, align 1
   %cmp103.not = icmp slt i8 %10, -64
   br i1 %cmp103.not, label %if.end106, label %return
@@ -187,7 +187,7 @@ if.then17:                                        ; preds = %if.then11
   %shr = lshr i64 %value, 6
   %0 = trunc nuw i64 %shr to i8
   %conv18 = or disjoint i8 %0, -64
-  %incdec.ptr = getelementptr inbounds i8, ptr %str, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %str, i64 1
   store i8 %conv18, ptr %str, align 1
   %1 = trunc i64 %value to i8
   %2 = and i8 %1, 63
@@ -214,13 +214,13 @@ if.then35:                                        ; preds = %if.end29
   %shr36 = lshr i64 %value, 12
   %4 = trunc nuw i64 %shr36 to i8
   %conv39 = or disjoint i8 %4, -32
-  %incdec.ptr40 = getelementptr inbounds i8, ptr %str, i64 1
+  %incdec.ptr40 = getelementptr inbounds nuw i8, ptr %str, i64 1
   store i8 %conv39, ptr %str, align 1
   %shr41 = lshr i64 %value, 6
   %5 = trunc i64 %shr41 to i8
   %6 = and i8 %5, 63
   %conv44 = or disjoint i8 %6, -128
-  %incdec.ptr45 = getelementptr inbounds i8, ptr %str, i64 2
+  %incdec.ptr45 = getelementptr inbounds nuw i8, ptr %str, i64 2
   store i8 %conv44, ptr %incdec.ptr40, align 1
   %7 = trunc i64 %value to i8
   %8 = and i8 %7, 63
@@ -242,19 +242,19 @@ if.then59:                                        ; preds = %if.then53
   %shr60 = lshr i64 %value, 18
   %9 = trunc nuw i64 %shr60 to i8
   %conv63 = or disjoint i8 %9, -16
-  %incdec.ptr64 = getelementptr inbounds i8, ptr %str, i64 1
+  %incdec.ptr64 = getelementptr inbounds nuw i8, ptr %str, i64 1
   store i8 %conv63, ptr %str, align 1
   %shr65 = lshr i64 %value, 12
   %10 = trunc i64 %shr65 to i8
   %11 = and i8 %10, 63
   %conv68 = or disjoint i8 %11, -128
-  %incdec.ptr69 = getelementptr inbounds i8, ptr %str, i64 2
+  %incdec.ptr69 = getelementptr inbounds nuw i8, ptr %str, i64 2
   store i8 %conv68, ptr %incdec.ptr64, align 1
   %shr70 = lshr i64 %value, 6
   %12 = trunc i64 %shr70 to i8
   %13 = and i8 %12, 63
   %conv73 = or disjoint i8 %13, -128
-  %incdec.ptr74 = getelementptr inbounds i8, ptr %str, i64 3
+  %incdec.ptr74 = getelementptr inbounds nuw i8, ptr %str, i64 3
   store i8 %conv73, ptr %incdec.ptr69, align 1
   %14 = trunc i64 %value to i8
   %15 = and i8 %14, 63

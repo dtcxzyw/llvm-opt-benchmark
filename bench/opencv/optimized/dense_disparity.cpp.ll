@@ -115,9 +115,9 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #6
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #6
-  %38 = getelementptr inbounds i8, ptr %2, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %39, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %42 to i64
@@ -132,7 +132,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #6
   %44 = load ptr, ptr %9, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %47 = load ptr, ptr %46, align 8
   invoke void %47(ptr noundef nonnull align 8 dereferenceable(68) %44, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %1)
           to label %48 unwind label %135
@@ -141,7 +141,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #6
   %49 = load ptr, ptr %9, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %52 = load ptr, ptr %51, align 8
   invoke void %52(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %12, ptr noundef nonnull align 8 dereferenceable(68) %49)
           to label %53 unwind label %137
@@ -168,12 +168,12 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
           to label %58 unwind label %146
 
 58:                                               ; preds = %57
-  %59 = getelementptr inbounds i8, ptr %17, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %17, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 0, ptr %60, align 4
   store i32 16842752, ptr %17, align 8
-  %61 = getelementptr inbounds i8, ptr %17, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %11, ptr %61, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %62 unwind label %148
@@ -208,12 +208,12 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
           to label %67 unwind label %161
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %24, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %24, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i32 0, ptr %69, align 4
   store i32 16842752, ptr %24, align 8
-  %70 = getelementptr inbounds i8, ptr %24, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %2, ptr %70, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %24)
           to label %71 unwind label %163
@@ -226,12 +226,12 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
           to label %72 unwind label %166
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %27, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 0, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %27, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i32 0, ptr %74, align 4
   store i32 16842752, ptr %27, align 8
-  %75 = getelementptr inbounds i8, ptr %27, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %1, ptr %75, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(24) %27)
           to label %76 unwind label %168
@@ -242,7 +242,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %77 = load ptr, ptr %9, align 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
   %80 = load ptr, ptr %79, align 8
   invoke void %80(ptr noundef nonnull align 8 dereferenceable(68) %77, ptr noundef nonnull align 8 dereferenceable(24) %28)
           to label %81 unwind label %171
@@ -252,7 +252,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
           to label %.preheader unwind label %171
 
 .preheader:                                       ; preds = %81
-  %82 = getelementptr inbounds i8, ptr %28, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %83, %84
@@ -262,7 +262,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   %85 = phi ptr [ %111, %107 ], [ %84, %.preheader ]
   %86 = phi i64 [ %109, %107 ], [ 0, %.preheader ]
   %.063 = phi i32 [ %108, %107 ], [ 0, %.preheader ]
-  %87 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %85, i64 %86
   %88 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.6)
           to label %.noexc unwind label %.loopexit
 
@@ -276,7 +276,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
           to label %.noexc52 unwind label %.loopexit
 
 .noexc52:                                         ; preds = %.noexc51
-  %92 = getelementptr inbounds i8, ptr %87, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %91, i32 noundef %93)
           to label %.noexc53 unwind label %.loopexit
@@ -287,7 +287,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 
 _ZN2cvlsIiEERSoS1_RKNS_6Point_IT_EE.exit:         ; preds = %.noexc53
   %96 = load ptr, ptr %28, align 8
-  %97 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %96, i64 %86, i32 1
+  %97 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %96, i64 %86, i32 1
   %98 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.6)
           to label %.noexc55 unwind label %.loopexit
 
@@ -301,7 +301,7 @@ _ZN2cvlsIiEERSoS1_RKNS_6Point_IT_EE.exit:         ; preds = %.noexc53
           to label %.noexc57 unwind label %.loopexit
 
 .noexc57:                                         ; preds = %.noexc56
-  %102 = getelementptr inbounds i8, ptr %97, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %101, i32 noundef %103)
           to label %.noexc58 unwind label %.loopexit
@@ -536,13 +536,13 @@ _ZN2cvlsIiEERSoS1_RKNS_6Point_IT_EE.exit60:       ; preds = %.noexc58
 
 _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EED2Ev.exit: ; preds = %176, %178
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #6
-  %179 = getelementptr inbounds i8, ptr %9, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %180 = load ptr, ptr %179, align 8
   %.not.i.i.i.i = icmp eq ptr %180, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_6stereo16QuasiDenseStereoEED2Ev.exit, label %181
 
 181:                                              ; preds = %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EED2Ev.exit
-  %182 = getelementptr inbounds i8, ptr %180, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %183 = load atomic i64, ptr %182 acquire, align 8
   %184 = icmp eq i64 %183, 4294967297
   %185 = trunc i64 %183 to i32
@@ -550,10 +550,10 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EED2Ev.exit: ; preds = %176, %17
 
 186:                                              ; preds = %181
   store i32 0, ptr %182, align 8
-  %187 = getelementptr inbounds i8, ptr %180, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %180, i64 12
   store i32 0, ptr %187, align 4
   %188 = load ptr, ptr %180, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %190 = load ptr, ptr %189, align 8
   call void %190(ptr noundef nonnull align 8 dereferenceable(16) %180) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -579,10 +579,10 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EED2Ev.exit: ; preds = %176, %17
 
 199:                                              ; preds = %197
   %200 = load ptr, ptr %180, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %202 = load ptr, ptr %201, align 8
   call void %202(ptr noundef nonnull align 8 dereferenceable(16) %180) #6
-  %203 = getelementptr inbounds i8, ptr %180, i64 12
+  %203 = getelementptr inbounds nuw i8, ptr %180, i64 12
   %204 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %204, 0
   br i1 %.not.i.i.i.i.i.i.i, label %208, label %205
@@ -604,7 +604,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EED2Ev.exit: ; preds = %176, %17
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %210, %186
   %212 = load ptr, ptr %180, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 24
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %214 = load ptr, ptr %213, align 8
   call void %214(ptr noundef nonnull align 8 dereferenceable(16) %180) #6
   br label %_ZN2cv3PtrINS_6stereo16QuasiDenseStereoEED2Ev.exit
@@ -688,13 +688,13 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3PtrINS_6stereo16QuasiDenseStereoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv6stereo16QuasiDenseStereoEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -702,10 +702,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6stereo16QuasiDenseStereoEED2Ev(p
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -731,10 +731,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6stereo16QuasiDenseStereoEED2Ev(p
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i, label %31, label %28
@@ -756,7 +756,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_6stereo16QuasiDenseStereoEED2Ev(p
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt10shared_ptrIN2cv6stereo16QuasiDenseStereoEED2Ev.exit

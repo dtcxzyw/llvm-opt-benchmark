@@ -35,34 +35,34 @@ define dso_local void @_ZN3ozz9animation8SkeletonC2Ev(ptr nocapture noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3ozz9animation8SkeletonC2EOS1_(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %.sroa.0.0.copyload.i4.i = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i6.i = load i64, ptr %.sroa.2.0..sroa_idx.i5.i, align 8
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %.sroa.2.0..sroa_idx.i5.i, align 8
   store ptr %.sroa.0.0.copyload.i4.i, ptr %8, align 8
   store i64 %.sroa.2.0.copyload.i6.i, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i7.i = load ptr, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i9.i = load i64, ptr %.sroa.2.0..sroa_idx.i8.i, align 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %.sroa.2.0..sroa_idx.i8.i, align 8
   store ptr %.sroa.0.0.copyload.i7.i, ptr %12, align 8
@@ -73,35 +73,35 @@ define dso_local void @_ZN3ozz9animation8SkeletonC2EOS1_(ptr nocapture noundef n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN3ozz9animation8SkeletonaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #4 align 2 {
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr %.sroa.0.0.copyload.i, ptr %1, align 8
   store i64 %.sroa.2.0.copyload.i, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i4 = load ptr, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i5 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i6 = load i64, ptr %.sroa.2.0..sroa_idx.i5, align 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %.sroa.2.0..sroa_idx.i5, align 8
   store ptr %.sroa.0.0.copyload.i4, ptr %7, align 8
   store i64 %.sroa.2.0.copyload.i6, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i7 = load ptr, ptr %11, align 8
-  %.sroa.2.0..sroa_idx.i8 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.2.0.copyload.i9 = load i64, ptr %.sroa.2.0..sroa_idx.i8, align 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %.sroa.2.0..sroa_idx.i8, align 8
   store ptr %.sroa.0.0.copyload.i7, ptr %12, align 8
@@ -117,7 +117,7 @@ define dso_local void @_ZN3ozz9animation8SkeletonD2Ev(ptr nocapture noundef nonn
 .noexc:                                           ; preds = %1
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
           to label %7 unwind label %8
@@ -139,7 +139,7 @@ define dso_local void @_ZN3ozz9animation8Skeleton10DeallocateEv(ptr nocapture no
   %2 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
@@ -176,22 +176,22 @@ define dso_local noundef ptr @_ZN3ozz9animation8Skeleton8AllocateEmm(ptr nocaptu
   %13 = add i64 %12, %8
   %14 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %13, i64 noundef 16)
   %19 = getelementptr inbounds i8, ptr %18, i64 %8
   store ptr %18, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %7, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 %9
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %19, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %2, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 %10
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %21, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %2, ptr %26, align 8
   br label %27
 
@@ -208,11 +208,11 @@ define dso_local void @_ZNK3ozz9animation8Skeleton4SaveERNS_2io8OArchiveE(ptr no
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   %.sroa.0.0.insert.insert.i = tail call i32 @llvm.bswap.i32(i32 %9)
@@ -220,7 +220,7 @@ define dso_local void @_ZNK3ozz9animation8Skeleton4SaveERNS_2io8OArchiveE(ptr no
   store i32 %13, ptr %6, align 4
   %14 = load ptr, ptr %1, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %6, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -232,7 +232,7 @@ define dso_local void @_ZNK3ozz9animation8Skeleton4SaveERNS_2io8OArchiveE(ptr no
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %wide.trip.count = and i64 %8, 2147483647
   br label %22
@@ -240,7 +240,7 @@ define dso_local void @_ZNK3ozz9animation8Skeleton4SaveERNS_2io8OArchiveE(ptr no
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %.050 = phi i64 [ 0, %.lr.ph ], [ %27, %22 ]
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #16
   %26 = add i64 %.050, 1
@@ -260,11 +260,11 @@ define dso_local void @_ZNK3ozz9animation8Skeleton4SaveERNS_2io8OArchiveE(ptr no
   store i32 %31, ptr %5, align 4
   %32 = load ptr, ptr %1, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull %5, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
   %40 = load i8, ptr %10, align 8
@@ -283,7 +283,7 @@ define dso_local void @_ZNK3ozz9animation8Skeleton4SaveERNS_2io8OArchiveE(ptr no
   store i8 %43, ptr %4, align 1
   %44 = load ptr, ptr %1, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
@@ -294,13 +294,13 @@ define dso_local void @_ZNK3ozz9animation8Skeleton4SaveERNS_2io8OArchiveE(ptr no
 50:                                               ; preds = %._crit_edge
   %51 = load ptr, ptr %1, align 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = call noundef i64 %54(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %39, i64 noundef %.0.lcssa)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit: ; preds = %.lr.ph.i.i, %.preheader.i.i, %50
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.01.0.copyload = load ptr, ptr %56, align 8
   %.sroa.22.0.copyload = load i64, ptr %7, align 8
   %57 = load i8, ptr %10, align 8
@@ -323,7 +323,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   store i16 %63, ptr %3, align 2
   %64 = load ptr, ptr %1, align 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef i64 %67(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull %3, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
@@ -335,14 +335,14 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %71 = shl i64 %.sroa.22.0.copyload, 1
   %72 = load ptr, ptr %1, align 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = call noundef i64 %75(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef %.sroa.01.0.copyload, i64 noundef %71)
   br label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIsEEEEvRKT_.exit
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIsEEEEvRKT_.exit: ; preds = %.lr.ph.i.i33, %.preheader.i.i31, %70
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZN3ozz2io6ExternINS_4math12SoaTransformEE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload)
   br label %77
@@ -362,7 +362,7 @@ define dso_local void @_ZN3ozz9animation8Skeleton4LoadERNS_2io8IArchiveEj(ptr no
   %7 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
@@ -401,10 +401,10 @@ _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit:         ; preds = %12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %24 = load ptr, ptr %1, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %5, i64 noundef 4)
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   %32 = load i32, ptr %5, align 4
@@ -418,7 +418,7 @@ _ZN3ozz9animation8Skeleton8AllocateEmm.exit:      ; preds = %23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %34 = load ptr, ptr %1, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull %4, i64 noundef 4)
   %39 = load i8, ptr %29, align 8
@@ -439,26 +439,26 @@ _ZN3ozz9animation8Skeleton8AllocateEmm.exit:      ; preds = %23
   %52 = add i64 %51, %43
   %53 = call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = call noundef ptr %56(ptr noundef nonnull align 8 dereferenceable(8) %53, i64 noundef %52, i64 noundef 16)
   %58 = getelementptr inbounds i8, ptr %57, i64 %47
   store ptr %57, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %46, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %58, i64 %48
-  %61 = getelementptr inbounds i8, ptr %0, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %58, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %44, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %60, i64 %49
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %60, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %44, ptr %65, align 8
   %66 = load ptr, ptr %1, align 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = call noundef i64 %69(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull %63, i64 noundef %43)
   %71 = icmp sgt i32 %33, 0
@@ -472,11 +472,11 @@ _ZN3ozz9animation8Skeleton8AllocateEmm.exit:      ; preds = %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %.050 = phi ptr [ %63, %.lr.ph ], [ %77, %72 ]
   %73 = load ptr, ptr %61, align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
   store ptr %.050, ptr %74, align 8
   %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.050) #16
-  %76 = add i64 %75, 1
-  %77 = getelementptr inbounds i8, ptr %.050, i64 %76
+  %76 = getelementptr i8, ptr %.050, i64 %75
+  %77 = getelementptr i8, ptr %76, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %72, !llvm.loop !9
@@ -487,7 +487,7 @@ _ZN3ozz9animation8Skeleton8AllocateEmm.exit:      ; preds = %23
   %78 = shl i64 %.sroa.22.0.copyload, 1
   %79 = load ptr, ptr %1, align 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef %.sroa.01.0.copyload, i64 noundef %78)
   %84 = load i8, ptr %29, align 8

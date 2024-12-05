@@ -30,7 +30,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define noundef zeroext i1 @_ZN9grpc_core16TracedBufferList12TracedBuffer8FinishedE12gpr_timespec(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1240) %this, i64 %ts.coerce0, i64 %ts.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp3.sroa.0.0.copyload = load i64, ptr %this, align 8
-  %agg.tmp3.sroa.2.0.last_timestamp_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp3.sroa.2.0.last_timestamp_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp3.sroa.2.0.copyload = load i64, ptr %agg.tmp3.sroa.2.0.last_timestamp_.sroa_idx, align 8
   %call = tail call { i64, i64 } @gpr_time_sub(i64 %ts.coerce0, i64 %ts.coerce1, i64 %agg.tmp3.sroa.0.0.copyload, i64 %agg.tmp3.sroa.2.0.copyload)
   %0 = extractvalue { i64, i64 } %call, 0
@@ -51,224 +51,224 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN9grpc_core16TracedBufferList11AddNewEntryEiiPv(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %seq_no, i32 noundef %fd, ptr noundef %arg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1240) ptr @_Znwm(i64 noundef 1240) #15
-  %next_.i = getelementptr inbounds i8, ptr %call, i64 16
+  %next_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %next_.i, align 8
-  %seq_no_.i = getelementptr inbounds i8, ptr %call, i64 24
+  %seq_no_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 %seq_no, ptr %seq_no_.i, align 8
-  %arg_.i = getelementptr inbounds i8, ptr %call, i64 32
+  %arg_.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %arg, ptr %arg_.i, align 8
-  %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 64
+  %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8
-  %_M_engaged.i.i.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 73
+  %_M_engaged.i.i.i.i1.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 73
   store i8 0, ptr %_M_engaged.i.i.i.i1.i.i.i.i, align 1
-  %_M_engaged.i.i.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
+  %_M_engaged.i.i.i.i2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   store i8 0, ptr %_M_engaged.i.i.i.i2.i.i.i.i, align 4
-  %_M_engaged.i.i.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 88
+  %_M_engaged.i.i.i.i3.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store i8 0, ptr %_M_engaged.i.i.i.i3.i.i.i.i, align 4
-  %_M_engaged.i.i.i.i4.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 96
+  %_M_engaged.i.i.i.i4.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 96
   store i8 0, ptr %_M_engaged.i.i.i.i4.i.i.i.i, align 4
-  %_M_engaged.i.i.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 104
+  %_M_engaged.i.i.i.i5.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   store i8 0, ptr %_M_engaged.i.i.i.i5.i.i.i.i, align 4
-  %_M_engaged.i.i.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 112
+  %_M_engaged.i.i.i.i6.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 112
   store i8 0, ptr %_M_engaged.i.i.i.i6.i.i.i.i, align 4
-  %_M_engaged.i.i.i.i7.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 128
+  %_M_engaged.i.i.i.i7.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 128
   store i8 0, ptr %_M_engaged.i.i.i.i7.i.i.i.i, align 8
-  %_M_engaged.i.i.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 144
+  %_M_engaged.i.i.i.i8.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 144
   store i8 0, ptr %_M_engaged.i.i.i.i8.i.i.i.i, align 8
-  %_M_engaged.i.i.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 160
+  %_M_engaged.i.i.i.i9.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 160
   store i8 0, ptr %_M_engaged.i.i.i.i9.i.i.i.i, align 8
-  %_M_engaged.i.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 176
+  %_M_engaged.i.i.i.i10.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 176
   store i8 0, ptr %_M_engaged.i.i.i.i10.i.i.i.i, align 8
-  %_M_engaged.i.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 188
+  %_M_engaged.i.i.i.i11.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 188
   store i8 0, ptr %_M_engaged.i.i.i.i11.i.i.i.i, align 4
-  %_M_engaged.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 196
+  %_M_engaged.i.i.i.i12.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 196
   store i8 0, ptr %_M_engaged.i.i.i.i12.i.i.i.i, align 4
-  %_M_engaged.i.i.i.i13.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 204
+  %_M_engaged.i.i.i.i13.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 204
   store i8 0, ptr %_M_engaged.i.i.i.i13.i.i.i.i, align 4
-  %_M_engaged.i.i.i.i14.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 212
+  %_M_engaged.i.i.i.i14.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 212
   store i8 0, ptr %_M_engaged.i.i.i.i14.i.i.i.i, align 4
-  %_M_engaged.i.i.i.i15.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 220
+  %_M_engaged.i.i.i.i15.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 220
   store i8 0, ptr %_M_engaged.i.i.i.i15.i.i.i.i, align 4
-  %_M_engaged.i.i.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 225
+  %_M_engaged.i.i.i.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 225
   store i8 0, ptr %_M_engaged.i.i.i.i16.i.i.i.i, align 1
-  %_M_engaged.i.i.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 240
+  %_M_engaged.i.i.i.i17.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 240
   store i8 0, ptr %_M_engaged.i.i.i.i17.i.i.i.i, align 8
-  %_M_engaged.i.i.i.i18.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 256
+  %_M_engaged.i.i.i.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 256
   store i8 0, ptr %_M_engaged.i.i.i.i18.i.i.i.i, align 8
-  %_M_engaged.i.i.i.i19.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 272
+  %_M_engaged.i.i.i.i19.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 272
   store i8 0, ptr %_M_engaged.i.i.i.i19.i.i.i.i, align 8
-  %_M_engaged.i.i.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %call, i64 304
+  %_M_engaged.i.i.i.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %call, i64 304
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i1.i.i, align 8
-  %_M_engaged.i.i.i.i1.i.i2.i.i = getelementptr inbounds i8, ptr %call, i64 313
+  %_M_engaged.i.i.i.i1.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call, i64 313
   store i8 0, ptr %_M_engaged.i.i.i.i1.i.i2.i.i, align 1
-  %_M_engaged.i.i.i.i2.i.i3.i.i = getelementptr inbounds i8, ptr %call, i64 320
+  %_M_engaged.i.i.i.i2.i.i3.i.i = getelementptr inbounds nuw i8, ptr %call, i64 320
   store i8 0, ptr %_M_engaged.i.i.i.i2.i.i3.i.i, align 4
-  %_M_engaged.i.i.i.i3.i.i4.i.i = getelementptr inbounds i8, ptr %call, i64 328
+  %_M_engaged.i.i.i.i3.i.i4.i.i = getelementptr inbounds nuw i8, ptr %call, i64 328
   store i8 0, ptr %_M_engaged.i.i.i.i3.i.i4.i.i, align 4
-  %_M_engaged.i.i.i.i4.i.i5.i.i = getelementptr inbounds i8, ptr %call, i64 336
+  %_M_engaged.i.i.i.i4.i.i5.i.i = getelementptr inbounds nuw i8, ptr %call, i64 336
   store i8 0, ptr %_M_engaged.i.i.i.i4.i.i5.i.i, align 4
-  %_M_engaged.i.i.i.i5.i.i6.i.i = getelementptr inbounds i8, ptr %call, i64 344
+  %_M_engaged.i.i.i.i5.i.i6.i.i = getelementptr inbounds nuw i8, ptr %call, i64 344
   store i8 0, ptr %_M_engaged.i.i.i.i5.i.i6.i.i, align 4
-  %_M_engaged.i.i.i.i6.i.i7.i.i = getelementptr inbounds i8, ptr %call, i64 352
+  %_M_engaged.i.i.i.i6.i.i7.i.i = getelementptr inbounds nuw i8, ptr %call, i64 352
   store i8 0, ptr %_M_engaged.i.i.i.i6.i.i7.i.i, align 4
-  %_M_engaged.i.i.i.i7.i.i8.i.i = getelementptr inbounds i8, ptr %call, i64 368
+  %_M_engaged.i.i.i.i7.i.i8.i.i = getelementptr inbounds nuw i8, ptr %call, i64 368
   store i8 0, ptr %_M_engaged.i.i.i.i7.i.i8.i.i, align 8
-  %_M_engaged.i.i.i.i8.i.i9.i.i = getelementptr inbounds i8, ptr %call, i64 384
+  %_M_engaged.i.i.i.i8.i.i9.i.i = getelementptr inbounds nuw i8, ptr %call, i64 384
   store i8 0, ptr %_M_engaged.i.i.i.i8.i.i9.i.i, align 8
-  %_M_engaged.i.i.i.i9.i.i10.i.i = getelementptr inbounds i8, ptr %call, i64 400
+  %_M_engaged.i.i.i.i9.i.i10.i.i = getelementptr inbounds nuw i8, ptr %call, i64 400
   store i8 0, ptr %_M_engaged.i.i.i.i9.i.i10.i.i, align 8
-  %_M_engaged.i.i.i.i10.i.i11.i.i = getelementptr inbounds i8, ptr %call, i64 416
+  %_M_engaged.i.i.i.i10.i.i11.i.i = getelementptr inbounds nuw i8, ptr %call, i64 416
   store i8 0, ptr %_M_engaged.i.i.i.i10.i.i11.i.i, align 8
-  %_M_engaged.i.i.i.i11.i.i12.i.i = getelementptr inbounds i8, ptr %call, i64 428
+  %_M_engaged.i.i.i.i11.i.i12.i.i = getelementptr inbounds nuw i8, ptr %call, i64 428
   store i8 0, ptr %_M_engaged.i.i.i.i11.i.i12.i.i, align 4
-  %_M_engaged.i.i.i.i12.i.i13.i.i = getelementptr inbounds i8, ptr %call, i64 436
+  %_M_engaged.i.i.i.i12.i.i13.i.i = getelementptr inbounds nuw i8, ptr %call, i64 436
   store i8 0, ptr %_M_engaged.i.i.i.i12.i.i13.i.i, align 4
-  %_M_engaged.i.i.i.i13.i.i14.i.i = getelementptr inbounds i8, ptr %call, i64 444
+  %_M_engaged.i.i.i.i13.i.i14.i.i = getelementptr inbounds nuw i8, ptr %call, i64 444
   store i8 0, ptr %_M_engaged.i.i.i.i13.i.i14.i.i, align 4
-  %_M_engaged.i.i.i.i14.i.i15.i.i = getelementptr inbounds i8, ptr %call, i64 452
+  %_M_engaged.i.i.i.i14.i.i15.i.i = getelementptr inbounds nuw i8, ptr %call, i64 452
   store i8 0, ptr %_M_engaged.i.i.i.i14.i.i15.i.i, align 4
-  %_M_engaged.i.i.i.i15.i.i16.i.i = getelementptr inbounds i8, ptr %call, i64 460
+  %_M_engaged.i.i.i.i15.i.i16.i.i = getelementptr inbounds nuw i8, ptr %call, i64 460
   store i8 0, ptr %_M_engaged.i.i.i.i15.i.i16.i.i, align 4
-  %_M_engaged.i.i.i.i16.i.i17.i.i = getelementptr inbounds i8, ptr %call, i64 465
+  %_M_engaged.i.i.i.i16.i.i17.i.i = getelementptr inbounds nuw i8, ptr %call, i64 465
   store i8 0, ptr %_M_engaged.i.i.i.i16.i.i17.i.i, align 1
-  %_M_engaged.i.i.i.i17.i.i18.i.i = getelementptr inbounds i8, ptr %call, i64 480
+  %_M_engaged.i.i.i.i17.i.i18.i.i = getelementptr inbounds nuw i8, ptr %call, i64 480
   store i8 0, ptr %_M_engaged.i.i.i.i17.i.i18.i.i, align 8
-  %_M_engaged.i.i.i.i18.i.i19.i.i = getelementptr inbounds i8, ptr %call, i64 496
+  %_M_engaged.i.i.i.i18.i.i19.i.i = getelementptr inbounds nuw i8, ptr %call, i64 496
   store i8 0, ptr %_M_engaged.i.i.i.i18.i.i19.i.i, align 8
-  %_M_engaged.i.i.i.i19.i.i20.i.i = getelementptr inbounds i8, ptr %call, i64 512
+  %_M_engaged.i.i.i.i19.i.i20.i.i = getelementptr inbounds nuw i8, ptr %call, i64 512
   store i8 0, ptr %_M_engaged.i.i.i.i19.i.i20.i.i, align 8
-  %_M_engaged.i.i.i.i.i.i21.i.i = getelementptr inbounds i8, ptr %call, i64 544
+  %_M_engaged.i.i.i.i.i.i21.i.i = getelementptr inbounds nuw i8, ptr %call, i64 544
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i21.i.i, align 8
-  %_M_engaged.i.i.i.i1.i.i22.i.i = getelementptr inbounds i8, ptr %call, i64 553
+  %_M_engaged.i.i.i.i1.i.i22.i.i = getelementptr inbounds nuw i8, ptr %call, i64 553
   store i8 0, ptr %_M_engaged.i.i.i.i1.i.i22.i.i, align 1
-  %_M_engaged.i.i.i.i2.i.i23.i.i = getelementptr inbounds i8, ptr %call, i64 560
+  %_M_engaged.i.i.i.i2.i.i23.i.i = getelementptr inbounds nuw i8, ptr %call, i64 560
   store i8 0, ptr %_M_engaged.i.i.i.i2.i.i23.i.i, align 4
-  %_M_engaged.i.i.i.i3.i.i24.i.i = getelementptr inbounds i8, ptr %call, i64 568
+  %_M_engaged.i.i.i.i3.i.i24.i.i = getelementptr inbounds nuw i8, ptr %call, i64 568
   store i8 0, ptr %_M_engaged.i.i.i.i3.i.i24.i.i, align 4
-  %_M_engaged.i.i.i.i4.i.i25.i.i = getelementptr inbounds i8, ptr %call, i64 576
+  %_M_engaged.i.i.i.i4.i.i25.i.i = getelementptr inbounds nuw i8, ptr %call, i64 576
   store i8 0, ptr %_M_engaged.i.i.i.i4.i.i25.i.i, align 4
-  %_M_engaged.i.i.i.i5.i.i26.i.i = getelementptr inbounds i8, ptr %call, i64 584
+  %_M_engaged.i.i.i.i5.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call, i64 584
   store i8 0, ptr %_M_engaged.i.i.i.i5.i.i26.i.i, align 4
-  %_M_engaged.i.i.i.i6.i.i27.i.i = getelementptr inbounds i8, ptr %call, i64 592
+  %_M_engaged.i.i.i.i6.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call, i64 592
   store i8 0, ptr %_M_engaged.i.i.i.i6.i.i27.i.i, align 4
-  %_M_engaged.i.i.i.i7.i.i28.i.i = getelementptr inbounds i8, ptr %call, i64 608
+  %_M_engaged.i.i.i.i7.i.i28.i.i = getelementptr inbounds nuw i8, ptr %call, i64 608
   store i8 0, ptr %_M_engaged.i.i.i.i7.i.i28.i.i, align 8
-  %_M_engaged.i.i.i.i8.i.i29.i.i = getelementptr inbounds i8, ptr %call, i64 624
+  %_M_engaged.i.i.i.i8.i.i29.i.i = getelementptr inbounds nuw i8, ptr %call, i64 624
   store i8 0, ptr %_M_engaged.i.i.i.i8.i.i29.i.i, align 8
-  %_M_engaged.i.i.i.i9.i.i30.i.i = getelementptr inbounds i8, ptr %call, i64 640
+  %_M_engaged.i.i.i.i9.i.i30.i.i = getelementptr inbounds nuw i8, ptr %call, i64 640
   store i8 0, ptr %_M_engaged.i.i.i.i9.i.i30.i.i, align 8
-  %_M_engaged.i.i.i.i10.i.i31.i.i = getelementptr inbounds i8, ptr %call, i64 656
+  %_M_engaged.i.i.i.i10.i.i31.i.i = getelementptr inbounds nuw i8, ptr %call, i64 656
   store i8 0, ptr %_M_engaged.i.i.i.i10.i.i31.i.i, align 8
-  %_M_engaged.i.i.i.i11.i.i32.i.i = getelementptr inbounds i8, ptr %call, i64 668
+  %_M_engaged.i.i.i.i11.i.i32.i.i = getelementptr inbounds nuw i8, ptr %call, i64 668
   store i8 0, ptr %_M_engaged.i.i.i.i11.i.i32.i.i, align 4
-  %_M_engaged.i.i.i.i12.i.i33.i.i = getelementptr inbounds i8, ptr %call, i64 676
+  %_M_engaged.i.i.i.i12.i.i33.i.i = getelementptr inbounds nuw i8, ptr %call, i64 676
   store i8 0, ptr %_M_engaged.i.i.i.i12.i.i33.i.i, align 4
-  %_M_engaged.i.i.i.i13.i.i34.i.i = getelementptr inbounds i8, ptr %call, i64 684
+  %_M_engaged.i.i.i.i13.i.i34.i.i = getelementptr inbounds nuw i8, ptr %call, i64 684
   store i8 0, ptr %_M_engaged.i.i.i.i13.i.i34.i.i, align 4
-  %_M_engaged.i.i.i.i14.i.i35.i.i = getelementptr inbounds i8, ptr %call, i64 692
+  %_M_engaged.i.i.i.i14.i.i35.i.i = getelementptr inbounds nuw i8, ptr %call, i64 692
   store i8 0, ptr %_M_engaged.i.i.i.i14.i.i35.i.i, align 4
-  %_M_engaged.i.i.i.i15.i.i36.i.i = getelementptr inbounds i8, ptr %call, i64 700
+  %_M_engaged.i.i.i.i15.i.i36.i.i = getelementptr inbounds nuw i8, ptr %call, i64 700
   store i8 0, ptr %_M_engaged.i.i.i.i15.i.i36.i.i, align 4
-  %_M_engaged.i.i.i.i16.i.i37.i.i = getelementptr inbounds i8, ptr %call, i64 705
+  %_M_engaged.i.i.i.i16.i.i37.i.i = getelementptr inbounds nuw i8, ptr %call, i64 705
   store i8 0, ptr %_M_engaged.i.i.i.i16.i.i37.i.i, align 1
-  %_M_engaged.i.i.i.i17.i.i38.i.i = getelementptr inbounds i8, ptr %call, i64 720
+  %_M_engaged.i.i.i.i17.i.i38.i.i = getelementptr inbounds nuw i8, ptr %call, i64 720
   store i8 0, ptr %_M_engaged.i.i.i.i17.i.i38.i.i, align 8
-  %_M_engaged.i.i.i.i18.i.i39.i.i = getelementptr inbounds i8, ptr %call, i64 736
+  %_M_engaged.i.i.i.i18.i.i39.i.i = getelementptr inbounds nuw i8, ptr %call, i64 736
   store i8 0, ptr %_M_engaged.i.i.i.i18.i.i39.i.i, align 8
-  %_M_engaged.i.i.i.i19.i.i40.i.i = getelementptr inbounds i8, ptr %call, i64 752
+  %_M_engaged.i.i.i.i19.i.i40.i.i = getelementptr inbounds nuw i8, ptr %call, i64 752
   store i8 0, ptr %_M_engaged.i.i.i.i19.i.i40.i.i, align 8
-  %_M_engaged.i.i.i.i.i.i41.i.i = getelementptr inbounds i8, ptr %call, i64 784
+  %_M_engaged.i.i.i.i.i.i41.i.i = getelementptr inbounds nuw i8, ptr %call, i64 784
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i41.i.i, align 8
-  %_M_engaged.i.i.i.i1.i.i42.i.i = getelementptr inbounds i8, ptr %call, i64 793
+  %_M_engaged.i.i.i.i1.i.i42.i.i = getelementptr inbounds nuw i8, ptr %call, i64 793
   store i8 0, ptr %_M_engaged.i.i.i.i1.i.i42.i.i, align 1
-  %_M_engaged.i.i.i.i2.i.i43.i.i = getelementptr inbounds i8, ptr %call, i64 800
+  %_M_engaged.i.i.i.i2.i.i43.i.i = getelementptr inbounds nuw i8, ptr %call, i64 800
   store i8 0, ptr %_M_engaged.i.i.i.i2.i.i43.i.i, align 4
-  %_M_engaged.i.i.i.i3.i.i44.i.i = getelementptr inbounds i8, ptr %call, i64 808
+  %_M_engaged.i.i.i.i3.i.i44.i.i = getelementptr inbounds nuw i8, ptr %call, i64 808
   store i8 0, ptr %_M_engaged.i.i.i.i3.i.i44.i.i, align 4
-  %_M_engaged.i.i.i.i4.i.i45.i.i = getelementptr inbounds i8, ptr %call, i64 816
+  %_M_engaged.i.i.i.i4.i.i45.i.i = getelementptr inbounds nuw i8, ptr %call, i64 816
   store i8 0, ptr %_M_engaged.i.i.i.i4.i.i45.i.i, align 4
-  %_M_engaged.i.i.i.i5.i.i46.i.i = getelementptr inbounds i8, ptr %call, i64 824
+  %_M_engaged.i.i.i.i5.i.i46.i.i = getelementptr inbounds nuw i8, ptr %call, i64 824
   store i8 0, ptr %_M_engaged.i.i.i.i5.i.i46.i.i, align 4
-  %_M_engaged.i.i.i.i6.i.i47.i.i = getelementptr inbounds i8, ptr %call, i64 832
+  %_M_engaged.i.i.i.i6.i.i47.i.i = getelementptr inbounds nuw i8, ptr %call, i64 832
   store i8 0, ptr %_M_engaged.i.i.i.i6.i.i47.i.i, align 4
-  %_M_engaged.i.i.i.i7.i.i48.i.i = getelementptr inbounds i8, ptr %call, i64 848
+  %_M_engaged.i.i.i.i7.i.i48.i.i = getelementptr inbounds nuw i8, ptr %call, i64 848
   store i8 0, ptr %_M_engaged.i.i.i.i7.i.i48.i.i, align 8
-  %_M_engaged.i.i.i.i8.i.i49.i.i = getelementptr inbounds i8, ptr %call, i64 864
+  %_M_engaged.i.i.i.i8.i.i49.i.i = getelementptr inbounds nuw i8, ptr %call, i64 864
   store i8 0, ptr %_M_engaged.i.i.i.i8.i.i49.i.i, align 8
-  %_M_engaged.i.i.i.i9.i.i50.i.i = getelementptr inbounds i8, ptr %call, i64 880
+  %_M_engaged.i.i.i.i9.i.i50.i.i = getelementptr inbounds nuw i8, ptr %call, i64 880
   store i8 0, ptr %_M_engaged.i.i.i.i9.i.i50.i.i, align 8
-  %_M_engaged.i.i.i.i10.i.i51.i.i = getelementptr inbounds i8, ptr %call, i64 896
+  %_M_engaged.i.i.i.i10.i.i51.i.i = getelementptr inbounds nuw i8, ptr %call, i64 896
   store i8 0, ptr %_M_engaged.i.i.i.i10.i.i51.i.i, align 8
-  %_M_engaged.i.i.i.i11.i.i52.i.i = getelementptr inbounds i8, ptr %call, i64 908
+  %_M_engaged.i.i.i.i11.i.i52.i.i = getelementptr inbounds nuw i8, ptr %call, i64 908
   store i8 0, ptr %_M_engaged.i.i.i.i11.i.i52.i.i, align 4
-  %_M_engaged.i.i.i.i12.i.i53.i.i = getelementptr inbounds i8, ptr %call, i64 916
+  %_M_engaged.i.i.i.i12.i.i53.i.i = getelementptr inbounds nuw i8, ptr %call, i64 916
   store i8 0, ptr %_M_engaged.i.i.i.i12.i.i53.i.i, align 4
-  %_M_engaged.i.i.i.i13.i.i54.i.i = getelementptr inbounds i8, ptr %call, i64 924
+  %_M_engaged.i.i.i.i13.i.i54.i.i = getelementptr inbounds nuw i8, ptr %call, i64 924
   store i8 0, ptr %_M_engaged.i.i.i.i13.i.i54.i.i, align 4
-  %_M_engaged.i.i.i.i14.i.i55.i.i = getelementptr inbounds i8, ptr %call, i64 932
+  %_M_engaged.i.i.i.i14.i.i55.i.i = getelementptr inbounds nuw i8, ptr %call, i64 932
   store i8 0, ptr %_M_engaged.i.i.i.i14.i.i55.i.i, align 4
-  %_M_engaged.i.i.i.i15.i.i56.i.i = getelementptr inbounds i8, ptr %call, i64 940
+  %_M_engaged.i.i.i.i15.i.i56.i.i = getelementptr inbounds nuw i8, ptr %call, i64 940
   store i8 0, ptr %_M_engaged.i.i.i.i15.i.i56.i.i, align 4
-  %_M_engaged.i.i.i.i16.i.i57.i.i = getelementptr inbounds i8, ptr %call, i64 945
+  %_M_engaged.i.i.i.i16.i.i57.i.i = getelementptr inbounds nuw i8, ptr %call, i64 945
   store i8 0, ptr %_M_engaged.i.i.i.i16.i.i57.i.i, align 1
-  %_M_engaged.i.i.i.i17.i.i58.i.i = getelementptr inbounds i8, ptr %call, i64 960
+  %_M_engaged.i.i.i.i17.i.i58.i.i = getelementptr inbounds nuw i8, ptr %call, i64 960
   store i8 0, ptr %_M_engaged.i.i.i.i17.i.i58.i.i, align 8
-  %_M_engaged.i.i.i.i18.i.i59.i.i = getelementptr inbounds i8, ptr %call, i64 976
+  %_M_engaged.i.i.i.i18.i.i59.i.i = getelementptr inbounds nuw i8, ptr %call, i64 976
   store i8 0, ptr %_M_engaged.i.i.i.i18.i.i59.i.i, align 8
-  %_M_engaged.i.i.i.i19.i.i60.i.i = getelementptr inbounds i8, ptr %call, i64 992
+  %_M_engaged.i.i.i.i19.i.i60.i.i = getelementptr inbounds nuw i8, ptr %call, i64 992
   store i8 0, ptr %_M_engaged.i.i.i.i19.i.i60.i.i, align 8
   %call2 = tail call { i64, i64 } @gpr_now(i32 noundef 1)
   %0 = extractvalue { i64, i64 } %call2, 0
   %1 = extractvalue { i64, i64 } %call2, 1
-  %ts_ = getelementptr inbounds i8, ptr %call, i64 40
+  %ts_ = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i64 %0, ptr %ts_, align 8
-  %ref.tmp.sroa.2.0.time.sroa_idx = getelementptr inbounds i8, ptr %call, i64 48
+  %ref.tmp.sroa.2.0.time.sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i64 %1, ptr %ref.tmp.sroa.2.0.time.sroa_idx, align 8
   %call4 = tail call { i64, i64 } @gpr_inf_past(i32 noundef 1)
   %2 = extractvalue { i64, i64 } %call4, 0
   %3 = extractvalue { i64, i64 } %call4, 1
-  %scheduled_time = getelementptr inbounds i8, ptr %call, i64 280
+  %scheduled_time = getelementptr inbounds nuw i8, ptr %call, i64 280
   store i64 %2, ptr %scheduled_time, align 8
-  %ref.tmp3.sroa.2.0.time6.sroa_idx = getelementptr inbounds i8, ptr %call, i64 288
+  %ref.tmp3.sroa.2.0.time6.sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 288
   store i64 %3, ptr %ref.tmp3.sroa.2.0.time6.sroa_idx, align 8
   %call8 = tail call { i64, i64 } @gpr_inf_past(i32 noundef 1)
   %4 = extractvalue { i64, i64 } %call8, 0
   %5 = extractvalue { i64, i64 } %call8, 1
-  %sent_time = getelementptr inbounds i8, ptr %call, i64 520
+  %sent_time = getelementptr inbounds nuw i8, ptr %call, i64 520
   store i64 %4, ptr %sent_time, align 8
-  %ref.tmp7.sroa.2.0.time10.sroa_idx = getelementptr inbounds i8, ptr %call, i64 528
+  %ref.tmp7.sroa.2.0.time10.sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 528
   store i64 %5, ptr %ref.tmp7.sroa.2.0.time10.sroa_idx, align 8
   %call12 = tail call { i64, i64 } @gpr_inf_past(i32 noundef 1)
   %6 = extractvalue { i64, i64 } %call12, 0
   %7 = extractvalue { i64, i64 } %call12, 1
-  %acked_time = getelementptr inbounds i8, ptr %call, i64 760
+  %acked_time = getelementptr inbounds nuw i8, ptr %call, i64 760
   store i64 %6, ptr %acked_time, align 8
-  %ref.tmp11.sroa.2.0.time14.sroa_idx = getelementptr inbounds i8, ptr %call, i64 768
+  %ref.tmp11.sroa.2.0.time14.sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 768
   store i64 %7, ptr %ref.tmp11.sroa.2.0.time14.sroa_idx, align 8
-  %info = getelementptr inbounds i8, ptr %call, i64 1008
+  %info = getelementptr inbounds nuw i8, ptr %call, i64 1008
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %info, i8 0, i64 232, i1 false)
-  %length.i = getelementptr inbounds i8, ptr %call, i64 1232
+  %length.i = getelementptr inbounds nuw i8, ptr %call, i64 1232
   store i32 224, ptr %length.i, align 8
   %call.i = tail call noundef i32 @getsockopt(i32 noundef %fd, i32 noundef 6, i32 noundef 11, ptr noundef nonnull %info, ptr noundef nonnull %length.i) #16
   %cmp = icmp eq i32 %call.i, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %metrics = getelementptr inbounds i8, ptr %call, i64 56
+  %metrics = getelementptr inbounds nuw i8, ptr %call, i64 56
   %8 = load i32, ptr %length.i, align 8
   %cmp1.i = icmp ugt i32 %8, 184
   br i1 %cmp1.i, label %if.then2.i, label %if.end
 
 if.then2.i:                                       ; preds = %if.then
-  %tcpi_retransmits.i = getelementptr inbounds i8, ptr %call, i64 1010
+  %tcpi_retransmits.i = getelementptr inbounds nuw i8, ptr %call, i64 1010
   %9 = load i8, ptr %tcpi_retransmits.i, align 1
-  %recurring_retrans.i = getelementptr inbounds i8, ptr %call, i64 224
+  %recurring_retrans.i = getelementptr inbounds nuw i8, ptr %call, i64 224
   %ref.tmp.sroa.0.0.insert.ext.i = zext i8 %9 to i16
   %ref.tmp.sroa.0.0.insert.insert.i = or disjoint i16 %ref.tmp.sroa.0.0.insert.ext.i, 256
   store i16 %ref.tmp.sroa.0.0.insert.insert.i, ptr %recurring_retrans.i, align 8
-  %tcpi_delivery_rate_app_limited.i = getelementptr inbounds i8, ptr %call, i64 1014
+  %tcpi_delivery_rate_app_limited.i = getelementptr inbounds nuw i8, ptr %call, i64 1014
   %bf.load.i = load i16, ptr %tcpi_delivery_rate_app_limited.i, align 2
-  %is_delivery_rate_app_limited.i = getelementptr inbounds i8, ptr %call, i64 72
+  %is_delivery_rate_app_limited.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   %10 = load i8, ptr %_M_engaged.i.i.i.i1.i.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %10 to i1
   br i1 %tobool.i.i.i, label %_ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIbES6_IbNSt5decayIS9_E4typeEEEEESt16is_constructibleIbJS9_EESt13is_assignableIRbS9_EEERS0_E4typeEOS9_.exit.i, label %if.else.i.i
@@ -282,31 +282,31 @@ _ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9rem
   %12 = trunc nuw i16 %11 to i8
   %frombool.i.i.i.sink.i.i = and i8 %12, 1
   store i8 %frombool.i.i.i.sink.i.i, ptr %is_delivery_rate_app_limited.i, align 1
-  %tcpi_snd_cwnd.i = getelementptr inbounds i8, ptr %call, i64 1088
+  %tcpi_snd_cwnd.i = getelementptr inbounds nuw i8, ptr %call, i64 1088
   %13 = load i32, ptr %tcpi_snd_cwnd.i, align 4
-  %congestion_window.i = getelementptr inbounds i8, ptr %call, i64 200
+  %congestion_window.i = getelementptr inbounds nuw i8, ptr %call, i64 200
   %ref.tmp4.sroa.0.0.insert.ext.i = zext i32 %13 to i64
   %ref.tmp4.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp4.sroa.0.0.insert.ext.i, 4294967296
   store i64 %ref.tmp4.sroa.0.0.insert.insert.i, ptr %congestion_window.i, align 8
-  %tcpi_reordering.i = getelementptr inbounds i8, ptr %call, i64 1096
+  %tcpi_reordering.i = getelementptr inbounds nuw i8, ptr %call, i64 1096
   %14 = load i32, ptr %tcpi_reordering.i, align 4
-  %reordering.i = getelementptr inbounds i8, ptr %call, i64 216
+  %reordering.i = getelementptr inbounds nuw i8, ptr %call, i64 216
   %ref.tmp5.sroa.0.0.insert.ext.i = zext i32 %14 to i64
   %ref.tmp5.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp5.sroa.0.0.insert.ext.i, 4294967296
   store i64 %ref.tmp5.sroa.0.0.insert.insert.i, ptr %reordering.i, align 8
-  %tcpi_total_retrans.i = getelementptr inbounds i8, ptr %call, i64 1108
+  %tcpi_total_retrans.i = getelementptr inbounds nuw i8, ptr %call, i64 1108
   %15 = load i32, ptr %tcpi_total_retrans.i, align 4
-  %packet_retx.i = getelementptr inbounds i8, ptr %call, i64 76
+  %packet_retx.i = getelementptr inbounds nuw i8, ptr %call, i64 76
   %ref.tmp6.sroa.0.0.insert.ext.i = zext i32 %15 to i64
   %ref.tmp6.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp6.sroa.0.0.insert.ext.i, 4294967296
   store i64 %ref.tmp6.sroa.0.0.insert.insert.i, ptr %packet_retx.i, align 4
-  %tcpi_pacing_rate.i = getelementptr inbounds i8, ptr %call, i64 1112
+  %tcpi_pacing_rate.i = getelementptr inbounds nuw i8, ptr %call, i64 1112
   %16 = load i64, ptr %tcpi_pacing_rate.i, align 8
-  %pacing_rate.i = getelementptr inbounds i8, ptr %call, i64 168
+  %pacing_rate.i = getelementptr inbounds nuw i8, ptr %call, i64 168
   store i64 %16, ptr %pacing_rate.i, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i10.i.i.i.i, align 8
-  %tcpi_notsent_bytes.i = getelementptr inbounds i8, ptr %call, i64 1152
-  %data_notsent.i = getelementptr inbounds i8, ptr %call, i64 152
+  %tcpi_notsent_bytes.i = getelementptr inbounds nuw i8, ptr %call, i64 1152
+  %data_notsent.i = getelementptr inbounds nuw i8, ptr %call, i64 152
   %17 = load i8, ptr %_M_engaged.i.i.i.i9.i.i.i.i, align 8
   %tobool.i.i40.i = trunc i8 %17 to i1
   %18 = load i32, ptr %tcpi_notsent_bytes.i, align 4
@@ -319,61 +319,61 @@ if.else.i41.i:                                    ; preds = %_ZNSt8optionalIbEaS
 _ZNSt8optionalImEaSIRKjEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarImES6_ImNSt5decayIS9_E4typeEEEEESt16is_constructibleImJS9_EESt13is_assignableIRmS9_EEERS0_E4typeEOS9_.exit.i: ; preds = %if.else.i41.i, %_ZNSt8optionalIbEaSIRKhEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIbES6_IbNSt5decayIS9_E4typeEEEEESt16is_constructibleIbJS9_EESt13is_assignableIRbS9_EEERS0_E4typeEOS9_.exit.i
   %conv.i.i.i.sink.i.i = zext i32 %18 to i64
   store i64 %conv.i.i.i.sink.i.i, ptr %data_notsent.i, align 8
-  %tcpi_min_rtt.i = getelementptr inbounds i8, ptr %call, i64 1156
+  %tcpi_min_rtt.i = getelementptr inbounds nuw i8, ptr %call, i64 1156
   %19 = load i32, ptr %tcpi_min_rtt.i, align 4
   %cmp9.not.i = icmp eq i32 %19, -1
   br i1 %cmp9.not.i, label %if.end19.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %_ZNSt8optionalImEaSIRKjEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarImES6_ImNSt5decayIS9_E4typeEEEEESt16is_constructibleImJS9_EESt13is_assignableIRmS9_EEERS0_E4typeEOS9_.exit.i
-  %min_rtt.i = getelementptr inbounds i8, ptr %call, i64 184
+  %min_rtt.i = getelementptr inbounds nuw i8, ptr %call, i64 184
   %ref.tmp11.sroa.0.0.insert.ext.i = zext i32 %19 to i64
   %ref.tmp11.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp11.sroa.0.0.insert.ext.i, 4294967296
   store i64 %ref.tmp11.sroa.0.0.insert.insert.i, ptr %min_rtt.i, align 8
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then10.i, %_ZNSt8optionalImEaSIRKjEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarImES6_ImNSt5decayIS9_E4typeEEEEESt16is_constructibleImJS9_EESt13is_assignableIRmS9_EEERS0_E4typeEOS9_.exit.i
-  %tcpi_data_segs_out.i = getelementptr inbounds i8, ptr %call, i64 1164
+  %tcpi_data_segs_out.i = getelementptr inbounds nuw i8, ptr %call, i64 1164
   %20 = load i32, ptr %tcpi_data_segs_out.i, align 4
-  %packet_sent.i = getelementptr inbounds i8, ptr %call, i64 92
+  %packet_sent.i = getelementptr inbounds nuw i8, ptr %call, i64 92
   %ref.tmp14.sroa.0.0.insert.ext.i = zext i32 %20 to i64
   %ref.tmp14.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp14.sroa.0.0.insert.ext.i, 4294967296
   store i64 %ref.tmp14.sroa.0.0.insert.insert.i, ptr %packet_sent.i, align 4
-  %tcpi_delivery_rate.i = getelementptr inbounds i8, ptr %call, i64 1168
+  %tcpi_delivery_rate.i = getelementptr inbounds nuw i8, ptr %call, i64 1168
   %21 = load i64, ptr %tcpi_delivery_rate.i, align 8
   store i64 %21, ptr %metrics, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8
-  %tcpi_busy_time.i = getelementptr inbounds i8, ptr %call, i64 1176
+  %tcpi_busy_time.i = getelementptr inbounds nuw i8, ptr %call, i64 1176
   %22 = load i64, ptr %tcpi_busy_time.i, align 8
-  %busy_usec.i = getelementptr inbounds i8, ptr %call, i64 232
+  %busy_usec.i = getelementptr inbounds nuw i8, ptr %call, i64 232
   store i64 %22, ptr %busy_usec.i, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i17.i.i.i.i, align 8
-  %tcpi_rwnd_limited.i = getelementptr inbounds i8, ptr %call, i64 1184
+  %tcpi_rwnd_limited.i = getelementptr inbounds nuw i8, ptr %call, i64 1184
   %23 = load i64, ptr %tcpi_rwnd_limited.i, align 8
-  %rwnd_limited_usec.i = getelementptr inbounds i8, ptr %call, i64 248
+  %rwnd_limited_usec.i = getelementptr inbounds nuw i8, ptr %call, i64 248
   store i64 %23, ptr %rwnd_limited_usec.i, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i18.i.i.i.i, align 8
-  %tcpi_sndbuf_limited.i = getelementptr inbounds i8, ptr %call, i64 1192
+  %tcpi_sndbuf_limited.i = getelementptr inbounds nuw i8, ptr %call, i64 1192
   %24 = load i64, ptr %tcpi_sndbuf_limited.i, align 8
-  %sndbuf_limited_usec.i = getelementptr inbounds i8, ptr %call, i64 264
+  %sndbuf_limited_usec.i = getelementptr inbounds nuw i8, ptr %call, i64 264
   store i64 %24, ptr %sndbuf_limited_usec.i, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i19.i.i.i.i, align 8
   %cmp22.i = icmp ugt i32 %8, 216
   br i1 %cmp22.i, label %if.then23.i, label %if.end
 
 if.then23.i:                                      ; preds = %if.end19.i
-  %tcpi_bytes_sent.i = getelementptr inbounds i8, ptr %call, i64 1208
+  %tcpi_bytes_sent.i = getelementptr inbounds nuw i8, ptr %call, i64 1208
   %25 = load i64, ptr %tcpi_bytes_sent.i, align 8
-  %data_sent.i = getelementptr inbounds i8, ptr %call, i64 136
+  %data_sent.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   store i64 %25, ptr %data_sent.i, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i8.i.i.i.i, align 8
-  %tcpi_bytes_retrans.i = getelementptr inbounds i8, ptr %call, i64 1216
+  %tcpi_bytes_retrans.i = getelementptr inbounds nuw i8, ptr %call, i64 1216
   %26 = load i64, ptr %tcpi_bytes_retrans.i, align 8
-  %data_retx.i = getelementptr inbounds i8, ptr %call, i64 120
+  %data_retx.i = getelementptr inbounds nuw i8, ptr %call, i64 120
   store i64 %26, ptr %data_retx.i, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i7.i.i.i.i, align 8
-  %tcpi_dsack_dups.i = getelementptr inbounds i8, ptr %call, i64 1224
+  %tcpi_dsack_dups.i = getelementptr inbounds nuw i8, ptr %call, i64 1224
   %27 = load i32, ptr %tcpi_dsack_dups.i, align 4
-  %packet_spurious_retx.i = getelementptr inbounds i8, ptr %call, i64 84
+  %packet_spurious_retx.i = getelementptr inbounds nuw i8, ptr %call, i64 84
   %ref.tmp26.sroa.0.0.insert.ext.i = zext i32 %27 to i64
   %ref.tmp26.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp26.sroa.0.0.insert.ext.i, 4294967296
   store i64 %ref.tmp26.sroa.0.0.insert.insert.i, ptr %packet_spurious_retx.i, align 4
@@ -382,10 +382,10 @@ if.then23.i:                                      ; preds = %if.end19.i
 if.end:                                           ; preds = %if.then23.i, %if.end19.i, %if.then, %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(16) %ts_, i64 16, i1 false)
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %head_ = getelementptr inbounds i8, ptr %this, i64 8
+  %head_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %28 = load ptr, ptr %head_, align 8
   %tobool.not = icmp eq ptr %28, null
-  %tail_ = getelementptr inbounds i8, ptr %this, i64 16
+  %tail_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   br i1 %tobool.not, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %if.end
@@ -395,7 +395,7 @@ if.then24:                                        ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %29 = load ptr, ptr %tail_, align 8
-  %next_ = getelementptr inbounds i8, ptr %29, i64 16
+  %next_ = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %call, ptr %next_, align 8
   store ptr %call, ptr %tail_, align 8
   br label %if.end28
@@ -433,21 +433,21 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp54 = alloca %"class.absl::lts_20230802::Status", align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %head_ = getelementptr inbounds i8, ptr %this, i64 8
+  %head_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %elem.065 = load ptr, ptr %head_, align 8
   %cmp.not66 = icmp eq ptr %elem.065, null
   br i1 %cmp.not66, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %0 = getelementptr inbounds i8, ptr %serr, i64 12
-  %ee_info = getelementptr inbounds i8, ptr %serr, i64 8
-  %tv_nsec.i41 = getelementptr inbounds i8, ptr %tss, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %serr, i64 12
+  %ee_info = getelementptr inbounds nuw i8, ptr %serr, i64 8
+  %tv_nsec.i41 = getelementptr inbounds nuw i8, ptr %tss, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %elem.067 = phi ptr [ %elem.065, %while.body.lr.ph ], [ %elem.0, %if.end ]
   %1 = load i32, ptr %0, align 4
-  %seq_no_ = getelementptr inbounds i8, ptr %elem.067, i64 24
+  %seq_no_ = getelementptr inbounds nuw i8, ptr %elem.067, i64 24
   %2 = load i32, ptr %seq_no_, align 8
   %cmp2.not = icmp ult i32 %1, %2
   br i1 %cmp2.not, label %while.end.loopexit, label %if.then
@@ -461,19 +461,19 @@ if.then:                                          ; preds = %while.body
   ]
 
 sw.bb:                                            ; preds = %if.then
-  %scheduled_time = getelementptr inbounds i8, ptr %elem.067, i64 280
+  %scheduled_time = getelementptr inbounds nuw i8, ptr %elem.067, i64 280
   %4 = load i64, ptr %tss, align 8
   store i64 %4, ptr %scheduled_time, align 8
   %5 = load i64, ptr %tv_nsec.i41, align 8
   %conv.i = trunc i64 %5 to i32
-  %tv_nsec2.i = getelementptr inbounds i8, ptr %elem.067, i64 288
+  %tv_nsec2.i = getelementptr inbounds nuw i8, ptr %elem.067, i64 288
   store i32 %conv.i, ptr %tv_nsec2.i, align 8
-  %clock_type.i = getelementptr inbounds i8, ptr %elem.067, i64 292
+  %clock_type.i = getelementptr inbounds nuw i8, ptr %elem.067, i64 292
   store i32 1, ptr %clock_type.i, align 4
-  %metrics = getelementptr inbounds i8, ptr %elem.067, i64 296
+  %metrics = getelementptr inbounds nuw i8, ptr %elem.067, i64 296
   call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr noundef %metrics, ptr noundef %opt_stats)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %elem.067, ptr noundef nonnull align 8 dereferenceable(16) %scheduled_time, i64 16, i1 false)
-  %next_ = getelementptr inbounds i8, ptr %elem.067, i64 16
+  %next_ = getelementptr inbounds nuw i8, ptr %elem.067, i64 16
   br label %if.end
 
 lpad.loopexit.split:                              ; preds = %if.end51, %while.body45, %call.i.noexc
@@ -487,36 +487,36 @@ lpad.loopexit.split-lp:                           ; preds = %while.end
   br label %ehcleanup
 
 sw.bb9:                                           ; preds = %if.then
-  %sent_time = getelementptr inbounds i8, ptr %elem.067, i64 520
+  %sent_time = getelementptr inbounds nuw i8, ptr %elem.067, i64 520
   %6 = load i64, ptr %tss, align 8
   store i64 %6, ptr %sent_time, align 8
   %7 = load i64, ptr %tv_nsec.i41, align 8
   %conv.i38 = trunc i64 %7 to i32
-  %tv_nsec2.i39 = getelementptr inbounds i8, ptr %elem.067, i64 528
+  %tv_nsec2.i39 = getelementptr inbounds nuw i8, ptr %elem.067, i64 528
   store i32 %conv.i38, ptr %tv_nsec2.i39, align 8
-  %clock_type.i40 = getelementptr inbounds i8, ptr %elem.067, i64 532
+  %clock_type.i40 = getelementptr inbounds nuw i8, ptr %elem.067, i64 532
   store i32 1, ptr %clock_type.i40, align 4
-  %metrics17 = getelementptr inbounds i8, ptr %elem.067, i64 536
+  %metrics17 = getelementptr inbounds nuw i8, ptr %elem.067, i64 536
   call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr noundef %metrics17, ptr noundef %opt_stats)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %elem.067, ptr noundef nonnull align 8 dereferenceable(16) %sent_time, i64 16, i1 false)
-  %next_23 = getelementptr inbounds i8, ptr %elem.067, i64 16
+  %next_23 = getelementptr inbounds nuw i8, ptr %elem.067, i64 16
   br label %if.end
 
 sw.bb24:                                          ; preds = %if.then
-  %ts_25 = getelementptr inbounds i8, ptr %elem.067, i64 40
-  %acked_time = getelementptr inbounds i8, ptr %elem.067, i64 760
+  %ts_25 = getelementptr inbounds nuw i8, ptr %elem.067, i64 40
+  %acked_time = getelementptr inbounds nuw i8, ptr %elem.067, i64 760
   %8 = load i64, ptr %tss, align 8
   store i64 %8, ptr %acked_time, align 8
   %9 = load i64, ptr %tv_nsec.i41, align 8
   %conv.i42 = trunc i64 %9 to i32
-  %tv_nsec2.i43 = getelementptr inbounds i8, ptr %elem.067, i64 768
+  %tv_nsec2.i43 = getelementptr inbounds nuw i8, ptr %elem.067, i64 768
   store i32 %conv.i42, ptr %tv_nsec2.i43, align 8
-  %clock_type.i44 = getelementptr inbounds i8, ptr %elem.067, i64 772
+  %clock_type.i44 = getelementptr inbounds nuw i8, ptr %elem.067, i64 772
   store i32 1, ptr %clock_type.i44, align 4
-  %metrics32 = getelementptr inbounds i8, ptr %elem.067, i64 776
+  %metrics32 = getelementptr inbounds nuw i8, ptr %elem.067, i64 776
   call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr noundef %metrics32, ptr noundef %opt_stats)
   %10 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_121g_timestamps_callbackE, align 8
-  %arg_ = getelementptr inbounds i8, ptr %elem.067, i64 32
+  %arg_ = getelementptr inbounds nuw i8, ptr %elem.067, i64 32
   %11 = load ptr, ptr %arg_, align 8
   store i64 0, ptr %agg.tmp, align 8, !alias.scope !4
   invoke void %10(ptr noundef %11, ptr noundef nonnull %ts_25, ptr noundef nonnull %agg.tmp)
@@ -540,7 +540,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont37, %if.then.i.i
-  %next_38 = getelementptr inbounds i8, ptr %elem.067, i64 16
+  %next_38 = getelementptr inbounds nuw i8, ptr %elem.067, i64 16
   %15 = load ptr, ptr %next_38, align 8
   store ptr %15, ptr %head_, align 8
   call void @_ZdlPv(ptr noundef nonnull %elem.067) #18
@@ -581,13 +581,13 @@ while.body45.lr.ph:                               ; preds = %invoke.cont42, %if.
   %elem.2.ph77 = phi ptr [ %30, %if.then49 ], [ %17, %invoke.cont42 ]
   %prev.0.ph76 = phi ptr [ %.us-phi71, %if.then49 ], [ null, %invoke.cont42 ]
   %cmp59.not = icmp eq ptr %prev.0.ph76, null
-  %next_62 = getelementptr inbounds i8, ptr %prev.0.ph76, i64 16
+  %next_62 = getelementptr inbounds nuw i8, ptr %prev.0.ph76, i64 16
   br i1 %cmp59.not, label %while.body45.us, label %while.body45
 
 while.body45.us:                                  ; preds = %while.body45.lr.ph, %_ZN4absl12lts_202308026StatusD2Ev.exit51.us
   %elem.269.us = phi ptr [ %elem.3.us, %_ZN4absl12lts_202308026StatusD2Ev.exit51.us ], [ %elem.2.ph77, %while.body45.lr.ph ]
   %agg.tmp3.sroa.0.0.copyload.i.us = load i64, ptr %elem.269.us, align 8
-  %agg.tmp3.sroa.2.0.last_timestamp_.sroa_idx.i.us = getelementptr inbounds i8, ptr %elem.269.us, i64 8
+  %agg.tmp3.sroa.2.0.last_timestamp_.sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %elem.269.us, i64 8
   %agg.tmp3.sroa.2.0.copyload.i.us = load i64, ptr %agg.tmp3.sroa.2.0.last_timestamp_.sroa_idx.i.us, align 8
   %call.i45.us = invoke { i64, i64 } @gpr_time_sub(i64 %18, i64 %19, i64 %agg.tmp3.sroa.0.0.copyload.i.us, i64 %agg.tmp3.sroa.2.0.copyload.i.us)
           to label %call.i.noexc.us unwind label %lpad.loopexit.split.us
@@ -604,13 +604,13 @@ invoke.cont47.us:                                 ; preds = %call.i.noexc.us
 
 if.end51.us:                                      ; preds = %invoke.cont47.us
   %22 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_121g_timestamps_callbackE, align 8
-  %arg_52.us = getelementptr inbounds i8, ptr %elem.269.us, i64 32
+  %arg_52.us = getelementptr inbounds nuw i8, ptr %elem.269.us, i64 32
   %23 = load ptr, ptr %arg_52.us, align 8
   invoke void @_ZN4absl12lts_2023080221DeadlineExceededErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp54, i64 13, ptr nonnull @.str)
           to label %invoke.cont56.us unwind label %lpad.loopexit.split.us
 
 invoke.cont56.us:                                 ; preds = %if.end51.us
-  %ts_53.us = getelementptr inbounds i8, ptr %elem.269.us, i64 40
+  %ts_53.us = getelementptr inbounds nuw i8, ptr %elem.269.us, i64 40
   invoke void %22(ptr noundef %23, ptr noundef nonnull %ts_53.us, ptr noundef nonnull %agg.tmp54)
           to label %invoke.cont58.us unwind label %lpad57.split.us
 
@@ -625,7 +625,7 @@ if.then.i.i49.us:                                 ; preds = %invoke.cont58.us
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit51.us unwind label %terminate.lpad.i50.split.us
 
 _ZN4absl12lts_202308026StatusD2Ev.exit51.us:      ; preds = %if.then.i.i49.us, %invoke.cont58.us
-  %next_68.us = getelementptr inbounds i8, ptr %elem.269.us, i64 16
+  %next_68.us = getelementptr inbounds nuw i8, ptr %elem.269.us, i64 16
   %25 = load ptr, ptr %next_68.us, align 8
   store ptr %25, ptr %head_, align 8
   call void @_ZdlPv(ptr noundef nonnull %elem.269.us) #18
@@ -651,7 +651,7 @@ terminate.lpad.i50.split.us:                      ; preds = %if.then.i.i49.us
 while.body45:                                     ; preds = %while.body45.lr.ph, %_ZN4absl12lts_202308026StatusD2Ev.exit51
   %elem.269 = phi ptr [ %elem.3, %_ZN4absl12lts_202308026StatusD2Ev.exit51 ], [ %elem.2.ph77, %while.body45.lr.ph ]
   %agg.tmp3.sroa.0.0.copyload.i = load i64, ptr %elem.269, align 8
-  %agg.tmp3.sroa.2.0.last_timestamp_.sroa_idx.i = getelementptr inbounds i8, ptr %elem.269, i64 8
+  %agg.tmp3.sroa.2.0.last_timestamp_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %elem.269, i64 8
   %agg.tmp3.sroa.2.0.copyload.i = load i64, ptr %agg.tmp3.sroa.2.0.last_timestamp_.sroa_idx.i, align 8
   %call.i45 = invoke { i64, i64 } @gpr_time_sub(i64 %18, i64 %19, i64 %agg.tmp3.sroa.0.0.copyload.i, i64 %agg.tmp3.sroa.2.0.copyload.i)
           to label %call.i.noexc unwind label %lpad.loopexit.split
@@ -668,20 +668,20 @@ invoke.cont47:                                    ; preds = %call.i.noexc
 
 if.then49:                                        ; preds = %invoke.cont47, %invoke.cont47.us
   %.us-phi71 = phi ptr [ %elem.269.us, %invoke.cont47.us ], [ %elem.269, %invoke.cont47 ]
-  %next_50 = getelementptr inbounds i8, ptr %.us-phi71, i64 16
+  %next_50 = getelementptr inbounds nuw i8, ptr %.us-phi71, i64 16
   %30 = load ptr, ptr %next_50, align 8
   %cmp44.not68 = icmp eq ptr %30, null
   br i1 %cmp44.not68, label %while.end75, label %while.body45.lr.ph, !llvm.loop !9
 
 if.end51:                                         ; preds = %invoke.cont47
   %31 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_121g_timestamps_callbackE, align 8
-  %arg_52 = getelementptr inbounds i8, ptr %elem.269, i64 32
+  %arg_52 = getelementptr inbounds nuw i8, ptr %elem.269, i64 32
   %32 = load ptr, ptr %arg_52, align 8
   invoke void @_ZN4absl12lts_2023080221DeadlineExceededErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp54, i64 13, ptr nonnull @.str)
           to label %invoke.cont56 unwind label %lpad.loopexit.split
 
 invoke.cont56:                                    ; preds = %if.end51
-  %ts_53 = getelementptr inbounds i8, ptr %elem.269, i64 40
+  %ts_53 = getelementptr inbounds nuw i8, ptr %elem.269, i64 40
   invoke void %31(ptr noundef %32, ptr noundef nonnull %ts_53, ptr noundef nonnull %agg.tmp54)
           to label %invoke.cont58 unwind label %lpad57.split
 
@@ -707,7 +707,7 @@ terminate.lpad.i50:                               ; preds = %terminate.lpad.i50.
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit51:         ; preds = %invoke.cont58, %if.then.i.i49
-  %next_61 = getelementptr inbounds i8, ptr %elem.269, i64 16
+  %next_61 = getelementptr inbounds nuw i8, ptr %elem.269, i64 16
   %36 = load ptr, ptr %next_61, align 8
   store ptr %36, ptr %next_62, align 8
   call void @_ZdlPv(ptr noundef nonnull %elem.269) #18
@@ -730,7 +730,7 @@ while.end75:                                      ; preds = %if.then49, %_ZN4abs
   %38 = load ptr, ptr %head_, align 8
   %cmp77 = icmp eq ptr %38, null
   %.prev.0 = select i1 %cmp77, ptr null, ptr %prev.0.ph.lcssa64
-  %tail_ = getelementptr inbounds i8, ptr %this, i64 16
+  %tail_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %.prev.0, ptr %tail_, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i52
@@ -768,48 +768,48 @@ entry:
   br i1 %cmp, label %while.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %__cmsg_data = getelementptr inbounds i8, ptr %opt_stats, i64 16
+  %__cmsg_data = getelementptr inbounds nuw i8, ptr %opt_stats, i64 16
   %0 = load i64, ptr %opt_stats, align 8
   %sub = add i64 %0, -16
   %cmp185 = icmp sgt i64 %sub, 0
   br i1 %cmp185, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %snd_ssthresh = getelementptr inbounds i8, ptr %metrics, i64 152
-  %reordering = getelementptr inbounds i8, ptr %metrics, i64 160
-  %packet_spurious_retx = getelementptr inbounds i8, ptr %metrics, i64 28
-  %data_retx = getelementptr inbounds i8, ptr %metrics, i64 64
-  %ref.tmp62.sroa.2.0.data_retx.sroa_idx = getelementptr inbounds i8, ptr %metrics, i64 72
-  %packet_delivered_ce = getelementptr inbounds i8, ptr %metrics, i64 52
-  %packet_delivered = getelementptr inbounds i8, ptr %metrics, i64 44
-  %packet_retx = getelementptr inbounds i8, ptr %metrics, i64 20
-  %_M_engaged.i.i74 = getelementptr inbounds i8, ptr %metrics, i64 24
-  %packet_sent = getelementptr inbounds i8, ptr %metrics, i64 36
-  %_M_engaged.i.i71 = getelementptr inbounds i8, ptr %metrics, i64 40
-  %data_sent = getelementptr inbounds i8, ptr %metrics, i64 80
-  %ref.tmp42.sroa.2.0.data_sent.sroa_idx = getelementptr inbounds i8, ptr %metrics, i64 88
-  %recurring_retrans = getelementptr inbounds i8, ptr %metrics, i64 168
-  %srtt = getelementptr inbounds i8, ptr %metrics, i64 136
-  %min_rtt = getelementptr inbounds i8, ptr %metrics, i64 128
-  %congestion_window = getelementptr inbounds i8, ptr %metrics, i64 144
-  %is_delivery_rate_app_limited = getelementptr inbounds i8, ptr %metrics, i64 16
-  %_M_engaged.i.i = getelementptr inbounds i8, ptr %metrics, i64 17
-  %ref.tmp18.sroa.2.0.metrics.sroa_idx = getelementptr inbounds i8, ptr %metrics, i64 8
-  %pacing_rate = getelementptr inbounds i8, ptr %metrics, i64 112
-  %ref.tmp14.sroa.2.0.pacing_rate.sroa_idx = getelementptr inbounds i8, ptr %metrics, i64 120
-  %sndbuf_limited_usec = getelementptr inbounds i8, ptr %metrics, i64 208
-  %ref.tmp10.sroa.2.0.sndbuf_limited_usec.sroa_idx = getelementptr inbounds i8, ptr %metrics, i64 216
-  %rwnd_limited_usec = getelementptr inbounds i8, ptr %metrics, i64 192
-  %ref.tmp6.sroa.2.0.rwnd_limited_usec.sroa_idx = getelementptr inbounds i8, ptr %metrics, i64 200
-  %busy_usec = getelementptr inbounds i8, ptr %metrics, i64 176
-  %ref.tmp.sroa.2.0.busy_usec.sroa_idx = getelementptr inbounds i8, ptr %metrics, i64 184
+  %snd_ssthresh = getelementptr inbounds nuw i8, ptr %metrics, i64 152
+  %reordering = getelementptr inbounds nuw i8, ptr %metrics, i64 160
+  %packet_spurious_retx = getelementptr inbounds nuw i8, ptr %metrics, i64 28
+  %data_retx = getelementptr inbounds nuw i8, ptr %metrics, i64 64
+  %ref.tmp62.sroa.2.0.data_retx.sroa_idx = getelementptr inbounds nuw i8, ptr %metrics, i64 72
+  %packet_delivered_ce = getelementptr inbounds nuw i8, ptr %metrics, i64 52
+  %packet_delivered = getelementptr inbounds nuw i8, ptr %metrics, i64 44
+  %packet_retx = getelementptr inbounds nuw i8, ptr %metrics, i64 20
+  %_M_engaged.i.i74 = getelementptr inbounds nuw i8, ptr %metrics, i64 24
+  %packet_sent = getelementptr inbounds nuw i8, ptr %metrics, i64 36
+  %_M_engaged.i.i71 = getelementptr inbounds nuw i8, ptr %metrics, i64 40
+  %data_sent = getelementptr inbounds nuw i8, ptr %metrics, i64 80
+  %ref.tmp42.sroa.2.0.data_sent.sroa_idx = getelementptr inbounds nuw i8, ptr %metrics, i64 88
+  %recurring_retrans = getelementptr inbounds nuw i8, ptr %metrics, i64 168
+  %srtt = getelementptr inbounds nuw i8, ptr %metrics, i64 136
+  %min_rtt = getelementptr inbounds nuw i8, ptr %metrics, i64 128
+  %congestion_window = getelementptr inbounds nuw i8, ptr %metrics, i64 144
+  %is_delivery_rate_app_limited = getelementptr inbounds nuw i8, ptr %metrics, i64 16
+  %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %metrics, i64 17
+  %ref.tmp18.sroa.2.0.metrics.sroa_idx = getelementptr inbounds nuw i8, ptr %metrics, i64 8
+  %pacing_rate = getelementptr inbounds nuw i8, ptr %metrics, i64 112
+  %ref.tmp14.sroa.2.0.pacing_rate.sroa_idx = getelementptr inbounds nuw i8, ptr %metrics, i64 120
+  %sndbuf_limited_usec = getelementptr inbounds nuw i8, ptr %metrics, i64 208
+  %ref.tmp10.sroa.2.0.sndbuf_limited_usec.sroa_idx = getelementptr inbounds nuw i8, ptr %metrics, i64 216
+  %rwnd_limited_usec = getelementptr inbounds nuw i8, ptr %metrics, i64 192
+  %ref.tmp6.sroa.2.0.rwnd_limited_usec.sroa_idx = getelementptr inbounds nuw i8, ptr %metrics, i64 200
+  %busy_usec = getelementptr inbounds nuw i8, ptr %metrics, i64 176
+  %ref.tmp.sroa.2.0.busy_usec.sroa_idx = getelementptr inbounds nuw i8, ptr %metrics, i64 184
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
   %offset.086 = phi i64 [ 0, %while.body.lr.ph ], [ %add80, %sw.epilog ]
-  %add.ptr = getelementptr inbounds i8, ptr %__cmsg_data, i64 %offset.086
-  %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 4
-  %nla_type = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %add.ptr = getelementptr inbounds nuw i8, ptr %__cmsg_data, i64 %offset.086
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
+  %nla_type = getelementptr inbounds nuw i8, ptr %add.ptr, i64 2
   %1 = load i16, ptr %nla_type, align 2
   switch i16 %1, label %sw.epilog [
     i16 1, label %sw.bb
@@ -1031,7 +1031,7 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp7 = alloca %"class.absl::lts_20230802::Status", align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %head_ = getelementptr inbounds i8, ptr %this, i64 8
+  %head_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %head_, align 8
   %tobool.not24 = icmp eq ptr %0, null
   br i1 %tobool.not24, label %while.end, label %while.body
@@ -1039,7 +1039,7 @@ entry:
 while.body:                                       ; preds = %entry, %_ZN4absl12lts_202308026StatusD2Ev.exit
   %1 = phi ptr [ %12, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ %0, %entry ]
   %2 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_121g_timestamps_callbackE, align 8
-  %arg_ = getelementptr inbounds i8, ptr %1, i64 32
+  %arg_ = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load ptr, ptr %arg_, align 8
   %4 = load i64, ptr %shutdown_err, align 8
   store i64 %4, ptr %agg.tmp, align 8
@@ -1054,7 +1054,7 @@ if.then.i.i:                                      ; preds = %while.body
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %while.body
-  %ts_ = getelementptr inbounds i8, ptr %1, i64 40
+  %ts_ = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void %2(ptr noundef %3, ptr noundef nonnull %ts_, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -1077,7 +1077,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i7
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont4, %if.then.i.i7
   %10 = load ptr, ptr %head_, align 8
-  %next_ = getelementptr inbounds i8, ptr %10, i64 16
+  %next_ = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %next_, align 8
   store ptr %11, ptr %head_, align 8
   call void @_ZdlPv(ptr noundef nonnull %1) #18
@@ -1136,7 +1136,7 @@ lpad9:                                            ; preds = %invoke.cont8
 
 if.end:                                           ; preds = %if.then.i.i15, %invoke.cont10, %while.end
   %22 = load ptr, ptr %head_, align 8
-  %tail_ = getelementptr inbounds i8, ptr %this, i64 16
+  %tail_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %22, ptr %tail_, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i18

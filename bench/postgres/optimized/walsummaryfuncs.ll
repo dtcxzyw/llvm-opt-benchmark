@@ -20,20 +20,20 @@ define dso_local noundef i64 @pg_available_wal_summaries(ptr noundef %0) local_u
   %2 = alloca [3 x i64], align 16
   %3 = alloca [3 x i8], align 1
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false)
   %6 = tail call ptr @GetWalSummaries(i32 noundef 0, i64 noundef 0, i64 noundef 0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %13 = load i32, ptr %7, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph22, label %._crit_edge
@@ -52,13 +52,13 @@ define dso_local noundef i64 @pg_available_wal_summaries(ptr noundef %0) local_u
   br label %20
 
 20:                                               ; preds = %.lr.ph22, %19
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   store i64 %23, ptr %2, align 16
   %24 = load i64, ptr %17, align 8
   store i64 %24, ptr %9, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %10, align 16
   %27 = load ptr, ptr %11, align 8
@@ -99,10 +99,10 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   %8 = alloca i32, align 4
   %9 = alloca [256 x i32], align 16
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #5
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %3, i8 0, i64 6, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, -2147483648
   %or.cond = icmp ult i64 %14, -2147483647
@@ -118,16 +118,16 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
 
 19:                                               ; preds = %1
   %20 = trunc nuw nsw i64 %13 to i32
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %20, ptr %21, align 8
   %22 = getelementptr i8, ptr %0, i64 48
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %4, align 8
   %24 = getelementptr i8, ptr %0, i64 64
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %27, align 8
   %28 = call i32 @OpenWalSummaryFile(ptr noundef nonnull %4, i1 noundef zeroext false) #5
   store i32 %28, ptr %5, align 8
@@ -137,15 +137,15 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %19
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
-  %36 = getelementptr inbounds i8, ptr %2, i64 24
-  %37 = getelementptr inbounds i8, ptr %2, i64 40
-  %38 = getelementptr inbounds i8, ptr %2, i64 32
-  %39 = getelementptr inbounds i8, ptr %11, i64 48
-  %40 = getelementptr inbounds i8, ptr %11, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 40
   br label %42
 
 .loopexit:                                        ; preds = %58
@@ -290,23 +290,23 @@ define dso_local i64 @pg_get_wal_summarizer_state(ptr noundef %0) local_unnamed_
   %15 = zext i32 %14 to i64
   store i64 %15, ptr %2, align 16
   %16 = load i64, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %16, ptr %17, align 8
   %18 = load i64, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %18, ptr %19, align 16
   %20 = load i32, ptr %7, align 4
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %3, i64 3
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 1, ptr %23, align 1
   br label %27
 
 24:                                               ; preds = %13
   %25 = zext nneg i32 %20 to i64
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %25, ptr %26, align 8
   br label %27
 

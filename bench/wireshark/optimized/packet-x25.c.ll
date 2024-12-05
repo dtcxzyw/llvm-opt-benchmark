@@ -740,7 +740,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_x25_dir(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, -128
@@ -754,8 +754,8 @@ define internal i32 @dissect_x25_dir(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_x25(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 208
-  %6 = getelementptr inbounds i8, ptr %1, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %7 = load i32, ptr %5, align 8
   %8 = load i32, ptr %6, align 8
   %9 = icmp sgt i32 %7, %8
@@ -766,9 +766,9 @@ define internal i32 @dissect_x25(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %11, label %cmp_address.exit.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 212
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 236
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %14, %16
   br i1 %17, label %cmp_address.exit.thread, label %18
@@ -782,9 +782,9 @@ define internal i32 @dissect_x25(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %21, label %cmp_address.exit.thread11, label %cmp_address.exit
 
 cmp_address.exit:                                 ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 216
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 240
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %14 to i64
   %27 = tail call i32 @memcmp(ptr noundef %23, ptr noundef %25, i64 noundef %26) #5
@@ -792,9 +792,9 @@ cmp_address.exit:                                 ; preds = %20
   br i1 %28, label %cmp_address.exit.thread11, label %cmp_address.exit.thread
 
 cmp_address.exit.thread11:                        ; preds = %20, %cmp_address.exit
-  %29 = getelementptr inbounds i8, ptr %1, i64 284
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 288
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %32 = load i32, ptr %31, align 8
   %33 = icmp ugt i32 %30, %32
   %34 = select i1 %33, i32 1, i32 -1
@@ -859,7 +859,7 @@ define internal fastcc void @dissect_x25_common(ptr noundef %0, ptr noundef %1, 
   %10 = alloca ptr, align 8
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.212) #4
   %13 = load ptr, ptr %11, align 8
@@ -1154,10 +1154,10 @@ get_x25_pkt_len.exit.thread:                      ; preds = %124, %121, %118, %1
 
 switch.lookup:                                    ; preds = %165
   %168 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common, i64 0, i64 %168
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_x25_common, i64 0, i64 %168
   %switch.load = load ptr, ptr %switch.gep, align 8
   %169 = zext nneg i32 %3 to i64
-  %switch.gep539 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.1, i64 0, i64 %169
+  %switch.gep539 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_x25_common.1, i64 0, i64 %169
   %switch.load540 = load ptr, ptr %switch.gep539, align 8
   %170 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %170, i32 noundef 25, ptr noundef nonnull @.str.456, ptr noundef nonnull %switch.load, i32 noundef %18) #4
@@ -1261,32 +1261,32 @@ switch.lookup:                                    ; preds = %165
   ]
 
 219:                                              ; preds = %216
-  %220 = getelementptr inbounds i8, ptr %1, i64 80
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 50
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 50
   %223 = load i16, ptr %222, align 2
   %224 = and i16 %223, 8
   %.not491 = icmp eq i16 %224, 0
   br i1 %.not491, label %225, label %.thread532
 
 225:                                              ; preds = %219
-  %226 = getelementptr inbounds i8, ptr %1, i64 20
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %227 = load i32, ptr %226, align 4
   %228 = load ptr, ptr @ositp_handle, align 8
   call fastcc void @x25_hash_add_proto_start(i16 noundef zeroext %17, i32 noundef %227, ptr noundef %228)
   br label %.thread532
 
 229:                                              ; preds = %216
-  %230 = getelementptr inbounds i8, ptr %1, i64 80
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %231 = load ptr, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 50
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 50
   %233 = load i16, ptr %232, align 2
   %234 = and i16 %233, 8
   %.not490 = icmp eq i16 %234, 0
   br i1 %.not490, label %235, label %.thread532
 
 235:                                              ; preds = %229
-  %236 = getelementptr inbounds i8, ptr %1, i64 20
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %237 = load i32, ptr %236, align 4
   %238 = load ptr, ptr @ositp_handle, align 8
   call fastcc void @x25_hash_add_proto_start(i16 noundef zeroext %17, i32 noundef %237, ptr noundef %238)
@@ -1302,9 +1302,9 @@ switch.lookup:                                    ; preds = %165
   br label %242
 
 242:                                              ; preds = %239, %.thread523
-  %243 = getelementptr inbounds i8, ptr %1, i64 80
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %244 = load ptr, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 50
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 50
   %246 = load i16, ptr %245, align 2
   %247 = and i16 %246, 8
   %.not487 = icmp eq i16 %247, 0
@@ -1317,7 +1317,7 @@ switch.lookup:                                    ; preds = %165
   br i1 %.not488, label %254, label %251
 
 251:                                              ; preds = %248
-  %252 = getelementptr inbounds i8, ptr %1, i64 20
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %253 = load i32, ptr %252, align 4
   call fastcc void @x25_hash_add_proto_start(i16 noundef zeroext %17, i32 noundef %253, ptr noundef nonnull %250)
   br label %254
@@ -1353,7 +1353,7 @@ switch.lookup:                                    ; preds = %165
   br i1 %.not483, label %.thread532, label %264
 
 264:                                              ; preds = %262
-  %265 = getelementptr inbounds i8, ptr %1, i64 20
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %266 = load i32, ptr %265, align 4
   %267 = load ptr, ptr @ositp_handle, align 8
   tail call fastcc void @x25_hash_add_proto_start(i16 noundef zeroext %17, i32 noundef %266, ptr noundef %267)
@@ -1361,10 +1361,10 @@ switch.lookup:                                    ; preds = %165
 
 switch.lookup541:                                 ; preds = %165
   %268 = zext nneg i32 %3 to i64
-  %switch.gep542 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.2, i64 0, i64 %268
+  %switch.gep542 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_x25_common.2, i64 0, i64 %268
   %switch.load543 = load ptr, ptr %switch.gep542, align 8
   %269 = zext nneg i32 %3 to i64
-  %switch.gep544 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.3, i64 0, i64 %269
+  %switch.gep544 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_x25_common.3, i64 0, i64 %269
   %switch.load545 = load ptr, ptr %switch.gep544, align 8
   %270 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %270, i32 noundef 25, ptr noundef nonnull @.str.456, ptr noundef nonnull %switch.load543, i32 noundef %18) #4
@@ -1405,10 +1405,10 @@ switch.lookup541:                                 ; preds = %165
 
 switch.lookup546:                                 ; preds = %165
   %284 = zext nneg i32 %3 to i64
-  %switch.gep547 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.4, i64 0, i64 %284
+  %switch.gep547 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_x25_common.4, i64 0, i64 %284
   %switch.load548 = load ptr, ptr %switch.gep547, align 8
   %285 = zext nneg i32 %3 to i64
-  %switch.gep549 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.5, i64 0, i64 %285
+  %switch.gep549 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_x25_common.5, i64 0, i64 %285
   %switch.load550 = load ptr, ptr %switch.gep549, align 8
   %286 = load ptr, ptr %11, align 8
   %287 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #4
@@ -1418,14 +1418,14 @@ switch.lookup546:                                 ; preds = %165
   %291 = zext i8 %290 to i32
   %292 = tail call ptr @val_to_str_ext(i32 noundef %291, ptr noundef nonnull @x25_clear_diag_vals_ext, ptr noundef nonnull @.str.471) #4
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %286, i32 noundef 25, ptr noundef nonnull @.str.470, ptr noundef nonnull %switch.load548, i32 noundef %18, ptr noundef %289, ptr noundef %292) #4
-  %293 = getelementptr inbounds i8, ptr %1, i64 20
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %294 = load i32, ptr %293, align 4
   %295 = tail call ptr @find_conversation_by_id(i32 noundef %294, i32 noundef 21, i32 noundef %18) #4
   %.not.i511 = icmp eq ptr %295, null
   br i1 %.not.i511, label %x25_hash_add_proto_end.exit, label %296
 
 296:                                              ; preds = %switch.lookup546
-  %297 = getelementptr inbounds i8, ptr %295, i64 32
+  %297 = getelementptr inbounds nuw i8, ptr %295, i64 32
   store i32 %294, ptr %297, align 8
   br label %x25_hash_add_proto_end.exit
 
@@ -1543,10 +1543,10 @@ x25_hash_add_proto_end.exit:                      ; preds = %switch.lookup546, %
 
 switch.lookup551:                                 ; preds = %165
   %352 = zext nneg i32 %3 to i64
-  %switch.gep552 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.6, i64 0, i64 %352
+  %switch.gep552 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_x25_common.6, i64 0, i64 %352
   %switch.load553 = load ptr, ptr %switch.gep552, align 8
   %353 = zext nneg i32 %3 to i64
-  %switch.gep554 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.7, i64 0, i64 %353
+  %switch.gep554 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_x25_common.7, i64 0, i64 %353
   %switch.load555 = load ptr, ptr %switch.gep554, align 8
   %354 = load ptr, ptr %11, align 8
   %355 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #4
@@ -1555,14 +1555,14 @@ switch.lookup551:                                 ; preds = %165
   %358 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #4
   %359 = zext i8 %358 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %354, i32 noundef 25, ptr noundef nonnull @.str.482, ptr noundef nonnull %switch.load553, i32 noundef %18, ptr noundef %357, i32 noundef %359) #4
-  %360 = getelementptr inbounds i8, ptr %1, i64 20
+  %360 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %361 = load i32, ptr %360, align 4
   %362 = tail call ptr @find_conversation_by_id(i32 noundef %361, i32 noundef 21, i32 noundef %18) #4
   %.not.i512 = icmp eq ptr %362, null
   br i1 %.not.i512, label %x25_hash_add_proto_end.exit513, label %363
 
 363:                                              ; preds = %switch.lookup551
-  %364 = getelementptr inbounds i8, ptr %362, i64 32
+  %364 = getelementptr inbounds nuw i8, ptr %362, i64 32
   store i32 %361, ptr %364, align 8
   br label %x25_hash_add_proto_end.exit513
 
@@ -1604,10 +1604,10 @@ x25_hash_add_proto_end.exit513:                   ; preds = %switch.lookup551, %
 
 switch.lookup556:                                 ; preds = %165
   %383 = zext nneg i32 %3 to i64
-  %switch.gep557 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.8, i64 0, i64 %383
+  %switch.gep557 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_x25_common.8, i64 0, i64 %383
   %switch.load558 = load ptr, ptr %switch.gep557, align 8
   %384 = zext nneg i32 %3 to i64
-  %switch.gep559 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_x25_common.9, i64 0, i64 %384
+  %switch.gep559 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_x25_common.9, i64 0, i64 %384
   %switch.load560 = load ptr, ptr %switch.gep559, align 8
   %385 = load ptr, ptr %11, align 8
   %386 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #4
@@ -1834,7 +1834,7 @@ switch.lookup556:                                 ; preds = %165
   %504 = or disjoint i32 %18, 65536
   %spec.select = select i1 %.not496, i32 %18, i32 %504
   %505 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @x25_reassembly_table, ptr noundef %0, i32 noundef %storemerge, ptr noundef nonnull %1, i32 noundef %spec.select, ptr noundef null, i32 noundef %501, i32 noundef %.0439) #4
-  %506 = getelementptr inbounds i8, ptr %1, i64 272
+  %506 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 %.0439, ptr %506, align 8
   %507 = icmp eq i32 %.0439, 0
   %508 = icmp ne ptr %505, null
@@ -1847,7 +1847,7 @@ switch.lookup556:                                 ; preds = %165
   br i1 %.not497, label %.thread532, label %511
 
 511:                                              ; preds = %509
-  %512 = getelementptr inbounds i8, ptr %505, i64 56
+  %512 = getelementptr inbounds nuw i8, ptr %505, i64 56
   %513 = load ptr, ptr %512, align 8
   %514 = tail call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %513) #4
   tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %514, ptr noundef nonnull @.str.497) #4
@@ -1916,7 +1916,7 @@ switch.lookup556:                                 ; preds = %165
   br i1 %.not498, label %548, label %629
 
 548:                                              ; preds = %.thread532
-  %549 = getelementptr inbounds i8, ptr %1, i64 272
+  %549 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %550 = load i32, ptr %549, align 8
   %.not499 = icmp eq i32 %550, 0
   br i1 %.not499, label %551, label %629
@@ -1941,16 +1941,16 @@ switch.lookup556:                                 ; preds = %165
   br i1 %.not502, label %571, label %558
 
 558:                                              ; preds = %556
-  %559 = getelementptr inbounds i8, ptr %1, i64 80
+  %559 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %560 = load ptr, ptr %559, align 8
-  %561 = getelementptr inbounds i8, ptr %560, i64 50
+  %561 = getelementptr inbounds nuw i8, ptr %560, i64 50
   %562 = load i16, ptr %561, align 2
   %563 = and i16 %562, 8
   %.not508 = icmp eq i16 %563, 0
   br i1 %.not508, label %564, label %568
 
 564:                                              ; preds = %558
-  %565 = getelementptr inbounds i8, ptr %1, i64 20
+  %565 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %566 = load i32, ptr %565, align 4
   %567 = load ptr, ptr @qllc_handle, align 8
   call fastcc void @x25_hash_add_proto_start(i16 noundef zeroext %17, i32 noundef %566, ptr noundef %567)
@@ -1981,16 +1981,16 @@ switch.lookup556:                                 ; preds = %165
   br i1 %582, label %583, label %596
 
 583:                                              ; preds = %579
-  %584 = getelementptr inbounds i8, ptr %1, i64 80
+  %584 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %585 = load ptr, ptr %584, align 8
-  %586 = getelementptr inbounds i8, ptr %585, i64 50
+  %586 = getelementptr inbounds nuw i8, ptr %585, i64 50
   %587 = load i16, ptr %586, align 2
   %588 = and i16 %587, 8
   %.not507 = icmp eq i16 %588, 0
   br i1 %.not507, label %589, label %593
 
 589:                                              ; preds = %583
-  %590 = getelementptr inbounds i8, ptr %1, i64 20
+  %590 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %591 = load i32, ptr %590, align 4
   %592 = load ptr, ptr @ositp_handle, align 8
   call fastcc void @x25_hash_add_proto_start(i16 noundef zeroext %17, i32 noundef %591, ptr noundef %592)
@@ -2009,16 +2009,16 @@ switch.lookup556:                                 ; preds = %165
   ]
 
 598:                                              ; preds = %596
-  %599 = getelementptr inbounds i8, ptr %1, i64 80
+  %599 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %600 = load ptr, ptr %599, align 8
-  %601 = getelementptr inbounds i8, ptr %600, i64 50
+  %601 = getelementptr inbounds nuw i8, ptr %600, i64 50
   %602 = load i16, ptr %601, align 2
   %603 = and i16 %602, 8
   %.not505 = icmp eq i16 %603, 0
   br i1 %.not505, label %604, label %608
 
 604:                                              ; preds = %598
-  %605 = getelementptr inbounds i8, ptr %1, i64 20
+  %605 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %606 = load i32, ptr %605, align 4
   %607 = load ptr, ptr @ip_handle, align 8
   call fastcc void @x25_hash_add_proto_start(i16 noundef zeroext %17, i32 noundef %606, ptr noundef %607)
@@ -2030,16 +2030,16 @@ switch.lookup556:                                 ; preds = %165
   br label %629
 
 611:                                              ; preds = %596
-  %612 = getelementptr inbounds i8, ptr %1, i64 80
+  %612 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %613 = load ptr, ptr %612, align 8
-  %614 = getelementptr inbounds i8, ptr %613, i64 50
+  %614 = getelementptr inbounds nuw i8, ptr %613, i64 50
   %615 = load i16, ptr %614, align 2
   %616 = and i16 %615, 8
   %.not504 = icmp eq i16 %616, 0
   br i1 %.not504, label %617, label %621
 
 617:                                              ; preds = %611
-  %618 = getelementptr inbounds i8, ptr %1, i64 20
+  %618 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %619 = load i32, ptr %618, align 4
   %620 = load ptr, ptr @clnp_handle, align 8
   call fastcc void @x25_hash_add_proto_start(i16 noundef zeroext %17, i32 noundef %619, ptr noundef %620)
@@ -2092,7 +2092,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @x25_toa(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef 256) #4
   %8 = load ptr, ptr %5, align 8
@@ -2184,7 +2184,7 @@ define internal fastcc void @x25_toa(ptr noundef %0, ptr nocapture noundef nonnu
   br i1 %.not, label %59, label %51
 
 51:                                               ; preds = %._crit_edge
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = load ptr, ptr %52, align 8
   tail call void @col_add_str(ptr noundef %53, i32 noundef 18, ptr noundef %7) #4
   %54 = load i32, ptr @hf_x25_called_address, align 4
@@ -2199,7 +2199,7 @@ define internal fastcc void @x25_toa(ptr noundef %0, ptr nocapture noundef nonnu
   br i1 %.not74, label %73, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %3, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %62 = load ptr, ptr %61, align 8
   tail call void @col_add_str(ptr noundef %62, i32 noundef 20, ptr noundef %9) #4
   %63 = load i32, ptr @hf_x25_calling_address, align 4
@@ -2225,7 +2225,7 @@ define internal fastcc void @x25_toa(ptr noundef %0, ptr nocapture noundef nonnu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @x25_ntoa(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @wmem_alloc(ptr noundef %7, i64 noundef 16) #4
   %9 = load ptr, ptr %6, align 8
@@ -2326,7 +2326,7 @@ define internal fastcc void @x25_ntoa(ptr noundef %0, ptr nocapture noundef nonn
   br i1 %.not85, label %61, label %51
 
 51:                                               ; preds = %._crit_edge
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = load ptr, ptr %52, align 8
   tail call void @col_add_str(ptr noundef %53, i32 noundef 18, ptr noundef %8) #4
   %.not86 = icmp eq i32 %4, 0
@@ -2344,7 +2344,7 @@ define internal fastcc void @x25_ntoa(ptr noundef %0, ptr nocapture noundef nonn
   br i1 %.not87, label %77, label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %3, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %64 = load ptr, ptr %63, align 8
   tail call void @col_add_str(ptr noundef %64, i32 noundef 20, ptr noundef %10) #4
   %.not88 = icmp eq i32 %4, 0
@@ -2403,7 +2403,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr nocapture nound
 .lr.ph:                                           ; preds = %.thread, %19
   %21 = phi i32 [ %18, %.thread ], [ %20, %19 ]
   %.0356446 = phi ptr [ %13, %.thread ], [ null, %19 ]
-  %22 = getelementptr inbounds i8, ptr %3, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 408
   br label %23
 
 23:                                               ; preds = %.lr.ph, %511
@@ -3266,7 +3266,7 @@ define internal fastcc void @x25_hash_add_proto_start(i16 noundef zeroext range(
 
 6:                                                ; preds = %3
   %7 = add i32 %1, -1
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %7, ptr %8, align 8
   br label %9
 

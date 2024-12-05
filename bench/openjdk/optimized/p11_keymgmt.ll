@@ -45,33 +45,33 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
   store i64 0, ptr %7, align 8
   %12 = tail call ptr @getFunctionList(ptr noundef %0, ptr noundef %1) #5
   store i64 0, ptr %11, align 16
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 256, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 259, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %11, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store i64 3584088832, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %8, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %9, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %11, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %10, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 80
   store ptr null, ptr %19, align 16
-  %20 = getelementptr inbounds i8, ptr %11, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 8, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %11, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 8, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i64 1, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %11, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store i64 0, ptr %23, align 8
   %24 = icmp eq ptr %12, null
   br i1 %24, label %.thread300, label %25
 
 25:                                               ; preds = %6
-  %26 = getelementptr inbounds i8, ptr %12, i64 200
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 200
   %27 = load ptr, ptr %26, align 8
   %28 = call i64 %27(i64 noundef %2, i64 noundef %3, ptr noundef nonnull %11, i64 noundef 4) #5
   %29 = icmp eq i64 %28, 0
@@ -114,8 +114,8 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
   %.0168315 = phi i64 [ 0, %43 ], [ %.1169, %59 ]
   %.0172313 = phi i32 [ -1, %43 ], [ %.2174, %59 ]
   %.0175312 = phi i32 [ -1, %43 ], [ %.2177, %59 ]
-  %47 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %40, i64 %indvars.iv
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %47 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %40, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i64, ptr %48, align 8
   %.not208 = icmp eq i64 %49, -1
   br i1 %.not208, label %59, label %50
@@ -159,7 +159,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
   %63 = add i64 %.1169, 24
   %64 = add i64 %63, %62
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 1408
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1408
   %67 = load ptr, ptr %66, align 8
   %68 = trunc i64 %64 to i32
   %69 = call ptr %67(ptr noundef nonnull %0, i32 noundef %68) #5
@@ -168,31 +168,31 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 
 71:                                               ; preds = %60
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1472
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1472
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull %69, ptr noundef null) #5
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.thread270, label %77
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds i8, ptr %75, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %79 = getelementptr inbounds i8, ptr %78, i64 %62
   %80 = getelementptr inbounds i8, ptr %79, i64 %.1169
   store i64 %62, ptr %75, align 1
-  %81 = getelementptr inbounds i8, ptr %75, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %82 = getelementptr inbounds i8, ptr %81, i64 %62
   store i64 %.1169, ptr %82, align 1
   store i64 0, ptr %80, align 1
   %83 = getelementptr inbounds i8, ptr %75, i64 %62
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   br label %85
 
 85:                                               ; preds = %77, %96
   %indvars.iv321 = phi i64 [ 0, %77 ], [ %indvars.iv.next322, %96 ]
   %.0163319 = phi ptr [ %84, %77 ], [ %.1, %96 ]
   %.0164318 = phi ptr [ %81, %77 ], [ %.1165, %96 ]
-  %86 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %40, i64 %indvars.iv321
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %86 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %40, i64 %indvars.iv321
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load i64, ptr %87, align 8
   %.not206 = icmp eq i64 %88, -1
   br i1 %.not206, label %96, label %89
@@ -201,14 +201,14 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
   %90 = load i64, ptr %86, align 8
   store i64 %90, ptr %.0164318, align 8
   %91 = load i64, ptr %87, align 8
-  %92 = getelementptr inbounds i8, ptr %.0164318, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.0164318, i64 16
   store i64 %91, ptr %92, align 8
   %.not207 = icmp eq i64 %91, 0
   %spec.select = select i1 %.not207, ptr null, ptr %.0163319
-  %93 = getelementptr inbounds i8, ptr %.0164318, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.0164318, i64 8
   store ptr %spec.select, ptr %93, align 8
   %94 = getelementptr inbounds i8, ptr %.0163319, i64 %91
-  %95 = getelementptr inbounds i8, ptr %.0164318, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %.0164318, i64 24
   br label %96
 
 96:                                               ; preds = %85, %89
@@ -235,8 +235,8 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 105:                                              ; preds = %101
   %106 = zext i32 %.2174 to i64
   %.idx = mul nuw nsw i64 %106, 24
-  %107 = getelementptr inbounds i8, ptr %81, i64 %.idx
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = load i64, ptr %109, align 8
   %111 = icmp ugt i64 %110, 256
@@ -256,8 +256,8 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 115:                                              ; preds = %114
   %116 = zext i32 %.2177 to i64
   %.idx202 = mul nuw nsw i64 %116, 24
-  %117 = getelementptr inbounds i8, ptr %81, i64 %.idx202
-  %118 = getelementptr inbounds i8, ptr %117, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx202
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = load i8, ptr %119, align 1
   %121 = icmp eq i8 %120, 1
@@ -269,7 +269,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 
 123:                                              ; preds = %122
   %124 = call ptr @jMechanismToCKMechanismPtr(ptr noundef nonnull %0, ptr noundef %5) #5
-  %125 = getelementptr inbounds i8, ptr %12, i64 488
+  %125 = getelementptr inbounds nuw i8, ptr %12, i64 488
   %126 = load ptr, ptr %125, align 8
   %127 = call i64 %126(i64 noundef %2, ptr noundef %124, i64 noundef %4, i64 noundef %3, ptr noundef null, ptr noundef nonnull %7) #5
   %128 = load i64, ptr %7, align 8
@@ -278,7 +278,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 
 129:                                              ; preds = %123
   %130 = load ptr, ptr %0, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 1408
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 1408
   %132 = load ptr, ptr %131, align 8
   %133 = add i64 %128, %64
   %134 = trunc i64 %133 to i32
@@ -288,7 +288,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 
 137:                                              ; preds = %129
   %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 1472
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 1472
   %140 = load ptr, ptr %139, align 8
   %141 = call ptr %140(ptr noundef nonnull %0, ptr noundef nonnull %135, ptr noundef null) #5
   %142 = icmp eq ptr %141, null
@@ -296,12 +296,12 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 
 143:                                              ; preds = %137
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %141, ptr nonnull align 1 %75, i64 %64, i1 false)
-  %144 = getelementptr inbounds i8, ptr %141, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %145 = getelementptr inbounds i8, ptr %144, i64 %62
   %146 = getelementptr inbounds i8, ptr %145, i64 %.1169
   %147 = load i64, ptr %7, align 8
   store i64 %147, ptr %146, align 1
-  %148 = getelementptr inbounds i8, ptr %146, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %149 = load ptr, ptr %125, align 8
   %150 = call i64 %149(i64 noundef %2, ptr noundef %124, i64 noundef %4, i64 noundef %3, ptr noundef nonnull %148, ptr noundef nonnull %7) #5
   %151 = call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef %150) #5
@@ -328,7 +328,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
   %.0180.ph264 = phi ptr [ null, %105 ], [ null, %129 ], [ %135, %137 ], [ %135, %143 ], [ %135, %152 ], [ null, %123 ], [ null, %154 ], [ null, %115 ], [ null, %114 ], [ null, %97 ]
   call void @free(ptr noundef nonnull %40) #5
   %156 = load ptr, ptr %0, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 1536
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 1536
   %158 = load ptr, ptr %157, align 8
   call void %158(ptr noundef nonnull %0, ptr noundef nonnull %69, ptr noundef nonnull %75, i32 noundef 0) #5
   %.not211 = icmp eq ptr %.0178.ph266, null
@@ -336,7 +336,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 
 159:                                              ; preds = %.thread255
   %160 = load ptr, ptr %0, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 1536
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 1536
   %162 = load ptr, ptr %161, align 8
   call void %162(ptr noundef nonnull %0, ptr noundef %.0180.ph264, ptr noundef nonnull %.0178.ph266, i32 noundef 0) #5
   br label %.thread279
@@ -351,7 +351,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 
 163:                                              ; preds = %.thread279
   %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 184
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 184
   %166 = load ptr, ptr %165, align 8
   call void %166(ptr noundef nonnull %0, ptr noundef nonnull %69) #5
   br label %167
@@ -364,7 +364,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_getNativeKeyInfo(ptr noundef
 
 168:                                              ; preds = %167
   %169 = load ptr, ptr %0, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 184
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 184
   %171 = load ptr, ptr %170, align 8
   call void %171(ptr noundef nonnull %0, ptr noundef nonnull %.0180231252287) #5
   br label %.thread300
@@ -404,7 +404,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_createNativeKey(ptr noundef 
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1472
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1472
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #5
   %15 = icmp eq ptr %14, null
@@ -413,11 +413,11 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_createNativeKey(ptr noundef 
 16:                                               ; preds = %10
   %.0.copyload24 = load i64, ptr %14, align 1
   %17 = udiv i64 %.0.copyload24, 24
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = getelementptr inbounds i8, ptr %14, i64 %.0.copyload24
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.0.copyload10 = load i64, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %14, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = getelementptr inbounds i8, ptr %21, i64 %.0.copyload24
   %23 = getelementptr inbounds i8, ptr %22, i64 %.0.copyload10
   %.0.copyload = load i64, ptr %23, align 1
@@ -425,26 +425,26 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_createNativeKey(ptr noundef 
   br i1 %.not75, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %.05574 = phi i32 [ %32, %29 ], [ 0, %.lr.ph.preheader ]
   %.05673 = phi ptr [ %30, %29 ], [ %24, %.lr.ph.preheader ]
   %.05772 = phi ptr [ %31, %29 ], [ %18, %.lr.ph.preheader ]
-  %25 = getelementptr inbounds i8, ptr %.05772, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.05772, i64 16
   %26 = load i64, ptr %25, align 8
   %.not64 = icmp eq i64 %26, 0
   br i1 %.not64, label %29, label %27
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %.05772, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.05772, i64 8
   store ptr %.05673, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %27, %.lr.ph
   %30 = getelementptr inbounds i8, ptr %.05673, i64 %26
-  %31 = getelementptr inbounds i8, ptr %.05772, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.05772, i64 24
   %32 = add i32 %.05574, 1
   %33 = zext i32 %32 to i64
   %34 = icmp samesign ugt i64 %17, %33
@@ -455,16 +455,16 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_createNativeKey(ptr noundef 
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %._crit_edge
-  %37 = getelementptr inbounds i8, ptr %8, i64 168
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %38 = load ptr, ptr %37, align 8
   %39 = call i64 %38(i64 noundef %2, ptr noundef nonnull %18, i64 noundef %17, ptr noundef nonnull %7) #5
   br label %46
 
 40:                                               ; preds = %._crit_edge
   %41 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef nonnull %0, ptr noundef %5) #5
-  %42 = getelementptr inbounds i8, ptr %8, i64 496
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 496
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %23, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %45 = call i64 %43(i64 noundef %2, ptr noundef %41, i64 noundef %4, ptr noundef nonnull %44, i64 noundef %.0.copyload, ptr noundef nonnull %18, i64 noundef %17, ptr noundef nonnull %7) #5
   br label %46
 
@@ -476,7 +476,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_createNativeKey(ptr noundef 
   %48 = load i64, ptr %7, align 8
   %spec.select = select i1 %.not, i64 %48, i64 0
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1536
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1536
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %14, i32 noundef 2) #5
   br label %.thread
@@ -503,7 +503,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GenerateKey(ptr noundef %
 11:                                               ; preds = %5
   %12 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #5
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1824
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1824
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i8 %15(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %16, 0
@@ -512,14 +512,14 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GenerateKey(ptr noundef %
 17:                                               ; preds = %11
   call void @jAttributeArrayToCKAttributeArray(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1824
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1824
   %20 = load ptr, ptr %19, align 8
   %21 = call zeroext i8 %20(ptr noundef nonnull %0) #5
   %.not25 = icmp eq i8 %21, 0
   br i1 %.not25, label %22, label %34
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %9, i64 472
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 472
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %6, align 8
   %26 = load i64, ptr %7, align 8
@@ -576,7 +576,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GenerateKeyPair(ptr nound
 13:                                               ; preds = %6
   %14 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #5
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1824
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1824
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i8 %17(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %18, 0
@@ -592,10 +592,10 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GenerateKeyPair(ptr nound
   br label %50
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @jAttributeArrayToCKAttributeArray(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %9) #5
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1824
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1824
   %27 = load ptr, ptr %26, align 8
   %28 = call zeroext i8 %27(ptr noundef nonnull %0) #5
   %.not42 = icmp eq i8 %28, 0
@@ -604,14 +604,14 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GenerateKeyPair(ptr nound
 29:                                               ; preds = %23
   call void @jAttributeArrayToCKAttributeArray(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %8, ptr noundef nonnull %10) #5
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1824
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1824
   %32 = load ptr, ptr %31, align 8
   %33 = call zeroext i8 %32(ptr noundef nonnull %0) #5
   %.not43 = icmp eq i8 %33, 0
   br i1 %.not43, label %.preheader, label %50
 
 .preheader:                                       ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %11, i64 480
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 480
   br label %35
 
 35:                                               ; preds = %.preheader, %43
@@ -675,14 +675,14 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1WrapKey(ptr noundef %0, p
 11:                                               ; preds = %6
   %12 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #5
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1824
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1824
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i8 %15(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %17, label %38
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %9, i64 488
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 488
   %19 = load ptr, ptr %18, align 8
   %20 = call i64 %19(i64 noundef %2, ptr noundef %12, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %21 = icmp eq i64 %20, 336
@@ -756,7 +756,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1UnwrapKey(ptr noundef %0,
 15:                                               ; preds = %7
   %16 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #5
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1824
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1824
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i8 %19(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %20, 0
@@ -765,7 +765,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1UnwrapKey(ptr noundef %0,
 21:                                               ; preds = %15
   call void @jByteArrayToCKByteArray(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1824
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1824
   %24 = load ptr, ptr %23, align 8
   %25 = call zeroext i8 %24(ptr noundef nonnull %0) #5
   %.not27 = icmp eq i8 %25, 0
@@ -774,14 +774,14 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1UnwrapKey(ptr noundef %0,
 26:                                               ; preds = %21
   call void @jAttributeArrayToCKAttributeArray(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %10, ptr noundef nonnull %11) #5
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1824
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1824
   %29 = load ptr, ptr %28, align 8
   %30 = call zeroext i8 %29(ptr noundef nonnull %0) #5
   %.not28 = icmp eq i8 %30, 0
   br i1 %.not28, label %31, label %42
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %13, i64 496
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 496
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %8, align 8
   %35 = load i64, ptr %9, align 8
@@ -815,7 +815,7 @@ declare void @jByteArrayToCKByteArray(ptr noundef, ptr noundef, ptr noundef, ptr
 ; Function Attrs: nounwind uwtable
 define hidden void @copyBackTLSPrfParams(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #5
   %8 = icmp eq ptr %7, null
@@ -823,7 +823,7 @@ define hidden void @copyBackTLSPrfParams(ptr noundef %0, ptr nocapture noundef r
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 752
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 752
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #5
   %14 = icmp eq ptr %13, null
@@ -831,7 +831,7 @@ define hidden void @copyBackTLSPrfParams(ptr noundef %0, ptr nocapture noundef r
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 808
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 808
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 %18(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %13) #5
   %20 = load i64, ptr %1, align 8
@@ -839,14 +839,14 @@ define hidden void @copyBackTLSPrfParams(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not, label %21, label %70
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not62 = icmp eq ptr %23, null
   br i1 %.not62, label %70, label %24
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 752
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 752
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #5
   %29 = icmp eq ptr %28, null
@@ -854,11 +854,11 @@ define hidden void @copyBackTLSPrfParams(ptr noundef %0, ptr nocapture noundef r
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 760
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 760
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %28) #5
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr %37(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #5
   %39 = icmp eq ptr %38, null
@@ -866,7 +866,7 @@ define hidden void @copyBackTLSPrfParams(ptr noundef %0, ptr nocapture noundef r
 
 40:                                               ; preds = %30
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 752
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 752
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr %43(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #5
   %45 = icmp eq ptr %44, null
@@ -874,21 +874,21 @@ define hidden void @copyBackTLSPrfParams(ptr noundef %0, ptr nocapture noundef r
 
 46:                                               ; preds = %40
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 760
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 760
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr %49(ptr noundef nonnull %0, ptr noundef %34, ptr noundef nonnull %44) #5
-  %51 = getelementptr inbounds i8, ptr %23, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %52 = load ptr, ptr %51, align 8
   %.not63 = icmp eq ptr %50, null
   br i1 %.not63, label %70, label %53
 
 53:                                               ; preds = %46
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1368
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1368
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i32 %56(ptr noundef nonnull %0, ptr noundef nonnull %50) #5
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1472
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1472
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr %60(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef null) #5
   %62 = icmp eq ptr %61, null
@@ -904,9 +904,9 @@ define hidden void @copyBackTLSPrfParams(ptr noundef %0, ptr nocapture noundef r
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %64 = getelementptr inbounds i8, ptr %52, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv
   %65 = load i8, ptr %64, align 1
-  %66 = getelementptr inbounds i8, ptr %61, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 %indvars.iv
   store i8 %65, ptr %66, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -914,7 +914,7 @@ define hidden void @copyBackTLSPrfParams(ptr noundef %0, ptr nocapture noundef r
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1536
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1536
   %69 = load ptr, ptr %68, align 8
   tail call void %69(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef nonnull %61, i32 noundef 0) #5
   br label %70
@@ -938,7 +938,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DeriveKey(ptr noundef %0,
 12:                                               ; preds = %6
   %13 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #5
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1824
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1824
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i8 %16(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %17, 0
@@ -947,7 +947,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DeriveKey(ptr noundef %0,
 18:                                               ; preds = %12
   call void @jAttributeArrayToCKAttributeArray(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1824
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1824
   %21 = load ptr, ptr %20, align 8
   %22 = call zeroext i8 %21(ptr noundef nonnull %0) #5
   %.not42 = icmp eq i8 %22, 0
@@ -967,7 +967,7 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DeriveKey(ptr noundef %0,
 
 26:                                               ; preds = %23, %25
   %.039 = phi ptr [ %9, %23 ], [ null, %25 ]
-  %27 = getelementptr inbounds i8, ptr %10, i64 504
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 504
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %7, align 8
   %30 = load i64, ptr %8, align 8
@@ -985,49 +985,49 @@ define i64 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DeriveKey(ptr noundef %0,
   ]
 
 34:                                               ; preds = %26, %26
-  %35 = getelementptr inbounds i8, ptr %13, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %ssl3CopyBackClientVersion.exit, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %36, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %39 = load ptr, ptr %38, align 8
   call fastcc void @copyBackClientVersion(ptr noundef nonnull %0, ptr noundef nonnull readonly %13, ptr noundef %3, ptr noundef %39, ptr noundef nonnull @.str.9)
   br label %ssl3CopyBackClientVersion.exit
 
 40:                                               ; preds = %26
-  %41 = getelementptr inbounds i8, ptr %13, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i44 = icmp eq ptr %42, null
   br i1 %.not.i44, label %ssl3CopyBackClientVersion.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %45 = load ptr, ptr %44, align 8
   call fastcc void @copyBackClientVersion(ptr noundef nonnull %0, ptr noundef nonnull readonly %13, ptr noundef %3, ptr noundef %45, ptr noundef nonnull @.str.10)
   br label %ssl3CopyBackClientVersion.exit
 
 46:                                               ; preds = %26, %26
-  %47 = getelementptr inbounds i8, ptr %13, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not.i45 = icmp eq ptr %48, null
   br i1 %.not.i45, label %ssl3CopyBackClientVersion.exit, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %48, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %51 = load ptr, ptr %50, align 8
   call fastcc void @copyBackKeyMatParams(ptr noundef nonnull %0, ptr noundef nonnull readonly %13, ptr noundef %3, ptr noundef %51, ptr noundef nonnull @.str.11)
   br label %ssl3CopyBackClientVersion.exit
 
 52:                                               ; preds = %26
-  %53 = getelementptr inbounds i8, ptr %13, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not.i46 = icmp eq ptr %54, null
   br i1 %.not.i46, label %ssl3CopyBackClientVersion.exit, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %54, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 64
   %57 = load ptr, ptr %56, align 8
   call fastcc void @copyBackKeyMatParams(ptr noundef nonnull %0, ptr noundef nonnull readonly %13, ptr noundef %3, ptr noundef %57, ptr noundef nonnull @.str.12)
   br label %ssl3CopyBackClientVersion.exit
@@ -1058,13 +1058,13 @@ ssl3CopyBackClientVersion.exit:                   ; preds = %55, %52, %49, %46, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ssl3CopyBackClientVersion(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @copyBackClientVersion(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %8, ptr noundef nonnull @.str.9)
   br label %9
@@ -1075,13 +1075,13 @@ define hidden void @ssl3CopyBackClientVersion(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define hidden void @tls12CopyBackClientVersion(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @copyBackClientVersion(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %8, ptr noundef nonnull @.str.10)
   br label %9
@@ -1092,13 +1092,13 @@ define hidden void @tls12CopyBackClientVersion(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ssl3CopyBackKeyMatParams(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %8, ptr noundef nonnull @.str.11)
   br label %9
@@ -1109,13 +1109,13 @@ define hidden void @ssl3CopyBackKeyMatParams(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define hidden void @tls12CopyBackKeyMatParams(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %8, ptr noundef nonnull @.str.12)
   br label %9
@@ -1127,7 +1127,7 @@ define hidden void @tls12CopyBackKeyMatParams(ptr noundef %0, ptr nocapture noun
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @copyBackClientVersion(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #5
   %10 = icmp eq ptr %9, null
@@ -1135,7 +1135,7 @@ define internal fastcc void @copyBackClientVersion(ptr noundef %0, ptr nocapture
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 752
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 752
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #5
   %16 = icmp eq ptr %15, null
@@ -1143,7 +1143,7 @@ define internal fastcc void @copyBackClientVersion(ptr noundef %0, ptr nocapture
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 808
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 808
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i64 %20(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %15) #5
   %22 = load i64, ptr %1, align 8
@@ -1154,7 +1154,7 @@ define internal fastcc void @copyBackClientVersion(ptr noundef %0, ptr nocapture
 
 25:                                               ; preds = %17
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 752
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 752
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #5
   %30 = icmp eq ptr %29, null
@@ -1162,11 +1162,11 @@ define internal fastcc void @copyBackClientVersion(ptr noundef %0, ptr nocapture
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 760
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 760
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %29) #5
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef nonnull %0, ptr noundef %4) #5
   %40 = icmp eq ptr %39, null
@@ -1174,7 +1174,7 @@ define internal fastcc void @copyBackClientVersion(ptr noundef %0, ptr nocapture
 
 41:                                               ; preds = %31
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 752
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 752
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr %44(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #5
   %46 = icmp eq ptr %45, null
@@ -1182,11 +1182,11 @@ define internal fastcc void @copyBackClientVersion(ptr noundef %0, ptr nocapture
 
 47:                                               ; preds = %41
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 760
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 760
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr %50(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull %45) #5
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr %54(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #5
   %56 = icmp eq ptr %55, null
@@ -1194,7 +1194,7 @@ define internal fastcc void @copyBackClientVersion(ptr noundef %0, ptr nocapture
 
 57:                                               ; preds = %47
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 752
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 752
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr %60(ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #5
   %62 = icmp eq ptr %61, null
@@ -1202,12 +1202,12 @@ define internal fastcc void @copyBackClientVersion(ptr noundef %0, ptr nocapture
 
 63:                                               ; preds = %57
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 848
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 848
   %66 = load ptr, ptr %65, align 8
   %67 = load i8, ptr %3, align 1
   tail call void %66(ptr noundef nonnull %0, ptr noundef %51, ptr noundef nonnull %61, i8 noundef signext %67) #5
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 752
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 752
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr %70(ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17) #5
   %72 = icmp eq ptr %71, null
@@ -1215,9 +1215,9 @@ define internal fastcc void @copyBackClientVersion(ptr noundef %0, ptr nocapture
 
 73:                                               ; preds = %63
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 848
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 848
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %78 = load i8, ptr %77, align 1
   tail call void %76(ptr noundef nonnull %0, ptr noundef %51, ptr noundef nonnull %71, i8 noundef signext %78) #5
   br label %79
@@ -1229,7 +1229,7 @@ define internal fastcc void @copyBackClientVersion(ptr noundef %0, ptr nocapture
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #5
   %10 = icmp eq ptr %9, null
@@ -1237,7 +1237,7 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 752
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 752
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #5
   %16 = icmp eq ptr %15, null
@@ -1245,7 +1245,7 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 808
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 808
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i64 %20(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %15) #5
   %22 = load i64, ptr %1, align 8
@@ -1256,7 +1256,7 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 25:                                               ; preds = %17
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 752
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 752
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #5
   %30 = icmp eq ptr %29, null
@@ -1264,11 +1264,11 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 760
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 760
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %29) #5
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef nonnull %0, ptr noundef %4) #5
   %40 = icmp eq ptr %39, null
@@ -1276,7 +1276,7 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 41:                                               ; preds = %31
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 752
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 752
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr %44(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #5
   %46 = icmp eq ptr %45, null
@@ -1284,11 +1284,11 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 47:                                               ; preds = %41
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 760
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 760
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr %50(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull %45) #5
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr %54(ptr noundef nonnull %0, ptr noundef nonnull @.str.21) #5
   %56 = icmp eq ptr %55, null
@@ -1296,7 +1296,7 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 57:                                               ; preds = %47
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 752
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 752
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr %60(ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.3) #5
   %62 = icmp eq ptr %61, null
@@ -1304,12 +1304,12 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 63:                                               ; preds = %57
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 880
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 880
   %66 = load ptr, ptr %65, align 8
   %67 = load i64, ptr %3, align 8
   tail call void %66(ptr noundef nonnull %0, ptr noundef %51, ptr noundef nonnull %61, i64 noundef %67) #5
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 752
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 752
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr %70(ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.3) #5
   %72 = icmp eq ptr %71, null
@@ -1317,13 +1317,13 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 73:                                               ; preds = %63
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 880
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 880
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %78 = load i64, ptr %77, align 8
   tail call void %76(ptr noundef nonnull %0, ptr noundef %51, ptr noundef nonnull %71, i64 noundef %78) #5
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 752
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 752
   %81 = load ptr, ptr %80, align 8
   %82 = tail call ptr %81(ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.3) #5
   %83 = icmp eq ptr %82, null
@@ -1331,13 +1331,13 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 84:                                               ; preds = %73
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 880
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 880
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %3, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %89 = load i64, ptr %88, align 8
   tail call void %87(ptr noundef nonnull %0, ptr noundef %51, ptr noundef nonnull %82, i64 noundef %89) #5
   %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 752
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 752
   %92 = load ptr, ptr %91, align 8
   %93 = tail call ptr %92(ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.3) #5
   %94 = icmp eq ptr %93, null
@@ -1345,13 +1345,13 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 95:                                               ; preds = %84
   %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 880
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 880
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %3, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %100 = load i64, ptr %99, align 8
   tail call void %98(ptr noundef nonnull %0, ptr noundef %51, ptr noundef nonnull %93, i64 noundef %100) #5
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 752
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 752
   %103 = load ptr, ptr %102, align 8
   %104 = tail call ptr %103(ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.8) #5
   %105 = icmp eq ptr %104, null
@@ -1359,21 +1359,21 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 106:                                              ; preds = %95
   %107 = load ptr, ptr %0, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 760
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 760
   %109 = load ptr, ptr %108, align 8
   %110 = tail call ptr %109(ptr noundef nonnull %0, ptr noundef %51, ptr noundef nonnull %104) #5
-  %111 = getelementptr inbounds i8, ptr %3, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %112 = load ptr, ptr %111, align 8
   %.not = icmp eq ptr %110, null
   br i1 %.not, label %130, label %113
 
 113:                                              ; preds = %106
   %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 1368
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 1368
   %116 = load ptr, ptr %115, align 8
   %117 = tail call i32 %116(ptr noundef nonnull %0, ptr noundef nonnull %110) #5
   %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 1472
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 1472
   %120 = load ptr, ptr %119, align 8
   %121 = tail call ptr %120(ptr noundef nonnull %0, ptr noundef nonnull %110, ptr noundef null) #5
   %122 = icmp eq ptr %121, null
@@ -1389,9 +1389,9 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %124 = getelementptr inbounds i8, ptr %112, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv
   %125 = load i8, ptr %124, align 1
-  %126 = getelementptr inbounds i8, ptr %121, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 %indvars.iv
   store i8 %125, ptr %126, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1399,14 +1399,14 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader1
   %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 1536
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 1536
   %129 = load ptr, ptr %128, align 8
   tail call void %129(ptr noundef nonnull %0, ptr noundef nonnull %110, ptr noundef nonnull %121, i32 noundef 0) #5
   br label %130
 
 130:                                              ; preds = %._crit_edge, %106
   %131 = load ptr, ptr %0, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 752
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 752
   %133 = load ptr, ptr %132, align 8
   %134 = tail call ptr %133(ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.8) #5
   %135 = icmp eq ptr %134, null
@@ -1414,21 +1414,21 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 136:                                              ; preds = %130
   %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 760
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 760
   %139 = load ptr, ptr %138, align 8
   %140 = tail call ptr %139(ptr noundef nonnull %0, ptr noundef %51, ptr noundef nonnull %134) #5
-  %141 = getelementptr inbounds i8, ptr %3, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %142 = load ptr, ptr %141, align 8
   %.not147 = icmp eq ptr %140, null
   br i1 %.not147, label %160, label %143
 
 143:                                              ; preds = %136
   %144 = load ptr, ptr %0, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 1368
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 1368
   %146 = load ptr, ptr %145, align 8
   %147 = tail call i32 %146(ptr noundef nonnull %0, ptr noundef nonnull %140) #5
   %148 = load ptr, ptr %0, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 1472
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 1472
   %150 = load ptr, ptr %149, align 8
   %151 = tail call ptr %150(ptr noundef nonnull %0, ptr noundef nonnull %140, ptr noundef null) #5
   %152 = icmp eq ptr %151, null
@@ -1444,9 +1444,9 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 .lr.ph4:                                          ; preds = %.lr.ph4.preheader, %.lr.ph4
   %indvars.iv7 = phi i64 [ 0, %.lr.ph4.preheader ], [ %indvars.iv.next8, %.lr.ph4 ]
-  %154 = getelementptr inbounds i8, ptr %142, i64 %indvars.iv7
+  %154 = getelementptr inbounds nuw i8, ptr %142, i64 %indvars.iv7
   %155 = load i8, ptr %154, align 1
-  %156 = getelementptr inbounds i8, ptr %151, i64 %indvars.iv7
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 %indvars.iv7
   store i8 %155, ptr %156, align 1
   %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
   %exitcond11.not = icmp eq i64 %indvars.iv.next8, %wide.trip.count10
@@ -1454,7 +1454,7 @@ define internal fastcc void @copyBackKeyMatParams(ptr noundef %0, ptr nocapture 
 
 ._crit_edge5:                                     ; preds = %.lr.ph4, %.preheader
   %157 = load ptr, ptr %0, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 1536
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 1536
   %159 = load ptr, ptr %158, align 8
   tail call void %159(ptr noundef nonnull %0, ptr noundef nonnull %140, ptr noundef nonnull %151, i32 noundef 0) #5
   br label %160

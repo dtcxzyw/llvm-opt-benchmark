@@ -6,13 +6,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @mm_map_lock() local_unnamed_addr #0 {
   %1 = tail call ptr @nxsched_self() #6
-  %2 = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load ptr, ptr %2, align 16
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %3, i64 968
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 968
   %7 = tail call i32 @nxrmutex_lock(ptr noundef nonnull %6) #6
   br label %8
 
@@ -28,13 +28,13 @@ declare i32 @nxrmutex_lock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @mm_map_unlock() local_unnamed_addr #0 {
   %1 = tail call ptr @nxsched_self() #6
-  %2 = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load ptr, ptr %2, align 16
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %3, i64 968
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 968
   %7 = tail call i32 @nxrmutex_unlock(ptr noundef nonnull %6) #6
   br label %8
 
@@ -46,10 +46,10 @@ declare i32 @nxrmutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @mm_map_initialize(ptr noundef initializes((0, 16)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %4 = tail call i32 @nxrmutex_init(ptr noundef nonnull %3) #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   ret void
 }
@@ -63,20 +63,20 @@ define void @mm_map_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %.lr.ph, %14
   %5 = phi ptr [ %2, %.lr.ph ], [ %17, %14 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %.not10 = icmp eq ptr %7, null
   br i1 %.not10, label %14, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = tail call i32 %7(ptr noundef null, ptr noundef nonnull %5, ptr noundef %10, i64 noundef %12) #6
   br label %14
@@ -91,7 +91,7 @@ define void @mm_map_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %4, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %14, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = tail call i32 @nxrmutex_destroy(ptr noundef nonnull %18) #6
   ret void
 }
@@ -115,7 +115,7 @@ define range(i32 -2147483648, 1) i32 @mm_map_add(ptr noundef %0, ptr noundef rea
 
 5:                                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = tail call i32 @nxrmutex_lock(ptr noundef nonnull %6) #6
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %10
@@ -125,7 +125,7 @@ define range(i32 -2147483648, 1) i32 @mm_map_add(ptr noundef %0, ptr noundef rea
   br label %23
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp ugt i64 %12, 1023
   br i1 %13, label %14, label %16
@@ -144,7 +144,7 @@ define range(i32 -2147483648, 1) i32 @mm_map_add(ptr noundef %0, ptr noundef rea
   br i1 %.not26, label %19, label %21
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %20, align 8
   br label %21
 
@@ -166,7 +166,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define ptr @mm_map_next(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = tail call i32 @nxrmutex_lock(ptr noundef nonnull %3) #6
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %9
@@ -185,7 +185,7 @@ define ptr @mm_map_next(ptr noundef %0, ptr noundef readonly %1) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define ptr @mm_map_find(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = tail call i32 @nxrmutex_lock(ptr noundef nonnull %4) #6
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.preheader, label %18
@@ -201,9 +201,9 @@ define ptr @mm_map_find(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2)
   br i1 %.not, label %.critedge, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %.1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %.not.i = icmp uge ptr %1, %11
@@ -232,7 +232,7 @@ define range(i32 -2147483648, 1) i32 @mm_map_remove(ptr noundef %0, ptr noundef 
   br i1 %or.cond, label %5, label %29
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = tail call i32 @nxrmutex_lock(ptr noundef nonnull %6) #6
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %29, label %9
@@ -274,7 +274,7 @@ define range(i32 -2147483648, 1) i32 @mm_map_remove(ptr noundef %0, ptr noundef 
 
 24:                                               ; preds = %15, %20
   %.024.ph = phi ptr [ %17, %20 ], [ %10, %15 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8

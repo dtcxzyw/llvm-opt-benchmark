@@ -47,13 +47,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @XLogReaderSetDecodeBuffer(ptr nocapture noundef writeonly initializes((112, 128), (136, 152)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %1, ptr %7, align 8
   ret void
 }
@@ -67,7 +67,7 @@ define dso_local ptr @XLogReaderAllocate(i32 noundef %0, ptr noundef %1, ptr noc
 6:                                                ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %7 = tail call ptr @palloc_extended(i64 noundef 8192, i32 noundef 2) #15
-  %8 = getelementptr inbounds i8, ptr %5, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store ptr %7, ptr %8, align 8
   %.not21 = icmp eq ptr %7, null
   br i1 %.not21, label %9, label %10
@@ -77,27 +77,27 @@ define dso_local ptr @XLogReaderAllocate(i32 noundef %0, ptr noundef %1, ptr noc
   br label %29
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %5, i64 1208
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1208
   store i32 -1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 1216
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1216
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 1224
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1224
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 1204
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 1204
   store i32 %0, ptr %14, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %WALOpenSegmentInit.exit, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %5, i64 180
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 180
   %17 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.25, ptr noundef nonnull %1) #15
   br label %WALOpenSegmentInit.exit
 
 WALOpenSegmentInit.exit:                          ; preds = %10, %15
-  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %3, ptr %18, align 8
   %19 = tail call ptr @palloc_extended(i64 noundef 1001, i32 noundef 2) #15
-  %20 = getelementptr inbounds i8, ptr %5, i64 1304
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 1304
   store ptr %19, ptr %20, align 8
   %.not22 = icmp eq ptr %19, null
   br i1 %.not22, label %21, label %23
@@ -110,7 +110,7 @@ WALOpenSegmentInit.exit:                          ; preds = %10, %15
 
 23:                                               ; preds = %WALOpenSegmentInit.exit
   store i8 0, ptr %19, align 1
-  %24 = getelementptr inbounds i8, ptr %5, i64 1288
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 1288
   %25 = load ptr, ptr %24, align 8
   %.not.i23 = icmp eq ptr %25, null
   br i1 %.not.i23, label %allocate_recordbuf.exit, label %26
@@ -122,7 +122,7 @@ WALOpenSegmentInit.exit:                          ; preds = %10, %15
 allocate_recordbuf.exit:                          ; preds = %23, %26
   %27 = tail call ptr @palloc(i64 noundef 40960) #15
   store ptr %27, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 1296
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 1296
   store i32 40960, ptr %28, align 8
   br label %29
 
@@ -140,25 +140,25 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @XLogReaderFree(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, -1
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %0) #15
   br label %7
 
 7:                                                ; preds = %4, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8
   %.not12 = icmp eq ptr %9, null
   br i1 %.not12, label %15, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %15
@@ -168,10 +168,10 @@ define dso_local void @XLogReaderFree(ptr noundef %0) local_unnamed_addr #1 {
   br label %15
 
 15:                                               ; preds = %14, %10, %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 1304
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %17 = load ptr, ptr %16, align 8
   tail call void @pfree(ptr noundef %17) #15
-  %18 = getelementptr inbounds i8, ptr %0, i64 1288
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %19 = load ptr, ptr %18, align 8
   %.not13 = icmp eq ptr %19, null
   br i1 %.not13, label %21, label %20
@@ -181,7 +181,7 @@ define dso_local void @XLogReaderFree(ptr noundef %0) local_unnamed_addr #1 {
   br label %21
 
 21:                                               ; preds = %20, %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %23 = load ptr, ptr %22, align 8
   tail call void @pfree(ptr noundef %23) #15
   tail call void @pfree(ptr noundef nonnull %0) #15
@@ -190,17 +190,17 @@ define dso_local void @XLogReaderFree(ptr noundef %0) local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @XLogBeginRead(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %.not14.i = icmp eq ptr %4, null
   br i1 %.not14.i, label %ResetDecoder.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %12
   %5 = phi ptr [ %13, %12 ], [ %4, %2 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %12
@@ -216,47 +216,47 @@ define dso_local void @XLogBeginRead(ptr nocapture noundef %0, i64 noundef %1) l
   br i1 %.not.i, label %ResetDecoder.exit, label %.lr.ph.i, !llvm.loop !5
 
 ResetDecoder.exit:                                ; preds = %12, %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %16, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 1304
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %20 = load ptr, ptr %19, align 8
   store i8 0, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 1312
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %25, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @XLogReleasePreviousRecord(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %29, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load i64, ptr %5, align 8
   store ptr null, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %3
   br i1 %12, label %13, label %14
@@ -266,7 +266,7 @@ define dso_local i64 @XLogReleasePreviousRecord(ptr nocapture noundef %0) local_
   br label %14
 
 14:                                               ; preds = %13, %4
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %.preheader
@@ -282,28 +282,28 @@ define dso_local i64 @XLogReleasePreviousRecord(ptr nocapture noundef %0) local_
 
 .lr.ph:                                           ; preds = %.preheader, %22
   %.02330 = phi ptr [ %.023, %22 ], [ %.02328, %.preheader ]
-  %19 = getelementptr inbounds i8, ptr %.02330, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.02330, i64 8
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.02330, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.02330, i64 16
   %.023 = load ptr, ptr %23, align 8
   %.not25 = icmp eq ptr %.023, null
   br i1 %.not25, label %.critedge26, label %.lr.ph, !llvm.loop !7
 
 .critedge:                                        ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %0, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %.02330, ptr %24, align 8
   br label %29
 
 .critedge26:                                      ; preds = %22, %.preheader
-  %25 = getelementptr inbounds i8, ptr %0, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %26, ptr %28, align 8
   br label %29
 
@@ -314,18 +314,18 @@ define dso_local i64 @XLogReleasePreviousRecord(ptr nocapture noundef %0) local_
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @XLogNextRecord(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %XLogReleasePreviousRecord.exit, label %5
 
 5:                                                ; preds = %2
   store ptr null, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %4
   br i1 %11, label %12, label %13
@@ -335,7 +335,7 @@ define dso_local ptr @XLogNextRecord(ptr nocapture noundef %0, ptr nocapture nou
   br label %13
 
 13:                                               ; preds = %12, %5
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %.preheader.i
@@ -351,46 +351,46 @@ define dso_local ptr @XLogNextRecord(ptr nocapture noundef %0, ptr nocapture nou
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %21
   %.02330.i = phi ptr [ %.023.i, %21 ], [ %.02328.i, %.preheader.i ]
-  %18 = getelementptr inbounds i8, ptr %.02330.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 8
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %.critedge.i
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %.02330.i, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 16
   %.023.i = load ptr, ptr %22, align 8
   %.not25.i = icmp eq ptr %.023.i, null
   br i1 %.not25.i, label %.critedge26.i, label %.lr.ph.i, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %.02330.i, ptr %23, align 8
   br label %XLogReleasePreviousRecord.exit
 
 .critedge26.i:                                    ; preds = %21, %.preheader.i
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %25, ptr %27, align 8
   br label %XLogReleasePreviousRecord.exit
 
 XLogReleasePreviousRecord.exit:                   ; preds = %2, %17, %.critedge.i, %.critedge26.i
-  %28 = getelementptr inbounds i8, ptr %0, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %XLogReleasePreviousRecord.exit
   store ptr null, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 1312
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %49
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 1304
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %37 = load ptr, ptr %36, align 8
   %38 = load i8, ptr %37, align 1
   %.not = icmp eq i8 %38, 0
@@ -406,13 +406,13 @@ XLogReleasePreviousRecord.exit:                   ; preds = %2, %17, %.critedge.
 
 41:                                               ; preds = %XLogReleasePreviousRecord.exit
   store ptr %29, ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %29, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %29, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %46, ptr %47, align 8
   store ptr null, ptr %1, align 8
   %48 = load ptr, ptr %3, align 8
@@ -425,18 +425,18 @@ XLogReleasePreviousRecord.exit:                   ; preds = %2, %17, %.critedge.
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @XLogReadRecord(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %XLogReleasePreviousRecord.exit, label %5
 
 5:                                                ; preds = %2
   store ptr null, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %4
   br i1 %11, label %12, label %13
@@ -446,7 +446,7 @@ define dso_local ptr @XLogReadRecord(ptr noundef %0, ptr nocapture noundef write
   br label %13
 
 13:                                               ; preds = %12, %5
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %.preheader.i
@@ -462,39 +462,39 @@ define dso_local ptr @XLogReadRecord(ptr noundef %0, ptr nocapture noundef write
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %21
   %.02330.i = phi ptr [ %.023.i, %21 ], [ %.02328.i, %.preheader.i ]
-  %18 = getelementptr inbounds i8, ptr %.02330.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 8
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %.critedge.i
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %.02330.i, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 16
   %.023.i = load ptr, ptr %22, align 8
   %.not25.i = icmp eq ptr %.023.i, null
   br i1 %.not25.i, label %.critedge26.i, label %.lr.ph.i, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %.02330.i, ptr %23, align 8
   br label %XLogReleasePreviousRecord.exit
 
 .critedge26.i:                                    ; preds = %21, %.preheader.i
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %25, ptr %27, align 8
   br label %XLogReleasePreviousRecord.exit
 
 XLogReleasePreviousRecord.exit:                   ; preds = %2, %17, %.critedge.i, %.critedge26.i
-  %28 = getelementptr inbounds i8, ptr %0, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %29 = load ptr, ptr %28, align 8
   %.not.i9 = icmp eq ptr %29, null
   br i1 %.not.i9, label %XLogReaderHasQueuedRecordOrError.exit, label %XLogReaderHasQueuedRecordOrError.exit.thread
 
 XLogReaderHasQueuedRecordOrError.exit:            ; preds = %XLogReleasePreviousRecord.exit
-  %30 = getelementptr inbounds i8, ptr %0, i64 1312
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %XLogReaderHasQueuedRecordOrError.exit.thread, label %33
@@ -510,10 +510,10 @@ XLogReaderHasQueuedRecordOrError.exit.thread:     ; preds = %XLogReleasePrevious
 
 36:                                               ; preds = %XLogReaderHasQueuedRecordOrError.exit.thread
   store ptr null, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %28, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 160
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %35
   br i1 %41, label %42, label %43
@@ -523,7 +523,7 @@ XLogReaderHasQueuedRecordOrError.exit.thread:     ; preds = %XLogReleasePrevious
   br label %43
 
 43:                                               ; preds = %42, %36
-  %44 = getelementptr inbounds i8, ptr %35, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %45 = load i8, ptr %44, align 8
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %.preheader.i.i
@@ -539,28 +539,28 @@ XLogReaderHasQueuedRecordOrError.exit.thread:     ; preds = %XLogReleasePrevious
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %51
   %.02330.i.i = phi ptr [ %.023.i.i, %51 ], [ %.02328.i.i, %.preheader.i.i ]
-  %48 = getelementptr inbounds i8, ptr %.02330.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.02330.i.i, i64 8
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %.critedge.i.i
 
 51:                                               ; preds = %.lr.ph.i.i
-  %52 = getelementptr inbounds i8, ptr %.02330.i.i, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.02330.i.i, i64 16
   %.023.i.i = load ptr, ptr %52, align 8
   %.not25.i.i = icmp eq ptr %.023.i.i, null
   br i1 %.not25.i.i, label %.critedge26.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %.02330.i.i, ptr %53, align 8
   br label %XLogReleasePreviousRecord.exit.i
 
 .critedge26.i.i:                                  ; preds = %51, %.preheader.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 144
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %55, ptr %57, align 8
   br label %XLogReleasePreviousRecord.exit.i
 
@@ -571,13 +571,13 @@ XLogReleasePreviousRecord.exit.i:                 ; preds = %.critedge26.i.i, %.
 
 60:                                               ; preds = %XLogReleasePreviousRecord.exit.i
   store ptr null, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 1312
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %62 = load i8, ptr %61, align 8
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %XLogNextRecord.exit
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 1304
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %66 = load ptr, ptr %65, align 8
   %67 = load i8, ptr %66, align 1
   %.not.i11 = icmp eq i8 %67, 0
@@ -593,13 +593,13 @@ XLogReleasePreviousRecord.exit.i:                 ; preds = %.critedge26.i.i, %.
 
 70:                                               ; preds = %XLogReleasePreviousRecord.exit.i
   store ptr %58, ptr %3, align 8
-  %71 = getelementptr inbounds i8, ptr %58, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %58, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %75, ptr %76, align 8
   store ptr null, ptr %1, align 8
   %77 = load ptr, ptr %3, align 8
@@ -608,7 +608,7 @@ XLogReleasePreviousRecord.exit.i:                 ; preds = %.critedge26.i.i, %.
 XLogNextRecord.exit:                              ; preds = %60, %69, %70
   %.0.i10 = phi ptr [ %77, %70 ], [ null, %69 ], [ null, %60 ]
   %.not = icmp eq ptr %.0.i10, null
-  %78 = getelementptr inbounds i8, ptr %.0.i10, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 40
   %.0 = select i1 %.not, ptr null, ptr %78
   ret ptr %.0
 }
@@ -617,7 +617,7 @@ XLogNextRecord.exit:                              ; preds = %60, %69, %70
 define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca [16384 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 1312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %321, label %8
@@ -626,19 +626,19 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %4)
   %9 = zext i1 %1 to i8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1304
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %11 = load ptr, ptr %10, align 8
   store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load i64, ptr %16, align 8
   %.not.i = icmp eq i64 %17, 0
-  %18 = getelementptr inbounds i8, ptr %0, i64 1313
-  %19 = getelementptr inbounds i8, ptr %0, i64 1256
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1313
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   store i8 %9, ptr %18, align 1
   store i64 %15, ptr %19, align 8
   %20 = and i64 %15, -8192
@@ -651,15 +651,15 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
   br i1 %26, label %.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8
-  %27 = getelementptr inbounds i8, ptr %0, i64 168
-  %28 = getelementptr inbounds i8, ptr %0, i64 112
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 144
-  %.phi.trans.insert42.i.i = getelementptr inbounds i8, ptr %0, i64 136
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
-  %31 = getelementptr inbounds i8, ptr %0, i64 1288
-  %32 = getelementptr inbounds i8, ptr %0, i64 1296
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %.phi.trans.insert42.i.i = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1288
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %34
 
 34:                                               ; preds = %135, %.lr.ph.i
@@ -674,7 +674,7 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %27, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %43 = load i16, ptr %42, align 2
   %44 = and i16 %43, 2
   %.not242.i = icmp eq i16 %44, 0
@@ -794,7 +794,7 @@ define dso_local noundef ptr @XLogReadAhead(ptr noundef %0, i1 noundef zeroext %
 
 XLogReadRecordAlloc.exit.thread.i:                ; preds = %100, %96, %88
   %.sink46.i.i = phi ptr [ %89, %88 ], [ %91, %96 ], [ %.pre.i.i, %100 ]
-  %105 = getelementptr inbounds i8, ptr %.sink46.i.i, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.sink46.i.i, i64 8
   store i8 0, ptr %105, align 8
   br label %106
 
@@ -842,7 +842,7 @@ XLogReadRecordAlloc.exit.i:                       ; preds = %100, %96
 
 129:                                              ; preds = %127
   %130 = load ptr, ptr %27, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 2
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 2
   %132 = load i16, ptr %131, align 2
   %133 = zext i16 %132 to i32
   %134 = and i32 %133, 8
@@ -874,7 +874,7 @@ XLogReadRecordAlloc.exit.i:                       ; preds = %100, %96
   br label %.thread280.i
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds i8, ptr %130, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %150 = load i32, ptr %149, align 8
   %151 = icmp ne i32 %150, 0
   %152 = add i32 %150, %.0207.i
@@ -973,7 +973,7 @@ allocate_recordbuf.exit.i:                        ; preds = %189, %186
   %202 = tail call i32 %197(i32 noundef -1, ptr noundef %198, i64 noundef %201) #15
   %203 = load ptr, ptr @pg_comp_crc32c, align 8
   %204 = tail call i32 %203(i32 noundef %202, ptr noundef nonnull %196, i64 noundef 20) #15
-  %205 = getelementptr inbounds i8, ptr %196, i64 20
+  %205 = getelementptr inbounds nuw i8, ptr %196, i64 20
   %206 = load i32, ptr %205, align 4
   %207 = xor i32 %206, %204
   %208 = icmp eq i32 %207, -1
@@ -988,7 +988,7 @@ ValidXLogRecord.exit.i:                           ; preds = %195
 
 212:                                              ; preds = %195
   %213 = load ptr, ptr %27, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 2
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 2
   %215 = load i16, ptr %214, align 2
   %216 = and i16 %215, 2
   %.not248.i = icmp eq i16 %216, 0
@@ -1030,20 +1030,20 @@ ValidXLogRecord.exit.i:                           ; preds = %195
   %238 = phi i64 [ %223, %212 ], [ %236, %233 ]
   %.2213.i = phi i64 [ %122, %212 ], [ %36, %233 ]
   %.0210.i = phi ptr [ %196, %212 ], [ %64, %233 ]
-  %239 = getelementptr inbounds i8, ptr %.0210.i, i64 17
+  %239 = getelementptr inbounds nuw i8, ptr %.0210.i, i64 17
   %240 = load i8, ptr %239, align 1
   %241 = icmp eq i8 %240, 0
   br i1 %241, label %242, label %255
 
 242:                                              ; preds = %237
-  %243 = getelementptr inbounds i8, ptr %.0210.i, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %.0210.i, i64 16
   %244 = load i8, ptr %243, align 8
   %245 = and i8 %244, -16
   %246 = icmp eq i8 %245, 64
   br i1 %246, label %247, label %255
 
 247:                                              ; preds = %242
-  %248 = getelementptr inbounds i8, ptr %0, i64 1204
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %249 = load i32, ptr %248, align 4
   %250 = add i32 %249, -1
   %251 = sext i32 %250 to i64
@@ -1118,7 +1118,7 @@ ValidXLogRecord.exit.i:                           ; preds = %195
 XLogReadRecordAlloc.exit268.i:                    ; preds = %283, %278, %274, %266
   %.sink46.i265.i = phi ptr [ %284, %283 ], [ %267, %266 ], [ %269, %274 ], [ %.pre.i258.i, %278 ]
   %.sink.i.i = phi i8 [ 1, %283 ], [ 0, %266 ], [ 0, %274 ], [ 0, %278 ]
-  %285 = getelementptr inbounds i8, ptr %.sink46.i265.i, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %.sink46.i265.i, i64 8
   store i8 %.sink.i.i, ptr %285, align 8
   br label %286
 
@@ -1129,9 +1129,9 @@ XLogReadRecordAlloc.exit268.i:                    ; preds = %283, %278, %274, %2
 
 289:                                              ; preds = %286
   %290 = load i64, ptr %14, align 8
-  %291 = getelementptr inbounds i8, ptr %287, i64 32
+  %291 = getelementptr inbounds nuw i8, ptr %287, i64 32
   store i64 %290, ptr %291, align 8
-  %292 = getelementptr inbounds i8, ptr %287, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %293 = load i8, ptr %292, align 8
   %294 = trunc i8 %293 to i1
   br i1 %294, label %302, label %295
@@ -1153,19 +1153,19 @@ XLogReadRecordAlloc.exit268.i:                    ; preds = %283, %278, %274, %2
   br label %302
 
 302:                                              ; preds = %.sink.split.i, %289
-  %303 = getelementptr inbounds i8, ptr %0, i64 160
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %304 = load ptr, ptr %303, align 8
   %.not250.i = icmp eq ptr %304, null
   br i1 %.not250.i, label %307, label %305
 
 305:                                              ; preds = %302
-  %306 = getelementptr inbounds i8, ptr %304, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %304, i64 16
   store ptr %287, ptr %306, align 8
   br label %307
 
 307:                                              ; preds = %305, %302
   store ptr %287, ptr %303, align 8
-  %308 = getelementptr inbounds i8, ptr %0, i64 152
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %309 = load ptr, ptr %308, align 8
   %.not251.i = icmp eq ptr %309, null
   br i1 %.not251.i, label %310, label %.sink.split
@@ -1191,7 +1191,7 @@ XLogReadRecordAlloc.exit268.i:                    ; preds = %283, %278, %274, %2
   br i1 %.not252.i, label %317, label %312
 
 312:                                              ; preds = %.thread.i
-  %313 = getelementptr inbounds i8, ptr %.1218278.i, i64 8
+  %313 = getelementptr inbounds nuw i8, ptr %.1218278.i, i64 8
   %314 = load i8, ptr %313, align 8
   %315 = trunc i8 %314 to i1
   br i1 %315, label %316, label %317
@@ -1201,11 +1201,11 @@ XLogReadRecordAlloc.exit268.i:                    ; preds = %283, %278, %274, %2
   br label %317
 
 317:                                              ; preds = %316, %312, %.thread.i
-  %318 = getelementptr inbounds i8, ptr %0, i64 1216
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   store i64 0, ptr %318, align 8
-  %319 = getelementptr inbounds i8, ptr %0, i64 1232
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   store i32 0, ptr %319, align 8
-  %320 = getelementptr inbounds i8, ptr %0, i64 176
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %320, align 8
   br label %.sink.split
 
@@ -1227,7 +1227,7 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   %6 = alloca [64 x i8], align 16
   %7 = alloca [64 x i8], align 16
   %8 = alloca [64 x i8], align 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 1204
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = udiv i64 %1, %11
@@ -1239,7 +1239,7 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   br i1 %.not, label %30, label %17
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 1224
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %19 = load i32, ptr %18, align 8
   %20 = udiv i64 4294967296, %11
   %21 = udiv i64 %12, %20
@@ -1255,13 +1255,13 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   br label %123
 
 30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %2, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %32 = load i16, ptr %31, align 2
   %.not77 = icmp ult i16 %32, 16
   br i1 %.not77, label %46, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 1224
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %35 = load i32, ptr %34, align 8
   %36 = udiv i64 4294967296, %11
   %37 = udiv i64 %12, %36
@@ -1282,13 +1282,13 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   br i1 %.not78, label %63, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load i64, ptr %49, align 8
   %.not79 = icmp eq i64 %50, 0
   br i1 %.not79, label %55, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %2, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %53 = load i64, ptr %52, align 8
   %.not80 = icmp eq i64 %53, %50
   br i1 %.not80, label %55, label %54
@@ -1298,7 +1298,7 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   br label %123
 
 55:                                               ; preds = %51, %48
-  %56 = getelementptr inbounds i8, ptr %2, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %57 = load i32, ptr %56, align 8
   %.not81 = icmp eq i32 %57, %10
   br i1 %.not81, label %59, label %58
@@ -1308,7 +1308,7 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   br label %123
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %2, i64 36
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %61 = load i32, ptr %60, align 4
   %.not82 = icmp eq i32 %61, 8192
   br i1 %.not82, label %78, label %62
@@ -1322,7 +1322,7 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   br i1 %64, label %65, label %78
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 1224
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %67 = load i32, ptr %66, align 8
   %68 = udiv i64 4294967296, %11
   %69 = udiv i64 %12, %68
@@ -1338,13 +1338,13 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   br label %123
 
 78:                                               ; preds = %63, %59
-  %79 = getelementptr inbounds i8, ptr %2, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %80 = load i64, ptr %79, align 8
   %.not83 = icmp eq i64 %80, %1
   br i1 %.not83, label %96, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %0, i64 1224
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %83 = load i32, ptr %82, align 8
   %84 = udiv i64 4294967296, %11
   %85 = udiv i64 %12, %84
@@ -1362,21 +1362,21 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
   br label %123
 
 96:                                               ; preds = %78
-  %97 = getelementptr inbounds i8, ptr %0, i64 1240
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %98 = load i64, ptr %97, align 8
   %99 = icmp ugt i64 %1, %98
   br i1 %99, label %100, label %119
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %2, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %0, i64 1248
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %104 = load i32, ptr %103, align 8
   %105 = icmp ult i32 %102, %104
   br i1 %105, label %106, label %119
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %0, i64 1224
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %108 = load i32, ptr %107, align 8
   %109 = udiv i64 4294967296, %11
   %110 = udiv i64 %12, %109
@@ -1393,9 +1393,9 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
 
 119:                                              ; preds = %100, %96
   store i64 %1, ptr %97, align 8
-  %120 = getelementptr inbounds i8, ptr %2, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds i8, ptr %0, i64 1248
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   store i32 %121, ptr %122, align 8
   br label %123
 
@@ -1408,21 +1408,21 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
 define internal void @report_invalid_record(ptr nocapture noundef initializes((1312, 1313)) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 1304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 @pg_vsnprintf(ptr noundef %5, i64 noundef 1000, ptr noundef %1, ptr noundef nonnull %3) #15
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %7 = getelementptr inbounds i8, ptr %0, i64 1312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   store i8 1, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @XLogReaderResetError(ptr nocapture noundef initializes((1312, 1313)) %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %3 = load ptr, ptr %2, align 8
   store i8 0, ptr %3, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1312
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   store i8 0, ptr %4, align 8
   ret void
 }
@@ -1430,7 +1430,7 @@ define dso_local void @XLogReaderResetError(ptr nocapture noundef initializes((1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @XLogFindNextRecord(ptr noundef initializes((1313, 1314)) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1313
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1313
   store i8 0, ptr %4, align 1
   %5 = trunc i64 %1 to i32
   %6 = and i32 %5, 8191
@@ -1440,13 +1440,13 @@ define dso_local i64 @XLogFindNextRecord(ptr noundef initializes((1313, 1314)) %
   br i1 %9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %11
 
 11:                                               ; preds = %.lr.ph, %31
   %12 = phi i64 [ %7, %.lr.ph ], [ %32, %31 ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 2
   %.not = icmp eq i16 %16, 0
@@ -1462,7 +1462,7 @@ define dso_local i64 @XLogFindNextRecord(ptr noundef initializes((1313, 1314)) %
   br i1 %.not37, label %39, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %13, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %27 = add nuw nsw i64 %26, 7
@@ -1491,17 +1491,17 @@ define dso_local i64 @XLogFindNextRecord(ptr noundef initializes((1313, 1314)) %
 
 42:                                               ; preds = %39, %35
   %.1 = phi i64 [ %38, %35 ], [ %41, %39 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 152
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %44 = load ptr, ptr %43, align 8
   %.not14.i.i = icmp eq ptr %44, null
   br i1 %.not14.i.i, label %XLogBeginRead.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %42, %52
   %45 = phi ptr [ %53, %52 ], [ %44, %42 ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %43, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %52
@@ -1517,27 +1517,27 @@ define dso_local i64 @XLogFindNextRecord(ptr noundef initializes((1313, 1314)) %
   br i1 %.not.i.i, label %XLogBeginRead.exit, label %.lr.ph.i.i, !llvm.loop !5
 
 XLogBeginRead.exit:                               ; preds = %52, %42
-  %54 = getelementptr inbounds i8, ptr %0, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 144
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 136
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %56, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 1304
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %60 = load ptr, ptr %59, align 8
   store i8 0, ptr %60, align 1
-  %61 = getelementptr inbounds i8, ptr %0, i64 1312
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   store i8 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.1, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 88
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %.1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 80
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %65, align 8
   br label %66
 
@@ -1558,10 +1558,10 @@ XLogBeginRead.exit:                               ; preds = %52, %42
 
 .lr.ph.i.i42:                                     ; preds = %70, %79
   %72 = phi ptr [ %80, %79 ], [ %71, %70 ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
   store ptr %74, ptr %43, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %76 = load i8, ptr %75, align 8
   %77 = trunc i8 %76 to i1
   br i1 %77, label %78, label %79
@@ -1592,11 +1592,11 @@ XLogBeginRead.exit45:                             ; preds = %79, %70
   br label %86
 
 .loopexit:                                        ; preds = %31, %11, %66, %2
-  %83 = getelementptr inbounds i8, ptr %0, i64 1216
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   store i64 0, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 1232
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   store i32 0, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 176
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %85, align 8
   br label %86
 
@@ -1607,32 +1607,32 @@ XLogBeginRead.exit45:                             ; preds = %79, %70
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1204
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   %7 = udiv i64 %1, %6
   %8 = add i32 %5, -1
   %9 = trunc i64 %1 to i32
   %10 = and i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 1216
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %7, %12
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 1232
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %10, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %20 = load i32, ptr %19, align 8
   %.not = icmp ugt i32 %2, %20
   br i1 %.not, label %21, label %70
 
 21:                                               ; preds = %18, %14, %3
-  %22 = getelementptr inbounds i8, ptr %0, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %22, align 8
   %23 = icmp ne i64 %7, %12
   %24 = icmp ne i32 %10, 0
@@ -1643,9 +1643,9 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
   %26 = zext i32 %10 to i64
   %27 = sub i64 %1, %26
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 1256
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 168
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 %28(ptr noundef nonnull %0, i64 noundef %27, i32 noundef 8192, i64 noundef %30, ptr noundef %32) #15
   %34 = icmp eq i32 %33, -2
@@ -1663,9 +1663,9 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
 40:                                               ; preds = %37, %21
   %41 = load ptr, ptr %0, align 8
   %42 = tail call i32 @llvm.umax.i32(i32 %2, i32 24)
-  %43 = getelementptr inbounds i8, ptr %0, i64 1256
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 168
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 %41(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %42, i64 noundef %44, ptr noundef %46) #15
   %48 = icmp eq i32 %47, -2
@@ -1678,7 +1678,7 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
 50:                                               ; preds = %49
   %51 = zext nneg i32 %47 to i64
   %52 = load ptr, ptr %45, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 2
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, 2
   %.not71 = icmp eq i16 %55, 0
@@ -1712,7 +1712,7 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
   %.sink = phi i32 [ 0, %68 ], [ %.063, %66 ]
   %.0.ph = phi i32 [ -1, %68 ], [ %.063, %66 ]
   store i64 %.sink74, ptr %11, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 1232
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   store i32 %.sink72, ptr %69, align 8
   store i32 %.sink, ptr %22, align 8
   br label %70
@@ -1730,12 +1730,12 @@ define dso_local noundef zeroext i1 @WALRead(ptr noundef %0, ptr nocapture nound
   br i1 %.not59, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 1204
-  %9 = getelementptr inbounds i8, ptr %0, i64 1208
-  %10 = getelementptr inbounds i8, ptr %0, i64 1216
-  %11 = getelementptr inbounds i8, ptr %0, i64 1224
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1204
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1208
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1216
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %14
 
 14:                                               ; preds = %.lr.ph, %56
@@ -1801,13 +1801,13 @@ define dso_local noundef zeroext i1 @WALRead(ptr noundef %0, ptr nocapture nound
 50:                                               ; preds = %37
   %51 = load i32, ptr %43, align 4
   store i32 %51, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.049, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %5, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %48, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %5, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %18, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %5, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   br label %.loopexit
 
@@ -1838,18 +1838,18 @@ define dso_local noundef i64 @DecodeXLogRecordRequiredSpace(i64 noundef %0) loca
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, ptr noundef initializes((16, 32), (40, 66), (68, 88)) %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i16 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 68
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
-  %13 = getelementptr inbounds i8, ptr %1, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store i32 -1, ptr %13, align 4
   %14 = load i32, ptr %2, align 8
@@ -1953,7 +1953,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br i1 %.not, label %59, label %53
 
 53:                                               ; preds = %._crit_edge
-  %54 = getelementptr inbounds i8, ptr %0, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load i64, ptr %54, align 8
   %56 = lshr i64 %55, 32
   %57 = trunc nuw i64 %56 to i32
@@ -1966,7 +1966,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %60 = zext nneg i8 %.0.copyload75 to i64
   %61 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %16, i64 0, i64 %60
   store i8 1, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 30
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 30
   store i8 0, ptr %62, align 2
   %63 = icmp eq i32 %20, 0
   br i1 %63, label %.loopexit291, label %64
@@ -1975,19 +1975,19 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %.0.copyload = load i8, ptr %19, align 1
   %65 = and i8 %.0.copyload, 15
   %66 = zext nneg i8 %65 to i32
-  %67 = getelementptr inbounds i8, ptr %61, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i32 %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %61, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 28
   store i8 %.0.copyload, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %61, i64 29
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 29
   %70 = lshr i8 %.0.copyload, 4
   %.lobit = and i8 %70, 1
   store i8 %.lobit, ptr %69, align 1
-  %71 = getelementptr inbounds i8, ptr %61, i64 47
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 47
   %72 = lshr i8 %.0.copyload, 5
   %.lobit270 = and i8 %72, 1
   store i8 %.lobit270, ptr %71, align 1
-  %73 = getelementptr inbounds i8, ptr %61, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store i32 0, ptr %73, align 8
   %74 = and i32 %.0240395, -2
   %75 = icmp eq i32 %74, 2
@@ -1995,7 +1995,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 
 76:                                               ; preds = %64
   %77 = getelementptr i8, ptr %.0235396, i64 2
-  %78 = getelementptr inbounds i8, ptr %61, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %61, i64 56
   %79 = load i16, ptr %77, align 1
   store i16 %79, ptr %78, align 8
   %80 = getelementptr i8, ptr %.0235396, i64 4
@@ -2008,7 +2008,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br i1 %83, label %85, label %.thread
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %0, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %87 = load i64, ptr %86, align 8
   %88 = lshr i64 %87, 32
   %89 = trunc nuw i64 %88 to i32
@@ -2021,7 +2021,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 
 92:                                               ; preds = %91
   %93 = zext i16 %79 to i32
-  %94 = getelementptr inbounds i8, ptr %0, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %95 = load i64, ptr %94, align 8
   %96 = lshr i64 %95, 32
   %97 = trunc nuw i64 %96 to i32
@@ -2040,7 +2040,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br i1 %103, label %.loopexit291, label %104
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %61, i64 44
+  %105 = getelementptr inbounds nuw i8, ptr %61, i64 44
   %106 = load i16, ptr %80, align 1
   store i16 %106, ptr %105, align 4
   %107 = icmp eq i32 %74, 6
@@ -2048,7 +2048,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 
 108:                                              ; preds = %104
   %109 = getelementptr i8, ptr %.0235396, i64 6
-  %110 = getelementptr inbounds i8, ptr %61, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %111 = load i16, ptr %109, align 1
   store i16 %111, ptr %110, align 8
   %112 = icmp eq i32 %.0240395, 8
@@ -2056,7 +2056,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 
 113:                                              ; preds = %108
   %114 = getelementptr i8, ptr %.0235396, i64 8
-  %115 = getelementptr inbounds i8, ptr %61, i64 46
+  %115 = getelementptr inbounds nuw i8, ptr %61, i64 46
   %116 = load i8, ptr %114, align 1
   store i8 %116, ptr %115, align 2
   %117 = getelementptr i8, ptr %.0235396, i64 9
@@ -2079,7 +2079,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br i1 %125, label %.loopexit291, label %126
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds i8, ptr %61, i64 42
+  %127 = getelementptr inbounds nuw i8, ptr %61, i64 42
   %128 = load i16, ptr %117, align 1
   store i16 %128, ptr %127, align 2
   %129 = getelementptr i8, ptr %.0235396, i64 11
@@ -2087,13 +2087,13 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br label %136
 
 131:                                              ; preds = %122
-  %132 = getelementptr inbounds i8, ptr %61, i64 42
+  %132 = getelementptr inbounds nuw i8, ptr %61, i64 42
   store i16 0, ptr %132, align 2
   br label %136
 
 133:                                              ; preds = %113
   %134 = sub i16 8192, %106
-  %135 = getelementptr inbounds i8, ptr %61, i64 42
+  %135 = getelementptr inbounds nuw i8, ptr %61, i64 42
   store i16 %134, ptr %135, align 2
   br label %136
 
@@ -2120,7 +2120,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 145:                                              ; preds = %142, %141
   %146 = zext i16 %111 to i32
   %147 = zext i16 %137 to i32
-  %148 = getelementptr inbounds i8, ptr %0, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %149 = load i64, ptr %148, align 8
   %150 = lshr i64 %149, 32
   %151 = trunc nuw i64 %150 to i32
@@ -2136,7 +2136,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 154:                                              ; preds = %153
   %155 = zext i16 %111 to i32
   %156 = zext i16 %137 to i32
-  %157 = getelementptr inbounds i8, ptr %0, i64 40
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %158 = load i64, ptr %157, align 8
   %159 = lshr i64 %158, 32
   %160 = trunc nuw i64 %159 to i32
@@ -2152,7 +2152,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br i1 %or.cond289, label %165, label %.thread506
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %0, i64 40
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %167 = load i64, ptr %166, align 8
   %168 = lshr i64 %167, 32
   %169 = trunc nuw i64 %168 to i32
@@ -2168,7 +2168,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br i1 %or.cond290, label %179, label %173
 
 173:                                              ; preds = %.thread506
-  %174 = getelementptr inbounds i8, ptr %0, i64 40
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %175 = load i64, ptr %174, align 8
   %176 = lshr i64 %175, 32
   %177 = trunc nuw i64 %176 to i32
@@ -2188,7 +2188,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br i1 %181, label %.loopexit291, label %182
 
 182:                                              ; preds = %180
-  %183 = getelementptr inbounds i8, ptr %61, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %61, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %183, ptr noundef nonnull align 1 dereferenceable(12) %.2, i64 12, i1 false)
   %184 = getelementptr i8, ptr %.2, i64 12
   %185 = add i32 %.2242, -12
@@ -2199,7 +2199,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br i1 %187, label %188, label %194
 
 188:                                              ; preds = %186
-  %189 = getelementptr inbounds i8, ptr %0, i64 40
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %190 = load i64, ptr %189, align 8
   %191 = lshr i64 %190, 32
   %192 = trunc nuw i64 %191 to i32
@@ -2208,7 +2208,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br label %277
 
 194:                                              ; preds = %186
-  %195 = getelementptr inbounds i8, ptr %61, i64 4
+  %195 = getelementptr inbounds nuw i8, ptr %61, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %195, ptr noundef nonnull align 4 dereferenceable(12) %.0250393, i64 12, i1 false)
   br label %196
 
@@ -2220,7 +2220,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br i1 %197, label %.loopexit291, label %198
 
 198:                                              ; preds = %196
-  %199 = getelementptr inbounds i8, ptr %61, i64 20
+  %199 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %200 = load i32, ptr %.4, align 1
   store i32 %200, ptr %199, align 4
   %201 = getelementptr i8, ptr %.4, i64 4
@@ -2228,7 +2228,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br label %209
 
 203:                                              ; preds = %47
-  %204 = getelementptr inbounds i8, ptr %0, i64 40
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %205 = load i64, ptr %204, align 8
   %206 = lshr i64 %205, 32
   %207 = trunc nuw i64 %206 to i32
@@ -2274,15 +2274,15 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br i1 %223, label %224, label %254
 
 224:                                              ; preds = %.lr.ph406
-  %225 = getelementptr inbounds i8, ptr %221, i64 29
+  %225 = getelementptr inbounds nuw i8, ptr %221, i64 29
   %226 = load i8, ptr %225, align 1
   %227 = trunc i8 %226 to i1
   br i1 %227, label %228, label %237
 
 228:                                              ; preds = %224
-  %229 = getelementptr inbounds i8, ptr %221, i64 32
+  %229 = getelementptr inbounds nuw i8, ptr %221, i64 32
   store ptr %.0236403, ptr %229, align 8
-  %230 = getelementptr inbounds i8, ptr %221, i64 44
+  %230 = getelementptr inbounds nuw i8, ptr %221, i64 44
   %231 = load i16, ptr %230, align 4
   %232 = zext i16 %231 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0236403, ptr align 1 %.6404, i64 %232, i1 false)
@@ -2295,7 +2295,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 237:                                              ; preds = %228, %224
   %.2238 = phi ptr [ %236, %228 ], [ %.0236403, %224 ]
   %.8 = phi ptr [ %235, %228 ], [ %.6404, %224 ]
-  %238 = getelementptr inbounds i8, ptr %221, i64 47
+  %238 = getelementptr inbounds nuw i8, ptr %221, i64 47
   %239 = load i8, ptr %238, align 1
   %240 = trunc i8 %239 to i1
   br i1 %240, label %241, label %254
@@ -2305,9 +2305,9 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   %243 = add i64 %242, 7
   %244 = and i64 %243, -8
   %245 = inttoptr i64 %244 to ptr
-  %246 = getelementptr inbounds i8, ptr %221, i64 48
+  %246 = getelementptr inbounds nuw i8, ptr %221, i64 48
   store ptr %245, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %221, i64 56
+  %247 = getelementptr inbounds nuw i8, ptr %221, i64 56
   %248 = load i16, ptr %247, align 8
   %249 = zext i16 %248 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %245, ptr align 1 %.8, i64 %249, i1 false)
@@ -2361,7 +2361,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br label %280
 
 .loopexit291:                                     ; preds = %196, %180, %124, %108, %104, %102, %64, %59, %41, %35, %.loopexit, %29, %22
-  %272 = getelementptr inbounds i8, ptr %0, i64 40
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %273 = load i64, ptr %272, align 8
   %274 = lshr i64 %273, 32
   %275 = trunc nuw i64 %274 to i32
@@ -2370,7 +2370,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
   br label %277
 
 277:                                              ; preds = %.loopexit291, %203, %188, %173, %165, %154, %145, %92, %85, %53
-  %278 = getelementptr inbounds i8, ptr %0, i64 1304
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %279 = load ptr, ptr %278, align 8
   store ptr %279, ptr %4, align 8
   br label %280
@@ -2382,16 +2382,16 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @XLogRecGetBlockTag(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %9 = load i32, ptr %8, align 4
   %10 = zext i8 %1 to i32
   %.not.i = icmp slt i32 %9, %10
   br i1 %.not.i, label %XLogRecGetBlockTagExtended.exit, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %13 = zext i8 %1 to i64
   %14 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %12, i64 0, i64 %13
   %15 = load i8, ptr %14, align 8
@@ -2403,7 +2403,7 @@ define dso_local void @XLogRecGetBlockTag(ptr nocapture noundef readonly %0, i8 
   br i1 %.not22.i, label %20, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %14, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
   br label %20
 
@@ -2412,7 +2412,7 @@ define dso_local void @XLogRecGetBlockTag(ptr nocapture noundef readonly %0, i8 
   br i1 %.not23.i, label %24, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %14, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %23 = load i32, ptr %22, align 8
   store i32 %23, ptr %3, align 4
   br label %24
@@ -2422,7 +2422,7 @@ define dso_local void @XLogRecGetBlockTag(ptr nocapture noundef readonly %0, i8 
   br i1 %.not24.i, label %28, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %14, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %4, align 4
   br label %28
@@ -2438,16 +2438,16 @@ XLogRecGetBlockTagExtended.exit:                  ; preds = %11, %5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @XLogRecGetBlockTagExtended(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #8 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 84
   %10 = load i32, ptr %9, align 4
   %11 = zext i8 %1 to i32
   %.not = icmp slt i32 %10, %11
   br i1 %.not, label %33, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %8, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %14 = zext i8 %1 to i64
   %15 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %13, i64 0, i64 %14
   %16 = load i8, ptr %15, align 8
@@ -2459,7 +2459,7 @@ define dso_local noundef zeroext i1 @XLogRecGetBlockTagExtended(ptr nocapture no
   br i1 %.not22, label %21, label %19
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %15, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %20, i64 12, i1 false)
   br label %21
 
@@ -2468,7 +2468,7 @@ define dso_local noundef zeroext i1 @XLogRecGetBlockTagExtended(ptr nocapture no
   br i1 %.not23, label %25, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %24 = load i32, ptr %23, align 8
   store i32 %24, ptr %3, align 4
   br label %25
@@ -2478,7 +2478,7 @@ define dso_local noundef zeroext i1 @XLogRecGetBlockTagExtended(ptr nocapture no
   br i1 %.not24, label %29, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %15, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %4, align 4
   br label %29
@@ -2488,7 +2488,7 @@ define dso_local noundef zeroext i1 @XLogRecGetBlockTagExtended(ptr nocapture no
   br i1 %.not25, label %33, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %15, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %32 = load i32, ptr %31, align 8
   store i32 %32, ptr %5, align 4
   br label %33
@@ -2506,15 +2506,15 @@ declare void @exit(i32 noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @XLogRecGetBlockData(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr noundef writeonly %2) local_unnamed_addr #10 {
   %4 = zext i8 %1 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 84
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %8, %4
   br i1 %9, label %30, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %6, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %12 = zext i8 %1 to i64
   %13 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %11, i64 0, i64 %12
   %14 = load i8, ptr %13, align 8
@@ -2522,7 +2522,7 @@ define dso_local ptr @XLogRecGetBlockData(ptr nocapture noundef readonly %0, i8 
   br i1 %15, label %16, label %30
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %13, i64 47
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 47
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   %.not14 = icmp eq ptr %2, null
@@ -2539,14 +2539,14 @@ define dso_local ptr @XLogRecGetBlockData(ptr nocapture noundef readonly %0, i8 
   br i1 %.not14, label %27, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %13, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %25 = load i16, ptr %24, align 8
   %26 = zext i16 %25 to i64
   store i64 %26, ptr %2, align 8
   br label %27
 
 27:                                               ; preds = %23, %22
-  %28 = getelementptr inbounds i8, ptr %13, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -2560,15 +2560,15 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   %4 = ptrtoint ptr %2 to i64
   %5 = alloca %union.PGAlignedBlock, align 8
   %6 = zext i8 %1 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 84
   %10 = load i32, ptr %9, align 4
   %11 = icmp slt i32 %10, %6
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %8, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %14 = zext i8 %1 to i64
   %15 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %13, i64 0, i64 %14
   %16 = load i8, ptr %15, align 8
@@ -2576,7 +2576,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %12, %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i64, ptr %19, align 8
   %21 = lshr i64 %20, 32
   %22 = trunc nuw i64 %21 to i32
@@ -2585,13 +2585,13 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   br label %119
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %15, i64 29
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 29
   %26 = load i8, ptr %25, align 1
   %27 = trunc i8 %26 to i1
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i64, ptr %29, align 8
   %31 = lshr i64 %30, 32
   %32 = trunc nuw i64 %31 to i32
@@ -2600,9 +2600,9 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   br label %119
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %15, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %15, i64 46
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 46
   %38 = load i8, ptr %37, align 2
   %39 = zext i8 %38 to i32
   %40 = and i32 %39, 28
@@ -2615,10 +2615,10 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   br i1 %.not78, label %53, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %15, i64 44
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 44
   %45 = load i16, ptr %44, align 4
   %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %15, i64 42
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 42
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   %50 = sub nsw i32 8192, %49
@@ -2632,7 +2632,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   br i1 %.not79, label %61, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load i64, ptr %56, align 8
   %58 = lshr i64 %57, 32
   %59 = trunc nuw i64 %58 to i32
@@ -2643,7 +2643,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
 61:                                               ; preds = %53
   %62 = and i32 %39, 16
   %.not80 = icmp eq i32 %62, 0
-  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load i64, ptr %63, align 8
   %65 = lshr i64 %64, 32
   %66 = trunc nuw i64 %65 to i32
@@ -2659,7 +2659,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   br label %119
 
 70:                                               ; preds = %43
-  %71 = getelementptr inbounds i8, ptr %0, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %72 = load i64, ptr %71, align 8
   %73 = lshr i64 %72, 32
   %74 = trunc nuw i64 %73 to i32
@@ -2669,7 +2669,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
 
 76:                                               ; preds = %43, %34
   %.074 = phi ptr [ %36, %34 ], [ %5, %43 ]
-  %77 = getelementptr inbounds i8, ptr %15, i64 42
+  %77 = getelementptr inbounds nuw i8, ptr %15, i64 42
   %78 = load i16, ptr %77, align 2
   %79 = icmp eq i16 %78, 0
   br i1 %79, label %80, label %81
@@ -2679,7 +2679,7 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
   br label %119
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds i8, ptr %15, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %83 = load i16, ptr %82, align 8
   %84 = zext i16 %83 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %.074, i64 %84, i1 false)
@@ -2765,7 +2765,7 @@ define internal fastcc noundef zeroext i1 @ValidXLogRecordHeader(ptr nocapture n
   br label %40
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %14 = load i8, ptr %13, align 1
   %or.cond = icmp slt i8 %14, 22
   br i1 %or.cond, label %20, label %15
@@ -2779,7 +2779,7 @@ define internal fastcc noundef zeroext i1 @ValidXLogRecordHeader(ptr nocapture n
   br label %40
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i64, ptr %21, align 8
   br i1 %4, label %23, label %32
 
@@ -2826,7 +2826,7 @@ define internal fastcc noundef zeroext i1 @ValidXLogRecord(ptr nocapture noundef
   %9 = tail call i32 %4(i32 noundef -1, ptr noundef %5, i64 noundef %8) #15
   %10 = load ptr, ptr @pg_comp_crc32c, align 8
   %11 = tail call i32 %10(i32 noundef %9, ptr noundef nonnull %1, i64 noundef 20) #15
-  %12 = getelementptr inbounds i8, ptr %1, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = xor i32 %13, %11
   %15 = icmp eq i32 %14, -1

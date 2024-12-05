@@ -91,7 +91,7 @@ define i32 @PMPI_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 noundef 
   br label %130
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %8, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %47 = load i16, ptr %46, align 8
   %48 = and i16 %47, 256
   %.not72 = icmp eq i16 %48, 0
@@ -119,7 +119,7 @@ define i32 @PMPI_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %82
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %82 ]
   %.06195 = phi i32 [ 1, %.lr.ph.preheader ], [ %83, %82 ]
-  %55 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   %switch = icmp ult i32 %56, 3
   br i1 %switch, label %59, label %57
@@ -129,19 +129,19 @@ define i32 @PMPI_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 noundef 
   br label %130
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = icmp slt i32 %61, 1
   br i1 %62, label %70, label %63
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4
   %or.cond81 = icmp sgt i32 %69, -2
   br i1 %or.cond81, label %72, label %70
@@ -192,19 +192,19 @@ define i32 @PMPI_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 88:                                               ; preds = %86
   store ptr %11, ptr %16, align 16
-  %89 = getelementptr inbounds i8, ptr %16, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %12, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %16, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %13, ptr %90, align 16
-  %91 = getelementptr inbounds i8, ptr %16, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %3, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %16, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %4, ptr %92, align 16
-  %93 = getelementptr inbounds i8, ptr %16, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %5, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %16, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %6, ptr %94, align 16
-  %95 = getelementptr inbounds i8, ptr %16, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store ptr %14, ptr %95, align 8
   %96 = load ptr, ptr %9, align 8
   %97 = shl nsw i32 %2, 2
@@ -250,7 +250,7 @@ define i32 @PMPI_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 noundef 
 114:                                              ; preds = %112, %.lr.ph.i
   %115 = phi i8 [ %108, %.lr.ph.i ], [ %.pre.i.i, %112 ]
   %116 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %117 = getelementptr inbounds ptr, ptr %116, i64 %indvars.iv.i
+  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv.i
   %118 = load ptr, ptr %117, align 8
   %119 = trunc i8 %115 to i1
   br i1 %119, label %120, label %opal_pointer_array_get_item.exit.i
@@ -262,13 +262,13 @@ define i32 @PMPI_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 opal_pointer_array_get_item.exit.i:               ; preds = %120, %114
   %122 = phi i8 [ %115, %114 ], [ %.pre.i, %120 ]
-  %123 = getelementptr inbounds i8, ptr %118, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %124 = load i32, ptr %123, align 8
   %125 = icmp eq i32 %124, %87
   br i1 %125, label %126, label %104
 
 126:                                              ; preds = %opal_pointer_array_get_item.exit.i
-  %127 = getelementptr inbounds i8, ptr %118, i64 20
+  %127 = getelementptr inbounds nuw i8, ptr %118, i64 20
   %128 = load i32, ptr %127, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

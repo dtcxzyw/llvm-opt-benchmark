@@ -85,7 +85,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17TfFastCompression16Co
 
 13:                                               ; preds = %11
   store i8 0, ptr %1, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %15 = trunc nuw nsw i64 %2 to i32
   %16 = tail call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz417LZ4_compressBoundEi(i32 noundef %15)
   %17 = tail call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz420LZ4_compress_defaultEPKcPcii(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %15, i32 noundef %16)
@@ -102,20 +102,20 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17TfFastCompression16Co
   %24 = add nuw nsw i64 %21, %23
   %25 = trunc nuw i64 %24 to i8
   store i8 %25, ptr %1, align 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.036 = phi i64 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.135 = phi ptr [ %31, %.lr.ph ], [ %26, %.lr.ph.preheader ]
   %.03234 = phi ptr [ %32, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %27 = getelementptr inbounds i8, ptr %.135, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.135, i64 4
   %28 = tail call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz417LZ4_compressBoundEi(i32 noundef 2113929216)
   %29 = tail call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz420LZ4_compress_defaultEPKcPcii(ptr noundef %.03234, ptr noundef nonnull %27, i32 noundef 2113929216, i32 noundef %28)
   store i32 %29, ptr %.135, align 1
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %27, i64 %30
-  %32 = getelementptr inbounds i8, ptr %.03234, i64 2113929216
+  %32 = getelementptr inbounds nuw i8, ptr %.03234, i64 2113929216
   %33 = add nuw nsw i64 %.036, 1
   %.not18 = icmp eq i64 %33, %21
   br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -124,7 +124,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17TfFastCompression16Co
   br i1 %.not, label %34, label %41
 
 34:                                               ; preds = %._crit_edge
-  %35 = getelementptr inbounds i8, ptr %31, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %36 = trunc nuw nsw i64 %22 to i32
   %37 = tail call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz417LZ4_compressBoundEi(i32 noundef %36)
   %38 = tail call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz420LZ4_compress_defaultEPKcPcii(ptr noundef nonnull %32, ptr noundef nonnull %35, i32 noundef %36, i32 noundef %37)
@@ -153,7 +153,7 @@ declare noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz420LZ4_compress
 define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17TfFastCompression20DecompressFromBufferEPKcPcmm(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %0, align 1
   %9 = sext i8 %8 to i32
   %10 = icmp eq i8 %8, 0
@@ -191,7 +191,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17TfFastCompression20De
   %.02941 = phi ptr [ %37, %33 ], [ %1, %4 ]
   %.03840 = phi i64 [ %38, %33 ], [ %3, %4 ]
   %.0.copyload = load i32, ptr %.02842, align 1
-  %24 = getelementptr inbounds i8, ptr %.02842, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.02842, i64 4
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.03840, i64 2113929216)
   %25 = trunc nuw nsw i64 %.sroa.speculated to i32
   %26 = tail call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz419LZ4_decompress_safeEPKcPcii(ptr noundef nonnull %24, ptr noundef %.02941, i32 noundef %.0.copyload, i32 noundef %25)
@@ -215,7 +215,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__17TfFastCompression20De
   %34 = sext i32 %.0.copyload to i64
   %35 = getelementptr inbounds i8, ptr %24, i64 %34
   %36 = zext nneg i32 %26 to i64
-  %37 = getelementptr inbounds i8, ptr %.02941, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %.02941, i64 %36
   %38 = sub i64 %.03840, %36
   %39 = add i64 %.02743, %36
   %40 = add nuw nsw i32 %.02644, 1

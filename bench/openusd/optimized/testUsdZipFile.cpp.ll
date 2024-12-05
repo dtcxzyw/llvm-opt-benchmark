@@ -254,18 +254,18 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnon
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #10
-  %.sink684.i.sroa.gep = getelementptr inbounds i8, ptr %42, i64 8
-  %.sink684.i.sroa.gep1 = getelementptr inbounds i8, ptr %41, i64 8
-  %.sink684.i.sroa.gep2 = getelementptr inbounds i8, ptr %40, i64 8
-  %.sink684.i.sroa.gep4 = getelementptr inbounds i8, ptr %42, i64 16
-  %.sink684.i.sroa.gep5 = getelementptr inbounds i8, ptr %41, i64 16
-  %.sink684.i.sroa.gep6 = getelementptr inbounds i8, ptr %40, i64 16
-  %.sink684.i.sroa.gep8 = getelementptr inbounds i8, ptr %42, i64 24
-  %.sink684.i.sroa.gep9 = getelementptr inbounds i8, ptr %41, i64 24
-  %.sink684.i.sroa.gep10 = getelementptr inbounds i8, ptr %40, i64 24
-  %.sink684.i.sroa.gep12 = getelementptr inbounds i8, ptr %42, i64 32
-  %.sink684.i.sroa.gep13 = getelementptr inbounds i8, ptr %41, i64 32
-  %.sink684.i.sroa.gep14 = getelementptr inbounds i8, ptr %40, i64 32
+  %.sink684.i.sroa.gep = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %.sink684.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %.sink684.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %.sink684.i.sroa.gep4 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %.sink684.i.sroa.gep5 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %.sink684.i.sroa.gep6 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %.sink684.i.sroa.gep8 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %.sink684.i.sroa.gep9 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %.sink684.i.sroa.gep10 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %.sink684.i.sroa.gep12 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %.sink684.i.sroa.gep13 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %.sink684.i.sroa.gep14 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %.sink684.i.sroa.gep16 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %.sink684.i.sroa.gep17 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %.sink684.i.sroa.gep18 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -300,13 +300,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 121:                                              ; preds = %119
   store ptr @.str.1, ptr %44, align 8
-  %.sroa.2579.0..sroa_idx.i = getelementptr inbounds i8, ptr %44, i64 8
+  %.sroa.2579.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2579.0..sroa_idx.i, align 8
-  %.sroa.3580.0..sroa_idx.i = getelementptr inbounds i8, ptr %44, i64 16
+  %.sroa.3580.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i64 22, ptr %.sroa.3580.0..sroa_idx.i, align 8
-  %.sroa.4581.0..sroa_idx.i = getelementptr inbounds i8, ptr %44, i64 24
+  %.sroa.4581.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4581.0..sroa_idx.i, align 8
-  %.sroa.5582.0..sroa_idx.i = getelementptr inbounds i8, ptr %44, i64 32
+  %.sroa.5582.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 32
   store i8 0, ptr %.sroa.5582.0..sroa_idx.i, align 8
   %122 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store i32 4, ptr %122, align 8
@@ -335,13 +335,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 128:                                              ; preds = %127
   store ptr @.str.1, ptr %43, align 8
-  %.sroa.2573.0..sroa_idx.i = getelementptr inbounds i8, ptr %43, i64 8
+  %.sroa.2573.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2573.0..sroa_idx.i, align 8
-  %.sroa.3574.0..sroa_idx.i = getelementptr inbounds i8, ptr %43, i64 16
+  %.sroa.3574.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 27, ptr %.sroa.3574.0..sroa_idx.i, align 8
-  %.sroa.4575.0..sroa_idx.i = getelementptr inbounds i8, ptr %43, i64 24
+  %.sroa.4575.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4575.0..sroa_idx.i, align 8
-  %.sroa.5576.0..sroa_idx.i = getelementptr inbounds i8, ptr %43, i64 32
+  %.sroa.5576.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 32
   store i8 0, ptr %.sroa.5576.0..sroa_idx.i, align 8
   %129 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store i32 4, ptr %129, align 8
@@ -428,13 +428,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 148:                                              ; preds = %147
   store ptr @.str.1, ptr %39, align 8
-  %.sroa.2549.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.2549.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2549.0..sroa_idx.i, align 8
-  %.sroa.3550.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 16
+  %.sroa.3550.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 37, ptr %.sroa.3550.0..sroa_idx.i, align 8
-  %.sroa.4551.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 24
+  %.sroa.4551.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4551.0..sroa_idx.i, align 8
-  %.sroa.5552.0..sroa_idx.i = getelementptr inbounds i8, ptr %39, i64 32
+  %.sroa.5552.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i8 0, ptr %.sroa.5552.0..sroa_idx.i, align 8
   %149 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 4, ptr %149, align 8
@@ -459,13 +459,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 154:                                              ; preds = %153
   store ptr @.str.1, ptr %38, align 8
-  %.sroa.2543.0..sroa_idx.i = getelementptr inbounds i8, ptr %38, i64 8
+  %.sroa.2543.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2543.0..sroa_idx.i, align 8
-  %.sroa.3544.0..sroa_idx.i = getelementptr inbounds i8, ptr %38, i64 16
+  %.sroa.3544.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i64 40, ptr %.sroa.3544.0..sroa_idx.i, align 8
-  %.sroa.4545.0..sroa_idx.i = getelementptr inbounds i8, ptr %38, i64 24
+  %.sroa.4545.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4545.0..sroa_idx.i, align 8
-  %.sroa.5546.0..sroa_idx.i = getelementptr inbounds i8, ptr %38, i64 32
+  %.sroa.5546.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 32
   store i8 0, ptr %.sroa.5546.0..sroa_idx.i, align 8
   %155 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i32 4, ptr %155, align 8
@@ -507,13 +507,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 164:                                              ; preds = %162
   store ptr @.str.1, ptr %37, align 8
-  %.sroa.2537.0..sroa_idx.i = getelementptr inbounds i8, ptr %37, i64 8
+  %.sroa.2537.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2537.0..sroa_idx.i, align 8
-  %.sroa.3538.0..sroa_idx.i = getelementptr inbounds i8, ptr %37, i64 16
+  %.sroa.3538.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i64 46, ptr %.sroa.3538.0..sroa_idx.i, align 8
-  %.sroa.4539.0..sroa_idx.i = getelementptr inbounds i8, ptr %37, i64 24
+  %.sroa.4539.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4539.0..sroa_idx.i, align 8
-  %.sroa.5540.0..sroa_idx.i = getelementptr inbounds i8, ptr %37, i64 32
+  %.sroa.5540.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 32
   store i8 0, ptr %.sroa.5540.0..sroa_idx.i, align 8
   %165 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i32 4, ptr %165, align 8
@@ -538,13 +538,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 170:                                              ; preds = %167
   store ptr @.str.1, ptr %36, align 8
-  %.sroa.2531.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 8
+  %.sroa.2531.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2531.0..sroa_idx.i, align 8
-  %.sroa.3532.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 16
+  %.sroa.3532.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 48, ptr %.sroa.3532.0..sroa_idx.i, align 8
-  %.sroa.4533.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 24
+  %.sroa.4533.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4533.0..sroa_idx.i, align 8
-  %.sroa.5534.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 32
+  %.sroa.5534.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i8 0, ptr %.sroa.5534.0..sroa_idx.i, align 8
   %171 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store i32 4, ptr %171, align 8
@@ -569,13 +569,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 177:                                              ; preds = %173
   store ptr @.str.1, ptr %35, align 8
-  %.sroa.2525.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 8
+  %.sroa.2525.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2525.0..sroa_idx.i, align 8
-  %.sroa.3526.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 16
+  %.sroa.3526.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 49, ptr %.sroa.3526.0..sroa_idx.i, align 8
-  %.sroa.4527.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 24
+  %.sroa.4527.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4527.0..sroa_idx.i, align 8
-  %.sroa.5528.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 32
+  %.sroa.5528.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i8 0, ptr %.sroa.5528.0..sroa_idx.i, align 8
   %178 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 4, ptr %178, align 8
@@ -605,13 +605,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 183:                                              ; preds = %182
   store ptr @.str.1, ptr %34, align 8
-  %.sroa.2519.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 8
+  %.sroa.2519.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2519.0..sroa_idx.i, align 8
-  %.sroa.3520.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 16
+  %.sroa.3520.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 50, ptr %.sroa.3520.0..sroa_idx.i, align 8
-  %.sroa.4521.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 24
+  %.sroa.4521.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4521.0..sroa_idx.i, align 8
-  %.sroa.5522.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 32
+  %.sroa.5522.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i8 0, ptr %.sroa.5522.0..sroa_idx.i, align 8
   %184 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store i32 4, ptr %184, align 8
@@ -646,13 +646,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 189:                                              ; preds = %188
   store ptr @.str.1, ptr %33, align 8
-  %.sroa.2513.0..sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.2513.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2513.0..sroa_idx.i, align 8
-  %.sroa.3514.0..sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 16
+  %.sroa.3514.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 51, ptr %.sroa.3514.0..sroa_idx.i, align 8
-  %.sroa.4515.0..sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 24
+  %.sroa.4515.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4515.0..sroa_idx.i, align 8
-  %.sroa.5516.0..sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 32
+  %.sroa.5516.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i8 0, ptr %.sroa.5516.0..sroa_idx.i, align 8
   %190 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store i32 4, ptr %190, align 8
@@ -693,13 +693,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 196:                                              ; preds = %195
   store ptr @.str.1, ptr %32, align 8
-  %.sroa.2507.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 8
+  %.sroa.2507.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2507.0..sroa_idx.i, align 8
-  %.sroa.3508.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 16
+  %.sroa.3508.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 52, ptr %.sroa.3508.0..sroa_idx.i, align 8
-  %.sroa.4509.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 24
+  %.sroa.4509.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4509.0..sroa_idx.i, align 8
-  %.sroa.5510.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 32
+  %.sroa.5510.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i8 0, ptr %.sroa.5510.0..sroa_idx.i, align 8
   %197 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 4, ptr %197, align 8
@@ -740,13 +740,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 203:                                              ; preds = %202
   store ptr @.str.1, ptr %31, align 8
-  %.sroa.2501.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 8
+  %.sroa.2501.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2501.0..sroa_idx.i, align 8
-  %.sroa.3502.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 16
+  %.sroa.3502.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 53, ptr %.sroa.3502.0..sroa_idx.i, align 8
-  %.sroa.4503.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 24
+  %.sroa.4503.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4503.0..sroa_idx.i, align 8
-  %.sroa.5504.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 32
+  %.sroa.5504.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i8 0, ptr %.sroa.5504.0..sroa_idx.i, align 8
   %204 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store i32 4, ptr %204, align 8
@@ -787,13 +787,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 210:                                              ; preds = %209
   store ptr @.str.1, ptr %30, align 8
-  %.sroa.2495.0..sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 8
+  %.sroa.2495.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2495.0..sroa_idx.i, align 8
-  %.sroa.3496.0..sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 16
+  %.sroa.3496.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 54, ptr %.sroa.3496.0..sroa_idx.i, align 8
-  %.sroa.4497.0..sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 24
+  %.sroa.4497.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4497.0..sroa_idx.i, align 8
-  %.sroa.5498.0..sroa_idx.i = getelementptr inbounds i8, ptr %30, i64 32
+  %.sroa.5498.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i8 0, ptr %.sroa.5498.0..sroa_idx.i, align 8
   %211 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i32 4, ptr %211, align 8
@@ -822,13 +822,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 218:                                              ; preds = %215
   store ptr @.str.1, ptr %29, align 8
-  %.sroa.2489.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 8
+  %.sroa.2489.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2489.0..sroa_idx.i, align 8
-  %.sroa.3490.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 16
+  %.sroa.3490.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 57, ptr %.sroa.3490.0..sroa_idx.i, align 8
-  %.sroa.4491.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 24
+  %.sroa.4491.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4491.0..sroa_idx.i, align 8
-  %.sroa.5492.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 32
+  %.sroa.5492.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i8 0, ptr %.sroa.5492.0..sroa_idx.i, align 8
   %219 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i32 4, ptr %219, align 8
@@ -853,13 +853,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 225:                                              ; preds = %221
   store ptr @.str.1, ptr %28, align 8
-  %.sroa.2483.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 8
+  %.sroa.2483.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2483.0..sroa_idx.i, align 8
-  %.sroa.3484.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 16
+  %.sroa.3484.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 58, ptr %.sroa.3484.0..sroa_idx.i, align 8
-  %.sroa.4485.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 24
+  %.sroa.4485.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4485.0..sroa_idx.i, align 8
-  %.sroa.5486.0..sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 32
+  %.sroa.5486.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i8 0, ptr %.sroa.5486.0..sroa_idx.i, align 8
   %226 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store i32 4, ptr %226, align 8
@@ -889,13 +889,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 231:                                              ; preds = %230
   store ptr @.str.1, ptr %27, align 8
-  %.sroa.2477.0..sroa_idx.i = getelementptr inbounds i8, ptr %27, i64 8
+  %.sroa.2477.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2477.0..sroa_idx.i, align 8
-  %.sroa.3478.0..sroa_idx.i = getelementptr inbounds i8, ptr %27, i64 16
+  %.sroa.3478.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 59, ptr %.sroa.3478.0..sroa_idx.i, align 8
-  %.sroa.4479.0..sroa_idx.i = getelementptr inbounds i8, ptr %27, i64 24
+  %.sroa.4479.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4479.0..sroa_idx.i, align 8
-  %.sroa.5480.0..sroa_idx.i = getelementptr inbounds i8, ptr %27, i64 32
+  %.sroa.5480.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i8 0, ptr %.sroa.5480.0..sroa_idx.i, align 8
   %232 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store i32 4, ptr %232, align 8
@@ -930,13 +930,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 237:                                              ; preds = %236
   store ptr @.str.1, ptr %26, align 8
-  %.sroa.2471.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 8
+  %.sroa.2471.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2471.0..sroa_idx.i, align 8
-  %.sroa.3472.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 16
+  %.sroa.3472.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 60, ptr %.sroa.3472.0..sroa_idx.i, align 8
-  %.sroa.4473.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 24
+  %.sroa.4473.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4473.0..sroa_idx.i, align 8
-  %.sroa.5474.0..sroa_idx.i = getelementptr inbounds i8, ptr %26, i64 32
+  %.sroa.5474.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i8 0, ptr %.sroa.5474.0..sroa_idx.i, align 8
   %238 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i32 4, ptr %238, align 8
@@ -977,13 +977,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 244:                                              ; preds = %243
   store ptr @.str.1, ptr %25, align 8
-  %.sroa.2465.0..sroa_idx.i = getelementptr inbounds i8, ptr %25, i64 8
+  %.sroa.2465.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2465.0..sroa_idx.i, align 8
-  %.sroa.3466.0..sroa_idx.i = getelementptr inbounds i8, ptr %25, i64 16
+  %.sroa.3466.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 61, ptr %.sroa.3466.0..sroa_idx.i, align 8
-  %.sroa.4467.0..sroa_idx.i = getelementptr inbounds i8, ptr %25, i64 24
+  %.sroa.4467.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4467.0..sroa_idx.i, align 8
-  %.sroa.5468.0..sroa_idx.i = getelementptr inbounds i8, ptr %25, i64 32
+  %.sroa.5468.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i8 0, ptr %.sroa.5468.0..sroa_idx.i, align 8
   %245 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i32 4, ptr %245, align 8
@@ -1024,13 +1024,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 251:                                              ; preds = %250
   store ptr @.str.1, ptr %24, align 8
-  %.sroa.2459.0..sroa_idx.i = getelementptr inbounds i8, ptr %24, i64 8
+  %.sroa.2459.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2459.0..sroa_idx.i, align 8
-  %.sroa.3460.0..sroa_idx.i = getelementptr inbounds i8, ptr %24, i64 16
+  %.sroa.3460.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 62, ptr %.sroa.3460.0..sroa_idx.i, align 8
-  %.sroa.4461.0..sroa_idx.i = getelementptr inbounds i8, ptr %24, i64 24
+  %.sroa.4461.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4461.0..sroa_idx.i, align 8
-  %.sroa.5462.0..sroa_idx.i = getelementptr inbounds i8, ptr %24, i64 32
+  %.sroa.5462.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 0, ptr %.sroa.5462.0..sroa_idx.i, align 8
   %252 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i32 4, ptr %252, align 8
@@ -1071,13 +1071,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 258:                                              ; preds = %257
   store ptr @.str.1, ptr %23, align 8
-  %.sroa.2453.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 8
+  %.sroa.2453.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2453.0..sroa_idx.i, align 8
-  %.sroa.3454.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 16
+  %.sroa.3454.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 63, ptr %.sroa.3454.0..sroa_idx.i, align 8
-  %.sroa.4455.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 24
+  %.sroa.4455.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4455.0..sroa_idx.i, align 8
-  %.sroa.5456.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 32
+  %.sroa.5456.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i8 0, ptr %.sroa.5456.0..sroa_idx.i, align 8
   %259 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store i32 4, ptr %259, align 8
@@ -1106,13 +1106,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 266:                                              ; preds = %263
   store ptr @.str.1, ptr %22, align 8
-  %.sroa.2447.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 8
+  %.sroa.2447.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2447.0..sroa_idx.i, align 8
-  %.sroa.3448.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 16
+  %.sroa.3448.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 66, ptr %.sroa.3448.0..sroa_idx.i, align 8
-  %.sroa.4449.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 24
+  %.sroa.4449.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4449.0..sroa_idx.i, align 8
-  %.sroa.5450.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 32
+  %.sroa.5450.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i8 0, ptr %.sroa.5450.0..sroa_idx.i, align 8
   %267 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i32 4, ptr %267, align 8
@@ -1137,13 +1137,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 273:                                              ; preds = %269
   store ptr @.str.1, ptr %21, align 8
-  %.sroa.2441.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.2441.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2441.0..sroa_idx.i, align 8
-  %.sroa.3442.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 16
+  %.sroa.3442.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 67, ptr %.sroa.3442.0..sroa_idx.i, align 8
-  %.sroa.4443.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 24
+  %.sroa.4443.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4443.0..sroa_idx.i, align 8
-  %.sroa.5444.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 32
+  %.sroa.5444.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i8 0, ptr %.sroa.5444.0..sroa_idx.i, align 8
   %274 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 4, ptr %274, align 8
@@ -1173,13 +1173,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 279:                                              ; preds = %278
   store ptr @.str.1, ptr %20, align 8
-  %.sroa.2435.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.2435.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2435.0..sroa_idx.i, align 8
-  %.sroa.3436.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 16
+  %.sroa.3436.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 68, ptr %.sroa.3436.0..sroa_idx.i, align 8
-  %.sroa.4437.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 24
+  %.sroa.4437.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4437.0..sroa_idx.i, align 8
-  %.sroa.5438.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 32
+  %.sroa.5438.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i8 0, ptr %.sroa.5438.0..sroa_idx.i, align 8
   %280 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i32 4, ptr %280, align 8
@@ -1214,13 +1214,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 285:                                              ; preds = %284
   store ptr @.str.1, ptr %19, align 8
-  %.sroa.2429.0..sroa_idx.i = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.2429.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2429.0..sroa_idx.i, align 8
-  %.sroa.3430.0..sroa_idx.i = getelementptr inbounds i8, ptr %19, i64 16
+  %.sroa.3430.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 69, ptr %.sroa.3430.0..sroa_idx.i, align 8
-  %.sroa.4431.0..sroa_idx.i = getelementptr inbounds i8, ptr %19, i64 24
+  %.sroa.4431.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4431.0..sroa_idx.i, align 8
-  %.sroa.5432.0..sroa_idx.i = getelementptr inbounds i8, ptr %19, i64 32
+  %.sroa.5432.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i8 0, ptr %.sroa.5432.0..sroa_idx.i, align 8
   %286 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 4, ptr %286, align 8
@@ -1261,13 +1261,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 292:                                              ; preds = %291
   store ptr @.str.1, ptr %18, align 8
-  %.sroa.2423.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.2423.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2423.0..sroa_idx.i, align 8
-  %.sroa.3424.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.3424.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 70, ptr %.sroa.3424.0..sroa_idx.i, align 8
-  %.sroa.4425.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 24
+  %.sroa.4425.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4425.0..sroa_idx.i, align 8
-  %.sroa.5426.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 32
+  %.sroa.5426.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i8 0, ptr %.sroa.5426.0..sroa_idx.i, align 8
   %293 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 4, ptr %293, align 8
@@ -1308,13 +1308,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 299:                                              ; preds = %298
   store ptr @.str.1, ptr %17, align 8
-  %.sroa.2417.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
+  %.sroa.2417.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2417.0..sroa_idx.i, align 8
-  %.sroa.3418.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 16
+  %.sroa.3418.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 71, ptr %.sroa.3418.0..sroa_idx.i, align 8
-  %.sroa.4419.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 24
+  %.sroa.4419.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4419.0..sroa_idx.i, align 8
-  %.sroa.5420.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 32
+  %.sroa.5420.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i8 0, ptr %.sroa.5420.0..sroa_idx.i, align 8
   %300 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 4, ptr %300, align 8
@@ -1355,13 +1355,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 306:                                              ; preds = %305
   store ptr @.str.1, ptr %16, align 8
-  %.sroa.2411.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.2411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2411.0..sroa_idx.i, align 8
-  %.sroa.3412.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.3412.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 72, ptr %.sroa.3412.0..sroa_idx.i, align 8
-  %.sroa.4413.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 24
+  %.sroa.4413.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4413.0..sroa_idx.i, align 8
-  %.sroa.5414.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 32
+  %.sroa.5414.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i8 0, ptr %.sroa.5414.0..sroa_idx.i, align 8
   %307 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 4, ptr %307, align 8
@@ -1390,13 +1390,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 314:                                              ; preds = %311
   store ptr @.str.1, ptr %15, align 8
-  %.sroa.2405.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.2405.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2405.0..sroa_idx.i, align 8
-  %.sroa.3406.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.3406.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 75, ptr %.sroa.3406.0..sroa_idx.i, align 8
-  %.sroa.4407.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.4407.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4407.0..sroa_idx.i, align 8
-  %.sroa.5408.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 32
+  %.sroa.5408.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 0, ptr %.sroa.5408.0..sroa_idx.i, align 8
   %315 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 4, ptr %315, align 8
@@ -1421,13 +1421,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 321:                                              ; preds = %317
   store ptr @.str.1, ptr %14, align 8
-  %.sroa.2399.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.2399.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2399.0..sroa_idx.i, align 8
-  %.sroa.3400.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.3400.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 76, ptr %.sroa.3400.0..sroa_idx.i, align 8
-  %.sroa.4401.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 24
+  %.sroa.4401.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4401.0..sroa_idx.i, align 8
-  %.sroa.5402.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 32
+  %.sroa.5402.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i8 0, ptr %.sroa.5402.0..sroa_idx.i, align 8
   %322 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 4, ptr %322, align 8
@@ -1457,13 +1457,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 327:                                              ; preds = %326
   store ptr @.str.1, ptr %13, align 8
-  %.sroa.2393.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.2393.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2393.0..sroa_idx.i, align 8
-  %.sroa.3394.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.3394.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 77, ptr %.sroa.3394.0..sroa_idx.i, align 8
-  %.sroa.4395.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 24
+  %.sroa.4395.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4395.0..sroa_idx.i, align 8
-  %.sroa.5396.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 32
+  %.sroa.5396.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 0, ptr %.sroa.5396.0..sroa_idx.i, align 8
   %328 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 4, ptr %328, align 8
@@ -1498,13 +1498,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 333:                                              ; preds = %332
   store ptr @.str.1, ptr %12, align 8
-  %.sroa.2387.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.2387.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2387.0..sroa_idx.i, align 8
-  %.sroa.3388.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.3388.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 78, ptr %.sroa.3388.0..sroa_idx.i, align 8
-  %.sroa.4389.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 24
+  %.sroa.4389.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4389.0..sroa_idx.i, align 8
-  %.sroa.5390.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 32
+  %.sroa.5390.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 0, ptr %.sroa.5390.0..sroa_idx.i, align 8
   %334 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 4, ptr %334, align 8
@@ -1545,13 +1545,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 340:                                              ; preds = %339
   store ptr @.str.1, ptr %11, align 8
-  %.sroa.2381.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.2381.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2381.0..sroa_idx.i, align 8
-  %.sroa.3382.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.3382.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 79, ptr %.sroa.3382.0..sroa_idx.i, align 8
-  %.sroa.4383.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 24
+  %.sroa.4383.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4383.0..sroa_idx.i, align 8
-  %.sroa.5384.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 32
+  %.sroa.5384.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 0, ptr %.sroa.5384.0..sroa_idx.i, align 8
   %341 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 4, ptr %341, align 8
@@ -1592,13 +1592,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 347:                                              ; preds = %346
   store ptr @.str.1, ptr %10, align 8
-  %.sroa.2375.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2375.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2375.0..sroa_idx.i, align 8
-  %.sroa.3376.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.3376.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 80, ptr %.sroa.3376.0..sroa_idx.i, align 8
-  %.sroa.4377.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.4377.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4377.0..sroa_idx.i, align 8
-  %.sroa.5378.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 32
+  %.sroa.5378.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 0, ptr %.sroa.5378.0..sroa_idx.i, align 8
   %348 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 4, ptr %348, align 8
@@ -1639,13 +1639,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 354:                                              ; preds = %353
   store ptr @.str.1, ptr %9, align 8
-  %.sroa.2369.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.2369.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2369.0..sroa_idx.i, align 8
-  %.sroa.3370.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3370.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 81, ptr %.sroa.3370.0..sroa_idx.i, align 8
-  %.sroa.4371.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 24
+  %.sroa.4371.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4371.0..sroa_idx.i, align 8
-  %.sroa.5372.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 32
+  %.sroa.5372.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 0, ptr %.sroa.5372.0..sroa_idx.i, align 8
   %355 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 4, ptr %355, align 8
@@ -1680,13 +1680,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 362:                                              ; preds = %361
   store ptr @.str.1, ptr %8, align 8
-  %.sroa.2363.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2363.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2363.0..sroa_idx.i, align 8
-  %.sroa.3364.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.3364.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 84, ptr %.sroa.3364.0..sroa_idx.i, align 8
-  %.sroa.4365.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.4365.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4365.0..sroa_idx.i, align 8
-  %.sroa.5366.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 32
+  %.sroa.5366.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 0, ptr %.sroa.5366.0..sroa_idx.i, align 8
   %363 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 4, ptr %363, align 8
@@ -1721,13 +1721,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 368:                                              ; preds = %367
   store ptr @.str.1, ptr %7, align 8
-  %.sroa.2357.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2357.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2357.0..sroa_idx.i, align 8
-  %.sroa.3358.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.3358.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 85, ptr %.sroa.3358.0..sroa_idx.i, align 8
-  %.sroa.4359.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.4359.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4359.0..sroa_idx.i, align 8
-  %.sroa.5360.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.5360.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %.sroa.5360.0..sroa_idx.i, align 8
   %369 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %369, align 8
@@ -1768,13 +1768,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 375:                                              ; preds = %374
   store ptr @.str.1, ptr %6, align 8
-  %.sroa.2351.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2351.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2351.0..sroa_idx.i, align 8
-  %.sroa.3352.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3352.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 86, ptr %.sroa.3352.0..sroa_idx.i, align 8
-  %.sroa.4353.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.4353.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4353.0..sroa_idx.i, align 8
-  %.sroa.5354.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.5354.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %.sroa.5354.0..sroa_idx.i, align 8
   %376 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %376, align 8
@@ -1815,13 +1815,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 382:                                              ; preds = %381
   store ptr @.str.1, ptr %5, align 8
-  %.sroa.2345.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2345.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2345.0..sroa_idx.i, align 8
-  %.sroa.3346.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.3346.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 87, ptr %.sroa.3346.0..sroa_idx.i, align 8
-  %.sroa.4347.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.4347.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4347.0..sroa_idx.i, align 8
-  %.sroa.5348.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.5348.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %.sroa.5348.0..sroa_idx.i, align 8
   %383 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %383, align 8
@@ -1862,13 +1862,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 389:                                              ; preds = %388
   store ptr @.str.1, ptr %4, align 8
-  %.sroa.2339.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2339.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2339.0..sroa_idx.i, align 8
-  %.sroa.3340.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.3340.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 88, ptr %.sroa.3340.0..sroa_idx.i, align 8
-  %.sroa.4341.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.4341.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4341.0..sroa_idx.i, align 8
-  %.sroa.5342.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.5342.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %.sroa.5342.0..sroa_idx.i, align 8
   %390 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %390, align 8
@@ -1891,13 +1891,13 @@ _ZSt4nextIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEET_S3_NSt15it
 
 394:                                              ; preds = %393
   store ptr @.str.1, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__._ZL13TestIteratorsv, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 89, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL13TestIteratorsv, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx.i, align 8
   %395 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %395, align 8

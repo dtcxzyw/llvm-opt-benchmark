@@ -30,13 +30,13 @@ define dso_local void @_ZN7CFGEdgeC2EPK9StatementS2_bb(ptr nocapture noundef non
   %6 = zext i1 %3 to i8
   %7 = zext i1 %4 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTV7CFGEdge, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 25
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 %7, ptr %11, align 1
   ret void
 }
@@ -44,21 +44,21 @@ define dso_local void @_ZN7CFGEdgeC2EPK9StatementS2_bb(ptr nocapture noundef non
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN7CFGEdgeC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((0, 26)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %1) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV7CFGEdge, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, 1
   store i8 %12, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 25
-  %14 = getelementptr inbounds i8, ptr %1, i64 25
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 1
   store i8 %16, ptr %13, align 1

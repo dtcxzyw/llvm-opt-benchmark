@@ -14,12 +14,12 @@ define ptr @makeStringInfo() local_unnamed_addr #0 {
   %1 = tail call ptr @palloc(i64 noundef 24) #10
   %2 = tail call ptr @palloc(i64 noundef 1024) #10
   store ptr %2, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 1024, ptr %3, align 4
   store i8 0, ptr %2, align 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 0, ptr %5, align 8
   ret ptr %1
 }
@@ -30,12 +30,12 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 define void @initStringInfo(ptr nocapture noundef writeonly initializes((0, 20)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc(i64 noundef 1024) #10
   store ptr %2, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1024, ptr %3, align 4
   store i8 0, ptr %2, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %5, align 8
   ret void
 }
@@ -44,9 +44,9 @@ define void @initStringInfo(ptr nocapture noundef writeonly initializes((0, 20))
 define void @resetStringInfo(ptr nocapture noundef initializes((8, 12), (16, 20)) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   store i8 0, ptr %2, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
   ret void
 }
@@ -56,8 +56,8 @@ define void @appendStringInfo(ptr nocapture noundef %0, ptr noundef %1, ...) loc
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call ptr @__errno_location() #11
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %28, %2
@@ -114,9 +114,9 @@ declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @appendStringInfoVA(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = sub i32 %5, %7
   %9 = icmp slt i32 %8, 16
@@ -164,7 +164,7 @@ define void @enlargeStringInfo(ptr nocapture noundef %0, i32 noundef %1) local_u
 
 7:                                                ; preds = %2
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = sub nsw i64 1073741823, %11
@@ -180,7 +180,7 @@ define void @enlargeStringInfo(ptr nocapture noundef %0, i32 noundef %1) local_u
 16:                                               ; preds = %7
   %17 = add nuw i32 %1, 1
   %18 = add i32 %17, %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
   %.not22 = icmp sgt i32 %18, %20
   br i1 %.not22, label %.preheader, label %26
@@ -212,7 +212,7 @@ define void @appendStringInfoString(ptr nocapture noundef %0, ptr nocapture noun
   %4 = trunc i64 %3 to i32
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %4)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
@@ -233,7 +233,7 @@ define void @appendStringInfoString(ptr nocapture noundef %0, ptr nocapture noun
 define void @appendBinaryStringInfo(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %2)
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
@@ -254,10 +254,10 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @appendStringInfoChar(ptr nocapture noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %5, %7
   br i1 %.not, label %enlargeStringInfo.exit, label %8
@@ -318,7 +318,7 @@ define void @appendStringInfoSpaces(ptr nocapture noundef %0, i32 noundef %1) lo
 4:                                                ; preds = %2
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %1)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
@@ -347,7 +347,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @appendBinaryStringInfoNT(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %2)
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7

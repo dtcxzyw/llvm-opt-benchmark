@@ -16,19 +16,19 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  %8 = getelementptr inbounds i8, ptr %5, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %8) #6
           to label %17 unwind label %14
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %10)
           to label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf06ac9669a7b1073E.exit" unwind label %11
 
 11:                                               ; preds = %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  %13 = getelementptr inbounds i8, ptr %5, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 96
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %13) #6
           to label %16 unwind label %14
 
@@ -43,12 +43,12 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   resume { ptr, i32 } %.pn.i
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %5, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 96
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %18) #6
           to label %16 unwind label %14
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf06ac9669a7b1073E.exit": ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %5, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %19)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   ret void
@@ -74,7 +74,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %.not3.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %8
 
 ._crit_edge.i:                                    ; preds = %16, %2
@@ -88,7 +88,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %12)
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha87f1cebff4c4010E.exit"
 
@@ -126,7 +126,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %7 = load i32, ptr %5, align 8
   %.not5.i = icmp eq i32 %7, 4
@@ -143,7 +143,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = getelementptr inbounds i8, ptr %1, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %11)
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h470e508dd1dfd64cE.exit"
 
@@ -193,7 +193,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %.not3.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %8
 
 ._crit_edge.i:                                    ; preds = %16, %2
@@ -207,7 +207,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %12)
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf08d9122edb6bbb6E.exit"
 
@@ -251,7 +251,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %.not3.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %8
 
 ._crit_edge.i:                                    ; preds = %16, %2
@@ -265,7 +265,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %12)
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h267e85af2bf588c7E.exit"
 
@@ -303,7 +303,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %1, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 216
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %7 = load i32, ptr %5, align 8
   %.not5.i = icmp eq i32 %7, 4
@@ -320,7 +320,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = getelementptr inbounds i8, ptr %1, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 248
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %11)
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h817ee0290540dfe8E.exit"
 
@@ -396,24 +396,24 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
 5:                                                ; preds = %3
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %7) #6
           to label %18 unwind label %15
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %9)
           to label %13 unwind label %10
 
 10:                                               ; preds = %8
   %11 = landingpad { ptr, i32 }
           cleanup
-  %12 = getelementptr inbounds i8, ptr %1, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %12) #6
           to label %17 unwind label %15
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %1, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %14)
   ret void
 
@@ -428,7 +428,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   resume { ptr, i32 } %.pn
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %1, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %19) #6
           to label %17 unwind label %15
 }
@@ -506,7 +506,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %.not3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %8
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -523,7 +523,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   ret void
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %13)
   br label %11
 
@@ -552,7 +552,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %7 = load i32, ptr %5, align 8
   %.not5 = icmp eq i32 %7, 4
@@ -572,7 +572,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   ret void
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %1, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %12)
   br label %10
 
@@ -601,7 +601,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 216
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %7 = load i32, ptr %5, align 8
   %.not5 = icmp eq i32 %7, 4
@@ -621,7 +621,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   ret void
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %1, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 248
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %12)
   br label %10
 
@@ -656,7 +656,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %.not3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %8
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -673,7 +673,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   ret void
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %13)
   br label %11
 
@@ -717,7 +717,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.threa
   br label %20
 
 10:                                               ; preds = %.critedge, %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZN4core3ops8function6FnOnce9call_once17hc9573aaa536acb0fE(ptr nonnull sret([352 x i8]) align 8 %4, ptr nonnull align 8 %11)
   %12 = load i64, ptr %4, align 8
   %.not.i = icmp eq i64 %12, 22
@@ -761,7 +761,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit: ; pr
 
 20:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.thread, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit
   call void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$syn..stmt..Stmt$GT$$GT$17h1ceb2d7478514a7fE"(ptr nonnull align 8 %8)
-  %21 = getelementptr inbounds i8, ptr %1, i64 2160
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2160
   call void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h41635c4c83440bbfE"(ptr nonnull sret([1056 x i8]) align 8 %7, ptr nonnull align 8 %21)
   %22 = load i64, ptr %7, align 8
   %23 = icmp eq i64 %22, 22
@@ -771,7 +771,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit: ; pr
   ret void
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %1, i64 1080
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %3)
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
@@ -782,7 +782,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit: ; pr
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit5
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %1, i64 1088
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   call void @_ZN4core3ops8function6FnOnce9call_once17hc9573aaa536acb0fE(ptr nonnull sret([352 x i8]) align 8 %3, ptr nonnull align 8 %31)
   %32 = load i64, ptr %3, align 8
   %.not.i4 = icmp eq i64 %32, 22
@@ -828,13 +828,13 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit5: ; p
   %42 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %1, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1072) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(1072) %.sroa.3, i64 1072, i1 false)
   br label %common.resume
 
 .critedge:                                        ; preds = %40
   store i64 1, ptr %1, align 8
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1072) %.sroa.3.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(1072) %.sroa.3, i64 1072, i1 false)
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %4)
   br label %10
@@ -851,7 +851,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %.not3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %8
 
 ._crit_edge:                                      ; preds = %17, %2
@@ -868,7 +868,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   ret void
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %13)
   br label %11
 
@@ -900,31 +900,31 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   %. = select i1 %11, ptr null, ptr %9
   store i64 0, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6b1115982453bb7dE"(ptr nonnull sret([24 x i8]) align 8 %8, ptr align 8 %., ptr nonnull align 8 %3)
   %14 = load i64, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 248
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   %.sroa.016.0 = select i1 %21, ptr null, ptr %19
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6b1115982453bb7dE"(ptr nonnull sret([24 x i8]) align 8 %6, ptr align 8 %.sroa.016.0, ptr nonnull align 8 %7)
   %22 = load i64, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = call i64 @llvm.uadd.sat.i64(i64 %14, i64 %22)
   %28 = call { i64, i64 } @"_ZN74_$LT$T$u20$as$u20$core..iter..adapters..flatten..ConstSizeIntoIterator$GT$4size17h3f63a8acb7d4e31aE"()
@@ -942,15 +942,15 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %33, label %75, label %69
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %37, align 8
   br label %40
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3080ab722edc210eE"(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %39)
   %.pre57 = load i64, ptr %5, align 8
-  %.phi.trans.insert58 = getelementptr inbounds i8, ptr %5, i64 16
+  %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   br label %40
 
@@ -968,7 +968,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %or.cond50, label %65, label %50
 
 50:                                               ; preds = %40
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %18, i64 %26)
   %54 = extractvalue { i64, i1 } %53, 0
@@ -995,24 +995,24 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.sroa.8.0 = phi i64 [ undef, %40 ], [ undef, %50 ], [ undef, %57 ], [ %64, %60 ]
   %.sroa.021.0 = phi i64 [ 0, %40 ], [ 0, %50 ], [ 0, %57 ], [ %spec.select52, %60 ]
   store i64 %47, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %66, align 8
   br label %67
 
 67:                                               ; preds = %79, %80, %65
   %.sink61 = phi i64 [ 8, %79 ], [ 16, %80 ], [ 16, %65 ]
   %.sink = phi i64 [ 0, %79 ], [ %83, %80 ], [ %.sroa.8.0, %65 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 %.sink61
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink61
   store i64 %.sink, ptr %68, align 8
   ret void
 
 69:                                               ; preds = %35
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3080ab722edc210eE"(ptr nonnull sret([24 x i8]) align 8 %4, ptr nonnull align 8 %70)
   %.pre = load i64, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre54 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert55 = getelementptr inbounds i8, ptr %4, i64 16
+  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre56 = load i64, ptr %.phi.trans.insert55, align 8
   %71 = icmp eq i64 %.pre, 0
   %72 = icmp eq i64 %.pre54, 1
@@ -1041,7 +1041,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %not. = xor i1 %82, true
   %.sroa.039.0 = zext i1 %not. to i64
   store i64 %27, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.039.0, ptr %84, align 8
   br label %67
 }
@@ -1058,33 +1058,33 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %10 = icmp eq ptr %9, null
   %. = select i1 %10, ptr null, ptr %1
   store i64 0, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6b1115982453bb7dE"(ptr nonnull sret([24 x i8]) align 8 %8, ptr align 8 %., ptr nonnull align 8 %3)
   %13 = load i64, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %.sroa.016.0 = select i1 %20, ptr null, ptr %18
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6b1115982453bb7dE"(ptr nonnull sret([24 x i8]) align 8 %6, ptr align 8 %.sroa.016.0, ptr nonnull align 8 %7)
   %21 = load i64, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = call i64 @llvm.uadd.sat.i64(i64 %13, i64 %21)
   %27 = call { i64, i64 } @"_ZN74_$LT$T$u20$as$u20$core..iter..adapters..flatten..ConstSizeIntoIterator$GT$4size17h3f63a8acb7d4e31aE"()
   %28 = extractvalue { i64, i64 } %27, 0
   %29 = extractvalue { i64, i64 } %27, 1
   %30 = icmp eq i64 %28, 1
-  %31 = getelementptr inbounds i8, ptr %1, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %30, label %34, label %35
@@ -1096,14 +1096,14 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %33, label %73, label %68
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %37, align 8
   br label %39
 
 38:                                               ; preds = %34
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd2c702a3cc7af65aE"(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %31)
   %.pre57 = load i64, ptr %5, align 8
-  %.phi.trans.insert58 = getelementptr inbounds i8, ptr %5, i64 16
+  %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   br label %39
 
@@ -1121,7 +1121,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %or.cond50, label %64, label %49
 
 49:                                               ; preds = %39
-  %50 = getelementptr inbounds i8, ptr %5, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %25)
   %53 = extractvalue { i64, i1 } %52, 0
@@ -1148,23 +1148,23 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.sroa.8.0 = phi i64 [ undef, %39 ], [ undef, %49 ], [ undef, %56 ], [ %63, %59 ]
   %.sroa.021.0 = phi i64 [ 0, %39 ], [ 0, %49 ], [ 0, %56 ], [ %spec.select52, %59 ]
   store i64 %46, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %65, align 8
   br label %66
 
 66:                                               ; preds = %77, %78, %64
   %.sink61 = phi i64 [ 8, %77 ], [ 16, %78 ], [ 16, %64 ]
   %.sink = phi i64 [ 0, %77 ], [ %81, %78 ], [ %.sroa.8.0, %64 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 %.sink61
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink61
   store i64 %.sink, ptr %67, align 8
   ret void
 
 68:                                               ; preds = %35
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd2c702a3cc7af65aE"(ptr nonnull sret([24 x i8]) align 8 %4, ptr nonnull align 8 %31)
   %.pre = load i64, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre54 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert55 = getelementptr inbounds i8, ptr %4, i64 16
+  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre56 = load i64, ptr %.phi.trans.insert55, align 8
   %69 = icmp eq i64 %.pre, 0
   %70 = icmp eq i64 %.pre54, 1
@@ -1193,7 +1193,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %not. = xor i1 %80, true
   %.sroa.039.0 = zext i1 %not. to i64
   store i64 %26, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.039.0, ptr %82, align 8
   br label %66
 }
@@ -1206,31 +1206,31 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   %. = select i1 %11, ptr null, ptr %9
   store i64 0, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6b1115982453bb7dE"(ptr nonnull sret([24 x i8]) align 8 %8, ptr align 8 %., ptr nonnull align 8 %3)
   %14 = load i64, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   %.sroa.016.0 = select i1 %21, ptr null, ptr %19
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6b1115982453bb7dE"(ptr nonnull sret([24 x i8]) align 8 %6, ptr align 8 %.sroa.016.0, ptr nonnull align 8 %7)
   %22 = load i64, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = call i64 @llvm.uadd.sat.i64(i64 %14, i64 %22)
   %28 = call { i64, i64 } @"_ZN74_$LT$T$u20$as$u20$core..iter..adapters..flatten..ConstSizeIntoIterator$GT$4size17h3f63a8acb7d4e31aE"()
@@ -1248,14 +1248,14 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %33, label %73, label %68
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %37, align 8
   br label %39
 
 38:                                               ; preds = %34
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he12a492340d1e980E"(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %1)
   %.pre57 = load i64, ptr %5, align 8
-  %.phi.trans.insert58 = getelementptr inbounds i8, ptr %5, i64 16
+  %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   br label %39
 
@@ -1273,7 +1273,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %or.cond50, label %64, label %49
 
 49:                                               ; preds = %39
-  %50 = getelementptr inbounds i8, ptr %5, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %18, i64 %26)
   %53 = extractvalue { i64, i1 } %52, 0
@@ -1300,23 +1300,23 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.sroa.8.0 = phi i64 [ undef, %39 ], [ undef, %49 ], [ undef, %56 ], [ %63, %59 ]
   %.sroa.021.0 = phi i64 [ 0, %39 ], [ 0, %49 ], [ 0, %56 ], [ %spec.select52, %59 ]
   store i64 %46, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %65, align 8
   br label %66
 
 66:                                               ; preds = %77, %78, %64
   %.sink61 = phi i64 [ 8, %77 ], [ 16, %78 ], [ 16, %64 ]
   %.sink = phi i64 [ 0, %77 ], [ %81, %78 ], [ %.sroa.8.0, %64 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 %.sink61
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink61
   store i64 %.sink, ptr %67, align 8
   ret void
 
 68:                                               ; preds = %35
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he12a492340d1e980E"(ptr nonnull sret([24 x i8]) align 8 %4, ptr nonnull align 8 %1)
   %.pre = load i64, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre54 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert55 = getelementptr inbounds i8, ptr %4, i64 16
+  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre56 = load i64, ptr %.phi.trans.insert55, align 8
   %69 = icmp eq i64 %.pre, 0
   %70 = icmp eq i64 %.pre54, 1
@@ -1345,7 +1345,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %not. = xor i1 %80, true
   %.sroa.039.0 = zext i1 %not. to i64
   store i64 %27, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.039.0, ptr %82, align 8
   br label %66
 }
@@ -1362,33 +1362,33 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %10 = icmp eq ptr %9, null
   %. = select i1 %10, ptr null, ptr %1
   store i64 0, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6b1115982453bb7dE"(ptr nonnull sret([24 x i8]) align 8 %8, ptr align 8 %., ptr nonnull align 8 %3)
   %13 = load i64, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %.sroa.016.0 = select i1 %20, ptr null, ptr %18
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6b1115982453bb7dE"(ptr nonnull sret([24 x i8]) align 8 %6, ptr align 8 %.sroa.016.0, ptr nonnull align 8 %7)
   %21 = load i64, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = call i64 @llvm.uadd.sat.i64(i64 %13, i64 %21)
   %27 = call { i64, i64 } @"_ZN74_$LT$T$u20$as$u20$core..iter..adapters..flatten..ConstSizeIntoIterator$GT$4size17h3f63a8acb7d4e31aE"()
   %28 = extractvalue { i64, i64 } %27, 0
   %29 = extractvalue { i64, i64 } %27, 1
   %30 = icmp eq i64 %28, 1
-  %31 = getelementptr inbounds i8, ptr %1, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %30, label %34, label %35
@@ -1400,14 +1400,14 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %33, label %73, label %68
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %37, align 8
   br label %39
 
 38:                                               ; preds = %34
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hac1bdaf219668df3E"(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %31)
   %.pre57 = load i64, ptr %5, align 8
-  %.phi.trans.insert58 = getelementptr inbounds i8, ptr %5, i64 16
+  %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   br label %39
 
@@ -1425,7 +1425,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %or.cond50, label %64, label %49
 
 49:                                               ; preds = %39
-  %50 = getelementptr inbounds i8, ptr %5, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %25)
   %53 = extractvalue { i64, i1 } %52, 0
@@ -1452,23 +1452,23 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.sroa.8.0 = phi i64 [ undef, %39 ], [ undef, %49 ], [ undef, %56 ], [ %63, %59 ]
   %.sroa.021.0 = phi i64 [ 0, %39 ], [ 0, %49 ], [ 0, %56 ], [ %spec.select52, %59 ]
   store i64 %46, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %65, align 8
   br label %66
 
 66:                                               ; preds = %77, %78, %64
   %.sink61 = phi i64 [ 8, %77 ], [ 16, %78 ], [ 16, %64 ]
   %.sink = phi i64 [ 0, %77 ], [ %81, %78 ], [ %.sroa.8.0, %64 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 %.sink61
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink61
   store i64 %.sink, ptr %67, align 8
   ret void
 
 68:                                               ; preds = %35
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hac1bdaf219668df3E"(ptr nonnull sret([24 x i8]) align 8 %4, ptr nonnull align 8 %31)
   %.pre = load i64, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre54 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert55 = getelementptr inbounds i8, ptr %4, i64 16
+  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre56 = load i64, ptr %.phi.trans.insert55, align 8
   %69 = icmp eq i64 %.pre, 0
   %70 = icmp eq i64 %.pre54, 1
@@ -1497,7 +1497,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %not. = xor i1 %80, true
   %.sroa.039.0 = zext i1 %not. to i64
   store i64 %26, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.039.0, ptr %82, align 8
   br label %66
 }
@@ -1514,33 +1514,33 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %10 = icmp eq ptr %9, null
   %. = select i1 %10, ptr null, ptr %1
   store i64 0, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6b1115982453bb7dE"(ptr nonnull sret([24 x i8]) align 8 %8, ptr align 8 %., ptr nonnull align 8 %3)
   %13 = load i64, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %.sroa.016.0 = select i1 %20, ptr null, ptr %18
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6b1115982453bb7dE"(ptr nonnull sret([24 x i8]) align 8 %6, ptr align 8 %.sroa.016.0, ptr nonnull align 8 %7)
   %21 = load i64, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = call i64 @llvm.uadd.sat.i64(i64 %13, i64 %21)
   %27 = call { i64, i64 } @"_ZN74_$LT$T$u20$as$u20$core..iter..adapters..flatten..ConstSizeIntoIterator$GT$4size17h3f63a8acb7d4e31aE"()
   %28 = extractvalue { i64, i64 } %27, 0
   %29 = extractvalue { i64, i64 } %27, 1
   %30 = icmp eq i64 %28, 1
-  %31 = getelementptr inbounds i8, ptr %1, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %30, label %34, label %35
@@ -1552,14 +1552,14 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %33, label %73, label %68
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %37, align 8
   br label %39
 
 38:                                               ; preds = %34
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc8936b9386befa1dE"(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %31)
   %.pre57 = load i64, ptr %5, align 8
-  %.phi.trans.insert58 = getelementptr inbounds i8, ptr %5, i64 16
+  %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   br label %39
 
@@ -1577,7 +1577,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %or.cond50, label %64, label %49
 
 49:                                               ; preds = %39
-  %50 = getelementptr inbounds i8, ptr %5, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %25)
   %53 = extractvalue { i64, i1 } %52, 0
@@ -1604,23 +1604,23 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.sroa.8.0 = phi i64 [ undef, %39 ], [ undef, %49 ], [ undef, %56 ], [ %63, %59 ]
   %.sroa.021.0 = phi i64 [ 0, %39 ], [ 0, %49 ], [ 0, %56 ], [ %spec.select52, %59 ]
   store i64 %46, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %65, align 8
   br label %66
 
 66:                                               ; preds = %77, %78, %64
   %.sink61 = phi i64 [ 8, %77 ], [ 16, %78 ], [ 16, %64 ]
   %.sink = phi i64 [ 0, %77 ], [ %81, %78 ], [ %.sroa.8.0, %64 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 %.sink61
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink61
   store i64 %.sink, ptr %67, align 8
   ret void
 
 68:                                               ; preds = %35
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc8936b9386befa1dE"(ptr nonnull sret([24 x i8]) align 8 %4, ptr nonnull align 8 %31)
   %.pre = load i64, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre54 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert55 = getelementptr inbounds i8, ptr %4, i64 16
+  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre56 = load i64, ptr %.phi.trans.insert55, align 8
   %69 = icmp eq i64 %.pre, 0
   %70 = icmp eq i64 %.pre54, 1
@@ -1649,7 +1649,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %not. = xor i1 %80, true
   %.sroa.039.0 = zext i1 %not. to i64
   store i64 %26, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.039.0, ptr %82, align 8
   br label %66
 }
@@ -1664,37 +1664,37 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %8 = alloca [24 x i8], align 8
   %9 = load i64, ptr %1, align 8
   %10 = icmp eq i64 %9, 0
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.011.0 = select i1 %10, ptr null, ptr %11
   store i64 0, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h55a935f911770cd3E"(ptr nonnull sret([24 x i8]) align 8 %8, ptr align 8 %.sroa.011.0, ptr nonnull align 8 %3)
   %14 = load i64, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 1080
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
-  %22 = getelementptr inbounds i8, ptr %1, i64 1088
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   %.sroa.016.0 = select i1 %21, ptr null, ptr %22
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h55a935f911770cd3E"(ptr nonnull sret([24 x i8]) align 8 %6, ptr align 8 %.sroa.016.0, ptr nonnull align 8 %7)
   %23 = load i64, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = call i64 @llvm.uadd.sat.i64(i64 %14, i64 %23)
   %29 = call { i64, i64 } @"_ZN95_$LT$$u5b$T$u3b$$u20$N$u5d$$u20$as$u20$core..iter..adapters..flatten..ConstSizeIntoIterator$GT$4size17h23cb921bae9eb9cdE"()
   %30 = extractvalue { i64, i64 } %29, 0
   %31 = extractvalue { i64, i64 } %29, 1
   %32 = icmp eq i64 %30, 1
-  %33 = getelementptr inbounds i8, ptr %1, i64 2160
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 2160
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %32, label %36, label %37
@@ -1706,14 +1706,14 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %35, label %75, label %70
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %39, align 8
   br label %41
 
 40:                                               ; preds = %36
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h99e869e2995c7a5aE"(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %33)
   %.pre57 = load i64, ptr %5, align 8
-  %.phi.trans.insert58 = getelementptr inbounds i8, ptr %5, i64 16
+  %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   br label %41
 
@@ -1731,7 +1731,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   br i1 %or.cond50, label %66, label %51
 
 51:                                               ; preds = %41
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %18, i64 %27)
   %55 = extractvalue { i64, i1 } %54, 0
@@ -1758,23 +1758,23 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %.sroa.8.0 = phi i64 [ undef, %41 ], [ undef, %51 ], [ undef, %58 ], [ %65, %61 ]
   %.sroa.021.0 = phi i64 [ 0, %41 ], [ 0, %51 ], [ 0, %58 ], [ %spec.select52, %61 ]
   store i64 %48, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.021.0, ptr %67, align 8
   br label %68
 
 68:                                               ; preds = %79, %80, %66
   %.sink61 = phi i64 [ 8, %79 ], [ 16, %80 ], [ 16, %66 ]
   %.sink = phi i64 [ 0, %79 ], [ %83, %80 ], [ %.sroa.8.0, %66 ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 %.sink61
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink61
   store i64 %.sink, ptr %69, align 8
   ret void
 
 70:                                               ; preds = %37
   call void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h99e869e2995c7a5aE"(ptr nonnull sret([24 x i8]) align 8 %4, ptr nonnull align 8 %33)
   %.pre = load i64, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre54 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert55 = getelementptr inbounds i8, ptr %4, i64 16
+  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre56 = load i64, ptr %.phi.trans.insert55, align 8
   %71 = icmp eq i64 %.pre, 0
   %72 = icmp eq i64 %.pre54, 1
@@ -1803,7 +1803,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %not. = xor i1 %82, true
   %.sroa.039.0 = zext i1 %not. to i64
   store i64 %28, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.039.0, ptr %84, align 8
   br label %68
 }
@@ -1824,7 +1824,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator5chain17h1383c9b74082b572E(pt
 
 8:                                                ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %0, ptr noundef nonnull align 8 dereferenceable(2184) %5, i64 2184, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 2184
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   ret void
 
@@ -1870,19 +1870,19 @@ define void @_ZN4core4iter6traits8iterator8Iterator6reduce17h8ab3c3655a33554cE(p
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %14) #6
           to label %22 unwind label %20
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %4, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 72
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %16)
           to label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf06ac9669a7b1073E.exit.i" unwind label %17
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  %19 = getelementptr inbounds i8, ptr %4, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 96
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %19) #6
           to label %.body.thread unwind label %20
 
@@ -1893,12 +1893,12 @@ define void @_ZN4core4iter6traits8iterator8Iterator6reduce17h8ab3c3655a33554cE(p
   unreachable
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %4, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 96
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %23) #6
           to label %.body.thread unwind label %20
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf06ac9669a7b1073E.exit.i": ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %4, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 96
   call void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %24)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4)
@@ -1962,7 +1962,7 @@ define void @"_ZN4core4iter8adapters7flatten11flatten_one28_$u7b$$u7b$closure$u7
   br label %19
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %5, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   invoke void @"_ZN19pyo3_macros_backend7pyclass12pyclass_hash28_$u7b$$u7b$closure$u7d$$u7d$17hb63821e8c379a899E"(ptr sret([24 x i8]) align 8 %0, ptr align 1 %1, ptr nonnull align 8 %5, ptr nonnull align 8 %18)
@@ -2000,7 +2000,7 @@ define void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d
   br label %10
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZN4core3ops8function6FnOnce9call_once17hc9573aaa536acb0fE(ptr nonnull sret([352 x i8]) align 8 %3, ptr nonnull align 8 %8)
   %9 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %9, 22

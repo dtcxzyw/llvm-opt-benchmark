@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @commitTsShared, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %86
@@ -97,13 +97,13 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %33 = zext i16 %32 to i64
   %34 = and i64 %33, %22
   %35 = load ptr, ptr @CommitTsCtlData, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr %union.LWLockPadded, ptr %37, i64 %34
   %39 = tail call zeroext i1 @LWLockAcquire(ptr noundef %38, i32 noundef 0) #9
   %40 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef range(i64 0, 5244161) %22, i1 noundef zeroext true, i32 noundef %.032) #9
   %41 = load ptr, ptr @CommitTsCtlData, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = sext i32 %40 to i64
   %45 = getelementptr ptr, ptr %43, i64 %44
@@ -112,7 +112,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %47 = zext nneg i32 %narrow.i.i to i64
   %48 = getelementptr i8, ptr %46, i64 %47
   store i64 %3, ptr %48, align 1
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %48, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i16 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 1
   %49 = icmp sgt i32 %30, 0
   br i1 %49, label %.lr.ph.preheader.i, label %SetXidCommitTsInPage.exit
@@ -127,7 +127,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %51 = load i32, ptr %50, align 4
   %52 = urem i32 %51, 819
   %53 = load ptr, ptr @CommitTsCtlData, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr ptr, ptr %55, i64 %44
   %57 = load ptr, ptr %56, align 8
@@ -135,7 +135,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %58 = zext nneg i32 %narrow.i17.i to i64
   %59 = getelementptr i8, ptr %57, i64 %58
   store i64 %3, ptr %59, align 1
-  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds i8, ptr %59, i64 8
+  %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i16 %4, ptr %.sroa.2.0..sroa_idx.i18.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -143,7 +143,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
 
 SetXidCommitTsInPage.exit:                        ; preds = %.lr.ph.i, %._crit_edge
   %60 = load ptr, ptr @CommitTsCtlData, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr i8, ptr %62, i64 %44
   store i8 1, ptr %63, align 1
@@ -163,19 +163,19 @@ SetXidCommitTsInPage.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %72 = tail call zeroext i1 @LWLockAcquire(ptr noundef %71, i32 noundef 0) #9
   %73 = load ptr, ptr @commitTsShared, align 8
   store i32 %0, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 %3, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %73, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store i16 %4, ptr %75, align 8
   %76 = load ptr, ptr @TransamVariables, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 44
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 44
   %78 = load i32, ptr %77, align 4
   %79 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %78, i32 noundef %.031) #9
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %69
   %81 = load ptr, ptr @TransamVariables, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 44
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 44
   store i32 %.031, ptr %82, align 4
   br label %83
 
@@ -229,7 +229,7 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
   %17 = getelementptr i8, ptr %16, i64 4992
   %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef %17, i32 noundef 1) #9
   %19 = load ptr, ptr @commitTsShared, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   br i1 %22, label %24, label %23
@@ -244,14 +244,14 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
   br i1 %26, label %27, label %38
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %19, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %1, align 8
   %.not38 = icmp eq ptr %2, null
   br i1 %.not38, label %33, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %19, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %32 = load i16, ptr %31, align 8
   store i16 %32, ptr %2, align 2
   br label %33
@@ -266,9 +266,9 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
 
 38:                                               ; preds = %24
   %39 = load ptr, ptr @TransamVariables, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 44
   %43 = load i32, ptr %42, align 4
   %44 = load ptr, ptr @MainLWLockArray, align 8
   %45 = getelementptr i8, ptr %44, i64 4992
@@ -296,7 +296,7 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
 52:                                               ; preds = %48
   %53 = tail call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @CommitTsCtlData, i64 noundef %5, i32 noundef %0) #9
   %54 = load ptr, ptr @CommitTsCtlData, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %53 to i64
   %58 = getelementptr ptr, ptr %56, i64 %57
@@ -305,7 +305,7 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
   %60 = zext nneg i32 %narrow to i64
   %61 = getelementptr i8, ptr %59, i64 %60
   %.sroa.0.0.copyload = load i64, ptr %61, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %61, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.2.0.copyload = load i16, ptr %.sroa.2.0..sroa_idx, align 1
   store i64 %.sroa.0.0.copyload, ptr %1, align 8
   %.not36 = icmp eq ptr %2, null
@@ -320,7 +320,7 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
   %65 = zext i16 %64 to i64
   %66 = and i64 %65, %5
   %67 = load ptr, ptr @CommitTsCtlData, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr %union.LWLockPadded, ptr %69, i64 %66
   tail call void @LWLockRelease(ptr noundef %70) #9
@@ -363,7 +363,7 @@ define dso_local i32 @GetLatestCommitTsData(ptr noundef writeonly %0, ptr nounde
   %4 = getelementptr i8, ptr %3, i64 4992
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 1) #9
   %6 = load ptr, ptr @commitTsShared, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %11, label %10
@@ -378,7 +378,7 @@ define dso_local i32 @GetLatestCommitTsData(ptr noundef writeonly %0, ptr nounde
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %0, align 8
   br label %16
@@ -388,7 +388,7 @@ define dso_local i32 @GetLatestCommitTsData(ptr noundef writeonly %0, ptr nounde
   br i1 %.not5, label %20, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load i16, ptr %18, align 8
   store i16 %19, ptr %1, align 2
   br label %20
@@ -403,14 +403,14 @@ define dso_local i32 @GetLatestCommitTsData(ptr noundef writeonly %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_xact_commit_timestamp(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = call zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %5, ptr noundef nonnull %2, ptr noundef null)
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %8, align 4
   br label %11
 
@@ -432,7 +432,7 @@ define dso_local i64 @pg_last_committed_xact(ptr noundef %0) local_unnamed_addr 
   %6 = getelementptr i8, ptr %5, i64 4992
   %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef %6, i32 noundef 1) #9
   %8 = load ptr, ptr @commitTsShared, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %GetLatestCommitTsData.exit, label %12
@@ -443,9 +443,9 @@ define dso_local i64 @pg_last_committed_xact(ptr noundef %0) local_unnamed_addr 
 
 GetLatestCommitTsData.exit:                       ; preds = %1
   %13 = load i32, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %17 = load i16, ptr %16, align 8
   %18 = load ptr, ptr @MainLWLockArray, align 8
   %19 = getelementptr i8, ptr %18, i64 4992
@@ -473,14 +473,14 @@ GetLatestCommitTsData.exit:                       ; preds = %1
   %28 = zext i32 %13 to i64
   store i64 %28, ptr %2, align 16
   store i8 0, ptr %3, align 1
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %15, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %30, align 1
   %31 = zext i16 %17 to i64
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %31, ptr %32, align 16
-  %33 = getelementptr inbounds i8, ptr %3, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %33, align 1
   br label %34
 
@@ -509,7 +509,7 @@ define dso_local i64 @pg_xact_commit_timestamp_origin(ptr noundef %0) local_unna
   %4 = alloca [2 x i64], align 16
   %5 = alloca [2 x i8], align 2
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
   %10 = call zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %2)
@@ -537,9 +537,9 @@ define dso_local i64 @pg_xact_commit_timestamp_origin(ptr noundef %0) local_unna
   store i8 0, ptr %5, align 2
   %19 = load i16, ptr %2, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 0, ptr %22, align 1
   br label %23
 
@@ -625,11 +625,11 @@ CommitTsShmemBuffers.exit2:                       ; preds = %11, %13
 
 20:                                               ; preds = %CommitTsShmemBuffers.exit2
   store i32 0, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 -9223372036854775808, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i16 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i8 0, ptr %23, align 8
   br label %24
 
@@ -691,7 +691,7 @@ define internal fastcc void @ActivateCommitTs() unnamed_addr #0 {
   %2 = getelementptr i8, ptr %1, i64 4992
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef %2, i32 noundef 0) #9
   %4 = load ptr, ptr @commitTsShared, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = load ptr, ptr @MainLWLockArray, align 8
@@ -701,19 +701,19 @@ define internal fastcc void @ActivateCommitTs() unnamed_addr #0 {
 
 10:                                               ; preds = %0
   %11 = load ptr, ptr @TransamVariables, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %15 = udiv i32 %14, 819
   %16 = zext nneg i32 %15 to i64
   %17 = load ptr, ptr @CommitTsCtlData, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
   store volatile i64 %16, ptr %18, align 8
   %19 = load ptr, ptr @MainLWLockArray, align 8
   %20 = getelementptr i8, ptr %19, i64 4992
   %21 = tail call zeroext i1 @LWLockAcquire(ptr noundef %20, i32 noundef 0) #9
   %22 = load ptr, ptr @TransamVariables, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %32
@@ -722,9 +722,9 @@ define internal fastcc void @ActivateCommitTs() unnamed_addr #0 {
   %27 = tail call i64 @ReadNextFullTransactionId() #9
   %28 = trunc i64 %27 to i32
   %29 = load ptr, ptr @TransamVariables, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 44
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 44
   store i32 %28, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %29, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i32 %28, ptr %31, align 8
   br label %32
 
@@ -740,7 +740,7 @@ define internal fastcc void @ActivateCommitTs() unnamed_addr #0 {
   %38 = zext i16 %37 to i64
   %39 = and i64 %38, %16
   %40 = load ptr, ptr @CommitTsCtlData, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr %union.LWLockPadded, ptr %42, i64 %39
   %44 = tail call zeroext i1 @LWLockAcquire(ptr noundef %43, i32 noundef 0) #9
@@ -754,7 +754,7 @@ define internal fastcc void @ActivateCommitTs() unnamed_addr #0 {
   %48 = getelementptr i8, ptr %47, i64 4992
   %49 = tail call zeroext i1 @LWLockAcquire(ptr noundef %48, i32 noundef 0) #9
   %50 = load ptr, ptr @commitTsShared, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i8 1, ptr %51, align 8
   %52 = load ptr, ptr @MainLWLockArray, align 8
   %53 = getelementptr i8, ptr %52, i64 4992
@@ -776,17 +776,17 @@ define dso_local void @CompleteCommitTsInitialization() local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %4, i64 4992
   %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #9
   %7 = load ptr, ptr @commitTsShared, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i8 0, ptr %8, align 8
   store i32 0, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 -9223372036854775808, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i16 0, ptr %10, align 8
   %11 = load ptr, ptr @TransamVariables, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 44
   store i32 0, ptr %13, align 4
   %14 = tail call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @CommitTsCtlData, ptr noundef nonnull @SlruScanDirCbDeleteAll, ptr noundef null) #9
   %15 = load ptr, ptr @MainLWLockArray, align 8
@@ -805,7 +805,7 @@ define dso_local void @CompleteCommitTsInitialization() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @CommitTsParameterChange(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @commitTsShared, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %0, label %7, label %9
@@ -825,17 +825,17 @@ define dso_local void @CommitTsParameterChange(i1 noundef zeroext %0, i1 noundef
   %12 = getelementptr i8, ptr %11, i64 4992
   %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #9
   %14 = load ptr, ptr @commitTsShared, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i8 0, ptr %15, align 8
   store i32 0, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 -9223372036854775808, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i16 0, ptr %17, align 8
   %18 = load ptr, ptr @TransamVariables, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 44
   store i32 0, ptr %20, align 4
   %21 = tail call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @CommitTsCtlData, ptr noundef nonnull @SlruScanDirCbDeleteAll, ptr noundef null) #9
   %22 = load ptr, ptr @MainLWLockArray, align 8
@@ -859,7 +859,7 @@ declare void @SimpleLruWriteAll(ptr noundef, i1 noundef zeroext) local_unnamed_a
 define dso_local void @ExtendCommitTs(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr @commitTsShared, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %27
@@ -878,7 +878,7 @@ define dso_local void @ExtendCommitTs(i32 noundef %0) local_unnamed_addr #0 {
   %15 = zext i16 %14 to i64
   %16 = and i64 %15, %13
   %17 = load ptr, ptr @CommitTsCtlData, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr %union.LWLockPadded, ptr %19, i64 %16
   %21 = tail call zeroext i1 @LWLockAcquire(ptr noundef %20, i32 noundef 0) #9
@@ -918,7 +918,7 @@ define dso_local void @TruncateCommitTs(i32 noundef %0) local_unnamed_addr #0 {
   %8 = load i64, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i64 %8, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %0, ptr %9, align 8
   call void @XLogBeginInsert() #9
   call void @XLogRegisterData(ptr noundef nonnull %2, i32 noundef 12) #9
@@ -944,7 +944,7 @@ define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) local_un
   %4 = getelementptr i8, ptr %3, i64 4992
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 0) #9
   %6 = load ptr, ptr @TransamVariables, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %19, label %9
@@ -955,12 +955,12 @@ define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) local_un
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %.pre, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   store i32 %0, ptr %12, align 8
   br label %13
 
 13:                                               ; preds = %11, %9
-  %14 = getelementptr inbounds i8, ptr %.pre, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %.pre, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %1, i32 noundef %15) #9
   br i1 %16, label %17, label %21
@@ -975,7 +975,7 @@ define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) local_un
 
 .sink.split:                                      ; preds = %19, %17
   %.sink6 = phi ptr [ %18, %17 ], [ %6, %19 ]
-  %20 = getelementptr inbounds i8, ptr %.sink6, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %.sink6, i64 44
   store i32 %1, ptr %20, align 4
   br label %21
 
@@ -992,7 +992,7 @@ define dso_local void @AdvanceOldestCommitTsXid(i32 noundef %0) local_unnamed_ad
   %3 = getelementptr i8, ptr %2, i64 4992
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef %3, i32 noundef 0) #9
   %5 = load ptr, ptr @TransamVariables, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %13, label %8
@@ -1003,7 +1003,7 @@ define dso_local void @AdvanceOldestCommitTsXid(i32 noundef %0) local_unnamed_ad
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @TransamVariables, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 %0, ptr %12, align 8
   br label %13
 
@@ -1016,9 +1016,9 @@ define dso_local void @AdvanceOldestCommitTsXid(i32 noundef %0) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @commit_ts_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, -16
   switch i8 %6, label %40 [
@@ -1027,14 +1027,14 @@ define dso_local void @commit_ts_redo(ptr nocapture noundef readonly %0) local_u
   ]
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = load ptr, ptr %8, align 8
   %.0.copyload = load i64, ptr %9, align 1
   %10 = load i16, ptr getelementptr inbounds (i8, ptr @CommitTsCtlData, i64 8), align 8
   %11 = zext i16 %10 to i64
   %12 = and i64 %.0.copyload, %11
   %13 = load ptr, ptr @CommitTsCtlData, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr %union.LWLockPadded, ptr %15, i64 %12
   %17 = tail call zeroext i1 @LWLockAcquire(ptr noundef %16, i32 noundef 0) #9
@@ -1044,15 +1044,15 @@ define dso_local void @commit_ts_redo(ptr nocapture noundef readonly %0) local_u
   br label %44
 
 19:                                               ; preds = %1
-  %20 = getelementptr inbounds i8, ptr %3, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = load ptr, ptr @MainLWLockArray, align 8
   %25 = getelementptr i8, ptr %24, i64 4992
   %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef %25, i32 noundef 0) #9
   %27 = load ptr, ptr @TransamVariables, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load i32, ptr %28, align 8
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %AdvanceOldestCommitTsXid.exit, label %30
@@ -1063,7 +1063,7 @@ define dso_local void @commit_ts_redo(ptr nocapture noundef readonly %0) local_u
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr @TransamVariables, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store i32 %23, ptr %34, align 8
   br label %AdvanceOldestCommitTsXid.exit
 
@@ -1072,7 +1072,7 @@ AdvanceOldestCommitTsXid.exit:                    ; preds = %19, %30, %32
   %36 = getelementptr i8, ptr %35, i64 4992
   tail call void @LWLockRelease(ptr noundef %36) #9
   %37 = load ptr, ptr @CommitTsCtlData, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 88
   %39 = load i64, ptr %21, align 8
   store volatile i64 %39, ptr %38, align 8
   tail call void @SimpleLruTruncate(ptr noundef nonnull @CommitTsCtlData, i64 noundef %39) #9

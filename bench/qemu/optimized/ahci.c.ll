@@ -139,7 +139,7 @@ if.else4:                                         ; preds = %do.body1
   unreachable
 
 do.end6:                                          ; preds = %do.body1
-  %alloc.i = getelementptr inbounds i8, ptr %0, i64 8
+  %alloc.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call.i = tail call i64 @guest_alloc(ptr noundef nonnull %alloc.i, i64 noundef %bytes) #16
   ret i64 %call.i
 }
@@ -167,7 +167,7 @@ if.else4:                                         ; preds = %do.body1
   unreachable
 
 do.end6:                                          ; preds = %do.body1
-  %alloc.i = getelementptr inbounds i8, ptr %0, i64 8
+  %alloc.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @guest_free(ptr noundef nonnull %alloc.i, i64 noundef %addr) #16
   ret void
 }
@@ -178,11 +178,11 @@ entry:
   %conv.i.i = zext i8 %port to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 7
   %mul.i1.i = add nuw nsw i64 %mul.i.i, 292
-  %dev.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %0 = load ptr, ptr %dev.i.i.i, align 8
-  %hba_bar.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %1 = load i64, ptr %hba_bar.i.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
   %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
   %cmp = icmp eq i32 %call.i.i.i, -351010559
@@ -254,10 +254,10 @@ define dso_local void @ahci_clean_mem(ptr nocapture noundef %ahci) local_unnamed
 entry:
   %tmp.i.i = alloca %struct.AHCICommandHeader, align 1
   %cmd.i = alloca %struct.AHCICommandHeader, align 1
-  %port2 = getelementptr inbounds i8, ptr %ahci, i64 56
+  %port2 = getelementptr inbounds nuw i8, ptr %ahci, i64 56
   %0 = getelementptr i8, ptr %ahci, i64 64
-  %ctba.i = getelementptr inbounds i8, ptr %cmd.i, i64 8
-  %1 = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
+  %ctba.i = getelementptr inbounds nuw i8, ptr %cmd.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %tmp.i.i, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc30
@@ -277,13 +277,13 @@ if.else4.i:                                       ; preds = %do.body1.i
   unreachable
 
 ahci_free.exit:                                   ; preds = %do.body1.i
-  %alloc.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %alloc.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @guest_free(ptr noundef nonnull %alloc.i.i, i64 noundef %2) #16
   store i64 0, ptr %arrayidx, align 8
   br label %if.end
 
 if.end:                                           ; preds = %ahci_free.exit, %for.body
-  %clb = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %clb = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %4 = load i64, ptr %clb, align 8
   %tobool14.not = icmp eq i64 %4, 0
   br i1 %tobool14.not, label %for.inc30, label %for.cond16.preheader
@@ -291,8 +291,8 @@ if.end:                                           ; preds = %ahci_free.exit, %fo
 for.cond16.preheader:                             ; preds = %if.end
   %clb.idx.i.i = mul nuw nsw i64 %indvars.iv29, 344
   %clb.i.i = getelementptr i8, ptr %0, i64 %clb.idx.i.i
-  %ctba3.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %prdtl.i = getelementptr inbounds i8, ptr %arrayidx, i64 272
+  %ctba3.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
+  %prdtl.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 272
   br label %for.body20
 
 for.body20:                                       ; preds = %for.cond16.preheader, %ahci_destroy_command.exit
@@ -318,7 +318,7 @@ if.else4.i.i:                                     ; preds = %do.body1.i.i
   unreachable
 
 ahci_free.exit.i:                                 ; preds = %do.body1.i.i
-  %alloc.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %alloc.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @guest_free(ptr noundef nonnull %alloc.i.i.i, i64 noundef %8) #16
   br label %ahci_destroy_command.exit
 
@@ -353,7 +353,7 @@ if.else4.i23:                                     ; preds = %do.body1.i20
 
 ahci_free.exit25:                                 ; preds = %do.body1.i20
   %14 = load i64, ptr %clb, align 8
-  %alloc.i.i22 = getelementptr inbounds i8, ptr %13, i64 8
+  %alloc.i.i22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @guest_free(ptr noundef nonnull %alloc.i.i22, i64 noundef %14) #16
   store i64 0, ptr %clb, align 8
   br label %for.inc30
@@ -383,7 +383,7 @@ entry:
   %2 = load ptr, ptr %ahci, align 8
   %3 = load ptr, ptr %2, align 8
   call void @qtest_memread(ptr noundef %3, i64 noundef %add.i, ptr noundef nonnull %cmd, i64 noundef 32) #16
-  %ctba = getelementptr inbounds i8, ptr %cmd, i64 8
+  %ctba = getelementptr inbounds nuw i8, ptr %cmd, i64 8
   %4 = load i64, ptr %ctba, align 1
   %cmp = icmp eq i64 %4, 0
   br i1 %cmp, label %tidy, label %do.body1.i
@@ -398,14 +398,14 @@ if.else4.i:                                       ; preds = %do.body1.i
   unreachable
 
 ahci_free.exit:                                   ; preds = %do.body1.i
-  %alloc.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %alloc.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @guest_free(ptr noundef nonnull %alloc.i.i, i64 noundef %4) #16
   br label %tidy
 
 tidy:                                             ; preds = %entry, %ahci_free.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %cmd, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
-  %6 = getelementptr inbounds i8, ptr %tmp.i, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %tmp.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %6, i8 0, i64 16, i1 false)
   %7 = load i64, ptr %clb.i, align 8
   %add.i16 = add i64 %7, %mul.i
@@ -414,12 +414,12 @@ tidy:                                             ; preds = %entry, %ahci_free.e
   %9 = load ptr, ptr %8, align 8
   call void @qtest_memwrite(ptr noundef %9, i64 noundef %add.i16, ptr noundef nonnull %tmp.i, i64 noundef 32) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
-  %port2 = getelementptr inbounds i8, ptr %ahci, i64 56
+  %port2 = getelementptr inbounds nuw i8, ptr %ahci, i64 56
   %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port2, i64 0, i64 %idxprom.i
-  %ctba3 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %ctba3 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %arrayidx5 = getelementptr [32 x i64], ptr %ctba3, i64 0, i64 %conv.i
   store i64 0, ptr %arrayidx5, align 8
-  %prdtl = getelementptr inbounds i8, ptr %arrayidx, i64 272
+  %prdtl = getelementptr inbounds nuw i8, ptr %arrayidx, i64 272
   %arrayidx10 = getelementptr [32 x i16], ptr %prdtl, i64 0, i64 %conv.i
   store i16 0, ptr %arrayidx10, align 2
   ret void
@@ -428,19 +428,19 @@ tidy:                                             ; preds = %entry, %ahci_free.e
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_pci_enable(ptr noundef %ahci) local_unnamed_addr #0 {
 entry:
-  %hba_bar.i = getelementptr inbounds i8, ptr %ahci, i64 16
-  %dev.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %hba_bar.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
+  %dev.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %0 = load ptr, ptr %dev.i, align 8
-  %barsize.i = getelementptr inbounds i8, ptr %ahci, i64 32
+  %barsize.i = getelementptr inbounds nuw i8, ptr %ahci, i64 32
   %call.i = tail call { i64, i8 } @qpci_iomap(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %barsize.i) #16
   %1 = extractvalue { i64, i8 } %call.i, 0
   %2 = extractvalue { i64, i8 } %call.i, 1
   store i64 %1, ptr %hba_bar.i, align 8
-  %tmp.sroa.2.0.hba_bar.sroa_idx.i = getelementptr inbounds i8, ptr %ahci, i64 24
+  %tmp.sroa.2.0.hba_bar.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   store i8 %2, ptr %tmp.sroa.2.0.hba_bar.sroa_idx.i, align 8
   %3 = load ptr, ptr %dev.i, align 8
   tail call void @qpci_device_enable(ptr noundef %3) #16
-  %fingerprint = getelementptr inbounds i8, ptr %ahci, i64 40
+  %fingerprint = getelementptr inbounds nuw i8, ptr %ahci, i64 40
   %4 = load i32, ptr %fingerprint, align 8
   %cond = icmp eq i32 %4, 690126982
   br i1 %cond, label %sw.bb, label %sw.epilog
@@ -469,15 +469,15 @@ sw.epilog:                                        ; preds = %sw.bb, %if.else, %e
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @start_ahci_device(ptr noundef %ahci) local_unnamed_addr #0 {
 entry:
-  %hba_bar = getelementptr inbounds i8, ptr %ahci, i64 16
-  %dev = getelementptr inbounds i8, ptr %ahci, i64 8
+  %hba_bar = getelementptr inbounds nuw i8, ptr %ahci, i64 16
+  %dev = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %0 = load ptr, ptr %dev, align 8
-  %barsize = getelementptr inbounds i8, ptr %ahci, i64 32
+  %barsize = getelementptr inbounds nuw i8, ptr %ahci, i64 32
   %call = tail call { i64, i8 } @qpci_iomap(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %barsize) #16
   %1 = extractvalue { i64, i8 } %call, 0
   %2 = extractvalue { i64, i8 } %call, 1
   store i64 %1, ptr %hba_bar, align 8
-  %tmp.sroa.2.0.hba_bar.sroa_idx = getelementptr inbounds i8, ptr %ahci, i64 24
+  %tmp.sroa.2.0.hba_bar.sroa_idx = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   store i8 %2, ptr %tmp.sroa.2.0.hba_bar.sroa_idx, align 8
   %3 = load ptr, ptr %dev, align 8
   tail call void @qpci_device_enable(ptr noundef %3) #16
@@ -508,11 +508,11 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %dev.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %0 = load ptr, ptr %dev.i.i.i, align 8
-  %hba_bar.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %1 = load i64, ptr %hba_bar.i.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
   %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef range(i64 0, 32953) 4) #16
   %or.i = or i32 %call.i.i.i, -2147483648
@@ -536,13 +536,13 @@ do.end9:                                          ; preds = %if.else5, %do.end
   %11 = load i64, ptr %hba_bar.i.i.i, align 8
   %12 = load i8, ptr %2, align 8
   %call.i.i128 = tail call i32 @qpci_io_readl(ptr noundef %10, i64 %11, i8 %12, i64 noundef range(i64 0, 32953) 0) #16
-  %cap = getelementptr inbounds i8, ptr %ahci, i64 44
+  %cap = getelementptr inbounds nuw i8, ptr %ahci, i64 44
   store i32 %call.i.i128, ptr %cap, align 4
   %13 = load ptr, ptr %dev.i.i.i, align 8
   %14 = load i64, ptr %hba_bar.i.i.i, align 8
   %15 = load i8, ptr %2, align 8
   %call.i.i131 = tail call i32 @qpci_io_readl(ptr noundef %13, i64 %14, i8 %15, i64 noundef range(i64 0, 32953) 36) #16
-  %cap2 = getelementptr inbounds i8, ptr %ahci, i64 48
+  %cap2 = getelementptr inbounds nuw i8, ptr %ahci, i64 48
   store i32 %call.i.i131, ptr %cap2, align 8
   %16 = load i32, ptr %cap, align 4
   %and13 = lshr i32 %16, 8
@@ -559,7 +559,7 @@ do.end9:                                          ; preds = %if.else5, %do.end
 for.body.lr.ph:                                   ; preds = %do.end9
   %mul = shl nuw nsw i32 %conv15, 5
   %conv62 = zext nneg i32 %mul to i64
-  %port = getelementptr inbounds i8, ptr %ahci, i64 56
+  %port = getelementptr inbounds nuw i8, ptr %ahci, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -634,10 +634,10 @@ if.else4.i:                                       ; preds = %do.body1.i
   unreachable
 
 ahci_alloc.exit:                                  ; preds = %do.body1.i
-  %alloc.i.i = getelementptr inbounds i8, ptr %37, i64 8
+  %alloc.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   %call.i.i147 = tail call i64 @guest_alloc(ptr noundef nonnull %alloc.i.i, i64 noundef %conv62) #16
   %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port, i64 0, i64 %indvars.iv
-  %clb = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %clb = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store i64 %call.i.i147, ptr %clb, align 8
   %38 = load ptr, ptr %ahci, align 8
   %39 = load ptr, ptr %38, align 8
@@ -676,7 +676,7 @@ if.else4.i170:                                    ; preds = %do.body1.i166
   unreachable
 
 ahci_alloc.exit172:                               ; preds = %do.body1.i166
-  %alloc.i.i168 = getelementptr inbounds i8, ptr %49, i64 8
+  %alloc.i.i168 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %call.i.i169 = tail call i64 @guest_alloc(ptr noundef nonnull %alloc.i.i168, i64 noundef 256) #16
   store i64 %call.i.i169, ptr %arrayidx, align 8
   %50 = load ptr, ptr %ahci, align 8
@@ -909,7 +909,7 @@ if.else271:                                       ; preds = %for.end
   br label %do.end275
 
 do.end275:                                        ; preds = %if.else271, %for.end
-  %enabled = getelementptr inbounds i8, ptr %ahci, i64 11064
+  %enabled = getelementptr inbounds nuw i8, ptr %ahci, i64 11064
   store i8 1, ptr %enabled, align 8
   ret void
 }
@@ -923,11 +923,11 @@ declare void @qtest_memset(ptr noundef, i64 noundef, i8 noundef zeroext, i64 nou
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 32) i32 @ahci_port_select(ptr nocapture noundef readonly %ahci) local_unnamed_addr #0 {
 entry:
-  %dev.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %0 = load ptr, ptr %dev.i.i, align 8
-  %hba_bar.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %1 = load i64, ptr %hba_bar.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
   %call.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef range(i64 0, 32953) 12) #16
   br label %for.body
@@ -973,11 +973,11 @@ entry:
   %conv.i.i = zext i8 %port to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 7
   %mul.i1.i = add nuw nsw i64 %mul.i.i, 272
-  %dev.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %0 = load ptr, ptr %dev.i.i.i, align 8
-  %hba_bar.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %1 = load i64, ptr %hba_bar.i.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
   %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
   %4 = load ptr, ptr %dev.i.i.i, align 8
@@ -999,7 +999,7 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %if.else, %entry
   %10 = load ptr, ptr %ahci, align 8
   %11 = load ptr, ptr %10, align 8
-  %port5 = getelementptr inbounds i8, ptr %ahci, i64 56
+  %port5 = getelementptr inbounds nuw i8, ptr %ahci, i64 56
   %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port5, i64 0, i64 %conv.i.i
   %12 = load i64, ptr %arrayidx, align 8
   tail call void @qtest_memset(ptr noundef %11, i64 noundef %12, i8 noundef zeroext 0, i64 noundef 256) #16
@@ -1009,19 +1009,19 @@ do.end:                                           ; preds = %if.else, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_port_check_error(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
-  %port1 = getelementptr inbounds i8, ptr %cmd, i64 1
+  %port1 = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   %0 = load i8, ptr %port1, align 1
-  %errors = getelementptr inbounds i8, ptr %cmd, i64 3
+  %errors = getelementptr inbounds nuw i8, ptr %cmd, i64 3
   %1 = load i8, ptr %errors, align 1
   %tobool.not = icmp eq i8 %1, 0
   %conv.i.i55 = zext i8 %0 to i64
   %mul.i.i56 = shl nuw nsw i64 %conv.i.i55, 7
   %mul.i1.i59 = add nuw nsw i64 %mul.i.i56, 272
-  %dev.i.i.i61 = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i61 = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %2 = load ptr, ptr %dev.i.i.i61, align 8
-  %hba_bar.i.i.i62 = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i62 = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %3 = load i64, ptr %hba_bar.i.i.i62, align 8
-  %4 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %5 = load i8, ptr %4, align 8
   %call.i.i.i63 = tail call i32 @qpci_io_readl(ptr noundef %2, i64 %3, i8 %5, i64 noundef range(i64 0, 32953) %mul.i1.i59) #16
   br i1 %tobool.not, label %if.else6, label %if.then
@@ -1036,7 +1036,7 @@ if.else:                                          ; preds = %if.then
   br label %if.end21
 
 if.else6:                                         ; preds = %entry
-  %interrupts = getelementptr inbounds i8, ptr %cmd, i64 4
+  %interrupts = getelementptr inbounds nuw i8, ptr %cmd, i64 4
   %6 = load i32, ptr %interrupts, align 4
   %not = xor i32 %6, -1
   %and8 = and i32 %call.i.i.i63, %not
@@ -1055,11 +1055,11 @@ if.end21:                                         ; preds = %if.else6, %if.else1
   %add1.i.i67 = add nuw nsw i32 %mul.i.i65, 256
   %mul.i1.i68 = or disjoint i32 %add1.i.i67, 48
   %conv.i2.i69 = zext nneg i32 %mul.i1.i68 to i64
-  %dev.i.i.i70 = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i70 = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %7 = load ptr, ptr %dev.i.i.i70, align 8
-  %hba_bar.i.i.i71 = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i71 = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %8 = load i64, ptr %hba_bar.i.i.i71, align 8
-  %9 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %10 = load i8, ptr %9, align 8
   %call.i.i.i72 = tail call i32 @qpci_io_readl(ptr noundef %7, i64 %8, i8 %10, i64 noundef range(i64 0, 32953) %conv.i2.i69) #16
   %cmp27 = icmp eq i32 %call.i.i.i72, 0
@@ -1210,25 +1210,25 @@ do.end139:                                        ; preds = %if.else135, %do.bod
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_port_check_interrupts(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
-  %errors = getelementptr inbounds i8, ptr %cmd, i64 3
+  %errors = getelementptr inbounds nuw i8, ptr %cmd, i64 3
   %0 = load i8, ptr %errors, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %do.end22
 
 if.end:                                           ; preds = %entry
-  %port1 = getelementptr inbounds i8, ptr %cmd, i64 1
+  %port1 = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   %1 = load i8, ptr %port1, align 1
   %conv.i.i = zext i8 %1 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 7
   %mul.i1.i = add nuw nsw i64 %mul.i.i, 272
-  %dev.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %2 = load ptr, ptr %dev.i.i.i, align 8
-  %hba_bar.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %3 = load i64, ptr %hba_bar.i.i.i, align 8
-  %4 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %5 = load i8, ptr %4, align 8
   %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %2, i64 %3, i8 %5, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
-  %interrupts = getelementptr inbounds i8, ptr %cmd, i64 4
+  %interrupts = getelementptr inbounds nuw i8, ptr %cmd, i64 4
   %6 = load i32, ptr %interrupts, align 4
   %and = and i32 %6, %call.i.i.i
   %cmp = icmp eq i32 %and, %6
@@ -1266,31 +1266,31 @@ do.end22:                                         ; preds = %if.else18, %do.end,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_port_check_nonbusy(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
-  %slot1 = getelementptr inbounds i8, ptr %cmd, i64 2
+  %slot1 = getelementptr inbounds nuw i8, ptr %cmd, i64 2
   %0 = load i8, ptr %slot1, align 2
-  %port2 = getelementptr inbounds i8, ptr %cmd, i64 1
+  %port2 = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   %1 = load i8, ptr %port2, align 1
   %conv.i.i = zext i8 %1 to i32
   %mul.i.i = shl nuw nsw i32 %conv.i.i, 7
   %add1.i.i = add nuw nsw i32 %mul.i.i, 256
   %mul.i1.i = or disjoint i32 %add1.i.i, 52
   %conv.i2.i = zext nneg i32 %mul.i1.i to i64
-  %dev.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %2 = load ptr, ptr %dev.i.i.i, align 8
-  %hba_bar.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %3 = load i64, ptr %hba_bar.i.i.i, align 8
-  %4 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %5 = load i8, ptr %4, align 8
   %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %2, i64 %3, i8 %5, i64 noundef range(i64 0, 32953) %conv.i2.i) #16
-  %props = getelementptr inbounds i8, ptr %cmd, i64 32
+  %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %6 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds i8, ptr %6, i64 9
+  %ncq = getelementptr inbounds nuw i8, ptr %6, i64 9
   %7 = load i8, ptr %ncq, align 1
   %tobool = trunc i8 %7 to i1
   br i1 %tobool, label %land.lhs.true, label %do.body14
 
 land.lhs.true:                                    ; preds = %entry
-  %errors = getelementptr inbounds i8, ptr %cmd, i64 3
+  %errors = getelementptr inbounds nuw i8, ptr %cmd, i64 3
   %8 = load i8, ptr %errors, align 1
   %tobool3.not = icmp eq i8 %8, 0
   br i1 %tobool3.not, label %do.body14, label %do.body
@@ -1330,10 +1330,10 @@ if.end29:                                         ; preds = %do.body14, %if.else
   %11 = load i8, ptr %4, align 8
   %call.i.i.i41 = tail call i32 @qpci_io_readl(ptr noundef %9, i64 %10, i8 %11, i64 noundef range(i64 0, 32953) %conv.i2.i38) #16
   %12 = load ptr, ptr %props, align 8
-  %ncq32 = getelementptr inbounds i8, ptr %12, i64 9
+  %ncq32 = getelementptr inbounds nuw i8, ptr %12, i64 9
   %13 = load i8, ptr %ncq32, align 1
   %tobool33 = trunc i8 %13 to i1
-  %errors58.phi.trans.insert = getelementptr inbounds i8, ptr %cmd, i64 3
+  %errors58.phi.trans.insert = getelementptr inbounds nuw i8, ptr %cmd, i64 3
   %.pre = load i8, ptr %errors58.phi.trans.insert, align 1
   %14 = icmp eq i8 %.pre, 0
   br i1 %tobool33, label %if.else57, label %land.lhs.true34
@@ -1407,7 +1407,7 @@ entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #17
   %0 = load ptr, ptr %ahci, align 8
   %1 = load ptr, ptr %0, align 8
-  %port1 = getelementptr inbounds i8, ptr %ahci, i64 56
+  %port1 = getelementptr inbounds nuw i8, ptr %ahci, i64 56
   %idxprom = zext i8 %port to i64
   %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port1, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx, align 8
@@ -1425,15 +1425,15 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %if.else, %entry
   %mul.i.i = shl nuw nsw i64 %idxprom, 7
   %mul.i1.i = add nuw nsw i64 %mul.i.i, 288
-  %dev.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %4 = load ptr, ptr %dev.i.i.i, align 8
-  %hba_bar.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %5 = load i64, ptr %hba_bar.i.i.i, align 8
-  %6 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %7 = load i8, ptr %6, align 8
   %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %4, i64 %5, i8 %7, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
   %and = lshr i32 %call.i.i.i, 8
-  %error = getelementptr inbounds i8, ptr %call, i64 3
+  %error = getelementptr inbounds nuw i8, ptr %call, i64 3
   %8 = load i8, ptr %error, align 1
   %9 = trunc i32 %and to i8
   %cmp11 = icmp eq i8 %8, %9
@@ -1447,7 +1447,7 @@ if.else14:                                        ; preds = %do.end
   br label %do.body19
 
 do.body19:                                        ; preds = %do.end, %if.else14
-  %status = getelementptr inbounds i8, ptr %call, i64 2
+  %status = getelementptr inbounds nuw i8, ptr %call, i64 2
   %10 = load i8, ptr %status, align 1
   %11 = trunc i32 %call.i.i.i to i8
   %cmp25 = icmp eq i8 %10, %11
@@ -1474,11 +1474,11 @@ declare void @qtest_memread(ptr noundef, i64 noundef, ptr noundef, i64 noundef) 
 define dso_local void @ahci_port_check_pio_sanity(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #17
-  %port1 = getelementptr inbounds i8, ptr %cmd, i64 1
+  %port1 = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   %0 = load i8, ptr %port1, align 1
   %1 = load ptr, ptr %ahci, align 8
   %2 = load ptr, ptr %1, align 8
-  %port2 = getelementptr inbounds i8, ptr %ahci, i64 56
+  %port2 = getelementptr inbounds nuw i8, ptr %ahci, i64 56
   %idxprom = zext i8 %0 to i64
   %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port2, i64 0, i64 %idxprom
   %3 = load i64, ptr %arrayidx, align 8
@@ -1494,12 +1494,12 @@ if.else:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %if.else, %entry
-  %props = getelementptr inbounds i8, ptr %cmd, i64 32
+  %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %5 = load ptr, ptr %props, align 8
-  %atapi = getelementptr inbounds i8, ptr %5, i64 8
+  %atapi = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i8, ptr %atapi, align 8
   %tobool = trunc i8 %6 to i1
-  %xbytes = getelementptr inbounds i8, ptr %cmd, i64 8
+  %xbytes = getelementptr inbounds nuw i8, ptr %cmd, i64 8
   %7 = load i64, ptr %xbytes, align 8
   br i1 %tobool, label %land.lhs.true, label %if.else28
 
@@ -1508,13 +1508,13 @@ land.lhs.true:                                    ; preds = %do.end
   br i1 %cmp7, label %do.body13, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %dma = getelementptr inbounds i8, ptr %5, i64 3
+  %dma = getelementptr inbounds nuw i8, ptr %5, i64 3
   %8 = load i8, ptr %dma, align 1
   %tobool10 = trunc i8 %8 to i1
   br i1 %tobool10, label %do.body13, label %if.else28
 
 do.body13:                                        ; preds = %land.lhs.true, %lor.lhs.false
-  %tx_count = getelementptr inbounds i8, ptr %call, i64 16
+  %tx_count = getelementptr inbounds nuw i8, ptr %call, i64 16
   %9 = load i16, ptr %tx_count, align 1
   switch i16 %9, label %if.else25 [
     i16 12, label %if.end52
@@ -1526,13 +1526,13 @@ if.else25:                                        ; preds = %do.body13
   unreachable
 
 if.else28:                                        ; preds = %do.end, %lor.lhs.false
-  %sector_size = getelementptr inbounds i8, ptr %cmd, i64 20
+  %sector_size = getelementptr inbounds nuw i8, ptr %cmd, i64 20
   %10 = load i32, ptr %sector_size, align 4
   %conv30 = zext i32 %10 to i64
   %rem = urem i64 %7, %conv30
   %tobool31.not = icmp eq i64 %rem, 0
   %conv30.rem = select i1 %tobool31.not, i64 %conv30, i64 %rem
-  %tx_count40 = getelementptr inbounds i8, ptr %call, i64 16
+  %tx_count40 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %11 = load i16, ptr %tx_count40, align 1
   %conv42 = zext i16 %11 to i64
   %cmp44 = icmp eq i64 %conv30.rem, %conv42
@@ -1553,9 +1553,9 @@ if.end52:                                         ; preds = %do.body13, %do.body
 define dso_local void @ahci_port_check_cmd_sanity(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
   %cmdh = alloca %struct.AHCICommandHeader, align 1
-  %port = getelementptr inbounds i8, ptr %cmd, i64 1
+  %port = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   %0 = load i8, ptr %port, align 1
-  %slot = getelementptr inbounds i8, ptr %cmd, i64 2
+  %slot = getelementptr inbounds nuw i8, ptr %cmd, i64 2
   %1 = load i8, ptr %slot, align 2
   %idxprom.i = zext i8 %0 to i64
   %clb.idx.i = mul nuw nsw i64 %idxprom.i, 344
@@ -1568,17 +1568,17 @@ entry:
   %4 = load ptr, ptr %ahci, align 8
   %5 = load ptr, ptr %4, align 8
   call void @qtest_memread(ptr noundef %5, i64 noundef %add.i, ptr noundef nonnull %cmdh, i64 noundef 32) #16
-  %props = getelementptr inbounds i8, ptr %cmd, i64 32
+  %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %6 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds i8, ptr %6, i64 9
+  %ncq = getelementptr inbounds nuw i8, ptr %6, i64 9
   %7 = load i8, ptr %ncq, align 1
   %tobool = trunc i8 %7 to i1
   br i1 %tobool, label %if.end5, label %do.body
 
 do.body:                                          ; preds = %entry
-  %xbytes = getelementptr inbounds i8, ptr %cmd, i64 8
+  %xbytes = getelementptr inbounds nuw i8, ptr %cmd, i64 8
   %8 = load i64, ptr %xbytes, align 8
-  %prdbc = getelementptr inbounds i8, ptr %cmdh, i64 4
+  %prdbc = getelementptr inbounds nuw i8, ptr %cmdh, i64 4
   %9 = load i32, ptr %prdbc, align 1
   %conv = zext i32 %9 to i64
   %cmp = icmp eq i64 %8, %conv
@@ -1615,7 +1615,7 @@ entry:
 define dso_local void @ahci_set_command_header(ptr nocapture noundef readonly %ahci, i8 noundef zeroext %port, i8 noundef zeroext %slot, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.AHCICommandHeader, align 2
-  %0 = getelementptr inbounds i8, ptr %tmp, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %0, i8 0, i64 16, i1 false)
   %idxprom = zext i8 %port to i64
   %clb.idx = mul nuw nsw i64 %idxprom, 344
@@ -1627,17 +1627,17 @@ entry:
   %add = add i64 %2, %mul
   %3 = load i16, ptr %cmd, align 1
   store i16 %3, ptr %tmp, align 2
-  %prdtl = getelementptr inbounds i8, ptr %cmd, i64 2
+  %prdtl = getelementptr inbounds nuw i8, ptr %cmd, i64 2
   %4 = load i16, ptr %prdtl, align 1
-  %prdtl4 = getelementptr inbounds i8, ptr %tmp, i64 2
+  %prdtl4 = getelementptr inbounds nuw i8, ptr %tmp, i64 2
   store i16 %4, ptr %prdtl4, align 2
-  %prdbc = getelementptr inbounds i8, ptr %cmd, i64 4
+  %prdbc = getelementptr inbounds nuw i8, ptr %cmd, i64 4
   %5 = load i32, ptr %prdbc, align 1
-  %prdbc6 = getelementptr inbounds i8, ptr %tmp, i64 4
+  %prdbc6 = getelementptr inbounds nuw i8, ptr %tmp, i64 4
   store i32 %5, ptr %prdbc6, align 2
-  %ctba = getelementptr inbounds i8, ptr %cmd, i64 8
+  %ctba = getelementptr inbounds nuw i8, ptr %cmd, i64 8
   %6 = load i64, ptr %ctba, align 1
-  %ctba8 = getelementptr inbounds i8, ptr %tmp, i64 8
+  %ctba8 = getelementptr inbounds nuw i8, ptr %tmp, i64 8
   store i64 %6, ptr %ctba8, align 2
   %7 = load ptr, ptr %ahci, align 8
   %8 = load ptr, ptr %7, align 8
@@ -1654,9 +1654,9 @@ declare void @qtest_memwrite(ptr noundef, i64 noundef, ptr noundef, i64 noundef)
 define dso_local void @ahci_write_fis(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.RegH2DFIS, align 1
-  %fis = getelementptr inbounds i8, ptr %cmd, i64 72
+  %fis = getelementptr inbounds nuw i8, ptr %cmd, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %tmp, ptr noundef nonnull align 8 dereferenceable(20) %fis, i64 20, i1 false)
-  %ctba = getelementptr inbounds i8, ptr %cmd, i64 48
+  %ctba = getelementptr inbounds nuw i8, ptr %cmd, i64 48
   %0 = load i64, ptr %ctba, align 8
   %1 = load ptr, ptr %ahci, align 8
   %2 = load ptr, ptr %1, align 8
@@ -1670,11 +1670,11 @@ entry:
   %conv.i.i = zext i8 %port to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 7
   %mul.i1.i = add nuw nsw i64 %mul.i.i, 312
-  %dev.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %0 = load ptr, ptr %dev.i.i.i, align 8
-  %hba_bar.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %1 = load i64, ptr %hba_bar.i.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
   %call.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef range(i64 0, 32953) %mul.i1.i) #16
   %next.idx = mul nuw nsw i64 %conv.i.i, 344
@@ -1746,7 +1746,7 @@ entry:
   %cmp = icmp eq ptr %opts_in, null
   %cond = select i1 %cmp, ptr @default_opts, ptr %opts_in
   %call.i = tail call dereferenceable_or_null(80) ptr @g_memdup2(ptr noundef nonnull %cond, i64 noundef 80) #18
-  %buffer = getelementptr inbounds i8, ptr %call.i, i64 32
+  %buffer = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %0 = load i64, ptr %buffer, align 8
   %1 = load i64, ptr %call.i, align 8
   %tobool.not = icmp ne i64 %1, 0
@@ -1772,7 +1772,7 @@ if.else4.i:                                       ; preds = %do.body1.i
   unreachable
 
 ahci_alloc.exit:                                  ; preds = %do.body1.i
-  %alloc.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %alloc.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %call.i.i = tail call i64 @guest_alloc(ptr noundef nonnull %alloc.i.i, i64 noundef %1) #16
   store i64 %call.i.i, ptr %buffer, align 8
   %tobool7.not = icmp eq i64 %call.i.i, 0
@@ -1790,31 +1790,31 @@ do.end:                                           ; preds = %ahci_alloc.exit
   br label %if.end11
 
 if.end11:                                         ; preds = %do.end, %entry
-  %atapi = getelementptr inbounds i8, ptr %call.i, i64 40
+  %atapi = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %6 = load i8, ptr %atapi, align 8
   %tobool12 = trunc i8 %6 to i1
   br i1 %tobool12, label %if.then13, label %if.else22
 
 if.then13:                                        ; preds = %if.end11
-  %set_bcl = getelementptr inbounds i8, ptr %call.i, i64 12
+  %set_bcl = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   %7 = load i8, ptr %set_bcl, align 4
   %tobool14 = trunc i8 %7 to i1
   br i1 %tobool14, label %cond.true15, label %cond.end18
 
 cond.true15:                                      ; preds = %if.then13
-  %bcl16 = getelementptr inbounds i8, ptr %call.i, i64 16
+  %bcl16 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %8 = load i32, ptr %bcl16, align 8
   %9 = trunc i32 %8 to i16
   br label %cond.end18
 
 cond.end18:                                       ; preds = %if.then13, %cond.true15
   %cond19 = phi i16 [ %9, %cond.true15 ], [ 2048, %if.then13 ]
-  %atapi_dma = getelementptr inbounds i8, ptr %call.i, i64 41
+  %atapi_dma = getelementptr inbounds nuw i8, ptr %call.i, i64 41
   %10 = load i8, ptr %atapi_dma, align 1
   %tobool20 = trunc i8 %10 to i1
   %call.i64 = tail call ptr @ahci_command_create(i8 noundef zeroext -96)
   %call1.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
-  %atapi_cmd.i = getelementptr inbounds i8, ptr %call.i64, i64 96
+  %atapi_cmd.i = getelementptr inbounds nuw i8, ptr %call.i64, i64 96
   store ptr %call1.i, ptr %atapi_cmd.i, align 8
   store i8 %op, ptr %call1.i, align 1
   %arrayidx3.i = getelementptr i8, ptr %call.i64, i64 77
@@ -1822,9 +1822,9 @@ cond.end18:                                       ; preds = %if.then13, %cond.tr
   br i1 %tobool20, label %if.then.i, label %if.else.i65
 
 if.then.i:                                        ; preds = %cond.end18
-  %props.i.i = getelementptr inbounds i8, ptr %call.i64, i64 32
+  %props.i.i = getelementptr inbounds nuw i8, ptr %call.i64, i64 32
   %11 = load ptr, ptr %props.i.i, align 8
-  %atapi.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %atapi.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load i8, ptr %atapi.i.i, align 8
   %tobool.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i, label %do.end.i.i, label %if.else.i.i
@@ -1834,11 +1834,11 @@ if.else.i.i:                                      ; preds = %if.then.i
   unreachable
 
 do.end.i.i:                                       ; preds = %if.then.i
-  %feature_low.i.i = getelementptr inbounds i8, ptr %call.i64, i64 75
+  %feature_low.i.i = getelementptr inbounds nuw i8, ptr %call.i64, i64 75
   %13 = load i8, ptr %feature_low.i.i, align 1
   %14 = or i8 %13, 1
   store i8 %14, ptr %feature_low.i.i, align 1
-  %pio.i.i = getelementptr inbounds i8, ptr %11, i64 2
+  %pio.i.i = getelementptr inbounds nuw i8, ptr %11, i64 2
   %15 = load i8, ptr %pio.i.i, align 2
   %tobool5.i.i = trunc i8 %15 to i1
   br i1 %tobool5.i.i, label %ahci_command_enable_atapi_dma.exit.i, label %if.else7.i.i
@@ -1848,14 +1848,14 @@ if.else7.i.i:                                     ; preds = %do.end.i.i
   unreachable
 
 ahci_command_enable_atapi_dma.exit.i:             ; preds = %do.end.i.i
-  %dma.i.i = getelementptr inbounds i8, ptr %11, i64 3
+  %dma.i.i = getelementptr inbounds nuw i8, ptr %11, i64 3
   store i8 1, ptr %dma.i.i, align 1
   br label %if.end24
 
 if.else.i65:                                      ; preds = %cond.end18
   %tobool4.not.i = icmp eq i16 %cond19, 0
   %cond.i = select i1 %tobool4.not.i, i32 0, i32 2
-  %interrupts.i = getelementptr inbounds i8, ptr %call.i64, i64 4
+  %interrupts.i = getelementptr inbounds nuw i8, ptr %call.i64, i64 4
   %16 = load i32, ptr %interrupts.i, align 4
   %or.i = or i32 %16, %cond.i
   store i32 %or.i, ptr %interrupts.i, align 4
@@ -1867,17 +1867,17 @@ if.else22:                                        ; preds = %if.end11
 
 if.end24:                                         ; preds = %if.else.i65, %ahci_command_enable_atapi_dma.exit.i, %if.else22
   %cmd.0 = phi ptr [ %call23, %if.else22 ], [ %call.i64, %ahci_command_enable_atapi_dma.exit.i ], [ %call.i64, %if.else.i65 ]
-  %lba = getelementptr inbounds i8, ptr %call.i, i64 24
+  %lba = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %17 = load i64, ptr %lba, align 8
   %18 = load i64, ptr %buffer, align 8
   %19 = load i64, ptr %call.i, align 8
-  %prd_size = getelementptr inbounds i8, ptr %call.i, i64 8
+  %prd_size = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %20 = load i32, ptr %prd_size, align 8
   tail call void @ahci_command_set_sizes(ptr noundef %cmd.0, i64 noundef %19, i32 noundef %20)
-  %buffer1.i.i = getelementptr inbounds i8, ptr %cmd.0, i64 24
+  %buffer1.i.i = getelementptr inbounds nuw i8, ptr %cmd.0, i64 24
   store i64 %18, ptr %buffer1.i.i, align 8
   tail call void @ahci_command_set_offset(ptr noundef %cmd.0, i64 noundef %17)
-  %pre_cb = getelementptr inbounds i8, ptr %call.i, i64 48
+  %pre_cb = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %21 = load ptr, ptr %pre_cb, align 8
   %tobool27.not = icmp eq ptr %21, null
   br i1 %tobool27.not, label %if.end41, label %if.then28
@@ -1894,50 +1894,50 @@ if.else36:                                        ; preds = %if.then28
 
 if.end41:                                         ; preds = %if.then28, %if.else36, %if.end24
   tail call void @ahci_command_commit(ptr noundef %ahci, ptr noundef nonnull %cmd.0, i8 noundef zeroext %port)
-  %props.i = getelementptr inbounds i8, ptr %cmd.0, i64 32
+  %props.i = getelementptr inbounds nuw i8, ptr %cmd.0, i64 32
   %22 = load ptr, ptr %props.i, align 8
-  %ncq.i = getelementptr inbounds i8, ptr %22, i64 9
+  %ncq.i = getelementptr inbounds nuw i8, ptr %22, i64 9
   %23 = load i8, ptr %ncq.i, align 1
   %tobool.i = trunc i8 %23 to i1
   br i1 %tobool.i, label %if.then.i66, label %ahci_command_issue_async.exit
 
 if.then.i66:                                      ; preds = %if.end41
-  %port.i = getelementptr inbounds i8, ptr %cmd.0, i64 1
+  %port.i = getelementptr inbounds nuw i8, ptr %cmd.0, i64 1
   %24 = load i8, ptr %port.i, align 1
-  %slot.i = getelementptr inbounds i8, ptr %cmd.0, i64 2
+  %slot.i = getelementptr inbounds nuw i8, ptr %cmd.0, i64 2
   %25 = load i8, ptr %slot.i, align 2
   %conv.i = zext nneg i8 %25 to i32
   %shl.i = shl nuw i32 1, %conv.i
   %conv.i.i.i = zext i8 %24 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 7
   %mul.i1.i.i = add nuw nsw i64 %mul.i.i.i, 308
-  %dev.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %26 = load ptr, ptr %dev.i.i.i.i, align 8
-  %hba_bar.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %27 = load i64, ptr %hba_bar.i.i.i.i, align 8
-  %28 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %29 = load i8, ptr %28, align 8
   tail call void @qpci_io_writel(ptr noundef %26, i64 %27, i8 %29, i64 noundef range(i64 4, 32953) %mul.i1.i.i, i32 noundef %shl.i) #16
   br label %ahci_command_issue_async.exit
 
 ahci_command_issue_async.exit:                    ; preds = %if.end41, %if.then.i66
-  %port1.i = getelementptr inbounds i8, ptr %cmd.0, i64 1
+  %port1.i = getelementptr inbounds nuw i8, ptr %cmd.0, i64 1
   %30 = load i8, ptr %port1.i, align 1
-  %slot2.i = getelementptr inbounds i8, ptr %cmd.0, i64 2
+  %slot2.i = getelementptr inbounds nuw i8, ptr %cmd.0, i64 2
   %31 = load i8, ptr %slot2.i, align 2
   %conv3.i = zext nneg i8 %31 to i32
   %shl4.i = shl nuw i32 1, %conv3.i
   %conv.i.i6.i = zext i8 %30 to i64
   %mul.i.i7.i = shl nuw nsw i64 %conv.i.i6.i, 7
   %mul.i1.i10.i = add nuw nsw i64 %mul.i.i7.i, 312
-  %dev.i.i.i12.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i12.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %32 = load ptr, ptr %dev.i.i.i12.i, align 8
-  %hba_bar.i.i.i13.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i13.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %33 = load i64, ptr %hba_bar.i.i.i13.i, align 8
-  %34 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %35 = load i8, ptr %34, align 8
   tail call void @qpci_io_writel(ptr noundef %32, i64 %33, i8 %35, i64 noundef range(i64 4, 32953) %mul.i1.i10.i, i32 noundef %shl4.i) #16
-  %error = getelementptr inbounds i8, ptr %call.i, i64 42
+  %error = getelementptr inbounds nuw i8, ptr %call.i, i64 42
   %36 = load i8, ptr %error, align 2
   %tobool42 = trunc i8 %36 to i1
   br i1 %tobool42, label %if.then43, label %if.end46
@@ -1949,7 +1949,7 @@ if.then43:                                        ; preds = %ahci_command_issue_
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then43, %ahci_command_issue_async.exit
-  %mid_cb = getelementptr inbounds i8, ptr %call.i, i64 56
+  %mid_cb = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %39 = load ptr, ptr %mid_cb, align 8
   %tobool47.not = icmp eq ptr %39, null
   br i1 %tobool47.not, label %if.end63, label %if.then48
@@ -1981,7 +1981,7 @@ if.then66:                                        ; preds = %if.end63
 if.end71:                                         ; preds = %if.then66, %if.end63
   tail call void @ahci_command_wait(ptr noundef nonnull %ahci, ptr noundef nonnull %cmd.0)
   tail call void @ahci_command_verify(ptr noundef nonnull %ahci, ptr noundef nonnull %cmd.0)
-  %post_cb = getelementptr inbounds i8, ptr %call.i, i64 64
+  %post_cb = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %45 = load ptr, ptr %post_cb, align 8
   %tobool72.not = icmp eq ptr %45, null
   br i1 %tobool72.not, label %if.end88, label %if.then73
@@ -1997,7 +1997,7 @@ if.else83:                                        ; preds = %if.then73
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then73, %if.else83, %if.end71
-  %atapi_cmd.i67 = getelementptr inbounds i8, ptr %cmd.0, i64 96
+  %atapi_cmd.i67 = getelementptr inbounds nuw i8, ptr %cmd.0, i64 96
   %46 = load ptr, ptr %atapi_cmd.i67, align 8
   tail call void @g_free(ptr noundef %46) #16
   %47 = load ptr, ptr %props.i, align 8
@@ -2017,7 +2017,7 @@ if.else4.i73:                                     ; preds = %do.body1.i70
   unreachable
 
 ahci_free.exit:                                   ; preds = %do.body1.i70
-  %alloc.i.i72 = getelementptr inbounds i8, ptr %49, i64 8
+  %alloc.i.i72 = getelementptr inbounds nuw i8, ptr %49, i64 8
   tail call void @guest_free(ptr noundef nonnull %alloc.i.i72, i64 noundef %48) #16
   br label %if.end94
 
@@ -2031,7 +2031,7 @@ define dso_local noalias noundef ptr @ahci_atapi_command_create(i8 noundef zeroe
 entry:
   %call = tail call ptr @ahci_command_create(i8 noundef zeroext -96)
   %call1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
-  %atapi_cmd = getelementptr inbounds i8, ptr %call, i64 96
+  %atapi_cmd = getelementptr inbounds nuw i8, ptr %call, i64 96
   store ptr %call1, ptr %atapi_cmd, align 8
   store i8 %scsi_cmd, ptr %call1, align 1
   %arrayidx3 = getelementptr i8, ptr %call, i64 77
@@ -2039,9 +2039,9 @@ entry:
   br i1 %dma, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %props.i = getelementptr inbounds i8, ptr %call, i64 32
+  %props.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   %0 = load ptr, ptr %props.i, align 8
-  %atapi.i = getelementptr inbounds i8, ptr %0, i64 8
+  %atapi.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i8, ptr %atapi.i, align 8
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %do.end.i, label %if.else.i
@@ -2051,11 +2051,11 @@ if.else.i:                                        ; preds = %if.then
   unreachable
 
 do.end.i:                                         ; preds = %if.then
-  %feature_low.i = getelementptr inbounds i8, ptr %call, i64 75
+  %feature_low.i = getelementptr inbounds nuw i8, ptr %call, i64 75
   %2 = load i8, ptr %feature_low.i, align 1
   %3 = or i8 %2, 1
   store i8 %3, ptr %feature_low.i, align 1
-  %pio.i = getelementptr inbounds i8, ptr %0, i64 2
+  %pio.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i8, ptr %pio.i, align 2
   %tobool5.i = trunc i8 %4 to i1
   br i1 %tobool5.i, label %ahci_command_enable_atapi_dma.exit, label %if.else7.i
@@ -2065,14 +2065,14 @@ if.else7.i:                                       ; preds = %do.end.i
   unreachable
 
 ahci_command_enable_atapi_dma.exit:               ; preds = %do.end.i
-  %dma.i = getelementptr inbounds i8, ptr %0, i64 3
+  %dma.i = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 1, ptr %dma.i, align 1
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %tobool4.not = icmp eq i16 %bcl, 0
   %cond = select i1 %tobool4.not, i32 0, i32 2
-  %interrupts = getelementptr inbounds i8, ptr %call, i64 4
+  %interrupts = getelementptr inbounds nuw i8, ptr %call, i64 4
   %5 = load i32, ptr %interrupts, align 4
   %or = or i32 %5, %cond
   store i32 %or, ptr %interrupts, align 4
@@ -2105,19 +2105,19 @@ if.else:                                          ; preds = %for.cond.i
 
 do.end:                                           ; preds = %for.body.i
   %call1 = tail call noalias dereferenceable_or_null(104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #19
-  %dma = getelementptr inbounds i8, ptr %arrayidx.i, i64 3
+  %dma = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 3
   %1 = load i8, ptr %dma, align 1
   %tobool3 = trunc i8 %1 to i1
   br i1 %tobool3, label %land.lhs.true, label %do.body10
 
 land.lhs.true:                                    ; preds = %do.end
-  %pio = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
+  %pio = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 2
   %2 = load i8, ptr %pio, align 2
   %tobool4 = trunc i8 %2 to i1
   br i1 %tobool4, label %lor.lhs.false, label %do.body10
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %atapi = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %atapi = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %3 = load i8, ptr %atapi, align 8
   %tobool5 = trunc i8 %3 to i1
   br i1 %tobool5, label %do.body10, label %if.else7
@@ -2127,13 +2127,13 @@ if.else7:                                         ; preds = %lor.lhs.false
   unreachable
 
 do.body10:                                        ; preds = %do.end, %land.lhs.true, %lor.lhs.false
-  %lba28 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %lba28 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %4 = load i8, ptr %lba28, align 4
   %tobool11 = trunc i8 %4 to i1
   br i1 %tobool11, label %land.lhs.true12, label %do.body18
 
 land.lhs.true12:                                  ; preds = %do.body10
-  %lba48 = getelementptr inbounds i8, ptr %arrayidx.i, i64 5
+  %lba48 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 5
   %5 = load i8, ptr %lba48, align 1
   %tobool13 = trunc i8 %5 to i1
   br i1 %tobool13, label %if.else15, label %do.body18
@@ -2143,13 +2143,13 @@ if.else15:                                        ; preds = %land.lhs.true12
   unreachable
 
 do.body18:                                        ; preds = %do.body10, %land.lhs.true12
-  %read = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
+  %read = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 6
   %6 = load i8, ptr %read, align 2
   %tobool19 = trunc i8 %6 to i1
   br i1 %tobool19, label %land.lhs.true20, label %do.body26
 
 land.lhs.true20:                                  ; preds = %do.body18
-  %write = getelementptr inbounds i8, ptr %arrayidx.i, i64 7
+  %write = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 7
   %7 = load i8, ptr %write, align 1
   %tobool21 = trunc i8 %7 to i1
   br i1 %tobool21, label %if.else23, label %do.body26
@@ -2159,13 +2159,13 @@ if.else23:                                        ; preds = %land.lhs.true20
   unreachable
 
 do.body26:                                        ; preds = %do.body18, %land.lhs.true20
-  %size = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %8 = load i64, ptr %size, align 8
   %tobool27.not = icmp eq i64 %8, 0
   br i1 %tobool27.not, label %do.body34, label %lor.lhs.false28
 
 lor.lhs.false28:                                  ; preds = %do.body26
-  %data = getelementptr inbounds i8, ptr %arrayidx.i, i64 1
+  %data = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1
   %9 = load i8, ptr %data, align 1
   %tobool29 = trunc i8 %9 to i1
   br i1 %tobool29, label %do.body34, label %if.else31
@@ -2175,13 +2175,13 @@ if.else31:                                        ; preds = %lor.lhs.false28
   unreachable
 
 do.body34:                                        ; preds = %do.body26, %lor.lhs.false28
-  %ncq = getelementptr inbounds i8, ptr %arrayidx.i, i64 9
+  %ncq = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 9
   %10 = load i8, ptr %ncq, align 1
   %tobool35 = trunc i8 %10 to i1
   br i1 %tobool35, label %lor.lhs.false36, label %do.end42
 
 lor.lhs.false36:                                  ; preds = %do.body34
-  %lba4837 = getelementptr inbounds i8, ptr %arrayidx.i, i64 5
+  %lba4837 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 5
   %11 = load i8, ptr %lba4837, align 1
   %tobool38 = trunc i8 %11 to i1
   br i1 %tobool38, label %do.end42, label %if.else40
@@ -2192,29 +2192,29 @@ if.else40:                                        ; preds = %lor.lhs.false36
 
 do.end42:                                         ; preds = %lor.lhs.false36, %do.body34
   %call.i = tail call dereferenceable_or_null(32) ptr @g_memdup2(ptr noundef nonnull %arrayidx.i, i64 noundef 32) #18
-  %props44 = getelementptr inbounds i8, ptr %call1, i64 32
+  %props44 = getelementptr inbounds nuw i8, ptr %call1, i64 32
   store ptr %call.i, ptr %props44, align 8
   store i8 %command_name, ptr %call1, align 8
   %12 = load i64, ptr %size, align 8
-  %xbytes = getelementptr inbounds i8, ptr %call1, i64 8
+  %xbytes = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i64 %12, ptr %xbytes, align 8
-  %prd_size = getelementptr inbounds i8, ptr %call1, i64 16
+  %prd_size = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store i32 4096, ptr %prd_size, align 8
-  %buffer = getelementptr inbounds i8, ptr %call1, i64 24
+  %buffer = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store i64 2880249322, ptr %buffer, align 8
-  %atapi46 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %atapi46 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %13 = load i8, ptr %atapi46, align 8
   %tobool47 = trunc i8 %13 to i1
   %cond = select i1 %tobool47, i32 2048, i32 512
-  %sector_size = getelementptr inbounds i8, ptr %call1, i64 20
+  %sector_size = getelementptr inbounds nuw i8, ptr %call1, i64 20
   store i32 %cond, ptr %sector_size, align 4
-  %ncq49 = getelementptr inbounds i8, ptr %call.i, i64 9
+  %ncq49 = getelementptr inbounds nuw i8, ptr %call.i, i64 9
   %14 = load i8, ptr %ncq49, align 1
   %tobool50 = trunc i8 %14 to i1
   br i1 %tobool50, label %do.end42.if.end52_crit_edge, label %if.end52
 
 do.end42.if.end52_crit_edge:                      ; preds = %do.end42
-  %interrupts56.phi.trans.insert = getelementptr inbounds i8, ptr %call1, i64 4
+  %interrupts56.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call1, i64 4
   %.pre = load i32, ptr %interrupts56.phi.trans.insert, align 4
   br label %if.end52
 
@@ -2223,16 +2223,16 @@ if.end52:                                         ; preds = %do.end42, %do.end42
   %16 = load i8, ptr %ncq, align 1
   %tobool54 = trunc i8 %16 to i1
   %cond55 = select i1 %tobool54, i32 8, i32 0
-  %interrupts56 = getelementptr inbounds i8, ptr %call1, i64 4
+  %interrupts56 = getelementptr inbounds nuw i8, ptr %call1, i64 4
   %or = or i32 %cond55, %15
   store i32 %or, ptr %interrupts56, align 4
-  %header.i = getelementptr inbounds i8, ptr %call1, i64 40
-  %write.i = getelementptr inbounds i8, ptr %call.i, i64 7
+  %header.i = getelementptr inbounds nuw i8, ptr %call1, i64 40
+  %write.i = getelementptr inbounds nuw i8, ptr %call.i, i64 7
   %17 = load i8, ptr %write.i, align 1
   %tobool.i = trunc i8 %17 to i1
   %spec.store.select.i = select i1 %tobool.i, i16 1093, i16 1029
   store i16 %spec.store.select.i, ptr %header.i, align 1
-  %atapi.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %atapi.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %18 = load i8, ptr %atapi.i, align 8
   %tobool8.i = trunc i8 %18 to i1
   br i1 %tobool8.i, label %if.then9.i, label %command_header_init.exit
@@ -2247,17 +2247,17 @@ command_header_init.exit:                         ; preds = %if.then9.i, %if.end
   %sub.i.i = add i32 %conv15.i, 4095
   %div.i.i34 = lshr i32 %sub.i.i, 12
   %conv16.i = trunc i32 %div.i.i34 to i16
-  %prdtl.i = getelementptr inbounds i8, ptr %call1, i64 42
+  %prdtl.i = getelementptr inbounds nuw i8, ptr %call1, i64 42
   store i16 %conv16.i, ptr %prdtl.i, align 1
-  %prdbc.i = getelementptr inbounds i8, ptr %call1, i64 44
+  %prdbc.i = getelementptr inbounds nuw i8, ptr %call1, i64 44
   store i32 0, ptr %prdbc.i, align 1
-  %ctba.i = getelementptr inbounds i8, ptr %call1, i64 48
+  %ctba.i = getelementptr inbounds nuw i8, ptr %call1, i64 48
   store i64 0, ptr %ctba.i, align 1
-  %fis1.i = getelementptr inbounds i8, ptr %call1, i64 72
+  %fis1.i = getelementptr inbounds nuw i8, ptr %call1, i64 72
   store i8 39, ptr %fis1.i, align 1
-  %flags.i = getelementptr inbounds i8, ptr %call1, i64 73
+  %flags.i = getelementptr inbounds nuw i8, ptr %call1, i64 73
   store i8 -128, ptr %flags.i, align 1
-  %command.i = getelementptr inbounds i8, ptr %call1, i64 74
+  %command.i = getelementptr inbounds nuw i8, ptr %call1, i64 74
   store i8 %command_name, ptr %command.i, align 1
   br i1 %tobool50, label %if.then.i, label %if.else.i
 
@@ -2265,38 +2265,38 @@ if.then.i:                                        ; preds = %command_header_init
   %20 = select i1 %tobool47, i64 11, i64 9
   %div.i36 = lshr i64 %12, %20
   %conv4.i = trunc i64 %div.i36 to i8
-  %sector_low.i = getelementptr inbounds i8, ptr %call1, i64 75
+  %sector_low.i = getelementptr inbounds nuw i8, ptr %call1, i64 75
   store i8 %conv4.i, ptr %sector_low.i, align 1
   %conv324.i = lshr i64 %div.i36, 8
   %conv7.i = trunc i64 %conv324.i to i8
-  %sector_hi.i = getelementptr inbounds i8, ptr %call1, i64 83
+  %sector_hi.i = getelementptr inbounds nuw i8, ptr %call1, i64 83
   store i8 %conv7.i, ptr %sector_hi.i, align 1
-  %device.i = getelementptr inbounds i8, ptr %call1, i64 79
+  %device.i = getelementptr inbounds nuw i8, ptr %call1, i64 79
   store i8 64, ptr %device.i, align 1
-  %tag.i = getelementptr inbounds i8, ptr %call1, i64 84
+  %tag.i = getelementptr inbounds nuw i8, ptr %call1, i64 84
   store i8 0, ptr %tag.i, align 1
-  %prio.i = getelementptr inbounds i8, ptr %call1, i64 85
+  %prio.i = getelementptr inbounds nuw i8, ptr %call1, i64 85
   store i8 0, ptr %prio.i, align 1
   br label %command_table_init.exit
 
 if.else.i:                                        ; preds = %command_header_init.exit
-  %feature_low.i = getelementptr inbounds i8, ptr %call1, i64 75
+  %feature_low.i = getelementptr inbounds nuw i8, ptr %call1, i64 75
   store i8 0, ptr %feature_low.i, align 1
-  %feature_high.i = getelementptr inbounds i8, ptr %call1, i64 83
+  %feature_high.i = getelementptr inbounds nuw i8, ptr %call1, i64 83
   store i8 0, ptr %feature_high.i, align 1
-  %lba28.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  %lba28.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   %21 = load i8, ptr %lba28.i, align 4
   %tobool9.i = trunc i8 %21 to i1
   br i1 %tobool9.i, label %if.then14.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else.i
-  %lba48.i = getelementptr inbounds i8, ptr %call.i, i64 5
+  %lba48.i = getelementptr inbounds nuw i8, ptr %call.i, i64 5
   %22 = load i8, ptr %lba48.i, align 1
   %tobool12.i = trunc i8 %22 to i1
   br i1 %tobool12.i, label %if.then14.i, label %if.end.i
 
 if.then14.i:                                      ; preds = %lor.lhs.false.i, %if.else.i
-  %device15.i = getelementptr inbounds i8, ptr %call1, i64 79
+  %device15.i = getelementptr inbounds nuw i8, ptr %call1, i64 79
   store i8 64, ptr %device15.i, align 1
   br label %if.end.i
 
@@ -2304,16 +2304,16 @@ if.end.i:                                         ; preds = %if.then14.i, %lor.l
   %23 = select i1 %tobool47, i64 11, i64 9
   %div19.i35 = lshr i64 %12, %23
   %conv20.i = trunc i64 %div19.i35 to i16
-  %count.i = getelementptr inbounds i8, ptr %call1, i64 84
+  %count.i = getelementptr inbounds nuw i8, ptr %call1, i64 84
   store i16 %conv20.i, ptr %count.i, align 1
   br label %command_table_init.exit
 
 command_table_init.exit:                          ; preds = %if.then.i, %if.end.i
-  %icc.i = getelementptr inbounds i8, ptr %call1, i64 86
+  %icc.i = getelementptr inbounds nuw i8, ptr %call1, i64 86
   store i8 0, ptr %icc.i, align 1
-  %control.i = getelementptr inbounds i8, ptr %call1, i64 87
+  %control.i = getelementptr inbounds nuw i8, ptr %call1, i64 87
   store i8 0, ptr %control.i, align 1
-  %aux.i = getelementptr inbounds i8, ptr %call1, i64 88
+  %aux.i = getelementptr inbounds nuw i8, ptr %call1, i64 88
   store i32 0, ptr %aux.i, align 1
   ret ptr %call1
 }
@@ -2322,7 +2322,7 @@ command_table_init.exit:                          ; preds = %if.then.i, %if.end.
 define dso_local void @ahci_command_adjust(ptr nocapture noundef initializes((8, 16)) %cmd, i64 noundef %offset, i64 noundef %buffer, i64 noundef %xbytes, i32 noundef %prd_size) local_unnamed_addr #0 {
 entry:
   tail call void @ahci_command_set_sizes(ptr noundef %cmd, i64 noundef %xbytes, i32 noundef %prd_size)
-  %buffer1.i = getelementptr inbounds i8, ptr %cmd, i64 24
+  %buffer1.i = getelementptr inbounds nuw i8, ptr %cmd, i64 24
   store i64 %buffer, ptr %buffer1.i, align 8
   tail call void @ahci_command_set_offset(ptr noundef %cmd, i64 noundef %offset)
   ret void
@@ -2334,16 +2334,16 @@ entry:
   %tmp.i55 = alloca %struct.RegH2DFIS, align 1
   %tmp.i = alloca %struct.AHCICommandHeader, align 2
   %prd = alloca %struct.PRD, align 8
-  %port1 = getelementptr inbounds i8, ptr %cmd, i64 1
+  %port1 = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   store i8 %port, ptr %port1, align 1
   %conv.i.i.i = zext i8 %port to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 7
   %mul.i1.i.i = add nuw nsw i64 %mul.i.i.i, 312
-  %dev.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %0 = load ptr, ptr %dev.i.i.i.i, align 8
-  %hba_bar.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %1 = load i64, ptr %hba_bar.i.i.i.i, align 8
-  %2 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %3 = load i8, ptr %2, align 8
   %call.i.i.i.i = tail call i32 @qpci_io_readl(ptr noundef %0, i64 %1, i8 %3, i64 noundef range(i64 0, 32953) %mul.i1.i.i) #16
   %next.idx.i = mul nuw nsw i64 %conv.i.i.i, 344
@@ -2379,26 +2379,26 @@ ahci_pick_cmd.exit:                               ; preds = %for.body.i
   %7 = add i8 %6, 1
   %conv5.i = and i8 %7, 31
   store i8 %conv5.i, ptr %next.i, align 8
-  %slot = getelementptr inbounds i8, ptr %cmd, i64 2
+  %slot = getelementptr inbounds nuw i8, ptr %cmd, i64 2
   store i8 %conv2.i, ptr %slot, align 2
-  %props = getelementptr inbounds i8, ptr %cmd, i64 32
+  %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %8 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds i8, ptr %8, i64 9
+  %ncq = getelementptr inbounds nuw i8, ptr %8, i64 9
   %9 = load i8, ptr %ncq, align 1
   %tobool = trunc i8 %9 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %ahci_pick_cmd.exit
   %conv4 = shl nuw i8 %conv2.i, 3
-  %tag = getelementptr inbounds i8, ptr %cmd, i64 84
+  %tag = getelementptr inbounds nuw i8, ptr %cmd, i64 84
   store i8 %conv4, ptr %tag, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %ahci_pick_cmd.exit
-  %xbytes = getelementptr inbounds i8, ptr %cmd, i64 8
+  %xbytes = getelementptr inbounds nuw i8, ptr %cmd, i64 8
   %10 = load i64, ptr %xbytes, align 8
   %conv5 = trunc i64 %10 to i32
-  %prd_size = getelementptr inbounds i8, ptr %cmd, i64 16
+  %prd_size = getelementptr inbounds nuw i8, ptr %cmd, i64 16
   %11 = load i32, ptr %prd_size, align 8
   %cmp.i = icmp ult i32 %11, 4194305
   br i1 %cmp.i, label %do.body4.i, label %if.else.i
@@ -2435,7 +2435,7 @@ ahci_alloc.exit:                                  ; preds = %do.body1.i
   %narrow = add nuw nsw i32 %13, 255
   %14 = and i32 %narrow, 2097024
   %and10 = zext nneg i32 %14 to i64
-  %alloc.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %alloc.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %call.i.i = tail call i64 @guest_alloc(ptr noundef nonnull %alloc.i.i, i64 noundef %and10) #16
   %tobool12.not = icmp eq i64 %call.i.i, 0
   br i1 %tobool12.not, label %if.else, label %do.body15
@@ -2454,12 +2454,12 @@ if.else19:                                        ; preds = %do.body15
   unreachable
 
 do.end21:                                         ; preds = %do.body15
-  %header = getelementptr inbounds i8, ptr %cmd, i64 40
-  %ctba = getelementptr inbounds i8, ptr %cmd, i64 48
+  %header = getelementptr inbounds nuw i8, ptr %cmd, i64 40
+  %ctba = getelementptr inbounds nuw i8, ptr %cmd, i64 48
   store i64 %call.i.i, ptr %ctba, align 8
   %15 = load i8, ptr %slot, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
-  %16 = getelementptr inbounds i8, ptr %tmp.i, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %tmp.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %16, i8 0, i64 16, i1 false)
   %17 = getelementptr i8, ptr %ahci, i64 64
   %clb.i = getelementptr i8, ptr %17, i64 %next.idx.i
@@ -2469,22 +2469,22 @@ do.end21:                                         ; preds = %do.body15
   %add.i54 = add i64 %18, %mul.i
   %19 = load i16, ptr %header, align 1
   store i16 %19, ptr %tmp.i, align 2
-  %prdtl.i = getelementptr inbounds i8, ptr %cmd, i64 42
+  %prdtl.i = getelementptr inbounds nuw i8, ptr %cmd, i64 42
   %20 = load i16, ptr %prdtl.i, align 1
-  %prdtl4.i = getelementptr inbounds i8, ptr %tmp.i, i64 2
+  %prdtl4.i = getelementptr inbounds nuw i8, ptr %tmp.i, i64 2
   store i16 %20, ptr %prdtl4.i, align 2
-  %prdbc.i = getelementptr inbounds i8, ptr %cmd, i64 44
+  %prdbc.i = getelementptr inbounds nuw i8, ptr %cmd, i64 44
   %21 = load i32, ptr %prdbc.i, align 1
-  %prdbc6.i = getelementptr inbounds i8, ptr %tmp.i, i64 4
+  %prdbc6.i = getelementptr inbounds nuw i8, ptr %tmp.i, i64 4
   store i32 %21, ptr %prdbc6.i, align 2
-  %ctba8.i = getelementptr inbounds i8, ptr %tmp.i, i64 8
+  %ctba8.i = getelementptr inbounds nuw i8, ptr %tmp.i, i64 8
   store i64 %call.i.i, ptr %ctba8.i, align 2
   %22 = load ptr, ptr %ahci, align 8
   %23 = load ptr, ptr %22, align 8
   call void @qtest_memwrite(ptr noundef %23, i64 noundef %add.i54, ptr noundef nonnull %tmp.i, i64 noundef 32) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i55)
-  %fis.i = getelementptr inbounds i8, ptr %cmd, i64 72
+  %fis.i = getelementptr inbounds nuw i8, ptr %cmd, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %tmp.i55, ptr noundef nonnull readonly align 8 dereferenceable(20) %fis.i, i64 20, i1 false)
   %24 = load i64, ptr %ctba, align 8
   %25 = load ptr, ptr %ahci, align 8
@@ -2492,7 +2492,7 @@ do.end21:                                         ; preds = %do.body15
   call void @qtest_memwrite(ptr noundef %26, i64 noundef %24, ptr noundef nonnull %tmp.i55, i64 noundef 20) #16
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %tmp.i55)
   %27 = load ptr, ptr %props, align 8
-  %atapi = getelementptr inbounds i8, ptr %27, i64 8
+  %atapi = getelementptr inbounds nuw i8, ptr %27, i64 8
   %28 = load i8, ptr %atapi, align 8
   %tobool25 = trunc i8 %28 to i1
   br i1 %tobool25, label %if.then26, label %do.body29
@@ -2501,7 +2501,7 @@ if.then26:                                        ; preds = %do.end21
   %29 = load ptr, ptr %ahci, align 8
   %30 = load ptr, ptr %29, align 8
   %add27 = or disjoint i64 %call.i.i, 64
-  %atapi_cmd = getelementptr inbounds i8, ptr %cmd, i64 96
+  %atapi_cmd = getelementptr inbounds nuw i8, ptr %cmd, i64 96
   %31 = load ptr, ptr %atapi_cmd, align 8
   call void @qtest_memwrite(ptr noundef %30, i64 noundef %add27, ptr noundef %31, i64 noundef 16) #16
   br label %do.body29
@@ -2524,9 +2524,9 @@ do.end41:                                         ; preds = %if.else37, %do.body
 
 for.body.lr.ph:                                   ; preds = %do.end41
   %34 = load i64, ptr %xbytes, align 8
-  %buffer = getelementptr inbounds i8, ptr %cmd, i64 24
-  %res = getelementptr inbounds i8, ptr %prd, i64 8
-  %dbc67 = getelementptr inbounds i8, ptr %prd, i64 12
+  %buffer = getelementptr inbounds nuw i8, ptr %cmd, i64 24
+  %res = getelementptr inbounds nuw i8, ptr %prd, i64 8
+  %dbc67 = getelementptr inbounds nuw i8, ptr %prd, i64 12
   %add73 = add i64 %call.i.i, 128
   br label %for.body
 
@@ -2560,14 +2560,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp45, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %do.end41
-  %port77 = getelementptr inbounds i8, ptr %ahci, i64 56
+  %port77 = getelementptr inbounds nuw i8, ptr %ahci, i64 56
   %arrayidx = getelementptr [32 x %struct.AHCIPortQState], ptr %port77, i64 0, i64 %conv.i.i.i
-  %ctba78 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %ctba78 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %42 = load i8, ptr %slot, align 2
   %idxprom80 = zext i8 %42 to i64
   %arrayidx81 = getelementptr [32 x i64], ptr %ctba78, i64 0, i64 %idxprom80
   store i64 %call.i.i, ptr %arrayidx81, align 8
-  %prdtl85 = getelementptr inbounds i8, ptr %arrayidx, i64 272
+  %prdtl85 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 272
   %43 = load i8, ptr %slot, align 2
   %idxprom87 = zext i8 %43 to i64
   %arrayidx88 = getelementptr [32 x i16], ptr %prdtl85, i64 0, i64 %idxprom87
@@ -2578,47 +2578,47 @@ for.end:                                          ; preds = %for.body, %do.end41
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_command_issue_async(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
-  %props = getelementptr inbounds i8, ptr %cmd, i64 32
+  %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %0 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds i8, ptr %0, i64 9
+  %ncq = getelementptr inbounds nuw i8, ptr %0, i64 9
   %1 = load i8, ptr %ncq, align 1
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %port = getelementptr inbounds i8, ptr %cmd, i64 1
+  %port = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   %2 = load i8, ptr %port, align 1
-  %slot = getelementptr inbounds i8, ptr %cmd, i64 2
+  %slot = getelementptr inbounds nuw i8, ptr %cmd, i64 2
   %3 = load i8, ptr %slot, align 2
   %conv = zext nneg i8 %3 to i32
   %shl = shl nuw i32 1, %conv
   %conv.i.i = zext i8 %2 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 7
   %mul.i1.i = add nuw nsw i64 %mul.i.i, 308
-  %dev.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %4 = load ptr, ptr %dev.i.i.i, align 8
-  %hba_bar.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %5 = load i64, ptr %hba_bar.i.i.i, align 8
-  %6 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %7 = load i8, ptr %6, align 8
   tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %7, i64 noundef range(i64 4, 32953) %mul.i1.i, i32 noundef %shl) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %port1 = getelementptr inbounds i8, ptr %cmd, i64 1
+  %port1 = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   %8 = load i8, ptr %port1, align 1
-  %slot2 = getelementptr inbounds i8, ptr %cmd, i64 2
+  %slot2 = getelementptr inbounds nuw i8, ptr %cmd, i64 2
   %9 = load i8, ptr %slot2, align 2
   %conv3 = zext nneg i8 %9 to i32
   %shl4 = shl nuw i32 1, %conv3
   %conv.i.i6 = zext i8 %8 to i64
   %mul.i.i7 = shl nuw nsw i64 %conv.i.i6, 7
   %mul.i1.i10 = add nuw nsw i64 %mul.i.i7, 312
-  %dev.i.i.i12 = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i12 = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %10 = load ptr, ptr %dev.i.i.i12, align 8
-  %hba_bar.i.i.i13 = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i13 = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %11 = load i64, ptr %hba_bar.i.i.i13, align 8
-  %12 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %13 = load i8, ptr %12, align 8
   tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef range(i64 4, 32953) %mul.i1.i10, i32 noundef %shl4) #16
   ret void
@@ -2631,10 +2631,10 @@ declare void @qtest_qmp_send(ptr noundef, ptr noundef, ...) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_command_wait(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
-  %port = getelementptr inbounds i8, ptr %cmd, i64 1
-  %dev.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
-  %hba_bar.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
-  %0 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %port = getelementptr inbounds nuw i8, ptr %cmd, i64 1
+  %dev.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
+  %hba_bar.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %1 = load i8, ptr %port, align 1
   %conv.i.i39 = zext i8 %1 to i64
   %mul.i.i40 = shl nuw nsw i64 %conv.i.i39, 7
@@ -2648,8 +2648,8 @@ entry:
   br i1 %cmp.not44, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %slot = getelementptr inbounds i8, ptr %cmd, i64 2
-  %props = getelementptr inbounds i8, ptr %cmd, i64 32
+  %slot = getelementptr inbounds nuw i8, ptr %cmd, i64 2
+  %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
@@ -2683,7 +2683,7 @@ lor.lhs.false:                                    ; preds = %land.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false
   %14 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds i8, ptr %14, i64 9
+  %ncq = getelementptr inbounds nuw i8, ptr %14, i64 9
   %15 = load i8, ptr %ncq, align 1
   %tobool = trunc i8 %15 to i1
   br i1 %tobool, label %land.rhs14, label %while.end
@@ -2726,8 +2726,8 @@ while.end:                                        ; preds = %land.rhs14, %lor.rh
 define dso_local void @ahci_command_verify(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
   %cmdh.i = alloca %struct.AHCICommandHeader, align 1
-  %slot1 = getelementptr inbounds i8, ptr %cmd, i64 2
-  %port2 = getelementptr inbounds i8, ptr %cmd, i64 1
+  %slot1 = getelementptr inbounds nuw i8, ptr %cmd, i64 2
+  %port2 = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   %0 = load i8, ptr %port2, align 1
   tail call void @ahci_port_check_nonbusy(ptr noundef %ahci, ptr noundef %cmd)
   tail call void @ahci_port_check_error(ptr noundef %ahci, ptr noundef %cmd)
@@ -2746,17 +2746,17 @@ entry:
   %5 = load ptr, ptr %ahci, align 8
   %6 = load ptr, ptr %5, align 8
   call void @qtest_memread(ptr noundef %6, i64 noundef %add.i.i, ptr noundef nonnull %cmdh.i, i64 noundef 32) #16
-  %props.i = getelementptr inbounds i8, ptr %cmd, i64 32
+  %props.i = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %7 = load ptr, ptr %props.i, align 8
-  %ncq.i = getelementptr inbounds i8, ptr %7, i64 9
+  %ncq.i = getelementptr inbounds nuw i8, ptr %7, i64 9
   %8 = load i8, ptr %ncq.i, align 1
   %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %ahci_port_check_cmd_sanity.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  %xbytes.i = getelementptr inbounds i8, ptr %cmd, i64 8
+  %xbytes.i = getelementptr inbounds nuw i8, ptr %cmd, i64 8
   %9 = load i64, ptr %xbytes.i, align 8
-  %prdbc.i = getelementptr inbounds i8, ptr %cmdh.i, i64 4
+  %prdbc.i = getelementptr inbounds nuw i8, ptr %cmdh.i, i64 4
   %10 = load i32, ptr %prdbc.i, align 1
   %conv.i = zext i32 %10 to i64
   %cmp.i = icmp eq i64 %9, %conv.i
@@ -2770,7 +2770,7 @@ if.else.i:                                        ; preds = %do.body.i
 
 ahci_port_check_cmd_sanity.exit:                  ; preds = %entry, %do.body.i, %if.else.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cmdh.i)
-  %interrupts = getelementptr inbounds i8, ptr %cmd, i64 4
+  %interrupts = getelementptr inbounds nuw i8, ptr %cmd, i64 4
   %11 = load i32, ptr %interrupts, align 4
   %and = and i32 %11, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -2782,7 +2782,7 @@ if.then:                                          ; preds = %ahci_port_check_cmd
 
 if.end:                                           ; preds = %if.then, %ahci_port_check_cmd_sanity.exit
   %12 = load ptr, ptr %props.i, align 8
-  %pio = getelementptr inbounds i8, ptr %12, i64 2
+  %pio = getelementptr inbounds nuw i8, ptr %12, i64 2
   %13 = load i8, ptr %pio, align 2
   %tobool3 = trunc i8 %13 to i1
   br i1 %tobool3, label %if.then4, label %if.end5
@@ -2798,10 +2798,10 @@ if.end5:                                          ; preds = %if.then4, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_command_free(ptr noundef %cmd) local_unnamed_addr #0 {
 entry:
-  %atapi_cmd = getelementptr inbounds i8, ptr %cmd, i64 96
+  %atapi_cmd = getelementptr inbounds nuw i8, ptr %cmd, i64 96
   %0 = load ptr, ptr %atapi_cmd, align 8
   tail call void @g_free(ptr noundef %0) #16
-  %props = getelementptr inbounds i8, ptr %cmd, i64 32
+  %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %1 = load ptr, ptr %props, align 8
   tail call void @g_free(ptr noundef %1) #16
   tail call void @g_free(ptr noundef %cmd) #16
@@ -2813,18 +2813,18 @@ define dso_local noalias noundef ptr @ahci_guest_io_halt(ptr nocapture noundef %
 entry:
   %call = tail call ptr @ahci_command_create(i8 noundef zeroext %ide_cmd)
   tail call void @ahci_command_set_sizes(ptr noundef %call, i64 noundef %bufsize, i32 noundef 0)
-  %buffer1.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %buffer1.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %buffer, ptr %buffer1.i.i, align 8
   tail call void @ahci_command_set_offset(ptr noundef %call, i64 noundef %sector)
   tail call void @ahci_command_commit(ptr noundef %ahci, ptr noundef %call, i8 noundef zeroext %port)
-  %props.i = getelementptr inbounds i8, ptr %call, i64 32
+  %props.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   %0 = load ptr, ptr %props.i, align 8
-  %ncq.i = getelementptr inbounds i8, ptr %0, i64 9
+  %ncq.i = getelementptr inbounds nuw i8, ptr %0, i64 9
   %1 = load i8, ptr %ncq.i, align 1
   %tobool.i = trunc i8 %1 to i1
-  %port.i = getelementptr inbounds i8, ptr %call, i64 1
+  %port.i = getelementptr inbounds nuw i8, ptr %call, i64 1
   %2 = load i8, ptr %port.i, align 1
-  %slot.i = getelementptr inbounds i8, ptr %call, i64 2
+  %slot.i = getelementptr inbounds nuw i8, ptr %call, i64 2
   %3 = load i8, ptr %slot.i, align 2
   %conv.i = zext nneg i8 %3 to i32
   %shl.i = shl nuw i32 1, %conv.i
@@ -2834,22 +2834,22 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %mul.i1.i.i = add nuw nsw i64 %mul.i.i.i, 308
-  %dev.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %4 = load ptr, ptr %dev.i.i.i.i, align 8
-  %hba_bar.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %5 = load i64, ptr %hba_bar.i.i.i.i, align 8
-  %6 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %7 = load i8, ptr %6, align 8
   tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %7, i64 noundef range(i64 4, 32953) %mul.i1.i.i, i32 noundef %shl.i) #16
   br label %ahci_command_issue_async.exit
 
 ahci_command_issue_async.exit:                    ; preds = %entry, %if.then.i
   %mul.i1.i10.i = add nuw nsw i64 %mul.i.i.i, 312
-  %dev.i.i.i12.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i12.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %8 = load ptr, ptr %dev.i.i.i12.i, align 8
-  %hba_bar.i.i.i13.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i13.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %9 = load i64, ptr %hba_bar.i.i.i13.i, align 8
-  %10 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %11 = load i8, ptr %10, align 8
   tail call void @qpci_io_writel(ptr noundef %8, i64 %9, i8 %11, i64 noundef range(i64 4, 32953) %mul.i1.i10.i, i32 noundef %shl.i) #16
   %12 = load ptr, ptr %ahci, align 8
@@ -2869,10 +2869,10 @@ entry:
   tail call void @qtest_qmp_eventwait(ptr noundef %3, ptr noundef nonnull @.str.53) #16
   tail call void @ahci_command_wait(ptr noundef nonnull %ahci, ptr noundef %cmd)
   tail call void @ahci_command_verify(ptr noundef nonnull %ahci, ptr noundef %cmd)
-  %atapi_cmd.i = getelementptr inbounds i8, ptr %cmd, i64 96
+  %atapi_cmd.i = getelementptr inbounds nuw i8, ptr %cmd, i64 96
   %4 = load ptr, ptr %atapi_cmd.i, align 8
   tail call void @g_free(ptr noundef %4) #16
-  %props.i = getelementptr inbounds i8, ptr %cmd, i64 32
+  %props.i = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %5 = load ptr, ptr %props.i, align 8
   tail call void @g_free(ptr noundef %5) #16
   tail call void @g_free(ptr noundef %cmd) #16
@@ -2883,9 +2883,9 @@ entry:
 define dso_local void @ahci_guest_io(ptr nocapture noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, i64 noundef %buffer, i64 noundef %bufsize, i64 noundef %sector) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ahci_command_create(i8 noundef zeroext %ide_cmd)
-  %buffer1.i = getelementptr inbounds i8, ptr %call, i64 24
+  %buffer1.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %buffer, ptr %buffer1.i, align 8
-  %prd_size.i = getelementptr inbounds i8, ptr %call, i64 16
+  %prd_size.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %0 = load i32, ptr %prd_size.i, align 8
   tail call void @ahci_command_set_sizes(ptr noundef %call, i64 noundef %bufsize, i32 noundef %0)
   %tobool.not = icmp eq i64 %sector, 0
@@ -2897,14 +2897,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @ahci_command_commit(ptr noundef %ahci, ptr noundef nonnull %call, i8 noundef zeroext %port)
-  %props.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  %props.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   %1 = load ptr, ptr %props.i.i, align 8
-  %ncq.i.i = getelementptr inbounds i8, ptr %1, i64 9
+  %ncq.i.i = getelementptr inbounds nuw i8, ptr %1, i64 9
   %2 = load i8, ptr %ncq.i.i, align 1
   %tobool.i.i = trunc i8 %2 to i1
-  %port.i.i = getelementptr inbounds i8, ptr %call, i64 1
+  %port.i.i = getelementptr inbounds nuw i8, ptr %call, i64 1
   %3 = load i8, ptr %port.i.i, align 1
-  %slot.i.i = getelementptr inbounds i8, ptr %call, i64 2
+  %slot.i.i = getelementptr inbounds nuw i8, ptr %call, i64 2
   %4 = load i8, ptr %slot.i.i, align 2
   %conv.i.i = zext nneg i8 %4 to i32
   %shl.i.i = shl nuw i32 1, %conv.i.i
@@ -2914,27 +2914,27 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then.i.i:                                      ; preds = %if.end
   %mul.i1.i.i.i = add nuw nsw i64 %mul.i.i.i.i, 308
-  %dev.i.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %5 = load ptr, ptr %dev.i.i.i.i.i, align 8
-  %hba_bar.i.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %6 = load i64, ptr %hba_bar.i.i.i.i.i, align 8
-  %7 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %8 = load i8, ptr %7, align 8
   tail call void @qpci_io_writel(ptr noundef %5, i64 %6, i8 %8, i64 noundef range(i64 4, 32953) %mul.i1.i.i.i, i32 noundef %shl.i.i) #16
   br label %ahci_command_issue.exit
 
 ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.i
   %mul.i1.i10.i.i = add nuw nsw i64 %mul.i.i.i.i, 312
-  %dev.i.i.i12.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i12.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %9 = load ptr, ptr %dev.i.i.i12.i.i, align 8
-  %hba_bar.i.i.i13.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i13.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %10 = load i64, ptr %hba_bar.i.i.i13.i.i, align 8
-  %11 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %12 = load i8, ptr %11, align 8
   tail call void @qpci_io_writel(ptr noundef %9, i64 %10, i8 %12, i64 noundef range(i64 4, 32953) %mul.i1.i10.i.i, i32 noundef %shl.i.i) #16
   tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call)
   tail call void @ahci_command_verify(ptr noundef %ahci, ptr noundef nonnull %call)
-  %atapi_cmd.i = getelementptr inbounds i8, ptr %call, i64 96
+  %atapi_cmd.i = getelementptr inbounds nuw i8, ptr %call, i64 96
   %13 = load ptr, ptr %atapi_cmd.i, align 8
   tail call void @g_free(ptr noundef %13) #16
   tail call void @g_free(ptr noundef nonnull %1) #16
@@ -2945,7 +2945,7 @@ ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @ahci_command_set_buffer(ptr nocapture noundef writeonly initializes((24, 32)) %cmd, i64 noundef %buffer) local_unnamed_addr #6 {
 entry:
-  %buffer1 = getelementptr inbounds i8, ptr %cmd, i64 24
+  %buffer1 = getelementptr inbounds nuw i8, ptr %cmd, i64 24
   store i64 %buffer, ptr %buffer1, align 8
   ret void
 }
@@ -2953,7 +2953,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_command_set_size(ptr nocapture noundef initializes((8, 16)) %cmd, i64 noundef %xbytes) local_unnamed_addr #0 {
 entry:
-  %prd_size = getelementptr inbounds i8, ptr %cmd, i64 16
+  %prd_size = getelementptr inbounds nuw i8, ptr %cmd, i64 16
   %0 = load i32, ptr %prd_size, align 8
   tail call void @ahci_command_set_sizes(ptr noundef %cmd, i64 noundef %xbytes, i32 noundef %0)
   ret void
@@ -2962,9 +2962,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_command_set_offset(ptr nocapture noundef %cmd, i64 noundef %lba_sect) local_unnamed_addr #0 {
 entry:
-  %props = getelementptr inbounds i8, ptr %cmd, i64 32
+  %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %0 = load ptr, ptr %props, align 8
-  %atapi = getelementptr inbounds i8, ptr %0, i64 8
+  %atapi = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i8, ptr %atapi, align 8
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.else
@@ -3022,7 +3022,7 @@ sw.default.i:                                     ; preds = %do.end.i
   unreachable
 
 if.else:                                          ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %0, i64 1
+  %data = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %data, align 1
   %tobool3 = trunc i8 %6 to i1
   %tobool4 = icmp ne i64 %lba_sect, 0
@@ -3030,7 +3030,7 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond, label %if.else6, label %return
 
 if.else6:                                         ; preds = %if.else
-  %lba28 = getelementptr inbounds i8, ptr %0, i64 4
+  %lba28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i8, ptr %lba28, align 4
   %tobool8 = trunc i8 %7 to i1
   br i1 %tobool8, label %do.body, label %if.else13
@@ -3045,13 +3045,13 @@ if.else11:                                        ; preds = %do.body
   br label %if.end38
 
 if.else13:                                        ; preds = %if.else6
-  %lba48 = getelementptr inbounds i8, ptr %0, i64 5
+  %lba48 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %8 = load i8, ptr %lba48, align 1
   %tobool15 = trunc i8 %8 to i1
   br i1 %tobool15, label %do.body21, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else13
-  %ncq = getelementptr inbounds i8, ptr %0, i64 9
+  %ncq = getelementptr inbounds nuw i8, ptr %0, i64 9
   %9 = load i8, ptr %ncq, align 1
   %tobool18 = trunc i8 %9 to i1
   br i1 %tobool18, label %do.body21, label %do.body33
@@ -3071,7 +3071,7 @@ do.body33:                                        ; preds = %lor.lhs.false
 
 if.end38:                                         ; preds = %if.else27, %do.body21, %do.body, %if.else11
   %conv39 = trunc i64 %lba_sect to i8
-  %lba_lo = getelementptr inbounds i8, ptr %cmd, i64 76
+  %lba_lo = getelementptr inbounds nuw i8, ptr %cmd, i64 76
   store i8 %conv39, ptr %lba_lo, align 1
   %shr = lshr i64 %lba_sect, 8
   %conv41 = trunc i64 %shr to i8
@@ -3082,7 +3082,7 @@ if.end38:                                         ; preds = %if.else27, %do.body
   %arrayidx48 = getelementptr i8, ptr %cmd, i64 78
   store i8 %conv46, ptr %arrayidx48, align 1
   %10 = load ptr, ptr %props, align 8
-  %lba2850 = getelementptr inbounds i8, ptr %10, i64 4
+  %lba2850 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %11 = load i8, ptr %lba2850, align 4
   %tobool51 = trunc i8 %11 to i1
   br i1 %tobool51, label %if.then52, label %if.end38.if.end60_crit_edge
@@ -3093,7 +3093,7 @@ if.end38.if.end60_crit_edge:                      ; preds = %if.end38
   br label %if.end60
 
 if.then52:                                        ; preds = %if.end38
-  %device = getelementptr inbounds i8, ptr %cmd, i64 79
+  %device = getelementptr inbounds nuw i8, ptr %cmd, i64 79
   %12 = load i8, ptr %device, align 1
   %13 = and i8 %12, -16
   %shr56 = lshr i64 %lba_sect, 24
@@ -3105,7 +3105,7 @@ if.then52:                                        ; preds = %if.end38
 
 if.end60:                                         ; preds = %if.end38.if.end60_crit_edge, %if.then52
   %conv63.pre-phi = phi i8 [ %.pre29, %if.end38.if.end60_crit_edge ], [ %14, %if.then52 ]
-  %lba_hi = getelementptr inbounds i8, ptr %cmd, i64 80
+  %lba_hi = getelementptr inbounds nuw i8, ptr %cmd, i64 80
   store i8 %conv63.pre-phi, ptr %lba_hi, align 1
   %shr65 = lshr i64 %lba_sect, 32
   %conv67 = trunc i64 %shr65 to i8
@@ -3124,47 +3124,47 @@ return:                                           ; preds = %if.else18.i, %do.bo
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_command_issue(ptr nocapture noundef readonly %ahci, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
-  %props.i = getelementptr inbounds i8, ptr %cmd, i64 32
+  %props.i = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %0 = load ptr, ptr %props.i, align 8
-  %ncq.i = getelementptr inbounds i8, ptr %0, i64 9
+  %ncq.i = getelementptr inbounds nuw i8, ptr %0, i64 9
   %1 = load i8, ptr %ncq.i, align 1
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %if.then.i, label %ahci_command_issue_async.exit
 
 if.then.i:                                        ; preds = %entry
-  %port.i = getelementptr inbounds i8, ptr %cmd, i64 1
+  %port.i = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   %2 = load i8, ptr %port.i, align 1
-  %slot.i = getelementptr inbounds i8, ptr %cmd, i64 2
+  %slot.i = getelementptr inbounds nuw i8, ptr %cmd, i64 2
   %3 = load i8, ptr %slot.i, align 2
   %conv.i = zext nneg i8 %3 to i32
   %shl.i = shl nuw i32 1, %conv.i
   %conv.i.i.i = zext i8 %2 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 7
   %mul.i1.i.i = add nuw nsw i64 %mul.i.i.i, 308
-  %dev.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %4 = load ptr, ptr %dev.i.i.i.i, align 8
-  %hba_bar.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %5 = load i64, ptr %hba_bar.i.i.i.i, align 8
-  %6 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %7 = load i8, ptr %6, align 8
   tail call void @qpci_io_writel(ptr noundef %4, i64 %5, i8 %7, i64 noundef range(i64 4, 32953) %mul.i1.i.i, i32 noundef %shl.i) #16
   br label %ahci_command_issue_async.exit
 
 ahci_command_issue_async.exit:                    ; preds = %entry, %if.then.i
-  %port1.i = getelementptr inbounds i8, ptr %cmd, i64 1
+  %port1.i = getelementptr inbounds nuw i8, ptr %cmd, i64 1
   %8 = load i8, ptr %port1.i, align 1
-  %slot2.i = getelementptr inbounds i8, ptr %cmd, i64 2
+  %slot2.i = getelementptr inbounds nuw i8, ptr %cmd, i64 2
   %9 = load i8, ptr %slot2.i, align 2
   %conv3.i = zext nneg i8 %9 to i32
   %shl4.i = shl nuw i32 1, %conv3.i
   %conv.i.i6.i = zext i8 %8 to i64
   %mul.i.i7.i = shl nuw nsw i64 %conv.i.i6.i, 7
   %mul.i1.i10.i = add nuw nsw i64 %mul.i.i7.i, 312
-  %dev.i.i.i12.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i12.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %10 = load ptr, ptr %dev.i.i.i12.i, align 8
-  %hba_bar.i.i.i13.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i13.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %11 = load i64, ptr %hba_bar.i.i.i13.i, align 8
-  %12 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %13 = load i8, ptr %12, align 8
   tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef range(i64 4, 32953) %mul.i1.i10.i, i32 noundef %shl4.i) #16
   tail call void @ahci_command_wait(ptr noundef %ahci, ptr noundef nonnull %cmd)
@@ -3210,7 +3210,7 @@ if.else4.i:                                       ; preds = %do.body1.i
   unreachable
 
 ahci_alloc.exit:                                  ; preds = %do.body1.i
-  %alloc.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %alloc.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %call.i.i = tail call i64 @guest_alloc(ptr noundef nonnull %alloc.i.i, i64 noundef %bufsize) #16
   %tobool3 = icmp eq i64 %bufsize, 0
   %tobool4 = icmp ne i64 %call.i.i, 0
@@ -3228,7 +3228,7 @@ do.end8:                                          ; preds = %ahci_alloc.exit
   br i1 %tobool3, label %if.end21.critedge, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.end8
-  %write = getelementptr inbounds i8, ptr %arrayidx.i, i64 7
+  %write = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 7
   %4 = load i8, ptr %write, align 1
   %tobool10 = trunc i8 %4 to i1
   br i1 %tobool10, label %if.then11, label %land.lhs.true16
@@ -3241,7 +3241,7 @@ if.then11:                                        ; preds = %land.lhs.true
 
 land.lhs.true16:                                  ; preds = %land.lhs.true, %if.then11
   tail call void @ahci_guest_io(ptr noundef nonnull %ahci, i8 noundef zeroext %port, i8 noundef zeroext %ide_cmd, i64 noundef %call.i.i, i64 noundef %bufsize, i64 noundef %sector)
-  %read = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
+  %read = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 6
   %7 = load i8, ptr %read, align 2
   %tobool17 = trunc i8 %7 to i1
   br i1 %tobool17, label %if.then18, label %do.body1.i23
@@ -3266,7 +3266,7 @@ if.else4.i26:                                     ; preds = %do.body1.i23
   unreachable
 
 ahci_free.exit:                                   ; preds = %do.body1.i23
-  %alloc.i.i25 = getelementptr inbounds i8, ptr %10, i64 8
+  %alloc.i.i25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   tail call void @guest_free(ptr noundef nonnull %alloc.i.i25, i64 noundef %call.i.i) #16
   ret void
 }
@@ -3278,9 +3278,9 @@ declare void @qtest_bufread(ptr noundef, i64 noundef, ptr noundef, i64 noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_command_enable_atapi_dma(ptr nocapture noundef %cmd) local_unnamed_addr #0 {
 entry:
-  %props = getelementptr inbounds i8, ptr %cmd, i64 32
+  %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %0 = load ptr, ptr %props, align 8
-  %atapi = getelementptr inbounds i8, ptr %0, i64 8
+  %atapi = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i8, ptr %atapi, align 8
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %do.end, label %if.else
@@ -3290,11 +3290,11 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %feature_low = getelementptr inbounds i8, ptr %cmd, i64 75
+  %feature_low = getelementptr inbounds nuw i8, ptr %cmd, i64 75
   %2 = load i8, ptr %feature_low, align 1
   %3 = or i8 %2, 1
   store i8 %3, ptr %feature_low, align 1
-  %pio = getelementptr inbounds i8, ptr %0, i64 2
+  %pio = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i8, ptr %pio, align 2
   %tobool5 = trunc i8 %4 to i1
   br i1 %tobool5, label %do.end9, label %if.else7
@@ -3304,7 +3304,7 @@ if.else7:                                         ; preds = %do.end
   unreachable
 
 do.end9:                                          ; preds = %do.end
-  %dma = getelementptr inbounds i8, ptr %0, i64 3
+  %dma = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 1, ptr %dma, align 1
   ret void
 }
@@ -3317,23 +3317,23 @@ define dso_local void @ahci_atapi_test_ready(ptr nocapture noundef %ahci, i8 nou
 entry:
   %call.i = tail call ptr @ahci_command_create(i8 noundef zeroext -96)
   %call1.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
-  %atapi_cmd.i = getelementptr inbounds i8, ptr %call.i, i64 96
+  %atapi_cmd.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr %call1.i, ptr %atapi_cmd.i, align 8
   store i8 0, ptr %call1.i, align 1
   %arrayidx3.i = getelementptr i8, ptr %call.i, i64 77
   store i16 0, ptr %arrayidx3.i, align 1
-  %prd_size.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %prd_size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %0 = load i32, ptr %prd_size.i, align 8
   tail call void @ahci_command_set_sizes(ptr noundef %call.i, i64 noundef 0, i32 noundef %0)
   br i1 %ready, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %interrupts.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  %interrupts.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   %1 = load i32, ptr %interrupts.i, align 4
   %or = or i32 %1, 1073741824
   store i32 %or, ptr %interrupts.i, align 4
   %shl = shl i8 %expected_sense, 4
-  %errors = getelementptr inbounds i8, ptr %call.i, i64 3
+  %errors = getelementptr inbounds nuw i8, ptr %call.i, i64 3
   %2 = load i8, ptr %errors, align 1
   %or2 = or i8 %2, %shl
   store i8 %or2, ptr %errors, align 1
@@ -3341,14 +3341,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @ahci_command_commit(ptr noundef %ahci, ptr noundef nonnull %call.i, i8 noundef zeroext %port)
-  %props.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %props.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %3 = load ptr, ptr %props.i.i, align 8
-  %ncq.i.i = getelementptr inbounds i8, ptr %3, i64 9
+  %ncq.i.i = getelementptr inbounds nuw i8, ptr %3, i64 9
   %4 = load i8, ptr %ncq.i.i, align 1
   %tobool.i.i = trunc i8 %4 to i1
-  %port.i.i = getelementptr inbounds i8, ptr %call.i, i64 1
+  %port.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1
   %5 = load i8, ptr %port.i.i, align 1
-  %slot.i.i = getelementptr inbounds i8, ptr %call.i, i64 2
+  %slot.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2
   %6 = load i8, ptr %slot.i.i, align 2
   %conv.i.i = zext nneg i8 %6 to i32
   %shl.i.i = shl nuw i32 1, %conv.i.i
@@ -3358,22 +3358,22 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then.i.i:                                      ; preds = %if.end
   %mul.i1.i.i.i = add nuw nsw i64 %mul.i.i.i.i, 308
-  %dev.i.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %7 = load ptr, ptr %dev.i.i.i.i.i, align 8
-  %hba_bar.i.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %8 = load i64, ptr %hba_bar.i.i.i.i.i, align 8
-  %9 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %10 = load i8, ptr %9, align 8
   tail call void @qpci_io_writel(ptr noundef %7, i64 %8, i8 %10, i64 noundef range(i64 4, 32953) %mul.i1.i.i.i, i32 noundef %shl.i.i) #16
   br label %ahci_command_issue.exit
 
 ahci_command_issue.exit:                          ; preds = %if.end, %if.then.i.i
   %mul.i1.i10.i.i = add nuw nsw i64 %mul.i.i.i.i, 312
-  %dev.i.i.i12.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i12.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %11 = load ptr, ptr %dev.i.i.i12.i.i, align 8
-  %hba_bar.i.i.i13.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i13.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %12 = load i64, ptr %hba_bar.i.i.i13.i.i, align 8
-  %13 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %14 = load i8, ptr %13, align 8
   tail call void @qpci_io_writel(ptr noundef %11, i64 %12, i8 %14, i64 noundef range(i64 4, 32953) %mul.i1.i10.i.i, i32 noundef %shl.i.i) #16
   tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call.i)
@@ -3391,7 +3391,7 @@ entry:
   %opts = alloca %struct.AHCIOpts, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %opts, ptr noundef nonnull align 8 dereferenceable(80) @__const.ahci_atapi_get_sense.opts, i64 72, i1 false)
   %call = tail call noalias dereferenceable_or_null(18) ptr @g_malloc(i64 noundef 18) #17
-  %opaque = getelementptr inbounds i8, ptr %opts, i64 72
+  %opaque = getelementptr inbounds nuw i8, ptr %opts, i64 72
   store ptr %call, ptr %opaque, align 8
   call void @ahci_exec(ptr noundef %ahci, i8 noundef zeroext %port, i8 noundef zeroext 3, ptr noundef nonnull %opts)
   %arrayidx = getelementptr i8, ptr %call, i64 2
@@ -3407,11 +3407,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @copy_buffer(ptr nocapture noundef readonly %ahci, ptr nocapture readnone %cmd, ptr nocapture noundef readonly %opts) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %opts, i64 72
+  %opaque = getelementptr inbounds nuw i8, ptr %opts, i64 72
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %ahci, align 8
   %2 = load ptr, ptr %1, align 8
-  %buffer = getelementptr inbounds i8, ptr %opts, i64 32
+  %buffer = getelementptr inbounds nuw i8, ptr %opts, i64 32
   %3 = load i64, ptr %buffer, align 8
   %4 = load i64, ptr %opts, align 8
   tail call void @qtest_bufread(ptr noundef %2, i64 noundef %3, ptr noundef %0, i64 noundef %4) #16
@@ -3426,26 +3426,26 @@ define dso_local void @ahci_atapi_eject(ptr nocapture noundef %ahci, i8 noundef 
 entry:
   %call.i = tail call ptr @ahci_command_create(i8 noundef zeroext -96)
   %call1.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
-  %atapi_cmd.i = getelementptr inbounds i8, ptr %call.i, i64 96
+  %atapi_cmd.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr %call1.i, ptr %atapi_cmd.i, align 8
   store i8 27, ptr %call1.i, align 1
   %arrayidx3.i = getelementptr i8, ptr %call.i, i64 77
   store i16 0, ptr %arrayidx3.i, align 1
-  %prd_size.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %prd_size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %0 = load i32, ptr %prd_size.i, align 8
   tail call void @ahci_command_set_sizes(ptr noundef %call.i, i64 noundef 0, i32 noundef %0)
   %1 = load ptr, ptr %atapi_cmd.i, align 8
   %arrayidx = getelementptr i8, ptr %1, i64 4
   store i8 2, ptr %arrayidx, align 1
   tail call void @ahci_command_commit(ptr noundef %ahci, ptr noundef %call.i, i8 noundef zeroext %port)
-  %props.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %props.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %2 = load ptr, ptr %props.i.i, align 8
-  %ncq.i.i = getelementptr inbounds i8, ptr %2, i64 9
+  %ncq.i.i = getelementptr inbounds nuw i8, ptr %2, i64 9
   %3 = load i8, ptr %ncq.i.i, align 1
   %tobool.i.i = trunc i8 %3 to i1
-  %port.i.i = getelementptr inbounds i8, ptr %call.i, i64 1
+  %port.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1
   %4 = load i8, ptr %port.i.i, align 1
-  %slot.i.i = getelementptr inbounds i8, ptr %call.i, i64 2
+  %slot.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2
   %5 = load i8, ptr %slot.i.i, align 2
   %conv.i.i = zext nneg i8 %5 to i32
   %shl.i.i = shl nuw i32 1, %conv.i.i
@@ -3455,22 +3455,22 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %mul.i1.i.i.i = add nuw nsw i64 %mul.i.i.i.i, 308
-  %dev.i.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %6 = load ptr, ptr %dev.i.i.i.i.i, align 8
-  %hba_bar.i.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %7 = load i64, ptr %hba_bar.i.i.i.i.i, align 8
-  %8 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %9 = load i8, ptr %8, align 8
   tail call void @qpci_io_writel(ptr noundef %6, i64 %7, i8 %9, i64 noundef range(i64 4, 32953) %mul.i1.i.i.i, i32 noundef %shl.i.i) #16
   br label %ahci_command_issue.exit
 
 ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
   %mul.i1.i10.i.i = add nuw nsw i64 %mul.i.i.i.i, 312
-  %dev.i.i.i12.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i12.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %10 = load ptr, ptr %dev.i.i.i12.i.i, align 8
-  %hba_bar.i.i.i13.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i13.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %11 = load i64, ptr %hba_bar.i.i.i13.i.i, align 8
-  %12 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %13 = load i8, ptr %12, align 8
   tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef range(i64 4, 32953) %mul.i1.i10.i.i, i32 noundef %shl.i.i) #16
   tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call.i)
@@ -3487,26 +3487,26 @@ define dso_local void @ahci_atapi_load(ptr nocapture noundef %ahci, i8 noundef z
 entry:
   %call.i = tail call ptr @ahci_command_create(i8 noundef zeroext -96)
   %call1.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #17
-  %atapi_cmd.i = getelementptr inbounds i8, ptr %call.i, i64 96
+  %atapi_cmd.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr %call1.i, ptr %atapi_cmd.i, align 8
   store i8 27, ptr %call1.i, align 1
   %arrayidx3.i = getelementptr i8, ptr %call.i, i64 77
   store i16 0, ptr %arrayidx3.i, align 1
-  %prd_size.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %prd_size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %0 = load i32, ptr %prd_size.i, align 8
   tail call void @ahci_command_set_sizes(ptr noundef %call.i, i64 noundef 0, i32 noundef %0)
   %1 = load ptr, ptr %atapi_cmd.i, align 8
   %arrayidx = getelementptr i8, ptr %1, i64 4
   store i8 3, ptr %arrayidx, align 1
   tail call void @ahci_command_commit(ptr noundef %ahci, ptr noundef %call.i, i8 noundef zeroext %port)
-  %props.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %props.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %2 = load ptr, ptr %props.i.i, align 8
-  %ncq.i.i = getelementptr inbounds i8, ptr %2, i64 9
+  %ncq.i.i = getelementptr inbounds nuw i8, ptr %2, i64 9
   %3 = load i8, ptr %ncq.i.i, align 1
   %tobool.i.i = trunc i8 %3 to i1
-  %port.i.i = getelementptr inbounds i8, ptr %call.i, i64 1
+  %port.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1
   %4 = load i8, ptr %port.i.i, align 1
-  %slot.i.i = getelementptr inbounds i8, ptr %call.i, i64 2
+  %slot.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2
   %5 = load i8, ptr %slot.i.i, align 2
   %conv.i.i = zext nneg i8 %5 to i32
   %shl.i.i = shl nuw i32 1, %conv.i.i
@@ -3516,22 +3516,22 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %mul.i1.i.i.i = add nuw nsw i64 %mul.i.i.i.i, 308
-  %dev.i.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %6 = load ptr, ptr %dev.i.i.i.i.i, align 8
-  %hba_bar.i.i.i.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %7 = load i64, ptr %hba_bar.i.i.i.i.i, align 8
-  %8 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %9 = load i8, ptr %8, align 8
   tail call void @qpci_io_writel(ptr noundef %6, i64 %7, i8 %9, i64 noundef range(i64 4, 32953) %mul.i1.i.i.i, i32 noundef %shl.i.i) #16
   br label %ahci_command_issue.exit
 
 ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
   %mul.i1.i10.i.i = add nuw nsw i64 %mul.i.i.i.i, 312
-  %dev.i.i.i12.i.i = getelementptr inbounds i8, ptr %ahci, i64 8
+  %dev.i.i.i12.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 8
   %10 = load ptr, ptr %dev.i.i.i12.i.i, align 8
-  %hba_bar.i.i.i13.i.i = getelementptr inbounds i8, ptr %ahci, i64 16
+  %hba_bar.i.i.i13.i.i = getelementptr inbounds nuw i8, ptr %ahci, i64 16
   %11 = load i64, ptr %hba_bar.i.i.i13.i.i, align 8
-  %12 = getelementptr inbounds i8, ptr %ahci, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %ahci, i64 24
   %13 = load i8, ptr %12, align 8
   tail call void @qpci_io_writel(ptr noundef %10, i64 %11, i8 %13, i64 noundef range(i64 4, 32953) %mul.i1.i10.i.i, i32 noundef %shl.i.i) #16
   tail call void @ahci_command_wait(ptr noundef readonly %ahci, ptr noundef nonnull readonly %call.i)
@@ -3546,7 +3546,7 @@ ahci_command_issue.exit:                          ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @ahci_command_set_flags(ptr nocapture noundef %cmd, i16 noundef zeroext %cmdh_flags) local_unnamed_addr #8 {
 entry:
-  %header = getelementptr inbounds i8, ptr %cmd, i64 40
+  %header = getelementptr inbounds nuw i8, ptr %cmd, i64 40
   %0 = load i16, ptr %header, align 8
   %or1 = or i16 %0, %cmdh_flags
   store i16 %or1, ptr %header, align 8
@@ -3557,7 +3557,7 @@ entry:
 define dso_local void @ahci_command_clr_flags(ptr nocapture noundef %cmd, i16 noundef zeroext %cmdh_flags) local_unnamed_addr #8 {
 entry:
   %not = xor i16 %cmdh_flags, -1
-  %header = getelementptr inbounds i8, ptr %cmd, i64 40
+  %header = getelementptr inbounds nuw i8, ptr %cmd, i64 40
   %0 = load i16, ptr %header, align 8
   %and = and i16 %0, %not
   store i16 %and, ptr %header, align 8
@@ -3589,37 +3589,37 @@ do.end15:                                         ; preds = %do.body4
   br i1 %tobool.not, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %do.end15.thread, %do.end15
-  %prd_size17 = getelementptr inbounds i8, ptr %cmd, i64 16
+  %prd_size17 = getelementptr inbounds nuw i8, ptr %cmd, i64 16
   store i32 %prd_size, ptr %prd_size17, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then16, %do.end15
-  %xbytes19 = getelementptr inbounds i8, ptr %cmd, i64 8
+  %xbytes19 = getelementptr inbounds nuw i8, ptr %cmd, i64 8
   store i64 %xbytes, ptr %xbytes19, align 8
-  %sector_size = getelementptr inbounds i8, ptr %cmd, i64 20
+  %sector_size = getelementptr inbounds nuw i8, ptr %cmd, i64 20
   %0 = load i32, ptr %sector_size, align 4
   %conv21 = zext i32 %0 to i64
   %div = udiv i64 %xbytes, %conv21
   %conv22 = trunc i64 %div to i16
-  %props = getelementptr inbounds i8, ptr %cmd, i64 32
+  %props = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %1 = load ptr, ptr %props, align 8
-  %ncq = getelementptr inbounds i8, ptr %1, i64 9
+  %ncq = getelementptr inbounds nuw i8, ptr %1, i64 9
   %2 = load i8, ptr %ncq, align 1
   %tobool23 = trunc i8 %2 to i1
   br i1 %tobool23, label %if.then24, label %if.else31
 
 if.then24:                                        ; preds = %if.end18
   %conv27 = trunc i64 %div to i8
-  %sector_low = getelementptr inbounds i8, ptr %cmd, i64 75
+  %sector_low = getelementptr inbounds nuw i8, ptr %cmd, i64 75
   store i8 %conv27, ptr %sector_low, align 1
   %conv2527 = lshr i64 %div, 8
   %conv30 = trunc i64 %conv2527 to i8
-  %sector_hi = getelementptr inbounds i8, ptr %cmd, i64 83
+  %sector_hi = getelementptr inbounds nuw i8, ptr %cmd, i64 83
   store i8 %conv30, ptr %sector_hi, align 1
   br label %if.end49
 
 if.else31:                                        ; preds = %if.end18
-  %atapi = getelementptr inbounds i8, ptr %1, i64 8
+  %atapi = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i8, ptr %atapi, align 8
   %tobool33 = trunc i8 %3 to i1
   br i1 %tobool33, label %if.then34, label %if.else35
@@ -3716,7 +3716,7 @@ sw.default.i:                                     ; preds = %do.end.i
   unreachable
 
 if.else35:                                        ; preds = %if.else31
-  %pio = getelementptr inbounds i8, ptr %1, i64 2
+  %pio = getelementptr inbounds nuw i8, ptr %1, i64 2
   %8 = load i8, ptr %pio, align 2
   %tobool37 = trunc i8 %8 to i1
   br i1 %tobool37, label %land.lhs.true, label %if.end46
@@ -3724,7 +3724,7 @@ if.else35:                                        ; preds = %if.else31
 land.lhs.true:                                    ; preds = %if.else35
   %9 = trunc i64 %div to i32
   %conv39 = and i32 %9, 65535
-  %read = getelementptr inbounds i8, ptr %1, i64 6
+  %read = getelementptr inbounds nuw i8, ptr %1, i64 6
   %10 = load i8, ptr %read, align 2
   %11 = and i8 %10, 1
   %12 = xor i8 %11, 1
@@ -3733,20 +3733,20 @@ land.lhs.true:                                    ; preds = %if.else35
   br i1 %cmp43, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %land.lhs.true
-  %interrupts = getelementptr inbounds i8, ptr %cmd, i64 4
+  %interrupts = getelementptr inbounds nuw i8, ptr %cmd, i64 4
   %13 = load i32, ptr %interrupts, align 4
   %or = or i32 %13, 2
   store i32 %or, ptr %interrupts, align 4
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then45, %land.lhs.true, %if.else35
-  %count = getelementptr inbounds i8, ptr %cmd, i64 84
+  %count = getelementptr inbounds nuw i8, ptr %cmd, i64 84
   store i16 %conv22, ptr %count, align 4
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else54.i, %do.body48.i, %do.end44.i, %do.end22.i, %do.end8.i, %if.end46, %if.then24
   %14 = load i64, ptr %xbytes19, align 8
-  %prd_size52 = getelementptr inbounds i8, ptr %cmd, i64 16
+  %prd_size52 = getelementptr inbounds nuw i8, ptr %cmd, i64 16
   %15 = load i32, ptr %prd_size52, align 8
   %cmp.i28 = icmp ult i32 %15, 4194305
   br i1 %cmp.i28, label %do.body4.i, label %if.else.i29
@@ -3771,7 +3771,7 @@ size_to_prdtl.exit:                               ; preds = %do.body4.i, %if.els
   %sub.i = add i32 %add.i, %15
   %div.i = udiv i32 %sub.i, %15
   %conv53 = trunc i32 %div.i to i16
-  %prdtl = getelementptr inbounds i8, ptr %cmd, i64 42
+  %prdtl = getelementptr inbounds nuw i8, ptr %cmd, i64 42
   store i16 %conv53, ptr %prdtl, align 2
   ret void
 }
@@ -3779,7 +3779,7 @@ size_to_prdtl.exit:                               ; preds = %do.body4.i, %if.els
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ahci_command_set_prd_size(ptr nocapture noundef %cmd, i32 noundef %prd_size) local_unnamed_addr #0 {
 entry:
-  %xbytes = getelementptr inbounds i8, ptr %cmd, i64 8
+  %xbytes = getelementptr inbounds nuw i8, ptr %cmd, i64 8
   %0 = load i64, ptr %xbytes, align 8
   tail call void @ahci_command_set_sizes(ptr noundef %cmd, i64 noundef %0, i32 noundef %prd_size)
   ret void
@@ -3788,7 +3788,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i8 @ahci_command_slot(ptr nocapture noundef readonly %cmd) local_unnamed_addr #9 {
 entry:
-  %slot = getelementptr inbounds i8, ptr %cmd, i64 2
+  %slot = getelementptr inbounds nuw i8, ptr %cmd, i64 2
   %0 = load i8, ptr %slot, align 2
   ret i8 %0
 }

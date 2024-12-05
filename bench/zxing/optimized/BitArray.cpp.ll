@@ -16,14 +16,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ZXing8BitArray10bitwiseXORERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = trunc i64 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %1, align 8
   %13 = ptrtoint ptr %11 to i64
@@ -95,7 +95,7 @@ define void @_ZNK5ZXing8BitArray7toBytesEii(ptr dead_on_unwind noalias nocapture
   br i1 %5, label %6, label %16
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %1, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -125,8 +125,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %16
 .noexc3.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #10
   store ptr %20, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %21, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %18, i1 false)
   br label %_ZN5ZXing9ByteArrayC2Ei.exit
@@ -134,7 +134,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %16
 _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc3.i
   %23 = phi ptr [ %20, %.noexc3.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %21, %.noexc3.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %24, align 8
   %25 = ptrtoint ptr %.0.i.i.i.i.i.i.i.i to i64
   %26 = ptrtoint ptr %23 to i64
@@ -144,7 +144,7 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %29, label %.preheader.lr.ph, label %._crit_edge
 
 .preheader.lr.ph:                                 ; preds = %_ZN5ZXing9ByteArrayC2Ei.exit
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count50 = and i64 %27, 2147483647
   %.pre53.pre = load ptr, ptr %30, align 8
   %.pre54.pre = load ptr, ptr %1, align 8
@@ -163,7 +163,7 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %_ZNSt6vectorIhSaIhE
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.split26.us.us
   %indvars.iv47 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next48, %.split26.us.us ]
   %.01429.us = phi i32 [ %2, %.preheader.us.preheader ], [ %.2.us.us, %.split26.us.us ]
-  %38 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv47
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv47
   br label %39
 
 39:                                               ; preds = %49, %.preheader.us
@@ -204,7 +204,7 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %_ZNSt6vectorIhSaIhE
 .preheader:                                       ; preds = %.preheader.lr.ph, %.split26
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.split26 ], [ 0, %.preheader.lr.ph ]
   %.01429 = phi i32 [ %70, %.split26 ], [ %2, %.preheader.lr.ph ]
-  %55 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv42
+  %55 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv42
   %56 = sext i32 %.01429 to i64
   br label %57
 

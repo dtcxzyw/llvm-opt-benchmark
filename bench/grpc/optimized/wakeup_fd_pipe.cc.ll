@@ -74,7 +74,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 6, ptr %ref.tmp2, align 8
-  %0 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   store ptr @.str, ptr %0, align 8
   %call5 = tail call ptr @__errno_location() #14
   %1 = load i32, ptr %call5, align 4
@@ -82,7 +82,7 @@ if.then:                                          ; preds = %entry
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #13
   %2 = extractvalue { i64, ptr } %call.i, 0
   store i64 %2, ptr %ref.tmp3, align 8
-  %3 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   %4 = extractvalue { i64, ptr } %call.i, 1
   store ptr %4, ptr %3, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3)
@@ -133,7 +133,7 @@ lpad10:                                           ; preds = %if.end14
   br label %ehcleanup30
 
 if.end14:                                         ; preds = %invoke.cont11
-  %arrayidx16 = getelementptr inbounds i8, ptr %pipefd, i64 4
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %pipefd, i64 4
   %12 = load i32, ptr %arrayidx16, align 4
   invoke fastcc void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_120SetSocketNonBlockingEi(ptr noalias align 8 %ref.tmp15, i32 noundef %12)
           to label %invoke.cont17 unwind label %lpad10
@@ -198,9 +198,9 @@ lpad18:                                           ; preds = %if.then.i.i
 if.end25:                                         ; preds = %invoke.cont22
   %20 = load i32, ptr %pipefd, align 4
   %21 = load i32, ptr %arrayidx16, align 4
-  %read_fd_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_fd_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %20, ptr %read_fd_.i, align 8
-  %write_fd_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %write_fd_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %21, ptr %write_fd_.i, align 4
   store i64 0, ptr %agg.result, align 8, !alias.scope !4
   br label %return
@@ -255,7 +255,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 7, ptr %ref.tmp1, align 8
-  %0 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
   store ptr @.str.3, ptr %0, align 8
   %call4 = tail call ptr @__errno_location() #14
   %1 = load i32, ptr %call4, align 4
@@ -263,7 +263,7 @@ if.then:                                          ; preds = %entry
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #13
   %2 = extractvalue { i64, ptr } %call.i, 0
   store i64 %2, ptr %ref.tmp2, align 8
-  %3 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   %4 = extractvalue { i64, ptr } %call.i, 1
   store ptr %4, ptr %3, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2)
@@ -300,7 +300,7 @@ if.end:                                           ; preds = %entry
 
 if.then11:                                        ; preds = %if.end
   store i64 7, ptr %ref.tmp14, align 8
-  %9 = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 8
   store ptr @.str.3, ptr %9, align 8
   %call17 = tail call ptr @__errno_location() #14
   %10 = load i32, ptr %call17, align 4
@@ -308,7 +308,7 @@ if.then11:                                        ; preds = %if.end
   %call.i9 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #13
   %11 = extractvalue { i64, ptr } %call.i9, 0
   store i64 %11, ptr %ref.tmp15, align 8
-  %12 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 8
   %13 = extractvalue { i64, ptr } %call.i9, 1
   store ptr %13, ptr %12, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp13, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp15)
@@ -382,7 +382,7 @@ entry:
   %ref.tmp8 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp9 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %read_fd_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_fd_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -416,13 +416,13 @@ sw.bb:                                            ; preds = %if.end5
 
 sw.default:                                       ; preds = %if.end5
   store i64 6, ptr %ref.tmp8, align 8
-  %2 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store ptr @.str.1, ptr %2, align 8
   call void @_ZN9grpc_core8StrErrorB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10, i32 noundef %1)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #13
   %3 = extractvalue { i64, ptr } %call.i, 0
   store i64 %3, ptr %ref.tmp9, align 8
-  %4 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp9, i64 8
   %5 = extractvalue { i64, ptr } %call.i, 1
   store ptr %5, ptr %4, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9)
@@ -468,7 +468,7 @@ define void @_ZN17grpc_event_engine12experimental12PipeWakeupFd6WakeupEv(ptr noa
 entry:
   %c = alloca i8, align 1
   store i8 0, ptr %c, align 1
-  %write_fd_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %write_fd_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   br label %while.cond
 
 while.cond:                                       ; preds = %land.rhs, %entry
@@ -495,7 +495,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 define void @_ZN17grpc_event_engine12experimental12PipeWakeupFdD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental12PipeWakeupFdE, i64 16), ptr %this, align 8
-  %read_fd_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %read_fd_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %read_fd_.i, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -505,7 +505,7 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %write_fd_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %write_fd_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %write_fd_.i, align 4
   %cmp8.not = icmp eq i32 %1, 0
   br i1 %cmp8.not, label %if.end14, label %if.then9
@@ -555,9 +555,9 @@ define noundef zeroext i1 @_ZN17grpc_event_engine12experimental12PipeWakeupFd11I
 entry:
   %pipe_wakeup_fd = alloca %"class.grpc_event_engine::experimental::PipeWakeupFd", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
-  %read_fd_.i.i = getelementptr inbounds i8, ptr %pipe_wakeup_fd, i64 8
+  %read_fd_.i.i = getelementptr inbounds nuw i8, ptr %pipe_wakeup_fd, i64 8
   store i32 0, ptr %read_fd_.i.i, align 8
-  %write_fd_.i.i = getelementptr inbounds i8, ptr %pipe_wakeup_fd, i64 12
+  %write_fd_.i.i = getelementptr inbounds nuw i8, ptr %pipe_wakeup_fd, i64 12
   store i32 0, ptr %write_fd_.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental12PipeWakeupFdE, i64 16), ptr %pipe_wakeup_fd, align 8
   invoke void @_ZN17grpc_event_engine12experimental12PipeWakeupFd4InitEv(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %pipe_wakeup_fd)
@@ -623,9 +623,9 @@ init.end:                                         ; preds = %invoke.cont, %init.
 
 if.then:                                          ; preds = %init.end
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17, !noalias !23
-  %read_fd_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %read_fd_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 0, ptr %read_fd_.i.i.i, align 8, !noalias !23
-  %write_fd_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %write_fd_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %write_fd_.i.i.i, align 4, !noalias !23
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental12PipeWakeupFdE, i64 16), ptr %call.i, align 8, !noalias !23
   invoke void @_ZN17grpc_event_engine12experimental12PipeWakeupFd4InitEv(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %status, ptr noundef nonnull align 8 dereferenceable(16) %call.i)
@@ -637,7 +637,7 @@ invoke.cont6:                                     ; preds = %if.then
   br i1 %cmp.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.thread, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental12PipeWakeupFdEEclEPS2_.exit.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.thread:    ; preds = %invoke.cont6
-  %4 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %5 = ptrtoint ptr %call.i to i64
   store i64 %5, ptr %4, align 8
   store i64 0, ptr %agg.result, align 8
@@ -653,7 +653,7 @@ lpad3:                                            ; preds = %if.then
   %7 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i14 = load ptr, ptr %call.i, align 8
-  %vfn.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i14, i64 24
+  %vfn.i.i15 = getelementptr inbounds nuw i8, ptr %vtable.i.i14, i64 24
   %8 = load ptr, ptr %vfn.i.i15, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %call.i) #13
   br label %eh.resume
@@ -662,7 +662,7 @@ _ZNKSt14default_deleteIN17grpc_event_engine12experimental12PipeWakeupFdEEclEPS2_
   store i64 54, ptr %status, align 8
   store i64 %3, ptr %agg.result, align 8
   %vtable.i.i10 = load ptr, ptr %call.i, align 8
-  %vfn.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i10, i64 24
+  %vfn.i.i11 = getelementptr inbounds nuw i8, ptr %vtable.i.i10, i64 24
   %9 = load ptr, ptr %vfn.i.i11, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %call.i) #13
   br label %return

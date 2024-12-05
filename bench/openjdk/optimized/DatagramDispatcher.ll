@@ -55,10 +55,10 @@ define i64 @Java_sun_nio_ch_DatagramDispatcher_readv0(ptr noundef %0, ptr nocapt
   %8 = inttoptr i64 %3 to ptr
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %4, i32 1024)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %9, align 8
   %10 = sext i32 %spec.store.select to i64
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %10, ptr %11, align 8
   %12 = call i64 @recvmsg(i32 noundef %7, ptr noundef nonnull %6, i32 noundef 0) #6
   %13 = icmp slt i64 %12, 0
@@ -128,10 +128,10 @@ define i64 @Java_sun_nio_ch_DatagramDispatcher_writev0(ptr noundef %0, ptr nocap
   %8 = inttoptr i64 %3 to ptr
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %4, i32 1024)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %9, align 8
   %10 = sext i32 %spec.store.select to i64
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %10, ptr %11, align 8
   %12 = call i64 @sendmsg(i32 noundef %7, ptr noundef nonnull %6, i32 noundef 0) #6
   %13 = icmp slt i64 %12, 0

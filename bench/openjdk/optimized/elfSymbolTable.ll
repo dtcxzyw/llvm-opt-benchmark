@@ -15,14 +15,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14ElfSymbolTableC2EP8_IO_FILER10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 16)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN10ElfSectionC1EP8_IO_FILERK10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(76) %5, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) #3
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = urem i64 %10, 24
   %.not = icmp eq i64 %11, 0
@@ -45,7 +45,7 @@ define hidden void @_ZN14ElfSymbolTableD2Ev(ptr noundef nonnull align 8 derefere
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN10ElfSectionD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %5) #3
   ret void
 }
@@ -55,35 +55,35 @@ declare void @_ZN10ElfSectionD1Ev(ptr noundef nonnull align 8 dereferenceable(76
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i8, ptr %8, align 4
   %10 = and i8 %9, 15
   %11 = icmp eq i8 %10, 2
   br i1 %11, label %12, label %42
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %6, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 6
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
   %21 = icmp eq i32 %17, %20
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = tail call noundef ptr @_ZN16ElfFuncDescTable6lookupEm(ptr noundef nonnull align 8 dereferenceable(96) %6, i64 noundef %24) #3
   br label %30
 
 26:                                               ; preds = %15, %12
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = inttoptr i64 %28 to ptr
   br label %30
@@ -106,7 +106,7 @@ define hidden noundef zeroext i1 @_ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4
   store i32 %38, ptr %5, align 4
   %39 = load i32, ptr %1, align 8
   store i32 %39, ptr %4, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %3, align 4
   br label %42
@@ -122,17 +122,17 @@ declare noundef ptr @_ZN16ElfFuncDescTable6lookupEm(ptr noundef nonnull align 8 
 define hidden noundef zeroext i1 @_ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.MarkedFileReader, align 8
   %8 = alloca %struct.Elf64_Sym, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
   %15 = udiv i64 %14, 24
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %68, label %.preheader36
@@ -143,29 +143,29 @@ define hidden noundef zeroext i1 @_ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFun
 
 .lr.ph:                                           ; preds = %.preheader36
   %.not.i = icmp eq ptr %5, null
-  %20 = getelementptr inbounds i8, ptr %5, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %21 = ptrtoint ptr %1 to i64
   %wide.trip.count60 = and i64 %15, 2147483647
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %37
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %37 ], [ 0, %.lr.ph ]
-  %22 = getelementptr inbounds %struct.Elf64_Sym, ptr %18, i64 %indvars.iv57
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %22 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %18, i64 %indvars.iv57
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i8, ptr %23, align 4
   %25 = and i8 %24, 15
   %26 = icmp eq i8 %25, 2
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %.lr.ph.split.us
-  %28 = getelementptr inbounds i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = inttoptr i64 %29 to ptr
   %.not24.i.us = icmp ult ptr %1, %30
   br i1 %.not24.i.us, label %37, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %22, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = sub i64 %21, %29
   %35 = and i64 %34, 4294967295
@@ -179,22 +179,22 @@ define hidden noundef zeroext i1 @_ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFun
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %.lr.ph ]
-  %38 = getelementptr inbounds %struct.Elf64_Sym, ptr %18, i64 %indvars.iv
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %38 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %18, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i8, ptr %39, align 4
   %41 = and i8 %40, 15
   %42 = icmp eq i8 %41, 2
   br i1 %42, label %43, label %67
 
 43:                                               ; preds = %.lr.ph.split
-  %44 = getelementptr inbounds i8, ptr %38, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = load i32, ptr %20, align 8
-  %47 = getelementptr inbounds i8, ptr %38, i64 6
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 6
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   %50 = icmp eq i32 %46, %49
-  %51 = getelementptr inbounds i8, ptr %38, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %52 = load i64, ptr %51, align 8
   br i1 %50, label %53, label %55
 
@@ -225,7 +225,7 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit: ; pr
   store i32 %63, ptr %4, align 4
   %64 = load i32, ptr %.us-phi40, align 8
   store i32 %64, ptr %3, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %66 = load i32, ptr %65, align 8
   store i32 %66, ptr %2, align 4
   br label %.loopexit
@@ -236,16 +236,16 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit: ; pr
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 68:                                               ; preds = %12
-  %69 = getelementptr inbounds i8, ptr %0, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8
   call void @_ZN16MarkedFileReaderC1EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %70) #3
-  %71 = getelementptr inbounds i8, ptr %7, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = icmp sgt i64 %72, -1
   br i1 %73, label %74, label %100
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds i8, ptr %0, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %76 = load i64, ptr %75, align 8
   %77 = call noundef zeroext i1 @_ZN10FileReader12set_positionEl(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %76) #3
   br i1 %77, label %.preheader, label %100
@@ -255,12 +255,12 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit: ; pr
   br i1 %78, label %.lr.ph42, label %._crit_edge
 
 .lr.ph42:                                         ; preds = %.preheader
-  %79 = getelementptr inbounds i8, ptr %8, i64 4
-  %80 = getelementptr inbounds i8, ptr %8, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.not.i27 = icmp eq ptr %5, null
-  %81 = getelementptr inbounds i8, ptr %5, i64 88
-  %82 = getelementptr inbounds i8, ptr %8, i64 6
-  %83 = getelementptr inbounds i8, ptr %8, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 6
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %84 = ptrtoint ptr %1 to i64
   br i1 %.not.i27, label %.lr.ph42.split.us, label %.lr.ph42.split
 
@@ -347,7 +347,7 @@ _ZN14ElfSymbolTable7compareEPK9Elf64_SymPhPiS4_S4_P16ElfFuncDescTable.exit30: ; 
   store i32 %123, ptr %4, align 4
   %124 = load i32, ptr %8, align 8
   store i32 %124, ptr %3, align 4
-  %125 = getelementptr inbounds i8, ptr %0, i64 56
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %126 = load i32, ptr %125, align 8
   store i32 %126, ptr %2, align 4
   br label %.thread

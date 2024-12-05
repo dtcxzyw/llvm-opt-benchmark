@@ -224,9 +224,9 @@ find_prefered_mmap_base.exit:                     ; preds = %37, %.outer.i, %11,
   br label %85
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %79, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %83, ptr %79, align 8
-  %84 = getelementptr inbounds i8, ptr %79, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store ptr %.058, ptr %84, align 8
   store i64 %0, ptr %83, align 8
   br label %85
@@ -238,7 +238,7 @@ find_prefered_mmap_base.exit:                     ; preds = %37, %.outer.i, %11,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @detach_segment(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
   %5 = tail call i32 @munmap(ptr noundef %3, i64 noundef %4) #8

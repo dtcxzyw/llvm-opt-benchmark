@@ -200,7 +200,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dmx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.2) #2
   %7 = load ptr, ptr %5, align 8
@@ -246,7 +246,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dmx_chan(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.20) #2
   %7 = load ptr, ptr %5, align 8
@@ -255,7 +255,7 @@ define internal i32 @dissect_dmx_chan(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not, label %proto_item_set_hidden.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %10, ptr noundef nonnull @.str.100) #2
   %12 = load i32, ptr @proto_dmx_chan, align 4
@@ -369,13 +369,13 @@ define internal i32 @dissect_dmx_chan(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %72
 
 72:                                               ; preds = %._crit_edge
-  %73 = getelementptr inbounds i8, ptr %71, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %74 = load ptr, ptr %73, align 8
   %.not5.i = icmp eq ptr %74, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %74, i64 28
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 28
   %77 = load i32, ptr %76, align 4
   %78 = or i32 %77, 1
   store i32 %78, ptr %76, align 4
@@ -451,7 +451,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dmx_sip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.70) #2
   %7 = load ptr, ptr %5, align 8
@@ -538,7 +538,7 @@ dmx_sip_checksum.exit:                            ; preds = %51
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dmx_test(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.80) #2
   %7 = load ptr, ptr %5, align 8
@@ -579,13 +579,13 @@ define internal i32 @dissect_dmx_test(ptr noundef %0, ptr nocapture noundef read
   br i1 %.not.i, label %proto_item_set_generated.exit, label %24
 
 24:                                               ; preds = %.critedge
-  %25 = getelementptr inbounds i8, ptr %23, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not5.i = icmp eq ptr %26, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %29, 2
   store i32 %30, ptr %28, align 4
@@ -598,7 +598,7 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %24, %27
   br i1 %.not.i51, label %proto_item_set_generated.exit53, label %33
 
 33:                                               ; preds = %proto_item_set_generated.exit
-  %34 = getelementptr inbounds i8, ptr %32, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not5.i52 = icmp eq ptr %35, null
   br i1 %.not5.i52, label %proto_item_set_generated.exit53, label %proto_item_set_generated.exit53.sink.split
@@ -614,13 +614,13 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %24, %27
   br i1 %.not.i54, label %proto_item_set_generated.exit56, label %40
 
 40:                                               ; preds = %.loopexit
-  %41 = getelementptr inbounds i8, ptr %39, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not5.i55 = icmp eq ptr %42, null
   br i1 %.not5.i55, label %proto_item_set_generated.exit56, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %42, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = or i32 %45, 2
   store i32 %46, ptr %44, align 4
@@ -633,14 +633,14 @@ proto_item_set_generated.exit56:                  ; preds = %.loopexit, %40, %43
   br i1 %.not.i57, label %proto_item_set_generated.exit53, label %49
 
 49:                                               ; preds = %proto_item_set_generated.exit56
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %51 = load ptr, ptr %50, align 8
   %.not5.i58 = icmp eq ptr %51, null
   br i1 %.not5.i58, label %proto_item_set_generated.exit53, label %proto_item_set_generated.exit53.sink.split
 
 proto_item_set_generated.exit53.sink.split:       ; preds = %49, %33
   %.sink63 = phi ptr [ %35, %33 ], [ %51, %49 ]
-  %52 = getelementptr inbounds i8, ptr %.sink63, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %.sink63, i64 28
   %53 = load i32, ptr %52, align 4
   %54 = or i32 %53, 2
   store i32 %54, ptr %52, align 4
@@ -653,7 +653,7 @@ proto_item_set_generated.exit53:                  ; preds = %proto_item_set_gene
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dmx_text(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.107) #2
   %7 = load ptr, ptr %5, align 8

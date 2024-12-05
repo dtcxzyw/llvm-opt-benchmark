@@ -102,19 +102,19 @@ define internal range(i32 -1, 1) i32 @H5C__prefetched_entry_notify(i32 noundef %
   ]
 
 .preheader:                                       ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %1, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %6
 
 6:                                                ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @H5C_destroy_flush_dependency(ptr noundef %9, ptr noundef nonnull %1) #2
   %11 = icmp slt i32 %10, 0
@@ -127,13 +127,13 @@ define internal range(i32 -1, 1) i32 @H5C__prefetched_entry_notify(i32 noundef %
   br label %.loopexit
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %9, i64 204
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 204
   %18 = load i8, ptr %17, align 4
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %9, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, -1
   store i64 %23, ptr %21, align 8
@@ -159,7 +159,7 @@ define internal range(i32 -1, 1) i32 @H5C__prefetched_entry_notify(i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__prefetched_entry_free_icr(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -170,7 +170,7 @@ define internal range(i32 -1, 1) i32 @H5C__prefetched_entry_free_icr(ptr noundef
   br label %6
 
 6:                                                ; preds = %1, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %13, label %9

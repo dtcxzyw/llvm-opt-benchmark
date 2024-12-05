@@ -77,7 +77,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn14dnn4_v202405218openvino11checkTarg
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %0)
           to label %58 unwind label %18
@@ -128,7 +128,7 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn14dnn4_v202405218openvino11checkTarg
   br i1 %.not, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = icmp slt i32 %31, 4
   br i1 %32, label %56, label %33
@@ -138,13 +138,13 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn14dnn4_v202405218openvino11checkTarg
           to label %34 unwind label %26
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @.str.1)
           to label %37 unwind label %51
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr %24, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %24) #11
   %42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %41)
@@ -333,7 +333,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052129getInferenceEngineBackendTypeB5cxx11Ev(
   br i1 %.not, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp slt i32 %30, 4
   br i1 %31, label %55, label %32
@@ -343,13 +343,13 @@ define void @_ZN2cv3dnn14dnn4_v2024052129getInferenceEngineBackendTypeB5cxx11Ev(
           to label %33 unwind label %25
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %5, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull @.str.4)
           to label %36 unwind label %50
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %23, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(8) %23) #11
   %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef %40)
@@ -530,7 +530,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052129setInferenceEngineBackendTypeERKNSt7__c
   br i1 %.not, label %40, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %32, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp slt i32 %38, 4
   br i1 %39, label %63, label %40
@@ -540,13 +540,13 @@ define void @_ZN2cv3dnn14dnn4_v2024052129setInferenceEngineBackendTypeERKNSt7__c
           to label %41 unwind label %33
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %7, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @.str.4)
           to label %44 unwind label %58
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr %31, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(8) %31) #11
   %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef %48)
@@ -662,7 +662,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052125getInferenceEngineVPUTypeB5cxx11Ev(ptr 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef 3)
           to label %18 unwind label %26
@@ -762,7 +762,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052125getInferenceEngineVPUTypeB5cxx11Ev(ptr 
   br i1 %.not, label %51, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %43, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = icmp slt i32 %49, 4
   br i1 %50, label %74, label %51
@@ -772,13 +772,13 @@ define void @_ZN2cv3dnn14dnn4_v2024052125getInferenceEngineVPUTypeB5cxx11Ev(ptr 
           to label %52 unwind label %44
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %7, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull @.str.4)
           to label %55 unwind label %69
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %42, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef ptr %58(ptr noundef nonnull align 8 dereferenceable(8) %42) #11
   %60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %59)
@@ -940,7 +940,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052125getInferenceEngineCPUTypeB5cxx11Ev(ptr 
   br i1 %.not, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp slt i32 %30, 4
   br i1 %31, label %55, label %32
@@ -950,13 +950,13 @@ define void @_ZN2cv3dnn14dnn4_v2024052125getInferenceEngineCPUTypeB5cxx11Ev(ptr 
           to label %33 unwind label %25
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %5, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull @.str.4)
           to label %36 unwind label %50
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %23, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(8) %23) #11
   %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef %40)

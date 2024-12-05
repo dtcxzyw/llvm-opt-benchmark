@@ -34,15 +34,15 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_huc_register_gsc_notifier(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 584
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load i8, ptr %3, align 8, !range !5, !noundef !6
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %31, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 544
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store ptr @gsc_notifier, ptr %7, align 8
-  %8 = tail call i32 @bus_register_notifier(ptr noundef %1, ptr noundef %7) #4
+  %8 = tail call i32 @bus_register_notifier(ptr noundef %1, ptr noundef nonnull %7) #4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %31, label %10
 
@@ -53,7 +53,7 @@ define dso_local void @intel_huc_register_gsc_notifier(ptr noundef %0, ptr nound
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -65,18 +65,18 @@ define dso_local void @intel_huc_register_gsc_notifier(ptr noundef %0, ptr nound
   %22 = inttoptr i64 %21 to ptr
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %18, ptr noundef nonnull @.str, i32 noundef %20, ptr noundef nonnull %22) #5
   store ptr null, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 480
-  %24 = tail call i32 @hrtimer_cancel(ptr noundef %23) #4
-  %25 = getelementptr inbounds i8, ptr %0, i64 568
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %24 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %23) #4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store i32 2, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 472
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load volatile i32, ptr %26, align 4
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %17
-  %30 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @i915_sw_fence_complete(ptr noundef %30) #4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  tail call void @i915_sw_fence_complete(ptr noundef nonnull %30) #4
   br label %31
 
 31:                                               ; preds = %29, %17, %6, %2
@@ -120,7 +120,7 @@ define internal noundef i32 @gsc_notifier(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -155,26 +155,26 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_huc_unregister_gsc_notifier(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 544
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 480
-  %8 = tail call i32 @hrtimer_cancel(ptr noundef %7) #4
-  %9 = getelementptr inbounds i8, ptr %0, i64 472
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %8 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %7) #4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %10 = load volatile i32, ptr %9, align 4
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @i915_sw_fence_complete(ptr noundef %13) #4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  tail call void @i915_sw_fence_complete(ptr noundef nonnull %13) #4
   br label %14
 
 14:                                               ; preds = %12, %6
-  %15 = tail call i32 @bus_unregister_notifier(ptr noundef %1, ptr noundef %3) #4
+  %15 = tail call i32 @bus_unregister_notifier(ptr noundef %1, ptr noundef nonnull %3) #4
   store ptr null, ptr %3, align 8
   br label %16
 
@@ -187,20 +187,20 @@ declare dso_local i32 @bus_unregister_notifier(ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @intel_huc_sanitize(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 480
-  %3 = tail call i32 @hrtimer_cancel(ptr noundef %2) #4
-  %4 = getelementptr inbounds i8, ptr %0, i64 472
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %3 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %2) #4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %5 = load volatile i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @i915_sw_fence_complete(ptr noundef %8) #4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  tail call void @i915_sw_fence_complete(ptr noundef nonnull %8) #4
   br label %9
 
 9:                                                ; preds = %7, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 8
   br i1 %12, label %13, label %14
@@ -218,12 +218,12 @@ define dso_local void @intel_huc_init_early(ptr noundef %0) local_unnamed_addr #
   %2 = getelementptr i8, ptr %0, i64 -2392
   %3 = load ptr, ptr %2, align 8
   tail call void @intel_uc_fw_init_early(ptr noundef %0, i32 noundef 1, i1 noundef zeroext true) #4
-  %4 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @__i915_sw_fence_init(ptr noundef %4, ptr noundef nonnull @sw_fence_dummy_notify, ptr noundef null, ptr noundef null) #4
-  tail call void @i915_sw_fence_commit(ptr noundef %4) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 480
-  tail call void @hrtimer_init(ptr noundef %5, i32 noundef 1, i32 noundef 1) #4
-  %6 = getelementptr inbounds i8, ptr %0, i64 520
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  tail call void @__i915_sw_fence_init(ptr noundef nonnull %4, ptr noundef nonnull @sw_fence_dummy_notify, ptr noundef null, ptr noundef null) #4
+  tail call void @i915_sw_fence_commit(ptr noundef nonnull %4) #4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  tail call void @hrtimer_init(ptr noundef nonnull %5, i32 noundef 1, i32 noundef 1) #4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store ptr @huc_delayed_load_timer_callback, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 2560
   %8 = load i32, ptr %7, align 8
@@ -232,9 +232,9 @@ define dso_local void @intel_huc_init_early(ptr noundef %0) local_unnamed_addr #
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 7168
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 7168
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 20
   br label %17
 
 15:                                               ; preds = %1
@@ -249,12 +249,12 @@ define dso_local void @intel_huc_init_early(ptr noundef %0) local_unnamed_addr #
   br i1 %21, label %39, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %3, i64 7176
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 7176
   %24 = load i8, ptr %23, align 8
   %25 = icmp ugt i8 %24, 10
-  %26 = getelementptr inbounds i8, ptr %0, i64 416
-  %27 = getelementptr inbounds i8, ptr %0, i64 420
-  %28 = getelementptr inbounds i8, ptr %0, i64 424
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %29 = select i1 %25, i32 49628, i32 54192
   %30 = select i1 %25, i32 1, i32 128
   store i32 %29, ptr %26, align 8
@@ -286,30 +286,30 @@ declare dso_local void @intel_uc_fw_init_early(ptr noundef, i32 noundef, i1 noun
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -2392
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load i8, ptr %3, align 8, !range !5, !noundef !6
   %5 = icmp eq i8 %4, 0
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 7168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 7168
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i64, ptr %9, align 4
   %11 = and i64 %10, 32768
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 584
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 584
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !5
   br label %23
 
 13:                                               ; preds = %1
   %14 = getelementptr i8, ptr %0, i64 -2368
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %15, i32 49256, i1 noundef zeroext true) #4
-  %19 = getelementptr inbounds i8, ptr %0, i64 584
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %20 = lshr i32 %18, 30
   %21 = trunc nuw nsw i32 %20 to i8
   %22 = and i8 %21, 1
@@ -328,7 +328,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = load ptr, ptr %31, align 8
   br label %33
 
@@ -344,7 +344,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %38, label %52, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %0, i64 404
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 0
   %.pre11 = load ptr, ptr %2, align 8
@@ -355,7 +355,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %44, label %48, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %.pre11, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.pre11, i64 8
   %47 = load ptr, ptr %46, align 8
   br label %48
 
@@ -382,7 +382,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %59, label %63, label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %.pre12, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.pre12, i64 8
   %62 = load ptr, ptr %61, align 8
   br label %63
 
@@ -405,7 +405,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %73, label %77, label %74
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %.pre12, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.pre12, i64 8
   %76 = load ptr, ptr %75, align 8
   br label %77
 
@@ -422,7 +422,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %82, label %86, label %83
 
 83:                                               ; preds = %.thread
-  %84 = getelementptr inbounds i8, ptr %81, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %85 = load ptr, ptr %84, align 8
   br label %86
 
@@ -453,7 +453,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %104, label %.thread10, label %105
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %103, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %107 = load ptr, ptr %106, align 8
   br label %.thread10
 
@@ -464,7 +464,7 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   br label %.thread9
 
 110:                                              ; preds = %96
-  %111 = getelementptr inbounds i8, ptr %0, i64 576
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store ptr %98, ptr %111, align 8
   br label %112
 
@@ -474,30 +474,30 @@ define dso_local i32 @intel_huc_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %0, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 7, ptr %116, align 4
   br label %135
 
 117:                                              ; preds = %112
-  %118 = getelementptr inbounds i8, ptr %0, i64 576
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
   br i1 %120, label %.thread9, label %121
 
 121:                                              ; preds = %117
-  tail call void @i915_vma_unpin_and_release(ptr noundef %118, i32 noundef 0) #4
+  tail call void @i915_vma_unpin_and_release(ptr noundef nonnull %118, i32 noundef 0) #4
   br label %.thread9
 
 .thread9:                                         ; preds = %33, %48, %77, %63, %.thread10, %121, %117
   %122 = phi i32 [ %113, %121 ], [ %113, %117 ], [ %102, %.thread10 ], [ -8, %33 ], [ -8, %48 ], [ -5, %77 ], [ -5, %63 ]
-  %123 = getelementptr inbounds i8, ptr %0, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 6, ptr %123, align 4
   %124 = load ptr, ptr %2, align 8
   %125 = icmp eq ptr %124, null
   br i1 %125, label %129, label %126
 
 126:                                              ; preds = %.thread9
-  %127 = getelementptr inbounds i8, ptr %124, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %128 = load ptr, ptr %127, align 8
   br label %129
 
@@ -529,30 +529,30 @@ declare dso_local void @i915_vma_unpin_and_release(ptr noundef, i32 noundef) loc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_huc_fini(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 480
-  %3 = tail call i32 @hrtimer_cancel(ptr noundef %2) #4
-  %4 = getelementptr inbounds i8, ptr %0, i64 472
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %3 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %2) #4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %5 = load volatile i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @i915_sw_fence_complete(ptr noundef %8) #4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  tail call void @i915_sw_fence_complete(ptr noundef nonnull %8) #4
   br label %9
 
 9:                                                ; preds = %7, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 576
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %9
-  tail call void @i915_vma_unpin_and_release(ptr noundef %10, i32 noundef 0) #4
+  tail call void @i915_vma_unpin_and_release(ptr noundef nonnull %10, i32 noundef 0) #4
   br label %14
 
 14:                                               ; preds = %13, %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 6
   br i1 %17, label %18, label %19
@@ -570,22 +570,22 @@ declare dso_local void @intel_uc_fw_fini(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_huc_suspend(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 6
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 480
-  %7 = tail call i32 @hrtimer_cancel(ptr noundef %6) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 472
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %7 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %6) #4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %9 = load volatile i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @i915_sw_fence_complete(ptr noundef %12) #4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  tail call void @i915_sw_fence_complete(ptr noundef nonnull %12) #4
   br label %13
 
 13:                                               ; preds = %11, %5, %1
@@ -597,25 +597,25 @@ define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 nound
   %3 = getelementptr i8, ptr %0, i64 -2392
   %4 = getelementptr i8, ptr %0, i64 -2368
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 416
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %7 = zext i32 %1 to i64
   %8 = getelementptr [2 x %struct.anon.4], ptr %6, i64 0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %8, align 4
   %14 = tail call i32 @__intel_wait_for_register(ptr noundef %5, i32 %13, i32 noundef %10, i32 noundef %12, i32 noundef 2, i32 noundef 50, ptr noundef null) #4
-  %15 = getelementptr inbounds i8, ptr %0, i64 480
-  %16 = tail call i32 @hrtimer_cancel(ptr noundef %15) #4
-  %17 = getelementptr inbounds i8, ptr %0, i64 472
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %16 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %15) #4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %18 = load volatile i32, ptr %17, align 4
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @i915_sw_fence_complete(ptr noundef %21) #4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  tail call void @i915_sw_fence_complete(ptr noundef nonnull %21) #4
   br label %22
 
 22:                                               ; preds = %20, %2
@@ -628,7 +628,7 @@ define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 nound
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -636,7 +636,7 @@ define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 nound
   %31 = phi ptr [ %29, %27 ], [ null, %24 ]
   %32 = getelementptr i8, ptr %0, i64 2560
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %35 = load i8, ptr %34, align 8, !range !5, !noundef !6
   %36 = icmp ne i8 %35, 0
   %37 = icmp eq i32 %1, 0
@@ -645,19 +645,19 @@ define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 nound
   %40 = sext i32 %14 to i64
   %41 = inttoptr i64 %40 to ptr
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %31, ptr noundef nonnull @.str.3, i32 noundef %33, ptr noundef nonnull %39, ptr noundef nonnull %41) #5
-  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 8, ptr %42, align 4
   br label %60
 
 43:                                               ; preds = %22
-  %44 = getelementptr inbounds i8, ptr %0, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 10, ptr %44, align 4
   %45 = load ptr, ptr %3, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %49 = load ptr, ptr %48, align 8
   br label %50
 
@@ -665,7 +665,7 @@ define dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef %0, i32 nound
   %51 = phi ptr [ %49, %47 ], [ null, %43 ]
   %52 = getelementptr i8, ptr %0, i64 2560
   %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 408
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %55 = load i8, ptr %54, align 8, !range !5, !noundef !6
   %56 = icmp ne i8 %55, 0
   %57 = icmp eq i32 %1, 0
@@ -685,13 +685,13 @@ declare dso_local i32 @__intel_wait_for_register(ptr noundef, i32, i32 noundef, 
 define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -2392
   %4 = getelementptr i8, ptr %0, i64 -1760
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 8
   br i1 %7, label %8, label %79
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 584
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %10 = load i8, ptr %9, align 8, !range !5, !noundef !6
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %79
@@ -699,7 +699,7 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
 12:                                               ; preds = %8
   %13 = getelementptr i8, ptr %0, i64 -2368
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 @intel_runtime_pm_get(ptr noundef %16) #4
   %18 = icmp eq i64 %17, 0
@@ -710,16 +710,16 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
   br label %31
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 416
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %21 = zext i32 %1 to i64
   %22 = getelementptr [2 x %struct.anon.4], ptr %20, i64 0, i64 %21
   %23 = load ptr, ptr %13, align 8
   %24 = load i32, ptr %22, align 4
-  %25 = getelementptr inbounds i8, ptr %23, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26(ptr noundef %23, i32 %24, i1 noundef zeroext true) #4
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %30) #4
   br label %31
@@ -727,12 +727,12 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
 31:                                               ; preds = %._crit_edge, %19
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %21, %19 ]
   %32 = phi i32 [ 0, %._crit_edge ], [ %27, %19 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 416
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %34 = getelementptr [2 x %struct.anon.4], ptr %33, i64 0, i64 %.pre-phi
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, %32
-  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %37, %39
   br i1 %40, label %79, label %41
@@ -744,11 +744,11 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
   ]
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 384
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 248
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 248
   %48 = load i32, ptr %47, align 8
   %49 = trunc i64 %46 to i32
   %50 = add i32 %48, %49
@@ -785,7 +785,7 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %62, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %66 = load ptr, ptr %65, align 8
   br label %67
 
@@ -793,7 +793,7 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
   %68 = phi ptr [ %66, %64 ], [ null, %60 ]
   %69 = getelementptr i8, ptr %0, i64 2560
   %70 = load i32, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 408
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %72 = load i8, ptr %71, align 8, !range !5, !noundef !6
   %73 = icmp ne i8 %72, 0
   %74 = icmp eq i32 %1, 0
@@ -813,7 +813,7 @@ define dso_local i32 @intel_huc_auth(ptr noundef %0, i32 noundef %1) local_unnam
 define dso_local zeroext i1 @intel_huc_is_authenticated(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -2368
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @intel_runtime_pm_get(ptr noundef %6) #4
   %8 = icmp eq i64 %7, 0
@@ -824,16 +824,16 @@ define dso_local zeroext i1 @intel_huc_is_authenticated(ptr nocapture noundef re
   br label %21
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 416
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %11 = zext i32 %1 to i64
   %12 = getelementptr [2 x %struct.anon.4], ptr %10, i64 0, i64 %11
   %13 = load ptr, ptr %3, align 8
   %14 = load i32, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %13, i32 %14, i1 noundef zeroext true) #4
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %20) #4
   br label %21
@@ -841,12 +841,12 @@ define dso_local zeroext i1 @intel_huc_is_authenticated(ptr nocapture noundef re
 21:                                               ; preds = %._crit_edge, %9
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %11, %9 ]
   %22 = phi i32 [ 0, %._crit_edge ], [ %17, %9 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 416
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %24 = getelementptr [2 x %struct.anon.4], ptr %23, i64 0, i64 %.pre-phi
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, %22
-  %28 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %27, %29
   ret i1 %30
@@ -866,7 +866,7 @@ declare dso_local i64 @intel_runtime_pm_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -95, 3) i32 @intel_huc_check_status(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %9 [
     i32 -1, label %89
@@ -893,7 +893,7 @@ define dso_local noundef range(i32 -95, 3) i32 @intel_huc_check_status(ptr nocap
   br label %89
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %11 = load i8, ptr %10, align 8, !range !5, !noundef !6
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %20
@@ -901,14 +901,14 @@ define dso_local noundef range(i32 -95, 3) i32 @intel_huc_check_status(ptr nocap
 13:                                               ; preds = %9
   %14 = getelementptr i8, ptr %0, i64 -2368
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i64 @intel_runtime_pm_get(ptr noundef %17) #4
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %huc_is_fully_authenticated.exit, label %36
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %0, i64 584
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %22 = load i8, ptr %21, align 8, !range !5, !noundef !6
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %29
@@ -923,7 +923,7 @@ define dso_local noundef range(i32 -95, 3) i32 @intel_huc_check_status(ptr nocap
 29:                                               ; preds = %24, %20
   %30 = getelementptr i8, ptr %0, i64 -2368
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i64 @intel_runtime_pm_get(ptr noundef %33) #4
   %35 = icmp eq i64 %34, 0
@@ -937,11 +937,11 @@ define dso_local noundef range(i32 -95, 3) i32 @intel_huc_check_status(ptr nocap
   %41 = getelementptr i8, ptr %0, i64 %37
   %42 = load ptr, ptr %38, align 8
   %43 = load i32, ptr %41, align 4
-  %44 = getelementptr inbounds i8, ptr %42, i64 144
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 144
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 %45(ptr noundef %42, i32 %43, i1 noundef zeroext true) #4
   %47 = load ptr, ptr %38, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %49) #4
   br label %huc_is_fully_authenticated.exit
@@ -964,7 +964,7 @@ huc_is_fully_authenticated.exit.thread:           ; preds = %huc_is_fully_authen
   br i1 %59, label %88, label %huc_is_fully_authenticated.exit.thread.thread
 
 huc_is_fully_authenticated.exit.thread.thread:    ; preds = %24, %huc_is_fully_authenticated.exit.thread
-  %60 = getelementptr inbounds i8, ptr %0, i64 584
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %61 = load i8, ptr %60, align 8, !range !5, !noundef !6
   %62 = icmp eq i8 %61, 0
   br i1 %62, label %63, label %88
@@ -972,31 +972,31 @@ huc_is_fully_authenticated.exit.thread.thread:    ; preds = %24, %huc_is_fully_a
 63:                                               ; preds = %huc_is_fully_authenticated.exit.thread.thread
   %64 = getelementptr i8, ptr %0, i64 -2368
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i64 @intel_runtime_pm_get(ptr noundef %67) #4
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %80, label %70
 
 70:                                               ; preds = %63
-  %71 = getelementptr inbounds i8, ptr %0, i64 416
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %72 = load ptr, ptr %64, align 8
   %73 = load i32, ptr %71, align 4
-  %74 = getelementptr inbounds i8, ptr %72, i64 144
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 144
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 %75(ptr noundef %72, i32 %73, i1 noundef zeroext true) #4
   %77 = load ptr, ptr %64, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %79) #4
   br label %80
 
 80:                                               ; preds = %70, %63
   %81 = phi i32 [ %76, %70 ], [ 0, %63 ]
-  %82 = getelementptr inbounds i8, ptr %0, i64 420
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, %81
-  %85 = getelementptr inbounds i8, ptr %0, i64 424
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %84, %86
   br i1 %87, label %89, label %88
@@ -1011,19 +1011,19 @@ huc_is_fully_authenticated.exit.thread.thread:    ; preds = %24, %huc_is_fully_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_huc_update_auth_status(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 6
   br i1 %4, label %5, label %huc_is_fully_authenticated.exit.thread.thread
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %7 = load i8, ptr %6, align 8, !range !5, !noundef !6
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %huc_is_fully_authenticated.exit.thread.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 584
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %11 = load i8, ptr %10, align 8, !range !5, !noundef !6
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %18
@@ -1038,7 +1038,7 @@ define dso_local void @intel_huc_update_auth_status(ptr noundef %0) local_unname
 18:                                               ; preds = %13, %9
   %19 = getelementptr i8, ptr %0, i64 -2368
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 @intel_runtime_pm_get(ptr noundef %22) #4
   %24 = icmp eq i64 %23, 0
@@ -1048,11 +1048,11 @@ define dso_local void @intel_huc_update_auth_status(ptr noundef %0) local_unname
   %26 = getelementptr i8, ptr %0, i64 428
   %27 = load ptr, ptr %19, align 8
   %28 = load i32, ptr %26, align 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 144
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 %30(ptr noundef %27, i32 %28, i1 noundef zeroext true) #4
   %32 = load ptr, ptr %19, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %34) #4
   br label %huc_is_fully_authenticated.exit
@@ -1077,13 +1077,13 @@ huc_is_fully_authenticated.exit.thread:           ; preds = %huc_is_fully_authen
   br i1 %43, label %huc_is_fully_authenticated.exit.thread.thread, label %44
 
 44:                                               ; preds = %huc_is_fully_authenticated.exit.thread
-  %45 = getelementptr inbounds i8, ptr %0, i64 568
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 2
   br i1 %47, label %huc_is_fully_authenticated.exit.thread.thread, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %0, i64 440
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 440
   switch i32 %46, label %51 [
     i32 0, label %58
     i32 1, label %50
@@ -1093,25 +1093,25 @@ huc_is_fully_authenticated.exit.thread:           ; preds = %huc_is_fully_authen
   br label %58
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %0, i64 480
-  %53 = tail call i32 @hrtimer_cancel(ptr noundef %52) #4
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %53 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %52) #4
   store i32 2, ptr %45, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 472
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %55 = load volatile i32, ptr %54, align 4
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %huc_is_fully_authenticated.exit.thread.thread, label %57
 
 57:                                               ; preds = %51
-  tail call void @i915_sw_fence_complete(ptr noundef %49) #4
+  tail call void @i915_sw_fence_complete(ptr noundef nonnull %49) #4
   br label %huc_is_fully_authenticated.exit.thread.thread
 
 58:                                               ; preds = %50, %48
   %59 = phi i64 [ 5000000000, %50 ], [ 10000000000, %48 ]
-  tail call void @i915_sw_fence_reinit(ptr noundef %49) #4
-  %60 = tail call zeroext i1 @i915_sw_fence_await(ptr noundef %49) #4
-  tail call void @i915_sw_fence_commit(ptr noundef %49) #4
-  %61 = getelementptr inbounds i8, ptr %0, i64 480
-  tail call void @hrtimer_start_range_ns(ptr noundef %61, i64 noundef %59, i64 noundef 0, i32 noundef 1) #4
+  tail call void @i915_sw_fence_reinit(ptr noundef nonnull %49) #4
+  %60 = tail call zeroext i1 @i915_sw_fence_await(ptr noundef nonnull %49) #4
+  tail call void @i915_sw_fence_commit(ptr noundef nonnull %49) #4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  tail call void @hrtimer_start_range_ns(ptr noundef nonnull %61, i64 noundef %59, i64 noundef 0, i32 noundef 1) #4
   br label %huc_is_fully_authenticated.exit.thread.thread
 
 huc_is_fully_authenticated.exit.thread.thread:    ; preds = %13, %58, %57, %51, %44, %huc_is_fully_authenticated.exit.thread, %42, %5, %1
@@ -1120,7 +1120,7 @@ huc_is_fully_authenticated.exit.thread.thread:    ; preds = %13, %58, %57, %51, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_huc_load_status(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %7
@@ -1141,7 +1141,7 @@ define dso_local void @intel_huc_load_status(ptr noundef %0, ptr noundef %1) loc
   tail call void @intel_uc_fw_dump(ptr noundef %0, ptr noundef %1) #4
   %11 = getelementptr i8, ptr %0, i64 -2368
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @intel_runtime_pm_get(ptr noundef %14) #4
   %16 = icmp eq i64 %15, 0
@@ -1149,14 +1149,14 @@ define dso_local void @intel_huc_load_status(ptr noundef %0, ptr noundef %1) loc
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 416
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 144
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef %18, i32 %20, i1 noundef zeroext true) #4
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.11, i32 noundef %23) #4
   %24 = load ptr, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %26) #4
   br label %27
@@ -1198,7 +1198,7 @@ declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) loca
 define internal noundef i32 @huc_delayed_load_timer_callback(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -2848
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @intel_runtime_pm_get(ptr noundef %5) #4
   %7 = icmp eq i64 %6, 0
@@ -1208,11 +1208,11 @@ define internal noundef i32 @huc_delayed_load_timer_callback(ptr noundef %0) #0 
   %9 = getelementptr i8, ptr %0, i64 -52
   %10 = load ptr, ptr %2, align 8
   %11 = load i32, ptr %9, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %10, i32 %11, i1 noundef zeroext true) #4
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %17) #4
   br label %18
@@ -1242,7 +1242,7 @@ define internal noundef i32 @huc_delayed_load_timer_callback(ptr noundef %0) #0 
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8
   br label %36
 
@@ -1260,7 +1260,7 @@ define internal noundef i32 @huc_delayed_load_timer_callback(ptr noundef %0) #0 
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %46 = load ptr, ptr %45, align 8
   br label %47
 

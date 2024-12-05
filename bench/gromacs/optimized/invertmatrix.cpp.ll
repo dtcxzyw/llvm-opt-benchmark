@@ -29,23 +29,23 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 define void @_ZN3gmx12invertMatrixEPA3_KfPA3_f(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %4 = load float, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load float, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load float, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load float, ptr %13, align 4
   %15 = fneg float %14
   %16 = fmul float %12, %15
   %17 = tail call float @llvm.fmuladd.f32(float %7, float %10, float %16)
   %18 = load float, ptr %5, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load float, ptr %21, align 4
   %23 = fneg float %22
   %24 = fmul float %12, %23
@@ -91,7 +91,7 @@ define void @_ZN3gmx12invertMatrixEPA3_KfPA3_f(ptr nocapture noundef readonly %0
   %50 = fmul float %47, %49
   %51 = tail call float @llvm.fmuladd.f32(float %45, float %46, float %50)
   %52 = fmul float %51, %44
-  %53 = getelementptr inbounds i8, ptr %1, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %52, ptr %53, align 4
   %54 = load float, ptr %19, align 4
   %55 = load float, ptr %13, align 4
@@ -101,7 +101,7 @@ define void @_ZN3gmx12invertMatrixEPA3_KfPA3_f(ptr nocapture noundef readonly %0
   %59 = fmul float %56, %58
   %60 = tail call float @llvm.fmuladd.f32(float %54, float %55, float %59)
   %61 = fmul float %33, %60
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store float %61, ptr %62, align 4
   %63 = load float, ptr %5, align 4
   %64 = load float, ptr %9, align 4
@@ -111,7 +111,7 @@ define void @_ZN3gmx12invertMatrixEPA3_KfPA3_f(ptr nocapture noundef readonly %0
   %68 = fmul float %65, %67
   %69 = tail call float @llvm.fmuladd.f32(float %63, float %64, float %68)
   %70 = fmul float %69, %44
-  %71 = getelementptr inbounds i8, ptr %1, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float %70, ptr %71, align 4
   %72 = load float, ptr %0, align 4
   %73 = load float, ptr %9, align 4
@@ -121,7 +121,7 @@ define void @_ZN3gmx12invertMatrixEPA3_KfPA3_f(ptr nocapture noundef readonly %0
   %77 = fmul float %74, %76
   %78 = tail call float @llvm.fmuladd.f32(float %72, float %73, float %77)
   %79 = fmul float %33, %78
-  %80 = getelementptr inbounds i8, ptr %1, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store float %79, ptr %80, align 4
   %81 = load float, ptr %0, align 4
   %82 = load float, ptr %13, align 4
@@ -131,7 +131,7 @@ define void @_ZN3gmx12invertMatrixEPA3_KfPA3_f(ptr nocapture noundef readonly %0
   %86 = fmul float %83, %85
   %87 = tail call float @llvm.fmuladd.f32(float %81, float %82, float %86)
   %88 = fmul float %87, %44
-  %89 = getelementptr inbounds i8, ptr %1, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store float %88, ptr %89, align 4
   %90 = load float, ptr %5, align 4
   %91 = load float, ptr %11, align 4
@@ -141,7 +141,7 @@ define void @_ZN3gmx12invertMatrixEPA3_KfPA3_f(ptr nocapture noundef readonly %0
   %95 = fmul float %92, %94
   %96 = tail call float @llvm.fmuladd.f32(float %90, float %91, float %95)
   %97 = fmul float %33, %96
-  %98 = getelementptr inbounds i8, ptr %1, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store float %97, ptr %98, align 4
   %99 = load float, ptr %0, align 4
   %100 = load float, ptr %11, align 4
@@ -151,7 +151,7 @@ define void @_ZN3gmx12invertMatrixEPA3_KfPA3_f(ptr nocapture noundef readonly %0
   %104 = fmul float %101, %103
   %105 = tail call float @llvm.fmuladd.f32(float %99, float %100, float %104)
   %106 = fmul float %105, %44
-  %107 = getelementptr inbounds i8, ptr %1, i64 28
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store float %106, ptr %107, align 4
   %108 = load float, ptr %0, align 4
   %109 = load float, ptr %6, align 4
@@ -161,7 +161,7 @@ define void @_ZN3gmx12invertMatrixEPA3_KfPA3_f(ptr nocapture noundef readonly %0
   %113 = fmul float %110, %112
   %114 = tail call float @llvm.fmuladd.f32(float %108, float %109, float %113)
   %115 = fmul float %33, %114
-  %116 = getelementptr inbounds i8, ptr %1, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store float %115, ptr %116, align 4
   ret void
 }
@@ -181,7 +181,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #9
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -189,7 +189,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #9
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -240,7 +240,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4

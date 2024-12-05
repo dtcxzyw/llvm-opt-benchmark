@@ -58,7 +58,7 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %15 = call i32 @wtap_read_bytes(ptr noundef %13, ptr noundef nonnull %14, i32 noundef 48, ptr noundef %1, ptr noundef %2) #6
   %.not34 = icmp eq i32 %15, 0
   br i1 %.not34, label %16, label %18
@@ -70,25 +70,25 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
   br label %76
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %4, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %20 = load i32, ptr %19, align 4
   %21 = icmp ne i32 %20, 0
-  %22 = getelementptr inbounds i8, ptr %4, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %23 = load i32, ptr %22, align 4
   %24 = icmp ne i32 %23, 0
   %or.cond = select i1 %21, i1 true, i1 %24
-  %25 = getelementptr inbounds i8, ptr %4, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %26 = load i32, ptr %25, align 4
   %27 = icmp ne i32 %26, 0
   %or.cond9 = select i1 %or.cond, i1 true, i1 %27
   br i1 %or.cond9, label %76, label %28
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %4, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load i32, ptr %29, align 4
   %31 = call i32 @llvm.bswap.i32(i32 %30)
   store i32 %31, ptr %29, align 4
-  %32 = getelementptr inbounds i8, ptr %4, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = call i32 @llvm.bswap.i32(i32 %33)
   store i32 %34, ptr %32, align 4
@@ -115,37 +115,37 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
   %39 = load i32, ptr %14, align 4
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   store i32 %40, ptr %14, align 4
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = load i32, ptr %41, align 4
   %43 = call i32 @llvm.bswap.i32(i32 %42)
   store i32 %43, ptr %41, align 4
-  %44 = getelementptr inbounds i8, ptr %4, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %45 = load i32, ptr %44, align 4
   %46 = call i32 @llvm.bswap.i32(i32 %45)
   store i32 %46, ptr %44, align 4
-  %47 = getelementptr inbounds i8, ptr %4, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %48 = load i32, ptr %47, align 4
   %49 = call i32 @llvm.bswap.i32(i32 %48)
   store i32 %49, ptr %47, align 4
-  %50 = getelementptr inbounds i8, ptr %4, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %51 = load i32, ptr %50, align 4
   %52 = call i32 @llvm.bswap.i32(i32 %51)
   store i32 %52, ptr %50, align 4
-  %53 = getelementptr inbounds i8, ptr %4, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %54 = load i32, ptr %53, align 4
   %55 = call i32 @llvm.bswap.i32(i32 %54)
   store i32 %55, ptr %53, align 4
-  %56 = getelementptr inbounds i8, ptr %4, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %57 = load i32, ptr %56, align 4
   %58 = call i32 @llvm.bswap.i32(i32 %57)
   store i32 %58, ptr %56, align 4
   %59 = add i32 %46, -2082844800
   %60 = zext i32 %59 to i64
   %61 = call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #7
-  %62 = getelementptr inbounds i8, ptr %0, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %61, ptr %62, align 8
   store i64 %60, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 144
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %.032, ptr %63, align 8
   %64 = load i8, ptr %4, align 4
   %switch.tableidx = add i8 %64, -5
@@ -158,24 +158,24 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
 
 switch.lookup:                                    ; preds = %38
   %67 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.peekclassic_open, i64 0, i64 %67
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.peekclassic_open, i64 0, i64 %67
   %switch.load = load ptr, ptr %switch.gep, align 8
   %68 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep38 = getelementptr inbounds [3 x ptr], ptr @switch.table.peekclassic_open.2, i64 0, i64 %68
+  %switch.gep38 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.peekclassic_open.2, i64 0, i64 %68
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
   %69 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep40 = getelementptr inbounds [3 x ptr], ptr @switch.table.peekclassic_open.3, i64 0, i64 %69
+  %switch.gep40 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.peekclassic_open.3, i64 0, i64 %69
   %switch.load41 = load ptr, ptr %switch.gep40, align 8
   %70 = load i32, ptr %switch.load, align 4
-  %71 = getelementptr inbounds i8, ptr %0, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %70, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %0, i64 112
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %switch.load39, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 120
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %switch.load41, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 148
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %75, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #6
   br label %76
@@ -204,7 +204,7 @@ define internal range(i32 0, 2) i32 @peekclassic_read_v56(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @peekclassic_seek_read_v56(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #6
   %10 = icmp eq i64 %9, -1
@@ -241,7 +241,7 @@ define internal range(i32 0, 2) i32 @peekclassic_read_v7(ptr nocapture noundef r
   br i1 %11, label %26, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %14 = load i32, ptr %13, align 8
   %15 = icmp ugt i32 %10, %14
   br i1 %15, label %16, label %20
@@ -274,7 +274,7 @@ define internal range(i32 0, 2) i32 @peekclassic_read_v7(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @peekclassic_seek_read_v7(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #6
   %10 = icmp eq i64 %9, -1
@@ -333,61 +333,61 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   br i1 %.not, label %151, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %.val = load i8, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %7, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %.val97 = load i8, ptr %12, align 1
   %13 = zext i8 %.val to i16
   %14 = shl nuw i16 %13, 8
   %15 = zext i8 %.val97 to i16
   %16 = or disjoint i16 %14, %15
-  %17 = getelementptr inbounds i8, ptr %7, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.val98 = load i8, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 5
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %.val99 = load i8, ptr %18, align 1
   %19 = zext i8 %.val98 to i16
   %20 = shl nuw i16 %19, 8
   %21 = zext i8 %.val99 to i16
   %22 = or disjoint i16 %20, %21
-  %23 = getelementptr inbounds i8, ptr %7, i64 6
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %24 = load i8, ptr %23, align 2
-  %25 = getelementptr inbounds i8, ptr %7, i64 7
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 7
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %28 = load i8, ptr %27, align 8
   %29 = zext i8 %28 to i64
   %30 = shl nuw i64 %29, 56
-  %31 = getelementptr inbounds i8, ptr %7, i64 9
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
   %34 = shl nuw nsw i64 %33, 48
   %35 = or disjoint i64 %34, %30
-  %36 = getelementptr inbounds i8, ptr %7, i64 10
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %37 = load i8, ptr %36, align 2
   %38 = zext i8 %37 to i64
   %39 = shl nuw nsw i64 %38, 40
   %40 = or disjoint i64 %35, %39
-  %41 = getelementptr inbounds i8, ptr %7, i64 11
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 11
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
   %44 = shl nuw nsw i64 %43, 32
   %45 = or disjoint i64 %40, %44
-  %46 = getelementptr inbounds i8, ptr %7, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %47 = load i8, ptr %46, align 4
   %48 = zext i8 %47 to i64
   %49 = shl nuw nsw i64 %48, 24
   %50 = or disjoint i64 %45, %49
-  %51 = getelementptr inbounds i8, ptr %7, i64 13
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 13
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64
   %54 = shl nuw nsw i64 %53, 16
   %55 = or disjoint i64 %50, %54
-  %56 = getelementptr inbounds i8, ptr %7, i64 14
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 14
   %57 = load i8, ptr %56, align 2
   %58 = zext i8 %57 to i64
   %59 = shl nuw nsw i64 %58, 8
   %60 = or i64 %55, %59
-  %61 = getelementptr inbounds i8, ptr %7, i64 15
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 15
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i64
   %64 = or i64 %60, %63
@@ -395,23 +395,23 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   %spec.select = select i1 %65, i16 %16, i16 %22
   store i32 0, ptr %2, align 8
   %66 = call ptr @wtap_block_create(i32 noundef 5) #6
-  %67 = getelementptr inbounds i8, ptr %2, i64 232
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %2, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 3, ptr %68, align 4
   %69 = udiv i64 %64, 1000000
   %.neg = mul i64 %69, 4293967296
   %70 = add i64 %.neg, %64
   %71 = trunc i64 %70 to i32
   %72 = add nsw i64 %69, -2082844800
-  %73 = getelementptr inbounds i8, ptr %2, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %72, ptr %73, align 8
   %74 = mul i32 %71, 1000
-  %75 = getelementptr inbounds i8, ptr %2, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %74, ptr %75, align 8
   %76 = zext i16 %16 to i32
-  %77 = getelementptr inbounds i8, ptr %2, i64 64
-  %78 = getelementptr inbounds i8, ptr %2, i64 68
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %76, ptr %78, align 4
   %79 = zext i16 %spec.select to i32
   store i32 %79, ptr %77, align 8
@@ -422,7 +422,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   %83 = and i32 %82, 100663296
   %.2 = or disjoint i32 %.0, %83
   %84 = call i32 @wtap_block_add_uint32_option(ptr noundef %66, i32 noundef 2, i32 noundef %.2) #6
-  %85 = getelementptr inbounds i8, ptr %0, i64 144
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %86 = load i32, ptr %85, align 8
   switch i32 %86, label %146 [
     i32 22, label %87
@@ -430,8 +430,8 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   ]
 
 87:                                               ; preds = %10
-  %88 = getelementptr inbounds i8, ptr %2, i64 80
-  %89 = getelementptr inbounds i8, ptr %2, i64 88
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %88, i8 0, i64 72, i1 false)
   %90 = load i32, ptr %78, align 4
   %91 = icmp ult i32 %90, 4
@@ -459,22 +459,22 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   br i1 %.not95, label %151, label %102
 
 102:                                              ; preds = %97
-  %103 = getelementptr inbounds i8, ptr %2, i64 108
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %104 = load i16, ptr %103, align 4
   %105 = load i8, ptr %8, align 1
   %106 = zext i8 %105 to i16
-  %107 = getelementptr inbounds i8, ptr %2, i64 116
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 116
   store i16 %106, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %8, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i16
-  %111 = getelementptr inbounds i8, ptr %2, i64 110
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 110
   store i16 %110, ptr %111, align 2
   %112 = or i16 %104, 13
   store i16 %112, ptr %103, align 4
-  %113 = getelementptr inbounds i8, ptr %8, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %114 = load i8, ptr %113, align 1
-  %115 = getelementptr inbounds i8, ptr %2, i64 118
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 118
   store i8 %114, ptr %115, align 2
   switch i8 %105, label %129 [
     i8 2, label %116
@@ -495,7 +495,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
 
 116:                                              ; preds = %102, %102, %102, %102, %102, %102
   store i32 4, ptr %89, align 8
-  %117 = getelementptr inbounds i8, ptr %2, i64 92
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %118 = load i8, ptr %117, align 4
   %119 = and i8 %118, -2
   store i8 %119, ptr %117, align 4
@@ -503,7 +503,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
 
 120:                                              ; preds = %102, %102, %102, %102, %102, %102, %102, %102
   %121 = icmp ult i8 %109, 15
-  %122 = getelementptr inbounds i8, ptr %2, i64 92
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 92
   br i1 %121, label %123, label %126
 
 123:                                              ; preds = %120
@@ -548,7 +548,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   %142 = and i8 %141, 4
   %143 = xor i8 %142, 4
   %144 = zext nneg i8 %143 to i32
-  %145 = getelementptr inbounds i8, ptr %2, i64 80
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %144, ptr %145, align 8
   br label %146
 
@@ -586,7 +586,7 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @peekclassic_read_packet_v56(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [26 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 26, ptr noundef %4, ptr noundef %5) #6
   %.not = icmp eq i32 %10, 0
@@ -594,37 +594,37 @@ define internal fastcc i32 @peekclassic_read_packet_v56(ptr nocapture noundef re
 
 11:                                               ; preds = %6
   %.val39 = load i8, ptr %7, align 16
-  %12 = getelementptr inbounds i8, ptr %7, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %.val40 = load i8, ptr %12, align 1
   %13 = zext i8 %.val39 to i16
   %14 = shl nuw i16 %13, 8
   %15 = zext i8 %.val40 to i16
   %16 = or disjoint i16 %14, %15
-  %17 = getelementptr inbounds i8, ptr %7, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %.val = load i8, ptr %17, align 2
-  %18 = getelementptr inbounds i8, ptr %7, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %.val38 = load i8, ptr %18, align 1
   %19 = zext i8 %.val to i16
   %20 = shl nuw i16 %19, 8
   %21 = zext i8 %.val38 to i16
   %22 = or disjoint i16 %20, %21
-  %23 = getelementptr inbounds i8, ptr %7, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %24 = load i8, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %7, i64 6
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %26 = load i8, ptr %25, align 2
   %27 = zext i8 %26 to i32
   %28 = shl nuw i32 %27, 24
-  %29 = getelementptr inbounds i8, ptr %7, i64 7
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 7
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = shl nuw nsw i32 %31, 16
   %33 = or disjoint i32 %32, %28
-  %34 = getelementptr inbounds i8, ptr %7, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load i8, ptr %34, align 8
   %36 = zext i8 %35 to i32
   %37 = shl nuw nsw i32 %36, 8
   %38 = or disjoint i32 %33, %37
-  %39 = getelementptr inbounds i8, ptr %7, i64 9
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = or disjoint i32 %38, %41
@@ -632,23 +632,23 @@ define internal fastcc i32 @peekclassic_read_packet_v56(ptr nocapture noundef re
   %spec.select = select i1 %43, i16 %16, i16 %22
   store i32 0, ptr %2, align 8
   %44 = call ptr @wtap_block_create(i32 noundef 5) #6
-  %45 = getelementptr inbounds i8, ptr %2, i64 232
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 3, ptr %46, align 4
   %47 = load i64, ptr %9, align 8
   %48 = udiv i32 %42, 1000
   %49 = zext nneg i32 %48 to i64
   %50 = add i64 %47, %49
-  %51 = getelementptr inbounds i8, ptr %2, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %50, ptr %51, align 8
   %52 = urem i32 %42, 1000
   %53 = mul nuw nsw i32 %52, 1000000
-  %54 = getelementptr inbounds i8, ptr %2, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %53, ptr %54, align 8
   %55 = zext i16 %16 to i32
-  %56 = getelementptr inbounds i8, ptr %2, i64 64
-  %57 = getelementptr inbounds i8, ptr %2, i64 68
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %55, ptr %57, align 4
   %58 = zext i16 %spec.select to i32
   store i32 %58, ptr %56, align 8
@@ -659,13 +659,13 @@ define internal fastcc i32 @peekclassic_read_packet_v56(ptr nocapture noundef re
   %62 = and i32 %61, 100663296
   %.2 = or disjoint i32 %.0, %62
   %63 = call i32 @wtap_block_add_uint32_option(ptr noundef %44, i32 noundef 2, i32 noundef %.2) #6
-  %64 = getelementptr inbounds i8, ptr %0, i64 144
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %65 = load i32, ptr %64, align 8
   %cond = icmp eq i32 %65, 1
   br i1 %cond, label %66, label %68
 
 66:                                               ; preds = %11
-  %67 = getelementptr inbounds i8, ptr %2, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 0, ptr %67, align 8
   br label %68
 

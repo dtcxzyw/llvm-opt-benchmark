@@ -113,30 +113,30 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 define hidden i32 @jvmLauncherStartJvm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   tail call void (ptr, ...) @jvmLauncherLog(ptr noundef nonnull @.str.7, ptr noundef %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
 .preheader.i:                                     ; preds = %13, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph16.i, label %._crit_edge
 
 .lr.ph16.i:                                       ; preds = %.preheader.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %21
 
 13:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   %17 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (ptr, ...) @jvmLauncherLog(ptr noundef nonnull @.str.8, i32 noundef %17, ptr noundef %16)
@@ -149,10 +149,10 @@ define hidden i32 @jvmLauncherStartJvm(ptr nocapture noundef readonly %0, ptr no
 21:                                               ; preds = %21, %.lr.ph16.i
   %indvars.iv18.i = phi i64 [ 0, %.lr.ph16.i ], [ %indvars.iv.next19.i, %21 ]
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv18.i
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv18.i
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %12, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv18.i
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv18.i
   %27 = load ptr, ptr %26, align 8
   %28 = trunc nuw nsw i64 %indvars.iv18.i to i32
   tail call void (ptr, ...) @jvmLauncherLog(ptr noundef nonnull @.str.9, i32 noundef %28, ptr noundef %24, ptr noundef %27)
@@ -167,17 +167,17 @@ dumpJvmlLauncherData.exit:                        ; preds = %21
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %dumpJvmlLauncherData.exit
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %35
 
 35:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %34, align 8
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @setenv(ptr noundef %38, ptr noundef %41, i32 noundef 1) #10
   %.not = icmp eq i32 %42, 0
@@ -197,7 +197,7 @@ dumpJvmlLauncherData.exit:                        ; preds = %21
 
 ._crit_edge:                                      ; preds = %45, %.preheader.i, %dumpJvmlLauncherData.exit
   %49 = load i32, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 %1(i32 noundef %49, ptr noundef %51, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i32 noundef 0) #10
   ret i32 %52

@@ -15,11 +15,11 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZN22CodeCacheUnloadingTaskC2Ejb(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 1), (4, 16)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   store i8 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile ptr null, ptr %7, align 8
   %8 = load ptr, ptr @_ZN9CodeCache14_nmethod_heapsE, align 8
   %9 = icmp eq ptr %8, null
@@ -31,21 +31,21 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   br i1 %11, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = zext i32 %10 to i64
   br label %14
 
 14:                                               ; preds = %.lr.ph, %.backedge.i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.backedge.i ]
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef ptr @_ZN9CodeCache10first_blobEP8CodeHeap(ptr noundef %17) #3
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.backedge.i, label %20
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %18, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 52
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit, label %24
@@ -57,7 +57,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 
 .lr.ph.i.i:                                       ; preds = %24, %29
   %.sroa.0.2 = phi ptr [ %30, %29 ], [ %25, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.2, i64 52
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 52
   %27 = load i8, ptr %26, align 4
   %28 = icmp eq i8 %27, 1
   br i1 %28, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit, label %29
@@ -98,7 +98,7 @@ declare void @_ZN9CodeCache26verify_clean_inline_cachesEv() local_unnamed_addr #
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22CodeCacheUnloadingTask14claim_nmethodsEPP7nmethodPi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit:
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit
@@ -114,13 +114,13 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   br i1 %.not.i, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i7.i = icmp ule ptr %14, %5
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp ult ptr %5, %16
   %18 = select i1 %.not.i7.i, i1 %17, i1 false
@@ -129,12 +129,12 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.next.i
+  %19 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.next.i
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not.i.i = icmp ule ptr %22, %5
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp ult ptr %5, %24
   %26 = select i1 %.not.i.i, i1 %25, i1 false
@@ -155,7 +155,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %.sroa.0.066 = phi ptr [ %.sroa.0.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %5, %.preheader.i ]
   %.sroa.5.065 = phi i32 [ %.sroa.5.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ 0, %.preheader.i ]
   %.sroa.9.064 = phi i32 [ %.sroa.9.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %9, %.preheader.i ]
-  %28 = getelementptr inbounds i8, ptr %6, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader33, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit
@@ -184,7 +184,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   br i1 %37, label %.backedge.i, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %36, i64 52
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 52
   %40 = load i8, ptr %39, align 4
   %41 = icmp eq i8 %40, 1
   br i1 %41, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit, label %42
@@ -197,7 +197,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 
 .lr.ph.i.i:                                       ; preds = %42, %48
   %.sroa.015.3 = phi ptr [ %49, %48 ], [ %44, %42 ]
-  %45 = getelementptr inbounds i8, ptr %.sroa.015.3, i64 52
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.015.3, i64 52
   %46 = load i8, ptr %45, align 4
   %47 = icmp eq i8 %46, 1
   br i1 %47, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit, label %48
@@ -216,7 +216,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit: ; preds = %38, %.lr.ph.i.i
   %.sroa.015.6 = phi ptr [ %.sroa.015.3, %.lr.ph.i.i ], [ %36, %38 ]
   %.sroa.13.14354 = trunc i64 %indvars.iv to i32
-  %52 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv56
+  %52 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv56
   store ptr %.sroa.015.6, ptr %52, align 8
   %53 = load i32, ptr %2, align 4
   %54 = add nsw i32 %53, 1
@@ -243,7 +243,7 @@ define hidden void @_ZN22CodeCacheUnloadingTask4workEj(ptr noundef nonnull align
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
@@ -278,7 +278,7 @@ define hidden void @_ZN22CodeCacheUnloadingTask4workEj(ptr noundef nonnull align
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = load i8, ptr %0, align 8
   %22 = trunc i8 %21 to i1
@@ -296,7 +296,7 @@ declare void @_ZN7nmethod12do_unloadingEb(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17KlassCleaningTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   store volatile i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN39ClassLoaderDataGraphKlassIteratorAtomicC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
   ret void
 }
@@ -321,7 +321,7 @@ define hidden noundef zeroext i1 @_ZN17KlassCleaningTask27claim_clean_klass_tree
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN17KlassCleaningTask16claim_next_klassEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
 3:                                                ; preds = %5, %1
@@ -330,7 +330,7 @@ define hidden noundef ptr @_ZN17KlassCleaningTask16claim_next_klassEv(ptr nounde
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 5
   br i1 %8, label %.critedge, label %3, !llvm.loop !16
@@ -345,15 +345,15 @@ declare noundef ptr @_ZN39ClassLoaderDataGraphKlassIteratorAtomic10next_klassEv(
 define hidden void @_ZN17KlassCleaningTask4workEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 800
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = load volatile i32, ptr %0, align 8
   %.not.i = icmp eq i32 %14, 0
@@ -369,7 +369,7 @@ _ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit: ; preds = %1
   br label %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread
 
 _ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread: ; preds = %1, %17, %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %19
 
 19:                                               ; preds = %.backedge, %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread
@@ -378,7 +378,7 @@ _ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread: ; preds = %1,
   br i1 %.not.i2, label %25, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %20, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp slt i32 %23, 5
   br i1 %24, label %_ZN17KlassCleaningTask16claim_next_klassEv.exit, label %.backedge

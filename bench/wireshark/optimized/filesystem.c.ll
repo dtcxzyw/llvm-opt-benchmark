@@ -145,7 +145,7 @@ define i32 @test_for_directory(ptr nocapture noundef readonly %0) local_unnamed_
   br label %13
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 61440
   %12 = icmp eq i32 %11, 16384
@@ -176,7 +176,7 @@ define i32 @test_for_fifo(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br label %13
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 61440
   %12 = icmp eq i32 %11, 4096
@@ -200,7 +200,7 @@ define zeroext i1 @test_for_regular_file(ptr noundef readonly %0) local_unnamed_
   br i1 %.not4, label %5, label %10
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
   %9 = icmp eq i32 %8, 32768
@@ -271,7 +271,7 @@ define hidden noalias ptr @configuration_init_posix(ptr noundef %0) local_unname
   br i1 %14, label %get_current_executable_path.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %3, i64 130
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 130
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %16, ptr noundef nonnull dereferenceable(2) @.str.46, i64 2)
   %17 = icmp eq i32 %bcmp.i, 0
   br i1 %17, label %get_current_executable_path.exit, label %18
@@ -921,7 +921,7 @@ define noundef zeroext i1 @has_global_profiles() local_unnamed_addr #7 {
   br i1 %6, label %test_for_directory.exit, label %7
 
 7:                                                ; preds = %0
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 61440
   %11 = icmp eq i32 %10, 16384
@@ -946,7 +946,7 @@ test_for_directory.exit.thread:                   ; preds = %7, %test_for_direct
   br i1 %.not1128.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %18
 
 18:                                               ; preds = %.lr.ph, %test_for_directory.exit14.thread20
@@ -1109,7 +1109,7 @@ define internal fastcc ptr @get_persconffile_dir_no_profile() unnamed_addr #7 {
   br i1 %.not22, label %25, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %21, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -1355,7 +1355,7 @@ define zeroext i1 @profile_exists(ptr noundef %0, i1 noundef zeroext %1) local_u
   br label %test_for_directory.exit
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 61440
   %17 = icmp eq i32 %16, 16384
@@ -1426,7 +1426,7 @@ file_exists.exit.thread.i:                        ; preds = %18, %.lr.ph.i
 
 25:                                               ; preds = %22, %file_exists.exit.thread.i
   tail call void @g_free(ptr noundef %15) #20
-  %26 = getelementptr inbounds i8, ptr %.01623.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %reset_default_profile.exit, label %.lr.ph.i, !llvm.loop !7
@@ -1444,7 +1444,7 @@ reset_default_profile.exit:                       ; preds = %25, %8, %24
   br i1 %31, label %test_for_directory.exit, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %4, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 61440
   %36 = icmp eq i32 %35, 16384
@@ -1469,7 +1469,7 @@ test_for_directory.exit.thread:                   ; preds = %32, %test_for_direc
   br i1 %.not1834.i, label %.thread31.i, label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %.preheader.i
-  %42 = getelementptr inbounds i8, ptr %3, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %43
 
 .thread31.i:                                      ; preds = %.thread.i, %.preheader.i
@@ -1599,7 +1599,7 @@ define range(i32 -1, 1) i32 @copy_persconffile_profile(ptr noundef %0, ptr nound
   br i1 %.not1828.i, label %copy_directory.exit.thread41, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %20 = getelementptr inbounds i8, ptr %8, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %21
 
 21:                                               ; preds = %test_for_directory.exit.thread.i, %.lr.ph.i
@@ -1646,7 +1646,7 @@ test_for_directory.exit.thread.i:                 ; preds = %34, %test_for_direc
   br i1 %.not2751, label %copy_directory.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %7, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %39
 
 39:                                               ; preds = %.lr.ph, %51
@@ -1825,7 +1825,7 @@ sub_0:                                            ; preds = %2
   br i1 %.not3, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %.tail.thread
@@ -2106,9 +2106,9 @@ define zeroext i1 @files_identical(ptr nocapture noundef readonly %0, ptr nocapt
   %11 = load i64, ptr %3, align 8
   %12 = load i64, ptr %4, align 8
   %13 = icmp eq i64 %11, %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %15, %17
   %19 = select i1 %13, i1 %18, i1 false
@@ -2139,17 +2139,17 @@ define zeroext i1 @file_needs_reopen(i32 noundef %0, ptr nocapture noundef reado
   br i1 %.not3, label %11, label %22
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
   %.not4 = icmp eq i64 %13, %15
   br i1 %.not4, label %16, label %22
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %3, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %20 = load i64, ptr %19, align 8
   %21 = icmp sgt i64 %18, %20
   br label %22

@@ -101,7 +101,7 @@ define internal i32 @mtrr_open(ptr nocapture readnone %0, ptr noundef %1) #4 ali
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
@@ -163,8 +163,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_write(ptr nocapture
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
-  %28 = call i64 @simple_strtoul(ptr noundef %27, ptr noundef nonnull %5, i32 noundef 0) #12
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %28 = call i64 @simple_strtoul(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 0) #12
   %29 = trunc i64 %28 to i32
   %30 = call i32 @mtrr_del_page(i32 noundef %29, i64 noundef 0, i64 noundef 0) #12
   %31 = icmp slt i32 %30, 0
@@ -178,8 +178,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_write(ptr nocapture
   br i1 %36, label %37, label %71
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %6, i64 5
-  %39 = call i64 @simple_strtoull(ptr noundef %38, ptr noundef nonnull %5, i32 noundef 0) #12
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  %39 = call i64 @simple_strtoull(ptr noundef nonnull %38, ptr noundef nonnull %5, i32 noundef 0) #12
   %40 = load ptr, ptr %5, align 8
   %41 = call ptr @skip_spaces(ptr noundef %40) #12
   store ptr %41, ptr %5, align 8
@@ -238,9 +238,9 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @mtrr_close(ptr noundef %0, ptr noundef %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %29, label %8
@@ -281,7 +281,7 @@ define internal i32 @mtrr_close(ptr noundef %0, ptr noundef %1) #4 align 16 {
 .loopexit3:                                       ; preds = %.loopexit, %8
   tail call void @kfree(ptr noundef nonnull %6) #12
   %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
   store ptr null, ptr %28, align 8
   br label %29
 
@@ -352,25 +352,25 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
   %23 = zext i32 %20 to i64
   store i64 %23, ptr %7, align 8
   %24 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %25 = getelementptr inbounds i8, ptr %9, i64 4
-  %26 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %25, i64 4, i64 %24) #12, !srcloc !12
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %26 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %25, i64 4, i64 %24) #12, !srcloc !12
   %27 = extractvalue { ptr, i32, i64 } %26, 0
   %28 = extractvalue { ptr, i32, i64 } %26, 1
   %29 = extractvalue { ptr, i32, i64 } %26, 2
   %30 = ptrtoint ptr %27 to i64
   tail call void @llvm.write_register.i64(metadata !0, i64 %29)
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %28, ptr %31, align 8
   %32 = or i64 %30, %22
   %33 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %34 = getelementptr inbounds i8, ptr %9, i64 8
-  %35 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %34, i64 4, i64 %33) #12, !srcloc !13
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %35 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %34, i64 4, i64 %33) #12, !srcloc !13
   %36 = extractvalue { ptr, i32, i64 } %35, 0
   %37 = extractvalue { ptr, i32, i64 } %35, 1
   %38 = extractvalue { ptr, i32, i64 } %35, 2
   %39 = ptrtoint ptr %36 to i64
   tail call void @llvm.write_register.i64(metadata !0, i64 %38)
-  %40 = getelementptr inbounds i8, ptr %7, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %37, ptr %40, align 4
   %41 = or i64 %32, %39
   %42 = and i64 %41, 4294967295
@@ -387,11 +387,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
   %51 = extractvalue { ptr, i32, i64 } %48, 2
   %52 = ptrtoint ptr %49 to i64
   tail call void @llvm.write_register.i64(metadata !0, i64 %51)
-  %53 = getelementptr inbounds i8, ptr %8, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %50, ptr %53, align 4
   %54 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %55 = getelementptr inbounds i8, ptr %9, i64 4
-  %56 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %55, i64 4, i64 %54) #12, !srcloc !15
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %56 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %55, i64 4, i64 %54) #12, !srcloc !15
   %57 = extractvalue { ptr, i32, i64 } %56, 0
   %58 = extractvalue { ptr, i32, i64 } %56, 1
   %59 = extractvalue { ptr, i32, i64 } %56, 2
@@ -401,25 +401,25 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
   store i64 %61, ptr %8, align 8
   %62 = or i64 %60, %52
   %63 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %64 = getelementptr inbounds i8, ptr %9, i64 8
-  %65 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %64, i64 4, i64 %63) #12, !srcloc !16
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %65 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %64, i64 4, i64 %63) #12, !srcloc !16
   %66 = extractvalue { ptr, i32, i64 } %65, 0
   %67 = extractvalue { ptr, i32, i64 } %65, 1
   %68 = extractvalue { ptr, i32, i64 } %65, 2
   %69 = ptrtoint ptr %66 to i64
   tail call void @llvm.write_register.i64(metadata !0, i64 %68)
-  %70 = getelementptr inbounds i8, ptr %8, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %67, ptr %70, align 8
   %71 = or i64 %62, %69
   %72 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %73 = getelementptr inbounds i8, ptr %9, i64 12
-  %74 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %73, i64 4, i64 %72) #12, !srcloc !17
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %74 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %73, i64 4, i64 %72) #12, !srcloc !17
   %75 = extractvalue { ptr, i32, i64 } %74, 0
   %76 = extractvalue { ptr, i32, i64 } %74, 1
   %77 = extractvalue { ptr, i32, i64 } %74, 2
   %78 = ptrtoint ptr %75 to i64
   tail call void @llvm.write_register.i64(metadata !0, i64 %77)
-  %79 = getelementptr inbounds i8, ptr %8, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %76, ptr %79, align 8
   %80 = or i64 %71, %78
   %81 = and i64 %80, 4294967295
@@ -454,14 +454,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
 
 86:                                               ; preds = %85, %85
   %87 = load i64, ptr %7, align 8
-  %88 = getelementptr inbounds i8, ptr %7, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %89 = load i32, ptr %88, align 8
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds i8, ptr %7, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %0, i64 200
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 112
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 112
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %109
@@ -480,7 +480,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
 
 106:                                              ; preds = %101
   %107 = load ptr, ptr %93, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 112
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 112
   store ptr %104, ptr %108, align 8
   br label %109
 
@@ -508,22 +508,22 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
 
 124:                                              ; preds = %85, %85
   %125 = load i64, ptr %7, align 8
-  %126 = getelementptr inbounds i8, ptr %7, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %127 = load i32, ptr %126, align 8
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds i8, ptr %7, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %130 = load i32, ptr %129, align 4
   %131 = call i32 @mtrr_add(i64 noundef %125, i64 noundef %128, i32 noundef %130, i1 noundef zeroext false) #12
   br label %278
 
 132:                                              ; preds = %85, %85
   %133 = load i64, ptr %7, align 8
-  %134 = getelementptr inbounds i8, ptr %7, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %135 = load i32, ptr %134, align 8
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds i8, ptr %0, i64 200
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 112
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 112
   %140 = load ptr, ptr %139, align 8
   %141 = or i64 %133, %136
   %142 = and i64 %141, 4095
@@ -553,14 +553,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
 
 158:                                              ; preds = %85, %85
   %159 = load i64, ptr %7, align 8
-  %160 = getelementptr inbounds i8, ptr %7, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %161 = load i32, ptr %160, align 8
   %162 = zext i32 %161 to i64
   %163 = call i32 @mtrr_del(i32 noundef -1, i64 noundef %159, i64 noundef %162) #12
   br label %278
 
 164:                                              ; preds = %85, %85
-  %165 = getelementptr inbounds i8, ptr %8, i64 12
+  %165 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %166 = load i32, ptr %165, align 4
   %167 = load i32, ptr @num_var_ranges, align 4
   %168 = icmp ult i32 %166, %167
@@ -568,7 +568,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
 
 169:                                              ; preds = %164
   %170 = load ptr, ptr @mtrr_if, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8
   call void %172(i32 noundef %166, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4) #12
   %173 = load i64, ptr %5, align 8
@@ -581,9 +581,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
   br i1 %179, label %180, label %183
 
 180:                                              ; preds = %169
-  %181 = getelementptr inbounds i8, ptr %8, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %8, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %182, align 8
   store i64 0, ptr %8, align 8
   br label %.thread25
@@ -593,24 +593,24 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
   store i64 %184, ptr %8, align 8
   %185 = trunc nuw nsw i64 %174 to i32
   %186 = shl nuw i32 %185, 12
-  %187 = getelementptr inbounds i8, ptr %8, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %186, ptr %187, align 8
   %188 = load i8, ptr %4, align 1
   %189 = zext i8 %188 to i32
-  %190 = getelementptr inbounds i8, ptr %8, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %189, ptr %190, align 8
   br label %.thread25
 
 191:                                              ; preds = %85, %85
   %192 = load i64, ptr %7, align 8
-  %193 = getelementptr inbounds i8, ptr %7, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %194 = load i32, ptr %193, align 8
   %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds i8, ptr %7, i64 12
+  %196 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %197 = load i32, ptr %196, align 4
-  %198 = getelementptr inbounds i8, ptr %0, i64 200
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 112
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 112
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
   br i1 %202, label %203, label %214
@@ -629,7 +629,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
 
 211:                                              ; preds = %206
   %212 = load ptr, ptr %198, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 112
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 112
   store ptr %209, ptr %213, align 8
   br label %214
 
@@ -649,22 +649,22 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
 
 223:                                              ; preds = %85, %85
   %224 = load i64, ptr %7, align 8
-  %225 = getelementptr inbounds i8, ptr %7, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %226 = load i32, ptr %225, align 8
   %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds i8, ptr %7, i64 12
+  %228 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %229 = load i32, ptr %228, align 4
   %230 = call i32 @mtrr_add_page(i64 noundef %224, i64 noundef %227, i32 noundef %229, i1 noundef zeroext false) #12
   br label %278
 
 231:                                              ; preds = %85, %85
   %232 = load i64, ptr %7, align 8
-  %233 = getelementptr inbounds i8, ptr %7, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %234 = load i32, ptr %233, align 8
   %235 = zext i32 %234 to i64
-  %236 = getelementptr inbounds i8, ptr %0, i64 200
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 112
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 112
   %239 = load ptr, ptr %238, align 8
   %240 = call i32 @mtrr_del_page(i32 noundef -1, i64 noundef %232, i64 noundef %235) #12
   %241 = icmp slt i32 %240, 0
@@ -686,14 +686,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
 
 251:                                              ; preds = %85, %85
   %252 = load i64, ptr %7, align 8
-  %253 = getelementptr inbounds i8, ptr %7, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %254 = load i32, ptr %253, align 8
   %255 = zext i32 %254 to i64
   %256 = call i32 @mtrr_del_page(i32 noundef -1, i64 noundef %252, i64 noundef %255) #12
   br label %278
 
 257:                                              ; preds = %85, %85
-  %258 = getelementptr inbounds i8, ptr %8, i64 12
+  %258 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %259 = load i32, ptr %258, align 4
   %260 = load i32, ptr @num_var_ranges, align 4
   %261 = icmp ult i32 %259, %260
@@ -701,7 +701,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
 
 262:                                              ; preds = %257
   %263 = load ptr, ptr @mtrr_if, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 16
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 16
   %265 = load ptr, ptr %264, align 8
   call void %265(i32 noundef %259, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4) #12
   %266 = load i64, ptr %6, align 8
@@ -709,9 +709,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
   br i1 %267, label %271, label %268
 
 268:                                              ; preds = %262
-  %269 = getelementptr inbounds i8, ptr %8, i64 16
+  %269 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %269, align 8
-  %270 = getelementptr inbounds i8, ptr %8, i64 8
+  %270 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %270, align 8
   store i64 0, ptr %8, align 8
   br label %.thread25
@@ -720,11 +720,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
   %272 = load i64, ptr %5, align 8
   store i64 %272, ptr %8, align 8
   %273 = trunc nuw i64 %266 to i32
-  %274 = getelementptr inbounds i8, ptr %8, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %273, ptr %274, align 8
   %275 = load i8, ptr %4, align 1
   %276 = zext i8 %275 to i32
-  %277 = getelementptr inbounds i8, ptr %8, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %276, ptr %277, align 8
   br label %.thread25
 
@@ -755,24 +755,24 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
 287:                                              ; preds = %.thread25, %.thread25
   %288 = load i64, ptr %8, align 8
   %289 = trunc i64 %288 to i32
-  %290 = getelementptr inbounds i8, ptr %9, i64 4
+  %290 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %291 = call i64 @llvm.read_register.i64(metadata !0)
-  %292 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %290, i32 %289, i64 4, i64 %291) #12, !srcloc !19
+  %292 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %290, i32 %289, i64 4, i64 %291) #12, !srcloc !19
   %293 = extractvalue { ptr, i64 } %292, 0
   %294 = extractvalue { ptr, i64 } %292, 1
   %295 = ptrtoint ptr %293 to i64
   call void @llvm.write_register.i64(metadata !0, i64 %294)
-  %296 = getelementptr inbounds i8, ptr %8, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %297 = load i32, ptr %296, align 8
-  %298 = getelementptr inbounds i8, ptr %9, i64 8
+  %298 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %299 = call i64 @llvm.read_register.i64(metadata !0)
-  %300 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %298, i32 %297, i64 4, i64 %299) #12, !srcloc !20
+  %300 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %298, i32 %297, i64 4, i64 %299) #12, !srcloc !20
   %301 = extractvalue { ptr, i64 } %300, 0
   %302 = extractvalue { ptr, i64 } %300, 1
   %303 = ptrtoint ptr %301 to i64
   call void @llvm.write_register.i64(metadata !0, i64 %302)
   %304 = or i64 %303, %295
-  %305 = getelementptr inbounds i8, ptr %8, i64 12
+  %305 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %306 = load i32, ptr %305, align 4
   %307 = call i64 @llvm.read_register.i64(metadata !0)
   %308 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %9, i32 %306, i64 4, i64 %307) #12, !srcloc !21
@@ -781,11 +781,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture
   %311 = ptrtoint ptr %309 to i64
   call void @llvm.write_register.i64(metadata !0, i64 %310)
   %312 = or i64 %304, %311
-  %313 = getelementptr inbounds i8, ptr %8, i64 16
+  %313 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %314 = load i32, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %9, i64 12
+  %315 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %316 = call i64 @llvm.read_register.i64(metadata !0)
-  %317 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %315, i32 %314, i64 4, i64 %316) #12, !srcloc !22
+  %317 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %315, i32 %314, i64 4, i64 %316) #12, !srcloc !22
   %318 = extractvalue { ptr, i64 } %317, 0
   %319 = extractvalue { ptr, i64 } %317, 1
   %320 = ptrtoint ptr %318 to i64
@@ -833,7 +833,7 @@ define internal noundef i32 @mtrr_seq_show(ptr noundef %0, ptr nocapture readnon
 10:                                               ; preds = %38, %8
   %11 = phi i64 [ 0, %8 ], [ %39, %38 ]
   %12 = load ptr, ptr @mtrr_if, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = trunc i64 %11 to i32
   call void %14(i32 noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3) #12

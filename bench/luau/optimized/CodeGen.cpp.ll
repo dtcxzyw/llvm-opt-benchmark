@@ -388,16 +388,16 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen9onDisableEP9lua_StateP5Proto(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %2
   store ptr %6, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %9, align 8
   tail call void @_Z13luaM_visitgcoP9lua_StatePvPFbS1_P8lua_PageP8GCObjectE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5ProtoEN3$_08__invokeEPvP8lua_PageP8GCObject")
   br label %10
@@ -434,9 +434,9 @@ define internal noundef zeroext i1 @"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5Pr
   br i1 %.not.i, label %5, label %"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5ProtoENK3$_0clEPvP8lua_PageP8GCObject.exit"
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ugt ptr %7, %9
   br i1 %10, label %.lr.ph.i, label %"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5ProtoENK3$_0clEPvP8lua_PageP8GCObject.exit"
@@ -444,28 +444,28 @@ define internal noundef zeroext i1 @"_ZZN4Luau7CodeGen9onDisableEP9lua_StateP5Pr
 .lr.ph.i:                                         ; preds = %5, %29
   %11 = phi ptr [ %30, %29 ], [ %9, %5 ]
   %.0141.i = phi ptr [ %31, %29 ], [ %7, %5 ]
-  %12 = getelementptr inbounds i8, ptr %.0141.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 7
   br i1 %16, label %17, label %29
 
 17:                                               ; preds = %.lr.ph.i
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 3
   %20 = load i8, ptr %19, align 1
   %.not15.i = icmp eq i8 %20, 0
   br i1 %.not15.i, label %21, label %29
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %.0141.i, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %.0141.i, i64 36
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, -5
   store i32 %28, ptr %26, align 4
@@ -591,32 +591,32 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_CodeGen.cpp() #7 section ".text.startup" {
   store i8 0, ptr @_ZN5FFlag17DebugCodegenNoOptE, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag17DebugCodegenNoOptE, i64 1), align 1
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag17DebugCodegenNoOptE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag17DebugCodegenNoOptE, i64 1), align 1
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag17DebugCodegenNoOptE, i64 8), align 8
   %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag17DebugCodegenNoOptE, i64 16), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag17DebugCodegenNoOptE, i64 16), align 8
   store i8 0, ptr @_ZN5FFlag19DebugCodegenOptSizeE, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag19DebugCodegenOptSizeE, i64 1), align 1
-  store ptr @.str.2, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag19DebugCodegenOptSizeE, i64 8), align 8
-  store ptr @_ZN5FFlag17DebugCodegenNoOptE, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag19DebugCodegenOptSizeE, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag19DebugCodegenOptSizeE, i64 1), align 1
+  store ptr @.str.2, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag19DebugCodegenOptSizeE, i64 8), align 8
+  store ptr @_ZN5FFlag17DebugCodegenNoOptE, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag19DebugCodegenOptSizeE, i64 16), align 8
   store i8 0, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, i64 1), align 1
-  store ptr @.str.4, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, i64 8), align 8
-  store ptr @_ZN5FFlag19DebugCodegenOptSizeE, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, i64 1), align 1
+  store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, i64 8), align 8
+  store ptr @_ZN5FFlag19DebugCodegenOptSizeE, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, i64 16), align 8
   store ptr @_ZN5FFlag25DebugCodegenSkipNumberingE, ptr @_ZN4Luau6FValueIbE4listE, align 8
   store i32 1048576, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, i64 4), align 4
-  store ptr @.str.6, ptr getelementptr inbounds (i8, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, i64 4), align 4
+  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, i64 8), align 8
   %2 = load ptr, ptr @_ZN4Luau6FValueIiE4listE, align 8
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, i64 16), align 8
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, i64 16), align 8
   store i32 32768, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, i64 4), align 4
-  store ptr @.str.8, ptr getelementptr inbounds (i8, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, i64 8), align 8
-  store ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, ptr getelementptr inbounds (i8, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, i64 4), align 4
+  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, i64 8), align 8
+  store ptr @_ZN4FInt33CodegenHeuristicsInstructionLimitE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, i64 16), align 8
   store i32 65536, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, i64 4), align 4
-  store ptr @.str.10, ptr getelementptr inbounds (i8, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, i64 8), align 8
-  store ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, ptr getelementptr inbounds (i8, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, i64 16), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, i64 4), align 4
+  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, i64 8), align 8
+  store ptr @_ZN4FInt27CodegenHeuristicsBlockLimitE, ptr getelementptr inbounds nuw (i8, ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, i64 16), align 8
   store ptr @_ZN4FInt38CodegenHeuristicsBlockInstructionLimitE, ptr @_ZN4Luau6FValueIiE4listE, align 8
   ret void
 }

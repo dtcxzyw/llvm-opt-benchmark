@@ -16,7 +16,7 @@ entry:
   %copy = alloca %struct.PRExplodedTime, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %copy, ptr noundef nonnull align 4 dereferenceable(40) %exploded, i64 40, i1 false)
   call void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr noundef nonnull %copy, ptr noundef nonnull @_Z16PR_GMTParametersPK14PRExplodedTime)
-  %tm_year = getelementptr inbounds i8, ptr %copy, i64 24
+  %tm_year = getelementptr inbounds nuw i8, ptr %copy, i64 24
   %0 = load i16, ptr %tm_year, align 4
   %conv = sext i16 %0 to i32
   %sub = add nsw i32 %conv, -1
@@ -28,28 +28,28 @@ entry:
   %add = add nsw i32 %sub8, %div7.neg
   %add13 = add nsw i32 %add, %div12
   %sub14 = add nsw i32 %add13, %mul
-  %tm_yday = getelementptr inbounds i8, ptr %copy, i64 28
+  %tm_yday = getelementptr inbounds nuw i8, ptr %copy, i64 28
   %1 = load i16, ptr %tm_yday, align 4
   %conv15 = sext i16 %1 to i32
   %mul16 = mul nsw i32 %conv15, 86400
-  %tm_hour = getelementptr inbounds i8, ptr %copy, i64 12
+  %tm_hour = getelementptr inbounds nuw i8, ptr %copy, i64 12
   %2 = load i32, ptr %tm_hour, align 4
   %mul17 = mul nsw i32 %2, 3600
   %add18 = add nsw i32 %mul16, %mul17
-  %tm_min = getelementptr inbounds i8, ptr %copy, i64 8
+  %tm_min = getelementptr inbounds nuw i8, ptr %copy, i64 8
   %3 = load i32, ptr %tm_min, align 4
   %mul19 = mul nsw i32 %3, 60
   %add20 = add nsw i32 %add18, %mul19
-  %tm_sec = getelementptr inbounds i8, ptr %copy, i64 4
+  %tm_sec = getelementptr inbounds nuw i8, ptr %copy, i64 4
   %4 = load i32, ptr %tm_sec, align 4
   %add21 = add nsw i32 %add20, %4
   %conv22 = sext i32 %sub14 to i64
   %mul23 = mul nsw i64 %conv22, 86400
   %conv24 = sext i32 %add21 to i64
-  %tm_params = getelementptr inbounds i8, ptr %copy, i64 32
+  %tm_params = getelementptr inbounds nuw i8, ptr %copy, i64 32
   %5 = load i32, ptr %tm_params, align 4
   %conv26 = sext i32 %5 to i64
-  %tp_dst_offset = getelementptr inbounds i8, ptr %copy, i64 36
+  %tp_dst_offset = getelementptr inbounds nuw i8, ptr %copy, i64 36
   %6 = load i32, ptr %tp_dst_offset, align 4
   %conv29 = sext i32 %6 to i64
   %7 = add nsw i64 %conv26, %conv29
@@ -68,11 +68,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr noundef %time, ptr nocapture noundef readonly %params) local_unnamed_addr #0 {
 entry:
-  %tm_params = getelementptr inbounds i8, ptr %time, i64 32
+  %tm_params = getelementptr inbounds nuw i8, ptr %time, i64 32
   %0 = load i32, ptr %tm_params, align 4
-  %tp_dst_offset = getelementptr inbounds i8, ptr %time, i64 36
+  %tp_dst_offset = getelementptr inbounds nuw i8, ptr %time, i64 36
   %1 = load i32, ptr %tp_dst_offset, align 4
-  %tm_sec = getelementptr inbounds i8, ptr %time, i64 4
+  %tm_sec = getelementptr inbounds nuw i8, ptr %time, i64 4
   %2 = load i32, ptr %tm_sec, align 4
   %3 = add i32 %1, %0
   %sub = sub i32 %2, %3
@@ -105,13 +105,13 @@ if.end18:                                         ; preds = %entry, %if.then, %i
   br i1 %or.cond87, label %if.then24, label %if.end18.if.end38_crit_edge
 
 if.end18.if.end38_crit_edge:                      ; preds = %if.end18
-  %tm_min39.phi.trans.insert = getelementptr inbounds i8, ptr %time, i64 8
+  %tm_min39.phi.trans.insert = getelementptr inbounds nuw i8, ptr %time, i64 8
   %.pre = load i32, ptr %tm_min39.phi.trans.insert, align 4
   br label %if.end38
 
 if.then24:                                        ; preds = %if.end18
   %div26 = sdiv i32 %5, 60
-  %tm_min = getelementptr inbounds i8, ptr %time, i64 8
+  %tm_min = getelementptr inbounds nuw i8, ptr %time, i64 8
   %6 = load i32, ptr %tm_min, align 4
   %add27 = add nsw i32 %6, %div26
   store i32 %add27, ptr %tm_min, align 4
@@ -129,18 +129,18 @@ if.then32:                                        ; preds = %if.then24
 
 if.end38:                                         ; preds = %if.end18.if.end38_crit_edge, %if.then24, %if.then32
   %7 = phi i32 [ %.pre, %if.end18.if.end38_crit_edge ], [ %add27, %if.then24 ], [ %dec36, %if.then32 ]
-  %tm_min39 = getelementptr inbounds i8, ptr %time, i64 8
+  %tm_min39 = getelementptr inbounds nuw i8, ptr %time, i64 8
   %or.cond88 = icmp ugt i32 %7, 59
   br i1 %or.cond88, label %if.then44, label %if.end38.if.end58_crit_edge
 
 if.end38.if.end58_crit_edge:                      ; preds = %if.end38
-  %tm_hour59.phi.trans.insert = getelementptr inbounds i8, ptr %time, i64 12
+  %tm_hour59.phi.trans.insert = getelementptr inbounds nuw i8, ptr %time, i64 12
   %.pre132 = load i32, ptr %tm_hour59.phi.trans.insert, align 4
   br label %if.end58
 
 if.then44:                                        ; preds = %if.end38
   %div46 = sdiv i32 %7, 60
-  %tm_hour = getelementptr inbounds i8, ptr %time, i64 12
+  %tm_hour = getelementptr inbounds nuw i8, ptr %time, i64 12
   %8 = load i32, ptr %tm_hour, align 4
   %add47 = add nsw i32 %8, %div46
   store i32 %add47, ptr %tm_hour, align 4
@@ -158,13 +158,13 @@ if.then52:                                        ; preds = %if.then44
 
 if.end58:                                         ; preds = %if.end38.if.end58_crit_edge, %if.then44, %if.then52
   %9 = phi i32 [ %.pre132, %if.end38.if.end58_crit_edge ], [ %add47, %if.then44 ], [ %dec56, %if.then52 ]
-  %tm_hour59 = getelementptr inbounds i8, ptr %time, i64 12
+  %tm_hour59 = getelementptr inbounds nuw i8, ptr %time, i64 12
   %or.cond89 = icmp ugt i32 %9, 23
   br i1 %or.cond89, label %if.then64, label %if.end78
 
 if.then64:                                        ; preds = %if.end58
   %div66 = sdiv i32 %9, 24
-  %tm_mday = getelementptr inbounds i8, ptr %time, i64 16
+  %tm_mday = getelementptr inbounds nuw i8, ptr %time, i64 16
   %10 = load i32, ptr %tm_mday, align 4
   %add67 = add nsw i32 %10, %div66
   store i32 %add67, ptr %tm_mday, align 4
@@ -181,14 +181,14 @@ if.then72:                                        ; preds = %if.then64
   br label %if.end78
 
 if.end78:                                         ; preds = %if.end58, %if.then64, %if.then72
-  %tm_month = getelementptr inbounds i8, ptr %time, i64 20
+  %tm_month = getelementptr inbounds nuw i8, ptr %time, i64 20
   %11 = load i32, ptr %tm_month, align 4
   %or.cond90 = icmp ugt i32 %11, 11
   br i1 %or.cond90, label %if.then83, label %if.end100
 
 if.then83:                                        ; preds = %if.end78
   %div85 = sdiv i32 %11, 12
-  %tm_year = getelementptr inbounds i8, ptr %time, i64 24
+  %tm_year = getelementptr inbounds nuw i8, ptr %time, i64 24
   %12 = load i16, ptr %tm_year, align 4
   %13 = trunc i32 %div85 to i16
   %conv89 = add i16 %12, %13
@@ -207,10 +207,10 @@ if.then94:                                        ; preds = %if.then83
 
 if.end100:                                        ; preds = %if.end78, %if.then83, %if.then94
   %tm_month.promoted126 = phi i32 [ %11, %if.end78 ], [ %rem91, %if.then83 ], [ %add96, %if.then94 ]
-  %tm_mday101 = getelementptr inbounds i8, ptr %time, i64 16
+  %tm_mday101 = getelementptr inbounds nuw i8, ptr %time, i64 16
   %14 = load i32, ptr %tm_mday101, align 4
   %cmp102 = icmp slt i32 %14, 1
-  %tm_year110 = getelementptr inbounds i8, ptr %time, i64 24
+  %tm_year110 = getelementptr inbounds nuw i8, ptr %time, i64 24
   %tm_year110.promoted = load i16, ptr %tm_year110, align 4
   br i1 %cmp102, label %do.body, label %if.else
 
@@ -240,7 +240,7 @@ if.end112:                                        ; preds = %if.then108, %do.bod
   %or.cond3.i = or i1 %cmp6.i, %or.cond.not6.i
   %idxprom = zext i1 %or.cond3.i to i64
   %idxprom115 = zext nneg i32 %dec105127 to i64
-  %arrayidx116 = getelementptr inbounds [2 x [12 x i8]], ptr @_ZL5nDays, i64 0, i64 %idxprom, i64 %idxprom115
+  %arrayidx116 = getelementptr inbounds nuw [2 x [12 x i8]], ptr @_ZL5nDays, i64 0, i64 %idxprom, i64 %idxprom115
   %18 = load i8, ptr %arrayidx116, align 1
   %conv117 = sext i8 %18 to i32
   %add119 = add nsw i32 %add119130, %conv117
@@ -258,7 +258,7 @@ if.else:                                          ; preds = %if.end100
   %or.cond3.i97 = or i1 %cmp6.i96, %or.cond.not6.i94
   %idxprom124 = zext i1 %or.cond3.i97 to i64
   %idxprom127 = zext nneg i32 %tm_month.promoted126 to i64
-  %arrayidx128 = getelementptr inbounds [2 x [12 x i8]], ptr @_ZL5nDays, i64 0, i64 %idxprom124, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds nuw [2 x [12 x i8]], ptr @_ZL5nDays, i64 0, i64 %idxprom124, i64 %idxprom127
   %daysInMonth.0.in118 = load i8, ptr %arrayidx128, align 1
   %daysInMonth.0119 = sext i8 %daysInMonth.0.in118 to i32
   %cmp131120 = icmp sgt i32 %14, %daysInMonth.0119
@@ -313,12 +313,12 @@ if.end150:                                        ; preds = %if.end150.loopexit1
   %idxprom154.pre-phi = phi i64 [ %idxprom124, %if.else ], [ %idxprom, %if.end150.loopexit ], [ %idxprom144, %if.end150.loopexit135 ]
   %22 = phi i16 [ %tm_year110.promoted, %if.else ], [ %16, %if.end150.loopexit ], [ %inc140124, %if.end150.loopexit135 ]
   %23 = phi i32 [ %14, %if.else ], [ %add119, %if.end150.loopexit ], [ %sub133, %if.end150.loopexit135 ]
-  %tm_year152 = getelementptr inbounds i8, ptr %time, i64 24
+  %tm_year152 = getelementptr inbounds nuw i8, ptr %time, i64 24
   %arrayidx158 = getelementptr inbounds [2 x [13 x i32]], ptr @_ZL14lastDayOfMonth, i64 0, i64 %idxprom154.pre-phi, i64 %idxprom157.pre-phi
   %24 = load i32, ptr %arrayidx158, align 4
   %add159 = add nsw i32 %24, %23
   %conv160 = trunc i32 %add159 to i16
-  %tm_yday = getelementptr inbounds i8, ptr %time, i64 28
+  %tm_yday = getelementptr inbounds nuw i8, ptr %time, i64 28
   store i16 %conv160, ptr %tm_yday, align 4
   %conv162 = sext i16 %22 to i32
   %sub163 = add nsw i32 %conv162, -1
@@ -338,7 +338,7 @@ if.end150:                                        ; preds = %if.end150.loopexit1
   %cmp188 = icmp slt i32 %rem184, 0
   %conv193 = add nsw i8 %conv185, 7
   %storemerge = select i1 %cmp188, i8 %conv193, i8 %conv185
-  %tm_wday = getelementptr inbounds i8, ptr %time, i64 26
+  %tm_wday = getelementptr inbounds nuw i8, ptr %time, i64 26
   store i8 %storemerge, ptr %tm_wday, align 2
   %call195 = tail call i64 %params(ptr noundef nonnull %time)
   store i64 %call195, ptr %tm_params, align 4
@@ -465,7 +465,7 @@ if.end55.i:                                       ; preds = %if.else.i, %if.then
   %cmp6.i59.i = icmp eq i16 %rem55.i58.pre-phi.i, 0
   %or.cond3.i60.i = or i1 %cmp6.i59.i, %or.cond.not6.i57.i
   %idxprom.i = zext i1 %or.cond3.i60.i to i64
-  %arrayidx60.i = getelementptr inbounds [2 x [12 x i8]], ptr @_ZL5nDays, i64 0, i64 %idxprom.i, i64 %idxprom59.i
+  %arrayidx60.i = getelementptr inbounds nuw [2 x [12 x i8]], ptr @_ZL5nDays, i64 0, i64 %idxprom.i, i64 %idxprom59.i
   %39 = load i8, ptr %arrayidx60.i, align 1
   %conv.i = sext i8 %39 to i32
   store i32 %conv.i, ptr %tm_mday101, align 4
@@ -634,7 +634,7 @@ sw.bb:                                            ; preds = %if.end4, %if.end4
   br i1 %cmp5, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %sw.bb
-  %arrayidx = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %2 = load i8, ptr %arrayidx, align 1
   switch i8 %2, label %if.else [
     i8 112, label %land.lhs.true12
@@ -642,7 +642,7 @@ land.lhs.true:                                    ; preds = %sw.bb
   ]
 
 land.lhs.true12:                                  ; preds = %land.lhs.true, %land.lhs.true
-  %arrayidx13 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %3 = load i8, ptr %arrayidx13, align 1
   switch i8 %3, label %if.else [
     i8 114, label %sw.epilog
@@ -654,7 +654,7 @@ if.else:                                          ; preds = %land.lhs.true12, %l
   br i1 %cmp21, label %land.lhs.true22, label %if.else39
 
 land.lhs.true22:                                  ; preds = %if.else
-  %arrayidx23 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %4 = load i8, ptr %arrayidx23, align 1
   switch i8 %4, label %if.else39 [
     i8 115, label %land.lhs.true30
@@ -662,7 +662,7 @@ land.lhs.true22:                                  ; preds = %if.else
   ]
 
 land.lhs.true30:                                  ; preds = %land.lhs.true22, %land.lhs.true22
-  %arrayidx31 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx31 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %5 = load i8, ptr %arrayidx31, align 1
   switch i8 %5, label %if.else39 [
     i8 116, label %sw.epilog
@@ -673,7 +673,7 @@ if.else39:                                        ; preds = %land.lhs.true30, %l
   br i1 %cmp5, label %land.lhs.true41, label %sw.epilog
 
 land.lhs.true41:                                  ; preds = %if.else39
-  %arrayidx42 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx42 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %6 = load i8, ptr %arrayidx42, align 1
   switch i8 %6, label %sw.epilog [
     i8 117, label %land.lhs.true49
@@ -681,7 +681,7 @@ land.lhs.true41:                                  ; preds = %if.else39
   ]
 
 land.lhs.true49:                                  ; preds = %land.lhs.true41, %land.lhs.true41
-  %arrayidx50 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx50 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %7 = load i8, ptr %arrayidx50, align 1
   switch i8 %7, label %sw.epilog [
     i8 103, label %if.then57
@@ -696,7 +696,7 @@ sw.bb61:                                          ; preds = %if.end4, %if.end4
   br i1 %cmp62, label %land.lhs.true63, label %sw.epilog
 
 land.lhs.true63:                                  ; preds = %sw.bb61
-  %arrayidx64 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx64 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %8 = load i8, ptr %arrayidx64, align 1
   switch i8 %8, label %sw.epilog [
     i8 115, label %land.lhs.true71
@@ -704,7 +704,7 @@ land.lhs.true63:                                  ; preds = %sw.bb61
   ]
 
 land.lhs.true71:                                  ; preds = %land.lhs.true63, %land.lhs.true63
-  %arrayidx72 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx72 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %9 = load i8, ptr %arrayidx72, align 1
   switch i8 %9, label %sw.epilog [
     i8 116, label %if.then79
@@ -719,7 +719,7 @@ sw.bb81:                                          ; preds = %if.end4, %if.end4
   br i1 %cmp82, label %land.lhs.true83, label %sw.epilog
 
 land.lhs.true83:                                  ; preds = %sw.bb81
-  %arrayidx84 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx84 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %10 = load i8, ptr %arrayidx84, align 1
   switch i8 %10, label %sw.epilog [
     i8 100, label %land.lhs.true91
@@ -729,7 +729,7 @@ land.lhs.true83:                                  ; preds = %sw.bb81
   ]
 
 land.lhs.true91:                                  ; preds = %land.lhs.true83, %land.lhs.true83
-  %arrayidx92 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx92 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %11 = load i8, ptr %arrayidx92, align 1
   switch i8 %11, label %land.lhs.true102 [
     i8 116, label %sw.epilog
@@ -741,7 +741,7 @@ land.lhs.true102:                                 ; preds = %land.lhs.true91
   br i1 %cond, label %land.lhs.true110, label %sw.epilog
 
 land.lhs.true110:                                 ; preds = %land.lhs.true102, %land.lhs.true83, %land.lhs.true83
-  %arrayidx111 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx111 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %12 = load i8, ptr %arrayidx111, align 1
   switch i8 %12, label %sw.epilog [
     i8 116, label %if.then118
@@ -756,7 +756,7 @@ sw.bb121:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp122, label %land.lhs.true123, label %sw.epilog
 
 land.lhs.true123:                                 ; preds = %sw.bb121
-  %arrayidx124 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx124 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %13 = load i8, ptr %arrayidx124, align 1
   switch i8 %13, label %sw.epilog [
     i8 101, label %land.lhs.true131
@@ -764,7 +764,7 @@ land.lhs.true123:                                 ; preds = %sw.bb121
   ]
 
 land.lhs.true131:                                 ; preds = %land.lhs.true123, %land.lhs.true123
-  %arrayidx132 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx132 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %14 = load i8, ptr %arrayidx132, align 1
   switch i8 %14, label %sw.epilog [
     i8 99, label %if.then139
@@ -779,7 +779,7 @@ sw.bb141:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp142, label %land.lhs.true143, label %sw.epilog
 
 land.lhs.true143:                                 ; preds = %sw.bb141
-  %arrayidx144 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx144 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %15 = load i8, ptr %arrayidx144, align 1
   switch i8 %15, label %sw.epilog [
     i8 100, label %land.lhs.true151
@@ -791,7 +791,7 @@ land.lhs.true143:                                 ; preds = %sw.bb141
   ]
 
 land.lhs.true151:                                 ; preds = %land.lhs.true143, %land.lhs.true143
-  %arrayidx152 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx152 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %16 = load i8, ptr %arrayidx152, align 1
   switch i8 %16, label %land.lhs.true162 [
     i8 116, label %sw.epilog
@@ -805,7 +805,7 @@ land.lhs.true162:                                 ; preds = %land.lhs.true151
   ]
 
 land.lhs.true170:                                 ; preds = %land.lhs.true143, %land.lhs.true143, %land.lhs.true162
-  %arrayidx171 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx171 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %17 = load i8, ptr %arrayidx171, align 1
   switch i8 %17, label %land.lhs.true181 [
     i8 116, label %sw.epilog
@@ -817,7 +817,7 @@ land.lhs.true181:                                 ; preds = %land.lhs.true170
   br i1 %cond649, label %land.lhs.true189, label %sw.epilog
 
 land.lhs.true189:                                 ; preds = %land.lhs.true181, %land.lhs.true162, %land.lhs.true143, %land.lhs.true143
-  %arrayidx190 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx190 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %18 = load i8, ptr %arrayidx190, align 1
   switch i8 %18, label %sw.epilog [
     i8 116, label %if.then197
@@ -832,7 +832,7 @@ sw.bb201:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp202, label %land.lhs.true203, label %if.else220
 
 land.lhs.true203:                                 ; preds = %sw.bb201
-  %arrayidx204 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx204 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %19 = load i8, ptr %arrayidx204, align 1
   switch i8 %19, label %if.else220 [
     i8 101, label %land.lhs.true211
@@ -840,7 +840,7 @@ land.lhs.true203:                                 ; preds = %sw.bb201
   ]
 
 land.lhs.true211:                                 ; preds = %land.lhs.true203, %land.lhs.true203
-  %arrayidx212 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx212 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %20 = load i8, ptr %arrayidx212, align 1
   switch i8 %20, label %if.else220 [
     i8 98, label %sw.epilog
@@ -852,7 +852,7 @@ if.else220:                                       ; preds = %land.lhs.true211, %
   br i1 %cmp221, label %land.lhs.true222, label %sw.epilog
 
 land.lhs.true222:                                 ; preds = %if.else220
-  %arrayidx223 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx223 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %21 = load i8, ptr %arrayidx223, align 1
   switch i8 %21, label %sw.epilog [
     i8 114, label %land.lhs.true230
@@ -860,7 +860,7 @@ land.lhs.true222:                                 ; preds = %if.else220
   ]
 
 land.lhs.true230:                                 ; preds = %land.lhs.true222, %land.lhs.true222
-  %arrayidx231 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx231 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %22 = load i8, ptr %arrayidx231, align 1
   switch i8 %22, label %sw.epilog [
     i8 105, label %if.then238
@@ -875,7 +875,7 @@ sw.bb241:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp242, label %land.lhs.true243, label %sw.epilog
 
 land.lhs.true243:                                 ; preds = %sw.bb241
-  %arrayidx244 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx244 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %23 = load i8, ptr %arrayidx244, align 1
   switch i8 %23, label %sw.epilog [
     i8 109, label %land.lhs.true251
@@ -883,7 +883,7 @@ land.lhs.true243:                                 ; preds = %sw.bb241
   ]
 
 land.lhs.true251:                                 ; preds = %land.lhs.true243, %land.lhs.true243
-  %arrayidx252 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx252 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %24 = load i8, ptr %arrayidx252, align 1
   switch i8 %24, label %sw.epilog [
     i8 116, label %if.then259
@@ -898,7 +898,7 @@ sw.bb261:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp262, label %land.lhs.true263, label %if.else280
 
 land.lhs.true263:                                 ; preds = %sw.bb261
-  %arrayidx264 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx264 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %25 = load i8, ptr %arrayidx264, align 1
   switch i8 %25, label %if.else280 [
     i8 97, label %land.lhs.true271
@@ -906,7 +906,7 @@ land.lhs.true263:                                 ; preds = %sw.bb261
   ]
 
 land.lhs.true271:                                 ; preds = %land.lhs.true263, %land.lhs.true263
-  %arrayidx272 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx272 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %26 = load i8, ptr %arrayidx272, align 1
   switch i8 %26, label %if.else280 [
     i8 110, label %sw.epilog
@@ -918,7 +918,7 @@ if.else280:                                       ; preds = %land.lhs.true271, %
   br i1 %cmp281, label %land.lhs.true282, label %if.else299
 
 land.lhs.true282:                                 ; preds = %if.else280
-  %arrayidx283 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx283 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %27 = load i8, ptr %arrayidx283, align 1
   switch i8 %27, label %if.else299 [
     i8 115, label %land.lhs.true290
@@ -926,7 +926,7 @@ land.lhs.true282:                                 ; preds = %if.else280
   ]
 
 land.lhs.true290:                                 ; preds = %land.lhs.true282, %land.lhs.true282
-  %arrayidx291 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx291 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %28 = load i8, ptr %arrayidx291, align 1
   switch i8 %28, label %if.else299 [
     i8 116, label %sw.epilog
@@ -937,7 +937,7 @@ if.else299:                                       ; preds = %land.lhs.true290, %
   br i1 %cmp262, label %land.lhs.true301, label %sw.epilog
 
 land.lhs.true301:                                 ; preds = %if.else299
-  %arrayidx302 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx302 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %29 = load i8, ptr %arrayidx302, align 1
   switch i8 %29, label %sw.epilog [
     i8 117, label %land.lhs.true309
@@ -945,7 +945,7 @@ land.lhs.true301:                                 ; preds = %if.else299
   ]
 
 land.lhs.true309:                                 ; preds = %land.lhs.true301, %land.lhs.true301
-  %arrayidx310 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx310 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %30 = load i8, ptr %arrayidx310, align 1
   switch i8 %30, label %land.lhs.true320 [
     i8 108, label %sw.epilog
@@ -972,7 +972,7 @@ sw.bb341:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp342, label %land.lhs.true343, label %if.else379
 
 land.lhs.true343:                                 ; preds = %sw.bb341
-  %arrayidx344 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx344 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %31 = load i8, ptr %arrayidx344, align 1
   switch i8 %31, label %if.else379 [
     i8 97, label %land.lhs.true351
@@ -980,7 +980,7 @@ land.lhs.true343:                                 ; preds = %sw.bb341
   ]
 
 land.lhs.true351:                                 ; preds = %land.lhs.true343, %land.lhs.true343
-  %arrayidx352 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx352 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %32 = load i8, ptr %arrayidx352, align 1
   switch i8 %32, label %land.lhs.true362 [
     i8 114, label %sw.epilog
@@ -1004,7 +1004,7 @@ if.else379:                                       ; preds = %land.lhs.true343, %
   br i1 %cmp380, label %land.lhs.true381, label %if.else417
 
 land.lhs.true381:                                 ; preds = %if.else379
-  %arrayidx382 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx382 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %33 = load i8, ptr %arrayidx382, align 1
   switch i8 %33, label %if.else417 [
     i8 100, label %land.lhs.true389
@@ -1014,7 +1014,7 @@ land.lhs.true381:                                 ; preds = %if.else379
   ]
 
 land.lhs.true389:                                 ; preds = %land.lhs.true381, %land.lhs.true381
-  %arrayidx390 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx390 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %34 = load i8, ptr %arrayidx390, align 1
   switch i8 %34, label %land.lhs.true400 [
     i8 116, label %sw.epilog
@@ -1026,7 +1026,7 @@ land.lhs.true400:                                 ; preds = %land.lhs.true389
   br i1 %cond650, label %land.lhs.true408, label %if.else417
 
 land.lhs.true408:                                 ; preds = %land.lhs.true400, %land.lhs.true381, %land.lhs.true381
-  %arrayidx409 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx409 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %35 = load i8, ptr %arrayidx409, align 1
   switch i8 %35, label %if.else417 [
     i8 116, label %sw.epilog
@@ -1038,7 +1038,7 @@ if.else417:                                       ; preds = %land.lhs.true400, %
   br i1 %cmp418, label %land.lhs.true419, label %if.else436
 
 land.lhs.true419:                                 ; preds = %if.else417
-  %arrayidx420 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx420 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %36 = load i8, ptr %arrayidx420, align 1
   switch i8 %36, label %if.else436 [
     i8 111, label %land.lhs.true427
@@ -1046,7 +1046,7 @@ land.lhs.true419:                                 ; preds = %if.else417
   ]
 
 land.lhs.true427:                                 ; preds = %land.lhs.true419, %land.lhs.true419
-  %arrayidx428 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx428 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %37 = load i8, ptr %arrayidx428, align 1
   switch i8 %37, label %if.else436 [
     i8 110, label %sw.epilog
@@ -1057,7 +1057,7 @@ if.else436:                                       ; preds = %land.lhs.true427, %
   br i1 %cmp380, label %land.lhs.true438, label %sw.epilog
 
 land.lhs.true438:                                 ; preds = %if.else436
-  %arrayidx439 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx439 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %38 = load i8, ptr %arrayidx439, align 1
   switch i8 %38, label %sw.epilog [
     i8 115, label %land.lhs.true446
@@ -1065,7 +1065,7 @@ land.lhs.true438:                                 ; preds = %if.else436
   ]
 
 land.lhs.true446:                                 ; preds = %land.lhs.true438, %land.lhs.true438
-  %arrayidx447 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx447 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %39 = load i8, ptr %arrayidx447, align 1
   switch i8 %39, label %sw.epilog [
     i8 116, label %if.then454
@@ -1080,7 +1080,7 @@ sw.bb461:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp462, label %land.lhs.true463, label %if.else480
 
 land.lhs.true463:                                 ; preds = %sw.bb461
-  %arrayidx464 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx464 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %40 = load i8, ptr %arrayidx464, align 1
   switch i8 %40, label %if.else480 [
     i8 111, label %land.lhs.true471
@@ -1088,7 +1088,7 @@ land.lhs.true463:                                 ; preds = %sw.bb461
   ]
 
 land.lhs.true471:                                 ; preds = %land.lhs.true463, %land.lhs.true463
-  %arrayidx472 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx472 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %41 = load i8, ptr %arrayidx472, align 1
   switch i8 %41, label %if.else480 [
     i8 118, label %sw.epilog
@@ -1100,7 +1100,7 @@ if.else480:                                       ; preds = %land.lhs.true471, %
   br i1 %cmp481, label %land.lhs.true482, label %sw.epilog
 
 land.lhs.true482:                                 ; preds = %if.else480
-  %arrayidx483 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx483 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %42 = load i8, ptr %arrayidx483, align 1
   switch i8 %42, label %sw.epilog [
     i8 115, label %land.lhs.true490
@@ -1108,7 +1108,7 @@ land.lhs.true482:                                 ; preds = %if.else480
   ]
 
 land.lhs.true490:                                 ; preds = %land.lhs.true482, %land.lhs.true482
-  %arrayidx491 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx491 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %43 = load i8, ptr %arrayidx491, align 1
   switch i8 %43, label %sw.epilog [
     i8 116, label %if.then498
@@ -1123,7 +1123,7 @@ sw.bb501:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp502, label %land.lhs.true503, label %sw.epilog
 
 land.lhs.true503:                                 ; preds = %sw.bb501
-  %arrayidx504 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx504 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %44 = load i8, ptr %arrayidx504, align 1
   switch i8 %44, label %sw.epilog [
     i8 99, label %land.lhs.true511
@@ -1131,7 +1131,7 @@ land.lhs.true503:                                 ; preds = %sw.bb501
   ]
 
 land.lhs.true511:                                 ; preds = %land.lhs.true503, %land.lhs.true503
-  %arrayidx512 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx512 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %45 = load i8, ptr %arrayidx512, align 1
   switch i8 %45, label %sw.epilog [
     i8 116, label %if.then519
@@ -1146,7 +1146,7 @@ sw.bb521:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp522, label %land.lhs.true523, label %sw.epilog
 
 land.lhs.true523:                                 ; preds = %sw.bb521
-  %arrayidx524 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx524 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %46 = load i8, ptr %arrayidx524, align 1
   switch i8 %46, label %sw.epilog [
     i8 100, label %land.lhs.true531
@@ -1156,7 +1156,7 @@ land.lhs.true523:                                 ; preds = %sw.bb521
   ]
 
 land.lhs.true531:                                 ; preds = %land.lhs.true523, %land.lhs.true523
-  %arrayidx532 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx532 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %47 = load i8, ptr %arrayidx532, align 1
   switch i8 %47, label %land.lhs.true542 [
     i8 116, label %sw.epilog
@@ -1168,7 +1168,7 @@ land.lhs.true542:                                 ; preds = %land.lhs.true531
   br i1 %cond651, label %land.lhs.true550, label %sw.epilog
 
 land.lhs.true550:                                 ; preds = %land.lhs.true542, %land.lhs.true523, %land.lhs.true523
-  %arrayidx551 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx551 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %48 = load i8, ptr %arrayidx551, align 1
   switch i8 %48, label %sw.epilog [
     i8 116, label %if.then558
@@ -1183,7 +1183,7 @@ sw.bb561:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp562, label %land.lhs.true563, label %if.else580
 
 land.lhs.true563:                                 ; preds = %sw.bb561
-  %arrayidx564 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx564 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %49 = load i8, ptr %arrayidx564, align 1
   switch i8 %49, label %if.else580 [
     i8 97, label %land.lhs.true571
@@ -1191,7 +1191,7 @@ land.lhs.true563:                                 ; preds = %sw.bb561
   ]
 
 land.lhs.true571:                                 ; preds = %land.lhs.true563, %land.lhs.true563
-  %arrayidx572 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx572 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %50 = load i8, ptr %arrayidx572, align 1
   switch i8 %50, label %if.else580 [
     i8 116, label %sw.epilog
@@ -1203,7 +1203,7 @@ if.else580:                                       ; preds = %land.lhs.true571, %
   br i1 %cmp581, label %land.lhs.true582, label %if.else599
 
 land.lhs.true582:                                 ; preds = %if.else580
-  %arrayidx583 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx583 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %51 = load i8, ptr %arrayidx583, align 1
   switch i8 %51, label %if.else599 [
     i8 101, label %land.lhs.true590
@@ -1211,7 +1211,7 @@ land.lhs.true582:                                 ; preds = %if.else580
   ]
 
 land.lhs.true590:                                 ; preds = %land.lhs.true582, %land.lhs.true582
-  %arrayidx591 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx591 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %52 = load i8, ptr %arrayidx591, align 1
   switch i8 %52, label %if.else599 [
     i8 112, label %sw.epilog
@@ -1222,7 +1222,7 @@ if.else599:                                       ; preds = %land.lhs.true590, %
   br i1 %cmp562, label %land.lhs.true601, label %sw.epilog
 
 land.lhs.true601:                                 ; preds = %if.else599
-  %arrayidx602 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx602 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %53 = load i8, ptr %arrayidx602, align 1
   switch i8 %53, label %sw.epilog [
     i8 117, label %land.lhs.true609
@@ -1230,7 +1230,7 @@ land.lhs.true601:                                 ; preds = %if.else599
   ]
 
 land.lhs.true609:                                 ; preds = %land.lhs.true601, %land.lhs.true601
-  %arrayidx610 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx610 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %54 = load i8, ptr %arrayidx610, align 1
   switch i8 %54, label %sw.epilog [
     i8 110, label %if.then617
@@ -1245,7 +1245,7 @@ sw.bb621:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp622, label %land.lhs.true623, label %sw.epilog
 
 land.lhs.true623:                                 ; preds = %sw.bb621
-  %arrayidx624 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx624 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %55 = load i8, ptr %arrayidx624, align 1
   switch i8 %55, label %sw.epilog [
     i8 104, label %land.lhs.true631
@@ -1255,7 +1255,7 @@ land.lhs.true623:                                 ; preds = %sw.bb621
   ]
 
 land.lhs.true631:                                 ; preds = %land.lhs.true623, %land.lhs.true623
-  %arrayidx632 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx632 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %56 = load i8, ptr %arrayidx632, align 1
   switch i8 %56, label %land.lhs.true642 [
     i8 117, label %sw.epilog
@@ -1267,7 +1267,7 @@ land.lhs.true642:                                 ; preds = %land.lhs.true631
   br i1 %cond652, label %land.lhs.true650, label %sw.epilog
 
 land.lhs.true650:                                 ; preds = %land.lhs.true642, %land.lhs.true623, %land.lhs.true623
-  %arrayidx651 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx651 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %57 = load i8, ptr %arrayidx651, align 1
   switch i8 %57, label %sw.epilog [
     i8 101, label %if.then658
@@ -1282,7 +1282,7 @@ sw.bb661:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp662, label %land.lhs.true663, label %sw.epilog
 
 land.lhs.true663:                                 ; preds = %sw.bb661
-  %arrayidx664 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx664 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %58 = load i8, ptr %arrayidx664, align 1
   switch i8 %58, label %sw.epilog [
     i8 116, label %land.lhs.true671
@@ -1290,7 +1290,7 @@ land.lhs.true663:                                 ; preds = %sw.bb661
   ]
 
 land.lhs.true671:                                 ; preds = %land.lhs.true663, %land.lhs.true663
-  %arrayidx672 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx672 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %59 = load i8, ptr %arrayidx672, align 1
   %60 = add i8 %59, -65
   %or.cond = icmp ult i8 %60, 26
@@ -1307,7 +1307,7 @@ sw.bb689:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp690, label %land.lhs.true691, label %sw.epilog
 
 land.lhs.true691:                                 ; preds = %sw.bb689
-  %arrayidx692 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %arrayidx692 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   %62 = load i8, ptr %arrayidx692, align 1
   switch i8 %62, label %sw.epilog [
     i8 101, label %land.lhs.true699
@@ -1315,7 +1315,7 @@ land.lhs.true691:                                 ; preds = %sw.bb689
   ]
 
 land.lhs.true699:                                 ; preds = %land.lhs.true691, %land.lhs.true691
-  %arrayidx700 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx700 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %63 = load i8, ptr %arrayidx700, align 1
   switch i8 %63, label %sw.epilog [
     i8 100, label %if.then707
@@ -1330,7 +1330,7 @@ sw.bb709:                                         ; preds = %if.end4, %if.end4
   br i1 %cmp710.not, label %if.end712, label %if.then711
 
 if.then711:                                       ; preds = %sw.bb709
-  %incdec.ptr = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   br label %sw.epilog
 
 if.end712:                                        ; preds = %sw.bb709
@@ -1340,7 +1340,7 @@ if.end712:                                        ; preds = %sw.bb709
   ]
 
 if.then716:                                       ; preds = %if.end712
-  %incdec.ptr717 = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %incdec.ptr717 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   br label %sw.epilog
 
 if.end718:                                        ; preds = %if.end712, %if.end712
@@ -1349,7 +1349,7 @@ if.end718:                                        ; preds = %if.end712, %if.end7
 
 while.cond722:                                    ; preds = %while.cond722, %if.end718
   %end.0.idx = phi i64 [ 1, %if.end718 ], [ %end.0.add, %while.cond722 ]
-  %end.0.ptr = getelementptr inbounds i8, ptr %rest.0601, i64 %end.0.idx
+  %end.0.ptr = getelementptr inbounds nuw i8, ptr %rest.0601, i64 %end.0.idx
   %64 = load i8, ptr %end.0.ptr, align 1
   %65 = add i8 %64, -48
   %or.cond508 = icmp ult i8 %65, 10
@@ -1357,7 +1357,7 @@ while.cond722:                                    ; preds = %while.cond722, %if.
   br i1 %or.cond508, label %while.cond722, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %while.cond722
-  %incdec.ptr721.ptr = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %incdec.ptr721.ptr = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   switch i64 %end.0.idx, label %sw.epilog [
     i64 2, label %if.then769
     i64 5, label %if.then733
@@ -1368,16 +1368,16 @@ if.then733:                                       ; preds = %while.end
   %66 = load i8, ptr %incdec.ptr721.ptr, align 1
   %conv735 = sext i8 %66 to i32
   %67 = mul nsw i32 %conv735, 10
-  %arrayidx736 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx736 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %68 = load i8, ptr %arrayidx736, align 1
   %conv737 = sext i8 %68 to i32
   %sub738 = add nsw i32 %67, %conv737
   %69 = mul nsw i32 %sub738, 60
-  %arrayidx740 = getelementptr inbounds i8, ptr %rest.0601, i64 3
+  %arrayidx740 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 3
   %70 = load i8, ptr %arrayidx740, align 1
   %conv741 = sext i8 %70 to i32
   %71 = mul nsw i32 %conv741, 10
-  %arrayidx744 = getelementptr inbounds i8, ptr %rest.0601, i64 4
+  %arrayidx744 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 4
   %72 = load i8, ptr %arrayidx744, align 1
   %conv745 = sext i8 %72 to i32
   %sub746 = add nsw i32 %conv745, -32208
@@ -1389,7 +1389,7 @@ if.then754:                                       ; preds = %while.end
   %73 = load i8, ptr %incdec.ptr721.ptr, align 1
   %conv756 = sext i8 %73 to i32
   %74 = mul nsw i32 %conv756, 10
-  %arrayidx759 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx759 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %75 = load i8, ptr %arrayidx759, align 1
   %conv760 = sext i8 %75 to i32
   %sub761 = add nsw i32 %74, %conv760
@@ -1411,7 +1411,7 @@ if.end777:                                        ; preds = %if.then754, %if.the
   br label %sw.epilog
 
 sw.bb779:                                         ; preds = %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4, %if.end4
-  %add.ptr = getelementptr inbounds i8, ptr %rest.0601, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %rest.0601, i64 1
   br label %while.cond781
 
 while.cond781:                                    ; preds = %while.cond781, %sw.bb779
@@ -1419,7 +1419,7 @@ while.cond781:                                    ; preds = %while.cond781, %sw.
   %80 = load i8, ptr %end780.0, align 1
   %81 = add i8 %80, -48
   %or.cond509 = icmp ult i8 %81, 10
-  %incdec.ptr789 = getelementptr inbounds i8, ptr %end780.0, i64 1
+  %incdec.ptr789 = getelementptr inbounds nuw i8, ptr %end780.0, i64 1
   br i1 %or.cond509, label %while.cond781, label %while.end790, !llvm.loop !9
 
 while.end790:                                     ; preds = %while.cond781
@@ -1465,7 +1465,7 @@ if.end823:                                        ; preds = %if.then809, %if.els
 
 while.cond825:                                    ; preds = %while.cond825, %if.end823
   %end780.1.idx = phi i64 [ 1, %if.end823 ], [ %end780.1.add, %while.cond825 ]
-  %end780.1.ptr = getelementptr inbounds i8, ptr %end780.0, i64 %end780.1.idx
+  %end780.1.ptr = getelementptr inbounds nuw i8, ptr %end780.0, i64 %end780.1.idx
   %84 = load i8, ptr %end780.1.ptr, align 1
   %85 = add i8 %84, -48
   %or.cond510 = icmp ult i8 %85, 10
@@ -1473,7 +1473,7 @@ while.cond825:                                    ; preds = %while.cond825, %if.
   br i1 %or.cond510, label %while.cond825, label %while.end834, !llvm.loop !10
 
 while.end834:                                     ; preds = %while.cond825
-  %end780.1.ptr.le = getelementptr inbounds i8, ptr %end780.0, i64 %end780.1.idx
+  %end780.1.ptr.le = getelementptr inbounds nuw i8, ptr %end780.0, i64 %end780.1.idx
   %cmp835 = icmp eq i64 %end780.1.idx, 1
   %cmp841 = icmp samesign ugt i64 %end780.1.idx, 3
   %or.cond511 = or i1 %cmp835, %cmp841
@@ -1487,7 +1487,7 @@ if.else843:                                       ; preds = %while.end834
 
 if.then848:                                       ; preds = %if.else843
   %87 = mul nsw i32 %conv850, 10
-  %arrayidx853 = getelementptr inbounds i8, ptr %end780.0, i64 2
+  %arrayidx853 = getelementptr inbounds nuw i8, ptr %end780.0, i64 2
   %88 = load i8, ptr %arrayidx853, align 1
   %conv854 = sext i8 %88 to i32
   %sub855 = add nsw i32 %conv854, -528
@@ -1502,7 +1502,7 @@ if.end863:                                        ; preds = %if.else857, %if.the
   %tmp_min.0 = phi i32 [ %add856, %if.then848 ], [ %sub860, %if.else857 ]
   %cmp865 = icmp eq i8 %84, 58
   %spec.select.idx = zext i1 %cmp865 to i64
-  %spec.select = getelementptr inbounds i8, ptr %end780.1.ptr.le, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %end780.1.ptr.le, i64 %spec.select.idx
   br label %while.cond869
 
 while.cond869:                                    ; preds = %while.cond869, %if.end863
@@ -1510,7 +1510,7 @@ while.cond869:                                    ; preds = %while.cond869, %if.
   %89 = load i8, ptr %end780.2, align 1
   %90 = add i8 %89, -48
   %or.cond512 = icmp ult i8 %90, 10
-  %incdec.ptr877 = getelementptr inbounds i8, ptr %end780.2, i64 1
+  %incdec.ptr877 = getelementptr inbounds nuw i8, ptr %end780.2, i64 1
   br i1 %or.cond512, label %while.cond869, label %while.end878, !llvm.loop !11
 
 while.end878:                                     ; preds = %while.cond869
@@ -1532,7 +1532,7 @@ if.else887:                                       ; preds = %if.else881
 
 if.then892:                                       ; preds = %if.else887
   %92 = mul nsw i32 %conv894, 10
-  %arrayidx897 = getelementptr inbounds i8, ptr %spec.select, i64 1
+  %arrayidx897 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
   %93 = load i8, ptr %arrayidx897, align 1
   %conv898 = sext i8 %93 to i32
   %sub899 = add nsw i32 %conv898, -528
@@ -1567,7 +1567,7 @@ while.body920:                                    ; preds = %if.then910, %while.
   %add928 = add i32 %mul926, -48
   %sub929 = add i32 %add928, %conv914
   %tmp_usec.2 = select i1 %cmp924, i32 %sub929, i32 %tmp_usec.1576
-  %incdec.ptr931 = getelementptr inbounds i8, ptr %end780.4577, i64 1
+  %incdec.ptr931 = getelementptr inbounds nuw i8, ptr %end780.4577, i64 1
   %97 = load i8, ptr %incdec.ptr931, align 1
   %98 = add i8 %97, -48
   %or.cond513 = icmp ult i8 %98, 10
@@ -1617,12 +1617,12 @@ while.cond951:                                    ; preds = %if.else948, %while.
   ]
 
 while.body959:                                    ; preds = %while.cond951, %while.cond951
-  %incdec.ptr960 = getelementptr inbounds i8, ptr %s.0, i64 1
+  %incdec.ptr960 = getelementptr inbounds nuw i8, ptr %s.0, i64 1
   %.pr = load i8, ptr %incdec.ptr960, align 1
   br label %while.cond951, !llvm.loop !14
 
 land.lhs.true969:                                 ; preds = %while.cond951, %while.cond951
-  %arrayidx970 = getelementptr inbounds i8, ptr %s.0, i64 1
+  %arrayidx970 = getelementptr inbounds nuw i8, ptr %s.0, i64 1
   %102 = load i8, ptr %arrayidx970, align 1
   switch i8 %102, label %if.else981 [
     i8 109, label %if.then977
@@ -1646,7 +1646,7 @@ land.lhs.true983:                                 ; preds = %if.else981
   ]
 
 land.lhs.true991:                                 ; preds = %land.lhs.true983, %land.lhs.true983
-  %arrayidx992 = getelementptr inbounds i8, ptr %s.0, i64 1
+  %arrayidx992 = getelementptr inbounds nuw i8, ptr %s.0, i64 1
   %103 = load i8, ptr %arrayidx992, align 1
   switch i8 %103, label %sw.epilog [
     i8 109, label %if.then999
@@ -1676,7 +1676,7 @@ if.end1022:                                       ; preds = %if.then1018
 
 if.then1031:                                      ; preds = %if.end1022
   %mul1032 = mul nsw i32 %sub1025, 10
-  %incdec.ptr1033 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %incdec.ptr1033 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %sub1035 = zext nneg i8 %107 to i32
   %add1036 = add nsw i32 %mul1032, %sub1035
   %108 = load i8, ptr %incdec.ptr1033, align 1
@@ -1685,7 +1685,7 @@ if.then1031:                                      ; preds = %if.end1022
   br i1 %or.cond516, label %if.then1042, label %if.end1061
 
 if.then1042:                                      ; preds = %if.then1031
-  %incdec.ptr1044 = getelementptr inbounds i8, ptr %rest.0601, i64 3
+  %incdec.ptr1044 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 3
   %110 = load i8, ptr %incdec.ptr1044, align 1
   %111 = add i8 %110, -58
   %or.cond517 = icmp ult i8 %111, -10
@@ -1696,7 +1696,7 @@ if.end1054:                                       ; preds = %if.then1042
   %sub1046 = zext nneg i8 %109 to i32
   %add1047 = add nsw i32 %mul1043, %sub1046
   %mul1055 = mul nsw i32 %add1047, 10
-  %incdec.ptr1056 = getelementptr inbounds i8, ptr %rest.0601, i64 4
+  %incdec.ptr1056 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 4
   %narrow495 = add nsw i8 %110, -48
   %sub1058 = zext nneg i8 %narrow495 to i32
   %add1059 = add nsw i32 %mul1055, %sub1058
@@ -1713,21 +1713,21 @@ if.end1061:                                       ; preds = %if.then1031, %if.en
   ]
 
 if.end1068:                                       ; preds = %if.end1061, %if.end1061
-  %incdec.ptr1069 = getelementptr inbounds i8, ptr %s1019.0, i64 1
+  %incdec.ptr1069 = getelementptr inbounds nuw i8, ptr %s1019.0, i64 1
   %113 = load i8, ptr %incdec.ptr1069, align 1
   %114 = add i8 %113, -58
   %or.cond518 = icmp ult i8 %114, -10
   br i1 %or.cond518, label %sw.epilog, label %if.end1076
 
 if.end1076:                                       ; preds = %if.end1068
-  %incdec.ptr1077 = getelementptr inbounds i8, ptr %s1019.0, i64 2
+  %incdec.ptr1077 = getelementptr inbounds nuw i8, ptr %s1019.0, i64 2
   %narrow496 = add nsw i8 %113, -48
   %sub1079 = zext nneg i8 %narrow496 to i32
   %115 = load i8, ptr %incdec.ptr1077, align 1
   %116 = add i8 %115, -48
   %or.cond519 = icmp ult i8 %116, 10
   %mul1086 = mul nuw nsw i32 %sub1079, 10
-  %incdec.ptr1087 = getelementptr inbounds i8, ptr %s1019.0, i64 3
+  %incdec.ptr1087 = getelementptr inbounds nuw i8, ptr %s1019.0, i64 3
   %sub1089 = sext i8 %116 to i32
   %add1090 = add nuw nsw i32 %mul1086, %sub1089
   %n2.0 = select i1 %or.cond519, i32 %add1090, i32 %sub1079
@@ -1739,21 +1739,21 @@ if.end1076:                                       ; preds = %if.end1068
   ]
 
 if.end1098:                                       ; preds = %if.end1076, %if.end1076
-  %incdec.ptr1099 = getelementptr inbounds i8, ptr %s1019.1, i64 1
+  %incdec.ptr1099 = getelementptr inbounds nuw i8, ptr %s1019.1, i64 1
   %118 = load i8, ptr %incdec.ptr1099, align 1
   %119 = add i8 %118, -58
   %or.cond520 = icmp ult i8 %119, -10
   br i1 %or.cond520, label %sw.epilog, label %if.end1106
 
 if.end1106:                                       ; preds = %if.end1098
-  %incdec.ptr1107 = getelementptr inbounds i8, ptr %s1019.1, i64 2
+  %incdec.ptr1107 = getelementptr inbounds nuw i8, ptr %s1019.1, i64 2
   %narrow498 = add nsw i8 %118, -48
   %sub1109 = zext nneg i8 %narrow498 to i32
   %120 = load i8, ptr %incdec.ptr1107, align 1
   %121 = add i8 %120, -48
   %or.cond521 = icmp ult i8 %121, 10
   %mul1116 = mul nuw nsw i32 %sub1109, 10
-  %incdec.ptr1117 = getelementptr inbounds i8, ptr %s1019.1, i64 3
+  %incdec.ptr1117 = getelementptr inbounds nuw i8, ptr %s1019.1, i64 3
   %sub1119 = sext i8 %121 to i32
   %add1120 = add nuw nsw i32 %mul1116, %sub1119
   %n3.0 = select i1 %or.cond521, i32 %add1120, i32 %sub1109
@@ -1764,7 +1764,7 @@ if.end1106:                                       ; preds = %if.end1098
   br i1 %or.cond522, label %if.then1127, label %if.end1157
 
 if.then1127:                                      ; preds = %if.end1106
-  %incdec.ptr1129 = getelementptr inbounds i8, ptr %s1019.2, i64 1
+  %incdec.ptr1129 = getelementptr inbounds nuw i8, ptr %s1019.2, i64 1
   %124 = load i8, ptr %incdec.ptr1129, align 1
   %125 = add i8 %124, -58
   %or.cond523 = icmp ult i8 %125, -10
@@ -1775,7 +1775,7 @@ if.end1139:                                       ; preds = %if.then1127
   %sub1131 = zext nneg i8 %123 to i32
   %add1132 = add nuw nsw i32 %mul1128, %sub1131
   %mul1140 = mul nuw nsw i32 %add1132, 10
-  %incdec.ptr1141 = getelementptr inbounds i8, ptr %s1019.2, i64 2
+  %incdec.ptr1141 = getelementptr inbounds nuw i8, ptr %s1019.2, i64 2
   %narrow501 = add nsw i8 %124, -48
   %sub1143 = zext nneg i8 %narrow501 to i32
   %add1144 = add nuw nsw i32 %mul1140, %sub1143
@@ -1786,7 +1786,7 @@ if.end1139:                                       ; preds = %if.then1127
 
 if.then1150:                                      ; preds = %if.end1139
   %mul1151 = mul nuw nsw i32 %add1144, 10
-  %incdec.ptr1152 = getelementptr inbounds i8, ptr %s1019.2, i64 3
+  %incdec.ptr1152 = getelementptr inbounds nuw i8, ptr %s1019.2, i64 3
   %sub1154 = zext nneg i8 %127 to i32
   %add1155 = add nuw nsw i32 %mul1151, %sub1154
   %.pr541 = load i8, ptr %incdec.ptr1152, align 1
@@ -1800,7 +1800,7 @@ if.end1157:                                       ; preds = %if.end1139, %if.the
   br i1 %cmp1159, label %land.lhs.true1160, label %if.else1169
 
 land.lhs.true1160:                                ; preds = %if.end1157
-  %arrayidx1161 = getelementptr inbounds i8, ptr %s1019.3, i64 1
+  %arrayidx1161 = getelementptr inbounds nuw i8, ptr %s1019.3, i64 1
   %129 = load i8, ptr %arrayidx1161, align 1
   %130 = add i8 %129, -48
   %or.cond525 = icmp ult i8 %130, 10
@@ -1882,15 +1882,15 @@ cond.true1254:                                    ; preds = %if.then1252
   %138 = load i8, ptr %add.ptr, align 1
   %conv1261 = sext i8 %138 to i32
   %139 = mul nsw i32 %conv1261, 1000
-  %arrayidx1266 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx1266 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %140 = load i8, ptr %arrayidx1266, align 1
   %conv1267 = sext i8 %140 to i32
   %141 = mul nsw i32 %conv1267, 100
-  %arrayidx1272 = getelementptr inbounds i8, ptr %rest.0601, i64 3
+  %arrayidx1272 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 3
   %142 = load i8, ptr %arrayidx1272, align 1
   %conv1273 = sext i8 %142 to i32
   %143 = mul nsw i32 %conv1273, 10
-  %arrayidx1278 = getelementptr inbounds i8, ptr %rest.0601, i64 4
+  %arrayidx1278 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 4
   %144 = load i8, ptr %arrayidx1278, align 1
   %conv1279 = sext i8 %144 to i32
   %mul1264 = add nsw i32 %137, -533328
@@ -1910,11 +1910,11 @@ cond.true1295:                                    ; preds = %if.then1293
   %146 = load i8, ptr %add.ptr, align 1
   %conv1302 = sext i8 %146 to i32
   %147 = mul nsw i32 %conv1302, 100
-  %arrayidx1307 = getelementptr inbounds i8, ptr %rest.0601, i64 2
+  %arrayidx1307 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 2
   %148 = load i8, ptr %arrayidx1307, align 1
   %conv1308 = sext i8 %148 to i32
   %149 = mul nsw i32 %conv1308, 10
-  %arrayidx1313 = getelementptr inbounds i8, ptr %rest.0601, i64 3
+  %arrayidx1313 = getelementptr inbounds nuw i8, ptr %rest.0601, i64 3
   %150 = load i8, ptr %arrayidx1313, align 1
   %conv1314 = sext i8 %150 to i32
   %mul1305 = add nsw i32 %145, -53328
@@ -1996,14 +1996,14 @@ while.cond1377:                                   ; preds = %while.body1425, %sw
   ]
 
 land.lhs.true1415:                                ; preds = %while.cond1377
-  %arrayidx1416 = getelementptr inbounds i8, ptr %rest.4, i64 1
+  %arrayidx1416 = getelementptr inbounds nuw i8, ptr %rest.4, i64 1
   %154 = load i8, ptr %arrayidx1416, align 1
   %155 = add i8 %154, -58
   %spec.select533 = icmp ult i8 %155, -10
   br i1 %spec.select533, label %while.body1425, label %while.end1427
 
 while.body1425:                                   ; preds = %while.cond1377, %land.lhs.true1415
-  %incdec.ptr1426 = getelementptr inbounds i8, ptr %rest.4, i64 1
+  %incdec.ptr1426 = getelementptr inbounds nuw i8, ptr %rest.4, i64 1
   br label %while.cond1377, !llvm.loop !15
 
 while.end1427:                                    ; preds = %while.cond1377, %while.cond1377, %while.cond1377, %while.cond1377, %while.cond1377, %while.cond1377, %while.cond1377, %while.cond1377, %while.cond1377, %while.cond1377, %while.cond1377, %while.cond1377, %land.lhs.true1415
@@ -2028,7 +2028,7 @@ while.cond1428:                                   ; preds = %while.cond1428.back
   ]
 
 while.cond1428.backedge:                          ; preds = %lor.lhs.false1469, %land.lhs.true1463, %while.cond1428, %while.cond1428, %while.cond1428, %while.cond1428, %while.cond1428, %while.cond1428, %while.cond1428, %while.cond1428, %while.cond1428
-  %rest.6.be = getelementptr inbounds i8, ptr %rest.6, i64 1
+  %rest.6.be = getelementptr inbounds nuw i8, ptr %rest.6, i64 1
   br label %while.cond1428, !llvm.loop !16
 
 land.lhs.true1461:                                ; preds = %while.cond1428
@@ -2045,14 +2045,14 @@ land.lhs.true1463:                                ; preds = %land.lhs.true1461
   br i1 %or.cond6, label %while.cond1428.backedge, label %lor.lhs.false1469
 
 lor.lhs.false1469:                                ; preds = %land.lhs.true1463, %land.lhs.true1461
-  %arrayidx1470 = getelementptr inbounds i8, ptr %rest.6, i64 1
+  %arrayidx1470 = getelementptr inbounds nuw i8, ptr %rest.6, i64 1
   %158 = load i8, ptr %arrayidx1470, align 1
   %159 = add i8 %158, -58
   %or.cond534 = icmp ult i8 %159, -10
   br i1 %or.cond534, label %while.cond1428.backedge, label %if.end1492
 
 land.lhs.true1482:                                ; preds = %while.cond1428
-  %arrayidx1483 = getelementptr inbounds i8, ptr %rest.6, i64 1
+  %arrayidx1483 = getelementptr inbounds nuw i8, ptr %rest.6, i64 1
   %160 = load i8, ptr %arrayidx1483, align 1
   %161 = add i8 %160, -48
   %or.cond535 = icmp ult i8 %161, 10
@@ -2171,7 +2171,7 @@ if.end1526:                                       ; preds = %if.then1525, %if.en
   br i1 %cmp1527.not, label %if.end1529, label %if.then1528
 
 if.then1528:                                      ; preds = %if.end1526
-  %tm_sec = getelementptr inbounds i8, ptr %tm, i64 4
+  %tm_sec = getelementptr inbounds nuw i8, ptr %tm, i64 4
   store i32 %sec.0.lcssa646, ptr %tm_sec, align 4
   br label %if.end1529
 
@@ -2180,7 +2180,7 @@ if.end1529:                                       ; preds = %if.then1528, %if.en
   br i1 %cmp1530.not, label %if.end1532, label %if.then1531
 
 if.then1531:                                      ; preds = %if.end1529
-  %tm_min = getelementptr inbounds i8, ptr %tm, i64 8
+  %tm_min = getelementptr inbounds nuw i8, ptr %tm, i64 8
   store i32 %min.0.lcssa645, ptr %tm_min, align 4
   br label %if.end1532
 
@@ -2189,18 +2189,18 @@ if.end1532:                                       ; preds = %if.then1531, %if.en
   br i1 %cmp1533.not, label %if.end1546, label %if.then1534
 
 if.then1534:                                      ; preds = %if.end1532
-  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 12
+  %tm_hour = getelementptr inbounds nuw i8, ptr %tm, i64 12
   store i32 %hour.0.lcssa644, ptr %tm_hour, align 4
   br label %if.end1546
 
 if.end1546:                                       ; preds = %if.end1532, %if.then1534
-  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 16
+  %tm_mday = getelementptr inbounds nuw i8, ptr %tm, i64 16
   store i32 %date.0.lcssa642, ptr %tm_mday, align 4
   %sub1541 = add nsw i32 %month.0.lcssa640, -8
-  %tm_month = getelementptr inbounds i8, ptr %tm, i64 20
+  %tm_month = getelementptr inbounds nuw i8, ptr %tm, i64 20
   store i32 %sub1541, ptr %tm_month, align 4
   %conv1545 = trunc i32 %year.0.lcssa643 to i16
-  %tm_year = getelementptr inbounds i8, ptr %tm, i64 24
+  %tm_year = getelementptr inbounds nuw i8, ptr %tm, i64 24
   store i16 %conv1545, ptr %tm_year, align 4
   %cmp1547.not = icmp eq i32 %dotw.0.lcssa648, 0
   br i1 %cmp1547.not, label %if.end1551, label %if.then1548
@@ -2208,7 +2208,7 @@ if.end1546:                                       ; preds = %if.end1532, %if.the
 if.then1548:                                      ; preds = %if.end1546
   %164 = trunc i32 %dotw.0.lcssa648 to i8
   %conv1550 = add i8 %164, -1
-  %tm_wday = getelementptr inbounds i8, ptr %tm, i64 26
+  %tm_wday = getelementptr inbounds nuw i8, ptr %tm, i64 26
   store i8 %conv1550, ptr %tm_wday, align 2
   br label %if.end1551
 
@@ -2227,28 +2227,28 @@ if.then1558:                                      ; preds = %if.end1551
   br i1 %cmp1561, label %if.then1562, label %if.end1584
 
 if.then1562:                                      ; preds = %if.then1558
-  %tm_sec1563 = getelementptr inbounds i8, ptr %tm, i64 4
+  %tm_sec1563 = getelementptr inbounds nuw i8, ptr %tm, i64 4
   %166 = load i32, ptr %tm_sec1563, align 4
   store i32 %166, ptr %localTime, align 8
-  %tm_min1565 = getelementptr inbounds i8, ptr %tm, i64 8
+  %tm_min1565 = getelementptr inbounds nuw i8, ptr %tm, i64 8
   %167 = load i32, ptr %tm_min1565, align 4
-  %tm_min1566 = getelementptr inbounds i8, ptr %localTime, i64 4
+  %tm_min1566 = getelementptr inbounds nuw i8, ptr %localTime, i64 4
   store i32 %167, ptr %tm_min1566, align 4
-  %tm_hour1567 = getelementptr inbounds i8, ptr %tm, i64 12
+  %tm_hour1567 = getelementptr inbounds nuw i8, ptr %tm, i64 12
   %168 = load i32, ptr %tm_hour1567, align 4
-  %tm_hour1568 = getelementptr inbounds i8, ptr %localTime, i64 8
+  %tm_hour1568 = getelementptr inbounds nuw i8, ptr %localTime, i64 8
   store i32 %168, ptr %tm_hour1568, align 8
   %169 = load i32, ptr %tm_mday, align 4
-  %tm_mday1570 = getelementptr inbounds i8, ptr %localTime, i64 12
+  %tm_mday1570 = getelementptr inbounds nuw i8, ptr %localTime, i64 12
   store i32 %169, ptr %tm_mday1570, align 4
   %170 = load i32, ptr %tm_month, align 4
-  %tm_mon = getelementptr inbounds i8, ptr %localTime, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %localTime, i64 16
   store i32 %170, ptr %tm_mon, align 8
   %conv1573 = zext nneg i16 %165 to i32
   %sub1574 = add nsw i32 %conv1573, -1900
-  %tm_year1575 = getelementptr inbounds i8, ptr %localTime, i64 20
+  %tm_year1575 = getelementptr inbounds nuw i8, ptr %localTime, i64 20
   store i32 %sub1574, ptr %tm_year1575, align 4
-  %tm_isdst = getelementptr inbounds i8, ptr %localTime, i64 32
+  %tm_isdst = getelementptr inbounds nuw i8, ptr %localTime, i64 32
   store i32 -1, ptr %tm_isdst, align 8
   %call1576 = call i64 @mktime(ptr noundef nonnull %localTime) #9
   %cmp1577.not = icmp eq i64 %call1576, -1
@@ -2264,12 +2264,12 @@ if.then1578:                                      ; preds = %if.then1562
 if.end1584:                                       ; preds = %if.then1562, %if.then1558
   store i64 86400, ptr %secs, align 8
   %call1585 = call ptr @localtime_r(ptr noundef nonnull %secs, ptr noundef nonnull %localTime) #9
-  %tm_min1586 = getelementptr inbounds i8, ptr %localTime, i64 4
+  %tm_min1586 = getelementptr inbounds nuw i8, ptr %localTime, i64 4
   %172 = load i32, ptr %tm_min1586, align 4
-  %tm_hour1587 = getelementptr inbounds i8, ptr %localTime, i64 8
+  %tm_hour1587 = getelementptr inbounds nuw i8, ptr %localTime, i64 8
   %173 = load i32, ptr %tm_hour1587, align 8
   %mul1588 = mul nsw i32 %173, 60
-  %tm_mday1590 = getelementptr inbounds i8, ptr %localTime, i64 12
+  %tm_mday1590 = getelementptr inbounds nuw i8, ptr %localTime, i64 12
   %174 = load i32, ptr %tm_mday1590, align 4
   %175 = mul i32 %174, 1440
   %mul1592 = add i32 %172, -2880
@@ -2280,14 +2280,14 @@ if.end1584:                                       ; preds = %if.then1562, %if.th
 if.end1594:                                       ; preds = %if.end1584, %if.end1551
   %zone_offset.5 = phi i32 [ %add1593, %if.end1584 ], [ %spec.select536, %if.end1551 ]
   %mul1595 = mul nsw i32 %zone_offset.5, 60
-  %tm_params = getelementptr inbounds i8, ptr %tm, i64 32
+  %tm_params = getelementptr inbounds nuw i8, ptr %tm, i64 32
   store i32 %mul1595, ptr %tm_params, align 4
-  %tp_dst_offset = getelementptr inbounds i8, ptr %tm, i64 36
+  %tp_dst_offset = getelementptr inbounds nuw i8, ptr %tm, i64 36
   store i32 %dst_offset.0, ptr %tp_dst_offset, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %copy.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %copy.i, ptr noundef nonnull readonly align 4 dereferenceable(40) %tm, i64 40, i1 false)
   call void @_Z16PR_NormalizeTimeP14PRExplodedTimePF16PRTimeParametersPKS_E(ptr noundef nonnull %copy.i, ptr noundef nonnull @_Z16PR_GMTParametersPK14PRExplodedTime)
-  %tm_year.i = getelementptr inbounds i8, ptr %copy.i, i64 24
+  %tm_year.i = getelementptr inbounds nuw i8, ptr %copy.i, i64 24
   %176 = load i16, ptr %tm_year.i, align 4
   %conv.i = sext i16 %176 to i32
   %sub.i = add nsw i32 %conv.i, -1
@@ -2299,28 +2299,28 @@ if.end1594:                                       ; preds = %if.end1584, %if.end
   %add.i = add nsw i32 %sub8.i, %div7.neg.i
   %add13.i = add nsw i32 %add.i, %div12.i
   %sub14.i = add nsw i32 %add13.i, %mul.i
-  %tm_yday.i = getelementptr inbounds i8, ptr %copy.i, i64 28
+  %tm_yday.i = getelementptr inbounds nuw i8, ptr %copy.i, i64 28
   %177 = load i16, ptr %tm_yday.i, align 4
   %conv15.i = sext i16 %177 to i32
   %mul16.i = mul nsw i32 %conv15.i, 86400
-  %tm_hour.i = getelementptr inbounds i8, ptr %copy.i, i64 12
+  %tm_hour.i = getelementptr inbounds nuw i8, ptr %copy.i, i64 12
   %178 = load i32, ptr %tm_hour.i, align 4
   %mul17.i = mul nsw i32 %178, 3600
   %add18.i = add nsw i32 %mul16.i, %mul17.i
-  %tm_min.i = getelementptr inbounds i8, ptr %copy.i, i64 8
+  %tm_min.i = getelementptr inbounds nuw i8, ptr %copy.i, i64 8
   %179 = load i32, ptr %tm_min.i, align 4
   %mul19.i = mul nsw i32 %179, 60
   %add20.i = add nsw i32 %add18.i, %mul19.i
-  %tm_sec.i = getelementptr inbounds i8, ptr %copy.i, i64 4
+  %tm_sec.i = getelementptr inbounds nuw i8, ptr %copy.i, i64 4
   %180 = load i32, ptr %tm_sec.i, align 4
   %add21.i = add nsw i32 %add20.i, %180
   %conv22.i = sext i32 %sub14.i to i64
   %mul23.i = mul nsw i64 %conv22.i, 86400
   %conv24.i = sext i32 %add21.i to i64
-  %tm_params.i = getelementptr inbounds i8, ptr %copy.i, i64 32
+  %tm_params.i = getelementptr inbounds nuw i8, ptr %copy.i, i64 32
   %181 = load i32, ptr %tm_params.i, align 4
   %conv26.i = sext i32 %181 to i64
-  %tp_dst_offset.i = getelementptr inbounds i8, ptr %copy.i, i64 36
+  %tp_dst_offset.i = getelementptr inbounds nuw i8, ptr %copy.i, i64 36
   %182 = load i32, ptr %tp_dst_offset.i, align 4
   %conv29.i = sext i32 %182 to i64
   %183 = add nsw i64 %conv29.i, %conv26.i

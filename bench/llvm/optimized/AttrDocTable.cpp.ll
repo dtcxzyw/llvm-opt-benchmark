@@ -433,9 +433,9 @@ define dso_local { ptr, i64 } @_ZN5clang4Attr16getDocumentationENS_4attr4KindE(i
 
 3:                                                ; preds = %1
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds [417 x %"class.llvm::StringRef"], ptr @_ZL7AttrDoc, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [417 x %"class.llvm::StringRef"], ptr @_ZL7AttrDoc, i64 0, i64 %4
   %.sroa.0.0.copyload = load ptr, ptr %5, align 16
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   br label %6
 

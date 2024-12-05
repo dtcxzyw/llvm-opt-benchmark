@@ -67,51 +67,51 @@ define hidden void @_ZN14AccessInternal24arraycopy_disjoint_wordsEPvS0_m(ptr noc
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %6, ptr %7, align 8
   br label %8
 
 8:                                                ; preds = %4, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %10, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %8, %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %14, ptr %15, align 8
   br label %16
 
 16:                                               ; preds = %12, %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %18, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %16, %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %22, ptr %23, align 8
   br label %24
 
 24:                                               ; preds = %20, %3
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %26, ptr %27, align 8
   br label %28
 
 28:                                               ; preds = %24, %3
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %30, ptr %31, align 8
   br label %32
 
@@ -144,50 +144,50 @@ define hidden void @_ZN14AccessInternal31arraycopy_disjoint_words_atomicEPvS0_m(
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load volatile ptr, ptr %6, align 8
   store volatile ptr %7, ptr %5, align 8
   br label %8
 
 8:                                                ; preds = %4, %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load volatile ptr, ptr %10, align 8
   store volatile ptr %11, ptr %9, align 8
   br label %12
 
 12:                                               ; preds = %8, %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load volatile ptr, ptr %14, align 8
   store volatile ptr %15, ptr %13, align 8
   br label %16
 
 16:                                               ; preds = %12, %3
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load volatile ptr, ptr %18, align 8
   store volatile ptr %19, ptr %17, align 8
   br label %20
 
 20:                                               ; preds = %16, %3
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load volatile ptr, ptr %22, align 8
   store volatile ptr %23, ptr %21, align 8
   br label %24
 
 24:                                               ; preds = %20, %3
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load volatile ptr, ptr %26, align 8
   store volatile ptr %27, ptr %25, align 8
   br label %28
 
 28:                                               ; preds = %24, %3
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load volatile ptr, ptr %30, align 8
   store volatile ptr %31, ptr %29, align 8
   br label %32
@@ -202,8 +202,8 @@ define hidden void @_ZN14AccessInternal31arraycopy_disjoint_words_atomicEPvS0_m(
   %.01923.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i ], [ %1, %3 ]
   %.02022.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i ], [ %0, %3 ]
   %34 = add i64 %.024.i.i.i, -1
-  %35 = getelementptr inbounds i8, ptr %.01923.i.i.i, i64 8
-  %36 = getelementptr inbounds i8, ptr %.02022.i.i.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.01923.i.i.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.02022.i.i.i, i64 8
   %37 = load volatile ptr, ptr %.02022.i.i.i, align 8
   store volatile ptr %37, ptr %.01923.i.i.i, align 8
   %.not.i.i.i = icmp eq i64 %34, 0

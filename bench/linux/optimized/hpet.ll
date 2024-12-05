@@ -315,7 +315,7 @@ define dso_local noundef range(i32 0, 2) i32 @hpet_enable() local_unnamed_addr #
 51:                                               ; preds = %72, %49
   %52 = phi i64 [ 0, %49 ], [ %73, %72 ]
   %53 = phi ptr [ %35, %49 ], [ %74, %72 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 256
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 256
   %55 = trunc i64 %52 to i32
   store i32 %55, ptr %54, align 64
   %56 = shl nuw nsw i64 %52, 5
@@ -323,11 +323,11 @@ define dso_local noundef range(i32 0, 2) i32 @hpet_enable() local_unnamed_addr #
   %58 = load ptr, ptr @hpet_virt_address, align 8
   %59 = getelementptr i8, ptr %58, i64 %57
   %60 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %59) #19, !srcloc !5
-  %61 = getelementptr inbounds i8, ptr %53, i64 276
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 276
   store i32 %60, ptr %61, align 4
   %62 = lshr i32 %60, 9
   %63 = and i32 %62, 31
-  %64 = getelementptr inbounds i8, ptr %53, i64 264
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 264
   store i32 %63, ptr %64, align 8
   %65 = and i32 %60, -16391
   %66 = load ptr, ptr @hpet_virt_address, align 8
@@ -381,7 +381,7 @@ define dso_local noundef range(i32 0, 2) i32 @hpet_enable() local_unnamed_addr #
   %93 = load ptr, ptr @hpet_base.3, align 8
   tail call fastcc void @hpet_legacy_clockevent_register(ptr noundef %93) #20
   %94 = load ptr, ptr @hpet_base.3, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 272
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 272
   store i32 1, ptr %95, align 16
   %96 = getelementptr i8, ptr %94, i64 592
   store i32 1, ptr %96, align 16
@@ -621,17 +621,17 @@ define internal fastcc void @hpet_legacy_clockevent_register(ptr noundef initial
 hpet_init_clockevent.exit:
   %1 = load i16, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 302), align 2
   %2 = zext i16 %1 to i32
-  %3 = getelementptr inbounds i8, ptr %0, i64 260
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 %2, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
-  %5 = tail call i64 @strscpy(ptr noundef %4, ptr noundef nonnull @.str.19, i64 noundef 10) #19
-  %6 = getelementptr inbounds i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %5 = tail call i64 @strscpy(ptr noundef nonnull %4, ptr noundef nonnull @.str.19, i64 noundef 10) #19
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 50, ptr %6, align 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 264
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 164
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %4, ptr %10, align 8
   %11 = load i32, ptr %3, align 4
   %12 = and i32 %11, 63
@@ -642,19 +642,19 @@ hpet_init_clockevent.exit:
   %17 = zext nneg i32 %16 to i64
   %18 = sub nsw i64 0, %17
   %19 = getelementptr i64, ptr %15, i64 %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %19, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @hpet_clkevt_set_state_oneshot, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @hpet_clkevt_set_next_event, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @hpet_clkevt_set_state_shutdown, ptr %23, align 32
-  %24 = getelementptr inbounds i8, ptr %0, i64 60
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @hpet_clkevt_legacy_resume, ptr %25, align 8
   store i32 3, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @hpet_clkevt_set_state_periodic, ptr %26, align 8
   %27 = load ptr, ptr @hpet_virt_address, align 8
   %28 = getelementptr i8, ptr %27, i64 16
@@ -873,11 +873,11 @@ define dso_local noundef range(i32 0, 2) i32 @hpet_rtc_timer_init() #9 align 16 
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @hpet_base.3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load i32, ptr %14, align 16
   %16 = zext i32 %15 to i64
   %17 = mul nuw nsw i64 %16, 1000000000
-  %18 = getelementptr inbounds i8, ptr %13, i64 52
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 52
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 6
   %21 = zext nneg i32 %20 to i64
@@ -1003,11 +1003,11 @@ define dso_local noundef range(i32 0, 2) i32 @hpet_set_rtc_irq_bit(i64 noundef %
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr @hpet_base.3, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load i32, ptr %26, align 16
   %28 = zext i32 %27 to i64
   %29 = mul nuw nsw i64 %28, 1000000000
-  %30 = getelementptr inbounds i8, ptr %25, i64 52
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 52
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %31, 6
   %33 = zext nneg i32 %32 to i64
@@ -1108,13 +1108,13 @@ define dso_local noundef range(i32 0, 2) i32 @hpet_set_periodic_freq(i64 noundef
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr @hpet_base.3, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load i32, ptr %15, align 16
   %17 = zext i32 %16 to i64
   %18 = mul nuw nsw i64 %17, 1000000000
   %19 = and i64 %0, 4294967295
   %20 = udiv i64 %18, %19
-  %21 = getelementptr inbounds i8, ptr %14, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %22 = load i32, ptr %21, align 4
   %23 = zext nneg i32 %22 to i64
   %24 = lshr i64 %20, %23
@@ -1296,14 +1296,14 @@ define dso_local noundef i32 @hpet_rtc_interrupt(i32 %0, ptr noundef %1) #9 alig
   br i1 %94, label %95, label %106
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %3, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = load i32, ptr @hpet_alarm_time.1, align 4
   %99 = icmp eq i32 %97, %98
   br i1 %99, label %100, label %106
 
 100:                                              ; preds = %95
-  %101 = getelementptr inbounds i8, ptr %3, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %102 = load i32, ptr %101, align 4
   %103 = load i32, ptr @hpet_alarm_time.2, align 4
   %104 = icmp eq i32 %102, %103
@@ -1552,7 +1552,7 @@ define internal noundef i32 @hpet_clkevt_legacy_resume(ptr nocapture readnone %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @hpet_clkevt_set_state_periodic(ptr nocapture noundef readonly %0) #9 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i32, ptr %2, align 64
   %4 = load ptr, ptr @hpet_virt_address, align 8
   %5 = getelementptr i8, ptr %4, i64 16
@@ -1561,11 +1561,11 @@ define internal noundef i32 @hpet_clkevt_set_state_periodic(ptr nocapture nounde
   %8 = load ptr, ptr @hpet_virt_address, align 8
   %9 = getelementptr i8, ptr %8, i64 16
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, ptr elementtype(i32) %9) #19, !srcloc !11
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 16
   %12 = zext i32 %11 to i64
   %13 = mul nuw nsw i64 %12, 1000000
-  %14 = getelementptr inbounds i8, ptr %0, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %15 = load i32, ptr %14, align 4
   %16 = zext nneg i32 %15 to i64
   %17 = lshr i64 %13, %16
@@ -1616,7 +1616,7 @@ declare dso_local void @clockevents_config_and_register(ptr noundef, i32 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @hpet_clkevt_set_state_oneshot(ptr nocapture noundef readonly %0) #9 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i32, ptr %2, align 64
   %4 = shl i32 %3, 5
   %5 = add i32 %4, 256
@@ -1634,7 +1634,7 @@ define internal noundef i32 @hpet_clkevt_set_state_oneshot(ptr nocapture noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -62, 1) i32 @hpet_clkevt_set_next_event(i64 noundef %0, ptr nocapture noundef readonly %1) #9 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load i32, ptr %3, align 64
   %5 = load ptr, ptr @hpet_virt_address, align 8
   %6 = getelementptr i8, ptr %5, i64 240
@@ -1658,7 +1658,7 @@ define internal range(i32 -62, 1) i32 @hpet_clkevt_set_next_event(i64 noundef %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @hpet_clkevt_set_state_shutdown(ptr nocapture noundef readonly %0) #9 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i32, ptr %2, align 64
   %4 = shl i32 %3, 5
   %5 = add i32 %4, 256
@@ -1721,7 +1721,7 @@ define internal fastcc void @hpet_select_clockevents() unnamed_addr #4 section "
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(72) @hpet_msi_domain_info, i64 64, i1 false)
   %22 = zext i8 %13 to i64
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %19, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr @hpet_msi_controller, align 8
   %26 = tail call ptr @__irq_domain_alloc_fwnode(i32 noundef 2, i32 noundef %14, ptr noundef %25, ptr noundef null) #19
@@ -1730,9 +1730,9 @@ define internal fastcc void @hpet_select_clockevents() unnamed_addr #4 section "
 
 28:                                               ; preds = %21
   store ptr %26, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %14, ptr %30, align 4
   %31 = call ptr @irq_find_matching_fwspec(ptr noundef nonnull %2, i32 noundef 0) #19
   %32 = icmp eq ptr %31, null
@@ -1773,9 +1773,9 @@ define internal fastcc void @hpet_select_clockevents() unnamed_addr #4 section "
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %1, i64 40
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre6 = load ptr, ptr @hpet_base.3, align 8
   br label %49
 
@@ -1784,24 +1784,24 @@ define internal fastcc void @hpet_select_clockevents() unnamed_addr #4 section "
   %51 = phi ptr [ %.pre6, %45 ], [ %87, %85 ]
   %52 = phi i64 [ 0, %45 ], [ %88, %85 ]
   %53 = getelementptr %struct.hpet_channel, ptr %51, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 272
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 272
   %55 = load i32, ptr %54, align 16
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %85
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %53, i64 276
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 276
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 32768
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %85, label %62
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %53, i64 280
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 280
   %64 = trunc i64 %52 to i32
-  %65 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %63, ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %64) #19
+  %65 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %64) #19
   %66 = load ptr, ptr @hpet_domain, align 8
-  %67 = getelementptr inbounds i8, ptr %53, i64 256
+  %67 = getelementptr inbounds nuw i8, ptr %53, i64 256
   %68 = load i32, ptr %67, align 64
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %1) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false), !annotation !22
@@ -1809,7 +1809,7 @@ define internal fastcc void @hpet_select_clockevents() unnamed_addr #4 section "
   store i32 2, ptr %1, align 8
   store ptr %53, ptr %46, align 8
   %69 = call ptr @msi_get_domain_info(ptr noundef %66) #19
-  %70 = getelementptr inbounds i8, ptr %69, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %71 = load ptr, ptr %70, align 8
   %72 = ptrtoint ptr %71 to i64
   %73 = trunc i64 %72 to i32
@@ -1827,7 +1827,7 @@ define internal fastcc void @hpet_select_clockevents() unnamed_addr #4 section "
   br label %85
 
 77:                                               ; preds = %62
-  %78 = getelementptr inbounds i8, ptr %53, i64 264
+  %78 = getelementptr inbounds nuw i8, ptr %53, i64 264
   store i32 %75, ptr %78, align 8
   store i32 2, ptr %54, align 16
   %79 = load i32, ptr @hpet_base.1, align 8
@@ -1862,27 +1862,27 @@ define internal fastcc void @hpet_select_clockevents() unnamed_addr #4 section "
 define internal fastcc void @hpet_reserve_platform_timers() unnamed_addr #4 section ".init.text" align 16 {
   %1 = alloca %struct.hpet_data, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1) #19
-  %2 = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 136, i1 false)
   %3 = load i64, ptr @hpet_address, align 8
   store i64 %3, ptr %1, align 8
   %4 = load ptr, ptr @hpet_virt_address, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %4, ptr %5, align 8
   %6 = load i32, ptr @hpet_base.0, align 8
   %7 = trunc nuw nsw i32 %6 to i16
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 8, ptr %10, align 4
   %11 = icmp eq i32 %6, 0
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %0
   %13 = load ptr, ptr @hpet_base.3, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %15 = zext nneg i32 %6 to i64
   br label %16
 
@@ -1893,14 +1893,14 @@ define internal fastcc void @hpet_reserve_platform_timers() unnamed_addr #4 sect
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %18, i64 264
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 264
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr [32 x i32], ptr %9, i64 0, i64 %17
   store i32 %22, ptr %23, align 4
   br label %24
 
 24:                                               ; preds = %20, %16
-  %25 = getelementptr inbounds i8, ptr %18, i64 272
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 272
   %26 = load i32, ptr %25, align 16
   switch i32 %26, label %34 [
     i32 0, label %27
@@ -1914,7 +1914,7 @@ define internal fastcc void @hpet_reserve_platform_timers() unnamed_addr #4 sect
   br label %34
 
 28:                                               ; preds = %24, %24
-  %29 = getelementptr inbounds i8, ptr %18, i64 256
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 256
   %30 = load i32, ptr %29, align 64
   %31 = shl nuw i32 1, %30
   %32 = load i32, ptr %14, align 4
@@ -1952,25 +1952,25 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #9 align 16 {
   %10 = phi i32 [ 0, %4 ], [ %7, %6 ]
   %11 = sext i32 %10 to i64
   %12 = getelementptr %struct.hpet_channel, ptr %5, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 272
   %14 = load i32, ptr %13, align 16
   %15 = icmp eq i32 %14, 2
   br i1 %15, label %16, label %6
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %12, i64 268
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 268
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %6
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %12, i64 268
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 268
   store i32 1, ptr %21, align 4
   %22 = icmp eq ptr %12, null
   br i1 %22, label %.thread4, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %12, i64 260
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 260
   store i32 %0, ptr %24, align 4
   %25 = sext i32 %0 to i64
   %26 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %25
@@ -1978,10 +1978,10 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #9 align 16 {
   %28 = add i64 %27, ptrtoint (ptr @cpu_hpet_channel to i64)
   %29 = inttoptr i64 %28 to ptr
   store ptr %12, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %12, i64 264
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 264
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %12, i64 280
-  %33 = tail call i32 @request_threaded_irq(i32 noundef %31, ptr noundef nonnull @hpet_msi_interrupt_handler, ptr noundef null, i64 noundef 84480, ptr noundef %32, ptr noundef nonnull %12) #19
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 280
+  %33 = tail call i32 @request_threaded_irq(i32 noundef %31, ptr noundef nonnull @hpet_msi_interrupt_handler, ptr noundef null, i64 noundef 84480, ptr noundef nonnull %32, ptr noundef nonnull %12) #19
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %49
 
@@ -2004,12 +2004,12 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #9 align 16 {
   br label %49
 
 49:                                               ; preds = %35, %23
-  %50 = getelementptr inbounds i8, ptr %12, i64 160
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 160
   store i32 110, ptr %50, align 32
   %51 = load i32, ptr %30, align 8
-  %52 = getelementptr inbounds i8, ptr %12, i64 164
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 164
   store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %12, i64 152
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 152
   store ptr %32, ptr %53, align 8
   %54 = load i32, ptr %24, align 4
   %55 = and i32 %54, 63
@@ -2020,17 +2020,17 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #9 align 16 {
   %60 = zext nneg i32 %59 to i64
   %61 = sub nsw i64 0, %60
   %62 = getelementptr i64, ptr %58, i64 %61
-  %63 = getelementptr inbounds i8, ptr %12, i64 176
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 176
   store ptr %62, ptr %63, align 16
-  %64 = getelementptr inbounds i8, ptr %12, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store ptr @hpet_clkevt_set_state_oneshot, ptr %64, align 16
-  %65 = getelementptr inbounds i8, ptr %12, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @hpet_clkevt_set_next_event, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %12, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store ptr @hpet_clkevt_set_state_shutdown, ptr %66, align 32
-  %67 = getelementptr inbounds i8, ptr %12, i64 60
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 60
   store i32 2, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %12, i64 276
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 276
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 8
   %71 = icmp eq i32 %70, 0
@@ -2038,12 +2038,12 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #9 align 16 {
 
 72:                                               ; preds = %49
   store i32 3, ptr %67, align 4
-  %73 = getelementptr inbounds i8, ptr %12, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr @hpet_clkevt_set_state_periodic, ptr %73, align 8
   br label %74
 
 74:                                               ; preds = %72, %49
-  %75 = getelementptr inbounds i8, ptr %12, i64 104
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 104
   store ptr @hpet_clkevt_msi_resume, ptr %75, align 8
   %76 = load i64, ptr @hpet_freq, align 8
   %77 = trunc i64 %76 to i32
@@ -2066,10 +2066,10 @@ define internal noundef i32 @hpet_cpuhp_dead(i32 noundef %0) #9 align 16 {
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %7, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %11 = load i32, ptr %10, align 8
   %12 = tail call ptr @free_irq(i32 noundef %11, ptr noundef nonnull %7) #19
-  %13 = getelementptr inbounds i8, ptr %7, i64 268
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 268
   store i32 0, ptr %13, align 4
   %14 = load i64, ptr %3, align 8
   %15 = add i64 %14, ptrtoint (ptr @cpu_hpet_channel to i64)
@@ -2099,11 +2099,11 @@ declare dso_local ptr @msi_create_irq_domain(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @hpet_msi_init(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 %3, ptr nocapture noundef readonly %4) #9 align 16 {
   tail call void @irq_modify_status(i32 noundef %2, i64 noundef 0, i64 noundef 16384) #19
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %11 = load ptr, ptr %10, align 8
   tail call void @irq_domain_set_info(ptr noundef %0, i32 noundef %2, i64 noundef %7, ptr noundef %9, ptr noundef null, ptr noundef nonnull @handle_edge_irq, ptr noundef %11, ptr noundef nonnull @.str.26) #19
   ret i32 0
@@ -2132,11 +2132,11 @@ declare dso_local void @irq_chip_ack_parent(ptr noundef) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @hpet_msi_mask(ptr nocapture noundef readonly %0) #9 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 256
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %7 = load i32, ptr %6, align 64
   %8 = shl i32 %7, 5
   %9 = add i32 %8, 256
@@ -2157,11 +2157,11 @@ define internal void @hpet_msi_mask(ptr nocapture noundef readonly %0) #9 align 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @hpet_msi_unmask(ptr nocapture noundef readonly %0) #9 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 256
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %7 = load i32, ptr %6, align 64
   %8 = shl i32 %7, 5
   %9 = add i32 %8, 256
@@ -2188,13 +2188,13 @@ declare dso_local i32 @irq_chip_retrigger_hierarchy(ptr noundef) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @hpet_msi_write_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %10 = load i32, ptr %9, align 64
   %11 = shl i32 %10, 5
   %12 = add i32 %11, 272
@@ -2231,15 +2231,15 @@ declare dso_local i32 @__cpuhp_setup_state(i32 noundef, ptr noundef, i1 noundef 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @hpet_clkevt_msi_resume(ptr nocapture noundef readonly %0) #9 align 16 {
   %2 = alloca %struct.msi_msg, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 264
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load i32, ptr %3, align 8
   %5 = tail call ptr @irq_get_irq_data(i32 noundef %4) #19
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, i8 0, i64 12, i1 false), !annotation !22
   %6 = call i32 @irq_chip_compose_msi_msg(ptr noundef %5, ptr noundef nonnull %2) #19
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %10 = load i32, ptr %9, align 64
   %11 = shl i32 %10, 5
   %12 = add i32 %11, 272
@@ -2255,11 +2255,11 @@ define internal noundef i32 @hpet_clkevt_msi_resume(ptr nocapture noundef readon
   %21 = zext i32 %19 to i64
   %22 = getelementptr i8, ptr %20, i64 %21
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %16, ptr elementtype(i32) %22) #19, !srcloc !11
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 256
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 256
   %28 = load i32, ptr %27, align 64
   %29 = shl i32 %28, 5
   %30 = add i32 %29, 256
@@ -2286,7 +2286,7 @@ define internal noundef i32 @hpet_msi_interrupt_handler(i32 %0, ptr noundef %1) 
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 256
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %7 = load i32, ptr %6, align 64
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28, i32 noundef %7) #22
   br label %10

@@ -40,7 +40,7 @@ ir_perf_timestamp.exit.thread:                    ; preds = %0
 ir_perf_timestamp.exit:                           ; preds = %0
   %9 = load i64, ptr %2, align 8
   %10 = mul i64 %9, 1000000000
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i64, ptr %11, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %13 = sub i64 0, %12
@@ -60,15 +60,15 @@ ir_perf_timestamp.exit:                           ; preds = %0
   %21 = load i8, ptr %4, align 8
   %22 = icmp ne i8 %21, 127
   %or.cond = select i1 %20, i1 true, i1 %22
-  %23 = getelementptr inbounds i8, ptr %4, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = icmp ne i8 %24, 69
   %or.cond9 = select i1 %or.cond, i1 true, i1 %25
-  %26 = getelementptr inbounds i8, ptr %4, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %27 = load i8, ptr %26, align 2
   %28 = icmp ne i8 %27, 76
   %or.cond14 = select i1 %or.cond9, i1 true, i1 %28
-  %29 = getelementptr inbounds i8, ptr %4, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %30 = load i8, ptr %29, align 1
   %31 = icmp ne i8 %30, 70
   %or.cond19 = select i1 %or.cond14, i1 true, i1 %31
@@ -95,20 +95,20 @@ ir_perf_timestamp.exit:                           ; preds = %0
   br label %64
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %5, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %44, align 8
   store i32 1248416836, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %5, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 40, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 18
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 18
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
-  %50 = getelementptr inbounds i8, ptr %5, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %49, ptr %50, align 4
   %51 = call i32 @getpid() #7
-  %52 = getelementptr inbounds i8, ptr %5, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %51, ptr %52, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   %53 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #7
@@ -118,7 +118,7 @@ ir_perf_timestamp.exit:                           ; preds = %0
 54:                                               ; preds = %43
   %55 = load i64, ptr %1, align 8
   %56 = mul i64 %55, 1000000000
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = add i64 %56, %58
   br label %ir_perf_timestamp.exit28
@@ -126,9 +126,9 @@ ir_perf_timestamp.exit:                           ; preds = %0
 ir_perf_timestamp.exit28:                         ; preds = %43, %54
   %.0.i27 = phi i64 [ %59, %54 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
-  %60 = getelementptr inbounds i8, ptr %5, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %.0.i27, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %5, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 0, ptr %61, align 8
   %62 = load i32, ptr @jitdump_fd, align 4
   %63 = call i64 @write(i32 noundef %62, ptr noundef nonnull %5, i64 noundef 40) #7
@@ -174,7 +174,7 @@ define hidden range(i32 0, 2) i32 @ir_perf_jitdump_close() local_unnamed_addr #0
 
 5:                                                ; preds = %0
   store i32 3, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 16, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #7
@@ -184,7 +184,7 @@ define hidden range(i32 0, 2) i32 @ir_perf_jitdump_close() local_unnamed_addr #0
 8:                                                ; preds = %5
   %9 = load i64, ptr %1, align 8
   %10 = mul i64 %9, 1000000000
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %10, %12
   br label %ir_perf_timestamp.exit
@@ -192,7 +192,7 @@ define hidden range(i32 0, 2) i32 @ir_perf_jitdump_close() local_unnamed_addr #0
 ir_perf_timestamp.exit:                           ; preds = %5, %8
   %.0.i = phi i64 [ %13, %8 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.0.i, ptr %14, align 8
   %15 = load i32, ptr @jitdump_fd, align 4
   %16 = call i64 @write(i32 noundef %15, ptr noundef nonnull %2, i64 noundef 16) #7
@@ -232,7 +232,7 @@ define hidden range(i32 0, 2) i32 @ir_perf_jitdump_register(ptr nocapture nounde
   %12 = add i64 %2, 57
   %13 = add i64 %12, %9
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i64 0, ptr %5, align 8
   store i32 %14, ptr %15, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -243,7 +243,7 @@ define hidden range(i32 0, 2) i32 @ir_perf_jitdump_register(ptr nocapture nounde
 17:                                               ; preds = %8
   %18 = load i64, ptr %4, align 8
   %19 = mul i64 %18, 1000000000
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %19, %21
   br label %ir_perf_timestamp.exit
@@ -251,24 +251,24 @@ define hidden range(i32 0, 2) i32 @ir_perf_jitdump_register(ptr nocapture nounde
 ir_perf_timestamp.exit:                           ; preds = %8, %17
   %.0.i = phi i64 [ %22, %17 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.0.i, ptr %23, align 8
   %24 = call i32 @getpid() #7
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %11, ptr %26, align 4
   %27 = ptrtoint ptr %1 to i64
-  %28 = getelementptr inbounds i8, ptr %5, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %27, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %2, ptr %30, align 8
   %31 = load i64, ptr @ir_perf_jitdump_register.id, align 8
   %32 = add i64 %31, 1
   store i64 %32, ptr @ir_perf_jitdump_register.id, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %31, ptr %33, align 8
   %34 = load i32, ptr @jitdump_fd, align 4
   %35 = call i64 @write(i32 noundef %34, ptr noundef nonnull %5, i64 noundef 56) #7

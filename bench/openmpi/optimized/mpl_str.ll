@@ -27,8 +27,8 @@ define range(i32 0, 2) i32 @MPL_strncpy(ptr nocapture noundef writeonly %0, ptr 
 
 10:                                               ; preds = %.lr.ph
   %11 = add nsw i32 %.022, -1
-  %12 = getelementptr inbounds i8, ptr %.01221, i64 1
-  %13 = getelementptr inbounds i8, ptr %.01320, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01221, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 1
   store i8 %8, ptr %.01320, align 1
   %14 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %14, 0
@@ -74,7 +74,7 @@ define ptr @MPL_strsep(ptr nocapture noundef %0, ptr nocapture noundef readonly 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %.preheader.us
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader.us ], [ 0, %.preheader.lr.ph ]
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %6 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next38
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next38
   %7 = load i8, ptr %6, align 1
   %.not24.us = icmp eq i8 %7, 0
   br i1 %.not24.us, label %.sink.split, label %.preheader.us
@@ -86,7 +86,7 @@ define ptr @MPL_strsep(ptr nocapture noundef %0, ptr nocapture noundef readonly 
 
 9:                                                ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
   %11 = load i8, ptr %10, align 1
   %.not25 = icmp eq i8 %11, 0
   br i1 %.not25, label %._crit_edge, label %12, !llvm.loop !6
@@ -98,14 +98,14 @@ define ptr @MPL_strsep(ptr nocapture noundef %0, ptr nocapture noundef readonly 
   br i1 %14, label %15, label %9
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv35
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv35
   store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   br label %.sink.split
 
 ._crit_edge:                                      ; preds = %9
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %18 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next36
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next36
   %19 = load i8, ptr %18, align 1
   %.not24 = icmp eq i8 %19, 0
   br i1 %.not24, label %.sink.split, label %.preheader
@@ -134,7 +134,7 @@ define range(i32 0, 2) i32 @MPL_strnapp(ptr nocapture noundef %0, ptr nocapture 
   br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.01727, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.01727, i64 1
   %10 = icmp samesign ugt i32 %.028, 1
   br i1 %10, label %.lr.ph, label %.critedge.thread, !llvm.loop !7
 
@@ -157,8 +157,8 @@ define range(i32 0, 2) i32 @MPL_strnapp(ptr nocapture noundef %0, ptr nocapture 
 
 15:                                               ; preds = %.lr.ph33
   %16 = add nsw i32 %.132, -1
-  %17 = getelementptr inbounds i8, ptr %.01631, i64 1
-  %18 = getelementptr inbounds i8, ptr %.11830, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.01631, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.11830, i64 1
   store i8 %13, ptr %.11830, align 1
   %19 = load i8, ptr %17, align 1
   %.not21 = icmp eq i8 %19, 0

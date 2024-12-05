@@ -22,64 +22,64 @@ define dso_local noundef ptr @dup_field(ptr noundef %0, i32 noundef %1, i32 noun
   %10 = load ptr, ptr @_nc_Default_Field, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) %10, i64 112, i1 false)
   %11 = trunc i32 %1 to i16
-  %12 = getelementptr inbounds i8, ptr %8, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 6
   store i16 %11, ptr %12, align 2
   %13 = trunc i32 %2 to i16
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i16 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %8, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %17 = load i16, ptr %16, align 2
-  %18 = getelementptr inbounds i8, ptr %8, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 %17, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i16, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %8, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i16 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %8, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %8, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %35 = load i16, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %8, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i16 %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 30
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %38 = load i16, ptr %37, align 2
-  %39 = getelementptr inbounds i8, ptr %8, i64 30
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 30
   store i16 %38, ptr %39, align 2
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %8, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %8, i64 44
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i32 %44, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %8, i64 36
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %8, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store ptr %53, ptr %54, align 8
   %55 = tail call zeroext i1 @_nc_Copy_Type(ptr noundef nonnull %8, ptr noundef nonnull %0) #6
   br i1 %55, label %56, label %71
@@ -95,13 +95,13 @@ define dso_local noundef ptr @dup_field(ptr noundef %0, i32 noundef %1, i32 noun
   %64 = mul nsw i32 %63, %60
   %65 = sext i32 %64 to i64
   %66 = tail call noalias ptr @malloc(i64 noundef %65) #5
-  %67 = getelementptr inbounds i8, ptr %8, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr %66, ptr %67, align 8
   %.not60 = icmp eq ptr %66, null
   br i1 %.not60, label %71, label %68
 
 68:                                               ; preds = %56
-  %69 = getelementptr inbounds i8, ptr %0, i64 104
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %70 = load ptr, ptr %69, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr align 1 %70, i64 %65, i1 false)
   br label %74

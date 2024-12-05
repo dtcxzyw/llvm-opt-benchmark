@@ -33,8 +33,8 @@ declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal void @diameteravp_init(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #10
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %6 = tail call ptr @g_string_new(ptr noundef nonnull @.str.1) #9
   %7 = tail call ptr @g_strsplit(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 1024) #9
@@ -153,14 +153,14 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %10, label %.loopexit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.loopexit, label %13
 
 13:                                               ; preds = %10
   store ptr %0, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %0, align 8
   %17 = icmp ugt i32 %15, %16
@@ -168,32 +168,32 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
 
 18:                                               ; preds = %13
   store i32 %15, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %19, align 4
   br label %24
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 4
   br label %24
 
 24:                                               ; preds = %20, %18
-  %25 = getelementptr inbounds i8, ptr %3, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %32 = load i32, ptr %31, align 4
   %.not58 = icmp eq i32 %26, 0
   br i1 %.not58, label %33, label %39
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
-  %35 = getelementptr inbounds i8, ptr %3, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %34, ptr noundef nonnull %35) #9
   %36 = call double @nstime_to_sec(ptr noundef nonnull %7) #9
   %37 = fcmp olt double %36, 0.000000e+00
@@ -202,7 +202,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
 
 39:                                               ; preds = %33, %24
   %.051 = phi double [ 0.000000e+00, %24 ], [ %38, %33 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i32, ptr %40, align 8
   %.not59 = icmp eq i32 %41, 0
   %.not60 = icmp eq i32 %41, %28
@@ -217,20 +217,20 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph:                                           ; preds = %42
   %.not65 = icmp eq i32 %30, 0
-  %45 = getelementptr inbounds i8, ptr %1, i64 24
-  %46 = getelementptr inbounds i8, ptr %1, i64 408
-  %47 = getelementptr inbounds i8, ptr %1, i64 208
-  %48 = getelementptr inbounds i8, ptr %1, i64 284
-  %49 = getelementptr inbounds i8, ptr %1, i64 232
-  %50 = getelementptr inbounds i8, ptr %1, i64 288
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 288
   br i1 %.not58, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread.us
   %.04970.us = phi ptr [ %52, %.thread.us ], [ %44, %.lr.ph ]
   %.05069.us = phi i32 [ %.1.us, %.thread.us ], [ 0, %.lr.ph ]
-  %51 = getelementptr inbounds i8, ptr %.04970.us, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.04970.us, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.04970.us, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %.04970.us, i64 32
   %54 = load ptr, ptr %53, align 8
   %.not62.us = icmp eq ptr %54, null
   br i1 %.not62.us, label %.thread.us, label %55
@@ -241,7 +241,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   br i1 %.not63.us, label %.thread.us, label %57
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not64.us = icmp eq ptr %59, null
   br i1 %.not64.us, label %.thread.us, label %60
@@ -253,20 +253,20 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
 
 63:                                               ; preds = %60
   %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, %.05069.us
   br i1 %67, label %68, label %90
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %64, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 8
   br i1 %.not65, label %76, label %72
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %64, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 20
   %74 = load i32, ptr %73, align 4
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 4
@@ -282,7 +282,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   %83 = call ptr @address_to_str(ptr noundef %82, ptr noundef nonnull %49) #9
   %84 = load i32, ptr %50, align 8
   %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %77, double noundef %78, ptr noundef %80, i32 noundef %81, ptr noundef %83, i32 noundef %84, i32 noundef %87, i32 noundef 0, i32 noundef %28, i32 noundef %30, i32 noundef %32, double noundef %.051)
   %89 = call fastcc i32 @tree_traverse_pre_order(ptr noundef %.04970.us, ptr noundef %6)
@@ -301,9 +301,9 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
   %.04970 = phi ptr [ %93, %.thread ], [ %44, %.lr.ph ]
   %.05069 = phi i32 [ %.1, %.thread ], [ 0, %.lr.ph ]
-  %92 = getelementptr inbounds i8, ptr %.04970, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.04970, i64 16
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %.04970, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %.04970, i64 32
   %95 = load ptr, ptr %94, align 8
   %.not62 = icmp eq ptr %95, null
   br i1 %.not62, label %.thread, label %96
@@ -314,7 +314,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   br i1 %.not63, label %.thread, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %97, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %100 = load ptr, ptr %99, align 8
   %.not64 = icmp eq ptr %100, null
   br i1 %.not64, label %.thread, label %101
@@ -326,13 +326,13 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
 
 104:                                              ; preds = %101
   %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = icmp eq i32 %107, %.05069
   br i1 %108, label %109, label %126
 
 109:                                              ; preds = %104
-  %110 = getelementptr inbounds i8, ptr %105, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 12
   %111 = load i32, ptr %110, align 4
   %112 = add i32 %111, 1
   store i32 %112, ptr %110, align 4
@@ -345,7 +345,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   %119 = call ptr @address_to_str(ptr noundef %118, ptr noundef nonnull %49) #9
   %120 = load i32, ptr %50, align 8
   %121 = load ptr, ptr %6, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   %123 = load i32, ptr %122, align 4
   %124 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %113, double noundef %114, ptr noundef %116, i32 noundef %117, ptr noundef %119, i32 noundef %120, i32 noundef %123, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %32, double noundef %.051)
   %125 = call fastcc i32 @tree_traverse_pre_order(ptr noundef %.04970, ptr noundef %6)
@@ -367,11 +367,11 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @diameteravp_draw(ptr nocapture noundef readonly %0) #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %3, i32 noundef %5, i32 noundef %7)
   ret void
@@ -409,7 +409,7 @@ define internal fastcc range(i32 0, 2) i32 @tree_traverse_pre_order(ptr noundef 
   br i1 %.not12, label %.loopexit, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %.011, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.011, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call fastcc i32 @tree_traverse_pre_order(ptr noundef %.011, ptr noundef %1)
   %.not13 = icmp eq i32 %10, 0
@@ -431,7 +431,7 @@ define internal fastcc noundef i32 @diam_tree_to_csv(ptr noundef %0, ptr noundef
   br label %30
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not26 = icmp eq ptr %8, null
   br i1 %.not26, label %.thread, label %9
@@ -447,7 +447,7 @@ define internal fastcc noundef i32 @diam_tree_to_csv(ptr noundef %0, ptr noundef
   br label %30
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %8, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @fvalue_type_ftenum(ptr noundef %15) #9
   %or.cond = icmp ugt i32 %16, 1
@@ -455,7 +455,7 @@ define internal fastcc noundef i32 @diam_tree_to_csv(ptr noundef %0, ptr noundef
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = tail call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %18, i32 noundef 0, i32 noundef %20) #9
   %.not28 = icmp eq ptr %21, null

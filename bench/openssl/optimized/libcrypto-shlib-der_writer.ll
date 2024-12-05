@@ -262,7 +262,7 @@ entry:
   br i1 %cmp.not3, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %tmp, i64 3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %tmp, i64 3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -462,7 +462,7 @@ entry:
   %call1 = tail call ptr @bn_get_words(ptr noundef %v) #4
   %sub = add nsw i64 %conv, -1
   %div25 = lshr i64 %sub, 3
-  %arrayidx = getelementptr inbounds i64, ptr %call1, i64 %div25
+  %arrayidx = getelementptr inbounds nuw i64, ptr %call1, i64 %div25
   %0 = load i64, ptr %arrayidx, align 8
   %rem = shl nsw i64 %sub, 3
   %mul = and i64 %rem, 56

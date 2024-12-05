@@ -33,13 +33,13 @@ define hidden void @_ZN11XLargePages10initializeEv() local_unnamed_addr #0 align
   %2 = alloca %class.GCLogPreciousHandle, align 8
   tail call void @_ZN11XLargePages13pd_initializeEv() #5
   store i32 3, ptr %1, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %3 = tail call noundef i64 @_ZN2os15physical_memoryEv() #5
   %4 = lshr i64 %3, 20
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str, i64 noundef %4)
   store i32 3, ptr %2, align 8
-  %.sroa.21.0..sroa_idx.i3 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i3, align 8
   %5 = load i32, ptr @_ZN11XLargePages6_stateE, align 4
   %switch.selectcmp.i = icmp eq i32 %5, 2
@@ -57,7 +57,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious6vwriteE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #5
   call void @llvm.va_end.p0(ptr nonnull %3)

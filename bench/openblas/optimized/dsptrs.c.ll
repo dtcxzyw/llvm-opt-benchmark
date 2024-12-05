@@ -107,7 +107,7 @@ define void @dsptrs_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %60 = phi i32 [ %138, %137 ], [ %23, %48 ]
   %61 = sub nsw i32 %59, %60
   %62 = zext nneg i32 %60 to i64
-  %63 = getelementptr inbounds i32, ptr %12, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr %12, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !3
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %66, label %81
@@ -232,7 +232,7 @@ define void @dsptrs_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %142 = phi i32 [ 1, %56 ], [ %183, %181 ]
   %143 = phi i32 [ 1, %56 ], [ %184, %181 ]
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds i32, ptr %12, i64 %144
+  %145 = getelementptr inbounds nuw i32, ptr %12, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !3
   %147 = icmp sgt i32 %146, 0
   %148 = add nsw i32 %143, -1
@@ -302,7 +302,7 @@ define void @dsptrs_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %190 = phi i32 [ 1, %43 ], [ %322, %317 ]
   %191 = phi i32 [ 1, %43 ], [ %321, %317 ]
   %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds i32, ptr %12, i64 %192
+  %193 = getelementptr inbounds nuw i32, ptr %12, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !3
   %195 = icmp sgt i32 %194, 0
   br i1 %195, label %196, label %226
@@ -528,7 +528,7 @@ define void @dsptrs_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %338 = xor i32 %337, -1
   %339 = add i32 %334, %338
   %340 = zext nneg i32 %335 to i64
-  %341 = getelementptr inbounds i32, ptr %12, i64 %340
+  %341 = getelementptr inbounds nuw i32, ptr %12, i64 %340
   %342 = load i32, ptr %341, align 4, !tbaa !3
   %343 = icmp sgt i32 %342, 0
   %344 = icmp slt i32 %335, %336

@@ -22,7 +22,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   br i1 %9, label %.lr.ph104, label %.loopexit
 
 .lr.ph104:                                        ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %11 = zext nneg i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 48, i64 %11, i1 false)
   br label %.loopexit
@@ -51,7 +51,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.preheader ], [ 8, %19 ]
   %.17098 = phi i32 [ %.271, %.preheader ], [ 15, %19 ]
   %.17497 = phi double [ %.275, %.preheader ], [ %.073, %19 ]
-  %21 = getelementptr inbounds [0 x double], ptr @g_dtoa_scale_up, i64 0, i64 %indvars.iv108
+  %21 = getelementptr inbounds nuw [0 x double], ptr @g_dtoa_scale_up, i64 0, i64 %indvars.iv108
   %22 = load double, ptr %21, align 8
   %23 = fmul double %.17497, %22
   %24 = fcmp olt double %23, 1.000000e+16
@@ -68,7 +68,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader92 ], [ 8, %19 ]
   %.495 = phi i32 [ %.5, %.preheader92 ], [ 15, %19 ]
   %.47794 = phi double [ %.578, %.preheader92 ], [ %.073, %19 ]
-  %27 = getelementptr inbounds [0 x double], ptr @g_dtoa_scale_down, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [0 x double], ptr @g_dtoa_scale_down, i64 0, i64 %indvars.iv
   %28 = load double, ptr %27, align 8
   %29 = fmul double %.47794, %28
   %30 = fcmp ult double %29, 1.000000e+15
@@ -110,7 +110,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   %46 = fdiv double %42, 1.000000e+01
   %.679 = select i1 %43, double %46, double %42
   %47 = fptoui double %.679 to i64
-  %48 = getelementptr inbounds i8, ptr %1, i64 5
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %wide.trip.count = zext nneg i32 %.181 to i64
   br label %49
 
@@ -121,7 +121,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   %50 = udiv i64 %.065101, %.0102
   %51 = trunc i64 %50 to i8
   %52 = add i8 %51, 48
-  %53 = getelementptr inbounds [16 x i8], ptr %48, i64 0, i64 %indvars.iv111
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 0, i64 %indvars.iv111
   store i8 %52, ptr %53, align 1
   %54 = urem i64 %.065101, %.0102
   %55 = udiv i64 %.0102, 10
@@ -133,11 +133,11 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
   %.080 = phi i32 [ %2, %14 ], [ %2, %17 ], [ %2, %7 ], [ %.181, %38 ], [ %2, %.lr.ph104 ], [ %.181, %49 ]
   %.069 = phi i32 [ 0, %14 ], [ 0, %17 ], [ 0, %7 ], [ %.6, %38 ], [ 0, %.lr.ph104 ], [ %.6, %49 ]
   %.168 = phi i8 [ %15, %14 ], [ %18, %17 ], [ %8, %7 ], [ %.067, %38 ], [ %8, %.lr.ph104 ], [ %.067, %49 ]
-  %56 = getelementptr inbounds i8, ptr %1, i64 5
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %57 = sext i32 %.080 to i64
   %58 = getelementptr inbounds [16 x i8], ptr %56, i64 0, i64 %57
   store i8 0, ptr %58, align 1
-  %59 = getelementptr inbounds i8, ptr %1, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 %.168, ptr %59, align 4
   store i32 %.069, ptr %1, align 4
   ret i32 %.080

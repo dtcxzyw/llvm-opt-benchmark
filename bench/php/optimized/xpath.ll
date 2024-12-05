@@ -90,8 +90,8 @@ define hidden void @zim_DOMXPath___construct(ptr nocapture noundef readonly %0, 
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   store i8 1, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %7, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef %8, ptr noundef nonnull %4) #11
@@ -113,11 +113,11 @@ define hidden void @zim_DOMXPath___construct(ptr nocapture noundef readonly %0, 
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %25) #11
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -156,7 +156,7 @@ define hidden void @zim_DOMXPath___construct(ptr nocapture noundef readonly %0, 
   %43 = call i32 @xmlXPathRegisterFuncNS(ptr noundef nonnull %30, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @dom_xpath_ext_function_string_php) #11
   %44 = call i32 @xmlXPathRegisterFuncNS(ptr noundef nonnull %30, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, ptr noundef nonnull @dom_xpath_ext_function_object_php) #11
   store ptr %30, ptr %38, align 8
-  %45 = getelementptr inbounds i8, ptr %30, i64 216
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 216
   store ptr %37, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %16, i64 -16
   %47 = load ptr, ptr %46, align 8
@@ -195,9 +195,9 @@ define internal void @dom_xpath_ext_function_string_php(ptr noundef %0, i32 noun
   br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %dom_xpath_ext_fetch_intern.exit.i
@@ -213,7 +213,7 @@ define internal void @dom_xpath_ext_function_string_php(ptr noundef %0, i32 noun
   br label %dom_xpath_ext_function_php.exit
 
 dom_xpath_ext_fetch_intern.exit.i:                ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %8, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %16 = tail call i32 @php_dom_xpath_callbacks_call_php_ns(ptr noundef nonnull %8, ptr noundef nonnull %0, i32 noundef %1, i32 noundef 0, ptr noundef nonnull %15, ptr noundef nonnull @dom_xpath_proxy_factory) #11
   br label %dom_xpath_ext_function_php.exit
 
@@ -227,9 +227,9 @@ define internal void @dom_xpath_ext_function_object_php(ptr noundef %0, i32 noun
   br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %dom_xpath_ext_fetch_intern.exit.i
@@ -245,7 +245,7 @@ define internal void @dom_xpath_ext_function_object_php(ptr noundef %0, i32 noun
   br label %dom_xpath_ext_function_php.exit
 
 dom_xpath_ext_fetch_intern.exit.i:                ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %8, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %16 = tail call i32 @php_dom_xpath_callbacks_call_php_ns(ptr noundef nonnull %8, ptr noundef nonnull %0, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %15, ptr noundef nonnull @dom_xpath_proxy_factory) #11
   br label %dom_xpath_ext_function_php.exit
 
@@ -279,7 +279,7 @@ define hidden noundef i32 @dom_xpath_register_node_ns_read(ptr nocapture noundef
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   %5 = select i1 %.not, i32 2, i32 3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %5, ptr %6, align 8
   ret i32 0
 }
@@ -300,7 +300,7 @@ define hidden void @zim_DOMXPath_registerNamespace(ptr nocapture noundef readonl
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.5, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4) #11
   %10 = icmp eq i32 %9, -1
@@ -313,7 +313,7 @@ define hidden void @zim_DOMXPath_registerNamespace(ptr nocapture noundef readonl
   br label %30
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -332,7 +332,7 @@ define hidden void @zim_DOMXPath_registerNamespace(ptr nocapture noundef readonl
   %25 = load ptr, ptr %6, align 8
   %26 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %18, ptr noundef %24, ptr noundef %25) #11
   %.not = icmp eq i32 %26, 0
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %23
@@ -404,7 +404,7 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
 
 29:                                               ; preds = %26
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.13) #11
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %30, align 8
   br label %137
 
@@ -421,11 +421,11 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   br i1 %37, label %38, label %46
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %34, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %43) #11
   %44 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %45 = icmp ne ptr %44, null
@@ -444,7 +444,7 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
 
 .thread3:                                         ; preds = %46, %.thread
   %.16 = phi ptr [ %48, %.thread ], [ %47, %46 ]
-  %49 = getelementptr inbounds i8, ptr %.16, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %.16, i64 64
   %50 = load ptr, ptr %49, align 8
   %.not155 = icmp eq ptr %27, %50
   br i1 %.not155, label %54, label %51
@@ -458,7 +458,7 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
 
 54:                                               ; preds = %.thread3, %.thread
   %.17 = phi ptr [ %.16, %.thread3 ], [ null, %.thread ]
-  %55 = getelementptr inbounds i8, ptr %21, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %.17, ptr %55, align 8
   %56 = load i8, ptr %6, align 1
   %57 = trunc i8 %56 to i1
@@ -484,9 +484,9 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
 .loopexit11:                                      ; preds = %.loopexit11.loopexit, %58, %54
   %.0142 = phi ptr [ null, %58 ], [ null, %54 ], [ %59, %.loopexit11.loopexit ]
   %.0139 = phi i32 [ 0, %58 ], [ 0, %54 ], [ %63, %.loopexit11.loopexit ]
-  %64 = getelementptr inbounds i8, ptr %21, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %21, i64 80
   store ptr %.0142, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %21, i64 88
+  %65 = getelementptr inbounds nuw i8, ptr %21, i64 88
   store i32 %.0139, ptr %65, align 8
   %66 = load ptr, ptr %5, align 8
   %67 = call ptr @xmlXPathEvalExpression(ptr noundef %66, ptr noundef nonnull %21) #11
@@ -506,7 +506,7 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   br i1 %.not159, label %71, label %73
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %72, align 8
   br label %137
 
@@ -528,7 +528,7 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   br i1 %77, label %.thread10, label %.loopexit
 
 .thread10:                                        ; preds = %75, %76
-  %78 = getelementptr inbounds i8, ptr %67, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not161 = icmp eq ptr %79, null
   br i1 %.not161, label %.loopexit, label %80
@@ -546,15 +546,15 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   br i1 %85, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %79, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 8
   br label %87
 
 87:                                               ; preds = %.lr.ph, %102
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %102 ]
   %88 = load ptr, ptr %86, align 8
-  %89 = getelementptr inbounds ptr, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 18
   br i1 %93, label %94, label %100
@@ -586,56 +586,56 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   %107 = load ptr, ptr %0, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 -24
   %.val164 = load ptr, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %.val164, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.val164, i64 8
   store ptr %.sroa.0.0, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %.val164, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %.val164, i64 16
   store i32 %.sroa.4.0, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %.val164, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %.val164, i64 24
   store i32 19, ptr %111, align 8
   br label %136
 
 112:                                              ; preds = %75
-  %113 = getelementptr inbounds i8, ptr %67, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %114 = load i32, ptr %113, align 8
   %.not160 = icmp eq i32 %114, 0
   %115 = select i1 %.not160, i32 2, i32 3
-  %116 = getelementptr inbounds i8, ptr %0, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %115, ptr %116, align 8
   br label %136
 
 117:                                              ; preds = %75
-  %118 = getelementptr inbounds i8, ptr %67, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %119 = load double, ptr %118, align 8
   store double %119, ptr %0, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 5, ptr %120, align 8
   br label %136
 
 121:                                              ; preds = %75
-  %122 = getelementptr inbounds i8, ptr %67, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %123 = load ptr, ptr %122, align 8
   %124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %123) #12
   %125 = and i64 %124, -8
   %126 = add i64 %125, 32
   %127 = call noalias ptr @_emalloc(i64 noundef %126) #13
   store i32 1, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   store i32 22, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store i64 0, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %127, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store i64 %124, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %127, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %131, ptr align 1 %123, i64 %124, i1 false)
   %132 = getelementptr inbounds [1 x i8], ptr %131, i64 0, i64 %124
   store i8 0, ptr %132, align 1
   store ptr %127, ptr %0, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 262, ptr %133, align 8
   br label %136
 
 134:                                              ; preds = %75
-  %135 = getelementptr inbounds i8, ptr %0, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %135, align 8
   br label %136
 
@@ -660,11 +660,11 @@ define hidden void @zim_DOMXPath_evaluate(ptr nocapture noundef readonly %0, ptr
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMXPath_registerPhpFunctions(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -56
   store ptr null, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %8, 1
   br i1 %9, label %10, label %11
@@ -678,8 +678,8 @@ define hidden void @zim_DOMXPath_registerPhpFunctions(ptr noundef %0, ptr nocapt
   br i1 %12, label %.thread86, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load i8, ptr %15, align 8
   switch i8 %16, label %21 [
     i8 6, label %17
@@ -738,10 +738,10 @@ define hidden void @zim_DOMXPath_registerPhpFunctionNS(ptr noundef %0, ptr nocap
   %5 = alloca %struct._zend_fcall_info, align 8
   %6 = alloca %struct._zend_fcall_info_cache, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
   store ptr null, ptr %7, align 8
   %.not = icmp eq i32 %12, 3
@@ -752,8 +752,8 @@ define hidden void @zim_DOMXPath_registerPhpFunctionNS(ptr noundef %0, ptr nocap
   br label %47
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load i8, ptr %16, align 8
   %18 = icmp eq i8 %17, 6
   br i1 %18, label %.critedge159, label %20
@@ -777,16 +777,16 @@ thread-pre-split:                                 ; preds = %20
   br i1 %.not150, label %.critedge161, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %23, i64 24
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #12
   %.not151 = icmp eq i64 %27, %28
   br i1 %.not151, label %.critedge161, label %47
 
 .critedge161:                                     ; preds = %24, %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
-  %30 = getelementptr inbounds i8, ptr %0, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %31 = load i8, ptr %30, align 8
   %32 = icmp eq i8 %31, 6
   br i1 %32, label %.critedge163, label %34
@@ -810,15 +810,15 @@ thread-pre-split167:                              ; preds = %34
   br i1 %.not152, label %.critedge165, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %37, i64 24
-  %40 = getelementptr inbounds i8, ptr %37, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #12
   %.not153 = icmp eq i64 %41, %42
   br i1 %.not153, label %.critedge165, label %47
 
 .critedge165:                                     ; preds = %38, %36
-  %43 = getelementptr inbounds i8, ptr %0, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %44 = call i32 @zend_fcall_info_init(ptr noundef nonnull %43, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %7) #11
   %.not154.not = icmp eq i32 %44, 0
   br i1 %.not154.not, label %49, label %45
@@ -841,13 +841,13 @@ thread-pre-split167:                              ; preds = %34
 
 49:                                               ; preds = %.critedge165
   %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 20
   br i1 %53, label %54, label %.critedge
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %50, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %55, ptr noundef nonnull dereferenceable(20) @.str.3, i64 20)
   %.not157 = icmp eq i32 %bcmp, 0
   br i1 %.not157, label %56, label %.critedge
@@ -876,8 +876,8 @@ declare i32 @php_dom_xpath_callbacks_update_single_method_handler(ptr noundef, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @dom_xpath_register_func_in_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call i32 @xmlXPathRegisterFuncNS(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @dom_xpath_ext_function_trampoline) #11
   ret void
 }
@@ -887,7 +887,7 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.smart_str, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %9 = icmp eq i32 %8, -1
@@ -909,16 +909,16 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
 18:                                               ; preds = %13
   %19 = call noalias ptr @_safe_emalloc(i64 noundef 1, i64 noundef %15, i64 noundef 32) #11
   store i32 1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 22, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %21, align 8
   %22 = add i64 %15, 2
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i8 39, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 25
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 25
   %26 = load ptr, ptr %3, align 8
   %27 = load i64, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr align 1 %26, i64 %27, i1 false)
@@ -933,7 +933,7 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   %33 = and i32 %32, 64
   %.not344 = icmp eq i32 %33, 0
   %34 = select i1 %.not344, i32 262, i32 6
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %34, ptr %35, align 8
   br label %189
 
@@ -945,16 +945,16 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
 39:                                               ; preds = %36
   %40 = call noalias ptr @_safe_emalloc(i64 noundef 1, i64 noundef %15, i64 noundef 32) #11
   store i32 1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 22, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 0, ptr %42, align 8
   %43 = add i64 %15, 2
-  %44 = getelementptr inbounds i8, ptr %40, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %40, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i8 34, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %40, i64 25
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 25
   %47 = load ptr, ptr %3, align 8
   %48 = load i64, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr align 1 %47, i64 %48, i1 false)
@@ -969,7 +969,7 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   %54 = and i32 %53, 64
   %.not343 = icmp eq i32 %54, 0
   %55 = select i1 %.not343, i32 262, i32 6
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %55, ptr %56, align 8
   br label %189
 
@@ -977,13 +977,13 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @smart_str_erealloc(ptr noundef nonnull %5, i64 noundef 7) #11
   %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
-  %60 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %59, i64 %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %62, ptr noundef nonnull align 1 dereferenceable(7) @.str.9, i64 7, i1 false)
   %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i64 7, ptr %64, align 8
   %65 = load ptr, ptr %3, align 8
   %66 = load i64, ptr %4, align 8
@@ -993,7 +993,7 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
 
 .lr.ph:                                           ; preds = %57
   %69 = ptrtoint ptr %67 to i64
-  %70 = getelementptr inbounds i8, ptr %5, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %71
 
 71:                                               ; preds = %119, %.lr.ph
@@ -1027,11 +1027,11 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
 
 90:                                               ; preds = %71, %89
   %91 = phi ptr [ %.pre, %89 ], [ %73, %71 ]
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = getelementptr inbounds [1 x i8], ptr %92, i64 0, i64 %72
   store i8 %86, ptr %93, align 1
   %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store i64 %87, ptr %95, align 8
   %96 = add i64 %87, %85
   %97 = load i64, ptr %70, align 8
@@ -1041,18 +1041,18 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
 98:                                               ; preds = %90
   call void @smart_str_erealloc(ptr noundef nonnull %5, i64 noundef %96) #11
   %.pre346 = load ptr, ptr %5, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre346, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre346, i64 16
   %.pre347 = load i64, ptr %.phi.trans.insert, align 8
   br label %99
 
 99:                                               ; preds = %90, %98
   %100 = phi i64 [ %87, %90 ], [ %.pre347, %98 ]
   %101 = phi ptr [ %94, %90 ], [ %.pre346, %98 ]
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = getelementptr inbounds i8, ptr %102, i64 %100
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %103, ptr align 1 %.0309345, i64 %85, i1 false)
   %104 = load ptr, ptr %5, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store i64 %96, ptr %105, align 8
   %106 = add i64 %96, 1
   %107 = load i64, ptr %70, align 8
@@ -1066,11 +1066,11 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
 
 109:                                              ; preds = %99, %108
   %110 = phi ptr [ %104, %99 ], [ %.pre348, %108 ]
-  %111 = getelementptr inbounds i8, ptr %110, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = getelementptr inbounds [1 x i8], ptr %111, i64 0, i64 %96
   store i8 %86, ptr %112, align 1
   %113 = load ptr, ptr %5, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store i64 %106, ptr %114, align 8
   %115 = getelementptr inbounds i8, ptr %.0309345, i64 %85
   %116 = add i64 %96, 2
@@ -1085,11 +1085,11 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
 
 119:                                              ; preds = %118, %109
   %120 = phi ptr [ %.pre349, %118 ], [ %113, %109 ]
-  %121 = getelementptr inbounds i8, ptr %120, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = getelementptr inbounds [1 x i8], ptr %121, i64 0, i64 %106
   store i8 44, ptr %122, align 1
   %123 = load ptr, ptr %5, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i64 %116, ptr %124, align 8
   %125 = icmp ult ptr %115, %67
   br i1 %125, label %71, label %._crit_edge.loopexit
@@ -1104,7 +1104,7 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   %.0309.lcssa = phi ptr [ %65, %57 ], [ %115, %._crit_edge.loopexit ]
   %129 = icmp eq ptr %.0309.lcssa, %67
   call void @llvm.assume(i1 %129)
-  %130 = getelementptr inbounds i8, ptr %128, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %131 = getelementptr inbounds [1 x i8], ptr %130, i64 0, i64 %127
   store i8 41, ptr %131, align 1
   %132 = load ptr, ptr %5, align 8
@@ -1112,8 +1112,8 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not, label %181, label %133
 
 133:                                              ; preds = %._crit_edge
-  %134 = getelementptr inbounds i8, ptr %132, i64 24
-  %135 = getelementptr inbounds i8, ptr %132, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %136 = load i64, ptr %135, align 8
   %137 = getelementptr inbounds [1 x i8], ptr %134, i64 0, i64 %136
   store i8 0, ptr %137, align 1
@@ -1122,15 +1122,15 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not329, label %179, label %139
 
 139:                                              ; preds = %133
-  %140 = getelementptr inbounds i8, ptr %5, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %141 = load i64, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %138, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %143 = load i64, ptr %142, align 8
   %144 = icmp ugt i64 %141, %143
   br i1 %144, label %145, label %179
 
 145:                                              ; preds = %139
-  %146 = getelementptr inbounds i8, ptr %138, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %147 = load i32, ptr %146, align 4
   %148 = and i32 %147, 64
   %.not330 = icmp eq i32 %148, 0
@@ -1145,11 +1145,11 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   %153 = and i64 %143, -8
   %154 = add i64 %153, 32
   %155 = call ptr @_erealloc(ptr noundef nonnull %138, i64 noundef %154) #14
-  %156 = getelementptr inbounds i8, ptr %155, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   store i64 %143, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %155, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store i64 0, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %155, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = and i32 %159, -513
   store i32 %160, ptr %158, align 4
@@ -1160,14 +1160,14 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   %163 = add i64 %162, 32
   %164 = call noalias ptr @_emalloc(i64 noundef %163) #13
   store i32 1, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %164, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   store i32 22, ptr %165, align 4
-  %166 = getelementptr inbounds i8, ptr %164, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i64 0, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %164, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 16
   store i64 %143, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %164, i64 24
-  %169 = getelementptr inbounds i8, ptr %138, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %164, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %170 = load i64, ptr %142, align 8
   %. = call i64 @llvm.umin.i64(i64 %143, i64 %170)
   %171 = add nuw i64 %., 1
@@ -1202,12 +1202,12 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
 183:                                              ; preds = %181, %179
   %.0299 = phi ptr [ %180, %179 ], [ %182, %181 ]
   store ptr %.0299, ptr %1, align 8
-  %184 = getelementptr inbounds i8, ptr %.0299, i64 4
+  %184 = getelementptr inbounds nuw i8, ptr %.0299, i64 4
   %185 = load i32, ptr %184, align 4
   %186 = and i32 %185, 64
   %.not332 = icmp eq i32 %186, 0
   %187 = select i1 %.not332, i32 262, i32 6
-  %188 = getelementptr inbounds i8, ptr %1, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %187, ptr %188, align 8
   br label %189
 
@@ -1230,7 +1230,7 @@ declare i32 @php_dom_xpath_callbacks_call_php_ns(ptr noundef, ptr noundef, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal void @dom_xpath_proxy_factory(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp ne i32 %6, 18
   tail call void @llvm.assume(i1 %7)
@@ -1280,9 +1280,9 @@ define internal void @dom_xpath_ext_function_trampoline(ptr noundef %0, i32 noun
   br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %dom_xpath_ext_fetch_intern.exit
@@ -1298,7 +1298,7 @@ define internal void @dom_xpath_ext_function_trampoline(ptr noundef %0, i32 noun
   br label %17
 
 dom_xpath_ext_fetch_intern.exit:                  ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %8, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %16 = tail call i32 @php_dom_xpath_callbacks_call_custom_ns(ptr noundef nonnull %8, ptr noundef nonnull %0, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %15, ptr noundef nonnull @dom_xpath_proxy_factory) #11
   br label %17
 

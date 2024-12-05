@@ -42,9 +42,9 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN15XMarkCacheEntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %3, align 8
   ret void
 }
@@ -58,11 +58,11 @@ define hidden void @_ZN10XMarkCacheC2Em(ptr nocapture noundef nonnull writeonly 
 
 5:                                                ; preds = %5, %2
   %.idx = phi i64 [ 8, %2 ], [ %.add, %5 ]
-  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store ptr null, ptr %.ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %.ptr, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %.ptr, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.ptr, i64 16
   store i64 0, ptr %7, align 8
   %.add = add nuw nsw i64 %.idx, 24
   %8 = icmp eq i64 %.add, 24584
@@ -74,24 +74,24 @@ define hidden void @_ZN10XMarkCacheC2Em(ptr nocapture noundef nonnull writeonly 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10XMarkCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24584) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
 3:                                                ; preds = %1, %_ZN15XMarkCacheEntry5evictEv.exit
   %.03 = phi i64 [ 0, %1 ], [ %15, %_ZN15XMarkCacheEntry5evictEv.exit ]
-  %4 = getelementptr inbounds [1024 x %class.XMarkCacheEntry], ptr %2, i64 0, i64 %.03
+  %4 = getelementptr inbounds nuw [1024 x %class.XMarkCacheEntry], ptr %2, i64 0, i64 %.03
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN15XMarkCacheEntry5evictEv.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %12 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %8, ptr nonnull %11) #6, !srcloc !6
-  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, ptr nonnull %13) #6, !srcloc !7
   store ptr null, ptr %4, align 8
   br label %_ZN15XMarkCacheEntry5evictEv.exit

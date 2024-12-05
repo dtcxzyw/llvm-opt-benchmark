@@ -31,61 +31,63 @@ define dso_local noundef ptr @CleanQuerytext(ptr noundef readonly %0, ptr nocapt
   br i1 %10, label %11, label %.lr.ph.preheader
 
 11:                                               ; preds = %3, %6
-  %.sink45 = phi ptr [ %9, %6 ], [ %0, %3 ]
+  %.sink62 = phi ptr [ %9, %6 ], [ %0, %3 ]
   %.023 = phi i32 [ %4, %6 ], [ 0, %3 ]
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink45) #8
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink62) #8
   %13 = trunc i64 %12 to i32
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph.preheader, label %.critedge
+  br i1 %14, label %.lr.ph.preheader, label %.critedge2
 
 .lr.ph.preheader:                                 ; preds = %6, %11
-  %.044 = phi i32 [ %13, %11 ], [ %7, %6 ]
-  %.02343 = phi i32 [ %.023, %11 ], [ %4, %6 ]
-  %.02542 = phi ptr [ %.sink45, %11 ], [ %9, %6 ]
-  %15 = add nuw i32 %.044, %.02343
+  %.049 = phi i32 [ %13, %11 ], [ %7, %6 ]
+  %.02348 = phi i32 [ %.023, %11 ], [ %4, %6 ]
+  %.02547 = phi ptr [ %.sink62, %11 ], [ %9, %6 ]
+  %15 = add nuw i32 %.049, %.02348
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %.131 = phi i32 [ %21, %18 ], [ %.044, %.lr.ph.preheader ]
-  %.12430 = phi i32 [ %20, %18 ], [ %.02343, %.lr.ph.preheader ]
-  %.12629 = phi ptr [ %19, %18 ], [ %.02542, %.lr.ph.preheader ]
+  %.131 = phi i32 [ %21, %18 ], [ %.049, %.lr.ph.preheader ]
+  %.12430 = phi i32 [ %20, %18 ], [ %.02348, %.lr.ph.preheader ]
+  %.12629 = phi ptr [ %19, %18 ], [ %.02547, %.lr.ph.preheader ]
   %16 = load i8, ptr %.12629, align 1
   %17 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %16) #9
-  br i1 %17, label %18, label %.critedge
+  br i1 %17, label %18, label %.lr.ph39.preheader
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr i8, ptr %.12629, i64 1
   %20 = add i32 %.12430, 1
   %21 = add nsw i32 %.131, -1
   %22 = icmp sgt i32 %.131, 1
-  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !5
+  br i1 %22, label %.lr.ph, label %.critedge2, !llvm.loop !5
 
-.critedge:                                        ; preds = %.lr.ph, %18, %11
-  %.126.lcssa = phi ptr [ %.sink45, %11 ], [ %19, %18 ], [ %.12629, %.lr.ph ]
-  %.124.lcssa = phi i32 [ %.023, %11 ], [ %15, %18 ], [ %.12430, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %13, %11 ], [ 0, %18 ], [ %.131, %.lr.ph ]
-  %23 = zext i32 %.1.lcssa to i64
-  %smin = tail call i32 @llvm.smin.i32(i32 %.1.lcssa, i32 0)
-  br label %24
+.lr.ph39.preheader:                               ; preds = %.lr.ph
+  %invariant.gep = getelementptr i8, ptr %.12629, i64 -1
+  %23 = zext nneg i32 %.131 to i64
+  br label %.lr.ph39
 
-24:                                               ; preds = %27, %.critedge
-  %indvars.iv = phi i64 [ %28, %27 ], [ %23, %.critedge ]
-  %25 = trunc nuw i64 %indvars.iv to i32
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %27, label %.critedge2
+.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %26
+  %indvars.iv = phi i64 [ %23, %.lr.ph39.preheader ], [ %indvars.iv.next, %26 ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %24 = load i8, ptr %gep, align 1
+  %25 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %24) #9
+  br i1 %25, label %26, label %.critedge2.loopexit.split.loop.exit60
 
-27:                                               ; preds = %24
-  %28 = add nsw i64 %indvars.iv, -1
-  %29 = getelementptr i8, ptr %.126.lcssa, i64 %28
-  %30 = load i8, ptr %29, align 1
-  %31 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %30) #9
-  br i1 %31, label %24, label %.critedge2, !llvm.loop !7
+26:                                               ; preds = %.lr.ph39
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %27 = icmp sgt i64 %indvars.iv, 1
+  br i1 %27, label %.lr.ph39, label %.critedge2, !llvm.loop !7
 
-.critedge2:                                       ; preds = %24, %27
-  %.2.lcssa = phi i32 [ %smin, %24 ], [ %25, %27 ]
-  store i32 %.124.lcssa, ptr %1, align 4
+.critedge2.loopexit.split.loop.exit60:            ; preds = %.lr.ph39
+  %28 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.critedge2
+
+.critedge2:                                       ; preds = %18, %26, %.critedge2.loopexit.split.loop.exit60, %11
+  %.124.lcssa55 = phi i32 [ %.023, %11 ], [ %.12430, %.critedge2.loopexit.split.loop.exit60 ], [ %.12430, %26 ], [ %15, %18 ]
+  %.126.lcssa54 = phi ptr [ %.sink62, %11 ], [ %.12629, %.critedge2.loopexit.split.loop.exit60 ], [ %.12629, %26 ], [ %19, %18 ]
+  %.2.lcssa = phi i32 [ %13, %11 ], [ %28, %.critedge2.loopexit.split.loop.exit60 ], [ 0, %26 ], [ 0, %18 ]
+  store i32 %.124.lcssa55, ptr %1, align 4
   store i32 %.2.lcssa, ptr %2, align 4
-  ret ptr %.126.lcssa
+  ret ptr %.126.lcssa54
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -98,29 +100,29 @@ define dso_local ptr @JumbleQuery(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc(i64 noundef 40) #9
   %3 = tail call ptr @palloc(i64 noundef 1024) #9
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 32, ptr %5, align 8
   %6 = tail call ptr @palloc(i64 noundef 256) #9
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 0, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %2, ptr noundef %0)
   %10 = load ptr, ptr %2, align 8
   %11 = load i64, ptr %4, align 8
   %12 = trunc i64 %11 to i32
   %13 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef %12, i64 noundef 0) #9
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %13, ptr %14, align 8
   %15 = icmp eq i64 %13, 0
   br i1 %15, label %.sink.split, label %18
 
 .sink.split:                                      ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   %. = select i1 %.not, i64 1, i64 2
@@ -141,7 +143,7 @@ define internal fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %1) unnamed
 4:                                                ; preds = %2
   tail call void @check_stack_depth() #9
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   br label %.lr.ph.i
 
@@ -546,13 +548,13 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 48:                                               ; preds = %AppendJumble.exit
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = load ptr, ptr %49, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %50)
   br label %305
 
 51:                                               ; preds = %AppendJumble.exit
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %53)
   br label %305
@@ -562,7 +564,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 55:                                               ; preds = %AppendJumble.exit
-  %56 = getelementptr inbounds i8, ptr %1, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load ptr, ptr %56, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %57)
   br label %305
@@ -664,7 +666,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 82:                                               ; preds = %AppendJumble.exit
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %84)
   br label %305
@@ -706,7 +708,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 94:                                               ; preds = %AppendJumble.exit
-  %95 = getelementptr inbounds i8, ptr %1, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %96 = load ptr, ptr %95, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %96)
   br label %305
@@ -800,7 +802,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 119:                                              ; preds = %AppendJumble.exit
-  %120 = getelementptr inbounds i8, ptr %1, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %121 = load ptr, ptr %120, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %121)
   br label %305
@@ -818,7 +820,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 125:                                              ; preds = %AppendJumble.exit
-  %126 = getelementptr inbounds i8, ptr %1, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %127 = load ptr, ptr %126, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %127)
   br label %305
@@ -932,7 +934,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 155:                                              ; preds = %AppendJumble.exit
-  %156 = getelementptr inbounds i8, ptr %1, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %157 = load ptr, ptr %156, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %157)
   br label %305
@@ -958,7 +960,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 163:                                              ; preds = %AppendJumble.exit
-  %164 = getelementptr inbounds i8, ptr %1, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %165 = load ptr, ptr %164, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %165)
   br label %305
@@ -1208,7 +1210,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 228:                                              ; preds = %AppendJumble.exit
-  %229 = getelementptr inbounds i8, ptr %1, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %230 = load ptr, ptr %229, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %230)
   br label %305
@@ -1314,7 +1316,7 @@ AppendJumble.exit:                                ; preds = %11
   br label %305
 
 258:                                              ; preds = %AppendJumble.exit
-  %259 = getelementptr inbounds i8, ptr %1, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %260 = load ptr, ptr %259, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %260)
   br label %305
@@ -1483,15 +1485,15 @@ AppendJumble.exit:                                ; preds = %11
   br i1 %cond, label %306, label %.thread
 
 306:                                              ; preds = %305
-  %307 = getelementptr inbounds i8, ptr %1, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %308 = load i32, ptr %307, align 4
   %309 = icmp eq i32 %308, 0
   br i1 %309, label %310, label %.thread
 
 310:                                              ; preds = %306
-  %311 = getelementptr inbounds i8, ptr %1, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %312 = load i32, ptr %311, align 4
-  %313 = getelementptr inbounds i8, ptr %0, i64 32
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %314 = load i32, ptr %313, align 8
   %315 = icmp sgt i32 %312, %314
   br i1 %315, label %316, label %.thread
@@ -1524,7 +1526,7 @@ declare void @check_stack_depth() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlias(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -1533,7 +1535,7 @@ define internal fastcc void @_jumbleAlias(ptr noundef %0, ptr nocapture noundef 
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -1568,7 +1570,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
   ret void
@@ -1576,7 +1578,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRangeVar(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre65.pre67.pre70 = load ptr, ptr %0, align 8
@@ -1585,7 +1587,7 @@ define internal fastcc void @_jumbleRangeVar(ptr noundef %0, ptr nocapture nound
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -1626,7 +1628,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 
 20:                                               ; preds = %AppendJumble.exit, %2
   %.pre65.pre67 = phi ptr [ %.pre65.pre67.pre, %AppendJumble.exit ], [ %.pre65.pre67.pre70, %2 ]
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not21 = icmp eq ptr %22, null
   br i1 %.not21, label %38, label %23
@@ -1634,7 +1636,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 23:                                               ; preds = %20
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #8
   %25 = add i64 %24, 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %.not23.i23 = icmp eq i64 %25, 0
   br i1 %.not23.i23, label %AppendJumble.exit31, label %.lr.ph.i24
@@ -1675,20 +1677,20 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
 
 38:                                               ; preds = %AppendJumble.exit31, %20
   %.pre65 = phi ptr [ %.pre65.pre, %AppendJumble.exit31 ], [ %.pre65.pre67, %20 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load ptr, ptr %39, align 8
   %.not22 = icmp eq ptr %40, null
   br i1 %.not22, label %._crit_edge, label %41
 
 ._crit_edge:                                      ; preds = %38
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre66 = load i64, ptr %.phi.trans.insert, align 8
   br label %56
 
 41:                                               ; preds = %38
   %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #8
   %43 = add i64 %42, 1
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8
   %.not23.i32 = icmp eq i64 %43, 0
   br i1 %.not23.i32, label %AppendJumble.exit40, label %.lr.ph.i33
@@ -1730,8 +1732,8 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
 56:                                               ; preds = %._crit_edge, %AppendJumble.exit40
   %57 = phi i64 [ %.pre66, %._crit_edge ], [ %.022.lcssa.i39, %AppendJumble.exit40 ]
   %58 = phi ptr [ %.pre65, %._crit_edge ], [ %.pre, %AppendJumble.exit40 ]
-  %59 = getelementptr inbounds i8, ptr %1, i64 32
-  %60 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %64, %56
@@ -1760,7 +1762,7 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
 
 AppendJumble.exit48:                              ; preds = %64
   store i64 %68, ptr %60, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 33
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %72 = load ptr, ptr %0, align 8
   br label %.lr.ph.i49
 
@@ -1790,7 +1792,7 @@ AppendJumble.exit48:                              ; preds = %64
 
 AppendJumble.exit56:                              ; preds = %76
   store i64 %80, ptr %60, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %84 = load ptr, ptr %83, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %84)
   ret void
@@ -1798,13 +1800,13 @@ AppendJumble.exit56:                              ; preds = %76
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleTableFunc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
   ret void
@@ -1812,13 +1814,13 @@ define internal fastcc void @_jumbleTableFunc(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleIntoClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %25, label %9
@@ -1827,7 +1829,7 @@ define internal fastcc void @_jumbleIntoClause(ptr noundef %0, ptr nocapture nou
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
   %11 = add i64 %10, 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %.not23.i = icmp eq i64 %11, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -1862,12 +1864,12 @@ AppendJumble.exit:                                ; preds = %18, %9
   br label %25
 
 25:                                               ; preds = %2, %AppendJumble.exit
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %27)
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8
   br label %.lr.ph.i21
 
@@ -1897,7 +1899,7 @@ AppendJumble.exit:                                ; preds = %18, %9
 
 AppendJumble.exit28:                              ; preds = %35
   store i64 %39, ptr %30, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %43 = load ptr, ptr %42, align 8
   %.not20 = icmp eq ptr %43, null
   %.pre52 = load ptr, ptr %0, align 8
@@ -1946,7 +1948,7 @@ AppendJumble.exit37:                              ; preds = %AppendJumble.exit37
 57:                                               ; preds = %AppendJumble.exit28, %AppendJumble.exit37
   %58 = phi i64 [ %39, %AppendJumble.exit28 ], [ %.022.lcssa.i36, %AppendJumble.exit37 ]
   %59 = phi ptr [ %.pre52, %AppendJumble.exit28 ], [ %.pre, %AppendJumble.exit37 ]
-  %60 = getelementptr inbounds i8, ptr %1, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %.lr.ph.i38
 
 .lr.ph.i38:                                       ; preds = %64, %57
@@ -1980,9 +1982,9 @@ AppendJumble.exit45:                              ; preds = %64
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleVar(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -2012,7 +2014,7 @@ define internal fastcc void @_jumbleVar(ptr nocapture noundef %0, ptr nocapture 
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -2042,7 +2044,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit13:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %0, align 8
   br label %.lr.ph.i14
 
@@ -2077,9 +2079,9 @@ AppendJumble.exit20:                              ; preds = %34
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleConst(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -2109,28 +2111,28 @@ define internal fastcc void @_jumbleConst(ptr nocapture noundef %0, ptr nocaptur
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, -1
   br i1 %19, label %20, label %RecordConstLocation.exit
 
 20:                                               ; preds = %AppendJumble.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i32, ptr %23, align 8
   %.not.i5 = icmp slt i32 %22, %24
   br i1 %.not.i5, label %._crit_edge.i, label %25
 
 ._crit_edge.i:                                    ; preds = %20
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %32
 
 25:                                               ; preds = %20
   %26 = shl i32 %24, 1
   store i32 %26, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %26 to i64
   %30 = shl nsw i64 %29, 3
@@ -2142,7 +2144,7 @@ AppendJumble.exit:                                ; preds = %10
 32:                                               ; preds = %25, %._crit_edge.i
   %33 = phi i32 [ %22, %._crit_edge.i ], [ %.pre13.i, %25 ]
   %34 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %31, %25 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = sext i32 %33 to i64
   %37 = getelementptr %struct.LocationLen, ptr %34, i64 %36
   store i32 %18, ptr %37, align 4
@@ -2162,9 +2164,9 @@ RecordConstLocation.exit:                         ; preds = %AppendJumble.exit, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleParam(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -2194,7 +2196,7 @@ define internal fastcc void @_jumbleParam(ptr nocapture noundef %0, ptr nocaptur
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -2224,7 +2226,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit13:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %30 = load ptr, ptr %0, align 8
   br label %.lr.ph.i14
 
@@ -2259,9 +2261,9 @@ AppendJumble.exit20:                              ; preds = %34
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAggref(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -2291,19 +2293,19 @@ define internal fastcc void @_jumbleAggref(ptr noundef %0, ptr nocapture noundef
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
-  %23 = getelementptr inbounds i8, ptr %1, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %24 = load ptr, ptr %23, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %24)
-  %25 = getelementptr inbounds i8, ptr %1, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %26 = load ptr, ptr %25, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %26)
   ret void
@@ -2311,12 +2313,12 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleGroupingFunc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -2351,9 +2353,9 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleWindowFunc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -2383,13 +2385,13 @@ define internal fastcc void @_jumbleWindowFunc(ptr noundef %0, ptr nocapture nou
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load ptr, ptr %0, align 8
   %23 = load i64, ptr %5, align 8
   br label %.lr.ph.i9
@@ -2425,16 +2427,16 @@ AppendJumble.exit15:                              ; preds = %27
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleSubscriptingRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
   ret void
@@ -2442,9 +2444,9 @@ define internal fastcc void @_jumbleSubscriptingRef(ptr noundef %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleFuncExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -2474,7 +2476,7 @@ define internal fastcc void @_jumbleFuncExpr(ptr noundef %0, ptr nocapture nound
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
   ret void
@@ -2482,12 +2484,12 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleNamedArgExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -2522,9 +2524,9 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleOpExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -2554,7 +2556,7 @@ define internal fastcc void @_jumbleOpExpr(ptr noundef %0, ptr nocapture noundef
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
   ret void
@@ -2562,9 +2564,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDistinctExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -2594,7 +2596,7 @@ define internal fastcc void @_jumbleDistinctExpr(ptr noundef %0, ptr nocapture n
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
   ret void
@@ -2602,9 +2604,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleNullIfExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -2634,7 +2636,7 @@ define internal fastcc void @_jumbleNullIfExpr(ptr noundef %0, ptr nocapture nou
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
   ret void
@@ -2642,9 +2644,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleScalarArrayOpExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -2674,7 +2676,7 @@ define internal fastcc void @_jumbleScalarArrayOpExpr(ptr noundef %0, ptr nocapt
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -2704,7 +2706,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit13:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
   ret void
@@ -2712,9 +2714,9 @@ AppendJumble.exit13:                              ; preds = %22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleBoolExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -2744,7 +2746,7 @@ define internal fastcc void @_jumbleBoolExpr(ptr noundef %0, ptr nocapture nound
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
   ret void
@@ -2752,9 +2754,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleSubLink(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -2784,7 +2786,7 @@ define internal fastcc void @_jumbleSubLink(ptr noundef %0, ptr nocapture nounde
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i9
 
@@ -2814,10 +2816,10 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit15:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
   ret void
@@ -2825,12 +2827,12 @@ AppendJumble.exit15:                              ; preds = %22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleFieldSelect(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -2865,10 +2867,10 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleFieldStore(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -2876,12 +2878,12 @@ define internal fastcc void @_jumbleFieldStore(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRelabelType(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -2916,12 +2918,12 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCoerceViaIO(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -2956,15 +2958,15 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleArrayCoerceExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -2999,12 +3001,12 @@ AppendJumble.exit:                                ; preds = %14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleConvertRowtypeExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -3039,12 +3041,12 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCollateExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -3079,13 +3081,13 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCaseExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
   ret void
@@ -3093,10 +3095,10 @@ define internal fastcc void @_jumbleCaseExpr(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCaseWhen(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -3104,9 +3106,9 @@ define internal fastcc void @_jumbleCaseWhen(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCaseTestExpr(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -3141,9 +3143,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRowCompareExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -3173,10 +3175,10 @@ define internal fastcc void @_jumbleRowCompareExpr(ptr noundef %0, ptr nocapture
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
   ret void
@@ -3184,9 +3186,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleMinMaxExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -3216,7 +3218,7 @@ define internal fastcc void @_jumbleMinMaxExpr(ptr noundef %0, ptr nocapture nou
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
   ret void
@@ -3224,9 +3226,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleSQLValueFunction(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -3256,7 +3258,7 @@ define internal fastcc void @_jumbleSQLValueFunction(ptr nocapture noundef %0, p
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i5
 
@@ -3291,9 +3293,9 @@ AppendJumble.exit11:                              ; preds = %22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleXmlExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -3323,13 +3325,13 @@ define internal fastcc void @_jumbleXmlExpr(ptr noundef %0, ptr nocapture nounde
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 44
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %22 = load ptr, ptr %0, align 8
   %23 = load i64, ptr %5, align 8
   br label %.lr.ph.i9
@@ -3365,9 +3367,9 @@ AppendJumble.exit15:                              ; preds = %27
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonFormat(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -3397,7 +3399,7 @@ define internal fastcc void @_jumbleJsonFormat(ptr nocapture noundef %0, ptr noc
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i5
 
@@ -3432,12 +3434,12 @@ AppendJumble.exit11:                              ; preds = %22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonReturning(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -3467,7 +3469,7 @@ define internal fastcc void @_jumbleJsonReturning(ptr noundef %0, ptr nocapture 
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -3502,13 +3504,13 @@ AppendJumble.exit13:                              ; preds = %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonValueExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
   ret void
@@ -3516,9 +3518,9 @@ define internal fastcc void @_jumbleJsonValueExpr(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonConstructorExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -3548,19 +3550,19 @@ define internal fastcc void @_jumbleJsonConstructorExpr(ptr noundef %0, ptr noca
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %24)
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %0, align 8
   %27 = load i64, ptr %5, align 8
   br label %.lr.ph.i15
@@ -3591,7 +3593,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit21:                              ; preds = %31
   store i64 %35, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 41
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %39 = load ptr, ptr %0, align 8
   br label %.lr.ph.i22
 
@@ -3626,15 +3628,15 @@ AppendJumble.exit28:                              ; preds = %43
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonIsPredicate(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -3664,7 +3666,7 @@ define internal fastcc void @_jumbleJsonIsPredicate(ptr noundef %0, ptr nocaptur
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %22 = load ptr, ptr %0, align 8
   br label %.lr.ph.i9
 
@@ -3699,12 +3701,12 @@ AppendJumble.exit15:                              ; preds = %26
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleNullTest(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -3739,12 +3741,12 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleBooleanTest(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -3779,9 +3781,9 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleMergeAction(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -3811,7 +3813,7 @@ define internal fastcc void @_jumbleMergeAction(ptr noundef %0, ptr nocapture no
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i9
 
@@ -3841,10 +3843,10 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit15:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
   ret void
@@ -3852,12 +3854,12 @@ AppendJumble.exit15:                              ; preds = %22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCoerceToDomain(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -3892,9 +3894,9 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCoerceToDomainValue(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -3929,9 +3931,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleSetToDefault(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -3966,9 +3968,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCurrentOfExpr(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -3998,7 +4000,7 @@ define internal fastcc void @_jumbleCurrentOfExpr(ptr nocapture noundef %0, ptr 
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   %.pre28 = load ptr, ptr %0, align 8
@@ -4047,7 +4049,7 @@ AppendJumble.exit15:                              ; preds = %AppendJumble.exit15
 32:                                               ; preds = %AppendJumble.exit, %AppendJumble.exit15
   %33 = phi i64 [ %14, %AppendJumble.exit ], [ %.022.lcssa.i, %AppendJumble.exit15 ]
   %34 = phi ptr [ %.pre28, %AppendJumble.exit ], [ %.pre, %AppendJumble.exit15 ]
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %39, %32
@@ -4081,9 +4083,9 @@ AppendJumble.exit23:                              ; preds = %39
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleNextValueExpr(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -4113,7 +4115,7 @@ define internal fastcc void @_jumbleNextValueExpr(ptr nocapture noundef %0, ptr 
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i5
 
@@ -4148,12 +4150,12 @@ AppendJumble.exit11:                              ; preds = %22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleInferenceElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -4183,7 +4185,7 @@ define internal fastcc void @_jumbleInferenceElem(ptr noundef %0, ptr nocapture 
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -4218,12 +4220,12 @@ AppendJumble.exit13:                              ; preds = %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleTargetEntry(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -4253,7 +4255,7 @@ define internal fastcc void @_jumbleTargetEntry(ptr noundef %0, ptr nocapture no
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -4288,9 +4290,9 @@ AppendJumble.exit13:                              ; preds = %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRangeTblRef(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -4325,9 +4327,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJoinExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -4357,7 +4359,7 @@ define internal fastcc void @_jumbleJoinExpr(ptr noundef %0, ptr nocapture nound
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i13
 
@@ -4387,16 +4389,16 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit19:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load ptr, ptr %33, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %34)
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load ptr, ptr %0, align 8
   %37 = load i64, ptr %5, align 8
   br label %.lr.ph.i20
@@ -4432,10 +4434,10 @@ AppendJumble.exit26:                              ; preds = %41
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleFromExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -4443,9 +4445,9 @@ define internal fastcc void @_jumbleFromExpr(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleOnConflictExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -4475,13 +4477,13 @@ define internal fastcc void @_jumbleOnConflictExpr(ptr noundef %0, ptr nocapture
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %0, align 8
   %23 = load i64, ptr %5, align 8
   br label %.lr.ph.i17
@@ -4512,13 +4514,13 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit23:                              ; preds = %27
   store i64 %31, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %35)
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load ptr, ptr %36, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %37)
-  %38 = getelementptr inbounds i8, ptr %1, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %39 = load ptr, ptr %0, align 8
   %40 = load i64, ptr %5, align 8
   br label %.lr.ph.i24
@@ -4549,7 +4551,7 @@ AppendJumble.exit23:                              ; preds = %27
 
 AppendJumble.exit30:                              ; preds = %44
   store i64 %48, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %52 = load ptr, ptr %51, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %52)
   ret void
@@ -4557,9 +4559,9 @@ AppendJumble.exit30:                              ; preds = %44
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleQuery(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -4589,34 +4591,34 @@ define internal fastcc void @_jumbleQuery(ptr noundef %0, ptr nocapture noundef 
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
-  %23 = getelementptr inbounds i8, ptr %1, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %24 = load ptr, ptr %23, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %24)
-  %25 = getelementptr inbounds i8, ptr %1, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %26 = load ptr, ptr %25, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %26)
-  %27 = getelementptr inbounds i8, ptr %1, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %28 = load ptr, ptr %27, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %28)
-  %29 = getelementptr inbounds i8, ptr %1, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds i8, ptr %1, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
-  %33 = getelementptr inbounds i8, ptr %1, i64 136
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %34 = load ptr, ptr %33, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %34)
-  %35 = getelementptr inbounds i8, ptr %1, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %36 = load ptr, ptr %0, align 8
   %37 = load i64, ptr %5, align 8
   br label %.lr.ph.i43
@@ -4647,28 +4649,28 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit49:                              ; preds = %41
   store i64 %45, ptr %5, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 152
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %49 = load ptr, ptr %48, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %49)
-  %50 = getelementptr inbounds i8, ptr %1, i64 160
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %51 = load ptr, ptr %50, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %51)
-  %52 = getelementptr inbounds i8, ptr %1, i64 168
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %53 = load ptr, ptr %52, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %53)
-  %54 = getelementptr inbounds i8, ptr %1, i64 176
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %55 = load ptr, ptr %54, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %55)
-  %56 = getelementptr inbounds i8, ptr %1, i64 184
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %57 = load ptr, ptr %56, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %57)
-  %58 = getelementptr inbounds i8, ptr %1, i64 192
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %59 = load ptr, ptr %58, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %59)
-  %60 = getelementptr inbounds i8, ptr %1, i64 200
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %61 = load ptr, ptr %60, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %61)
-  %62 = getelementptr inbounds i8, ptr %1, i64 208
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %63 = load ptr, ptr %0, align 8
   %64 = load i64, ptr %5, align 8
   br label %.lr.ph.i50
@@ -4699,10 +4701,10 @@ AppendJumble.exit49:                              ; preds = %41
 
 AppendJumble.exit56:                              ; preds = %68
   store i64 %72, ptr %5, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 216
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %76 = load ptr, ptr %75, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %76)
-  %77 = getelementptr inbounds i8, ptr %1, i64 224
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %78 = load ptr, ptr %77, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %78)
   ret void
@@ -4710,12 +4712,12 @@ AppendJumble.exit56:                              ; preds = %68
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleTypeName(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -4745,7 +4747,7 @@ define internal fastcc void @_jumbleTypeName(ptr noundef %0, ptr nocapture nound
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i15
 
@@ -4775,7 +4777,7 @@ AppendJumble.exit:                                ; preds = %12
 
 AppendJumble.exit21:                              ; preds = %24
   store i64 %28, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 21
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %32 = load ptr, ptr %0, align 8
   br label %.lr.ph.i22
 
@@ -4805,10 +4807,10 @@ AppendJumble.exit21:                              ; preds = %24
 
 AppendJumble.exit28:                              ; preds = %36
   store i64 %40, ptr %7, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = load ptr, ptr %43, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %44)
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load ptr, ptr %0, align 8
   %47 = load i64, ptr %7, align 8
   br label %.lr.ph.i29
@@ -4839,7 +4841,7 @@ AppendJumble.exit28:                              ; preds = %36
 
 AppendJumble.exit35:                              ; preds = %51
   store i64 %55, ptr %7, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %59 = load ptr, ptr %58, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %59)
   ret void
@@ -4847,9 +4849,9 @@ AppendJumble.exit35:                              ; preds = %51
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleParamRef(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -4884,9 +4886,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleA_Expr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -4916,13 +4918,13 @@ define internal fastcc void @_jumbleA_Expr(ptr noundef %0, ptr nocapture noundef
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
   ret void
@@ -4930,9 +4932,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleA_Const(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -4967,7 +4969,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %18, label %114, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %0, align 8
   br label %.lr.ph.i28
 
@@ -5007,7 +5009,7 @@ AppendJumble.exit34:                              ; preds = %25
   ]
 
 33:                                               ; preds = %AppendJumble.exit34
-  %34 = getelementptr inbounds i8, ptr %1, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %35 = load ptr, ptr %0, align 8
   br label %.lr.ph.i35
 
@@ -5036,7 +5038,7 @@ AppendJumble.exit34:                              ; preds = %25
   br i1 %.not.i40, label %.sink.split, label %.lr.ph.i35, !llvm.loop !8
 
 46:                                               ; preds = %AppendJumble.exit34
-  %47 = getelementptr inbounds i8, ptr %1, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not27 = icmp eq ptr %48, null
   br i1 %.not27, label %114, label %49
@@ -5073,7 +5075,7 @@ AppendJumble.exit34:                              ; preds = %25
   br i1 %.not.i47, label %.sink.split, label %.lr.ph.i42, !llvm.loop !8
 
 63:                                               ; preds = %AppendJumble.exit34
-  %64 = getelementptr inbounds i8, ptr %1, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %65 = load ptr, ptr %0, align 8
   br label %.lr.ph.i49
 
@@ -5102,7 +5104,7 @@ AppendJumble.exit34:                              ; preds = %25
   br i1 %.not.i54, label %.sink.split, label %.lr.ph.i49, !llvm.loop !8
 
 76:                                               ; preds = %AppendJumble.exit34
-  %77 = getelementptr inbounds i8, ptr %1, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %78 = load ptr, ptr %77, align 8
   %.not26 = icmp eq ptr %78, null
   br i1 %.not26, label %114, label %79
@@ -5139,7 +5141,7 @@ AppendJumble.exit34:                              ; preds = %25
   br i1 %.not.i63, label %.sink.split, label %.lr.ph.i58, !llvm.loop !8
 
 93:                                               ; preds = %AppendJumble.exit34
-  %94 = getelementptr inbounds i8, ptr %1, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %95 = load ptr, ptr %94, align 8
   %.not = icmp eq ptr %95, null
   br i1 %.not, label %114, label %96
@@ -5194,10 +5196,10 @@ AppendJumble.exit34:                              ; preds = %25
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleTypeCast(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -5205,10 +5207,10 @@ define internal fastcc void @_jumbleTypeCast(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCollateClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -5216,9 +5218,9 @@ define internal fastcc void @_jumbleCollateClause(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRoleSpec(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -5248,7 +5250,7 @@ define internal fastcc void @_jumbleRoleSpec(ptr nocapture noundef %0, ptr nocap
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %33, label %19
@@ -5295,24 +5297,24 @@ AppendJumble.exit13:                              ; preds = %26, %19
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleFuncCall(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %12)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   br label %.lr.ph.i
 
@@ -5342,7 +5344,7 @@ define internal fastcc void @_jumbleFuncCall(ptr noundef %0, ptr nocapture nound
 
 AppendJumble.exit:                                ; preds = %20
   store i64 %24, ptr %15, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 49
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %28 = load ptr, ptr %0, align 8
   br label %.lr.ph.i21
 
@@ -5372,7 +5374,7 @@ AppendJumble.exit:                                ; preds = %20
 
 AppendJumble.exit27:                              ; preds = %32
   store i64 %36, ptr %15, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 50
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %40 = load ptr, ptr %0, align 8
   br label %.lr.ph.i28
 
@@ -5402,7 +5404,7 @@ AppendJumble.exit27:                              ; preds = %32
 
 AppendJumble.exit34:                              ; preds = %44
   store i64 %48, ptr %15, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 51
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 51
   %52 = load ptr, ptr %0, align 8
   br label %.lr.ph.i35
 
@@ -5432,7 +5434,7 @@ AppendJumble.exit34:                              ; preds = %44
 
 AppendJumble.exit41:                              ; preds = %56
   store i64 %60, ptr %15, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 52
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %64 = load ptr, ptr %0, align 8
   br label %.lr.ph.i42
 
@@ -5467,9 +5469,9 @@ AppendJumble.exit48:                              ; preds = %68
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleA_Indices(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -5499,10 +5501,10 @@ define internal fastcc void @_jumbleA_Indices(ptr noundef %0, ptr nocapture noun
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
   ret void
@@ -5510,10 +5512,10 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleA_Indirection(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -5521,7 +5523,7 @@ define internal fastcc void @_jumbleA_Indirection(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleResTarget(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -5530,7 +5532,7 @@ define internal fastcc void @_jumbleResTarget(ptr noundef %0, ptr nocapture noun
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -5565,10 +5567,10 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
   ret void
@@ -5576,12 +5578,12 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleMultiAssignRef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -5611,7 +5613,7 @@ define internal fastcc void @_jumbleMultiAssignRef(ptr noundef %0, ptr nocapture
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -5646,12 +5648,12 @@ AppendJumble.exit13:                              ; preds = %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleSortBy(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -5681,7 +5683,7 @@ define internal fastcc void @_jumbleSortBy(ptr noundef %0, ptr nocapture noundef
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i9
 
@@ -5711,7 +5713,7 @@ AppendJumble.exit:                                ; preds = %12
 
 AppendJumble.exit15:                              ; preds = %24
   store i64 %28, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
   ret void
@@ -5719,7 +5721,7 @@ AppendJumble.exit15:                              ; preds = %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleWindowDef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -5728,7 +5730,7 @@ define internal fastcc void @_jumbleWindowDef(ptr noundef %0, ptr nocapture noun
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -5763,7 +5765,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %AppendJumble.exit, %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not20 = icmp eq ptr %23, null
   br i1 %.not20, label %40, label %24
@@ -5772,7 +5774,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   %.not23.i21 = icmp eq i64 %26, 0
   br i1 %.not23.i21, label %AppendJumble.exit29, label %.lr.ph.i22
@@ -5807,15 +5809,15 @@ AppendJumble.exit29:                              ; preds = %33, %24
   br label %40
 
 40:                                               ; preds = %21, %AppendJumble.exit29
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %42)
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %44)
-  %45 = getelementptr inbounds i8, ptr %1, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i64, ptr %47, align 8
   br label %.lr.ph.i30
 
@@ -5845,10 +5847,10 @@ AppendJumble.exit29:                              ; preds = %33, %24
 
 AppendJumble.exit37:                              ; preds = %52
   store i64 %56, ptr %47, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %60 = load ptr, ptr %59, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %60)
-  %61 = getelementptr inbounds i8, ptr %1, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %62 = load ptr, ptr %61, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %62)
   ret void
@@ -5856,9 +5858,9 @@ AppendJumble.exit37:                              ; preds = %52
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRangeSubselect(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -5888,10 +5890,10 @@ define internal fastcc void @_jumbleRangeSubselect(ptr noundef %0, ptr nocapture
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
   ret void
@@ -5899,9 +5901,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRangeFunction(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -5931,7 +5933,7 @@ define internal fastcc void @_jumbleRangeFunction(ptr noundef %0, ptr nocapture 
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i13
 
@@ -5961,7 +5963,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit19:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 6
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %30 = load ptr, ptr %0, align 8
   br label %.lr.ph.i20
 
@@ -5991,13 +5993,13 @@ AppendJumble.exit19:                              ; preds = %22
 
 AppendJumble.exit26:                              ; preds = %34
   store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %42)
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load ptr, ptr %43, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %44)
-  %45 = getelementptr inbounds i8, ptr %1, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %46 = load ptr, ptr %45, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %46)
   ret void
@@ -6005,9 +6007,9 @@ AppendJumble.exit26:                              ; preds = %34
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRangeTableFunc(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -6037,19 +6039,19 @@ define internal fastcc void @_jumbleRangeTableFunc(ptr noundef %0, ptr nocapture
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %24)
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %26)
   ret void
@@ -6057,7 +6059,7 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRangeTableFuncCol(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -6066,7 +6068,7 @@ define internal fastcc void @_jumbleRangeTableFuncCol(ptr noundef %0, ptr nocapt
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -6101,12 +6103,12 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   br label %.lr.ph.i15
 
@@ -6136,7 +6138,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 AppendJumble.exit22:                              ; preds = %31
   store i64 %35, ptr %26, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 25
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %39 = load ptr, ptr %0, align 8
   br label %.lr.ph.i23
 
@@ -6166,10 +6168,10 @@ AppendJumble.exit22:                              ; preds = %31
 
 AppendJumble.exit30:                              ; preds = %43
   store i64 %47, ptr %26, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %51 = load ptr, ptr %50, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %51)
-  %52 = getelementptr inbounds i8, ptr %1, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load ptr, ptr %52, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %53)
   ret void
@@ -6177,16 +6179,16 @@ AppendJumble.exit30:                              ; preds = %43
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRangeTableSample(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
   ret void
@@ -6194,7 +6196,7 @@ define internal fastcc void @_jumbleRangeTableSample(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleColumnDef(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -6203,7 +6205,7 @@ define internal fastcc void @_jumbleColumnDef(ptr noundef %0, ptr nocapture noun
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -6238,24 +6240,24 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not45 = icmp eq ptr %25, null
   %.pre149 = load ptr, ptr %0, align 8
   br i1 %.not45, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %21
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre150 = load i64, ptr %.phi.trans.insert, align 8
   br label %41
 
 26:                                               ; preds = %21
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
   %28 = add i64 %27, 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8
   %.not23.i47 = icmp eq i64 %28, 0
   br i1 %.not23.i47, label %AppendJumble.exit55, label %.lr.ph.i48
@@ -6297,8 +6299,8 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
 41:                                               ; preds = %._crit_edge, %AppendJumble.exit55
   %42 = phi i64 [ %.pre150, %._crit_edge ], [ %.022.lcssa.i54, %AppendJumble.exit55 ]
   %43 = phi ptr [ %.pre149, %._crit_edge ], [ %.pre, %AppendJumble.exit55 ]
-  %44 = getelementptr inbounds i8, ptr %1, i64 32
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i56
 
 .lr.ph.i56:                                       ; preds = %49, %41
@@ -6327,7 +6329,7 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
 
 AppendJumble.exit63:                              ; preds = %49
   store i64 %53, ptr %45, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %57 = load ptr, ptr %0, align 8
   br label %.lr.ph.i64
 
@@ -6357,7 +6359,7 @@ AppendJumble.exit63:                              ; preds = %49
 
 AppendJumble.exit71:                              ; preds = %61
   store i64 %65, ptr %45, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 37
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %69 = load ptr, ptr %0, align 8
   br label %.lr.ph.i72
 
@@ -6387,7 +6389,7 @@ AppendJumble.exit71:                              ; preds = %61
 
 AppendJumble.exit79:                              ; preds = %73
   store i64 %77, ptr %45, align 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 38
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %81 = load ptr, ptr %0, align 8
   br label %.lr.ph.i80
 
@@ -6417,7 +6419,7 @@ AppendJumble.exit79:                              ; preds = %73
 
 AppendJumble.exit87:                              ; preds = %85
   store i64 %89, ptr %45, align 8
-  %92 = getelementptr inbounds i8, ptr %1, i64 39
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 39
   %93 = load ptr, ptr %0, align 8
   br label %.lr.ph.i88
 
@@ -6447,7 +6449,7 @@ AppendJumble.exit87:                              ; preds = %85
 
 AppendJumble.exit95:                              ; preds = %97
   store i64 %101, ptr %45, align 8
-  %104 = getelementptr inbounds i8, ptr %1, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %105 = load ptr, ptr %104, align 8
   %.not46 = icmp eq ptr %105, null
   br i1 %.not46, label %120, label %106
@@ -6489,13 +6491,13 @@ AppendJumble.exit104:                             ; preds = %113, %106
   br label %120
 
 120:                                              ; preds = %AppendJumble.exit95, %AppendJumble.exit104
-  %121 = getelementptr inbounds i8, ptr %1, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %122 = load ptr, ptr %121, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %122)
-  %123 = getelementptr inbounds i8, ptr %1, i64 56
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %124 = load ptr, ptr %123, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %124)
-  %125 = getelementptr inbounds i8, ptr %1, i64 64
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %126 = load ptr, ptr %0, align 8
   %127 = load i64, ptr %45, align 8
   br label %.lr.ph.i105
@@ -6526,10 +6528,10 @@ AppendJumble.exit104:                             ; preds = %113, %106
 
 AppendJumble.exit112:                             ; preds = %131
   store i64 %135, ptr %45, align 8
-  %138 = getelementptr inbounds i8, ptr %1, i64 72
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %139 = load ptr, ptr %138, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %139)
-  %140 = getelementptr inbounds i8, ptr %1, i64 80
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %141 = load ptr, ptr %0, align 8
   %142 = load i64, ptr %45, align 8
   br label %.lr.ph.i113
@@ -6560,10 +6562,10 @@ AppendJumble.exit112:                             ; preds = %131
 
 AppendJumble.exit120:                             ; preds = %146
   store i64 %150, ptr %45, align 8
-  %153 = getelementptr inbounds i8, ptr %1, i64 88
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %154 = load ptr, ptr %153, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %154)
-  %155 = getelementptr inbounds i8, ptr %1, i64 96
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %156 = load ptr, ptr %0, align 8
   %157 = load i64, ptr %45, align 8
   br label %.lr.ph.i121
@@ -6594,10 +6596,10 @@ AppendJumble.exit120:                             ; preds = %146
 
 AppendJumble.exit128:                             ; preds = %161
   store i64 %165, ptr %45, align 8
-  %168 = getelementptr inbounds i8, ptr %1, i64 104
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %169 = load ptr, ptr %168, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %169)
-  %170 = getelementptr inbounds i8, ptr %1, i64 112
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %171 = load ptr, ptr %170, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %171)
   ret void
@@ -6605,12 +6607,12 @@ AppendJumble.exit128:                             ; preds = %161
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleTableLikeClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -6640,7 +6642,7 @@ define internal fastcc void @_jumbleTableLikeClause(ptr noundef %0, ptr nocaptur
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -6675,7 +6677,7 @@ AppendJumble.exit13:                              ; preds = %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleIndexElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -6684,7 +6686,7 @@ define internal fastcc void @_jumbleIndexElem(ptr noundef %0, ptr nocapture noun
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -6719,10 +6721,10 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not22 = icmp eq ptr %25, null
   br i1 %.not22, label %42, label %26
@@ -6731,7 +6733,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
   %28 = add i64 %27, 1
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8
   %.not23.i23 = icmp eq i64 %28, 0
   br i1 %.not23.i23, label %AppendJumble.exit31, label %.lr.ph.i24
@@ -6766,18 +6768,18 @@ AppendJumble.exit31:                              ; preds = %35, %26
   br label %42
 
 42:                                               ; preds = %21, %AppendJumble.exit31
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %44)
-  %45 = getelementptr inbounds i8, ptr %1, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load ptr, ptr %45, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %46)
-  %47 = getelementptr inbounds i8, ptr %1, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load ptr, ptr %47, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %48)
-  %49 = getelementptr inbounds i8, ptr %1, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load i64, ptr %51, align 8
   br label %.lr.ph.i32
 
@@ -6807,7 +6809,7 @@ AppendJumble.exit31:                              ; preds = %35, %26
 
 AppendJumble.exit39:                              ; preds = %56
   store i64 %60, ptr %51, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 60
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %64 = load ptr, ptr %0, align 8
   br label %.lr.ph.i40
 
@@ -6842,7 +6844,7 @@ AppendJumble.exit47:                              ; preds = %68
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDefElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -6851,7 +6853,7 @@ define internal fastcc void @_jumbleDefElem(ptr noundef %0, ptr nocapture nounde
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -6886,7 +6888,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %AppendJumble.exit, %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not14 = icmp eq ptr %23, null
   br i1 %.not14, label %40, label %24
@@ -6895,7 +6897,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   %.not23.i15 = icmp eq i64 %26, 0
   br i1 %.not23.i15, label %AppendJumble.exit23, label %.lr.ph.i16
@@ -6930,12 +6932,12 @@ AppendJumble.exit23:                              ; preds = %33, %24
   br label %40
 
 40:                                               ; preds = %21, %AppendJumble.exit23
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %42)
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8
   br label %.lr.ph.i24
 
@@ -6970,12 +6972,12 @@ AppendJumble.exit31:                              ; preds = %50
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleLockingClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -7005,7 +7007,7 @@ define internal fastcc void @_jumbleLockingClause(ptr noundef %0, ptr nocapture 
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -7040,9 +7042,9 @@ AppendJumble.exit13:                              ; preds = %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleXmlSerialize(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -7072,13 +7074,13 @@ define internal fastcc void @_jumbleXmlSerialize(ptr noundef %0, ptr nocapture n
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %0, align 8
   %23 = load i64, ptr %5, align 8
   br label %.lr.ph.i9
@@ -7114,7 +7116,7 @@ AppendJumble.exit15:                              ; preds = %27
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumblePartitionElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -7123,7 +7125,7 @@ define internal fastcc void @_jumblePartitionElem(ptr noundef %0, ptr nocapture 
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -7158,13 +7160,13 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %27)
   ret void
@@ -7172,9 +7174,9 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumblePartitionSpec(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -7204,7 +7206,7 @@ define internal fastcc void @_jumblePartitionSpec(ptr noundef %0, ptr nocapture 
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
   ret void
@@ -7212,9 +7214,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumblePartitionBoundSpec(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -7244,7 +7246,7 @@ define internal fastcc void @_jumblePartitionBoundSpec(ptr noundef %0, ptr nocap
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i15
 
@@ -7274,7 +7276,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit21:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %0, align 8
   br label %.lr.ph.i22
 
@@ -7304,7 +7306,7 @@ AppendJumble.exit21:                              ; preds = %22
 
 AppendJumble.exit28:                              ; preds = %34
   store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %42 = load ptr, ptr %0, align 8
   br label %.lr.ph.i29
 
@@ -7334,13 +7336,13 @@ AppendJumble.exit28:                              ; preds = %34
 
 AppendJumble.exit35:                              ; preds = %46
   store i64 %50, ptr %5, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %54 = load ptr, ptr %53, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %54)
-  %55 = getelementptr inbounds i8, ptr %1, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %56 = load ptr, ptr %55, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %56)
-  %57 = getelementptr inbounds i8, ptr %1, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %58 = load ptr, ptr %57, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %58)
   ret void
@@ -7348,9 +7350,9 @@ AppendJumble.exit35:                              ; preds = %46
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumblePartitionRangeDatum(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -7380,7 +7382,7 @@ define internal fastcc void @_jumblePartitionRangeDatum(ptr noundef %0, ptr noca
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
   ret void
@@ -7388,15 +7390,15 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumblePartitionCmd(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -7431,9 +7433,9 @@ AppendJumble.exit:                                ; preds = %14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRangeTblEntry(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -7477,7 +7479,7 @@ AppendJumble.exit:                                ; preds = %10
   ]
 
 18:                                               ; preds = %AppendJumble.exit
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i35
 
@@ -7507,10 +7509,10 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit41:                              ; preds = %24
   store i64 %28, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
-  %33 = getelementptr inbounds i8, ptr %1, i64 201
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 201
   %34 = load ptr, ptr %0, align 8
   %35 = load i64, ptr %5, align 8
   br label %.lr.ph.i42
@@ -7544,13 +7546,13 @@ AppendJumble.exit48:                              ; preds = %39
   br label %135
 
 46:                                               ; preds = %AppendJumble.exit
-  %47 = getelementptr inbounds i8, ptr %1, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %48 = load ptr, ptr %47, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %48)
   br label %135
 
 49:                                               ; preds = %AppendJumble.exit
-  %50 = getelementptr inbounds i8, ptr %1, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %51 = load ptr, ptr %0, align 8
   br label %.lr.ph.i49
 
@@ -7583,10 +7585,10 @@ AppendJumble.exit55:                              ; preds = %55
   br label %135
 
 62:                                               ; preds = %AppendJumble.exit
-  %63 = getelementptr inbounds i8, ptr %1, i64 96
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %64 = load ptr, ptr %63, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %64)
-  %65 = getelementptr inbounds i8, ptr %1, i64 104
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %66 = load ptr, ptr %0, align 8
   %67 = load i64, ptr %5, align 8
   br label %.lr.ph.i56
@@ -7620,19 +7622,19 @@ AppendJumble.exit62:                              ; preds = %71
   br label %135
 
 78:                                               ; preds = %AppendJumble.exit
-  %79 = getelementptr inbounds i8, ptr %1, i64 112
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %80 = load ptr, ptr %79, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %80)
   br label %135
 
 81:                                               ; preds = %AppendJumble.exit
-  %82 = getelementptr inbounds i8, ptr %1, i64 120
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %83 = load ptr, ptr %82, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %83)
   br label %135
 
 84:                                               ; preds = %AppendJumble.exit
-  %85 = getelementptr inbounds i8, ptr %1, i64 128
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %86 = load ptr, ptr %85, align 8
   %.not34 = icmp eq ptr %86, null
   %.pre101 = load ptr, ptr %0, align 8
@@ -7681,7 +7683,7 @@ AppendJumble.exit69:                              ; preds = %AppendJumble.exit69
 100:                                              ; preds = %84, %AppendJumble.exit69
   %101 = phi i64 [ %14, %84 ], [ %.022.lcssa.i, %AppendJumble.exit69 ]
   %102 = phi ptr [ %.pre101, %84 ], [ %.pre, %AppendJumble.exit69 ]
-  %103 = getelementptr inbounds i8, ptr %1, i64 136
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 136
   br label %.lr.ph.i70
 
 .lr.ph.i70:                                       ; preds = %107, %100
@@ -7713,7 +7715,7 @@ AppendJumble.exit77:                              ; preds = %107
   br label %135
 
 114:                                              ; preds = %AppendJumble.exit
-  %115 = getelementptr inbounds i8, ptr %1, i64 168
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %116 = load ptr, ptr %115, align 8
   %.not = icmp eq ptr %116, null
   br i1 %.not, label %135, label %117
@@ -7768,9 +7770,9 @@ AppendJumble.exit86:                              ; preds = %124, %117
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRTEPermissionInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -7800,7 +7802,7 @@ define internal fastcc void @_jumbleRTEPermissionInfo(ptr noundef %0, ptr nocapt
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i15
 
@@ -7830,7 +7832,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit21:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %0, align 8
   br label %.lr.ph.i22
 
@@ -7860,7 +7862,7 @@ AppendJumble.exit21:                              ; preds = %22
 
 AppendJumble.exit28:                              ; preds = %34
   store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %0, align 8
   br label %.lr.ph.i29
 
@@ -7890,13 +7892,13 @@ AppendJumble.exit28:                              ; preds = %34
 
 AppendJumble.exit35:                              ; preds = %46
   store i64 %50, ptr %5, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %54 = load ptr, ptr %53, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %54)
-  %55 = getelementptr inbounds i8, ptr %1, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %56 = load ptr, ptr %55, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %56)
-  %57 = getelementptr inbounds i8, ptr %1, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %58 = load ptr, ptr %57, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %58)
   ret void
@@ -7904,9 +7906,9 @@ AppendJumble.exit35:                              ; preds = %46
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleTableSampleClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -7936,10 +7938,10 @@ define internal fastcc void @_jumbleTableSampleClause(ptr noundef %0, ptr nocapt
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
   ret void
@@ -7947,9 +7949,9 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleWithCheckOption(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -7979,7 +7981,7 @@ define internal fastcc void @_jumbleWithCheckOption(ptr noundef %0, ptr nocaptur
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %33, label %19
@@ -8022,7 +8024,7 @@ AppendJumble.exit23:                              ; preds = %26, %19
 
 33:                                               ; preds = %AppendJumble.exit23, %AppendJumble.exit
   %34 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit23 ], [ %14, %AppendJumble.exit ]
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not16 = icmp eq ptr %36, null
   br i1 %.not16, label %51, label %37
@@ -8064,10 +8066,10 @@ AppendJumble.exit32:                              ; preds = %44, %37
   br label %51
 
 51:                                               ; preds = %33, %AppendJumble.exit32
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load ptr, ptr %52, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %53)
-  %54 = getelementptr inbounds i8, ptr %1, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %55 = load ptr, ptr %0, align 8
   %56 = load i64, ptr %5, align 8
   br label %.lr.ph.i33
@@ -8103,9 +8105,9 @@ AppendJumble.exit40:                              ; preds = %60
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleSortGroupClause(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -8135,7 +8137,7 @@ define internal fastcc void @_jumbleSortGroupClause(ptr nocapture noundef %0, pt
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i9
 
@@ -8165,7 +8167,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit15:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %30 = load ptr, ptr %0, align 8
   br label %.lr.ph.i16
 
@@ -8195,7 +8197,7 @@ AppendJumble.exit15:                              ; preds = %22
 
 AppendJumble.exit22:                              ; preds = %34
   store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %0, align 8
   br label %.lr.ph.i23
 
@@ -8230,15 +8232,15 @@ AppendJumble.exit29:                              ; preds = %46
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleWindowClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -8268,13 +8270,13 @@ define internal fastcc void @_jumbleWindowClause(ptr noundef %0, ptr nocapture n
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
-  %23 = getelementptr inbounds i8, ptr %1, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %24 = load ptr, ptr %23, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %24)
-  %25 = getelementptr inbounds i8, ptr %1, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %26 = load ptr, ptr %0, align 8
   %27 = load i64, ptr %9, align 8
   br label %.lr.ph.i13
@@ -8310,9 +8312,9 @@ AppendJumble.exit19:                              ; preds = %31
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRowMarkClause(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -8342,7 +8344,7 @@ define internal fastcc void @_jumbleRowMarkClause(ptr nocapture noundef %0, ptr 
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i9
 
@@ -8372,7 +8374,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit15:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %30 = load ptr, ptr %0, align 8
   br label %.lr.ph.i16
 
@@ -8402,7 +8404,7 @@ AppendJumble.exit15:                              ; preds = %22
 
 AppendJumble.exit22:                              ; preds = %34
   store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %0, align 8
   br label %.lr.ph.i23
 
@@ -8437,12 +8439,12 @@ AppendJumble.exit29:                              ; preds = %46
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleWithClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -8477,13 +8479,13 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleInferClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %25, label %9
@@ -8492,7 +8494,7 @@ define internal fastcc void @_jumbleInferClause(ptr noundef %0, ptr nocapture no
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
   %11 = add i64 %10, 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %.not23.i = icmp eq i64 %11, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -8532,9 +8534,9 @@ AppendJumble.exit:                                ; preds = %18, %9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleOnConflictClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -8564,13 +8566,13 @@ define internal fastcc void @_jumbleOnConflictClause(ptr noundef %0, ptr nocaptu
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
   ret void
@@ -8578,12 +8580,12 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCTESearchClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -8613,7 +8615,7 @@ define internal fastcc void @_jumbleCTESearchClause(ptr noundef %0, ptr nocaptur
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %35, label %21
@@ -8660,10 +8662,10 @@ AppendJumble.exit15:                              ; preds = %28, %21
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCTECycleClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %23, label %7
@@ -8672,7 +8674,7 @@ define internal fastcc void @_jumbleCTECycleClause(ptr noundef %0, ptr nocapture
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %.not23.i = icmp eq i64 %9, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -8707,27 +8709,27 @@ AppendJumble.exit:                                ; preds = %16, %7
   br label %23
 
 23:                                               ; preds = %2, %AppendJumble.exit
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %27)
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %29 = load ptr, ptr %28, align 8
   %.not24 = icmp eq ptr %29, null
   %.pre76 = load ptr, ptr %0, align 8
   br i1 %.not24, label %._crit_edge, label %30
 
 ._crit_edge:                                      ; preds = %23
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre77 = load i64, ptr %.phi.trans.insert, align 8
   br label %45
 
 30:                                               ; preds = %23
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #8
   %32 = add i64 %31, 1
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i64, ptr %33, align 8
   %.not23.i25 = icmp eq i64 %32, 0
   br i1 %.not23.i25, label %AppendJumble.exit33, label %.lr.ph.i26
@@ -8769,8 +8771,8 @@ AppendJumble.exit33:                              ; preds = %AppendJumble.exit33
 45:                                               ; preds = %._crit_edge, %AppendJumble.exit33
   %46 = phi i64 [ %.pre77, %._crit_edge ], [ %.022.lcssa.i32, %AppendJumble.exit33 ]
   %47 = phi ptr [ %.pre76, %._crit_edge ], [ %.pre, %AppendJumble.exit33 ]
-  %48 = getelementptr inbounds i8, ptr %1, i64 52
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %53, %45
@@ -8799,7 +8801,7 @@ AppendJumble.exit33:                              ; preds = %AppendJumble.exit33
 
 AppendJumble.exit41:                              ; preds = %53
   store i64 %57, ptr %49, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %61 = load ptr, ptr %0, align 8
   br label %.lr.ph.i42
 
@@ -8829,7 +8831,7 @@ AppendJumble.exit41:                              ; preds = %53
 
 AppendJumble.exit49:                              ; preds = %65
   store i64 %69, ptr %49, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 60
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %73 = load ptr, ptr %0, align 8
   br label %.lr.ph.i50
 
@@ -8859,7 +8861,7 @@ AppendJumble.exit49:                              ; preds = %65
 
 AppendJumble.exit57:                              ; preds = %77
   store i64 %81, ptr %49, align 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %85 = load ptr, ptr %0, align 8
   br label %.lr.ph.i58
 
@@ -8894,21 +8896,21 @@ AppendJumble.exit65:                              ; preds = %89
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCommonTableExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre19 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre20 = load i64, ptr %.phi.trans.insert, align 8
   br label %20
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -8950,7 +8952,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 20:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %21 = phi i64 [ %.pre20, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %22 = phi ptr [ %.pre19, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %27, %20
@@ -8978,9 +8980,9 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %31, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %36 = load ptr, ptr %35, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
   ret void
@@ -8988,9 +8990,9 @@ AppendJumble.exit16:                              ; preds = %27
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleMergeWhenClause(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -9020,7 +9022,7 @@ define internal fastcc void @_jumbleMergeWhenClause(ptr noundef %0, ptr nocaptur
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i13
 
@@ -9050,7 +9052,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit19:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %30 = load ptr, ptr %0, align 8
   br label %.lr.ph.i20
 
@@ -9080,13 +9082,13 @@ AppendJumble.exit19:                              ; preds = %22
 
 AppendJumble.exit26:                              ; preds = %34
   store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %42)
-  %43 = getelementptr inbounds i8, ptr %1, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = load ptr, ptr %43, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %44)
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load ptr, ptr %45, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %46)
   ret void
@@ -9094,21 +9096,21 @@ AppendJumble.exit26:                              ; preds = %34
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleTriggerTransition(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre29 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre30 = load i64, ptr %.phi.trans.insert, align 8
   br label %20
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -9150,8 +9152,8 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 20:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %21 = phi i64 [ %.pre30, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %22 = phi ptr [ %.pre29, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %28, %20
@@ -9180,7 +9182,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 
 AppendJumble.exit16:                              ; preds = %28
   store i64 %32, ptr %24, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 17
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %36 = load ptr, ptr %0, align 8
   br label %.lr.ph.i17
 
@@ -9215,10 +9217,10 @@ AppendJumble.exit24:                              ; preds = %40
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonOutput(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -9226,10 +9228,10 @@ define internal fastcc void @_jumbleJsonOutput(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonKeyValue(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -9237,15 +9239,15 @@ define internal fastcc void @_jumbleJsonKeyValue(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonParseExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -9280,10 +9282,10 @@ AppendJumble.exit:                                ; preds = %14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonScalarExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -9291,10 +9293,10 @@ define internal fastcc void @_jumbleJsonScalarExpr(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonSerializeExpr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -9302,15 +9304,15 @@ define internal fastcc void @_jumbleJsonSerializeExpr(ptr noundef %0, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonObjectConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -9340,7 +9342,7 @@ define internal fastcc void @_jumbleJsonObjectConstructor(ptr noundef %0, ptr no
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 25
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %22 = load ptr, ptr %0, align 8
   br label %.lr.ph.i9
 
@@ -9375,15 +9377,15 @@ AppendJumble.exit15:                              ; preds = %26
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonArrayConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -9418,18 +9420,18 @@ AppendJumble.exit:                                ; preds = %14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonArrayQueryConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   br label %.lr.ph.i
 
@@ -9464,16 +9466,16 @@ AppendJumble.exit:                                ; preds = %16
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonAggConstructor(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
   ret void
@@ -9481,15 +9483,15 @@ define internal fastcc void @_jumbleJsonAggConstructor(ptr noundef %0, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonObjectAgg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -9519,7 +9521,7 @@ define internal fastcc void @_jumbleJsonObjectAgg(ptr noundef %0, ptr nocapture 
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 25
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %22 = load ptr, ptr %0, align 8
   br label %.lr.ph.i9
 
@@ -9554,15 +9556,15 @@ AppendJumble.exit15:                              ; preds = %26
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonArrayAgg(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -9597,27 +9599,27 @@ AppendJumble.exit:                                ; preds = %14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleInsertStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %12)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %14)
-  %15 = getelementptr inbounds i8, ptr %1, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8
   br label %.lr.ph.i
 
@@ -9652,19 +9654,19 @@ AppendJumble.exit:                                ; preds = %22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDeleteStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %12)
   ret void
@@ -9672,22 +9674,22 @@ define internal fastcc void @_jumbleDeleteStmt(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleUpdateStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %12)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %14)
   ret void
@@ -9695,19 +9697,19 @@ define internal fastcc void @_jumbleUpdateStmt(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleMergeStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %12)
   ret void
@@ -9715,27 +9717,27 @@ define internal fastcc void @_jumbleMergeStmt(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleSelectStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %12)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %14)
-  %15 = getelementptr inbounds i8, ptr %1, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8
   br label %.lr.ph.i
 
@@ -9765,25 +9767,25 @@ define internal fastcc void @_jumbleSelectStmt(ptr noundef %0, ptr nocapture nou
 
 AppendJumble.exit:                                ; preds = %22
   store i64 %26, ptr %17, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds i8, ptr %1, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
-  %33 = getelementptr inbounds i8, ptr %1, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %34 = load ptr, ptr %33, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %34)
-  %35 = getelementptr inbounds i8, ptr %1, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %36 = load ptr, ptr %35, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
-  %37 = getelementptr inbounds i8, ptr %1, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = load ptr, ptr %37, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
-  %39 = getelementptr inbounds i8, ptr %1, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %40 = load ptr, ptr %39, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %40)
-  %41 = getelementptr inbounds i8, ptr %1, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %42 = load ptr, ptr %0, align 8
   %43 = load i64, ptr %17, align 8
   br label %.lr.ph.i41
@@ -9814,13 +9816,13 @@ AppendJumble.exit:                                ; preds = %22
 
 AppendJumble.exit47:                              ; preds = %47
   store i64 %51, ptr %17, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 120
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %55 = load ptr, ptr %54, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %55)
-  %56 = getelementptr inbounds i8, ptr %1, i64 128
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %57 = load ptr, ptr %56, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %57)
-  %58 = getelementptr inbounds i8, ptr %1, i64 136
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %59 = load ptr, ptr %0, align 8
   %60 = load i64, ptr %17, align 8
   br label %.lr.ph.i48
@@ -9851,7 +9853,7 @@ AppendJumble.exit47:                              ; preds = %47
 
 AppendJumble.exit54:                              ; preds = %64
   store i64 %68, ptr %17, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 140
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %72 = load ptr, ptr %0, align 8
   br label %.lr.ph.i55
 
@@ -9881,10 +9883,10 @@ AppendJumble.exit54:                              ; preds = %64
 
 AppendJumble.exit61:                              ; preds = %76
   store i64 %80, ptr %17, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 144
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %84 = load ptr, ptr %83, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %84)
-  %85 = getelementptr inbounds i8, ptr %1, i64 152
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %86 = load ptr, ptr %85, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %86)
   ret void
@@ -9892,9 +9894,9 @@ AppendJumble.exit61:                              ; preds = %76
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleSetOperationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -9924,7 +9926,7 @@ define internal fastcc void @_jumbleSetOperationStmt(ptr noundef %0, ptr nocaptu
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i9
 
@@ -9954,10 +9956,10 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit15:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
   ret void
@@ -9965,7 +9967,7 @@ AppendJumble.exit15:                              ; preds = %22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumblePLAssignStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -9974,7 +9976,7 @@ define internal fastcc void @_jumblePLAssignStmt(ptr noundef %0, ptr nocapture n
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -10009,12 +10011,12 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   br label %.lr.ph.i11
 
@@ -10044,7 +10046,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 AppendJumble.exit18:                              ; preds = %31
   store i64 %35, ptr %26, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load ptr, ptr %38, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %39)
   ret void
@@ -10052,7 +10054,7 @@ AppendJumble.exit18:                              ; preds = %31
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateSchemaStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -10061,7 +10063,7 @@ define internal fastcc void @_jumbleCreateSchemaStmt(ptr noundef %0, ptr nocaptu
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -10096,15 +10098,15 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   br label %.lr.ph.i11
 
@@ -10139,15 +10141,15 @@ AppendJumble.exit18:                              ; preds = %33
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterTableStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -10177,7 +10179,7 @@ define internal fastcc void @_jumbleAlterTableStmt(ptr noundef %0, ptr nocapture
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %22 = load ptr, ptr %0, align 8
   br label %.lr.ph.i9
 
@@ -10212,9 +10214,9 @@ AppendJumble.exit15:                              ; preds = %26
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleReplicaIdentityStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -10244,7 +10246,7 @@ define internal fastcc void @_jumbleReplicaIdentityStmt(ptr nocapture noundef %0
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %33, label %19
@@ -10291,9 +10293,9 @@ AppendJumble.exit13:                              ; preds = %26, %19
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterTableCmd(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -10323,7 +10325,7 @@ define internal fastcc void @_jumbleAlterTableCmd(ptr noundef %0, ptr nocapture 
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   %.pre68 = load ptr, ptr %0, align 8
@@ -10372,7 +10374,7 @@ AppendJumble.exit25:                              ; preds = %AppendJumble.exit25
 32:                                               ; preds = %AppendJumble.exit, %AppendJumble.exit25
   %33 = phi i64 [ %14, %AppendJumble.exit ], [ %.022.lcssa.i, %AppendJumble.exit25 ]
   %34 = phi ptr [ %.pre68, %AppendJumble.exit ], [ %.pre, %AppendJumble.exit25 ]
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %39, %32
@@ -10401,13 +10403,13 @@ AppendJumble.exit25:                              ; preds = %AppendJumble.exit25
 
 AppendJumble.exit33:                              ; preds = %39
   store i64 %43, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %47 = load ptr, ptr %46, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %47)
-  %48 = getelementptr inbounds i8, ptr %1, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %49 = load ptr, ptr %48, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %49)
-  %50 = getelementptr inbounds i8, ptr %1, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %51 = load ptr, ptr %0, align 8
   %52 = load i64, ptr %5, align 8
   br label %.lr.ph.i34
@@ -10438,7 +10440,7 @@ AppendJumble.exit33:                              ; preds = %39
 
 AppendJumble.exit41:                              ; preds = %56
   store i64 %60, ptr %5, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 44
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %64 = load ptr, ptr %0, align 8
   br label %.lr.ph.i42
 
@@ -10468,7 +10470,7 @@ AppendJumble.exit41:                              ; preds = %56
 
 AppendJumble.exit49:                              ; preds = %68
   store i64 %72, ptr %5, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 45
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 45
   %76 = load ptr, ptr %0, align 8
   br label %.lr.ph.i50
 
@@ -10503,9 +10505,9 @@ AppendJumble.exit57:                              ; preds = %80
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterDomainStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -10535,10 +10537,10 @@ define internal fastcc void @_jumbleAlterDomainStmt(ptr noundef %0, ptr nocaptur
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %36, label %21
@@ -10581,10 +10583,10 @@ AppendJumble.exit21:                              ; preds = %29, %21
   br label %36
 
 36:                                               ; preds = %AppendJumble.exit, %AppendJumble.exit21
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load ptr, ptr %37, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = load ptr, ptr %0, align 8
   %41 = load i64, ptr %5, align 8
   br label %.lr.ph.i22
@@ -10615,7 +10617,7 @@ AppendJumble.exit21:                              ; preds = %29, %21
 
 AppendJumble.exit29:                              ; preds = %45
   store i64 %49, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %53 = load ptr, ptr %0, align 8
   br label %.lr.ph.i30
 
@@ -10650,9 +10652,9 @@ AppendJumble.exit37:                              ; preds = %57
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleGrantStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -10682,7 +10684,7 @@ define internal fastcc void @_jumbleGrantStmt(ptr noundef %0, ptr nocapture noun
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i19
 
@@ -10712,7 +10714,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit25:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %30 = load ptr, ptr %0, align 8
   br label %.lr.ph.i26
 
@@ -10742,16 +10744,16 @@ AppendJumble.exit25:                              ; preds = %22
 
 AppendJumble.exit32:                              ; preds = %34
   store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %42)
-  %43 = getelementptr inbounds i8, ptr %1, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = load ptr, ptr %43, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %44)
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load ptr, ptr %45, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %46)
-  %47 = getelementptr inbounds i8, ptr %1, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %48 = load ptr, ptr %0, align 8
   %49 = load i64, ptr %5, align 8
   br label %.lr.ph.i33
@@ -10782,10 +10784,10 @@ AppendJumble.exit32:                              ; preds = %34
 
 AppendJumble.exit39:                              ; preds = %53
   store i64 %57, ptr %5, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %61 = load ptr, ptr %60, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %61)
-  %62 = getelementptr inbounds i8, ptr %1, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %63 = load ptr, ptr %0, align 8
   %64 = load i64, ptr %5, align 8
   br label %.lr.ph.i40
@@ -10821,18 +10823,18 @@ AppendJumble.exit46:                              ; preds = %68
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleObjectWithArgs(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   br label %.lr.ph.i
 
@@ -10867,7 +10869,7 @@ AppendJumble.exit:                                ; preds = %16
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAccessPriv(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -10876,7 +10878,7 @@ define internal fastcc void @_jumbleAccessPriv(ptr noundef %0, ptr nocapture nou
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -10911,7 +10913,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
   ret void
@@ -10919,15 +10921,15 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleGrantRoleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -10957,13 +10959,13 @@ define internal fastcc void @_jumbleGrantRoleStmt(ptr noundef %0, ptr nocapture 
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load ptr, ptr %23, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %24)
-  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load ptr, ptr %0, align 8
   %27 = load i64, ptr %9, align 8
   br label %.lr.ph.i13
@@ -10999,10 +11001,10 @@ AppendJumble.exit19:                              ; preds = %31
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -11010,18 +11012,18 @@ define internal fastcc void @_jumbleAlterDefaultPrivilegesStmt(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCopyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   br label %.lr.ph.i
 
@@ -11051,7 +11053,7 @@ define internal fastcc void @_jumbleCopyStmt(ptr noundef %0, ptr nocapture nound
 
 AppendJumble.exit:                                ; preds = %16
   store i64 %20, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 33
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %24 = load ptr, ptr %0, align 8
   br label %.lr.ph.i19
 
@@ -11081,7 +11083,7 @@ AppendJumble.exit:                                ; preds = %16
 
 AppendJumble.exit25:                              ; preds = %28
   store i64 %32, ptr %11, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %51, label %37
@@ -11123,10 +11125,10 @@ AppendJumble.exit32:                              ; preds = %44, %37
   br label %51
 
 51:                                               ; preds = %AppendJumble.exit25, %AppendJumble.exit32
-  %52 = getelementptr inbounds i8, ptr %1, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %53 = load ptr, ptr %52, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %53)
-  %54 = getelementptr inbounds i8, ptr %1, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %55 = load ptr, ptr %54, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %55)
   ret void
@@ -11134,9 +11136,9 @@ AppendJumble.exit32:                              ; preds = %44, %37
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleVariableSetStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -11166,7 +11168,7 @@ define internal fastcc void @_jumbleVariableSetStmt(ptr noundef %0, ptr nocaptur
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %33, label %19
@@ -11208,10 +11210,10 @@ AppendJumble.exit17:                              ; preds = %26, %19
   br label %33
 
 33:                                               ; preds = %AppendJumble.exit, %AppendJumble.exit17
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %35)
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %0, align 8
   %38 = load i64, ptr %5, align 8
   br label %.lr.ph.i18
@@ -11254,7 +11256,7 @@ define internal fastcc void @_jumbleVariableShowStmt(ptr nocapture noundef %0, p
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not23.i = icmp eq i64 %4, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -11294,36 +11296,36 @@ AppendJumble.exit:                                ; preds = %11, %2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %12)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %14)
-  %15 = getelementptr inbounds i8, ptr %1, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %16 = load ptr, ptr %15, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %16)
-  %17 = getelementptr inbounds i8, ptr %1, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
   br label %.lr.ph.i
 
@@ -11353,7 +11355,7 @@ define internal fastcc void @_jumbleCreateStmt(ptr noundef %0, ptr nocapture nou
 
 AppendJumble.exit:                                ; preds = %28
   store i64 %32, ptr %23, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
   %.pre63.pre64 = load ptr, ptr %0, align 8
@@ -11402,7 +11404,7 @@ AppendJumble.exit39:                              ; preds = %AppendJumble.exit39
 50:                                               ; preds = %AppendJumble.exit39, %AppendJumble.exit
   %.pre63 = phi ptr [ %.pre63.pre, %AppendJumble.exit39 ], [ %.pre63.pre64, %AppendJumble.exit ]
   %51 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit39 ], [ %32, %AppendJumble.exit ]
-  %52 = getelementptr inbounds i8, ptr %1, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %53 = load ptr, ptr %52, align 8
   %.not32 = icmp eq ptr %53, null
   br i1 %.not32, label %67, label %54
@@ -11450,7 +11452,7 @@ AppendJumble.exit48:                              ; preds = %AppendJumble.exit48
 67:                                               ; preds = %50, %AppendJumble.exit48
   %68 = phi i64 [ %51, %50 ], [ %.022.lcssa.i47, %AppendJumble.exit48 ]
   %69 = phi ptr [ %.pre63, %50 ], [ %.pre, %AppendJumble.exit48 ]
-  %70 = getelementptr inbounds i8, ptr %1, i64 104
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 104
   br label %.lr.ph.i49
 
 .lr.ph.i49:                                       ; preds = %74, %67
@@ -11484,9 +11486,9 @@ AppendJumble.exit56:                              ; preds = %74
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleConstraint(ptr noundef %0, ptr noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -11516,7 +11518,7 @@ define internal fastcc void @_jumbleConstraint(ptr noundef %0, ptr noundef nonnu
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   %.pre274 = load ptr, ptr %0, align 8
@@ -11565,7 +11567,7 @@ AppendJumble.exit87:                              ; preds = %AppendJumble.exit87
 32:                                               ; preds = %AppendJumble.exit, %AppendJumble.exit87
   %33 = phi i64 [ %14, %AppendJumble.exit ], [ %.022.lcssa.i, %AppendJumble.exit87 ]
   %34 = phi ptr [ %.pre274, %AppendJumble.exit ], [ %.pre, %AppendJumble.exit87 ]
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i88
 
 .lr.ph.i88:                                       ; preds = %39, %32
@@ -11594,7 +11596,7 @@ AppendJumble.exit87:                              ; preds = %AppendJumble.exit87
 
 AppendJumble.exit95:                              ; preds = %39
   store i64 %43, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 17
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %47 = load ptr, ptr %0, align 8
   br label %.lr.ph.i96
 
@@ -11624,7 +11626,7 @@ AppendJumble.exit95:                              ; preds = %39
 
 AppendJumble.exit103:                             ; preds = %51
   store i64 %55, ptr %5, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 18
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %59 = load ptr, ptr %0, align 8
   br label %.lr.ph.i104
 
@@ -11654,7 +11656,7 @@ AppendJumble.exit103:                             ; preds = %51
 
 AppendJumble.exit111:                             ; preds = %63
   store i64 %67, ptr %5, align 8
-  %70 = getelementptr inbounds i8, ptr %1, i64 19
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %71 = load ptr, ptr %0, align 8
   br label %.lr.ph.i112
 
@@ -11684,7 +11686,7 @@ AppendJumble.exit111:                             ; preds = %63
 
 AppendJumble.exit119:                             ; preds = %75
   store i64 %79, ptr %5, align 8
-  %82 = getelementptr inbounds i8, ptr %1, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %83 = load ptr, ptr %0, align 8
   br label %.lr.ph.i120
 
@@ -11714,10 +11716,10 @@ AppendJumble.exit119:                             ; preds = %75
 
 AppendJumble.exit127:                             ; preds = %87
   store i64 %91, ptr %5, align 8
-  %94 = getelementptr inbounds i8, ptr %1, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %95 = load ptr, ptr %94, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %95)
-  %96 = getelementptr inbounds i8, ptr %1, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %97 = load ptr, ptr %96, align 8
   %.not77 = icmp eq ptr %97, null
   %.pre276 = load ptr, ptr %0, align 8
@@ -11767,7 +11769,7 @@ AppendJumble.exit136:                             ; preds = %AppendJumble.exit13
 111:                                              ; preds = %AppendJumble.exit127, %AppendJumble.exit136
   %112 = phi i64 [ %.pre277, %AppendJumble.exit127 ], [ %.022.lcssa.i135, %AppendJumble.exit136 ]
   %113 = phi ptr [ %.pre276, %AppendJumble.exit127 ], [ %.pre275, %AppendJumble.exit136 ]
-  %114 = getelementptr inbounds i8, ptr %1, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %.lr.ph.i137
 
 .lr.ph.i137:                                      ; preds = %118, %111
@@ -11796,7 +11798,7 @@ AppendJumble.exit136:                             ; preds = %AppendJumble.exit13
 
 AppendJumble.exit144:                             ; preds = %118
   store i64 %122, ptr %5, align 8
-  %125 = getelementptr inbounds i8, ptr %1, i64 44
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %126 = load ptr, ptr %0, align 8
   br label %.lr.ph.i145
 
@@ -11826,7 +11828,7 @@ AppendJumble.exit144:                             ; preds = %118
 
 AppendJumble.exit152:                             ; preds = %130
   store i64 %134, ptr %5, align 8
-  %137 = getelementptr inbounds i8, ptr %1, i64 48
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %138 = load ptr, ptr %0, align 8
   br label %.lr.ph.i153
 
@@ -11856,10 +11858,10 @@ AppendJumble.exit152:                             ; preds = %130
 
 AppendJumble.exit160:                             ; preds = %142
   store i64 %146, ptr %5, align 8
-  %149 = getelementptr inbounds i8, ptr %1, i64 56
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %150 = load ptr, ptr %149, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %150)
-  %151 = getelementptr inbounds i8, ptr %1, i64 64
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %152 = load ptr, ptr %0, align 8
   %153 = load i64, ptr %5, align 8
   br label %.lr.ph.i161
@@ -11890,16 +11892,16 @@ AppendJumble.exit160:                             ; preds = %142
 
 AppendJumble.exit168:                             ; preds = %157
   store i64 %161, ptr %5, align 8
-  %164 = getelementptr inbounds i8, ptr %1, i64 72
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %165 = load ptr, ptr %164, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %165)
-  %166 = getelementptr inbounds i8, ptr %1, i64 80
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %167 = load ptr, ptr %166, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %167)
-  %168 = getelementptr inbounds i8, ptr %1, i64 88
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %169 = load ptr, ptr %168, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %169)
-  %170 = getelementptr inbounds i8, ptr %1, i64 96
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %171 = load ptr, ptr %170, align 8
   %.not78 = icmp eq ptr %171, null
   %.pre279.pre283 = load ptr, ptr %0, align 8
@@ -11949,7 +11951,7 @@ AppendJumble.exit177:                             ; preds = %AppendJumble.exit17
 185:                                              ; preds = %AppendJumble.exit177, %AppendJumble.exit168
   %.pre280 = phi i64 [ %.022.lcssa.i176, %AppendJumble.exit177 ], [ %.pre280.pre, %AppendJumble.exit168 ]
   %.pre279 = phi ptr [ %.pre279.pre, %AppendJumble.exit177 ], [ %.pre279.pre283, %AppendJumble.exit168 ]
-  %186 = getelementptr inbounds i8, ptr %1, i64 104
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %187 = load ptr, ptr %186, align 8
   %.not79 = icmp eq ptr %187, null
   br i1 %.not79, label %201, label %188
@@ -11997,7 +11999,7 @@ AppendJumble.exit186:                             ; preds = %AppendJumble.exit18
 201:                                              ; preds = %185, %AppendJumble.exit186
   %202 = phi i64 [ %.pre280, %185 ], [ %.022.lcssa.i185, %AppendJumble.exit186 ]
   %203 = phi ptr [ %.pre279, %185 ], [ %.pre278, %AppendJumble.exit186 ]
-  %204 = getelementptr inbounds i8, ptr %1, i64 112
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 112
   br label %.lr.ph.i187
 
 .lr.ph.i187:                                      ; preds = %208, %201
@@ -12026,7 +12028,7 @@ AppendJumble.exit186:                             ; preds = %AppendJumble.exit18
 
 AppendJumble.exit194:                             ; preds = %208
   store i64 %212, ptr %5, align 8
-  %215 = getelementptr inbounds i8, ptr %1, i64 120
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %216 = load ptr, ptr %215, align 8
   %.not80 = icmp eq ptr %216, null
   br i1 %.not80, label %231, label %217
@@ -12068,19 +12070,19 @@ AppendJumble.exit203:                             ; preds = %224, %217
   br label %231
 
 231:                                              ; preds = %AppendJumble.exit194, %AppendJumble.exit203
-  %232 = getelementptr inbounds i8, ptr %1, i64 128
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %233 = load ptr, ptr %232, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %233)
-  %234 = getelementptr inbounds i8, ptr %1, i64 136
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %235 = load ptr, ptr %234, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %235)
-  %236 = getelementptr inbounds i8, ptr %1, i64 144
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %237 = load ptr, ptr %236, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %237)
-  %238 = getelementptr inbounds i8, ptr %1, i64 152
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %239 = load ptr, ptr %238, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %239)
-  %240 = getelementptr inbounds i8, ptr %1, i64 160
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %241 = load ptr, ptr %0, align 8
   %242 = load i64, ptr %5, align 8
   br label %.lr.ph.i204
@@ -12111,7 +12113,7 @@ AppendJumble.exit203:                             ; preds = %224, %217
 
 AppendJumble.exit211:                             ; preds = %246
   store i64 %250, ptr %5, align 8
-  %253 = getelementptr inbounds i8, ptr %1, i64 161
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 161
   %254 = load ptr, ptr %0, align 8
   br label %.lr.ph.i212
 
@@ -12141,7 +12143,7 @@ AppendJumble.exit211:                             ; preds = %246
 
 AppendJumble.exit219:                             ; preds = %258
   store i64 %262, ptr %5, align 8
-  %265 = getelementptr inbounds i8, ptr %1, i64 162
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 162
   %266 = load ptr, ptr %0, align 8
   br label %.lr.ph.i220
 
@@ -12171,13 +12173,13 @@ AppendJumble.exit219:                             ; preds = %258
 
 AppendJumble.exit227:                             ; preds = %270
   store i64 %274, ptr %5, align 8
-  %277 = getelementptr inbounds i8, ptr %1, i64 168
+  %277 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %278 = load ptr, ptr %277, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %278)
-  %279 = getelementptr inbounds i8, ptr %1, i64 176
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %280 = load ptr, ptr %279, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %280)
-  %281 = getelementptr inbounds i8, ptr %1, i64 184
+  %281 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %282 = load ptr, ptr %0, align 8
   %283 = load i64, ptr %5, align 8
   br label %.lr.ph.i228
@@ -12213,7 +12215,7 @@ AppendJumble.exit235:                             ; preds = %287
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateTableSpaceStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -12222,7 +12224,7 @@ define internal fastcc void @_jumbleCreateTableSpaceStmt(ptr noundef %0, ptr noc
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -12257,10 +12259,10 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not14 = icmp eq ptr %25, null
   br i1 %.not14, label %42, label %26
@@ -12269,7 +12271,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
   %28 = add i64 %27, 1
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8
   %.not23.i15 = icmp eq i64 %28, 0
   br i1 %.not23.i15, label %AppendJumble.exit23, label %.lr.ph.i16
@@ -12304,7 +12306,7 @@ AppendJumble.exit23:                              ; preds = %35, %26
   br label %42
 
 42:                                               ; preds = %21, %AppendJumble.exit23
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %44)
   ret void
@@ -12312,21 +12314,21 @@ AppendJumble.exit23:                              ; preds = %35, %26
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDropTableSpaceStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre17 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre18 = load i64, ptr %.phi.trans.insert, align 8
   br label %20
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -12368,7 +12370,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 20:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %21 = phi i64 [ %.pre18, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %22 = phi ptr [ %.pre17, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %27, %20
@@ -12396,14 +12398,14 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not.i12, label %AppendJumble.exit14, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit14:                              ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %31, ptr %34, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterTableSpaceOptionsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -12412,7 +12414,7 @@ define internal fastcc void @_jumbleAlterTableSpaceOptionsStmt(ptr noundef %0, p
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -12447,12 +12449,12 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   br label %.lr.ph.i9
 
@@ -12487,21 +12489,21 @@ AppendJumble.exit16:                              ; preds = %31
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterTableMoveAllStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre48 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre49 = load i64, ptr %.phi.trans.insert, align 8
   br label %20
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -12543,8 +12545,8 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 20:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %21 = phi i64 [ %.pre49, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %22 = phi ptr [ %.pre48, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %28, %20
@@ -12573,10 +12575,10 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 
 AppendJumble.exit24:                              ; preds = %28
   store i64 %32, ptr %24, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8
   %.not16 = icmp eq ptr %38, null
   %.pre51 = load ptr, ptr %0, align 8
@@ -12626,7 +12628,7 @@ AppendJumble.exit33:                              ; preds = %AppendJumble.exit33
 52:                                               ; preds = %AppendJumble.exit24, %AppendJumble.exit33
   %53 = phi i64 [ %.pre52, %AppendJumble.exit24 ], [ %.022.lcssa.i32, %AppendJumble.exit33 ]
   %54 = phi ptr [ %.pre51, %AppendJumble.exit24 ], [ %.pre50, %AppendJumble.exit33 ]
-  %55 = getelementptr inbounds i8, ptr %1, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %59, %52
@@ -12660,21 +12662,21 @@ AppendJumble.exit41:                              ; preds = %59
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateExtensionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre19 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre20 = load i64, ptr %.phi.trans.insert, align 8
   br label %20
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -12716,7 +12718,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 20:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %21 = phi i64 [ %.pre20, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %22 = phi ptr [ %.pre19, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %27, %20
@@ -12744,9 +12746,9 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %31, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
   ret void
@@ -12754,7 +12756,7 @@ AppendJumble.exit16:                              ; preds = %27
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterExtensionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -12763,7 +12765,7 @@ define internal fastcc void @_jumbleAlterExtensionStmt(ptr noundef %0, ptr nocap
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -12798,7 +12800,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
   ret void
@@ -12806,21 +12808,21 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterExtensionContentsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre31 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre32 = load i64, ptr %.phi.trans.insert, align 8
   br label %20
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -12862,8 +12864,8 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 20:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %21 = phi i64 [ %.pre32, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %22 = phi ptr [ %.pre31, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %28, %20
@@ -12892,7 +12894,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 
 AppendJumble.exit18:                              ; preds = %28
   store i64 %32, ptr %24, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %36 = load ptr, ptr %0, align 8
   br label %.lr.ph.i19
 
@@ -12922,7 +12924,7 @@ AppendJumble.exit18:                              ; preds = %28
 
 AppendJumble.exit26:                              ; preds = %40
   store i64 %44, ptr %24, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %48 = load ptr, ptr %47, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %48)
   ret void
@@ -12930,7 +12932,7 @@ AppendJumble.exit26:                              ; preds = %40
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateFdwStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -12939,7 +12941,7 @@ define internal fastcc void @_jumbleCreateFdwStmt(ptr noundef %0, ptr nocapture 
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -12974,10 +12976,10 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
   ret void
@@ -12985,7 +12987,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterFdwStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -12994,7 +12996,7 @@ define internal fastcc void @_jumbleAlterFdwStmt(ptr noundef %0, ptr nocapture n
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -13029,10 +13031,10 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
   ret void
@@ -13040,7 +13042,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateForeignServerStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre70.pre72.pre75.pre78 = load ptr, ptr %0, align 8
@@ -13049,7 +13051,7 @@ define internal fastcc void @_jumbleCreateForeignServerStmt(ptr noundef %0, ptr 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -13090,7 +13092,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 
 20:                                               ; preds = %AppendJumble.exit, %2
   %.pre70.pre72.pre75 = phi ptr [ %.pre70.pre72.pre75.pre, %AppendJumble.exit ], [ %.pre70.pre72.pre75.pre78, %2 ]
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not24 = icmp eq ptr %22, null
   br i1 %.not24, label %38, label %23
@@ -13098,7 +13100,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 23:                                               ; preds = %20
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #8
   %25 = add i64 %24, 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %.not23.i27 = icmp eq i64 %25, 0
   br i1 %.not23.i27, label %AppendJumble.exit35, label %.lr.ph.i28
@@ -13139,7 +13141,7 @@ AppendJumble.exit35:                              ; preds = %AppendJumble.exit35
 
 38:                                               ; preds = %AppendJumble.exit35, %20
   %.pre70.pre72 = phi ptr [ %.pre70.pre72.pre, %AppendJumble.exit35 ], [ %.pre70.pre72.pre75, %20 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load ptr, ptr %39, align 8
   %.not25 = icmp eq ptr %40, null
   br i1 %.not25, label %56, label %41
@@ -13147,7 +13149,7 @@ AppendJumble.exit35:                              ; preds = %AppendJumble.exit35
 41:                                               ; preds = %38
   %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #8
   %43 = add i64 %42, 1
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8
   %.not23.i36 = icmp eq i64 %43, 0
   br i1 %.not23.i36, label %AppendJumble.exit44, label %.lr.ph.i37
@@ -13188,20 +13190,20 @@ AppendJumble.exit44:                              ; preds = %AppendJumble.exit44
 
 56:                                               ; preds = %AppendJumble.exit44, %38
   %.pre70 = phi ptr [ %.pre70.pre, %AppendJumble.exit44 ], [ %.pre70.pre72, %38 ]
-  %57 = getelementptr inbounds i8, ptr %1, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %58 = load ptr, ptr %57, align 8
   %.not26 = icmp eq ptr %58, null
   br i1 %.not26, label %._crit_edge, label %59
 
 ._crit_edge:                                      ; preds = %56
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre71 = load i64, ptr %.phi.trans.insert, align 8
   br label %74
 
 59:                                               ; preds = %56
   %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #8
   %61 = add i64 %60, 1
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load i64, ptr %62, align 8
   %.not23.i45 = icmp eq i64 %61, 0
   br i1 %.not23.i45, label %AppendJumble.exit53, label %.lr.ph.i46
@@ -13243,7 +13245,7 @@ AppendJumble.exit53:                              ; preds = %AppendJumble.exit53
 74:                                               ; preds = %._crit_edge, %AppendJumble.exit53
   %75 = phi i64 [ %.pre71, %._crit_edge ], [ %.022.lcssa.i52, %AppendJumble.exit53 ]
   %76 = phi ptr [ %.pre70, %._crit_edge ], [ %.pre, %AppendJumble.exit53 ]
-  %77 = getelementptr inbounds i8, ptr %1, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %.lr.ph.i54
 
 .lr.ph.i54:                                       ; preds = %81, %74
@@ -13271,9 +13273,9 @@ AppendJumble.exit53:                              ; preds = %AppendJumble.exit53
   br i1 %.not.i59, label %AppendJumble.exit61, label %.lr.ph.i54, !llvm.loop !8
 
 AppendJumble.exit61:                              ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %0, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %85, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %90 = load ptr, ptr %89, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %90)
   ret void
@@ -13281,7 +13283,7 @@ AppendJumble.exit61:                              ; preds = %81
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterForeignServerStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -13290,7 +13292,7 @@ define internal fastcc void @_jumbleAlterForeignServerStmt(ptr noundef %0, ptr n
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -13325,7 +13327,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %AppendJumble.exit, %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not14 = icmp eq ptr %23, null
   br i1 %.not14, label %40, label %24
@@ -13334,7 +13336,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   %.not23.i15 = icmp eq i64 %26, 0
   br i1 %.not23.i15, label %AppendJumble.exit23, label %.lr.ph.i16
@@ -13369,12 +13371,12 @@ AppendJumble.exit23:                              ; preds = %33, %24
   br label %40
 
 40:                                               ; preds = %21, %AppendJumble.exit23
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %42)
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8
   br label %.lr.ph.i24
 
@@ -13409,36 +13411,36 @@ AppendJumble.exit31:                              ; preds = %50
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateForeignTableStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %12)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %14)
-  %15 = getelementptr inbounds i8, ptr %1, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %16 = load ptr, ptr %15, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %16)
-  %17 = getelementptr inbounds i8, ptr %1, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
   br label %.lr.ph.i
 
@@ -13468,7 +13470,7 @@ define internal fastcc void @_jumbleCreateForeignTableStmt(ptr noundef %0, ptr n
 
 AppendJumble.exit:                                ; preds = %28
   store i64 %32, ptr %23, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
   %.pre82.pre83 = load ptr, ptr %0, align 8
@@ -13517,7 +13519,7 @@ AppendJumble.exit47:                              ; preds = %AppendJumble.exit47
 50:                                               ; preds = %AppendJumble.exit47, %AppendJumble.exit
   %.pre82 = phi ptr [ %.pre82.pre, %AppendJumble.exit47 ], [ %.pre82.pre83, %AppendJumble.exit ]
   %51 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit47 ], [ %32, %AppendJumble.exit ]
-  %52 = getelementptr inbounds i8, ptr %1, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %53 = load ptr, ptr %52, align 8
   %.not39 = icmp eq ptr %53, null
   br i1 %.not39, label %67, label %54
@@ -13565,7 +13567,7 @@ AppendJumble.exit56:                              ; preds = %AppendJumble.exit56
 67:                                               ; preds = %50, %AppendJumble.exit56
   %68 = phi i64 [ %51, %50 ], [ %.022.lcssa.i55, %AppendJumble.exit56 ]
   %69 = phi ptr [ %.pre82, %50 ], [ %.pre, %AppendJumble.exit56 ]
-  %70 = getelementptr inbounds i8, ptr %1, i64 104
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 104
   br label %.lr.ph.i57
 
 .lr.ph.i57:                                       ; preds = %74, %67
@@ -13594,7 +13596,7 @@ AppendJumble.exit56:                              ; preds = %AppendJumble.exit56
 
 AppendJumble.exit64:                              ; preds = %74
   store i64 %78, ptr %23, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 112
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %82 = load ptr, ptr %81, align 8
   %.not40 = icmp eq ptr %82, null
   br i1 %.not40, label %97, label %83
@@ -13636,7 +13638,7 @@ AppendJumble.exit73:                              ; preds = %90, %83
   br label %97
 
 97:                                               ; preds = %AppendJumble.exit64, %AppendJumble.exit73
-  %98 = getelementptr inbounds i8, ptr %1, i64 120
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %99 = load ptr, ptr %98, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %99)
   ret void
@@ -13644,24 +13646,24 @@ AppendJumble.exit73:                              ; preds = %90, %83
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateUserMappingStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %.pre21 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre22 = load i64, ptr %.phi.trans.insert, align 8
   br label %22
 
 7:                                                ; preds = %2
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   %9 = add i64 %8, 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %.not23.i = icmp eq i64 %9, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -13703,7 +13705,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 22:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %23 = phi i64 [ %.pre22, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %24 = phi ptr [ %.pre21, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %29, %22
@@ -13731,9 +13733,9 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit18:                              ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %33, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
   ret void
@@ -13741,10 +13743,10 @@ AppendJumble.exit18:                              ; preds = %29
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterUserMappingStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %23, label %7
@@ -13753,7 +13755,7 @@ define internal fastcc void @_jumbleAlterUserMappingStmt(ptr noundef %0, ptr noc
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %.not23.i = icmp eq i64 %9, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -13788,7 +13790,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   br label %23
 
 23:                                               ; preds = %2, %AppendJumble.exit
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
   ret void
@@ -13796,24 +13798,24 @@ AppendJumble.exit:                                ; preds = %16, %7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDropUserMappingStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %.pre19 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre20 = load i64, ptr %.phi.trans.insert, align 8
   br label %22
 
 7:                                                ; preds = %2
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   %9 = add i64 %8, 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %.not23.i = icmp eq i64 %9, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -13855,7 +13857,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 22:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %23 = phi i64 [ %.pre20, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %24 = phi ptr [ %.pre19, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %29, %22
@@ -13883,14 +13885,14 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %33, ptr %36, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleImportForeignSchemaStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre55.pre57.pre60 = load ptr, ptr %0, align 8
@@ -13899,7 +13901,7 @@ define internal fastcc void @_jumbleImportForeignSchemaStmt(ptr noundef %0, ptr 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -13940,7 +13942,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 
 20:                                               ; preds = %AppendJumble.exit, %2
   %.pre55.pre57 = phi ptr [ %.pre55.pre57.pre, %AppendJumble.exit ], [ %.pre55.pre57.pre60, %2 ]
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not21 = icmp eq ptr %22, null
   br i1 %.not21, label %38, label %23
@@ -13948,7 +13950,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 23:                                               ; preds = %20
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #8
   %25 = add i64 %24, 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %.not23.i23 = icmp eq i64 %25, 0
   br i1 %.not23.i23, label %AppendJumble.exit31, label %.lr.ph.i24
@@ -13989,20 +13991,20 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
 
 38:                                               ; preds = %AppendJumble.exit31, %20
   %.pre55 = phi ptr [ %.pre55.pre, %AppendJumble.exit31 ], [ %.pre55.pre57, %20 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load ptr, ptr %39, align 8
   %.not22 = icmp eq ptr %40, null
   br i1 %.not22, label %._crit_edge, label %41
 
 ._crit_edge:                                      ; preds = %38
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre56 = load i64, ptr %.phi.trans.insert, align 8
   br label %56
 
 41:                                               ; preds = %38
   %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #8
   %43 = add i64 %42, 1
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8
   %.not23.i32 = icmp eq i64 %43, 0
   br i1 %.not23.i32, label %AppendJumble.exit40, label %.lr.ph.i33
@@ -14044,7 +14046,7 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
 56:                                               ; preds = %._crit_edge, %AppendJumble.exit40
   %57 = phi i64 [ %.pre56, %._crit_edge ], [ %.022.lcssa.i39, %AppendJumble.exit40 ]
   %58 = phi ptr [ %.pre55, %._crit_edge ], [ %.pre, %AppendJumble.exit40 ]
-  %59 = getelementptr inbounds i8, ptr %1, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %63, %56
@@ -14072,12 +14074,12 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
   br i1 %.not.i46, label %AppendJumble.exit48, label %.lr.ph.i41, !llvm.loop !8
 
 AppendJumble.exit48:                              ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %67, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %72 = load ptr, ptr %71, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %72)
-  %73 = getelementptr inbounds i8, ptr %1, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %74 = load ptr, ptr %73, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %74)
   ret void
@@ -14085,7 +14087,7 @@ AppendJumble.exit48:                              ; preds = %63
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreatePolicyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -14094,7 +14096,7 @@ define internal fastcc void @_jumbleCreatePolicyStmt(ptr noundef %0, ptr nocaptu
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -14129,24 +14131,24 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not20 = icmp eq ptr %25, null
   %.pre42 = load ptr, ptr %0, align 8
   br i1 %.not20, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %21
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre43 = load i64, ptr %.phi.trans.insert, align 8
   br label %41
 
 26:                                               ; preds = %21
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
   %28 = add i64 %27, 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8
   %.not23.i21 = icmp eq i64 %28, 0
   br i1 %.not23.i21, label %AppendJumble.exit29, label %.lr.ph.i22
@@ -14188,7 +14190,7 @@ AppendJumble.exit29:                              ; preds = %AppendJumble.exit29
 41:                                               ; preds = %._crit_edge, %AppendJumble.exit29
   %42 = phi i64 [ %.pre43, %._crit_edge ], [ %.022.lcssa.i28, %AppendJumble.exit29 ]
   %43 = phi ptr [ %.pre42, %._crit_edge ], [ %.pre, %AppendJumble.exit29 ]
-  %44 = getelementptr inbounds i8, ptr %1, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %48, %41
@@ -14216,15 +14218,15 @@ AppendJumble.exit29:                              ; preds = %AppendJumble.exit29
   br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !8
 
 AppendJumble.exit37:                              ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %52, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %57 = load ptr, ptr %56, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %57)
-  %58 = getelementptr inbounds i8, ptr %1, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %59 = load ptr, ptr %58, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %59)
-  %60 = getelementptr inbounds i8, ptr %1, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %61 = load ptr, ptr %60, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %61)
   ret void
@@ -14232,7 +14234,7 @@ AppendJumble.exit37:                              ; preds = %48
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterPolicyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -14241,7 +14243,7 @@ define internal fastcc void @_jumbleAlterPolicyStmt(ptr noundef %0, ptr nocaptur
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -14276,16 +14278,16 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %27)
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %29 = load ptr, ptr %28, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %29)
   ret void
@@ -14293,7 +14295,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateAmStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -14302,7 +14304,7 @@ define internal fastcc void @_jumbleCreateAmStmt(ptr noundef %0, ptr nocapture n
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -14337,12 +14339,12 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   br label %.lr.ph.i9
 
@@ -14377,9 +14379,9 @@ AppendJumble.exit16:                              ; preds = %31
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateTrigStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -14409,7 +14411,7 @@ define internal fastcc void @_jumbleCreateTrigStmt(ptr noundef %0, ptr nocapture
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i33
 
@@ -14439,7 +14441,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit39:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %45, label %31
@@ -14481,16 +14483,16 @@ AppendJumble.exit46:                              ; preds = %38, %31
   br label %45
 
 45:                                               ; preds = %AppendJumble.exit39, %AppendJumble.exit46
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = load ptr, ptr %46, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %47)
-  %48 = getelementptr inbounds i8, ptr %1, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load ptr, ptr %48, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %49)
-  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %51 = load ptr, ptr %50, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %51)
-  %52 = getelementptr inbounds i8, ptr %1, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load ptr, ptr %0, align 8
   %54 = load i64, ptr %5, align 8
   br label %.lr.ph.i47
@@ -14521,7 +14523,7 @@ AppendJumble.exit46:                              ; preds = %38, %31
 
 AppendJumble.exit54:                              ; preds = %58
   store i64 %62, ptr %5, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 42
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %66 = load ptr, ptr %0, align 8
   br label %.lr.ph.i55
 
@@ -14551,7 +14553,7 @@ AppendJumble.exit54:                              ; preds = %58
 
 AppendJumble.exit62:                              ; preds = %70
   store i64 %74, ptr %5, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 44
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %78 = load ptr, ptr %0, align 8
   br label %.lr.ph.i63
 
@@ -14581,16 +14583,16 @@ AppendJumble.exit62:                              ; preds = %70
 
 AppendJumble.exit70:                              ; preds = %82
   store i64 %86, ptr %5, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %90 = load ptr, ptr %89, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %90)
-  %91 = getelementptr inbounds i8, ptr %1, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %92 = load ptr, ptr %91, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %92)
-  %93 = getelementptr inbounds i8, ptr %1, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %94 = load ptr, ptr %93, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %94)
-  %95 = getelementptr inbounds i8, ptr %1, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %96 = load ptr, ptr %0, align 8
   %97 = load i64, ptr %5, align 8
   br label %.lr.ph.i71
@@ -14621,7 +14623,7 @@ AppendJumble.exit70:                              ; preds = %82
 
 AppendJumble.exit78:                              ; preds = %101
   store i64 %105, ptr %5, align 8
-  %108 = getelementptr inbounds i8, ptr %1, i64 73
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %109 = load ptr, ptr %0, align 8
   br label %.lr.ph.i79
 
@@ -14651,7 +14653,7 @@ AppendJumble.exit78:                              ; preds = %101
 
 AppendJumble.exit86:                              ; preds = %113
   store i64 %117, ptr %5, align 8
-  %120 = getelementptr inbounds i8, ptr %1, i64 80
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %121 = load ptr, ptr %120, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %121)
   ret void
@@ -14659,7 +14661,7 @@ AppendJumble.exit86:                              ; preds = %113
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateEventTrigStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -14668,7 +14670,7 @@ define internal fastcc void @_jumbleCreateEventTrigStmt(ptr noundef %0, ptr noca
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -14703,7 +14705,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %AppendJumble.exit, %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not14 = icmp eq ptr %23, null
   br i1 %.not14, label %40, label %24
@@ -14712,7 +14714,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   %.not23.i15 = icmp eq i64 %26, 0
   br i1 %.not23.i15, label %AppendJumble.exit23, label %.lr.ph.i16
@@ -14747,10 +14749,10 @@ AppendJumble.exit23:                              ; preds = %33, %24
   br label %40
 
 40:                                               ; preds = %21, %AppendJumble.exit23
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %42)
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %44)
   ret void
@@ -14758,21 +14760,21 @@ AppendJumble.exit23:                              ; preds = %33, %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterEventTrigStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre17 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre18 = load i64, ptr %.phi.trans.insert, align 8
   br label %20
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -14814,7 +14816,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 20:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %21 = phi i64 [ %.pre18, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %22 = phi ptr [ %.pre17, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %27, %20
@@ -14842,16 +14844,16 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not.i12, label %AppendJumble.exit14, label %.lr.ph.i7, !llvm.loop !8
 
 AppendJumble.exit14:                              ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %31, ptr %34, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreatePLangStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -14881,7 +14883,7 @@ define internal fastcc void @_jumbleCreatePLangStmt(ptr noundef %0, ptr nocaptur
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %33, label %19
@@ -14923,16 +14925,16 @@ AppendJumble.exit21:                              ; preds = %26, %19
   br label %33
 
 33:                                               ; preds = %AppendJumble.exit, %AppendJumble.exit21
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %35)
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %37)
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load ptr, ptr %38, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %39)
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %0, align 8
   %42 = load i64, ptr %5, align 8
   br label %.lr.ph.i22
@@ -14968,9 +14970,9 @@ AppendJumble.exit29:                              ; preds = %46
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateRoleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -15000,7 +15002,7 @@ define internal fastcc void @_jumbleCreateRoleStmt(ptr noundef %0, ptr nocapture
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %33, label %19
@@ -15042,7 +15044,7 @@ AppendJumble.exit15:                              ; preds = %26, %19
   br label %33
 
 33:                                               ; preds = %AppendJumble.exit, %AppendJumble.exit15
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %35)
   ret void
@@ -15050,15 +15052,15 @@ AppendJumble.exit15:                              ; preds = %26, %19
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterRoleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -15093,10 +15095,10 @@ AppendJumble.exit:                                ; preds = %14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterRoleSetStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %23, label %7
@@ -15105,7 +15107,7 @@ define internal fastcc void @_jumbleAlterRoleSetStmt(ptr noundef %0, ptr nocaptu
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %.not23.i = icmp eq i64 %9, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -15140,7 +15142,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   br label %23
 
 23:                                               ; preds = %2, %AppendJumble.exit
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
   ret void
@@ -15148,12 +15150,12 @@ AppendJumble.exit:                                ; preds = %16, %7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDropRoleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -15188,15 +15190,15 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateSeqStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -15226,7 +15228,7 @@ define internal fastcc void @_jumbleCreateSeqStmt(ptr noundef %0, ptr nocapture 
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %22 = load ptr, ptr %0, align 8
   br label %.lr.ph.i11
 
@@ -15256,7 +15258,7 @@ AppendJumble.exit:                                ; preds = %14
 
 AppendJumble.exit17:                              ; preds = %26
   store i64 %30, ptr %9, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 29
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %34 = load ptr, ptr %0, align 8
   br label %.lr.ph.i18
 
@@ -15291,15 +15293,15 @@ AppendJumble.exit24:                              ; preds = %38
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterSeqStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -15329,7 +15331,7 @@ define internal fastcc void @_jumbleAlterSeqStmt(ptr noundef %0, ptr nocapture n
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 25
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %22 = load ptr, ptr %0, align 8
   br label %.lr.ph.i9
 
@@ -15364,9 +15366,9 @@ AppendJumble.exit15:                              ; preds = %26
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDefineStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -15396,7 +15398,7 @@ define internal fastcc void @_jumbleDefineStmt(ptr noundef %0, ptr nocapture nou
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i15
 
@@ -15426,16 +15428,16 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit21:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load ptr, ptr %33, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %34)
-  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load ptr, ptr %0, align 8
   %37 = load i64, ptr %5, align 8
   br label %.lr.ph.i22
@@ -15466,7 +15468,7 @@ AppendJumble.exit21:                              ; preds = %22
 
 AppendJumble.exit28:                              ; preds = %41
   store i64 %45, ptr %5, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 41
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %49 = load ptr, ptr %0, align 8
   br label %.lr.ph.i29
 
@@ -15501,16 +15503,16 @@ AppendJumble.exit35:                              ; preds = %53
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateDomainStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
   ret void
@@ -15518,13 +15520,13 @@ define internal fastcc void @_jumbleCreateDomainStmt(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateOpClassStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %25, label %9
@@ -15533,7 +15535,7 @@ define internal fastcc void @_jumbleCreateOpClassStmt(ptr noundef %0, ptr nocapt
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
   %11 = add i64 %10, 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %.not23.i = icmp eq i64 %11, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -15568,15 +15570,15 @@ AppendJumble.exit:                                ; preds = %18, %9
   br label %25
 
 25:                                               ; preds = %2, %AppendJumble.exit
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %27)
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %29 = load ptr, ptr %28, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %29)
-  %30 = getelementptr inbounds i8, ptr %1, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8
   br label %.lr.ph.i15
 
@@ -15611,9 +15613,9 @@ AppendJumble.exit22:                              ; preds = %37
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateOpClassItem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -15643,10 +15645,10 @@ define internal fastcc void @_jumbleCreateOpClassItem(ptr noundef %0, ptr nocapt
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %0, align 8
   %21 = load i64, ptr %5, align 8
   br label %.lr.ph.i13
@@ -15677,13 +15679,13 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit19:                              ; preds = %25
   store i64 %29, ptr %5, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load ptr, ptr %32, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %33)
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %35)
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load ptr, ptr %36, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %37)
   ret void
@@ -15691,10 +15693,10 @@ AppendJumble.exit19:                              ; preds = %25
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateOpFamilyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %23, label %7
@@ -15703,7 +15705,7 @@ define internal fastcc void @_jumbleCreateOpFamilyStmt(ptr noundef %0, ptr nocap
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %.not23.i = icmp eq i64 %9, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -15743,24 +15745,24 @@ AppendJumble.exit:                                ; preds = %16, %7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterOpFamilyStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %.pre21 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre22 = load i64, ptr %.phi.trans.insert, align 8
   br label %22
 
 7:                                                ; preds = %2
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   %9 = add i64 %8, 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %.not23.i = icmp eq i64 %9, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -15802,7 +15804,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 22:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %23 = phi i64 [ %.pre22, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %24 = phi ptr [ %.pre21, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %29, %22
@@ -15830,9 +15832,9 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !8
 
 AppendJumble.exit18:                              ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %33, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
   ret void
@@ -15840,12 +15842,12 @@ AppendJumble.exit18:                              ; preds = %29
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDropStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -15875,7 +15877,7 @@ define internal fastcc void @_jumbleDropStmt(ptr noundef %0, ptr nocapture nound
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i11
 
@@ -15905,7 +15907,7 @@ AppendJumble.exit:                                ; preds = %12
 
 AppendJumble.exit17:                              ; preds = %24
   store i64 %28, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %0, align 8
   br label %.lr.ph.i18
 
@@ -15935,7 +15937,7 @@ AppendJumble.exit17:                              ; preds = %24
 
 AppendJumble.exit24:                              ; preds = %36
   store i64 %40, ptr %7, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 25
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %44 = load ptr, ptr %0, align 8
   br label %.lr.ph.i25
 
@@ -15970,12 +15972,12 @@ AppendJumble.exit31:                              ; preds = %48
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleTruncateStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -16005,7 +16007,7 @@ define internal fastcc void @_jumbleTruncateStmt(ptr noundef %0, ptr nocapture n
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -16040,9 +16042,9 @@ AppendJumble.exit13:                              ; preds = %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCommentStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -16072,10 +16074,10 @@ define internal fastcc void @_jumbleCommentStmt(ptr noundef %0, ptr nocapture no
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %36, label %21
@@ -16123,9 +16125,9 @@ AppendJumble.exit15:                              ; preds = %29, %21
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleSecLabelStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -16155,10 +16157,10 @@ define internal fastcc void @_jumbleSecLabelStmt(ptr noundef %0, ptr nocapture n
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %36, label %21
@@ -16201,7 +16203,7 @@ AppendJumble.exit21:                              ; preds = %29, %21
   br label %36
 
 36:                                               ; preds = %AppendJumble.exit21, %AppendJumble.exit
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not14 = icmp eq ptr %38, null
   br i1 %.not14, label %54, label %39
@@ -16249,21 +16251,21 @@ AppendJumble.exit30:                              ; preds = %47, %39
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDeclareCursorStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre19 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre20 = load i64, ptr %.phi.trans.insert, align 8
   br label %20
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -16305,7 +16307,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 20:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %21 = phi i64 [ %.pre20, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %22 = phi ptr [ %.pre19, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %27, %20
@@ -16333,9 +16335,9 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %31, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
   ret void
@@ -16350,7 +16352,7 @@ define internal fastcc void @_jumbleClosePortalStmt(ptr nocapture noundef %0, pt
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not23.i = icmp eq i64 %4, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -16390,9 +16392,9 @@ AppendJumble.exit:                                ; preds = %11, %2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleFetchStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -16422,7 +16424,7 @@ define internal fastcc void @_jumbleFetchStmt(ptr nocapture noundef %0, ptr noca
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i11
 
@@ -16452,7 +16454,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit17:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   %.pre39 = load ptr, ptr %0, align 8
@@ -16501,7 +16503,7 @@ AppendJumble.exit24:                              ; preds = %AppendJumble.exit24
 44:                                               ; preds = %AppendJumble.exit17, %AppendJumble.exit24
   %45 = phi i64 [ %26, %AppendJumble.exit17 ], [ %.022.lcssa.i, %AppendJumble.exit24 ]
   %46 = phi ptr [ %.pre39, %AppendJumble.exit17 ], [ %.pre, %AppendJumble.exit24 ]
-  %47 = getelementptr inbounds i8, ptr %1, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %51, %44
@@ -16535,7 +16537,7 @@ AppendJumble.exit32:                              ; preds = %51
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleIndexStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -16544,7 +16546,7 @@ define internal fastcc void @_jumbleIndexStmt(ptr noundef %0, ptr nocapture noun
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -16579,10 +16581,10 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not62 = icmp eq ptr %25, null
   br i1 %.not62, label %42, label %26
@@ -16591,7 +16593,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
   %28 = add i64 %27, 1
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8
   %.not23.i65 = icmp eq i64 %28, 0
   br i1 %.not23.i65, label %AppendJumble.exit73, label %.lr.ph.i66
@@ -16626,7 +16628,7 @@ AppendJumble.exit73:                              ; preds = %35, %26
   br label %42
 
 42:                                               ; preds = %AppendJumble.exit73, %21
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not63 = icmp eq ptr %44, null
   br i1 %.not63, label %61, label %45
@@ -16635,7 +16637,7 @@ AppendJumble.exit73:                              ; preds = %35, %26
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #8
   %47 = add i64 %46, 1
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i64, ptr %49, align 8
   %.not23.i74 = icmp eq i64 %47, 0
   br i1 %.not23.i74, label %AppendJumble.exit82, label %.lr.ph.i75
@@ -16670,36 +16672,36 @@ AppendJumble.exit82:                              ; preds = %54, %45
   br label %61
 
 61:                                               ; preds = %42, %AppendJumble.exit82
-  %62 = getelementptr inbounds i8, ptr %1, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %63 = load ptr, ptr %62, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %63)
-  %64 = getelementptr inbounds i8, ptr %1, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %65 = load ptr, ptr %64, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %65)
-  %66 = getelementptr inbounds i8, ptr %1, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %67 = load ptr, ptr %66, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %67)
-  %68 = getelementptr inbounds i8, ptr %1, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %69 = load ptr, ptr %68, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %69)
-  %70 = getelementptr inbounds i8, ptr %1, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %71 = load ptr, ptr %70, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %71)
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %73 = load ptr, ptr %72, align 8
   %.not64 = icmp eq ptr %73, null
   %.pre248 = load ptr, ptr %0, align 8
   br i1 %.not64, label %._crit_edge, label %74
 
 ._crit_edge:                                      ; preds = %61
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre249 = load i64, ptr %.phi.trans.insert, align 8
   br label %89
 
 74:                                               ; preds = %61
   %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #8
   %76 = add i64 %75, 1
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load i64, ptr %77, align 8
   %.not23.i83 = icmp eq i64 %76, 0
   br i1 %.not23.i83, label %AppendJumble.exit91, label %.lr.ph.i84
@@ -16741,8 +16743,8 @@ AppendJumble.exit91:                              ; preds = %AppendJumble.exit91
 89:                                               ; preds = %._crit_edge, %AppendJumble.exit91
   %90 = phi i64 [ %.pre249, %._crit_edge ], [ %.022.lcssa.i90, %AppendJumble.exit91 ]
   %91 = phi ptr [ %.pre248, %._crit_edge ], [ %.pre, %AppendJumble.exit91 ]
-  %92 = getelementptr inbounds i8, ptr %1, i64 88
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i92
 
 .lr.ph.i92:                                       ; preds = %97, %89
@@ -16771,7 +16773,7 @@ AppendJumble.exit91:                              ; preds = %AppendJumble.exit91
 
 AppendJumble.exit99:                              ; preds = %97
   store i64 %101, ptr %93, align 8
-  %104 = getelementptr inbounds i8, ptr %1, i64 92
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %105 = load ptr, ptr %0, align 8
   br label %.lr.ph.i100
 
@@ -16801,7 +16803,7 @@ AppendJumble.exit99:                              ; preds = %97
 
 AppendJumble.exit107:                             ; preds = %109
   store i64 %113, ptr %93, align 8
-  %116 = getelementptr inbounds i8, ptr %1, i64 96
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %117 = load ptr, ptr %0, align 8
   br label %.lr.ph.i108
 
@@ -16831,7 +16833,7 @@ AppendJumble.exit107:                             ; preds = %109
 
 AppendJumble.exit115:                             ; preds = %121
   store i64 %125, ptr %93, align 8
-  %128 = getelementptr inbounds i8, ptr %1, i64 100
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %129 = load ptr, ptr %0, align 8
   br label %.lr.ph.i116
 
@@ -16861,7 +16863,7 @@ AppendJumble.exit115:                             ; preds = %121
 
 AppendJumble.exit123:                             ; preds = %133
   store i64 %137, ptr %93, align 8
-  %140 = getelementptr inbounds i8, ptr %1, i64 104
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %141 = load ptr, ptr %0, align 8
   br label %.lr.ph.i124
 
@@ -16891,7 +16893,7 @@ AppendJumble.exit123:                             ; preds = %133
 
 AppendJumble.exit131:                             ; preds = %145
   store i64 %149, ptr %93, align 8
-  %152 = getelementptr inbounds i8, ptr %1, i64 105
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 105
   %153 = load ptr, ptr %0, align 8
   br label %.lr.ph.i132
 
@@ -16921,7 +16923,7 @@ AppendJumble.exit131:                             ; preds = %145
 
 AppendJumble.exit139:                             ; preds = %157
   store i64 %161, ptr %93, align 8
-  %164 = getelementptr inbounds i8, ptr %1, i64 106
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 106
   %165 = load ptr, ptr %0, align 8
   br label %.lr.ph.i140
 
@@ -16951,7 +16953,7 @@ AppendJumble.exit139:                             ; preds = %157
 
 AppendJumble.exit147:                             ; preds = %169
   store i64 %173, ptr %93, align 8
-  %176 = getelementptr inbounds i8, ptr %1, i64 107
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %177 = load ptr, ptr %0, align 8
   br label %.lr.ph.i148
 
@@ -16981,7 +16983,7 @@ AppendJumble.exit147:                             ; preds = %169
 
 AppendJumble.exit155:                             ; preds = %181
   store i64 %185, ptr %93, align 8
-  %188 = getelementptr inbounds i8, ptr %1, i64 108
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %189 = load ptr, ptr %0, align 8
   br label %.lr.ph.i156
 
@@ -17011,7 +17013,7 @@ AppendJumble.exit155:                             ; preds = %181
 
 AppendJumble.exit163:                             ; preds = %193
   store i64 %197, ptr %93, align 8
-  %200 = getelementptr inbounds i8, ptr %1, i64 109
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 109
   %201 = load ptr, ptr %0, align 8
   br label %.lr.ph.i164
 
@@ -17041,7 +17043,7 @@ AppendJumble.exit163:                             ; preds = %193
 
 AppendJumble.exit171:                             ; preds = %205
   store i64 %209, ptr %93, align 8
-  %212 = getelementptr inbounds i8, ptr %1, i64 110
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 110
   %213 = load ptr, ptr %0, align 8
   br label %.lr.ph.i172
 
@@ -17071,7 +17073,7 @@ AppendJumble.exit171:                             ; preds = %205
 
 AppendJumble.exit179:                             ; preds = %217
   store i64 %221, ptr %93, align 8
-  %224 = getelementptr inbounds i8, ptr %1, i64 111
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 111
   %225 = load ptr, ptr %0, align 8
   br label %.lr.ph.i180
 
@@ -17101,7 +17103,7 @@ AppendJumble.exit179:                             ; preds = %217
 
 AppendJumble.exit187:                             ; preds = %229
   store i64 %233, ptr %93, align 8
-  %236 = getelementptr inbounds i8, ptr %1, i64 112
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %237 = load ptr, ptr %0, align 8
   br label %.lr.ph.i188
 
@@ -17131,7 +17133,7 @@ AppendJumble.exit187:                             ; preds = %229
 
 AppendJumble.exit195:                             ; preds = %241
   store i64 %245, ptr %93, align 8
-  %248 = getelementptr inbounds i8, ptr %1, i64 113
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 113
   %249 = load ptr, ptr %0, align 8
   br label %.lr.ph.i196
 
@@ -17161,7 +17163,7 @@ AppendJumble.exit195:                             ; preds = %241
 
 AppendJumble.exit203:                             ; preds = %253
   store i64 %257, ptr %93, align 8
-  %260 = getelementptr inbounds i8, ptr %1, i64 114
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 114
   %261 = load ptr, ptr %0, align 8
   br label %.lr.ph.i204
 
@@ -17196,33 +17198,33 @@ AppendJumble.exit211:                             ; preds = %265
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateStatsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   %.pre37 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre38 = load i64, ptr %.phi.trans.insert, align 8
   br label %28
 
 13:                                               ; preds = %2
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #8
   %15 = add i64 %14, 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
   %.not23.i = icmp eq i64 %15, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -17264,8 +17266,8 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 28:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %29 = phi i64 [ %.pre38, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %30 = phi ptr [ %.pre37, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i17
 
 .lr.ph.i17:                                       ; preds = %36, %28
@@ -17294,7 +17296,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 
 AppendJumble.exit24:                              ; preds = %36
   store i64 %40, ptr %32, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 49
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %44 = load ptr, ptr %0, align 8
   br label %.lr.ph.i25
 
@@ -17329,7 +17331,7 @@ AppendJumble.exit32:                              ; preds = %48
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleStatsElem(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -17338,7 +17340,7 @@ define internal fastcc void @_jumbleStatsElem(ptr noundef %0, ptr nocapture noun
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -17373,7 +17375,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
   ret void
@@ -17381,12 +17383,12 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterStatsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -17416,7 +17418,7 @@ define internal fastcc void @_jumbleAlterStatsStmt(ptr noundef %0, ptr nocapture
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -17451,9 +17453,9 @@ AppendJumble.exit13:                              ; preds = %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateFunctionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -17483,7 +17485,7 @@ define internal fastcc void @_jumbleCreateFunctionStmt(ptr noundef %0, ptr nocap
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i15
 
@@ -17513,19 +17515,19 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit21:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %34)
-  %35 = getelementptr inbounds i8, ptr %1, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %36 = load ptr, ptr %35, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
-  %37 = getelementptr inbounds i8, ptr %1, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %38 = load ptr, ptr %37, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
   ret void
@@ -17533,7 +17535,7 @@ AppendJumble.exit21:                              ; preds = %22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleFunctionParameter(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -17542,7 +17544,7 @@ define internal fastcc void @_jumbleFunctionParameter(ptr noundef %0, ptr nocapt
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -17577,12 +17579,12 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   br label %.lr.ph.i11
 
@@ -17612,7 +17614,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 AppendJumble.exit18:                              ; preds = %31
   store i64 %35, ptr %26, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load ptr, ptr %38, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %39)
   ret void
@@ -17620,9 +17622,9 @@ AppendJumble.exit18:                              ; preds = %31
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterFunctionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -17652,10 +17654,10 @@ define internal fastcc void @_jumbleAlterFunctionStmt(ptr noundef %0, ptr nocapt
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
   ret void
@@ -17663,10 +17665,10 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCallStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -17674,9 +17676,9 @@ define internal fastcc void @_jumbleCallStmt(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRenameStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -17706,7 +17708,7 @@ define internal fastcc void @_jumbleRenameStmt(ptr noundef %0, ptr nocapture nou
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i23
 
@@ -17736,13 +17738,13 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit29:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   %.pre72.pre74 = load ptr, ptr %0, align 8
@@ -17792,7 +17794,7 @@ AppendJumble.exit36:                              ; preds = %AppendJumble.exit36
 48:                                               ; preds = %AppendJumble.exit36, %AppendJumble.exit29
   %.pre73 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit36 ], [ %.pre73.pre, %AppendJumble.exit29 ]
   %.pre72 = phi ptr [ %.pre72.pre, %AppendJumble.exit36 ], [ %.pre72.pre74, %AppendJumble.exit29 ]
-  %49 = getelementptr inbounds i8, ptr %1, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %50 = load ptr, ptr %49, align 8
   %.not22 = icmp eq ptr %50, null
   br i1 %.not22, label %64, label %51
@@ -17840,7 +17842,7 @@ AppendJumble.exit45:                              ; preds = %AppendJumble.exit45
 64:                                               ; preds = %48, %AppendJumble.exit45
   %65 = phi i64 [ %.pre73, %48 ], [ %.022.lcssa.i44, %AppendJumble.exit45 ]
   %66 = phi ptr [ %.pre72, %48 ], [ %.pre, %AppendJumble.exit45 ]
-  %67 = getelementptr inbounds i8, ptr %1, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %.lr.ph.i46
 
 .lr.ph.i46:                                       ; preds = %71, %64
@@ -17869,7 +17871,7 @@ AppendJumble.exit45:                              ; preds = %AppendJumble.exit45
 
 AppendJumble.exit53:                              ; preds = %71
   store i64 %75, ptr %5, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 52
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %79 = load ptr, ptr %0, align 8
   br label %.lr.ph.i54
 
@@ -17904,9 +17906,9 @@ AppendJumble.exit61:                              ; preds = %83
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterObjectDependsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -17936,16 +17938,16 @@ define internal fastcc void @_jumbleAlterObjectDependsStmt(ptr noundef %0, ptr n
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %0, align 8
   %25 = load i64, ptr %5, align 8
   br label %.lr.ph.i11
@@ -17981,9 +17983,9 @@ AppendJumble.exit17:                              ; preds = %29
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterObjectSchemaStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -18013,13 +18015,13 @@ define internal fastcc void @_jumbleAlterObjectSchemaStmt(ptr noundef %0, ptr no
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   %.pre32 = load ptr, ptr %0, align 8
@@ -18069,7 +18071,7 @@ AppendJumble.exit19:                              ; preds = %AppendJumble.exit19
 36:                                               ; preds = %AppendJumble.exit, %AppendJumble.exit19
   %37 = phi i64 [ %.pre33, %AppendJumble.exit ], [ %.022.lcssa.i, %AppendJumble.exit19 ]
   %38 = phi ptr [ %.pre32, %AppendJumble.exit ], [ %.pre, %AppendJumble.exit19 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %.lr.ph.i20
 
 .lr.ph.i20:                                       ; preds = %43, %36
@@ -18103,9 +18105,9 @@ AppendJumble.exit27:                              ; preds = %43
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterOwnerStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -18135,13 +18137,13 @@ define internal fastcc void @_jumbleAlterOwnerStmt(ptr noundef %0, ptr nocapture
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
   ret void
@@ -18149,10 +18151,10 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterOperatorStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -18160,10 +18162,10 @@ define internal fastcc void @_jumbleAlterOperatorStmt(ptr noundef %0, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterTypeStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -18171,10 +18173,10 @@ define internal fastcc void @_jumbleAlterTypeStmt(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRuleStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %23, label %7
@@ -18183,7 +18185,7 @@ define internal fastcc void @_jumbleRuleStmt(ptr noundef %0, ptr nocapture nound
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %.not23.i = icmp eq i64 %9, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -18218,12 +18220,12 @@ AppendJumble.exit:                                ; preds = %16, %7
   br label %23
 
 23:                                               ; preds = %2, %AppendJumble.exit
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   br label %.lr.ph.i17
 
@@ -18253,7 +18255,7 @@ AppendJumble.exit:                                ; preds = %16, %7
 
 AppendJumble.exit24:                              ; preds = %33
   store i64 %37, ptr %28, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %41 = load ptr, ptr %0, align 8
   br label %.lr.ph.i25
 
@@ -18283,10 +18285,10 @@ AppendJumble.exit24:                              ; preds = %33
 
 AppendJumble.exit32:                              ; preds = %45
   store i64 %49, ptr %28, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %53 = load ptr, ptr %52, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %53)
-  %54 = getelementptr inbounds i8, ptr %1, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load ptr, ptr %0, align 8
   %56 = load i64, ptr %28, align 8
   br label %.lr.ph.i33
@@ -18322,7 +18324,7 @@ AppendJumble.exit40:                              ; preds = %60
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleNotifyStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -18331,7 +18333,7 @@ define internal fastcc void @_jumbleNotifyStmt(ptr nocapture noundef %0, ptr noc
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -18366,7 +18368,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %AppendJumble.exit, %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not10 = icmp eq ptr %23, null
   br i1 %.not10, label %40, label %24
@@ -18375,7 +18377,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   %.not23.i11 = icmp eq i64 %26, 0
   br i1 %.not23.i11, label %AppendJumble.exit19, label %.lr.ph.i12
@@ -18422,7 +18424,7 @@ define internal fastcc void @_jumbleListenStmt(ptr nocapture noundef %0, ptr rea
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not23.i = icmp eq i64 %4, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -18469,7 +18471,7 @@ define internal fastcc void @_jumbleUnlistenStmt(ptr nocapture noundef %0, ptr r
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not23.i = icmp eq i64 %4, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -18509,9 +18511,9 @@ AppendJumble.exit:                                ; preds = %11, %2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleTransactionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -18541,10 +18543,10 @@ define internal fastcc void @_jumbleTransactionStmt(ptr noundef %0, ptr nocaptur
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %0, align 8
   %21 = load i64, ptr %5, align 8
   br label %.lr.ph.i9
@@ -18575,28 +18577,28 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit15:                              ; preds = %25
   store i64 %29, ptr %5, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %35, label %RecordConstLocation.exit
 
 35:                                               ; preds = %AppendJumble.exit15
-  %36 = getelementptr inbounds i8, ptr %0, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load i32, ptr %38, align 8
   %.not.i16 = icmp slt i32 %37, %39
   br i1 %.not.i16, label %._crit_edge.i, label %40
 
 ._crit_edge.i:                                    ; preds = %35
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %47
 
 40:                                               ; preds = %35
   %41 = shl i32 %39, 1
   store i32 %41, ptr %38, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = sext i32 %41 to i64
   %45 = shl nsw i64 %44, 3
@@ -18608,7 +18610,7 @@ AppendJumble.exit15:                              ; preds = %25
 47:                                               ; preds = %40, %._crit_edge.i
   %48 = phi i32 [ %37, %._crit_edge.i ], [ %.pre13.i, %40 ]
   %49 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %46, %40 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = sext i32 %48 to i64
   %52 = getelementptr %struct.LocationLen, ptr %49, i64 %51
   store i32 %33, ptr %52, align 4
@@ -18628,10 +18630,10 @@ RecordConstLocation.exit:                         ; preds = %AppendJumble.exit15
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCompositeTypeStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -18639,10 +18641,10 @@ define internal fastcc void @_jumbleCompositeTypeStmt(ptr noundef %0, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateEnumStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -18650,10 +18652,10 @@ define internal fastcc void @_jumbleCreateEnumStmt(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateRangeStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -18661,10 +18663,10 @@ define internal fastcc void @_jumbleCreateRangeStmt(ptr noundef %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterEnumStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %.pre65.pre67.pre70 = load ptr, ptr %0, align 8
@@ -18673,7 +18675,7 @@ define internal fastcc void @_jumbleAlterEnumStmt(ptr noundef %0, ptr nocapture 
 7:                                                ; preds = %2
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   %9 = add i64 %8, 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %.not23.i = icmp eq i64 %9, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -18714,7 +18716,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 
 22:                                               ; preds = %AppendJumble.exit, %2
   %.pre65.pre67 = phi ptr [ %.pre65.pre67.pre, %AppendJumble.exit ], [ %.pre65.pre67.pre70, %2 ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not21 = icmp eq ptr %24, null
   br i1 %.not21, label %40, label %25
@@ -18722,7 +18724,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 25:                                               ; preds = %22
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #8
   %27 = add i64 %26, 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   %.not23.i23 = icmp eq i64 %27, 0
   br i1 %.not23.i23, label %AppendJumble.exit31, label %.lr.ph.i24
@@ -18763,20 +18765,20 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
 
 40:                                               ; preds = %AppendJumble.exit31, %22
   %.pre65 = phi ptr [ %.pre65.pre, %AppendJumble.exit31 ], [ %.pre65.pre67, %22 ]
-  %41 = getelementptr inbounds i8, ptr %1, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not22 = icmp eq ptr %42, null
   br i1 %.not22, label %._crit_edge, label %43
 
 ._crit_edge:                                      ; preds = %40
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre66 = load i64, ptr %.phi.trans.insert, align 8
   br label %58
 
 43:                                               ; preds = %40
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #8
   %45 = add i64 %44, 1
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i64, ptr %46, align 8
   %.not23.i32 = icmp eq i64 %45, 0
   br i1 %.not23.i32, label %AppendJumble.exit40, label %.lr.ph.i33
@@ -18818,8 +18820,8 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
 58:                                               ; preds = %._crit_edge, %AppendJumble.exit40
   %59 = phi i64 [ %.pre66, %._crit_edge ], [ %.022.lcssa.i39, %AppendJumble.exit40 ]
   %60 = phi ptr [ %.pre65, %._crit_edge ], [ %.pre, %AppendJumble.exit40 ]
-  %61 = getelementptr inbounds i8, ptr %1, i64 40
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %66, %58
@@ -18848,7 +18850,7 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
 
 AppendJumble.exit48:                              ; preds = %66
   store i64 %70, ptr %62, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 41
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %74 = load ptr, ptr %0, align 8
   br label %.lr.ph.i49
 
@@ -18883,18 +18885,18 @@ AppendJumble.exit56:                              ; preds = %78
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleViewStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   br label %.lr.ph.i
 
@@ -18924,10 +18926,10 @@ define internal fastcc void @_jumbleViewStmt(ptr noundef %0, ptr nocapture nound
 
 AppendJumble.exit:                                ; preds = %16
   store i64 %20, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load ptr, ptr %23, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %24)
-  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load ptr, ptr %0, align 8
   %27 = load i64, ptr %11, align 8
   br label %.lr.ph.i13
@@ -18970,7 +18972,7 @@ define internal fastcc void @_jumbleLoadStmt(ptr nocapture noundef %0, ptr reado
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not23.i = icmp eq i64 %4, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -19010,7 +19012,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreatedbStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -19019,7 +19021,7 @@ define internal fastcc void @_jumbleCreatedbStmt(ptr noundef %0, ptr nocapture n
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -19054,7 +19056,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
   ret void
@@ -19062,7 +19064,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterDatabaseStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -19071,7 +19073,7 @@ define internal fastcc void @_jumbleAlterDatabaseStmt(ptr noundef %0, ptr nocapt
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -19106,7 +19108,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
   ret void
@@ -19121,7 +19123,7 @@ define internal fastcc void @_jumbleAlterDatabaseRefreshCollStmt(ptr nocapture n
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not23.i = icmp eq i64 %4, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -19161,7 +19163,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterDatabaseSetStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -19170,7 +19172,7 @@ define internal fastcc void @_jumbleAlterDatabaseSetStmt(ptr noundef %0, ptr noc
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -19205,7 +19207,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
   ret void
@@ -19213,21 +19215,21 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDropdbStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre19 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre20 = load i64, ptr %.phi.trans.insert, align 8
   br label %20
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -19269,7 +19271,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 20:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %21 = phi i64 [ %.pre20, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %22 = phi ptr [ %.pre19, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %27, %20
@@ -19297,9 +19299,9 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !8
 
 AppendJumble.exit16:                              ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %31, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
   ret void
@@ -19307,10 +19309,10 @@ AppendJumble.exit16:                              ; preds = %27
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleClusterStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %23, label %7
@@ -19319,7 +19321,7 @@ define internal fastcc void @_jumbleClusterStmt(ptr noundef %0, ptr nocapture no
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %.not23.i = icmp eq i64 %9, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -19354,7 +19356,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   br label %23
 
 23:                                               ; preds = %2, %AppendJumble.exit
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
   ret void
@@ -19362,15 +19364,15 @@ AppendJumble.exit:                                ; preds = %16, %7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleVacuumStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -19405,12 +19407,12 @@ AppendJumble.exit:                                ; preds = %14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleVacuumRelation(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -19440,7 +19442,7 @@ define internal fastcc void @_jumbleVacuumRelation(ptr noundef %0, ptr nocapture
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
   ret void
@@ -19448,10 +19450,10 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleExplainStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -19459,15 +19461,15 @@ define internal fastcc void @_jumbleExplainStmt(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateTableAsStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph.i
 
@@ -19497,7 +19499,7 @@ define internal fastcc void @_jumbleCreateTableAsStmt(ptr noundef %0, ptr nocapt
 
 AppendJumble.exit:                                ; preds = %14
   store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %22 = load ptr, ptr %0, align 8
   br label %.lr.ph.i11
 
@@ -19527,7 +19529,7 @@ AppendJumble.exit:                                ; preds = %14
 
 AppendJumble.exit17:                              ; preds = %26
   store i64 %30, ptr %9, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 29
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %34 = load ptr, ptr %0, align 8
   br label %.lr.ph.i18
 
@@ -19562,9 +19564,9 @@ AppendJumble.exit24:                              ; preds = %38
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRefreshMatViewStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -19594,7 +19596,7 @@ define internal fastcc void @_jumbleRefreshMatViewStmt(ptr noundef %0, ptr nocap
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %18 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -19624,7 +19626,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit13:                              ; preds = %22
   store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
   ret void
@@ -19632,9 +19634,9 @@ AppendJumble.exit13:                              ; preds = %22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDiscardStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -19669,12 +19671,12 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleLockStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -19704,7 +19706,7 @@ define internal fastcc void @_jumbleLockStmt(ptr noundef %0, ptr nocapture nound
 
 AppendJumble.exit:                                ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
@@ -19739,12 +19741,12 @@ AppendJumble.exit13:                              ; preds = %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleConstraintsSetStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -19779,9 +19781,9 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleReindexStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -19811,10 +19813,10 @@ define internal fastcc void @_jumbleReindexStmt(ptr noundef %0, ptr nocapture no
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %36, label %21
@@ -19857,7 +19859,7 @@ AppendJumble.exit17:                              ; preds = %29, %21
   br label %36
 
 36:                                               ; preds = %AppendJumble.exit, %AppendJumble.exit17
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load ptr, ptr %37, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
   ret void
@@ -19865,10 +19867,10 @@ AppendJumble.exit17:                              ; preds = %29, %21
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateConversionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %23, label %7
@@ -19877,7 +19879,7 @@ define internal fastcc void @_jumbleCreateConversionStmt(ptr noundef %0, ptr noc
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %.not23.i = icmp eq i64 %9, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -19912,7 +19914,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   br label %23
 
 23:                                               ; preds = %AppendJumble.exit, %2
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not16 = icmp eq ptr %25, null
   br i1 %.not16, label %42, label %26
@@ -19921,7 +19923,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
   %28 = add i64 %27, 1
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8
   %.not23.i17 = icmp eq i64 %28, 0
   br i1 %.not23.i17, label %AppendJumble.exit25, label %.lr.ph.i18
@@ -19956,12 +19958,12 @@ AppendJumble.exit25:                              ; preds = %35, %26
   br label %42
 
 42:                                               ; preds = %23, %AppendJumble.exit25
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %44)
-  %45 = getelementptr inbounds i8, ptr %1, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i64, ptr %47, align 8
   br label %.lr.ph.i26
 
@@ -19996,18 +19998,18 @@ AppendJumble.exit33:                              ; preds = %52
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateCastStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   br label %.lr.ph.i
 
@@ -20037,7 +20039,7 @@ define internal fastcc void @_jumbleCreateCastStmt(ptr noundef %0, ptr nocapture
 
 AppendJumble.exit:                                ; preds = %16
   store i64 %20, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %24 = load ptr, ptr %0, align 8
   br label %.lr.ph.i11
 
@@ -20072,9 +20074,9 @@ AppendJumble.exit17:                              ; preds = %28
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateTransformStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -20104,10 +20106,10 @@ define internal fastcc void @_jumbleCreateTransformStmt(ptr noundef %0, ptr noca
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %36, label %21
@@ -20150,10 +20152,10 @@ AppendJumble.exit19:                              ; preds = %29, %21
   br label %36
 
 36:                                               ; preds = %AppendJumble.exit, %AppendJumble.exit19
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load ptr, ptr %37, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = load ptr, ptr %39, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %40)
   ret void
@@ -20161,7 +20163,7 @@ AppendJumble.exit19:                              ; preds = %29, %21
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumblePrepareStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -20170,7 +20172,7 @@ define internal fastcc void @_jumblePrepareStmt(ptr noundef %0, ptr nocapture no
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -20205,10 +20207,10 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
   ret void
@@ -20216,7 +20218,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleExecuteStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -20225,7 +20227,7 @@ define internal fastcc void @_jumbleExecuteStmt(ptr noundef %0, ptr nocapture no
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -20260,7 +20262,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
   ret void
@@ -20268,9 +20270,9 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDeallocateStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -20300,28 +20302,28 @@ define internal fastcc void @_jumbleDeallocateStmt(ptr nocapture noundef %0, ptr
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, -1
   br i1 %19, label %20, label %RecordConstLocation.exit
 
 20:                                               ; preds = %AppendJumble.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i32, ptr %23, align 8
   %.not.i5 = icmp slt i32 %22, %24
   br i1 %.not.i5, label %._crit_edge.i, label %25
 
 ._crit_edge.i:                                    ; preds = %20
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %32
 
 25:                                               ; preds = %20
   %26 = shl i32 %24, 1
   store i32 %26, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %26 to i64
   %30 = shl nsw i64 %29, 3
@@ -20333,7 +20335,7 @@ AppendJumble.exit:                                ; preds = %10
 32:                                               ; preds = %25, %._crit_edge.i
   %33 = phi i32 [ %22, %._crit_edge.i ], [ %.pre13.i, %25 ]
   %34 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %31, %25 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = sext i32 %33 to i64
   %37 = getelementptr %struct.LocationLen, ptr %34, i64 %36
   store i32 %18, ptr %37, align 4
@@ -20353,12 +20355,12 @@ RecordConstLocation.exit:                         ; preds = %AppendJumble.exit, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDropOwnedStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %.lr.ph.i
 
@@ -20393,10 +20395,10 @@ AppendJumble.exit:                                ; preds = %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleReassignOwnedStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -20404,10 +20406,10 @@ define internal fastcc void @_jumbleReassignOwnedStmt(ptr noundef %0, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterTSDictionaryStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -20415,9 +20417,9 @@ define internal fastcc void @_jumbleAlterTSDictionaryStmt(ptr noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterTSConfigurationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -20447,16 +20449,16 @@ define internal fastcc void @_jumbleAlterTSConfigurationStmt(ptr noundef %0, ptr
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %0, align 8
   %25 = load i64, ptr %5, align 8
   br label %.lr.ph.i15
@@ -20487,7 +20489,7 @@ AppendJumble.exit:                                ; preds = %10
 
 AppendJumble.exit21:                              ; preds = %29
   store i64 %33, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 33
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %37 = load ptr, ptr %0, align 8
   br label %.lr.ph.i22
 
@@ -20517,7 +20519,7 @@ AppendJumble.exit21:                              ; preds = %29
 
 AppendJumble.exit28:                              ; preds = %41
   store i64 %45, ptr %5, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 34
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %49 = load ptr, ptr %0, align 8
   br label %.lr.ph.i29
 
@@ -20552,13 +20554,13 @@ AppendJumble.exit35:                              ; preds = %53
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumblePublicationTable(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
   ret void
@@ -20566,9 +20568,9 @@ define internal fastcc void @_jumblePublicationTable(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumblePublicationObjSpec(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -20598,7 +20600,7 @@ define internal fastcc void @_jumblePublicationObjSpec(ptr noundef %0, ptr nocap
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %33, label %19
@@ -20640,7 +20642,7 @@ AppendJumble.exit15:                              ; preds = %26, %19
   br label %33
 
 33:                                               ; preds = %AppendJumble.exit, %AppendJumble.exit15
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %35)
   ret void
@@ -20648,7 +20650,7 @@ AppendJumble.exit15:                              ; preds = %26, %19
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreatePublicationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -20657,7 +20659,7 @@ define internal fastcc void @_jumbleCreatePublicationStmt(ptr noundef %0, ptr no
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -20692,15 +20694,15 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   br label %.lr.ph.i11
 
@@ -20735,7 +20737,7 @@ AppendJumble.exit18:                              ; preds = %33
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterPublicationStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -20744,7 +20746,7 @@ define internal fastcc void @_jumbleAlterPublicationStmt(ptr noundef %0, ptr noc
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -20779,15 +20781,15 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %2, %AppendJumble.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   br label %.lr.ph.i13
 
@@ -20817,7 +20819,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 AppendJumble.exit20:                              ; preds = %33
   store i64 %37, ptr %28, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %41 = load ptr, ptr %0, align 8
   br label %.lr.ph.i21
 
@@ -20852,7 +20854,7 @@ AppendJumble.exit28:                              ; preds = %45
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateSubscriptionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -20861,7 +20863,7 @@ define internal fastcc void @_jumbleCreateSubscriptionStmt(ptr noundef %0, ptr n
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -20896,7 +20898,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %21
 
 21:                                               ; preds = %AppendJumble.exit, %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not14 = icmp eq ptr %23, null
   br i1 %.not14, label %40, label %24
@@ -20905,7 +20907,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   %.not23.i15 = icmp eq i64 %26, 0
   br i1 %.not23.i15, label %AppendJumble.exit23, label %.lr.ph.i16
@@ -20940,10 +20942,10 @@ AppendJumble.exit23:                              ; preds = %33, %24
   br label %40
 
 40:                                               ; preds = %21, %AppendJumble.exit23
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %42)
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %44)
   ret void
@@ -20951,9 +20953,9 @@ AppendJumble.exit23:                              ; preds = %33, %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterSubscriptionStmt(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -20983,7 +20985,7 @@ define internal fastcc void @_jumbleAlterSubscriptionStmt(ptr noundef %0, ptr no
 
 AppendJumble.exit:                                ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %33, label %19
@@ -21026,7 +21028,7 @@ AppendJumble.exit23:                              ; preds = %26, %19
 
 33:                                               ; preds = %AppendJumble.exit23, %AppendJumble.exit
   %34 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit23 ], [ %14, %AppendJumble.exit ]
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not16 = icmp eq ptr %36, null
   br i1 %.not16, label %51, label %37
@@ -21068,10 +21070,10 @@ AppendJumble.exit32:                              ; preds = %44, %37
   br label %51
 
 51:                                               ; preds = %33, %AppendJumble.exit32
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load ptr, ptr %52, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %53)
-  %54 = getelementptr inbounds i8, ptr %1, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %55 = load ptr, ptr %54, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %55)
   ret void
@@ -21079,21 +21081,21 @@ AppendJumble.exit32:                              ; preds = %44, %37
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDropSubscriptionStmt(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.pre29 = load ptr, ptr %0, align 8
   br i1 %.not, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre30 = load i64, ptr %.phi.trans.insert, align 8
   br label %20
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not23.i = icmp eq i64 %7, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -21135,8 +21137,8 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 20:                                               ; preds = %._crit_edge, %AppendJumble.exit
   %21 = phi i64 [ %.pre30, %._crit_edge ], [ %.022.lcssa.i, %AppendJumble.exit ]
   %22 = phi ptr [ %.pre29, %._crit_edge ], [ %.pre, %AppendJumble.exit ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %28, %20
@@ -21165,7 +21167,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
 
 AppendJumble.exit16:                              ; preds = %28
   store i64 %32, ptr %24, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %36 = load ptr, ptr %0, align 8
   br label %.lr.ph.i17
 
@@ -21200,10 +21202,10 @@ AppendJumble.exit24:                              ; preds = %40
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumblePathKeyInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
   ret void
@@ -21218,7 +21220,7 @@ define internal fastcc void @_jumbleExtensibleNode(ptr nocapture noundef %0, ptr
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not23.i = icmp eq i64 %4, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -21258,9 +21260,9 @@ AppendJumble.exit:                                ; preds = %11, %2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleInteger(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -21302,7 +21304,7 @@ define internal fastcc void @_jumbleFloat(ptr nocapture noundef %0, ptr readonly
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not23.i = icmp eq i64 %4, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -21342,9 +21344,9 @@ AppendJumble.exit:                                ; preds = %11, %2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleBoolean(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %.lr.ph.i
 
@@ -21386,7 +21388,7 @@ define internal fastcc void @_jumbleString(ptr nocapture noundef %0, ptr readonl
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not23.i = icmp eq i64 %4, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -21433,7 +21435,7 @@ define internal fastcc void @_jumbleBitString(ptr nocapture noundef %0, ptr read
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not23.i = icmp eq i64 %4, 0
   br i1 %.not23.i, label %AppendJumble.exit, label %.lr.ph.i
@@ -21482,49 +21484,49 @@ define internal fastcc void @_jumbleList(ptr noundef %0, ptr nocapture noundef n
   ]
 
 .preheader72:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %.not76 = icmp sgt i32 %5, 0
   br i1 %.not76, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader72
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i64, ptr %7, align 8
   br label %59
 
 .preheader70:                                     ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %.not3878 = icmp sgt i32 %9, 0
   br i1 %.not3878, label %.lr.ph80, label %.loopexit
 
 .lr.ph80:                                         ; preds = %.preheader70
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre102 = load i64, ptr %11, align 8
   br label %42
 
 .preheader68:                                     ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   %.not4081 = icmp sgt i32 %13, 0
   br i1 %.not4081, label %.lr.ph83, label %.loopexit
 
 .lr.ph83:                                         ; preds = %.preheader68
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre103 = load i64, ptr %15, align 8
   br label %25
 
 .preheader:                                       ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
   %.not4284 = icmp sgt i32 %17, 0
   br i1 %.not4284, label %.lr.ph86, label %.loopexit
 
 .lr.ph86:                                         ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %19
 
 19:                                               ; preds = %.lr.ph86, %19
@@ -21690,9 +21692,6 @@ declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

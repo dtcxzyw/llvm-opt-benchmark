@@ -201,7 +201,7 @@ if.then46.i:                                      ; preds = %if.then40.i
   br label %setup.exit.thread
 
 if.end48.i:                                       ; preds = %if.then40.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %call37.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %call37.i, i64 1
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.end48.i, %if.end35.i
@@ -271,7 +271,7 @@ if.then86.i:                                      ; preds = %if.then80.i
   br label %setup.exit.thread
 
 if.end88.i:                                       ; preds = %if.then80.i
-  %incdec.ptr89.i = getelementptr inbounds i8, ptr %call77.i, i64 1
+  %incdec.ptr89.i = getelementptr inbounds nuw i8, ptr %call77.i, i64 1
   br label %if.end91.i
 
 if.end91.i:                                       ; preds = %if.end88.i, %if.end75.i

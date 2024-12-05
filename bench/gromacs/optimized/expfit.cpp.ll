@@ -102,7 +102,7 @@ define noundef i32 @_Z11effnNparamsi(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   br label %6
 
@@ -118,7 +118,7 @@ define noundef ptr @_Z15effnDescriptioni(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds [11 x ptr], ptr @_ZL9longs_ffn, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [11 x ptr], ptr @_ZL9longs_ffn, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -135,7 +135,7 @@ define noundef i32 @_Z9sffn2effnPPKc(ptr nocapture noundef readonly %0) local_un
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
   %.0810 = phi i32 [ 0, %1 ], [ %.1, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next
+  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
@@ -184,7 +184,7 @@ _ZL8safe_expd.exit:                               ; preds = %2, %8, %10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define internal noundef double @_ZL16lmc_exp_two_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load double, ptr %3, align 8
   %5 = fneg double %0
   %6 = load double, ptr %1, align 8
@@ -229,7 +229,7 @@ define internal noundef double @_ZL11lmc_exp_expdPKd(double noundef %0, ptr noca
 _ZL8safe_expd.exit:                               ; preds = %2, %8, %10
   %.pre-phi = phi double [ %5, %2 ], [ %5, %8 ], [ %.pre11, %10 ]
   %.0.i = phi double [ 0x2DE6061812054CFA, %2 ], [ 0x51F73F60EA79F5B9, %8 ], [ %11, %10 ]
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load double, ptr %12, align 8
   %14 = tail call double @llvm.fabs.f64(double %13)
   %15 = fadd double %.pre-phi, %14
@@ -247,7 +247,7 @@ _ZL8safe_expd.exit:                               ; preds = %2, %8, %10
 
 _ZL8safe_expd.exit10:                             ; preds = %_ZL8safe_expd.exit, %18, %20
   %.0.i9 = phi double [ %21, %20 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit ], [ 0x51F73F60EA79F5B9, %18 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load double, ptr %22, align 8
   %24 = fsub double 1.000000e+00, %23
   %25 = fmul double %.0.i9, %24
@@ -258,7 +258,7 @@ _ZL8safe_expd.exit10:                             ; preds = %_ZL8safe_expd.exit,
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define internal noundef double @_ZL14lmc_exp_5_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
   %3 = fneg double %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = tail call double @llvm.fabs.f64(double %5)
   %7 = fdiv double %3, %6
@@ -278,7 +278,7 @@ define internal noundef double @_ZL14lmc_exp_5_parmdPKd(double noundef %0, ptr n
 _ZL8safe_expd.exit:                               ; preds = %2, %9, %11
   %.pre-phi = phi double [ %6, %2 ], [ %6, %9 ], [ %.pre12, %11 ]
   %.0.i = phi double [ 0x2DE6061812054CFA, %2 ], [ 0x51F73F60EA79F5B9, %9 ], [ %12, %11 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load double, ptr %13, align 8
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fadd double %.pre-phi, %15
@@ -297,11 +297,11 @@ _ZL8safe_expd.exit:                               ; preds = %2, %9, %11
 _ZL8safe_expd.exit11:                             ; preds = %_ZL8safe_expd.exit, %19, %21
   %.0.i10 = phi double [ %22, %21 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit ], [ 0x51F73F60EA79F5B9, %19 ]
   %23 = load double, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load double, ptr %24, align 8
   %26 = fmul double %.0.i10, %25
   %27 = tail call double @llvm.fmuladd.f64(double %23, double %.0.i, double %26)
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load double, ptr %28, align 8
   %30 = fadd double %29, %27
   ret double %30
@@ -309,14 +309,14 @@ _ZL8safe_expd.exit11:                             ; preds = %_ZL8safe_expd.exit,
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define internal noundef double @_ZL14lmc_exp_7_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load double, ptr %3, align 8
   %5 = tail call double @llvm.fabs.f64(double %4)
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load double, ptr %6, align 8
   %8 = tail call double @llvm.fabs.f64(double %7)
   %9 = fadd double %5, %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load double, ptr %10, align 8
   %12 = tail call double @llvm.fabs.f64(double %11)
   %13 = fadd double %9, %12
@@ -364,14 +364,14 @@ _ZL8safe_expd.exit19:                             ; preds = %_ZL8safe_expd.exit,
 _ZL8safe_expd.exit21:                             ; preds = %_ZL8safe_expd.exit19, %29, %31
   %.0.i20 = phi double [ %32, %31 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit19 ], [ 0x51F73F60EA79F5B9, %29 ]
   %33 = load double, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load double, ptr %34, align 8
   %36 = fmul double %.0.i18, %35
   %37 = tail call double @llvm.fmuladd.f64(double %33, double %.0.i, double %36)
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load double, ptr %38, align 8
   %40 = tail call double @llvm.fmuladd.f64(double %39, double %.0.i20, double %37)
-  %41 = getelementptr inbounds i8, ptr %1, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %42 = load double, ptr %41, align 8
   %43 = fadd double %42, %40
   ret double %43
@@ -379,18 +379,18 @@ _ZL8safe_expd.exit21:                             ; preds = %_ZL8safe_expd.exit1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define internal noundef double @_ZL14lmc_exp_9_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load double, ptr %3, align 8
   %5 = tail call double @llvm.fabs.f64(double %4)
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load double, ptr %6, align 8
   %8 = tail call double @llvm.fabs.f64(double %7)
   %9 = fadd double %5, %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load double, ptr %10, align 8
   %12 = tail call double @llvm.fabs.f64(double %11)
   %13 = fadd double %9, %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load double, ptr %14, align 8
   %16 = tail call double @llvm.fabs.f64(double %15)
   %17 = fadd double %13, %16
@@ -452,17 +452,17 @@ _ZL8safe_expd.exit27:                             ; preds = %_ZL8safe_expd.exit2
 _ZL8safe_expd.exit29:                             ; preds = %_ZL8safe_expd.exit27, %39, %41
   %.0.i28 = phi double [ %42, %41 ], [ 0x2DE6061812054CFA, %_ZL8safe_expd.exit27 ], [ 0x51F73F60EA79F5B9, %39 ]
   %43 = load double, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load double, ptr %44, align 8
   %46 = fmul double %.0.i24, %45
   %47 = tail call double @llvm.fmuladd.f64(double %43, double %.0.i, double %46)
-  %48 = getelementptr inbounds i8, ptr %1, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %49 = load double, ptr %48, align 8
   %50 = tail call double @llvm.fmuladd.f64(double %49, double %.0.i26, double %47)
-  %51 = getelementptr inbounds i8, ptr %1, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %52 = load double, ptr %51, align 8
   %53 = tail call double @llvm.fmuladd.f64(double %52, double %.0.i28, double %50)
-  %54 = getelementptr inbounds i8, ptr %1, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %55 = load double, ptr %54, align 8
   %56 = fadd double %55, %53
   ret double %56
@@ -474,7 +474,7 @@ define internal noundef double @_ZL14lmc_vac_2_parmdPKd(double noundef %0, ptr n
   %4 = tail call double @llvm.fabs.f64(double %3)
   %5 = fmul double %4, 2.000000e+00
   %6 = fdiv double %0, %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load double, ptr %7, align 8
   %9 = fsub double 1.000000e+00, %8
   %10 = fneg double %6
@@ -573,10 +573,10 @@ _ZL8safe_expd.exit36:                             ; preds = %_ZL8safe_expd.exit3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define internal noundef double @_ZL10lmc_erffitdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load double, ptr %3, align 8
   %5 = fcmp une double %4, 0.000000e+00
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load double, ptr %6, align 8
   br i1 %5, label %8, label %13
 
@@ -595,7 +595,7 @@ define internal noundef double @_ZL10lmc_erffitdPKd(double noundef %0, ptr nocap
 15:                                               ; preds = %13, %8
   %.0 = phi double [ %12, %8 ], [ %., %13 ]
   %16 = load double, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load double, ptr %17, align 8
   %19 = fadd double %16, %18
   %20 = fsub double %16, %18
@@ -609,7 +609,7 @@ define internal noundef double @_ZL10lmc_erffitdPKd(double noundef %0, ptr nocap
 define internal noundef double @_ZL17lmc_errest_3_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load double, ptr %1, align 8
   %4 = tail call double @llvm.fabs.f64(double %3)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load double, ptr %5, align 8
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fadd double %4, %7
@@ -667,7 +667,7 @@ _ZL10safe_expm1d.exit28:                          ; preds = %26, %24, %20, %_ZL1
   %37 = fdiv double %36, %0
   %38 = fadd double %37, 1.000000e+00
   %39 = fmul double %35, %38
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load double, ptr %40, align 8
   %42 = fcmp ogt double %41, 0.000000e+00
   %43 = select i1 %42, double %41, double 0.000000e+00
@@ -685,7 +685,7 @@ _ZL10safe_expm1d.exit28:                          ; preds = %26, %24, %20, %_ZL1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define internal noundef double @_ZL15lmc_pres_6_parmdPKd(double noundef %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load double, ptr %3, align 8
   %5 = fcmp une double %4, 0.000000e+00
   %.pre28 = load double, ptr %1, align 8
@@ -694,7 +694,7 @@ define internal noundef double @_ZL15lmc_pres_6_parmdPKd(double noundef %0, ptr 
   br i1 %or.cond, label %7, label %22
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load double, ptr %8, align 8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp ogt double %10, 1.000000e+01
@@ -728,13 +728,13 @@ _ZL8safe_expd.exit:                               ; preds = %7, %17, %19
   br i1 %25, label %26, label %50
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load double, ptr %27, align 8
   %29 = fcmp une double %28, 0.000000e+00
   br i1 %29, label %30, label %50
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load double, ptr %31, align 8
   %33 = tail call double @llvm.fabs.f64(double %32)
   %34 = fcmp ogt double %33, 1.000000e+01
@@ -756,7 +756,7 @@ _ZL8safe_expd.exit:                               ; preds = %7, %17, %19
 
 _ZL8safe_expd.exit22:                             ; preds = %30, %40, %42
   %.0.i21 = phi double [ %43, %42 ], [ 0x2DE6061812054CFA, %30 ], [ 0x51F73F60EA79F5B9, %40 ]
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load double, ptr %44, align 8
   %46 = tail call double @llvm.fabs.f64(double %45)
   %47 = fmul double %0, %46
@@ -809,7 +809,7 @@ define noundef double @_Z12fit_functioniPKdd(i32 noundef %0, ptr noundef %1, dou
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [12 x ptr], ptr @lmcurves, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef double %10(double noundef %2, ptr noundef %1)
   br label %12
@@ -850,7 +850,7 @@ define noundef float @_Z8do_lmfitiPKfPffS0_ffPK16gmx_output_env_tbiPdiPKc(i32 no
 
 26:                                               ; preds = %25
   %27 = zext nneg i32 %9 to i64
-  %28 = getelementptr inbounds [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   br label %_Z11effnNparamsi.exit
 
@@ -884,7 +884,7 @@ _Z11effnNparamsi.exit:                            ; preds = %25, %26
   br i1 %.not158, label %47, label %44
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds float, ptr %4, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %46 = load float, ptr %45, align 4
   br label %51
 
@@ -906,7 +906,7 @@ _Z11effnNparamsi.exit:                            ; preds = %25, %26
   %57 = sext i32 %.0140217 to i64
   %58 = getelementptr inbounds double, ptr %38, i64 %57
   store double %53, ptr %58, align 8
-  %59 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %60 = load float, ptr %59, align 4
   %61 = fpext float %60 to double
   %62 = getelementptr inbounds double, ptr %39, i64 %57
@@ -914,7 +914,7 @@ _Z11effnNparamsi.exit:                            ; preds = %25, %26
   br i1 %42, label %68, label %63
 
 63:                                               ; preds = %56
-  %64 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %65 = load float, ptr %64, align 4
   %66 = fpext float %65 to double
   %67 = fcmp ogt double %66, 0x3E7AD7F29ABCAF48
@@ -953,7 +953,7 @@ _Z11effnNparamsi.exit:                            ; preds = %25, %26
 
 80:                                               ; preds = %._crit_edge
   %81 = zext nneg i32 %9 to i64
-  %82 = getelementptr inbounds [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %81
   %83 = load i32, ptr %82, align 4
   br label %_Z11effnNparamsi.exit163
 
@@ -981,7 +981,7 @@ _Z11effnNparamsi.exit163:                         ; preds = %._crit_edge, %80
 
 93:                                               ; preds = %92
   %94 = zext nneg i32 %9 to i64
-  %95 = getelementptr inbounds [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %94
   %96 = load i32, ptr %95, align 4
   br label %_Z11effnNparamsi.exit.i
 
@@ -1002,7 +1002,7 @@ _Z11effnNparamsi.exit.i:                          ; preds = %93, %92
   br i1 %98, label %99, label %_ZL19initiate_fit_paramsiPd.exit.thread
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %10, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %101 = load double, ptr %100, align 8
   %102 = tail call double @llvm.fabs.f64(double %101)
   %103 = load double, ptr %10, align 8
@@ -1013,7 +1013,7 @@ _Z11effnNparamsi.exit.i:                          ; preds = %93, %92
   br label %_ZL19initiate_fit_paramsiPd.exit.thread
 
 106:                                              ; preds = %_Z11effnNparamsi.exit.i, %_Z11effnNparamsi.exit.i, %_Z11effnNparamsi.exit.i
-  %107 = getelementptr inbounds i8, ptr %10, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %108 = load double, ptr %107, align 8
   %109 = tail call double @llvm.fabs.f64(double %108)
   store double %109, ptr %107, align 8
@@ -1021,7 +1021,7 @@ _Z11effnNparamsi.exit.i:                          ; preds = %93, %92
   br i1 %110, label %111, label %_ZL19initiate_fit_paramsiPd.exit.thread
 
 111:                                              ; preds = %106
-  %112 = getelementptr inbounds i8, ptr %10, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %113 = load double, ptr %112, align 8
   %114 = tail call double @llvm.fabs.f64(double %113)
   %115 = fsub double %114, %109
@@ -1032,7 +1032,7 @@ _Z11effnNparamsi.exit.i:                          ; preds = %93, %92
   br i1 %117, label %118, label %_ZL19initiate_fit_paramsiPd.exit.thread
 
 118:                                              ; preds = %111
-  %119 = getelementptr inbounds i8, ptr %10, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %120 = load double, ptr %119, align 8
   %121 = tail call double @llvm.fabs.f64(double %120)
   %122 = fsub double %121, %.sroa.speculated38.i
@@ -1043,7 +1043,7 @@ _Z11effnNparamsi.exit.i:                          ; preds = %93, %92
   br i1 %124, label %125, label %_ZL19initiate_fit_paramsiPd.exit.thread
 
 125:                                              ; preds = %118
-  %126 = getelementptr inbounds i8, ptr %10, i64 56
+  %126 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %127 = load double, ptr %126, align 8
   %128 = tail call double @llvm.fabs.f64(double %127)
   %129 = fsub double %128, %.sroa.speculated34.i
@@ -1053,7 +1053,7 @@ _Z11effnNparamsi.exit.i:                          ; preds = %93, %92
   br label %_ZL19initiate_fit_paramsiPd.exit.thread
 
 131:                                              ; preds = %_Z11effnNparamsi.exit.i
-  %132 = getelementptr inbounds i8, ptr %10, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %133 = load double, ptr %132, align 8
   %134 = tail call double @llvm.fabs.f64(double %133)
   %135 = load double, ptr %10, align 8
@@ -1072,7 +1072,7 @@ _ZL19initiate_fit_paramsiPd.exit:                 ; preds = %_Z11effnNparamsi.ex
 139:                                              ; preds = %_ZL19initiate_fit_paramsiPd.exit.thread, %_ZL19initiate_fit_paramsiPd.exit
   %140 = phi i1 [ %137, %_ZL19initiate_fit_paramsiPd.exit.thread ], [ %138, %_ZL19initiate_fit_paramsiPd.exit ]
   %141 = zext nneg i32 %9 to i64
-  %142 = getelementptr inbounds [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %141
   %143 = load i32, ptr %142, align 4
   br label %_Z11effnNparamsi.exit.i165
 
@@ -1113,7 +1113,7 @@ _Z11effnNparamsi.exit.i165:                       ; preds = %139, %_ZL19initiate
   br i1 %152, label %153, label %_ZL18extract_fit_paramsiPd.exit
 
 153:                                              ; preds = %149
-  %154 = getelementptr inbounds i8, ptr %10, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %155 = load double, ptr %154, align 8
   %156 = tail call double @llvm.fabs.f64(double %155)
   %157 = fadd double %151, %156
@@ -1121,7 +1121,7 @@ _Z11effnNparamsi.exit.i165:                       ; preds = %139, %_ZL19initiate
   br label %_ZL18extract_fit_paramsiPd.exit
 
 158:                                              ; preds = %_Z11effnNparamsi.exit.i165, %_Z11effnNparamsi.exit.i165, %_Z11effnNparamsi.exit.i165
-  %159 = getelementptr inbounds i8, ptr %10, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %160 = load double, ptr %159, align 8
   %161 = tail call double @llvm.fabs.f64(double %160)
   store double %161, ptr %159, align 8
@@ -1129,7 +1129,7 @@ _Z11effnNparamsi.exit.i165:                       ; preds = %139, %_ZL19initiate
   br i1 %162, label %163, label %_ZL18extract_fit_paramsiPd.exit
 
 163:                                              ; preds = %158
-  %164 = getelementptr inbounds i8, ptr %10, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %165 = load double, ptr %164, align 8
   %166 = tail call double @llvm.fabs.f64(double %165)
   %167 = fadd double %161, %166
@@ -1138,7 +1138,7 @@ _Z11effnNparamsi.exit.i165:                       ; preds = %139, %_ZL19initiate
   br i1 %168, label %169, label %_ZL18extract_fit_paramsiPd.exit
 
 169:                                              ; preds = %163
-  %170 = getelementptr inbounds i8, ptr %10, i64 40
+  %170 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %171 = load double, ptr %170, align 8
   %172 = tail call double @llvm.fabs.f64(double %171)
   %173 = fadd double %167, %172
@@ -1147,7 +1147,7 @@ _Z11effnNparamsi.exit.i165:                       ; preds = %139, %_ZL19initiate
   br i1 %174, label %175, label %_ZL18extract_fit_paramsiPd.exit
 
 175:                                              ; preds = %169
-  %176 = getelementptr inbounds i8, ptr %10, i64 56
+  %176 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %177 = load double, ptr %176, align 8
   %178 = tail call double @llvm.fabs.f64(double %177)
   %179 = fadd double %173, %178
@@ -1158,7 +1158,7 @@ _Z11effnNparamsi.exit.i165:                       ; preds = %139, %_ZL19initiate
   %181 = load double, ptr %10, align 8
   %182 = tail call double @llvm.fabs.f64(double %181)
   store double %182, ptr %10, align 8
-  %183 = getelementptr inbounds i8, ptr %10, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %184 = load double, ptr %183, align 8
   %185 = fcmp olt double %184, 0.000000e+00
   br i1 %185, label %.sink.split.i, label %186
@@ -1173,7 +1173,7 @@ _Z11effnNparamsi.exit.i165:                       ; preds = %139, %_ZL19initiate
   br label %188
 
 188:                                              ; preds = %.sink.split.i, %186
-  %189 = getelementptr inbounds i8, ptr %10, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %190 = load double, ptr %189, align 8
   %191 = tail call double @llvm.fabs.f64(double %190)
   %192 = fadd double %182, %191
@@ -1182,7 +1182,7 @@ _Z11effnNparamsi.exit.i165:                       ; preds = %139, %_ZL19initiate
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %193 = getelementptr inbounds double, ptr %10, i64 %indvars.iv.i
+  %193 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i
   %194 = load double, ptr %193, align 8
   %195 = tail call double @llvm.fabs.f64(double %194)
   store double %195, ptr %193, align 8
@@ -1247,7 +1247,7 @@ _ZL5myexpddd.exit:                                ; preds = %207, %210
 
 216:                                              ; preds = %202
   %217 = load double, ptr %10, align 8
-  %218 = getelementptr inbounds i8, ptr %10, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %219 = load double, ptr %218, align 8
   %220 = fcmp oeq double %219, 0.000000e+00
   %221 = fcmp oeq double %217, 0.000000e+00
@@ -1270,7 +1270,7 @@ _ZL5myexpddd.exit171:                             ; preds = %216, %222
 229:                                              ; preds = %202
   %230 = load double, ptr %10, align 8
   %231 = fpext float %5 to double
-  %232 = getelementptr inbounds i8, ptr %10, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %233 = load double, ptr %232, align 8
   %234 = fcmp oeq double %233, 0.000000e+00
   %235 = fcmp oeq double %230, 0.000000e+00
@@ -1288,7 +1288,7 @@ _ZL5myexpddd.exit171:                             ; preds = %216, %222
 _ZL5myexpddd.exit174:                             ; preds = %229, %236
   %241 = phi double [ %.pre, %236 ], [ %233, %229 ]
   %.0.i173 = phi double [ %240, %236 ], [ 0.000000e+00, %229 ]
-  %242 = getelementptr inbounds i8, ptr %10, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %243 = load double, ptr %242, align 8
   %244 = fsub double 1.000000e+00, %241
   %245 = fcmp oeq double %244, 0.000000e+00
@@ -1311,7 +1311,7 @@ _ZL5myexpddd.exit177:                             ; preds = %_ZL5myexpddd.exit17
 
 254:                                              ; preds = %202, %202, %202
   %255 = zext nneg i32 %9 to i64
-  %256 = getelementptr inbounds [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %255
   %257 = fpext float %5 to double
   %258 = fneg double %257
   br label %259
@@ -1335,10 +1335,10 @@ _Z11effnNparamsi.exit180:                         ; preds = %259, %260
 
 266:                                              ; preds = %_Z11effnNparamsi.exit180
   %267 = shl nuw nsw i64 %indvars.iv235, 1
-  %268 = getelementptr inbounds double, ptr %10, i64 %267
+  %268 = getelementptr inbounds nuw double, ptr %10, i64 %267
   %269 = load double, ptr %268, align 8
   %270 = or disjoint i64 %267, 1
-  %271 = getelementptr inbounds double, ptr %10, i64 %270
+  %271 = getelementptr inbounds nuw double, ptr %10, i64 %270
   %272 = load double, ptr %271, align 8
   %273 = fcmp oeq double %272, 0.000000e+00
   %274 = fcmp oeq double %269, 0.000000e+00
@@ -1362,11 +1362,11 @@ _ZL5myexpddd.exit183:                             ; preds = %266, %275
   %indvars.iv238 = phi i64 [ 0, %.lr.ph222 ], [ %indvars.iv.next239, %280 ]
   %.3146220 = phi double [ 0.000000e+00, %.lr.ph222 ], [ %294, %280 ]
   %282 = load ptr, ptr %206, align 8
-  %283 = getelementptr inbounds double, ptr %38, i64 %indvars.iv238
+  %283 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv238
   %284 = tail call noundef double %282(double noundef %281, ptr noundef %10)
   %285 = load ptr, ptr %206, align 8
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
-  %286 = getelementptr inbounds double, ptr %38, i64 %indvars.iv.next239
+  %286 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv.next239
   %287 = load double, ptr %286, align 8
   %288 = tail call noundef double %285(double noundef %287, ptr noundef %10)
   %289 = load double, ptr %286, align 8
@@ -1444,7 +1444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit189: ;
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #18
-  %308 = getelementptr inbounds i8, ptr %15, i64 32
+  %308 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %309 = load ptr, ptr %308, align 8
   %.not.i.i.i = icmp eq ptr %309, null
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %310
@@ -1462,7 +1462,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %307, %310
 
 _Z11effnNparamsi.exit192.us.preheader:            ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
   %312 = zext nneg i32 %9 to i64
-  %313 = getelementptr inbounds [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %312
   %314 = load i32, ptr %313, align 4
   %smax = call i32 @llvm.smax.i32(i32 %314, i32 1)
   %wide.trip.count246 = zext nneg i32 %smax to i64
@@ -1470,7 +1470,7 @@ _Z11effnNparamsi.exit192.us.preheader:            ; preds = %_ZNSt10filesystem7_
 
 _Z11effnNparamsi.exit192.us:                      ; preds = %_Z11effnNparamsi.exit192.us.preheader, %_Z11effnNparamsi.exit192.us
   %indvars.iv243 = phi i64 [ 0, %_Z11effnNparamsi.exit192.us.preheader ], [ %indvars.iv.next244, %_Z11effnNparamsi.exit192.us ]
-  %315 = getelementptr inbounds double, ptr %10, i64 %indvars.iv243
+  %315 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv243
   %316 = load double, ptr %315, align 8
   %317 = trunc nuw nsw i64 %indvars.iv243 to i32
   %318 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %306, ptr noundef nonnull @.str.36, i32 noundef %317, double noundef %316) #18
@@ -1494,9 +1494,9 @@ _Z11effnNparamsi.exit192.us:                      ; preds = %_Z11effnNparamsi.ex
   %322 = trunc nuw nsw i64 %indvars.iv253 to i32
   %323 = uitofp nneg i32 %322 to float
   %324 = fmul float %3, %323
-  %325 = getelementptr inbounds double, ptr %38, i64 %indvars.iv253
+  %325 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv253
   %326 = load double, ptr %325, align 8
-  %327 = getelementptr inbounds double, ptr %39, i64 %indvars.iv253
+  %327 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv253
   %328 = load double, ptr %327, align 8
   %329 = load ptr, ptr %321, align 8
   %330 = fpext float %324 to double
@@ -1536,11 +1536,11 @@ _Z11effnNparamsi.exit192.us:                      ; preds = %_Z11effnNparamsi.ex
 
 .lr.ph229.split:                                  ; preds = %.lr.ph229, %.lr.ph229.split
   %indvars.iv248 = phi i64 [ %indvars.iv.next249, %.lr.ph229.split ], [ 0, %.lr.ph229 ]
-  %339 = getelementptr inbounds float, ptr %4, i64 %indvars.iv248
+  %339 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv248
   %340 = load float, ptr %339, align 4
-  %341 = getelementptr inbounds double, ptr %38, i64 %indvars.iv248
+  %341 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv248
   %342 = load double, ptr %341, align 8
-  %343 = getelementptr inbounds double, ptr %39, i64 %indvars.iv248
+  %343 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv248
   %344 = load double, ptr %343, align 8
   %345 = load ptr, ptr %321, align 8
   %346 = fpext float %340 to double
@@ -1578,10 +1578,10 @@ define internal fastcc void @_ZL17print_chi2_paramsP8_IO_FILEiPKdPKciS2_S2_(ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.02227 = phi double [ 0.000000e+00, %.lr.ph ], [ %20, %11 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds double, ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %14 = load double, ptr %13, align 8
   %15 = tail call noundef double %12(double noundef %14, ptr noundef %2)
-  %16 = getelementptr inbounds double, ptr %6, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
   %17 = load double, ptr %16, align 8
   %18 = fsub double %17, %15
   %19 = fmul double %18, %18
@@ -1601,7 +1601,7 @@ _Z11effnNparamsi.exit:                            ; preds = %._crit_edge
 
 _Z11effnNparamsi.exit.split.us:                   ; preds = %._crit_edge
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.38, i32 noundef %4, i32 noundef %24, ptr noundef %3, double noundef %.022.lcssa) #18
   %.not = icmp eq i32 %1, 0
@@ -1609,7 +1609,7 @@ _Z11effnNparamsi.exit.split.us:                   ; preds = %._crit_edge
 
 _Z11effnNparamsi.exit26.us.preheader:             ; preds = %_Z11effnNparamsi.exit.split.us
   %26 = zext nneg i32 %1 to i64
-  %27 = getelementptr inbounds [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
   %smax = tail call i32 @llvm.smax.i32(i32 %28, i32 1)
   %wide.trip.count37 = zext nneg i32 %smax to i64
@@ -1617,7 +1617,7 @@ _Z11effnNparamsi.exit26.us.preheader:             ; preds = %_Z11effnNparamsi.ex
 
 _Z11effnNparamsi.exit26.us:                       ; preds = %_Z11effnNparamsi.exit26.us.preheader, %_Z11effnNparamsi.exit26.us
   %indvars.iv34 = phi i64 [ 0, %_Z11effnNparamsi.exit26.us.preheader ], [ %indvars.iv.next35, %_Z11effnNparamsi.exit26.us ]
-  %29 = getelementptr inbounds double, ptr %2, i64 %indvars.iv34
+  %29 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv34
   %30 = load double, ptr %29, align 8
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, double noundef %30) #18
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
@@ -1649,7 +1649,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
   %10 = extractvalue { i64, ptr } %8, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %9, ptr %10) #18
   %11 = load i64, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %11, ptr %13, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %14 unwind label %18
@@ -1657,7 +1657,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
 14:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %16 unwind label %20
 
@@ -1717,7 +1717,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -1901,7 +1901,7 @@ define noundef float @_Z7fit_acfiiPK16gmx_output_env_tbfffPfS2_(i32 noundef %0, 
 
 _Z15effnDescriptioni.exit:                        ; preds = %23
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr inbounds [11 x ptr], ptr @_ZL9longs_ffn, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [11 x ptr], ptr @_ZL9longs_ffn, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef %31)
   %33 = fpext float %4 to double
@@ -1948,8 +1948,8 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   %55 = icmp sgt i32 %0, 0
   %56 = fpext float %6 to double
   %57 = icmp eq i32 %1, 3
-  %58 = getelementptr inbounds i8, ptr %10, i64 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %60 = sitofp i32 %0 to double
   %61 = fmul double %60, 2.000000e-03
   %62 = fmul double %61, %56
@@ -1959,7 +1959,7 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   %65 = sext i32 %1 to i64
   %66 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %65
   %67 = zext nneg i32 %1 to i64
-  %68 = getelementptr inbounds [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %67
   %69 = fpext float %4 to double
   %wide.trip.count = zext nneg i32 %0 to i64
   %wide.trip.count197 = zext nneg i32 %0 to i64
@@ -1988,7 +1988,7 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   br i1 %75, label %.critedge4, label %76
 
 76:                                               ; preds = %.lr.ph
-  %77 = getelementptr inbounds float, ptr %7, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   %78 = load float, ptr %77, align 4
   %79 = fcmp ogt float %78, 0.000000e+00
   br i1 %79, label %.critedge4, label %.critedge2
@@ -2002,14 +2002,14 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   br i1 %82, label %93, label %83
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds float, ptr %7, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   %85 = load float, ptr %84, align 4
   %86 = fpext float %85 to double
   %87 = fmul double %86, 5.000000e-01
   br label %93
 
 88:                                               ; preds = %.critedge4
-  %89 = getelementptr inbounds float, ptr %7, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   %90 = load float, ptr %89, align 4
   %91 = fpext float %90 to double
   %92 = fadd double %.0103171, %91
@@ -2053,7 +2053,7 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   %105 = fadd double %.2105, %104
   %106 = call double @sqrt(double noundef %105) #18
   %107 = fptrunc double %106 to float
-  %108 = getelementptr inbounds float, ptr %49, i64 %indvars.iv194
+  %108 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv194
   store float %107, ptr %108, align 4
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
@@ -2090,7 +2090,7 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   %125 = fpext float %124 to double
   %126 = call noundef double %121(double noundef %125, ptr noundef nonnull %11)
   %127 = fptrunc double %126 to float
-  %128 = getelementptr inbounds float, ptr %8, i64 %indvars.iv202
+  %128 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv202
   store float %127, ptr %128, align 4
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
@@ -2111,7 +2111,7 @@ _Z11effnNparamsi.exit125.us.preheader:            ; preds = %129
 
 _Z11effnNparamsi.exit125.us:                      ; preds = %_Z11effnNparamsi.exit125.us.preheader, %_Z11effnNparamsi.exit125.us
   %indvars.iv207 = phi i64 [ 0, %_Z11effnNparamsi.exit125.us.preheader ], [ %indvars.iv.next208, %_Z11effnNparamsi.exit125.us ]
-  %132 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %indvars.iv207
+  %132 = getelementptr inbounds nuw [3 x double], ptr %10, i64 0, i64 %indvars.iv207
   %133 = load double, ptr %132, align 8
   %134 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, double noundef %133)
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1

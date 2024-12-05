@@ -115,7 +115,7 @@ _getpwnam_r.exit:                                 ; preds = %17, %19
   br i1 %or.cond, label %24, label %27
 
 24:                                               ; preds = %_getpwnam_r.exit
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load i32, ptr %25, align 8
   br label %.sink.split
 
@@ -290,7 +290,7 @@ define void @uid_cache_clear() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %6 = load ptr, ptr @uid_cache, align 8
-  %7 = getelementptr inbounds %struct.uid_cache_entry_t, ptr %6, i64 %indvars.iv, i32 1
+  %7 = getelementptr inbounds nuw %struct.uid_cache_entry_t, ptr %6, i64 %indvars.iv, i32 1
   tail call void @slurm_xfree(ptr noundef nonnull %7) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr @uid_cache_used, align 4
@@ -330,7 +330,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 define ptr @uid_to_string_cached(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.uid_cache_entry_t, align 8
   store i32 %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @uid_lock) #12
   %.not = icmp eq i32 %4, 0
@@ -399,7 +399,7 @@ uid_to_string.exit:                               ; preds = %13, %15
   unreachable
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %11, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load ptr, ptr %35, align 8
   br label %37
 
@@ -465,7 +465,7 @@ slurm_getpwuid_r.exit:                            ; preds = %10, %12
   br i1 %or.cond, label %17, label %21
 
 17:                                               ; preds = %slurm_getpwuid_r.exit
-  %18 = getelementptr inbounds i8, ptr %15, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @xstrdup(ptr noundef %19) #12
   br label %21
@@ -517,7 +517,7 @@ slurm_getpwuid_r.exit:                            ; preds = %10, %12
   br i1 %or.cond, label %17, label %21
 
 17:                                               ; preds = %slurm_getpwuid_r.exit
-  %18 = getelementptr inbounds i8, ptr %15, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @xstrdup(ptr noundef %19) #12
   br label %21
@@ -569,7 +569,7 @@ slurm_getpwuid_r.exit:                            ; preds = %10, %12
   br i1 %or.cond, label %17, label %20
 
 17:                                               ; preds = %slurm_getpwuid_r.exit
-  %18 = getelementptr inbounds i8, ptr %15, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %19 = load i32, ptr %18, align 4
   br label %20
 
@@ -630,7 +630,7 @@ _getgrnam_r.exit:                                 ; preds = %17, %19
   br i1 %or.cond, label %24, label %27
 
 24:                                               ; preds = %_getgrnam_r.exit
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load i32, ptr %25, align 8
   br label %.sink.split
 

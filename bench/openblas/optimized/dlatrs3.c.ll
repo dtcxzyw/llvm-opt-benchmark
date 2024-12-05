@@ -193,7 +193,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 119:                                              ; preds = %119, %116
   %120 = phi i64 [ 1, %116 ], [ %122, %119 ]
-  %121 = getelementptr inbounds double, ptr %38, i64 %120
+  %121 = getelementptr inbounds nuw double, ptr %38, i64 %120
   store double 1.000000e+00, ptr %121, align 8, !tbaa !7
   %122 = add nuw nsw i64 %120, 1
   %123 = icmp eq i64 %122, %118
@@ -228,7 +228,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %139 = phi i64 [ 2, %135 ], [ %143, %138 ]
   %140 = mul nsw i64 %139, %136
   %141 = getelementptr double, ptr %133, i64 %140
-  %142 = getelementptr inbounds double, ptr %38, i64 %139
+  %142 = getelementptr inbounds nuw double, ptr %38, i64 %139
   tail call void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %141, ptr noundef nonnull %142, ptr noundef %11, ptr noundef nonnull %14) #6
   %143 = add nuw nsw i64 %139, 1
   %exitcond43.not = icmp eq i64 %143, %137
@@ -352,7 +352,7 @@ define void @dlatrs3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %226 = phi i64 [ 1, %222 ], [ %230, %225 ]
   %227 = mul nsw i64 %226, %223
   %228 = getelementptr double, ptr %220, i64 %227
-  %229 = getelementptr inbounds double, ptr %38, i64 %226
+  %229 = getelementptr inbounds nuw double, ptr %38, i64 %226
   call void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %228, ptr noundef nonnull %229, ptr noundef %11, ptr noundef nonnull %14) #6
   %230 = add nuw nsw i64 %226, 1
   %231 = icmp samesign ult i64 %226, %224

@@ -78,7 +78,7 @@ define hidden void @_ZN10JfrUpcalls14on_retransformElP7_jclassiPKhPiPPhP10JavaTh
   %12 = load ptr, ptr @_ZL25on_retransform_method_sym, align 8
   %13 = load ptr, ptr @_ZL28on_retransform_signature_sym, align 8
   %14 = call fastcc noundef ptr @_ZL6invokelhhP7_jclassiPKhP6SymbolS4_RiP10JavaThread(i64 noundef %0, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %12, ptr noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef %6)
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %33
@@ -93,7 +93,7 @@ define hidden void @_ZN10JfrUpcalls14on_retransformElP7_jclassiPKhPiPPhP10JavaTh
 22:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8)
   %23 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %8, i64 noundef 256, ptr noundef nonnull @.str.15, i64 noundef %19) #6
-  %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_ZL23log_error_and_throw_oomiP10JavaThread.exit, label %25
 
@@ -160,7 +160,7 @@ define internal fastcc noundef ptr @_ZL6invokelhhP7_jclassiPKhP6SymbolS4_RiP10Ja
   %12 = alloca %class.JfrJavaArguments, align 8
   %13 = load ptr, ptr @_ZL21jvm_upcalls_class_sym, align 8
   %14 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %13, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %9) #6
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %_ZN12ResourceMarkD2Ev.exit
@@ -195,17 +195,17 @@ define internal fastcc noundef ptr @_ZL6invokelhhP7_jclassiPKhP6SymbolS4_RiP10Ja
   br i1 %.not28, label %51, label %31
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %9, i64 800
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 800
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %33, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %33, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %41 = load i64, ptr %40, align 8
-  %42 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %42 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not29 = icmp eq ptr %42, null
   br i1 %.not29, label %45, label %43
 
@@ -236,12 +236,12 @@ define internal fastcc noundef ptr @_ZL6invokelhhP7_jclassiPKhP6SymbolS4_RiP10Ja
   br label %_ZN12ResourceMarkD2Ev.exit
 
 51:                                               ; preds = %20
-  %52 = getelementptr inbounds i8, ptr %11, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = load i8, ptr @UseCompressedClassPointers, align 1
   %55 = trunc i8 %54 to i1
   %56 = select i1 %55, i64 12, i64 16
-  %57 = getelementptr inbounds i8, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %56
   %58 = load i32, ptr %57, align 4
   store i32 %58, ptr %8, align 4
   br label %_ZN12ResourceMarkD2Ev.exit
@@ -265,7 +265,7 @@ define hidden void @_ZN10JfrUpcalls31new_bytes_eager_instrumentationElhhP7_jclas
   %12 = load ptr, ptr @_ZL35bytes_for_eager_instrumentation_sym, align 8
   %13 = load ptr, ptr @_ZL39bytes_for_eager_instrumentation_sig_sym, align 8
   %14 = call fastcc noundef ptr @_ZL6invokelhhP7_jclassiPKhP6SymbolS4_RiP10JavaThread(i64 noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %12, ptr noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef %8)
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %33
@@ -280,7 +280,7 @@ define hidden void @_ZN10JfrUpcalls31new_bytes_eager_instrumentationElhhP7_jclas
 22:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10)
   %23 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %10, i64 noundef 256, ptr noundef nonnull @.str.15, i64 noundef %19) #6
-  %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_ZL23log_error_and_throw_oomiP10JavaThread.exit, label %25
 
@@ -316,7 +316,7 @@ define hidden noundef zeroext i1 @_ZN10JfrUpcalls21unhide_internal_typesEP10Java
   store i8 14, ptr %2, align 8
   %4 = load ptr, ptr @_ZL21jvm_upcalls_class_sym, align 8
   %5 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %4, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %0) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %_ZN12ResourceMarkD2Ev.exit
@@ -332,17 +332,17 @@ define hidden noundef zeroext i1 @_ZN10JfrUpcalls21unhide_internal_typesEP10Java
 
 12:                                               ; preds = %8
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %0) #6
-  %13 = getelementptr inbounds i8, ptr %0, i64 800
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load i64, ptr %21, align 8
-  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not12 = icmp eq ptr %23, null
   br i1 %.not12, label %27, label %24
 

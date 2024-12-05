@@ -11,22 +11,22 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
   br i1 %5, label %364, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 308
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 1048576
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 280
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %12 = load ptr, ptr %11, align 8
   %.not38 = icmp eq ptr %12, null
   br i1 %.not38, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 552
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   tail call void %12(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %16) #4
   %.pre = load i32, ptr %7, align 4
   br label %17
@@ -38,10 +38,10 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
   br i1 %.not39, label %28, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 552
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 304
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %25 = load i32, ptr %24, align 8
   %26 = lshr i32 %25, 7
   %.lobit = and i32 %26, 1
@@ -57,9 +57,9 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
   br i1 %.not41, label %35, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 552
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   tail call void @png_do_packswap(ptr noundef %1, ptr noundef nonnull %34) #4
   %.pre112 = load i32, ptr %7, align 4
   br label %35
@@ -71,18 +71,18 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
   br i1 %.not42, label %png_do_pack.exit, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %0, i64 552
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1
-  %42 = getelementptr inbounds i8, ptr %0, i64 616
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %43 = load i8, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 17
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 8
   br i1 %46, label %47, label %png_do_pack.exit
 
 47:                                               ; preds = %38
-  %48 = getelementptr inbounds i8, ptr %1, i64 18
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %49 = load i8, ptr %48, align 2
   %50 = icmp eq i8 %49, 1
   br i1 %50, label %51, label %png_do_pack.exit
@@ -115,7 +115,7 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
   %.not93.i = icmp eq i8 %55, 0
   %56 = select i1 %.not93.i, i32 0, i32 %.078114.i
   %spec.select.i = or i32 %56, %.080113.i
-  %57 = getelementptr inbounds i8, ptr %.0116.i, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.0116.i, i64 1
   %exitcond.not = icmp eq i32 %.090112.i, %54
   br i1 %exitcond.not, label %.thread.i, label %58
 
@@ -128,7 +128,7 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
 .thread.i:                                        ; preds = %.lr.ph118.i
   %61 = trunc i32 %spec.select.i to i8
   store i8 %61, ptr %.069115.ph.i, align 1
-  %62 = getelementptr inbounds i8, ptr %.069115.ph.i, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.069115.ph.i, i64 1
   %63 = add i32 %.090112.ph.i, 8
   %exitcond127.not134.i = icmp eq i32 %63, %53
   br i1 %exitcond127.not134.i, label %._crit_edge119.thread.i, label %.lr.ph118.outer.i, !llvm.loop !4
@@ -159,7 +159,7 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
 
 72:                                               ; preds = %.lr.ph107.i
   %73 = add nsw i32 %.085103.i, -2
-  %74 = getelementptr inbounds i8, ptr %.089101.i, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.089101.i, i64 1
   %75 = add nuw i32 %.082105.i, 1
   %exitcond126.not.i = icmp eq i32 %75, %65
   br i1 %exitcond126.not.i, label %._crit_edge108.i, label %.lr.ph107.i, !llvm.loop !6
@@ -167,8 +167,8 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
 .thread145.i:                                     ; preds = %.lr.ph107.i
   %76 = trunc i32 %70 to i8
   store i8 %76, ptr %.087102.ph.i, align 1
-  %77 = getelementptr inbounds i8, ptr %.087102.ph.i, i64 1
-  %78 = getelementptr inbounds i8, ptr %.089101.i, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.087102.ph.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.089101.i, i64 1
   %79 = add nuw i32 %.082105.i, 1
   %exitcond126.not149.i = icmp eq i32 %79, %65
   br i1 %exitcond126.not149.i, label %._crit_edge119.thread.i, label %.lr.ph107.outer.i, !llvm.loop !6
@@ -203,7 +203,7 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
 
 89:                                               ; preds = %.lr.ph.i
   %90 = add nsw i32 %.07396.i, -4
-  %91 = getelementptr inbounds i8, ptr %.07794.i, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.07794.i, i64 1
   %92 = add nuw i32 %.07098.i, 1
   %exitcond.not.i = icmp eq i32 %92, %82
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
@@ -211,8 +211,8 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
 .thread160.i:                                     ; preds = %.lr.ph.i
   %93 = trunc i32 %87 to i8
   store i8 %93, ptr %.07595.ph.i, align 1
-  %94 = getelementptr inbounds i8, ptr %.07595.ph.i, i64 1
-  %95 = getelementptr inbounds i8, ptr %.07794.i, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.07595.ph.i, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.07794.i, i64 1
   %96 = add nuw i32 %.07098.i, 1
   %exitcond.not164.i = icmp eq i32 %96, %82
   br i1 %exitcond.not164.i, label %._crit_edge119.thread.i, label %.lr.ph.outer.i, !llvm.loop !7
@@ -232,7 +232,7 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
   store i8 %43, ptr %44, align 1
   %99 = load i8, ptr %48, align 2
   %100 = mul i8 %99, %43
-  %101 = getelementptr inbounds i8, ptr %1, i64 19
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 19
   store i8 %100, ptr %101, align 1
   %102 = icmp ugt i8 %100, 7
   %103 = load i32, ptr %1, align 8
@@ -254,7 +254,7 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
 
 114:                                              ; preds = %109, %105
   %115 = phi i64 [ %108, %105 ], [ %113, %109 ]
-  %116 = getelementptr inbounds i8, ptr %1, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %115, ptr %116, align 8
   %.pre113 = load i32, ptr %7, align 4
   br label %png_do_pack.exit
@@ -266,9 +266,9 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   br i1 %.not43, label %123, label %119
 
 119:                                              ; preds = %png_do_pack.exit
-  %120 = getelementptr inbounds i8, ptr %0, i64 552
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 1
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 1
   tail call void @png_do_swap(ptr noundef %1, ptr noundef nonnull %122) #4
   %.pre114 = load i32, ptr %7, align 4
   br label %123
@@ -280,13 +280,13 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   br i1 %.not44, label %240, label %126
 
 126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %0, i64 552
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 1
-  %130 = getelementptr inbounds i8, ptr %0, i64 733
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 733
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %131 = getelementptr inbounds i8, ptr %1, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %132 = load i8, ptr %131, align 8
   %.not.i = icmp eq i8 %132, 3
   br i1 %.not.i, label %png_do_shift.exit, label %133
@@ -294,33 +294,33 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
 133:                                              ; preds = %126
   %134 = and i8 %132, 2
   %.not126.i = icmp eq i8 %134, 0
-  %135 = getelementptr inbounds i8, ptr %1, i64 17
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i32
   br i1 %.not126.i, label %152, label %138
 
 138:                                              ; preds = %133
   %139 = load i8, ptr %130, align 1
-  %140 = getelementptr inbounds i8, ptr %0, i64 734
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 734
   %141 = load i8, ptr %140, align 1
   %142 = zext i8 %141 to i32
   %143 = sub nsw i32 %137, %142
-  %144 = getelementptr inbounds i8, ptr %3, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %143, ptr %144, align 4
-  %145 = getelementptr inbounds i8, ptr %4, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %142, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %0, i64 735
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 735
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i32
   %149 = sub nsw i32 %137, %148
-  %150 = getelementptr inbounds i8, ptr %3, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %149, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %4, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %148, ptr %151, align 8
   br label %155
 
 152:                                              ; preds = %133
-  %153 = getelementptr inbounds i8, ptr %0, i64 736
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %154 = load i8, ptr %153, align 1
   br label %155
 
@@ -336,14 +336,14 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   br i1 %.not127.i, label %168, label %159
 
 159:                                              ; preds = %155
-  %160 = getelementptr inbounds i8, ptr %0, i64 737
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 737
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   %163 = sub nsw i32 %137, %162
   %164 = zext nneg i32 %.0.i to i64
-  %165 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %164
   store i32 %163, ptr %165, align 4
-  %166 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %164
+  %166 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %164
   store i32 %162, ptr %166, align 4
   %167 = add nuw nsw i32 %.0.i, 1
   br label %168
@@ -354,9 +354,9 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   br i1 %169, label %170, label %191
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %1, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %172 = load i64, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %0, i64 736
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %174 = load i8, ptr %173, align 1
   %175 = icmp eq i8 %174, 1
   %176 = icmp eq i8 %136, 2
@@ -401,7 +401,7 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   %188 = trunc i32 %.1120.us.i to i8
   store i8 %188, ptr %.0110156.us.i, align 1
   %189 = add nuw i64 %.0111155.us.i, 1
-  %190 = getelementptr inbounds i8, ptr %.0110156.us.i, i64 1
+  %190 = getelementptr inbounds nuw i8, ptr %.0110156.us.i, i64 1
   %exitcond166.not.i = icmp eq i64 %189, %172
   br i1 %exitcond166.not.i, label %png_do_shift.exit, label %.lr.ph152.us.i, !llvm.loop !9
 
@@ -422,9 +422,9 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   %197 = load i8, ptr %.0122145.i, align 1
   %198 = zext i8 %197 to i32
   %199 = zext nneg i32 %196 to i64
-  %200 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %199
   %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %199
+  %202 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %199
   %203 = load i32, ptr %202, align 4
   %204 = sub nsw i32 0, %203
   %205 = icmp sgt i32 %201, %204
@@ -450,7 +450,7 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   %.0114.lcssa.i = phi i8 [ 0, %.lr.ph148.i ], [ %211, %._crit_edge143.loopexit.i ]
   store i8 %.0114.lcssa.i, ptr %.0122145.i, align 1
   %212 = add nuw i32 %.0121146.i, 1
-  %213 = getelementptr inbounds i8, ptr %.0122145.i, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %.0122145.i, i64 1
   %exitcond165.not.i = icmp eq i32 %212, %194
   br i1 %exitcond165.not.i, label %png_do_shift.exit, label %.lr.ph148.i, !llvm.loop !11
 
@@ -464,14 +464,14 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   %216 = load i8, ptr %.0113135.i, align 1
   %217 = zext i8 %216 to i32
   %218 = shl nuw nsw i32 %217, 8
-  %219 = getelementptr inbounds i8, ptr %.0113135.i, i64 1
+  %219 = getelementptr inbounds nuw i8, ptr %.0113135.i, i64 1
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i32
   %222 = or disjoint i32 %218, %221
   %223 = zext nneg i32 %215 to i64
-  %224 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %223
   %225 = load i32, ptr %224, align 4
-  %226 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %223
+  %226 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %223
   %227 = load i32, ptr %226, align 4
   %228 = sub nsw i32 0, %227
   %229 = icmp sgt i32 %225, %228
@@ -495,7 +495,7 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   %236 = trunc i32 %235 to i8
   store i8 %236, ptr %.0113135.i, align 1
   %237 = trunc i32 %.0107.lcssa.i to i8
-  %238 = getelementptr inbounds i8, ptr %.0113135.i, i64 2
+  %238 = getelementptr inbounds nuw i8, ptr %.0113135.i, i64 2
   store i8 %237, ptr %219, align 1
   %239 = add nuw i32 %.0112136.i, 1
   %exitcond.not.i50 = icmp eq i32 %239, %194
@@ -514,10 +514,10 @@ png_do_shift.exit:                                ; preds = %._crit_edge.i49, %.
   br i1 %.not45, label %png_do_write_swap_alpha.exit, label %243
 
 243:                                              ; preds = %240
-  %244 = getelementptr inbounds i8, ptr %0, i64 552
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 1
-  %247 = getelementptr inbounds i8, ptr %1, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 1
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %248 = load i8, ptr %247, align 8
   switch i8 %248, label %png_do_write_swap_alpha.exit [
     i8 6, label %249
@@ -525,7 +525,7 @@ png_do_shift.exit:                                ; preds = %._crit_edge.i49, %.
   ]
 
 249:                                              ; preds = %243
-  %250 = getelementptr inbounds i8, ptr %1, i64 17
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %251 = load i8, ptr %250, align 1
   %252 = icmp eq i8 %251, 8
   %253 = load i32, ptr %1, align 8
@@ -538,12 +538,12 @@ png_do_shift.exit:                                ; preds = %._crit_edge.i49, %.
 .lr.ph92.i:                                       ; preds = %254, %.lr.ph92.i
   %.091.i = phi ptr [ %261, %.lr.ph92.i ], [ %246, %254 ]
   %.06489.i = phi i32 [ %263, %.lr.ph92.i ], [ 0, %254 ]
-  %255 = getelementptr inbounds i8, ptr %.091.i, i64 1
+  %255 = getelementptr inbounds nuw i8, ptr %.091.i, i64 1
   %256 = load i8, ptr %.091.i, align 1
-  %257 = getelementptr inbounds i8, ptr %.091.i, i64 2
+  %257 = getelementptr inbounds nuw i8, ptr %.091.i, i64 2
   %258 = load i8, ptr %255, align 1
   store i8 %258, ptr %.091.i, align 1
-  %259 = getelementptr inbounds i8, ptr %.091.i, i64 3
+  %259 = getelementptr inbounds nuw i8, ptr %.091.i, i64 3
   %260 = load i8, ptr %257, align 1
   store i8 %260, ptr %255, align 1
   %261 = getelementptr i8, ptr %.091.i, i64 4
@@ -560,23 +560,23 @@ png_do_shift.exit:                                ; preds = %._crit_edge.i49, %.
 .lr.ph88.i:                                       ; preds = %264, %.lr.ph88.i
   %.06887.i = phi ptr [ %279, %.lr.ph88.i ], [ %246, %264 ]
   %.07385.i = phi i32 [ %281, %.lr.ph88.i ], [ 0, %264 ]
-  %265 = getelementptr inbounds i8, ptr %.06887.i, i64 1
+  %265 = getelementptr inbounds nuw i8, ptr %.06887.i, i64 1
   %266 = load i8, ptr %.06887.i, align 1
-  %267 = getelementptr inbounds i8, ptr %.06887.i, i64 2
+  %267 = getelementptr inbounds nuw i8, ptr %.06887.i, i64 2
   %268 = load i8, ptr %265, align 1
-  %269 = getelementptr inbounds i8, ptr %.06887.i, i64 3
+  %269 = getelementptr inbounds nuw i8, ptr %.06887.i, i64 3
   %270 = load i8, ptr %267, align 1
   store i8 %270, ptr %.06887.i, align 1
-  %271 = getelementptr inbounds i8, ptr %.06887.i, i64 4
+  %271 = getelementptr inbounds nuw i8, ptr %.06887.i, i64 4
   %272 = load i8, ptr %269, align 1
   store i8 %272, ptr %265, align 1
-  %273 = getelementptr inbounds i8, ptr %.06887.i, i64 5
+  %273 = getelementptr inbounds nuw i8, ptr %.06887.i, i64 5
   %274 = load i8, ptr %271, align 1
   store i8 %274, ptr %267, align 1
-  %275 = getelementptr inbounds i8, ptr %.06887.i, i64 6
+  %275 = getelementptr inbounds nuw i8, ptr %.06887.i, i64 6
   %276 = load i8, ptr %273, align 1
   store i8 %276, ptr %269, align 1
-  %277 = getelementptr inbounds i8, ptr %.06887.i, i64 7
+  %277 = getelementptr inbounds nuw i8, ptr %.06887.i, i64 7
   %278 = load i8, ptr %275, align 1
   store i8 %278, ptr %271, align 1
   %279 = getelementptr i8, ptr %.06887.i, i64 8
@@ -589,7 +589,7 @@ png_do_shift.exit:                                ; preds = %._crit_edge.i49, %.
   br i1 %exitcond100.not.i, label %png_do_write_swap_alpha.exit, label %.lr.ph88.i, !llvm.loop !15
 
 282:                                              ; preds = %243
-  %283 = getelementptr inbounds i8, ptr %1, i64 17
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %284 = load i8, ptr %283, align 1
   %285 = icmp eq i8 %284, 8
   %286 = load i32, ptr %1, align 8
@@ -602,7 +602,7 @@ png_do_shift.exit:                                ; preds = %._crit_edge.i49, %.
 .lr.ph84.i:                                       ; preds = %287, %.lr.ph84.i
   %.07083.i = phi i32 [ %292, %.lr.ph84.i ], [ 0, %287 ]
   %.07182.i = phi ptr [ %290, %.lr.ph84.i ], [ %246, %287 ]
-  %288 = getelementptr inbounds i8, ptr %.07182.i, i64 1
+  %288 = getelementptr inbounds nuw i8, ptr %.07182.i, i64 1
   %289 = load i8, ptr %.07182.i, align 1
   %290 = getelementptr i8, ptr %.07182.i, i64 2
   %291 = load i8, ptr %288, align 1
@@ -618,11 +618,11 @@ png_do_shift.exit:                                ; preds = %._crit_edge.i49, %.
 .lr.ph.i55:                                       ; preds = %293, %.lr.ph.i55
   %.06580.i = phi i32 [ %302, %.lr.ph.i55 ], [ 0, %293 ]
   %.06679.i = phi ptr [ %300, %.lr.ph.i55 ], [ %246, %293 ]
-  %294 = getelementptr inbounds i8, ptr %.06679.i, i64 1
+  %294 = getelementptr inbounds nuw i8, ptr %.06679.i, i64 1
   %295 = load i8, ptr %.06679.i, align 1
-  %296 = getelementptr inbounds i8, ptr %.06679.i, i64 2
+  %296 = getelementptr inbounds nuw i8, ptr %.06679.i, i64 2
   %297 = load i8, ptr %294, align 1
-  %298 = getelementptr inbounds i8, ptr %.06679.i, i64 3
+  %298 = getelementptr inbounds nuw i8, ptr %.06679.i, i64 3
   %299 = load i8, ptr %296, align 1
   store i8 %299, ptr %.06679.i, align 1
   %300 = getelementptr i8, ptr %.06679.i, i64 4
@@ -641,10 +641,10 @@ png_do_write_swap_alpha.exit:                     ; preds = %.lr.ph.i55, %.lr.ph
   br i1 %.not46, label %png_do_write_invert_alpha.exit, label %305
 
 305:                                              ; preds = %png_do_write_swap_alpha.exit
-  %306 = getelementptr inbounds i8, ptr %0, i64 552
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 1
-  %309 = getelementptr inbounds i8, ptr %1, i64 16
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 1
+  %309 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %310 = load i8, ptr %309, align 8
   switch i8 %310, label %png_do_write_invert_alpha.exit [
     i8 6, label %311
@@ -652,7 +652,7 @@ png_do_write_swap_alpha.exit:                     ; preds = %.lr.ph.i55, %.lr.ph
   ]
 
 311:                                              ; preds = %305
-  %312 = getelementptr inbounds i8, ptr %1, i64 17
+  %312 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %313 = load i8, ptr %312, align 1
   %314 = icmp eq i8 %313, 8
   %315 = load i32, ptr %1, align 8
@@ -665,8 +665,8 @@ png_do_write_swap_alpha.exit:                     ; preds = %.lr.ph.i55, %.lr.ph
 .lr.ph66.i:                                       ; preds = %316, %.lr.ph66.i
   %.065.i = phi ptr [ %318, %.lr.ph66.i ], [ %308, %316 ]
   %.04864.i = phi i32 [ %321, %.lr.ph66.i ], [ 0, %316 ]
-  %317 = getelementptr inbounds i8, ptr %.065.i, i64 3
-  %318 = getelementptr inbounds i8, ptr %.065.i, i64 4
+  %317 = getelementptr inbounds nuw i8, ptr %.065.i, i64 3
+  %318 = getelementptr inbounds nuw i8, ptr %.065.i, i64 4
   %319 = load i8, ptr %317, align 1
   %320 = xor i8 %319, -1
   store i8 %320, ptr %317, align 1
@@ -680,12 +680,12 @@ png_do_write_swap_alpha.exit:                     ; preds = %.lr.ph.i55, %.lr.ph
 .lr.ph63.i:                                       ; preds = %322, %.lr.ph63.i
   %.04962.i = phi i32 [ %330, %.lr.ph63.i ], [ 0, %322 ]
   %.05061.i = phi ptr [ %327, %.lr.ph63.i ], [ %308, %322 ]
-  %323 = getelementptr inbounds i8, ptr %.05061.i, i64 6
-  %324 = getelementptr inbounds i8, ptr %.05061.i, i64 7
+  %323 = getelementptr inbounds nuw i8, ptr %.05061.i, i64 6
+  %324 = getelementptr inbounds nuw i8, ptr %.05061.i, i64 7
   %325 = load i8, ptr %323, align 1
   %326 = xor i8 %325, -1
   store i8 %326, ptr %323, align 1
-  %327 = getelementptr inbounds i8, ptr %.05061.i, i64 8
+  %327 = getelementptr inbounds nuw i8, ptr %.05061.i, i64 8
   %328 = load i8, ptr %324, align 1
   %329 = xor i8 %328, -1
   store i8 %329, ptr %324, align 1
@@ -694,7 +694,7 @@ png_do_write_swap_alpha.exit:                     ; preds = %.lr.ph.i55, %.lr.ph
   br i1 %exitcond74.not.i, label %png_do_write_invert_alpha.exit, label %.lr.ph63.i, !llvm.loop !19
 
 331:                                              ; preds = %305
-  %332 = getelementptr inbounds i8, ptr %1, i64 17
+  %332 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %333 = load i8, ptr %332, align 1
   %334 = icmp eq i8 %333, 8
   %335 = load i32, ptr %1, align 8
@@ -707,7 +707,7 @@ png_do_write_swap_alpha.exit:                     ; preds = %.lr.ph.i55, %.lr.ph
 .lr.ph60.i:                                       ; preds = %336, %.lr.ph60.i
   %.04559.i = phi i32 [ %341, %.lr.ph60.i ], [ 0, %336 ]
   %.04658.i = phi ptr [ %338, %.lr.ph60.i ], [ %308, %336 ]
-  %337 = getelementptr inbounds i8, ptr %.04658.i, i64 1
+  %337 = getelementptr inbounds nuw i8, ptr %.04658.i, i64 1
   %338 = getelementptr i8, ptr %.04658.i, i64 2
   %339 = load i8, ptr %337, align 1
   %340 = xor i8 %339, -1
@@ -722,12 +722,12 @@ png_do_write_swap_alpha.exit:                     ; preds = %.lr.ph.i55, %.lr.ph
 .lr.ph.i57:                                       ; preds = %342, %.lr.ph.i57
   %.04356.i = phi i32 [ %350, %.lr.ph.i57 ], [ 0, %342 ]
   %.04455.i = phi ptr [ %347, %.lr.ph.i57 ], [ %308, %342 ]
-  %343 = getelementptr inbounds i8, ptr %.04455.i, i64 2
-  %344 = getelementptr inbounds i8, ptr %.04455.i, i64 3
+  %343 = getelementptr inbounds nuw i8, ptr %.04455.i, i64 2
+  %344 = getelementptr inbounds nuw i8, ptr %.04455.i, i64 3
   %345 = load i8, ptr %343, align 1
   %346 = xor i8 %345, -1
   store i8 %346, ptr %343, align 1
-  %347 = getelementptr inbounds i8, ptr %.04455.i, i64 4
+  %347 = getelementptr inbounds nuw i8, ptr %.04455.i, i64 4
   %348 = load i8, ptr %344, align 1
   %349 = xor i8 %348, -1
   store i8 %349, ptr %344, align 1
@@ -742,9 +742,9 @@ png_do_write_invert_alpha.exit:                   ; preds = %.lr.ph.i57, %.lr.ph
   br i1 %.not47, label %357, label %353
 
 353:                                              ; preds = %png_do_write_invert_alpha.exit
-  %354 = getelementptr inbounds i8, ptr %0, i64 552
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 1
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 1
   tail call void @png_do_bgr(ptr noundef %1, ptr noundef nonnull %356) #4
   %.pre116 = load i32, ptr %7, align 4
   br label %357
@@ -756,9 +756,9 @@ png_do_write_invert_alpha.exit:                   ; preds = %.lr.ph.i57, %.lr.ph
   br i1 %.not48, label %364, label %360
 
 360:                                              ; preds = %357
-  %361 = getelementptr inbounds i8, ptr %0, i64 552
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %362 = load ptr, ptr %361, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 1
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 1
   tail call void @png_do_invert(ptr noundef %1, ptr noundef nonnull %363) #4
   br label %364
 

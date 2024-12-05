@@ -51,7 +51,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %13 = phi i32 [ 24, %11 ], [ %.be14, %.backedge13 ]
   %14 = phi ptr [ @cpuid_deps, %11 ], [ %.be15, %.backedge13 ]
   %15 = phi i8 [ 0, %11 ], [ %.be16, %.backedge13 ]
-  %16 = getelementptr inbounds i8, ptr %14, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
   %19 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %18) #4, !srcloc !12
@@ -91,11 +91,11 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   br label %12, !llvm.loop !14
 
 .thread:                                          ; preds = %9
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, i64 %6) #4, !srcloc !10
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %36, i64 %6) #4, !srcloc !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %6) #4, !srcloc !11
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.split
 
 38:                                               ; preds = %33
@@ -109,7 +109,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %39 = phi i32 [ 24, %38 ], [ %.be10, %.split.us.backedge ]
   %40 = phi ptr [ @cpuid_deps, %38 ], [ %.be11, %.split.us.backedge ]
   %41 = phi i8 [ 0, %38 ], [ %.be12, %.split.us.backedge ]
-  %42 = getelementptr inbounds i8, ptr %40, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %43 to i64
   %45 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %44) #4, !srcloc !12
@@ -142,7 +142,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %57 = phi i32 [ 24, %55 ], [ %.be, %.backedge ]
   %58 = phi ptr [ @cpuid_deps, %55 ], [ %.be8, %.backedge ]
   %59 = phi i8 [ 0, %55 ], [ %.be9, %.backedge ]
-  %60 = getelementptr inbounds i8, ptr %58, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = zext i32 %61 to i64
   %63 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %62) #4, !srcloc !12
@@ -214,7 +214,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %89 = phi i32 [ 24, %.thread ], [ %.be18, %.split.backedge ]
   %90 = phi ptr [ @cpuid_deps, %.thread ], [ %.be19, %.split.backedge ]
   %91 = phi i8 [ 0, %.thread ], [ %.be20, %.split.backedge ]
-  %92 = getelementptr inbounds i8, ptr %90, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = zext i32 %93 to i64
   %95 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %94) #4, !srcloc !12
@@ -232,7 +232,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %98
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %37, i64 %99) #4, !srcloc !10
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %37, i64 %99) #4, !srcloc !10
   br label %104
 
 104:                                              ; preds = %103, %98, %.split

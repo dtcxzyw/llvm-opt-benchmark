@@ -18,9 +18,9 @@ $__clang_call_terminate = comdat any
 define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIhLi1EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %call = tail call fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0, ptr noundef %filename)
   ret i1 %call
@@ -45,9 +45,9 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %call7 = call noalias ptr @png_create_info_struct(ptr noundef nonnull %call)
   store ptr %call, ptr %guard, align 8
-  %info3.i = getelementptr inbounds i8, ptr %guard, i64 8
+  %info3.i = getelementptr inbounds nuw i8, ptr %guard, i64 8
   store ptr %call7, ptr %info3.i, align 8
-  %file.i = getelementptr inbounds i8, ptr %guard, i64 16
+  %file.i = getelementptr inbounds nuw i8, ptr %guard, i64 16
   store ptr null, ptr %file.i, align 8
   %tobool8.not = icmp eq ptr %call7, null
   br i1 %tobool8.not, label %cleanup35, label %if.end10
@@ -99,7 +99,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = add nsw i64 %1, %3
   %5 = mul nsw i64 %4, %2
   %add.ptr = getelementptr inbounds i8, ptr %pixels, i64 %5
-  %add.ptr.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i2.i.i27, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i2.i.i27, i64 %indvars.iv
   store ptr %add.ptr, ptr %add.ptr.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -180,9 +180,9 @@ return:                                           ; preds = %if.end, %entry, %_Z
 define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIhLi3EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %call = tail call fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 2, ptr noundef %filename)
   ret i1 %call
@@ -192,9 +192,9 @@ entry:
 define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIhLi4EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %call = tail call fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKhiiiiPKc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 6, ptr noundef %filename)
   ret i1 %call
@@ -204,9 +204,9 @@ entry:
 define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi1EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %call = tail call fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKfiiiiPKc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0, ptr noundef %filename)
   ret i1 %call
@@ -241,7 +241,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i13, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i.i13, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i.i, i8 0, i64 %sub.i.i.i.i.i, i1 false)
   br label %invoke.cont
 
@@ -255,7 +255,7 @@ invoke.cont6.preheader:                           ; preds = %invoke.cont
 
 invoke.cont6:                                     ; preds = %invoke.cont6.preheader, %invoke.cont6
   %indvars.iv = phi i64 [ 0, %invoke.cont6.preheader ], [ %indvars.iv.next, %invoke.cont6 ]
-  %arrayidx = getelementptr inbounds float, ptr %pixels, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %pixels, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 4
   %mul.i = fmul float %0, 2.560000e+02
   %cmp.i.i14 = fcmp ult float %mul.i, 0.000000e+00
@@ -266,7 +266,7 @@ invoke.cont6:                                     ; preds = %invoke.cont6.prehea
   %mul.i.i = fmul float %conv.i.i, 2.550000e+02
   %cond.i.i = select i1 %or.cond.i.i, float %mul.i.i, float %mul.i
   %conv.i = fptoui float %cond.i.i to i8
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i13, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i.i13, i64 %indvars.iv
   store i8 %conv.i, ptr %add.ptr.i, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -295,9 +295,9 @@ return:                                           ; preds = %entry, %_ZNSt6vecto
 define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi3EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %call = tail call fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKfiiiiPKc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 3, i32 noundef 2, ptr noundef %filename)
   ret i1 %call
@@ -307,9 +307,9 @@ entry:
 define dso_local noundef zeroext i1 @_ZN7msdfgen7savePngERKNS_14BitmapConstRefIfLi4EEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bitmap, ptr nocapture noundef readonly %filename) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
-  %width = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %width = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %1 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds i8, ptr %bitmap, i64 12
+  %height = getelementptr inbounds nuw i8, ptr %bitmap, i64 12
   %2 = load i32, ptr %height, align 4
   %call = tail call fastcc noundef zeroext i1 @_ZN7msdfgenL7pngSaveEPKfiiiiPKc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 6, ptr noundef %filename)
   ret i1 %call
@@ -375,12 +375,12 @@ declare void @png_write_png(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7msdfgen8PngGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %info = getelementptr inbounds i8, ptr %this, i64 8
+  %info = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @png_destroy_write_struct(ptr noundef nonnull %this, ptr noundef nonnull %info)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %file = getelementptr inbounds i8, ptr %this, i64 16
+  %file = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @fclose(ptr noundef %0)
   ret void

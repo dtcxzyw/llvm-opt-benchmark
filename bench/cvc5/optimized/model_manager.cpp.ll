@@ -74,14 +74,14 @@ entry:
   %ref.tmp = alloca %"class.std::allocator.58", align 1
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory12ModelManagerE, i64 16), ptr %this, align 8
-  %d_te = getelementptr inbounds i8, ptr %this, i64 16
+  %d_te = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %te, ptr %d_te, align 8
-  %d_eem = getelementptr inbounds i8, ptr %this, i64 24
+  %d_eem = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %eem, ptr %d_eem, align 8
-  %d_modelEeContext = getelementptr inbounds i8, ptr %this, i64 32
+  %d_modelEeContext = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN4cvc57context7ContextC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_modelEeContext)
-  %d_modelEqualityEngine = getelementptr inbounds i8, ptr %this, i64 80
-  %d_modelEqualityEngineAlloc = getelementptr inbounds i8, ptr %this, i64 88
+  %d_modelEqualityEngine = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %d_modelEqualityEngineAlloc = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_modelEqualityEngine, i8 0, i64 16, i1 false)
   %call = invoke noalias noundef nonnull dereferenceable(904) ptr @_Znwm(i64 noundef 904) #15
           to label %invoke.cont3 unwind label %ehcleanup11.thread
@@ -110,7 +110,7 @@ invoke.cont5:                                     ; preds = %.noexc
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %theory = getelementptr inbounds i8, ptr %call8, i64 368
+  %theory = getelementptr inbounds nuw i8, ptr %call8, i64 368
   %1 = load ptr, ptr %theory, align 8
   %2 = load i8, ptr %1, align 4
   %tobool = trunc i8 %2 to i1
@@ -118,11 +118,11 @@ invoke.cont7:                                     ; preds = %invoke.cont5
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %d_model = getelementptr inbounds i8, ptr %this, i64 96
+  %d_model = getelementptr inbounds nuw i8, ptr %this, i64 96
   store ptr %call, ptr %d_model, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
-  %d_modelBuilder = getelementptr inbounds i8, ptr %this, i64 104
+  %d_modelBuilder = getelementptr inbounds nuw i8, ptr %this, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %d_modelBuilder, i8 0, i64 18, i1 false)
   ret void
 
@@ -152,7 +152,7 @@ ehcleanup11:                                      ; preds = %lpad6, %lpad.i, %lp
 
 _ZNKSt14default_deleteIN4cvc58internal6theory2eq14EqualityEngineEEclEPS4_.exit.i: ; preds = %ehcleanup11
   %vtable.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(1784) %.pr) #16
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory2eq14EqualityEngineESt14default_deleteIS4_EED2Ev.exit
@@ -196,49 +196,49 @@ declare void @_ZN4cvc57context7ContextD1Ev(ptr noundef nonnull align 8 dereferen
 define hidden void @_ZN4cvc58internal6theory12ModelManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(122) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory12ModelManagerE, i64 16), ptr %this, align 8
-  %d_alocModelBuilder = getelementptr inbounds i8, ptr %this, i64 112
+  %d_alocModelBuilder = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %d_alocModelBuilder, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4cvc58internal6theory24TheoryEngineModelBuilderESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory24TheoryEngineModelBuilderEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory24TheoryEngineModelBuilderEEclEPS3_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(120) %0) #16
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory24TheoryEngineModelBuilderESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory24TheoryEngineModelBuilderESt14default_deleteIS3_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4cvc58internal6theory24TheoryEngineModelBuilderEEclEPS3_.exit.i
   store ptr null, ptr %d_alocModelBuilder, align 8
-  %d_model = getelementptr inbounds i8, ptr %this, i64 96
+  %d_model = getelementptr inbounds nuw i8, ptr %this, i64 96
   %2 = load ptr, ptr %d_model, align 8
   %cmp.not.i1 = icmp eq ptr %2, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN4cvc58internal6theory11TheoryModelESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11TheoryModelEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11TheoryModelEEclEPS3_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory24TheoryEngineModelBuilderESt14default_deleteIS3_EED2Ev.exit
   %vtable.i.i2 = load ptr, ptr %2, align 8
-  %vfn.i.i3 = getelementptr inbounds i8, ptr %vtable.i.i2, i64 8
+  %vfn.i.i3 = getelementptr inbounds nuw i8, ptr %vtable.i.i2, i64 8
   %3 = load ptr, ptr %vfn.i.i3, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(904) %2) #16
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11TheoryModelESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11TheoryModelESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory24TheoryEngineModelBuilderESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN4cvc58internal6theory11TheoryModelEEclEPS3_.exit.i
   store ptr null, ptr %d_model, align 8
-  %d_modelEqualityEngineAlloc = getelementptr inbounds i8, ptr %this, i64 88
+  %d_modelEqualityEngineAlloc = getelementptr inbounds nuw i8, ptr %this, i64 88
   %4 = load ptr, ptr %d_modelEqualityEngineAlloc, align 8
   %cmp.not.i4 = icmp eq ptr %4, null
   br i1 %cmp.not.i4, label %_ZNSt10unique_ptrIN4cvc58internal6theory2eq14EqualityEngineESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory2eq14EqualityEngineEEclEPS4_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory2eq14EqualityEngineEEclEPS4_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11TheoryModelESt14default_deleteIS3_EED2Ev.exit
   %vtable.i.i5 = load ptr, ptr %4, align 8
-  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 16
+  %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 16
   %5 = load ptr, ptr %vfn.i.i6, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(1784) %4) #16
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory2eq14EqualityEngineESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory2eq14EqualityEngineESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11TheoryModelESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN4cvc58internal6theory2eq14EqualityEngineEEclEPS4_.exit.i
   store ptr null, ptr %d_modelEqualityEngineAlloc, align 8
-  %d_modelEeContext = getelementptr inbounds i8, ptr %this, i64 32
+  %d_modelEeContext = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN4cvc57context7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_modelEeContext) #16
   ret void
 }
@@ -261,35 +261,35 @@ entry:
   br i1 %call2, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %d_modelBuilder5.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 104
+  %d_modelBuilder5.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 104
   %.pre = load ptr, ptr %d_modelBuilder5.phi.trans.insert, align 8
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %d_te = getelementptr inbounds i8, ptr %this, i64 16
+  %d_te = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_te, align 8
-  %d_quantEngine.i = getelementptr inbounds i8, ptr %0, i64 184
+  %d_quantEngine.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   %1 = load ptr, ptr %d_quantEngine.i, align 8
   %call4 = tail call noundef ptr @_ZNK4cvc58internal6theory17QuantifiersEngine15getModelBuilderEv(ptr noundef nonnull align 8 dereferenceable(356) %1)
-  %d_modelBuilder = getelementptr inbounds i8, ptr %this, i64 104
+  %d_modelBuilder = getelementptr inbounds nuw i8, ptr %this, i64 104
   store ptr %call4, ptr %d_modelBuilder, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
   %2 = phi ptr [ %.pre, %entry.if.end_crit_edge ], [ %call4, %if.then ]
-  %d_modelBuilder5 = getelementptr inbounds i8, ptr %this, i64 104
+  %d_modelBuilder5 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then6, label %if.end11
 
 if.then6:                                         ; preds = %if.end
   %call7 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #15
-  %d_env = getelementptr inbounds i8, ptr %this, i64 8
+  %d_env = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %d_env, align 8
   invoke void @_ZN4cvc58internal6theory24TheoryEngineModelBuilderC1ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(120) %call7, ptr noundef nonnull align 8 dereferenceable(576) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then6
-  %d_alocModelBuilder = getelementptr inbounds i8, ptr %this, i64 112
+  %d_alocModelBuilder = getelementptr inbounds nuw i8, ptr %this, i64 112
   %4 = load ptr, ptr %d_alocModelBuilder, align 8
   store ptr %call7, ptr %d_alocModelBuilder, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -297,7 +297,7 @@ invoke.cont:                                      ; preds = %if.then6
 
 _ZNKSt14default_deleteIN4cvc58internal6theory24TheoryEngineModelBuilderEEclEPS3_.exit.i.i: ; preds = %invoke.cont
   %vtable.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(120) %4) #16
   %.pre1 = load ptr, ptr %d_alocModelBuilder, align 8
@@ -316,7 +316,7 @@ lpad:                                             ; preds = %if.then6
 
 if.end11:                                         ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory24TheoryEngineModelBuilderESt14default_deleteIS3_EE5resetEPS3_.exit, %if.end
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(122) %this, ptr noundef %notify)
   ret void
@@ -333,14 +333,14 @@ declare void @_ZN4cvc58internal6theory24TheoryEngineModelBuilderC1ERNS0_3EnvE(pt
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory12ModelManager10resetModelEv(ptr nocapture noundef nonnull align 8 dereferenceable(122) initializes((120, 122)) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_modelBuilt = getelementptr inbounds i8, ptr %this, i64 120
+  %d_modelBuilt = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i8 0, ptr %d_modelBuilt, align 8
-  %d_modelBuiltSuccess = getelementptr inbounds i8, ptr %this, i64 121
+  %d_modelBuiltSuccess = getelementptr inbounds nuw i8, ptr %this, i64 121
   store i8 0, ptr %d_modelBuiltSuccess, align 1
-  %d_model = getelementptr inbounds i8, ptr %this, i64 96
+  %d_model = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_model, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(904) %0)
   ret void
@@ -349,33 +349,33 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internal6theory12ModelManager10buildModelEv(ptr noundef nonnull align 8 dereferenceable(122) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_modelBuilt = getelementptr inbounds i8, ptr %this, i64 120
+  %d_modelBuilt = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i8, ptr %d_modelBuilt, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %d_modelBuiltSuccess = getelementptr inbounds i8, ptr %this, i64 121
+  %d_modelBuiltSuccess = getelementptr inbounds nuw i8, ptr %this, i64 121
   br label %return
 
 if.end:                                           ; preds = %entry
-  %d_env = getelementptr inbounds i8, ptr %this, i64 8
+  %d_env = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %d_env, align 8
   %call = tail call noundef ptr @_ZNK4cvc58internal3Env18getResourceManagerEv(ptr noundef nonnull align 8 dereferenceable(576) %1)
-  %d_enabled.i = getelementptr inbounds i8, ptr %call, i64 8
+  %d_enabled.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i8 0, ptr %d_enabled.i, align 8
   store i8 1, ptr %d_modelBuilt, align 8
-  %d_modelBuiltSuccess4 = getelementptr inbounds i8, ptr %this, i64 121
+  %d_modelBuiltSuccess4 = getelementptr inbounds nuw i8, ptr %this, i64 121
   store i8 0, ptr %d_modelBuiltSuccess4, align 1
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(122) %this)
   br i1 %call5, label %cleanup.done31, label %if.end82
 
 cleanup.done31:                                   ; preds = %if.end
   %vtable11 = load ptr, ptr %this, align 8
-  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 24
+  %vfn12 = getelementptr inbounds nuw i8, ptr %vtable11, i64 24
   %3 = load ptr, ptr %vfn12, align 8
   %call13 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(122) %this)
   %frombool = zext i1 %call13 to i8
@@ -398,7 +398,7 @@ declare noundef ptr @_ZNK4cvc58internal3Env18getResourceManagerEv(ptr noundef no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory12ModelManager12isModelBuiltEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(122) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %d_modelBuilt = getelementptr inbounds i8, ptr %this, i64 120
+  %d_modelBuilt = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i8, ptr %d_modelBuilt, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -409,13 +409,13 @@ define hidden void @_ZN4cvc58internal6theory12ModelManager16postProcessModelEb(p
 entry:
   %ref.tmp10 = alloca %"class.cvc5::internal::FatalStream", align 1
   %theoryId = alloca i32, align 4
-  %d_modelBuilt = getelementptr inbounds i8, ptr %this, i64 120
+  %d_modelBuilt = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i8, ptr %d_modelBuilt, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %cond.end, label %return
 
 cond.end:                                         ; preds = %entry
-  %d_modelBuiltSuccess = getelementptr inbounds i8, ptr %this, i64 121
+  %d_modelBuiltSuccess = getelementptr inbounds nuw i8, ptr %this, i64 121
   %1 = load i8, ptr %d_modelBuiltSuccess, align 1
   %tobool5 = trunc i8 %1 to i1
   br i1 %tobool5, label %cleanup.done, label %cond.false8
@@ -449,25 +449,25 @@ lpad:                                             ; preds = %invoke.cont14, %inv
 
 cleanup.done:                                     ; preds = %cond.end
   %call23 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %smt = getelementptr inbounds i8, ptr %call23, i64 352
+  %smt = getelementptr inbounds nuw i8, ptr %call23, i64 352
   %3 = load ptr, ptr %smt, align 8
-  %produceModels = getelementptr inbounds i8, ptr %3, i64 111
+  %produceModels = getelementptr inbounds nuw i8, ptr %3, i64 111
   %4 = load i8, ptr %produceModels, align 1
   %tobool24 = trunc i8 %4 to i1
   br i1 %tobool24, label %if.end26, label %return
 
 if.end26:                                         ; preds = %cleanup.done
   store i32 0, ptr %theoryId, align 4
-  %d_te = getelementptr inbounds i8, ptr %this, i64 16
-  %d_model = getelementptr inbounds i8, ptr %this, i64 96
+  %d_te = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %d_model = getelementptr inbounds nuw i8, ptr %this, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %if.end26, %for.inc
   %5 = phi i32 [ 0, %if.end26 ], [ %.pr, %for.inc ]
   %6 = load ptr, ptr %d_te, align 8
-  %d_theoryTable.i = getelementptr inbounds i8, ptr %6, i64 24
+  %d_theoryTable.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %idxprom.i = zext i32 %5 to i64
-  %arrayidx.i = getelementptr inbounds [14 x ptr], ptr %d_theoryTable.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [14 x ptr], ptr %d_theoryTable.i, i64 0, i64 %idxprom.i
   %7 = load ptr, ptr %arrayidx.i, align 8
   %cmp28 = icmp eq ptr %7, null
   br i1 %cmp28, label %for.inc, label %cond.end41
@@ -475,7 +475,7 @@ for.body:                                         ; preds = %if.end26, %for.inc
 cond.end41:                                       ; preds = %for.body
   %8 = load ptr, ptr %d_model, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 192
   %9 = load ptr, ptr %vfn, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(408) %7, ptr noundef %8)
   br label %for.inc
@@ -487,7 +487,7 @@ for.inc:                                          ; preds = %for.body, %cond.end
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
-  %d_modelBuilder = getelementptr inbounds i8, ptr %this, i64 104
+  %d_modelBuilder = getelementptr inbounds nuw i8, ptr %this, i64 104
   %10 = load ptr, ptr %d_modelBuilder, align 8
   %11 = load ptr, ptr %d_model, align 8
   call void @_ZN4cvc58internal6theory24TheoryEngineModelBuilder16postProcessModelEbPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(120) %10, i1 noundef zeroext %incomplete, ptr noundef %11)
@@ -513,7 +513,7 @@ declare void @_ZN4cvc58internal6theory24TheoryEngineModelBuilder16postProcessMod
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN4cvc58internal6theory12ModelManager8getModelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(122) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %d_model = getelementptr inbounds i8, ptr %this, i64 96
+  %d_model = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_model, align 8
   ret ptr %0
 }
@@ -525,23 +525,23 @@ cond.end:
   %value = alloca i8, align 1
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.588", align 8
   %agg.tmp62 = alloca %"class.cvc5::internal::NodeTemplate.588", align 8
-  %d_te = getelementptr inbounds i8, ptr %this, i64 16
+  %d_te = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_te, align 8
-  %d_propEngine.i = getelementptr inbounds i8, ptr %0, i64 16
+  %d_propEngine.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %d_propEngine.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %boolVars, i8 0, i64 24, i1 false)
   invoke void @_ZNK4cvc58internal4prop10PropEngine19getBooleanVariablesERSt6vectorINS0_12NodeTemplateILb0EEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(424) %1, ptr noundef nonnull align 8 dereferenceable(24) %boolVars)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.end
-  %_M_finish.i = getelementptr inbounds i8, ptr %boolVars, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %boolVars, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %boolVars, align 8
   %cmp.i.not254 = icmp eq ptr %3, %2
   br i1 %cmp.i.not254, label %cleanup71, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
-  %d_model = getelementptr inbounds i8, ptr %this, i64 96
+  %d_model = getelementptr inbounds nuw i8, ptr %this, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont66, %for.body.lr.ph
@@ -581,7 +581,7 @@ cond.true38:                                      ; preds = %invoke.cont16.cond.
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %cond.true38
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.0255, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.0255, i64 8
   %cmp.i.not = icmp ne ptr %incdec.ptr.i, %2
   %or.cond.not = select i1 %call67, i1 %cmp.i.not, i1 false
   br i1 %or.cond.not, label %for.body, label %cleanup71.loopexit, !llvm.loop !6
@@ -654,9 +654,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %d_kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %d_nchildren.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #16

@@ -53,7 +53,7 @@ define ptr @PMPI_Info_f2c(i32 noundef %0) #0 {
   %12 = phi i8 [ %7, %6 ], [ %.pre.i, %9 ]
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_info_f_to_c_table, i64 112), align 8
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = trunc i8 %12 to i1
   br i1 %17, label %18, label %opal_pointer_array_get_item.exit

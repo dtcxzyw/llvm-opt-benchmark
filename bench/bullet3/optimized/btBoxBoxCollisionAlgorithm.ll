@@ -29,22 +29,22 @@ define dso_local void @_ZN26btBoxBoxCollisionAlgorithmC2EP20btPersistentManifold
 entry:
   tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
   store ptr getelementptr inbounds (i8, ptr @_ZTV26btBoxBoxCollisionAlgorithm, i64 16), ptr %this, align 8
-  %m_ownManifold = getelementptr inbounds i8, ptr %this, i64 16
+  %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 0, ptr %m_ownManifold, align 8
-  %m_manifoldPtr = getelementptr inbounds i8, ptr %this, i64 24
+  %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %mf, ptr %m_manifoldPtr, align 8
   %tobool.not = icmp eq ptr %mf, null
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %m_dispatcher = getelementptr inbounds i8, ptr %this, i64 8
+  %m_dispatcher = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_dispatcher, align 8
-  %m_collisionObject.i = getelementptr inbounds i8, ptr %body0Wrap, i64 16
+  %m_collisionObject.i = getelementptr inbounds nuw i8, ptr %body0Wrap, i64 16
   %1 = load ptr, ptr %m_collisionObject.i, align 8
-  %m_collisionObject.i5 = getelementptr inbounds i8, ptr %body1Wrap, i64 16
+  %m_collisionObject.i5 = getelementptr inbounds nuw i8, ptr %body1Wrap, i64 16
   %2 = load ptr, ptr %m_collisionObject.i5, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %3 = load ptr, ptr %vfn, align 8
   %call6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2)
           to label %invoke.cont5 unwind label %lpad
@@ -57,7 +57,7 @@ if.then:                                          ; preds = %invoke.cont5
   %5 = load ptr, ptr %m_collisionObject.i, align 8
   %6 = load ptr, ptr %m_collisionObject.i5, align 8
   %vtable12 = load ptr, ptr %4, align 8
-  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 24
+  %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 24
   %7 = load ptr, ptr %vfn13, align 8
   %call15 = invoke noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef %6)
           to label %invoke.cont14 unwind label %lpad
@@ -88,22 +88,22 @@ declare void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 
 define dso_local void @_ZN26btBoxBoxCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV26btBoxBoxCollisionAlgorithm, i64 16), ptr %this, align 8
-  %m_ownManifold = getelementptr inbounds i8, ptr %this, i64 16
+  %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %m_ownManifold, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %m_manifoldPtr = getelementptr inbounds i8, ptr %this, i64 24
+  %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %m_manifoldPtr, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %m_dispatcher = getelementptr inbounds i8, ptr %this, i64 8
+  %m_dispatcher = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_dispatcher, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %1)
           to label %if.end5 unwind label %terminate.lpad
@@ -136,22 +136,22 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 define dso_local void @_ZN26btBoxBoxCollisionAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV26btBoxBoxCollisionAlgorithm, i64 16), ptr %this, align 8
-  %m_ownManifold.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_ownManifold.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %m_ownManifold.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %_ZN26btBoxBoxCollisionAlgorithmD2Ev.exit
 
 if.then.i:                                        ; preds = %entry
-  %m_manifoldPtr.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_manifoldPtr.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %m_manifoldPtr.i, align 8
   %tobool2.not.i = icmp eq ptr %1, null
   br i1 %tobool2.not.i, label %_ZN26btBoxBoxCollisionAlgorithmD2Ev.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %m_dispatcher.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_dispatcher.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_dispatcher.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %3 = load ptr, ptr %vfn.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %1)
           to label %_ZN26btBoxBoxCollisionAlgorithmD2Ev.exit unwind label %terminate.lpad.i
@@ -177,77 +177,77 @@ define dso_local void @_ZN26btBoxBoxCollisionAlgorithm16processCollisionEPK24btC
 entry:
   %input = alloca %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", align 4
   %detector = alloca %struct.btBoxBoxDetector, align 8
-  %m_manifoldPtr = getelementptr inbounds i8, ptr %this, i64 24
+  %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_manifoldPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_shape.i = getelementptr inbounds i8, ptr %body0Wrap, i64 8
+  %m_shape.i = getelementptr inbounds nuw i8, ptr %body0Wrap, i64 8
   %1 = load ptr, ptr %m_shape.i, align 8
-  %m_shape.i5 = getelementptr inbounds i8, ptr %body1Wrap, i64 8
+  %m_shape.i5 = getelementptr inbounds nuw i8, ptr %body1Wrap, i64 8
   %2 = load ptr, ptr %m_shape.i5, align 8
-  %m_manifoldPtr.i = getelementptr inbounds i8, ptr %resultOut, i64 8
+  %m_manifoldPtr.i = getelementptr inbounds nuw i8, ptr %resultOut, i64 8
   store ptr %0, ptr %m_manifoldPtr.i, align 8
-  %m_maximumDistanceSquared.i = getelementptr inbounds i8, ptr %input, i64 128
+  %m_maximumDistanceSquared.i = getelementptr inbounds nuw i8, ptr %input, i64 128
   store float 0x43ABC16D60000000, ptr %m_maximumDistanceSquared.i, align 4
-  %m_worldTransform.i = getelementptr inbounds i8, ptr %body0Wrap, i64 24
+  %m_worldTransform.i = getelementptr inbounds nuw i8, ptr %body0Wrap, i64 24
   %3 = load ptr, ptr %m_worldTransform.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %input, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 16, i1 false)
-  %arrayidx5.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %input, i64 16
+  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %input, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i, i64 16, i1 false)
-  %arrayidx9.i.i = getelementptr inbounds i8, ptr %3, i64 32
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %input, i64 32
+  %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %input, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i, i64 16, i1 false)
-  %m_origin.i = getelementptr inbounds i8, ptr %3, i64 48
-  %m_origin3.i = getelementptr inbounds i8, ptr %input, i64 48
+  %m_origin.i = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %m_origin3.i = getelementptr inbounds nuw i8, ptr %input, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i, i64 16, i1 false)
-  %m_worldTransform.i6 = getelementptr inbounds i8, ptr %body1Wrap, i64 24
+  %m_worldTransform.i6 = getelementptr inbounds nuw i8, ptr %body1Wrap, i64 24
   %4 = load ptr, ptr %m_worldTransform.i6, align 8
-  %m_transformB = getelementptr inbounds i8, ptr %input, i64 64
+  %m_transformB = getelementptr inbounds nuw i8, ptr %input, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %m_transformB, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 16, i1 false)
-  %arrayidx5.i.i7 = getelementptr inbounds i8, ptr %4, i64 16
-  %arrayidx7.i.i8 = getelementptr inbounds i8, ptr %input, i64 80
+  %arrayidx5.i.i7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %arrayidx7.i.i8 = getelementptr inbounds nuw i8, ptr %input, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx7.i.i8, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i.i7, i64 16, i1 false)
-  %arrayidx9.i.i9 = getelementptr inbounds i8, ptr %4, i64 32
-  %arrayidx11.i.i10 = getelementptr inbounds i8, ptr %input, i64 96
+  %arrayidx9.i.i9 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %arrayidx11.i.i10 = getelementptr inbounds nuw i8, ptr %input, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i.i10, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i.i9, i64 16, i1 false)
-  %m_origin.i11 = getelementptr inbounds i8, ptr %4, i64 48
-  %m_origin3.i12 = getelementptr inbounds i8, ptr %input, i64 112
+  %m_origin.i11 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %m_origin3.i12 = getelementptr inbounds nuw i8, ptr %input, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i12, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i11, i64 16, i1 false)
   call void @_ZN16btBoxBoxDetectorC1EPK10btBoxShapeS2_(ptr noundef nonnull align 8 dereferenceable(24) %detector, ptr noundef %1, ptr noundef %2)
-  %m_debugDraw = getelementptr inbounds i8, ptr %dispatchInfo, i64 24
+  %m_debugDraw = getelementptr inbounds nuw i8, ptr %dispatchInfo, i64 24
   %5 = load ptr, ptr %m_debugDraw, align 8
   call void @_ZN16btBoxBoxDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull align 8 dereferenceable(24) %detector, ptr noundef nonnull align 4 dereferenceable(132) %input, ptr noundef nonnull align 8 dereferenceable(8) %resultOut, ptr noundef %5, i1 noundef zeroext false)
-  %m_ownManifold = getelementptr inbounds i8, ptr %this, i64 16
+  %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load i8, ptr %m_ownManifold, align 8
   %tobool8 = trunc i8 %6 to i1
   br i1 %tobool8, label %if.then9, label %return
 
 if.then9:                                         ; preds = %if.end
   %7 = load ptr, ptr %m_manifoldPtr.i, align 8
-  %m_cachedPoints.i.i = getelementptr inbounds i8, ptr %7, i64 856
+  %m_cachedPoints.i.i = getelementptr inbounds nuw i8, ptr %7, i64 856
   %8 = load i32, ptr %m_cachedPoints.i.i, align 8
   %tobool.not.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %m_body0.i.i = getelementptr inbounds i8, ptr %7, i64 840
+  %m_body0.i.i = getelementptr inbounds nuw i8, ptr %7, i64 840
   %9 = load ptr, ptr %m_body0.i.i, align 8
-  %m_body0Wrap.i = getelementptr inbounds i8, ptr %resultOut, i64 16
+  %m_body0Wrap.i = getelementptr inbounds nuw i8, ptr %resultOut, i64 16
   %10 = load ptr, ptr %m_body0Wrap.i, align 8
-  %m_collisionObject.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %m_collisionObject.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %m_collisionObject.i.i, align 8
   %cmp.not.i = icmp eq ptr %9, %11
-  %m_body1Wrap17.i = getelementptr inbounds i8, ptr %resultOut, i64 24
+  %m_body1Wrap17.i = getelementptr inbounds nuw i8, ptr %resultOut, i64 24
   %12 = load ptr, ptr %m_body1Wrap17.i, align 8
-  %m_collisionObject.i6.i = getelementptr inbounds i8, ptr %12, i64 16
+  %m_collisionObject.i6.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load ptr, ptr %m_collisionObject.i6.i, align 8
   %. = select i1 %cmp.not.i, ptr %13, ptr %11
   %.14 = select i1 %cmp.not.i, ptr %11, ptr %13
-  %m_worldTransform.i5.sink.i = getelementptr inbounds i8, ptr %.14, i64 8
-  %m_worldTransform.i7.i = getelementptr inbounds i8, ptr %., i64 8
+  %m_worldTransform.i5.sink.i = getelementptr inbounds nuw i8, ptr %.14, i64 8
+  %m_worldTransform.i7.i = getelementptr inbounds nuw i8, ptr %., i64 8
   call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %7, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i5.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i7.i)
   br label %return
 
@@ -268,21 +268,21 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN26btBoxBoxCollisionAlgorithm22getAllContactManifoldsER20btAlignedObjectArrayIP20btPersistentManifoldE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(25) %manifoldArray) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_manifoldPtr = getelementptr inbounds i8, ptr %this, i64 24
+  %m_manifoldPtr = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_manifoldPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %m_ownManifold = getelementptr inbounds i8, ptr %this, i64 16
+  %m_ownManifold = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i8, ptr %m_ownManifold, align 8
   %tobool2 = trunc i8 %1 to i1
   br i1 %tobool2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %m_size.i.i = getelementptr inbounds i8, ptr %manifoldArray, i64 4
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 4
   %2 = load i32, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %manifoldArray, i64 8
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 8
   %3 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp eq i32 %2, %3
   br i1 %cmp.i, label %if.then.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
@@ -312,15 +312,15 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
   br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %manifoldArray, i64 16
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 16
   %wide.trip.count.i.i.i = zext nneg i32 %4 to i64
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %retval.0.i.i.i, i64 %indvars.iv.i.i.i
   %5 = load ptr, ptr %m_data.i.i.i, align 8
-  %arrayidx3.i.i.i = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i.i.i
+  %arrayidx3.i.i.i = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i.i
   %6 = load ptr, ptr %arrayidx3.i.i.i, align 8
   store ptr %6, ptr %arrayidx.i.i.i, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -328,13 +328,13 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i, label %for.body.i.i.i, !llvm.loop !5
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
-  %m_data.i5.i.i = getelementptr inbounds i8, ptr %manifoldArray, i64 16
+  %m_data.i5.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 16
   %7 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i6.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %manifoldArray, i64 24
+  %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 24
   %8 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %tobool2.i.i.i = trunc i8 %8 to i1
   br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
@@ -344,7 +344,7 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %manifoldArray, i64 24
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr %retval.0.i.i.i, ptr %m_data.i5.i.i, align 8
   store i32 %cond.i.i, ptr %m_capacity.i.i, align 8
@@ -355,7 +355,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds = %if.then, %if.then.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
   %9 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %0, %if.then.i ], [ %0, %if.then ]
   %10 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %2, %if.then.i ], [ %2, %if.then ]
-  %m_data.i = getelementptr inbounds i8, ptr %manifoldArray, i64 16
+  %m_data.i = getelementptr inbounds nuw i8, ptr %manifoldArray, i64 16
   %11 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %10 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %11, i64 %idxprom.i

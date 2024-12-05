@@ -43,59 +43,59 @@ entry:
   store i32 0, ptr %flags, align 4
   store ptr null, ptr %object_format, align 8
   store i32 5, ptr %verify_pack_options, align 16
-  %short_name = getelementptr inbounds i8, ptr %verify_pack_options, i64 4
+  %short_name = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 4
   store i32 118, ptr %short_name, align 4
-  %long_name = getelementptr inbounds i8, ptr %verify_pack_options, i64 8
+  %long_name = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 8
   store ptr @.str, ptr %long_name, align 8
-  %value = getelementptr inbounds i8, ptr %verify_pack_options, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 16
   store ptr %flags, ptr %value, align 16
-  %argh = getelementptr inbounds i8, ptr %verify_pack_options, i64 24
+  %argh = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 24
   store ptr null, ptr %argh, align 8
-  %help = getelementptr inbounds i8, ptr %verify_pack_options, i64 32
+  %help = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 32
   store ptr @.str, ptr %help, align 16
-  %flags1 = getelementptr inbounds i8, ptr %verify_pack_options, i64 40
+  %flags1 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 40
   store i32 2, ptr %flags1, align 8
-  %callback = getelementptr inbounds i8, ptr %verify_pack_options, i64 48
+  %callback = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 48
   store ptr null, ptr %callback, align 16
-  %defval = getelementptr inbounds i8, ptr %verify_pack_options, i64 56
+  %defval = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 56
   store i64 1, ptr %defval, align 8
-  %ll_callback = getelementptr inbounds i8, ptr %verify_pack_options, i64 64
-  %arrayinit.element = getelementptr inbounds i8, ptr %verify_pack_options, i64 88
+  %ll_callback = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 64
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback, i8 0, i64 24, i1 false)
   store i32 5, ptr %arrayinit.element, align 8
-  %short_name3 = getelementptr inbounds i8, ptr %verify_pack_options, i64 92
+  %short_name3 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 92
   store i32 115, ptr %short_name3, align 4
-  %long_name4 = getelementptr inbounds i8, ptr %verify_pack_options, i64 96
+  %long_name4 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 96
   store ptr @.str.1, ptr %long_name4, align 16
-  %value5 = getelementptr inbounds i8, ptr %verify_pack_options, i64 104
+  %value5 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 104
   store ptr %flags, ptr %value5, align 8
-  %argh6 = getelementptr inbounds i8, ptr %verify_pack_options, i64 112
+  %argh6 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 112
   store ptr null, ptr %argh6, align 16
-  %help7 = getelementptr inbounds i8, ptr %verify_pack_options, i64 120
+  %help7 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 120
   store ptr @.str.2, ptr %help7, align 8
-  %flags8 = getelementptr inbounds i8, ptr %verify_pack_options, i64 128
+  %flags8 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 128
   store i32 2, ptr %flags8, align 16
-  %callback9 = getelementptr inbounds i8, ptr %verify_pack_options, i64 136
+  %callback9 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 136
   store ptr null, ptr %callback9, align 8
-  %defval10 = getelementptr inbounds i8, ptr %verify_pack_options, i64 144
+  %defval10 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 144
   store i64 2, ptr %defval10, align 16
-  %ll_callback11 = getelementptr inbounds i8, ptr %verify_pack_options, i64 152
-  %arrayinit.element14 = getelementptr inbounds i8, ptr %verify_pack_options, i64 176
+  %ll_callback11 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 152
+  %arrayinit.element14 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback11, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element14, align 16
-  %short_name16 = getelementptr inbounds i8, ptr %verify_pack_options, i64 180
+  %short_name16 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 180
   store i32 0, ptr %short_name16, align 4
-  %long_name17 = getelementptr inbounds i8, ptr %verify_pack_options, i64 184
+  %long_name17 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 184
   store ptr @.str.3, ptr %long_name17, align 8
-  %value18 = getelementptr inbounds i8, ptr %verify_pack_options, i64 192
+  %value18 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 192
   store ptr %object_format, ptr %value18, align 16
-  %argh19 = getelementptr inbounds i8, ptr %verify_pack_options, i64 200
+  %argh19 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 200
   store ptr @.str.4, ptr %argh19, align 8
-  %help20 = getelementptr inbounds i8, ptr %verify_pack_options, i64 208
+  %help20 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 208
   store ptr @.str.5, ptr %help20, align 16
-  %flags21 = getelementptr inbounds i8, ptr %verify_pack_options, i64 216
+  %flags21 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 216
   store i32 0, ptr %flags21, align 8
-  %callback22 = getelementptr inbounds i8, ptr %verify_pack_options, i64 224
+  %callback22 = getelementptr inbounds nuw i8, ptr %verify_pack_options, i64 224
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %callback22, i8 0, i64 128, i1 false)
   call void @git_config(ptr noundef nonnull @git_default_config, ptr noundef null) #10
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %verify_pack_options, ptr noundef nonnull @verify_pack_usage, i32 noundef 0) #10
@@ -103,9 +103,9 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %buf.i.i = getelementptr inbounds i8, ptr %arg.i, i64 16
-  %len.i.i = getelementptr inbounds i8, ptr %arg.i, i64 8
-  %git_cmd.i = getelementptr inbounds i8, ptr %index_pack.i, i64 104
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 16
+  %len.i.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 8
+  %git_cmd.i = getelementptr inbounds nuw i8, ptr %index_pack.i, i64 104
   %wide.trip.count = zext nneg i32 %call to i64
   br label %for.body
 
@@ -116,7 +116,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %verify_one_pack.exit
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %verify_one_pack.exit ]
   %err.07 = phi i32 [ 0, %for.cond.preheader ], [ %spec.select, %verify_one_pack.exit ]
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = load i32, ptr %flags, align 4
   %2 = load ptr, ptr %object_format, align 8

@@ -28,21 +28,21 @@ define hidden ptr @lxb_html_token_attr_append(ptr nocapture noundef %0, ptr noun
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %3, ptr %10, align 8
   br label %.sink.split
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %3, ptr %12, align 8
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %13, ptr %14, align 8
   br label %.sink.split
 
@@ -58,39 +58,39 @@ declare ptr @lxb_html_token_attr_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @lxb_html_token_attr_remove(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
   br label %9
 
 9:                                                ; preds = %6, %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %10, align 8
   br label %16
 
 16:                                               ; preds = %13, %9
-  %17 = getelementptr inbounds i8, ptr %1, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 64
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %._crit_edge, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr %.pre, ptr %20, align 8
   br label %._crit_edge
 
@@ -100,7 +100,7 @@ define hidden void @lxb_html_token_attr_remove(ptr nocapture noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr inbounds i8, ptr %.pre, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
   store ptr %22, ptr %23, align 8
   br label %24
 
@@ -111,22 +111,22 @@ define hidden void @lxb_html_token_attr_remove(ptr nocapture noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lxb_html_token_attr_delete(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %1
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %4, align 8
   br label %10
 
 10:                                               ; preds = %7, %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %1
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load ptr, ptr %14, align 8
   br i1 %13, label %16, label %._crit_edge
 
@@ -135,13 +135,13 @@ define hidden void @lxb_html_token_attr_delete(ptr nocapture noundef %0, ptr nou
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %16
-  %17 = getelementptr inbounds i8, ptr %1, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %._crit_edge.i, label %19
 
 19:                                               ; preds = %._crit_edge
-  %20 = getelementptr inbounds i8, ptr %18, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr %15, ptr %20, align 8
   br label %._crit_edge.i
 
@@ -151,7 +151,7 @@ define hidden void @lxb_html_token_attr_delete(ptr nocapture noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge.i
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store ptr %22, ptr %23, align 8
   br label %lxb_html_token_attr_remove.exit
 
@@ -165,9 +165,9 @@ declare ptr @lxb_html_token_attr_destroy(ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @lxb_html_token_make_text(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -183,7 +183,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_make_text(ptr nocapture nounde
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %10
   store i8 0, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %10, ptr %18, align 8
   br label %19
 
@@ -199,13 +199,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_drop_null(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %6
   %13 = sub i64 %9, %12
@@ -221,13 +221,13 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_drop_null(ptr nocapt
 .lr.ph:                                           ; preds = %.preheader, %22
   %.02026 = phi ptr [ %.1, %22 ], [ %15, %.preheader ]
   %.02125 = phi ptr [ %18, %22 ], [ %5, %.preheader ]
-  %18 = getelementptr inbounds i8, ptr %.02125, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.02125, i64 1
   %19 = load i8, ptr %.02125, align 1
   %.not = icmp eq i8 %19, 0
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %.02026, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.02026, i64 1
   store i8 %19, ptr %.02026, align 1
   br label %22
 
@@ -244,7 +244,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_drop_null(ptr nocapt
   %23 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %15, %.preheader ]
   %24 = getelementptr inbounds i8, ptr %23, i64 %13
   store i8 0, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %13, ptr %25, align 8
   br label %26
 
@@ -255,13 +255,13 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_drop_null(ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_replace_null(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
   %12 = mul i64 %11, 3
   %13 = add i64 %11, %6
@@ -279,14 +279,14 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_replace_null(ptr noc
 .lr.ph:                                           ; preds = %.preheader, %.backedge
   %.02329 = phi ptr [ %.023.be, %.backedge ], [ %17, %.preheader ]
   %.02428 = phi ptr [ %20, %.backedge ], [ %5, %.preheader ]
-  %20 = getelementptr inbounds i8, ptr %.02428, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.02428, i64 1
   %21 = load i8, ptr %.02428, align 1
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.02329, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
-  %24 = getelementptr inbounds i8, ptr %.02329, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %.02329, i64 3
   br label %.backedge
 
 .backedge:                                        ; preds = %23, %25
@@ -295,7 +295,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_replace_null(ptr noc
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %.02329, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.02329, i64 1
   store i8 %21, ptr %.02329, align 1
   br label %.backedge
 
@@ -307,7 +307,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_replace_null(ptr noc
   %27 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %17, %.preheader ]
   %28 = getelementptr inbounds i8, ptr %27, i64 %15
   store i8 0, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %15, ptr %29, align 8
   br label %30
 
@@ -318,10 +318,10 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_replace_null(ptr noc
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @lxb_html_token_data_skip_ws_begin(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ult ptr %3, %6
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
@@ -347,7 +347,7 @@ define hidden noundef i32 @lxb_html_token_data_skip_ws_begin(ptr nocapture nound
   br label %._crit_edge
 
 13:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.01619, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01619, i64 1
   %exitcond.not = icmp eq ptr %14, %6
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -368,9 +368,9 @@ define hidden noundef i32 @lxb_html_token_data_skip_ws_begin(ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @lxb_html_token_data_skip_one_newline_begin(ptr nocapture noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ult ptr %3, %5
   br i1 %6, label %7, label %14
@@ -382,9 +382,9 @@ define hidden noundef i32 @lxb_html_token_data_skip_one_newline_begin(ptr nocapt
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %13, ptr %2, align 8
   br label %14
 
@@ -395,10 +395,10 @@ define hidden noundef i32 @lxb_html_token_data_skip_one_newline_begin(ptr nocapt
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @lxb_html_token_data_split_ws_begin(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 96)) %1) local_unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %0, i64 96, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ult ptr %4, %7
   br i1 %8, label %.lr.ph.preheader.i, label %lxb_html_token_data_skip_ws_begin.exit
@@ -424,7 +424,7 @@ define hidden noundef i32 @lxb_html_token_data_split_ws_begin(ptr nocapture noun
   br label %lxb_html_token_data_skip_ws_begin.exit
 
 14:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %15 = getelementptr inbounds i8, ptr %.01619.i, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 1
   %exitcond.not.i = icmp eq ptr %15, %7
   br i1 %exitcond.not.i, label %lxb_html_token_data_skip_ws_begin.exit, label %.lr.ph.i
 
@@ -440,7 +440,7 @@ lxb_html_token_data_skip_ws_begin.exit:           ; preds = %14, %2, %12
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %lxb_html_token_data_skip_ws_begin.exit
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %.01618.i, %22
   br i1 %23, label %24, label %25
@@ -450,10 +450,10 @@ lxb_html_token_data_skip_ws_begin.exit:           ; preds = %14, %2, %12
   br label %29
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %18, ptr %26, align 8
   %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %27, ptr %28, align 8
   br label %29
 
@@ -466,31 +466,31 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @lxb_html_token_doctype_parse(ptr nocapture noundef readonly %0, ptr noundef initializes((104, 112)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %71, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %73, label %19
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %17, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i64, ptr %22, align 8
   switch i64 %23, label %73 [
     i64 23, label %24
@@ -498,8 +498,8 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_doctype_parse(ptr nocapture no
   ]
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %1, i64 112
-  %26 = getelementptr inbounds i8, ptr %17, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %27 = load i64, ptr %26, align 8
   %28 = tail call ptr @lexbor_str_init(ptr noundef nonnull %25, ptr noundef %6, i64 noundef %27) #8
   %29 = load ptr, ptr %25, align 8
@@ -507,24 +507,24 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_doctype_parse(ptr nocapture no
   br i1 %30, label %83, label %31
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %17, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %83, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %17, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = load i64, ptr %26, align 8
   %39 = tail call ptr @lexbor_str_append(ptr noundef nonnull %25, ptr noundef %6, ptr noundef %37, i64 noundef %38) #8
-  %40 = getelementptr inbounds i8, ptr %17, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %78, label %59
 
 43:                                               ; preds = %19
-  %44 = getelementptr inbounds i8, ptr %1, i64 128
-  %45 = getelementptr inbounds i8, ptr %17, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %46 = load i64, ptr %45, align 8
   %47 = tail call ptr @lexbor_str_init(ptr noundef nonnull %44, ptr noundef %6, i64 noundef %46) #8
   %48 = load ptr, ptr %44, align 8
@@ -532,21 +532,21 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_doctype_parse(ptr nocapture no
   br i1 %49, label %83, label %50
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %17, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %83, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %17, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %56 = load ptr, ptr %55, align 8
   %57 = load i64, ptr %45, align 8
   %58 = tail call ptr @lexbor_str_append(ptr noundef nonnull %44, ptr noundef %6, ptr noundef %56, i64 noundef %57) #8
   br label %83
 
 59:                                               ; preds = %35
-  %60 = getelementptr inbounds i8, ptr %1, i64 128
-  %61 = getelementptr inbounds i8, ptr %41, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %62 = load i64, ptr %61, align 8
   %63 = tail call ptr @lexbor_str_init(ptr noundef nonnull %60, ptr noundef %6, i64 noundef %62) #8
   %64 = load ptr, ptr %60, align 8
@@ -554,26 +554,26 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_doctype_parse(ptr nocapture no
   br i1 %65, label %83, label %66
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %41, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %68 = load ptr, ptr %67, align 8
   %69 = load i64, ptr %61, align 8
   %70 = tail call ptr @lexbor_str_append(ptr noundef nonnull %60, ptr noundef %6, ptr noundef %68, i64 noundef %69) #8
   br label %83
 
 71:                                               ; preds = %2
-  %72 = getelementptr inbounds i8, ptr %1, i64 104
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 0, ptr %72, align 8
   br label %73
 
 73:                                               ; preds = %19, %10, %71
-  %74 = getelementptr inbounds i8, ptr %1, i64 112
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %75 = tail call ptr @lexbor_str_init(ptr noundef nonnull %74, ptr noundef %6, i64 noundef 0) #8
   %76 = load ptr, ptr %74, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %83, label %78
 
 78:                                               ; preds = %73, %35
-  %79 = getelementptr inbounds i8, ptr %1, i64 128
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %80 = tail call ptr @lexbor_str_init(ptr noundef nonnull %79, ptr noundef %6, i64 noundef 0) #8
   %81 = load ptr, ptr %79, align 8
   %82 = icmp eq ptr %81, null
@@ -589,9 +589,9 @@ declare ptr @lexbor_str_append(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lxb_html_token_find_attr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @lxb_dom_attr_data_by_local_name(ptr noundef %8, ptr noundef %2, i64 noundef %3) #8
   %10 = icmp eq ptr %9, null
@@ -600,21 +600,21 @@ define hidden ptr @lxb_html_token_find_attr(ptr nocapture noundef readonly %0, p
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %12 = load i64, ptr %11, align 8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %19
   %.012 = phi ptr [ %6, %.lr.ph ], [ %21, %19 ]
-  %14 = getelementptr inbounds i8, ptr %.012, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.012, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, %12
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %.012, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %.012, i64 56
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %.loopexit, label %13

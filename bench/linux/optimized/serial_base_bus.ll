@@ -31,7 +31,7 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @serial_base_driver_register(ptr noundef initializes((8, 16)) %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @serial_base_bus_type, ptr %2, align 8
   %3 = tail call i32 @driver_register(ptr noundef %0) #5
   ret i32 %3
@@ -77,30 +77,30 @@ define dso_local ptr @serial_base_ctrl_add(ptr nocapture noundef readonly %0, pt
   br i1 %5, label %35, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 728
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 732
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 732
   store i32 67108869, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 736
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 736
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = load i32, ptr %10, align 8
   tail call void @device_initialize(ptr noundef nonnull %4) #5
-  %12 = getelementptr inbounds i8, ptr %4, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr @serial_ctrl_type, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr @serial_base_bus_type, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 688
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 688
   store ptr @serial_base_ctrl_release, ptr %15, align 8
   %16 = load i1, ptr @serial_base_initialized, align 1
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 344
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %25
@@ -149,12 +149,12 @@ define dso_local ptr @serial_base_port_add(ptr noundef %0, ptr noundef %1) local
   br i1 %5, label %45, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 164
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   %10 = select i1 %9, i32 -1, i32 %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 728
-  %12 = tail call i32 @ida_alloc_range(ptr noundef %11, i32 noundef %8, i32 noundef %10, i32 noundef 3264) #5
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 728
+  %12 = tail call i32 @ida_alloc_range(ptr noundef nonnull %11, i32 noundef %8, i32 noundef %10, i32 noundef 3264) #5
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %17
 
@@ -166,24 +166,24 @@ define dso_local ptr @serial_base_port_add(ptr noundef %0, ptr noundef %1) local
 
 17:                                               ; preds = %6
   store i32 %12, ptr %7, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %19 = load i32, ptr %18, align 8
   tail call void @device_initialize(ptr noundef nonnull %4) #5
-  %20 = getelementptr inbounds i8, ptr %4, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr @serial_port_type, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr @serial_base_bus_type, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 688
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 688
   store ptr @serial_base_port_release, ptr %23, align 8
   %24 = load i1, ptr @serial_base_initialized, align 1
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %0, i64 344
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %33
@@ -199,7 +199,7 @@ define dso_local ptr @serial_base_port_add(ptr noundef %0, ptr noundef %1) local
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %4, i64 728
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 728
   store ptr %0, ptr %38, align 8
   %39 = tail call i32 @device_add(ptr noundef nonnull %4) #5
   %40 = icmp eq i32 %39, 0
@@ -209,7 +209,7 @@ define dso_local ptr @serial_base_port_add(ptr noundef %0, ptr noundef %1) local
   %41 = phi i32 [ %35, %33 ], [ %39, %37 ], [ -517, %17 ]
   tail call void @put_device(ptr noundef nonnull %4) #5
   %42 = load i32, ptr %7, align 4
-  tail call void @ida_free(ptr noundef %11, i32 noundef %42) #5
+  tail call void @ida_free(ptr noundef nonnull %11, i32 noundef %42) #5
   %43 = sext i32 %41 to i64
   %44 = inttoptr i64 %43 to ptr
   br label %45
@@ -240,15 +240,15 @@ define dso_local void @serial_base_port_device_remove(ptr noundef %0) local_unna
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   tail call void @device_del(ptr noundef nonnull %0) #5
-  %6 = getelementptr inbounds i8, ptr %5, i64 728
-  %7 = getelementptr inbounds i8, ptr %0, i64 728
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 728
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 164
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 164
   %10 = load i32, ptr %9, align 4
-  tail call void @ida_free(ptr noundef %6, i32 noundef %10) #5
+  tail call void @ida_free(ptr noundef nonnull %6, i32 noundef %10) #5
   tail call void @put_device(ptr noundef nonnull %0) #5
   br label %11
 
@@ -300,7 +300,7 @@ define internal void @serial_base_exit() #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal noundef range(i32 0, 2) i32 @serial_base_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @serial_ctrl_type
   br i1 %5, label %6, label %10

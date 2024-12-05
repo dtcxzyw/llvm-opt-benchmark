@@ -24,7 +24,7 @@ define dso_local i32 @str_findlist(ptr nocapture noundef readonly %0, i32 nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %4 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #20
   %7 = icmp eq i32 %6, 0
@@ -55,7 +55,7 @@ define dso_local zeroext i1 @str_has_no_uppercase(ptr nocapture noundef readonly
   %.02 = phi ptr [ %0, %1 ], [ %4, %2 ]
   %3 = load i8, ptr %.02, align 1
   %.not = icmp eq i8 %3, 0
-  %4 = getelementptr inbounds i8, ptr %.02, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %.02, i64 1
   %5 = add i8 %3, -65
   %6 = icmp ult i8 %5, 26
   %or.cond = or i1 %.not, %6
@@ -81,7 +81,7 @@ thread-pre-split:                                 ; preds = %char_is_lower_alpha
   %6 = phi i8 [ %.pr, %thread-pre-split ], [ %2, %1 ]
   %.05 = phi ptr [ %7, %thread-pre-split ], [ %0, %1 ]
   %.0 = phi i32 [ %5, %thread-pre-split ], [ 0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %.05, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.05, i64 1
   switch i8 %6, label %char_is_lower_alphanum_.exit.thread [
     i8 0, label %char_is_lower_alphanum_.exit.thread.loopexit
     i8 97, label %char_is_lower_alphanum_.exit
@@ -142,7 +142,7 @@ define dso_local ptr @str_unescape(ptr noundef %0) local_unnamed_addr #3 {
 2:                                                ; preds = %8, %1
   %.011 = phi ptr [ %0, %1 ], [ %.1, %8 ]
   %.0 = phi i64 [ 0, %1 ], [ %9, %8 ]
-  %3 = getelementptr inbounds i8, ptr %.011, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   %4 = load i8, ptr %.011, align 1
   switch i8 %4, label %8 [
     i8 34, label %11
@@ -151,7 +151,7 @@ define dso_local ptr @str_unescape(ptr noundef %0) local_unnamed_addr #3 {
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %.011, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %.011, i64 2
   %7 = load i8, ptr %3, align 1
   br label %8
 
@@ -186,7 +186,7 @@ define dso_local noundef zeroext i1 @str_is_type(ptr nocapture noundef readonly 
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %2, !llvm.loop !12
 
 scan_past_underscore.exit:                        ; preds = %2
@@ -195,7 +195,7 @@ scan_past_underscore.exit:                        ; preds = %2
   br i1 %7, label %8, label %scan_past_underscore.exit.thread
 
 8:                                                ; preds = %scan_past_underscore.exit
-  %9 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.outer
 
 .outer:                                           ; preds = %13, %8
@@ -205,7 +205,7 @@ scan_past_underscore.exit:                        ; preds = %2
 
 10:                                               ; preds = %.outer, %16
   %.08 = phi ptr [ %11, %16 ], [ %.08.ph, %.outer ]
-  %11 = getelementptr inbounds i8, ptr %.08, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.08, i64 1
   %12 = load i8, ptr %.08, align 1
   %.not11 = icmp eq i8 %12, 0
   br i1 %.not11, label %scan_past_underscore.exit.thread, label %13
@@ -313,7 +313,7 @@ define dso_local noundef zeroext i1 @str_is_identifier(ptr nocapture noundef rea
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %2, !llvm.loop !12
 
 scan_past_underscore.exit:                        ; preds = %2
@@ -323,7 +323,7 @@ scan_past_underscore.exit:                        ; preds = %2
 
 .preheader:                                       ; preds = %scan_past_underscore.exit, %9
   %.pn = phi ptr [ %.0, %9 ], [ %.0.i, %scan_past_underscore.exit ]
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %8 = load i8, ptr %.0, align 1
   %.not8 = icmp eq i8 %8, 0
   br i1 %.not8, label %scan_past_underscore.exit.thread, label %9
@@ -357,13 +357,13 @@ define dso_local noundef zeroext i1 @str_is_integer(ptr nocapture noundef readon
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 45
   %spec.select.idx = zext i1 %3 to i64
-  %spec.select = getelementptr inbounds i8, ptr %0, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx
   %4 = load i8, ptr %spec.select, align 1
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
 thread-pre-split:                                 ; preds = %.preheader
-  %5 = getelementptr inbounds i8, ptr %.17, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.17, i64 1
   %.pr = load i8, ptr %5, align 1
   %.not6 = icmp eq i8 %.pr, 0
   br i1 %.not6, label %.loopexit, label %.preheader
@@ -393,7 +393,7 @@ define dso_local noundef zeroext i1 @str_is_valid_constant(ptr nocapture noundef
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %2, !llvm.loop !12
 
 scan_past_underscore.exit:                        ; preds = %2
@@ -403,7 +403,7 @@ scan_past_underscore.exit:                        ; preds = %2
 
 .preheader:                                       ; preds = %scan_past_underscore.exit, %.preheader.backedge
   %.pn = phi ptr [ %.0, %.preheader.backedge ], [ %.0.i, %scan_past_underscore.exit ]
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %8 = load i8, ptr %.0, align 1
   switch i8 %8, label %scan_past_underscore.exit.thread [
     i8 0, label %scan_past_underscore.exit.thread.loopexit
@@ -596,7 +596,7 @@ define dso_local zeroext i1 @str_has_suffix(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local { ptr, i64 } @slice_next_token(ptr nocapture noundef %0, i8 noundef signext %1) local_unnamed_addr #12 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   %.sroa.0.0.copyload.pre = load ptr, ptr %0, align 8
@@ -611,7 +611,7 @@ define dso_local { ptr, i64 } @slice_next_token(ptr nocapture noundef %0, i8 nou
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.pre, i64 %.026
-  %10 = getelementptr inbounds i8, ptr %9, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %10, ptr %0, align 8
   %11 = xor i64 %.026, -1
   %12 = add i64 %4, %11
@@ -638,7 +638,7 @@ define dso_local { ptr, i64 } @slice_next_token(ptr nocapture noundef %0, i8 nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @slice_trim(ptr nocapture noundef %0) local_unnamed_addr #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not31 = icmp eq i64 %3, 0
   %.pre = load ptr, ptr %0, align 8
@@ -729,7 +729,7 @@ str_trim_end.exit:                                ; preds = %str_trim_end.exit.p
   ]
 
 9:                                                ; preds = %str_trim_end.exit, %str_trim_end.exit, %str_trim_end.exit, %str_trim_end.exit
-  %10 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %str_trim_end.exit, !llvm.loop !21
 
 str_trim_start.exit:                              ; preds = %str_trim_end.exit
@@ -786,7 +786,7 @@ define dso_local noundef ptr @str_trim_start(ptr noundef readonly %0) local_unna
   ]
 
 4:                                                ; preds = %2, %2, %2, %2
-  %5 = getelementptr inbounds i8, ptr %.0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %2, !llvm.loop !21
 
 6:                                                ; preds = %2
@@ -805,11 +805,11 @@ define dso_local ptr @str_cat(ptr nocapture noundef readonly %0, ptr nocapture n
   %10 = tail call ptr @calloc_string(i64 noundef %9) #21
   %11 = and i64 %3, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %0, i64 %11, i1 false)
-  %12 = getelementptr inbounds i8, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   %13 = and i64 %5, 4294967295
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %1, i64 %13, i1 false)
   %14 = zext i32 %7 to i64
-  %15 = getelementptr inbounds i8, ptr %10, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %14
   store i8 0, ptr %15, align 1
   ret ptr %10
 }
@@ -841,7 +841,7 @@ define dso_local void @scratch_buffer_append_len(ptr nocapture noundef readonly 
   unreachable
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %4
+  %9 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %0, i64 %1, i1 false)
   %10 = trunc i64 %1 to i32
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
@@ -867,7 +867,7 @@ define dso_local void @scratch_buffer_append(ptr nocapture noundef readonly %0) 
   unreachable
 
 scratch_buffer_append_len.exit:                   ; preds = %1
-  %8 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %4
+  %8 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr readonly align 1 %0, i64 %2, i1 false)
   %9 = trunc i64 %2 to i32
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
@@ -890,7 +890,7 @@ define dso_local void @scratch_buffer_printf(ptr nocapture noundef readonly %0, 
   %4 = sub i32 65536, %3
   %5 = zext i32 %4 to i64
   %6 = zext i32 %3 to i64
-  %7 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [65536 x i8], ptr @scratch_buffer, i64 0, i64 %6
   %8 = call i32 @vsnprintf(ptr noundef nonnull %7, i64 noundef %5, ptr noundef %0, ptr noundef nonnull %2) #21
   %9 = zext i32 %8 to i64
   %10 = add nsw i64 %5, -1
@@ -924,7 +924,7 @@ define dso_local void @scratch_buffer_append_double(double noundef %0) local_unn
   %indvars.iv = phi i64 [ %2, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3 = and i64 %indvars.iv.next, 4294967295
-  %4 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [65536 x i8], ptr @scratch_buffer, i64 0, i64 %3
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %._crit_edge [
     i8 48, label %6
@@ -961,7 +961,7 @@ define dso_local void @scratch_buffer_append_char(i8 noundef signext %0) local_u
 6:                                                ; preds = %1
   store i32 %3, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [65536 x i8], ptr @scratch_buffer, i64 0, i64 %7
   store i8 %0, ptr %8, align 1
   ret void
 }
@@ -970,7 +970,7 @@ define dso_local void @scratch_buffer_append_char(i8 noundef signext %0) local_u
 define dso_local noundef nonnull ptr @scratch_buffer_to_string() local_unnamed_addr #16 {
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %2 = zext i32 %1 to i64
-  %3 = getelementptr inbounds [65536 x i8], ptr @scratch_buffer, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [65536 x i8], ptr @scratch_buffer, i64 0, i64 %2
   store i8 0, ptr %3, align 1
   ret ptr @scratch_buffer
 }

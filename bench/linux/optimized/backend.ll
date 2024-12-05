@@ -80,13 +80,13 @@ define dso_local ptr @agp_backend_acquire(ptr noundef %0) #1 align 16 {
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 132
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 132
   %7 = load volatile i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6, ptr elementtype(i32) %6) #9, !srcloc !5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, ptr nonnull elementtype(i32) %6) #9, !srcloc !5
   br label %10
 
 10:                                               ; preds = %9, %5, %1
@@ -100,8 +100,8 @@ define dso_local void @agp_backend_release(ptr noundef %0) #1 align 16 {
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 132
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #9, !srcloc !6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, ptr nonnull elementtype(i32) %4) #9, !srcloc !6
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -116,9 +116,9 @@ define dso_local noundef ptr @agp_alloc_bridge() #1 align 16 {
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 132
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 132
   store volatile i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store volatile i32 0, ptr %6, align 8
   %7 = load volatile ptr, ptr @agp_bridges, align 8
   %8 = icmp eq ptr %7, @agp_bridges
@@ -157,7 +157,7 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
   br i1 %3, label %4, label %149
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -167,7 +167,7 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
   br label %149
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @try_module_get(ptr noundef %13) #9
@@ -175,8 +175,8 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %17, ptr noundef nonnull @.str.1) #11
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %17, ptr noundef nonnull @.str.1) #11
   br label %149
 
 18:                                               ; preds = %10
@@ -198,7 +198,7 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
 30:                                               ; preds = %21
   %31 = add nsw i64 %22, -1
   %32 = getelementptr [9 x %struct.anon.3], ptr @maxes_table, i64 0, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = load i32, ptr %32, align 8
   %36 = sext i32 %35 to i64
@@ -214,17 +214,17 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
   %46 = trunc i64 %45 to i32
   %47 = add i32 %34, %46
   %48 = shl i32 %47, 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 136
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %48, ptr %49, align 8
   store ptr @agp_current_version, ptr %0, align 8
   %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 25
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 25
   %52 = load i8, ptr %51, align 1, !range !10, !noundef !11
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %73, label %54
 
 54:                                               ; preds = %30
-  %55 = getelementptr inbounds i8, ptr %50, i64 144
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 144
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr %56(ptr noundef %0) #9
   %58 = icmp eq ptr %57, null
@@ -232,31 +232,31 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
 
 .thread:                                          ; preds = %54
   %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %60, ptr noundef nonnull @.str.5) #11
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %60, ptr noundef nonnull @.str.5) #11
   br label %124
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds i8, ptr %0, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %57, ptr %62, align 8
   %63 = load i64, ptr @vmemmap_base, align 8
   %64 = ptrtoint ptr %57 to i64
   %65 = sub i64 %64, %63
   %66 = shl i64 %65, 6
-  %67 = getelementptr inbounds i8, ptr %0, i64 88
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %66, ptr %67, align 8
   %68 = load ptr, ptr %11, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 80
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i64 %70(ptr noundef %0, i64 noundef %66, i32 noundef 0) #9
-  %72 = getelementptr inbounds i8, ptr %0, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %71, ptr %72, align 8
   %.pre = load ptr, ptr %11, align 8
   br label %73
 
 73:                                               ; preds = %61, %30
   %74 = phi ptr [ %.pre, %61 ], [ %50, %30 ]
-  %75 = getelementptr inbounds i8, ptr %74, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i32 %76() #9
   %78 = icmp eq i32 %77, 0
@@ -264,7 +264,7 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
 
 79:                                               ; preds = %73
   %80 = load ptr, ptr %11, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 96
   %82 = load ptr, ptr %81, align 8
   %83 = tail call i32 %82(ptr noundef %0) #9
   %84 = icmp eq i32 %83, 0
@@ -272,14 +272,14 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
 
 85:                                               ; preds = %79
   %86 = tail call noalias dereferenceable_or_null(16384) ptr @vzalloc(i64 noundef 16384) #12
-  %87 = getelementptr inbounds i8, ptr %0, i64 120
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %86, ptr %87, align 8
   %88 = icmp eq ptr %86, null
   br i1 %88, label %95, label %89
 
 89:                                               ; preds = %85
   %90 = load ptr, ptr %11, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i32 %92() #9
   %94 = icmp eq i32 %93, 0
@@ -291,22 +291,22 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
   %98 = phi i1 [ true, %73 ], [ true, %79 ], [ false, %85 ], [ false, %89 ]
   %99 = phi i1 [ true, %73 ], [ true, %79 ], [ true, %85 ], [ false, %89 ]
   %100 = load ptr, ptr %5, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %101, ptr noundef nonnull %96) #11
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %101, ptr noundef nonnull %96) #11
   %102 = load ptr, ptr %11, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 25
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 25
   %104 = load i8, ptr %103, align 1, !range !10, !noundef !11
   %105 = icmp eq i8 %104, 0
   br i1 %105, label %114, label %106
 
 106:                                              ; preds = %95
-  %107 = getelementptr inbounds i8, ptr %0, i64 80
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %102, i64 160
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 160
   %110 = load ptr, ptr %109, align 8
   tail call void %110(ptr noundef %108, i32 noundef 1) #9
   %111 = load ptr, ptr %11, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 160
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 160
   %113 = load ptr, ptr %112, align 8
   tail call void %113(ptr noundef %108, i32 noundef 2) #9
   br label %114
@@ -316,7 +316,7 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
 
 115:                                              ; preds = %114
   %116 = load ptr, ptr %11, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 104
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 104
   %118 = load ptr, ptr %117, align 8
   %119 = tail call i32 %118(ptr noundef %0) #9
   br label %120
@@ -325,7 +325,7 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
   br i1 %99, label %124, label %121
 
 121:                                              ; preds = %120
-  %122 = getelementptr inbounds i8, ptr %0, i64 120
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %123 = load ptr, ptr %122, align 8
   tail call void @vfree(ptr noundef %123) #9
   store ptr null, ptr %122, align 8
@@ -334,19 +334,19 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
 124:                                              ; preds = %121, %120, %.thread
   %.ph = phi i32 [ -12, %.thread ], [ %97, %120 ], [ %97, %121 ]
   %125 = load ptr, ptr %5, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %126, ptr noundef nonnull @.str.2) #11
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %126, ptr noundef nonnull @.str.2) #11
   %127 = load ptr, ptr %11, align 8
   %128 = load ptr, ptr %127, align 8
   tail call void @module_put(ptr noundef %128) #9
   br label %149
 
 129:                                              ; preds = %89
-  %130 = getelementptr inbounds i8, ptr %0, i64 184
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store volatile ptr %130, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 192
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store volatile ptr %130, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 200
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 0, ptr %132, align 8
   %133 = load volatile ptr, ptr @agp_bridges, align 8
   %134 = icmp eq ptr %133, @agp_bridges
@@ -354,24 +354,24 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
 
 135:                                              ; preds = %129
   %136 = load ptr, ptr %5, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 184
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 184
   %138 = load ptr, ptr %11, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 40
   %140 = load ptr, ptr %139, align 8
   %141 = tail call i32 %140() #9
-  %142 = getelementptr inbounds i8, ptr %0, i64 96
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %143 = load i64, ptr %142, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %137, ptr noundef nonnull @.str.3, i32 noundef %141, i64 noundef %143) #11
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %137, ptr noundef nonnull @.str.3, i32 noundef %141, i64 noundef %143) #11
   %.pre5 = load ptr, ptr @agp_bridges, align 8
   br label %144
 
 144:                                              ; preds = %135, %129
   %145 = phi ptr [ %.pre5, %135 ], [ %133, %129 ]
-  %146 = getelementptr inbounds i8, ptr %0, i64 160
-  %147 = getelementptr inbounds i8, ptr %145, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store ptr %146, ptr %147, align 8
   store ptr %145, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 168
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr @agp_bridges, ptr %148, align 8
   store volatile ptr %146, ptr @agp_bridges, align 8
   br label %154
@@ -406,9 +406,9 @@ declare dso_local void @module_put(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @agp_remove_bridge(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -420,7 +420,7 @@ define dso_local void @agp_remove_bridge(ptr noundef %0) #1 align 16 {
 
 8:                                                ; preds = %7, %1
   %9 = phi ptr [ %.pre, %7 ], [ %3, %1 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %15, label %13
@@ -430,38 +430,38 @@ define dso_local void @agp_remove_bridge(ptr noundef %0) #1 align 16 {
   br label %15
 
 15:                                               ; preds = %13, %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load ptr, ptr %16, align 8
   tail call void @vfree(ptr noundef %17) #9
   store ptr null, ptr %16, align 8
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 160
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %32, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %18, i64 25
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 25
   %24 = load i8, ptr %23, align 1, !range !10, !noundef !11
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %28 = load ptr, ptr %27, align 8
   tail call void %20(ptr noundef %28, i32 noundef 1) #9
   %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 160
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef %28, i32 noundef 2) #9
   br label %32
 
 32:                                               ; preds = %26, %22, %15
-  %33 = getelementptr inbounds i8, ptr %0, i64 160
-  %34 = getelementptr inbounds i8, ptr %0, i64 168
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %35, ptr %37, align 8
   store volatile ptr %36, ptr %35, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %33, align 8

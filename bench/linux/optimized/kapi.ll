@@ -29,7 +29,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pps_event: ;
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pps_register_source(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, %1
   %6 = icmp eq i32 %5, %1
@@ -55,19 +55,19 @@ define dso_local ptr @pps_register_source(ptr noundef %0, i32 noundef %1) #0 ali
   br i1 %17, label %41, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %16, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store i32 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 100
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 100
   store i32 %1, ptr %20, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef align 8 dereferenceable(96) %0, i64 96, i1 false)
-  %21 = getelementptr inbounds i8, ptr %16, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 192
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %16, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %30
@@ -77,9 +77,9 @@ define dso_local ptr @pps_register_source(ptr noundef %0, i32 noundef %1) #0 ali
   br label %30
 
 30:                                               ; preds = %29, %25, %18
-  %31 = getelementptr inbounds i8, ptr %16, i64 184
-  tail call void @__init_waitqueue_head(ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @pps_register_source.__key) #9
-  %32 = getelementptr inbounds i8, ptr %16, i64 344
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 184
+  tail call void @__init_waitqueue_head(ptr noundef nonnull %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @pps_register_source.__key) #9
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 344
   store i32 0, ptr %32, align 8
   %33 = tail call i32 @pps_register_cdev(ptr noundef nonnull %16) #9
   %34 = icmp slt i32 %33, 0
@@ -92,7 +92,7 @@ define dso_local ptr @pps_register_source(ptr noundef %0, i32 noundef %1) #0 ali
   br label %41
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %16, i64 328
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 328
   %40 = load ptr, ptr %39, align 8
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %40, ptr noundef nonnull @.str.4, ptr noundef %0) #7
   br label %45
@@ -116,7 +116,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @pps_echo_client_default(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readnone %2) #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8
   %6 = and i32 %1, 1
   %7 = icmp eq i32 %6, 0
@@ -162,19 +162,19 @@ define dso_local void @pps_event(ptr noundef %0, ptr nocapture noundef readonly 
 
 8:                                                ; preds = %4
   %9 = load i64, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 344
-  %14 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %13) #9
-  %15 = getelementptr inbounds i8, ptr %0, i64 100
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %14 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %13) #9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 192
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef %0, i32 noundef %2, ptr noundef %3) #9
   %.pre = load i32, ptr %15, align 4
@@ -182,7 +182,7 @@ define dso_local void @pps_event(ptr noundef %0, ptr nocapture noundef readonly 
 
 22:                                               ; preds = %19, %8
   %23 = phi i32 [ %.pre, %19 ], [ %16, %8 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %23, ptr %24, align 8
   %25 = and i32 %23, %2
   %26 = and i32 %25, 1
@@ -195,8 +195,8 @@ define dso_local void @pps_event(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %30, label %.thread10, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 104
-  %33 = getelementptr inbounds i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, %12
   %.fr7 = freeze i32 %35
@@ -254,13 +254,13 @@ define dso_local void @pps_event(ptr noundef %0, ptr nocapture noundef readonly 
 .thread10:                                        ; preds = %28, %64
   %72 = phi i32 [ %12, %28 ], [ %65, %64 ]
   %73 = phi i64 [ %9, %28 ], [ %68, %64 ]
-  %74 = getelementptr inbounds i8, ptr %0, i64 144
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 152
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %72, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 156
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 0, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 136
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %78 = load i32, ptr %77, align 8
   %79 = add i32 %78, 1
   store i32 %79, ptr %77, align 8
@@ -276,8 +276,8 @@ define dso_local void @pps_event(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %86, label %.thread, label %87
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %0, i64 120
-  %89 = getelementptr inbounds i8, ptr %0, i64 128
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %90 = load i32, ptr %89, align 8
   %91 = add i32 %90, %84
   %.fr8 = freeze i32 %91
@@ -330,31 +330,31 @@ define dso_local void @pps_event(ptr noundef %0, ptr nocapture noundef readonly 
 .thread:                                          ; preds = %82, %120
   %125 = phi i32 [ %84, %82 ], [ %121, %120 ]
   %126 = phi i64 [ %83, %82 ], [ %124, %120 ]
-  %127 = getelementptr inbounds i8, ptr %0, i64 160
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %126, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 168
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 %125, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 172
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 0, ptr %129, align 4
-  %130 = getelementptr inbounds i8, ptr %0, i64 140
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %131 = load i32, ptr %130, align 4
   %132 = add i32 %131, 1
   store i32 %132, ptr %130, align 4
   br label %.thread11
 
 .thread11:                                        ; preds = %.thread10, %.thread
-  %133 = getelementptr inbounds i8, ptr %0, i64 180
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %134 = load i32, ptr %133, align 4
   %135 = add i32 %134, 1
   store i32 %135, ptr %133, align 4
-  %136 = getelementptr inbounds i8, ptr %0, i64 184
-  %137 = tail call i32 @__wake_up(ptr noundef %136, i32 noundef 1, i32 noundef 0, ptr noundef null) #9
-  %138 = getelementptr inbounds i8, ptr %0, i64 336
-  tail call void @kill_fasync(ptr noundef %138, i32 noundef 29, i32 noundef 1) #9
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %137 = tail call i32 @__wake_up(ptr noundef nonnull %136, i32 noundef 1, i32 noundef 0, ptr noundef null) #9
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  tail call void @kill_fasync(ptr noundef nonnull %138, i32 noundef 29, i32 noundef 1) #9
   br label %139
 
 139:                                              ; preds = %69, %.thread11
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %13, i64 noundef %14) #9
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %13, i64 noundef %14) #9
   ret void
 }
 

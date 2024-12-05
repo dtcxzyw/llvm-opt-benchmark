@@ -143,7 +143,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
   %0 = load ptr, ptr %call.i, align 8
   %call7.i = tail call ptr @OSSL_PROVIDER_load(ptr noundef %0, ptr noundef nonnull @.str.7) #3
-  %prov1.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %prov1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call7.i, ptr %prov1.i, align 8
   %call8.i = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 58, ptr noundef nonnull @.str.6, ptr noundef %call7.i) #3
   %tobool9.not.i = icmp eq i32 %call8.i, 0
@@ -151,7 +151,7 @@ lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
 
 lor.lhs.false10.i:                                ; preds = %lor.lhs.false5.i
   %call11.i = tail call ptr @OSSL_LIB_CTX_new() #3
-  %ctx2.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %ctx2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %call11.i, ptr %ctx2.i, align 8
   %call12.i = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 59, ptr noundef nonnull @.str.8, ptr noundef %call11.i) #3
   %tobool13.not.i = icmp eq i32 %call12.i, 0
@@ -160,7 +160,7 @@ lor.lhs.false10.i:                                ; preds = %lor.lhs.false5.i
 lor.lhs.false14.i:                                ; preds = %lor.lhs.false10.i
   %1 = load ptr, ptr %ctx2.i, align 8
   %call16.i = tail call ptr @OSSL_PROVIDER_load(ptr noundef %1, ptr noundef nonnull @.str.7) #3
-  %prov2.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %prov2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %call16.i, ptr %prov2.i, align 8
   %call17.i = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 61, ptr noundef nonnull @.str.9, ptr noundef %call16.i) #3
   %tobool18.not.i = icmp eq i32 %call17.i, 0
@@ -171,15 +171,15 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i, %lor.lhs.false14.i, %lor.lhs.false10.i, %lor.lhs.false5.i, %lor.lhs.false.i
-  %prov1.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %prov1.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %2 = load ptr, ptr %prov1.i.i, align 8
   %call.i.i = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %2) #3
-  %prov2.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %prov2.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %prov2.i.i, align 8
   %call1.i.i = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %3) #3
   %4 = load ptr, ptr %call.i, align 8
   tail call void @OSSL_LIB_CTX_free(ptr noundef %4) #3
-  %ctx2.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %ctx2.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   br label %return.sink.split
 
 tear_down.exit:                                   ; preds = %lor.lhs.false14.i
@@ -525,7 +525,7 @@ if.end154:                                        ; preds = %lor.lhs.false147
   br i1 %tobool157.not, label %err, label %lor.lhs.false158
 
 lor.lhs.false158:                                 ; preds = %if.end154
-  %ctx2 = getelementptr inbounds i8, ptr %fixture, i64 16
+  %ctx2 = getelementptr inbounds nuw i8, ptr %fixture, i64 16
   %1 = load ptr, ptr %ctx2, align 8
   %call159 = call ptr @EVP_KEYMGMT_fetch(ptr noundef %1, ptr noundef nonnull @.str.35, ptr noundef null) #3
   %call160 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 222, ptr noundef nonnull @.str.36, ptr noundef %call159) #3
@@ -573,10 +573,10 @@ lor.lhs.false182:                                 ; preds = %if.end178
 for.body:                                         ; preds = %lor.lhs.false182, %for.inc
   %i.044 = phi i64 [ %inc200, %for.inc ], [ 0, %lor.lhs.false182 ]
   %ret.243 = phi i32 [ %ret.3, %for.inc ], [ 0, %lor.lhs.false182 ]
-  %arrayidx192 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 %i.044
+  %arrayidx192 = getelementptr inbounds nuw [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 %i.044
   %3 = load i64, ptr %arrayidx192, align 8
   %conv193 = trunc i64 %3 to i32
-  %arrayidx194 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.keydata, i64 0, i64 %i.044
+  %arrayidx194 = getelementptr inbounds nuw [12 x i64], ptr @test_pass_rsa.keydata, i64 0, i64 %i.044
   %4 = load i64, ptr %arrayidx194, align 8
   %conv195 = trunc i64 %4 to i32
   %call196 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 249, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef %conv193, i32 noundef %conv195) #3
@@ -727,7 +727,7 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false6
   br i1 %tobool.not.i37, label %if.then.i43, label %lor.lhs.false.i38
 
 lor.lhs.false.i38:                                ; preds = %lor.lhs.false10
-  %arrayidx11 = getelementptr inbounds i8, ptr %arg, i64 8
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %2 = load ptr, ptr %n.i32, align 8
   %call2.i39 = call i32 @BN_bn2nativepad(ptr noundef %2, ptr noundef nonnull %arrayidx11, i32 noundef 8) #3
   %call3.i40 = call i32 @test_int_ge(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef %call2.i39, i32 noundef 0) #3
@@ -763,7 +763,7 @@ lor.lhs.false21:                                  ; preds = %lor.lhs.false17
   br i1 %tobool.not.i50, label %if.then.i56, label %lor.lhs.false.i51
 
 lor.lhs.false.i51:                                ; preds = %lor.lhs.false21
-  %arrayidx22 = getelementptr inbounds i8, ptr %arg, i64 16
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %4 = load ptr, ptr %n.i45, align 8
   %call2.i52 = call i32 @BN_bn2nativepad(ptr noundef %4, ptr noundef nonnull %arrayidx22, i32 noundef 8) #3
   %call3.i53 = call i32 @test_int_ge(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef %call2.i52, i32 noundef 0) #3
@@ -799,7 +799,7 @@ lor.lhs.false33:                                  ; preds = %if.end29
   br i1 %tobool.not.i63, label %if.then.i69, label %lor.lhs.false.i64
 
 lor.lhs.false.i64:                                ; preds = %lor.lhs.false33
-  %arrayidx34 = getelementptr inbounds i8, ptr %arg, i64 24
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %6 = load ptr, ptr %n.i58, align 8
   %call2.i65 = call i32 @BN_bn2nativepad(ptr noundef %6, ptr noundef nonnull %arrayidx34, i32 noundef 8) #3
   %call3.i66 = call i32 @test_int_ge(ptr noundef nonnull @.str, i32 noundef 95, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, i32 noundef %call2.i65, i32 noundef 0) #3
@@ -825,7 +825,7 @@ lor.lhs.false40:                                  ; preds = %get_ulong_via_BN.ex
   br i1 %tobool43.not, label %return, label %lor.lhs.false44
 
 lor.lhs.false44:                                  ; preds = %lor.lhs.false40
-  %arrayidx45 = getelementptr inbounds i8, ptr %arg, i64 32
+  %arrayidx45 = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %call46 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call41, ptr noundef %arrayidx45)
   %call49 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 120, ptr noundef nonnull @.str.64, i32 noundef %call46) #3
   %tobool50.not = icmp eq i32 %call49, 0
@@ -838,7 +838,7 @@ lor.lhs.false51:                                  ; preds = %lor.lhs.false44
   br i1 %tobool54.not, label %return, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false51
-  %arrayidx56 = getelementptr inbounds i8, ptr %arg, i64 40
+  %arrayidx56 = getelementptr inbounds nuw i8, ptr %arg, i64 40
   %call57 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call52, ptr noundef %arrayidx56)
   %call60 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 122, ptr noundef nonnull @.str.67, i32 noundef %call57) #3
   %tobool61.not = icmp eq i32 %call60, 0
@@ -851,7 +851,7 @@ if.end63:                                         ; preds = %lor.lhs.false55
   br i1 %tobool66.not, label %return, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %if.end63
-  %arrayidx68 = getelementptr inbounds i8, ptr %arg, i64 48
+  %arrayidx68 = getelementptr inbounds nuw i8, ptr %arg, i64 48
   %call69 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call64, ptr noundef %arrayidx68)
   %call72 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 126, ptr noundef nonnull @.str.70, i32 noundef %call69) #3
   %tobool73.not = icmp eq i32 %call72, 0
@@ -864,7 +864,7 @@ lor.lhs.false74:                                  ; preds = %lor.lhs.false67
   br i1 %tobool77.not, label %return, label %lor.lhs.false78
 
 lor.lhs.false78:                                  ; preds = %lor.lhs.false74
-  %arrayidx79 = getelementptr inbounds i8, ptr %arg, i64 56
+  %arrayidx79 = getelementptr inbounds nuw i8, ptr %arg, i64 56
   %call80 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call75, ptr noundef %arrayidx79)
   %call83 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @.str.73, i32 noundef %call80) #3
   %tobool84.not = icmp eq i32 %call83, 0
@@ -877,7 +877,7 @@ lor.lhs.false85:                                  ; preds = %lor.lhs.false78
   br i1 %tobool88.not, label %return, label %lor.lhs.false89
 
 lor.lhs.false89:                                  ; preds = %lor.lhs.false85
-  %arrayidx90 = getelementptr inbounds i8, ptr %arg, i64 64
+  %arrayidx90 = getelementptr inbounds nuw i8, ptr %arg, i64 64
   %call91 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call86, ptr noundef %arrayidx90)
   %call94 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 130, ptr noundef nonnull @.str.76, i32 noundef %call91) #3
   %tobool95.not = icmp eq i32 %call94, 0
@@ -890,7 +890,7 @@ if.end97:                                         ; preds = %lor.lhs.false89
   br i1 %tobool100.not, label %return, label %lor.lhs.false101
 
 lor.lhs.false101:                                 ; preds = %if.end97
-  %arrayidx102 = getelementptr inbounds i8, ptr %arg, i64 72
+  %arrayidx102 = getelementptr inbounds nuw i8, ptr %arg, i64 72
   %call103 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call98, ptr noundef %arrayidx102)
   %call106 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 134, ptr noundef nonnull @.str.79, i32 noundef %call103) #3
   %tobool107.not = icmp eq i32 %call106, 0
@@ -903,7 +903,7 @@ lor.lhs.false108:                                 ; preds = %lor.lhs.false101
   br i1 %tobool111.not, label %return, label %lor.lhs.false112
 
 lor.lhs.false112:                                 ; preds = %lor.lhs.false108
-  %arrayidx113 = getelementptr inbounds i8, ptr %arg, i64 80
+  %arrayidx113 = getelementptr inbounds nuw i8, ptr %arg, i64 80
   %call114 = call fastcc i32 @get_ulong_via_BN(ptr noundef %call109, ptr noundef %arrayidx113)
   %call117 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 136, ptr noundef nonnull @.str.82, i32 noundef %call114) #3
   %tobool118.not = icmp ne i32 %call117, 0

@@ -209,10 +209,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8QuantLib18ExtendedJarrowRuddC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add.i.i = add i64 %steps, 1
   store i64 %add.i.i, ptr %1, align 8, !tbaa !3
-  %x0_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %x0_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %process, align 8, !tbaa !8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %cond.false.i.i.i, label %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i, !prof !12
@@ -225,18 +225,18 @@ cond.false.i.i.i:                                 ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i: ; preds = %cond.false.i.i.i, %entry
   %3 = phi ptr [ %2, %entry ], [ %.pre.i.i.i, %cond.false.i.i.i ]
   %vtable.i.i = load ptr, ptr %3, align 8, !tbaa !13
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 120
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 120
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(144) %3)
   store double %call2.i.i, ptr %x0_.i.i, align 8, !tbaa !15
-  %dt_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %dt_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %conv.i.i = uitofp i64 %steps to double
   %div.i.i = fdiv double %end, %conv.i.i
   store double %div.i.i, ptr %dt_.i.i, align 8, !tbaa !18
-  %treeProcess_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %treeProcess_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %process, align 8, !tbaa !8
   store ptr %5, ptr %treeProcess_.i.i, align 8, !tbaa !8
-  %pn.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %pn3.i.i.i = getelementptr inbounds nuw i8, ptr %process, i64 8
   %6 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !19
   store ptr %6, ptr %pn.i.i.i, align 8, !tbaa !19
@@ -268,7 +268,7 @@ invoke.cont:                                      ; preds = %.noexc, %_ZN8QuantL
   %10 = load double, ptr %x0_.i.i, align 8, !tbaa !15
   %11 = load double, ptr %dt_.i.i, align 8, !tbaa !18
   %vtable = load ptr, ptr %9, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %12 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef double %12(ptr noundef nonnull align 8 dereferenceable(144) %9, double noundef 0.000000e+00, double noundef %10, double noundef %11)
           to label %invoke.cont3 unwind label %lpad
@@ -288,7 +288,7 @@ lpad:                                             ; preds = %cond.false.i, %invo
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK8QuantLib18ExtendedJarrowRudd6upStepEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, double noundef %stepTime) unnamed_addr #3 align 2 {
 entry:
-  %treeProcess_ = getelementptr inbounds i8, ptr %this, i64 32
+  %treeProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %treeProcess_, align 8, !tbaa !8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit, !prof !12
@@ -300,12 +300,12 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %entry, %cond.false.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i, %cond.false.i ]
-  %x0_ = getelementptr inbounds i8, ptr %this, i64 16
+  %x0_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load double, ptr %x0_, align 8, !tbaa !15
-  %dt_ = getelementptr inbounds i8, ptr %this, i64 24
+  %dt_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load double, ptr %dt_, align 8, !tbaa !18
   %vtable = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %4 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(144) %1, double noundef %stepTime, double noundef %2, double noundef %3)
   ret double %call4
@@ -326,10 +326,10 @@ entry:
   %ref.tmp54 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp55 = alloca %"class.std::allocator.12", align 1
   %ref.tmp58 = alloca %"class.std::__cxx11::basic_string", align 8
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add.i.i = add i64 %steps, 1
   store i64 %add.i.i, ptr %1, align 8, !tbaa !22
-  %x0_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %x0_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %process, align 8, !tbaa !8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %cond.false.i.i.i, label %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i, !prof !12
@@ -342,18 +342,18 @@ cond.false.i.i.i:                                 ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i: ; preds = %cond.false.i.i.i, %entry
   %3 = phi ptr [ %2, %entry ], [ %.pre.i.i.i, %cond.false.i.i.i ]
   %vtable.i.i = load ptr, ptr %3, align 8, !tbaa !13
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 120
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 120
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(144) %3)
   store double %call2.i.i, ptr %x0_.i.i, align 8, !tbaa !24
-  %dt_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %dt_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %conv.i.i = uitofp i64 %steps to double
   %div.i.i = fdiv double %end, %conv.i.i
   store double %div.i.i, ptr %dt_.i.i, align 8, !tbaa !26
-  %treeProcess_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %treeProcess_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %process, align 8, !tbaa !8
   store ptr %5, ptr %treeProcess_.i.i, align 8, !tbaa !8
-  %pn.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %pn3.i.i.i = getelementptr inbounds nuw i8, ptr %process, i64 8
   %6 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !19
   store ptr %6, ptr %pn.i.i.i, align 8, !tbaa !19
@@ -385,7 +385,7 @@ invoke.cont:                                      ; preds = %.noexc, %_ZN8QuantL
   %10 = load double, ptr %x0_.i.i, align 8, !tbaa !24
   %11 = load double, ptr %dt_.i.i, align 8, !tbaa !26
   %vtable = load ptr, ptr %9, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %12 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef double %12(ptr noundef nonnull align 8 dereferenceable(144) %9, double noundef 0.000000e+00, double noundef %10, double noundef %11)
           to label %invoke.cont3 unwind label %lpad
@@ -409,7 +409,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i: ; preds = %
   %14 = phi ptr [ %13, %invoke.cont3 ], [ %.pre.i.i, %.noexc14 ]
   %15 = load double, ptr %x0_.i.i, align 8, !tbaa !24
   %vtable.i = load ptr, ptr %14, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %16 = load ptr, ptr %vfn.i, align 8
   %call2.i15 = invoke noundef double %16(ptr noundef nonnull align 8 dereferenceable(144) %14, double noundef 0.000000e+00, double noundef %15)
           to label %invoke.cont6 unwind label %lpad
@@ -867,7 +867,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -880,7 +880,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -908,7 +908,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK8QuantLib25ExtendedCoxRossRubinstein6dxStepEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, double noundef %stepTime) unnamed_addr #3 align 2 {
 entry:
-  %treeProcess_ = getelementptr inbounds i8, ptr %this, i64 32
+  %treeProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %treeProcess_, align 8, !tbaa !8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit, !prof !12
@@ -920,12 +920,12 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %entry, %cond.false.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i, %cond.false.i ]
-  %x0_ = getelementptr inbounds i8, ptr %this, i64 16
+  %x0_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load double, ptr %x0_, align 8, !tbaa !24
-  %dt_ = getelementptr inbounds i8, ptr %this, i64 24
+  %dt_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load double, ptr %dt_, align 8, !tbaa !26
   %vtable = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %4 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(144) %1, double noundef %stepTime, double noundef %2, double noundef %3)
   ret double %call4
@@ -934,7 +934,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %en
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK8QuantLib25ExtendedCoxRossRubinstein6probUpEd(ptr noundef nonnull align 8 dereferenceable(72) %this, double noundef %stepTime) unnamed_addr #3 align 2 {
 entry:
-  %treeProcess_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %treeProcess_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %treeProcess_.i, align 8, !tbaa !8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib20ExtendedBinomialTreeINS_25ExtendedCoxRossRubinsteinEE9driftStepEd.exit, !prof !12
@@ -946,18 +946,18 @@ cond.false.i.i:                                   ; preds = %entry
 
 _ZNK8QuantLib20ExtendedBinomialTreeINS_25ExtendedCoxRossRubinsteinEE9driftStepEd.exit: ; preds = %entry, %cond.false.i.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i.i, %cond.false.i.i ]
-  %x0_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %x0_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load double, ptr %x0_.i, align 8, !tbaa !24
   %vtable.i = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %3 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(144) %1, double noundef %stepTime, double noundef %2)
-  %dt_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %dt_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load double, ptr %dt_.i, align 8, !tbaa !26
   %mul.i = fmul double %call2.i, %4
   %mul = fmul double %mul.i, 5.000000e-01
   %vtable = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %5 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %5(ptr noundef nonnull align 8 dereferenceable(72) %this, double noundef %stepTime)
   %div = fdiv double %mul, %call2
@@ -968,10 +968,10 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_25ExtendedCoxRossRubinsteinEE9driftStepEd
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8QuantLib31ExtendedAdditiveEQPBinomialTreeC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add.i.i = add i64 %steps, 1
   store i64 %add.i.i, ptr %1, align 8, !tbaa !38
-  %x0_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %x0_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %process, align 8, !tbaa !8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %cond.false.i.i.i, label %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i, !prof !12
@@ -984,18 +984,18 @@ cond.false.i.i.i:                                 ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i: ; preds = %cond.false.i.i.i, %entry
   %3 = phi ptr [ %2, %entry ], [ %.pre.i.i.i, %cond.false.i.i.i ]
   %vtable.i.i = load ptr, ptr %3, align 8, !tbaa !13
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 120
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 120
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(144) %3)
   store double %call2.i.i, ptr %x0_.i.i, align 8, !tbaa !40
-  %dt_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %dt_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %conv.i.i = uitofp i64 %steps to double
   %div.i.i = fdiv double %end, %conv.i.i
   store double %div.i.i, ptr %dt_.i.i, align 8, !tbaa !42
-  %treeProcess_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %treeProcess_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %process, align 8, !tbaa !8
   store ptr %5, ptr %treeProcess_.i.i, align 8, !tbaa !8
-  %pn.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %pn3.i.i.i = getelementptr inbounds nuw i8, ptr %process, i64 8
   %6 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !19
   store ptr %6, ptr %pn.i.i.i, align 8, !tbaa !19
@@ -1026,7 +1026,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i: ; preds = %
   %9 = phi ptr [ %8, %_ZN8QuantLib38ExtendedEqualProbabilitiesBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEEC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdm.exit ], [ %.pre.i.i, %.noexc ]
   %10 = load double, ptr %x0_.i.i, align 8, !tbaa !40
   %vtable.i = load ptr, ptr %9, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %11 = load ptr, ptr %vfn.i, align 8
   %call2.i2 = invoke noundef double %11(ptr noundef nonnull align 8 dereferenceable(144) %9, double noundef 0.000000e+00, double noundef %10)
           to label %invoke.cont unwind label %lpad
@@ -1051,7 +1051,7 @@ invoke.cont2:                                     ; preds = %.noexc3, %invoke.co
   %15 = phi ptr [ %13, %invoke.cont ], [ %.pre.i, %.noexc3 ]
   %16 = load double, ptr %x0_.i.i, align 8, !tbaa !40
   %vtable = load ptr, ptr %15, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %17 = load ptr, ptr %vfn, align 8
   %call7 = invoke noundef double %17(ptr noundef nonnull align 8 dereferenceable(144) %15, double noundef 0.000000e+00, double noundef %16, double noundef %14)
           to label %invoke.cont6 unwind label %lpad
@@ -1073,7 +1073,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i6: ; preds = 
   %19 = phi ptr [ %18, %invoke.cont6 ], [ %.pre.i.i13, %.noexc14 ]
   %20 = load double, ptr %x0_.i.i, align 8, !tbaa !40
   %vtable.i8 = load ptr, ptr %19, align 8, !tbaa !13
-  %vfn.i9 = getelementptr inbounds i8, ptr %vtable.i8, i64 128
+  %vfn.i9 = getelementptr inbounds nuw i8, ptr %vtable.i8, i64 128
   %21 = load ptr, ptr %vfn.i9, align 8
   %call2.i15 = invoke noundef double %21(ptr noundef nonnull align 8 dereferenceable(144) %19, double noundef 0.000000e+00, double noundef %20)
           to label %invoke.cont10 unwind label %lpad
@@ -1096,7 +1096,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i19: ; preds =
   %24 = phi ptr [ %23, %invoke.cont10 ], [ %.pre.i.i26, %.noexc27 ]
   %25 = load double, ptr %x0_.i.i, align 8, !tbaa !40
   %vtable.i21 = load ptr, ptr %24, align 8, !tbaa !13
-  %vfn.i22 = getelementptr inbounds i8, ptr %vtable.i21, i64 128
+  %vfn.i22 = getelementptr inbounds nuw i8, ptr %vtable.i21, i64 128
   %26 = load ptr, ptr %vfn.i22, align 8
   %call2.i28 = invoke noundef double %26(ptr noundef nonnull align 8 dereferenceable(144) %24, double noundef 0.000000e+00, double noundef %25)
           to label %invoke.cont14 unwind label %lpad
@@ -1133,7 +1133,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #9
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK8QuantLib31ExtendedAdditiveEQPBinomialTree6upStepEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, double noundef %stepTime) unnamed_addr #3 align 2 {
 entry:
-  %treeProcess_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %treeProcess_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %treeProcess_.i, align 8, !tbaa !8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib20ExtendedBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEE9driftStepEd.exit, !prof !12
@@ -1145,13 +1145,13 @@ cond.false.i.i:                                   ; preds = %entry
 
 _ZNK8QuantLib20ExtendedBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEE9driftStepEd.exit: ; preds = %entry, %cond.false.i.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i.i, %cond.false.i.i ]
-  %x0_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %x0_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load double, ptr %x0_.i, align 8, !tbaa !40
   %vtable.i = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %3 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(144) %1, double noundef %stepTime, double noundef %2)
-  %dt_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %dt_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load double, ptr %dt_.i, align 8, !tbaa !42
   %5 = load ptr, ptr %treeProcess_.i, align 8, !tbaa !8
   %cmp.not.i = icmp eq ptr %5, null
@@ -1168,7 +1168,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %_Z
   %7 = phi ptr [ %5, %_ZNK8QuantLib20ExtendedBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEE9driftStepEd.exit ], [ %.pre.i, %cond.false.i ]
   %8 = load double, ptr %x0_.i, align 8, !tbaa !40
   %vtable = load ptr, ptr %7, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %9 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(144) %7, double noundef %stepTime, double noundef %8, double noundef %6)
   %10 = load ptr, ptr %treeProcess_.i, align 8, !tbaa !8
@@ -1184,7 +1184,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEE9drift
   %11 = phi ptr [ %10, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit ], [ %.pre.i.i13, %cond.false.i.i12 ]
   %12 = load double, ptr %x0_.i, align 8, !tbaa !40
   %vtable.i7 = load ptr, ptr %11, align 8, !tbaa !13
-  %vfn.i8 = getelementptr inbounds i8, ptr %vtable.i7, i64 128
+  %vfn.i8 = getelementptr inbounds nuw i8, ptr %vtable.i7, i64 128
   %13 = load ptr, ptr %vfn.i8, align 8
   %call2.i9 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(144) %11, double noundef %stepTime, double noundef %12)
   %14 = load double, ptr %dt_.i, align 8, !tbaa !42
@@ -1204,7 +1204,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEE9drift
   %mul.i = fmul double %call2.i, %4
   %17 = load double, ptr %x0_.i, align 8, !tbaa !40
   %vtable.i18 = load ptr, ptr %16, align 8, !tbaa !13
-  %vfn.i19 = getelementptr inbounds i8, ptr %vtable.i18, i64 128
+  %vfn.i19 = getelementptr inbounds nuw i8, ptr %vtable.i18, i64 128
   %18 = load ptr, ptr %vfn.i19, align 8
   %call2.i20 = tail call noundef double %18(ptr noundef nonnull align 8 dereferenceable(144) %16, double noundef %stepTime, double noundef %17)
   %19 = load double, ptr %dt_.i, align 8, !tbaa !42
@@ -1233,10 +1233,10 @@ entry:
   %ref.tmp62 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp63 = alloca %"class.std::allocator.12", align 1
   %ref.tmp66 = alloca %"class.std::__cxx11::basic_string", align 8
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add.i.i = add i64 %steps, 1
   store i64 %add.i.i, ptr %1, align 8, !tbaa !47
-  %x0_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %x0_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %process, align 8, !tbaa !8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %cond.false.i.i.i, label %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i, !prof !12
@@ -1249,18 +1249,18 @@ cond.false.i.i.i:                                 ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i.i: ; preds = %cond.false.i.i.i, %entry
   %3 = phi ptr [ %2, %entry ], [ %.pre.i.i.i, %cond.false.i.i.i ]
   %vtable.i.i = load ptr, ptr %3, align 8, !tbaa !13
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 120
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 120
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(144) %3)
   store double %call2.i.i, ptr %x0_.i.i, align 8, !tbaa !49
-  %dt_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %dt_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %conv.i.i = uitofp i64 %steps to double
   %div.i.i = fdiv double %end, %conv.i.i
   store double %div.i.i, ptr %dt_.i.i, align 8, !tbaa !51
-  %treeProcess_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %treeProcess_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %process, align 8, !tbaa !8
   store ptr %5, ptr %treeProcess_.i.i, align 8, !tbaa !8
-  %pn.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %pn3.i.i.i = getelementptr inbounds nuw i8, ptr %process, i64 8
   %6 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !19
   store ptr %6, ptr %pn.i.i.i, align 8, !tbaa !19
@@ -1292,7 +1292,7 @@ invoke.cont:                                      ; preds = %.noexc, %_ZN8QuantL
   %10 = load double, ptr %x0_.i.i, align 8, !tbaa !49
   %11 = load double, ptr %dt_.i.i, align 8, !tbaa !51
   %vtable = load ptr, ptr %9, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %12 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef double %12(ptr noundef nonnull align 8 dereferenceable(144) %9, double noundef 0.000000e+00, double noundef %10, double noundef %11)
           to label %invoke.cont3 unwind label %lpad
@@ -1314,7 +1314,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i: ; preds = %
   %14 = phi ptr [ %13, %invoke.cont3 ], [ %.pre.i.i, %.noexc14 ]
   %15 = load double, ptr %x0_.i.i, align 8, !tbaa !49
   %vtable.i = load ptr, ptr %14, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %16 = load ptr, ptr %vfn.i, align 8
   %call2.i15 = invoke noundef double %16(ptr noundef nonnull align 8 dereferenceable(144) %14, double noundef 0.000000e+00, double noundef %15)
           to label %invoke.cont6 unwind label %lpad
@@ -1338,7 +1338,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i18: ; preds =
   %19 = phi ptr [ %18, %invoke.cont6 ], [ %.pre.i.i25, %.noexc26 ]
   %20 = load double, ptr %x0_.i.i, align 8, !tbaa !49
   %vtable.i20 = load ptr, ptr %19, align 8, !tbaa !13
-  %vfn.i21 = getelementptr inbounds i8, ptr %vtable.i20, i64 128
+  %vfn.i21 = getelementptr inbounds nuw i8, ptr %vtable.i20, i64 128
   %21 = load ptr, ptr %vfn.i21, align 8
   %call2.i27 = invoke noundef double %21(ptr noundef nonnull align 8 dereferenceable(144) %19, double noundef 0.000000e+00, double noundef %20)
           to label %invoke.cont9 unwind label %lpad
@@ -1366,7 +1366,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i31: ; preds =
   %25 = phi ptr [ %24, %invoke.cont9 ], [ %.pre.i.i38, %.noexc39 ]
   %26 = load double, ptr %x0_.i.i, align 8, !tbaa !49
   %vtable.i33 = load ptr, ptr %25, align 8, !tbaa !13
-  %vfn.i34 = getelementptr inbounds i8, ptr %vtable.i33, i64 128
+  %vfn.i34 = getelementptr inbounds nuw i8, ptr %vtable.i33, i64 128
   %27 = load ptr, ptr %vfn.i34, align 8
   %call2.i40 = invoke noundef double %27(ptr noundef nonnull align 8 dereferenceable(144) %25, double noundef 0.000000e+00, double noundef %26)
           to label %invoke.cont13 unwind label %lpad
@@ -1749,7 +1749,7 @@ unreachable:                                      ; preds = %invoke.cont70, %inv
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK8QuantLib18ExtendedTrigeorgis6dxStepEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, double noundef %stepTime) unnamed_addr #3 align 2 {
 entry:
-  %treeProcess_ = getelementptr inbounds i8, ptr %this, i64 32
+  %treeProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %treeProcess_, align 8, !tbaa !8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit, !prof !12
@@ -1761,12 +1761,12 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %entry, %cond.false.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i, %cond.false.i ]
-  %x0_ = getelementptr inbounds i8, ptr %this, i64 16
+  %x0_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load double, ptr %x0_, align 8, !tbaa !49
-  %dt_ = getelementptr inbounds i8, ptr %this, i64 24
+  %dt_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load double, ptr %dt_, align 8, !tbaa !51
   %vtable = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %4 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(144) %1, double noundef %stepTime, double noundef %2, double noundef %3)
   %5 = load ptr, ptr %treeProcess_, align 8, !tbaa !8
@@ -1782,7 +1782,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_18ExtendedTrigeorgisEE9driftStepEd.exit: 
   %6 = phi ptr [ %5, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit ], [ %.pre.i.i, %cond.false.i.i ]
   %7 = load double, ptr %x0_, align 8, !tbaa !49
   %vtable.i = load ptr, ptr %6, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %8 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %8(ptr noundef nonnull align 8 dereferenceable(144) %6, double noundef %stepTime, double noundef %7)
   %9 = load double, ptr %dt_, align 8, !tbaa !51
@@ -1800,7 +1800,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_18ExtendedTrigeorgisEE9driftStepEd.exit13
   %mul.i = fmul double %call2.i, %9
   %12 = load double, ptr %x0_, align 8, !tbaa !49
   %vtable.i6 = load ptr, ptr %11, align 8, !tbaa !13
-  %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 128
+  %vfn.i7 = getelementptr inbounds nuw i8, ptr %vtable.i6, i64 128
   %13 = load ptr, ptr %vfn.i7, align 8
   %call2.i8 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(144) %11, double noundef %stepTime, double noundef %12)
   %14 = load double, ptr %dt_, align 8, !tbaa !51
@@ -1813,7 +1813,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_18ExtendedTrigeorgisEE9driftStepEd.exit13
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK8QuantLib18ExtendedTrigeorgis6probUpEd(ptr noundef nonnull align 8 dereferenceable(72) %this, double noundef %stepTime) unnamed_addr #3 align 2 {
 entry:
-  %treeProcess_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %treeProcess_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %treeProcess_.i, align 8, !tbaa !8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib20ExtendedBinomialTreeINS_18ExtendedTrigeorgisEE9driftStepEd.exit, !prof !12
@@ -1825,18 +1825,18 @@ cond.false.i.i:                                   ; preds = %entry
 
 _ZNK8QuantLib20ExtendedBinomialTreeINS_18ExtendedTrigeorgisEE9driftStepEd.exit: ; preds = %entry, %cond.false.i.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i.i, %cond.false.i.i ]
-  %x0_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %x0_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load double, ptr %x0_.i, align 8, !tbaa !49
   %vtable.i = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %3 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(144) %1, double noundef %stepTime, double noundef %2)
-  %dt_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %dt_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load double, ptr %dt_.i, align 8, !tbaa !51
   %mul.i = fmul double %call2.i, %4
   %mul = fmul double %mul.i, 5.000000e-01
   %vtable = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %5 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %5(ptr noundef nonnull align 8 dereferenceable(72) %this, double noundef %stepTime)
   %div = fdiv double %mul, %call2
@@ -1874,7 +1874,7 @@ cond.false.i.i:                                   ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i: ; preds = %cond.false.i.i, %entry
   %2 = phi ptr [ %1, %entry ], [ %.pre.i.i, %cond.false.i.i ]
   %vtable.i = load ptr, ptr %2, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 120
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 120
   %3 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(144) %2)
   store double %call2.i, ptr %x0_.i, align 8, !tbaa !58
@@ -1916,7 +1916,7 @@ invoke.cont:                                      ; preds = %.noexc, %_ZN8QuantL
   %9 = load double, ptr %x0_.i, align 8, !tbaa !58
   %10 = load double, ptr %dt_.i, align 8, !tbaa !60
   %vtable = load ptr, ptr %8, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %11 = load ptr, ptr %vfn, align 8
   %call3 = invoke noundef double %11(ptr noundef nonnull align 8 dereferenceable(144) %8, double noundef 0.000000e+00, double noundef %9, double noundef %10)
           to label %invoke.cont2 unwind label %lpad
@@ -1939,7 +1939,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i29: ; preds =
   %13 = phi ptr [ %12, %invoke.cont2 ], [ %.pre.i.i36, %.noexc37 ]
   %14 = load double, ptr %x0_.i, align 8, !tbaa !58
   %vtable.i31 = load ptr, ptr %13, align 8, !tbaa !13
-  %vfn.i32 = getelementptr inbounds i8, ptr %vtable.i31, i64 128
+  %vfn.i32 = getelementptr inbounds nuw i8, ptr %vtable.i31, i64 128
   %15 = load ptr, ptr %vfn.i32, align 8
   %call2.i3338 = invoke noundef double %15(ptr noundef nonnull align 8 dereferenceable(144) %13, double noundef 0.000000e+00, double noundef %14)
           to label %invoke.cont6 unwind label %lpad5
@@ -2358,7 +2358,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -2371,7 +2371,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -2411,7 +2411,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %en
   %x0_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load double, ptr %x0_, align 8, !tbaa !58
   %vtable = load ptr, ptr %3, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %5 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef double %5(ptr noundef nonnull align 8 dereferenceable(144) %3, double noundef %mul, double noundef %4, double noundef %2)
   %call4 = tail call double @exp(double noundef %call3) #18, !tbaa !43
@@ -2428,7 +2428,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_12ExtendedTianEE9driftStepEd.exit: ; pred
   %7 = phi ptr [ %6, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit ], [ %.pre.i.i, %cond.false.i.i ]
   %8 = load double, ptr %x0_, align 8, !tbaa !58
   %vtable.i = load ptr, ptr %7, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %9 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(144) %7, double noundef %mul, double noundef %8)
   %10 = load double, ptr %dt_, align 8, !tbaa !60
@@ -2486,7 +2486,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %en
   %x0_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load double, ptr %x0_, align 8, !tbaa !58
   %vtable = load ptr, ptr %4, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %6 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef double %6(ptr noundef nonnull align 8 dereferenceable(144) %4, double noundef %mul, double noundef %5, double noundef %3)
   %call4 = tail call double @exp(double noundef %call3) #18, !tbaa !43
@@ -2503,7 +2503,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_12ExtendedTianEE9driftStepEd.exit: ; pred
   %8 = phi ptr [ %7, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit ], [ %.pre.i.i, %cond.false.i.i ]
   %9 = load double, ptr %x0_, align 8, !tbaa !58
   %vtable.i = load ptr, ptr %8, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %10 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %10(ptr noundef nonnull align 8 dereferenceable(144) %8, double noundef %mul, double noundef %9)
   %11 = load double, ptr %dt_, align 8, !tbaa !60
@@ -2557,7 +2557,7 @@ cond.false.i.i:                                   ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i: ; preds = %cond.false.i.i, %entry
   %1 = phi ptr [ %0, %entry ], [ %.pre.i.i, %cond.false.i.i ]
   %vtable.i = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 120
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 120
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %2(ptr noundef nonnull align 8 dereferenceable(144) %1)
   store double %call2.i, ptr %x0_.i, align 8, !tbaa !68
@@ -2783,7 +2783,7 @@ invoke.cont40:                                    ; preds = %.noexc, %do.end
   %29 = phi ptr [ %28, %do.end ], [ %.pre.i, %.noexc ]
   %30 = load double, ptr %x0_.i, align 8, !tbaa !68
   %vtable = load ptr, ptr %29, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %31 = load ptr, ptr %vfn, align 8
   %call43 = invoke noundef double %31(ptr noundef nonnull align 8 dereferenceable(144) %29, double noundef 0.000000e+00, double noundef %30, double noundef %end)
           to label %invoke.cont42 unwind label %lpad39
@@ -2805,7 +2805,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i47: ; preds =
   %33 = phi ptr [ %32, %invoke.cont42 ], [ %.pre.i.i54, %.noexc55 ]
   %34 = load double, ptr %x0_.i, align 8, !tbaa !68
   %vtable.i49 = load ptr, ptr %33, align 8, !tbaa !13
-  %vfn.i50 = getelementptr inbounds i8, ptr %vtable.i49, i64 128
+  %vfn.i50 = getelementptr inbounds nuw i8, ptr %vtable.i49, i64 128
   %35 = load ptr, ptr %vfn.i50, align 8
   %call2.i5156 = invoke noundef double %35(ptr noundef nonnull align 8 dereferenceable(144) %33, double noundef 0.000000e+00, double noundef %34)
           to label %invoke.cont45 unwind label %lpad44
@@ -2839,7 +2839,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i59: ; preds =
   %40 = phi double [ %38, %invoke.cont45 ], [ %.pre, %.noexc68 ]
   %41 = phi ptr [ %39, %invoke.cont45 ], [ %.pre.i.i67, %.noexc68 ]
   %vtable.i61 = load ptr, ptr %41, align 8, !tbaa !13
-  %vfn.i62 = getelementptr inbounds i8, ptr %vtable.i61, i64 128
+  %vfn.i62 = getelementptr inbounds nuw i8, ptr %vtable.i61, i64 128
   %42 = load ptr, ptr %vfn.i62, align 8
   %call2.i6369 = invoke noundef double %42(ptr noundef nonnull align 8 dereferenceable(144) %41, double noundef 0.000000e+00, double noundef %40)
           to label %invoke.cont54 unwind label %lpad53
@@ -3130,7 +3130,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -3143,7 +3143,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -3183,7 +3183,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %en
   %end_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load double, ptr %end_, align 8, !tbaa !71
   %vtable = load ptr, ptr %2, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %5 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %5(ptr noundef nonnull align 8 dereferenceable(144) %2, double noundef %mul, double noundef %3, double noundef %4)
   %6 = load ptr, ptr %treeProcess_, align 8, !tbaa !8
@@ -3199,7 +3199,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_20ExtendedLeisenReimerEE9driftStepEd.exit
   %7 = phi ptr [ %6, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit ], [ %.pre.i.i, %cond.false.i.i ]
   %8 = load double, ptr %x0_, align 8, !tbaa !68
   %vtable.i = load ptr, ptr %7, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %9 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(144) %7, double noundef %mul, double noundef %8)
   %10 = load double, ptr %dt_, align 8, !tbaa !70
@@ -3230,7 +3230,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_20ExtendedLeisenReimerEE9driftStepEd.exit
   %15 = phi double [ %12, %_ZNK8QuantLib20ExtendedBinomialTreeINS_20ExtendedLeisenReimerEE9driftStepEd.exit ], [ %.pre, %cond.false.i.i20 ]
   %16 = phi ptr [ %14, %_ZNK8QuantLib20ExtendedBinomialTreeINS_20ExtendedLeisenReimerEE9driftStepEd.exit ], [ %.pre.i.i21, %cond.false.i.i20 ]
   %vtable.i15 = load ptr, ptr %16, align 8, !tbaa !13
-  %vfn.i16 = getelementptr inbounds i8, ptr %vtable.i15, i64 128
+  %vfn.i16 = getelementptr inbounds nuw i8, ptr %vtable.i15, i64 128
   %17 = load ptr, ptr %vfn.i16, align 8
   %call2.i17 = tail call noundef double %17(ptr noundef nonnull align 8 dereferenceable(144) %16, double noundef %mul, double noundef %15)
   %18 = load double, ptr %dt_, align 8, !tbaa !70
@@ -3286,7 +3286,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %en
   %end_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load double, ptr %end_, align 8, !tbaa !71
   %vtable = load ptr, ptr %3, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %6 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %6(ptr noundef nonnull align 8 dereferenceable(144) %3, double noundef %mul, double noundef %4, double noundef %5)
   %7 = load double, ptr %x0_, align 8, !tbaa !68
@@ -3308,7 +3308,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_20ExtendedLeisenReimerEE9driftStepEd.exit
   %10 = phi double [ %7, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit ], [ %.pre, %cond.false.i.i ]
   %11 = phi ptr [ %9, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit ], [ %.pre.i.i, %cond.false.i.i ]
   %vtable.i = load ptr, ptr %11, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %12 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %12(ptr noundef nonnull align 8 dereferenceable(144) %11, double noundef %mul, double noundef %10)
   %13 = load double, ptr %dt_, align 8, !tbaa !70
@@ -3385,7 +3385,7 @@ cond.false.i.i:                                   ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i: ; preds = %cond.false.i.i, %entry
   %1 = phi ptr [ %0, %entry ], [ %.pre.i.i, %cond.false.i.i ]
   %vtable.i = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 120
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 120
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %2(ptr noundef nonnull align 8 dereferenceable(144) %1)
   store double %call2.i, ptr %x0_.i, align 8, !tbaa !81
@@ -3611,7 +3611,7 @@ invoke.cont40:                                    ; preds = %.noexc, %do.end
   %29 = phi ptr [ %28, %do.end ], [ %.pre.i, %.noexc ]
   %30 = load double, ptr %x0_.i, align 8, !tbaa !81
   %vtable = load ptr, ptr %29, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %31 = load ptr, ptr %vfn, align 8
   %call43 = invoke noundef double %31(ptr noundef nonnull align 8 dereferenceable(144) %29, double noundef 0.000000e+00, double noundef %30, double noundef %end)
           to label %invoke.cont42 unwind label %lpad39
@@ -3633,7 +3633,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i46: ; preds =
   %33 = phi ptr [ %32, %invoke.cont42 ], [ %.pre.i.i53, %.noexc54 ]
   %34 = load double, ptr %x0_.i, align 8, !tbaa !81
   %vtable.i48 = load ptr, ptr %33, align 8, !tbaa !13
-  %vfn.i49 = getelementptr inbounds i8, ptr %vtable.i48, i64 128
+  %vfn.i49 = getelementptr inbounds nuw i8, ptr %vtable.i48, i64 128
   %35 = load ptr, ptr %vfn.i49, align 8
   %call2.i5055 = invoke noundef double %35(ptr noundef nonnull align 8 dereferenceable(144) %33, double noundef 0.000000e+00, double noundef %34)
           to label %invoke.cont45 unwind label %lpad44
@@ -3667,7 +3667,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit.i58: ; preds =
   %40 = phi double [ %38, %invoke.cont45 ], [ %.pre, %.noexc67 ]
   %41 = phi ptr [ %39, %invoke.cont45 ], [ %.pre.i.i66, %.noexc67 ]
   %vtable.i60 = load ptr, ptr %41, align 8, !tbaa !13
-  %vfn.i61 = getelementptr inbounds i8, ptr %vtable.i60, i64 128
+  %vfn.i61 = getelementptr inbounds nuw i8, ptr %vtable.i60, i64 128
   %42 = load ptr, ptr %vfn.i61, align 8
   %call2.i6268 = invoke noundef double %42(ptr noundef nonnull align 8 dereferenceable(144) %41, double noundef 0.000000e+00, double noundef %40)
           to label %invoke.cont54 unwind label %lpad53
@@ -3794,7 +3794,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -3807,7 +3807,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrIN8QuantLib19StochasticProcess1DEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -3847,7 +3847,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %en
   %end_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load double, ptr %end_, align 8, !tbaa !84
   %vtable = load ptr, ptr %2, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %5 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %5(ptr noundef nonnull align 8 dereferenceable(144) %2, double noundef %mul, double noundef %3, double noundef %4)
   %6 = load ptr, ptr %treeProcess_, align 8, !tbaa !8
@@ -3863,7 +3863,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_14ExtendedJoshi4EE9driftStepEd.exit: ; pr
   %7 = phi ptr [ %6, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit ], [ %.pre.i.i, %cond.false.i.i ]
   %8 = load double, ptr %x0_, align 8, !tbaa !81
   %vtable.i = load ptr, ptr %7, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %9 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(144) %7, double noundef %mul, double noundef %8)
   %10 = load double, ptr %dt_, align 8, !tbaa !83
@@ -3894,7 +3894,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_14ExtendedJoshi4EE9driftStepEd.exit22: ; 
   %15 = phi double [ %12, %_ZNK8QuantLib20ExtendedBinomialTreeINS_14ExtendedJoshi4EE9driftStepEd.exit ], [ %.pre, %cond.false.i.i20 ]
   %16 = phi ptr [ %14, %_ZNK8QuantLib20ExtendedBinomialTreeINS_14ExtendedJoshi4EE9driftStepEd.exit ], [ %.pre.i.i21, %cond.false.i.i20 ]
   %vtable.i15 = load ptr, ptr %16, align 8, !tbaa !13
-  %vfn.i16 = getelementptr inbounds i8, ptr %vtable.i15, i64 128
+  %vfn.i16 = getelementptr inbounds nuw i8, ptr %vtable.i15, i64 128
   %17 = load ptr, ptr %vfn.i16, align 8
   %call2.i17 = tail call noundef double %17(ptr noundef nonnull align 8 dereferenceable(144) %16, double noundef %mul, double noundef %15)
   %18 = load double, ptr %dt_, align 8, !tbaa !83
@@ -4003,7 +4003,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %en
   %end_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load double, ptr %end_, align 8, !tbaa !84
   %vtable = load ptr, ptr %3, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %6 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %6(ptr noundef nonnull align 8 dereferenceable(144) %3, double noundef %mul, double noundef %4, double noundef %5)
   %7 = load double, ptr %x0_, align 8, !tbaa !81
@@ -4025,7 +4025,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_14ExtendedJoshi4EE9driftStepEd.exit: ; pr
   %10 = phi double [ %7, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit ], [ %.pre, %cond.false.i.i ]
   %11 = phi ptr [ %9, %_ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit ], [ %.pre.i.i, %cond.false.i.i ]
   %vtable.i = load ptr, ptr %11, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %12 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %12(ptr noundef nonnull align 8 dereferenceable(144) %11, double noundef %mul, double noundef %10)
   %13 = load double, ptr %dt_, align 8, !tbaa !83
@@ -4075,7 +4075,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_14ExtendedJoshi4EE9driftStepEd.exit: ; pr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18ExtendedJarrowRuddD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pn.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !19
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8QuantLib38ExtendedEqualProbabilitiesBinomialTreeINS_18ExtendedJarrowRuddEED2Ev.exit, label %if.then.i.i.i.i
@@ -4088,7 +4088,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -4101,7 +4101,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %.noexc.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN8QuantLib38ExtendedEqualProbabilitiesBinomialTreeINS_18ExtendedJarrowRuddEED2Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -4121,7 +4121,7 @@ _ZN8QuantLib38ExtendedEqualProbabilitiesBinomialTreeINS_18ExtendedJarrowRuddEED2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib25ExtendedCoxRossRubinsteinD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pn.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !19
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8QuantLib30ExtendedEqualJumpsBinomialTreeINS_25ExtendedCoxRossRubinsteinEED2Ev.exit, label %if.then.i.i.i.i
@@ -4134,7 +4134,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -4147,7 +4147,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %.noexc.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN8QuantLib30ExtendedEqualJumpsBinomialTreeINS_25ExtendedCoxRossRubinsteinEED2Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -4167,7 +4167,7 @@ _ZN8QuantLib30ExtendedEqualJumpsBinomialTreeINS_25ExtendedCoxRossRubinsteinEED2E
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib31ExtendedAdditiveEQPBinomialTreeD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pn.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !19
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8QuantLib38ExtendedEqualProbabilitiesBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEED2Ev.exit, label %if.then.i.i.i.i
@@ -4180,7 +4180,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -4193,7 +4193,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %.noexc.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN8QuantLib38ExtendedEqualProbabilitiesBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEED2Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -4213,7 +4213,7 @@ _ZN8QuantLib38ExtendedEqualProbabilitiesBinomialTreeINS_31ExtendedAdditiveEQPBin
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib18ExtendedTrigeorgisD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pn.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !19
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8QuantLib30ExtendedEqualJumpsBinomialTreeINS_18ExtendedTrigeorgisEED2Ev.exit, label %if.then.i.i.i.i
@@ -4226,7 +4226,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -4239,7 +4239,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %.noexc.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN8QuantLib30ExtendedEqualJumpsBinomialTreeINS_18ExtendedTrigeorgisEED2Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -4284,7 +4284,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib38ExtendedEqualProbabilitiesBinomialTreeINS_18ExtendedJarrowRuddEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pn.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !19
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib20ExtendedBinomialTreeINS_18ExtendedJarrowRuddEED2Ev.exit, label %if.then.i.i.i
@@ -4297,7 +4297,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -4310,7 +4310,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN8QuantLib20ExtendedBinomialTreeINS_18ExtendedJarrowRuddEED2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -4329,7 +4329,7 @@ _ZN8QuantLib20ExtendedBinomialTreeINS_18ExtendedJarrowRuddEED2Ev.exit: ; preds =
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib30ExtendedEqualJumpsBinomialTreeINS_25ExtendedCoxRossRubinsteinEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pn.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !19
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib20ExtendedBinomialTreeINS_25ExtendedCoxRossRubinsteinEED2Ev.exit, label %if.then.i.i.i
@@ -4342,7 +4342,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -4355,7 +4355,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN8QuantLib20ExtendedBinomialTreeINS_25ExtendedCoxRossRubinsteinEED2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -4374,7 +4374,7 @@ _ZN8QuantLib20ExtendedBinomialTreeINS_25ExtendedCoxRossRubinsteinEED2Ev.exit: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib38ExtendedEqualProbabilitiesBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pn.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !19
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib20ExtendedBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEED2Ev.exit, label %if.then.i.i.i
@@ -4387,7 +4387,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -4400,7 +4400,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN8QuantLib20ExtendedBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEED2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -4419,7 +4419,7 @@ _ZN8QuantLib20ExtendedBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib30ExtendedEqualJumpsBinomialTreeINS_18ExtendedTrigeorgisEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pn.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %pn.i.i, align 8, !tbaa !19
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib20ExtendedBinomialTreeINS_18ExtendedTrigeorgisEED2Ev.exit, label %if.then.i.i.i
@@ -4432,7 +4432,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -4445,7 +4445,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN8QuantLib20ExtendedBinomialTreeINS_18ExtendedTrigeorgisEED2Ev.exit unwind label %terminate.lpad.i.i.i

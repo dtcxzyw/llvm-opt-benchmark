@@ -67,7 +67,7 @@ sub_0:                                            ; preds = %2
   br i1 %.not34, label %.tail, label %12
 
 .tail:                                            ; preds = %sub_0
-  %9 = getelementptr inbounds i8, ptr %7, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %sub_030, label %.thread38
@@ -86,7 +86,7 @@ sub_030:                                          ; preds = %12, %.tail
   br i1 %.not35, label %.tail29, label %.tail29.thread
 
 .tail29:                                          ; preds = %sub_030
-  %17 = getelementptr inbounds i8, ptr %15, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %.thread.thread, label %.tail29.thread
@@ -286,10 +286,10 @@ define internal fastcc i32 @socket_init(ptr noundef %0) unnamed_addr #0 {
   br i1 %15, label %34, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %2, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %17, i8 0, i64 108, i1 false)
   store i16 1, ptr %2, align 2
-  %18 = getelementptr inbounds i8, ptr %2, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %19 = call i64 @g_strlcpy(ptr noundef nonnull %18, ptr noundef %9, i64 noundef 108) #10
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #15
   %21 = trunc i64 %20 to i32

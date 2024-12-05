@@ -103,7 +103,7 @@ define i32 @preempt_g_init() local_unnamed_addr #0 {
   br i1 %.not16, label %.sink.split, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %25 = tail call i32 @parse_uint32(ptr noundef nonnull %24, ptr noundef nonnull @min_exempt_priority) #8
   br label %.sink.split
 
@@ -173,7 +173,7 @@ define ptr @slurm_find_preemptable_jobs(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca %struct.preempt_candidates_t, align 8
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %4, align 8
   %5 = load i32, ptr @plugin_inited, align 4
   %6 = icmp eq i32 %5, 1
@@ -188,7 +188,7 @@ define ptr @slurm_find_preemptable_jobs(ptr noundef %0) local_unnamed_addr #0 {
   br label %39
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 448
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 255
   %14 = icmp eq i32 %13, 0
@@ -199,7 +199,7 @@ define ptr @slurm_find_preemptable_jobs(ptr noundef %0) local_unnamed_addr #0 {
   br label %39
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 664
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %19 = load ptr, ptr %18, align 8
   %.not14 = icmp eq ptr %19, null
   br i1 %.not14, label %20, label %22
@@ -209,13 +209,13 @@ define ptr @slurm_find_preemptable_jobs(ptr noundef %0) local_unnamed_addr #0 {
   br label %39
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %19, i64 232
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 232
   %24 = load ptr, ptr %23, align 8
   %.not15 = icmp eq ptr %24, null
   br i1 %.not15, label %25, label %slurm_preemption_enabled.exit
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %19, i64 224
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.slurm_find_preemptable_jobs, ptr noundef %27) #8
   br label %39
@@ -283,10 +283,10 @@ declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_add_preemptable_job(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 360
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 384
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 384
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not, label %7, label %6
@@ -308,21 +308,21 @@ define internal noundef i32 @_add_preemptable_job(ptr noundef %0, ptr nocapture 
 
 13:                                               ; preds = %10, %8
   %14 = load i32, ptr @min_exempt_priority, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 712
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %16 = load i32, ptr %15, align 8
   %17 = icmp ult i32 %14, %16
   br i1 %17, label %_is_job_preempt_exempt.exit.thread, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %3, i64 216
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %_is_job_preempt_exempt.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 184
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 392
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %23, %25
   br i1 %26, label %_is_job_preempt_exempt.exit.thread, label %_is_job_preempt_exempt.exit
@@ -337,17 +337,17 @@ _is_job_preempt_exempt.exit:                      ; preds = %18, %21
   br i1 %28, label %_is_job_preempt_exempt.exit.thread, label %29
 
 29:                                               ; preds = %.thread, %_is_job_preempt_exempt.exit
-  %30 = getelementptr inbounds i8, ptr %3, i64 664
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 664
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 232
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 232
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 472
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 472
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i1 @job_overlap_and_running(ptr noundef %33, ptr noundef %35, ptr noundef nonnull %0) #8
   br i1 %36, label %37, label %_is_job_preempt_exempt.exit.thread
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not15 = icmp eq ptr %39, null
   br i1 %.not15, label %40, label %42
@@ -372,9 +372,9 @@ declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #4
 define internal range(i32 -1, 2) i32 @_sort_by_youngest(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 888
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 888
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 888
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 888
   %8 = load i64, ptr %7, align 8
   %.0 = tail call i32 @llvm.scmp.i32.i64(i64 %8, i64 %6)
   ret i32 %.0
@@ -406,10 +406,10 @@ define zeroext i16 @slurm_job_preempt_mode(ptr noundef %0) local_unnamed_addr #0
   br i1 %6, label %22, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 384
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %9 = load ptr, ptr %8, align 8
   %.not = icmp ne ptr %9, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 432
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 432
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not14 = icmp eq ptr %.pre, null
   %or.cond = select i1 %.not, i1 %.not14, i1 false
@@ -421,7 +421,7 @@ define zeroext i16 @slurm_job_preempt_mode(ptr noundef %0) local_unnamed_addr #0
 .preheader:                                       ; preds = %7, %10
   %11 = phi i1 [ false, %10 ], [ true, %7 ]
   %indvars.iv = phi i64 [ 1, %10 ], [ 0, %7 ]
-  %12 = getelementptr inbounds [2 x i16], ptr @slurm_job_preempt_mode.preempt_modes, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i16], ptr @slurm_job_preempt_mode.preempt_modes, i64 0, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2
   store i16 %13, ptr %4, align 2
   %14 = load ptr, ptr %8, align 8
@@ -510,7 +510,7 @@ define i32 @slurm_job_preempt(ptr noundef %0, ptr noundef %1, i16 noundef zeroex
   br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 384
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %16, label %12
@@ -583,7 +583,7 @@ _job_check_grace.exit:                            ; preds = %12, %16
   br label %.critedge
 
 39:                                               ; preds = %26
-  %40 = getelementptr inbounds i8, ptr %0, i64 392
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %41 = load i32, ptr %40, align 8
   %42 = call i32 @job_requeue(i32 noundef 0, i32 noundef %41, ptr noundef null, i1 noundef zeroext true, i32 noundef 0) #8
   %43 = icmp eq i32 %42, 0
@@ -726,21 +726,21 @@ define internal range(i32 0, 2) i32 @_is_job_preempt_exempt_internal(ptr noundef
 
 7:                                                ; preds = %4, %2
   %8 = load i32, ptr @min_exempt_priority, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 712
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %10 = load i32, ptr %9, align 8
   %11 = icmp ult i32 %8, %10
   br i1 %11, label %23, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %1, i64 216
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 392
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %17, %19
   br i1 %20, label %23, label %21
@@ -764,14 +764,14 @@ declare i32 @list_for_each_nobreak(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @_job_check_grace_internal(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 688
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
   %7 = tail call i64 @time(ptr noundef null) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 232
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %9 = load i64, ptr %8, align 8
   %.not35 = icmp slt i64 %7, %9
   br i1 %.not35, label %48, label %10
@@ -786,7 +786,7 @@ define internal range(i32 -1, 2) i32 @_job_check_grace_internal(ptr noundef %0, 
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 1086
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1086
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
   br label %25
@@ -813,7 +813,7 @@ slurm_job_get_grace_time.exit:                    ; preds = %18, %21
   %.0 = phi i32 [ %17, %14 ], [ %.0.i, %slurm_job_get_grace_time.exit ]
   %26 = call i64 @time(ptr noundef null) #8
   store i64 %26, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 232
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %28 = load i64, ptr %27, align 8
   %29 = zext i32 %.0 to i64
   %30 = add nsw i64 %26, %29
@@ -837,13 +837,13 @@ slurm_job_get_grace_time.exit:                    ; preds = %18, %21
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %0, i64 1084
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1084
   %40 = load i16, ptr %39, align 4
   %.not33 = icmp eq i16 %40, 0
   br i1 %.not33, label %45, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 1082
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1082
   %43 = load i16, ptr %42, align 2
   %.not34 = icmp sgt i16 %43, -1
   br i1 %.not34, label %44, label %45

@@ -243,7 +243,7 @@ thread-pre-split.i:                               ; preds = %55
 
 88:                                               ; preds = %85, %82
   %.sink.i = phi i8 [ 1, %82 ], [ 0, %85 ]
-  %89 = getelementptr inbounds i8, ptr %8, i64 26
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 26
   store i8 %.sink.i, ptr %89, align 2
   %90 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   %91 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %90) #10
@@ -281,10 +281,10 @@ thread-pre-split.i:                               ; preds = %55
 109:                                              ; preds = %104
   %110 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   tail call void @strip_quotes(ptr noundef nonnull %97, i8 noundef signext 39, i8 noundef signext 0, i32 noundef %110) #10
-  %111 = getelementptr inbounds i8, ptr %8, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i8 1, ptr %111, align 8
   %112 = tail call ptr @pg_strdup(ptr noundef nonnull %97) #10
-  %113 = getelementptr inbounds i8, ptr %8, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %112, ptr %113, align 8
   br label %135
 
@@ -299,7 +299,7 @@ thread-pre-split.i:                               ; preds = %55
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %117, %114
-  %121 = getelementptr inbounds i8, ptr %8, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %121, align 8
   br label %135
 
@@ -314,9 +314,9 @@ thread-pre-split.i:                               ; preds = %55
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %125, %122
-  %129 = getelementptr inbounds i8, ptr %8, i64 25
+  %129 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 1, ptr %129, align 1
-  %130 = getelementptr inbounds i8, ptr %8, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %130, align 8
   br label %135
 
@@ -324,7 +324,7 @@ thread-pre-split.i:                               ; preds = %55
   %132 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
   tail call void @strip_quotes(ptr noundef nonnull %91, i8 noundef signext 39, i8 noundef signext 0, i32 noundef %132) #10
   %133 = tail call ptr @pg_strdup(ptr noundef nonnull %91) #10
-  %134 = getelementptr inbounds i8, ptr %8, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %133, ptr %134, align 8
   tail call void @expand_tilde(ptr noundef nonnull %134) #10
   br label %135
@@ -337,7 +337,7 @@ thread-pre-split.i:                               ; preds = %55
 
 138:                                              ; preds = %135
   %139 = tail call ptr @pg_strdup(ptr noundef nonnull %137) #10
-  %140 = getelementptr inbounds i8, ptr %8, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %139, ptr %140, align 8
   br label %parse_slash_copy.exit
 
@@ -353,23 +353,23 @@ thread-pre-split.i:                               ; preds = %55
 free_copy_options.exit.i:                         ; preds = %.loopexit.i, %141
   %142 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %142) #10
-  %143 = getelementptr inbounds i8, ptr %8, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %144 = load ptr, ptr %143, align 8
   tail call void @free(ptr noundef %144) #10
-  %145 = getelementptr inbounds i8, ptr %8, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %146 = load ptr, ptr %145, align 8
   tail call void @free(ptr noundef %146) #10
   tail call void @free(ptr noundef nonnull %8) #10
   br label %parse_slash_copy.exit.thread
 
 parse_slash_copy.exit:                            ; preds = %138, %135
-  %147 = getelementptr inbounds i8, ptr %8, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %148 = load ptr, ptr %147, align 8
   %.not57 = icmp eq ptr %148, null
   br i1 %.not57, label %154, label %149
 
 149:                                              ; preds = %parse_slash_copy.exit
-  %150 = getelementptr inbounds i8, ptr %8, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %151 = load i8, ptr %150, align 8
   %152 = trunc i8 %151 to i1
   br i1 %152, label %154, label %153
@@ -389,7 +389,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
   br i1 %.not59, label %170, label %159
 
 159:                                              ; preds = %158
-  %160 = getelementptr inbounds i8, ptr %8, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %161 = load i8, ptr %160, align 8
   %162 = trunc i8 %161 to i1
   br i1 %162, label %163, label %168
@@ -407,7 +407,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
   br label %198
 
 170:                                              ; preds = %158
-  %171 = getelementptr inbounds i8, ptr %8, i64 25
+  %171 = getelementptr inbounds nuw i8, ptr %8, i64 25
   %172 = load i8, ptr %171, align 1
   %173 = trunc i8 %172 to i1
   br i1 %173, label %176, label %174
@@ -424,7 +424,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
   br i1 %.not59, label %190, label %179
 
 179:                                              ; preds = %178
-  %180 = getelementptr inbounds i8, ptr %8, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %181 = load i8, ptr %180, align 8
   %182 = trunc i8 %181 to i1
   br i1 %182, label %183, label %188
@@ -443,7 +443,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
   br label %198
 
 190:                                              ; preds = %178
-  %191 = getelementptr inbounds i8, ptr %8, i64 25
+  %191 = getelementptr inbounds nuw i8, ptr %8, i64 25
   %192 = load i8, ptr %191, align 1
   %193 = trunc i8 %192 to i1
   br i1 %193, label %196, label %194
@@ -459,7 +459,7 @@ parse_slash_copy.exit:                            ; preds = %138, %135
 198:                                              ; preds = %188, %183, %196, %194, %168, %163, %176, %174
   %.049 = phi ptr [ %167, %163 ], [ %169, %168 ], [ %177, %176 ], [ %175, %174 ], [ %187, %183 ], [ %189, %188 ], [ %197, %196 ], [ %195, %194 ]
   %.not60 = icmp eq ptr %.049, null
-  %199 = getelementptr inbounds i8, ptr %8, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %200 = load i8, ptr %199, align 8
   %201 = trunc i8 %200 to i1
   br i1 %.not60, label %free_copy_options.exit, label %207
@@ -470,7 +470,7 @@ free_copy_options.exit:                           ; preds = %198
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %.str.2..str.3, ptr noundef %202) #10
   %203 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %203) #10
-  %204 = getelementptr inbounds i8, ptr %8, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %205 = load ptr, ptr %204, align 8
   tail call void @free(ptr noundef %205) #10
   %206 = load ptr, ptr %147, align 8
@@ -489,7 +489,7 @@ free_copy_options.exit:                           ; preds = %198
 
 212:                                              ; preds = %208
   %213 = icmp eq i32 %210, 0
-  %214 = getelementptr inbounds i8, ptr %3, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %215 = load i32, ptr %214, align 8
   %216 = and i32 %215, 61440
   %217 = icmp eq i32 %216, 16384
@@ -511,7 +511,7 @@ free_copy_options.exit68:                         ; preds = %free_copy_options.e
   %221 = tail call i32 @fclose(ptr noundef nonnull %.049)
   %222 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %222) #10
-  %223 = getelementptr inbounds i8, ptr %8, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %224 = load ptr, ptr %223, align 8
   tail call void @free(ptr noundef %224) #10
   %225 = load ptr, ptr %147, align 8
@@ -528,7 +528,7 @@ free_copy_options.exit68:                         ; preds = %free_copy_options.e
   %228 = trunc i8 %227 to i1
   %.str.7..str.8 = select i1 %228, ptr @.str.7, ptr @.str.8
   call void @appendPQExpBufferStr(ptr noundef nonnull %2, ptr noundef nonnull %.str.7..str.8) #10
-  %229 = getelementptr inbounds i8, ptr %8, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %230 = load ptr, ptr %229, align 8
   %.not61 = icmp eq ptr %230, null
   br i1 %.not61, label %232, label %231

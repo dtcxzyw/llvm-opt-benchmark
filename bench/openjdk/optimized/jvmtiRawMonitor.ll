@@ -68,15 +68,15 @@ $_ZN26GrowableArrayWithAllocatorIP15JvmtiRawMonitor13GrowableArrayIS1_EE13shrink
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN15JvmtiRawMonitor5QNodeC2EP6Thread(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store volatile ptr null, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 848
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %6 = load volatile ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store volatile i32 1, ptr %8, align 4
   ret void
 }
@@ -88,10 +88,10 @@ declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) lo
 define hidden void @_ZN20JvmtiPendingMonitors23transition_raw_monitorsEv() local_unnamed_addr #2 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 928
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  %4 = getelementptr inbounds i8, ptr %2, i64 1092
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1092
   store volatile i32 4, ptr %4, align 4
   %5 = load ptr, ptr @_ZN20JvmtiPendingMonitors9_monitorsE, align 8
   %6 = load i32, ptr %5, align 4
@@ -101,9 +101,9 @@ define hidden void @_ZN20JvmtiPendingMonitors23transition_raw_monitorsEv() local
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %8 = phi ptr [ %13, %.lr.ph ], [ %5, %0 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   tail call void @_ZN15JvmtiRawMonitor9raw_enterEP6Thread(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -125,7 +125,7 @@ define hidden void @_ZN20JvmtiPendingMonitors23transition_raw_monitorsEv() local
   br label %20
 
 20:                                               ; preds = %19, %._crit_edge
-  %21 = getelementptr inbounds i8, ptr %2, i64 1096
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %22 = load volatile i64, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %23 = and i64 %22, 1
@@ -137,7 +137,7 @@ define hidden void @_ZN20JvmtiPendingMonitors23transition_raw_monitorsEv() local
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %24, %20
-  %25 = getelementptr inbounds i8, ptr %2, i64 1088
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 1088
   %26 = load volatile i32, ptr %25, align 8
   %27 = and i32 %26, 12
   %.not.i.i.i = icmp eq i32 %27, 0
@@ -154,7 +154,7 @@ _ZN20ThreadToNativeFromVMD2Ev.exit:               ; preds = %_ZN18SafepointMecha
   br i1 %30, label %_ZN20JvmtiPendingMonitors7disposeEv.exit, label %31
 
 31:                                               ; preds = %_ZN20ThreadToNativeFromVMD2Ev.exit
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, 1
   %.not.i.i = icmp eq i64 %34, 0
@@ -182,17 +182,17 @@ define hidden void @_ZN15JvmtiRawMonitor9raw_enterEP6Thread(ptr noundef nonnull 
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load volatile i32, ptr %8, align 8
   %10 = add nsw i32 %9, 1
   store volatile i32 %10, ptr %8, align 8
   br label %56
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 784
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 784
   store ptr %0, ptr %12, align 8
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(888) %1) #9
   br i1 %16, label %18, label %17
@@ -202,7 +202,7 @@ define hidden void @_ZN15JvmtiRawMonitor9raw_enterEP6Thread(ptr noundef nonnull 
   br label %45
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 1092
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1092
   %20 = load volatile i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 4
   br i1 %21, label %24, label %22
@@ -225,7 +225,7 @@ define hidden void @_ZN15JvmtiRawMonitor9raw_enterEP6Thread(ptr noundef nonnull 
   br label %28
 
 28:                                               ; preds = %27, %24
-  %29 = getelementptr inbounds i8, ptr %1, i64 1096
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %30 = load volatile i64, ptr %29, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %31 = and i64 %30, 1
@@ -237,7 +237,7 @@ define hidden void @_ZN15JvmtiRawMonitor9raw_enterEP6Thread(ptr noundef nonnull 
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %32, %28
-  %33 = getelementptr inbounds i8, ptr %1, i64 1088
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   %34 = load volatile i32, ptr %33, align 8
   %35 = and i32 %34, 12
   %.not.i.i.i = icmp eq i32 %35, 0
@@ -249,10 +249,10 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %36
   store volatile i32 6, ptr %19, align 4
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
-  %40 = getelementptr inbounds i8, ptr %1, i64 928
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 928
   br label %41
 
 41:                                               ; preds = %41, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
@@ -289,7 +289,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   unreachable
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load volatile i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %56, label %54
@@ -307,29 +307,29 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN15JvmtiRawMonitorC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
   store volatile ptr null, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 1414091341, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN15JvmtiRawMonitorD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 36)) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN15JvmtiRawMonitor8is_validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.0.i.i = load i32, ptr %2, align 8
   %3 = icmp eq i32 %.0.i.i, 1414091341
   ret i1 %3
@@ -343,12 +343,12 @@ define hidden void @_ZN15JvmtiRawMonitor12simple_enterEP6Thread(ptr noundef nonn
   br i1 %5, label %._crit_edge, label %.lr.ph10
 
 .lr.ph10:                                         ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 848
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
-  %10 = getelementptr inbounds i8, ptr %3, i64 28
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 848
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %18
 
 .loopexit:                                        ; preds = %.lr.ph, %36
@@ -358,7 +358,7 @@ define hidden void @_ZN15JvmtiRawMonitor12simple_enterEP6Thread(ptr noundef nonn
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(888) %1) #9
   br i1 %17, label %.sink.split, label %44
@@ -371,7 +371,7 @@ define hidden void @_ZN15JvmtiRawMonitor12simple_enterEP6Thread(ptr noundef nonn
   store volatile i32 0, ptr %9, align 8
   store volatile i32 1, ptr %10, align 4
   %20 = load volatile ptr, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store volatile i32 0, ptr %21, align 8
   store volatile i32 3, ptr %10, align 4
   %22 = load ptr, ptr @RawMonitor_lock, align 8
@@ -396,7 +396,7 @@ define hidden void @_ZN15JvmtiRawMonitor12simple_enterEP6Thread(ptr noundef nonn
   %31 = load ptr, ptr @RawMonitor_lock, align 8
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %31) #9
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(888) %1) #9
   br i1 %35, label %.sink.split, label %44
@@ -449,7 +449,7 @@ define hidden void @_ZN15JvmtiRawMonitor11simple_exitEP6Thread(ptr noundef nonnu
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(888) %1) #9
   br i1 %11, label %12, label %14
@@ -459,7 +459,7 @@ define hidden void @_ZN15JvmtiRawMonitor11simple_exitEP6Thread(ptr noundef nonnu
   br label %14
 
 14:                                               ; preds = %12, %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %33, label %18
@@ -476,7 +476,7 @@ define hidden void @_ZN15JvmtiRawMonitor11simple_exitEP6Thread(ptr noundef nonnu
   store volatile ptr %22, ptr %15, align 8
   %23 = load ptr, ptr @RawMonitor_lock, align 8
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #9
-  %24 = getelementptr inbounds i8, ptr %20, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %25 = load volatile i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 3
   br i1 %26, label %29, label %27
@@ -488,7 +488,7 @@ define hidden void @_ZN15JvmtiRawMonitor11simple_exitEP6Thread(ptr noundef nonnu
   unreachable
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %20, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %31 = load ptr, ptr %30, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   store volatile i32 1, ptr %24, align 4
@@ -527,7 +527,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor11simple_waitEP6T
   unreachable
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load volatile i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %15, label %13
@@ -540,21 +540,21 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor11simple_waitEP6T
 
 15:                                               ; preds = %9
   store volatile ptr null, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
-  %18 = getelementptr inbounds i8, ptr %1, i64 848
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %19 = load volatile ptr, ptr %18, align 8
   store ptr %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store volatile i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store volatile i32 1, ptr %21, align 4
   store volatile i32 0, ptr %20, align 8
   store volatile i32 2, ptr %21, align 4
   %22 = load ptr, ptr @RawMonitor_lock, align 8
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %22) #9
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load volatile ptr, ptr %23, align 8
   store volatile ptr %24, ptr %4, align 8
   store volatile ptr %4, ptr %23, align 8
@@ -573,13 +573,13 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor11simple_waitEP6T
 
 29:                                               ; preds = %15
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(888) %1) #9
   br i1 %33, label %34, label %78
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %1, i64 1092
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 1092
   %36 = load volatile i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 4
   br i1 %37, label %40, label %38
@@ -602,7 +602,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor11simple_waitEP6T
   br label %44
 
 44:                                               ; preds = %43, %40
-  %45 = getelementptr inbounds i8, ptr %1, i64 1096
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %47 = and i64 %46, 1
@@ -614,7 +614,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor11simple_waitEP6T
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %48, %44
-  %49 = getelementptr inbounds i8, ptr %1, i64 1088
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   %50 = load volatile i32, ptr %49, align 8
   %51 = and i32 %50, 12
   %.not.i.i.i = icmp eq i32 %51, 0
@@ -630,7 +630,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %53, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %54
 
 54:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %55 = getelementptr inbounds i8, ptr %1, i64 928
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %55) #9
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   store volatile i32 10, ptr %35, align 4
@@ -662,7 +662,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not5.i.i, label %66, label %72
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %1, i64 1384
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 1384
   %68 = call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %67, i1 noundef zeroext false, i1 noundef zeroext false) #9
   br i1 %68, label %72, label %69
 
@@ -689,7 +689,7 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %75, %72, %
   %.0 = phi i32 [ 2, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 0, %61 ], [ 0, %71 ], [ 0, %72 ], [ 0, %75 ]
   %76 = call noundef zeroext i1 @_ZN10JavaThread25get_and_clear_interruptedEv(ptr noundef nonnull align 8 dereferenceable(1800) %1) #9
   %spec.select = select i1 %76, i32 2, i32 %.0
-  %77 = getelementptr inbounds i8, ptr %1, i64 928
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %77) #9
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   store volatile i32 4, ptr %35, align 4
@@ -720,7 +720,7 @@ declare noundef i32 @_ZN13PlatformEvent4parkEl(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15JvmtiRawMonitor14dequeue_waiterERNS_5QNodeE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %6, label %32
@@ -733,7 +733,7 @@ define linkonce_odr hidden void @_ZN15JvmtiRawMonitor14dequeue_waiterERNS_5QNode
   br i1 %9, label %10, label %30
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %12
 
 12:                                               ; preds = %12, %10
@@ -816,7 +816,7 @@ define hidden void @_ZN15JvmtiRawMonitor13simple_notifyEP6Threadb(ptr noundef no
   unreachable
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load volatile ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %33, label %12
@@ -844,10 +844,10 @@ define hidden void @_ZN15JvmtiRawMonitor13simple_notifyEP6Threadb(ptr noundef no
   br label %19
 
 19:                                               ; preds = %18, %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %21 = load ptr, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  %22 = getelementptr inbounds i8, ptr %16, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 28
   store volatile i32 1, ptr %22, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
@@ -861,10 +861,10 @@ define hidden void @_ZN15JvmtiRawMonitor13simple_notifyEP6Threadb(ptr noundef no
 25:                                               ; preds = %.split
   %26 = load volatile ptr, ptr %14, align 8
   store volatile ptr %26, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %14, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  %29 = getelementptr inbounds i8, ptr %14, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store volatile i32 1, ptr %29, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
@@ -894,7 +894,7 @@ define hidden void @_ZN15JvmtiRawMonitor13simple_notifyEP6Threadb(ptr noundef no
 define hidden void @_ZN15JvmtiRawMonitor13ExitOnSuspendclEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(9) initializes((8, 9)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
   tail call void @_ZN15JvmtiRawMonitor11simple_exitEP6Thread(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %4, align 8
   ret void
 }
@@ -902,15 +902,15 @@ define hidden void @_ZN15JvmtiRawMonitor13ExitOnSuspendclEP10JavaThread(ptr noca
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN25ThreadBlockInVMPreprocessIN15JvmtiRawMonitor13ExitOnSuspendEED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #2 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1092
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1092
   store volatile i32 6, ptr %3, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  %8 = getelementptr inbounds i8, ptr %4, i64 1096
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   %9 = load volatile i64, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %10 = and i64 %9, 1
@@ -923,7 +923,7 @@ define linkonce_odr hidden void @_ZN25ThreadBlockInVMPreprocessIN15JvmtiRawMonit
   br i1 %.not5.i, label %13, label %19
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %4, i64 1384
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 1384
   %15 = tail call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %14, i1 noundef zeroext %7, i1 noundef zeroext false) #9
   br i1 %15, label %19, label %16
 
@@ -936,16 +936,16 @@ define linkonce_odr hidden void @_ZN25ThreadBlockInVMPreprocessIN15JvmtiRawMonit
   br label %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit
 
 19:                                               ; preds = %16, %13, %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %21, align 8
   tail call void @_ZN15JvmtiRawMonitor11simple_exitEP6Thread(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %22)
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %24, align 8
   %25 = load ptr, ptr %0, align 8
   %26 = load i8, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 1096
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %28 = load volatile i64, ptr %27, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %29 = and i64 %28, 1
@@ -968,7 +968,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN15JvmtiRawMonitor8raw_exitEP6Threa
   br i1 %.not, label %4, label %12
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load volatile i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %11
@@ -997,18 +997,18 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor8raw_waitElP6Thre
   br i1 %.not, label %7, label %47
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 848
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 848
   %9 = load volatile ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store volatile i32 0, ptr %10, align 8
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load volatile i32, ptr %11, align 8
   store volatile i32 0, ptr %11, align 8
   %13 = tail call noundef i32 @_ZN15JvmtiRawMonitor11simple_waitEP6Threadl(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %2, i64 noundef %1)
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(888) %2) #9
   br i1 %17, label %18, label %41
@@ -1016,7 +1016,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor8raw_waitElP6Thre
 18:                                               ; preds = %7
   %19 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds i8, ptr %2, i64 1092
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 1092
   store volatile i32 6, ptr %21, align 4
   br i1 %20, label %23, label %22
 
@@ -1026,7 +1026,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor8raw_waitElP6Thre
   br label %23
 
 23:                                               ; preds = %22, %18
-  %24 = getelementptr inbounds i8, ptr %2, i64 1096
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %25 = load volatile i64, ptr %24, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %26 = and i64 %25, 1
@@ -1038,7 +1038,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN15JvmtiRawMonitor8raw_waitElP6Thre
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %27, %23
-  %28 = getelementptr inbounds i8, ptr %2, i64 1088
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 1088
   %29 = load volatile i32, ptr %28, align 8
   %30 = and i32 %29, 12
   %.not.i.i.i = icmp eq i32 %30, 0
@@ -1050,10 +1050,10 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
 
 _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, %31
   store volatile i32 6, ptr %21, align 4
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 16
-  %35 = getelementptr inbounds i8, ptr %2, i64 928
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 928
   br label %36
 
 36:                                               ; preds = %36, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
@@ -1231,21 +1231,21 @@ declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP15JvmtiRawMonitor13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, %3
   br i1 %5, label %32, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   store i32 %4, ptr %2, align 4
   %9 = icmp sgt i32 %4, 0
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %16
@@ -1277,8 +1277,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP15JvmtiRawMoni
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
-  %26 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1291,7 +1291,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP15JvmtiRawMoni
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
   %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
   %.not.i22 = icmp eq i64 %30, 0
@@ -1335,12 +1335,12 @@ define internal void @_GLOBAL__sub_I_jvmtiRawMonitor.cpp() #7 section ".text.sta
 3:                                                ; preds = %0
   %4 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 1, i32 noundef 8, i8 noundef zeroext 23) #9
   store i32 0, ptr %1, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %4, ptr %6, align 8
   store i64 0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 47, ptr %7, align 8
   br label %__cxx_global_var_init.4.exit
 

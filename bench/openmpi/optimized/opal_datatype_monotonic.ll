@@ -13,7 +13,7 @@ define range(i32 -1, 2) i32 @opal_datatype_is_monotonic(ptr noundef %0) local_un
   %2 = alloca [32 x %struct.iovec], align 16
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   store i64 2147483647, ptr %3, align 8
   %7 = load i32, ptr @opal_local_arch, align 4
@@ -27,7 +27,7 @@ define range(i32 -1, 2) i32 @opal_datatype_is_monotonic(ptr noundef %0) local_un
   br i1 %.not, label %.preheader, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i8, ptr @opal_uses_threads, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %19
@@ -51,7 +51,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %16, %19
 
 24:                                               ; preds = %opal_thread_add_fetch_32.exit
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i = icmp eq ptr %28, null
@@ -61,7 +61,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %16, %19
   %29 = phi ptr [ %31, %.lr.ph.i ], [ %28, %24 ]
   %.07.i = phi ptr [ %30, %.lr.ph.i ], [ %27, %24 ]
   tail call void %29(ptr noundef nonnull %8) #3
-  %30 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -85,14 +85,14 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %24
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
   %.140 = phi i64 [ %.025, %.lr.ph.preheader ], [ %42, %39 ]
-  %35 = getelementptr inbounds [32 x %struct.iovec], ptr %2, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [32 x %struct.iovec], ptr %2, i64 0, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 16
   %37 = ptrtoint ptr %36 to i64
   %38 = icmp sgt i64 %.140, %37
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -106,7 +106,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %24
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph
   %43 = phi i32 [ 0, %.lr.ph ], [ 1, %._crit_edge ]
-  %44 = getelementptr inbounds i8, ptr %8, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %45 = load i8, ptr @opal_uses_threads, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %50
@@ -130,7 +130,7 @@ opal_thread_add_fetch_32.exit31:                  ; preds = %47, %50
 
 55:                                               ; preds = %opal_thread_add_fetch_32.exit31
   %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
   %.not6.i32 = icmp eq ptr %59, null
@@ -140,7 +140,7 @@ opal_thread_add_fetch_32.exit31:                  ; preds = %47, %50
   %60 = phi ptr [ %62, %.lr.ph.i33 ], [ %59, %55 ]
   %.07.i34 = phi ptr [ %61, %.lr.ph.i33 ], [ %58, %55 ]
   call void %60(ptr noundef nonnull %8) #3
-  %61 = getelementptr inbounds i8, ptr %.07.i34, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.07.i34, i64 8
   %62 = load ptr, ptr %61, align 8
   %.not.i35 = icmp eq ptr %62, null
   br i1 %.not.i35, label %opal_obj_run_destructors.exit36, label %.lr.ph.i33, !llvm.loop !4

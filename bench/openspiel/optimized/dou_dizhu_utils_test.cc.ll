@@ -153,7 +153,7 @@ define dso_local void @_ZN10open_spiel9dou_dizhu18SingleRankHandTestEv() local_u
   %28 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %1, i8 0, i64 60, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %2, i8 0, i64 60, i1 false)
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 3, ptr %29, align 4
   %30 = call noundef i32 @_ZN10open_spiel9dou_dizhu24SingleRankHandToActionIdEN4absl7debian24SpanIKiEE(ptr nonnull %1, i64 15)
   call void @_ZN10open_spiel9dou_dizhu14SingleRankHandEi(ptr dead_on_unwind nonnull writable sret(%"struct.std::array") align 4 %4, i32 noundef %30)
@@ -188,7 +188,7 @@ define dso_local void @_ZN10open_spiel9dou_dizhu18SingleRankHandTestEv() local_u
 
 40:                                               ; preds = %0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %41 = getelementptr inbounds i8, ptr %2, i64 52
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 1, ptr %41, align 4
   %42 = call noundef i32 @_ZN10open_spiel9dou_dizhu24SingleRankHandToActionIdEN4absl7debian24SpanIKiEE(ptr nonnull %2, i64 15)
   call void @_ZN10open_spiel9dou_dizhu14SingleRankHandEi(ptr dead_on_unwind nonnull writable sret(%"struct.std::array") align 4 %9, i32 noundef %42)
@@ -229,17 +229,17 @@ define dso_local void @_ZN10open_spiel9dou_dizhu18SingleRankHandTestEv() local_u
 53:                                               ; preds = %40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %13, i8 0, i64 60, i1 false)
-  %54 = getelementptr inbounds i8, ptr %13, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 2, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %13, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 1, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %13, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 3, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %13, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 1, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %13, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i32 4, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %13, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 3, ptr %59, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
@@ -744,11 +744,11 @@ define dso_local void @_ZN10open_spiel9dou_dizhu17ChainOnlyHandTestEv() local_un
   %27 = alloca %"class.std::__cxx11::basic_string", align 8
   %28 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %1, i8 0, i64 60, i1 false)
-  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 3, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 3, ptr %31, align 4
   %32 = call noundef i32 @_ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE(ptr nonnull %1, i64 15)
   call void @_ZN10open_spiel9dou_dizhu13ChainOnlyHandEi(ptr dead_on_unwind nonnull writable sret(%"struct.std::array") align 4 %3, i32 noundef %32)
@@ -1195,9 +1195,9 @@ define dso_local void @_ZN10open_spiel9dou_dizhu22SingleTrioCombHandTestEv() loc
   %28 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %1, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %2, i8 0, i64 60, i1 false)
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 3, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 1, ptr %30, align 4
   %31 = call noundef i32 @_ZN10open_spiel9dou_dizhu28SingleTrioCombHandToActionIdEN4absl7debian24SpanIKiEE(ptr nonnull %1, i64 15)
   call void @_ZN10open_spiel9dou_dizhu18SingleTrioCombHandEi(ptr dead_on_unwind nonnull writable sret(%"struct.std::array") align 4 %4, i32 noundef %31)
@@ -1232,7 +1232,7 @@ define dso_local void @_ZN10open_spiel9dou_dizhu22SingleTrioCombHandTestEv() loc
 
 41:                                               ; preds = %0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %42 = getelementptr inbounds i8, ptr %2, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 2, ptr %42, align 4
   store i32 3, ptr %2, align 4
   %43 = call noundef i32 @_ZN10open_spiel9dou_dizhu28SingleTrioCombHandToActionIdEN4absl7debian24SpanIKiEE(ptr nonnull %2, i64 15)

@@ -52,7 +52,7 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 25:                                               ; preds = %23
   store i32 1, ptr %6, align 16, !tbaa !3
-  %26 = getelementptr inbounds i8, ptr %6, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %14, ptr %26, align 4, !tbaa !3
   br label %27
 

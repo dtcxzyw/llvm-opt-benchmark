@@ -599,7 +599,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_sysex_digitech_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.461) #3
   %7 = load ptr, ptr %5, align 8
@@ -649,7 +649,7 @@ define internal i32 @dissect_sysex_digitech_command(ptr noundef %0, ptr noundef 
   %36 = sext i1 %.not.i.i to i32
   %spec.select.i.i = add i32 %34, %36
   %37 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 4, i32 noundef %33) #3
-  %38 = getelementptr inbounds i8, ptr %1, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = sext i32 %spec.select.i.i to i64
   %41 = tail call noalias ptr @wmem_alloc(ptr noundef %39, i64 noundef %40) #3
@@ -927,7 +927,7 @@ define internal fastcc noundef i32 @dissect_digitech_parameter(ptr noundef %0, p
 
 switch.lookup:                                    ; preds = %8
   %11 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds [34 x ptr], ptr @switch.table.dissect_digitech_parameter, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [34 x ptr], ptr @switch.table.dissect_digitech_parameter, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_digitech_hf_parameter_id_by_position.exit
 

@@ -57,13 +57,13 @@ define range(i32 -1, 1) i32 @tres_bind_verify_cmdline(ptr noundef %0) local_unna
   br i1 %.not18, label %20, label %_valid_shared_gres_bind.exit.thread28
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %17, i64 1
-  %22 = getelementptr inbounds i8, ptr %.01342, i64 5
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.01342, i64 5
   %23 = call zeroext i1 @gres_is_shared_name(ptr noundef nonnull %22) #6
   %24 = call i32 @strncasecmp(ptr noundef nonnull %21, ptr noundef nonnull @.str.2, i64 noundef 8) #7
   %.not.i = icmp eq i32 %24, 0
   %spec.select.idx.i = select i1 %.not.i, i64 8, i64 0
-  %spec.select.i = getelementptr inbounds i8, ptr %21, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %21, i64 %spec.select.idx.i
   br i1 %23, label %25, label %31
 
 25:                                               ; preds = %20
@@ -77,7 +77,7 @@ define range(i32 -1, 1) i32 @tres_bind_verify_cmdline(ptr noundef %0) local_unna
   br i1 %.not7.i, label %_valid_shared_gres_bind.exit, label %_valid_shared_gres_bind.exit.thread28
 
 _valid_shared_gres_bind.exit:                     ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %spec.select.i, i64 9
+  %29 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 9
   %30 = call i64 @strtol(ptr nocapture noundef nonnull readonly %29, ptr noundef null, i32 noundef 0) #6
   %or.cond.i.i = icmp ult i64 %30, 9223372036854775807
   br i1 %or.cond.i.i, label %_valid_shared_gres_bind.exit.thread, label %_valid_shared_gres_bind.exit.thread28
@@ -98,7 +98,7 @@ _valid_shared_gres_bind.exit:                     ; preds = %27
   br i1 %.not17.i, label %37, label %61
 
 37:                                               ; preds = %35, %33
-  %38 = getelementptr inbounds i8, ptr %spec.select.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -132,7 +132,7 @@ _valid_shared_gres_bind.exit:                     ; preds = %27
 
 46:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %47 = getelementptr inbounds i8, ptr %.03047.i.i, i64 %indvars.iv.next.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %.03047.i.i, i64 %indvars.iv.next.i.i
   %48 = load i8, ptr %47, align 1
   %.not36.i.i = icmp eq i8 %48, 0
   br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -151,7 +151,7 @@ _valid_shared_gres_bind.exit:                     ; preds = %27
   ]
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %51, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %55 = call i64 @strtol(ptr noundef nonnull %54, ptr noundef nonnull %6, i32 noundef 0) #6
   %or.cond3.i.i = icmp ugt i64 %55, 9223372036854775806
   br i1 %or.cond3.i.i, label %._crit_edge50.i.i, label %56
@@ -190,7 +190,7 @@ _valid_num_list.exit.i:                           ; preds = %._crit_edge50.i.i, 
   br i1 %.not19.i, label %65, label %90
 
 65:                                               ; preds = %63, %61
-  %66 = getelementptr inbounds i8, ptr %spec.select.i, i64 9
+  %66 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -207,7 +207,7 @@ _valid_num_list.exit.i:                           ; preds = %._crit_edge50.i.i, 
   %69 = call i32 @xstrncmp(ptr noundef nonnull %.03047.us.i.i, ptr noundef nonnull @.str.12, i64 noundef 2) #6
   %.not35.us.i.i = icmp eq i32 %69, 0
   %spec.select43.idx.us.i.i = select i1 %.not35.us.i.i, i64 2, i64 0
-  %spec.select43.us.i.i = getelementptr inbounds i8, ptr %.03047.us.i.i, i64 %spec.select43.idx.us.i.i
+  %spec.select43.us.i.i = getelementptr inbounds nuw i8, ptr %.03047.us.i.i, i64 %spec.select43.idx.us.i.i
   %70 = load i8, ptr %spec.select43.us.i.i, align 1
   %.not3644.us.i.i = icmp eq i8 %70, 0
   br i1 %.not3644.us.i.i, label %._crit_edge.us.i.i, label %.lr.ph.us.i.i
@@ -224,7 +224,7 @@ _valid_num_list.exit.i:                           ; preds = %._crit_edge50.i.i, 
 
 74:                                               ; preds = %.lr.ph.us.i.i
   %indvars.iv.next72.i.i = add nuw nsw i64 %indvars.iv71.i.i, 1
-  %75 = getelementptr inbounds i8, ptr %spec.select43.us.i.i, i64 %indvars.iv.next72.i.i
+  %75 = getelementptr inbounds nuw i8, ptr %spec.select43.us.i.i, i64 %indvars.iv.next72.i.i
   %76 = load i8, ptr %75, align 1
   %.not36.us.i.i = icmp eq i8 %76, 0
   br i1 %.not36.us.i.i, label %._crit_edge.us.i.i, label %.lr.ph.us.i.i, !llvm.loop !6
@@ -243,7 +243,7 @@ _valid_num_list.exit.i:                           ; preds = %._crit_edge50.i.i, 
   ]
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %79, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 1
   %83 = call i64 @strtol(ptr noundef nonnull %82, ptr noundef nonnull %3, i32 noundef 0) #6
   %or.cond3.us.i.i = icmp ugt i64 %83, 9223372036854775806
   br i1 %or.cond3.us.i.i, label %._crit_edge50.i25.i, label %84
@@ -286,7 +286,7 @@ _valid_num_list.exit29.i:                         ; preds = %._crit_edge50.i25.i
   br i1 %.not21.i, label %94, label %97
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %spec.select.i, i64 9
+  %95 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 9
   %96 = call i64 @strtol(ptr nocapture noundef nonnull readonly %95, ptr noundef null, i32 noundef 0) #6
   %or.cond.i30.i = icmp ugt i64 %96, 9223372036854775806
   %..i.i24 = sext i1 %or.cond.i30.i to i32
@@ -298,7 +298,7 @@ _valid_num_list.exit29.i:                         ; preds = %._crit_edge50.i25.i
   br i1 %.not22.i, label %99, label %_valid_shared_gres_bind.exit.thread28
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %spec.select.i, i64 7
+  %100 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 7
   %101 = call i64 @strtol(ptr nocapture noundef nonnull readonly %100, ptr noundef null, i32 noundef 0) #6
   %or.cond.i31.i = icmp ugt i64 %101, 9223372036854775806
   %..i32.i = sext i1 %or.cond.i31.i to i32

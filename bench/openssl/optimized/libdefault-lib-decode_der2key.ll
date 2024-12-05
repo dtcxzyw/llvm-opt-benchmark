@@ -116,7 +116,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @PrivateKeyInfo_dh_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -144,7 +144,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -176,15 +176,15 @@ entry:
   store ptr null, ptr %der, align 8
   store i64 0, ptr %der_len, align 8
   store ptr null, ptr %key, align 8
-  %selection1 = getelementptr inbounds i8, ptr %vctx, i64 272
+  %selection1 = getelementptr inbounds nuw i8, ptr %vctx, i64 272
   store i32 %selection, ptr %selection1, align 8
   %cmp = icmp eq i32 %selection, 0
-  %desc = getelementptr inbounds i8, ptr %vctx, i64 264
+  %desc = getelementptr inbounds nuw i8, ptr %vctx, i64 264
   %0 = load ptr, ptr %desc, align 8
-  %selection_mask = getelementptr inbounds i8, ptr %0, i64 28
+  %selection_mask = getelementptr inbounds nuw i8, ptr %0, i64 28
   %1 = load i32, ptr %selection_mask, align 4
   %.selection = select i1 %cmp, i32 %1, i32 %selection
-  %desc2 = getelementptr inbounds i8, ptr %vctx, i64 264
+  %desc2 = getelementptr inbounds nuw i8, ptr %vctx, i64 264
   %and = and i32 %1, %.selection
   %cmp4 = icmp eq i32 %and, 0
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -211,7 +211,7 @@ if.then12:                                        ; preds = %if.end8
   %3 = load ptr, ptr %der, align 8
   store ptr %3, ptr %derp, align 8
   %4 = load ptr, ptr %desc2, align 8
-  %d2i_PKCS8 = getelementptr inbounds i8, ptr %4, i64 56
+  %d2i_PKCS8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %5 = load ptr, ptr %d2i_PKCS8, align 8
   %cmp14.not = icmp eq ptr %5, null
   br i1 %cmp14.not, label %if.else, label %if.then15
@@ -220,7 +220,7 @@ if.then15:                                        ; preds = %if.then12
   %6 = load i64, ptr %der_len, align 8
   %call18 = call ptr %5(ptr noundef null, ptr noundef nonnull %derp, i64 noundef %6, ptr noundef nonnull %vctx) #6
   store ptr %call18, ptr %key, align 8
-  %flag_fatal = getelementptr inbounds i8, ptr %vctx, i64 276
+  %flag_fatal = getelementptr inbounds nuw i8, ptr %vctx, i64 276
   %bf.load = load i8, ptr %flag_fatal, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool19.not = icmp eq i8 %bf.clear, 0
@@ -231,7 +231,7 @@ if.then20:                                        ; preds = %if.then15
   br label %end
 
 if.else:                                          ; preds = %if.then12
-  %d2i_private_key = getelementptr inbounds i8, ptr %4, i64 32
+  %d2i_private_key = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = load ptr, ptr %d2i_private_key, align 8
   %cmp24.not = icmp eq ptr %7, null
   br i1 %cmp24.not, label %land.lhs.true, label %if.then25
@@ -265,13 +265,13 @@ if.then42:                                        ; preds = %if.end37
   %11 = load ptr, ptr %der, align 8
   store ptr %11, ptr %derp, align 8
   %12 = load ptr, ptr %desc2, align 8
-  %d2i_PUBKEY = getelementptr inbounds i8, ptr %12, i64 64
+  %d2i_PUBKEY = getelementptr inbounds nuw i8, ptr %12, i64 64
   %13 = load ptr, ptr %d2i_PUBKEY, align 8
   %cmp44.not = icmp eq ptr %13, null
   br i1 %cmp44.not, label %if.else49, label %if.end57
 
 if.else49:                                        ; preds = %if.then42
-  %d2i_public_key = getelementptr inbounds i8, ptr %12, i64 40
+  %d2i_public_key = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %d2i_public_key, align 8
   %cmp51.not = icmp eq ptr %14, null
   br i1 %cmp51.not, label %land.lhs.true59, label %if.end57
@@ -302,7 +302,7 @@ if.then70:                                        ; preds = %if.end65
   %17 = load ptr, ptr %der, align 8
   store ptr %17, ptr %derp, align 8
   %18 = load ptr, ptr %desc2, align 8
-  %d2i_key_params = getelementptr inbounds i8, ptr %18, i64 48
+  %d2i_key_params = getelementptr inbounds nuw i8, ptr %18, i64 48
   %19 = load ptr, ptr %d2i_key_params, align 8
   %cmp72.not = icmp eq ptr %19, null
   br i1 %cmp72.not, label %land.lhs.true79, label %if.end77
@@ -331,7 +331,7 @@ land.lhs.true93:                                  ; preds = %if.end30, %if.end57
   %22 = phi ptr [ %call76, %if.end77 ], [ %call55, %if.end57 ], [ %9, %if.end30 ]
   %call90 = call i32 @ERR_pop_to_mark() #6
   %23 = load ptr, ptr %desc2, align 8
-  %check_key = getelementptr inbounds i8, ptr %23, i64 72
+  %check_key = getelementptr inbounds nuw i8, ptr %23, i64 72
   %24 = load ptr, ptr %check_key, align 8
   %cmp95.not = icmp eq ptr %24, null
   br i1 %cmp95.not, label %land.lhs.true105, label %land.lhs.true96
@@ -344,7 +344,7 @@ land.lhs.true96:                                  ; preds = %land.lhs.true93
 
 if.then101:                                       ; preds = %land.lhs.true96
   %25 = load ptr, ptr %desc2, align 8
-  %free_key = getelementptr inbounds i8, ptr %25, i64 88
+  %free_key = getelementptr inbounds nuw i8, ptr %25, i64 88
   %26 = load ptr, ptr %free_key, align 8
   call void %26(ptr noundef %.pr46.pre) #6
   store ptr null, ptr %key, align 8
@@ -357,7 +357,7 @@ if.end103:                                        ; preds = %land.lhs.true96
 land.lhs.true105:                                 ; preds = %land.lhs.true93, %if.end103
   %.pr4674 = phi ptr [ %.pr46.pre, %if.end103 ], [ %22, %land.lhs.true93 ]
   %27 = load ptr, ptr %desc2, align 8
-  %adjust_key = getelementptr inbounds i8, ptr %27, i64 80
+  %adjust_key = getelementptr inbounds nuw i8, ptr %27, i64 80
   %28 = load ptr, ptr %adjust_key, align 8
   %cmp107.not = icmp eq ptr %28, null
   br i1 %cmp107.not, label %next.thread76, label %next
@@ -387,15 +387,15 @@ if.then113:                                       ; preds = %next.thread76, %nex
   store i32 2, ptr %object_type, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef nonnull %object_type) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx114 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx114 = getelementptr inbounds nuw i8, ptr %params, i64 40
   %33 = load ptr, ptr %desc2, align 8
   %34 = load ptr, ptr %33, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp115, ptr noundef nonnull @.str.4, ptr noundef %34, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx114, ptr noundef nonnull align 8 dereferenceable(40) %tmp115, i64 40, i1 false)
-  %arrayidx117 = getelementptr inbounds i8, ptr %params, i64 80
+  %arrayidx117 = getelementptr inbounds nuw i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp118, ptr noundef nonnull @.str.5, ptr noundef nonnull %key, i64 noundef 8) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx117, ptr noundef nonnull align 8 dereferenceable(40) %tmp118, i64 40, i1 false)
-  %arrayidx119 = getelementptr inbounds i8, ptr %params, i64 120
+  %arrayidx119 = getelementptr inbounds nuw i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp120) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx119, ptr noundef nonnull align 8 dereferenceable(40) %tmp120, i64 40, i1 false)
   %call121 = call i32 %data_cb(ptr noundef nonnull %params, ptr noundef %data_cbarg) #6
@@ -406,7 +406,7 @@ end:                                              ; preds = %next.thread, %next,
   %35 = phi ptr [ %call18, %if.then20 ], [ %.pre51, %if.then113 ], [ null, %next ], [ null, %next.thread ]
   %ok.0 = phi i32 [ 0, %if.then20 ], [ %call121, %if.then113 ], [ 1, %next ], [ 1, %next.thread ]
   %36 = load ptr, ptr %desc2, align 8
-  %free_key124 = getelementptr inbounds i8, ptr %36, i64 88
+  %free_key124 = getelementptr inbounds nuw i8, ptr %36, i64 88
   %37 = load ptr, ptr %free_key124, align 8
   call void %37(ptr noundef %35) #6
   %38 = load ptr, ptr %der, align 8
@@ -421,9 +421,9 @@ return:                                           ; preds = %end, %if.then5
 ; Function Attrs: nounwind uwtable
 define internal i32 @der2key_export_object(ptr nocapture noundef readonly %vctx, ptr nocapture noundef readonly %reference, i64 noundef %reference_sz, ptr noundef %export_cb, ptr noundef %export_cbarg) #0 {
 entry:
-  %desc = getelementptr inbounds i8, ptr %vctx, i64 264
+  %desc = getelementptr inbounds nuw i8, ptr %vctx, i64 264
   %0 = load ptr, ptr %desc, align 8
-  %fns = getelementptr inbounds i8, ptr %0, i64 8
+  %fns = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %fns, align 8
   %call = tail call ptr @ossl_prov_get_keymgmt_export(ptr noundef %1) #6
   %cmp = icmp eq i64 %reference_sz, 8
@@ -432,7 +432,7 @@ entry:
   br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %selection2 = getelementptr inbounds i8, ptr %vctx, i64 272
+  %selection2 = getelementptr inbounds nuw i8, ptr %vctx, i64 272
   %2 = load i32, ptr %selection2, align 8
   %cmp3 = icmp eq i32 %2, 0
   %spec.store.select = select i1 %cmp3, i32 135, i32 %2
@@ -455,7 +455,7 @@ entry:
 define internal range(i32 0, 2) i32 @der2key_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %str = alloca ptr, align 8
-  %propq = getelementptr inbounds i8, ptr %vctx, i64 8
+  %propq = getelementptr inbounds nuw i8, ptr %vctx, i64 8
   store ptr %propq, ptr %str, align 8
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.6) #6
   %cmp.not = icmp eq ptr %call, null
@@ -483,7 +483,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @SubjectPublicKeyInfo_dh_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -504,7 +504,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -529,7 +529,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @type_specific_params_dh_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -550,7 +550,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -575,7 +575,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @DH_dh_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -596,7 +596,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -621,7 +621,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @PrivateKeyInfo_dhx_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -642,7 +642,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -667,7 +667,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @SubjectPublicKeyInfo_dhx_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -688,7 +688,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -713,7 +713,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @type_specific_params_dhx_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -734,7 +734,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -759,7 +759,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @DHX_dhx_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -780,7 +780,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -805,7 +805,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @PrivateKeyInfo_dsa_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -826,7 +826,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -851,7 +851,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @SubjectPublicKeyInfo_dsa_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -872,7 +872,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -897,7 +897,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @type_specific_dsa_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -918,7 +918,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -938,7 +938,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @DSA_dsa_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -959,7 +959,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -979,7 +979,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @PrivateKeyInfo_ec_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1000,7 +1000,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1025,7 +1025,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @SubjectPublicKeyInfo_ec_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1046,7 +1046,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1071,7 +1071,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @type_specific_no_pub_ec_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1092,7 +1092,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1118,7 +1118,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @EC_ec_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1139,7 +1139,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1165,7 +1165,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @PrivateKeyInfo_x25519_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1186,7 +1186,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1211,7 +1211,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @SubjectPublicKeyInfo_x25519_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1232,7 +1232,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1257,7 +1257,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @PrivateKeyInfo_x448_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1278,7 +1278,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1303,7 +1303,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @SubjectPublicKeyInfo_x448_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1324,7 +1324,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1349,7 +1349,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @PrivateKeyInfo_ed25519_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1370,7 +1370,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1395,7 +1395,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @SubjectPublicKeyInfo_ed25519_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1416,7 +1416,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1441,7 +1441,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @PrivateKeyInfo_ed448_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1462,7 +1462,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1487,7 +1487,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @SubjectPublicKeyInfo_ed448_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1508,7 +1508,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1533,7 +1533,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @PrivateKeyInfo_sm2_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1554,7 +1554,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1579,7 +1579,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @SubjectPublicKeyInfo_sm2_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1600,7 +1600,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1625,7 +1625,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @type_specific_no_pub_sm2_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1646,7 +1646,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1672,7 +1672,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @PrivateKeyInfo_rsa_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1693,7 +1693,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1718,7 +1718,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @SubjectPublicKeyInfo_rsa_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1739,7 +1739,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1764,7 +1764,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @type_specific_keypair_rsa_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1785,7 +1785,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1810,7 +1810,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @RSA_rsa_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1831,7 +1831,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1856,7 +1856,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @PrivateKeyInfo_rsapss_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1877,7 +1877,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1902,7 +1902,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %provctx, ptr %call.i, align 8
-  %desc2.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %desc2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr @SubjectPublicKeyInfo_rsapss_desc, ptr %desc2.i, align 8
   br label %der2key_newctx.exit
 
@@ -1923,7 +1923,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %i.01.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @__const.der2key_check_selection.checks, i64 0, i64 %i.01.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %0, %selection
   %cmp2.not.i = icmp eq i32 %and.i, 0
@@ -1960,9 +1960,9 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   %0 = load ptr, ptr %alg.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call3.i = call i32 @OBJ_obj2nid(ptr noundef %1) #6
-  %desc.i = getelementptr inbounds i8, ptr %ctx, i64 264
+  %desc.i = getelementptr inbounds nuw i8, ptr %ctx, i64 264
   %2 = load ptr, ptr %desc.i, align 8
-  %evp_type.i = getelementptr inbounds i8, ptr %2, i64 24
+  %evp_type.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load i32, ptr %evp_type.i, align 8
   %cmp4.i = icmp eq i32 %call3.i, %3
   br i1 %cmp4.i, label %if.then.i, label %der2key_decode_p8.exit
@@ -1970,7 +1970,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 if.then.i:                                        ; preds = %land.lhs.true2.i
   %4 = load ptr, ptr %ctx, align 8
   %call5.i = call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %4) #6
-  %propq.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %propq.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %call6.i = call ptr @ossl_dh_key_from_pkcs8(ptr noundef nonnull %call.i, ptr noundef %call5.i, ptr noundef nonnull %propq.i) #6
   br label %der2key_decode_p8.exit
 
@@ -2066,9 +2066,9 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   %0 = load ptr, ptr %alg.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call3.i = call i32 @OBJ_obj2nid(ptr noundef %1) #6
-  %desc.i = getelementptr inbounds i8, ptr %ctx, i64 264
+  %desc.i = getelementptr inbounds nuw i8, ptr %ctx, i64 264
   %2 = load ptr, ptr %desc.i, align 8
-  %evp_type.i = getelementptr inbounds i8, ptr %2, i64 24
+  %evp_type.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load i32, ptr %evp_type.i, align 8
   %cmp4.i = icmp eq i32 %call3.i, %3
   br i1 %cmp4.i, label %if.then.i, label %der2key_decode_p8.exit
@@ -2076,7 +2076,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 if.then.i:                                        ; preds = %land.lhs.true2.i
   %4 = load ptr, ptr %ctx, align 8
   %call5.i = call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %4) #6
-  %propq.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %propq.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %call6.i = call ptr @ossl_dsa_key_from_pkcs8(ptr noundef nonnull %call.i, ptr noundef %call5.i, ptr noundef nonnull %propq.i) #6
   br label %der2key_decode_p8.exit
 
@@ -2129,9 +2129,9 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   %0 = load ptr, ptr %alg.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call3.i = call i32 @OBJ_obj2nid(ptr noundef %1) #6
-  %desc.i = getelementptr inbounds i8, ptr %ctx, i64 264
+  %desc.i = getelementptr inbounds nuw i8, ptr %ctx, i64 264
   %2 = load ptr, ptr %desc.i, align 8
-  %evp_type.i = getelementptr inbounds i8, ptr %2, i64 24
+  %evp_type.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load i32, ptr %evp_type.i, align 8
   %cmp4.i = icmp eq i32 %call3.i, %3
   br i1 %cmp4.i, label %if.then.i, label %der2key_decode_p8.exit
@@ -2139,7 +2139,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 if.then.i:                                        ; preds = %land.lhs.true2.i
   %4 = load ptr, ptr %ctx, align 8
   %call5.i = call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %4) #6
-  %propq.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %propq.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %call6.i = call ptr @ossl_ec_key_from_pkcs8(ptr noundef nonnull %call.i, ptr noundef %call5.i, ptr noundef nonnull %propq.i) #6
   br label %der2key_decode_p8.exit
 
@@ -2154,9 +2154,9 @@ der2key_decode_p8.exit:                           ; preds = %entry, %land.lhs.tr
 define internal range(i32 0, 2) i32 @ec_check(ptr noundef %key, ptr nocapture noundef readonly %ctx) #0 {
 entry:
   %call = tail call i32 @EC_KEY_get_flags(ptr noundef %key) #6
-  %desc = getelementptr inbounds i8, ptr %ctx, i64 264
+  %desc = getelementptr inbounds nuw i8, ptr %ctx, i64 264
   %0 = load ptr, ptr %desc, align 8
-  %evp_type = getelementptr inbounds i8, ptr %0, i64 24
+  %evp_type = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i32, ptr %evp_type, align 8
   %cmp1 = icmp eq i32 %1, 1172
   %2 = and i32 %call, 4
@@ -2208,9 +2208,9 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   %0 = load ptr, ptr %alg.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call3.i = call i32 @OBJ_obj2nid(ptr noundef %1) #6
-  %desc.i = getelementptr inbounds i8, ptr %ctx, i64 264
+  %desc.i = getelementptr inbounds nuw i8, ptr %ctx, i64 264
   %2 = load ptr, ptr %desc.i, align 8
-  %evp_type.i = getelementptr inbounds i8, ptr %2, i64 24
+  %evp_type.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load i32, ptr %evp_type.i, align 8
   %cmp4.i = icmp eq i32 %call3.i, %3
   br i1 %cmp4.i, label %if.then.i, label %der2key_decode_p8.exit
@@ -2218,7 +2218,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 if.then.i:                                        ; preds = %land.lhs.true2.i
   %4 = load ptr, ptr %ctx, align 8
   %call5.i = call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %4) #6
-  %propq.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %propq.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %call6.i = call ptr @ossl_ecx_key_from_pkcs8(ptr noundef nonnull %call.i, ptr noundef %call5.i, ptr noundef nonnull %propq.i) #6
   br label %der2key_decode_p8.exit
 
@@ -2271,9 +2271,9 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   %0 = load ptr, ptr %alg.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call3.i = call i32 @OBJ_obj2nid(ptr noundef %1) #6
-  %desc.i = getelementptr inbounds i8, ptr %ctx, i64 264
+  %desc.i = getelementptr inbounds nuw i8, ptr %ctx, i64 264
   %2 = load ptr, ptr %desc.i, align 8
-  %evp_type.i = getelementptr inbounds i8, ptr %2, i64 24
+  %evp_type.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load i32, ptr %evp_type.i, align 8
   %cmp4.i = icmp eq i32 %call3.i, %3
   br i1 %cmp4.i, label %if.then.i, label %der2key_decode_p8.exit
@@ -2281,7 +2281,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 if.then.i:                                        ; preds = %land.lhs.true2.i
   %4 = load ptr, ptr %ctx, align 8
   %call5.i = call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %4) #6
-  %propq.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %propq.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %call6.i = call ptr @ossl_ec_key_from_pkcs8(ptr noundef nonnull %call.i, ptr noundef %call5.i, ptr noundef nonnull %propq.i) #6
   br label %der2key_decode_p8.exit
 
@@ -2311,9 +2311,9 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
   %0 = load ptr, ptr %alg.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call3.i = call i32 @OBJ_obj2nid(ptr noundef %1) #6
-  %desc.i = getelementptr inbounds i8, ptr %ctx, i64 264
+  %desc.i = getelementptr inbounds nuw i8, ptr %ctx, i64 264
   %2 = load ptr, ptr %desc.i, align 8
-  %evp_type.i = getelementptr inbounds i8, ptr %2, i64 24
+  %evp_type.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load i32, ptr %evp_type.i, align 8
   %cmp4.i = icmp eq i32 %call3.i, %3
   br i1 %cmp4.i, label %if.then.i, label %der2key_decode_p8.exit
@@ -2321,7 +2321,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
 if.then.i:                                        ; preds = %land.lhs.true2.i
   %4 = load ptr, ptr %ctx, align 8
   %call5.i = call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %4) #6
-  %propq.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %propq.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %call6.i = call ptr @ossl_rsa_key_from_pkcs8(ptr noundef nonnull %call.i, ptr noundef %call5.i, ptr noundef nonnull %propq.i) #6
   br label %der2key_decode_p8.exit
 
@@ -2346,9 +2346,9 @@ sw.bb1:                                           ; preds = %entry
 
 return.sink.split:                                ; preds = %entry, %sw.bb1
   %.sink2 = phi i32 [ 912, %sw.bb1 ], [ 6, %entry ]
-  %desc2 = getelementptr inbounds i8, ptr %ctx, i64 264
+  %desc2 = getelementptr inbounds nuw i8, ptr %ctx, i64 264
   %0 = load ptr, ptr %desc2, align 8
-  %evp_type3 = getelementptr inbounds i8, ptr %0, i64 24
+  %evp_type3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i32, ptr %evp_type3, align 8
   %cmp4 = icmp eq i32 %1, %.sink2
   %2 = zext i1 %cmp4 to i32

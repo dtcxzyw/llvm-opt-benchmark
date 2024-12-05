@@ -36,7 +36,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %arrayidx1 = getelementptr inbounds i8, ptr %1, i64 %call
-  %add.ptr = getelementptr inbounds i8, ptr %arrayidx1, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %arrayidx1, i64 1
   %2 = sext i32 %argc to i64
   %cmp76 = icmp slt i32 %argc, 1
   %.pre77 = load ptr, ptr %argv, align 8
@@ -63,7 +63,7 @@ land.lhs.true:                                    ; preds = %for.body
   %call20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre82) #14
   %add.ptr21 = getelementptr inbounds i8, ptr %.pre82, i64 %call20
   %cmp22.not = icmp ugt ptr %end.081, %add.ptr21
-  %add.ptr30 = getelementptr inbounds i8, ptr %add.ptr21, i64 1
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 1
   %spec.select = select i1 %cmp22.not, ptr %end.081, ptr %add.ptr30
   br label %for.inc
 
@@ -71,7 +71,7 @@ for.inc:                                          ; preds = %land.lhs.true, %for
   %end.1 = phi ptr [ %end.081, %for.body ], [ %spec.select, %land.lhs.true ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv80, 1
   %cmp = icmp sge i64 %indvars.iv.next, %2
-  %arrayidx6.phi.trans.insert = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next
+  %arrayidx6.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv.next
   %.pre = load ptr, ptr %arrayidx6.phi.trans.insert, align 8
   %tobool4.not = icmp eq ptr %.pre, null
   %or.cond = select i1 %cmp, i1 %tobool4.not, i1 false
@@ -88,14 +88,14 @@ land.lhs.true45:                                  ; preds = %for.body36
   %call50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
   %add.ptr51 = getelementptr inbounds i8, ptr %5, i64 %call50
   %cmp52.not = icmp slt i64 %call50, 0
-  %add.ptr60 = getelementptr inbounds i8, ptr %add.ptr51, i64 1
+  %add.ptr60 = getelementptr inbounds nuw i8, ptr %add.ptr51, i64 1
   %spec.select53 = select i1 %cmp52.not, ptr %end.270, ptr %add.ptr60
   br label %for.inc62
 
 for.inc62:                                        ; preds = %land.lhs.true45, %for.body36
   %end.3 = phi ptr [ %end.270, %for.body36 ], [ %spec.select53, %land.lhs.true45 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %arrayidx34 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next74
+  %arrayidx34 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next74
   %6 = load ptr, ptr %arrayidx34, align 8
   %tobool35.not = icmp eq ptr %6, null
   br i1 %tobool35.not, label %for.end64.loopexit, label %for.body36, !llvm.loop !7
@@ -159,7 +159,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 if.end16.i:                                       ; preds = %for.body.i
   store i8 0, ptr %call13.i, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %call13.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call13.i, i64 1
   %call19.i = tail call i32 @setenv(ptr noundef nonnull %14, ptr noundef nonnull %add.ptr.i, i32 noundef 1) #13
   %cmp20.not.i = icmp eq i32 %call19.i, 0
   br i1 %cmp20.not.i, label %cond.end.thread.i, label %cond.end.i
@@ -181,7 +181,7 @@ if.then24.i:                                      ; preds = %cond.end.i
 
 for.inc.i:                                        ; preds = %cond.end.i, %cond.end.thread.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv.next.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %call.i, i64 %indvars.iv.next.i
   %16 = load ptr, ptr %arrayidx.i, align 8
   %tobool10.not.i = icmp eq ptr %16, null
   br i1 %tobool10.not.i, label %if.end81, label %for.body.i, !llvm.loop !8
@@ -193,7 +193,7 @@ if.end81:                                         ; preds = %for.inc.i, %for.con
 for.cond.i:                                       ; preds = %for.inc.i59, %if.end81
   %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i60, %for.inc.i59 ], [ 1, %if.end81 ]
   %cmp.i = icmp slt i64 %indvars.iv.i54, %2
-  %arrayidx3.phi.trans.insert.i = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.i54
+  %arrayidx3.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv.i54
   %.pre.i = load ptr, ptr %arrayidx3.phi.trans.insert.i, align 8
   %tobool4.not.i = icmp eq ptr %.pre.i, null
   br i1 %cmp.i, label %for.body.i63, label %land.rhs.i
@@ -297,7 +297,7 @@ if.end19:                                         ; preds = %if.else14, %if.then
   %sub = add nsw i64 %cond.i9.pre-phi, -1
   %cond.i10 = call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 range(i64 1, 2147483648) %conv, i64 %sub)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 16 %buf, i64 %cond.i10, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 %cond.i10
+  %arrayidx = getelementptr inbounds nuw i8, ptr %2, i64 %cond.i10
   %4 = load ptr, ptr @SPT.3, align 8
   %cmp28 = icmp ult ptr %arrayidx, %4
   br i1 %cmp28, label %if.then30, label %if.else31
@@ -311,7 +311,7 @@ if.else31:                                        ; preds = %if.end19
   br i1 %cmp32, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.else31
-  %arrayidx34 = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   %cmp35 = icmp ult ptr %arrayidx34, %3
   br i1 %cmp35, label %if.then37, label %return
 

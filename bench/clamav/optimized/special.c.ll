@@ -33,9 +33,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_check_mydoom_log(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %5 = load i64, ptr %4, align 8
   %6 = lshr i64 %5, 5
   %7 = trunc i64 %6 to i32
@@ -47,7 +47,7 @@ define i32 @cli_check_mydoom_log(ptr noundef %0) local_unnamed_addr #0 {
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %7, i32 5)
   %10 = shl nuw nsw i32 %spec.store.select, 5
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %3, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %3, i64 noundef 0, i64 noundef range(i64 0, 4294967296) %11, i32 noundef 0) #7
   %.not = icmp eq ptr %14, null
@@ -65,7 +65,7 @@ define i32 @cli_check_mydoom_log(ptr noundef %0) local_unnamed_addr #0 {
 
 16:                                               ; preds = %.preheader
   %17 = add nsw i64 %indvars.iv, -1
-  %18 = getelementptr inbounds i32, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %.loopexit, label %.preheader
@@ -74,36 +74,36 @@ define i32 @cli_check_mydoom_log(ptr noundef %0) local_unnamed_addr #0 {
   %22 = load i32, ptr %14, align 4
   %23 = xor i32 %22, -1
   %24 = tail call i32 @llvm.bswap.i32(i32 %23)
-  %25 = getelementptr inbounds i8, ptr %14, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = tail call i32 @llvm.bswap.i32(i32 %26)
   %28 = xor i32 %27, %24
-  %29 = getelementptr inbounds i8, ptr %14, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @llvm.bswap.i32(i32 %30)
   %32 = xor i32 %31, %24
   %33 = add i32 %32, %28
-  %34 = getelementptr inbounds i8, ptr %14, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = tail call i32 @llvm.bswap.i32(i32 %35)
   %37 = xor i32 %36, %24
   %38 = add i32 %33, %37
-  %39 = getelementptr inbounds i8, ptr %14, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %40 = load i32, ptr %39, align 4
   %41 = tail call i32 @llvm.bswap.i32(i32 %40)
   %42 = xor i32 %41, %24
   %43 = add i32 %38, %42
-  %44 = getelementptr inbounds i8, ptr %14, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %45 = load i32, ptr %44, align 4
   %46 = tail call i32 @llvm.bswap.i32(i32 %45)
   %47 = xor i32 %46, %24
   %48 = add i32 %43, %47
-  %49 = getelementptr inbounds i8, ptr %14, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %50 = load i32, ptr %49, align 4
   %51 = tail call i32 @llvm.bswap.i32(i32 %50)
   %52 = xor i32 %51, %24
   %53 = add i32 %48, %52
-  %54 = getelementptr inbounds i8, ptr %14, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = tail call i32 @llvm.bswap.i32(i32 %55)
   %57 = xor i32 %56, %24
@@ -113,40 +113,40 @@ define i32 @cli_check_mydoom_log(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not96, label %60, label %.loopexit
 
 60:                                               ; preds = %21
-  %61 = getelementptr inbounds i8, ptr %14, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %62 = load i32, ptr %61, align 4
   %63 = xor i32 %62, -1
   %64 = tail call i32 @llvm.bswap.i32(i32 %63)
-  %65 = getelementptr inbounds i8, ptr %14, i64 36
+  %65 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %66 = load i32, ptr %65, align 4
   %67 = tail call i32 @llvm.bswap.i32(i32 %66)
   %68 = xor i32 %67, %64
-  %69 = getelementptr inbounds i8, ptr %14, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %70 = load i32, ptr %69, align 4
   %71 = tail call i32 @llvm.bswap.i32(i32 %70)
   %72 = xor i32 %71, %64
   %73 = add i32 %72, %68
-  %74 = getelementptr inbounds i8, ptr %14, i64 44
+  %74 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %75 = load i32, ptr %74, align 4
   %76 = tail call i32 @llvm.bswap.i32(i32 %75)
   %77 = xor i32 %76, %64
   %78 = add i32 %73, %77
-  %79 = getelementptr inbounds i8, ptr %14, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %80 = load i32, ptr %79, align 4
   %81 = tail call i32 @llvm.bswap.i32(i32 %80)
   %82 = xor i32 %81, %64
   %83 = add i32 %78, %82
-  %84 = getelementptr inbounds i8, ptr %14, i64 52
+  %84 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %85 = load i32, ptr %84, align 4
   %86 = tail call i32 @llvm.bswap.i32(i32 %85)
   %87 = xor i32 %86, %64
   %88 = add i32 %83, %87
-  %89 = getelementptr inbounds i8, ptr %14, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %90 = load i32, ptr %89, align 4
   %91 = tail call i32 @llvm.bswap.i32(i32 %90)
   %92 = xor i32 %91, %64
   %93 = add i32 %88, %92
-  %94 = getelementptr inbounds i8, ptr %14, i64 60
+  %94 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %95 = load i32, ptr %94, align 4
   %96 = tail call i32 @llvm.bswap.i32(i32 %95)
   %97 = xor i32 %96, %64
@@ -170,10 +170,10 @@ declare i32 @cli_append_potentially_unwanted(ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @cli_check_riff_exploit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #7
-  %4 = getelementptr inbounds i8, ptr %3, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %3, i64 noundef 0, i64 noundef 12, i32 noundef 0) #7
   %.not = icmp eq ptr %6, null
@@ -190,7 +190,7 @@ define range(i32 0, 3) i32 @cli_check_riff_exploit(ptr nocapture noundef readonl
   br i1 %10, label %11, label %riff_read_chunk.exit.thread
 
 11:                                               ; preds = %9, %7
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %bcmp13 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %12, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
   %.not14 = icmp eq i32 %bcmp13, 0
   br i1 %.not14, label %.preheader, label %riff_read_chunk.exit.thread
@@ -209,7 +209,7 @@ define range(i32 0, 3) i32 @cli_check_riff_exploit(ptr nocapture noundef readonl
   br i1 %.not.i, label %riff_read_chunk.exit.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.0.copyload.i = load i32, ptr %20, align 1
   %21 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i)
   %.0.i.i = select i1 %8, i32 %.0.copyload.i, i32 %21
@@ -250,7 +250,7 @@ define range(i32 0, 3) i32 @cli_check_riff_exploit(ptr nocapture noundef readonl
   br i1 %35, label %36, label %riff_read_chunk.exit
 
 36:                                               ; preds = %34, %32, %30, %28
-  %37 = getelementptr inbounds i8, ptr %18, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %38 = load ptr, ptr %4, align 8
   %.val.i.i = load ptr, ptr %13, align 8
   %.val4.i.i = load i64, ptr %14, align 8
@@ -298,7 +298,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [17576 x i8], align 16
   %7 = alloca [3 x i16], align 2
-  %8 = getelementptr inbounds i8, ptr %2, i64 35172
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 35172
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr %8, align 4
@@ -330,7 +330,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   %23 = tail call ptr @__ctype_b_loc() #8
   %24 = load ptr, ptr %23, align 8
   %25 = zext i8 %14 to i64
-  %26 = getelementptr inbounds i16, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
   %29 = and i32 %28, 8
@@ -353,7 +353,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   %35 = tail call i32 @tolower(i32 noundef %34) #9
   %36 = trunc i32 %35 to i8
   %37 = add nuw nsw i64 %.06295, 1
-  %38 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %.06295
+  %38 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %.06295
   store i8 %36, ptr %38, align 1
   br label %39
 
@@ -420,11 +420,11 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %61
-  %71 = getelementptr inbounds [17576 x i8], ptr %6, i64 0, i64 %68
+  %71 = getelementptr inbounds nuw [17576 x i8], ptr %6, i64 0, i64 %68
   %72 = load i8, ptr %71, align 1
   %73 = add i8 %72, 1
   store i8 %73, ptr %71, align 1
-  %74 = getelementptr inbounds [17576 x i16], ptr %2, i64 0, i64 %68
+  %74 = getelementptr inbounds nuw [17576 x i16], ptr %2, i64 0, i64 %68
   %75 = load i16, ptr %74, align 2
   %76 = add i16 %75, 1
   store i16 %76, ptr %74, align 2
@@ -443,7 +443,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
 .preheader:                                       ; preds = %78, %89
   %.2105 = phi i64 [ %90, %89 ], [ 0, %78 ]
   %.069104 = phi i16 [ %.170, %89 ], [ 0, %78 ]
-  %79 = getelementptr inbounds [17576 x i8], ptr %6, i64 0, i64 %.2105
+  %79 = getelementptr inbounds nuw [17576 x i8], ptr %6, i64 0, i64 %.2105
   %80 = load i8, ptr %79, align 1
   %.not83 = icmp eq i8 %80, 0
   br i1 %.not83, label %89, label %81
@@ -453,7 +453,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   %82 = zext nneg i8 %spec.store.select to i64
   %83 = add nuw nsw i64 %82, 4294967295
   %84 = and i64 %83, 4294967295
-  %85 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %84
   %86 = load i16, ptr %85, align 2
   %87 = add i16 %86, 1
   store i16 %87, ptr %85, align 2
@@ -473,10 +473,10 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
 92:                                               ; preds = %91
   %93 = load i16, ptr %7, align 2
   %94 = zext i16 %93 to i32
-  %95 = getelementptr inbounds i8, ptr %7, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i32
-  %98 = getelementptr inbounds i8, ptr %7, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %99 = load i16, ptr %98, align 2
   %100 = zext i16 %99 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6, i32 noundef %94, i32 noundef %97, i32 noundef %100) #7
@@ -485,7 +485,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
 
 102:                                              ; preds = %92, %102
   %.3106 = phi i64 [ 0, %92 ], [ %109, %102 ]
-  %103 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %.3106
+  %103 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %.3106
   %104 = load i16, ptr %103, align 2
   %105 = zext i16 %104 to i32
   %106 = shl nuw nsw i32 %105, 10
@@ -538,7 +538,7 @@ swizz_j48.exit._crit_edge:                        ; preds = %swizz_j48.exit
   br label %133
 
 128:                                              ; preds = %swizz_j48.exit
-  %129 = getelementptr inbounds i8, ptr %2, i64 35156
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 35156
   %130 = load i32, ptr %129, align 4
   %131 = trunc i64 %45 to i32
   %132 = add i32 %130, %131
@@ -548,7 +548,7 @@ swizz_j48.exit._crit_edge:                        ; preds = %swizz_j48.exit
 
 133:                                              ; preds = %swizz_j48.exit._crit_edge, %128
   %.pre-phi112 = phi i32 [ %.pre111, %swizz_j48.exit._crit_edge ], [ %131, %128 ]
-  %134 = getelementptr inbounds i8, ptr %2, i64 35152
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 35152
   %135 = load i32, ptr %134, align 4
   %136 = add i32 %135, %.pre-phi112
   store i32 %136, ptr %134, align 4
@@ -570,15 +570,15 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [10 x i32], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 35156
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 35156
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 35152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 35152
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 35160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 35160
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 35164
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 35164
   %12 = load i32, ptr %11, align 4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11, i64 noundef %5, i64 noundef %8, i32 noundef %10, i32 noundef %12) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, i8 0, i64 40, i1 false)
@@ -587,7 +587,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) 
 13:                                               ; preds = %1, %26
   %.03041 = phi i64 [ 0, %1 ], [ %27, %26 ]
   %.03140 = phi i32 [ 0, %1 ], [ %.132, %26 ]
-  %14 = getelementptr inbounds [17576 x i16], ptr %0, i64 0, i64 %.03041
+  %14 = getelementptr inbounds nuw [17576 x i16], ptr %0, i64 0, i64 %.03041
   %15 = load i16, ptr %14, align 2
   %16 = trunc i16 %15 to i8
   %.mask = and i16 %15, 255
@@ -600,7 +600,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) 
   %19 = zext i8 %spec.store.select to i64
   %20 = add nuw nsw i64 %19, 4294967295
   %21 = and i64 %20, 4294967295
-  %22 = getelementptr inbounds [10 x i32], ptr %2, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [10 x i32], ptr %2, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 4
@@ -625,7 +625,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) 
 
 .split.us:                                        ; preds = %29, %.split.us
   %.142.us = phi i64 [ %36, %.split.us ], [ 0, %29 ]
-  %32 = getelementptr inbounds [10 x i32], ptr %2, i64 0, i64 %.142.us
+  %32 = getelementptr inbounds nuw [10 x i32], ptr %2, i64 0, i64 %.142.us
   %33 = load i32, ptr %32, align 4
   %34 = shl i32 %33, 15
   %35 = udiv i32 %34, %.132
@@ -638,7 +638,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) 
   %37 = phi i8 [ %47, %46 ], [ %30, %29 ]
   %38 = phi i8 [ %48, %46 ], [ 1, %29 ]
   %.142 = phi i64 [ %49, %46 ], [ 0, %29 ]
-  %39 = getelementptr inbounds [10 x i32], ptr %2, i64 0, i64 %.142
+  %39 = getelementptr inbounds nuw [10 x i32], ptr %2, i64 0, i64 %.142
   %40 = load i32, ptr %39, align 4
   %41 = shl i32 %40, 15
   %42 = udiv i32 %41, %.132
@@ -674,20 +674,20 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) 
   br i1 %54, label %55, label %swizz_j48_global.exit
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %2, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %57 = load i32, ptr %56, align 16
   %58 = add i32 %57, -1
   %spec.select.i = icmp ult i32 %58, 97
   br label %swizz_j48_global.exit
 
 59:                                               ; preds = %.split44.us
-  %60 = getelementptr inbounds i8, ptr %2, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %61 = load i32, ptr %60, align 16
   %.not.i = icmp eq i32 %61, 0
   br i1 %.not.i, label %62, label %swizz_j48_global.exit
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %2, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %64 = load i32, ptr %63, align 16
   %65 = icmp ult i32 %64, 312
   br i1 %65, label %66, label %swizz_j48_global.exit
@@ -697,7 +697,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) 
   br i1 %.not21.i, label %67, label %77
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %2, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %69 = load i32, ptr %68, align 4
   %.not22.i = icmp eq i32 %69, 0
   br i1 %.not22.i, label %swizz_j48_global.exit, label %70
@@ -707,7 +707,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) 
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %2, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %74 = load i32, ptr %73, align 4
   %.not23.i = icmp ne i32 %74, 0
   br label %swizz_j48_global.exit
@@ -718,19 +718,19 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr nocapture noundef readonly %0) 
   br label %swizz_j48_global.exit
 
 77:                                               ; preds = %66
-  %78 = getelementptr inbounds i8, ptr %2, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %79 = load i32, ptr %78, align 4
   %80 = icmp ult i32 %79, 617
   br i1 %80, label %81, label %swizz_j48_global.exit
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %2, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %83 = load i32, ptr %82, align 8
   %84 = icmp ult i32 %83, 105
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %2, i64 36
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %87 = load i32, ptr %86, align 4
   %88 = icmp ult i32 %87, 168
   br label %swizz_j48_global.exit
@@ -751,9 +751,9 @@ swizz_j48_global.exit:                            ; preds = %53, %55, %59, %62, 
 
 94:                                               ; preds = %swizz_j48_global.exit, %91, %28
   %.029.shrunk = phi i1 [ %.0.shrunk.i, %91 ], [ %.0.shrunk.i, %swizz_j48_global.exit ], [ false, %28 ]
-  %95 = getelementptr inbounds i8, ptr %0, i64 35168
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 35168
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %0, i64 35172
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 35172
   %98 = load i32, ptr %97, align 4
   %99 = icmp sgt i32 %96, %98
   %100 = icmp sgt i32 %96, 1999

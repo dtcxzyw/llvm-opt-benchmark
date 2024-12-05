@@ -8,8 +8,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_async_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 456
-  %5 = getelementptr inbounds i8, ptr %0, i64 504
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, -1
   br i1 %.not.i, label %7, label %uv__async_start.exit.thread
@@ -22,7 +22,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_async_init(ptr noun
 10:                                               ; preds = %7
   tail call void @uv__io_init(ptr noundef nonnull %4, ptr noundef nonnull @uv__async_io, i32 noundef %8) #6
   tail call void @uv__io_start(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 1) #6
-  %11 = getelementptr inbounds i8, ptr %0, i64 512
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i32 -1, ptr %11, align 8
   br label %uv__async_start.exit.thread
 
@@ -34,33 +34,33 @@ uv__async_start.exit:                             ; preds = %7
   br i1 %.not, label %uv__async_start.exit.thread, label %41
 
 uv__async_start.exit.thread:                      ; preds = %3, %10, %uv__async_start.exit
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 8, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %21, ptr %22, align 8
   store ptr %19, ptr %21, align 8
   store ptr %19, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 432
-  %27 = getelementptr inbounds i8, ptr %1, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 440
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %29, ptr %30, align 8
   store ptr %27, ptr %29, align 8
   store ptr %27, ptr %28, align 8
@@ -78,7 +78,7 @@ uv__async_start.exit.thread:                      ; preds = %3, %10, %uv__async_
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %15, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = add i32 %39, 1
   store i32 %40, ptr %38, align 8
@@ -91,7 +91,7 @@ uv__async_start.exit.thread:                      ; preds = %3, %10, %uv__async_
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @uv_async_send(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load volatile i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %27
@@ -102,15 +102,15 @@ define dso_local noundef i32 @uv_async_send(ptr noundef %0) local_unnamed_addr #
   br i1 %.not4, label %6, label %27
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 512
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %8, i64 504
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 504
   %14 = load i32, ptr %13, align 8
   br label %15
 
@@ -162,7 +162,7 @@ declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__async_close(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %3
 
 3:                                                ; preds = %.backedge, %1
@@ -186,15 +186,15 @@ define dso_local void @uv__async_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %.backedge
 
 uv__async_spin.exit:                              ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
   store ptr %10, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 4
   %18 = icmp eq i32 %17, 0
@@ -208,9 +208,9 @@ uv__async_spin.exit:                              ; preds = %3
   br i1 %.not, label %28, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, -1
   store i32 %27, ptr %25, align 8
@@ -222,14 +222,14 @@ uv__async_spin.exit:                              ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv__async_fork(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 504
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %uv__async_start.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 456
-  %7 = getelementptr inbounds i8, ptr %0, i64 512
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp eq i32 %8, -1
   br i1 %.not.i, label %13, label %9
@@ -274,14 +274,14 @@ uv__async_start.exit:                             ; preds = %22, %18, %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__async_stop(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 456
-  %3 = getelementptr inbounds i8, ptr %0, i64 504
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 512
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, -1
   br i1 %.not, label %13, label %9
@@ -331,7 +331,7 @@ declare void @uv__io_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 define internal void @uv__async_io(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2) #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [2 x ptr], align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %.backedge34
 
 .backedge34:                                      ; preds = %.backedge34.backedge, %3
@@ -358,19 +358,19 @@ define internal void @uv__async_io(ptr noundef %0, ptr nocapture noundef readonl
   unreachable
 
 13:                                               ; preds = %9, %.backedge34
-  %14 = getelementptr inbounds i8, ptr %0, i64 432
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %14, %15
   br i1 %16, label %._crit_edge, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 440
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %19, ptr %20, align 8
   store ptr %5, ptr %19, align 8
   store ptr %15, ptr %5, align 16
-  %21 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %18, align 8
   store ptr %14, ptr %22, align 8
@@ -380,25 +380,25 @@ define internal void @uv__async_io(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %.not3335, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 440
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 440
   br label %24
 
 24:                                               ; preds = %.lr.ph, %.backedge
   %25 = phi ptr [ %.pre, %.lr.ph ], [ %45, %.backedge ]
   %26 = getelementptr inbounds i8, ptr %25, i64 -104
   %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8
   store ptr %27, ptr %29, align 8
   %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %30, ptr %31, align 8
   store ptr %14, ptr %25, align 8
   %32 = load ptr, ptr %23, align 8
   store ptr %32, ptr %28, align 8
   store ptr %25, ptr %32, align 8
   store ptr %25, ptr %23, align 8
-  %33 = getelementptr inbounds i8, ptr %25, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 16
   br label %34
 
 34:                                               ; preds = %.backedge37, %24

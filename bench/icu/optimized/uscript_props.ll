@@ -39,7 +39,7 @@ if.end4:                                          ; preds = %lor.lhs.false
 
 _ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit: ; preds = %if.end4
   %idxprom.i = zext nneg i32 %script to i64
-  %arrayidx.i = getelementptr inbounds [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %and = and i32 %1, 2097151
   %cmp6 = icmp eq i32 %and, 0
@@ -67,7 +67,7 @@ if.else13:                                        ; preds = %if.then10
   %3 = trunc i32 %1 to i16
   %4 = and i16 %3, 1023
   %conv19 = or disjoint i16 %4, -9216
-  %arrayidx22 = getelementptr inbounds i8, ptr %dest, i64 2
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %dest, i64 2
   store i16 %conv19, ptr %arrayidx22, align 2
   br label %if.end25
 
@@ -87,14 +87,14 @@ declare i32 @u_terminateUChars_75(ptr noundef, i32 noundef, i32 noundef, ptr nou
 define void @_Z33uscript_getSampleUnicodeString_7511UScriptCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, i32 noundef %script) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %or.cond.i = icmp ult i32 %script, 200
   br i1 %or.cond.i, label %_ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit, label %nrvo.skipdtor
 
 _ZN12_GLOBAL__N_114getScriptPropsE11UScriptCode.exit: ; preds = %entry
   %idxprom.i = zext nneg i32 %script to i64
-  %arrayidx.i = getelementptr inbounds [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %and = and i32 %0, 2097151
   %cmp.not = icmp eq i32 %and, 0
@@ -129,7 +129,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %idxprom.i = zext nneg i32 %script to i64
-  %arrayidx.i = getelementptr inbounds [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = lshr i32 %0, 21
   %2 = and i32 %1, 7
@@ -148,7 +148,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %idxprom.i = zext nneg i32 %script to i64
-  %arrayidx.i = getelementptr inbounds [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = lshr i32 %0, 24
   %2 = trunc nuw i32 %1 to i8
@@ -168,7 +168,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %idxprom.i = zext nneg i32 %script to i64
-  %arrayidx.i = getelementptr inbounds [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = lshr i32 %0, 25
   %2 = trunc nuw nsw i32 %1 to i8
@@ -188,7 +188,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %idxprom.i = zext nneg i32 %script to i64
-  %arrayidx.i = getelementptr inbounds [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [200 x i32], ptr @_ZN12_GLOBAL__N_112SCRIPT_PROPSE, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = lshr i32 %0, 26
   %2 = trunc nuw nsw i32 %1 to i8

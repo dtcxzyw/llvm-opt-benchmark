@@ -45,8 +45,8 @@ define range(i32 -1, 1) i32 @callerid_get_own_netinfo(ptr noundef %0) #0 {
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %12
 
 10:                                               ; preds = %1
@@ -55,7 +55,7 @@ define range(i32 -1, 1) i32 @callerid_get_own_netinfo(ptr noundef %0) #0 {
 
 12:                                               ; preds = %.lr.ph, %.backedge
   %13 = phi ptr [ %7, %.lr.ph ], [ %29, %.backedge ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 19
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 19
   %15 = call i32 @xstrncmp(ptr noundef nonnull %14, ptr noundef nonnull @.str.6, i64 noundef 1) #10
   %.not15 = icmp eq i32 %15, 0
   br i1 %.not15, label %.backedge, label %16
@@ -164,15 +164,15 @@ define internal fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef 
   %12 = alloca [46 x i8], align 16
   %13 = icmp eq i32 %2, 2
   %14 = select i1 %13, i32 4, i32 16
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   %17 = tail call noalias ptr @fopen(ptr noundef %3, ptr noundef nonnull @.str.11)
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %53, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %10, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %19 = lshr exact i32 %14, 2
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %.outer
@@ -200,11 +200,11 @@ define internal fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef 
 
 27:                                               ; preds = %24, %27
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = call i32 @htonl(i32 noundef %29) #11
   store i32 %30, ptr %28, align 4
-  %31 = getelementptr inbounds [4 x i32], ptr %16, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i32], ptr %16, i64 0, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = call i32 @htonl(i32 noundef %32) #11
   store i32 %33, ptr %31, align 4
@@ -219,16 +219,16 @@ define internal fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef 
   br i1 %37, label %38, label %.outer, !llvm.loop !9
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = call ptr @inet_ntop(i32 noundef %2, ptr noundef nonnull %39, ptr noundef nonnull %11, i32 noundef 46) #10
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = call ptr @inet_ntop(i32 noundef %2, ptr noundef nonnull %41, ptr noundef nonnull %12, i32 noundef 46) #10
   %43 = call i32 @get_log_level() #10
   %44 = icmp sgt i32 %43, 4
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %0, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = zext i32 %47 to i64
   %49 = load i32, ptr %0, align 4
@@ -257,23 +257,23 @@ define internal range(i32 -1, 1) i32 @_match_conn(ptr nocapture noundef readonly
   br i1 %.not, label %10, label %26
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
   %.not14 = icmp eq i32 %12, %14
   br i1 %.not14, label %15, label %26
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %16, ptr noundef nonnull dereferenceable(4) %17, i64 %7)
   %.not15 = icmp eq i32 %bcmp, 0
   br i1 %.not15, label %18, label %26
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %bcmp16 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %19, ptr noundef nonnull dereferenceable(4) %20, i64 %7)
   %.not17 = icmp eq i32 %bcmp16, 0
   br i1 %.not17, label %21, label %26
@@ -322,19 +322,19 @@ define internal range(i32 -1, 1) i32 @_match_inode(ptr nocapture noundef writeon
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %14, ptr %15, align 4
   %16 = load i32, ptr %2, align 4
   store i32 %16, ptr %0, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %4, ptr %17, align 4
   %18 = tail call i32 @get_log_level() #10
   %19 = icmp sgt i32 %18, 6
@@ -365,7 +365,7 @@ define range(i32 -1, 1) i32 @find_pid_by_inode(ptr nocapture noundef writeonly %
 
 .lr.ph:                                           ; preds = %.preheader
   %9 = tail call ptr @__ctype_b_loc() #11
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %13
 
 11:                                               ; preds = %2
@@ -375,7 +375,7 @@ define range(i32 -1, 1) i32 @find_pid_by_inode(ptr nocapture noundef writeonly %
 13:                                               ; preds = %.lr.ph, %.backedge
   %14 = phi ptr [ %8, %.lr.ph ], [ %22, %.backedge ]
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 19
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 19
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i64
   %19 = getelementptr inbounds i16, ptr %15, i64 %18
@@ -416,7 +416,7 @@ define range(i32 -1, 1) i32 @find_pid_by_inode(ptr nocapture noundef writeonly %
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.backedge.i
   %31 = phi ptr [ %34, %.backedge.i ], [ %30, %.preheader.i ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 19
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 19
   %33 = call i32 @xstrncmp(ptr noundef nonnull %32, ptr noundef nonnull @.str.6, i64 noundef 1) #10
   %.not11.i = icmp eq i32 %33, 0
   br i1 %.not11.i, label %.backedge.i, label %35

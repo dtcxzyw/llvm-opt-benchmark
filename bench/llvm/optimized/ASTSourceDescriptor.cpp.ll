@@ -31,10 +31,10 @@ define dso_local void @_ZN5clang19ASTSourceDescriptorC2ERNS_6ModuleE(ptr nocaptu
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load i64, ptr %8, align 8
   store ptr %11, ptr %10, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %12, ptr %.sroa.22.0..sroa_idx, align 8
   br label %13
 
@@ -58,10 +58,10 @@ define dso_local void @_ZN5clang19ASTSourceDescriptorC2ERNS_6ModuleE(ptr nocaptu
   br i1 %.not.i.i, label %_ZNK5clang12FileEntryRef7getNameEv.exit, label %.preheader, !llvm.loop !4
 
 _ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %21 = load i64, ptr %.0.i.i, align 8
   store ptr %20, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %21, ptr %.sroa.2.0..sroa_idx, align 8
   br label %22
 

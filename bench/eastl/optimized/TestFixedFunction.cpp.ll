@@ -574,8 +574,8 @@ entry:
   %call = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 145, ptr noundef nonnull @.str.2)
   %call9 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @.str.3)
   store ptr @_ZL10TestIntRetPi, ptr %ff10, align 8
-  %mInvokeFuncPtr.i.i19 = getelementptr inbounds i8, ptr %ff10, i64 24
-  %mMgrFuncPtr.i.i20 = getelementptr inbounds i8, ptr %ff10, i64 16
+  %mInvokeFuncPtr.i.i19 = getelementptr inbounds nuw i8, ptr %ff10, i64 24
+  %mMgrFuncPtr.i.i20 = getelementptr inbounds nuw i8, ptr %ff10, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi8EE16function_managerIPFiPiEiJS4_EE7ManagerEPvS8_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i20, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi8EE16function_managerIPFiPiEiJS4_EE7InvokerES4_RKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i19, align 8
   %call16 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 156, ptr noundef nonnull @.str.4)
@@ -602,8 +602,8 @@ terminate.lpad.i.i.i27:                           ; preds = %if.then.i.i.i25
   unreachable
 
 invoke.cont23:                                    ; preds = %invoke.cont18, %if.then.i.i.i25
-  %mMgrFuncPtr.i.i28 = getelementptr inbounds i8, ptr %ff20, i64 16
-  %mInvokeFuncPtr.i.i29 = getelementptr inbounds i8, ptr %ff20, i64 24
+  %mMgrFuncPtr.i.i28 = getelementptr inbounds nuw i8, ptr %ff20, i64 16
+  %mInvokeFuncPtr.i.i29 = getelementptr inbounds nuw i8, ptr %ff20, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi8EE16function_managerIPFiPiEiJS4_EE7ManagerEPvS8_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i28, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi8EE16function_managerIPFiPiEiJS4_EE7InvokerES4_RKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i29, align 8
   store ptr @_ZL10TestIntRetPi, ptr %ff20, align 8
@@ -696,10 +696,10 @@ _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFv
   %ff43 = alloca %"class.eastl::fixed_function.34", align 8
   store i32 0, ptr %nErrorCount, align 4
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK11TestVoidRet4IncXEv to i64), ptr %ff, align 8
-  %call.repack3.i.i.i.i = getelementptr inbounds i8, ptr %ff, i64 8
+  %call.repack3.i.i.i.i = getelementptr inbounds nuw i8, ptr %ff, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %ff, i64 24
-  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %ff, i64 16
+  %mInvokeFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %ff, i64 24
+  %mMgrFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %ff, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7ManagerEPvSA_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 224, ptr noundef nonnull @.str.8)
@@ -723,10 +723,10 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEJRKS1_EEEDcOT_DpOT0_.exit.i97: ; preds = %invoke.cont1, %if.then.i.i.i
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK11TestVoidRet4IncXEv to i64), ptr %ff2, align 8
-  %call.repack3.i.i.i.i3 = getelementptr inbounds i8, ptr %ff2, i64 8
+  %call.repack3.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %ff2, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i3, align 8
-  %mInvokeFuncPtr.i.i4 = getelementptr inbounds i8, ptr %ff2, i64 24
-  %mMgrFuncPtr.i.i5 = getelementptr inbounds i8, ptr %ff2, i64 16
+  %mInvokeFuncPtr.i.i4 = getelementptr inbounds nuw i8, ptr %ff2, i64 24
+  %mMgrFuncPtr.i.i5 = getelementptr inbounds nuw i8, ptr %ff2, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7ManagerEPvSA_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i5, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i4, align 8
   %call9 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 229, ptr noundef nonnull @.str.9)
@@ -750,10 +750,10 @@ terminate.lpad.i.i.i12:                           ; preds = %if.then.i.i.i10
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEJRS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont8, %if.then.i.i.i10
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN11TestVoidRet4IncXEv to i64), ptr %ff10, align 8
-  %call.repack3.i.i.i.i14 = getelementptr inbounds i8, ptr %ff10, i64 8
+  %call.repack3.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %ff10, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i14, align 8
-  %mInvokeFuncPtr.i.i15 = getelementptr inbounds i8, ptr %ff10, i64 24
-  %mMgrFuncPtr.i.i16 = getelementptr inbounds i8, ptr %ff10, i64 16
+  %mInvokeFuncPtr.i.i15 = getelementptr inbounds nuw i8, ptr %ff10, i64 24
+  %mMgrFuncPtr.i.i16 = getelementptr inbounds nuw i8, ptr %ff10, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEvJRS4_EE7ManagerEPvS9_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i16, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEvJRS4_EE7InvokerES7_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i15, align 8
   %call17 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 234, ptr noundef nonnull @.str.10)
@@ -777,10 +777,10 @@ terminate.lpad.i.i.i22:                           ; preds = %if.then.i.i.i20
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont16, %if.then.i.i.i20
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK10TestIntRet4IncXEv to i64), ptr %ff18, align 8
-  %call.repack3.i.i.i.i23 = getelementptr inbounds i8, ptr %ff18, i64 8
+  %call.repack3.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %ff18, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i23, align 8
-  %mInvokeFuncPtr.i.i24 = getelementptr inbounds i8, ptr %ff18, i64 24
-  %mMgrFuncPtr.i.i25 = getelementptr inbounds i8, ptr %ff18, i64 16
+  %mInvokeFuncPtr.i.i24 = getelementptr inbounds nuw i8, ptr %ff18, i64 24
+  %mMgrFuncPtr.i.i25 = getelementptr inbounds nuw i8, ptr %ff18, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7ManagerEPvSA_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i25, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i24, align 8
   %call25 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 240, ptr noundef nonnull @.str.11)
@@ -808,10 +808,10 @@ terminate.lpad.i.i.i32:                           ; preds = %if.then.i.i.i30
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEJRKS1_EEEDcOT_DpOT0_.exit.i125: ; preds = %invoke.cont28, %if.then.i.i.i30
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvENK10TestIntRet4IncXEv to i64), ptr %ff30, align 8
-  %call.repack3.i.i.i.i33 = getelementptr inbounds i8, ptr %ff30, i64 8
+  %call.repack3.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %ff30, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i33, align 8
-  %mInvokeFuncPtr.i.i34 = getelementptr inbounds i8, ptr %ff30, i64 24
-  %mMgrFuncPtr.i.i35 = getelementptr inbounds i8, ptr %ff30, i64 16
+  %mInvokeFuncPtr.i.i34 = getelementptr inbounds nuw i8, ptr %ff30, i64 24
+  %mMgrFuncPtr.i.i35 = getelementptr inbounds nuw i8, ptr %ff30, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7ManagerEPvSA_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i35, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i34, align 8
   %call38 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 246, ptr noundef nonnull @.str.11)
@@ -839,10 +839,10 @@ terminate.lpad.i.i.i43:                           ; preds = %if.then.i.i.i41
 
 _ZN5eastl6invokeIRMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEJRS1_EEEDcOT_DpOT0_.exit.i: ; preds = %invoke.cont41, %if.then.i.i.i41
   store i64 ptrtoint (ptr @_ZZ40TestFixedFunctionPointerToMemberFunctionvEN10TestIntRet4IncXEv to i64), ptr %ff43, align 8
-  %call.repack3.i.i.i.i45 = getelementptr inbounds i8, ptr %ff43, i64 8
+  %call.repack3.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %ff43, i64 8
   store i64 0, ptr %call.repack3.i.i.i.i45, align 8
-  %mInvokeFuncPtr.i.i46 = getelementptr inbounds i8, ptr %ff43, i64 24
-  %mMgrFuncPtr.i.i47 = getelementptr inbounds i8, ptr %ff43, i64 16
+  %mInvokeFuncPtr.i.i46 = getelementptr inbounds nuw i8, ptr %ff43, i64 24
+  %mMgrFuncPtr.i.i47 = getelementptr inbounds nuw i8, ptr %ff43, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEiJRS4_EE7ManagerEPvS9_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i47, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEiJRS4_EE7InvokerES7_RKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i46, align 8
   %call51 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @.str.14)
@@ -1041,17 +1041,17 @@ _ZN10TestObject7IsClearEv.exit:
   %ff1 = alloca %"class.eastl::fixed_function", align 8
   store i32 0, ptr %nErrorCount, align 4
   %0 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
-  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %ff1, i64 24
-  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %ff1, i64 32
+  %mMgrFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %ff1, i64 24
+  %mInvokeFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %ff1, i64 32
   store ptr @"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_0vJEE7ManagerEPvS6_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr.i.i, align 8
   store ptr @"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_0vJEE7InvokerERKNS0_15functor_storageILi24EEE", ptr %mInvokeFuncPtr.i.i, align 8
   store i32 0, ptr %ff1, align 8
-  %mbThrowOnCopy.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ff1, i64 4
+  %mbThrowOnCopy.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ff1, i64 4
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ff1, i64 16
+  %mMagicValue.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ff1, i64 16
   store i32 32623592, ptr %mMagicValue.i.i.i.i.i.i, align 8
   %inc5.i.i.i.i.i.i = add nsw i64 %0, 4
-  %mId.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ff1, i64 8
+  %mId.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ff1, i64 8
   store i64 %inc5.i.i.i.i.i.i, ptr %mId.i.i.i.i.i.i, align 8
   store i64 0, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   store i64 0, ptr @_ZN10TestObject15sTOArgCtorCountE, align 8
@@ -1212,13 +1212,13 @@ entry:
   %ff8Copy324 = alloca %"class.eastl::fixed_function.67", align 8
   %ff16326 = alloca %"class.eastl::fixed_function.70", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 24
+  %mMgrFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 24
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 32
+  %mInvokeFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 32
   store ptr @_ZN5eastl8internal15function_detailILi24EFvvEE14DefaultInvokerERKNS0_15functor_storageILi24EEE, ptr %mInvokeFuncPtr.i.i, align 8
-  %mMgrFuncPtr.i.i28 = getelementptr inbounds i8, ptr %fn2, i64 24
+  %mMgrFuncPtr.i.i28 = getelementptr inbounds nuw i8, ptr %fn2, i64 24
   store ptr null, ptr %mMgrFuncPtr.i.i28, align 8
-  %mInvokeFuncPtr.i.i29 = getelementptr inbounds i8, ptr %fn2, i64 32
+  %mInvokeFuncPtr.i.i29 = getelementptr inbounds nuw i8, ptr %fn2, i64 32
   store ptr @_ZN5eastl8internal15function_detailILi24EFvvEE14DefaultInvokerERKNS0_15functor_storageILi24EEE, ptr %mInvokeFuncPtr.i.i29, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 400, ptr noundef nonnull @.str.16)
           to label %invoke.cont unwind label %lpad
@@ -1448,13 +1448,13 @@ terminate.lpad.i.i.i90:                           ; preds = %if.then.i.i.i88
   unreachable
 
 _ZN5eastl14fixed_functionILi24EFvvEED2Ev.exit91:  ; preds = %_ZN5eastl14fixed_functionILi24EFvvEED2Ev.exit, %if.then.i.i.i88
-  %mMgrFuncPtr.i.i92 = getelementptr inbounds i8, ptr %fn68, i64 24
-  %mInvokeFuncPtr.i.i93 = getelementptr inbounds i8, ptr %fn68, i64 32
+  %mMgrFuncPtr.i.i92 = getelementptr inbounds nuw i8, ptr %fn68, i64 24
+  %mInvokeFuncPtr.i.i93 = getelementptr inbounds nuw i8, ptr %fn68, i64 32
   store ptr @_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_0iJEE7ManagerEPvS6_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i92, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_0iJEE7InvokerERKNS0_15functor_storageILi24EEE, ptr %mInvokeFuncPtr.i.i93, align 8
-  %mMgrFuncPtr.i.i94 = getelementptr inbounds i8, ptr %fn269, i64 24
+  %mMgrFuncPtr.i.i94 = getelementptr inbounds nuw i8, ptr %fn269, i64 24
   store ptr null, ptr %mMgrFuncPtr.i.i94, align 8
-  %mInvokeFuncPtr.i.i95 = getelementptr inbounds i8, ptr %fn269, i64 32
+  %mInvokeFuncPtr.i.i95 = getelementptr inbounds nuw i8, ptr %fn269, i64 32
   store ptr @_ZN5eastl8internal15function_detailILi24EFivEE14DefaultInvokerERKNS0_15functor_storageILi24EEE, ptr %mInvokeFuncPtr.i.i95, align 8
   %call74 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 429, ptr noundef nonnull @.str.28)
           to label %invoke.cont73 unwind label %lpad70
@@ -1624,8 +1624,8 @@ terminate.lpad.i.i.i127:                          ; preds = %if.then.i.i.i125
   unreachable
 
 _ZN5eastl14fixed_functionILi24EFivEED2Ev.exit128: ; preds = %_ZN5eastl14fixed_functionILi24EFivEED2Ev.exit, %if.then.i.i.i125
-  %mMgrFuncPtr.i.i129 = getelementptr inbounds i8, ptr %fn98, i64 16
-  %mInvokeFuncPtr.i.i130 = getelementptr inbounds i8, ptr %fn98, i64 24
+  %mMgrFuncPtr.i.i129 = getelementptr inbounds nuw i8, ptr %fn98, i64 16
+  %mInvokeFuncPtr.i.i130 = getelementptr inbounds nuw i8, ptr %fn98, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_1iJEE7ManagerEPvS6_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i129, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_1iJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i130, align 8
   %call105 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 442, ptr noundef nonnull @.str.30)
@@ -1648,8 +1648,8 @@ terminate.lpad.i.i.i137:                          ; preds = %if.then.i.i.i135
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFivEED2Ev.exit:     ; preds = %invoke.cont104, %if.then.i.i.i135
-  %mMgrFuncPtr.i.i138 = getelementptr inbounds i8, ptr %fn106, i64 16
-  %mInvokeFuncPtr.i.i139 = getelementptr inbounds i8, ptr %fn106, i64 24
+  %mMgrFuncPtr.i.i138 = getelementptr inbounds nuw i8, ptr %fn106, i64 16
+  %mInvokeFuncPtr.i.i139 = getelementptr inbounds nuw i8, ptr %fn106, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_2iJiEE7ManagerEPvS6_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i138, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE7Functor_2iJiEE7InvokerEiRKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i139, align 8
   %call113 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 448, ptr noundef nonnull @.str.31)
@@ -1672,9 +1672,9 @@ terminate.lpad.i.i.i146:                          ; preds = %if.then.i.i.i144
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit:     ; preds = %invoke.cont112, %if.then.i.i.i144
-  %mMgrFuncPtr.i.i147 = getelementptr inbounds i8, ptr %fn114, i64 16
+  %mMgrFuncPtr.i.i147 = getelementptr inbounds nuw i8, ptr %fn114, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i147, align 8
-  %mInvokeFuncPtr.i.i148 = getelementptr inbounds i8, ptr %fn114, i64 24
+  %mInvokeFuncPtr.i.i148 = getelementptr inbounds nuw i8, ptr %fn114, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi0EFvvEE14DefaultInvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i148, align 8
   %call119 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 454, ptr noundef nonnull @.str.16)
           to label %invoke.cont118 unwind label %lpad117
@@ -1718,8 +1718,8 @@ terminate.lpad.i.i.i163:                          ; preds = %if.then.i.i.i161
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFvvEED2Ev.exit:     ; preds = %invoke.cont126, %if.then.i.i.i161
-  %mMgrFuncPtr.i.i164 = getelementptr inbounds i8, ptr %fn128, i64 16
-  %mInvokeFuncPtr.i.i165 = getelementptr inbounds i8, ptr %fn128, i64 24
+  %mMgrFuncPtr.i.i164 = getelementptr inbounds nuw i8, ptr %fn128, i64 16
+  %mInvokeFuncPtr.i.i165 = getelementptr inbounds nuw i8, ptr %fn128, i64 24
   store ptr @"_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE3$_1iJiEE7ManagerEPvS6_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr.i.i164, align 8
   store ptr @"_ZN5eastl8internal20function_base_detailILi0EE16function_managerIZ22TestFixedFunctionBasicvE3$_1iJiEE7InvokerEiRKNS0_15functor_storageILi0EEE", ptr %mInvokeFuncPtr.i.i165, align 8
   %call135 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 461, ptr noundef nonnull @.str.32)
@@ -1743,8 +1743,8 @@ terminate.lpad.i.i.i173:                          ; preds = %if.then.i.i.i171
 
 _ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit174:  ; preds = %invoke.cont134, %if.then.i.i.i171
   store ptr @_Z9ReturnVali, ptr %fn136, align 8
-  %mInvokeFuncPtr.i.i175 = getelementptr inbounds i8, ptr %fn136, i64 24
-  %mMgrFuncPtr.i.i176 = getelementptr inbounds i8, ptr %fn136, i64 16
+  %mInvokeFuncPtr.i.i175 = getelementptr inbounds nuw i8, ptr %fn136, i64 24
+  %mMgrFuncPtr.i.i176 = getelementptr inbounds nuw i8, ptr %fn136, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFiiEiJiEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i176, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFiiEiJiEE7InvokerEiRKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i175, align 8
   %call142 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 466, ptr noundef nonnull @.str.32)
@@ -1768,13 +1768,13 @@ terminate.lpad.i.i.i184:                          ; preds = %if.then.i.i.i182
 
 land.rhs:                                         ; preds = %invoke.cont141, %if.then.i.i.i182
   store ptr @_Z10ReturnZerov, ptr %fn0, align 8
-  %mInvokeFuncPtr.i.i186 = getelementptr inbounds i8, ptr %fn0, i64 24
-  %mMgrFuncPtr.i.i187 = getelementptr inbounds i8, ptr %fn0, i64 16
+  %mInvokeFuncPtr.i.i186 = getelementptr inbounds nuw i8, ptr %fn0, i64 24
+  %mMgrFuncPtr.i.i187 = getelementptr inbounds nuw i8, ptr %fn0, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i187, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i186, align 8
   store ptr @_Z9ReturnOnev, ptr %fn1, align 8
-  %mInvokeFuncPtr.i.i188 = getelementptr inbounds i8, ptr %fn1, i64 24
-  %mMgrFuncPtr.i.i189 = getelementptr inbounds i8, ptr %fn1, i64 16
+  %mInvokeFuncPtr.i.i188 = getelementptr inbounds nuw i8, ptr %fn1, i64 24
+  %mMgrFuncPtr.i.i189 = getelementptr inbounds nuw i8, ptr %fn1, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i189, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i188, align 8
   %call153 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 473, ptr noundef nonnull @.str.33)
@@ -1884,13 +1884,13 @@ terminate.lpad.i.i.i232:                          ; preds = %if.then.i.i.i230
 
 land.rhs173:                                      ; preds = %_ZN5eastl14fixed_functionILi0EFivEED2Ev.exit227, %if.then.i.i.i230
   store ptr @_Z10ReturnZerov, ptr %fn0165, align 8
-  %mInvokeFuncPtr.i.i234 = getelementptr inbounds i8, ptr %fn0165, i64 24
-  %mMgrFuncPtr.i.i235 = getelementptr inbounds i8, ptr %fn0165, i64 16
+  %mInvokeFuncPtr.i.i234 = getelementptr inbounds nuw i8, ptr %fn0165, i64 24
+  %mMgrFuncPtr.i.i235 = getelementptr inbounds nuw i8, ptr %fn0165, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i235, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i234, align 8
   store ptr @_Z9ReturnOnev, ptr %fn1166, align 8
-  %mInvokeFuncPtr.i.i236 = getelementptr inbounds i8, ptr %fn1166, i64 24
-  %mMgrFuncPtr.i.i237 = getelementptr inbounds i8, ptr %fn1166, i64 16
+  %mInvokeFuncPtr.i.i236 = getelementptr inbounds nuw i8, ptr %fn1166, i64 24
+  %mMgrFuncPtr.i.i237 = getelementptr inbounds nuw i8, ptr %fn1166, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i237, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i236, align 8
   %call179 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 482, ptr noundef nonnull @.str.33)
@@ -1985,13 +1985,13 @@ terminate.lpad.i.i.i273:                          ; preds = %if.then.i.i.i271
 
 land.rhs202:                                      ; preds = %_ZN5eastl14fixed_functionILi0EFivEED2Ev.exit268, %if.then.i.i.i271
   store ptr @_Z10ReturnZerov, ptr %fn0194, align 8
-  %mInvokeFuncPtr.i.i275 = getelementptr inbounds i8, ptr %fn0194, i64 24
-  %mMgrFuncPtr.i.i276 = getelementptr inbounds i8, ptr %fn0194, i64 16
+  %mInvokeFuncPtr.i.i275 = getelementptr inbounds nuw i8, ptr %fn0194, i64 24
+  %mMgrFuncPtr.i.i276 = getelementptr inbounds nuw i8, ptr %fn0194, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i276, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i275, align 8
   store ptr @_Z9ReturnOnev, ptr %fn1195, align 8
-  %mInvokeFuncPtr.i.i277 = getelementptr inbounds i8, ptr %fn1195, i64 24
-  %mMgrFuncPtr.i.i278 = getelementptr inbounds i8, ptr %fn1195, i64 16
+  %mInvokeFuncPtr.i.i277 = getelementptr inbounds nuw i8, ptr %fn1195, i64 24
+  %mMgrFuncPtr.i.i278 = getelementptr inbounds nuw i8, ptr %fn1195, i64 16
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7ManagerEPvS7_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i278, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi0EE16function_managerIPFivEiJEE7InvokerERKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i277, align 8
   %call208 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 491, ptr noundef nonnull @.str.33)
@@ -2077,17 +2077,17 @@ terminate.lpad.i.i.i314:                          ; preds = %if.then.i.i.i312
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFivEED2Ev.exit315:  ; preds = %_ZN5eastl14fixed_functionILi0EFivEED2Ev.exit309, %if.then.i.i.i312
-  %mMgrFuncPtr.i.i316 = getelementptr inbounds i8, ptr %f1, i64 16
+  %mMgrFuncPtr.i.i316 = getelementptr inbounds nuw i8, ptr %f1, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i316, align 8
-  %mInvokeFuncPtr.i.i317 = getelementptr inbounds i8, ptr %f1, i64 24
+  %mInvokeFuncPtr.i.i317 = getelementptr inbounds nuw i8, ptr %f1, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi0EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i317, align 8
   %call226 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 498, ptr noundef nonnull @.str.37)
           to label %invoke.cont225 unwind label %lpad224
 
 invoke.cont225:                                   ; preds = %_ZN5eastl14fixed_functionILi0EFivEED2Ev.exit315
-  %mMgrFuncPtr.i.i320 = getelementptr inbounds i8, ptr %f2, i64 16
+  %mMgrFuncPtr.i.i320 = getelementptr inbounds nuw i8, ptr %f2, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i320, align 8
-  %mInvokeFuncPtr.i.i321 = getelementptr inbounds i8, ptr %f2, i64 24
+  %mInvokeFuncPtr.i.i321 = getelementptr inbounds nuw i8, ptr %f2, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi0EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i321, align 8
   %call231 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 501, ptr noundef nonnull @.str.38)
           to label %invoke.cont230 unwind label %lpad229
@@ -2125,20 +2125,20 @@ terminate.lpad.i.i.i334:                          ; preds = %if.then.i.i.i332
   unreachable
 
 _ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit335:  ; preds = %_ZN5eastl14fixed_functionILi0EFiiEED2Ev.exit329, %if.then.i.i.i332
-  %mMgrFuncPtr.i.i337 = getelementptr inbounds i8, ptr %fn234, i64 48
-  %mInvokeFuncPtr.i.i338 = getelementptr inbounds i8, ptr %fn234, i64 56
+  %mMgrFuncPtr.i.i337 = getelementptr inbounds nuw i8, ptr %fn234, i64 48
+  %mInvokeFuncPtr.i.i338 = getelementptr inbounds nuw i8, ptr %fn234, i64 56
   store ptr @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7ManagerEPvS6_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr.i.i337, align 8
   store ptr @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7InvokerERKNS0_15functor_storageILi48EEE", ptr %mInvokeFuncPtr.i.i338, align 8
   store i64 1, ptr %fn234, align 8
-  %agg.tmp235336.sroa.4.0.fn234.sroa_idx = getelementptr inbounds i8, ptr %fn234, i64 8
+  %agg.tmp235336.sroa.4.0.fn234.sroa_idx = getelementptr inbounds nuw i8, ptr %fn234, i64 8
   store i64 2, ptr %agg.tmp235336.sroa.4.0.fn234.sroa_idx, align 8
-  %agg.tmp235336.sroa.5.0.fn234.sroa_idx = getelementptr inbounds i8, ptr %fn234, i64 16
+  %agg.tmp235336.sroa.5.0.fn234.sroa_idx = getelementptr inbounds nuw i8, ptr %fn234, i64 16
   store i64 3, ptr %agg.tmp235336.sroa.5.0.fn234.sroa_idx, align 8
-  %agg.tmp235336.sroa.6.0.fn234.sroa_idx = getelementptr inbounds i8, ptr %fn234, i64 24
+  %agg.tmp235336.sroa.6.0.fn234.sroa_idx = getelementptr inbounds nuw i8, ptr %fn234, i64 24
   store i64 4, ptr %agg.tmp235336.sroa.6.0.fn234.sroa_idx, align 8
-  %agg.tmp235336.sroa.7.0.fn234.sroa_idx = getelementptr inbounds i8, ptr %fn234, i64 32
+  %agg.tmp235336.sroa.7.0.fn234.sroa_idx = getelementptr inbounds nuw i8, ptr %fn234, i64 32
   store i64 5, ptr %agg.tmp235336.sroa.7.0.fn234.sroa_idx, align 8
-  %agg.tmp235336.sroa.8.0.fn234.sroa_idx = getelementptr inbounds i8, ptr %fn234, i64 40
+  %agg.tmp235336.sroa.8.0.fn234.sroa_idx = getelementptr inbounds nuw i8, ptr %fn234, i64 40
   store i64 6, ptr %agg.tmp235336.sroa.8.0.fn234.sroa_idx, align 8
   %call241 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 512, ptr noundef nonnull @.str.39)
           to label %invoke.cont240 unwind label %lpad236
@@ -2160,20 +2160,20 @@ terminate.lpad.i.i.i345:                          ; preds = %if.then.i.i.i343
   unreachable
 
 _ZN5eastl14fixed_functionILi48EFmvEED2Ev.exit:    ; preds = %invoke.cont240, %if.then.i.i.i343
-  %mMgrFuncPtr.i.i347 = getelementptr inbounds i8, ptr %fn243, i64 48
-  %mInvokeFuncPtr.i.i348 = getelementptr inbounds i8, ptr %fn243, i64 56
+  %mMgrFuncPtr.i.i347 = getelementptr inbounds nuw i8, ptr %fn243, i64 48
+  %mInvokeFuncPtr.i.i348 = getelementptr inbounds nuw i8, ptr %fn243, i64 56
   store ptr @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7ManagerEPvS6_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr.i.i347, align 8
   store ptr @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7InvokerERKNS0_15functor_storageILi48EEE", ptr %mInvokeFuncPtr.i.i348, align 8
   store i64 1, ptr %fn243, align 8
-  %agg.tmp244346.sroa.4.0.fn243.sroa_idx = getelementptr inbounds i8, ptr %fn243, i64 8
+  %agg.tmp244346.sroa.4.0.fn243.sroa_idx = getelementptr inbounds nuw i8, ptr %fn243, i64 8
   store i64 2, ptr %agg.tmp244346.sroa.4.0.fn243.sroa_idx, align 8
-  %agg.tmp244346.sroa.5.0.fn243.sroa_idx = getelementptr inbounds i8, ptr %fn243, i64 16
+  %agg.tmp244346.sroa.5.0.fn243.sroa_idx = getelementptr inbounds nuw i8, ptr %fn243, i64 16
   store i64 3, ptr %agg.tmp244346.sroa.5.0.fn243.sroa_idx, align 8
-  %agg.tmp244346.sroa.6.0.fn243.sroa_idx = getelementptr inbounds i8, ptr %fn243, i64 24
+  %agg.tmp244346.sroa.6.0.fn243.sroa_idx = getelementptr inbounds nuw i8, ptr %fn243, i64 24
   store i64 4, ptr %agg.tmp244346.sroa.6.0.fn243.sroa_idx, align 8
-  %agg.tmp244346.sroa.7.0.fn243.sroa_idx = getelementptr inbounds i8, ptr %fn243, i64 32
+  %agg.tmp244346.sroa.7.0.fn243.sroa_idx = getelementptr inbounds nuw i8, ptr %fn243, i64 32
   store i64 5, ptr %agg.tmp244346.sroa.7.0.fn243.sroa_idx, align 8
-  %agg.tmp244346.sroa.8.0.fn243.sroa_idx = getelementptr inbounds i8, ptr %fn243, i64 40
+  %agg.tmp244346.sroa.8.0.fn243.sroa_idx = getelementptr inbounds nuw i8, ptr %fn243, i64 40
   store i64 6, ptr %agg.tmp244346.sroa.8.0.fn243.sroa_idx, align 8
   %call251 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 518, ptr noundef nonnull @.str.39)
           to label %invoke.cont250 unwind label %lpad246
@@ -2223,8 +2223,8 @@ _ZN5eastl14fixed_functionILi48EFmvEED2Ev.exit357: ; preds = %invoke.cont250, %if
   %144 = load i32, ptr %nErrorCount, align 4
   %add265 = add nsw i32 %144, %call264
   store i32 %add265, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i358 = getelementptr inbounds i8, ptr %ff8, i64 16
-  %mInvokeFuncPtr.i.i359 = getelementptr inbounds i8, ptr %ff8, i64 24
+  %mMgrFuncPtr.i.i358 = getelementptr inbounds nuw i8, ptr %ff8, i64 16
+  %mInvokeFuncPtr.i.i359 = getelementptr inbounds nuw i8, ptr %ff8, i64 24
   store ptr @"_ZN5eastl8internal20function_base_detailILi8EE16function_managerIZ22TestFixedFunctionBasicvE3$_3jJEE7ManagerEPvS6_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr.i.i358, align 8
   store ptr @"_ZN5eastl8internal20function_base_detailILi8EE16function_managerIZ22TestFixedFunctionBasicvE3$_3jJEE7InvokerERKNS0_15functor_storageILi8EEE", ptr %mInvokeFuncPtr.i.i359, align 8
   store i64 4023440760627133872, ptr %ff8, align 8
@@ -2232,7 +2232,7 @@ _ZN5eastl14fixed_functionILi48EFmvEED2Ev.exit357: ; preds = %invoke.cont250, %if
           to label %invoke.cont270 unwind label %lpad269
 
 invoke.cont270:                                   ; preds = %_ZN5eastl14fixed_functionILi48EFmvEED2Ev.exit357
-  %mInvokeFuncPtr.i.i360 = getelementptr inbounds i8, ptr %ff16, i64 24
+  %mInvokeFuncPtr.i.i360 = getelementptr inbounds nuw i8, ptr %ff16, i64 24
   %145 = load ptr, ptr %mInvokeFuncPtr.i.i360, align 8
   %call.i.i361 = invoke noundef i32 %145(ptr noundef nonnull align 8 dereferenceable(32) %ff16)
           to label %invoke.cont272 unwind label %lpad271
@@ -2243,7 +2243,7 @@ invoke.cont272:                                   ; preds = %invoke.cont270
           to label %invoke.cont275 unwind label %lpad271
 
 invoke.cont275:                                   ; preds = %invoke.cont272
-  %mMgrFuncPtr.i.i.i.i362 = getelementptr inbounds i8, ptr %ff16, i64 16
+  %mMgrFuncPtr.i.i.i.i362 = getelementptr inbounds nuw i8, ptr %ff16, i64 16
   %146 = load ptr, ptr %mMgrFuncPtr.i.i.i.i362, align 8
   %cmp.i.not.i.i.i363 = icmp eq ptr %146, null
   br i1 %cmp.i.not.i.i.i363, label %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit, label %if.then.i.i.i364
@@ -2264,7 +2264,7 @@ _ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit:    ; preds = %invoke.cont275, %if
           to label %invoke.cont279 unwind label %lpad269
 
 invoke.cont279:                                   ; preds = %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit
-  %mInvokeFuncPtr.i.i367 = getelementptr inbounds i8, ptr %ff16278, i64 24
+  %mInvokeFuncPtr.i.i367 = getelementptr inbounds nuw i8, ptr %ff16278, i64 24
   %149 = load ptr, ptr %mInvokeFuncPtr.i.i367, align 8
   %call.i.i368 = invoke noundef i32 %149(ptr noundef nonnull align 8 dereferenceable(32) %ff16278)
           to label %invoke.cont281 unwind label %lpad280
@@ -2275,7 +2275,7 @@ invoke.cont281:                                   ; preds = %invoke.cont279
           to label %invoke.cont284 unwind label %lpad280
 
 invoke.cont284:                                   ; preds = %invoke.cont281
-  %mMgrFuncPtr.i.i.i.i370 = getelementptr inbounds i8, ptr %ff16278, i64 16
+  %mMgrFuncPtr.i.i.i.i370 = getelementptr inbounds nuw i8, ptr %ff16278, i64 16
   %150 = load ptr, ptr %mMgrFuncPtr.i.i.i.i370, align 8
   %cmp.i.not.i.i.i371 = icmp eq ptr %150, null
   br i1 %cmp.i.not.i.i.i371, label %_ZN5eastl8internal15function_detailILi16EFjvEE7DestroyEv.exit.i.i, label %if.then.i.i.i372
@@ -2292,8 +2292,8 @@ terminate.lpad.i.i.i374:                          ; preds = %if.then.i.i.i372
   unreachable
 
 _ZN5eastl8internal15function_detailILi16EFjvEE7DestroyEv.exit.i.i: ; preds = %if.then.i.i.i372, %invoke.cont284
-  %mMgrFuncPtr.i.i376 = getelementptr inbounds i8, ptr %ff16287, i64 16
-  %mInvokeFuncPtr.i.i377 = getelementptr inbounds i8, ptr %ff16287, i64 24
+  %mMgrFuncPtr.i.i376 = getelementptr inbounds nuw i8, ptr %ff16287, i64 16
+  %mInvokeFuncPtr.i.i377 = getelementptr inbounds nuw i8, ptr %ff16287, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7ManagerEPvS8_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i376, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7InvokerERKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i377, align 8
   %call.i.i.i.i384 = invoke noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
@@ -2304,9 +2304,9 @@ call.i.i.i.i.noexc:                               ; preds = %_ZN5eastl8internal1
           to label %call.i.i.i.i.i.noexc unwind label %lpad288
 
 call.i.i.i.i.i.noexc:                             ; preds = %call.i.i.i.i.noexc
-  %mMgrFuncPtr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i385, i64 16
+  %mMgrFuncPtr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i385, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i.i.i.i.i, align 8
-  %mInvokeFuncPtr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i385, i64 24
+  %mInvokeFuncPtr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i385, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i385, %ff8
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont289, label %if.then.i.i.i.i.i.i
@@ -2359,9 +2359,9 @@ terminate.lpad.i.i.i394:                          ; preds = %if.then.i.i.i392
   unreachable
 
 _ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit395: ; preds = %invoke.cont294, %if.then.i.i.i392
-  %mMgrFuncPtr.i.i396 = getelementptr inbounds i8, ptr %ff8Copy, i64 16
+  %mMgrFuncPtr.i.i396 = getelementptr inbounds nuw i8, ptr %ff8Copy, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i396, align 8
-  %mInvokeFuncPtr.i.i397 = getelementptr inbounds i8, ptr %ff8Copy, i64 24
+  %mInvokeFuncPtr.i.i397 = getelementptr inbounds nuw i8, ptr %ff8Copy, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i397, align 8
   %160 = load ptr, ptr %mMgrFuncPtr.i.i358, align 8
   %cmp.i.not.i.i.i399 = icmp eq ptr %160, null
@@ -2384,7 +2384,7 @@ invoke.cont297:                                   ; preds = %call3.i.i.i401.noex
           to label %invoke.cont301 unwind label %lpad300
 
 invoke.cont301:                                   ; preds = %invoke.cont297
-  %mInvokeFuncPtr.i.i405 = getelementptr inbounds i8, ptr %ff16298, i64 24
+  %mInvokeFuncPtr.i.i405 = getelementptr inbounds nuw i8, ptr %ff16298, i64 24
   %163 = load ptr, ptr %mInvokeFuncPtr.i.i405, align 8
   %call.i.i406 = invoke noundef i32 %163(ptr noundef nonnull align 8 dereferenceable(32) %ff16298)
           to label %invoke.cont303 unwind label %lpad302
@@ -2395,7 +2395,7 @@ invoke.cont303:                                   ; preds = %invoke.cont301
           to label %invoke.cont306 unwind label %lpad302
 
 invoke.cont306:                                   ; preds = %invoke.cont303
-  %mMgrFuncPtr.i.i.i.i408 = getelementptr inbounds i8, ptr %ff16298, i64 16
+  %mMgrFuncPtr.i.i.i.i408 = getelementptr inbounds nuw i8, ptr %ff16298, i64 16
   %164 = load ptr, ptr %mMgrFuncPtr.i.i.i.i408, align 8
   %cmp.i.not.i.i.i409 = icmp eq ptr %164, null
   br i1 %cmp.i.not.i.i.i409, label %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit413, label %if.then.i.i.i410
@@ -2428,9 +2428,9 @@ terminate.lpad.i.i.i418:                          ; preds = %if.then.i.i.i416
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit:     ; preds = %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit413, %if.then.i.i.i416
-  %mMgrFuncPtr.i.i419 = getelementptr inbounds i8, ptr %ff8Copy310, i64 16
+  %mMgrFuncPtr.i.i419 = getelementptr inbounds nuw i8, ptr %ff8Copy310, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i419, align 8
-  %mInvokeFuncPtr.i.i420 = getelementptr inbounds i8, ptr %ff8Copy310, i64 24
+  %mInvokeFuncPtr.i.i420 = getelementptr inbounds nuw i8, ptr %ff8Copy310, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i420, align 8
   %170 = load ptr, ptr %mMgrFuncPtr.i.i358, align 8
   %cmp.i.not.i.i.i422 = icmp eq ptr %170, null
@@ -2453,7 +2453,7 @@ invoke.cont311:                                   ; preds = %call3.i.i.i424.noex
           to label %invoke.cont315 unwind label %lpad314
 
 invoke.cont315:                                   ; preds = %invoke.cont311
-  %mInvokeFuncPtr.i.i429 = getelementptr inbounds i8, ptr %ff16312, i64 24
+  %mInvokeFuncPtr.i.i429 = getelementptr inbounds nuw i8, ptr %ff16312, i64 24
   %173 = load ptr, ptr %mInvokeFuncPtr.i.i429, align 8
   %call.i.i430 = invoke noundef i32 %173(ptr noundef nonnull align 8 dereferenceable(32) %ff16312)
           to label %invoke.cont317 unwind label %lpad316
@@ -2464,7 +2464,7 @@ invoke.cont317:                                   ; preds = %invoke.cont315
           to label %invoke.cont320 unwind label %lpad316
 
 invoke.cont320:                                   ; preds = %invoke.cont317
-  %mMgrFuncPtr.i.i.i.i432 = getelementptr inbounds i8, ptr %ff16312, i64 16
+  %mMgrFuncPtr.i.i.i.i432 = getelementptr inbounds nuw i8, ptr %ff16312, i64 16
   %174 = load ptr, ptr %mMgrFuncPtr.i.i.i.i432, align 8
   %cmp.i.not.i.i.i433 = icmp eq ptr %174, null
   br i1 %cmp.i.not.i.i.i433, label %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit437, label %if.then.i.i.i434
@@ -2497,9 +2497,9 @@ terminate.lpad.i.i.i442:                          ; preds = %if.then.i.i.i440
   unreachable
 
 _ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit443:  ; preds = %_ZN5eastl14fixed_functionILi16EFjvEED2Ev.exit437, %if.then.i.i.i440
-  %mMgrFuncPtr.i.i444 = getelementptr inbounds i8, ptr %ff8Copy324, i64 16
+  %mMgrFuncPtr.i.i444 = getelementptr inbounds nuw i8, ptr %ff8Copy324, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i444, align 8
-  %mInvokeFuncPtr.i.i445 = getelementptr inbounds i8, ptr %ff8Copy324, i64 24
+  %mInvokeFuncPtr.i.i445 = getelementptr inbounds nuw i8, ptr %ff8Copy324, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i445, align 8
   %180 = load ptr, ptr %mMgrFuncPtr.i.i358, align 8
   %cmp.i.not.i.i.i447 = icmp eq ptr %180, null
@@ -2518,8 +2518,8 @@ _ZN5eastl8internal15function_detailILi16EFjvEE7DestroyEv.exit.i.i461: ; preds = 
   store ptr %181, ptr %mMgrFuncPtr.i.i444, align 8
   %182 = load ptr, ptr %mInvokeFuncPtr.i.i359, align 8
   store ptr %182, ptr %mInvokeFuncPtr.i.i445, align 8
-  %mMgrFuncPtr.i.i454 = getelementptr inbounds i8, ptr %ff16326, i64 16
-  %mInvokeFuncPtr.i.i455 = getelementptr inbounds i8, ptr %ff16326, i64 24
+  %mMgrFuncPtr.i.i454 = getelementptr inbounds nuw i8, ptr %ff16326, i64 16
+  %mInvokeFuncPtr.i.i455 = getelementptr inbounds nuw i8, ptr %ff16326, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7ManagerEPvS8_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i454, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7InvokerERKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i455, align 8
   %call.i.i.i.i473 = invoke noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
@@ -2530,9 +2530,9 @@ call.i.i.i.i.noexc472:                            ; preds = %_ZN5eastl8internal1
           to label %call.i.i.i.i.i.noexc474 unwind label %lpad328
 
 call.i.i.i.i.i.noexc474:                          ; preds = %call.i.i.i.i.noexc472
-  %mMgrFuncPtr.i.i.i.i.i.i463 = getelementptr inbounds i8, ptr %call.i.i.i.i.i475, i64 16
+  %mMgrFuncPtr.i.i.i.i.i.i463 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i475, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i.i.i.i.i463, align 8
-  %mInvokeFuncPtr.i.i.i.i.i.i464 = getelementptr inbounds i8, ptr %call.i.i.i.i.i475, i64 24
+  %mInvokeFuncPtr.i.i.i.i.i.i464 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i475, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i.i.i.i.i464, align 8
   %cmp.not.i.i.i.i.i.i465 = icmp eq ptr %call.i.i.i.i.i475, %ff8Copy324
   br i1 %cmp.not.i.i.i.i.i.i465, label %invoke.cont329, label %if.then.i.i.i.i.i.i466
@@ -2966,7 +2966,7 @@ lpad269:                                          ; preds = %if.then.i.i.i448, %
 lpad271:                                          ; preds = %invoke.cont270, %invoke.cont272
   %269 = landingpad { ptr, i32 }
           cleanup
-  %mMgrFuncPtr.i.i.i.i613 = getelementptr inbounds i8, ptr %ff16, i64 16
+  %mMgrFuncPtr.i.i.i.i613 = getelementptr inbounds nuw i8, ptr %ff16, i64 16
   %270 = load ptr, ptr %mMgrFuncPtr.i.i.i.i613, align 8
   %cmp.i.not.i.i.i614 = icmp eq ptr %270, null
   br i1 %cmp.i.not.i.i.i614, label %ehcleanup338, label %if.then.i.i.i615
@@ -2985,7 +2985,7 @@ terminate.lpad.i.i.i617:                          ; preds = %if.then.i.i.i615
 lpad280:                                          ; preds = %invoke.cont279, %invoke.cont281
   %273 = landingpad { ptr, i32 }
           cleanup
-  %mMgrFuncPtr.i.i.i.i619 = getelementptr inbounds i8, ptr %ff16278, i64 16
+  %mMgrFuncPtr.i.i.i.i619 = getelementptr inbounds nuw i8, ptr %ff16278, i64 16
   %274 = load ptr, ptr %mMgrFuncPtr.i.i.i.i619, align 8
   %cmp.i.not.i.i.i620 = icmp eq ptr %274, null
   br i1 %cmp.i.not.i.i.i620, label %ehcleanup338, label %if.then.i.i.i621
@@ -3027,7 +3027,7 @@ lpad300:                                          ; preds = %invoke.cont297
 lpad302:                                          ; preds = %invoke.cont301, %invoke.cont303
   %282 = landingpad { ptr, i32 }
           cleanup
-  %mMgrFuncPtr.i.i.i.i631 = getelementptr inbounds i8, ptr %ff16298, i64 16
+  %mMgrFuncPtr.i.i.i.i631 = getelementptr inbounds nuw i8, ptr %ff16298, i64 16
   %283 = load ptr, ptr %mMgrFuncPtr.i.i.i.i631, align 8
   %cmp.i.not.i.i.i632 = icmp eq ptr %283, null
   br i1 %cmp.i.not.i.i.i632, label %ehcleanup309, label %if.then.i.i.i633
@@ -3068,7 +3068,7 @@ lpad314:                                          ; preds = %invoke.cont311
 lpad316:                                          ; preds = %invoke.cont315, %invoke.cont317
   %290 = landingpad { ptr, i32 }
           cleanup
-  %mMgrFuncPtr.i.i.i.i643 = getelementptr inbounds i8, ptr %ff16312, i64 16
+  %mMgrFuncPtr.i.i.i.i643 = getelementptr inbounds nuw i8, ptr %ff16312, i64 16
   %291 = load ptr, ptr %mMgrFuncPtr.i.i.i.i643, align 8
   %cmp.i.not.i.i.i644 = icmp eq ptr %291, null
   br i1 %cmp.i.not.i.i.i644, label %ehcleanup323, label %if.then.i.i.i645
@@ -3184,9 +3184,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.53", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 16
+  %mMgrFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 24
+  %mInvokeFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi0EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi0EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3255,9 +3255,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.74", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 16
+  %mMgrFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 24
+  %mInvokeFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi1EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi1EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3326,9 +3326,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.81", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 16
+  %mMgrFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 24
+  %mInvokeFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi4EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi4EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3397,9 +3397,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.88", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 16
+  %mMgrFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 24
+  %mInvokeFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3468,9 +3468,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.92", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 64
+  %mMgrFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 64
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 72
+  %mInvokeFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 72
   store ptr @_ZN5eastl8internal15function_detailILi64EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi64EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3539,9 +3539,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.96", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 128
+  %mMgrFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 128
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 136
+  %mInvokeFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 136
   store ptr @_ZN5eastl8internal15function_detailILi128EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi128EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3610,9 +3610,9 @@ entry:
   %nErrorCount = alloca i32, align 4
   %fn = alloca %"class.eastl::fixed_function.103", align 8
   store i32 0, ptr %nErrorCount, align 4
-  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 4096
+  %mMgrFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 4096
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %fn, i64 4104
+  %mInvokeFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %fn, i64 4104
   store ptr @_ZN5eastl8internal15function_detailILi4096EFiiEE14DefaultInvokerEiRKNS0_15functor_storageILi4096EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @.str.16)
           to label %invoke.cont2 unwind label %lpad
@@ -3679,15 +3679,15 @@ _ZN5eastl14fixed_functionILi4096EFiiEED2Ev.exit15: ; preds = %lpad, %if.then.i.i
 define linkonce_odr dso_local void @_ZN5eastl14fixed_functionILi16EFjvEEC2ILi8EEERKNS0_IXT_ES1_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.eastl::fixed_function.67", align 8
-  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %mMgrFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %mInvokeFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %agg.tmp, %other
   br i1 %cmp.not.i.i, label %_ZN5eastl14fixed_functionILi8EFjvEEC2ERKS2_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %mMgrFuncPtr.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
+  %mMgrFuncPtr.i.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 16
   %0 = load ptr, ptr %mMgrFuncPtr.i.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i.i.i, label %_ZN5eastl8internal15function_detailILi8EFjvEE4CopyERKS3_.exit.i.i, label %if.then.i.i.i
@@ -3700,14 +3700,14 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 _ZN5eastl8internal15function_detailILi8EFjvEE4CopyERKS3_.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i.i
   %1 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ null, %if.then.i.i ]
   store ptr %1, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
+  %mInvokeFuncPtr.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %2 = load ptr, ptr %mInvokeFuncPtr.i.i.i, align 8
   store ptr %2, ptr %mInvokeFuncPtr.i.i, align 8
   br label %_ZN5eastl14fixed_functionILi8EFjvEEC2ERKS2_.exit
 
 _ZN5eastl14fixed_functionILi8EFjvEEC2ERKS2_.exit: ; preds = %entry, %_ZN5eastl8internal15function_detailILi8EFjvEE4CopyERKS3_.exit.i.i
-  %mMgrFuncPtr.i = getelementptr inbounds i8, ptr %this, i64 16
-  %mInvokeFuncPtr.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mMgrFuncPtr.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %mInvokeFuncPtr.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7ManagerEPvS8_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7InvokerERKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i, align 8
   %call.i.i.i1 = invoke noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
@@ -3718,9 +3718,9 @@ call.i.i.i.noexc:                                 ; preds = %_ZN5eastl14fixed_fu
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.i.i.noexc
-  %mMgrFuncPtr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 16
+  %mMgrFuncPtr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i2, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i.i.i.i, align 8
-  %mInvokeFuncPtr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 24
+  %mInvokeFuncPtr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i2, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i2, %agg.tmp
   %.pr = load ptr, ptr %mMgrFuncPtr.i.i, align 8
@@ -3791,15 +3791,15 @@ _ZN5eastl14fixed_functionILi8EFjvEED2Ev.exit12:   ; preds = %lpad, %if.then.i.i.
 define linkonce_odr dso_local void @_ZN5eastl14fixed_functionILi16EFjvEEC2ILi8EEEONS0_IXT_ES1_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.eastl::fixed_function.67", align 8
-  %mMgrFuncPtr.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %mMgrFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %mInvokeFuncPtr.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %agg.tmp, %other
   br i1 %cmp.not.i.i, label %_ZN5eastl14fixed_functionILi8EFjvEEC2EOS2_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %mMgrFuncPtr.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
+  %mMgrFuncPtr.i.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 16
   %0 = load ptr, ptr %mMgrFuncPtr.i.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i.i.i, label %_ZN5eastl8internal15function_detailILi8EFjvEE4MoveEOS3_.exit.i.i, label %if.then.i.i.i
@@ -3812,7 +3812,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 _ZN5eastl8internal15function_detailILi8EFjvEE4MoveEOS3_.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i.i
   %1 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ null, %if.then.i.i ]
   store ptr %1, ptr %mMgrFuncPtr.i.i, align 8
-  %mInvokeFuncPtr.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
+  %mInvokeFuncPtr.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %2 = load ptr, ptr %mInvokeFuncPtr.i.i.i, align 8
   store ptr %2, ptr %mInvokeFuncPtr.i.i, align 8
   store ptr null, ptr %mMgrFuncPtr.i.i.i.i, align 8
@@ -3820,8 +3820,8 @@ _ZN5eastl8internal15function_detailILi8EFjvEE4MoveEOS3_.exit.i.i: ; preds = %if.
   br label %_ZN5eastl14fixed_functionILi8EFjvEEC2EOS2_.exit
 
 _ZN5eastl14fixed_functionILi8EFjvEEC2EOS2_.exit:  ; preds = %entry, %_ZN5eastl8internal15function_detailILi8EFjvEE4MoveEOS3_.exit.i.i
-  %mMgrFuncPtr.i = getelementptr inbounds i8, ptr %this, i64 16
-  %mInvokeFuncPtr.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mMgrFuncPtr.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %mInvokeFuncPtr.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7ManagerEPvS8_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7InvokerERKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i, align 8
   %call.i.i.i1 = invoke noundef ptr @_ZN5eastl19GetDefaultAllocatorEv()
@@ -3832,9 +3832,9 @@ call.i.i.i.noexc:                                 ; preds = %_ZN5eastl14fixed_fu
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.i.i.noexc
-  %mMgrFuncPtr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 16
+  %mMgrFuncPtr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i2, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i.i.i.i, align 8
-  %mInvokeFuncPtr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 24
+  %mInvokeFuncPtr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i2, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i2, %agg.tmp
   %.pr = load ptr, ptr %mMgrFuncPtr.i.i, align 8
@@ -4054,7 +4054,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   %0 = getelementptr i8, ptr %from, i64 8
   %from.val7.i = load i64, ptr %0, align 8
   store i64 %from.val6.i, ptr %to, align 8
-  %call.repack3.i8.i = getelementptr inbounds i8, ptr %to, i64 8
+  %call.repack3.i8.i = getelementptr inbounds nuw i8, ptr %to, i64 8
   store i64 %from.val7.i, ptr %call.repack3.i8.i, align 8
   br label %return
 
@@ -4067,7 +4067,7 @@ return:                                           ; preds = %sw.epilog.sink.spli
 define internal void @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetKFvvEvJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %functor) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i64, ptr %functor, align 8
-  %0 = getelementptr inbounds i8, ptr %functor, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %functor, i64 8
   %call.val1 = load i64, ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %args, i64 %call.val1
   %2 = and i64 %call.val, 1
@@ -4112,7 +4112,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   %0 = getelementptr i8, ptr %from, i64 8
   %from.val7.i = load i64, ptr %0, align 8
   store i64 %from.val6.i, ptr %to, align 8
-  %call.repack3.i8.i = getelementptr inbounds i8, ptr %to, i64 8
+  %call.repack3.i8.i = getelementptr inbounds nuw i8, ptr %to, i64 8
   store i64 %from.val7.i, ptr %call.repack3.i8.i, align 8
   br label %return
 
@@ -4125,7 +4125,7 @@ return:                                           ; preds = %sw.epilog.sink.spli
 define internal void @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE11TestVoidRetFvvEvJRS4_EE7InvokerES7_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %functor) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i64, ptr %functor, align 8
-  %0 = getelementptr inbounds i8, ptr %functor, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %functor, i64 8
   %call.val1 = load i64, ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %args, i64 %call.val1
   %2 = and i64 %call.val, 1
@@ -4170,7 +4170,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   %0 = getelementptr i8, ptr %from, i64 8
   %from.val7.i = load i64, ptr %0, align 8
   store i64 %from.val6.i, ptr %to, align 8
-  %call.repack3.i8.i = getelementptr inbounds i8, ptr %to, i64 8
+  %call.repack3.i8.i = getelementptr inbounds nuw i8, ptr %to, i64 8
   store i64 %from.val7.i, ptr %call.repack3.i8.i, align 8
   br label %return
 
@@ -4183,7 +4183,7 @@ return:                                           ; preds = %sw.epilog.sink.spli
 define internal noundef i32 @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetKFivEiJRKS4_EE7InvokerES8_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %functor) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i64, ptr %functor, align 8
-  %0 = getelementptr inbounds i8, ptr %functor, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %functor, i64 8
   %call.val1 = load i64, ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %args, i64 %call.val1
   %2 = and i64 %call.val, 1
@@ -4228,7 +4228,7 @@ sw.epilog.sink.split.i:                           ; preds = %sw.default
   %0 = getelementptr i8, ptr %from, i64 8
   %from.val7.i = load i64, ptr %0, align 8
   store i64 %from.val6.i, ptr %to, align 8
-  %call.repack3.i8.i = getelementptr inbounds i8, ptr %to, i64 8
+  %call.repack3.i8.i = getelementptr inbounds nuw i8, ptr %to, i64 8
   store i64 %from.val7.i, ptr %call.repack3.i8.i, align 8
   br label %return
 
@@ -4241,7 +4241,7 @@ return:                                           ; preds = %sw.epilog.sink.spli
 define internal noundef i32 @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIMZ40TestFixedFunctionPointerToMemberFunctionvE10TestIntRetFivEiJRS4_EE7InvokerES7_RKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 4 dereferenceable(4) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %functor) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i64, ptr %functor, align 8
-  %0 = getelementptr inbounds i8, ptr %functor, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %functor, i64 8
   %call.val1 = load i64, ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %args, i64 %call.val1
   %2 = and i64 %call.val, 1
@@ -4280,7 +4280,7 @@ sw.bb1:                                           ; preds = %entry
   br label %return
 
 sw.bb.i:                                          ; preds = %entry
-  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %to, i64 16
+  %mMagicValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %to, i64 16
   %0 = load i32, ptr %mMagicValue.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 32623592
   br i1 %cmp.not.i.i.i.i, label %"_ZN5eastl8internal20function_base_detailILi24EE21function_manager_baseIZ32TestFixedFunctionExistingClosurevE3$_0vE15DestructFunctorERNS0_15functor_storageILi24EEE.exit.i", label %if.then.i.i.i.i
@@ -4304,13 +4304,13 @@ if.then.i.i.i.i:                                  ; preds = %sw.bb.i
 sw.bb1.i:                                         ; preds = %entry
   %4 = load i32, ptr %from, align 8
   store i32 %4, ptr %to, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %to, i64 4
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %from, i64 4
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds nuw i8, ptr %to, i64 4
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds nuw i8, ptr %from, i64 4
   %5 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %frombool.i.i.i.i = and i8 %5, 1
   store i8 %frombool.i.i.i.i, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i5.i = getelementptr inbounds i8, ptr %to, i64 16
-  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %from, i64 16
+  %mMagicValue.i.i.i5.i = getelementptr inbounds nuw i8, ptr %to, i64 16
+  %mMagicValue4.i.i.i.i = getelementptr inbounds nuw i8, ptr %from, i64 16
   %6 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %6, ptr %mMagicValue.i.i.i5.i, align 8
   %7 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -4322,20 +4322,20 @@ sw.bb1.i:                                         ; preds = %entry
   %9 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %9, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds i8, ptr %to, i64 8
+  %mId.i.i.i.i = getelementptr inbounds nuw i8, ptr %to, i64 8
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   br label %return
 
 sw.bb3.i:                                         ; preds = %entry
   %10 = load i32, ptr %from, align 8
   store i32 %10, ptr %to, align 8
-  %mbThrowOnCopy.i.i.i7.i = getelementptr inbounds i8, ptr %to, i64 4
-  %mbThrowOnCopy3.i.i.i8.i = getelementptr inbounds i8, ptr %from, i64 4
+  %mbThrowOnCopy.i.i.i7.i = getelementptr inbounds nuw i8, ptr %to, i64 4
+  %mbThrowOnCopy3.i.i.i8.i = getelementptr inbounds nuw i8, ptr %from, i64 4
   %11 = load i8, ptr %mbThrowOnCopy3.i.i.i8.i, align 4
   %frombool.i.i.i9.i = and i8 %11, 1
   store i8 %frombool.i.i.i9.i, ptr %mbThrowOnCopy.i.i.i7.i, align 4
-  %mMagicValue.i.i.i10.i = getelementptr inbounds i8, ptr %to, i64 16
-  %mMagicValue4.i.i.i11.i = getelementptr inbounds i8, ptr %from, i64 16
+  %mMagicValue.i.i.i10.i = getelementptr inbounds nuw i8, ptr %to, i64 16
+  %mMagicValue4.i.i.i11.i = getelementptr inbounds nuw i8, ptr %from, i64 16
   %12 = load i32, ptr %mMagicValue4.i.i.i11.i, align 8
   store i32 %12, ptr %mMagicValue.i.i.i10.i, align 8
   %13 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -4347,7 +4347,7 @@ sw.bb3.i:                                         ; preds = %entry
   %15 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i.i14.i = add nsw i64 %15, 1
   store i64 %inc6.i.i.i14.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i.i15.i = getelementptr inbounds i8, ptr %to, i64 8
+  %mId.i.i.i15.i = getelementptr inbounds nuw i8, ptr %to, i64 8
   store i64 %inc5.i.i.i13.i, ptr %mId.i.i.i15.i, align 8
   store i32 0, ptr %from, align 8
   %16 = load i32, ptr %mMagicValue4.i.i.i11.i, align 8
@@ -4645,19 +4645,19 @@ return:                                           ; preds = %sw.epilog.sink.spli
 define internal noundef i64 @"_ZN5eastl8internal20function_base_detailILi48EE16function_managerIZ22TestFixedFunctionBasicvE3$_2mJEE7InvokerERKNS0_15functor_storageILi48EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %functor) #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %functor, align 8
-  %1 = getelementptr inbounds i8, ptr %functor, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %functor, i64 8
   %2 = load i64, ptr %1, align 8
   %add.i.i.i = add i64 %2, %0
-  %3 = getelementptr inbounds i8, ptr %functor, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %functor, i64 16
   %4 = load i64, ptr %3, align 8
   %add2.i.i.i = add i64 %add.i.i.i, %4
-  %5 = getelementptr inbounds i8, ptr %functor, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %functor, i64 24
   %6 = load i64, ptr %5, align 8
   %add3.i.i.i = add i64 %add2.i.i.i, %6
-  %7 = getelementptr inbounds i8, ptr %functor, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %functor, i64 32
   %8 = load i64, ptr %7, align 8
   %add4.i.i.i = add i64 %add3.i.i.i, %8
-  %9 = getelementptr inbounds i8, ptr %functor, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %functor, i64 40
   %10 = load i64, ptr %9, align 8
   %add5.i.i.i = add i64 %add4.i.i.i, %10
   ret i64 %add5.i.i.i
@@ -4917,7 +4917,7 @@ return:                                           ; preds = %sw.epilog.sink.spli
 define internal noundef i32 @"_ZN5eastl8internal20function_base_detailILi8EE16function_managerIZ22TestFixedFunctionBasicvE3$_3jJEE7InvokerERKNS0_15functor_storageILi8EEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %functor) #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i32, ptr %functor, align 8
-  %0 = getelementptr inbounds i8, ptr %functor, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %functor, i64 4
   %call.val1 = load i32, ptr %0, align 4
   %add.i.i.i = add i32 %call.val1, %call.val
   ret i32 %add.i.i.i
@@ -4948,7 +4948,7 @@ return:                                           ; preds = %entry, %sw.default,
 define linkonce_odr dso_local noundef i32 @_ZN5eastl8internal20function_base_detailILi16EE16function_managerINS_14fixed_functionILi8EFjvEEEjJEE7InvokerERKNS0_15functor_storageILi16EEE(ptr noundef nonnull align 8 dereferenceable(16) %functor) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %functor, align 8
-  %mInvokeFuncPtr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %mInvokeFuncPtr.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %mInvokeFuncPtr.i.i.i.i, align 8
   %call.i.i.i.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret i32 %call.i.i.i.i
@@ -4973,7 +4973,7 @@ if.then.i:                                        ; preds = %sw.bb
           to label %call1.i.noexc unwind label %terminate.lpad
 
 call1.i.noexc:                                    ; preds = %if.then.i
-  %mMgrFuncPtr.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %mMgrFuncPtr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %mMgrFuncPtr.i.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %if.then.i.i.i.i
@@ -5003,15 +5003,15 @@ call.i.noexc:                                     ; preds = %sw.bb1
 
 call.i.i.noexc:                                   ; preds = %call.i.noexc
   %4 = load ptr, ptr %from, align 8
-  %mMgrFuncPtr.i.i.i = getelementptr inbounds i8, ptr %call.i.i9, i64 16
+  %mMgrFuncPtr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i9, i64 16
   store ptr null, ptr %mMgrFuncPtr.i.i.i, align 8
-  %mInvokeFuncPtr.i.i.i = getelementptr inbounds i8, ptr %call.i.i9, i64 24
+  %mInvokeFuncPtr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i9, i64 24
   store ptr @_ZN5eastl8internal15function_detailILi8EFjvEE14DefaultInvokerERKNS0_15functor_storageILi8EEE, ptr %mInvokeFuncPtr.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %call.i.i9, %4
   br i1 %cmp.not.i.i.i, label %_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseINS_14fixed_functionILi8EFjvEEEvE11CopyFunctorERNS0_15functor_storageILi16EEERKS9_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i.i.noexc
-  %mMgrFuncPtr.i.i.i.i.i5 = getelementptr inbounds i8, ptr %4, i64 16
+  %mMgrFuncPtr.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %mMgrFuncPtr.i.i.i.i.i5, align 8
   %cmp.i.not.i.i.i.i6 = icmp eq ptr %5, null
   br i1 %cmp.i.not.i.i.i.i6, label %_ZN5eastl8internal15function_detailILi8EFjvEE4CopyERKS3_.exit.i.i.i, label %if.then.i.i.i.i7
@@ -5027,7 +5027,7 @@ call3.i.i.i.i.noexc:                              ; preds = %if.then.i.i.i.i7
 _ZN5eastl8internal15function_detailILi8EFjvEE4CopyERKS3_.exit.i.i.i: ; preds = %call3.i.i.i.i.noexc, %if.then.i.i.i
   %6 = phi ptr [ %.pre.i.i.i.i, %call3.i.i.i.i.noexc ], [ null, %if.then.i.i.i ]
   store ptr %6, ptr %mMgrFuncPtr.i.i.i, align 8
-  %mInvokeFuncPtr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %mInvokeFuncPtr.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %mInvokeFuncPtr.i.i.i.i, align 8
   store ptr %7, ptr %mInvokeFuncPtr.i.i.i, align 8
   br label %_ZN5eastl8internal20function_base_detailILi16EE21function_manager_baseINS_14fixed_functionILi8EFjvEEEvE11CopyFunctorERNS0_15functor_storageILi16EEERKS9_.exit

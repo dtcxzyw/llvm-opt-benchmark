@@ -21,14 +21,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @array_typanalyze(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call zeroext i1 @std_typanalyze(ptr noundef %4) #7
   br i1 %5, label %6, label %52
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @get_base_element_type(i32 noundef %8) #7
   %.not = icmp eq i32 %9, 0
@@ -44,60 +44,60 @@ define dso_local range(i64 0, 2) i64 @array_typanalyze(ptr nocapture noundef rea
 
 14:                                               ; preds = %6
   %15 = tail call ptr @lookup_type_cache(i32 noundef %9, i32 noundef 193) #7
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load i32, ptr %16, align 8
   %.not33 = icmp eq i32 %17, 0
   br i1 %.not33, label %52, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 120
-  %20 = getelementptr inbounds i8, ptr %15, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %21 = load i32, ptr %20, align 8
   %.not34 = icmp eq i32 %21, 0
   br i1 %.not34, label %52, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %15, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 176
   %24 = load i32, ptr %23, align 8
   %.not35 = icmp eq i32 %24, 0
   br i1 %.not35, label %52, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %15, i64 168
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %27 = tail call ptr @palloc(i64 noundef 56) #7
   %28 = load i32, ptr %15, align 8
   store i32 %28, ptr %27, align 8
   %29 = load i32, ptr %16, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %15, i64 10
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 10
   %35 = load i8, ptr %34, align 2
-  %36 = getelementptr inbounds i8, ptr %27, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %37 = and i8 %35, 1
   store i8 %37, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %15, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %39 = load i16, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %27, i64 14
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 14
   store i16 %39, ptr %40, align 2
-  %41 = getelementptr inbounds i8, ptr %15, i64 11
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 11
   %42 = load i8, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %27, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i8 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %27, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %19, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %27, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %26, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %27, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %27, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr %50, ptr %51, align 8
   store ptr @compute_array_stats, ptr %46, align 8
   store ptr %27, ptr %49, align 8
@@ -139,12 +139,12 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   %14 = alloca i8, align 1
   %15 = alloca i64, align 8
   %16 = alloca i8, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3) #7
   store ptr %18, ptr %17, align 8
@@ -153,34 +153,34 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   %24 = mul i32 %23, 10
   %25 = mul i32 %23, 10000
   %26 = sdiv i32 %25, 7
-  %27 = getelementptr inbounds i8, ptr %6, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 8, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 24, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @element_hash, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr @element_match, ptr %30, align 8
   %31 = load ptr, ptr @CurrentMemoryContext, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %31, ptr %32, align 8
   %33 = sext i32 %24 to i64
   %34 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef %33, ptr noundef nonnull %6, i32 noundef 1224) #7
-  %35 = getelementptr inbounds i8, ptr %8, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 4, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %8, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 8, ptr %36, align 8
   %37 = load ptr, ptr @CurrentMemoryContext, align 8
-  %38 = getelementptr inbounds i8, ptr %8, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr %37, ptr %38, align 8
   %39 = call ptr @hash_create(ptr noundef nonnull @.str.3, i64 noundef 64, ptr noundef nonnull %8, i32 noundef 1064) #7
   %40 = icmp sgt i32 %2, 0
   br i1 %40, label %.lr.ph277, label %.preheader256
 
 .lr.ph277:                                        ; preds = %4
-  %41 = getelementptr inbounds i8, ptr %18, i64 14
-  %42 = getelementptr inbounds i8, ptr %18, i64 12
-  %43 = getelementptr inbounds i8, ptr %18, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 14
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %44 = sext i32 %26 to i64
   br label %47
 
@@ -192,7 +192,7 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   %.0229.lcssa = phi i64 [ 0, %4 ], [ %.1230, %.preheader256.loopexit ]
   %.0223.lcssa = phi i32 [ 0, %4 ], [ %.1224, %.preheader256.loopexit ]
   %.0218.lcssa = phi double [ 0.000000e+00, %4 ], [ %45, %.preheader256.loopexit ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %148
 
 47:                                               ; preds = %.lr.ph277, %146
@@ -249,13 +249,13 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %76, label %77, label %85
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %74, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %79 = load i32, ptr %78, align 8
   %80 = icmp eq i32 %79, %.0228271
   br i1 %80, label %125, label %81
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %74, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %83 = load i32, ptr %82, align 8
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 8
@@ -270,12 +270,12 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   %90 = sext i16 %89 to i32
   %91 = call i64 @datumCopy(i64 noundef %86, i1 noundef zeroext %88, i32 noundef %90) #7
   store i64 %91, ptr %74, align 8
-  %92 = getelementptr inbounds i8, ptr %74, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 1, ptr %92, align 8
   %93 = add i32 %.2227267, -1
-  %94 = getelementptr inbounds i8, ptr %74, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %74, i64 12
   store i32 %93, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %74, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store i32 %.0228271, ptr %95, align 8
   br label %96
 
@@ -294,9 +294,9 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
 
 .lr.ph.i:                                         ; preds = %100, %122
   %102 = phi ptr [ %123, %122 ], [ %101, %100 ]
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load i32, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %102, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 12
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, %104
   %.not7.i = icmp sgt i32 %107, %.2227267
@@ -317,7 +317,7 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
 
 115:                                              ; preds = %108
   %116 = load ptr, ptr @array_extra_data, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 12
   %118 = load i8, ptr %117, align 4
   %119 = trunc i8 %118 to i1
   br i1 %119, label %122, label %120
@@ -363,7 +363,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %133 = call ptr @hash_search(ptr noundef %39, ptr noundef nonnull %13, i32 noundef 1, ptr noundef nonnull %14) #7
   %134 = load i8, ptr %14, align 1
   %135 = trunc i8 %134 to i1
-  %136 = getelementptr inbounds i8, ptr %133, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 4
   br i1 %135, label %137, label %140
 
 137:                                              ; preds = %._crit_edge
@@ -444,7 +444,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %.0233285 = phi i64 [ %.1234, %178 ], [ 0, %157 ]
   %.0235284 = phi i64 [ %.1236, %178 ], [ %.0229.lcssa, %157 ]
   %.0240283 = phi i32 [ %.1241, %178 ], [ 0, %157 ]
-  %167 = getelementptr inbounds i8, ptr %166, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load i32, ptr %167, align 8
   %169 = sext i32 %168 to i64
   %170 = icmp slt i64 %160, %169
@@ -496,7 +496,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %189 = sext i32 %188 to i64
   %190 = getelementptr ptr, ptr %164, i64 %189
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load i32, ptr %192, align 8
   %194 = sext i32 %193 to i64
   br label %195
@@ -510,7 +510,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 197:                                              ; preds = %195
   %198 = zext nneg i32 %.0 to i64
   call void @qsort_interruptible(ptr noundef %164, i64 noundef %198, i64 noundef 8, ptr noundef nonnull @trackitem_compare_element, ptr noundef null) #7
-  %199 = getelementptr inbounds i8, ptr %0, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %200 = load ptr, ptr %199, align 8
   %201 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %200, ptr @CurrentMemoryContext, align 8
@@ -520,8 +520,8 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %205 = sext i32 %204 to i64
   %206 = shl nsw i64 %205, 2
   %207 = call ptr @palloc(i64 noundef %206) #7
-  %208 = getelementptr inbounds i8, ptr %18, i64 12
-  %209 = getelementptr inbounds i8, ptr %18, i64 14
+  %208 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %209 = getelementptr inbounds nuw i8, ptr %18, i64 14
   %210 = uitofp nneg i32 %.0223.lcssa to double
   br label %211
 
@@ -537,7 +537,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %219 = call i64 @datumCopy(i64 noundef %214, i1 noundef zeroext %216, i32 noundef %218) #7
   %220 = getelementptr i64, ptr %203, i64 %indvars.iv314
   store i64 %219, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %213, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %222 = load i32, ptr %221, align 8
   %223 = sitofp i32 %222 to double
   %224 = fdiv double %223, %210
@@ -572,44 +572,44 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %242 = and i64 %indvars.iv310, 4294967295
   %243 = getelementptr [5 x i16], ptr %46, i64 0, i64 %242
   store i16 4, ptr %243, align 2
-  %244 = getelementptr inbounds i8, ptr %18, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %245 = load i32, ptr %244, align 4
-  %246 = getelementptr inbounds i8, ptr %0, i64 92
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %247 = getelementptr [5 x i32], ptr %246, i64 0, i64 %242
   store i32 %245, ptr %247, align 4
-  %248 = getelementptr inbounds i8, ptr %18, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %249 = load i32, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %0, i64 112
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %251 = getelementptr [5 x i32], ptr %250, i64 0, i64 %242
   store i32 %249, ptr %251, align 4
-  %252 = getelementptr inbounds i8, ptr %0, i64 152
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %253 = getelementptr [5 x ptr], ptr %252, i64 0, i64 %242
   store ptr %207, ptr %253, align 8
-  %254 = getelementptr inbounds i8, ptr %0, i64 132
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %255 = getelementptr [5 x i32], ptr %254, i64 0, i64 %242
   store i32 %204, ptr %255, align 4
-  %256 = getelementptr inbounds i8, ptr %0, i64 216
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %257 = getelementptr [5 x ptr], ptr %256, i64 0, i64 %242
   store ptr %203, ptr %257, align 8
-  %258 = getelementptr inbounds i8, ptr %0, i64 192
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %259 = getelementptr [5 x i32], ptr %258, i64 0, i64 %242
   store i32 %.0, ptr %259, align 4
   %260 = load i32, ptr %18, align 8
-  %261 = getelementptr inbounds i8, ptr %0, i64 256
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %262 = getelementptr [5 x i32], ptr %261, i64 0, i64 %242
   store i32 %260, ptr %262, align 4
   %263 = load i16, ptr %209, align 2
-  %264 = getelementptr inbounds i8, ptr %0, i64 276
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %265 = getelementptr [5 x i16], ptr %264, i64 0, i64 %242
   store i16 %263, ptr %265, align 2
   %266 = load i8, ptr %208, align 4
-  %267 = getelementptr inbounds i8, ptr %0, i64 286
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 286
   %268 = getelementptr [5 x i8], ptr %267, i64 0, i64 %242
   %269 = and i8 %266, 1
   store i8 %269, ptr %268, align 1
-  %270 = getelementptr inbounds i8, ptr %18, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %271 = load i8, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %0, i64 291
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 291
   %273 = getelementptr [5 x i8], ptr %272, i64 0, i64 %242
   store i8 %271, ptr %273, align 1
   %274 = add nuw i64 %indvars.iv310, 1
@@ -646,7 +646,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 ._crit_edge297:                                   ; preds = %.lr.ph296, %279
   call void @qsort_interruptible(ptr noundef %284, i64 noundef %282, i64 noundef 8, ptr noundef nonnull @countitem_compare_count, ptr noundef null) #7
-  %291 = getelementptr inbounds i8, ptr %0, i64 32
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %292 = load ptr, ptr %291, align 8
   %293 = add nuw i32 %281, 1
   %294 = sext i32 %293 to i64
@@ -661,7 +661,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   store float %300, ptr %302, align 4
   %303 = add nsw i32 %.0223.lcssa, -1
   %304 = load ptr, ptr %284, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 4
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 4
   %306 = load i32, ptr %305, align 4
   %307 = sext i32 %306 to i64
   %308 = add nsw i32 %281, -1
@@ -690,7 +690,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %314 = sext i32 %313 to i64
   %315 = getelementptr ptr, ptr %284, i64 %314
   %316 = load ptr, ptr %315, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 4
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 4
   %318 = load i32, ptr %317, align 4
   %319 = sext i32 %318 to i64
   %320 = mul nsw i64 %319, %309
@@ -716,20 +716,20 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %329 = ashr exact i64 %sext326, 32
   %330 = getelementptr [5 x i16], ptr %46, i64 0, i64 %329
   store i16 5, ptr %330, align 2
-  %331 = getelementptr inbounds i8, ptr %18, i64 4
+  %331 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %332 = load i32, ptr %331, align 4
-  %333 = getelementptr inbounds i8, ptr %0, i64 92
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %334 = getelementptr [5 x i32], ptr %333, i64 0, i64 %329
   store i32 %332, ptr %334, align 4
-  %335 = getelementptr inbounds i8, ptr %18, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %336 = load i32, ptr %335, align 8
-  %337 = getelementptr inbounds i8, ptr %0, i64 112
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %338 = getelementptr [5 x i32], ptr %337, i64 0, i64 %329
   store i32 %336, ptr %338, align 4
-  %339 = getelementptr inbounds i8, ptr %0, i64 152
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %340 = getelementptr [5 x ptr], ptr %339, i64 0, i64 %329
   store ptr %296, ptr %340, align 8
-  %341 = getelementptr inbounds i8, ptr %0, i64 132
+  %341 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %342 = getelementptr [5 x i32], ptr %341, i64 0, i64 %329
   store i32 %293, ptr %342, align 4
   br label %343
@@ -742,9 +742,9 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 define internal i32 @element_hash(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = load i64, ptr %0, align 8
   %4 = load ptr, ptr @array_extra_data, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = tail call i64 @FunctionCall1Coll(ptr noundef %6, i32 noundef %8, i64 noundef %3) #7
   %10 = trunc i64 %9 to i32
@@ -756,9 +756,9 @@ define internal i32 @element_match(ptr nocapture noundef readonly %0, ptr nocapt
   %.val = load i64, ptr %0, align 8
   %.val2 = load i64, ptr %1, align 8
   %4 = load ptr, ptr @array_extra_data, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = tail call i64 @FunctionCall2Coll(ptr noundef %6, i32 noundef %8, i64 noundef %.val, i64 noundef %.val2) #7
   %10 = trunc i64 %9 to i32
@@ -792,10 +792,10 @@ declare void @qsort_interruptible(ptr noundef, i64 noundef, i64 noundef, ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @trackitem_compare_frequencies_desc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = sub i32 %6, %9
   ret i32 %10
@@ -808,9 +808,9 @@ define internal i32 @trackitem_compare_element(ptr nocapture noundef readonly %0
   %.val = load i64, ptr %4, align 8
   %.val4 = load i64, ptr %5, align 8
   %6 = load ptr, ptr @array_extra_data, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = tail call i64 @FunctionCall2Coll(ptr noundef %8, i32 noundef %10, i64 noundef %.val, i64 noundef %.val4) #7
   %12 = trunc i64 %11 to i32

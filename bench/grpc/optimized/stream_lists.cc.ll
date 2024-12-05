@@ -48,7 +48,7 @@ declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z36grpc_chttp2_list_add_writable_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %id = getelementptr inbounds i8, ptr %s, i64 144
+  %id = getelementptr inbounds nuw i8, ptr %s, i64 144
   %0 = load i32, ptr %id, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.then, label %do.end
@@ -58,29 +58,29 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %included.i = getelementptr inbounds i8, ptr %s, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %1 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %1, 1
   %cmp.i.not.i = icmp eq i8 %and2.i.i, 0
   br i1 %cmp.i.not.i, label %do.end.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 do.end.i.i:                                       ; preds = %do.end
-  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 488
+  %tail.i.i = getelementptr inbounds nuw i8, ptr %t, i64 488
   %2 = load ptr, ptr %tail.i.i, align 8
-  %links.i.i = getelementptr inbounds i8, ptr %s, i64 64
+  %links.i.i = getelementptr inbounds nuw i8, ptr %s, i64 64
   store ptr null, ptr %links.i.i, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %s, i64 72
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %s, i64 72
   store ptr %2, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %do.end.i.i
-  %links8.i.i = getelementptr inbounds i8, ptr %2, i64 64
+  %links8.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %s, ptr %links8.i.i, align 8
   br label %if.end15.i.i
 
 if.else.i.i:                                      ; preds = %do.end.i.i
-  %lists.i.i = getelementptr inbounds i8, ptr %t, i64 480
+  %lists.i.i = getelementptr inbounds nuw i8, ptr %t, i64 480
   store ptr %s, ptr %lists.i.i, align 8
   br label %if.end15.i.i
 
@@ -89,13 +89,13 @@ if.end15.i.i:                                     ; preds = %if.else.i.i, %if.th
   %3 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %3, 1
   store i8 %or2.i.i.i, ptr %included.i, align 1
-  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then22.i.i:                                    ; preds = %if.end15.i.i
   %5 = load i32, ptr %id, align 8
-  %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %6 = load i8, ptr %is_client.i.i, align 8
   %tobool24.i.i = trunc i8 %6 to i1
   %.str.7..str.8.i.i = select i1 %tobool24.i.i, ptr @.str.7, ptr @.str.8
@@ -112,15 +112,15 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z36grpc_chttp2_list_pop_writable_streamP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr nocapture noundef writeonly %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %lists.i = getelementptr inbounds i8, ptr %t, i64 480
+  %lists.i = getelementptr inbounds nuw i8, ptr %t, i64 480
   %0 = load ptr, ptr %lists.i, align 8
   %tobool.i = icmp ne ptr %0, null
   br i1 %tobool.i, label %if.then.i, label %if.end29.critedge.i
 
 if.then.i:                                        ; preds = %entry
-  %links.i = getelementptr inbounds i8, ptr %0, i64 64
+  %links.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %links.i, align 8
-  %included.i = getelementptr inbounds i8, ptr %0, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %0, i64 375
   %2 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %2, 1
   %cmp.i.not.i = icmp eq i8 %and2.i.i, 0
@@ -149,14 +149,14 @@ land.lhs.true.i:                                  ; preds = %if.else.i, %if.then
   %and.i.i = and i8 %4, -2
   store i8 %and.i.i, ptr %included.i, align 1
   store ptr %0, ptr %s, align 8
-  %5 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %5 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i.i, label %if.then25.i, label %_ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then25.i:                                      ; preds = %land.lhs.true.i
-  %id26.i = getelementptr inbounds i8, ptr %0, i64 144
+  %id26.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %id26.i, align 8
-  %is_client.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %7 = load i8, ptr %is_client.i, align 8
   %tobool27.i = trunc i8 %7 to i1
   %.str.7..str.8.i = select i1 %tobool27.i, ptr @.str.7, ptr @.str.8
@@ -174,7 +174,7 @@ _ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z39grpc_chttp2_list_remove_writable_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %included.i = getelementptr inbounds i8, ptr %s, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %0 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %0, 1
   %cmp.i.i = icmp ne i8 %and2.i.i, 0
@@ -183,20 +183,20 @@ entry:
 do.end.i.i:                                       ; preds = %entry
   %and.i.i.i = and i8 %0, -2
   store i8 %and.i.i.i, ptr %included.i, align 1
-  %links.i.i = getelementptr inbounds i8, ptr %s, i64 64
-  %prev.i.i = getelementptr inbounds i8, ptr %s, i64 72
+  %links.i.i = getelementptr inbounds nuw i8, ptr %s, i64 64
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %s, i64 72
   %1 = load ptr, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %do.body14.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %do.end.i.i
   %2 = load ptr, ptr %links.i.i, align 8
-  %links10.i.i = getelementptr inbounds i8, ptr %1, i64 64
+  %links10.i.i = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %2, ptr %links10.i.i, align 8
   br label %if.end29.i.i
 
 do.body14.i.i:                                    ; preds = %do.end.i.i
-  %lists.i.i = getelementptr inbounds i8, ptr %t, i64 480
+  %lists.i.i = getelementptr inbounds nuw i8, ptr %t, i64 480
   %3 = load ptr, ptr %lists.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, %s
   br i1 %cmp.not.i.i, label %do.end20.i.i, label %if.then18.i.i
@@ -218,14 +218,14 @@ if.end29.i.i:                                     ; preds = %do.end20.i.i, %if.t
   %8 = getelementptr i8, ptr %5, i64 72
   %.sink.i.i = select i1 %tobool34.not.i.i, ptr %7, ptr %8
   store ptr %6, ptr %.sink.i.i, align 8
-  %9 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %9 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then58.i.i, label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then58.i.i:                                    ; preds = %if.end29.i.i
-  %id59.i.i = getelementptr inbounds i8, ptr %s, i64 144
+  %id59.i.i = getelementptr inbounds nuw i8, ptr %s, i64 144
   %10 = load i32, ptr %id59.i.i, align 8
-  %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %11 = load i8, ptr %is_client.i.i, align 8
   %tobool60.i.i = trunc i8 %11 to i1
   %.str.7..str.8.i.i = select i1 %tobool60.i.i, ptr @.str.7, ptr @.str.8
@@ -239,29 +239,29 @@ _ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z35grpc_chttp2_list_add_writing_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %included.i = getelementptr inbounds i8, ptr %s, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %0 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %0, 2
   %cmp.i.not.i = icmp eq i8 %and2.i.i, 0
   br i1 %cmp.i.not.i, label %do.end.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 do.end.i.i:                                       ; preds = %entry
-  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 504
+  %tail.i.i = getelementptr inbounds nuw i8, ptr %t, i64 504
   %1 = load ptr, ptr %tail.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %s, i64 80
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %s, i64 80
   store ptr null, ptr %arrayidx3.i.i, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %s, i64 88
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %s, i64 88
   store ptr %1, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %do.end.i.i
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %1, i64 80
+  %arrayidx10.i.i = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %s, ptr %arrayidx10.i.i, align 8
   br label %if.end15.i.i
 
 if.else.i.i:                                      ; preds = %do.end.i.i
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 496
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %t, i64 496
   store ptr %s, ptr %arrayidx.i3.i, align 8
   br label %if.end15.i.i
 
@@ -270,14 +270,14 @@ if.end15.i.i:                                     ; preds = %if.else.i.i, %if.th
   %2 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %2, 2
   store i8 %or2.i.i.i, ptr %included.i, align 1
-  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then22.i.i:                                    ; preds = %if.end15.i.i
-  %id23.i.i = getelementptr inbounds i8, ptr %s, i64 144
+  %id23.i.i = getelementptr inbounds nuw i8, ptr %s, i64 144
   %4 = load i32, ptr %id23.i.i, align 8
-  %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %5 = load i8, ptr %is_client.i.i, align 8
   %tobool24.i.i = trunc i8 %5 to i1
   %.str.7..str.8.i.i = select i1 %tobool24.i.i, ptr @.str.7, ptr @.str.8
@@ -300,15 +300,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z35grpc_chttp2_list_pop_writing_streamP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr nocapture noundef writeonly %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %t, i64 496
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %t, i64 496
   %0 = load ptr, ptr %arrayidx.i, align 8
   %tobool.i = icmp ne ptr %0, null
   br i1 %tobool.i, label %if.then.i, label %if.end29.critedge.i
 
 if.then.i:                                        ; preds = %entry
-  %arrayidx2.i = getelementptr inbounds i8, ptr %0, i64 80
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1 = load ptr, ptr %arrayidx2.i, align 8
-  %included.i = getelementptr inbounds i8, ptr %0, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %0, i64 375
   %2 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %2, 2
   %cmp.i.not.i = icmp eq i8 %and2.i.i, 0
@@ -337,14 +337,14 @@ land.lhs.true.i:                                  ; preds = %if.else.i, %if.then
   %and.i.i = and i8 %3, -3
   store i8 %and.i.i, ptr %included.i, align 1
   store ptr %0, ptr %s, align 8
-  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then25.i, label %_ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then25.i:                                      ; preds = %land.lhs.true.i
-  %id26.i = getelementptr inbounds i8, ptr %0, i64 144
+  %id26.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %id26.i, align 8
-  %is_client.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %6 = load i8, ptr %is_client.i, align 8
   %tobool27.i = trunc i8 %6 to i1
   %.str.7..str.8.i = select i1 %tobool27.i, ptr @.str.7, ptr @.str.8
@@ -362,29 +362,29 @@ _ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_
 ; Function Attrs: mustprogress uwtable
 define void @_Z44grpc_chttp2_list_add_waiting_for_concurrencyP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %included.i = getelementptr inbounds i8, ptr %s, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %0 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %0, 16
   %cmp.i.not.i = icmp eq i8 %and2.i.i, 0
   br i1 %cmp.i.not.i, label %do.end.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 do.end.i.i:                                       ; preds = %entry
-  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 552
+  %tail.i.i = getelementptr inbounds nuw i8, ptr %t, i64 552
   %1 = load ptr, ptr %tail.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %s, i64 128
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %s, i64 128
   store ptr null, ptr %arrayidx3.i.i, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %s, i64 136
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %s, i64 136
   store ptr %1, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %do.end.i.i
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %1, i64 128
+  %arrayidx10.i.i = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %s, ptr %arrayidx10.i.i, align 8
   br label %if.end15.i.i
 
 if.else.i.i:                                      ; preds = %do.end.i.i
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 544
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %t, i64 544
   store ptr %s, ptr %arrayidx.i3.i, align 8
   br label %if.end15.i.i
 
@@ -393,14 +393,14 @@ if.end15.i.i:                                     ; preds = %if.else.i.i, %if.th
   %2 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %2, 16
   store i8 %or2.i.i.i, ptr %included.i, align 1
-  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then22.i.i:                                    ; preds = %if.end15.i.i
-  %id23.i.i = getelementptr inbounds i8, ptr %s, i64 144
+  %id23.i.i = getelementptr inbounds nuw i8, ptr %s, i64 144
   %4 = load i32, ptr %id23.i.i, align 8
-  %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %5 = load i8, ptr %is_client.i.i, align 8
   %tobool24.i.i = trunc i8 %5 to i1
   %.str.7..str.8.i.i = select i1 %tobool24.i.i, ptr @.str.7, ptr @.str.8
@@ -414,15 +414,15 @@ _ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_s
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z44grpc_chttp2_list_pop_waiting_for_concurrencyP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr nocapture noundef writeonly %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %t, i64 544
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %t, i64 544
   %0 = load ptr, ptr %arrayidx.i, align 8
   %tobool.i = icmp ne ptr %0, null
   br i1 %tobool.i, label %if.then.i, label %if.end29.critedge.i
 
 if.then.i:                                        ; preds = %entry
-  %arrayidx2.i = getelementptr inbounds i8, ptr %0, i64 128
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1 = load ptr, ptr %arrayidx2.i, align 8
-  %included.i = getelementptr inbounds i8, ptr %0, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %0, i64 375
   %2 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %2, 16
   %cmp.i.not.i = icmp eq i8 %and2.i.i, 0
@@ -451,14 +451,14 @@ land.lhs.true.i:                                  ; preds = %if.else.i, %if.then
   %and.i.i = and i8 %3, -17
   store i8 %and.i.i, ptr %included.i, align 1
   store ptr %0, ptr %s, align 8
-  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then25.i, label %_ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then25.i:                                      ; preds = %land.lhs.true.i
-  %id26.i = getelementptr inbounds i8, ptr %0, i64 144
+  %id26.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %id26.i, align 8
-  %is_client.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %6 = load i8, ptr %is_client.i, align 8
   %tobool27.i = trunc i8 %6 to i1
   %.str.7..str.8.i = select i1 %tobool27.i, ptr @.str.7, ptr @.str.8
@@ -476,7 +476,7 @@ _ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_
 ; Function Attrs: mustprogress uwtable
 define void @_Z47grpc_chttp2_list_remove_waiting_for_concurrencyP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %included.i = getelementptr inbounds i8, ptr %s, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %0 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %0, 16
   %cmp.i.i.not = icmp eq i8 %and2.i.i, 0
@@ -485,20 +485,20 @@ entry:
 do.end.i.i:                                       ; preds = %entry
   %and.i.i.i = and i8 %0, -17
   store i8 %and.i.i.i, ptr %included.i, align 1
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %s, i64 128
-  %prev.i.i = getelementptr inbounds i8, ptr %s, i64 136
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %s, i64 128
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %s, i64 136
   %1 = load ptr, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %do.body14.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %do.end.i.i
   %2 = load ptr, ptr %arrayidx.i3.i, align 8
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %1, i64 128
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %2, ptr %arrayidx12.i.i, align 8
   br label %if.end29.i.i
 
 do.body14.i.i:                                    ; preds = %do.end.i.i
-  %arrayidx16.i.i = getelementptr inbounds i8, ptr %t, i64 544
+  %arrayidx16.i.i = getelementptr inbounds nuw i8, ptr %t, i64 544
   %3 = load ptr, ptr %arrayidx16.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, %s
   br i1 %cmp.not.i.i, label %do.end20.i.i, label %if.then18.i.i
@@ -521,14 +521,14 @@ if.end29.i.i:                                     ; preds = %do.end20.i.i, %if.t
   %.sink.i.i = select i1 %tobool34.not.i.i, ptr %7, ptr %8
   %tail.i.i = getelementptr i8, ptr %.sink.i.i, i64 64
   store ptr %6, ptr %tail.i.i, align 8
-  %9 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %9 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then58.i.i, label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then58.i.i:                                    ; preds = %if.end29.i.i
-  %id59.i.i = getelementptr inbounds i8, ptr %s, i64 144
+  %id59.i.i = getelementptr inbounds nuw i8, ptr %s, i64 144
   %10 = load i32, ptr %id59.i.i, align 8
-  %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %11 = load i8, ptr %is_client.i.i, align 8
   %tobool60.i.i = trunc i8 %11 to i1
   %.str.7..str.8.i.i = select i1 %tobool60.i.i, ptr @.str.7, ptr @.str.8
@@ -542,29 +542,29 @@ _ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc
 ; Function Attrs: mustprogress uwtable
 define void @_Z41grpc_chttp2_list_add_stalled_by_transportP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %included.i = getelementptr inbounds i8, ptr %s, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %0 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %0, 4
   %cmp.i.not.i = icmp eq i8 %and2.i.i, 0
   br i1 %cmp.i.not.i, label %do.end.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 do.end.i.i:                                       ; preds = %entry
-  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 520
+  %tail.i.i = getelementptr inbounds nuw i8, ptr %t, i64 520
   %1 = load ptr, ptr %tail.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %s, i64 96
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %s, i64 96
   store ptr null, ptr %arrayidx3.i.i, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %s, i64 104
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %s, i64 104
   store ptr %1, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %do.end.i.i
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %1, i64 96
+  %arrayidx10.i.i = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %s, ptr %arrayidx10.i.i, align 8
   br label %if.end15.i.i
 
 if.else.i.i:                                      ; preds = %do.end.i.i
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 512
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %t, i64 512
   store ptr %s, ptr %arrayidx.i3.i, align 8
   br label %if.end15.i.i
 
@@ -573,14 +573,14 @@ if.end15.i.i:                                     ; preds = %if.else.i.i, %if.th
   %2 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %2, 4
   store i8 %or2.i.i.i, ptr %included.i, align 1
-  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then22.i.i:                                    ; preds = %if.end15.i.i
-  %id23.i.i = getelementptr inbounds i8, ptr %s, i64 144
+  %id23.i.i = getelementptr inbounds nuw i8, ptr %s, i64 144
   %4 = load i32, ptr %id23.i.i, align 8
-  %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %5 = load i8, ptr %is_client.i.i, align 8
   %tobool24.i.i = trunc i8 %5 to i1
   %.str.7..str.8.i.i = select i1 %tobool24.i.i, ptr @.str.7, ptr @.str.8
@@ -594,15 +594,15 @@ _ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_s
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z41grpc_chttp2_list_pop_stalled_by_transportP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr nocapture noundef writeonly %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %t, i64 512
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %t, i64 512
   %0 = load ptr, ptr %arrayidx.i, align 8
   %tobool.i = icmp ne ptr %0, null
   br i1 %tobool.i, label %if.then.i, label %if.end29.critedge.i
 
 if.then.i:                                        ; preds = %entry
-  %arrayidx2.i = getelementptr inbounds i8, ptr %0, i64 96
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1 = load ptr, ptr %arrayidx2.i, align 8
-  %included.i = getelementptr inbounds i8, ptr %0, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %0, i64 375
   %2 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %2, 4
   %cmp.i.not.i = icmp eq i8 %and2.i.i, 0
@@ -631,14 +631,14 @@ land.lhs.true.i:                                  ; preds = %if.else.i, %if.then
   %and.i.i = and i8 %3, -5
   store i8 %and.i.i, ptr %included.i, align 1
   store ptr %0, ptr %s, align 8
-  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then25.i, label %_ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then25.i:                                      ; preds = %land.lhs.true.i
-  %id26.i = getelementptr inbounds i8, ptr %0, i64 144
+  %id26.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %id26.i, align 8
-  %is_client.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %6 = load i8, ptr %is_client.i, align 8
   %tobool27.i = trunc i8 %6 to i1
   %.str.7..str.8.i = select i1 %tobool27.i, ptr @.str.7, ptr @.str.8
@@ -656,7 +656,7 @@ _ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_
 ; Function Attrs: mustprogress uwtable
 define void @_Z44grpc_chttp2_list_remove_stalled_by_transportP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %included.i = getelementptr inbounds i8, ptr %s, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %0 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %0, 4
   %cmp.i.i.not = icmp eq i8 %and2.i.i, 0
@@ -665,20 +665,20 @@ entry:
 do.end.i.i:                                       ; preds = %entry
   %and.i.i.i = and i8 %0, -5
   store i8 %and.i.i.i, ptr %included.i, align 1
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %s, i64 96
-  %prev.i.i = getelementptr inbounds i8, ptr %s, i64 104
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %s, i64 96
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %s, i64 104
   %1 = load ptr, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %do.body14.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %do.end.i.i
   %2 = load ptr, ptr %arrayidx.i3.i, align 8
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %1, i64 96
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %2, ptr %arrayidx12.i.i, align 8
   br label %if.end29.i.i
 
 do.body14.i.i:                                    ; preds = %do.end.i.i
-  %arrayidx16.i.i = getelementptr inbounds i8, ptr %t, i64 512
+  %arrayidx16.i.i = getelementptr inbounds nuw i8, ptr %t, i64 512
   %3 = load ptr, ptr %arrayidx16.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, %s
   br i1 %cmp.not.i.i, label %do.end20.i.i, label %if.then18.i.i
@@ -701,14 +701,14 @@ if.end29.i.i:                                     ; preds = %do.end20.i.i, %if.t
   %.sink.i.i = select i1 %tobool34.not.i.i, ptr %7, ptr %8
   %tail.i.i = getelementptr i8, ptr %.sink.i.i, i64 32
   store ptr %6, ptr %tail.i.i, align 8
-  %9 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %9 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then58.i.i, label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then58.i.i:                                    ; preds = %if.end29.i.i
-  %id59.i.i = getelementptr inbounds i8, ptr %s, i64 144
+  %id59.i.i = getelementptr inbounds nuw i8, ptr %s, i64 144
   %10 = load i32, ptr %id59.i.i, align 8
-  %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %11 = load i8, ptr %is_client.i.i, align 8
   %tobool60.i.i = trunc i8 %11 to i1
   %.str.7..str.8.i.i = select i1 %tobool60.i.i, ptr @.str.7, ptr @.str.8
@@ -722,29 +722,29 @@ _ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc
 ; Function Attrs: mustprogress uwtable
 define void @_Z38grpc_chttp2_list_add_stalled_by_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %included.i = getelementptr inbounds i8, ptr %s, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %0 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %0, 8
   %cmp.i.not.i = icmp eq i8 %and2.i.i, 0
   br i1 %cmp.i.not.i, label %do.end.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 do.end.i.i:                                       ; preds = %entry
-  %tail.i.i = getelementptr inbounds i8, ptr %t, i64 536
+  %tail.i.i = getelementptr inbounds nuw i8, ptr %t, i64 536
   %1 = load ptr, ptr %tail.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %s, i64 112
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %s, i64 112
   store ptr null, ptr %arrayidx3.i.i, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %s, i64 120
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %s, i64 120
   store ptr %1, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %do.end.i.i
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %1, i64 112
+  %arrayidx10.i.i = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %s, ptr %arrayidx10.i.i, align 8
   br label %if.end15.i.i
 
 if.else.i.i:                                      ; preds = %do.end.i.i
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %t, i64 528
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %t, i64 528
   store ptr %s, ptr %arrayidx.i3.i, align 8
   br label %if.end15.i.i
 
@@ -753,14 +753,14 @@ if.end15.i.i:                                     ; preds = %if.else.i.i, %if.th
   %2 = load i8, ptr %included.i, align 1
   %or2.i.i.i = or i8 %2, 8
   store i8 %or2.i.i.i, ptr %included.i, align 1
-  %3 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then22.i.i, label %_ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then22.i.i:                                    ; preds = %if.end15.i.i
-  %id23.i.i = getelementptr inbounds i8, ptr %s, i64 144
+  %id23.i.i = getelementptr inbounds nuw i8, ptr %s, i64 144
   %4 = load i32, ptr %id23.i.i, align 8
-  %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %5 = load i8, ptr %is_client.i.i, align 8
   %tobool24.i.i = trunc i8 %5 to i1
   %.str.7..str.8.i.i = select i1 %tobool24.i.i, ptr @.str.7, ptr @.str.8
@@ -774,15 +774,15 @@ _ZL15stream_list_addP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_s
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z38grpc_chttp2_list_pop_stalled_by_streamP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr nocapture noundef writeonly %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %t, i64 528
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %t, i64 528
   %0 = load ptr, ptr %arrayidx.i, align 8
   %tobool.i = icmp ne ptr %0, null
   br i1 %tobool.i, label %if.then.i, label %if.end29.critedge.i
 
 if.then.i:                                        ; preds = %entry
-  %arrayidx2.i = getelementptr inbounds i8, ptr %0, i64 112
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1 = load ptr, ptr %arrayidx2.i, align 8
-  %included.i = getelementptr inbounds i8, ptr %0, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %0, i64 375
   %2 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %2, 8
   %cmp.i.not.i = icmp eq i8 %and2.i.i, 0
@@ -811,14 +811,14 @@ land.lhs.true.i:                                  ; preds = %if.else.i, %if.then
   %and.i.i = and i8 %3, -9
   store i8 %and.i.i, ptr %included.i, align 1
   store ptr %0, ptr %s, align 8
-  %4 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then25.i, label %_ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then25.i:                                      ; preds = %land.lhs.true.i
-  %id26.i = getelementptr inbounds i8, ptr %0, i64 144
+  %id26.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %id26.i, align 8
-  %is_client.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %6 = load i8, ptr %is_client.i, align 8
   %tobool27.i = trunc i8 %6 to i1
   %.str.7..str.8.i = select i1 %tobool27.i, ptr @.str.7, ptr @.str.8
@@ -836,7 +836,7 @@ _ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z41grpc_chttp2_list_remove_stalled_by_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %included.i = getelementptr inbounds i8, ptr %s, i64 375
+  %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %0 = load i8, ptr %included.i, align 1
   %and2.i.i = and i8 %0, 8
   %cmp.i.i = icmp ne i8 %and2.i.i, 0
@@ -845,20 +845,20 @@ entry:
 do.end.i.i:                                       ; preds = %entry
   %and.i.i.i = and i8 %0, -9
   store i8 %and.i.i.i, ptr %included.i, align 1
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %s, i64 112
-  %prev.i.i = getelementptr inbounds i8, ptr %s, i64 120
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %s, i64 112
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %s, i64 120
   %1 = load ptr, ptr %prev.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %do.body14.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %do.end.i.i
   %2 = load ptr, ptr %arrayidx.i3.i, align 8
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr %1, i64 112
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %2, ptr %arrayidx12.i.i, align 8
   br label %if.end29.i.i
 
 do.body14.i.i:                                    ; preds = %do.end.i.i
-  %arrayidx16.i.i = getelementptr inbounds i8, ptr %t, i64 528
+  %arrayidx16.i.i = getelementptr inbounds nuw i8, ptr %t, i64 528
   %3 = load ptr, ptr %arrayidx16.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, %s
   br i1 %cmp.not.i.i, label %do.end20.i.i, label %if.then18.i.i
@@ -881,14 +881,14 @@ if.end29.i.i:                                     ; preds = %do.end20.i.i, %if.t
   %.sink.i.i = select i1 %tobool34.not.i.i, ptr %7, ptr %8
   %tail.i.i = getelementptr i8, ptr %.sink.i.i, i64 48
   store ptr %6, ptr %tail.i.i, align 8
-  %9 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
+  %9 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_http2_stream_state, i64 16) monotonic, align 8
   %tobool.i.i.i.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then58.i.i, label %_ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
 if.then58.i.i:                                    ; preds = %if.end29.i.i
-  %id59.i.i = getelementptr inbounds i8, ptr %s, i64 144
+  %id59.i.i = getelementptr inbounds nuw i8, ptr %s, i64 144
   %10 = load i32, ptr %id59.i.i, align 8
-  %is_client.i.i = getelementptr inbounds i8, ptr %t, i64 3376
+  %is_client.i.i = getelementptr inbounds nuw i8, ptr %t, i64 3376
   %11 = load i8, ptr %is_client.i.i, align 8
   %tobool60.i.i = trunc i8 %11 to i1
   %.str.7..str.8.i.i = select i1 %tobool60.i.i, ptr @.str.7, ptr @.str.8

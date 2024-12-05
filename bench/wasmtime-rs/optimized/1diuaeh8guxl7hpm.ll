@@ -72,21 +72,21 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   %38 = alloca { i64, [2 x i64] }, align 8
   %39 = alloca { i64, [2 x i64] }, align 8
   %40 = alloca { { i64, { { { i64, ptr, {} }, i64 } } }, { ptr, ptr, {} }, i32, [1 x i32] }, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load i32, ptr %41, align 8, !noundef !3
   %43 = load ptr, ptr %1, align 8, !noundef !3
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8, !noundef !3
-  %46 = getelementptr inbounds i8, ptr %40, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store i32 %42, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %40, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr %43, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %40, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store ptr %45, ptr %48, align 8
-  %.sroa.2259.sroa.2.0..sroa.2259.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %40, i64 16
+  %.sroa.2259.sroa.2.0..sroa.2259.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2259.sroa.2.0..sroa.2259.0..sroa_idx.sroa_idx, align 8
-  %.sroa.2259.sroa.3.0..sroa.2259.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %40, i64 24
+  %.sroa.2259.sroa.3.0..sroa.2259.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i64 0, ptr %.sroa.2259.sroa.3.0..sroa.2259.0..sroa_idx.sroa_idx, align 8
   %49 = invoke zeroext i1 @_ZN3syn9lookahead9peek_impl17h875326ee65409793E(ptr nonnull align 8 %40, ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$4peek17h282e7519a16837a9E", ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$7display17h0c8bdb2827bc3fb8E")
           to label %50 unwind label %.thread498
@@ -179,7 +179,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 79:                                               ; preds = %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %40, i64 56, i1 false)
   call void @_ZN3syn9lookahead10Lookahead15error17h0826ec1e0da3cb59E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %7, ptr nonnull align 8 %6)
-  %80 = getelementptr inbounds i8, ptr %0, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   store i64 -9223372036854775800, ptr %0, align 8
   br label %279
@@ -198,14 +198,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %88 unwind label %.thread498
 
 86:                                               ; preds = %82
-  %.sroa.0411.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.0411.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.0411.sroa.2.0.copyload = load i32, ptr %.sroa.0411.sroa.2.0..sroa_idx, align 8
-  %.sroa.0411.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 12
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0411.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %83, ptr %87, align 8
-  %.sroa.2416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0411.sroa.2.0.copyload, ptr %.sroa.2416.0..sroa_idx, align 8
-  %.sroa.3417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0411.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -219,14 +219,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %94 unwind label %.thread498
 
 92:                                               ; preds = %88
-  %.sroa.0419.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.0419.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.0419.sroa.2.0.copyload = load i32, ptr %.sroa.0419.sroa.2.0..sroa_idx, align 8
-  %.sroa.0419.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 12
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0419.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %89, ptr %93, align 8
-  %.sroa.2424.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0419.sroa.2.0.copyload, ptr %.sroa.2424.0..sroa_idx, align 8
-  %.sroa.3425.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3425.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0419.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -236,26 +236,26 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %8, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %99 = load i8, ptr %98, align 4, !range !5, !noundef !3
   store i64 -9223372036854775801, ptr %0, align 8
-  %.sroa.2239.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %99, ptr %.sroa.2239.0..sroa_idx, align 8
   br label %.critedge
 
 100:                                              ; preds = %94
-  %.sroa.0426.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.0426.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.0426.sroa.2.0.copyload = load i32, ptr %.sroa.0426.sroa.2.0..sroa_idx, align 8
-  %.sroa.0426.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 12
+  %.sroa.0426.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.sroa.0426.sroa.3.0.copyload = load i8, ptr %.sroa.0426.sroa.3.0..sroa_idx, align 4
-  %.sroa.0426.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 13
-  %101 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0426.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 13
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %95, ptr %101, align 8
-  %.sroa.2432.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0426.sroa.2.0.copyload, ptr %.sroa.2432.0..sroa_idx, align 8
-  %.sroa.3433.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sroa.0426.sroa.3.0.copyload, ptr %.sroa.3433.0..sroa_idx, align 4
-  %.sroa.4434.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 21
+  %.sroa.4434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.4434.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.0426.sroa.4.0..sroa_idx, i64 11, i1 false)
   br label %.sink.split
 
@@ -277,14 +277,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %109 unwind label %.thread498
 
 107:                                              ; preds = %103
-  %.sroa.0390.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.0390.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.0390.sroa.2.0.copyload = load i32, ptr %.sroa.0390.sroa.2.0..sroa_idx, align 8
-  %.sroa.0390.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 12
-  %108 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0390.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %104, ptr %108, align 8
-  %.sroa.2395.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2395.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0390.sroa.2.0.copyload, ptr %.sroa.2395.0..sroa_idx, align 8
-  %.sroa.3396.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3396.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0390.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -298,36 +298,36 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %115 unwind label %.thread498
 
 113:                                              ; preds = %109
-  %.sroa.0398.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.0398.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.0398.sroa.2.0.copyload = load i32, ptr %.sroa.0398.sroa.2.0..sroa_idx, align 8
-  %.sroa.0398.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 12
-  %114 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0398.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %110, ptr %114, align 8
-  %.sroa.2403.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2403.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0398.sroa.2.0.copyload, ptr %.sroa.2403.0..sroa_idx, align 8
-  %.sroa.3404.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3404.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3404.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0398.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %11, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %117 = load i8, ptr %116, align 8, !range !6, !noundef !3
   %.not = icmp eq i8 %117, 2
   br i1 %.not, label %119, label %118
 
 118:                                              ; preds = %115
-  %.sroa.3407.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 49
+  %.sroa.3407.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 49
   store i64 -9223372036854775802, ptr %0, align 8
-  %.sroa.2205.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2205.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.2205.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
-  %.sroa.2205.sroa.2.0..sroa.2205.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.2205.sroa.2.0..sroa.2205.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %117, ptr %.sroa.2205.sroa.2.0..sroa.2205.0..sroa_idx.sroa_idx, align 8
-  %.sroa.2205.sroa.3.0..sroa.2205.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 57
+  %.sroa.2205.sroa.3.0..sroa.2205.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.2205.sroa.3.0..sroa.2205.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3407.0..sroa_idx, i64 7, i1 false)
   br label %.critedge
 
 119:                                              ; preds = %115
-  %120 = getelementptr inbounds i8, ptr %0, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   br label %.sink.split
 
@@ -341,14 +341,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %127 unwind label %.thread498
 
 125:                                              ; preds = %121
-  %.sroa.0366.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.0366.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.0366.sroa.2.0.copyload = load i32, ptr %.sroa.0366.sroa.2.0..sroa_idx, align 8
-  %.sroa.0366.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 12
-  %126 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0366.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %122, ptr %126, align 8
-  %.sroa.2371.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0366.sroa.2.0.copyload, ptr %.sroa.2371.0..sroa_idx, align 8
-  %.sroa.3372.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3372.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3372.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0366.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -362,14 +362,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %133 unwind label %.thread498
 
 131:                                              ; preds = %127
-  %.sroa.0374.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.0374.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.0374.sroa.2.0.copyload = load i32, ptr %.sroa.0374.sroa.2.0..sroa_idx, align 8
-  %.sroa.0374.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 12
-  %132 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0374.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %128, ptr %132, align 8
-  %.sroa.2379.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0374.sroa.2.0.copyload, ptr %.sroa.2379.0..sroa_idx, align 8
-  %.sroa.3380.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3380.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0374.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -379,26 +379,26 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %133
-  %137 = getelementptr inbounds i8, ptr %14, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %138 = load i8, ptr %137, align 4, !range !5, !noundef !3
   store i64 -9223372036854775803, ptr %0, align 8
-  %.sroa.2168.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2168.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %138, ptr %.sroa.2168.0..sroa_idx, align 8
   br label %.critedge
 
 139:                                              ; preds = %133
-  %.sroa.0381.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.0381.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.0381.sroa.2.0.copyload = load i32, ptr %.sroa.0381.sroa.2.0..sroa_idx, align 8
-  %.sroa.0381.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 12
+  %.sroa.0381.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 12
   %.sroa.0381.sroa.3.0.copyload = load i8, ptr %.sroa.0381.sroa.3.0..sroa_idx, align 4
-  %.sroa.0381.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 13
-  %140 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0381.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 13
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %134, ptr %140, align 8
-  %.sroa.2387.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0381.sroa.2.0.copyload, ptr %.sroa.2387.0..sroa_idx, align 8
-  %.sroa.3388.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3388.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sroa.0381.sroa.3.0.copyload, ptr %.sroa.3388.0..sroa_idx, align 4
-  %.sroa.4389.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 21
+  %.sroa.4389.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.4389.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.0381.sroa.4.0..sroa_idx, i64 11, i1 false)
   br label %.sink.split
 
@@ -414,14 +414,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %150 unwind label %.thread498
 
 148:                                              ; preds = %141
-  %.sroa.0343.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
+  %.sroa.0343.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.0343.sroa.2.0.copyload = load i32, ptr %.sroa.0343.sroa.2.0..sroa_idx, align 8
-  %.sroa.0343.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 12
-  %149 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0343.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 12
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %142, ptr %149, align 8
-  %.sroa.2348.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0343.sroa.2.0.copyload, ptr %.sroa.2348.0..sroa_idx, align 8
-  %.sroa.3349.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3349.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3349.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0343.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -476,7 +476,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 164:                                              ; preds = %152
   %165 = load i64, ptr %23, align 8, !range !7, !noundef !3
   %166 = icmp eq i64 %165, 0
-  %167 = getelementptr inbounds i8, ptr %23, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %23, i64 8
   br i1 %166, label %168, label %169
 
 168:                                              ; preds = %164
@@ -485,25 +485,25 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %171 unwind label %193
 
 169:                                              ; preds = %164
-  %170 = getelementptr inbounds i8, ptr %0, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %170, ptr noundef nonnull align 8 dereferenceable(24) %167, i64 24, i1 false)
   br label %.sink.split
 
 171:                                              ; preds = %168
   %172 = load i64, ptr %22, align 8, !range !8, !noundef !3
   %.not467 = icmp eq i64 %172, -9223372036854775807
-  %173 = getelementptr inbounds i8, ptr %22, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br i1 %.not467, label %175, label %174
 
 174:                                              ; preds = %171
-  %.sroa.2130.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
+  %.sroa.2130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2130.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %173, i64 24, i1 false)
   store i64 %172, ptr %25, align 8
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %24)
           to label %159 unwind label %.thread498
 
 175:                                              ; preds = %171
-  %176 = getelementptr inbounds i8, ptr %0, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %176, ptr noundef nonnull align 8 dereferenceable(24) %173, i64 24, i1 false)
   store i64 -9223372036854775800, ptr %0, align 8
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %24)
@@ -520,14 +520,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %185 unwind label %183
 
 181:                                              ; preds = %177
-  %.sroa.0356.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.0356.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.0356.sroa.2.0.copyload = load i32, ptr %.sroa.0356.sroa.2.0..sroa_idx, align 8
-  %.sroa.0356.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 12
-  %182 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0356.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %178, ptr %182, align 8
-  %.sroa.2361.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0356.sroa.2.0.copyload, ptr %.sroa.2361.0..sroa_idx, align 8
-  %.sroa.3362.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3362.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0356.sroa.3.0..sroa_idx, i64 12, i1 false)
   store i64 -9223372036854775800, ptr %0, align 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %25)
@@ -542,11 +542,11 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 185:                                              ; preds = %180
   %186 = load i64, ptr %17, align 8, !range !7, !noundef !3
   %187 = icmp eq i64 %186, 0
-  %188 = getelementptr inbounds i8, ptr %17, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br i1 %187, label %189, label %.invoke
 
 189:                                              ; preds = %185
-  %190 = getelementptr inbounds i8, ptr %19, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %19, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %190, ptr noundef nonnull align 8 dereferenceable(48) %188, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %19, i64 80, i1 false)
@@ -574,14 +574,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %201 unwind label %.thread498
 
 199:                                              ; preds = %195
-  %.sroa.0325.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
+  %.sroa.0325.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.0325.sroa.2.0.copyload = load i32, ptr %.sroa.0325.sroa.2.0..sroa_idx, align 8
-  %.sroa.0325.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 12
-  %200 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0325.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 12
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %196, ptr %200, align 8
-  %.sroa.2330.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2330.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0325.sroa.2.0.copyload, ptr %.sroa.2330.0..sroa_idx, align 8
-  %.sroa.3331.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3331.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0325.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -596,14 +596,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %209 unwind label %207
 
 205:                                              ; preds = %201
-  %.sroa.0333.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
+  %.sroa.0333.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.0333.sroa.2.0.copyload = load i32, ptr %.sroa.0333.sroa.2.0..sroa_idx, align 8
-  %.sroa.0333.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 12
-  %206 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0333.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 12
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %202, ptr %206, align 8
-  %.sroa.2338.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0333.sroa.2.0.copyload, ptr %.sroa.2338.0..sroa_idx, align 8
-  %.sroa.3339.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3339.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0333.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -616,11 +616,11 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 209:                                              ; preds = %204
   %210 = load i64, ptr %27, align 8, !range !7, !noundef !3
   %211 = icmp eq i64 %210, 0
-  %212 = getelementptr inbounds i8, ptr %27, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %27, i64 8
   br i1 %211, label %213, label %.invoke
 
 213:                                              ; preds = %209
-  %214 = getelementptr inbounds i8, ptr %29, i64 32
+  %214 = getelementptr inbounds nuw i8, ptr %29, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %214, ptr noundef nonnull align 8 dereferenceable(48) %212, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %29, i64 80, i1 false)
@@ -629,7 +629,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 .invoke:                                          ; preds = %209, %185
   %.sink595 = phi ptr [ %188, %185 ], [ %212, %209 ]
   %215 = phi ptr [ %18, %185 ], [ %28, %209 ]
-  %216 = getelementptr inbounds i8, ptr %0, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %216, ptr noundef nonnull align 8 dereferenceable(24) %.sink595, i64 24, i1 false)
   store i64 -9223372036854775800, ptr %0, align 8
   invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h88615bc2dd44b6cdE"(ptr nonnull align 8 %215)
@@ -645,14 +645,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %223 unwind label %.thread498
 
 221:                                              ; preds = %217
-  %.sroa.0304.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 8
+  %.sroa.0304.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.0304.sroa.2.0.copyload = load i32, ptr %.sroa.0304.sroa.2.0..sroa_idx, align 8
-  %.sroa.0304.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 12
-  %222 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0304.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 12
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %218, ptr %222, align 8
-  %.sroa.2309.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2309.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0304.sroa.2.0.copyload, ptr %.sroa.2309.0..sroa_idx, align 8
-  %.sroa.3310.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3310.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0304.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -666,36 +666,36 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %229 unwind label %.thread498
 
 227:                                              ; preds = %223
-  %.sroa.0312.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.0312.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.0312.sroa.2.0.copyload = load i32, ptr %.sroa.0312.sroa.2.0..sroa_idx, align 8
-  %.sroa.0312.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 12
-  %228 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0312.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 12
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %224, ptr %228, align 8
-  %.sroa.2317.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0312.sroa.2.0.copyload, ptr %.sroa.2317.0..sroa_idx, align 8
-  %.sroa.3318.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3318.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0312.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
 229:                                              ; preds = %226
   %230 = load ptr, ptr %32, align 8, !noundef !3
   %.not470 = icmp eq ptr %230, null
-  %231 = getelementptr inbounds i8, ptr %32, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %32, i64 8
   br i1 %.not470, label %233, label %232
 
 232:                                              ; preds = %229
-  %.sroa.3321.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 32
+  %.sroa.3321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i64 -9223372036854775805, ptr %0, align 8
-  %.sroa.277.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %230, ptr %.sroa.277.0..sroa_idx, align 8
-  %.sroa.277.sroa.2.0..sroa.277.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.277.sroa.2.0..sroa.277.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.277.sroa.2.0..sroa.277.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %231, i64 24, i1 false)
-  %.sroa.277.sroa.3.0..sroa.277.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.277.sroa.3.0..sroa.277.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.277.sroa.3.0..sroa.277.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3321.0..sroa_idx, i64 16, i1 false)
   br label %.critedge
 
 233:                                              ; preds = %229
-  %234 = getelementptr inbounds i8, ptr %0, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %234, ptr noundef nonnull align 8 dereferenceable(24) %231, i64 24, i1 false)
   br label %.sink.split
 
@@ -709,14 +709,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %241 unwind label %.thread498
 
 239:                                              ; preds = %235
-  %.sroa.0285.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 8
+  %.sroa.0285.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.0285.sroa.2.0.copyload = load i32, ptr %.sroa.0285.sroa.2.0..sroa_idx, align 8
-  %.sroa.0285.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 12
-  %240 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0285.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %236, ptr %240, align 8
-  %.sroa.2290.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0285.sroa.2.0.copyload, ptr %.sroa.2290.0..sroa_idx, align 8
-  %.sroa.3291.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3291.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0285.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -735,7 +735,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 .noexc:                                           ; preds = %244
   %245 = load i64, ptr %3, align 8, !range !4, !noundef !3
   %246 = icmp eq i64 %245, -9223372036854775808
-  %247 = getelementptr inbounds i8, ptr %3, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %248 = load ptr, ptr %247, align 8
   br i1 %246, label %249, label %258
 
@@ -752,9 +752,9 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
 
 252:                                              ; preds = %249
   %.sroa.3475.8.copyload477 = load i64, ptr %5, align 8
-  %.sroa.7478.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.7478.8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.7478.8.copyload480 = load ptr, ptr %.sroa.7478.8..sroa_idx, align 8
-  %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.8.8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.8.8.copyload482 = load i64, ptr %.sroa.8.8..sroa_idx, align 8
   invoke void @"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitStr$GT$17h64de0513db3091d6E"(ptr nonnull align 8 %4)
           to label %257 unwind label %.thread498
@@ -766,14 +766,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   unreachable
 
 255:                                              ; preds = %241
-  %.sroa.0293.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 8
+  %.sroa.0293.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.0293.sroa.2.0.copyload = load i32, ptr %.sroa.0293.sroa.2.0..sroa_idx, align 8
-  %.sroa.0293.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 12
-  %256 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0293.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 12
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %242, ptr %256, align 8
-  %.sroa.2298.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0293.sroa.2.0.copyload, ptr %.sroa.2298.0..sroa_idx, align 8
-  %.sroa.3299.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3299.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3299.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0293.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -782,27 +782,27 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   store i64 -9223372036854775806, ptr %0, align 8
-  %.sroa.247.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.247.0..sroa_idx, align 8
-  %.sroa.247.sroa.2.0..sroa.247.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.247.sroa.2.0..sroa.247.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.3475.8.copyload477, ptr %.sroa.247.sroa.2.0..sroa.247.0..sroa_idx.sroa_idx, align 8
-  %.sroa.247.sroa.2.sroa.2.0..sroa.247.sroa.2.0..sroa.247.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.247.sroa.2.sroa.2.0..sroa.247.sroa.2.0..sroa.247.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.7478.8.copyload480, ptr %.sroa.247.sroa.2.sroa.2.0..sroa.247.sroa.2.0..sroa.247.0..sroa_idx.sroa_idx.sroa_idx, align 8
-  %.sroa.247.sroa.2.sroa.3.0..sroa.247.sroa.2.0..sroa.247.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.247.sroa.2.sroa.3.0..sroa.247.sroa.2.0..sroa.247.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.8.8.copyload482, ptr %.sroa.247.sroa.2.sroa.3.0..sroa.247.sroa.2.0..sroa.247.0..sroa_idx.sroa_idx.sroa_idx, align 8
   br label %.critedge
 
 258:                                              ; preds = %.noexc
-  %.sroa.08.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.08.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.08.sroa.3.0.copyload.i = load i64, ptr %.sroa.08.sroa.3.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %259 = getelementptr inbounds i8, ptr %0, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %245, ptr %259, align 8
-  %.sroa.0303.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.0303.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %248, ptr %.sroa.0303.sroa.2.0..sroa_idx, align 8
-  %.sroa.0303.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.0303.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.08.sroa.3.0.copyload.i, ptr %.sroa.0303.sroa.3.0..sroa_idx, align 8
   br label %.sink.split
 
@@ -816,14 +816,14 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %266 unwind label %.thread498
 
 264:                                              ; preds = %260
-  %.sroa.0266.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.0266.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.0266.sroa.2.0.copyload = load i32, ptr %.sroa.0266.sroa.2.0..sroa_idx, align 8
-  %.sroa.0266.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 12
-  %265 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0266.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 12
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %261, ptr %265, align 8
-  %.sroa.2271.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0266.sroa.2.0.copyload, ptr %.sroa.2271.0..sroa_idx, align 8
-  %.sroa.3272.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3272.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0266.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -837,33 +837,33 @@ define void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..par
           to label %272 unwind label %.thread498
 
 270:                                              ; preds = %266
-  %.sroa.0274.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 8
+  %.sroa.0274.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   %.sroa.0274.sroa.2.0.copyload = load i32, ptr %.sroa.0274.sroa.2.0..sroa_idx, align 8
-  %.sroa.0274.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 12
-  %271 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0274.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %267, ptr %271, align 8
-  %.sroa.2279.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2279.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.0274.sroa.2.0.copyload, ptr %.sroa.2279.0..sroa_idx, align 8
-  %.sroa.3280.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.3280.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3280.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0274.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
 272:                                              ; preds = %269
   %273 = load i64, ptr %37, align 8, !range !7, !noundef !3
   %274 = icmp eq i64 %273, 0
-  %275 = getelementptr inbounds i8, ptr %37, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %37, i64 8
   br i1 %274, label %276, label %277
 
 276:                                              ; preds = %272
   store i64 -9223372036854775806, ptr %0, align 8
-  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.217.0..sroa_idx, align 8
-  %.sroa.217.sroa.2.0..sroa.217.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.217.sroa.2.0..sroa.217.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.217.sroa.2.0..sroa.217.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %275, i64 24, i1 false)
   br label %.critedge
 
 277:                                              ; preds = %272
-  %278 = getelementptr inbounds i8, ptr %0, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %278, ptr noundef nonnull align 8 dereferenceable(24) %275, i64 24, i1 false)
   br label %.sink.split
 
@@ -891,9 +891,9 @@ define void @_ZN15wiggle_generate6config6Config13load_document17hb83a7be137c641f
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   %5 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %6 = icmp eq i64 %5, 0
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !3
   br i1 %6, label %11, label %12
 
@@ -924,7 +924,7 @@ define void @"_ZN69_$LT$wiggle_generate..config..Config$u20$as$u20$syn..parse..P
   call void @_ZN3syn5group12parse_braces17ha05b89af89b33493E(ptr nonnull sret({ i64, [6 x i64] }) align 8 %7, ptr align 8 %1)
   %9 = load i64, ptr %7, align 8, !range !7, !noundef !3
   %10 = icmp eq i64 %9, 0
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %10, label %12, label %33
 
 .thread37:                                        ; preds = %16, %12
@@ -940,12 +940,12 @@ define void @"_ZN69_$LT$wiggle_generate..config..Config$u20$as$u20$syn..parse..P
 13:                                               ; preds = %12
   %14 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %.not = icmp eq i64 %14, -9223372036854775808
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %.not, label %35, label %16
 
 16:                                               ; preds = %13
   store i64 %14, ptr %5, align 8
-  %.sroa.4.0..sroa_idx3 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx3, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   invoke void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbd0af1800d5dc471E"(ptr nonnull sret({ { ptr, ptr, i64, ptr, {}, { {} } } }) align 8 %3, ptr nonnull align 8 %5)
           to label %17 unwind label %.thread37
@@ -966,21 +966,21 @@ define void @"_ZN69_$LT$wiggle_generate..config..Config$u20$as$u20$syn..parse..P
 22:                                               ; preds = %21
   %23 = load i64, ptr %4, align 8, !range !9, !noundef !3
   %.not30 = icmp eq i64 %23, 2
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not30, label %26, label %25
 
 25:                                               ; preds = %22
-  %.sroa.321.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %23, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.321.0..sroa_idx, i64 192, i1 false)
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %8)
   br label %28
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %8)
@@ -1002,13 +1002,13 @@ define void @"_ZN69_$LT$wiggle_generate..config..Config$u20$as$u20$syn..parse..P
   unreachable
 
 33:                                               ; preds = %2
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   br label %28
 
 35:                                               ; preds = %13
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %8)
@@ -1029,9 +1029,9 @@ define void @_ZN15wiggle_generate6config8WitxConf13load_document17h76e7044f8af4b
   %4 = alloca { i8, [111 x i8] }, align 8
   %5 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %6 = icmp eq i64 %5, 0
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !3
   br i1 %6, label %11, label %12
 
@@ -1052,9 +1052,9 @@ define void @_ZN15wiggle_generate6config8WitxConf13load_document17h76e7044f8af4b
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN15wiggle_generate6config5Paths3new17h28771d5b4f1f6e77E(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 initializes((0, 24)) %0) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx.i, align 8
   ret void
 }
@@ -1062,18 +1062,18 @@ define void @_ZN15wiggle_generate6config5Paths3new17h28771d5b4f1f6e77E(ptr nocap
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN73_$LT$wiggle_generate..config..Paths$u20$as$u20$core..default..Default$GT$7default17he1053bd65247f27eE"(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 initializes((0, 24)) %0) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN107_$LT$wiggle_generate..config..Paths$u20$as$u20$core..convert..AsRef$LT$$u5b$std..path..PathBuf$u5d$$GT$$GT$6as_ref17hf2bc3d71a331ad32E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
@@ -1082,9 +1082,9 @@ define { ptr, i64 } @"_ZN107_$LT$wiggle_generate..config..Paths$u20$as$u20$core.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN107_$LT$wiggle_generate..config..Paths$u20$as$u20$core..convert..AsMut$LT$$u5b$std..path..PathBuf$u5d$$GT$$GT$6as_mut17h860b7212cd8bb697E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
@@ -1101,7 +1101,7 @@ define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Pa
   call void @_ZN3syn5group14parse_brackets17hcd8b9c17a21702e9E(ptr nonnull sret({ i64, [6 x i64] }) align 8 %6, ptr align 8 %1)
   %8 = load i64, ptr %6, align 8, !range !7, !noundef !3
   %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %9, label %11, label %30
 
 .thread22:                                        ; preds = %24, %11
@@ -1117,11 +1117,11 @@ define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Pa
 12:                                               ; preds = %11
   %13 = load i64, ptr %4, align 8, !range !4, !noundef !3
   %.not = icmp eq i64 %13, -9223372036854775808
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not, label %32, label %15
 
 15:                                               ; preds = %12
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   store i64 %13, ptr %5, align 8
   %16 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17ha474b3230ff603b5E"(ptr nonnull align 8 %5)
@@ -1144,7 +1144,7 @@ define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Pa
           to label %24 unwind label %17
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 0, ptr %0, align 8
   invoke void @"_ZN4core3ptr92drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..lit..LitStr$C$syn..token..Comma$GT$$GT$17hf02e6ff4336768e7E"(ptr nonnull align 8 %5)
@@ -1164,13 +1164,13 @@ define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Pa
   unreachable
 
 30:                                               ; preds = %2
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %27
 
 32:                                               ; preds = %12
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %7)
@@ -1187,9 +1187,9 @@ define void @"_ZN68_$LT$wiggle_generate..config..Paths$u20$as$u20$syn..parse..Pa
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN84_$LT$wiggle_generate..config..Literal$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h79adb5b92aef0794E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
@@ -1204,7 +1204,7 @@ define void @"_ZN70_$LT$wiggle_generate..config..Literal$u20$as$u20$syn..parse..
   call void @"_ZN3syn3lit7parsing64_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..lit..LitStr$GT$5parse17h44294d4545ed9970E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %1)
   %6 = load i64, ptr %3, align 8, !range !4, !noundef !3
   %7 = icmp eq i64 %6, -9223372036854775808
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   br i1 %7, label %10, label %11
 
@@ -1214,13 +1214,13 @@ define void @"_ZN70_$LT$wiggle_generate..config..Literal$u20$as$u20$syn..parse..
           to label %15 unwind label %13
 
 11:                                               ; preds = %2
-  %.sroa.08.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.08.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.08.sroa.3.0.copyload = load i64, ptr %.sroa.08.sroa.3.0..sroa_idx, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %12, align 8
-  %.sroa.213.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %.sroa.213.0..sroa_idx, align 8
-  %.sroa.314.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.08.sroa.3.0.copyload, ptr %.sroa.314.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   br label %17
@@ -1232,7 +1232,7 @@ define void @"_ZN70_$LT$wiggle_generate..config..Literal$u20$as$u20$syn..parse..
           to label %20 unwind label %18
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr37drop_in_place$LT$syn..lit..LitStr$GT$17h64de0513db3091d6E"(ptr nonnull align 8 %4)
@@ -1294,7 +1294,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
   call void @_ZN3syn5group12parse_braces17ha05b89af89b33493E(ptr nonnull sret({ i64, [6 x i64] }) align 8 %29, ptr align 8 %1)
   %31 = load i64, ptr %29, align 8, !range !7, !noundef !3
   %32 = icmp eq i64 %31, 0
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br i1 %32, label %34, label %.thread77
 
 34:                                               ; preds = %2
@@ -1308,7 +1308,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
   br label %.thread
 
 .thread77:                                        ; preds = %2
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
   store ptr null, ptr %0, align 8
   br label %63
@@ -1316,18 +1316,18 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 37:                                               ; preds = %34
   %38 = load i64, ptr %27, align 8, !range !4, !noundef !3
   %.not = icmp eq i64 %38, -9223372036854775808
-  %39 = getelementptr inbounds i8, ptr %27, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 8
   br i1 %.not, label %.thread76, label %40
 
 40:                                               ; preds = %37
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   store i64 %38, ptr %28, align 8
   invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc59d0aabf0b23f91E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %10, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.9)
           to label %43 unwind label %108
 
 .thread76:                                        ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   store ptr null, ptr %0, align 8
   br label %109
@@ -1345,9 +1345,9 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
   %46 = extractvalue { i64, i64 } %44, 0
   %47 = extractvalue { i64, i64 } %44, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) @anon.6580ba8d5d51603e51413ec3bf3dd64c.14, i64 32, i1 false)
-  %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 32
+  %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i64 %46, ptr %.sroa.220.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 40
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i64 %47, ptr %.sroa.3.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
   invoke void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h37faff9710971dcdE"(ptr nonnull sret({ { ptr, ptr, i64, ptr, {}, { {} } } }) align 8 %25, ptr nonnull align 8 %24)
@@ -1365,16 +1365,16 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 
 51:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
-  %.sroa.gep = getelementptr inbounds i8, ptr %21, i64 8
-  %.sroa.gep42 = getelementptr inbounds i8, ptr %21, i64 48
-  %52 = getelementptr inbounds i8, ptr %21, i64 80
-  %.sroa.01.48..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.01.i, i64 48
-  %.sroa.32.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 80
-  %53 = getelementptr inbounds i8, ptr %21, i64 40
-  %54 = getelementptr inbounds i8, ptr %21, i64 72
-  %.sroa.0.32..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0.i, i64 32
-  %55 = getelementptr inbounds i8, ptr %18, i64 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 72
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.sroa.gep42 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  %.sroa.01.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.01.i, i64 48
+  %.sroa.32.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %.sroa.0.32..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 72
   br label %56
 
 56:                                               ; preds = %87, %51
@@ -1559,14 +1559,14 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
   %94 = load i64, ptr %17, align 8, !range !4, !noundef !3
   %95 = icmp eq i64 %94, -9223372036854775808
   %.0.v.i40.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %95, i64 72, i64 80
-  %.0.v.i40.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %17, i64 %.0.v.i40.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %.0.v.i40.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %17, i64 %.0.v.i40.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store ptr %.0.v.i40.sroa.sel.v.sroa.sel.v.sroa.sel, ptr %11, align 8
   store ptr %12, ptr %13, align 8
-  %96 = getelementptr inbounds i8, ptr %13, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h19f38c427fd6ad82E", ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %13, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %11, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %13, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf8ae858e6a46684cE", ptr %98, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %14, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.17, i64 2, ptr nonnull align 8 %13, i64 2)
           to label %99 unwind label %88
@@ -1580,7 +1580,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
           to label %101 unwind label %88
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   store ptr null, ptr %0, align 8
   invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr nonnull align 8 %17)
@@ -1633,7 +1633,7 @@ define nonnull align 8 ptr @_ZN15wiggle_generate6config14ErrorConfField9abi_erro
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775808
   %.0.v = select i1 %3, i64 8, i64 48
-  %.0 = getelementptr inbounds i8, ptr %0, i64 %.0.v
+  %.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v
   ret ptr %.0
 }
 
@@ -1642,7 +1642,7 @@ define nonnull align 4 ptr @_ZN15wiggle_generate6config14ErrorConfField7err_loc1
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775808
   %.0.v = select i1 %3, i64 72, i64 80
-  %.0 = getelementptr inbounds i8, ptr %0, i64 %.0.v
+  %.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v
   ret ptr %.0
 }
 
@@ -1659,18 +1659,18 @@ define void @"_ZN77_$LT$wiggle_generate..config..ErrorConfField$u20$as$u20$syn..
   call void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$proc_macro2..Ident$GT$5parse17h73d9b304c5aa06ffE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %8, ptr align 8 %1)
   %11 = load i64, ptr %8, align 8, !range !8, !noundef !3
   %.not = icmp eq i64 %11, -9223372036854775807
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %2
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   store i64 %11, ptr %9, align 8
   invoke void @"_ZN58_$LT$syn..token..FatArrow$u20$as$u20$syn..parse..Parse$GT$5parse17h673df4a214dab87fE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %7, ptr align 8 %1)
           to label %16 unwind label %.thread120
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   br label %57
@@ -1686,35 +1686,35 @@ define void @"_ZN77_$LT$wiggle_generate..config..ErrorConfField$u20$as$u20$syn..
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i32, ptr %20, align 8, !noundef !3
   %22 = load ptr, ptr %1, align 8, !noundef !3
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !noundef !3
-  %25 = getelementptr inbounds i8, ptr %6, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 %21, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %22, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %24, ptr %27, align 8
-  %.sroa.274.sroa.2.0..sroa.274.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.274.sroa.2.0..sroa.274.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.274.sroa.2.0..sroa.274.0..sroa_idx.sroa_idx, align 8
-  %.sroa.274.sroa.3.0..sroa.274.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.274.sroa.3.0..sroa.274.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %.sroa.274.sroa.3.0..sroa.274.0..sroa_idx.sroa_idx, align 8
   %28 = invoke zeroext i1 @_ZN3syn9lookahead9peek_impl17h875326ee65409793E(ptr nonnull align 8 %6, ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$4peek17h922d90dc47a507e8E", ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$7display17h27a8d09ef8fbaf16E")
           to label %34 unwind label %32
 
 29:                                               ; preds = %16
-  %.sroa.069.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.069.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.069.sroa.3.0.copyload = load i64, ptr %.sroa.069.sroa.3.0..sroa_idx, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.068.0.copyload = load i64, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %17, ptr %31, align 8
-  %.sroa.282.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.068.0.copyload, ptr %.sroa.282.0..sroa_idx, align 8
-  %.sroa.383.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.383.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.069.sroa.3.0.copyload, ptr %.sroa.383.0..sroa_idx, align 8
   store i64 -9223372036854775807, ptr %0, align 8
   br label %58
@@ -1739,28 +1739,28 @@ define void @"_ZN77_$LT$wiggle_generate..config..ErrorConfField$u20$as$u20$syn..
 37:                                               ; preds = %35
   %38 = load i64, ptr %3, align 8, !range !4, !noundef !3
   %.not108 = icmp eq i64 %38, -9223372036854775808
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not108, label %41, label %40
 
 40:                                               ; preds = %37
-  %.sroa.398.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.398.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %38, ptr %0, align 8
-  %.sroa.257.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.257.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
-  %.sroa.358.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.358.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.358.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.398.0..sroa_idx, i64 16, i1 false)
-  %.sroa.459.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.459.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   br label %43
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   br label %44
 
 43:                                               ; preds = %54, %40
   %.sink = phi i64 [ 72, %54 ], [ 80, %40 ]
-  %.sroa.232.sroa.4.0..sroa.232.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %.sroa.232.sroa.4.0..sroa.232.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   store i32 %10, ptr %.sroa.232.sroa.4.0..sroa.232.0..sroa_idx.sroa_idx, align 8
   call void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %6)
   br label %57
@@ -1780,35 +1780,35 @@ define void @"_ZN77_$LT$wiggle_generate..config..ErrorConfField$u20$as$u20$syn..
           to label %51 unwind label %32
 
 49:                                               ; preds = %45
-  %.sroa.084.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.084.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.084.sroa.2.0.copyload = load i32, ptr %.sroa.084.sroa.2.0..sroa_idx, align 8
-  %.sroa.084.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.084.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %46, ptr %50, align 8
-  %.sroa.289.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.084.sroa.2.0.copyload, ptr %.sroa.289.0..sroa_idx, align 8
-  %.sroa.390.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.390.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.390.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.084.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %44
 
 51:                                               ; preds = %48
   %52 = load i64, ptr %4, align 8, !range !8, !noundef !3
   %.not110 = icmp eq i64 %52, -9223372036854775807
-  %53 = getelementptr inbounds i8, ptr %4, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not110, label %55, label %54
 
 54:                                               ; preds = %51
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.232.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  %.sroa.232.sroa.2.0..sroa.232.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.232.sroa.2.0..sroa.232.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %52, ptr %.sroa.232.sroa.2.0..sroa.232.0..sroa_idx.sroa_idx, align 8
-  %.sroa.232.sroa.3.0..sroa.232.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.232.sroa.3.0..sroa.232.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.232.sroa.3.0..sroa.232.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
   br label %43
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
   br label %44
 
@@ -1838,10 +1838,10 @@ define void @"_ZN77_$LT$wiggle_generate..config..ErrorConfField$u20$as$u20$syn..
 define zeroext i1 @"_ZN80_$LT$wiggle_generate..config..UserErrorConfField$u20$as$u20$core..fmt..Debug$GT$3fmt17h591a89661f635b9fE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { ptr, i8, i8, [6 x i8] }, align 8
   call void @_ZN4core3fmt9Formatter12debug_struct17h3837a5fa9bacb5d1E(ptr nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 %3, ptr align 8 %1, ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.18, i64 14)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = call align 8 ptr @_ZN4core3fmt8builders11DebugStruct5field17h9485b9119de058a4E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.19, i64 9, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.20)
   %6 = call align 8 ptr @_ZN4core3fmt8builders11DebugStruct5field17h9485b9119de058a4E(ptr align 8 %5, ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.21, i64 10, ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.23, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.24)
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = call align 8 ptr @_ZN4core3fmt8builders11DebugStruct5field17h9485b9119de058a4E(ptr align 8 %6, ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.25, i64 7, ptr nonnull align 1 %7, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.26)
   %9 = call zeroext i1 @_ZN4core3fmt8builders11DebugStruct6finish17h084be9f45499029bE(ptr align 8 %8)
   ret i1 %9
@@ -1880,9 +1880,9 @@ define void @"_ZN82_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$core.
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.6580ba8d5d51603e51413ec3bf3dd64c.14, i64 32, i1 false)
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %4, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %5, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   ret void
 }
@@ -1893,7 +1893,7 @@ define void @_ZN15wiggle_generate6config9AsyncConf3get17h9e80bbf2791eb6a3E(ptr n
   %8 = alloca { i64, [3 x i64] }, align 8
   %9 = alloca { ptr, i64 }, align 8
   store ptr %4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %5, ptr %10, align 8
   %11 = load i64, ptr %1, align 8, !range !8, !noundef !3
   %12 = icmp eq i64 %11, -9223372036854775807
@@ -1909,7 +1909,7 @@ define void @_ZN15wiggle_generate6config9AsyncConf3get17h9e80bbf2791eb6a3E(ptr n
   br label %15
 
 15:                                               ; preds = %14, %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8, !noundef !3
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %20, label %18
@@ -1967,22 +1967,22 @@ define noundef zeroext i1 @_ZN15wiggle_generate6config9AsyncConf14contains_async
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, ptr, {} }, {} }, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i64, ptr %8, align 8, !noundef !3
   %10 = getelementptr inbounds { i64, [1 x i64] }, ptr %7, i64 %9
   store ptr %7, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = call ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17he3c86a8ae68b83d6E"(ptr nonnull align 8 %5, ptr nonnull align 1 %12)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %16
 
 16:                                               ; preds = %.lr.ph, %31
@@ -1990,9 +1990,9 @@ define noundef zeroext i1 @_ZN15wiggle_generate6config9AsyncConf14contains_async
   store ptr %17, ptr %4, align 8
   %18 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
   %19 = load i64, ptr %15, align 8, !noundef !3
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
-  %22 = getelementptr inbounds i8, ptr %17, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %23 = load i64, ptr %22, align 8, !noundef !3
   invoke void @_ZN15wiggle_generate6config9AsyncConf3get17h9e80bbf2791eb6a3E(ptr nonnull sret({ i64, [3 x i64] }) align 8 %3, ptr align 8 %0, ptr nonnull align 1 %18, i64 %19, ptr nonnull align 1 %21, i64 %23)
           to label %26 unwind label %.loopexit19
@@ -2075,21 +2075,21 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
   %24 = alloca { i64, [6 x i64] }, align 8
   %25 = alloca { { i64, { { { i64, ptr, {} }, i64 } } }, { ptr, ptr, {} }, i32, [1 x i32] }, align 8
   %26 = alloca { { { { ptr, ptr, {} } } }, ptr, i32, {}, [4 x i8] }, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load i32, ptr %27, align 8, !noundef !3
   %29 = load ptr, ptr %1, align 8, !noundef !3
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8, !noundef !3
-  %32 = getelementptr inbounds i8, ptr %25, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 48
   store i32 %28, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %25, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %29, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %25, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr %31, ptr %34, align 8
-  %.sroa.224.sroa.2.0..sroa.224.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %25, i64 16
+  %.sroa.224.sroa.2.0..sroa.224.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.224.sroa.2.0..sroa.224.0..sroa_idx.sroa_idx, align 8
-  %.sroa.224.sroa.3.0..sroa.224.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %25, i64 24
+  %.sroa.224.sroa.3.0..sroa.224.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 0, ptr %.sroa.224.sroa.3.0..sroa.224.0..sroa_idx.sroa_idx, align 8
   %35 = invoke zeroext i1 @_ZN3syn9lookahead9peek_impl17h875326ee65409793E(ptr nonnull align 8 %25, ptr nonnull @"_ZN55_$LT$syn..token..Brace$u20$as$u20$syn..token..Token$GT$4peek17h260e79357dac75abE", ptr nonnull @"_ZN55_$LT$syn..token..Brace$u20$as$u20$syn..token..Token$GT$7display17ha687b8cb0ce8b03bE")
           to label %36 unwind label %.thread73
@@ -2117,7 +2117,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 .thread91:                                        ; preds = %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull align 8 dereferenceable(56) %25, i64 56, i1 false)
   call void @_ZN3syn9lookahead10Lookahead15error17h0826ec1e0da3cb59E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %10, ptr nonnull align 8 %9)
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %97
@@ -2154,14 +2154,14 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 
 52:                                               ; preds = %43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %53, align 8
   br label %92
 
 54:                                               ; preds = %39
   %55 = load i64, ptr %24, align 8, !range !7, !noundef !3
   %56 = icmp eq i64 %55, 0
-  %57 = getelementptr inbounds i8, ptr %24, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %24, i64 8
   br i1 %56, label %58, label %121
 
 58:                                               ; preds = %54
@@ -2172,11 +2172,11 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 59:                                               ; preds = %58
   %60 = load i64, ptr %22, align 8, !range !4, !noundef !3
   %.not = icmp eq i64 %60, -9223372036854775808
-  %61 = getelementptr inbounds i8, ptr %22, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br i1 %.not, label %121, label %62
 
 62:                                               ; preds = %59
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false)
   store i64 %60, ptr %23, align 8
   invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc59d0aabf0b23f91E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %8, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.9)
@@ -2190,9 +2190,9 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
   %66 = extractvalue { i64, i64 } %64, 0
   %67 = extractvalue { i64, i64 } %64, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) @anon.6580ba8d5d51603e51413ec3bf3dd64c.14, i64 32, i1 false)
-  %.sroa.236.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 32
+  %.sroa.236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i64 %66, ptr %.sroa.236.0..sroa_idx, align 8
-  %.sroa.337.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 40
+  %.sroa.337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 %67, ptr %.sroa.337.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
   invoke void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h70a50c167f01bb44E"(ptr nonnull sret({ { ptr, ptr, i64, ptr, {}, { {} } } }) align 8 %20, ptr nonnull align 8 %19)
@@ -2210,10 +2210,10 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 
 71:                                               ; preds = %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  %72 = getelementptr inbounds i8, ptr %16, i64 8
-  %73 = getelementptr inbounds i8, ptr %16, i64 16
-  %74 = getelementptr inbounds i8, ptr %16, i64 24
-  %75 = getelementptr inbounds i8, ptr %7, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %76
 
 76:                                               ; preds = %115, %71
@@ -2248,7 +2248,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
           to label %102 unwind label %100
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %89, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false)
   br label %92
 
@@ -2360,7 +2360,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 121:                                              ; preds = %59, %54
   %.sink105 = phi ptr [ %57, %54 ], [ %61, %59 ]
   %.4 = phi i8 [ 0, %54 ], [ 1, %59 ]
-  %122 = getelementptr inbounds i8, ptr %0, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(24) %.sink105, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %25)
@@ -2412,18 +2412,18 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   call void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$proc_macro2..Ident$GT$5parse17h73d9b304c5aa06ffE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %17, ptr align 8 %1)
   %20 = load i64, ptr %17, align 8, !range !8, !noundef !3
   %.not = icmp eq i64 %20, -9223372036854775807
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br i1 %.not, label %23, label %22
 
 22:                                               ; preds = %2
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   store i64 %20, ptr %18, align 8
   invoke void @"_ZN57_$LT$syn..token..PathSep$u20$as$u20$syn..parse..Parse$GT$5parse17h9b7d6aa4c294e9ebE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %16, ptr align 8 %1)
           to label %26 unwind label %.thread
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %85
@@ -2442,35 +2442,35 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   br i1 %28, label %29, label %39
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load i32, ptr %30, align 8, !noundef !3
   %32 = load ptr, ptr %1, align 8, !noundef !3
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !noundef !3
-  %35 = getelementptr inbounds i8, ptr %15, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i32 %31, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %15, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %32, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %15, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr %34, ptr %37, align 8
-  %.sroa.256.sroa.2.0..sroa.256.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.256.sroa.2.0..sroa.256.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.256.sroa.2.0..sroa.256.0..sroa_idx.sroa_idx, align 8
-  %.sroa.256.sroa.3.0..sroa.256.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.256.sroa.3.0..sroa.256.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 0, ptr %.sroa.256.sroa.3.0..sroa.256.0..sroa_idx.sroa_idx, align 8
   %38 = invoke zeroext i1 @_ZN3syn9lookahead9peek_impl17h875326ee65409793E(ptr nonnull align 8 %15, ptr nonnull @"_ZN55_$LT$syn..token..Brace$u20$as$u20$syn..token..Token$GT$4peek17h260e79357dac75abE", ptr nonnull @"_ZN55_$LT$syn..token..Brace$u20$as$u20$syn..token..Token$GT$7display17ha687b8cb0ce8b03bE")
           to label %42 unwind label %.thread106
 
 39:                                               ; preds = %26
-  %.sroa.051.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.051.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sroa.051.sroa.3.0.copyload = load i64, ptr %.sroa.051.sroa.3.0..sroa_idx, align 8
-  %40 = getelementptr inbounds i8, ptr %16, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.050.0.copyload = load i64, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %41, align 8
-  %.sroa.264.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.050.0.copyload, ptr %.sroa.264.0..sroa_idx, align 8
-  %.sroa.365.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.051.sroa.3.0.copyload, ptr %.sroa.365.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %91
@@ -2512,11 +2512,11 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
 49:                                               ; preds = %48
   %50 = load i64, ptr %7, align 8, !range !8, !noundef !3
   %.not88 = icmp eq i64 %50, -9223372036854775807
-  %51 = getelementptr inbounds i8, ptr %7, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %.not88, label %.sink.split, label %52
 
 52:                                               ; preds = %49
-  %.sroa.234.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.234.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   store i64 %50, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
@@ -2536,11 +2536,11 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
           to label %57 unwind label %54
 
 57:                                               ; preds = %56
-  %.sroa.035.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.035, i64 24
+  %.sroa.035.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.035, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.035.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.035, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.035, i64 56, i1 false)
-  %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %19, ptr %.sroa.336.0..sroa_idx, align 8
   br label %84
 
@@ -2559,7 +2559,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
 
 .sink.split:                                      ; preds = %49, %65
   %.sink148 = phi ptr [ %68, %65 ], [ %51, %49 ]
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %.sink148, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %63
@@ -2582,7 +2582,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
 65:                                               ; preds = %45
   %66 = load i64, ptr %13, align 8, !range !7, !noundef !3
   %67 = icmp eq i64 %66, 0
-  %68 = getelementptr inbounds i8, ptr %13, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br i1 %67, label %69, label %.sink.split
 
 69:                                               ; preds = %65
@@ -2593,11 +2593,11 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
 70:                                               ; preds = %69
   %71 = load i64, ptr %11, align 8, !range !4, !noundef !3
   %.not90 = icmp eq i64 %71, -9223372036854775808
-  %72 = getelementptr inbounds i8, ptr %11, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br i1 %.not90, label %89, label %73
 
 73:                                               ; preds = %70
-  %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.222.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false)
   store i64 %71, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
@@ -2621,11 +2621,11 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
           to label %82 unwind label %75
 
 82:                                               ; preds = %77
-  %.sroa.023.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.023, i64 24
+  %.sroa.023.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.023, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.023, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.023, i64 56, i1 false)
-  %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %19, ptr %.sroa.324.0..sroa_idx, align 8
   invoke void @"_ZN4core3ptr94drop_in_place$LT$syn..punctuated..Punctuated$LT$proc_macro2..Ident$C$syn..token..Comma$GT$$GT$17h980db70f8aa297eaE"(ptr nonnull align 8 %12)
           to label %83 unwind label %.thread129
@@ -2642,7 +2642,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   ret void
 
 86:                                               ; preds = %47
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %18)
@@ -2653,7 +2653,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
           to label %.thread119 unwind label %58
 
 89:                                               ; preds = %70
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %14)
@@ -2696,7 +2696,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..WasmtimeConfig$u20$as$u20$syn..
   call void @_ZN3syn5group12parse_braces17ha05b89af89b33493E(ptr nonnull sret({ i64, [6 x i64] }) align 8 %7, ptr align 8 %1)
   %9 = load i64, ptr %7, align 8, !range !7, !noundef !3
   %10 = icmp eq i64 %9, 0
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %10, label %12, label %33
 
 .thread37:                                        ; preds = %16, %12
@@ -2712,12 +2712,12 @@ define void @"_ZN77_$LT$wiggle_generate..config..WasmtimeConfig$u20$as$u20$syn..
 13:                                               ; preds = %12
   %14 = load i64, ptr %6, align 8, !range !4, !noundef !3
   %.not = icmp eq i64 %14, -9223372036854775808
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %.not, label %35, label %16
 
 16:                                               ; preds = %13
   store i64 %14, ptr %5, align 8
-  %.sroa.4.0..sroa_idx3 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx3, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   invoke void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6240c72c3bf6b9deE"(ptr nonnull sret({ { ptr, ptr, i64, ptr, {}, { {} } } }) align 8 %3, ptr nonnull align 8 %5)
           to label %17 unwind label %.thread37
@@ -2738,21 +2738,21 @@ define void @"_ZN77_$LT$wiggle_generate..config..WasmtimeConfig$u20$as$u20$syn..
 22:                                               ; preds = %21
   %23 = load i64, ptr %4, align 8, !range !9, !noundef !3
   %.not30 = icmp eq i64 %23, 2
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not30, label %26, label %25
 
 25:                                               ; preds = %22
-  %.sroa.321.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %23, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(240) %.sroa.321.0..sroa_idx, i64 240, i1 false)
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %8)
   br label %28
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %8)
@@ -2774,13 +2774,13 @@ define void @"_ZN77_$LT$wiggle_generate..config..WasmtimeConfig$u20$as$u20$syn..
   unreachable
 
 33:                                               ; preds = %2
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   br label %28
 
 35:                                               ; preds = %13
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %8)
@@ -2802,7 +2802,7 @@ define void @"_ZN82_$LT$wiggle_generate..config..WasmtimeConfigField$u20$as$u20$
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = load ptr, ptr %1, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !noundef !3
   %10 = tail call zeroext i1 @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..token..CustomToken$u20$for$u20$wiggle_generate..config..kw..target$GT$4peek17h886069efc0cad3a6E"(ptr %7, ptr %9)
   br i1 %10, label %14, label %11
@@ -2811,7 +2811,7 @@ define void @"_ZN82_$LT$wiggle_generate..config..WasmtimeConfigField$u20$as$u20$
   call void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..parse..Parse$GT$5parse17hea291bbcc7eb2eafE"(ptr nonnull sret({ i64, [9 x i64] }) align 8 %3, ptr nonnull align 8 %1)
   %12 = load i64, ptr %3, align 8, !range !20, !noundef !3
   %.not = icmp eq i64 %12, -9223372036854775800
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not, label %18, label %17
 
 14:                                               ; preds = %2
@@ -2821,16 +2821,16 @@ define void @"_ZN82_$LT$wiggle_generate..config..WasmtimeConfigField$u20$as$u20$
   br i1 %16, label %21, label %24
 
 17:                                               ; preds = %11
-  %.sroa.365.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %12, ptr %0, align 8
-  %.sroa.240.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.240.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  %.sroa.341.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.341.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.365.0..sroa_idx, i64 48, i1 false)
   br label %20
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   store i64 -9223372036854775799, ptr %0, align 8
   br label %20
@@ -2845,14 +2845,14 @@ define void @"_ZN82_$LT$wiggle_generate..config..WasmtimeConfigField$u20$as$u20$
   br i1 %23, label %26, label %29
 
 24:                                               ; preds = %14
-  %.sroa.042.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.042.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.042.sroa.2.0.copyload = load i32, ptr %.sroa.042.sroa.2.0..sroa_idx, align 8
-  %.sroa.042.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 12
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.042.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %15, ptr %25, align 8
-  %.sroa.247.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.042.sroa.2.0.copyload, ptr %.sroa.247.0..sroa_idx, align 8
-  %.sroa.348.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.348.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.042.sroa.3.0..sroa_idx, i64 12, i1 false)
   store i64 -9223372036854775799, ptr %0, align 8
   br label %20
@@ -2861,35 +2861,35 @@ define void @"_ZN82_$LT$wiggle_generate..config..WasmtimeConfigField$u20$as$u20$
   call void @"_ZN3syn4path7parsing63_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..path..Path$GT$5parse17h69d9c772d4e5cb41E"(ptr nonnull sret({ i64, [5 x i64] }) align 8 %4, ptr nonnull align 8 %1)
   %27 = load i64, ptr %4, align 8, !range !4, !noundef !3
   %.not72 = icmp eq i64 %27, -9223372036854775808
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not72, label %32, label %31
 
 29:                                               ; preds = %21
-  %.sroa.050.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.050.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.050.sroa.2.0.copyload = load i32, ptr %.sroa.050.sroa.2.0..sroa_idx, align 8
-  %.sroa.050.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.050.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %22, ptr %30, align 8
-  %.sroa.255.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.050.sroa.2.0.copyload, ptr %.sroa.255.0..sroa_idx, align 8
-  %.sroa.356.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.356.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.356.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.050.sroa.3.0..sroa_idx, i64 12, i1 false)
   store i64 -9223372036854775799, ptr %0, align 8
   br label %20
 
 31:                                               ; preds = %26
-  %.sroa.359.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 -9223372036854775800, ptr %0, align 8
-  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %.sroa.217.0..sroa_idx, align 8
-  %.sroa.217.sroa.2.0..sroa.217.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.217.sroa.2.0..sroa.217.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.217.sroa.2.0..sroa.217.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
-  %.sroa.217.sroa.3.0..sroa.217.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.217.sroa.3.0..sroa.217.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.217.sroa.3.0..sroa.217.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.359.0..sroa_idx, i64 16, i1 false)
   br label %20
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   store i64 -9223372036854775799, ptr %0, align 8
   br label %20
@@ -2899,9 +2899,9 @@ define void @"_ZN82_$LT$wiggle_generate..config..WasmtimeConfigField$u20$as$u20$
 define zeroext i1 @_ZN15wiggle_generate6config11TracingConf11enabled_for17h13416e742c57b445E(ptr align 8 %0, ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4) unnamed_addr #0 {
   %6 = alloca { ptr, i64 }, align 8
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i8, ptr %8, align 8, !range !5, !noundef !3
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %14
@@ -2928,12 +2928,12 @@ define void @"_ZN79_$LT$wiggle_generate..config..TracingConf$u20$as$u20$core..de
   %3 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17had22bb1ed550961bE"(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.6580ba8d5d51603e51413ec3bf3dd64c.10, i64 70, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.12)
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.6580ba8d5d51603e51413ec3bf3dd64c.14, i64 32, i1 false)
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %4, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %5, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   ret void
 }
@@ -2969,41 +2969,41 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
   br i1 %27, label %28, label %40
 
 28:                                               ; preds = %2
-  %29 = getelementptr inbounds i8, ptr %25, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %30 = load i8, ptr %29, align 4, !range !5, !noundef !3
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load i32, ptr %31, align 8, !noundef !3
   %33 = load ptr, ptr %1, align 8, !noundef !3
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8, !noundef !3
-  %36 = getelementptr inbounds i8, ptr %24, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 48
   store i32 %32, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %24, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %33, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %24, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr %35, ptr %38, align 8
-  %.sroa.252.sroa.2.0..sroa.252.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %24, i64 16
+  %.sroa.252.sroa.2.0..sroa.252.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.252.sroa.2.0..sroa.252.0..sroa_idx.sroa_idx, align 8
-  %.sroa.252.sroa.3.0..sroa.252.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %24, i64 24
+  %.sroa.252.sroa.3.0..sroa.252.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 0, ptr %.sroa.252.sroa.3.0..sroa.252.0..sroa_idx.sroa_idx, align 8
   %39 = invoke zeroext i1 @_ZN3syn9lookahead9peek_impl17h875326ee65409793E(ptr nonnull align 8 %24, ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$4peek17h0a4a51e82f76752cE", ptr nonnull @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$7display17heebc5f82e91e4995E")
           to label %45 unwind label %43
 
 40:                                               ; preds = %2
-  %.sroa.046.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
+  %.sroa.046.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.046.sroa.2.0.copyload = load i32, ptr %.sroa.046.sroa.2.0..sroa_idx, align 8
-  %.sroa.046.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 12
+  %.sroa.046.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 12
   %.sroa.046.sroa.3.0.copyload = load i8, ptr %.sroa.046.sroa.3.0..sroa_idx, align 4
-  %.sroa.046.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 13
+  %.sroa.046.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 13
   store i64 %26, ptr %0, align 8
-  %.sroa.260.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.046.sroa.2.0.copyload, ptr %.sroa.260.0..sroa_idx, align 8
-  %.sroa.361.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %.sroa.046.sroa.3.0.copyload, ptr %.sroa.361.0..sroa_idx, align 4
-  %.sroa.462.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 13
+  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.462.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.046.sroa.4.0..sroa_idx, i64 11, i1 false)
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 2, ptr %41, align 8
   br label %97
 
@@ -3036,11 +3036,11 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
   %51 = extractvalue { i64, i64 } %49, 0
   %52 = extractvalue { i64, i64 } %49, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.6580ba8d5d51603e51413ec3bf3dd64c.14, i64 32, i1 false)
-  %.sroa.039.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.039.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %51, ptr %.sroa.039.sroa.2.0..sroa_idx, align 8
-  %.sroa.039.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.039.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %52, ptr %.sroa.039.sroa.3.0..sroa_idx, align 8
-  %.sroa.240.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %30, ptr %.sroa.240.0..sroa_idx, align 8
   br label %53
 
@@ -3058,13 +3058,13 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
           to label %61 unwind label %59
 
 58:                                               ; preds = %54
-  %.sroa.063.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
+  %.sroa.063.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.063.sroa.2.0.copyload = load i32, ptr %.sroa.063.sroa.2.0..sroa_idx, align 8
-  %.sroa.063.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 12
+  %.sroa.063.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i64 %55, ptr %0, align 8
-  %.sroa.268.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.268.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.063.sroa.2.0.copyload, ptr %.sroa.268.0..sroa_idx, align 8
-  %.sroa.369.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.369.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.063.sroa.3.0..sroa_idx, i64 12, i1 false)
   br label %.sink.split
 
@@ -3076,7 +3076,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 61:                                               ; preds = %57
   %62 = load i64, ptr %21, align 8, !range !7, !noundef !3
   %63 = icmp eq i64 %62, 0
-  %64 = getelementptr inbounds i8, ptr %21, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br i1 %63, label %65, label %120
 
 65:                                               ; preds = %61
@@ -3092,11 +3092,11 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 67:                                               ; preds = %65
   %68 = load i64, ptr %19, align 8, !range !4, !noundef !3
   %.not = icmp eq i64 %68, -9223372036854775808
-  %69 = getelementptr inbounds i8, ptr %19, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br i1 %.not, label %123, label %70
 
 70:                                               ; preds = %67
-  %.sroa.226.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.226.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false)
   store i64 %68, ptr %20, align 8
   invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc59d0aabf0b23f91E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %8, ptr nonnull align 8 @anon.6580ba8d5d51603e51413ec3bf3dd64c.9)
@@ -3110,9 +3110,9 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
   %74 = extractvalue { i64, i64 } %72, 0
   %75 = extractvalue { i64, i64 } %72, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) @anon.6580ba8d5d51603e51413ec3bf3dd64c.14, i64 32, i1 false)
-  %.sroa.275.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 32
+  %.sroa.275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i64 %74, ptr %.sroa.275.0..sroa_idx, align 8
-  %.sroa.376.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 40
+  %.sroa.376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i64 %75, ptr %.sroa.376.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   invoke void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h70a50c167f01bb44E"(ptr nonnull sret({ { ptr, ptr, i64, ptr, {}, { {} } } }) align 8 %17, ptr nonnull align 8 %16)
@@ -3130,10 +3130,10 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 
 79:                                               ; preds = %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
-  %80 = getelementptr inbounds i8, ptr %13, i64 8
-  %81 = getelementptr inbounds i8, ptr %13, i64 16
-  %82 = getelementptr inbounds i8, ptr %13, i64 24
-  %83 = getelementptr inbounds i8, ptr %7, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %84
 
 84:                                               ; preds = %114, %79
@@ -3169,7 +3169,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 
 96:                                               ; preds = %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 48, i1 false)
-  %.sroa.236.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %30, ptr %.sroa.236.0..sroa_idx, align 8
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %22)
           to label %53 unwind label %43
@@ -3258,7 +3258,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
   br label %.sink.split
 
 .sink.split:                                      ; preds = %58, %120
-  %121 = getelementptr inbounds i8, ptr %0, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 2, ptr %121, align 8
   br label %122
 
@@ -3268,7 +3268,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 
 123:                                              ; preds = %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false)
-  %124 = getelementptr inbounds i8, ptr %0, i64 48
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 2, ptr %124, align 8
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %22)
           to label %122 unwind label %43
@@ -3302,7 +3302,7 @@ define hidden void @"_ZN73_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$cor
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8, !noundef !3
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
@@ -3319,16 +3319,16 @@ define hidden void @"_ZN73_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$cor
 
 16:                                               ; preds = %13
   %.sroa.04.0.copyload = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2.0..sroa_idx, i64 40, i1 false)
   br label %17
 
 17:                                               ; preds = %10, %16
   %.sroa.0.0 = phi ptr [ %.sroa.04.0.copyload, %16 ], [ null, %10 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sroa.0.0, ptr %18, align 8
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3, i64 40, i1 false)
   ret void
 
@@ -3366,11 +3366,11 @@ define hidden void @"_ZN77_$LT$wiggle_generate..config..AsyncConf$u20$as$u20$cor
   %9 = extractvalue { i64, i64 } %4, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) @anon.6580ba8d5d51603e51413ec3bf3dd64c.14, i64 32, i1 false)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %8, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
 

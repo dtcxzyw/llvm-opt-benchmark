@@ -441,7 +441,7 @@ define internal range(i32 0, 6) i32 @dissect_scte35_time_signal(ptr noundef %0, 
   br i1 %9, label %25, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = select i1 %.not, ptr @.str.175, ptr @.str.174
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.173, ptr noundef nonnull %13) #3
@@ -506,7 +506,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_scte35_private_command(pt
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #3
   %13 = load i32, ptr @hf_identifier, align 4
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5) #3
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.176, i32 noundef %17) #3
@@ -563,7 +563,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
 14:                                               ; preds = %12, %9
   %15 = phi ptr [ @.str.178, %9 ], [ @.str.179, %12 ]
   %.0122 = phi i32 [ 5, %9 ], [ 10, %12 ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.177, ptr noundef nonnull %15, i32 noundef %11) #3
   %18 = load i32, ptr @proto_scte35_si, align 4
@@ -799,7 +799,7 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
   br i1 %.not, label %13, label %.loopexit165
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.182, i32 noundef %11) #3
   %16 = load i32, ptr @proto_scte35_splice_schedule, align 4
@@ -1024,7 +1024,7 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @col_set_str(ptr noundef %29, i32 noundef 34, ptr noundef nonnull @.str.255) #3
   %30 = load ptr, ptr %28, align 8

@@ -35,7 +35,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %severity to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit
 
@@ -60,66 +60,66 @@ _ZN4absl15LogSeverityNameENS_11LogSeverityE.exit: ; preds = %entry, %switch.look
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i8 %retval.sroa.0.0.copyload.i.i.i.i to i64
   %5 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %5, ptr %ref.tmp.i, align 8, !noalias !5
-  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %dispatcher_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !5
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %retval.sroa.0.0.insert.ext.i.i.i2.i = zext i32 %conv.i to i64
   %6 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i to ptr
   store ptr %6, ptr %arrayinit.element.i, align 8, !noalias !5
-  %dispatcher_.i.i3.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %dispatcher_.i.i3.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i, align 8, !noalias !5
-  %arrayinit.element25.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
+  %arrayinit.element25.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
   %retval.sroa.0.0.insert.ext.i.i.i5.i = zext i32 %conv.i1 to i64
   %7 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i5.i to ptr
   store ptr %7, ptr %arrayinit.element25.i, align 8, !noalias !5
-  %dispatcher_.i.i6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  %dispatcher_.i.i6.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i6.i, align 8, !noalias !5
-  %arrayinit.element26.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
+  %arrayinit.element26.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 48
   %retval.sroa.0.0.insert.ext.i.i.i8.i = zext i32 %conv.i2 to i64
   %8 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i8.i to ptr
   store ptr %8, ptr %arrayinit.element26.i, align 8, !noalias !5
-  %dispatcher_.i.i9.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
+  %dispatcher_.i.i9.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 56
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i9.i, align 8, !noalias !5
-  %arrayinit.element27.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
+  %arrayinit.element27.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 64
   %retval.sroa.0.0.insert.ext.i.i.i11.i = zext i32 %conv.i3 to i64
   %9 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i11.i to ptr
   store ptr %9, ptr %arrayinit.element27.i, align 8, !noalias !5
-  %dispatcher_.i.i12.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
+  %dispatcher_.i.i12.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 72
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i12.i, align 8, !noalias !5
-  %arrayinit.element28.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
+  %arrayinit.element28.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 80
   %retval.sroa.0.0.insert.ext.i.i.i14.i = zext i32 %conv.i4 to i64
   %10 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i14.i to ptr
   store ptr %10, ptr %arrayinit.element28.i, align 8, !noalias !5
-  %dispatcher_.i.i15.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
+  %dispatcher_.i.i15.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 88
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i15.i, align 8, !noalias !5
-  %arrayinit.element29.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 96
+  %arrayinit.element29.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 96
   %11 = inttoptr i64 %call12 to ptr
   store ptr %11, ptr %arrayinit.element29.i, align 8, !noalias !5
-  %dispatcher_.i.i17.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 104
+  %dispatcher_.i.i17.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 104
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIlEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i17.i, align 8, !noalias !5
-  %arrayinit.element30.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 112
+  %arrayinit.element30.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 112
   %retval.sroa.0.0.insert.ext.i.i.i19.i = zext i32 %tid to i64
   %12 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i19.i to ptr
   store ptr %12, ptr %arrayinit.element30.i, align 8, !noalias !5
-  %dispatcher_.i.i20.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 120
+  %dispatcher_.i.i20.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 120
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i20.i, align 8, !noalias !5
-  %arrayinit.element31.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 128
+  %arrayinit.element31.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 128
   store ptr %basename, ptr %arrayinit.element31.i, align 8, !noalias !5
-  %dispatcher_.i.i21.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 136
+  %dispatcher_.i.i21.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 136
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i21.i, align 8, !noalias !5
-  %arrayinit.element32.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 144
+  %arrayinit.element32.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 144
   %retval.sroa.0.0.insert.ext.i.i.i23.i = zext i32 %line to i64
   %13 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i23.i to ptr
   store ptr %13, ptr %arrayinit.element32.i, align 8, !noalias !5
-  %dispatcher_.i.i24.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 152
+  %dispatcher_.i.i24.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 152
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i24.i, align 8, !noalias !5
-  %arrayinit.element33.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 160
+  %arrayinit.element33.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 160
   store ptr %cond, ptr %arrayinit.element33.i, align 8, !noalias !5
-  %dispatcher_.i.i25.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 168
+  %dispatcher_.i.i25.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 168
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIPKcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i25.i, align 8, !noalias !5
-  %arrayinit.element34.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 176
+  %arrayinit.element34.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 176
   store ptr %message, ptr %arrayinit.element34.i, align 8, !noalias !5
-  %dispatcher_.i.i26.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 184
+  %dispatcher_.i.i26.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 184
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i26.i, align 8, !noalias !5
   call void @_ZN4absl19str_format_internal10FormatPackB5cxx11ENS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str, i64 46, ptr nonnull %ref.tmp.i, i64 12)
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %ref.tmp.i)
@@ -138,7 +138,7 @@ entry:
   %ref.tmp.i.i = alloca [4 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
   %ci.i = alloca %"struct.absl::TimeZone::CivilInfo", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ci.i)
-  %len_.i.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %len_.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %0 = load i64, ptr %len_.i.i, align 8
   %cmp.i = icmp ult i64 %0, 34
   br i1 %cmp.i, label %return.sink.split.i, label %if.end.i
@@ -159,7 +159,7 @@ if.then4.i:                                       ; preds = %if.end.i
 
 switch.lookup:                                    ; preds = %if.then4.i
   %6 = zext nneg i32 %severity to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
 
@@ -170,25 +170,25 @@ _ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i: ; preds = %if.then4.i, %swit
   %retval.sroa.0.0.insert.ext.i.i.i.i.i = zext i8 %retval.sroa.0.0.copyload.i.i.i.i.i to i64
   %7 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i to ptr
   store ptr %7, ptr %ref.tmp.i.i, align 8
-  %dispatcher_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %dispatcher_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i, align 8
-  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %retval.sroa.0.0.insert.ext.i.i.i2.i.i = and i64 %1, 4294967295
   %8 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i2.i.i to ptr
   store ptr %8, ptr %arrayinit.element.i.i, align 8
-  %dispatcher_.i.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
+  %dispatcher_.i.i3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i3.i.i, align 8
-  %arrayinit.element9.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 32
+  %arrayinit.element9.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
   %retval.sroa.0.0.insert.ext.i.i.i5.i.i = and i64 %2, 4294967295
   %9 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i5.i.i to ptr
   store ptr %9, ptr %arrayinit.element9.i.i, align 8
-  %dispatcher_.i.i6.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 40
+  %dispatcher_.i.i6.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i6.i.i, align 8
-  %arrayinit.element10.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 48
+  %arrayinit.element10.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 48
   %retval.sroa.0.0.insert.ext.i.i.i8.i.i = zext i32 %tid to i64
   %10 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i8.i.i to ptr
   store ptr %10, ptr %arrayinit.element10.i.i, align 8
-  %dispatcher_.i.i9.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 56
+  %dispatcher_.i.i9.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 56
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIiEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i9.i.i, align 8
   %call11.i.i = call noundef i32 @_ZN4absl19str_format_internal8SnprintFEPcmNS0_21UntypedFormatSpecImplENS_4SpanIKNS0_13FormatArgImplEEE(ptr noundef %3, i64 noundef %4, ptr nonnull @.str.8, i64 27, ptr nonnull %ref.tmp.i.i, i64 4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i)
@@ -202,7 +202,7 @@ _ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i._ZN4absl12log_internal12_GLOB
 if.then15.i:                                      ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
   %conv16.i = zext nneg i32 %call11.i.i to i64
   %11 = load ptr, ptr %buf, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %conv16.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %conv16.i
   br label %return.sink.split.sink.split.i
 
 if.end19.i:                                       ; preds = %if.end.i
@@ -212,74 +212,74 @@ if.end19.i:                                       ; preds = %if.end.i
 
 switch.lookup22:                                  ; preds = %if.end19.i
   %14 = zext nneg i32 %severity to i64
-  %switch.gep23 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %14
+  %switch.gep23 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absl12log_internal15FormatLogPrefixENS_11LogSeverityENS_4TimeEiSt17basic_string_viewIcSt11char_traitsIcEEiNS0_12PrefixFormatERNS_4SpanIcEE.1, i64 0, i64 %14
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit30.i
 
 _ZN4absl15LogSeverityNameENS_11LogSeverityE.exit30.i: ; preds = %if.end19.i, %switch.lookup22
   %retval.0.i26.i = phi ptr [ %switch.load24, %switch.lookup22 ], [ @.str.7, %if.end19.i ]
   %15 = load i8, ptr %retval.0.i26.i, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %12, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 %15, ptr %12, align 1
   call void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr nonnull sret(%"struct.absl::TimeZone::CivilInfo") align 8 %ci.i, ptr noundef nonnull align 8 dereferenceable(8) %call2.i, i64 %timestamp.coerce0, i32 %timestamp.coerce1)
-  %m.i.i = getelementptr inbounds i8, ptr %ci.i, i64 8
+  %m.i.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 8
   %16 = load i8, ptr %m.i.i, align 8
   %conv.i.i = sext i8 %16 to i32
   call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv.i.i, ptr noundef nonnull %incdec.ptr.i)
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 3
-  %d.i.i = getelementptr inbounds i8, ptr %ci.i, i64 9
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 3
+  %d.i.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 9
   %17 = load i8, ptr %d.i.i, align 1
   %conv.i31.i = sext i8 %17 to i32
   call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv.i31.i, ptr noundef nonnull %add.ptr.i)
-  %add.ptr27.i = getelementptr inbounds i8, ptr %12, i64 5
-  %incdec.ptr28.i = getelementptr inbounds i8, ptr %12, i64 6
+  %add.ptr27.i = getelementptr inbounds nuw i8, ptr %12, i64 5
+  %incdec.ptr28.i = getelementptr inbounds nuw i8, ptr %12, i64 6
   store i8 32, ptr %add.ptr27.i, align 1
-  %hh.i.i = getelementptr inbounds i8, ptr %ci.i, i64 10
+  %hh.i.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 10
   %18 = load i8, ptr %hh.i.i, align 2
   %conv.i32.i = sext i8 %18 to i32
   call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv.i32.i, ptr noundef nonnull %incdec.ptr28.i)
-  %add.ptr31.i = getelementptr inbounds i8, ptr %12, i64 8
-  %incdec.ptr32.i = getelementptr inbounds i8, ptr %12, i64 9
+  %add.ptr31.i = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %incdec.ptr32.i = getelementptr inbounds nuw i8, ptr %12, i64 9
   store i8 58, ptr %add.ptr31.i, align 1
-  %mm.i.i = getelementptr inbounds i8, ptr %ci.i, i64 11
+  %mm.i.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 11
   %19 = load i8, ptr %mm.i.i, align 1
   %conv.i33.i = sext i8 %19 to i32
   call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv.i33.i, ptr noundef nonnull %incdec.ptr32.i)
-  %add.ptr35.i = getelementptr inbounds i8, ptr %12, i64 11
-  %incdec.ptr36.i = getelementptr inbounds i8, ptr %12, i64 12
+  %add.ptr35.i = getelementptr inbounds nuw i8, ptr %12, i64 11
+  %incdec.ptr36.i = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i8 58, ptr %add.ptr35.i, align 1
-  %ss.i.i = getelementptr inbounds i8, ptr %ci.i, i64 12
+  %ss.i.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 12
   %20 = load i8, ptr %ss.i.i, align 4
   %conv.i34.i = sext i8 %20 to i32
   call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv.i34.i, ptr noundef nonnull %incdec.ptr36.i)
-  %add.ptr39.i = getelementptr inbounds i8, ptr %12, i64 14
-  %incdec.ptr40.i = getelementptr inbounds i8, ptr %12, i64 15
+  %add.ptr39.i = getelementptr inbounds nuw i8, ptr %12, i64 14
+  %incdec.ptr40.i = getelementptr inbounds nuw i8, ptr %12, i64 15
   store i8 46, ptr %add.ptr39.i, align 1
-  %subsecond.i = getelementptr inbounds i8, ptr %ci.i, i64 16
+  %subsecond.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 16
   %agg.tmp41.sroa.0.0.copyload.i = load i64, ptr %subsecond.i, align 8
-  %agg.tmp41.sroa.2.0.subsecond.sroa_idx.i = getelementptr inbounds i8, ptr %ci.i, i64 24
+  %agg.tmp41.sroa.2.0.subsecond.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ci.i, i64 24
   %agg.tmp41.sroa.2.0.copyload.i = load i32, ptr %agg.tmp41.sroa.2.0.subsecond.sroa_idx.i, align 8
   %call42.i = call noundef i64 @_ZN4absl19ToInt64MicrosecondsENS_8DurationE(i64 %agg.tmp41.sroa.0.0.copyload.i, i32 %agg.tmp41.sroa.2.0.copyload.i) #6
   %div.i = sdiv i64 %call42.i, 10000
   %conv43.i = trunc i64 %div.i to i32
   call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv43.i, ptr noundef nonnull %incdec.ptr40.i)
-  %add.ptr44.i = getelementptr inbounds i8, ptr %12, i64 17
+  %add.ptr44.i = getelementptr inbounds nuw i8, ptr %12, i64 17
   %div45.i = sdiv i64 %call42.i, 100
   %rem.i = srem i64 %div45.i, 100
   %conv46.i = trunc nsw i64 %rem.i to i32
   call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv46.i, ptr noundef nonnull %add.ptr44.i)
-  %add.ptr47.i = getelementptr inbounds i8, ptr %12, i64 19
+  %add.ptr47.i = getelementptr inbounds nuw i8, ptr %12, i64 19
   %rem48.i = srem i64 %call42.i, 100
   %conv49.i = trunc nsw i64 %rem48.i to i32
   call void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %conv49.i, ptr noundef nonnull %add.ptr47.i)
-  %add.ptr50.i = getelementptr inbounds i8, ptr %12, i64 21
-  %incdec.ptr51.i = getelementptr inbounds i8, ptr %12, i64 22
+  %add.ptr50.i = getelementptr inbounds nuw i8, ptr %12, i64 21
+  %incdec.ptr51.i = getelementptr inbounds nuw i8, ptr %12, i64 22
   store i8 32, ptr %add.ptr50.i, align 1
   %or.cond.i.i = icmp ult i32 %tid, 10
   br i1 %or.cond.i.i, label %if.end.thread.i.i, label %if.end.i.i
 
 if.end.thread.i.i:                                ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit30.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 23
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %12, i64 23
   store i8 32, ptr %incdec.ptr51.i, align 1
   br label %if.end7.thread.i.i
 
@@ -290,7 +290,7 @@ if.end.i.i:                                       ; preds = %_ZN4absl15LogSeveri
 
 if.end7.thread.i.i:                               ; preds = %if.end.i.i, %if.end.thread.i.i
   %p.4.i = phi ptr [ %incdec.ptr.i.i, %if.end.thread.i.i ], [ %incdec.ptr51.i, %if.end.i.i ]
-  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %p.4.i, i64 1
+  %incdec.ptr6.i.i = getelementptr inbounds nuw i8, ptr %p.4.i, i64 1
   store i8 32, ptr %p.4.i, align 1
   br label %if.end13.thread.i.i
 
@@ -301,7 +301,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
 
 if.end13.thread.i.i:                              ; preds = %if.end7.i.i, %if.end7.thread.i.i
   %p.3.i = phi ptr [ %incdec.ptr6.i.i, %if.end7.thread.i.i ], [ %incdec.ptr51.i, %if.end7.i.i ]
-  %incdec.ptr12.i.i = getelementptr inbounds i8, ptr %p.3.i, i64 1
+  %incdec.ptr12.i.i = getelementptr inbounds nuw i8, ptr %p.3.i, i64 1
   store i8 32, ptr %p.3.i, align 1
   br label %if.end19.thread.i.i
 
@@ -312,7 +312,7 @@ if.end13.i.i:                                     ; preds = %if.end7.i.i
 
 if.end19.thread.i.i:                              ; preds = %if.end13.i.i, %if.end13.thread.i.i
   %p.2.i = phi ptr [ %incdec.ptr12.i.i, %if.end13.thread.i.i ], [ %incdec.ptr51.i, %if.end13.i.i ]
-  %incdec.ptr18.i.i = getelementptr inbounds i8, ptr %p.2.i, i64 1
+  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %p.2.i, i64 1
   store i8 32, ptr %p.2.i, align 1
   br label %if.end25.thread.i.i
 
@@ -323,7 +323,7 @@ if.end19.i.i:                                     ; preds = %if.end13.i.i
 
 if.end25.thread.i.i:                              ; preds = %if.end19.i.i, %if.end19.thread.i.i
   %p.1.i = phi ptr [ %incdec.ptr18.i.i, %if.end19.thread.i.i ], [ %incdec.ptr51.i, %if.end19.i.i ]
-  %incdec.ptr24.i.i = getelementptr inbounds i8, ptr %p.1.i, i64 1
+  %incdec.ptr24.i.i = getelementptr inbounds nuw i8, ptr %p.1.i, i64 1
   store i8 32, ptr %p.1.i, align 1
   br label %if.then29.i.i
 
@@ -334,14 +334,14 @@ if.end25.i.i:                                     ; preds = %if.end19.i.i
 
 if.then29.i.i:                                    ; preds = %if.end25.i.i, %if.end25.thread.i.i
   %p.0.i = phi ptr [ %incdec.ptr24.i.i, %if.end25.thread.i.i ], [ %incdec.ptr51.i, %if.end25.i.i ]
-  %incdec.ptr30.i.i = getelementptr inbounds i8, ptr %p.0.i, i64 1
+  %incdec.ptr30.i.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 1
   store i8 32, ptr %p.0.i, align 1
   br label %_ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i
 
 _ZN4absl12log_internal12_GLOBAL__N_120PutLeadingWhitespaceIiEENSt9enable_ifIXsr3std9is_signedIT_EE5valueEvE4typeES4_RPc.exit.i: ; preds = %if.then29.i.i, %if.end25.i.i
   %p.5.i = phi ptr [ %incdec.ptr30.i.i, %if.then29.i.i ], [ %incdec.ptr51.i, %if.end25.i.i ]
   %call52.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %tid, ptr noundef nonnull %p.5.i)
-  %incdec.ptr53.i = getelementptr inbounds i8, ptr %call52.i, i64 1
+  %incdec.ptr53.i = getelementptr inbounds nuw i8, ptr %call52.i, i64 1
   store i8 32, ptr %call52.i, align 1
   %26 = load ptr, ptr %buf, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr53.i to i64
@@ -382,12 +382,12 @@ _ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4T
   br i1 %cmp.i10, label %_ZN4absl12log_internal12_GLOBAL__N_116FormatLineNumberEiRNS_4SpanIcEE.exit, label %if.end.i11
 
 if.end.i11:                                       ; preds = %_ZN4absl12log_internal12_GLOBAL__N_119FormatBoundedFieldsENS_11LogSeverityENS_4TimeEiRNS_4SpanIcEE.exit
-  %incdec.ptr.i12 = getelementptr inbounds i8, ptr %add.ptr.i.i8, i64 1
+  %incdec.ptr.i12 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i8, i64 1
   store i8 58, ptr %add.ptr.i.i8, align 1
   %call3.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %line, ptr noundef nonnull %incdec.ptr.i12)
-  %incdec.ptr4.i = getelementptr inbounds i8, ptr %call3.i, i64 1
+  %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 1
   store i8 93, ptr %call3.i, align 1
-  %incdec.ptr5.i = getelementptr inbounds i8, ptr %call3.i, i64 2
+  %incdec.ptr5.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 2
   store i8 32, ptr %incdec.ptr4.i, align 1
   %32 = load ptr, ptr %buf, align 8
   %sub.ptr.lhs.cast.i13 = ptrtoint ptr %incdec.ptr5.i to i64
@@ -412,7 +412,7 @@ if.then:                                          ; preds = %_ZN4absl12log_inter
   %spec.select.i19 = call i64 @llvm.umin.i64(i64 %storemerge.i, i64 5)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 1 @.str.1, i64 %spec.select.i19, i1 false)
   %35 = load ptr, ptr %buf, align 8
-  %add.ptr.i.i20 = getelementptr inbounds i8, ptr %35, i64 %spec.select.i19
+  %add.ptr.i.i20 = getelementptr inbounds nuw i8, ptr %35, i64 %spec.select.i19
   store ptr %add.ptr.i.i20, ptr %buf, align 8
   %36 = load i64, ptr %len_.i.i, align 8
   %sub.i.i21 = sub i64 %36, %spec.select.i19

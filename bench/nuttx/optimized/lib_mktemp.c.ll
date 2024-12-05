@@ -21,7 +21,7 @@ define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %.lr.ph.preheader, label %.critedge.thread
 
 .lr.ph.preheader:                                 ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
@@ -69,7 +69,7 @@ define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
   %.02961 = phi i32 [ %17, %.loopexit ], [ 62, %.preheader ], [ -1, %.critedge.thread54 ]
   %narrow.i = tail call i32 @llvm.usub.sat.i32(i32 6, i32 range(i32 1, 0) %.026.lcssa58)
   %.07.idx.i = zext nneg i32 %narrow.i to i64
-  %.07.i = getelementptr inbounds i8, ptr %2, i64 %.07.idx.i
+  %.07.i = getelementptr inbounds nuw i8, ptr %2, i64 %.07.idx.i
   br label %18
 
 18:                                               ; preds = %.lr.ph46, %50
@@ -81,7 +81,7 @@ define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
 20:                                               ; preds = %27, %18
   %.06.i.i = phi i32 [ 5, %18 ], [ %28, %27 ]
   %21 = zext nneg i32 %.06.i.i to i64
-  %22 = getelementptr inbounds [6 x i8], ptr @g_base62, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [6 x i8], ptr @g_base62, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = icmp ult i8 %23, 61
   br i1 %24, label %25, label %27
@@ -105,7 +105,7 @@ define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
   %.011.i = phi i32 [ %42, %base62_to_char.exit.i ], [ %.026.lcssa58, %.lr.ph.preheader.i ]
   %.0610.i = phi ptr [ %41, %base62_to_char.exit.i ], [ %.027.lcssa57, %.lr.ph.preheader.i ]
   %.19.i = phi ptr [ %30, %base62_to_char.exit.i ], [ %.07.i, %.lr.ph.preheader.i ]
-  %30 = getelementptr inbounds i8, ptr %.19.i, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.19.i, i64 1
   %31 = load i8, ptr %.19.i, align 1
   %32 = icmp ult i8 %31, 10
   br i1 %32, label %33, label %35
@@ -128,7 +128,7 @@ define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
 
 base62_to_char.exit.i:                            ; preds = %39, %37, %33
   %.0.i.i = phi i8 [ %34, %33 ], [ %38, %37 ], [ %40, %39 ]
-  %41 = getelementptr inbounds i8, ptr %.0610.i, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.0610.i, i64 1
   store i8 %.0.i.i, ptr %.0610.i, align 1
   %42 = add nsw i32 %.011.i, -1
   %43 = icmp sgt i32 %.011.i, 1

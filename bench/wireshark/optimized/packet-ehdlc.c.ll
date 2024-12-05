@@ -134,7 +134,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ehdlc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.54) #3
   %7 = load ptr, ptr %5, align 8
@@ -202,13 +202,13 @@ switch.lookup:                                    ; preds = %.lr.ph, %.backedge
   br i1 %.not.i, label %proto_item_set_generated.exit, label %42
 
 42:                                               ; preds = %30
-  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not5.i = icmp eq ptr %44, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %44, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = or i32 %47, 2
   store i32 %48, ptr %46, align 4
@@ -223,13 +223,13 @@ proto_item_set_generated.exit:                    ; preds = %30, %42, %45
   br i1 %.not.i118, label %proto_item_set_generated.exit120, label %53
 
 53:                                               ; preds = %proto_item_set_generated.exit
-  %54 = getelementptr inbounds i8, ptr %52, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %55 = load ptr, ptr %54, align 8
   %.not5.i119 = icmp eq ptr %55, null
   br i1 %.not5.i119, label %proto_item_set_generated.exit120, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %55, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = or i32 %58, 2
   store i32 %59, ptr %57, align 4
@@ -242,13 +242,13 @@ proto_item_set_generated.exit120:                 ; preds = %proto_item_set_gene
   br i1 %.not.i121, label %proto_item_set_generated.exit123, label %62
 
 62:                                               ; preds = %proto_item_set_generated.exit120
-  %63 = getelementptr inbounds i8, ptr %61, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %64 = load ptr, ptr %63, align 8
   %.not5.i122 = icmp eq ptr %64, null
   br i1 %.not5.i122, label %proto_item_set_generated.exit123, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %64, i64 28
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 28
   %67 = load i32, ptr %66, align 4
   %68 = or i32 %67, 2
   store i32 %68, ptr %66, align 4

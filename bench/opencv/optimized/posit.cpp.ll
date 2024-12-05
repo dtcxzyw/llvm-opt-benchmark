@@ -53,17 +53,17 @@ define hidden ptr @cvCreatePOSITObject(ptr noundef readonly %0, i32 noundef %1) 
 
 .lr.ph.i:                                         ; preds = %9
   store i32 %5, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 %12
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 %12
-  %22 = getelementptr inbounds i8, ptr %16, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = zext nneg i32 %5 to i64
   %26 = sext i32 %6 to i64
   br label %27
@@ -71,14 +71,14 @@ define hidden ptr @cvCreatePOSITObject(ptr noundef readonly %0, i32 noundef %1) 
 27:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %28 = getelementptr inbounds %struct.CvPoint3D32f, ptr %0, i64 %indvars.iv.next.i
+  %28 = getelementptr inbounds nuw %struct.CvPoint3D32f, ptr %0, i64 %indvars.iv.next.i
   %29 = load float, ptr %28, align 4
   %30 = load float, ptr %0, align 4
   %31 = fsub float %29, %30
   %32 = load ptr, ptr %20, align 8
-  %33 = getelementptr inbounds float, ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i
   store float %31, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %28, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %35 = load float, ptr %34, align 4
   %36 = load float, ptr %23, align 4
   %37 = fsub float %35, %36
@@ -86,7 +86,7 @@ define hidden ptr @cvCreatePOSITObject(ptr noundef readonly %0, i32 noundef %1) 
   %39 = getelementptr float, ptr %38, i64 %indvars.iv.i
   %40 = getelementptr float, ptr %39, i64 %25
   store float %37, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %28, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %42 = load float, ptr %41, align 4
   %43 = load float, ptr %24, align 4
   %44 = fsub float %42, %43
@@ -101,8 +101,8 @@ define hidden ptr @cvCreatePOSITObject(ptr noundef readonly %0, i32 noundef %1) 
   %.pre.i = load ptr, ptr %20, align 8
   %.pre63.i = load ptr, ptr %18, align 8
   %48 = zext nneg i32 %6 to i64
-  %invariant.gep.i.i = getelementptr inbounds float, ptr %.pre.i, i64 %25
-  %invariant.gep143.i.i = getelementptr inbounds float, ptr %.pre.i, i64 %48
+  %invariant.gep.i.i = getelementptr inbounds nuw float, ptr %.pre.i, i64 %25
+  %invariant.gep143.i.i = getelementptr inbounds nuw float, ptr %.pre.i, i64 %48
   br label %49
 
 49:                                               ; preds = %49, %.lr.ph.i.i
@@ -113,11 +113,11 @@ define hidden ptr @cvCreatePOSITObject(ptr noundef readonly %0, i32 noundef %1) 
   %.0105114.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i ], [ %57, %49 ]
   %.0106113.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i ], [ %58, %49 ]
   %.0107112.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i ], [ %59, %49 ]
-  %50 = getelementptr inbounds float, ptr %.pre.i, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw float, ptr %.pre.i, i64 %indvars.iv.i.i
   %51 = load float, ptr %50, align 4
-  %gep.i.i = getelementptr inbounds float, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %gep.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %52 = load float, ptr %gep.i.i, align 4
-  %gep144.i.i = getelementptr inbounds float, ptr %invariant.gep143.i.i, i64 %indvars.iv.i.i
+  %gep144.i.i = getelementptr inbounds nuw float, ptr %invariant.gep143.i.i, i64 %indvars.iv.i.i
   %53 = load float, ptr %gep144.i.i, align 4
   %54 = tail call float @llvm.fmuladd.f32(float %51, float %51, float %.0117.i.i)
   %55 = tail call float @llvm.fmuladd.f32(float %52, float %52, float %.0103116.i.i)
@@ -155,31 +155,31 @@ define hidden ptr @cvCreatePOSITObject(ptr noundef readonly %0, i32 noundef %1) 
 
 81:                                               ; preds = %81, %._crit_edge.i.i
   %indvars.iv133.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %indvars.iv.next134.i.i, %81 ]
-  %82 = getelementptr inbounds float, ptr %.pre.i, i64 %indvars.iv133.i.i
+  %82 = getelementptr inbounds nuw float, ptr %.pre.i, i64 %indvars.iv133.i.i
   %83 = load float, ptr %82, align 4
   %84 = add nuw nsw i64 %indvars.iv133.i.i, %25
-  %85 = getelementptr inbounds float, ptr %.pre.i, i64 %84
+  %85 = getelementptr inbounds nuw float, ptr %.pre.i, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = add nuw nsw i64 %indvars.iv133.i.i, %48
-  %88 = getelementptr inbounds float, ptr %.pre.i, i64 %87
+  %88 = getelementptr inbounds nuw float, ptr %.pre.i, i64 %87
   %89 = load float, ptr %88, align 4
   %90 = fmul float %86, %66
   %91 = tail call float @llvm.fmuladd.f32(float %62, float %83, float %90)
   %92 = tail call float @llvm.fmuladd.f32(float %68, float %89, float %91)
   %93 = fmul float %80, %92
-  %94 = getelementptr inbounds float, ptr %.pre63.i, i64 %indvars.iv133.i.i
+  %94 = getelementptr inbounds nuw float, ptr %.pre63.i, i64 %indvars.iv133.i.i
   store float %93, ptr %94, align 4
   %95 = fmul float %70, %86
   %96 = tail call float @llvm.fmuladd.f32(float %66, float %83, float %95)
   %97 = tail call float @llvm.fmuladd.f32(float %73, float %89, float %96)
   %98 = fmul float %80, %97
-  %99 = getelementptr inbounds float, ptr %.pre63.i, i64 %84
+  %99 = getelementptr inbounds nuw float, ptr %.pre63.i, i64 %84
   store float %98, ptr %99, align 4
   %100 = fmul float %86, %73
   %101 = tail call float @llvm.fmuladd.f32(float %68, float %83, float %100)
   %102 = tail call float @llvm.fmuladd.f32(float %76, float %89, float %101)
   %103 = fmul float %80, %102
-  %104 = getelementptr inbounds float, ptr %.pre63.i, i64 %87
+  %104 = getelementptr inbounds nuw float, ptr %.pre63.i, i64 %87
   store float %103, ptr %104, align 4
   %indvars.iv.next134.i.i = add nuw nsw i64 %indvars.iv133.i.i, 1
   %exitcond137.not.i.i = icmp eq i64 %indvars.iv.next134.i.i, %25
@@ -278,27 +278,27 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
 27:                                               ; preds = %23
   %28 = fdiv float 1.000000e+00, %10
   %29 = load i32, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = icmp sgt i32 %29, 0
-  %37 = getelementptr inbounds i8, ptr %5, i64 24
-  %38 = getelementptr inbounds i8, ptr %5, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %39 = shl nsw i32 %29, 1
-  %40 = getelementptr inbounds i8, ptr %5, i64 32
-  %41 = getelementptr inbounds i8, ptr %1, i64 4
-  %42 = getelementptr inbounds i8, ptr %5, i64 4
-  %43 = getelementptr inbounds i8, ptr %5, i64 8
-  %44 = getelementptr inbounds i8, ptr %5, i64 12
-  %45 = getelementptr inbounds i8, ptr %5, i64 16
-  %46 = getelementptr inbounds i8, ptr %5, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %47 = zext i32 %29 to i64
   %48 = zext i32 %39 to i64
-  %invariant.gep.i = getelementptr inbounds float, ptr %31, i64 %48
-  %invariant.gep260.i = getelementptr inbounds float, ptr %35, i64 %47
+  %invariant.gep.i = getelementptr inbounds nuw float, ptr %31, i64 %48
+  %invariant.gep260.i = getelementptr inbounds nuw float, ptr %35, i64 %47
   br label %49
 
 49:                                               ; preds = %.split217.us.i, %27
@@ -317,17 +317,17 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
 .lr.ph210.i:                                      ; preds = %.preheader204.i, %.lr.ph210.i
   %indvars.iv228.i = phi i64 [ %indvars.iv.next229.i, %.lr.ph210.i ], [ 0, %.preheader204.i ]
   %indvars.iv.next229.i = add nuw nsw i64 %indvars.iv228.i, 1
-  %51 = getelementptr inbounds %struct.CvPoint2D32f, ptr %1, i64 %indvars.iv.next229.i
+  %51 = getelementptr inbounds nuw %struct.CvPoint2D32f, ptr %1, i64 %indvars.iv.next229.i
   %52 = load float, ptr %51, align 4
   %53 = load float, ptr %1, align 4
   %54 = fsub float %52, %53
-  %55 = getelementptr inbounds float, ptr %35, i64 %indvars.iv228.i
+  %55 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv228.i
   store float %54, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %51, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %57 = load float, ptr %56, align 4
   %58 = load float, ptr %41, align 4
   %59 = fsub float %57, %58
-  %gep261.i = getelementptr inbounds float, ptr %invariant.gep260.i, i64 %indvars.iv228.i
+  %gep261.i = getelementptr inbounds nuw float, ptr %invariant.gep260.i, i64 %indvars.iv228.i
   store float %59, ptr %gep261.i, align 4
   %exitcond232.not.i = icmp eq i64 %indvars.iv.next229.i, %47
   br i1 %exitcond232.not.i, label %.loopexit.i, label %.lr.ph210.i, !llvm.loop !8
@@ -335,25 +335,25 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
 .lr.ph.i:                                         ; preds = %.preheader205.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader205.i ]
   %.2186207.i = phi float [ %94, %.lr.ph.i ], [ 0.000000e+00, %.preheader205.i ]
-  %60 = getelementptr inbounds float, ptr %31, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i
   %61 = load float, ptr %60, align 4
   %62 = load float, ptr %37, align 4
   %63 = add nuw nsw i64 %indvars.iv.i, %47
-  %64 = getelementptr inbounds float, ptr %31, i64 %63
+  %64 = getelementptr inbounds nuw float, ptr %31, i64 %63
   %65 = load float, ptr %64, align 4
   %66 = load float, ptr %38, align 4
   %67 = fmul float %65, %66
   %68 = tail call float @llvm.fmuladd.f32(float %61, float %62, float %67)
-  %gep.i = getelementptr inbounds float, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv.i
   %69 = load float, ptr %gep.i, align 4
   %70 = load float, ptr %40, align 4
   %71 = tail call float @llvm.fmuladd.f32(float %69, float %70, float %68)
   %72 = fmul float %.0183219.i, %71
   %73 = fadd float %72, 1.000000e+00
-  %74 = getelementptr inbounds float, ptr %35, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i
   %75 = load float, ptr %74, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %76 = getelementptr inbounds %struct.CvPoint2D32f, ptr %1, i64 %indvars.iv.next.i
+  %76 = getelementptr inbounds nuw %struct.CvPoint2D32f, ptr %1, i64 %indvars.iv.next.i
   %77 = load float, ptr %76, align 4
   %78 = load float, ptr %1, align 4
   %79 = fneg float %78
@@ -363,9 +363,9 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
   %82 = tail call float @llvm.fabs.f32(float %81)
   %83 = fcmp olt float %.2186207.i, %82
   %..2186.i = select i1 %83, float %82, float %.2186207.i
-  %84 = getelementptr inbounds float, ptr %35, i64 %63
+  %84 = getelementptr inbounds nuw float, ptr %35, i64 %63
   %85 = load float, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %76, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %87 = load float, ptr %86, align 4
   %88 = load float, ptr %41, align 4
   %89 = fneg float %88
@@ -387,24 +387,24 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
   %indvars.iv246.i = phi i64 [ 1, %.split.us.us.i ], [ 0, %.loopexit.i ]
   %96 = mul nuw nsw i64 %indvars.iv246.i, %47
   %.idx.i = mul nuw nsw i64 %indvars.iv246.i, 12
-  %invariant.gep266.i = getelementptr inbounds i8, ptr %5, i64 %.idx.i
-  %invariant.gep264.i = getelementptr inbounds float, ptr %35, i64 %96
+  %invariant.gep266.i = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
+  %invariant.gep264.i = getelementptr inbounds nuw float, ptr %35, i64 %96
   br label %.lr.ph212.us.us.i
 
 .lr.ph212.us.us.i:                                ; preds = %._crit_edge.us.us.i, %.preheader.us.i
   %indvars.iv242.i = phi i64 [ %indvars.iv.next243.i, %._crit_edge.us.us.i ], [ 0, %.preheader.us.i ]
-  %gep267.i = getelementptr inbounds float, ptr %invariant.gep266.i, i64 %indvars.iv242.i
+  %gep267.i = getelementptr inbounds nuw float, ptr %invariant.gep266.i, i64 %indvars.iv242.i
   store float 0.000000e+00, ptr %gep267.i, align 4
   %97 = mul nuw nsw i64 %indvars.iv242.i, %47
-  %invariant.gep262.i = getelementptr inbounds float, ptr %33, i64 %97
+  %invariant.gep262.i = getelementptr inbounds nuw float, ptr %33, i64 %97
   br label %98
 
 98:                                               ; preds = %98, %.lr.ph212.us.us.i
   %indvars.iv237.i = phi i64 [ %indvars.iv.next238.i, %98 ], [ 0, %.lr.ph212.us.us.i ]
   %99 = phi float [ %102, %98 ], [ 0.000000e+00, %.lr.ph212.us.us.i ]
-  %gep263.i = getelementptr inbounds float, ptr %invariant.gep262.i, i64 %indvars.iv237.i
+  %gep263.i = getelementptr inbounds nuw float, ptr %invariant.gep262.i, i64 %indvars.iv237.i
   %100 = load float, ptr %gep263.i, align 4
-  %gep265.i = getelementptr inbounds float, ptr %invariant.gep264.i, i64 %indvars.iv237.i
+  %gep265.i = getelementptr inbounds nuw float, ptr %invariant.gep264.i, i64 %indvars.iv237.i
   %101 = load float, ptr %gep265.i, align 4
   %102 = tail call float @llvm.fmuladd.f32(float %100, float %101, float %99)
   store float %102, ptr %gep267.i, align 4
@@ -524,10 +524,10 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
   store float %157, ptr %6, align 4
   %158 = load float, ptr %41, align 4
   %159 = fmul float %155, %158
-  %160 = getelementptr inbounds i8, ptr %6, i64 4
+  %160 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %159, ptr %160, align 4
   %161 = fdiv float 1.000000e+00, %140
-  %162 = getelementptr inbounds i8, ptr %6, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float %161, ptr %162, align 4
   ret void
 }

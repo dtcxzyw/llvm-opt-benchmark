@@ -144,7 +144,7 @@ define ptr @_ZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1
 
 30:                                               ; preds = %.preheader, %28
   %.014 = phi i64 [ %29, %28 ], [ 0, %.preheader ]
-  %31 = getelementptr inbounds [5 x %struct.Entry], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 0, i64 %.014
+  %31 = getelementptr inbounds nuw [5 x %struct.Entry], ptr @_ZZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3map, i64 0, i64 %.014
   %32 = load ptr, ptr %31, align 16
   %33 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %32, i64 noundef 0) #8
   %.not11 = icmp eq i64 %33, -1

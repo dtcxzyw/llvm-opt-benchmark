@@ -109,7 +109,7 @@ _ZN3gmx10TextWriter11writeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %_ZN3gmx10TextWriter5closeEv.exit unwind label %10
@@ -139,7 +139,7 @@ define void @_ZN3gmx10TextWriter5closeEv(ptr nocapture noundef nonnull readonly 
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
@@ -158,7 +158,7 @@ define void @_ZN3gmx10TextWriterC2ERKNSt10filesystem7__cxx114pathE(ptr nocapture
 
 7:                                                ; preds = %6
   store ptr %5, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %8, align 8
   %9 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
           to label %23 unwind label %10
@@ -169,7 +169,7 @@ define void @_ZN3gmx10TextWriterC2ERKNSt10filesystem7__cxx114pathE(ptr nocapture
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #12
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
   invoke void @__cxa_rethrow() #14
@@ -192,16 +192,16 @@ define void @_ZN3gmx10TextWriterC2ERKNSt10filesystem7__cxx114pathE(ptr nocapture
   unreachable
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %25, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx14TextOutputFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %5, ptr %26, align 8
   store ptr %9, ptr %8, align 8
   store ptr %5, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %9, ptr %27, align 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %28, 0
@@ -216,7 +216,7 @@ define void @_ZN3gmx10TextWriterC2ERKNSt10filesystem7__cxx114pathE(ptr nocapture
   br label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
 
 _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %32)
           to label %34 unwind label %.body6
 
@@ -228,13 +228,13 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
   br label %.body
 
 34:                                               ; preds = %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
-  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 2, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i8 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i8 1, ptr %38, align 4
   store ptr %4, ptr %0, align 8
   %39 = load ptr, ptr %8, align 8
@@ -242,7 +242,7 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev.exit, label %40
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load atomic i64, ptr %41 acquire, align 8
   %43 = icmp eq i64 %42, 4294967297
   %44 = trunc i64 %42 to i32
@@ -250,10 +250,10 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
 
 45:                                               ; preds = %40
   store i32 0, ptr %41, align 8
-  %46 = getelementptr inbounds i8, ptr %39, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 0, ptr %46, align 4
   %47 = load ptr, ptr %39, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %39) #12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -279,10 +279,10 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %39, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   tail call void %61(ptr noundef nonnull align 8 dereferenceable(16) %39) #12
-  %62 = getelementptr inbounds i8, ptr %39, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %63 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %63, 0
   br i1 %.not.i.i.i.i.i.i, label %67, label %64
@@ -304,7 +304,7 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %69, %45
   %71 = load ptr, ptr %39, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
   tail call void %73(ptr noundef nonnull align 8 dereferenceable(16) %39) #12
   br label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev.exit
@@ -339,13 +339,13 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3gmx16TextOutputStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -353,10 +353,10 @@ define linkonce_odr void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr no
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
@@ -382,10 +382,10 @@ define linkonce_odr void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr no
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i, label %31, label %28
@@ -407,7 +407,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev(ptr no
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   br label %_ZNSt12__shared_ptrIN3gmx16TextOutputStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -445,14 +445,14 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3gmx14TextOutputFileELN9__gnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3gmx14TextOutputFileELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   br label %9
@@ -487,7 +487,7 @@ define void @_ZN3gmx10TextWriterC2EP8_IO_FILE(ptr nocapture noundef nonnull writ
 
 7:                                                ; preds = %6
   store ptr %5, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %8, align 8
   %9 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
           to label %23 unwind label %10
@@ -498,7 +498,7 @@ define void @_ZN3gmx10TextWriterC2EP8_IO_FILE(ptr nocapture noundef nonnull writ
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #12
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
   invoke void @__cxa_rethrow() #14
@@ -521,16 +521,16 @@ define void @_ZN3gmx10TextWriterC2EP8_IO_FILE(ptr nocapture noundef nonnull writ
   unreachable
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %25, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3gmx14TextOutputFileELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %9, align 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %5, ptr %26, align 8
   store ptr %9, ptr %8, align 8
   store ptr %5, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %9, ptr %27, align 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %28, 0
@@ -545,7 +545,7 @@ define void @_ZN3gmx10TextWriterC2EP8_IO_FILE(ptr nocapture noundef nonnull writ
   br label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
 
 _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %32)
           to label %34 unwind label %.body6
 
@@ -557,13 +557,13 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
   br label %.body
 
 34:                                               ; preds = %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
-  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 2, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i8 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i8 1, ptr %38, align 4
   store ptr %4, ptr %0, align 8
   %39 = load ptr, ptr %8, align 8
@@ -571,7 +571,7 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev.exit, label %40
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load atomic i64, ptr %41 acquire, align 8
   %43 = icmp eq i64 %42, 4294967297
   %44 = trunc i64 %42 to i32
@@ -579,10 +579,10 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
 
 45:                                               ; preds = %40
   store i32 0, ptr %41, align 8
-  %46 = getelementptr inbounds i8, ptr %39, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 0, ptr %46, align 4
   %47 = load ptr, ptr %39, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %39) #12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -608,10 +608,10 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %39, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   tail call void %61(ptr noundef nonnull align 8 dereferenceable(16) %39) #12
-  %62 = getelementptr inbounds i8, ptr %39, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %63 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %63, 0
   br i1 %.not.i.i.i.i.i.i, label %67, label %64
@@ -633,7 +633,7 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %30, %29
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %69, %45
   %71 = load ptr, ptr %39, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
   tail call void %73(ptr noundef nonnull align 8 dereferenceable(16) %39) #12
   br label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev.exit
@@ -665,7 +665,7 @@ define void @_ZN3gmx10TextWriterC2EPNS_16TextOutputStreamE(ptr nocapture noundef
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #13
   store ptr %1, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8
   %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
           to label %17 unwind label %7
@@ -695,16 +695,16 @@ define void @_ZN3gmx10TextWriterC2EPNS_16TextOutputStreamE(ptr nocapture noundef
   unreachable
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %19, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN3gmx16TextOutputStreamENS0_9no_deleteIS1_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %1, ptr %20, align 8
   store ptr %6, ptr %5, align 8
   store ptr %1, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %21, align 8
   %22 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %22, 0
@@ -719,7 +719,7 @@ define void @_ZN3gmx10TextWriterC2EPNS_16TextOutputStreamE(ptr nocapture noundef
   br label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
 
 _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %24, %23
-  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %26)
           to label %28 unwind label %.body6
 
@@ -731,13 +731,13 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %24, %23
   br label %.body
 
 28:                                               ; preds = %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
-  %29 = getelementptr inbounds i8, ptr %4, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i8 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i8 1, ptr %32, align 4
   store ptr %4, ptr %0, align 8
   %33 = load ptr, ptr %5, align 8
@@ -745,7 +745,7 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %24, %23
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev.exit, label %34
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load atomic i64, ptr %35 acquire, align 8
   %37 = icmp eq i64 %36, 4294967297
   %38 = trunc i64 %36 to i32
@@ -753,10 +753,10 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %24, %23
 
 39:                                               ; preds = %34
   store i32 0, ptr %35, align 8
-  %40 = getelementptr inbounds i8, ptr %33, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 0, ptr %40, align 4
   %41 = load ptr, ptr %33, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %33) #12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -782,10 +782,10 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %24, %23
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %33, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %33) #12
-  %56 = getelementptr inbounds i8, ptr %33, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %57 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %57, 0
   br i1 %.not.i.i.i.i.i.i, label %61, label %58
@@ -807,7 +807,7 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %24, %23
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %63, %39
   %65 = load ptr, ptr %33, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
   tail call void %67(ptr noundef nonnull align 8 dereferenceable(16) %33) #12
   br label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEED2Ev.exit
@@ -846,7 +846,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN3gmx16TextOutputStreamENS1_9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNSt19_Sp_counted_deleterIPN3gmx16TextOutputStreamENS0_9no_deleteIS1_EESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @_ZTSN3gmx9no_deleteINS_16TextOutputStreamEEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
@@ -862,7 +862,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %6
   br i1 %9, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread3
 
 _ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %2, %_ZNKSt9type_infoeqERKS_.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %_ZNKSt9type_infoeqERKS_.exit.thread3
 
 _ZNKSt9type_infoeqERKS_.exit.thread3:             ; preds = %6, %_ZNKSt9type_infoeqERKS_.exit, %_ZNKSt9type_infoeqERKS_.exit.thread
@@ -878,15 +878,15 @@ define void @_ZN3gmx10TextWriterC2ERKSt10shared_ptrINS_16TextOutputStreamEE(ptr 
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #13
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %.not.i.i.i.i.i, label %14, label %11
@@ -902,7 +902,7 @@ define void @_ZN3gmx10TextWriterC2ERKSt10shared_ptrINS_16TextOutputStreamEE(ptr 
   br label %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
 
 _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %14, %11, %2
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   invoke void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %16)
           to label %18 unwind label %.body
 
@@ -914,13 +914,13 @@ _ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i: ; preds = %14, %11, 
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %_ZNSt10shared_ptrIN3gmx16TextOutputStreamEEC2ERKS2_.exit.i
-  %19 = getelementptr inbounds i8, ptr %3, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %3, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i8 1, ptr %22, align 4
   store ptr %3, ptr %0, align 8
   ret void
@@ -933,13 +933,13 @@ define void @_ZN3gmx10TextWriterD2Ev(ptr nocapture noundef nonnull align 8 deref
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx10TextWriter4ImplESt14default_deleteIS2_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx10TextWriter4ImplEEclEPS2_.exit.i, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load atomic i64, ptr %7 acquire, align 8
   %9 = icmp eq i64 %8, 4294967297
   %10 = trunc i64 %8 to i32
@@ -947,10 +947,10 @@ define void @_ZN3gmx10TextWriterD2Ev(ptr nocapture noundef nonnull align 8 deref
 
 11:                                               ; preds = %6
   store i32 0, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %12, align 4
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -976,10 +976,10 @@ define void @_ZN3gmx10TextWriterD2Ev(ptr nocapture noundef nonnull align 8 deref
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
-  %28 = getelementptr inbounds i8, ptr %5, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %29 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %29, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %33, label %30
@@ -1001,7 +1001,7 @@ define void @_ZN3gmx10TextWriterD2Ev(ptr nocapture noundef nonnull align 8 deref
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %35, %11
   %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
   br label %_ZNKSt14default_deleteIN3gmx10TextWriter4ImplEEclEPS2_.exit.i
@@ -1018,7 +1018,7 @@ _ZNSt10unique_ptrIN3gmx10TextWriter4ImplESt14default_deleteIS2_EED2Ev.exit: ; pr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 4 dereferenceable(14) ptr @_ZN3gmx10TextWriter15wrapperSettingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   ret ptr %3
 }
 
@@ -1027,7 +1027,7 @@ define void @_ZN3gmx10TextWriter11writeStringEPKc(ptr nocapture noundef nonnull 
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = tail call noundef zeroext i1 @_ZNK3gmx15TextLineWrapper9isTrivialEv(ptr noundef nonnull align 4 dereferenceable(16) %6)
   %8 = load ptr, ptr %0, align 8
   br i1 %7, label %9, label %10
@@ -1101,7 +1101,7 @@ declare noundef zeroext i1 @_ZNK3gmx15TextLineWrapper9isTrivialEv(ptr noundef no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx10TextWriter4Impl14writeRawStringEPKc(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %13
@@ -1114,7 +1114,7 @@ define linkonce_odr void @_ZN3gmx10TextWriter4Impl14writeRawStringEPKc(ptr nound
 8:                                                ; preds = %6
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str)
   br label %13
@@ -1126,10 +1126,10 @@ define linkonce_odr void @_ZN3gmx10TextWriter4Impl14writeRawStringEPKc(ptr nound
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %17, align 8
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  %19 = getelementptr inbounds i8, ptr %0, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %20 = load i32, ptr %19, align 4
   %21 = trunc i64 %18 to i32
   %22 = add i32 %20, %21
@@ -1137,16 +1137,16 @@ define linkonce_odr void @_ZN3gmx10TextWriter4Impl14writeRawStringEPKc(ptr nound
   br label %44
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %14, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %25 = load i8, ptr %24, align 1
   %.not17 = icmp eq i8 %25, 0
   br i1 %.not17, label %33, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %27, align 8
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #17
-  %29 = getelementptr inbounds i8, ptr %0, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %30 = load i32, ptr %29, align 4
   %31 = trunc i64 %28 to i32
   %32 = add i32 %30, %31
@@ -1154,7 +1154,7 @@ define linkonce_odr void @_ZN3gmx10TextWriter4Impl14writeRawStringEPKc(ptr nound
   br label %44
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %0, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %34, align 4
   %.not1822 = icmp ult ptr %14, %1
   br i1 %.not1822, label %.critedge19, label %.lr.ph
@@ -1173,13 +1173,13 @@ define linkonce_odr void @_ZN3gmx10TextWriter4Impl14writeRawStringEPKc(ptr nound
   br i1 %.not18, label %.critedge19, label %.lr.ph, !llvm.loop !5
 
 .critedge:                                        ; preds = %.lr.ph
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %40, align 8
   br label %.critedge19
 
 .critedge19:                                      ; preds = %37, %33, %.critedge
   %.021 = phi i32 [ %.024, %.critedge ], [ 0, %33 ], [ %38, %37 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load i32, ptr %41, align 8
   %43 = add nsw i32 %42, %.021
   store i32 %43, ptr %41, align 8
@@ -1188,7 +1188,7 @@ define linkonce_odr void @_ZN3gmx10TextWriter4Impl14writeRawStringEPKc(ptr nound
 44:                                               ; preds = %26, %.critedge19, %16
   %45 = load ptr, ptr %0, align 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %1)
   ret void
@@ -1197,13 +1197,13 @@ define linkonce_odr void @_ZN3gmx10TextWriter4Impl14writeRawStringEPKc(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3gmx10TextWriter4Impl18writeWrappedStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZNK3gmx15TextLineWrapper12wrapToStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
   invoke void @_ZN3gmx10TextWriter4Impl14writeRawStringEPKc(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef %9)
@@ -1379,7 +1379,7 @@ declare void @llvm.va_end.p0(ptr) #11
 define void @_ZN3gmx10TextWriter9writeLineEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN3gmx10TextWriter11writeStringEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1)
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %_ZN3gmx10TextWriter15ensureLineBreakEv.exit
@@ -1395,7 +1395,7 @@ _ZN3gmx10TextWriter15ensureLineBreakEv.exit:      ; preds = %2, %7
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx10TextWriter15ensureLineBreakEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %7
@@ -1413,7 +1413,7 @@ define void @_ZN3gmx10TextWriter9writeLineERKNSt7__cxx1112basic_stringIcSt11char
   %3 = load ptr, ptr %0, align 8
   tail call void @_ZN3gmx10TextWriter4Impl18writeWrappedStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(41) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %_ZN3gmx10TextWriter15ensureLineBreakEv.exit
@@ -1440,7 +1440,7 @@ _ZN3gmx10TextWriter11writeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %_ZN3gmx10TextWriter15ensureLineBreakEv.exit
@@ -1469,7 +1469,7 @@ define void @_ZN3gmx10TextWriter9writeLineEv(ptr nocapture noundef nonnull reado
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx10TextWriter15ensureEmptyLineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %_ZN3gmx10TextWriter15ensureLineBreakEv.exit
@@ -1477,7 +1477,7 @@ define void @_ZN3gmx10TextWriter15ensureEmptyLineEv(ptr nocapture noundef nonnul
 6:                                                ; preds = %1
   tail call void @_ZN3gmx10TextWriter4Impl14writeRawStringEPKc(ptr noundef nonnull align 8 dereferenceable(41) %2, ptr noundef nonnull @.str)
   %.pre = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.pre1 = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZN3gmx10TextWriter15ensureLineBreakEv.exit
 
@@ -1488,7 +1488,7 @@ _ZN3gmx10TextWriter15ensureLineBreakEv.exit:      ; preds = %1, %6
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %_ZN3gmx10TextWriter15ensureLineBreakEv.exit
-  %11 = getelementptr inbounds i8, ptr %8, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i8 1, ptr %11, align 8
   br label %12
 

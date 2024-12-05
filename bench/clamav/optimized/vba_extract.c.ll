@@ -277,7 +277,7 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
 46:                                               ; preds = %8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull %1) #17
   %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 1024, ptr noundef nonnull @.str.1, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef %4) #17
-  %48 = getelementptr inbounds i8, ptr %9, i64 1023
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 1023
   store i8 0, ptr %48, align 1
   %49 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %9, i32 noundef 0) #17
   %50 = icmp eq i32 %49, -1
@@ -296,7 +296,7 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   %56 = load i32, ptr %6, align 4
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %6, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 @cli_gentempfd_with_prefix(ptr noundef %59, ptr noundef nonnull @.str.3, ptr noundef nonnull %7, ptr noundef nonnull %5) #17
   %.not = icmp eq i32 %60, 0
@@ -315,18 +315,18 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   br i1 %.not677, label %.preheader852, label %78
 
 .preheader852:                                    ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %40, i64 4095
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
-  %68 = getelementptr inbounds i8, ptr %0, i64 136
-  %69 = getelementptr inbounds i8, ptr %36, i64 63
-  %70 = getelementptr inbounds i8, ptr %35, i64 63
-  %71 = getelementptr inbounds i8, ptr %34, i64 63
-  %72 = getelementptr inbounds i8, ptr %33, i64 63
-  %73 = getelementptr inbounds i8, ptr %32, i64 63
-  %74 = getelementptr inbounds i8, ptr %21, i64 63
-  %75 = getelementptr inbounds i8, ptr %20, i64 63
-  %76 = getelementptr inbounds i8, ptr %19, i64 63
-  %77 = getelementptr inbounds i8, ptr %18, i64 21
+  %66 = getelementptr inbounds nuw i8, ptr %40, i64 4095
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %69 = getelementptr inbounds nuw i8, ptr %36, i64 63
+  %70 = getelementptr inbounds nuw i8, ptr %35, i64 63
+  %71 = getelementptr inbounds nuw i8, ptr %34, i64 63
+  %72 = getelementptr inbounds nuw i8, ptr %33, i64 63
+  %73 = getelementptr inbounds nuw i8, ptr %32, i64 63
+  %74 = getelementptr inbounds nuw i8, ptr %21, i64 63
+  %75 = getelementptr inbounds nuw i8, ptr %20, i64 63
+  %76 = getelementptr inbounds nuw i8, ptr %19, i64 63
+  %77 = getelementptr inbounds nuw i8, ptr %18, i64 21
   br label %.outer
 
 78:                                               ; preds = %62
@@ -2241,7 +2241,7 @@ thread-pre-split816.thread:                       ; preds = %682, %thread-pre-sp
 
 897:                                              ; preds = %888
   %898 = load ptr, ptr %67, align 8
-  %899 = getelementptr inbounds i8, ptr %898, i64 352
+  %899 = getelementptr inbounds nuw i8, ptr %898, i64 352
   %900 = load ptr, ptr %899, align 8
   %.not749 = icmp eq ptr %900, null
   br i1 %.not749, label %917, label %901
@@ -2254,7 +2254,7 @@ thread-pre-split816.thread:                       ; preds = %682, %thread-pre-sp
 
 905:                                              ; preds = %884
   %906 = load ptr, ptr %67, align 8
-  %907 = getelementptr inbounds i8, ptr %906, i64 352
+  %907 = getelementptr inbounds nuw i8, ptr %906, i64 352
   %908 = load ptr, ptr %907, align 8
   %.not746 = icmp eq ptr %908, null
   br i1 %.not746, label %913, label %909
@@ -2511,9 +2511,9 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
 
 62:                                               ; preds = %58
   %63 = zext nneg i32 %18 to i64
-  %64 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %63
   %65 = zext nneg i32 %59 to i64
-  %66 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %65
   %67 = zext nneg i16 %48 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull align 1 dereferenceable(1) %66, i64 %67, i1 false)
   %68 = add i32 %.1113, %52
@@ -2526,12 +2526,12 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %71 = add i32 %.2109, %50
   %72 = and i32 %71, 4095
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = add i32 %.2109, 1
   %77 = and i32 %.2109, 4095
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %78
   store i8 %75, ptr %79, align 1
   %.not96 = icmp eq i16 %70, 0
   br i1 %.not96, label %.loopexit, label %69
@@ -2563,7 +2563,7 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
 
 89:                                               ; preds = %80
   %90 = zext nneg i32 %18 to i64
-  %91 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %90
   %92 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %91, i64 noundef 1) #17
   %93 = icmp eq i64 %92, 1
   %94 = zext i1 %93 to i32
@@ -2812,7 +2812,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %10, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 1024, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef %21, i32 noundef %2) #17
-  %23 = getelementptr inbounds i8, ptr %9, i64 1023
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 1023
   store i8 0, ptr %23, align 1
   %24 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %9, i32 noundef 0) #17
   %25 = icmp eq i32 %24, -1
@@ -3027,8 +3027,8 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not244, label %read_uint16.exit156.thread.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %119 = getelementptr inbounds i8, ptr %116, i64 8
-  %120 = getelementptr inbounds i8, ptr %116, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 16
   br label %123
 
 121:                                              ; preds = %115
@@ -3041,7 +3041,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.0107217 = phi i16 [ 0, %.lr.ph ], [ %.1108, %200 ]
   %.0109216 = phi i32 [ 0, %.lr.ph ], [ %207, %200 ]
   %124 = load ptr, ptr %119, align 8
-  %125 = getelementptr inbounds i32, ptr %124, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv
   store i32 0, ptr %125, align 4
   %126 = call i64 @cli_readn(i32 noundef %24, ptr noundef nonnull %12, i64 noundef 2) #17
   %.not.i151 = icmp eq i64 %126, 2
@@ -3112,10 +3112,10 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 158:                                              ; preds = %152
   %159 = load i32, ptr %11, align 4
   %160 = load ptr, ptr %119, align 8
-  %161 = getelementptr inbounds i32, ptr %160, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv
   store i32 %159, ptr %161, align 4
   %162 = load ptr, ptr %119, align 8
-  %163 = getelementptr inbounds i32, ptr %162, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv
   %164 = load i32, ptr %163, align 4
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %169
@@ -3133,7 +3133,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   call void @free(ptr noundef nonnull %150) #17
   %171 = load ptr, ptr %10, align 8
   %172 = load ptr, ptr %116, align 8
-  %173 = getelementptr inbounds ptr, ptr %172, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv
   store ptr %171, ptr %173, align 8
   %174 = call i64 @cli_readn(i32 noundef %24, ptr noundef nonnull %12, i64 noundef 2) #17
   %.not.i157 = icmp eq i64 %174, 2
@@ -3202,7 +3202,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.141, i32 noundef %.0.i.i184) #17
   %203 = load i32, ptr %7, align 4
   %204 = load ptr, ptr %120, align 8
-  %205 = getelementptr inbounds i32, ptr %204, i64 %indvars.iv
+  %205 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv
   store i32 %203, ptr %205, align 4
   %206 = call i64 @lseek(i32 noundef %24, i64 noundef 2, i32 noundef 1) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3265,13 +3265,13 @@ read_uint16.exit156.thread.thread:                ; preds = %.preheader, %219, %
 224:                                              ; preds = %read_uint16.exit156.thread.thread
   %225 = load ptr, ptr %116, align 8
   call void @free(ptr noundef %225) #17
-  %226 = getelementptr inbounds i8, ptr %116, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %227 = load ptr, ptr %226, align 8
   call void @free(ptr noundef %227) #17
-  %228 = getelementptr inbounds i8, ptr %116, i64 40
+  %228 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %229 = load ptr, ptr %228, align 8
   call void @free(ptr noundef %229) #17
-  %230 = getelementptr inbounds i8, ptr %116, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %231 = load ptr, ptr %230, align 8
   call void @free(ptr noundef %231) #17
   call void @free(ptr noundef nonnull %116) #17
@@ -3389,7 +3389,7 @@ thread-pre-split:                                 ; preds = %.backedge
   br i1 %.not48, label %44, label %49
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %39, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %46 = load i8, ptr %45, align 1
   %47 = sext i8 %46 to i32
   %memchr = call ptr @memchr(ptr nonnull dereferenceable(1) @.str.162, i32 %47, i64 5)
@@ -3521,13 +3521,13 @@ define internal fastcc noundef ptr @create_vba_project(i32 noundef range(i32 1, 
   store ptr %10, ptr %4, align 8
   %11 = shl nuw nsw i64 %8, 2
   %12 = tail call ptr @cli_max_malloc(i64 noundef %11) #17
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %12, ptr %13, align 8
   %14 = tail call ptr @cli_safer_strdup(ptr noundef %1) #17
-  %15 = getelementptr inbounds i8, ptr %4, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %14, ptr %15, align 8
   %16 = tail call ptr @cli_max_malloc(i64 noundef %11) #17
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %17, align 8
   %18 = icmp eq ptr %12, null
   %19 = icmp eq ptr %10, null
@@ -3546,9 +3546,9 @@ define internal fastcc noundef ptr @create_vba_project(i32 noundef range(i32 1, 
   br label %27
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %4, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 %0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %2, ptr %26, align 8
   br label %27
 
@@ -3607,7 +3607,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %68 ]
   %.05674 = phi ptr [ %13, %.lr.ph.preheader ], [ %.2, %68 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1
   %25 = sext i8 %24 to i32
   %.not66 = icmp sgt i8 %24, -1
@@ -3617,7 +3617,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 nounde
   %27 = tail call ptr @__ctype_b_loc() #20
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i8 %24 to i64
-  %30 = getelementptr inbounds i16, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw i16, ptr %28, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 16384
   %.not67 = icmp eq i16 %32, 0
@@ -3634,11 +3634,11 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 nounde
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %.05674, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.05674, i64 1
   store i8 95, ptr %.05674, align 1
   %40 = load i8, ptr %23, align 1
   %41 = add i8 %40, 48
-  %42 = getelementptr inbounds i8, ptr %.05674, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.05674, i64 2
   store i8 %41, ptr %39, align 1
   br label %67
 
@@ -3652,29 +3652,29 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 nounde
   %46 = zext nneg i8 %24 to i32
   %47 = shl nuw nsw i32 %46, 8
   %48 = select i1 %45, i32 0, i32 %47
-  %49 = getelementptr inbounds i8, ptr %0, i64 %43
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %43
   %50 = load i8, ptr %49, align 1
   %51 = sext i8 %50 to i32
   %52 = or i32 %48, %51
-  %53 = getelementptr inbounds i8, ptr %.05674, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.05674, i64 1
   store i8 95, ptr %.05674, align 1
   %54 = and i8 %50, 15
   %55 = add nuw nsw i8 %54, 97
-  %56 = getelementptr inbounds i8, ptr %.05674, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.05674, i64 2
   store i8 %55, ptr %53, align 1
   %57 = lshr i8 %50, 4
   %58 = add nuw nsw i8 %57, 97
-  %59 = getelementptr inbounds i8, ptr %.05674, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %.05674, i64 3
   store i8 %58, ptr %56, align 1
   %60 = lshr i32 %52, 8
   %61 = trunc i32 %60 to i8
   %62 = and i8 %61, 15
   %63 = add nuw nsw i8 %62, 97
-  %64 = getelementptr inbounds i8, ptr %.05674, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.05674, i64 4
   store i8 %63, ptr %59, align 1
-  %65 = getelementptr inbounds i8, ptr %.05674, i64 5
+  %65 = getelementptr inbounds nuw i8, ptr %.05674, i64 5
   store i8 97, ptr %64, align 1
-  %66 = getelementptr inbounds i8, ptr %.05674, i64 6
+  %66 = getelementptr inbounds nuw i8, ptr %.05674, i64 6
   store i8 97, ptr %65, align 1
   br label %67
 
@@ -3685,7 +3685,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 nounde
 
 68:                                               ; preds = %33, %67
   %.1.pn = phi ptr [ %.1, %67 ], [ %.05674, %33 ]
-  %.2 = getelementptr inbounds i8, ptr %.1.pn, i64 1
+  %.2 = getelementptr inbounds nuw i8, ptr %.1.pn, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
   %69 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %69, label %.lr.ph, label %.thread._crit_edge
@@ -3742,7 +3742,7 @@ define i32 @cli_scan_ole10(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %14, label %read_uint32.exit.thread, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %7, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %17 = load i64, ptr %16, align 8
   %18 = load i32, ptr %6, align 4
   %19 = zext i32 %18 to i64
@@ -3835,7 +3835,7 @@ read_uint32.exit52:                               ; preds = %54, %15
   br i1 %.not38, label %59, label %56
 
 56:                                               ; preds = %read_uint32.exit52
-  %57 = getelementptr inbounds i8, ptr %1, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load ptr, ptr %57, align 8
   br label %59
 
@@ -3886,9 +3886,9 @@ ole_copy_file_data.exit:                          ; preds = %.lr.ph.i, %71, %66
   br i1 %.not38, label %85, label %77
 
 77:                                               ; preds = %ole_copy_file_data.exit
-  %78 = getelementptr inbounds i8, ptr %1, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load i32, ptr %80, align 8
   %.not40 = icmp eq i32 %81, 0
   br i1 %.not40, label %82, label %85
@@ -3963,7 +3963,7 @@ define ptr @cli_ppt_vba_read(i32 noundef %0, ptr noundef readonly %1) local_unna
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -3991,11 +3991,11 @@ define ptr @cli_ppt_vba_read(i32 noundef %0, ptr noundef readonly %1) local_unna
   br i1 %.not.i33.i, label %.lr.ph.i, label %ppt_read_atom_header.exit.thread.i
 
 .lr.ph.i:                                         ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %7, i64 2
-  %21 = getelementptr inbounds i8, ptr %7, i64 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %25
 
 ppt_read_atom_header.exit.thread.i:               ; preds = %99, %18
@@ -4229,7 +4229,7 @@ word_read_fib.exit.thread:                        ; preds = %seekandread.exit.th
 
 15:                                               ; preds = %seekandread.exit.i
   %16 = load i32, ptr %9, align 4
-  %17 = getelementptr inbounds i8, ptr %9, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %18 = load i32, ptr %17, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %19 = icmp eq i32 %18, 0
@@ -4256,14 +4256,14 @@ word_read_fib.exit.thread:                        ; preds = %seekandread.exit.th
   %27 = add i32 %18, %16
   %28 = zext i32 %27 to i64
   store ptr null, ptr %11, align 8
-  %29 = getelementptr inbounds i8, ptr %11, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i16 0, ptr %29, align 8
   %30 = call i64 @lseek(i32 noundef %0, i64 noundef 0, i32 noundef 1) #17
   %31 = icmp slt i64 %30, %28
   br i1 %31, label %.lr.ph, label %.loopexit100
 
 .lr.ph:                                           ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %8, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %33
 
 33:                                               ; preds = %.lr.ph, %word_read_macro_info.exit
@@ -4363,19 +4363,19 @@ word_read_fib.exit.thread:                        ; preds = %seekandread.exit.th
   %.025.i.i = phi i16 [ %57, %69 ], [ %82, %71 ]
   %.024.i.i = phi ptr [ %70, %69 ], [ %80, %71 ]
   %.0.i16.i = phi ptr [ %63, %69 ], [ %81, %71 ]
-  %72 = getelementptr inbounds i8, ptr %.0.i16.i, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i16.i, i64 1
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %.024.i.i, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 8
   store i8 %73, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %.0.i16.i, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i16.i, i64 12
   %76 = load i32, ptr %75, align 1
   store i32 %76, ptr %.024.i.i, align 4
-  %77 = getelementptr inbounds i8, ptr %.0.i16.i, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %.0.i16.i, i64 20
   %78 = load i32, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.024.i.i, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 4
   store i32 %78, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %.024.i.i, i64 12
-  %81 = getelementptr inbounds i8, ptr %.0.i16.i, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %.0.i16.i, i64 24
   %82 = add i16 %.025.i.i, -1
   %.not28.i.i = icmp eq i16 %82, 0
   br i1 %.not28.i.i, label %83, label %71
@@ -4678,12 +4678,12 @@ word_read_macro_info.exit:                        ; preds = %word_skip_macro_int
   %194 = zext i16 %193 to i64
   %195 = shl nuw nsw i64 %194, 2
   %196 = call ptr @cli_max_malloc(i64 noundef %195) #17
-  %197 = getelementptr inbounds i8, ptr %191, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %191, i64 24
   store ptr %196, ptr %197, align 8
   %198 = load i16, ptr %29, align 8
   %199 = zext i16 %198 to i64
   %200 = call ptr @cli_max_malloc(i64 noundef %199) #17
-  %201 = getelementptr inbounds i8, ptr %191, i64 32
+  %201 = getelementptr inbounds nuw i8, ptr %191, i64 32
   store ptr %200, ptr %201, align 8
   %202 = load ptr, ptr %197, align 8
   %.not56 = icmp eq ptr %202, null
@@ -4698,27 +4698,27 @@ word_read_macro_info.exit:                        ; preds = %word_skip_macro_int
 
 .lr.ph104:                                        ; preds = %203
   %205 = load ptr, ptr %11, align 8
-  %206 = getelementptr inbounds i8, ptr %191, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %191, i64 16
   br label %207
 
 207:                                              ; preds = %.lr.ph104, %207
   %indvars.iv = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next, %207 ]
   %.0103 = phi ptr [ %205, %.lr.ph104 ], [ %219, %207 ]
-  %208 = getelementptr inbounds i8, ptr %.0103, i64 4
+  %208 = getelementptr inbounds nuw i8, ptr %.0103, i64 4
   %209 = load i32, ptr %208, align 4
   %210 = load ptr, ptr %206, align 8
-  %211 = getelementptr inbounds i32, ptr %210, i64 %indvars.iv
+  %211 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv
   store i32 %209, ptr %211, align 4
   %212 = load i32, ptr %.0103, align 4
   %213 = load ptr, ptr %197, align 8
-  %214 = getelementptr inbounds i32, ptr %213, i64 %indvars.iv
+  %214 = getelementptr inbounds nuw i32, ptr %213, i64 %indvars.iv
   store i32 %212, ptr %214, align 4
-  %215 = getelementptr inbounds i8, ptr %.0103, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %.0103, i64 8
   %216 = load i8, ptr %215, align 4
   %217 = load ptr, ptr %201, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 %indvars.iv
   store i8 %216, ptr %218, align 1
-  %219 = getelementptr inbounds i8, ptr %.0103, i64 12
+  %219 = getelementptr inbounds nuw i8, ptr %.0103, i64 12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %220 = load i16, ptr %29, align 8
   %221 = zext i16 %220 to i64
@@ -4729,13 +4729,13 @@ word_read_macro_info.exit:                        ; preds = %word_skip_macro_int
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.154) #17
   %224 = load ptr, ptr %191, align 8
   call void @free(ptr noundef %224) #17
-  %225 = getelementptr inbounds i8, ptr %191, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %226 = load ptr, ptr %225, align 8
   call void @free(ptr noundef %226) #17
-  %227 = getelementptr inbounds i8, ptr %191, i64 40
+  %227 = getelementptr inbounds nuw i8, ptr %191, i64 40
   %228 = load ptr, ptr %227, align 8
   call void @free(ptr noundef %228) #17
-  %229 = getelementptr inbounds i8, ptr %191, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %230 = load ptr, ptr %229, align 8
   call void @free(ptr noundef %230) #17
   %231 = load ptr, ptr %197, align 8
@@ -4812,7 +4812,7 @@ seekandread.exit:                                 ; preds = %12
   br i1 %.not23, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
-  %18 = getelementptr inbounds i8, ptr %9, i64 %8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 %8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4820,7 +4820,7 @@ seekandread.exit:                                 ; preds = %12
   %19 = load i8, ptr %.026, align 1
   %20 = xor i8 %19, %3
   store i8 %20, ptr %.026, align 1
-  %21 = getelementptr inbounds i8, ptr %.026, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   %22 = icmp ult ptr %21, %18
   br i1 %22, label %.lr.ph, label %.loopexit
 
@@ -4835,7 +4835,7 @@ define void @cli_free_vba_project(ptr noundef %0) local_unnamed_addr #10 {
   br i1 %.not, label %26, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not20 = icmp eq ptr %4, null
   br i1 %.not20, label %6, label %5
@@ -4845,7 +4845,7 @@ define void @cli_free_vba_project(ptr noundef %0) local_unnamed_addr #10 {
   br label %6
 
 6:                                                ; preds = %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not21 = icmp eq ptr %8, null
   br i1 %.not21, label %10, label %9
@@ -4864,7 +4864,7 @@ define void @cli_free_vba_project(ptr noundef %0) local_unnamed_addr #10 {
   br label %13
 
 13:                                               ; preds = %12, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not23 = icmp eq ptr %15, null
   br i1 %.not23, label %17, label %16
@@ -4874,7 +4874,7 @@ define void @cli_free_vba_project(ptr noundef %0) local_unnamed_addr #10 {
   br label %17
 
 17:                                               ; preds = %16, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not24 = icmp eq ptr %19, null
   br i1 %.not24, label %21, label %20
@@ -4884,7 +4884,7 @@ define void @cli_free_vba_project(ptr noundef %0) local_unnamed_addr #10 {
   br label %21
 
 21:                                               ; preds = %20, %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not25 = icmp eq ptr %23, null
   br i1 %.not25, label %25, label %24

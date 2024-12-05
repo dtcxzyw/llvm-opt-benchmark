@@ -70,11 +70,11 @@ define range(i32 0, 2) i32 @jq_set_colors(ptr noundef %0) local_unnamed_addr #0 
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds [8 x [16 x i8]], ptr @color_bufs, i64 0, i64 %.138
+  %16 = getelementptr inbounds nuw [8 x [16 x i8]], ptr @color_bufs, i64 0, i64 %.138
   store i8 27, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i8 91, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %16, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef nonnull %.03137, i64 noundef %13) #11
   %20 = tail call i64 @strspn(ptr noundef nonnull %18, ptr noundef nonnull @.str.1) #10
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #10
@@ -83,14 +83,14 @@ define range(i32 0, 2) i32 @jq_set_colors(ptr noundef %0) local_unnamed_addr #0 
 
 23:                                               ; preds = %15
   %24 = add nuw nsw i64 %13, 2
-  %25 = getelementptr inbounds [8 x [16 x i8]], ptr @color_bufs, i64 0, i64 %.138, i64 %24
+  %25 = getelementptr inbounds nuw [8 x [16 x i8]], ptr @color_bufs, i64 0, i64 %.138, i64 %24
   store i8 109, ptr %25, align 1
-  %26 = getelementptr inbounds [8 x ptr], ptr @color_bufps, i64 0, i64 %.138
+  %26 = getelementptr inbounds nuw [8 x ptr], ptr @color_bufps, i64 0, i64 %.138
   store ptr %16, ptr %26, align 8
   %27 = load i8, ptr %.029, align 1
   %28 = icmp eq i8 %27, 58
   %spec.select.idx = zext i1 %28 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.029, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.029, i64 %spec.select.idx
   %29 = add nuw nsw i64 %.138, 1
   %exitcond.not = icmp eq i64 %29, 8
   br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !4
@@ -173,7 +173,7 @@ define internal fastcc void @jv_dump_term(ptr noundef %0, i64 %1, ptr %2, i32 no
 36:                                               ; preds = %28
   %37 = trunc i64 %35 to i32
   %38 = load i64, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call { i64, ptr } @jv_string_append_buf(i64 %38, ptr %40, ptr noundef %34, i32 noundef %37) #11
   %42 = extractvalue { i64, ptr } %41, 0
@@ -200,7 +200,7 @@ put_str.exit.thread:                              ; preds = %28
 
 49:                                               ; preds = %48
   %50 = load i64, ptr %6, align 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = tail call { i64, ptr } @jv_string_append_buf(i64 %50, ptr %52, ptr noundef nonnull @.str.8, i32 noundef 19) #11
   %54 = extractvalue { i64, ptr } %53, 0
@@ -260,7 +260,7 @@ put_str.exit.thread:                              ; preds = %28
 
 74:                                               ; preds = %73
   %75 = load i64, ptr %6, align 8
-  %76 = getelementptr inbounds i8, ptr %6, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = tail call { i64, ptr } @jv_string_append_buf(i64 %75, ptr %77, ptr noundef nonnull @.str.12, i32 noundef 4) #11
   %79 = extractvalue { i64, ptr } %78, 0
@@ -279,7 +279,7 @@ put_str.exit.thread:                              ; preds = %28
 
 84:                                               ; preds = %83
   %85 = load i64, ptr %6, align 8
-  %86 = getelementptr inbounds i8, ptr %6, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = tail call { i64, ptr } @jv_string_append_buf(i64 %85, ptr %87, ptr noundef nonnull @.str.13, i32 noundef 5) #11
   %89 = extractvalue { i64, ptr } %88, 0
@@ -298,7 +298,7 @@ put_str.exit.thread:                              ; preds = %28
 
 94:                                               ; preds = %93
   %95 = load i64, ptr %6, align 8
-  %96 = getelementptr inbounds i8, ptr %6, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = tail call { i64, ptr } @jv_string_append_buf(i64 %95, ptr %97, ptr noundef nonnull @.str.14, i32 noundef 4) #11
   %99 = extractvalue { i64, ptr } %98, 0
@@ -373,7 +373,7 @@ put_str.exit.thread:                              ; preds = %28
 
 130:                                              ; preds = %129
   %131 = load i64, ptr %6, align 8
-  %132 = getelementptr inbounds i8, ptr %6, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = tail call { i64, ptr } @jv_string_append_buf(i64 %131, ptr %133, ptr noundef nonnull @.str.15, i32 noundef 2) #11
   %135 = extractvalue { i64, ptr } %134, 0
@@ -391,7 +391,7 @@ put_str.exit.thread:                              ; preds = %28
 
 140:                                              ; preds = %139
   %141 = load i64, ptr %6, align 8
-  %142 = getelementptr inbounds i8, ptr %6, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = tail call { i64, ptr } @jv_string_append_buf(i64 %141, ptr %143, ptr noundef nonnull @.str.16, i32 noundef 1) #11
   %145 = extractvalue { i64, ptr } %144, 0
@@ -410,7 +410,7 @@ put_str.exit372:                                  ; preds = %140, %147
   %150 = extractvalue { i64, ptr } %148, 1
   %151 = tail call i32 @jv_array_length(i64 %149, ptr %150) #11
   %.not333 = icmp eq ptr %.0439, null
-  %152 = getelementptr inbounds i8, ptr %6, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %153 = and i32 %3, 1
   %.not335451 = icmp eq i32 %153, 0
   %154 = add nsw i32 %4, 1
@@ -633,7 +633,7 @@ put_char.exit388:                                 ; preds = %209, %215
 
 224:                                              ; preds = %223
   %225 = load i64, ptr %6, align 8
-  %226 = getelementptr inbounds i8, ptr %6, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %227 = load ptr, ptr %226, align 8
   %228 = tail call { i64, ptr } @jv_string_append_buf(i64 %225, ptr %227, ptr noundef nonnull @.str.18, i32 noundef 2) #11
   %229 = extractvalue { i64, ptr } %228, 0
@@ -654,7 +654,7 @@ put_char.exit388:                                 ; preds = %209, %215
 
 234:                                              ; preds = %233
   %235 = load i64, ptr %6, align 8
-  %236 = getelementptr inbounds i8, ptr %6, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %237 = load ptr, ptr %236, align 8
   %238 = call { i64, ptr } @jv_string_append_buf(i64 %235, ptr %237, ptr noundef nonnull %14, i32 noundef 1) #11
   %239 = extractvalue { i64, ptr } %238, 0
@@ -675,7 +675,7 @@ put_char.exit394:                                 ; preds = %234, %241
   %245 = and i32 %3, 8
   %.not338 = icmp eq i32 %245, 0
   %.not345 = icmp eq ptr %.0439, null
-  %246 = getelementptr inbounds i8, ptr %6, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %247 = and i32 %3, 1
   %.not347458 = icmp eq i32 %247, 0
   %248 = add nsw i32 %4, 1
@@ -842,7 +842,7 @@ put_str.exit403.thread465:                        ; preds = %313
 
 .thread470.thread:                                ; preds = %put_str.exit403.thread465
   %315 = load ptr, ptr @colors, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 56
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 56
   %317 = load ptr, ptr %316, align 8
   %318 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %317) #10
   br label %350
@@ -864,7 +864,7 @@ put_str.exit403.thread:                           ; preds = %313
 
 .thread470.thread487:                             ; preds = %put_str.exit403.thread
   %324 = load ptr, ptr @colors, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 56
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 56
   %326 = load ptr, ptr %325, align 8
   %327 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %326) #10
   br label %341
@@ -905,7 +905,7 @@ put_str.exit403.thread:                           ; preds = %313
 
 .thread470:                                       ; preds = %336
   %337 = load ptr, ptr @colors, align 8
-  %338 = getelementptr inbounds i8, ptr %337, i64 56
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 56
   %339 = load ptr, ptr %338, align 8
   %340 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %339) #10
   br i1 %.not.i.i392, label %350, label %.thread470._crit_edge
@@ -1116,7 +1116,7 @@ put_str.exit357:                                  ; preds = %231, %224, %137, %1
 
 409:                                              ; preds = %408
   %410 = load i64, ptr %6, align 8
-  %411 = getelementptr inbounds i8, ptr %6, i64 8
+  %411 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %412 = load ptr, ptr %411, align 8
   %413 = call { i64, ptr } @jv_string_append_buf(i64 %410, ptr %412, ptr noundef nonnull @.str.17, i32 noundef 4) #11
   %414 = extractvalue { i64, ptr } %413, 0
@@ -1170,7 +1170,7 @@ define { i64, ptr } @jv_dump_string(i64 %0, ptr %1, i32 noundef %2) local_unname
   %5 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.2) #11
   %6 = extractvalue { i64, ptr } %5, 0
   store i64 %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = extractvalue { i64, ptr } %5, 1
   store ptr %8, ptr %7, align 8
   %9 = tail call ptr (...) @tsd_dtoa_context_get() #11
@@ -1191,7 +1191,7 @@ define noundef ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef returned %2
   %6 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.2) #11
   %7 = extractvalue { i64, ptr } %6, 0
   store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = extractvalue { i64, ptr } %6, 1
   store ptr %9, ptr %8, align 8
   %10 = tail call ptr (...) @tsd_dtoa_context_get() #11
@@ -1242,7 +1242,7 @@ define internal fastcc void @put_str(ptr noundef %0, ptr nocapture noundef %1, p
 5:                                                ; preds = %3
   %6 = trunc i64 %4 to i32
   %7 = load i64, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call { i64, ptr } @jv_string_append_buf(i64 %7, ptr %9, ptr noundef %0, i32 noundef %6) #11
   %11 = extractvalue { i64, ptr } %10, 0
@@ -1296,7 +1296,7 @@ define internal fastcc void @jvp_dump_string(i64 %0, ptr %1, i32 noundef %2, ptr
 
 29:                                               ; preds = %5
   %30 = load i64, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = call { i64, ptr } @jv_string_append_buf(i64 %30, ptr %32, ptr noundef nonnull %19, i32 noundef 1) #11
   %34 = extractvalue { i64, ptr } %33, 0
@@ -1317,7 +1317,7 @@ put_char.exit:                                    ; preds = %29, %36
 
 .lr.ph:                                           ; preds = %put_char.exit
   %.not67 = icmp eq i32 %2, 0
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %39
 
 39:                                               ; preds = %.lr.ph, %.critedge
@@ -1653,7 +1653,7 @@ put_char.exit104:                                 ; preds = %111, %120
 
 160:                                              ; preds = %._crit_edge
   %161 = load i64, ptr %4, align 8
-  %162 = getelementptr inbounds i8, ptr %4, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %163 = load ptr, ptr %162, align 8
   %164 = call { i64, ptr } @jv_string_append_buf(i64 %161, ptr %163, ptr noundef nonnull %6, i32 noundef 1) #11
   %165 = extractvalue { i64, ptr } %164, 0
@@ -1694,7 +1694,7 @@ define internal fastcc void @put_refcnt(ptr noundef %0, i32 noundef %1, ptr noca
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = call { i64, ptr } @jv_string_append_buf(i64 %10, ptr %12, ptr noundef nonnull %7, i32 noundef 1) #11
   %14 = extractvalue { i64, ptr } %13, 0
@@ -1728,7 +1728,7 @@ put_char.exit15:                                  ; preds = %9, %19
 23:                                               ; preds = %put_char.exit15
   %24 = trunc i64 %22 to i32
   %25 = load i64, ptr %3, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = call { i64, ptr } @jv_string_append_buf(i64 %25, ptr %27, ptr noundef %21, i32 noundef %24) #11
   %29 = extractvalue { i64, ptr } %28, 0
@@ -1770,7 +1770,7 @@ define internal fastcc void @put_char(i8 noundef signext %0, ptr nocapture nound
 
 5:                                                ; preds = %3
   %6 = load i64, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = call { i64, ptr } @jv_string_append_buf(i64 %6, ptr %8, ptr noundef nonnull %4, i32 noundef 1) #11
   %10 = extractvalue { i64, ptr } %9, 0
@@ -1802,7 +1802,7 @@ define internal fastcc void @put_indent(i32 noundef %0, i32 noundef %1, ptr noca
 
 .lr.ph:                                           ; preds = %.preheader
   %.not.i.i = icmp eq ptr %3, null
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not.i.i, label %put_char.exit.us, label %put_char.exit.preheader
 
 put_char.exit.preheader:                          ; preds = %.lr.ph
@@ -1844,7 +1844,7 @@ put_char.exit:                                    ; preds = %put_char.exit.prehe
 
 .lr.ph20:                                         ; preds = %16
   %.not.i.i12 = icmp eq ptr %3, null
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not.i.i12, label %put_char.exit14.us, label %put_char.exit14.preheader
 
 put_char.exit14.preheader:                        ; preds = %.lr.ph20

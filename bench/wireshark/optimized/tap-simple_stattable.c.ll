@@ -18,21 +18,21 @@ define hidden noundef zeroext i1 @register_simple_stat_tables(ptr noundef %0, pt
   %4 = alloca %struct._stat_tap_ui, align 8
   %5 = load i32, ptr %1, align 8
   store i32 %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @simple_stat_init, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %15, ptr %16, align 8
   call void @register_stat_tap_ui(ptr noundef nonnull %4, ptr noundef nonnull %1) #6
   ret i1 false
@@ -61,16 +61,16 @@ define internal void @simple_stat_init(ptr noundef %0, ptr noundef %1) #0 {
   %10 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #8
   %11 = call noalias ptr @g_strdup(ptr noundef %9) #6
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %10, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef %1) #6
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @register_tap_listener(ptr noundef %17, ptr noundef nonnull %12, ptr noundef %9, i32 noundef 0, ptr noundef null, ptr noundef %19, ptr noundef nonnull @simple_draw, ptr noundef nonnull @simple_finish) #6
   %.not.i = icmp eq ptr %20, null
@@ -108,12 +108,12 @@ declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 no
 ; Function Attrs: nounwind uwtable
 define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca [250 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %putchar = tail call i32 @putchar(i32 10)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %7)
   %9 = load ptr, ptr %4, align 8
@@ -121,26 +121,26 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
   %spec.select = select i1 %.not, ptr @.str.6, ptr %9
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef nonnull %spec.select)
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load i64, ptr %12, align 8
   %.not60 = icmp eq i64 %13, 0
   br i1 %.not60, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %11, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %15 = load ptr, ptr %14, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.045 = phi i64 [ %19, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.03644 = phi ptr [ %20, %.lr.ph ], [ %15, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds i8, ptr %.03644, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.03644, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %17)
   %19 = add nuw i64 %.045, 1
   %20 = getelementptr i8, ptr %.03644, i64 24
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %23 = load i64, ptr %22, align 8
   %24 = icmp ult i64 %19, %23
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !5
@@ -148,9 +148,9 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %putchar40 = tail call i32 @putchar(i32 10)
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 104
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8
   %.not61 = icmp eq i32 %29, 0
   br i1 %.not61, label %._crit_edge59, label %.lr.ph58
@@ -163,13 +163,13 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
   %puts42 = tail call i32 @puts(ptr nonnull dereferenceable(1) %34)
-  %35 = getelementptr inbounds i8, ptr %33, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %36 = load i32, ptr %35, align 4
   %.not62 = icmp eq i32 %36, 0
   br i1 %.not62, label %._crit_edge55, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %.lr.ph58
-  %37 = getelementptr inbounds i8, ptr %33, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
   br label %38
 
 38:                                               ; preds = %.lr.ph54, %._crit_edge50
@@ -180,7 +180,7 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
 
 .lr.ph49.preheader:                               ; preds = %38
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8
   br label %.lr.ph49
 
@@ -193,7 +193,7 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
   br i1 %45, label %._crit_edge50, label %46
 
 46:                                               ; preds = %.lr.ph49
-  %47 = getelementptr inbounds i8, ptr %.147, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.147, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 250, ptr noundef nonnull @.str.7, ptr noundef %48) #6
   %50 = load i32, ptr %.147, align 8
@@ -206,31 +206,31 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
   ]
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %43, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %53)
   br label %71
 
 55:                                               ; preds = %46
-  %56 = getelementptr inbounds i8, ptr %43, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %57 = load i32, ptr %56, align 8
   %58 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %57)
   br label %71
 
 59:                                               ; preds = %46
-  %60 = getelementptr inbounds i8, ptr %43, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef %61)
   br label %71
 
 63:                                               ; preds = %46
-  %64 = getelementptr inbounds i8, ptr %43, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %65 = load double, ptr %64, align 8
   %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %2, double noundef %65)
   br label %71
 
 67:                                               ; preds = %46
-  %68 = getelementptr inbounds i8, ptr %43, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %69 = load i32, ptr %68, align 8
   %70 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %69)
   br label %71
@@ -252,9 +252,9 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
 ._crit_edge55:                                    ; preds = %._crit_edge50, %.lr.ph58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 104
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 104
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i32, ptr %82, align 8
   %84 = zext i32 %83 to i64
   %85 = icmp samesign ult i64 %indvars.iv.next, %84
@@ -267,7 +267,7 @@ define internal void @simple_draw(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @simple_finish(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #6
   ret void

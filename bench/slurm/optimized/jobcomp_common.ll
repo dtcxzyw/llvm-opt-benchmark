@@ -149,13 +149,13 @@ define void @jobcomp_common_write_state_file(ptr nocapture noundef readonly %0, 
 
 14:                                               ; preds = %2
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.8) #7
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph.preheader, label %.outer._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   br label %.lr.ph.split.us
 
@@ -199,7 +199,7 @@ define void @jobcomp_common_write_state_file(ptr nocapture noundef readonly %0, 
   %.us-phi = phi i64 [ %21, %.lr.ph.split.us ], [ %28, %27 ]
   %.us-phi35 = phi i32 [ %22, %.lr.ph.split.us ], [ %29, %27 ]
   %35 = and i64 %.us-phi, 2147483647
-  %36 = getelementptr inbounds i8, ptr %.021.ph46, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %.021.ph46, i64 %35
   %37 = sub nsw i32 %.022.ph44, %.us-phi35
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %39, label %.outer._crit_edge
@@ -330,23 +330,23 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   store ptr %13, ptr %5, align 8
   %14 = tail call ptr @group_from_job(ptr noundef %0) #7
   store ptr %14, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 944
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, -2
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 664
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
-  %21 = getelementptr inbounds i8, ptr %20, i64 212
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 212
   %spec.select = select i1 %.not, ptr %15, ptr %21
   %.0198.pr = load i32, ptr %spec.select, align 4
   br label %22
 
 22:                                               ; preds = %18, %1
   %.0198 = phi i32 [ %.0198.pr, %18 ], [ %16, %1 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 448
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 8192
   %.not228 = icmp eq i32 %25, 0
@@ -357,10 +357,10 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   store i64 %27, ptr %9, align 8
   %28 = load i32, ptr %23, align 8
   %29 = tail call ptr @job_state_string(i32 noundef %28) #7
-  %30 = getelementptr inbounds i8, ptr %0, i64 784
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %31 = load i64, ptr %30, align 8
   %.not230 = icmp eq i64 %31, 0
-  %32 = getelementptr inbounds i8, ptr %0, i64 888
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %.sink = select i1 %.not230, ptr %32, ptr %30
   call void @parse_time_make_str_utc(ptr noundef nonnull %.sink, ptr noundef nonnull %2, i32 noundef 32) #7
   br label %49
@@ -368,7 +368,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 33:                                               ; preds = %22
   %34 = and i32 %24, 255
   %35 = tail call ptr @job_state_string(i32 noundef %34) #7
-  %36 = getelementptr inbounds i8, ptr %0, i64 784
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %37 = load i64, ptr %36, align 8
   %.not229 = icmp eq i64 %37, 0
   br i1 %.not229, label %39, label %38
@@ -378,9 +378,9 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br label %47
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 888
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 232
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %43 = load i64, ptr %42, align 8
   %44 = icmp sgt i64 %41, %43
   br i1 %44, label %45, label %46
@@ -394,20 +394,20 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br label %47
 
 47:                                               ; preds = %45, %46, %38
-  %48 = getelementptr inbounds i8, ptr %0, i64 232
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 232
   br label %49
 
 49:                                               ; preds = %47, %26
   %.sink400 = phi ptr [ %48, %47 ], [ %9, %26 ]
   %.0197 = phi ptr [ %35, %47 ], [ %29, %26 ]
   call void @parse_time_make_str_utc(ptr noundef nonnull %.sink400, ptr noundef nonnull %3, i32 noundef 32) #7
-  %50 = getelementptr inbounds i8, ptr %0, i64 232
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %51 = load i64, ptr %50, align 8
   %.not231 = icmp eq i64 %51, 0
   br i1 %.not231, label %57, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 888
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %54 = load i64, ptr %53, align 8
   %.not232 = icmp ne i64 %54, 0
   %55 = icmp slt i64 %54, %51
@@ -418,7 +418,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 57:                                               ; preds = %52, %49
   %.0199 = phi i64 [ 0, %49 ], [ %spec.select280, %52 ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 212
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %59, -2
   br i1 %60, label %70, label %61
@@ -443,7 +443,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   %.0202 = phi i32 [ 0, %57 ], [ %69, %67 ], [ 0, %65 ], [ 0, %61 ]
   %.0200 = phi i32 [ 0, %57 ], [ 0, %67 ], [ 0, %65 ], [ %62, %61 ]
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.15, i32 noundef %.0202, i32 noundef %.0200) #7
-  %71 = getelementptr inbounds i8, ptr %0, i64 252
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, -2
   br i1 %73, label %83, label %74
@@ -471,25 +471,25 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   %84 = call ptr @data_new() #7
   %85 = call ptr @data_set_dict(ptr noundef %84) #7
   %86 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.16) #7
-  %87 = getelementptr inbounds i8, ptr %0, i64 392
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %88 = load i32, ptr %87, align 8
   %89 = zext i32 %88 to i64
   %90 = call ptr @data_set_int(ptr noundef %86, i64 noundef %89) #7
   %91 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.17) #7
-  %92 = getelementptr inbounds i8, ptr %0, i64 152
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %93 = load ptr, ptr %92, align 8
   %94 = call ptr @data_set_string(ptr noundef %91, ptr noundef %93) #7
   %95 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.18) #7
   %96 = call ptr @data_set_string(ptr noundef %95, ptr noundef %13) #7
   %97 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.19) #7
-  %98 = getelementptr inbounds i8, ptr %0, i64 1064
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %99 = load i32, ptr %98, align 8
   %100 = zext i32 %99 to i64
   %101 = call ptr @data_set_int(ptr noundef %97, i64 noundef %100) #7
   %102 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.20) #7
   %103 = call ptr @data_set_string(ptr noundef %102, ptr noundef %14) #7
   %104 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.21) #7
-  %105 = getelementptr inbounds i8, ptr %0, i64 344
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %106 = load i32, ptr %105, align 8
   %107 = zext i32 %106 to i64
   %108 = call ptr @data_set_int(ptr noundef %104, i64 noundef %107) #7
@@ -500,24 +500,24 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   %113 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.24) #7
   %114 = call ptr @data_set_int(ptr noundef %113, i64 noundef %.0199) #7
   %115 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.25) #7
-  %116 = getelementptr inbounds i8, ptr %0, i64 640
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %117 = load ptr, ptr %116, align 8
   %118 = call ptr @data_set_string(ptr noundef %115, ptr noundef %117) #7
   %119 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.26) #7
-  %120 = getelementptr inbounds i8, ptr %0, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %121 = load ptr, ptr %120, align 8
   %122 = call ptr @data_set_string(ptr noundef %119, ptr noundef %121) #7
   %123 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.27) #7
-  %124 = getelementptr inbounds i8, ptr %0, i64 560
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %125 = load ptr, ptr %124, align 8
   %126 = call ptr @data_set_string(ptr noundef %123, ptr noundef %125) #7
   %127 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.28) #7
-  %128 = getelementptr inbounds i8, ptr %0, i64 960
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %129 = load i32, ptr %128, align 8
   %130 = zext i32 %129 to i64
   %131 = call ptr @data_set_int(ptr noundef %127, i64 noundef %130) #7
   %132 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.29) #7
-  %133 = getelementptr inbounds i8, ptr %0, i64 964
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 964
   %134 = load i32, ptr %133, align 4
   %135 = zext i32 %134 to i64
   %136 = call ptr @data_set_int(ptr noundef %132, i64 noundef %135) #7
@@ -530,7 +530,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   %141 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.32) #7
   %142 = call ptr @data_set_string(ptr noundef %141, ptr noundef %.0197) #7
   %143 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.33) #7
-  %144 = getelementptr inbounds i8, ptr %0, i64 272
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %145 = load ptr, ptr %144, align 8
   %146 = call ptr @data_set_string(ptr noundef %143, ptr noundef %145) #7
   %147 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.34) #7
@@ -541,14 +541,14 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   %152 = fdiv float %151, 3.600000e+03
   %153 = fpext float %152 to double
   %154 = call ptr @data_set_float(ptr noundef %147, double noundef %153) #7
-  %155 = getelementptr inbounds i8, ptr %0, i64 52
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %156 = load i32, ptr %155, align 4
   %.not234 = icmp eq i32 %156, -2
   br i1 %.not234, label %167, label %157
 
 157:                                              ; preds = %83
   %158 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.35) #7
-  %159 = getelementptr inbounds i8, ptr %0, i64 48
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %160 = load i32, ptr %159, align 8
   %161 = zext i32 %160 to i64
   %162 = call ptr @data_set_int(ptr noundef %158, i64 noundef %161) #7
@@ -559,7 +559,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br label %167
 
 167:                                              ; preds = %157, %83
-  %168 = getelementptr inbounds i8, ptr %0, i64 360
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %169 = load i32, ptr %168, align 8
   %.not235 = icmp eq i32 %169, -2
   br i1 %.not235, label %188, label %170
@@ -570,7 +570,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   %173 = zext i32 %172 to i64
   %174 = call ptr @data_set_int(ptr noundef %171, i64 noundef %173) #7
   %175 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.38) #7
-  %176 = getelementptr inbounds i8, ptr %0, i64 376
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %177 = load i32, ptr %176, align 8
   %178 = zext i32 %177 to i64
   %179 = call ptr @data_set_int(ptr noundef %175, i64 noundef %178) #7
@@ -585,13 +585,13 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br label %188
 
 188:                                              ; preds = %170, %167
-  %189 = getelementptr inbounds i8, ptr %0, i64 216
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %190 = load ptr, ptr %189, align 8
   %.not236 = icmp eq ptr %190, null
   br i1 %.not236, label %.thread297, label %191
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %190, i64 448
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 448
   %193 = load i64, ptr %192, align 8
   %.not237 = icmp eq i64 %193, 0
   br i1 %.not237, label %.thread, label %194
@@ -606,7 +606,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 .thread:                                          ; preds = %191, %194
   %.pr363 = phi ptr [ %.pr.pre, %194 ], [ %190, %191 ]
-  %197 = getelementptr inbounds i8, ptr %.pr363, i64 48
+  %197 = getelementptr inbounds nuw i8, ptr %.pr363, i64 48
   %198 = load i64, ptr %197, align 8
   %.not239 = icmp eq i64 %198, 0
   br i1 %.not239, label %.thread364, label %199
@@ -615,14 +615,14 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   call void @parse_time_make_str_utc(ptr noundef nonnull %197, ptr noundef nonnull %4, i32 noundef 32) #7
   %200 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.42) #7
   %201 = call ptr @data_set_string(ptr noundef %200, ptr noundef nonnull %4) #7
-  %202 = getelementptr inbounds i8, ptr %0, i64 888
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %203 = load i64, ptr %202, align 8
   %.not240 = icmp eq i64 %203, 0
   %.pr283.pre350 = load ptr, ptr %189, align 8
   br i1 %.not240, label %211, label %204
 
 204:                                              ; preds = %199
-  %205 = getelementptr inbounds i8, ptr %.pr283.pre350, i64 48
+  %205 = getelementptr inbounds nuw i8, ptr %.pr283.pre350, i64 48
   %206 = load i64, ptr %205, align 8
   %207 = call double @difftime(i64 noundef %203, i64 noundef %206) #8
   %208 = fptosi double %207 to i64
@@ -638,7 +638,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 .thread364:                                       ; preds = %.thread, %211
   %.pr283367 = phi ptr [ %.pr283, %211 ], [ %.pr363, %.thread ]
-  %212 = getelementptr inbounds i8, ptr %.pr283367, i64 472
+  %212 = getelementptr inbounds nuw i8, ptr %.pr283367, i64 472
   %213 = load ptr, ptr %212, align 8
   %.not242 = icmp eq ptr %213, null
   br i1 %.not242, label %.thread284.thread, label %.thread284
@@ -646,7 +646,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 .thread284:                                       ; preds = %.thread364
   %214 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.44) #7
   %215 = load ptr, ptr %189, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 472
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 472
   %217 = load ptr, ptr %216, align 8
   %218 = call ptr @data_set_string(ptr noundef %214, ptr noundef %217) #7
   %.pr287.pr.pre = load ptr, ptr %189, align 8
@@ -655,7 +655,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 .thread284.thread:                                ; preds = %.thread364, %.thread284
   %.pr287.pr370 = phi ptr [ %.pr287.pr.pre, %.thread284 ], [ %.pr283367, %.thread364 ]
-  %219 = getelementptr inbounds i8, ptr %.pr287.pr370, i64 416
+  %219 = getelementptr inbounds nuw i8, ptr %.pr287.pr370, i64 416
   %220 = load ptr, ptr %219, align 8
   %.not244 = icmp eq ptr %220, null
   br i1 %.not244, label %.thread371, label %221
@@ -663,7 +663,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 221:                                              ; preds = %.thread284.thread
   %222 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.45) #7
   %223 = load ptr, ptr %189, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 416
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 416
   %225 = load ptr, ptr %224, align 8
   %226 = call ptr @data_set_string(ptr noundef %222, ptr noundef %225) #7
   %.pr291.pre = load ptr, ptr %189, align 8
@@ -672,7 +672,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 .thread371:                                       ; preds = %.thread284.thread, %221
   %.pr291374 = phi ptr [ %.pr291.pre, %221 ], [ %.pr287.pr370, %.thread284.thread ]
-  %227 = getelementptr inbounds i8, ptr %.pr291374, i64 424
+  %227 = getelementptr inbounds nuw i8, ptr %.pr291374, i64 424
   %228 = load ptr, ptr %227, align 8
   %.not246 = icmp eq ptr %228, null
   br i1 %.not246, label %.thread293.thread, label %.thread293
@@ -680,7 +680,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 .thread293:                                       ; preds = %.thread371
   %229 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.46) #7
   %230 = load ptr, ptr %189, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 424
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 424
   %232 = load ptr, ptr %231, align 8
   %233 = call ptr @data_set_string(ptr noundef %229, ptr noundef %232) #7
   %.pr296.pr.pr.pre = load ptr, ptr %189, align 8
@@ -689,7 +689,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 .thread293.thread:                                ; preds = %.thread371, %.thread293
   %.pr296.pr.pr377 = phi ptr [ %.pr296.pr.pr.pre, %.thread293 ], [ %.pr291374, %.thread371 ]
-  %234 = getelementptr inbounds i8, ptr %.pr296.pr.pr377, i64 432
+  %234 = getelementptr inbounds nuw i8, ptr %.pr296.pr.pr377, i64 432
   %235 = load ptr, ptr %234, align 8
   %.not248 = icmp eq ptr %235, null
   br i1 %.not248, label %.thread297, label %236
@@ -697,19 +697,19 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 236:                                              ; preds = %.thread293.thread
   %237 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.47) #7
   %238 = load ptr, ptr %189, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 432
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 432
   %240 = load ptr, ptr %239, align 8
   %241 = call ptr @data_set_string(ptr noundef %237, ptr noundef %240) #7
   br label %.thread297
 
 .thread297:                                       ; preds = %188, %194, %.thread284, %211, %221, %236, %.thread293.thread, %.thread293
-  %242 = getelementptr inbounds i8, ptr %0, i64 72
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %243 = load ptr, ptr %242, align 8
   %.not249 = icmp eq ptr %243, null
   br i1 %.not249, label %253, label %244
 
 244:                                              ; preds = %.thread297
-  %245 = getelementptr inbounds i8, ptr %243, i64 40
+  %245 = getelementptr inbounds nuw i8, ptr %243, i64 40
   %246 = load ptr, ptr %245, align 8
   %.not250 = icmp eq ptr %246, null
   br i1 %.not250, label %253, label %247
@@ -717,19 +717,19 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 247:                                              ; preds = %244
   %248 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.48) #7
   %249 = load ptr, ptr %242, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 40
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 40
   %251 = load ptr, ptr %250, align 8
   %252 = call ptr @data_set_string(ptr noundef %248, ptr noundef %251) #7
   br label %253
 
 253:                                              ; preds = %247, %244, %.thread297
-  %254 = getelementptr inbounds i8, ptr %0, i64 760
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %255 = load ptr, ptr %254, align 8
   %.not251 = icmp eq ptr %255, null
   br i1 %.not251, label %265, label %256
 
 256:                                              ; preds = %253
-  %257 = getelementptr inbounds i8, ptr %255, i64 256
+  %257 = getelementptr inbounds nuw i8, ptr %255, i64 256
   %258 = load ptr, ptr %257, align 8
   %.not252 = icmp eq ptr %258, null
   br i1 %.not252, label %265, label %259
@@ -737,7 +737,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 259:                                              ; preds = %256
   %260 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.49) #7
   %261 = load ptr, ptr %254, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 256
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 256
   %263 = load ptr, ptr %262, align 8
   %264 = call ptr @data_set_string(ptr noundef %260, ptr noundef %263) #7
   br label %265
@@ -748,7 +748,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br i1 %.not253, label %.thread324, label %267
 
 267:                                              ; preds = %265
-  %268 = getelementptr inbounds i8, ptr %266, i64 296
+  %268 = getelementptr inbounds nuw i8, ptr %266, i64 296
   %269 = load i32, ptr %268, align 8
   %.not254 = icmp eq i32 %269, -2
   br i1 %.not254, label %.thread378, label %270
@@ -756,7 +756,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 270:                                              ; preds = %267
   %271 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.50) #7
   %272 = load ptr, ptr %189, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 296
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 296
   %274 = load i32, ptr %273, align 8
   %275 = zext i32 %274 to i64
   %276 = call ptr @data_set_int(ptr noundef %271, i64 noundef %275) #7
@@ -766,7 +766,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 .thread378:                                       ; preds = %267, %270
   %.pr300381 = phi ptr [ %.pr300.pre, %270 ], [ %266, %267 ]
-  %277 = getelementptr inbounds i8, ptr %.pr300381, i64 292
+  %277 = getelementptr inbounds nuw i8, ptr %.pr300381, i64 292
   %278 = load i16, ptr %277, align 4
   %.not256 = icmp eq i16 %278, -2
   br i1 %.not256, label %.thread382, label %279
@@ -774,7 +774,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 279:                                              ; preds = %.thread378
   %280 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.51) #7
   %281 = load ptr, ptr %189, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 292
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 292
   %283 = load i16, ptr %282, align 4
   %284 = zext i16 %283 to i64
   %285 = call ptr @data_set_int(ptr noundef %280, i64 noundef %284) #7
@@ -784,7 +784,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 .thread382:                                       ; preds = %.thread378, %279
   %.pr304385 = phi ptr [ %.pr304.pre, %279 ], [ %.pr300381, %.thread378 ]
-  %286 = getelementptr inbounds i8, ptr %.pr304385, i64 294
+  %286 = getelementptr inbounds nuw i8, ptr %.pr304385, i64 294
   %287 = load i16, ptr %286, align 2
   %.not258 = icmp eq i16 %287, -2
   br i1 %.not258, label %.thread306.thread, label %.thread306
@@ -792,7 +792,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 .thread306:                                       ; preds = %.thread382
   %288 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.52) #7
   %289 = load ptr, ptr %189, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 294
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 294
   %291 = load i16, ptr %290, align 2
   %292 = zext i16 %291 to i64
   %293 = call ptr @data_set_int(ptr noundef %288, i64 noundef %292) #7
@@ -802,7 +802,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 .thread306.thread:                                ; preds = %.thread382, %.thread306
   %.pr309.pr388 = phi ptr [ %.pr309.pr.pre, %.thread306 ], [ %.pr304385, %.thread382 ]
-  %294 = getelementptr inbounds i8, ptr %.pr309.pr388, i64 96
+  %294 = getelementptr inbounds nuw i8, ptr %.pr309.pr388, i64 96
   %295 = load i16, ptr %294, align 8
   %.not260 = icmp eq i16 %295, -2
   br i1 %.not260, label %.thread389, label %296
@@ -810,7 +810,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 296:                                              ; preds = %.thread306.thread
   %297 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.53) #7
   %298 = load ptr, ptr %189, align 8
-  %299 = getelementptr inbounds i8, ptr %298, i64 96
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 96
   %300 = load i16, ptr %299, align 8
   %301 = zext i16 %300 to i64
   %302 = call ptr @data_set_int(ptr noundef %297, i64 noundef %301) #7
@@ -820,7 +820,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 .thread389:                                       ; preds = %.thread306.thread, %296
   %.pr313392 = phi ptr [ %.pr313.pre, %296 ], [ %.pr309.pr388, %.thread306.thread ]
-  %303 = getelementptr inbounds i8, ptr %.pr313392, i64 136
+  %303 = getelementptr inbounds nuw i8, ptr %.pr313392, i64 136
   %304 = load ptr, ptr %303, align 8
   %.not262 = icmp eq ptr %304, null
   br i1 %.not262, label %.thread315.thread, label %.thread315
@@ -828,7 +828,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 .thread315:                                       ; preds = %.thread389
   %305 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.54) #7
   %306 = load ptr, ptr %189, align 8
-  %307 = getelementptr inbounds i8, ptr %306, i64 136
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 136
   %308 = load ptr, ptr %307, align 8
   %309 = call ptr @data_set_string(ptr noundef %305, ptr noundef %308) #7
   %.pr318.pr.pr.pre = load ptr, ptr %189, align 8
@@ -837,7 +837,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 .thread315.thread:                                ; preds = %.thread389, %.thread315
   %.pr318.pr.pr395 = phi ptr [ %.pr318.pr.pr.pre, %.thread315 ], [ %.pr313392, %.thread389 ]
-  %310 = getelementptr inbounds i8, ptr %.pr318.pr.pr395, i64 176
+  %310 = getelementptr inbounds nuw i8, ptr %.pr318.pr.pr395, i64 176
   %311 = load ptr, ptr %310, align 8
   %.not264 = icmp eq ptr %311, null
   br i1 %.not264, label %.thread396, label %312
@@ -845,7 +845,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 312:                                              ; preds = %.thread315.thread
   %313 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.55) #7
   %314 = load ptr, ptr %189, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 176
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 176
   %316 = load ptr, ptr %315, align 8
   %317 = call ptr @data_set_string(ptr noundef %313, ptr noundef %316) #7
   %.pr322.pre = load ptr, ptr %189, align 8
@@ -854,7 +854,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 .thread396:                                       ; preds = %.thread315.thread, %312
   %.pr322399 = phi ptr [ %.pr322.pre, %312 ], [ %.pr318.pr.pr395, %.thread315.thread ]
-  %318 = getelementptr inbounds i8, ptr %.pr322399, i64 208
+  %318 = getelementptr inbounds nuw i8, ptr %.pr322399, i64 208
   %319 = load ptr, ptr %318, align 8
   %.not266 = icmp eq ptr %319, null
   br i1 %.not266, label %.thread324, label %320
@@ -862,7 +862,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 320:                                              ; preds = %.thread396
   %321 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.56) #7
   %322 = load ptr, ptr %189, align 8
-  %323 = getelementptr inbounds i8, ptr %322, i64 208
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 208
   %324 = load ptr, ptr %323, align 8
   %325 = call ptr @data_set_string(ptr noundef %321, ptr noundef %324) #7
   br label %.thread324
@@ -879,7 +879,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br label %331
 
 331:                                              ; preds = %326, %.thread324
-  %332 = getelementptr inbounds i8, ptr %0, i64 536
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %333 = load ptr, ptr %332, align 8
   %.not268 = icmp eq ptr %333, null
   br i1 %.not268, label %338, label %334
@@ -891,7 +891,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br label %338
 
 338:                                              ; preds = %334, %331
-  %339 = getelementptr inbounds i8, ptr %0, i64 808
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %340 = load ptr, ptr %339, align 8
   %.not269 = icmp eq ptr %340, null
   br i1 %.not269, label %345, label %341
@@ -903,7 +903,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br label %345
 
 345:                                              ; preds = %341, %338
-  %346 = getelementptr inbounds i8, ptr %0, i64 1088
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %347 = load ptr, ptr %346, align 8
   %.not270 = icmp eq ptr %347, null
   br i1 %.not270, label %352, label %348
@@ -915,7 +915,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br label %352
 
 352:                                              ; preds = %348, %345
-  %353 = getelementptr inbounds i8, ptr %0, i64 1024
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %354 = load ptr, ptr %353, align 8
   %.not271 = icmp eq ptr %354, null
   br i1 %.not271, label %359, label %355
@@ -927,7 +927,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br label %359
 
 359:                                              ; preds = %355, %352
-  %360 = getelementptr inbounds i8, ptr %0, i64 1032
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %361 = load ptr, ptr %360, align 8
   %.not272 = icmp eq ptr %361, null
   br i1 %.not272, label %366, label %362
@@ -939,7 +939,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br label %366
 
 366:                                              ; preds = %362, %359
-  %367 = getelementptr inbounds i8, ptr %0, i64 1048
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %368 = load ptr, ptr %367, align 8
   %.not273 = icmp eq ptr %368, null
   br i1 %.not273, label %373, label %369
@@ -951,7 +951,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br label %373
 
 373:                                              ; preds = %369, %366
-  %374 = getelementptr inbounds i8, ptr %0, i64 1056
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %375 = load ptr, ptr %374, align 8
   %.not274 = icmp eq ptr %375, null
   br i1 %.not274, label %380, label %376
@@ -963,7 +963,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   br label %380
 
 380:                                              ; preds = %376, %373
-  %381 = getelementptr inbounds i8, ptr %0, i64 8
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %382 = load ptr, ptr %381, align 8
   %.not275 = icmp eq ptr %382, null
   br i1 %.not275, label %387, label %383
@@ -981,7 +981,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 389:                                              ; preds = %387
   %390 = call ptr @data_key_set(ptr noundef %85, ptr noundef nonnull @.str.66) #7
-  %391 = getelementptr inbounds i8, ptr %388, i64 8
+  %391 = getelementptr inbounds nuw i8, ptr %388, i64 8
   %392 = load ptr, ptr %391, align 8
   %393 = call ptr @data_set_string(ptr noundef %390, ptr noundef %392) #7
   call void @free_buf(ptr noundef nonnull %388) #7
@@ -1010,7 +1010,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 398:                                              ; preds = %395, %409
   %.0345 = phi i32 [ 0, %395 ], [ %.1, %409 ]
   %.0196344 = phi ptr [ %394, %395 ], [ %413, %409 ]
-  %399 = getelementptr inbounds i8, ptr %.0196344, i64 8
+  %399 = getelementptr inbounds nuw i8, ptr %.0196344, i64 8
   %400 = load ptr, ptr %399, align 8
   %.not279 = icmp eq ptr %400, null
   br i1 %.not279, label %409, label %401
@@ -1029,9 +1029,9 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
 
 409:                                              ; preds = %401, %398
   %.1 = phi i32 [ %402, %401 ], [ %.0345, %398 ]
-  %410 = getelementptr inbounds i8, ptr %.0196344, i64 312
+  %410 = getelementptr inbounds nuw i8, ptr %.0196344, i64 312
   %411 = load ptr, ptr %410, align 8
-  %412 = getelementptr inbounds i8, ptr %411, i64 72
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 72
   %413 = load ptr, ptr %412, align 8
   %.not278 = icmp eq ptr %413, null
   br i1 %.not278, label %.preheader, label %398, !llvm.loop !8
@@ -1040,7 +1040,7 @@ define noundef ptr @jobcomp_common_job_record_to_data(ptr noundef %0) local_unna
   %indvars.iv = phi i64 [ %397, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %414 = load ptr, ptr %12, align 8
-  %415 = getelementptr inbounds ptr, ptr %414, i64 %indvars.iv.next
+  %415 = getelementptr inbounds nuw ptr, ptr %414, i64 %indvars.iv.next
   %416 = load ptr, ptr %415, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %11, ptr noundef nonnull @.str.67, ptr noundef %416) #7
   %417 = icmp samesign ugt i64 %indvars.iv, 1

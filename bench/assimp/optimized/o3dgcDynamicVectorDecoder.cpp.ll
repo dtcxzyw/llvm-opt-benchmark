@@ -19,7 +19,7 @@ $_ZN5o3dgc10ITransformEPlm = comdat any
 define hidden noundef i32 @_ZN5o3dgc7IUpdateEPll(ptr nocapture noundef %data, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %sub = add nsw i64 %size, -1
-  %arrayidx = getelementptr inbounds i8, ptr %data, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load i64, ptr %arrayidx, align 8
   %shr = ashr i64 %0, 1
   %1 = load i64, ptr %data, align 8
@@ -34,7 +34,7 @@ while.body:                                       ; preds = %entry, %while.body
   %arrayidx4 = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx4, align 8
   %add = or disjoint i64 %p.016, 1
-  %arrayidx5 = getelementptr inbounds i64, ptr %data, i64 %add
+  %arrayidx5 = getelementptr inbounds nuw i64, ptr %data, i64 %add
   %4 = load i64, ptr %arrayidx5, align 8
   %add6 = add i64 %3, 2
   %add7 = add i64 %add6, %4
@@ -77,7 +77,7 @@ while.body:                                       ; preds = %entry, %while.body
   %0 = getelementptr i64, ptr %data, i64 %p.014
   %arrayidx = getelementptr i8, ptr %0, i64 -8
   %1 = load i64, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 8
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %arrayidx2, align 8
   %add3 = add i64 %1, 1
   %add4 = add i64 %add3, %2
@@ -147,13 +147,13 @@ while.end:                                        ; preds = %for.end, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5o3dgc20DynamicVectorDecoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((0, 68)) %this) unnamed_addr #1 align 2 {
 entry:
-  %m_params = getelementptr inbounds i8, ptr %this, i64 48
+  %m_params = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 10, ptr %m_params, align 8
-  %m_streamTypeMode.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_streamTypeMode.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 1, ptr %m_streamTypeMode.i, align 8
-  %m_encodeMode.i = getelementptr inbounds i8, ptr %this, i64 60
+  %m_encodeMode.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   store i32 0, ptr %m_encodeMode.i, align 4
-  %m_streamType = getelementptr inbounds i8, ptr %this, i64 64
+  %m_streamType = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 0, ptr %m_streamType, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 48, i1 false)
   ret void
@@ -162,7 +162,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5o3dgc20DynamicVectorDecoderD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %this) unnamed_addr #2 align 2 {
 entry:
-  %m_quantVectors = getelementptr inbounds i8, ptr %this, i64 40
+  %m_quantVectors = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_quantVectors, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -181,9 +181,9 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i32 0, 6) i32 @_ZN5o3dgc20DynamicVectorDecoder12DecodeHeaderERNS_13DynamicVectorERKNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #4 align 2 {
 entry:
-  %m_iterator = getelementptr inbounds i8, ptr %this, i64 32
+  %m_iterator = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %m_iterator, align 8
-  %m_endianness.i.i = getelementptr inbounds i8, ptr %bstream, i64 24
+  %m_endianness.i.i = getelementptr inbounds nuw i8, ptr %bstream, i64 24
   %1 = load i32, ptr %m_endianness.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, 0
   %inc.i2.i = add i64 %0, 1
@@ -281,9 +281,9 @@ _ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit11: ; preds = %
 
 if.end10:                                         ; preds = %_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit, %_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit11
   %.sink = phi i32 [ 1, %_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit11 ], [ 2, %_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit ]
-  %m_streamType9 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_streamType9 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 %.sink, ptr %m_streamType9, align 8
-  %m_streamType12 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_streamType12 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call13 = tail call noundef i64 @_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %bstream, ptr noundef nonnull align 8 dereferenceable(8) %m_iterator, i32 noundef %.sink)
   store i64 %call13, ptr %this, align 8
   %19 = load i64, ptr %m_iterator, align 8
@@ -293,7 +293,7 @@ if.end10:                                         ; preds = %_ZNK5o3dgc12BinaryS
   %arrayidx.i.i.i13 = getelementptr inbounds i8, ptr %20, i64 %19
   %value.0.i14 = load i8, ptr %arrayidx.i.i.i13, align 1
   %conv = zext i8 %value.0.i14 to i32
-  %m_encodeMode.i = getelementptr inbounds i8, ptr %this, i64 60
+  %m_encodeMode.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   store i32 %conv, ptr %m_encodeMode.i, align 4
   %21 = load i32, ptr %m_streamType12, align 8
   %call19 = tail call noundef i64 @_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %bstream, ptr noundef nonnull align 8 dereferenceable(8) %m_iterator, i32 noundef %21)
@@ -302,10 +302,10 @@ if.end10:                                         ; preds = %_ZNK5o3dgc12BinaryS
   br i1 %cmp21.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.end10
-  %m_params = getelementptr inbounds i8, ptr %this, i64 48
+  %m_params = getelementptr inbounds nuw i8, ptr %this, i64 48
   %22 = load i32, ptr %m_streamType12, align 8
   %call25 = tail call noundef i64 @_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %bstream, ptr noundef nonnull align 8 dereferenceable(8) %m_iterator, i32 noundef %22)
-  %m_dim.i = getelementptr inbounds i8, ptr %dynamicVector, i64 8
+  %m_dim.i = getelementptr inbounds nuw i8, ptr %dynamicVector, i64 8
   store i64 %call25, ptr %m_dim.i, align 8
   %23 = load i64, ptr %m_iterator, align 8
   %inc.i.i15 = add i64 %23, 1
@@ -352,7 +352,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !9
 
 if.else:                                          ; preds = %entry
-  %m_endianness.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_endianness.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i32, ptr %m_endianness.i, align 8
   %cmp.i = icmp eq i32 %3, 0
   %4 = load i64, ptr %position, align 8
@@ -433,12 +433,12 @@ entry:
   %bModel0 = alloca %"class.o3dgc::Static_Bit_Model", align 4
   %bModel1 = alloca %"class.o3dgc::Adaptive_Bit_Model", align 4
   %mModelValues = alloca %"class.o3dgc::Adaptive_Data_Model", align 8
-  %m_iterator = getelementptr inbounds i8, ptr %this, i64 32
+  %m_iterator = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %m_iterator, align 8
-  %m_streamType = getelementptr inbounds i8, ptr %this, i64 64
+  %m_streamType = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load i32, ptr %m_streamType, align 8
   %call = tail call noundef i64 @_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %bstream, ptr noundef nonnull align 8 dereferenceable(8) %m_iterator, i32 noundef %1)
-  %m_dim.i = getelementptr inbounds i8, ptr %dynamicVector, i64 8
+  %m_dim.i = getelementptr inbounds nuw i8, ptr %dynamicVector, i64 8
   %2 = load i64, ptr %m_dim.i, align 8
   %3 = load i64, ptr %dynamicVector, align 8
   %mul = mul i64 %3, %2
@@ -446,9 +446,9 @@ entry:
   br i1 %cmp177.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_endianness.i.i.i = getelementptr inbounds i8, ptr %bstream, i64 24
-  %m_min.i = getelementptr inbounds i8, ptr %dynamicVector, i64 32
-  %m_max.i = getelementptr inbounds i8, ptr %dynamicVector, i64 24
+  %m_endianness.i.i.i = getelementptr inbounds nuw i8, ptr %bstream, i64 24
+  %m_min.i = getelementptr inbounds nuw i8, ptr %dynamicVector, i64 32
+  %m_max.i = getelementptr inbounds nuw i8, ptr %dynamicVector, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit97
@@ -794,13 +794,13 @@ if.end:                                           ; preds = %invoke.cont24, %inv
           to label %invoke.cont27 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont27:                                    ; preds = %if.end
-  %m_maxNumVectors = getelementptr inbounds i8, ptr %this, i64 8
+  %m_maxNumVectors = getelementptr inbounds nuw i8, ptr %this, i64 8
   %54 = load i64, ptr %m_maxNumVectors, align 8
   %cmp28 = icmp ult i64 %54, %mul
   br i1 %cmp28, label %if.then29, label %if.end35
 
 if.then29:                                        ; preds = %invoke.cont27
-  %m_quantVectors = getelementptr inbounds i8, ptr %this, i64 40
+  %m_quantVectors = getelementptr inbounds nuw i8, ptr %this, i64 40
   %55 = load ptr, ptr %m_quantVectors, align 8
   %isnull = icmp eq ptr %55, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -847,7 +847,7 @@ for.cond58.preheader:                             ; preds = %if.end35
 
 for.cond62.preheader.lr.ph:                       ; preds = %for.cond58.preheader
   %conv66 = zext i32 %M.0 to i64
-  %m_quantVectors69 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_quantVectors69 = getelementptr inbounds nuw i8, ptr %this, i64 40
   br i1 %cmp177.not, label %for.end90, label %for.cond62.preheader.us
 
 for.cond62.preheader.us:                          ; preds = %for.cond62.preheader.lr.ph, %for.cond62.for.inc76_crit_edge.us
@@ -948,7 +948,7 @@ for.cond39.preheader:                             ; preds = %if.end35
   br i1 %cmp40187.not, label %if.end79, label %for.cond42.preheader.lr.ph
 
 for.cond42.preheader.lr.ph:                       ; preds = %for.cond39.preheader
-  %m_quantVectors48 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_quantVectors48 = getelementptr inbounds nuw i8, ptr %this, i64 40
   br i1 %cmp177.not, label %for.end90, label %for.cond42.preheader.us
 
 for.cond42.preheader.us:                          ; preds = %for.cond42.preheader.lr.ph, %for.cond42.for.inc54_crit_edge.us
@@ -1012,7 +1012,7 @@ if.end79:                                         ; preds = %for.cond58.preheade
   br i1 %cmp177.not, label %for.end90, label %for.body83.lr.ph
 
 for.body83.lr.ph:                                 ; preds = %for.cond62.for.inc76_crit_edge.us, %for.cond42.for.inc54_crit_edge.us, %if.end79
-  %m_quantVectors84 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_quantVectors84 = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body83
 
 for.body83:                                       ; preds = %for.body83.lr.ph, %for.inc88
@@ -1029,22 +1029,22 @@ for.inc88:                                        ; preds = %for.body83
   br i1 %exitcond197.not, label %for.end90, label %for.body83, !llvm.loop !18
 
 for.end90:                                        ; preds = %for.inc88, %for.cond62.preheader.lr.ph, %for.cond42.preheader.lr.ph, %if.end79
-  %m_vectors.i = getelementptr inbounds i8, ptr %dynamicVector, i64 40
+  %m_vectors.i = getelementptr inbounds nuw i8, ptr %dynamicVector, i64 40
   %71 = load ptr, ptr %m_vectors.i, align 8
-  %m_stride.i = getelementptr inbounds i8, ptr %dynamicVector, i64 16
+  %m_stride.i = getelementptr inbounds nuw i8, ptr %dynamicVector, i64 16
   %72 = load i64, ptr %m_stride.i, align 8
-  %m_min.i148 = getelementptr inbounds i8, ptr %dynamicVector, i64 32
+  %m_min.i148 = getelementptr inbounds nuw i8, ptr %dynamicVector, i64 32
   %73 = load ptr, ptr %m_min.i148, align 8
-  %m_max.i149 = getelementptr inbounds i8, ptr %dynamicVector, i64 24
+  %m_max.i149 = getelementptr inbounds nuw i8, ptr %dynamicVector, i64 24
   %74 = load ptr, ptr %m_max.i149, align 8
-  %m_params = getelementptr inbounds i8, ptr %this, i64 48
+  %m_params = getelementptr inbounds nuw i8, ptr %this, i64 48
   %75 = load i64, ptr %m_params, align 8
   %76 = load i64, ptr %m_maxNumVectors, align 8
   %cmp.i150 = icmp ult i64 %76, %mul
   br i1 %cmp.i150, label %if.then.i152, label %if.end.i
 
 if.then.i152:                                     ; preds = %for.end90
-  %m_quantVectors.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_quantVectors.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %77 = load ptr, ptr %m_quantVectors.i, align 8
   %isnull.i = icmp eq ptr %77, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
@@ -1074,7 +1074,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %sub9.i = xor i32 %notmask.i, -1
   %conv.i151 = uitofp nneg i32 %sub9.i to float
   %cmp1216.not.i = icmp eq i64 %3, 0
-  %m_quantVectors14.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_quantVectors14.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br i1 %cmp1216.not.i, label %invoke.cont101, label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.cond11.for.inc23_crit_edge.us.i
@@ -1170,7 +1170,7 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp739, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %arrayidx.i17 = getelementptr inbounds i8, ptr %data, i64 8
+  %arrayidx.i17 = getelementptr inbounds nuw i8, ptr %data, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5o3dgc8IPredictEPll.exit
@@ -1226,7 +1226,7 @@ while.body.i:                                     ; preds = %_ZN5o3dgc5MergeEPll
   %arrayidx4.i = getelementptr i8, ptr %5, i64 -8
   %6 = load i64, ptr %arrayidx4.i, align 8
   %add.i19 = or disjoint i64 %p.016.i, 1
-  %arrayidx5.i = getelementptr inbounds i64, ptr %data, i64 %add.i19
+  %arrayidx5.i = getelementptr inbounds nuw i64, ptr %data, i64 %add.i19
   %7 = load i64, ptr %arrayidx5.i, align 8
   %add6.i = add i64 %6, 2
   %add7.i = add i64 %add6.i, %7
@@ -1262,7 +1262,7 @@ while.body.i26:                                   ; preds = %_ZN5o3dgc7IUpdateEP
   %12 = getelementptr i64, ptr %data, i64 %p.014.i
   %arrayidx.i27 = getelementptr i8, ptr %12, i64 -8
   %13 = load i64, ptr %arrayidx.i27, align 8
-  %arrayidx2.i = getelementptr inbounds i8, ptr %12, i64 8
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %arrayidx2.i, align 8
   %add3.i = add i64 %13, 1
   %add4.i28 = add i64 %add3.i, %14
@@ -1301,13 +1301,13 @@ for.end:                                          ; preds = %_ZN5o3dgc8IPredictE
 define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder9IQuantizeEPfmmmPKfS3_m(ptr nocapture noundef nonnull align 8 dereferenceable(68) %this, ptr nocapture noundef writeonly %floatArray, i64 noundef %numFloatArray, i64 noundef %dimFloatArray, i64 noundef %stride, ptr nocapture noundef readonly %minFloatArray, ptr nocapture noundef readonly %maxFloatArray, i64 noundef %nQBits) local_unnamed_addr #4 align 2 {
 entry:
   %mul = mul i64 %dimFloatArray, %numFloatArray
-  %m_maxNumVectors = getelementptr inbounds i8, ptr %this, i64 8
+  %m_maxNumVectors = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_maxNumVectors, align 8
   %cmp = icmp ult i64 %0, %mul
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_quantVectors = getelementptr inbounds i8, ptr %this, i64 40
+  %m_quantVectors = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %m_quantVectors, align 8
   %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1335,7 +1335,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %sub9 = xor i32 %notmask, -1
   %conv = uitofp nneg i32 %sub9 to float
   %cmp1216.not = icmp eq i64 %numFloatArray, 0
-  %m_quantVectors14 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_quantVectors14 = getelementptr inbounds nuw i8, ptr %this, i64 40
   br i1 %cmp1216.not, label %for.end25, label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond11.for.inc23_crit_edge.us

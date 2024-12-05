@@ -42,57 +42,57 @@ define void @_ZN3g2o8internal15compute_dq_dR_wERN5Eigen6MatrixIdLi3ELi9ELi0ELi3E
   %32 = fmul double %31, -3.125000e-02
   %33 = fmul double %14, %32
   store double %19, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double 0.000000e+00, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double 0.000000e+00, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %19, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double %22, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 144
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store double 0.000000e+00, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 168
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double %23, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 192
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %19, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %28, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double 0.000000e+00, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %23, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double 0.000000e+00, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %28, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double 0.000000e+00, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 152
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store double %22, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 176
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double 0.000000e+00, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 200
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %28, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %33, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %22, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 0.000000e+00, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double %23, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %33, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double 0.000000e+00, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 160
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double 0.000000e+00, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 184
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double 0.000000e+00, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 208
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store double %33, ptr %59, align 8
   ret void
 }
@@ -116,60 +116,60 @@ define void @_ZN3g2o8internal15compute_dq_dR_xERN5Eigen6MatrixIdLi3ELi9ELi0ELi3E
   %26 = fmul double %21, %25
   %27 = fmul double %13, 1.250000e-01
   store double %27, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double 0.000000e+00, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double 0.000000e+00, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %14, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double 0.000000e+00, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store double 0.000000e+00, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 168
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double 0.000000e+00, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 192
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %14, ptr %35, align 8
   %36 = fmul double %16, -3.125000e-02
   %37 = fmul double %36, %19
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %20, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double 0.000000e+00, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double %20, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %22, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double 0.000000e+00, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store double 0.000000e+00, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 176
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double 0.000000e+00, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 200
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %22, ptr %46, align 8
   %47 = fmul double %36, %25
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double 0.000000e+00, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %20, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double 0.000000e+00, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %26, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double 0.000000e+00, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 160
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double %20, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 184
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double 0.000000e+00, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 208
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store double %26, ptr %56, align 8
   ret void
 }
@@ -193,61 +193,61 @@ define void @_ZN3g2o8internal15compute_dq_dR_yERN5Eigen6MatrixIdLi3ELi9ELi0ELi3E
   %26 = fadd double %24, %25
   %27 = fmul double %18, %26
   store double %19, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %22, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double 0.000000e+00, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %22, ptr %30, align 8
   %31 = fmul double %14, -3.125000e-02
   %32 = fmul double %31, %17
-  %33 = getelementptr inbounds i8, ptr %0, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double 0.000000e+00, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store double 0.000000e+00, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double 0.000000e+00, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 192
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %19, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %23, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double 0.000000e+00, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double 0.000000e+00, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double 0.000000e+00, ptr %41, align 8
   %42 = fmul double %21, 1.250000e-01
-  %43 = getelementptr inbounds i8, ptr %0, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double 0.000000e+00, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 152
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store double 0.000000e+00, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 176
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double 0.000000e+00, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 200
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %23, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %27, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double 0.000000e+00, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 0.000000e+00, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double 0.000000e+00, ptr %51, align 8
   %52 = fmul double %31, %26
-  %53 = getelementptr inbounds i8, ptr %0, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double %22, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 160
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double 0.000000e+00, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 184
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double %22, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 208
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store double %27, ptr %57, align 8
   ret void
 }
@@ -271,61 +271,61 @@ define void @_ZN3g2o8internal15compute_dq_dR_zERN5Eigen6MatrixIdLi3ELi9ELi0ELi3E
   %26 = fmul double %18, %25
   %27 = fmul double %21, -1.250000e-01
   store double %19, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %22, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double 0.000000e+00, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %19, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double 0.000000e+00, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store double %22, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 168
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double 0.000000e+00, ptr %34, align 8
   %35 = fmul double %14, -3.125000e-02
   %36 = fmul double %35, %17
-  %37 = getelementptr inbounds i8, ptr %0, i64 192
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %26, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double 0.000000e+00, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double 0.000000e+00, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double 0.000000e+00, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %26, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double %22, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store double 0.000000e+00, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 176
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double %22, ptr %45, align 8
   %46 = fmul double %35, %25
-  %47 = getelementptr inbounds i8, ptr %0, i64 200
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %27, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double 0.000000e+00, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 0.000000e+00, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double 0.000000e+00, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %27, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double 0.000000e+00, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 160
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double 0.000000e+00, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 184
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double 0.000000e+00, ptr %55, align 8
   %56 = fmul double %21, 1.250000e-01
-  %57 = getelementptr inbounds i8, ptr %0, i64 208
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store double %56, ptr %57, align 8
   ret void
 }
@@ -370,65 +370,65 @@ define void @_ZN3g2o8internal13compute_dR_dqERN5Eigen6MatrixIdLi9ELi3ELi0ELi9ELi
   %37 = tail call double @llvm.fmuladd.f64(double %36, double %6, double %26)
   %38 = fmul double %11, %37
   store double 0.000000e+00, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %7, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store double %9, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %18, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double %22, ptr %42, align 8
   %43 = fmul double %24, %15
-  %44 = getelementptr inbounds i8, ptr %0, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store double %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %28, ptr %45, align 8
   %46 = fmul double %11, %29
-  %47 = getelementptr inbounds i8, ptr %0, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 160
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double %31, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %33, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %31, ptr %50, align 8
   %51 = fmul double %11, %24
-  %52 = getelementptr inbounds i8, ptr %0, i64 168
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %34, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double 0.000000e+00, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 176
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double %9, ptr %55, align 8
   %56 = fneg double %35
   %57 = fmul double %11, %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 112
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %38, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 184
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double %18, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %38, ptr %61, align 8
   %62 = fneg double %29
   %63 = fmul double %11, %62
-  %64 = getelementptr inbounds i8, ptr %0, i64 120
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 192
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %22, ptr %65, align 8
   %66 = fmul double %11, %35
-  %67 = getelementptr inbounds i8, ptr %0, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 128
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double %28, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 200
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %33, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %34, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 136
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double %7, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 208
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store double 0.000000e+00, ptr %72, align 8
   ret void
 }
@@ -559,55 +559,55 @@ define void @_ZN3g2o8internal13compute_dq_dRERN5Eigen6MatrixIdLi3ELi9ELi0ELi3ELi
   %46 = fmul double %45, -3.125000e-02
   %47 = fmul double %29, %46
   store double %34, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double 0.000000e+00, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double 0.000000e+00, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %34, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double %36, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 144
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store double 0.000000e+00, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 168
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double %37, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 192
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %34, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %42, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double 0.000000e+00, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %37, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double 0.000000e+00, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %42, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double 0.000000e+00, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 152
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store double %36, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 176
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double 0.000000e+00, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 200
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %42, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %47, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %36, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 0.000000e+00, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 88
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double %37, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 112
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %47, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 136
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double 0.000000e+00, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 160
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double 0.000000e+00, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 184
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double 0.000000e+00, ptr %72, align 8
   br label %235
 
@@ -638,58 +638,58 @@ define void @_ZN3g2o8internal13compute_dq_dRERN5Eigen6MatrixIdLi3ELi9ELi0ELi3ELi
   %97 = fmul double %92, %96
   %98 = fmul double %84, 1.250000e-01
   store double %98, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double 0.000000e+00, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double 0.000000e+00, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %85, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 120
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double 0.000000e+00, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 144
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store double 0.000000e+00, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 168
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double 0.000000e+00, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 192
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %85, ptr %106, align 8
   %107 = fmul double %87, -3.125000e-02
   %108 = fmul double %107, %90
-  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %108, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %91, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 56
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double 0.000000e+00, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 80
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double %91, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 104
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %93, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 128
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double 0.000000e+00, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 152
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store double 0.000000e+00, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 176
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double 0.000000e+00, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 200
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %93, ptr %117, align 8
   %118 = fmul double %107, %96
-  %119 = getelementptr inbounds i8, ptr %0, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %118, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double 0.000000e+00, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 64
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %91, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 88
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double 0.000000e+00, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 112
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %97, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double 0.000000e+00, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 160
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double %91, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 184
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double 0.000000e+00, ptr %126, align 8
   br label %235
 
@@ -719,59 +719,59 @@ define void @_ZN3g2o8internal13compute_dq_dRERN5Eigen6MatrixIdLi3ELi9ELi0ELi3ELi
   %150 = fadd double %148, %149
   %151 = fmul double %143, %150
   store double %144, ptr %0, align 8
-  %152 = getelementptr inbounds i8, ptr %0, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %146, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 48
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double 0.000000e+00, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %0, i64 72
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %146, ptr %154, align 8
   %155 = fmul double %139, -3.125000e-02
   %156 = fmul double %155, %142
-  %157 = getelementptr inbounds i8, ptr %0, i64 96
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %156, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %0, i64 120
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double 0.000000e+00, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %0, i64 144
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store double 0.000000e+00, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 168
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double 0.000000e+00, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %0, i64 192
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %144, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %147, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %0, i64 32
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double 0.000000e+00, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 56
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double 0.000000e+00, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 80
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double 0.000000e+00, ptr %165, align 8
   %166 = fmul double %145, 1.250000e-01
-  %167 = getelementptr inbounds i8, ptr %0, i64 104
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %166, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 128
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double 0.000000e+00, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %0, i64 152
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store double 0.000000e+00, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %0, i64 176
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double 0.000000e+00, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %0, i64 200
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %147, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %0, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %151, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %0, i64 40
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double 0.000000e+00, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %0, i64 64
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 0.000000e+00, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %0, i64 88
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double 0.000000e+00, ptr %175, align 8
   %176 = fmul double %155, %150
-  %177 = getelementptr inbounds i8, ptr %0, i64 112
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %176, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %0, i64 136
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double %146, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 160
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double 0.000000e+00, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %0, i64 184
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double %146, ptr %180, align 8
   br label %235
 
@@ -801,58 +801,58 @@ define void @_ZN3g2o8internal13compute_dq_dRERN5Eigen6MatrixIdLi3ELi9ELi0ELi3ELi
   %204 = fmul double %197, %203
   %205 = fmul double %199, -1.250000e-01
   store double %198, ptr %0, align 8
-  %206 = getelementptr inbounds i8, ptr %0, i64 24
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %0, i64 48
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %200, ptr %207, align 8
-  %208 = getelementptr inbounds i8, ptr %0, i64 72
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double 0.000000e+00, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %0, i64 96
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %198, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %0, i64 120
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double 0.000000e+00, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %0, i64 144
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store double %200, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %0, i64 168
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double 0.000000e+00, ptr %212, align 8
   %213 = fmul double %193, -3.125000e-02
   %214 = fmul double %213, %196
-  %215 = getelementptr inbounds i8, ptr %0, i64 192
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %214, ptr %215, align 8
-  %216 = getelementptr inbounds i8, ptr %0, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %204, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %0, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double 0.000000e+00, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %0, i64 56
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double 0.000000e+00, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %0, i64 80
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double 0.000000e+00, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %0, i64 104
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %204, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %0, i64 128
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double %200, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %0, i64 152
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store double 0.000000e+00, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %0, i64 176
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double %200, ptr %223, align 8
   %224 = fmul double %213, %203
-  %225 = getelementptr inbounds i8, ptr %0, i64 200
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %224, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %0, i64 16
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %205, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %0, i64 40
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double 0.000000e+00, ptr %227, align 8
-  %228 = getelementptr inbounds i8, ptr %0, i64 64
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 0.000000e+00, ptr %228, align 8
-  %229 = getelementptr inbounds i8, ptr %0, i64 88
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double 0.000000e+00, ptr %229, align 8
-  %230 = getelementptr inbounds i8, ptr %0, i64 112
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %205, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %0, i64 136
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double 0.000000e+00, ptr %231, align 8
-  %232 = getelementptr inbounds i8, ptr %0, i64 160
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double 0.000000e+00, ptr %232, align 8
-  %233 = getelementptr inbounds i8, ptr %0, i64 184
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double 0.000000e+00, ptr %233, align 8
   %234 = fmul double %199, 1.250000e-01
   br label %235
@@ -860,7 +860,7 @@ define void @_ZN3g2o8internal13compute_dq_dRERN5Eigen6MatrixIdLi3ELi9ELi0ELi3ELi
 235:                                              ; preds = %181, %127, %73, %23
   %.sink = phi double [ %234, %181 ], [ %151, %127 ], [ %97, %73 ], [ %47, %23 ]
   %.sink.i62 = phi double [ %190, %181 ], [ %136, %127 ], [ %82, %73 ], [ %27, %23 ]
-  %236 = getelementptr inbounds i8, ptr %0, i64 208
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store double %.sink, ptr %236, align 8
   %237 = fcmp ugt double %.sink.i62, 0.000000e+00
   br i1 %237, label %279, label %238
@@ -869,55 +869,55 @@ define void @_ZN3g2o8internal13compute_dq_dRERN5Eigen6MatrixIdLi3ELi9ELi0ELi3ELi
   %239 = load <2 x double>, ptr %0, align 8
   %240 = fneg <2 x double> %239
   store <2 x double> %240, ptr %0, align 8
-  %241 = getelementptr inbounds i8, ptr %0, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %242 = load <2 x double>, ptr %241, align 8
   %243 = fneg <2 x double> %242
   store <2 x double> %243, ptr %241, align 8
-  %244 = getelementptr inbounds i8, ptr %0, i64 32
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %245 = load <2 x double>, ptr %244, align 8
   %246 = fneg <2 x double> %245
   store <2 x double> %246, ptr %244, align 8
-  %247 = getelementptr inbounds i8, ptr %0, i64 48
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %248 = load <2 x double>, ptr %247, align 8
   %249 = fneg <2 x double> %248
   store <2 x double> %249, ptr %247, align 8
-  %250 = getelementptr inbounds i8, ptr %0, i64 64
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %251 = load <2 x double>, ptr %250, align 8
   %252 = fneg <2 x double> %251
   store <2 x double> %252, ptr %250, align 8
-  %253 = getelementptr inbounds i8, ptr %0, i64 80
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %254 = load <2 x double>, ptr %253, align 8
   %255 = fneg <2 x double> %254
   store <2 x double> %255, ptr %253, align 8
-  %256 = getelementptr inbounds i8, ptr %0, i64 96
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %257 = load <2 x double>, ptr %256, align 8
   %258 = fneg <2 x double> %257
   store <2 x double> %258, ptr %256, align 8
-  %259 = getelementptr inbounds i8, ptr %0, i64 112
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %260 = load <2 x double>, ptr %259, align 8
   %261 = fneg <2 x double> %260
   store <2 x double> %261, ptr %259, align 8
-  %262 = getelementptr inbounds i8, ptr %0, i64 128
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %263 = load <2 x double>, ptr %262, align 8
   %264 = fneg <2 x double> %263
   store <2 x double> %264, ptr %262, align 8
-  %265 = getelementptr inbounds i8, ptr %0, i64 144
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %266 = load <2 x double>, ptr %265, align 8
   %267 = fneg <2 x double> %266
   store <2 x double> %267, ptr %265, align 8
-  %268 = getelementptr inbounds i8, ptr %0, i64 160
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %269 = load <2 x double>, ptr %268, align 8
   %270 = fneg <2 x double> %269
   store <2 x double> %270, ptr %268, align 8
-  %271 = getelementptr inbounds i8, ptr %0, i64 176
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %272 = load <2 x double>, ptr %271, align 8
   %273 = fneg <2 x double> %272
   store <2 x double> %273, ptr %271, align 8
-  %274 = getelementptr inbounds i8, ptr %0, i64 192
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %275 = load <2 x double>, ptr %274, align 8
   %276 = fneg <2 x double> %275
   store <2 x double> %276, ptr %274, align 8
-  %277 = getelementptr inbounds i8, ptr %0, i64 208
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %278 = fneg double %.sink
   store double %278, ptr %277, align 8
   br label %279

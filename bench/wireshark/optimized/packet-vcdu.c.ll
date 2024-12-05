@@ -242,7 +242,7 @@ define internal i32 @dissect_vcdu(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.89) #6
   %10 = load ptr, ptr %8, align 8
@@ -292,7 +292,7 @@ define internal i32 @dissect_vcdu(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %53 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %52, ptr noundef %0, i32 noundef 15, i32 noundef 3, i32 noundef 0) #6
   %54 = load i32, ptr @hf_smex_msec, align 4
   %55 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %54, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0) #6
-  %56 = getelementptr inbounds i8, ptr %1, i64 408
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %57 = load ptr, ptr %56, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %58 = load i32, ptr @smex_time_to_string.utcdiff, align 4
@@ -336,7 +336,7 @@ smex_time_to_string.exit:                         ; preds = %4, %.preheader.i
   %77 = sext i32 %76 to i64
   store i64 %77, ptr %5, align 8
   %78 = mul nuw nsw i32 %47, 1000000
-  %79 = getelementptr inbounds i8, ptr %5, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %78, ptr %79, align 8
   %80 = call ptr @abs_time_to_str_ex(ptr noundef %57, ptr noundef nonnull %5, i32 noundef 20, i32 noundef 1) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)

@@ -15,7 +15,7 @@ $_ZN19canonical_termios_tD2Ev = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN19canonical_termios_tD2Ev(ptr noundef nonnull align 4 dereferenceable(61) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7
@@ -36,14 +36,14 @@ define noundef range(i32 -1, 256) i32 @_ZN20canonical_terminal_t4readEv() local_
   %1 = alloca %struct.pollfd, align 4
   %2 = alloca i8, align 1
   store i32 0, ptr %1, align 4
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 1, ptr %3, align 4
   %4 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef 0)
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %17, label %6
 
 6:                                                ; preds = %0
-  %7 = getelementptr inbounds i8, ptr %1, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 1
   %.not = icmp eq i16 %9, 0
@@ -103,14 +103,14 @@ declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr
 define internal void @_GLOBAL__sub_I_term.cc() #9 section ".text.startup" {
   %1 = alloca %struct.termios, align 4
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %1)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL4tios, i64 60), align 4
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL4tios, i64 60), align 4
   %2 = tail call i32 @tcgetattr(i32 noundef 0, ptr noundef nonnull @_ZL4tios) #11
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %__cxx_global_var_init.exit
 
 4:                                                ; preds = %0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %1, ptr noundef nonnull align 4 dereferenceable(60) @_ZL4tios, i64 60, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, -11
   store i32 %7, ptr %5, align 4
@@ -119,7 +119,7 @@ define internal void @_GLOBAL__sub_I_term.cc() #9 section ".text.startup" {
   br i1 %9, label %10, label %__cxx_global_var_init.exit
 
 10:                                               ; preds = %4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL4tios, i64 60), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL4tios, i64 60), align 4
   br label %__cxx_global_var_init.exit
 
 __cxx_global_var_init.exit:                       ; preds = %0, %4, %10

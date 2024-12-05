@@ -204,13 +204,13 @@ define i32 @H5Rget_obj_type1(i64 noundef %0, i32 noundef %1, ptr noundef %2) loc
   br label %.thread45
 
 75:                                               ; preds = %68
-  %76 = getelementptr inbounds i8, ptr %5, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 3, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %5, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %77, align 8
   store i32 %62, ptr %5, align 8
   store i32 2, ptr %4, align 8
-  %78 = getelementptr inbounds i8, ptr %4, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %78, align 8
   %79 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %80 = call i32 @H5VL_object_get(ptr noundef nonnull %41, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef %79, ptr noundef null) #6
@@ -283,7 +283,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
 
 19:                                               ; preds = %12
   store i32 0, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %20, align 8
   %21 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %22 = call i32 @H5VL_file_get(ptr noundef nonnull %13, ptr noundef nonnull %7, i64 noundef %21, ptr noundef null) #6
@@ -302,7 +302,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
 
 30:                                               ; preds = %28
   store i64 8, ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = call i32 @H5R__decode_token_obj_compat(ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %4, i64 noundef %32) #6
   %34 = icmp slt i32 %33, 0
@@ -327,7 +327,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
   br label %.thread
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %6, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %48 = load i64, ptr %47, align 8
   %49 = call i32 @H5R__decode_token_region_compat(ptr noundef nonnull %40, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef nonnull %4, i64 noundef %48, ptr noundef null) #6
   %50 = icmp slt i32 %49, 0
@@ -484,9 +484,9 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rdereference1(i64 noundef %0, 
   br label %.thread50
 
 74:                                               ; preds = %67
-  %75 = getelementptr inbounds i8, ptr %4, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 3, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %4, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %76, align 8
   store i32 %61, ptr %4, align 8
   %77 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
@@ -502,7 +502,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rdereference1(i64 noundef %0, 
 
 84:                                               ; preds = %74
   %85 = load i32, ptr %6, align 4
-  %86 = getelementptr inbounds i8, ptr %40, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = call i64 @H5VL_register(i32 noundef %85, ptr noundef nonnull %78, ptr noundef %87, i1 noundef zeroext true) #6
   %89 = icmp slt i64 %88, 0
@@ -669,16 +669,16 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
   br label %.thread103
 
 87:                                               ; preds = %80
-  %88 = getelementptr inbounds i8, ptr %7, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %7, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %89, align 8
   %90 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %91 = getelementptr inbounds i8, ptr %7, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %90, ptr %91, align 8
   store i32 %81, ptr %7, align 8
   store i32 2, ptr %6, align 8
-  %92 = getelementptr inbounds i8, ptr %6, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %92, align 8
   %93 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %94 = call i32 @H5VL_object_specific(ptr noundef nonnull %60, ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef %93, ptr noundef null) #6
@@ -709,7 +709,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 110:                                              ; preds = %103
   store i32 0, ptr %10, align 8
-  %111 = getelementptr inbounds i8, ptr %10, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %9, ptr %111, align 8
   %112 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %113 = call i32 @H5VL_file_get(ptr noundef nonnull %104, ptr noundef nonnull %10, i64 noundef %112, ptr noundef null) #6
@@ -728,7 +728,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 
 121:                                              ; preds = %119
   store i64 8, ptr %12, align 8
-  %122 = getelementptr inbounds i8, ptr %9, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %123 = load i64, ptr %122, align 8
   %124 = call i32 @H5R__encode_token_obj_compat(ptr noundef nonnull %8, i64 noundef %123, ptr noundef nonnull %0, ptr noundef nonnull %12) #6
   %125 = icmp slt i32 %124, 0
@@ -774,7 +774,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
   br label %.thread75
 
 150:                                              ; preds = %143
-  %151 = getelementptr inbounds i8, ptr %9, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %152 = load i64, ptr %151, align 8
   %153 = call fastcc i32 @H5R__encode_token_region_compat(ptr noundef %144, ptr noundef %8, i64 noundef %152, ptr noundef %137, ptr noundef %0, ptr noundef %13)
   %154 = icmp slt i32 %153, 0
@@ -1049,13 +1049,13 @@ define range(i32 -1, 1) i32 @H5Rget_obj_type2(i64 noundef %0, i32 noundef %1, pt
   br label %.thread46
 
 75:                                               ; preds = %68
-  %76 = getelementptr inbounds i8, ptr %6, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 3, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %6, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %77, align 8
   store i32 %62, ptr %6, align 8
   store i32 2, ptr %5, align 8
-  %78 = getelementptr inbounds i8, ptr %5, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %78, align 8
   %79 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %80 = call i32 @H5VL_object_get(ptr noundef nonnull %41, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %79, ptr noundef null) #6
@@ -1222,9 +1222,9 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rdereference2(i64 noundef %0, 
   br label %.thread53
 
 89:                                               ; preds = %82
-  %90 = getelementptr inbounds i8, ptr %6, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 3, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %6, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %91, align 8
   store i32 %76, ptr %6, align 8
   %92 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
@@ -1240,7 +1240,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rdereference2(i64 noundef %0, 
 
 99:                                               ; preds = %89
   %100 = load i32, ptr %8, align 4
-  %101 = getelementptr inbounds i8, ptr %55, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = call i64 @H5VL_register(i32 noundef %100, ptr noundef nonnull %93, ptr noundef %102, i1 noundef zeroext true) #6
   %104 = icmp slt i64 %103, 0
@@ -1394,7 +1394,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rget_region(i64 noundef %0, i3
 
 78:                                               ; preds = %71
   store i32 0, ptr %5, align 8
-  %79 = getelementptr inbounds i8, ptr %5, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %79, align 8
   %80 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %81 = call i32 @H5VL_file_get(ptr noundef nonnull %72, ptr noundef nonnull %5, i64 noundef %80, ptr noundef null) #6
@@ -1419,7 +1419,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rget_region(i64 noundef %0, i3
   br label %.thread52
 
 94:                                               ; preds = %87
-  %95 = getelementptr inbounds i8, ptr %4, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %96 = load i64, ptr %95, align 8
   %97 = call i32 @H5R__decode_token_region_compat(ptr noundef nonnull %88, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef null, i64 noundef %96, ptr noundef nonnull %7) #6
   %98 = icmp slt i32 %97, 0
@@ -1581,17 +1581,17 @@ define i64 @H5Rget_name(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noun
   br label %.thread44
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %7, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 3, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %7, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %64, align 8
   store i32 %49, ptr %7, align 8
   store i32 1, ptr %6, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %6, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %9, ptr %67, align 8
   %68 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %69 = call i32 @H5VL_object_get(ptr noundef nonnull %42, ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef %68, ptr noundef null) #6

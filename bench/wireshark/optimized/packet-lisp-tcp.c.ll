@@ -223,7 +223,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lisp_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #2
   %7 = load ptr, ptr %5, align 8
@@ -284,7 +284,7 @@ define internal noundef i32 @dissect_lisp_tcp_message(ptr noundef %0, ptr nounde
   %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #2
   %22 = load i32, ptr @hf_lisp_tcp_message_id, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %22, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #2
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = zext i16 %9 to i32
   %27 = tail call ptr @val_to_str(i32 noundef %26, ptr noundef nonnull @lisp_tcp_typevals, ptr noundef nonnull @.str.105) #2
@@ -494,7 +494,7 @@ default.unreachable:                              ; preds = %31
 144:                                              ; preds = %136
   %145 = load i32, ptr @hf_lisp_tcp_message_rloc_ipv4, align 4
   %146 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %145, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #2
-  %147 = getelementptr inbounds i8, ptr %1, i64 408
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %148 = load ptr, ptr %147, align 8
   %149 = tail call ptr @tvb_address_to_str(ptr noundef %148, ptr noundef %0, i32 noundef 2, i32 noundef 24) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.128, ptr noundef %149) #2
@@ -508,7 +508,7 @@ default.unreachable:                              ; preds = %31
 154:                                              ; preds = %136
   %155 = load i32, ptr @hf_lisp_tcp_message_rloc_ipv6, align 4
   %156 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %155, ptr noundef %0, i32 noundef 24, i32 noundef 16, i32 noundef 0) #2
-  %157 = getelementptr inbounds i8, ptr %1, i64 408
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %158 = load ptr, ptr %157, align 8
   %159 = tail call ptr @tvb_address_to_str(ptr noundef %158, ptr noundef %0, i32 noundef 3, i32 noundef 24) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.128, ptr noundef %159) #2

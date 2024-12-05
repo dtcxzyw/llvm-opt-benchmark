@@ -41,9 +41,9 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 0, 2) i32 @file_encoding(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq ptr %2, null
   %spec.store.select = select i1 %14, ptr %8, ptr %2
@@ -53,7 +53,7 @@ define hidden range(i32 0, 2) i32 @file_encoding(ptr noundef %0, ptr nocapture n
   store i64 0, ptr %spec.select, align 8
   store ptr @.str.1, ptr %4, align 8
   store ptr @.str.2, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 288
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %17 = load i64, ptr %16, align 8
   %.0127 = tail call i64 @llvm.umin.i64(i64 %13, i64 %17)
   %18 = add i64 %.0127, 1
@@ -78,7 +78,7 @@ define hidden range(i32 0, 2) i32 @file_encoding(ptr noundef %0, ptr nocapture n
   %25 = getelementptr inbounds i8, ptr %11, i64 %.01112.i
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %.not.i = icmp eq i8 %29, 1
   br i1 %.not.i, label %30, label %looks_ascii.exit
@@ -103,19 +103,19 @@ define hidden range(i32 0, 2) i32 @file_encoding(ptr noundef %0, ptr nocapture n
   br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %11, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 47
   br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %11, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 118
   br i1 %47, label %48, label %.thread
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %11, i64 3
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 3
   %50 = load i8, ptr %49, align 1
   switch i8 %50, label %.thread [
     i8 56, label %51
@@ -153,19 +153,19 @@ looks_ascii.exit:                                 ; preds = %.lr.ph.i
   br i1 %57, label %58, label %looks_utf8_with_BOM.exit.thread
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %11, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, -69
   br i1 %61, label %62, label %looks_utf8_with_BOM.exit.thread
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %11, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, -65
   br i1 %65, label %looks_utf8_with_BOM.exit, label %looks_utf8_with_BOM.exit.thread
 
 looks_utf8_with_BOM.exit:                         ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %11, i64 3
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 3
   %67 = add i64 %.0127, -3
   %68 = call i32 @file_looks_utf8(ptr noundef nonnull readonly %66, i64 noundef %67, ptr noundef %53, ptr noundef nonnull %spec.select)
   %69 = icmp sgt i32 %68, 0
@@ -204,37 +204,37 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   ]
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %11, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %82 = load i8, ptr %81, align 1
   %83 = icmp eq i8 %82, -2
   br i1 %83, label %84, label %.loopexit
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %11, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %86 = load i8, ptr %85, align 1
   %87 = icmp eq i8 %86, 0
   br i1 %87, label %88, label %.loopexit
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %11, i64 3
+  %89 = getelementptr inbounds nuw i8, ptr %11, i64 3
   %90 = load i8, ptr %89, align 1
   %91 = icmp eq i8 %90, 0
   br i1 %91, label %104, label %.loopexit
 
 92:                                               ; preds = %78
-  %93 = getelementptr inbounds i8, ptr %11, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = icmp eq i8 %94, 0
   br i1 %95, label %96, label %.loopexit
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %11, i64 2
+  %97 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %98 = load i8, ptr %97, align 1
   %99 = icmp eq i8 %98, -2
   br i1 %99, label %100, label %.loopexit
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %11, i64 3
+  %101 = getelementptr inbounds nuw i8, ptr %11, i64 3
   %102 = load i8, ptr %101, align 1
   %103 = icmp eq i8 %102, -1
   br i1 %103, label %.thread56.i, label %.loopexit
@@ -290,7 +290,7 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %134
-  %137 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %132
+  %137 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %132
   %138 = load i8, ptr %137, align 1
   %.not46.us.i = icmp eq i8 %138, 1
   br i1 %.not46.us.i, label %139, label %.loopexit
@@ -340,7 +340,7 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   br i1 %171, label %172, label %175
 
 172:                                              ; preds = %170
-  %173 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %168
+  %173 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %168
   %174 = load i8, ptr %173, align 1
   %.not46.i = icmp eq i8 %174, 1
   br i1 %.not46.i, label %175, label %.loopexit
@@ -389,7 +389,7 @@ looks_ucs32.exit:                                 ; preds = %139, %104
   %185 = getelementptr inbounds i8, ptr %11, i64 %.01314.i
   %186 = load i8, ptr %185, align 1
   %187 = zext i8 %186 to i64
-  %188 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %187
   %189 = load i8, ptr %188, align 1
   %190 = icmp ne i8 %189, 1
   %191 = icmp ult i8 %186, -96
@@ -421,7 +421,7 @@ looks_latin1.exit:                                ; preds = %.lr.ph.i148
   %199 = getelementptr inbounds i8, ptr %11, i64 %.01617.i
   %200 = load i8, ptr %199, align 1
   %201 = zext i8 %200 to i64
-  %202 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %201
   %203 = load i8, ptr %202, align 1
   %204 = icmp ult i8 %200, -96
   %205 = and i8 %203, -3
@@ -458,7 +458,7 @@ looks_extended.exit:                              ; preds = %.lr.ph.i152
   %216 = getelementptr inbounds i8, ptr %11, i64 %.06.i
   %217 = load i8, ptr %216, align 1
   %218 = zext i8 %217 to i64
-  %219 = getelementptr inbounds [256 x i8], ptr @ebcdic_to_ascii, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw [256 x i8], ptr @ebcdic_to_ascii, i64 0, i64 %218
   %220 = load i8, ptr %219, align 1
   %221 = getelementptr inbounds i8, ptr %213, i64 %.06.i
   store i8 %220, ptr %221, align 1
@@ -476,7 +476,7 @@ from_ebcdic.exit:                                 ; preds = %.lr.ph.i156
   %224 = getelementptr inbounds i8, ptr %213, i64 %.01112.i160
   %225 = load i8, ptr %224, align 1
   %226 = zext i8 %225 to i64
-  %227 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %226
   %228 = load i8, ptr %227, align 1
   %.not.i161 = icmp eq i8 %228, 1
   br i1 %.not.i161, label %229, label %looks_ascii.exit164
@@ -506,7 +506,7 @@ looks_ascii.exit164:                              ; preds = %.lr.ph.i159
   %236 = getelementptr inbounds i8, ptr %213, i64 %.01314.i167
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i64
-  %239 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %238
   %240 = load i8, ptr %239, align 1
   %241 = icmp ne i8 %240, 1
   %242 = icmp ult i8 %237, -96
@@ -581,7 +581,7 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr nocapture noundef readon
 
 11:                                               ; preds = %.lr.ph
   %12 = zext nneg i8 %8 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %.not85 = icmp eq i8 %14, 1
   %spec.select = select i1 %.not85, i32 %.068105, i32 1
@@ -594,11 +594,11 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr nocapture noundef readon
 
 18:                                               ; preds = %15
   %19 = zext i8 %8 to i64
-  %20 = getelementptr inbounds [256 x i8], ptr @first, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [256 x i8], ptr @first, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = lshr i8 %21, 4
   %23 = zext nneg i8 %22 to i64
-  %24 = getelementptr inbounds [16 x %struct.accept_range], ptr @accept_ranges, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [16 x %struct.accept_range], ptr @accept_ranges, i64 0, i64 %23
   %25 = icmp eq i8 %21, -15
   br i1 %25, label %.loopexit86, label %26
 
@@ -632,7 +632,7 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr nocapture noundef readon
   %.067 = phi i32 [ 1, %26 ], [ 2, %29 ], [ 3, %32 ], [ 4, %35 ], [ 5, %38 ]
   %42 = and i32 %.sink, %9
   %.073 = zext nneg i32 %42 to i64
-  %43 = getelementptr inbounds i8, ptr %24, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %44 = add nuw i64 %.066106, 1
   %45 = add nsw i32 %.067, -1
   %46 = zext nneg i32 %45 to i64
@@ -732,13 +732,13 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr nocapture noundef re
   ]
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, -2
   br i1 %11, label %16, label %.thread
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, -1
   br i1 %15, label %.thread75, label %.thread
@@ -794,7 +794,7 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr nocapture noundef re
   br i1 %38, label %40, label %._crit_edge72
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %39
+  %41 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %39
   %42 = load i8, ptr %41, align 1
   %.not54.us = icmp eq i8 %42, 1
   br i1 %.not54.us, label %._crit_edge72, label %.thread
@@ -859,7 +859,7 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr nocapture noundef re
   br i1 %71, label %73, label %._crit_edge
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds [256 x i8], ptr @text_chars, i64 0, i64 %72
+  %74 = getelementptr inbounds nuw [256 x i8], ptr @text_chars, i64 0, i64 %72
   %75 = load i8, ptr %74, align 1
   %.not54 = icmp eq i8 %75, 1
   br i1 %.not54, label %._crit_edge, label %.thread

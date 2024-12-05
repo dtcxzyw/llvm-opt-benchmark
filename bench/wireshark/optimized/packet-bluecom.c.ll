@@ -228,7 +228,7 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
   %9 = alloca %struct.except_stacknode, align 8
   %10 = alloca %struct.except_catch, align 8
   store volatile i32 0, ptr %6, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.88) #4
   %13 = load ptr, ptr %11, align 8
@@ -273,15 +273,15 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph:                                           ; preds = %4
   %45 = zext i8 %19 to i32
-  %46 = getelementptr inbounds i8, ptr %10, i64 48
-  %47 = getelementptr inbounds i8, ptr %10, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %48 = and i32 %45, 1
   %.not57 = icmp eq i32 %48, 0
   %49 = select i1 %.not57, ptr @.str.102, ptr @.str.101
-  %50 = getelementptr inbounds i8, ptr %1, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %51 = and i32 %45, 2
   %.not66.i = icmp eq i32 %51, 0
-  %52 = getelementptr inbounds i8, ptr %10, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 40
   br label %53
 
 53:                                               ; preds = %.lr.ph, %287
@@ -590,28 +590,28 @@ dissect_bcp_sync_data.exit:                       ; preds = %256, %254, %239, %2
 
 261:                                              ; preds = %260
   %.0..0..0..0.9 = load volatile ptr, ptr %7, align 8
-  %262 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %263 = load volatile i64, ptr %262, align 8
   %264 = icmp eq i64 %263, 3
   br i1 %264, label %277, label %265
 
 265:                                              ; preds = %261
   %.0..0..0..0.10 = load volatile ptr, ptr %7, align 8
-  %266 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %266 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %267 = load volatile i64, ptr %266, align 8
   %268 = icmp eq i64 %267, 2
   br i1 %268, label %277, label %269
 
 269:                                              ; preds = %265
   %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
-  %270 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %270 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %271 = load volatile i64, ptr %270, align 8
   %272 = icmp eq i64 %271, 7
   br i1 %272, label %277, label %273
 
 273:                                              ; preds = %269
   %.0..0..0..0.12 = load volatile ptr, ptr %7, align 8
-  %274 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %275 = load volatile i64, ptr %274, align 8
   %276 = icmp eq i64 %275, 9
   br i1 %276, label %277, label %283
@@ -621,10 +621,10 @@ dissect_bcp_sync_data.exit:                       ; preds = %256, %254, %239, %2
   %278 = or i32 %.0..0..0..0.5, 1
   store volatile i32 %278, ptr %8, align 4
   %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
-  %279 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %280 = load volatile i64, ptr %279, align 8
   %.0..0..0..0.14 = load volatile ptr, ptr %7, align 8
-  %281 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 16
   %282 = load volatile ptr, ptr %281, align 8
   call void @show_exception(ptr noundef %89, ptr noundef %1, ptr noundef %2, i64 noundef %280, ptr noundef %282) #4
   br label %283

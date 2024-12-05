@@ -77,7 +77,7 @@ define hidden noundef i32 @_ZNK4ncnn4CELU15forward_inplaceERNS_3MatERKNS_6Option
 
 25:                                               ; preds = %.lr.ph.us, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %35 ]
-  %26 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
   %27 = load float, ptr %26, align 4
   %28 = fcmp fast olt float %27, 0.000000e+00
   br i1 %28, label %29, label %35

@@ -270,7 +270,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   %123 = load i8, ptr %122, align 2
   %124 = getelementptr inbounds i8, ptr %.0252302, i64 -2
   store i8 %123, ptr %124, align 1
-  %125 = getelementptr inbounds i8, ptr %122, i64 1
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 1
   %126 = load i8, ptr %125, align 1
   %127 = getelementptr inbounds i8, ptr %.0252302, i64 -1
   store i8 %126, ptr %127, align 1
@@ -297,10 +297,10 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 136:                                              ; preds = %130
   %137 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -2
   %138 = shl nuw nsw i64 %.2268.lcssa, 1
-  %139 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 192), i64 %138
+  %139 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 192), i64 %138
   %140 = load i8, ptr %139, align 2
   store i8 %140, ptr %137, align 1
-  %141 = getelementptr inbounds i8, ptr %139, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 1
   %142 = load i8, ptr %141, align 1
   %143 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -1
   store i8 %142, ptr %143, align 1
@@ -355,11 +355,11 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   store i8 %.sink347, ptr %147, align 1
   %164 = add nsw i64 %.2268.lcssa, %.sink
   %165 = shl nuw nsw i64 %164, 1
-  %166 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 192), i64 %165
+  %166 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 192), i64 %165
   %167 = load i8, ptr %166, align 2
   %168 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -2
   store i8 %167, ptr %168, align 1
-  %169 = getelementptr inbounds i8, ptr %166, i64 1
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 1
   %170 = load i8, ptr %169, align 1
   %171 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -1
   store i8 %170, ptr %171, align 1
@@ -502,11 +502,11 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 233:                                              ; preds = %219, %217, %229, %231, %223, %198, %197, %208, %210, %202
   %.5271 = phi i64 [ %190, %197 ], [ %199, %198 ], [ %204, %202 ], [ %209, %208 ], [ %211, %210 ], [ %218, %217 ], [ %220, %219 ], [ %225, %223 ], [ %230, %229 ], [ %232, %231 ]
   %234 = shl nuw nsw i64 %.5271, 1
-  %235 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 192), i64 %234
+  %235 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_Sftable, i64 192), i64 %234
   %236 = load i8, ptr %235, align 2
   %237 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -2
   store i8 %236, ptr %237, align 1
-  %238 = getelementptr inbounds i8, ptr %235, i64 1
+  %238 = getelementptr inbounds nuw i8, ptr %235, i64 1
   %239 = load i8, ptr %238, align 1
   %240 = getelementptr inbounds i8, ptr %.0252.lcssa, i64 -1
   store i8 %239, ptr %240, align 1
@@ -629,7 +629,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 292:                                              ; preds = %286
   %293 = trunc i32 %288 to i8
   %294 = add i8 %293, 48
-  %295 = getelementptr inbounds i8, ptr %.4256307, i64 1
+  %295 = getelementptr inbounds nuw i8, ptr %.4256307, i64 1
   store i8 %294, ptr %.4256307, align 1
   %296 = sitofp i32 %288 to double
   %297 = fsub double %287, %296
@@ -648,7 +648,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br i1 %.not291, label %301, label %299
 
 299:                                              ; preds = %.loopexit295
-  %300 = getelementptr inbounds i8, ptr %.0261, i64 1
+  %300 = getelementptr inbounds nuw i8, ptr %.0261, i64 1
   br label %.loopexit
 
 301:                                              ; preds = %.loopexit295
@@ -680,7 +680,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   store i32 %311, ptr %2, align 4
   %312 = getelementptr inbounds i8, ptr %.2264312.us, i64 -1
   store i8 48, ptr %312, align 1
-  %313 = getelementptr inbounds i8, ptr %.2264312.us, i64 1
+  %313 = getelementptr inbounds nuw i8, ptr %.2264312.us, i64 1
   %.pr.us.pre = load i8, ptr %.8260313.us, align 1
   br label %318
 

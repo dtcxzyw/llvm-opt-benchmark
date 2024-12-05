@@ -99,25 +99,25 @@ $_ZTV17LogStreamImplBase = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN23ExplicitHugePageSupportC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 1), (8, 25)) %0) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @_ZNK23ExplicitHugePageSupport9pagesizesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK23ExplicitHugePageSupport21default_hugepage_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -130,7 +130,7 @@ define hidden void @_ZN23ExplicitHugePageSupport8print_onEP12outputStream(ptr no
 
 5:                                                ; preds = %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #15
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call noundef i64 @_ZNK2os9PageSizes8smallestEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   %.not30 = icmp eq i64 %7, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph
@@ -181,7 +181,7 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %_Z24exact_unit_for_byte_sizem.exit, %5
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = icmp ugt i64 %27, 1073741823
   %29 = and i64 %27, 1073741823
@@ -229,7 +229,7 @@ _Z24exact_unit_for_byte_sizem.exit23:             ; preds = %.thread33, %_Z23byt
   br label %46
 
 46:                                               ; preds = %45, %_Z24exact_unit_for_byte_sizem.exit23
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load i8, ptr %47, align 8
   %49 = trunc i8 %48 to i1
   br i1 %49, label %50, label %51
@@ -264,7 +264,7 @@ define hidden void @_ZN23ExplicitHugePageSupport7scan_osEv(ptr noundef nonnull a
 _ZL25scan_default_hugepagesizev.exit.thread:      ; preds = %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %8, align 8
   br label %54
 
@@ -310,7 +310,7 @@ _ZL25scan_default_hugepagesizev.exit.thread6:     ; preds = %.loopexit.i, %.preh
   %20 = call i32 @fclose(ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %21, align 8
   br label %54
 
@@ -321,7 +321,7 @@ _ZL25scan_default_hugepagesizev.exit:             ; preds = %16
   %25 = call i32 @fclose(ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %24, ptr %26, align 8
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %54, label %27
@@ -341,13 +341,13 @@ _ZL25scan_default_hugepagesizev.exit:             ; preds = %16
 
 .lr.ph.i3:                                        ; preds = %.preheader.i2, %41
   %30 = phi ptr [ %42, %41 ], [ %29, %.preheader.i2 ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 18
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 18
   %32 = load i8, ptr %31, align 2
   %33 = icmp eq i8 %32, 4
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %.lr.ph.i3
-  %35 = getelementptr inbounds i8, ptr %30, i64 19
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 19
   %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %35, ptr noundef nonnull @.str.45, ptr noundef nonnull %3) #15
   %37 = icmp eq i32 %36, 1
   br i1 %37, label %38, label %41
@@ -373,14 +373,14 @@ _ZL14scan_hugepagesv.exit:                        ; preds = %27, %._crit_edge.i
   %44 = phi i64 [ %.pre.i, %._crit_edge.i ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %44, ptr %45, align 8
   %46 = load i64, ptr %26, align 8
   %47 = call noundef zeroext i1 @_ZNK2os9PageSizes8containsEm(ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef %46) #15
   br i1 %47, label %54, label %48
 
 48:                                               ; preds = %_ZL14scan_hugepagesv.exit
-  %49 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %49 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not9 = icmp eq ptr %49, null
   br i1 %.not9, label %52, label %50
 
@@ -390,24 +390,24 @@ _ZL14scan_hugepagesv.exit:                        ; preds = %27, %._crit_edge.i
   br label %52
 
 52:                                               ; preds = %48, %50
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %_ZL25scan_default_hugepagesizev.exit.thread6, %_ZL25scan_default_hugepagesizev.exit.thread, %_ZL14scan_hugepagesv.exit, %52, %_ZL25scan_default_hugepagesizev.exit
   store i8 1, ptr %0, align 8
-  %55 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not10 = icmp eq ptr %55, null
   br i1 %.not10, label %59, label %56
 
 56:                                               ; preds = %54
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %6, i1 noundef zeroext false) #15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %57) #15
-  %58 = getelementptr inbounds i8, ptr %6, i64 144
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i32 3, ptr %58, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 152
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %6, align 8
   call void @_ZN23ExplicitHugePageSupport8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull %6)
@@ -438,23 +438,23 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10THPSupportC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (4, 16)) %0) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK10THPSupport4modeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK10THPSupport8pagesizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -463,7 +463,7 @@ define hidden noundef i64 @_ZNK10THPSupport8pagesizeEv(ptr nocapture noundef non
 define hidden void @_ZN10THPSupport7scan_osEv(ptr noundef nonnull align 8 dereferenceable(16) initializes((4, 16)) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca %class.LogStream, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %4, align 4
   %5 = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %5, null
@@ -490,7 +490,7 @@ define hidden void @_ZN10THPSupport7scan_osEv(ptr noundef nonnull align 8 derefe
   br label %13
 
 13:                                               ; preds = %11, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %14, align 8
   %15 = call noalias ptr @fopen64(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10)
   %.not.i = icmp eq ptr %15, null
@@ -503,18 +503,18 @@ define hidden void @_ZN10THPSupport7scan_osEv(ptr noundef nonnull align 8 derefe
 
 _ZL16read_number_filePKcPm.exit:                  ; preds = %13, %16
   store i8 1, ptr %0, align 8
-  %19 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not7 = icmp eq ptr %19, null
   br i1 %.not7, label %23, label %20
 
 20:                                               ; preds = %_ZL16read_number_filePKcPm.exit
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %21) #15
-  %22 = getelementptr inbounds i8, ptr %3, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 3, ptr %22, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 152
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
   call void @_ZN10THPSupport8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
@@ -545,14 +545,14 @@ define hidden void @_ZN10THPSupport8print_onEP12outputStream(ptr nocapture nound
 
 5:                                                ; preds = %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.14) #15
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   %9 = icmp eq i32 %7, 1
   %10 = select i1 %9, ptr @.str.17, ptr @.str.18
   %11 = select i1 %8, ptr @.str.16, ptr %10
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.15, ptr noundef nonnull %11) #15
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = icmp ugt i64 %13, 1073741823
   %15 = and i64 %13, 1073741823
@@ -606,14 +606,14 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN15ShmemTHPSupportC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 1), (4, 8)) %0) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 6, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK15ShmemTHPSupport4modeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
@@ -621,7 +621,7 @@ define hidden noundef i32 @_ZNK15ShmemTHPSupport4modeEv(ptr nocapture noundef no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK15ShmemTHPSupport9is_forcedEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
 switch.edge:
-  %1 = getelementptr inbounds i8, ptr %0, i64 4
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2 = load i32, ptr %1, align 4
   %3 = icmp ult i32 %2, 6
   %switch.cast = trunc i32 %2 to i6
@@ -634,7 +634,7 @@ switch.edge:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK15ShmemTHPSupport10is_enabledEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
 _ZNK15ShmemTHPSupport9is_forcedEv.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 4
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2 = load i32, ptr %1, align 4
   %3 = icmp ult i32 %2, 6
   %switch.cast = trunc i32 %2 to i6
@@ -649,7 +649,7 @@ _ZNK15ShmemTHPSupport9is_forcedEv.exit:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK15ShmemTHPSupport11is_disabledEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
 switch.edge:
-  %1 = getelementptr inbounds i8, ptr %0, i64 4
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2 = load i32, ptr %1, align 4
   %3 = icmp ult i32 %2, 7
   %switch.cast = trunc i32 %2 to i7
@@ -663,7 +663,7 @@ switch.edge:
 define hidden void @_ZN15ShmemTHPSupport7scan_osEv(ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((0, 1), (4, 8)) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca %class.LogStream, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 6, ptr %4, align 4
   %5 = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10)
   %.not = icmp eq ptr %5, null
@@ -711,18 +711,18 @@ define hidden void @_ZN15ShmemTHPSupport7scan_osEv(ptr nocapture noundef nonnull
 
 21:                                               ; preds = %19, %1
   store i8 1, ptr %0, align 4
-  %22 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not11 = icmp eq ptr %22, null
   br i1 %.not11, label %33, label %23
 
 23:                                               ; preds = %21
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %24) #15
-  %25 = getelementptr inbounds i8, ptr %3, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 3, ptr %25, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 152
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
   %26 = load i8, ptr %0, align 4
@@ -737,7 +737,7 @@ define hidden void @_ZN15ShmemTHPSupport7scan_osEv(ptr nocapture noundef nonnull
 
 switch.lookup:                                    ; preds = %28
   %31 = zext nneg i32 %29 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 0, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN15ShmemTHPSupport14mode_to_stringE12ShmemTHPMode.exit.i
 
@@ -766,14 +766,14 @@ define hidden void @_ZN15ShmemTHPSupport8print_onEP12outputStream(ptr nocapture 
 
 5:                                                ; preds = %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.31) #15
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp ult i32 %7, 6
   br i1 %8, label %switch.lookup, label %_ZN15ShmemTHPSupport14mode_to_stringE12ShmemTHPMode.exit
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN15ShmemTHPSupport14mode_to_stringE12ShmemTHPMode.exit
 
@@ -797,7 +797,7 @@ define hidden noundef nonnull ptr @_ZN15ShmemTHPSupport14mode_to_stringE12ShmemT
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -808,14 +808,14 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef range(i64 1, 0) i64 @_ZN9HugePages21thp_pagesize_fallbackEv() local_unnamed_addr #7 align 2 {
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9HugePages12_thp_supportE, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9HugePages12_thp_supportE, i64 8), align 8
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %2, label %8
 
 2:                                                ; preds = %0
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9HugePages26_explicit_hugepage_supportE, i64 16), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9HugePages26_explicit_hugepage_supportE, i64 16), align 8
   %.not.i = icmp eq i64 %3, 0
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN9HugePages26_explicit_hugepage_supportE, i64 24), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9HugePages26_explicit_hugepage_supportE, i64 24), align 8
   %5 = trunc i8 %4 to i1
   %.not1 = select i1 %.not.i, i1 true, i1 %5
   br i1 %.not1, label %8, label %6
@@ -847,13 +847,13 @@ define hidden void @_ZN9HugePages8print_onEP12outputStream(ptr noundef %0) local
 
 4:                                                ; preds = %1
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.31) #15
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN9HugePages18_shmem_thp_supportE, i64 4), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9HugePages18_shmem_thp_supportE, i64 4), align 4
   %6 = icmp ult i32 %5, 6
   br i1 %6, label %switch.lookup, label %_ZN15ShmemTHPSupport14mode_to_stringE12ShmemTHPMode.exit.i
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN9HugePages8print_onEP12outputStream, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN15ShmemTHPSupport14mode_to_stringE12ShmemTHPMode.exit.i
 
@@ -954,7 +954,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #2 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #15
   ret void
 }

@@ -46,7 +46,7 @@ define hidden void @_ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_(ptr dead_on
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit: ; preds = %7
   %10 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !16, !noalias !13
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8, !noalias !13
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #2, !noalias !13
   br i1 %13, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
@@ -58,9 +58,9 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %14 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ]
   %15 = or disjoint i64 %14, ptrtoint (ptr @_ZZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_E11loc__LINE__ to i64)
   store i64 5, ptr %0, align 8
-  %.sroa.558.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.558.0..sroa_idx, align 8, !tbaa !18
-  %.sroa.659.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %15, ptr %.sroa.659.0..sroa_idx, align 8, !tbaa !19
   br label %54
 
@@ -78,7 +78,7 @@ _ZN5boost4urls7grammar12hexdig_valueEc.exit:      ; preds = %switch.hole_check, 
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit41: ; preds = %_ZN5boost4urls7grammar12hexdig_valueEc.exit
   %21 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !16, !noalias !21
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8, !noalias !21
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #2, !noalias !21
   br i1 %24, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit41.thread, label %_ZN5boost4urls7grammar12hexdig_valueEc.exit45
@@ -94,7 +94,7 @@ switch.hole_check:                                ; preds = %16
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %25 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %25
   %switch.load = load i16, ptr %switch.gep, align 2
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %26, ptr %2, align 8, !tbaa !3
@@ -115,7 +115,7 @@ switch.hole_check77:                              ; preds = %28
 
 switch.lookup78:                                  ; preds = %switch.hole_check77
   %31 = zext nneg i8 %switch.tableidx76 to i64
-  %switch.gep82 = getelementptr inbounds [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %31
+  %switch.gep82 = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %31
   %switch.load83 = load i16, ptr %switch.gep82, align 2
   %32 = shl nuw nsw i16 %switch.load, 4
   %33 = or disjoint i16 %switch.load83, %32
@@ -138,7 +138,7 @@ switch.hole_check86:                              ; preds = %36
 
 switch.lookup87:                                  ; preds = %switch.hole_check86
   %39 = zext nneg i8 %switch.tableidx85 to i64
-  %switch.gep91 = getelementptr inbounds [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %39
+  %switch.gep91 = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %39
   %switch.load92 = load i16, ptr %switch.gep91, align 2
   %40 = shl nuw nsw i16 %33, 4
   %41 = or disjoint i16 %switch.load92, %40
@@ -161,7 +161,7 @@ switch.hole_check95:                              ; preds = %44
 
 switch.lookup96:                                  ; preds = %switch.hole_check95
   %47 = zext nneg i8 %switch.tableidx94 to i64
-  %switch.gep100 = getelementptr inbounds [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %47
+  %switch.gep100 = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %47
   %switch.load101 = load i16, ptr %switch.gep100, align 2
   %48 = shl nuw i16 %41, 4
   %49 = or disjoint i16 %switch.load101, %48
@@ -173,9 +173,9 @@ _ZN5boost4urls7grammar12hexdig_valueEc.exit45:    ; preds = %_ZN5boost6system10e
   %51 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit41.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit41 ]
   %52 = or disjoint i64 %51, ptrtoint (ptr @_ZZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_E11loc__LINE___0 to i64)
   store i64 5, ptr %0, align 8
-  %.sroa.552.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.552.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.552.0..sroa_idx, align 8, !tbaa !18
-  %.sroa.653.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.653.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %52, ptr %.sroa.653.0..sroa_idx, align 8, !tbaa !19
   br label %54
 

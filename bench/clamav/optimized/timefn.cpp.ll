@@ -17,42 +17,42 @@ define void @_ZN7RarTime8GetLocalEP12RarLocalTime(ptr nocapture noundef nonnull 
   %6 = udiv i64 %5, 1000000000
   store i64 %6, ptr %3, align 8
   %7 = call ptr @localtime(ptr noundef nonnull %3) #13
-  %8 = getelementptr inbounds i8, ptr %7, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, 1900
   store i32 %10, ptr %1, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = add nsw i32 %12, 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %7, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %22, ptr %23, align 4
   %24 = load i32, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %7, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %7, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %30, ptr %31, align 4
   %32 = load i64, ptr %0, align 8
   %33 = urem i64 %32, 1000000000
   %34 = trunc nuw nsw i64 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %34, ptr %35, align 4
   ret void
 }
@@ -71,37 +71,37 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define void @_ZN7RarTime8SetLocalEP12RarLocalTime(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %struct.tm, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %7, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, -1
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %17, ptr %18, align 8
   %19 = load i32, ptr %1, align 4
   %20 = add i32 %19, -1900
-  %21 = getelementptr inbounds i8, ptr %3, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %22, align 8
   %23 = call i64 @mktime(ptr noundef nonnull %3) #13
   %24 = mul i64 %23, 1000000000
   %25 = add i64 %24, -6802270473709551616
   store i64 %25, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = add i64 %25, %28
@@ -157,15 +157,15 @@ define noundef i32 @_ZN7RarTime6GetDosEv(ptr nocapture noundef nonnull readonly 
   %5 = udiv i64 %4, 1000000000
   store i64 %5, ptr %2, align 8
   %6 = call ptr @localtime(ptr noundef nonnull %2) #13
-  %7 = getelementptr inbounds i8, ptr %6, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = load i32, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -201,19 +201,19 @@ define void @_ZN7RarTime6SetDosEj(ptr nocapture noundef nonnull writeonly align 
   %14 = lshr i32 %1, 25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   store i32 %5, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %7, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %9, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %11, ptr %17, align 4
   %18 = add nsw i32 %13, -1
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %18, ptr %19, align 8
   %20 = add nuw nsw i32 %14, 80
-  %21 = getelementptr inbounds i8, ptr %3, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %22, align 8
   %23 = call i64 @mktime(ptr noundef nonnull %3) #13
   %24 = mul i64 %23, 1000000000
@@ -236,17 +236,17 @@ define void @_ZN7RarTime7GetTextEPwmb(ptr nocapture noundef nonnull readonly ali
   %9 = udiv i64 %8, 1000000000
   store i64 %9, ptr %5, align 8
   %10 = call ptr @localtime(ptr noundef nonnull %5) #13
-  %11 = getelementptr inbounds i8, ptr %10, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = add nsw i32 %12, 1900
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %15, 1
-  %17 = getelementptr inbounds i8, ptr %10, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %10, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = load i32, ptr %10, align 8
   %24 = load i64, ptr %0, align 8
@@ -303,7 +303,7 @@ define void @_ZN7RarTime10SetIsoTextEPKw(ptr nocapture noundef nonnull writeonly
 
 15:                                               ; preds = %8
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = mul nsw i32 %18, 10
   %20 = load i32, ptr %.015, align 4
@@ -318,21 +318,21 @@ define void @_ZN7RarTime10SetIsoTextEPKw(ptr nocapture noundef nonnull writeonly
 
 25:                                               ; preds = %.lr.ph, %23
   %.1 = phi i32 [ %24, %23 ], [ %.01014, %.lr.ph ]
-  %26 = getelementptr inbounds i8, ptr %.015, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.015, i64 4
   %27 = load i32, ptr %26, align 4
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %25
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 20
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %.phi.trans.insert16 = getelementptr inbounds i8, ptr %4, i64 16
+  %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre17 = load i32, ptr %.phi.trans.insert16, align 16
-  %.phi.trans.insert18 = getelementptr inbounds i8, ptr %4, i64 12
+  %.phi.trans.insert18 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.pre19 = load i32, ptr %.phi.trans.insert18, align 4
-  %.phi.trans.insert20 = getelementptr inbounds i8, ptr %4, i64 8
+  %.phi.trans.insert20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre21 = load i32, ptr %.phi.trans.insert20, align 8
-  %.phi.trans.insert22 = getelementptr inbounds i8, ptr %4, i64 4
+  %.phi.trans.insert22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre23 = load i32, ptr %.phi.trans.insert22, align 4
   %.pre24 = load i32, ptr %4, align 16
   %28 = add i32 %.pre24, -1900
@@ -348,18 +348,18 @@ define void @_ZN7RarTime10SetIsoTextEPKw(ptr nocapture noundef nonnull writeonly
   %35 = tail call i32 @llvm.umax.i32(i32 %31, i32 1)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   store i32 %34, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %33, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %32, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %35, ptr %38, align 4
   %39 = tail call i32 @llvm.usub.sat.i32(i32 %30, i32 1)
-  %40 = getelementptr inbounds i8, ptr %3, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %29, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %3, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %42, align 8
   %43 = call i64 @mktime(ptr noundef nonnull %3) #13
   %44 = mul i64 %43, 1000000000
@@ -428,7 +428,7 @@ define void @_ZN7RarTime10SetAgeTextEPKw(ptr nocapture noundef nonnull writeonly
   %.2 = phi i32 [ %.025, %7 ], [ %23, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ], [ %.025, %11 ]
   %25 = add i32 %.01824, 1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %26
   %28 = load i32, ptr %27, align 4
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6

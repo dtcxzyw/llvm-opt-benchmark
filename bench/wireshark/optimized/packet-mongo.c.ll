@@ -536,7 +536,7 @@ define internal i32 @dissect_mongo_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.256) #4
   %9 = load i32, ptr @proto_mongo, align 4
@@ -963,7 +963,7 @@ define internal fastcc i32 @dissect_opcode_types(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond.i, label %287, label %303
 
 287:                                              ; preds = %279
-  %288 = getelementptr inbounds i8, ptr %1, i64 408
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %289 = load ptr, ptr %288, align 8
   %290 = call noalias ptr @wmem_alloc(ptr noundef %289, i64 noundef %285) #4
   %291 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %273, i32 noundef -1) #4
@@ -1224,7 +1224,7 @@ define internal fastcc noundef i32 @dissect_bson_document(ptr noundef %0, ptr no
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @ett_mongo_elements, align 4
   %39 = tail call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38) #4
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = add i32 %2, -1
   %42 = add i32 %41, %7
   br label %43

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext range(i8 0, 6) i8 @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData7GetTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
-  %1 = getelementptr inbounds i8, ptr %0, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val = load i8, ptr %1, align 8
   %switch.cast = zext i8 %.val to i48
   %switch.shiftamt = shl nuw nsw i48 %switch.cast, 3
@@ -18,7 +18,7 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData6GetIntEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
 _ZSt3getIlJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEERKT_RKSt7variantIJDpT0_EE.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val.i = load i8, ptr %1, align 8
   %switch = icmp eq i8 %.val.i, 3
   %spec.select = select i1 %switch, ptr %0, ptr null
@@ -28,7 +28,7 @@ _ZSt3getIlJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData7GetUIntEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
 _ZSt3getImJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEERKT_RKSt7variantIJDpT0_EE.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val.i = load i8, ptr %1, align 8
   %switch = icmp eq i8 %.val.i, 4
   %spec.select = select i1 %switch, ptr %0, ptr null
@@ -38,7 +38,7 @@ _ZSt3getImJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData8GetFloatEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
 _ZSt3getIdJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEERKT_RKSt7variantIJDpT0_EE.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val.i = load i8, ptr %1, align 8
   %switch = icmp ult i8 %.val.i, 5
   %spec.select = select i1 %switch, ptr null, ptr %0
@@ -48,7 +48,7 @@ _ZSt3getIdJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData7GetBoolEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
 _ZSt3getIbJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdEERKT_RKSt7variantIJDpT0_EE.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val.i = load i8, ptr %1, align 8
   %switch = icmp eq i8 %.val.i, 2
   %spec.select = select i1 %switch, ptr %0, ptr null
@@ -58,7 +58,7 @@ _ZSt3getIbJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataENSt7__cxx
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9GetStringB5cxx11Ev(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
 _ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJN32pxrInternal_v0_24__pxrReserved__14TraceEventData7_NoDataES5_blmdEERKT_RKSt7variantIJDpT0_EE.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val.i = load i8, ptr %1, align 8
   %switch = icmp eq i8 %.val.i, 1
   %spec.select = select i1 %switch, ptr %0, ptr null

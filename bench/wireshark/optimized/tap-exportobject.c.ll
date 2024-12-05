@@ -154,11 +154,11 @@ define internal void @exportobject_handler(ptr noundef %0, ptr nocapture readnon
   %8 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #10
   %9 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #10
   store ptr @object_list_add_entry, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @object_list_get_entry, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %9, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %4, ptr %12, align 8
   %13 = tail call ptr @get_eo_tap_listener_name(ptr noundef nonnull %4) #7
   %14 = tail call ptr @get_eo_packet_func(ptr noundef nonnull %4) #7
@@ -205,11 +205,11 @@ declare ptr @get_eo_packet_func(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @eo_draw(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca [256 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @eo_opts, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @get_eo_proto_id(ptr noundef %8) #7
   %10 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %9) #7
@@ -238,8 +238,8 @@ define internal void @eo_draw(ptr nocapture noundef readonly %0) #0 {
 .lr.ph:                                           ; preds = %22, %.critedge
   %.039 = phi ptr [ %51, %.critedge ], [ %5, %22 ]
   %23 = load ptr, ptr %.039, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
-  %25 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   br label %26
 
 26:                                               ; preds = %41, %.lr.ph
@@ -277,13 +277,13 @@ define internal void @eo_draw(ptr nocapture noundef readonly %0) #0 {
   br i1 %44, label %26, label %.critedge, !llvm.loop !5
 
 .critedge:                                        ; preds = %35, %41
-  %45 = getelementptr inbounds i8, ptr %23, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %23, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %48 = load i64, ptr %47, align 8
   %49 = call zeroext i1 @write_file_binary_mode(ptr noundef %38, ptr noundef %46, i64 noundef %48) #7
   call void @g_free(ptr noundef %38) #7
-  %50 = getelementptr inbounds i8, ptr %.039, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.039, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not34 = icmp eq ptr %51, null
   br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !7

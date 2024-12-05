@@ -67,8 +67,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %24 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %25 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   store double 1.000000e+00, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %18, i64 8
-  %27 = getelementptr inbounds i8, ptr %18, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store double 1.000000e+00, ptr %27, align 8
   %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(32) %19, double noundef 1.000000e+00)
@@ -78,13 +78,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 30:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit106
   store ptr @.str, ptr %17, align 8
-  %.sroa.2903.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
+  %.sroa.2903.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @__func__.main, ptr %.sroa.2903.0..sroa_idx, align 8
-  %.sroa.3904.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 16
+  %.sroa.3904.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 108, ptr %.sroa.3904.0..sroa_idx, align 8
-  %.sroa.4905.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 24
+  %.sroa.4905.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4905.0..sroa_idx, align 8
-  %.sroa.5906.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 32
+  %.sroa.5906.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i8 0, ptr %.sroa.5906.0..sroa_idx, align 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 4, ptr %31, align 8
@@ -94,11 +94,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit108: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit106
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
   store float 1.000000e+00, ptr %20, align 4
-  %32 = getelementptr inbounds i8, ptr %20, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store float 0.000000e+00, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %20, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store float 0.000000e+00, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %20, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store float 1.000000e+00, ptr %34, align 4
   %35 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2f11SetDiagonalEf(ptr noundef nonnull align 4 dereferenceable(16) %21, float noundef 1.000000e+00)
   %36 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2feqERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %21)
@@ -107,13 +107,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit108
   store ptr @.str, ptr %16, align 8
-  %.sroa.2880.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.2880.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @__func__.main, ptr %.sroa.2880.0..sroa_idx, align 8
-  %.sroa.3881.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.3881.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 119, ptr %.sroa.3881.0..sroa_idx, align 8
-  %.sroa.4882.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
+  %.sroa.4882.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4882.0..sroa_idx, align 8
-  %.sroa.5883.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 32
+  %.sroa.5883.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i8 0, ptr %.sroa.5883.0..sroa_idx, align 8
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 4, ptr %38, align 8
@@ -123,12 +123,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit110: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit108
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
   store double 1.000000e+00, ptr %22, align 8
-  %39 = getelementptr inbounds i8, ptr %22, i64 8
-  %40 = getelementptr inbounds i8, ptr %22, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %22, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   store double 1.000000e+00, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %22, i64 40
-  %42 = getelementptr inbounds i8, ptr %22, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %22, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   store double 1.000000e+00, ptr %42, align 8
   %43 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix3d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(72) %23, double noundef 1.000000e+00)
@@ -138,13 +138,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit110
   store ptr @.str, ptr %15, align 8
-  %.sroa.2847.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.2847.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @__func__.main, ptr %.sroa.2847.0..sroa_idx, align 8
-  %.sroa.3848.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.3848.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 131, ptr %.sroa.3848.0..sroa_idx, align 8
-  %.sroa.4849.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.4849.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4849.0..sroa_idx, align 8
-  %.sroa.5850.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 32
+  %.sroa.5850.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 0, ptr %.sroa.5850.0..sroa_idx, align 8
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 4, ptr %46, align 8
@@ -154,16 +154,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit112: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit110
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   store double 1.000000e+00, ptr %24, align 8
-  %47 = getelementptr inbounds i8, ptr %24, i64 8
-  %48 = getelementptr inbounds i8, ptr %24, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %24, i64 48
-  %50 = getelementptr inbounds i8, ptr %24, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %24, i64 88
-  %52 = getelementptr inbounds i8, ptr %24, i64 120
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %52, align 8
   %53 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %25, double noundef 1.000000e+00)
@@ -173,13 +173,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 55:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit112
   store ptr @.str, ptr %14, align 8
-  %.sroa.2801.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.2801.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @__func__.main, ptr %.sroa.2801.0..sroa_idx, align 8
-  %.sroa.3802.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.3802.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 145, ptr %.sroa.3802.0..sroa_idx, align 8
-  %.sroa.4803.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
+  %.sroa.4803.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4803.0..sroa_idx, align 8
-  %.sroa.5804.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 32
+  %.sroa.5804.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i8 0, ptr %.sroa.5804.0..sroa_idx, align 8
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 4, ptr %56, align 8
@@ -188,7 +188,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit114: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit112
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
-  %57 = load float, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 126976), align 16
+  %57 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 126976), align 16
   %58 = call float @llvm.fabs.f32(float %57)
   %59 = fcmp ueq float %58, 0x7FF0000000000000
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
@@ -196,13 +196,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit114
   store ptr @.str, ptr %13, align 8
-  %.sroa.2784.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.2784.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @__func__.main, ptr %.sroa.2784.0..sroa_idx, align 8
-  %.sroa.3785.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.3785.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 157, ptr %.sroa.3785.0..sroa_idx, align 8
-  %.sroa.4786.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
+  %.sroa.4786.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4786.0..sroa_idx, align 8
-  %.sroa.5787.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 32
+  %.sroa.5787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 0, ptr %.sroa.5787.0..sroa_idx, align 8
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 4, ptr %61, align 8
@@ -217,13 +217,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 63:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit115
   store ptr @.str, ptr %12, align 8
-  %.sroa.2778.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.2778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @__func__.main, ptr %.sroa.2778.0..sroa_idx, align 8
-  %.sroa.3779.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.3779.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 158, ptr %.sroa.3779.0..sroa_idx, align 8
-  %.sroa.4780.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
+  %.sroa.4780.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4780.0..sroa_idx, align 8
-  %.sroa.5781.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 32
+  %.sroa.5781.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 0, ptr %.sroa.5781.0..sroa_idx, align 8
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 4, ptr %64, align 8
@@ -232,7 +232,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit116: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit115
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
-  %65 = load float, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 258048), align 16
+  %65 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 258048), align 16
   %66 = call float @llvm.fabs.f32(float %65)
   %67 = fcmp ueq float %66, 0x7FF0000000000000
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
@@ -240,13 +240,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 68:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit116
   store ptr @.str, ptr %11, align 8
-  %.sroa.2771.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.2771.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @__func__.main, ptr %.sroa.2771.0..sroa_idx, align 8
-  %.sroa.3772.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.3772.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 161, ptr %.sroa.3772.0..sroa_idx, align 8
-  %.sroa.4773.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
+  %.sroa.4773.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4773.0..sroa_idx, align 8
-  %.sroa.5774.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
+  %.sroa.5774.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 0, ptr %.sroa.5774.0..sroa_idx, align 8
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 4, ptr %69, align 8
@@ -261,13 +261,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 71:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit117
   store ptr @.str, ptr %10, align 8
-  %.sroa.2765.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2765.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @__func__.main, ptr %.sroa.2765.0..sroa_idx, align 8
-  %.sroa.3766.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.3766.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 162, ptr %.sroa.3766.0..sroa_idx, align 8
-  %.sroa.4767.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.4767.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4767.0..sroa_idx, align 8
-  %.sroa.5768.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 32
+  %.sroa.5768.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 0, ptr %.sroa.5768.0..sroa_idx, align 8
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 4, ptr %72, align 8
@@ -276,20 +276,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit118: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit117
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  %73 = load float, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 131068), align 4
+  %73 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 131068), align 4
   %74 = fcmp uno float %73, 0.000000e+00
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   br i1 %74, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit119, label %75
 
 75:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit118
   store ptr @.str, ptr %9, align 8
-  %.sroa.2758.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.2758.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @__func__.main, ptr %.sroa.2758.0..sroa_idx, align 8
-  %.sroa.3759.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.3759.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 165, ptr %.sroa.3759.0..sroa_idx, align 8
-  %.sroa.4760.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  %.sroa.4760.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4760.0..sroa_idx, align 8
-  %.sroa.5761.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
+  %.sroa.5761.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 0, ptr %.sroa.5761.0..sroa_idx, align 8
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 4, ptr %76, align 8
@@ -298,20 +298,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit119: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit118
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
-  %77 = load float, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 129020), align 4
+  %77 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 129020), align 4
   %78 = fcmp uno float %77, 0.000000e+00
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   br i1 %78, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit120, label %79
 
 79:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit119
   store ptr @.str, ptr %8, align 8
-  %.sroa.2751.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2751.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__func__.main, ptr %.sroa.2751.0..sroa_idx, align 8
-  %.sroa.3752.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.3752.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 168, ptr %.sroa.3752.0..sroa_idx, align 8
-  %.sroa.4753.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.4753.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4753.0..sroa_idx, align 8
-  %.sroa.5754.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
+  %.sroa.5754.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 0, ptr %.sroa.5754.0..sroa_idx, align 8
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 4, ptr %80, align 8
@@ -320,7 +320,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit120: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit119
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
-  %81 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 254), align 2
+  %81 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 254), align 2
   %.not.i = icmp eq i16 %81, 0
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123, label %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130.thread
 
@@ -337,13 +337,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123: ; preds = %_ZN3
 
 85:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123
   store ptr @.str, ptr %7, align 8
-  %.sroa.2743.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2743.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__func__.main, ptr %.sroa.2743.0..sroa_idx, align 8
-  %.sroa.3744.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.3744.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 171, ptr %.sroa.3744.0..sroa_idx, align 8
-  %.sroa.4745.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.4745.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4745.0..sroa_idx, align 8
-  %.sroa.5746.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.5746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %.sroa.5746.0..sroa_idx, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %86, align 8
@@ -360,13 +360,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130: ; preds = %_ZN3
 
 90:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130
   store ptr @.str, ptr %6, align 8
-  %.sroa.2735.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2735.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__func__.main, ptr %.sroa.2735.0..sroa_idx, align 8
-  %.sroa.3736.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 173, ptr %.sroa.3736.0..sroa_idx, align 8
-  %.sroa.4737.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.4737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4737.0..sroa_idx, align 8
-  %.sroa.5738.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.5738.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %.sroa.5738.0..sroa_idx, align 8
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %91, align 8
@@ -375,7 +375,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130: ; preds = %_ZN3
 
 _ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130.thread, %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  %92 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 292), align 4
+  %92 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 292), align 4
   %.not.i.i = icmp eq i16 %92, 0
   br i1 %.not.i.i, label %95, label %93
 
@@ -390,22 +390,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_2
 _ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit: ; preds = %95, %93
   %.sink.i.i = phi i16 [ %94, %93 ], [ %96, %95 ]
   %97 = zext i16 %.sink.i.i to i64
-  %98 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %97
   %99 = load float, ptr %98, align 4
-  %100 = load float, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 126976), align 16
+  %100 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 126976), align 16
   %101 = fcmp oeq float %99, %100
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   br i1 %101, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit239, label %102
 
 102:                                              ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
   store ptr @.str, ptr %5, align 8
-  %.sroa.2335.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2335.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__func__.main, ptr %.sroa.2335.0..sroa_idx, align 8
-  %.sroa.3336.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.3336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 298, ptr %.sroa.3336.0..sroa_idx, align 8
-  %.sroa.4337.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.4337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4337.0..sroa_idx, align 8
-  %.sroa.5338.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.5338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %.sroa.5338.0..sroa_idx, align 8
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %103, align 8
@@ -414,7 +414,7 @@ _ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit239: ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  %104 = load i16, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 804), align 4
+  %104 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 804), align 4
   %.not.i.i240 = icmp eq i16 %104, 0
   br i1 %.not.i.i240, label %107, label %105
 
@@ -429,22 +429,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit245: ; preds = %107, %105
   %.sink.i.i241 = phi i16 [ %106, %105 ], [ %108, %107 ]
   %109 = zext i16 %.sink.i.i241 to i64
-  %110 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %109
   %111 = load float, ptr %110, align 4
-  %112 = load float, ptr getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 258048), align 16
+  %112 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 258048), align 16
   %113 = fcmp oeq float %111, %112
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   br i1 %113, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit246, label %114
 
 114:                                              ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit245
   store ptr @.str, ptr %4, align 8
-  %.sroa.2325.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__.main, ptr %.sroa.2325.0..sroa_idx, align 8
-  %.sroa.3326.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.3326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 299, ptr %.sroa.3326.0..sroa_idx, align 8
-  %.sroa.4327.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.4327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4327.0..sroa_idx, align 8
-  %.sroa.5328.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.5328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %.sroa.5328.0..sroa_idx, align 8
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %115, align 8
@@ -469,13 +469,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 121:                                              ; preds = %119
   store ptr @.str, ptr %3, align 8
-  %.sroa.2313.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__.main, ptr %.sroa.2313.0..sroa_idx, align 8
-  %.sroa.3314.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 316, ptr %.sroa.3314.0..sroa_idx, align 8
-  %.sroa.4315.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.4315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4315.0..sroa_idx, align 8
-  %.sroa.5316.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.5316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %.sroa.5316.0..sroa_idx, align 8
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %122, align 8
@@ -500,13 +500,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 128:                                              ; preds = %126
   store ptr @.str, ptr %2, align 8
-  %.sroa.2301.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2301.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @__func__.main, ptr %.sroa.2301.0..sroa_idx, align 8
-  %.sroa.3302.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 322, ptr %.sroa.3302.0..sroa_idx, align 8
-  %.sroa.4303.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.4303.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4303.0..sroa_idx, align 8
-  %.sroa.5304.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.5304.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 0, ptr %.sroa.5304.0..sroa_idx, align 8
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 4, ptr %129, align 8

@@ -100,7 +100,7 @@ define i64 @ossl_x509name_new(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %8
   %12 = inttoptr i64 %3 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %.0, ptr %13, align 8
   ret i64 %3
 }
@@ -226,7 +226,7 @@ define internal i64 @ossl_x509name_alloc(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
   ret i64 %2
 }
@@ -312,7 +312,7 @@ rbimpl_intern_const.exit19:                       ; preds = %.lr.ph.i17, %26
   %37 = load i64, ptr %36, align 8, !noalias !8
   %38 = and i64 %37, 8192
   %.not.i.i = icmp eq i64 %38, 0
-  %39 = getelementptr inbounds i8, ptr %36, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %40
 
 40:                                               ; preds = %31
@@ -322,12 +322,12 @@ rbimpl_intern_const.exit19:                       ; preds = %.lr.ph.i17, %26
 RSTRING_PTR.exit:                                 ; preds = %31, %40
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %40 ], [ %39, %31 ]
   store ptr %.sroa.2.0.i, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = call ptr @d2i_X509_NAME(ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef %42) #9
   %44 = load ptr, ptr %4, align 8
   %45 = inttoptr i64 %2 to ptr
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr %44, ptr %46, align 8
   %.not13 = icmp eq ptr %43, null
   br i1 %.not13, label %47, label %49
@@ -394,7 +394,7 @@ rb_check_frozen_inline.exit:                      ; preds = %7
   unreachable
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %8, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %22, ptr %26, align 8
   tail call void @X509_NAME_free(ptr noundef nonnull %14) #9
   ret i64 %0
@@ -474,7 +474,7 @@ rb_num2int_inline.exit:                           ; preds = %32, %34
 
 37:                                               ; preds = %rb_num2int_inline.exit, %28
   %.0 = phi i32 [ %36, %rb_num2int_inline.exit ], [ -1, %28 ]
-  %38 = getelementptr inbounds i8, ptr %8, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %39 = load i64, ptr %38, align 8
   %.not14 = icmp eq i64 %39, 36
   br i1 %.not14, label %47, label %40
@@ -530,7 +530,7 @@ rb_num2int_inline.exit23:                         ; preds = %54, %56
   %61 = load i64, ptr %60, align 8, !noalias !11
   %62 = and i64 %61, 8192
   %.not.i.i = icmp eq i64 %62, 0
-  %63 = getelementptr inbounds i8, ptr %60, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %64
 
 64:                                               ; preds = %rb_num2int_inline.exit23
@@ -539,7 +539,7 @@ rb_num2int_inline.exit23:                         ; preds = %54, %56
 
 RSTRING_PTR.exit:                                 ; preds = %rb_num2int_inline.exit23, %64
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %64 ], [ %63, %rb_num2int_inline.exit23 ]
-  %65 = getelementptr inbounds i8, ptr %60, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, 2147483648
   %.not.i.i24 = icmp ult i64 %67, 4294967296
@@ -736,7 +736,7 @@ define internal i64 @ossl_x509name_to_a(i64 noundef %0) #0 {
   %38 = call i64 @rb_str_new_cstr(ptr noundef %.sink) #9
   %39 = call ptr @X509_NAME_ENTRY_get_data(ptr noundef nonnull %24) #9
   %40 = call i64 @asn1str_to_str(ptr noundef %39) #9
-  %41 = getelementptr inbounds i8, ptr %39, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = shl nsw i64 %43, 1
@@ -923,7 +923,7 @@ define internal i64 @ossl_x509name_to_der(i64 noundef %0) #0 {
   %15 = load i64, ptr %14, align 8, !noalias !16
   %16 = and i64 %15, 8192
   %.not.i.i = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %18
 
 18:                                               ; preds = %11
@@ -1014,10 +1014,10 @@ Check_Type.exit:                                  ; preds = %13
   %17 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 0) #12
   store i64 %17, ptr %6, align 16
   %18 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 1) #12
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %18, ptr %19, align 8
   %20 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef 2) #12
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %20, ptr %21, align 16
   %22 = icmp eq i64 %20, 4
   br i1 %22, label %23, label %.thread

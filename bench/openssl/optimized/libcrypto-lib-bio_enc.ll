@@ -47,7 +47,7 @@ land.lhs.true:                                    ; preds = %if.else
 if.end18:                                         ; preds = %if.else, %land.lhs.true, %if.then3
   %callback.0 = phi ptr [ null, %if.then3 ], [ %call9, %land.lhs.true ], [ null, %if.else ]
   tail call void @BIO_set_init(ptr noundef %b, i32 noundef 1) #5
-  %cipher = getelementptr inbounds i8, ptr %call, i64 24
+  %cipher = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = load ptr, ptr %cipher, align 8
   %call19 = tail call i32 @EVP_CipherInit_ex(ptr noundef %0, ptr noundef %c, ptr noundef null, ptr noundef %k, ptr noundef %i, i32 noundef %e) #5
   %tobool.not = icmp eq i32 %call19, 0
@@ -102,14 +102,14 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @BIO_clear_flags(ptr noundef %b, i32 noundef 15) #5
   %0 = load i32, ptr %call, align 8
-  %buf_off = getelementptr inbounds i8, ptr %call, i64 4
+  %buf_off = getelementptr inbounds nuw i8, ptr %call, i64 4
   %1 = load i32, ptr %buf_off, align 4
   %sub = sub nsw i32 %0, %1
   %cmp353 = icmp sgt i32 %sub, 0
   br i1 %cmp353, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %buf = getelementptr inbounds i8, ptr %call, i64 48
+  %buf = getelementptr inbounds nuw i8, ptr %call, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end8
@@ -141,8 +141,8 @@ while.end:                                        ; preds = %if.end8, %if.end
 
 while.cond17.preheader:                           ; preds = %while.end
   store i32 0, ptr %buf_off, align 4
-  %cipher = getelementptr inbounds i8, ptr %call, i64 24
-  %buf21 = getelementptr inbounds i8, ptr %call, i64 48
+  %cipher = getelementptr inbounds nuw i8, ptr %call, i64 24
+  %buf21 = getelementptr inbounds nuw i8, ptr %call, i64 48
   br label %while.body19
 
 while.body19:                                     ; preds = %while.cond17.preheader, %while.end49
@@ -156,14 +156,14 @@ while.body19:                                     ; preds = %while.cond17.prehea
 
 if.then24:                                        ; preds = %while.body19
   tail call void @BIO_clear_flags(ptr noundef %b, i32 noundef 15) #5
-  %ok = getelementptr inbounds i8, ptr %call, i64 16
+  %ok = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 0, ptr %ok, align 8
   br label %return
 
 if.end25:                                         ; preds = %while.body19
   %sub26 = sub nsw i32 %inl.addr.057, %4
   %idx.ext = zext nneg i32 %4 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.058, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.058, i64 %idx.ext
   store i32 0, ptr %buf_off, align 4
   %6 = load i32, ptr %call, align 8
   %cmp3055 = icmp sgt i32 %6, 0
@@ -231,11 +231,11 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %if.end23
 
 if.then7:                                         ; preds = %if.end5
-  %buf_off = getelementptr inbounds i8, ptr %call, i64 4
+  %buf_off = getelementptr inbounds nuw i8, ptr %call, i64 4
   %1 = load i32, ptr %buf_off, align 4
   %sub = sub nsw i32 %0, %1
   %spec.select = tail call i32 @llvm.smin.i32(i32 %sub, i32 %outl)
-  %buf = getelementptr inbounds i8, ptr %call, i64 48
+  %buf = getelementptr inbounds nuw i8, ptr %call, i64 48
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds [4384 x i8], ptr %buf, i64 0, i64 %idxprom
   %conv = sext i32 %spec.select to i64
@@ -258,7 +258,7 @@ if.end23:                                         ; preds = %if.then7, %if.then1
   %ret.0 = phi i32 [ %spec.select, %if.then19 ], [ %spec.select, %if.then7 ], [ 0, %if.end5 ]
   %outl.addr.0 = phi i32 [ %sub13, %if.then19 ], [ %sub13, %if.then7 ], [ %outl, %if.end5 ]
   %out.addr.0 = phi ptr [ %add.ptr, %if.then19 ], [ %add.ptr, %if.then7 ], [ %out, %if.end5 ]
-  %cipher = getelementptr inbounds i8, ptr %call, i64 24
+  %cipher = getelementptr inbounds nuw i8, ptr %call, i64 24
   %4 = load ptr, ptr %cipher, align 8
   %call24 = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %4) #5
   %cmp25 = icmp eq i32 %call24, 1
@@ -267,13 +267,13 @@ if.end23:                                         ; preds = %if.then7, %if.then1
   br i1 %cmp29114, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end23
-  %cont = getelementptr inbounds i8, ptr %call, i64 8
-  %read_start = getelementptr inbounds i8, ptr %call, i64 32
-  %read_end = getelementptr inbounds i8, ptr %call, i64 40
-  %arrayidx39 = getelementptr inbounds i8, ptr %call, i64 336
-  %buf62 = getelementptr inbounds i8, ptr %call, i64 48
-  %ok = getelementptr inbounds i8, ptr %call, i64 16
-  %buf_off65 = getelementptr inbounds i8, ptr %call, i64 4
+  %cont = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %read_start = getelementptr inbounds nuw i8, ptr %call, i64 32
+  %read_end = getelementptr inbounds nuw i8, ptr %call, i64 40
+  %arrayidx39 = getelementptr inbounds nuw i8, ptr %call, i64 336
+  %buf62 = getelementptr inbounds nuw i8, ptr %call, i64 48
+  %ok = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %buf_off65 = getelementptr inbounds nuw i8, ptr %call, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -300,7 +300,7 @@ if.then37:                                        ; preds = %if.end34
 if.end54.thread107:                               ; preds = %if.then37
   %8 = load ptr, ptr %read_end, align 8
   %idx.ext48 = zext nneg i32 %call43 to i64
-  %add.ptr49 = getelementptr inbounds i8, ptr %8, i64 %idx.ext48
+  %add.ptr49 = getelementptr inbounds nuw i8, ptr %8, i64 %idx.ext48
   store ptr %add.ptr49, ptr %read_end, align 8
   %.pre.pre = load ptr, ptr %read_start, align 8
   br label %if.else70
@@ -400,7 +400,7 @@ if.then114:                                       ; preds = %if.end102
 if.end116:                                        ; preds = %if.end102
   %17 = load ptr, ptr %read_start, align 8
   %idx.ext118 = zext nneg i32 %15 to i64
-  %add.ptr119 = getelementptr inbounds i8, ptr %17, i64 %idx.ext118
+  %add.ptr119 = getelementptr inbounds nuw i8, ptr %17, i64 %idx.ext118
   store ptr %add.ptr119, ptr %read_start, align 8
   store i32 1, ptr %cont, align 8
   %18 = load i32, ptr %call, align 8
@@ -422,7 +422,7 @@ if.end137:                                        ; preds = %if.end126
   %add141 = add nsw i32 %outl.addr.2., %ret.3
   store i32 %outl.addr.2., ptr %buf_off65, align 4
   %sub143 = sub nsw i32 %outl.addr.2, %outl.addr.2.
-  %add.ptr145 = getelementptr inbounds i8, ptr %out.addr.2, i64 %conv140
+  %add.ptr145 = getelementptr inbounds nuw i8, ptr %out.addr.2, i64 %conv140
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %while.body, %if.end126, %if.end23, %if.else66
@@ -433,7 +433,7 @@ while.end:                                        ; preds = %while.cond.backedge
   br i1 %cmp146, label %cond.true148, label %return
 
 cond.true148:                                     ; preds = %while.end
-  %cont149 = getelementptr inbounds i8, ptr %call, i64 8
+  %cont149 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %20 = load i32, ptr %cont149, align 8
   br label %return
 
@@ -464,19 +464,19 @@ if.end:                                           ; preds = %entry
   ]
 
 again.preheader:                                  ; preds = %if.end
-  %buf_off31 = getelementptr inbounds i8, ptr %call, i64 4
-  %finished48 = getelementptr inbounds i8, ptr %call, i64 12
-  %cipher53 = getelementptr inbounds i8, ptr %call, i64 24
-  %buf = getelementptr inbounds i8, ptr %call, i64 48
-  %ok58 = getelementptr inbounds i8, ptr %call, i64 16
+  %buf_off31 = getelementptr inbounds nuw i8, ptr %call, i64 4
+  %finished48 = getelementptr inbounds nuw i8, ptr %call, i64 12
+  %cipher53 = getelementptr inbounds nuw i8, ptr %call, i64 24
+  %buf = getelementptr inbounds nuw i8, ptr %call, i64 48
+  %ok58 = getelementptr inbounds nuw i8, ptr %call, i64 16
   br label %again
 
 sw.bb:                                            ; preds = %if.end
-  %ok = getelementptr inbounds i8, ptr %call, i64 16
+  %ok = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 1, ptr %ok, align 8
-  %finished = getelementptr inbounds i8, ptr %call, i64 12
+  %finished = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i32 0, ptr %finished, align 4
-  %cipher = getelementptr inbounds i8, ptr %call, i64 24
+  %cipher = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = load ptr, ptr %cipher, align 8
   %call3 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #5
   %call4 = tail call i32 @EVP_CipherInit_ex(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %call3) #5
@@ -488,7 +488,7 @@ if.end6:                                          ; preds = %sw.bb
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %cont = getelementptr inbounds i8, ptr %call, i64 8
+  %cont = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load i32, ptr %cont, align 8
   %cmp9 = icmp slt i32 %1, 1
   br i1 %cmp9, label %return, label %if.else
@@ -499,7 +499,7 @@ if.else:                                          ; preds = %sw.bb8
 
 sw.bb13:                                          ; preds = %if.end
   %2 = load i32, ptr %call, align 8
-  %buf_off = getelementptr inbounds i8, ptr %call, i64 4
+  %buf_off = getelementptr inbounds nuw i8, ptr %call, i64 4
   %3 = load i32, ptr %buf_off, align 4
   %sub = sub nsw i32 %2, %3
   %conv = zext nneg i32 %sub to i64
@@ -512,7 +512,7 @@ if.then16:                                        ; preds = %sw.bb13
 
 sw.bb19:                                          ; preds = %if.end
   %4 = load i32, ptr %call, align 8
-  %buf_off21 = getelementptr inbounds i8, ptr %call, i64 4
+  %buf_off21 = getelementptr inbounds nuw i8, ptr %call, i64 4
   %5 = load i32, ptr %buf_off21, align 4
   %sub22 = sub nsw i32 %4, %5
   %conv23 = zext nneg i32 %sub22 to i64
@@ -545,14 +545,14 @@ while.body:                                       ; preds = %while.cond
 if.end.i:                                         ; preds = %while.body
   tail call void @BIO_clear_flags(ptr noundef %b, i32 noundef 15) #5
   %8 = load i32, ptr %call.i, align 8
-  %buf_off.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  %buf_off.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   %9 = load i32, ptr %buf_off.i, align 4
   %sub.i = sub nsw i32 %8, %9
   %cmp353.i = icmp sgt i32 %sub.i, 0
   br i1 %cmp353.i, label %while.body.lr.ph.i, label %lor.lhs.false
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
-  %buf.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %buf.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end8.i, %while.body.lr.ph.i
@@ -610,7 +610,7 @@ if.end63:                                         ; preds = %while.end
   br label %return
 
 sw.bb65:                                          ; preds = %if.end
-  %ok66 = getelementptr inbounds i8, ptr %call, i64 16
+  %ok66 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %16 = load i32, ptr %ok66, align 8
   %conv67 = sext i32 %16 to i64
   br label %return
@@ -622,7 +622,7 @@ sw.bb68:                                          ; preds = %if.end
   br label %return
 
 sw.bb70:                                          ; preds = %if.end
-  %cipher71 = getelementptr inbounds i8, ptr %call, i64 24
+  %cipher71 = getelementptr inbounds nuw i8, ptr %call, i64 24
   %17 = load ptr, ptr %cipher71, align 8
   store ptr %17, ptr %ptr, align 8
   tail call void @BIO_set_init(ptr noundef %b, i32 noundef 1) #5
@@ -631,13 +631,13 @@ sw.bb70:                                          ; preds = %if.end
 sw.bb72:                                          ; preds = %if.end
   %call73 = tail call ptr @BIO_get_data(ptr noundef %ptr) #5
   %call74 = tail call ptr @EVP_CIPHER_CTX_new() #5
-  %cipher75 = getelementptr inbounds i8, ptr %call73, i64 24
+  %cipher75 = getelementptr inbounds nuw i8, ptr %call73, i64 24
   store ptr %call74, ptr %cipher75, align 8
   %cmp77 = icmp eq ptr %call74, null
   br i1 %cmp77, label %return, label %if.end80
 
 if.end80:                                         ; preds = %sw.bb72
-  %cipher82 = getelementptr inbounds i8, ptr %call, i64 24
+  %cipher82 = getelementptr inbounds nuw i8, ptr %call, i64 24
   %18 = load ptr, ptr %cipher82, align 8
   %call83 = tail call i32 @EVP_CIPHER_CTX_copy(ptr noundef nonnull %call74, ptr noundef %18) #5
   %tobool85.not = icmp eq i32 %call83, 0
@@ -670,7 +670,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @EVP_CIPHER_CTX_new() #5
-  %cipher = getelementptr inbounds i8, ptr %call, i64 24
+  %cipher = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %call1, ptr %cipher, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -680,14 +680,14 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %cont = getelementptr inbounds i8, ptr %call, i64 8
+  %cont = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 1, ptr %cont, align 8
-  %ok = getelementptr inbounds i8, ptr %call, i64 16
+  %ok = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 1, ptr %ok, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %call, i64 336
-  %read_start = getelementptr inbounds i8, ptr %call, i64 32
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call, i64 336
+  %read_start = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %arrayidx, ptr %read_start, align 8
-  %read_end = getelementptr inbounds i8, ptr %call, i64 40
+  %read_end = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %arrayidx, ptr %read_end, align 8
   tail call void @BIO_set_data(ptr noundef %bi, ptr noundef nonnull %call) #5
   tail call void @BIO_set_init(ptr noundef %bi, i32 noundef 1) #5
@@ -710,7 +710,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %cipher = getelementptr inbounds i8, ptr %call, i64 24
+  %cipher = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = load ptr, ptr %cipher, align 8
   tail call void @EVP_CIPHER_CTX_free(ptr noundef %0) #5
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %call, i64 noundef 4432, ptr noundef nonnull @.str.1, i32 noundef 97) #5

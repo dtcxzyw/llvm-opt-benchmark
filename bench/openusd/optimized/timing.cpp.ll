@@ -34,10 +34,10 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__18ArchGetTickQuantumEv(
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
-  %.ptr15.i = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %.ptr15.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %13
 
 13:                                               ; preds = %_ZSt11min_elementIPmET_S1_S1_.exit.i, %9
@@ -59,9 +59,9 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__18ArchGetTickQuantumEv(
   %20 = phi i64 [ %14, %13 ], [ %22, %19 ]
   %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %19 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %21 = getelementptr inbounds [5 x i64], ptr %1, i64 0, i64 %indvars.iv.next.i
+  %21 = getelementptr inbounds nuw [5 x i64], ptr %1, i64 0, i64 %indvars.iv.next.i
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds [5 x i64], ptr %1, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [5 x i64], ptr %1, i64 0, i64 %indvars.iv.i
   %24 = sub i64 %22, %20
   store i64 %24, ptr %23, align 8
   %.not9.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -75,7 +75,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__18ArchGetTickQuantumEv(
   %26 = phi i64 [ %29, %.lr.ph.i.i.i ], [ %.pre.i.i.i, %25 ]
   %.idx.i = phi i64 [ %.add.i, %.lr.ph.i.i.i ], [ 8, %25 ]
   %.018.i.i.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %1, %25 ]
-  %.ptr.i = getelementptr inbounds i8, ptr %1, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
   %27 = load i64, ptr %.ptr.i, align 8
   %28 = icmp ult i64 %27, %26
   %29 = tail call i64 @llvm.umin.i64(i64 %27, i64 %26)
@@ -198,10 +198,10 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__32ArchGetIntervalTimerT
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
-  %.ptr15.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
-  %44 = getelementptr inbounds i8, ptr %1, i64 24
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %.ptr15.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %46
 
 46:                                               ; preds = %_ZSt11min_elementIPmET_S1_S1_.exit.i.i.i.i.i, %42
@@ -223,9 +223,9 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__32ArchGetIntervalTimerT
   %53 = phi i64 [ %47, %46 ], [ %55, %52 ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.i.i.i.i, %52 ]
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %54 = getelementptr inbounds [5 x i64], ptr %1, i64 0, i64 %indvars.iv.next.i.i.i.i.i
+  %54 = getelementptr inbounds nuw [5 x i64], ptr %1, i64 0, i64 %indvars.iv.next.i.i.i.i.i
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds [5 x i64], ptr %1, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %56 = getelementptr inbounds nuw [5 x i64], ptr %1, i64 0, i64 %indvars.iv.i.i.i.i.i
   %57 = sub i64 %55, %53
   store i64 %57, ptr %56, align 8
   %.not9.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
@@ -239,7 +239,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__32ArchGetIntervalTimerT
   %59 = phi i64 [ %62, %.lr.ph.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %58 ]
   %.idx.i.i.i.i.i = phi i64 [ %.add.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 8, %58 ]
   %.018.i.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %1, %58 ]
-  %.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %.idx.i.i.i.i.i
+  %.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i.i.i.i.i
   %60 = load i64, ptr %.ptr.i.i.i.i.i, align 8
   %61 = icmp ult i64 %60, %59
   %62 = tail call i64 @llvm.umin.i64(i64 %60, i64 %59)
@@ -297,7 +297,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18ArchGetTickQuantumEv.exit.i.i.i: ; preds 
 
 83:                                               ; preds = %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZNS_L37Arch_ComputeIntervalTimerTickOverheadEvE3$_0EEmRKT_mPbENUlPKviE_8__invokeES7_i.exit33.i.i", %78
   %.029.idx88.i.i.i = phi i64 [ 0, %78 ], [ %.029.add.i.i.i, %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZNS_L37Arch_ComputeIntervalTimerTickOverheadEvE3$_0EEmRKT_mPbENUlPKviE_8__invokeES7_i.exit33.i.i" ]
-  %.029.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 %.029.idx88.i.i.i
+  %.029.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.029.idx88.i.i.i
   fence syncscope("singlethread") seq_cst
   %84 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
   br i1 %.not4.i.i.i19.i.i, label %"_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIZNS_L37Arch_ComputeIntervalTimerTickOverheadEvE3$_0EEmRKT_mPbENUlPKviE_8__invokeES7_i.exit33.i.i", label %.lr.ph.i.i.i20.i.i
@@ -356,9 +356,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__18ArchGetTickQuantumEv.exit.i.i.i: ; preds 
   %109 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
   %110 = extractvalue { i32, i32 } %109, 0
   %111 = extractvalue { i32, i32 } %109, 1
-  %112 = getelementptr inbounds i8, ptr %2, i64 512
-  %scevgep.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %113 = getelementptr inbounds i8, ptr %2, i64 256
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 512
+  %scevgep.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %.neg.i.i.i = sub i32 0, %111
   %.neg.z.i.i.i = zext i32 %.neg.i.i.i to i64
   %.sroa.8.4.insert.shift.neg91.i.i.i = shl nuw i64 %.neg.z.i.i.i, 32
@@ -378,7 +378,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18ArchGetTickQuantumEv.exit.i.i.i: ; preds 
 115:                                              ; preds = %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i, %114
   %.019.i.idx.i.i.i.i.i = phi i64 [ %.019.i.add.i.i.i.i.i, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i ], [ 8, %114 ]
   %.pn18.i.i.i.i.i.i = phi ptr [ %.019.i.ptr.i.i.i.i.i, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i ], [ %2, %114 ]
-  %.019.i.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %.019.i.idx.i.i.i.i.i
+  %.019.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.019.i.idx.i.i.i.i.i
   %116 = load i64, ptr %.019.i.ptr.i.i.i.i.i, align 8
   %117 = load i64, ptr %2, align 16
   %118 = icmp ult i64 %116, %117
@@ -412,7 +412,7 @@ _ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i.i.i
   %.06.i.i.i.idx.i.i.i = phi i64 [ %.06.i.i.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i.i.i ], [ 128, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i ]
-  %.06.i.i.i.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 %.06.i.i.i.idx.i.i.i
+  %.06.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.06.i.i.i.idx.i.i.i
   %126 = load i64, ptr %.06.i.i.i.ptr.i.i.i, align 8
   %.011.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.06.i.i.i.ptr.i.i.i, i64 -8
   %127 = load i64, ptr %.011.i.i.i.i.i.i.i, align 8
@@ -509,7 +509,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %167 = add nsw i64 %166, %165
   %168 = add i64 %167, %reass.mul5.i
   %169 = udiv i64 %168, %82
-  %170 = getelementptr inbounds [64 x i64], ptr %2, i64 0, i64 %indvars.iv.i.i.i
+  %170 = getelementptr inbounds nuw [64 x i64], ptr %2, i64 0, i64 %indvars.iv.i.i.i
   store i64 %169, ptr %170, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %.not36.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 64
@@ -565,7 +565,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %192 = add nsw i64 %191, %190
   %193 = add i64 %192, %reass.mul7.i
   %194 = udiv i64 %193, %82
-  %195 = getelementptr inbounds [64 x i64], ptr %2, i64 0, i64 %indvars.iv98.i.i.i
+  %195 = getelementptr inbounds nuw [64 x i64], ptr %2, i64 0, i64 %indvars.iv98.i.i.i
   store i64 %194, ptr %195, align 8
   %indvars.iv.next99.i.i.i = add nuw nsw i64 %indvars.iv98.i.i.i, 1
   %.not37.i.i.i = icmp eq i64 %indvars.iv.next99.i.i.i, 6
@@ -694,10 +694,10 @@ _ZNSt6atomicIdE23compare_exchange_strongERddSt12memory_orderS2_.exit.i: ; preds 
 
 36:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
-  %.ptr15.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
-  %38 = getelementptr inbounds i8, ptr %2, i64 24
-  %39 = getelementptr inbounds i8, ptr %2, i64 32
+  %.ptr15.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %40
 
 40:                                               ; preds = %_ZSt11min_elementIPmET_S1_S1_.exit.i.i.i.i.i, %36
@@ -719,9 +719,9 @@ _ZNSt6atomicIdE23compare_exchange_strongERddSt12memory_orderS2_.exit.i: ; preds 
   %47 = phi i64 [ %41, %40 ], [ %49, %46 ]
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i.i.i.i.i, %46 ]
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
-  %48 = getelementptr inbounds [5 x i64], ptr %2, i64 0, i64 %indvars.iv.next.i.i.i.i.i
+  %48 = getelementptr inbounds nuw [5 x i64], ptr %2, i64 0, i64 %indvars.iv.next.i.i.i.i.i
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds [5 x i64], ptr %2, i64 0, i64 %indvars.iv.i.i.i.i.i
+  %50 = getelementptr inbounds nuw [5 x i64], ptr %2, i64 0, i64 %indvars.iv.i.i.i.i.i
   %51 = sub i64 %49, %47
   store i64 %51, ptr %50, align 8
   %.not9.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
@@ -735,7 +735,7 @@ _ZNSt6atomicIdE23compare_exchange_strongERddSt12memory_orderS2_.exit.i: ; preds 
   %53 = phi i64 [ %56, %.lr.ph.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i, %52 ]
   %.idx.i.i.i.i.i = phi i64 [ %.add.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ 8, %52 ]
   %.018.i.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ], [ %2, %52 ]
-  %.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %.idx.i.i.i.i.i
+  %.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i.i.i.i
   %54 = load i64, ptr %.ptr.i.i.i.i.i, align 8
   %55 = icmp ult i64 %54, %53
   %56 = tail call i64 @llvm.umin.i64(i64 %54, i64 %53)
@@ -793,7 +793,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18ArchGetTickQuantumEv.exit.i.i.i: ; preds 
 
 77:                                               ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIDoFNSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEvEEEmRKT_mPbENUlPKviE_8__invokeESG_i.exit23.i.i, %72
   %.029.idx88.i.i.i = phi i64 [ 0, %72 ], [ %.029.add.i.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIDoFNSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEvEEEmRKT_mPbENUlPKviE_8__invokeESG_i.exit23.i.i ]
-  %.029.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.029.idx88.i.i.i
+  %.029.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.029.idx88.i.i.i
   fence syncscope("singlethread") seq_cst
   %78 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
   br i1 %.not4.i.i.i14.i.i, label %_ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIDoFNSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEvEEEmRKT_mPbENUlPKviE_8__invokeESG_i.exit23.i.i, label %.lr.ph.i.i.i15.i.i
@@ -835,9 +835,9 @@ _ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIDoFNSt6chrono10
   %93 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
   %94 = extractvalue { i32, i32 } %93, 0
   %95 = extractvalue { i32, i32 } %93, 1
-  %96 = getelementptr inbounds i8, ptr %3, i64 512
-  %scevgep.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %97 = getelementptr inbounds i8, ptr %3, i64 256
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 512
+  %scevgep.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %.neg.i.i.i = sub i32 0, %95
   %.neg.z.i.i.i = zext i32 %.neg.i.i.i to i64
   %.sroa.8.4.insert.shift.neg91.i.i.i = shl nuw i64 %.neg.z.i.i.i, 32
@@ -857,7 +857,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIDoFNSt6chrono10
 99:                                               ; preds = %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i, %98
   %.019.i.idx.i.i.i.i.i = phi i64 [ %.019.i.add.i.i.i.i.i, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i ], [ 8, %98 ]
   %.pn18.i.i.i.i.i.i = phi ptr [ %.019.i.ptr.i.i.i.i.i, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i ], [ %3, %98 ]
-  %.019.i.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.019.i.idx.i.i.i.i.i
+  %.019.i.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.019.i.idx.i.i.i.i.i
   %100 = load i64, ptr %.019.i.ptr.i.i.i.i.i, align 8
   %101 = load i64, ptr %3, align 16
   %102 = icmp ult i64 %100, %101
@@ -891,7 +891,7 @@ _ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i.i.i
   %.06.i.i.i.idx.i.i.i = phi i64 [ %.06.i.i.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i.i.i.i ], [ 128, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i.i.i ]
-  %.06.i.i.i.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.06.i.i.i.idx.i.i.i
+  %.06.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.06.i.i.i.idx.i.i.i
   %110 = load i64, ptr %.06.i.i.i.ptr.i.i.i, align 8
   %.011.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.06.i.i.i.ptr.i.i.i, i64 -8
   %111 = load i64, ptr %.011.i.i.i.i.i.i.i, align 8
@@ -971,7 +971,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIDoFNSt6chrono10
   %141 = add nsw i64 %140, %139
   %142 = add i64 %141, %reass.mul9.i
   %143 = udiv i64 %142, %76
-  %144 = getelementptr inbounds [64 x i64], ptr %3, i64 0, i64 %indvars.iv.i.i.i
+  %144 = getelementptr inbounds nuw [64 x i64], ptr %3, i64 0, i64 %indvars.iv.i.i.i
   store i64 %143, ptr %144, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %.not36.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 64
@@ -1010,7 +1010,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__24ArchMeasureExecutionTimeIDoFNSt6chrono10
   %156 = add nsw i64 %155, %154
   %157 = add i64 %156, %reass.mul11.i
   %158 = udiv i64 %157, %76
-  %159 = getelementptr inbounds [64 x i64], ptr %3, i64 0, i64 %indvars.iv98.i.i.i
+  %159 = getelementptr inbounds nuw [64 x i64], ptr %3, i64 0, i64 %indvars.iv98.i.i.i
   store i64 %158, ptr %159, align 8
   %indvars.iv.next99.i.i.i = add nuw nsw i64 %indvars.iv98.i.i.i, 1
   %.not37.i.i.i = icmp eq i64 %indvars.iv.next99.i.i.i, 6
@@ -1152,10 +1152,10 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__25Arch_MeasureExecution
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %.ptr15.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
-  %20 = getelementptr inbounds i8, ptr %5, i64 24
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
+  %.ptr15.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %22
 
 22:                                               ; preds = %_ZSt11min_elementIPmET_S1_S1_.exit.i.i, %18
@@ -1177,9 +1177,9 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__25Arch_MeasureExecution
   %29 = phi i64 [ %23, %22 ], [ %31, %28 ]
   %indvars.iv.i.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i.i, %28 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %30 = getelementptr inbounds [5 x i64], ptr %5, i64 0, i64 %indvars.iv.next.i.i
+  %30 = getelementptr inbounds nuw [5 x i64], ptr %5, i64 0, i64 %indvars.iv.next.i.i
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds [5 x i64], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw [5 x i64], ptr %5, i64 0, i64 %indvars.iv.i.i
   %33 = sub i64 %31, %29
   store i64 %33, ptr %32, align 8
   %.not9.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -1193,7 +1193,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__25Arch_MeasureExecution
   %35 = phi i64 [ %38, %.lr.ph.i.i.i.i ], [ %.pre.i.i.i.i, %34 ]
   %.idx.i.i = phi i64 [ %.add.i.i, %.lr.ph.i.i.i.i ], [ 8, %34 ]
   %.018.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %5, %34 ]
-  %.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i
   %36 = load i64, ptr %.ptr.i.i, align 8
   %37 = icmp ult i64 %36, %35
   %38 = tail call i64 @llvm.umin.i64(i64 %36, i64 %35)
@@ -1250,7 +1250,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18ArchGetTickQuantumEv.exit: ; preds = %.lr
 
 59:                                               ; preds = %54, %59
   %.029.idx88 = phi i64 [ 0, %54 ], [ %.029.add, %59 ]
-  %.029.ptr = getelementptr inbounds i8, ptr %6, i64 %.029.idx88
+  %.029.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.029.idx88
   %60 = tail call noundef i64 %3(ptr noundef %2, i32 noundef %55)
   %61 = add i64 %60, %57
   %62 = udiv i64 %61, %58
@@ -1265,9 +1265,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__18ArchGetTickQuantumEv.exit: ; preds = %.lr
   %64 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !9
   %65 = extractvalue { i32, i32 } %64, 0
   %66 = extractvalue { i32, i32 } %64, 1
-  %67 = getelementptr inbounds i8, ptr %6, i64 512
-  %scevgep.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 256
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 512
+  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %.neg = sub i32 0, %66
   %.neg.z = zext i32 %.neg to i64
   %.sroa.8.4.insert.shift.neg91 = shl nuw i64 %.neg.z, 32
@@ -1287,7 +1287,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18ArchGetTickQuantumEv.exit: ; preds = %.lr
 70:                                               ; preds = %69, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i
   %.019.i.idx.i.i = phi i64 [ %.019.i.add.i.i, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i ], [ 8, %69 ]
   %.pn18.i.i.i = phi ptr [ %.019.i.ptr.i.i, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i ], [ %6, %69 ]
-  %.019.i.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %.019.i.idx.i.i
+  %.019.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.019.i.idx.i.i
   %71 = load i64, ptr %.019.i.ptr.i.i, align 8
   %72 = load i64, ptr %6, align 16
   %73 = icmp ult i64 %71, %72
@@ -1321,7 +1321,7 @@ _ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i
   %.06.i.i.i.idx = phi i64 [ %.06.i.i.i.add, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i8.i.i ], [ 128, %_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i ]
-  %.06.i.i.i.ptr = getelementptr inbounds i8, ptr %6, i64 %.06.i.i.i.idx
+  %.06.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.06.i.i.i.idx
   %81 = load i64, ptr %.06.i.i.i.ptr, align 8
   %.011.i.i.i.i = getelementptr inbounds i8, ptr %.06.i.i.i.ptr, i64 -8
   %82 = load i64, ptr %.011.i.i.i.i, align 8
@@ -1377,7 +1377,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %102 = call noundef i64 %3(ptr noundef %2, i32 noundef %55)
   %103 = add i64 %102, %57
   %104 = udiv i64 %103, %58
-  %105 = getelementptr inbounds [64 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [64 x i64], ptr %6, i64 0, i64 %indvars.iv
   store i64 %104, ptr %105, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not36 = icmp eq i64 %indvars.iv.next, 64
@@ -1388,7 +1388,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchIntervalTimer15GetElapsedTicksEv.exit
   %106 = call noundef i64 %3(ptr noundef %2, i32 noundef %55)
   %107 = add i64 %106, %57
   %108 = udiv i64 %107, %58
-  %109 = getelementptr inbounds [64 x i64], ptr %6, i64 0, i64 %indvars.iv98
+  %109 = getelementptr inbounds nuw [64 x i64], ptr %6, i64 0, i64 %indvars.iv98
   store i64 %108, ptr %109, align 8
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %.not37 = icmp eq i64 %indvars.iv.next99, 6
@@ -1448,7 +1448,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPmlN9__gnu_cxx5__ops15_Iter_les
   br i1 %8, label %.lr.ph, label %_ZSt14__partial_sortIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPmN9__gnu_cxx5__ops15_Iter_less_iterEET_S4_S4_T0_.exit
@@ -1526,13 +1526,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIPmlN9__gnu_cxx5__ops15_Iter_les
   %.01317.i.i.i.i.i = phi i64 [ %.018.i.i67.i.i.i, %52 ], [ %.128.i.i.i.i, %47 ]
   %.018.in.i.i.i.i.i = add nsw i64 %.01317.i.i.i.i.i, -1
   %.018.i.i67.i.i.i = lshr i64 %.018.in.i.i.i.i.i, 1
-  %49 = getelementptr inbounds i64, ptr %0, i64 %.018.i.i67.i.i.i
+  %49 = getelementptr inbounds nuw i64, ptr %0, i64 %.018.i.i67.i.i.i
   %50 = load i64, ptr %49, align 8
   %51 = icmp ult i64 %50, %15
   br i1 %51, label %52, label %_ZSt10__pop_heapIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i
 
 52:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %53 = getelementptr inbounds i64, ptr %0, i64 %.01317.i.i.i.i.i
+  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %.01317.i.i.i.i.i
   store i64 %50, ptr %53, align 8
   %.not.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !24
@@ -1547,7 +1547,7 @@ _ZSt10__pop_heapIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i: ;
 56:                                               ; preds = %10
   %57 = add nsw i64 %.01219, -1
   %58 = lshr i64 %11, 4
-  %59 = getelementptr inbounds i64, ptr %0, i64 %58
+  %59 = getelementptr inbounds nuw i64, ptr %0, i64 %58
   %60 = getelementptr inbounds i8, ptr %.020, i64 -8
   %61 = load i64, ptr %9, align 8
   %62 = load i64, ptr %59, align 8
@@ -1618,7 +1618,7 @@ _ZSt22__move_median_to_firstIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_S4_T
   %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPmN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_S4_T0_.exit.i ], [ %87, %84 ]
   %85 = load i64, ptr %.1.i.i, align 8
   %86 = icmp ult i64 %85, %83
-  %87 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   br i1 %86, label %84, label %.preheader.i.i, !llvm.loop !26
 
 .preheader.i.i:                                   ; preds = %84, %.preheader.i.i
@@ -1660,7 +1660,7 @@ define linkonce_odr void @_ZSt11__make_heapIPmN9__gnu_cxx5__ops15_Iter_less_iter
 .split:                                           ; preds = %3
   %9 = add nsw i64 %7, -2
   %10 = lshr i64 %9, 1
-  %11 = getelementptr inbounds i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %7, -1
   %14 = lshr i64 %13, 1

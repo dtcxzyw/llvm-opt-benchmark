@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @CMS_signed_get_attr_count(ptr nocapture noundef readonly %si) local_unnamed_addr #0 {
 entry:
-  %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
+  %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs, align 8
   %call = tail call i32 @X509at_get_attr_count(ptr noundef %0) #2
   ret i32 %call
@@ -23,7 +23,7 @@ declare i32 @X509at_get_attr_count(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @CMS_signed_get_attr_by_NID(ptr nocapture noundef readonly %si, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
+  %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs, align 8
   %call = tail call i32 @X509at_get_attr_by_NID(ptr noundef %0, i32 noundef %nid, i32 noundef %lastpos) #2
   ret i32 %call
@@ -34,7 +34,7 @@ declare i32 @X509at_get_attr_by_NID(ptr noundef, i32 noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define i32 @CMS_signed_get_attr_by_OBJ(ptr nocapture noundef readonly %si, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
+  %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs, align 8
   %call = tail call i32 @X509at_get_attr_by_OBJ(ptr noundef %0, ptr noundef %obj, i32 noundef %lastpos) #2
   ret i32 %call
@@ -45,7 +45,7 @@ declare i32 @X509at_get_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define ptr @CMS_signed_get_attr(ptr nocapture noundef readonly %si, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
+  %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs, align 8
   %call = tail call ptr @X509at_get_attr(ptr noundef %0, i32 noundef %loc) #2
   ret ptr %call
@@ -56,7 +56,7 @@ declare ptr @X509at_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @CMS_signed_delete_attr(ptr nocapture noundef readonly %si, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
+  %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs, align 8
   %call = tail call ptr @X509at_delete_attr(ptr noundef %0, i32 noundef %loc) #2
   ret ptr %call
@@ -67,7 +67,7 @@ declare ptr @X509at_delete_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMS_signed_add1_attr(ptr noundef %si, ptr noundef %attr) local_unnamed_addr #0 {
 entry:
-  %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
+  %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %call = tail call ptr @X509at_add1_attr(ptr noundef nonnull %signedAttrs, ptr noundef %attr) #2
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -79,7 +79,7 @@ declare ptr @X509at_add1_attr(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMS_signed_add1_attr_by_OBJ(ptr noundef %si, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
+  %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %call = tail call ptr @X509at_add1_attr_by_OBJ(ptr noundef nonnull %signedAttrs, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -91,7 +91,7 @@ declare ptr @X509at_add1_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMS_signed_add1_attr_by_NID(ptr noundef %si, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
+  %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %signedAttrs, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -103,7 +103,7 @@ declare ptr @X509at_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMS_signed_add1_attr_by_txt(ptr noundef %si, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
+  %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %call = tail call ptr @X509at_add1_attr_by_txt(ptr noundef nonnull %signedAttrs, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -115,7 +115,7 @@ declare ptr @X509at_add1_attr_by_txt(ptr noundef, ptr noundef, i32 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define ptr @CMS_signed_get0_data_by_OBJ(ptr nocapture noundef readonly %si, ptr noundef %oid, i32 noundef %lastpos, i32 noundef %type) local_unnamed_addr #0 {
 entry:
-  %signedAttrs = getelementptr inbounds i8, ptr %si, i64 24
+  %signedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs, align 8
   %call = tail call ptr @X509at_get0_data_by_OBJ(ptr noundef %0, ptr noundef %oid, i32 noundef %lastpos, i32 noundef %type) #2
   ret ptr %call
@@ -126,7 +126,7 @@ declare ptr @X509at_get0_data_by_OBJ(ptr noundef, ptr noundef, i32 noundef, i32 
 ; Function Attrs: nounwind uwtable
 define i32 @CMS_unsigned_get_attr_count(ptr nocapture noundef readonly %si) local_unnamed_addr #0 {
 entry:
-  %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
+  %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load ptr, ptr %unsignedAttrs, align 8
   %call = tail call i32 @X509at_get_attr_count(ptr noundef %0) #2
   ret i32 %call
@@ -135,7 +135,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @CMS_unsigned_get_attr_by_NID(ptr nocapture noundef readonly %si, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
+  %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load ptr, ptr %unsignedAttrs, align 8
   %call = tail call i32 @X509at_get_attr_by_NID(ptr noundef %0, i32 noundef %nid, i32 noundef %lastpos) #2
   ret i32 %call
@@ -144,7 +144,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @CMS_unsigned_get_attr_by_OBJ(ptr nocapture noundef readonly %si, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
+  %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load ptr, ptr %unsignedAttrs, align 8
   %call = tail call i32 @X509at_get_attr_by_OBJ(ptr noundef %0, ptr noundef %obj, i32 noundef %lastpos) #2
   ret i32 %call
@@ -153,7 +153,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @CMS_unsigned_get_attr(ptr nocapture noundef readonly %si, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
+  %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load ptr, ptr %unsignedAttrs, align 8
   %call = tail call ptr @X509at_get_attr(ptr noundef %0, i32 noundef %loc) #2
   ret ptr %call
@@ -162,7 +162,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @CMS_unsigned_delete_attr(ptr nocapture noundef readonly %si, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
+  %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load ptr, ptr %unsignedAttrs, align 8
   %call = tail call ptr @X509at_delete_attr(ptr noundef %0, i32 noundef %loc) #2
   ret ptr %call
@@ -171,7 +171,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMS_unsigned_add1_attr(ptr noundef %si, ptr noundef %attr) local_unnamed_addr #0 {
 entry:
-  %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
+  %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %call = tail call ptr @X509at_add1_attr(ptr noundef nonnull %unsignedAttrs, ptr noundef %attr) #2
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -181,7 +181,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMS_unsigned_add1_attr_by_OBJ(ptr noundef %si, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
+  %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %call = tail call ptr @X509at_add1_attr_by_OBJ(ptr noundef nonnull %unsignedAttrs, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -191,7 +191,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMS_unsigned_add1_attr_by_NID(ptr noundef %si, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
+  %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %unsignedAttrs, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -201,7 +201,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMS_unsigned_add1_attr_by_txt(ptr noundef %si, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
+  %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %call = tail call ptr @X509at_add1_attr_by_txt(ptr noundef nonnull %unsignedAttrs, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -211,7 +211,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @CMS_unsigned_get0_data_by_OBJ(ptr nocapture noundef readonly %si, ptr noundef %oid, i32 noundef %lastpos, i32 noundef %type) local_unnamed_addr #0 {
 entry:
-  %unsignedAttrs = getelementptr inbounds i8, ptr %si, i64 48
+  %unsignedAttrs = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load ptr, ptr %unsignedAttrs, align 8
   %call = tail call ptr @X509at_get0_data_by_OBJ(ptr noundef %0, ptr noundef %oid, i32 noundef %lastpos, i32 noundef %type) #2
   ret ptr %call
@@ -220,12 +220,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_cms_si_check_attributes(ptr nocapture noundef readonly %si) local_unnamed_addr #0 {
 entry:
-  %signedAttrs.i = getelementptr inbounds i8, ptr %si, i64 24
+  %signedAttrs.i = getelementptr inbounds nuw i8, ptr %si, i64 24
   %0 = load ptr, ptr %signedAttrs.i, align 8
   %call.i = tail call i32 @X509at_get_attr_count(ptr noundef %0) #2
   %cmp = icmp sgt i32 %call.i, 0
   %conv = zext i1 %cmp to i32
-  %unsignedAttrs.i = getelementptr inbounds i8, ptr %si, i64 48
+  %unsignedAttrs.i = getelementptr inbounds nuw i8, ptr %si, i64 48
   %1 = load ptr, ptr %unsignedAttrs.i, align 8
   %call.i9 = tail call i32 @X509at_get_attr_count(ptr noundef %1) #2
   %cmp2 = icmp sgt i32 %call.i9, 0
@@ -239,9 +239,9 @@ for.cond:                                         ; preds = %lor.lhs.false
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds [7 x %struct.anon], ptr @cms_attribute_properties, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [7 x %struct.anon], ptr @cms_attribute_properties, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx, align 8
-  %flags9 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %flags9 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %3 = load i32, ptr %flags9, align 4
   %4 = load ptr, ptr %signedAttrs.i, align 8
   %call10 = tail call fastcc i32 @cms_check_attribute(i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %4, i32 noundef %conv)

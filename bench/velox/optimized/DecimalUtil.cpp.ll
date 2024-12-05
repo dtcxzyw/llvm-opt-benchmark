@@ -65,7 +65,7 @@ if.then.i:                                        ; preds = %entry
 if.then3.i:                                       ; preds = %if.then.i
   %retval.i5.sroa.0.0.insert.ext.i.i = and i64 %.sroa.1.0.extract.shift, 255
   store i64 0, ptr %ref.tmp.i.i, align 16, !alias.scope !4, !noalias !7
-  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %arrayinit.element.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   store i64 %retval.i5.sroa.0.0.insert.ext.i.i, ptr %arrayinit.element.i.i.i, align 16, !alias.scope !4, !noalias !7
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str, i64 7, i64 42, ptr nonnull %ref.tmp.i.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113formatDecimalB5cxx11Ehn.exit
@@ -129,7 +129,7 @@ if.end5.i:                                        ; preds = %entry
   %add.i = sub nsw i128 0, %unscaledValue.sroa.0.0.insert.insert.i
   %spec.select.i = select i1 %cmp6.i, i128 %add.i, i128 %unscaledValue.sroa.0.0.insert.insert.i
   %idxprom.i = and i64 %.sroa.1.0.extract.shift, 255
-  %arrayidx.i = getelementptr inbounds [39 x i128], ptr @_ZN8facebook5velox11DecimalUtil12kPowersOfTenE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [39 x i128], ptr @_ZN8facebook5velox11DecimalUtil12kPowersOfTenE, i64 0, i64 %idxprom.i
   %6 = load i128, ptr %arrayidx.i, align 16, !noalias !7
   %.frozen = freeze i128 %6
   %div.i = sdiv i128 %spec.select.i, %.frozen
@@ -230,13 +230,13 @@ ehcleanup36.i:                                    ; preds = %ehcleanup.i, %lpad1
   %call2.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %fractionString.i) #15, !noalias !13
   %15 = ptrtoint ptr %call.i.i.i.i to i64
   store i64 %14, ptr %ref.tmp.i50.i, align 16, !alias.scope !10, !noalias !7
-  %arrayinit.element.i.i30.i = getelementptr inbounds i8, ptr %ref.tmp.i50.i, i64 16
+  %arrayinit.element.i.i30.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i50.i, i64 16
   store i64 %retval.i7.sroa.0.0.extract.trunc.i.i, ptr %arrayinit.element.i.i30.i, align 16, !alias.scope !10, !noalias !7
-  %ref.tmp7.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i50.i, i64 24
+  %ref.tmp7.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i50.i, i64 24
   store i64 %retval.i7.sroa.2.0.extract.trunc.i.i, ptr %ref.tmp7.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i, align 8, !alias.scope !10, !noalias !7
-  %arrayinit.element6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i50.i, i64 32
+  %arrayinit.element6.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i50.i, i64 32
   store i64 %15, ptr %arrayinit.element6.i.i.i, align 16, !alias.scope !10, !noalias !7
-  %ref.tmp11.i.sroa.2.0.arrayinit.element6.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i50.i, i64 40
+  %ref.tmp11.i.sroa.2.0.arrayinit.element6.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i50.i, i64 40
   store i64 %call2.i.i.i.i, ptr %ref.tmp11.i.sroa.2.0.arrayinit.element6.i.sroa_idx.i.i, align 8, !alias.scope !10, !noalias !7
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.3, i64 6, i64 3420, ptr nonnull %ref.tmp.i50.i)
           to label %invoke.cont42.i unwind label %lpad15.i
@@ -360,7 +360,7 @@ _ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit: ; preds = %if.else.i
 if.then:                                          ; preds = %_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit.thread, %_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit
   %conv319 = phi i64 [ 1, %_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit.thread ], [ %conv3, %_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit ]
   %add.i18 = phi i32 [ 1, %_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit.thread ], [ %add.i, %_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit ]
-  %add.ptr = getelementptr inbounds i8, ptr %lowBig, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %lowBig, i64 8
   %idx.neg = sub nsw i64 0, %conv319
   %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %out, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr4, i64 %conv319, i1 false)
@@ -372,12 +372,12 @@ if.else:                                          ; preds = %_ZN8facebook5velox1
   %add.i26 = phi i32 [ %add.i23, %_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit.thread20 ], [ %add.i, %_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn.exit ]
   %6 = tail call noundef i64 @llvm.bswap.i64(i64 %value.coerce1)
   store i64 %6, ptr %highBig, align 8
-  %add.ptr8 = getelementptr inbounds i8, ptr %highBig, i64 16
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %highBig, i64 16
   %idx.neg10 = sub nsw i64 0, %conv327
   %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr8, i64 %idx.neg10
   %sub = add nsw i64 %conv327, -8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr nonnull align 1 %add.ptr11, i64 %sub, i1 false)
-  %add.ptr14 = getelementptr inbounds i8, ptr %out, i64 %conv327
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %out, i64 %conv327
   %add.ptr15 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
   store i64 %5, ptr %add.ptr15, align 1
   br label %if.end

@@ -547,17 +547,17 @@ define internal fastcc i64 @_ZN4Luau7CodeGenL23translateBuiltinMathLogERNS0_9IrB
   br i1 %.not.i, label %13, label %_ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit.thread
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = lshr i32 %4, 4
   %16 = zext nneg i32 %15 to i64
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds %"struct.Luau::CodeGen::IrConst", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %17, i64 %16
   %19 = load i8, ptr %18, align 8
   %.not5.i = icmp eq i8 %19, 2
   br i1 %.not5.i, label %20, label %_ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit.thread
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load double, ptr %21, align 8
   %23 = fcmp oeq double %22, 2.000000e+00
   br i1 %23, label %28, label %24
@@ -1363,17 +1363,17 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit74: ; preds 
   br i1 %.not.i, label %32, label %_ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit.thread
 
 32:                                               ; preds = %_ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit74
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = lshr i32 %.sroa.03.0.i73, 4
   %35 = zext nneg i32 %34 to i64
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds %"struct.Luau::CodeGen::IrConst", ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %36, i64 %35
   %38 = load i8, ptr %37, align 8
   %.not5.i = icmp eq i8 %38, 2
   br i1 %.not5.i, label %39, label %_ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit.thread
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %41 = load double, ptr %40, align 8
   %42 = fcmp ult double %41, 0xC1E0000000000000
   %43 = fcmp ugt double %41, 0x41DFFFFFFFC00000
@@ -1396,17 +1396,17 @@ _ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit.thread: ; preds = %32, 
   br i1 %.not.i75, label %50, label %.critedge
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %52 = lshr i32 %storemerge, 4
   %53 = zext nneg i32 %52 to i64
   %54 = load ptr, ptr %51, align 8
-  %55 = getelementptr inbounds %"struct.Luau::CodeGen::IrConst", ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %54, i64 %53
   %56 = load i8, ptr %55, align 8
   %.not5.i78 = icmp eq i8 %56, 0
   br i1 %.not5.i78, label %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit, label %.critedge
 
 _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit: ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load i32, ptr %57, align 4
   %59 = icmp ult i32 %58, 32
   br i1 %59, label %64, label %.critedge
@@ -1524,11 +1524,11 @@ define internal fastcc i64 @_ZN4Luau7CodeGenL28translateBuiltinBit32ExtractERNS0
   br i1 %or.cond189, label %16, label %25
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = lshr i32 %4, 4
   %19 = zext nneg i32 %18 to i64
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds %"struct.Luau::CodeGen::IrConst", ptr %20, i64 %19, i32 1
+  %21 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %20, i64 %19, i32 1
   %22 = load double, ptr %21, align 8
   %23 = fptosi double %22 to i32
   %24 = icmp ugt i32 %23, 31
@@ -1583,11 +1583,11 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit192: ; preds
   br i1 %44, label %45, label %59
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %0, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %47 = lshr i32 %.sroa.03.0.i191, 4
   %48 = zext nneg i32 %47 to i64
   %49 = load ptr, ptr %46, align 8
-  %50 = getelementptr inbounds %"struct.Luau::CodeGen::IrConst", ptr %49, i64 %48, i32 1
+  %50 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %49, i64 %48, i32 1
   %51 = load double, ptr %50, align 8
   %52 = fptosi double %51 to i32
   %.not = icmp eq i32 %52, 0
@@ -1745,11 +1745,11 @@ _ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit: ; preds 
 _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit: ; preds = %_ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit, %20
   %.sroa.03.0.i = phi i32 [ %21, %20 ], [ %17, %_ZN4Luau7CodeGenL18builtinCheckDoubleERNS0_9IrBuilderENS0_4IrOpEi.exit ]
   %22 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 63, i32 %.sroa.03.0.i)
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = lshr i32 %4, 4
   %25 = zext nneg i32 %24 to i64
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds %"struct.Luau::CodeGen::IrConst", ptr %26, i64 %25, i32 1
+  %27 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %26, i64 %25, i32 1
   %28 = load double, ptr %27, align 8
   %29 = fptosi double %28 to i32
   %30 = and i32 %29, 31
@@ -2229,13 +2229,13 @@ define internal fastcc range(i64 -4294967296, 3) i64 @_ZN4Luau7CodeGenL27transla
   br i1 %30, label %31, label %42
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 320
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = lshr i32 %3, 4
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds %struct.lua_TValue, ptr %35, i64 %37, i32 2
+  %38 = getelementptr inbounds nuw %struct.lua_TValue, ptr %35, i64 %37, i32 2
   %39 = load i32, ptr %38, align 4
   %40 = trunc i32 %39 to i8
   %41 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %40)

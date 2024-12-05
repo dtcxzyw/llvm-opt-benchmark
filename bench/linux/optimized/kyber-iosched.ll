@@ -224,7 +224,7 @@ define dso_local noundef i32 @__traceiter_kyber_latency(ptr nocapture readnone %
 .preheader:                                       ; preds = %8, %.preheader
   %11 = phi ptr [ %15, %.preheader ], [ %9, %8 ]
   %12 = load volatile ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void %12(ptr noundef %14, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #18
   %15 = getelementptr i8, ptr %11, i64 24
@@ -259,7 +259,7 @@ define dso_local noundef i32 @__traceiter_kyber_adjust(ptr nocapture readnone %0
 .preheader:                                       ; preds = %4, %.preheader
   %7 = phi ptr [ %11, %.preheader ], [ %5, %4 ]
   %8 = load volatile ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %8(ptr noundef %10, i32 noundef %1, ptr noundef %2, i32 noundef %3) #18
   %11 = getelementptr i8, ptr %7, i64 24
@@ -288,7 +288,7 @@ define dso_local noundef i32 @__traceiter_kyber_throttled(ptr nocapture readnone
 .preheader:                                       ; preds = %3, %.preheader
   %6 = phi ptr [ %10, %.preheader ], [ %4, %3 ]
   %7 = load volatile ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %9, i32 noundef %1, ptr noundef %2) #18
   %10 = getelementptr i8, ptr %6, i64 24
@@ -309,7 +309,7 @@ define dso_local void @__probestub_kyber_throttled(ptr nocapture readnone %0, i3
 define internal void @trace_event_raw_event_kyber_latency(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #1 align 16 {
   %9 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #18
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 704
   %13 = icmp eq i64 %12, 0
@@ -331,22 +331,22 @@ define internal void @trace_event_raw_event_kyber_latency(ptr noundef %0, i32 no
   br i1 %21, label %35, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %20, i64 12
-  %25 = call i64 @strscpy(ptr noundef %24, ptr noundef %2, i64 noundef 16) #18
-  %26 = getelementptr inbounds i8, ptr %20, i64 28
-  %27 = call i64 @strscpy(ptr noundef %26, ptr noundef %3, i64 noundef 8) #18
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %25 = call i64 @strscpy(ptr noundef nonnull %24, ptr noundef %2, i64 noundef 16) #18
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 28
+  %27 = call i64 @strscpy(ptr noundef nonnull %26, ptr noundef %3, i64 noundef 8) #18
   %28 = trunc i32 %4 to i8
-  %29 = getelementptr inbounds i8, ptr %20, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 36
   store i8 %28, ptr %29, align 4
   %30 = trunc i32 %5 to i8
-  %31 = getelementptr inbounds i8, ptr %20, i64 37
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 37
   store i8 %30, ptr %31, align 1
   %32 = trunc i32 %6 to i8
-  %33 = getelementptr inbounds i8, ptr %20, i64 38
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 38
   store i8 %32, ptr %33, align 2
-  %34 = getelementptr inbounds i8, ptr %20, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i32 %7, ptr %34, align 4
   call void @trace_event_buffer_commit(ptr noundef nonnull %9) #18
   br label %35
@@ -363,11 +363,11 @@ define internal void @perf_trace_kyber_latency(ptr noundef %0, i32 noundef %1, p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #18
   store ptr null, ptr %9, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #18
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %12) #19, !srcloc !14
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %21
@@ -387,32 +387,32 @@ define internal void @perf_trace_kyber_latency(ptr noundef %0, i32 noundef %1, p
   %25 = load ptr, ptr %9, align 8
   %26 = call ptr @llvm.returnaddress(i32 0)
   %27 = ptrtoint ptr %26 to i64
-  %28 = getelementptr inbounds i8, ptr %25, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 128
   store i64 %27, ptr %28, align 8
   %29 = call ptr @llvm.frameaddress.p0(i32 0)
   %30 = ptrtoint ptr %29 to i64
-  %31 = getelementptr inbounds i8, ptr %25, i64 152
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 152
   store i64 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %25, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 136
   store i64 16, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %25, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 144
   store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %22, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %1, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %22, i64 12
-  %36 = call i64 @strscpy(ptr noundef %35, ptr noundef %2, i64 noundef 16) #18
-  %37 = getelementptr inbounds i8, ptr %22, i64 28
-  %38 = call i64 @strscpy(ptr noundef %37, ptr noundef %3, i64 noundef 8) #18
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  %36 = call i64 @strscpy(ptr noundef nonnull %35, ptr noundef %2, i64 noundef 16) #18
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 28
+  %38 = call i64 @strscpy(ptr noundef nonnull %37, ptr noundef %3, i64 noundef 8) #18
   %39 = trunc i32 %4 to i8
-  %40 = getelementptr inbounds i8, ptr %22, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %22, i64 36
   store i8 %39, ptr %40, align 4
   %41 = trunc i32 %5 to i8
-  %42 = getelementptr inbounds i8, ptr %22, i64 37
+  %42 = getelementptr inbounds nuw i8, ptr %22, i64 37
   store i8 %41, ptr %42, align 1
   %43 = trunc i32 %6 to i8
-  %44 = getelementptr inbounds i8, ptr %22, i64 38
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 38
   store i8 %43, ptr %44, align 2
-  %45 = getelementptr inbounds i8, ptr %22, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i32 %7, ptr %45, align 4
   %46 = load i32, ptr %10, align 4
   %47 = load ptr, ptr %9, align 8
@@ -435,7 +435,7 @@ declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 define internal void @trace_event_raw_event_kyber_adjust(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #18
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 704
   %9 = icmp eq i64 %8, 0
@@ -457,11 +457,11 @@ define internal void @trace_event_raw_event_kyber_adjust(ptr noundef %0, i32 nou
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 12
-  %21 = call i64 @strscpy(ptr noundef %20, ptr noundef %2, i64 noundef 16) #18
-  %22 = getelementptr inbounds i8, ptr %16, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %21 = call i64 @strscpy(ptr noundef nonnull %20, ptr noundef %2, i64 noundef 16) #18
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 28
   store i32 %3, ptr %22, align 4
   call void @trace_event_buffer_commit(ptr noundef nonnull %5) #18
   br label %23
@@ -478,11 +478,11 @@ define internal void @perf_trace_kyber_adjust(ptr noundef %0, i32 noundef %1, pt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   store ptr null, ptr %5, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %8) #19, !srcloc !15
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
@@ -502,21 +502,21 @@ define internal void @perf_trace_kyber_adjust(ptr noundef %0, i32 noundef %1, pt
   %21 = load ptr, ptr %5, align 8
   %22 = call ptr @llvm.returnaddress(i32 0)
   %23 = ptrtoint ptr %22 to i64
-  %24 = getelementptr inbounds i8, ptr %21, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 128
   store i64 %23, ptr %24, align 8
   %25 = call ptr @llvm.frameaddress.p0(i32 0)
   %26 = ptrtoint ptr %25 to i64
-  %27 = getelementptr inbounds i8, ptr %21, i64 152
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 152
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 136
   store i64 16, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %21, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 144
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %18, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %1, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %18, i64 12
-  %32 = call i64 @strscpy(ptr noundef %31, ptr noundef %2, i64 noundef 16) #18
-  %33 = getelementptr inbounds i8, ptr %18, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %32 = call i64 @strscpy(ptr noundef nonnull %31, ptr noundef %2, i64 noundef 16) #18
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 28
   store i32 %3, ptr %33, align 4
   %34 = load i32, ptr %6, align 4
   %35 = load ptr, ptr %5, align 8
@@ -533,7 +533,7 @@ define internal void @perf_trace_kyber_adjust(ptr noundef %0, i32 noundef %1, pt
 define internal void @trace_event_raw_event_kyber_throttled(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 704
   %8 = icmp eq i64 %7, 0
@@ -555,10 +555,10 @@ define internal void @trace_event_raw_event_kyber_throttled(ptr noundef %0, i32 
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 12
-  %20 = call i64 @strscpy(ptr noundef %19, ptr noundef %2, i64 noundef 16) #18
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %20 = call i64 @strscpy(ptr noundef nonnull %19, ptr noundef %2, i64 noundef 16) #18
   call void @trace_event_buffer_commit(ptr noundef nonnull %4) #18
   br label %21
 
@@ -574,11 +574,11 @@ define internal void @perf_trace_kyber_throttled(ptr noundef %0, i32 noundef %1,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   store ptr null, ptr %4, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %7) #19, !srcloc !16
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %16
@@ -598,20 +598,20 @@ define internal void @perf_trace_kyber_throttled(ptr noundef %0, i32 noundef %1,
   %20 = load ptr, ptr %4, align 8
   %21 = call ptr @llvm.returnaddress(i32 0)
   %22 = ptrtoint ptr %21 to i64
-  %23 = getelementptr inbounds i8, ptr %20, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 128
   store i64 %22, ptr %23, align 8
   %24 = call ptr @llvm.frameaddress.p0(i32 0)
   %25 = ptrtoint ptr %24 to i64
-  %26 = getelementptr inbounds i8, ptr %20, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 152
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 136
   store i64 16, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %20, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 144
   store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %17, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %1, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %17, i64 12
-  %31 = call i64 @strscpy(ptr noundef %30, ptr noundef %2, i64 noundef 16) #18
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %31 = call i64 @strscpy(ptr noundef nonnull %30, ptr noundef %2, i64 noundef 16) #18
   %32 = load i32, ptr %5, align 4
   %33 = load ptr, ptr %4, align 8
   call void @perf_trace_run_bpf_submit(ptr noundef nonnull %17, i32 noundef 28, i32 noundef %32, ptr noundef %0, i64 noundef 1, ptr noundef %33, ptr noundef %9, ptr noundef null) #18
@@ -655,33 +655,33 @@ declare dso_local zeroext i1 @__trace_trigger_soft_disabled(ptr noundef) local_u
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_kyber_latency(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #18
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %28
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8344
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 20
   %13 = and i32 %11, 1048575
-  %14 = getelementptr inbounds i8, ptr %5, i64 12
-  %15 = getelementptr inbounds i8, ptr %5, i64 28
-  %16 = getelementptr inbounds i8, ptr %5, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %17 = load i8, ptr %16, align 4
   %18 = zext i8 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %5, i64 37
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 37
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %5, i64 38
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 38
   %23 = load i8, ptr %22, align 2
   %24 = zext i8 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %5, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %26 = load i32, ptr %25, align 4
-  tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %15, i32 noundef %18, i32 noundef %21, i32 noundef %24, i32 noundef %26) #18
-  %27 = tail call i32 @trace_handle_return(ptr noundef %9) #18
+  tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %12, i32 noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef %18, i32 noundef %21, i32 noundef %24, i32 noundef %26) #18
+  %27 = tail call i32 @trace_handle_return(ptr noundef nonnull %9) #18
   br label %28
 
 28:                                               ; preds = %8, %3
@@ -700,23 +700,23 @@ declare dso_local i32 @trace_handle_return(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_kyber_adjust(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #18
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8344
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 20
   %13 = and i32 %11, 1048575
-  %14 = getelementptr inbounds i8, ptr %5, i64 12
-  %15 = getelementptr inbounds i8, ptr %5, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %16 = load i32, ptr %15, align 4
-  tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %12, i32 noundef %13, ptr noundef %14, i32 noundef %16) #18
-  %17 = tail call i32 @trace_handle_return(ptr noundef %9) #18
+  tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %12, i32 noundef %13, ptr noundef nonnull %14, i32 noundef %16) #18
+  %17 = tail call i32 @trace_handle_return(ptr noundef nonnull %9) #18
   br label %18
 
 18:                                               ; preds = %8, %3
@@ -726,21 +726,21 @@ define internal i32 @trace_raw_output_kyber_adjust(ptr noundef %0, i32 %1, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_kyber_throttled(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #18
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8344
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 20
   %13 = and i32 %11, 1048575
-  %14 = getelementptr inbounds i8, ptr %5, i64 12
-  tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %12, i32 noundef %13, ptr noundef %14) #18
-  %15 = tail call i32 @trace_handle_return(ptr noundef %9) #18
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %12, i32 noundef %13, ptr noundef nonnull %14) #18
+  %15 = tail call i32 @trace_handle_return(ptr noundef nonnull %9) #18
   br label %16
 
 16:                                               ; preds = %8, %3
@@ -767,7 +767,7 @@ define internal i32 @kyber_init_sched(ptr noundef %0, ptr noundef %1) #1 align 1
   br i1 %4, label %71, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 488
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %7 = load i32, ptr %6, align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %9 = tail call noalias noundef align 8 dereferenceable_or_null(584) ptr @kmalloc_node_trace(ptr noundef %8, i32 noundef 3520, i32 noundef %7, i64 noundef 584) #20
@@ -776,32 +776,32 @@ define internal i32 @kyber_init_sched(ptr noundef %0, ptr noundef %1) #1 align 1
 
 11:                                               ; preds = %5
   store ptr %0, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
   %15 = shl i32 %14, 20
-  %16 = getelementptr inbounds i8, ptr %13, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %15, %17
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %18, ptr %19, align 8
   %20 = tail call noalias dereferenceable_or_null(192) ptr @__alloc_percpu_gfp(i64 noundef 192, i64 noundef 4, i32 noundef 3520) #21
-  %21 = getelementptr inbounds i8, ptr %9, i64 280
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 280
   store ptr %20, ptr %21, align 8
   %22 = icmp eq ptr %20, null
   br i1 %22, label %56, label %23
 
 23:                                               ; preds = %11
-  %24 = getelementptr inbounds i8, ptr %9, i64 288
-  tail call void @init_timer_key(ptr noundef %24, ptr noundef nonnull @kyber_timer_fn, i32 noundef 0, ptr noundef null, ptr noundef null) #18
-  %25 = getelementptr inbounds i8, ptr %9, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 288
+  tail call void @init_timer_key(ptr noundef nonnull %24, ptr noundef nonnull @kyber_timer_fn, i32 noundef 0, ptr noundef null, ptr noundef null) #18
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %29
 
 26:                                               ; preds = %51
-  %27 = getelementptr inbounds i8, ptr %9, i64 544
-  %28 = getelementptr inbounds i8, ptr %9, i64 560
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(12) %27, i8 -1, i64 12, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %28, ptr noundef nonnull align 16 dereferenceable(24) @kyber_latency_targets, i64 24, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 544
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 560
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %27, i8 -1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 16 dereferenceable(24) @kyber_latency_targets, i64 24, i1 false)
   br label %61
 
 29:                                               ; preds = %51, %23
@@ -824,13 +824,13 @@ define internal i32 @kyber_init_sched(ptr noundef %0, ptr noundef %1) #1 align 1
   %41 = add nsw i64 %40, -1
   %42 = and i64 %41, 4294967295
   %43 = getelementptr [4 x %struct.sbitmap_queue], ptr %25, i64 0, i64 %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
   tail call void @kfree(ptr noundef %45) #18
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %47 = load ptr, ptr %46, align 8
   tail call void @free_percpu(ptr noundef %47) #18
-  %48 = getelementptr inbounds i8, ptr %43, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %49 = load ptr, ptr %48, align 8
   tail call void @kvfree(ptr noundef %49) #18
   store ptr null, ptr %48, align 8
@@ -864,8 +864,8 @@ define internal i32 @kyber_init_sched(ptr noundef %0, ptr noundef %1) #1 align 1
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %3, i64 16
-  tail call void @kobject_put(ptr noundef %65) #18
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  tail call void @kobject_put(ptr noundef nonnull %65) #18
   %66 = ptrtoint ptr %62 to i64
   %67 = trunc i64 %66 to i32
   br label %71
@@ -873,9 +873,9 @@ define internal i32 @kyber_init_sched(ptr noundef %0, ptr noundef %1) #1 align 1
 68:                                               ; preds = %61
   tail call void @blk_stat_enable_accounting(ptr noundef %0) #18
   tail call void @blk_queue_flag_clear(i32 noundef 30, ptr noundef %0) #18
-  %69 = getelementptr inbounds i8, ptr %3, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %62, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %70, align 8
   br label %71
 
@@ -886,25 +886,25 @@ define internal i32 @kyber_init_sched(ptr noundef %0, ptr noundef %1) #1 align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kyber_exit_sched(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 288
-  %5 = tail call i32 @timer_shutdown_sync(ptr noundef %4) #18
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 288
+  %5 = tail call i32 @timer_shutdown_sync(ptr noundef nonnull %4) #18
   %6 = load ptr, ptr %3, align 8
   tail call void @blk_stat_disable_accounting(ptr noundef %6) #18
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %8
 
 8:                                                ; preds = %8, %1
   %9 = phi i64 [ 0, %1 ], [ %17, %8 ]
   %10 = getelementptr [4 x %struct.sbitmap_queue], ptr %7, i64 0, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call void @kfree(ptr noundef %12) #18
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = load ptr, ptr %13, align 8
   tail call void @free_percpu(ptr noundef %14) #18
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @kvfree(ptr noundef %16) #18
   store ptr null, ptr %15, align 8
@@ -913,7 +913,7 @@ define internal void @kyber_exit_sched(ptr nocapture noundef readonly %0) #1 ali
   br i1 %18, label %19, label %8, !llvm.loop !19
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %3, i64 280
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %21 = load ptr, ptr %20, align 8
   tail call void @free_percpu(ptr noundef %21) #18
   tail call void @kfree(ptr noundef %3) #18
@@ -922,7 +922,7 @@ define internal void @kyber_exit_sched(ptr nocapture noundef readonly %0) #1 ali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i32 %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 336
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load i32, ptr %3, align 16
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %6 = tail call noalias align 8 dereferenceable_or_null(456) ptr @kmalloc_node_trace(ptr noundef %5, i32 noundef 3264, i32 noundef %4, i64 noundef 456) #20
@@ -930,13 +930,13 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
   br i1 %7, label %93, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 254
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 254
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i64
   %12 = shl nuw nsw i64 %11, 7
   %13 = load i32, ptr %3, align 16
   %14 = tail call noalias align 8 ptr @__kmalloc_node(i64 noundef %12, i32 noundef 3264, i32 noundef %13) #21
-  %15 = getelementptr inbounds i8, ptr %6, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
   br i1 %16, label %92, label %17
@@ -947,7 +947,7 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
   br i1 %19, label %.loopexit5, label %.preheader4
 
 .loopexit5:                                       ; preds = %31, %17
-  %20 = getelementptr inbounds i8, ptr %6, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 88
   br label %36
 
 .preheader4:                                      ; preds = %17, %31
@@ -955,14 +955,14 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
   %22 = load ptr, ptr %15, align 8
   %23 = getelementptr %struct.kyber_ctx_queue, ptr %22, i64 %21
   store i32 0, ptr %23, align 64
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   br label %25
 
 25:                                               ; preds = %25, %.preheader4
   %26 = phi i64 [ 0, %.preheader4 ], [ %29, %25 ]
   %27 = getelementptr [4 x %struct.list_head], ptr %24, i64 0, i64 %26
   store volatile ptr %27, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store volatile ptr %27, ptr %28, align 8
   %29 = add nuw nsw i64 %26, 1
   %30 = icmp eq i64 %29, 4
@@ -994,10 +994,10 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %37, %44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %47 = getelementptr [4 x %struct.sbitmap], ptr %20, i64 0, i64 %indvars.iv.next
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   tail call void @free_percpu(ptr noundef %49) #18
-  %50 = getelementptr inbounds i8, ptr %47, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %51 = load ptr, ptr %50, align 8
   tail call void @kvfree(ptr noundef %51) #18
   store ptr null, ptr %50, align 8
@@ -1011,28 +1011,28 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
 
 56:                                               ; preds = %53
   store i32 0, ptr %6, align 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 8
-  %58 = getelementptr inbounds i8, ptr %6, i64 216
-  %59 = getelementptr inbounds i8, ptr %6, i64 440
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 216
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 440
   br label %60
 
 60:                                               ; preds = %60, %56
   %61 = phi i64 [ 0, %56 ], [ %71, %60 ]
   %62 = getelementptr [4 x %struct.list_head], ptr %57, i64 0, i64 %61
   store volatile ptr %62, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store volatile ptr %62, ptr %63, align 8
   %64 = getelementptr [4 x %struct.sbq_wait], ptr %58, i64 0, i64 %61
   store ptr null, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 16
-  %67 = getelementptr inbounds i8, ptr %64, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
   store ptr @kyber_domain_wake, ptr %67, align 8
   store ptr %0, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %64, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store volatile ptr %68, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %64, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 40
   store volatile ptr %68, ptr %69, align 8
   %70 = getelementptr [4 x %struct.atomic_t], ptr %59, i64 0, i64 %61
   store volatile i32 0, ptr %70, align 4
@@ -1041,28 +1041,28 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
   br i1 %72, label %73, label %60, !llvm.loop !24
 
 73:                                               ; preds = %60
-  %74 = getelementptr inbounds i8, ptr %6, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %6, i64 76
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store i32 0, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %0, i64 176
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %6, ptr %76, align 16
-  %77 = getelementptr inbounds i8, ptr %0, i64 184
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 328
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
-  %86 = getelementptr inbounds i8, ptr %84, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 20
   %87 = load i32, ptr %86, align 4
   %88 = shl i32 75, %87
   %89 = udiv i32 %88, 100
-  %90 = getelementptr inbounds i8, ptr %82, i64 272
+  %90 = getelementptr inbounds nuw i8, ptr %82, i64 272
   store i32 %89, ptr %90, align 8
-  tail call void @sbitmap_queue_min_shallow_depth(ptr noundef %85, i32 noundef %89) #18
+  tail call void @sbitmap_queue_min_shallow_depth(ptr noundef nonnull %85, i32 noundef %89) #18
   br label %93
 
 .loopexit:                                        ; preds = %.preheader, %44
@@ -1081,18 +1081,18 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kyber_exit_hctx(ptr nocapture noundef readonly %0, i32 %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   br label %6
 
 6:                                                ; preds = %6, %2
   %7 = phi i64 [ 0, %2 ], [ %13, %6 ]
   %8 = getelementptr [4 x %struct.sbitmap], ptr %5, i64 0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @free_percpu(ptr noundef %10) #18
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void @kvfree(ptr noundef %12) #18
   store ptr null, ptr %11, align 8
@@ -1101,7 +1101,7 @@ define internal void @kyber_exit_hctx(ptr nocapture noundef readonly %0, i32 %1)
   br i1 %14, label %15, label %6, !llvm.loop !25
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %4, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %17 = load ptr, ptr %16, align 8
   tail call void @kfree(ptr noundef %17) #18
   %18 = load ptr, ptr %3, align 16
@@ -1111,29 +1111,29 @@ define internal void @kyber_exit_hctx(ptr nocapture noundef readonly %0, i32 %1)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kyber_depth_updated(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 328
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
-  %11 = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = shl i32 75, %12
   %14 = udiv i32 %13, 100
-  %15 = getelementptr inbounds i8, ptr %7, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 272
   store i32 %14, ptr %15, align 8
-  tail call void @sbitmap_queue_min_shallow_depth(ptr noundef %10, i32 noundef %14) #18
+  tail call void @sbitmap_queue_min_shallow_depth(ptr noundef nonnull %10, i32 noundef %14) #18
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @kyber_bio_merge(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !26
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = zext i32 %4 to i64
@@ -1141,9 +1141,9 @@ define internal zeroext i1 @kyber_bio_merge(ptr nocapture noundef readonly %0, p
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %7
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %16 = and i32 %14, 4194304
   %17 = icmp eq i32 %16, 0
   %18 = and i32 %14, 255
@@ -1152,12 +1152,12 @@ define internal zeroext i1 @kyber_bio_merge(ptr nocapture noundef readonly %0, p
   %21 = select i1 %17, i64 %20, i64 2
   %22 = getelementptr [3 x ptr], ptr %15, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %25 = load ptr, ptr %24, align 16
-  %26 = getelementptr inbounds i8, ptr %25, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %12, i64 68
-  %29 = getelementptr inbounds i8, ptr %23, i64 252
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 68
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 252
   %30 = load i16, ptr %29, align 4
   %31 = zext i16 %30 to i64
   %32 = getelementptr [3 x i16], ptr %28, i64 0, i64 %31
@@ -1182,10 +1182,10 @@ define internal zeroext i1 @kyber_bio_merge(ptr nocapture noundef readonly %0, p
   %39 = phi i64 [ 3, %37 ], [ 2, %36 ], [ 1, %35 ], [ 0, %3 ]
   %40 = zext i16 %33 to i64
   %41 = getelementptr %struct.kyber_ctx_queue, ptr %27, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = getelementptr [4 x %struct.list_head], ptr %42, i64 0, i64 %39
   tail call void @_raw_spin_lock(ptr noundef %41) #18
-  %44 = getelementptr inbounds i8, ptr %23, i64 184
+  %44 = getelementptr inbounds nuw i8, ptr %23, i64 184
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i1 @blk_bio_list_merge(ptr noundef %45, ptr noundef %43, ptr noundef %1, i32 noundef %2) #18
   tail call void @_raw_spin_unlock(ptr noundef %41) #18
@@ -1203,13 +1203,13 @@ define internal void @kyber_limit_depth(i32 noundef %0, ptr nocapture noundef %1
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 272
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %15, ptr %16, align 4
   br label %17
 
@@ -1219,7 +1219,7 @@ define internal void @kyber_limit_depth(i32 noundef %0, ptr nocapture noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal void @kyber_prepare_request(ptr nocapture noundef writeonly initializes((192, 200)) %0) #8 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
   ret void
 }
@@ -1227,11 +1227,11 @@ define internal void @kyber_prepare_request(ptr nocapture noundef writeonly init
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kyber_finish_request(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i32
@@ -1239,7 +1239,7 @@ define internal void @kyber_finish_request(ptr nocapture noundef readonly %0) #1
   br i1 %11, label %27, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = trunc i32 %14 to i8
   switch i8 %15, label %18 [
@@ -1259,11 +1259,11 @@ define internal void @kyber_finish_request(ptr nocapture noundef readonly %0) #1
 
 19:                                               ; preds = %18, %17, %16, %12
   %20 = phi i64 [ 3, %18 ], [ 2, %17 ], [ 1, %16 ], [ 0, %12 ]
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %22 = getelementptr [4 x %struct.sbitmap_queue], ptr %21, i64 0, i64 %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load i32, ptr %25, align 64
   tail call void @sbitmap_queue_clear(ptr noundef %22, i32 noundef %10, i32 noundef %26) #18
   br label %27
@@ -1279,13 +1279,13 @@ define internal void @kyber_insert_requests(ptr nocapture noundef readonly %0, p
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %8 = load ptr, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %8, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 252
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %11 = and i32 %2, 1
   %12 = icmp eq i32 %11, 0
-  %13 = getelementptr inbounds i8, ptr %8, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 88
   br label %14
 
 14:                                               ; preds = %69, %6
@@ -1315,14 +1315,14 @@ define internal void @kyber_insert_requests(ptr nocapture noundef readonly %0, p
   %26 = load ptr, ptr %9, align 8
   %27 = getelementptr i8, ptr %15, i64 -64
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 68
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 68
   %30 = load i16, ptr %10, align 4
   %31 = zext i16 %30 to i64
   %32 = getelementptr [3 x i16], ptr %29, i64 0, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i64
   %35 = getelementptr %struct.kyber_ctx_queue, ptr %26, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = getelementptr [4 x %struct.list_head], ptr %36, i64 0, i64 %25
   tail call void @_raw_spin_lock(ptr noundef %35) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_block_rq_insert, i64 8), i32 2) #18
@@ -1345,7 +1345,7 @@ define internal void @kyber_insert_requests(ptr nocapture noundef readonly %0, p
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @__SCT__tp_func_block_rq_insert(ptr noundef %49, ptr noundef %17) #18
   br label %51
@@ -1365,21 +1365,21 @@ define internal void @kyber_insert_requests(ptr nocapture noundef readonly %0, p
   br label %58
 
 58:                                               ; preds = %55, %51, %38, %24
-  %59 = getelementptr inbounds i8, ptr %15, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %15, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %60, ptr %62, align 8
   store volatile ptr %61, ptr %60, align 8
   br i1 %12, label %66, label %63
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %37, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   br label %69
 
 66:                                               ; preds = %58
-  %67 = getelementptr inbounds i8, ptr %37, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %68 = load ptr, ptr %67, align 8
   br label %69
 
@@ -1392,16 +1392,16 @@ define internal void @kyber_insert_requests(ptr nocapture noundef readonly %0, p
   store ptr %72, ptr %59, align 8
   store volatile ptr %15, ptr %72, align 8
   %73 = getelementptr [4 x %struct.sbitmap], ptr %13, i64 0, i64 %25
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %27, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 68
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 68
   %78 = load i16, ptr %10, align 4
   %79 = zext i16 %78 to i64
   %80 = getelementptr [3 x i16], ptr %77, i64 0, i64 %79
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
-  %83 = getelementptr inbounds i8, ptr %73, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = lshr i32 %82, %84
   %86 = zext nneg i32 %85 to i64
@@ -1421,18 +1421,18 @@ define internal void @kyber_insert_requests(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @kyber_dispatch_request(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load ptr, ptr %8, align 16
   tail call void @_raw_spin_lock(ptr noundef %9) #18
-  %10 = getelementptr inbounds i8, ptr %9, i64 76
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 76
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = getelementptr [4 x i32], ptr @kyber_batch_size, i64 0, i64 %14
@@ -1473,17 +1473,17 @@ define internal ptr @kyber_dispatch_request(ptr nocapture noundef readonly %0) #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @kyber_has_work(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %6 = load volatile ptr, ptr %4, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   %7 = icmp eq ptr %6, %4
   br i1 %7, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load volatile ptr, ptr %8, align 8
   %.not9 = icmp eq ptr %4, %9
   br i1 %.not9, label %.lr.ph10, label %.critedge
@@ -1502,7 +1502,7 @@ define internal zeroext i1 @kyber_has_work(ptr nocapture noundef readonly %0) #1
   br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load volatile ptr, ptr %18, align 8
   %.not = icmp eq ptr %15, %19
   br i1 %.not, label %.lr.ph10, label %.critedge, !llvm.loop !39
@@ -1522,11 +1522,11 @@ define internal zeroext i1 @kyber_has_work(ptr nocapture noundef readonly %0) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kyber_completed_request(ptr nocapture noundef readonly %0, i64 noundef %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = trunc i32 %9 to i8
   switch i8 %10, label %62 [
@@ -1545,14 +1545,14 @@ define internal void @kyber_completed_request(ptr nocapture noundef readonly %0,
   %.ph = phi i64 [ 0, %2 ], [ 1, %11 ], [ 2, %12 ]
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !30
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
-  %14 = getelementptr inbounds i8, ptr %7, i64 280
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 280
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %15) #19, !srcloc !41
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %7, i64 560
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %19 = getelementptr [3 x i64], ptr %18, i64 0, i64 %.ph
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, %1
   br i1 %23, label %33, label %24
@@ -1572,7 +1572,7 @@ define internal void @kyber_completed_request(ptr nocapture noundef readonly %0,
   %34 = phi i64 [ %32, %24 ], [ 0, %13 ]
   %35 = getelementptr [3 x [2 x [8 x %struct.atomic_t]]], ptr %17, i64 0, i64 %.ph, i64 0, i64 %34
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35, ptr elementtype(i32) %35) #18, !srcloc !42
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, %1
   br i1 %38, label %48, label %39
@@ -1606,10 +1606,10 @@ define internal void @kyber_completed_request(ptr nocapture noundef readonly %0,
   br label %57
 
 57:                                               ; preds = %54, %48
-  %58 = getelementptr inbounds i8, ptr %7, i64 288
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %59 = load volatile i64, ptr @jiffies, align 64
   %60 = add i64 %59, 100
-  %61 = tail call i32 @timer_reduce(ptr noundef %58, i64 noundef %60) #18
+  %61 = tail call i32 @timer_reduce(ptr noundef nonnull %58, i64 noundef %60) #18
   br label %62
 
 62:                                               ; preds = %2, %57
@@ -1802,7 +1802,7 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
   br i1 %111, label %116, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %110, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = tail call i32 @__SCT__tp_func_kyber_adjust(ptr noundef %114, i32 noundef %100, ptr noundef %102, i32 noundef %97) #18
   br label %116
@@ -1847,7 +1847,7 @@ declare dso_local noalias ptr @__kmalloc_node(i64 noundef, i32 noundef, i32 noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @calculate_percentile(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 90, 100) %3) unnamed_addr #1 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 328
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = zext nneg i32 %1 to i64
   %7 = zext nneg i32 %2 to i64
   %8 = getelementptr [3 x [2 x [8 x i32]]], ptr %5, i64 0, i64 %6, i64 %7
@@ -1868,7 +1868,7 @@ define internal fastcc i32 @calculate_percentile(ptr nocapture noundef %0, i32 n
   br i1 %18, label %79, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 520
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %21 = getelementptr [3 x i64], ptr %20, i64 0, i64 %6
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
@@ -1920,7 +1920,7 @@ define internal fastcc i32 @calculate_percentile(ptr nocapture noundef %0, i32 n
 .loopexit:                                        ; preds = %45, %49
   %51 = phi i32 [ %50, %49 ], [ 7, %45 ]
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(32) %8, i8 0, i64 32, i1 false)
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = getelementptr [4 x ptr], ptr @kyber_domain_names, i64 0, i64 %6
   %55 = load ptr, ptr %54, align 8
@@ -1947,7 +1947,7 @@ define internal fastcc i32 @calculate_percentile(ptr nocapture noundef %0, i32 n
   br i1 %67, label %72, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @__SCT__tp_func_kyber_latency(ptr noundef %70, i32 noundef %53, ptr noundef %55, ptr noundef %57, i32 noundef %3, i32 noundef %58, i32 noundef 4, i32 noundef %14) #18
   br label %72
@@ -2000,7 +2000,7 @@ declare dso_local i32 @sbitmap_init_node(ptr noundef, i32 noundef, i32 noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @kyber_domain_wake(ptr noundef %0, i32 %1, i32 %2, ptr nocapture readnone %3) #1 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load volatile ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 -8
   tail call void @sbitmap_del_wait_queue(ptr noundef %7) #18
@@ -2035,8 +2035,8 @@ declare dso_local i32 @__SCT__tp_func_block_rq_insert(ptr noundef, ptr noundef) 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = getelementptr [4 x %struct.list_head], ptr %4, i64 0, i64 %7
@@ -2053,7 +2053,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -2064,7 +2064,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   %24 = getelementptr i8, ptr %9, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %25, ptr %27, align 8
   store volatile ptr %26, ptr %25, align 8
   store volatile ptr %9, ptr %9, align 8
@@ -2072,7 +2072,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   br label %180
 
 28:                                               ; preds = %14
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = load i32, ptr %5, align 8
   %32 = zext i32 %31 to i64
@@ -2098,7 +2098,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 @__SCT__tp_func_kyber_throttled(ptr noundef %46, i32 noundef %30, ptr noundef %34) #18
   br label %48
@@ -2118,7 +2118,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   br label %180
 
 55:                                               ; preds = %2
-  %56 = getelementptr inbounds i8, ptr %1, i64 88
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %57 = getelementptr [4 x %struct.sbitmap], ptr %56, i64 0, i64 %7
   %58 = tail call zeroext i1 @sbitmap_any_bit_set(ptr noundef %57) #18
   br i1 %58, label %59, label %180
@@ -2132,16 +2132,16 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   %63 = load i32, ptr %5, align 8
   %64 = zext i32 %63 to i64
   %65 = getelementptr [4 x %struct.sbitmap], ptr %56, i64 0, i64 %64
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %65, align 8
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %.loopexit11, label %69
 
 69:                                               ; preds = %62
-  %70 = getelementptr inbounds i8, ptr %65, i64 8
-  %71 = getelementptr inbounds i8, ptr %65, i64 16
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
-  %73 = getelementptr inbounds i8, ptr %8, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.pre = load i32, ptr %70, align 8
   br label %74
 
@@ -2166,7 +2166,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   %90 = zext i32 %77 to i64
   %91 = getelementptr %struct.sbitmap_word, ptr %89, i64 %90
   %92 = load i64, ptr %91, align 64
-  %93 = getelementptr inbounds i8, ptr %91, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 64
   %94 = load i64, ptr %93, align 64
   %95 = xor i64 %94, -1
   %96 = and i64 %92, %95
@@ -2191,7 +2191,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   %109 = zext i32 %107 to i64
   %110 = getelementptr %struct.kyber_ctx_queue, ptr %108, i64 %109
   call void @_raw_spin_lock(ptr noundef %110) #18
-  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = getelementptr [4 x %struct.list_head], ptr %111, i64 0, i64 %64
   %113 = load volatile ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, %112
@@ -2199,9 +2199,9 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
 
 115:                                              ; preds = %.lr.ph
   %116 = load ptr, ptr %73, align 8
-  %117 = getelementptr inbounds i8, ptr %112, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %113, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %116, ptr %119, align 8
   store ptr %113, ptr %116, align 8
   store ptr %8, ptr %118, align 8
@@ -2242,7 +2242,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
 .loopexit11:                                      ; preds = %.loopexit, %62
   %141 = load ptr, ptr %8, align 8
   %142 = getelementptr i8, ptr %141, i64 -72
-  %143 = getelementptr inbounds i8, ptr %1, i64 76
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %144 = load i32, ptr %143, align 4
   %145 = add i32 %144, 1
   store i32 %145, ptr %143, align 4
@@ -2250,10 +2250,10 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   %147 = inttoptr i64 %146 to ptr
   %148 = getelementptr i8, ptr %141, i64 120
   store ptr %147, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %141, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %150 = load ptr, ptr %149, align 8
   %151 = load ptr, ptr %141, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store ptr %150, ptr %152, align 8
   store volatile ptr %151, ptr %150, align 8
   store volatile ptr %141, ptr %141, align 8
@@ -2261,7 +2261,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   br label %180
 
 153:                                              ; preds = %59
-  %154 = getelementptr inbounds i8, ptr %0, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %155 = load i32, ptr %154, align 8
   %156 = load i32, ptr %5, align 8
   %157 = zext i32 %156 to i64
@@ -2287,7 +2287,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   br i1 %168, label %173, label %169
 
 169:                                              ; preds = %166
-  %170 = getelementptr inbounds i8, ptr %167, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %171 = load ptr, ptr %170, align 8
   %172 = tail call i32 @__SCT__tp_func_kyber_throttled(ptr noundef %171, i32 noundef %155, ptr noundef %159) #18
   br label %173
@@ -2313,34 +2313,34 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @kyber_get_domain_token(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = zext i32 %4 to i64
   %7 = getelementptr [4 x %struct.sbitmap_queue], ptr %5, i64 0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %9 = getelementptr [4 x %struct.sbq_wait], ptr %8, i64 0, i64 %6
   %10 = tail call i32 @__sbitmap_queue_get(ptr noundef %7) #18
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %.thread3
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %14 = load volatile ptr, ptr %13, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   %15 = icmp eq ptr %14, %13
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %9, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp eq ptr %13, %18
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 440
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %22 = getelementptr [4 x %struct.atomic_t], ptr %21, i64 0, i64 %6
-  %23 = getelementptr inbounds i8, ptr %7, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = load volatile i32, ptr %22, align 4
   %26 = sext i32 %25 to i64
@@ -2349,7 +2349,7 @@ define internal fastcc i32 @kyber_get_domain_token(ptr noundef %0, ptr noundef %
   %29 = add i32 %28, 1
   %30 = and i32 %29, 7
   %31 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22, i32 %30, i32 %28, ptr elementtype(i32) %22) #18, !srcloc !70
-  %32 = getelementptr inbounds i8, ptr %1, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %33 = getelementptr [4 x ptr], ptr %32, i64 0, i64 %6
   store ptr %27, ptr %33, align 8
   tail call void @sbitmap_add_wait_queue(ptr noundef %7, ptr noundef %27, ptr noundef %9) #18
@@ -2359,20 +2359,20 @@ define internal fastcc i32 @kyber_get_domain_token(ptr noundef %0, ptr noundef %
 
 .thread3:                                         ; preds = %2, %20
   %36 = phi i32 [ %34, %20 ], [ %10, %2 ]
-  %37 = getelementptr inbounds i8, ptr %9, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %38 = load volatile ptr, ptr %37, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   %39 = icmp eq ptr %38, %37
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %.thread3
-  %41 = getelementptr inbounds i8, ptr %9, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %42 = load volatile ptr, ptr %41, align 8
   %43 = icmp eq ptr %37, %42
   br i1 %43, label %.thread, label %44
 
 44:                                               ; preds = %40, %.thread3
-  %45 = getelementptr inbounds i8, ptr %1, i64 408
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %46 = getelementptr [4 x ptr], ptr %45, i64 0, i64 %6
   %47 = load ptr, ptr %46, align 8
   tail call void @_raw_spin_lock_irq(ptr noundef %47) #18
@@ -2405,9 +2405,9 @@ declare dso_local i32 @timer_reduce(ptr noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @kyber_read_lat_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #14 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 560
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 560
   %6 = load i64, ptr %5, align 8
   %7 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.29, i64 noundef %6) #18
   %8 = sext i32 %7 to i64
@@ -2417,7 +2417,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @kyber_read_lat_s
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @kyber_read_lat_store(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   store i64 0, ptr %4, align 8, !annotation !13
@@ -2431,7 +2431,7 @@ define internal i64 @kyber_read_lat_store(ptr nocapture noundef readonly %0, ptr
 
 11:                                               ; preds = %3
   %12 = load i64, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 560
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 560
   store i64 %12, ptr %13, align 8
   br label %14
 
@@ -2443,7 +2443,7 @@ define internal i64 @kyber_read_lat_store(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @kyber_write_lat_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #14 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 568
   %6 = load i64, ptr %5, align 8
@@ -2455,7 +2455,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @kyber_write_lat_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @kyber_write_lat_store(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   store i64 0, ptr %4, align 8, !annotation !13
@@ -2487,20 +2487,20 @@ declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @kyber_read_tokens_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
-  tail call void @sbitmap_queue_show(ptr noundef %7, ptr noundef %1) #18
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  tail call void @sbitmap_queue_show(ptr noundef nonnull %7, ptr noundef %1) #18
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @kyber_write_tokens_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 80
   tail call void @sbitmap_queue_show(ptr noundef %7, ptr noundef %1) #18
@@ -2509,9 +2509,9 @@ define internal noundef i32 @kyber_write_tokens_show(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @kyber_discard_tokens_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 144
   tail call void @sbitmap_queue_show(ptr noundef %7, ptr noundef %1) #18
@@ -2520,9 +2520,9 @@ define internal noundef i32 @kyber_discard_tokens_show(ptr nocapture noundef rea
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @kyber_other_tokens_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 208
   tail call void @sbitmap_queue_show(ptr noundef %7, ptr noundef %1) #18
@@ -2531,11 +2531,11 @@ define internal noundef i32 @kyber_other_tokens_show(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @kyber_async_depth_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %8 = load i32, ptr %7, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.35, i32 noundef %8) #18
   ret i32 0
@@ -2549,16 +2549,16 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @kyber_read_waiting_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load volatile ptr, ptr %5, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   %7 = icmp eq ptr %6, %5
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %10 = load volatile ptr, ptr %9, align 8
   %11 = icmp ne ptr %5, %10
   %12 = zext i1 %11 to i32
@@ -2572,7 +2572,7 @@ define internal noundef i32 @kyber_read_waiting_show(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @kyber_write_waiting_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr i8, ptr %4, i64 296
   %6 = load volatile ptr, ptr %5, align 8
@@ -2595,7 +2595,7 @@ define internal noundef i32 @kyber_write_waiting_show(ptr nocapture noundef read
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @kyber_discard_waiting_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr i8, ptr %4, i64 344
   %6 = load volatile ptr, ptr %5, align 8
@@ -2618,7 +2618,7 @@ define internal noundef i32 @kyber_discard_waiting_show(ptr nocapture noundef re
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @kyber_other_waiting_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr i8, ptr %4, i64 392
   %6 = load volatile ptr, ptr %5, align 8
@@ -2641,9 +2641,9 @@ define internal noundef i32 @kyber_other_waiting_show(ptr nocapture noundef read
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @kyber_cur_domain_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = getelementptr [4 x ptr], ptr @kyber_domain_names, i64 0, i64 %7
@@ -2654,9 +2654,9 @@ define internal noundef i32 @kyber_cur_domain_show(ptr nocapture noundef readonl
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @kyber_batching_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 76
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %6 = load i32, ptr %5, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.35, i32 noundef %6) #18
   ret i32 0
@@ -2664,22 +2664,22 @@ define internal noundef i32 @kyber_batching_show(ptr nocapture noundef readonly 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @kyber_read_rqs_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 16
   tail call void @_raw_spin_lock(ptr noundef %6) #18
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %1, align 8
-  %9 = tail call ptr @seq_list_start(ptr noundef %7, i64 noundef %8) #18
+  %9 = tail call ptr @seq_list_start(ptr noundef nonnull %7, i64 noundef %8) #18
   ret ptr %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kyber_read_rqs_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 16
   tail call void @_raw_spin_unlock(ptr noundef %6) #18
   ret void
@@ -2687,12 +2687,12 @@ define internal void @kyber_read_rqs_stop(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @kyber_read_rqs_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %7 = load ptr, ptr %6, align 16
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = tail call ptr @seq_list_next(ptr noundef %1, ptr noundef %8, ptr noundef %2) #18
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = tail call ptr @seq_list_next(ptr noundef %1, ptr noundef nonnull %8, ptr noundef %2) #18
   ret ptr %9
 }
 
@@ -2707,9 +2707,9 @@ declare dso_local ptr @seq_list_next(ptr noundef, ptr noundef, ptr noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @kyber_write_rqs_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 16
   tail call void @_raw_spin_lock(ptr noundef %6) #18
   %7 = getelementptr i8, ptr %6, i64 24
@@ -2720,9 +2720,9 @@ define internal ptr @kyber_write_rqs_start(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kyber_write_rqs_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 16
   tail call void @_raw_spin_unlock(ptr noundef %6) #18
   ret void
@@ -2730,9 +2730,9 @@ define internal void @kyber_write_rqs_stop(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @kyber_write_rqs_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %7 = load ptr, ptr %6, align 16
   %8 = getelementptr i8, ptr %7, i64 24
   %9 = tail call ptr @seq_list_next(ptr noundef %1, ptr noundef %8, ptr noundef %2) #18
@@ -2741,9 +2741,9 @@ define internal ptr @kyber_write_rqs_next(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @kyber_discard_rqs_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 16
   tail call void @_raw_spin_lock(ptr noundef %6) #18
   %7 = getelementptr i8, ptr %6, i64 40
@@ -2754,9 +2754,9 @@ define internal ptr @kyber_discard_rqs_start(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kyber_discard_rqs_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 16
   tail call void @_raw_spin_unlock(ptr noundef %6) #18
   ret void
@@ -2764,9 +2764,9 @@ define internal void @kyber_discard_rqs_stop(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @kyber_discard_rqs_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %7 = load ptr, ptr %6, align 16
   %8 = getelementptr i8, ptr %7, i64 40
   %9 = tail call ptr @seq_list_next(ptr noundef %1, ptr noundef %8, ptr noundef %2) #18
@@ -2775,9 +2775,9 @@ define internal ptr @kyber_discard_rqs_next(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @kyber_other_rqs_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 16
   tail call void @_raw_spin_lock(ptr noundef %6) #18
   %7 = getelementptr i8, ptr %6, i64 56
@@ -2788,9 +2788,9 @@ define internal ptr @kyber_other_rqs_start(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @kyber_other_rqs_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 16
   tail call void @_raw_spin_unlock(ptr noundef %6) #18
   ret void
@@ -2798,9 +2798,9 @@ define internal void @kyber_other_rqs_stop(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @kyber_other_rqs_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %7 = load ptr, ptr %6, align 16
   %8 = getelementptr i8, ptr %7, i64 56
   %9 = tail call ptr @seq_list_next(ptr noundef %1, ptr noundef %8, ptr noundef %2) #18

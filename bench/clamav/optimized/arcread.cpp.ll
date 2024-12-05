@@ -95,19 +95,19 @@ $_ZTI16RarCheckPassword = comdat any
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.uiMsgStore, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48865
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48865
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %34, label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(57108) %0)
-  %11 = getelementptr inbounds i8, ptr %0, i64 48824
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48824
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48840
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48840
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %.thread [
     i32 1, label %14
@@ -133,7 +133,7 @@ define noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 derefe
   br i1 %.not, label %.thread, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 48832
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48832
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr %11, align 8
   %.not5 = icmp sgt i64 %23, %24
@@ -145,30 +145,30 @@ define noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 derefe
 
 26:                                               ; preds = %26, %25
   %indvars.iv.i.i.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i.i.i, %26 ]
-  %27 = getelementptr inbounds [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i.i
   store ptr @.str.8, ptr %27, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
   br i1 %exitcond.not.i.i.i, label %_ZN7Archive15BrokenHeaderMsgEv.exit, label %26, !llvm.loop !4
 
 _ZN7Archive15BrokenHeaderMsgEv.exit:              ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 52
-  %29 = getelementptr inbounds i8, ptr %2, i64 64
-  %30 = getelementptr inbounds i8, ptr %2, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 40, i1 false)
   store i32 26, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 1, ptr %31, align 8
   store ptr %28, ptr %2, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %2)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2)
-  %32 = getelementptr inbounds i8, ptr %0, i64 48864
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48864
   store i8 1, ptr %32, align 8
   call void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 3)
   br label %.thread
 
 .thread:                                          ; preds = %6, %_ZN7Archive15BrokenHeaderMsgEv.exit, %20
-  %33 = getelementptr inbounds i8, ptr %0, i64 11076
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 11076
   store i32 255, ptr %33, align 4
   br label %34
 
@@ -183,9 +183,9 @@ define noundef i64 @_ZN7Archive12ReadHeader14Ev(ptr noundef nonnull align 8 dere
   %3 = alloca [4 x i8], align 1
   %4 = alloca [2048 x i8], align 16
   call void @_ZN7RawReadC1EP4File(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull %0)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48824
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48824
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48856
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48856
   %8 = load i64, ptr %7, align 8
   %.not = icmp sgt i64 %6, %8
   br i1 %.not, label %41, label %9
@@ -195,7 +195,7 @@ define noundef i64 @_ZN7Archive12ReadHeader14Ev(ptr noundef nonnull align 8 dere
           to label %11 unwind label %19
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 13808
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 13808
   invoke void @_ZN10MainHeader5ResetEv(ptr noundef nonnull align 8 dereferenceable(112) %12)
           to label %13 unwind label %19
 
@@ -233,26 +233,26 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %19, %22
   %26 = load i64, ptr %5, align 8
   %27 = zext i16 %16 to i64
   %28 = add nsw i64 %26, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 48832
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48832
   store i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 11076
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 11076
   store i32 1, ptr %30, align 4
   %31 = and i8 %24, 1
-  %32 = getelementptr inbounds i8, ptr %0, i64 48845
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48845
   store i8 %31, ptr %32, align 1
-  %33 = getelementptr inbounds i8, ptr %0, i64 48844
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48844
   %34 = lshr i8 %24, 3
   %.lobit21 = and i8 %34, 1
   store i8 %.lobit21, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 48847
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48847
   %36 = lshr i8 %24, 2
   %.lobit22 = and i8 %36, 1
   store i8 %.lobit22, ptr %35, align 1
-  %37 = getelementptr inbounds i8, ptr %0, i64 13836
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 13836
   %38 = lshr i8 %24, 1
   %.lobit23 = and i8 %38, 1
   store i8 %.lobit23, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 13837
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 13837
   %40 = lshr i8 %24, 4
   %.lobit24 = and i8 %40, 1
   store i8 %.lobit24, ptr %39, align 1
@@ -263,41 +263,41 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %19, %22
           to label %43 unwind label %19
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %0, i64 13976
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 13976
   invoke void @_ZN10FileHeader5ResetEm(ptr noundef nonnull align 8 dereferenceable(17184) %44, i64 noundef 0)
           to label %45 unwind label %19
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 13980
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 13980
   store i32 2, ptr %46, align 4
   %47 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %48 unwind label %19
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 13996
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 13996
   store i32 %47, ptr %49, align 4
   %50 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %51 unwind label %19
 
 51:                                               ; preds = %48
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds i8, ptr %0, i64 22272
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 22272
   store i64 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 22288
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 22288
   store i32 1, ptr %54, align 8
   %55 = invoke noundef zeroext i16 @_ZN7RawRead4Get2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %56 unwind label %19
 
 56:                                               ; preds = %51
   %57 = zext i16 %55 to i32
-  %58 = getelementptr inbounds i8, ptr %0, i64 22292
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 22292
   store i32 %57, ptr %58, align 4
   %59 = invoke noundef zeroext i16 @_ZN7RawRead4Get2Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %60 unwind label %19
 
 60:                                               ; preds = %56
   %61 = zext i16 %59 to i32
-  %62 = getelementptr inbounds i8, ptr %0, i64 13988
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 13988
   store i32 %61, ptr %62, align 4
   %63 = icmp ult i16 %59, 21
   br i1 %63, label %166, label %64
@@ -312,7 +312,7 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %19, %22
 
 68:                                               ; preds = %66
   %69 = zext i8 %67 to i32
-  %70 = getelementptr inbounds i8, ptr %0, i64 14012
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 14012
   store i32 %69, ptr %70, align 4
   %71 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %72 unwind label %19
@@ -320,7 +320,7 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %19, %22
 72:                                               ; preds = %68
   %73 = zext i8 %71 to i32
   %74 = or disjoint i32 %73, 32768
-  %75 = getelementptr inbounds i8, ptr %0, i64 13984
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 13984
   store i32 %74, ptr %75, align 8
   %76 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %77 unwind label %19
@@ -328,7 +328,7 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %19, %22
 77:                                               ; preds = %72
   %78 = icmp eq i8 %76, 2
   %79 = select i1 %78, i32 13, i32 10
-  %80 = getelementptr inbounds i8, ptr %0, i64 14004
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 14004
   store i32 %79, ptr %80, align 4
   %81 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %82 unwind label %19
@@ -339,41 +339,41 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %19, %22
           to label %85 unwind label %19
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %0, i64 14008
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 14008
   store i8 %84, ptr %86, align 8
   %87 = load i32, ptr %75, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 22328
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 22328
   %89 = trunc i32 %87 to i8
   %90 = and i8 %89, 1
   store i8 %90, ptr %88, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 22329
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 22329
   %92 = lshr i8 %89, 1
   %93 = and i8 %92, 1
   store i8 %93, ptr %91, align 1
-  %94 = getelementptr inbounds i8, ptr %0, i64 22331
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 22331
   %95 = lshr i32 %87, 2
   %.lobit = and i32 %95, 1
   %96 = trunc nuw nsw i32 %.lobit to i8
   store i8 %96, ptr %94, align 1
-  %97 = getelementptr inbounds i8, ptr %0, i64 22332
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 22332
   store i32 %.lobit, ptr %97, align 4
   %98 = load i32, ptr %49, align 4
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds i8, ptr %0, i64 22264
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 22264
   store i64 %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 22424
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 22424
   store i64 65536, ptr %101, align 8
   %102 = load i32, ptr %70, align 4
-  %103 = getelementptr inbounds i8, ptr %0, i64 22417
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 22417
   %104 = trunc i32 %102 to i8
   %105 = lshr i8 %104, 4
   %106 = and i8 %105, 1
   store i8 %106, ptr %103, align 1
-  %107 = getelementptr inbounds i8, ptr %0, i64 14000
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 14000
   store i8 0, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 22436
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 22436
   store i32 0, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %0, i64 22240
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 22240
   invoke void @_ZN7RarTime6SetDosEj(ptr noundef nonnull align 8 dereferenceable(8) %109, i32 noundef %65)
           to label %110 unwind label %19
 
@@ -386,20 +386,20 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %19, %22
           to label %114 unwind label %19
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds [2048 x i8], ptr %4, i64 0, i64 %83
+  %115 = getelementptr inbounds nuw [2048 x i8], ptr %4, i64 0, i64 %83
   store i8 0, ptr %115, align 1
   invoke void @_Z8IntToExtPKcPcm(ptr noundef nonnull %4, ptr noundef nonnull %4, i64 noundef 2048)
           to label %116 unwind label %19
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds i8, ptr %0, i64 14016
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 14016
   %118 = invoke noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %4, ptr noundef nonnull %117, i64 noundef 2048)
           to label %119 unwind label %19
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %0, i64 11056
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 11056
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 57484
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 57484
   %123 = load i32, ptr %122, align 4
   %124 = icmp eq i32 %123, 1
   br i1 %124, label %125, label %127
@@ -410,7 +410,7 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %19, %22
 
 .noexc:                                           ; preds = %125
   %.pre.i = load ptr, ptr %120, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 57484
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 57484
   %.pre3.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %127
 
@@ -436,7 +436,7 @@ _ZN7Archive15ConvertNameCaseEPw.exit:             ; preds = %127, %130
   br label %136
 
 136:                                              ; preds = %.sink.split.i, %_ZN7Archive15ConvertNameCaseEPw.exit
-  %137 = getelementptr inbounds i8, ptr %0, i64 48840
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 48840
   br label %138
 
 138:                                              ; preds = %.thread17.thread19.i, %136
@@ -464,17 +464,17 @@ _ZN7Archive15ConvertNameCaseEPw.exit:             ; preds = %127, %130
   br label %.thread17.thread19.i
 
 .thread17.thread19.i:                             ; preds = %.thread17.thread19.sink.split.i, %143, %138
-  %146 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   br label %138, !llvm.loop !6
 
 _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit: ; preds = %138
-  %147 = getelementptr inbounds i8, ptr %2, i64 40
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %148 = load i64, ptr %147, align 8
   %.not20 = icmp eq i64 %148, 0
   br i1 %.not20, label %_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit._crit_edge, label %149
 
 _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit._crit_edge: ; preds = %_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 48832
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48832
   %.pre.pre = load i64, ptr %.phi.trans.insert.phi.trans.insert, align 8
   %.pre28.pre = load i64, ptr %5, align 8
   br label %157
@@ -486,14 +486,14 @@ _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit._crit_edge: ; preds = %_ZN7Arc
   %153 = add nsw i64 %150, %152
   %154 = load i64, ptr %100, align 8
   %155 = add nsw i64 %153, %154
-  %156 = getelementptr inbounds i8, ptr %0, i64 48832
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 48832
   store i64 %155, ptr %156, align 8
   br label %157
 
 157:                                              ; preds = %_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit._crit_edge, %149
   %.pre28 = phi i64 [ %.pre28.pre, %_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit._crit_edge ], [ %150, %149 ]
   %.pre = phi i64 [ %.pre.pre, %_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit._crit_edge ], [ %155, %149 ]
-  %158 = getelementptr inbounds i8, ptr %0, i64 11076
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 11076
   store i32 2, ptr %158, align 4
   br label %159
 
@@ -504,7 +504,7 @@ _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit._crit_edge: ; preds = %_ZN7Arc
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %2, i64 40
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %165 = load i64, ptr %164, align 8
   br label %166
 
@@ -536,12 +536,12 @@ define noundef i64 @_ZN7Archive12ReadHeader15Ev(ptr noundef nonnull align 8 dere
   %11 = alloca [4 x ptr], align 16
   %12 = alloca %struct.RarLocalTime, align 4
   call void @_ZN7RawReadC1EP4File(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %0)
-  %13 = getelementptr inbounds i8, ptr %0, i64 48852
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48852
   %14 = load i8, ptr %13, align 4
   %15 = trunc i8 %14 to i1
-  %16 = getelementptr inbounds i8, ptr %0, i64 48824
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48824
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48856
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48856
   %19 = load i64, ptr %18, align 8
   %20 = add nsw i64 %19, 7
   %21 = icmp sgt i64 %17, %20
@@ -554,7 +554,7 @@ define noundef i64 @_ZN7Archive12ReadHeader15Ev(ptr noundef nonnull align 8 dere
 
 24:                                               ; preds = %23
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = invoke noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %8, i64 noundef 8)
           to label %29 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -570,7 +570,7 @@ define noundef i64 @_ZN7Archive12ReadHeader15Ev(ptr noundef nonnull align 8 dere
 .noexc:                                           ; preds = %30
   %32 = load i64, ptr %16, align 8
   %.not.i = icmp eq i64 %32, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 48832
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48832
   %34 = load i64, ptr %33, align 8
   %.not2.i = icmp eq i64 %34, %31
   %or.cond.i = select i1 %.not.i, i1 %.not2.i, i1 false
@@ -582,19 +582,19 @@ define noundef i64 @_ZN7Archive12ReadHeader15Ev(ptr noundef nonnull align 8 dere
 
 36:                                               ; preds = %36, %35
   %indvars.iv.i.i.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i.i.i, %36 ]
-  %37 = getelementptr inbounds [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.i.i.i
+  %37 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.i.i.i
   store ptr @.str.8, ptr %37, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
   br i1 %exitcond.not.i.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i, label %36, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i: ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 52
-  %39 = getelementptr inbounds i8, ptr %6, i64 64
-  %40 = getelementptr inbounds i8, ptr %6, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %39, i8 0, i64 40, i1 false)
   store i32 56, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %6, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 1, ptr %41, align 8
   store ptr %38, ptr %6, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %6)
@@ -643,15 +643,15 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %.loopexit.split-lp,
   resume { ptr, i32 } %lpad.phi
 
 45:                                               ; preds = %29
-  %46 = getelementptr inbounds i8, ptr %0, i64 8256
-  %47 = getelementptr inbounds i8, ptr %0, i64 11056
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8256
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 11056
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 100848
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 100848
   %50 = invoke noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPasswordPKhS4_jPhS5_(ptr noundef nonnull align 8 dereferenceable(2516) %46, i1 noundef zeroext false, i32 noundef 4, ptr noundef nonnull %49, ptr noundef nonnull %8, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
           to label %51 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %7, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %46, ptr %52, align 8
   br label %53
 
@@ -660,7 +660,7 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %.loopexit.split-lp,
           to label %55 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %7, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %57 = load i64, ptr %56, align 8
   %58 = icmp eq i64 %57, 0
   br i1 %58, label %59, label %71
@@ -672,7 +672,7 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %.loopexit.split-lp,
 .noexc198:                                        ; preds = %59
   %61 = load i64, ptr %16, align 8
   %.not.i191 = icmp eq i64 %61, %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 48832
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48832
   %63 = load i64, ptr %62, align 8
   %.not2.i192 = icmp eq i64 %63, %60
   %or.cond.i193 = select i1 %.not.i191, i1 %.not2.i192, i1 false
@@ -684,19 +684,19 @@ _ZN7RawReadD2Ev.exit:                             ; preds = %.loopexit.split-lp,
 
 65:                                               ; preds = %65, %64
   %indvars.iv.i.i.i194 = phi i64 [ 0, %64 ], [ %indvars.iv.next.i.i.i195, %65 ]
-  %66 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i.i194
+  %66 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i.i194
   store ptr @.str.8, ptr %66, align 8
   %indvars.iv.next.i.i.i195 = add nuw nsw i64 %indvars.iv.i.i.i194, 1
   %exitcond.not.i.i.i196 = icmp eq i64 %indvars.iv.next.i.i.i195, 8
   br i1 %exitcond.not.i.i.i196, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i197, label %65, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i197: ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %0, i64 52
-  %68 = getelementptr inbounds i8, ptr %5, i64 64
-  %69 = getelementptr inbounds i8, ptr %5, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %68, i8 0, i64 40, i1 false)
   store i32 56, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %5, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i32 1, ptr %70, align 8
   store ptr %67, ptr %5, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %5)
@@ -712,9 +712,9 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i197: ; preds = %65
 
 73:                                               ; preds = %71
   %74 = zext i16 %72 to i32
-  %75 = getelementptr inbounds i8, ptr %0, i64 13772
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 13772
   store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %0, i64 13788
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 13788
   store i8 0, ptr %76, align 4
   %77 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %78 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -726,7 +726,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i197: ; preds = %65
 
 81:                                               ; preds = %78
   %82 = zext i16 %80 to i32
-  %83 = getelementptr inbounds i8, ptr %0, i64 13780
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 13780
   store i32 %82, ptr %83, align 4
   %84 = lshr i16 %80, 14
   %85 = trunc nuw nsw i16 %84 to i8
@@ -737,9 +737,9 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i197: ; preds = %65
 
 88:                                               ; preds = %81
   %89 = zext i16 %87 to i32
-  %90 = getelementptr inbounds i8, ptr %0, i64 13784
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 13784
   store i32 %89, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 13776
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 13776
   store i32 %79, ptr %91, align 8
   %92 = icmp ult i16 %87, 7
   br i1 %92, label %93, label %101
@@ -750,19 +750,19 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i197: ; preds = %65
 
 94:                                               ; preds = %94, %93
   %indvars.iv.i.i.i202 = phi i64 [ 0, %93 ], [ %indvars.iv.next.i.i.i203, %94 ]
-  %95 = getelementptr inbounds [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i.i202
+  %95 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i.i202
   store ptr @.str.8, ptr %95, align 8
   %indvars.iv.next.i.i.i203 = add nuw nsw i64 %indvars.iv.i.i.i202, 1
   %exitcond.not.i.i.i204 = icmp eq i64 %indvars.iv.next.i.i.i203, 8
   br i1 %exitcond.not.i.i.i204, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205, label %94, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
-  %96 = getelementptr inbounds i8, ptr %0, i64 52
-  %97 = getelementptr inbounds i8, ptr %4, i64 64
-  %98 = getelementptr inbounds i8, ptr %4, i64 104
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %97, i8 0, i64 40, i1 false)
   store i32 26, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %4, i64 96
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store i32 1, ptr %99, align 8
   store ptr %96, ptr %4, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
@@ -770,7 +770,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
 
 .noexc206:                                        ; preds = %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
-  %100 = getelementptr inbounds i8, ptr %0, i64 48864
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48864
   store i8 1, ptr %100, align 8
   br label %.noexc189.invoke
 
@@ -784,7 +784,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
 
 .thread221:                                       ; preds = %101
   store i32 1, ptr %91, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 11076
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 11076
   store i32 1, ptr %102, align 4
   br label %110
 
@@ -797,12 +797,12 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
 .thread:                                          ; preds = %101, %104, %103
   %.sink245 = phi i32 [ 5, %104 ], [ 3, %103 ], [ 2, %101 ]
   store i32 %.sink245, ptr %91, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 11076
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 11076
   store i32 %.sink245, ptr %105, align 4
   br label %113
 
 106:                                              ; preds = %101
-  %107 = getelementptr inbounds i8, ptr %0, i64 11076
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 11076
   store i32 %79, ptr %107, align 4
   switch i8 %77, label %113 [
     i8 117, label %.invoke
@@ -835,7 +835,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
 121:                                              ; preds = %116
   %122 = zext i32 %120 to i64
   %123 = add nsw i64 %117, %122
-  %124 = getelementptr inbounds i8, ptr %0, i64 48832
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 48832
   store i64 %123, ptr %124, align 8
   %125 = load i32, ptr %91, align 8
   switch i32 %125, label %558 [
@@ -849,7 +849,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
   ]
 
 126:                                              ; preds = %121
-  %127 = getelementptr inbounds i8, ptr %0, i64 13808
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 13808
   invoke void @_ZN10MainHeader5ResetEv(ptr noundef nonnull align 8 dereferenceable(112) %127)
           to label %128 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -859,29 +859,29 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
           to label %130 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 130:                                              ; preds = %128
-  %131 = getelementptr inbounds i8, ptr %0, i64 13828
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 13828
   store i16 %129, ptr %131, align 4
   %132 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %133 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %0, i64 13832
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 13832
   store i32 %132, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 13816
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 13816
   %136 = load i32, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 48845
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 48845
   %138 = trunc i32 %136 to i8
   %139 = and i8 %138, 1
   store i8 %139, ptr %137, align 1
-  %140 = getelementptr inbounds i8, ptr %0, i64 48844
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 48844
   %141 = lshr i8 %138, 3
   %142 = and i8 %141, 1
   store i8 %142, ptr %140, align 4
-  %143 = getelementptr inbounds i8, ptr %0, i64 48847
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 48847
   %144 = lshr i8 %138, 2
   %145 = and i8 %144, 1
   store i8 %145, ptr %143, align 1
-  %146 = getelementptr inbounds i8, ptr %0, i64 48851
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 48851
   %147 = lshr i8 %138, 6
   %148 = and i8 %147, 1
   store i8 %148, ptr %146, align 1
@@ -894,18 +894,18 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
   %153 = icmp ne i16 %152, 0
   %narrow229 = select i1 %.not175, i1 true, i1 %153
   %154 = zext i1 %narrow229 to i8
-  %155 = getelementptr inbounds i8, ptr %0, i64 48848
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 48848
   store i8 %154, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %0, i64 13836
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 13836
   %157 = lshr i8 %138, 1
   %158 = and i8 %157, 1
   store i8 %158, ptr %156, align 4
-  %159 = getelementptr inbounds i8, ptr %0, i64 48849
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 48849
   %160 = lshr i32 %136, 8
   %161 = trunc i32 %160 to i8
   %162 = and i8 %161, 1
   store i8 %162, ptr %159, align 1
-  %163 = getelementptr inbounds i8, ptr %0, i64 48850
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 48850
   %164 = lshr i8 %138, 4
   %165 = and i8 %164, 1
   store i8 %165, ptr %163, align 2
@@ -914,27 +914,27 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
 166:                                              ; preds = %121, %121
   %167 = icmp eq i32 %125, 2
   %.v = select i1 %167, i64 13976, i64 31224
-  %168 = getelementptr inbounds i8, ptr %0, i64 %.v
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   invoke void @_ZN10FileHeader5ResetEm(ptr noundef nonnull align 8 dereferenceable(17184) %168, i64 noundef 0)
           to label %169 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 169:                                              ; preds = %166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %168, ptr noundef nonnull align 4 dereferenceable(20) %75, i64 20, i1 false)
-  %170 = getelementptr inbounds i8, ptr %168, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %171 = load i32, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %168, i64 8352
+  %172 = getelementptr inbounds nuw i8, ptr %168, i64 8352
   %173 = trunc i32 %171 to i8
   %174 = and i8 %173, 1
   store i8 %174, ptr %172, align 8
-  %175 = getelementptr inbounds i8, ptr %168, i64 8353
+  %175 = getelementptr inbounds nuw i8, ptr %168, i64 8353
   %176 = lshr i8 %173, 1
   %177 = and i8 %176, 1
   store i8 %177, ptr %175, align 1
-  %178 = getelementptr inbounds i8, ptr %168, i64 8355
+  %178 = getelementptr inbounds nuw i8, ptr %168, i64 8355
   %179 = lshr i8 %173, 2
   %180 = and i8 %179, 1
   store i8 %180, ptr %178, align 1
-  %181 = getelementptr inbounds i8, ptr %168, i64 8360
+  %181 = getelementptr inbounds nuw i8, ptr %168, i64 8360
   %182 = lshr i32 %171, 10
   %183 = trunc i32 %182 to i8
   %184 = and i8 %183, 1
@@ -943,13 +943,13 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
   %186 = and i8 %185, 1
   %. = select i1 %167, i8 %186, i8 0
   %.246 = select i1 %167, i8 0, i8 %186
-  %187 = getelementptr inbounds i8, ptr %168, i64 8440
+  %187 = getelementptr inbounds nuw i8, ptr %168, i64 8440
   store i8 %., ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %168, i64 8458
+  %188 = getelementptr inbounds nuw i8, ptr %168, i64 8458
   store i8 %.246, ptr %188, align 2
   %189 = and i32 %171, 224
   %190 = icmp eq i32 %189, 224
-  %191 = getelementptr inbounds i8, ptr %168, i64 8441
+  %191 = getelementptr inbounds nuw i8, ptr %168, i64 8441
   %192 = zext i1 %190 to i8
   store i8 %192, ptr %191, align 1
   %193 = lshr i32 %171, 5
@@ -957,13 +957,13 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
   %195 = shl nuw nsw i32 65536, %194
   %narrow = select i1 %190, i32 0, i32 %195
   %196 = zext nneg i32 %narrow to i64
-  %197 = getelementptr inbounds i8, ptr %168, i64 8448
+  %197 = getelementptr inbounds nuw i8, ptr %168, i64 8448
   store i64 %196, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %168, i64 8442
+  %198 = getelementptr inbounds nuw i8, ptr %168, i64 8442
   %199 = lshr i8 %173, 3
   %200 = and i8 %199, 1
   store i8 %200, ptr %198, align 2
-  %201 = getelementptr inbounds i8, ptr %168, i64 8443
+  %201 = getelementptr inbounds nuw i8, ptr %168, i64 8443
   %202 = lshr i32 %171, 11
   %203 = trunc i32 %202 to i8
   %204 = and i8 %203, 1
@@ -972,7 +972,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
           to label %206 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 206:                                              ; preds = %169
-  %207 = getelementptr inbounds i8, ptr %168, i64 20
+  %207 = getelementptr inbounds nuw i8, ptr %168, i64 20
   store i32 %205, ptr %207, align 4
   %208 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %209 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -982,15 +982,15 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
           to label %211 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 211:                                              ; preds = %209
-  %212 = getelementptr inbounds i8, ptr %168, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %168, i64 24
   store i8 %210, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %168, i64 8312
+  %213 = getelementptr inbounds nuw i8, ptr %168, i64 8312
   store i32 2, ptr %213, align 8
   %214 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %215 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 215:                                              ; preds = %211
-  %216 = getelementptr inbounds i8, ptr %168, i64 8316
+  %216 = getelementptr inbounds nuw i8, ptr %168, i64 8316
   store i32 %214, ptr %216, align 4
   %217 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %218 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1001,14 +1001,14 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
 
 220:                                              ; preds = %218
   %221 = zext i8 %219 to i32
-  %222 = getelementptr inbounds i8, ptr %168, i64 28
+  %222 = getelementptr inbounds nuw i8, ptr %168, i64 28
   store i32 %221, ptr %222, align 4
   %223 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %224 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 224:                                              ; preds = %220
   %225 = add i8 %223, -48
-  %226 = getelementptr inbounds i8, ptr %168, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %168, i64 32
   store i8 %225, ptr %226, align 8
   %227 = invoke noundef zeroext i16 @_ZN7RawRead4Get2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %228 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1018,7 +1018,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
           to label %230 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 230:                                              ; preds = %228
-  %231 = getelementptr inbounds i8, ptr %168, i64 36
+  %231 = getelementptr inbounds nuw i8, ptr %168, i64 36
   store i32 %229, ptr %231, align 4
   %232 = load i32, ptr %222, align 4
   %233 = icmp ugt i32 %232, 19
@@ -1032,7 +1032,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
   br label %236
 
 236:                                              ; preds = %235, %230
-  %237 = getelementptr inbounds i8, ptr %168, i64 8356
+  %237 = getelementptr inbounds nuw i8, ptr %168, i64 8356
   store i32 0, ptr %237, align 4
   %238 = load i8, ptr %178, align 1
   %239 = trunc i8 %238 to i1
@@ -1061,7 +1061,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
   br label %244
 
 244:                                              ; preds = %.sink.split, %236
-  %245 = getelementptr inbounds i8, ptr %168, i64 8460
+  %245 = getelementptr inbounds nuw i8, ptr %168, i64 8460
   store i32 2, ptr %245, align 4
   %246 = load i8, ptr %212, align 8
   switch i8 %246, label %247 [
@@ -1074,14 +1074,14 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
   br i1 %248, label %250, label %.thread222
 
 .thread222:                                       ; preds = %247
-  %249 = getelementptr inbounds i8, ptr %168, i64 8464
+  %249 = getelementptr inbounds nuw i8, ptr %168, i64 8464
   store i32 0, ptr %249, align 8
   br label %257
 
 250:                                              ; preds = %247, %244, %244
   %storemerge = phi i32 [ 1, %244 ], [ 1, %244 ], [ 0, %247 ]
   store i32 %storemerge, ptr %245, align 4
-  %251 = getelementptr inbounds i8, ptr %168, i64 8464
+  %251 = getelementptr inbounds nuw i8, ptr %168, i64 8464
   store i32 0, ptr %251, align 8
   %252 = icmp eq i8 %246, 3
   %253 = and i32 %229, 61440
@@ -1091,7 +1091,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
 
 255:                                              ; preds = %250
   store i32 1, ptr %251, align 8
-  %256 = getelementptr inbounds i8, ptr %168, i64 8468
+  %256 = getelementptr inbounds nuw i8, ptr %168, i64 8468
   store i32 0, ptr %256, align 4
   br label %257
 
@@ -1099,12 +1099,12 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
   %.lobit = lshr i32 %229, 31
   %258 = trunc nuw nsw i32 %.lobit to i8
   %259 = select i1 %167, i8 0, i8 %258
-  %260 = getelementptr inbounds i8, ptr %168, i64 8456
+  %260 = getelementptr inbounds nuw i8, ptr %168, i64 8456
   store i8 %259, ptr %260, align 8
   %261 = load i32, ptr %170, align 8
   %262 = and i32 %261, 256
   %.not164 = icmp eq i32 %262, 0
-  %263 = getelementptr inbounds i8, ptr %168, i64 8457
+  %263 = getelementptr inbounds nuw i8, ptr %168, i64 8457
   %.lobit163 = lshr exact i32 %262, 8
   %264 = trunc nuw nsw i32 %.lobit163 to i8
   store i8 %264, ptr %263, align 1
@@ -1121,7 +1121,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
 269:                                              ; preds = %267
   %270 = and i32 %268, %208
   %271 = icmp eq i32 %270, -1
-  %272 = getelementptr inbounds i8, ptr %168, i64 8354
+  %272 = getelementptr inbounds nuw i8, ptr %168, i64 8354
   %273 = zext i1 %271 to i8
   store i8 %273, ptr %272, align 2
   %274 = zext i32 %266 to i64
@@ -1132,7 +1132,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
 
 278:                                              ; preds = %257
   %279 = icmp eq i32 %208, -1
-  %280 = getelementptr inbounds i8, ptr %168, i64 8354
+  %280 = getelementptr inbounds nuw i8, ptr %168, i64 8354
   %281 = zext i1 %279 to i8
   store i8 %281, ptr %280, align 2
   br label %282
@@ -1144,11 +1144,11 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
   %284 = load i32, ptr %207, align 4
   %285 = zext i32 %284 to i64
   %286 = or disjoint i64 %.0149, %285
-  %287 = getelementptr inbounds i8, ptr %168, i64 8288
+  %287 = getelementptr inbounds nuw i8, ptr %168, i64 8288
   store i64 %286, ptr %287, align 8
   %288 = zext i32 %208 to i64
   %289 = or disjoint i64 %.0150, %288
-  %290 = getelementptr inbounds i8, ptr %168, i64 8296
+  %290 = getelementptr inbounds nuw i8, ptr %168, i64 8296
   %spec.store.select = select i1 %283, i64 9223372034707292159, i64 %289
   store i64 %spec.store.select, ptr %290, align 8
   %291 = call i16 @llvm.umin.i16(i16 %227, i16 8191)
@@ -1157,9 +1157,9 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
           to label %294 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 294:                                              ; preds = %282
-  %295 = getelementptr inbounds [8192 x i8], ptr %9, i64 0, i64 %292
+  %295 = getelementptr inbounds nuw [8192 x i8], ptr %9, i64 0, i64 %292
   store i8 0, ptr %295, align 1
-  %296 = getelementptr inbounds i8, ptr %168, i64 40
+  %296 = getelementptr inbounds nuw i8, ptr %168, i64 40
   br i1 %167, label %297, label %338
 
 297:                                              ; preds = %294
@@ -1195,9 +1195,9 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
           to label %310 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 310:                                              ; preds = %.thread224, %308
-  %311 = getelementptr inbounds i8, ptr %0, i64 11056
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 11056
   %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 57484
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 57484
   %314 = load i32, ptr %313, align 4
   %315 = icmp eq i32 %314, 1
   br i1 %315, label %316, label %318
@@ -1208,7 +1208,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
 
 .noexc208:                                        ; preds = %316
   %.pre.i = load ptr, ptr %311, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 57484
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 57484
   %.pre3.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %318
 
@@ -1234,7 +1234,7 @@ _ZN7Archive15ConvertNameCaseEPw.exit:             ; preds = %318, %321
   br label %327
 
 327:                                              ; preds = %.sink.split.i, %_ZN7Archive15ConvertNameCaseEPw.exit
-  %328 = getelementptr inbounds i8, ptr %0, i64 48840
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 48840
   br label %329
 
 329:                                              ; preds = %.thread17.thread19.i, %327
@@ -1262,7 +1262,7 @@ _ZN7Archive15ConvertNameCaseEPw.exit:             ; preds = %318, %321
   br label %.thread17.thread19.i
 
 .thread17.thread19.i:                             ; preds = %.thread17.thread19.sink.split.i, %334, %329
-  %337 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %337 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   br label %329, !llvm.loop !6
 
 338:                                              ; preds = %294
@@ -1270,7 +1270,7 @@ _ZN7Archive15ConvertNameCaseEPw.exit:             ; preds = %318, %321
           to label %340 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 340:                                              ; preds = %338
-  %341 = getelementptr inbounds i8, ptr %168, i64 12
+  %341 = getelementptr inbounds nuw i8, ptr %168, i64 12
   %342 = load i32, ptr %341, align 4
   %343 = zext i16 %227 to i32
   %344 = sub i32 %342, %343
@@ -1283,7 +1283,7 @@ _ZN7Archive15ConvertNameCaseEPw.exit:             ; preds = %318, %321
   br i1 %347, label %348, label %354
 
 348:                                              ; preds = %340
-  %349 = getelementptr inbounds i8, ptr %168, i64 8232
+  %349 = getelementptr inbounds nuw i8, ptr %168, i64 8232
   %350 = zext nneg i32 %spec.select to i64
   invoke void @_ZN5ArrayIhE5AllocEm(ptr noundef nonnull align 8 dereferenceable(32) %349, i64 noundef %350)
           to label %351 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1299,7 +1299,7 @@ _ZN7Archive15ConvertNameCaseEPw.exit:             ; preds = %318, %321
   br i1 %356, label %357, label %_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit
 
 357:                                              ; preds = %354
-  %358 = getelementptr inbounds i8, ptr %0, i64 48846
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 48846
   store i8 1, ptr %358, align 2
   br label %_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit
 
@@ -1310,12 +1310,12 @@ _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit: ; preds = %329, %354, %357
   br i1 %.not167, label %364, label %361
 
 361:                                              ; preds = %_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit
-  %362 = getelementptr inbounds i8, ptr %168, i64 8361
+  %362 = getelementptr inbounds nuw i8, ptr %168, i64 8361
   %363 = invoke noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %362, i64 noundef 8)
           to label %364 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 364:                                              ; preds = %361, %_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit
-  %365 = getelementptr inbounds i8, ptr %168, i64 8264
+  %365 = getelementptr inbounds nuw i8, ptr %168, i64 8264
   invoke void @_ZN7RarTime6SetDosEj(ptr noundef nonnull align 8 dereferenceable(8) %365, i32 noundef %217)
           to label %366 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1330,24 +1330,24 @@ _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit: ; preds = %329, %354, %357
           to label %371 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 371:                                              ; preds = %369
-  %372 = getelementptr inbounds i8, ptr %0, i64 22240
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 22240
   store ptr %372, ptr %11, align 16
-  %373 = getelementptr inbounds i8, ptr %0, i64 22248
-  %374 = getelementptr inbounds i8, ptr %11, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %0, i64 22248
+  %374 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %373, ptr %374, align 8
-  %375 = getelementptr inbounds i8, ptr %0, i64 22256
-  %376 = getelementptr inbounds i8, ptr %11, i64 16
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 22256
+  %376 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %375, ptr %376, align 16
-  %377 = getelementptr inbounds i8, ptr %11, i64 24
+  %377 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr null, ptr %377, align 8
   %378 = zext i16 %370 to i32
-  %379 = getelementptr inbounds i8, ptr %12, i64 20
-  %380 = getelementptr inbounds i8, ptr %12, i64 24
+  %379 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %380 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br label %381
 
 381:                                              ; preds = %371, %415
   %indvars.iv = phi i64 [ 0, %371 ], [ %indvars.iv.next, %415 ]
-  %382 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %382 = getelementptr inbounds nuw [4 x ptr], ptr %11, i64 0, i64 %indvars.iv
   %383 = load ptr, ptr %382, align 8
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %384 = shl i32 %indvars.iv.tr, 2
@@ -1451,7 +1451,7 @@ _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit: ; preds = %329, %354, %357
   br i1 %.not169, label %567, label %428
 
 428:                                              ; preds = %425
-  %429 = getelementptr inbounds i8, ptr %0, i64 48864
+  %429 = getelementptr inbounds nuw i8, ptr %0, i64 48864
   store i8 1, ptr %429, align 8
   invoke void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 1)
           to label %430 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1460,28 +1460,28 @@ _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit: ; preds = %329, %354, %357
   br i1 %22, label %567, label %431
 
 431:                                              ; preds = %430
-  %432 = getelementptr inbounds i8, ptr %0, i64 52
+  %432 = getelementptr inbounds nuw i8, ptr %0, i64 52
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   br label %433
 
 433:                                              ; preds = %433, %431
   %indvars.iv.i.i = phi i64 [ 0, %431 ], [ %indvars.iv.next.i.i, %433 ]
-  %434 = getelementptr inbounds [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %434 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
   store ptr @.str.8, ptr %434, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i, label %433, !llvm.loop !4
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %433
-  %435 = getelementptr inbounds i8, ptr %168, i64 40
-  %436 = getelementptr inbounds i8, ptr %3, i64 64
-  %437 = getelementptr inbounds i8, ptr %3, i64 104
+  %435 = getelementptr inbounds nuw i8, ptr %168, i64 40
+  %436 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %437 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %436, i8 0, i64 40, i1 false)
   store i32 28, ptr %437, align 8
-  %438 = getelementptr inbounds i8, ptr %3, i64 96
+  %438 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr %432, ptr %3, align 8
   store i32 2, ptr %438, align 8
-  %439 = getelementptr inbounds i8, ptr %3, i64 8
+  %439 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %435, ptr %439, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
           to label %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1491,23 +1491,23 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_Z9uiMsgBaseIRA20
   br label %567
 
 440:                                              ; preds = %121
-  %441 = getelementptr inbounds i8, ptr %0, i64 31160
+  %441 = getelementptr inbounds nuw i8, ptr %0, i64 31160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %441, ptr noundef nonnull align 4 dereferenceable(20) %75, i64 20, i1 false)
-  %442 = getelementptr inbounds i8, ptr %0, i64 31168
+  %442 = getelementptr inbounds nuw i8, ptr %0, i64 31168
   %443 = load i32, ptr %442, align 8
-  %444 = getelementptr inbounds i8, ptr %0, i64 31188
+  %444 = getelementptr inbounds nuw i8, ptr %0, i64 31188
   %445 = trunc i32 %443 to i8
   %446 = and i8 %445, 1
   store i8 %446, ptr %444, align 4
-  %447 = getelementptr inbounds i8, ptr %0, i64 31189
+  %447 = getelementptr inbounds nuw i8, ptr %0, i64 31189
   %448 = lshr i8 %445, 1
   %449 = and i8 %448, 1
   store i8 %449, ptr %447, align 1
-  %450 = getelementptr inbounds i8, ptr %0, i64 31190
+  %450 = getelementptr inbounds nuw i8, ptr %0, i64 31190
   %451 = lshr i8 %445, 2
   %452 = and i8 %451, 1
   store i8 %452, ptr %450, align 2
-  %453 = getelementptr inbounds i8, ptr %0, i64 31191
+  %453 = getelementptr inbounds nuw i8, ptr %0, i64 31191
   %454 = lshr i8 %445, 3
   %455 = and i8 %454, 1
   store i8 %455, ptr %453, align 1
@@ -1519,7 +1519,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_Z9uiMsgBaseIRA20
           to label %459 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 459:                                              ; preds = %457
-  %460 = getelementptr inbounds i8, ptr %0, i64 31180
+  %460 = getelementptr inbounds nuw i8, ptr %0, i64 31180
   store i32 %458, ptr %460, align 4
   %.pre = load i8, ptr %453, align 1
   br label %461
@@ -1535,69 +1535,69 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_Z9uiMsgBaseIRA20
 
 466:                                              ; preds = %464
   %467 = zext i16 %465 to i32
-  %468 = getelementptr inbounds i8, ptr %0, i64 31184
+  %468 = getelementptr inbounds nuw i8, ptr %0, i64 31184
   store i32 %467, ptr %468, align 8
-  %469 = getelementptr inbounds i8, ptr %0, i64 48884
+  %469 = getelementptr inbounds nuw i8, ptr %0, i64 48884
   store i32 %467, ptr %469, align 4
   br label %567
 
 470:                                              ; preds = %121
-  %471 = getelementptr inbounds i8, ptr %0, i64 48408
+  %471 = getelementptr inbounds nuw i8, ptr %0, i64 48408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %471, ptr noundef nonnull align 4 dereferenceable(20) %75, i64 20, i1 false)
   %472 = invoke noundef zeroext i16 @_ZN7RawRead4Get2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %473 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 473:                                              ; preds = %470
-  %474 = getelementptr inbounds i8, ptr %0, i64 48428
+  %474 = getelementptr inbounds nuw i8, ptr %0, i64 48428
   store i16 %472, ptr %474, align 4
   %475 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %476 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 476:                                              ; preds = %473
-  %477 = getelementptr inbounds i8, ptr %0, i64 48430
+  %477 = getelementptr inbounds nuw i8, ptr %0, i64 48430
   store i8 %475, ptr %477, align 2
   %478 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %479 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 479:                                              ; preds = %476
-  %480 = getelementptr inbounds i8, ptr %0, i64 48431
+  %480 = getelementptr inbounds nuw i8, ptr %0, i64 48431
   store i8 %478, ptr %480, align 1
   %481 = invoke noundef zeroext i16 @_ZN7RawRead4Get2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %482 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 482:                                              ; preds = %479
-  %483 = getelementptr inbounds i8, ptr %0, i64 48432
+  %483 = getelementptr inbounds nuw i8, ptr %0, i64 48432
   store i16 %481, ptr %483, align 8
   br label %567
 
 484:                                              ; preds = %121
-  %485 = getelementptr inbounds i8, ptr %0, i64 48436
+  %485 = getelementptr inbounds nuw i8, ptr %0, i64 48436
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %485, ptr noundef nonnull align 4 dereferenceable(20) %75, i64 20, i1 false)
   %486 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %487 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 487:                                              ; preds = %484
-  %488 = getelementptr inbounds i8, ptr %0, i64 48456
+  %488 = getelementptr inbounds nuw i8, ptr %0, i64 48456
   store i32 %486, ptr %488, align 8
   %489 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %490 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 490:                                              ; preds = %487
-  %491 = getelementptr inbounds i8, ptr %0, i64 48460
+  %491 = getelementptr inbounds nuw i8, ptr %0, i64 48460
   store i8 %489, ptr %491, align 4
   %492 = invoke noundef zeroext i16 @_ZN7RawRead4Get2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %493 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 493:                                              ; preds = %490
-  %494 = getelementptr inbounds i8, ptr %0, i64 48462
+  %494 = getelementptr inbounds nuw i8, ptr %0, i64 48462
   store i16 %492, ptr %494, align 2
   %495 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %496 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 496:                                              ; preds = %493
-  %497 = getelementptr inbounds i8, ptr %0, i64 48464
+  %497 = getelementptr inbounds nuw i8, ptr %0, i64 48464
   store i32 %495, ptr %497, align 8
-  %498 = getelementptr inbounds i8, ptr %0, i64 48468
+  %498 = getelementptr inbounds nuw i8, ptr %0, i64 48468
   %499 = invoke noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %498, i64 noundef 8)
           to label %500 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1610,13 +1610,13 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_Z9uiMsgBaseIRA20
   br label %567
 
 505:                                              ; preds = %121
-  %506 = getelementptr inbounds i8, ptr %0, i64 31192
+  %506 = getelementptr inbounds nuw i8, ptr %0, i64 31192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %506, ptr noundef nonnull align 4 dereferenceable(20) %75, i64 20, i1 false)
   %507 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %508 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 508:                                              ; preds = %505
-  %509 = getelementptr inbounds i8, ptr %0, i64 31212
+  %509 = getelementptr inbounds nuw i8, ptr %0, i64 31212
   store i32 %507, ptr %509, align 4
   %510 = zext i32 %507 to i64
   %511 = load i64, ptr %124, align 8
@@ -1626,13 +1626,13 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_Z9uiMsgBaseIRA20
           to label %514 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 514:                                              ; preds = %508
-  %515 = getelementptr inbounds i8, ptr %0, i64 31216
+  %515 = getelementptr inbounds nuw i8, ptr %0, i64 31216
   store i16 %513, ptr %515, align 8
   %516 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %517 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 517:                                              ; preds = %514
-  %518 = getelementptr inbounds i8, ptr %0, i64 31218
+  %518 = getelementptr inbounds nuw i8, ptr %0, i64 31218
   store i8 %516, ptr %518, align 2
   %519 = load i16, ptr %515, align 8
   switch i16 %519, label %567 [
@@ -1641,69 +1641,69 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_Z9uiMsgBaseIRA20
   ]
 
 520:                                              ; preds = %517
-  %521 = getelementptr inbounds i8, ptr %0, i64 48476
+  %521 = getelementptr inbounds nuw i8, ptr %0, i64 48476
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(27) %521, ptr noundef nonnull align 8 dereferenceable(27) %506, i64 27, i1 false)
   %522 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %523 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 523:                                              ; preds = %520
-  %524 = getelementptr inbounds i8, ptr %0, i64 48504
+  %524 = getelementptr inbounds nuw i8, ptr %0, i64 48504
   store i32 %522, ptr %524, align 8
   %525 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %526 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 526:                                              ; preds = %523
-  %527 = getelementptr inbounds i8, ptr %0, i64 48508
+  %527 = getelementptr inbounds nuw i8, ptr %0, i64 48508
   store i8 %525, ptr %527, align 4
   %528 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %529 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 529:                                              ; preds = %526
-  %530 = getelementptr inbounds i8, ptr %0, i64 48509
+  %530 = getelementptr inbounds nuw i8, ptr %0, i64 48509
   store i8 %528, ptr %530, align 1
   %531 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %532 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 532:                                              ; preds = %529
-  %533 = getelementptr inbounds i8, ptr %0, i64 48512
+  %533 = getelementptr inbounds nuw i8, ptr %0, i64 48512
   store i32 %531, ptr %533, align 8
   br label %567
 
 534:                                              ; preds = %517
-  %535 = getelementptr inbounds i8, ptr %0, i64 48516
+  %535 = getelementptr inbounds nuw i8, ptr %0, i64 48516
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(27) %535, ptr noundef nonnull align 8 dereferenceable(27) %506, i64 27, i1 false)
   %536 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %537 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 537:                                              ; preds = %534
-  %538 = getelementptr inbounds i8, ptr %0, i64 48544
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 48544
   store i32 %536, ptr %538, align 8
   %539 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %540 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 540:                                              ; preds = %537
-  %541 = getelementptr inbounds i8, ptr %0, i64 48548
+  %541 = getelementptr inbounds nuw i8, ptr %0, i64 48548
   store i8 %539, ptr %541, align 4
   %542 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %543 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 543:                                              ; preds = %540
-  %544 = getelementptr inbounds i8, ptr %0, i64 48549
+  %544 = getelementptr inbounds nuw i8, ptr %0, i64 48549
   store i8 %542, ptr %544, align 1
   %545 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %546 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 546:                                              ; preds = %543
-  %547 = getelementptr inbounds i8, ptr %0, i64 48552
+  %547 = getelementptr inbounds nuw i8, ptr %0, i64 48552
   store i32 %545, ptr %547, align 8
   %548 = invoke noundef zeroext i16 @_ZN7RawRead4Get2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %549 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 549:                                              ; preds = %546
-  %550 = getelementptr inbounds i8, ptr %0, i64 48556
+  %550 = getelementptr inbounds nuw i8, ptr %0, i64 48556
   %spec.select187 = call i16 @llvm.umin.i16(i16 %548, i16 259)
   store i16 %spec.select187, ptr %550, align 4
-  %551 = getelementptr inbounds i8, ptr %0, i64 48558
+  %551 = getelementptr inbounds nuw i8, ptr %0, i64 48558
   %552 = zext nneg i16 %spec.select187 to i64
   %553 = invoke noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %551, i64 noundef %552)
           to label %554 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1711,7 +1711,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_Z9uiMsgBaseIRA20
 554:                                              ; preds = %549
   %555 = load i16, ptr %550, align 4
   %556 = zext i16 %555 to i64
-  %557 = getelementptr inbounds [260 x i8], ptr %551, i64 0, i64 %556
+  %557 = getelementptr inbounds nuw [260 x i8], ptr %551, i64 0, i64 %556
   store i8 0, ptr %557, align 1
   br label %567
 
@@ -1752,20 +1752,20 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_Z9uiMsgBaseIRA20
   ]
 
 574:                                              ; preds = %572
-  %575 = getelementptr inbounds i8, ptr %0, i64 31216
+  %575 = getelementptr inbounds nuw i8, ptr %0, i64 31216
   %576 = load i16, ptr %575, align 8
   %.not184 = icmp eq i16 %576, 257
   br i1 %.not184, label %607, label %.thread227
 
 577:                                              ; preds = %572
-  %578 = getelementptr inbounds i8, ptr %0, i64 31190
+  %578 = getelementptr inbounds nuw i8, ptr %0, i64 31190
   %579 = load i8, ptr %578, align 2
   %580 = trunc i8 %579 to i1
   br i1 %580, label %581, label %.thread227
 
 581:                                              ; preds = %577
   %582 = load ptr, ptr %0, align 8
-  %583 = getelementptr inbounds i8, ptr %582, i64 48
+  %583 = getelementptr inbounds nuw i8, ptr %582, i64 48
   %584 = load ptr, ptr %583, align 8
   %585 = invoke noundef i64 %584(ptr noundef nonnull align 8 dereferenceable(57108) %0)
           to label %586 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1773,7 +1773,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_Z9uiMsgBaseIRA20
 586:                                              ; preds = %581
   %587 = add nsw i64 %585, -7
   %588 = load ptr, ptr %0, align 8
-  %589 = getelementptr inbounds i8, ptr %588, i64 40
+  %589 = getelementptr inbounds nuw i8, ptr %588, i64 40
   %590 = load ptr, ptr %589, align 8
   invoke void %590(ptr noundef nonnull align 8 dereferenceable(57108) %0, i64 noundef %587, i32 noundef 0)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1795,7 +1795,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_Z9uiMsgBaseIRA20
   br i1 %spec.select188, label %607, label %.thread227
 
 .thread227:                                       ; preds = %572, %574, %577, %594
-  %595 = getelementptr inbounds i8, ptr %0, i64 48864
+  %595 = getelementptr inbounds nuw i8, ptr %0, i64 48864
   store i8 1, ptr %595, align 8
   invoke void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 3)
           to label %596 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1809,29 +1809,29 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %_Z9uiMsgBaseIRA20
 
 598:                                              ; preds = %598, %597
   %indvars.iv.i.i213 = phi i64 [ 0, %597 ], [ %indvars.iv.next.i.i214, %598 ]
-  %599 = getelementptr inbounds [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i213
+  %599 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i213
   store ptr @.str.8, ptr %599, align 8
   %indvars.iv.next.i.i214 = add nuw nsw i64 %indvars.iv.i.i213, 1
   %exitcond.not.i.i215 = icmp eq i64 %indvars.iv.next.i.i214, 8
   br i1 %exitcond.not.i.i215, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i216, label %598, !llvm.loop !4
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i216: ; preds = %598
-  %600 = getelementptr inbounds i8, ptr %0, i64 52
-  %601 = getelementptr inbounds i8, ptr %2, i64 64
-  %602 = getelementptr inbounds i8, ptr %2, i64 104
+  %600 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %601 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %602 = getelementptr inbounds nuw i8, ptr %2, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %601, i8 0, i64 40, i1 false)
   store i32 4, ptr %602, align 8
-  %603 = getelementptr inbounds i8, ptr %2, i64 96
+  %603 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %600, ptr %2, align 8
   store i32 2, ptr %603, align 8
-  %604 = getelementptr inbounds i8, ptr %2, i64 8
+  %604 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %600, ptr %604, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %2)
           to label %605 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 605:                                              ; preds = %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i216
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2)
-  %606 = getelementptr inbounds i8, ptr %0, i64 48865
+  %606 = getelementptr inbounds nuw i8, ptr %0, i64 48865
   store i8 1, ptr %606, align 1
   br label %_ZN7Archive14UnexpEndArcMsgEv.exit
 
@@ -1876,12 +1876,12 @@ define noundef i64 @_ZN7Archive12ReadHeader50Ev(ptr noundef nonnull align 8 dere
   %20 = alloca [32 x i8], align 16
   %21 = alloca [8192 x i8], align 16
   call void @_ZN7RawReadC1EP4File(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull %0)
-  %22 = getelementptr inbounds i8, ptr %0, i64 48852
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48852
   %23 = load i8, ptr %22, align 4
   %24 = trunc i8 %23 to i1
-  %25 = getelementptr inbounds i8, ptr %0, i64 48824
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48824
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 48856
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48856
   %28 = load i64, ptr %27, align 8
   %29 = add nsw i64 %28, 8
   %30 = icmp sgt i64 %26, %29
@@ -1889,9 +1889,9 @@ define noundef i64 @_ZN7Archive12ReadHeader50Ev(ptr noundef nonnull align 8 dere
   br i1 %31, label %32, label %_ZN16RarCheckPasswordD2Ev.exit
 
 32:                                               ; preds = %1
-  %33 = getelementptr inbounds i8, ptr %0, i64 11056
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 11056
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 49201
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 49201
   %36 = load i8, ptr %35, align 1
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %49
@@ -1902,19 +1902,19 @@ define noundef i64 @_ZN7Archive12ReadHeader50Ev(ptr noundef nonnull align 8 dere
 
 39:                                               ; preds = %39, %38
   %indvars.iv.i.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i.i, %39 ]
-  %40 = getelementptr inbounds [8 x ptr], ptr %11, i64 0, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw [8 x ptr], ptr %11, i64 0, i64 %indvars.iv.i.i
   store ptr @.str.8, ptr %40, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i, label %39, !llvm.loop !4
 
 _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 52
-  %42 = getelementptr inbounds i8, ptr %11, i64 64
-  %43 = getelementptr inbounds i8, ptr %11, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 40, i1 false)
   store i32 127, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store i32 1, ptr %44, align 8
   store ptr %41, ptr %11, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %11)
@@ -1922,7 +1922,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %39
 
 45:                                               ; preds = %_Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11)
-  %46 = getelementptr inbounds i8, ptr %0, i64 48865
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48865
   store i8 1, ptr %46, align 1
   br label %_ZN7Archive14UnexpEndArcMsgEv.exit
 
@@ -1933,7 +1933,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %39
 
 49:                                               ; preds = %32
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = invoke noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %13, i64 noundef 16)
           to label %54 unwind label %47
@@ -1949,7 +1949,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %39
 .noexc:                                           ; preds = %55
   %57 = load i64, ptr %25, align 8
   %.not.i = icmp eq i64 %57, %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 48832
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48832
   %59 = load i64, ptr %58, align 8
   %.not2.i = icmp eq i64 %59, %56
   %or.cond.i = select i1 %.not.i, i1 %.not2.i, i1 false
@@ -1961,19 +1961,19 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %39
 
 61:                                               ; preds = %61, %60
   %indvars.iv.i.i.i = phi i64 [ 0, %60 ], [ %indvars.iv.next.i.i.i, %61 ]
-  %62 = getelementptr inbounds [8 x ptr], ptr %10, i64 0, i64 %indvars.iv.i.i.i
+  %62 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %indvars.iv.i.i.i
   store ptr @.str.8, ptr %62, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
   br i1 %exitcond.not.i.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i, label %61, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i: ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %0, i64 52
-  %64 = getelementptr inbounds i8, ptr %10, i64 64
-  %65 = getelementptr inbounds i8, ptr %10, i64 104
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %64 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %64, i8 0, i64 40, i1 false)
   store i32 56, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %10, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 1, ptr %66, align 8
   store ptr %63, ptr %10, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %10)
@@ -1985,7 +1985,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i: ; preds = %61
 
 67:                                               ; preds = %54
   %68 = load ptr, ptr %33, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 100872
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 100872
   %70 = load i8, ptr %69, align 8
   %71 = trunc i8 %70 to i1
   br i1 %71, label %74, label %72
@@ -1997,24 +1997,24 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i: ; preds = %61
 74:                                               ; preds = %72, %67
   %75 = phi i1 [ true, %67 ], [ %73, %72 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTV16RarCheckPassword, i64 16), ptr %14, align 8
-  %76 = getelementptr inbounds i8, ptr %14, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 13940
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 13940
   %78 = load i8, ptr %77, align 4
   %79 = trunc i8 %78 to i1
   br i1 %79, label %80, label %99
 
 80:                                               ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %0, i64 48864
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 48864
   %82 = load i8, ptr %81, align 8
   %83 = trunc i8 %82 to i1
   br i1 %83, label %99, label %84
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %0, i64 13948
-  %86 = getelementptr inbounds i8, ptr %0, i64 13944
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 13948
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 13944
   %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 13964
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 13964
   %89 = invoke noalias noundef nonnull dereferenceable(2520) ptr @_Znwm(i64 noundef 2520) #22
           to label %.noexc150 unwind label %97
 
@@ -2030,13 +2030,13 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i: ; preds = %61
 
 _ZN16RarCheckPassword3SetEPhS0_jS0_.exit:         ; preds = %.noexc150
   store ptr %89, ptr %76, align 8
-  %92 = getelementptr inbounds i8, ptr %14, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %14, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %92, ptr noundef nonnull align 4 dereferenceable(16) %85, i64 16, i1 false)
-  %93 = getelementptr inbounds i8, ptr %14, i64 36
+  %93 = getelementptr inbounds nuw i8, ptr %14, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %93, ptr noundef nonnull align 16 dereferenceable(16) %13, i64 16, i1 false)
-  %94 = getelementptr inbounds i8, ptr %14, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %87, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %14, i64 52
+  %95 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %96 = load i64, ptr %88, align 4
   store i64 %96, ptr %95, align 4
   br label %99
@@ -2056,11 +2056,11 @@ _ZN16RarCheckPassword3SetEPhS0_jS0_.exit:         ; preds = %.noexc150
           to label %100 unwind label %97
 
 100:                                              ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %0, i64 8256
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8256
   %102 = load ptr, ptr %33, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 100848
-  %104 = getelementptr inbounds i8, ptr %0, i64 13948
-  %105 = getelementptr inbounds i8, ptr %0, i64 13944
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 100848
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 13948
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 13944
   %106 = load i32, ptr %105, align 8
   %107 = invoke noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPasswordPKhS4_jPhS5_(ptr noundef nonnull align 8 dereferenceable(2516) %101, i1 noundef zeroext false, i32 noundef 5, ptr noundef nonnull %103, ptr noundef nonnull %104, ptr noundef nonnull %13, i32 noundef %106, ptr noundef null, ptr noundef nonnull %15)
           to label %108 unwind label %97
@@ -2071,13 +2071,13 @@ _ZN16RarCheckPassword3SetEPhS0_jS0_.exit:         ; preds = %.noexc150
   br i1 %110, label %111, label %.critedge
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %0, i64 48864
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 48864
   %113 = load i8, ptr %112, align 8
   %114 = trunc i8 %113 to i1
   br i1 %114, label %.critedge, label %115
 
 115:                                              ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %0, i64 13964
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 13964
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %15, ptr noundef nonnull dereferenceable(8) %116, i64 8)
   %.not121 = icmp eq i32 %bcmp, 0
   br i1 %.not121, label %.critedge, label %117
@@ -2091,29 +2091,29 @@ _ZN16RarCheckPassword3SetEPhS0_jS0_.exit:         ; preds = %.noexc150
 
 119:                                              ; preds = %119, %118
   %indvars.iv.i.i151 = phi i64 [ 0, %118 ], [ %indvars.iv.next.i.i152, %119 ]
-  %120 = getelementptr inbounds [8 x ptr], ptr %9, i64 0, i64 %indvars.iv.i.i151
+  %120 = getelementptr inbounds nuw [8 x ptr], ptr %9, i64 0, i64 %indvars.iv.i.i151
   store ptr @.str.8, ptr %120, align 8
   %indvars.iv.next.i.i152 = add nuw nsw i64 %indvars.iv.i.i151, 1
   %exitcond.not.i.i153 = icmp eq i64 %indvars.iv.next.i.i152, 8
   br i1 %exitcond.not.i.i153, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i, label %119, !llvm.loop !4
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %119
-  %121 = getelementptr inbounds i8, ptr %0, i64 52
-  %122 = getelementptr inbounds i8, ptr %9, i64 64
-  %123 = getelementptr inbounds i8, ptr %9, i64 104
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %122 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %123 = getelementptr inbounds nuw i8, ptr %9, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %122, i8 0, i64 40, i1 false)
   store i32 6, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %9, i64 96
+  %124 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store ptr %121, ptr %9, align 8
   store i32 2, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %9, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %121, ptr %125, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %9)
           to label %126 unwind label %97
 
 126:                                              ; preds = %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9)
-  %127 = getelementptr inbounds i8, ptr %0, i64 48865
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 48865
   store i8 1, ptr %127, align 1
   invoke void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 11)
           to label %147 unwind label %97
@@ -2124,22 +2124,22 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %119
 
 129:                                              ; preds = %129, %128
   %indvars.iv.i.i155 = phi i64 [ 0, %128 ], [ %indvars.iv.next.i.i156, %129 ]
-  %130 = getelementptr inbounds [8 x ptr], ptr %8, i64 0, i64 %indvars.iv.i.i155
+  %130 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv.i.i155
   store ptr @.str.8, ptr %130, align 8
   %indvars.iv.next.i.i156 = add nuw nsw i64 %indvars.iv.i.i155, 1
   %exitcond.not.i.i157 = icmp eq i64 %indvars.iv.next.i.i156, 8
   br i1 %exitcond.not.i.i157, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i158, label %129, !llvm.loop !4
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i158: ; preds = %129
-  %131 = getelementptr inbounds i8, ptr %0, i64 52
-  %132 = getelementptr inbounds i8, ptr %8, i64 64
-  %133 = getelementptr inbounds i8, ptr %8, i64 104
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %132 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %133 = getelementptr inbounds nuw i8, ptr %8, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %132, i8 0, i64 40, i1 false)
   store i32 132, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %8, i64 96
+  %134 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %131, ptr %8, align 8
   store i32 2, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %8, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %131, ptr %135, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %8)
           to label %136 unwind label %97
@@ -2147,7 +2147,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i158: ; preds = %129
 136:                                              ; preds = %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i158
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8)
   %137 = load ptr, ptr %33, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 100848
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 100848
   invoke void @_ZN11SecPassword5CleanEv(ptr noundef nonnull align 8 dereferenceable(25) %138)
           to label %139 unwind label %97
 
@@ -2157,13 +2157,13 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i158: ; preds = %129
 
 140:                                              ; preds = %139
   %141 = load ptr, ptr %33, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 83424
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 83424
   store i32 24, ptr %142, align 8
   invoke void @_ZN12ErrorHandler4ExitE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 11)
           to label %.critedge unwind label %97
 
 .critedge:                                        ; preds = %108, %111, %115, %140
-  %143 = getelementptr inbounds i8, ptr %12, i64 56
+  %143 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %101, ptr %143, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV16RarCheckPassword, i64 16), ptr %14, align 8
   %144 = load ptr, ptr %76, align 8
@@ -2194,7 +2194,7 @@ _ZN16RarCheckPasswordD2Ev.exit:                   ; preds = %146, %.critedge, %1
 .noexc168:                                        ; preds = %151
   %153 = load i64, ptr %25, align 8
   %.not.i161 = icmp eq i64 %153, %152
-  %154 = getelementptr inbounds i8, ptr %0, i64 48832
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 48832
   %155 = load i64, ptr %154, align 8
   %.not2.i162 = icmp eq i64 %155, %152
   %or.cond.i163 = select i1 %.not.i161, i1 %.not2.i162, i1 false
@@ -2206,19 +2206,19 @@ _ZN16RarCheckPasswordD2Ev.exit:                   ; preds = %146, %.critedge, %1
 
 157:                                              ; preds = %157, %156
   %indvars.iv.i.i.i164 = phi i64 [ 0, %156 ], [ %indvars.iv.next.i.i.i165, %157 ]
-  %158 = getelementptr inbounds [8 x ptr], ptr %7, i64 0, i64 %indvars.iv.i.i.i164
+  %158 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv.i.i.i164
   store ptr @.str.8, ptr %158, align 8
   %indvars.iv.next.i.i.i165 = add nuw nsw i64 %indvars.iv.i.i.i164, 1
   %exitcond.not.i.i.i166 = icmp eq i64 %indvars.iv.next.i.i.i165, 8
   br i1 %exitcond.not.i.i.i166, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i167, label %157, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i167: ; preds = %157
-  %159 = getelementptr inbounds i8, ptr %0, i64 52
-  %160 = getelementptr inbounds i8, ptr %7, i64 64
-  %161 = getelementptr inbounds i8, ptr %7, i64 104
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %160 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %161 = getelementptr inbounds nuw i8, ptr %7, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %160, i8 0, i64 40, i1 false)
   store i32 56, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %7, i64 96
+  %162 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i32 1, ptr %162, align 8
   store ptr %159, ptr %7, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %7)
@@ -2229,8 +2229,8 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i167: ; preds = %157
   br label %.noexc193.invoke
 
 163:                                              ; preds = %149
-  %164 = getelementptr inbounds i8, ptr %0, i64 13772
-  %165 = getelementptr inbounds i8, ptr %0, i64 13788
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 13772
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 13788
   store i8 0, ptr %165, align 4
   %166 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %12)
           to label %167 unwind label %47
@@ -2256,19 +2256,19 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i167: ; preds = %157
 
 175:                                              ; preds = %175, %174
   %indvars.iv.i.i.i172 = phi i64 [ 0, %174 ], [ %indvars.iv.next.i.i.i173, %175 ]
-  %176 = getelementptr inbounds [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.i.i.i172
+  %176 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.i.i.i172
   store ptr @.str.8, ptr %176, align 8
   %indvars.iv.next.i.i.i173 = add nuw nsw i64 %indvars.iv.i.i.i172, 1
   %exitcond.not.i.i.i174 = icmp eq i64 %indvars.iv.next.i.i.i173, 8
   br i1 %exitcond.not.i.i.i174, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i175, label %175, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i175: ; preds = %175
-  %177 = getelementptr inbounds i8, ptr %0, i64 52
-  %178 = getelementptr inbounds i8, ptr %6, i64 64
-  %179 = getelementptr inbounds i8, ptr %6, i64 104
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %178 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %179 = getelementptr inbounds nuw i8, ptr %6, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %178, i8 0, i64 40, i1 false)
   store i32 26, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %6, i64 96
+  %180 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 1, ptr %180, align 8
   store ptr %177, ptr %6, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %6)
@@ -2276,7 +2276,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i175: ; preds = %175
 
 .noexc176:                                        ; preds = %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i175
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6)
-  %181 = getelementptr inbounds i8, ptr %0, i64 48864
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 48864
   store i8 1, ptr %181, align 8
   br label %.noexc193.invoke
 
@@ -2299,19 +2299,19 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i175: ; preds = %175
 
 192:                                              ; preds = %192, %191
   %indvars.iv.i.i.i178 = phi i64 [ 0, %191 ], [ %indvars.iv.next.i.i.i179, %192 ]
-  %193 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i.i178
+  %193 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i.i178
   store ptr @.str.8, ptr %193, align 8
   %indvars.iv.next.i.i.i179 = add nuw nsw i64 %indvars.iv.i.i.i178, 1
   %exitcond.not.i.i.i180 = icmp eq i64 %indvars.iv.next.i.i.i179, 8
   br i1 %exitcond.not.i.i.i180, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i181, label %192, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i181: ; preds = %192
-  %194 = getelementptr inbounds i8, ptr %0, i64 52
-  %195 = getelementptr inbounds i8, ptr %5, i64 64
-  %196 = getelementptr inbounds i8, ptr %5, i64 104
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %195 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %196 = getelementptr inbounds nuw i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %195, i8 0, i64 40, i1 false)
   store i32 26, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %5, i64 96
+  %197 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i32 1, ptr %197, align 8
   store ptr %194, ptr %5, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %5)
@@ -2319,7 +2319,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i181: ; preds = %192
 
 .noexc182:                                        ; preds = %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i181
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5)
-  %198 = getelementptr inbounds i8, ptr %0, i64 48864
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 48864
   store i8 1, ptr %198, align 8
   br label %.noexc193.invoke
 
@@ -2329,7 +2329,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i181: ; preds = %192
           to label %202 unwind label %47
 
 202:                                              ; preds = %199
-  %203 = getelementptr inbounds i8, ptr %12, i64 40
+  %203 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %204 = load i64, ptr %203, align 8
   %205 = zext i32 %187 to i64
   %206 = icmp ult i64 %204, %205
@@ -2342,7 +2342,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i181: ; preds = %192
 .noexc192:                                        ; preds = %207
   %209 = load i64, ptr %25, align 8
   %.not.i185 = icmp eq i64 %209, %208
-  %210 = getelementptr inbounds i8, ptr %0, i64 48832
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 48832
   %211 = load i64, ptr %210, align 8
   %.not2.i186 = icmp eq i64 %211, %208
   %or.cond.i187 = select i1 %.not.i185, i1 %.not2.i186, i1 false
@@ -2354,19 +2354,19 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i181: ; preds = %192
 
 213:                                              ; preds = %213, %212
   %indvars.iv.i.i.i188 = phi i64 [ 0, %212 ], [ %indvars.iv.next.i.i.i189, %213 ]
-  %214 = getelementptr inbounds [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i.i188
+  %214 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i.i188
   store ptr @.str.8, ptr %214, align 8
   %indvars.iv.next.i.i.i189 = add nuw nsw i64 %indvars.iv.i.i.i188, 1
   %exitcond.not.i.i.i190 = icmp eq i64 %indvars.iv.next.i.i.i189, 8
   br i1 %exitcond.not.i.i.i190, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i191, label %213, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i191: ; preds = %213
-  %215 = getelementptr inbounds i8, ptr %0, i64 52
-  %216 = getelementptr inbounds i8, ptr %4, i64 64
-  %217 = getelementptr inbounds i8, ptr %4, i64 104
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %216 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %217 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %216, i8 0, i64 40, i1 false)
   store i32 56, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %4, i64 96
+  %218 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store i32 1, ptr %218, align 8
   store ptr %215, ptr %4, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
@@ -2391,23 +2391,23 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i191: ; preds = %213
 
 224:                                              ; preds = %222
   %225 = trunc i64 %223 to i32
-  %226 = getelementptr inbounds i8, ptr %0, i64 13776
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 13776
   store i32 %225, ptr %226, align 8
   %227 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
           to label %228 unwind label %47
 
 228:                                              ; preds = %224
   %229 = trunc i64 %227 to i32
-  %230 = getelementptr inbounds i8, ptr %0, i64 13780
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 13780
   store i32 %229, ptr %230, align 4
   %231 = trunc i64 %227 to i8
   %232 = lshr i8 %231, 2
   %233 = and i8 %232, 1
   store i8 %233, ptr %165, align 4
-  %234 = getelementptr inbounds i8, ptr %0, i64 13784
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 13784
   store i32 %187, ptr %234, align 8
   %235 = load i32, ptr %226, align 8
-  %236 = getelementptr inbounds i8, ptr %0, i64 11076
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 11076
   store i32 %235, ptr %236, align 4
   %237 = load i32, ptr %164, align 4
   %.not122 = icmp eq i32 %237, %221
@@ -2418,7 +2418,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i191: ; preds = %213
           to label %239 unwind label %47
 
 239:                                              ; preds = %238
-  %240 = getelementptr inbounds i8, ptr %0, i64 48864
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 48864
   store i8 1, ptr %240, align 8
   invoke void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 3)
           to label %241 unwind label %47
@@ -2436,29 +2436,29 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i191: ; preds = %213
 
 243:                                              ; preds = %243, %242
   %indvars.iv.i.i196 = phi i64 [ 0, %242 ], [ %indvars.iv.next.i.i197, %243 ]
-  %244 = getelementptr inbounds [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i196
+  %244 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i196
   store ptr @.str.8, ptr %244, align 8
   %indvars.iv.next.i.i197 = add nuw nsw i64 %indvars.iv.i.i196, 1
   %exitcond.not.i.i198 = icmp eq i64 %indvars.iv.next.i.i197, 8
   br i1 %exitcond.not.i.i198, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199, label %243, !llvm.loop !4
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
-  %245 = getelementptr inbounds i8, ptr %0, i64 52
-  %246 = getelementptr inbounds i8, ptr %3, i64 64
-  %247 = getelementptr inbounds i8, ptr %3, i64 104
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %246 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %247 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %246, i8 0, i64 40, i1 false)
   store i32 4, ptr %247, align 8
-  %248 = getelementptr inbounds i8, ptr %3, i64 96
+  %248 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr %245, ptr %3, align 8
   store i32 2, ptr %248, align 8
-  %249 = getelementptr inbounds i8, ptr %3, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %245, ptr %249, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
           to label %250 unwind label %47
 
 250:                                              ; preds = %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
-  %251 = getelementptr inbounds i8, ptr %0, i64 48865
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 48865
   store i8 1, ptr %251, align 1
   br label %_ZN7Archive14UnexpEndArcMsgEv.exit
 
@@ -2508,7 +2508,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
 271:                                              ; preds = %266
   %272 = zext i32 %270 to i64
   %273 = add nsw i64 %267, %272
-  %274 = getelementptr inbounds i8, ptr %0, i64 48832
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 48832
   %275 = or i64 %273, %.0110
   %or.cond.i202 = icmp slt i64 %275, 0
   %276 = sub nuw nsw i64 9223372036854775807, %.0110
@@ -2527,7 +2527,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   ]
 
 280:                                              ; preds = %271
-  %281 = getelementptr inbounds i8, ptr %0, i64 13920
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 13920
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %281, ptr noundef nonnull align 4 dereferenceable(20) %164, i64 20, i1 false)
   %282 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
           to label %283 unwind label %47
@@ -2546,7 +2546,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
           to label %289 unwind label %47
 
 289:                                              ; preds = %287
-  %290 = getelementptr inbounds i8, ptr %0, i64 13940
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 13940
   %291 = trunc i64 %288 to i8
   %292 = and i8 %291, 1
   store i8 %292, ptr %290, align 4
@@ -2555,7 +2555,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
 
 294:                                              ; preds = %289
   %295 = zext i8 %293 to i32
-  %296 = getelementptr inbounds i8, ptr %0, i64 13944
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 13944
   store i32 %295, ptr %296, align 8
   %297 = icmp ugt i8 %293, 24
   br i1 %297, label %298, label %302
@@ -2566,12 +2566,12 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
 
 .invoke:                                          ; preds = %285, %298
   %300 = phi ptr [ %17, %298 ], [ %16, %285 ]
-  %301 = getelementptr inbounds i8, ptr %0, i64 52
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 52
   invoke void @_ZN7Archive12UnkEncVerMsgEPKwS1_(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %301, ptr noundef nonnull %300)
           to label %_ZN7Archive14UnexpEndArcMsgEv.exit unwind label %47
 
 302:                                              ; preds = %294
-  %303 = getelementptr inbounds i8, ptr %0, i64 13948
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 13948
   %304 = invoke noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull %303, i64 noundef 16)
           to label %305 unwind label %47
 
@@ -2581,7 +2581,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   br i1 %307, label %308, label %319
 
 308:                                              ; preds = %305
-  %309 = getelementptr inbounds i8, ptr %0, i64 13964
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 13964
   %310 = invoke noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull %309, i64 noundef 8)
           to label %311 unwind label %47
 
@@ -2613,7 +2613,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   br label %508
 
 320:                                              ; preds = %271
-  %321 = getelementptr inbounds i8, ptr %0, i64 13808
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 13808
   invoke void @_ZN10MainHeader5ResetEv(ptr noundef nonnull align 8 dereferenceable(112) %321)
           to label %322 unwind label %47
 
@@ -2623,25 +2623,25 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
           to label %324 unwind label %47
 
 324:                                              ; preds = %322
-  %325 = getelementptr inbounds i8, ptr %0, i64 48845
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 48845
   %326 = trunc i64 %323 to i8
   %327 = and i8 %326, 1
   store i8 %327, ptr %325, align 1
-  %328 = getelementptr inbounds i8, ptr %0, i64 48844
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 48844
   %329 = lshr i8 %326, 2
   %330 = and i8 %329, 1
   store i8 %330, ptr %328, align 4
-  %331 = getelementptr inbounds i8, ptr %0, i64 48847
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 48847
   %332 = lshr i8 %326, 4
   %333 = and i8 %332, 1
   store i8 %333, ptr %331, align 1
-  %334 = getelementptr inbounds i8, ptr %0, i64 48851
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 48851
   %335 = lshr i8 %326, 3
   %336 = and i8 %335, 1
   store i8 %336, ptr %334, align 1
-  %337 = getelementptr inbounds i8, ptr %0, i64 48848
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 48848
   store i8 0, ptr %337, align 8
-  %338 = getelementptr inbounds i8, ptr %0, i64 48850
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 48850
   store i8 1, ptr %338, align 2
   %339 = and i64 %323, 2
   %.not139 = icmp eq i64 %339, 0
@@ -2653,14 +2653,14 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
 
 342:                                              ; preds = %340
   %343 = trunc i64 %341 to i32
-  %344 = getelementptr inbounds i8, ptr %0, i64 48884
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 48884
   store i32 %343, ptr %344, align 4
   %.pre217 = load i8, ptr %325, align 1
   %345 = icmp eq i32 %343, 0
   br label %348
 
 346:                                              ; preds = %324
-  %347 = getelementptr inbounds i8, ptr %0, i64 48884
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 48884
   store i32 0, ptr %347, align 4
   br label %348
 
@@ -2670,7 +2670,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   %351 = trunc i8 %350 to i1
   %narrow = and i1 %349, %351
   %352 = zext i1 %narrow to i8
-  %353 = getelementptr inbounds i8, ptr %0, i64 48849
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 48849
   store i8 %352, ptr %353, align 1
   %.not140 = icmp eq i64 %.0109, 0
   br i1 %.not140, label %355, label %354
@@ -2680,27 +2680,27 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
           to label %355 unwind label %47
 
 355:                                              ; preds = %354, %348
-  %356 = getelementptr inbounds i8, ptr %0, i64 13768
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 13768
   %357 = load i8, ptr %356, align 8
   %358 = trunc i8 %357 to i1
   br i1 %358, label %508, label %359
 
 359:                                              ; preds = %355
-  %360 = getelementptr inbounds i8, ptr %0, i64 13838
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 13838
   %361 = load i8, ptr %360, align 2
   %362 = trunc i8 %361 to i1
   br i1 %362, label %363, label %508
 
 363:                                              ; preds = %359
-  %364 = getelementptr inbounds i8, ptr %0, i64 13840
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 13840
   %365 = load i64, ptr %364, align 8
   %.not141 = icmp eq i64 %365, 0
   br i1 %.not141, label %508, label %366
 
 366:                                              ; preds = %363
-  %367 = getelementptr inbounds i8, ptr %0, i64 11056
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 11056
   %368 = load ptr, ptr %367, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 16408
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 16408
   %370 = load i32, ptr %369, align 8
   %.not142 = icmp eq i32 %370, 0
   br i1 %.not142, label %508, label %371
@@ -2709,7 +2709,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   %372 = load i64, ptr %25, align 8
   %373 = load i64, ptr %274, align 8
   %374 = load i32, ptr %236, align 4
-  %375 = getelementptr inbounds i8, ptr %0, i64 11088
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 11088
   invoke void @_ZN9QuickOpen4InitEP7Archiveb(ptr noundef nonnull align 8 dereferenceable(2673) %375, ptr noundef nonnull %0, i1 noundef zeroext false)
           to label %376 unwind label %47
 
@@ -2727,7 +2727,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
 379:                                              ; preds = %271, %271
   %380 = icmp eq i32 %279, 2
   %.v = select i1 %380, i64 13976, i64 31224
-  %381 = getelementptr inbounds i8, ptr %0, i64 %.v
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   invoke void @_ZN10FileHeader5ResetEm(ptr noundef nonnull align 8 dereferenceable(17184) %381, i64 noundef 0)
           to label %382 unwind label %47
 
@@ -2735,27 +2735,27 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %381, ptr noundef nonnull align 4 dereferenceable(20) %164, i64 20, i1 false)
   %383 = load i32, ptr %226, align 8
   %384 = icmp eq i32 %383, 2
-  %385 = getelementptr inbounds i8, ptr %381, i64 8457
+  %385 = getelementptr inbounds nuw i8, ptr %381, i64 8457
   store i8 1, ptr %385, align 1
-  %386 = getelementptr inbounds i8, ptr %381, i64 8288
+  %386 = getelementptr inbounds nuw i8, ptr %381, i64 8288
   store i64 %.0110, ptr %386, align 8
   %387 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
           to label %388 unwind label %47
 
 388:                                              ; preds = %382
   %389 = trunc i64 %387 to i32
-  %390 = getelementptr inbounds i8, ptr %381, i64 8348
+  %390 = getelementptr inbounds nuw i8, ptr %381, i64 8348
   store i32 %389, ptr %390, align 4
   %391 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
           to label %392 unwind label %47
 
 392:                                              ; preds = %388
-  %393 = getelementptr inbounds i8, ptr %381, i64 8296
+  %393 = getelementptr inbounds nuw i8, ptr %381, i64 8296
   store i64 %391, ptr %393, align 8
   %394 = load i32, ptr %390, align 4
   %395 = and i32 %394, 8
   %.not126 = icmp eq i32 %395, 0
-  %396 = getelementptr inbounds i8, ptr %381, i64 8354
+  %396 = getelementptr inbounds nuw i8, ptr %381, i64 8354
   %.lobit = lshr exact i32 %395, 3
   %397 = trunc nuw nsw i32 %.lobit to i8
   store i8 %397, ptr %396, align 2
@@ -2769,14 +2769,14 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   %400 = phi i64 [ 9223372034707292159, %398 ], [ %391, %392 ]
   %401 = load i64, ptr %386, align 8
   %. = call i64 @llvm.smax.i64(i64 %401, i64 %400)
-  %402 = getelementptr inbounds i8, ptr %381, i64 8304
+  %402 = getelementptr inbounds nuw i8, ptr %381, i64 8304
   store i64 %., ptr %402, align 8
   %403 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
           to label %404 unwind label %47
 
 404:                                              ; preds = %399
   %405 = trunc i64 %403 to i32
-  %406 = getelementptr inbounds i8, ptr %381, i64 36
+  %406 = getelementptr inbounds nuw i8, ptr %381, i64 36
   store i32 %405, ptr %406, align 4
   %407 = load i32, ptr %390, align 4
   %408 = and i32 %407, 2
@@ -2788,7 +2788,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
           to label %411 unwind label %47
 
 411:                                              ; preds = %409
-  %412 = getelementptr inbounds i8, ptr %381, i64 8264
+  %412 = getelementptr inbounds nuw i8, ptr %381, i64 8264
   %413 = zext i32 %410 to i64
   invoke void @_ZN7RarTime7SetUnixEl(ptr noundef nonnull align 8 dereferenceable(8) %412, i64 noundef %413)
           to label %._crit_edge215 unwind label %47
@@ -2799,7 +2799,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
 
 414:                                              ; preds = %._crit_edge215, %404
   %415 = phi i32 [ %.pre216, %._crit_edge215 ], [ %407, %404 ]
-  %416 = getelementptr inbounds i8, ptr %381, i64 8312
+  %416 = getelementptr inbounds nuw i8, ptr %381, i64 8312
   store i32 0, ptr %416, align 8
   %417 = and i32 %415, 4
   %.not128 = icmp eq i32 %417, 0
@@ -2811,12 +2811,12 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
           to label %420 unwind label %47
 
 420:                                              ; preds = %418
-  %421 = getelementptr inbounds i8, ptr %381, i64 8316
+  %421 = getelementptr inbounds nuw i8, ptr %381, i64 8316
   store i32 %419, ptr %421, align 4
   br label %422
 
 422:                                              ; preds = %420, %414
-  %423 = getelementptr inbounds i8, ptr %381, i64 8464
+  %423 = getelementptr inbounds nuw i8, ptr %381, i64 8464
   store i32 0, ptr %423, align 8
   %424 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
           to label %425 unwind label %47
@@ -2826,10 +2826,10 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   %427 = lshr i64 %424, 7
   %428 = trunc i64 %427 to i8
   %429 = and i8 %428, 7
-  %430 = getelementptr inbounds i8, ptr %381, i64 32
+  %430 = getelementptr inbounds nuw i8, ptr %381, i64 32
   store i8 %429, ptr %430, align 8
   %431 = and i32 %426, 63
-  %432 = getelementptr inbounds i8, ptr %381, i64 28
+  %432 = getelementptr inbounds nuw i8, ptr %381, i64 28
   %.not129 = icmp eq i32 %431, 0
   %spec.select = select i1 %.not129, i32 50, i32 9999
   store i32 %spec.select, ptr %432, align 4
@@ -2838,19 +2838,19 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
 
 434:                                              ; preds = %425
   %435 = trunc i64 %433 to i8
-  %436 = getelementptr inbounds i8, ptr %381, i64 24
+  %436 = getelementptr inbounds nuw i8, ptr %381, i64 24
   store i8 %435, ptr %436, align 8
   %437 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
           to label %438 unwind label %47
 
 438:                                              ; preds = %434
   %439 = load i32, ptr %230, align 4
-  %440 = getelementptr inbounds i8, ptr %381, i64 8456
+  %440 = getelementptr inbounds nuw i8, ptr %381, i64 8456
   %441 = trunc i32 %439 to i8
   %442 = lshr i8 %441, 6
   %443 = and i8 %442, 1
   store i8 %443, ptr %440, align 8
-  %444 = getelementptr inbounds i8, ptr %381, i64 8460
+  %444 = getelementptr inbounds nuw i8, ptr %381, i64 8460
   store i32 2, ptr %444, align 4
   %445 = load i8, ptr %436, align 8
   switch i8 %445, label %447 [
@@ -2867,47 +2867,47 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   br label %447
 
 447:                                              ; preds = %.sink.split, %438
-  %448 = getelementptr inbounds i8, ptr %381, i64 8
+  %448 = getelementptr inbounds nuw i8, ptr %381, i64 8
   %449 = load i32, ptr %448, align 8
-  %450 = getelementptr inbounds i8, ptr %381, i64 8352
+  %450 = getelementptr inbounds nuw i8, ptr %381, i64 8352
   %451 = trunc i32 %449 to i8
   %452 = lshr i8 %451, 3
   %453 = and i8 %452, 1
   store i8 %453, ptr %450, align 8
-  %454 = getelementptr inbounds i8, ptr %381, i64 8353
+  %454 = getelementptr inbounds nuw i8, ptr %381, i64 8353
   %455 = lshr i8 %451, 4
   %456 = and i8 %455, 1
   store i8 %456, ptr %454, align 1
-  %457 = getelementptr inbounds i8, ptr %381, i64 8458
+  %457 = getelementptr inbounds nuw i8, ptr %381, i64 8458
   %458 = lshr i8 %451, 5
   %459 = and i8 %458, 1
   store i8 %459, ptr %457, align 2
   %460 = and i32 %426, 64
   %461 = icmp ne i32 %460, 0
   %462 = and i1 %384, %461
-  %463 = getelementptr inbounds i8, ptr %381, i64 8440
+  %463 = getelementptr inbounds nuw i8, ptr %381, i64 8440
   %464 = zext i1 %462 to i8
   store i8 %464, ptr %463, align 8
   %465 = load i32, ptr %390, align 4
   %466 = and i32 %465, 1
   %.not134 = icmp eq i32 %466, 0
-  %467 = getelementptr inbounds i8, ptr %381, i64 8441
+  %467 = getelementptr inbounds nuw i8, ptr %381, i64 8441
   %468 = trunc nuw nsw i32 %466 to i8
   store i8 %468, ptr %467, align 1
   %469 = lshr i64 %424, 10
   %470 = and i64 %469, 15
   %471 = shl nuw nsw i64 131072, %470
   %472 = select i1 %.not134, i64 %471, i64 0
-  %473 = getelementptr inbounds i8, ptr %381, i64 8448
+  %473 = getelementptr inbounds nuw i8, ptr %381, i64 8448
   store i64 %472, ptr %473, align 8
   %474 = call i64 @llvm.umin.i64(i64 %437, i64 8191)
   %475 = invoke noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull %21, i64 noundef %474)
           to label %476 unwind label %47
 
 476:                                              ; preds = %447
-  %477 = getelementptr inbounds [8192 x i8], ptr %21, i64 0, i64 %474
+  %477 = getelementptr inbounds nuw [8192 x i8], ptr %21, i64 0, i64 %474
   store i8 0, ptr %477, align 1
-  %478 = getelementptr inbounds i8, ptr %381, i64 40
+  %478 = getelementptr inbounds nuw i8, ptr %381, i64 40
   %479 = invoke noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef nonnull %21, ptr noundef nonnull %478, i64 noundef 2048)
           to label %480 unwind label %47
 
@@ -2936,7 +2936,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
   br i1 %486, label %487, label %489
 
 487:                                              ; preds = %.critedge147
-  %488 = getelementptr inbounds i8, ptr %0, i64 48846
+  %488 = getelementptr inbounds nuw i8, ptr %0, i64 48846
   store i8 1, ptr %488, align 2
   br label %489
 
@@ -2949,22 +2949,22 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i199: ; preds = %243
 
 491:                                              ; preds = %491, %490
   %indvars.iv.i.i204 = phi i64 [ 0, %490 ], [ %indvars.iv.next.i.i205, %491 ]
-  %492 = getelementptr inbounds [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i204
+  %492 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i204
   store ptr @.str.8, ptr %492, align 8
   %indvars.iv.next.i.i205 = add nuw nsw i64 %indvars.iv.i.i204, 1
   %exitcond.not.i.i206 = icmp eq i64 %indvars.iv.next.i.i205, 8
   br i1 %exitcond.not.i.i206, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i207, label %491, !llvm.loop !4
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i207: ; preds = %491
-  %493 = getelementptr inbounds i8, ptr %0, i64 52
-  %494 = getelementptr inbounds i8, ptr %2, i64 64
-  %495 = getelementptr inbounds i8, ptr %2, i64 104
+  %493 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %494 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %495 = getelementptr inbounds nuw i8, ptr %2, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %494, i8 0, i64 40, i1 false)
   store i32 28, ptr %495, align 8
-  %496 = getelementptr inbounds i8, ptr %2, i64 96
+  %496 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %493, ptr %2, align 8
   store i32 2, ptr %496, align 8
-  %497 = getelementptr inbounds i8, ptr %2, i64 8
+  %497 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %478, ptr %497, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %2)
           to label %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit209 unwind label %47
@@ -2974,21 +2974,21 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit209: ; preds = %_Z9uiMsgBaseIR
   br label %508
 
 498:                                              ; preds = %271
-  %499 = getelementptr inbounds i8, ptr %0, i64 31160
+  %499 = getelementptr inbounds nuw i8, ptr %0, i64 31160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %499, ptr noundef nonnull align 4 dereferenceable(20) %164, i64 20, i1 false)
   %500 = invoke noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
           to label %501 unwind label %47
 
 501:                                              ; preds = %498
-  %502 = getelementptr inbounds i8, ptr %0, i64 31188
+  %502 = getelementptr inbounds nuw i8, ptr %0, i64 31188
   %503 = trunc i64 %500 to i8
   %504 = and i8 %503, 1
   store i8 %504, ptr %502, align 4
-  %505 = getelementptr inbounds i8, ptr %0, i64 31191
+  %505 = getelementptr inbounds nuw i8, ptr %0, i64 31191
   store i8 0, ptr %505, align 1
-  %506 = getelementptr inbounds i8, ptr %0, i64 31189
+  %506 = getelementptr inbounds nuw i8, ptr %0, i64 31189
   store i8 0, ptr %506, align 1
-  %507 = getelementptr inbounds i8, ptr %0, i64 31190
+  %507 = getelementptr inbounds nuw i8, ptr %0, i64 31190
   store i8 0, ptr %507, align 2
   br label %508
 
@@ -3031,24 +3031,24 @@ define void @_ZN7Archive15BrokenHeaderMsgEv(ptr noundef nonnull align 8 derefere
 
 3:                                                ; preds = %3, %1
   %indvars.iv.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i, %3 ]
-  %4 = getelementptr inbounds [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i
+  %4 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i
   store ptr @.str.8, ptr %4, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %3, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
-  %6 = getelementptr inbounds i8, ptr %2, i64 64
-  %7 = getelementptr inbounds i8, ptr %2, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store i32 26, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 1, ptr %8, align 8
   store ptr %5, ptr %2, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %2)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 48864
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48864
   store i8 1, ptr %9, align 8
   call void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 3)
   ret void
@@ -3062,7 +3062,7 @@ define noundef i64 @_ZN7Archive11SearchBlockE11HEADER_TYPE(ptr noundef nonnull a
 
 .lr.ph:                                           ; preds = %2
   %.not18 = icmp eq i32 %1, 5
-  %4 = getelementptr inbounds i8, ptr %0, i64 11076
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 11076
   br i1 %.not18, label %.critedge2.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -3132,8 +3132,8 @@ declare void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN7Archive14SearchSubBlockEPKw(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 11076
-  %4 = getelementptr inbounds i8, ptr %0, i64 31264
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 11076
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 31264
   %5 = tail call noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
   %.not7 = icmp eq i64 %5, 0
   %6 = load i32, ptr %3, align 4
@@ -3181,25 +3181,25 @@ define noundef i64 @_ZN7Archive14SearchSubBlockEPKw(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN7Archive8SearchRREv(ptr noundef nonnull align 8 dereferenceable(57108) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 13838
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 13838
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %33
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 13856
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 13856
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %33, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(57108) %0)
   %13 = load i64, ptr %6, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(57108) %0, i64 noundef %13, i32 noundef 0)
   %17 = tail call noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
@@ -3207,31 +3207,31 @@ define noundef i64 @_ZN7Archive8SearchRREv(ptr noundef nonnull align 8 dereferen
   br i1 %.not5, label %29, label %18
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %0, i64 48864
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48864
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
-  %22 = getelementptr inbounds i8, ptr %0, i64 11076
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 11076
   %23 = load i32, ptr %22, align 4
   %24 = icmp ne i32 %23, 3
   %or.cond.not = select i1 %21, i1 true, i1 %24
   br i1 %or.cond.not, label %29, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 31264
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 31264
   %27 = tail call i32 @wcscmp(ptr noundef nonnull %26, ptr noundef nonnull @.str) #21
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %_ZN7Archive14SearchSubBlockEPKw.exit, label %29
 
 29:                                               ; preds = %25, %18, %8
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(57108) %0, i64 noundef %12, i32 noundef 0)
   br label %33
 
 33:                                               ; preds = %29, %5, %1
-  %34 = getelementptr inbounds i8, ptr %0, i64 11076
-  %35 = getelementptr inbounds i8, ptr %0, i64 31264
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 11076
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 31264
   %36 = tail call noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
   %.not7.i = icmp eq i64 %36, 0
   %37 = load i32, ptr %34, align 4
@@ -3281,10 +3281,10 @@ _ZN7Archive14SearchSubBlockEPKw.exit:             ; preds = %47, %50, %33, %25
 define void @_ZN7Archive14UnexpEndArcMsgEv(ptr noundef nonnull align 8 dereferenceable(57108) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.uiMsgStore, align 8
   %3 = tail call noundef i64 @_ZN4File10FileLengthEv(ptr noundef nonnull align 8 dereferenceable(8256) %0)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48824
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48824
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 48832
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48832
   %7 = load i64, ptr %6, align 8
   %.not2 = icmp eq i64 %7, %3
   %or.cond = select i1 %.not, i1 %.not2, i1 false
@@ -3296,19 +3296,19 @@ define void @_ZN7Archive14UnexpEndArcMsgEv(ptr noundef nonnull align 8 dereferen
 
 9:                                                ; preds = %9, %8
   %indvars.iv.i.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i.i, %9 ]
-  %10 = getelementptr inbounds [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i
   store ptr @.str.8, ptr %10, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %9, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 52
-  %12 = getelementptr inbounds i8, ptr %2, i64 64
-  %13 = getelementptr inbounds i8, ptr %2, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   store i32 56, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 1, ptr %14, align 8
   store ptr %11, ptr %2, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %2)
@@ -3332,24 +3332,24 @@ define void @_ZN7Archive12UnkEncVerMsgEPKwS1_(ptr noundef nonnull align 8 derefe
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %5 ]
-  %6 = getelementptr inbounds [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
   store ptr @.str.8, ptr %6, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wRPKwS4_EEv14UIMESSAGE_CODEDpOT_.exit, label %5, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wRPKwS4_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 52
-  %8 = getelementptr inbounds i8, ptr %4, i64 64
-  %9 = getelementptr inbounds i8, ptr %4, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   store i32 34, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %7, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %11, align 8
   store i32 3, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %12, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
@@ -3363,22 +3363,22 @@ declare void @_ZN7RawReadC1EP4File(ptr noundef nonnull align 8 dereferenceable(6
 define void @_ZN7Archive18RequestArcPasswordEP16RarCheckPassword(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr nocapture readnone %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [512 x i32], align 16
   %4 = alloca [512 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 11056
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 11056
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 100872
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 100872
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %50, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 83440
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 83440
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %36, label %13
 
 13:                                               ; preds = %10
   store i32 0, ptr %3, align 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 83432
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 83432
   %15 = load i64, ptr %14, align 8
   %16 = ptrtoint ptr %3 to i64
   %17 = call noundef i32 %12(i32 noundef 4, i64 noundef %15, i64 noundef %16, i64 noundef 512)
@@ -3397,9 +3397,9 @@ define void @_ZN7Archive18RequestArcPasswordEP16RarCheckPassword(ptr noundef non
 21:                                               ; preds = %.thread, %19
   store i8 0, ptr %4, align 16
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 83440
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 83440
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 83432
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 83432
   %26 = load i64, ptr %25, align 8
   %27 = ptrtoint ptr %4 to i64
   %28 = call noundef i32 %24(i32 noundef 2, i64 noundef %26, i64 noundef %27, i64 noundef 512)
@@ -3417,11 +3417,11 @@ define void @_ZN7Archive18RequestArcPasswordEP16RarCheckPassword(ptr noundef non
 
 33:                                               ; preds = %31, %19
   %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 100848
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 100848
   call void @_ZN11SecPassword3SetEPKw(ptr noundef nonnull align 8 dereferenceable(25) %35, ptr noundef nonnull %3)
   call void @_Z9cleandataPvm(ptr noundef nonnull %3, i64 noundef 2048)
   %.pre = load ptr, ptr %5, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 100872
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 100872
   %.pre1 = load i8, ptr %.phi.trans.insert, align 8
   br label %36
 
@@ -3433,11 +3433,11 @@ define void @_ZN7Archive18RequestArcPasswordEP16RarCheckPassword(ptr noundef non
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(8256) %0)
   %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 83424
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 83424
   store i32 22, ptr %46, align 8
   call void @_ZN12ErrorHandler4ExitE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 255)
   %.pre2 = load ptr, ptr %5, align 8
@@ -3445,7 +3445,7 @@ define void @_ZN7Archive18RequestArcPasswordEP16RarCheckPassword(ptr noundef non
 
 47:                                               ; preds = %40, %36
   %48 = phi ptr [ %.pre2, %40 ], [ %38, %36 ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 49202
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 49202
   store i8 1, ptr %49, align 2
   br label %50
 
@@ -3487,9 +3487,9 @@ declare void @_Z13ArcCharToWidePKcPwm13ACTW_ENCODING(ptr noundef, ptr noundef, i
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Archive15ConvertNameCaseEPw(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57108) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 11056
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 11056
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 57484
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 57484
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %10
@@ -3497,7 +3497,7 @@ define void @_ZN7Archive15ConvertNameCaseEPw(ptr nocapture noundef nonnull reado
 8:                                                ; preds = %2
   %9 = tail call noundef ptr @_Z8wcsupperPw(ptr noundef %1)
   %.pre = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 57484
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 57484
   %.pre3 = load i32, ptr %.phi.trans.insert, align 4
   br label %10
 
@@ -3516,23 +3516,23 @@ define void @_ZN7Archive15ConvertNameCaseEPw(ptr nocapture noundef nonnull reado
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN7Archive17ConvertFileHeaderEP10FileHeader(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57108) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8460
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8460
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %.sink.split, label %10
 
 .sink.split:                                      ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8441
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8441
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
-  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %. = select i1 %8, i32 16, i32 32
   store i32 %., ptr %9, align 4
   br label %10
 
 10:                                               ; preds = %.sink.split, %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 48840
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48840
   br label %13
 
 13:                                               ; preds = %.thread17.thread19, %10
@@ -3560,7 +3560,7 @@ define void @_ZN7Archive17ConvertFileHeaderEP10FileHeader(ptr nocapture noundef 
   br label %.thread17.thread19
 
 .thread17.thread19:                               ; preds = %.thread17.thread19.sink.split, %13, %18
-  %21 = getelementptr inbounds i8, ptr %.0, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   br label %13, !llvm.loop !6
 
 22:                                               ; preds = %13
@@ -3571,15 +3571,15 @@ declare noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef, ptr noundef, i64 n
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5ArrayIhE5AllocEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %6, align 8
   br i1 %5, label %7, label %22
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp ne i64 %9, 0
   %10 = icmp ugt i64 %1, %9
@@ -3637,7 +3637,7 @@ declare void @_ZN12ErrorHandler4ExitE8RAR_EXIT(ptr noundef nonnull align 4 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16RarCheckPasswordD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #5 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16RarCheckPassword, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -3681,10 +3681,10 @@ define void @_ZN7Archive14ProcessExtra50EP7RawReadmPK9BaseBlock(ptr noundef nonn
   %15 = alloca [32 x i8], align 16
   %16 = alloca [20 x i32], align 16
   %17 = alloca [8192 x i8], align 16
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load i64, ptr %18, align 8
   %20 = sub i64 %19, %2
-  %21 = getelementptr inbounds i8, ptr %1, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load i64, ptr %21, align 8
   %23 = icmp ult i64 %20, %22
   br i1 %23, label %.loopexit, label %.preheader
@@ -3695,57 +3695,57 @@ define void @_ZN7Archive14ProcessExtra50EP7RawReadmPK9BaseBlock(ptr noundef nonn
   br i1 %24, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %25 = getelementptr inbounds i8, ptr %3, i64 4
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 16
-  %28 = getelementptr inbounds i8, ptr %9, i64 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 72
-  %30 = getelementptr inbounds i8, ptr %3, i64 104
-  %31 = getelementptr inbounds i8, ptr %3, i64 30
-  %32 = getelementptr inbounds i8, ptr %0, i64 48824
-  %33 = getelementptr inbounds i8, ptr %3, i64 32
-  %34 = getelementptr inbounds i8, ptr %3, i64 48
-  %35 = getelementptr inbounds i8, ptr %3, i64 8232
-  %36 = getelementptr inbounds i8, ptr %3, i64 8248
-  %37 = getelementptr inbounds i8, ptr %3, i64 8240
-  %38 = getelementptr inbounds i8, ptr %3, i64 8256
-  %39 = getelementptr inbounds i8, ptr %3, i64 16662
-  %40 = getelementptr inbounds i8, ptr %3, i64 16663
-  %41 = getelementptr inbounds i8, ptr %3, i64 16920
-  %42 = getelementptr inbounds i8, ptr %3, i64 16664
-  %43 = getelementptr inbounds i8, ptr %3, i64 17176
-  %44 = getelementptr inbounds i8, ptr %3, i64 17180
-  %45 = getelementptr inbounds i8, ptr %3, i64 16661
-  %46 = getelementptr inbounds i8, ptr %3, i64 8464
-  %47 = getelementptr inbounds i8, ptr %3, i64 16660
-  %48 = getelementptr inbounds i8, ptr %3, i64 8468
-  %49 = getelementptr inbounds i8, ptr %3, i64 8443
-  %50 = getelementptr inbounds i8, ptr %3, i64 40
-  %51 = getelementptr inbounds i8, ptr %3, i64 8264
-  %52 = getelementptr inbounds i8, ptr %3, i64 8272
-  %53 = getelementptr inbounds i8, ptr %3, i64 8280
-  %54 = getelementptr inbounds i8, ptr %3, i64 8312
-  %55 = getelementptr inbounds i8, ptr %3, i64 8316
-  %56 = getelementptr inbounds i8, ptr %0, i64 52
-  %57 = getelementptr inbounds i8, ptr %6, i64 64
-  %58 = getelementptr inbounds i8, ptr %6, i64 104
-  %59 = getelementptr inbounds i8, ptr %6, i64 96
-  %60 = getelementptr inbounds i8, ptr %6, i64 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 16
-  %62 = getelementptr inbounds i8, ptr %3, i64 8393
-  %63 = getelementptr inbounds i8, ptr %3, i64 8402
-  %64 = getelementptr inbounds i8, ptr %3, i64 8436
-  %65 = getelementptr inbounds i8, ptr %5, i64 64
-  %66 = getelementptr inbounds i8, ptr %5, i64 104
-  %67 = getelementptr inbounds i8, ptr %5, i64 96
-  %68 = getelementptr inbounds i8, ptr %5, i64 8
-  %69 = getelementptr inbounds i8, ptr %5, i64 16
-  %70 = getelementptr inbounds i8, ptr %3, i64 8361
-  %71 = getelementptr inbounds i8, ptr %3, i64 8377
-  %72 = getelementptr inbounds i8, ptr %3, i64 8394
-  %73 = getelementptr inbounds i8, ptr %3, i64 8360
-  %74 = getelementptr inbounds i8, ptr %3, i64 8356
-  %75 = getelementptr inbounds i8, ptr %3, i64 8355
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 30
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48824
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8232
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8248
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8240
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8256
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16662
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16663
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16920
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16664
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 17176
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 17180
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 16661
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8464
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16660
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8468
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8443
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8264
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8272
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8280
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8312
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8316
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8393
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 8402
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 8436
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 8361
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 8377
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 8394
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 8360
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 8356
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8355
   br label %76
 
 76:                                               ; preds = %.lr.ph, %.thread255
@@ -3853,7 +3853,7 @@ define void @_ZN7Archive14ProcessExtra50EP7RawReadmPK9BaseBlock(ptr noundef nonn
 127:                                              ; preds = %124
   store i8 0, ptr %125, align 1
   %128 = load ptr, ptr %26, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 1
   store ptr %129, ptr %26, align 8
   %.pre = load ptr, ptr %7, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
@@ -3897,11 +3897,11 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %140, %_ZNKSt6v
   br label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %145, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %146 = getelementptr inbounds i8, ptr %143, i64 1
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 1
   call void @_ZdlPv(ptr noundef nonnull %122) #23
   store ptr %142, ptr %7, align 8
   store ptr %146, ptr %26, align 8
-  %147 = getelementptr inbounds i8, ptr %142, i64 %139
+  %147 = getelementptr inbounds nuw i8, ptr %142, i64 %139
   store ptr %147, ptr %27, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -4055,7 +4055,7 @@ thread-pre-split:                                 ; preds = %178, %184, %186, %1
 
 200:                                              ; preds = %200, %198
   %indvars.iv.i.i.i = phi i64 [ 0, %198 ], [ %indvars.iv.next.i.i.i, %200 ]
-  %201 = getelementptr inbounds [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.i.i.i
+  %201 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.i.i.i
   store ptr @.str.8, ptr %201, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
@@ -4094,7 +4094,7 @@ _ZN7Archive12UnkEncVerMsgEPKwS1_.exit:            ; preds = %200
 
 213:                                              ; preds = %213, %211
   %indvars.iv.i.i.i232 = phi i64 [ 0, %211 ], [ %indvars.iv.next.i.i.i233, %213 ]
-  %214 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i.i232
+  %214 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i.i232
   store ptr @.str.8, ptr %214, align 8
   %indvars.iv.next.i.i.i233 = add nuw nsw i64 %indvars.iv.i.i.i232, 1
   %exitcond.not.i.i.i234 = icmp eq i64 %indvars.iv.next.i.i.i233, 8
@@ -4308,7 +4308,7 @@ _ZN7Archive12UnkEncVerMsgEPKwS1_.exit235:         ; preds = %213
 
 301:                                              ; preds = %293
   %302 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %17, i64 noundef %299)
-  %303 = getelementptr inbounds [8192 x i8], ptr %17, i64 0, i64 %299
+  %303 = getelementptr inbounds nuw [8192 x i8], ptr %17, i64 0, i64 %299
   store i8 0, ptr %303, align 1
   br label %304
 
@@ -4336,7 +4336,7 @@ _ZN7Archive12UnkEncVerMsgEPKwS1_.exit235:         ; preds = %213
   %316 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %317 = call i64 @llvm.umin.i64(i64 %316, i64 255)
   %318 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %42, i64 noundef %317)
-  %319 = getelementptr inbounds [256 x i8], ptr %42, i64 0, i64 %317
+  %319 = getelementptr inbounds nuw [256 x i8], ptr %42, i64 0, i64 %317
   store i8 0, ptr %319, align 1
   br label %320
 
@@ -4349,7 +4349,7 @@ _ZN7Archive12UnkEncVerMsgEPKwS1_.exit235:         ; preds = %213
   %323 = call noundef i64 @_ZN7RawRead4GetVEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %324 = call i64 @llvm.umin.i64(i64 %323, i64 255)
   %325 = call noundef i64 @_ZN7RawRead4GetBEPvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %41, i64 noundef %324)
-  %326 = getelementptr inbounds [256 x i8], ptr %41, i64 0, i64 %324
+  %326 = getelementptr inbounds nuw [256 x i8], ptr %41, i64 0, i64 %324
   store i8 0, ptr %326, align 1
   br label %327
 
@@ -4495,7 +4495,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
 
 _ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %19
 
@@ -4511,13 +4511,13 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vecto
 
 11:                                               ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i
   store ptr %8, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %12, align 8
   %13 = getelementptr i8, ptr %8, i64 %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8
   store i8 0, ptr %8, align 1
-  %15 = getelementptr inbounds i8, ptr %8, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %16 = add nsw i64 %1, -1
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %19, label %18
@@ -4560,7 +4560,7 @@ _ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIwSaIwEEC2EmRKS0_.exit.thread, label %_ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i
 
 _ZNSt12_Vector_baseIwSaIwEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIwSaIwEE17_S_check_init_lenEmRKS0_.exit
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %19
 
@@ -4577,10 +4577,10 @@ _ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vecto
 
 12:                                               ; preds = %_ZNSt16allocator_traitsISaIwEE8allocateERS0_m.exit.i.i.i
   store ptr %9, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %13, align 8
   %14 = getelementptr i32, ptr %9, i64 %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %15, align 8
   store i32 0, ptr %9, align 4
   %16 = getelementptr i8, ptr %9, i64 4
@@ -4652,7 +4652,7 @@ declare noundef ptr @_Z8wcslowerPw(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN7Archive8IsArcDirEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57108) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 22417
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 22417
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -4671,7 +4671,7 @@ define void @_ZN7Archive17ConvertAttributesEv(ptr nocapture noundef nonnull alig
   br label %7
 
 7:                                                ; preds = %4, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 22436
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 22436
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %27 [
     i32 0, label %10
@@ -4679,7 +4679,7 @@ define void @_ZN7Archive17ConvertAttributesEv(ptr nocapture noundef nonnull alig
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 14012
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 14012
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 16
   %.not = icmp eq i32 %13, 0
@@ -4711,11 +4711,11 @@ define void @_ZN7Archive17ConvertAttributesEv(ptr nocapture noundef nonnull alig
   br label %39
 
 27:                                               ; preds = %7
-  %28 = getelementptr inbounds i8, ptr %0, i64 22417
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 22417
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
   %31 = load i32, ptr @_ZZN7Archive17ConvertAttributesEvE4mask, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 14012
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 14012
   br i1 %30, label %33, label %36
 
 33:                                               ; preds = %27
@@ -4739,24 +4739,24 @@ declare i32 @umask(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN7Archive11GetStartPosEv(ptr noundef nonnull align 8 dereferenceable(57108) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48856
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48856
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 13800
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 13800
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48840
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48840
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 13820
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 13820
   %11 = load i32, ptr %10, align 4
   br label %20
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 13932
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 13932
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 13820
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 13820
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
   %18 = tail call noundef i32 @_ZN7Archive14FullHeaderSizeEm(ptr noundef nonnull align 8 dereferenceable(57108) %0, i64 noundef %17)
@@ -4779,7 +4779,7 @@ define noundef zeroext i1 @_ZN7Archive11ReadSubDataEP5ArrayIhEP4Fileb(ptr nounde
   %7 = alloca %class.uiMsgStore, align 8
   %8 = alloca %class.uiMsgStore, align 8
   %9 = alloca %class.Unpack, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48864
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48864
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %20
@@ -4790,19 +4790,19 @@ define noundef zeroext i1 @_ZN7Archive11ReadSubDataEP5ArrayIhEP4Fileb(ptr nounde
 
 14:                                               ; preds = %14, %13
   %indvars.iv.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i, %14 ]
-  %15 = getelementptr inbounds [8 x ptr], ptr %8, i64 0, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %indvars.iv.i.i
   store ptr @.str.8, ptr %15, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit, label %14, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 52
-  %17 = getelementptr inbounds i8, ptr %8, i64 64
-  %18 = getelementptr inbounds i8, ptr %8, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
   store i32 29, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i32 1, ptr %19, align 8
   store ptr %16, ptr %8, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %8)
@@ -4811,16 +4811,16 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %14
   br label %151
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %0, i64 31224
-  %22 = getelementptr inbounds i8, ptr %0, i64 31256
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 31224
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 31256
   %23 = load i8, ptr %22, align 8
   %24 = icmp ugt i8 %23, 5
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 31252
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 31252
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 48840
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48840
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 3
   %31 = select i1 %30, i32 50, i32 29
@@ -4833,19 +4833,19 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %14
 
 34:                                               ; preds = %34, %33
   %indvars.iv.i.i14 = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i15, %34 ]
-  %35 = getelementptr inbounds [8 x ptr], ptr %7, i64 0, i64 %indvars.iv.i.i14
+  %35 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %indvars.iv.i.i14
   store ptr @.str.8, ptr %35, align 8
   %indvars.iv.next.i.i15 = add nuw nsw i64 %indvars.iv.i.i14, 1
   %exitcond.not.i.i16 = icmp eq i64 %indvars.iv.next.i.i15, 8
   br i1 %exitcond.not.i.i16, label %_Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit17, label %34, !llvm.loop !4
 
 _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit17: ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 52
-  %37 = getelementptr inbounds i8, ptr %7, i64 64
-  %38 = getelementptr inbounds i8, ptr %7, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, i8 0, i64 40, i1 false)
   store i32 30, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i32 1, ptr %39, align 8
   store ptr %36, ptr %7, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %7)
@@ -4853,22 +4853,22 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit17: ; preds = %34
   br label %151
 
 40:                                               ; preds = %25
-  %41 = getelementptr inbounds i8, ptr %0, i64 39512
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 39512
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %0, i64 39577
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 39577
   %46 = load i8, ptr %45, align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %151
 
 48:                                               ; preds = %44, %40
-  %49 = getelementptr inbounds i8, ptr %0, i64 10776
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 10776
   tail call void @_ZN11ComprDataIO4InitEv(ptr noundef nonnull align 8 dereferenceable(266) %49)
   call void @_ZN6UnpackC1EP11ComprDataIO(ptr noundef nonnull align 8 dereferenceable(59688) %9, ptr noundef nonnull %49)
-  %50 = getelementptr inbounds i8, ptr %0, i64 39672
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 39672
   %51 = load i64, ptr %50, align 8
   invoke void @_ZN6Unpack4InitEmb(ptr noundef nonnull align 8 dereferenceable(59688) %9, i64 noundef %51, i1 noundef zeroext false)
           to label %52 unwind label %65
@@ -4878,7 +4878,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit17: ; preds = %34
   br i1 %53, label %54, label %76
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %0, i64 39520
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 39520
   %56 = load i64, ptr %55, align 8
   %57 = icmp sgt i64 %56, 16777216
   br i1 %57, label %58, label %67
@@ -4889,19 +4889,19 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit17: ; preds = %34
 
 59:                                               ; preds = %59, %58
   %indvars.iv.i.i18 = phi i64 [ 0, %58 ], [ %indvars.iv.next.i.i19, %59 ]
-  %60 = getelementptr inbounds [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.i.i18
+  %60 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.i.i18
   store ptr @.str.8, ptr %60, align 8
   %indvars.iv.next.i.i19 = add nuw nsw i64 %indvars.iv.i.i18, 1
   %exitcond.not.i.i20 = icmp eq i64 %indvars.iv.next.i.i19, 8
   br i1 %exitcond.not.i.i20, label %_Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i, label %59, !llvm.loop !4
 
 _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 52
-  %62 = getelementptr inbounds i8, ptr %6, i64 64
-  %63 = getelementptr inbounds i8, ptr %6, i64 104
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %62, i8 0, i64 40, i1 false)
   store i32 30, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %6, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 1, ptr %64, align 8
   store ptr %61, ptr %6, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %6)
@@ -4922,7 +4922,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit21: ; preds = %_Z9uiMsgBaseIRA204
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %0, i64 10857
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 10857
   store i8 1, ptr %70, align 1
   br label %76
 
@@ -4938,72 +4938,72 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit21: ; preds = %_Z9uiMsgBaseIRA204
           to label %76 unwind label %65
 
 76:                                               ; preds = %69, %72, %52
-  %77 = getelementptr inbounds i8, ptr %0, i64 39579
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 39579
   %78 = load i8, ptr %77, align 1
   %79 = trunc i8 %78 to i1
   br i1 %79, label %80, label %100
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %0, i64 11056
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 11056
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 100872
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 100872
   %84 = load i8, ptr %83, align 8
   %85 = trunc i8 %84 to i1
   br i1 %85, label %86, label %150
 
 86:                                               ; preds = %80
-  %87 = getelementptr inbounds i8, ptr %82, i64 100848
-  %88 = getelementptr inbounds i8, ptr %0, i64 39580
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 100848
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 39580
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %0, i64 39584
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 39584
   %91 = load i8, ptr %90, align 8
   %92 = trunc i8 %91 to i1
-  %93 = getelementptr inbounds i8, ptr %0, i64 39585
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 39585
   %94 = select i1 %92, ptr %93, ptr null
-  %95 = getelementptr inbounds i8, ptr %0, i64 39601
-  %96 = getelementptr inbounds i8, ptr %0, i64 39660
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 39601
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 39660
   %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 39627
-  %99 = getelementptr inbounds i8, ptr %0, i64 39618
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 39627
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 39618
   invoke void @_ZN11ComprDataIO13SetEncryptionEb12CRYPT_METHODP11SecPasswordPKhS4_jPhS5_(ptr noundef nonnull align 8 dereferenceable(266) %49, i1 noundef zeroext false, i32 noundef %89, ptr noundef nonnull %87, ptr noundef %94, ptr noundef nonnull %95, i32 noundef %97, ptr noundef nonnull %98, ptr noundef nonnull %99)
           to label %100 unwind label %65
 
 100:                                              ; preds = %86, %76
-  %101 = getelementptr inbounds i8, ptr %0, i64 11024
-  %102 = getelementptr inbounds i8, ptr %0, i64 39536
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 11024
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 39536
   %103 = load i32, ptr %102, align 8
   invoke void @_ZN8DataHash4InitE9HASH_TYPEj(ptr noundef nonnull align 8 dereferenceable(16) %101, i32 noundef %103, i32 noundef 1)
           to label %104 unwind label %65
 
 104:                                              ; preds = %100
   %105 = load i64, ptr %41, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 10848
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 10848
   store i64 %105, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 10840
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 10840
   store i64 %105, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 10856
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 10856
   store i8 0, ptr %108, align 8
   invoke void @_ZN11ComprDataIO8SetFilesEP4FileS1_(ptr noundef nonnull align 8 dereferenceable(266) %49, ptr noundef nonnull %0, ptr noundef %2)
           to label %109 unwind label %65
 
 109:                                              ; preds = %104
   %110 = zext i1 %3 to i8
-  %111 = getelementptr inbounds i8, ptr %0, i64 10857
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 10857
   store i8 %110, ptr %111, align 1
-  %112 = getelementptr inbounds i8, ptr %0, i64 39577
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 39577
   %113 = load i8, ptr %112, align 1
-  %114 = getelementptr inbounds i8, ptr %0, i64 10929
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 10929
   %115 = and i8 %113, 1
   store i8 %115, ptr %114, align 1
-  %116 = getelementptr inbounds i8, ptr %0, i64 10888
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 10888
   store ptr %21, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 10896
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 10896
   store ptr null, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 39520
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 39520
   %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %9, i64 19840
+  %120 = getelementptr inbounds nuw i8, ptr %9, i64 19840
   store i64 %119, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %9, i64 19864
+  %121 = getelementptr inbounds nuw i8, ptr %9, i64 19864
   store i8 0, ptr %121, align 8
   %122 = load i8, ptr %22, align 8
   %123 = icmp eq i8 %122, 0
@@ -5019,10 +5019,10 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit21: ; preds = %_Z9uiMsgBaseIRA204
           to label %127 unwind label %65
 
 127:                                              ; preds = %125, %124
-  %128 = getelementptr inbounds i8, ptr %0, i64 39626
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 39626
   %129 = load i8, ptr %128, align 2
   %130 = trunc i8 %129 to i1
-  %131 = getelementptr inbounds i8, ptr %0, i64 39627
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 39627
   %132 = select i1 %130, ptr %131, ptr null
   %133 = invoke noundef zeroext i1 @_ZN8DataHash3CmpEP9HashValuePh(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull %102, ptr noundef %132)
           to label %134 unwind label %65
@@ -5031,28 +5031,28 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit21: ; preds = %_Z9uiMsgBaseIRA204
   br i1 %133, label %150, label %135
 
 135:                                              ; preds = %134
-  %136 = getelementptr inbounds i8, ptr %0, i64 52
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 52
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5)
   br label %137
 
 137:                                              ; preds = %137, %135
   %indvars.iv.i.i22 = phi i64 [ 0, %135 ], [ %indvars.iv.next.i.i23, %137 ]
-  %138 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i22
+  %138 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i22
   store ptr @.str.8, ptr %138, align 8
   %indvars.iv.next.i.i23 = add nuw nsw i64 %indvars.iv.i.i22, 1
   %exitcond.not.i.i24 = icmp eq i64 %indvars.iv.next.i.i23, 8
   br i1 %exitcond.not.i.i24, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i, label %137, !llvm.loop !4
 
 _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %137
-  %139 = getelementptr inbounds i8, ptr %0, i64 31264
-  %140 = getelementptr inbounds i8, ptr %5, i64 64
-  %141 = getelementptr inbounds i8, ptr %5, i64 104
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 31264
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %140, i8 0, i64 40, i1 false)
   store i32 31, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %5, i64 96
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %136, ptr %5, align 8
   store i32 2, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %5, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %139, ptr %143, align 8
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %5)
           to label %144 unwind label %65
@@ -5077,7 +5077,7 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %137
   br label %_ZN5ArrayIhE5ResetEv.exit
 
 _ZN5ArrayIhE5ResetEv.exit:                        ; preds = %146, %148
-  %149 = getelementptr inbounds i8, ptr %1, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false)
   br label %150
 
@@ -5128,14 +5128,14 @@ define linkonce_odr noundef i32 @_ZN16RarCheckPassword13GetConfidenceEv(ptr noun
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN16RarCheckPassword5CheckEP11SecPassword(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca [8 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = call noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPasswordPKhS4_jPhS5_(ptr noundef nonnull align 8 dereferenceable(2516) %5, i1 noundef zeroext false, i32 noundef 5, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %9, ptr noundef null, ptr noundef nonnull %3)
-  %11 = getelementptr inbounds i8, ptr %0, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %3, ptr noundef nonnull dereferenceable(8) %11, i64 8)
   %12 = icmp eq i32 %bcmp, 0
   ret i1 %12
@@ -5157,27 +5157,27 @@ define linkonce_odr void @_ZN9CryptDataD2Ev(ptr noundef nonnull align 8 derefere
   %.idx = phi i64 [ 936, %1 ], [ %.add, %_ZN9CryptData13KDF5CacheItemD2Ev.exit ]
   %.add = add nsw i64 %.idx, -152
   %.ptr1 = getelementptr inbounds i8, ptr %0, i64 %.add
-  %3 = getelementptr inbounds i8, ptr %.ptr1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %.ptr1, i64 32
   invoke void @_Z9cleandataPvm(ptr noundef nonnull %3, i64 noundef 16)
           to label %.noexc.i unwind label %8
 
 .noexc.i:                                         ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %.ptr1, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %.ptr1, i64 48
   invoke void @_Z9cleandataPvm(ptr noundef nonnull %4, i64 noundef 32)
           to label %.noexc1.i unwind label %8
 
 .noexc1.i:                                        ; preds = %.noexc.i
-  %5 = getelementptr inbounds i8, ptr %.ptr1, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %.ptr1, i64 80
   invoke void @_Z9cleandataPvm(ptr noundef nonnull %5, i64 noundef 4)
           to label %.noexc2.i unwind label %8
 
 .noexc2.i:                                        ; preds = %.noexc1.i
-  %6 = getelementptr inbounds i8, ptr %.ptr1, i64 84
+  %6 = getelementptr inbounds nuw i8, ptr %.ptr1, i64 84
   invoke void @_Z9cleandataPvm(ptr noundef nonnull %6, i64 noundef 32)
           to label %.noexc3.i unwind label %8
 
 .noexc3.i:                                        ; preds = %.noexc2.i
-  %7 = getelementptr inbounds i8, ptr %.ptr1, i64 116
+  %7 = getelementptr inbounds nuw i8, ptr %.ptr1, i64 116
   invoke void @_Z9cleandataPvm(ptr noundef nonnull %7, i64 noundef 32)
           to label %_ZN9CryptData13KDF5CacheItemD2Ev.exit unwind label %8
 
@@ -5194,7 +5194,7 @@ _ZN9CryptData13KDF5CacheItemD2Ev.exit:            ; preds = %.noexc3.i
   br i1 %11, label %12, label %2
 
 12:                                               ; preds = %_ZN9CryptData13KDF5CacheItemD2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 320
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %14
 
 14:                                               ; preds = %_ZN9CryptData13KDF3CacheItemD2Ev.exit, %12

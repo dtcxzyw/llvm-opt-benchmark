@@ -47,7 +47,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   store ptr null, ptr %7, align 8
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
@@ -57,7 +57,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   br label %233
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %12, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = load i32, ptr %12, align 8
   %19 = add nsw i32 %18, %17
@@ -72,7 +72,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   br label %23
 
 23:                                               ; preds = %21, %15
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
   %27 = shl nsw i64 %26, 2
@@ -95,12 +95,12 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   br i1 %.not141, label %35, label %.thread249
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 328
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 328
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 %40(ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull %28, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef %37, ptr noundef %42) #8
   %.not142 = icmp eq i32 %43, 0
@@ -119,7 +119,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
 .lr.ph:                                           ; preds = %.preheader173, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader173 ]
   %48 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %49 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %51 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @opal_output(i32 noundef %48, ptr noundef nonnull @.str.2, i32 noundef %51, i32 noundef %50) #8
@@ -160,9 +160,9 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
 66:                                               ; preds = %66, %.lr.ph180.split.us
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %66 ], [ 0, %.lr.ph180.split.us ]
   %.0102179.us = phi i32 [ %70, %66 ], [ 0, %.lr.ph180.split.us ]
-  %67 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv215
+  %67 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv215
   store i32 %.0102179.us, ptr %67, align 4
-  %68 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv215
+  %68 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv215
   %69 = load i32, ptr %68, align 4
   %70 = add nsw i32 %69, %.0102179.us
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
@@ -174,7 +174,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   %72 = phi i32 [ %79, %77 ], [ 1, %.lr.ph180 ]
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %77 ], [ 0, %.lr.ph180 ]
   %.0102179 = phi i32 [ %82, %77 ], [ 0, %.lr.ph180 ]
-  %73 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv212
+  %73 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv212
   store i32 %.0102179, ptr %73, align 4
   %.not150 = icmp eq i32 %72, 0
   br i1 %.not150, label %77, label %74
@@ -190,7 +190,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
 77:                                               ; preds = %74, %.lr.ph180.split
   %78 = phi i32 [ %.pre231, %74 ], [ %71, %.lr.ph180.split ]
   %79 = phi i32 [ %.pre, %74 ], [ 0, %.lr.ph180.split ]
-  %80 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv212
+  %80 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv212
   %81 = load i32, ptr %80, align 4
   %82 = add nsw i32 %81, %.0102179
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
@@ -223,7 +223,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
 .preheader171:                                    ; preds = %.preheader171.preheader, %._crit_edge184
   %indvars.iv222 = phi i64 [ 0, %.preheader171.preheader ], [ %indvars.iv.next223, %._crit_edge184 ]
   %.0103187 = phi i32 [ 0, %.preheader171.preheader ], [ %.1104.lcssa, %._crit_edge184 ]
-  %93 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv222
+  %93 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv222
   %94 = load i32, ptr %93, align 4
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %.lr.ph183.preheader, label %._crit_edge184
@@ -261,17 +261,17 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
 
 102:                                              ; preds = %._crit_edge188
   %103 = load ptr, ptr %36, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 328
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 328
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load ptr, ptr %106, align 8
   %108 = load ptr, ptr %7, align 8
-  %109 = getelementptr inbounds i8, ptr %1, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i32, ptr %28, i64 %111
   %113 = load i32, ptr %112, align 4
-  %114 = getelementptr inbounds i8, ptr %105, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %115 = load ptr, ptr %114, align 8
   %116 = call i32 %107(ptr noundef %108, i32 noundef %113, ptr noundef nonnull @ompi_mpi_double, ptr noundef %.pre237.pre.pre239, ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef nonnull @ompi_mpi_double, ptr noundef %103, ptr noundef %115) #8
   %.not145 = icmp eq i32 %116, 0
@@ -279,9 +279,9 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
 
 117:                                              ; preds = %102
   %118 = load ptr, ptr %36, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 328
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 328
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %8, align 8
   %124 = load i32, ptr %109, align 4
@@ -289,7 +289,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   %126 = getelementptr inbounds i32, ptr %28, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = load ptr, ptr %6, align 8
-  %129 = getelementptr inbounds i8, ptr %120, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %130 = load ptr, ptr %129, align 8
   %131 = call i32 %122(ptr noundef %123, i32 noundef %127, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef %128, ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef %118, ptr noundef %130) #8
   %.not146 = icmp eq i32 %131, 0
@@ -302,7 +302,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
 .lr.ph.i:                                         ; preds = %132, %143
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %143 ], [ 0, %132 ]
   %.020.i = phi i64 [ %135, %143 ], [ 0, %132 ]
-  %134 = getelementptr inbounds i64, ptr %128, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw i64, ptr %128, i64 %indvars.iv.i
   %135 = load i64, ptr %134, align 8
   %136 = icmp eq i64 %indvars.iv.i, 0
   br i1 %136, label %137, label %139
@@ -325,7 +325,7 @@ define i32 @mca_sharedfp_individual_collaborate_data(ptr nocapture noundef %0, p
   br i1 %exitcond.not.i, label %mca_sharedfp_individual_assign_globaloffset.exit, label %.lr.ph.i, !llvm.loop !11
 
 mca_sharedfp_individual_assign_globaloffset.exit: ; preds = %143
-  %144 = getelementptr inbounds i64, ptr %128, i64 %88
+  %144 = getelementptr inbounds nuw i64, ptr %128, i64 %88
   %145 = getelementptr inbounds i8, ptr %144, i64 -8
   %146 = load i64, ptr %145, align 8
   %147 = add nsw i64 %146, %135
@@ -345,7 +345,7 @@ mca_sharedfp_individual_assign_globaloffset.exit: ; preds = %143
   br i1 %156, label %.lr.ph193, label %._crit_edge.thread
 
 .lr.ph193:                                        ; preds = %.preheader
-  %157 = getelementptr inbounds i8, ptr %12, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br label %162
 
 158:                                              ; preds = %208
@@ -360,7 +360,7 @@ mca_sharedfp_individual_assign_globaloffset.exit: ; preds = %143
   %.0192 = phi i32 [ %151, %.lr.ph193 ], [ %.1, %158 ]
   %.1109190 = phi ptr [ %153, %.lr.ph193 ], [ %.2110, %158 ]
   %163 = load ptr, ptr %8, align 8
-  %164 = getelementptr inbounds i64, ptr %163, i64 %indvars.iv227
+  %164 = getelementptr inbounds nuw i64, ptr %163, i64 %indvars.iv227
   %165 = load i64, ptr %164, align 8
   %166 = sext i32 %.0192 to i64
   %167 = icmp sgt i64 %165, %166
@@ -377,7 +377,7 @@ mca_sharedfp_individual_assign_globaloffset.exit: ; preds = %143
 
 ._crit_edge232:                                   ; preds = %168
   %.pre233 = load ptr, ptr %8, align 8
-  %.phi.trans.insert = getelementptr inbounds i64, ptr %.pre233, i64 %indvars.iv227
+  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %.pre233, i64 %indvars.iv227
   %.pre234 = load i64, ptr %.phi.trans.insert, align 8
   br label %175
 
@@ -387,7 +387,7 @@ mca_sharedfp_individual_assign_globaloffset.exit: ; preds = %143
   %.1 = phi i32 [ %171, %._crit_edge232 ], [ %.0192, %162 ]
   %177 = load ptr, ptr %157, align 8
   %178 = load ptr, ptr %9, align 8
-  %179 = getelementptr inbounds i64, ptr %178, i64 %indvars.iv227
+  %179 = getelementptr inbounds nuw i64, ptr %178, i64 %indvars.iv227
   %180 = load i64, ptr %179, align 8
   %181 = trunc i64 %176 to i32
   %182 = call i32 @mca_common_ompio_file_read_at(ptr noundef %177, i64 noundef %180, ptr noundef %.2110, i32 noundef %181, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %10) #8
@@ -396,7 +396,7 @@ mca_sharedfp_individual_assign_globaloffset.exit: ; preds = %143
 
 183:                                              ; preds = %175
   %184 = load ptr, ptr %7, align 8
-  %185 = getelementptr inbounds double, ptr %184, i64 %indvars.iv227
+  %185 = getelementptr inbounds nuw double, ptr %184, i64 %indvars.iv227
   %186 = load double, ptr %185, align 8
   %187 = load ptr, ptr %5, align 8
   %188 = load ptr, ptr %4, align 8
@@ -405,13 +405,13 @@ mca_sharedfp_individual_assign_globaloffset.exit: ; preds = %143
 
 190:                                              ; preds = %select.unfold.i, %183
   %indvars.iv.i159 = phi i64 [ 0, %183 ], [ %indvars.iv.next.i160, %select.unfold.i ]
-  %191 = getelementptr inbounds double, ptr %187, i64 %indvars.iv.i159
+  %191 = getelementptr inbounds nuw double, ptr %187, i64 %indvars.iv.i159
   %192 = load double, ptr %191, align 8
   %193 = fcmp oeq double %192, %186
   br i1 %193, label %194, label %select.unfold.i
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds i32, ptr %188, i64 %indvars.iv.i159
+  %195 = getelementptr inbounds nuw i32, ptr %188, i64 %indvars.iv.i159
   %196 = load i32, ptr %195, align 4
   %197 = icmp eq i32 %196, %189
   br i1 %197, label %.split.loop.exit.i, label %select.unfold.i
@@ -439,7 +439,7 @@ mca_sharedfp_individual_getoffset.exit._crit_edge: ; preds = %mca_sharedfp_indiv
 
 201:                                              ; preds = %mca_sharedfp_individual_getoffset.exit
   %202 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %203 = getelementptr inbounds i64, ptr %.pre236, i64 %indvars.iv227
+  %203 = getelementptr inbounds nuw i64, ptr %.pre236, i64 %indvars.iv227
   %204 = load i64, ptr %203, align 8
   %205 = sext i32 %..012.i to i64
   %206 = getelementptr inbounds i64, ptr %.pre235, i64 %205
@@ -451,7 +451,7 @@ mca_sharedfp_individual_getoffset.exit._crit_edge: ; preds = %mca_sharedfp_indiv
   %.pre-phi = phi i64 [ %.pre241, %mca_sharedfp_individual_getoffset.exit._crit_edge ], [ %205, %201 ]
   %209 = getelementptr inbounds i64, ptr %.pre235, i64 %.pre-phi
   %210 = load i64, ptr %209, align 8
-  %211 = getelementptr inbounds i64, ptr %.pre236, i64 %indvars.iv227
+  %211 = getelementptr inbounds nuw i64, ptr %.pre236, i64 %indvars.iv227
   %212 = load i64, ptr %211, align 8
   %213 = trunc i64 %212 to i32
   %214 = call i32 @mca_common_ompio_file_write_at(ptr noundef %1, i64 noundef %210, ptr noundef %.2110, i32 noundef %213, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull %10) #8
@@ -552,13 +552,13 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.mca_sharedfp_individual_record2, align 8
   %6 = alloca %struct.ompi_status_public_t, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %11, %9
-  %13 = getelementptr inbounds i8, ptr %8, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %14 = load i32, ptr @mca_sharedfp_individual_verbose, align 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %17, label %15
@@ -627,12 +627,12 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
   br i1 %48, label %.lr.ph, label %77
 
 .lr.ph:                                           ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %8, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %8, i64 32
-  %52 = getelementptr inbounds i8, ptr %5, i64 24
-  %53 = getelementptr inbounds i8, ptr %5, i64 8
-  %54 = getelementptr inbounds i8, ptr %5, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %55
 
 55:                                               ; preds = %.lr.ph, %73
@@ -646,15 +646,15 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
 58:                                               ; preds = %55
   %59 = load i64, ptr %52, align 8
   %60 = load ptr, ptr %1, align 8
-  %61 = getelementptr inbounds i64, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv
   store i64 %59, ptr %61, align 8
   %62 = load double, ptr %53, align 8
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds double, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv
   store double %62, ptr %64, align 8
   %65 = load i64, ptr %54, align 8
   %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds i64, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv
   store i64 %65, ptr %67, align 8
   %68 = add i64 %.080, 32
   %69 = load i32, ptr @mca_sharedfp_individual_verbose, align 4
@@ -700,23 +700,23 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
   br label %82
 
 82:                                               ; preds = %79, %.lr.ph87
-  %83 = getelementptr inbounds i8, ptr %.06085, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %.06085, i64 24
   %84 = load i64, ptr %83, align 8
   %85 = load ptr, ptr %1, align 8
-  %86 = getelementptr inbounds i64, ptr %85, i64 %indvars.iv95
+  %86 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv95
   store i64 %84, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %.06085, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.06085, i64 8
   %88 = load double, ptr %87, align 8
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds double, ptr %89, i64 %indvars.iv95
+  %90 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv95
   store double %88, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %.06085, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.06085, i64 16
   %92 = load i64, ptr %91, align 8
   %93 = load ptr, ptr %2, align 8
-  %94 = getelementptr inbounds i64, ptr %93, i64 %indvars.iv95
+  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %indvars.iv95
   store i64 %92, ptr %94, align 8
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %95 = getelementptr inbounds i8, ptr %.06085, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %.06085, i64 32
   %96 = load ptr, ptr %95, align 8
   store ptr %96, ptr %13, align 8
   %97 = load i32, ptr @mca_sharedfp_individual_verbose, align 4
@@ -788,8 +788,8 @@ define noundef i32 @mca_sharedfp_individual_sort_timestamps(ptr nocapture nounde
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %33 ]
   %.143.us = phi i32 [ 0, %.preheader.us ], [ %.2.us, %33 ]
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds double, ptr %7, i64 %indvars.iv
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %8 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load double, ptr %9, align 8
   %11 = load double, ptr %8, align 8
   %12 = fcmp olt double %10, %11
@@ -798,28 +798,28 @@ define noundef i32 @mca_sharedfp_individual_sort_timestamps(ptr nocapture nounde
 13:                                               ; preds = %6
   store double %10, ptr %8, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds double, ptr %14, i64 %indvars.iv
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %15 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store double %11, ptr %16, align 8
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i64, ptr %20, align 8
   store i64 %21, ptr %18, align 8
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds i64, ptr %22, i64 %indvars.iv
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %19, ptr %24, align 8
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %26, align 4
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %27, ptr %32, align 4
   br label %33
 
@@ -853,7 +853,7 @@ define i64 @mca_sharedfp_individual_assign_globaloffset(ptr nocapture noundef re
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
   %.020 = phi i64 [ 0, %.lr.ph.preheader ], [ %7, %15 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %indvars.iv, 0
   br i1 %8, label %9, label %11
@@ -883,7 +883,7 @@ define i64 @mca_sharedfp_individual_assign_globaloffset(ptr nocapture noundef re
   %.018.lcssa = phi i64 [ %16, %._crit_edge.loopexit ], [ 0, %3 ]
   %.0.lcssa = phi i64 [ %7, %._crit_edge.loopexit ], [ 0, %3 ]
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i64, ptr %17, i64 %.018.lcssa
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.018.lcssa
   %19 = getelementptr inbounds i8, ptr %18, i64 -8
   %20 = load i64, ptr %19, align 8
   %21 = add nsw i64 %20, %.0.lcssa
@@ -902,13 +902,13 @@ define i32 @mca_sharedfp_individual_getoffset(double noundef %0, ptr nocapture n
 
 7:                                                ; preds = %5, %select.unfold
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %select.unfold ]
-  %8 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %9 = load double, ptr %8, align 8
   %10 = fcmp oeq double %9, %0
   br i1 %10, label %11, label %select.unfold
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %3
   br i1 %14, label %.split.loop.exit, label %select.unfold

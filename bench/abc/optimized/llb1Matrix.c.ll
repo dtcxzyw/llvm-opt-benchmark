@@ -37,7 +37,7 @@ define void @Llb_MtrVerifyMatrix(ptr nocapture noundef readnone %0) local_unname
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
 define noalias noundef ptr @Llb_MtrFindVarOrder(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
   %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #16
@@ -46,9 +46,9 @@ define noalias noundef ptr @Llb_MtrFindVarOrder(ptr nocapture noundef readonly %
   br i1 %7, label %.lr.ph, label %.split.us
 
 .lr.ph:                                           ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = zext i32 %9 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %26
@@ -71,16 +71,16 @@ define noalias noundef ptr @Llb_MtrFindVarOrder(ptr nocapture noundef readonly %
   %indvars.iv61 = phi i64 [ 0, %.lr.ph55.us ], [ %indvars.iv.next62, %24 ]
   %.054.us = phi i32 [ 0, %.lr.ph55.us ], [ %.1.us, %24 ]
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %15 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next62
+  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next62
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %14, %16
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv61
-  %20 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv61
+  %19 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv61
+  %20 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv61
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next62
+  %22 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next62
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %20, align 4
   store i32 %21, ptr %22, align 4
@@ -100,7 +100,7 @@ define noalias noundef ptr @Llb_MtrFindVarOrder(ptr nocapture noundef readonly %
 
 26:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv58 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next59, %.loopexit ]
-  %27 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv58
+  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv58
   %28 = trunc nuw nsw i64 %indvars.iv58 to i32
   store i32 %28, ptr %27, align 4
   br label %29
@@ -114,16 +114,16 @@ define noalias noundef ptr @Llb_MtrFindVarOrder(ptr nocapture noundef readonly %
 32:                                               ; preds = %29
   %33 = add nsw i64 %indvars.iv, -1
   %34 = load ptr, ptr %10, align 8
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv58
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv58
   %38 = load i8, ptr %37, align 1
   %.not50 = icmp eq i8 %38, 0
   br i1 %.not50, label %29, label %39, !llvm.loop !7
 
 39:                                               ; preds = %32
   %40 = trunc i64 %33 to i32
-  %41 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv58
+  %41 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv58
   store i32 %40, ptr %41, align 4
   br label %.loopexit
 
@@ -161,7 +161,7 @@ define noundef nonnull ptr @Llb_MtrVarName(ptr nocapture noundef readonly %0, i3
   br label %18
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, %3
   %10 = icmp slt i32 %1, %9
@@ -172,7 +172,7 @@ define noundef nonnull ptr @Llb_MtrVarName(ptr nocapture noundef readonly %0, i3
   br label %18
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = sub nsw i32 %14, %8
   %.not = icmp slt i32 %1, %15
@@ -201,17 +201,17 @@ define void @Llb_MtrPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 
 5:                                                ; preds = %3, %2
   %.021 = phi ptr [ %4, %3 ], [ null, %2 ]
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph30, label %._crit_edge31
 
 .lr.ph30:                                         ; preds = %5
   %.not24 = icmp eq ptr %.021, null
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %13
 
 13:                                               ; preds = %.lr.ph30, %._crit_edge
@@ -220,7 +220,7 @@ define void @Llb_MtrPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   br i1 %.not24, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i32, ptr %.021, i64 %indvars.iv33
+  %16 = getelementptr inbounds nuw i32, ptr %.021, i64 %indvars.iv33
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -273,7 +273,7 @@ Llb_MtrVarName.exit:                              ; preds = %28, %33, %37, %38
 .lr.ph:                                           ; preds = %Llb_MtrVarName.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Llb_MtrVarName.exit ]
   %42 = load ptr, ptr %12, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 %22
   %46 = load i8, ptr %45, align 1
@@ -311,7 +311,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @Llb_MtrPrintMatrixStats(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
   %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #16
@@ -320,22 +320,22 @@ define void @Llb_MtrPrintMatrixStats(ptr nocapture noundef readonly %0) local_un
   br i1 %7, label %.lr.ph85, label %.preheader74.thread
 
 .lr.ph85:                                         ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %wide.trip.count137 = zext nneg i32 %3 to i64
   br label %28
 
 .preheader74:                                     ; preds = %59
   %12 = sitofp i32 %.161 to double
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.preheader.us.us.preheader, label %._crit_edge101
 
 .preheader74.thread:                              ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
   br label %._crit_edge101
 
@@ -352,7 +352,7 @@ define void @Llb_MtrPrintMatrixStats(ptr nocapture noundef readonly %0) local_un
 ._crit_edge90.us.us:                              ; preds = %22, %._crit_edge90.us.us
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %._crit_edge90.us.us ], [ 0, %22 ]
   %.393.us.us = phi i32 [ %spec.select73.us.us, %._crit_edge90.us.us ], [ %spec.select.us.us, %22 ]
-  %18 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv145
+  %18 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv145
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %.06498.us.us
   %21 = sext i1 %20 to i32
@@ -364,7 +364,7 @@ define void @Llb_MtrPrintMatrixStats(ptr nocapture noundef readonly %0) local_un
 22:                                               ; preds = %22, %.preheader.us.us
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %22 ], [ 0, %.preheader.us.us ]
   %.15988.us.us = phi i32 [ %spec.select.us.us, %22 ], [ %.05899.us.us, %.preheader.us.us ]
-  %23 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv139
+  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv139
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, %.06498.us.us
   %26 = zext i1 %25 to i32
@@ -382,7 +382,7 @@ define void @Llb_MtrPrintMatrixStats(ptr nocapture noundef readonly %0) local_un
 28:                                               ; preds = %.lr.ph85, %59
   %indvars.iv133 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next134, %59 ]
   %.06083 = phi i32 [ 0, %.lr.ph85 ], [ %.161, %59 ]
-  %29 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv133
+  %29 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv133
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %59, label %.preheader75
@@ -403,9 +403,9 @@ define void @Llb_MtrPrintMatrixStats(ptr nocapture noundef readonly %0) local_un
 
 35:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv133
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv133
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 1
   br i1 %40, label %._crit_edge.loopexit.split.loop.exit, label %41
@@ -436,9 +436,9 @@ define void @Llb_MtrPrintMatrixStats(ptr nocapture noundef readonly %0) local_un
   %indvars.iv.next131 = add nsw i64 %indvars.iv130, -1
   %48 = load ptr, ptr %10, align 8
   %49 = and i64 %indvars.iv.next131, 4294967295
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 %indvars.iv133
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv133
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 1
   br i1 %54, label %.split.loop.exit, label %44, !llvm.loop !15
@@ -449,9 +449,9 @@ define void @Llb_MtrPrintMatrixStats(ptr nocapture noundef readonly %0) local_un
 
 .split.loop.exit159:                              ; preds = %44, %.split.loop.exit
   %.062.lcssa = phi i32 [ %indvars.le, %.split.loop.exit ], [ %43, %44 ]
-  %55 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv133
+  %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv133
   store i32 %.063.lcssa, ptr %55, align 4
-  %56 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv133
+  %56 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv133
   store i32 %.062.lcssa, ptr %56, align 4
   %57 = sub i32 %.06083, %.063.lcssa
   %58 = add i32 %57, %.062.lcssa
@@ -550,25 +550,25 @@ define internal void @Abc_Print(i32 %0, ptr nocapture readnone %1, ...) unnamed_
 define noalias noundef ptr @Llb_MtrAlloc(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #16
   store i32 %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %2, ptr %8, align 4
   %9 = sext i32 %3 to i64
   %10 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 4) #16
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %10, ptr %11, align 8
   %12 = sext i32 %2 to i64
   %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 4) #16
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %13, ptr %14, align 8
   %15 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 8) #16
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %15, ptr %16, align 8
   %17 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 8) #16
-  %18 = getelementptr inbounds i8, ptr %5, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %17, ptr %18, align 8
   %19 = icmp sgt i32 %2, 0
   br i1 %19, label %.lr.ph.preheader, label %._crit_edge
@@ -580,7 +580,7 @@ define noalias noundef ptr @Llb_MtrAlloc(i32 noundef %0, i32 noundef %1, i32 nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %20 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 1) #16
-  %21 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   store ptr %20, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -588,17 +588,17 @@ define noalias noundef ptr @Llb_MtrAlloc(i32 noundef %0, i32 noundef %1, i32 nou
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %22 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 1) #16
-  %23 = getelementptr inbounds i8, ptr %5, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %22, ptr %23, align 8
   %24 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 4) #16
-  %25 = getelementptr inbounds i8, ptr %5, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %24, ptr %25, align 8
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
 define void @Llb_MtrFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -609,7 +609,7 @@ define void @Llb_MtrFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br label %5
 
 5:                                                ; preds = %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not36 = icmp eq ptr %7, null
   br i1 %.not36, label %9, label %8
@@ -620,20 +620,20 @@ define void @Llb_MtrFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br label %9
 
 9:                                                ; preds = %5, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %14
 
 14:                                               ; preds = %.lr.ph, %22
   %15 = phi i32 [ %11, %.lr.ph ], [ %23, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %.not42 = icmp eq ptr %18, null
   br i1 %.not42, label %22, label %19
@@ -641,7 +641,7 @@ define void @Llb_MtrFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
 19:                                               ; preds = %14
   tail call void @free(ptr noundef nonnull %18) #17
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   store ptr null, ptr %21, align 8
   %.pre = load i32, ptr %10, align 4
   br label %22
@@ -654,7 +654,7 @@ define void @Llb_MtrFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br i1 %25, label %14, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %22, %9
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
   %.not37 = icmp eq ptr %27, null
   br i1 %.not37, label %29, label %28
@@ -665,7 +665,7 @@ define void @Llb_MtrFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br label %29
 
 29:                                               ; preds = %._crit_edge, %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not38 = icmp eq ptr %31, null
   br i1 %.not38, label %33, label %32
@@ -676,7 +676,7 @@ define void @Llb_MtrFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br label %33
 
 33:                                               ; preds = %29, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
   %.not39 = icmp eq ptr %35, null
   br i1 %.not39, label %37, label %36
@@ -687,7 +687,7 @@ define void @Llb_MtrFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
   br label %37
 
 37:                                               ; preds = %33, %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8
   %.not40 = icmp eq ptr %39, null
   br i1 %.not40, label %41, label %40
@@ -704,12 +704,12 @@ define void @Llb_MtrFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Llb_MtrAddColumn(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = load i32, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds ptr, ptr %5, i64 %6
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
   %.val40 = load i32, ptr %10, align 4
@@ -717,14 +717,14 @@ define void @Llb_MtrAddColumn(ptr nocapture noundef readonly %0, ptr noundef %1)
   br i1 %11, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %24
 
 .critedge.preheader:                              ; preds = %24, %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 4
   %.val3342 = load i32, ptr %18, align 4
@@ -732,10 +732,10 @@ define void @Llb_MtrAddColumn(ptr nocapture noundef readonly %0, ptr noundef %1)
   br i1 %19, label %.lr.ph44, label %.critedge2
 
 .lr.ph44:                                         ; preds = %.critedge.preheader
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.critedge
 
 24:                                               ; preds = %.lr.ph, %24
@@ -743,10 +743,10 @@ define void @Llb_MtrAddColumn(ptr nocapture noundef readonly %0, ptr noundef %1)
   %25 = phi ptr [ %9, %.lr.ph ], [ %50, %24 ]
   %26 = getelementptr i8, ptr %25, i64 8
   %.val34 = load ptr, ptr %26, align 8
-  %27 = getelementptr inbounds ptr, ptr %.val34, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %28, i64 36
   %.val36 = load i32, ptr %32, align 4
@@ -784,10 +784,10 @@ define void @Llb_MtrAddColumn(ptr nocapture noundef readonly %0, ptr noundef %1)
   %54 = phi ptr [ %17, %.lr.ph44 ], [ %79, %.critedge ]
   %55 = getelementptr i8, ptr %54, i64 8
   %.val35 = load ptr, ptr %55, align 8
-  %56 = getelementptr inbounds ptr, ptr %.val35, i64 %indvars.iv46
+  %56 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %indvars.iv46
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %20, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr i8, ptr %57, i64 36
   %.val37 = load i32, ptr %61, align 4
@@ -826,22 +826,22 @@ define void @Llb_MtrAddColumn(ptr nocapture noundef readonly %0, ptr noundef %1)
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Llb_MtrRemoveSingletonRows(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph20, label %._crit_edge
 
 .lr.ph20:                                         ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph20, %.loopexit
   %indvars.iv22 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next23, %.loopexit ]
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv22
+  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv22
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %12, 2
   br i1 %13, label %14, label %.loopexit
@@ -856,9 +856,9 @@ define void @Llb_MtrRemoveSingletonRows(ptr nocapture noundef readonly %0) local
   %17 = phi i32 [ %30, %29 ], [ %15, %14 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %14 ]
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 %indvars.iv22
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv22
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %24, label %29
@@ -866,7 +866,7 @@ define void @Llb_MtrRemoveSingletonRows(ptr nocapture noundef readonly %0) local
 24:                                               ; preds = %.lr.ph
   store i8 0, ptr %21, align 1
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %27, -1
   store i32 %28, ptr %26, align 4
@@ -893,17 +893,17 @@ define void @Llb_MtrRemoveSingletonRows(ptr nocapture noundef readonly %0) local
 
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @Llb_MtrCreate(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 108
   %.val13 = load i32, ptr %4, align 4
   %5 = getelementptr i8, ptr %3, i64 104
   %.val14 = load i32, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %.val11 = load i32, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 4
   %.val15 = load i32, ptr %11, align 4
@@ -915,11 +915,11 @@ define noalias noundef ptr @Llb_MtrCreate(ptr nocapture noundef readonly %0) loc
   br i1 %15, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 40
-  %19 = getelementptr inbounds i8, ptr %12, i64 16
-  %20 = getelementptr inbounds i8, ptr %12, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br label %21
 
 21:                                               ; preds = %.lr.ph, %Llb_MtrAddColumn.exit
@@ -927,13 +927,13 @@ define noalias noundef ptr @Llb_MtrCreate(ptr nocapture noundef readonly %0) loc
   %22 = phi ptr [ %13, %.lr.ph ], [ %98, %Llb_MtrAddColumn.exit ]
   %23 = getelementptr i8, ptr %22, i64 8
   %.val12 = load ptr, ptr %23, align 8
-  %24 = getelementptr inbounds ptr, ptr %.val12, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds ptr, ptr %17, i64 %27
   store ptr %25, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %30, i64 4
   %.val40.i = load i32, ptr %31, align 4
@@ -941,7 +941,7 @@ define noalias noundef ptr @Llb_MtrCreate(ptr nocapture noundef readonly %0) loc
   br i1 %32, label %.lr.ph.i, label %.critedge.preheader.i
 
 .lr.ph.i:                                         ; preds = %21
-  %33 = getelementptr inbounds i8, ptr %25, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %34 = load ptr, ptr %18, align 8
   %35 = getelementptr inbounds ptr, ptr %34, i64 %27
   %36 = load ptr, ptr %19, align 8
@@ -950,7 +950,7 @@ define noalias noundef ptr @Llb_MtrCreate(ptr nocapture noundef readonly %0) loc
   br label %49
 
 .critedge.preheader.i:                            ; preds = %49, %21
-  %39 = getelementptr inbounds i8, ptr %25, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %40, i64 4
   %.val3342.i = load i32, ptr %41, align 4
@@ -958,7 +958,7 @@ define noalias noundef ptr @Llb_MtrCreate(ptr nocapture noundef readonly %0) loc
   br i1 %42, label %.lr.ph44.i, label %Llb_MtrAddColumn.exit
 
 .lr.ph44.i:                                       ; preds = %.critedge.preheader.i
-  %43 = getelementptr inbounds i8, ptr %25, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %44 = load ptr, ptr %18, align 8
   %45 = getelementptr inbounds ptr, ptr %44, i64 %27
   %46 = load ptr, ptr %19, align 8
@@ -971,10 +971,10 @@ define noalias noundef ptr @Llb_MtrCreate(ptr nocapture noundef readonly %0) loc
   %50 = phi ptr [ %30, %.lr.ph.i ], [ %70, %49 ]
   %51 = getelementptr i8, ptr %50, i64 8
   %.val34.i = load ptr, ptr %51, align 8
-  %52 = getelementptr inbounds ptr, ptr %.val34.i, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw ptr, ptr %.val34.i, i64 %indvars.iv.i
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %33, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %53, i64 36
   %.val36.i = load i32, ptr %57, align 4
@@ -1007,10 +1007,10 @@ define noalias noundef ptr @Llb_MtrCreate(ptr nocapture noundef readonly %0) loc
   %74 = phi ptr [ %40, %.lr.ph44.i ], [ %94, %.critedge.i ]
   %75 = getelementptr i8, ptr %74, i64 8
   %.val35.i = load ptr, ptr %75, align 8
-  %76 = getelementptr inbounds ptr, ptr %.val35.i, i64 %indvars.iv46.i
+  %76 = getelementptr inbounds nuw ptr, ptr %.val35.i, i64 %indvars.iv46.i
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %43, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr i8, ptr %77, i64 36
   %.val37.i = load i32, ptr %81, align 4

@@ -9,19 +9,19 @@ define ptr @cs_etree(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr
   br i1 %.not, label %87, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %87
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @cs_malloc(i32 noundef %11, i64 noundef 4) #3
   %.not69 = icmp ne i32 %1, 0
@@ -56,14 +56,14 @@ define ptr @cs_etree(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr
 
 .lr.ph79.split.us:                                ; preds = %.lr.ph79, %.loopexit.us
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.loopexit.us ], [ 0, %.lr.ph79 ]
-  %29 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv85
   store i32 -1, ptr %29, align 4
-  %30 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv85
+  %30 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv85
   store i32 -1, ptr %30, align 4
-  %31 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv85
+  %31 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv85
   %32 = load i32, ptr %31, align 4
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %33 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next86
+  %33 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next86
   %34 = load i32, ptr %33, align 4
   %35 = icmp slt i32 %32, %34
   br i1 %35, label %.lr.ph76.us.preheader, label %.loopexit.us
@@ -124,14 +124,14 @@ define ptr @cs_etree(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr
 
 .lr.ph79.split:                                   ; preds = %.lr.ph79, %.loopexit
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %.loopexit ], [ 0, %.lr.ph79 ]
-  %56 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv91
+  %56 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv91
   store i32 -1, ptr %56, align 4
-  %57 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv91
+  %57 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv91
   store i32 -1, ptr %57, align 4
-  %58 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv91
+  %58 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv91
   %59 = load i32, ptr %58, align 4
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %60 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next92
+  %60 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next92
   %61 = load i32, ptr %60, align 4
   %62 = icmp slt i32 %59, %61
   br i1 %62, label %.lr.ph76.preheader, label %.loopexit

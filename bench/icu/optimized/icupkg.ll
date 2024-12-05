@@ -90,7 +90,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %doAutoPrefix.i = getelementptr inbounds i8, ptr %call4, i64 1170
+  %doAutoPrefix.i = getelementptr inbounds nuw i8, ptr %call4, i64 1170
   store i8 1, ptr %doAutoPrefix.i, align 2
   br label %if.end10
 
@@ -113,9 +113,9 @@ if.then14:                                        ; preds = %if.then12
   br label %return
 
 if.end16:                                         ; preds = %if.then12
-  %doAutoPrefix.i105 = getelementptr inbounds i8, ptr %call4, i64 1170
+  %doAutoPrefix.i105 = getelementptr inbounds nuw i8, ptr %call4, i64 1170
   store i8 1, ptr %doAutoPrefix.i105, align 2
-  %prefixEndsWithType.i = getelementptr inbounds i8, ptr %call4, i64 1171
+  %prefixEndsWithType.i = getelementptr inbounds nuw i8, ptr %call4, i64 1171
   store i8 1, ptr %prefixEndsWithType.i, align 1
   %inc17 = add nuw nsw i32 %autoPrefix.0, 1
   br label %if.end18
@@ -142,7 +142,7 @@ if.end24:                                         ; preds = %if.end18
   %tobool28.not = icmp eq i8 %15, 0
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 248), align 8
   %destPath.0 = select i1 %tobool28.not, ptr null, ptr %16
-  %arrayidx32 = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %17 = load ptr, ptr %arrayidx32, align 8
   %call33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.2) #15
   %cmp34 = icmp eq i32 %call33, 0
@@ -168,7 +168,7 @@ if.else40:                                        ; preds = %if.end24
 _ZL13isPackageNamePKc.exit:                       ; preds = %if.else40
   %sub.i = add i64 %call.i108, 4294967292
   %idx.ext.i = and i64 %sub.i, 4294967295
-  %add.ptr.i = getelementptr inbounds i8, ptr %17, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %17, i64 %idx.ext.i
   %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(5) @.str.44) #15
   %cmp2.i.not = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i.not, label %if.then44, label %if.end47.thread
@@ -190,7 +190,7 @@ if.end47.thread:                                  ; preds = %_ZL13isPackageNameP
 if.end64:                                         ; preds = %if.end47, %if.end47.thread
   %tobool58.not126 = phi i1 [ true, %if.end47.thread ], [ false, %if.end47 ]
   %inFilename.0123 = phi ptr [ %17, %if.end47.thread ], [ %inFilename.0, %if.end47 ]
-  %arrayidx50 = getelementptr inbounds i8, ptr %argv, i64 16
+  %arrayidx50 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %21 = load ptr, ptr %arrayidx50, align 8
   %22 = load ptr, ptr %arrayidx32, align 8
   %call53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %21) #15
@@ -223,7 +223,7 @@ if.then66:                                        ; preds = %if.end64.thread188,
   br i1 %cmp69, label %if.then74, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %if.then66
-  %arrayidx71 = getelementptr inbounds i8, ptr %26, i64 1
+  %arrayidx71 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %28 = load i8, ptr %arrayidx71, align 1
   %cmp73.not = icmp eq i8 %28, 0
   br i1 %cmp73.not, label %if.end75, label %if.then74
@@ -548,7 +548,7 @@ if.end235:                                        ; preds = %lor.lhs.false229
   br i1 %cmp242, label %land.lhs.true243, label %if.end251
 
 land.lhs.true243:                                 ; preds = %if.end235
-  %strchr = getelementptr inbounds i8, ptr %outFilenameBuffer, i64 %strlen
+  %strchr = getelementptr inbounds nuw i8, ptr %outFilenameBuffer, i64 %strlen
   %add.ptr = getelementptr inbounds i8, ptr %strchr, i64 -5
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr, ptr noundef nonnull dereferenceable(5) %suffix, i64 5)
   %cmp246 = icmp eq i32 %bcmp, 0

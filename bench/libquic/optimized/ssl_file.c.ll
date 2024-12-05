@@ -244,11 +244,11 @@ if.then7:                                         ; preds = %if.end5
   br label %if.end15
 
 if.then10:                                        ; preds = %if.end5
-  %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
+  %ctx = getelementptr inbounds nuw i8, ptr %ssl, i64 232
   %0 = load ptr, ptr %ctx, align 8
-  %default_passwd_callback = getelementptr inbounds i8, ptr %0, i64 208
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1 = load ptr, ptr %default_passwd_callback, align 8
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %0, i64 216
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %0, i64 216
   %2 = load ptr, ptr %default_passwd_callback_userdata, align 8
   %call12 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %call1, ptr noundef null, ptr noundef %1, ptr noundef %2) #3
   br label %if.end15
@@ -315,11 +315,11 @@ if.then7:                                         ; preds = %if.end5
   br label %if.end15
 
 if.then10:                                        ; preds = %if.end5
-  %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
+  %ctx = getelementptr inbounds nuw i8, ptr %ssl, i64 232
   %0 = load ptr, ptr %ctx, align 8
-  %default_passwd_callback = getelementptr inbounds i8, ptr %0, i64 208
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1 = load ptr, ptr %default_passwd_callback, align 8
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %0, i64 216
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %0, i64 216
   %2 = load ptr, ptr %default_passwd_callback_userdata, align 8
   %call12 = tail call ptr @PEM_read_bio_RSAPrivateKey(ptr noundef nonnull %call1, ptr noundef null, ptr noundef %1, ptr noundef %2) #3
   br label %if.end15
@@ -385,11 +385,11 @@ if.end5:                                          ; preds = %if.end
   ]
 
 if.then7:                                         ; preds = %if.end5
-  %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
+  %ctx = getelementptr inbounds nuw i8, ptr %ssl, i64 232
   %0 = load ptr, ptr %ctx, align 8
-  %default_passwd_callback = getelementptr inbounds i8, ptr %0, i64 208
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1 = load ptr, ptr %default_passwd_callback, align 8
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %0, i64 216
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %0, i64 216
   %2 = load ptr, ptr %default_passwd_callback_userdata, align 8
   %call9 = tail call ptr @PEM_read_bio_PrivateKey(ptr noundef nonnull %call1, ptr noundef null, ptr noundef %1, ptr noundef %2) #3
   br label %if.end15
@@ -463,9 +463,9 @@ if.then7:                                         ; preds = %if.end5
   br label %if.end14
 
 if.then10:                                        ; preds = %if.end5
-  %default_passwd_callback = getelementptr inbounds i8, ptr %ctx, i64 208
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %ctx, i64 208
   %0 = load ptr, ptr %default_passwd_callback, align 8
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %ctx, i64 216
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %ctx, i64 216
   %1 = load ptr, ptr %default_passwd_callback_userdata, align 8
   %call11 = tail call ptr @PEM_read_bio_X509(ptr noundef nonnull %call1, ptr noundef null, ptr noundef %0, ptr noundef %1) #3
   br label %if.end14
@@ -530,9 +530,9 @@ if.then7:                                         ; preds = %if.end5
   br label %if.end14
 
 if.then10:                                        ; preds = %if.end5
-  %default_passwd_callback = getelementptr inbounds i8, ptr %ctx, i64 208
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %ctx, i64 208
   %0 = load ptr, ptr %default_passwd_callback, align 8
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %ctx, i64 216
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %ctx, i64 216
   %1 = load ptr, ptr %default_passwd_callback_userdata, align 8
   %call11 = tail call ptr @PEM_read_bio_RSAPrivateKey(ptr noundef nonnull %call1, ptr noundef null, ptr noundef %0, ptr noundef %1) #3
   br label %if.end14
@@ -592,9 +592,9 @@ if.end5:                                          ; preds = %if.end
   ]
 
 if.then7:                                         ; preds = %if.end5
-  %default_passwd_callback = getelementptr inbounds i8, ptr %ctx, i64 208
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %ctx, i64 208
   %0 = load ptr, ptr %default_passwd_callback, align 8
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %ctx, i64 216
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %ctx, i64 216
   %1 = load ptr, ptr %default_passwd_callback_userdata, align 8
   %call8 = tail call ptr @PEM_read_bio_PrivateKey(ptr noundef nonnull %call1, ptr noundef null, ptr noundef %0, ptr noundef %1) #3
   br label %if.end14
@@ -653,9 +653,9 @@ if.then4:                                         ; preds = %if.end
   br label %end
 
 if.end5:                                          ; preds = %if.end
-  %default_passwd_callback = getelementptr inbounds i8, ptr %ctx, i64 208
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %ctx, i64 208
   %0 = load ptr, ptr %default_passwd_callback, align 8
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %ctx, i64 216
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %ctx, i64 216
   %1 = load ptr, ptr %default_passwd_callback_userdata, align 8
   %call6 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %call1, ptr noundef null, ptr noundef %0, ptr noundef %1) #3
   %cmp7 = icmp eq ptr %call6, null
@@ -724,7 +724,7 @@ declare i32 @ERR_peek_last_error() local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @SSL_CTX_set_default_passwd_cb(ptr nocapture noundef writeonly initializes((208, 216)) %ctx, ptr noundef %cb) local_unnamed_addr #2 {
 entry:
-  %default_passwd_callback = getelementptr inbounds i8, ptr %ctx, i64 208
+  %default_passwd_callback = getelementptr inbounds nuw i8, ptr %ctx, i64 208
   store ptr %cb, ptr %default_passwd_callback, align 8
   ret void
 }
@@ -732,7 +732,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @SSL_CTX_set_default_passwd_cb_userdata(ptr nocapture noundef writeonly initializes((216, 224)) %ctx, ptr noundef %data) local_unnamed_addr #2 {
 entry:
-  %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %ctx, i64 216
+  %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %ctx, i64 216
   store ptr %data, ptr %default_passwd_callback_userdata, align 8
   ret void
 }

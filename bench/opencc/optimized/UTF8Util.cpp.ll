@@ -43,7 +43,7 @@ define void @_ZN6opencc8UTF8Util11SkipUtf8BomEP8_IO_FILE(ptr noundef %0) local_u
 .preheader21:                                     ; preds = %4, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %4 ]
   %6 = tail call i32 @getc(ptr noundef nonnull %0)
-  %7 = getelementptr inbounds [3 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %indvars.iv
   store i32 %6, ptr %7, align 4
   %.not20 = icmp eq i32 %6, -1
   br i1 %.not20, label %.critedge.split.loop.exit29, label %8
@@ -62,11 +62,11 @@ define void @_ZN6opencc8UTF8Util11SkipUtf8BomEP8_IO_FILE(ptr noundef %0) local_u
   %10 = load i32, ptr %2, align 4
   %11 = icmp ne i32 %10, 239
   %or.cond = select i1 %.not20, i1 true, i1 %11
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp ne i32 %13, 187
   %or.cond5 = select i1 %or.cond, i1 true, i1 %14
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp ne i32 %16, 191
   %or.cond8 = select i1 %or.cond5, i1 true, i1 %17
@@ -81,7 +81,7 @@ define void @_ZN6opencc8UTF8Util11SkipUtf8BomEP8_IO_FILE(ptr noundef %0) local_u
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv26 = phi i64 [ %19, %.lr.ph.preheader ], [ %indvars.iv.next27, %.lr.ph ]
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, -1
-  %20 = getelementptr inbounds [3 x i32], ptr %2, i64 0, i64 %indvars.iv.next27
+  %20 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %indvars.iv.next27
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 @ungetc(i32 noundef %21, ptr noundef nonnull %0)
   %23 = icmp samesign ugt i64 %indvars.iv26, 1

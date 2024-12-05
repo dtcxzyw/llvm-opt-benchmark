@@ -1265,7 +1265,7 @@ if.then.i.i:                                      ; preds = %if.end
 bench_stats_start.exit:                           ; preds = %if.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -1281,7 +1281,7 @@ bench_stats_start.exit:                           ; preds = %if.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i16 = getelementptr inbounds i8, ptr %tv.i.i12, i64 8
+  %tv_nsec.i.i16 = getelementptr inbounds nuw i8, ptr %tv.i.i12, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -1308,7 +1308,7 @@ while.body:                                       ; preds = %while.body.preheade
   %pos.034 = phi i64 [ %add, %if.end14 ], [ 0, %while.body.preheader ]
   %10 = call i64 @llvm.umin.i64(i64 %remain.035, i64 65536)
   %11 = load ptr, ptr %6, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %11, i64 %pos.034
+  %arrayidx = getelementptr inbounds nuw i8, ptr %11, i64 %pos.034
   %conv9 = trunc nuw nsw i64 %10 to i32
   %call10 = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %myrng, ptr noundef %arrayidx, i32 noundef %conv9) #16
   %cmp11 = icmp slt i32 %call10, 0
@@ -1400,7 +1400,7 @@ if.then.i:                                        ; preds = %entry
 current_time.exit:                                ; preds = %entry
   %2 = load i64, ptr %tv.i, align 8
   %conv.i = sitofp i64 %2 to double
-  %tv_nsec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %tv.i, i64 8
   %3 = load i64, ptr %tv_nsec.i, align 8
   %conv4.i = sitofp i64 %3 to double
   %div.i = fdiv double %conv4.i, 1.000000e+09
@@ -1442,7 +1442,7 @@ if.then.i:                                        ; preds = %entry
 current_time.exit:                                ; preds = %entry
   %2 = load i64, ptr %tv.i, align 8
   %conv.i = sitofp i64 %2 to double
-  %tv_nsec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %tv.i, i64 8
   %3 = load i64, ptr %tv_nsec.i, align 8
   %conv4.i = sitofp i64 %3 to double
   %div.i = fdiv double %conv4.i, 1.000000e+09
@@ -1492,7 +1492,7 @@ current_time.exit:                                ; preds = %entry
   %conv = sitofp i32 %count to double
   %6 = load i64, ptr %tv.i, align 8
   %conv.i18 = sitofp i64 %6 to double
-  %tv_nsec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %tv.i, i64 8
   %7 = load i64, ptr %tv_nsec.i, align 8
   %conv4.i = sitofp i64 %7 to double
   %div.i = fdiv double %conv4.i, 1.000000e+09
@@ -1581,7 +1581,7 @@ cond.end:                                         ; preds = %if.then24, %cond.fa
 
 if.else42:                                        ; preds = %if.end16
   %10 = load ptr, ptr %arrayidx, align 16
-  %arrayidx45 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx45 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %11 = load ptr, ptr %arrayidx45, align 8
   %call46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg, i64 noundef 150, ptr noundef nonnull @.str.107, ptr noundef %desc, ptr noundef nonnull @.str.108, i32 noundef 5, i32 noundef 0, double noundef %blocks.0, ptr noundef nonnull %blockType.0, ptr noundef %10, i32 noundef 5, i32 noundef 3, double noundef %sub3, ptr noundef %11, i32 noundef 8, i32 noundef 3, double noundef %persec.0, ptr noundef nonnull %blockType.0) #16
   %call49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #19
@@ -1687,7 +1687,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -1704,7 +1704,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
-  %tv_nsec.i.i27 = getelementptr inbounds i8, ptr %tv.i.i23, i64 8
+  %tv_nsec.i.i27 = getelementptr inbounds nuw i8, ptr %tv.i.i23, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -1797,7 +1797,7 @@ if.then.i.i50:                                    ; preds = %do.end56
 bench_stats_start.exit54:                         ; preds = %do.end56
   %21 = load i64, ptr %tv.i.i36, align 8
   %conv.i.i39 = sitofp i64 %21 to double
-  %tv_nsec.i.i40 = getelementptr inbounds i8, ptr %tv.i.i36, i64 8
+  %tv_nsec.i.i40 = getelementptr inbounds nuw i8, ptr %tv.i.i36, i64 8
   %22 = load i64, ptr %tv_nsec.i.i40, align 8
   %conv4.i.i41 = sitofp i64 %22 to double
   %div.i.i42 = fdiv double %conv4.i.i41, 1.000000e+09
@@ -1811,7 +1811,7 @@ bench_stats_start.exit54:                         ; preds = %do.end56
   %shl.i.i48 = shl nuw i64 %conv2.i.i47, 32
   %or.i.i49 = or disjoint i64 %shl.i.i48, %conv.i1.i46
   store i64 %or.i.i49, ptr %5, align 8
-  %tv_nsec.i.i64 = getelementptr inbounds i8, ptr %tv.i.i60, i64 8
+  %tv_nsec.i.i64 = getelementptr inbounds nuw i8, ptr %tv.i.i60, i64 8
   br label %do.body57
 
 do.body57:                                        ; preds = %bench_stats_check.exit75, %bench_stats_start.exit54
@@ -1966,7 +1966,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -1984,7 +1984,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i34 = getelementptr inbounds i8, ptr %tv.i.i30, i64 8
+  %tv_nsec.i.i34 = getelementptr inbounds nuw i8, ptr %tv.i.i30, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -2158,7 +2158,7 @@ if.then.i.i:                                      ; preds = %entry
 bench_stats_start.exit:                           ; preds = %entry
   %7 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %7 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %8 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %8 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -2174,7 +2174,7 @@ bench_stats_start.exit:                           ; preds = %entry
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %10, align 8
   %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
-  %tv_nsec.i.i5 = getelementptr inbounds i8, ptr %tv.i.i1, i64 8
+  %tv_nsec.i.i5 = getelementptr inbounds nuw i8, ptr %tv.i.i1, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -2269,7 +2269,7 @@ if.then.i.i:                                      ; preds = %if.end
 bench_stats_start.exit:                           ; preds = %if.end
   %4 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %4 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %5 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %5 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -2285,7 +2285,7 @@ bench_stats_start.exit:                           ; preds = %if.end
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %7, align 8
   %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i18 = getelementptr inbounds i8, ptr %tv.i.i14, i64 8
+  %tv_nsec.i.i18 = getelementptr inbounds nuw i8, ptr %tv.i.i14, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -2362,7 +2362,7 @@ if.then.i.i40:                                    ; preds = %if.else
 bench_stats_start.exit44:                         ; preds = %if.else
   %19 = load i64, ptr %tv.i.i26, align 8
   %conv.i.i29 = sitofp i64 %19 to double
-  %tv_nsec.i.i30 = getelementptr inbounds i8, ptr %tv.i.i26, i64 8
+  %tv_nsec.i.i30 = getelementptr inbounds nuw i8, ptr %tv.i.i26, i64 8
   %20 = load i64, ptr %tv_nsec.i.i30, align 8
   %conv4.i.i31 = sitofp i64 %20 to double
   %div.i.i32 = fdiv double %conv4.i.i31, 1.000000e+09
@@ -2379,7 +2379,7 @@ bench_stats_start.exit44:                         ; preds = %if.else
   store i64 %or.i.i39, ptr %22, align 8
   %23 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
   %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i49 = getelementptr inbounds i8, ptr %tv.i.i45, i64 8
+  %tv_nsec.i.i49 = getelementptr inbounds nuw i8, ptr %tv.i.i45, i64 8
   br label %do.body14
 
 do.body14:                                        ; preds = %bench_stats_check.exit60, %bench_stats_start.exit44
@@ -2493,7 +2493,7 @@ if.then.i.i:                                      ; preds = %entry
 bench_stats_start.exit:                           ; preds = %entry
   %4 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %4 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %5 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %5 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -2511,7 +2511,7 @@ bench_stats_start.exit:                           ; preds = %entry
   %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
   %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i7 = getelementptr inbounds i8, ptr %tv.i.i3, i64 8
+  %tv_nsec.i.i7 = getelementptr inbounds nuw i8, ptr %tv.i.i3, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -2598,7 +2598,7 @@ if.then.i.i:                                      ; preds = %entry
 bench_stats_start.exit:                           ; preds = %entry
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -2617,7 +2617,7 @@ bench_stats_start.exit:                           ; preds = %entry
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
   %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
-  %tv_nsec.i.i9 = getelementptr inbounds i8, ptr %tv.i.i5, i64 8
+  %tv_nsec.i.i9 = getelementptr inbounds nuw i8, ptr %tv.i.i5, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -2726,7 +2726,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -2742,7 +2742,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i22 = getelementptr inbounds i8, ptr %tv.i.i18, i64 8
+  %tv_nsec.i.i22 = getelementptr inbounds nuw i8, ptr %tv.i.i18, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -2817,7 +2817,7 @@ if.then.i.i45:                                    ; preds = %if.else
 bench_stats_start.exit49:                         ; preds = %if.else
   %17 = load i64, ptr %tv.i.i31, align 8
   %conv.i.i34 = sitofp i64 %17 to double
-  %tv_nsec.i.i35 = getelementptr inbounds i8, ptr %tv.i.i31, i64 8
+  %tv_nsec.i.i35 = getelementptr inbounds nuw i8, ptr %tv.i.i31, i64 8
   %18 = load i64, ptr %tv_nsec.i.i35, align 8
   %conv4.i.i36 = sitofp i64 %18 to double
   %div.i.i37 = fdiv double %conv4.i.i36, 1.000000e+09
@@ -2833,7 +2833,7 @@ bench_stats_start.exit49:                         ; preds = %if.else
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i44, ptr %20, align 8
   %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i54 = getelementptr inbounds i8, ptr %tv.i.i50, i64 8
+  %tv_nsec.i.i54 = getelementptr inbounds nuw i8, ptr %tv.i.i50, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit65, %bench_stats_start.exit49
@@ -2953,7 +2953,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -2969,7 +2969,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
+  %tv_nsec.i.i26 = getelementptr inbounds nuw i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -3044,7 +3044,7 @@ if.then.i.i49:                                    ; preds = %if.else
 bench_stats_start.exit53:                         ; preds = %if.else
   %17 = load i64, ptr %tv.i.i35, align 8
   %conv.i.i38 = sitofp i64 %17 to double
-  %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
+  %tv_nsec.i.i39 = getelementptr inbounds nuw i8, ptr %tv.i.i35, i64 8
   %18 = load i64, ptr %tv_nsec.i.i39, align 8
   %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
@@ -3060,7 +3060,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i48, ptr %20, align 8
   %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
+  %tv_nsec.i.i58 = getelementptr inbounds nuw i8, ptr %tv.i.i54, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
@@ -3183,7 +3183,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -3199,7 +3199,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
+  %tv_nsec.i.i26 = getelementptr inbounds nuw i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -3274,7 +3274,7 @@ if.then.i.i49:                                    ; preds = %if.else
 bench_stats_start.exit53:                         ; preds = %if.else
   %17 = load i64, ptr %tv.i.i35, align 8
   %conv.i.i38 = sitofp i64 %17 to double
-  %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
+  %tv_nsec.i.i39 = getelementptr inbounds nuw i8, ptr %tv.i.i35, i64 8
   %18 = load i64, ptr %tv_nsec.i.i39, align 8
   %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
@@ -3290,7 +3290,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i48, ptr %20, align 8
   %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
+  %tv_nsec.i.i58 = getelementptr inbounds nuw i8, ptr %tv.i.i54, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
@@ -3413,7 +3413,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -3429,7 +3429,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
+  %tv_nsec.i.i26 = getelementptr inbounds nuw i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -3504,7 +3504,7 @@ if.then.i.i49:                                    ; preds = %if.else
 bench_stats_start.exit53:                         ; preds = %if.else
   %17 = load i64, ptr %tv.i.i35, align 8
   %conv.i.i38 = sitofp i64 %17 to double
-  %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
+  %tv_nsec.i.i39 = getelementptr inbounds nuw i8, ptr %tv.i.i35, i64 8
   %18 = load i64, ptr %tv_nsec.i.i39, align 8
   %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
@@ -3520,7 +3520,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i48, ptr %20, align 8
   %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
+  %tv_nsec.i.i58 = getelementptr inbounds nuw i8, ptr %tv.i.i54, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
@@ -3643,7 +3643,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -3659,7 +3659,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
+  %tv_nsec.i.i26 = getelementptr inbounds nuw i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -3734,7 +3734,7 @@ if.then.i.i49:                                    ; preds = %if.else
 bench_stats_start.exit53:                         ; preds = %if.else
   %17 = load i64, ptr %tv.i.i35, align 8
   %conv.i.i38 = sitofp i64 %17 to double
-  %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
+  %tv_nsec.i.i39 = getelementptr inbounds nuw i8, ptr %tv.i.i35, i64 8
   %18 = load i64, ptr %tv_nsec.i.i39, align 8
   %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
@@ -3750,7 +3750,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i48, ptr %20, align 8
   %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
+  %tv_nsec.i.i58 = getelementptr inbounds nuw i8, ptr %tv.i.i54, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
@@ -3873,7 +3873,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -3889,7 +3889,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
+  %tv_nsec.i.i26 = getelementptr inbounds nuw i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -3964,7 +3964,7 @@ if.then.i.i49:                                    ; preds = %if.else
 bench_stats_start.exit53:                         ; preds = %if.else
   %17 = load i64, ptr %tv.i.i35, align 8
   %conv.i.i38 = sitofp i64 %17 to double
-  %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
+  %tv_nsec.i.i39 = getelementptr inbounds nuw i8, ptr %tv.i.i35, i64 8
   %18 = load i64, ptr %tv_nsec.i.i39, align 8
   %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
@@ -3980,7 +3980,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i48, ptr %20, align 8
   %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
+  %tv_nsec.i.i58 = getelementptr inbounds nuw i8, ptr %tv.i.i54, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
@@ -4103,7 +4103,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -4119,7 +4119,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
+  %tv_nsec.i.i26 = getelementptr inbounds nuw i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -4194,7 +4194,7 @@ if.then.i.i49:                                    ; preds = %if.else
 bench_stats_start.exit53:                         ; preds = %if.else
   %17 = load i64, ptr %tv.i.i35, align 8
   %conv.i.i38 = sitofp i64 %17 to double
-  %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
+  %tv_nsec.i.i39 = getelementptr inbounds nuw i8, ptr %tv.i.i35, i64 8
   %18 = load i64, ptr %tv_nsec.i.i39, align 8
   %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
@@ -4210,7 +4210,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i48, ptr %20, align 8
   %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
+  %tv_nsec.i.i58 = getelementptr inbounds nuw i8, ptr %tv.i.i54, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
@@ -4333,7 +4333,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -4349,7 +4349,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
+  %tv_nsec.i.i26 = getelementptr inbounds nuw i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -4424,7 +4424,7 @@ if.then.i.i49:                                    ; preds = %if.else
 bench_stats_start.exit53:                         ; preds = %if.else
   %17 = load i64, ptr %tv.i.i35, align 8
   %conv.i.i38 = sitofp i64 %17 to double
-  %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
+  %tv_nsec.i.i39 = getelementptr inbounds nuw i8, ptr %tv.i.i35, i64 8
   %18 = load i64, ptr %tv_nsec.i.i39, align 8
   %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
@@ -4440,7 +4440,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i48, ptr %20, align 8
   %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
+  %tv_nsec.i.i58 = getelementptr inbounds nuw i8, ptr %tv.i.i54, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
@@ -4563,7 +4563,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -4579,7 +4579,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
+  %tv_nsec.i.i26 = getelementptr inbounds nuw i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -4654,7 +4654,7 @@ if.then.i.i49:                                    ; preds = %if.else
 bench_stats_start.exit53:                         ; preds = %if.else
   %17 = load i64, ptr %tv.i.i35, align 8
   %conv.i.i38 = sitofp i64 %17 to double
-  %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
+  %tv_nsec.i.i39 = getelementptr inbounds nuw i8, ptr %tv.i.i35, i64 8
   %18 = load i64, ptr %tv_nsec.i.i39, align 8
   %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
@@ -4670,7 +4670,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i48, ptr %20, align 8
   %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
+  %tv_nsec.i.i58 = getelementptr inbounds nuw i8, ptr %tv.i.i54, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
@@ -4793,7 +4793,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -4809,7 +4809,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
+  %tv_nsec.i.i26 = getelementptr inbounds nuw i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -4884,7 +4884,7 @@ if.then.i.i49:                                    ; preds = %if.else
 bench_stats_start.exit53:                         ; preds = %if.else
   %17 = load i64, ptr %tv.i.i35, align 8
   %conv.i.i38 = sitofp i64 %17 to double
-  %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
+  %tv_nsec.i.i39 = getelementptr inbounds nuw i8, ptr %tv.i.i35, i64 8
   %18 = load i64, ptr %tv_nsec.i.i39, align 8
   %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
@@ -4900,7 +4900,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i48, ptr %20, align 8
   %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
+  %tv_nsec.i.i58 = getelementptr inbounds nuw i8, ptr %tv.i.i54, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
@@ -5023,7 +5023,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -5039,7 +5039,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
+  %tv_nsec.i.i26 = getelementptr inbounds nuw i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -5114,7 +5114,7 @@ if.then.i.i49:                                    ; preds = %if.else
 bench_stats_start.exit53:                         ; preds = %if.else
   %17 = load i64, ptr %tv.i.i35, align 8
   %conv.i.i38 = sitofp i64 %17 to double
-  %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
+  %tv_nsec.i.i39 = getelementptr inbounds nuw i8, ptr %tv.i.i35, i64 8
   %18 = load i64, ptr %tv_nsec.i.i39, align 8
   %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
@@ -5130,7 +5130,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i48, ptr %20, align 8
   %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
+  %tv_nsec.i.i58 = getelementptr inbounds nuw i8, ptr %tv.i.i54, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
@@ -5253,7 +5253,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -5269,7 +5269,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i26 = getelementptr inbounds i8, ptr %tv.i.i22, i64 8
+  %tv_nsec.i.i26 = getelementptr inbounds nuw i8, ptr %tv.i.i22, i64 8
   br label %do.body5
 
 do.body5:                                         ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -5344,7 +5344,7 @@ if.then.i.i49:                                    ; preds = %if.else
 bench_stats_start.exit53:                         ; preds = %if.else
   %17 = load i64, ptr %tv.i.i35, align 8
   %conv.i.i38 = sitofp i64 %17 to double
-  %tv_nsec.i.i39 = getelementptr inbounds i8, ptr %tv.i.i35, i64 8
+  %tv_nsec.i.i39 = getelementptr inbounds nuw i8, ptr %tv.i.i35, i64 8
   %18 = load i64, ptr %tv_nsec.i.i39, align 8
   %conv4.i.i40 = sitofp i64 %18 to double
   %div.i.i41 = fdiv double %conv4.i.i40, 1.000000e+09
@@ -5360,7 +5360,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   %20 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i48, ptr %20, align 8
   %21 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i58 = getelementptr inbounds i8, ptr %tv.i.i54, i64 8
+  %tv_nsec.i.i58 = getelementptr inbounds nuw i8, ptr %tv.i.i54, i64 8
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
@@ -5498,7 +5498,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -5514,7 +5514,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
-  %tv_nsec.i.i27 = getelementptr inbounds i8, ptr %tv.i.i23, i64 8
+  %tv_nsec.i.i27 = getelementptr inbounds nuw i8, ptr %tv.i.i23, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -5653,7 +5653,7 @@ if.then.i.i:                                      ; preds = %entry
 bench_stats_start.exit:                           ; preds = %entry
   %2 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %2 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %3 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -5668,7 +5668,7 @@ bench_stats_start.exit:                           ; preds = %entry
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %5, align 8
-  %tv_nsec.i.i6 = getelementptr inbounds i8, ptr %tv.i.i2, i64 8
+  %tv_nsec.i.i6 = getelementptr inbounds nuw i8, ptr %tv.i.i2, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -5783,7 +5783,7 @@ if.then.i.i.i:                                    ; preds = %if.then83.i
 bench_stats_start.exit.i:                         ; preds = %if.then83.i
   %4 = load i64, ptr %tv.i.i.i, align 8
   %conv.i.i.i = sitofp i64 %4 to double
-  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %tv.i.i.i, i64 8
+  %tv_nsec.i.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i.i, i64 8
   %5 = load i64, ptr %tv_nsec.i.i.i, align 8
   %conv4.i.i.i = sitofp i64 %5 to double
   %div.i.i.i = fdiv double %conv4.i.i.i, 1.000000e+09
@@ -5798,7 +5798,7 @@ bench_stats_start.exit.i:                         ; preds = %if.then83.i
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv.i1.i.i
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i.i, ptr %7, align 8
-  %tv_nsec.i.i85.i = getelementptr inbounds i8, ptr %tv.i.i81.i, i64 8
+  %tv_nsec.i.i85.i = getelementptr inbounds nuw i8, ptr %tv.i.i81.i, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %bench_stats_check.exit.i, %bench_stats_start.exit.i
@@ -5869,7 +5869,7 @@ if.then.i.i108.i:                                 ; preds = %do.end126.i
 bench_stats_start.exit112.i:                      ; preds = %do.end126.i
   %16 = load i64, ptr %tv.i.i94.i, align 8
   %conv.i.i97.i = sitofp i64 %16 to double
-  %tv_nsec.i.i98.i = getelementptr inbounds i8, ptr %tv.i.i94.i, i64 8
+  %tv_nsec.i.i98.i = getelementptr inbounds nuw i8, ptr %tv.i.i94.i, i64 8
   %17 = load i64, ptr %tv_nsec.i.i98.i, align 8
   %conv4.i.i99.i = sitofp i64 %17 to double
   %div.i.i100.i = fdiv double %conv4.i.i99.i, 1.000000e+09
@@ -5883,7 +5883,7 @@ bench_stats_start.exit112.i:                      ; preds = %do.end126.i
   %shl.i.i106.i = shl nuw i64 %conv2.i.i105.i, 32
   %or.i.i107.i = or disjoint i64 %shl.i.i106.i, %conv.i1.i104.i
   store i64 %or.i.i107.i, ptr %7, align 8
-  %tv_nsec.i.i122.i = getelementptr inbounds i8, ptr %tv.i.i118.i, i64 8
+  %tv_nsec.i.i122.i = getelementptr inbounds nuw i8, ptr %tv.i.i118.i, i64 8
   br label %do.body128.i
 
 do.body128.i:                                     ; preds = %bench_stats_check.exit133.i, %bench_stats_start.exit112.i
@@ -5931,7 +5931,7 @@ bench_stats_check.exit133.i:                      ; preds = %for.end166.i
 
 exit_rsa_pub.i:                                   ; preds = %bench_stats_check.exit133.i, %for.body143.i
   %count.3.i = phi i32 [ %count.2.i, %for.body143.i ], [ %add167.i, %bench_stats_check.exit133.i ]
-  %arrayidx172.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %arrayidx172.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %23 = load ptr, ptr %arrayidx172.i, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %23, i32 noundef %count.3.i, double noundef %add.i.i101.i, i32 noundef %call154.i)
   br label %exit.i
@@ -5954,7 +5954,7 @@ if.then.i.i148.i:                                 ; preds = %if.else.i
 bench_stats_start.exit152.i:                      ; preds = %if.else.i
   %26 = load i64, ptr %tv.i.i134.i, align 8
   %conv.i.i137.i = sitofp i64 %26 to double
-  %tv_nsec.i.i138.i = getelementptr inbounds i8, ptr %tv.i.i134.i, i64 8
+  %tv_nsec.i.i138.i = getelementptr inbounds nuw i8, ptr %tv.i.i134.i, i64 8
   %27 = load i64, ptr %tv_nsec.i.i138.i, align 8
   %conv4.i.i139.i = sitofp i64 %27 to double
   %div.i.i140.i = fdiv double %conv4.i.i139.i, 1.000000e+09
@@ -5969,7 +5969,7 @@ bench_stats_start.exit152.i:                      ; preds = %if.else.i
   %or.i.i147.i = or disjoint i64 %shl.i.i146.i, %conv.i1.i144.i
   %29 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i147.i, ptr %29, align 8
-  %tv_nsec.i.i162.i = getelementptr inbounds i8, ptr %tv.i.i158.i, i64 8
+  %tv_nsec.i.i162.i = getelementptr inbounds nuw i8, ptr %tv.i.i158.i, i64 8
   br label %do.body173.i
 
 do.body173.i:                                     ; preds = %bench_stats_check.exit173.i, %bench_stats_start.exit152.i
@@ -5983,7 +5983,7 @@ for.body188.i:                                    ; preds = %bench_async_handle.
   br i1 %cmp.i153.i, label %bench_async_handle.exit157.i, label %exit_rsa_sign.thread.i
 
 exit_rsa_sign.thread.i:                           ; preds = %for.body188.i
-  %arrayidx216269.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %arrayidx216269.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %30 = load ptr, ptr %arrayidx216269.i, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %30, i32 noundef %count.4.i, double noundef %add.i.i141.i, i32 noundef %call198.i)
   br label %exit.i
@@ -6022,7 +6022,7 @@ bench_stats_check.exit173.i:                      ; preds = %for.end210.i
   br i1 %cmp.i167.i, label %do.end223.i, label %do.body173.i, !llvm.loop !65
 
 do.end223.i:                                      ; preds = %bench_stats_check.exit173.i
-  %arrayidx216.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %arrayidx216.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %35 = load ptr, ptr %arrayidx216.i, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %35, i32 noundef %add211.i, double noundef %add.i.i141.i, i32 noundef %call198.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i174.i)
@@ -6042,7 +6042,7 @@ if.then.i.i188.i:                                 ; preds = %do.end223.i
 bench_stats_start.exit192.i:                      ; preds = %do.end223.i
   %38 = load i64, ptr %tv.i.i174.i, align 8
   %conv.i.i177.i = sitofp i64 %38 to double
-  %tv_nsec.i.i178.i = getelementptr inbounds i8, ptr %tv.i.i174.i, i64 8
+  %tv_nsec.i.i178.i = getelementptr inbounds nuw i8, ptr %tv.i.i174.i, i64 8
   %39 = load i64, ptr %tv_nsec.i.i178.i, align 8
   %conv4.i.i179.i = sitofp i64 %39 to double
   %div.i.i180.i = fdiv double %conv4.i.i179.i, 1.000000e+09
@@ -6056,7 +6056,7 @@ bench_stats_start.exit192.i:                      ; preds = %do.end223.i
   %shl.i.i186.i = shl nuw i64 %conv2.i.i185.i, 32
   %or.i.i187.i = or disjoint i64 %shl.i.i186.i, %conv.i1.i184.i
   store i64 %or.i.i187.i, ptr %29, align 8
-  %tv_nsec.i.i202.i = getelementptr inbounds i8, ptr %tv.i.i198.i, i64 8
+  %tv_nsec.i.i202.i = getelementptr inbounds nuw i8, ptr %tv.i.i198.i, i64 8
   br label %do.body225.i
 
 do.body225.i:                                     ; preds = %bench_stats_check.exit213.i, %bench_stats_start.exit192.i
@@ -6104,7 +6104,7 @@ bench_stats_check.exit213.i:                      ; preds = %for.end263.i
 
 exit_rsa_verifyinline.i:                          ; preds = %bench_stats_check.exit213.i, %for.body240.i
   %count.7.i = phi i32 [ %count.6.i, %for.body240.i ], [ %add264.i, %bench_stats_check.exit213.i ]
-  %arrayidx269.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
+  %arrayidx269.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %45 = load ptr, ptr %arrayidx269.i, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.130, i32 noundef 2048, ptr noundef %45, i32 noundef %count.7.i, double noundef %add.i.i181.i, i32 noundef %call251.i)
   br label %exit.i
@@ -6196,11 +6196,11 @@ if.else21:                                        ; preds = %if.end15
 
 if.then24:                                        ; preds = %if.else21
   %1 = load ptr, ptr %params.0, align 8
-  %p_len = getelementptr inbounds i8, ptr %params.0, i64 8
+  %p_len = getelementptr inbounds nuw i8, ptr %params.0, i64 8
   %2 = load i32, ptr %p_len, align 8
-  %g = getelementptr inbounds i8, ptr %params.0, i64 16
+  %g = getelementptr inbounds nuw i8, ptr %params.0, i64 16
   %3 = load ptr, ptr %g, align 8
-  %g_len = getelementptr inbounds i8, ptr %params.0, i64 24
+  %g_len = getelementptr inbounds nuw i8, ptr %params.0, i64 24
   %4 = load i32, ptr %g_len, align 8
   %call27 = call i32 @wc_DhSetKey(ptr noundef nonnull %dhKey, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #16
   br label %if.end29
@@ -6232,7 +6232,7 @@ if.then.i.i:                                      ; preds = %for.end
 bench_stats_start.exit:                           ; preds = %for.end
   %7 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %7 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %8 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %8 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -6248,7 +6248,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %10, align 8
   %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
-  %tv_nsec.i.i41 = getelementptr inbounds i8, ptr %tv.i.i37, i64 8
+  %tv_nsec.i.i41 = getelementptr inbounds nuw i8, ptr %tv.i.i37, i64 8
   br label %do.body37
 
 do.body37:                                        ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -6260,7 +6260,7 @@ do.body37:                                        ; preds = %bench_stats_check.e
   br i1 %cmp.i, label %for.end80, label %exit_dh_gen.thread
 
 exit_dh_gen.thread:                               ; preds = %do.body37
-  %arrayidx87113 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx87113 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %12 = load ptr, ptr %arrayidx87113, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %12, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %call69)
   br label %exit
@@ -6294,7 +6294,7 @@ bench_stats_check.exit:                           ; preds = %for.end80
   br i1 %cmp.i45, label %do.end97, label %do.body37, !llvm.loop !67
 
 do.end97:                                         ; preds = %bench_stats_check.exit
-  %arrayidx87 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx87 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %17 = load ptr, ptr %arrayidx87, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %17, i32 noundef %add, double noundef %add.i.i, i32 noundef %call69)
   %call101 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %dhKey, ptr noundef nonnull %11, ptr noundef nonnull %priv2, ptr noundef nonnull %privSz2, ptr noundef nonnull %pub2, ptr noundef nonnull %pubSz2) #16
@@ -6315,7 +6315,7 @@ if.then.i.i64:                                    ; preds = %do.end97
 bench_stats_start.exit68:                         ; preds = %do.end97
   %20 = load i64, ptr %tv.i.i50, align 8
   %conv.i.i53 = sitofp i64 %20 to double
-  %tv_nsec.i.i54 = getelementptr inbounds i8, ptr %tv.i.i50, i64 8
+  %tv_nsec.i.i54 = getelementptr inbounds nuw i8, ptr %tv.i.i50, i64 8
   %21 = load i64, ptr %tv_nsec.i.i54, align 8
   %conv4.i.i55 = sitofp i64 %21 to double
   %div.i.i56 = fdiv double %conv4.i.i55, 1.000000e+09
@@ -6329,7 +6329,7 @@ bench_stats_start.exit68:                         ; preds = %do.end97
   %shl.i.i62 = shl nuw i64 %conv2.i.i61, 32
   %or.i.i63 = or disjoint i64 %shl.i.i62, %conv.i1.i60
   store i64 %or.i.i63, ptr %10, align 8
-  %tv_nsec.i.i78 = getelementptr inbounds i8, ptr %tv.i.i74, i64 8
+  %tv_nsec.i.i78 = getelementptr inbounds nuw i8, ptr %tv.i.i74, i64 8
   br label %do.body108
 
 do.body108:                                       ; preds = %bench_stats_check.exit89, %bench_stats_start.exit68
@@ -6381,7 +6381,7 @@ exit:                                             ; preds = %bench_stats_check.e
   %count.0 = phi i32 [ 0, %if.then32 ], [ 0, %if.end6 ], [ %count.1, %exit_dh_gen.thread ], [ %count.3, %for.body123 ], [ %add153, %bench_stats_check.exit89 ]
   %ret.0 = phi i32 [ %ret.1, %if.then32 ], [ %call12, %if.end6 ], [ %call69, %exit_dh_gen.thread ], [ %call140, %for.body123 ], [ %call140, %bench_stats_check.exit89 ]
   %start.0 = phi double [ 0.000000e+00, %if.then32 ], [ 0.000000e+00, %if.end6 ], [ %add.i.i, %exit_dh_gen.thread ], [ %add.i.i57, %for.body123 ], [ %add.i.i57, %bench_stats_check.exit89 ]
-  %arrayidx161 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %arrayidx161 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %29 = load ptr, ptr %arrayidx161, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %29, i32 noundef %count.0, double noundef %start.0, i32 noundef %ret.0)
   %call168 = call i32 @wc_FreeDhKey(ptr noundef nonnull %dhKey) #16
@@ -6425,7 +6425,7 @@ if.then.i.i:                                      ; preds = %entry
 current_time.exit.i:                              ; preds = %entry
   %3 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %3 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %4 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %4 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -6462,11 +6462,11 @@ if.end18.i:                                       ; preds = %if.then14.i, %if.th
 
 if.else21.i:                                      ; preds = %current_time.exit.i
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx24.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %arrayidx24.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %7 = load ptr, ptr %arrayidx24.i, align 8
-  %arrayidx25.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %8 = load ptr, ptr %arrayidx25.i, align 8
-  %arrayidx26.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %arrayidx26.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %9 = load ptr, ptr %arrayidx26.i, align 8
   %call27.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg.i, i64 noundef 256, ptr noundef nonnull @.str.156, ptr noundef %algo, i32 noundef %strength, ptr noundef %desc, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.108, i32 noundef %count.addr.0.i, ptr noundef %6, i32 noundef 5, i32 noundef 3, double noundef %sub.i, ptr noundef %7, ptr noundef %8, i32 noundef 5, i32 noundef 3, double noundef %each.0.i, i32 noundef 3, double noundef %opsSec.0.i, ptr noundef %9) #16
   br label %if.end28.i
@@ -6553,7 +6553,7 @@ if.then.i.i:                                      ; preds = %entry
 bench_stats_start.exit:                           ; preds = %entry
   %3 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %3 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %4 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %4 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -6569,7 +6569,7 @@ bench_stats_start.exit:                           ; preds = %entry
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %6, align 8
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
-  %tv_nsec.i.i16 = getelementptr inbounds i8, ptr %tv.i.i12, i64 8
+  %tv_nsec.i.i16 = getelementptr inbounds nuw i8, ptr %tv.i.i12, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -6697,7 +6697,7 @@ if.then.i.i:                                      ; preds = %for.body31
 bench_stats_start.exit:                           ; preds = %for.body31
   %4 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %4 to double
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %5 = load i64, ptr %tv_nsec.i.i, align 8
   %conv4.i.i = sitofp i64 %5 to double
   %div.i.i = fdiv double %conv4.i.i, 1.000000e+09
@@ -6712,7 +6712,7 @@ bench_stats_start.exit:                           ; preds = %for.body31
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i1.i
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
   store i64 %or.i.i, ptr %7, align 8
-  %tv_nsec.i.i68 = getelementptr inbounds i8, ptr %tv.i.i64, i64 8
+  %tv_nsec.i.i68 = getelementptr inbounds nuw i8, ptr %tv.i.i64, i64 8
   br label %do.body40
 
 do.body40:                                        ; preds = %bench_stats_check.exit, %bench_stats_start.exit
@@ -6764,7 +6764,7 @@ exit_ecdhe:                                       ; preds = %bench_stats_check.e
   %call83 = call ptr @wc_ecc_get_name(i32 noundef %curveId) #16
   %call84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 24, ptr noundef nonnull @.str.74, ptr noundef %call83) #16
   %mul = shl nsw i32 %call, 3
-  %arrayidx86 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %arrayidx86 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %12 = load ptr, ptr %arrayidx86, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %12, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %call64)
   %cmp90 = icmp slt i32 %call64, 0
@@ -6781,7 +6781,7 @@ for.body98.preheader:                             ; preds = %for.cond96.preheade
 for.body98:                                       ; preds = %for.body98.preheader, %for.body98
   %indvars.iv = phi i64 [ 0, %for.body98.preheader ], [ %indvars.iv.next, %for.body98 ]
   %conv = trunc i64 %indvars.iv to i8
-  %arrayidx102 = getelementptr inbounds [66 x i8], ptr %digest, i64 0, i64 %indvars.iv
+  %arrayidx102 = getelementptr inbounds nuw [66 x i8], ptr %digest, i64 0, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx102, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6805,7 +6805,7 @@ if.then.i.i91:                                    ; preds = %for.end108
 bench_stats_start.exit95:                         ; preds = %for.end108
   %15 = load i64, ptr %tv.i.i77, align 8
   %conv.i.i80 = sitofp i64 %15 to double
-  %tv_nsec.i.i81 = getelementptr inbounds i8, ptr %tv.i.i77, i64 8
+  %tv_nsec.i.i81 = getelementptr inbounds nuw i8, ptr %tv.i.i77, i64 8
   %16 = load i64, ptr %tv_nsec.i.i81, align 8
   %conv4.i.i82 = sitofp i64 %16 to double
   %div.i.i83 = fdiv double %conv4.i.i82, 1.000000e+09
@@ -6819,8 +6819,8 @@ bench_stats_start.exit95:                         ; preds = %for.end108
   %shl.i.i89 = shl nuw i64 %conv2.i.i88, 32
   %or.i.i90 = or disjoint i64 %shl.i.i89, %conv.i1.i87
   store i64 %or.i.i90, ptr %7, align 8
-  %state = getelementptr inbounds i8, ptr %genKey, i64 8
-  %tv_nsec.i.i105 = getelementptr inbounds i8, ptr %tv.i.i101, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %genKey, i64 8
+  %tv_nsec.i.i105 = getelementptr inbounds nuw i8, ptr %tv.i.i101, i64 8
   br label %do.body109
 
 do.body109:                                       ; preds = %bench_stats_check.exit116, %bench_stats_start.exit95
@@ -6879,7 +6879,7 @@ exit_ecdsa_sign:                                  ; preds = %bench_stats_check.e
   %count.3 = phi i32 [ %count.2, %if.end135 ], [ %add159, %bench_stats_check.exit116 ]
   %call165 = call ptr @wc_ecc_get_name(i32 noundef %curveId) #16
   %call166 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 24, ptr noundef nonnull @.str.75, ptr noundef %call165) #16
-  %arrayidx169 = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %arrayidx169 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %23 = load ptr, ptr %arrayidx169, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %23, i32 noundef %count.3, double noundef %add.i.i84, i32 noundef %call146)
   %cmp173 = icmp slt i32 %call146, 0
@@ -6903,7 +6903,7 @@ if.then.i.i131:                                   ; preds = %if.end176
 bench_stats_start.exit135:                        ; preds = %if.end176
   %26 = load i64, ptr %tv.i.i117, align 8
   %conv.i.i120 = sitofp i64 %26 to double
-  %tv_nsec.i.i121 = getelementptr inbounds i8, ptr %tv.i.i117, i64 8
+  %tv_nsec.i.i121 = getelementptr inbounds nuw i8, ptr %tv.i.i117, i64 8
   %27 = load i64, ptr %tv_nsec.i.i121, align 8
   %conv4.i.i122 = sitofp i64 %27 to double
   %div.i.i123 = fdiv double %conv4.i.i122, 1.000000e+09
@@ -6917,7 +6917,7 @@ bench_stats_start.exit135:                        ; preds = %if.end176
   %shl.i.i129 = shl nuw i64 %conv2.i.i128, 32
   %or.i.i130 = or disjoint i64 %shl.i.i129, %conv.i1.i127
   store i64 %or.i.i130, ptr %7, align 8
-  %tv_nsec.i.i145 = getelementptr inbounds i8, ptr %tv.i.i141, i64 8
+  %tv_nsec.i.i145 = getelementptr inbounds nuw i8, ptr %tv.i.i141, i64 8
   br label %do.body177
 
 do.body177:                                       ; preds = %bench_stats_check.exit156, %bench_stats_start.exit135
@@ -6977,7 +6977,7 @@ exit_ecdsa_verify:                                ; preds = %bench_stats_check.e
   %count.5 = phi i32 [ %count.4, %if.end204 ], [ %add230, %bench_stats_check.exit156 ]
   %call236 = call ptr @wc_ecc_get_name(i32 noundef %curveId) #16
   %call237 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 24, ptr noundef nonnull @.str.75, ptr noundef %call236) #16
-  %arrayidx240 = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %arrayidx240 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   %35 = load ptr, ptr %arrayidx240, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %35, i32 noundef %count.5, double noundef %add.i.i124, i32 noundef %call217)
   br label %exit
@@ -7029,7 +7029,7 @@ if.then:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %2 = load i64, ptr %tv, align 8
   %conv = sitofp i64 %2 to double
-  %tv_nsec = getelementptr inbounds i8, ptr %tv, i64 8
+  %tv_nsec = getelementptr inbounds nuw i8, ptr %tv, i64 8
   %3 = load i64, ptr %tv_nsec, align 8
   %conv4 = sitofp i64 %3 to double
   %div = fdiv double %conv4, 1.000000e+09
@@ -7108,20 +7108,20 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %if.end285
   %argv.addr.0187 = phi ptr [ %argv, %while.body.lr.ph ], [ %incdec.ptr287, %if.end285 ]
   %argc.addr.0186 = phi i32 [ %argc, %while.body.lr.ph ], [ %dec286, %if.end285 ]
-  %arrayidx = getelementptr inbounds i8, ptr %argv.addr.0187, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %argv.addr.0187, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 45
   br i1 %.not, label %sub_1, label %if.else
 
 sub_1:                                            ; preds = %while.body
-  %4 = getelementptr inbounds i8, ptr %2, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %5 = load i8, ptr %4, align 1
   %.not188 = icmp eq i8 %5, 63
   br i1 %.not188, label %while.body.tail, label %if.else
 
 while.body.tail:                                  ; preds = %sub_1
-  %6 = getelementptr inbounds i8, ptr %2, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %if.then, label %if.else
@@ -7131,7 +7131,7 @@ if.then:                                          ; preds = %while.body.tail
   br i1 %cmp4.not, label %if.end11, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %arrayidx6 = getelementptr inbounds i8, ptr %argv.addr.0187, i64 16
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %argv.addr.0187, i64 16
   %9 = load ptr, ptr %arrayidx6, align 8
   %call7 = tail call i32 @atoi(ptr nocapture noundef %9) #19
   %or.cond = icmp ugt i32 %call7, 1
@@ -7154,7 +7154,7 @@ if.then15:                                        ; preds = %if.else
   br i1 %cmp18.not, label %while.end, label %if.then19
 
 if.then19:                                        ; preds = %if.then15
-  %arrayidx20 = getelementptr inbounds i8, ptr %argv.addr.0187, i64 16
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %argv.addr.0187, i64 16
   %10 = load ptr, ptr %arrayidx20, align 8
   %call21 = tail call i32 @atoi(ptr nocapture noundef %10) #19
   store i32 %call21, ptr @lng_index, align 4
@@ -7206,7 +7206,7 @@ if.then48:                                        ; preds = %if.else44
 
 if.then52:                                        ; preds = %if.then48
   %dec49 = add nsw i32 %argc.addr.0186, -1
-  %arrayidx53 = getelementptr inbounds i8, ptr %argv.addr.0187, i64 16
+  %arrayidx53 = getelementptr inbounds nuw i8, ptr %argv.addr.0187, i64 16
   %12 = load ptr, ptr %arrayidx53, align 8
   %call54 = tail call i32 @atoi(ptr nocapture noundef %12) #19
   store i32 %call54, ptr @aes_aad_size, align 4
@@ -7273,7 +7273,7 @@ if.then87:                                        ; preds = %if.else83
 
 if.then91:                                        ; preds = %if.then87
   %dec88 = add nsw i32 %argc.addr.0186, -1
-  %arrayidx92 = getelementptr inbounds i8, ptr %argv.addr.0187, i64 16
+  %arrayidx92 = getelementptr inbounds nuw i8, ptr %argv.addr.0187, i64 16
   %15 = load ptr, ptr %arrayidx92, align 8
   %call93 = tail call i32 @atoi(ptr nocapture noundef %15) #19
   store i32 %call93, ptr @numBlocks, align 4
@@ -7290,7 +7290,7 @@ if.then99:                                        ; preds = %if.else95
 
 if.then103:                                       ; preds = %if.then99
   %dec100 = add nsw i32 %argc.addr.0186, -1
-  %arrayidx104 = getelementptr inbounds i8, ptr %argv.addr.0187, i64 16
+  %arrayidx104 = getelementptr inbounds nuw i8, ptr %argv.addr.0187, i64 16
   %16 = load ptr, ptr %arrayidx104, align 8
   store ptr %16, ptr %1, align 8
   br label %if.end285
@@ -7306,7 +7306,7 @@ if.then110:                                       ; preds = %if.else106
 
 if.then114:                                       ; preds = %if.then110
   %dec111 = add nsw i32 %argc.addr.0186, -1
-  %arrayidx115 = getelementptr inbounds i8, ptr %argv.addr.0187, i64 16
+  %arrayidx115 = getelementptr inbounds nuw i8, ptr %argv.addr.0187, i64 16
   %17 = load ptr, ptr %arrayidx115, align 8
   store ptr %17, ptr %0, align 8
   br label %if.end285
@@ -7325,14 +7325,14 @@ land.rhs:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %land.rhs
   %indvars.iv271 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %land.rhs ]
-  %arrayidx124 = getelementptr inbounds [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv271
+  %arrayidx124 = getelementptr inbounds nuw [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv271
   %18 = load ptr, ptr %arrayidx124, align 16
   %call.i121 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %18) #19
   %cmp.i122.not.not = icmp eq i32 %call.i121, 0
   br i1 %cmp.i122.not.not, label %for.end162.thread, label %land.rhs
 
 for.end162.thread:                                ; preds = %for.body
-  %val = getelementptr inbounds i8, ptr %arrayidx124, i64 8
+  %val = getelementptr inbounds nuw i8, ptr %arrayidx124, i64 8
   %19 = load i32, ptr %val, align 8
   %or136 = or i32 %bench_cipher_algs.promoted, %19
   store i32 %or136, ptr @bench_cipher_algs, align 4
@@ -7350,14 +7350,14 @@ land.rhs140:                                      ; preds = %for.body147
 
 for.body147:                                      ; preds = %land.rhs140.preheader, %land.rhs140
   %indvars.iv196272 = phi i64 [ 0, %land.rhs140.preheader ], [ %indvars.iv.next197, %land.rhs140 ]
-  %arrayidx142 = getelementptr inbounds [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv196272
+  %arrayidx142 = getelementptr inbounds nuw [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv196272
   %20 = load ptr, ptr %arrayidx142, align 16
   %call.i124 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %20) #19
   %cmp.i125.not.not = icmp eq i32 %call.i124, 0
   br i1 %cmp.i125.not.not, label %for.end162, label %land.rhs140
 
 for.end162:                                       ; preds = %for.body147
-  %val157 = getelementptr inbounds i8, ptr %arrayidx142, i64 8
+  %val157 = getelementptr inbounds nuw i8, ptr %arrayidx142, i64 8
   %21 = load i32, ptr %val157, align 8
   %or158 = or i32 %bench_digest_algs.promoted, %21
   store i32 %or158, ptr @bench_digest_algs, align 4
@@ -7375,14 +7375,14 @@ land.rhs165:                                      ; preds = %for.body172
 
 for.body172:                                      ; preds = %land.rhs165.preheader, %land.rhs165
   %indvars.iv200273 = phi i64 [ 0, %land.rhs165.preheader ], [ %indvars.iv.next201, %land.rhs165 ]
-  %arrayidx167 = getelementptr inbounds [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv200273
+  %arrayidx167 = getelementptr inbounds nuw [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv200273
   %22 = load ptr, ptr %arrayidx167, align 16
   %call.i127 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %22) #19
   %cmp.i128.not.not = icmp eq i32 %call.i127, 0
   br i1 %cmp.i128.not.not, label %for.end187, label %land.rhs165
 
 for.end187:                                       ; preds = %for.body172
-  %val182 = getelementptr inbounds i8, ptr %arrayidx167, i64 8
+  %val182 = getelementptr inbounds nuw i8, ptr %arrayidx167, i64 8
   %23 = load i32, ptr %val182, align 8
   %or183 = or i32 %bench_mac_algs.promoted, %23
   store i32 %or183, ptr @bench_mac_algs, align 4
@@ -7410,14 +7410,14 @@ land.rhs215:                                      ; preds = %for.body222
 
 for.body222:                                      ; preds = %land.rhs215.preheader, %land.rhs215
   %indvars.iv208275 = phi i64 [ 0, %land.rhs215.preheader ], [ %indvars.iv.next209, %land.rhs215 ]
-  %arrayidx217 = getelementptr inbounds [8 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv208275
+  %arrayidx217 = getelementptr inbounds nuw [8 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv208275
   %24 = load ptr, ptr %arrayidx217, align 16
   %call.i133 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %24) #19
   %cmp.i134.not.not = icmp eq i32 %call.i133, 0
   br i1 %cmp.i134.not.not, label %for.end237, label %land.rhs215
 
 for.end237:                                       ; preds = %for.body222
-  %val232 = getelementptr inbounds i8, ptr %arrayidx217, i64 8
+  %val232 = getelementptr inbounds nuw i8, ptr %arrayidx217, i64 8
   %25 = load i32, ptr %val232, align 8
   %or233 = or i32 %bench_asym_algs.promoted, %25
   store i32 %or233, ptr @bench_asym_algs, align 4
@@ -7435,7 +7435,7 @@ land.rhs240:                                      ; preds = %for.body247
 
 for.body247:                                      ; preds = %land.rhs240.preheader, %land.rhs240
   %indvars.iv212276 = phi i64 [ 0, %land.rhs240.preheader ], [ %indvars.iv.next213, %land.rhs240 ]
-  %arrayidx242 = getelementptr inbounds [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv212276
+  %arrayidx242 = getelementptr inbounds nuw [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv212276
   %26 = load ptr, ptr %arrayidx242, align 16
   %call.i136 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %26) #19
   %cmp.i137.not.not = icmp eq i32 %call.i136, 0
@@ -7461,7 +7461,7 @@ if.then.i:                                        ; preds = %if.else268
   br label %if.end285
 
 if.end285.loopexit:                               ; preds = %for.body247
-  %val257 = getelementptr inbounds i8, ptr %arrayidx242, i64 8
+  %val257 = getelementptr inbounds nuw i8, ptr %arrayidx242, i64 8
   %29 = load i32, ptr %val257, align 8
   %or258 = or i32 %bench_other_algs.promoted, %29
   store i32 %or258, ptr @bench_other_algs, align 4
@@ -7472,7 +7472,7 @@ if.end285:                                        ; preds = %for.end162.thread, 
   %argc.addr.1 = phi i32 [ %dec16, %if.then25 ], [ %dec16, %if.then19 ], [ %argc.addr.0186, %if.then33 ], [ %argc.addr.0186, %if.then38 ], [ %argc.addr.0186, %if.then43 ], [ %dec49, %if.then52 ], [ %argc.addr.0186, %if.then61 ], [ %argc.addr.0186, %if.then66 ], [ %argc.addr.0186, %if.then71 ], [ %argc.addr.0186, %if.then76 ], [ %argc.addr.0186, %if.then82 ], [ %dec88, %if.then91 ], [ %dec100, %if.then103 ], [ %dec111, %if.then114 ], [ %argc.addr.0186, %if.else268 ], [ %argc.addr.0186, %if.then.i ], [ %argc.addr.0186, %for.end237 ], [ %argc.addr.0186, %if.end285.loopexit ], [ %argc.addr.0186, %for.end212 ], [ %argc.addr.0186, %for.end187 ], [ %argc.addr.0186, %for.end162 ], [ %argc.addr.0186, %for.end162.thread ]
   %argv.addr.1 = phi ptr [ %arrayidx, %if.then25 ], [ %arrayidx, %if.then19 ], [ %argv.addr.0187, %if.then33 ], [ %argv.addr.0187, %if.then38 ], [ %argv.addr.0187, %if.then43 ], [ %arrayidx, %if.then52 ], [ %argv.addr.0187, %if.then61 ], [ %argv.addr.0187, %if.then66 ], [ %argv.addr.0187, %if.then71 ], [ %argv.addr.0187, %if.then76 ], [ %argv.addr.0187, %if.then82 ], [ %arrayidx, %if.then91 ], [ %arrayidx, %if.then103 ], [ %arrayidx, %if.then114 ], [ %argv.addr.0187, %if.else268 ], [ %argv.addr.0187, %if.then.i ], [ %argv.addr.0187, %for.end237 ], [ %argv.addr.0187, %if.end285.loopexit ], [ %argv.addr.0187, %for.end212 ], [ %argv.addr.0187, %for.end187 ], [ %argv.addr.0187, %for.end162 ], [ %argv.addr.0187, %for.end162.thread ]
   %dec286 = add nsw i32 %argc.addr.1, -1
-  %incdec.ptr287 = getelementptr inbounds i8, ptr %argv.addr.1, i64 8
+  %incdec.ptr287 = getelementptr inbounds nuw i8, ptr %argv.addr.1, i64 8
   %cmp = icmp sgt i32 %argc.addr.1, 2
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !79
 
@@ -7575,7 +7575,7 @@ if.then6.i:                                       ; preds = %if.end.i
 print_alg.exit:                                   ; preds = %if.end.i, %if.then6.i
   %line.7 = phi i32 [ 0, %if.then6.i ], [ %add3.i, %if.end.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx80 = getelementptr inbounds [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv.next
+  %arrayidx80 = getelementptr inbounds nuw [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv.next
   %21 = load ptr, ptr %arrayidx80, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond, label %for.body90, label %for.body, !llvm.loop !80
@@ -7608,7 +7608,7 @@ if.then6.i59:                                     ; preds = %if.end.i52
 print_alg.exit63:                                 ; preds = %if.end.i52, %if.then6.i59
   %line.9 = phi i32 [ 0, %if.then6.i59 ], [ %add3.i57, %if.end.i52 ]
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %arrayidx87 = getelementptr inbounds [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv.next146
+  %arrayidx87 = getelementptr inbounds nuw [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv.next146
   %23 = load ptr, ptr %arrayidx87, align 16
   %exitcond148 = icmp eq i64 %indvars.iv.next146, 14
   br i1 %exitcond148, label %for.body102, label %for.body90, !llvm.loop !81
@@ -7642,7 +7642,7 @@ print_alg.exit76:                                 ; preds = %if.end.i65
 for.body102.backedge:                             ; preds = %print_alg.exit76, %print_alg.exit76.thread
   %indvars.iv149.be = phi i64 [ %indvars.iv.next150, %print_alg.exit76 ], [ %indvars.iv.next150165, %print_alg.exit76.thread ]
   %line.2131.be = phi i32 [ %add3.i70, %print_alg.exit76 ], [ 0, %print_alg.exit76.thread ]
-  %.be.in = getelementptr inbounds [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv149.be
+  %.be.in = getelementptr inbounds nuw [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv149.be
   %.be = load ptr, ptr %.be.in, align 16
   br label %for.body102, !llvm.loop !82
 
@@ -7703,7 +7703,7 @@ if.then6.i98:                                     ; preds = %if.end.i91
 print_alg.exit102:                                ; preds = %if.end.i91, %if.then6.i98
   %line.15 = phi i32 [ 0, %if.then6.i98 ], [ %add3.i96, %if.end.i91 ]
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %arrayidx123 = getelementptr inbounds [8 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv.next157
+  %arrayidx123 = getelementptr inbounds nuw [8 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv.next157
   %26 = load ptr, ptr %arrayidx123, align 16
   %exitcond159 = icmp eq i64 %indvars.iv.next157, 7
   br i1 %exitcond159, label %for.body138, label %for.body126, !llvm.loop !83
@@ -7736,7 +7736,7 @@ if.then6.i111:                                    ; preds = %if.end.i104
 print_alg.exit115:                                ; preds = %if.end.i104, %if.then6.i111
   %line.17 = phi i32 [ 0, %if.then6.i111 ], [ %add3.i109, %if.end.i104 ]
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
-  %arrayidx135 = getelementptr inbounds [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv.next161
+  %arrayidx135 = getelementptr inbounds nuw [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv.next161
   %28 = load ptr, ptr %arrayidx135, align 16
   %exitcond163 = icmp eq i64 %indvars.iv.next161, 2
   br i1 %exitcond163, label %for.end144, label %for.body138, !llvm.loop !84

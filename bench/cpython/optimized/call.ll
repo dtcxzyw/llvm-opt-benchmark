@@ -131,7 +131,7 @@ _PyErr_Occurred.exit:                             ; preds = %if.then
 if.then3:                                         ; preds = %if.then, %_PyErr_Occurred.exit
   %4 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %4, align 8
-  %tp_name = getelementptr inbounds i8, ptr %obj.val, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %obj.val, i64 24
   %5 = load ptr, ptr %tp_name, align 8
   tail call void (ptr, ptr, ...) @_Py_FatalErrorFormat(ptr noundef nonnull @__func__._Py_CheckSlotResult, ptr noundef nonnull @.str.4, ptr noundef %slot_name, ptr noundef %5) #9
   unreachable
@@ -148,7 +148,7 @@ _PyErr_Occurred.exit10:                           ; preds = %if.else
 if.then7:                                         ; preds = %_PyErr_Occurred.exit10
   %7 = getelementptr i8, ptr %obj, i64 8
   %obj.val4 = load ptr, ptr %7, align 8
-  %tp_name9 = getelementptr inbounds i8, ptr %obj.val4, i64 24
+  %tp_name9 = getelementptr inbounds nuw i8, ptr %obj.val4, i64 24
   %8 = load ptr, ptr %tp_name9, align 8
   tail call void (ptr, ptr, ...) @_Py_FatalErrorFormat(ptr noundef nonnull @__func__._Py_CheckSlotResult, ptr noundef nonnull @.str.5, ptr noundef %slot_name, ptr noundef %8) #9
   unreachable
@@ -174,7 +174,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i, label %_PyVectorcall_FunctionInline.exit.i
 
 _PyVectorcall_FunctionInline.exit.i:              ; preds = %entry
-  %tp_vectorcall_offset.i.i = getelementptr inbounds i8, ptr %callable.val.i.i, i64 56
+  %tp_vectorcall_offset.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i, i64 56
   %5 = load i64, ptr %tp_vectorcall_offset.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %func, i64 %5
   %ptr.0.copyload.i.i = load ptr, ptr %add.ptr.i.i, align 1
@@ -256,7 +256,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then, label %PyVectorcall_Function.exit
 
 PyVectorcall_Function.exit:                       ; preds = %entry
-  %tp_vectorcall_offset.i.i = getelementptr inbounds i8, ptr %callable.val.i.i, i64 56
+  %tp_vectorcall_offset.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i, i64 56
   %3 = load i64, ptr %tp_vectorcall_offset.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %callable, i64 %3
   %ptr.0.copyload.i.i = load ptr, ptr %add.ptr.i.i, align 1
@@ -360,7 +360,7 @@ entry:
   br i1 %tobool.not.i, label %_PyVectorcall_FunctionInline.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %tp_vectorcall_offset.i = getelementptr inbounds i8, ptr %callable.val.i, i64 56
+  %tp_vectorcall_offset.i = getelementptr inbounds nuw i8, ptr %callable.val.i, i64 56
   %3 = load i64, ptr %tp_vectorcall_offset.i, align 8
   %add.ptr.i = getelementptr i8, ptr %callable, i64 %3
   %ptr.0.copyload.i = load ptr, ptr %add.ptr.i, align 1
@@ -376,7 +376,7 @@ define dso_local noundef ptr @_PyObject_MakeTpCall(ptr noundef %tstate, ptr noun
 entry:
   %0 = getelementptr i8, ptr %callable, i64 8
   %callable.val = load ptr, ptr %0, align 8
-  %tp_call = getelementptr inbounds i8, ptr %callable.val, i64 128
+  %tp_call = getelementptr inbounds nuw i8, ptr %callable.val, i64 128
   %1 = load ptr, ptr %tp_call, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -411,7 +411,7 @@ if.else:                                          ; preds = %lor.lhs.false
 
 if.then12:                                        ; preds = %if.else
   %add.ptr = getelementptr ptr, ptr %args, i64 %nargs
-  %ob_item.i = getelementptr inbounds i8, ptr %keywords, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %keywords, i64 24
   %call1.i = tail call ptr @_PyDict_FromItems(ptr noundef nonnull %ob_item.i, i64 noundef 1, ptr noundef %add.ptr, i64 noundef 1, i64 noundef %keywords.val27) #8
   %cmp14 = icmp eq ptr %call1.i, null
   br i1 %cmp14, label %if.then15, label %if.end19
@@ -435,7 +435,7 @@ if.then1.i44:                                     ; preds = %if.end.i41
 if.end19:                                         ; preds = %if.else, %if.end5, %lor.lhs.false, %if.then12
   %keywords.addr.0 = phi ptr [ %keywords, %if.then12 ], [ %keywords, %lor.lhs.false ], [ null, %if.end5 ], [ null, %if.else ]
   %kwdict.0 = phi ptr [ %call1.i, %if.then12 ], [ %keywords, %lor.lhs.false ], [ null, %if.end5 ], [ null, %if.else ]
-  %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %tstate, i64 44
+  %c_recursion_remaining.i.i = getelementptr inbounds nuw i8, ptr %tstate, i64 44
   %8 = load i32, ptr %c_recursion_remaining.i.i, align 4
   %dec.i.i = add i32 %8, -1
   store i32 %dec.i.i, ptr %c_recursion_remaining.i.i, align 4
@@ -570,7 +570,7 @@ for.end:                                          ; preds = %_Py_NewRef.exit, %i
   br i1 %tobool.not39, label %if.end24, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %for.end
-  %ob_item.i = getelementptr inbounds i8, ptr %call8, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %call8, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_Py_NewRef.exit32
@@ -579,7 +579,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %3 = load ptr, ptr %key, align 8
   %4 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %4, align 8
-  %tp_flags = getelementptr inbounds i8, ptr %.val, i64 168
+  %tp_flags = getelementptr inbounds nuw i8, ptr %.val, i64 168
   %5 = load i64, ptr %tp_flags, align 8
   %and = and i64 %5, %keys_are_strings.041
   %6 = load i32, ptr %3, align 8
@@ -779,7 +779,7 @@ land.lhs.true:                                    ; preds = %if.else
 if.then9:                                         ; preds = %land.lhs.true
   %2 = load ptr, ptr @PyExc_TypeError, align 8
   %callable.val20 = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds i8, ptr %callable.val20, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %callable.val20, i64 24
   %3 = load ptr, ptr %tp_name, align 8
   %call11 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %tstate, ptr noundef %2, ptr noundef nonnull @.str.11, ptr noundef %3, ptr noundef nonnull %call1, ptr noundef nonnull %call1) #8
   %4 = load ptr, ptr %attr, align 8
@@ -854,7 +854,7 @@ if.then1.i:                                       ; preds = %if.end.i
 basic_type_error:                                 ; preds = %entry, %Py_XDECREF.exit, %if.then1.i, %if.end.i, %if.then2
   %14 = load ptr, ptr @PyExc_TypeError, align 8
   %callable.val = load ptr, ptr %0, align 8
-  %tp_name16 = getelementptr inbounds i8, ptr %callable.val, i64 24
+  %tp_name16 = getelementptr inbounds nuw i8, ptr %callable.val, i64 24
   %15 = load ptr, ptr %tp_name16, align 8
   %call17 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %tstate, ptr noundef %14, ptr noundef nonnull @.str.12, ptr noundef %15) #8
   br label %return
@@ -870,7 +870,7 @@ define dso_local ptr @_PyStack_AsDict(ptr noundef %values, ptr noundef %kwnames)
 entry:
   %0 = getelementptr i8, ptr %kwnames, i64 16
   %kwnames.val = load i64, ptr %0, align 8
-  %ob_item = getelementptr inbounds i8, ptr %kwnames, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %kwnames, i64 24
   %call1 = tail call ptr @_PyDict_FromItems(ptr noundef nonnull %ob_item, i64 noundef 1, ptr noundef %values, i64 noundef 1, i64 noundef %kwnames.val) #8
   ret ptr %call1
 }
@@ -882,14 +882,14 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %callable, i64 8
   %callable.val10 = load ptr, ptr %2, align 8
-  %tp_vectorcall_offset = getelementptr inbounds i8, ptr %callable.val10, i64 56
+  %tp_vectorcall_offset = getelementptr inbounds nuw i8, ptr %callable.val10, i64 56
   %3 = load i64, ptr %tp_vectorcall_offset, align 8
   %cmp = icmp slt i64 %3, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %4 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds i8, ptr %callable.val10, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %callable.val10, i64 24
   %5 = load ptr, ptr %tp_name, align 8
   %call3 = tail call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %1, ptr noundef %4, ptr noundef nonnull @.str.7, ptr noundef %5) #8
   br label %return
@@ -902,7 +902,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %6 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name7 = getelementptr inbounds i8, ptr %callable.val10, i64 24
+  %tp_name7 = getelementptr inbounds nuw i8, ptr %callable.val10, i64 24
   %7 = load ptr, ptr %tp_name7, align 8
   %call8 = tail call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %1, ptr noundef %6, ptr noundef nonnull @.str.7, ptr noundef %7) #8
   br label %return
@@ -935,12 +935,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %ob_item = getelementptr inbounds i8, ptr %tuple, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %tuple, i64 24
   %call3 = tail call ptr %func(ptr noundef %callable, ptr noundef nonnull %ob_item, i64 noundef %tuple.val, ptr noundef null) #8
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %ob_item4 = getelementptr inbounds i8, ptr %tuple, i64 24
+  %ob_item4 = getelementptr inbounds nuw i8, ptr %tuple, i64 24
   %call6 = call ptr @_PyStack_UnpackDict(ptr noundef %tstate, ptr noundef nonnull %ob_item4, i64 noundef %tuple.val, ptr noundef nonnull %kwargs, ptr noundef nonnull %kwnames)
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %return, label %if.end9
@@ -1020,7 +1020,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i, label %_PyVectorcall_FunctionInline.exit.i
 
 _PyVectorcall_FunctionInline.exit.i:              ; preds = %entry
-  %tp_vectorcall_offset.i.i = getelementptr inbounds i8, ptr %callable.val.i.i, i64 56
+  %tp_vectorcall_offset.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i, i64 56
   %5 = load i64, ptr %tp_vectorcall_offset.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %callable, i64 %5
   %ptr.0.copyload.i.i = load ptr, ptr %add.ptr.i.i, align 1
@@ -1101,7 +1101,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.else, label %PyVectorcall_Function.exit
 
 PyVectorcall_Function.exit:                       ; preds = %entry
-  %tp_vectorcall_offset.i.i = getelementptr inbounds i8, ptr %callable.val.i.i, i64 56
+  %tp_vectorcall_offset.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i, i64 56
   %3 = load i64, ptr %tp_vectorcall_offset.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %callable, i64 %3
   %ptr.0.copyload.i.i = load ptr, ptr %add.ptr.i.i, align 1
@@ -1113,7 +1113,7 @@ if.then:                                          ; preds = %PyVectorcall_Functi
   br label %return
 
 if.else:                                          ; preds = %entry, %PyVectorcall_Function.exit
-  %tp_call = getelementptr inbounds i8, ptr %callable.val.i.i, i64 128
+  %tp_call = getelementptr inbounds nuw i8, ptr %callable.val.i.i, i64 128
   %4 = load ptr, ptr %tp_call, align 8
   %cmp4 = icmp eq ptr %4, null
   br i1 %cmp4, label %if.then5, label %if.end
@@ -1123,7 +1123,7 @@ if.then5:                                         ; preds = %if.else
   br label %return
 
 if.end:                                           ; preds = %if.else
-  %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %tstate, i64 44
+  %c_recursion_remaining.i.i = getelementptr inbounds nuw i8, ptr %tstate, i64 44
   %5 = load i32, ptr %c_recursion_remaining.i.i, align 4
   %dec.i.i = add i32 %5, -1
   store i32 %dec.i.i, ptr %c_recursion_remaining.i.i, align 4
@@ -1170,7 +1170,7 @@ entry:
 define dso_local ptr @PyObject_CallOneArg(ptr noundef %func, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %_args = alloca [2 x ptr], align 16
-  %add.ptr = getelementptr inbounds i8, ptr %_args, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %_args, i64 8
   store ptr %arg, ptr %add.ptr, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -1183,7 +1183,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i, label %_PyVectorcall_FunctionInline.exit.i
 
 _PyVectorcall_FunctionInline.exit.i:              ; preds = %entry
-  %tp_vectorcall_offset.i.i = getelementptr inbounds i8, ptr %callable.val.i.i, i64 56
+  %tp_vectorcall_offset.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i, i64 56
   %5 = load i64, ptr %tp_vectorcall_offset.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %func, i64 %5
   %ptr.0.copyload.i.i = load ptr, ptr %add.ptr.i.i, align 1
@@ -1256,16 +1256,16 @@ define hidden ptr @_PyFunction_Vectorcall(ptr noundef %func, ptr noundef %stack,
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %func_code = getelementptr inbounds i8, ptr %func, i64 48
+  %func_code = getelementptr inbounds nuw i8, ptr %func, i64 48
   %2 = load ptr, ptr %func_code, align 8
-  %co_flags = getelementptr inbounds i8, ptr %2, i64 48
+  %co_flags = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load i32, ptr %co_flags, align 8
   %and = and i32 %3, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
-  %func_globals = getelementptr inbounds i8, ptr %func, i64 16
+  %func_globals = getelementptr inbounds nuw i8, ptr %func, i64 16
   %4 = load ptr, ptr %func_globals, align 8
   br label %return
 
@@ -1383,7 +1383,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.then.i, label %_PyVectorcall_FunctionInline.exit.i
 
 _PyVectorcall_FunctionInline.exit.i:              ; preds = %entry
-  %tp_vectorcall_offset.i.i = getelementptr inbounds i8, ptr %callable.val.i.i, i64 56
+  %tp_vectorcall_offset.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i, i64 56
   %3 = load i64, ptr %tp_vectorcall_offset.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %func, i64 %3
   %ptr.0.copyload.i.i = load ptr, ptr %add.ptr.i.i, align 1
@@ -1475,7 +1475,7 @@ if.end6:                                          ; preds = %entry, %if.else
   %stack.0 = phi ptr [ %call2, %if.else ], [ %small_stack, %entry ]
   store ptr %obj, ptr %stack.0, align 8
   %arrayidx7 = getelementptr i8, ptr %stack.0, i64 8
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   %mul9 = shl i64 %args.val, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx7, ptr nonnull align 8 %ob_item, i64 %mul9, i1 false)
   %call11 = call ptr @_PyObject_VectorcallDictTstate(ptr noundef %tstate, ptr noundef %callable, ptr noundef nonnull %stack.0, i64 noundef %add, ptr noundef %kwargs)
@@ -1568,7 +1568,7 @@ land.lhs.true:                                    ; preds = %if.end8
   br i1 %tobool12.not, label %if.else, label %if.then13
 
 if.then13:                                        ; preds = %land.lhs.true
-  %ob_item = getelementptr inbounds i8, ptr %5, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = getelementptr i8, ptr %5, i64 16
   %.val20 = load i64, ptr %9, align 8
   %10 = getelementptr i8, ptr %callable, i64 8
@@ -1580,7 +1580,7 @@ if.then13:                                        ; preds = %land.lhs.true
   br i1 %tobool.not.i.i, label %if.then.i25, label %_PyVectorcall_FunctionInline.exit.i
 
 _PyVectorcall_FunctionInline.exit.i:              ; preds = %if.then13
-  %tp_vectorcall_offset.i.i = getelementptr inbounds i8, ptr %callable.val.i.i, i64 56
+  %tp_vectorcall_offset.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i, i64 56
   %13 = load i64, ptr %tp_vectorcall_offset.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %callable, i64 %13
   %ptr.0.copyload.i.i = load ptr, ptr %add.ptr.i.i, align 1
@@ -1607,7 +1607,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br i1 %tobool.not.i.i28, label %if.then.i38, label %_PyVectorcall_FunctionInline.exit.i29
 
 _PyVectorcall_FunctionInline.exit.i29:            ; preds = %if.else
-  %tp_vectorcall_offset.i.i30 = getelementptr inbounds i8, ptr %callable.val.i.i26, i64 56
+  %tp_vectorcall_offset.i.i30 = getelementptr inbounds nuw i8, ptr %callable.val.i.i26, i64 56
   %17 = load i64, ptr %tp_vectorcall_offset.i.i30, align 8
   %add.ptr.i.i31 = getelementptr i8, ptr %callable, i64 %17
   %ptr.0.copyload.i.i32 = load ptr, ptr %add.ptr.i.i31, align 1
@@ -1782,7 +1782,7 @@ if.then.i11:                                      ; preds = %if.end6
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   %6 = getelementptr i8, ptr %call3, i64 8
   %callable.val.i = load ptr, ptr %6, align 8
-  %tp_name.i = getelementptr inbounds i8, ptr %callable.val.i, i64 24
+  %tp_name.i = getelementptr inbounds nuw i8, ptr %callable.val.i, i64 24
   %7 = load ptr, ptr %tp_name.i, align 8
   %call2.i = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %1, ptr noundef %5, ptr noundef nonnull @.str.14, ptr noundef %7) #8
   br label %callmethod.exit
@@ -1859,7 +1859,7 @@ if.then.i11:                                      ; preds = %if.end6
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   %6 = getelementptr i8, ptr %call3, i64 8
   %callable.val.i = load ptr, ptr %6, align 8
-  %tp_name.i = getelementptr inbounds i8, ptr %callable.val.i, i64 24
+  %tp_name.i = getelementptr inbounds nuw i8, ptr %callable.val.i, i64 24
   %7 = load ptr, ptr %tp_name.i, align 8
   %call2.i = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %1, ptr noundef %5, ptr noundef nonnull @.str.14, ptr noundef %7) #8
   br label %callmethod.exit
@@ -1934,7 +1934,7 @@ if.then.i11:                                      ; preds = %if.end6
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   %6 = getelementptr i8, ptr %call3, i64 8
   %callable.val.i = load ptr, ptr %6, align 8
-  %tp_name.i = getelementptr inbounds i8, ptr %callable.val.i, i64 24
+  %tp_name.i = getelementptr inbounds nuw i8, ptr %callable.val.i, i64 24
   %7 = load ptr, ptr %tp_name.i, align 8
   %call2.i = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %1, ptr noundef %5, ptr noundef nonnull @.str.14, ptr noundef %7) #8
   br label %callmethod.exit
@@ -2011,7 +2011,7 @@ if.then.i11:                                      ; preds = %if.end6
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   %6 = getelementptr i8, ptr %call3, i64 8
   %callable.val.i = load ptr, ptr %6, align 8
-  %tp_name.i = getelementptr inbounds i8, ptr %callable.val.i, i64 24
+  %tp_name.i = getelementptr inbounds nuw i8, ptr %callable.val.i, i64 24
   %7 = load ptr, ptr %tp_name.i, align 8
   %call2.i = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %1, ptr noundef %5, ptr noundef nonnull @.str.14, ptr noundef %7) #8
   br label %callmethod.exit
@@ -2058,7 +2058,7 @@ if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyExc_TypeError, align 8
   %1 = getelementptr i8, ptr %callable, i64 8
   %callable.val.i = load ptr, ptr %1, align 8
-  %tp_name.i = getelementptr inbounds i8, ptr %callable.val.i, i64 24
+  %tp_name.i = getelementptr inbounds nuw i8, ptr %callable.val.i, i64 24
   %2 = load ptr, ptr %tp_name.i, align 8
   %call2.i = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %tstate, ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %2) #8
   br label %callmethod.exit
@@ -2116,7 +2116,7 @@ if.then.i11:                                      ; preds = %if.end6
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   %6 = getelementptr i8, ptr %call3, i64 8
   %callable.val.i = load ptr, ptr %6, align 8
-  %tp_name.i = getelementptr inbounds i8, ptr %callable.val.i, i64 24
+  %tp_name.i = getelementptr inbounds nuw i8, ptr %callable.val.i, i64 24
   %7 = load ptr, ptr %tp_name.i, align 8
   %call2.i = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %1, ptr noundef %5, ptr noundef nonnull @.str.14, ptr noundef %7) #8
   br label %callmethod.exit
@@ -2177,7 +2177,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i, label %if.then.i, label %_PyVectorcall_FunctionInline.exit.i
 
 _PyVectorcall_FunctionInline.exit.i:              ; preds = %if.end
-  %tp_vectorcall_offset.i.i = getelementptr inbounds i8, ptr %callable.val.i.i, i64 56
+  %tp_vectorcall_offset.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i, i64 56
   %7 = load i64, ptr %tp_vectorcall_offset.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %3, i64 %7
   %ptr.0.copyload.i.i = load ptr, ptr %add.ptr.i.i, align 1
@@ -2360,8 +2360,8 @@ if.end:                                           ; preds = %entry
   %tobool.not = icmp ne ptr %base, null
   %conv = zext i1 %tobool.not to i64
   %countva.promoted = load i32, ptr %countva, align 16
-  %overflow_arg_area_p = getelementptr inbounds i8, ptr %countva, i64 8
-  %3 = getelementptr inbounds i8, ptr %countva, i64 16
+  %overflow_arg_area_p = getelementptr inbounds nuw i8, ptr %countva, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %countva, i64 16
   %reg_save_area = load ptr, ptr %3, align 16
   %overflow_arg_area_p.promoted = load ptr, ptr %overflow_arg_area_p, align 8
   br label %while.body
@@ -2423,8 +2423,8 @@ if.end21:                                         ; preds = %if.then19, %if.end1
   br i1 %cmp2233, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end21
-  %overflow_arg_area_p30 = getelementptr inbounds i8, ptr %vargs, i64 8
-  %8 = getelementptr inbounds i8, ptr %vargs, i64 16
+  %overflow_arg_area_p30 = getelementptr inbounds nuw i8, ptr %vargs, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %vargs, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %vaarg.end33
@@ -2466,7 +2466,7 @@ for.end:                                          ; preds = %vaarg.end33, %if.en
   br i1 %tobool.not.i.i, label %if.then.i18, label %_PyVectorcall_FunctionInline.exit.i
 
 _PyVectorcall_FunctionInline.exit.i:              ; preds = %for.end
-  %tp_vectorcall_offset.i.i = getelementptr inbounds i8, ptr %callable.val.i.i, i64 56
+  %tp_vectorcall_offset.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i, i64 56
   %16 = load i64, ptr %tp_vectorcall_offset.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %callable, i64 %16
   %ptr.0.copyload.i.i = load ptr, ptr %add.ptr.i.i, align 1

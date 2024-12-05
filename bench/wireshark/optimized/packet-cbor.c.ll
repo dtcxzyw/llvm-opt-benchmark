@@ -384,7 +384,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_main_type(ptr noundef %
 
 switch.lookup:                                    ; preds = %32
   %41 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_cbor_main_type.1, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_cbor_main_type.1, i64 0, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   %42 = load i32, ptr @hf_cbor_type_uint, align 4
   %43 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %18, i32 noundef %42, ptr noundef %0, i32 noundef %35, i32 noundef %switch.load, i32 noundef 0, ptr noundef nonnull %8) #6
@@ -873,7 +873,7 @@ dissect_cbor_map.exit:                            ; preds = %232, %230, %220, %.
 
 switch.lookup110:                                 ; preds = %265
   %274 = zext nneg i8 %switch.tableidx111 to i64
-  %switch.gep112 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_cbor_main_type.1, i64 0, i64 %274
+  %switch.gep112 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_cbor_main_type.1, i64 0, i64 %274
   %switch.load113 = load i32, ptr %switch.gep112, align 4
   %275 = load i32, ptr @hf_cbor_type_tag, align 4
   %276 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %251, i32 noundef %275, ptr noundef %0, i32 noundef %267, i32 noundef %switch.load113, i32 noundef 0, ptr noundef nonnull %5) #6
@@ -1249,7 +1249,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_text_string(ptr noundef
 
 92:                                               ; preds = %86
   %93 = load i32, ptr @hf_cbor_type_text_string, align 4
-  %94 = getelementptr inbounds i8, ptr %1, i64 408
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %95 = load ptr, ptr %94, align 8
   %96 = call ptr @proto_tree_add_item_ret_string(ptr noundef %12, i32 noundef %93, ptr noundef %0, i32 noundef %83, i32 noundef %87, i32 noundef 2, ptr noundef %95, ptr noundef nonnull %6) #6
   %97 = load i64, ptr %7, align 8

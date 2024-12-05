@@ -41,15 +41,15 @@ define void @_ZN15wiggle_generate5types15define_datatype17h8c5de3a4fed51b86E(ptr
   br i1 %26, label %27, label %69
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   call void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %17, ptr nonnull align 8 %28), !noalias !5
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   invoke void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %16, ptr nonnull align 8 %31)
           to label %35 unwind label %33, !noalias !5
 
@@ -64,7 +64,7 @@ define void @_ZN15wiggle_generate5types15define_datatype17h8c5de3a4fed51b86E(ptr
   br label %32
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %30, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %37 = invoke zeroext i1 @"_ZN78_$LT$witx..ast..TypeRef$u20$as$u20$wiggle_generate..lifetimes..LifetimeExt$GT$14needs_lifetime17h44e0effe43f08e67E"(ptr nonnull align 8 %36)
           to label %41 unwind label %39, !noalias !5
 
@@ -198,9 +198,9 @@ _ZN15wiggle_generate5types12define_alias17ha26e314fa3fb1207E.exit: ; preds = %52
   br label %74
 
 69:                                               ; preds = %3
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = load ptr, ptr %70, align 8, !nonnull !4, !noundef !4
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load i8, ptr %72, align 8, !range !8, !noundef !4
   switch i8 %73, label %default.unreachable14 [
     i8 0, label %75
@@ -219,14 +219,14 @@ default.unreachable14:                            ; preds = %69
   unreachable
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %71, i64 24
-  %77 = getelementptr inbounds i8, ptr %71, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %78 = load i8, ptr %77, align 8, !range !8, !noundef !4
   %79 = add nsw i8 %78, -4
   %80 = icmp ult i8 %79, 3
   %81 = icmp ne i8 %79, 1
   %.not13 = and i1 %80, %81
-  %82 = getelementptr inbounds i8, ptr %1, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not13, label %155, label %156
 
 83:                                               ; preds = %69
@@ -234,14 +234,14 @@ default.unreachable14:                            ; preds = %69
   br i1 %.not, label %160, label %157
 
 84:                                               ; preds = %69
-  %85 = getelementptr inbounds i8, ptr %1, i64 16
-  %86 = getelementptr inbounds i8, ptr %71, i64 17
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 17
   tail call void @_ZN15wiggle_generate5types6handle13define_handle17hdd49ab2862830ef0E(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr nonnull align 8 %85, ptr nonnull align 1 %86)
   br label %74
 
 87:                                               ; preds = %69
-  %88 = getelementptr inbounds i8, ptr %1, i64 16
-  %89 = getelementptr inbounds i8, ptr %71, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %71, i64 24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -404,22 +404,22 @@ _ZN15wiggle_generate5types16define_witx_list17h93220187e2d23bccE.exit: ; preds =
   br label %74
 
 127:                                              ; preds = %69
-  %128 = getelementptr inbounds i8, ptr %1, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %20)
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr nonnull align 8 %20, ptr nonnull align 1 @anon.9eebd5b9b58101ecd295dd77cdbdf6bb.0, i64 6)
           to label %184 unwind label %182
 
 129:                                              ; preds = %69
-  %130 = getelementptr inbounds i8, ptr %1, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %18)
   invoke void @_ZN5quote9__private10push_ident17h95b308508eeff6c1E(ptr nonnull align 8 %18, ptr nonnull align 1 @anon.9eebd5b9b58101ecd295dd77cdbdf6bb.0, i64 6)
           to label %190 unwind label %188
 
 131:                                              ; preds = %69
-  %132 = getelementptr inbounds i8, ptr %1, i64 16
-  %133 = getelementptr inbounds i8, ptr %71, i64 17
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %71, i64 17
   %134 = load i8, ptr %133, align 1, !range !12, !noundef !4
-  %135 = getelementptr inbounds i8, ptr %71, i64 18
+  %135 = getelementptr inbounds nuw i8, ptr %71, i64 18
   %136 = load i8, ptr %135, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -514,16 +514,16 @@ _ZN15wiggle_generate5types14define_builtin17h957e7ea78fd4c309E.exit: ; preds = %
   br i1 %159, label %163, label %160
 
 160:                                              ; preds = %157, %83
-  %161 = getelementptr inbounds i8, ptr %1, i64 16
-  %162 = getelementptr inbounds i8, ptr %71, i64 24
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %71, i64 24
   tail call void @_ZN15wiggle_generate5types7variant14define_variant17hb9983fb7568db48dE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr nonnull align 8 %161, ptr nonnull align 8 %162, i1 zeroext false)
   br label %74
 
 163:                                              ; preds = %157
-  %164 = getelementptr inbounds i8, ptr %1, i64 16
-  %165 = getelementptr inbounds i8, ptr %71, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %71, i64 24
   call void @_ZN15wiggle_generate5types7variant14define_variant17hb9983fb7568db48dE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %24, ptr nonnull align 8 %164, ptr nonnull align 8 %165, i1 zeroext true)
-  %166 = getelementptr inbounds i8, ptr %2, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void @_ZN15wiggle_generate5types5error12define_error17h27fff890e564edf0E(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %23, ptr nonnull align 8 %164, ptr nonnull align 8 %165, ptr nonnull align 8 %166)
           to label %170 unwind label %168
 
@@ -596,7 +596,7 @@ _ZN15wiggle_generate5types14define_builtin17h957e7ea78fd4c309E.exit: ; preds = %
 
 186:                                              ; preds = %185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  %187 = getelementptr inbounds i8, ptr %71, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %71, i64 24
   call fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1b9a9baa50043d39E(ptr noalias align 8 %0, ptr nonnull align 8 %128, ptr align 8 %21, ptr align 8 %187)
   br label %74
 
@@ -616,7 +616,7 @@ _ZN15wiggle_generate5types14define_builtin17h957e7ea78fd4c309E.exit: ; preds = %
 
 192:                                              ; preds = %191
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
-  %193 = getelementptr inbounds i8, ptr %71, i64 24
+  %193 = getelementptr inbounds nuw i8, ptr %71, i64 24
   call fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1b9a9baa50043d39E(ptr noalias align 8 %0, ptr nonnull align 8 %130, ptr align 8 %19, ptr align 8 %193)
   br label %74
 }

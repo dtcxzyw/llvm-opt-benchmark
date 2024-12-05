@@ -97,7 +97,7 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %4
   br i1 %8, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %bcmp69 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %10, ptr noundef nonnull dereferenceable(16) @_ZN4llvm4COFFL11BigObjMagicE, i64 16)
   %11 = icmp eq i32 %bcmp69, 0
   br i1 %11, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %12
@@ -118,7 +118,7 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %4
   br i1 %17, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %18
 
 18:                                               ; preds = %16, %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit74
@@ -209,18 +209,18 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit113: ; preds = %4
   br i1 %or.cond, label %40, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
 
 40:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit113
-  %41 = getelementptr inbounds i8, ptr %0, i64 5
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 2
   %44 = select i1 %43, i64 16, i64 17
-  %45 = getelementptr inbounds i8, ptr %0, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %48, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread
 
 48:                                               ; preds = %40
   %49 = select i1 %43, i64 17, i64 16
-  %50 = getelementptr inbounds i8, ptr %0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 %49
   %51 = load i8, ptr %50, align 1
   %switch.tableidx = add i8 %51, -1
   %52 = icmp ult i8 %switch.tableidx, 4
@@ -243,7 +243,7 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit119: ; preds = %_ZL10startswi
   br i1 %.old, label %57, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
 
 57:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit119, %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 7
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %59 = load i8, ptr %58, align 1
   %60 = icmp slt i8 %59, 43
   br i1 %60, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
@@ -259,7 +259,7 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit125: ; preds = %_ZL10startswi
   br i1 %62, label %63, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit128
 
 63:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit125, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit122
-  %64 = getelementptr inbounds i8, ptr %0, i64 3
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %65 = load i8, ptr %64, align 1
   %66 = icmp eq i8 %65, -50
   %. = select i1 %66, i64 28, i64 32
@@ -286,16 +286,16 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit131: ; preds = %_ZL10startswi
   %.sink242 = phi i64 [ 13, %63 ], [ 14, %69 ]
   %.sink240 = phi i64 [ 14, %63 ], [ 13, %69 ]
   %.sink236 = phi i64 [ 15, %63 ], [ 12, %69 ]
-  %72 = getelementptr inbounds i8, ptr %0, i64 %.sink242
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink242
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i16
   %75 = shl i16 %74, 12
-  %76 = getelementptr inbounds i8, ptr %0, i64 %.sink240
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink240
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i16
   %79 = shl nuw i16 %78, 8
   %80 = or i16 %79, %75
-  %81 = getelementptr inbounds i8, ptr %0, i64 %.sink236
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink236
   %82 = load i8, ptr %81, align 1
   %83 = sext i8 %82 to i16
   %84 = or i16 %80, %83
@@ -309,13 +309,13 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit134: ; preds = %4, %4, %4, %4
   br i1 %86, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %87
 
 87:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit134, %4, %4
-  %88 = getelementptr inbounds i8, ptr %0, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 1
   br i1 %90, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %91
 
 91:                                               ; preds = %87, %4, %4
-  %92 = getelementptr inbounds i8, ptr %0, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %93 = load i8, ptr %92, align 1
   %94 = icmp eq i8 %93, 2
   br i1 %94, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
@@ -328,7 +328,7 @@ _ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit137: ; preds = %4
   br i1 %or.cond231, label %97, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
 97:                                               ; preds = %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit137
-  %98 = getelementptr inbounds i8, ptr %0, i64 60
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 60
   call void @llvm.assume(i1 true) [ "align"(ptr %98, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %98, align 1
   %99 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
@@ -338,7 +338,7 @@ _ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit137: ; preds = %4
   br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit140, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %0, i64 %.sroa.speculated5.i
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.speculated5.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %101, ptr noundef nonnull dereferenceable(4) @_ZN4llvm4COFFL7PEMagicE, i64 4)
   %102 = icmp eq i32 %bcmp.i, 0
   br i1 %102, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit140
@@ -358,7 +358,7 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit143: ; preds = %_ZNK4llvm9Str
   br i1 %104, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
 
 105:                                              ; preds = %4
-  %106 = getelementptr inbounds i8, ptr %0, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %107 = load i8, ptr %106, align 1
   %switch.selectcmp.case1 = icmp eq i8 %107, -122
   %switch.selectcmp.case2 = icmp eq i8 %107, -86
@@ -390,13 +390,13 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit150: ; preds = %4
   br i1 %113, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
 
 114:                                              ; preds = %4
-  %115 = getelementptr inbounds i8, ptr %0, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %116 = load i8, ptr %115, align 1
   %117 = icmp eq i8 %116, -90
   br i1 %117, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
 
 118:                                              ; preds = %4
-  %119 = getelementptr inbounds i8, ptr %0, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %120 = load i8, ptr %119, align 1
   %121 = icmp eq i8 %120, -90
   br i1 %121, label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit107.thread
@@ -420,7 +420,7 @@ switch.lookup:                                    ; preds = %48
 
 switch.lookup243:                                 ; preds = %71
   %125 = zext nneg i16 %switch.tableidx244 to i64
-  %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table._ZN4llvm14identify_magicENS_9StringRefE, i64 0, i64 %125
+  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN4llvm14identify_magicENS_9StringRefE, i64 0, i64 %125
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit140.thread
 
@@ -440,7 +440,7 @@ define dso_local { i32, ptr } @_ZN4llvm14identify_magicERKNS_5TwineERNS_10file_m
 
 _ZNK4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEE8getErrorEv.exit: ; preds = %2
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 8
-  %.sroa.31.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.31.0.copyload.i = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8
   br label %21
 
@@ -459,7 +459,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
   store i32 %16, ptr %1, align 4
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #8
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(24) %8) #7
   %.pre = load i8, ptr %4, align 8
@@ -479,7 +479,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 
 _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(24) %25) #7
   br label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit

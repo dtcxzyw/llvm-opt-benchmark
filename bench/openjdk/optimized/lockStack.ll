@@ -51,9 +51,9 @@ $_ZN9LogPrefixILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 define hidden void @_ZN9LockStackC2EP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 4), (8, 80)) %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr @_ZN9LockStack22lock_stack_base_offsetE, align 4
   store i32 %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   ret void
 }
@@ -83,7 +83,7 @@ define hidden void @_ZN9LockStack8print_onEP12outputStream(ptr nocapture noundef
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = lshr i32 %5, 3
   %8 = zext nneg i32 %7 to i64
   br label %9
@@ -93,7 +93,7 @@ define hidden void @_ZN9LockStack8print_onEP12outputStream(ptr nocapture noundef
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %10 = trunc nsw i64 %indvars.iv.next to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, i32 noundef %10) #6
-  %11 = getelementptr inbounds [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [8 x ptr], ptr %6, i64 0, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 @_ZN7oopDesc6is_oopEPS_b(ptr noundef %12, i1 noundef zeroext false) #6
   br i1 %13, label %14, label %15

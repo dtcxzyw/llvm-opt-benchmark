@@ -126,20 +126,20 @@ define i32 @cli_scanxar(ptr noundef %0) local_unnamed_addr #0 {
   %23 = alloca [128 x i8], align 16
   %24 = alloca [128 x i8], align 16
   store i32 -1, ptr %2, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8
   store ptr null, ptr %9, align 8
   store ptr null, ptr %12, align 8
   store ptr null, ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %8, i8 0, i64 112, i1 false)
-  %27 = getelementptr inbounds i8, ptr %26, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 88
   %28 = load i64, ptr %27, align 8
   %.not.i = icmp eq i64 %28, 0
   br i1 %.not.i, label %fmap_readn.exit.thread, label %29
 
 29:                                               ; preds = %1
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %28, i64 32)
-  %30 = getelementptr inbounds i8, ptr %26, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr %31(ptr noundef nonnull %26, i64 noundef 0, i64 noundef %spec.select.i, i32 noundef 0) #9
   %.not26.i = icmp eq ptr %32, null
@@ -163,34 +163,34 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 
 36:                                               ; preds = %33
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #9
-  %.4..4..4..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
+  %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.4..4..4.385 = load i16, ptr %.4..4..4..sroa_idx, align 4
   %rev = tail call i16 @llvm.bswap.i16(i16 %.4..4..4.385)
-  %.4..4..4..sroa_idx969 = getelementptr inbounds i8, ptr %3, i64 4
+  %.4..4..4..sroa_idx969 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 %rev, ptr %.4..4..4..sroa_idx969, align 4
-  %.6..6..6..sroa_idx = getelementptr inbounds i8, ptr %3, i64 6
+  %.6..6..6..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 6
   %.6..6..6. = load i16, ptr %.6..6..6..sroa_idx, align 2
   %rev295 = tail call i16 @llvm.bswap.i16(i16 %.6..6..6.)
-  %.6..6..6..sroa_idx971 = getelementptr inbounds i8, ptr %3, i64 6
+  %.6..6..6..sroa_idx971 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i16 %rev295, ptr %.6..6..6..sroa_idx971, align 2
-  %.8..8..8..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.8..8..8.397 = load i64, ptr %.8..8..8..sroa_idx, align 8
   %37 = tail call i64 @llvm.bswap.i64(i64 %.8..8..8.397)
-  %.8..8..8..sroa_idx972 = getelementptr inbounds i8, ptr %3, i64 8
+  %.8..8..8..sroa_idx972 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %37, ptr %.8..8..8..sroa_idx972, align 8
-  %.16..16..16..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.16..16..16.413 = load i64, ptr %.16..16..16..sroa_idx, align 8
   %38 = tail call i64 @llvm.bswap.i64(i64 %.16..16..16.413)
-  %.16..16..16..sroa_idx974 = getelementptr inbounds i8, ptr %3, i64 16
+  %.16..16..16..sroa_idx974 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %38, ptr %.16..16..16..sroa_idx974, align 8
-  %.24..24..24..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.24..24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.24..24..24. = load i32, ptr %.24..24..24..sroa_idx, align 8
   %39 = tail call i32 @llvm.bswap.i32(i32 %.24..24..24.)
-  %.24..24..24..sroa_idx976 = getelementptr inbounds i8, ptr %3, i64 24
+  %.24..24..24..sroa_idx976 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %39, ptr %.24..24..24..sroa_idx976, align 8
   %40 = load ptr, ptr %25, align 8
   %41 = zext i16 %rev to i64
-  %42 = getelementptr inbounds i8, ptr %40, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 104
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr %43(ptr noundef %40, i64 noundef %41, i64 noundef %37, i32 noundef 0) #9
   store ptr %44, ptr %8, align 8
@@ -207,7 +207,7 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 
 48:                                               ; preds = %36
   %49 = trunc i64 %37 to i32
-  %50 = getelementptr inbounds i8, ptr %8, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %49, ptr %50, align 8
   %51 = add i64 %38, 1
   %52 = tail call ptr @cli_max_malloc(i64 noundef %51) #9
@@ -222,9 +222,9 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   %56 = getelementptr inbounds i8, ptr %52, i64 %38
   store i8 0, ptr %56, align 1
   %57 = trunc i64 %38 to i32
-  %58 = getelementptr inbounds i8, ptr %8, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %8, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %52, ptr %59, align 8
   %60 = call i32 @inflateInit_(ptr noundef nonnull %8, ptr noundef nonnull @.str.5, i32 noundef 112) #9
   %.not313 = icmp eq i32 %60, 0
@@ -253,7 +253,7 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   br label %.thread439
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %8, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %70 = load i64, ptr %69, align 8
   %.not315 = icmp eq i64 %38, %70
   br i1 %.not315, label %75, label %71
@@ -264,7 +264,7 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   %73 = getelementptr inbounds i8, ptr %52, i64 %72
   store i8 0, ptr %73, align 1
   %74 = load i64, ptr %69, align 8
-  %.16..16..16..sroa_idx975 = getelementptr inbounds i8, ptr %3, i64 16
+  %.16..16..16..sroa_idx975 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %74, ptr %.16..16..16..sroa_idx975, align 8
   br label %75
 
@@ -276,15 +276,15 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   br i1 %.not316, label %77, label %385
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %0, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load i32, ptr %80, align 8
   %.not317 = icmp eq i32 %81, 0
   br i1 %.not317, label %99, label %82
 
 82:                                               ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %0, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = call i32 @cli_gentempfd(ptr noundef %84, ptr noundef nonnull %9, ptr noundef nonnull %2) #9
   %.not318 = icmp eq i32 %85, 0
@@ -342,15 +342,15 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   br i1 %109, label %.lr.ph550, label %.loopexit452
 
 .lr.ph550:                                        ; preds = %107
-  %110 = getelementptr inbounds i8, ptr %0, i64 16
-  %111 = getelementptr inbounds i8, ptr %21, i64 168
-  %112 = getelementptr inbounds i8, ptr %21, i64 184
-  %113 = getelementptr inbounds i8, ptr %21, i64 176
-  %114 = getelementptr inbounds i8, ptr %21, i64 192
-  %115 = getelementptr inbounds i8, ptr %26, i64 40
-  %116 = getelementptr inbounds i8, ptr %8, i64 48
-  %.8..8..8..sroa_idx973 = getelementptr inbounds i8, ptr %3, i64 8
-  %.4..4..4..sroa_idx970 = getelementptr inbounds i8, ptr %3, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %21, i64 168
+  %112 = getelementptr inbounds nuw i8, ptr %21, i64 184
+  %113 = getelementptr inbounds nuw i8, ptr %21, i64 176
+  %114 = getelementptr inbounds nuw i8, ptr %21, i64 192
+  %115 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %.8..8..8..sroa_idx973 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.4..4..4..sroa_idx970 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %117
 
 117:                                              ; preds = %.lr.ph550, %362
@@ -811,7 +811,7 @@ xar_hash_update.exit365:                          ; preds = %281, %280, %280, %x
   %294 = sub i64 %293, %128
   %.351 = call i64 @llvm.umin.i64(i64 %294, i64 %135)
   %295 = load ptr, ptr %78, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 72
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 72
   %297 = load i64, ptr %296, align 8
   %.not334 = icmp eq i64 %297, 0
   %..351 = call i64 @llvm.umin.i64(i64 %297, i64 %.351)
@@ -1176,9 +1176,9 @@ define internal fastcc range(i32 0, 11) i32 @xar_cleanup_temp_file(ptr nocapture
   br i1 %.not, label %17, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8
   %.not9 = icmp eq i32 %12, 0
   br i1 %.not9, label %13, label %16
@@ -1213,8 +1213,8 @@ define internal fastcc i32 @xar_scan_subdocuments(ptr noundef nonnull %0, ptr no
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.backedge
@@ -1270,7 +1270,7 @@ define internal fastcc i32 @xar_scan_subdocuments(ptr noundef nonnull %0, ptr no
   %32 = sext i32 %31 to i64
   %33 = call i32 @cli_magic_scan_buff(ptr noundef nonnull %24, i64 noundef %32, ptr noundef %1, ptr noundef null, i32 noundef 0) #9
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load i32, ptr %35, align 8
   %.not30 = icmp eq i32 %36, 0
   br i1 %.not30, label %62, label %37
@@ -1315,7 +1315,7 @@ define internal fastcc i32 @xar_scan_subdocuments(ptr noundef nonnull %0, ptr no
 
 54:                                               ; preds = %53
   %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load i32, ptr %56, align 8
   %.not9.i = icmp eq i32 %57, 0
   br i1 %.not9.i, label %58, label %61

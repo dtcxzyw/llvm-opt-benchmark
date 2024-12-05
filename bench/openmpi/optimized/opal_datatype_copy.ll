@@ -19,16 +19,16 @@ define i32 @opal_datatype_copy_content_same_ddt(ptr noundef %0, i32 noundef %1, 
   br i1 %5, label %27, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = sub nsw i64 %8, %10
   %12 = add nsw i32 %1, -1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8
   %18 = sub nsw i64 %15, %17
   %19 = mul nsw i64 %18, %13
@@ -67,22 +67,22 @@ define internal noundef i32 @non_overlap_accelerator_copy_content_same_ddt(ptr n
   %18 = alloca i32, align 4
   %19 = alloca i64, align 8
   %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = mul i64 %22, %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i16, ptr %24, align 8
   %26 = and i16 %25, 16
   %.not = icmp eq i16 %26, 0
   br i1 %.not, label %74, label %27
 
 27:                                               ; preds = %4
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load i64, ptr %30, align 8
   %32 = sub nsw i64 %29, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %2, i64 %34
   %36 = getelementptr inbounds i8, ptr %3, i64 %34
@@ -193,43 +193,43 @@ opal_datatype_accelerator_memcpy.exit164:         ; preds = %63, %64
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 74:                                               ; preds = %4
-  %75 = getelementptr inbounds i8, ptr %0, i64 76
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, 1
   %78 = zext i32 %77 to i64
   %79 = mul nuw nsw i64 %78, 24
   %80 = alloca i8, i64 %79, align 16
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i64 %20, ptr %81, align 8
   store i32 -1, ptr %80, align 16
-  %82 = getelementptr inbounds i8, ptr %80, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store i64 0, ptr %82, align 16
-  %83 = getelementptr inbounds i8, ptr %0, i64 184
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %74
-  %87 = getelementptr inbounds i8, ptr %0, i64 160
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %88 = load ptr, ptr %87, align 8
   br label %89
 
 89:                                               ; preds = %74, %86
   %.0140 = phi ptr [ %88, %86 ], [ %84, %74 ]
-  %90 = getelementptr inbounds i8, ptr %.0140, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %.0140, i64 2
   %91 = load i16, ptr %90, align 2
   %92 = icmp eq i16 %91, 0
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %.0140, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.0140, i64 8
   %95 = load i32, ptr %94, align 8
   br label %103
 
 96:                                               ; preds = %89
-  %97 = getelementptr inbounds i8, ptr %.0140, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %.0140, i64 4
   %98 = load i32, ptr %97, align 4
-  %99 = getelementptr inbounds i8, ptr %.0140, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0140, i64 8
   %100 = load i64, ptr %99, align 8
   %101 = trunc i64 %100 to i32
   %102 = mul i32 %98, %101
@@ -237,8 +237,8 @@ opal_datatype_accelerator_memcpy.exit164:         ; preds = %63, %64
 
 103:                                              ; preds = %93, %96
   %.0141 = phi i32 [ %95, %93 ], [ %102, %96 ]
-  %104 = getelementptr inbounds i8, ptr %0, i64 56
-  %105 = getelementptr inbounds i8, ptr %0, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %.backedge.outer
 
 .backedge.outer:                                  ; preds = %.backedge.outer.backedge, %103
@@ -258,7 +258,7 @@ opal_datatype_accelerator_memcpy.exit164:         ; preds = %63, %64
   %106 = load i16, ptr %.0137, align 8
   %107 = and i16 %106, 256
   %.not157193 = icmp eq i16 %107, 0
-  %.phi.trans.insert205 = getelementptr inbounds i8, ptr %.0137, i64 2
+  %.phi.trans.insert205 = getelementptr inbounds nuw i8, ptr %.0137, i64 2
   %.pre206 = load i16, ptr %.phi.trans.insert205, align 2
   br i1 %.not157193, label %._crit_edge, label %.lr.ph197
 
@@ -266,26 +266,26 @@ opal_datatype_accelerator_memcpy.exit164:         ; preds = %63, %64
   %108 = phi i16 [ %148, %160 ], [ %.pre206, %.backedge ]
   %.1138196 = phi ptr [ %146, %160 ], [ %.0137, %.backedge ]
   %.2147195 = phi i32 [ %144, %160 ], [ %.1146, %.backedge ]
-  %109 = getelementptr inbounds i8, ptr %.1138196, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.1138196, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds i8, ptr %.1138196, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.1138196, i64 8
   %113 = load i64, ptr %112, align 8
   %114 = zext i16 %108 to i64
-  %115 = getelementptr inbounds [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %114
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load i64, ptr %117, align 8
   %119 = mul i64 %118, %113
   %.not.i165 = icmp eq i32 %110, 0
   br i1 %.not.i165, label %non_overlap_accelerator_predefined_data.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph197
-  %120 = getelementptr inbounds i8, ptr %.1138196, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %.1138196, i64 24
   %121 = load i64, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %.2131.ph, i64 %121
   %123 = getelementptr inbounds i8, ptr %.2135.ph, i64 %121
-  %124 = getelementptr inbounds i8, ptr %.1138196, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.1138196, i64 16
   br label %125
 
 125:                                              ; preds = %opal_datatype_accelerator_memcpy.exit.i, %.lr.ph.i
@@ -338,21 +338,21 @@ opal_datatype_accelerator_memcpy.exit.i:          ; preds = %133, %132
 non_overlap_accelerator_predefined_data.exit:     ; preds = %opal_datatype_accelerator_memcpy.exit.i, %.lr.ph197
   %144 = add i32 %.2147195, 1
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds %union.dt_elem_desc, ptr %.0140, i64 %145
-  %147 = getelementptr inbounds i8, ptr %146, i64 2
+  %146 = getelementptr inbounds nuw %union.dt_elem_desc, ptr %.0140, i64 %145
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 2
   %148 = load i16, ptr %147, align 2
   %149 = icmp eq i16 %148, 0
   br i1 %149, label %150, label %153
 
 150:                                              ; preds = %non_overlap_accelerator_predefined_data.exit
-  %151 = getelementptr inbounds i8, ptr %146, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %152 = load i32, ptr %151, align 8
   br label %160
 
 153:                                              ; preds = %non_overlap_accelerator_predefined_data.exit
-  %154 = getelementptr inbounds i8, ptr %146, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %155 = load i32, ptr %154, align 4
-  %156 = getelementptr inbounds i8, ptr %146, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %157 = load i64, ptr %156, align 8
   %158 = trunc i64 %157 to i32
   %159 = mul i32 %155, %158
@@ -376,7 +376,7 @@ non_overlap_accelerator_predefined_data.exit:     ; preds = %opal_datatype_accel
   ]
 
 164:                                              ; preds = %._crit_edge
-  %165 = getelementptr inbounds i8, ptr %.0127.ph, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %.0127.ph, i64 8
   %166 = load i64, ptr %165, align 8
   %167 = add i64 %166, -1
   store i64 %167, ptr %165, align 8
@@ -397,7 +397,7 @@ non_overlap_accelerator_predefined_data.exit:     ; preds = %opal_datatype_accel
 174:                                              ; preds = %164
   %175 = load i32, ptr %.0127.ph, align 8
   %176 = icmp eq i32 %175, -1
-  %177 = getelementptr inbounds i8, ptr %.0127.ph, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %.0127.ph, i64 16
   %178 = load i64, ptr %177, align 8
   br i1 %176, label %179, label %184
 
@@ -426,21 +426,21 @@ non_overlap_accelerator_predefined_data.exit:     ; preds = %opal_datatype_accel
   %191 = getelementptr inbounds i8, ptr %3, i64 %190
   %192 = getelementptr inbounds i8, ptr %2, i64 %190
   %193 = zext i32 %.4149 to i64
-  %194 = getelementptr inbounds %union.dt_elem_desc, ptr %.0140, i64 %193
-  %195 = getelementptr inbounds i8, ptr %194, i64 2
+  %194 = getelementptr inbounds nuw %union.dt_elem_desc, ptr %.0140, i64 %193
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 2
   %196 = load i16, ptr %195, align 2
   %197 = icmp eq i16 %196, 0
   br i1 %197, label %.thread, label %.thread223
 
 .thread:                                          ; preds = %189
-  %198 = getelementptr inbounds i8, ptr %194, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %199 = load i32, ptr %198, align 8
   br label %.loopexit239
 
 .thread223:                                       ; preds = %189
-  %200 = getelementptr inbounds i8, ptr %194, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds i8, ptr %194, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %203 = load i64, ptr %202, align 8
   %204 = trunc i64 %203 to i32
   %205 = mul i32 %201, %204
@@ -461,17 +461,17 @@ non_overlap_accelerator_predefined_data.exit:     ; preds = %opal_datatype_accel
 
 208:                                              ; preds = %.loopexit239
   %209 = zext i32 %.4218 to i64
-  %210 = getelementptr inbounds i8, ptr %.2139219, i64 4
+  %210 = getelementptr inbounds nuw i8, ptr %.2139219, i64 4
   %211 = load i32, ptr %210, align 4
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds %union.dt_elem_desc, ptr %.2139219, i64 %212
-  %214 = getelementptr inbounds i8, ptr %213, i64 24
+  %213 = getelementptr inbounds nuw %union.dt_elem_desc, ptr %.2139219, i64 %212
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 24
   %215 = load i64, ptr %214, align 8
   %216 = getelementptr inbounds i8, ptr %.3136220, i64 %215
   %217 = getelementptr inbounds i8, ptr %.3132221, i64 %215
-  %218 = getelementptr inbounds i8, ptr %.2139219, i64 24
+  %218 = getelementptr inbounds nuw i8, ptr %.2139219, i64 24
   %219 = load i64, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %213, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %221 = load i64, ptr %220, align 8
   %222 = icmp eq i64 %219, %221
   br i1 %222, label %223, label %.preheader.i
@@ -574,16 +574,16 @@ non_overlap_accelerator_contiguous_loop.exit:     ; preds = %opal_datatype_accel
   br label %269
 
 260:                                              ; preds = %.loopexit239
-  %261 = getelementptr inbounds i8, ptr %.1128222, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %.1128222, i64 24
   store i32 %.3148217, ptr %261, align 8
-  %262 = getelementptr inbounds i8, ptr %.1128222, i64 28
+  %262 = getelementptr inbounds nuw i8, ptr %.1128222, i64 28
   store i16 0, ptr %262, align 4
   %263 = zext i32 %.4218 to i64
-  %264 = getelementptr inbounds i8, ptr %.1128222, i64 32
+  %264 = getelementptr inbounds nuw i8, ptr %.1128222, i64 32
   store i64 %263, ptr %264, align 8
-  %265 = getelementptr inbounds i8, ptr %.1128222, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %.1128222, i64 16
   %266 = load i64, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %.1128222, i64 40
+  %267 = getelementptr inbounds nuw i8, ptr %.1128222, i64 40
   store i64 %266, ptr %267, align 8
   %268 = add nsw i32 %.1152216, 1
   br label %269
@@ -593,19 +593,19 @@ non_overlap_accelerator_contiguous_loop.exit:     ; preds = %opal_datatype_accel
   %.pn = phi i32 [ 1, %260 ], [ %259, %non_overlap_accelerator_contiguous_loop.exit ]
   %.3 = phi ptr [ %261, %260 ], [ %.1128222, %non_overlap_accelerator_contiguous_loop.exit ]
   %.5150 = add i32 %.pn, %.3148217
-  %270 = getelementptr inbounds i8, ptr %.3, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   %271 = load i64, ptr %270, align 8
   %272 = getelementptr inbounds i8, ptr %3, i64 %271
   %273 = getelementptr inbounds i8, ptr %2, i64 %271
   %274 = zext i32 %.5150 to i64
-  %275 = getelementptr inbounds %union.dt_elem_desc, ptr %.0140, i64 %274
-  %276 = getelementptr inbounds i8, ptr %275, i64 2
+  %275 = getelementptr inbounds nuw %union.dt_elem_desc, ptr %.0140, i64 %274
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 2
   %277 = load i16, ptr %276, align 2
   %278 = icmp eq i16 %277, 0
   br i1 %278, label %279, label %282
 
 279:                                              ; preds = %269
-  %280 = getelementptr inbounds i8, ptr %275, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %281 = load i32, ptr %280, align 8
   br label %.backedge.outer.backedge
 
@@ -620,9 +620,9 @@ non_overlap_accelerator_contiguous_loop.exit:     ; preds = %opal_datatype_accel
   br label %.backedge.outer
 
 282:                                              ; preds = %269
-  %283 = getelementptr inbounds i8, ptr %275, i64 4
+  %283 = getelementptr inbounds nuw i8, ptr %275, i64 4
   %284 = load i32, ptr %283, align 4
-  %285 = getelementptr inbounds i8, ptr %275, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %286 = load i64, ptr %285, align 8
   %287 = trunc i64 %286 to i32
   %288 = mul i32 %284, %287
@@ -650,22 +650,22 @@ define internal noundef i32 @overlap_accelerator_copy_content_same_ddt(ptr nocap
   %18 = alloca i32, align 4
   %19 = alloca i64, align 8
   %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = mul i64 %22, %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i16, ptr %24, align 8
   %26 = and i16 %25, 16
   %.not = icmp eq i16 %26, 0
   br i1 %.not, label %74, label %27
 
 27:                                               ; preds = %4
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load i64, ptr %30, align 8
   %32 = sub nsw i64 %29, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %2, i64 %34
   %36 = getelementptr inbounds i8, ptr %3, i64 %34
@@ -776,43 +776,43 @@ opal_datatype_accelerator_memmove.exit164:        ; preds = %63, %64
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 74:                                               ; preds = %4
-  %75 = getelementptr inbounds i8, ptr %0, i64 76
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, 1
   %78 = zext i32 %77 to i64
   %79 = mul nuw nsw i64 %78, 24
   %80 = alloca i8, i64 %79, align 16
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i64 %20, ptr %81, align 8
   store i32 -1, ptr %80, align 16
-  %82 = getelementptr inbounds i8, ptr %80, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store i64 0, ptr %82, align 16
-  %83 = getelementptr inbounds i8, ptr %0, i64 184
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %74
-  %87 = getelementptr inbounds i8, ptr %0, i64 160
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %88 = load ptr, ptr %87, align 8
   br label %89
 
 89:                                               ; preds = %74, %86
   %.0140 = phi ptr [ %88, %86 ], [ %84, %74 ]
-  %90 = getelementptr inbounds i8, ptr %.0140, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %.0140, i64 2
   %91 = load i16, ptr %90, align 2
   %92 = icmp eq i16 %91, 0
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %.0140, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.0140, i64 8
   %95 = load i32, ptr %94, align 8
   br label %103
 
 96:                                               ; preds = %89
-  %97 = getelementptr inbounds i8, ptr %.0140, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %.0140, i64 4
   %98 = load i32, ptr %97, align 4
-  %99 = getelementptr inbounds i8, ptr %.0140, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0140, i64 8
   %100 = load i64, ptr %99, align 8
   %101 = trunc i64 %100 to i32
   %102 = mul i32 %98, %101
@@ -820,8 +820,8 @@ opal_datatype_accelerator_memmove.exit164:        ; preds = %63, %64
 
 103:                                              ; preds = %93, %96
   %.0141 = phi i32 [ %95, %93 ], [ %102, %96 ]
-  %104 = getelementptr inbounds i8, ptr %0, i64 56
-  %105 = getelementptr inbounds i8, ptr %0, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %.backedge.outer
 
 .backedge.outer:                                  ; preds = %.backedge.outer.backedge, %103
@@ -841,7 +841,7 @@ opal_datatype_accelerator_memmove.exit164:        ; preds = %63, %64
   %106 = load i16, ptr %.0137, align 8
   %107 = and i16 %106, 256
   %.not157193 = icmp eq i16 %107, 0
-  %.phi.trans.insert205 = getelementptr inbounds i8, ptr %.0137, i64 2
+  %.phi.trans.insert205 = getelementptr inbounds nuw i8, ptr %.0137, i64 2
   %.pre206 = load i16, ptr %.phi.trans.insert205, align 2
   br i1 %.not157193, label %._crit_edge, label %.lr.ph197
 
@@ -849,26 +849,26 @@ opal_datatype_accelerator_memmove.exit164:        ; preds = %63, %64
   %108 = phi i16 [ %148, %160 ], [ %.pre206, %.backedge ]
   %.1138196 = phi ptr [ %146, %160 ], [ %.0137, %.backedge ]
   %.2147195 = phi i32 [ %144, %160 ], [ %.1146, %.backedge ]
-  %109 = getelementptr inbounds i8, ptr %.1138196, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.1138196, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds i8, ptr %.1138196, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.1138196, i64 8
   %113 = load i64, ptr %112, align 8
   %114 = zext i16 %108 to i64
-  %115 = getelementptr inbounds [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %114
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load i64, ptr %117, align 8
   %119 = mul i64 %118, %113
   %.not.i165 = icmp eq i32 %110, 0
   br i1 %.not.i165, label %overlap_accelerator_predefined_data.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph197
-  %120 = getelementptr inbounds i8, ptr %.1138196, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %.1138196, i64 24
   %121 = load i64, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %.2131.ph, i64 %121
   %123 = getelementptr inbounds i8, ptr %.2135.ph, i64 %121
-  %124 = getelementptr inbounds i8, ptr %.1138196, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.1138196, i64 16
   br label %125
 
 125:                                              ; preds = %opal_datatype_accelerator_memmove.exit.i, %.lr.ph.i
@@ -921,21 +921,21 @@ opal_datatype_accelerator_memmove.exit.i:         ; preds = %133, %132
 overlap_accelerator_predefined_data.exit:         ; preds = %opal_datatype_accelerator_memmove.exit.i, %.lr.ph197
   %144 = add i32 %.2147195, 1
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds %union.dt_elem_desc, ptr %.0140, i64 %145
-  %147 = getelementptr inbounds i8, ptr %146, i64 2
+  %146 = getelementptr inbounds nuw %union.dt_elem_desc, ptr %.0140, i64 %145
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 2
   %148 = load i16, ptr %147, align 2
   %149 = icmp eq i16 %148, 0
   br i1 %149, label %150, label %153
 
 150:                                              ; preds = %overlap_accelerator_predefined_data.exit
-  %151 = getelementptr inbounds i8, ptr %146, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %152 = load i32, ptr %151, align 8
   br label %160
 
 153:                                              ; preds = %overlap_accelerator_predefined_data.exit
-  %154 = getelementptr inbounds i8, ptr %146, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %155 = load i32, ptr %154, align 4
-  %156 = getelementptr inbounds i8, ptr %146, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %157 = load i64, ptr %156, align 8
   %158 = trunc i64 %157 to i32
   %159 = mul i32 %155, %158
@@ -959,7 +959,7 @@ overlap_accelerator_predefined_data.exit:         ; preds = %opal_datatype_accel
   ]
 
 164:                                              ; preds = %._crit_edge
-  %165 = getelementptr inbounds i8, ptr %.0127.ph, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %.0127.ph, i64 8
   %166 = load i64, ptr %165, align 8
   %167 = add i64 %166, -1
   store i64 %167, ptr %165, align 8
@@ -980,7 +980,7 @@ overlap_accelerator_predefined_data.exit:         ; preds = %opal_datatype_accel
 174:                                              ; preds = %164
   %175 = load i32, ptr %.0127.ph, align 8
   %176 = icmp eq i32 %175, -1
-  %177 = getelementptr inbounds i8, ptr %.0127.ph, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %.0127.ph, i64 16
   %178 = load i64, ptr %177, align 8
   br i1 %176, label %179, label %184
 
@@ -1009,21 +1009,21 @@ overlap_accelerator_predefined_data.exit:         ; preds = %opal_datatype_accel
   %191 = getelementptr inbounds i8, ptr %3, i64 %190
   %192 = getelementptr inbounds i8, ptr %2, i64 %190
   %193 = zext i32 %.4149 to i64
-  %194 = getelementptr inbounds %union.dt_elem_desc, ptr %.0140, i64 %193
-  %195 = getelementptr inbounds i8, ptr %194, i64 2
+  %194 = getelementptr inbounds nuw %union.dt_elem_desc, ptr %.0140, i64 %193
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 2
   %196 = load i16, ptr %195, align 2
   %197 = icmp eq i16 %196, 0
   br i1 %197, label %.thread, label %.thread223
 
 .thread:                                          ; preds = %189
-  %198 = getelementptr inbounds i8, ptr %194, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %199 = load i32, ptr %198, align 8
   br label %.loopexit239
 
 .thread223:                                       ; preds = %189
-  %200 = getelementptr inbounds i8, ptr %194, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds i8, ptr %194, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %203 = load i64, ptr %202, align 8
   %204 = trunc i64 %203 to i32
   %205 = mul i32 %201, %204
@@ -1044,17 +1044,17 @@ overlap_accelerator_predefined_data.exit:         ; preds = %opal_datatype_accel
 
 208:                                              ; preds = %.loopexit239
   %209 = zext i32 %.4218 to i64
-  %210 = getelementptr inbounds i8, ptr %.2139219, i64 4
+  %210 = getelementptr inbounds nuw i8, ptr %.2139219, i64 4
   %211 = load i32, ptr %210, align 4
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds %union.dt_elem_desc, ptr %.2139219, i64 %212
-  %214 = getelementptr inbounds i8, ptr %213, i64 24
+  %213 = getelementptr inbounds nuw %union.dt_elem_desc, ptr %.2139219, i64 %212
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 24
   %215 = load i64, ptr %214, align 8
   %216 = getelementptr inbounds i8, ptr %.3136220, i64 %215
   %217 = getelementptr inbounds i8, ptr %.3132221, i64 %215
-  %218 = getelementptr inbounds i8, ptr %.2139219, i64 24
+  %218 = getelementptr inbounds nuw i8, ptr %.2139219, i64 24
   %219 = load i64, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %213, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %221 = load i64, ptr %220, align 8
   %222 = icmp eq i64 %219, %221
   br i1 %222, label %223, label %.preheader.i
@@ -1157,16 +1157,16 @@ overlap_accelerator_contiguous_loop.exit:         ; preds = %opal_datatype_accel
   br label %269
 
 260:                                              ; preds = %.loopexit239
-  %261 = getelementptr inbounds i8, ptr %.1128222, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %.1128222, i64 24
   store i32 %.3148217, ptr %261, align 8
-  %262 = getelementptr inbounds i8, ptr %.1128222, i64 28
+  %262 = getelementptr inbounds nuw i8, ptr %.1128222, i64 28
   store i16 0, ptr %262, align 4
   %263 = zext i32 %.4218 to i64
-  %264 = getelementptr inbounds i8, ptr %.1128222, i64 32
+  %264 = getelementptr inbounds nuw i8, ptr %.1128222, i64 32
   store i64 %263, ptr %264, align 8
-  %265 = getelementptr inbounds i8, ptr %.1128222, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %.1128222, i64 16
   %266 = load i64, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %.1128222, i64 40
+  %267 = getelementptr inbounds nuw i8, ptr %.1128222, i64 40
   store i64 %266, ptr %267, align 8
   %268 = add nsw i32 %.1152216, 1
   br label %269
@@ -1176,19 +1176,19 @@ overlap_accelerator_contiguous_loop.exit:         ; preds = %opal_datatype_accel
   %.pn = phi i32 [ 1, %260 ], [ %259, %overlap_accelerator_contiguous_loop.exit ]
   %.3 = phi ptr [ %261, %260 ], [ %.1128222, %overlap_accelerator_contiguous_loop.exit ]
   %.5150 = add i32 %.pn, %.3148217
-  %270 = getelementptr inbounds i8, ptr %.3, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   %271 = load i64, ptr %270, align 8
   %272 = getelementptr inbounds i8, ptr %3, i64 %271
   %273 = getelementptr inbounds i8, ptr %2, i64 %271
   %274 = zext i32 %.5150 to i64
-  %275 = getelementptr inbounds %union.dt_elem_desc, ptr %.0140, i64 %274
-  %276 = getelementptr inbounds i8, ptr %275, i64 2
+  %275 = getelementptr inbounds nuw %union.dt_elem_desc, ptr %.0140, i64 %274
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 2
   %277 = load i16, ptr %276, align 2
   %278 = icmp eq i16 %277, 0
   br i1 %278, label %279, label %282
 
 279:                                              ; preds = %269
-  %280 = getelementptr inbounds i8, ptr %275, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %281 = load i32, ptr %280, align 8
   br label %.backedge.outer.backedge
 
@@ -1203,9 +1203,9 @@ overlap_accelerator_contiguous_loop.exit:         ; preds = %opal_datatype_accel
   br label %.backedge.outer
 
 282:                                              ; preds = %269
-  %283 = getelementptr inbounds i8, ptr %275, i64 4
+  %283 = getelementptr inbounds nuw i8, ptr %275, i64 4
   %284 = load i32, ptr %283, align 4
-  %285 = getelementptr inbounds i8, ptr %275, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %286 = load i64, ptr %285, align 8
   %287 = trunc i64 %286 to i32
   %288 = mul i32 %284, %287

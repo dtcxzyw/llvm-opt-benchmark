@@ -146,13 +146,13 @@ declare void @register_giop_user_module(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_cosnaming(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) #0 {
   %8 = tail call i32 @is_big_endian(ptr noundef %4) #3
-  %9 = getelementptr inbounds i8, ptr %4, i64 7
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 7
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 1
   br i1 %11, label %12, label %63
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %16, label %.thread
@@ -273,7 +273,7 @@ start_dissecting.exit30.i:                        ; preds = %48, %46
   br i1 %11, label %71, label %74
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = load ptr, ptr %72, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %73, i32 noundef 25, ptr noundef nonnull @.str.63, ptr noundef %5) #3
   br label %74
@@ -285,13 +285,13 @@ start_dissecting.exit30.i:                        ; preds = %48, %46
   br i1 %.not.i.i310, label %process_RequestOperation.exit, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %79 = load ptr, ptr %78, align 8
   %.not5.i.i = icmp eq ptr %79, null
   br i1 %.not5.i.i, label %process_RequestOperation.exit, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %82 = load i32, ptr %81, align 4
   %83 = or i32 %82, 2
   store i32 %83, ptr %81, align 4
@@ -345,7 +345,7 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
   br label %decode_user_exception.exit
 
 102:                                              ; preds = %start_dissecting.exit
-  %103 = getelementptr inbounds i8, ptr %4, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %104 = load i32, ptr %103, align 8
   %switch.i = icmp ult i32 %104, 2
   br i1 %switch.i, label %decode_user_exception.exit, label %105
@@ -377,7 +377,7 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
   br i1 %11, label %118, label %121
 
 118:                                              ; preds = %117
-  %119 = getelementptr inbounds i8, ptr %1, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %120 = load ptr, ptr %119, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.63, ptr noundef %5) #3
   br label %121
@@ -389,13 +389,13 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
   br i1 %.not.i.i314, label %process_RequestOperation.exit316, label %124
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %123, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %126 = load ptr, ptr %125, align 8
   %.not5.i.i315 = icmp eq ptr %126, null
   br i1 %.not5.i.i315, label %process_RequestOperation.exit316, label %127
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %126, i64 28
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 28
   %129 = load i32, ptr %128, align 4
   %130 = or i32 %129, 2
   store i32 %130, ptr %128, align 4
@@ -449,7 +449,7 @@ start_dissecting.exit319:                         ; preds = %process_RequestOper
   br label %decode_user_exception.exit
 
 149:                                              ; preds = %start_dissecting.exit319
-  %150 = getelementptr inbounds i8, ptr %4, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %151 = load i32, ptr %150, align 8
   %switch.i320 = icmp ult i32 %151, 2
   br i1 %switch.i320, label %decode_user_exception.exit, label %152
@@ -481,7 +481,7 @@ start_dissecting.exit319:                         ; preds = %process_RequestOper
   br i1 %11, label %165, label %168
 
 165:                                              ; preds = %164
-  %166 = getelementptr inbounds i8, ptr %1, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %167 = load ptr, ptr %166, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %167, i32 noundef 25, ptr noundef nonnull @.str.63, ptr noundef %5) #3
   br label %168
@@ -493,13 +493,13 @@ start_dissecting.exit319:                         ; preds = %process_RequestOper
   br i1 %.not.i.i326, label %process_RequestOperation.exit328, label %171
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %170, i64 32
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 32
   %173 = load ptr, ptr %172, align 8
   %.not5.i.i327 = icmp eq ptr %173, null
   br i1 %.not5.i.i327, label %process_RequestOperation.exit328, label %174
 
 174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %173, i64 28
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 28
   %176 = load i32, ptr %175, align 4
   %177 = or i32 %176, 2
   store i32 %177, ptr %175, align 4
@@ -553,7 +553,7 @@ start_dissecting.exit331:                         ; preds = %process_RequestOper
   br label %decode_user_exception.exit
 
 196:                                              ; preds = %start_dissecting.exit331
-  %197 = getelementptr inbounds i8, ptr %4, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %198 = load i32, ptr %197, align 8
   %switch.i332 = icmp ult i32 %198, 2
   br i1 %switch.i332, label %decode_user_exception.exit, label %199
@@ -585,7 +585,7 @@ start_dissecting.exit331:                         ; preds = %process_RequestOper
   br i1 %11, label %212, label %215
 
 212:                                              ; preds = %211
-  %213 = getelementptr inbounds i8, ptr %1, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %214 = load ptr, ptr %213, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %214, i32 noundef 25, ptr noundef nonnull @.str.63, ptr noundef %5) #3
   br label %215
@@ -597,13 +597,13 @@ start_dissecting.exit331:                         ; preds = %process_RequestOper
   br i1 %.not.i.i338, label %process_RequestOperation.exit340, label %218
 
 218:                                              ; preds = %215
-  %219 = getelementptr inbounds i8, ptr %217, i64 32
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 32
   %220 = load ptr, ptr %219, align 8
   %.not5.i.i339 = icmp eq ptr %220, null
   br i1 %.not5.i.i339, label %process_RequestOperation.exit340, label %221
 
 221:                                              ; preds = %218
-  %222 = getelementptr inbounds i8, ptr %220, i64 28
+  %222 = getelementptr inbounds nuw i8, ptr %220, i64 28
   %223 = load i32, ptr %222, align 4
   %224 = or i32 %223, 2
   store i32 %224, ptr %222, align 4
@@ -657,7 +657,7 @@ start_dissecting.exit343:                         ; preds = %process_RequestOper
   br label %decode_user_exception.exit
 
 243:                                              ; preds = %start_dissecting.exit343
-  %244 = getelementptr inbounds i8, ptr %4, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %245 = load i32, ptr %244, align 8
   %switch.i344 = icmp ult i32 %245, 2
   br i1 %switch.i344, label %decode_user_exception.exit, label %246
@@ -689,7 +689,7 @@ start_dissecting.exit343:                         ; preds = %process_RequestOper
   br i1 %11, label %259, label %262
 
 259:                                              ; preds = %258
-  %260 = getelementptr inbounds i8, ptr %1, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %261 = load ptr, ptr %260, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %261, i32 noundef 25, ptr noundef nonnull @.str.63, ptr noundef %5) #3
   br label %262
@@ -701,13 +701,13 @@ start_dissecting.exit343:                         ; preds = %process_RequestOper
   br i1 %.not.i.i350, label %process_RequestOperation.exit352, label %265
 
 265:                                              ; preds = %262
-  %266 = getelementptr inbounds i8, ptr %264, i64 32
+  %266 = getelementptr inbounds nuw i8, ptr %264, i64 32
   %267 = load ptr, ptr %266, align 8
   %.not5.i.i351 = icmp eq ptr %267, null
   br i1 %.not5.i.i351, label %process_RequestOperation.exit352, label %268
 
 268:                                              ; preds = %265
-  %269 = getelementptr inbounds i8, ptr %267, i64 28
+  %269 = getelementptr inbounds nuw i8, ptr %267, i64 28
   %270 = load i32, ptr %269, align 4
   %271 = or i32 %270, 2
   store i32 %271, ptr %269, align 4
@@ -757,7 +757,7 @@ start_dissecting.exit355:                         ; preds = %process_RequestOper
   br i1 %exitcond.not.i359, label %decode_user_exception.exit, label %.lr.ph.i357, !llvm.loop !11
 
 290:                                              ; preds = %start_dissecting.exit355
-  %291 = getelementptr inbounds i8, ptr %4, i64 16
+  %291 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %292 = load i32, ptr %291, align 8
   switch i32 %292, label %294 [
     i32 0, label %293
@@ -795,7 +795,7 @@ start_dissecting.exit355:                         ; preds = %process_RequestOper
   br i1 %11, label %307, label %310
 
 307:                                              ; preds = %306
-  %308 = getelementptr inbounds i8, ptr %1, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %309 = load ptr, ptr %308, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %309, i32 noundef 25, ptr noundef nonnull @.str.63, ptr noundef %5) #3
   br label %310
@@ -807,13 +807,13 @@ start_dissecting.exit355:                         ; preds = %process_RequestOper
   br i1 %.not.i.i360, label %process_RequestOperation.exit362, label %313
 
 313:                                              ; preds = %310
-  %314 = getelementptr inbounds i8, ptr %312, i64 32
+  %314 = getelementptr inbounds nuw i8, ptr %312, i64 32
   %315 = load ptr, ptr %314, align 8
   %.not5.i.i361 = icmp eq ptr %315, null
   br i1 %.not5.i.i361, label %process_RequestOperation.exit362, label %316
 
 316:                                              ; preds = %313
-  %317 = getelementptr inbounds i8, ptr %315, i64 28
+  %317 = getelementptr inbounds nuw i8, ptr %315, i64 28
   %318 = load i32, ptr %317, align 4
   %319 = or i32 %318, 2
   store i32 %319, ptr %317, align 4
@@ -863,7 +863,7 @@ start_dissecting.exit365:                         ; preds = %process_RequestOper
   br i1 %exitcond.not.i370, label %decode_user_exception.exit, label %.lr.ph.i368, !llvm.loop !12
 
 338:                                              ; preds = %start_dissecting.exit365
-  %339 = getelementptr inbounds i8, ptr %4, i64 16
+  %339 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %340 = load i32, ptr %339, align 8
   %switch.i366 = icmp ult i32 %340, 2
   br i1 %switch.i366, label %decode_user_exception.exit, label %341
@@ -1047,7 +1047,7 @@ define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr nocaptu
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.63, ptr noundef %3) #3
   br label %9
@@ -1059,13 +1059,13 @@ define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr nocaptu
   br i1 %.not.i, label %proto_item_set_generated.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 2
   store i32 %18, ptr %16, align 4
@@ -1097,7 +1097,7 @@ define internal fastcc ptr @start_dissecting(ptr noundef %0, ptr %.8.val, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_CosNaming_NamingContext_new_context(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
     i8 0, label %19
@@ -1105,7 +1105,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_new_context(ptr noun
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %14 [
     i32 0, label %13
@@ -1131,7 +1131,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_new_context(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_CosNaming_NamingContext_bind_new_context(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %25 [
     i8 0, label %10
@@ -1158,7 +1158,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_bind_new_context(ptr
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %23 [
     i32 0, label %22
@@ -1184,7 +1184,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_bind_new_context(ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_CosNaming_NamingContext_destroy(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 7
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
     i8 0, label %14
@@ -1192,7 +1192,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_destroy(ptr noundef 
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
   %switch = icmp ult i32 %8, 2
   br i1 %switch, label %14, label %9
@@ -1212,7 +1212,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_destroy(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_CosNaming_NamingContext_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %28 [
     i8 0, label %10
@@ -1228,7 +1228,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_list(ptr noundef %0,
   br label %31
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i32, ptr %17, align 8
   switch i32 %18, label %26 [
     i32 0, label %19
@@ -1270,7 +1270,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_list(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_CosNaming_BindingIterator_next_one(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %25
@@ -1278,7 +1278,7 @@ define internal fastcc void @decode_CosNaming_BindingIterator_next_one(ptr nound
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %20 [
     i32 0, label %13
@@ -1310,7 +1310,7 @@ define internal fastcc void @decode_CosNaming_BindingIterator_next_one(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_CosNaming_BindingIterator_next_n(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %34 [
     i8 0, label %10
@@ -1326,7 +1326,7 @@ define internal fastcc void @decode_CosNaming_BindingIterator_next_n(ptr noundef
   br label %.loopexit
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i32, ptr %17, align 8
   switch i32 %18, label %32 [
     i32 0, label %19
@@ -1370,7 +1370,7 @@ define internal fastcc void @decode_CosNaming_BindingIterator_next_n(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_CosNaming_BindingIterator_destroy(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 7
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
     i8 0, label %14
@@ -1378,7 +1378,7 @@ define internal fastcc void @decode_CosNaming_BindingIterator_destroy(ptr nounde
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
   %switch = icmp ult i32 %8, 2
   br i1 %switch, label %14, label %9

@@ -50,11 +50,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN3euf6plugin16push_plugin_undoEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %th_id) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.sroa.2.i = alloca [20 x i8], align 4
-  %g = getelementptr inbounds i8, ptr %this, i64 8
+  %g = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %g, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %ref.tmp.sroa.2.i)
-  %m_updates.i = getelementptr inbounds i8, ptr %0, i64 112
-  %ref.tmp.sroa.2.i.4.i.4.i.4.r1.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.sroa.2.i, i64 4
+  %m_updates.i = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %ref.tmp.sroa.2.i.4.i.4.i.4.r1.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.2.i, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.sroa.2.i.4.i.4.i.4.r1.i.sroa_idx, i8 0, i64 16, i1 false)
   %1 = load ptr, ptr %m_updates.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
@@ -80,11 +80,11 @@ _ZN3euf6egraph16push_plugin_undoEj.exit:          ; preds = %lor.lhs.false.i.i, 
   %5 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ %1, %lor.lhs.false.i.i ]
   %bf.value.i.i = and i32 %th_id, 255
   %idx.ext.i.i = zext i32 %4 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.euf::egraph::update_record", ptr %5, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.euf::egraph::update_record", ptr %5, i64 %idx.ext.i.i
   store i32 14, ptr %add.ptr.i.i, align 8
-  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
+  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %ref.tmp.sroa.2.i, i64 20, i1 false)
-  %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 24
+  %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   store i32 %bf.value.i.i, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i, align 8
   %6 = load ptr, ptr %m_updates.i, align 8
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %6, i64 -4
@@ -99,11 +99,11 @@ _ZN3euf6egraph16push_plugin_undoEj.exit:          ; preds = %lor.lhs.false.i.i, 
 define hidden void @_ZN3euf6plugin10push_mergeEPNS_5enodeES2_NS_13justificationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly byval(%"class.euf::justification") align 8 %j) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.sroa.4.i = alloca [28 x i8], align 4
-  %g = getelementptr inbounds i8, ptr %this, i64 8
+  %g = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %g, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %ref.tmp.sroa.4.i)
-  %m_to_merge.i = getelementptr inbounds i8, ptr %0, i64 8
-  %ref.tmp.sroa.4.24.j4.i.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.4.i, i64 4
+  %m_to_merge.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %ref.tmp.sroa.4.24.j4.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.4.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp.sroa.4.24.j4.i.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %j, i64 24, i1 false)
   %1 = load ptr, ptr %m_to_merge.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
@@ -128,13 +128,13 @@ _ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit: ; preds = %lo
   %4 = phi i32 [ %.pre1.i.i, %if.then.i.i ], [ %2, %lor.lhs.false.i.i ]
   %5 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ %1, %lor.lhs.false.i.i ]
   %idx.ext.i.i = zext i32 %4 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.euf::egraph::to_merge", ptr %5, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.euf::egraph::to_merge", ptr %5, i64 %idx.ext.i.i
   store ptr %a, ptr %add.ptr.i.i, align 8
-  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store ptr %b, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
+  %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
   store i32 2, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 20
+  %ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(28) %ref.tmp.sroa.4.i, i64 28, i1 false)
   %6 = load ptr, ptr %m_to_merge.i, align 8
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %6, i64 -4
@@ -151,9 +151,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3euf6plugin10push_mergeEPNS_5enodeES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %a, ptr noundef %b) local_unnamed_addr #3 align 2 {
 entry:
-  %g = getelementptr inbounds i8, ptr %this, i64 8
+  %g = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %g, align 8
-  %m_to_merge.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_to_merge.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %m_to_merge.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
@@ -177,17 +177,17 @@ _ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit: ; preds = %lo
   %4 = phi i32 [ %.pre1.i.i, %if.then.i.i ], [ %2, %lor.lhs.false.i.i ]
   %5 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ %1, %lor.lhs.false.i.i ]
   %idx.ext.i.i = zext i32 %4 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.euf::egraph::to_merge", ptr %5, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.euf::egraph::to_merge", ptr %5, i64 %idx.ext.i.i
   store ptr %a, ptr %add.ptr.i.i, align 8
-  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store ptr %b, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
+  %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
   store i32 2, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.4.i.sroa.3.0.ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 24
+  %ref.tmp.sroa.4.i.sroa.3.0.ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   store i32 0, ptr %ref.tmp.sroa.4.i.sroa.3.0.ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i.sroa_idx, align 4
-  %ref.tmp.sroa.4.i.sroa.5.0.ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
+  %ref.tmp.sroa.4.i.sroa.5.0.ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 32
   store i8 0, ptr %ref.tmp.sroa.4.i.sroa.5.0.ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i.sroa_idx, align 4
-  %ref.tmp.sroa.4.i.sroa.7.0.ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 40
+  %ref.tmp.sroa.4.i.sroa.7.0.ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 40
   store ptr null, ptr %ref.tmp.sroa.4.i.sroa.7.0.ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i.sroa_idx, align 4
   %6 = load ptr, ptr %m_to_merge.i, align 8
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %6, i64 -4
@@ -200,9 +200,9 @@ _ZN3euf6egraph10push_mergeEPNS_5enodeES2_NS_13justificationE.exit: ; preds = %lo
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN3euf6plugin2mkEP4exprjPKPNS_5enodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %e, i32 noundef %n, ptr noundef %args) local_unnamed_addr #3 align 2 {
 entry:
-  %g = getelementptr inbounds i8, ptr %this, i64 8
+  %g = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %g, align 8
-  %m_expr2enode.i = getelementptr inbounds i8, ptr %0, i64 128
+  %m_expr2enode.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1 = load ptr, ptr %m_expr2enode.i, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %if.then, label %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i
@@ -216,7 +216,7 @@ _ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %entry
 
 _ZNK3euf6egraph4findEP4expr.exit:                 ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i
   %idxprom.i.i = zext i32 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %idxprom.i.i
   %.then.val.i = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not = icmp eq ptr %.then.val.i, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -235,9 +235,9 @@ declare noundef ptr @_ZN3euf6egraph2mkEP4exprjjPKPNS_5enodeE(ptr noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN3euf6plugin10get_regionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %g = getelementptr inbounds i8, ptr %this, i64 8
+  %g = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %g, align 8
-  %m_region = getelementptr inbounds i8, ptr %0, i64 64
+  %m_region = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %m_region
 }
 
@@ -253,9 +253,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
+  %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
@@ -280,7 +280,7 @@ if.then17:                                        ; preds = %if.else
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #16
           to label %unreachable unwind label %ehcleanup
@@ -303,7 +303,7 @@ if.end:                                           ; preds = %if.else
   %add13 = or disjoint i32 %mul12, 8
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
+  %add.ptr26 = getelementptr inbounds nuw i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -363,7 +363,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
-  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %m_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #15
   ret void
 }
@@ -510,9 +510,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 104)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
+  %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
@@ -537,7 +537,7 @@ if.then17:                                        ; preds = %if.else
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #16
           to label %unreachable unwind label %ehcleanup
@@ -560,7 +560,7 @@ if.end:                                           ; preds = %if.else
   %add13 = or disjoint i32 %mul12, 8
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
+  %add.ptr26 = getelementptr inbounds nuw i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28

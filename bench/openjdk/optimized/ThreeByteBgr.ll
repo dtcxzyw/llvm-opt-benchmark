@@ -34,9 +34,9 @@ declare void @Any3ByteIsomorphicXorCopy(ptr noundef, ptr noundef, i32 noundef, i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @ThreeByteBgrToIntArgbConvert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6, ptr nocapture readnone %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load i32, ptr %11, align 8
   %.neg = mul i32 %2, -3
   %13 = add i32 %10, %.neg
@@ -58,7 +58,7 @@ define hidden void @ThreeByteBgrToIntArgbConvert(ptr noundef %0, ptr noundef %1,
   %.021 = phi i32 [ %2, %18 ], [ %34, %19 ]
   %20 = load i16, ptr %.124, align 1
   %21 = zext i16 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %.124, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.124, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 16
@@ -90,9 +90,9 @@ define hidden void @ThreeByteBgrToIntArgbConvert(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @IntArgbToThreeByteBgrConvert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6, ptr nocapture readnone %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = shl i32 %2, 2
   %14 = sub i32 %10, %13
@@ -117,11 +117,11 @@ define hidden void @IntArgbToThreeByteBgrConvert(ptr noundef %0, ptr noundef %1,
   store i8 %21, ptr %.1, align 1
   %22 = lshr i32 %20, 8
   %23 = trunc i32 %22 to i8
-  %24 = getelementptr inbounds i8, ptr %.1, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %23, ptr %24, align 1
   %25 = lshr i32 %20, 16
   %26 = trunc i32 %25 to i8
-  %27 = getelementptr inbounds i8, ptr %.1, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %26, ptr %27, align 1
   %28 = ptrtoint ptr %.126 to i64
   %29 = add nsw i64 %28, 4
@@ -148,9 +148,9 @@ define hidden void @IntArgbToThreeByteBgrConvert(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @ByteGrayToThreeByteBgrConvert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6, ptr nocapture readnone %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = sub i32 %10, %2
   %.neg = mul i32 %2, -3
@@ -171,9 +171,9 @@ define hidden void @ByteGrayToThreeByteBgrConvert(ptr noundef %0, ptr noundef %1
   %.1 = phi ptr [ %.023, %17 ], [ %24, %18 ]
   %19 = load i8, ptr %.1, align 1
   store i8 %19, ptr %.125, align 1
-  %20 = getelementptr inbounds i8, ptr %.125, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.125, i64 1
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %.125, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.125, i64 2
   store i8 %19, ptr %21, align 1
   %22 = ptrtoint ptr %.1 to i64
   %23 = add nsw i64 %22, 1
@@ -200,11 +200,11 @@ define hidden void @ByteGrayToThreeByteBgrConvert(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @ByteIndexedToThreeByteBgrConvert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6, ptr nocapture readnone %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = sub i32 %12, %2
   %.neg = mul i32 %2, -3
@@ -225,17 +225,17 @@ define hidden void @ByteIndexedToThreeByteBgrConvert(ptr noundef %0, ptr noundef
   %.025 = phi i32 [ %2, %19 ], [ %38, %20 ]
   %21 = load i8, ptr %.128, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %10, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %10, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %.1, align 1
   %26 = lshr i32 %24, 8
   %27 = trunc i32 %26 to i8
-  %28 = getelementptr inbounds i8, ptr %.1, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %27, ptr %28, align 1
   %29 = lshr i32 %24, 16
   %30 = trunc i32 %29 to i8
-  %31 = getelementptr inbounds i8, ptr %.1, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %30, ptr %31, align 1
   %32 = ptrtoint ptr %.128 to i64
   %33 = add nsw i64 %32, 1
@@ -262,9 +262,9 @@ define hidden void @ByteIndexedToThreeByteBgrConvert(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @ThreeByteBgrToIntArgbScaleConvert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12) #1 {
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = shl i32 %2, 2
   %19 = sub i32 %17, %18
@@ -323,9 +323,9 @@ define hidden void @ThreeByteBgrToIntArgbScaleConvert(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @IntArgbToThreeByteBgrScaleConvert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12) #1 {
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load i32, ptr %16, align 8
   %.neg = mul i32 %2, -3
   %18 = add i32 %17, %.neg
@@ -357,11 +357,11 @@ define hidden void @IntArgbToThreeByteBgrScaleConvert(ptr noundef %0, ptr nounde
   store i8 %33, ptr %.1, align 1
   %34 = lshr i32 %32, 8
   %35 = trunc i32 %34 to i8
-  %36 = getelementptr inbounds i8, ptr %.1, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %35, ptr %36, align 1
   %37 = lshr i32 %32, 16
   %38 = trunc i32 %37 to i8
-  %39 = getelementptr inbounds i8, ptr %.1, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %38, ptr %39, align 1
   %40 = ptrtoint ptr %.1 to i64
   %41 = add nsw i64 %40, 3
@@ -385,9 +385,9 @@ define hidden void @IntArgbToThreeByteBgrScaleConvert(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @ByteGrayToThreeByteBgrScaleConvert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12) #1 {
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load i32, ptr %16, align 8
   %.neg = mul i32 %2, -3
   %18 = add i32 %17, %.neg
@@ -416,9 +416,9 @@ define hidden void @ByteGrayToThreeByteBgrScaleConvert(ptr noundef %0, ptr nound
   %31 = getelementptr inbounds i8, ptr %27, i64 %30
   %32 = load i8, ptr %31, align 1
   store i8 %32, ptr %.1, align 1
-  %33 = getelementptr inbounds i8, ptr %.1, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %32, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %.1, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %32, ptr %34, align 1
   %35 = ptrtoint ptr %.1 to i64
   %36 = add nsw i64 %35, 3
@@ -442,11 +442,11 @@ define hidden void @ByteGrayToThreeByteBgrScaleConvert(ptr noundef %0, ptr nound
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @ByteIndexedToThreeByteBgrScaleConvert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12) #1 {
-  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %19 = load i32, ptr %18, align 8
   %.neg = mul i32 %2, -3
   %20 = add i32 %19, %.neg
@@ -475,17 +475,17 @@ define hidden void @ByteIndexedToThreeByteBgrScaleConvert(ptr noundef %0, ptr no
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %15, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %15, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = trunc i32 %37 to i8
   store i8 %38, ptr %.1, align 1
   %39 = lshr i32 %37, 8
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.1, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %40, ptr %41, align 1
   %42 = lshr i32 %37, 16
   %43 = trunc i32 %42 to i8
-  %44 = getelementptr inbounds i8, ptr %.1, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %43, ptr %44, align 1
   %45 = ptrtoint ptr %.1 to i64
   %46 = add nsw i64 %45, 3
@@ -509,11 +509,11 @@ define hidden void @ByteIndexedToThreeByteBgrScaleConvert(ptr noundef %0, ptr no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @ByteIndexedBmToThreeByteBgrXparOver(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6, ptr nocapture readnone %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = sub i32 %12, %2
   %.neg = mul i32 %2, -3
@@ -534,7 +534,7 @@ define hidden void @ByteIndexedBmToThreeByteBgrXparOver(ptr noundef %0, ptr noun
   %.026 = phi i32 [ %2, %19 ], [ %41, %34 ]
   %21 = load i8, ptr %.129, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %10, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %10, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %34
@@ -544,11 +544,11 @@ define hidden void @ByteIndexedBmToThreeByteBgrXparOver(ptr noundef %0, ptr noun
   store i8 %27, ptr %.1, align 1
   %28 = lshr i32 %24, 8
   %29 = trunc i32 %28 to i8
-  %30 = getelementptr inbounds i8, ptr %.1, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %29, ptr %30, align 1
   %31 = lshr i32 %24, 16
   %32 = trunc i32 %31 to i8
-  %33 = getelementptr inbounds i8, ptr %.1, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %32, ptr %33, align 1
   br label %34
 
@@ -578,11 +578,11 @@ define hidden void @ByteIndexedBmToThreeByteBgrXparOver(ptr noundef %0, ptr noun
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @ByteIndexedBmToThreeByteBgrScaleXparOver(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12) #1 {
-  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %19 = load i32, ptr %18, align 8
   %.neg = mul i32 %2, -3
   %20 = add i32 %19, %.neg
@@ -611,7 +611,7 @@ define hidden void @ByteIndexedBmToThreeByteBgrScaleXparOver(ptr noundef %0, ptr
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %15, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %15, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %47
@@ -621,11 +621,11 @@ define hidden void @ByteIndexedBmToThreeByteBgrScaleXparOver(ptr noundef %0, ptr
   store i8 %40, ptr %.1, align 1
   %41 = lshr i32 %37, 8
   %42 = trunc i32 %41 to i8
-  %43 = getelementptr inbounds i8, ptr %.1, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %42, ptr %43, align 1
   %44 = lshr i32 %37, 16
   %45 = trunc i32 %44 to i8
-  %46 = getelementptr inbounds i8, ptr %.1, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %45, ptr %46, align 1
   br label %47
 
@@ -652,9 +652,9 @@ define hidden void @ByteIndexedBmToThreeByteBgrScaleXparOver(ptr noundef %0, ptr
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @IntArgbBmToThreeByteBgrScaleXparOver(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12) #1 {
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load i32, ptr %16, align 8
   %.neg = mul i32 %2, -3
   %18 = add i32 %17, %.neg
@@ -690,11 +690,11 @@ define hidden void @IntArgbBmToThreeByteBgrScaleXparOver(ptr noundef %0, ptr nou
   store i8 %35, ptr %.1, align 1
   %36 = lshr i32 %32, 8
   %37 = trunc i32 %36 to i8
-  %38 = getelementptr inbounds i8, ptr %.1, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %37, ptr %38, align 1
   %39 = lshr i32 %32, 16
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.1, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %40, ptr %41, align 1
   br label %42
 
@@ -721,11 +721,11 @@ define hidden void @IntArgbBmToThreeByteBgrScaleXparOver(ptr noundef %0, ptr nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @ByteIndexedBmToThreeByteBgrXparBgCopy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture readnone %7, ptr nocapture readnone %8) #1 {
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = sub i32 %13, %2
   %.neg = mul i32 %2, -3
@@ -746,7 +746,7 @@ define hidden void @ByteIndexedBmToThreeByteBgrXparBgCopy(ptr noundef %0, ptr no
   %.035 = phi i32 [ %2, %20 ], [ %35, %21 ]
   %22 = load i8, ptr %.138, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %11, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp slt i32 %25, 0
   %spec.select = select i1 %26, i32 %25, i32 %4
@@ -756,9 +756,9 @@ define hidden void @ByteIndexedBmToThreeByteBgrXparBgCopy(ptr noundef %0, ptr no
   %.sink45 = trunc i32 %.sink45.in to i8
   %.sink46 = trunc i32 %spec.select to i8
   store i8 %.sink46, ptr %.1, align 1
-  %27 = getelementptr inbounds i8, ptr %.1, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %.sink45, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %.1, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %.sink, ptr %28, align 1
   %29 = ptrtoint ptr %.138 to i64
   %30 = add nsw i64 %29, 1
@@ -785,9 +785,9 @@ define hidden void @ByteIndexedBmToThreeByteBgrXparBgCopy(ptr noundef %0, ptr no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @IntArgbBmToThreeByteBgrXparOver(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6, ptr nocapture readnone %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = shl i32 %2, 2
   %14 = sub i32 %10, %13
@@ -816,11 +816,11 @@ define hidden void @IntArgbBmToThreeByteBgrXparOver(ptr noundef %0, ptr noundef 
   store i8 %23, ptr %.128, align 1
   %24 = lshr i32 %20, 8
   %25 = trunc i32 %24 to i8
-  %26 = getelementptr inbounds i8, ptr %.128, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.128, i64 1
   store i8 %25, ptr %26, align 1
   %27 = lshr i32 %20, 16
   %28 = trunc i32 %27 to i8
-  %29 = getelementptr inbounds i8, ptr %.128, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.128, i64 2
   store i8 %28, ptr %29, align 1
   br label %30
 
@@ -850,9 +850,9 @@ define hidden void @IntArgbBmToThreeByteBgrXparOver(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @IntArgbBmToThreeByteBgrXparBgCopy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture readnone %7, ptr nocapture readnone %8) #1 {
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = shl i32 %2, 2
   %15 = sub i32 %11, %14
@@ -881,9 +881,9 @@ define hidden void @IntArgbBmToThreeByteBgrXparBgCopy(ptr noundef %0, ptr nounde
   %.sink43 = trunc i32 %.sink43.in to i8
   %.sink44 = trunc i32 %spec.select to i8
   store i8 %.sink44, ptr %.137, align 1
-  %23 = getelementptr inbounds i8, ptr %.137, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.137, i64 1
   store i8 %.sink43, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.137, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.137, i64 2
   store i8 %.sink, ptr %24, align 1
   %25 = ptrtoint ptr %.1 to i64
   %26 = add nsw i64 %25, 4
@@ -910,13 +910,13 @@ define hidden void @IntArgbBmToThreeByteBgrXparBgCopy(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @IntArgbToThreeByteBgrXorBlit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6, ptr nocapture noundef readonly %7) #1 {
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = shl i32 %2, 2
   %18 = sub i32 %14, %17
@@ -949,13 +949,13 @@ define hidden void @IntArgbToThreeByteBgrXorBlit(ptr noundef %0, ptr noundef %1,
   %32 = xor i8 %30, %31
   store i8 %32, ptr %.144, align 1
   %33 = lshr i32 %29, 8
-  %34 = getelementptr inbounds i8, ptr %.144, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.144, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = trunc i32 %33 to i8
   %37 = xor i8 %35, %36
   store i8 %37, ptr %34, align 1
   %38 = lshr i32 %29, 16
-  %39 = getelementptr inbounds i8, ptr %.144, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.144, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = trunc i32 %38 to i8
   %42 = xor i8 %40, %41
@@ -988,7 +988,7 @@ define hidden void @IntArgbToThreeByteBgrXorBlit(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @ThreeByteBgrSrcMaskFill(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture readnone %8, ptr nocapture readnone %9) #1 {
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %6, 255
   %14 = lshr i32 %6, 8
@@ -1009,15 +1009,15 @@ define hidden void @ThreeByteBgrSrcMaskFill(ptr noundef %0, ptr noundef %1, i32 
 24:                                               ; preds = %20
   %25 = zext nneg i32 %18 to i64
   %26 = zext nneg i32 %17 to i64
-  %27 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %26
+  %27 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = zext nneg i32 %15 to i64
-  %31 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %30
+  %31 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = zext nneg i32 %13 to i64
-  %35 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %34
+  %35 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   br label %38
@@ -1060,7 +1060,7 @@ define hidden void @ThreeByteBgrSrcMaskFill(ptr noundef %0, ptr noundef %1, i32 
   %.198 = phi ptr [ %.097, %51 ], [ %121, %118 ]
   %.093 = phi i32 [ %4, %51 ], [ %122, %118 ]
   %.1 = phi ptr [ %.089, %51 ], [ %53, %118 ]
-  %53 = getelementptr inbounds i8, ptr %.1, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %54 = load i8, ptr %.1, align 1
   switch i8 %54, label %58 [
     i8 0, label %118
@@ -1069,50 +1069,50 @@ define hidden void @ThreeByteBgrSrcMaskFill(ptr noundef %0, ptr noundef %1, i32 
 
 55:                                               ; preds = %52
   store i8 %.096, ptr %.198, align 1
-  %56 = getelementptr inbounds i8, ptr %.198, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.198, i64 1
   store i8 %.095, ptr %56, align 1
-  %57 = getelementptr inbounds i8, ptr %.198, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %.198, i64 2
   store i8 %.094, ptr %57, align 1
   br label %118
 
 58:                                               ; preds = %52
   %59 = xor i8 %54, -1
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %60, i64 255
+  %61 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %60, i64 255
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = zext i8 %54 to i64
-  %65 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %64, i64 %46
+  %65 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %64, i64 %46
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = add nuw nsw i32 %67, %63
   %69 = load i8, ptr %.198, align 1
-  %70 = getelementptr inbounds i8, ptr %.198, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %.198, i64 1
   %71 = load i8, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %.198, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.198, i64 2
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %62 to i64
   %75 = zext i8 %73 to i64
-  %76 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %74, i64 %75
+  %76 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %74, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
-  %79 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %64, i64 %47
+  %79 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %64, i64 %47
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = add nuw nsw i32 %81, %78
   %83 = zext i8 %71 to i64
-  %84 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %74, i64 %83
+  %84 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %74, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i32
-  %87 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %64, i64 %48
+  %87 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %64, i64 %48
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = add nuw nsw i32 %89, %86
   %91 = zext i8 %69 to i64
-  %92 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %74, i64 %91
+  %92 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %74, i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
-  %95 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %64, i64 %49
+  %95 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %64, i64 %49
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
   %98 = add nuw nsw i32 %97, %94
@@ -1123,15 +1123,15 @@ define hidden void @ThreeByteBgrSrcMaskFill(ptr noundef %0, ptr noundef %1, i32 
 100:                                              ; preds = %58
   %101 = zext nneg i32 %68 to i64
   %102 = zext nneg i32 %82 to i64
-  %103 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %101, i64 %102
+  %103 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %101, i64 %102
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
   %106 = zext nneg i32 %90 to i64
-  %107 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %101, i64 %106
+  %107 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %101, i64 %106
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %110 = zext nneg i32 %98 to i64
-  %111 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %101, i64 %110
+  %111 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %101, i64 %110
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i32
   br label %114
@@ -1175,9 +1175,9 @@ define hidden void @ThreeByteBgrSrcMaskFill(ptr noundef %0, ptr noundef %1, i32 
   %.3 = phi ptr [ %.2, %132 ], [ %138, %133 ]
   %.0 = phi i32 [ %4, %132 ], [ %139, %133 ]
   store i8 %.096, ptr %.3, align 1
-  %134 = getelementptr inbounds i8, ptr %.3, i64 1
+  %134 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   store i8 %.095, ptr %134, align 1
-  %135 = getelementptr inbounds i8, ptr %.3, i64 2
+  %135 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   store i8 %.094, ptr %135, align 1
   %136 = ptrtoint ptr %.3 to i64
   %137 = add nsw i64 %136, 3
@@ -1199,7 +1199,7 @@ define hidden void @ThreeByteBgrSrcMaskFill(ptr noundef %0, ptr noundef %1, i32 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @ThreeByteBgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture readnone %8, ptr nocapture readnone %9) #1 {
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %6, 255
   %14 = lshr i32 %6, 8
@@ -1217,15 +1217,15 @@ define hidden void @ThreeByteBgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, 
 21:                                               ; preds = %19
   %22 = zext nneg i32 %18 to i64
   %23 = zext nneg i32 %17 to i64
-  %24 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %22, i64 %23
+  %24 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %22, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = zext nneg i32 %15 to i64
-  %28 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %22, i64 %27
+  %28 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %22, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = zext nneg i32 %13 to i64
-  %32 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %22, i64 %31
+  %32 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %22, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   br label %35
@@ -1243,7 +1243,7 @@ define hidden void @ThreeByteBgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, 
   %37 = sext i32 %36 to i64
   %38 = xor i32 %18, 255
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %39, i64 255
+  %40 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %39, i64 255
   %41 = trunc nuw i32 %.0111 to i8
   %42 = trunc nuw i32 %.0106 to i8
   %43 = trunc nuw i32 %.0105 to i8
@@ -1271,7 +1271,7 @@ define hidden void @ThreeByteBgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, 
   %.1121 = phi ptr [ %.0120, %54 ], [ %108, %105 ]
   %.0119 = phi i32 [ %4, %54 ], [ %109, %105 ]
   %.1 = phi ptr [ %.0, %54 ], [ %56, %105 ]
-  %56 = getelementptr inbounds i8, ptr %.1, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %57 = load i8, ptr %.1, align 1
   switch i8 %57, label %58 [
     i8 0, label %105
@@ -1280,16 +1280,16 @@ define hidden void @ThreeByteBgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, 
 
 58:                                               ; preds = %55
   %59 = zext i8 %57 to i64
-  %60 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %59, i64 %49
+  %60 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %59, i64 %49
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
-  %63 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %59, i64 %50
+  %63 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %59, i64 %50
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %59, i64 %51
+  %66 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %59, i64 %51
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
-  %69 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %59, i64 %52
+  %69 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %59, i64 %52
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   br label %72
@@ -1305,16 +1305,16 @@ define hidden void @ThreeByteBgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, 
 73:                                               ; preds = %72
   %74 = xor i32 %.0118, 255
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %75, i64 255
+  %76 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %75, i64 255
   %77 = load i8, ptr %76, align 1
   %.not133 = icmp eq i8 %77, 0
   br i1 %.not133, label %99, label %78
 
 78:                                               ; preds = %73
   %79 = load i8, ptr %.1121, align 1
-  %80 = getelementptr inbounds i8, ptr %.1121, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.1121, i64 1
   %81 = load i8, ptr %80, align 1
-  %82 = getelementptr inbounds i8, ptr %.1121, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.1121, i64 2
   %83 = load i8, ptr %82, align 1
   %.not134 = icmp eq i8 %77, -1
   br i1 %.not134, label %95, label %84
@@ -1322,13 +1322,13 @@ define hidden void @ThreeByteBgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, 
 84:                                               ; preds = %78
   %85 = zext i8 %77 to i64
   %86 = zext i8 %83 to i64
-  %87 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %85, i64 %86
+  %87 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %85, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %81 to i64
-  %90 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %85, i64 %89
+  %90 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %85, i64 %89
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %79 to i64
-  %93 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %85, i64 %92
+  %93 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %85, i64 %92
   %94 = load i8, ptr %93, align 1
   br label %95
 
@@ -1351,10 +1351,10 @@ define hidden void @ThreeByteBgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, 
   %100 = trunc i32 %.1113 to i8
   store i8 %100, ptr %.1121, align 1
   %101 = trunc i32 %.1115 to i8
-  %102 = getelementptr inbounds i8, ptr %.1121, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.1121, i64 1
   store i8 %101, ptr %102, align 1
   %103 = trunc i32 %.1117 to i8
-  %104 = getelementptr inbounds i8, ptr %.1121, i64 2
+  %104 = getelementptr inbounds nuw i8, ptr %.1121, i64 2
   store i8 %103, ptr %104, align 1
   br label %105
 
@@ -1386,19 +1386,19 @@ define hidden void @ThreeByteBgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, 
   %.0107 = phi i32 [ %4, %119 ], [ %143, %120 ]
   %121 = load i8, ptr %40, align 1
   %122 = load i8, ptr %.3, align 1
-  %123 = getelementptr inbounds i8, ptr %.3, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %124 = load i8, ptr %123, align 1
-  %125 = getelementptr inbounds i8, ptr %.3, i64 2
+  %125 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %121 to i64
   %128 = zext i8 %126 to i64
-  %129 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %127, i64 %128
+  %129 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %127, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %124 to i64
-  %132 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %127, i64 %131
+  %132 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %127, i64 %131
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %122 to i64
-  %135 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %127, i64 %134
+  %135 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %127, i64 %134
   %136 = load i8, ptr %135, align 1
   %137 = add i8 %136, %41
   store i8 %137, ptr %.3, align 1
@@ -1426,7 +1426,7 @@ define hidden void @ThreeByteBgrSrcOverMaskFill(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @ThreeByteBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture readnone %8, ptr nocapture noundef readonly %9) #1 {
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %6, 255
   %14 = lshr i32 %6, 8
@@ -1440,15 +1440,15 @@ define hidden void @ThreeByteBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i3
 19:                                               ; preds = %10
   %20 = zext nneg i32 %18 to i64
   %21 = zext nneg i32 %17 to i64
-  %22 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %20, i64 %21
+  %22 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %20, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = zext nneg i32 %15 to i64
-  %26 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %20, i64 %25
+  %26 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %20, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = zext nneg i32 %13 to i64
-  %30 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %20, i64 %29
+  %30 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %20, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   br label %._crit_edge
@@ -1461,20 +1461,20 @@ define hidden void @ThreeByteBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i3
   %33 = load i32, ptr %9, align 4
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %35, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %40 = load i16, ptr %39, align 2
   %41 = sext i16 %40 to i32
   %42 = load i8, ptr %35, align 2
   %43 = zext i8 %42 to i32
   %44 = sub nsw i32 %43, %41
-  %45 = getelementptr inbounds i8, ptr %35, i64 4
-  %46 = getelementptr inbounds i8, ptr %35, i64 5
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 5
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %35, i64 6
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 6
   %50 = load i16, ptr %49, align 2
   %51 = sext i16 %50 to i32
   %52 = load i8, ptr %45, align 2
@@ -1522,7 +1522,7 @@ define hidden void @ThreeByteBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not160, label %76, label %71
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %.2128, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.2128, i64 1
   %73 = load i8, ptr %.2128, align 1
   %.not161 = icmp eq i8 %73, 0
   br i1 %.not161, label %160, label %74
@@ -1604,9 +1604,9 @@ define hidden void @ThreeByteBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i3
 
 116:                                              ; preds = %109
   %117 = load i8, ptr %.1137, align 1
-  %118 = getelementptr inbounds i8, ptr %.1137, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %.1137, i64 1
   %119 = load i8, ptr %118, align 1
-  %120 = getelementptr inbounds i8, ptr %.1137, i64 2
+  %120 = getelementptr inbounds nuw i8, ptr %.1137, i64 2
   %121 = load i8, ptr %120, align 1
   %.not168 = icmp eq i8 %113, -1
   br i1 %.not168, label %133, label %122
@@ -1614,13 +1614,13 @@ define hidden void @ThreeByteBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i3
 122:                                              ; preds = %116
   %123 = zext i8 %113 to i64
   %124 = zext i8 %121 to i64
-  %125 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %123, i64 %124
+  %125 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %123, i64 %124
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %119 to i64
-  %128 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %123, i64 %127
+  %128 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %123, i64 %127
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %117 to i64
-  %131 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %123, i64 %130
+  %131 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %123, i64 %130
   %132 = load i8, ptr %131, align 1
   br label %133
 
@@ -1650,15 +1650,15 @@ define hidden void @ThreeByteBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i3
 140:                                              ; preds = %137
   %141 = zext nneg i32 %.1124 to i64
   %142 = zext nneg i32 %.1121 to i64
-  %143 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %141, i64 %142
+  %143 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %141, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = zext nneg i32 %.1118 to i64
-  %147 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %141, i64 %146
+  %147 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %141, i64 %146
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i32
   %150 = zext nneg i32 %.1 to i64
-  %151 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %141, i64 %150
+  %151 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %141, i64 %150
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
   br label %154
@@ -1670,10 +1670,10 @@ define hidden void @ThreeByteBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i3
   %155 = trunc i32 %.2 to i8
   store i8 %155, ptr %.1137, align 1
   %156 = trunc i32 %.2119 to i8
-  %157 = getelementptr inbounds i8, ptr %.1137, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %.1137, i64 1
   store i8 %156, ptr %157, align 1
   %158 = trunc i32 %.2122 to i8
-  %159 = getelementptr inbounds i8, ptr %.1137, i64 2
+  %159 = getelementptr inbounds nuw i8, ptr %.1137, i64 2
   store i8 %158, ptr %159, align 1
   br label %160
 
@@ -1707,14 +1707,14 @@ define hidden void @ThreeByteBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @IntArgbToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture readnone %9, ptr nocapture noundef readonly %10) #1 {
-  %12 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load float, ptr %12, align 4
   %14 = fpext float %13 to double
   %15 = tail call double @llvm.fmuladd.f64(double %14, double 2.550000e+02, double 5.000000e-01)
   %16 = fptosi double %15 to i32
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = shl nsw i32 %5, 2
   %22 = sub nsw i32 %18, %21
@@ -1751,7 +1751,7 @@ define hidden void @IntArgbToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr nou
   %.1134 = phi ptr [ %.0133, %35 ], [ %106, %100 ]
   %.1128 = phi ptr [ %.0127, %35 ], [ %103, %100 ]
   %.1 = phi ptr [ %.0, %35 ], [ %37, %100 ]
-  %37 = getelementptr inbounds i8, ptr %.1, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %38 = load i8, ptr %.1, align 1
   %.not151 = icmp eq i8 %38, 0
   br i1 %.not151, label %100, label %39
@@ -1764,7 +1764,7 @@ define hidden void @IntArgbToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr nou
   %44 = lshr i32 %43, 24
   %45 = zext i8 %42 to i64
   %46 = zext nneg i32 %44 to i64
-  %47 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %45, i64 %46
+  %47 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %45, i64 %46
   %48 = load i8, ptr %47, align 1
   %.not152 = icmp eq i8 %48, 0
   br i1 %.not152, label %100, label %49
@@ -1781,39 +1781,39 @@ define hidden void @IntArgbToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr nou
 55:                                               ; preds = %49
   %56 = xor i8 %48, -1
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %57, i64 255
+  %58 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %57, i64 255
   %59 = load i8, ptr %58, align 1
   %60 = load i8, ptr %.1134, align 1
-  %61 = getelementptr inbounds i8, ptr %.1134, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.1134, i64 1
   %62 = load i8, ptr %61, align 1
-  %63 = getelementptr inbounds i8, ptr %.1134, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.1134, i64 2
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %59 to i64
   %66 = zext i8 %64 to i64
-  %67 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %65, i64 %66
+  %67 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %65, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = zext i8 %48 to i64
   %71 = zext nneg i32 %51 to i64
-  %72 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %70, i64 %71
+  %72 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %70, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = add nuw nsw i32 %74, %69
   %76 = zext i8 %62 to i64
-  %77 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %65, i64 %76
+  %77 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %65, i64 %76
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = zext nneg i32 %53 to i64
-  %81 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %70, i64 %80
+  %81 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %70, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = add nuw nsw i32 %83, %79
   %85 = zext i8 %60 to i64
-  %86 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %65, i64 %85
+  %86 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %65, i64 %85
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
   %89 = zext nneg i32 %54 to i64
-  %90 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %70, i64 %89
+  %90 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %70, i64 %89
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i32
   %93 = add nuw nsw i32 %92, %88
@@ -1826,10 +1826,10 @@ define hidden void @IntArgbToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr nou
   %95 = trunc i32 %.0139 to i8
   store i8 %95, ptr %.1134, align 1
   %96 = trunc i32 %.0140 to i8
-  %97 = getelementptr inbounds i8, ptr %.1134, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.1134, i64 1
   store i8 %96, ptr %97, align 1
   %98 = trunc i32 %.0138 to i8
-  %99 = getelementptr inbounds i8, ptr %.1134, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.1134, i64 2
   store i8 %98, ptr %99, align 1
   br label %100
 
@@ -1886,39 +1886,39 @@ define hidden void @IntArgbToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr nou
 132:                                              ; preds = %126
   %133 = xor i8 %125, -1
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %134, i64 255
+  %135 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %134, i64 255
   %136 = load i8, ptr %135, align 1
   %137 = load i8, ptr %.3136, align 1
-  %138 = getelementptr inbounds i8, ptr %.3136, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %.3136, i64 1
   %139 = load i8, ptr %138, align 1
-  %140 = getelementptr inbounds i8, ptr %.3136, i64 2
+  %140 = getelementptr inbounds nuw i8, ptr %.3136, i64 2
   %141 = load i8, ptr %140, align 1
   %142 = zext i8 %136 to i64
   %143 = zext i8 %141 to i64
-  %144 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %142, i64 %143
+  %144 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %142, i64 %143
   %145 = load i8, ptr %144, align 1
   %146 = zext i8 %145 to i32
   %147 = zext i8 %125 to i64
   %148 = zext nneg i32 %128 to i64
-  %149 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %147, i64 %148
+  %149 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %147, i64 %148
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i32
   %152 = add nuw nsw i32 %151, %146
   %153 = zext i8 %139 to i64
-  %154 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %142, i64 %153
+  %154 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %142, i64 %153
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
   %157 = zext nneg i32 %130 to i64
-  %158 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %147, i64 %157
+  %158 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %147, i64 %157
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
   %161 = add nuw nsw i32 %160, %156
   %162 = zext i8 %137 to i64
-  %163 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %142, i64 %162
+  %163 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %142, i64 %162
   %164 = load i8, ptr %163, align 1
   %165 = zext i8 %164 to i32
   %166 = zext nneg i32 %131 to i64
-  %167 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %147, i64 %166
+  %167 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %147, i64 %166
   %168 = load i8, ptr %167, align 1
   %169 = zext i8 %168 to i32
   %170 = add nuw nsw i32 %169, %165
@@ -1931,10 +1931,10 @@ define hidden void @IntArgbToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr nou
   %172 = trunc i32 %.0129 to i8
   store i8 %172, ptr %.3136, align 1
   %173 = trunc i32 %.0130 to i8
-  %174 = getelementptr inbounds i8, ptr %.3136, i64 1
+  %174 = getelementptr inbounds nuw i8, ptr %.3136, i64 1
   store i8 %173, ptr %174, align 1
   %175 = trunc i32 %.0131 to i8
-  %176 = getelementptr inbounds i8, ptr %.3136, i64 2
+  %176 = getelementptr inbounds nuw i8, ptr %.3136, i64 2
   store i8 %175, ptr %176, align 1
   br label %177
 
@@ -1964,32 +1964,32 @@ define hidden void @IntArgbToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @IntArgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture readnone %9, ptr nocapture noundef readonly %10) #1 {
-  %12 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load float, ptr %12, align 4
   %14 = fpext float %13 to double
   %15 = tail call double @llvm.fmuladd.f64(double %14, double 2.550000e+02, double 5.000000e-01)
   %16 = fptosi double %15 to i32
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %23, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i32
   %30 = load i8, ptr %23, align 2
   %31 = zext i8 %30 to i32
   %32 = sub nsw i32 %31, %29
-  %33 = getelementptr inbounds i8, ptr %23, i64 4
-  %34 = getelementptr inbounds i8, ptr %23, i64 5
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 5
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %23, i64 6
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 6
   %38 = load i16, ptr %37, align 2
   %39 = sext i16 %38 to i32
   %40 = load i8, ptr %33, align 2
@@ -2043,7 +2043,7 @@ define hidden void @IntArgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nound
   br i1 %.not175, label %65, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %.2140, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.2140, i64 1
   %63 = load i8, ptr %.2140, align 1
   %64 = zext i8 %63 to i32
   %.not176 = icmp eq i8 %63, 0
@@ -2117,15 +2117,15 @@ define hidden void @IntArgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nound
 104:                                              ; preds = %98
   %105 = zext i8 %96 to i64
   %106 = zext nneg i32 %100 to i64
-  %107 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %105, i64 %106
+  %107 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %105, i64 %106
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %110 = zext nneg i32 %102 to i64
-  %111 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %105, i64 %110
+  %111 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %105, i64 %110
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i32
   %114 = zext nneg i32 %103 to i64
-  %115 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %105, i64 %114
+  %115 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %105, i64 %114
   %116 = load i8, ptr %115, align 1
   %117 = zext i8 %116 to i32
   br label %122
@@ -2158,9 +2158,9 @@ define hidden void @IntArgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nound
 
 130:                                              ; preds = %123
   %131 = load i8, ptr %.1160, align 1
-  %132 = getelementptr inbounds i8, ptr %.1160, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %.1160, i64 1
   %133 = load i8, ptr %132, align 1
-  %134 = getelementptr inbounds i8, ptr %.1160, i64 2
+  %134 = getelementptr inbounds nuw i8, ptr %.1160, i64 2
   %135 = load i8, ptr %134, align 1
   %.not185 = icmp eq i8 %127, -1
   br i1 %.not185, label %147, label %136
@@ -2168,13 +2168,13 @@ define hidden void @IntArgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nound
 136:                                              ; preds = %130
   %137 = zext i8 %127 to i64
   %138 = zext i8 %135 to i64
-  %139 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %138
+  %139 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %138
   %140 = load i8, ptr %139, align 1
   %141 = zext i8 %133 to i64
-  %142 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %141
+  %142 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %141
   %143 = load i8, ptr %142, align 1
   %144 = zext i8 %131 to i64
-  %145 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %144
+  %145 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %137, i64 %144
   %146 = load i8, ptr %145, align 1
   br label %147
 
@@ -2203,15 +2203,15 @@ define hidden void @IntArgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nound
 153:                                              ; preds = %151
   %154 = zext nneg i32 %.1136 to i64
   %155 = zext nneg i32 %.1133 to i64
-  %156 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %154, i64 %155
+  %156 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %154, i64 %155
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i32
   %159 = zext nneg i32 %.1130 to i64
-  %160 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %154, i64 %159
+  %160 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %154, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   %163 = zext nneg i32 %.1 to i64
-  %164 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %154, i64 %163
+  %164 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %154, i64 %163
   %165 = load i8, ptr %164, align 1
   %166 = zext i8 %165 to i32
   br label %167
@@ -2223,10 +2223,10 @@ define hidden void @IntArgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nound
   %168 = trunc i32 %.2 to i8
   store i8 %168, ptr %.1160, align 1
   %169 = trunc i32 %.2131 to i8
-  %170 = getelementptr inbounds i8, ptr %.1160, i64 1
+  %170 = getelementptr inbounds nuw i8, ptr %.1160, i64 1
   store i8 %169, ptr %170, align 1
   %171 = trunc i32 %.2134 to i8
-  %172 = getelementptr inbounds i8, ptr %.1160, i64 2
+  %172 = getelementptr inbounds nuw i8, ptr %.1160, i64 2
   store i8 %171, ptr %172, align 1
   br label %173
 
@@ -2266,15 +2266,15 @@ define hidden void @IntArgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nound
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @IntArgbPreToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture readnone %9, ptr nocapture noundef readonly %10) #1 {
-  %12 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load float, ptr %12, align 4
   %14 = fpext float %13 to double
   %15 = tail call double @llvm.fmuladd.f64(double %14, double 2.550000e+02, double 5.000000e-01)
   %16 = fptosi double %15 to i32
   %.fr163 = freeze i32 %16
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = shl nsw i32 %5, 2
   %22 = sub nsw i32 %18, %21
@@ -2320,30 +2320,30 @@ define hidden void @IntArgbPreToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr 
 40:                                               ; preds = %34
   %41 = xor i8 %33, -1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %42, i64 255
+  %43 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %42, i64 255
   %44 = load i8, ptr %43, align 1
   %45 = load i8, ptr %.3136.us.us, align 1
-  %46 = getelementptr inbounds i8, ptr %.3136.us.us, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.3136.us.us, i64 1
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %.3136.us.us, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %.3136.us.us, i64 2
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %44 to i64
   %51 = zext i8 %49 to i64
-  %52 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %50, i64 %51
+  %52 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %50, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = zext nneg i32 %39 to i64
   %55 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = add i8 %56, %53
   %58 = zext i8 %47 to i64
-  %59 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %50, i64 %58
+  %59 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %50, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = zext nneg i32 %37 to i64
   %62 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = add i8 %63, %60
   %65 = zext i8 %45 to i64
-  %66 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %50, i64 %65
+  %66 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %50, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = zext nneg i32 %35 to i64
   %69 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %68
@@ -2368,9 +2368,9 @@ define hidden void @IntArgbPreToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr 
   %.0130.us.us = phi i8 [ %64, %40 ], [ %78, %72 ]
   %.0129.us.us = phi i8 [ %71, %40 ], [ %81, %72 ]
   store i8 %.0129.us.us, ptr %.3136.us.us, align 1
-  %83 = getelementptr inbounds i8, ptr %.3136.us.us, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.3136.us.us, i64 1
   store i8 %.0130.us.us, ptr %83, align 1
-  %84 = getelementptr inbounds i8, ptr %.3136.us.us, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.3136.us.us, i64 2
   store i8 %.0131.us.us, ptr %84, align 1
   br label %85
 
@@ -2416,7 +2416,7 @@ define hidden void @IntArgbPreToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr 
   %.1134 = phi ptr [ %.0133, %108 ], [ %192, %186 ]
   %.1128 = phi ptr [ %.0127, %108 ], [ %189, %186 ]
   %.1 = phi ptr [ %.0, %108 ], [ %110, %186 ]
-  %110 = getelementptr inbounds i8, ptr %.1, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %111 = load i8, ptr %.1, align 1
   %.not151 = icmp eq i8 %111, 0
   br i1 %.not151, label %186, label %112
@@ -2429,7 +2429,7 @@ define hidden void @IntArgbPreToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr 
   %117 = lshr i32 %116, 24
   %118 = zext i8 %115 to i64
   %119 = zext nneg i32 %117 to i64
-  %120 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %119
+  %120 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %119
   %121 = load i8, ptr %120, align 1
   %.not152 = icmp eq i8 %121, 0
   br i1 %.not152, label %186, label %122
@@ -2446,38 +2446,38 @@ define hidden void @IntArgbPreToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr 
 128:                                              ; preds = %122
   %129 = xor i8 %121, -1
   %130 = zext i8 %129 to i64
-  %131 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %130, i64 255
+  %131 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %130, i64 255
   %132 = load i8, ptr %131, align 1
   %133 = load i8, ptr %.1134, align 1
-  %134 = getelementptr inbounds i8, ptr %.1134, i64 1
+  %134 = getelementptr inbounds nuw i8, ptr %.1134, i64 1
   %135 = load i8, ptr %134, align 1
-  %136 = getelementptr inbounds i8, ptr %.1134, i64 2
+  %136 = getelementptr inbounds nuw i8, ptr %.1134, i64 2
   %137 = load i8, ptr %136, align 1
   %138 = zext i8 %132 to i64
   %139 = zext i8 %137 to i64
-  %140 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %139
+  %140 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %139
   %141 = load i8, ptr %140, align 1
   %142 = zext i8 %141 to i32
   %143 = zext nneg i32 %127 to i64
-  %144 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %143
+  %144 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %143
   %145 = load i8, ptr %144, align 1
   %146 = zext i8 %145 to i32
   %147 = add nuw nsw i32 %146, %142
   %148 = zext i8 %135 to i64
-  %149 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %148
+  %149 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %148
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i32
   %152 = zext nneg i32 %125 to i64
-  %153 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %152
+  %153 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %152
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = add nuw nsw i32 %155, %151
   %157 = zext i8 %133 to i64
-  %158 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %157
+  %158 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %157
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
   %161 = zext nneg i32 %123 to i64
-  %162 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %161
+  %162 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %161
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i32
   %165 = add nuw nsw i32 %164, %160
@@ -2489,15 +2489,15 @@ define hidden void @IntArgbPreToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr 
 
 167:                                              ; preds = %166
   %168 = zext nneg i32 %127 to i64
-  %169 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %168
+  %169 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %168
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %170 to i32
   %172 = zext nneg i32 %125 to i64
-  %173 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %172
+  %173 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %172
   %174 = load i8, ptr %173, align 1
   %175 = zext i8 %174 to i32
   %176 = zext nneg i32 %123 to i64
-  %177 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %176
+  %177 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %118, i64 %176
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i32
   br label %180
@@ -2509,10 +2509,10 @@ define hidden void @IntArgbPreToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr 
   %181 = trunc i32 %.0139 to i8
   store i8 %181, ptr %.1134, align 1
   %182 = trunc i32 %.0140 to i8
-  %183 = getelementptr inbounds i8, ptr %.1134, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %.1134, i64 1
   store i8 %182, ptr %183, align 1
   %184 = trunc i32 %.0138 to i8
-  %185 = getelementptr inbounds i8, ptr %.1134, i64 2
+  %185 = getelementptr inbounds nuw i8, ptr %.1134, i64 2
   store i8 %184, ptr %185, align 1
   br label %186
 
@@ -2552,7 +2552,7 @@ define hidden void @IntArgbPreToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr 
   %206 = load i32, ptr %.3, align 4
   %207 = lshr i32 %206, 24
   %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %208
+  %209 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %208
   %210 = load i8, ptr %209, align 1
   %.not149 = icmp eq i8 %210, 0
   br i1 %.not149, label %261, label %211
@@ -2569,38 +2569,38 @@ define hidden void @IntArgbPreToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr 
 217:                                              ; preds = %211
   %218 = xor i8 %210, -1
   %219 = zext i8 %218 to i64
-  %220 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %219, i64 255
+  %220 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %219, i64 255
   %221 = load i8, ptr %220, align 1
   %222 = load i8, ptr %.3136, align 1
-  %223 = getelementptr inbounds i8, ptr %.3136, i64 1
+  %223 = getelementptr inbounds nuw i8, ptr %.3136, i64 1
   %224 = load i8, ptr %223, align 1
-  %225 = getelementptr inbounds i8, ptr %.3136, i64 2
+  %225 = getelementptr inbounds nuw i8, ptr %.3136, i64 2
   %226 = load i8, ptr %225, align 1
   %227 = zext i8 %221 to i64
   %228 = zext i8 %226 to i64
-  %229 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %227, i64 %228
+  %229 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %227, i64 %228
   %230 = load i8, ptr %229, align 1
   %231 = zext i8 %230 to i32
   %232 = zext nneg i32 %216 to i64
-  %233 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %232
+  %233 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %232
   %234 = load i8, ptr %233, align 1
   %235 = zext i8 %234 to i32
   %236 = add nuw nsw i32 %235, %231
   %237 = zext i8 %224 to i64
-  %238 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %227, i64 %237
+  %238 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %227, i64 %237
   %239 = load i8, ptr %238, align 1
   %240 = zext i8 %239 to i32
   %241 = zext nneg i32 %214 to i64
-  %242 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %241
+  %242 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %241
   %243 = load i8, ptr %242, align 1
   %244 = zext i8 %243 to i32
   %245 = add nuw nsw i32 %244, %240
   %246 = zext i8 %222 to i64
-  %247 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %227, i64 %246
+  %247 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %227, i64 %246
   %248 = load i8, ptr %247, align 1
   %249 = zext i8 %248 to i32
   %250 = zext nneg i32 %212 to i64
-  %251 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %250
+  %251 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %25, i64 %250
   %252 = load i8, ptr %251, align 1
   %253 = zext i8 %252 to i32
   %254 = add nuw nsw i32 %253, %249
@@ -2613,10 +2613,10 @@ define hidden void @IntArgbPreToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr 
   %256 = trunc i32 %.0129 to i8
   store i8 %256, ptr %.3136, align 1
   %257 = trunc i32 %.0130 to i8
-  %258 = getelementptr inbounds i8, ptr %.3136, i64 1
+  %258 = getelementptr inbounds nuw i8, ptr %.3136, i64 1
   store i8 %257, ptr %258, align 1
   %259 = trunc i32 %.0131 to i8
-  %260 = getelementptr inbounds i8, ptr %.3136, i64 2
+  %260 = getelementptr inbounds nuw i8, ptr %.3136, i64 2
   store i8 %259, ptr %260, align 1
   br label %261
 
@@ -2646,32 +2646,32 @@ define hidden void @IntArgbPreToThreeByteBgrSrcOverMaskBlit(ptr noundef %0, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @IntArgbPreToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture readnone %9, ptr nocapture noundef readonly %10) #1 {
-  %12 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load float, ptr %12, align 4
   %14 = fpext float %13 to double
   %15 = tail call double @llvm.fmuladd.f64(double %14, double 2.550000e+02, double 5.000000e-01)
   %16 = fptosi double %15 to i32
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %23, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i32
   %30 = load i8, ptr %23, align 2
   %31 = zext i8 %30 to i32
   %32 = sub nsw i32 %31, %29
-  %33 = getelementptr inbounds i8, ptr %23, i64 4
-  %34 = getelementptr inbounds i8, ptr %23, i64 5
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 5
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %23, i64 6
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 6
   %38 = load i16, ptr %37, align 2
   %39 = sext i16 %38 to i32
   %40 = load i8, ptr %33, align 2
@@ -2725,7 +2725,7 @@ define hidden void @IntArgbPreToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr no
   br i1 %.not175, label %65, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %.2141, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.2141, i64 1
   %63 = load i8, ptr %.2141, align 1
   %64 = zext i8 %63 to i32
   %.not176 = icmp eq i8 %63, 0
@@ -2800,15 +2800,15 @@ define hidden void @IntArgbPreToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr no
 105:                                              ; preds = %99
   %106 = zext i8 %98 to i64
   %107 = zext nneg i32 %104 to i64
-  %108 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %106, i64 %107
+  %108 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %106, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = zext nneg i32 %102 to i64
-  %112 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %106, i64 %111
+  %112 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %106, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i32
   %115 = zext nneg i32 %100 to i64
-  %116 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %106, i64 %115
+  %116 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %106, i64 %115
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i32
   br label %123
@@ -2842,9 +2842,9 @@ define hidden void @IntArgbPreToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr no
 
 131:                                              ; preds = %124
   %132 = load i8, ptr %.1161, align 1
-  %133 = getelementptr inbounds i8, ptr %.1161, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %.1161, i64 1
   %134 = load i8, ptr %133, align 1
-  %135 = getelementptr inbounds i8, ptr %.1161, i64 2
+  %135 = getelementptr inbounds nuw i8, ptr %.1161, i64 2
   %136 = load i8, ptr %135, align 1
   %.not185 = icmp eq i8 %128, -1
   br i1 %.not185, label %148, label %137
@@ -2852,13 +2852,13 @@ define hidden void @IntArgbPreToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr no
 137:                                              ; preds = %131
   %138 = zext i8 %128 to i64
   %139 = zext i8 %136 to i64
-  %140 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %139
+  %140 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %139
   %141 = load i8, ptr %140, align 1
   %142 = zext i8 %134 to i64
-  %143 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %142
+  %143 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %132 to i64
-  %146 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %145
+  %146 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %145
   %147 = load i8, ptr %146, align 1
   br label %148
 
@@ -2887,15 +2887,15 @@ define hidden void @IntArgbPreToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr no
 154:                                              ; preds = %152
   %155 = zext nneg i32 %.1137 to i64
   %156 = zext nneg i32 %.1134 to i64
-  %157 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %155, i64 %156
+  %157 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %155, i64 %156
   %158 = load i8, ptr %157, align 1
   %159 = zext i8 %158 to i32
   %160 = zext nneg i32 %.1131 to i64
-  %161 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %155, i64 %160
+  %161 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %155, i64 %160
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i32
   %164 = zext nneg i32 %.1 to i64
-  %165 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %155, i64 %164
+  %165 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %155, i64 %164
   %166 = load i8, ptr %165, align 1
   %167 = zext i8 %166 to i32
   br label %168
@@ -2907,10 +2907,10 @@ define hidden void @IntArgbPreToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr no
   %169 = trunc i32 %.2 to i8
   store i8 %169, ptr %.1161, align 1
   %170 = trunc i32 %.2132 to i8
-  %171 = getelementptr inbounds i8, ptr %.1161, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %.1161, i64 1
   store i8 %170, ptr %171, align 1
   %172 = trunc i32 %.2135 to i8
-  %173 = getelementptr inbounds i8, ptr %.1161, i64 2
+  %173 = getelementptr inbounds nuw i8, ptr %.1161, i64 2
   store i8 %172, ptr %173, align 1
   br label %174
 
@@ -2950,32 +2950,32 @@ define hidden void @IntArgbPreToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @IntRgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture readnone %9, ptr nocapture noundef readonly %10) #1 {
-  %12 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load float, ptr %12, align 4
   %14 = fpext float %13 to double
   %15 = tail call double @llvm.fmuladd.f64(double %14, double 2.550000e+02, double 5.000000e-01)
   %16 = fptosi double %15 to i32
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %23, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i32
   %30 = load i8, ptr %23, align 2
   %31 = zext i8 %30 to i32
   %32 = sub nsw i32 %31, %29
-  %33 = getelementptr inbounds i8, ptr %23, i64 4
-  %34 = getelementptr inbounds i8, ptr %23, i64 5
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 5
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %23, i64 6
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 6
   %38 = load i16, ptr %37, align 2
   %39 = sext i16 %38 to i32
   %40 = load i8, ptr %33, align 2
@@ -3028,7 +3028,7 @@ define hidden void @IntRgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nounde
   br i1 %.not170, label %66, label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %.2, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %64 = load i8, ptr %.2, align 1
   %65 = zext i8 %64 to i32
   %.not171 = icmp eq i8 %64, 0
@@ -3098,15 +3098,15 @@ define hidden void @IntRgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nounde
 102:                                              ; preds = %95
   %103 = zext i8 %93 to i64
   %104 = zext nneg i32 %101 to i64
-  %105 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %103, i64 %104
+  %105 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %103, i64 %104
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   %108 = zext nneg i32 %99 to i64
-  %109 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %103, i64 %108
+  %109 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %103, i64 %108
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
   %112 = zext nneg i32 %97 to i64
-  %113 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %103, i64 %112
+  %113 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %103, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   br label %120
@@ -3139,9 +3139,9 @@ define hidden void @IntRgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nounde
 
 128:                                              ; preds = %121
   %129 = load i8, ptr %.1155, align 1
-  %130 = getelementptr inbounds i8, ptr %.1155, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %.1155, i64 1
   %131 = load i8, ptr %130, align 1
-  %132 = getelementptr inbounds i8, ptr %.1155, i64 2
+  %132 = getelementptr inbounds nuw i8, ptr %.1155, i64 2
   %133 = load i8, ptr %132, align 1
   %.not180 = icmp eq i8 %125, -1
   br i1 %.not180, label %145, label %134
@@ -3149,13 +3149,13 @@ define hidden void @IntRgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nounde
 134:                                              ; preds = %128
   %135 = zext i8 %125 to i64
   %136 = zext i8 %133 to i64
-  %137 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %135, i64 %136
+  %137 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %135, i64 %136
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %131 to i64
-  %140 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %135, i64 %139
+  %140 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %135, i64 %139
   %141 = load i8, ptr %140, align 1
   %142 = zext i8 %129 to i64
-  %143 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %135, i64 %142
+  %143 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %135, i64 %142
   %144 = load i8, ptr %143, align 1
   br label %145
 
@@ -3184,15 +3184,15 @@ define hidden void @IntRgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nounde
 151:                                              ; preds = %149
   %152 = zext nneg i32 %.1138 to i64
   %153 = zext nneg i32 %.1135 to i64
-  %154 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %152, i64 %153
+  %154 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %152, i64 %153
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
   %157 = zext nneg i32 %.1132 to i64
-  %158 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %152, i64 %157
+  %158 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %152, i64 %157
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
   %161 = zext nneg i32 %.1129 to i64
-  %162 = getelementptr inbounds [256 x [256 x i8]], ptr @div8table, i64 0, i64 %152, i64 %161
+  %162 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @div8table, i64 0, i64 %152, i64 %161
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i32
   br label %165
@@ -3204,10 +3204,10 @@ define hidden void @IntRgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nounde
   %166 = trunc i32 %.2130 to i8
   store i8 %166, ptr %.1155, align 1
   %167 = trunc i32 %.2133 to i8
-  %168 = getelementptr inbounds i8, ptr %.1155, i64 1
+  %168 = getelementptr inbounds nuw i8, ptr %.1155, i64 1
   store i8 %167, ptr %168, align 1
   %169 = trunc i32 %.2136 to i8
-  %170 = getelementptr inbounds i8, ptr %.1155, i64 2
+  %170 = getelementptr inbounds nuw i8, ptr %.1155, i64 2
   store i8 %169, ptr %170, align 1
   br label %171
 
@@ -3260,9 +3260,9 @@ define hidden void @ThreeByteBgrDrawGlyphListAA(ptr nocapture noundef readonly %
   %20 = lshr i32 %4, 8
   %21 = and i32 %20, 255
   %22 = and i32 %4, 255
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = sext i32 %24 to i64
   %27 = zext nneg i32 %19 to i64
   %28 = zext nneg i32 %21 to i64
@@ -3272,20 +3272,20 @@ define hidden void @ThreeByteBgrDrawGlyphListAA(ptr nocapture noundef readonly %
 
 30:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv135 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next136, %.loopexit ]
-  %31 = getelementptr inbounds %struct.ImageRef, ptr %1, i64 %indvars.iv135
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %31 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv135
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %.loopexit, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %31, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %31, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 36
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %31, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %31, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = add nsw i32 %40, %36
   %44 = add nsw i32 %42, %38
@@ -3299,7 +3299,7 @@ define hidden void @ThreeByteBgrDrawGlyphListAA(ptr nocapture noundef readonly %
   br i1 %or.cond, label %45, label %.loopexit
 
 45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %31, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %47 = load i32, ptr %46, align 8
   %48 = icmp slt i32 %38, %6
   %49 = icmp slt i32 %36, %5
@@ -3336,7 +3336,7 @@ define hidden void @ThreeByteBgrDrawGlyphListAA(ptr nocapture noundef readonly %
 
 65:                                               ; preds = %102, %64
   %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ 0, %64 ]
-  %66 = getelementptr inbounds i8, ptr %.2, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i8, ptr %.2, i64 %indvars.iv
   %67 = load i8, ptr %66, align 1
   switch i8 %67, label %68 [
     i8 0, label %102
@@ -3346,30 +3346,30 @@ define hidden void @ThreeByteBgrDrawGlyphListAA(ptr nocapture noundef readonly %
 68:                                               ; preds = %65
   %69 = xor i8 %67, -1
   %70 = mul nuw nsw i64 %indvars.iv, 3
-  %71 = getelementptr inbounds i8, ptr %.0106, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %.0106, i64 %70
   %72 = load i8, ptr %71, align 1
-  %73 = getelementptr inbounds i8, ptr %71, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %74 = load i8, ptr %73, align 1
-  %75 = getelementptr inbounds i8, ptr %71, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 2
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %69 to i64
   %78 = zext i8 %76 to i64
-  %79 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %77, i64 %78
+  %79 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %77, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %67 to i64
-  %82 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %81, i64 %27
+  %82 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %81, i64 %27
   %83 = load i8, ptr %82, align 1
   %84 = add i8 %83, %80
   %85 = zext i8 %74 to i64
-  %86 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %77, i64 %85
+  %86 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %77, i64 %85
   %87 = load i8, ptr %86, align 1
-  %88 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %81, i64 %28
+  %88 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %81, i64 %28
   %89 = load i8, ptr %88, align 1
   %90 = add i8 %89, %87
   %91 = zext i8 %72 to i64
-  %92 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %77, i64 %91
+  %92 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %77, i64 %91
   %93 = load i8, ptr %92, align 1
-  %94 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %81, i64 %29
+  %94 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %81, i64 %29
   %95 = load i8, ptr %94, align 1
   %96 = add i8 %95, %93
   store i8 %96, ptr %71, align 1
@@ -3379,11 +3379,11 @@ define hidden void @ThreeByteBgrDrawGlyphListAA(ptr nocapture noundef readonly %
 
 97:                                               ; preds = %65
   %98 = mul nuw nsw i64 %indvars.iv, 3
-  %99 = getelementptr inbounds i8, ptr %.0106, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %.0106, i64 %98
   store i8 %12, ptr %99, align 1
-  %100 = getelementptr inbounds i8, ptr %99, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
   store i8 %14, ptr %100, align 1
-  %101 = getelementptr inbounds i8, ptr %99, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 2
   store i8 %16, ptr %101, align 1
   br label %102
 
@@ -3421,49 +3421,49 @@ define hidden void @ThreeByteBgrDrawGlyphListLCD(ptr nocapture noundef readonly 
 .lr.ph:                                           ; preds = %14
   %21 = and i32 %4, 255
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %11, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = lshr i32 %4, 8
   %26 = and i32 %25, 255
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %11, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = lshr i32 %4, 16
   %31 = and i32 %30, 255
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %11, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 %32
   %34 = load i8, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = sext i32 %36 to i64
   %.not190 = icmp eq i32 %9, 0
   %39 = zext i8 %34 to i64
   %40 = zext i8 %29 to i64
   %41 = zext i8 %24 to i64
-  %wide.trip.count211 = zext nneg i32 %2 to i64
+  %wide.trip.count210 = zext nneg i32 %2 to i64
   br label %42
 
-42:                                               ; preds = %.lr.ph, %.loopexit198
-  %indvars.iv208 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next209, %.loopexit198 ]
-  %43 = getelementptr inbounds %struct.ImageRef, ptr %1, i64 %indvars.iv208
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+42:                                               ; preds = %.lr.ph, %.loopexit197
+  %indvars.iv207 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next208, %.loopexit197 ]
+  %43 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv207
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %45, %47
-  %49 = getelementptr inbounds i8, ptr %43, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not = icmp eq ptr %50, null
-  br i1 %.not, label %.loopexit198, label %51
+  br i1 %.not, label %.loopexit197, label %51
 
 51:                                               ; preds = %42
   %52 = select i1 %48, i32 1, i32 3
-  %53 = getelementptr inbounds i8, ptr %43, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %43, i64 36
+  %55 = getelementptr inbounds nuw i8, ptr %43, i64 36
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %43, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = add nsw i32 %54, %47
   %60 = add nsw i32 %58, %56
@@ -3478,15 +3478,15 @@ define hidden void @ThreeByteBgrDrawGlyphListLCD(ptr nocapture noundef readonly 
   %65 = sub nsw i32 %6, %56
   %66 = mul nsw i32 %65, %45
   %.0172 = tail call i32 @llvm.smax.i32(i32 %56, i32 %6)
-  %narrow195 = select i1 %64, i32 %66, i32 0
-  %.1.idx = sext i32 %narrow195 to i64
+  %narrow194 = select i1 %64, i32 %66, i32 0
+  %.1.idx = sext i32 %narrow194 to i64
   %.1 = getelementptr inbounds i8, ptr %.0165, i64 %.1.idx
   %.0170 = tail call i32 @llvm.smin.i32(i32 %59, i32 %7)
   %.0169 = tail call i32 @llvm.smin.i32(i32 %60, i32 %8)
   %.not187 = icmp sgt i32 %.0170, %.0166
   %.not188 = icmp sgt i32 %.0169, %.0172
   %or.cond = select i1 %.not187, i1 %.not188, i1 false
-  br i1 %or.cond, label %67, label %.loopexit198
+  br i1 %or.cond, label %67, label %.loopexit197
 
 67:                                               ; preds = %51
   %68 = sub i32 %.0170, %.0166
@@ -3499,22 +3499,22 @@ define hidden void @ThreeByteBgrDrawGlyphListLCD(ptr nocapture noundef readonly 
   %75 = mul nsw i64 %74, 3
   %76 = add nsw i64 %73, %75
   %77 = add nsw i64 %76, %71
-  br i1 %48, label %.preheader.us.preheader, label %.preheader196.preheader
+  br i1 %48, label %.preheader.us.preheader, label %.preheader195.preheader
 
-.preheader196.preheader:                          ; preds = %67
-  %78 = getelementptr inbounds i8, ptr %43, i64 20
+.preheader195.preheader:                          ; preds = %67
+  %78 = getelementptr inbounds nuw i8, ptr %43, i64 20
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i8, ptr %.1, i64 %80
   %82 = sext i32 %45 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %68, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
-  br label %.preheader196
+  br label %.preheader195
 
 .preheader.us.preheader:                          ; preds = %67
   %83 = sext i32 %45 to i64
-  %smax205 = tail call i32 @llvm.smax.i32(i32 %68, i32 1)
-  %wide.trip.count206 = zext nneg i32 %smax205 to i64
+  %smax204 = tail call i32 @llvm.smax.i32(i32 %68, i32 1)
+  %wide.trip.count205 = zext nneg i32 %smax204 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.loopexit.us
@@ -3525,160 +3525,154 @@ define hidden void @ThreeByteBgrDrawGlyphListLCD(ptr nocapture noundef readonly 
   br label %84
 
 84:                                               ; preds = %.preheader.us, %92
-  %indvars.iv202 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next203, %92 ]
-  %85 = getelementptr inbounds i8, ptr %.3.us, i64 %indvars.iv202
+  %indvars.iv201 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next202, %92 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.3.us, i64 %indvars.iv201
   %86 = load i8, ptr %85, align 1
-  %.not194.us = icmp eq i8 %86, 0
-  br i1 %.not194.us, label %92, label %87
+  %.not193.us = icmp eq i8 %86, 0
+  br i1 %.not193.us, label %92, label %87
 
 87:                                               ; preds = %84
-  %88 = mul nuw nsw i64 %indvars.iv202, 3
-  %89 = getelementptr inbounds i8, ptr %.0162.us, i64 %88
+  %88 = mul nuw nsw i64 %indvars.iv201, 3
+  %89 = getelementptr inbounds nuw i8, ptr %.0162.us, i64 %88
   store i8 %15, ptr %89, align 1
-  %90 = getelementptr inbounds i8, ptr %89, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1
   store i8 %17, ptr %90, align 1
-  %91 = getelementptr inbounds i8, ptr %89, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 2
   store i8 %19, ptr %91, align 1
   br label %92
 
 92:                                               ; preds = %87, %84
-  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %exitcond207.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count206
-  br i1 %exitcond207.not, label %.loopexit.us, label %84, !llvm.loop !64
+  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
+  %exitcond206.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count205
+  br i1 %exitcond206.not, label %.loopexit.us, label %84, !llvm.loop !64
 
 .loopexit.us:                                     ; preds = %92
   %93 = add nsw i64 %.0162.in.us, %38
   %94 = getelementptr inbounds i8, ptr %.3.us, i64 %83
   %95 = add nsw i32 %.0171.us, -1
   %96 = icmp sgt i32 %.0171.us, 1
-  br i1 %96, label %.preheader.us, label %.loopexit198, !llvm.loop !65
+  br i1 %96, label %.preheader.us, label %.loopexit197, !llvm.loop !65
 
-.preheader196:                                    ; preds = %.preheader196.preheader, %.loopexit197
-  %.0171 = phi i32 [ %173, %.loopexit197 ], [ %69, %.preheader196.preheader ]
-  %.3 = phi ptr [ %172, %.loopexit197 ], [ %81, %.preheader196.preheader ]
-  %.0162.in = phi i64 [ %171, %.loopexit197 ], [ %77, %.preheader196.preheader ]
+.preheader195:                                    ; preds = %.preheader195.preheader, %.loopexit196
+  %.0171 = phi i32 [ %172, %.loopexit196 ], [ %69, %.preheader195.preheader ]
+  %.3 = phi ptr [ %171, %.loopexit196 ], [ %81, %.preheader195.preheader ]
+  %.0162.in = phi i64 [ %170, %.loopexit196 ], [ %77, %.preheader195.preheader ]
   %.0162 = inttoptr i64 %.0162.in to ptr
   br label %97
 
-97:                                               ; preds = %.preheader196, %170
-  %indvars.iv = phi i64 [ 0, %.preheader196 ], [ %indvars.iv.next, %170 ]
-  %indvars201 = trunc i64 %indvars.iv to i32
+97:                                               ; preds = %.preheader195, %169
+  %indvars.iv = phi i64 [ 0, %.preheader195 ], [ %indvars.iv.next, %169 ]
   %98 = mul nuw nsw i64 %indvars.iv, 3
-  %99 = mul nuw nsw i32 %indvars201, 3
-  %100 = add nuw nsw i64 %98, 1
-  %101 = getelementptr inbounds i8, ptr %.3, i64 %100
-  %102 = load i8, ptr %101, align 1
-  %103 = zext i8 %102 to i32
-  %104 = add nuw nsw i32 %99, 2
-  %105 = trunc nuw nsw i64 %98 to i32
-  %.pn.in = select i1 %.not190, i32 %104, i32 %105
-  %.pn191.in = select i1 %.not190, i32 %105, i32 %104
-  %.pn191 = zext nneg i32 %.pn191.in to i64
-  %.0163.in.in = getelementptr inbounds i8, ptr %.3, i64 %.pn191
+  %99 = add nuw nsw i64 %98, 1
+  %100 = getelementptr inbounds nuw i8, ptr %.3, i64 %99
+  %101 = load i8, ptr %100, align 1
+  %102 = zext i8 %101 to i32
+  %103 = getelementptr inbounds nuw i8, ptr %.3, i64 %98
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 2
+  %.0164.in.in = select i1 %.not190, ptr %104, ptr %103
+  %.0163.in.in = select i1 %.not190, ptr %103, ptr %104
   %.0163.in = load i8, ptr %.0163.in.in, align 1
   %.0163 = zext i8 %.0163.in to i32
-  %.pn = zext nneg i32 %.pn.in to i64
-  %.0164.in.in = getelementptr inbounds i8, ptr %.3, i64 %.pn
   %.0164.in = load i8, ptr %.0164.in.in, align 1
   %.0164 = zext i8 %.0164.in to i32
-  %106 = or i32 %.0163, %103
-  %107 = or i32 %106, %.0164
-  %.not192 = icmp eq i32 %107, 0
-  br i1 %.not192, label %170, label %108
+  %105 = or i32 %.0163, %102
+  %106 = or i32 %105, %.0164
+  %.not191 = icmp eq i32 %106, 0
+  br i1 %.not191, label %169, label %107
 
-108:                                              ; preds = %97
-  %109 = and i32 %.0163, %103
-  %110 = and i32 %109, %.0164
-  %.not193 = icmp eq i32 %110, 255
-  br i1 %.not193, label %166, label %111
+107:                                              ; preds = %97
+  %108 = and i32 %.0163, %102
+  %109 = and i32 %108, %.0164
+  %.not192 = icmp eq i32 %109, 255
+  br i1 %.not192, label %165, label %110
 
-111:                                              ; preds = %108
-  %112 = xor i32 %.0164, 255
-  %113 = xor i32 %103, 255
-  %114 = xor i32 %.0163, 255
-  %115 = getelementptr inbounds i8, ptr %.0162, i64 %98
-  %116 = load i8, ptr %115, align 1
-  %117 = getelementptr inbounds i8, ptr %.0162, i64 %100
-  %118 = load i8, ptr %117, align 1
-  %119 = getelementptr inbounds i8, ptr %115, i64 2
-  %120 = load i8, ptr %119, align 1
-  %121 = zext i8 %120 to i64
-  %122 = getelementptr inbounds i8, ptr %11, i64 %121
-  %123 = load i8, ptr %122, align 1
-  %124 = zext i8 %118 to i64
-  %125 = getelementptr inbounds i8, ptr %11, i64 %124
-  %126 = load i8, ptr %125, align 1
-  %127 = zext i8 %116 to i64
-  %128 = getelementptr inbounds i8, ptr %11, i64 %127
-  %129 = load i8, ptr %128, align 1
-  %130 = zext nneg i32 %112 to i64
-  %131 = zext i8 %123 to i64
-  %132 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %130, i64 %131
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i64
-  %135 = zext i8 %.0164.in to i64
-  %136 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %135, i64 %39
-  %137 = load i8, ptr %136, align 1
-  %138 = zext i8 %137 to i64
-  %139 = zext nneg i32 %113 to i64
-  %140 = zext i8 %126 to i64
-  %141 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %139, i64 %140
-  %142 = load i8, ptr %141, align 1
-  %143 = zext i8 %142 to i64
-  %144 = zext i8 %102 to i64
-  %145 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %144, i64 %40
-  %146 = load i8, ptr %145, align 1
-  %147 = zext i8 %146 to i64
-  %148 = zext nneg i32 %114 to i64
-  %149 = zext i8 %129 to i64
-  %150 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %148, i64 %149
-  %151 = load i8, ptr %150, align 1
-  %152 = zext i8 %151 to i64
-  %153 = zext i8 %.0163.in to i64
-  %154 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %153, i64 %41
-  %155 = load i8, ptr %154, align 1
-  %156 = zext i8 %155 to i64
-  %157 = getelementptr inbounds i8, ptr %10, i64 %134
-  %158 = getelementptr inbounds i8, ptr %157, i64 %138
-  %159 = load i8, ptr %158, align 1
-  %160 = getelementptr inbounds i8, ptr %10, i64 %143
-  %161 = getelementptr inbounds i8, ptr %160, i64 %147
-  %162 = load i8, ptr %161, align 1
-  %163 = getelementptr inbounds i8, ptr %10, i64 %152
-  %164 = getelementptr inbounds i8, ptr %163, i64 %156
-  %165 = load i8, ptr %164, align 1
-  store i8 %165, ptr %115, align 1
-  store i8 %162, ptr %117, align 1
-  store i8 %159, ptr %119, align 1
-  br label %170
+110:                                              ; preds = %107
+  %111 = xor i32 %.0164, 255
+  %112 = xor i32 %102, 255
+  %113 = xor i32 %.0163, 255
+  %114 = getelementptr inbounds nuw i8, ptr %.0162, i64 %98
+  %115 = load i8, ptr %114, align 1
+  %116 = getelementptr inbounds nuw i8, ptr %.0162, i64 %99
+  %117 = load i8, ptr %116, align 1
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 2
+  %119 = load i8, ptr %118, align 1
+  %120 = zext i8 %119 to i64
+  %121 = getelementptr inbounds nuw i8, ptr %11, i64 %120
+  %122 = load i8, ptr %121, align 1
+  %123 = zext i8 %117 to i64
+  %124 = getelementptr inbounds nuw i8, ptr %11, i64 %123
+  %125 = load i8, ptr %124, align 1
+  %126 = zext i8 %115 to i64
+  %127 = getelementptr inbounds nuw i8, ptr %11, i64 %126
+  %128 = load i8, ptr %127, align 1
+  %129 = zext nneg i32 %111 to i64
+  %130 = zext i8 %122 to i64
+  %131 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %129, i64 %130
+  %132 = load i8, ptr %131, align 1
+  %133 = zext i8 %132 to i64
+  %134 = zext i8 %.0164.in to i64
+  %135 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %134, i64 %39
+  %136 = load i8, ptr %135, align 1
+  %137 = zext i8 %136 to i64
+  %138 = zext nneg i32 %112 to i64
+  %139 = zext i8 %125 to i64
+  %140 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %138, i64 %139
+  %141 = load i8, ptr %140, align 1
+  %142 = zext i8 %141 to i64
+  %143 = zext i8 %101 to i64
+  %144 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %143, i64 %40
+  %145 = load i8, ptr %144, align 1
+  %146 = zext i8 %145 to i64
+  %147 = zext nneg i32 %113 to i64
+  %148 = zext i8 %128 to i64
+  %149 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %147, i64 %148
+  %150 = load i8, ptr %149, align 1
+  %151 = zext i8 %150 to i64
+  %152 = zext i8 %.0163.in to i64
+  %153 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %152, i64 %41
+  %154 = load i8, ptr %153, align 1
+  %155 = zext i8 %154 to i64
+  %156 = getelementptr inbounds nuw i8, ptr %10, i64 %133
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 %137
+  %158 = load i8, ptr %157, align 1
+  %159 = getelementptr inbounds nuw i8, ptr %10, i64 %142
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 %146
+  %161 = load i8, ptr %160, align 1
+  %162 = getelementptr inbounds nuw i8, ptr %10, i64 %151
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 %155
+  %164 = load i8, ptr %163, align 1
+  store i8 %164, ptr %114, align 1
+  store i8 %161, ptr %116, align 1
+  store i8 %158, ptr %118, align 1
+  br label %169
 
-166:                                              ; preds = %108
-  %167 = getelementptr inbounds i8, ptr %.0162, i64 %98
-  store i8 %15, ptr %167, align 1
-  %168 = getelementptr inbounds i8, ptr %.0162, i64 %100
-  store i8 %17, ptr %168, align 1
-  %169 = getelementptr inbounds i8, ptr %167, i64 2
-  store i8 %19, ptr %169, align 1
-  br label %170
+165:                                              ; preds = %107
+  %166 = getelementptr inbounds nuw i8, ptr %.0162, i64 %98
+  store i8 %15, ptr %166, align 1
+  %167 = getelementptr inbounds nuw i8, ptr %.0162, i64 %99
+  store i8 %17, ptr %167, align 1
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 2
+  store i8 %19, ptr %168, align 1
+  br label %169
 
-170:                                              ; preds = %111, %166, %97
+169:                                              ; preds = %110, %165, %97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit197, label %97, !llvm.loop !66
+  br i1 %exitcond.not, label %.loopexit196, label %97, !llvm.loop !66
 
-.loopexit197:                                     ; preds = %170
-  %171 = add nsw i64 %.0162.in, %38
-  %172 = getelementptr inbounds i8, ptr %.3, i64 %82
-  %173 = add nsw i32 %.0171, -1
-  %174 = icmp sgt i32 %.0171, 1
-  br i1 %174, label %.preheader196, label %.loopexit198, !llvm.loop !65
+.loopexit196:                                     ; preds = %169
+  %170 = add nsw i64 %.0162.in, %38
+  %171 = getelementptr inbounds i8, ptr %.3, i64 %82
+  %172 = add nsw i32 %.0171, -1
+  %173 = icmp sgt i32 %.0171, 1
+  br i1 %173, label %.preheader195, label %.loopexit197, !llvm.loop !65
 
-.loopexit198:                                     ; preds = %.loopexit197, %.loopexit.us, %51, %42
-  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %exitcond212.not = icmp eq i64 %indvars.iv.next209, %wide.trip.count211
-  br i1 %exitcond212.not, label %._crit_edge, label %42, !llvm.loop !67
+.loopexit197:                                     ; preds = %.loopexit196, %.loopexit.us, %51, %42
+  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
+  %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
+  br i1 %exitcond211.not, label %._crit_edge, label %42, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %.loopexit198, %14
+._crit_edge:                                      ; preds = %.loopexit197, %14
   ret void
 }
 
@@ -3701,7 +3695,7 @@ define hidden void @ThreeByteBgrNrstNbrTransformHelper(ptr nocapture noundef rea
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 32
@@ -3710,9 +3704,9 @@ define hidden void @ThreeByteBgrNrstNbrTransformHelper(ptr nocapture noundef rea
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 32
   %19 = add nsw i64 %18, %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = sext i32 %21 to i64
@@ -3739,7 +3733,7 @@ define hidden void @ThreeByteBgrNrstNbrTransformHelper(ptr nocapture noundef rea
   %40 = or disjoint i32 %39, %35
   %41 = or disjoint i32 %40, -16777216
   store i32 %41, ptr %.028, align 4
-  %42 = getelementptr inbounds i8, ptr %.028, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.028, i64 4
   %43 = add nsw i64 %.02427, %4
   %44 = add nsw i64 %.02526, %6
   %45 = icmp ult ptr %42, %9
@@ -3751,13 +3745,13 @@ define hidden void @ThreeByteBgrNrstNbrTransformHelper(ptr nocapture noundef rea
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @ThreeByteBgrBilinearTransformHelper(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) #4 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = shl nsw i32 %2, 2
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i32, ptr %1, i64 %11
   %13 = load i32, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %2, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
@@ -3765,15 +3759,15 @@ define hidden void @ThreeByteBgrBilinearTransformHelper(ptr nocapture noundef re
 .lr.ph:                                           ; preds = %7
   %17 = add nsw i64 %5, -2147483648
   %18 = add nsw i64 %3, -2147483648
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %13, 1
   %.neg = sub i32 %23, %22
   %24 = add i32 %15, 1
   %.neg79 = sub i32 %24, %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = sext i32 %9 to i64
   br label %27
 
@@ -3846,7 +3840,7 @@ define hidden void @ThreeByteBgrBilinearTransformHelper(ptr nocapture noundef re
   %88 = or disjoint i32 %81, %75
   %89 = or disjoint i32 %88, %87
   %90 = or disjoint i32 %89, -16777216
-  %91 = getelementptr inbounds i8, ptr %.085, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.085, i64 4
   store i32 %90, ptr %91, align 4
   %92 = sext i32 %40 to i64
   %93 = add nsw i64 %48, %92
@@ -3865,7 +3859,7 @@ define hidden void @ThreeByteBgrBilinearTransformHelper(ptr nocapture noundef re
   %106 = or disjoint i32 %101, %97
   %107 = or disjoint i32 %106, %105
   %108 = or disjoint i32 %107, -16777216
-  %109 = getelementptr inbounds i8, ptr %.085, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.085, i64 8
   store i32 %108, ptr %109, align 4
   %110 = getelementptr inbounds i8, ptr %94, i64 %72
   %111 = load i8, ptr %110, align 1
@@ -3881,9 +3875,9 @@ define hidden void @ThreeByteBgrBilinearTransformHelper(ptr nocapture noundef re
   %121 = or disjoint i32 %116, %112
   %122 = or disjoint i32 %121, %120
   %123 = or disjoint i32 %122, -16777216
-  %124 = getelementptr inbounds i8, ptr %.085, i64 12
+  %124 = getelementptr inbounds nuw i8, ptr %.085, i64 12
   store i32 %123, ptr %124, align 4
-  %125 = getelementptr inbounds i8, ptr %.085, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.085, i64 16
   %126 = add nsw i64 %.07784, %4
   %127 = add nsw i64 %.07883, %6
   %128 = icmp ult ptr %125, %12
@@ -3895,18 +3889,18 @@ define hidden void @ThreeByteBgrBilinearTransformHelper(ptr nocapture noundef re
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) #4 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = shl nsw i32 %2, 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i32, ptr %1, i64 %11
   %13 = load i32, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sub nsw i32 %15, %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = sub nsw i32 %20, %18
   %22 = icmp sgt i32 %2, 0
@@ -3916,7 +3910,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %23 = add nsw i64 %5, -2147483648
   %24 = add nsw i64 %3, -2147483648
   %25 = sub nsw i32 0, %9
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = sext i32 %9 to i64
   br label %28
 
@@ -4004,7 +3998,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %103 = or disjoint i32 %96, %90
   %104 = or disjoint i32 %103, %102
   %105 = or disjoint i32 %104, -16777216
-  %106 = getelementptr inbounds i8, ptr %.0211, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %.0211, i64 4
   store i32 %105, ptr %106, align 4
   %107 = add i32 %43, %54
   %108 = mul nsw i32 %107, 3
@@ -4027,7 +4021,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %125 = or disjoint i32 %118, %112
   %126 = or disjoint i32 %125, %124
   %127 = or disjoint i32 %126, -16777216
-  %128 = getelementptr inbounds i8, ptr %.0211, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.0211, i64 8
   store i32 %127, ptr %128, align 4
   %129 = add i32 %107, %40
   %130 = mul nsw i32 %129, 3
@@ -4050,7 +4044,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %147 = or disjoint i32 %140, %134
   %148 = or disjoint i32 %147, %146
   %149 = or disjoint i32 %148, -16777216
-  %150 = getelementptr inbounds i8, ptr %.0211, i64 12
+  %150 = getelementptr inbounds nuw i8, ptr %.0211, i64 12
   store i32 %149, ptr %150, align 4
   %151 = sub nsw i32 0, %45
   %152 = sext i32 %151 to i64
@@ -4070,7 +4064,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %166 = or disjoint i32 %161, %157
   %167 = or disjoint i32 %166, %165
   %168 = or disjoint i32 %167, -16777216
-  %169 = getelementptr inbounds i8, ptr %.0211, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %.0211, i64 16
   store i32 %168, ptr %169, align 4
   %170 = getelementptr inbounds i8, ptr %154, i64 %87
   %171 = load i8, ptr %170, align 1
@@ -4086,7 +4080,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %181 = or disjoint i32 %176, %172
   %182 = or disjoint i32 %181, %180
   %183 = or disjoint i32 %182, -16777216
-  %184 = getelementptr inbounds i8, ptr %.0211, i64 20
+  %184 = getelementptr inbounds nuw i8, ptr %.0211, i64 20
   store i32 %183, ptr %184, align 4
   %185 = getelementptr inbounds i8, ptr %154, i64 %109
   %186 = load i8, ptr %185, align 1
@@ -4102,7 +4096,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %196 = or disjoint i32 %191, %187
   %197 = or disjoint i32 %196, %195
   %198 = or disjoint i32 %197, -16777216
-  %199 = getelementptr inbounds i8, ptr %.0211, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %.0211, i64 24
   store i32 %198, ptr %199, align 4
   %200 = getelementptr inbounds i8, ptr %154, i64 %131
   %201 = load i8, ptr %200, align 1
@@ -4118,7 +4112,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %211 = or disjoint i32 %206, %202
   %212 = or disjoint i32 %211, %210
   %213 = or disjoint i32 %212, -16777216
-  %214 = getelementptr inbounds i8, ptr %.0211, i64 28
+  %214 = getelementptr inbounds nuw i8, ptr %.0211, i64 28
   store i32 %213, ptr %214, align 4
   %215 = sext i32 %53 to i64
   %216 = add nsw i64 %153, %215
@@ -4137,7 +4131,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %229 = or disjoint i32 %224, %220
   %230 = or disjoint i32 %229, %228
   %231 = or disjoint i32 %230, -16777216
-  %232 = getelementptr inbounds i8, ptr %.0211, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %.0211, i64 32
   store i32 %231, ptr %232, align 4
   %233 = getelementptr inbounds i8, ptr %217, i64 %87
   %234 = load i8, ptr %233, align 1
@@ -4153,7 +4147,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %244 = or disjoint i32 %239, %235
   %245 = or disjoint i32 %244, %243
   %246 = or disjoint i32 %245, -16777216
-  %247 = getelementptr inbounds i8, ptr %.0211, i64 36
+  %247 = getelementptr inbounds nuw i8, ptr %.0211, i64 36
   store i32 %246, ptr %247, align 4
   %248 = getelementptr inbounds i8, ptr %217, i64 %109
   %249 = load i8, ptr %248, align 1
@@ -4169,7 +4163,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %259 = or disjoint i32 %254, %250
   %260 = or disjoint i32 %259, %258
   %261 = or disjoint i32 %260, -16777216
-  %262 = getelementptr inbounds i8, ptr %.0211, i64 40
+  %262 = getelementptr inbounds nuw i8, ptr %.0211, i64 40
   store i32 %261, ptr %262, align 4
   %263 = getelementptr inbounds i8, ptr %217, i64 %131
   %264 = load i8, ptr %263, align 1
@@ -4185,7 +4179,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %274 = or disjoint i32 %269, %265
   %275 = or disjoint i32 %274, %273
   %276 = or disjoint i32 %275, -16777216
-  %277 = getelementptr inbounds i8, ptr %.0211, i64 44
+  %277 = getelementptr inbounds nuw i8, ptr %.0211, i64 44
   store i32 %276, ptr %277, align 4
   %278 = sext i32 %51 to i64
   %279 = add nsw i64 %216, %278
@@ -4204,7 +4198,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %292 = or disjoint i32 %287, %283
   %293 = or disjoint i32 %292, %291
   %294 = or disjoint i32 %293, -16777216
-  %295 = getelementptr inbounds i8, ptr %.0211, i64 48
+  %295 = getelementptr inbounds nuw i8, ptr %.0211, i64 48
   store i32 %294, ptr %295, align 4
   %296 = getelementptr inbounds i8, ptr %280, i64 %87
   %297 = load i8, ptr %296, align 1
@@ -4220,7 +4214,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %307 = or disjoint i32 %302, %298
   %308 = or disjoint i32 %307, %306
   %309 = or disjoint i32 %308, -16777216
-  %310 = getelementptr inbounds i8, ptr %.0211, i64 52
+  %310 = getelementptr inbounds nuw i8, ptr %.0211, i64 52
   store i32 %309, ptr %310, align 4
   %311 = getelementptr inbounds i8, ptr %280, i64 %109
   %312 = load i8, ptr %311, align 1
@@ -4236,7 +4230,7 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %322 = or disjoint i32 %317, %313
   %323 = or disjoint i32 %322, %321
   %324 = or disjoint i32 %323, -16777216
-  %325 = getelementptr inbounds i8, ptr %.0211, i64 56
+  %325 = getelementptr inbounds nuw i8, ptr %.0211, i64 56
   store i32 %324, ptr %325, align 4
   %326 = getelementptr inbounds i8, ptr %280, i64 %131
   %327 = load i8, ptr %326, align 1
@@ -4252,9 +4246,9 @@ define hidden void @ThreeByteBgrBicubicTransformHelper(ptr nocapture noundef rea
   %337 = or disjoint i32 %332, %328
   %338 = or disjoint i32 %337, %336
   %339 = or disjoint i32 %338, -16777216
-  %340 = getelementptr inbounds i8, ptr %.0211, i64 60
+  %340 = getelementptr inbounds nuw i8, ptr %.0211, i64 60
   store i32 %339, ptr %340, align 4
-  %341 = getelementptr inbounds i8, ptr %.0211, i64 64
+  %341 = getelementptr inbounds nuw i8, ptr %.0211, i64 64
   %342 = add nsw i64 %.0207210, %4
   %343 = add nsw i64 %.0208209, %6
   %344 = icmp ult ptr %341, %12

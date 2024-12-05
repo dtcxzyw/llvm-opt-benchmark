@@ -32,8 +32,8 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 9:                                                ; preds = %2
   %puts211 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   %puts212 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %10 = getelementptr inbounds i8, ptr %3, i64 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i32 0, ptr %4, align 4
   %12 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #9
   %.not217 = icmp eq ptr %12, null

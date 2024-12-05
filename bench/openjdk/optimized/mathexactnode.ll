@@ -131,11 +131,11 @@ define hidden noundef zeroext i1 @_ZNK16OverflowAddINode12can_overflowEPK4TypeS2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK16OverflowSubINode12can_overflowEPK4TypeS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, ptr nocapture noundef readnone %1, ptr noundef readnone %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %7, %9
   %11 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
@@ -175,11 +175,11 @@ define hidden noundef zeroext i1 @_ZNK16OverflowAddLNode12can_overflowEPK4TypeS2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK16OverflowSubLNode12can_overflowEPK4TypeS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, ptr nocapture noundef readnone %1, ptr noundef readnone %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %7, %9
   %11 = load ptr, ptr @_ZN8TypeLong4ZEROE, align 8
@@ -227,25 +227,25 @@ declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN13OverflowINode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture noundef readonly %1, i1 zeroext %2) unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %15, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %15, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %18, null
   %25 = icmp eq ptr %23, null
@@ -257,7 +257,7 @@ define hidden noundef ptr @_ZN13OverflowINode5IdealEP8PhaseGVNb(ptr noundef nonn
 
 27:                                               ; preds = %3
   %28 = load ptr, ptr %18, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(20) %18) #9
   %32 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -267,18 +267,18 @@ define hidden noundef ptr @_ZN13OverflowINode5IdealEP8PhaseGVNb(ptr noundef nonn
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %23, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(20) %23) #9
   br i1 %37, label %38, label %_ZN11IdealHelperI13OverflowINodeE5IdealEPKS0_P8PhaseGVNb.exit
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %18, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %23, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %42 = load i32, ptr %41, align 8
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 208
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 208
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %40, i32 noundef %42) #9
   br i1 %46, label %_ZN11IdealHelperI13OverflowINodeE5IdealEPKS0_P8PhaseGVNb.exit, label %47
@@ -294,25 +294,25 @@ _ZN11IdealHelperI13OverflowINodeE5IdealEPKS0_P8PhaseGVNb.exit: ; preds = %3, %27
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN13OverflowLNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture noundef readonly %1, i1 zeroext %2) unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %15, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %15, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %18, null
   %25 = icmp eq ptr %23, null
@@ -324,7 +324,7 @@ define hidden noundef ptr @_ZN13OverflowLNode5IdealEP8PhaseGVNb(ptr noundef nonn
 
 27:                                               ; preds = %3
   %28 = load ptr, ptr %18, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(20) %18) #9
   %32 = load ptr, ptr @_ZN4Type3TOPE, align 8
@@ -334,18 +334,18 @@ define hidden noundef ptr @_ZN13OverflowLNode5IdealEP8PhaseGVNb(ptr noundef nonn
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %23, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(20) %23) #9
   br i1 %37, label %38, label %_ZN11IdealHelperI13OverflowLNodeE5IdealEPKS0_P8PhaseGVNb.exit
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %18, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %23, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 208
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 208
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(52) %0, i64 noundef %40, i64 noundef %42) #9
   br i1 %46, label %_ZN11IdealHelperI13OverflowLNodeE5IdealEPKS0_P8PhaseGVNb.exit, label %47
@@ -367,25 +367,25 @@ define hidden noundef ptr @_ZNK13OverflowINode5ValueEP8PhaseGVN(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowINodeE5ValueEPKS0_P11PhaseValues(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %12, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %12, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @_ZN4Type3TOPE, align 8
   %24 = icmp eq ptr %15, %23
@@ -405,25 +405,25 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowINodeE5ValueE
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %15, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(20) %15) #9
   br i1 %35, label %36, label %54
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %22, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(20) %22) #9
   br i1 %40, label %41, label %54
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %15, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %22, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 208
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 208
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %43, i32 noundef %45) #9
   br i1 %49, label %50, label %52
@@ -444,12 +444,12 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowINodeE5ValueE
   br i1 %or.cond42, label %98, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %15, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %22, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 208
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 208
   %63 = load ptr, ptr %62, align 8
   %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %58, i32 noundef %60) #9
   br i1 %64, label %65, label %67
@@ -460,10 +460,10 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowINodeE5ValueE
 
 67:                                               ; preds = %56
   %68 = load i32, ptr %57, align 8
-  %69 = getelementptr inbounds i8, ptr %22, i64 28
+  %69 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %70 = load i32, ptr %69, align 4
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 208
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 208
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %68, i32 noundef %70) #9
   br i1 %74, label %75, label %77
@@ -473,11 +473,11 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowINodeE5ValueE
   br label %107
 
 77:                                               ; preds = %67
-  %78 = getelementptr inbounds i8, ptr %15, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %79 = load i32, ptr %78, align 4
   %80 = load i32, ptr %59, align 8
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 208
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 208
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %79, i32 noundef %80) #9
   br i1 %84, label %85, label %87
@@ -490,7 +490,7 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowINodeE5ValueE
   %88 = load i32, ptr %78, align 4
   %89 = load i32, ptr %69, align 4
   %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 208
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 208
   %92 = load ptr, ptr %91, align 8
   %93 = tail call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %88, i32 noundef %89) #9
   br i1 %93, label %94, label %96
@@ -505,7 +505,7 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowINodeE5ValueE
 
 98:                                               ; preds = %54
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 216
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 216
   %101 = load ptr, ptr %100, align 8
   %102 = tail call noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %15, ptr noundef nonnull %22) #9
   br i1 %102, label %105, label %103
@@ -531,25 +531,25 @@ define hidden noundef ptr @_ZNK13OverflowLNode5ValueEP8PhaseGVN(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowLNodeE5ValueEPKS0_P11PhaseValues(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %12, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %12, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @_ZN4Type3TOPE, align 8
   %24 = icmp eq ptr %15, %23
@@ -569,25 +569,25 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowLNodeE5ValueE
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %15, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(20) %15) #9
   br i1 %35, label %36, label %54
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %22, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(20) %22) #9
   br i1 %40, label %41, label %54
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %15, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %22, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %45 = load i64, ptr %44, align 8
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 208
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 208
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(52) %0, i64 noundef %43, i64 noundef %45) #9
   br i1 %49, label %50, label %52
@@ -608,12 +608,12 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowLNodeE5ValueE
   br i1 %or.cond42, label %98, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %15, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %22, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 208
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 208
   %63 = load ptr, ptr %62, align 8
   %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(52) %0, i64 noundef %58, i64 noundef %60) #9
   br i1 %64, label %65, label %67
@@ -624,10 +624,10 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowLNodeE5ValueE
 
 67:                                               ; preds = %56
   %68 = load i64, ptr %57, align 8
-  %69 = getelementptr inbounds i8, ptr %22, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %70 = load i64, ptr %69, align 8
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 208
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 208
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(52) %0, i64 noundef %68, i64 noundef %70) #9
   br i1 %74, label %75, label %77
@@ -637,11 +637,11 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowLNodeE5ValueE
   br label %107
 
 77:                                               ; preds = %67
-  %78 = getelementptr inbounds i8, ptr %15, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %79 = load i64, ptr %78, align 8
   %80 = load i64, ptr %59, align 8
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 208
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 208
   %83 = load ptr, ptr %82, align 8
   %84 = tail call noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(52) %0, i64 noundef %79, i64 noundef %80) #9
   br i1 %84, label %85, label %87
@@ -654,7 +654,7 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowLNodeE5ValueE
   %88 = load i64, ptr %78, align 8
   %89 = load i64, ptr %69, align 8
   %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 208
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 208
   %92 = load ptr, ptr %91, align 8
   %93 = tail call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(52) %0, i64 noundef %88, i64 noundef %89) #9
   br i1 %93, label %94, label %96
@@ -669,7 +669,7 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowLNodeE5ValueE
 
 98:                                               ; preds = %54
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 216
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 216
   %101 = load ptr, ptr %100, align 8
   %102 = tail call noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %15, ptr noundef nonnull %22) #9
   br i1 %102, label %105, label %103
@@ -772,15 +772,15 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr hidden noundef ptr @_ZN8ConINode4makeEi(i32 noundef %0) local_unnamed_addr #5 comdat align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1808
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 728
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 728
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %11 to i64
   %15 = ptrtoint ptr %13 to i64
@@ -789,7 +789,7 @@ define linkonce_odr hidden noundef ptr @_ZN8ConINode4makeEi(i32 noundef %0) loca
   br i1 %.not.i.i.i, label %19, label %17
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %13, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr %18, ptr %12, align 8
   br label %_ZN4NodenwEm.exit
 
@@ -805,38 +805,38 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
 22:                                               ; preds = %_ZN4NodenwEm.exit
   %23 = tail call noundef ptr @_ZN7TypeInt4makeEi(i32 noundef %0) #9
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(20) %23) #9
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 1) #9
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
   store i32 4, ptr %29, align 4
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV7ConNode, i64 16), ptr %.0.i.i.i, align 8
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1808
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1808
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 128
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 736
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 736
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %38 = load ptr, ptr %37, align 8
   store ptr %36, ptr %38, align 8
   %.not.i.i.i1 = icmp eq ptr %36, null
   br i1 %.not.i.i.i1, label %_ZN8ConINodeC2EPK7TypeInt.exit, label %39
 
 39:                                               ; preds = %22
-  %40 = getelementptr inbounds i8, ptr %36, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN8ConINodeC2EPK7TypeInt.exit, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %36, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %36, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %45, %47
   br i1 %48, label %49, label %50
@@ -853,12 +853,12 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
   %53 = add i32 %51, 1
   store i32 %53, ptr %44, align 8
   %54 = zext i32 %51 to i64
-  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %52, i64 %54
   store ptr %.0.i.i.i, ptr %55, align 8
   br label %_ZN8ConINodeC2EPK7TypeInt.exit
 
 _ZN8ConINodeC2EPK7TypeInt.exit:                   ; preds = %22, %39, %50
-  %56 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   %57 = load i32, ptr %56, align 8
   %58 = or i32 %57, 16
   store i32 %58, ptr %56, align 8

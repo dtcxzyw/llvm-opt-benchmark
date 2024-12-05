@@ -74,9 +74,9 @@ define hidden range(i32 0, 2) i32 @cmsWhitePointFromTemp(ptr nocapture noundef w
   %30 = tail call double @llvm.fmuladd.f64(double %28, double -3.000000e+00, double %29)
   %31 = fadd double %30, -2.750000e-01
   store double %.026, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 1.000000e+00, ptr %33, align 8
   br label %34
 
@@ -93,7 +93,7 @@ declare void @cmsSignalError(ptr noundef, i32 noundef, ptr noundef, ...) local_u
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @cmsTempFromWhitePoint(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = load double, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fmul double %3, 2.000000e+00
   %7 = fneg double %3
@@ -113,12 +113,12 @@ define hidden range(i32 0, 2) i32 @cmsTempFromWhitePoint(ptr nocapture noundef w
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %13 ]
   %.03442 = phi double [ 0.000000e+00, %2 ], [ %28, %13 ]
   %.03541 = phi double [ 0.000000e+00, %2 ], [ %22, %13 ]
-  %15 = getelementptr inbounds [31 x %struct.ISOTEMPERATURE], ptr @isotempdata, i64 0, i64 %indvars.iv
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %15 = getelementptr inbounds nuw [31 x %struct.ISOTEMPERATURE], ptr @isotempdata, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load double, ptr %18, align 16
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = load double, ptr %20, align 8
   %22 = load double, ptr %15, align 16
   %23 = fsub double %12, %19
@@ -175,15 +175,15 @@ define hidden range(i32 0, 2) i32 @_cmsAdaptationMatrix(ptr noundef %0, ptr noun
 
 15:                                               ; preds = %4
   %16 = load double, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load double, ptr %19, align 8
   call void @_cmsVEC3init(ptr noundef nonnull %6, double noundef %16, double noundef %18, double noundef %20) #8
   %21 = load double, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load double, ptr %24, align 8
   call void @_cmsVEC3init(ptr noundef nonnull %8, double noundef %21, double noundef %23, double noundef %25) #8
   call void @_cmsMAT3eval(ptr noundef nonnull %7, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %6) #8
@@ -194,14 +194,14 @@ define hidden range(i32 0, 2) i32 @_cmsAdaptationMatrix(ptr noundef %0, ptr noun
   br i1 %28, label %ComputeChromaticAdaptation.exit, label %29
 
 29:                                               ; preds = %15
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %31 = load double, ptr %30, align 8
   %32 = call double @llvm.fabs.f64(double %31)
   %33 = fcmp olt double %32, 1.000000e-04
   br i1 %33, label %ComputeChromaticAdaptation.exit, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %7, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %36 = load double, ptr %35, align 8
   %37 = call double @llvm.fabs.f64(double %36)
   %38 = fcmp olt double %37, 1.000000e-04
@@ -211,14 +211,14 @@ define hidden range(i32 0, 2) i32 @_cmsAdaptationMatrix(ptr noundef %0, ptr noun
   %40 = load double, ptr %9, align 8
   %41 = fdiv double %40, %26
   call void @_cmsVEC3init(ptr noundef nonnull %10, double noundef %41, double noundef 0.000000e+00, double noundef 0.000000e+00) #8
-  %42 = getelementptr inbounds i8, ptr %10, i64 24
-  %43 = getelementptr inbounds i8, ptr %9, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = load double, ptr %43, align 8
   %45 = load double, ptr %30, align 8
   %46 = fdiv double %44, %45
   call void @_cmsVEC3init(ptr noundef nonnull %42, double noundef 0.000000e+00, double noundef %46, double noundef 0.000000e+00) #8
-  %47 = getelementptr inbounds i8, ptr %10, i64 48
-  %48 = getelementptr inbounds i8, ptr %9, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %49 = load double, ptr %48, align 8
   %50 = load double, ptr %35, align 8
   %51 = fdiv double %49, %50
@@ -252,23 +252,23 @@ define hidden range(i32 0, 2) i32 @_cmsBuildRGB2XYZtransferMatrix(ptr noundef %0
   %9 = alloca %struct.cmsMAT3, align 8
   %10 = alloca %struct.cmsMAT3, align 8
   %11 = load double, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load double, ptr %12, align 8
   %14 = load double, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %22 = load double, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %24 = load double, ptr %23, align 8
   call void @_cmsVEC3init(ptr noundef nonnull %10, double noundef %14, double noundef %18, double noundef %22) #8
-  %25 = getelementptr inbounds i8, ptr %10, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @_cmsVEC3init(ptr noundef nonnull %25, double noundef %16, double noundef %20, double noundef %24) #8
-  %26 = getelementptr inbounds i8, ptr %10, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %27 = fsub double 1.000000e+00, %14
   %28 = fsub double %27, %16
   %29 = fsub double 1.000000e+00, %18
@@ -289,14 +289,14 @@ define hidden range(i32 0, 2) i32 @_cmsBuildRGB2XYZtransferMatrix(ptr noundef %0
   call void @_cmsMAT3eval(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #8
   %39 = load double, ptr %8, align 8
   %40 = fmul double %14, %39
-  %41 = getelementptr inbounds i8, ptr %8, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %42 = load double, ptr %41, align 8
   %43 = fmul double %18, %42
-  %44 = getelementptr inbounds i8, ptr %8, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %45 = load double, ptr %44, align 8
   %46 = fmul double %22, %45
   call void @_cmsVEC3init(ptr noundef %0, double noundef %40, double noundef %43, double noundef %46) #8
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load double, ptr %8, align 8
   %49 = fmul double %16, %48
   %50 = load double, ptr %41, align 8
@@ -304,7 +304,7 @@ define hidden range(i32 0, 2) i32 @_cmsBuildRGB2XYZtransferMatrix(ptr noundef %0
   %52 = load double, ptr %44, align 8
   %53 = fmul double %24, %52
   call void @_cmsVEC3init(ptr noundef nonnull %47, double noundef %49, double noundef %51, double noundef %53) #8
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load double, ptr %8, align 8
   %56 = fmul double %28, %55
   %57 = load double, ptr %41, align 8
@@ -354,21 +354,21 @@ define hidden range(i32 0, 2) i32 @cmsAdaptToIlluminant(ptr nocapture noundef wr
 
 9:                                                ; preds = %4
   %10 = load double, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load double, ptr %13, align 8
   call void @_cmsVEC3init(ptr noundef nonnull %6, double noundef %10, double noundef %12, double noundef %14) #8
   call void @_cmsMAT3eval(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %15 = load double, ptr %7, align 8
   store double %15, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %20, ptr %21, align 8
   br label %22
 

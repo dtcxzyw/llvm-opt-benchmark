@@ -16,16 +16,16 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @skipping_negotiator_init(ptr nocapture noundef writeonly initializes((0, 48)) %negotiator) local_unnamed_addr #0 {
 entry:
   store ptr @known_common, ptr %negotiator, align 8
-  %add_tip = getelementptr inbounds i8, ptr %negotiator, i64 8
+  %add_tip = getelementptr inbounds nuw i8, ptr %negotiator, i64 8
   store ptr @add_tip, ptr %add_tip, align 8
-  %next = getelementptr inbounds i8, ptr %negotiator, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %negotiator, i64 16
   store ptr @next, ptr %next, align 8
-  %ack = getelementptr inbounds i8, ptr %negotiator, i64 24
+  %ack = getelementptr inbounds nuw i8, ptr %negotiator, i64 24
   store ptr @ack, ptr %ack, align 8
-  %release = getelementptr inbounds i8, ptr %negotiator, i64 32
+  %release = getelementptr inbounds nuw i8, ptr %negotiator, i64 32
   store ptr @release, ptr %release, align 8
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 48) #6
-  %data1 = getelementptr inbounds i8, ptr %negotiator, i64 40
+  %data1 = getelementptr inbounds nuw i8, ptr %negotiator, i64 40
   store ptr %call, ptr %data1, align 8
   store ptr @compare, ptr %call, align 8
   %.b = load i1, ptr @marked, align 4
@@ -49,14 +49,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %n, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %n, i64 40
   %1 = load ptr, ptr %data, align 8
   %bf.set.i = or i32 %bf.load, 384
   store i32 %bf.set.i, ptr %c, align 8
   %call.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #6
   store ptr %c, ptr %call.i, align 8
   tail call void @prio_queue_put(ptr noundef %1, ptr noundef nonnull %call.i) #6
-  %non_common_revs.i = getelementptr inbounds i8, ptr %1, i64 40
+  %non_common_revs.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2 = load i32, ptr %non_common_revs.i, align 8
   %inc.i = add nsw i32 %2, 1
   store i32 %inc.i, ptr %non_common_revs.i, align 8
@@ -76,14 +76,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %n, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %n, i64 40
   %1 = load ptr, ptr %data, align 8
   %bf.set.i = or disjoint i32 %bf.load, 256
   store i32 %bf.set.i, ptr %c, align 8
   %call.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #6
   store ptr %c, ptr %call.i, align 8
   tail call void @prio_queue_put(ptr noundef %1, ptr noundef nonnull %call.i) #6
-  %non_common_revs.i = getelementptr inbounds i8, ptr %1, i64 40
+  %non_common_revs.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2 = load i32, ptr %non_common_revs.i, align 8
   %inc.i = add nsw i32 %2, 1
   store i32 %inc.i, ptr %non_common_revs.i, align 8
@@ -97,12 +97,12 @@ return:                                           ; preds = %entry, %if.end
 define internal ptr @next(ptr nocapture noundef initializes((0, 16)) %n) #0 {
 entry:
   %queue.i.i = alloca %struct.prio_queue, align 8
-  %data = getelementptr inbounds i8, ptr %n, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %n, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %n, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %data, align 8
-  %nr.i = getelementptr inbounds i8, ptr %0, i64 28
-  %non_common_revs.i = getelementptr inbounds i8, ptr %0, i64 40
-  %array.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %nr.i = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %non_common_revs.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %array.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %for.end.i, %entry
@@ -139,7 +139,7 @@ if.end12.i:                                       ; preds = %if.then10.i, %if.en
   br i1 %tobool17.not.i, label %land.lhs.true.i, label %if.end20.i
 
 land.lhs.true.i:                                  ; preds = %if.end12.i
-  %ttl.i = getelementptr inbounds i8, ptr %call.i, i64 10
+  %ttl.i = getelementptr inbounds nuw i8, ptr %call.i, i64 10
   %7 = load i16, ptr %ttl.i, align 2
   %tobool18.not.i = icmp eq i16 %7, 0
   %spec.select.i = select i1 %tobool18.not.i, ptr %3, ptr null
@@ -149,14 +149,14 @@ if.end20.i:                                       ; preds = %land.lhs.true.i, %i
   %to_send.1.i = phi ptr [ null, %if.end12.i ], [ %spec.select.i, %land.lhs.true.i ]
   %8 = load ptr, ptr @the_repository, align 8
   %call.i.i = call i32 @repo_parse_commit_gently(ptr noundef %8, ptr noundef nonnull %3, i32 noundef 0) #6
-  %parents.i = getelementptr inbounds i8, ptr %3, i64 48
+  %parents.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %p.033.i = load ptr, ptr %parents.i, align 8
   %tobool22.not34.i = icmp eq ptr %p.033.i, null
   br i1 %tobool22.not34.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end20.i
-  %ttl.i.i = getelementptr inbounds i8, ptr %call.i, i64 10
-  %original_ttl24.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %ttl.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 10
+  %original_ttl24.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %push_parent.exit.i, %for.body.lr.ph.i
@@ -190,7 +190,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
-  %data9.i.i = getelementptr inbounds %struct.prio_queue_entry, ptr %13, i64 %indvars.iv.i.i, i32 1
+  %data9.i.i = getelementptr inbounds nuw %struct.prio_queue_entry, ptr %13, i64 %indvars.iv.i.i, i32 1
   %14 = load ptr, ptr %data9.i.i, align 8
   %15 = load ptr, ptr %14, align 8
   %cmp10.i.i = icmp eq ptr %15, %9
@@ -262,7 +262,7 @@ while.cond.backedge.i.i:                          ; preds = %for.inc.i.i, %if.en
   br i1 %tobool5.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !7
 
 if.end18.i.i:                                     ; preds = %if.end12.i.i
-  %parents.i.i = getelementptr inbounds i8, ptr %call15.i.i, i64 48
+  %parents.i.i = getelementptr inbounds nuw i8, ptr %call15.i.i, i64 48
   %p.010.i.i = load ptr, ptr %parents.i.i, align 8
   %tobool19.not11.i.i = icmp eq ptr %p.010.i.i, null
   br i1 %tobool19.not11.i.i, label %while.cond.backedge.i.i, label %for.body.i22.i, !llvm.loop !7
@@ -283,7 +283,7 @@ if.end32.i.i:                                     ; preds = %for.body.i22.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end32.i.i, %for.body.i22.i
-  %next.i.i = getelementptr inbounds i8, ptr %p.012.i.i, i64 8
+  %next.i.i = getelementptr inbounds nuw i8, ptr %p.012.i.i, i64 8
   %p.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool19.not.i23.i = icmp eq ptr %p.0.i.i, null
   br i1 %tobool19.not.i23.i, label %while.cond.backedge.i.i, label %for.body.i22.i, !llvm.loop !8
@@ -304,7 +304,7 @@ if.else21.i.i:                                    ; preds = %if.end13.i.i
   %div20.i.i = add i16 %26, 1
   %add.i.i = add i16 %div20.i.i, %27
   %cond.i.i = select i1 %tobool22.not.i.i, i16 %add.i.i, i16 %26
-  %original_ttl38.i.i = getelementptr inbounds i8, ptr %parent_entry.0.i.i, i64 8
+  %original_ttl38.i.i = getelementptr inbounds nuw i8, ptr %parent_entry.0.i.i, i64 8
   %28 = load i16, ptr %original_ttl38.i.i, align 8
   %cmp41.i.i = icmp ult i16 %28, %cond.i.i
   br i1 %cmp41.i.i, label %if.then43.i.i, label %push_parent.exit.i
@@ -313,14 +313,14 @@ if.then43.i.i:                                    ; preds = %if.else21.i.i
   %sub.i.i = add i16 %25, -1
   %cond36.i.i = select i1 %tobool22.not.i.i, i16 %add.i.i, i16 %sub.i.i
   store i16 %cond.i.i, ptr %original_ttl38.i.i, align 8
-  %ttl45.i.i = getelementptr inbounds i8, ptr %parent_entry.0.i.i, i64 10
+  %ttl45.i.i = getelementptr inbounds nuw i8, ptr %parent_entry.0.i.i, i64 10
   store i16 %cond36.i.i, ptr %ttl45.i.i, align 2
   br label %push_parent.exit.i
 
 push_parent.exit.i:                               ; preds = %if.then43.i.i, %if.else21.i.i, %mark_common.exit.i, %if.then.i.i
   %retval.0.i.i = phi i32 [ 0, %if.then.i.i ], [ 1, %if.else21.i.i ], [ 1, %if.then43.i.i ], [ 1, %mark_common.exit.i ]
   %or24.i = or i32 %retval.0.i.i, %parent_pushed.035.i
-  %next.i = getelementptr inbounds i8, ptr %p.036.i, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %p.036.i, i64 8
   %p.0.i = load ptr, ptr %next.i, align 8
   %tobool22.not.i = icmp eq ptr %p.0.i, null
   br i1 %tobool22.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !9
@@ -341,7 +341,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br i1 %cmp.i, label %while.body.i, label %while.end.i
 
 while.end.i:                                      ; preds = %for.end.i
-  %oid.i = getelementptr inbounds i8, ptr %spec.select25.i, i64 4
+  %oid.i = getelementptr inbounds nuw i8, ptr %spec.select25.i, i64 4
   br label %get_rev.exit
 
 get_rev.exit:                                     ; preds = %while.body.i, %lor.lhs.false.i, %while.end.i
@@ -358,7 +358,7 @@ entry:
   br i1 %tobool6.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %oid = getelementptr inbounds i8, ptr %c, i64 4
+  %oid = getelementptr inbounds nuw i8, ptr %c, i64 4
   %call = tail call ptr @oid_to_hex(ptr noundef nonnull %oid) #6
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.2, ptr noundef %call) #7
   unreachable
@@ -366,7 +366,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = lshr i32 %bf.load, 6
   %.lobit = and i32 %1, 1
-  %data = getelementptr inbounds i8, ptr %n, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %n, i64 40
   %2 = load ptr, ptr %data, align 8
   tail call fastcc void @mark_common(ptr noundef %2, ptr noundef nonnull %c)
   ret i32 %.lobit
@@ -375,7 +375,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define internal void @release(ptr nocapture noundef %n) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %n, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %n, i64 40
   %0 = load ptr, ptr %data, align 8
   tail call void @clear_prio_queue(ptr noundef %0) #6
   %1 = load ptr, ptr %data, align 8
@@ -452,7 +452,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool5.not14, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %non_common_revs = getelementptr inbounds i8, ptr %data, i64 40
+  %non_common_revs = getelementptr inbounds nuw i8, ptr %data, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -481,7 +481,7 @@ while.cond.backedge:                              ; preds = %for.inc, %if.end18,
   br i1 %tobool5.not, label %while.end, label %while.body, !llvm.loop !7
 
 if.end18:                                         ; preds = %if.end12
-  %parents = getelementptr inbounds i8, ptr %call15, i64 48
+  %parents = getelementptr inbounds nuw i8, ptr %call15, i64 48
   %p.010 = load ptr, ptr %parents, align 8
   %tobool19.not11 = icmp eq ptr %p.010, null
   br i1 %tobool19.not11, label %while.cond.backedge, label %for.body, !llvm.loop !7
@@ -502,7 +502,7 @@ if.end32:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end32
-  %next = getelementptr inbounds i8, ptr %p.012, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %p.012, i64 8
   %p.0 = load ptr, ptr %next, align 8
   %tobool19.not = icmp eq ptr %p.0, null
   br i1 %tobool19.not, label %while.cond.backedge, label %for.body, !llvm.loop !8

@@ -88,10 +88,10 @@ find_char_driver.exit:                            ; preds = %for.body.i
   store i32 %5, ptr %call, align 8
   %conv = sext i32 %len to i64
   %call4 = tail call noalias ptr @g_malloc(i64 noundef %conv) #13
-  %buf5 = getelementptr inbounds i8, ptr %call, i64 8
+  %buf5 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call4, ptr %buf5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4, ptr align 1 %buf, i64 %conv, i1 false)
-  %len9 = getelementptr inbounds i8, ptr %call, i64 16
+  %len9 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv, ptr %len9, align 8
   tail call void @replay_add_event(i32 noundef 4, ptr noundef nonnull %call, ptr noundef null, i64 noundef 0) #9
   ret void
@@ -119,9 +119,9 @@ entry:
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr ptr, ptr %0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 8
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %3 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds i8, ptr %opaque, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %4 = load i64, ptr %len, align 8
   %conv = trunc i64 %4 to i32
   tail call void @qemu_chr_be_write_impl(ptr noundef %2, ptr noundef %3, i32 noundef %conv) #9
@@ -141,9 +141,9 @@ entry:
   %0 = load i32, ptr %opaque, align 8
   %conv = trunc i32 %0 to i8
   tail call void @replay_put_byte(i8 noundef zeroext %conv) #9
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 8
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds i8, ptr %opaque, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %2 = load i64, ptr %len, align 8
   tail call void @replay_put_array(ptr noundef %1, i64 noundef %2) #9
   ret void
@@ -160,8 +160,8 @@ entry:
   %call1 = tail call zeroext i8 @replay_get_byte() #9
   %conv = zext i8 %call1 to i32
   store i32 %conv, ptr %call, align 8
-  %buf = getelementptr inbounds i8, ptr %call, i64 8
-  %len = getelementptr inbounds i8, ptr %call, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @replay_get_array_alloc(ptr noundef nonnull %buf, ptr noundef nonnull %len) #9
   ret ptr %call
 }

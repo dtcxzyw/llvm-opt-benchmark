@@ -87,7 +87,7 @@ define void @_ZN5boost4urls6detail16params_iter_impl5setupEv(ptr noundef nonnull
 ._crit_edge:                                      ; preds = %24, %.lr.ph, %1
   %13 = phi i64 [ %.promoted, %1 ], [ %11, %.lr.ph ], [ %25, %24 ]
   %.0.lcssa = phi ptr [ %9, %1 ], [ %.027, %.lr.ph ], [ %26, %24 ]
-  %14 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %9 to i64
   %17 = sub i64 %15, %16
@@ -102,7 +102,7 @@ define void @_ZN5boost4urls6detail16params_iter_impl5setupEv(ptr noundef nonnull
 21:                                               ; preds = %.lr.ph
   %22 = add i64 %11, 2
   store i64 %22, ptr %2, align 8, !tbaa !3
-  %23 = getelementptr inbounds i8, ptr %.027, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.027, i64 2
   br label %24
 
 24:                                               ; preds = %.lr.ph, %21
@@ -113,7 +113,7 @@ define void @_ZN5boost4urls6detail16params_iter_impl5setupEv(ptr noundef nonnull
   br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.027, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.027, i64 1
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %9 to i64
   %32 = sub i64 %30, %31
@@ -138,7 +138,7 @@ define void @_ZN5boost4urls6detail16params_iter_impl5setupEv(ptr noundef nonnull
 39:                                               ; preds = %.lr.ph33
   %40 = add i64 %37, 2
   store i64 %40, ptr %3, align 8, !tbaa !11
-  %41 = getelementptr inbounds i8, ptr %.231, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %.231, i64 3
   br label %42
 
 42:                                               ; preds = %.lr.ph33, %39
@@ -412,15 +412,15 @@ define void @_ZNK5boost4urls6detail16params_iter_impl11dereferenceEv(ptr dead_on
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %20 = load i64, ptr %19, align 8, !tbaa !11
   store ptr %8, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %14, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %16, ptr %.sroa.5.0..sroa_idx, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %17, ptr %21, align 8
-  %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %18, ptr %.sroa.412.0..sroa_idx, align 8
-  %.sroa.513.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %20, ptr %.sroa.513.0..sroa_idx, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %22, align 8, !tbaa !22
@@ -436,9 +436,9 @@ define void @_ZNK5boost4urls6detail16params_iter_impl11dereferenceEv(ptr dead_on
 _ZN5boost4urls14param_pct_viewC2INS0_10no_value_tEEENS0_15pct_string_viewERKT_.exit: ; preds = %23
   %26 = add i64 %12, -1
   store ptr %8, ptr %0, align 8
-  %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %26, ptr %.sroa.415.0..sroa_idx, align 8
-  %.sroa.516.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %25, ptr %.sroa.516.0..sroa_idx, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %27, i8 0, i64 25, i1 false)

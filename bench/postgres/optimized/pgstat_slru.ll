@@ -52,12 +52,12 @@ define dso_local void @pgstat_reset_slru(ptr nocapture noundef readonly %0) loca
 pgstat_get_slru_index.exit:                       ; preds = %8, %.split.loop.exit9.i
   %.05.i = phi i64 [ %9, %.split.loop.exit9.i ], [ 7, %8 ]
   %10 = load ptr, ptr @pgStatLocal, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 17232
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 17232
   %12 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %11, i32 noundef 0) #8
-  %13 = getelementptr inbounds i8, ptr %10, i64 17248
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 17248
   %14 = getelementptr [8 x %struct.PgStat_SLRUStats], ptr %13, i64 0, i64 %.05.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 56, i1 false)
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i64 %2, ptr %15, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %11) #8
   ret void
@@ -198,7 +198,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @pgstat_slru_flush(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @pgStatLocal, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 17232
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 17232
   %4 = load i8, ptr @have_slrustats, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %49
@@ -215,7 +215,7 @@ define dso_local noundef zeroext i1 @pgstat_slru_flush(i1 noundef zeroext %0) lo
   br i1 %10, label %11, label %49
 
 11:                                               ; preds = %9, %7
-  %12 = getelementptr inbounds i8, ptr %2, i64 17248
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 17248
   br label %13
 
 13:                                               ; preds = %11, %13
@@ -226,39 +226,39 @@ define dso_local noundef zeroext i1 @pgstat_slru_flush(i1 noundef zeroext %0) lo
   %17 = load i64, ptr %14, align 8
   %18 = add i64 %17, %16
   store i64 %18, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %20
   store i64 %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %25 = load i64, ptr %24, align 16
-  %26 = getelementptr inbounds i8, ptr %14, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %25
   store i64 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %15, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %14, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %30
   store i64 %33, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %15, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %35 = load i64, ptr %34, align 16
-  %36 = getelementptr inbounds i8, ptr %14, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, %35
   store i64 %38, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %15, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %14, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, %40
   store i64 %43, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %15, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %45 = load i64, ptr %44, align 16
-  %46 = getelementptr inbounds i8, ptr %14, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, %45
   store i64 %48, ptr %46, align 8
@@ -293,12 +293,12 @@ define dso_local void @pgstat_slru_reset_all_cb(i64 noundef %0) local_unnamed_ad
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %3 = load ptr, ptr @pgStatLocal, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 17232
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 17232
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 0) #8
-  %6 = getelementptr inbounds i8, ptr %3, i64 17248
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 17248
   %7 = getelementptr [8 x %struct.PgStat_SLRUStats], ptr %6, i64 0, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 56, i1 false)
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 %0, ptr %8, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %4) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -312,9 +312,9 @@ define dso_local void @pgstat_slru_reset_all_cb(i64 noundef %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_slru_snapshot_cb() local_unnamed_addr #0 {
   %1 = load ptr, ptr @pgStatLocal, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 17232
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 17232
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #8
-  %4 = getelementptr inbounds i8, ptr %1, i64 17248
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 17248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) getelementptr inbounds (i8, ptr @pgStatLocal, i64 16688), ptr noundef nonnull align 8 dereferenceable(512) %4, i64 512, i1 false)
   tail call void @LWLockRelease(ptr noundef nonnull %2) #8
   ret void

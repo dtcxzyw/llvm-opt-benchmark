@@ -590,11 +590,11 @@ define hidden void @init_mbx_header(ptr nocapture noundef writeonly initializes(
   store i16 %4, ptr %0, align 2
   %5 = add i32 %2, 2
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %5) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %6, ptr %7, align 2
   %8 = add i32 %2, 4
   %9 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %8) #7
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %9, ptr %10, align 2
   ret void
 }
@@ -643,7 +643,7 @@ define internal i32 @dissect_ecat_mailbox(ptr noundef %0, ptr noundef %1, ptr no
   %13 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0) #7
   %14 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #7
   %15 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4) #7
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_append_str(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.346) #7
   %18 = load i32, ptr @proto_ecat_mailbox, align 4
@@ -1435,7 +1435,7 @@ dissect_ecat_coe.exit:                            ; preds = %227, %230, %CANopen
   br i1 %503, label %504, label %594
 
 504:                                              ; preds = %502
-  %505 = getelementptr inbounds i8, ptr %1, i64 408
+  %505 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %506 = load ptr, ptr %505, align 8
   %507 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %43, i32 noundef 0) #7
   %508 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %43, i32 noundef 1) #7

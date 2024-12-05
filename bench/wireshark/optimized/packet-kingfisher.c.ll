@@ -223,7 +223,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_kingfisher(ptr noundef %0, p
   ]
 
 10:                                               ; preds = %8, %8, %8, %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.24) #2
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
@@ -332,7 +332,7 @@ kingfisher_checksum.exit:                         ; preds = %48, %33
   %.sroa.14.0 = phi i32 [ %65, %61 ], [ %56, %51 ]
   %.sroa.20.0 = phi i32 [ %73, %61 ], [ %60, %51 ]
   %76 = tail call ptr @val_to_str_const(i32 noundef %24, ptr noundef nonnull @function_code_vals, ptr noundef nonnull @.str.98) #2
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8
   tail call void @col_set_str(ptr noundef %78, i32 noundef 34, ptr noundef nonnull @.str.24) #2
   %79 = load ptr, ptr %77, align 8

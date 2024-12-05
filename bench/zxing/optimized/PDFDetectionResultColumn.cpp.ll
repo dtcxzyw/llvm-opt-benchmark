@@ -38,13 +38,13 @@ $_ZNSt6vectorIiSaIiEE17_M_default_appendEm = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ZXing6Pdf41721DetectionResultColumnC2ERKNS0_11BoundingBoxENS1_12RowIndicatorE(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 148)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 116
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %9 = load i32, ptr %8, align 8
   %10 = icmp slt i32 %7, %9
   br i1 %10, label %11, label %18
@@ -119,10 +119,10 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK5ZXing6Pdf41721DetectionResultColumn14codewordNearbyEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ZXing::Nullable.0") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load i32, ptr %4, align 8
   %6 = sub nsw i32 %2, %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %8 = sext i32 %6 to i64
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds %"class.ZXing::Nullable.0", ptr %9, i64 %8
@@ -131,7 +131,7 @@ define void @_ZNK5ZXing6Pdf41721DetectionResultColumn14codewordNearbyEi(ptr dead
   br i1 %12, label %20, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %9 to i64
@@ -154,7 +154,7 @@ define void @_ZNK5ZXing6Pdf41721DetectionResultColumn14codewordNearbyEi(ptr dead
 
 25:                                               ; preds = %21
   %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr inbounds %"class.ZXing::Nullable.0", ptr %9, i64 %26
+  %27 = getelementptr inbounds nuw %"class.ZXing::Nullable.0", ptr %9, i64 %26
   %28 = load i8, ptr %27, align 4
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %31
@@ -185,8 +185,8 @@ define void @_ZNK5ZXing6Pdf41721DetectionResultColumn14codewordNearbyEi(ptr dead
 
 39:                                               ; preds = %38
   store i8 0, ptr %0, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %40, i8 0, i64 16, i1 false)
   store i32 -1, ptr %41, align 4
   br label %42
@@ -197,9 +197,9 @@ define void @_ZNK5ZXing6Pdf41721DetectionResultColumn14codewordNearbyEi(ptr dead
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %.not8 = icmp eq ptr %3, %5
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -211,20 +211,20 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv(ptr nocapt
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 16
   %10 = load i32, ptr %9, align 4
   %11 = sdiv i32 %10, 30
   %12 = mul nsw i32 %11, 3
-  %13 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = sdiv i32 %14, 3
   %16 = add nsw i32 %12, %15
-  %17 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 20
   store i32 %16, ptr %17, align 4
   br label %18
 
 18:                                               ; preds = %.lr.ph, %8
-  %19 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 24
   %.not = icmp eq ptr %19, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -234,15 +234,15 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv(ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5ZXing6Pdf41721DetectionResultColumn39adjustCompleteIndicatorColumnRowNumbersERKNS0_15BarcodeMetadataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
   %.not81 = icmp eq i32 %4, 0
   br i1 %.not81, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %7, %9
   br i1 %.not8.i, label %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit, label %.lr.ph.i
@@ -254,20 +254,20 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumn39adjustCompleteIndicatorCol
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds i8, ptr %.sroa.05.09.i, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 16
   %14 = load i32, ptr %13, align 4
   %15 = sdiv i32 %14, 30
   %16 = mul nsw i32 %15, 3
-  %17 = getelementptr inbounds i8, ptr %.sroa.05.09.i, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = sdiv i32 %18, 3
   %20 = add nsw i32 %16, %19
-  %21 = getelementptr inbounds i8, ptr %.sroa.05.09.i, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 20
   store i32 %20, ptr %21, align 4
   br label %22
 
 22:                                               ; preds = %12, %.lr.ph.i
-  %23 = getelementptr inbounds i8, ptr %.sroa.05.09.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 24
   %.not.i = icmp eq ptr %23, %9
   br i1 %.not.i, label %_ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit, label %.lr.ph.i
 
@@ -281,9 +281,9 @@ _ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit: ; preds = %22
   %24 = load i32, ptr %3, align 8
   %.fr91 = freeze i32 %24
   %25 = icmp eq i32 %.fr91, 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 12
-  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br i1 %25, label %.lr.ph.i53.split.us, label %.lr.ph.i53.split
 
 .lr.ph.i53.split.us:                              ; preds = %.lr.ph.i53, %54
@@ -293,11 +293,11 @@ _ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit: ; preds = %22
   br i1 %30, label %31, label %54
 
 31:                                               ; preds = %.lr.ph.i53.split.us
-  %32 = getelementptr inbounds i8, ptr %.sroa.01.08.i.us, i64 4
-  %33 = getelementptr inbounds i8, ptr %.sroa.01.08.i.us, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i.us, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i.us, i64 16
   %34 = load i32, ptr %33, align 4
   %35 = srem i32 %34, 30
-  %36 = getelementptr inbounds i8, ptr %.sroa.01.08.i.us, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i.us, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %26, align 4
   %39 = load i32, ptr %27, align 4
@@ -344,7 +344,7 @@ _ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit: ; preds = %22
   br label %54
 
 54:                                               ; preds = %47, %42, %.sink.split.i.us, %51, %44, %.lr.ph.i53.split.us
-  %55 = getelementptr inbounds i8, ptr %.sroa.01.08.i.us, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i.us, i64 24
   %.not6.i.us = icmp eq ptr %55, %.val52.pre
   br i1 %.not6.i.us, label %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit, label %.lr.ph.i53.split.us
 
@@ -355,11 +355,11 @@ _ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit: ; preds = %22
   br i1 %57, label %58, label %82
 
 58:                                               ; preds = %.lr.ph.i53.split
-  %59 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 4
-  %60 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i, i64 16
   %61 = load i32, ptr %60, align 4
   %62 = srem i32 %61, 30
-  %63 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i, i64 20
   %64 = load i32, ptr %63, align 4
   %65 = load i32, ptr %26, align 4
   %66 = load i32, ptr %27, align 4
@@ -407,7 +407,7 @@ _ZN5ZXing6Pdf41721DetectionResultColumn13setRowNumbersEv.exit: ; preds = %22
   br label %82
 
 82:                                               ; preds = %75, %.sink.split.i, %79, %72, %69, %.lr.ph.i53.split
-  %83 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i, i64 24
   %.not6.i = icmp eq ptr %83, %.val52.pre
   br i1 %.not6.i, label %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit, label %.lr.ph.i53.split
 
@@ -415,9 +415,9 @@ _ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8Codewo
   %84 = load i32, ptr %3, align 8
   %85 = icmp eq i32 %84, 1
   %.sroa.270.078.in.v = select i1 %85, i64 24, i64 72
-  %.sroa.270.078.in = getelementptr inbounds i8, ptr %0, i64 %.sroa.270.078.in.v
+  %.sroa.270.078.in = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.270.078.in.v
   %.sroa.2.0.in.v = select i1 %85, i64 48, i64 96
-  %.sroa.2.0.in = getelementptr inbounds i8, ptr %0, i64 %.sroa.2.0.in.v
+  %.sroa.2.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.2.0.in.v
   %.sroa.2.0 = load double, ptr %.sroa.2.0.in, align 8
   %.sroa.270.078 = load double, ptr %.sroa.270.078.in, align 8
   %86 = fptrunc double %.sroa.270.078 to float
@@ -428,12 +428,12 @@ _ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8Codewo
   br i1 %90, label %.lr.ph90, label %.loopexit
 
 .lr.ph90:                                         ; preds = %_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8CodewordEEESaIS4_EERKNS0_15BarcodeMetadataE.exit
-  %91 = getelementptr inbounds i8, ptr %0, i64 112
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %92 = load i32, ptr %91, align 8
   %93 = sub nsw i32 %89, %92
   %94 = sub i32 %87, %92
-  %95 = getelementptr inbounds i8, ptr %1, i64 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %97 = sext i32 %94 to i64
   %98 = sext i32 %93 to i64
   br label %99
@@ -451,8 +451,8 @@ _ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8Codewo
   br i1 %103, label %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit, label %138
 
 _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %101, i64 4
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %101, i64 20
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 4
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 20
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 4
   %105 = icmp eq i32 %.04389, -1
   br i1 %105, label %106, label %112
@@ -553,9 +553,9 @@ define internal fastcc void @_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6ve
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %6
 
 6:                                                ; preds = %.lr.ph, %33
@@ -565,11 +565,11 @@ define internal fastcc void @_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6ve
   br i1 %8, label %9, label %33
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %.sroa.01.08, i64 4
-  %11 = getelementptr inbounds i8, ptr %.sroa.01.08, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.08, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.01.08, i64 16
   %12 = load i32, ptr %11, align 4
   %13 = srem i32 %12, 30
-  %14 = getelementptr inbounds i8, ptr %.sroa.01.08, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.08, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %3, align 4
   %17 = load i32, ptr %4, align 4
@@ -618,7 +618,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6ve
   br label %33
 
 33:                                               ; preds = %26, %.sink.split, %20, %23, %30, %6
-  %34 = getelementptr inbounds i8, ptr %.sroa.01.08, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.01.08, i64 24
   %.not6 = icmp eq ptr %34, %.8.val
   br i1 %.not6, label %._crit_edge, label %6
 
@@ -628,7 +628,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6ve
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorColumnRowNumbersERKNS0_15BarcodeMetadataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %5 [
     i32 0, label %.loopexit
@@ -641,25 +641,25 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorC
 6:                                                ; preds = %2, %5
   %.sink48 = phi i64 [ 72, %5 ], [ 24, %2 ]
   %.sink = phi i64 [ 96, %5 ], [ 48, %2 ]
-  %.sroa.233.0..sroa_idx34 = getelementptr inbounds i8, ptr %0, i64 %.sink48
-  %.sroa.2.0..sroa_idx30 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %.sroa.233.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink48
+  %.sroa.2.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.sroa.2.0 = load double, ptr %.sroa.2.0..sroa_idx30, align 8
   %.sroa.233.041 = load double, ptr %.sroa.233.0..sroa_idx34, align 8
   %7 = fptrunc double %.sroa.233.041 to float
   %8 = fptosi float %7 to i32
   %9 = fptrunc double %.sroa.2.0 to float
   %10 = fptosi float %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = icmp slt i32 %8, %10
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load i32, ptr %13, align 8
   %15 = sub nsw i32 %10, %14
   %16 = sub i32 %8, %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %19 = sext i32 %16 to i64
   %20 = sext i32 %15 to i64
   br label %21
@@ -674,16 +674,16 @@ define void @_ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorC
   br i1 %25, label %26, label %46
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %23, i64 4
-  %28 = getelementptr inbounds i8, ptr %23, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %29 = load i32, ptr %28, align 4
   %30 = sdiv i32 %29, 30
   %31 = mul nsw i32 %30, 3
-  %32 = getelementptr inbounds i8, ptr %23, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = sdiv i32 %33, 3
   %35 = add nsw i32 %31, %34
-  %36 = getelementptr inbounds i8, ptr %23, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 %35, ptr %36, align 4
   %37 = icmp eq i32 %35, %.046
   br i1 %37, label %46, label %38
@@ -724,7 +724,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41721DetectionResultColumn13getRowHeight
   br i1 %4, label %5, label %.loopexit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %8 [
     i32 0, label %_ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorColumnRowNumbersERKNS0_15BarcodeMetadataE.exit
@@ -737,25 +737,25 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41721DetectionResultColumn13getRowHeight
 9:                                                ; preds = %8, %5
   %.sink48.i = phi i64 [ 72, %8 ], [ 24, %5 ]
   %.sink.i = phi i64 [ 96, %8 ], [ 48, %5 ]
-  %.sroa.233.0..sroa_idx34.i = getelementptr inbounds i8, ptr %0, i64 %.sink48.i
-  %.sroa.2.0..sroa_idx30.i = getelementptr inbounds i8, ptr %0, i64 %.sink.i
+  %.sroa.233.0..sroa_idx34.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink48.i
+  %.sroa.2.0..sroa_idx30.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %.sroa.2.0.i = load double, ptr %.sroa.2.0..sroa_idx30.i, align 8
   %.sroa.233.041.i = load double, ptr %.sroa.233.0..sroa_idx34.i, align 8
   %10 = fptrunc double %.sroa.233.041.i to float
   %11 = fptosi float %10 to i32
   %12 = fptrunc double %.sroa.2.0.i to float
   %13 = fptosi float %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %15 = icmp slt i32 %11, %13
   br i1 %15, label %.lr.ph.i, label %_ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorColumnRowNumbersERKNS0_15BarcodeMetadataE.exit
 
 .lr.ph.i:                                         ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %17 = load i32, ptr %16, align 8
   %18 = sub nsw i32 %13, %17
   %19 = sub i32 %11, %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %22 = sext i32 %19 to i64
   %23 = sext i32 %18 to i64
   %24 = load i32, ptr %20, align 4
@@ -773,16 +773,16 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41721DetectionResultColumn13getRowHeight
   br i1 %31, label %32, label %48
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %29, i64 4
-  %34 = getelementptr inbounds i8, ptr %29, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %35 = load i32, ptr %34, align 4
   %36 = sdiv i32 %35, 30
   %37 = mul nsw i32 %36, 3
-  %38 = getelementptr inbounds i8, ptr %29, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %39 = load i32, ptr %38, align 4
   %40 = sdiv i32 %39, 3
   %41 = add nsw i32 %37, %40
-  %42 = getelementptr inbounds i8, ptr %29, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i32 %41, ptr %42, align 4
   %43 = icmp eq i32 %41, %.046.i
   br i1 %43, label %48, label %44
@@ -807,13 +807,13 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41721DetectionResultColumn13getRowHeight
   br i1 %49, label %27, label %_ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorColumnRowNumbersERKNS0_15BarcodeMetadataE.exit, !llvm.loop !8
 
 _ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorColumnRowNumbersERKNS0_15BarcodeMetadataE.exit: ; preds = %48, %5, %9
-  %50 = getelementptr inbounds i8, ptr %3, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %3, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = add nsw i32 %53, %51
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %1, align 8
   %59 = ptrtoint ptr %57 to i64
@@ -842,9 +842,9 @@ _ZN5ZXing6Pdf41721DetectionResultColumn41adjustIncompleteIndicatorColumnRowNumbe
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %64, %66, %68, %70
-  %71 = getelementptr inbounds i8, ptr %0, i64 120
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 128
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %74 = load ptr, ptr %73, align 8
   %.not1415 = icmp eq ptr %72, %74
   br i1 %.not1415, label %.loopexit, label %.lr.ph
@@ -856,7 +856,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %64, %66, %68, %70
   br i1 %76, label %77, label %91
 
 77:                                               ; preds = %.lr.ph
-  %78 = getelementptr inbounds i8, ptr %.sroa.011.016, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 20
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
   %81 = load ptr, ptr %56, align 8
@@ -876,7 +876,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %64, %66, %68, %70
   br label %91
 
 91:                                               ; preds = %.lr.ph, %87, %77
-  %92 = getelementptr inbounds i8, ptr %.sroa.011.016, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 24
   %.not14 = icmp eq ptr %92, %74
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
@@ -894,55 +894,55 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41721DetectionResultColumn18getBarcodeMe
   %8 = alloca %"class.std::vector.1", align 8
   %9 = alloca %"class.std::vector.1", align 8
   %10 = alloca %"class.std::vector.1", align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %_ZN5ZXing6Pdf41712BarcodeValueD2Ev.exit43, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 120
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %15, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %20, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %20, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %25, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %25, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %30, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %30, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 0, ptr %34, align 8
   %35 = load ptr, ptr %14, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %37 = load ptr, ptr %36, align 8
   %.not5657 = icmp eq ptr %35, %37
   br i1 %.not5657, label %._crit_edge, label %.lr.ph
@@ -964,15 +964,15 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41721DetectionResultColumn18getBarcodeMe
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit49
 
 40:                                               ; preds = %.lr.ph
-  %41 = getelementptr inbounds i8, ptr %.sroa.051.058, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.051.058, i64 16
   %42 = load i32, ptr %41, align 4
   %43 = sdiv i32 %42, 30
   %44 = mul nsw i32 %43, 3
-  %45 = getelementptr inbounds i8, ptr %.sroa.051.058, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.051.058, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = sdiv i32 %46, 3
   %48 = add nsw i32 %44, %47
-  %49 = getelementptr inbounds i8, ptr %.sroa.051.058, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.051.058, i64 20
   store i32 %48, ptr %49, align 4
   %50 = srem i32 %42, 30
   %51 = load i32, ptr %11, align 8
@@ -1014,7 +1014,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41721DetectionResultColumn18getBarcodeMe
   br label %.invoke
 
 66:                                               ; preds = %.invoke, %40, %.lr.ph
-  %67 = getelementptr inbounds i8, ptr %.sroa.051.058, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.051.058, i64 24
   %.not56 = icmp eq ptr %67, %37
   br i1 %.not56, label %._crit_edge, label %.lr.ph
 
@@ -1036,28 +1036,28 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41721DetectionResultColumn18getBarcodeMe
 
 71:                                               ; preds = %70
   %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds i8, ptr %7, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %72, %74
   br i1 %75, label %thread-pre-split, label %76
 
 76:                                               ; preds = %71
   %77 = load ptr, ptr %8, align 8
-  %78 = getelementptr inbounds i8, ptr %8, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %77, %79
   br i1 %80, label %thread-pre-split, label %81
 
 81:                                               ; preds = %76
   %82 = load ptr, ptr %9, align 8
-  %83 = getelementptr inbounds i8, ptr %9, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %82, %84
   br i1 %85, label %thread-pre-split, label %86
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr %10, align 8
-  %88 = getelementptr inbounds i8, ptr %10, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %87, %89
   br i1 %90, label %109, label %91
@@ -1095,11 +1095,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %70
 105:                                              ; preds = %94
   %106 = load i32, ptr %87, align 4
   store i32 %92, ptr %1, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %106, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %95, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %96, ptr %.sroa.4.0..sroa_idx, align 4
   %107 = load i32, ptr %11, align 8
   %108 = icmp eq i32 %107, 1
@@ -1241,7 +1241,7 @@ declare void @_ZNK5ZXing6Pdf41712BarcodeValue5valueEv(ptr dead_on_unwind writabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5ZXing6Pdf41712BarcodeValueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit unwind label %4
@@ -1276,10 +1276,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4less
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.07, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %.07, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #18
   %.not = icmp eq ptr %6, null
@@ -1298,14 +1298,14 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf4178CodewordEEES
   br i1 %.not, label %38, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -1321,11 +1321,11 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf4178CodewordEEES
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.013.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.01012.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i ], [ %1, %3 ]
-  %19 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.013.i.i.i, i8 0, i64 20, i1 false)
   store i32 -1, ptr %19, align 4
   %20 = add i64 %.01012.i.i.i, -1
-  %21 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 24
   %.not.i.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf4178CodewordEEEmS4_ET_S6_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
@@ -1353,11 +1353,11 @@ _ZNKSt6vectorIN5ZXing8NullableINS0_6Pdf4178CodewordEEESaIS4_EE12_M_check_lenEmPK
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN5ZXing8NullableINS0_6Pdf4178CodewordEEESaIS4_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
   %.013.i.i.i31 = phi ptr [ %32, %.lr.ph.i.i.i30 ], [ %29, %_ZNKSt6vectorIN5ZXing8NullableINS0_6Pdf4178CodewordEEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %.01012.i.i.i32 = phi i64 [ %31, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN5ZXing8NullableINS0_6Pdf4178CodewordEEESaIS4_EE12_M_check_lenEmPKc.exit ]
-  %30 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.013.i.i.i31, i8 0, i64 20, i1 false)
   store i32 -1, ptr %30, align 4
   %31 = add i64 %.01012.i.i.i32, -1
-  %32 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 24
   %.not.i.i.i33 = icmp eq i64 %31, 0
   br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf4178CodewordEEEmS4_ET_S6_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !10
 
@@ -1369,8 +1369,8 @@ _ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf4178CodewordEEEmS4_E
   %.012.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i37 ], [ %28, %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf4178CodewordEEEmS4_ET_S6_T0_RSaIT1_E.exit35 ]
   %.0911.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i37 ], [ %6, %_ZSt27__uninitialized_default_n_aIPN5ZXing8NullableINS0_6Pdf4178CodewordEEEmS4_ET_S6_T0_RSaIT1_E.exit35 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.012.i.i.i, ptr noundef nonnull align 4 dereferenceable(24) %.0911.i.i.i, i64 24, i1 false), !alias.scope !11
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %.not.i.i.i38 = icmp eq ptr %33, %5
   br i1 %.not.i.i.i38, label %_ZNSt6vectorIN5ZXing8NullableINS0_6Pdf4178CodewordEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i37, !llvm.loop !15
 
@@ -1386,7 +1386,7 @@ _ZNSt12_Vector_baseIN5ZXing8NullableINS0_6Pdf4178CodewordEEESaIS4_EE13_M_dealloc
   store ptr %28, ptr %0, align 8
   %36 = getelementptr inbounds %"class.ZXing::Nullable.0", ptr %29, i64 %1
   store ptr %36, ptr %4, align 8
-  %37 = getelementptr inbounds %"class.ZXing::Nullable.0", ptr %28, i64 %26
+  %37 = getelementptr inbounds nuw %"class.ZXing::Nullable.0", ptr %28, i64 %26
   store ptr %37, ptr %11, align 8
   br label %38
 
@@ -1409,14 +1409,14 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -1493,7 +1493,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
   store ptr %31, ptr %0, align 8
   %40 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds i32, ptr %31, i64 %29
+  %41 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %41, ptr %11, align 8
   br label %42
 

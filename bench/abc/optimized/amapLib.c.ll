@@ -39,19 +39,19 @@ target triple = "x86_64-pc-linux-gnu"
 define noalias noundef ptr @Amap_LibAlloc() local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(160) ptr @calloc(i64 1, i64 160)
   %1 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %2, align 4
   store i32 100, ptr %1, align 8
   %3 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #21
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %1, ptr %5, align 8
   %6 = tail call ptr (...) @Aig_MmFlexStart() #22
-  %7 = getelementptr inbounds i8, ptr %calloc, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 64
   store ptr %6, ptr %7, align 8
   %8 = tail call ptr (...) @Aig_MmFlexStart() #22
-  %9 = getelementptr inbounds i8, ptr %calloc, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %calloc, i64 144
   store ptr %8, ptr %9, align 8
   ret ptr %calloc
 }
@@ -67,13 +67,13 @@ define void @Amap_LibFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %91, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %9
@@ -87,13 +87,13 @@ Vec_PtrFree.exit:                                 ; preds = %6, %9
   br label %10
 
 10:                                               ; preds = %Vec_PtrFree.exit, %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not39 = icmp eq ptr %12, null
   br i1 %.not39, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i48 = icmp eq ptr %15, null
   br i1 %.not.i48, label %Vec_PtrFree.exit49, label %16
@@ -107,13 +107,13 @@ Vec_PtrFree.exit49:                               ; preds = %13, %16
   br label %17
 
 17:                                               ; preds = %Vec_PtrFree.exit49, %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not40 = icmp eq ptr %19, null
   br i1 %.not40, label %24, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not.i50 = icmp eq ptr %22, null
   br i1 %.not.i50, label %Vec_PtrFree.exit51, label %23
@@ -127,7 +127,7 @@ Vec_PtrFree.exit51:                               ; preds = %20, %23
   br label %24
 
 24:                                               ; preds = %Vec_PtrFree.exit51, %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = load ptr, ptr %25, align 8
   %.not41 = icmp eq ptr %26, null
   br i1 %.not41, label %44, label %27
@@ -146,13 +146,13 @@ Vec_PtrFree.exit51:                               ; preds = %20, %23
   %.val14.i = phi i32 [ %.val11.i, %.lr.ph.i ], [ %.val.i, %38 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
   %.val8.i = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds ptr, ptr %.val8.i, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw ptr, ptr %.val8.i, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8
   %.not.i52 = icmp eq ptr %33, null
   br i1 %.not.i52, label %38, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %37
@@ -174,7 +174,7 @@ Vec_PtrFree.exit.i:                               ; preds = %37, %34
   br i1 %40, label %31, label %.critedge.i, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %38, %27
-  %41 = getelementptr inbounds i8, ptr %26, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i9.i = icmp eq ptr %42, null
   br i1 %.not.i9.i, label %Vec_VecFree.exit, label %43
@@ -188,7 +188,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %43
   br label %44
 
 44:                                               ; preds = %Vec_VecFree.exit, %24
-  %45 = getelementptr inbounds i8, ptr %0, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %46 = load ptr, ptr %45, align 8
   %.not42 = icmp eq ptr %46, null
   br i1 %.not42, label %64, label %47
@@ -207,13 +207,13 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %43
   %.val14.i57 = phi i32 [ %.val11.i53, %.lr.ph.i56 ], [ %.val.i64, %58 ]
   %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.i56 ], [ %indvars.iv.next.i65, %58 ]
   %.val8.i59 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds ptr, ptr %.val8.i59, i64 %indvars.iv.i58
+  %52 = getelementptr inbounds nuw ptr, ptr %.val8.i59, i64 %indvars.iv.i58
   %53 = load ptr, ptr %52, align 8
   %.not.i60 = icmp eq ptr %53, null
   br i1 %.not.i60, label %58, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not.i.i61 = icmp eq ptr %56, null
   br i1 %.not.i.i61, label %Vec_PtrFree.exit.i62, label %57
@@ -235,7 +235,7 @@ Vec_PtrFree.exit.i62:                             ; preds = %57, %54
   br i1 %60, label %51, label %.critedge.i54, !llvm.loop !4
 
 .critedge.i54:                                    ; preds = %58, %47
-  %61 = getelementptr inbounds i8, ptr %46, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %62 = load ptr, ptr %61, align 8
   %.not.i9.i55 = icmp eq ptr %62, null
   br i1 %.not.i9.i55, label %Vec_VecFree.exit66, label %63
@@ -249,13 +249,13 @@ Vec_VecFree.exit66:                               ; preds = %.critedge.i54, %63
   br label %64
 
 64:                                               ; preds = %Vec_VecFree.exit66, %44
-  %65 = getelementptr inbounds i8, ptr %0, i64 120
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %66 = load ptr, ptr %65, align 8
   %.not43 = icmp eq ptr %66, null
   br i1 %.not43, label %71, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %66, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not.i67 = icmp eq ptr %69, null
   br i1 %.not.i67, label %Vec_IntFree.exit, label %70
@@ -269,13 +269,13 @@ Vec_IntFree.exit:                                 ; preds = %67, %70
   br label %71
 
 71:                                               ; preds = %Vec_IntFree.exit, %64
-  %72 = getelementptr inbounds i8, ptr %0, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %73 = load ptr, ptr %72, align 8
   tail call void @Aig_MmFlexStop(ptr noundef %73, i32 noundef 0) #22
-  %74 = getelementptr inbounds i8, ptr %0, i64 144
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %75 = load ptr, ptr %74, align 8
   tail call void @Aig_MmFlexStop(ptr noundef %75, i32 noundef 0) #22
-  %76 = getelementptr inbounds i8, ptr %0, i64 128
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %77 = load ptr, ptr %76, align 8
   %.not44 = icmp eq ptr %77, null
   br i1 %.not44, label %79, label %78
@@ -286,7 +286,7 @@ Vec_IntFree.exit:                                 ; preds = %67, %70
   br label %79
 
 79:                                               ; preds = %71, %78
-  %80 = getelementptr inbounds i8, ptr %0, i64 136
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %81 = load ptr, ptr %80, align 8
   %.not45 = icmp eq ptr %81, null
   br i1 %.not45, label %83, label %82
@@ -297,7 +297,7 @@ Vec_IntFree.exit:                                 ; preds = %67, %70
   br label %83
 
 83:                                               ; preds = %79, %82
-  %84 = getelementptr inbounds i8, ptr %0, i64 88
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %85 = load ptr, ptr %84, align 8
   %.not46 = icmp eq ptr %85, null
   br i1 %.not46, label %87, label %86
@@ -331,7 +331,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 256) i32 @Amap_LibNumPinsMax(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %4, align 4
@@ -347,9 +347,9 @@ define range(i32 0, 256) i32 @Amap_LibNumPinsMax(ptr nocapture noundef readonly 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.012 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %7 ]
-  %8 = getelementptr inbounds ptr, ptr %.val10, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = lshr i32 %11, 24
   %spec.select = tail call i32 @llvm.umax.i32(i32 %.012, i32 %12)
@@ -367,30 +367,30 @@ define void @Amap_LibWritePin(ptr nocapture noundef %0, ptr nocapture noundef re
   %3 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 8, i64 1, ptr %0)
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %4) #22
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [10 x ptr], ptr @__const.Amap_LibWritePin.pPhaseNames, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %10) #22
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load double, ptr %12, align 8
   %14 = fptosi double %13 to i32
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %14) #22
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load double, ptr %16, align 8
   %18 = fptosi double %17 to i32
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %18) #22
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load double, ptr %20, align 8
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, double noundef %21) #22
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load double, ptr %23, align 8
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, double noundef %24) #22
-  %26 = getelementptr inbounds i8, ptr %1, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %27 = load double, ptr %26, align 8
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, double noundef %27) #22
-  %29 = getelementptr inbounds i8, ptr %1, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %30 = load double, ptr %29, align 8
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, double noundef %30) #22
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
@@ -406,22 +406,22 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: nounwind uwtable
 define void @Amap_LibWriteGate(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 5, i64 1, ptr %0)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %6) #22
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load double, ptr %8, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, double noundef %9) #22
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %12, ptr noundef %14) #22
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %25, label %16
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
@@ -431,15 +431,15 @@ define void @Amap_LibWriteGate(ptr nocapture noundef %0, ptr noundef readonly %1
   br label %25
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %1, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %23 = load i32, ptr %22, align 8
   %24 = lshr i32 %23, 24
   tail call void @Kit_DsdPrintFromTruth(ptr noundef nonnull %18, i32 noundef %24) #22
   br label %25
 
 25:                                               ; preds = %20, %21, %3
-  %.ptr = getelementptr inbounds i8, ptr %1, i64 64
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load i32, ptr %26, align 8
   %.not21 = icmp ult i32 %27, 16777216
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -447,11 +447,11 @@ define void @Amap_LibWriteGate(ptr nocapture noundef %0, ptr noundef readonly %1
 .lr.ph:                                           ; preds = %25, %.lr.ph
   %.019 = phi ptr [ %28, %.lr.ph ], [ %.ptr, %25 ]
   tail call void @Amap_LibWritePin(ptr noundef %0, ptr noundef nonnull %.019)
-  %28 = getelementptr inbounds i8, ptr %.019, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %.019, i64 72
   %29 = load i32, ptr %26, align 8
   %30 = lshr i32 %29, 24
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds %struct.Amap_Pin_t_, ptr %.ptr, i64 %31
+  %32 = getelementptr inbounds nuw %struct.Amap_Pin_t_, ptr %.ptr, i64 %31
   %33 = icmp ult ptr %28, %32
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
@@ -468,7 +468,7 @@ declare void @Kit_DsdPrintFromTruth(ptr noundef, i32 noundef) local_unnamed_addr
 define void @Amap_LibWrite(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %4) #22
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %.val10 = load i32, ptr %8, align 4
@@ -480,7 +480,7 @@ define void @Amap_LibWrite(ptr nocapture noundef %0, ptr nocapture noundef reado
   %10 = phi ptr [ %14, %.lr.ph ], [ %7, %3 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val9 = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds ptr, ptr %.val9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %.val9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   tail call void @Amap_LibWriteGate(ptr noundef %0, ptr noundef %13, i32 noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -498,10 +498,10 @@ define void @Amap_LibWrite(ptr nocapture noundef %0, ptr nocapture noundef reado
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @Amap_LibCompareGatesByArea(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load double, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load double, ptr %7, align 8
   %9 = fsub double %5, %8
   %10 = fcmp olt double %9, 0.000000e+00
@@ -513,12 +513,12 @@ define range(i32 -1, 2) i32 @Amap_LibCompareGatesByArea(ptr nocapture noundef re
 
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @Amap_LibSortGatesByArea(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %6, ptr %7, align 4
   %8 = load i32, ptr %3, align 8
   store i32 %8, ptr %4, align 8
@@ -533,9 +533,9 @@ define noalias noundef ptr @Amap_LibSortGatesByArea(ptr nocapture noundef readon
 
 Vec_PtrDup.exit:                                  ; preds = %1, %9
   %13 = phi ptr [ %12, %9 ], [ null, %1 ]
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %6 to i64
   %18 = shl nsw i64 %17, 3
@@ -549,7 +549,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @Amap_LibFindGate(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val = load i32, ptr %5, align 4
@@ -564,19 +564,19 @@ define ptr @Amap_LibFindGate(ptr nocapture noundef readonly %0, i32 noundef %1) 
 
 8:                                                ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %9 = getelementptr inbounds ptr, ptr %.val14, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %.val14, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %23, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %10, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %18, 100663296
   br i1 %19, label %20, label %23
@@ -598,7 +598,7 @@ define ptr @Amap_LibFindGate(ptr nocapture noundef readonly %0, i32 noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Amap_LibSelectGates(ptr nocapture noundef %0, i32 %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val.i = load i32, ptr %5, align 4
@@ -613,19 +613,19 @@ define noalias noundef ptr @Amap_LibSelectGates(ptr nocapture noundef %0, i32 %1
 
 8:                                                ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %9 = getelementptr inbounds ptr, ptr %.val14.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw ptr, ptr %.val14.i, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %23, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %10, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %18, 100663296
   br i1 %19, label %20, label %23
@@ -642,7 +642,7 @@ define noalias noundef ptr @Amap_LibSelectGates(ptr nocapture noundef %0, i32 %1
 
 Amap_LibFindGate.exit:                            ; preds = %20, %23, %2
   %.011.i = phi ptr [ null, %2 ], [ %10, %20 ], [ null, %23 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.011.i, ptr %24, align 8
   %.val.i42 = load i32, ptr %5, align 4
   %25 = icmp sgt i32 %.val.i42, 0
@@ -656,19 +656,19 @@ Amap_LibFindGate.exit:                            ; preds = %20, %23, %2
 
 27:                                               ; preds = %42, %.lr.ph.i44
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.i44 ], [ %indvars.iv.next.i48, %42 ]
-  %28 = getelementptr inbounds ptr, ptr %.val14.i45, i64 %indvars.iv.i47
+  %28 = getelementptr inbounds nuw ptr, ptr %.val14.i45, i64 %indvars.iv.i47
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %42, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %29, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %42, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %29, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %37 = load i32, ptr %36, align 8
   %38 = icmp ult i32 %37, 100663296
   br i1 %38, label %39, label %42
@@ -685,7 +685,7 @@ Amap_LibFindGate.exit:                            ; preds = %20, %23, %2
 
 Amap_LibFindGate.exit50:                          ; preds = %39, %42, %Amap_LibFindGate.exit
   %.011.i43 = phi ptr [ null, %Amap_LibFindGate.exit ], [ %29, %39 ], [ null, %42 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.011.i43, ptr %43, align 8
   %.val.i51 = load i32, ptr %5, align 4
   %44 = icmp sgt i32 %.val.i51, 0
@@ -699,19 +699,19 @@ Amap_LibFindGate.exit50:                          ; preds = %39, %42, %Amap_LibF
 
 46:                                               ; preds = %61, %.lr.ph.i53
   %indvars.iv.i56 = phi i64 [ 0, %.lr.ph.i53 ], [ %indvars.iv.next.i57, %61 ]
-  %47 = getelementptr inbounds ptr, ptr %.val14.i54, i64 %indvars.iv.i56
+  %47 = getelementptr inbounds nuw ptr, ptr %.val14.i54, i64 %indvars.iv.i56
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %61, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %48, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %61, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %48, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %56 = load i32, ptr %55, align 8
   %57 = icmp ult i32 %56, 100663296
   br i1 %57, label %58, label %61
@@ -728,7 +728,7 @@ Amap_LibFindGate.exit50:                          ; preds = %39, %42, %Amap_LibF
 
 Amap_LibFindGate.exit59:                          ; preds = %58, %61, %Amap_LibFindGate.exit50
   %.011.i52 = phi ptr [ null, %Amap_LibFindGate.exit50 ], [ %48, %58 ], [ null, %61 ]
-  %62 = getelementptr inbounds i8, ptr %0, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.011.i52, ptr %62, align 8
   %.val.i60 = load i32, ptr %5, align 4
   %63 = icmp sgt i32 %.val.i60, 0
@@ -742,19 +742,19 @@ Amap_LibFindGate.exit59:                          ; preds = %58, %61, %Amap_LibF
 
 65:                                               ; preds = %80, %.lr.ph.i62
   %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.i62 ], [ %indvars.iv.next.i66, %80 ]
-  %66 = getelementptr inbounds ptr, ptr %.val14.i63, i64 %indvars.iv.i65
+  %66 = getelementptr inbounds nuw ptr, ptr %.val14.i63, i64 %indvars.iv.i65
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %80, label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %67, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %80, label %73
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %67, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 56
   %75 = load i32, ptr %74, align 8
   %76 = icmp ult i32 %75, 100663296
   br i1 %76, label %77, label %80
@@ -771,14 +771,14 @@ Amap_LibFindGate.exit59:                          ; preds = %58, %61, %Amap_LibF
 
 Amap_LibFindGate.exit68:                          ; preds = %77, %80, %Amap_LibFindGate.exit59
   %.011.i61 = phi ptr [ null, %Amap_LibFindGate.exit59 ], [ %67, %77 ], [ null, %80 ]
-  %81 = getelementptr inbounds i8, ptr %0, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.011.i61, ptr %81, align 8
   %82 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 0, ptr %83, align 4
   store i32 100, ptr %82, align 8
   %84 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #21
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr %84, ptr %85, align 8
   %.val70 = load i32, ptr %5, align 4
   %86 = icmp sgt i32 %.val70, 0
@@ -789,15 +789,15 @@ Amap_LibFindGate.exit68:                          ; preds = %77, %80, %Amap_LibF
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.critedge2 ], [ 0, %Amap_LibFindGate.exit68 ]
   %88 = getelementptr i8, ptr %87, i64 8
   %.val41 = load ptr, ptr %88, align 8
-  %89 = getelementptr inbounds ptr, ptr %.val41, i64 %indvars.iv75
+  %89 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv75
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.critedge2, label %94
 
 94:                                               ; preds = %.lr.ph72
-  %95 = getelementptr inbounds i8, ptr %90, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %96 = load ptr, ptr %95, align 8
   %.not = icmp eq ptr %96, null
   br i1 %.not, label %.preheader, label %.critedge2
@@ -807,26 +807,26 @@ Amap_LibFindGate.exit68:                          ; preds = %77, %80, %Amap_LibF
   br i1 %.not73, label %.critedge39, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %97 = getelementptr inbounds i8, ptr %90, i64 56
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 56
   br label %98
 
 98:                                               ; preds = %.lr.ph, %120
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
-  %99 = getelementptr inbounds ptr, ptr %.val41, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %120, label %104
 
 104:                                              ; preds = %98
-  %105 = getelementptr inbounds i8, ptr %100, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not36 = icmp eq ptr %106, null
   br i1 %.not36, label %107, label %120
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %100, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %109 = load i32, ptr %108, align 8
   %110 = lshr i32 %109, 24
   %111 = load i32, ptr %97, align 8
@@ -932,7 +932,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 define void @Amap_LibPrintSelectedGates(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %.in.v = select i1 %.not, i64 24, i64 8
-  %.in = getelementptr inbounds i8, ptr %0, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
   %3 = load ptr, ptr %.in, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val16 = load i32, ptr %4, align 4
@@ -946,24 +946,24 @@ define void @Amap_LibPrintSelectedGates(ptr nocapture noundef readonly %0, i32 n
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.val15 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val15, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val15, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = lshr i32 %13, 24
-  %15 = getelementptr inbounds i8, ptr %9, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %16 = load double, ptr %15, align 8
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %17, ptr noundef %11, i32 noundef %14, double noundef %16)
-  %19 = getelementptr inbounds i8, ptr %9, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %20, ptr noundef %22)
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18)
-  %25 = getelementptr inbounds i8, ptr %9, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %12, align 8
   %28 = lshr i32 %27, 24
@@ -993,7 +993,7 @@ define ptr @Amap_LibReadAndPrepare(ptr noundef %0, ptr noundef %1, i32 noundef %
 11:                                               ; preds = %4
   %12 = load i64, ptr %8, align 8
   %.neg54 = mul i64 %12, -1000000
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i64, ptr %13, align 8
   %.neg = sdiv i64 %14, -1000
   %.neg55 = add i64 %.neg, %.neg54
@@ -1041,7 +1041,7 @@ Abc_UtilStrsav.exit:                              ; preds = %20, %21
   br label %.thread51
 
 .thread:                                          ; preds = %27
-  %28 = getelementptr inbounds i8, ptr %.0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 4
   %.val35 = load i32, ptr %30, align 4
@@ -1062,12 +1062,12 @@ Abc_UtilStrsav.exit:                              ; preds = %20, %21
   br label %.thread51
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %.0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
-  %41 = getelementptr inbounds i8, ptr %39, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %40, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 %42, ptr %43, align 4
   %44 = load i32, ptr %39, align 8
   store i32 %44, ptr %40, align 8
@@ -1082,18 +1082,18 @@ Abc_UtilStrsav.exit:                              ; preds = %20, %21
 
 Amap_LibSortGatesByArea.exit:                     ; preds = %37, %45
   %49 = phi ptr [ %48, %45 ], [ null, %37 ]
-  %50 = getelementptr inbounds i8, ptr %40, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %39, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %42 to i64
   %54 = shl nsw i64 %53, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 8 %52, i64 %54, i1 false)
   call void @qsort(ptr noundef %49, i64 noundef %53, i64 noundef 8, ptr noundef nonnull @Amap_LibCompareGatesByArea) #22
-  %55 = getelementptr inbounds i8, ptr %.0, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   store ptr %40, ptr %55, align 8
   %56 = call ptr @Amap_LibSelectGates(ptr noundef nonnull %.0, i32 poison)
-  %57 = getelementptr inbounds i8, ptr %.0, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store ptr %56, ptr %57, align 8
   br i1 %.not33, label %73, label %58
 
@@ -1110,7 +1110,7 @@ Amap_LibSortGatesByArea.exit:                     ; preds = %37, %45
 63:                                               ; preds = %58
   %64 = load i64, ptr %7, align 8
   %65 = mul nsw i64 %64, 1000000
-  %66 = getelementptr inbounds i8, ptr %7, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %67 = load i64, ptr %66, align 8
   %68 = sdiv i64 %67, 1000
   %69 = add nsw i64 %68, %65
@@ -1134,7 +1134,7 @@ Abc_Clock.exit37:                                 ; preds = %58, %63
 76:                                               ; preds = %73
   %77 = load i64, ptr %6, align 8
   %.neg57 = mul i64 %77, -1000000
-  %78 = getelementptr inbounds i8, ptr %6, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %79 = load i64, ptr %78, align 8
   %.neg56 = sdiv i64 %79, -1000
   %.neg58 = add i64 %.neg56, %.neg57
@@ -1147,9 +1147,9 @@ Abc_Clock.exit39:                                 ; preds = %73, %76
   br i1 %.not33, label %.thread51, label %80
 
 80:                                               ; preds = %Abc_Clock.exit39
-  %81 = getelementptr inbounds i8, ptr %.0, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %.0, i64 96
   %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.0, i64 152
+  %83 = getelementptr inbounds nuw i8, ptr %.0, i64 152
   %84 = load i32, ptr %83, align 8
   %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %82, i32 noundef %84)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22)
@@ -1161,7 +1161,7 @@ Abc_Clock.exit39:                                 ; preds = %73, %76
 88:                                               ; preds = %80
   %89 = load i64, ptr %5, align 8
   %90 = mul nsw i64 %89, 1000000
-  %91 = getelementptr inbounds i8, ptr %5, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %92 = load i64, ptr %91, align 8
   %93 = sdiv i64 %92, 1000
   %94 = add nsw i64 %93, %90

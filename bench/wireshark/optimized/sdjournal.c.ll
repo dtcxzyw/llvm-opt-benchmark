@@ -198,13 +198,13 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 65
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 65
   %53 = load i8, ptr %52, align 1
   %.not35 = icmp eq i8 %53, 0
   br i1 %.not35, label %63, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %51, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %56 = load ptr, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %.not.i = icmp eq ptr %56, null
@@ -235,13 +235,13 @@ list_config.exit:                                 ; preds = %57, %60, %61
   br label %70
 
 63:                                               ; preds = %50
-  %64 = getelementptr inbounds i8, ptr %51, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %65 = load i8, ptr %64, align 8
   %.not36 = icmp eq i8 %65, 0
   br i1 %.not36, label %70, label %66
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %51, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = call fastcc i32 @sdj_start_export(i32 noundef %.0.ph, i1 noundef zeroext %.027.ph, ptr noundef %68)
   br label %70
@@ -366,9 +366,9 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   br label %207
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %17, i64 9
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 9
   %43 = load i64, ptr %16, align 8
-  %44 = getelementptr inbounds i8, ptr %16, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = call ptr @sd_id128_to_string(i64 %43, i64 %45, ptr noundef nonnull %42) #14
   %47 = load ptr, ptr %15, align 8
@@ -450,8 +450,8 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   %86 = call noalias dereferenceable_or_null(262144) ptr @g_malloc_n(i64 noundef 262144, i64 noundef 1) #13
   %87 = getelementptr i8, ptr %86, i64 8
-  %88 = getelementptr inbounds i8, ptr %8, i64 9
-  %89 = getelementptr inbounds i8, ptr %7, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %90 = getelementptr i8, ptr %86, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(43) %8, ptr noundef nonnull align 16 dereferenceable(43) @__const.sdj_dump_entries.boot_id_str, i64 43, i1 false)
   store i64 0, ptr %11, align 8

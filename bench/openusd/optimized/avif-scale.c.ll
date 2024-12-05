@@ -52,14 +52,14 @@ define hidden range(i32 0, 27) i32 @avifImageScaleWithLimit(ptr noundef %0, i32 
 
 24:                                               ; preds = %.preheader194, %24
   %indvars.iv = phi i64 [ 0, %.preheader194 ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds [3 x ptr], ptr %21, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [3 x ptr], ptr %21, i64 0, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds [3 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv
   store ptr %26, ptr %27, align 8
   store ptr null, ptr %25, align 8
-  %28 = getelementptr inbounds [3 x i32], ptr %22, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [3 x i32], ptr %22, i64 0, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv
   store i32 %29, ptr %30, align 4
   store i32 0, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -128,7 +128,7 @@ define hidden range(i32 0, 27) i32 @avifImageScaleWithLimit(ptr noundef %0, i32 
 
 60:                                               ; preds = %.preheader192, %94
   %indvars.iv201 = phi i64 [ 0, %.preheader192 ], [ %indvars.iv.next202, %94 ]
-  %61 = getelementptr inbounds [3 x ptr], ptr %7, i64 0, i64 %indvars.iv201
+  %61 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv201
   %62 = load ptr, ptr %61, align 8
   %.not180 = icmp eq ptr %62, null
   br i1 %.not180, label %94, label %63
@@ -142,15 +142,15 @@ define hidden range(i32 0, 27) i32 @avifImageScaleWithLimit(ptr noundef %0, i32 
   %69 = tail call i32 @avifImagePlaneHeight(ptr noundef nonnull %0, i32 noundef %67) #2
   %70 = load i32, ptr %57, align 8
   %71 = icmp ugt i32 %70, 8
-  %72 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %indvars.iv201
+  %72 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv201
   %73 = load i32, ptr %72, align 4
   br i1 %71, label %74, label %85
 
 74:                                               ; preds = %63
   %75 = lshr i32 %73, 1
-  %76 = getelementptr inbounds [3 x ptr], ptr %21, i64 0, i64 %indvars.iv201
+  %76 = getelementptr inbounds nuw [3 x ptr], ptr %21, i64 0, i64 %indvars.iv201
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds [3 x i32], ptr %22, i64 0, i64 %indvars.iv201
+  %78 = getelementptr inbounds nuw [3 x i32], ptr %22, i64 0, i64 %indvars.iv201
   %79 = load i32, ptr %78, align 4
   %80 = lshr i32 %79, 1
   %81 = tail call i32 @ScalePlane_12(ptr noundef nonnull %62, i32 noundef %75, i32 noundef %65, i32 noundef %66, ptr noundef %77, i32 noundef %80, i32 noundef %68, i32 noundef %69, i32 noundef 3) #2
@@ -164,9 +164,9 @@ define hidden range(i32 0, 27) i32 @avifImageScaleWithLimit(ptr noundef %0, i32 
   br label %119
 
 85:                                               ; preds = %63
-  %86 = getelementptr inbounds [3 x ptr], ptr %21, i64 0, i64 %indvars.iv201
+  %86 = getelementptr inbounds nuw [3 x ptr], ptr %21, i64 0, i64 %indvars.iv201
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds [3 x i32], ptr %22, i64 0, i64 %indvars.iv201
+  %88 = getelementptr inbounds nuw [3 x i32], ptr %22, i64 0, i64 %indvars.iv201
   %89 = load i32, ptr %88, align 4
   %90 = tail call i32 @ScalePlane(ptr noundef nonnull %62, i32 noundef %73, i32 noundef %65, i32 noundef %66, ptr noundef %87, i32 noundef %89, i32 noundef %68, i32 noundef %69, i32 noundef 3) #2
   %.not181 = icmp eq i32 %90, 0
@@ -238,7 +238,7 @@ define hidden range(i32 0, 27) i32 @avifImageScaleWithLimit(ptr noundef %0, i32 
 
 .preheader:                                       ; preds = %119, %.preheader
   %indvars.iv205 = phi i64 [ %indvars.iv.next206, %.preheader ], [ 0, %119 ]
-  %121 = getelementptr inbounds [3 x ptr], ptr %7, i64 0, i64 %indvars.iv205
+  %121 = getelementptr inbounds nuw [3 x ptr], ptr %7, i64 0, i64 %indvars.iv205
   %122 = load ptr, ptr %121, align 8
   tail call void @avifFree(ptr noundef %122) #2
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1

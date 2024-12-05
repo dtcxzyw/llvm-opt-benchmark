@@ -11,15 +11,15 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { <2 x float>, float } @_ZNK7b2Mat337Solve33ERK6b2Vec3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %b) local_unnamed_addr #0 align 2 {
 entry:
-  %ey = getelementptr inbounds i8, ptr %this, i64 12
-  %ez = getelementptr inbounds i8, ptr %this, i64 24
-  %y.i = getelementptr inbounds i8, ptr %this, i64 16
+  %ey = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %ez = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load float, ptr %y.i, align 4
-  %z.i = getelementptr inbounds i8, ptr %this, i64 32
+  %z.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load float, ptr %z.i, align 4
-  %z1.i = getelementptr inbounds i8, ptr %this, i64 20
+  %z1.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %2 = load float, ptr %z1.i, align 4
-  %y2.i = getelementptr inbounds i8, ptr %this, i64 28
+  %y2.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %3 = load float, ptr %y2.i, align 4
   %4 = fneg float %3
   %neg.i = fmul float %2, %4
@@ -33,22 +33,22 @@ entry:
   %neg14.i = fmul float %0, %10
   %11 = tail call float @llvm.fmuladd.f32(float %7, float %3, float %neg14.i)
   %12 = load float, ptr %this, align 4
-  %y.i8 = getelementptr inbounds i8, ptr %this, i64 4
+  %y.i8 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %13 = load float, ptr %y.i8, align 4
   %mul3.i = fmul float %13, %9
   %14 = tail call float @llvm.fmuladd.f32(float %12, float %5, float %mul3.i)
-  %z.i10 = getelementptr inbounds i8, ptr %this, i64 8
+  %z.i10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %15 = load float, ptr %z.i10, align 4
   %16 = tail call noundef float @llvm.fmuladd.f32(float %15, float %11, float %14)
   %cmp = fcmp une float %16, 0.000000e+00
   %div = fdiv float 1.000000e+00, %16
   %det.0 = select i1 %cmp, float %div, float %16
   %17 = load float, ptr %b, align 4
-  %y.i22 = getelementptr inbounds i8, ptr %b, i64 4
+  %y.i22 = getelementptr inbounds nuw i8, ptr %b, i64 4
   %18 = load float, ptr %y.i22, align 4
   %mul3.i24 = fmul float %9, %18
   %19 = tail call float @llvm.fmuladd.f32(float %17, float %5, float %mul3.i24)
-  %z.i25 = getelementptr inbounds i8, ptr %b, i64 8
+  %z.i25 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %20 = load float, ptr %z.i25, align 4
   %21 = tail call noundef float @llvm.fmuladd.f32(float %20, float %11, float %19)
   %mul = fmul float %det.0, %21
@@ -86,11 +86,11 @@ entry:
 define <2 x float> @_ZNK7b2Mat337Solve22ERK6b2Vec2(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
-  %ey = getelementptr inbounds i8, ptr %this, i64 12
+  %ey = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load float, ptr %ey, align 4
-  %y = getelementptr inbounds i8, ptr %this, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %y, align 4
-  %y5 = getelementptr inbounds i8, ptr %this, i64 16
+  %y5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load float, ptr %y5, align 4
   %4 = fneg float %2
   %neg = fmul float %1, %4
@@ -99,7 +99,7 @@ entry:
   %div = fdiv float 1.000000e+00, %5
   %det.0 = select i1 %cmp, float %div, float %5
   %6 = load float, ptr %b, align 4
-  %y8 = getelementptr inbounds i8, ptr %b, i64 4
+  %y8 = getelementptr inbounds nuw i8, ptr %b, i64 4
   %7 = load float, ptr %y8, align 4
   %8 = fneg float %7
   %neg10 = fmul float %1, %8
@@ -121,11 +121,11 @@ declare float @llvm.fmuladd.f32(float, float, float) #1
 define void @_ZNK7b2Mat3312GetInverse22EPS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef writeonly initializes((0, 36)) %M) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
-  %ey = getelementptr inbounds i8, ptr %this, i64 12
+  %ey = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load float, ptr %ey, align 4
-  %y = getelementptr inbounds i8, ptr %this, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %y, align 4
-  %y5 = getelementptr inbounds i8, ptr %this, i64 16
+  %y5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load float, ptr %y5, align 4
   %4 = fneg float %2
   %neg = fmul float %1, %4
@@ -137,17 +137,17 @@ entry:
   store float %mul, ptr %M, align 4
   %fneg = fneg float %det.0
   %mul9 = fmul float %1, %fneg
-  %ey10 = getelementptr inbounds i8, ptr %M, i64 12
+  %ey10 = getelementptr inbounds nuw i8, ptr %M, i64 12
   store float %mul9, ptr %ey10, align 4
-  %z = getelementptr inbounds i8, ptr %M, i64 8
+  %z = getelementptr inbounds nuw i8, ptr %M, i64 8
   store float 0.000000e+00, ptr %z, align 4
   %mul14 = fmul float %2, %fneg
-  %y16 = getelementptr inbounds i8, ptr %M, i64 4
+  %y16 = getelementptr inbounds nuw i8, ptr %M, i64 4
   store float %mul14, ptr %y16, align 4
   %mul17 = fmul float %0, %det.0
-  %y19 = getelementptr inbounds i8, ptr %M, i64 16
+  %y19 = getelementptr inbounds nuw i8, ptr %M, i64 16
   store float %mul17, ptr %y19, align 4
-  %z21 = getelementptr inbounds i8, ptr %M, i64 20
+  %z21 = getelementptr inbounds nuw i8, ptr %M, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %z21, i8 0, i64 16, i1 false)
   ret void
 }
@@ -155,15 +155,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK7b2Mat3315GetSymInverse33EPS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %this, ptr nocapture noundef writeonly initializes((0, 36)) %M) local_unnamed_addr #3 align 2 {
 entry:
-  %ey = getelementptr inbounds i8, ptr %this, i64 12
-  %ez = getelementptr inbounds i8, ptr %this, i64 24
-  %y.i = getelementptr inbounds i8, ptr %this, i64 16
+  %ey = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %ez = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load float, ptr %y.i, align 4
-  %z.i = getelementptr inbounds i8, ptr %this, i64 32
+  %z.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load float, ptr %z.i, align 4
-  %z1.i = getelementptr inbounds i8, ptr %this, i64 20
+  %z1.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %2 = load float, ptr %z1.i, align 4
-  %y2.i = getelementptr inbounds i8, ptr %this, i64 28
+  %y2.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %3 = load float, ptr %y2.i, align 4
   %4 = fneg float %3
   %neg.i = fmul float %2, %4
@@ -177,11 +177,11 @@ entry:
   %neg14.i = fmul float %0, %10
   %11 = tail call float @llvm.fmuladd.f32(float %7, float %3, float %neg14.i)
   %12 = load float, ptr %this, align 4
-  %y.i37 = getelementptr inbounds i8, ptr %this, i64 4
+  %y.i37 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %13 = load float, ptr %y.i37, align 4
   %mul3.i = fmul float %13, %9
   %14 = tail call float @llvm.fmuladd.f32(float %12, float %5, float %mul3.i)
-  %z.i39 = getelementptr inbounds i8, ptr %this, i64 8
+  %z.i39 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %15 = load float, ptr %z.i39, align 4
   %16 = tail call noundef float @llvm.fmuladd.f32(float %15, float %11, float %14)
   %cmp = fcmp une float %16, 0.000000e+00
@@ -193,35 +193,35 @@ entry:
   store float %mul, ptr %M, align 4
   %18 = tail call float @llvm.fmuladd.f32(float %6, float %3, float %neg8.i)
   %mul18 = fmul float %det.0, %18
-  %y20 = getelementptr inbounds i8, ptr %M, i64 4
+  %y20 = getelementptr inbounds nuw i8, ptr %M, i64 4
   store float %mul18, ptr %y20, align 4
   %19 = fneg float %0
   %neg23 = fmul float %6, %19
   %20 = tail call float @llvm.fmuladd.f32(float %7, float %3, float %neg23)
   %mul24 = fmul float %20, %det.0
-  %z26 = getelementptr inbounds i8, ptr %M, i64 8
+  %z26 = getelementptr inbounds nuw i8, ptr %M, i64 8
   store float %mul24, ptr %z26, align 4
-  %ey29 = getelementptr inbounds i8, ptr %M, i64 12
+  %ey29 = getelementptr inbounds nuw i8, ptr %M, i64 12
   store float %mul18, ptr %ey29, align 4
   %neg33 = fmul float %6, %10
   %21 = tail call float @llvm.fmuladd.f32(float %12, float %1, float %neg33)
   %mul34 = fmul float %det.0, %21
-  %y36 = getelementptr inbounds i8, ptr %M, i64 16
+  %y36 = getelementptr inbounds nuw i8, ptr %M, i64 16
   store float %mul34, ptr %y36, align 4
   %neg39 = fmul float %12, %4
   %22 = tail call float @llvm.fmuladd.f32(float %6, float %7, float %neg39)
   %mul40 = fmul float %det.0, %22
-  %z42 = getelementptr inbounds i8, ptr %M, i64 20
+  %z42 = getelementptr inbounds nuw i8, ptr %M, i64 20
   store float %mul40, ptr %z42, align 4
-  %ez45 = getelementptr inbounds i8, ptr %M, i64 24
+  %ez45 = getelementptr inbounds nuw i8, ptr %M, i64 24
   store float %mul24, ptr %ez45, align 4
-  %y50 = getelementptr inbounds i8, ptr %M, i64 28
+  %y50 = getelementptr inbounds nuw i8, ptr %M, i64 28
   store float %mul40, ptr %y50, align 4
   %23 = fneg float %7
   %neg53 = fmul float %7, %23
   %24 = tail call float @llvm.fmuladd.f32(float %12, float %0, float %neg53)
   %mul54 = fmul float %24, %det.0
-  %z56 = getelementptr inbounds i8, ptr %M, i64 32
+  %z56 = getelementptr inbounds nuw i8, ptr %M, i64 32
   store float %mul54, ptr %z56, align 4
   ret void
 }

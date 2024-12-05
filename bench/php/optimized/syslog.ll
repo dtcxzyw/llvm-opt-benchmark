@@ -56,7 +56,7 @@ define hidden void @zif_openlog(ptr noundef %0, ptr nocapture noundef writeonly 
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 3
   br i1 %.not, label %9, label %8
@@ -66,8 +66,8 @@ define hidden void @zif_openlog(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %.thread173
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 6
   br i1 %13, label %.thread, label %15
@@ -87,11 +87,11 @@ define hidden void @zif_openlog(ptr noundef %0, ptr nocapture noundef writeonly 
 
 17:                                               ; preds = %._crit_edge, %.thread
   %18 = phi ptr [ %.pre, %._crit_edge ], [ %14, %.thread ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 4
   br i1 %25, label %.critedge, label %27
@@ -106,8 +106,8 @@ define hidden void @zif_openlog(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %28, label %29, label %.thread173
 
 29:                                               ; preds = %27, %.critedge
-  %30 = getelementptr inbounds i8, ptr %0, i64 112
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load i8, ptr %31, align 8
   %33 = icmp eq i8 %32, 4
   br i1 %33, label %.thread169, label %35
@@ -147,7 +147,7 @@ define hidden void @zif_openlog(ptr noundef %0, ptr nocapture noundef writeonly 
   %43 = load i64, ptr %5, align 8
   %44 = trunc i64 %43 to i32
   call void @php_openlog(ptr noundef %40, i32 noundef %42, i32 noundef %44) #4
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %45, align 8
   br label %46
 
@@ -165,7 +165,7 @@ declare void @php_openlog(ptr noundef, i32 noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_closelog(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -186,7 +186,7 @@ define hidden void @zif_closelog(ptr nocapture noundef readonly %0, ptr nocaptur
   br label %9
 
 9:                                                ; preds = %8, %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %10, align 8
   br label %11
 
@@ -200,7 +200,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
 define hidden void @zif_syslog(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 2
   br i1 %.not, label %8, label %7
@@ -210,8 +210,8 @@ define hidden void @zif_syslog(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %.thread115
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 4
   br i1 %12, label %.critedge, label %14
@@ -226,8 +226,8 @@ define hidden void @zif_syslog(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %15, label %16, label %.thread115
 
 16:                                               ; preds = %14, %.critedge
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 6
   br i1 %20, label %.thread111, label %22
@@ -259,7 +259,7 @@ define hidden void @zif_syslog(ptr noundef %0, ptr nocapture noundef writeonly %
   %25 = load i64, ptr %3, align 8
   %26 = trunc i64 %25 to i32
   call void @php_syslog_str(i32 noundef %26, ptr noundef %24) #4
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %27, align 8
   br label %28
 

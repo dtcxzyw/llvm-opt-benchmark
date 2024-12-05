@@ -66,9 +66,9 @@ define { i64, i64 } @f128_sqrt(i64 %0, i64 %1) local_unnamed_addr #0 {
 31:                                               ; preds = %26
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %3, i64 noundef %6, i64 noundef %0) #3
   %.sroa.0126.0.copyload = load i64, ptr %3, align 8
-  %.sroa.2127.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2127.sroa.0.0.copyload = load i64, ptr %.sroa.2127.0..sroa_idx, align 8
-  %.sroa.2127.sroa.2.0..sroa.2127.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.2127.sroa.2.0..sroa.2127.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.2127.sroa.2.0.copyload = load i64, ptr %.sroa.2127.sroa.2.0..sroa.2127.0..sroa_idx.sroa_idx, align 8
   br label %32
 

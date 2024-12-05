@@ -208,14 +208,14 @@ define internal fastcc range(i32 0, 2) i32 @dissect_fcip(ptr noundef %0, ptr nou
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 284
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr @fcip_port, align 4
   %.not114 = icmp eq i32 %11, %12
   br i1 %.not114, label %16, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 288
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %15 = load i32, ptr %14, align 8
   %.not115 = icmp eq i32 %15, %12
   br i1 %.not115, label %16, label %get_next_fcip_header_offset.exit.thread
@@ -225,10 +225,10 @@ define internal fastcc range(i32 0, 2) i32 @dissect_fcip(ptr noundef %0, ptr nou
   br i1 %.not155, label %get_next_fcip_header_offset.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %17 = getelementptr inbounds i8, ptr %1, i64 328
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.not117 = icmp eq ptr %2, null
-  %19 = getelementptr inbounds i8, ptr %5, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br label %20
 
 20:                                               ; preds = %.lr.ph, %dissect_fcip_sf.exit
@@ -256,7 +256,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_fcip(ptr noundef %0, ptr nou
   br i1 %.not104.i, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 332
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0100120.i, ptr %28, align 4
   br label %get_next_fcip_header_offset.exit.thread129
 
@@ -343,14 +343,14 @@ define internal fastcc range(i32 0, 2) i32 @dissect_fcip(ptr noundef %0, ptr nou
   br i1 %.not112.i, label %get_next_fcip_header_offset.exit, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %1, i64 332
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0100120.i, ptr %72, align 4
   %73 = sub i32 %38, %.0101119.i
   br label %get_next_fcip_header_offset.exit.thread129
 
 get_next_fcip_header_offset.exit.thread129:       ; preds = %27, %71
   %.sink.i = phi i32 [ %73, %71 ], [ 268435455, %27 ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 336
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %.sink.i, ptr %74, align 8
   br label %get_next_fcip_header_offset.exit.thread
 
@@ -379,10 +379,10 @@ get_next_fcip_header_offset.exit:                 ; preds = %61, %64, %67, %69
   br i1 %.not116, label %90, label %86
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %1, i64 332
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0100120.i, ptr %87, align 4
   %88 = sub nsw i32 %80, %.0107147
-  %89 = getelementptr inbounds i8, ptr %1, i64 336
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %88, ptr %89, align 8
   br label %get_next_fcip_header_offset.exit.thread
 

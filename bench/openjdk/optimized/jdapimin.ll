@@ -5,20 +5,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @jCreaDecompress(ptr noundef initializes((8, 16)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
   %.not = icmp eq i32 %1, 62
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 12, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i32 62, ptr %9, align 4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i32 %1, ptr %11, align 4
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %12, align 8
@@ -31,14 +31,14 @@ define hidden void @jCreaDecompress(ptr noundef initializes((8, 16)) %0, i32 nou
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 21, ptr %17, align 8
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 44
   store i32 632, ptr %19, align 4
   %20 = trunc i64 %2 to i32
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store i32 %20, ptr %22, align 4
   %23 = load ptr, ptr %0, align 8
   %24 = load ptr, ptr %23, align 8
@@ -47,26 +47,26 @@ define hidden void @jCreaDecompress(ptr noundef initializes((8, 16)) %0, i32 nou
 
 .preheader:                                       ; preds = %15, %14
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(632) %28, i8 0, i64 624, i1 false)
   store ptr %25, ptr %0, align 8
   store ptr %27, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 1, ptr %29, align 8
   tail call void @jIMemMgr(ptr noundef nonnull %0) #3
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 200
-  %33 = getelementptr inbounds i8, ptr %0, i64 400
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr null, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %32, i8 0, i64 96, i1 false)
   tail call void @jIMReader(ptr noundef nonnull %0) #3
   tail call void @jIInCtlr(ptr noundef nonnull %0) #3
-  %34 = getelementptr inbounds i8, ptr %0, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 200, ptr %34, align 4
   ret void
 }
@@ -98,7 +98,7 @@ declare void @jAbort(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @jReadHeader(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, -2
   %switch = icmp eq i32 %5, 200
@@ -106,11 +106,11 @@ define hidden i32 @jReadHeader(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 20, ptr %8, align 8
   %9 = load i32, ptr %3, align 4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i32 %9, ptr %11, align 4
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %12, align 8
@@ -128,7 +128,7 @@ define hidden i32 @jReadHeader(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 51, ptr %19, align 8
   %20 = load ptr, ptr %0, align 8
   %21 = load ptr, ptr %20, align 8
@@ -145,7 +145,7 @@ define hidden i32 @jReadHeader(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @jConsumeInput(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %108 [
     i32 200, label %4
@@ -161,21 +161,21 @@ define hidden i32 @jConsumeInput(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 576
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull %0) #3
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull %0) #3
   store i32 201, ptr %2, align 4
   br label %13
 
 13:                                               ; preds = %4, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 576
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %0) #3
@@ -183,7 +183,7 @@ define hidden i32 @jConsumeInput(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %18, label %19, label %116
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %84 [
     i32 1, label %default_decompress_parms.exit
@@ -192,19 +192,19 @@ define hidden i32 @jConsumeInput(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 372
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %24 = load i32, ptr %23, align 4
   %.not74.i = icmp eq i32 %24, 0
   br i1 %.not74.i, label %25, label %default_decompress_parms.exit
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 384
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %27 = load i32, ptr %26, align 8
   %.not75.i = icmp eq i32 %27, 0
   br i1 %.not75.i, label %42, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 388
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %30 = load i8, ptr %29, align 4
   switch i8 %30, label %32 [
     i8 0, label %default_decompress_parms.exit
@@ -216,26 +216,26 @@ define hidden i32 @jConsumeInput(ptr noundef %0) local_unnamed_addr #0 {
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store i32 114, ptr %34, align 8
   %35 = load i8, ptr %29, align 4
   %36 = zext i8 %35 to i32
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 44
   store i32 %36, ptr %38, align 4
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %0, i32 noundef -1) #3
   br label %default_decompress_parms.exit
 
 42:                                               ; preds = %25
-  %43 = getelementptr inbounds i8, ptr %0, i64 304
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %44, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 192
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 192
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %45, 1
   %51 = icmp eq i32 %47, 2
@@ -254,29 +254,29 @@ define hidden i32 @jConsumeInput(ptr noundef %0) local_unnamed_addr #0 {
 
 57:                                               ; preds = %53
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 44
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 44
   store i32 %45, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %58, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 48
   store i32 %47, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %58, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 52
   store i32 %49, ptr %61, align 4
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   store i32 111, ptr %63, align 8
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef nonnull %0, i32 noundef 1) #3
   br label %default_decompress_parms.exit
 
 67:                                               ; preds = %19
-  %68 = getelementptr inbounds i8, ptr %0, i64 384
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %69 = load i32, ptr %68, align 8
   %.not.i = icmp eq i32 %69, 0
   br i1 %.not.i, label %default_decompress_parms.exit, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %0, i64 388
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %72 = load i8, ptr %71, align 4
   switch i8 %72, label %74 [
     i8 0, label %default_decompress_parms.exit
@@ -288,15 +288,15 @@ define hidden i32 @jConsumeInput(ptr noundef %0) local_unnamed_addr #0 {
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   store i32 114, ptr %76, align 8
   %77 = load i8, ptr %71, align 4
   %78 = zext i8 %77 to i32
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 44
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 44
   store i32 %78, ptr %80, align 4
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   tail call void %83(ptr noundef nonnull %0, i32 noundef -1) #3
   br label %default_decompress_parms.exit
@@ -307,47 +307,47 @@ define hidden i32 @jConsumeInput(ptr noundef %0) local_unnamed_addr #0 {
 default_decompress_parms.exit:                    ; preds = %19, %22, %28, %31, %32, %42, %53, %57, %67, %70, %73, %74, %84
   %.sink81.i = phi i32 [ 0, %84 ], [ %21, %19 ], [ 3, %32 ], [ 3, %31 ], [ 3, %57 ], [ 3, %22 ], [ 2, %28 ], [ 3, %42 ], [ 2, %53 ], [ 5, %73 ], [ 5, %74 ], [ 4, %70 ], [ 4, %67 ]
   %.sink79.i = phi i32 [ 0, %84 ], [ %21, %19 ], [ 2, %32 ], [ 2, %31 ], [ 2, %57 ], [ 2, %22 ], [ 2, %28 ], [ 2, %42 ], [ 2, %53 ], [ 4, %73 ], [ 4, %74 ], [ 4, %70 ], [ 4, %67 ]
-  %85 = getelementptr inbounds i8, ptr %0, i64 60
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %.sink81.i, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %0, i64 64
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink79.i, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 68
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 1, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %0, i64 72
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 1, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 80
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double 1.000000e+00, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 88
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 92
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %0, i64 96
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 100
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 1, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %0, i64 104
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 1, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 108
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 0, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %0, i64 112
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 2, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 116
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 1, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 120
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 256, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 160
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr null, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 124
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 0, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %0, i64 128
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 132
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 0, ptr %102, align 4
   store i32 202, ptr %2, align 4
   br label %116
 
 103:                                              ; preds = %1, %1, %1, %1, %1, %1, %1
-  %104 = getelementptr inbounds i8, ptr %0, i64 576
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %105, align 8
   %107 = tail call i32 %106(ptr noundef nonnull %0) #3
@@ -355,11 +355,11 @@ default_decompress_parms.exit:                    ; preds = %19, %22, %28, %31, 
 
 108:                                              ; preds = %1
   %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
   store i32 20, ptr %110, align 8
   %111 = load i32, ptr %2, align 4
   %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 44
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 44
   store i32 %111, ptr %113, align 4
   %114 = load ptr, ptr %0, align 8
   %115 = load ptr, ptr %114, align 8
@@ -373,7 +373,7 @@ default_decompress_parms.exit:                    ; preds = %19, %22, %28, %31, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @jInComplete(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -211
   %or.cond = icmp ult i32 %4, -11
@@ -381,11 +381,11 @@ define hidden i32 @jInComplete(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 20, ptr %7, align 8
   %8 = load i32, ptr %2, align 4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 %8, ptr %10, align 4
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
@@ -393,16 +393,16 @@ define hidden i32 @jInComplete(ptr noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %1, %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 576
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %17 = load i32, ptr %16, align 4
   ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @jHasMultScn(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -211
   %or.cond = icmp ult i32 %4, -9
@@ -410,11 +410,11 @@ define hidden i32 @jHasMultScn(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 20, ptr %7, align 8
   %8 = load i32, ptr %2, align 4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 %8, ptr %10, align 4
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
@@ -422,38 +422,38 @@ define hidden i32 @jHasMultScn(ptr noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %1, %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 576
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i32, ptr %16, align 8
   ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @jFinDecompress(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %.off = add i32 %3, -205
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %4, label %23
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %23
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 140
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %11 = load i32, ptr %10, align 4
   %12 = icmp ult i32 %9, %11
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 67, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
   %17 = load ptr, ptr %16, align 8
@@ -461,9 +461,9 @@ define hidden range(i32 0, 2) i32 @jFinDecompress(ptr noundef %0) local_unnamed_
   br label %18
 
 18:                                               ; preds = %13, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 544
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull %0) #3
   store i32 210, ptr %2, align 4
@@ -481,11 +481,11 @@ define hidden range(i32 0, 2) i32 @jFinDecompress(ptr noundef %0) local_unnamed_
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i32 20, ptr %27, align 8
   %28 = load i32, ptr %2, align 4
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 44
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 44
   store i32 %28, ptr %30, align 4
   %31 = load ptr, ptr %0, align 8
   %32 = load ptr, ptr %31, align 8
@@ -493,12 +493,12 @@ define hidden range(i32 0, 2) i32 @jFinDecompress(ptr noundef %0) local_unnamed_
   br label %33
 
 33:                                               ; preds = %23, %24, %25, %18
-  %34 = getelementptr inbounds i8, ptr %0, i64 576
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 576
   br label %35
 
 35:                                               ; preds = %39, %33
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %38 = load i32, ptr %37, align 4
   %.not28 = icmp eq i32 %38, 0
   br i1 %.not28, label %39, label %43
@@ -510,9 +510,9 @@ define hidden range(i32 0, 2) i32 @jFinDecompress(ptr noundef %0) local_unnamed_
   br i1 %42, label %.loopexit, label %35, !llvm.loop !6
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %47 = load ptr, ptr %46, align 8
   tail call void %47(ptr noundef nonnull %0) #3
   tail call void @jAbort(ptr noundef nonnull %0) #3

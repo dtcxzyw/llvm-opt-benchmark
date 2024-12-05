@@ -28,7 +28,7 @@ define dso_local ptr @pglz_compress_datum(ptr noundef %0) local_unnamed_addr #0 
   br i1 %4, label %5, label %14
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 1
   %9 = and i8 %7, -2
@@ -63,7 +63,7 @@ define dso_local ptr @pglz_compress_datum(ptr noundef %0) local_unnamed_addr #0 
   br i1 %27, label %45, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %25, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %24, %30
   br i1 %31, label %45, label %32
@@ -76,7 +76,7 @@ define dso_local ptr @pglz_compress_datum(ptr noundef %0) local_unnamed_addr #0 
   %37 = and i8 %36, 1
   %.not24 = icmp eq i8 %37, 0
   %.v = select i1 %.not24, i64 4, i64 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 %.v
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %39 = getelementptr i8, ptr %35, i64 8
   %40 = tail call i32 @pglz_compress(ptr noundef nonnull %38, i32 noundef %24, ptr noundef %39, ptr noundef null) #7
   %41 = icmp slt i32 %40, 0
@@ -105,7 +105,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pglz_decompress_datum(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1073741823
   %5 = add nuw nsw i32 %4, 4
@@ -115,7 +115,7 @@ define dso_local ptr @pglz_decompress_datum(ptr noundef %0) local_unnamed_addr #
   %9 = load i32, ptr %0, align 4
   %10 = lshr i32 %9, 2
   %11 = add nsw i32 %10, -8
-  %12 = getelementptr inbounds i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %13 = load i32, ptr %2, align 4
   %14 = and i32 %13, 1073741823
   %15 = tail call i32 @pglz_decompress(ptr noundef %8, i32 noundef %11, ptr noundef nonnull %12, i32 noundef %14, i1 noundef zeroext true) #7
@@ -157,7 +157,7 @@ define dso_local ptr @pglz_decompress_datum_slice(ptr noundef %0, i32 noundef %1
   %7 = load i32, ptr %0, align 4
   %8 = lshr i32 %7, 2
   %9 = add nsw i32 %8, -8
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = tail call i32 @pglz_decompress(ptr noundef %6, i32 noundef %9, ptr noundef nonnull %10, i32 noundef %1, i1 noundef zeroext false) #7
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %17
@@ -221,15 +221,15 @@ define dso_local range(i32 0, 4) i32 @toast_get_compression_id(ptr nocapture nou
   br i1 %3, label %4, label %14
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 18
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.0.0.copyload = load i32, ptr %9, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 6
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
   %10 = and i32 %.sroa.2.0.copyload, 1073741823
   %11 = add i32 %.sroa.0.0.copyload, -4
@@ -244,7 +244,7 @@ define dso_local range(i32 0, 4) i32 @toast_get_compression_id(ptr nocapture nou
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = lshr i32 %19, 30
   br label %.thread

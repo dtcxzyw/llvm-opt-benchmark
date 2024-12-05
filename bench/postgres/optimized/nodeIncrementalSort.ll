@@ -26,23 +26,23 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @ExecInitIncrementalSort(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 424) #8
   store i32 411, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @ExecIncrementalSort, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 256
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 256
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 224
   store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 240
   store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 248
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 392
-  %13 = getelementptr inbounds i8, ptr %4, i64 264
-  %14 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 392
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 264
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %14, align 8
@@ -50,22 +50,22 @@ define dso_local noundef ptr @ExecInitIncrementalSort(ptr noundef %0, ptr nounde
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %4, i64 296
-  %18 = getelementptr inbounds i8, ptr %4, i64 344
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %17, i8 0, i64 44, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %18, i8 0, i64 44, i1 false)
   br label %19
 
 19:                                               ; preds = %16, %3
-  %20 = getelementptr inbounds i8, ptr %4, i64 400
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 400
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @ExecInitNode(ptr noundef %22, ptr noundef %1, i32 noundef %2) #8
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %23, ptr %24, align 8
   tail call void @ExecCreateScanSlotFromOuterPlan(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull @TTSOpsMinimalTuple) #8
   tail call void @ExecInitResultTupleSlotTL(ptr noundef nonnull %4, ptr noundef nonnull @TTSOpsMinimalTuple) #8
-  %25 = getelementptr inbounds i8, ptr %4, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr null, ptr %25, align 8
   %26 = load ptr, ptr %24, align 8
   %27 = tail call ptr @ExecGetResultType(ptr noundef %26) #8
@@ -84,7 +84,7 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %3 = alloca %struct.TuplesortInstrumentation, align 8
   %4 = alloca %struct.TuplesortInstrumentation, align 8
   %5 = alloca %struct.TuplesortInstrumentation, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %8, 0
@@ -95,13 +95,13 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   br label %10
 
 10:                                               ; preds = %1, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 256
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, -2
   %switch = icmp eq i32 %19, 2
@@ -112,26 +112,26 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 280
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %24 = load ptr, ptr %23, align 8
   br label %25
 
 25:                                               ; preds = %20, %22
   %26 = phi ptr [ %24, %22 ], [ %16, %20 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq i32 %14, 1
   %30 = tail call zeroext i1 @tuplesort_gettupleslot(ptr noundef %26, i1 noundef zeroext %29, i1 noundef zeroext false, ptr noundef %28, ptr noundef null) #8
   br i1 %30, label %459, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 240
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %459, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 264
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %37 = load i64, ptr %36, align 8
   %38 = icmp sgt i64 %37, 0
   br i1 %38, label %39, label %40
@@ -146,7 +146,7 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
 
 41:                                               ; preds = %10, %40, %39
   store i32 1, ptr %13, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr @ExecGetResultType(ptr noundef %43) #8
   %45 = load i32, ptr %17, align 8
@@ -159,21 +159,21 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 144
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 144
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
   %54 = shl nsw i64 %53, 6
   %55 = tail call ptr @palloc(i64 noundef %54) #8
-  %56 = getelementptr inbounds i8, ptr %0, i64 288
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %55, ptr %56, align 8
   %57 = load i32, ptr %51, align 8
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph.i, label %preparePresortedCols.exit
 
 .lr.ph.i:                                         ; preds = %49
-  %59 = getelementptr inbounds i8, ptr %50, i64 112
-  %60 = getelementptr inbounds i8, ptr %50, i64 120
-  %61 = getelementptr inbounds i8, ptr %50, i64 128
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 120
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 128
   br label %62
 
 62:                                               ; preds = %84, %.lr.ph.i
@@ -183,7 +183,7 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %65 = load ptr, ptr %59, align 8
   %66 = getelementptr i16, ptr %65, i64 %indvars.iv.i
   %67 = load i16, ptr %66, align 2
-  %68 = getelementptr inbounds i8, ptr %64, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 56
   store i16 %67, ptr %68, align 8
   %69 = load ptr, ptr %60, align 8
   %70 = getelementptr i32, ptr %69, i64 %indvars.iv.i
@@ -218,29 +218,29 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %85 = load ptr, ptr @CurrentMemoryContext, align 8
   tail call void @fmgr_info_cxt(i32 noundef %80, ptr noundef %64, ptr noundef %85) #8
   %86 = tail call ptr @palloc0(i64 noundef 64) #8
-  %87 = getelementptr inbounds i8, ptr %64, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store ptr %86, ptr %87, align 8
   store ptr %64, ptr %86, align 8
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr null, ptr %89, align 8
   %90 = load ptr, ptr %87, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr null, ptr %91, align 8
   %92 = load ptr, ptr %61, align 8
   %93 = getelementptr i32, ptr %92, i64 %indvars.iv.i
   %94 = load i32, ptr %93, align 4
   %95 = load ptr, ptr %87, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   store i32 %94, ptr %96, align 8
   %97 = load ptr, ptr %87, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 28
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 28
   store i8 0, ptr %98, align 4
   %99 = load ptr, ptr %87, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 30
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 30
   store i16 2, ptr %100, align 2
   %101 = load ptr, ptr %87, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
   store i8 0, ptr %102, align 8
   %103 = load ptr, ptr %87, align 8
   %104 = getelementptr i8, ptr %103, i64 56
@@ -252,18 +252,18 @@ define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   br i1 %107, label %62, label %preparePresortedCols.exit, !llvm.loop !5
 
 preparePresortedCols.exit:                        ; preds = %84, %49
-  %108 = getelementptr inbounds i8, ptr %7, i64 104
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %109 = load i32, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %7, i64 112
+  %110 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %7, i64 120
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %7, i64 128
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %7, i64 136
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %117 = load ptr, ptr %116, align 8
   %118 = load i32, ptr @work_mem, align 4
-  %119 = getelementptr inbounds i8, ptr %0, i64 224
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %120 = load i8, ptr %119, align 8
   %121 = trunc i8 %120 to i1
   %122 = select i1 %121, i32 2, i32 0
@@ -277,15 +277,15 @@ preparePresortedCols.exit:                        ; preds = %84, %49
 
 125:                                              ; preds = %124, %preparePresortedCols.exit
   %.1162 = phi ptr [ %123, %preparePresortedCols.exit ], [ %16, %124 ]
-  %126 = getelementptr inbounds i8, ptr %0, i64 224
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %127 = load i8, ptr %126, align 8
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %139
 
 129:                                              ; preds = %125
-  %130 = getelementptr inbounds i8, ptr %0, i64 232
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %131 = load i64, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 248
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %133 = load i64, ptr %132, align 8
   %134 = sub i64 %131, %133
   %135 = icmp slt i64 %134, 32
@@ -301,13 +301,13 @@ preparePresortedCols.exit:                        ; preds = %84, %49
 
 139:                                              ; preds = %125, %137
   %.0159 = phi i64 [ %138, %137 ], [ 32, %125 ]
-  %140 = getelementptr inbounds i8, ptr %0, i64 392
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
   br i1 %142, label %154, label %143
 
 143:                                              ; preds = %139
-  %144 = getelementptr inbounds i8, ptr %141, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 4
   %145 = load i16, ptr %144, align 4
   %146 = and i16 %145, 2
   %.not179 = icmp eq i16 %146, 0
@@ -320,17 +320,17 @@ preparePresortedCols.exit:                        ; preds = %84, %49
 
 148:                                              ; preds = %147
   %149 = load ptr, ptr %140, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %153 = load ptr, ptr %152, align 8
   tail call void %153(ptr noundef %149) #8
   br label %154
 
 154:                                              ; preds = %147, %148, %143, %139
   %.1 = phi i64 [ 0, %139 ], [ 0, %143 ], [ 1, %148 ], [ 1, %147 ]
-  %155 = getelementptr inbounds i8, ptr %43, i64 104
-  %156 = getelementptr inbounds i8, ptr %43, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %43, i64 104
+  %156 = getelementptr inbounds nuw i8, ptr %43, i64 24
   br label %157
 
 157:                                              ; preds = %.backedge, %154
@@ -350,35 +350,35 @@ ExecProcNode.exit:                                ; preds = %157, %159
   br i1 %162, label %167, label %163
 
 163:                                              ; preds = %ExecProcNode.exit
-  %164 = getelementptr inbounds i8, ptr %161, i64 4
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %165 = load i16, ptr %164, align 4
   %166 = and i16 %165, 2
   %.not181 = icmp eq i16 %166, 0
   br i1 %.not181, label %244, label %167
 
 167:                                              ; preds = %163, %ExecProcNode.exit
-  %168 = getelementptr inbounds i8, ptr %0, i64 240
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i8 1, ptr %168, align 8
   tail call void @tuplesort_performsort(ptr noundef %.1162) #8
-  %169 = getelementptr inbounds i8, ptr %0, i64 40
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %170 = load ptr, ptr %169, align 8
   %.not187 = icmp eq ptr %170, null
   br i1 %.not187, label %243, label %171
 
 171:                                              ; preds = %167
-  %172 = getelementptr inbounds i8, ptr %0, i64 416
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %173 = load ptr, ptr %172, align 8
   %.not188 = icmp eq ptr %173, null
   br i1 %.not188, label %212, label %174
 
 174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %0, i64 408
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %176 = load i8, ptr %175, align 8
   %177 = trunc i8 %176 to i1
   br i1 %177, label %178, label %212
 
 178:                                              ; preds = %174
-  %179 = getelementptr inbounds i8, ptr %173, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %180 = load i32, ptr @ParallelWorkerNumber, align 4
   %181 = sext i32 %180 to i64
   %182 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %179, i64 0, i64 %181
@@ -388,7 +388,7 @@ ExecProcNode.exit:                                ; preds = %157, %159
   %185 = add i64 %184, 1
   store i64 %185, ptr %182, align 8
   call void @tuplesort_get_stats(ptr noundef %183, ptr noundef nonnull %5) #8
-  %186 = getelementptr inbounds i8, ptr %5, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %187 = load i32, ptr %186, align 4
   switch i32 %187, label %instrumentSortedGroup.exit [
     i32 0, label %188
@@ -396,13 +396,13 @@ ExecProcNode.exit:                                ; preds = %157, %159
   ]
 
 188:                                              ; preds = %178
-  %189 = getelementptr inbounds i8, ptr %5, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %190 = load i64, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %182, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %192 = load i64, ptr %191, align 8
   %193 = add i64 %192, %190
   store i64 %193, ptr %191, align 8
-  %194 = getelementptr inbounds i8, ptr %182, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %195 = load i64, ptr %194, align 8
   %196 = icmp sgt i64 %190, %195
   br i1 %196, label %197, label %instrumentSortedGroup.exit
@@ -412,13 +412,13 @@ ExecProcNode.exit:                                ; preds = %157, %159
   br label %instrumentSortedGroup.exit
 
 198:                                              ; preds = %178
-  %199 = getelementptr inbounds i8, ptr %5, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %200 = load i64, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %182, i64 32
+  %201 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %202 = load i64, ptr %201, align 8
   %203 = add i64 %202, %200
   store i64 %203, ptr %201, align 8
-  %204 = getelementptr inbounds i8, ptr %182, i64 24
+  %204 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %205 = load i64, ptr %204, align 8
   %206 = icmp sgt i64 %200, %205
   br i1 %206, label %207, label %instrumentSortedGroup.exit
@@ -429,7 +429,7 @@ ExecProcNode.exit:                                ; preds = %157, %159
 
 instrumentSortedGroup.exit:                       ; preds = %178, %188, %197, %198, %207
   %208 = load i32, ptr %5, align 8
-  %209 = getelementptr inbounds i8, ptr %182, i64 40
+  %209 = getelementptr inbounds nuw i8, ptr %182, i64 40
   %210 = load i32, ptr %209, align 8
   %211 = or i32 %210, %208
   store i32 %211, ptr %209, align 8
@@ -437,14 +437,14 @@ instrumentSortedGroup.exit:                       ; preds = %178, %188, %197, %1
   br label %243
 
 212:                                              ; preds = %174, %171
-  %213 = getelementptr inbounds i8, ptr %0, i64 296
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %214 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %215 = load i64, ptr %213, align 8
   %216 = add i64 %215, 1
   store i64 %216, ptr %213, align 8
   call void @tuplesort_get_stats(ptr noundef %214, ptr noundef nonnull %4) #8
-  %217 = getelementptr inbounds i8, ptr %4, i64 4
+  %217 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %218 = load i32, ptr %217, align 4
   switch i32 %218, label %instrumentSortedGroup.exit194 [
     i32 0, label %219
@@ -452,13 +452,13 @@ instrumentSortedGroup.exit:                       ; preds = %178, %188, %197, %1
   ]
 
 219:                                              ; preds = %212
-  %220 = getelementptr inbounds i8, ptr %4, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %221 = load i64, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %0, i64 312
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %223 = load i64, ptr %222, align 8
   %224 = add i64 %223, %221
   store i64 %224, ptr %222, align 8
-  %225 = getelementptr inbounds i8, ptr %0, i64 304
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %226 = load i64, ptr %225, align 8
   %227 = icmp sgt i64 %221, %226
   br i1 %227, label %228, label %instrumentSortedGroup.exit194
@@ -468,13 +468,13 @@ instrumentSortedGroup.exit:                       ; preds = %178, %188, %197, %1
   br label %instrumentSortedGroup.exit194
 
 229:                                              ; preds = %212
-  %230 = getelementptr inbounds i8, ptr %4, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %231 = load i64, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %0, i64 328
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %233 = load i64, ptr %232, align 8
   %234 = add i64 %233, %231
   store i64 %234, ptr %232, align 8
-  %235 = getelementptr inbounds i8, ptr %0, i64 320
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %236 = load i64, ptr %235, align 8
   %237 = icmp sgt i64 %231, %236
   br i1 %237, label %238, label %instrumentSortedGroup.exit194
@@ -485,7 +485,7 @@ instrumentSortedGroup.exit:                       ; preds = %178, %188, %197, %1
 
 instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %229, %238
   %239 = load i32, ptr %4, align 8
-  %240 = getelementptr inbounds i8, ptr %0, i64 336
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %241 = load i32, ptr %240, align 8
   %242 = or i32 %241, %239
   store i32 %242, ptr %240, align 8
@@ -508,9 +508,9 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
 
 .thread225:                                       ; preds = %246
   %249 = load ptr, ptr %140, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 56
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 56
   %253 = load ptr, ptr %252, align 8
   tail call void %253(ptr noundef %249, ptr noundef nonnull %161) #8
   br label %.backedge
@@ -531,9 +531,9 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
 
 259:                                              ; preds = %254
   %260 = load ptr, ptr %140, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 56
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 56
   %264 = load ptr, ptr %263, align 8
   tail call void %264(ptr noundef %260, ptr noundef nonnull %161) #8
   %265 = load i8, ptr %126, align 8
@@ -541,9 +541,9 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   br i1 %266, label %267, label %273
 
 267:                                              ; preds = %259
-  %268 = getelementptr inbounds i8, ptr %0, i64 232
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %269 = load i64, ptr %268, align 8
-  %270 = getelementptr inbounds i8, ptr %0, i64 248
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %271 = load i64, ptr %270, align 8
   %272 = add i64 %271, %.2
   %. = tail call i64 @llvm.smin.i64(i64 %269, i64 %272)
@@ -552,32 +552,32 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
 
 273:                                              ; preds = %267, %259
   tail call void @tuplesort_performsort(ptr noundef %.1162) #8
-  %274 = getelementptr inbounds i8, ptr %0, i64 40
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %275 = load ptr, ptr %274, align 8
   %.not182 = icmp eq ptr %275, null
   br i1 %.not182, label %291, label %276
 
 276:                                              ; preds = %273
-  %277 = getelementptr inbounds i8, ptr %0, i64 416
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %278 = load ptr, ptr %277, align 8
   %.not183 = icmp eq ptr %278, null
   br i1 %.not183, label %288, label %279
 
 279:                                              ; preds = %276
-  %280 = getelementptr inbounds i8, ptr %0, i64 408
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %281 = load i8, ptr %280, align 8
   %282 = trunc i8 %281 to i1
   br i1 %282, label %283, label %288
 
 283:                                              ; preds = %279
-  %284 = getelementptr inbounds i8, ptr %278, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %285 = load i32, ptr @ParallelWorkerNumber, align 4
   %286 = sext i32 %285 to i64
   %287 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %284, i64 0, i64 %286
   br label %.sink.split
 
 288:                                              ; preds = %279, %276
-  %289 = getelementptr inbounds i8, ptr %0, i64 296
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br label %.sink.split
 
 .sink.split:                                      ; preds = %283, %288
@@ -602,38 +602,38 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
 
 296:                                              ; preds = %294
   %297 = load ptr, ptr %140, align 8
-  %298 = getelementptr inbounds i8, ptr %297, i64 8
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %299, i64 24
+  %300 = getelementptr inbounds nuw i8, ptr %299, i64 24
   %301 = load ptr, ptr %300, align 8
   tail call void %301(ptr noundef %297) #8
   tail call void @tuplesort_performsort(ptr noundef %.1162) #8
-  %302 = getelementptr inbounds i8, ptr %0, i64 40
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %303 = load ptr, ptr %302, align 8
   %.not185 = icmp eq ptr %303, null
   br i1 %.not185, label %319, label %304
 
 304:                                              ; preds = %296
-  %305 = getelementptr inbounds i8, ptr %0, i64 416
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %306 = load ptr, ptr %305, align 8
   %.not186 = icmp eq ptr %306, null
   br i1 %.not186, label %316, label %307
 
 307:                                              ; preds = %304
-  %308 = getelementptr inbounds i8, ptr %0, i64 408
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %309 = load i8, ptr %308, align 8
   %310 = trunc i8 %309 to i1
   br i1 %310, label %311, label %316
 
 311:                                              ; preds = %307
-  %312 = getelementptr inbounds i8, ptr %306, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %313 = load i32, ptr @ParallelWorkerNumber, align 4
   %314 = sext i32 %313 to i64
   %315 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %312, i64 0, i64 %314
   br label %.sink.split240
 
 316:                                              ; preds = %307, %304
-  %317 = getelementptr inbounds i8, ptr %0, i64 296
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br label %.sink.split240
 
 .sink.split240:                                   ; preds = %311, %316
@@ -648,9 +648,9 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   br i1 %321, label %322, label %329
 
 322:                                              ; preds = %319
-  %323 = getelementptr inbounds i8, ptr %0, i64 232
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %324 = load i64, ptr %323, align 8
-  %325 = getelementptr inbounds i8, ptr %0, i64 248
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %326 = load i64, ptr %325, align 8
   %327 = sub i64 %324, %326
   %328 = tail call i64 @llvm.smin.i64(i64 %327, i64 %.3)
@@ -658,7 +658,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
 
 329:                                              ; preds = %322, %319
   %.4 = phi i64 [ %328, %322 ], [ %.3, %319 ]
-  %330 = getelementptr inbounds i8, ptr %0, i64 264
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i64 %.4, ptr %330, align 8
   tail call fastcc void @switchToPresortedPrefixMode(ptr noundef nonnull %0)
   %.pr = load i32, ptr %17, align 8
@@ -672,10 +672,10 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   br i1 %333, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %331
-  %334 = getelementptr inbounds i8, ptr %43, i64 104
-  %335 = getelementptr inbounds i8, ptr %43, i64 24
-  %336 = getelementptr inbounds i8, ptr %0, i64 392
-  %337 = getelementptr inbounds i8, ptr %0, i64 280
+  %334 = getelementptr inbounds nuw i8, ptr %43, i64 104
+  %335 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 280
   br label %338
 
 338:                                              ; preds = %.preheader, %353
@@ -695,14 +695,14 @@ ExecProcNode.exit196:                             ; preds = %338, %340
   br i1 %343, label %348, label %344
 
 344:                                              ; preds = %ExecProcNode.exit196
-  %345 = getelementptr inbounds i8, ptr %342, i64 4
+  %345 = getelementptr inbounds nuw i8, ptr %342, i64 4
   %346 = load i16, ptr %345, align 4
   %347 = and i16 %346, 2
   %.not189 = icmp eq i16 %347, 0
   br i1 %.not189, label %350, label %348
 
 348:                                              ; preds = %344, %ExecProcNode.exit196
-  %349 = getelementptr inbounds i8, ptr %0, i64 240
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i8 1, ptr %349, align 8
   br label %362
 
@@ -719,9 +719,9 @@ ExecProcNode.exit196:                             ; preds = %338, %340
 
 356:                                              ; preds = %350
   %357 = load ptr, ptr %336, align 8
-  %358 = getelementptr inbounds i8, ptr %357, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
   %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds i8, ptr %359, i64 56
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 56
   %361 = load ptr, ptr %360, align 8
   tail call void %361(ptr noundef %357, ptr noundef nonnull %342) #8
   br label %362
@@ -729,19 +729,19 @@ ExecProcNode.exit196:                             ; preds = %338, %340
 362:                                              ; preds = %356, %348
   %363 = load ptr, ptr %337, align 8
   tail call void @tuplesort_performsort(ptr noundef %363) #8
-  %364 = getelementptr inbounds i8, ptr %0, i64 40
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %365 = load ptr, ptr %364, align 8
   %.not190 = icmp eq ptr %365, null
   br i1 %.not190, label %438, label %366
 
 366:                                              ; preds = %362
-  %367 = getelementptr inbounds i8, ptr %0, i64 416
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %368 = load ptr, ptr %367, align 8
   %.not191 = icmp eq ptr %368, null
   br i1 %.not191, label %407, label %369
 
 369:                                              ; preds = %366
-  %370 = getelementptr inbounds i8, ptr %0, i64 408
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %371 = load i8, ptr %370, align 8
   %372 = trunc i8 %371 to i1
   br i1 %372, label %373, label %407
@@ -758,7 +758,7 @@ ExecProcNode.exit196:                             ; preds = %338, %340
   %380 = add i64 %379, 1
   store i64 %380, ptr %377, align 8
   call void @tuplesort_get_stats(ptr noundef %378, ptr noundef nonnull %3) #8
-  %381 = getelementptr inbounds i8, ptr %3, i64 4
+  %381 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %382 = load i32, ptr %381, align 4
   switch i32 %382, label %instrumentSortedGroup.exit197 [
     i32 0, label %383
@@ -766,13 +766,13 @@ ExecProcNode.exit196:                             ; preds = %338, %340
   ]
 
 383:                                              ; preds = %373
-  %384 = getelementptr inbounds i8, ptr %3, i64 8
+  %384 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %385 = load i64, ptr %384, align 8
-  %386 = getelementptr inbounds i8, ptr %377, i64 16
+  %386 = getelementptr inbounds nuw i8, ptr %377, i64 16
   %387 = load i64, ptr %386, align 8
   %388 = add i64 %387, %385
   store i64 %388, ptr %386, align 8
-  %389 = getelementptr inbounds i8, ptr %377, i64 8
+  %389 = getelementptr inbounds nuw i8, ptr %377, i64 8
   %390 = load i64, ptr %389, align 8
   %391 = icmp sgt i64 %385, %390
   br i1 %391, label %392, label %instrumentSortedGroup.exit197
@@ -782,13 +782,13 @@ ExecProcNode.exit196:                             ; preds = %338, %340
   br label %instrumentSortedGroup.exit197
 
 393:                                              ; preds = %373
-  %394 = getelementptr inbounds i8, ptr %3, i64 8
+  %394 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %395 = load i64, ptr %394, align 8
-  %396 = getelementptr inbounds i8, ptr %377, i64 32
+  %396 = getelementptr inbounds nuw i8, ptr %377, i64 32
   %397 = load i64, ptr %396, align 8
   %398 = add i64 %397, %395
   store i64 %398, ptr %396, align 8
-  %399 = getelementptr inbounds i8, ptr %377, i64 24
+  %399 = getelementptr inbounds nuw i8, ptr %377, i64 24
   %400 = load i64, ptr %399, align 8
   %401 = icmp sgt i64 %395, %400
   br i1 %401, label %402, label %instrumentSortedGroup.exit197
@@ -799,7 +799,7 @@ ExecProcNode.exit196:                             ; preds = %338, %340
 
 instrumentSortedGroup.exit197:                    ; preds = %373, %383, %392, %393, %402
   %403 = load i32, ptr %3, align 8
-  %404 = getelementptr inbounds i8, ptr %377, i64 40
+  %404 = getelementptr inbounds nuw i8, ptr %377, i64 40
   %405 = load i32, ptr %404, align 8
   %406 = or i32 %405, %403
   store i32 %406, ptr %404, align 8
@@ -807,14 +807,14 @@ instrumentSortedGroup.exit197:                    ; preds = %373, %383, %392, %3
   br label %438
 
 407:                                              ; preds = %369, %366
-  %408 = getelementptr inbounds i8, ptr %0, i64 344
+  %408 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %409 = load ptr, ptr %337, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %410 = load i64, ptr %408, align 8
   %411 = add i64 %410, 1
   store i64 %411, ptr %408, align 8
   call void @tuplesort_get_stats(ptr noundef %409, ptr noundef nonnull %2) #8
-  %412 = getelementptr inbounds i8, ptr %2, i64 4
+  %412 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %413 = load i32, ptr %412, align 4
   switch i32 %413, label %instrumentSortedGroup.exit198 [
     i32 0, label %414
@@ -822,13 +822,13 @@ instrumentSortedGroup.exit197:                    ; preds = %373, %383, %392, %3
   ]
 
 414:                                              ; preds = %407
-  %415 = getelementptr inbounds i8, ptr %2, i64 8
+  %415 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %416 = load i64, ptr %415, align 8
-  %417 = getelementptr inbounds i8, ptr %0, i64 360
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %418 = load i64, ptr %417, align 8
   %419 = add i64 %418, %416
   store i64 %419, ptr %417, align 8
-  %420 = getelementptr inbounds i8, ptr %0, i64 352
+  %420 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %421 = load i64, ptr %420, align 8
   %422 = icmp sgt i64 %416, %421
   br i1 %422, label %423, label %instrumentSortedGroup.exit198
@@ -838,13 +838,13 @@ instrumentSortedGroup.exit197:                    ; preds = %373, %383, %392, %3
   br label %instrumentSortedGroup.exit198
 
 424:                                              ; preds = %407
-  %425 = getelementptr inbounds i8, ptr %2, i64 8
+  %425 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %426 = load i64, ptr %425, align 8
-  %427 = getelementptr inbounds i8, ptr %0, i64 376
+  %427 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %428 = load i64, ptr %427, align 8
   %429 = add i64 %428, %426
   store i64 %429, ptr %427, align 8
-  %430 = getelementptr inbounds i8, ptr %0, i64 368
+  %430 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %431 = load i64, ptr %430, align 8
   %432 = icmp sgt i64 %426, %431
   br i1 %432, label %433, label %instrumentSortedGroup.exit198
@@ -855,7 +855,7 @@ instrumentSortedGroup.exit197:                    ; preds = %373, %383, %392, %3
 
 instrumentSortedGroup.exit198:                    ; preds = %407, %414, %423, %424, %433
   %434 = load i32, ptr %2, align 8
-  %435 = getelementptr inbounds i8, ptr %0, i64 384
+  %435 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %436 = load i32, ptr %435, align 8
   %437 = or i32 %436, %434
   store i32 %437, ptr %435, align 8
@@ -864,15 +864,15 @@ instrumentSortedGroup.exit198:                    ; preds = %407, %414, %423, %4
 
 438:                                              ; preds = %362, %instrumentSortedGroup.exit198, %instrumentSortedGroup.exit197
   store i32 3, ptr %17, align 8
-  %439 = getelementptr inbounds i8, ptr %0, i64 224
+  %439 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %440 = load i8, ptr %439, align 8
   %441 = trunc i8 %440 to i1
   br i1 %441, label %442, label %.thread
 
 442:                                              ; preds = %438
-  %443 = getelementptr inbounds i8, ptr %0, i64 232
+  %443 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %444 = load i64, ptr %443, align 8
-  %445 = getelementptr inbounds i8, ptr %0, i64 248
+  %445 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %446 = load i64, ptr %445, align 8
   %447 = add i64 %446, %.5
   %.192 = call i64 @llvm.smin.i64(i64 %444, i64 %447)
@@ -887,13 +887,13 @@ instrumentSortedGroup.exit198:                    ; preds = %407, %414, %423, %4
   br i1 %449, label %453, label %450
 
 450:                                              ; preds = %.thread
-  %451 = getelementptr inbounds i8, ptr %0, i64 280
+  %451 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %452 = load ptr, ptr %451, align 8
   br label %453
 
 453:                                              ; preds = %.thread, %450
   %454 = phi ptr [ %452, %450 ], [ %.0161201, %.thread ]
-  %455 = getelementptr inbounds i8, ptr %0, i64 120
+  %455 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %456 = load ptr, ptr %455, align 8
   %457 = icmp eq i32 %14, 1
   %458 = call zeroext i1 @tuplesort_gettupleslot(ptr noundef %454, i1 noundef zeroext %457, i1 noundef zeroext false, ptr noundef %456, ptr noundef null) #8
@@ -916,13 +916,13 @@ declare ptr @ExecGetResultType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndIncrementalSort(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 392
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load ptr, ptr %2, align 8
   tail call void @ExecDropSingleTupleTableSlot(ptr noundef %3) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 400
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %5 = load ptr, ptr %4, align 8
   tail call void @ExecDropSingleTupleTableSlot(ptr noundef %5) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -933,7 +933,7 @@ define dso_local void @ExecEndIncrementalSort(ptr nocapture noundef %0) local_un
   br label %9
 
 9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 280
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %11 = load ptr, ptr %10, align 8
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %13, label %12
@@ -944,7 +944,7 @@ define dso_local void @ExecEndIncrementalSort(ptr nocapture noundef %0) local_un
   br label %13
 
 13:                                               ; preds = %12, %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %14, align 8
   tail call void @ExecEndNode(ptr noundef %15) #8
   ret void
@@ -958,52 +958,52 @@ declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanIncrementalSort(ptr nocapture noundef initializes((240, 241), (248, 260), (264, 272)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef %5) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 392
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %17, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull %11) #8
   br label %17
 
 17:                                               ; preds = %12, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 400
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %19 = load ptr, ptr %18, align 8
   %.not19 = icmp eq ptr %19, null
   br i1 %.not19, label %25, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %19) #8
   br label %25
 
 25:                                               ; preds = %20, %17
-  %26 = getelementptr inbounds i8, ptr %0, i64 240
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i8 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 264
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 248
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 256
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 272
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %31 = load ptr, ptr %30, align 8
   %.not20 = icmp eq ptr %31, null
   br i1 %.not20, label %33, label %32
@@ -1013,7 +1013,7 @@ define dso_local void @ExecReScanIncrementalSort(ptr nocapture noundef initializ
   br label %33
 
 33:                                               ; preds = %32, %25
-  %34 = getelementptr inbounds i8, ptr %0, i64 280
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %35 = load ptr, ptr %34, align 8
   %.not21 = icmp eq ptr %35, null
   br i1 %.not21, label %37, label %36
@@ -1023,7 +1023,7 @@ define dso_local void @ExecReScanIncrementalSort(ptr nocapture noundef initializ
   br label %37
 
 37:                                               ; preds = %36, %33
-  %38 = getelementptr inbounds i8, ptr %3, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %42
@@ -1042,13 +1042,13 @@ declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecIncrementalSortEstimate(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %21, label %9
@@ -1057,13 +1057,13 @@ define dso_local void @ExecIncrementalSortEstimate(ptr nocapture noundef readonl
   %10 = sext i32 %7 to i64
   %11 = tail call i64 @mul_size(i64 noundef %10, i64 noundef 96) #8
   %12 = tail call i64 @add_size(i64 noundef %11, i64 noundef 8) #8
-  %13 = getelementptr inbounds i8, ptr %1, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %12, 31
   %16 = and i64 %15, -32
   %17 = tail call i64 @add_size(i64 noundef %14, i64 noundef %16) #8
   store i64 %17, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %19 = load i64, ptr %18, align 8
   %20 = tail call i64 @add_size(i64 noundef %19, i64 noundef 1) #8
   store i64 %20, ptr %18, align 8
@@ -1079,13 +1079,13 @@ declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecIncrementalSortInitializeDSM(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %26, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %26, label %9
@@ -1094,19 +1094,19 @@ define dso_local void @ExecIncrementalSortInitializeDSM(ptr nocapture noundef %0
   %10 = sext i32 %7 to i64
   %11 = mul nsw i64 %10, 96
   %12 = or disjoint i64 %11, 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @shm_toc_allocate(ptr noundef %14, i64 noundef %12) #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 416
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %15, ptr %16, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %15, i8 0, i64 %12, i1 false)
   %17 = load i32, ptr %6, align 4
   %18 = load ptr, ptr %16, align 8
   store i32 %17, ptr %18, align 8
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
   %25 = load ptr, ptr %16, align 8
@@ -1126,17 +1126,17 @@ declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecIncrementalSortInitializeWorker(ptr nocapture noundef initializes((408, 409), (416, 424)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = tail call ptr @shm_toc_lookup(ptr noundef %4, i64 noundef %9, i1 noundef zeroext true) #8
-  %11 = getelementptr inbounds i8, ptr %0, i64 416
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 1, ptr %12, align 8
   ret void
 }
@@ -1145,7 +1145,7 @@ declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecIncrementalSortRetrieveInstrumentation(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 416
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
@@ -1180,41 +1180,41 @@ declare zeroext i1 @tuplesort_gettupleslot(ptr noundef, i1 noundef zeroext, i1 n
 define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.TuplesortInstrumentation, align 8
   %3 = alloca %struct.TuplesortInstrumentation, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @ExecGetResultType(ptr noundef %11) #8
-  %13 = getelementptr inbounds i8, ptr %0, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %41
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %5, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %20 = load i32, ptr %19, align 8
   %21 = sub i32 %20, %18
-  %22 = getelementptr inbounds i8, ptr %5, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %18 to i64
   %25 = getelementptr i16, ptr %23, i64 %24
-  %26 = getelementptr inbounds i8, ptr %5, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i32, ptr %27, i64 %24
-  %29 = getelementptr inbounds i8, ptr %5, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i32, ptr %30, i64 %24
-  %32 = getelementptr inbounds i8, ptr %5, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 %24
   %35 = load i32, ptr @work_mem, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 224
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %37 = load i8, ptr %36, align 8
   %38 = trunc i8 %37 to i1
   %39 = select i1 %38, i32 2, i32 0
@@ -1227,31 +1227,31 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
   br label %42
 
 42:                                               ; preds = %41, %16
-  %43 = getelementptr inbounds i8, ptr %0, i64 224
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %44 = load i8, ptr %43, align 8
   %45 = trunc i8 %44 to i1
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr %13, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 232
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 248
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %51 = load i64, ptr %50, align 8
   %52 = sub i64 %49, %51
   tail call void @tuplesort_set_bound(ptr noundef %47, i64 noundef %52) #8
   br label %53
 
 53:                                               ; preds = %46, %42
-  %54 = getelementptr inbounds i8, ptr %0, i64 264
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %55 = load i64, ptr %54, align 8
   %56 = icmp sgt i64 %55, 0
   br i1 %56, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %0, i64 400
-  %58 = getelementptr inbounds i8, ptr %0, i64 392
-  %59 = getelementptr inbounds i8, ptr %0, i64 272
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %60 = icmp eq i32 %9, 1
   br label %61
 
@@ -1264,7 +1264,7 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
   br i1 %or.cond, label %76, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %.pre, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   %66 = load i16, ptr %65, align 4
   %67 = and i16 %66, 2
   %.not = icmp eq i16 %67, 0
@@ -1275,9 +1275,9 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
   tail call void @tuplesort_puttupleslot(ptr noundef %69, ptr noundef nonnull %.pre) #8
   %70 = load ptr, ptr %58, align 8
   %71 = load ptr, ptr %57, align 8
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
   %75 = load ptr, ptr %74, align 8
   tail call void %75(ptr noundef %70, ptr noundef %71) #8
   br label %104
@@ -1290,7 +1290,7 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
   br i1 %80, label %85, label %81
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds i8, ptr %79, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %83 = load i16, ptr %82, align 4
   %84 = and i16 %83, 2
   %.not78 = icmp eq i16 %84, 0
@@ -1298,9 +1298,9 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
 
 85:                                               ; preds = %81, %76
   %86 = load ptr, ptr %57, align 8
-  %87 = getelementptr inbounds i8, ptr %79, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 56
   %90 = load ptr, ptr %89, align 8
   tail call void %90(ptr noundef %79, ptr noundef %86) #8
   %.pre88 = load ptr, ptr %58, align 8
@@ -1320,9 +1320,9 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
 
 98:                                               ; preds = %91
   %99 = load ptr, ptr %58, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = load ptr, ptr %102, align 8
   tail call void %103(ptr noundef %99) #8
   %.pre89 = load i64, ptr %54, align 8
@@ -1343,21 +1343,21 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
   br i1 %110, label %111, label %126
 
 111:                                              ; preds = %.loopexit
-  %112 = getelementptr inbounds i8, ptr %0, i64 392
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 400
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %113, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 56
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 56
   %119 = load ptr, ptr %118, align 8
   tail call void %119(ptr noundef %113, ptr noundef %115) #8
-  %120 = getelementptr inbounds i8, ptr %0, i64 256
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 1, ptr %120, align 8
   %121 = load ptr, ptr %114, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
   tail call void %125(ptr noundef %121) #8
   br label %213
@@ -1365,19 +1365,19 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
 126:                                              ; preds = %.loopexit
   %127 = load ptr, ptr %13, align 8
   tail call void @tuplesort_performsort(ptr noundef %127) #8
-  %128 = getelementptr inbounds i8, ptr %0, i64 40
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %129 = load ptr, ptr %128, align 8
   %.not79 = icmp eq ptr %129, null
   br i1 %.not79, label %202, label %130
 
 130:                                              ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %0, i64 416
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %132 = load ptr, ptr %131, align 8
   %.not80 = icmp eq ptr %132, null
   br i1 %.not80, label %171, label %133
 
 133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %0, i64 408
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %135 = load i8, ptr %134, align 8
   %136 = trunc i8 %135 to i1
   br i1 %136, label %137, label %171
@@ -1394,7 +1394,7 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
   %144 = add i64 %143, 1
   store i64 %144, ptr %141, align 8
   call void @tuplesort_get_stats(ptr noundef %142, ptr noundef nonnull %3) #8
-  %145 = getelementptr inbounds i8, ptr %3, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %146 = load i32, ptr %145, align 4
   switch i32 %146, label %instrumentSortedGroup.exit [
     i32 0, label %147
@@ -1402,13 +1402,13 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
   ]
 
 147:                                              ; preds = %137
-  %148 = getelementptr inbounds i8, ptr %3, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %149 = load i64, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %141, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %151 = load i64, ptr %150, align 8
   %152 = add i64 %151, %149
   store i64 %152, ptr %150, align 8
-  %153 = getelementptr inbounds i8, ptr %141, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %154 = load i64, ptr %153, align 8
   %155 = icmp sgt i64 %149, %154
   br i1 %155, label %156, label %instrumentSortedGroup.exit
@@ -1418,13 +1418,13 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
   br label %instrumentSortedGroup.exit
 
 157:                                              ; preds = %137
-  %158 = getelementptr inbounds i8, ptr %3, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %159 = load i64, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %141, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %161 = load i64, ptr %160, align 8
   %162 = add i64 %161, %159
   store i64 %162, ptr %160, align 8
-  %163 = getelementptr inbounds i8, ptr %141, i64 24
+  %163 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %164 = load i64, ptr %163, align 8
   %165 = icmp sgt i64 %159, %164
   br i1 %165, label %166, label %instrumentSortedGroup.exit
@@ -1435,7 +1435,7 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr nocapture noundef %
 
 instrumentSortedGroup.exit:                       ; preds = %137, %147, %156, %157, %166
   %167 = load i32, ptr %3, align 8
-  %168 = getelementptr inbounds i8, ptr %141, i64 40
+  %168 = getelementptr inbounds nuw i8, ptr %141, i64 40
   %169 = load i32, ptr %168, align 8
   %170 = or i32 %169, %167
   store i32 %170, ptr %168, align 8
@@ -1443,14 +1443,14 @@ instrumentSortedGroup.exit:                       ; preds = %137, %147, %156, %1
   br label %202
 
 171:                                              ; preds = %133, %130
-  %172 = getelementptr inbounds i8, ptr %0, i64 344
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %173 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %174 = load i64, ptr %172, align 8
   %175 = add i64 %174, 1
   store i64 %175, ptr %172, align 8
   call void @tuplesort_get_stats(ptr noundef %173, ptr noundef nonnull %2) #8
-  %176 = getelementptr inbounds i8, ptr %2, i64 4
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %177 = load i32, ptr %176, align 4
   switch i32 %177, label %instrumentSortedGroup.exit81 [
     i32 0, label %178
@@ -1458,13 +1458,13 @@ instrumentSortedGroup.exit:                       ; preds = %137, %147, %156, %1
   ]
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds i8, ptr %2, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %180 = load i64, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 360
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %182 = load i64, ptr %181, align 8
   %183 = add i64 %182, %180
   store i64 %183, ptr %181, align 8
-  %184 = getelementptr inbounds i8, ptr %0, i64 352
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %185 = load i64, ptr %184, align 8
   %186 = icmp sgt i64 %180, %185
   br i1 %186, label %187, label %instrumentSortedGroup.exit81
@@ -1474,13 +1474,13 @@ instrumentSortedGroup.exit:                       ; preds = %137, %147, %156, %1
   br label %instrumentSortedGroup.exit81
 
 188:                                              ; preds = %171
-  %189 = getelementptr inbounds i8, ptr %2, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %190 = load i64, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %0, i64 376
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %192 = load i64, ptr %191, align 8
   %193 = add i64 %192, %190
   store i64 %193, ptr %191, align 8
-  %194 = getelementptr inbounds i8, ptr %0, i64 368
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %195 = load i64, ptr %194, align 8
   %196 = icmp sgt i64 %190, %195
   br i1 %196, label %197, label %instrumentSortedGroup.exit81
@@ -1491,7 +1491,7 @@ instrumentSortedGroup.exit:                       ; preds = %137, %147, %156, %1
 
 instrumentSortedGroup.exit81:                     ; preds = %171, %178, %187, %188, %197
   %198 = load i32, ptr %2, align 8
-  %199 = getelementptr inbounds i8, ptr %0, i64 384
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %200 = load i32, ptr %199, align 8
   %201 = or i32 %200, %198
   store i32 %201, ptr %199, align 8
@@ -1504,9 +1504,9 @@ instrumentSortedGroup.exit81:                     ; preds = %171, %178, %187, %1
   br i1 %204, label %205, label %211
 
 205:                                              ; preds = %202
-  %206 = getelementptr inbounds i8, ptr %0, i64 232
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %207 = load i64, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %0, i64 248
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %209 = load i64, ptr %208, align 8
   %210 = add i64 %209, %.084
   %. = call i64 @llvm.smin.i64(i64 %207, i64 %210)
@@ -1514,7 +1514,7 @@ instrumentSortedGroup.exit81:                     ; preds = %171, %178, %187, %1
   br label %211
 
 211:                                              ; preds = %205, %202
-  %212 = getelementptr inbounds i8, ptr %0, i64 256
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 3, ptr %212, align 8
   br label %213
 
@@ -1537,7 +1537,7 @@ define internal fastcc void @instrumentSortedGroup(ptr nocapture noundef %0, ptr
   %5 = add i64 %4, 1
   store i64 %5, ptr %0, align 8
   call void @tuplesort_get_stats(ptr noundef %1, ptr noundef nonnull %3) #8
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %28 [
     i32 0, label %8
@@ -1545,13 +1545,13 @@ define internal fastcc void @instrumentSortedGroup(ptr nocapture noundef %0, ptr
   ]
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %10
   store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp sgt i64 %10, %15
   br i1 %16, label %17, label %28
@@ -1561,13 +1561,13 @@ define internal fastcc void @instrumentSortedGroup(ptr nocapture noundef %0, ptr
   br label %28
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %20
   store i64 %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = icmp sgt i64 %20, %25
   br i1 %26, label %27, label %28
@@ -1578,7 +1578,7 @@ define internal fastcc void @instrumentSortedGroup(ptr nocapture noundef %0, ptr
 
 28:                                               ; preds = %18, %27, %8, %17, %2
   %29 = load i32, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = or i32 %31, %29
   store i32 %32, ptr %30, align 8
@@ -1587,22 +1587,22 @@ define internal fastcc void @instrumentSortedGroup(ptr nocapture noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @isCurrentGroup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %7 = load i32, ptr %6, align 8
   %.02230 = add i32 %7, -1
   %8 = icmp slt i32 %.02230, 0
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 288
-  %10 = getelementptr inbounds i8, ptr %1, i64 6
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
-  %13 = getelementptr inbounds i8, ptr %2, i64 6
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
-  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %16 = zext nneg i32 %.02230 to i64
   br label %17
 
@@ -1660,22 +1660,22 @@ slot_getattr.exit24:                              ; preds = %slot_getattr.exit, 
 47:                                               ; preds = %41
   %48 = load ptr, ptr %9, align 8
   %49 = getelementptr %struct.PresortedKeyData, ptr %48, i64 %indvars.iv
-  %50 = getelementptr inbounds i8, ptr %49, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store i64 %31, ptr %52, align 8
   %53 = load ptr, ptr %50, align 8
   %54 = getelementptr i8, ptr %53, i64 48
   store i64 %39, ptr %54, align 8
   %55 = load ptr, ptr %50, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 28
   store i8 0, ptr %56, align 4
   %57 = load ptr, ptr %50, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i64 %59(ptr noundef nonnull %57) #8
   %61 = load ptr, ptr %50, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %70
@@ -1683,7 +1683,7 @@ slot_getattr.exit24:                              ; preds = %slot_getattr.exit, 
 65:                                               ; preds = %47
   %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds i8, ptr %49, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %68) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.isCurrentGroup) #8

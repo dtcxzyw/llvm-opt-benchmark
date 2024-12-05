@@ -21,7 +21,7 @@ define noundef ptr @jvp_utf8_backtrack(ptr noundef readonly %0, ptr noundef read
   %.02034 = phi ptr [ %10, %9 ], [ %0, %.preheader ]
   %5 = load i8, ptr %.02034, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr @utf8_coding_length, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %12 [
     i8 -1, label %9
@@ -61,7 +61,7 @@ define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @utf8_coding_length, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = icmp sgt i8 %6, -1
@@ -78,7 +78,7 @@ define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 
 16:                                               ; preds = %14
   %17 = zext i8 %9 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   %19 = icmp ugt ptr %18, %1
   br i1 %19, label %20, label %25
 
@@ -90,7 +90,7 @@ define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   br label %48
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds [256 x i8], ptr @utf8_coding_bits, i64 0, i64 %7
+  %26 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_bits, i64 0, i64 %7
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, %6
   %29 = zext i8 %28 to i32
@@ -104,10 +104,10 @@ define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
   %.14145 = phi i32 [ %29, %.lr.ph.preheader ], [ %40, %36 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds [256 x i8], ptr @utf8_coding_length, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %.not = icmp eq i8 %35, -1
   br i1 %.not, label %36, label %._crit_edge.loopexit.split.loop.exit
@@ -129,7 +129,7 @@ define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   %.2 = phi i32 [ %29, %25 ], [ -1, %._crit_edge.loopexit.split.loop.exit ], [ %40, %36 ]
   %.1 = phi i32 [ %10, %25 ], [ %41, %._crit_edge.loopexit.split.loop.exit ], [ %10, %36 ]
   %42 = zext nneg i32 %.1 to i64
-  %43 = getelementptr inbounds [5 x i32], ptr @utf8_first_codepoint, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [5 x i32], ptr @utf8_first_codepoint, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = icmp slt i32 %.2, %44
   %spec.store.select = select i1 %45, i32 -1, i32 %.2
@@ -162,7 +162,7 @@ define range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly %0, ptr nound
   %.0215 = phi ptr [ %.02.be, %.backedge ], [ %0, %2 ]
   %4 = load i8, ptr %.0215, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds [256 x i8], ptr @utf8_coding_length, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = icmp sgt i8 %4, -1
@@ -175,12 +175,12 @@ define range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly %0, ptr nound
 
 12:                                               ; preds = %10
   %13 = zext i8 %7 to i64
-  %14 = getelementptr inbounds i8, ptr %.0215, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %.0215, i64 %13
   %15 = icmp ugt ptr %14, %1
   br i1 %15, label %jvp_utf8_next.exit.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds [256 x i8], ptr @utf8_coding_bits, i64 0, i64 %5
+  %17 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_bits, i64 0, i64 %5
   %18 = load i8, ptr %17, align 1
   %19 = and i8 %18, %4
   %20 = zext i8 %19 to i32
@@ -190,10 +190,10 @@ define range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly %0, ptr nound
 .lr.ph.i:                                         ; preds = %16, %27
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 1, %16 ]
   %.14145.i = phi i32 [ %31, %27 ], [ %20, %16 ]
-  %22 = getelementptr inbounds i8, ptr %.0215, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.0215, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds [256 x i8], ptr @utf8_coding_length, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
   %.not.i = icmp eq i8 %26, -1
   br i1 %.not.i, label %27, label %._crit_edge.loopexit.split.loop.exit.i
@@ -215,7 +215,7 @@ define range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly %0, ptr nound
   %.2.i = phi i32 [ %20, %16 ], [ -1, %._crit_edge.loopexit.split.loop.exit.i ], [ %31, %27 ]
   %.1.i = phi i32 [ %8, %16 ], [ %32, %._crit_edge.loopexit.split.loop.exit.i ], [ %8, %27 ]
   %33 = zext nneg i32 %.1.i to i64
-  %34 = getelementptr inbounds [5 x i32], ptr @utf8_first_codepoint, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [5 x i32], ptr @utf8_first_codepoint, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %.2.i, %35
   %spec.store.select.i = select i1 %36, i32 -1, i32 %.2.i
@@ -235,7 +235,7 @@ define range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly %0, ptr nound
   br i1 %43, label %jvp_utf8_next.exit.thread, label %.lr.ph, !llvm.loop !7
 
 jvp_utf8_next.exit:                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds i8, ptr %.0215, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0215, i64 1
   br label %.backedge
 
 jvp_utf8_next.exit.thread:                        ; preds = %.backedge, %._crit_edge.i, %10, %12, %2
@@ -291,7 +291,7 @@ define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef initializes((0, 1)) %1) 
 
 4:                                                ; preds = %2
   %5 = trunc i32 %0 to i8
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %5, ptr %1, align 1
   br label %54
 
@@ -303,12 +303,12 @@ define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef initializes((0, 1)) %1) 
   %10 = lshr i32 %0, 6
   %11 = trunc nuw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
-  %13 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %12, ptr %1, align 1
   %14 = trunc i32 %0 to i8
   %15 = and i8 %14, 63
   %16 = or disjoint i8 %15, -128
-  %17 = getelementptr inbounds i8, ptr %1, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %16, ptr %13, align 1
   br label %54
 
@@ -320,18 +320,18 @@ define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef initializes((0, 1)) %1) 
   %21 = lshr i32 %0, 12
   %22 = trunc nuw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
-  %24 = getelementptr inbounds i8, ptr %1, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %23, ptr %1, align 1
   %25 = lshr i32 %0, 6
   %26 = trunc i32 %25 to i8
   %27 = and i8 %26, 63
   %28 = or disjoint i8 %27, -128
-  %29 = getelementptr inbounds i8, ptr %1, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %28, ptr %24, align 1
   %30 = trunc i32 %0 to i8
   %31 = and i8 %30, 63
   %32 = or disjoint i8 %31, -128
-  %33 = getelementptr inbounds i8, ptr %1, i64 3
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %32, ptr %29, align 1
   br label %54
 
@@ -340,24 +340,24 @@ define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef initializes((0, 1)) %1) 
   %36 = trunc i32 %35 to i8
   %37 = and i8 %36, 7
   %38 = or disjoint i8 %37, -16
-  %39 = getelementptr inbounds i8, ptr %1, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %38, ptr %1, align 1
   %40 = lshr i32 %0, 12
   %41 = trunc i32 %40 to i8
   %42 = and i8 %41, 63
   %43 = or disjoint i8 %42, -128
-  %44 = getelementptr inbounds i8, ptr %1, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %43, ptr %39, align 1
   %45 = lshr i32 %0, 6
   %46 = trunc i32 %45 to i8
   %47 = and i8 %46, 63
   %48 = or disjoint i8 %47, -128
-  %49 = getelementptr inbounds i8, ptr %1, i64 3
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %48, ptr %44, align 1
   %50 = trunc i32 %0 to i8
   %51 = and i8 %50, 63
   %52 = or disjoint i8 %51, -128
-  %53 = getelementptr inbounds i8, ptr %1, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 %52, ptr %49, align 1
   br label %54
 

@@ -76,18 +76,18 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mmu_notifier
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @mmu_interval_read_begin(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1160
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1160
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
-  tail call void @_raw_spin_lock(ptr noundef %7) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  tail call void @_raw_spin_lock(ptr noundef nonnull %7) #8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load volatile i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %9, %11
-  tail call void @_raw_spin_unlock(ptr noundef %7) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %7) #8
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %1
@@ -100,21 +100,21 @@ define dso_local i64 @mmu_interval_read_begin(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false), !annotation !5
   call void @init_wait_entry(ptr noundef nonnull %2, i32 noundef 0) #8
-  %18 = getelementptr inbounds i8, ptr %6, i64 48
-  %19 = call i64 @prepare_to_wait_event(ptr noundef %18, ptr noundef nonnull %2, i32 noundef 2) #8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %19 = call i64 @prepare_to_wait_event(ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef 2) #8
   %20 = load volatile i64, ptr %10, align 8
   %21 = icmp eq i64 %20, %9
   br i1 %21, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %17, %.preheader
   call void @schedule() #8
-  %22 = call i64 @prepare_to_wait_event(ptr noundef %18, ptr noundef nonnull %2, i32 noundef 2) #8
+  %22 = call i64 @prepare_to_wait_event(ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef 2) #8
   %23 = load volatile i64, ptr %10, align 8
   %24 = icmp eq i64 %23, %9
   br i1 %24, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %17
-  call void @finish_wait(ptr noundef %18, ptr noundef nonnull %2) #8
+  call void @finish_wait(ptr noundef nonnull %18, ptr noundef nonnull %2) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #8
   br label %25
 
@@ -146,9 +146,9 @@ declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__mmu_notifier_release(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.mmu_notifier_range, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %38, label %8
@@ -156,42 +156,42 @@ define dso_local void @__mmu_notifier_release(ptr noundef %0) local_unnamed_addr
 8:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #8
   store ptr %0, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 -1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 5, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
-  tail call void @_raw_spin_lock(ptr noundef %14) #8
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  tail call void @_raw_spin_lock(ptr noundef nonnull %14) #8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 1
   store i64 %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
-  %19 = tail call ptr @interval_tree_iter_first(ptr noundef %18, i64 noundef 0, i64 noundef -2) #8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %19 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %18, i64 noundef 0, i64 noundef -2) #8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %21
 
 .thread:                                          ; preds = %8
-  tail call void @_raw_spin_unlock(ptr noundef %14) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %14) #8
   br label %.loopexit12
 
 21:                                               ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = or i64 %23, 1
   store i64 %24, ptr %22, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %14) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %14) #8
   br label %25
 
 25:                                               ; preds = %21, %32
   %26 = phi ptr [ %36, %32 ], [ %19, %21 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = call zeroext i1 %29(ptr noundef nonnull %26, ptr noundef nonnull %2, i64 noundef %24) #8
@@ -229,7 +229,7 @@ define dso_local void @__mmu_notifier_release(ptr noundef %0) local_unnamed_addr
 
 .preheader10:                                     ; preds = %41, %51
   %45 = phi ptr [ %52, %51 ], [ %43, %41 ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
@@ -245,15 +245,15 @@ define dso_local void @__mmu_notifier_release(ptr noundef %0) local_unnamed_addr
   br i1 %53, label %.loopexit11, label %.preheader10, !llvm.loop !15
 
 .loopexit11:                                      ; preds = %51, %41
-  %54 = getelementptr inbounds i8, ptr %4, i64 12
-  call void @_raw_spin_lock(ptr noundef %54) #8
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  call void @_raw_spin_lock(ptr noundef nonnull %54) #8
   %55 = load volatile ptr, ptr %4, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.loopexit, label %.preheader, !prof !16
 
 .preheader:                                       ; preds = %.loopexit11, %67
   %57 = phi ptr [ %68, %67 ], [ %55, %.loopexit11 ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %67, label %61
@@ -265,7 +265,7 @@ define dso_local void @__mmu_notifier_release(ptr noundef %0) local_unnamed_addr
   br i1 %63, label %66, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %62, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store volatile ptr %59, ptr %65, align 8
   br label %66
 
@@ -279,7 +279,7 @@ define dso_local void @__mmu_notifier_release(ptr noundef %0) local_unnamed_addr
   br i1 %69, label %.loopexit, label %.preheader, !prof !17, !llvm.loop !18
 
 .loopexit:                                        ; preds = %67, %.loopexit11
-  call void @_raw_spin_unlock(ptr noundef %54) #8
+  call void @_raw_spin_unlock(ptr noundef nonnull %54) #8
   %70 = icmp ult i32 %42, 2
   br i1 %70, label %72, label %71, !prof !8
 
@@ -301,7 +301,7 @@ define dso_local void @__mmu_notifier_release(ptr noundef %0) local_unnamed_addr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__mmu_notifier_clear_flush_young(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i32 @__srcu_read_lock(ptr noundef nonnull @srcu) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %6 = load ptr, ptr %5, align 8
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -310,9 +310,9 @@ define dso_local i32 @__mmu_notifier_clear_flush_young(ptr noundef %0, i64 nound
 .preheader:                                       ; preds = %3, %19
   %9 = phi ptr [ %21, %19 ], [ %7, %3 ]
   %10 = phi i32 [ %20, %19 ], [ 0, %3 ]
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %19, label %16
@@ -347,7 +347,7 @@ define dso_local i32 @__mmu_notifier_clear_flush_young(ptr noundef %0, i64 nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__mmu_notifier_clear_young(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i32 @__srcu_read_lock(ptr noundef nonnull @srcu) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %6 = load ptr, ptr %5, align 8
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -356,9 +356,9 @@ define dso_local i32 @__mmu_notifier_clear_young(ptr noundef %0, i64 noundef %1,
 .preheader:                                       ; preds = %3, %19
   %9 = phi ptr [ %21, %19 ], [ %7, %3 ]
   %10 = phi i32 [ %20, %19 ], [ 0, %3 ]
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %19, label %16
@@ -393,7 +393,7 @@ define dso_local i32 @__mmu_notifier_clear_young(ptr noundef %0, i64 noundef %1,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__mmu_notifier_test_young(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @__srcu_read_lock(ptr noundef nonnull @srcu) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %5 = load ptr, ptr %4, align 8
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -401,9 +401,9 @@ define dso_local i32 @__mmu_notifier_test_young(ptr noundef %0, i64 noundef %1) 
 
 .preheader:                                       ; preds = %2, %17
   %8 = phi ptr [ %18, %17 ], [ %6, %2 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %17, label %14
@@ -437,7 +437,7 @@ define dso_local i32 @__mmu_notifier_test_young(ptr noundef %0, i64 noundef %1) 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__mmu_notifier_change_pte(ptr noundef %0, i64 noundef %1, i64 %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i32 @__srcu_read_lock(ptr noundef nonnull @srcu) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %6 = load ptr, ptr %5, align 8
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -445,9 +445,9 @@ define dso_local void @__mmu_notifier_change_pte(ptr noundef %0, i64 noundef %1,
 
 .preheader:                                       ; preds = %3, %16
   %9 = phi ptr [ %17, %16 ], [ %7, %3 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -479,46 +479,46 @@ define dso_local void @__mmu_notifier_change_pte(ptr noundef %0, i64 noundef %1,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__mmu_notifier_invalidate_range_start(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1160
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1160
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %.thread12, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %4, i64 12
-  tail call void @_raw_spin_lock(ptr noundef %9) #8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  tail call void @_raw_spin_lock(ptr noundef nonnull %9) #8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, -1
-  %19 = tail call ptr @interval_tree_iter_first(ptr noundef %13, i64 noundef %15, i64 noundef %18) #8
+  %19 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %13, i64 noundef %15, i64 noundef %18) #8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %21
 
 .thread:                                          ; preds = %8
-  tail call void @_raw_spin_unlock(ptr noundef %9) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %9) #8
   br label %.thread12
 
 21:                                               ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = or i64 %23, 1
   store i64 %24, ptr %22, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %9) #8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %9) #8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
 26:                                               ; preds = %37, %21
   %27 = phi ptr [ %19, %21 ], [ %41, %37 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 %30(ptr noundef nonnull %27, ptr noundef %0, i64 noundef %24) #8
@@ -560,15 +560,15 @@ define dso_local i32 @__mmu_notifier_invalidate_range_start(ptr noundef %0) loca
   br i1 %49, label %.thread13, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %52
 
 52:                                               ; preds = %81, %50
   %53 = phi ptr [ %48, %50 ], [ %83, %81 ]
   %54 = phi i32 [ 0, %50 ], [ %82, %81 ]
-  %55 = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %81, label %60
@@ -599,7 +599,7 @@ define dso_local i32 @__mmu_notifier_invalidate_range_start(ptr noundef %0) loca
   br label %76
 
 76:                                               ; preds = %75, %63
-  %77 = getelementptr inbounds i8, ptr %56, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %81, label %80, !prof !8
@@ -627,9 +627,9 @@ define dso_local i32 @__mmu_notifier_invalidate_range_start(ptr noundef %0) loca
 
 .preheader:                                       ; preds = %87, %97
   %90 = phi ptr [ %98, %97 ], [ %88, %87 ]
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %97, label %96
@@ -666,9 +666,9 @@ define dso_local i32 @__mmu_notifier_invalidate_range_start(ptr noundef %0) loca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__mmu_notifier_invalidate_range_end(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1160
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1160
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %9, label %8
@@ -690,9 +690,9 @@ define dso_local void @__mmu_notifier_invalidate_range_end(ptr noundef %0) local
 
 .preheader:                                       ; preds = %12, %23
   %16 = phi ptr [ %24, %23 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22
@@ -726,9 +726,9 @@ define dso_local void @__mmu_notifier_invalidate_range_end(ptr noundef %0) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @mn_itree_inv_end(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
-  tail call void @_raw_spin_lock(ptr noundef %2) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  tail call void @_raw_spin_lock(ptr noundef nonnull %2) #8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, -1
   store i64 %5, ptr %3, align 8
@@ -736,20 +736,20 @@ define internal fastcc void @mn_itree_inv_end(ptr noundef %0) unnamed_addr #0 al
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 1
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %7, %1
-  tail call void @_raw_spin_unlock(ptr noundef %2) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %2) #8
   br label %46
 
 13:                                               ; preds = %7
   %14 = add i64 %9, 1
   store i64 %14, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   %18 = getelementptr i8, ptr %16, i64 -64
@@ -758,12 +758,12 @@ define internal fastcc void @mn_itree_inv_end(ptr noundef %0) unnamed_addr #0 al
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %23
 
 23:                                               ; preds = %39, %21
   %24 = phi ptr [ %18, %21 ], [ %41, %39 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load ptr, ptr %25, align 8
   %27 = load i64, ptr %24, align 8
   %28 = ptrtoint ptr %24 to i64
@@ -771,23 +771,23 @@ define internal fastcc void @mn_itree_inv_end(ptr noundef %0) unnamed_addr #0 al
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %23
-  tail call void @interval_tree_insert(ptr noundef nonnull %24, ptr noundef %22) #8
+  tail call void @interval_tree_insert(ptr noundef nonnull %24, ptr noundef nonnull %22) #8
   br label %32
 
 31:                                               ; preds = %23
-  tail call void @interval_tree_remove(ptr noundef nonnull %24, ptr noundef %22) #8
+  tail call void @interval_tree_remove(ptr noundef nonnull %24, ptr noundef nonnull %22) #8
   br label %32
 
 32:                                               ; preds = %31, %30
   %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr inbounds i8, ptr %24, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %35 = load ptr, ptr %34, align 8
   store volatile ptr %33, ptr %35, align 8
   %36 = icmp eq ptr %33, null
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %33, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store volatile ptr %35, ptr %38, align 8
   br label %39
 
@@ -801,9 +801,9 @@ define internal fastcc void @mn_itree_inv_end(ptr noundef %0) unnamed_addr #0 al
   br i1 %43, label %.loopexit, label %23, !llvm.loop !40
 
 .loopexit:                                        ; preds = %39, %13
-  tail call void @_raw_spin_unlock(ptr noundef %2) #8
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
-  %45 = tail call i32 @__wake_up(ptr noundef %44, i32 noundef 3, i32 noundef 0, ptr noundef null) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %2) #8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %45 = tail call i32 @__wake_up(ptr noundef nonnull %44, i32 noundef 3, i32 noundef 0, ptr noundef null) #8
   br label %46
 
 46:                                               ; preds = %.loopexit, %12
@@ -813,7 +813,7 @@ define internal fastcc void @mn_itree_inv_end(ptr noundef %0) unnamed_addr #0 al
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__mmu_notifier_arch_invalidate_secondary_tlbs(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i32 @__srcu_read_lock(ptr noundef nonnull @srcu) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %6 = load ptr, ptr %5, align 8
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -821,9 +821,9 @@ define dso_local void @__mmu_notifier_arch_invalidate_secondary_tlbs(ptr noundef
 
 .preheader:                                       ; preds = %3, %16
   %9 = phi ptr [ %17, %16 ], [ %7, %3 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -854,7 +854,7 @@ define dso_local void @__mmu_notifier_arch_invalidate_secondary_tlbs(ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__mmu_notifier_register(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 140
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %7, !prof !30
@@ -869,21 +869,21 @@ define dso_local i32 @__mmu_notifier_register(ptr noundef %0, ptr noundef %1) #0
   br i1 %8, label %24, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %11, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %11, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %24, label %23, !prof !8
@@ -895,7 +895,7 @@ define dso_local i32 @__mmu_notifier_register(ptr noundef %0, ptr noundef %1) #0
   br label %67
 
 24:                                               ; preds = %19, %9, %7
-  %25 = getelementptr inbounds i8, ptr %1, i64 1160
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 1160
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %.thread
@@ -908,15 +908,15 @@ define dso_local i32 @__mmu_notifier_register(ptr noundef %0, ptr noundef %1) #0
 
 32:                                               ; preds = %28
   store ptr null, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 0, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %30, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 2, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %30, i64 32
-  %36 = getelementptr inbounds i8, ptr %30, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  tail call void @__init_waitqueue_head(ptr noundef %36, ptr noundef nonnull @.str.1, ptr noundef nonnull @__mmu_notifier_register.__key) #8
-  %37 = getelementptr inbounds i8, ptr %30, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+  tail call void @__init_waitqueue_head(ptr noundef nonnull %36, ptr noundef nonnull @.str.1, ptr noundef nonnull @__mmu_notifier_register.__key) #8
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 72
   store ptr null, ptr %37, align 8
   %38 = tail call i32 @mm_take_all_locks(ptr noundef %1) #8
   %39 = icmp eq i32 %38, 0
@@ -937,17 +937,17 @@ define dso_local i32 @__mmu_notifier_register(ptr noundef %0, ptr noundef %1) #0
 
 43:                                               ; preds = %.thread5
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, ptr elementtype(i32) %1) #8, !srcloc !48
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %45, align 8
   %46 = load ptr, ptr %25, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 12
-  tail call void @_raw_spin_lock(ptr noundef %47) #8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
+  tail call void @_raw_spin_lock(ptr noundef nonnull %47) #8
   %48 = load ptr, ptr %25, align 8
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile ptr %48, ptr %50, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !49
   store volatile ptr %0, ptr %48, align 8
@@ -955,19 +955,19 @@ define dso_local i32 @__mmu_notifier_register(ptr noundef %0, ptr noundef %1) #0
   br i1 %51, label %54, label %52
 
 52:                                               ; preds = %43
-  %53 = getelementptr inbounds i8, ptr %49, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store volatile ptr %0, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %52, %43
   %55 = load ptr, ptr %25, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 12
-  tail call void @_raw_spin_unlock(ptr noundef %56) #8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 12
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %56) #8
   br label %60
 
 57:                                               ; preds = %.thread5
   %58 = load ptr, ptr %25, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i8 1, ptr %59, align 8
   br label %60
 
@@ -1015,8 +1015,8 @@ define dso_local i32 @mmu_notifier_register(ptr noundef %0, ptr noundef %1) #0 a
   br label %4
 
 4:                                                ; preds = %3, %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 176
-  tail call void @down_write(ptr noundef %5) #8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  tail call void @down_write(ptr noundef nonnull %5) #8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_mmap_lock_acquire_returned, i64 8), i32 2) #8
           to label %7 [label %6], !srcloc !52
 
@@ -1035,24 +1035,24 @@ define dso_local i32 @mmu_notifier_register(ptr noundef %0, ptr noundef %1) #0 a
 
 10:                                               ; preds = %9, %7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !53
-  %11 = getelementptr inbounds i8, ptr %1, i64 232
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, 1
   store volatile i32 %13, ptr %11, align 8
-  tail call void @up_write(ptr noundef %5) #8
+  tail call void @up_write(ptr noundef nonnull %5) #8
   ret i32 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @mmu_notifier_get_locked(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 1160
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1160
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 12
-  tail call void @_raw_spin_lock(ptr noundef %7) #8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  tail call void @_raw_spin_lock(ptr noundef nonnull %7) #8
   %8 = load ptr, ptr %3, align 8
   br label %9
 
@@ -1063,18 +1063,18 @@ define dso_local ptr @mmu_notifier_get_locked(ptr noundef %0, ptr noundef %1) #0
   br i1 %12, label %.thread, label %14
 
 .thread:                                          ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %8, i64 12
-  tail call void @_raw_spin_unlock(ptr noundef %13) #8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %13) #8
   br label %28
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %0
   br i1 %17, label %18, label %9, !llvm.loop !54
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %11, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %24, label %22, !prof !30
@@ -1088,19 +1088,19 @@ define dso_local ptr @mmu_notifier_get_locked(ptr noundef %0, ptr noundef %1) #0
 24:                                               ; preds = %18, %22
   %25 = phi ptr [ %.pre, %22 ], [ %8, %18 ]
   %26 = phi ptr [ %11, %22 ], [ inttoptr (i64 -75 to ptr), %18 ]
-  %27 = getelementptr inbounds i8, ptr %25, i64 12
-  tail call void @_raw_spin_unlock(ptr noundef %27) #8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %27) #8
   br label %43
 
 28:                                               ; preds = %.thread, %2
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef %1) #8
   %32 = icmp ugt ptr %31, inttoptr (i64 -4096 to ptr)
   br i1 %32, label %43, label %33
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %0, ptr %34, align 8
   %35 = tail call i32 @__mmu_notifier_register(ptr noundef %31, ptr noundef %1)
   %36 = icmp eq i32 %35, 0
@@ -1108,7 +1108,7 @@ define dso_local ptr @mmu_notifier_get_locked(ptr noundef %0, ptr noundef %1) #0
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef %31) #8
   %41 = sext i32 %35 to i64
@@ -1122,7 +1122,7 @@ define dso_local ptr @mmu_notifier_get_locked(ptr noundef %0, ptr noundef %1) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__mmu_notifier_subscriptions_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load ptr, ptr %2, align 8
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1151,14 +1151,14 @@ define dso_local void @mmu_notifier_unregister(ptr noundef %0, ptr noundef %1) #
   unreachable
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %35, label %10
 
 10:                                               ; preds = %6
   %11 = tail call i32 @__srcu_read_lock(ptr noundef nonnull @srcu) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -1180,10 +1180,10 @@ define dso_local void @mmu_notifier_unregister(ptr noundef %0, ptr noundef %1) #
 
 20:                                               ; preds = %19, %17
   tail call void @__srcu_read_unlock(ptr noundef nonnull @srcu, i32 noundef %11) #8
-  %21 = getelementptr inbounds i8, ptr %1, i64 1160
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1160
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 12
-  tail call void @_raw_spin_lock(ptr noundef %23) #8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  tail call void @_raw_spin_lock(ptr noundef nonnull %23) #8
   %24 = load ptr, ptr %7, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %32, label %26
@@ -1195,7 +1195,7 @@ define dso_local void @mmu_notifier_unregister(ptr noundef %0, ptr noundef %1) #
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store volatile ptr %24, ptr %30, align 8
   br label %31
 
@@ -1205,8 +1205,8 @@ define dso_local void @mmu_notifier_unregister(ptr noundef %0, ptr noundef %1) #
 
 32:                                               ; preds = %31, %20
   %33 = load ptr, ptr %21, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 12
-  tail call void @_raw_spin_unlock(ptr noundef %34) #8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %34) #8
   br label %35
 
 35:                                               ; preds = %32, %6
@@ -1240,13 +1240,13 @@ declare dso_local void @synchronize_srcu(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mmu_notifier_put(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1160
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1160
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 12
-  tail call void @_raw_spin_lock(ptr noundef %6) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  tail call void @_raw_spin_lock(ptr noundef nonnull %6) #8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11, !prof !30
@@ -1264,7 +1264,7 @@ define dso_local void @mmu_notifier_put(ptr noundef %0) #0 align 16 {
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %24, label %18
@@ -1276,7 +1276,7 @@ define dso_local void @mmu_notifier_put(ptr noundef %0) #0 align 16 {
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store volatile ptr %16, ptr %22, align 8
   br label %23
 
@@ -1286,16 +1286,16 @@ define dso_local void @mmu_notifier_put(ptr noundef %0) #0 align 16 {
 
 24:                                               ; preds = %23, %14
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 12
-  tail call void @_raw_spin_unlock(ptr noundef %26) #8
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @call_srcu(ptr noundef nonnull @srcu, ptr noundef %27, ptr noundef nonnull @mmu_notifier_free_rcu) #8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %26) #8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @call_srcu(ptr noundef nonnull @srcu, ptr noundef nonnull %27, ptr noundef nonnull @mmu_notifier_free_rcu) #8
   br label %31
 
 28:                                               ; preds = %11, %10
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 12
-  tail call void @_raw_spin_unlock(ptr noundef %30) #8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %30) #8
   br label %31
 
 31:                                               ; preds = %28, %24
@@ -1312,7 +1312,7 @@ define internal void @mmu_notifier_free_rcu(ptr noundef %0) #0 align 16 {
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 -16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef %2) #8
   %9 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #8, !srcloc !61
@@ -1331,14 +1331,14 @@ define internal void @mmu_notifier_free_rcu(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @mmu_interval_notifier_insert(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 1160
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1160
   %7 = load volatile ptr, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !65
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load i8, ptr %10, align 8, !range !6, !noundef !7
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %18
@@ -1364,20 +1364,20 @@ define dso_local i32 @mmu_interval_notifier_insert(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -75, 1) i32 @__mmu_interval_notifier_insert(ptr noundef initializes((48, 64)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %5, ptr %8, align 8
   %9 = ptrtoint ptr %0 to i64
   store i64 %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %3, ptr %10, align 8
   %11 = icmp eq i64 %4, 0
   br i1 %11, label %56, label %12
 
 12:                                               ; preds = %6
   %13 = add i64 %4, -1
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %3, i64 %13)
   %16 = extractvalue { i64, i1 } %15, 1
   %17 = extractvalue { i64, i1 } %15, 0
@@ -1385,7 +1385,7 @@ define internal fastcc noundef range(i32 -75, 1) i32 @__mmu_interval_notifier_in
   br i1 %16, label %56, label %18
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %1, i64 140
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %20 = load volatile i32, ptr %19, align 4
   %21 = icmp slt i32 %20, 1
   br i1 %21, label %22, label %23, !prof !30
@@ -1398,12 +1398,12 @@ define internal fastcc noundef range(i32 -75, 1) i32 @__mmu_interval_notifier_in
 
 23:                                               ; preds = %18
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, ptr elementtype(i32) %1) #8, !srcloc !48
-  %24 = getelementptr inbounds i8, ptr %2, i64 12
-  tail call void @_raw_spin_lock(ptr noundef %24) #8
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  tail call void @_raw_spin_lock(ptr noundef nonnull %24) #8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
   %31 = icmp eq i64 %30, 0
@@ -1413,34 +1413,34 @@ define internal fastcc noundef range(i32 -75, 1) i32 @__mmu_interval_notifier_in
   br i1 %31, label %42, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
-  %35 = getelementptr inbounds i8, ptr %2, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %36 = load ptr, ptr %35, align 8
   store volatile ptr %36, ptr %34, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store volatile ptr %34, ptr %39, align 8
   br label %40
 
 40:                                               ; preds = %38, %33
   store volatile ptr %34, ptr %35, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store volatile ptr %35, ptr %41, align 8
   br label %45
 
 42:                                               ; preds = %32
   %43 = or disjoint i64 %29, 1
   store i64 %43, ptr %28, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void @interval_tree_insert(ptr noundef %0, ptr noundef %44) #8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  tail call void @interval_tree_insert(ptr noundef %0, ptr noundef nonnull %44) #8
   br label %45
 
 45:                                               ; preds = %42, %40
   %46 = load i64, ptr %28, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %46, ptr %47, align 8
   br label %55
 
@@ -1457,14 +1457,14 @@ define internal fastcc noundef range(i32 -75, 1) i32 @__mmu_interval_notifier_in
 50:                                               ; preds = %49, %48
   %51 = phi i64 [ %.pre, %49 ], [ %29, %48 ]
   %52 = add i64 %51, -1
-  %53 = getelementptr inbounds i8, ptr %0, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void @interval_tree_insert(ptr noundef %0, ptr noundef %54) #8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  tail call void @interval_tree_insert(ptr noundef %0, ptr noundef nonnull %54) #8
   br label %55
 
 55:                                               ; preds = %50, %45
-  tail call void @_raw_spin_unlock(ptr noundef %24) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %24) #8
   br label %56
 
 56:                                               ; preds = %55, %22, %12, %6
@@ -1474,13 +1474,13 @@ define internal fastcc noundef range(i32 -75, 1) i32 @__mmu_interval_notifier_in
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @mmu_interval_notifier_insert_locked(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 1160
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1160
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load i8, ptr %10, align 8, !range !6, !noundef !7
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %18
@@ -1507,14 +1507,14 @@ define dso_local i32 @mmu_interval_notifier_insert_locked(ptr noundef %0, ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mmu_interval_notifier_remove(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1160
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1160
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @__SCT__might_resched() #8
-  %8 = getelementptr inbounds i8, ptr %6, i64 12
-  tail call void @_raw_spin_lock(ptr noundef %8) #8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  tail call void @_raw_spin_lock(ptr noundef nonnull %8) #8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 1
   %12 = icmp eq i64 %11, 0
@@ -1524,19 +1524,19 @@ define dso_local void @mmu_interval_notifier_remove(ptr noundef %0) #0 align 16 
   br i1 %12, label %32, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br i1 %15, label %18, label %26
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
   store volatile ptr %19, ptr %21, align 8
   %22 = icmp eq ptr %19, null
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store volatile ptr %21, ptr %24, align 8
   br label %25
 
@@ -1546,14 +1546,14 @@ define dso_local void @mmu_interval_notifier_remove(ptr noundef %0) #0 align 16 
   br label %.thread
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %6, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %28 = load ptr, ptr %27, align 8
   store volatile ptr %28, ptr %17, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store volatile ptr %17, ptr %31, align 8
   br label %36
 
@@ -1567,54 +1567,54 @@ define dso_local void @mmu_interval_notifier_remove(ptr noundef %0) #0 align 16 
   br label %34
 
 34:                                               ; preds = %33, %32
-  %35 = getelementptr inbounds i8, ptr %6, i64 32
-  tail call void @interval_tree_remove(ptr noundef %0, ptr noundef %35) #8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  tail call void @interval_tree_remove(ptr noundef %0, ptr noundef nonnull %35) #8
   br label %.thread
 
 .thread:                                          ; preds = %25, %34
-  tail call void @_raw_spin_unlock(ptr noundef %8) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %8) #8
   br label %52
 
 36:                                               ; preds = %26, %30
   store volatile ptr %17, ptr %27, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store volatile ptr %27, ptr %37, align 8
   %38 = load i64, ptr %9, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %8) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %8) #8
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %52, label %40
 
 40:                                               ; preds = %36
   %41 = tail call i32 @__SCT__might_resched() #8
-  tail call void @_raw_spin_lock(ptr noundef %8) #8
+  tail call void @_raw_spin_lock(ptr noundef nonnull %8) #8
   %42 = load i64, ptr %9, align 8
   %43 = icmp eq i64 %42, %38
-  tail call void @_raw_spin_unlock(ptr noundef %8) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %8) #8
   br i1 %43, label %44, label %52
 
 44:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false), !annotation !5
   call void @init_wait_entry(ptr noundef nonnull %2, i32 noundef 0) #8
-  %45 = getelementptr inbounds i8, ptr %6, i64 48
-  %46 = call i64 @prepare_to_wait_event(ptr noundef %45, ptr noundef nonnull %2, i32 noundef 2) #8
-  call void @_raw_spin_lock(ptr noundef %8) #8
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %46 = call i64 @prepare_to_wait_event(ptr noundef nonnull %45, ptr noundef nonnull %2, i32 noundef 2) #8
+  call void @_raw_spin_lock(ptr noundef nonnull %8) #8
   %47 = load i64, ptr %9, align 8
   %48 = icmp eq i64 %47, %38
-  call void @_raw_spin_unlock(ptr noundef %8) #8
+  call void @_raw_spin_unlock(ptr noundef nonnull %8) #8
   br i1 %48, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %44, %.preheader
   call void @schedule() #8
-  %49 = call i64 @prepare_to_wait_event(ptr noundef %45, ptr noundef nonnull %2, i32 noundef 2) #8
-  call void @_raw_spin_lock(ptr noundef %8) #8
+  %49 = call i64 @prepare_to_wait_event(ptr noundef nonnull %45, ptr noundef nonnull %2, i32 noundef 2) #8
+  call void @_raw_spin_lock(ptr noundef nonnull %8) #8
   %50 = load i64, ptr %9, align 8
   %51 = icmp eq i64 %50, %38
-  call void @_raw_spin_unlock(ptr noundef %8) #8
+  call void @_raw_spin_unlock(ptr noundef nonnull %8) #8
   br i1 %51, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %44
-  call void @finish_wait(ptr noundef %45, ptr noundef nonnull %2) #8
+  call void @finish_wait(ptr noundef nonnull %45, ptr noundef nonnull %2) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #8
   br label %52
 

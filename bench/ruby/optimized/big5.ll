@@ -44,10 +44,10 @@ define void @Init_big5_uao() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -2147483647, -2147483648) i32 @big5_mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [3 x [256 x i8]], ptr @trans, i64 0, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [3 x [256 x i8]], ptr @trans, i64 0, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = sext i8 %8 to i64
   %10 = icmp slt i8 %8, 0
@@ -63,7 +63,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @big5_mbc_enc_len(ptr no
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i32, ptr @EncLen_BIG5, i64 %6
+  %17 = getelementptr inbounds nuw i32, ptr @EncLen_BIG5, i64 %6
   %18 = load i32, ptr %17, align 4
   %19 = sub nsw i32 0, %18
   br label %big5_mbc_enc_len0.exit
@@ -71,7 +71,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @big5_mbc_enc_len(ptr no
 20:                                               ; preds = %14
   %21 = load i8, ptr %4, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds [3 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %22
+  %23 = getelementptr inbounds nuw [3 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, -1
   %26 = select i1 %25, i32 2, i32 -1
@@ -128,7 +128,7 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
 7:                                                ; preds = %4
   %8 = load i8, ptr %1, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [256 x i8], ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i8], ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   %.not34.not = icmp eq i8 %11, 0
   br i1 %.not34.not, label %.loopexit, label %.lr.ph
@@ -166,9 +166,9 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
 
 .loopexit:                                        ; preds = %25, %.lr.ph.split, %19, %.lr.ph.split.us, %7
   %.028 = phi ptr [ %1, %7 ], [ %scevgep43, %19 ], [ %.135.us, %.lr.ph.split.us ], [ %scevgep43, %25 ], [ %.135, %.lr.ph.split ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %28, %30
   br i1 %31, label %32, label %34
@@ -205,7 +205,7 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
 define internal range(i32 0, 2) i32 @big5_is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds [256 x i8], ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [256 x i8], ptr @BIG5_CAN_BE_TRAIL_TABLE, i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   %8 = zext i1 %.not to i32
@@ -224,10 +224,10 @@ declare i32 @onigenc_mb2_is_code_ctype(ptr noundef, i32 noundef, i32 noundef) lo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -2147483647, -2147483648) i32 @big5_hkscs_mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [3 x [256 x i8]], ptr @trans, i64 0, i64 2, i64 %6
+  %7 = getelementptr inbounds nuw [3 x [256 x i8]], ptr @trans, i64 0, i64 2, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = sext i8 %8 to i64
   %10 = icmp slt i8 %8, 0
@@ -243,7 +243,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @big5_hkscs_mbc_enc_len(
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i32, ptr @EncLen_BIG5_HKSCS, i64 %6
+  %17 = getelementptr inbounds nuw i32, ptr @EncLen_BIG5_HKSCS, i64 %6
   %18 = load i32, ptr %17, align 4
   %19 = sub nsw i32 0, %18
   br label %big5_mbc_enc_len0.exit
@@ -251,7 +251,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @big5_hkscs_mbc_enc_len(
 20:                                               ; preds = %14
   %21 = load i8, ptr %4, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds [3 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %22
+  %23 = getelementptr inbounds nuw [3 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, -1
   %26 = select i1 %25, i32 2, i32 -1
@@ -266,10 +266,10 @@ declare i32 @onigenc_mbclen(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -2147483647, -2147483648) i32 @big5_uao_mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [3 x [256 x i8]], ptr @trans, i64 0, i64 2, i64 %6
+  %7 = getelementptr inbounds nuw [3 x [256 x i8]], ptr @trans, i64 0, i64 2, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = sext i8 %8 to i64
   %10 = icmp slt i8 %8, 0
@@ -285,7 +285,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @big5_uao_mbc_enc_len(pt
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i32, ptr @EncLen_BIG5_UAO, i64 %6
+  %17 = getelementptr inbounds nuw i32, ptr @EncLen_BIG5_UAO, i64 %6
   %18 = load i32, ptr %17, align 4
   %19 = sub nsw i32 0, %18
   br label %big5_mbc_enc_len0.exit
@@ -293,7 +293,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @big5_uao_mbc_enc_len(pt
 20:                                               ; preds = %14
   %21 = load i8, ptr %4, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds [3 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %22
+  %23 = getelementptr inbounds nuw [3 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, -1
   %26 = select i1 %25, i32 2, i32 -1

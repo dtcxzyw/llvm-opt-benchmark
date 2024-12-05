@@ -25,7 +25,7 @@ $_ZN6asmjit9_abi_1_1013RAConstraints4initENS0_4ArchE = comdat any
 ; Function Attrs: minsize mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_108CallConv4initENS0_10CallConvIdERKNS0_11EnvironmentE(ptr noundef nonnull align 4 dereferenceable(116) initializes((0, 116)) %0, i8 noundef zeroext %1, ptr noundef nonnull align 1 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %0, i8 0, i64 52, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 -1, i64 64, i1 false)
   %5 = load i8, ptr %2, align 1, !tbaa !3
   %6 = add i8 %5, -1
@@ -46,7 +46,7 @@ declare noundef i32 @_ZN6asmjit9_abi_1_103x8612FuncInternal12initCallConvERNS0_8
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010FuncDetail4initERKNS0_13FuncSignatureERKNS0_11EnvironmentE(ptr noundef nonnull align 4 dereferenceable(412) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !13
   %6 = icmp ugt i8 %5, 16
   br i1 %6, label %67, label %7, !prof !18
@@ -63,13 +63,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010FuncDetail4initERKNS0_13Func
   %14 = icmp eq i8 %13, 0
   %15 = select i1 %14, i32 8, i32 4
   %16 = select i1 %14, i32 8, i32 6
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !27
   %19 = icmp eq i8 %5, 0
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %0, i64 156
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %22 = zext nneg i8 %5 to i64
   %23 = trunc nuw nsw i32 %16 to i8
   %24 = add nuw nsw i64 %22, 7
@@ -86,7 +86,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010FuncDetail4initERKNS0_13Func
   %33 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %20 ], [ %44, %31 ]
   %34 = icmp ule <8 x i64> %33, %28
   %35 = getelementptr inbounds [16 x %"struct.asmjit::_abi_1_10::FuncValuePack"], ptr %21, i64 0, <8 x i64> %33
-  %36 = getelementptr inbounds i8, ptr %18, i64 %32
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 %32
   %37 = tail call <8 x i8> @llvm.masked.load.v8i8.p0(ptr %36, i32 1, <8 x i1> %34, <8 x i8> poison), !tbaa !28
   %38 = and <8 x i8> %37, splat (i8 -2)
   %39 = icmp eq <8 x i8> %38, splat (i8 32)
@@ -100,19 +100,19 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010FuncDetail4initERKNS0_13Func
   br i1 %45, label %.loopexit, label %31, !llvm.loop !32
 
 .loopexit:                                        ; preds = %31, %11
-  %46 = getelementptr inbounds i8, ptr %0, i64 116
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i8 %5, ptr %46, align 4, !tbaa !36
-  %47 = getelementptr inbounds i8, ptr %1, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %48 = load i8, ptr %47, align 2, !tbaa !40
-  %49 = getelementptr inbounds i8, ptr %0, i64 117
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 117
   store i8 %48, ptr %49, align 1, !tbaa !41
-  %50 = getelementptr inbounds i8, ptr %1, i64 3
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %51 = load i8, ptr %50, align 1, !tbaa !42
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %61, label %53
 
 53:                                               ; preds = %.loopexit
-  %54 = getelementptr inbounds i8, ptr %0, i64 140
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %55 = and i8 %51, -2
   %56 = icmp eq i8 %55, 32
   %57 = trunc nuw nsw i32 %16 to i8
@@ -157,57 +157,57 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame4ini
 
 6:                                                ; preds = %2
   %7 = zext nneg i8 %3 to i64
-  %8 = getelementptr inbounds [17 x %"struct.asmjit::_abi_1_10::ArchTraits"], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [17 x %"struct.asmjit::_abi_1_10::ArchTraits"], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 0, i64 %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %0, i8 0, i64 100, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 5
-  %10 = getelementptr inbounds i8, ptr %0, i64 6
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 -1, ptr %11, align 4, !tbaa !43
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %3, ptr %12, align 4, !tbaa !46
   %13 = load i8, ptr %8, align 8, !tbaa !47
   %14 = zext nneg i8 %13 to i32
   store i8 %13, ptr %9, align 1, !tbaa !53
   store i8 -1, ptr %10, align 2, !tbaa !54
-  %15 = getelementptr inbounds i8, ptr %1, i64 5
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %16 = load i8, ptr %15, align 1, !tbaa !55
   %17 = tail call i8 @llvm.umax.i8(i8 %16, i8 16)
   %18 = icmp ugt i8 %16, 15
   %19 = zext i1 %18 to i8
   %20 = shl i8 %17, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 9
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %16, ptr %21, align 1, !tbaa !56
-  %22 = getelementptr inbounds i8, ptr %0, i64 10
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %20, ptr %22, align 2, !tbaa !57
-  %23 = getelementptr inbounds i8, ptr %1, i64 3
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %24 = load i8, ptr %23, align 1, !tbaa !58
-  %25 = getelementptr inbounds i8, ptr %0, i64 7
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 %24, ptr %25, align 1, !tbaa !59
-  %26 = getelementptr inbounds i8, ptr %1, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %27 = load i8, ptr %26, align 4, !tbaa !60
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %27, ptr %28, align 4, !tbaa !61
-  %29 = getelementptr inbounds i8, ptr %0, i64 13
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 %16, ptr %29, align 1, !tbaa !62
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i32, ptr %30, align 4, !tbaa !63
   %32 = and i32 %31, 1
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %39, label %34
 
 34:                                               ; preds = %6
-  %35 = getelementptr inbounds i8, ptr %1, i64 136
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %36 = load i32, ptr %35, align 4, !tbaa !64
   %37 = trunc i32 %36 to i16
-  %38 = getelementptr inbounds i8, ptr %0, i64 14
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i16 %37, ptr %38, align 2, !tbaa !65
   br label %39
 
 39:                                               ; preds = %34, %6
-  %40 = getelementptr inbounds i8, ptr %1, i64 120
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
-  %42 = getelementptr inbounds i8, ptr %1, i64 36
-  %43 = getelementptr inbounds i8, ptr %0, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %55
 
 44:                                               ; preds = %55
@@ -216,25 +216,25 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame4ini
   %47 = load i32, ptr %43, align 4, !tbaa !66
   %48 = and i32 %47, %46
   store i32 %48, ptr %43, align 4, !tbaa !66
-  %49 = getelementptr inbounds i8, ptr %1, i64 12
-  %50 = getelementptr inbounds i8, ptr %0, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %51 = load i32, ptr %49, align 4, !tbaa !67
   store i32 %51, ptr %50, align 4, !tbaa !67
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
-  %53 = getelementptr inbounds i8, ptr %0, i64 84
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %54 = load i32, ptr %52, align 4, !tbaa !67
   store i32 %54, ptr %53, align 4, !tbaa !67
   br label %65
 
 55:                                               ; preds = %55, %39
   %56 = phi i64 [ 0, %39 ], [ %63, %55 ]
-  %57 = getelementptr inbounds [4 x i32], ptr %40, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i32], ptr %40, i64 0, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !66
-  %59 = getelementptr inbounds [4 x i32], ptr %41, i64 0, i64 %56
+  %59 = getelementptr inbounds nuw [4 x i32], ptr %41, i64 0, i64 %56
   store i32 %58, ptr %59, align 4, !tbaa !66
-  %60 = getelementptr inbounds [4 x i32], ptr %42, i64 0, i64 %56
+  %60 = getelementptr inbounds nuw [4 x i32], ptr %42, i64 0, i64 %56
   %61 = load i32, ptr %60, align 4, !tbaa !66
-  %62 = getelementptr inbounds [4 x i32], ptr %43, i64 0, i64 %56
+  %62 = getelementptr inbounds nuw [4 x i32], ptr %43, i64 0, i64 %56
   store i32 %61, ptr %62, align 4, !tbaa !66
   %63 = add nuw nsw i64 %56, 1
   %64 = icmp eq i64 %63, 4
@@ -248,7 +248,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame4ini
 ; Function Attrs: minsize mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8finalizeEv(ptr nocapture noundef nonnull align 4 dereferenceable(100) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [2 x i32], align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4, !tbaa !46
   %5 = add i8 %4, -1
   %6 = icmp ult i8 %5, 16
@@ -256,29 +256,29 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8fin
 
 7:                                                ; preds = %1
   %8 = zext nneg i8 %4 to i64
-  %9 = getelementptr inbounds [17 x %"struct.asmjit::_abi_1_10::ArchTraits"], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw [17 x %"struct.asmjit::_abi_1_10::ArchTraits"], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 0, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i8, ptr %10, align 4, !tbaa !67
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 81
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %14 = load i8, ptr %13, align 1, !tbaa !67
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %9, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %17 = load i8, ptr %16, align 2, !tbaa !68
   %18 = icmp eq i8 %17, -1
   %19 = select i1 %18, i32 %12, i32 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 13
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %21 = load i8, ptr %20, align 1, !tbaa !62
   %22 = zext i8 %21 to i32
   %23 = load i32, ptr %0, align 4, !tbaa !69
   %24 = and i32 %23, 16
   %25 = icmp eq i32 %24, 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 10
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %27 = load i8, ptr %26, align 2, !tbaa !57
   %28 = icmp uge i8 %21, %27
   %29 = load i8, ptr %9, align 8, !tbaa !47
   %30 = zext i8 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %9, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %32 = load i8, ptr %31, align 1, !tbaa !70
   %33 = zext i8 %32 to i32
   %34 = zext nneg i8 %17 to i32
@@ -286,7 +286,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8fin
 
 35:                                               ; preds = %7
   %36 = shl nuw i32 1, %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load i32, ptr %37, align 4, !tbaa !66
   %39 = or i32 %38, %36
   store i32 %39, ptr %37, align 4, !tbaa !66
@@ -299,7 +299,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8fin
   br label %43
 
 43:                                               ; preds = %40, %35, %7
-  %44 = getelementptr inbounds i8, ptr %0, i64 6
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %45 = load i8, ptr %44, align 2, !tbaa !54
   %46 = zext i8 %45 to i32
   %47 = icmp eq i8 %45, -1
@@ -312,44 +312,44 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8fin
 
 53:                                               ; preds = %43
   %54 = shl nuw i32 1, %51
-  %55 = getelementptr inbounds i8, ptr %0, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %56 = load i32, ptr %55, align 4, !tbaa !66
   %57 = or i32 %56, %54
   store i32 %57, ptr %55, align 4, !tbaa !66
   br label %58
 
 58:                                               ; preds = %53, %43
-  %59 = getelementptr inbounds i8, ptr %0, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 %29, ptr %59, align 1, !tbaa !53
   %60 = trunc nuw i32 %51 to i8
   store i8 %60, ptr %44, align 2, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   store i64 0, ptr %2, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 48
-  %62 = getelementptr inbounds i8, ptr %0, i64 64
-  %63 = getelementptr inbounds i8, ptr %0, i64 84
-  %64 = getelementptr inbounds i8, ptr %9, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %86
 
 65:                                               ; preds = %86
   %66 = load i32, ptr %2, align 8, !tbaa !66
   %67 = trunc i32 %66 to i16
-  %68 = getelementptr inbounds i8, ptr %0, i64 88
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i16 %67, ptr %68, align 4, !tbaa !71
-  %69 = getelementptr inbounds i8, ptr %2, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !66
   %71 = trunc i32 %70 to i16
-  %72 = getelementptr inbounds i8, ptr %0, i64 90
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i16 %71, ptr %72, align 2, !tbaa !72
-  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load i32, ptr %73, align 4, !tbaa !73
   %75 = add nsw i32 %22, -1
   %76 = add i32 %74, %75
   %77 = sub nsw i32 0, %22
   %78 = and i32 %76, %77
-  %79 = getelementptr inbounds i8, ptr %0, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %78, ptr %79, align 4, !tbaa !74
-  %80 = getelementptr inbounds i8, ptr %0, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %81 = load i32, ptr %80, align 4, !tbaa !75
   %82 = add i32 %78, %81
   %83 = icmp ult i8 %21, %14
@@ -359,29 +359,29 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8fin
 
 86:                                               ; preds = %86, %58
   %87 = phi i64 [ 0, %58 ], [ %113, %86 ]
-  %88 = getelementptr inbounds [4 x i32], ptr %61, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i32], ptr %61, i64 0, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !66
-  %90 = getelementptr inbounds [4 x i32], ptr %62, i64 0, i64 %87
+  %90 = getelementptr inbounds nuw [4 x i32], ptr %62, i64 0, i64 %87
   %91 = load i32, ptr %90, align 4, !tbaa !66
   %92 = and i32 %91, %89
   %93 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %92), !range !76
-  %94 = getelementptr inbounds [4 x i8], ptr %10, i64 0, i64 %87
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 0, i64 %87
   %95 = load i8, ptr %94, align 1, !tbaa !67
   %96 = zext i8 %95 to i32
   %97 = mul nuw nsw i32 %93, %96
-  %98 = getelementptr inbounds [4 x i8], ptr %63, i64 0, i64 %87
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 0, i64 %87
   %99 = load i8, ptr %98, align 1, !tbaa !67
   %100 = zext i8 %99 to i32
   %101 = add nsw i32 %97, -1
   %102 = add nsw i32 %101, %100
   %103 = sub nsw i32 0, %100
   %104 = and i32 %102, %103
-  %105 = getelementptr inbounds [4 x i8], ptr %64, i64 0, i64 %87
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 0, i64 %87
   %106 = load i8, ptr %105, align 1, !tbaa !77
   %107 = and i8 %106, 2
   %108 = icmp eq i8 %107, 0
   %109 = zext i1 %108 to i64
-  %110 = getelementptr inbounds [2 x i32], ptr %2, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 0, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !66
   %112 = add i32 %104, %111
   store i32 %112, ptr %110, align 4, !tbaa !66
@@ -401,7 +401,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8fin
 121:                                              ; preds = %115, %65
   %122 = phi i32 [ %116, %115 ], [ %23, %65 ]
   %123 = phi i32 [ %120, %115 ], [ %82, %65 ]
-  %124 = getelementptr inbounds i8, ptr %0, i64 96
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %123, ptr %124, align 4, !tbaa !79
   %125 = and i32 %70, 65535
   %126 = add i32 %123, %125
@@ -409,7 +409,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8fin
   %128 = select i1 %127, i32 %126, i32 -1
   %129 = select i1 %127, i32 %12, i32 0
   %130 = add i32 %126, %129
-  %131 = getelementptr inbounds i8, ptr %0, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %128, ptr %131, align 4
   %132 = icmp eq i32 %130, 0
   br i1 %132, label %133, label %140
@@ -437,12 +437,12 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8fin
 147:                                              ; preds = %140, %138
   %148 = phi i32 [ %139, %138 ], [ %141, %140 ]
   %149 = phi i32 [ 0, %138 ], [ %146, %140 ]
-  %150 = getelementptr inbounds i8, ptr %0, i64 92
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %149, ptr %150, align 4, !tbaa !80
-  %151 = getelementptr inbounds i8, ptr %0, i64 44
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %149, ptr %151, align 4, !tbaa !81
   %152 = add i32 %149, %148
-  %153 = getelementptr inbounds i8, ptr %0, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %152, ptr %153, align 4, !tbaa !82
   %154 = add i32 %152, %19
   br i1 %28, label %155, label %158
@@ -455,11 +455,11 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8fin
 
 158:                                              ; preds = %155, %147
   %159 = phi i32 [ -1, %155 ], [ %154, %147 ]
-  %160 = getelementptr inbounds i8, ptr %0, i64 36
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %159, ptr %160, align 4, !tbaa !83
   %161 = select i1 %25, i32 %148, i32 %12
   %162 = add nuw nsw i32 %161, %19
-  %163 = getelementptr inbounds i8, ptr %0, i64 40
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %162, ptr %163, align 4, !tbaa !84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   br label %164
@@ -481,7 +481,7 @@ define dso_local noundef i32 @_ZNK6asmjit9_abi_1_1018FuncArgsAssignment15updateF
   br i1 %6, label %27, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i8, ptr %8, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)

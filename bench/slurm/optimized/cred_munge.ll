@@ -77,10 +77,10 @@ define ptr @cred_p_create(ptr noundef %0, i1 noundef zeroext %1, i16 noundef zer
   br i1 %1, label %5, label %12
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = tail call fastcc ptr @_encode(ptr noundef %7)
-  %9 = getelementptr inbounds i8, ptr %4, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %8, ptr %9, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %.thread
@@ -91,7 +91,7 @@ define ptr @cred_p_create(ptr noundef %0, i1 noundef zeroext %1, i16 noundef zer
   br label %21
 
 12:                                               ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 96
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 96
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not14 = icmp eq ptr %.pre, null
   br i1 %.not14, label %17, label %.thread
@@ -106,7 +106,7 @@ define ptr @cred_p_create(ptr noundef %0, i1 noundef zeroext %1, i16 noundef zer
 17:                                               ; preds = %.thread, %12
   %18 = phi ptr [ %13, %.thread ], [ null, %12 ]
   %.0 = phi i32 [ %16, %.thread ], [ 0, %12 ]
-  %19 = getelementptr inbounds i8, ptr %4, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %20 = load ptr, ptr %19, align 8
   tail call void @slurm_packmem(ptr noundef %18, i32 noundef %.0, ptr noundef %20) #7
   br label %21
@@ -126,8 +126,8 @@ define internal fastcc ptr @_encode(ptr nocapture noundef readonly %0) unnamed_a
   br i1 %.not, label %25, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %6
 
 6:                                                ; preds = %.preheader, %17
@@ -197,7 +197,7 @@ define ptr @cred_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
   br i1 %.not, label %30, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %7 = load ptr, ptr %6, align 8
   %.not10 = icmp eq ptr %7, null
   br i1 %.not10, label %30, label %8
@@ -207,11 +207,11 @@ define ptr @cred_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
   br i1 %9, label %10, label %30
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load i32, ptr %15, align 8
   %17 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -226,10 +226,10 @@ define ptr @cred_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
 
 20:                                               ; preds = %10
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8
   %.not9.i = icmp eq i32 %16, %23
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
   br i1 %.not9.i, label %._crit_edge.i, label %.critedge12
 
@@ -256,7 +256,7 @@ define ptr @cred_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
   br label %30
 
 28:                                               ; preds = %._crit_edge.i
-  %29 = getelementptr inbounds i8, ptr %4, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i8 1, ptr %29, align 8
   br label %30
 
@@ -320,7 +320,7 @@ define ptr @cred_p_extract_net_cred(ptr noundef %0, i16 noundef zeroext %1) loca
   br i1 %.not6, label %27, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
   call void @free(ptr noundef %17) #7
   call void @slurm_xfree(ptr noundef nonnull %5) #7
@@ -335,7 +335,7 @@ define ptr @cred_p_extract_net_cred(ptr noundef %0, i16 noundef zeroext %1) loca
   br i1 %.not5, label %25, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8
   call void @free(ptr noundef %24) #7
   call void @slurm_xfree(ptr noundef nonnull %5) #7
@@ -474,7 +474,7 @@ define ptr @sbcast_p_create(ptr noundef %0, i16 noundef zeroext %1) local_unname
   %3 = alloca ptr, align 8
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 391, ptr noundef nonnull @__func__.sbcast_p_create) #7
   %5 = tail call ptr @sbcast_cred_pack(ptr noundef %0, i16 noundef zeroext %1) #7
-  %6 = getelementptr inbounds i8, ptr %4, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %5, ptr %6, align 8
   %7 = tail call fastcc ptr @_encode(ptr noundef %5)
   store ptr %7, ptr %3, align 8
@@ -510,7 +510,7 @@ declare void @delete_sbcast_cred(ptr noundef) local_unnamed_addr #1
 define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   store i32 0, ptr %5, align 4
   %8 = call ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef nonnull %5, i16 noundef zeroext %2) #7
@@ -526,7 +526,7 @@ define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef z
 
 12:                                               ; preds = %11
   %13 = call i64 @time(ptr noundef null) #7
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = icmp sgt i64 %13, %15
   br i1 %16, label %17, label %19
@@ -537,12 +537,12 @@ define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef z
   br label %39
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %7 to i64
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   %24 = load i32, ptr %5, align 4
-  %25 = getelementptr inbounds i8, ptr %8, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %26 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
@@ -556,10 +556,10 @@ define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef z
 
 29:                                               ; preds = %19
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 8
   %.not9.i = icmp eq i32 %24, %32
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load ptr, ptr %33, align 8
   br i1 %.not9.i, label %._crit_edge.i, label %.critedge14
 
@@ -586,7 +586,7 @@ define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef z
   br label %39
 
 37:                                               ; preds = %._crit_edge.i
-  %38 = getelementptr inbounds i8, ptr %8, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 1, ptr %38, align 8
   br label %39
 

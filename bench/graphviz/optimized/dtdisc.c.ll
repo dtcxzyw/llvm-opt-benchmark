@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @dtdisc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -19,10 +19,10 @@ define ptr @dtdisc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not47, label %.loopexit, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 4096
@@ -49,10 +49,10 @@ define ptr @dtdisc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %25 = and i32 %24, -4097
   store i32 %25, ptr %23, align 8
   %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr null, ptr %27, align 8
   %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 28
   store i32 0, ptr %29, align 4
   %30 = load ptr, ptr %11, align 8
   %31 = load i32, ptr %30, align 8
@@ -61,14 +61,14 @@ define ptr @dtdisc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not50, label %.loopexit52, label %33
 
 33:                                               ; preds = %21
-  %34 = getelementptr inbounds i8, ptr %30, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph.preheader, label %.loopexit52
 
 .lr.ph.preheader:                                 ; preds = %33
   %37 = zext nneg i32 %35 to i64
-  %38 = getelementptr inbounds i8, ptr %30, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = shl nuw nsw i64 %37, 3
@@ -87,8 +87,8 @@ define ptr @dtdisc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not5154, label %.loopexit, label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %.loopexit52
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %50
 
 50:                                               ; preds = %.lr.ph56, %70
@@ -99,7 +99,7 @@ define ptr @dtdisc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %.04355, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.04355, i64 16
   %56 = load ptr, ptr %55, align 8
   br label %61
 
@@ -125,7 +125,7 @@ define ptr @dtdisc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 70:                                               ; preds = %61, %68
   %71 = phi ptr [ %69, %68 ], [ %67, %61 ]
   %72 = tail call i32 @dtstrhash(ptr noundef %71, i32 noundef %63) #4
-  %73 = getelementptr inbounds i8, ptr %.04355, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.04355, i64 8
   store i32 %72, ptr %73, align 8
   %74 = tail call ptr %10(ptr noundef %0, ptr noundef nonnull %.04355, i32 noundef 32) #4
   %.not51 = icmp eq ptr %51, null

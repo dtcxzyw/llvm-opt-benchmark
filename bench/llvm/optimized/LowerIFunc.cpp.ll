@@ -41,7 +41,7 @@ define dso_local void @_ZN4llvm14LowerIFuncPass3runERNS_6ModuleERNS_15AnalysisMa
 
 16:                                               ; preds = %4
   %17 = tail call noundef zeroext i1 @_ZN4llvm33lowerGlobalIFuncUsersAsGlobalCtorERNS_6ModuleENS_8ArrayRefIPNS_11GlobalIFuncEEE(ptr noundef nonnull align 8 dereferenceable(857) %2, ptr null, i64 0) #3
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, i8 0, i64 72, i1 false), !alias.scope !10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %19, ptr %0, align 8, !alias.scope !10

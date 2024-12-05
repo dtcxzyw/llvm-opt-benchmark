@@ -921,7 +921,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dect(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.584) #5
   %8 = load ptr, ptr %6, align 8
@@ -1017,7 +1017,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_afield(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [8 x i8], align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %9, ptr noundef null) #5
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef 11) #5
@@ -1604,18 +1604,18 @@ default.unreachable567:                           ; preds = %312, %310, %231, %6
 
 372:                                              ; preds = %244, %247, %66, %56, %296, %368, %252, %255, %258, %261, %264, %281, %284, %287, %290, %293, %73, %119, %122, %125, %194, %197, %207, %213, %216, %219, %222, %225, %46
   %373 = call ptr @tvb_memcpy(ptr noundef %3, ptr noundef nonnull %7, i32 noundef 11, i64 noundef 6) #5
-  %374 = getelementptr inbounds i8, ptr %7, i64 6
+  %374 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i8 0, ptr %374, align 1
-  %375 = getelementptr inbounds i8, ptr %7, i64 7
+  %375 = getelementptr inbounds nuw i8, ptr %7, i64 7
   store i8 0, ptr %375, align 1
   %376 = load i8, ptr %7, align 1
   %377 = zext i8 %376 to i16
   %378 = shl nuw i16 %377, 8
-  %379 = getelementptr inbounds i8, ptr %7, i64 1
+  %379 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %380 = load i8, ptr %379, align 1
   %381 = zext i8 %380 to i16
   %382 = or disjoint i16 %378, %381
-  %invariant.gep.i = getelementptr inbounds i8, ptr %7, i64 2
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %7, i64 2
   br label %383
 
 383:                                              ; preds = %.thread.i, %372
@@ -1741,7 +1741,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture
   br i1 %.not104, label %70, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %21
-  %34 = getelementptr inbounds i8, ptr %1, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %.lr.ph.us
 
 .preheader.split.preheader:                       ; preds = %18
@@ -1928,7 +1928,7 @@ calc_xcrc.exit:                                   ; preds = %.thread.i
   br i1 %.not105.not, label %109, label %119
 
 109:                                              ; preds = %.loopexit.thread
-  %110 = getelementptr inbounds i8, ptr %7, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %111 = load i8, ptr %110, align 8
   %112 = and i8 %111, -16
   %113 = zext i8 %112 to i32

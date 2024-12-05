@@ -9,7 +9,7 @@ define range(i32 0, 2) i32 @cs_happly(ptr noundef readonly %0, i32 noundef %1, d
   br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, -1
   %9 = icmp ne ptr %3, null
@@ -17,11 +17,11 @@ define range(i32 0, 2) i32 @cs_happly(ptr noundef readonly %0, i32 noundef %1, d
   br i1 %or.cond, label %10, label %.loopexit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %1 to i64
   %18 = getelementptr inbounds i32, ptr %12, i64 %17

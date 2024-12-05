@@ -146,7 +146,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2147483647) i32 @Abc_NtkCutCostMux(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i64, ptr %3, align 4
   %5 = trunc i64 %4 to i32
   %6 = icmp ult i32 %5, 50331648
@@ -160,28 +160,28 @@ define range(i32 0, 2147483647) i32 @Abc_NtkCutCostMux(ptr nocapture noundef rea
 9:                                                ; preds = %7
   %10 = getelementptr i8, ptr %1, i64 16
   %.val = load i32, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 1064
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %14 = lshr i64 %4, 24
   %15 = and i64 %14, 255
-  %16 = getelementptr inbounds [16 x ptr], ptr %13, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [16 x ptr], ptr %13, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i, label %If_CutTruthWR.exit.i.i, label %18
 
 18:                                               ; preds = %9
   %19 = ashr i32 %.val, 1
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = ashr i32 %19, %23
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %21, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %17, align 8
-  %29 = getelementptr inbounds i8, ptr %17, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, %19
   %32 = mul nsw i32 %31, %28
@@ -191,8 +191,8 @@ define range(i32 0, 2147483647) i32 @Abc_NtkCutCostMux(ptr nocapture noundef rea
 
 If_CutTruthWR.exit.i.i:                           ; preds = %18, %9
   %35 = phi ptr [ %34, %18 ], [ null, %9 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 652
-  %37 = getelementptr inbounds [16 x i32], ptr %36, i64 0, i64 %15
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 652
+  %37 = getelementptr inbounds nuw [16 x i32], ptr %36, i64 0, i64 %15
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %.val, 1
   %.not.i7.i.i = icmp eq i32 %39, 0
@@ -215,10 +215,10 @@ If_CutTruthWR.exit.i.i:                           ; preds = %18, %9
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %41 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv.i.i.i
+  %41 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv.i.i.i
   %42 = load i64, ptr %41, align 8
   %43 = xor i64 %42, -1
-  %44 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv.i.i.i
+  %44 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i.i.i
   store i64 %43, ptr %44, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -226,9 +226,9 @@ If_CutTruthWR.exit.i.i:                           ; preds = %18, %9
 
 .lr.ph18.i.i.i:                                   ; preds = %.lr.ph18.i.i.i, %.lr.ph18.preheader.i.i.i
   %indvars.iv21.i.i.i = phi i64 [ 0, %.lr.ph18.preheader.i.i.i ], [ %indvars.iv.next22.i.i.i, %.lr.ph18.i.i.i ]
-  %45 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv21.i.i.i
+  %45 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv21.i.i.i
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv21.i.i.i
+  %47 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv21.i.i.i
   store i64 %46, ptr %47, align 8
   %indvars.iv.next22.i.i.i = add nuw nsw i64 %indvars.iv21.i.i.i, 1
   %exitcond25.not.i.i.i = icmp eq i64 %indvars.iv.next22.i.i.i, %wide.trip.count24.i.i.i
@@ -239,7 +239,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 255
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds [256 x i8], ptr @Abc_NtkCutCostMux.uLookup, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [256 x i8], ptr @Abc_NtkCutCostMux.uLookup, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1
   %.not = icmp eq i8 %53, 0
   br i1 %.not, label %If_CutTruth.exit._crit_edge, label %57

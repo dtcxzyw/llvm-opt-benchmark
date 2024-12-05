@@ -48,10 +48,10 @@ define internal fastcc i32 @cuddZddDagInt(ptr noundef %0, ptr noundef %1) unname
 
 tailrecurse:                                      ; preds = %6
   %12 = tail call i32 @st__insert(ptr noundef %1, ptr noundef nonnull %.tr13, ptr noundef null) #4
-  %13 = getelementptr inbounds i8, ptr %.tr13, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.tr13, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call fastcc i32 @cuddZddDagInt(ptr noundef %14, ptr noundef %1)
-  %16 = getelementptr inbounds i8, ptr %.tr13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.tr13, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = add i32 %accumulator.tr12, 1
   %19 = add i32 %18, %15
@@ -67,7 +67,7 @@ declare void @st__free_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define double @Cudd_zddCountMinterm(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 140
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %5 = load i32, ptr %4, align 4
   %6 = sitofp i32 %5 to double
   %7 = sitofp i32 %2 to double
@@ -82,16 +82,16 @@ declare double @Cudd_zddCountDouble(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Cudd_zddPrintSubtable(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 140
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph43, label %._crit_edge
 
 .lr.ph43:                                         ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
-  %8 = getelementptr inbounds i8, ptr %0, i64 608
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %9 = zext nneg i32 %5 to i64
   br label %11
 
@@ -103,10 +103,10 @@ define void @Cudd_zddPrintSubtable(ptr nocapture noundef readonly %0) local_unna
   %indvars.iv45 = phi i64 [ %9, %.lr.ph43 ], [ %indvars.iv.next46, %.loopexit34 ]
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds %struct.DdSubtable, ptr %12, i64 %indvars.iv.next46
+  %13 = getelementptr inbounds nuw %struct.DdSubtable, ptr %12, i64 %indvars.iv.next46
   %14 = trunc nuw nsw i64 %indvars.iv.next46 to i32
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %14)
-  %16 = getelementptr inbounds i8, ptr %13, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %17 = load i32, ptr %16, align 4
   %.03238 = add i32 %17, -1
   %18 = icmp sgt i32 %.03238, -1
@@ -124,7 +124,7 @@ define void @Cudd_zddPrintSubtable(ptr nocapture noundef readonly %0) local_unna
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %.loopexit
   %indvars.iv = phi i64 [ %19, %.lr.ph40.preheader ], [ %indvars.iv.next, %.loopexit ]
   %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %.03335 = load ptr, ptr %22, align 8
   %.not36 = icmp eq ptr %.03335, null
   br i1 %.not36, label %.loopexit, label %.lr.ph
@@ -135,10 +135,10 @@ define void @Cudd_zddPrintSubtable(ptr nocapture noundef readonly %0) local_unna
   %24 = ptrtoint ptr %.03337 to i64
   %25 = udiv i64 %24, 40
   %26 = load i32, ptr %.03337, align 8
-  %27 = getelementptr inbounds i8, ptr %.03337, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.03337, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.1, i64 noundef %25, i32 noundef %26, i32 noundef %28) #4
-  %30 = getelementptr inbounds i8, ptr %.03337, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.03337, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, -2
@@ -160,7 +160,7 @@ define void @Cudd_zddPrintSubtable(ptr nocapture noundef readonly %0) local_unna
   br label %45
 
 45:                                               ; preds = %42, %38
-  %46 = getelementptr inbounds i8, ptr %.03337, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.03337, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %47 to i64
   %49 = and i64 %48, -2
@@ -182,7 +182,7 @@ define void @Cudd_zddPrintSubtable(ptr nocapture noundef readonly %0) local_unna
   br label %61
 
 61:                                               ; preds = %58, %54
-  %62 = getelementptr inbounds i8, ptr %.03337, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.03337, i64 8
   %.033 = load ptr, ptr %62, align 8
   %.not = icmp eq ptr %.033, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7

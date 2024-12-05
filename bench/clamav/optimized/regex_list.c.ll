@@ -92,7 +92,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 19:                                               ; preds = %16
   store ptr null, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 132448
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 132448
   %21 = load i8, ptr %20, align 8
   %.mask = and i8 %21, 3
   %.not = icmp eq i8 %.mask, 1
@@ -110,12 +110,12 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 26:                                               ; preds = %22
   %27 = load i8, ptr %1, align 1
   %28 = icmp eq i8 %27, 46
-  %29 = getelementptr inbounds i8, ptr %1, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %spec.select = select i1 %28, ptr %29, ptr %1
   %30 = load i8, ptr %2, align 1
   %31 = icmp eq i8 %30, 46
   %.079.idx = zext i1 %31 to i64
-  %.079 = getelementptr inbounds i8, ptr %2, i64 %.079.idx
+  %.079 = getelementptr inbounds nuw i8, ptr %2, i64 %.079.idx
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #14
   %33 = icmp eq i32 %4, 0
   %34 = icmp ne i32 %6, 0
@@ -155,7 +155,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br i1 %or.cond, label %52, label %56
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %51, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %54 = sub i64 %42, %32
   %55 = tail call ptr @strncpy(ptr noundef nonnull %53, ptr noundef nonnull %.079, i64 noundef %54) #13
   br label %56
@@ -177,7 +177,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 62:                                               ; preds = %60
   call fastcc void @reverse_string(ptr noundef %61)
-  %63 = getelementptr inbounds i8, ptr %0, i64 1360
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   %64 = call i64 @filter_search(ptr noundef nonnull %63, ptr noundef nonnull %61, i64 noundef %42) #13
   %65 = and i64 %64, 4294967295
   %66 = icmp eq i64 %65, 4294967295
@@ -190,11 +190,11 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 68:                                               ; preds = %62
   %69 = trunc i64 %42 to i32
-  %70 = getelementptr inbounds i8, ptr %0, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %71 = call i32 @cli_ac_scanbuff(ptr noundef nonnull %61, i32 noundef %69, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %70, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef null) #13
   call void @free(ptr noundef nonnull %61) #13
   call void @cli_ac_freedata(ptr noundef nonnull %9) #13
-  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = load i64, ptr %72, align 8
   %74 = trunc i64 %73 to i32
   %75 = load ptr, ptr %10, align 8
@@ -208,7 +208,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br label %136
 
 .lr.ph116:                                        ; preds = %68
-  %79 = getelementptr inbounds i8, ptr %0, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = getelementptr i8, ptr %spec.select, i64 %32
   br label %81
 
@@ -226,7 +226,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br label %90
 
 88:                                               ; preds = %81
-  %89 = getelementptr inbounds i8, ptr %82, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %82, i64 8
   br label %90
 
 90:                                               ; preds = %88, %84
@@ -241,7 +241,7 @@ define i32 @regex_list_match(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 .lr.ph:                                           ; preds = %90, %validate_subdomain.exit.thread107
   %storemerge96112 = phi ptr [ %storemerge96, %validate_subdomain.exit.thread107 ], [ %storemerge96110, %90 ]
-  %93 = getelementptr inbounds i8, ptr %storemerge96112, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %storemerge96112, i64 8
   %94 = load ptr, ptr %93, align 8
   %.not99 = icmp eq ptr %94, null
   br i1 %.not99, label %95, label %validate_subdomain.exit
@@ -318,14 +318,14 @@ validate_subdomain.exit.thread107.thread:         ; preds = %validate_subdomain.
   %121 = load ptr, ptr %8, align 8
   %122 = load ptr, ptr %121, align 8
   store ptr %122, ptr %5, align 8
-  %123 = getelementptr inbounds i8, ptr %121, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %storemerge96122 = load ptr, ptr %123, align 8
   store ptr %storemerge96122, ptr %8, align 8
   br label %._crit_edge.loopexit
 
 validate_subdomain.exit.thread107:                ; preds = %95, %117, %validate_subdomain.exit
   %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %storemerge96 = load ptr, ptr %125, align 8
   store ptr %storemerge96, ptr %8, align 8
   %.not127 = icmp eq ptr %storemerge96, null
@@ -343,7 +343,7 @@ validate_subdomain.exit.thread107:                ; preds = %95, %117, %validate
   br i1 %.not98, label %130, label %127
 
 127:                                              ; preds = %._crit_edge
-  %128 = getelementptr inbounds i8, ptr %126, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %129 = load ptr, ptr %128, align 8
   store ptr %129, ptr %10, align 8
   call void @free(ptr noundef nonnull %126) #13
@@ -404,7 +404,7 @@ define internal fastcc void @reverse_string(ptr nocapture noundef nonnull %0) un
 
 5:                                                ; preds = %.lr.ph, %5
   %.015 = phi i64 [ 0, %.lr.ph ], [ %11, %5 ]
-  %6 = getelementptr inbounds i8, ptr %0, i64 %.015
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.015
   %7 = load i8, ptr %6, align 1
   %8 = xor i64 %.015, -1
   %9 = getelementptr i8, ptr %4, i64 %8
@@ -440,7 +440,7 @@ define i32 @init_regex_list(ptr noundef %0, i8 noundef zeroext %1) local_unnamed
   br label %26
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 132440
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 132440
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -451,35 +451,35 @@ define i32 @init_regex_list(ptr noundef %0, i8 noundef zeroext %1) local_unnamed
 
 10:                                               ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132456) %0, i8 0, i64 132456, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 132448
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 132448
   store i8 1, ptr %11, align 8
   %12 = tail call i32 @cli_hashtab_init(ptr noundef nonnull %0, i64 noundef 512) #13
   store ptr %7, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
-  %14 = getelementptr inbounds i8, ptr %0, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store ptr %7, ptr %14, align 8
   %15 = tail call i32 @cli_ac_init(ptr noundef nonnull %13, i8 noundef zeroext 2, i8 noundef zeroext 32, i8 noundef zeroext %1) #13
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %26
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 488
-  %18 = getelementptr inbounds i8, ptr %0, i64 896
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 896
   store ptr %7, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 1352
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   store ptr %7, ptr %19, align 8
   %20 = tail call i32 @cli_bm_init(ptr noundef nonnull %17) #13
   %.not26 = icmp eq i32 %20, 0
   br i1 %.not26, label %21, label %26
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 944
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %23 = tail call i32 @cli_bm_init(ptr noundef nonnull %22) #13
   %.not27 = icmp eq i32 %23, 0
   br i1 %.not27, label %24, label %26
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 1360
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   tail call void @filter_init(ptr noundef nonnull %25) #13
   br label %26
 
@@ -512,7 +512,7 @@ define i32 @load_regex_matcher(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %.loopexit123
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %1, i64 132448
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 132448
   %16 = load i8, ptr %15, align 8
   %.mask = and i8 %16, 3
   %17 = icmp eq i8 %.mask, 3
@@ -556,19 +556,19 @@ define i32 @load_regex_matcher(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %.not94153156, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 320
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %33 = and i32 %4, 64
   %34 = xor i32 %33, 64
-  %35 = getelementptr inbounds i8, ptr %0, i64 328
-  %36 = getelementptr inbounds i8, ptr %11, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %37 = ptrtoint ptr %11 to i64
   %38 = icmp ne i32 %5, 0
   %or.cond103.v = select i1 %38, i8 77, i8 72
-  %39 = getelementptr inbounds i8, ptr %1, i64 132440
-  %40 = getelementptr inbounds i8, ptr %1, i64 904
-  %41 = getelementptr inbounds i8, ptr %1, i64 488
-  %42 = getelementptr inbounds i8, ptr %10, i64 16
-  %43 = getelementptr inbounds i8, ptr %10, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 132440
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 904
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 488
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -593,14 +593,14 @@ define i32 @load_regex_matcher(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %.not.i, label %.loopexit, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %49, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %53 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %52, i32 noundef 45) #14
   %54 = ptrtoint ptr %53 to i64
   %.not31.i = icmp eq ptr %53, null
   br i1 %.not31.i, label %.loopexit, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %53, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %57 = icmp ult ptr %52, %53
   br i1 %57, label %.lr.ph.i, label %.preheader.i
 
@@ -722,7 +722,7 @@ define i32 @load_regex_matcher(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %.loopexit123
 
 111:                                              ; preds = %105
-  %112 = getelementptr inbounds i8, ptr %107, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 1
   %113 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %112) #14
   %114 = ptrtoint ptr %112 to i64
   %115 = sub i64 %114, %37
@@ -781,7 +781,7 @@ define i32 @load_regex_matcher(ptr nocapture noundef readonly %0, ptr noundef %1
 
 138:                                              ; preds = %138, %.lr.ph.i.i
   %.015.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %144, %138 ]
-  %139 = getelementptr inbounds i8, ptr %112, i64 %.015.i.i
+  %139 = getelementptr inbounds nuw i8, ptr %112, i64 %.015.i.i
   %140 = load i8, ptr %139, align 1
   %141 = xor i64 %.015.i.i, -1
   %142 = getelementptr i8, ptr %137, i64 %141
@@ -847,13 +847,13 @@ add_static_pattern.exit:                          ; preds = %reverse_string.exit
   ]
 
 160:                                              ; preds = %158, %158, %158
-  %161 = getelementptr inbounds i8, ptr %107, i64 2
+  %161 = getelementptr inbounds nuw i8, ptr %107, i64 2
   %162 = load i8, ptr %161, align 1
   %163 = icmp eq i8 %162, 58
   br i1 %163, label %164, label %219
 
 164:                                              ; preds = %160
-  %165 = getelementptr inbounds i8, ptr %107, i64 3
+  %165 = getelementptr inbounds nuw i8, ptr %107, i64 3
   %166 = load i8, ptr %36, align 1
   %.not119 = icmp eq i8 %159, 80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -880,11 +880,11 @@ add_static_pattern.exit:                          ; preds = %reverse_string.exit
   br i1 %.not48.i, label %.thread64.i, label %175
 
 175:                                              ; preds = %172
-  %176 = getelementptr inbounds i8, ptr %171, i64 56
+  %176 = getelementptr inbounds nuw i8, ptr %171, i64 56
   %spec.store.select.i = select i1 %.not119, i16 4, i16 32
   store i16 %spec.store.select.i, ptr %176, align 8
   %spec.select.i = select i1 %.not119, i64 944, i64 488
-  %177 = getelementptr inbounds i8, ptr %1, i64 %spec.select.i
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.i
   %178 = load ptr, ptr %40, align 8
   %.not50.i = icmp eq ptr %178, null
   br i1 %.not50.i, label %179, label %181
@@ -928,7 +928,7 @@ add_static_pattern.exit:                          ; preds = %reverse_string.exit
 198:                                              ; preds = %193, %189, %185, %182, %181
   %199 = load ptr, ptr %39, align 8
   %200 = call ptr @mpool_malloc(ptr noundef %199, i64 noundef 1) #13
-  %201 = getelementptr inbounds i8, ptr %171, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store ptr %200, ptr %201, align 8
   %.not53.i = icmp eq ptr %200, null
   br i1 %.not53.i, label %202, label %203
@@ -967,7 +967,7 @@ add_hash.exit.thread116:                          ; preds = %203
 
 .thread64.i:                                      ; preds = %210, %209, %172
   %.041.ph67.i = phi i32 [ %.041.ph.ph.i, %210 ], [ %.041.ph.ph.i, %209 ], [ 4, %172 ]
-  %212 = getelementptr inbounds i8, ptr %171, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %213 = load ptr, ptr %212, align 8
   %.not57.i = icmp eq ptr %213, null
   br i1 %.not57.i, label %add_hash.exit, label %214
@@ -1076,11 +1076,11 @@ define i32 @regex_list_add_pattern(ptr noundef %0, ptr noundef %1) local_unnamed
   %.1 = phi i64 [ %19, %18 ], [ %.029, %.thread ], [ %.0, %12 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 %.1
   store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 132440
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 132440
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %26, align 8
@@ -1129,7 +1129,7 @@ define i32 @cli_build_regex_list(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %15, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 132448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 132448
   %4 = load i8, ptr %3, align 8
   %.mask = and i8 %4, 3
   %.not10 = icmp eq i8 %.mask, 0
@@ -1145,7 +1145,7 @@ define i32 @cli_build_regex_list(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %2
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21) #13
   tail call void @cli_hashtab_free(ptr noundef nonnull %0) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = tail call i32 @cli_ac_buildtrie(ptr noundef nonnull %8) #13
   %.not12 = icmp eq i32 %9, 0
   br i1 %.not12, label %10, label %15
@@ -1155,7 +1155,7 @@ define i32 @cli_build_regex_list(ptr noundef %0) local_unnamed_addr #0 {
   %12 = and i8 %11, -49
   %13 = or disjoint i8 %12, 16
   store i8 %13, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   tail call void @cli_hashset_destroy(ptr noundef nonnull %14) #13
   br label %15
 
@@ -1180,22 +1180,22 @@ define void @regex_list_done(ptr noundef %0) local_unnamed_addr #0 {
   br label %45
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 132448
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 132448
   %6 = load i8, ptr %5, align 8
   %.mask = and i8 %6, 3
   %7 = icmp eq i8 %.mask, 1
   br i1 %7, label %8, label %45
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @cli_ac_free(ptr noundef nonnull %9) #13
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %25, label %.preheader33
 
 .preheader33:                                     ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i64, ptr %12, align 8
   %.not42 = icmp eq i64 %13, 0
   br i1 %.not42, label %._crit_edge38, label %.lr.ph37
@@ -1211,7 +1211,7 @@ define void @regex_list_done(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph37, %.lr.ph
   %.02935 = phi ptr [ %19, %.lr.ph ], [ %17, %.lr.ph37 ]
-  %18 = getelementptr inbounds i8, ptr %.02935, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.02935, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %.02935, align 8
   tail call void @free(ptr noundef %20) #13
@@ -1240,19 +1240,19 @@ define void @regex_list_done(ptr noundef %0) local_unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %._crit_edge38, %8
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load ptr, ptr %26, align 8
   %.not31 = icmp eq ptr %27, null
   br i1 %.not31, label %42, label %.preheader
 
 .preheader:                                       ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load i64, ptr %28, align 8
   %.not43 = icmp eq i64 %29, 0
   br i1 %.not43, label %._crit_edge41, label %.lr.ph40
 
 .lr.ph40:                                         ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %0, i64 132440
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 132440
   br label %31
 
 31:                                               ; preds = %.lr.ph40, %31
@@ -1274,16 +1274,16 @@ define void @regex_list_done(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge41:                                    ; preds = %._crit_edge41.loopexit, %.preheader
   %39 = phi ptr [ %.pre45, %._crit_edge41.loopexit ], [ %27, %.preheader ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 132440
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 132440
   %41 = load ptr, ptr %40, align 8
   tail call void @mpool_free(ptr noundef %41, ptr noundef %39) #13
   br label %42
 
 42:                                               ; preds = %._crit_edge41, %25
   tail call void @cli_hashtab_free(ptr noundef nonnull %0) #13
-  %43 = getelementptr inbounds i8, ptr %0, i64 488
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 488
   tail call void @cli_bm_free(ptr noundef nonnull %43) #13
-  %44 = getelementptr inbounds i8, ptr %0, i64 944
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 944
   tail call void @cli_bm_free(ptr noundef nonnull %44) #13
   br label %45
 
@@ -1309,7 +1309,7 @@ define range(i32 0, 2) i32 @is_regex_ok(ptr noundef readonly %0) local_unnamed_a
   br label %9
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 132448
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 132448
   %6 = load i8, ptr %5, align 8
   %.mask = and i8 %6, 3
   %7 = icmp ne i8 %.mask, 3
@@ -1380,20 +1380,20 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
   br label %126
 
 25:                                               ; preds = %21, %20
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %14, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %29, align 8
   %30 = tail call ptr @cli_hashtab_find(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #13
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %48, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i64, ptr %34, align 8
   %.not76 = icmp ult i64 %33, %35
   br i1 %.not76, label %37, label %36
@@ -1403,7 +1403,7 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
   br label %126
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds %struct.regex_list_ht, ptr %39, i64 %33
   %41 = load ptr, ptr %40, align 8
@@ -1415,13 +1415,13 @@ define internal i32 @add_pattern_suffix(ptr noundef %0, ptr noundef %1, i64 noun
   br label %43
 
 43:                                               ; preds = %42, %37
-  %44 = getelementptr inbounds i8, ptr %40, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not8.i = icmp eq ptr %45, null
   br i1 %.not8.i, label %list_add_tail.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %14, ptr %47, align 8
   br label %list_add_tail.exit
 
@@ -1430,10 +1430,10 @@ list_add_tail.exit:                               ; preds = %43, %46
   br label %130
 
 48:                                               ; preds = %25
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load i64, ptr %49, align 8
   %51 = tail call ptr @cli_hashtab_insert(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %50) #13
-  %52 = getelementptr inbounds i8, ptr %0, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = load ptr, ptr %52, align 8
   %54 = shl i64 %50, 4
   %55 = add i64 %54, 16
@@ -1457,19 +1457,19 @@ list_add_tail.exit:                               ; preds = %43, %46
   br i1 %64, label %65, label %71
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %1, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = icmp eq i8 %67, 0
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %50, ptr %70, align 8
   br label %71
 
 71:                                               ; preds = %69, %65, %59
-  %72 = getelementptr inbounds i8, ptr %0, i64 72
-  %73 = getelementptr inbounds i8, ptr %0, i64 132440
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 132440
   %74 = load ptr, ptr %73, align 8
   %75 = tail call ptr @mpool_calloc(ptr noundef %74, i64 noundef 1, i64 noundef 136) #13
   %.not.i79 = icmp eq ptr %75, null
@@ -1480,32 +1480,32 @@ list_add_tail.exit:                               ; preds = %43, %46
   br label %119
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds i8, ptr %75, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 96
   store i16 0, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %75, i64 98
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 98
   store i16 0, ptr %79, align 2
-  %80 = getelementptr inbounds i8, ptr %75, i64 36
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 36
   store i32 0, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %75, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 80
   store i16 0, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %75, i64 82
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 82
   store i16 0, ptr %82, align 2
-  %83 = getelementptr inbounds i8, ptr %75, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 28
   store i32 0, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %75, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %75, i64 32
   store i32 0, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %75, i64 116
+  %85 = getelementptr inbounds nuw i8, ptr %75, i64 116
   store i32 -1, ptr %85, align 4
   %86 = trunc i64 %2 to i16
-  %87 = getelementptr inbounds i8, ptr %75, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store i16 %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %75, i64 52
-  %89 = getelementptr inbounds i8, ptr %75, i64 54
+  %88 = getelementptr inbounds nuw i8, ptr %75, i64 52
+  %89 = getelementptr inbounds nuw i8, ptr %75, i64 54
   %90 = load i16, ptr %89, align 2
   %91 = or i16 %90, 256
   store i16 %91, ptr %89, align 2
   store i16 %91, ptr %88, align 4
-  %92 = getelementptr inbounds i8, ptr %0, i64 400
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %93 = load i16, ptr %92, align 8
   %94 = icmp ult i16 %93, %86
   br i1 %94, label %95, label %96
@@ -1539,16 +1539,16 @@ list_add_tail.exit:                               ; preds = %43, %46
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %106 = getelementptr inbounds i8, ptr %75, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %75, i64 64
   store ptr %14, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %75, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %75, i64 56
   store ptr null, ptr %107, align 8
   %108 = tail call i32 @cli_ac_addpatt(ptr noundef nonnull %72, ptr noundef nonnull %75) #13
   %.not59.i = icmp eq i32 %108, 0
   br i1 %.not59.i, label %109, label %113
 
 109:                                              ; preds = %._crit_edge.i
-  %110 = getelementptr inbounds i8, ptr %0, i64 1360
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   %111 = tail call i32 @filter_add_static(ptr noundef nonnull %110, ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull @.str.52) #13
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %.sink.split.i, label %add_newsuffix.exit
@@ -1624,11 +1624,11 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   br i1 %.not43, label %52, label %.sink.split
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, i64 noundef %2, i64 noundef %10, i64 noundef %12, ptr noundef %8, ptr noundef nonnull %1) #13
   %13 = load i64, ptr %9, align 8

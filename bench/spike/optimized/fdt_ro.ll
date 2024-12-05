@@ -13,21 +13,21 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = shl nuw i32 %7, 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 13
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 16
   %13 = or disjoint i32 %12, %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 14
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 8
   %18 = or disjoint i32 %13, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 15
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
@@ -44,17 +44,17 @@ define noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr noundef w
   %28 = load i8, ptr %0, align 1
   %29 = zext i8 %28 to i32
   %30 = shl nuw i32 %29, 24
-  %31 = getelementptr inbounds i8, ptr %0, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = shl nuw nsw i32 %33, 16
   %35 = or disjoint i32 %34, %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 8
   %40 = or disjoint i32 %35, %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = or disjoint i32 %40, %43
@@ -68,21 +68,21 @@ define noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr noundef w
   br i1 %46, label %119, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %0, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = shl nuw i32 %50, 24
-  %52 = getelementptr inbounds i8, ptr %0, i64 21
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = shl nuw nsw i32 %54, 16
   %56 = or disjoint i32 %55, %51
-  %57 = getelementptr inbounds i8, ptr %0, i64 22
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = shl nuw nsw i32 %59, 8
   %61 = or disjoint i32 %56, %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 23
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = or disjoint i32 %61, %64
@@ -90,21 +90,21 @@ define noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr noundef w
   br i1 %66, label %67, label %109
 
 67:                                               ; preds = %47
-  %68 = getelementptr inbounds i8, ptr %0, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = shl nuw i32 %70, 24
-  %72 = getelementptr inbounds i8, ptr %0, i64 33
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = shl nuw nsw i32 %74, 16
   %76 = or disjoint i32 %75, %71
-  %77 = getelementptr inbounds i8, ptr %0, i64 34
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = shl nuw nsw i32 %79, 8
   %81 = or disjoint i32 %76, %80
-  %82 = getelementptr inbounds i8, ptr %0, i64 35
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   %85 = or disjoint i32 %81, %84
@@ -121,21 +121,21 @@ define noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr noundef w
   br i1 %89, label %119, label %90
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %0, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %92 = load i8, ptr %91, align 1
   %.neg60 = sub i8 0, %92
   %.neg60.z = zext i8 %.neg60 to i32
   %.neg55 = shl nuw i32 %.neg60.z, 24
-  %93 = getelementptr inbounds i8, ptr %0, i64 33
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = shl nuw nsw i32 %95, 16
-  %97 = getelementptr inbounds i8, ptr %0, i64 34
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
   %100 = shl nuw nsw i32 %99, 8
   %101 = or disjoint i32 %100, %96
-  %102 = getelementptr inbounds i8, ptr %0, i64 35
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
   %105 = or disjoint i32 %101, %104
@@ -152,7 +152,7 @@ define noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr noundef w
   %.039.in = phi i32 [ %27, %47 ], [ %spec.select, %107 ], [ %spec.select54, %86 ]
   %.039 = zext nneg i32 %.039.in to i64
   %110 = zext nneg i32 %23 to i64
-  %111 = getelementptr inbounds i8, ptr %0, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %112 = tail call ptr @memchr(ptr noundef nonnull %111, i32 noundef 0, i64 noundef %.039) #10
   %.not51 = icmp eq ptr %112, null
   br i1 %.not51, label %119, label %113
@@ -246,21 +246,21 @@ fdt_getprop.exit.thread:                          ; preds = %2
   br label %53
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = shl nuw i32 %10, 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 21
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = shl nuw nsw i32 %14, 16
   %16 = or disjoint i32 %15, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 22
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = shl nuw nsw i32 %19, 8
   %21 = or disjoint i32 %16, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 23
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = or disjoint i32 %21, %24
@@ -274,21 +274,21 @@ fdt_getprop.exit.thread:                          ; preds = %2
   br i1 %.not11.i.i, label %50, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %6, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = shl nuw i32 %33, 24
-  %35 = getelementptr inbounds i8, ptr %6, i64 5
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = shl nuw nsw i32 %37, 16
   %39 = or disjoint i32 %38, %34
-  %40 = getelementptr inbounds i8, ptr %6, i64 6
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %42, 8
   %44 = or disjoint i32 %39, %43
-  %45 = getelementptr inbounds i8, ptr %6, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 7
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = or disjoint i32 %44, %47
@@ -300,7 +300,7 @@ fdt_getprop.exit.thread:                          ; preds = %2
 
 fdt_getprop.exit:                                 ; preds = %30, %50
   %.sink = phi i64 [ 12, %50 ], [ 16, %30 ]
-  %51 = getelementptr inbounds i8, ptr %6, i64 %.sink
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %52 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %52, 4
@@ -317,21 +317,21 @@ fdt_getprop.exit18.thread:                        ; preds = %53
   br label %119
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = shl nuw i32 %58, 24
-  %60 = getelementptr inbounds i8, ptr %0, i64 21
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = shl nuw nsw i32 %62, 16
   %64 = or disjoint i32 %63, %59
-  %65 = getelementptr inbounds i8, ptr %0, i64 22
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = shl nuw nsw i32 %67, 8
   %69 = or disjoint i32 %64, %68
-  %70 = getelementptr inbounds i8, ptr %0, i64 23
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
   %73 = or disjoint i32 %69, %72
@@ -345,21 +345,21 @@ fdt_getprop.exit18.thread:                        ; preds = %53
   br i1 %.not11.i.i17, label %98, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %54, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = shl nuw i32 %81, 24
-  %83 = getelementptr inbounds i8, ptr %54, i64 5
+  %83 = getelementptr inbounds nuw i8, ptr %54, i64 5
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
   %86 = shl nuw nsw i32 %85, 16
   %87 = or disjoint i32 %86, %82
-  %88 = getelementptr inbounds i8, ptr %54, i64 6
+  %88 = getelementptr inbounds nuw i8, ptr %54, i64 6
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
   %91 = shl nuw nsw i32 %90, 8
   %92 = or disjoint i32 %87, %91
-  %93 = getelementptr inbounds i8, ptr %54, i64 7
+  %93 = getelementptr inbounds nuw i8, ptr %54, i64 7
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = or disjoint i32 %92, %95
@@ -371,7 +371,7 @@ fdt_getprop.exit18.thread:                        ; preds = %53
 
 fdt_getprop.exit18:                               ; preds = %78, %98
   %.sink24 = phi i64 [ 12, %98 ], [ 16, %78 ]
-  %99 = getelementptr inbounds i8, ptr %54, i64 %.sink24
+  %99 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %100 = load i32, ptr %5, align 4
   %.not23 = icmp eq i32 %100, 4
@@ -382,17 +382,17 @@ fdt_getprop.exit18:                               ; preds = %78, %98
   %102 = load i8, ptr %.0, align 1
   %103 = zext i8 %102 to i32
   %104 = shl nuw i32 %103, 24
-  %105 = getelementptr inbounds i8, ptr %.0, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   %108 = shl nuw nsw i32 %107, 16
   %109 = or disjoint i32 %108, %104
-  %110 = getelementptr inbounds i8, ptr %.0, i64 2
+  %110 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
   %113 = shl nuw nsw i32 %112, 8
   %114 = or disjoint i32 %109, %113
-  %115 = getelementptr inbounds i8, ptr %.0, i64 3
+  %115 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   %116 = load i8, ptr %115, align 1
   %117 = zext i8 %116 to i32
   %118 = or disjoint i32 %114, %117
@@ -453,21 +453,21 @@ define range(i32 -2147483648, 1) i32 @fdt_get_mem_rsv(ptr noundef %0, i32 nounde
 
 7:                                                ; preds = %4
   %8 = shl i32 %1, 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = shl nuw i32 %11, 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 16
   %17 = or disjoint i32 %16, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 18
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = shl nuw nsw i32 %20, 8
   %22 = or disjoint i32 %17, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 19
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = or disjoint i32 %22, %25
@@ -477,21 +477,21 @@ define range(i32 -2147483648, 1) i32 @fdt_get_mem_rsv(ptr noundef %0, i32 nounde
 
 29:                                               ; preds = %7
   %30 = sext i32 %27 to i64
-  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
   %34 = shl nuw nsw i64 %33, 24
-  %35 = getelementptr inbounds i8, ptr %0, i64 5
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
   %38 = shl nuw nsw i64 %37, 16
   %39 = or disjoint i64 %38, %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 6
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = shl nuw nsw i64 %42, 8
   %44 = or disjoint i64 %39, %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i64
   %48 = or disjoint i64 %44, %47
@@ -510,82 +510,82 @@ define range(i32 -2147483648, 1) i32 @fdt_get_mem_rsv(ptr noundef %0, i32 nounde
   %59 = or disjoint i64 %56, %58
   %60 = zext i8 %24 to i64
   %61 = or disjoint i64 %59, %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %61
   %63 = sext i32 %1 to i64
   %64 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %62, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i64
   %67 = shl nuw i64 %66, 56
-  %68 = getelementptr inbounds i8, ptr %64, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 1
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i64
   %71 = shl nuw nsw i64 %70, 48
   %72 = or disjoint i64 %71, %67
-  %73 = getelementptr inbounds i8, ptr %64, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 2
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i64
   %76 = shl nuw nsw i64 %75, 40
   %77 = or disjoint i64 %72, %76
-  %78 = getelementptr inbounds i8, ptr %64, i64 3
+  %78 = getelementptr inbounds nuw i8, ptr %64, i64 3
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i64
   %81 = shl nuw nsw i64 %80, 32
   %82 = or disjoint i64 %77, %81
-  %83 = getelementptr inbounds i8, ptr %64, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i64
   %86 = shl nuw nsw i64 %85, 24
   %87 = or disjoint i64 %82, %86
-  %88 = getelementptr inbounds i8, ptr %64, i64 5
+  %88 = getelementptr inbounds nuw i8, ptr %64, i64 5
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i64
   %91 = shl nuw nsw i64 %90, 16
   %92 = or disjoint i64 %87, %91
-  %93 = getelementptr inbounds i8, ptr %64, i64 6
+  %93 = getelementptr inbounds nuw i8, ptr %64, i64 6
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i64
   %96 = shl nuw nsw i64 %95, 8
   %97 = or i64 %92, %96
-  %98 = getelementptr inbounds i8, ptr %64, i64 7
+  %98 = getelementptr inbounds nuw i8, ptr %64, i64 7
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i64
   %101 = or i64 %97, %100
   store i64 %101, ptr %2, align 8
-  %102 = getelementptr inbounds i8, ptr %64, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i64
   %105 = shl nuw i64 %104, 56
-  %106 = getelementptr inbounds i8, ptr %64, i64 9
+  %106 = getelementptr inbounds nuw i8, ptr %64, i64 9
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i64
   %109 = shl nuw nsw i64 %108, 48
   %110 = or disjoint i64 %109, %105
-  %111 = getelementptr inbounds i8, ptr %64, i64 10
+  %111 = getelementptr inbounds nuw i8, ptr %64, i64 10
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i64
   %114 = shl nuw nsw i64 %113, 40
   %115 = or disjoint i64 %110, %114
-  %116 = getelementptr inbounds i8, ptr %64, i64 11
+  %116 = getelementptr inbounds nuw i8, ptr %64, i64 11
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i64
   %119 = shl nuw nsw i64 %118, 32
   %120 = or disjoint i64 %115, %119
-  %121 = getelementptr inbounds i8, ptr %64, i64 12
+  %121 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i64
   %124 = shl nuw nsw i64 %123, 24
   %125 = or disjoint i64 %120, %124
-  %126 = getelementptr inbounds i8, ptr %64, i64 13
+  %126 = getelementptr inbounds nuw i8, ptr %64, i64 13
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i64
   %129 = shl nuw nsw i64 %128, 16
   %130 = or disjoint i64 %125, %129
-  %131 = getelementptr inbounds i8, ptr %64, i64 14
+  %131 = getelementptr inbounds nuw i8, ptr %64, i64 14
   %132 = load i8, ptr %131, align 1
   %133 = zext i8 %132 to i64
   %134 = shl nuw nsw i64 %133, 8
   %135 = or i64 %130, %134
-  %136 = getelementptr inbounds i8, ptr %64, i64 15
+  %136 = getelementptr inbounds nuw i8, ptr %64, i64 15
   %137 = load i8, ptr %136, align 1
   %138 = zext i8 %137 to i64
   %139 = or i64 %135, %138
@@ -600,39 +600,39 @@ fdt_mem_rsv.exit.thread:                          ; preds = %29, %7, %4, %51
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @fdt_num_mem_rsv(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
 .split.preheader:
-  %1 = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i8, ptr %1, align 1
   %3 = zext i8 %2 to i32
   %4 = shl nuw i32 %3, 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 17
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = shl nuw nsw i32 %7, 16
   %9 = or disjoint i32 %8, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 18
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = shl nuw nsw i32 %12, 8
   %14 = or disjoint i32 %9, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 19
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = or disjoint i32 %14, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 24
-  %23 = getelementptr inbounds i8, ptr %0, i64 5
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
   %26 = shl nuw nsw i64 %25, 16
   %27 = or disjoint i64 %26, %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 6
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
   %31 = shl nuw nsw i64 %30, 8
   %32 = or disjoint i64 %27, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 7
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
   %36 = or disjoint i64 %32, %35
@@ -647,7 +647,7 @@ define i32 @fdt_num_mem_rsv(ptr nocapture noundef readonly %0) local_unnamed_add
   %45 = or disjoint i64 %42, %44
   %46 = zext i8 %16 to i64
   %47 = or disjoint i64 %45, %46
-  %48 = getelementptr inbounds i8, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   br label %.split
 
 .split:                                           ; preds = %.split.preheader, %92
@@ -658,41 +658,41 @@ define i32 @fdt_num_mem_rsv(ptr nocapture noundef readonly %0) local_unnamed_add
   br i1 %51, label %fdt_mem_rsv.exit.thread.split, label %52
 
 52:                                               ; preds = %.split
-  %53 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %48, i64 %indvars.iv, i32 1
+  %53 = getelementptr inbounds nuw %struct.fdt_reserve_entry, ptr %48, i64 %indvars.iv, i32 1
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
   %56 = shl nuw i64 %55, 56
-  %57 = getelementptr inbounds i8, ptr %53, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i64
   %60 = shl nuw nsw i64 %59, 48
   %61 = or disjoint i64 %60, %56
-  %62 = getelementptr inbounds i8, ptr %53, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
   %65 = shl nuw nsw i64 %64, 40
   %66 = or disjoint i64 %61, %65
-  %67 = getelementptr inbounds i8, ptr %53, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %53, i64 3
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
   %70 = shl nuw nsw i64 %69, 32
   %71 = or disjoint i64 %66, %70
-  %72 = getelementptr inbounds i8, ptr %53, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i64
   %75 = shl nuw nsw i64 %74, 24
   %76 = or disjoint i64 %71, %75
-  %77 = getelementptr inbounds i8, ptr %53, i64 5
+  %77 = getelementptr inbounds nuw i8, ptr %53, i64 5
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i64
   %80 = shl nuw nsw i64 %79, 16
   %81 = or disjoint i64 %76, %80
-  %82 = getelementptr inbounds i8, ptr %53, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %53, i64 6
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i64
   %85 = shl nuw nsw i64 %84, 8
   %86 = or i64 %81, %85
-  %87 = getelementptr inbounds i8, ptr %53, i64 7
+  %87 = getelementptr inbounds nuw i8, ptr %53, i64 7
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i64
   %90 = or i64 %86, %89
@@ -837,21 +837,21 @@ define i32 @fdt_path_offset_namelen(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not.i, label %fdt_get_alias_namelen.exit, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = shl nuw i32 %24, 24
-  %26 = getelementptr inbounds i8, ptr %0, i64 21
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = shl nuw nsw i32 %28, 16
   %30 = or disjoint i32 %29, %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 22
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = shl nuw nsw i32 %33, 8
   %35 = or disjoint i32 %30, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 23
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = or disjoint i32 %35, %38
@@ -865,21 +865,21 @@ define i32 @fdt_path_offset_namelen(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not11.i, label %64, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %20, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = shl nuw i32 %47, 24
-  %49 = getelementptr inbounds i8, ptr %20, i64 5
+  %49 = getelementptr inbounds nuw i8, ptr %20, i64 5
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = shl nuw nsw i32 %51, 16
   %53 = or disjoint i32 %52, %48
-  %54 = getelementptr inbounds i8, ptr %20, i64 6
+  %54 = getelementptr inbounds nuw i8, ptr %20, i64 6
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = shl nuw nsw i32 %56, 8
   %58 = or disjoint i32 %53, %57
-  %59 = getelementptr inbounds i8, ptr %20, i64 7
+  %59 = getelementptr inbounds nuw i8, ptr %20, i64 7
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = or disjoint i32 %58, %61
@@ -895,7 +895,7 @@ fdt_get_alias_namelen.exit:                       ; preds = %15
 
 65:                                               ; preds = %44, %64
   %.sink = phi i64 [ 12, %64 ], [ 16, %44 ]
-  %66 = getelementptr inbounds i8, ptr %20, i64 %.sink
+  %66 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #10
   %68 = trunc i64 %67 to i32
@@ -921,7 +921,7 @@ fdt_get_alias_namelen.exit:                       ; preds = %15
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %.preheader
-  %77 = getelementptr inbounds i8, ptr %.2, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %78 = icmp eq ptr %77, %6
   br i1 %78, label %fdt_get_alias_namelen.exit.thread, label %.preheader, !llvm.loop !7
 
@@ -957,21 +957,21 @@ define ptr @fdt_get_alias_namelen(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not.i, label %fdt_getprop_namelen.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = shl nuw i32 %12, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 21
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 16
   %18 = or disjoint i32 %17, %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 22
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = shl nuw nsw i32 %21, 8
   %23 = or disjoint i32 %18, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 23
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = or disjoint i32 %23, %26
@@ -985,21 +985,21 @@ define ptr @fdt_get_alias_namelen(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not11.i, label %54, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %8, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw i32 %35, 24
-  %37 = getelementptr inbounds i8, ptr %8, i64 5
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 16
   %41 = or disjoint i32 %40, %36
-  %42 = getelementptr inbounds i8, ptr %8, i64 6
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 8
   %46 = or disjoint i32 %41, %45
-  %47 = getelementptr inbounds i8, ptr %8, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 7
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = or disjoint i32 %46, %49
@@ -1007,11 +1007,11 @@ define ptr @fdt_get_alias_namelen(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %32
-  %53 = getelementptr inbounds i8, ptr %8, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %fdt_getprop_namelen.exit
 
 54:                                               ; preds = %32, %29, %9
-  %55 = getelementptr inbounds i8, ptr %8, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 12
   br label %fdt_getprop_namelen.exit
 
 fdt_getprop_namelen.exit:                         ; preds = %7, %52, %54
@@ -1034,25 +1034,25 @@ define i32 @fdt_path_offset(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define ptr @fdt_get_name(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
   %7 = shl nuw nsw i64 %6, 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
   %11 = shl nuw nsw i64 %10, 16
   %12 = or disjoint i64 %11, %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
   %16 = shl nuw nsw i64 %15, 8
   %17 = or disjoint i64 %12, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
   %21 = or disjoint i64 %17, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
   %23 = sext i32 %1 to i64
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
   %25 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
@@ -1065,22 +1065,22 @@ define ptr @fdt_get_name(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %
   br i1 %29, label %60, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %24, i64 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = shl nuw i32 %34, 24
-  %36 = getelementptr inbounds i8, ptr %0, i64 21
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 16
   %40 = or disjoint i32 %39, %35
-  %41 = getelementptr inbounds i8, ptr %0, i64 22
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = shl nuw nsw i32 %43, 8
   %45 = or disjoint i32 %40, %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 23
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = or disjoint i32 %45, %48
@@ -1093,7 +1093,7 @@ define ptr @fdt_get_name(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %
   br i1 %53, label %60, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %52, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 1
   br label %56
 
 56:                                               ; preds = %54, %30
@@ -1211,21 +1211,21 @@ declare i32 @fdt_check_prop_offset_(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define ptr @fdt_get_property_by_offset(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = shl nuw i32 %6, 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 21
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 16
   %12 = or disjoint i32 %11, %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 8
   %17 = or disjoint i32 %12, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 23
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %17, %20
@@ -1246,46 +1246,46 @@ define ptr @fdt_get_property_by_offset(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not13.i, label %fdt_get_property_by_offset_.exit, label %fdt_get_property_by_offset_.exit.sink.split
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i64
   %32 = shl nuw nsw i64 %31, 24
-  %33 = getelementptr inbounds i8, ptr %0, i64 9
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
   %36 = shl nuw nsw i64 %35, 16
   %37 = or disjoint i64 %36, %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 10
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i64
   %41 = shl nuw nsw i64 %40, 8
   %42 = or disjoint i64 %37, %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 11
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
   %46 = or disjoint i64 %42, %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %46
   %48 = sext i32 %1 to i64
   %49 = getelementptr inbounds i8, ptr %47, i64 %48
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %fdt_get_property_by_offset_.exit, label %50
 
 50:                                               ; preds = %28
-  %51 = getelementptr inbounds i8, ptr %49, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = shl nuw i32 %53, 24
-  %55 = getelementptr inbounds i8, ptr %49, i64 5
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 5
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = shl nuw nsw i32 %57, 16
   %59 = or disjoint i32 %58, %54
-  %60 = getelementptr inbounds i8, ptr %49, i64 6
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 6
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = shl nuw nsw i32 %62, 8
   %64 = or disjoint i32 %59, %63
-  %65 = getelementptr inbounds i8, ptr %49, i64 7
+  %65 = getelementptr inbounds nuw i8, ptr %49, i64 7
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = or disjoint i32 %64, %67
@@ -1304,21 +1304,21 @@ fdt_get_property_by_offset_.exit:                 ; preds = %fdt_get_property_by
 
 ; Function Attrs: nounwind uwtable
 define ptr @fdt_get_property_namelen(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = shl nuw i32 %8, 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 21
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = shl nuw nsw i32 %12, 16
   %14 = or disjoint i32 %13, %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 22
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = shl nuw nsw i32 %17, 8
   %19 = or disjoint i32 %14, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 23
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = or disjoint i32 %19, %22
@@ -1385,10 +1385,10 @@ fdt_first_property_offset.exit:                   ; preds = %13
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %fdt_first_property_offset.exit
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 9
-  %24 = getelementptr inbounds i8, ptr %0, i64 10
-  %25 = getelementptr inbounds i8, ptr %0, i64 11
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %.not.i = icmp eq ptr %4, null
   %26 = sext i32 %3 to i64
   br label %27
@@ -1417,27 +1417,27 @@ fdt_first_property_offset.exit:                   ; preds = %13
   %43 = load i8, ptr %25, align 1
   %44 = zext i8 %43 to i64
   %45 = or disjoint i64 %42, %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
   %47 = zext nneg i32 %.01954 to i64
-  %48 = getelementptr inbounds i8, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
   br i1 %.not.i, label %fdt_get_property_by_offset_.exit.thread35, label %fdt_get_property_by_offset_.exit
 
 fdt_get_property_by_offset_.exit:                 ; preds = %31
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = shl nuw i32 %51, 24
-  %53 = getelementptr inbounds i8, ptr %48, i64 5
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 5
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 16
   %57 = or disjoint i32 %56, %52
-  %58 = getelementptr inbounds i8, ptr %48, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 6
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
   %61 = shl nuw nsw i32 %60, 8
   %62 = or disjoint i32 %57, %61
-  %63 = getelementptr inbounds i8, ptr %48, i64 7
+  %63 = getelementptr inbounds nuw i8, ptr %48, i64 7
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = or disjoint i32 %62, %65
@@ -1445,21 +1445,21 @@ fdt_get_property_by_offset_.exit:                 ; preds = %31
   br label %fdt_get_property_by_offset_.exit.thread35
 
 fdt_get_property_by_offset_.exit.thread35:        ; preds = %31, %fdt_get_property_by_offset_.exit
-  %67 = getelementptr inbounds i8, ptr %48, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = shl nuw i32 %69, 24
-  %71 = getelementptr inbounds i8, ptr %48, i64 9
+  %71 = getelementptr inbounds nuw i8, ptr %48, i64 9
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = shl nuw nsw i32 %73, 16
   %75 = or disjoint i32 %74, %70
-  %76 = getelementptr inbounds i8, ptr %48, i64 10
+  %76 = getelementptr inbounds nuw i8, ptr %48, i64 10
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %79 = shl nuw nsw i32 %78, 8
   %80 = or disjoint i32 %75, %79
-  %81 = getelementptr inbounds i8, ptr %48, i64 11
+  %81 = getelementptr inbounds nuw i8, ptr %48, i64 11
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = or disjoint i32 %80, %83
@@ -1544,21 +1544,21 @@ fdt_next_property_offset.exit:                    ; preds = %94
 
 ; Function Attrs: nounwind uwtable
 define ptr @fdt_get_property(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = shl nuw i32 %7, 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 21
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 16
   %13 = or disjoint i32 %12, %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 8
   %18 = or disjoint i32 %13, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 23
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
@@ -1592,21 +1592,21 @@ define ptr @fdt_getprop_namelen(ptr noundef %0, i32 noundef %1, ptr nocapture no
   br i1 %.not, label %55, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = shl nuw i32 %11, 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 21
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 16
   %17 = or disjoint i32 %16, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 22
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = shl nuw nsw i32 %20, 8
   %22 = or disjoint i32 %17, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 23
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = or disjoint i32 %22, %25
@@ -1620,21 +1620,21 @@ define ptr @fdt_getprop_namelen(ptr noundef %0, i32 noundef %1, ptr nocapture no
   br i1 %.not11, label %53, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %7, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = shl nuw i32 %34, 24
-  %36 = getelementptr inbounds i8, ptr %7, i64 5
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 16
   %40 = or disjoint i32 %39, %35
-  %41 = getelementptr inbounds i8, ptr %7, i64 6
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = shl nuw nsw i32 %43, 8
   %45 = or disjoint i32 %40, %44
-  %46 = getelementptr inbounds i8, ptr %7, i64 7
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 7
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = or disjoint i32 %45, %48
@@ -1642,11 +1642,11 @@ define ptr @fdt_getprop_namelen(ptr noundef %0, i32 noundef %1, ptr nocapture no
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %31
-  %52 = getelementptr inbounds i8, ptr %7, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %55
 
 53:                                               ; preds = %31, %28, %8
-  %54 = getelementptr inbounds i8, ptr %7, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 12
   br label %55
 
 55:                                               ; preds = %5, %53, %51
@@ -1670,46 +1670,46 @@ fdt_get_property_by_offset_.exit.thread31:        ; preds = %8
   br label %fdt_get_property_by_offset_.exit.thread
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
   %13 = shl nuw nsw i64 %12, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
   %17 = shl nuw nsw i64 %16, 16
   %18 = or disjoint i64 %17, %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 10
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 8
   %23 = or disjoint i64 %18, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 11
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
   %27 = or disjoint i64 %23, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
   %29 = sext i32 %1 to i64
   %30 = getelementptr inbounds i8, ptr %28, i64 %29
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %fdt_get_property_by_offset_.exit.thread27, label %fdt_get_property_by_offset_.exit
 
 fdt_get_property_by_offset_.exit:                 ; preds = %9
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = shl nuw i32 %33, 24
-  %35 = getelementptr inbounds i8, ptr %30, i64 5
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 5
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = shl nuw nsw i32 %37, 16
   %39 = or disjoint i32 %38, %34
-  %40 = getelementptr inbounds i8, ptr %30, i64 6
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 6
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %42, 8
   %44 = or disjoint i32 %39, %43
-  %45 = getelementptr inbounds i8, ptr %30, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 7
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = or disjoint i32 %44, %47
@@ -1721,21 +1721,21 @@ fdt_get_property_by_offset_.exit.thread27:        ; preds = %9, %fdt_get_propert
   br i1 %.not21, label %73, label %49
 
 49:                                               ; preds = %fdt_get_property_by_offset_.exit.thread27
-  %50 = getelementptr inbounds i8, ptr %30, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = shl nuw i32 %52, 24
-  %54 = getelementptr inbounds i8, ptr %30, i64 9
+  %54 = getelementptr inbounds nuw i8, ptr %30, i64 9
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = shl nuw nsw i32 %56, 16
   %58 = or disjoint i32 %57, %53
-  %59 = getelementptr inbounds i8, ptr %30, i64 10
+  %59 = getelementptr inbounds nuw i8, ptr %30, i64 10
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = shl nuw nsw i32 %61, 8
   %63 = or disjoint i32 %58, %62
-  %64 = getelementptr inbounds i8, ptr %30, i64 11
+  %64 = getelementptr inbounds nuw i8, ptr %30, i64 11
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = or disjoint i32 %63, %66
@@ -1756,21 +1756,21 @@ fdt_get_property_by_offset_.exit.thread27:        ; preds = %9, %fdt_get_propert
   br label %73
 
 73:                                               ; preds = %72, %fdt_get_property_by_offset_.exit.thread27
-  %74 = getelementptr inbounds i8, ptr %0, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = shl nuw i32 %76, 24
-  %78 = getelementptr inbounds i8, ptr %0, i64 21
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = shl nuw nsw i32 %80, 16
   %82 = or disjoint i32 %81, %77
-  %83 = getelementptr inbounds i8, ptr %0, i64 22
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
   %86 = shl nuw nsw i32 %85, 8
   %87 = or disjoint i32 %82, %86
-  %88 = getelementptr inbounds i8, ptr %0, i64 23
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
   %91 = or disjoint i32 %87, %90
@@ -1781,21 +1781,21 @@ fdt_get_property_by_offset_.exit.thread27:        ; preds = %9, %fdt_get_propert
   br i1 %or.cond, label %116, label %94
 
 94:                                               ; preds = %73
-  %95 = getelementptr inbounds i8, ptr %30, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
   %98 = shl nuw i32 %97, 24
-  %99 = getelementptr inbounds i8, ptr %30, i64 5
+  %99 = getelementptr inbounds nuw i8, ptr %30, i64 5
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = shl nuw nsw i32 %101, 16
   %103 = or disjoint i32 %102, %98
-  %104 = getelementptr inbounds i8, ptr %30, i64 6
+  %104 = getelementptr inbounds nuw i8, ptr %30, i64 6
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
   %107 = shl nuw nsw i32 %106, 8
   %108 = or disjoint i32 %103, %107
-  %109 = getelementptr inbounds i8, ptr %30, i64 7
+  %109 = getelementptr inbounds nuw i8, ptr %30, i64 7
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
   %112 = or disjoint i32 %108, %111
@@ -1803,11 +1803,11 @@ fdt_get_property_by_offset_.exit.thread27:        ; preds = %9, %fdt_get_propert
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %94
-  %115 = getelementptr inbounds i8, ptr %30, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %30, i64 16
   br label %fdt_get_property_by_offset_.exit.thread
 
 116:                                              ; preds = %94, %73
-  %117 = getelementptr inbounds i8, ptr %30, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %30, i64 12
   br label %fdt_get_property_by_offset_.exit.thread
 
 fdt_get_property_by_offset_.exit.thread:          ; preds = %8, %fdt_get_property_by_offset_.exit.thread31, %69, %70, %116, %114
@@ -1826,21 +1826,21 @@ define ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr nocapture noundef re
   br i1 %.not.i, label %fdt_getprop_namelen.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = shl nuw i32 %12, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 21
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 16
   %18 = or disjoint i32 %17, %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 22
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = shl nuw nsw i32 %21, 8
   %23 = or disjoint i32 %18, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 23
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = or disjoint i32 %23, %26
@@ -1854,21 +1854,21 @@ define ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr nocapture noundef re
   br i1 %.not11.i, label %54, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %8, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw i32 %35, 24
-  %37 = getelementptr inbounds i8, ptr %8, i64 5
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 16
   %41 = or disjoint i32 %40, %36
-  %42 = getelementptr inbounds i8, ptr %8, i64 6
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 8
   %46 = or disjoint i32 %41, %45
-  %47 = getelementptr inbounds i8, ptr %8, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 7
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = or disjoint i32 %46, %49
@@ -1876,11 +1876,11 @@ define ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr nocapture noundef re
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %32
-  %53 = getelementptr inbounds i8, ptr %8, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %fdt_getprop_namelen.exit
 
 54:                                               ; preds = %32, %29, %9
-  %55 = getelementptr inbounds i8, ptr %8, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 12
   br label %fdt_getprop_namelen.exit
 
 fdt_getprop_namelen.exit:                         ; preds = %4, %52, %54
@@ -1905,21 +1905,21 @@ define ptr @fdt_get_alias(ptr noundef %0, ptr nocapture noundef readonly %1) loc
   br i1 %.not.i.i, label %fdt_getprop_namelen.exit.i, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = shl nuw i32 %13, 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 21
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = shl nuw nsw i32 %17, 16
   %19 = or disjoint i32 %18, %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 22
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 8
   %24 = or disjoint i32 %19, %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 23
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = or disjoint i32 %24, %27
@@ -1933,21 +1933,21 @@ define ptr @fdt_get_alias(ptr noundef %0, ptr nocapture noundef readonly %1) loc
   br i1 %.not11.i.i, label %55, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %9, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = shl nuw i32 %36, 24
-  %38 = getelementptr inbounds i8, ptr %9, i64 5
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 5
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 16
   %42 = or disjoint i32 %41, %37
-  %43 = getelementptr inbounds i8, ptr %9, i64 6
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 8
   %47 = or disjoint i32 %42, %46
-  %48 = getelementptr inbounds i8, ptr %9, i64 7
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 7
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = or disjoint i32 %47, %50
@@ -1955,11 +1955,11 @@ define ptr @fdt_get_alias(ptr noundef %0, ptr nocapture noundef readonly %1) loc
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %33
-  %54 = getelementptr inbounds i8, ptr %9, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %fdt_getprop_namelen.exit.i
 
 55:                                               ; preds = %33, %30, %10
-  %56 = getelementptr inbounds i8, ptr %9, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 12
   br label %fdt_getprop_namelen.exit.i
 
 fdt_getprop_namelen.exit.i:                       ; preds = %55, %53, %7
@@ -2352,10 +2352,10 @@ define i32 @fdt_node_offset_by_prop_value(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
-  %14 = getelementptr inbounds i8, ptr %0, i64 21
-  %15 = getelementptr inbounds i8, ptr %0, i64 22
-  %16 = getelementptr inbounds i8, ptr %0, i64 23
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %17 = sext i32 %4 to i64
   br label %18
 
@@ -2393,21 +2393,21 @@ define i32 @fdt_node_offset_by_prop_value(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not11.i.i, label %61, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %21, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = shl nuw i32 %44, 24
-  %46 = getelementptr inbounds i8, ptr %21, i64 5
+  %46 = getelementptr inbounds nuw i8, ptr %21, i64 5
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = shl nuw nsw i32 %48, 16
   %50 = or disjoint i32 %49, %45
-  %51 = getelementptr inbounds i8, ptr %21, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %21, i64 6
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = shl nuw nsw i32 %53, 8
   %55 = or disjoint i32 %50, %54
-  %56 = getelementptr inbounds i8, ptr %21, i64 7
+  %56 = getelementptr inbounds nuw i8, ptr %21, i64 7
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = or disjoint i32 %55, %58
@@ -2429,7 +2429,7 @@ fdt_getprop.exit:                                 ; preds = %18
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %21, i64 %.sink
+  %66 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink
   %bcmp = call i32 @bcmp(ptr nonnull %66, ptr %3, i64 %17)
   %67 = icmp eq i32 %bcmp, 0
   br i1 %67, label %.loopexit, label %68
@@ -2506,7 +2506,7 @@ define range(i32 0, 2) i32 @fdt_stringlist_contains(ptr noundef %0, i32 noundef 
   %.neg = add i64 %15, %14
   %16 = trunc i64 %.neg to i32
   %17 = add i32 %.01419, %16
-  %18 = getelementptr inbounds i8, ptr %11, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %.not = icmp slt i32 %17, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
@@ -2527,21 +2527,21 @@ define i32 @fdt_stringlist_count(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %.not.i.i, label %53, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = shl nuw i32 %12, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 21
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 16
   %18 = or disjoint i32 %17, %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 22
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = shl nuw nsw i32 %21, 8
   %23 = or disjoint i32 %18, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 23
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = or disjoint i32 %23, %26
@@ -2555,21 +2555,21 @@ define i32 @fdt_stringlist_count(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %.not11.i.i, label %52, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %8, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw i32 %35, 24
-  %37 = getelementptr inbounds i8, ptr %8, i64 5
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 16
   %41 = or disjoint i32 %40, %36
-  %42 = getelementptr inbounds i8, ptr %8, i64 6
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 8
   %46 = or disjoint i32 %41, %45
-  %47 = getelementptr inbounds i8, ptr %8, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 7
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = or disjoint i32 %46, %49
@@ -2586,7 +2586,7 @@ define i32 @fdt_stringlist_count(ptr noundef %0, i32 noundef %1, ptr nocapture n
 
 55:                                               ; preds = %32, %52
   %.sink = phi i64 [ 12, %52 ], [ 16, %32 ]
-  %56 = getelementptr inbounds i8, ptr %8, i64 %.sink
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %57 = load i32, ptr %5, align 4
   %58 = sext i32 %57 to i64
@@ -2634,21 +2634,21 @@ define i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %.not.i.i, label %54, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = shl nuw i32 %13, 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 21
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = shl nuw nsw i32 %17, 16
   %19 = or disjoint i32 %18, %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 22
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 8
   %24 = or disjoint i32 %19, %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 23
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = or disjoint i32 %24, %27
@@ -2662,21 +2662,21 @@ define i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %.not11.i.i, label %53, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %9, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = shl nuw i32 %36, 24
-  %38 = getelementptr inbounds i8, ptr %9, i64 5
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 5
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 16
   %42 = or disjoint i32 %41, %37
-  %43 = getelementptr inbounds i8, ptr %9, i64 6
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 8
   %47 = or disjoint i32 %42, %46
-  %48 = getelementptr inbounds i8, ptr %9, i64 7
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 7
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = or disjoint i32 %47, %50
@@ -2693,7 +2693,7 @@ define i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr nocapture 
 
 56:                                               ; preds = %33, %53
   %.sink = phi i64 [ 12, %53 ], [ 16, %33 ]
-  %57 = getelementptr inbounds i8, ptr %9, i64 %.sink
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #10
   %59 = trunc i64 %58 to i32
@@ -2749,21 +2749,21 @@ define noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1, ptr nocap
   br i1 %.not.i.i, label %55, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = shl nuw i32 %14, 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 21
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = shl nuw nsw i32 %18, 16
   %20 = or disjoint i32 %19, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 22
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = shl nuw nsw i32 %23, 8
   %25 = or disjoint i32 %20, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 23
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = or disjoint i32 %25, %28
@@ -2777,21 +2777,21 @@ define noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1, ptr nocap
   br i1 %.not11.i.i, label %54, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %10, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = shl nuw i32 %37, 24
-  %39 = getelementptr inbounds i8, ptr %10, i64 5
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 5
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = shl nuw nsw i32 %41, 16
   %43 = or disjoint i32 %42, %38
-  %44 = getelementptr inbounds i8, ptr %10, i64 6
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = shl nuw nsw i32 %46, 8
   %48 = or disjoint i32 %43, %47
-  %49 = getelementptr inbounds i8, ptr %10, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 7
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = or disjoint i32 %48, %51
@@ -2812,7 +2812,7 @@ define noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1, ptr nocap
 
 58:                                               ; preds = %34, %54
   %.sink = phi i64 [ 12, %54 ], [ 16, %34 ]
-  %59 = getelementptr inbounds i8, ptr %10, i64 %.sink
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %60 = load i32, ptr %7, align 4
   %61 = sext i32 %60 to i64
@@ -2880,21 +2880,21 @@ define i32 @fdt_node_check_compatible(ptr noundef %0, i32 noundef %1, ptr nocapt
   br i1 %.not.i.i, label %51, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = shl nuw i32 %10, 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 21
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = shl nuw nsw i32 %14, 16
   %16 = or disjoint i32 %15, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 22
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = shl nuw nsw i32 %19, 8
   %21 = or disjoint i32 %16, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 23
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = or disjoint i32 %21, %24
@@ -2908,21 +2908,21 @@ define i32 @fdt_node_check_compatible(ptr noundef %0, i32 noundef %1, ptr nocapt
   br i1 %.not11.i.i, label %50, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %6, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = shl nuw i32 %33, 24
-  %35 = getelementptr inbounds i8, ptr %6, i64 5
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = shl nuw nsw i32 %37, 16
   %39 = or disjoint i32 %38, %34
-  %40 = getelementptr inbounds i8, ptr %6, i64 6
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %42, 8
   %44 = or disjoint i32 %39, %43
-  %45 = getelementptr inbounds i8, ptr %6, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 7
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = or disjoint i32 %44, %47
@@ -2950,7 +2950,7 @@ define i32 @fdt_node_check_compatible(ptr noundef %0, i32 noundef %1, ptr nocapt
   br i1 %.not18.i, label %fdt_stringlist_contains.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %6, i64 %.sink
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %64
@@ -2973,7 +2973,7 @@ define i32 @fdt_node_check_compatible(ptr noundef %0, i32 noundef %1, ptr nocapt
   %.neg.i = add i64 %67, %66
   %68 = trunc i64 %.neg.i to i32
   %69 = add i32 %.01419.i, %68
-  %70 = getelementptr inbounds i8, ptr %63, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 1
   %.not.i = icmp slt i32 %69, %56
   br i1 %.not.i, label %fdt_stringlist_contains.exit, label %.lr.ph.i, !llvm.loop !17
 
@@ -3029,21 +3029,21 @@ define i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
   %13 = shl nuw nsw i64 %12, 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
   %17 = shl nuw nsw i64 %16, 16
   %18 = or disjoint i64 %17, %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 8
   %23 = or disjoint i64 %18, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 7
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
   %27 = or disjoint i64 %23, %26

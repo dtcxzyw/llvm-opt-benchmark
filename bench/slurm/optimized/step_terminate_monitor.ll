@@ -89,10 +89,10 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 
 11:                                               ; preds = %6
   %12 = tail call ptr @slurm_conf_lock() #7
-  %13 = getelementptr inbounds i8, ptr %12, i64 1488
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1488
   %14 = load i16, ptr %13, align 8
   store i16 %14, ptr @timeout, align 2
-  %15 = getelementptr inbounds i8, ptr %12, i64 1480
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 1480
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @xstrdup(ptr noundef %16) #7
   store ptr %17, ptr @program_name, align 8
@@ -153,10 +153,10 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
   br label %40
 
 40:                                               ; preds = %37, %35
-  %41 = getelementptr inbounds i8, ptr %0, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %42 = load i32, ptr %41, align 8
   store i32 %42, ptr @recorded_jobid, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %44 = load i32, ptr %43, align 8
   store i32 %44, ptr @recorded_stepid, align 4
   %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #7
@@ -215,7 +215,7 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
   %7 = alloca [256 x i8], align 16
   %8 = alloca i64, align 8
   %9 = alloca [33 x i8], align 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %10, align 8
   %11 = tail call i32 @get_log_level() #7
   %12 = icmp sgt i32 %11, 5
@@ -337,7 +337,7 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
   %75 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %4, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.27, i32 noundef %74) #7
   %76 = load ptr, ptr @program_name, align 8
   store ptr %76, ptr %3, align 16
-  %77 = getelementptr inbounds i8, ptr %3, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %77, align 8
   %78 = call i32 @setpgid(i32 noundef 0, i32 noundef 0) #7
   %79 = load ptr, ptr @program_name, align 8
@@ -387,8 +387,8 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %100 = getelementptr inbounds i8, ptr %0, i64 112
-  %101 = getelementptr inbounds i8, ptr %0, i64 120
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %102 = load i32, ptr %101, align 8
   switch i32 %102, label %112 [
     i32 -5, label %103
@@ -418,17 +418,17 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
 
 115:                                              ; preds = %106, %112, %109, %103
   call void @slurm_make_time_str(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 256) #7
-  %116 = getelementptr inbounds i8, ptr %0, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %117 = load i32, ptr %116, align 8
   %118 = icmp ult i32 %117, 2
-  %119 = getelementptr inbounds i8, ptr %0, i64 304
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %120 = load ptr, ptr %119, align 8
   %.str.17..str.18 = select i1 %118, ptr @.str.17, ptr @.str.18
   %. = select i1 %118, i32 4027, i32 4001
   %121 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.17..str.18, ptr noundef nonnull %6, ptr noundef %120, ptr noundef nonnull %7) #7
   %122 = call ptr @slurm_strerror(i32 noundef %.) #7
   call void @stepd_drain_node(ptr noundef %122) #7
-  %123 = getelementptr inbounds i8, ptr %0, i64 433
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 433
   %124 = load i8, ptr %123, align 1
   %125 = trunc i8 %124 to i1
   br i1 %125, label %141, label %126
@@ -449,7 +449,7 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
   br i1 %130, label %131, label %140
 
 131:                                              ; preds = %.loopexit
-  %132 = getelementptr inbounds i8, ptr %0, i64 432
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %133 = load i8, ptr %132, align 8
   %134 = trunc i8 %133 to i1
   br i1 %134, label %135, label %139

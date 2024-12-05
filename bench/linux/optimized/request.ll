@@ -113,7 +113,7 @@ define dso_local ptr @handshake_req_hash_lookup(ptr noundef %0) local_unnamed_ad
 
 8:                                                ; preds = %83, %1
   %9 = phi ptr [ %3, %1 ], [ %85, %83 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, -559038729
   %13 = add i32 %12, %6
@@ -142,7 +142,7 @@ define dso_local ptr @handshake_req_hash_lookup(ptr noundef %0) local_unnamed_ad
   %36 = load i32, ptr %9, align 64
   %37 = add i32 %36, -1
   %38 = and i32 %35, %37
-  %39 = getelementptr inbounds i8, ptr %9, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %44, label %42, !prof !6
@@ -152,7 +152,7 @@ define dso_local ptr @handshake_req_hash_lookup(ptr noundef %0) local_unnamed_ad
   br label %48
 
 44:                                               ; preds = %8
-  %45 = getelementptr inbounds i8, ptr %9, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %46 = zext i32 %38 to i64
   %47 = getelementptr [0 x ptr], ptr %45, i64 0, i64 %46
   br label %48
@@ -208,7 +208,7 @@ define dso_local ptr @handshake_req_hash_lookup(ptr noundef %0) local_unnamed_ad
 
 83:                                               ; preds = %.loopexit1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
-  %84 = getelementptr inbounds i8, ptr %9, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %85 = load volatile ptr, ptr %84, align 16
   %86 = icmp eq ptr %85, null
   br i1 %86, label %.loopexit.loopexit5, label %8, !prof !6
@@ -240,20 +240,20 @@ define dso_local ptr @handshake_req_alloc(ptr noundef %0, i32 noundef %1) #0 ali
   br i1 %6, label %7, label %25
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %25, label %15
 
 15:                                               ; preds = %11
   %16 = or i32 %1, 256
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = tail call noundef i64 @llvm.uadd.sat.i64(i64 %18, i64 56)
   %20 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %19, i32 noundef %16) #12
@@ -262,9 +262,9 @@ define dso_local ptr @handshake_req_alloc(ptr noundef %0, i32 noundef %1) #0 ali
 
 22:                                               ; preds = %15
   store volatile ptr %20, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store volatile ptr %20, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %0, ptr %24, align 8
   br label %25
 
@@ -280,15 +280,15 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local ptr @handshake_req_private(ptr noundef readnone %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+define dso_local nonnull ptr @handshake_req_private(ptr noundef readnone %0) #3 align 16 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @handshake_req_next(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef %0) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %8, %2
@@ -298,21 +298,21 @@ define dso_local ptr @handshake_req_next(ptr noundef %0, i32 noundef %1) local_u
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %13, label %4, !llvm.loop !13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, -1
   store i32 %16, ptr %14, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %18, ptr %20, align 8
   store volatile ptr %19, ptr %18, align 8
   store volatile ptr %6, ptr %6, align 8
@@ -334,7 +334,7 @@ define dso_local i32 @handshake_req_submit(ptr noundef readonly %0, ptr noundef 
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 16
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
@@ -344,9 +344,9 @@ define dso_local i32 @handshake_req_submit(ptr noundef readonly %0, ptr noundef 
   br label %277
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %15, ptr %16, align 8
   %17 = icmp eq ptr %15, null
   br i1 %17, label %18, label %19
@@ -356,36 +356,36 @@ define dso_local i32 @handshake_req_submit(ptr noundef readonly %0, ptr noundef 
   br label %277
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 712
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 712
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %21, ptr %22, align 8
   store ptr @handshake_sk_destruct, ptr %20, align 8
   %23 = load ptr, ptr %16, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @handshake_pernet(ptr noundef %25) #11
   %27 = icmp eq ptr %26, null
   br i1 %27, label %253, label %28
 
 28:                                               ; preds = %19
-  %29 = getelementptr inbounds i8, ptr %26, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %30 = load volatile i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp slt i32 %30, %32
   br i1 %33, label %34, label %253
 
 34:                                               ; preds = %28
   tail call void @_raw_spin_lock(ptr noundef nonnull %26) #11
-  %35 = getelementptr inbounds i8, ptr %26, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %36 = load volatile i64, ptr %35, align 8
   %37 = and i64 %36, 1
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %39, label %251
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @handshake_rhashtbl, i64 40), align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %44, label %43, !prof !6
@@ -410,7 +410,7 @@ define dso_local i32 @handshake_req_submit(ptr noundef readonly %0, ptr noundef 
   %55 = sub nsw i64 0, %54
   %56 = getelementptr i8, ptr %40, i64 %55
   %57 = getelementptr i8, ptr %56, i64 40
-  %58 = getelementptr inbounds i8, ptr %52, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, -559038729
   %61 = getelementptr i8, ptr %56, i64 44
@@ -442,7 +442,7 @@ define dso_local i32 @handshake_req_submit(ptr noundef readonly %0, ptr noundef 
   %87 = load i32, ptr %52, align 64
   %88 = add i32 %87, -1
   %89 = and i32 %86, %88
-  %90 = getelementptr inbounds i8, ptr %52, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %95, label %93, !prof !6
@@ -452,7 +452,7 @@ define dso_local i32 @handshake_req_submit(ptr noundef readonly %0, ptr noundef 
   br label %99
 
 95:                                               ; preds = %44
-  %96 = getelementptr inbounds i8, ptr %52, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %97 = zext i32 %89 to i64
   %98 = getelementptr [0 x ptr], ptr %96, i64 0, i64 %97
   br label %99
@@ -511,7 +511,7 @@ define dso_local i32 @handshake_req_submit(ptr noundef readonly %0, ptr noundef 
   br i1 %120, label %.loopexit8, label %.preheader, !prof !29, !llvm.loop !30
 
 .loopexit8:                                       ; preds = %117, %102
-  %121 = getelementptr inbounds i8, ptr %52, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %122 = load volatile ptr, ptr %121, align 16
   %123 = icmp eq ptr %122, null
   br i1 %123, label %137, label %124, !prof !6
@@ -543,7 +543,7 @@ define dso_local i32 @handshake_req_submit(ptr noundef readonly %0, ptr noundef 
 
 135:                                              ; preds = %134, %131
   call void @__rcu_read_unlock() #11
-  %136 = call ptr @rhashtable_insert_slow(ptr noundef nonnull @handshake_rhashtbl, ptr noundef %51, ptr noundef %40) #11
+  %136 = call ptr @rhashtable_insert_slow(ptr noundef nonnull @handshake_rhashtbl, ptr noundef %51, ptr noundef nonnull %40) #11
   br label %229
 
 137:                                              ; preds = %.loopexit8
@@ -714,7 +714,7 @@ define dso_local i32 @handshake_req_submit(ptr noundef readonly %0, ptr noundef 
 
 239:                                              ; preds = %237
   call void @_raw_spin_unlock(ptr noundef nonnull %26) #11
-  %240 = getelementptr inbounds i8, ptr %1, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %241 = load ptr, ptr %240, align 8
   %242 = call i32 @handshake_genl_notify(ptr noundef %25, ptr noundef %241, i32 noundef %2) #11
   %243 = icmp eq i32 %242, 0
@@ -728,8 +728,8 @@ define dso_local i32 @handshake_req_submit(ptr noundef readonly %0, ptr noundef 
 
 247:                                              ; preds = %244, %239
   %248 = load ptr, ptr %16, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 128
-  call fastcc void @refcount_inc(ptr noundef %249)
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 128
+  call fastcc void @refcount_inc(ptr noundef nonnull %249)
   %250 = load ptr, ptr %16, align 8
   call fastcc void @trace_handshake_submit(ptr noundef %25, ptr noundef nonnull %1, ptr noundef %250)
   br label %277
@@ -762,7 +762,7 @@ define dso_local i32 @handshake_req_submit(ptr noundef readonly %0, ptr noundef 
   br i1 %264, label %269, label %265
 
 265:                                              ; preds = %262
-  %266 = getelementptr inbounds i8, ptr %263, i64 8
+  %266 = getelementptr inbounds nuw i8, ptr %263, i64 8
   %267 = load ptr, ptr %266, align 8
   %268 = call i32 @__SCT__tp_func_handshake_submit_err(ptr noundef %267, ptr noundef %25, ptr noundef nonnull %1, ptr noundef %255, i32 noundef %254) #11
   br label %269
@@ -800,7 +800,7 @@ define internal void @handshake_sk_destruct(ptr noundef %0) #0 align 16 {
   br i1 %3, label %32, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_handshake_destruct, i64 8), i32 2) #11
           to label %27 [label %7], !srcloc !42
@@ -822,7 +822,7 @@ define internal void @handshake_sk_destruct(ptr noundef %0) #0 align 16 {
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @__SCT__tp_func_handshake_destruct(ptr noundef %18, ptr noundef %6, ptr noundef nonnull %2, ptr noundef %0) #11
   br label %20
@@ -842,7 +842,7 @@ define internal void @handshake_sk_destruct(ptr noundef %0) #0 align 16 {
   br label %27
 
 27:                                               ; preds = %24, %20, %7, %4
-  %28 = getelementptr inbounds i8, ptr %2, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %29 = load ptr, ptr %28, align 8
   tail call fastcc void @handshake_req_destroy(ptr noundef nonnull %2)
   %30 = icmp eq ptr %29, null
@@ -872,16 +872,16 @@ define internal fastcc noundef zeroext i1 @__add_pending_locked(ptr noundef nonn
   br label %14
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   store ptr %1, ptr %11, align 8
   store ptr %10, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %12, ptr %13, align 8
   store volatile ptr %1, ptr %12, align 8
   br label %14
@@ -915,7 +915,7 @@ define internal fastcc void @trace_handshake_notify_err(ptr noundef %0, ptr noun
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @__SCT__tp_func_handshake_notify_err(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) #11
   br label %18
@@ -946,14 +946,14 @@ define internal fastcc noundef zeroext i1 @remove_pending(ptr noundef nonnull %0
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %10, ptr %12, align 8
   store volatile ptr %11, ptr %10, align 8
   store volatile ptr %1, ptr %1, align 8
@@ -987,7 +987,7 @@ define internal fastcc void @trace_handshake_submit(ptr noundef %0, ptr noundef 
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @__SCT__tp_func_handshake_submit(ptr noundef %15, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #11
   br label %17
@@ -1013,9 +1013,9 @@ define internal fastcc void @trace_handshake_submit(ptr noundef %0, ptr noundef 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
@@ -1025,7 +1025,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   br label %9
 
 9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @__rcu_read_lock() #11
   %11 = load volatile ptr, ptr @handshake_rhashtbl, align 64
   br label %12
@@ -1037,7 +1037,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   %16 = sub nsw i64 0, %15
   %17 = getelementptr i8, ptr %10, i64 %16
   %18 = getelementptr i8, ptr %17, i64 40
-  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, -559038729
   %22 = getelementptr i8, ptr %17, i64 44
@@ -1069,7 +1069,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   %48 = load i32, ptr %13, align 64
   %49 = add i32 %48, -1
   %50 = and i32 %47, %49
-  %51 = getelementptr inbounds i8, ptr %13, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %56, label %54, !prof !6
@@ -1079,7 +1079,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   br label %60
 
 56:                                               ; preds = %12
-  %57 = getelementptr inbounds i8, ptr %13, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %58 = zext i32 %50 to i64
   %59 = getelementptr [0 x ptr], ptr %57, i64 0, i64 %58
   br label %60
@@ -1282,7 +1282,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
   br label %.thread10
 
 .thread11:                                        ; preds = %136, %133, %60
-  %152 = getelementptr inbounds i8, ptr %13, i64 48
+  %152 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %153 = load volatile ptr, ptr %152, align 16
   %154 = icmp eq ptr %153, null
   br i1 %154, label %.thread10, label %12, !llvm.loop !68
@@ -1295,12 +1295,12 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @handshake_complete(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %8, i64 0, ptr elementtype(i64) %8) #11, !srcloc !21
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8, i64 0, ptr nonnull elementtype(i64) %8) #11, !srcloc !21
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
   %11 = icmp eq i8 %9, 0
@@ -1327,7 +1327,7 @@ define dso_local void @handshake_complete(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @__SCT__tp_func_handshake_complete(ptr noundef %24, ptr noundef %7, ptr noundef %0, ptr noundef %5, i32 noundef %1) #11
   br label %26
@@ -1347,13 +1347,13 @@ define dso_local void @handshake_complete(ptr noundef %0, i32 noundef %1, ptr no
   br label %33
 
 33:                                               ; preds = %30, %26, %13, %12
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef %0, i32 noundef %1, ptr noundef %2) #11
-  %38 = getelementptr inbounds i8, ptr %5, i64 128
-  %39 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38, i32 -1, ptr elementtype(i32) %38) #11, !srcloc !73
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %39 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %38, i32 -1, ptr nonnull elementtype(i32) %38) #11, !srcloc !73
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %44, label %41
 
@@ -1362,7 +1362,7 @@ define dso_local void @handshake_complete(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %42, label %.thread, label %43, !prof !6
 
 43:                                               ; preds = %41
-  tail call void @refcount_warn_saturate(ptr noundef %38, i32 noundef 3) #11
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %38, i32 noundef 3) #11
   br label %.thread
 
 44:                                               ; preds = %33
@@ -1376,7 +1376,7 @@ define dso_local void @handshake_complete(ptr noundef %0, i32 noundef %1, ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @handshake_req_cancel(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @handshake_req_hash_lookup(ptr noundef %0)
   %5 = icmp eq ptr %4, null
@@ -1403,7 +1403,7 @@ define dso_local noundef zeroext i1 @handshake_req_cancel(ptr noundef %0) #0 ali
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @__SCT__tp_func_handshake_cancel_none(ptr noundef %18, ptr noundef %3, ptr noundef null, ptr noundef %0) #11
   br label %20
@@ -1434,14 +1434,14 @@ define dso_local noundef zeroext i1 @handshake_req_cancel(ptr noundef %0) #0 ali
   br i1 %32, label %41, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %28, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, -1
   store i32 %36, ptr %34, align 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %38, ptr %40, align 8
   store volatile ptr %39, ptr %38, align 8
   store volatile ptr %4, ptr %4, align 8
@@ -1454,8 +1454,8 @@ define dso_local noundef zeroext i1 @handshake_req_cancel(ptr noundef %0) #0 ali
   br label %42
 
 42:                                               ; preds = %41, %27
-  %43 = getelementptr inbounds i8, ptr %4, i64 24
-  %44 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %43, i64 0, ptr elementtype(i64) %43) #11, !srcloc !21
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %44 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %43, i64 0, ptr nonnull elementtype(i64) %43) #11, !srcloc !21
   %45 = icmp ult i8 %44, 2
   tail call void @llvm.assume(i1 %45)
   %46 = icmp eq i8 %44, 0
@@ -1482,7 +1482,7 @@ define dso_local noundef zeroext i1 @handshake_req_cancel(ptr noundef %0) #0 ali
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @__SCT__tp_func_handshake_cancel_busy(ptr noundef %59, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %0) #11
   br label %61
@@ -1522,7 +1522,7 @@ define dso_local noundef zeroext i1 @handshake_req_cancel(ptr noundef %0) #0 ali
   br i1 %77, label %82, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %76, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = tail call i32 @__SCT__tp_func_handshake_cancel(ptr noundef %80, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %0) #11
   br label %82
@@ -1542,8 +1542,8 @@ define dso_local noundef zeroext i1 @handshake_req_cancel(ptr noundef %0) #0 ali
   br label %89
 
 89:                                               ; preds = %86, %82, %69, %68
-  %90 = getelementptr inbounds i8, ptr %0, i64 128
-  %91 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %90, i32 -1, ptr elementtype(i32) %90) #11, !srcloc !73
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %91 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %90, i32 -1, ptr nonnull elementtype(i32) %90) #11, !srcloc !73
   %92 = icmp eq i32 %91, 1
   br i1 %92, label %96, label %93
 
@@ -1552,7 +1552,7 @@ define dso_local noundef zeroext i1 @handshake_req_cancel(ptr noundef %0) #0 ali
   br i1 %94, label %.thread, label %95, !prof !6
 
 95:                                               ; preds = %93
-  tail call void @refcount_warn_saturate(ptr noundef %90, i32 noundef 3) #11
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %90, i32 noundef 3) #11
   br label %.thread
 
 96:                                               ; preds = %89

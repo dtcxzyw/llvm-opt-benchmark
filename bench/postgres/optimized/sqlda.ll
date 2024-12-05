@@ -65,9 +65,9 @@ sqlda_compat_total_size.exit:                     ; preds = %sqlda_compat_empty_
   store i16 %25, ptr %21, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str, i32 noundef %0, i32 noundef %24) #6
   %26 = trunc i64 %.0.i to i16
-  %27 = getelementptr inbounds i8, ptr %21, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 36
   store i16 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %23, ptr %28, align 8
   %29 = load i16, ptr %21, align 8
   %30 = icmp sgt i16 %29, 0
@@ -97,8 +97,8 @@ sqlda_compat_total_size.exit:                     ; preds = %sqlda_compat_empty_
   %44 = getelementptr %struct.sqlvar_compat, ptr %43, i64 %indvars.iv, i32 4
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #7
-  %47 = add i64 %46, 1
-  %48 = getelementptr i8, ptr %.04749, i64 %47
+  %47 = getelementptr i8, ptr %.04749, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 1
   %49 = tail call i32 @PQftype(ptr noundef %1, i32 noundef %33) #6
   %50 = load ptr, ptr %28, align 8
   %51 = getelementptr %struct.sqlvar_compat, ptr %50, i64 %indvars.iv, i32 9
@@ -178,7 +178,7 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
   %22 = sub nsw i64 4, %21
   %23 = select i1 %.not.i.i, i64 0, i64 %22
   %.0.i.i = add i64 %23, %.08.lcssa.i
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %25
 
 25:                                               ; preds = %.lr.ph, %232
@@ -361,13 +361,13 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
 
 120:                                              ; preds = %113
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %118, ptr noundef nonnull align 8 dereferenceable(40) %115, i64 40, i1 false)
-  %121 = getelementptr inbounds i8, ptr %115, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %122 = load ptr, ptr %121, align 8
   %.not149 = icmp eq ptr %122, null
   br i1 %.not149, label %154, label %123
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %115, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %125 = load ptr, ptr %124, align 8
   %126 = ptrtoint ptr %125 to i64
   %127 = ptrtoint ptr %122 to i64
@@ -389,7 +389,7 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
   %140 = load ptr, ptr %24, align 8
   %141 = getelementptr %struct.sqlvar_compat, ptr %140, i64 %indvars.iv, i32 2
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   store ptr %137, ptr %143, align 8
   %144 = load ptr, ptr %124, align 8
   %145 = load ptr, ptr %121, align 8
@@ -400,7 +400,7 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
   %150 = load ptr, ptr %24, align 8
   %151 = getelementptr %struct.sqlvar_compat, ptr %150, i64 %indvars.iv, i32 2
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
   store ptr %149, ptr %153, align 8
   br label %154
 
@@ -480,9 +480,9 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
 199:                                              ; preds = %182
   %200 = load ptr, ptr %24, align 8
   %201 = getelementptr %struct.sqlvar_compat, ptr %200, i64 %indvars.iv
-  %202 = getelementptr inbounds i8, ptr %201, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %201, i64 96
+  %204 = getelementptr inbounds nuw i8, ptr %201, i64 96
   store ptr %203, ptr %204, align 8
   br label %205
 
@@ -514,7 +514,7 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
   %219 = getelementptr %struct.sqlvar_compat, ptr %218, i64 %indvars.iv
   %220 = load i16, ptr %219, align 8
   %221 = sext i16 %220 to i32
-  %222 = getelementptr inbounds i8, ptr %219, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %223 = load ptr, ptr %222, align 8
   %224 = tail call zeroext i1 @ecpg_get_data(ptr noundef %2, i32 noundef %3, i32 noundef %206, i32 noundef %0, i32 noundef %221, i32 noundef 29, ptr noundef %223, ptr noundef null, i64 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 4, i32 noundef %4, i1 noundef zeroext false) #6
   br label %232
@@ -524,7 +524,7 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
   %227 = getelementptr %struct.sqlvar_compat, ptr %226, i64 %indvars.iv
   %228 = load i16, ptr %227, align 8
   %229 = sext i16 %228 to i32
-  %230 = getelementptr inbounds i8, ptr %227, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %231 = load ptr, ptr %230, align 8
   tail call void @ECPGset_noind_null(i32 noundef %229, ptr noundef %231) #6
   br label %232
@@ -580,9 +580,9 @@ sqlda_native_total_size.exit:                     ; preds = %4, %11
   %15 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.4) #6
   %16 = tail call i32 @PQnfields(ptr noundef %1) #6
   %17 = trunc i32 %16 to i16
-  %18 = getelementptr inbounds i8, ptr %13, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i16 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 18
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 18
   store i16 %17, ptr %19, align 2
   %sext = shl i32 %16, 16
   %20 = ashr exact i32 %sext, 16
@@ -591,13 +591,13 @@ sqlda_native_total_size.exit:                     ; preds = %4, %11
   %22 = sext i16 %21 to i64
   %23 = mul nsw i64 %22, 96
   %24 = add nsw i64 %23, 32
-  %25 = getelementptr inbounds i8, ptr %13, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %24, ptr %25, align 8
   %26 = icmp sgt i16 %21, 0
   br i1 %26, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %14
-  %27 = getelementptr inbounds i8, ptr %13, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %28
 
 28:                                               ; preds = %.lr.ph, %28
@@ -611,9 +611,9 @@ sqlda_native_total_size.exit:                     ; preds = %4, %11
   %34 = tail call ptr @PQfname(ptr noundef %1, i32 noundef %29) #6
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #7
   %36 = trunc i64 %35 to i16
-  %37 = getelementptr inbounds i8, ptr %33, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i16 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %33, i64 26
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 26
   %39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %34) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i16, ptr %19, align 2
@@ -635,7 +635,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
 
 8:                                                ; preds = %5
   %9 = tail call i32 @PQnfields(ptr noundef %2) #6
-  %10 = getelementptr inbounds i8, ptr %6, i64 18
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %11 = load i16, ptr %10, align 2
   %12 = icmp sgt i16 %11, 0
   br i1 %12, label %.lr.ph, label %.loopexit
@@ -645,7 +645,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %14 = sext i32 %13 to i64
   %15 = mul nsw i64 %14, 96
   %16 = add nsw i64 %15, 128
-  %17 = getelementptr inbounds i8, ptr %6, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %18
 
 18:                                               ; preds = %.lr.ph, %181
@@ -680,9 +680,9 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %.0.i = add i64 %24, %.0194195
   %25 = add i64 %.0.i, 2
   %26 = getelementptr i8, ptr %6, i64 %.0.i
-  %27 = getelementptr inbounds i8, ptr %19, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 2, ptr %28, align 2
   br label %169
 
@@ -694,9 +694,9 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %.0.i139 = add i64 %32, %.0194195
   %33 = add i64 %.0.i139, 4
   %34 = getelementptr i8, ptr %6, i64 %.0.i139
-  %35 = getelementptr inbounds i8, ptr %19, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %19, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 4, ptr %36, align 2
   br label %169
 
@@ -708,9 +708,9 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %.0.i141 = add i64 %40, %.0194195
   %41 = add i64 %.0.i141, 8
   %42 = getelementptr i8, ptr %6, i64 %.0.i141
-  %43 = getelementptr inbounds i8, ptr %19, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %19, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 8, ptr %44, align 2
   br label %169
 
@@ -722,18 +722,18 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %.0.i143 = add i64 %48, %.0194195
   %49 = add i64 %.0.i143, 8
   %50 = getelementptr i8, ptr %6, i64 %.0.i143
-  %51 = getelementptr inbounds i8, ptr %19, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %19, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 8, ptr %52, align 2
   br label %169
 
 53:                                               ; preds = %18
   %54 = add i64 %.0194195, 1
   %55 = getelementptr i8, ptr %6, i64 %.0194195
-  %56 = getelementptr inbounds i8, ptr %19, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %19, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 1, ptr %57, align 2
   br label %169
 
@@ -745,9 +745,9 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %.0.i147 = add i64 %61, %.0194195
   %62 = add i64 %.0.i147, 4
   %63 = getelementptr i8, ptr %6, i64 %.0.i147
-  %64 = getelementptr inbounds i8, ptr %19, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %19, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 4, ptr %65, align 2
   br label %169
 
@@ -759,9 +759,9 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %.0.i149 = add i64 %69, %.0194195
   %70 = add i64 %.0.i149, 8
   %71 = getelementptr i8, ptr %6, i64 %.0.i149
-  %72 = getelementptr inbounds i8, ptr %19, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %19, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 8, ptr %73, align 2
   br label %169
 
@@ -773,9 +773,9 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %.0.i151 = add i64 %77, %.0194195
   %78 = add i64 %.0.i151, 52
   %79 = getelementptr i8, ptr %6, i64 %.0.i151
-  %80 = getelementptr inbounds i8, ptr %19, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %19, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 52, ptr %81, align 2
   br label %169
 
@@ -787,9 +787,9 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %.0.i153 = add i64 %85, %.0194195
   %86 = add i64 %.0.i153, 40
   %87 = getelementptr i8, ptr %6, i64 %.0.i153
-  %88 = getelementptr inbounds i8, ptr %19, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %19, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 40, ptr %89, align 2
   %90 = trunc nuw nsw i64 %indvars.iv to i32
   %91 = tail call i32 @PQgetisnull(ptr noundef %2, i32 noundef %3, i32 noundef %90) #6
@@ -814,13 +814,13 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
 
 99:                                               ; preds = %94
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %97, ptr noundef nonnull align 8 dereferenceable(40) %96, i64 40, i1 false)
-  %100 = getelementptr inbounds i8, ptr %96, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %101 = load ptr, ptr %100, align 8
   %.not136 = icmp eq ptr %101, null
   br i1 %.not136, label %129, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %96, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %104 = load ptr, ptr %103, align 8
   %105 = ptrtoint ptr %104 to i64
   %106 = ptrtoint ptr %101 to i64
@@ -840,7 +840,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %118 = add i64 %107, %117
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr nonnull align 1 %101, i64 %118, i1 false)
   %119 = load ptr, ptr %88, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   store ptr %116, ptr %120, align 8
   %121 = load ptr, ptr %103, align 8
   %122 = load ptr, ptr %100, align 8
@@ -849,7 +849,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %125 = sub i64 %123, %124
   %126 = getelementptr i8, ptr %116, i64 %125
   %127 = load ptr, ptr %88, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
   store ptr %126, ptr %128, align 8
   br label %129
 
@@ -866,9 +866,9 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %.0.i157 = add i64 %133, %.0194195
   %134 = add i64 %.0.i157, 8
   %135 = getelementptr i8, ptr %6, i64 %.0.i157
-  %136 = getelementptr inbounds i8, ptr %19, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %135, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %19, i64 2
+  %137 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 8, ptr %137, align 2
   br label %169
 
@@ -880,9 +880,9 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %.0.i159 = add i64 %141, %.0194195
   %142 = add i64 %.0.i159, 8
   %143 = getelementptr i8, ptr %6, i64 %.0.i159
-  %144 = getelementptr inbounds i8, ptr %19, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %143, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %19, i64 2
+  %145 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 8, ptr %145, align 2
   br label %169
 
@@ -894,9 +894,9 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %.0.i161 = add i64 %149, %.0194195
   %150 = add i64 %.0.i161, 16
   %151 = getelementptr i8, ptr %6, i64 %.0.i161
-  %152 = getelementptr inbounds i8, ptr %19, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %151, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %19, i64 2
+  %153 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 16, ptr %153, align 2
   br label %169
 
@@ -914,10 +914,10 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %163 = sext i32 %159 to i64
   %164 = add i64 %.0.i163, %163
   %165 = getelementptr i8, ptr %6, i64 %.0.i163
-  %166 = getelementptr inbounds i8, ptr %19, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %165, ptr %166, align 8
   %167 = trunc i32 %159 to i16
-  %168 = getelementptr inbounds i8, ptr %19, i64 2
+  %168 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 %167, ptr %168, align 2
   br label %169
 
@@ -930,7 +930,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %172 = select i1 %.not137, ptr @.str.2, ptr @.str.3
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.6, i32 noundef %0, i32 noundef %3, i32 noundef %170, ptr noundef nonnull %172) #6
   %173 = select i1 %.not137, ptr @value_is_null, ptr @value_is_not_null
-  %174 = getelementptr inbounds i8, ptr %19, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %173, ptr %174, align 8
   %brmerge = or i1 %.0131.not, %.not137
   br i1 %brmerge, label %181, label %175
@@ -938,7 +938,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
 175:                                              ; preds = %169
   %176 = load i16, ptr %19, align 8
   %177 = sext i16 %176 to i32
-  %178 = getelementptr inbounds i8, ptr %19, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %179 = load ptr, ptr %178, align 8
   %180 = tail call zeroext i1 @ecpg_get_data(ptr noundef %2, i32 noundef %3, i32 noundef %170, i32 noundef %0, i32 noundef %177, i32 noundef 29, ptr noundef %179, ptr noundef null, i64 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 4, i32 noundef %4, i1 noundef zeroext false) #6
   br label %181
@@ -1069,13 +1069,13 @@ define internal fastcc i64 @sqlda_common_total_size(ptr noundef %0, i32 noundef 
   br i1 %.not26, label %97, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %54, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %57 = load ptr, ptr %56, align 8
   %.not27 = icmp eq ptr %57, null
   br i1 %.not27, label %72, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %54, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %60 = load ptr, ptr %59, align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = ptrtoint ptr %57 to i64

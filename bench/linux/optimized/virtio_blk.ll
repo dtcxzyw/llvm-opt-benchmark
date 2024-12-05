@@ -186,15 +186,15 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i8, align 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 752
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %23, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.virtblk_probe) #15
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %23, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.virtblk_probe) #15
   br label %366
 
 24:                                               ; preds = %1
@@ -204,7 +204,7 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
 
 27:                                               ; preds = %24
   tail call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 2) #14
-  %28 = getelementptr inbounds i8, ptr %0, i64 784
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 4
   %31 = icmp ne i64 %30, 0
@@ -229,22 +229,22 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   %42 = select i1 %40, i32 %41, i32 1
   %43 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %44 = call noalias align 8 dereferenceable_or_null(288) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 3264, i64 noundef 288) #16
-  %45 = getelementptr inbounds i8, ptr %0, i64 792
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store ptr %44, ptr %45, align 8
   %46 = icmp eq ptr %44, null
   br i1 %46, label %364, label %47
 
 47:                                               ; preds = %37
   call void @__mutex_init(ptr noundef nonnull %44, ptr noundef nonnull @.str.3, ptr noundef nonnull @virtblk_probe.__key) #14
-  %48 = getelementptr inbounds i8, ptr %44, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store ptr %0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %44, i64 216
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 216
   store i64 68719476704, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %44, i64 224
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 224
   store volatile ptr %50, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %44, i64 232
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 232
   store volatile ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %44, i64 240
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 240
   store ptr @virtblk_config_changed_work, ptr %52, align 8
   %53 = call fastcc i32 @init_vq(ptr noundef nonnull %44)
   %54 = icmp eq i32 %53, 0
@@ -256,10 +256,10 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   br i1 %57, label %58, label %69
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %44, i64 272
+  %59 = getelementptr inbounds nuw i8, ptr %44, i64 272
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %60, align 64
-  %62 = getelementptr inbounds i8, ptr %61, i64 44
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 44
   %63 = load i32, ptr %62, align 4
   %64 = load i64, ptr %28, align 8
   %65 = and i64 %64, 268435456
@@ -270,37 +270,37 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
 
 69:                                               ; preds = %58, %55
   %70 = phi i32 [ %68, %58 ], [ %56, %55 ]
-  %71 = getelementptr inbounds i8, ptr %44, i64 48
-  %72 = getelementptr inbounds i8, ptr %44, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(168) %72, i8 0, i64 160, i1 false)
+  %71 = getelementptr inbounds nuw i8, ptr %44, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %44, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %72, i8 0, i64 160, i1 false)
   store ptr @virtio_mq_ops, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %44, i64 112
+  %73 = getelementptr inbounds nuw i8, ptr %44, i64 112
   store i32 %70, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %44, i64 124
+  %74 = getelementptr inbounds nuw i8, ptr %44, i64 124
   store i32 -1, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %44, i64 132
+  %75 = getelementptr inbounds nuw i8, ptr %44, i64 132
   store i32 1, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %44, i64 120
+  %76 = getelementptr inbounds nuw i8, ptr %44, i64 120
   store i32 120, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %44, i64 136
+  %77 = getelementptr inbounds nuw i8, ptr %44, i64 136
   store ptr %44, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %44, i64 252
+  %78 = getelementptr inbounds nuw i8, ptr %44, i64 252
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %44, i64 108
+  %80 = getelementptr inbounds nuw i8, ptr %44, i64 108
   store i32 %79, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %44, i64 104
+  %81 = getelementptr inbounds nuw i8, ptr %44, i64 104
   %82 = getelementptr i8, ptr %44, i64 264
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, 0
   %85 = select i1 %84, i32 1, i32 3
   store i32 %85, ptr %81, align 8
-  %86 = call i32 @blk_mq_alloc_tag_set(ptr noundef %71) #14
+  %86 = call i32 @blk_mq_alloc_tag_set(ptr noundef nonnull %71) #14
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %355
 
 88:                                               ; preds = %69
-  %89 = call ptr @__blk_mq_alloc_disk(ptr noundef %71, ptr noundef nonnull %44, ptr noundef nonnull @virtblk_probe.__key.5) #14
-  %90 = getelementptr inbounds i8, ptr %44, i64 40
+  %89 = call ptr @__blk_mq_alloc_disk(ptr noundef nonnull %71, ptr noundef nonnull %44, ptr noundef nonnull @virtblk_probe.__key.5) #14
+  %90 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store ptr %89, ptr %90, align 8
   %91 = icmp ugt ptr %89, inttoptr (i64 -4096 to ptr)
   br i1 %91, label %92, label %95
@@ -311,9 +311,9 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   br label %353
 
 95:                                               ; preds = %88
-  %96 = getelementptr inbounds i8, ptr %89, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 80
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %89, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %99 = getelementptr i8, ptr %89, i64 14
   %100 = getelementptr i8, ptr %89, i64 44
   %101 = getelementptr i8, ptr %89, i64 43
@@ -351,18 +351,18 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
   store i32 %118, ptr %119, align 8
   %120 = shl i32 %25, 4
   %121 = load ptr, ptr %90, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store i32 %120, ptr %122, align 4
   %123 = load ptr, ptr %90, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i32 16, ptr %124, align 8
   %125 = load ptr, ptr %90, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 88
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 88
   store ptr %44, ptr %126, align 8
   %127 = load ptr, ptr %90, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 72
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 72
   store ptr @virtblk_fops, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %44, i64 248
+  %129 = getelementptr inbounds nuw i8, ptr %44, i64 248
   store i32 %25, ptr %129, align 8
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 11) #14
   %130 = load i64, ptr %28, align 8
@@ -392,9 +392,9 @@ define internal i32 @virtblk_probe(ptr noundef %0) #2 align 16 {
 virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   %143 = phi i8 [ %142, %138 ], [ %137, %133 ]
   %144 = load ptr, ptr %45, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 40
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 40
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 80
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 80
   %148 = load ptr, ptr %147, align 8
   %149 = icmp ne i8 %143, 0
   call void @blk_queue_write_cache(ptr noundef %148, i1 noundef zeroext %149, i1 noundef zeroext false) #14
@@ -461,8 +461,8 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   br i1 %or.cond, label %186, label %184
 
 184:                                              ; preds = %175
-  %185 = getelementptr inbounds i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %185, ptr noundef nonnull @.str.7, i32 noundef %179) #15
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %185, ptr noundef nonnull @.str.7, i32 noundef %179) #15
   br label %.thread25
 
 186:                                              ; preds = %175
@@ -474,7 +474,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   br i1 %188, label %194, label %189
 
 189:                                              ; preds = %187
-  %190 = getelementptr inbounds i8, ptr %97, i64 172
+  %190 = getelementptr inbounds nuw i8, ptr %97, i64 172
   %191 = load i32, ptr %190, align 4
   %192 = icmp eq i32 %191, 0
   %193 = select i1 %192, i32 512, i32 %191
@@ -660,8 +660,8 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   br i1 %275, label %276, label %278
 
 276:                                              ; preds = %270
-  %277 = getelementptr inbounds i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %277, ptr noundef nonnull @.str.8) #15
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %277, ptr noundef nonnull @.str.8) #15
   br label %.thread25
 
 278:                                              ; preds = %270
@@ -680,8 +680,8 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   br i1 %286, label %287, label %289
 
 287:                                              ; preds = %278
-  %288 = getelementptr inbounds i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %288, ptr noundef nonnull @.str.9) #15
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %288, ptr noundef nonnull @.str.9) #15
   br label %.thread25
 
 289:                                              ; preds = %278
@@ -698,8 +698,8 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %289
-  %296 = getelementptr inbounds i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %296, ptr noundef nonnull @.str.10) #15
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %296, ptr noundef nonnull @.str.10) #15
   br label %.thread25
 
 297:                                              ; preds = %289
@@ -733,14 +733,14 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   %316 = icmp eq i32 %302, 0
   %317 = shl i32 %302, 9
   %318 = select i1 %316, i32 %195, i32 %317
-  %319 = getelementptr inbounds i8, ptr %97, i64 208
+  %319 = getelementptr inbounds nuw i8, ptr %97, i64 208
   store i32 %318, ptr %319, align 8
   br label %320
 
 320:                                              ; preds = %311, %307
   call fastcc void @virtblk_update_capacity(ptr noundef nonnull %44, i1 noundef zeroext false)
   %321 = load ptr, ptr %18, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 24
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 24
   %323 = load ptr, ptr %322, align 8
   %324 = call zeroext i8 %323(ptr noundef %0) #14
   %325 = and i8 %324, 4
@@ -755,7 +755,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
 
 328:                                              ; preds = %327, %320
   %329 = load ptr, ptr %18, align 8
-  %330 = getelementptr inbounds i8, ptr %329, i64 32
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 32
   %331 = load ptr, ptr %330, align 8
   %332 = or i8 %324, 4
   call void %331(ptr noundef %0, i8 noundef zeroext %332) #14
@@ -781,20 +781,20 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   ]
 
 341:                                              ; preds = %336
-  %342 = getelementptr inbounds i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %342, ptr noundef nonnull @.str.23) #15
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %342, ptr noundef nonnull @.str.23) #15
   br label %.thread25
 
 343:                                              ; preds = %336
   %344 = zext i8 %340 to i32
-  %345 = getelementptr inbounds i8, ptr %0, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %345, ptr noundef nonnull @.str.11, i32 noundef %344) #15
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %345, ptr noundef nonnull @.str.11, i32 noundef %344) #15
   br label %.thread25
 
 346:                                              ; preds = %336, %336, %328
-  %347 = getelementptr inbounds i8, ptr %0, i64 16
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %348 = load ptr, ptr %90, align 8
-  %349 = call i32 @device_add_disk(ptr noundef %347, ptr noundef %348, ptr noundef nonnull @virtblk_attr_groups) #14
+  %349 = call i32 @device_add_disk(ptr noundef nonnull %347, ptr noundef %348, ptr noundef nonnull @virtblk_attr_groups) #14
   %350 = icmp eq i32 %349, 0
   br i1 %350, label %366, label %.thread25
 
@@ -806,16 +806,16 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
 
 353:                                              ; preds = %.thread25, %92
   %354 = phi i32 [ %94, %92 ], [ %351, %.thread25 ]
-  call void @blk_mq_free_tag_set(ptr noundef %71) #14
+  call void @blk_mq_free_tag_set(ptr noundef nonnull %71) #14
   br label %355
 
 355:                                              ; preds = %353, %69
   %356 = phi i32 [ %86, %69 ], [ %354, %353 ]
   %357 = load ptr, ptr %18, align 8
-  %358 = getelementptr inbounds i8, ptr %357, i64 56
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 56
   %359 = load ptr, ptr %358, align 8
   call void %359(ptr noundef %0) #14
-  %360 = getelementptr inbounds i8, ptr %44, i64 272
+  %360 = getelementptr inbounds nuw i8, ptr %44, i64 272
   %361 = load ptr, ptr %360, align 8
   call void @kfree(ptr noundef %361) #14
   br label %362
@@ -837,25 +837,25 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtblk_remove(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 792
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 216
-  %5 = tail call zeroext i1 @flush_work(ptr noundef %4) #14
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 216
+  %5 = tail call zeroext i1 @flush_work(ptr noundef nonnull %4) #14
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8
   tail call void @del_gendisk(ptr noundef %7) #14
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
-  tail call void @blk_mq_free_tag_set(ptr noundef %8) #14
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  tail call void @blk_mq_free_tag_set(ptr noundef nonnull %8) #14
   tail call void @mutex_lock(ptr noundef %3) #14
   tail call void @virtio_reset_device(ptr noundef %0) #14
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef %0) #14
-  %14 = getelementptr inbounds i8, ptr %3, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %15 = load ptr, ptr %14, align 8
   tail call void @kfree(ptr noundef %15) #14
   tail call void @mutex_unlock(ptr noundef %3) #14
@@ -866,32 +866,32 @@ define internal void @virtblk_remove(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtblk_config_changed(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 792
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @virtblk_wq, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 216
-  %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %4, ptr noundef %5) #14
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 216
+  %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %4, ptr noundef nonnull %5) #14
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @virtblk_freeze(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 792
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %7 = load ptr, ptr %6, align 8
   tail call void @blk_mq_freeze_queue(ptr noundef %7) #14
   tail call void @virtio_reset_device(ptr noundef %0) #14
-  %8 = getelementptr inbounds i8, ptr %3, i64 216
-  %9 = tail call zeroext i1 @flush_work(ptr noundef %8) #14
-  %10 = getelementptr inbounds i8, ptr %0, i64 752
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 216
+  %9 = tail call zeroext i1 @flush_work(ptr noundef nonnull %8) #14
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef %0) #14
-  %14 = getelementptr inbounds i8, ptr %3, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %15 = load ptr, ptr %14, align 8
   tail call void @kfree(ptr noundef %15) #14
   ret i32 0
@@ -899,16 +899,16 @@ define internal noundef i32 @virtblk_freeze(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @virtblk_restore(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 792
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc i32 @init_vq(ptr noundef %3)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %24
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 752
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call zeroext i8 %10(ptr noundef %0) #14
   %12 = and i8 %11, 4
@@ -923,13 +923,13 @@ define internal i32 @virtblk_restore(ptr noundef %0) #2 align 16 {
 
 15:                                               ; preds = %14, %6
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = or i8 %11, 4
   tail call void %18(ptr noundef %0, i8 noundef zeroext %19) #14
-  %20 = getelementptr inbounds i8, ptr %3, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load ptr, ptr %22, align 8
   tail call void @blk_mq_unfreeze_queue(ptr noundef %23) #14
   br label %24
@@ -964,12 +964,12 @@ define internal void @virtblk_config_changed_work(ptr nocapture noundef readonly
 define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
   %2 = alloca %struct.irq_affinity, align 8
   %3 = alloca i16, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   tail call void @virtio_check_driver_offered_feature(ptr noundef %5, i32 noundef 12) #14
-  %6 = getelementptr inbounds i8, ptr %5, i64 784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 784
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 4096
   %.not = icmp eq i64 %8, 0
@@ -979,7 +979,7 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
   store i16 0, ptr %3, align 2, !annotation !5
   %10 = tail call i32 @__SCT__might_resched() #14
-  %11 = getelementptr inbounds i8, ptr %5, i64 752
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 752
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef %5, i32 noundef 34, ptr noundef nonnull %3, i32 noundef 2) #14
@@ -989,8 +989,8 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %17, ptr noundef nonnull @.str.14) #15
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %17, ptr noundef nonnull @.str.14) #15
   br label %104
 
 .thread:                                          ; preds = %1, %9
@@ -1018,17 +1018,17 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   %33 = call i32 @llvm.umin.i32(i32 %31, i32 %32)
   %34 = and i32 %33, 65535
   %35 = sub nsw i32 %29, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 256
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 %35, ptr %36, align 8
   %37 = getelementptr i8, ptr %0, i64 260
   store i32 0, ptr %37, align 4
   %38 = getelementptr i8, ptr %0, i64 264
   store i32 %34, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 16
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %39, ptr noundef nonnull @.str.15, i32 noundef %35, i32 noundef 0, i32 noundef %34) #15
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %39, ptr noundef nonnull @.str.15, i32 noundef %35, i32 noundef 0, i32 noundef %34) #15
   %40 = shl nuw nsw i64 %30, 6
   %41 = call noalias align 8 ptr @__kmalloc(i64 noundef %40, i32 noundef 3264) #17
-  %42 = getelementptr inbounds i8, ptr %0, i64 272
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %41, ptr %42, align 8
   %43 = icmp eq ptr %41, null
   br i1 %43, label %104, label %44
@@ -1103,9 +1103,9 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   br i1 %80, label %.preheader8, label %.loopexit9, !llvm.loop !14
 
 .loopexit9:                                       ; preds = %.preheader8, %.loopexit11
-  %81 = getelementptr inbounds i8, ptr %5, i64 752
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 752
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %84 = load ptr, ptr %83, align 8
   %85 = call i32 %84(ptr noundef %5, i32 noundef %29, ptr noundef nonnull %48, ptr noundef nonnull %47, ptr noundef nonnull %46, ptr noundef null, ptr noundef nonnull %2) #14
   %86 = icmp eq i32 %85, 0
@@ -1130,7 +1130,7 @@ define internal fastcc i32 @init_vq(ptr nocapture noundef %0) unnamed_addr #2 al
   br i1 %97, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %87
-  %98 = getelementptr inbounds i8, ptr %0, i64 252
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 252
   store i32 %29, ptr %98, align 4
   br label %99
 
@@ -1209,19 +1209,19 @@ define internal fastcc void @virtblk_update_capacity(ptr nocapture noundef reado
   %3 = alloca [10 x i8], align 1
   %4 = alloca [10 x i8], align 1
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   %12 = tail call i32 @__SCT__might_resched() #14
-  %13 = getelementptr inbounds i8, ptr %7, i64 752
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 752
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %20, label %18
@@ -1244,7 +1244,7 @@ define internal fastcc void @virtblk_update_capacity(ptr nocapture noundef reado
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef %7, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 8) #14
   %27 = load ptr, ptr %13, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %33, label %31
@@ -1270,7 +1270,7 @@ define internal fastcc void @virtblk_update_capacity(ptr nocapture noundef reado
   br label %62
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %11, i64 172
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 172
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 0
   %45 = lshr i32 %43, 9
@@ -1297,9 +1297,9 @@ define internal fastcc void @virtblk_update_capacity(ptr nocapture noundef reado
   %64 = phi i32 [ %61, %41 ], [ 512, %.thread5 ]
   %65 = load ptr, ptr %8, align 8
   %66 = select i1 %1, ptr @.str.21, ptr @.str.22
-  %67 = getelementptr inbounds i8, ptr %65, i64 12
-  %68 = getelementptr inbounds i8, ptr %7, i64 16
-  call void (ptr, ptr, ...) @_dev_notice(ptr noundef %68, ptr noundef nonnull @.str.20, ptr noundef %67, ptr noundef nonnull %66, i64 noundef %63, i32 noundef %64, ptr noundef nonnull %4, ptr noundef nonnull %3) #15
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %68, ptr noundef nonnull @.str.20, ptr noundef nonnull %67, ptr noundef nonnull %66, i64 noundef %63, i32 noundef %64, ptr noundef nonnull %4, ptr noundef nonnull %3) #15
   %69 = load ptr, ptr %8, align 8
   %70 = call zeroext i1 @set_capacity_and_notify(ptr noundef %69, i64 noundef %37) #14
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #14
@@ -1340,15 +1340,15 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtblk_done(ptr noundef %0) #2 align 16 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 792
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 792
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
   store i32 0, ptr %2, align 4, !annotation !5
-  %9 = getelementptr inbounds i8, ptr %6, i64 272
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %8 to i64
   %12 = getelementptr %struct.virtio_blk_vq, ptr %10, i64 %11, i32 1
@@ -1387,9 +1387,9 @@ define internal void @virtblk_done(ptr noundef %0) #2 align 16 {
   br i1 %32, label %38, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %6, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %37 = load ptr, ptr %36, align 8
   call void @blk_mq_start_stopped_hw_queues(ptr noundef %37, i1 noundef zeroext true) #14
   br label %38
@@ -1431,19 +1431,19 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   %3 = alloca %struct.scatterlist, align 8
   %4 = alloca %struct.scatterlist, align 8
   %5 = alloca [3 x ptr], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr i8, ptr %9, i64 248
-  %11 = getelementptr inbounds i8, ptr %0, i64 340
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %12 = load i32, ptr %11, align 4
   %13 = tail call fastcc zeroext i8 @virtblk_prep_rq(ptr noundef %0, ptr noundef %9, ptr noundef %10)
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %103, !prof !9
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %8, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %12 to i64
   %19 = getelementptr %struct.virtio_blk_vq, ptr %17, i64 %18, i32 1
@@ -1469,7 +1469,7 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   %29 = load i32, ptr %10, align 8
   %30 = and i32 %29, 1
   %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %31, ptr %32, align 8
   %33 = add nuw nsw i32 %30, 1
   %34 = xor i32 %30, 1
@@ -1511,14 +1511,14 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   %56 = load ptr, ptr %16, align 8
   %57 = getelementptr %struct.virtio_blk_vq, ptr %56, i64 %18, i32 1
   call void @_raw_spin_unlock_irqrestore(ptr noundef %57, i64 noundef %20) #14
-  %58 = getelementptr inbounds i8, ptr %9, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 262144
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %9, i64 122
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 122
   %64 = load i16, ptr %63, align 2
   %65 = icmp eq i16 %64, 0
   br i1 %65, label %.thread, label %66
@@ -1531,7 +1531,7 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   br i1 %67, label %.thread, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %9, i64 160
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %70 = load ptr, ptr %69, align 8
   %71 = load i64, ptr @vmemmap_base, align 8
   %72 = ptrtoint ptr %70 to i64
@@ -1540,7 +1540,7 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   %75 = load i64, ptr @page_offset_base, align 8
   %76 = add i64 %74, %75
   %77 = inttoptr i64 %76 to ptr
-  %78 = getelementptr inbounds i8, ptr %9, i64 172
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 172
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
   %81 = getelementptr i8, ptr %77, i64 %80
@@ -1554,7 +1554,7 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
   br label %103
 
 85:                                               ; preds = %35
-  %86 = getelementptr inbounds i8, ptr %1, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %87 = load i8, ptr %86, align 8, !range !19, !noundef !20
   %88 = icmp eq i8 %87, 0
   %89 = load ptr, ptr %16, align 8
@@ -1588,20 +1588,20 @@ define internal zeroext range(i8 0, 14) i8 @virtio_queue_rq(ptr noundef %0, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtio_commit_rqs(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 272
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 340
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
   %10 = getelementptr %struct.virtio_blk_vq, ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  tail call void @_raw_spin_lock_irq(ptr noundef %11) #14
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %11) #14
   %12 = load ptr, ptr %10, align 64
   %13 = tail call zeroext i1 @virtqueue_kick_prepare(ptr noundef %12) #14
-  tail call void @_raw_spin_unlock_irq(ptr noundef %11) #14
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %11) #14
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %1
@@ -1627,23 +1627,23 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %9
   %11 = phi ptr [ %7, %9 ], [ %14, %.backedge.backedge ]
   %12 = phi ptr [ null, %9 ], [ %.be, %.backedge.backedge ]
   %13 = phi ptr [ null, %9 ], [ %.be13, %.backedge.backedge ]
-  %.in = getelementptr inbounds i8, ptr %11, i64 72
+  %.in = getelementptr inbounds nuw i8, ptr %11, i64 72
   %14 = load ptr, ptr %.in, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 184
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 184
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 272
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 272
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 340
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 340
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   %25 = getelementptr %struct.virtio_blk_vq, ptr %21, i64 %24
@@ -1655,7 +1655,7 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
 29:                                               ; preds = %.backedge
   %30 = icmp eq ptr %12, null
   %31 = load ptr, ptr %.in, align 8
-  %32 = getelementptr inbounds i8, ptr %12, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %33 = select i1 %30, ptr %0, ptr %32
   store ptr %31, ptr %33, align 8
   store ptr %13, ptr %.in, align 8
@@ -1668,25 +1668,25 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %14, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %40, %42
   br i1 %43, label %.backedge.backedge, label %44
 
 44:                                               ; preds = %38, %34
-  %45 = getelementptr inbounds i8, ptr %36, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 72
   store ptr null, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %25, i64 8
-  %47 = call i64 @_raw_spin_lock_irqsave(ptr noundef %46) #14
+  %46 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %47 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %46) #14
   %48 = load ptr, ptr %0, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %44, %103
   %50 = phi ptr [ %104, %103 ], [ %48, %44 ]
-  %51 = getelementptr inbounds i8, ptr %50, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 72
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %0, align 8
   %53 = getelementptr i8, ptr %50, i64 248
@@ -1735,14 +1735,14 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
   br i1 %77, label %103, label %78
 
 78:                                               ; preds = %65
-  %79 = getelementptr inbounds i8, ptr %50, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %50, i64 28
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, 262144
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %78
-  %84 = getelementptr inbounds i8, ptr %50, i64 122
+  %84 = getelementptr inbounds nuw i8, ptr %50, i64 122
   %85 = load i16, ptr %84, align 2
   %86 = icmp eq i16 %85, 0
   br i1 %86, label %.thread11, label %87
@@ -1755,7 +1755,7 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
   br i1 %88, label %.thread11, label %89
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %50, i64 160
+  %90 = getelementptr inbounds nuw i8, ptr %50, i64 160
   %91 = load ptr, ptr %90, align 8
   %92 = load i64, ptr @vmemmap_base, align 8
   %93 = ptrtoint ptr %91 to i64
@@ -1764,7 +1764,7 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
   %96 = load i64, ptr @page_offset_base, align 8
   %97 = add i64 %95, %96
   %98 = inttoptr i64 %97 to ptr
-  %99 = getelementptr inbounds i8, ptr %50, i64 172
+  %99 = getelementptr inbounds nuw i8, ptr %50, i64 172
   %100 = load i32, ptr %99, align 4
   %101 = zext i32 %100 to i64
   %102 = getelementptr i8, ptr %98, i64 %101
@@ -1783,7 +1783,7 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
 .loopexit:                                        ; preds = %103, %44
   %106 = load ptr, ptr %25, align 64
   %107 = call zeroext i1 @virtqueue_kick_prepare(ptr noundef %106) #14
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %46, i64 noundef %47) #14
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %46, i64 noundef %47) #14
   br i1 %107, label %108, label %111
 
 108:                                              ; preds = %.loopexit
@@ -1814,19 +1814,19 @@ define internal void @virtio_queue_rqs(ptr noundef %0) #2 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @virtblk_poll(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 340
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = getelementptr %struct.virtio_blk_vq, ptr %8, i64 %11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
   store i32 0, ptr %3, align 4, !annotation !5
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %13) #14
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %13) #14
   %15 = load ptr, ptr %12, align 64
   %16 = call ptr @virtqueue_get_buf(ptr noundef %15, ptr noundef nonnull %3) #14
   %17 = icmp eq ptr %16, null
@@ -1834,8 +1834,8 @@ define internal i32 @virtblk_poll(ptr nocapture noundef readonly %0, ptr noundef
 
 18:                                               ; preds = %2
   %19 = icmp eq ptr %1, null
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %22
 
 22:                                               ; preds = %118, %18
@@ -1855,8 +1855,8 @@ define internal i32 @virtblk_poll(ptr nocapture noundef readonly %0, ptr noundef
   br label %73
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %23, i64 16
-  %31 = getelementptr inbounds i8, ptr %23, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr i8, ptr %30, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -1
@@ -2012,16 +2012,16 @@ define internal i32 @virtblk_poll(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %123, label %.thread, label %124
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds i8, ptr %6, i64 40
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 80
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 80
   %128 = load ptr, ptr %127, align 8
   call void @blk_mq_start_stopped_hw_queues(ptr noundef %128, i1 noundef zeroext true) #14
   br label %.thread
 
 .thread:                                          ; preds = %2, %124, %122
   %129 = phi i32 [ %26, %124 ], [ 0, %122 ], [ 0, %2 ]
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %13, i64 noundef %14) #14
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %13, i64 noundef %14) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
   ret i32 %129
 }
@@ -2055,14 +2055,14 @@ define internal void @virtblk_request_done(ptr noundef %0) #9 align 16 {
 
 12:                                               ; preds = %11, %10, %9, %8, %1
   %13 = phi i8 [ 10, %11 ], [ 16, %10 ], [ 15, %9 ], [ 1, %8 ], [ %7, %1 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 262144
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 122
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 122
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %20, 0
   br i1 %21, label %.thread, label %22
@@ -2076,7 +2076,7 @@ define internal void @virtblk_request_done(ptr noundef %0) #9 align 16 {
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %27 = load ptr, ptr %26, align 8
   %28 = load i64, ptr @vmemmap_base, align 8
   %29 = ptrtoint ptr %27 to i64
@@ -2085,7 +2085,7 @@ define internal void @virtblk_request_done(ptr noundef %0) #9 align 16 {
   %32 = load i64, ptr @page_offset_base, align 8
   %33 = add i64 %31, %32
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %0, i64 172
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
   %38 = getelementptr i8, ptr %34, i64 %37
@@ -2093,7 +2093,7 @@ define internal void @virtblk_request_done(ptr noundef %0) #9 align 16 {
   br label %.thread
 
 .thread:                                          ; preds = %18, %25, %22
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 255
   %42 = icmp eq i32 %41, 7
@@ -2101,7 +2101,7 @@ define internal void @virtblk_request_done(ptr noundef %0) #9 align 16 {
 
 43:                                               ; preds = %.thread
   %44 = load i64, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %44, ptr %45, align 8
   br label %46
 
@@ -2112,17 +2112,17 @@ define internal void @virtblk_request_done(ptr noundef %0) #9 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtblk_map_queues(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 256
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 256
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %11
 
 11:                                               ; preds = %27, %5
@@ -2132,9 +2132,9 @@ define internal void @virtblk_map_queues(ptr noundef %0) #2 align 16 {
   %15 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %8, i64 0, i64 %14
   %16 = getelementptr [3 x i32], ptr %9, i64 0, i64 %14
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %12, ptr %19, align 4
   %20 = add i32 %17, %12
   %21 = icmp eq i32 %17, 0
@@ -2166,7 +2166,7 @@ define internal void @virtblk_map_queues(ptr noundef %0) #2 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = trunc i32 %6 to i8
   %8 = add i8 %7, -10
@@ -2174,10 +2174,10 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   br i1 %9, label %146, label %10, !prof !25
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 124
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %12 = load i16, ptr %11, align 4
   %13 = zext i16 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %13, ptr %14, align 4
   %15 = load i32, ptr %5, align 8
   %16 = trunc i32 %15 to i8
@@ -2198,12 +2198,12 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   ]
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %19 = load i64, ptr %18, align 8
   br label %.thread
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %1, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load i64, ptr %21, align 8
   br label %.thread
 
@@ -2217,27 +2217,27 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   br label %47
 
 28:                                               ; preds = %10
-  %29 = getelementptr inbounds i8, ptr %1, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8
   br label %.thread
 
 31:                                               ; preds = %10
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %33 = load i64, ptr %32, align 8
   br label %.thread
 
 34:                                               ; preds = %10
-  %35 = getelementptr inbounds i8, ptr %1, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = load i64, ptr %35, align 8
   br label %.thread
 
 37:                                               ; preds = %10
-  %38 = getelementptr inbounds i8, ptr %1, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %39 = load i64, ptr %38, align 8
   br label %.thread
 
 40:                                               ; preds = %10
-  %41 = getelementptr inbounds i8, ptr %1, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %42 = load i64, ptr %41, align 8
   br label %.thread
 
@@ -2254,22 +2254,22 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   %.ph = phi i32 [ 4, %10 ], [ 0, %17 ], [ 1, %20 ], [ 18, %28 ], [ 20, %31 ], [ 22, %34 ], [ 15, %37 ], [ 24, %40 ], [ 26, %43 ]
   %.ph3 = phi i64 [ 0, %10 ], [ %19, %17 ], [ %22, %20 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ], [ 0, %43 ]
   %.ph4 = phi i64 [ 1, %10 ], [ 1, %17 ], [ 1, %20 ], [ 1, %28 ], [ 1, %31 ], [ 1, %34 ], [ 16, %37 ], [ 1, %40 ], [ 1, %43 ]
-  %45 = getelementptr inbounds i8, ptr %2, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %.ph4, ptr %45, align 8
   store i32 %.ph, ptr %2, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.ph3, ptr %46, align 8
   br label %115
 
 47:                                               ; preds = %10, %23, %27
   %48 = phi i32 [ 0, %27 ], [ %26, %23 ], [ 0, %10 ]
   %49 = phi i32 [ 14, %27 ], [ 13, %23 ], [ 11, %10 ]
-  %50 = getelementptr inbounds i8, ptr %2, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 1, ptr %50, align 8
   store i32 %49, ptr %2, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 122
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 122
   %53 = load i16, ptr %52, align 2
   %54 = tail call i16 @llvm.umax.i16(i16 %53, i16 1)
   %55 = zext i16 %54 to i64
@@ -2280,26 +2280,26 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
 
 59:                                               ; preds = %47
   %60 = load ptr, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 224
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 224
   %62 = load i16, ptr %61, align 8
   %63 = icmp eq i16 %62, 1
   br i1 %63, label %64, label %72
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %57, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 12
   store i32 %48, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %1, i64 44
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %67 = load i32, ptr %66, align 4
   %68 = lshr i32 %67, 9
-  %69 = getelementptr inbounds i8, ptr %57, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %1, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %71 = load i64, ptr %70, align 8
   store i64 %71, ptr %57, align 8
   br label %.loopexit
 
 72:                                               ; preds = %59
-  %73 = getelementptr inbounds i8, ptr %1, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.thread5, label %.preheader
@@ -2307,16 +2307,16 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
 .preheader:                                       ; preds = %72, %.preheader
   %76 = phi i16 [ %87, %.preheader ], [ 0, %72 ]
   %77 = phi ptr [ %88, %.preheader ], [ %74, %72 ]
-  %78 = getelementptr inbounds i8, ptr %77, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %77, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %81 = load i32, ptr %80, align 8
   %82 = lshr i32 %81, 9
   %83 = zext i16 %76 to i64
   %84 = getelementptr %struct.virtio_blk_discard_write_zeroes, ptr %57, i64 %83
-  %85 = getelementptr inbounds i8, ptr %84, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 12
   store i32 %48, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %84, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i32 %82, ptr %86, align 8
   store i64 %79, ptr %84, align 8
   %87 = add i16 %76, 1
@@ -2336,7 +2336,7 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   br label %92
 
 92:                                               ; preds = %.thread5, %.loopexit
-  %93 = getelementptr inbounds i8, ptr %1, i64 160
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %94 = zext i16 %54 to i32
   %95 = shl nuw nsw i32 %94, 4
   %96 = load i64, ptr @vmemmap_base, align 8
@@ -2354,32 +2354,32 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   %108 = trunc i64 %98 to i32
   %109 = and i32 %108, 4088
   store ptr %107, ptr %93, align 8
-  %110 = getelementptr inbounds i8, ptr %1, i64 168
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store i32 %95, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %1, i64 172
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 172
   store i32 %109, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %1, i64 28
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %113 = load i32, ptr %112, align 4
   %114 = or i32 %113, 262144
   store i32 %114, ptr %112, align 4
   br label %115
 
 115:                                              ; preds = %10, %92, %.thread
-  %116 = getelementptr inbounds i8, ptr %1, i64 28
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, 262144
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %124
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds i8, ptr %1, i64 122
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 122
   %122 = load i16, ptr %121, align 2
   %123 = icmp eq i16 %122, 0
   br i1 %123, label %.thread9, label %124
 
 124:                                              ; preds = %120, %115
-  %125 = getelementptr inbounds i8, ptr %2, i64 56
-  %126 = getelementptr inbounds i8, ptr %2, i64 40
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %126 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %125, ptr %126, align 8
   %127 = load i32, ptr %116, align 4
   %128 = and i32 %127, 262144
@@ -2387,19 +2387,19 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
   br i1 %129, label %130, label %134
 
 130:                                              ; preds = %124
-  %131 = getelementptr inbounds i8, ptr %1, i64 122
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 122
   %132 = load i16, ptr %131, align 2
   %133 = zext i16 %132 to i32
   br label %134
 
 134:                                              ; preds = %130, %124
   %135 = phi i32 [ %133, %130 ], [ 1, %124 ]
-  %136 = tail call i32 @sg_alloc_table_chained(ptr noundef %126, i32 noundef %135, ptr noundef %125, i32 noundef 2) #14
+  %136 = tail call i32 @sg_alloc_table_chained(ptr noundef nonnull %126, i32 noundef %135, ptr noundef nonnull %125, i32 noundef 2) #14
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %138, label %.thread8, !prof !9
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %0, i64 184
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr %126, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
@@ -2415,7 +2415,7 @@ define internal fastcc noundef zeroext range(i8 0, 11) i8 @virtblk_prep_rq(ptr n
 
 .thread9:                                         ; preds = %120, %138
   %144 = phi i32 [ %142, %138 ], [ 0, %120 ]
-  %145 = getelementptr inbounds i8, ptr %2, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %144, ptr %145, align 8
   call void @blk_mq_start_request(ptr noundef %1) #14
   br label %146
@@ -2433,14 +2433,14 @@ declare dso_local void @blk_mq_stop_hw_queue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @virtblk_fail_to_queue(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 262144
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %20, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr @vmemmap_base, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -2449,7 +2449,7 @@ define internal fastcc void @virtblk_fail_to_queue(ptr nocapture noundef readonl
   %13 = load i64, ptr @page_offset_base, align 8
   %14 = add i64 %12, %13
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %0, i64 172
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
   %19 = getelementptr i8, ptr %15, i64 %18
@@ -2508,14 +2508,14 @@ define internal void @virtblk_complete_batch(ptr noundef %0) #2 align 16 {
 
 .preheader:                                       ; preds = %3, %.thread4
   %6 = phi ptr [ %33, %.thread4 ], [ %4, %3 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 262144
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %6, i64 122
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 122
   %13 = load i16, ptr %12, align 2
   %14 = icmp eq i16 %13, 0
   br i1 %14, label %.thread4, label %15
@@ -2529,7 +2529,7 @@ define internal void @virtblk_complete_batch(ptr noundef %0) #2 align 16 {
   br i1 %17, label %.thread4, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %6, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr @vmemmap_base, align 8
   %22 = ptrtoint ptr %20 to i64
@@ -2538,7 +2538,7 @@ define internal void @virtblk_complete_batch(ptr noundef %0) #2 align 16 {
   %25 = load i64, ptr @page_offset_base, align 8
   %26 = add i64 %24, %25
   %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %6, i64 172
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 172
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = getelementptr i8, ptr %27, i64 %30
@@ -2546,7 +2546,7 @@ define internal void @virtblk_complete_batch(ptr noundef %0) #2 align 16 {
   br label %.thread4
 
 .thread4:                                         ; preds = %11, %18, %15
-  %32 = getelementptr inbounds i8, ptr %6, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.thread, label %.preheader, !llvm.loop !36
@@ -2579,19 +2579,19 @@ define internal noundef range(i32 -6, 1) i32 @virtblk_getgeo(ptr nocapture nound
   %3 = alloca i16, align 2
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
   tail call void @mutex_lock(ptr noundef %9) #14
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %49, label %13
 
 13:                                               ; preds = %2
   tail call void @virtio_check_driver_offered_feature(ptr noundef nonnull %11, i32 noundef 4) #14
-  %14 = getelementptr inbounds i8, ptr %11, i64 784
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 784
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 16
   %17 = icmp eq i64 %16, 0
@@ -2602,19 +2602,19 @@ define internal noundef range(i32 -6, 1) i32 @virtblk_getgeo(ptr nocapture nound
   store i16 0, ptr %3, align 2, !annotation !5
   %19 = tail call i32 @__SCT__might_resched() #14
   %20 = load ptr, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 752
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 752
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef %20, i32 noundef 16, ptr noundef nonnull %3, i32 noundef 2) #14
   %24 = load i16, ptr %3, align 2
-  %25 = getelementptr inbounds i8, ptr %1, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 %24, ptr %25, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
   store i8 0, ptr %4, align 1, !annotation !5
   %26 = call i32 @__SCT__might_resched() #14
   %27 = load ptr, ptr %10, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef %27, i32 noundef 18, ptr noundef nonnull %4, i32 noundef 1) #14
@@ -2625,28 +2625,28 @@ define internal noundef range(i32 -6, 1) i32 @virtblk_getgeo(ptr nocapture nound
   store i8 0, ptr %5, align 1, !annotation !5
   %32 = call i32 @__SCT__might_resched() #14
   %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 752
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 752
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef %33, i32 noundef 19, ptr noundef nonnull %5, i32 noundef 1) #14
   %37 = load i8, ptr %5, align 1
-  %38 = getelementptr inbounds i8, ptr %1, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %37, ptr %38, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
   br label %49
 
 39:                                               ; preds = %13
   store i8 64, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 32, ptr %40, align 1
   %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = lshr i64 %45, 11
   %47 = trunc i64 %46 to i16
-  %48 = getelementptr inbounds i8, ptr %1, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 %47, ptr %48, align 2
   br label %49
 
@@ -2658,9 +2658,9 @@ define internal noundef range(i32 -6, 1) i32 @virtblk_getgeo(ptr nocapture nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtblk_free_disk(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load i32, ptr %4, align 8
   tail call void @ida_free(ptr noundef nonnull @vd_index_ida, i32 noundef %5) #14
   tail call void @kfree(ptr noundef %3) #14
@@ -2693,19 +2693,19 @@ define internal zeroext i16 @virtblk_attrs_are_visible(ptr nocapture noundef rea
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 -184
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   tail call void @virtio_check_driver_offered_feature(ptr noundef %11, i32 noundef 11) #14
-  %12 = getelementptr inbounds i8, ptr %11, i64 784
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 784
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 2048
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %5, %3
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i16, ptr %17, align 8
   br label %19
 
@@ -2719,12 +2719,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @cache_type_show(ptr noca
   %4 = alloca i8, align 1
   %5 = getelementptr i8, ptr %0, i64 -184
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @virtio_check_driver_offered_feature(ptr noundef %10, i32 noundef 11) #14
-  %11 = getelementptr inbounds i8, ptr %10, i64 784
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 784
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2048
   %14 = icmp eq i64 %13, 0
@@ -2742,7 +2742,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cache_type_show(ptr noca
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
   store i8 0, ptr %4, align 1, !annotation !5
   %20 = tail call i32 @__SCT__might_resched() #14
-  %21 = getelementptr inbounds i8, ptr %10, i64 752
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 752
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef %10, i32 noundef 32, ptr noundef nonnull %4, i32 noundef 1) #14
@@ -2772,12 +2772,12 @@ define internal i64 @cache_type_store(ptr nocapture noundef readonly %0, ptr noc
   %6 = alloca i8, align 1
   %7 = getelementptr i8, ptr %0, i64 -184
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   tail call void @virtio_check_driver_offered_feature(ptr noundef %12, i32 noundef 11) #14
-  %13 = getelementptr inbounds i8, ptr %12, i64 784
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 784
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 2048
   %16 = icmp eq i64 %15, 0
@@ -2802,9 +2802,9 @@ define internal i64 @cache_type_store(ptr nocapture noundef readonly %0, ptr noc
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %24, ptr %6, align 1
   %25 = tail call i32 @__SCT__might_resched() #14
-  %26 = getelementptr inbounds i8, ptr %12, i64 752
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 752
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr noundef %12, i32 noundef 32, ptr noundef nonnull %6, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
@@ -2835,11 +2835,11 @@ define internal i64 @cache_type_store(ptr nocapture noundef readonly %0, ptr noc
 
 virtblk_update_cache_mode.exit:                   ; preds = %33, %38
   %43 = phi i8 [ %42, %38 ], [ %37, %33 ]
-  %44 = getelementptr inbounds i8, ptr %12, i64 792
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 792
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 80
   %49 = load ptr, ptr %48, align 8
   %50 = icmp ne i8 %43, 0
   call void @blk_queue_write_cache(ptr noundef %49, i1 noundef zeroext %50, i1 noundef zeroext false) #14
@@ -2862,11 +2862,11 @@ define internal i64 @serial_show(ptr nocapture noundef readonly %0, ptr nocaptur
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %2, i64 20
   store i8 0, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %5, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @blk_mq_alloc_request(ptr noundef %12, i32 noundef 34, i32 noundef 0) #14
   %14 = icmp ugt ptr %13, inttoptr (i64 -4096 to ptr)

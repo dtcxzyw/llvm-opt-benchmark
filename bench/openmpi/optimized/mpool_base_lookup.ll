@@ -19,16 +19,16 @@ define ptr @mca_mpool_base_component_lookup(ptr nocapture noundef readonly %0) l
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 2:                                                ; preds = %.lr.ph
-  %3 = getelementptr inbounds i8, ptr %.0710, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %.0710, i64 16
   %.07 = load volatile ptr, ptr %3, align 8
   %.not = icmp eq ptr %.07, getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %1, %2
   %.0710 = phi ptr [ %.07, %2 ], [ %.078, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.0710, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %.0710, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 84
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 84
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge, label %2
@@ -55,9 +55,9 @@ define ptr @mca_mpool_base_module_lookup(ptr noundef %0) local_unnamed_addr #2 {
   %.0716 = phi ptr [ %.07, %16 ], [ %.0712, %1 ]
   %.015 = phi ptr [ %.1, %16 ], [ %4, %1 ]
   %.0814 = phi i32 [ %.19, %16 ], [ %5, %1 ]
-  %6 = getelementptr inbounds i8, ptr %.0716, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %.0716, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 264
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 %9(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2) #5
   %11 = icmp eq i32 %10, 0
@@ -74,7 +74,7 @@ define ptr @mca_mpool_base_module_lookup(ptr noundef %0) local_unnamed_addr #2 {
 16:                                               ; preds = %12, %.lr.ph
   %.19 = phi i32 [ %.0814, %.lr.ph ], [ %spec.select, %12 ]
   %.1 = phi ptr [ %.015, %.lr.ph ], [ %spec.select11, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.0716, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.0716, i64 16
   %.07 = load volatile ptr, ptr %17, align 8
   %.not = icmp eq ptr %.07, getelementptr inbounds (i8, ptr @opal_mpool_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6

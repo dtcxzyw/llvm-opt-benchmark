@@ -216,17 +216,17 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define weak_odr dso_local void @_ZN18ParticleParamTypes15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEEC2ES6_S6_(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef %_min, ptr noundef %_max) unnamed_addr #3 comdat($_ZN18ParticleParamTypes15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEEC5ES6_S6_) align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %this, align 8, !tbaa !4
-  %val.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %val2.i.i = getelementptr inbounds i8, ptr %_min, i64 8
+  %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %val2.i.i = getelementptr inbounds nuw i8, ptr %_min, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i, i64 12, i1 false), !tbaa.struct !7
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %this, align 8, !tbaa !4
-  %max = getelementptr inbounds i8, ptr %this, i64 24
+  %max = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %max, align 8, !tbaa !4
-  %val.i.i2 = getelementptr inbounds i8, ptr %this, i64 32
-  %val2.i.i3 = getelementptr inbounds i8, ptr %_max, i64 8
+  %val.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %val2.i.i3 = getelementptr inbounds nuw i8, ptr %_max, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i2, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i3, i64 12, i1 false), !tbaa.struct !7
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %max, align 8, !tbaa !4
-  %bias = getelementptr inbounds i8, ptr %this, i64 48
+  %bias = getelementptr inbounds nuw i8, ptr %this, i64 48
   store float 0.000000e+00, ptr %bias, align 8, !tbaa !11
   ret void
 }
@@ -236,31 +236,31 @@ define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_15V
 entry:
   %buf.i.i.i3 = alloca [12 x i8], align 1
   %buf.i.i.i = alloca [12 x i8], align 1
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i) #25
   %p.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i)
-  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 4
+  %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i)
-  %arrayidx2.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 8
+  %arrayidx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i, float noundef %agg.tmp.sroa.2.0.copyload.i)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i) #25
-  %val.i4 = getelementptr inbounds i8, ptr %this, i64 32
+  %val.i4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload.i5 = load <2 x float>, ptr %val.i4, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i6 = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp.sroa.2.0.val.sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload.i7 = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i6, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i3) #25
   %p.sroa.0.0.vec.extract.i.i.i.i8 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i5, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i3, float noundef %p.sroa.0.0.vec.extract.i.i.i.i8)
-  %arrayidx1.i.i.i.i9 = getelementptr inbounds i8, ptr %buf.i.i.i3, i64 4
+  %arrayidx1.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %buf.i.i.i3, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i10 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i5, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i9, float noundef %p.sroa.0.4.vec.extract.i.i.i.i10)
-  %arrayidx2.i.i.i.i11 = getelementptr inbounds i8, ptr %buf.i.i.i3, i64 8
+  %arrayidx2.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %buf.i.i.i3, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i11, float noundef %agg.tmp.sroa.2.0.copyload.i7)
   %call.i.i.i12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i3, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i3) #25
@@ -271,17 +271,17 @@ entry:
 define linkonce_odr dso_local void @_ZNK18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EE9serializeERSo(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #4 comdat align 2 {
 entry:
   %buf.i.i = alloca [12 x i8], align 1
-  %val = getelementptr inbounds i8, ptr %this, i64 8
+  %val = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %val, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.2.0.val.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.2.0.copyload = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i) #25
   %p.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i)
-  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %buf.i.i, i64 4
+  %arrayidx1.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 4
   %p.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i, float noundef %p.sroa.0.4.vec.extract.i.i.i)
-  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %buf.i.i, i64 8
+  %arrayidx2.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i, float noundef %agg.tmp.sroa.2.0.copyload)
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i) #25
@@ -293,35 +293,35 @@ define weak_odr dso_local void @_ZN18ParticleParamTypes15RangedParameterINS_15Ve
 entry:
   %buf.i.i.i3 = alloca [12 x i8], align 1
   %buf.i.i.i = alloca [12 x i8], align 1
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i.i, i8 0, i64 12, i1 false)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 12)
   %call.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
   %retval.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %call.i.i.i.i, i64 0
-  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 4
+  %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
   %call2.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i.i)
   %retval.sroa.0.4.vec.insert.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i, float %call2.i.i.i.i, i64 1
-  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 8
+  %arrayidx3.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 8
   %call4.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i) #25
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i, ptr %val.i, align 8, !tbaa.struct !7
-  %ref.tmp.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %ref.tmp.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store float %call4.i.i.i.i, ptr %ref.tmp.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !8
-  %val.i4 = getelementptr inbounds i8, ptr %this, i64 32
+  %val.i4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i3) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i.i3, i8 0, i64 12, i1 false)
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i3, i64 noundef 12)
   %call.i.i.i.i6 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i3)
   %retval.sroa.0.0.vec.insert.i.i.i.i7 = insertelement <2 x float> poison, float %call.i.i.i.i6, i64 0
-  %arrayidx1.i.i.i.i8 = getelementptr inbounds i8, ptr %buf.i.i.i3, i64 4
+  %arrayidx1.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %buf.i.i.i3, i64 4
   %call2.i.i.i.i9 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i.i8)
   %retval.sroa.0.4.vec.insert.i.i.i.i10 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i7, float %call2.i.i.i.i9, i64 1
-  %arrayidx3.i.i.i.i11 = getelementptr inbounds i8, ptr %buf.i.i.i3, i64 8
+  %arrayidx3.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %buf.i.i.i3, i64 8
   %call4.i.i.i.i12 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i.i11)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i3) #25
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i10, ptr %val.i4, align 8, !tbaa.struct !7
-  %ref.tmp.sroa.4.0..sroa_idx.i.i13 = getelementptr inbounds i8, ptr %this, i64 40
+  %ref.tmp.sroa.4.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store float %call4.i.i.i.i12, ptr %ref.tmp.sroa.4.0..sroa_idx.i.i13, align 8, !tbaa !8
   ret void
 }
@@ -330,20 +330,20 @@ entry:
 define linkonce_odr dso_local void @_ZN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #4 comdat align 2 {
 entry:
   %buf.i.i = alloca [12 x i8], align 1
-  %val = getelementptr inbounds i8, ptr %this, i64 8
+  %val = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i, i8 0, i64 12, i1 false)
   %call.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i, i64 noundef 12)
   %call.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i)
   %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %call.i.i.i, i64 0
-  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %buf.i.i, i64 4
+  %arrayidx1.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 4
   %call2.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i)
   %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i, float %call2.i.i.i, i64 1
-  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %buf.i.i, i64 8
+  %arrayidx3.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 8
   %call4.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i) #25
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i, ptr %val, align 8, !tbaa.struct !7
-  %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 16
+  %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store float %call4.i.i.i, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !tbaa !8
   ret void
 }
@@ -354,35 +354,35 @@ entry:
   %buf.i = alloca [4 x i8], align 1
   %buf.i.i.i4 = alloca [12 x i8], align 1
   %buf.i.i.i = alloca [12 x i8], align 1
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i) #25
   %p.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i)
-  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 4
+  %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i)
-  %arrayidx2.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 8
+  %arrayidx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i, float noundef %agg.tmp.sroa.2.0.copyload.i)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i) #25
-  %val.i5 = getelementptr inbounds i8, ptr %this, i64 32
+  %val.i5 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload.i6 = load <2 x float>, ptr %val.i5, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i7 = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp.sroa.2.0.val.sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload.i8 = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i7, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i4) #25
   %p.sroa.0.0.vec.extract.i.i.i.i9 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i6, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4, float noundef %p.sroa.0.0.vec.extract.i.i.i.i9)
-  %arrayidx1.i.i.i.i10 = getelementptr inbounds i8, ptr %buf.i.i.i4, i64 4
+  %arrayidx1.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %buf.i.i.i4, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i11 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i6, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i10, float noundef %p.sroa.0.4.vec.extract.i.i.i.i11)
-  %arrayidx2.i.i.i.i12 = getelementptr inbounds i8, ptr %buf.i.i.i4, i64 8
+  %arrayidx2.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %buf.i.i.i4, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i12, float noundef %agg.tmp.sroa.2.0.copyload.i8)
   %call.i.i.i13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i4) #25
-  %bias = getelementptr inbounds i8, ptr %this, i64 48
+  %bias = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load float, ptr %bias, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i, float noundef %0)
@@ -397,42 +397,42 @@ entry:
   %buf.i = alloca [4 x i8], align 4
   %buf.i.i.i4 = alloca [12 x i8], align 1
   %buf.i.i.i = alloca [12 x i8], align 1
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i.i, i8 0, i64 12, i1 false)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 12)
   %call.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
   %retval.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %call.i.i.i.i, i64 0
-  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 4
+  %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
   %call2.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i.i)
   %retval.sroa.0.4.vec.insert.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i, float %call2.i.i.i.i, i64 1
-  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 8
+  %arrayidx3.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 8
   %call4.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i) #25
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i, ptr %val.i, align 8, !tbaa.struct !7
-  %ref.tmp.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %ref.tmp.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store float %call4.i.i.i.i, ptr %ref.tmp.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !8
-  %val.i5 = getelementptr inbounds i8, ptr %this, i64 32
+  %val.i5 = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i4) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i.i4, i8 0, i64 12, i1 false)
   %call.i.i.i6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i4, i64 noundef 12)
   %call.i.i.i.i7 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i4)
   %retval.sroa.0.0.vec.insert.i.i.i.i8 = insertelement <2 x float> poison, float %call.i.i.i.i7, i64 0
-  %arrayidx1.i.i.i.i9 = getelementptr inbounds i8, ptr %buf.i.i.i4, i64 4
+  %arrayidx1.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %buf.i.i.i4, i64 4
   %call2.i.i.i.i10 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i.i9)
   %retval.sroa.0.4.vec.insert.i.i.i.i11 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i8, float %call2.i.i.i.i10, i64 1
-  %arrayidx3.i.i.i.i12 = getelementptr inbounds i8, ptr %buf.i.i.i4, i64 8
+  %arrayidx3.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %buf.i.i.i4, i64 8
   %call4.i.i.i.i13 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i.i12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i4) #25
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i11, ptr %val.i5, align 8, !tbaa.struct !7
-  %ref.tmp.sroa.4.0..sroa_idx.i.i14 = getelementptr inbounds i8, ptr %this, i64 40
+  %ref.tmp.sroa.4.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store float %call4.i.i.i.i13, ptr %ref.tmp.sroa.4.0..sroa_idx.i.i14, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #25
   store i32 0, ptr %buf.i, align 4
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i) #25
-  %bias = getelementptr inbounds i8, ptr %this, i64 48
+  %bias = getelementptr inbounds nuw i8, ptr %this, i64 48
   store float %call2.i, ptr %bias, align 8, !tbaa !11
   ret void
 }
@@ -440,21 +440,21 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEE11interpolateEfS7_(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::RangedParameter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(52) %this, float noundef %fac, ptr noundef %against) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %val.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %Z.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %val.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %Z.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %agg.result, align 8, !tbaa !4
-  %max.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %val.i.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %Z.i.i.i4.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %max.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
+  %val.i.i2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
+  %Z.i.i.i4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %max.i, align 8, !tbaa !4
-  %bias.i = getelementptr inbounds i8, ptr %agg.result, i64 48
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
+  %bias.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i, align 8, !tbaa !8
-  %val3.i = getelementptr inbounds i8, ptr %against, i64 8
+  %val3.i = getelementptr inbounds nuw i8, ptr %against, i64 8
   %agg.tmp2.sroa.0.0.copyload.i = load <2 x float>, ptr %val3.i, align 8, !tbaa.struct !7
-  %agg.tmp2.sroa.2.0.val3.sroa_idx.i = getelementptr inbounds i8, ptr %against, i64 16
+  %agg.tmp2.sroa.2.0.val3.sroa_idx.i = getelementptr inbounds nuw i8, ptr %against, i64 16
   %agg.tmp2.sroa.2.0.copyload.i = load float, ptr %agg.tmp2.sroa.2.0.val3.sroa_idx.i, align 8, !tbaa !8
   %conv.i.i = fpext float %fac to double
   %sub.i.i.i = fsub nsz double 1.000000e+00, %conv.i.i
@@ -474,13 +474,13 @@ entry:
   %conv15.i.i.i = fptrunc double %9 to float
   store <2 x float> %8, ptr %val.i.i.i, align 8, !tbaa.struct !7
   store float %conv15.i.i.i, ptr %Z.i.i.i.i, align 8, !tbaa !8
-  %val.i15 = getelementptr inbounds i8, ptr %this, i64 32
+  %val.i15 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload.i16 = load <2 x float>, ptr %val.i15, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i17 = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp.sroa.2.0.val.sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload.i18 = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i17, align 8, !tbaa !8
-  %val3.i19 = getelementptr inbounds i8, ptr %against, i64 32
+  %val3.i19 = getelementptr inbounds nuw i8, ptr %against, i64 32
   %agg.tmp2.sroa.0.0.copyload.i20 = load <2 x float>, ptr %val3.i19, align 8, !tbaa.struct !7
-  %agg.tmp2.sroa.2.0.val3.sroa_idx.i21 = getelementptr inbounds i8, ptr %against, i64 40
+  %agg.tmp2.sroa.2.0.val3.sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %against, i64 40
   %agg.tmp2.sroa.2.0.copyload.i22 = load float, ptr %agg.tmp2.sroa.2.0.val3.sroa_idx.i21, align 8, !tbaa !8
   %10 = fpext <2 x float> %agg.tmp.sroa.0.0.copyload.i16 to <2 x double>
   %11 = fpext <2 x float> %agg.tmp2.sroa.0.0.copyload.i20 to <2 x double>
@@ -494,7 +494,7 @@ entry:
   %conv15.i.i.i40 = fptrunc double %15 to float
   store <2 x float> %14, ptr %val.i.i2.i, align 8, !tbaa.struct !7
   store float %conv15.i.i.i40, ptr %Z.i.i.i4.i, align 8, !tbaa !8
-  %bias = getelementptr inbounds i8, ptr %this, i64 48
+  %bias = getelementptr inbounds nuw i8, ptr %this, i64 48
   %16 = load float, ptr %bias, align 8, !tbaa !11
   store float %16, ptr %bias.i, align 8, !tbaa !11
   ret void
@@ -506,13 +506,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { <2 x float>, float } @_ZNK18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EE11interpolateEfRKS5_(ptr noundef nonnull align 8 dereferenceable(20) %this, float noundef %fac, ptr noundef nonnull align 8 dereferenceable(20) %against) unnamed_addr #4 comdat align 2 {
 entry:
-  %val = getelementptr inbounds i8, ptr %this, i64 8
+  %val = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %val, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.2.0.val.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.2.0.copyload = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx, align 8, !tbaa !8
-  %val3 = getelementptr inbounds i8, ptr %against, i64 8
+  %val3 = getelementptr inbounds nuw i8, ptr %against, i64 8
   %agg.tmp2.sroa.0.0.copyload = load <2 x float>, ptr %val3, align 8, !tbaa.struct !7
-  %agg.tmp2.sroa.2.0.val3.sroa_idx = getelementptr inbounds i8, ptr %against, i64 16
+  %agg.tmp2.sroa.2.0.val3.sroa_idx = getelementptr inbounds nuw i8, ptr %against, i64 16
   %agg.tmp2.sroa.2.0.copyload = load float, ptr %agg.tmp2.sroa.2.0.val3.sroa_idx, align 8, !tbaa !8
   %conv.i = fpext float %fac to double
   %sub.i.i = fsub nsz double 1.000000e+00, %conv.i
@@ -544,7 +544,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEE10pickWithinEv(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::VectorParameter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(52) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %bias = getelementptr inbounds i8, ptr %this, i64 48
+  %bias = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load float, ptr %bias, align 8, !tbaa !11
   %fneg.i = fneg nsz float %0
   %call4 = tail call nsz noundef float @_Z12myrand_floatv()
@@ -553,13 +553,13 @@ entry:
   %2 = load float, ptr %bias, align 8, !tbaa !11
   %cmp3.2 = fcmp nsz olt float %2, 0.000000e+00
   %call4.2 = tail call nsz noundef float @_Z12myrand_floatv()
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i, align 8, !tbaa !8
-  %val2.i = getelementptr inbounds i8, ptr %this, i64 32
+  %val2.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp1.sroa.0.0.copyload.i = load <2 x float>, ptr %val2.i, align 8, !tbaa.struct !7
-  %agg.tmp1.sroa.2.0.val2.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 40
+  %agg.tmp1.sroa.2.0.val2.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp1.sroa.2.0.copyload.i = load float, ptr %agg.tmp1.sroa.2.0.val2.sroa_idx.i, align 8, !tbaa !8
   %3 = insertelement <2 x float> poison, float %0, i64 0
   %4 = insertelement <2 x float> %3, float %1, i64 1
@@ -581,9 +581,9 @@ entry:
   %16 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %15, <2 x float> %13, <2 x float> %agg.tmp.sroa.0.0.copyload.i)
   %sub.i12.i.i = fsub nsz float %agg.tmp1.sroa.2.0.copyload.i, %agg.tmp.sroa.2.0.copyload.i
   %17 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i12.i.i, float %values.sroa.8.0, float %agg.tmp.sroa.2.0.copyload.i)
-  %val.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %val.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store <2 x float> %16, ptr %val.i.i, align 8, !tbaa.struct !7
-  %args.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %args.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store float %17, ptr %args.sroa.2.0.val.sroa_idx.i.i, align 8, !tbaa !8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %agg.result, align 8, !tbaa !4
   ret void
@@ -595,17 +595,17 @@ declare noundef float @_Z12myrand_floatv() local_unnamed_addr #0
 define weak_odr dso_local void @_ZN18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEEC2ES2_S2_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %_min, ptr noundef %_max) unnamed_addr #3 comdat($_ZN18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEEC5ES2_S2_) align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %this, align 8, !tbaa !4
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
-  %val2.i = getelementptr inbounds i8, ptr %_min, i64 8
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %val2.i = getelementptr inbounds nuw i8, ptr %_min, i64 8
   %0 = load float, ptr %val2.i, align 8, !tbaa !16
   store float %0, ptr %val.i, align 8, !tbaa !16
-  %max = getelementptr inbounds i8, ptr %this, i64 16
+  %max = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %max, align 8, !tbaa !4
-  %val.i2 = getelementptr inbounds i8, ptr %this, i64 24
-  %val2.i3 = getelementptr inbounds i8, ptr %_max, i64 8
+  %val.i2 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %val2.i3 = getelementptr inbounds nuw i8, ptr %_max, i64 8
   %1 = load float, ptr %val2.i3, align 8, !tbaa !16
   store float %1, ptr %val.i2, align 8, !tbaa !16
-  %bias = getelementptr inbounds i8, ptr %this, i64 32
+  %bias = getelementptr inbounds nuw i8, ptr %this, i64 32
   store float 0.000000e+00, ptr %bias, align 8, !tbaa !18
   ret void
 }
@@ -615,13 +615,13 @@ define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_9Pa
 entry:
   %buf.i.i.i3 = alloca [4 x i8], align 1
   %buf.i.i.i = alloca [4 x i8], align 1
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load float, ptr %val.i, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %0)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i) #25
-  %val.i4 = getelementptr inbounds i8, ptr %this, i64 24
+  %val.i4 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load float, ptr %val.i4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i3) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i3, float noundef %1)
@@ -634,7 +634,7 @@ entry:
 define linkonce_odr dso_local void @_ZNK18ParticleParamTypes9ParameterIfLm1EE9serializeERSo(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #7 comdat align 2 {
 entry:
   %buf.i.i = alloca [4 x i8], align 1
-  %val = getelementptr inbounds i8, ptr %this, i64 8
+  %val = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load float, ptr %val, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i, float noundef %0)
@@ -648,14 +648,14 @@ define weak_odr dso_local void @_ZN18ParticleParamTypes15RangedParameterINS_9Par
 entry:
   %buf.i.i.i3 = alloca [4 x i8], align 4
   %buf.i.i.i = alloca [4 x i8], align 4
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i) #25
   store i32 0, ptr %buf.i.i.i, align 4
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   %call2.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i) #25
   store float %call2.i.i.i, ptr %val.i, align 8, !tbaa !8
-  %val.i4 = getelementptr inbounds i8, ptr %this, i64 24
+  %val.i4 = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i3) #25
   store i32 0, ptr %buf.i.i.i3, align 4
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i3, i64 noundef 4)
@@ -669,7 +669,7 @@ entry:
 define linkonce_odr dso_local void @_ZN18ParticleParamTypes9ParameterIfLm1EE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #7 comdat align 2 {
 entry:
   %buf.i.i = alloca [4 x i8], align 4
-  %val = getelementptr inbounds i8, ptr %this, i64 8
+  %val = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i) #25
   store i32 0, ptr %buf.i.i, align 4
   %call.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i, i64 noundef 4)
@@ -685,19 +685,19 @@ entry:
   %buf.i = alloca [4 x i8], align 1
   %buf.i.i.i4 = alloca [4 x i8], align 1
   %buf.i.i.i = alloca [4 x i8], align 1
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load float, ptr %val.i, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %0)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i) #25
-  %val.i5 = getelementptr inbounds i8, ptr %this, i64 24
+  %val.i5 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load float, ptr %val.i5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4, float noundef %1)
   %call.i.i.i6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i4) #25
-  %bias = getelementptr inbounds i8, ptr %this, i64 32
+  %bias = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load float, ptr %bias, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i, float noundef %2)
@@ -712,14 +712,14 @@ entry:
   %buf.i = alloca [4 x i8], align 4
   %buf.i.i.i4 = alloca [4 x i8], align 4
   %buf.i.i.i = alloca [4 x i8], align 4
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i) #25
   store i32 0, ptr %buf.i.i.i, align 4
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   %call2.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i) #25
   store float %call2.i.i.i, ptr %val.i, align 8, !tbaa !8
-  %val.i5 = getelementptr inbounds i8, ptr %this, i64 24
+  %val.i5 = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4) #25
   store i32 0, ptr %buf.i.i.i4, align 4
   %call.i.i.i6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i4, i64 noundef 4)
@@ -731,7 +731,7 @@ entry:
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i) #25
-  %bias = getelementptr inbounds i8, ptr %this, i64 32
+  %bias = getelementptr inbounds nuw i8, ptr %this, i64 32
   store float %call2.i, ptr %bias, align 8, !tbaa !18
   ret void
 }
@@ -740,26 +740,26 @@ entry:
 define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE11interpolateEfS3_(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::RangedParameter.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this, float noundef %fac, ptr noundef %against) local_unnamed_addr #7 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %agg.result, align 8, !tbaa !4
-  %val.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %max.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %val.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %max.i, align 8, !tbaa !4
-  %val.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %bias.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
+  %val.i2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
+  %bias.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load float, ptr %val.i, align 8, !tbaa !16
-  %val2.i = getelementptr inbounds i8, ptr %against, i64 8
+  %val2.i = getelementptr inbounds nuw i8, ptr %against, i64 8
   %1 = load float, ptr %val2.i, align 8, !tbaa !16
   %sub.i.i.i = fsub nsz float %1, %0
   %2 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i, float %fac, float %0)
   store float %2, ptr %val.i.i, align 8, !tbaa !16
-  %val.i12 = getelementptr inbounds i8, ptr %this, i64 24
+  %val.i12 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load float, ptr %val.i12, align 8, !tbaa !16
-  %val2.i13 = getelementptr inbounds i8, ptr %against, i64 24
+  %val2.i13 = getelementptr inbounds nuw i8, ptr %against, i64 24
   %4 = load float, ptr %val2.i13, align 8, !tbaa !16
   %sub.i.i.i14 = fsub nsz float %4, %3
   %5 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i14, float %fac, float %3)
   store float %5, ptr %val.i2.i, align 8, !tbaa !16
-  %bias = getelementptr inbounds i8, ptr %this, i64 32
+  %bias = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load float, ptr %bias, align 8, !tbaa !18
   store float %6, ptr %bias.i, align 8, !tbaa !18
   ret void
@@ -768,9 +768,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZNK18ParticleParamTypes9ParameterIfLm1EE11interpolateEfRKS1_(ptr noundef nonnull align 8 dereferenceable(12) %this, float noundef %fac, ptr noundef nonnull align 8 dereferenceable(12) %against) unnamed_addr #7 comdat align 2 {
 entry:
-  %val = getelementptr inbounds i8, ptr %this, i64 8
+  %val = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load float, ptr %val, align 8, !tbaa !16
-  %val2 = getelementptr inbounds i8, ptr %against, i64 8
+  %val2 = getelementptr inbounds nuw i8, ptr %against, i64 8
   %1 = load float, ptr %val2, align 8, !tbaa !16
   %sub.i.i = fsub nsz float %1, %0
   %2 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i, float %fac, float %0)
@@ -780,7 +780,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE10pickWithinEv(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::Parameter.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #7 comdat align 2 {
 entry:
-  %bias = getelementptr inbounds i8, ptr %this, i64 32
+  %bias = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load float, ptr %bias, align 8, !tbaa !18
   %cmp.i = fcmp nsz olt float %0, 0.000000e+00
   %fneg.i = fneg nsz float %0
@@ -790,14 +790,14 @@ entry:
   %1 = tail call nsz noundef float @llvm.pow.f32(float %call4, float %add)
   %sub = fsub nsz float 1.000000e+00, %1
   %storemerge = select i1 %cmp.i, float %sub, float %1
-  %val.i = getelementptr inbounds i8, ptr %this, i64 8
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load float, ptr %val.i, align 8, !tbaa !16
-  %val1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %val1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load float, ptr %val1.i, align 8, !tbaa !16
   %sub.i.i.i = fsub nsz float %3, %2
   %4 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i, float %storemerge, float %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %agg.result, align 8, !tbaa !4
-  %val.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %val.i14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store float %4, ptr %val.i14, align 8, !tbaa !16
   ret void
 }
@@ -806,21 +806,21 @@ entry:
 define weak_odr dso_local void @_ZN18ParticleParamTypes16TweenedParameterINS_15VectorParameterIN3irr4core8vector2dIfEELm2EEEEC2ES6_S6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %_start, ptr noundef %_end) unnamed_addr #3 comdat($_ZN18ParticleParamTypes16TweenedParameterINS_15VectorParameterIN3irr4core8vector2dIfEELm2EEEEC5ES6_S6_) align 2 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !20
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 1, ptr %reps, align 2, !tbaa !27
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float 0.000000e+00, ptr %beginning, align 4, !tbaa !28
-  %start = getelementptr inbounds i8, ptr %this, i64 8
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %start, align 8, !tbaa !4
-  %val.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %val2.i.i = getelementptr inbounds i8, ptr %_start, i64 8
+  %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %val2.i.i = getelementptr inbounds nuw i8, ptr %_start, i64 8
   %0 = load i64, ptr %val2.i.i, align 8, !tbaa.struct !29
   store i64 %0, ptr %val.i.i, align 8, !tbaa.struct !29
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %start, align 8, !tbaa !4
-  %end = getelementptr inbounds i8, ptr %this, i64 24
+  %end = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %end, align 8, !tbaa !4
-  %val.i.i2 = getelementptr inbounds i8, ptr %this, i64 32
-  %val2.i.i3 = getelementptr inbounds i8, ptr %_end, i64 8
+  %val.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %val2.i.i3 = getelementptr inbounds nuw i8, ptr %_end, i64 8
   %1 = load i64, ptr %val2.i.i3, align 8, !tbaa.struct !29
   store i64 %1, ptr %val.i.i2, align 8, !tbaa.struct !29
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %end, align 8, !tbaa !4
@@ -830,7 +830,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_15VectorParameterIN3irr4core8vector2dIfEELm2EEEE5blendEf(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::VectorParameter.4") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, float noundef %fac) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load float, ptr %beginning, align 4, !tbaa !28
   %cmp = fcmp nsz olt float %0, %fac
   br i1 %cmp, label %if.then, label %if.else32
@@ -839,7 +839,7 @@ if.then:                                          ; preds = %entry
   %sub = fsub nsz float 1.000000e+00, %0
   %sub4 = fsub nsz float %fac, %0
   %div = fdiv nsz float %sub4, %sub
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !27
   %conv5 = uitofp i16 %1 to float
   %mul = fmul nsz float %div, %conv5
@@ -893,9 +893,9 @@ if.else32:                                        ; preds = %entry
 
 if.end35:                                         ; preds = %if.else32, %if.then29, %if.else27, %sw.epilog
   %fac.addr.4 = phi float [ %cond, %if.else32 ], [ 0.000000e+00, %if.then29 ], [ %fac.addr.2, %if.else27 ], [ 1.000000e+00, %sw.epilog ]
-  %val.i = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !29
-  %val3.i = getelementptr inbounds i8, ptr %this, i64 32
+  %val3.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp2.sroa.0.0.copyload.i = load <2 x float>, ptr %val3.i, align 8, !tbaa.struct !29
   %conv.i.i = fpext float %fac.addr.4 to double
   %sub.i.i.i = fsub nsz double 1.000000e+00, %conv.i.i
@@ -908,7 +908,7 @@ if.end35:                                         ; preds = %if.else32, %if.then
   %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
   %12 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %5, <2 x double> %11, <2 x double> %9)
   %13 = fptrunc <2 x double> %12 to <2 x float>
-  %val.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %val.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store <2 x float> %13, ptr %val.i.i, align 8, !tbaa.struct !29
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %agg.result, align 8, !tbaa !4
   ret void
@@ -922,9 +922,9 @@ declare noundef float @_Z12myrand_rangeff(float noundef, float noundef) local_un
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local <2 x float> @_ZNK18ParticleParamTypes9ParameterIN3irr4core8vector2dIfEELm2EE11interpolateEfRKS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, float noundef %fac, ptr noundef nonnull align 8 dereferenceable(16) %against) unnamed_addr #4 comdat align 2 {
 entry:
-  %val = getelementptr inbounds i8, ptr %this, i64 8
+  %val = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %val, align 8, !tbaa.struct !29
-  %val3 = getelementptr inbounds i8, ptr %against, i64 8
+  %val3 = getelementptr inbounds nuw i8, ptr %against, i64 8
   %agg.tmp2.sroa.0.0.copyload = load <2 x float>, ptr %val3, align 8, !tbaa.struct !29
   %conv.i = fpext float %fac to double
   %sub.i.i = fsub nsz double 1.000000e+00, %conv.i
@@ -953,35 +953,35 @@ entry:
   store i8 %0, ptr %buf.i, align 1, !tbaa !30
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #25
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6) #25
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %1)
   store i16 %rev.i.i.i, ptr %buf.i6, align 2
   %call.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6) #25
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %beginning, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8, float noundef %2)
   %call.i9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8) #25
-  %val.i = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i) #25
   %p.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i)
-  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 4
+  %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i) #25
-  %val.i11 = getelementptr inbounds i8, ptr %this, i64 32
+  %val.i11 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload.i12 = load <2 x float>, ptr %val.i11, align 8, !tbaa.struct !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i10) #25
   %p.sroa.0.0.vec.extract.i.i.i.i13 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i12, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i10, float noundef %p.sroa.0.0.vec.extract.i.i.i.i13)
-  %arrayidx1.i.i.i.i14 = getelementptr inbounds i8, ptr %buf.i.i.i10, i64 4
+  %arrayidx1.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %buf.i.i.i10, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i15 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i12, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i14, float noundef %p.sroa.0.4.vec.extract.i.i.i.i15)
   %call.i.i.i16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i10, i64 noundef 8)
@@ -993,12 +993,12 @@ entry:
 define linkonce_odr dso_local void @_ZNK18ParticleParamTypes9ParameterIN3irr4core8vector2dIfEELm2EE9serializeERSo(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #4 comdat align 2 {
 entry:
   %buf.i.i = alloca [8 x i8], align 1
-  %val = getelementptr inbounds i8, ptr %this, i64 8
+  %val = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %val, align 8, !tbaa.struct !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i) #25
   %p.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i)
-  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %buf.i.i, i64 4
+  %arrayidx1.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 4
   %p.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i, float noundef %p.sroa.0.4.vec.extract.i.i.i)
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 8)
@@ -1028,33 +1028,33 @@ entry:
   %val.0.copyload.i.i = load i16, ptr %buf.i10, align 2
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i10) #25
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 %rev.i.i.i, ptr %reps, align 2, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i12) #25
   store i32 0, ptr %buf.i12, align 4
   %call.i13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i12, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i12) #25
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float %call2.i, ptr %beginning, align 4, !tbaa !28
-  %val.i = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i) #25
   store i64 0, ptr %buf.i.i.i, align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 8)
   %call.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
   %retval.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %call.i.i.i.i, i64 0
-  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 4
+  %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
   %call2.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i.i)
   %retval.sroa.0.4.vec.insert.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i, float %call2.i.i.i.i, i64 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i) #25
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i, ptr %val.i, align 8, !tbaa.struct !29
-  %val.i15 = getelementptr inbounds i8, ptr %this, i64 32
+  %val.i15 = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i14) #25
   store i64 0, ptr %buf.i.i.i14, align 8
   %call.i.i.i16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i14, i64 noundef 8)
   %call.i.i.i.i17 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i14)
   %retval.sroa.0.0.vec.insert.i.i.i.i18 = insertelement <2 x float> poison, float %call.i.i.i.i17, i64 0
-  %arrayidx1.i.i.i.i19 = getelementptr inbounds i8, ptr %buf.i.i.i14, i64 4
+  %arrayidx1.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %buf.i.i.i14, i64 4
   %call2.i.i.i.i20 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i.i19)
   %retval.sroa.0.4.vec.insert.i.i.i.i21 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i18, float %call2.i.i.i.i20, i64 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i14) #25
@@ -1066,13 +1066,13 @@ entry:
 define linkonce_odr dso_local void @_ZN18ParticleParamTypes9ParameterIN3irr4core8vector2dIfEELm2EE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #4 comdat align 2 {
 entry:
   %buf.i.i = alloca [8 x i8], align 8
-  %val = getelementptr inbounds i8, ptr %this, i64 8
+  %val = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i) #25
   store i64 0, ptr %buf.i.i, align 8
   %call.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i, i64 noundef 8)
   %call.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i)
   %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %call.i.i.i, i64 0
-  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %buf.i.i, i64 4
+  %arrayidx1.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 4
   %call2.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i)
   %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i, float %call2.i.i.i, i64 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i) #25
@@ -1084,20 +1084,20 @@ entry:
 define weak_odr dso_local void @_ZN18ParticleParamTypes16TweenedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEEC2ES6_S6_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %_start, ptr noundef %_end) unnamed_addr #3 comdat($_ZN18ParticleParamTypes16TweenedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEEC5ES6_S6_) align 2 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !31
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 1, ptr %reps, align 2, !tbaa !33
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float 0.000000e+00, ptr %beginning, align 4, !tbaa !34
-  %start = getelementptr inbounds i8, ptr %this, i64 8
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %start, align 8, !tbaa !4
-  %val.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %val2.i.i = getelementptr inbounds i8, ptr %_start, i64 8
+  %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %val2.i.i = getelementptr inbounds nuw i8, ptr %_start, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i, i64 12, i1 false), !tbaa.struct !7
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %start, align 8, !tbaa !4
-  %end = getelementptr inbounds i8, ptr %this, i64 32
+  %end = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %end, align 8, !tbaa !4
-  %val.i.i2 = getelementptr inbounds i8, ptr %this, i64 40
-  %val2.i.i3 = getelementptr inbounds i8, ptr %_end, i64 8
+  %val.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %val2.i.i3 = getelementptr inbounds nuw i8, ptr %_end, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i2, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i3, i64 12, i1 false), !tbaa.struct !7
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %end, align 8, !tbaa !4
   ret void
@@ -1106,7 +1106,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEE5blendEf(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::VectorParameter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, float noundef %fac) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load float, ptr %beginning, align 4, !tbaa !34
   %cmp = fcmp nsz olt float %0, %fac
   br i1 %cmp, label %if.then, label %if.else32
@@ -1115,7 +1115,7 @@ if.then:                                          ; preds = %entry
   %sub = fsub nsz float 1.000000e+00, %0
   %sub4 = fsub nsz float %fac, %0
   %div = fdiv nsz float %sub4, %sub
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !33
   %conv5 = uitofp i16 %1 to float
   %mul = fmul nsz float %div, %conv5
@@ -1169,13 +1169,13 @@ if.else32:                                        ; preds = %entry
 
 if.end35:                                         ; preds = %if.else32, %if.then29, %if.else27, %sw.epilog
   %fac.addr.4 = phi float [ %cond, %if.else32 ], [ 0.000000e+00, %if.then29 ], [ %fac.addr.2, %if.else27 ], [ 1.000000e+00, %sw.epilog ]
-  %val.i = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i, align 8, !tbaa !8
-  %val3.i = getelementptr inbounds i8, ptr %this, i64 40
+  %val3.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload.i = load <2 x float>, ptr %val3.i, align 8, !tbaa.struct !7
-  %agg.tmp2.sroa.2.0.val3.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp2.sroa.2.0.val3.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp2.sroa.2.0.copyload.i = load float, ptr %agg.tmp2.sroa.2.0.val3.sroa_idx.i, align 8, !tbaa !8
   %conv.i.i = fpext float %fac.addr.4 to double
   %sub.i.i.i = fsub nsz double 1.000000e+00, %conv.i.i
@@ -1193,9 +1193,9 @@ if.end35:                                         ; preds = %if.else32, %if.then
   %mul14.i.i.i = fmul nsz double %conv.i.i, %conv13.i.i.i
   %14 = tail call nsz double @llvm.fmuladd.f64(double %conv11.i.i.i, double %sub.i.i.i, double %mul14.i.i.i)
   %conv15.i.i.i = fptrunc double %14 to float
-  %val.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %val.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store <2 x float> %13, ptr %val.i.i, align 8, !tbaa.struct !7
-  %args.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %args.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store float %conv15.i.i.i, ptr %args.sroa.2.0.val.sroa_idx.i.i, align 8, !tbaa !8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %agg.result, align 8, !tbaa !4
   ret void
@@ -1214,44 +1214,44 @@ entry:
   store i8 %0, ptr %buf.i, align 1, !tbaa !30
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #25
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6) #25
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %1)
   store i16 %rev.i.i.i, ptr %buf.i6, align 2
   %call.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6) #25
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %beginning, align 4, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8, float noundef %2)
   %call.i9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8) #25
-  %val.i = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i) #25
   %p.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i)
-  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 4
+  %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i)
-  %arrayidx2.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 8
+  %arrayidx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i, float noundef %agg.tmp.sroa.2.0.copyload.i)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i) #25
-  %val.i11 = getelementptr inbounds i8, ptr %this, i64 40
+  %val.i11 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.0.0.copyload.i12 = load <2 x float>, ptr %val.i11, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i13 = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp.sroa.2.0.val.sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp.sroa.2.0.copyload.i14 = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i13, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i10) #25
   %p.sroa.0.0.vec.extract.i.i.i.i15 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i12, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i10, float noundef %p.sroa.0.0.vec.extract.i.i.i.i15)
-  %arrayidx1.i.i.i.i16 = getelementptr inbounds i8, ptr %buf.i.i.i10, i64 4
+  %arrayidx1.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %buf.i.i.i10, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i17 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i12, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i16, float noundef %p.sroa.0.4.vec.extract.i.i.i.i17)
-  %arrayidx2.i.i.i.i18 = getelementptr inbounds i8, ptr %buf.i.i.i10, i64 8
+  %arrayidx2.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %buf.i.i.i10, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i18, float noundef %agg.tmp.sroa.2.0.copyload.i14)
   %call.i.i.i19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i10, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i10) #25
@@ -1280,44 +1280,44 @@ entry:
   %val.0.copyload.i.i = load i16, ptr %buf.i10, align 2
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i10) #25
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 %rev.i.i.i, ptr %reps, align 2, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i12) #25
   store i32 0, ptr %buf.i12, align 4
   %call.i13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i12, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i12) #25
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float %call2.i, ptr %beginning, align 4, !tbaa !34
-  %val.i = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i.i, i8 0, i64 12, i1 false)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 12)
   %call.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
   %retval.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %call.i.i.i.i, i64 0
-  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 4
+  %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
   %call2.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i.i)
   %retval.sroa.0.4.vec.insert.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i, float %call2.i.i.i.i, i64 1
-  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 8
+  %arrayidx3.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 8
   %call4.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i) #25
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i, ptr %val.i, align 8, !tbaa.struct !7
-  %ref.tmp.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ref.tmp.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store float %call4.i.i.i.i, ptr %ref.tmp.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !8
-  %val.i15 = getelementptr inbounds i8, ptr %this, i64 40
+  %val.i15 = getelementptr inbounds nuw i8, ptr %this, i64 40
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i14) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i.i14, i8 0, i64 12, i1 false)
   %call.i.i.i16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i14, i64 noundef 12)
   %call.i.i.i.i17 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i14)
   %retval.sroa.0.0.vec.insert.i.i.i.i18 = insertelement <2 x float> poison, float %call.i.i.i.i17, i64 0
-  %arrayidx1.i.i.i.i19 = getelementptr inbounds i8, ptr %buf.i.i.i14, i64 4
+  %arrayidx1.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %buf.i.i.i14, i64 4
   %call2.i.i.i.i20 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i.i19)
   %retval.sroa.0.4.vec.insert.i.i.i.i21 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i18, float %call2.i.i.i.i20, i64 1
-  %arrayidx3.i.i.i.i22 = getelementptr inbounds i8, ptr %buf.i.i.i14, i64 8
+  %arrayidx3.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %buf.i.i.i14, i64 8
   %call4.i.i.i.i23 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i.i22)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i14) #25
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i21, ptr %val.i15, align 8, !tbaa.struct !7
-  %ref.tmp.sroa.4.0..sroa_idx.i.i24 = getelementptr inbounds i8, ptr %this, i64 48
+  %ref.tmp.sroa.4.0..sroa_idx.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store float %call4.i.i.i.i23, ptr %ref.tmp.sroa.4.0..sroa_idx.i.i24, align 8, !tbaa !8
   ret void
 }
@@ -1326,20 +1326,20 @@ entry:
 define weak_odr dso_local void @_ZN18ParticleParamTypes16TweenedParameterINS_9ParameterIfLm1EEEEC2ES2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %_start, ptr noundef %_end) unnamed_addr #3 comdat($_ZN18ParticleParamTypes16TweenedParameterINS_9ParameterIfLm1EEEEC5ES2_S2_) align 2 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !35
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 1, ptr %reps, align 2, !tbaa !37
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float 0.000000e+00, ptr %beginning, align 4, !tbaa !38
-  %start = getelementptr inbounds i8, ptr %this, i64 8
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %start, align 8, !tbaa !4
-  %val.i = getelementptr inbounds i8, ptr %this, i64 16
-  %val2.i = getelementptr inbounds i8, ptr %_start, i64 8
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %val2.i = getelementptr inbounds nuw i8, ptr %_start, i64 8
   %0 = load float, ptr %val2.i, align 8, !tbaa !16
   store float %0, ptr %val.i, align 8, !tbaa !16
-  %end = getelementptr inbounds i8, ptr %this, i64 24
+  %end = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %end, align 8, !tbaa !4
-  %val.i2 = getelementptr inbounds i8, ptr %this, i64 32
-  %val2.i3 = getelementptr inbounds i8, ptr %_end, i64 8
+  %val.i2 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %val2.i3 = getelementptr inbounds nuw i8, ptr %_end, i64 8
   %1 = load float, ptr %val2.i3, align 8, !tbaa !16
   store float %1, ptr %val.i2, align 8, !tbaa !16
   ret void
@@ -1348,7 +1348,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_9ParameterIfLm1EEEE5blendEf(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::Parameter.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, float noundef %fac) local_unnamed_addr #7 comdat align 2 {
 entry:
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load float, ptr %beginning, align 4, !tbaa !38
   %cmp = fcmp nsz olt float %0, %fac
   br i1 %cmp, label %if.then, label %if.else32
@@ -1357,7 +1357,7 @@ if.then:                                          ; preds = %entry
   %sub = fsub nsz float 1.000000e+00, %0
   %sub4 = fsub nsz float %fac, %0
   %div = fdiv nsz float %sub4, %sub
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !37
   %conv5 = uitofp i16 %1 to float
   %mul = fmul nsz float %div, %conv5
@@ -1411,14 +1411,14 @@ if.else32:                                        ; preds = %entry
 
 if.end35:                                         ; preds = %if.else32, %if.then29, %if.else27, %sw.epilog
   %fac.addr.4 = phi float [ %cond, %if.else32 ], [ 0.000000e+00, %if.then29 ], [ %fac.addr.2, %if.else27 ], [ 1.000000e+00, %sw.epilog ]
-  %val.i = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load float, ptr %val.i, align 8, !tbaa !16
-  %val2.i = getelementptr inbounds i8, ptr %this, i64 32
+  %val2.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load float, ptr %val2.i, align 8, !tbaa !16
   %sub.i.i.i = fsub nsz float %6, %5
   %7 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i, float %fac.addr.4, float %5)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %agg.result, align 8, !tbaa !4
-  %val.i51 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %val.i51 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store float %7, ptr %val.i51, align 8, !tbaa !16
   ret void
 }
@@ -1436,26 +1436,26 @@ entry:
   store i8 %0, ptr %buf.i, align 1, !tbaa !30
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #25
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6) #25
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %1)
   store i16 %rev.i.i.i, ptr %buf.i6, align 2
   %call.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6) #25
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %beginning, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8, float noundef %2)
   %call.i9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8) #25
-  %val.i = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load float, ptr %val.i, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %3)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i) #25
-  %val.i11 = getelementptr inbounds i8, ptr %this, i64 32
+  %val.i11 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load float, ptr %val.i11, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i10) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i10, float noundef %4)
@@ -1486,23 +1486,23 @@ entry:
   %val.0.copyload.i.i = load i16, ptr %buf.i10, align 2
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i10) #25
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 %rev.i.i.i, ptr %reps, align 2, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i12) #25
   store i32 0, ptr %buf.i12, align 4
   %call.i13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i12, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i12) #25
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float %call2.i, ptr %beginning, align 4, !tbaa !38
-  %val.i = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i) #25
   store i32 0, ptr %buf.i.i.i, align 4
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   %call2.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i) #25
   store float %call2.i.i.i, ptr %val.i, align 8, !tbaa !8
-  %val.i15 = getelementptr inbounds i8, ptr %this, i64 32
+  %val.i15 = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i14) #25
   store i32 0, ptr %buf.i.i.i14, align 4
   %call.i.i.i16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i14, i64 noundef 4)
@@ -1516,40 +1516,40 @@ entry:
 define weak_odr dso_local void @_ZN18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEEEEC2ES8_S8_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %_start, ptr noundef %_end) unnamed_addr #3 comdat($_ZN18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEEEEC5ES8_S8_) align 2 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !39
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 1, ptr %reps, align 2, !tbaa !41
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float 0.000000e+00, ptr %beginning, align 4, !tbaa !42
-  %start = getelementptr inbounds i8, ptr %this, i64 8
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %start, align 8, !tbaa !4
-  %val.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %val2.i.i.i = getelementptr inbounds i8, ptr %_start, i64 8
+  %val.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %val2.i.i.i = getelementptr inbounds nuw i8, ptr %_start, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i.i, i64 12, i1 false), !tbaa.struct !7
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %start, align 8, !tbaa !4
-  %max.i = getelementptr inbounds i8, ptr %this, i64 32
+  %max.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %max.i, align 8, !tbaa !4
-  %val.i.i7.i = getelementptr inbounds i8, ptr %this, i64 40
-  %val2.i.i8.i = getelementptr inbounds i8, ptr %_start, i64 32
+  %val.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %val2.i.i8.i = getelementptr inbounds nuw i8, ptr %_start, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i7.i, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i8.i, i64 12, i1 false), !tbaa.struct !7
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %max.i, align 8, !tbaa !4
-  %bias.i = getelementptr inbounds i8, ptr %this, i64 56
-  %bias4.i = getelementptr inbounds i8, ptr %_start, i64 48
+  %bias.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %bias4.i = getelementptr inbounds nuw i8, ptr %_start, i64 48
   %0 = load float, ptr %bias4.i, align 8, !tbaa !11
   store float %0, ptr %bias.i, align 8, !tbaa !11
-  %end = getelementptr inbounds i8, ptr %this, i64 64
+  %end = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %end, align 8, !tbaa !4
-  %val.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 72
-  %val2.i.i.i3 = getelementptr inbounds i8, ptr %_end, i64 8
+  %val.i.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %val2.i.i.i3 = getelementptr inbounds nuw i8, ptr %_end, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i.i2, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i.i3, i64 12, i1 false), !tbaa.struct !7
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %end, align 8, !tbaa !4
-  %max.i4 = getelementptr inbounds i8, ptr %this, i64 88
+  %max.i4 = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %max.i4, align 8, !tbaa !4
-  %val.i.i7.i5 = getelementptr inbounds i8, ptr %this, i64 96
-  %val2.i.i8.i6 = getelementptr inbounds i8, ptr %_end, i64 32
+  %val.i.i7.i5 = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %val2.i.i8.i6 = getelementptr inbounds nuw i8, ptr %_end, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %val.i.i7.i5, ptr noundef nonnull align 8 dereferenceable(12) %val2.i.i8.i6, i64 12, i1 false), !tbaa.struct !7
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %max.i4, align 8, !tbaa !4
-  %bias.i7 = getelementptr inbounds i8, ptr %this, i64 112
-  %bias4.i8 = getelementptr inbounds i8, ptr %_end, i64 48
+  %bias.i7 = getelementptr inbounds nuw i8, ptr %this, i64 112
+  %bias4.i8 = getelementptr inbounds nuw i8, ptr %_end, i64 48
   %1 = load float, ptr %bias4.i8, align 8, !tbaa !11
   store float %1, ptr %bias.i7, align 8, !tbaa !11
   ret void
@@ -1558,7 +1558,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEEEE5blendEf(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::RangedParameter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, float noundef %fac) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load float, ptr %beginning, align 4, !tbaa !42
   %cmp = fcmp nsz olt float %0, %fac
   br i1 %cmp, label %if.then, label %if.else32
@@ -1567,7 +1567,7 @@ if.then:                                          ; preds = %entry
   %sub = fsub nsz float 1.000000e+00, %0
   %sub4 = fsub nsz float %fac, %0
   %div = fdiv nsz float %sub4, %sub
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !41
   %conv5 = uitofp i16 %1 to float
   %mul = fmul nsz float %div, %conv5
@@ -1621,26 +1621,26 @@ if.else32:                                        ; preds = %entry
 
 if.end35:                                         ; preds = %if.else32, %if.then29, %if.else27, %sw.epilog
   %fac.addr.4 = phi float [ %cond, %if.else32 ], [ 0.000000e+00, %if.then29 ], [ %fac.addr.2, %if.else27 ], [ 1.000000e+00, %sw.epilog ]
-  %val2.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %val2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %agg.tmp.sroa.2.8.copyload = load <2 x float>, ptr %val2.i.i.i, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.4.8.val2.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 80
+  %agg.tmp.sroa.4.8.val2.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 80
   %agg.tmp.sroa.4.8.copyload = load float, ptr %agg.tmp.sroa.4.8.val2.i.i.i.sroa_idx, align 8, !tbaa !8
-  %val2.i.i8.i = getelementptr inbounds i8, ptr %this, i64 96
+  %val2.i.i8.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %agg.tmp.sroa.7.32.copyload = load <2 x float>, ptr %val2.i.i8.i, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.9.32.val2.i.i8.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 104
+  %agg.tmp.sroa.9.32.val2.i.i8.i.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 104
   %agg.tmp.sroa.9.32.copyload = load float, ptr %agg.tmp.sroa.9.32.val2.i.i8.i.sroa_idx, align 8, !tbaa !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %val.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %Z.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %val.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %Z.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %agg.result, align 8, !tbaa !4, !alias.scope !43
-  %max.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %val.i.i2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %Z.i.i.i4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %max.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
+  %val.i.i2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
+  %Z.i.i.i4.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 16), ptr %max.i.i, align 8, !tbaa !4, !alias.scope !43
-  %bias.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
-  %val.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %bias.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
+  %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i.i = load <2 x float>, ptr %val.i.i, align 8, !tbaa.struct !7, !noalias !43
-  %agg.tmp.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i.i, align 8, !tbaa !8, !noalias !43
   %conv.i.i.i = fpext float %fac.addr.4 to double
   %sub.i.i.i.i = fsub nsz double 1.000000e+00, %conv.i.i.i
@@ -1660,9 +1660,9 @@ if.end35:                                         ; preds = %if.else32, %if.then
   %conv15.i.i.i.i = fptrunc double %14 to float
   store <2 x float> %13, ptr %val.i.i.i.i, align 8, !tbaa.struct !7, !alias.scope !43
   store float %conv15.i.i.i.i, ptr %Z.i.i.i.i.i, align 8, !tbaa !8, !alias.scope !43
-  %val.i15.i = getelementptr inbounds i8, ptr %this, i64 40
+  %val.i15.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.0.0.copyload.i16.i = load <2 x float>, ptr %val.i15.i, align 8, !tbaa.struct !7, !noalias !43
-  %agg.tmp.sroa.2.0.val.sroa_idx.i17.i = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp.sroa.2.0.val.sroa_idx.i17.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp.sroa.2.0.copyload.i18.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i17.i, align 8, !tbaa !8, !noalias !43
   %15 = fpext <2 x float> %agg.tmp.sroa.0.0.copyload.i16.i to <2 x double>
   %16 = fpext <2 x float> %agg.tmp.sroa.7.32.copyload to <2 x double>
@@ -1676,7 +1676,7 @@ if.end35:                                         ; preds = %if.else32, %if.then
   %conv15.i.i.i40.i = fptrunc double %20 to float
   store <2 x float> %19, ptr %val.i.i2.i.i, align 8, !tbaa.struct !7, !alias.scope !43
   store float %conv15.i.i.i40.i, ptr %Z.i.i.i4.i.i, align 8, !tbaa !8, !alias.scope !43
-  %bias.i50 = getelementptr inbounds i8, ptr %this, i64 56
+  %bias.i50 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %21 = load float, ptr %bias.i50, align 8, !tbaa !11, !noalias !43
   store float %21, ptr %bias.i.i, align 8, !tbaa !11, !alias.scope !43
   ret void
@@ -1699,82 +1699,82 @@ entry:
   store i8 %0, ptr %buf.i, align 1, !tbaa !30
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #25
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6) #25
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %1)
   store i16 %rev.i.i.i, ptr %buf.i6, align 2
   %call.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6) #25
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %beginning, align 4, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8, float noundef %2)
   %call.i9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8) #25
-  %val.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i.i = load <2 x float>, ptr %val.i.i, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %agg.tmp.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i.i, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i.i) #25
   %p.sroa.0.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i.i)
-  %arrayidx1.i.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i, i64 4
+  %arrayidx1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i.i)
-  %arrayidx2.i.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i, i64 8
+  %arrayidx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i.i, float noundef %agg.tmp.sroa.2.0.copyload.i.i)
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i.i) #25
-  %val.i5.i = getelementptr inbounds i8, ptr %this, i64 40
+  %val.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.0.0.copyload.i6.i = load <2 x float>, ptr %val.i5.i, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i7.i = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp.sroa.2.0.val.sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp.sroa.2.0.copyload.i8.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i7.i, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i4.i) #25
   %p.sroa.0.0.vec.extract.i.i.i.i9.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i6.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i9.i)
-  %arrayidx1.i.i.i.i10.i = getelementptr inbounds i8, ptr %buf.i.i.i4.i, i64 4
+  %arrayidx1.i.i.i.i10.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i4.i, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i11.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i6.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i10.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i11.i)
-  %arrayidx2.i.i.i.i12.i = getelementptr inbounds i8, ptr %buf.i.i.i4.i, i64 8
+  %arrayidx2.i.i.i.i12.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i4.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i12.i, float noundef %agg.tmp.sroa.2.0.copyload.i8.i)
   %call.i.i.i13.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4.i, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i4.i) #25
-  %bias.i = getelementptr inbounds i8, ptr %this, i64 56
+  %bias.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load float, ptr %bias.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i, float noundef %3)
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i) #25
-  %val.i.i13 = getelementptr inbounds i8, ptr %this, i64 72
+  %val.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %agg.tmp.sroa.0.0.copyload.i.i14 = load <2 x float>, ptr %val.i.i13, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i.i15 = getelementptr inbounds i8, ptr %this, i64 80
+  %agg.tmp.sroa.2.0.val.sroa_idx.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %agg.tmp.sroa.2.0.copyload.i.i16 = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i.i15, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i.i12) #25
   %p.sroa.0.0.vec.extract.i.i.i.i.i17 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i14, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i12, float noundef %p.sroa.0.0.vec.extract.i.i.i.i.i17)
-  %arrayidx1.i.i.i.i.i18 = getelementptr inbounds i8, ptr %buf.i.i.i.i12, i64 4
+  %arrayidx1.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i12, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i.i19 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i14, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i.i18, float noundef %p.sroa.0.4.vec.extract.i.i.i.i.i19)
-  %arrayidx2.i.i.i.i.i20 = getelementptr inbounds i8, ptr %buf.i.i.i.i12, i64 8
+  %arrayidx2.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i12, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i.i20, float noundef %agg.tmp.sroa.2.0.copyload.i.i16)
   %call.i.i.i.i21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i12, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i.i12) #25
-  %val.i5.i22 = getelementptr inbounds i8, ptr %this, i64 96
+  %val.i5.i22 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %agg.tmp.sroa.0.0.copyload.i6.i23 = load <2 x float>, ptr %val.i5.i22, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i7.i24 = getelementptr inbounds i8, ptr %this, i64 104
+  %agg.tmp.sroa.2.0.val.sroa_idx.i7.i24 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %agg.tmp.sroa.2.0.copyload.i8.i25 = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i7.i24, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i4.i11) #25
   %p.sroa.0.0.vec.extract.i.i.i.i9.i26 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i6.i23, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4.i11, float noundef %p.sroa.0.0.vec.extract.i.i.i.i9.i26)
-  %arrayidx1.i.i.i.i10.i27 = getelementptr inbounds i8, ptr %buf.i.i.i4.i11, i64 4
+  %arrayidx1.i.i.i.i10.i27 = getelementptr inbounds nuw i8, ptr %buf.i.i.i4.i11, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i11.i28 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i6.i23, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i10.i27, float noundef %p.sroa.0.4.vec.extract.i.i.i.i11.i28)
-  %arrayidx2.i.i.i.i12.i29 = getelementptr inbounds i8, ptr %buf.i.i.i4.i11, i64 8
+  %arrayidx2.i.i.i.i12.i29 = getelementptr inbounds nuw i8, ptr %buf.i.i.i4.i11, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i12.i29, float noundef %agg.tmp.sroa.2.0.copyload.i8.i25)
   %call.i.i.i13.i30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4.i11, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i4.i11) #25
-  %bias.i31 = getelementptr inbounds i8, ptr %this, i64 112
+  %bias.i31 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %4 = load float, ptr %bias.i31, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i10) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i10, float noundef %4)
@@ -1803,18 +1803,18 @@ entry:
   %val.0.copyload.i.i = load i16, ptr %buf.i10, align 2
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i10) #25
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 %rev.i.i.i, ptr %reps, align 2, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i12) #25
   store i32 0, ptr %buf.i12, align 4
   %call.i13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i12, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i12) #25
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float %call2.i, ptr %beginning, align 4, !tbaa !42
-  %start = getelementptr inbounds i8, ptr %this, i64 8
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZN18ParticleParamTypes15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(52) %start, ptr noundef nonnull align 8 dereferenceable(16) %is)
-  %end = getelementptr inbounds i8, ptr %this, i64 64
+  %end = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN18ParticleParamTypes15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(52) %end, ptr noundef nonnull align 8 dereferenceable(16) %is)
   ret void
 }
@@ -1823,40 +1823,40 @@ entry:
 define weak_odr dso_local void @_ZN18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_9ParameterIfLm1EEEEEEC2ES4_S4_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_start, ptr noundef %_end) unnamed_addr #3 comdat($_ZN18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_9ParameterIfLm1EEEEEEC5ES4_S4_) align 2 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !46
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 1, ptr %reps, align 2, !tbaa !48
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float 0.000000e+00, ptr %beginning, align 4, !tbaa !49
-  %start = getelementptr inbounds i8, ptr %this, i64 8
+  %start = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %start, align 8, !tbaa !4
-  %val.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %val2.i.i = getelementptr inbounds i8, ptr %_start, i64 8
+  %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %val2.i.i = getelementptr inbounds nuw i8, ptr %_start, i64 8
   %0 = load float, ptr %val2.i.i, align 8, !tbaa !16
   store float %0, ptr %val.i.i, align 8, !tbaa !16
-  %max.i = getelementptr inbounds i8, ptr %this, i64 24
+  %max.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %max.i, align 8, !tbaa !4
-  %val.i7.i = getelementptr inbounds i8, ptr %this, i64 32
-  %val2.i8.i = getelementptr inbounds i8, ptr %_start, i64 24
+  %val.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %val2.i8.i = getelementptr inbounds nuw i8, ptr %_start, i64 24
   %1 = load float, ptr %val2.i8.i, align 8, !tbaa !16
   store float %1, ptr %val.i7.i, align 8, !tbaa !16
-  %bias.i = getelementptr inbounds i8, ptr %this, i64 40
-  %bias4.i = getelementptr inbounds i8, ptr %_start, i64 32
+  %bias.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %bias4.i = getelementptr inbounds nuw i8, ptr %_start, i64 32
   %2 = load float, ptr %bias4.i, align 8, !tbaa !18
   store float %2, ptr %bias.i, align 8, !tbaa !18
-  %end = getelementptr inbounds i8, ptr %this, i64 48
+  %end = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %end, align 8, !tbaa !4
-  %val.i.i2 = getelementptr inbounds i8, ptr %this, i64 56
-  %val2.i.i3 = getelementptr inbounds i8, ptr %_end, i64 8
+  %val.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %val2.i.i3 = getelementptr inbounds nuw i8, ptr %_end, i64 8
   %3 = load float, ptr %val2.i.i3, align 8, !tbaa !16
   store float %3, ptr %val.i.i2, align 8, !tbaa !16
-  %max.i4 = getelementptr inbounds i8, ptr %this, i64 64
+  %max.i4 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %max.i4, align 8, !tbaa !4
-  %val.i7.i5 = getelementptr inbounds i8, ptr %this, i64 72
-  %val2.i8.i6 = getelementptr inbounds i8, ptr %_end, i64 24
+  %val.i7.i5 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %val2.i8.i6 = getelementptr inbounds nuw i8, ptr %_end, i64 24
   %4 = load float, ptr %val2.i8.i6, align 8, !tbaa !16
   store float %4, ptr %val.i7.i5, align 8, !tbaa !16
-  %bias.i7 = getelementptr inbounds i8, ptr %this, i64 80
-  %bias4.i8 = getelementptr inbounds i8, ptr %_end, i64 32
+  %bias.i7 = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %bias4.i8 = getelementptr inbounds nuw i8, ptr %_end, i64 32
   %5 = load float, ptr %bias4.i8, align 8, !tbaa !18
   store float %5, ptr %bias.i7, align 8, !tbaa !18
   ret void
@@ -1865,7 +1865,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_9ParameterIfLm1EEEEEE5blendEf(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::RangedParameter.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, float noundef %fac) local_unnamed_addr #7 comdat align 2 {
 entry:
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load float, ptr %beginning, align 4, !tbaa !49
   %cmp = fcmp nsz olt float %0, %fac
   br i1 %cmp, label %if.then, label %if.else32
@@ -1874,7 +1874,7 @@ if.then:                                          ; preds = %entry
   %sub = fsub nsz float 1.000000e+00, %0
   %sub4 = fsub nsz float %fac, %0
   %div = fdiv nsz float %sub4, %sub
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !48
   %conv5 = uitofp i16 %1 to float
   %mul = fmul nsz float %div, %conv5
@@ -1928,28 +1928,28 @@ if.else32:                                        ; preds = %entry
 
 if.end35:                                         ; preds = %if.else32, %if.then29, %if.else27, %sw.epilog
   %fac.addr.4 = phi float [ %cond, %if.else32 ], [ 0.000000e+00, %if.then29 ], [ %fac.addr.2, %if.else27 ], [ 1.000000e+00, %sw.epilog ]
-  %val2.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %val2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %5 = load float, ptr %val2.i.i, align 8, !tbaa !16
-  %val2.i8.i = getelementptr inbounds i8, ptr %this, i64 72
+  %val2.i8.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %6 = load float, ptr %val2.i8.i, align 8, !tbaa !16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %agg.result, align 8, !tbaa !4, !alias.scope !50
-  %val.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %max.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %val.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %max.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %max.i.i, align 8, !tbaa !4, !alias.scope !50
-  %val.i2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %bias.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %val.i.i50 = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i2.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
+  %bias.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
+  %val.i.i50 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %7 = load float, ptr %val.i.i50, align 8, !tbaa !16, !noalias !50
   %sub.i.i.i.i = fsub nsz float %5, %7
   %8 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i.i, float %fac.addr.4, float %7)
   store float %8, ptr %val.i.i.i, align 8, !tbaa !16, !alias.scope !50
-  %val.i12.i = getelementptr inbounds i8, ptr %this, i64 32
+  %val.i12.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %9 = load float, ptr %val.i12.i, align 8, !tbaa !16, !noalias !50
   %sub.i.i.i14.i = fsub nsz float %6, %9
   %10 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i.i.i14.i, float %fac.addr.4, float %9)
   store float %10, ptr %val.i2.i.i, align 8, !tbaa !16, !alias.scope !50
-  %bias.i52 = getelementptr inbounds i8, ptr %this, i64 40
+  %bias.i52 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %11 = load float, ptr %bias.i52, align 8, !tbaa !18, !noalias !50
   store float %11, ptr %bias.i.i, align 8, !tbaa !18, !alias.scope !50
   ret void
@@ -1972,50 +1972,50 @@ entry:
   store i8 %0, ptr %buf.i, align 1, !tbaa !30
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #25
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6) #25
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %1)
   store i16 %rev.i.i.i, ptr %buf.i6, align 2
   %call.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6) #25
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %beginning, align 4, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8, float noundef %2)
   %call.i9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8) #25
-  %val.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load float, ptr %val.i.i, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i, float noundef %3)
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i) #25
-  %val.i5.i = getelementptr inbounds i8, ptr %this, i64 32
+  %val.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load float, ptr %val.i5.i, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4.i, float noundef %4)
   %call.i.i.i6.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i4.i) #25
-  %bias.i = getelementptr inbounds i8, ptr %this, i64 40
+  %bias.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load float, ptr %bias.i, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i, float noundef %5)
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i) #25
-  %val.i.i13 = getelementptr inbounds i8, ptr %this, i64 56
+  %val.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load float, ptr %val.i.i13, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i12) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i12, float noundef %6)
   %call.i.i.i.i14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i12, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i12) #25
-  %val.i5.i15 = getelementptr inbounds i8, ptr %this, i64 72
+  %val.i5.i15 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %7 = load float, ptr %val.i5.i15, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4.i11) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4.i11, float noundef %7)
   %call.i.i.i6.i16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4.i11, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i4.i11) #25
-  %bias.i17 = getelementptr inbounds i8, ptr %this, i64 80
+  %bias.i17 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %8 = load float, ptr %bias.i17, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i10) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i10, float noundef %8)
@@ -2050,23 +2050,23 @@ entry:
   %val.0.copyload.i.i = load i16, ptr %buf.i10, align 2
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i10) #25
-  %reps = getelementptr inbounds i8, ptr %this, i64 2
+  %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 %rev.i.i.i, ptr %reps, align 2, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i12) #25
   store i32 0, ptr %buf.i12, align 4
   %call.i13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i12, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i12) #25
-  %beginning = getelementptr inbounds i8, ptr %this, i64 4
+  %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float %call2.i, ptr %beginning, align 4, !tbaa !49
-  %val.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i) #25
   store i32 0, ptr %buf.i.i.i.i, align 4
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 4)
   %call2.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i) #25
   store float %call2.i.i.i.i, ptr %val.i.i, align 8, !tbaa !8
-  %val.i5.i = getelementptr inbounds i8, ptr %this, i64 32
+  %val.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4.i) #25
   store i32 0, ptr %buf.i.i.i4.i, align 4
   %call.i.i.i6.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i4.i, i64 noundef 4)
@@ -2078,16 +2078,16 @@ entry:
   %call.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i, i64 noundef 4)
   %call2.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i) #25
-  %bias.i = getelementptr inbounds i8, ptr %this, i64 40
+  %bias.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store float %call2.i.i, ptr %bias.i, align 8, !tbaa !18
-  %val.i.i17 = getelementptr inbounds i8, ptr %this, i64 56
+  %val.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 56
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i16) #25
   store i32 0, ptr %buf.i.i.i.i16, align 4
   %call.i.i.i.i18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i.i16, i64 noundef 4)
   %call2.i.i.i.i19 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i.i16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i16) #25
   store float %call2.i.i.i.i19, ptr %val.i.i17, align 8, !tbaa !8
-  %val.i5.i20 = getelementptr inbounds i8, ptr %this, i64 72
+  %val.i5.i20 = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4.i15) #25
   store i32 0, ptr %buf.i.i.i4.i15, align 4
   %call.i.i.i6.i21 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i4.i15, i64 noundef 4)
@@ -2099,7 +2099,7 @@ entry:
   %call.i.i23 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i14, i64 noundef 4)
   %call2.i.i24 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i14) #25
-  %bias.i25 = getelementptr inbounds i8, ptr %this, i64 80
+  %bias.i25 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store float %call2.i.i24, ptr %bias.i25, align 8, !tbaa !18
   ret void
 }
@@ -2119,7 +2119,7 @@ entry:
   %0 = load <2 x float>, ptr %f, align 4, !tbaa !8
   %1 = fsub nsz <2 x float> %b.coerce0, %a.coerce0
   %2 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %1, <2 x float> %0, <2 x float> %a.coerce0)
-  %arrayidx6 = getelementptr inbounds i8, ptr %f, i64 8
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %3 = load float, ptr %arrayidx6, align 4, !tbaa !8
   %sub.i12 = fsub nsz float %b.coerce1, %a.coerce1
   %4 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i12, float %3, float %a.coerce1)
@@ -2523,7 +2523,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i) #25
   %p.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %v.coerce, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i, float noundef %p.sroa.0.0.vec.extract.i.i)
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %buf.i, i64 4
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 4
   %p.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %v.coerce, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i, float noundef %p.sroa.0.4.vec.extract.i.i)
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 8)
@@ -2540,7 +2540,7 @@ entry:
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 8)
   %call.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i)
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %call.i.i, i64 0
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %buf.i, i64 4
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 4
   %call2.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i)
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %call2.i.i, i64 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i) #25
@@ -2555,10 +2555,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i) #25
   %p.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %v.coerce0, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i, float noundef %p.sroa.0.0.vec.extract.i.i)
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %buf.i, i64 4
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 4
   %p.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %v.coerce0, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i, float noundef %p.sroa.0.4.vec.extract.i.i)
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i, float noundef %v.coerce1)
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i) #25
@@ -2574,14 +2574,14 @@ entry:
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 12)
   %call.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i)
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %call.i.i, i64 0
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %buf.i, i64 4
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 4
   %call2.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i)
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %call2.i.i, i64 1
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   %call4.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i) #25
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %v, align 4, !tbaa.struct !7
-  %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %v, i64 8
+  %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %v, i64 8
   store float %call4.i.i, ptr %ref.tmp.sroa.4.0..sroa_idx, align 4, !tbaa !8
   ret void
 }
@@ -2602,7 +2602,7 @@ entry:
   %buf.i.i = alloca [1 x i8], align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i8, ptr %this, align 8, !tbaa !56, !range !62, !noundef !63
-  %blendmode = getelementptr inbounds i8, ptr %this, i64 1
+  %blendmode = getelementptr inbounds nuw i8, ptr %this, i64 1
   %1 = load i8, ptr %blendmode, align 1, !tbaa !64
   %shl = shl i8 %1, 1
   %or7 = or disjoint i8 %shl, %0
@@ -2610,72 +2610,72 @@ entry:
   store i8 %or7, ptr %buf.i.i, align 1, !tbaa !30
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i.i) #25
-  %alpha = getelementptr inbounds i8, ptr %this, i64 24
+  %alpha = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i8, ptr %alpha, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i.i25) #25
   store i8 %2, ptr %buf.i.i25, align 1, !tbaa !30
   %call.i.i26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i25, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i.i25) #25
-  %reps.i = getelementptr inbounds i8, ptr %this, i64 26
+  %reps.i = getelementptr inbounds nuw i8, ptr %this, i64 26
   %3 = load i16, ptr %reps.i, align 2, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6.i) #25
   %rev.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %3)
   store i16 %rev.i.i.i.i, ptr %buf.i6.i, align 2
   %call.i7.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6.i, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6.i) #25
-  %beginning.i = getelementptr inbounds i8, ptr %this, i64 28
+  %beginning.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %4 = load float, ptr %beginning.i, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8.i, float noundef %4)
   %call.i9.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8.i) #25
-  %val.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load float, ptr %val.i.i, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i, float noundef %5)
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i) #25
-  %val.i11.i = getelementptr inbounds i8, ptr %this, i64 56
+  %val.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load float, ptr %val.i11.i, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i10.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i10.i, float noundef %6)
   %call.i.i.i12.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i10.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i10.i) #25
-  %scale = getelementptr inbounds i8, ptr %this, i64 64
+  %scale = getelementptr inbounds nuw i8, ptr %this, i64 64
   %7 = load i8, ptr %scale, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i.i31) #25
   store i8 %7, ptr %buf.i.i31, align 1, !tbaa !30
   %call.i.i32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i31, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i.i31) #25
-  %reps.i33 = getelementptr inbounds i8, ptr %this, i64 66
+  %reps.i33 = getelementptr inbounds nuw i8, ptr %this, i64 66
   %8 = load i16, ptr %reps.i33, align 2, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6.i30) #25
   %rev.i.i.i.i34 = call noundef i16 @llvm.bswap.i16(i16 %8)
   store i16 %rev.i.i.i.i34, ptr %buf.i6.i30, align 2
   %call.i7.i35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6.i30, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6.i30) #25
-  %beginning.i36 = getelementptr inbounds i8, ptr %this, i64 68
+  %beginning.i36 = getelementptr inbounds nuw i8, ptr %this, i64 68
   %9 = load float, ptr %beginning.i36, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8.i29) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8.i29, float noundef %9)
   %call.i9.i37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8.i29, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8.i29) #25
-  %val.i.i38 = getelementptr inbounds i8, ptr %this, i64 80
+  %val.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %agg.tmp.sroa.0.0.copyload.i.i = load <2 x float>, ptr %val.i.i38, align 8, !tbaa.struct !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i.i28) #25
   %p.sroa.0.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i28, float noundef %p.sroa.0.0.vec.extract.i.i.i.i.i)
-  %arrayidx1.i.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i28, i64 4
+  %arrayidx1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i28, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i.i)
   %call.i.i.i.i39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i28, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i.i28) #25
-  %val.i11.i40 = getelementptr inbounds i8, ptr %this, i64 96
+  %val.i11.i40 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %agg.tmp.sroa.0.0.copyload.i12.i = load <2 x float>, ptr %val.i11.i40, align 8, !tbaa.struct !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i10.i27) #25
   %p.sroa.0.0.vec.extract.i.i.i.i13.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i12.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i10.i27, float noundef %p.sroa.0.0.vec.extract.i.i.i.i13.i)
-  %arrayidx1.i.i.i.i14.i = getelementptr inbounds i8, ptr %buf.i.i.i10.i27, i64 4
+  %arrayidx1.i.i.i.i14.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i10.i27, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i15.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i12.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i14.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i15.i)
   %call.i.i.i16.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i10.i27, i64 noundef 8)
@@ -2684,20 +2684,20 @@ entry:
 
 if.then11:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #25
-  %string = getelementptr inbounds i8, ptr %this, i64 104
+  %string = getelementptr inbounds nuw i8, ptr %this, i64 104
   %10 = load ptr, ptr %string, align 8, !tbaa !65
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %11 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !70
   call void @_Z17serializeString32B5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i64 %11, ptr %10)
   %12 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
-  %_M_string_length.i.i41 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i41 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %13 = load i64, ptr %_M_string_length.i.i41, align 8, !tbaa !70
   %call2.i42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %12, i64 noundef %13)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then11
   %14 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
-  %15 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %14, %15
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
@@ -2719,7 +2719,7 @@ lpad:                                             ; preds = %if.then11
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
-  %19 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i43 = icmp eq ptr %18, %19
   br i1 %cmp.i.i.i43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, label %if.then.i.i44
 
@@ -2743,7 +2743,7 @@ if.end13:                                         ; preds = %_ZNSt7__cxx1112basi
   br i1 %tobool15.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
-  %animation = getelementptr inbounds i8, ptr %this, i64 4
+  %animation = getelementptr inbounds nuw i8, ptr %this, i64 4
   call void @_ZNK19TileAnimationParams9serializeERSot(ptr noundef nonnull align 4 dereferenceable(16) %animation, ptr noundef nonnull align 8 dereferenceable(8) %os, i16 noundef zeroext %protocol_ver)
   br label %if.end17
 
@@ -2771,42 +2771,42 @@ entry:
   store i8 %1, ptr %this, align 8, !tbaa !56
   %2 = lshr i8 %0, 1
   %3 = and i8 %2, 7
-  %blendmode = getelementptr inbounds i8, ptr %this, i64 1
+  %blendmode = getelementptr inbounds nuw i8, ptr %this, i64 1
   store i8 %3, ptr %blendmode, align 1, !tbaa !64
-  %alpha = getelementptr inbounds i8, ptr %this, i64 24
+  %alpha = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @_ZN18ParticleParamTypes16TweenedParameterINS_9ParameterIfLm1EEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(40) %alpha, ptr noundef nonnull align 8 dereferenceable(16) %is)
-  %scale = getelementptr inbounds i8, ptr %this, i64 64
+  %scale = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZN18ParticleParamTypes16TweenedParameterINS_15VectorParameterIN3irr4core8vector2dIfEELm2EEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(40) %scale, ptr noundef nonnull align 8 dereferenceable(16) %is)
   br i1 %newPropertiesOnly, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #25
   call void @_Z19deSerializeString32B5cxx11RSi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %is)
-  %string = getelementptr inbounds i8, ptr %this, i64 104
+  %string = getelementptr inbounds nuw i8, ptr %this, i64 104
   %4 = load ptr, ptr %string, align 8, !tbaa !65
-  %5 = getelementptr inbounds i8, ptr %this, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %this, i64 120
   %cmp.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i, label %if.end.i, label %if.end.thread.i
 
 if.end.i:                                         ; preds = %if.then
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %6 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !70
   %cmp3.i.i = icmp ult i64 %6, 16
   call void @llvm.assume(i1 %cmp3.i.i)
   %7 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
-  %8 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i56.i = icmp eq ptr %7, %8
   br i1 %cmp.i56.i, label %if.then15.i, label %if.end32.thread.i
 
 if.end.thread.i:                                  ; preds = %if.then
   %9 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
-  %10 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i5678.i = icmp eq ptr %9, %10
   br i1 %cmp.i5678.i, label %if.then15.i, label %if.end32.i
 
 if.then15.i:                                      ; preds = %if.end.thread.i, %if.end.i
   %11 = phi ptr [ %9, %if.end.thread.i ], [ %8, %if.end.i ]
-  %_M_string_length.i58.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i58.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %12 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !70
   %cmp3.i59.i = icmp ult i64 %12, 16
   call void @llvm.assume(i1 %cmp3.i59.i)
@@ -2830,7 +2830,7 @@ if.end.i.i.i:                                     ; preds = %if.then16.i
 
 if.end24.i:                                       ; preds = %if.end.i.i.i, %if.then.i63.i, %if.then16.i
   %14 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !70
-  %_M_string_length.i.i65.i = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_string_length.i.i65.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i64 %14, ptr %_M_string_length.i.i65.i, align 8, !tbaa !70
   %15 = load ptr, ptr %string, align 8, !tbaa !65
   %arrayidx.i.i = getelementptr inbounds i8, ptr %15, i64 %14
@@ -2840,7 +2840,7 @@ if.end24.i:                                       ; preds = %if.end.i.i.i, %if.t
 
 if.end32.thread.i:                                ; preds = %if.end.i
   store ptr %7, ptr %string, align 8, !tbaa !65
-  %_M_string_length.i7175.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i7175.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %16 = load i64, ptr %_M_string_length.i7175.i, align 8, !tbaa !70
   store i64 %16, ptr %_M_string_length.i.i, align 8, !tbaa !70
   %17 = load i64, ptr %8, align 8, !tbaa !30
@@ -2850,8 +2850,8 @@ if.end32.thread.i:                                ; preds = %if.end.i
 if.end32.i:                                       ; preds = %if.end.thread.i
   %18 = load i64, ptr %5, align 8, !tbaa !30
   store ptr %9, ptr %string, align 8, !tbaa !65
-  %_M_string_length.i71.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %_M_string_length.i72.i = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_string_length.i71.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i72.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %19 = load <2 x i64>, ptr %_M_string_length.i71.i, align 8, !tbaa !30
   store <2 x i64> %19, ptr %_M_string_length.i72.i, align 8, !tbaa !30
   %tobool35.not.i = icmp eq ptr %4, null
@@ -2869,11 +2869,11 @@ if.else37.i:                                      ; preds = %if.end32.i, %if.end
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %if.else37.i, %if.then36.i, %if.end24.i, %if.then15.i
   %21 = phi ptr [ %.pre.i, %if.end24.i ], [ %4, %if.then36.i ], [ %20, %if.else37.i ], [ %11, %if.then15.i ]
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !70
   store i8 0, ptr %21, align 1, !tbaa !30
   %22 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
-  %23 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %22, %23
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
@@ -2897,7 +2897,7 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
   br i1 %tobool9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %animation = getelementptr inbounds i8, ptr %this, i64 4
+  %animation = getelementptr inbounds nuw i8, ptr %this, i64 4
   call void @_ZN19TileAnimationParams11deSerializeERSit(ptr noundef nonnull align 4 dereferenceable(16) %animation, ptr noundef nonnull align 8 dereferenceable(16) %is, i16 noundef zeroext %protocol_ver)
   br label %if.end11
 
@@ -2933,55 +2933,55 @@ entry:
   %buf.i32 = alloca [12 x i8], align 1
   %buf.i = alloca [12 x i8], align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %pos = getelementptr inbounds i8, ptr %this, i64 172
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 172
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %pos, align 4, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.pos.sroa_idx = getelementptr inbounds i8, ptr %this, i64 180
+  %agg.tmp.sroa.2.0.pos.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 180
   %agg.tmp.sroa.2.0.copyload = load float, ptr %agg.tmp.sroa.2.0.pos.sroa_idx, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i) #25
   %p.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i, float noundef %p.sroa.0.0.vec.extract.i.i)
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %buf.i, i64 4
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 4
   %p.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i, float noundef %p.sroa.0.4.vec.extract.i.i)
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i, float noundef %agg.tmp.sroa.2.0.copyload)
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i) #25
-  %vel = getelementptr inbounds i8, ptr %this, i64 184
+  %vel = getelementptr inbounds nuw i8, ptr %this, i64 184
   %agg.tmp2.sroa.0.0.copyload = load <2 x float>, ptr %vel, align 8, !tbaa.struct !7
-  %agg.tmp2.sroa.2.0.vel.sroa_idx = getelementptr inbounds i8, ptr %this, i64 192
+  %agg.tmp2.sroa.2.0.vel.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 192
   %agg.tmp2.sroa.2.0.copyload = load float, ptr %agg.tmp2.sroa.2.0.vel.sroa_idx, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i32) #25
   %p.sroa.0.0.vec.extract.i.i33 = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i32, float noundef %p.sroa.0.0.vec.extract.i.i33)
-  %arrayidx1.i.i34 = getelementptr inbounds i8, ptr %buf.i32, i64 4
+  %arrayidx1.i.i34 = getelementptr inbounds nuw i8, ptr %buf.i32, i64 4
   %p.sroa.0.4.vec.extract.i.i35 = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i34, float noundef %p.sroa.0.4.vec.extract.i.i35)
-  %arrayidx2.i.i36 = getelementptr inbounds i8, ptr %buf.i32, i64 8
+  %arrayidx2.i.i36 = getelementptr inbounds nuw i8, ptr %buf.i32, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i36, float noundef %agg.tmp2.sroa.2.0.copyload)
   %call.i37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i32, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i32) #25
-  %acc = getelementptr inbounds i8, ptr %this, i64 196
+  %acc = getelementptr inbounds nuw i8, ptr %this, i64 196
   %agg.tmp3.sroa.0.0.copyload = load <2 x float>, ptr %acc, align 4, !tbaa.struct !7
-  %agg.tmp3.sroa.2.0.acc.sroa_idx = getelementptr inbounds i8, ptr %this, i64 204
+  %agg.tmp3.sroa.2.0.acc.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 204
   %agg.tmp3.sroa.2.0.copyload = load float, ptr %agg.tmp3.sroa.2.0.acc.sroa_idx, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i38) #25
   %p.sroa.0.0.vec.extract.i.i39 = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i38, float noundef %p.sroa.0.0.vec.extract.i.i39)
-  %arrayidx1.i.i40 = getelementptr inbounds i8, ptr %buf.i38, i64 4
+  %arrayidx1.i.i40 = getelementptr inbounds nuw i8, ptr %buf.i38, i64 4
   %p.sroa.0.4.vec.extract.i.i41 = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i40, float noundef %p.sroa.0.4.vec.extract.i.i41)
-  %arrayidx2.i.i42 = getelementptr inbounds i8, ptr %buf.i38, i64 8
+  %arrayidx2.i.i42 = getelementptr inbounds nuw i8, ptr %buf.i38, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i42, float noundef %agg.tmp3.sroa.2.0.copyload)
   %call.i43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i38, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i38) #25
-  %expirationtime = getelementptr inbounds i8, ptr %this, i64 224
+  %expirationtime = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load float, ptr %expirationtime, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i44) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i44, float noundef %0)
   %call.i45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i44, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i44) #25
-  %size = getelementptr inbounds i8, ptr %this, i64 220
+  %size = getelementptr inbounds nuw i8, ptr %this, i64 220
   %1 = load float, ptr %size, align 4, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i46) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i46, float noundef %1)
@@ -2993,20 +2993,20 @@ entry:
   %call.i49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i48, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i48) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #25
-  %string = getelementptr inbounds i8, ptr %this, i64 112
+  %string = getelementptr inbounds nuw i8, ptr %this, i64 112
   %3 = load ptr, ptr %string, align 8, !tbaa !65
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %4 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !70
   call void @_Z17serializeString32B5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i64 %4, ptr %3)
   %5 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
-  %_M_string_length.i.i50 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i50 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %6 = load i64, ptr %_M_string_length.i.i50, align 8, !tbaa !70
   %call2.i51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %5, i64 noundef %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %7 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
-  %8 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
@@ -3022,112 +3022,112 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #25
-  %vertical = getelementptr inbounds i8, ptr %this, i64 3
+  %vertical = getelementptr inbounds nuw i8, ptr %this, i64 3
   %10 = load i8, ptr %vertical, align 1, !tbaa !79, !range !62, !noundef !63
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i52) #25
   store i8 %10, ptr %buf.i52, align 1, !tbaa !30
   %call.i53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i52, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i52) #25
-  %collision_removal = getelementptr inbounds i8, ptr %this, i64 1
+  %collision_removal = getelementptr inbounds nuw i8, ptr %this, i64 1
   %11 = load i8, ptr %collision_removal, align 1, !tbaa !80, !range !62, !noundef !63
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i54) #25
   store i8 %11, ptr %buf.i54, align 1, !tbaa !30
   %call.i55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i54, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i54) #25
-  %animation = getelementptr inbounds i8, ptr %this, i64 144
+  %animation = getelementptr inbounds nuw i8, ptr %this, i64 144
   call void @_ZNK19TileAnimationParams9serializeERSot(ptr noundef nonnull align 4 dereferenceable(16) %animation, ptr noundef nonnull align 8 dereferenceable(8) %os, i16 noundef zeroext %protocol_ver)
-  %glow = getelementptr inbounds i8, ptr %this, i64 160
+  %glow = getelementptr inbounds nuw i8, ptr %this, i64 160
   %12 = load i8, ptr %glow, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i56) #25
   store i8 %12, ptr %buf.i56, align 1, !tbaa !30
   %call.i57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i56, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i56) #25
-  %object_collision = getelementptr inbounds i8, ptr %this, i64 2
+  %object_collision = getelementptr inbounds nuw i8, ptr %this, i64 2
   %13 = load i8, ptr %object_collision, align 2, !tbaa !82, !range !62, !noundef !63
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i58) #25
   store i8 %13, ptr %buf.i58, align 1, !tbaa !30
   %call.i59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i58, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i58) #25
-  %node = getelementptr inbounds i8, ptr %this, i64 164
+  %node = getelementptr inbounds nuw i8, ptr %this, i64 164
   %14 = load i16, ptr %node, align 4, !tbaa !83
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i60) #25
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %14)
   store i16 %rev.i.i.i, ptr %buf.i60, align 2
   %call.i61 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i60, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i60) #25
-  %param2 = getelementptr inbounds i8, ptr %this, i64 167
+  %param2 = getelementptr inbounds nuw i8, ptr %this, i64 167
   %15 = load i8, ptr %param2, align 1, !tbaa !84
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i62) #25
   store i8 %15, ptr %buf.i62, align 1, !tbaa !30
   %call.i63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i62, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i62) #25
-  %node_tile = getelementptr inbounds i8, ptr %this, i64 168
+  %node_tile = getelementptr inbounds nuw i8, ptr %this, i64 168
   %16 = load i8, ptr %node_tile, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i64) #25
   store i8 %16, ptr %buf.i64, align 1, !tbaa !30
   %call.i65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i64, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i64) #25
-  %drag = getelementptr inbounds i8, ptr %this, i64 208
+  %drag = getelementptr inbounds nuw i8, ptr %this, i64 208
   %agg.tmp13.sroa.0.0.copyload = load <2 x float>, ptr %drag, align 8, !tbaa.struct !7
-  %agg.tmp13.sroa.2.0.drag.sroa_idx = getelementptr inbounds i8, ptr %this, i64 216
+  %agg.tmp13.sroa.2.0.drag.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 216
   %agg.tmp13.sroa.2.0.copyload = load float, ptr %agg.tmp13.sroa.2.0.drag.sroa_idx, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i66) #25
   %p.sroa.0.0.vec.extract.i.i67 = extractelement <2 x float> %agg.tmp13.sroa.0.0.copyload, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i66, float noundef %p.sroa.0.0.vec.extract.i.i67)
-  %arrayidx1.i.i68 = getelementptr inbounds i8, ptr %buf.i66, i64 4
+  %arrayidx1.i.i68 = getelementptr inbounds nuw i8, ptr %buf.i66, i64 4
   %p.sroa.0.4.vec.extract.i.i69 = extractelement <2 x float> %agg.tmp13.sroa.0.0.copyload, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i68, float noundef %p.sroa.0.4.vec.extract.i.i69)
-  %arrayidx2.i.i70 = getelementptr inbounds i8, ptr %buf.i66, i64 8
+  %arrayidx2.i.i70 = getelementptr inbounds nuw i8, ptr %buf.i66, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i70, float noundef %agg.tmp13.sroa.2.0.copyload)
   %call.i71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i66, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i66) #25
-  %val.i.i = getelementptr inbounds i8, ptr %this, i64 280
+  %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %agg.tmp.sroa.0.0.copyload.i.i = load <2 x float>, ptr %val.i.i, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 288
+  %agg.tmp.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %agg.tmp.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i.i, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i.i) #25
   %p.sroa.0.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i.i)
-  %arrayidx1.i.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i, i64 4
+  %arrayidx1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i.i)
-  %arrayidx2.i.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i, i64 8
+  %arrayidx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i.i, float noundef %agg.tmp.sroa.2.0.copyload.i.i)
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i.i) #25
-  %val.i5.i = getelementptr inbounds i8, ptr %this, i64 304
+  %val.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %agg.tmp.sroa.0.0.copyload.i6.i = load <2 x float>, ptr %val.i5.i, align 8, !tbaa.struct !7
-  %agg.tmp.sroa.2.0.val.sroa_idx.i7.i = getelementptr inbounds i8, ptr %this, i64 312
+  %agg.tmp.sroa.2.0.val.sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %agg.tmp.sroa.2.0.copyload.i8.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i7.i, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i4.i) #25
   %p.sroa.0.0.vec.extract.i.i.i.i9.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i6.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i9.i)
-  %arrayidx1.i.i.i.i10.i = getelementptr inbounds i8, ptr %buf.i.i.i4.i, i64 4
+  %arrayidx1.i.i.i.i10.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i4.i, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i11.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i6.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i10.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i11.i)
-  %arrayidx2.i.i.i.i12.i = getelementptr inbounds i8, ptr %buf.i.i.i4.i, i64 8
+  %arrayidx2.i.i.i.i12.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i4.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i12.i, float noundef %agg.tmp.sroa.2.0.copyload.i8.i)
   %call.i.i.i13.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4.i, i64 noundef 12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i4.i) #25
-  %bias.i = getelementptr inbounds i8, ptr %this, i64 320
+  %bias.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   %17 = load float, ptr %bias.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i, float noundef %17)
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i) #25
-  %val.i.i75 = getelementptr inbounds i8, ptr %this, i64 240
+  %val.i.i75 = getelementptr inbounds nuw i8, ptr %this, i64 240
   %18 = load float, ptr %val.i.i75, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i74) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i74, float noundef %18)
   %call.i.i.i.i76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i74, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i74) #25
-  %val.i5.i77 = getelementptr inbounds i8, ptr %this, i64 256
+  %val.i5.i77 = getelementptr inbounds nuw i8, ptr %this, i64 256
   %19 = load float, ptr %val.i5.i77, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4.i73) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4.i73, float noundef %19)
   %call.i.i.i6.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4.i73, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i4.i73) #25
-  %bias.i78 = getelementptr inbounds i8, ptr %this, i64 264
+  %bias.i78 = getelementptr inbounds nuw i8, ptr %this, i64 264
   %20 = load float, ptr %bias.i78, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i72) #25
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i72, float noundef %20)
@@ -3139,7 +3139,7 @@ lpad:                                             ; preds = %entry
   %21 = landingpad { ptr, i32 }
           cleanup
   %22 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
-  %23 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i80 = icmp eq ptr %22, %23
   br i1 %cmp.i.i.i80, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i82, label %if.then.i.i81
 
@@ -3184,59 +3184,59 @@ entry:
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 12)
   %call.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i)
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %call.i.i, i64 0
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %buf.i, i64 4
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 4
   %call2.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i)
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %call2.i.i, i64 1
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   %call4.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i) #25
-  %pos = getelementptr inbounds i8, ptr %this, i64 172
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 172
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %pos, align 4, !tbaa.struct !7
-  %ref.tmp.sroa.4.0.pos.sroa_idx = getelementptr inbounds i8, ptr %this, i64 180
+  %ref.tmp.sroa.4.0.pos.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 180
   store float %call4.i.i, ptr %ref.tmp.sroa.4.0.pos.sroa_idx, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i47) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i47, i8 0, i64 12, i1 false)
   %call.i48 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i47, i64 noundef 12)
   %call.i.i49 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i47)
   %retval.sroa.0.0.vec.insert.i.i50 = insertelement <2 x float> poison, float %call.i.i49, i64 0
-  %arrayidx1.i.i51 = getelementptr inbounds i8, ptr %buf.i47, i64 4
+  %arrayidx1.i.i51 = getelementptr inbounds nuw i8, ptr %buf.i47, i64 4
   %call2.i.i52 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i51)
   %retval.sroa.0.4.vec.insert.i.i53 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i50, float %call2.i.i52, i64 1
-  %arrayidx3.i.i54 = getelementptr inbounds i8, ptr %buf.i47, i64 8
+  %arrayidx3.i.i54 = getelementptr inbounds nuw i8, ptr %buf.i47, i64 8
   %call4.i.i55 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i54)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i47) #25
-  %vel = getelementptr inbounds i8, ptr %this, i64 184
+  %vel = getelementptr inbounds nuw i8, ptr %this, i64 184
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i53, ptr %vel, align 8, !tbaa.struct !7
-  %ref.tmp2.sroa.4.0.vel.sroa_idx = getelementptr inbounds i8, ptr %this, i64 192
+  %ref.tmp2.sroa.4.0.vel.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 192
   store float %call4.i.i55, ptr %ref.tmp2.sroa.4.0.vel.sroa_idx, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i58) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i58, i8 0, i64 12, i1 false)
   %call.i59 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i58, i64 noundef 12)
   %call.i.i60 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i58)
   %retval.sroa.0.0.vec.insert.i.i61 = insertelement <2 x float> poison, float %call.i.i60, i64 0
-  %arrayidx1.i.i62 = getelementptr inbounds i8, ptr %buf.i58, i64 4
+  %arrayidx1.i.i62 = getelementptr inbounds nuw i8, ptr %buf.i58, i64 4
   %call2.i.i63 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i62)
   %retval.sroa.0.4.vec.insert.i.i64 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i61, float %call2.i.i63, i64 1
-  %arrayidx3.i.i65 = getelementptr inbounds i8, ptr %buf.i58, i64 8
+  %arrayidx3.i.i65 = getelementptr inbounds nuw i8, ptr %buf.i58, i64 8
   %call4.i.i66 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i65)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i58) #25
-  %acc = getelementptr inbounds i8, ptr %this, i64 196
+  %acc = getelementptr inbounds nuw i8, ptr %this, i64 196
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i64, ptr %acc, align 4, !tbaa.struct !7
-  %ref.tmp5.sroa.4.0.acc.sroa_idx = getelementptr inbounds i8, ptr %this, i64 204
+  %ref.tmp5.sroa.4.0.acc.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 204
   store float %call4.i.i66, ptr %ref.tmp5.sroa.4.0.acc.sroa_idx, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i69) #25
   store i32 0, ptr %buf.i69, align 4
   %call.i70 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i69, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i69)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i69) #25
-  %expirationtime = getelementptr inbounds i8, ptr %this, i64 224
+  %expirationtime = getelementptr inbounds nuw i8, ptr %this, i64 224
   store float %call2.i, ptr %expirationtime, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i71) #25
   store i32 0, ptr %buf.i71, align 4
   %call.i72 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i71, i64 noundef 4)
   %call2.i73 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i71)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i71) #25
-  %size = getelementptr inbounds i8, ptr %this, i64 220
+  %size = getelementptr inbounds nuw i8, ptr %this, i64 220
   store float %call2.i73, ptr %size, align 4, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i74) #25
   store i8 0, ptr %buf.i74, align 1
@@ -3248,31 +3248,31 @@ entry:
   store i8 %frombool, ptr %this, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11) #25
   call void @_Z19deSerializeString32B5cxx11RSi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %is)
-  %string = getelementptr inbounds i8, ptr %this, i64 112
+  %string = getelementptr inbounds nuw i8, ptr %this, i64 112
   %1 = load ptr, ptr %string, align 8, !tbaa !65
-  %2 = getelementptr inbounds i8, ptr %this, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.end.i, label %if.end.thread.i
 
 if.end.i:                                         ; preds = %entry
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %3 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !70
   %cmp3.i.i = icmp ult i64 %3, 16
   call void @llvm.assume(i1 %cmp3.i.i)
   %4 = load ptr, ptr %ref.tmp11, align 8, !tbaa !65
-  %5 = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
   %cmp.i56.i = icmp eq ptr %4, %5
   br i1 %cmp.i56.i, label %if.then15.i, label %if.end32.thread.i
 
 if.end.thread.i:                                  ; preds = %entry
   %6 = load ptr, ptr %ref.tmp11, align 8, !tbaa !65
-  %7 = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
   %cmp.i5678.i = icmp eq ptr %6, %7
   br i1 %cmp.i5678.i, label %if.then15.i, label %if.end32.i
 
 if.then15.i:                                      ; preds = %if.end.thread.i, %if.end.i
   %8 = phi ptr [ %6, %if.end.thread.i ], [ %5, %if.end.i ]
-  %_M_string_length.i58.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  %_M_string_length.i58.i = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   %9 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !70
   %cmp3.i59.i = icmp ult i64 %9, 16
   call void @llvm.assume(i1 %cmp3.i59.i)
@@ -3296,7 +3296,7 @@ if.end.i.i.i:                                     ; preds = %if.then16.i
 
 if.end24.i:                                       ; preds = %if.end.i.i.i, %if.then.i63.i, %if.then16.i
   %11 = load i64, ptr %_M_string_length.i58.i, align 8, !tbaa !70
-  %_M_string_length.i.i65.i = getelementptr inbounds i8, ptr %this, i64 120
+  %_M_string_length.i.i65.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i64 %11, ptr %_M_string_length.i.i65.i, align 8, !tbaa !70
   %12 = load ptr, ptr %string, align 8, !tbaa !65
   %arrayidx.i.i = getelementptr inbounds i8, ptr %12, i64 %11
@@ -3306,7 +3306,7 @@ if.end24.i:                                       ; preds = %if.end.i.i.i, %if.t
 
 if.end32.thread.i:                                ; preds = %if.end.i
   store ptr %4, ptr %string, align 8, !tbaa !65
-  %_M_string_length.i7175.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  %_M_string_length.i7175.i = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   %13 = load i64, ptr %_M_string_length.i7175.i, align 8, !tbaa !70
   store i64 %13, ptr %_M_string_length.i.i, align 8, !tbaa !70
   %14 = load i64, ptr %5, align 8, !tbaa !30
@@ -3316,8 +3316,8 @@ if.end32.thread.i:                                ; preds = %if.end.i
 if.end32.i:                                       ; preds = %if.end.thread.i
   %15 = load i64, ptr %2, align 8, !tbaa !30
   store ptr %6, ptr %string, align 8, !tbaa !65
-  %_M_string_length.i71.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
-  %_M_string_length.i72.i = getelementptr inbounds i8, ptr %this, i64 120
+  %_M_string_length.i71.i = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
+  %_M_string_length.i72.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %16 = load <2 x i64>, ptr %_M_string_length.i71.i, align 8, !tbaa !30
   store <2 x i64> %16, ptr %_M_string_length.i72.i, align 8, !tbaa !30
   %tobool35.not.i = icmp eq ptr %1, null
@@ -3335,11 +3335,11 @@ if.else37.i:                                      ; preds = %if.end32.i, %if.end
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %if.else37.i, %if.then36.i, %if.end24.i, %if.then15.i
   %18 = phi ptr [ %.pre.i, %if.end24.i ], [ %1, %if.then36.i ], [ %17, %if.else37.i ], [ %8, %if.then15.i ]
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !70
   store i8 0, ptr %18, align 1, !tbaa !30
   %19 = load ptr, ptr %ref.tmp11, align 8, !tbaa !65
-  %20 = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
   %cmp.i.i.i = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
@@ -3361,7 +3361,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %22 = load i8, ptr %buf.i76, align 1, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i76) #25
   %tobool14 = icmp ne i8 %22, 0
-  %vertical = getelementptr inbounds i8, ptr %this, i64 3
+  %vertical = getelementptr inbounds nuw i8, ptr %this, i64 3
   %frombool15 = zext i1 %tobool14 to i8
   store i8 %frombool15, ptr %vertical, align 1, !tbaa !79
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i78) #25
@@ -3370,17 +3370,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %23 = load i8, ptr %buf.i78, align 1, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i78) #25
   %tobool17 = icmp ne i8 %23, 0
-  %collision_removal = getelementptr inbounds i8, ptr %this, i64 1
+  %collision_removal = getelementptr inbounds nuw i8, ptr %this, i64 1
   %frombool18 = zext i1 %tobool17 to i8
   store i8 %frombool18, ptr %collision_removal, align 1, !tbaa !80
-  %animation = getelementptr inbounds i8, ptr %this, i64 144
+  %animation = getelementptr inbounds nuw i8, ptr %this, i64 144
   call void @_ZN19TileAnimationParams11deSerializeERSit(ptr noundef nonnull align 4 dereferenceable(16) %animation, ptr noundef nonnull align 8 dereferenceable(16) %is, i16 noundef zeroext %protocol_ver)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i80) #25
   store i8 0, ptr %buf.i80, align 1
   %call.i81 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i80, i64 noundef 1)
   %24 = load i8, ptr %buf.i80, align 1, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i80) #25
-  %glow = getelementptr inbounds i8, ptr %this, i64 160
+  %glow = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i8 %24, ptr %glow, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i82) #25
   store i8 0, ptr %buf.i82, align 1
@@ -3388,7 +3388,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %25 = load i8, ptr %buf.i82, align 1, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i82) #25
   %tobool21 = icmp ne i8 %25, 0
-  %object_collision = getelementptr inbounds i8, ptr %this, i64 2
+  %object_collision = getelementptr inbounds nuw i8, ptr %this, i64 2
   %frombool22 = zext i1 %tobool21 to i8
   store i8 %frombool22, ptr %object_collision, align 2, !tbaa !82
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i.i) #25
@@ -3400,14 +3400,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i
-  %_M_streambuf_state.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
+  %_M_streambuf_state.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %26 = load i32, ptr %_M_streambuf_state.i.i.i, align 8, !tbaa !86
   %and.i.i.i = and i32 %26, 2
   %cmp.i.i85.not = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.i85.not, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %node = getelementptr inbounds i8, ptr %this, i64 164
+  %node = getelementptr inbounds nuw i8, ptr %this, i64 164
   %rev.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i.i)
   store i16 %rev.i.i.i.i, ptr %node, align 4, !tbaa !53
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i87) #25
@@ -3415,51 +3415,51 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
   %call.i88 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i87, i64 noundef 1)
   %27 = load i8, ptr %buf.i87, align 1, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i87) #25
-  %param2 = getelementptr inbounds i8, ptr %this, i64 167
+  %param2 = getelementptr inbounds nuw i8, ptr %this, i64 167
   store i8 %27, ptr %param2, align 1, !tbaa !84
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i89) #25
   store i8 0, ptr %buf.i89, align 1
   %call.i90 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i89, i64 noundef 1)
   %28 = load i8, ptr %buf.i89, align 1, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i89) #25
-  %node_tile = getelementptr inbounds i8, ptr %this, i64 168
+  %node_tile = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i8 %28, ptr %node_tile, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i91) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i91, i8 0, i64 12, i1 false)
   %call.i.i92 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i91, i64 noundef 12)
   %call.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i91)
-  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %buf.i.i91, i64 4
+  %arrayidx1.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i91, i64 4
   %call2.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i)
-  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %buf.i.i91, i64 8
+  %arrayidx3.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i91, i64 8
   %call4.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i91) #25
   %vtable.i93 = load ptr, ptr %is, align 8, !tbaa !4
   %vbase.offset.ptr.i94 = getelementptr i8, ptr %vtable.i93, i64 -24
   %vbase.offset.i95 = load i64, ptr %vbase.offset.ptr.i94, align 8
   %add.ptr.i96 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i95
-  %_M_streambuf_state.i.i.i97 = getelementptr inbounds i8, ptr %add.ptr.i96, i64 32
+  %_M_streambuf_state.i.i.i97 = getelementptr inbounds nuw i8, ptr %add.ptr.i96, i64 32
   %29 = load i32, ptr %_M_streambuf_state.i.i.i97, align 8, !tbaa !86
   %and.i.i.i98 = and i32 %29, 2
   %cmp.i.i99.not = icmp eq i32 %and.i.i.i98, 0
   br i1 %cmp.i.i99.not, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.end
-  %drag = getelementptr inbounds i8, ptr %this, i64 208
+  %drag = getelementptr inbounds nuw i8, ptr %this, i64 208
   %retval.sroa.0.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %call.i.i.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i, float %call2.i.i.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i, ptr %drag, align 8, !tbaa.struct !7
-  %tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 216
+  %tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   store float %call4.i.i.i, ptr %tmp.sroa.4.0..sroa_idx.i, align 8, !tbaa !8
-  %jitter = getelementptr inbounds i8, ptr %this, i64 272
+  %jitter = getelementptr inbounds nuw i8, ptr %this, i64 272
   call void @_ZN18ParticleParamTypes15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(52) %jitter, ptr noundef nonnull align 8 dereferenceable(16) %is)
-  %val.i.i = getelementptr inbounds i8, ptr %this, i64 240
+  %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i) #25
   store i32 0, ptr %buf.i.i.i.i, align 4
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 4)
   %call2.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i) #25
   store float %call2.i.i.i.i, ptr %val.i.i, align 8, !tbaa !8
-  %val.i5.i = getelementptr inbounds i8, ptr %this, i64 256
+  %val.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4.i) #25
   store i32 0, ptr %buf.i.i.i4.i, align 4
   %call.i.i.i6.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i4.i, i64 noundef 4)
@@ -3471,7 +3471,7 @@ if.end29:                                         ; preds = %if.end
   %call.i.i102 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i101, i64 noundef 4)
   %call2.i.i103 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i101)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i101) #25
-  %bias.i = getelementptr inbounds i8, ptr %this, i64 264
+  %bias.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   store float %call2.i.i103, ptr %bias.i, align 8, !tbaa !18
   br label %return
 
@@ -3524,12 +3524,12 @@ lpad5:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
-  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad5
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !70
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -3578,7 +3578,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i = alloca i64, align 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %this, align 8, !tbaa !94
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
@@ -3619,7 +3619,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
 
 invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
   %4 = load i64, ptr %__dnew.i, align 8, !tbaa !95
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !70
   %5 = load ptr, ptr %this, align 8, !tbaa !65
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %4
@@ -3633,11 +3633,11 @@ define linkonce_odr dso_local void @_ZN18SerializationErrorC2ERKNSt7__cxx1112bas
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
-  %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %0, ptr %m_s.i, align 8, !tbaa !94
   %1 = load ptr, ptr %s, align 8, !tbaa !65
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %s, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #25
   store i64 %2, ptr %__dnew.i.i.i, align 8, !tbaa !95
@@ -3679,7 +3679,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
 
 _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i
   %8 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !95
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %8, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !70
   %9 = load ptr, ptr %m_s.i, align 8, !tbaa !65
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
@@ -3693,14 +3693,14 @@ _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
-  %m_s = getelementptr inbounds i8, ptr %this, i64 8
+  %m_s = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !65
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !70
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -3747,14 +3747,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #19
 define linkonce_odr dso_local void @_ZN18SerializationErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
-  %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !65
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !70
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -3773,7 +3773,7 @@ _ZN13BaseExceptionD2Ev.exit:                      ; preds = %if.then.i.i.i, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK13BaseException4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_s = getelementptr inbounds i8, ptr %this, i64 8
+  %m_s = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !65
   ret ptr %0
 }
@@ -3782,14 +3782,14 @@ entry:
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
-  %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !65
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !70
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -3861,12 +3861,12 @@ lpad7:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !65
-  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad7
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !70
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)

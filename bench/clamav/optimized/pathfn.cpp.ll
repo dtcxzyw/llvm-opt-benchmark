@@ -83,14 +83,14 @@ define noundef ptr @_Z11PointToNamePKw(ptr noundef readonly %0) local_unnamed_ad
 
 7:                                                ; preds = %4
   %8 = add nsw i64 %indvars.iv, -1
-  %9 = getelementptr inbounds i32, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 47
   br i1 %11, label %12, label %4, !llvm.loop !4
 
 12:                                               ; preds = %7
   %13 = and i64 %indvars.iv, 2147483647
-  %14 = getelementptr inbounds i32, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %12
@@ -137,28 +137,28 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %.043, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.043, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 46
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %.043, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.043, i64 8
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 46
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.043, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %.043, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 47
-  %19 = getelementptr inbounds i8, ptr %.043, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.043, i64 16
   %spec.select = select i1 %18, ptr %19, ptr %.044
   br label %20
 
 20:                                               ; preds = %5, %15, %7, %11
   %.145 = phi ptr [ %.044, %11 ], [ %.044, %7 ], [ %spec.select, %15 ], [ %.044, %5 ]
-  %21 = getelementptr inbounds i8, ptr %.043, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.043, i64 4
   br label %5, !llvm.loop !6
 
 .preheader:                                       ; preds = %5, %42
@@ -170,7 +170,7 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   ]
 
 23:                                               ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %.246, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.246, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 47
   br i1 %26, label %27, label %.loopexit.preheader
@@ -180,7 +180,7 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   br label %.loopexit
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %.246, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.246, i64 8
   br label %29
 
 29:                                               ; preds = %35, %27
@@ -197,12 +197,12 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %.039, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %.loopexit.preheader
 
 35:                                               ; preds = %29, %31
   %.1 = phi i32 [ 1, %31 ], [ %.040, %29 ]
-  %36 = getelementptr inbounds i8, ptr %.039, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   br label %29, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %40
@@ -215,12 +215,12 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   ]
 
 38:                                               ; preds = %.loopexit
-  %39 = getelementptr inbounds i8, ptr %.0, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   br label %40
 
 40:                                               ; preds = %.loopexit, %38
   %.3 = phi ptr [ %39, %38 ], [ %.2, %.loopexit ]
-  %41 = getelementptr inbounds i8, ptr %.0, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   br label %.loopexit, !llvm.loop !8
 
 42:                                               ; preds = %.loopexit
@@ -232,13 +232,13 @@ define noundef ptr @_Z11ConvertPathPKwPwm(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %.246, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.246, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 46
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %.246, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.246, i64 8
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   %spec.select58 = select i1 %53, ptr %51, ptr %.246
@@ -274,14 +274,14 @@ define void @_Z7SetNamePwPKwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
 
 9:                                                ; preds = %6
   %10 = add nsw i64 %indvars.iv.i, -1
-  %11 = getelementptr inbounds i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 47
   br i1 %13, label %14, label %6, !llvm.loop !4
 
 14:                                               ; preds = %9
   %15 = and i64 %indvars.iv.i, 2147483647
-  %16 = getelementptr inbounds i32, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %15
   br label %_Z11PointToNamePKw.exit
 
 _Z11PointToNamePKw.exit:                          ; preds = %6, %14
@@ -318,14 +318,14 @@ define void @_Z6SetExtPwPKwm(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 
 14:                                               ; preds = %11
   %15 = add nsw i64 %indvars.iv.i.i, -1
-  %16 = getelementptr inbounds i32, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 47
   br i1 %18, label %19, label %11, !llvm.loop !4
 
 19:                                               ; preds = %14
   %20 = and i64 %indvars.iv.i.i, 2147483647
-  %21 = getelementptr inbounds i32, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %20
   br label %_Z6GetExtPKw.exit
 
 _Z6GetExtPKw.exit:                                ; preds = %11, %19
@@ -369,14 +369,14 @@ define noundef ptr @_Z6GetExtPKw(ptr noundef readonly %0) local_unnamed_addr #5 
 
 9:                                                ; preds = %6
   %10 = add nsw i64 %indvars.iv.i, -1
-  %11 = getelementptr inbounds i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 47
   br i1 %13, label %14, label %6, !llvm.loop !4
 
 14:                                               ; preds = %9
   %15 = and i64 %indvars.iv.i, 2147483647
-  %16 = getelementptr inbounds i32, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %15
   br label %_Z11PointToNamePKw.exit
 
 _Z11PointToNamePKw.exit:                          ; preds = %6, %14
@@ -414,14 +414,14 @@ define void @_Z9SetSFXExtPwm(ptr noundef %0, i64 noundef %1) local_unnamed_addr 
 
 13:                                               ; preds = %10
   %14 = add nsw i64 %indvars.iv.i.i.i, -1
-  %15 = getelementptr inbounds i32, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 47
   br i1 %17, label %18, label %10, !llvm.loop !4
 
 18:                                               ; preds = %13
   %19 = and i64 %indvars.iv.i.i.i, 2147483647
-  %20 = getelementptr inbounds i32, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %19
   br label %_Z6GetExtPKw.exit.i
 
 _Z6GetExtPKw.exit.i:                              ; preds = %10, %18
@@ -464,14 +464,14 @@ define noundef zeroext i1 @_Z6CmpExtPKwS0_(ptr noundef %0, ptr noundef %1) local
 
 10:                                               ; preds = %7
   %11 = add nsw i64 %indvars.iv.i.i, -1
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 47
   br i1 %14, label %15, label %7, !llvm.loop !4
 
 15:                                               ; preds = %10
   %16 = and i64 %indvars.iv.i.i, 2147483647
-  %17 = getelementptr inbounds i32, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %_Z6GetExtPKw.exit
 
 _Z6GetExtPKw.exit:                                ; preds = %7, %15
@@ -481,7 +481,7 @@ _Z6GetExtPKw.exit:                                ; preds = %7, %15
   br i1 %.not, label %_Z6GetExtPKw.exit.thread, label %19
 
 19:                                               ; preds = %_Z6GetExtPKw.exit
-  %20 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = tail call noundef i32 @_Z8wcsicompPKwS0_(ptr noundef nonnull %20, ptr noundef %1)
   %22 = icmp eq i32 %21, 0
   br label %_Z6GetExtPKw.exit.thread
@@ -579,7 +579,7 @@ define void @_Z8MakeNamePKwS0_Pwm(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 16:                                               ; preds = %13
   store i32 47, ptr %10, align 4
-  %17 = getelementptr inbounds i32, ptr %5, i64 %14
+  %17 = getelementptr inbounds nuw i32, ptr %5, i64 %14
   store i32 0, ptr %17, align 4
   br label %_Z11AddEndSlashPwm.exit
 
@@ -608,14 +608,14 @@ define void @_Z11GetFilePathPKwPwm(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 12:                                               ; preds = %9
   %13 = add nsw i64 %indvars.iv.i, -1
-  %14 = getelementptr inbounds i32, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 47
   br i1 %16, label %17, label %9, !llvm.loop !4
 
 17:                                               ; preds = %12
   %18 = and i64 %indvars.iv.i, 2147483647
-  %19 = getelementptr inbounds i32, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
   br label %_Z11PointToNamePKw.exit
 
 _Z11PointToNamePKw.exit:                          ; preds = %9, %17
@@ -635,14 +635,14 @@ _Z11PointToNamePKw.exit:                          ; preds = %9, %17
 
 27:                                               ; preds = %.preheader
   %28 = add nsw i64 %indvars.iv.i12, -1
-  %29 = getelementptr inbounds i32, ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %0, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 47
   br i1 %31, label %32, label %.preheader, !llvm.loop !4
 
 32:                                               ; preds = %27
   %33 = and i64 %indvars.iv.i12, 2147483647
-  %34 = getelementptr inbounds i32, ptr %0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %0, i64 %33
   %.pre = ptrtoint ptr %34 to i64
   br label %_Z11PointToNamePKw.exit14
 
@@ -680,7 +680,7 @@ define void @_Z18RemoveNameFromPathPw(ptr nocapture noundef %0) local_unnamed_ad
 
 7:                                                ; preds = %4
   %8 = add nsw i64 %indvars.iv.i, -1
-  %9 = getelementptr inbounds i32, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 47
   br i1 %11, label %_Z11PointToNamePKw.exit, label %4, !llvm.loop !4
@@ -688,7 +688,7 @@ define void @_Z18RemoveNameFromPathPw(ptr nocapture noundef %0) local_unnamed_ad
 _Z11PointToNamePKw.exit:                          ; preds = %7
   %12 = shl i64 %indvars.iv.i, 2
   %.idx = and i64 %12, 8589934588
-  %13 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.not = icmp samesign ult i64 %.idx, 8
   %spec.select.idx = select i1 %.not, i64 0, i64 -4
   %spec.select = getelementptr inbounds i8, ptr %13, i64 %spec.select.idx
@@ -725,7 +725,7 @@ define noundef zeroext i1 @_Z15EnumConfigPathsjPwmb(i32 noundef %0, ptr noundef 
 
 14:                                               ; preds = %11
   %15 = zext nneg i32 %12 to i64
-  %16 = getelementptr inbounds [5 x ptr], ptr @_ZZ15EnumConfigPathsjPwmbE8ConfPath, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZ15EnumConfigPathsjPwmbE8ConfPath, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
   tail call void @_Z8wcsncpyzPwPKwm(ptr noundef %1, ptr noundef %17, i64 noundef %2)
   br label %18
@@ -757,7 +757,7 @@ define void @_Z13GetConfigNamePKwPwmbb(ptr noundef %0, ptr noundef initializes((
 
 10:                                               ; preds = %7
   %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr inbounds [5 x ptr], ptr @_ZZ15EnumConfigPathsjPwmbE8ConfPath, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZ15EnumConfigPathsjPwmbE8ConfPath, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   tail call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %1, ptr noundef %13, i64 noundef %2)
   br label %19
@@ -864,14 +864,14 @@ define noundef ptr @_Z13GetVolNumPartPKw(ptr noundef readonly %0) local_unnamed_
 
 7:                                                ; preds = %4
   %8 = add nsw i64 %indvars.iv.i, -1
-  %9 = getelementptr inbounds i32, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 47
   br i1 %11, label %12, label %4, !llvm.loop !4
 
 12:                                               ; preds = %7
   %13 = and i64 %indvars.iv.i, 2147483647
-  %14 = getelementptr inbounds i32, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
   br label %_Z11PointToNamePKw.exit
 
 _Z11PointToNamePKw.exit:                          ; preds = %4, %12
@@ -962,14 +962,14 @@ _Z6GetExtPKw.exit54.thread57:                     ; preds = %3
 
 12:                                               ; preds = %9
   %13 = add nsw i64 %indvars.iv.i.i, -1
-  %14 = getelementptr inbounds i32, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 47
   br i1 %16, label %17, label %9, !llvm.loop !4
 
 17:                                               ; preds = %12
   %18 = and i64 %indvars.iv.i.i, 2147483647
-  %19 = getelementptr inbounds i32, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
   br label %_Z6GetExtPKw.exit
 
 _Z6GetExtPKw.exit:                                ; preds = %9, %17
@@ -993,18 +993,18 @@ _Z6GetExtPKw.exit:                                ; preds = %9, %17
 
 29:                                               ; preds = %26
   %30 = add nsw i64 %indvars.iv.i.i51, -1
-  %31 = getelementptr inbounds i32, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 47
   br i1 %33, label %34, label %26, !llvm.loop !4
 
 34:                                               ; preds = %29
   %35 = and i64 %indvars.iv.i.i51, 2147483647
-  %36 = getelementptr inbounds i32, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %35
   br label %_Z6GetExtPKw.exit54
 
 37:                                               ; preds = %_Z6GetExtPKw.exit
-  %38 = getelementptr inbounds i8, ptr %20, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %47, label %41
@@ -1042,7 +1042,7 @@ _Z6GetExtPKw.exit54.thread:                       ; preds = %44, %47, %_Z6GetExt
   br i1 %.not, label %57, label %61
 
 57:                                               ; preds = %_Z6GetExtPKw.exit54.thread
-  %58 = getelementptr inbounds i8, ptr %.04556, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.04556, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %62
@@ -1086,7 +1086,7 @@ _Z6GetExtPKw.exit54.thread:                       ; preds = %44, %47, %_Z6GetExt
 .lr.ph:                                           ; preds = %75, %.lr.ph
   %.065 = phi ptr [ %80, %.lr.ph ], [ %77, %75 ]
   %78 = load i32, ptr %.065, align 4
-  %79 = getelementptr inbounds i8, ptr %.065, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.065, i64 4
   store i32 %78, ptr %79, align 4
   %80 = getelementptr inbounds i8, ptr %.065, i64 -4
   %.not49 = icmp eq ptr %.065, %.1
@@ -1097,13 +1097,13 @@ _Z6GetExtPKw.exit54.thread:                       ; preds = %44, %47, %_Z6GetExt
   br label %.loopexit
 
 81:                                               ; preds = %62
-  %82 = getelementptr inbounds i8, ptr %.04556, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.04556, i64 8
   %83 = load i32, ptr %82, align 4
   %84 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %83)
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %.04556, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %.04556, i64 12
   %87 = load i32, ptr %86, align 4
   %88 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %87)
   br i1 %88, label %97, label %89
@@ -1121,8 +1121,8 @@ _Z6GetExtPKw.exit54.thread:                       ; preds = %44, %47, %_Z6GetExt
 
 97:                                               ; preds = %85
   %98 = tail call i64 @wcslen(ptr noundef nonnull %.04556) #18
-  %99 = add i64 %98, -1
-  %100 = getelementptr inbounds i32, ptr %.04556, i64 %99
+  %99 = getelementptr i32, ptr %.04556, i64 %98
+  %100 = getelementptr i8, ptr %99, i64 -4
   %101 = load i32, ptr %100, align 4
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %100, align 4
@@ -1179,19 +1179,19 @@ define noundef zeroext i1 @_Z12IsNameUsablePKw(ptr noundef readonly %0) local_un
   ]
 
 ._crit_edge17:                                    ; preds = %6
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.016, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.016, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %11
 
 7:                                                ; preds = %6, %6
-  %8 = getelementptr inbounds i8, ptr %.016, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.016, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 47
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %._crit_edge17, %7
   %12 = phi i32 [ %.pre, %._crit_edge17 ], [ %9, %7 ]
-  %13 = getelementptr inbounds i8, ptr %.016, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.016, i64 4
   %.not13 = icmp eq i32 %12, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
@@ -1232,7 +1232,7 @@ define void @_Z14MakeNameUsablePwb(ptr nocapture noundef %0, i1 noundef zeroext 
   ]
 
 9:                                                ; preds = %8, %8
-  %10 = getelementptr inbounds i8, ptr %.019.us, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.019.us, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 47
   br i1 %12, label %.sink.split, label %13
@@ -1242,7 +1242,7 @@ define void @_Z14MakeNameUsablePwb(ptr nocapture noundef %0, i1 noundef zeroext 
   br label %13
 
 13:                                               ; preds = %.sink.split, %9, %8
-  %14 = getelementptr inbounds i8, ptr %.019.us, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.019.us, i64 4
   %15 = load i32, ptr %14, align 4
   %.not.us = icmp eq i32 %15, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
@@ -1259,7 +1259,7 @@ define void @_Z14MakeNameUsablePwb(ptr nocapture noundef %0, i1 noundef zeroext 
   br label %19
 
 19:                                               ; preds = %.lr.ph.split, %18
-  %20 = getelementptr inbounds i8, ptr %.019, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.019, i64 4
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
@@ -1493,19 +1493,19 @@ define void @_Z11GetPathRootPKwPwm(ptr noundef %0, ptr noundef initializes((0, 4
   br i1 %7, label %8, label %29
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 92
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = tail call ptr @wcschr(ptr noundef nonnull %13, i32 noundef signext 92) #18
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %29, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = tail call ptr @wcschr(ptr noundef nonnull %16, i32 noundef signext 92) #18
   %.not21 = icmp eq ptr %17, null
   br i1 %.not21, label %24, label %18
@@ -1542,7 +1542,7 @@ define noundef i32 @_Z20ParseVersionFileNamePwb(ptr noundef %0, i1 noundef zeroe
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = tail call noundef i32 @_Z5atoiwPKw(ptr noundef nonnull %5)
   br i1 %1, label %7, label %8
 
@@ -1594,7 +1594,7 @@ define noundef ptr @_Z18VolNameToFirstNamePKwPwmb(ptr noundef %0, ptr noundef %1
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %.02854, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02854, i64 4
   br label %_Z6GetExtPKw.exit
 
 21:                                               ; preds = %16, %17
@@ -1625,14 +1625,14 @@ define noundef ptr @_Z18VolNameToFirstNamePKwPwmb(ptr noundef %0, ptr noundef %1
 
 35:                                               ; preds = %32
   %36 = add nsw i64 %indvars.iv.i.i.i, -1
-  %37 = getelementptr inbounds i32, ptr %1, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 47
   br i1 %39, label %40, label %32, !llvm.loop !4
 
 40:                                               ; preds = %35
   %41 = and i64 %indvars.iv.i.i.i, 2147483647
-  %42 = getelementptr inbounds i32, ptr %1, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %41
   br label %_Z6GetExtPKw.exit.i
 
 _Z6GetExtPKw.exit.i:                              ; preds = %32, %40
@@ -1663,14 +1663,14 @@ _Z6SetExtPwPKwm.exit.thread40:                    ; preds = %_Z6SetExtPwPKwm.exi
 
 50:                                               ; preds = %47
   %51 = add nsw i64 %indvars.iv.i.i, -1
-  %52 = getelementptr inbounds i32, ptr %1, i64 %51
+  %52 = getelementptr inbounds nuw i32, ptr %1, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 47
   br i1 %54, label %55, label %47, !llvm.loop !4
 
 55:                                               ; preds = %50
   %56 = and i64 %indvars.iv.i.i, 2147483647
-  %57 = getelementptr inbounds i32, ptr %1, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %1, i64 %56
   br label %_Z11PointToNamePKw.exit.i
 
 _Z11PointToNamePKw.exit.i:                        ; preds = %47, %55
@@ -1702,14 +1702,14 @@ _Z6GetExtPKw.exit:                                ; preds = %21, %11, %24, %_Z11
 
 69:                                               ; preds = %66
   %70 = add nsw i64 %indvars.iv.i.i.i35, -1
-  %71 = getelementptr inbounds i32, ptr %5, i64 %70
+  %71 = getelementptr inbounds nuw i32, ptr %5, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 47
   br i1 %73, label %74, label %66, !llvm.loop !4
 
 74:                                               ; preds = %69
   %75 = and i64 %indvars.iv.i.i.i35, 2147483647
-  %76 = getelementptr inbounds i32, ptr %5, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr %5, i64 %75
   br label %_Z6GetExtPKw.exit.i36
 
 _Z6GetExtPKw.exit.i36:                            ; preds = %66, %74
@@ -1733,9 +1733,9 @@ _Z6SetExtPwPKwm.exit39:                           ; preds = %60, %79
           to label %80 unwind label %.loopexit.split-lp
 
 80:                                               ; preds = %_Z6SetExtPwPKwm.exit39
-  %81 = getelementptr inbounds i8, ptr %7, i64 8208
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 8208
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
-  %82 = getelementptr inbounds i8, ptr %8, i64 48849
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 48849
   br label %83
 
 83:                                               ; preds = %98, %80
@@ -1895,7 +1895,7 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, pt
   %13 = load i32, ptr %1, align 4
   %14 = icmp eq i32 %13, 43
   %spec.select.idx = select i1 %14, i64 4, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
   %15 = load i32, ptr %spec.select, align 4
   %.not = icmp eq i32 %15, 0
   %16 = select i1 %.not, ptr @.str.18, ptr %spec.select
@@ -1907,7 +1907,7 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, pt
   %.0114 = phi i32 [ 0, %4 ], [ %.1115, %64 ]
   %.0109 = phi i1 [ false, %4 ], [ %.1, %64 ]
   %18 = zext i32 %.0120 to i64
-  %19 = getelementptr inbounds [128 x i32], ptr %5, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [128 x i32], ptr %5, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %23 [
     i32 0, label %66
@@ -1952,7 +1952,7 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, pt
   %.0124 = phi i32 [ 0, %34 ], [ %43, %36 ]
   %37 = add i32 %.0124, %.0120
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds [128 x i32], ptr %5, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [128 x i32], ptr %5, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = call noundef i32 @_Z8toupperwi(i32 noundef %40)
   %42 = icmp eq i32 %41, 78
@@ -1973,8 +1973,8 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, pt
   br i1 %52, label %53, label %60
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i32, ptr %19, i64 %48
-  %55 = getelementptr inbounds i32, ptr %19, i64 %49
+  %54 = getelementptr inbounds nuw i32, ptr %19, i64 %48
+  %55 = getelementptr inbounds nuw i32, ptr %19, i64 %49
   %56 = call i64 @wcslen(ptr noundef nonnull %55) #18
   %57 = add i64 %56, 1
   %58 = call ptr @wmemmove(ptr noundef nonnull %54, ptr noundef nonnull %55, i64 noundef %57) #19
@@ -2011,14 +2011,14 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, pt
 
 72:                                               ; preds = %69
   %73 = add nsw i64 %indvars.iv.i.i, -1
-  %74 = getelementptr inbounds i32, ptr %0, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr %0, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %75, 47
   br i1 %76, label %77, label %69, !llvm.loop !4
 
 77:                                               ; preds = %72
   %78 = and i64 %indvars.iv.i.i, 2147483647
-  %79 = getelementptr inbounds i32, ptr %0, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr %0, i64 %78
   br label %_Z6GetExtPKw.exit
 
 _Z6GetExtPKw.exit:                                ; preds = %69, %77
@@ -2036,14 +2036,14 @@ _Z6GetExtPKw.exit:                                ; preds = %69, %77
 
 84:                                               ; preds = %.preheader
   %85 = add nsw i64 %indvars.iv.i, -1
-  %86 = getelementptr inbounds i32, ptr %0, i64 %85
+  %86 = getelementptr inbounds nuw i32, ptr %0, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, 47
   br i1 %88, label %89, label %.preheader, !llvm.loop !4
 
 89:                                               ; preds = %84
   %90 = and i64 %indvars.iv.i, 2147483647
-  %91 = getelementptr inbounds i32, ptr %0, i64 %90
+  %91 = getelementptr inbounds nuw i32, ptr %0, i64 %90
   br label %_Z11PointToNamePKw.exit
 
 _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %89
@@ -2060,12 +2060,12 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %89
   br label %96
 
 96:                                               ; preds = %95, %_Z11PointToNamePKw.exit
-  %97 = getelementptr inbounds i8, ptr %7, i64 28
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, 0
   %100 = add i32 %98, -1
   %101 = select i1 %99, i32 6, i32 %100
-  %102 = getelementptr inbounds i8, ptr %7, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %103 = load i32, ptr %102, align 4
   %104 = sub i32 %103, %101
   %105 = icmp slt i32 %104, 0
@@ -2092,36 +2092,36 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %89
   %spec.select139 = add nsw i32 %spec.select139.v, %115
   %118 = load i32, ptr %7, align 4
   %119 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %118) #19
-  %120 = getelementptr inbounds i8, ptr %9, i64 11
-  %121 = getelementptr inbounds i8, ptr %7, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %9, i64 11
+  %121 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %122 = load i32, ptr %121, align 4
   %123 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %122) #19
-  %124 = getelementptr inbounds i8, ptr %9, i64 22
-  %125 = getelementptr inbounds i8, ptr %7, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %9, i64 22
+  %125 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %126 = load i32, ptr %125, align 4
   %127 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %126) #19
-  %128 = getelementptr inbounds i8, ptr %9, i64 33
-  %129 = getelementptr inbounds i8, ptr %7, i64 12
+  %128 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %130 = load i32, ptr %129, align 4
   %131 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %130) #19
-  %132 = getelementptr inbounds i8, ptr %9, i64 44
-  %133 = getelementptr inbounds i8, ptr %7, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %9, i64 44
+  %133 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %134 = load i32, ptr %133, align 4
   %135 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %134) #19
-  %136 = getelementptr inbounds i8, ptr %9, i64 55
-  %137 = getelementptr inbounds i8, ptr %7, i64 20
+  %136 = getelementptr inbounds nuw i8, ptr %9, i64 55
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %138 = load i32, ptr %137, align 4
   %139 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %138) #19
-  %140 = getelementptr inbounds i8, ptr %9, i64 66
+  %140 = getelementptr inbounds nuw i8, ptr %9, i64 66
   %141 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %140, ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %spec.select139) #19
-  %142 = getelementptr inbounds i8, ptr %9, i64 77
+  %142 = getelementptr inbounds nuw i8, ptr %9, i64 77
   %143 = add i32 %101, 1
   %144 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %143) #19
-  %145 = getelementptr inbounds i8, ptr %9, i64 88
+  %145 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %146 = load i32, ptr %102, align 4
   %147 = add i32 %146, 1
   %148 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %147) #19
-  %149 = getelementptr inbounds i8, ptr %9, i64 99
+  %149 = getelementptr inbounds nuw i8, ptr %9, i64 99
   %150 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %149, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %2) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   br label %151
@@ -2130,7 +2130,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %89
   %.0119 = phi i32 [ 0, %114 ], [ %169, %168 ]
   %.2 = phi i1 [ false, %114 ], [ %.3, %168 ]
   %152 = zext i32 %.0119 to i64
-  %153 = getelementptr inbounds [128 x i32], ptr %5, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw [128 x i32], ptr %5, i64 0, i64 %152
   %154 = load i32, ptr %153, align 4
   switch i32 %154, label %157 [
     i32 0, label %170
@@ -2232,7 +2232,7 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %89
   br i1 %206, label %207, label %214
 
 207:                                              ; preds = %201
-  %208 = getelementptr inbounds i32, ptr %11, i64 %.0110154
+  %208 = getelementptr inbounds nuw i32, ptr %11, i64 %.0110154
   %209 = load i32, ptr %121, align 4
   %210 = add i32 %209, -1
   %211 = call noundef ptr @_Z12GetMonthNamei(i32 noundef %210)
@@ -2258,10 +2258,10 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %89
 
 223:                                              ; preds = %216, %218, %180
   %.sink = phi i32 [ %217, %216 ], [ %222, %218 ], [ %181, %180 ]
-  %224 = getelementptr inbounds [128 x i32], ptr %11, i64 0, i64 %.0110154
+  %224 = getelementptr inbounds nuw [128 x i32], ptr %11, i64 0, i64 %.0110154
   store i32 %.sink, ptr %224, align 4
   %225 = add nuw nsw i64 %.0110154, 1
-  %226 = getelementptr inbounds [128 x i32], ptr %11, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw [128 x i32], ptr %11, i64 0, i64 %225
   store i32 0, ptr %226, align 4
   br label %227
 
@@ -2293,14 +2293,14 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %89
 
 240:                                              ; preds = %237
   %241 = add nsw i64 %indvars.iv.i.i141, -1
-  %242 = getelementptr inbounds i32, ptr %0, i64 %241
+  %242 = getelementptr inbounds nuw i32, ptr %0, i64 %241
   %243 = load i32, ptr %242, align 4
   %244 = icmp eq i32 %243, 47
   br i1 %244, label %245, label %237, !llvm.loop !4
 
 245:                                              ; preds = %240
   %246 = and i64 %indvars.iv.i.i141, 2147483647
-  %247 = getelementptr inbounds i32, ptr %0, i64 %246
+  %247 = getelementptr inbounds nuw i32, ptr %0, i64 %246
   br label %_Z11PointToNamePKw.exit.i
 
 _Z11PointToNamePKw.exit.i:                        ; preds = %237, %245
@@ -2319,14 +2319,14 @@ _Z11PointToNamePKw.exit.i:                        ; preds = %237, %245
 
 254:                                              ; preds = %.preheader.i
   %255 = add nsw i64 %indvars.iv.i12.i, -1
-  %256 = getelementptr inbounds i32, ptr %0, i64 %255
+  %256 = getelementptr inbounds nuw i32, ptr %0, i64 %255
   %257 = load i32, ptr %256, align 4
   %258 = icmp eq i32 %257, 47
   br i1 %258, label %259, label %.preheader.i, !llvm.loop !4
 
 259:                                              ; preds = %254
   %260 = and i64 %indvars.iv.i12.i, 2147483647
-  %261 = getelementptr inbounds i32, ptr %0, i64 %260
+  %261 = getelementptr inbounds nuw i32, ptr %0, i64 %260
   %.pre.i = ptrtoint ptr %261 to i64
   br label %_Z11PointToNamePKw.exit14.i
 
@@ -2359,7 +2359,7 @@ _Z11GetFilePathPKwPwm.exit:                       ; preds = %_Z11PointToNamePKw.
 
 275:                                              ; preds = %272
   store i32 47, ptr %269, align 4
-  %276 = getelementptr inbounds i32, ptr %12, i64 %273
+  %276 = getelementptr inbounds nuw i32, ptr %12, i64 %273
   store i32 0, ptr %276, align 4
   br label %_Z11AddEndSlashPwm.exit
 
@@ -2377,14 +2377,14 @@ _Z11AddEndSlashPwm.exit:                          ; preds = %_Z11GetFilePathPKwP
 
 282:                                              ; preds = %279
   %283 = add nsw i64 %indvars.iv.i143, -1
-  %284 = getelementptr inbounds i32, ptr %0, i64 %283
+  %284 = getelementptr inbounds nuw i32, ptr %0, i64 %283
   %285 = load i32, ptr %284, align 4
   %286 = icmp eq i32 %285, 47
   br i1 %286, label %287, label %279, !llvm.loop !4
 
 287:                                              ; preds = %282
   %288 = and i64 %indvars.iv.i143, 2147483647
-  %289 = getelementptr inbounds i32, ptr %0, i64 %288
+  %289 = getelementptr inbounds nuw i32, ptr %0, i64 %288
   br label %_Z11PointToNamePKw.exit145
 
 _Z11PointToNamePKw.exit145:                       ; preds = %279, %287

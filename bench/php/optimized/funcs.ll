@@ -83,7 +83,7 @@ define hidden range(i32 -1, 1) i32 @file_checkfmt(ptr noundef %0, i64 noundef %1
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %storemerge, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 37
   br i1 %9, label %75, label %.preheader
@@ -99,7 +99,7 @@ define hidden range(i32 -1, 1) i32 @file_checkfmt(ptr noundef %0, i64 noundef %1
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.149 = phi ptr [ %13, %.lr.ph ], [ %7, %.preheader ]
-  %13 = getelementptr inbounds i8, ptr %.149, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.149, i64 1
   %.pr = load i8, ptr %13, align 1
   %14 = zext nneg i8 %.pr to i64
   %memchr.bounds = icmp ugt i8 %.pr, 63
@@ -135,7 +135,7 @@ define hidden range(i32 -1, 1) i32 @file_checkfmt(ptr noundef %0, i64 noundef %1
   %.021.i = phi i32 [ 0, %.lr.ph.i ], [ %33, %28 ]
   %.01320.i = phi ptr [ %.1.lcssa, %.lr.ph.i ], [ %31, %28 ]
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds i16, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw i16, ptr %21, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 2048
   %.not17.i = icmp eq i16 %27, 0
@@ -144,7 +144,7 @@ define hidden range(i32 -1, 1) i32 @file_checkfmt(ptr noundef %0, i64 noundef %1
 28:                                               ; preds = %22
   %29 = sext i8 %23 to i32
   %30 = mul nsw i32 %.021.i, 10
-  %31 = getelementptr inbounds i8, ptr %.01320.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.01320.i, i64 1
   %32 = add nsw i32 %29, -48
   %33 = add i32 %32, %30
   %34 = load i8, ptr %31, align 1
@@ -171,7 +171,7 @@ file_checkfield.exit:                             ; preds = %.critedge.i
   br i1 %40, label %41, label %file_checkfield.exit32
 
 41:                                               ; preds = %file_checkfield.exit
-  %42 = getelementptr inbounds i8, ptr %.013.lcssa.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.013.lcssa.i, i64 1
   %43 = load i8, ptr %42, align 1
   %.not19.i21 = icmp eq i8 %43, 0
   br i1 %.not19.i21, label %file_checkfield.exit32, label %.lr.ph.i22
@@ -186,7 +186,7 @@ file_checkfield.exit:                             ; preds = %.critedge.i
   %.021.i23 = phi i32 [ 0, %.lr.ph.i22 ], [ %57, %52 ]
   %.01320.i24 = phi ptr [ %42, %.lr.ph.i22 ], [ %55, %52 ]
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds i16, ptr %45, i64 %48
+  %49 = getelementptr inbounds nuw i16, ptr %45, i64 %48
   %50 = load i16, ptr %49, align 2
   %51 = and i16 %50, 2048
   %.not17.i25 = icmp eq i16 %51, 0
@@ -195,7 +195,7 @@ file_checkfield.exit:                             ; preds = %.critedge.i
 52:                                               ; preds = %46
   %53 = sext i8 %47 to i32
   %54 = mul nsw i32 %.021.i23, 10
-  %55 = getelementptr inbounds i8, ptr %.01320.i24, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.01320.i24, i64 1
   %56 = add nsw i32 %53, -48
   %57 = add i32 %56, %54
   %58 = load i8, ptr %55, align 1
@@ -223,7 +223,7 @@ file_checkfield.exit32:                           ; preds = %._crit_edge, %.crit
   %65 = tail call ptr @__ctype_b_loc() #18
   %66 = load ptr, ptr %65, align 8
   %67 = zext i8 %64 to i64
-  %68 = getelementptr inbounds i16, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw i16, ptr %66, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %69, 1024
   %.not18 = icmp eq i16 %70, 0
@@ -240,7 +240,7 @@ file_checkfield.exit32:                           ; preds = %._crit_edge, %.crit
 
 75:                                               ; preds = %4, %file_checkfield.exit32, %6
   %.038 = phi ptr [ %storemerge, %4 ], [ %7, %6 ], [ %.2, %file_checkfield.exit32 ]
-  %76 = getelementptr inbounds i8, ptr %.038, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   br label %4
 
 file_checkfield.exit.thread:                      ; preds = %4, %61, %62, %37, %38, %71, %72, %17, %18
@@ -258,7 +258,7 @@ define hidden range(i32 -1, 1) i32 @file_vprintf(ptr nocapture noundef %0, ptr n
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [1024 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 1
   %.not = icmp eq i32 %9, 0
@@ -270,7 +270,7 @@ define hidden range(i32 -1, 1) i32 @file_vprintf(ptr nocapture noundef %0, ptr n
   br i1 %.not25, label %15, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   call void @_efree(ptr noundef %14) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
@@ -283,13 +283,13 @@ define hidden range(i32 -1, 1) i32 @file_vprintf(ptr nocapture noundef %0, ptr n
   br i1 %17, label %._crit_edge, label %18
 
 ._crit_edge:                                      ; preds = %15
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre28 = load i64, ptr %.phi.trans.insert, align 8
   br label %24
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %16
   %23 = icmp ugt i64 %22, 1048576
@@ -306,7 +306,7 @@ define hidden range(i32 -1, 1) i32 @file_vprintf(ptr nocapture noundef %0, ptr n
   br label %28
 
 28:                                               ; preds = %27, %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   call void @_efree(ptr noundef %30) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
@@ -344,14 +344,14 @@ define hidden range(i32 -1, 1) i32 @file_vprintf(ptr nocapture noundef %0, ptr n
 define hidden void @file_error(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #2 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 1
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %file_error_core.exit
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not19.i = icmp eq ptr %10, null
   br i1 %.not19.i, label %15, label %11
@@ -379,7 +379,7 @@ define hidden void @file_error(ptr nocapture noundef %0, i32 noundef %1, ptr nou
   %22 = load i32, ptr %5, align 8
   %23 = or i32 %22, 1
   store i32 %23, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %24, align 8
   br label %file_error_core.exit
 
@@ -407,9 +407,9 @@ define hidden range(i32 -1, 1) i32 @file_printf(ptr nocapture noundef %0, ptr no
 define hidden void @file_magerror(ptr nocapture noundef %0, ptr noundef %1, ...) local_unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1
   %.not.i = icmp eq i32 %8, 0
@@ -420,7 +420,7 @@ define hidden void @file_magerror(ptr nocapture noundef %0, ptr noundef %1, ...)
   br i1 %.not18.i, label %14, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   call void @_efree(ptr noundef %12) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
@@ -428,7 +428,7 @@ define hidden void @file_magerror(ptr nocapture noundef %0, ptr noundef %1, ...)
   br label %14
 
 14:                                               ; preds = %10, %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not19.i = icmp eq ptr %16, null
   br i1 %.not19.i, label %21, label %17
@@ -447,7 +447,7 @@ define hidden void @file_magerror(ptr nocapture noundef %0, ptr noundef %1, ...)
   %23 = load i32, ptr %6, align 8
   %24 = or i32 %23, 1
   store i32 %24, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %25, align 8
   br label %file_error_core.exit
 
@@ -491,7 +491,7 @@ define hidden range(i32 -1, 1) i32 @file_separator(ptr nocapture noundef %0) loc
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @file_default(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1040
   %.not = icmp eq i32 %5, 0
@@ -562,9 +562,9 @@ define hidden range(i32 1, 0) i32 @file_buffer(ptr noundef initializes((96, 100)
 16:                                               ; preds = %12, %6
   %.076 = phi i32 [ -1, %6 ], [ %spec.select, %12 ]
   call void @buffer_init(ptr noundef nonnull %10, i32 noundef %.076, ptr noundef %2, ptr noundef %4, i64 noundef %5) #17
-  %17 = getelementptr inbounds i8, ptr %10, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %18, ptr %19, align 8
   switch i64 %5, label %21 [
     i64 0, label %.thread
@@ -575,7 +575,7 @@ define hidden range(i32 1, 0) i32 @file_buffer(ptr noundef initializes((96, 100)
   br label %.thread
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 2097152
   %25 = icmp eq i32 %24, 0
@@ -850,7 +850,7 @@ checkdone.exit128.thread.thread:                  ; preds = %125
 
 .thread:                                          ; preds = %checkdone.exit128.thread.thread, %16, %20, %144, %146
   %.179 = phi ptr [ @.str.18, %146 ], [ @.str.18, %144 ], [ @.str.19, %16 ], [ @.str.20, %20 ], [ @.str.18, %checkdone.exit128.thread.thread ]
-  %147 = getelementptr inbounds i8, ptr %0, i64 68
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %148 = load i32, ptr %147, align 4
   %149 = and i32 %148, 1040
   %.not.i = icmp eq i32 %149, 0
@@ -924,7 +924,7 @@ checkdone.exit:                                   ; preds = %file_default.exit, 
   br label %trim_separator.exit
 
 trim_separator.exit:                              ; preds = %checkdone.exit, %171, %174, %178
-  %179 = getelementptr inbounds i8, ptr %0, i64 68
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %180 = load i32, ptr %179, align 4
   %181 = and i32 %180, 1024
   %.not116 = icmp eq i32 %181, 0
@@ -999,11 +999,11 @@ define hidden range(i32 -1, 1) i32 @file_reset(ptr nocapture noundef %0, i32 nou
   br label %18
 
 7:                                                ; preds = %3, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void @_efree(ptr noundef %9) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %13, label %12
@@ -1014,11 +1014,11 @@ define hidden range(i32 -1, 1) i32 @file_reset(ptr nocapture noundef %0, i32 nou
   br label %13
 
 13:                                               ; preds = %12, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, -2
   store i32 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 -1, ptr %17, align 8
   br label %18
 
@@ -1029,18 +1029,18 @@ define hidden range(i32 -1, 1) i32 @file_reset(ptr nocapture noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @file_getbuffer(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %59
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 68
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 256
   %.not39 = icmp eq i32 %8, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   br i1 %.not39, label %11, label %59
 
@@ -1062,7 +1062,7 @@ define hidden ptr @file_getbuffer(ptr nocapture noundef %0) local_unnamed_addr #
 19:                                               ; preds = %13
   %20 = shl nuw i64 %14, 2
   %21 = or disjoint i64 %20, 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @_erealloc(ptr noundef %23, i64 noundef %21) #21
   %25 = icmp eq ptr %24, null
@@ -1091,11 +1091,11 @@ define hidden ptr @file_getbuffer(ptr nocapture noundef %0) local_unnamed_addr #
   %.03243 = phi ptr [ %24, %.lr.ph ], [ %.133, %56 ]
   %35 = load ptr, ptr %32, align 8
   %36 = zext i8 %34 to i64
-  %37 = getelementptr inbounds i16, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw i16, ptr %35, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 16384
   %.not41 = icmp eq i16 %39, 0
-  %40 = getelementptr inbounds i8, ptr %.03243, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.03243, i64 1
   br i1 %.not41, label %42, label %41
 
 41:                                               ; preds = %33
@@ -1107,24 +1107,24 @@ define hidden ptr @file_getbuffer(ptr nocapture noundef %0) local_unnamed_addr #
   %43 = load i8, ptr %.03144, align 1
   %44 = lshr i8 %43, 6
   %45 = or disjoint i8 %44, 48
-  %46 = getelementptr inbounds i8, ptr %.03243, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.03243, i64 2
   store i8 %45, ptr %40, align 1
   %47 = load i8, ptr %.03144, align 1
   %48 = lshr i8 %47, 3
   %49 = and i8 %48, 7
   %50 = or disjoint i8 %49, 48
-  %51 = getelementptr inbounds i8, ptr %.03243, i64 3
+  %51 = getelementptr inbounds nuw i8, ptr %.03243, i64 3
   store i8 %50, ptr %46, align 1
   %52 = load i8, ptr %.03144, align 1
   %53 = and i8 %52, 7
   %54 = or disjoint i8 %53, 48
-  %55 = getelementptr inbounds i8, ptr %.03243, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.03243, i64 4
   store i8 %54, ptr %51, align 1
   br label %56
 
 56:                                               ; preds = %42, %41
   %.133 = phi ptr [ %40, %41 ], [ %55, %42 ]
-  %.1 = getelementptr inbounds i8, ptr %.03144, i64 1
+  %.1 = getelementptr inbounds nuw i8, ptr %.03144, i64 1
   %57 = load i8, ptr %.1, align 1
   %.not40 = icmp eq i8 %57, 0
   br i1 %.not40, label %._crit_edge, label %33
@@ -1149,13 +1149,13 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @file_check_mem(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %.not = icmp ugt i64 %5, %3
   br i1 %.not, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %23
 
@@ -1164,7 +1164,7 @@ define hidden range(i32 -1, 1) i32 @file_check_mem(ptr nocapture noundef %0, i32
   %8 = zext i32 %7 to i64
   store i64 %8, ptr %4, align 8
   %9 = shl nuw nsw i64 %8, 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
@@ -1191,14 +1191,14 @@ define hidden range(i32 -1, 1) i32 @file_check_mem(ptr nocapture noundef %0, i32
 
 23:                                               ; preds = %._crit_edge, %17
   %24 = phi ptr [ %.pre, %._crit_edge ], [ %18, %17 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = getelementptr inbounds %struct.level_info, ptr %24, i64 %3, i32 1
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw %struct.level_info, ptr %24, i64 %3, i32 1
   store i32 0, ptr %26, align 4
   %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds %struct.level_info, ptr %27, i64 %3, i32 2
+  %28 = getelementptr inbounds nuw %struct.level_info, ptr %27, i64 %3, i32 2
   store i32 0, ptr %28, align 4
   %29 = load ptr, ptr %25, align 8
-  %30 = getelementptr inbounds %struct.level_info, ptr %29, i64 %3, i32 3
+  %30 = getelementptr inbounds nuw %struct.level_info, ptr %29, i64 %3, i32 3
   store i32 0, ptr %30, align 4
   br label %31
 
@@ -1214,7 +1214,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @file_printedlen(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -1227,7 +1227,7 @@ define hidden i32 @file_replace(ptr nocapture noundef readonly %0, ptr noundef %
   %6 = tail call ptr @convert_libmagic_pattern(ptr noundef %1, i64 noundef %5, i32 noundef 1024) #17
   %7 = tail call ptr @pcre_get_compiled_regex_cache_ex(ptr noundef %6, i1 noundef zeroext false) #17
   %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %6, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 64
   %.not113 = icmp eq i32 %11, 0
@@ -1293,17 +1293,17 @@ define hidden i32 @file_replace(ptr nocapture noundef readonly %0, ptr noundef %
   %36 = add i64 %35, 32
   %37 = tail call noalias ptr @_emalloc(i64 noundef %36) #22
   store i32 1, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 22, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i64 %34, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr align 1 %2, i64 %34, i1 false)
   %42 = getelementptr inbounds [1 x i8], ptr %41, i64 0, i64 %34
   store i8 0, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #20
   %46 = call ptr @php_pcre_replace_impl(ptr noundef nonnull %7, ptr noundef null, ptr noundef %44, i64 noundef %45, ptr noundef nonnull %37, i64 noundef -1, ptr noundef nonnull %4) #17
@@ -1335,15 +1335,15 @@ define hidden i32 @file_replace(ptr nocapture noundef readonly %0, ptr noundef %
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %43, align 8
-  %60 = getelementptr inbounds i8, ptr %46, i64 24
-  %61 = getelementptr inbounds i8, ptr %46, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %62 = load i64, ptr %61, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr nonnull align 8 %60, i64 %62, i1 false)
   %63 = load ptr, ptr %43, align 8
   %64 = load i64, ptr %61, align 8
   %65 = getelementptr inbounds i8, ptr %63, i64 %64
   store i8 0, ptr %65, align 1
-  %66 = getelementptr inbounds i8, ptr %46, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 64
   %.not112 = icmp eq i32 %68, 0
@@ -1376,7 +1376,7 @@ declare ptr @php_pcre_replace_impl(ptr noundef, ptr noundef, ptr noundef, i64 no
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias ptr @file_push_buffer(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
   %.not = icmp eq i32 %4, 0
@@ -1388,16 +1388,16 @@ define hidden noalias ptr @file_push_buffer(ptr nocapture noundef %0) local_unna
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %15, ptr %16, align 8
   store i32 0, ptr %14, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -1410,7 +1410,7 @@ define hidden noalias ptr @file_push_buffer(ptr nocapture noundef %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @file_pop_buffer(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -1422,17 +1422,17 @@ define hidden ptr @file_pop_buffer(ptr nocapture noundef %0, ptr noundef %1) loc
   br label %18
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %1, align 8
   store ptr %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %16, ptr %17, align 8
   br label %18
 
@@ -1454,7 +1454,7 @@ define hidden noundef ptr @file_printable(ptr nocapture noundef readonly %0, ptr
   br i1 %or.cond32, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 68
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 68
   br label %13
 
 13:                                               ; preds = %.lr.ph, %43
@@ -1474,14 +1474,14 @@ define hidden noundef ptr @file_printable(ptr nocapture noundef readonly %0, ptr
   %19 = tail call ptr @__ctype_b_loc() #18
   %20 = load ptr, ptr %19, align 8
   %21 = zext i8 %14 to i64
-  %22 = getelementptr inbounds i16, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw i16, ptr %20, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 16384
   %.not30 = icmp eq i16 %24, 0
   br i1 %.not30, label %27, label %25
 
 25:                                               ; preds = %18, %15
-  %26 = getelementptr inbounds i8, ptr %.034, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.034, i64 1
   store i8 %14, ptr %.034, align 1
   br label %43
 
@@ -1490,29 +1490,29 @@ define hidden noundef ptr @file_printable(ptr nocapture noundef readonly %0, ptr
   br i1 %.not31, label %28, label %.critedge
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %.034, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.034, i64 1
   store i8 92, ptr %.034, align 1
   %30 = load i8, ptr %.02633, align 1
   %31 = lshr i8 %30, 6
   %32 = or disjoint i8 %31, 48
-  %33 = getelementptr inbounds i8, ptr %.034, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.034, i64 2
   store i8 %32, ptr %29, align 1
   %34 = load i8, ptr %.02633, align 1
   %35 = lshr i8 %34, 3
   %36 = and i8 %35, 7
   %37 = or disjoint i8 %36, 48
-  %38 = getelementptr inbounds i8, ptr %.034, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %.034, i64 3
   store i8 %37, ptr %33, align 1
   %39 = load i8, ptr %.02633, align 1
   %40 = and i8 %39, 7
   %41 = or disjoint i8 %40, 48
-  %42 = getelementptr inbounds i8, ptr %.034, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.034, i64 4
   store i8 %41, ptr %38, align 1
   br label %43
 
 43:                                               ; preds = %28, %25
   %.1 = phi ptr [ %26, %25 ], [ %42, %28 ]
-  %44 = getelementptr inbounds i8, ptr %.02633, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.02633, i64 1
   %45 = icmp ult ptr %.1, %7
   %46 = icmp ult ptr %44, %8
   %or.cond = select i1 %45, i1 %46, i1 false
@@ -1526,16 +1526,16 @@ define hidden noundef ptr @file_printable(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden range(i32 -1, 1) i32 @file_parse_guid(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 6
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 9
-  %7 = getelementptr inbounds i8, ptr %1, i64 10
-  %8 = getelementptr inbounds i8, ptr %1, i64 11
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
-  %10 = getelementptr inbounds i8, ptr %1, i64 13
-  %11 = getelementptr inbounds i8, ptr %1, i64 14
-  %12 = getelementptr inbounds i8, ptr %1, i64 15
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 11
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 13
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 15
   %13 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #17
   %14 = icmp ne i32 %13, 11
   %15 = sext i1 %14 to i32
@@ -1548,34 +1548,34 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define hidden i32 @file_print_guid(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
   %4 = load i32, ptr %2, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %2, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i8, ptr %11, align 4
   %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %2, i64 9
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %2, i64 10
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %18 = load i8, ptr %17, align 2
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %2, i64 11
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 11
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %2, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %24 = load i8, ptr %23, align 4
   %25 = zext i8 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %2, i64 13
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 13
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %2, i64 14
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %30 = load i8, ptr %29, align 2
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %2, i64 15
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 15
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.32, i32 noundef %4, i32 noundef %7, i32 noundef %10, i32 noundef %13, i32 noundef %16, i32 noundef %19, i32 noundef %22, i32 noundef %25, i32 noundef %28, i32 noundef %31, i32 noundef %34) #17
@@ -1600,18 +1600,18 @@ define hidden noundef ptr @file_strtrim(ptr noundef %0) local_unnamed_addr #10 {
   %.010 = phi ptr [ %0, %1 ], [ %10, %4 ]
   %5 = load i8, ptr %.010, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds i16, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 8192
   %.not = icmp eq i16 %9, 0
-  %10 = getelementptr inbounds i8, ptr %.010, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 1
   br i1 %.not, label %.preheader13, label %4
 
 .preheader13:                                     ; preds = %4, %.preheader13
   %.0 = phi ptr [ %12, %.preheader13 ], [ %.010, %4 ]
   %11 = load i8, ptr %.0, align 1
   %.not11 = icmp eq i8 %11, 0
-  %12 = getelementptr inbounds i8, ptr %.0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br i1 %.not11, label %.preheader, label %.preheader13
 
 .preheader:                                       ; preds = %.preheader13, %.preheader
@@ -1619,7 +1619,7 @@ define hidden noundef ptr @file_strtrim(ptr noundef %0) local_unnamed_addr #10 {
   %.1 = getelementptr inbounds i8, ptr %.0.pn, i64 -1
   %13 = load i8, ptr %.1, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %3, i64 %14
+  %15 = getelementptr inbounds nuw i16, ptr %3, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 8192
   %.not12 = icmp eq i16 %17, 0

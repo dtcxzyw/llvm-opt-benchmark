@@ -164,26 +164,26 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %0 = getelementptr inbounds i8, ptr %call, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 208, i1 false)
   store i32 %socket, ptr %call, align 8
-  %refcnt = getelementptr inbounds i8, ptr %call, i64 4
+  %refcnt = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 1, ptr %refcnt, align 4
-  %closing = getelementptr inbounds i8, ptr %call, i64 9
+  %closing = getelementptr inbounds nuw i8, ptr %call, i64 9
   store i8 0, ptr %closing, align 1
-  %user_callback = getelementptr inbounds i8, ptr %call, i64 16
+  %user_callback = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %cb, ptr %user_callback, align 8
-  %user_data5 = getelementptr inbounds i8, ptr %call, i64 24
+  %user_data5 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %user_data, ptr %user_data5, align 8
-  %event_base = getelementptr inbounds i8, ptr %call, i64 160
+  %event_base = getelementptr inbounds nuw i8, ptr %call, i64 160
   store ptr %base, ptr %event_base, align 8
-  %max_client_connections = getelementptr inbounds i8, ptr %call, i64 188
+  %max_client_connections = getelementptr inbounds nuw i8, ptr %call, i64 188
   store i32 10, ptr %max_client_connections, align 4
-  %tcp_idle_timeout = getelementptr inbounds i8, ptr %call, i64 192
+  %tcp_idle_timeout = getelementptr inbounds nuw i8, ptr %call, i64 192
   store i64 10, ptr %tcp_idle_timeout, align 8
-  %client_connections_count = getelementptr inbounds i8, ptr %call, i64 184
+  %client_connections_count = getelementptr inbounds nuw i8, ptr %call, i64 184
   store i32 0, ptr %client_connections_count, align 8
-  %event = getelementptr inbounds i8, ptr %call, i64 32
+  %event = getelementptr inbounds nuw i8, ptr %call, i64 32
   %call9 = tail call i32 @event_assign(ptr noundef nonnull %event, ptr noundef %base, i32 noundef %socket, i16 noundef signext 18, ptr noundef nonnull @server_port_ready_callback, ptr noundef nonnull %call) #18
   %call11 = tail call i32 @event_add(ptr noundef nonnull %event, ptr noundef null) #18
   %cmp = icmp slt i32 %call11, 0
@@ -204,7 +204,7 @@ cond.true:                                        ; preds = %if.end13
 
 cond.end:                                         ; preds = %if.end13, %cond.true
   %cond = phi ptr [ %call15, %cond.true ], [ null, %if.end13 ]
-  %lock = getelementptr inbounds i8, ptr %call, i64 208
+  %lock = getelementptr inbounds nuw i8, ptr %call, i64 208
   store ptr %cond, ptr %lock, align 8
   br label %return
 
@@ -226,7 +226,7 @@ entry:
   %packet.i = alloca [1500 x i8], align 16
   %addr.i = alloca %struct.sockaddr_storage, align 8
   %addrlen.i = alloca i32, align 4
-  %lock = getelementptr inbounds i8, ptr %arg, i64 208
+  %lock = getelementptr inbounds nuw i8, ptr %arg, i64 208
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -242,7 +242,7 @@ do.end:                                           ; preds = %entry, %if.then
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %do.end
-  %choked = getelementptr inbounds i8, ptr %arg, i64 8
+  %choked = getelementptr inbounds nuw i8, ptr %arg, i64 8
   store i8 0, ptr %choked, align 8
   tail call fastcc void @server_port_flush(ptr noundef nonnull %arg)
   br label %if.end4
@@ -326,27 +326,27 @@ if.end3:                                          ; preds = %entry
 
 if.end6:                                          ; preds = %if.end3
   store i32 -1, ptr %call, align 8
-  %refcnt = getelementptr inbounds i8, ptr %call, i64 4
+  %refcnt = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 1, ptr %refcnt, align 4
-  %choked = getelementptr inbounds i8, ptr %call, i64 8
+  %choked = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i8 0, ptr %choked, align 8
-  %closing = getelementptr inbounds i8, ptr %call, i64 9
+  %closing = getelementptr inbounds nuw i8, ptr %call, i64 9
   store i8 0, ptr %closing, align 1
-  %user_callback = getelementptr inbounds i8, ptr %call, i64 16
+  %user_callback = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %cb, ptr %user_callback, align 8
-  %user_data7 = getelementptr inbounds i8, ptr %call, i64 24
+  %user_data7 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %user_data, ptr %user_data7, align 8
-  %pending_replies = getelementptr inbounds i8, ptr %call, i64 152
+  %pending_replies = getelementptr inbounds nuw i8, ptr %call, i64 152
   store ptr null, ptr %pending_replies, align 8
-  %event_base = getelementptr inbounds i8, ptr %call, i64 160
+  %event_base = getelementptr inbounds nuw i8, ptr %call, i64 160
   store ptr %base, ptr %event_base, align 8
-  %max_client_connections = getelementptr inbounds i8, ptr %call, i64 188
+  %max_client_connections = getelementptr inbounds nuw i8, ptr %call, i64 188
   store i32 10, ptr %max_client_connections, align 4
-  %client_connections_count = getelementptr inbounds i8, ptr %call, i64 184
+  %client_connections_count = getelementptr inbounds nuw i8, ptr %call, i64 184
   store i32 0, ptr %client_connections_count, align 8
-  %client_connections = getelementptr inbounds i8, ptr %call, i64 176
+  %client_connections = getelementptr inbounds nuw i8, ptr %call, i64 176
   store ptr null, ptr %client_connections, align 8
-  %listener8 = getelementptr inbounds i8, ptr %call, i64 168
+  %listener8 = getelementptr inbounds nuw i8, ptr %call, i64 168
   store ptr %listener, ptr %listener8, align 8
   tail call void @evconnlistener_set_cb(ptr noundef nonnull %listener, ptr noundef nonnull @incoming_conn_cb, ptr noundef nonnull %call) #18
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 8), align 8
@@ -359,7 +359,7 @@ cond.true:                                        ; preds = %if.end6
 
 cond.end:                                         ; preds = %if.end6, %cond.true
   %cond = phi ptr [ %call11, %cond.true ], [ null, %if.end6 ]
-  %lock = getelementptr inbounds i8, ptr %call, i64 208
+  %lock = getelementptr inbounds nuw i8, ptr %call, i64 208
   store ptr %cond, ptr %lock, align 8
   br label %return
 
@@ -375,7 +375,7 @@ declare void @evconnlistener_set_cb(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define internal void @incoming_conn_cb(ptr nocapture readnone %listener, i32 noundef %fd, ptr nocapture readnone %address, i32 %socklen, ptr noundef %arg) #2 {
 entry:
-  %event_base = getelementptr inbounds i8, ptr %arg, i64 160
+  %event_base = getelementptr inbounds nuw i8, ptr %arg, i64 160
   %0 = load ptr, ptr %event_base, align 8
   %call = tail call ptr @bufferevent_socket_new(ptr noundef %0, i32 noundef %fd, i32 noundef 1) #18
   %tobool.not = icmp eq ptr %call, null
@@ -383,11 +383,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef nonnull %call)
-  %tcp_idle_timeout = getelementptr inbounds i8, ptr %arg, i64 192
+  %tcp_idle_timeout = getelementptr inbounds nuw i8, ptr %arg, i64 192
   %call2 = tail call i32 @bufferevent_set_timeouts(ptr noundef nonnull %call, ptr noundef nonnull %tcp_idle_timeout, ptr noundef nonnull %tcp_idle_timeout) #18
-  %max_client_connections.i = getelementptr inbounds i8, ptr %arg, i64 188
+  %max_client_connections.i = getelementptr inbounds nuw i8, ptr %arg, i64 188
   %1 = load i32, ptr %max_client_connections.i, align 4
-  %client_connections_count.i = getelementptr inbounds i8, ptr %arg, i64 184
+  %client_connections_count.i = getelementptr inbounds nuw i8, ptr %arg, i64 184
   %2 = load i32, ptr %client_connections_count.i, align 8
   %cmp.i = icmp eq i32 %1, %2
   br i1 %cmp.i, label %if.then9, label %if.end.i
@@ -398,31 +398,31 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %if.then9, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i
-  %connection.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %3 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %connection.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 0, ptr %3, align 8
   store ptr %call, ptr %connection.i, align 8
-  %port3.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %port3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %arg, ptr %port3.i, align 8
-  %client_connections.i = getelementptr inbounds i8, ptr %arg, i64 176
+  %client_connections.i = getelementptr inbounds nuw i8, ptr %arg, i64 176
   %4 = load ptr, ptr %client_connections.i, align 8
   store ptr %4, ptr %call.i, align 8
   %cmp5.not.i = icmp eq ptr %4, null
   br i1 %cmp5.not.i, label %if.end6, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end2.i
-  %le_prev.i = getelementptr inbounds i8, ptr %4, i64 8
+  %le_prev.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %call.i, ptr %le_prev.i, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then6.i, %if.end2.i
   store ptr %call.i, ptr %client_connections.i, align 8
-  %le_prev18.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %le_prev18.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %client_connections.i, ptr %le_prev18.i, align 8
   %5 = load i32, ptr %client_connections_count.i, align 8
   %inc.i = add i32 %5, 1
   store i32 %inc.i, ptr %client_connections_count.i, align 8
-  %refcnt.i = getelementptr inbounds i8, ptr %arg, i64 4
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %arg, i64 4
   %6 = load i32, ptr %refcnt.i, align 4
   %inc21.i = add nsw i32 %6, 1
   store i32 %inc21.i, ptr %refcnt.i, align 4
@@ -452,20 +452,20 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool1.not.i, label %evdns_add_server_port_with_base.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %0 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 208, i1 false)
   store i32 %socket, ptr %call.i, align 8
-  %refcnt.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   store i32 1, ptr %refcnt.i, align 4
-  %user_callback.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %user_callback.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %cb, ptr %user_callback.i, align 8
-  %user_data5.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %user_data5.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %user_data, ptr %user_data5.i, align 8
-  %max_client_connections.i = getelementptr inbounds i8, ptr %call.i, i64 188
+  %max_client_connections.i = getelementptr inbounds nuw i8, ptr %call.i, i64 188
   store i32 10, ptr %max_client_connections.i, align 4
-  %tcp_idle_timeout.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %tcp_idle_timeout.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store i64 10, ptr %tcp_idle_timeout.i, align 8
-  %event.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %event.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %call9.i = tail call i32 @event_assign(ptr noundef nonnull %event.i, ptr noundef null, i32 noundef %socket, i16 noundef signext 18, ptr noundef nonnull @server_port_ready_callback, ptr noundef nonnull %call.i) #18
   %call11.i = tail call i32 @event_add(ptr noundef nonnull %event.i, ptr noundef null) #18
   %cmp.i = icmp slt i32 %call11.i, 0
@@ -486,7 +486,7 @@ cond.true.i:                                      ; preds = %if.end13.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end13.i
   %cond.i = phi ptr [ %call15.i, %cond.true.i ], [ null, %if.end13.i ]
-  %lock.i = getelementptr inbounds i8, ptr %call.i, i64 208
+  %lock.i = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   store ptr %cond.i, ptr %lock.i, align 8
   br label %evdns_add_server_port_with_base.exit
 
@@ -498,7 +498,7 @@ evdns_add_server_port_with_base.exit:             ; preds = %entry, %if.end.i, %
 ; Function Attrs: nounwind uwtable
 define void @evdns_close_server_port(ptr noundef %port) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %port, i64 208
+  %lock = getelementptr inbounds nuw i8, ptr %port, i64 208
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -509,27 +509,27 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %client_connections.i = getelementptr inbounds i8, ptr %port, i64 176
+  %client_connections.i = getelementptr inbounds nuw i8, ptr %port, i64 176
   %2 = load ptr, ptr %client_connections.i, align 8
   %tobool.not2.i = icmp eq ptr %2, null
   br i1 %tobool.not2.i, label %do.end.evdns_remove_all_tcp_clients.exit_crit_edge, label %if.end.i.lr.ph.i
 
 do.end.evdns_remove_all_tcp_clients.exit_crit_edge: ; preds = %do.end
-  %refcnt.phi.trans.insert = getelementptr inbounds i8, ptr %port, i64 4
+  %refcnt.phi.trans.insert = getelementptr inbounds nuw i8, ptr %port, i64 4
   %.pre = load i32, ptr %refcnt.phi.trans.insert, align 4
   br label %evdns_remove_all_tcp_clients.exit
 
 if.end.i.lr.ph.i:                                 ; preds = %do.end
-  %client_connections_count.i.i = getelementptr inbounds i8, ptr %port, i64 184
-  %refcnt.i.i = getelementptr inbounds i8, ptr %port, i64 4
+  %client_connections_count.i.i = getelementptr inbounds nuw i8, ptr %port, i64 184
+  %refcnt.i.i = getelementptr inbounds nuw i8, ptr %port, i64 4
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %evdns_remove_tcp_client.exit.i, %if.end.i.lr.ph.i
   %3 = phi ptr [ %2, %if.end.i.lr.ph.i ], [ %9, %evdns_remove_tcp_client.exit.i ]
-  %connection.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %state.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %connection.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %state.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 0, ptr %state.i.i.i, align 8
-  %awaiting_packet_size.i.i.i = getelementptr inbounds i8, ptr %3, i64 28
+  %awaiting_packet_size.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i16 0, ptr %awaiting_packet_size.i.i.i, align 4
   %4 = load ptr, ptr %connection.i.i, align 8
   %tobool1.not.i.i.i = icmp eq ptr %4, null
@@ -543,12 +543,12 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i
 evdns_tcp_disconnect.exit.i.i:                    ; preds = %if.then2.i.i.i, %if.end.i.i
   %5 = load ptr, ptr %3, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
-  %le_prev12.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %le_prev12.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre10.i.i = load ptr, ptr %le_prev12.phi.trans.insert.i.i, align 8
   br i1 %cmp.not.i.i, label %evdns_remove_tcp_client.exit.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %evdns_tcp_disconnect.exit.i.i
-  %le_prev7.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %le_prev7.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.pre10.i.i, ptr %le_prev7.i.i, align 8
   %.pre.i.i = load ptr, ptr %3, align 8
   br label %evdns_remove_tcp_client.exit.i
@@ -569,7 +569,7 @@ evdns_remove_tcp_client.exit.i:                   ; preds = %if.then2.i.i, %evdn
 
 evdns_remove_all_tcp_clients.exit:                ; preds = %evdns_remove_tcp_client.exit.i, %do.end.evdns_remove_all_tcp_clients.exit_crit_edge
   %10 = phi i32 [ %.pre, %do.end.evdns_remove_all_tcp_clients.exit_crit_edge ], [ %dec13.i.i, %evdns_remove_tcp_client.exit.i ]
-  %refcnt = getelementptr inbounds i8, ptr %port, i64 4
+  %refcnt = getelementptr inbounds nuw i8, ptr %port, i64 4
   %dec = add nsw i32 %10, -1
   store i32 %dec, ptr %refcnt, align 4
   %cmp = icmp eq i32 %dec, 0
@@ -596,7 +596,7 @@ if.then.i:                                        ; preds = %do.end10
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %do.end10
-  %listener.i = getelementptr inbounds i8, ptr %port, i64 168
+  %listener.i = getelementptr inbounds nuw i8, ptr %port, i64 168
   %14 = load ptr, ptr %listener.i, align 8
   %tobool.not.i12 = icmp eq ptr %14, null
   br i1 %tobool.not.i12, label %if.else.i, label %if.then7.i
@@ -606,7 +606,7 @@ if.then7.i:                                       ; preds = %if.end.i
   br label %do.body12.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %event.i = getelementptr inbounds i8, ptr %port, i64 32
+  %event.i = getelementptr inbounds nuw i8, ptr %port, i64 32
   %call9.i = tail call i32 @event_del(ptr noundef nonnull %event.i) #18
   tail call void @event_debug_unassign(ptr noundef nonnull %event.i) #18
   br label %do.body12.i
@@ -630,7 +630,7 @@ server_port_free.exit:                            ; preds = %do.body12.i, %land.
   br label %if.end19
 
 if.else:                                          ; preds = %evdns_remove_all_tcp_clients.exit
-  %closing = getelementptr inbounds i8, ptr %port, i64 9
+  %closing = getelementptr inbounds nuw i8, ptr %port, i64 9
   store i8 1, ptr %closing, align 1
   %17 = load ptr, ptr %lock, align 8
   %tobool13.not = icmp eq ptr %17, null
@@ -650,7 +650,7 @@ define range(i32 -1, 1) i32 @evdns_server_request_add_reply(ptr nocapture nounde
 entry:
   %port = getelementptr inbounds i8, ptr %req_, i64 -208
   %0 = load ptr, ptr %port, align 8
-  %lock = getelementptr inbounds i8, ptr %0, i64 208
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -693,7 +693,7 @@ while.end:                                        ; preds = %while.cond
 if.end12:                                         ; preds = %while.end
   store ptr null, ptr %call9, align 8
   %call14 = tail call ptr @event_mm_strdup_(ptr noundef %name) #18
-  %name15 = getelementptr inbounds i8, ptr %call9, i64 8
+  %name15 = getelementptr inbounds nuw i8, ptr %call9, i64 8
   store ptr %call14, ptr %name15, align 8
   %tobool16.not = icmp eq ptr %call14, null
   br i1 %tobool16.not, label %if.then17, label %if.end18
@@ -704,20 +704,20 @@ if.then17:                                        ; preds = %if.end12
 
 if.end18:                                         ; preds = %if.end12
   %conv = trunc i32 %type to i16
-  %type19 = getelementptr inbounds i8, ptr %call9, i64 16
+  %type19 = getelementptr inbounds nuw i8, ptr %call9, i64 16
   store i16 %conv, ptr %type19, align 8
   %conv20 = trunc i32 %class to i16
-  %class21 = getelementptr inbounds i8, ptr %call9, i64 18
+  %class21 = getelementptr inbounds nuw i8, ptr %call9, i64 18
   store i16 %conv20, ptr %class21, align 2
-  %ttl22 = getelementptr inbounds i8, ptr %call9, i64 20
+  %ttl22 = getelementptr inbounds nuw i8, ptr %call9, i64 20
   store i32 %ttl, ptr %ttl22, align 4
   %cmp = icmp ne i32 %is_name, 0
   %conv24 = zext i1 %cmp to i8
-  %is_name25 = getelementptr inbounds i8, ptr %call9, i64 24
+  %is_name25 = getelementptr inbounds nuw i8, ptr %call9, i64 24
   store i8 %conv24, ptr %is_name25, align 8
-  %datalen26 = getelementptr inbounds i8, ptr %call9, i64 26
+  %datalen26 = getelementptr inbounds nuw i8, ptr %call9, i64 26
   store i16 0, ptr %datalen26, align 2
-  %data27 = getelementptr inbounds i8, ptr %call9, i64 32
+  %data27 = getelementptr inbounds nuw i8, ptr %call9, i64 32
   store ptr null, ptr %data27, align 8
   %tobool28.not = icmp eq ptr %data, null
   br i1 %tobool28.not, label %if.end52, label %if.then29
@@ -770,7 +770,7 @@ if.end52:                                         ; preds = %if.end38, %if.end46
 do.body53:                                        ; preds = %if.then17, %if.then36, %if.then44, %if.end52, %do.end, %while.end
   %result.0 = phi i32 [ -1, %do.end ], [ 0, %if.end52 ], [ -1, %if.then36 ], [ -1, %if.then44 ], [ -1, %if.then17 ], [ -1, %while.end ]
   %13 = load ptr, ptr %port, align 8
-  %lock55 = getelementptr inbounds i8, ptr %13, i64 208
+  %lock55 = getelementptr inbounds nuw i8, ptr %13, i64 208
   %14 = load ptr, ptr %lock55, align 8
   %tobool56.not = icmp eq ptr %14, null
   br i1 %tobool56.not, label %do.end62, label %if.then57
@@ -869,7 +869,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %req_, i64 -232
   %port1 = getelementptr inbounds i8, ptr %req_, i64 -208
   %0 = load ptr, ptr %port1, align 8
-  %lock = getelementptr inbounds i8, ptr %0, i64 208
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -902,37 +902,37 @@ if.end.i:                                         ; preds = %if.then4
   %call.i = tail call zeroext i16 @htons(i16 noundef zeroext %6) #19
   store i16 %call.i, ptr %buf.i, align 16
   %call17.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv5.i) #19
-  %add.ptr19.i = getelementptr inbounds i8, ptr %buf.i, i64 2
+  %add.ptr19.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 2
   store i16 %call17.i, ptr %add.ptr19.i, align 2
-  %nquestions.i = getelementptr inbounds i8, ptr %req_, i64 4
+  %nquestions.i = getelementptr inbounds nuw i8, ptr %req_, i64 4
   %7 = load i32, ptr %nquestions.i, align 4
   %conv29.i = trunc i32 %7 to i16
   %call30.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv29.i) #19
-  %add.ptr32.i = getelementptr inbounds i8, ptr %buf.i, i64 4
+  %add.ptr32.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 4
   store i16 %call30.i, ptr %add.ptr32.i, align 4
   %n_answer.i = getelementptr inbounds i8, ptr %req_, i64 -56
   %8 = load i32, ptr %n_answer.i, align 8
   %conv41.i = trunc i32 %8 to i16
   %call42.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv41.i) #19
-  %add.ptr44.i = getelementptr inbounds i8, ptr %buf.i, i64 6
+  %add.ptr44.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 6
   store i16 %call42.i, ptr %add.ptr44.i, align 2
   %n_authority.i = getelementptr inbounds i8, ptr %req_, i64 -52
   %9 = load i32, ptr %n_authority.i, align 4
   %conv53.i = trunc i32 %9 to i16
   %call54.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv53.i) #19
-  %add.ptr56.i = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %add.ptr56.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   store i16 %call54.i, ptr %add.ptr56.i, align 8
   %n_additional.i = getelementptr inbounds i8, ptr %req_, i64 -48
   %10 = load i32, ptr %n_additional.i, align 8
   %conv65.i = trunc i32 %10 to i16
   %call66.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv65.i) #19
-  %add.ptr68.i = getelementptr inbounds i8, ptr %buf.i, i64 10
+  %add.ptr68.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 10
   store i16 %call66.i, ptr %add.ptr68.i, align 2
   %cmp73176.i = icmp sgt i32 %7, 0
   br i1 %cmp73176.i, label %for.body.lr.ph.i, label %for.cond117.preheader.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %questions.i = getelementptr inbounds i8, ptr %req_, i64 8
+  %questions.i = getelementptr inbounds nuw i8, ptr %req_, i64 8
   %.pre.i = load ptr, ptr %questions.i, align 8
   br label %for.body.i
 
@@ -947,9 +947,9 @@ for.body.i:                                       ; preds = %if.end106.i, %for.b
   %11 = phi ptr [ %.pre.i, %for.body.lr.ph.i ], [ %17, %if.end106.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end106.i ]
   %j.0178.i = phi i64 [ 12, %for.body.lr.ph.i ], [ %add102.i, %if.end106.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   %12 = load ptr, ptr %arrayidx.i, align 8
-  %name.i = getelementptr inbounds i8, ptr %12, i64 8
+  %name.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %call78.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.i) #20
   %call79.i = call fastcc i64 @dnsname_to_labels(ptr noundef nonnull %buf.i, i64 noundef 65536, i64 noundef %j.0178.i, ptr noundef nonnull %name.i, i64 noundef %call78.i, ptr noundef nonnull %table.i)
   %cmp80.i = icmp slt i64 %call79.i, 0
@@ -961,12 +961,12 @@ if.then82.i:                                      ; preds = %for.body.i
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %evdns_server_request_format_response.exit
 
 for.body.lr.ph.i.i:                               ; preds = %if.then82.i
-  %labels.i.i = getelementptr inbounds i8, ptr %table.i, i64 8
+  %labels.i.i = getelementptr inbounds nuw i8, ptr %table.i, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [128 x %struct.dnslabel_entry], ptr %labels.i.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [128 x %struct.dnslabel_entry], ptr %labels.i.i, i64 0, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %arrayidx.i.i, align 8
   call void @event_mm_free_(ptr noundef %14) #18
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -981,23 +981,23 @@ do.body85.i:                                      ; preds = %for.body.i
 
 if.end90.i:                                       ; preds = %do.body85.i
   %17 = load ptr, ptr %questions.i, align 8
-  %arrayidx94.i = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i
+  %arrayidx94.i = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
   %18 = load ptr, ptr %arrayidx94.i, align 8
   %19 = load i32, ptr %18, align 4
   %conv95.i = trunc i32 %19 to i16
   %call96.i = call zeroext i16 @htons(i16 noundef zeroext %conv95.i) #19
-  %add.ptr98.i = getelementptr inbounds i8, ptr %buf.i, i64 %call79.i
+  %add.ptr98.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %call79.i
   store i16 %call96.i, ptr %add.ptr98.i, align 1
   %cmp103.i = icmp samesign ugt i64 %call79.i, 65532
   br i1 %cmp103.i, label %overflow.i, label %if.end106.i
 
 if.end106.i:                                      ; preds = %if.end90.i
   %add102.i = add nuw nsw i64 %call79.i, 4
-  %class.i = getelementptr inbounds i8, ptr %18, i64 4
+  %class.i = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %class.i, align 4
   %conv111.i = trunc i32 %20 to i16
   %call112.i = call zeroext i16 @htons(i16 noundef zeroext %conv111.i) #19
-  %add.ptr114.i = getelementptr inbounds i8, ptr %add.ptr98.i, i64 2
+  %add.ptr114.i = getelementptr inbounds nuw i8, ptr %add.ptr98.i, i64 2
   store i16 %call112.i, ptr %add.ptr114.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load i32, ptr %nquestions.i, align 4
@@ -1028,7 +1028,7 @@ if.end129.i:                                      ; preds = %if.else127.i, %if.t
 while.body.i:                                     ; preds = %if.end129.i, %if.end223.i
   %item.1182.i = phi ptr [ %item.1.i, %if.end223.i ], [ %item.1179.i, %if.end129.i ]
   %j.2181.i = phi i64 [ %j.3.i, %if.end223.i ], [ %j.1185.i, %if.end129.i ]
-  %name131.i = getelementptr inbounds i8, ptr %item.1182.i, i64 8
+  %name131.i = getelementptr inbounds nuw i8, ptr %item.1182.i, i64 8
   %23 = load ptr, ptr %name131.i, align 8
   %call133.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #20
   %call134.i = call fastcc i64 @dnsname_to_labels(ptr noundef nonnull %buf.i, i64 noundef 65536, i64 noundef %j.2181.i, ptr noundef %23, i64 noundef %call133.i, ptr noundef nonnull %table.i)
@@ -1036,38 +1036,38 @@ while.body.i:                                     ; preds = %if.end129.i, %if.en
   br i1 %or.cond128.i, label %overflow.i, label %if.end144.i
 
 if.end144.i:                                      ; preds = %while.body.i
-  %type145.i = getelementptr inbounds i8, ptr %item.1182.i, i64 16
+  %type145.i = getelementptr inbounds nuw i8, ptr %item.1182.i, i64 16
   %24 = load i16, ptr %type145.i, align 8
   %call146.i = call zeroext i16 @htons(i16 noundef zeroext %24) #19
-  %add.ptr148.i = getelementptr inbounds i8, ptr %buf.i, i64 %call134.i
+  %add.ptr148.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %call134.i
   store i16 %call146.i, ptr %add.ptr148.i, align 1
   %cmp153.i = icmp samesign ugt i64 %call134.i, 65532
   br i1 %cmp153.i, label %overflow.i, label %if.end156.i
 
 if.end156.i:                                      ; preds = %if.end144.i
-  %class157.i = getelementptr inbounds i8, ptr %item.1182.i, i64 18
+  %class157.i = getelementptr inbounds nuw i8, ptr %item.1182.i, i64 18
   %25 = load i16, ptr %class157.i, align 2
   %call158.i = call zeroext i16 @htons(i16 noundef zeroext %25) #19
-  %add.ptr160.i = getelementptr inbounds i8, ptr %add.ptr148.i, i64 2
+  %add.ptr160.i = getelementptr inbounds nuw i8, ptr %add.ptr148.i, i64 2
   store i16 %call158.i, ptr %add.ptr160.i, align 1
   %add164.i = add nuw nsw i64 %call134.i, 8
   %cmp165.i = icmp samesign ugt i64 %call134.i, 65528
   br i1 %cmp165.i, label %overflow.i, label %if.end168.i
 
 if.end168.i:                                      ; preds = %if.end156.i
-  %ttl.i = getelementptr inbounds i8, ptr %item.1182.i, i64 20
+  %ttl.i = getelementptr inbounds nuw i8, ptr %item.1182.i, i64 20
   %26 = load i32, ptr %ttl.i, align 4
   %call169.i = call i32 @htonl(i32 noundef %26) #19
-  %add.ptr171.i = getelementptr inbounds i8, ptr %add.ptr148.i, i64 4
+  %add.ptr171.i = getelementptr inbounds nuw i8, ptr %add.ptr148.i, i64 4
   store i32 %call169.i, ptr %add.ptr171.i, align 1
-  %is_name.i = getelementptr inbounds i8, ptr %item.1182.i, i64 24
+  %is_name.i = getelementptr inbounds nuw i8, ptr %item.1182.i, i64 24
   %27 = load i8, ptr %is_name.i, align 8
   %tobool174.not.i = icmp eq i8 %27, 0
   %add191.i = add nuw nsw i64 %call134.i, 10
   br i1 %tobool174.not.i, label %do.body190.i, label %if.then175.i
 
 if.then175.i:                                     ; preds = %if.end168.i
-  %data.i = getelementptr inbounds i8, ptr %item.1182.i, i64 32
+  %data.i = getelementptr inbounds nuw i8, ptr %item.1182.i, i64 32
   %28 = load ptr, ptr %data.i, align 8
   %call179.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #20
   %call180.i = call fastcc i64 @dnsname_to_labels(ptr noundef nonnull %buf.i, i64 noundef 65536, i64 noundef %add191.i, ptr noundef %28, i64 noundef %call179.i, ptr noundef nonnull %table.i)
@@ -1078,7 +1078,7 @@ if.end184.i:                                      ; preds = %if.then175.i
   %sub.i = sub nsw i64 %call180.i, %add191.i
   %conv185.i = trunc i64 %sub.i to i16
   %call186.i = call zeroext i16 @htons(i16 noundef zeroext %conv185.i) #19
-  %add.ptr188.i = getelementptr inbounds i8, ptr %buf.i, i64 %add164.i
+  %add.ptr188.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %add164.i
   store i16 %call186.i, ptr %add.ptr188.i, align 1
   br label %if.end223.i
 
@@ -1087,10 +1087,10 @@ do.body190.i:                                     ; preds = %if.end168.i
   br i1 %cmp192.i, label %overflow.i, label %if.end195.i
 
 if.end195.i:                                      ; preds = %do.body190.i
-  %datalen.i = getelementptr inbounds i8, ptr %item.1182.i, i64 26
+  %datalen.i = getelementptr inbounds nuw i8, ptr %item.1182.i, i64 26
   %29 = load i16, ptr %datalen.i, align 2
   %call196.i = call zeroext i16 @htons(i16 noundef zeroext %29) #19
-  %add.ptr198.i = getelementptr inbounds i8, ptr %buf.i, i64 %add164.i
+  %add.ptr198.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %add164.i
   store i16 %call196.i, ptr %add.ptr198.i, align 1
   %conv202.i = zext i16 %29 to i64
   %add203.i = add nuw nsw i64 %add191.i, %conv202.i
@@ -1098,13 +1098,13 @@ if.end195.i:                                      ; preds = %do.body190.i
   br i1 %cmp204.i, label %overflow.i, label %if.end207.i
 
 if.end207.i:                                      ; preds = %if.end195.i
-  %data208.i = getelementptr inbounds i8, ptr %item.1182.i, i64 32
+  %data208.i = getelementptr inbounds nuw i8, ptr %item.1182.i, i64 32
   %30 = load ptr, ptr %data208.i, align 8
   %tobool209.not.i = icmp eq ptr %30, null
   br i1 %tobool209.not.i, label %if.end223.i, label %if.then210.i
 
 if.then210.i:                                     ; preds = %if.end207.i
-  %add.ptr212.i = getelementptr inbounds i8, ptr %buf.i, i64 %add191.i
+  %add.ptr212.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %add191.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr212.i, ptr nonnull align 1 %30, i64 %conv202.i, i1 false)
   br label %if.end223.i
 
@@ -1179,11 +1179,11 @@ if.end5.i.i:                                      ; preds = %if.else4.i.i, %if.t
 while.body.i.i:                                   ; preds = %if.end5.i.i, %if.end12.i.i
   %victim.015.i.i = phi ptr [ %37, %if.end12.i.i ], [ %36, %if.end5.i.i ]
   %37 = load ptr, ptr %victim.015.i.i, align 8
-  %name.i.i = getelementptr inbounds i8, ptr %victim.015.i.i, i64 8
+  %name.i.i = getelementptr inbounds nuw i8, ptr %victim.015.i.i, i64 8
   %38 = load ptr, ptr %name.i.i, align 8
   call void @event_mm_free_(ptr noundef %38) #18
   store ptr null, ptr %name.i.i, align 8
-  %data.i.i = getelementptr inbounds i8, ptr %victim.015.i.i, i64 32
+  %data.i.i = getelementptr inbounds nuw i8, ptr %victim.015.i.i, i64 32
   %39 = load ptr, ptr %data.i.i, align 8
   %tobool8.not.i.i = icmp eq ptr %39, null
   br i1 %tobool8.not.i.i, label %if.end12.i.i, label %if.then9.i.i
@@ -1210,12 +1210,12 @@ server_request_free_answers.exit.i:               ; preds = %while.end.i.i
   br i1 %cmp5.i130.i, label %for.body.lr.ph.i131.i, label %evdns_server_request_format_response.exit.thread
 
 for.body.lr.ph.i131.i:                            ; preds = %server_request_free_answers.exit.i
-  %labels.i132.i = getelementptr inbounds i8, ptr %table.i, i64 8
+  %labels.i132.i = getelementptr inbounds nuw i8, ptr %table.i, i64 8
   br label %for.body.i133.i
 
 for.body.i133.i:                                  ; preds = %for.body.i133.i, %for.body.lr.ph.i131.i
   %indvars.iv.i134.i = phi i64 [ 0, %for.body.lr.ph.i131.i ], [ %indvars.iv.next.i136.i, %for.body.i133.i ]
-  %arrayidx.i135.i = getelementptr inbounds [128 x %struct.dnslabel_entry], ptr %labels.i132.i, i64 0, i64 %indvars.iv.i134.i
+  %arrayidx.i135.i = getelementptr inbounds nuw [128 x %struct.dnslabel_entry], ptr %labels.i132.i, i64 0, i64 %indvars.iv.i134.i
   %41 = load ptr, ptr %arrayidx.i135.i, align 8
   call void @event_mm_free_(ptr noundef %41) #18
   %indvars.iv.next.i136.i = add nuw nsw i64 %indvars.iv.i134.i, 1
@@ -1254,11 +1254,11 @@ if.end5.i145.i:                                   ; preds = %if.else4.i159.i, %i
 while.body.i148.i:                                ; preds = %if.end5.i145.i, %if.end12.i154.i
   %victim.015.i149.i = phi ptr [ %46, %if.end12.i154.i ], [ %45, %if.end5.i145.i ]
   %46 = load ptr, ptr %victim.015.i149.i, align 8
-  %name.i150.i = getelementptr inbounds i8, ptr %victim.015.i149.i, i64 8
+  %name.i150.i = getelementptr inbounds nuw i8, ptr %victim.015.i149.i, i64 8
   %47 = load ptr, ptr %name.i150.i, align 8
   call void @event_mm_free_(ptr noundef %47) #18
   store ptr null, ptr %name.i150.i, align 8
-  %data.i151.i = getelementptr inbounds i8, ptr %victim.015.i149.i, i64 32
+  %data.i151.i = getelementptr inbounds nuw i8, ptr %victim.015.i149.i, i64 32
   %48 = load ptr, ptr %data.i151.i, align 8
   %tobool8.not.i152.i = icmp eq ptr %48, null
   br i1 %tobool8.not.i152.i, label %if.end12.i154.i, label %if.then9.i153.i
@@ -1285,12 +1285,12 @@ server_request_free_answers.exit160.i:            ; preds = %while.end.i156.i
   br i1 %cmp5.i161.i, label %for.body.lr.ph.i162.i, label %evdns_server_request_format_response.exit.thread41
 
 for.body.lr.ph.i162.i:                            ; preds = %server_request_free_answers.exit160.i
-  %labels.i163.i = getelementptr inbounds i8, ptr %table.i, i64 8
+  %labels.i163.i = getelementptr inbounds nuw i8, ptr %table.i, i64 8
   br label %for.body.i164.i
 
 for.body.i164.i:                                  ; preds = %for.body.i164.i, %for.body.lr.ph.i162.i
   %indvars.iv.i165.i = phi i64 [ 0, %for.body.lr.ph.i162.i ], [ %indvars.iv.next.i167.i, %for.body.i164.i ]
-  %arrayidx.i166.i = getelementptr inbounds [128 x %struct.dnslabel_entry], ptr %labels.i163.i, i64 0, i64 %indvars.iv.i165.i
+  %arrayidx.i166.i = getelementptr inbounds nuw [128 x %struct.dnslabel_entry], ptr %labels.i163.i, i64 0, i64 %indvars.iv.i165.i
   %50 = load ptr, ptr %arrayidx.i166.i, align 8
   call void @event_mm_free_(ptr noundef %50) #18
   %indvars.iv.next.i167.i = add nuw nsw i64 %indvars.iv.i165.i, 1
@@ -1336,19 +1336,19 @@ if.then12:                                        ; preds = %land.lhs.true
   ]
 
 if.end17:                                         ; preds = %if.then12
-  %pending_replies = getelementptr inbounds i8, ptr %0, i64 152
+  %pending_replies = getelementptr inbounds nuw i8, ptr %0, i64 152
   %55 = load ptr, ptr %pending_replies, align 8
   %tobool18.not = icmp eq ptr %55, null
   br i1 %tobool18.not, label %if.else, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %prev_pending = getelementptr inbounds i8, ptr %55, i64 8
+  %prev_pending = getelementptr inbounds nuw i8, ptr %55, i64 8
   %56 = load ptr, ptr %prev_pending, align 8
   %prev_pending21 = getelementptr inbounds i8, ptr %req_, i64 -224
   store ptr %56, ptr %prev_pending21, align 8
   %57 = load ptr, ptr %pending_replies, align 8
   store ptr %57, ptr %add.ptr, align 8
-  %prev_pending24 = getelementptr inbounds i8, ptr %57, i64 8
+  %prev_pending24 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %add.ptr, ptr %prev_pending24, align 8
   %58 = load ptr, ptr %prev_pending21, align 8
   store ptr %add.ptr, ptr %58, align 8
@@ -1359,14 +1359,14 @@ if.else:                                          ; preds = %if.end17
   %prev_pending28 = getelementptr inbounds i8, ptr %req_, i64 -224
   store ptr %add.ptr, ptr %prev_pending28, align 8
   store ptr %add.ptr, ptr %pending_replies, align 8
-  %choked = getelementptr inbounds i8, ptr %0, i64 8
+  %choked = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %choked, align 8
-  %event = getelementptr inbounds i8, ptr %0, i64 32
+  %event = getelementptr inbounds nuw i8, ptr %0, i64 32
   %call30 = call i32 @event_del(ptr noundef nonnull %event) #18
-  %event_base = getelementptr inbounds i8, ptr %0, i64 160
+  %event_base = getelementptr inbounds nuw i8, ptr %0, i64 160
   %59 = load ptr, ptr %event_base, align 8
   %60 = load i32, ptr %0, align 8
-  %closing = getelementptr inbounds i8, ptr %0, i64 9
+  %closing = getelementptr inbounds nuw i8, ptr %0, i64 9
   %61 = load i8, ptr %closing, align 1
   %tobool32.not = icmp eq i8 %61, 0
   %conv34 = select i1 %tobool32.not, i16 22, i16 20
@@ -1385,7 +1385,7 @@ if.end43:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool45.not, label %if.end47, label %do.body52
 
 if.end47:                                         ; preds = %if.end43
-  %pending_replies48 = getelementptr inbounds i8, ptr %0, i64 152
+  %pending_replies48 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %62 = load ptr, ptr %pending_replies48, align 8
   %tobool49.not = icmp eq ptr %62, null
   br i1 %tobool49.not, label %do.body52, label %if.then50
@@ -1413,15 +1413,15 @@ do.end59:                                         ; preds = %do.body52, %if.then
 define internal fastcc i32 @server_send_response(ptr noundef %port, ptr noundef %req) unnamed_addr #2 {
 entry:
   %packet_size = alloca i16, align 2
-  %client = getelementptr inbounds i8, ptr %req, i64 32
+  %client = getelementptr inbounds nuw i8, ptr %req, i64 32
   %0 = load ptr, ptr %client, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %connection = getelementptr inbounds i8, ptr %0, i64 16
+  %connection = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %connection, align 8
-  %response_len = getelementptr inbounds i8, ptr %req, i64 224
+  %response_len = getelementptr inbounds nuw i8, ptr %req, i64 224
   %2 = load i64, ptr %response_len, align 8
   %conv = trunc i64 %2 to i16
   %call = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #19
@@ -1431,7 +1431,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool6.not, label %if.end, label %beferevent_error
 
 if.end:                                           ; preds = %if.then
-  %response = getelementptr inbounds i8, ptr %req, i64 216
+  %response = getelementptr inbounds nuw i8, ptr %req, i64 216
   %3 = load ptr, ptr %response, align 8
   %4 = load i64, ptr %response_len, align 8
   %call9 = call i32 @bufferevent_write(ptr noundef %1, ptr noundef %3, i64 noundef %4) #18
@@ -1445,14 +1445,14 @@ if.end12:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %entry
   %6 = load i32, ptr %port, align 8
-  %response15 = getelementptr inbounds i8, ptr %req, i64 216
+  %response15 = getelementptr inbounds nuw i8, ptr %req, i64 216
   %7 = load ptr, ptr %response15, align 8
-  %response_len16 = getelementptr inbounds i8, ptr %req, i64 224
+  %response_len16 = getelementptr inbounds nuw i8, ptr %req, i64 224
   %8 = load i64, ptr %response_len16, align 8
   %sext = shl i64 %8, 32
   %conv18 = ashr exact i64 %sext, 32
-  %addr = getelementptr inbounds i8, ptr %req, i64 40
-  %addrlen = getelementptr inbounds i8, ptr %req, i64 168
+  %addr = getelementptr inbounds nuw i8, ptr %req, i64 40
+  %addrlen = getelementptr inbounds nuw i8, ptr %req, i64 168
   %9 = load i32, ptr %addrlen, align 8
   %call19 = tail call i64 @sendto(i32 noundef %6, ptr noundef %7, i64 noundef %conv18, i32 noundef 0, ptr nonnull %addr, i32 noundef %9) #18
   %conv20 = trunc i64 %call19 to i32
@@ -1468,10 +1468,10 @@ beferevent_error:                                 ; preds = %if.end, %if.then
   br i1 %or.cond.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %beferevent_error
-  %connection.i = getelementptr inbounds i8, ptr %11, i64 16
-  %state.i.i = getelementptr inbounds i8, ptr %11, i64 24
+  %connection.i = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %state.i.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 0, ptr %state.i.i, align 8
-  %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %11, i64 28
+  %awaiting_packet_size.i.i = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i16 0, ptr %awaiting_packet_size.i.i, align 4
   %12 = load ptr, ptr %connection.i, align 8
   %tobool1.not.i.i = icmp eq ptr %12, null
@@ -1485,12 +1485,12 @@ if.then2.i.i:                                     ; preds = %if.end.i
 evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.end.i
   %13 = load ptr, ptr %11, align 8
   %cmp.not.i = icmp eq ptr %13, null
-  %le_prev12.phi.trans.insert.i = getelementptr inbounds i8, ptr %11, i64 8
+  %le_prev12.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.pre10.i = load ptr, ptr %le_prev12.phi.trans.insert.i, align 8
   br i1 %cmp.not.i, label %if.end8.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %evdns_tcp_disconnect.exit.i
-  %le_prev7.i = getelementptr inbounds i8, ptr %13, i64 8
+  %le_prev7.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.pre10.i, ptr %le_prev7.i, align 8
   %.pre.i = load ptr, ptr %11, align 8
   br label %if.end8.i
@@ -1499,11 +1499,11 @@ if.end8.i:                                        ; preds = %if.then2.i, %evdns_
   %14 = phi ptr [ %.pre.i, %if.then2.i ], [ null, %evdns_tcp_disconnect.exit.i ]
   store ptr %14, ptr %.pre10.i, align 8
   call void @event_mm_free_(ptr noundef nonnull %11) #18
-  %client_connections_count.i = getelementptr inbounds i8, ptr %port, i64 184
+  %client_connections_count.i = getelementptr inbounds nuw i8, ptr %port, i64 184
   %15 = load i32, ptr %client_connections_count.i, align 8
   %dec.i = add i32 %15, -1
   store i32 %dec.i, ptr %client_connections_count.i, align 8
-  %refcnt.i = getelementptr inbounds i8, ptr %port, i64 4
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %port, i64 4
   %16 = load i32, ptr %refcnt.i, align 4
   %dec13.i = add nsw i32 %16, -1
   store i32 %dec13.i, ptr %refcnt.i, align 4
@@ -1549,13 +1549,13 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @server_request_free(ptr noundef %req) unnamed_addr #2 {
 entry:
-  %questions = getelementptr inbounds i8, ptr %req, i64 240
+  %questions = getelementptr inbounds nuw i8, ptr %req, i64 240
   %0 = load ptr, ptr %questions, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nquestions = getelementptr inbounds i8, ptr %req, i64 236
+  %nquestions = getelementptr inbounds nuw i8, ptr %req, i64 236
   %1 = load i32, ptr %nquestions, align 4
   %cmp47 = icmp sgt i32 %1, 0
   br i1 %cmp47, label %for.body, label %for.end
@@ -1563,11 +1563,11 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %2 = load ptr, ptr %questions, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   tail call void @event_mm_free_(ptr noundef %3) #18
   %4 = load ptr, ptr %questions, align 8
-  %arrayidx7 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %arrayidx7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   store ptr null, ptr %arrayidx7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i32, ptr %nquestions, align 4
@@ -1586,13 +1586,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %entry
-  %port = getelementptr inbounds i8, ptr %req, i64 24
+  %port = getelementptr inbounds nuw i8, ptr %req, i64 24
   %8 = load ptr, ptr %port, align 8
   %tobool12.not = icmp eq ptr %8, null
   br i1 %tobool12.not, label %if.end36, label %do.body
 
 do.body:                                          ; preds = %if.end
-  %lock15 = getelementptr inbounds i8, ptr %8, i64 208
+  %lock15 = getelementptr inbounds nuw i8, ptr %8, i64 208
   %9 = load ptr, ptr %lock15, align 8
   %tobool16.not = icmp eq ptr %9, null
   br i1 %tobool16.not, label %do.end, label %if.then17
@@ -1605,7 +1605,7 @@ if.then17:                                        ; preds = %do.body
 
 do.end:                                           ; preds = %do.body, %if.then17
   %11 = phi ptr [ %8, %do.body ], [ %.pre50, %if.then17 ]
-  %pending_replies = getelementptr inbounds i8, ptr %11, i64 152
+  %pending_replies = getelementptr inbounds nuw i8, ptr %11, i64 152
   %12 = load ptr, ptr %pending_replies, align 8
   %cmp22 = icmp eq ptr %12, %req
   br i1 %cmp22, label %if.then23, label %if.end34
@@ -1619,7 +1619,7 @@ if.then23:                                        ; preds = %do.end
 
 if.end34:                                         ; preds = %if.then23, %do.end
   %14 = load ptr, ptr %port, align 8
-  %refcnt = getelementptr inbounds i8, ptr %14, i64 4
+  %refcnt = getelementptr inbounds nuw i8, ptr %14, i64 4
   %15 = load i32, ptr %refcnt, align 4
   %dec = add nsw i32 %15, -1
   store i32 %dec, ptr %refcnt, align 4
@@ -1628,7 +1628,7 @@ if.end34:                                         ; preds = %if.then23, %do.end
 
 if.end36:                                         ; preds = %if.end34, %if.end
   %rc.0 = phi i1 [ %16, %if.end34 ], [ false, %if.end ]
-  %response = getelementptr inbounds i8, ptr %req, i64 216
+  %response = getelementptr inbounds nuw i8, ptr %req, i64 216
   %17 = load ptr, ptr %response, align 8
   %tobool37.not = icmp eq ptr %17, null
   br i1 %tobool37.not, label %if.end41, label %if.then38
@@ -1639,9 +1639,9 @@ if.then38:                                        ; preds = %if.end36
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then38, %if.end36
-  %authority.i = getelementptr inbounds i8, ptr %req, i64 200
-  %answer.i = getelementptr inbounds i8, ptr %req, i64 192
-  %additional.i = getelementptr inbounds i8, ptr %req, i64 208
+  %authority.i = getelementptr inbounds nuw i8, ptr %req, i64 200
+  %answer.i = getelementptr inbounds nuw i8, ptr %req, i64 192
+  %additional.i = getelementptr inbounds nuw i8, ptr %req, i64 208
   br label %for.body.i
 
 for.body.i:                                       ; preds = %while.end.i, %if.end41
@@ -1666,11 +1666,11 @@ if.end5.i:                                        ; preds = %if.else4.i, %if.the
 while.body.i:                                     ; preds = %if.end5.i, %if.end12.i
   %victim.015.i = phi ptr [ %19, %if.end12.i ], [ %18, %if.end5.i ]
   %19 = load ptr, ptr %victim.015.i, align 8
-  %name.i = getelementptr inbounds i8, ptr %victim.015.i, i64 8
+  %name.i = getelementptr inbounds nuw i8, ptr %victim.015.i, i64 8
   %20 = load ptr, ptr %name.i, align 8
   tail call void @event_mm_free_(ptr noundef %20) #18
   store ptr null, ptr %name.i, align 8
-  %data.i = getelementptr inbounds i8, ptr %victim.015.i, i64 32
+  %data.i = getelementptr inbounds nuw i8, ptr %victim.015.i, i64 32
   %21 = load ptr, ptr %data.i, align 8
   %tobool8.not.i = icmp eq ptr %21, null
   br i1 %tobool8.not.i, label %if.end12.i, label %if.then9.i
@@ -1699,9 +1699,9 @@ server_request_free_answers.exit:                 ; preds = %while.end.i
   br i1 %or.cond45, label %if.end53, label %if.then47
 
 if.then47:                                        ; preds = %server_request_free_answers.exit
-  %prev_pending = getelementptr inbounds i8, ptr %req, i64 8
+  %prev_pending = getelementptr inbounds nuw i8, ptr %req, i64 8
   %23 = load ptr, ptr %prev_pending, align 8
-  %prev_pending49 = getelementptr inbounds i8, ptr %22, i64 8
+  %prev_pending49 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %23, ptr %prev_pending49, align 8
   %24 = load ptr, ptr %req, align 8
   store ptr %24, ptr %23, align 8
@@ -1712,7 +1712,7 @@ if.end53:                                         ; preds = %if.then47, %server_
 
 do.body56:                                        ; preds = %if.end53
   %25 = load ptr, ptr %port, align 8
-  %lock58 = getelementptr inbounds i8, ptr %25, i64 208
+  %lock58 = getelementptr inbounds nuw i8, ptr %25, i64 208
   %26 = load ptr, ptr %lock58, align 8
   %tobool59.not = icmp eq ptr %26, null
   br i1 %tobool59.not, label %do.end65, label %if.then60
@@ -1735,7 +1735,7 @@ if.then.i:                                        ; preds = %do.end65
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %do.end65
-  %listener.i = getelementptr inbounds i8, ptr %28, i64 168
+  %listener.i = getelementptr inbounds nuw i8, ptr %28, i64 168
   %30 = load ptr, ptr %listener.i, align 8
   %tobool.not.i46 = icmp eq ptr %30, null
   br i1 %tobool.not.i46, label %if.else.i, label %if.then7.i
@@ -1745,13 +1745,13 @@ if.then7.i:                                       ; preds = %if.end.i
   br label %do.body12.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %event.i = getelementptr inbounds i8, ptr %28, i64 32
+  %event.i = getelementptr inbounds nuw i8, ptr %28, i64 32
   %call9.i = tail call i32 @event_del(ptr noundef nonnull %event.i) #18
   tail call void @event_debug_unassign(ptr noundef nonnull %event.i) #18
   br label %do.body12.i
 
 do.body12.i:                                      ; preds = %if.else.i, %if.then7.i
-  %lock.i = getelementptr inbounds i8, ptr %28, i64 208
+  %lock.i = getelementptr inbounds nuw i8, ptr %28, i64 208
   %31 = load ptr, ptr %lock.i, align 8
   %tobool13.not.i = icmp eq ptr %31, null
   br i1 %tobool13.not.i, label %server_port_free.exit, label %land.lhs.true.i
@@ -1774,7 +1774,7 @@ if.end67:                                         ; preds = %if.end53
 
 do.body70:                                        ; preds = %if.end67
   %33 = load ptr, ptr %port, align 8
-  %lock72 = getelementptr inbounds i8, ptr %33, i64 208
+  %lock72 = getelementptr inbounds nuw i8, ptr %33, i64 208
   %34 = load ptr, ptr %lock72, align 8
   %tobool73.not = icmp eq ptr %34, null
   br i1 %tobool73.not, label %return, label %if.then74
@@ -1793,7 +1793,7 @@ return:                                           ; preds = %if.end67, %do.body7
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @server_port_flush(ptr noundef %port) unnamed_addr #2 {
 entry:
-  %pending_replies = getelementptr inbounds i8, ptr %port, i64 152
+  %pending_replies = getelementptr inbounds nuw i8, ptr %port, i64 152
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end12, %entry
@@ -1825,9 +1825,9 @@ if.end12:                                         ; preds = %if.end10, %while.bo
   br i1 %tobool14.not, label %while.cond, label %if.end27, !llvm.loop !14
 
 while.end:                                        ; preds = %while.cond
-  %event = getelementptr inbounds i8, ptr %port, i64 32
+  %event = getelementptr inbounds nuw i8, ptr %port, i64 32
   %call20 = tail call i32 @event_del(ptr noundef nonnull %event) #18
-  %event_base = getelementptr inbounds i8, ptr %port, i64 160
+  %event_base = getelementptr inbounds nuw i8, ptr %port, i64 160
   %1 = load ptr, ptr %event_base, align 8
   %2 = load i32, ptr %port, align 8
   %call22 = tail call i32 @event_assign(ptr noundef nonnull %event, ptr noundef %1, i32 noundef %2, i16 noundef signext 18, ptr noundef nonnull @server_port_ready_callback, ptr noundef nonnull %port) #18
@@ -1874,7 +1874,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @evdns_base_count_nameservers(ptr nocapture noundef readonly %base) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -1885,7 +1885,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %server_head = getelementptr inbounds i8, ptr %base, i64 16
+  %server_head = getelementptr inbounds nuw i8, ptr %base, i64 16
   %2 = load ptr, ptr %server_head, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %do.body8, label %do.body5
@@ -1894,7 +1894,7 @@ do.body5:                                         ; preds = %do.end, %do.body5
   %server.0 = phi ptr [ %3, %do.body5 ], [ %2, %do.end ]
   %n.0 = phi i32 [ %inc, %do.body5 ], [ 0, %do.end ]
   %inc = add nuw nsw i32 %n.0, 1
-  %next = getelementptr inbounds i8, ptr %server.0, i64 280
+  %next = getelementptr inbounds nuw i8, ptr %server.0, i64 280
   %3 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %3, %2
   br i1 %cmp.not, label %do.body8, label %do.body5, !llvm.loop !15
@@ -1918,7 +1918,7 @@ do.end16:                                         ; preds = %do.body8, %if.then1
 define i32 @evdns_count_nameservers() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @current_base, align 8
-  %lock.i = getelementptr inbounds i8, ptr %0, i64 336
+  %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 336
   %1 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %do.end.i, label %if.then.i
@@ -1929,7 +1929,7 @@ if.then.i:                                        ; preds = %entry
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %entry
-  %server_head.i = getelementptr inbounds i8, ptr %0, i64 16
+  %server_head.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %server_head.i, align 8
   %tobool2.not.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i, label %do.body8.i, label %do.body5.i
@@ -1938,7 +1938,7 @@ do.body5.i:                                       ; preds = %do.end.i, %do.body5
   %server.0.i = phi ptr [ %4, %do.body5.i ], [ %3, %do.end.i ]
   %n.0.i = phi i32 [ %inc.i, %do.body5.i ], [ 0, %do.end.i ]
   %inc.i = add nuw nsw i32 %n.0.i, 1
-  %next.i = getelementptr inbounds i8, ptr %server.0.i, i64 280
+  %next.i = getelementptr inbounds nuw i8, ptr %server.0.i, i64 280
   %4 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %4, %3
   br i1 %cmp.not.i, label %do.body8.i, label %do.body5.i, !llvm.loop !15
@@ -1961,7 +1961,7 @@ evdns_base_count_nameservers.exit:                ; preds = %do.body8.i, %if.the
 ; Function Attrs: nounwind uwtable
 define noundef i32 @evdns_base_clear_nameservers_and_suspend(ptr nocapture noundef %base) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -1972,7 +1972,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %server_head = getelementptr inbounds i8, ptr %base, i64 16
+  %server_head = getelementptr inbounds nuw i8, ptr %base, i64 16
   %2 = load ptr, ptr %server_head, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %do.body5, label %while.body
@@ -1984,17 +1984,17 @@ do.body5:                                         ; preds = %do.end
 
 while.body:                                       ; preds = %do.end, %if.end32
   %server.0 = phi ptr [ %4, %if.end32 ], [ %2, %do.end ]
-  %next14 = getelementptr inbounds i8, ptr %server.0, i64 280
+  %next14 = getelementptr inbounds nuw i8, ptr %server.0, i64 280
   %4 = load ptr, ptr %next14, align 8
-  %connection = getelementptr inbounds i8, ptr %server.0, i64 8
+  %connection = getelementptr inbounds nuw i8, ptr %server.0, i64 8
   %5 = load ptr, ptr %connection, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %disconnect_and_free_connection.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
-  %state.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %state.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %state.i.i, align 8
-  %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %5, i64 12
+  %awaiting_packet_size.i.i = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i16 0, ptr %awaiting_packet_size.i.i, align 4
   %6 = load ptr, ptr %5, align 8
   %tobool1.not.i.i = icmp eq ptr %6, null
@@ -2011,9 +2011,9 @@ evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.e
 
 disconnect_and_free_connection.exit:              ; preds = %while.body, %evdns_tcp_disconnect.exit.i
   store ptr null, ptr %connection, align 8
-  %event = getelementptr inbounds i8, ptr %server.0, i64 160
+  %event = getelementptr inbounds nuw i8, ptr %server.0, i64 160
   %call16 = tail call i32 @event_del(ptr noundef nonnull %event) #18
-  %timeout_event = getelementptr inbounds i8, ptr %server.0, i64 296
+  %timeout_event = getelementptr inbounds nuw i8, ptr %server.0, i64 296
   %call17 = tail call i32 @event_initialized(ptr noundef nonnull %timeout_event) #18
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %if.end22, label %if.then19
@@ -2023,13 +2023,13 @@ if.then19:                                        ; preds = %disconnect_and_free
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %disconnect_and_free_connection.exit
-  %probe_request = getelementptr inbounds i8, ptr %server.0, i64 416
+  %probe_request = getelementptr inbounds nuw i8, ptr %server.0, i64 416
   %7 = load ptr, ptr %probe_request, align 8
   %tobool23.not = icmp eq ptr %7, null
   br i1 %tobool23.not, label %if.end28, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %base25 = getelementptr inbounds i8, ptr %server.0, i64 432
+  %base25 = getelementptr inbounds nuw i8, ptr %server.0, i64 432
   %8 = load ptr, ptr %base25, align 8
   tail call void @evdns_cancel_request(ptr noundef %8, ptr noundef nonnull %7)
   store ptr null, ptr %probe_request, align 8
@@ -2051,22 +2051,22 @@ if.end32:                                         ; preds = %if.then29, %if.end2
 
 while.end:                                        ; preds = %if.end32
   store ptr null, ptr %server_head, align 8
-  %global_good_nameservers = getelementptr inbounds i8, ptr %base, i64 40
+  %global_good_nameservers = getelementptr inbounds nuw i8, ptr %base, i64 40
   store i32 0, ptr %global_good_nameservers, align 8
-  %n_req_heads = getelementptr inbounds i8, ptr %base, i64 24
+  %n_req_heads = getelementptr inbounds nuw i8, ptr %base, i64 24
   %10 = load i32, ptr %n_req_heads, align 8
   %cmp3751 = icmp sgt i32 %10, 0
   br i1 %cmp3751, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %global_requests_waiting = getelementptr inbounds i8, ptr %base, i64 48
-  %req_waiting_head = getelementptr inbounds i8, ptr %base, i64 8
+  %global_requests_waiting = getelementptr inbounds nuw i8, ptr %base, i64 48
+  %req_waiting_head = getelementptr inbounds nuw i8, ptr %base, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end49
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %while.end49 ]
   %11 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %12 = load ptr, ptr %arrayidx, align 8
   br label %while.cond
 
@@ -2076,15 +2076,15 @@ while.cond:                                       ; preds = %evdns_request_inser
   br i1 %tobool38.not, label %while.end49, label %while.body39
 
 while.body39:                                     ; preds = %while.cond
-  %next41 = getelementptr inbounds i8, ptr %req.0, i64 32
+  %next41 = getelementptr inbounds nuw i8, ptr %req.0, i64 32
   %13 = load ptr, ptr %next41, align 8
-  %reissue_count = getelementptr inbounds i8, ptr %req.0, i64 16
-  %timeout_event42 = getelementptr inbounds i8, ptr %req.0, i64 48
+  %reissue_count = getelementptr inbounds nuw i8, ptr %req.0, i64 16
+  %timeout_event42 = getelementptr inbounds nuw i8, ptr %req.0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reissue_count, i8 0, i64 16, i1 false)
   %call43 = tail call i32 @event_del(ptr noundef nonnull %timeout_event42) #18
-  %trans_id = getelementptr inbounds i8, ptr %req.0, i64 168
+  %trans_id = getelementptr inbounds nuw i8, ptr %req.0, i64 168
   store i16 0, ptr %trans_id, align 8
-  %transmit_me = getelementptr inbounds i8, ptr %req.0, i64 170
+  %transmit_me = getelementptr inbounds nuw i8, ptr %req.0, i64 170
   %bf.load = load i8, ptr %transmit_me, align 2
   %bf.clear = and i8 %bf.load, -3
   store i8 %bf.clear, ptr %transmit_me, align 2
@@ -2097,27 +2097,27 @@ while.body39:                                     ; preds = %while.cond
 
 if.then7.i:                                       ; preds = %while.body39
   store ptr %req.0, ptr %req_waiting_head, align 8
-  %prev.i = getelementptr inbounds i8, ptr %req.0, i64 40
+  %prev.i = getelementptr inbounds nuw i8, ptr %req.0, i64 40
   store ptr %req.0, ptr %prev.i, align 8
   store ptr %req.0, ptr %next41, align 8
   br label %evdns_request_insert.exit
 
 if.end8.i:                                        ; preds = %while.body39
-  %prev9.i = getelementptr inbounds i8, ptr %15, i64 40
+  %prev9.i = getelementptr inbounds nuw i8, ptr %15, i64 40
   %16 = load ptr, ptr %prev9.i, align 8
-  %prev10.i = getelementptr inbounds i8, ptr %req.0, i64 40
+  %prev10.i = getelementptr inbounds nuw i8, ptr %req.0, i64 40
   store ptr %16, ptr %prev10.i, align 8
-  %next12.i = getelementptr inbounds i8, ptr %16, i64 32
+  %next12.i = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %req.0, ptr %next12.i, align 8
   %17 = load ptr, ptr %req_waiting_head, align 8
   store ptr %17, ptr %next41, align 8
-  %prev14.i = getelementptr inbounds i8, ptr %17, i64 40
+  %prev14.i = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %req.0, ptr %prev14.i, align 8
   br label %evdns_request_insert.exit
 
 evdns_request_insert.exit:                        ; preds = %if.then7.i, %if.end8.i
   %18 = load ptr, ptr %req_waiting_head, align 8
-  %prev = getelementptr inbounds i8, ptr %18, i64 40
+  %prev = getelementptr inbounds nuw i8, ptr %18, i64 40
   %19 = load ptr, ptr %prev, align 8
   store ptr %19, ptr %req_waiting_head, align 8
   %cmp46 = icmp eq ptr %13, %12
@@ -2125,7 +2125,7 @@ evdns_request_insert.exit:                        ; preds = %if.then7.i, %if.end
 
 while.end49:                                      ; preds = %evdns_request_insert.exit, %while.cond
   %20 = load ptr, ptr %base, align 8
-  %arrayidx52 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %arrayidx52 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   store ptr null, ptr %arrayidx52, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %n_req_heads, align 8
@@ -2134,7 +2134,7 @@ while.end49:                                      ; preds = %evdns_request_inser
   br i1 %cmp37, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %while.end49, %while.end
-  %global_requests_inflight = getelementptr inbounds i8, ptr %base, i64 44
+  %global_requests_inflight = getelementptr inbounds nuw i8, ptr %base, i64 44
   store i32 0, ptr %global_requests_inflight, align 4
   %23 = load ptr, ptr %lock, align 8
   %tobool56.not = icmp eq ptr %23, null
@@ -2164,19 +2164,19 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %do.body
 
 if.then2:                                         ; preds = %if.end
-  %base3 = getelementptr inbounds i8, ptr %handle, i64 8
+  %base3 = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %1 = load ptr, ptr %base3, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.then5, label %do.body
 
 if.then5:                                         ; preds = %if.then2
-  %base7 = getelementptr inbounds i8, ptr %0, i64 184
+  %base7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %2 = load ptr, ptr %base7, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.end, %if.then5, %if.then2
   %base.addr.0 = phi ptr [ %base, %if.end ], [ %1, %if.then2 ], [ %2, %if.then5 ]
-  %lock = getelementptr inbounds i8, ptr %base.addr.0, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base.addr.0, i64 336
   %3 = load ptr, ptr %lock, align 8
   %tobool10.not = icmp eq ptr %3, null
   br i1 %tobool10.not, label %do.end, label %if.then11
@@ -2187,7 +2187,7 @@ if.then11:                                        ; preds = %do.body
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then11
-  %pending_cb = getelementptr inbounds i8, ptr %handle, i64 16
+  %pending_cb = getelementptr inbounds nuw i8, ptr %handle, i64 16
   %5 = load i32, ptr %pending_cb, align 8
   %tobool14.not = icmp eq i32 %5, 0
   br i1 %tobool14.not, label %if.end24, label %do.body16
@@ -2199,49 +2199,49 @@ do.body16:                                        ; preds = %do.end
 
 if.end24:                                         ; preds = %do.end
   %7 = load ptr, ptr %handle, align 8
-  %handle1.i = getelementptr inbounds i8, ptr %7, i64 192
+  %handle1.i = getelementptr inbounds nuw i8, ptr %7, i64 192
   %8 = load ptr, ptr %handle1.i, align 8
-  %request_type.i = getelementptr inbounds i8, ptr %7, i64 10
+  %request_type.i = getelementptr inbounds nuw i8, ptr %7, i64 10
   %9 = load i8, ptr %request_type.i, align 2
-  %request_type5.i = getelementptr inbounds i8, ptr %8, i64 80
+  %request_type5.i = getelementptr inbounds nuw i8, ptr %8, i64 80
   store i8 %9, ptr %request_type5.i, align 8
-  %ttl6.i = getelementptr inbounds i8, ptr %8, i64 84
+  %ttl6.i = getelementptr inbounds nuw i8, ptr %8, i64 84
   store i32 0, ptr %ttl6.i, align 4
-  %err7.i = getelementptr inbounds i8, ptr %8, i64 88
+  %err7.i = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i32 69, ptr %err7.i, align 8
-  %base.i = getelementptr inbounds i8, ptr %7, i64 184
-  %pending_cb.i = getelementptr inbounds i8, ptr %8, i64 16
+  %base.i = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %pending_cb.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %pending_cb.i, align 8
-  %deferred.i = getelementptr inbounds i8, ptr %8, i64 24
-  %timeout_event.i = getelementptr inbounds i8, ptr %7, i64 48
+  %deferred.i = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %timeout_event.i = getelementptr inbounds nuw i8, ptr %7, i64 48
   %call.i = tail call i32 @event_get_priority(ptr noundef nonnull %timeout_event.i) #18
   %conv.i = trunc i32 %call.i to i8
-  %user_pointer.i = getelementptr inbounds i8, ptr %8, i64 72
+  %user_pointer.i = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %user_pointer.i, align 8
   tail call void @event_deferred_cb_init_(ptr noundef nonnull %deferred.i, i8 noundef zeroext %conv.i, ptr noundef nonnull @reply_run_callback, ptr noundef %10) #18
   %11 = load ptr, ptr %base.i, align 8
-  %event_base.i = getelementptr inbounds i8, ptr %11, i64 32
+  %event_base.i = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = load ptr, ptr %event_base.i, align 8
   %call14.i = tail call i32 @event_deferred_cb_schedule_(ptr noundef %12, ptr noundef nonnull %deferred.i) #18
-  %ns = getelementptr inbounds i8, ptr %7, i64 24
+  %ns = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load ptr, ptr %ns, align 8
   %tobool28.not = icmp eq ptr %13, null
   br i1 %tobool28.not, label %if.else, label %if.then29
 
 if.then29:                                        ; preds = %if.end24
   %14 = load ptr, ptr %base.addr.0, align 8
-  %trans_id = getelementptr inbounds i8, ptr %7, i64 168
+  %trans_id = getelementptr inbounds nuw i8, ptr %7, i64 168
   %15 = load i16, ptr %trans_id, align 8
   %conv = zext i16 %15 to i32
-  %n_req_heads = getelementptr inbounds i8, ptr %base.addr.0, i64 24
+  %n_req_heads = getelementptr inbounds nuw i8, ptr %base.addr.0, i64 24
   %16 = load i32, ptr %n_req_heads, align 8
   %rem = srem i32 %conv, %16
   %idxprom = zext nneg i32 %rem to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %14, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %14, i64 %idxprom
   br label %do.body31
 
 if.else:                                          ; preds = %if.end24
-  %req_waiting_head = getelementptr inbounds i8, ptr %base.addr.0, i64 8
+  %req_waiting_head = getelementptr inbounds nuw i8, ptr %base.addr.0, i64 8
   br label %do.body31
 
 do.body31:                                        ; preds = %if.then29, %if.else
@@ -2274,7 +2274,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define noundef i32 @evdns_base_resume(ptr nocapture noundef %base) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -2303,18 +2303,18 @@ do.end9:                                          ; preds = %do.end, %if.then5
 define internal fastcc void @evdns_requests_pump_waiting_queue(ptr nocapture noundef %base) unnamed_addr #2 {
 entry:
   %trans_id.i = alloca i16, align 2
-  %global_requests_inflight = getelementptr inbounds i8, ptr %base, i64 44
-  %global_max_requests_inflight = getelementptr inbounds i8, ptr %base, i64 52
+  %global_requests_inflight = getelementptr inbounds nuw i8, ptr %base, i64 44
+  %global_max_requests_inflight = getelementptr inbounds nuw i8, ptr %base, i64 52
   %0 = load i32, ptr %global_requests_inflight, align 4
   %1 = load i32, ptr %global_max_requests_inflight, align 4
   %cmp44 = icmp slt i32 %0, %1
   br i1 %cmp44, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %global_requests_waiting = getelementptr inbounds i8, ptr %base, i64 48
-  %req_waiting_head = getelementptr inbounds i8, ptr %base, i64 8
-  %server_head.i = getelementptr inbounds i8, ptr %base, i64 16
-  %global_good_nameservers.i = getelementptr inbounds i8, ptr %base, i64 40
+  %global_requests_waiting = getelementptr inbounds nuw i8, ptr %base, i64 48
+  %req_waiting_head = getelementptr inbounds nuw i8, ptr %base, i64 8
+  %server_head.i = getelementptr inbounds nuw i8, ptr %base, i64 16
+  %global_good_nameservers.i = getelementptr inbounds nuw i8, ptr %base, i64 40
   %2 = getelementptr i8, ptr %base, i64 24
   br label %land.rhs
 
@@ -2330,7 +2330,7 @@ do.end6:                                          ; preds = %land.rhs
   br i1 %tobool5.not.i, label %nameserver_pick.exit.thread, label %if.end7.i
 
 nameserver_pick.exit.thread:                      ; preds = %do.end6
-  %ns33 = getelementptr inbounds i8, ptr %4, i64 24
+  %ns33 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %ns33, align 8
   br label %while.end
 
@@ -2341,13 +2341,13 @@ if.end7.i:                                        ; preds = %do.end6
 
 for.cond.i:                                       ; preds = %if.end7.i, %if.end21.i
   %7 = phi ptr [ %9, %if.end21.i ], [ %5, %if.end7.i ]
-  %state.i = getelementptr inbounds i8, ptr %7, i64 424
+  %state.i = getelementptr inbounds nuw i8, ptr %7, i64 424
   %8 = load i8, ptr %state.i, align 8
   %tobool15.not.i = icmp eq i8 %8, 0
   br i1 %tobool15.not.i, label %if.end21.i, label %nameserver_pick.exit.thread35
 
 if.end21.i:                                       ; preds = %for.cond.i
-  %next23.i = getelementptr inbounds i8, ptr %7, i64 280
+  %next23.i = getelementptr inbounds nuw i8, ptr %7, i64 280
   %9 = load ptr, ptr %next23.i, align 8
   store ptr %9, ptr %server_head.i, align 8
   %cmp.i = icmp eq ptr %9, %5
@@ -2355,40 +2355,40 @@ if.end21.i:                                       ; preds = %for.cond.i
 
 nameserver_pick.exit.thread35:                    ; preds = %if.end21.i, %for.cond.i
   %retval.0.ph.i.ph = phi ptr [ %7, %for.cond.i ], [ %9, %if.end21.i ]
-  %.sink.i.ph.in = getelementptr inbounds i8, ptr %retval.0.ph.i.ph, i64 280
+  %.sink.i.ph.in = getelementptr inbounds nuw i8, ptr %retval.0.ph.i.ph, i64 280
   %.sink.i.ph = load ptr, ptr %.sink.i.ph.in, align 8
   store ptr %.sink.i.ph, ptr %server_head.i, align 8
-  %ns38 = getelementptr inbounds i8, ptr %4, i64 24
+  %ns38 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %retval.0.ph.i.ph, ptr %ns38, align 8
   br label %if.end10
 
 nameserver_pick.exit:                             ; preds = %if.end7.i
-  %next.i = getelementptr inbounds i8, ptr %5, i64 280
+  %next.i = getelementptr inbounds nuw i8, ptr %5, i64 280
   %10 = load ptr, ptr %next.i, align 8
   store ptr %10, ptr %server_head.i, align 8
-  %ns = getelementptr inbounds i8, ptr %4, i64 24
+  %ns = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %10, ptr %ns, align 8
   %tobool8.not = icmp eq ptr %10, null
   br i1 %tobool8.not, label %while.end, label %if.end10
 
 if.end10:                                         ; preds = %nameserver_pick.exit.thread35, %nameserver_pick.exit
   %retval.0.ph.i40 = phi ptr [ %retval.0.ph.i.ph, %nameserver_pick.exit.thread35 ], [ %10, %nameserver_pick.exit ]
-  %requests_inflight = getelementptr inbounds i8, ptr %retval.0.ph.i40, i64 440
+  %requests_inflight = getelementptr inbounds nuw i8, ptr %retval.0.ph.i40, i64 440
   %11 = load i32, ptr %requests_inflight, align 8
   %inc = add nsw i32 %11, 1
   store i32 %inc, ptr %requests_inflight, align 8
-  %next.i20 = getelementptr inbounds i8, ptr %4, i64 32
+  %next.i20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = load ptr, ptr %next.i20, align 8
   %cmp.i21 = icmp eq ptr %12, %4
   br i1 %cmp.i21, label %if.end16.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end10
-  %prev.i = getelementptr inbounds i8, ptr %4, i64 40
+  %prev.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load ptr, ptr %prev.i, align 8
-  %prev8.i = getelementptr inbounds i8, ptr %12, i64 40
+  %prev8.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %13, ptr %prev8.i, align 8
   %14 = load ptr, ptr %next.i20, align 8
-  %next11.i = getelementptr inbounds i8, ptr %13, i64 32
+  %next11.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %14, ptr %next11.i, align 8
   %15 = load ptr, ptr %req_waiting_head, align 8
   %cmp12.i = icmp eq ptr %15, %4
@@ -2425,27 +2425,27 @@ if.end6.i:                                        ; preds = %for.cond.i23
   %conv.i.i = zext i16 %18 to i32
   %rem.i.i = srem i32 %conv.i.i, %base.val2.i
   %idxprom.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %base.val.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %base.val.i, i64 %idxprom.i.i
   %19 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool4.not.i.i = icmp eq ptr %19, null
   br i1 %tobool4.not.i.i, label %transaction_id_pick.exit, label %do.body6.i.i
 
 do.body6.i.i:                                     ; preds = %if.end6.i, %if.end12.i.i
   %req.0.i.i = phi ptr [ %21, %if.end12.i.i ], [ %19, %if.end6.i ]
-  %trans_id7.i.i = getelementptr inbounds i8, ptr %req.0.i.i, i64 168
+  %trans_id7.i.i = getelementptr inbounds nuw i8, ptr %req.0.i.i, i64 168
   %20 = load i16, ptr %trans_id7.i.i, align 8
   %cmp.i.i = icmp eq i16 %20, %18
   br i1 %cmp.i.i, label %for.cond.i23.backedge, label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %do.body6.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %req.0.i.i, i64 32
+  %next.i.i = getelementptr inbounds nuw i8, ptr %req.0.i.i, i64 32
   %21 = load ptr, ptr %next.i.i, align 8
   %cmp13.not.i.i = icmp eq ptr %21, %19
   br i1 %cmp13.not.i.i, label %transaction_id_pick.exit, label %do.body6.i.i, !llvm.loop !18
 
 transaction_id_pick.exit:                         ; preds = %if.end6.i, %if.end12.i.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %trans_id.i)
-  %trans_id1.i = getelementptr inbounds i8, ptr %4, i64 168
+  %trans_id1.i = getelementptr inbounds nuw i8, ptr %4, i64 168
   store i16 %18, ptr %trans_id1.i, align 8
   %call.i = call zeroext i16 @htons(i16 noundef zeroext %18) #19
   %22 = load ptr, ptr %4, align 8
@@ -2456,28 +2456,28 @@ transaction_id_pick.exit:                         ; preds = %if.end6.i, %if.end1
   %25 = load i32, ptr %2, align 8
   %rem = srem i32 %conv, %25
   %idxprom = zext nneg i32 %rem to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %23, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %23, i64 %idxprom
   %26 = load ptr, ptr %arrayidx, align 8
   %tobool6.not.i = icmp eq ptr %26, null
   br i1 %tobool6.not.i, label %if.then7.i, label %if.end8.i
 
 if.then7.i:                                       ; preds = %transaction_id_pick.exit
   store ptr %4, ptr %arrayidx, align 8
-  %prev.i26 = getelementptr inbounds i8, ptr %4, i64 40
+  %prev.i26 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %4, ptr %prev.i26, align 8
   store ptr %4, ptr %next.i20, align 8
   br label %evdns_request_insert.exit
 
 if.end8.i:                                        ; preds = %transaction_id_pick.exit
-  %prev9.i = getelementptr inbounds i8, ptr %26, i64 40
+  %prev9.i = getelementptr inbounds nuw i8, ptr %26, i64 40
   %27 = load ptr, ptr %prev9.i, align 8
-  %prev10.i = getelementptr inbounds i8, ptr %4, i64 40
+  %prev10.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %27, ptr %prev10.i, align 8
-  %next12.i = getelementptr inbounds i8, ptr %27, i64 32
+  %next12.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %4, ptr %next12.i, align 8
   %28 = load ptr, ptr %arrayidx, align 8
   store ptr %28, ptr %next.i20, align 8
-  %prev14.i = getelementptr inbounds i8, ptr %28, i64 40
+  %prev14.i = getelementptr inbounds nuw i8, ptr %28, i64 40
   store ptr %4, ptr %prev14.i, align 8
   br label %evdns_request_insert.exit
 
@@ -2491,14 +2491,14 @@ for.body.i:                                       ; preds = %evdns_request_inser
   %30 = phi i32 [ %35, %for.inc.i ], [ %29, %evdns_request_insert.exit ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %evdns_request_insert.exit ]
   %31 = load ptr, ptr %base, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
   %32 = load ptr, ptr %arrayidx.i, align 8
   %tobool4.not.i = icmp eq ptr %32, null
   br i1 %tobool4.not.i, label %for.inc.i, label %do.body9.i
 
 do.body9.i:                                       ; preds = %for.body.i, %if.end12.i
   %req.0.i = phi ptr [ %34, %if.end12.i ], [ %32, %for.body.i ]
-  %transmit_me.i = getelementptr inbounds i8, ptr %req.0.i, i64 170
+  %transmit_me.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 170
   %bf.load.i = load i8, ptr %transmit_me.i, align 2
   %33 = and i8 %bf.load.i, 2
   %tobool10.not.i = icmp eq i8 %33, 0
@@ -2509,7 +2509,7 @@ if.then11.i:                                      ; preds = %do.body9.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then11.i, %do.body9.i
-  %next.i30 = getelementptr inbounds i8, ptr %req.0.i, i64 32
+  %next.i30 = getelementptr inbounds nuw i8, ptr %req.0.i, i64 32
   %34 = load ptr, ptr %next.i30, align 8
   %cmp13.not.i = icmp eq ptr %34, %32
   br i1 %cmp13.not.i, label %for.inc.loopexit.i, label %do.body9.i, !llvm.loop !19
@@ -2539,7 +2539,7 @@ while.end:                                        ; preds = %land.rhs, %nameserv
 define noundef i32 @evdns_resume() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @current_base, align 8
-  %lock.i = getelementptr inbounds i8, ptr %0, i64 336
+  %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 336
   %1 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %do.end.i, label %if.then.i
@@ -2568,16 +2568,16 @@ evdns_base_resume.exit:                           ; preds = %do.end.i, %if.then5
 define range(i32 -8, 4) i32 @evdns_base_nameserver_add(ptr noundef %base, i64 noundef %address) local_unnamed_addr #2 {
 entry:
   %sin = alloca %struct.sockaddr_in, align 4
-  %0 = getelementptr inbounds i8, ptr %sin, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %sin, i64 8
   store i64 0, ptr %0, align 4
   %conv = trunc i64 %address to i32
-  %sin_addr = getelementptr inbounds i8, ptr %sin, i64 4
+  %sin_addr = getelementptr inbounds nuw i8, ptr %sin, i64 4
   store i32 %conv, ptr %sin_addr, align 4
   %call = tail call zeroext i16 @htons(i16 noundef zeroext 53) #19
-  %sin_port = getelementptr inbounds i8, ptr %sin, i64 2
+  %sin_port = getelementptr inbounds nuw i8, ptr %sin, i64 2
   store i16 %call, ptr %sin_port, align 2
   store i16 2, ptr %sin, align 4
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -2609,20 +2609,20 @@ declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #6
 define internal fastcc range(i32 -8, 4) i32 @evdns_nameserver_add_impl_(ptr noundef %base, ptr noundef %address, i32 noundef %addrlen) unnamed_addr #2 {
 entry:
   %addrbuf = alloca [128 x i8], align 16
-  %server_head = getelementptr inbounds i8, ptr %base, i64 16
+  %server_head = getelementptr inbounds nuw i8, ptr %base, i64 16
   %0 = load ptr, ptr %server_head, align 8
   %tobool5.not = icmp eq ptr %0, null
   br i1 %tobool5.not, label %if.end13, label %do.body7
 
 do.body7:                                         ; preds = %entry, %if.end11
   %server.0 = phi ptr [ %1, %if.end11 ], [ %0, %entry ]
-  %address8 = getelementptr inbounds i8, ptr %server.0, i64 16
+  %address8 = getelementptr inbounds nuw i8, ptr %server.0, i64 16
   %call = tail call i32 @evutil_sockaddr_cmp(ptr noundef nonnull %address8, ptr noundef %address, i32 noundef 1) #18
   %tobool9.not = icmp eq i32 %call, 0
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %do.body7
-  %next = getelementptr inbounds i8, ptr %server.0, i64 280
+  %next = getelementptr inbounds nuw i8, ptr %server.0, i64 280
   %1 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %1, %0
   br i1 %cmp.not, label %if.end13, label %do.body7, !llvm.loop !22
@@ -2642,10 +2642,10 @@ if.end16:                                         ; preds = %if.end13
 
 if.end20:                                         ; preds = %if.end16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %call17, i8 0, i64 448, i1 false)
-  %base21 = getelementptr inbounds i8, ptr %call17, i64 432
+  %base21 = getelementptr inbounds nuw i8, ptr %call17, i64 432
   store ptr %base, ptr %base21, align 8
-  %timeout_event = getelementptr inbounds i8, ptr %call17, i64 296
-  %event_base = getelementptr inbounds i8, ptr %base, i64 32
+  %timeout_event = getelementptr inbounds nuw i8, ptr %call17, i64 296
+  %event_base = getelementptr inbounds nuw i8, ptr %base, i64 32
   %2 = load ptr, ptr %event_base, align 8
   %call23 = tail call i32 @event_assign(ptr noundef nonnull %timeout_event, ptr noundef %2, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @nameserver_prod_callback, ptr noundef nonnull %call17) #18
   %3 = load i16, ptr %address, align 2
@@ -2656,7 +2656,7 @@ if.end20:                                         ; preds = %if.end16
   br i1 %cmp26, label %out1, label %if.end29
 
 if.end29:                                         ; preds = %if.end20
-  %global_outgoing_addrlen = getelementptr inbounds i8, ptr %base, i64 264
+  %global_outgoing_addrlen = getelementptr inbounds nuw i8, ptr %base, i64 264
   %4 = load i32, ptr %global_outgoing_addrlen, align 8
   %tobool30.not = icmp eq i32 %4, 0
   br i1 %tobool30.not, label %if.end42, label %land.lhs.true31
@@ -2668,7 +2668,7 @@ land.lhs.true31:                                  ; preds = %if.end29
   br i1 %tobool33.not, label %if.then34, label %if.end42
 
 if.then34:                                        ; preds = %land.lhs.true31
-  %global_outgoing_address = getelementptr inbounds i8, ptr %base, i64 136
+  %global_outgoing_address = getelementptr inbounds nuw i8, ptr %base, i64 136
   %5 = load i32, ptr %global_outgoing_addrlen, align 8
   %call37 = tail call i32 @bind(i32 noundef %.pre66.pre67.pre69, ptr nonnull %global_outgoing_address, i32 noundef %5) #18
   %cmp38 = icmp slt i32 %call37, 0
@@ -2684,7 +2684,7 @@ if.then40:                                        ; preds = %if.then34
 
 if.end42:                                         ; preds = %if.then34.if.end42_crit_edge, %land.lhs.true31, %if.end29
   %.pre66.pre67 = phi i32 [ %.pre66.pre67.pre, %if.then34.if.end42_crit_edge ], [ %.pre66.pre67.pre69, %land.lhs.true31 ], [ %call24, %if.end29 ]
-  %so_rcvbuf = getelementptr inbounds i8, ptr %base, i64 288
+  %so_rcvbuf = getelementptr inbounds nuw i8, ptr %base, i64 288
   %6 = load i32, ptr %so_rcvbuf, align 8
   %tobool43.not = icmp eq i32 %6, 0
   br i1 %tobool43.not, label %if.end52, label %if.then44
@@ -2705,7 +2705,7 @@ if.then49:                                        ; preds = %if.then44
 
 if.end52:                                         ; preds = %if.then44.if.end52_crit_edge, %if.end42
   %.pre66 = phi i32 [ %.pre66.pre, %if.then44.if.end52_crit_edge ], [ %.pre66.pre67, %if.end42 ]
-  %so_sndbuf = getelementptr inbounds i8, ptr %base, i64 292
+  %so_sndbuf = getelementptr inbounds nuw i8, ptr %base, i64 292
   %8 = load i32, ptr %so_sndbuf, align 4
   %tobool53.not = icmp eq i32 %8, 0
   br i1 %tobool53.not, label %if.end62, label %if.then54
@@ -2726,21 +2726,21 @@ if.then59:                                        ; preds = %if.then54
 
 if.end62:                                         ; preds = %if.then54.if.end62_crit_edge, %if.end52
   %10 = phi i32 [ %.pre, %if.then54.if.end62_crit_edge ], [ %.pre66, %if.end52 ]
-  %address63 = getelementptr inbounds i8, ptr %call17, i64 16
+  %address63 = getelementptr inbounds nuw i8, ptr %call17, i64 16
   %conv64 = sext i32 %addrlen to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %address63, ptr nonnull align 2 %address, i64 %conv64, i1 false)
-  %addrlen65 = getelementptr inbounds i8, ptr %call17, i64 144
+  %addrlen65 = getelementptr inbounds nuw i8, ptr %call17, i64 144
   store i32 %addrlen, ptr %addrlen65, align 8
-  %state = getelementptr inbounds i8, ptr %call17, i64 424
+  %state = getelementptr inbounds nuw i8, ptr %call17, i64 424
   store i8 1, ptr %state, align 8
-  %connection = getelementptr inbounds i8, ptr %call17, i64 8
+  %connection = getelementptr inbounds nuw i8, ptr %call17, i64 8
   store ptr null, ptr %connection, align 8
-  %event = getelementptr inbounds i8, ptr %call17, i64 160
+  %event = getelementptr inbounds nuw i8, ptr %call17, i64 160
   %11 = load ptr, ptr %base21, align 8
-  %event_base67 = getelementptr inbounds i8, ptr %11, i64 32
+  %event_base67 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = load ptr, ptr %event_base67, align 8
   %call69 = tail call i32 @event_assign(ptr noundef nonnull %event, ptr noundef %12, i32 noundef %10, i16 noundef signext 18, ptr noundef nonnull @nameserver_ready_callback, ptr noundef nonnull %call17) #18
-  %disable_when_inactive = getelementptr inbounds i8, ptr %base, i64 344
+  %disable_when_inactive = getelementptr inbounds nuw i8, ptr %base, i64 344
   %13 = load i32, ptr %disable_when_inactive, align 8
   %tobool70.not = icmp eq i32 %13, 0
   br i1 %tobool70.not, label %land.lhs.true71, label %if.end77
@@ -2755,32 +2755,32 @@ if.end77:                                         ; preds = %land.lhs.true71, %i
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.68, ptr noundef %call78, ptr noundef nonnull %call17)
   %14 = load ptr, ptr %server_head, align 8
   %tobool80.not = icmp eq ptr %14, null
-  %next82 = getelementptr inbounds i8, ptr %call17, i64 280
+  %next82 = getelementptr inbounds nuw i8, ptr %call17, i64 280
   br i1 %tobool80.not, label %if.then81, label %if.else
 
 if.then81:                                        ; preds = %if.end77
-  %prev = getelementptr inbounds i8, ptr %call17, i64 288
+  %prev = getelementptr inbounds nuw i8, ptr %call17, i64 288
   store ptr %call17, ptr %prev, align 8
   store ptr %call17, ptr %next82, align 8
   store ptr %call17, ptr %server_head, align 8
   br label %if.end93
 
 if.else:                                          ; preds = %if.end77
-  %next85 = getelementptr inbounds i8, ptr %14, i64 280
+  %next85 = getelementptr inbounds nuw i8, ptr %14, i64 280
   %15 = load ptr, ptr %next85, align 8
   store ptr %15, ptr %next82, align 8
   %16 = load ptr, ptr %server_head, align 8
-  %prev88 = getelementptr inbounds i8, ptr %call17, i64 288
+  %prev88 = getelementptr inbounds nuw i8, ptr %call17, i64 288
   store ptr %16, ptr %prev88, align 8
-  %next90 = getelementptr inbounds i8, ptr %16, i64 280
+  %next90 = getelementptr inbounds nuw i8, ptr %16, i64 280
   store ptr %call17, ptr %next90, align 8
   %17 = load ptr, ptr %next82, align 8
-  %prev92 = getelementptr inbounds i8, ptr %17, i64 288
+  %prev92 = getelementptr inbounds nuw i8, ptr %17, i64 288
   store ptr %call17, ptr %prev92, align 8
   br label %if.end93
 
 if.end93:                                         ; preds = %if.else, %if.then81
-  %global_good_nameservers = getelementptr inbounds i8, ptr %base, i64 40
+  %global_good_nameservers = getelementptr inbounds nuw i8, ptr %base, i64 40
   %18 = load i32, ptr %global_good_nameservers, align 8
   %inc = add nsw i32 %18, 1
   store i32 %inc, ptr %global_good_nameservers, align 8
@@ -2794,7 +2794,7 @@ out2:                                             ; preds = %land.lhs.true71, %i
 
 out1:                                             ; preds = %if.end20, %out2
   %err.0 = phi i32 [ %err.1, %out2 ], [ 1, %if.end20 ]
-  %event96 = getelementptr inbounds i8, ptr %call17, i64 160
+  %event96 = getelementptr inbounds nuw i8, ptr %call17, i64 160
   tail call void @event_debug_unassign(ptr noundef nonnull %event96) #18
   tail call void @event_mm_free_(ptr noundef nonnull %call17) #18
   %call98 = call ptr @evutil_format_sockaddr_port_(ptr noundef nonnull %address, ptr noundef nonnull %addrbuf, i64 noundef 128) #18
@@ -2822,16 +2822,16 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %1 = phi ptr [ %call, %if.then ], [ %0, %entry ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sin.i)
-  %2 = getelementptr inbounds i8, ptr %sin.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %sin.i, i64 8
   store i64 0, ptr %2, align 4
   %conv.i = trunc i64 %address to i32
-  %sin_addr.i = getelementptr inbounds i8, ptr %sin.i, i64 4
+  %sin_addr.i = getelementptr inbounds nuw i8, ptr %sin.i, i64 4
   store i32 %conv.i, ptr %sin_addr.i, align 4
   %call.i = tail call zeroext i16 @htons(i16 noundef zeroext 53) #19
-  %sin_port.i = getelementptr inbounds i8, ptr %sin.i, i64 2
+  %sin_port.i = getelementptr inbounds nuw i8, ptr %sin.i, i64 2
   store i16 %call.i, ptr %sin_port.i, align 2
   store i16 2, ptr %sin.i, align 4
-  %lock.i = getelementptr inbounds i8, ptr %1, i64 336
+  %lock.i = getelementptr inbounds nuw i8, ptr %1, i64 336
   %3 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %do.end.i, label %if.then.i
@@ -2882,12 +2882,12 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool.not, label %cond.end.thread, label %cond.end
 
 cond.end.thread:                                  ; preds = %if.end4
-  %lock44 = getelementptr inbounds i8, ptr %call1, i64 336
+  %lock44 = getelementptr inbounds nuw i8, ptr %call1, i64 336
   br label %do.end
 
 cond.end:                                         ; preds = %if.end4
   %call5 = tail call ptr %0(i32 noundef 1) #18
-  %lock = getelementptr inbounds i8, ptr %call1, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %call1, i64 336
   store ptr %call5, ptr %lock, align 8
   %tobool7.not = icmp eq ptr %call5, null
   br i1 %tobool7.not, label %do.end, label %if.then8
@@ -2901,49 +2901,49 @@ do.end:                                           ; preds = %cond.end.thread, %c
   %lock46 = phi ptr [ %lock44, %cond.end.thread ], [ %lock, %cond.end ], [ %lock, %if.then8 ]
   store ptr null, ptr %call1, align 8
   tail call fastcc void @evdns_base_set_max_requests_inflight(ptr noundef nonnull %call1, i32 noundef 64)
-  %server_head = getelementptr inbounds i8, ptr %call1, i64 16
+  %server_head = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store ptr null, ptr %server_head, align 8
-  %event_base13 = getelementptr inbounds i8, ptr %call1, i64 32
+  %event_base13 = getelementptr inbounds nuw i8, ptr %call1, i64 32
   store ptr %event_base, ptr %event_base13, align 8
-  %global_requests_waiting = getelementptr inbounds i8, ptr %call1, i64 48
+  %global_requests_waiting = getelementptr inbounds nuw i8, ptr %call1, i64 48
   store i32 0, ptr %global_requests_waiting, align 8
-  %global_requests_inflight = getelementptr inbounds i8, ptr %call1, i64 44
+  %global_requests_inflight = getelementptr inbounds nuw i8, ptr %call1, i64 44
   store i32 0, ptr %global_requests_inflight, align 4
-  %global_good_nameservers = getelementptr inbounds i8, ptr %call1, i64 40
+  %global_good_nameservers = getelementptr inbounds nuw i8, ptr %call1, i64 40
   store i32 0, ptr %global_good_nameservers, align 8
-  %global_timeout = getelementptr inbounds i8, ptr %call1, i64 56
+  %global_timeout = getelementptr inbounds nuw i8, ptr %call1, i64 56
   store i64 5, ptr %global_timeout, align 8
-  %tv_usec = getelementptr inbounds i8, ptr %call1, i64 64
+  %tv_usec = getelementptr inbounds nuw i8, ptr %call1, i64 64
   store i64 0, ptr %tv_usec, align 8
-  %global_max_reissues = getelementptr inbounds i8, ptr %call1, i64 72
+  %global_max_reissues = getelementptr inbounds nuw i8, ptr %call1, i64 72
   store i32 1, ptr %global_max_reissues, align 8
-  %global_max_retransmits = getelementptr inbounds i8, ptr %call1, i64 76
+  %global_max_retransmits = getelementptr inbounds nuw i8, ptr %call1, i64 76
   store i32 3, ptr %global_max_retransmits, align 4
-  %global_max_nameserver_timeout = getelementptr inbounds i8, ptr %call1, i64 80
+  %global_max_nameserver_timeout = getelementptr inbounds nuw i8, ptr %call1, i64 80
   store i32 3, ptr %global_max_nameserver_timeout, align 8
-  %global_search_state = getelementptr inbounds i8, ptr %call1, i64 312
+  %global_search_state = getelementptr inbounds nuw i8, ptr %call1, i64 312
   store ptr null, ptr %global_search_state, align 8
-  %global_randomize_case = getelementptr inbounds i8, ptr %call1, i64 84
+  %global_randomize_case = getelementptr inbounds nuw i8, ptr %call1, i64 84
   store i32 1, ptr %global_randomize_case, align 4
-  %global_max_udp_size = getelementptr inbounds i8, ptr %call1, i64 88
+  %global_max_udp_size = getelementptr inbounds nuw i8, ptr %call1, i64 88
   store i16 512, ptr %global_max_udp_size, align 8
-  %global_getaddrinfo_allow_skew = getelementptr inbounds i8, ptr %call1, i64 272
+  %global_getaddrinfo_allow_skew = getelementptr inbounds nuw i8, ptr %call1, i64 272
   store i64 3, ptr %global_getaddrinfo_allow_skew, align 8
-  %tv_usec17 = getelementptr inbounds i8, ptr %call1, i64 280
+  %tv_usec17 = getelementptr inbounds nuw i8, ptr %call1, i64 280
   store i64 0, ptr %tv_usec17, align 8
-  %global_nameserver_probe_initial_timeout = getelementptr inbounds i8, ptr %call1, i64 96
+  %global_nameserver_probe_initial_timeout = getelementptr inbounds nuw i8, ptr %call1, i64 96
   store i64 10, ptr %global_nameserver_probe_initial_timeout, align 8
-  %tv_usec20 = getelementptr inbounds i8, ptr %call1, i64 104
+  %tv_usec20 = getelementptr inbounds nuw i8, ptr %call1, i64 104
   store i64 0, ptr %tv_usec20, align 8
-  %ns_max_probe_timeout = getelementptr inbounds i8, ptr %call1, i64 348
+  %ns_max_probe_timeout = getelementptr inbounds nuw i8, ptr %call1, i64 348
   store i32 3600, ptr %ns_max_probe_timeout, align 4
-  %ns_timeout_backoff_factor = getelementptr inbounds i8, ptr %call1, i64 352
+  %ns_timeout_backoff_factor = getelementptr inbounds nuw i8, ptr %call1, i64 352
   store i32 3, ptr %ns_timeout_backoff_factor, align 8
-  %global_tcp_idle_timeout = getelementptr inbounds i8, ptr %call1, i64 120
+  %global_tcp_idle_timeout = getelementptr inbounds nuw i8, ptr %call1, i64 120
   store i64 5, ptr %global_tcp_idle_timeout, align 8
-  %hostsdb = getelementptr inbounds i8, ptr %call1, i64 320
+  %hostsdb = getelementptr inbounds nuw i8, ptr %call1, i64 320
   store ptr null, ptr %hostsdb, align 8
-  %tqh_last = getelementptr inbounds i8, ptr %call1, i64 328
+  %tqh_last = getelementptr inbounds nuw i8, ptr %call1, i64 328
   store ptr %hostsdb, ptr %tqh_last, align 8
   %and = and i32 %flags, -98306
   %tobool27.not = icmp eq i32 %and, 0
@@ -2959,7 +2959,7 @@ if.end29:                                         ; preds = %do.end
   br i1 %tobool31.not, label %if.end33, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
-  %disable_when_inactive = getelementptr inbounds i8, ptr %call1, i64 344
+  %disable_when_inactive = getelementptr inbounds nuw i8, ptr %call1, i64 344
   store i32 1, ptr %disable_when_inactive, align 8
   br label %if.end33
 
@@ -3019,7 +3019,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %ss.val = load i16, ptr %ss, align 8
-  %0 = getelementptr inbounds i8, ptr %ss, i64 2
+  %0 = getelementptr inbounds nuw i8, ptr %ss, i64 2
   switch i16 %ss.val, label %do.body [
     i16 2, label %sockaddr_getport.exit
     i16 10, label %sockaddr_getport.exit
@@ -3043,7 +3043,7 @@ if.end8.sink.split.i:                             ; preds = %if.then3, %if.then3
   br label %do.body
 
 do.body:                                          ; preds = %if.end, %if.end8.sink.split.i, %if.then3, %sockaddr_getport.exit
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %1 = load ptr, ptr %lock, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %do.end, label %if.then6
@@ -3093,7 +3093,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define range(i32 -8, 4) i32 @evdns_base_nameserver_sockaddr_add(ptr noundef %base, ptr noundef %sa, i32 noundef %len, i32 noundef %flags) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -3121,7 +3121,7 @@ do.end12:                                         ; preds = %do.end3, %if.then8
 ; Function Attrs: nounwind uwtable
 define i32 @evdns_base_get_nameserver_addr(ptr nocapture noundef readonly %base, i32 noundef %idx, ptr nocapture noundef writeonly %sa, i32 noundef %len) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -3132,7 +3132,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %server_head = getelementptr inbounds i8, ptr %base, i64 16
+  %server_head = getelementptr inbounds nuw i8, ptr %base, i64 16
   %2 = load ptr, ptr %server_head, align 8
   %cmp20 = icmp sgt i32 %idx, 0
   %tobool221 = icmp ne ptr %2, null
@@ -3149,7 +3149,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %do.end, %for.cond
   %server.023 = phi ptr [ %5, %for.cond ], [ %2, %do.end ]
   %i.022 = phi i32 [ %inc, %for.cond ], [ 0, %do.end ]
-  %next = getelementptr inbounds i8, ptr %server.023, i64 280
+  %next = getelementptr inbounds nuw i8, ptr %server.023, i64 280
   %5 = load ptr, ptr %next, align 8
   %cmp4 = icmp eq ptr %5, %2
   br i1 %cmp4, label %do.body17, label %for.cond
@@ -3160,13 +3160,13 @@ for.end:                                          ; preds = %for.cond, %do.end
   br i1 %tobool2.lcssa, label %if.end10, label %do.body17
 
 if.end10:                                         ; preds = %for.end
-  %addrlen = getelementptr inbounds i8, ptr %server.0.lcssa, i64 144
+  %addrlen = getelementptr inbounds nuw i8, ptr %server.0.lcssa, i64 144
   %6 = load i32, ptr %addrlen, align 8
   %cmp11 = icmp ugt i32 %6, %len
   br i1 %cmp11, label %do.body17, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
-  %address = getelementptr inbounds i8, ptr %server.0.lcssa, i64 16
+  %address = getelementptr inbounds nuw i8, ptr %server.0.lcssa, i64 16
   %conv = zext i32 %6 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %sa, ptr nonnull align 8 %address, i64 %conv, i1 false)
   %7 = load i32, ptr %addrlen, align 8
@@ -3190,7 +3190,7 @@ do.end24:                                         ; preds = %do.body17, %if.then
 ; Function Attrs: nounwind uwtable
 define i32 @evdns_base_get_nameserver_fd(ptr nocapture noundef readonly %base, i32 noundef %idx) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -3201,7 +3201,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %server_head = getelementptr inbounds i8, ptr %base, i64 16
+  %server_head = getelementptr inbounds nuw i8, ptr %base, i64 16
   %2 = load ptr, ptr %server_head, align 8
   %cmp15 = icmp sgt i32 %idx, 0
   %tobool216 = icmp ne ptr %2, null
@@ -3218,7 +3218,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %do.end, %for.cond
   %server.018 = phi ptr [ %5, %for.cond ], [ %2, %do.end ]
   %i.017 = phi i32 [ %inc, %for.cond ], [ 0, %do.end ]
-  %next = getelementptr inbounds i8, ptr %server.018, i64 280
+  %next = getelementptr inbounds nuw i8, ptr %server.018, i64 280
   %5 = load ptr, ptr %next, align 8
   %cmp4 = icmp eq ptr %5, %2
   br i1 %cmp4, label %do.body11, label %for.cond
@@ -3250,11 +3250,11 @@ do.end18:                                         ; preds = %do.body11, %if.then
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @request_finished(ptr noundef %req, ptr noundef %head, i32 noundef range(i32 0, 2) %free_handle) unnamed_addr #2 {
 entry:
-  %base1 = getelementptr inbounds i8, ptr %req, i64 184
+  %base1 = getelementptr inbounds nuw i8, ptr %req, i64 184
   %0 = load ptr, ptr %base1, align 8
-  %req_waiting_head = getelementptr inbounds i8, ptr %0, i64 8
+  %req_waiting_head = getelementptr inbounds nuw i8, ptr %0, i64 8
   %cmp.not = icmp eq ptr %head, %req_waiting_head
-  %lock = getelementptr inbounds i8, ptr %0, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 336
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end4, label %if.then
@@ -3269,18 +3269,18 @@ do.end4:                                          ; preds = %entry, %if.then
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %do.end4
-  %next.i = getelementptr inbounds i8, ptr %req, i64 32
+  %next.i = getelementptr inbounds nuw i8, ptr %req, i64 32
   %3 = load ptr, ptr %next.i, align 8
   %cmp.i = icmp eq ptr %3, %req
   br i1 %cmp.i, label %if.end16.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then6
-  %prev.i = getelementptr inbounds i8, ptr %req, i64 40
+  %prev.i = getelementptr inbounds nuw i8, ptr %req, i64 40
   %4 = load ptr, ptr %prev.i, align 8
-  %prev8.i = getelementptr inbounds i8, ptr %3, i64 40
+  %prev8.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %4, ptr %prev8.i, align 8
   %5 = load ptr, ptr %next.i, align 8
-  %next11.i = getelementptr inbounds i8, ptr %4, i64 32
+  %next11.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %5, ptr %next11.i, align 8
   %6 = load ptr, ptr %head, align 8
   %cmp12.i = icmp eq ptr %6, %req
@@ -3300,58 +3300,58 @@ if.end7:                                          ; preds = %evdns_request_remov
   br i1 %cmp.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %timeout_event = getelementptr inbounds i8, ptr %req, i64 48
+  %timeout_event = getelementptr inbounds nuw i8, ptr %req, i64 48
   %call10 = tail call i32 @event_del(ptr noundef nonnull %timeout_event) #18
-  %global_requests_inflight = getelementptr inbounds i8, ptr %0, i64 44
+  %global_requests_inflight = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %global_requests_inflight, align 4
   %dec = add nsw i32 %7, -1
   store i32 %dec, ptr %global_requests_inflight, align 4
-  %ns = getelementptr inbounds i8, ptr %req, i64 24
+  %ns = getelementptr inbounds nuw i8, ptr %req, i64 24
   %8 = load ptr, ptr %ns, align 8
-  %requests_inflight = getelementptr inbounds i8, ptr %8, i64 440
+  %requests_inflight = getelementptr inbounds nuw i8, ptr %8, i64 440
   %9 = load i32, ptr %requests_inflight, align 8
   %dec11 = add nsw i32 %9, -1
   store i32 %dec11, ptr %requests_inflight, align 8
   br label %if.end13
 
 if.else:                                          ; preds = %if.end7
-  %global_requests_waiting = getelementptr inbounds i8, ptr %0, i64 48
+  %global_requests_waiting = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i32, ptr %global_requests_waiting, align 8
   %dec12 = add nsw i32 %10, -1
   store i32 %dec12, ptr %global_requests_waiting, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then9
-  %timeout_event14 = getelementptr inbounds i8, ptr %req, i64 48
+  %timeout_event14 = getelementptr inbounds nuw i8, ptr %req, i64 48
   tail call void @event_debug_unassign(ptr noundef nonnull %timeout_event14) #18
-  %ns15 = getelementptr inbounds i8, ptr %req, i64 24
+  %ns15 = getelementptr inbounds nuw i8, ptr %req, i64 24
   %11 = load ptr, ptr %ns15, align 8
   %tobool16.not = icmp eq ptr %11, null
   br i1 %tobool16.not, label %if.end30, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end13
-  %requests_inflight18 = getelementptr inbounds i8, ptr %11, i64 440
+  %requests_inflight18 = getelementptr inbounds nuw i8, ptr %11, i64 440
   %12 = load i32, ptr %requests_inflight18, align 8
   %cmp19 = icmp eq i32 %12, 0
   br i1 %cmp19, label %land.lhs.true21, label %if.end30
 
 land.lhs.true21:                                  ; preds = %land.lhs.true
   %13 = load ptr, ptr %base1, align 8
-  %disable_when_inactive = getelementptr inbounds i8, ptr %13, i64 344
+  %disable_when_inactive = getelementptr inbounds nuw i8, ptr %13, i64 344
   %14 = load i32, ptr %disable_when_inactive, align 8
   %tobool23.not = icmp eq i32 %14, 0
   br i1 %tobool23.not, label %if.end30, label %if.then24
 
 if.then24:                                        ; preds = %land.lhs.true21
-  %event = getelementptr inbounds i8, ptr %11, i64 160
+  %event = getelementptr inbounds nuw i8, ptr %11, i64 160
   %call26 = tail call i32 @event_del(ptr noundef nonnull %event) #18
   %15 = load ptr, ptr %ns15, align 8
-  %timeout_event28 = getelementptr inbounds i8, ptr %15, i64 296
+  %timeout_event28 = getelementptr inbounds nuw i8, ptr %15, i64 296
   %call29 = tail call i32 @event_del(ptr noundef nonnull %timeout_event28) #18
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then24, %land.lhs.true21, %land.lhs.true, %if.end13
-  %request_appended = getelementptr inbounds i8, ptr %req, i64 170
+  %request_appended = getelementptr inbounds nuw i8, ptr %req, i64 170
   %bf.load = load i8, ptr %request_appended, align 2
   %bf.clear = and i8 %bf.load, 1
   %tobool31.not = icmp eq i8 %bf.clear, 0
@@ -3363,7 +3363,7 @@ if.then32:                                        ; preds = %if.end30
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end30, %if.then32
-  %handle = getelementptr inbounds i8, ptr %req, i64 192
+  %handle = getelementptr inbounds nuw i8, ptr %req, i64 192
   %17 = load ptr, ptr %handle, align 8
   %tobool35.not = icmp eq ptr %17, null
   br i1 %tobool35.not, label %if.end53, label %do.end38
@@ -3373,7 +3373,7 @@ do.end38:                                         ; preds = %if.end34
   br i1 %tobool39.not, label %if.else49, label %if.then40
 
 if.then40:                                        ; preds = %do.end38
-  %search_state.i = getelementptr inbounds i8, ptr %17, i64 136
+  %search_state.i = getelementptr inbounds nuw i8, ptr %17, i64 136
   %18 = load ptr, ptr %search_state.i, align 8
   %tobool4.not.i = icmp eq ptr %18, null
   br i1 %tobool4.not.i, label %if.end8.i, label %if.end.i.i
@@ -3386,14 +3386,14 @@ if.end.i.i:                                       ; preds = %if.then40
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %search_state_decref.exit.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %head.i.i = getelementptr inbounds i8, ptr %18, i64 16
+  %head.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %head.i.i, align 8
   %tobool4.not7.i.i = icmp eq ptr %20, null
   br i1 %tobool4.not7.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then3.i.i, %for.body.i.i
   %dom.08.i.i = phi ptr [ %21, %for.body.i.i ], [ %20, %if.then3.i.i ]
-  %next5.i.i = getelementptr inbounds i8, ptr %dom.08.i.i, i64 8
+  %next5.i.i = getelementptr inbounds nuw i8, ptr %dom.08.i.i, i64 8
   %21 = load ptr, ptr %next5.i.i, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %dom.08.i.i) #18
   %tobool4.not.i.i = icmp eq ptr %21, null
@@ -3408,7 +3408,7 @@ search_state_decref.exit.i:                       ; preds = %for.end.i.i, %if.en
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %search_state_decref.exit.i, %if.then40
-  %search_origname.i = getelementptr inbounds i8, ptr %17, i64 144
+  %search_origname.i = getelementptr inbounds nuw i8, ptr %17, i64 144
   %22 = load ptr, ptr %search_origname.i, align 8
   %tobool9.not.i = icmp eq ptr %22, null
   br i1 %tobool9.not.i, label %search_request_finished.exit, label %if.then10.i
@@ -3422,7 +3422,7 @@ search_request_finished.exit:                     ; preds = %if.end8.i, %if.then
   %23 = load ptr, ptr %handle, align 8
   store ptr null, ptr %23, align 8
   %24 = load ptr, ptr %handle, align 8
-  %pending_cb = getelementptr inbounds i8, ptr %24, i64 16
+  %pending_cb = getelementptr inbounds nuw i8, ptr %24, i64 16
   %25 = load i32, ptr %pending_cb, align 8
   %tobool44.not = icmp eq i32 %25, 0
   br i1 %tobool44.not, label %if.then45, label %if.end47
@@ -3464,11 +3464,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %user_callback = getelementptr inbounds i8, ptr %call, i64 64
+  %user_callback = getelementptr inbounds nuw i8, ptr %call, i64 64
   store ptr %callback, ptr %user_callback, align 8
-  %user_pointer = getelementptr inbounds i8, ptr %call, i64 72
+  %user_pointer = getelementptr inbounds nuw i8, ptr %call, i64 72
   store ptr %ptr, ptr %user_pointer, align 8
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then1
@@ -3479,9 +3479,9 @@ if.then1:                                         ; preds = %if.end
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %if.then1
-  %global_tcp_flags = getelementptr inbounds i8, ptr %base, i64 112
+  %global_tcp_flags = getelementptr inbounds nuw i8, ptr %base, i64 112
   %2 = load i16, ptr %global_tcp_flags, align 8
-  %tcp_flags = getelementptr inbounds i8, ptr %call, i64 156
+  %tcp_flags = getelementptr inbounds nuw i8, ptr %call, i64 156
   %3 = trunc i32 %flags to i16
   %4 = and i16 %3, 6
   %conv6 = or i16 %2, %4
@@ -3496,56 +3496,56 @@ if.then9:                                         ; preds = %do.end
   br i1 %tobool11.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %if.then9
-  %base1.i = getelementptr inbounds i8, ptr %call10, i64 184
+  %base1.i = getelementptr inbounds nuw i8, ptr %call10, i64 184
   %5 = load ptr, ptr %base1.i, align 8
-  %ns.i = getelementptr inbounds i8, ptr %call10, i64 24
+  %ns.i = getelementptr inbounds nuw i8, ptr %call10, i64 24
   %6 = load ptr, ptr %ns.i, align 8
   %tobool7.not.i = icmp eq ptr %6, null
   br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then12
   %7 = load ptr, ptr %5, align 8
-  %trans_id.i = getelementptr inbounds i8, ptr %call10, i64 168
+  %trans_id.i = getelementptr inbounds nuw i8, ptr %call10, i64 168
   %8 = load i16, ptr %trans_id.i, align 8
   %conv.i = zext i16 %8 to i32
-  %n_req_heads.i = getelementptr inbounds i8, ptr %5, i64 24
+  %n_req_heads.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load i32, ptr %n_req_heads.i, align 8
   %rem.i = srem i32 %conv.i, %9
   %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %7, i64 %idxprom.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   %tobool6.not.i.i = icmp eq ptr %10, null
   br i1 %tobool6.not.i.i, label %if.then7.i.i, label %if.end8.i.i
 
 if.then7.i.i:                                     ; preds = %if.then8.i
   store ptr %call10, ptr %arrayidx.i, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %call10, i64 40
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 40
   store ptr %call10, ptr %prev.i.i, align 8
-  %next.i.i = getelementptr inbounds i8, ptr %call10, i64 32
+  %next.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 32
   store ptr %call10, ptr %next.i.i, align 8
   br label %evdns_request_insert.exit.i
 
 if.end8.i.i:                                      ; preds = %if.then8.i
-  %prev9.i.i = getelementptr inbounds i8, ptr %10, i64 40
+  %prev9.i.i = getelementptr inbounds nuw i8, ptr %10, i64 40
   %11 = load ptr, ptr %prev9.i.i, align 8
-  %prev10.i.i = getelementptr inbounds i8, ptr %call10, i64 40
+  %prev10.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 40
   store ptr %11, ptr %prev10.i.i, align 8
-  %next12.i.i = getelementptr inbounds i8, ptr %11, i64 32
+  %next12.i.i = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %call10, ptr %next12.i.i, align 8
   %12 = load ptr, ptr %arrayidx.i, align 8
-  %next13.i.i = getelementptr inbounds i8, ptr %call10, i64 32
+  %next13.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 32
   store ptr %12, ptr %next13.i.i, align 8
-  %prev14.i.i = getelementptr inbounds i8, ptr %12, i64 40
+  %prev14.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %call10, ptr %prev14.i.i, align 8
   br label %evdns_request_insert.exit.i
 
 evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.then7.i.i
-  %global_requests_inflight.i = getelementptr inbounds i8, ptr %5, i64 44
+  %global_requests_inflight.i = getelementptr inbounds nuw i8, ptr %5, i64 44
   %13 = load i32, ptr %global_requests_inflight.i, align 4
   %inc.i = add nsw i32 %13, 1
   store i32 %inc.i, ptr %global_requests_inflight.i, align 4
   %14 = load ptr, ptr %ns.i, align 8
-  %requests_inflight.i = getelementptr inbounds i8, ptr %14, i64 440
+  %requests_inflight.i = getelementptr inbounds nuw i8, ptr %14, i64 440
   %15 = load i32, ptr %requests_inflight.i, align 8
   %inc10.i = add nsw i32 %15, 1
   store i32 %inc10.i, ptr %requests_inflight.i, align 8
@@ -3553,35 +3553,35 @@ evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.th
   br label %if.end15
 
 if.else.i:                                        ; preds = %if.then12
-  %req_waiting_head.i = getelementptr inbounds i8, ptr %5, i64 8
+  %req_waiting_head.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %req_waiting_head.i, align 8
   %tobool6.not.i12.i = icmp eq ptr %16, null
   br i1 %tobool6.not.i12.i, label %if.then7.i19.i, label %if.end8.i13.i
 
 if.then7.i19.i:                                   ; preds = %if.else.i
   store ptr %call10, ptr %req_waiting_head.i, align 8
-  %prev.i20.i = getelementptr inbounds i8, ptr %call10, i64 40
+  %prev.i20.i = getelementptr inbounds nuw i8, ptr %call10, i64 40
   store ptr %call10, ptr %prev.i20.i, align 8
-  %next.i21.i = getelementptr inbounds i8, ptr %call10, i64 32
+  %next.i21.i = getelementptr inbounds nuw i8, ptr %call10, i64 32
   store ptr %call10, ptr %next.i21.i, align 8
   br label %evdns_request_insert.exit22.i
 
 if.end8.i13.i:                                    ; preds = %if.else.i
-  %prev9.i14.i = getelementptr inbounds i8, ptr %16, i64 40
+  %prev9.i14.i = getelementptr inbounds nuw i8, ptr %16, i64 40
   %17 = load ptr, ptr %prev9.i14.i, align 8
-  %prev10.i15.i = getelementptr inbounds i8, ptr %call10, i64 40
+  %prev10.i15.i = getelementptr inbounds nuw i8, ptr %call10, i64 40
   store ptr %17, ptr %prev10.i15.i, align 8
-  %next12.i16.i = getelementptr inbounds i8, ptr %17, i64 32
+  %next12.i16.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %call10, ptr %next12.i16.i, align 8
   %18 = load ptr, ptr %req_waiting_head.i, align 8
-  %next13.i17.i = getelementptr inbounds i8, ptr %call10, i64 32
+  %next13.i17.i = getelementptr inbounds nuw i8, ptr %call10, i64 32
   store ptr %18, ptr %next13.i17.i, align 8
-  %prev14.i18.i = getelementptr inbounds i8, ptr %18, i64 40
+  %prev14.i18.i = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %call10, ptr %prev14.i18.i, align 8
   br label %evdns_request_insert.exit22.i
 
 evdns_request_insert.exit22.i:                    ; preds = %if.end8.i13.i, %if.then7.i19.i
-  %global_requests_waiting.i = getelementptr inbounds i8, ptr %5, i64 48
+  %global_requests_waiting.i = getelementptr inbounds nuw i8, ptr %5, i64 48
   %19 = load i32, ptr %global_requests_waiting.i, align 8
   %inc11.i = add nsw i32 %19, 1
   store i32 %inc11.i, ptr %global_requests_waiting.i, align 8
@@ -3622,9 +3622,9 @@ entry:
   %trans_id.i = alloca i16, align 2
   %namebuf = alloca [256 x i8], align 16
   %randbits = alloca [32 x i8], align 16
-  %global_requests_inflight = getelementptr inbounds i8, ptr %base, i64 44
+  %global_requests_inflight = getelementptr inbounds nuw i8, ptr %base, i64 44
   %0 = load i32, ptr %global_requests_inflight, align 4
-  %global_max_requests_inflight = getelementptr inbounds i8, ptr %base, i64 52
+  %global_max_requests_inflight = getelementptr inbounds nuw i8, ptr %base, i64 52
   %1 = load i32, ptr %global_max_requests_inflight, align 4
   %cmp = icmp slt i32 %0, %1
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #20
@@ -3656,20 +3656,20 @@ if.end6.i:                                        ; preds = %for.cond.i
   %conv.i.i = zext i16 %4 to i32
   %rem.i.i = srem i32 %conv.i.i, %base.val2.i
   %idxprom.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %base.val.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %base.val.i, i64 %idxprom.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool4.not.i.i = icmp eq ptr %5, null
   br i1 %tobool4.not.i.i, label %transaction_id_pick.exit, label %do.body6.i.i
 
 do.body6.i.i:                                     ; preds = %if.end6.i, %if.end12.i.i
   %req.0.i.i = phi ptr [ %7, %if.end12.i.i ], [ %5, %if.end6.i ]
-  %trans_id7.i.i = getelementptr inbounds i8, ptr %req.0.i.i, i64 168
+  %trans_id7.i.i = getelementptr inbounds nuw i8, ptr %req.0.i.i, i64 168
   %6 = load i16, ptr %trans_id7.i.i, align 8
   %cmp.i.i = icmp eq i16 %6, %4
   br i1 %cmp.i.i, label %for.cond.i.backedge, label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %do.body6.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %req.0.i.i, i64 32
+  %next.i.i = getelementptr inbounds nuw i8, ptr %req.0.i.i, i64 32
   %7 = load ptr, ptr %next.i.i, align 8
   %cmp13.not.i.i = icmp eq ptr %7, %5
   br i1 %cmp13.not.i.i, label %transaction_id_pick.exit, label %do.body6.i.i, !llvm.loop !18
@@ -3696,15 +3696,15 @@ if.then17:                                        ; preds = %if.end14
 if.end18:                                         ; preds = %if.end14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %call7, i8 0, i64 200, i1 false)
   %conv20 = trunc nuw i64 %add to i16
-  %request_size = getelementptr inbounds i8, ptr %call7, i64 8
+  %request_size = getelementptr inbounds nuw i8, ptr %call7, i64 8
   store i16 %conv20, ptr %request_size, align 8
-  %base21 = getelementptr inbounds i8, ptr %call7, i64 184
+  %base21 = getelementptr inbounds nuw i8, ptr %call7, i64 184
   store ptr %base, ptr %base21, align 8
-  %timeout_event = getelementptr inbounds i8, ptr %call7, i64 48
-  %event_base = getelementptr inbounds i8, ptr %base, i64 32
+  %timeout_event = getelementptr inbounds nuw i8, ptr %call7, i64 48
+  %event_base = getelementptr inbounds nuw i8, ptr %base, i64 32
   %8 = load ptr, ptr %event_base, align 8
   %call23 = call i32 @event_assign(ptr noundef nonnull %timeout_event, ptr noundef %8, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @evdns_request_timeout_callback, ptr noundef nonnull %call7) #18
-  %global_randomize_case = getelementptr inbounds i8, ptr %base, i64 84
+  %global_randomize_case = getelementptr inbounds nuw i8, ptr %base, i64 84
   %9 = load i32, ptr %global_randomize_case, align 4
   %tobool24.not = icmp eq i32 %9, 0
   br i1 %tobool24.not, label %if.end53, label %if.then25
@@ -3724,7 +3724,7 @@ for.body.preheader:                               ; preds = %if.then25
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %conv2970 = phi i64 [ %conv29, %for.inc ], [ 0, %for.body.preheader ]
   %i.069 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %namebuf, i64 0, i64 %conv2970
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr %namebuf, i64 0, i64 %conv2970
   %11 = load i8, ptr %arrayidx, align 1
   %call32 = call i32 @EVUTIL_ISALPHA_(i8 noundef signext %11) #18
   %tobool33.not = icmp eq i32 %call32, 0
@@ -3733,7 +3733,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then34:                                        ; preds = %for.body
   %shr = lshr i32 %i.069, 3
   %idxprom35 = zext nneg i32 %shr to i64
-  %arrayidx36 = getelementptr inbounds [32 x i8], ptr %randbits, i64 0, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds nuw [32 x i8], ptr %randbits, i64 0, i64 %idxprom35
   %12 = load i8, ptr %arrayidx36, align 1
   %conv3776 = zext i8 %12 to i32
   %and = and i32 %i.069, 7
@@ -3755,9 +3755,9 @@ for.inc:                                          ; preds = %if.then34, %for.bod
 
 if.end53:                                         ; preds = %for.inc, %if.then25, %if.end18
   %name.addr.0 = phi ptr [ %name, %if.end18 ], [ %namebuf, %if.then25 ], [ %namebuf, %for.inc ]
-  %add.ptr = getelementptr inbounds i8, ptr %call7, i64 200
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call7, i64 200
   store ptr %add.ptr, ptr %call7, align 8
-  %request_appended = getelementptr inbounds i8, ptr %call7, i64 170
+  %request_appended = getelementptr inbounds nuw i8, ptr %call7, i64 170
   %bf.load = load i8, ptr %request_appended, align 2
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %request_appended, align 2
@@ -3773,27 +3773,27 @@ if.end.i:                                         ; preds = %if.end53
 
 if.end6.i57:                                      ; preds = %if.end.i
   %call7.i = call zeroext i16 @htons(i16 noundef zeroext 256) #19
-  %add.ptr8.i = getelementptr inbounds i8, ptr %call7, i64 202
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %call7, i64 202
   store i16 %call7.i, ptr %add.ptr8.i, align 1
   %cmp13.i = icmp samesign ult i64 %add5.i, 6
   br i1 %cmp13.i, label %err1, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end6.i57
   %call16.i = call zeroext i16 @htons(i16 noundef zeroext 1) #19
-  %add.ptr17.i = getelementptr inbounds i8, ptr %call7, i64 204
+  %add.ptr17.i = getelementptr inbounds nuw i8, ptr %call7, i64 204
   store i16 %call16.i, ptr %add.ptr17.i, align 1
   %cmp22.i = icmp samesign ult i64 %add5.i, 8
   br i1 %cmp22.i, label %err1, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end15.i
   %call25.i = call zeroext i16 @htons(i16 noundef zeroext 0) #19
-  %add.ptr26.i = getelementptr inbounds i8, ptr %call7, i64 206
+  %add.ptr26.i = getelementptr inbounds nuw i8, ptr %call7, i64 206
   store i16 %call25.i, ptr %add.ptr26.i, align 1
   %cmp31.i = icmp samesign ult i64 %add5.i, 10
   br i1 %cmp31.i, label %err1, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.end24.i
-  %add.ptr35.i = getelementptr inbounds i8, ptr %call7, i64 208
+  %add.ptr35.i = getelementptr inbounds nuw i8, ptr %call7, i64 208
   store i16 %call25.i, ptr %add.ptr35.i, align 1
   %cmp40.i = icmp samesign ult i64 %add5.i, 12
   br i1 %cmp40.i, label %err1, label %if.end42.i
@@ -3803,7 +3803,7 @@ if.end42.i:                                       ; preds = %if.end33.i
   %cmp43.i = icmp ugt i16 %15, 512
   %conv45.i = zext i1 %cmp43.i to i16
   %call46.i = call zeroext i16 @htons(i16 noundef zeroext %conv45.i) #19
-  %add.ptr47.i = getelementptr inbounds i8, ptr %call7, i64 210
+  %add.ptr47.i = getelementptr inbounds nuw i8, ptr %call7, i64 210
   store i16 %call46.i, ptr %add.ptr47.i, align 1
   %call50.i = call fastcc i64 @dnsname_to_labels(ptr noundef nonnull %add.ptr, i64 noundef %add5.i, i64 noundef 12, ptr noundef %name.addr.0, i64 noundef range(i64 0, 256) %call, ptr noundef null)
   %cmp51.i = icmp slt i64 %call50.i, 0
@@ -3816,21 +3816,21 @@ do.body56.i:                                      ; preds = %if.end42.i
 
 if.end61.i:                                       ; preds = %do.body56.i
   %call62.i = call zeroext i16 @htons(i16 noundef zeroext range(i16 0, 256) %conv54) #19
-  %add.ptr63.i = getelementptr inbounds i8, ptr %add.ptr, i64 %call50.i
+  %add.ptr63.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %call50.i
   store i16 %call62.i, ptr %add.ptr63.i, align 1
   %add67.i = add nuw nsw i64 %call50.i, 4
   %cmp68.i = icmp samesign ugt i64 %add67.i, %add5.i
   br i1 %cmp68.i, label %err1, label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.end61.i
-  %add.ptr73.i = getelementptr inbounds i8, ptr %add.ptr, i64 %add57.i
+  %add.ptr73.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add57.i
   store i16 %call16.i, ptr %add.ptr73.i, align 1
   %16 = load i16, ptr %2, align 8
   %cmp78.i = icmp ugt i16 %16, 512
   br i1 %cmp78.i, label %if.then80.i, label %evdns_request_data_build.exit
 
 if.then80.i:                                      ; preds = %if.end71.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr, i64 %add67.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add67.i
   store i8 0, ptr %arrayidx.i, align 1
   %add82.i = add nuw nsw i64 %call50.i, 7
   %cmp83.i = icmp samesign ugt i64 %add82.i, %add5.i
@@ -3838,7 +3838,7 @@ if.then80.i:                                      ; preds = %if.end71.i
 
 if.end86.i:                                       ; preds = %if.then80.i
   %call87.i = call zeroext i16 @htons(i16 noundef zeroext 41) #19
-  %add.ptr88.i = getelementptr inbounds i8, ptr %add.ptr63.i, i64 5
+  %add.ptr88.i = getelementptr inbounds nuw i8, ptr %add.ptr63.i, i64 5
   store i16 %call87.i, ptr %add.ptr88.i, align 1
   %add92.i = add nuw nsw i64 %call50.i, 9
   %cmp93.i = icmp samesign ugt i64 %add92.i, %add5.i
@@ -3847,7 +3847,7 @@ if.end86.i:                                       ; preds = %if.then80.i
 if.end96.i:                                       ; preds = %if.end86.i
   %17 = load i16, ptr %2, align 8
   %call98.i = call zeroext i16 @htons(i16 noundef zeroext %17) #19
-  %add.ptr99.i = getelementptr inbounds i8, ptr %add.ptr, i64 %add82.i
+  %add.ptr99.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add82.i
   store i16 %call98.i, ptr %add.ptr99.i, align 1
   %add103.i = add nuw nsw i64 %call50.i, 13
   %cmp104.i = icmp samesign ugt i64 %add103.i, %add5.i
@@ -3855,14 +3855,14 @@ if.end96.i:                                       ; preds = %if.end86.i
 
 if.end107.i:                                      ; preds = %if.end96.i
   %call108.i = call i32 @htonl(i32 noundef 0) #19
-  %add.ptr109.i = getelementptr inbounds i8, ptr %add.ptr, i64 %add92.i
+  %add.ptr109.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add92.i
   store i32 %call108.i, ptr %add.ptr109.i, align 1
   %add113.i = add nuw nsw i64 %call50.i, 15
   %cmp114.i = icmp samesign ugt i64 %add113.i, %add5.i
   br i1 %cmp114.i, label %err1, label %if.end117.i
 
 if.end117.i:                                      ; preds = %if.end107.i
-  %add.ptr119.i = getelementptr inbounds i8, ptr %add.ptr, i64 %add103.i
+  %add.ptr119.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add103.i
   store i16 %call25.i, ptr %add.ptr119.i, align 1
   br label %evdns_request_data_build.exit
 
@@ -3873,40 +3873,40 @@ evdns_request_data_build.exit:                    ; preds = %if.end71.i, %if.end
   br i1 %cmp57, label %err1, label %if.end60
 
 if.end60:                                         ; preds = %evdns_request_data_build.exit
-  %request_len = getelementptr inbounds i8, ptr %call7, i64 12
+  %request_len = getelementptr inbounds nuw i8, ptr %call7, i64 12
   store i32 %retval.0.i, ptr %request_len, align 4
-  %trans_id61 = getelementptr inbounds i8, ptr %call7, i64 168
+  %trans_id61 = getelementptr inbounds nuw i8, ptr %call7, i64 168
   store i16 %cond5, ptr %trans_id61, align 8
-  %tx_count = getelementptr inbounds i8, ptr %call7, i64 20
+  %tx_count = getelementptr inbounds nuw i8, ptr %call7, i64 20
   store i32 0, ptr %tx_count, align 4
   %conv62 = trunc nuw i32 %type to i8
-  %request_type = getelementptr inbounds i8, ptr %call7, i64 10
+  %request_type = getelementptr inbounds nuw i8, ptr %call7, i64 10
   store i8 %conv62, ptr %request_type, align 2
   br i1 %cmp, label %cond.true65, label %cond.end68
 
 cond.true65:                                      ; preds = %if.end60
-  %server_head.i = getelementptr inbounds i8, ptr %base, i64 16
+  %server_head.i = getelementptr inbounds nuw i8, ptr %base, i64 16
   %18 = load ptr, ptr %server_head.i, align 8
   %tobool5.not.i = icmp eq ptr %18, null
   br i1 %tobool5.not.i, label %cond.end68, label %if.end7.i
 
 if.end7.i:                                        ; preds = %cond.true65
-  %global_good_nameservers.i = getelementptr inbounds i8, ptr %base, i64 40
+  %global_good_nameservers.i = getelementptr inbounds nuw i8, ptr %base, i64 40
   %19 = load i32, ptr %global_good_nameservers.i, align 8
   %tobool8.not.i = icmp eq i32 %19, 0
   br i1 %tobool8.not.i, label %if.then9.i, label %for.cond.i58
 
 if.then9.i:                                       ; preds = %if.end7.i
-  %next.i = getelementptr inbounds i8, ptr %18, i64 280
+  %next.i = getelementptr inbounds nuw i8, ptr %18, i64 280
   %20 = load ptr, ptr %next.i, align 8
   br label %return.sink.split.i
 
 for.cond.i58:                                     ; preds = %if.end7.i, %if.end21.i
   %21 = phi ptr [ %23, %if.end21.i ], [ %18, %if.end7.i ]
-  %state.i = getelementptr inbounds i8, ptr %21, i64 424
+  %state.i = getelementptr inbounds nuw i8, ptr %21, i64 424
   %22 = load i8, ptr %state.i, align 8
   %tobool15.not.i = icmp eq i8 %22, 0
-  %next23.i = getelementptr inbounds i8, ptr %21, i64 280
+  %next23.i = getelementptr inbounds nuw i8, ptr %21, i64 280
   %23 = load ptr, ptr %next23.i, align 8
   br i1 %tobool15.not.i, label %if.end21.i, label %return.sink.split.i
 
@@ -3916,7 +3916,7 @@ if.end21.i:                                       ; preds = %for.cond.i58
   br i1 %cmp.i60, label %do.end28.i, label %for.cond.i58
 
 do.end28.i:                                       ; preds = %if.end21.i
-  %next31.i = getelementptr inbounds i8, ptr %23, i64 280
+  %next31.i = getelementptr inbounds nuw i8, ptr %23, i64 280
   %24 = load ptr, ptr %next31.i, align 8
   br label %return.sink.split.i
 
@@ -3928,10 +3928,10 @@ return.sink.split.i:                              ; preds = %for.cond.i58, %do.e
 
 cond.end68:                                       ; preds = %return.sink.split.i, %cond.true65, %if.end60
   %cond69 = phi ptr [ null, %if.end60 ], [ null, %cond.true65 ], [ %retval.0.ph.i, %return.sink.split.i ]
-  %ns = getelementptr inbounds i8, ptr %call7, i64 24
+  %ns = getelementptr inbounds nuw i8, ptr %call7, i64 24
   store ptr %cond69, ptr %ns, align 8
-  %next = getelementptr inbounds i8, ptr %call7, i64 32
-  %handle70 = getelementptr inbounds i8, ptr %call7, i64 192
+  %next = getelementptr inbounds nuw i8, ptr %call7, i64 32
+  %handle70 = getelementptr inbounds nuw i8, ptr %call7, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   store ptr %handle, ptr %handle70, align 8
   %tobool71.not = icmp eq ptr %handle, null
@@ -3939,7 +3939,7 @@ cond.end68:                                       ; preds = %return.sink.split.i
 
 if.then72:                                        ; preds = %cond.end68
   store ptr %call7, ptr %handle, align 8
-  %base73 = getelementptr inbounds i8, ptr %handle, i64 8
+  %base73 = getelementptr inbounds nuw i8, ptr %handle, i64 8
   store ptr %base, ptr %base73, align 8
   br label %if.end74
 
@@ -3971,13 +3971,13 @@ entry:
   br i1 %cmp, label %land.lhs.true8, label %if.else44
 
 land.lhs.true8:                                   ; preds = %entry
-  %global_search_state = getelementptr inbounds i8, ptr %base, i64 312
+  %global_search_state = getelementptr inbounds nuw i8, ptr %base, i64 312
   %0 = load ptr, ptr %global_search_state, align 8
   %tobool9.not = icmp eq ptr %0, null
   br i1 %tobool9.not, label %if.else44, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %land.lhs.true8
-  %num_domains = getelementptr inbounds i8, ptr %0, i64 8
+  %num_domains = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %num_domains, align 8
   %tobool12.not = icmp eq i32 %1, 0
   br i1 %tobool12.not, label %if.else44, label %if.then13
@@ -3990,7 +3990,7 @@ if.then13:                                        ; preds = %land.lhs.true10
 while.body.i:                                     ; preds = %if.then13, %while.body.i
   %call6.i = phi ptr [ %call.i, %while.body.i ], [ %call3.i, %if.then13 ]
   %count.05.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %if.then13 ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %call6.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 1
   %inc.i = add nuw nsw i32 %count.05.i, 1
   %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i, i32 noundef 46) #20
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -3998,7 +3998,7 @@ while.body.i:                                     ; preds = %if.then13, %while.b
 
 string_num_dots.exit:                             ; preds = %while.body.i, %if.then13
   %count.0.lcssa.i = phi i32 [ 0, %if.then13 ], [ %inc.i, %while.body.i ]
-  %ndots = getelementptr inbounds i8, ptr %0, i64 4
+  %ndots = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2 = load i32, ptr %ndots, align 4
   %cmp15.not = icmp slt i32 %count.0.lcssa.i, %2
   br i1 %cmp15.not, label %if.else, label %if.then16
@@ -4018,13 +4018,13 @@ if.end.i:                                         ; preds = %if.else
   %arrayidx.i = getelementptr i8, ptr %3, i64 -1
   %4 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp ne i8 %4, 46
-  %head.i = getelementptr inbounds i8, ptr %0, i64 16
+  %head.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %dom.023.i = load ptr, ptr %head.i, align 8
   %tobool3.not24.i = icmp eq ptr %dom.023.i, null
   br i1 %tobool3.not24.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %dom.023.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %dom.023.i, i64 16
   %5 = load i32, ptr %dom.023.i, align 8
   %conv6.i = zext i1 %cmp.i to i64
   %add.i = add i64 %call.i37, %conv6.i
@@ -4046,7 +4046,7 @@ if.then15.i:                                      ; preds = %if.end13.i
 
 if.end25:                                         ; preds = %if.then15.i, %if.end13.i
   %add.ptr18.i = getelementptr inbounds i8, ptr %call10.i, i64 %call.i37
-  %add.ptr20.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 %conv6.i
+  %add.ptr20.i = getelementptr inbounds nuw i8, ptr %add.ptr18.i, i64 %conv6.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr20.i, ptr nonnull align 1 %add.ptr.i, i64 %conv7.i, i1 false)
   %arrayidx26.i = getelementptr inbounds i8, ptr %call10.i, i64 %add8.i
   store i8 0, ptr %arrayidx26.i, align 1
@@ -4058,10 +4058,10 @@ if.end25:                                         ; preds = %if.then15.i, %if.en
 do.end33:                                         ; preds = %if.end25, %if.then16
   %.sink = phi i32 [ -1, %if.then16 ], [ 0, %if.end25 ]
   %req.0 = phi ptr [ %call17, %if.then16 ], [ %call26, %if.end25 ]
-  %search_index30 = getelementptr inbounds i8, ptr %handle, i64 128
+  %search_index30 = getelementptr inbounds nuw i8, ptr %handle, i64 128
   store i32 %.sink, ptr %search_index30, align 8
   %call34 = tail call ptr @event_mm_strdup_(ptr noundef %name) #18
-  %search_origname = getelementptr inbounds i8, ptr %handle, i64 144
+  %search_origname = getelementptr inbounds nuw i8, ptr %handle, i64 144
   store ptr %call34, ptr %search_origname, align 8
   %cmp36 = icmp eq ptr %call34, null
   br i1 %cmp36, label %if.then39, label %if.end41
@@ -4072,64 +4072,64 @@ if.then39:                                        ; preds = %do.end33
 
 if.end41:                                         ; preds = %do.end33
   %6 = load ptr, ptr %global_search_state, align 8
-  %search_state = getelementptr inbounds i8, ptr %handle, i64 136
+  %search_state = getelementptr inbounds nuw i8, ptr %handle, i64 136
   store ptr %6, ptr %search_state, align 8
-  %search_flags = getelementptr inbounds i8, ptr %handle, i64 152
+  %search_flags = getelementptr inbounds nuw i8, ptr %handle, i64 152
   store i32 %flags, ptr %search_flags, align 8
   %7 = load ptr, ptr %global_search_state, align 8
   %8 = load i32, ptr %7, align 8
   %inc = add nsw i32 %8, 1
   store i32 %inc, ptr %7, align 8
-  %base1.i = getelementptr inbounds i8, ptr %req.0, i64 184
+  %base1.i = getelementptr inbounds nuw i8, ptr %req.0, i64 184
   %9 = load ptr, ptr %base1.i, align 8
-  %ns.i = getelementptr inbounds i8, ptr %req.0, i64 24
+  %ns.i = getelementptr inbounds nuw i8, ptr %req.0, i64 24
   %10 = load ptr, ptr %ns.i, align 8
   %tobool7.not.i = icmp eq ptr %10, null
   br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end41
   %11 = load ptr, ptr %9, align 8
-  %trans_id.i = getelementptr inbounds i8, ptr %req.0, i64 168
+  %trans_id.i = getelementptr inbounds nuw i8, ptr %req.0, i64 168
   %12 = load i16, ptr %trans_id.i, align 8
   %conv.i = zext i16 %12 to i32
-  %n_req_heads.i = getelementptr inbounds i8, ptr %9, i64 24
+  %n_req_heads.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = load i32, ptr %n_req_heads.i, align 8
   %rem.i = srem i32 %conv.i, %13
   %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i39 = getelementptr inbounds ptr, ptr %11, i64 %idxprom.i
+  %arrayidx.i39 = getelementptr inbounds nuw ptr, ptr %11, i64 %idxprom.i
   %14 = load ptr, ptr %arrayidx.i39, align 8
   %tobool6.not.i.i = icmp eq ptr %14, null
   br i1 %tobool6.not.i.i, label %if.then7.i.i, label %if.end8.i.i
 
 if.then7.i.i:                                     ; preds = %if.then8.i
   store ptr %req.0, ptr %arrayidx.i39, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %req.0, i64 40
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %req.0, i64 40
   store ptr %req.0, ptr %prev.i.i, align 8
-  %next.i.i = getelementptr inbounds i8, ptr %req.0, i64 32
+  %next.i.i = getelementptr inbounds nuw i8, ptr %req.0, i64 32
   store ptr %req.0, ptr %next.i.i, align 8
   br label %evdns_request_insert.exit.i
 
 if.end8.i.i:                                      ; preds = %if.then8.i
-  %prev9.i.i = getelementptr inbounds i8, ptr %14, i64 40
+  %prev9.i.i = getelementptr inbounds nuw i8, ptr %14, i64 40
   %15 = load ptr, ptr %prev9.i.i, align 8
-  %prev10.i.i = getelementptr inbounds i8, ptr %req.0, i64 40
+  %prev10.i.i = getelementptr inbounds nuw i8, ptr %req.0, i64 40
   store ptr %15, ptr %prev10.i.i, align 8
-  %next12.i.i = getelementptr inbounds i8, ptr %15, i64 32
+  %next12.i.i = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %req.0, ptr %next12.i.i, align 8
   %16 = load ptr, ptr %arrayidx.i39, align 8
-  %next13.i.i = getelementptr inbounds i8, ptr %req.0, i64 32
+  %next13.i.i = getelementptr inbounds nuw i8, ptr %req.0, i64 32
   store ptr %16, ptr %next13.i.i, align 8
-  %prev14.i.i = getelementptr inbounds i8, ptr %16, i64 40
+  %prev14.i.i = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %req.0, ptr %prev14.i.i, align 8
   br label %evdns_request_insert.exit.i
 
 evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.then7.i.i
-  %global_requests_inflight.i = getelementptr inbounds i8, ptr %9, i64 44
+  %global_requests_inflight.i = getelementptr inbounds nuw i8, ptr %9, i64 44
   %17 = load i32, ptr %global_requests_inflight.i, align 4
   %inc.i40 = add nsw i32 %17, 1
   store i32 %inc.i40, ptr %global_requests_inflight.i, align 4
   %18 = load ptr, ptr %ns.i, align 8
-  %requests_inflight.i = getelementptr inbounds i8, ptr %18, i64 440
+  %requests_inflight.i = getelementptr inbounds nuw i8, ptr %18, i64 440
   %19 = load i32, ptr %requests_inflight.i, align 8
   %inc10.i = add nsw i32 %19, 1
   store i32 %inc10.i, ptr %requests_inflight.i, align 8
@@ -4137,35 +4137,35 @@ evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.th
   br label %return
 
 if.else.i:                                        ; preds = %if.end41
-  %req_waiting_head.i = getelementptr inbounds i8, ptr %9, i64 8
+  %req_waiting_head.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %20 = load ptr, ptr %req_waiting_head.i, align 8
   %tobool6.not.i12.i = icmp eq ptr %20, null
   br i1 %tobool6.not.i12.i, label %if.then7.i19.i, label %if.end8.i13.i
 
 if.then7.i19.i:                                   ; preds = %if.else.i
   store ptr %req.0, ptr %req_waiting_head.i, align 8
-  %prev.i20.i = getelementptr inbounds i8, ptr %req.0, i64 40
+  %prev.i20.i = getelementptr inbounds nuw i8, ptr %req.0, i64 40
   store ptr %req.0, ptr %prev.i20.i, align 8
-  %next.i21.i = getelementptr inbounds i8, ptr %req.0, i64 32
+  %next.i21.i = getelementptr inbounds nuw i8, ptr %req.0, i64 32
   store ptr %req.0, ptr %next.i21.i, align 8
   br label %evdns_request_insert.exit22.i
 
 if.end8.i13.i:                                    ; preds = %if.else.i
-  %prev9.i14.i = getelementptr inbounds i8, ptr %20, i64 40
+  %prev9.i14.i = getelementptr inbounds nuw i8, ptr %20, i64 40
   %21 = load ptr, ptr %prev9.i14.i, align 8
-  %prev10.i15.i = getelementptr inbounds i8, ptr %req.0, i64 40
+  %prev10.i15.i = getelementptr inbounds nuw i8, ptr %req.0, i64 40
   store ptr %21, ptr %prev10.i15.i, align 8
-  %next12.i16.i = getelementptr inbounds i8, ptr %21, i64 32
+  %next12.i16.i = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %req.0, ptr %next12.i16.i, align 8
   %22 = load ptr, ptr %req_waiting_head.i, align 8
-  %next13.i17.i = getelementptr inbounds i8, ptr %req.0, i64 32
+  %next13.i17.i = getelementptr inbounds nuw i8, ptr %req.0, i64 32
   store ptr %22, ptr %next13.i17.i, align 8
-  %prev14.i18.i = getelementptr inbounds i8, ptr %22, i64 40
+  %prev14.i18.i = getelementptr inbounds nuw i8, ptr %22, i64 40
   store ptr %req.0, ptr %prev14.i18.i, align 8
   br label %evdns_request_insert.exit22.i
 
 evdns_request_insert.exit22.i:                    ; preds = %if.end8.i13.i, %if.then7.i19.i
-  %global_requests_waiting.i = getelementptr inbounds i8, ptr %9, i64 48
+  %global_requests_waiting.i = getelementptr inbounds nuw i8, ptr %9, i64 48
   %23 = load i32, ptr %global_requests_waiting.i, align 8
   %inc11.i = add nsw i32 %23, 1
   store i32 %inc11.i, ptr %global_requests_waiting.i, align 8
@@ -4177,56 +4177,56 @@ if.else44:                                        ; preds = %land.lhs.true10, %l
   br i1 %tobool47.not, label %return, label %if.end49
 
 if.end49:                                         ; preds = %if.else44
-  %base1.i42 = getelementptr inbounds i8, ptr %call46, i64 184
+  %base1.i42 = getelementptr inbounds nuw i8, ptr %call46, i64 184
   %24 = load ptr, ptr %base1.i42, align 8
-  %ns.i43 = getelementptr inbounds i8, ptr %call46, i64 24
+  %ns.i43 = getelementptr inbounds nuw i8, ptr %call46, i64 24
   %25 = load ptr, ptr %ns.i43, align 8
   %tobool7.not.i44 = icmp eq ptr %25, null
   br i1 %tobool7.not.i44, label %if.else.i68, label %if.then8.i45
 
 if.then8.i45:                                     ; preds = %if.end49
   %26 = load ptr, ptr %24, align 8
-  %trans_id.i46 = getelementptr inbounds i8, ptr %call46, i64 168
+  %trans_id.i46 = getelementptr inbounds nuw i8, ptr %call46, i64 168
   %27 = load i16, ptr %trans_id.i46, align 8
   %conv.i47 = zext i16 %27 to i32
-  %n_req_heads.i48 = getelementptr inbounds i8, ptr %24, i64 24
+  %n_req_heads.i48 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %28 = load i32, ptr %n_req_heads.i48, align 8
   %rem.i49 = srem i32 %conv.i47, %28
   %idxprom.i50 = zext nneg i32 %rem.i49 to i64
-  %arrayidx.i51 = getelementptr inbounds ptr, ptr %26, i64 %idxprom.i50
+  %arrayidx.i51 = getelementptr inbounds nuw ptr, ptr %26, i64 %idxprom.i50
   %29 = load ptr, ptr %arrayidx.i51, align 8
   %tobool6.not.i.i52 = icmp eq ptr %29, null
   br i1 %tobool6.not.i.i52, label %if.then7.i.i65, label %if.end8.i.i53
 
 if.then7.i.i65:                                   ; preds = %if.then8.i45
   store ptr %call46, ptr %arrayidx.i51, align 8
-  %prev.i.i66 = getelementptr inbounds i8, ptr %call46, i64 40
+  %prev.i.i66 = getelementptr inbounds nuw i8, ptr %call46, i64 40
   store ptr %call46, ptr %prev.i.i66, align 8
-  %next.i.i67 = getelementptr inbounds i8, ptr %call46, i64 32
+  %next.i.i67 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store ptr %call46, ptr %next.i.i67, align 8
   br label %evdns_request_insert.exit.i59
 
 if.end8.i.i53:                                    ; preds = %if.then8.i45
-  %prev9.i.i54 = getelementptr inbounds i8, ptr %29, i64 40
+  %prev9.i.i54 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %30 = load ptr, ptr %prev9.i.i54, align 8
-  %prev10.i.i55 = getelementptr inbounds i8, ptr %call46, i64 40
+  %prev10.i.i55 = getelementptr inbounds nuw i8, ptr %call46, i64 40
   store ptr %30, ptr %prev10.i.i55, align 8
-  %next12.i.i56 = getelementptr inbounds i8, ptr %30, i64 32
+  %next12.i.i56 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr %call46, ptr %next12.i.i56, align 8
   %31 = load ptr, ptr %arrayidx.i51, align 8
-  %next13.i.i57 = getelementptr inbounds i8, ptr %call46, i64 32
+  %next13.i.i57 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store ptr %31, ptr %next13.i.i57, align 8
-  %prev14.i.i58 = getelementptr inbounds i8, ptr %31, i64 40
+  %prev14.i.i58 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store ptr %call46, ptr %prev14.i.i58, align 8
   br label %evdns_request_insert.exit.i59
 
 evdns_request_insert.exit.i59:                    ; preds = %if.end8.i.i53, %if.then7.i.i65
-  %global_requests_inflight.i60 = getelementptr inbounds i8, ptr %24, i64 44
+  %global_requests_inflight.i60 = getelementptr inbounds nuw i8, ptr %24, i64 44
   %32 = load i32, ptr %global_requests_inflight.i60, align 4
   %inc.i61 = add nsw i32 %32, 1
   store i32 %inc.i61, ptr %global_requests_inflight.i60, align 4
   %33 = load ptr, ptr %ns.i43, align 8
-  %requests_inflight.i62 = getelementptr inbounds i8, ptr %33, i64 440
+  %requests_inflight.i62 = getelementptr inbounds nuw i8, ptr %33, i64 440
   %34 = load i32, ptr %requests_inflight.i62, align 8
   %inc10.i63 = add nsw i32 %34, 1
   store i32 %inc10.i63, ptr %requests_inflight.i62, align 8
@@ -4234,35 +4234,35 @@ evdns_request_insert.exit.i59:                    ; preds = %if.end8.i.i53, %if.
   br label %return
 
 if.else.i68:                                      ; preds = %if.end49
-  %req_waiting_head.i69 = getelementptr inbounds i8, ptr %24, i64 8
+  %req_waiting_head.i69 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %35 = load ptr, ptr %req_waiting_head.i69, align 8
   %tobool6.not.i12.i70 = icmp eq ptr %35, null
   br i1 %tobool6.not.i12.i70, label %if.then7.i19.i80, label %if.end8.i13.i71
 
 if.then7.i19.i80:                                 ; preds = %if.else.i68
   store ptr %call46, ptr %req_waiting_head.i69, align 8
-  %prev.i20.i81 = getelementptr inbounds i8, ptr %call46, i64 40
+  %prev.i20.i81 = getelementptr inbounds nuw i8, ptr %call46, i64 40
   store ptr %call46, ptr %prev.i20.i81, align 8
-  %next.i21.i82 = getelementptr inbounds i8, ptr %call46, i64 32
+  %next.i21.i82 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store ptr %call46, ptr %next.i21.i82, align 8
   br label %evdns_request_insert.exit22.i77
 
 if.end8.i13.i71:                                  ; preds = %if.else.i68
-  %prev9.i14.i72 = getelementptr inbounds i8, ptr %35, i64 40
+  %prev9.i14.i72 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %36 = load ptr, ptr %prev9.i14.i72, align 8
-  %prev10.i15.i73 = getelementptr inbounds i8, ptr %call46, i64 40
+  %prev10.i15.i73 = getelementptr inbounds nuw i8, ptr %call46, i64 40
   store ptr %36, ptr %prev10.i15.i73, align 8
-  %next12.i16.i74 = getelementptr inbounds i8, ptr %36, i64 32
+  %next12.i16.i74 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr %call46, ptr %next12.i16.i74, align 8
   %37 = load ptr, ptr %req_waiting_head.i69, align 8
-  %next13.i17.i75 = getelementptr inbounds i8, ptr %call46, i64 32
+  %next13.i17.i75 = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store ptr %37, ptr %next13.i17.i75, align 8
-  %prev14.i18.i76 = getelementptr inbounds i8, ptr %37, i64 40
+  %prev14.i18.i76 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store ptr %call46, ptr %prev14.i18.i76, align 8
   br label %evdns_request_insert.exit22.i77
 
 evdns_request_insert.exit22.i77:                  ; preds = %if.end8.i13.i71, %if.then7.i19.i80
-  %global_requests_waiting.i78 = getelementptr inbounds i8, ptr %24, i64 48
+  %global_requests_waiting.i78 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %38 = load i32, ptr %global_requests_waiting.i78, align 8
   %inc11.i79 = add nsw i32 %38, 1
   store i32 %inc11.i79, ptr %global_requests_waiting.i78, align 8
@@ -4291,11 +4291,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %user_callback = getelementptr inbounds i8, ptr %call, i64 64
+  %user_callback = getelementptr inbounds nuw i8, ptr %call, i64 64
   store ptr %callback, ptr %user_callback, align 8
-  %user_pointer = getelementptr inbounds i8, ptr %call, i64 72
+  %user_pointer = getelementptr inbounds nuw i8, ptr %call, i64 72
   store ptr %ptr, ptr %user_pointer, align 8
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then1
@@ -4306,9 +4306,9 @@ if.then1:                                         ; preds = %if.end
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %if.then1
-  %global_tcp_flags = getelementptr inbounds i8, ptr %base, i64 112
+  %global_tcp_flags = getelementptr inbounds nuw i8, ptr %base, i64 112
   %2 = load i16, ptr %global_tcp_flags, align 8
-  %tcp_flags = getelementptr inbounds i8, ptr %call, i64 156
+  %tcp_flags = getelementptr inbounds nuw i8, ptr %call, i64 156
   %3 = trunc i32 %flags to i16
   %4 = and i16 %3, 6
   %conv6 = or i16 %2, %4
@@ -4323,56 +4323,56 @@ if.then9:                                         ; preds = %do.end
   br i1 %tobool11.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %if.then9
-  %base1.i = getelementptr inbounds i8, ptr %call10, i64 184
+  %base1.i = getelementptr inbounds nuw i8, ptr %call10, i64 184
   %5 = load ptr, ptr %base1.i, align 8
-  %ns.i = getelementptr inbounds i8, ptr %call10, i64 24
+  %ns.i = getelementptr inbounds nuw i8, ptr %call10, i64 24
   %6 = load ptr, ptr %ns.i, align 8
   %tobool7.not.i = icmp eq ptr %6, null
   br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then12
   %7 = load ptr, ptr %5, align 8
-  %trans_id.i = getelementptr inbounds i8, ptr %call10, i64 168
+  %trans_id.i = getelementptr inbounds nuw i8, ptr %call10, i64 168
   %8 = load i16, ptr %trans_id.i, align 8
   %conv.i = zext i16 %8 to i32
-  %n_req_heads.i = getelementptr inbounds i8, ptr %5, i64 24
+  %n_req_heads.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load i32, ptr %n_req_heads.i, align 8
   %rem.i = srem i32 %conv.i, %9
   %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %7, i64 %idxprom.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   %tobool6.not.i.i = icmp eq ptr %10, null
   br i1 %tobool6.not.i.i, label %if.then7.i.i, label %if.end8.i.i
 
 if.then7.i.i:                                     ; preds = %if.then8.i
   store ptr %call10, ptr %arrayidx.i, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %call10, i64 40
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 40
   store ptr %call10, ptr %prev.i.i, align 8
-  %next.i.i = getelementptr inbounds i8, ptr %call10, i64 32
+  %next.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 32
   store ptr %call10, ptr %next.i.i, align 8
   br label %evdns_request_insert.exit.i
 
 if.end8.i.i:                                      ; preds = %if.then8.i
-  %prev9.i.i = getelementptr inbounds i8, ptr %10, i64 40
+  %prev9.i.i = getelementptr inbounds nuw i8, ptr %10, i64 40
   %11 = load ptr, ptr %prev9.i.i, align 8
-  %prev10.i.i = getelementptr inbounds i8, ptr %call10, i64 40
+  %prev10.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 40
   store ptr %11, ptr %prev10.i.i, align 8
-  %next12.i.i = getelementptr inbounds i8, ptr %11, i64 32
+  %next12.i.i = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %call10, ptr %next12.i.i, align 8
   %12 = load ptr, ptr %arrayidx.i, align 8
-  %next13.i.i = getelementptr inbounds i8, ptr %call10, i64 32
+  %next13.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 32
   store ptr %12, ptr %next13.i.i, align 8
-  %prev14.i.i = getelementptr inbounds i8, ptr %12, i64 40
+  %prev14.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %call10, ptr %prev14.i.i, align 8
   br label %evdns_request_insert.exit.i
 
 evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.then7.i.i
-  %global_requests_inflight.i = getelementptr inbounds i8, ptr %5, i64 44
+  %global_requests_inflight.i = getelementptr inbounds nuw i8, ptr %5, i64 44
   %13 = load i32, ptr %global_requests_inflight.i, align 4
   %inc.i = add nsw i32 %13, 1
   store i32 %inc.i, ptr %global_requests_inflight.i, align 4
   %14 = load ptr, ptr %ns.i, align 8
-  %requests_inflight.i = getelementptr inbounds i8, ptr %14, i64 440
+  %requests_inflight.i = getelementptr inbounds nuw i8, ptr %14, i64 440
   %15 = load i32, ptr %requests_inflight.i, align 8
   %inc10.i = add nsw i32 %15, 1
   store i32 %inc10.i, ptr %requests_inflight.i, align 8
@@ -4380,35 +4380,35 @@ evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.th
   br label %if.end15
 
 if.else.i:                                        ; preds = %if.then12
-  %req_waiting_head.i = getelementptr inbounds i8, ptr %5, i64 8
+  %req_waiting_head.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %req_waiting_head.i, align 8
   %tobool6.not.i12.i = icmp eq ptr %16, null
   br i1 %tobool6.not.i12.i, label %if.then7.i19.i, label %if.end8.i13.i
 
 if.then7.i19.i:                                   ; preds = %if.else.i
   store ptr %call10, ptr %req_waiting_head.i, align 8
-  %prev.i20.i = getelementptr inbounds i8, ptr %call10, i64 40
+  %prev.i20.i = getelementptr inbounds nuw i8, ptr %call10, i64 40
   store ptr %call10, ptr %prev.i20.i, align 8
-  %next.i21.i = getelementptr inbounds i8, ptr %call10, i64 32
+  %next.i21.i = getelementptr inbounds nuw i8, ptr %call10, i64 32
   store ptr %call10, ptr %next.i21.i, align 8
   br label %evdns_request_insert.exit22.i
 
 if.end8.i13.i:                                    ; preds = %if.else.i
-  %prev9.i14.i = getelementptr inbounds i8, ptr %16, i64 40
+  %prev9.i14.i = getelementptr inbounds nuw i8, ptr %16, i64 40
   %17 = load ptr, ptr %prev9.i14.i, align 8
-  %prev10.i15.i = getelementptr inbounds i8, ptr %call10, i64 40
+  %prev10.i15.i = getelementptr inbounds nuw i8, ptr %call10, i64 40
   store ptr %17, ptr %prev10.i15.i, align 8
-  %next12.i16.i = getelementptr inbounds i8, ptr %17, i64 32
+  %next12.i16.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %call10, ptr %next12.i16.i, align 8
   %18 = load ptr, ptr %req_waiting_head.i, align 8
-  %next13.i17.i = getelementptr inbounds i8, ptr %call10, i64 32
+  %next13.i17.i = getelementptr inbounds nuw i8, ptr %call10, i64 32
   store ptr %18, ptr %next13.i17.i, align 8
-  %prev14.i18.i = getelementptr inbounds i8, ptr %18, i64 40
+  %prev14.i18.i = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %call10, ptr %prev14.i18.i, align 8
   br label %evdns_request_insert.exit22.i
 
 evdns_request_insert.exit22.i:                    ; preds = %if.end8.i13.i, %if.then7.i19.i
-  %global_requests_waiting.i = getelementptr inbounds i8, ptr %5, i64 48
+  %global_requests_waiting.i = getelementptr inbounds nuw i8, ptr %5, i64 48
   %19 = load i32, ptr %global_requests_waiting.i, align 8
   %inc11.i = add nsw i32 %19, 1
   store i32 %inc11.i, ptr %global_requests_waiting.i, align 8
@@ -4471,12 +4471,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %user_callback = getelementptr inbounds i8, ptr %call14, i64 64
+  %user_callback = getelementptr inbounds nuw i8, ptr %call14, i64 64
   store ptr %callback, ptr %user_callback, align 8
-  %user_pointer = getelementptr inbounds i8, ptr %call14, i64 72
+  %user_pointer = getelementptr inbounds nuw i8, ptr %call14, i64 72
   store ptr %ptr, ptr %user_pointer, align 8
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %buf)
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end22, label %if.then18
@@ -4487,9 +4487,9 @@ if.then18:                                        ; preds = %if.end
   br label %do.end22
 
 do.end22:                                         ; preds = %if.end, %if.then18
-  %global_tcp_flags = getelementptr inbounds i8, ptr %base, i64 112
+  %global_tcp_flags = getelementptr inbounds nuw i8, ptr %base, i64 112
   %3 = load i16, ptr %global_tcp_flags, align 8
-  %tcp_flags = getelementptr inbounds i8, ptr %call14, i64 156
+  %tcp_flags = getelementptr inbounds nuw i8, ptr %call14, i64 156
   %4 = trunc i32 %flags to i16
   %5 = and i16 %4, 6
   %conv26 = or i16 %3, %5
@@ -4499,56 +4499,56 @@ do.end22:                                         ; preds = %if.end, %if.then18
   br i1 %tobool29.not, label %if.end31, label %if.then30
 
 if.then30:                                        ; preds = %do.end22
-  %base1.i = getelementptr inbounds i8, ptr %call28, i64 184
+  %base1.i = getelementptr inbounds nuw i8, ptr %call28, i64 184
   %6 = load ptr, ptr %base1.i, align 8
-  %ns.i = getelementptr inbounds i8, ptr %call28, i64 24
+  %ns.i = getelementptr inbounds nuw i8, ptr %call28, i64 24
   %7 = load ptr, ptr %ns.i, align 8
   %tobool7.not.i = icmp eq ptr %7, null
   br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then30
   %8 = load ptr, ptr %6, align 8
-  %trans_id.i = getelementptr inbounds i8, ptr %call28, i64 168
+  %trans_id.i = getelementptr inbounds nuw i8, ptr %call28, i64 168
   %9 = load i16, ptr %trans_id.i, align 8
   %conv.i = zext i16 %9 to i32
-  %n_req_heads.i = getelementptr inbounds i8, ptr %6, i64 24
+  %n_req_heads.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i32, ptr %n_req_heads.i, align 8
   %rem.i = srem i32 %conv.i, %10
   %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %8, i64 %idxprom.i
   %11 = load ptr, ptr %arrayidx.i, align 8
   %tobool6.not.i.i = icmp eq ptr %11, null
   br i1 %tobool6.not.i.i, label %if.then7.i.i, label %if.end8.i.i
 
 if.then7.i.i:                                     ; preds = %if.then8.i
   store ptr %call28, ptr %arrayidx.i, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %call28, i64 40
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %call28, i64 40
   store ptr %call28, ptr %prev.i.i, align 8
-  %next.i.i = getelementptr inbounds i8, ptr %call28, i64 32
+  %next.i.i = getelementptr inbounds nuw i8, ptr %call28, i64 32
   store ptr %call28, ptr %next.i.i, align 8
   br label %evdns_request_insert.exit.i
 
 if.end8.i.i:                                      ; preds = %if.then8.i
-  %prev9.i.i = getelementptr inbounds i8, ptr %11, i64 40
+  %prev9.i.i = getelementptr inbounds nuw i8, ptr %11, i64 40
   %12 = load ptr, ptr %prev9.i.i, align 8
-  %prev10.i.i = getelementptr inbounds i8, ptr %call28, i64 40
+  %prev10.i.i = getelementptr inbounds nuw i8, ptr %call28, i64 40
   store ptr %12, ptr %prev10.i.i, align 8
-  %next12.i.i = getelementptr inbounds i8, ptr %12, i64 32
+  %next12.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %call28, ptr %next12.i.i, align 8
   %13 = load ptr, ptr %arrayidx.i, align 8
-  %next13.i.i = getelementptr inbounds i8, ptr %call28, i64 32
+  %next13.i.i = getelementptr inbounds nuw i8, ptr %call28, i64 32
   store ptr %13, ptr %next13.i.i, align 8
-  %prev14.i.i = getelementptr inbounds i8, ptr %13, i64 40
+  %prev14.i.i = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %call28, ptr %prev14.i.i, align 8
   br label %evdns_request_insert.exit.i
 
 evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.then7.i.i
-  %global_requests_inflight.i = getelementptr inbounds i8, ptr %6, i64 44
+  %global_requests_inflight.i = getelementptr inbounds nuw i8, ptr %6, i64 44
   %14 = load i32, ptr %global_requests_inflight.i, align 4
   %inc.i = add nsw i32 %14, 1
   store i32 %inc.i, ptr %global_requests_inflight.i, align 4
   %15 = load ptr, ptr %ns.i, align 8
-  %requests_inflight.i = getelementptr inbounds i8, ptr %15, i64 440
+  %requests_inflight.i = getelementptr inbounds nuw i8, ptr %15, i64 440
   %16 = load i32, ptr %requests_inflight.i, align 8
   %inc10.i = add nsw i32 %16, 1
   store i32 %inc10.i, ptr %requests_inflight.i, align 8
@@ -4556,35 +4556,35 @@ evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.th
   br label %if.end31
 
 if.else.i:                                        ; preds = %if.then30
-  %req_waiting_head.i = getelementptr inbounds i8, ptr %6, i64 8
+  %req_waiting_head.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load ptr, ptr %req_waiting_head.i, align 8
   %tobool6.not.i12.i = icmp eq ptr %17, null
   br i1 %tobool6.not.i12.i, label %if.then7.i19.i, label %if.end8.i13.i
 
 if.then7.i19.i:                                   ; preds = %if.else.i
   store ptr %call28, ptr %req_waiting_head.i, align 8
-  %prev.i20.i = getelementptr inbounds i8, ptr %call28, i64 40
+  %prev.i20.i = getelementptr inbounds nuw i8, ptr %call28, i64 40
   store ptr %call28, ptr %prev.i20.i, align 8
-  %next.i21.i = getelementptr inbounds i8, ptr %call28, i64 32
+  %next.i21.i = getelementptr inbounds nuw i8, ptr %call28, i64 32
   store ptr %call28, ptr %next.i21.i, align 8
   br label %evdns_request_insert.exit22.i
 
 if.end8.i13.i:                                    ; preds = %if.else.i
-  %prev9.i14.i = getelementptr inbounds i8, ptr %17, i64 40
+  %prev9.i14.i = getelementptr inbounds nuw i8, ptr %17, i64 40
   %18 = load ptr, ptr %prev9.i14.i, align 8
-  %prev10.i15.i = getelementptr inbounds i8, ptr %call28, i64 40
+  %prev10.i15.i = getelementptr inbounds nuw i8, ptr %call28, i64 40
   store ptr %18, ptr %prev10.i15.i, align 8
-  %next12.i16.i = getelementptr inbounds i8, ptr %18, i64 32
+  %next12.i16.i = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %call28, ptr %next12.i16.i, align 8
   %19 = load ptr, ptr %req_waiting_head.i, align 8
-  %next13.i17.i = getelementptr inbounds i8, ptr %call28, i64 32
+  %next13.i17.i = getelementptr inbounds nuw i8, ptr %call28, i64 32
   store ptr %19, ptr %next13.i17.i, align 8
-  %prev14.i18.i = getelementptr inbounds i8, ptr %19, i64 40
+  %prev14.i18.i = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr %call28, ptr %prev14.i18.i, align 8
   br label %evdns_request_insert.exit22.i
 
 evdns_request_insert.exit22.i:                    ; preds = %if.end8.i13.i, %if.then7.i19.i
-  %global_requests_waiting.i = getelementptr inbounds i8, ptr %6, i64 48
+  %global_requests_waiting.i = getelementptr inbounds nuw i8, ptr %6, i64 48
   %20 = load i32, ptr %global_requests_waiting.i, align 8
   %inc11.i = add nsw i32 %20, 1
   store i32 %inc11.i, ptr %global_requests_waiting.i, align 8
@@ -4634,24 +4634,24 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 15, %entry ], [ %indvars.iv.next, %for.body ]
   %cp.024 = phi ptr [ %buf, %entry ], [ %incdec.ptr8, %for.body ]
-  %arrayidx = getelementptr inbounds [16 x i8], ptr %in, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %in, i64 0, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 15
   %idxprom1 = zext nneg i32 %and to i64
-  %arrayidx2 = getelementptr inbounds [17 x i8], ptr @.str.5, i64 0, i64 %idxprom1
+  %arrayidx2 = getelementptr inbounds nuw [17 x i8], ptr @.str.5, i64 0, i64 %idxprom1
   %1 = load i8, ptr %arrayidx2, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %cp.024, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cp.024, i64 1
   store i8 %1, ptr %cp.024, align 1
-  %incdec.ptr3 = getelementptr inbounds i8, ptr %cp.024, i64 2
+  %incdec.ptr3 = getelementptr inbounds nuw i8, ptr %cp.024, i64 2
   store i8 46, ptr %incdec.ptr, align 1
   %shr = lshr i32 %conv, 4
   %idxprom5 = zext nneg i32 %shr to i64
-  %arrayidx6 = getelementptr inbounds [17 x i8], ptr @.str.5, i64 0, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds nuw [17 x i8], ptr @.str.5, i64 0, i64 %idxprom5
   %2 = load i8, ptr %arrayidx6, align 1
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %cp.024, i64 3
+  %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %cp.024, i64 3
   store i8 %2, ptr %incdec.ptr3, align 1
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %cp.024, i64 4
+  %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %cp.024, i64 4
   store i8 46, ptr %incdec.ptr7, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp.not = icmp eq i64 %indvars.iv, 0
@@ -4664,12 +4664,12 @@ do.end10:                                         ; preds = %for.body
   br i1 %cmp11, label %return, label %if.end
 
 if.end:                                           ; preds = %do.end10
-  %user_callback = getelementptr inbounds i8, ptr %call, i64 64
+  %user_callback = getelementptr inbounds nuw i8, ptr %call, i64 64
   store ptr %callback, ptr %user_callback, align 8
-  %user_pointer = getelementptr inbounds i8, ptr %call, i64 72
+  %user_pointer = getelementptr inbounds nuw i8, ptr %call, i64 72
   store ptr %ptr, ptr %user_pointer, align 8
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %buf)
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %3 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %do.end19, label %if.then15
@@ -4680,9 +4680,9 @@ if.then15:                                        ; preds = %if.end
   br label %do.end19
 
 do.end19:                                         ; preds = %if.end, %if.then15
-  %global_tcp_flags = getelementptr inbounds i8, ptr %base, i64 112
+  %global_tcp_flags = getelementptr inbounds nuw i8, ptr %base, i64 112
   %5 = load i16, ptr %global_tcp_flags, align 8
-  %tcp_flags = getelementptr inbounds i8, ptr %call, i64 156
+  %tcp_flags = getelementptr inbounds nuw i8, ptr %call, i64 156
   %6 = trunc i32 %flags to i16
   %7 = and i16 %6, 6
   %conv23 = or i16 %5, %7
@@ -4692,56 +4692,56 @@ do.end19:                                         ; preds = %if.end, %if.then15
   br i1 %tobool26.not, label %if.end28, label %if.then27
 
 if.then27:                                        ; preds = %do.end19
-  %base1.i = getelementptr inbounds i8, ptr %call25, i64 184
+  %base1.i = getelementptr inbounds nuw i8, ptr %call25, i64 184
   %8 = load ptr, ptr %base1.i, align 8
-  %ns.i = getelementptr inbounds i8, ptr %call25, i64 24
+  %ns.i = getelementptr inbounds nuw i8, ptr %call25, i64 24
   %9 = load ptr, ptr %ns.i, align 8
   %tobool7.not.i = icmp eq ptr %9, null
   br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then27
   %10 = load ptr, ptr %8, align 8
-  %trans_id.i = getelementptr inbounds i8, ptr %call25, i64 168
+  %trans_id.i = getelementptr inbounds nuw i8, ptr %call25, i64 168
   %11 = load i16, ptr %trans_id.i, align 8
   %conv.i = zext i16 %11 to i32
-  %n_req_heads.i = getelementptr inbounds i8, ptr %8, i64 24
+  %n_req_heads.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load i32, ptr %n_req_heads.i, align 8
   %rem.i = srem i32 %conv.i, %12
   %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %10, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %10, i64 %idxprom.i
   %13 = load ptr, ptr %arrayidx.i, align 8
   %tobool6.not.i.i = icmp eq ptr %13, null
   br i1 %tobool6.not.i.i, label %if.then7.i.i, label %if.end8.i.i
 
 if.then7.i.i:                                     ; preds = %if.then8.i
   store ptr %call25, ptr %arrayidx.i, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %call25, i64 40
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %call25, i64 40
   store ptr %call25, ptr %prev.i.i, align 8
-  %next.i.i = getelementptr inbounds i8, ptr %call25, i64 32
+  %next.i.i = getelementptr inbounds nuw i8, ptr %call25, i64 32
   store ptr %call25, ptr %next.i.i, align 8
   br label %evdns_request_insert.exit.i
 
 if.end8.i.i:                                      ; preds = %if.then8.i
-  %prev9.i.i = getelementptr inbounds i8, ptr %13, i64 40
+  %prev9.i.i = getelementptr inbounds nuw i8, ptr %13, i64 40
   %14 = load ptr, ptr %prev9.i.i, align 8
-  %prev10.i.i = getelementptr inbounds i8, ptr %call25, i64 40
+  %prev10.i.i = getelementptr inbounds nuw i8, ptr %call25, i64 40
   store ptr %14, ptr %prev10.i.i, align 8
-  %next12.i.i = getelementptr inbounds i8, ptr %14, i64 32
+  %next12.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %call25, ptr %next12.i.i, align 8
   %15 = load ptr, ptr %arrayidx.i, align 8
-  %next13.i.i = getelementptr inbounds i8, ptr %call25, i64 32
+  %next13.i.i = getelementptr inbounds nuw i8, ptr %call25, i64 32
   store ptr %15, ptr %next13.i.i, align 8
-  %prev14.i.i = getelementptr inbounds i8, ptr %15, i64 40
+  %prev14.i.i = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr %call25, ptr %prev14.i.i, align 8
   br label %evdns_request_insert.exit.i
 
 evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.then7.i.i
-  %global_requests_inflight.i = getelementptr inbounds i8, ptr %8, i64 44
+  %global_requests_inflight.i = getelementptr inbounds nuw i8, ptr %8, i64 44
   %16 = load i32, ptr %global_requests_inflight.i, align 4
   %inc.i = add nsw i32 %16, 1
   store i32 %inc.i, ptr %global_requests_inflight.i, align 4
   %17 = load ptr, ptr %ns.i, align 8
-  %requests_inflight.i = getelementptr inbounds i8, ptr %17, i64 440
+  %requests_inflight.i = getelementptr inbounds nuw i8, ptr %17, i64 440
   %18 = load i32, ptr %requests_inflight.i, align 8
   %inc10.i = add nsw i32 %18, 1
   store i32 %inc10.i, ptr %requests_inflight.i, align 8
@@ -4749,35 +4749,35 @@ evdns_request_insert.exit.i:                      ; preds = %if.end8.i.i, %if.th
   br label %if.end28
 
 if.else.i:                                        ; preds = %if.then27
-  %req_waiting_head.i = getelementptr inbounds i8, ptr %8, i64 8
+  %req_waiting_head.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = load ptr, ptr %req_waiting_head.i, align 8
   %tobool6.not.i12.i = icmp eq ptr %19, null
   br i1 %tobool6.not.i12.i, label %if.then7.i19.i, label %if.end8.i13.i
 
 if.then7.i19.i:                                   ; preds = %if.else.i
   store ptr %call25, ptr %req_waiting_head.i, align 8
-  %prev.i20.i = getelementptr inbounds i8, ptr %call25, i64 40
+  %prev.i20.i = getelementptr inbounds nuw i8, ptr %call25, i64 40
   store ptr %call25, ptr %prev.i20.i, align 8
-  %next.i21.i = getelementptr inbounds i8, ptr %call25, i64 32
+  %next.i21.i = getelementptr inbounds nuw i8, ptr %call25, i64 32
   store ptr %call25, ptr %next.i21.i, align 8
   br label %evdns_request_insert.exit22.i
 
 if.end8.i13.i:                                    ; preds = %if.else.i
-  %prev9.i14.i = getelementptr inbounds i8, ptr %19, i64 40
+  %prev9.i14.i = getelementptr inbounds nuw i8, ptr %19, i64 40
   %20 = load ptr, ptr %prev9.i14.i, align 8
-  %prev10.i15.i = getelementptr inbounds i8, ptr %call25, i64 40
+  %prev10.i15.i = getelementptr inbounds nuw i8, ptr %call25, i64 40
   store ptr %20, ptr %prev10.i15.i, align 8
-  %next12.i16.i = getelementptr inbounds i8, ptr %20, i64 32
+  %next12.i16.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %call25, ptr %next12.i16.i, align 8
   %21 = load ptr, ptr %req_waiting_head.i, align 8
-  %next13.i17.i = getelementptr inbounds i8, ptr %call25, i64 32
+  %next13.i17.i = getelementptr inbounds nuw i8, ptr %call25, i64 32
   store ptr %21, ptr %next13.i17.i, align 8
-  %prev14.i18.i = getelementptr inbounds i8, ptr %21, i64 40
+  %prev14.i18.i = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr %call25, ptr %prev14.i18.i, align 8
   br label %evdns_request_insert.exit22.i
 
 evdns_request_insert.exit22.i:                    ; preds = %if.end8.i13.i, %if.then7.i19.i
-  %global_requests_waiting.i = getelementptr inbounds i8, ptr %8, i64 48
+  %global_requests_waiting.i = getelementptr inbounds nuw i8, ptr %8, i64 48
   %22 = load i32, ptr %global_requests_waiting.i, align 8
   %inc11.i = add nsw i32 %22, 1
   store i32 %inc11.i, ptr %global_requests_waiting.i, align 8
@@ -4821,7 +4821,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @evdns_base_search_clear(ptr nocapture noundef %base) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -4832,7 +4832,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %global_search_state.i = getelementptr inbounds i8, ptr %base, i64 312
+  %global_search_state.i = getelementptr inbounds nuw i8, ptr %base, i64 312
   %2 = load ptr, ptr %global_search_state.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %search_state_decref.exit.i, label %if.end.i.i
@@ -4845,14 +4845,14 @@ if.end.i.i:                                       ; preds = %do.end
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %search_state_decref.exit.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %head.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %head.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %head.i.i, align 8
   %tobool4.not7.i.i = icmp eq ptr %4, null
   br i1 %tobool4.not7.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then3.i.i, %for.body.i.i
   %dom.08.i.i = phi ptr [ %5, %for.body.i.i ], [ %4, %if.then3.i.i ]
-  %next5.i.i = getelementptr inbounds i8, ptr %dom.08.i.i, i64 8
+  %next5.i.i = getelementptr inbounds nuw i8, ptr %dom.08.i.i, i64 8
   %5 = load ptr, ptr %next5.i.i, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %dom.08.i.i) #18
   %tobool4.not.i.i = icmp eq ptr %5, null
@@ -4868,10 +4868,10 @@ search_state_decref.exit.i:                       ; preds = %for.end.i.i, %if.en
   br i1 %tobool.not.i2.i, label %search_postfix_clear.exit, label %if.end.i3.i
 
 if.end.i3.i:                                      ; preds = %search_state_decref.exit.i
-  %6 = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i, align 8
-  %ndots.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %ndots.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 1, ptr %ndots.i.i, align 4
   br label %search_postfix_clear.exit
 
@@ -4894,7 +4894,7 @@ do.end9:                                          ; preds = %search_postfix_clea
 define void @evdns_search_clear() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @current_base, align 8
-  %lock.i = getelementptr inbounds i8, ptr %0, i64 336
+  %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 336
   %1 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %do.end.i, label %if.then.i
@@ -4905,7 +4905,7 @@ if.then.i:                                        ; preds = %entry
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %entry
-  %global_search_state.i.i = getelementptr inbounds i8, ptr %0, i64 312
+  %global_search_state.i.i = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load ptr, ptr %global_search_state.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %search_state_decref.exit.i.i, label %if.end.i.i.i
@@ -4918,14 +4918,14 @@ if.end.i.i.i:                                     ; preds = %do.end.i
   br i1 %tobool2.not.i.i.i, label %if.then3.i.i.i, label %search_state_decref.exit.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %head.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %head.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %head.i.i.i, align 8
   %tobool4.not7.i.i.i = icmp eq ptr %5, null
   br i1 %tobool4.not7.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.then3.i.i.i, %for.body.i.i.i
   %dom.08.i.i.i = phi ptr [ %6, %for.body.i.i.i ], [ %5, %if.then3.i.i.i ]
-  %next5.i.i.i = getelementptr inbounds i8, ptr %dom.08.i.i.i, i64 8
+  %next5.i.i.i = getelementptr inbounds nuw i8, ptr %dom.08.i.i.i, i64 8
   %6 = load ptr, ptr %next5.i.i.i, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %dom.08.i.i.i) #18
   %tobool4.not.i.i.i = icmp eq ptr %6, null
@@ -4941,10 +4941,10 @@ search_state_decref.exit.i.i:                     ; preds = %for.end.i.i.i, %if.
   br i1 %tobool.not.i2.i.i, label %search_postfix_clear.exit.i, label %if.end.i3.i.i
 
 if.end.i3.i.i:                                    ; preds = %search_state_decref.exit.i.i
-  %7 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i.i, align 8
-  %ndots.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 4
+  %ndots.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 4
   store i32 1, ptr %ndots.i.i.i, align 4
   br label %search_postfix_clear.exit.i
 
@@ -4966,7 +4966,7 @@ evdns_base_search_clear.exit:                     ; preds = %search_postfix_clea
 ; Function Attrs: nounwind uwtable
 define void @evdns_base_search_add(ptr nocapture noundef %base, ptr nocapture noundef readonly %domain) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %while.cond.i.preheader, label %if.then
@@ -4983,12 +4983,12 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
   %domain.addr.0.i = phi ptr [ %incdec.ptr.i, %while.cond.i ], [ %domain, %while.cond.i.preheader ]
   %2 = load i8, ptr %domain.addr.0.i, align 1
   %cmp.i = icmp eq i8 %2, 46
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %domain.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %domain.addr.0.i, i64 1
   br i1 %cmp.i, label %while.cond.i, label %while.end.i, !llvm.loop !29
 
 while.end.i:                                      ; preds = %while.cond.i
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %domain.addr.0.i) #20
-  %global_search_state.i = getelementptr inbounds i8, ptr %base, i64 312
+  %global_search_state.i = getelementptr inbounds nuw i8, ptr %base, i64 312
   %3 = load ptr, ptr %global_search_state.i, align 8
   %tobool5.not.i = icmp eq ptr %3, null
   br i1 %tobool5.not.i, label %if.then6.i, label %if.end13.i
@@ -5003,17 +5003,17 @@ if.end9.thread17.i:                               ; preds = %if.then6.i
   br label %search_postfix_add.exit
 
 if.end9.i:                                        ; preds = %if.then6.i
-  %4 = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i, align 8
-  %ndots.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %ndots.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 1, ptr %ndots.i.i, align 4
   store ptr %call.i.i, ptr %global_search_state.i, align 8
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end9.i, %while.end.i
   %5 = phi ptr [ %call.i.i, %if.end9.i ], [ %3, %while.end.i ]
-  %num_domains.i = getelementptr inbounds i8, ptr %5, i64 8
+  %num_domains.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i32, ptr %num_domains.i, align 8
   %inc.i = add nsw i32 %6, 1
   store i32 %inc.i, ptr %num_domains.i, align 8
@@ -5023,17 +5023,17 @@ if.end13.i:                                       ; preds = %if.end9.i, %while.e
   br i1 %tobool16.not.i, label %search_postfix_add.exit, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end13.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %call15.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call15.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %domain.addr.0.i, i64 %call.i, i1 false)
   %7 = load ptr, ptr %global_search_state.i, align 8
-  %head.i = getelementptr inbounds i8, ptr %7, i64 16
+  %head.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load ptr, ptr %head.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %call15.i, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %call15.i, i64 8
   store ptr %8, ptr %next.i, align 8
   %conv20.i = trunc i64 %call.i to i32
   store i32 %conv20.i, ptr %call15.i, align 8
   %9 = load ptr, ptr %global_search_state.i, align 8
-  %head22.i = getelementptr inbounds i8, ptr %9, i64 16
+  %head22.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %call15.i, ptr %head22.i, align 8
   br label %search_postfix_add.exit
 
@@ -5062,7 +5062,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @evdns_base_search_ndots_set(ptr nocapture noundef %base, i32 noundef %ndots) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -5073,7 +5073,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %global_search_state = getelementptr inbounds i8, ptr %base, i64 312
+  %global_search_state = getelementptr inbounds nuw i8, ptr %base, i64 312
   %2 = load ptr, ptr %global_search_state, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.then3, label %if.then9
@@ -5088,17 +5088,17 @@ if.end6.thread11:                                 ; preds = %if.then3
   br label %do.body13
 
 if.end6:                                          ; preds = %if.then3
-  %3 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i, align 8
-  %ndots.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  %ndots.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   store i32 1, ptr %ndots.i, align 4
   store ptr %call.i, ptr %global_search_state, align 8
   br label %if.then9
 
 if.then9:                                         ; preds = %do.end, %if.end6
   %4 = phi ptr [ %call.i, %if.end6 ], [ %2, %do.end ]
-  %ndots11 = getelementptr inbounds i8, ptr %4, i64 4
+  %ndots11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %ndots, ptr %ndots11, align 4
   br label %do.body13
 
@@ -5120,7 +5120,7 @@ do.end20:                                         ; preds = %do.body13, %if.then
 define void @evdns_search_ndots_set(i32 noundef %ndots) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @current_base, align 8
-  %lock.i = getelementptr inbounds i8, ptr %0, i64 336
+  %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 336
   %1 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %do.end.i, label %if.then.i
@@ -5131,7 +5131,7 @@ if.then.i:                                        ; preds = %entry
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %entry
-  %global_search_state.i = getelementptr inbounds i8, ptr %0, i64 312
+  %global_search_state.i = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load ptr, ptr %global_search_state.i, align 8
   %tobool2.not.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i, label %if.then3.i, label %if.then9.i
@@ -5146,17 +5146,17 @@ if.end6.thread11.i:                               ; preds = %if.then3.i
   br label %do.body13.i
 
 if.end6.i:                                        ; preds = %if.then3.i
-  %4 = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i, align 8
-  %ndots.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %ndots.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 1, ptr %ndots.i.i, align 4
   store ptr %call.i.i, ptr %global_search_state.i, align 8
   br label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end6.i, %do.end.i
   %5 = phi ptr [ %call.i.i, %if.end6.i ], [ %3, %do.end.i ]
-  %ndots11.i = getelementptr inbounds i8, ptr %5, i64 4
+  %ndots11.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %ndots, ptr %ndots11.i, align 4
   br label %do.body13.i
 
@@ -5177,7 +5177,7 @@ evdns_base_search_ndots_set.exit:                 ; preds = %do.body13.i, %if.th
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evdns_base_set_option(ptr noundef %base, ptr nocapture noundef readonly %option, ptr noundef %val) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -5250,7 +5250,7 @@ if.end8:                                          ; preds = %if.then5
 
 if.end11:                                         ; preds = %if.end8
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.74, i32 noundef %conv.i)
-  %global_search_state = getelementptr inbounds i8, ptr %base, i64 312
+  %global_search_state = getelementptr inbounds nuw i8, ptr %base, i64 312
   %3 = load ptr, ptr %global_search_state, align 8
   %tobool12.not = icmp eq ptr %3, null
   br i1 %tobool12.not, label %if.then13, label %if.end20
@@ -5265,17 +5265,17 @@ if.end16.thread202:                               ; preds = %if.then13
   br label %return
 
 if.end16:                                         ; preds = %if.then13
-  %4 = getelementptr inbounds i8, ptr %call.i104, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %call.i104, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i104, align 8
-  %ndots.i = getelementptr inbounds i8, ptr %call.i104, i64 4
+  %ndots.i = getelementptr inbounds nuw i8, ptr %call.i104, i64 4
   store i32 1, ptr %ndots.i, align 4
   store ptr %call.i104, ptr %global_search_state, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end11, %if.end16
   %5 = phi ptr [ %call.i104, %if.end16 ], [ %3, %if.end11 ]
-  %ndots22 = getelementptr inbounds i8, ptr %5, i64 4
+  %ndots22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %conv.i, ptr %ndots22, align 4
   br label %return
 
@@ -5329,9 +5329,9 @@ if.end29:                                         ; preds = %evdns_strtotimeval.
 
 if.end33:                                         ; preds = %if.end29
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.76, ptr noundef %val)
-  %global_timeout = getelementptr inbounds i8, ptr %base, i64 56
+  %global_timeout = getelementptr inbounds nuw i8, ptr %base, i64 56
   store i64 %conv3.i, ptr %global_timeout, align 8
-  %tv.sroa.2.0.global_timeout.sroa_idx = getelementptr inbounds i8, ptr %base, i64 64
+  %tv.sroa.2.0.global_timeout.sroa_idx = getelementptr inbounds nuw i8, ptr %base, i64 64
   store i64 %conv7.i, ptr %tv.sroa.2.0.global_timeout.sroa_idx, align 8
   br label %return
 
@@ -5385,9 +5385,9 @@ if.end42:                                         ; preds = %evdns_strtotimeval.
 
 if.end46:                                         ; preds = %if.end42
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.78, ptr noundef %val)
-  %global_getaddrinfo_allow_skew = getelementptr inbounds i8, ptr %base, i64 272
+  %global_getaddrinfo_allow_skew = getelementptr inbounds nuw i8, ptr %base, i64 272
   store i64 %conv3.i149, ptr %global_getaddrinfo_allow_skew, align 8
-  %tv38.sroa.2.0.global_getaddrinfo_allow_skew.sroa_idx = getelementptr inbounds i8, ptr %base, i64 280
+  %tv38.sroa.2.0.global_getaddrinfo_allow_skew.sroa_idx = getelementptr inbounds nuw i8, ptr %base, i64 280
   store i64 %conv7.i154, ptr %tv38.sroa.2.0.global_getaddrinfo_allow_skew.sroa_idx, align 8
   br label %return
 
@@ -5427,7 +5427,7 @@ if.end58:                                         ; preds = %if.else.i177
   %max.call.i = tail call i32 @llvm.umin.i32(i32 %conv.i.i, i32 255)
   %retval.0.i178.ph = select i1 %cmp1.i, i32 1, i32 %max.call.i
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.80, i32 noundef %retval.0.i178.ph)
-  %global_max_nameserver_timeout = getelementptr inbounds i8, ptr %base, i64 80
+  %global_max_nameserver_timeout = getelementptr inbounds nuw i8, ptr %base, i64 80
   store i32 %retval.0.i178.ph, ptr %global_max_nameserver_timeout, align 8
   br label %return
 
@@ -5476,7 +5476,7 @@ if.end79:                                         ; preds = %if.then75
 if.end86:                                         ; preds = %if.end79
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %conv.i182, i32 255)
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.84, i32 noundef %spec.store.select)
-  %global_max_retransmits = getelementptr inbounds i8, ptr %base, i64 76
+  %global_max_retransmits = getelementptr inbounds nuw i8, ptr %base, i64 76
   store i32 %spec.store.select, ptr %global_max_retransmits, align 4
   br label %return
 
@@ -5503,7 +5503,7 @@ if.end94:                                         ; preds = %if.then90
   br i1 %tobool96.not, label %return, label %if.end98
 
 if.end98:                                         ; preds = %if.end94
-  %global_randomize_case = getelementptr inbounds i8, ptr %base, i64 84
+  %global_randomize_case = getelementptr inbounds nuw i8, ptr %base, i64 84
   store i32 %conv.i187, ptr %global_randomize_case, align 4
   br label %return
 
@@ -5519,14 +5519,14 @@ if.then102:                                       ; preds = %if.else99
   br i1 %tobool104.not, label %return, label %if.end106
 
 if.end106:                                        ; preds = %if.then102
-  %global_outgoing_address = getelementptr inbounds i8, ptr %base, i64 136
+  %global_outgoing_address = getelementptr inbounds nuw i8, ptr %base, i64 136
   %call107 = call i32 @evutil_parse_sockaddr_port(ptr noundef %val, ptr noundef nonnull %global_outgoing_address, ptr noundef nonnull %len) #18
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %if.end110, label %return
 
 if.end110:                                        ; preds = %if.end106
   %18 = load i32, ptr %len, align 4
-  %global_outgoing_addrlen = getelementptr inbounds i8, ptr %base, i64 264
+  %global_outgoing_addrlen = getelementptr inbounds nuw i8, ptr %base, i64 264
   store i32 %18, ptr %global_outgoing_addrlen, align 8
   br label %return
 
@@ -5550,7 +5550,7 @@ if.end119:                                        ; preds = %if.then114
 
 if.end127:                                        ; preds = %if.end119
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.88, ptr noundef %val)
-  %global_nameserver_probe_initial_timeout = getelementptr inbounds i8, ptr %base, i64 96
+  %global_nameserver_probe_initial_timeout = getelementptr inbounds nuw i8, ptr %base, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %global_nameserver_probe_initial_timeout, ptr noundef nonnull align 8 dereferenceable(16) %tv115, i64 16, i1 false)
   br label %return
 
@@ -5571,9 +5571,9 @@ if.end135:                                        ; preds = %if.then131
 
 if.end139:                                        ; preds = %if.end135
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.90, i32 noundef %call132)
-  %ns_max_probe_timeout = getelementptr inbounds i8, ptr %base, i64 348
+  %ns_max_probe_timeout = getelementptr inbounds nuw i8, ptr %base, i64 348
   store i32 %call132, ptr %ns_max_probe_timeout, align 4
-  %global_nameserver_probe_initial_timeout140 = getelementptr inbounds i8, ptr %base, i64 96
+  %global_nameserver_probe_initial_timeout140 = getelementptr inbounds nuw i8, ptr %base, i64 96
   %20 = load i64, ptr %global_nameserver_probe_initial_timeout140, align 8
   %conv = zext nneg i32 %call132 to i64
   %cmp142 = icmp sgt i64 %20, %conv
@@ -5581,7 +5581,7 @@ if.end139:                                        ; preds = %if.end135
 
 if.then144:                                       ; preds = %if.end139
   store i64 %conv, ptr %global_nameserver_probe_initial_timeout140, align 8
-  %tv_usec = getelementptr inbounds i8, ptr %base, i64 104
+  %tv_usec = getelementptr inbounds nuw i8, ptr %base, i64 104
   store i64 0, ptr %tv_usec, align 8
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.88, ptr noundef %val)
   br label %return
@@ -5603,7 +5603,7 @@ if.end158:                                        ; preds = %if.then153
 
 if.end162:                                        ; preds = %if.end158
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.92, i32 noundef %call154)
-  %ns_timeout_backoff_factor = getelementptr inbounds i8, ptr %base, i64 352
+  %ns_timeout_backoff_factor = getelementptr inbounds nuw i8, ptr %base, i64 352
   store i32 %call154, ptr %ns_timeout_backoff_factor, align 8
   br label %return
 
@@ -5631,7 +5631,7 @@ if.end171:                                        ; preds = %if.then166
 
 if.end175:                                        ; preds = %if.end171
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.94, ptr noundef %val)
-  %so_rcvbuf = getelementptr inbounds i8, ptr %base, i64 288
+  %so_rcvbuf = getelementptr inbounds nuw i8, ptr %base, i64 288
   store i32 %conv.i192, ptr %so_rcvbuf, align 8
   br label %return
 
@@ -5659,7 +5659,7 @@ if.end185:                                        ; preds = %if.then179
 
 if.end189:                                        ; preds = %if.end185
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.96, ptr noundef %val)
-  %so_sndbuf = getelementptr inbounds i8, ptr %base, i64 292
+  %so_sndbuf = getelementptr inbounds nuw i8, ptr %base, i64 292
   store i32 %conv.i197, ptr %so_sndbuf, align 4
   br label %return
 
@@ -5680,7 +5680,7 @@ if.end199:                                        ; preds = %if.then193
 
 if.end203:                                        ; preds = %if.end199
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.98, ptr noundef %val)
-  %global_tcp_idle_timeout = getelementptr inbounds i8, ptr %base, i64 120
+  %global_tcp_idle_timeout = getelementptr inbounds nuw i8, ptr %base, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %global_tcp_idle_timeout, ptr noundef nonnull align 8 dereferenceable(16) %tv194, i64 16, i1 false)
   br label %return
 
@@ -5705,7 +5705,7 @@ land.lhs.true213:                                 ; preds = %if.end211
 
 if.end217:                                        ; preds = %land.lhs.true213, %if.end211
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.100)
-  %global_tcp_flags = getelementptr inbounds i8, ptr %base, i64 112
+  %global_tcp_flags = getelementptr inbounds nuw i8, ptr %base, i64 112
   %25 = load i16, ptr %global_tcp_flags, align 8
   %26 = or i16 %25, 2
   store i16 %26, ptr %global_tcp_flags, align 8
@@ -5732,7 +5732,7 @@ land.lhs.true229:                                 ; preds = %if.end227
 
 if.end233:                                        ; preds = %land.lhs.true229, %if.end227
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.102)
-  %global_tcp_flags234 = getelementptr inbounds i8, ptr %base, i64 112
+  %global_tcp_flags234 = getelementptr inbounds nuw i8, ptr %base, i64 112
   %27 = load i16, ptr %global_tcp_flags234, align 8
   %28 = or i16 %27, 4
   store i16 %28, ptr %global_tcp_flags234, align 8
@@ -5756,7 +5756,7 @@ if.end246:                                        ; preds = %if.then241
 if.end250:                                        ; preds = %if.end246
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.104, i32 noundef %call242)
   %conv251 = trunc i32 %call242 to i16
-  %global_max_udp_size = getelementptr inbounds i8, ptr %base, i64 88
+  %global_max_udp_size = getelementptr inbounds nuw i8, ptr %base, i64 88
   store i16 %conv251, ptr %global_max_udp_size, align 8
   br label %return
 
@@ -5768,7 +5768,7 @@ return:                                           ; preds = %if.then50, %evdns_s
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evdns_server_port_set_option(ptr nocapture noundef %port, i32 noundef %option, i64 noundef %value) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %port, i64 208
+  %lock = getelementptr inbounds nuw i8, ptr %port, i64 208
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -5785,7 +5785,7 @@ do.end:                                           ; preds = %entry, %if.then
   ]
 
 sw.bb:                                            ; preds = %do.end
-  %listener = getelementptr inbounds i8, ptr %port, i64 168
+  %listener = getelementptr inbounds nuw i8, ptr %port, i64 168
   %2 = load ptr, ptr %listener, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.then3, label %if.end4
@@ -5796,13 +5796,13 @@ if.then3:                                         ; preds = %sw.bb
 
 if.end4:                                          ; preds = %sw.bb
   %conv = trunc i64 %value to i32
-  %max_client_connections = getelementptr inbounds i8, ptr %port, i64 188
+  %max_client_connections = getelementptr inbounds nuw i8, ptr %port, i64 188
   store i32 %conv, ptr %max_client_connections, align 4
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.8, i32 noundef %conv)
   br label %do.body15
 
 sw.bb6:                                           ; preds = %do.end
-  %listener7 = getelementptr inbounds i8, ptr %port, i64 168
+  %listener7 = getelementptr inbounds nuw i8, ptr %port, i64 168
   %3 = load ptr, ptr %listener7, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %if.then9, label %if.end10
@@ -5812,9 +5812,9 @@ if.then9:                                         ; preds = %sw.bb6
   br label %do.body15
 
 if.end10:                                         ; preds = %sw.bb6
-  %tcp_idle_timeout = getelementptr inbounds i8, ptr %port, i64 192
+  %tcp_idle_timeout = getelementptr inbounds nuw i8, ptr %port, i64 192
   store i64 %value, ptr %tcp_idle_timeout, align 8
-  %tv_usec = getelementptr inbounds i8, ptr %port, i64 200
+  %tv_usec = getelementptr inbounds nuw i8, ptr %port, i64 200
   store i64 0, ptr %tv_usec, align 8
   %conv14 = trunc i64 %value to i32
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.10, i32 noundef %conv14)
@@ -5853,7 +5853,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %1 = phi ptr [ %call, %if.then ], [ %0, %entry ]
-  %lock.i = getelementptr inbounds i8, ptr %1, i64 336
+  %lock.i = getelementptr inbounds nuw i8, ptr %1, i64 336
   %2 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %do.end.i, label %if.then.i
@@ -5883,7 +5883,7 @@ define range(i32 0, -2147483648) i32 @evdns_base_resolv_conf_parse(ptr noundef %
 entry:
   %n.i = alloca i64, align 8
   %resolv.i = alloca ptr, align 8
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -5969,7 +5969,7 @@ if.end17.i:                                       ; preds = %if.end12.i
 if.then20.i:                                      ; preds = %if.else21.i, %if.end17.i
   %start.0.lcssa.i = phi ptr [ %4, %if.end17.i ], [ %add.ptr.i, %if.else21.i ]
   call fastcc void @resolv_conf_parse_line(ptr noundef %base, ptr noundef %start.0.lcssa.i, i32 noundef %flags)
-  %server_head.i = getelementptr inbounds i8, ptr %base, i64 16
+  %server_head.i = getelementptr inbounds nuw i8, ptr %base, i64 16
   %5 = load ptr, ptr %server_head.i, align 8
   %tobool23.i = icmp eq ptr %5, null
   %6 = and i32 %flags, 18
@@ -5982,7 +5982,7 @@ if.else21.i:                                      ; preds = %if.end17.i, %if.els
   %start.038.i = phi ptr [ %add.ptr.i, %if.else21.i ], [ %4, %if.end17.i ]
   store i8 0, ptr %call1839.i, align 1
   call fastcc void @resolv_conf_parse_line(ptr noundef %base, ptr noundef %start.038.i, i32 noundef %flags)
-  %add.ptr.i = getelementptr inbounds i8, ptr %call1839.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call1839.i, i64 1
   %call18.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 10) #20
   %tobool19.not.i = icmp eq ptr %call18.i, null
   br i1 %tobool19.not.i, label %if.then20.i, label %if.else21.i
@@ -5998,13 +5998,13 @@ if.end27.i:                                       ; preds = %if.then25.i, %if.th
   br i1 %tobool29.not.i, label %if.end35.i, label %land.lhs.true30.i
 
 land.lhs.true30.i:                                ; preds = %if.end27.i
-  %global_search_state.i = getelementptr inbounds i8, ptr %base, i64 312
+  %global_search_state.i = getelementptr inbounds nuw i8, ptr %base, i64 312
   %7 = load ptr, ptr %global_search_state.i, align 8
   %tobool31.not.i = icmp eq ptr %7, null
   br i1 %tobool31.not.i, label %if.then34.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true30.i
-  %num_domains.i = getelementptr inbounds i8, ptr %7, i64 8
+  %num_domains.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %num_domains.i, align 8
   %cmp33.i = icmp eq i32 %8, 0
   br i1 %cmp33.i, label %if.then34.i, label %if.end35.i
@@ -6117,10 +6117,10 @@ if.then12:                                        ; preds = %if.end10
 if.end13:                                         ; preds = %if.end10
   %4 = load i32, ptr %port, align 4
   %conv = trunc i32 %4 to i16
-  %ai_family.i = getelementptr inbounds i8, ptr %hints, i64 4
+  %ai_family.i = getelementptr inbounds nuw i8, ptr %hints, i64 4
   %5 = load i32, ptr %ai_family.i, align 4
   %.fr.i = freeze i32 %5
-  %lock.i = getelementptr inbounds i8, ptr %dns_base.addr.0, i64 336
+  %lock.i = getelementptr inbounds nuw i8, ptr %dns_base.addr.0, i64 336
   %6 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %do.end.i, label %if.then.i
@@ -6131,7 +6131,7 @@ if.then.i:                                        ; preds = %if.end13
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %if.end13
-  %hostsdb.i.i = getelementptr inbounds i8, ptr %dns_base.addr.0, i64 320
+  %hostsdb.i.i = getelementptr inbounds nuw i8, ptr %dns_base.addr.0, i64 320
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %do.end.i
@@ -6141,7 +6141,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %do.e
   br i1 %tobool1.not.i.i, label %do.body24.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %hostname2.i.i = getelementptr inbounds i8, ptr %e.1.i.i, i64 48
+  %hostname2.i.i = getelementptr inbounds nuw i8, ptr %e.1.i.i, i64 48
   %call.i.i = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %hostname2.i.i, ptr noundef %nodename) #18
   %tobool3.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool3.not.i.i, label %for.body.lr.ph.i, label %for.cond.i.i, !llvm.loop !30
@@ -6153,8 +6153,8 @@ for.body.lr.ph.i:                                 ; preds = %for.body.i.i
   ]
 
 for.body.us.i.preheader.split.us:                 ; preds = %for.body.lr.ph.i
-  %addr.us.i.us115 = getelementptr inbounds i8, ptr %e.1.i.i, i64 16
-  %addrlen.us.i.us116 = getelementptr inbounds i8, ptr %e.1.i.i, i64 44
+  %addr.us.i.us115 = getelementptr inbounds nuw i8, ptr %e.1.i.i, i64 16
+  %addrlen.us.i.us116 = getelementptr inbounds nuw i8, ptr %e.1.i.i, i64 44
   %8 = load i32, ptr %addrlen.us.i.us116, align 4
   %call18.us.i.us117 = call ptr @evutil_new_addrinfo_(ptr noundef nonnull %addr.us.i.us115, i32 noundef %8, ptr noundef nonnull %hints) #18
   %tobool19.not.us.i.us118 = icmp eq ptr %call18.us.i.us117, null
@@ -6164,7 +6164,7 @@ if.end21.us.i.us:                                 ; preds = %for.body.us.i.prehe
   %call18.us.i.us121 = phi ptr [ %call18.us.i.us, %find_hosts_entry.exit31.us.i.us ], [ %call18.us.i.us117, %for.body.us.i.preheader.split.us ]
   %e.038.us.i.us120 = phi ptr [ %e.1.i25.us.i.us, %find_hosts_entry.exit31.us.i.us ], [ %e.1.i.i, %for.body.us.i.preheader.split.us ]
   %ai.039.us.i.us119 = phi ptr [ %call22.us.i.us, %find_hosts_entry.exit31.us.i.us ], [ null, %for.body.us.i.preheader.split.us ]
-  %ai_addr.us.i.us = getelementptr inbounds i8, ptr %call18.us.i.us121, i64 24
+  %ai_addr.us.i.us = getelementptr inbounds nuw i8, ptr %call18.us.i.us121, i64 24
   %9 = load ptr, ptr %ai_addr.us.i.us, align 8
   %10 = load i16, ptr %9, align 2
   switch i16 %10, label %sockaddr_setport.exit.us.i.us [
@@ -6174,7 +6174,7 @@ if.end21.us.i.us:                                 ; preds = %for.body.us.i.prehe
 
 if.end8.sink.split.i.us.i.us:                     ; preds = %if.end21.us.i.us, %if.end21.us.i.us
   %call7.i.us.i.us = call zeroext i16 @htons(i16 noundef zeroext %conv) #19
-  %sin6_port.i.us.i.us = getelementptr inbounds i8, ptr %9, i64 2
+  %sin6_port.i.us.i.us = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i16 %call7.i.us.i.us, ptr %sin6_port.i.us.i.us, align 2
   br label %sockaddr_setport.exit.us.i.us
 
@@ -6189,14 +6189,14 @@ for.cond.i23.us.i.us:                             ; preds = %for.body.i27.us.i.u
   br i1 %tobool1.not.i26.us.i.us, label %do.body24.i, label %for.body.i27.us.i.us
 
 for.body.i27.us.i.us:                             ; preds = %for.cond.i23.us.i.us
-  %hostname2.i28.us.i.us = getelementptr inbounds i8, ptr %e.1.i25.us.i.us, i64 48
+  %hostname2.i28.us.i.us = getelementptr inbounds nuw i8, ptr %e.1.i25.us.i.us, i64 48
   %call.i29.us.i.us = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %hostname2.i28.us.i.us, ptr noundef %nodename) #18
   %tobool3.not.i30.us.i.us = icmp eq i32 %call.i29.us.i.us, 0
   br i1 %tobool3.not.i30.us.i.us, label %find_hosts_entry.exit31.us.i.us, label %for.cond.i23.us.i.us, !llvm.loop !30
 
 find_hosts_entry.exit31.us.i.us:                  ; preds = %for.body.i27.us.i.us
-  %addr.us.i.us = getelementptr inbounds i8, ptr %e.1.i25.us.i.us, i64 16
-  %addrlen.us.i.us = getelementptr inbounds i8, ptr %e.1.i25.us.i.us, i64 44
+  %addr.us.i.us = getelementptr inbounds nuw i8, ptr %e.1.i25.us.i.us, i64 16
+  %addrlen.us.i.us = getelementptr inbounds nuw i8, ptr %e.1.i25.us.i.us, i64 44
   %11 = load i32, ptr %addrlen.us.i.us, align 4
   %call18.us.i.us = call ptr @evutil_new_addrinfo_(ptr noundef nonnull %addr.us.i.us, i32 noundef %11, ptr noundef nonnull %hints) #18
   %tobool19.not.us.i.us = icmp eq ptr %call18.us.i.us, null
@@ -6205,20 +6205,20 @@ find_hosts_entry.exit31.us.i.us:                  ; preds = %for.body.i27.us.i.u
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %find_hosts_entry.exit31.us.i
   %ai.039.us.i = phi ptr [ %ai.1.us.i, %find_hosts_entry.exit31.us.i ], [ null, %for.body.lr.ph.i ]
   %e.038.us.i = phi ptr [ %e.1.i25.us.i, %find_hosts_entry.exit31.us.i ], [ %e.1.i.i, %for.body.lr.ph.i ]
-  %addr.us.i = getelementptr inbounds i8, ptr %e.038.us.i, i64 16
+  %addr.us.i = getelementptr inbounds nuw i8, ptr %e.038.us.i, i64 16
   %12 = load i16, ptr %addr.us.i, align 8
   %cmp10.us.i = icmp eq i16 %12, 10
   br i1 %cmp10.us.i, label %for.inc.us.i, label %if.end16.us.i
 
 if.end16.us.i:                                    ; preds = %for.body.us.i
-  %addrlen.us.i = getelementptr inbounds i8, ptr %e.038.us.i, i64 44
+  %addrlen.us.i = getelementptr inbounds nuw i8, ptr %e.038.us.i, i64 44
   %13 = load i32, ptr %addrlen.us.i, align 4
   %call18.us.i = call ptr @evutil_new_addrinfo_(ptr noundef nonnull %addr.us.i, i32 noundef %13, ptr noundef nonnull %hints) #18
   %tobool19.not.us.i = icmp eq ptr %call18.us.i, null
   br i1 %tobool19.not.us.i, label %if.else.i, label %if.end21.us.i
 
 if.end21.us.i:                                    ; preds = %if.end16.us.i
-  %ai_addr.us.i = getelementptr inbounds i8, ptr %call18.us.i, i64 24
+  %ai_addr.us.i = getelementptr inbounds nuw i8, ptr %call18.us.i, i64 24
   %14 = load ptr, ptr %ai_addr.us.i, align 8
   %15 = load i16, ptr %14, align 2
   switch i16 %15, label %sockaddr_setport.exit.us.i [
@@ -6228,7 +6228,7 @@ if.end21.us.i:                                    ; preds = %if.end16.us.i
 
 if.end8.sink.split.i.us.i:                        ; preds = %if.end21.us.i, %if.end21.us.i
   %call7.i.us.i = call zeroext i16 @htons(i16 noundef zeroext %conv) #19
-  %sin6_port.i.us.i = getelementptr inbounds i8, ptr %14, i64 2
+  %sin6_port.i.us.i = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 %call7.i.us.i, ptr %sin6_port.i.us.i, align 2
   br label %sockaddr_setport.exit.us.i
 
@@ -6247,7 +6247,7 @@ for.cond.i23.us.i:                                ; preds = %for.body.i27.us.i, 
   br i1 %tobool1.not.i26.us.i, label %do.body24.i, label %for.body.i27.us.i
 
 for.body.i27.us.i:                                ; preds = %for.cond.i23.us.i
-  %hostname2.i28.us.i = getelementptr inbounds i8, ptr %e.1.i25.us.i, i64 48
+  %hostname2.i28.us.i = getelementptr inbounds nuw i8, ptr %e.1.i25.us.i, i64 48
   %call.i29.us.i = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %hostname2.i28.us.i, ptr noundef %nodename) #18
   %tobool3.not.i30.us.i = icmp eq i32 %call.i29.us.i, 0
   br i1 %tobool3.not.i30.us.i, label %find_hosts_entry.exit31.us.i, label %for.cond.i23.us.i, !llvm.loop !30
@@ -6258,20 +6258,20 @@ find_hosts_entry.exit31.us.i:                     ; preds = %for.body.i27.us.i
 for.body.us44.i:                                  ; preds = %for.body.lr.ph.i, %find_hosts_entry.exit31.us74.i
   %ai.039.us46.i = phi ptr [ %ai.1.us65.i, %find_hosts_entry.exit31.us74.i ], [ null, %for.body.lr.ph.i ]
   %e.038.us47.i = phi ptr [ %e.1.i25.us68.i, %find_hosts_entry.exit31.us74.i ], [ %e.1.i.i, %for.body.lr.ph.i ]
-  %addr.us49.i = getelementptr inbounds i8, ptr %e.038.us47.i, i64 16
+  %addr.us49.i = getelementptr inbounds nuw i8, ptr %e.038.us47.i, i64 16
   %16 = load i16, ptr %addr.us49.i, align 8
   %cmp.us.i = icmp eq i16 %16, 2
   br i1 %cmp.us.i, label %for.inc.us64.i, label %lor.lhs.false.us50.i
 
 lor.lhs.false.us50.i:                             ; preds = %for.body.us44.i
-  %addrlen.us54.i = getelementptr inbounds i8, ptr %e.038.us47.i, i64 44
+  %addrlen.us54.i = getelementptr inbounds nuw i8, ptr %e.038.us47.i, i64 44
   %17 = load i32, ptr %addrlen.us54.i, align 4
   %call18.us55.i = call ptr @evutil_new_addrinfo_(ptr noundef nonnull %addr.us49.i, i32 noundef %17, ptr noundef nonnull %hints) #18
   %tobool19.not.us56.i = icmp eq ptr %call18.us55.i, null
   br i1 %tobool19.not.us56.i, label %if.else.i, label %if.end21.us57.i
 
 if.end21.us57.i:                                  ; preds = %lor.lhs.false.us50.i
-  %ai_addr.us58.i = getelementptr inbounds i8, ptr %call18.us55.i, i64 24
+  %ai_addr.us58.i = getelementptr inbounds nuw i8, ptr %call18.us55.i, i64 24
   %18 = load ptr, ptr %ai_addr.us58.i, align 8
   %19 = load i16, ptr %18, align 2
   switch i16 %19, label %sockaddr_setport.exit.us62.i [
@@ -6281,7 +6281,7 @@ if.end21.us57.i:                                  ; preds = %lor.lhs.false.us50.
 
 if.end8.sink.split.i.us59.i:                      ; preds = %if.end21.us57.i, %if.end21.us57.i
   %call7.i.us60.i = call zeroext i16 @htons(i16 noundef zeroext %conv) #19
-  %sin6_port.i.us61.i = getelementptr inbounds i8, ptr %18, i64 2
+  %sin6_port.i.us61.i = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i16 %call7.i.us60.i, ptr %sin6_port.i.us61.i, align 2
   br label %sockaddr_setport.exit.us62.i
 
@@ -6300,7 +6300,7 @@ for.cond.i23.us66.i:                              ; preds = %for.body.i27.us70.i
   br i1 %tobool1.not.i26.us69.i, label %do.body24.i, label %for.body.i27.us70.i
 
 for.body.i27.us70.i:                              ; preds = %for.cond.i23.us66.i
-  %hostname2.i28.us71.i = getelementptr inbounds i8, ptr %e.1.i25.us68.i, i64 48
+  %hostname2.i28.us71.i = getelementptr inbounds nuw i8, ptr %e.1.i25.us68.i, i64 48
   %call.i29.us72.i = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %hostname2.i28.us71.i, ptr noundef %nodename) #18
   %tobool3.not.i30.us73.i = icmp eq i32 %call.i29.us72.i, 0
   br i1 %tobool3.not.i30.us73.i, label %find_hosts_entry.exit31.us74.i, label %for.cond.i23.us66.i, !llvm.loop !30
@@ -6346,21 +6346,21 @@ if.then20:                                        ; preds = %if.end17
   br label %return
 
 if.end21:                                         ; preds = %if.end17
-  %hints22 = getelementptr inbounds i8, ptr %call18, i64 8
+  %hints22 = getelementptr inbounds nuw i8, ptr %call18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hints22, ptr noundef nonnull align 8 dereferenceable(48) %hints, i64 48, i1 false)
   %22 = load i32, ptr %port, align 4
   %conv23 = trunc i32 %22 to i16
-  %port24 = getelementptr inbounds i8, ptr %call18, i64 72
+  %port24 = getelementptr inbounds nuw i8, ptr %call18, i64 72
   store i16 %conv23, ptr %port24, align 8
-  %ipv4_request = getelementptr inbounds i8, ptr %call18, i64 80
-  %type = getelementptr inbounds i8, ptr %call18, i64 88
+  %ipv4_request = getelementptr inbounds nuw i8, ptr %call18, i64 80
+  %type = getelementptr inbounds nuw i8, ptr %call18, i64 88
   store i32 1, ptr %type, align 8
-  %ipv6_request = getelementptr inbounds i8, ptr %call18, i64 96
-  %type25 = getelementptr inbounds i8, ptr %call18, i64 104
+  %ipv6_request = getelementptr inbounds nuw i8, ptr %call18, i64 96
+  %type25 = getelementptr inbounds nuw i8, ptr %call18, i64 104
   store i32 3, ptr %type25, align 8
-  %user_cb = getelementptr inbounds i8, ptr %call18, i64 56
+  %user_cb = getelementptr inbounds nuw i8, ptr %call18, i64 56
   store ptr %cb, ptr %user_cb, align 8
-  %user_data = getelementptr inbounds i8, ptr %call18, i64 64
+  %user_data = getelementptr inbounds nuw i8, ptr %call18, i64 64
   store ptr %arg, ptr %user_data, align 8
   store ptr %dns_base.addr.0, ptr %call18, align 8
   %23 = load i32, ptr %hints, align 8
@@ -6391,9 +6391,9 @@ evdns_base_resolve_ipv4.exit.thread:              ; preds = %if.then36
   br label %if.end50
 
 if.end.i:                                         ; preds = %if.then36
-  %user_callback.i = getelementptr inbounds i8, ptr %call.i65, i64 64
+  %user_callback.i = getelementptr inbounds nuw i8, ptr %call.i65, i64 64
   store ptr @evdns_getaddrinfo_gotresolve, ptr %user_callback.i, align 8
-  %user_pointer.i = getelementptr inbounds i8, ptr %call.i65, i64 72
+  %user_pointer.i = getelementptr inbounds nuw i8, ptr %call.i65, i64 72
   store ptr %ipv4_request, ptr %user_pointer.i, align 8
   %27 = load ptr, ptr %lock.i, align 8
   %tobool.not.i67 = icmp eq ptr %27, null
@@ -6405,9 +6405,9 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %do.end.i68
 
 do.end.i68:                                       ; preds = %if.then1.i, %if.end.i
-  %global_tcp_flags.i = getelementptr inbounds i8, ptr %dns_base.addr.0, i64 112
+  %global_tcp_flags.i = getelementptr inbounds nuw i8, ptr %dns_base.addr.0, i64 112
   %29 = load i16, ptr %global_tcp_flags.i, align 8
-  %tcp_flags.i = getelementptr inbounds i8, ptr %call.i65, i64 156
+  %tcp_flags.i = getelementptr inbounds nuw i8, ptr %call.i65, i64 156
   store i16 %29, ptr %tcp_flags.i, align 4
   call fastcc void @search_request_new(ptr noundef nonnull %dns_base.addr.0, ptr noundef %call.i65, i32 noundef 1, ptr noundef %nodename, i32 noundef 0)
   %30 = load ptr, ptr %call.i65, align 8
@@ -6437,9 +6437,9 @@ evdns_base_resolve_ipv4.exit:                     ; preds = %do.body20.i, %if.th
   br i1 %or.cond, label %if.end50, label %if.then46
 
 if.then46:                                        ; preds = %evdns_base_resolve_ipv4.exit
-  %cname_result = getelementptr inbounds i8, ptr %call18, i64 112
+  %cname_result = getelementptr inbounds nuw i8, ptr %call18, i64 112
   %33 = load ptr, ptr %handle.0.i, align 8
-  %put_cname_in_ptr = getelementptr inbounds i8, ptr %33, i64 176
+  %put_cname_in_ptr = getelementptr inbounds nuw i8, ptr %33, i64 176
   store ptr %cname_result, ptr %put_cname_in_ptr, align 8
   br label %if.end50
 
@@ -6460,9 +6460,9 @@ evdns_base_resolve_ipv6.exit.thread:              ; preds = %if.then54
   br label %if.end72
 
 if.end.i73:                                       ; preds = %if.then54
-  %user_callback.i74 = getelementptr inbounds i8, ptr %call.i71, i64 64
+  %user_callback.i74 = getelementptr inbounds nuw i8, ptr %call.i71, i64 64
   store ptr @evdns_getaddrinfo_gotresolve, ptr %user_callback.i74, align 8
-  %user_pointer.i75 = getelementptr inbounds i8, ptr %call.i71, i64 72
+  %user_pointer.i75 = getelementptr inbounds nuw i8, ptr %call.i71, i64 72
   store ptr %ipv6_request, ptr %user_pointer.i75, align 8
   %34 = load ptr, ptr %lock.i, align 8
   %tobool.not.i77 = icmp eq ptr %34, null
@@ -6474,9 +6474,9 @@ if.then1.i78:                                     ; preds = %if.end.i73
   br label %do.end.i80
 
 do.end.i80:                                       ; preds = %if.then1.i78, %if.end.i73
-  %global_tcp_flags.i81 = getelementptr inbounds i8, ptr %dns_base.addr.0, i64 112
+  %global_tcp_flags.i81 = getelementptr inbounds nuw i8, ptr %dns_base.addr.0, i64 112
   %36 = load i16, ptr %global_tcp_flags.i81, align 8
-  %tcp_flags.i82 = getelementptr inbounds i8, ptr %call.i71, i64 156
+  %tcp_flags.i82 = getelementptr inbounds nuw i8, ptr %call.i71, i64 156
   store i16 %36, ptr %tcp_flags.i82, align 4
   call fastcc void @search_request_new(ptr noundef nonnull %dns_base.addr.0, ptr noundef %call.i71, i32 noundef 28, ptr noundef %nodename, i32 noundef 0)
   %37 = load ptr, ptr %call.i71, align 8
@@ -6506,15 +6506,15 @@ evdns_base_resolve_ipv6.exit:                     ; preds = %do.body20.i86, %if.
   br i1 %or.cond64, label %if.end72, label %if.then65
 
 if.then65:                                        ; preds = %evdns_base_resolve_ipv6.exit
-  %cname_result66 = getelementptr inbounds i8, ptr %call18, i64 112
+  %cname_result66 = getelementptr inbounds nuw i8, ptr %call18, i64 112
   %40 = load ptr, ptr %handle.0.i87, align 8
-  %put_cname_in_ptr70 = getelementptr inbounds i8, ptr %40, i64 176
+  %put_cname_in_ptr70 = getelementptr inbounds nuw i8, ptr %40, i64 176
   store ptr %cname_result66, ptr %put_cname_in_ptr70, align 8
   br label %if.end72
 
 if.end72:                                         ; preds = %evdns_base_resolve_ipv6.exit.thread, %evdns_base_resolve_ipv6.exit, %if.then65, %if.end50
-  %timeout = getelementptr inbounds i8, ptr %call18, i64 128
-  %event_base = getelementptr inbounds i8, ptr %dns_base.addr.0, i64 32
+  %timeout = getelementptr inbounds nuw i8, ptr %call18, i64 128
+  %event_base = getelementptr inbounds nuw i8, ptr %dns_base.addr.0, i64 32
   %41 = load ptr, ptr %event_base, align 8
   %call73 = call i32 @event_assign(ptr noundef nonnull %timeout, ptr noundef %41, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @evdns_getaddrinfo_timeout_cb, ptr noundef nonnull %call18) #18
   %42 = load ptr, ptr %ipv4_request, align 8
@@ -6556,7 +6556,7 @@ declare void @evutil_set_evdns_getaddrinfo_cancel_fn_(ptr noundef) local_unnamed
 define void @evdns_getaddrinfo_cancel(ptr noundef %data) #2 {
 entry:
   %0 = load ptr, ptr %data, align 8
-  %lock = getelementptr inbounds i8, ptr %0, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 336
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -6567,7 +6567,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %request_done = getelementptr inbounds i8, ptr %data, i64 252
+  %request_done = getelementptr inbounds nuw i8, ptr %data, i64 252
   %bf.load = load i8, ptr %request_done, align 4
   %3 = and i8 %bf.load, 2
   %tobool3.not = icmp eq i8 %3, 0
@@ -6575,18 +6575,18 @@ do.end:                                           ; preds = %entry, %if.then
 
 do.body5:                                         ; preds = %do.end
   %4 = load ptr, ptr %data, align 8
-  %lock7 = getelementptr inbounds i8, ptr %4, i64 336
+  %lock7 = getelementptr inbounds nuw i8, ptr %4, i64 336
   %5 = load ptr, ptr %lock7, align 8
   %tobool8.not = icmp eq ptr %5, null
   br i1 %tobool8.not, label %do.end41, label %do.end41.sink.split
 
 if.end15:                                         ; preds = %do.end
-  %timeout = getelementptr inbounds i8, ptr %data, i64 128
+  %timeout = getelementptr inbounds nuw i8, ptr %data, i64 128
   %call16 = tail call i32 @event_del(ptr noundef nonnull %timeout) #18
   %bf.load17 = load i8, ptr %request_done, align 4
   %bf.set = or i8 %bf.load17, 1
   store i8 %bf.set, ptr %request_done, align 4
-  %ipv4_request = getelementptr inbounds i8, ptr %data, i64 80
+  %ipv4_request = getelementptr inbounds nuw i8, ptr %data, i64 80
   %6 = load ptr, ptr %ipv4_request, align 8
   %tobool19.not = icmp eq ptr %6, null
   br i1 %tobool19.not, label %if.end24, label %if.then20
@@ -6597,7 +6597,7 @@ if.then20:                                        ; preds = %if.end15
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then20, %if.end15
-  %ipv6_request = getelementptr inbounds i8, ptr %data, i64 96
+  %ipv6_request = getelementptr inbounds nuw i8, ptr %data, i64 96
   %8 = load ptr, ptr %ipv6_request, align 8
   %tobool26.not = icmp eq ptr %8, null
   br i1 %tobool26.not, label %do.body32, label %if.then27
@@ -6609,7 +6609,7 @@ if.then27:                                        ; preds = %if.end24
 
 do.body32:                                        ; preds = %if.end24, %if.then27
   %10 = load ptr, ptr %data, align 8
-  %lock34 = getelementptr inbounds i8, ptr %10, i64 336
+  %lock34 = getelementptr inbounds nuw i8, ptr %10, i64 336
   %11 = load ptr, ptr %lock34, align 8
   %tobool35.not = icmp eq ptr %11, null
   br i1 %tobool35.not, label %do.end41, label %do.end41.sink.split
@@ -6627,7 +6627,7 @@ do.end41:                                         ; preds = %do.end41.sink.split
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @evdns_base_set_max_requests_inflight(ptr nocapture noundef %base, i32 noundef range(i32 0, -1) %maxinflight) unnamed_addr #2 {
 entry:
-  %n_req_heads = getelementptr inbounds i8, ptr %base, i64 24
+  %n_req_heads = getelementptr inbounds nuw i8, ptr %base, i64 24
   %0 = load i32, ptr %n_req_heads, align 8
   %1 = load ptr, ptr %base, align 8
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %maxinflight, i32 1)
@@ -6652,25 +6652,25 @@ while.cond.preheader.preheader:                   ; preds = %for.cond.preheader
 
 while.cond.preheader:                             ; preds = %while.cond.preheader.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %while.cond.preheader.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %tobool15.not25 = icmp eq ptr %2, null
   br i1 %tobool15.not25, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %evdns_request_insert.exit
   %3 = phi ptr [ %12, %evdns_request_insert.exit ], [ %2, %while.cond.preheader ]
-  %next.i = getelementptr inbounds i8, ptr %3, i64 32
+  %next.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %4 = load ptr, ptr %next.i, align 8
   %cmp.i = icmp eq ptr %4, %3
   br i1 %cmp.i, label %if.end16.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %while.body
-  %prev.i = getelementptr inbounds i8, ptr %3, i64 40
+  %prev.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %prev.i, align 8
-  %prev8.i = getelementptr inbounds i8, ptr %4, i64 40
+  %prev8.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %5, ptr %prev8.i, align 8
   %6 = load ptr, ptr %next.i, align 8
-  %next11.i = getelementptr inbounds i8, ptr %5, i64 32
+  %next11.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %6, ptr %next11.i, align 8
   %7 = load ptr, ptr %arrayidx, align 8
   %cmp12.i = icmp eq ptr %7, %3
@@ -6683,33 +6683,33 @@ if.end16.sink.split.i:                            ; preds = %if.else.i, %while.b
 
 evdns_request_remove.exit:                        ; preds = %if.else.i, %if.end16.sink.split.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i, i8 0, i64 16, i1 false)
-  %trans_id = getelementptr inbounds i8, ptr %3, i64 168
+  %trans_id = getelementptr inbounds nuw i8, ptr %3, i64 168
   %8 = load i16, ptr %trans_id, align 8
   %conv20 = zext i16 %8 to i32
   %rem = urem i32 %conv20, %div
   %idxprom21 = zext nneg i32 %rem to i64
-  %arrayidx22 = getelementptr inbounds ptr, ptr %call, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds nuw ptr, ptr %call, i64 %idxprom21
   %9 = load ptr, ptr %arrayidx22, align 8
   %tobool6.not.i = icmp eq ptr %9, null
   br i1 %tobool6.not.i, label %if.then7.i, label %if.end8.i
 
 if.then7.i:                                       ; preds = %evdns_request_remove.exit
   store ptr %3, ptr %arrayidx22, align 8
-  %prev.i23 = getelementptr inbounds i8, ptr %3, i64 40
+  %prev.i23 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %3, ptr %prev.i23, align 8
   store ptr %3, ptr %next.i, align 8
   br label %evdns_request_insert.exit
 
 if.end8.i:                                        ; preds = %evdns_request_remove.exit
-  %prev9.i = getelementptr inbounds i8, ptr %9, i64 40
+  %prev9.i = getelementptr inbounds nuw i8, ptr %9, i64 40
   %10 = load ptr, ptr %prev9.i, align 8
-  %prev10.i = getelementptr inbounds i8, ptr %3, i64 40
+  %prev10.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %10, ptr %prev10.i, align 8
-  %next12.i = getelementptr inbounds i8, ptr %10, i64 32
+  %next12.i = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %3, ptr %next12.i, align 8
   %11 = load ptr, ptr %arrayidx22, align 8
   store ptr %11, ptr %next.i, align 8
-  %prev14.i = getelementptr inbounds i8, ptr %11, i64 40
+  %prev14.i = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %3, ptr %prev14.i, align 8
   br label %evdns_request_insert.exit
 
@@ -6730,7 +6730,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 if.end23:                                         ; preds = %for.end, %if.end10
   store ptr %call, ptr %base, align 8
   store i32 %div, ptr %n_req_heads, align 8
-  %global_max_requests_inflight = getelementptr inbounds i8, ptr %base, i64 52
+  %global_max_requests_inflight = getelementptr inbounds nuw i8, ptr %base, i64 52
   store i32 %spec.store.select, ptr %global_max_requests_inflight, align 4
   br label %return
 
@@ -6743,7 +6743,7 @@ declare ptr @evutil_resolvconf_filename_() local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @evdns_base_free_and_unlock(ptr noundef %base, i32 noundef %fail_requests) unnamed_addr #2 {
 entry:
-  %req_waiting_head = getelementptr inbounds i8, ptr %base, i64 8
+  %req_waiting_head = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %req_waiting_head, align 8
   %tobool.not73 = icmp eq ptr %0, null
   br i1 %tobool.not73, label %for.cond.preheader, label %while.body.lr.ph
@@ -6760,7 +6760,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   br i1 %tobool.not.us, label %for.cond.preheader, label %while.body.us, !llvm.loop !34
 
 for.cond.preheader:                               ; preds = %while.body, %while.body.us, %entry
-  %n_req_heads = getelementptr inbounds i8, ptr %base, i64 24
+  %n_req_heads = getelementptr inbounds nuw i8, ptr %base, i64 24
   %3 = load i32, ptr %n_req_heads, align 8
   %cmp76 = icmp sgt i32 %3, 0
   br i1 %cmp76, label %while.cond5.preheader.lr.ph, label %for.end
@@ -6774,7 +6774,7 @@ while.cond5.preheader.us:                         ; preds = %while.cond5.prehead
   %4 = phi i32 [ %7, %for.inc.us ], [ %3, %while.cond5.preheader.lr.ph ]
   %5 = phi ptr [ %8, %for.inc.us ], [ %.pre88, %while.cond5.preheader.lr.ph ]
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %for.inc.us ], [ 0, %while.cond5.preheader.lr.ph ]
-  %arrayidx74.us = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv84
+  %arrayidx74.us = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv84
   %6 = load ptr, ptr %arrayidx74.us, align 8
   %tobool6.not75.us = icmp eq ptr %6, null
   br i1 %tobool6.not75.us, label %for.inc.us, label %while.body7.us.us
@@ -6794,44 +6794,44 @@ for.inc.us:                                       ; preds = %for.inc.us.loopexit
 while.body7.us.us:                                ; preds = %while.cond5.preheader.us, %while.body7.us.us
   %10 = phi ptr [ %15, %while.body7.us.us ], [ %6, %while.cond5.preheader.us ]
   %11 = phi ptr [ %14, %while.body7.us.us ], [ %5, %while.cond5.preheader.us ]
-  %trans_id.us.us = getelementptr inbounds i8, ptr %10, i64 168
+  %trans_id.us.us = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load i16, ptr %trans_id.us.us, align 8
   %conv.us.us = zext i16 %12 to i32
   %13 = load i32, ptr %n_req_heads, align 8
   %rem.us.us = srem i32 %conv.us.us, %13
   %idxprom22.us.us = zext nneg i32 %rem.us.us to i64
-  %arrayidx23.us.us = getelementptr inbounds ptr, ptr %11, i64 %idxprom22.us.us
+  %arrayidx23.us.us = getelementptr inbounds nuw ptr, ptr %11, i64 %idxprom22.us.us
   tail call fastcc void @request_finished(ptr noundef nonnull %10, ptr noundef %arrayidx23.us.us, i32 noundef 1)
   %14 = load ptr, ptr %base, align 8
-  %arrayidx.us.us = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv84
+  %arrayidx.us.us = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv84
   %15 = load ptr, ptr %arrayidx.us.us, align 8
   %tobool6.not.us.us = icmp eq ptr %15, null
   br i1 %tobool6.not.us.us, label %for.inc.us.loopexit, label %while.body7.us.us, !llvm.loop !36
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %16 = phi ptr [ %23, %while.body ], [ %0, %while.body.lr.ph ]
-  %handle1.i = getelementptr inbounds i8, ptr %16, i64 192
+  %handle1.i = getelementptr inbounds nuw i8, ptr %16, i64 192
   %17 = load ptr, ptr %handle1.i, align 8
-  %request_type.i = getelementptr inbounds i8, ptr %16, i64 10
+  %request_type.i = getelementptr inbounds nuw i8, ptr %16, i64 10
   %18 = load i8, ptr %request_type.i, align 2
-  %request_type5.i = getelementptr inbounds i8, ptr %17, i64 80
+  %request_type5.i = getelementptr inbounds nuw i8, ptr %17, i64 80
   store i8 %18, ptr %request_type5.i, align 8
-  %ttl6.i = getelementptr inbounds i8, ptr %17, i64 84
+  %ttl6.i = getelementptr inbounds nuw i8, ptr %17, i64 84
   store i32 0, ptr %ttl6.i, align 4
-  %err7.i = getelementptr inbounds i8, ptr %17, i64 88
+  %err7.i = getelementptr inbounds nuw i8, ptr %17, i64 88
   store i32 68, ptr %err7.i, align 8
-  %base.i = getelementptr inbounds i8, ptr %16, i64 184
-  %pending_cb.i = getelementptr inbounds i8, ptr %17, i64 16
+  %base.i = getelementptr inbounds nuw i8, ptr %16, i64 184
+  %pending_cb.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 1, ptr %pending_cb.i, align 8
-  %deferred.i = getelementptr inbounds i8, ptr %17, i64 24
-  %timeout_event.i = getelementptr inbounds i8, ptr %16, i64 48
+  %deferred.i = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %timeout_event.i = getelementptr inbounds nuw i8, ptr %16, i64 48
   %call.i = tail call i32 @event_get_priority(ptr noundef nonnull %timeout_event.i) #18
   %conv.i = trunc i32 %call.i to i8
-  %user_pointer.i = getelementptr inbounds i8, ptr %17, i64 72
+  %user_pointer.i = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %user_pointer.i, align 8
   tail call void @event_deferred_cb_init_(ptr noundef nonnull %deferred.i, i8 noundef zeroext %conv.i, ptr noundef nonnull @reply_run_callback, ptr noundef %19) #18
   %20 = load ptr, ptr %base.i, align 8
-  %event_base.i = getelementptr inbounds i8, ptr %20, i64 32
+  %event_base.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = load ptr, ptr %event_base.i, align 8
   %call14.i = tail call i32 @event_deferred_cb_schedule_(ptr noundef %21, ptr noundef nonnull %deferred.i) #18
   %22 = load ptr, ptr %req_waiting_head, align 8
@@ -6844,50 +6844,50 @@ while.cond5.preheader:                            ; preds = %while.cond5.prehead
   %24 = phi i32 [ %39, %for.inc ], [ %3, %while.cond5.preheader.lr.ph ]
   %25 = phi ptr [ %40, %for.inc ], [ %.pre88, %while.cond5.preheader.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %while.cond5.preheader.lr.ph ]
-  %arrayidx74 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
+  %arrayidx74 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %26 = load ptr, ptr %arrayidx74, align 8
   %tobool6.not75 = icmp eq ptr %26, null
   br i1 %tobool6.not75, label %for.inc, label %while.body7
 
 while.body7:                                      ; preds = %while.cond5.preheader, %while.body7
   %27 = phi ptr [ %38, %while.body7 ], [ %26, %while.cond5.preheader ]
-  %handle1.i55 = getelementptr inbounds i8, ptr %27, i64 192
+  %handle1.i55 = getelementptr inbounds nuw i8, ptr %27, i64 192
   %28 = load ptr, ptr %handle1.i55, align 8
-  %request_type.i56 = getelementptr inbounds i8, ptr %27, i64 10
+  %request_type.i56 = getelementptr inbounds nuw i8, ptr %27, i64 10
   %29 = load i8, ptr %request_type.i56, align 2
-  %request_type5.i57 = getelementptr inbounds i8, ptr %28, i64 80
+  %request_type5.i57 = getelementptr inbounds nuw i8, ptr %28, i64 80
   store i8 %29, ptr %request_type5.i57, align 8
-  %ttl6.i58 = getelementptr inbounds i8, ptr %28, i64 84
+  %ttl6.i58 = getelementptr inbounds nuw i8, ptr %28, i64 84
   store i32 0, ptr %ttl6.i58, align 4
-  %err7.i59 = getelementptr inbounds i8, ptr %28, i64 88
+  %err7.i59 = getelementptr inbounds nuw i8, ptr %28, i64 88
   store i32 68, ptr %err7.i59, align 8
-  %base.i60 = getelementptr inbounds i8, ptr %27, i64 184
-  %pending_cb.i61 = getelementptr inbounds i8, ptr %28, i64 16
+  %base.i60 = getelementptr inbounds nuw i8, ptr %27, i64 184
+  %pending_cb.i61 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 1, ptr %pending_cb.i61, align 8
-  %deferred.i62 = getelementptr inbounds i8, ptr %28, i64 24
-  %timeout_event.i63 = getelementptr inbounds i8, ptr %27, i64 48
+  %deferred.i62 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %timeout_event.i63 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %call.i64 = tail call i32 @event_get_priority(ptr noundef nonnull %timeout_event.i63) #18
   %conv.i65 = trunc i32 %call.i64 to i8
-  %user_pointer.i66 = getelementptr inbounds i8, ptr %28, i64 72
+  %user_pointer.i66 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %30 = load ptr, ptr %user_pointer.i66, align 8
   tail call void @event_deferred_cb_init_(ptr noundef nonnull %deferred.i62, i8 noundef zeroext %conv.i65, ptr noundef nonnull @reply_run_callback, ptr noundef %30) #18
   %31 = load ptr, ptr %base.i60, align 8
-  %event_base.i67 = getelementptr inbounds i8, ptr %31, i64 32
+  %event_base.i67 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %32 = load ptr, ptr %event_base.i67, align 8
   %call14.i68 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %32, ptr noundef nonnull %deferred.i62) #18
   %33 = load ptr, ptr %base, align 8
-  %arrayidx16 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   %34 = load ptr, ptr %arrayidx16, align 8
-  %trans_id = getelementptr inbounds i8, ptr %34, i64 168
+  %trans_id = getelementptr inbounds nuw i8, ptr %34, i64 168
   %35 = load i16, ptr %trans_id, align 8
   %conv = zext i16 %35 to i32
   %36 = load i32, ptr %n_req_heads, align 8
   %rem = srem i32 %conv, %36
   %idxprom22 = zext nneg i32 %rem to i64
-  %arrayidx23 = getelementptr inbounds ptr, ptr %33, i64 %idxprom22
+  %arrayidx23 = getelementptr inbounds nuw ptr, ptr %33, i64 %idxprom22
   tail call fastcc void @request_finished(ptr noundef %34, ptr noundef %arrayidx23, i32 noundef 1)
   %37 = load ptr, ptr %base, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
   %38 = load ptr, ptr %arrayidx, align 8
   %tobool6.not = icmp eq ptr %38, null
   br i1 %tobool6.not, label %for.inc.loopexit, label %while.body7, !llvm.loop !36
@@ -6905,11 +6905,11 @@ for.inc:                                          ; preds = %for.inc.loopexit, %
   br i1 %cmp, label %while.cond5.preheader, label %for.end, !llvm.loop !35
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %for.cond.preheader
-  %global_requests_waiting = getelementptr inbounds i8, ptr %base, i64 48
+  %global_requests_waiting = getelementptr inbounds nuw i8, ptr %base, i64 48
   store i32 0, ptr %global_requests_waiting, align 8
-  %global_requests_inflight = getelementptr inbounds i8, ptr %base, i64 44
+  %global_requests_inflight = getelementptr inbounds nuw i8, ptr %base, i64 44
   store i32 0, ptr %global_requests_inflight, align 4
-  %server_head = getelementptr inbounds i8, ptr %base, i64 16
+  %server_head = getelementptr inbounds nuw i8, ptr %base, i64 16
   %42 = load ptr, ptr %server_head, align 8
   br label %for.cond25
 
@@ -6919,9 +6919,9 @@ for.cond25:                                       ; preds = %evdns_nameserver_fr
   br i1 %tobool26.not, label %for.end34, label %for.body27
 
 for.body27:                                       ; preds = %for.cond25
-  %next = getelementptr inbounds i8, ptr %server.0, i64 280
+  %next = getelementptr inbounds nuw i8, ptr %server.0, i64 280
   %43 = load ptr, ptr %next, align 8
-  %probe_request = getelementptr inbounds i8, ptr %server.0, i64 416
+  %probe_request = getelementptr inbounds nuw i8, ptr %server.0, i64 416
   store ptr null, ptr %probe_request, align 8
   %44 = load i32, ptr %server.0, align 8
   %cmp.i = icmp sgt i32 %44, -1
@@ -6932,16 +6932,16 @@ if.then.i:                                        ; preds = %for.body27
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.body27
-  %event.i = getelementptr inbounds i8, ptr %server.0, i64 160
+  %event.i = getelementptr inbounds nuw i8, ptr %server.0, i64 160
   %call2.i = tail call i32 @event_del(ptr noundef nonnull %event.i) #18
   tail call void @event_debug_unassign(ptr noundef nonnull %event.i) #18
-  %state.i = getelementptr inbounds i8, ptr %server.0, i64 424
+  %state.i = getelementptr inbounds nuw i8, ptr %server.0, i64 424
   %45 = load i8, ptr %state.i, align 8
   %cmp4.i = icmp eq i8 %45, 0
   br i1 %cmp4.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %timeout_event.i70 = getelementptr inbounds i8, ptr %server.0, i64 296
+  %timeout_event.i70 = getelementptr inbounds nuw i8, ptr %server.0, i64 296
   %call7.i = tail call i32 @event_del(ptr noundef nonnull %timeout_event.i70) #18
   br label %if.end8.i
 
@@ -6951,24 +6951,24 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.end
   br i1 %tobool.not.i, label %if.end12.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end8.i
-  %base.i69 = getelementptr inbounds i8, ptr %server.0, i64 432
+  %base.i69 = getelementptr inbounds nuw i8, ptr %server.0, i64 432
   %47 = load ptr, ptr %base.i69, align 8
   tail call void @evdns_cancel_request(ptr noundef %47, ptr noundef nonnull %46)
   store ptr null, ptr %probe_request, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then9.i, %if.end8.i
-  %timeout_event13.i = getelementptr inbounds i8, ptr %server.0, i64 296
+  %timeout_event13.i = getelementptr inbounds nuw i8, ptr %server.0, i64 296
   tail call void @event_debug_unassign(ptr noundef nonnull %timeout_event13.i) #18
-  %connection.i = getelementptr inbounds i8, ptr %server.0, i64 8
+  %connection.i = getelementptr inbounds nuw i8, ptr %server.0, i64 8
   %48 = load ptr, ptr %connection.i, align 8
   %tobool.not.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i, label %evdns_nameserver_free.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end12.i
-  %state.i.i.i = getelementptr inbounds i8, ptr %48, i64 8
+  %state.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 0, ptr %state.i.i.i, align 8
-  %awaiting_packet_size.i.i.i = getelementptr inbounds i8, ptr %48, i64 12
+  %awaiting_packet_size.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i16 0, ptr %awaiting_packet_size.i.i.i, align 4
   %49 = load ptr, ptr %48, align 8
   %tobool1.not.i.i.i = icmp eq ptr %49, null
@@ -6991,22 +6991,22 @@ evdns_nameserver_free.exit:                       ; preds = %if.end12.i, %evdns_
 
 for.end34:                                        ; preds = %evdns_nameserver_free.exit, %for.cond25
   store ptr null, ptr %server_head, align 8
-  %global_good_nameservers = getelementptr inbounds i8, ptr %base, i64 40
+  %global_good_nameservers = getelementptr inbounds nuw i8, ptr %base, i64 40
   store i32 0, ptr %global_good_nameservers, align 8
-  %global_search_state = getelementptr inbounds i8, ptr %base, i64 312
+  %global_search_state = getelementptr inbounds nuw i8, ptr %base, i64 312
   %51 = load ptr, ptr %global_search_state, align 8
   %tobool36.not = icmp eq ptr %51, null
   br i1 %tobool36.not, label %if.end47, label %if.then37
 
 if.then37:                                        ; preds = %for.end34
-  %head = getelementptr inbounds i8, ptr %51, i64 16
+  %head = getelementptr inbounds nuw i8, ptr %51, i64 16
   %52 = load ptr, ptr %head, align 8
   %tobool40.not78 = icmp eq ptr %52, null
   br i1 %tobool40.not78, label %for.end44, label %for.body41
 
 for.body41:                                       ; preds = %if.then37, %for.body41
   %dom.079 = phi ptr [ %53, %for.body41 ], [ %52, %if.then37 ]
-  %next42 = getelementptr inbounds i8, ptr %dom.079, i64 8
+  %next42 = getelementptr inbounds nuw i8, ptr %dom.079, i64 8
   %53 = load ptr, ptr %next42, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %dom.079) #18
   %tobool40.not = icmp eq ptr %53, null
@@ -7023,25 +7023,25 @@ for.end44:                                        ; preds = %for.end44.loopexit,
   br label %if.end47
 
 if.end47:                                         ; preds = %for.end44, %for.end34
-  %hostsdb = getelementptr inbounds i8, ptr %base, i64 320
+  %hostsdb = getelementptr inbounds nuw i8, ptr %base, i64 320
   %55 = load ptr, ptr %hostsdb, align 8
   %tobool49.not80 = icmp eq ptr %55, null
   br i1 %tobool49.not80, label %while.end68, label %do.body.lr.ph
 
 do.body.lr.ph:                                    ; preds = %if.end47
-  %tqh_last = getelementptr inbounds i8, ptr %base, i64 328
+  %tqh_last = getelementptr inbounds nuw i8, ptr %base, i64 328
   br label %do.body
 
 do.body:                                          ; preds = %do.body.lr.ph, %if.end63
   %56 = phi ptr [ %55, %do.body.lr.ph ], [ %60, %if.end63 ]
   %57 = load ptr, ptr %56, align 8
   %cmp52.not = icmp eq ptr %57, null
-  %tqe_prev61 = getelementptr inbounds i8, ptr %56, i64 8
+  %tqe_prev61 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %tqe_prev61, align 8
   br i1 %cmp52.not, label %if.else, label %if.then54
 
 if.then54:                                        ; preds = %do.body
-  %tqe_prev59 = getelementptr inbounds i8, ptr %57, i64 8
+  %tqe_prev59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %58, ptr %tqe_prev59, align 8
   br label %if.end63
 
@@ -7060,7 +7060,7 @@ if.end63:                                         ; preds = %if.else, %if.then54
 while.end68:                                      ; preds = %if.end63, %if.end47
   %61 = load ptr, ptr %base, align 8
   tail call void @event_mm_free_(ptr noundef %61) #18
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %62 = load ptr, ptr %lock, align 8
   %tobool71.not = icmp eq ptr %62, null
   br i1 %tobool71.not, label %do.end82, label %do.body76
@@ -7164,7 +7164,7 @@ return:                                           ; preds = %entry, %sw.default,
 ; Function Attrs: nounwind uwtable
 define void @evdns_base_free(ptr noundef %base, i32 noundef %fail_requests) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -7182,7 +7182,7 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define void @evdns_base_clear_host_addresses(ptr nocapture noundef %base) local_unnamed_addr #2 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %base, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %base, i64 336
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -7193,25 +7193,25 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %hostsdb = getelementptr inbounds i8, ptr %base, i64 320
+  %hostsdb = getelementptr inbounds nuw i8, ptr %base, i64 320
   %2 = load ptr, ptr %hostsdb, align 8
   %tobool2.not15 = icmp eq ptr %2, null
   br i1 %tobool2.not15, label %do.body19, label %do.body3.lr.ph
 
 do.body3.lr.ph:                                   ; preds = %do.end
-  %tqh_last = getelementptr inbounds i8, ptr %base, i64 328
+  %tqh_last = getelementptr inbounds nuw i8, ptr %base, i64 328
   br label %do.body3
 
 do.body3:                                         ; preds = %do.body3.lr.ph, %if.end13
   %3 = phi ptr [ %2, %do.body3.lr.ph ], [ %7, %if.end13 ]
   %4 = load ptr, ptr %3, align 8
   %cmp.not = icmp eq ptr %4, null
-  %tqe_prev11 = getelementptr inbounds i8, ptr %3, i64 8
+  %tqe_prev11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %tqe_prev11, align 8
   br i1 %cmp.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %do.body3
-  %tqe_prev9 = getelementptr inbounds i8, ptr %4, i64 8
+  %tqe_prev9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %tqe_prev9, align 8
   br label %if.end13
 
@@ -7250,7 +7250,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr null, ptr @current_base, align 8
-  %lock.i = getelementptr inbounds i8, ptr %0, i64 336
+  %lock.i = getelementptr inbounds nuw i8, ptr %0, i64 336
   %1 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %evdns_base_free.exit, label %if.then.i
@@ -7278,7 +7278,7 @@ entry:
   %tobool.not = icmp eq ptr %base, null
   %0 = load ptr, ptr @current_base, align 8
   %spec.select = select i1 %tobool.not, ptr %0, ptr %base
-  %lock = getelementptr inbounds i8, ptr %spec.select, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %spec.select, i64 336
   %1 = load ptr, ptr %lock, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %do.end, label %if.then2
@@ -7320,7 +7320,7 @@ if.then17.i:                                      ; preds = %if.end14.i, %if.the
   %cp.012.i = phi ptr [ %add.ptr.i, %if.then17.i ], [ %3, %if.end14.i ]
   store i8 0, ptr %call1513.i, align 1
   call fastcc void @evdns_base_parse_hosts_line(ptr noundef %spec.select, ptr noundef %cp.012.i)
-  %add.ptr.i = getelementptr inbounds i8, ptr %call1513.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call1513.i, i64 1
   %call15.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 10) #20
   %tobool16.not.i = icmp eq ptr %call15.i, null
   br i1 %tobool16.not.i, label %if.else.i, label %if.then17.i
@@ -7361,7 +7361,7 @@ define internal void @evdns_getaddrinfo_gotresolve(i32 noundef %result, i8 nound
 entry:
   %sin = alloca %struct.sockaddr_in, align 4
   %sin6 = alloca %struct.sockaddr_in6, align 4
-  %type1 = getelementptr inbounds i8, ptr %arg, i64 8
+  %type1 = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %0 = load i32, ptr %type1, align 8
   %cmp = icmp eq i32 %0, 1
   %other_req.0.v = select i1 %cmp, i64 16, i64 -16
@@ -7373,7 +7373,7 @@ entry:
 
 do.body5:                                         ; preds = %entry
   %1 = load ptr, ptr %data.0, align 8
-  %lock = getelementptr inbounds i8, ptr %1, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %1, i64 336
   %2 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %do.end10, label %if.then6
@@ -7398,21 +7398,21 @@ if.then13:                                        ; preds = %do.end10
   br i1 %cmp15, label %if.then16, label %if.else18
 
 if.then16:                                        ; preds = %if.then13
-  %getaddrinfo_ipv4_answered = getelementptr inbounds i8, ptr %5, i64 304
+  %getaddrinfo_ipv4_answered = getelementptr inbounds nuw i8, ptr %5, i64 304
   %6 = load i32, ptr %getaddrinfo_ipv4_answered, align 8
   %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %getaddrinfo_ipv4_answered, align 8
   br label %if.end22
 
 if.else18:                                        ; preds = %if.then13
-  %getaddrinfo_ipv6_answered = getelementptr inbounds i8, ptr %5, i64 308
+  %getaddrinfo_ipv6_answered = getelementptr inbounds nuw i8, ptr %5, i64 308
   %7 = load i32, ptr %getaddrinfo_ipv6_answered, align 4
   %inc20 = add nsw i32 %7, 1
   store i32 %inc20, ptr %getaddrinfo_ipv6_answered, align 4
   br label %if.end22
 
 if.end22:                                         ; preds = %do.end10, %do.end10, %do.end10, %do.end10, %if.then16, %if.else18
-  %user_canceled23 = getelementptr inbounds i8, ptr %data.0, i64 252
+  %user_canceled23 = getelementptr inbounds nuw i8, ptr %data.0, i64 252
   %bf.load = load i8, ptr %user_canceled23, align 4
   %8 = load ptr, ptr %other_req.0, align 8
   %cmp24 = icmp eq ptr %8, null
@@ -7425,7 +7425,7 @@ if.then25:                                        ; preds = %if.end22
 
 do.body29:                                        ; preds = %if.end22, %if.then25
   %9 = load ptr, ptr %data.0, align 8
-  %lock31 = getelementptr inbounds i8, ptr %9, i64 336
+  %lock31 = getelementptr inbounds nuw i8, ptr %9, i64 336
   %10 = load ptr, ptr %lock31, align 8
   %tobool32.not = icmp eq ptr %10, null
   br i1 %tobool32.not, label %if.end45, label %if.then33
@@ -7449,7 +7449,7 @@ if.then49:                                        ; preds = %if.end45
   br i1 %cmp51, label %if.then52, label %if.end170
 
 if.then52:                                        ; preds = %if.then49
-  %pending_result.i = getelementptr inbounds i8, ptr %data.0, i64 120
+  %pending_result.i = getelementptr inbounds nuw i8, ptr %data.0, i64 120
   %13 = load ptr, ptr %pending_result.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -7459,7 +7459,7 @@ if.then.i:                                        ; preds = %if.then52
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then52
-  %cname_result.i = getelementptr inbounds i8, ptr %data.0, i64 112
+  %cname_result.i = getelementptr inbounds nuw i8, ptr %data.0, i64 112
   %14 = load ptr, ptr %cname_result.i, align 8
   %tobool2.not.i = icmp eq ptr %14, null
   br i1 %tobool2.not.i, label %free_getaddrinfo_request.exit, label %if.then3.i
@@ -7469,29 +7469,29 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %free_getaddrinfo_request.exit
 
 free_getaddrinfo_request.exit:                    ; preds = %if.end.i, %if.then3.i
-  %timeout.i = getelementptr inbounds i8, ptr %data.0, i64 128
+  %timeout.i = getelementptr inbounds nuw i8, ptr %data.0, i64 128
   %call.i = tail call i32 @event_del(ptr noundef nonnull %timeout.i) #18
   tail call void @event_mm_free_(ptr noundef nonnull %data.0) #18
   br label %if.end170
 
 if.end54:                                         ; preds = %if.end45
-  %user_cb = getelementptr inbounds i8, ptr %data.0, i64 56
+  %user_cb = getelementptr inbounds nuw i8, ptr %data.0, i64 56
   %15 = load ptr, ptr %user_cb, align 8
   %cmp55 = icmp eq ptr %15, null
   br i1 %cmp55, label %if.then56, label %if.end57
 
 if.end54.thread:                                  ; preds = %entry
   store ptr null, ptr %data.0, align 8
-  %user_canceled41 = getelementptr inbounds i8, ptr %data.0, i64 252
+  %user_canceled41 = getelementptr inbounds nuw i8, ptr %data.0, i64 252
   %bf.load42 = load i8, ptr %user_canceled41, align 4
   store ptr null, ptr %arg, align 8
-  %user_cb146 = getelementptr inbounds i8, ptr %data.0, i64 56
+  %user_cb146 = getelementptr inbounds nuw i8, ptr %data.0, i64 56
   %16 = load ptr, ptr %user_cb146, align 8
   %cmp55147 = icmp eq ptr %16, null
   br i1 %cmp55147, label %if.then56, label %if.then68
 
 if.then56:                                        ; preds = %if.end54.thread, %if.end54
-  %pending_result.i91 = getelementptr inbounds i8, ptr %data.0, i64 120
+  %pending_result.i91 = getelementptr inbounds nuw i8, ptr %data.0, i64 120
   %17 = load ptr, ptr %pending_result.i91, align 8
   %tobool.not.i92 = icmp eq ptr %17, null
   br i1 %tobool.not.i92, label %if.end.i94, label %if.then.i93
@@ -7501,7 +7501,7 @@ if.then.i93:                                      ; preds = %if.then56
   br label %if.end.i94
 
 if.end.i94:                                       ; preds = %if.then.i93, %if.then56
-  %cname_result.i95 = getelementptr inbounds i8, ptr %data.0, i64 112
+  %cname_result.i95 = getelementptr inbounds nuw i8, ptr %data.0, i64 112
   %18 = load ptr, ptr %cname_result.i95, align 8
   %tobool2.not.i96 = icmp eq ptr %18, null
   br i1 %tobool2.not.i96, label %free_getaddrinfo_request.exit100, label %if.then3.i97
@@ -7511,7 +7511,7 @@ if.then3.i97:                                     ; preds = %if.end.i94
   br label %free_getaddrinfo_request.exit100
 
 free_getaddrinfo_request.exit100:                 ; preds = %if.end.i94, %if.then3.i97
-  %timeout.i98 = getelementptr inbounds i8, ptr %data.0, i64 128
+  %timeout.i98 = getelementptr inbounds nuw i8, ptr %data.0, i64 128
   %call.i99 = tail call i32 @event_del(ptr noundef nonnull %timeout.i98) #18
   tail call void @event_mm_free_(ptr noundef nonnull %data.0) #18
   br label %if.end170
@@ -7546,14 +7546,14 @@ if.then68.thread:                                 ; preds = %if.then59
 if.then73:                                        ; preds = %if.then68.thread177, %if.then68.thread
   %err.0.ph173175 = phi i32 [ -5, %if.then68.thread ], [ %retval.0.i181, %if.then68.thread177 ]
   %22 = load ptr, ptr %data.0, align 8
-  %timeout.i101 = getelementptr inbounds i8, ptr %data.0, i64 128
-  %global_getaddrinfo_allow_skew.i = getelementptr inbounds i8, ptr %22, i64 272
+  %timeout.i101 = getelementptr inbounds nuw i8, ptr %data.0, i64 128
+  %global_getaddrinfo_allow_skew.i = getelementptr inbounds nuw i8, ptr %22, i64 272
   %call.i102 = tail call i32 @event_add(ptr noundef nonnull %timeout.i101, ptr noundef nonnull %global_getaddrinfo_allow_skew.i) #18
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then68, %if.then73
   %err.0.ph173176 = phi i32 [ %err.0.ph173175, %if.then73 ], [ -4, %if.then68 ]
-  %pending_error = getelementptr inbounds i8, ptr %data.0, i64 248
+  %pending_error = getelementptr inbounds nuw i8, ptr %data.0, i64 248
   store i32 %err.0.ph173176, ptr %pending_error, align 8
   br label %if.end170
 
@@ -7565,25 +7565,25 @@ if.end77:                                         ; preds = %if.then68.thread177
   br i1 %tobool48144148155.ph169, label %if.then79, label %if.else81
 
 if.then79:                                        ; preds = %if.end77
-  %user_data = getelementptr inbounds i8, ptr %data.0, i64 64
+  %user_data = getelementptr inbounds nuw i8, ptr %data.0, i64 64
   %23 = load ptr, ptr %user_data, align 8
   tail call void %.ph171(i32 noundef -90001, ptr noundef null, ptr noundef %23) #18
   br label %if.end99
 
 if.else81:                                        ; preds = %if.end77
-  %pending_result = getelementptr inbounds i8, ptr %data.0, i64 120
+  %pending_result = getelementptr inbounds nuw i8, ptr %data.0, i64 120
   %24 = load ptr, ptr %pending_result, align 8
   %tobool82.not = icmp eq ptr %24, null
   br i1 %tobool82.not, label %if.end95, label %if.then83
 
 if.then83:                                        ; preds = %if.else81
-  %cname_result.i103 = getelementptr inbounds i8, ptr %data.0, i64 112
+  %cname_result.i103 = getelementptr inbounds nuw i8, ptr %data.0, i64 112
   %25 = load ptr, ptr %cname_result.i103, align 8
   %tobool.i.not = icmp eq ptr %25, null
   br i1 %tobool.i.not, label %add_cname_to_reply.exit, label %if.then.i105
 
 if.then.i105:                                     ; preds = %if.then83
-  %ai_canonname.i = getelementptr inbounds i8, ptr %24, i64 32
+  %ai_canonname.i = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %25, ptr %ai_canonname.i, align 8
   store ptr null, ptr %cname_result.i103, align 8
   %.pre = load ptr, ptr %user_cb149153.ph170, align 8
@@ -7593,20 +7593,20 @@ if.then.i105:                                     ; preds = %if.then83
 add_cname_to_reply.exit:                          ; preds = %if.then83, %if.then.i105
   %26 = phi ptr [ %24, %if.then83 ], [ %.pre192, %if.then.i105 ]
   %27 = phi ptr [ %.ph171, %if.then83 ], [ %.pre, %if.then.i105 ]
-  %user_data87 = getelementptr inbounds i8, ptr %data.0, i64 64
+  %user_data87 = getelementptr inbounds nuw i8, ptr %data.0, i64 64
   %28 = load ptr, ptr %user_data87, align 8
   tail call void %27(i32 noundef 0, ptr noundef %26, ptr noundef %28) #18
   store ptr null, ptr %pending_result, align 8
   br label %if.end99
 
 if.end95:                                         ; preds = %if.else81
-  %user_data97 = getelementptr inbounds i8, ptr %data.0, i64 64
+  %user_data97 = getelementptr inbounds nuw i8, ptr %data.0, i64 64
   %29 = load ptr, ptr %user_data97, align 8
   tail call void %.ph171(i32 noundef %err.0.ph172, ptr noundef null, ptr noundef %29) #18
   br label %if.end99
 
 if.end99:                                         ; preds = %add_cname_to_reply.exit, %if.end95, %if.then79
-  %pending_result.i106 = getelementptr inbounds i8, ptr %data.0, i64 120
+  %pending_result.i106 = getelementptr inbounds nuw i8, ptr %data.0, i64 120
   %30 = load ptr, ptr %pending_result.i106, align 8
   %tobool.not.i107 = icmp eq ptr %30, null
   br i1 %tobool.not.i107, label %if.end.i109, label %if.then.i108
@@ -7616,7 +7616,7 @@ if.then.i108:                                     ; preds = %if.end99
   br label %if.end.i109
 
 if.end.i109:                                      ; preds = %if.then.i108, %if.end99
-  %cname_result.i110 = getelementptr inbounds i8, ptr %data.0, i64 112
+  %cname_result.i110 = getelementptr inbounds nuw i8, ptr %data.0, i64 112
   %31 = load ptr, ptr %cname_result.i110, align 8
   %tobool2.not.i111 = icmp eq ptr %31, null
   br i1 %tobool2.not.i111, label %free_getaddrinfo_request.exit115, label %if.then3.i112
@@ -7626,7 +7626,7 @@ if.then3.i112:                                    ; preds = %if.end.i109
   br label %free_getaddrinfo_request.exit115
 
 free_getaddrinfo_request.exit115:                 ; preds = %if.end.i109, %if.then3.i112
-  %timeout.i113 = getelementptr inbounds i8, ptr %data.0, i64 128
+  %timeout.i113 = getelementptr inbounds nuw i8, ptr %data.0, i64 128
   %call.i114 = tail call i32 @event_del(ptr noundef nonnull %timeout.i113) #18
   tail call void @event_mm_free_(ptr noundef nonnull %data.0) #18
   br label %if.end170
@@ -7640,10 +7640,10 @@ if.then102:                                       ; preds = %if.else100
   br i1 %tobool104.not, label %if.end106, label %if.end170
 
 if.end106:                                        ; preds = %if.then102
-  %user_data108 = getelementptr inbounds i8, ptr %data.0, i64 64
+  %user_data108 = getelementptr inbounds nuw i8, ptr %data.0, i64 64
   %33 = load ptr, ptr %user_data108, align 8
   tail call void %15(i32 noundef -90001, ptr noundef null, ptr noundef %33) #18
-  %pending_result.i116 = getelementptr inbounds i8, ptr %data.0, i64 120
+  %pending_result.i116 = getelementptr inbounds nuw i8, ptr %data.0, i64 120
   %34 = load ptr, ptr %pending_result.i116, align 8
   %tobool.not.i117 = icmp eq ptr %34, null
   br i1 %tobool.not.i117, label %if.end.i119, label %if.then.i118
@@ -7653,7 +7653,7 @@ if.then.i118:                                     ; preds = %if.end106
   br label %if.end.i119
 
 if.end.i119:                                      ; preds = %if.then.i118, %if.end106
-  %cname_result.i120 = getelementptr inbounds i8, ptr %data.0, i64 112
+  %cname_result.i120 = getelementptr inbounds nuw i8, ptr %data.0, i64 112
   %35 = load ptr, ptr %cname_result.i120, align 8
   %tobool2.not.i121 = icmp eq ptr %35, null
   br i1 %tobool2.not.i121, label %free_getaddrinfo_request.exit125, label %if.then3.i122
@@ -7663,36 +7663,36 @@ if.then3.i122:                                    ; preds = %if.end.i119
   br label %free_getaddrinfo_request.exit125
 
 free_getaddrinfo_request.exit125:                 ; preds = %if.end.i119, %if.then3.i122
-  %timeout.i123 = getelementptr inbounds i8, ptr %data.0, i64 128
+  %timeout.i123 = getelementptr inbounds nuw i8, ptr %data.0, i64 128
   %call.i124 = tail call i32 @event_del(ptr noundef nonnull %timeout.i123) #18
   tail call void @event_mm_free_(ptr noundef nonnull %data.0) #18
   br label %if.end170
 
 do.end112:                                        ; preds = %if.else100
   %cmp113 = icmp eq i8 %type, 1
-  %port = getelementptr inbounds i8, ptr %data.0, i64 72
+  %port = getelementptr inbounds nuw i8, ptr %data.0, i64 72
   br i1 %cmp113, label %if.then115, label %if.else117
 
 if.then115:                                       ; preds = %do.end112
-  %36 = getelementptr inbounds i8, ptr %sin, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %sin, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %36, i8 0, i64 12, i1 false)
   store i16 2, ptr %sin, align 4
   %37 = load i16, ptr %port, align 8
   %call116 = tail call zeroext i16 @htons(i16 noundef zeroext %37) #19
-  %sin_port = getelementptr inbounds i8, ptr %sin, i64 2
+  %sin_port = getelementptr inbounds nuw i8, ptr %sin, i64 2
   store i16 %call116, ptr %sin_port, align 2
-  %sin_addr = getelementptr inbounds i8, ptr %sin, i64 4
+  %sin_addr = getelementptr inbounds nuw i8, ptr %sin, i64 4
   br label %if.end120
 
 if.else117:                                       ; preds = %do.end112
-  %38 = getelementptr inbounds i8, ptr %sin6, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %sin6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %38, i8 0, i64 24, i1 false)
   store i16 10, ptr %sin6, align 4
   %39 = load i16, ptr %port, align 8
   %call119 = tail call zeroext i16 @htons(i16 noundef zeroext %39) #19
-  %sin6_port = getelementptr inbounds i8, ptr %sin6, i64 2
+  %sin6_port = getelementptr inbounds nuw i8, ptr %sin6, i64 2
   store i16 %call119, ptr %sin6_port, align 2
-  %sin6_addr = getelementptr inbounds i8, ptr %sin6, i64 8
+  %sin6_addr = getelementptr inbounds nuw i8, ptr %sin6, i64 8
   br label %if.end120
 
 if.end120:                                        ; preds = %if.else117, %if.then115
@@ -7704,7 +7704,7 @@ if.end120:                                        ; preds = %if.else117, %if.the
   br i1 %cmp121186, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end120
-  %hints = getelementptr inbounds i8, ptr %data.0, i64 8
+  %hints = getelementptr inbounds nuw i8, ptr %data.0, i64 8
   %wide.trip.count = zext nneg i32 %count to i64
   br label %for.body
 
@@ -7712,7 +7712,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end143 ]
   %res.0187 = phi ptr [ null, %for.body.lr.ph ], [ %call144, %if.end143 ]
   %40 = mul nuw nsw i64 %indvars.iv, %addrlen.0
-  %add.ptr123 = getelementptr inbounds i8, ptr %addresses, i64 %40
+  %add.ptr123 = getelementptr inbounds nuw i8, ptr %addresses, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %addrp.0, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr123, i64 %addrlen.0, i1 false)
   %call125 = call ptr @evutil_new_addrinfo_(ptr noundef nonnull %sa.0, i32 noundef %socklen.0, ptr noundef nonnull %hints) #18
   %tobool126.not = icmp eq ptr %call125, null
@@ -7729,7 +7729,7 @@ if.then130:                                       ; preds = %if.then127
 
 if.end132:                                        ; preds = %if.then130, %if.then127
   %42 = load ptr, ptr %user_cb, align 8
-  %user_data134 = getelementptr inbounds i8, ptr %data.0, i64 64
+  %user_data134 = getelementptr inbounds nuw i8, ptr %data.0, i64 64
   %43 = load ptr, ptr %user_data134, align 8
   call void %42(i32 noundef -10, ptr noundef null, ptr noundef %43) #18
   %tobool135.not = icmp eq ptr %res.0187, null
@@ -7762,15 +7762,15 @@ for.end:                                          ; preds = %if.end143, %if.end1
 
 if.then148:                                       ; preds = %for.end
   %46 = load ptr, ptr %data.0, align 8
-  %timeout.i126 = getelementptr inbounds i8, ptr %data.0, i64 128
-  %global_getaddrinfo_allow_skew.i127 = getelementptr inbounds i8, ptr %46, i64 272
+  %timeout.i126 = getelementptr inbounds nuw i8, ptr %data.0, i64 128
+  %global_getaddrinfo_allow_skew.i127 = getelementptr inbounds nuw i8, ptr %46, i64 272
   %call.i128 = call i32 @event_add(ptr noundef nonnull %timeout.i126, ptr noundef nonnull %global_getaddrinfo_allow_skew.i127) #18
-  %pending_result151 = getelementptr inbounds i8, ptr %data.0, i64 120
+  %pending_result151 = getelementptr inbounds nuw i8, ptr %data.0, i64 120
   store ptr %res.0.lcssa, ptr %pending_result151, align 8
   br label %if.end170
 
 if.else152:                                       ; preds = %for.end
-  %pending_result153 = getelementptr inbounds i8, ptr %data.0, i64 120
+  %pending_result153 = getelementptr inbounds nuw i8, ptr %data.0, i64 120
   %47 = load ptr, ptr %pending_result153, align 8
   %tobool154.not = icmp eq ptr %47, null
   br i1 %tobool154.not, label %if.end167, label %if.then155
@@ -7795,7 +7795,7 @@ if.end165:                                        ; preds = %if.else162, %if.the
 
 if.end167:                                        ; preds = %if.end165, %if.else152
   %res.1 = phi ptr [ %res.2, %if.end165 ], [ %res.0.lcssa, %if.else152 ]
-  %cname_result.i129 = getelementptr inbounds i8, ptr %data.0, i64 112
+  %cname_result.i129 = getelementptr inbounds nuw i8, ptr %data.0, i64 112
   %49 = load ptr, ptr %cname_result.i129, align 8
   %tobool.i130 = icmp ne ptr %49, null
   %tobool1.i131 = icmp ne ptr %res.1, null
@@ -7803,14 +7803,14 @@ if.end167:                                        ; preds = %if.end165, %if.else
   br i1 %or.cond.i132, label %if.then.i134, label %add_cname_to_reply.exit136
 
 if.then.i134:                                     ; preds = %if.end167
-  %ai_canonname.i135 = getelementptr inbounds i8, ptr %res.1, i64 32
+  %ai_canonname.i135 = getelementptr inbounds nuw i8, ptr %res.1, i64 32
   store ptr %49, ptr %ai_canonname.i135, align 8
   store ptr null, ptr %cname_result.i129, align 8
   br label %add_cname_to_reply.exit136
 
 add_cname_to_reply.exit136:                       ; preds = %if.end167, %if.then.i134
   %50 = load ptr, ptr %user_cb, align 8
-  %user_data169 = getelementptr inbounds i8, ptr %data.0, i64 64
+  %user_data169 = getelementptr inbounds nuw i8, ptr %data.0, i64 64
   %51 = load ptr, ptr %user_data169, align 8
   call void %50(i32 noundef 0, ptr noundef %res.1, ptr noundef %51) #18
   call fastcc void @free_getaddrinfo_request(ptr noundef nonnull %data.0)
@@ -7823,7 +7823,7 @@ if.end170:                                        ; preds = %if.end137, %if.then
 ; Function Attrs: nounwind uwtable
 define internal void @evdns_getaddrinfo_timeout_cb(i32 %fd, i16 signext %what, ptr noundef %ptr) #2 {
 entry:
-  %ipv4_request = getelementptr inbounds i8, ptr %ptr, i64 80
+  %ipv4_request = getelementptr inbounds nuw i8, ptr %ptr, i64 80
   %0 = load ptr, ptr %ipv4_request, align 8
   %tobool.not = icmp ne ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end18
@@ -7831,7 +7831,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @evdns_cancel_request(ptr noundef null, ptr noundef nonnull %0)
   %1 = load ptr, ptr %ptr, align 8
-  %lock = getelementptr inbounds i8, ptr %1, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %1, i64 336
   %2 = load ptr, ptr %lock, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %do.end, label %if.then4
@@ -7844,12 +7844,12 @@ if.then4:                                         ; preds = %if.then
 
 do.end:                                           ; preds = %if.then, %if.then4
   %4 = phi ptr [ %1, %if.then ], [ %.pre, %if.then4 ]
-  %getaddrinfo_ipv4_timeouts = getelementptr inbounds i8, ptr %4, i64 296
+  %getaddrinfo_ipv4_timeouts = getelementptr inbounds nuw i8, ptr %4, i64 296
   %5 = load i32, ptr %getaddrinfo_ipv4_timeouts, align 8
   %inc = add nsw i32 %5, 1
   store i32 %inc, ptr %getaddrinfo_ipv4_timeouts, align 8
   %6 = load ptr, ptr %ptr, align 8
-  %lock10 = getelementptr inbounds i8, ptr %6, i64 336
+  %lock10 = getelementptr inbounds nuw i8, ptr %6, i64 336
   %7 = load ptr, ptr %lock10, align 8
   %tobool11.not = icmp eq ptr %7, null
   br i1 %tobool11.not, label %if.end18, label %if.then12
@@ -7860,7 +7860,7 @@ if.then12:                                        ; preds = %do.end
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then12, %do.end, %entry
-  %ipv6_request = getelementptr inbounds i8, ptr %ptr, i64 96
+  %ipv6_request = getelementptr inbounds nuw i8, ptr %ptr, i64 96
   %9 = load ptr, ptr %ipv6_request, align 8
   %tobool20.not = icmp ne ptr %9, null
   br i1 %tobool20.not, label %if.then21, label %do.end48
@@ -7868,7 +7868,7 @@ if.end18:                                         ; preds = %if.then12, %do.end,
 if.then21:                                        ; preds = %if.end18
   tail call void @evdns_cancel_request(ptr noundef null, ptr noundef nonnull %9)
   %10 = load ptr, ptr %ptr, align 8
-  %lock26 = getelementptr inbounds i8, ptr %10, i64 336
+  %lock26 = getelementptr inbounds nuw i8, ptr %10, i64 336
   %11 = load ptr, ptr %lock26, align 8
   %tobool27.not = icmp eq ptr %11, null
   br i1 %tobool27.not, label %do.end33, label %if.then28
@@ -7881,12 +7881,12 @@ if.then28:                                        ; preds = %if.then21
 
 do.end33:                                         ; preds = %if.then21, %if.then28
   %13 = phi ptr [ %10, %if.then21 ], [ %.pre35, %if.then28 ]
-  %getaddrinfo_ipv6_timeouts = getelementptr inbounds i8, ptr %13, i64 300
+  %getaddrinfo_ipv6_timeouts = getelementptr inbounds nuw i8, ptr %13, i64 300
   %14 = load i32, ptr %getaddrinfo_ipv6_timeouts, align 4
   %inc35 = add nsw i32 %14, 1
   store i32 %inc35, ptr %getaddrinfo_ipv6_timeouts, align 4
   %15 = load ptr, ptr %ptr, align 8
-  %lock38 = getelementptr inbounds i8, ptr %15, i64 336
+  %lock38 = getelementptr inbounds nuw i8, ptr %15, i64 336
   %16 = load ptr, ptr %lock38, align 8
   %tobool39.not = icmp eq ptr %16, null
   br i1 %tobool39.not, label %do.end48, label %if.then40
@@ -7897,19 +7897,19 @@ if.then40:                                        ; preds = %do.end33
   br label %do.end48
 
 do.end48:                                         ; preds = %if.then40, %do.end33, %if.end18
-  %pending_result = getelementptr inbounds i8, ptr %ptr, i64 120
+  %pending_result = getelementptr inbounds nuw i8, ptr %ptr, i64 120
   %18 = load ptr, ptr %pending_result, align 8
   %tobool49.not = icmp eq ptr %18, null
   br i1 %tobool49.not, label %if.else, label %if.then50
 
 if.then50:                                        ; preds = %do.end48
-  %cname_result.i = getelementptr inbounds i8, ptr %ptr, i64 112
+  %cname_result.i = getelementptr inbounds nuw i8, ptr %ptr, i64 112
   %19 = load ptr, ptr %cname_result.i, align 8
   %tobool.i.not = icmp eq ptr %19, null
   br i1 %tobool.i.not, label %add_cname_to_reply.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then50
-  %ai_canonname.i = getelementptr inbounds i8, ptr %18, i64 32
+  %ai_canonname.i = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %19, ptr %ai_canonname.i, align 8
   store ptr null, ptr %cname_result.i, align 8
   %.pre36 = load ptr, ptr %pending_result, align 8
@@ -7917,28 +7917,28 @@ if.then.i:                                        ; preds = %if.then50
 
 add_cname_to_reply.exit:                          ; preds = %if.then50, %if.then.i
   %20 = phi ptr [ %18, %if.then50 ], [ %.pre36, %if.then.i ]
-  %user_cb = getelementptr inbounds i8, ptr %ptr, i64 56
+  %user_cb = getelementptr inbounds nuw i8, ptr %ptr, i64 56
   %21 = load ptr, ptr %user_cb, align 8
-  %user_data = getelementptr inbounds i8, ptr %ptr, i64 64
+  %user_data = getelementptr inbounds nuw i8, ptr %ptr, i64 64
   %22 = load ptr, ptr %user_data, align 8
   tail call void %21(i32 noundef 0, ptr noundef %20, ptr noundef %22) #18
   store ptr null, ptr %pending_result, align 8
   br label %if.end59
 
 if.else:                                          ; preds = %do.end48
-  %pending_error = getelementptr inbounds i8, ptr %ptr, i64 248
+  %pending_error = getelementptr inbounds nuw i8, ptr %ptr, i64 248
   %23 = load i32, ptr %pending_error, align 8
   %tobool54.not = icmp eq i32 %23, 0
   %spec.store.select = select i1 %tobool54.not, i32 -3, i32 %23
-  %user_cb57 = getelementptr inbounds i8, ptr %ptr, i64 56
+  %user_cb57 = getelementptr inbounds nuw i8, ptr %ptr, i64 56
   %24 = load ptr, ptr %user_cb57, align 8
-  %user_data58 = getelementptr inbounds i8, ptr %ptr, i64 64
+  %user_data58 = getelementptr inbounds nuw i8, ptr %ptr, i64 64
   %25 = load ptr, ptr %user_data58, align 8
   tail call void %24(i32 noundef %spec.store.select, ptr noundef null, ptr noundef %25) #18
   br label %if.end59
 
 if.end59:                                         ; preds = %if.else, %add_cname_to_reply.exit
-  %user_cb60 = getelementptr inbounds i8, ptr %ptr, i64 56
+  %user_cb60 = getelementptr inbounds nuw i8, ptr %ptr, i64 56
   store ptr null, ptr %user_cb60, align 8
   %or.cond = or i1 %tobool.not, %tobool20.not
   br i1 %or.cond, label %if.end64, label %if.then63
@@ -7953,7 +7953,7 @@ if.then.i33:                                      ; preds = %if.then63
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i33, %if.then63
-  %cname_result.i34 = getelementptr inbounds i8, ptr %ptr, i64 112
+  %cname_result.i34 = getelementptr inbounds nuw i8, ptr %ptr, i64 112
   %27 = load ptr, ptr %cname_result.i34, align 8
   %tobool2.not.i = icmp eq ptr %27, null
   br i1 %tobool2.not.i, label %free_getaddrinfo_request.exit, label %if.then3.i
@@ -7963,7 +7963,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %free_getaddrinfo_request.exit
 
 free_getaddrinfo_request.exit:                    ; preds = %if.end.i, %if.then3.i
-  %timeout.i = getelementptr inbounds i8, ptr %ptr, i64 128
+  %timeout.i = getelementptr inbounds nuw i8, ptr %ptr, i64 128
   %call.i = tail call i32 @event_del(ptr noundef nonnull %timeout.i) #18
   tail call void @event_mm_free_(ptr noundef nonnull %ptr) #18
   br label %if.end64
@@ -7992,28 +7992,28 @@ if.end6:                                          ; preds = %entry
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end6
-  %add.ptr15 = getelementptr inbounds i8, ptr %packet, i64 2
+  %add.ptr15 = getelementptr inbounds nuw i8, ptr %packet, i64 2
   %t_.0.copyload46 = load i16, ptr %add.ptr15, align 1
   %call17 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload46) #19
   %cmp21 = icmp samesign ult i32 %length, 6
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end13
-  %add.ptr25 = getelementptr inbounds i8, ptr %packet, i64 4
+  %add.ptr25 = getelementptr inbounds nuw i8, ptr %packet, i64 4
   %t_.0.copyload48 = load i16, ptr %add.ptr25, align 1
   %call27 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload48) #19
   %cmp31 = icmp samesign ult i32 %length, 8
   br i1 %cmp31, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end23
-  %add.ptr35 = getelementptr inbounds i8, ptr %packet, i64 6
+  %add.ptr35 = getelementptr inbounds nuw i8, ptr %packet, i64 6
   %t_.0.copyload50 = load i16, ptr %add.ptr35, align 1
   %call37 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload50) #19
   %cmp41 = icmp samesign ult i32 %length, 10
   br i1 %cmp41, label %return, label %if.end43
 
 if.end43:                                         ; preds = %if.end33
-  %add.ptr45 = getelementptr inbounds i8, ptr %packet, i64 8
+  %add.ptr45 = getelementptr inbounds nuw i8, ptr %packet, i64 8
   %t_.0.copyload52 = load i16, ptr %add.ptr45, align 1
   store i32 10, ptr %j, align 4
   %call47 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload52) #19
@@ -8021,7 +8021,7 @@ if.end43:                                         ; preds = %if.end33
   br i1 %cmp51, label %return, label %if.end53
 
 if.end53:                                         ; preds = %if.end43
-  %add.ptr55 = getelementptr inbounds i8, ptr %packet, i64 10
+  %add.ptr55 = getelementptr inbounds nuw i8, ptr %packet, i64 10
   %t_.0.copyload54 = load i16, ptr %add.ptr55, align 1
   %call57 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload54) #19
   %tobool59.not = icmp sgt i16 %call17, -1
@@ -8035,32 +8035,32 @@ if.end61:                                         ; preds = %if.end53
 
 if.end69:                                         ; preds = %if.end61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %call65, i8 0, i64 248, i1 false)
-  %trans_id70 = getelementptr inbounds i8, ptr %call65, i64 16
+  %trans_id70 = getelementptr inbounds nuw i8, ptr %call65, i64 16
   store i16 %call, ptr %trans_id70, align 8
   %tobool71.not = icmp eq ptr %addr, null
   br i1 %tobool71.not, label %if.end76, label %if.then72
 
 if.then72:                                        ; preds = %if.end69
-  %addr73 = getelementptr inbounds i8, ptr %call65, i64 40
+  %addr73 = getelementptr inbounds nuw i8, ptr %call65, i64 40
   %conv74 = zext i32 %addrlen to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %addr73, ptr nonnull align 2 %addr, i64 %conv74, i1 false)
-  %addrlen75 = getelementptr inbounds i8, ptr %call65, i64 168
+  %addrlen75 = getelementptr inbounds nuw i8, ptr %call65, i64 168
   store i32 %addrlen, ptr %addrlen75, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then72, %if.end69
-  %port77 = getelementptr inbounds i8, ptr %call65, i64 24
+  %port77 = getelementptr inbounds nuw i8, ptr %call65, i64 24
   store ptr %port, ptr %port77, align 8
-  %client78 = getelementptr inbounds i8, ptr %call65, i64 32
+  %client78 = getelementptr inbounds nuw i8, ptr %call65, i64 32
   store ptr %client, ptr %client78, align 8
   %conv79 = zext nneg i16 %0 to i32
-  %base = getelementptr inbounds i8, ptr %call65, i64 232
+  %base = getelementptr inbounds nuw i8, ptr %call65, i64 232
   store i32 %conv79, ptr %base, align 8
-  %nquestions = getelementptr inbounds i8, ptr %call65, i64 236
+  %nquestions = getelementptr inbounds nuw i8, ptr %call65, i64 236
   store i32 0, ptr %nquestions, align 4
   %conv82 = zext i16 %call27 to i64
   %call83 = tail call ptr @event_mm_calloc_(i64 noundef 8, i64 noundef %conv82) #18
-  %questions85 = getelementptr inbounds i8, ptr %call65, i64 240
+  %questions85 = getelementptr inbounds nuw i8, ptr %call65, i64 240
   store ptr %call83, ptr %questions85, align 8
   %cmp88 = icmp eq ptr %call83, null
   br i1 %cmp88, label %if.end318, label %for.cond.preheader
@@ -8097,7 +8097,7 @@ for.cond.outer.i:                                 ; preds = %if.end9.i, %for.bod
 if.end.i:                                         ; preds = %for.cond.outer.i, %if.end59.i
   %j.050.i = phi i32 [ %add55.i, %if.end59.i ], [ %j.0.ph.i, %for.cond.outer.i ]
   %cp.049.i.idx = phi i64 [ %cp.1.i.add, %if.end59.i ], [ %cp.0.ph.i.idx, %for.cond.outer.i ]
-  %cp.049.i.ptr = getelementptr inbounds i8, ptr %tmp_name, i64 %cp.049.i.idx
+  %cp.049.i.ptr = getelementptr inbounds nuw i8, ptr %tmp_name, i64 %cp.049.i.idx
   %inc.i = add nsw i32 %j.050.i, 1
   %idxprom.i = sext i32 %j.050.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %packet, i64 %idxprom.i
@@ -8140,15 +8140,15 @@ if.then40.i:                                      ; preds = %if.end37.i
   br i1 %cmp42.not.i, label %if.end45.i, label %if.then298
 
 if.end45.i:                                       ; preds = %if.then40.i
-  %cp.049.i.add = add nsw i64 %cp.049.i.idx, 1
+  %cp.049.i.add = add nuw nsw i64 %cp.049.i.idx, 1
   store i8 46, ptr %cp.049.i.ptr, align 1
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.end45.i, %if.end37.i
   %cp.1.i.idx = phi i64 [ %cp.049.i.add, %if.end45.i ], [ 0, %if.end37.i ]
-  %cp.1.i.ptr = getelementptr inbounds i8, ptr %tmp_name, i64 %cp.1.i.idx
+  %cp.1.i.ptr = getelementptr inbounds nuw i8, ptr %tmp_name, i64 %cp.1.i.idx
   %idx.ext48.i = zext nneg i8 %1 to i64
-  %cp.1.i.add = add nsw i64 %cp.1.i.idx, %idx.ext48.i
+  %cp.1.i.add = add nuw nsw i64 %cp.1.i.idx, %idx.ext48.i
   %cmp50.not.i = icmp slt i64 %cp.1.i.add, 256
   br i1 %cmp50.not.i, label %if.end53.i, label %if.then298
 
@@ -8202,9 +8202,9 @@ if.end132:                                        ; preds = %if.end118
   %conv133 = zext i16 %call111 to i32
   store i32 %conv133, ptr %call129, align 4
   %conv135 = zext i16 %call122 to i32
-  %class136 = getelementptr inbounds i8, ptr %call129, i64 4
+  %class136 = getelementptr inbounds nuw i8, ptr %call129, i64 4
   store i32 %conv135, ptr %class136, align 4
-  %name = getelementptr inbounds i8, ptr %call129, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %call129, i64 8
   %sext110 = add i64 %sext, 4294967296
   %conv140 = ashr exact i64 %sext110, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name, ptr nonnull align 16 %tmp_name, i64 %conv140, i1 false)
@@ -8279,7 +8279,7 @@ if.end200:                                        ; preds = %do.end193
   br i1 %exitcond169.not, label %for.end211, label %do.body185, !llvm.loop !44
 
 for.end211:                                       ; preds = %if.end200, %for.cond179.preheader
-  %max_udp_reply_size = getelementptr inbounds i8, ptr %call65, i64 172
+  %max_udp_reply_size = getelementptr inbounds nuw i8, ptr %call65, i64 172
   store i16 512, ptr %max_udp_reply_size, align 4
   %conv213 = zext i16 %call57 to i32
   %cmp214147.not = icmp eq i16 %call57, 0
@@ -8344,13 +8344,13 @@ if.then275:                                       ; preds = %if.end264
   br label %for.end287
 
 for.end287:                                       ; preds = %for.cond212, %for.end211, %if.then275
-  %refcnt = getelementptr inbounds i8, ptr %port, i64 4
+  %refcnt = getelementptr inbounds nuw i8, ptr %port, i64 4
   %11 = load i32, ptr %refcnt, align 4
   %inc288 = add nsw i32 %11, 1
   store i32 %inc288, ptr %refcnt, align 4
-  %user_callback = getelementptr inbounds i8, ptr %port, i64 16
+  %user_callback = getelementptr inbounds nuw i8, ptr %port, i64 16
   %12 = load ptr, ptr %user_callback, align 8
-  %user_data = getelementptr inbounds i8, ptr %port, i64 24
+  %user_data = getelementptr inbounds nuw i8, ptr %port, i64 24
   %13 = load ptr, ptr %user_data, align 8
   call void %12(ptr noundef nonnull %base, ptr noundef %13) #18
   br label %return
@@ -8368,7 +8368,7 @@ for.cond303.preheader:                            ; preds = %if.then298
 for.body308:                                      ; preds = %for.cond303.preheader, %for.body308
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body308 ], [ 0, %for.cond303.preheader ]
   %15 = load ptr, ptr %questions85, align 8
-  %arrayidx312 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %arrayidx312 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %16 = load ptr, ptr %arrayidx312, align 8
   call void @event_mm_free_(ptr noundef %16) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8454,7 +8454,7 @@ if.end37:                                         ; preds = %if.end2
   br i1 %cmp38.not, label %if.end46, label %if.then40
 
 if.then40:                                        ; preds = %if.end37
-  %add.ptr41 = getelementptr inbounds i8, ptr %cp.049, i64 1
+  %add.ptr41 = getelementptr inbounds nuw i8, ptr %cp.049, i64 1
   %cmp42.not = icmp ult ptr %add.ptr41, %add.ptr
   br i1 %cmp42.not, label %if.end45, label %return
 
@@ -8465,7 +8465,7 @@ if.end45:                                         ; preds = %if.then40
 if.end46:                                         ; preds = %if.end45, %if.end37
   %cp.1 = phi ptr [ %add.ptr41, %if.end45 ], [ %name_out, %if.end37 ]
   %idx.ext48 = zext nneg i8 %1 to i64
-  %add.ptr49 = getelementptr inbounds i8, ptr %cp.1, i64 %idx.ext48
+  %add.ptr49 = getelementptr inbounds nuw i8, ptr %cp.1, i64 %idx.ext48
   %cmp50.not = icmp ult ptr %add.ptr49, %add.ptr
   br i1 %cmp50.not, label %if.end53, label %return
 
@@ -8515,10 +8515,10 @@ entry:
   %msg_len = alloca i32, align 4
   store ptr null, ptr %msg, align 8
   store i32 0, ptr %msg_len, align 4
-  %port1 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %port1 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %port1, align 8
-  %connection = getelementptr inbounds i8, ptr %ctx, i64 16
-  %lock = getelementptr inbounds i8, ptr %0, i64 208
+  %connection = getelementptr inbounds nuw i8, ptr %ctx, i64 16
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end4, label %if.then
@@ -8538,7 +8538,7 @@ if.then7.thread:                                  ; preds = %do.end4
   br label %if.end.i
 
 if.end20.lr.ph:                                   ; preds = %do.end4
-  %awaiting_packet_size = getelementptr inbounds i8, ptr %ctx, i64 28
+  %awaiting_packet_size = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   br label %if.end20
 
 if.then7:                                         ; preds = %if.end23
@@ -8551,9 +8551,9 @@ if.then7.evdns_remove_tcp_client.exit_crit_edge:  ; preds = %if.then7
   br label %evdns_remove_tcp_client.exit
 
 if.end.i:                                         ; preds = %if.then7.thread, %if.then7
-  %state.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %state.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store i32 0, ptr %state.i.i, align 8
-  %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %awaiting_packet_size.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   store i16 0, ptr %awaiting_packet_size.i.i, align 4
   %3 = load ptr, ptr %connection, align 8
   %tobool1.not.i.i = icmp eq ptr %3, null
@@ -8567,12 +8567,12 @@ if.then2.i.i:                                     ; preds = %if.end.i
 evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.end.i
   %4 = load ptr, ptr %ctx, align 8
   %cmp.not.i = icmp eq ptr %4, null
-  %le_prev12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %le_prev12.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %.pre10.i = load ptr, ptr %le_prev12.phi.trans.insert.i, align 8
   br i1 %cmp.not.i, label %if.end8.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %evdns_tcp_disconnect.exit.i
-  %le_prev7.i = getelementptr inbounds i8, ptr %4, i64 8
+  %le_prev7.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.pre10.i, ptr %le_prev7.i, align 8
   %.pre.i = load ptr, ptr %ctx, align 8
   br label %if.end8.i
@@ -8581,11 +8581,11 @@ if.end8.i:                                        ; preds = %if.then2.i, %evdns_
   %5 = phi ptr [ %.pre.i, %if.then2.i ], [ null, %evdns_tcp_disconnect.exit.i ]
   store ptr %5, ptr %.pre10.i, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %ctx) #18
-  %client_connections_count.i = getelementptr inbounds i8, ptr %0, i64 184
+  %client_connections_count.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load i32, ptr %client_connections_count.i, align 8
   %dec.i = add i32 %6, -1
   store i32 %dec.i, ptr %client_connections_count.i, align 8
-  %refcnt.i = getelementptr inbounds i8, ptr %0, i64 4
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %refcnt.i, align 4
   %dec13.i = add nsw i32 %7, -1
   store i32 %dec13.i, ptr %refcnt.i, align 4
@@ -8617,7 +8617,7 @@ if.then.i:                                        ; preds = %if.then18
   br label %if.end.i22
 
 if.end.i22:                                       ; preds = %if.then.i, %if.then18
-  %listener.i = getelementptr inbounds i8, ptr %0, i64 168
+  %listener.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %12 = load ptr, ptr %listener.i, align 8
   %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then7.i
@@ -8627,7 +8627,7 @@ if.then7.i:                                       ; preds = %if.end.i22
   br label %do.body12.i
 
 if.else.i:                                        ; preds = %if.end.i22
-  %event.i = getelementptr inbounds i8, ptr %0, i64 32
+  %event.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %call9.i = tail call i32 @event_del(ptr noundef nonnull %event.i) #18
   tail call void @event_debug_unassign(ptr noundef nonnull %event.i) #18
   br label %do.body12.i
@@ -8688,9 +8688,9 @@ do.end36:                                         ; preds = %while.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal void @server_tcp_event_cb(ptr noundef %bev, i16 noundef signext %events, ptr noundef %ctx) #2 {
 entry:
-  %port1 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %port1 = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %port1, align 8
-  %lock = getelementptr inbounds i8, ptr %0, i64 208
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end4, label %if.then
@@ -8706,16 +8706,16 @@ do.end4:                                          ; preds = %entry, %if.then
   br i1 %tobool5.not, label %do.end4.if.end8_crit_edge, label %if.then6
 
 do.end4.if.end8_crit_edge:                        ; preds = %do.end4
-  %refcnt.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 4
+  %refcnt.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre = load i32, ptr %refcnt.phi.trans.insert, align 4
   br label %if.end8
 
 if.then6:                                         ; preds = %do.end4
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.34, ptr noundef %bev)
-  %connection.i = getelementptr inbounds i8, ptr %ctx, i64 16
-  %state.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %connection.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
+  %state.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store i32 0, ptr %state.i.i, align 8
-  %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %awaiting_packet_size.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   store i16 0, ptr %awaiting_packet_size.i.i, align 4
   %4 = load ptr, ptr %connection.i, align 8
   %tobool1.not.i.i = icmp eq ptr %4, null
@@ -8729,12 +8729,12 @@ if.then2.i.i:                                     ; preds = %if.then6
 evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.then6
   %5 = load ptr, ptr %ctx, align 8
   %cmp.not.i = icmp eq ptr %5, null
-  %le_prev12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %le_prev12.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %.pre10.i = load ptr, ptr %le_prev12.phi.trans.insert.i, align 8
   br i1 %cmp.not.i, label %if.end8.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %evdns_tcp_disconnect.exit.i
-  %le_prev7.i = getelementptr inbounds i8, ptr %5, i64 8
+  %le_prev7.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.pre10.i, ptr %le_prev7.i, align 8
   %.pre.i = load ptr, ptr %ctx, align 8
   br label %if.end8.i
@@ -8743,11 +8743,11 @@ if.end8.i:                                        ; preds = %if.then2.i, %evdns_
   %6 = phi ptr [ %.pre.i, %if.then2.i ], [ null, %evdns_tcp_disconnect.exit.i ]
   store ptr %6, ptr %.pre10.i, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %ctx) #18
-  %client_connections_count.i = getelementptr inbounds i8, ptr %0, i64 184
+  %client_connections_count.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load i32, ptr %client_connections_count.i, align 8
   %dec.i = add i32 %7, -1
   store i32 %dec.i, ptr %client_connections_count.i, align 8
-  %refcnt.i = getelementptr inbounds i8, ptr %0, i64 4
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %refcnt.i, align 4
   %dec13.i = add nsw i32 %8, -1
   store i32 %dec13.i, ptr %refcnt.i, align 4
@@ -8779,7 +8779,7 @@ if.then.i:                                        ; preds = %if.then18
   br label %if.end.i9
 
 if.end.i9:                                        ; preds = %if.then.i, %if.then18
-  %listener.i = getelementptr inbounds i8, ptr %0, i64 168
+  %listener.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %13 = load ptr, ptr %listener.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then7.i
@@ -8789,7 +8789,7 @@ if.then7.i:                                       ; preds = %if.end.i9
   br label %do.body12.i
 
 if.else.i:                                        ; preds = %if.end.i9
-  %event.i = getelementptr inbounds i8, ptr %0, i64 32
+  %event.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %call9.i = tail call i32 @event_del(ptr noundef nonnull %event.i) #18
   tail call void @event_debug_unassign(ptr noundef nonnull %event.i) #18
   br label %do.body12.i
@@ -8825,7 +8825,7 @@ define internal fastcc range(i32 0, 2) i32 @tcp_read_message(ptr noundef %conn, 
 entry:
   %0 = load ptr, ptr %conn, align 8
   %call = tail call ptr @bufferevent_get_input(ptr noundef %0) #18
-  %awaiting_packet_size = getelementptr inbounds i8, ptr %conn, i64 12
+  %awaiting_packet_size = getelementptr inbounds nuw i8, ptr %conn, i64 12
   %1 = load i16, ptr %awaiting_packet_size, align 4
   %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end16
@@ -8894,7 +8894,7 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %tobool.not = icmp eq ptr %table, null
-  %labels.i = getelementptr inbounds i8, ptr %table, i64 8
+  %labels.i = getelementptr inbounds nuw i8, ptr %table, i64 8
   br i1 %tobool.not, label %for.cond.preheader.split.us, label %for.cond
 
 for.cond.preheader.split.us:                      ; preds = %for.cond.preheader
@@ -8924,7 +8924,7 @@ if.end45.us:                                      ; preds = %if.end39.us
   store i8 %conv50.us, ptr %arrayidx52.us, align 1
   %add.ptr53.us = getelementptr inbounds i8, ptr %buf, i64 %add40.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr53.us, ptr align 1 %name.addr.0.us81, i64 %sub.ptr.sub35.us, i1 false)
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %call10.us83, i64 1
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %call10.us83, i64 1
   %call10.us = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr.us, i32 noundef 46) #20
   %tobool11.not.us = icmp eq ptr %call10.us, null
   br i1 %tobool11.not.us, label %if.then12, label %if.else.us
@@ -8947,14 +8947,14 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds [128 x %struct.dnslabel_entry], ptr %labels.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [128 x %struct.dnslabel_entry], ptr %labels.i, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name.addr.0, ptr noundef nonnull dereferenceable(1) %1) #20
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %dnslabel_table_get_pos.exit, label %for.cond.i
 
 dnslabel_table_get_pos.exit:                      ; preds = %for.body.i
-  %pos.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %pos.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %2 = load i64, ptr %pos.i, align 8
   %3 = and i64 %2, 2147483648
   %cmp1 = icmp eq i64 %3, 0
@@ -9013,7 +9013,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %idxprom.i = sext i32 %6 to i64
   %arrayidx.i53 = getelementptr inbounds [128 x %struct.dnslabel_entry], ptr %labels.i, i64 0, i64 %idxprom.i
   store ptr %call.i51, ptr %arrayidx.i53, align 8
-  %pos9.i = getelementptr inbounds i8, ptr %arrayidx.i53, i64 8
+  %pos9.i = getelementptr inbounds nuw i8, ptr %arrayidx.i53, i64 8
   store i64 %.us-phi76, ptr %pos9.i, align 8
   br label %if.end26
 
@@ -9055,7 +9055,7 @@ if.end3.i59:                                      ; preds = %if.end.i56
   %idxprom.i62 = sext i32 %7 to i64
   %arrayidx.i63 = getelementptr inbounds [128 x %struct.dnslabel_entry], ptr %labels.i, i64 0, i64 %idxprom.i62
   store ptr %call.i57, ptr %arrayidx.i63, align 8
-  %pos9.i64 = getelementptr inbounds i8, ptr %arrayidx.i63, i64 8
+  %pos9.i64 = getelementptr inbounds nuw i8, ptr %arrayidx.i63, i64 8
   store i64 %j.addr.0, ptr %pos9.i64, align 8
   br label %if.end49
 
@@ -9065,7 +9065,7 @@ if.end49:                                         ; preds = %if.end3.i59, %if.en
   store i8 %conv50, ptr %arrayidx52, align 1
   %add.ptr53 = getelementptr inbounds i8, ptr %buf, i64 %add40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr53, ptr align 1 %name.addr.0, i64 %sub.ptr.sub35, i1 false)
-  %incdec.ptr = getelementptr inbounds i8, ptr %call10, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call10, i64 1
   br label %for.cond
 
 lor.lhs.false:                                    ; preds = %if.end26
@@ -9111,26 +9111,26 @@ define internal fastcc void @evdns_request_transmit(ptr noundef %req) unnamed_ad
 entry:
   %addrbuf.i = alloca [128 x i8], align 16
   %packet_size.i = alloca i16, align 2
-  %base = getelementptr inbounds i8, ptr %req, i64 184
-  %transmit_me = getelementptr inbounds i8, ptr %req, i64 170
+  %base = getelementptr inbounds nuw i8, ptr %req, i64 184
+  %transmit_me = getelementptr inbounds nuw i8, ptr %req, i64 170
   %bf.load = load i8, ptr %transmit_me, align 2
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %transmit_me, align 2
-  %ns = getelementptr inbounds i8, ptr %req, i64 24
+  %ns = getelementptr inbounds nuw i8, ptr %req, i64 24
   %0 = load ptr, ptr %ns, align 8
   %tobool8.not = icmp eq ptr %0, null
   br i1 %tobool8.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %entry
-  %choked = getelementptr inbounds i8, ptr %0, i64 425
+  %choked = getelementptr inbounds nuw i8, ptr %0, i64 425
   %1 = load i8, ptr %choked, align 1
   %tobool12.not = icmp eq i8 %1, 0
   br i1 %tobool12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end10
-  %handle = getelementptr inbounds i8, ptr %req, i64 192
+  %handle = getelementptr inbounds nuw i8, ptr %req, i64 192
   %2 = load ptr, ptr %handle, align 8
-  %tcp_flags = getelementptr inbounds i8, ptr %2, i64 156
+  %tcp_flags = getelementptr inbounds nuw i8, ptr %2, i64 156
   %3 = load i16, ptr %tcp_flags, align 4
   %4 = and i16 %3, 2
   %tobool15.not = icmp eq i16 %4, 0
@@ -9138,16 +9138,16 @@ if.end14:                                         ; preds = %if.end10
 
 if.then16:                                        ; preds = %if.end14
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %packet_size.i)
-  %connection.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %connection.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %connection.i.i, align 8
-  %base.i.i = getelementptr inbounds i8, ptr %0, i64 432
+  %base.i.i = getelementptr inbounds nuw i8, ptr %0, i64 432
   %6 = load ptr, ptr %base.i.i, align 8
-  %global_tcp_idle_timeout.i.i = getelementptr inbounds i8, ptr %6, i64 120
+  %global_tcp_idle_timeout.i.i = getelementptr inbounds nuw i8, ptr %6, i64 120
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %disconnect_and_free_connection.exit.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then16
-  %state.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %state.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %state.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %7, 0
   %.pr.i.i = load ptr, ptr %5, align 8
@@ -9159,12 +9159,12 @@ land.lhs.true1.i.i:                               ; preds = %land.lhs.true.i.i
 
 if.end.i.thread.i.i:                              ; preds = %land.lhs.true1.i.i
   store i32 0, ptr %state.i.i, align 8
-  %awaiting_packet_size.i.i19.i.i = getelementptr inbounds i8, ptr %5, i64 12
+  %awaiting_packet_size.i.i19.i.i = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i16 0, ptr %awaiting_packet_size.i.i19.i.i, align 4
   br label %evdns_tcp_disconnect.exit.i.i.i
 
 if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
-  %awaiting_packet_size.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
+  %awaiting_packet_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i16 0, ptr %awaiting_packet_size.i.i.i.i, align 4
   %tobool1.not.i.i.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %tobool1.not.i.i.i.i, label %evdns_tcp_disconnect.exit.i.i.i, label %if.then2.i.i.i.i
@@ -9181,7 +9181,7 @@ evdns_tcp_disconnect.exit.i.i.i:                  ; preds = %if.then2.i.i.i.i, %
 
 disconnect_and_free_connection.exit.i.i:          ; preds = %evdns_tcp_disconnect.exit.i.i.i, %if.then16
   %8 = phi ptr [ %6, %if.then16 ], [ %.pre.i.i, %evdns_tcp_disconnect.exit.i.i.i ]
-  %event_base.i.i = getelementptr inbounds i8, ptr %8, i64 32
+  %event_base.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %9 = load ptr, ptr %event_base.i.i, align 8
   %call.i.i = tail call ptr @bufferevent_socket_new(ptr noundef %9, i32 noundef -1, i32 noundef 1) #18
   %tobool.not.i16.i.i = icmp eq ptr %call.i.i, null
@@ -9193,7 +9193,7 @@ if.end.i17.i.i:                                   ; preds = %disconnect_and_free
   br i1 %tobool1.not.i.i.i, label %evdns_request_transmit_through_tcp.exit.thread, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i17.i.i
-  %10 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   store i64 0, ptr %10, align 8
   store ptr %call.i.i, ptr %call.i.i.i, align 8
   store ptr %call.i.i.i, ptr %connection.i.i, align 8
@@ -9204,8 +9204,8 @@ if.end7.i.i:                                      ; preds = %if.end.i17.i.i
 
 do.end.i.i:                                       ; preds = %if.end7.i.i
   %12 = load ptr, ptr %call.i.i.i, align 8
-  %address.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %addrlen.i.i = getelementptr inbounds i8, ptr %0, i64 144
+  %address.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %addrlen.i.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load i32, ptr %addrlen.i.i, align 8
   %call15.i.i = tail call i32 @bufferevent_socket_connect(ptr noundef %12, ptr noundef nonnull %address.i.i, i32 noundef %13) #18
   %tobool16.not.i.i = icmp eq i32 %call15.i.i, 0
@@ -9223,7 +9223,7 @@ if.end8.i:                                        ; preds = %if.end18.i.i, %land
   %15 = phi ptr [ %.pre.i, %if.end18.i.i ], [ %5, %land.lhs.true1.i.i ]
   tail call void @bufferevent_setcb(ptr noundef %14, ptr noundef nonnull @client_tcp_read_packet_cb, ptr noundef null, ptr noundef nonnull @client_tcp_event_cb, ptr noundef nonnull %0) #18
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %req, ptr noundef nonnull %15)
-  %request_len.i = getelementptr inbounds i8, ptr %req, i64 12
+  %request_len.i = getelementptr inbounds nuw i8, ptr %req, i64 12
   %16 = load i32, ptr %request_len.i, align 4
   %conv.i = trunc i32 %16 to i16
   %call9.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv.i) #19
@@ -9249,9 +9249,9 @@ if.end21.i:                                       ; preds = %if.end14.i
   br i1 %tobool24.not.i, label %if.end26.i, label %fail.i
 
 if.end26.i:                                       ; preds = %if.end21.i
-  %timeout_event.i = getelementptr inbounds i8, ptr %req, i64 48
+  %timeout_event.i = getelementptr inbounds nuw i8, ptr %req, i64 48
   %22 = load ptr, ptr %base, align 8
-  %global_timeout.i = getelementptr inbounds i8, ptr %22, i64 56
+  %global_timeout.i = getelementptr inbounds nuw i8, ptr %22, i64 56
   %call28.i = call i32 @event_add(ptr noundef nonnull %timeout_event.i, ptr noundef nonnull %global_timeout.i) #18
   %cmp.i = icmp slt i32 %call28.i, 0
   br i1 %cmp.i, label %fail.i, label %evdns_request_transmit_through_tcp.exit.thread
@@ -9263,9 +9263,9 @@ fail.i:                                           ; preds = %if.end26.i, %if.end
   br i1 %tobool.not.i17.i, label %disconnect_and_free_connection.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %fail.i
-  %state.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
+  %state.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 0, ptr %state.i.i.i, align 8
-  %awaiting_packet_size.i.i.i = getelementptr inbounds i8, ptr %23, i64 12
+  %awaiting_packet_size.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i16 0, ptr %awaiting_packet_size.i.i.i, align 4
   %24 = load ptr, ptr %23, align 8
   %tobool1.not.i.i18.i = icmp eq ptr %24, null
@@ -9293,20 +9293,20 @@ evdns_request_transmit_through_tcp.exit:          ; preds = %if.end7.i.i, %do.en
   br label %return
 
 if.else:                                          ; preds = %if.end14
-  %requests_inflight.i = getelementptr inbounds i8, ptr %0, i64 440
+  %requests_inflight.i = getelementptr inbounds nuw i8, ptr %0, i64 440
   %25 = load i32, ptr %requests_inflight.i, align 8
   %cmp.i20 = icmp eq i32 %25, 1
   br i1 %cmp.i20, label %land.lhs.true6.i, label %if.end12.i
 
 land.lhs.true6.i:                                 ; preds = %if.else
   %26 = load ptr, ptr %base, align 8
-  %disable_when_inactive.i = getelementptr inbounds i8, ptr %26, i64 344
+  %disable_when_inactive.i = getelementptr inbounds nuw i8, ptr %26, i64 344
   %27 = load i32, ptr %disable_when_inactive.i, align 8
   %tobool8.not.i = icmp eq i32 %27, 0
   br i1 %tobool8.not.i, label %if.end12.i, label %land.lhs.true9.i
 
 land.lhs.true9.i:                                 ; preds = %land.lhs.true6.i
-  %event.i = getelementptr inbounds i8, ptr %0, i64 160
+  %event.i = getelementptr inbounds nuw i8, ptr %0, i64 160
   %call.i = tail call i32 @event_add(ptr noundef nonnull %event.i, ptr noundef null) #18
   %cmp10.i = icmp slt i32 %call.i, 0
   br i1 %cmp10.i, label %sw.bb, label %if.end12.i
@@ -9314,11 +9314,11 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true6.i
 if.end12.i:                                       ; preds = %land.lhs.true9.i, %land.lhs.true6.i, %if.else
   %28 = load i32, ptr %0, align 8
   %29 = load ptr, ptr %req, align 8
-  %request_len.i21 = getelementptr inbounds i8, ptr %req, i64 12
+  %request_len.i21 = getelementptr inbounds nuw i8, ptr %req, i64 12
   %30 = load i32, ptr %request_len.i21, align 4
   %conv.i22 = zext i32 %30 to i64
-  %address.i = getelementptr inbounds i8, ptr %0, i64 16
-  %addrlen.i = getelementptr inbounds i8, ptr %0, i64 144
+  %address.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %addrlen.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   %31 = load i32, ptr %addrlen.i, align 8
   %call13.i = tail call i64 @sendto(i32 noundef %28, ptr noundef %29, i64 noundef %conv.i22, i32 noundef 0, ptr nonnull %address.i, i32 noundef %31) #18
   %conv14.i = trunc i64 %call13.i to i32
@@ -9346,22 +9346,22 @@ if.else.i:                                        ; preds = %if.end12.i
 
 sw.bb:                                            ; preds = %if.else.i, %if.then17.i, %if.then17.i, %land.lhs.true9.i
   %35 = load ptr, ptr %ns, align 8
-  %choked25 = getelementptr inbounds i8, ptr %35, i64 425
+  %choked25 = getelementptr inbounds nuw i8, ptr %35, i64 425
   store i8 1, ptr %choked25, align 1
   %36 = load ptr, ptr %ns, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrbuf.i)
-  %write_waiting.i = getelementptr inbounds i8, ptr %36, i64 426
+  %write_waiting.i = getelementptr inbounds nuw i8, ptr %36, i64 426
   %37 = load i8, ptr %write_waiting.i, align 2
   %cmp.i26 = icmp eq i8 %37, 1
   br i1 %cmp.i26, label %nameserver_write_waiting.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %sw.bb
-  %base.i27 = getelementptr inbounds i8, ptr %36, i64 432
+  %base.i27 = getelementptr inbounds nuw i8, ptr %36, i64 432
   store i8 1, ptr %write_waiting.i, align 2
-  %event.i28 = getelementptr inbounds i8, ptr %36, i64 160
+  %event.i28 = getelementptr inbounds nuw i8, ptr %36, i64 160
   %call.i29 = call i32 @event_del(ptr noundef nonnull %event.i28) #18
   %38 = load ptr, ptr %base.i27, align 8
-  %event_base.i = getelementptr inbounds i8, ptr %38, i64 32
+  %event_base.i = getelementptr inbounds nuw i8, ptr %38, i64 32
   %39 = load ptr, ptr %event_base.i, align 8
   %40 = load i32, ptr %36, align 8
   %call15.i = call i32 @event_assign(ptr noundef nonnull %event.i28, ptr noundef %39, i32 noundef %40, i16 noundef signext 22, ptr noundef nonnull @nameserver_ready_callback, ptr noundef nonnull %36) #18
@@ -9370,7 +9370,7 @@ if.end7.i:                                        ; preds = %sw.bb
   br i1 %cmp18.i, label %if.then20.i, label %nameserver_write_waiting.exit
 
 if.then20.i:                                      ; preds = %if.end7.i
-  %address.i30 = getelementptr inbounds i8, ptr %36, i64 16
+  %address.i30 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %call21.i = call ptr @evutil_format_sockaddr_port_(ptr noundef nonnull %address.i30, ptr noundef nonnull %addrbuf.i, i64 noundef 128) #18
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef nonnull @.str.64, ptr noundef %call21.i)
   br label %nameserver_write_waiting.exit
@@ -9382,9 +9382,9 @@ nameserver_write_waiting.exit:                    ; preds = %sw.bb, %if.end7.i, 
 sw.default:                                       ; preds = %evdns_request_transmit_through_tcp.exit.thread, %if.else.i, %if.end23.thread34
   %41 = load ptr, ptr %ns, align 8
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.38, ptr noundef nonnull %req, ptr noundef %41)
-  %timeout_event = getelementptr inbounds i8, ptr %req, i64 48
+  %timeout_event = getelementptr inbounds nuw i8, ptr %req, i64 48
   %42 = load ptr, ptr %base, align 8
-  %global_timeout = getelementptr inbounds i8, ptr %42, i64 56
+  %global_timeout = getelementptr inbounds nuw i8, ptr %42, i64 56
   %call30 = call i32 @event_add(ptr noundef nonnull %timeout_event, ptr noundef nonnull %global_timeout) #18
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %if.then33, label %if.end34
@@ -9394,7 +9394,7 @@ if.then33:                                        ; preds = %sw.default
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %sw.default
-  %tx_count = getelementptr inbounds i8, ptr %req, i64 20
+  %tx_count = getelementptr inbounds nuw i8, ptr %req, i64 20
   %43 = load i32, ptr %tx_count, align 4
   %inc = add nsw i32 %43, 1
   store i32 %inc, ptr %tx_count, align 4
@@ -9416,11 +9416,11 @@ entry:
   %msg_len = alloca i32, align 4
   store ptr null, ptr %msg, align 8
   store i32 0, ptr %msg_len, align 4
-  %connection = getelementptr inbounds i8, ptr %ctx, i64 8
+  %connection = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %connection, align 8
-  %base = getelementptr inbounds i8, ptr %ctx, i64 432
+  %base = getelementptr inbounds nuw i8, ptr %ctx, i64 432
   %1 = load ptr, ptr %base, align 8
-  %lock = getelementptr inbounds i8, ptr %1, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %1, i64 336
   %2 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %do.end4, label %if.then
@@ -9436,7 +9436,7 @@ do.end4:                                          ; preds = %entry, %if.then
   br i1 %tobool6.not19, label %if.end20.lr.ph, label %if.then7
 
 if.end20.lr.ph:                                   ; preds = %do.end4
-  %awaiting_packet_size = getelementptr inbounds i8, ptr %0, i64 12
+  %awaiting_packet_size = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %if.end20
 
 if.then7:                                         ; preds = %if.end23, %do.end4
@@ -9445,9 +9445,9 @@ if.then7:                                         ; preds = %if.end23, %do.end4
   br i1 %tobool.not.i, label %disconnect_and_free_connection.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then7
-  %state.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %state.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %state.i.i, align 8
-  %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %4, i64 12
+  %awaiting_packet_size.i.i = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i16 0, ptr %awaiting_packet_size.i.i, align 4
   %5 = load ptr, ptr %4, align 8
   %tobool1.not.i.i = icmp eq ptr %5, null
@@ -9465,7 +9465,7 @@ evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.e
 disconnect_and_free_connection.exit:              ; preds = %if.then7, %evdns_tcp_disconnect.exit.i
   store ptr null, ptr %connection, align 8
   %6 = load ptr, ptr %base, align 8
-  %lock12 = getelementptr inbounds i8, ptr %6, i64 336
+  %lock12 = getelementptr inbounds nuw i8, ptr %6, i64 336
   %7 = load ptr, ptr %lock12, align 8
   %tobool13.not = icmp eq ptr %7, null
   br i1 %tobool13.not, label %do.end39, label %do.end39.sink.split
@@ -9494,7 +9494,7 @@ while.end:                                        ; preds = %if.end20
   tail call void @bufferevent_setwatermark(ptr noundef %bev, i16 noundef signext 2, i64 noundef %spec.select, i64 noundef 0) #18
   tail call void @bufferevent_setcb(ptr noundef %bev, ptr noundef nonnull @client_tcp_read_packet_cb, ptr noundef null, ptr noundef nonnull @client_tcp_event_cb, ptr noundef nonnull %ctx) #18
   %12 = load ptr, ptr %base, align 8
-  %lock32 = getelementptr inbounds i8, ptr %12, i64 336
+  %lock32 = getelementptr inbounds nuw i8, ptr %12, i64 336
   %13 = load ptr, ptr %lock32, align 8
   %tobool33.not = icmp eq ptr %13, null
   br i1 %tobool33.not, label %do.end39, label %do.end39.sink.split
@@ -9512,11 +9512,11 @@ do.end39:                                         ; preds = %do.end39.sink.split
 ; Function Attrs: nounwind uwtable
 define internal void @client_tcp_event_cb(ptr noundef %bev, i16 noundef signext %events, ptr noundef %ctx) #2 {
 entry:
-  %connection = getelementptr inbounds i8, ptr %ctx, i64 8
+  %connection = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %connection, align 8
-  %base = getelementptr inbounds i8, ptr %ctx, i64 432
+  %base = getelementptr inbounds nuw i8, ptr %ctx, i64 432
   %1 = load ptr, ptr %base, align 8
-  %lock = getelementptr inbounds i8, ptr %1, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %1, i64 336
   %2 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %do.end6, label %if.then
@@ -9539,9 +9539,9 @@ if.then9:                                         ; preds = %do.end6
   br i1 %tobool.not.i, label %disconnect_and_free_connection.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %state.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %state.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %state.i.i, align 8
-  %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %5, i64 12
+  %awaiting_packet_size.i.i = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i16 0, ptr %awaiting_packet_size.i.i, align 4
   %6 = load ptr, ptr %5, align 8
   %tobool1.not.i.i = icmp eq ptr %6, null
@@ -9571,9 +9571,9 @@ if.then15:                                        ; preds = %if.else
   br i1 %tobool.not.i17, label %disconnect_and_free_connection.exit24, label %if.end.i18
 
 if.end.i18:                                       ; preds = %if.then15
-  %state.i.i19 = getelementptr inbounds i8, ptr %8, i64 8
+  %state.i.i19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %state.i.i19, align 8
-  %awaiting_packet_size.i.i20 = getelementptr inbounds i8, ptr %8, i64 12
+  %awaiting_packet_size.i.i20 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i16 0, ptr %awaiting_packet_size.i.i20, align 4
   %9 = load ptr, ptr %8, align 8
   %tobool1.not.i.i21 = icmp eq ptr %9, null
@@ -9598,7 +9598,7 @@ if.else18:                                        ; preds = %if.else
   br i1 %tobool21.not, label %do.body30, label %do.end24
 
 do.end24:                                         ; preds = %if.else18
-  %state = getelementptr inbounds i8, ptr %0, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %state, align 8
   %call25 = tail call i32 @bufferevent_getfd(ptr noundef %bev) #18
   %call26 = tail call i32 @evutil_make_socket_nonblocking(i32 noundef %call25) #18
@@ -9608,7 +9608,7 @@ do.end24:                                         ; preds = %if.else18
 
 do.body30:                                        ; preds = %disconnect_and_free_connection.exit, %if.else18, %do.end24, %disconnect_and_free_connection.exit24
   %11 = load ptr, ptr %base, align 8
-  %lock32 = getelementptr inbounds i8, ptr %11, i64 336
+  %lock32 = getelementptr inbounds nuw i8, ptr %11, i64 336
   %12 = load ptr, ptr %lock32, align 8
   %tobool33.not = icmp eq ptr %12, null
   br i1 %tobool33.not, label %do.end39, label %if.then34
@@ -9643,28 +9643,28 @@ if.end6:                                          ; preds = %entry
   br i1 %cmp11, label %if.end530, label %if.end13
 
 if.end13:                                         ; preds = %if.end6
-  %add.ptr15 = getelementptr inbounds i8, ptr %packet, i64 2
+  %add.ptr15 = getelementptr inbounds nuw i8, ptr %packet, i64 2
   %t_.0.copyload78 = load i16, ptr %add.ptr15, align 1
   %call17 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload78) #19
   %cmp21 = icmp samesign ult i32 %length, 6
   br i1 %cmp21, label %if.end530, label %if.end23
 
 if.end23:                                         ; preds = %if.end13
-  %add.ptr25 = getelementptr inbounds i8, ptr %packet, i64 4
+  %add.ptr25 = getelementptr inbounds nuw i8, ptr %packet, i64 4
   %t_.0.copyload80 = load i16, ptr %add.ptr25, align 1
   %call27 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload80) #19
   %cmp31 = icmp samesign ult i32 %length, 8
   br i1 %cmp31, label %if.end530, label %if.end33
 
 if.end33:                                         ; preds = %if.end23
-  %add.ptr35 = getelementptr inbounds i8, ptr %packet, i64 6
+  %add.ptr35 = getelementptr inbounds nuw i8, ptr %packet, i64 6
   %t_.0.copyload82 = load i16, ptr %add.ptr35, align 1
   %call37 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload82) #19
   %cmp41 = icmp samesign ult i32 %length, 10
   br i1 %cmp41, label %if.end530, label %if.end43
 
 if.end43:                                         ; preds = %if.end33
-  %add.ptr45 = getelementptr inbounds i8, ptr %packet, i64 8
+  %add.ptr45 = getelementptr inbounds nuw i8, ptr %packet, i64 8
   %t_.0.copyload84 = load i16, ptr %add.ptr45, align 1
   %call47 = tail call zeroext i16 @ntohs(i16 noundef zeroext %t_.0.copyload84) #19
   %cmp51 = icmp samesign ult i32 %length, 12
@@ -9677,20 +9677,20 @@ if.end53:                                         ; preds = %if.end43
   %conv.i = zext i16 %call to i32
   %rem.i = srem i32 %conv.i, %base.val164
   %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %base.val, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %base.val, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %tobool4.not.i = icmp eq ptr %1, null
   br i1 %tobool4.not.i, label %return, label %do.body6.i
 
 do.body6.i:                                       ; preds = %if.end53, %if.end12.i
   %req.0.i = phi ptr [ %3, %if.end12.i ], [ %1, %if.end53 ]
-  %trans_id7.i = getelementptr inbounds i8, ptr %req.0.i, i64 168
+  %trans_id7.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 168
   %2 = load i16, ptr %trans_id7.i, align 8
   %cmp.i = icmp eq i16 %2, %call
   br i1 %cmp.i, label %request_find_from_trans_id.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %do.body6.i
-  %next.i = getelementptr inbounds i8, ptr %req.0.i, i64 32
+  %next.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 32
   %3 = load ptr, ptr %next.i, align 8
   %cmp13.not.i = icmp eq ptr %3, %1
   br i1 %cmp13.not.i, label %return, label %do.body6.i, !llvm.loop !18
@@ -9707,7 +9707,7 @@ if.end67:                                         ; preds = %request_find_from_t
   ]
 
 if.end77:                                         ; preds = %if.end67, %if.end67
-  %request_type = getelementptr inbounds i8, ptr %req.0.i, i64 10
+  %request_type = getelementptr inbounds nuw i8, ptr %req.0.i, i64 10
   %5 = load i8, ptr %request_type, align 2
   %conv78 = zext i8 %5 to i32
   store i32 %conv78, ptr %reply, align 8
@@ -9716,8 +9716,8 @@ if.end77:                                         ; preds = %if.end67, %if.end67
   br i1 %cmp80284.not, label %if.then529, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end77
-  %request_len = getelementptr inbounds i8, ptr %req.0.i, i64 12
-  %global_randomize_case = getelementptr inbounds i8, ptr %base, i64 84
+  %request_len = getelementptr inbounds nuw i8, ptr %req.0.i, i64 12
+  %global_randomize_case = getelementptr inbounds nuw i8, ptr %base, i64 84
   br label %for.body
 
 for.cond:                                         ; preds = %if.end110
@@ -9746,7 +9746,7 @@ for.cond.outer.i:                                 ; preds = %if.end9.i, %for.bod
 if.end.i:                                         ; preds = %for.cond.outer.i, %if.end59.i
   %j.050.i = phi i32 [ %add55.i, %if.end59.i ], [ %j.0.ph.i, %for.cond.outer.i ]
   %cp.049.i.idx = phi i64 [ %cp.1.i.add, %if.end59.i ], [ %cp.0.ph.i.idx, %for.cond.outer.i ]
-  %cp.049.i.ptr = getelementptr inbounds i8, ptr %tmp_name, i64 %cp.049.i.idx
+  %cp.049.i.ptr = getelementptr inbounds nuw i8, ptr %tmp_name, i64 %cp.049.i.idx
   %inc.i = add nsw i32 %j.050.i, 1
   %idxprom.i166 = sext i32 %j.050.i to i64
   %arrayidx.i167 = getelementptr inbounds i8, ptr %packet, i64 %idxprom.i166
@@ -9789,15 +9789,15 @@ if.then40.i:                                      ; preds = %if.end37.i
   br i1 %cmp42.not.i, label %if.end45.i, label %err
 
 if.end45.i:                                       ; preds = %if.then40.i
-  %cp.049.i.add = add nsw i64 %cp.049.i.idx, 1
+  %cp.049.i.add = add nuw nsw i64 %cp.049.i.idx, 1
   store i8 46, ptr %cp.049.i.ptr, align 1
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.end45.i, %if.end37.i
   %cp.1.i.idx = phi i64 [ %cp.049.i.add, %if.end45.i ], [ 0, %if.end37.i ]
-  %cp.1.i.ptr = getelementptr inbounds i8, ptr %tmp_name, i64 %cp.1.i.idx
+  %cp.1.i.ptr = getelementptr inbounds nuw i8, ptr %tmp_name, i64 %cp.1.i.idx
   %idx.ext48.i = zext nneg i8 %6 to i64
-  %cp.1.i.add = add nsw i64 %cp.1.i.idx, %idx.ext48.i
+  %cp.1.i.add = add nuw nsw i64 %cp.1.i.idx, %idx.ext48.i
   %cmp50.not.i = icmp slt i64 %cp.1.i.add, 256
   br i1 %cmp50.not.i, label %if.end53.i, label %err
 
@@ -9835,7 +9835,7 @@ for.cond.outer.i170:                              ; preds = %if.end9.i189, %if.e
 if.end.i177:                                      ; preds = %for.cond.outer.i170, %if.end59.i217
   %j.050.i178 = phi i32 [ %add55.i215, %if.end59.i217 ], [ %j.0.ph.i173, %for.cond.outer.i170 ]
   %cp.049.i179.idx = phi i64 [ %cp.1.i210.add, %if.end59.i217 ], [ %cp.0.ph.i172.idx, %for.cond.outer.i170 ]
-  %cp.049.i179.ptr = getelementptr inbounds i8, ptr %cmp_name, i64 %cp.049.i179.idx
+  %cp.049.i179.ptr = getelementptr inbounds nuw i8, ptr %cmp_name, i64 %cp.049.i179.idx
   %inc.i180 = add nsw i32 %j.050.i178, 1
   %idxprom.i181 = sext i32 %j.050.i178 to i64
   %arrayidx.i182 = getelementptr inbounds i8, ptr %8, i64 %idxprom.i181
@@ -9875,15 +9875,15 @@ if.then40.i205:                                   ; preds = %if.end37.i203
   br i1 %cmp42.not.i207, label %if.end45.i208, label %err
 
 if.end45.i208:                                    ; preds = %if.then40.i205
-  %cp.049.i179.add = add nsw i64 %cp.049.i179.idx, 1
+  %cp.049.i179.add = add nuw nsw i64 %cp.049.i179.idx, 1
   store i8 46, ptr %cp.049.i179.ptr, align 1
   br label %if.end46.i209
 
 if.end46.i209:                                    ; preds = %if.end45.i208, %if.end37.i203
   %cp.1.i210.idx = phi i64 [ %cp.049.i179.add, %if.end45.i208 ], [ 0, %if.end37.i203 ]
-  %cp.1.i210.ptr = getelementptr inbounds i8, ptr %cmp_name, i64 %cp.1.i210.idx
+  %cp.1.i210.ptr = getelementptr inbounds nuw i8, ptr %cmp_name, i64 %cp.1.i210.idx
   %idx.ext48.i211 = zext nneg i8 %10 to i64
-  %cp.1.i210.add = add nsw i64 %cp.1.i210.idx, %idx.ext48.i211
+  %cp.1.i210.add = add nuw nsw i64 %cp.1.i210.idx, %idx.ext48.i211
   %cmp50.not.i213 = icmp slt i64 %cp.1.i210.add, 256
   br i1 %cmp50.not.i213, label %if.end53.i214, label %err
 
@@ -9933,18 +9933,18 @@ if.end118:                                        ; preds = %for.end
   %cond = call i32 @llvm.smax.i32(i32 %sub, i32 255)
   %conv122 = zext nneg i32 %cond to i64
   %call123 = call ptr @event_mm_malloc_(i64 noundef %conv122) #18
-  %data = getelementptr inbounds i8, ptr %reply, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %reply, i64 16
   store ptr %call123, ptr %data, align 8
   %conv125 = zext i16 %call37 to i32
   %cmp126289.not = icmp eq i16 %call37, 0
   br i1 %cmp126289.not, label %for.cond358.preheader, label %do.body130.lr.ph
 
 do.body130.lr.ph:                                 ; preds = %if.end118
-  %rr_count327 = getelementptr inbounds i8, ptr %reply, i64 8
-  %have_answer338 = getelementptr inbounds i8, ptr %reply, i64 4
-  %need_cname = getelementptr inbounds i8, ptr %req.0.i, i64 170
-  %cname277 = getelementptr inbounds i8, ptr %reply, i64 24
-  %put_cname_in_ptr = getelementptr inbounds i8, ptr %req.0.i, i64 176
+  %rr_count327 = getelementptr inbounds nuw i8, ptr %reply, i64 8
+  %have_answer338 = getelementptr inbounds nuw i8, ptr %reply, i64 4
+  %need_cname = getelementptr inbounds nuw i8, ptr %req.0.i, i64 170
+  %cname277 = getelementptr inbounds nuw i8, ptr %reply, i64 24
+  %put_cname_in_ptr = getelementptr inbounds nuw i8, ptr %req.0.i, i64 176
   br label %do.body130
 
 do.body130:                                       ; preds = %do.body130.lr.ph, %for.inc349
@@ -10024,7 +10024,7 @@ if.end216:                                        ; preds = %if.end198
   %shr = lshr exact i32 %conv199, 2
   %cond211 = call i32 @llvm.umin.i32(i32 %ttl_r.0291, i32 %call170)
   %idxprom = zext i32 %14 to i64
-  %arrayidx218 = getelementptr inbounds i32, ptr %call123, i64 %idxprom
+  %arrayidx218 = getelementptr inbounds nuw i32, ptr %call123, i64 %idxprom
   %idx.ext219 = sext i32 %add173 to i64
   %add.ptr220 = getelementptr inbounds i8, ptr %packet, i64 %idx.ext219
   %conv222 = zext i16 %call181 to i64
@@ -10128,7 +10128,7 @@ if.end325:                                        ; preds = %if.end305
   %shr313 = lshr exact i32 %conv306, 4
   %cond319 = call i32 @llvm.umin.i32(i32 %ttl_r.0291, i32 %call170)
   %idxprom328 = zext i32 %14 to i64
-  %arrayidx329 = getelementptr inbounds %struct.in6_addr, ptr %call123, i64 %idxprom328
+  %arrayidx329 = getelementptr inbounds nuw %struct.in6_addr, ptr %call123, i64 %idxprom328
   %idx.ext330 = sext i32 %add173 to i64
   %add.ptr331 = getelementptr inbounds i8, ptr %packet, i64 %idx.ext330
   %conv333 = zext i16 %call181 to i64
@@ -10293,7 +10293,7 @@ if.then529:                                       ; preds = %if.end198, %if.end3
   br label %if.end530
 
 if.end530:                                        ; preds = %if.end43, %if.end33, %if.end23, %if.end13, %if.end6, %entry, %if.then529, %err
-  %data531 = getelementptr inbounds i8, ptr %reply, i64 16
+  %data531 = getelementptr inbounds nuw i8, ptr %reply, i64 16
   %30 = load ptr, ptr %data531, align 8
   %tobool532.not = icmp eq ptr %30, null
   br i1 %tobool532.not, label %return, label %return.sink.split
@@ -10317,7 +10317,7 @@ entry:
   %addrbuf.i = alloca [128 x i8], align 16
   %addrbuf = alloca [128 x i8], align 16
   %msg = alloca [64 x i8], align 16
-  %base = getelementptr inbounds i8, ptr %req, i64 184
+  %base = getelementptr inbounds nuw i8, ptr %req, i64 184
   %conv = zext i16 %flags to i32
   %and = and i32 %conv, 527
   %tobool6 = icmp eq i32 %and, 0
@@ -10326,7 +10326,7 @@ entry:
   br i1 %or.cond1, label %lor.lhs.false8, label %if.then10
 
 lor.lhs.false8:                                   ; preds = %entry
-  %have_answer = getelementptr inbounds i8, ptr %reply, i64 4
+  %have_answer = getelementptr inbounds nuw i8, ptr %reply, i64 4
   %bf.load = load i8, ptr %have_answer, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool9.not = icmp eq i8 %bf.clear, 0
@@ -10338,9 +10338,9 @@ if.then10:                                        ; preds = %lor.lhs.false8, %en
   br i1 %tobool13.not, label %if.else, label %if.then14
 
 if.then14:                                        ; preds = %if.then10
-  %handle = getelementptr inbounds i8, ptr %req, i64 192
+  %handle = getelementptr inbounds nuw i8, ptr %req, i64 192
   %0 = load ptr, ptr %handle, align 8
-  %tcp_flags = getelementptr inbounds i8, ptr %0, i64 156
+  %tcp_flags = getelementptr inbounds nuw i8, ptr %0, i64 156
   %1 = load i16, ptr %tcp_flags, align 4
   %2 = and i16 %1, 6
   %cmp = icmp ne i16 %2, 0
@@ -10361,7 +10361,7 @@ if.else31:                                        ; preds = %if.else
   br i1 %tobool7, label %land.lhs.true33, label %if.else40
 
 land.lhs.true33:                                  ; preds = %if.else31
-  %have_answer34 = getelementptr inbounds i8, ptr %reply, i64 4
+  %have_answer34 = getelementptr inbounds nuw i8, ptr %reply, i64 4
   %bf.load35 = load i8, ptr %have_answer34, align 4
   %bf.clear36 = and i8 %bf.load35, 1
   %tobool38.not = icmp eq i8 %bf.clear36, 0
@@ -10372,7 +10372,7 @@ if.else40:                                        ; preds = %land.lhs.true33, %i
 
 if.end43:                                         ; preds = %if.then21
   %idxprom = zext nneg i16 %conv24 to i64
-  %arrayidx = getelementptr inbounds [5 x i32], ptr @reply_handle.error_codes, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [5 x i32], ptr @reply_handle.error_codes, i64 0, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4
   switch i32 %4, label %sw.default [
     i32 4, label %sw.bb
@@ -10381,10 +10381,10 @@ if.end43:                                         ; preds = %if.then21
   ]
 
 sw.bb:                                            ; preds = %if.end43, %if.end43
-  %reissue_count = getelementptr inbounds i8, ptr %req, i64 16
+  %reissue_count = getelementptr inbounds nuw i8, ptr %req, i64 16
   %5 = load i32, ptr %reissue_count, align 8
   %6 = load ptr, ptr %base, align 8
-  %global_max_reissues = getelementptr inbounds i8, ptr %6, i64 72
+  %global_max_reissues = getelementptr inbounds nuw i8, ptr %6, i64 72
   %7 = load i32, ptr %global_max_reissues, align 8
   %cmp45 = icmp slt i32 %5, %7
   br i1 %cmp45, label %if.then47, label %if.end80
@@ -10392,31 +10392,31 @@ sw.bb:                                            ; preds = %if.end43, %if.end43
 if.then47:                                        ; preds = %sw.bb
   %call = tail call ptr @evdns_err_to_string(i32 noundef %4)
   %call48 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %msg, i64 noundef 64, ptr noundef nonnull @.str.43, i32 noundef %4, ptr noundef nonnull %call) #18
-  %ns = getelementptr inbounds i8, ptr %req, i64 24
+  %ns = getelementptr inbounds nuw i8, ptr %req, i64 24
   %8 = load ptr, ptr %ns, align 8
   call fastcc void @nameserver_failed(ptr noundef %8, ptr noundef nonnull %msg, i32 noundef 0)
   %9 = load ptr, ptr %ns, align 8
   %10 = load ptr, ptr %base, align 8
-  %server_head.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %server_head.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %server_head.i.i, align 8
   %tobool5.not.i.i = icmp eq ptr %11, null
   br i1 %tobool5.not.i.i, label %if.end80, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then47
-  %global_good_nameservers.i.i = getelementptr inbounds i8, ptr %10, i64 40
+  %global_good_nameservers.i.i = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %global_good_nameservers.i.i, align 8
   %tobool8.not.i.i = icmp eq i32 %12, 0
   br i1 %tobool8.not.i.i, label %nameserver_pick.exit.i, label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end7.i.i, %if.end21.i.i
   %13 = phi ptr [ %15, %if.end21.i.i ], [ %11, %if.end7.i.i ]
-  %state.i.i = getelementptr inbounds i8, ptr %13, i64 424
+  %state.i.i = getelementptr inbounds nuw i8, ptr %13, i64 424
   %14 = load i8, ptr %state.i.i, align 8
   %tobool15.not.i.i = icmp eq i8 %14, 0
   br i1 %tobool15.not.i.i, label %if.end21.i.i, label %nameserver_pick.exit.thread10.i
 
 if.end21.i.i:                                     ; preds = %for.cond.i.i
-  %next23.i.i = getelementptr inbounds i8, ptr %13, i64 280
+  %next23.i.i = getelementptr inbounds nuw i8, ptr %13, i64 280
   %15 = load ptr, ptr %next23.i.i, align 8
   store ptr %15, ptr %server_head.i.i, align 8
   %cmp.i.i = icmp eq ptr %15, %11
@@ -10424,13 +10424,13 @@ if.end21.i.i:                                     ; preds = %for.cond.i.i
 
 nameserver_pick.exit.thread10.i:                  ; preds = %if.end21.i.i, %for.cond.i.i
   %retval.0.ph.i.ph.i = phi ptr [ %13, %for.cond.i.i ], [ %15, %if.end21.i.i ]
-  %.sink.i.ph.in.i = getelementptr inbounds i8, ptr %retval.0.ph.i.ph.i, i64 280
+  %.sink.i.ph.in.i = getelementptr inbounds nuw i8, ptr %retval.0.ph.i.ph.i, i64 280
   %.sink.i.ph.i = load ptr, ptr %.sink.i.ph.in.i, align 8
   store ptr %.sink.i.ph.i, ptr %server_head.i.i, align 8
   br label %land.lhs.true.i.i
 
 nameserver_pick.exit.i:                           ; preds = %if.end7.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %11, i64 280
+  %next.i.i = getelementptr inbounds nuw i8, ptr %11, i64 280
   %16 = load ptr, ptr %next.i.i, align 8
   store ptr %16, ptr %server_head.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %16, null
@@ -10447,11 +10447,11 @@ land.lhs.true.i.i:                                ; preds = %nameserver_pick.exi
   br i1 %cmp.not.i.i, label %request_swap_ns.exit.i, label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %land.lhs.true.i.i
-  %requests_inflight.i.i = getelementptr inbounds i8, ptr %17, i64 440
+  %requests_inflight.i.i = getelementptr inbounds nuw i8, ptr %17, i64 440
   %18 = load i32, ptr %requests_inflight.i.i, align 8
   %dec.i.i = add nsw i32 %18, -1
   store i32 %dec.i.i, ptr %requests_inflight.i.i, align 8
-  %requests_inflight3.i.i = getelementptr inbounds i8, ptr %retval.0.ph.i14.i, i64 440
+  %requests_inflight3.i.i = getelementptr inbounds nuw i8, ptr %retval.0.ph.i14.i, i64 440
   %19 = load i32, ptr %requests_inflight3.i.i, align 8
   %inc.i.i = add nsw i32 %19, 1
   store i32 %inc.i.i, ptr %requests_inflight3.i.i, align 8
@@ -10467,18 +10467,18 @@ request_reissue.exit:                             ; preds = %request_swap_ns.exi
   %21 = load i32, ptr %reissue_count, align 8
   %inc.i = add nsw i32 %21, 1
   store i32 %inc.i, ptr %reissue_count, align 8
-  %tx_count.i = getelementptr inbounds i8, ptr %req, i64 20
+  %tx_count.i = getelementptr inbounds nuw i8, ptr %req, i64 20
   store i32 0, ptr %tx_count.i, align 4
-  %transmit_me.i = getelementptr inbounds i8, ptr %req, i64 170
+  %transmit_me.i = getelementptr inbounds nuw i8, ptr %req, i64 170
   %bf.load.i = load i8, ptr %transmit_me.i, align 2
   %bf.set.i = or i8 %bf.load.i, 2
   store i8 %bf.set.i, ptr %transmit_me.i, align 2
   br label %if.end120
 
 sw.bb55:                                          ; preds = %if.end43
-  %ns56 = getelementptr inbounds i8, ptr %req, i64 24
+  %ns56 = getelementptr inbounds nuw i8, ptr %req, i64 24
   %22 = load ptr, ptr %ns56, align 8
-  %address = getelementptr inbounds i8, ptr %22, i64 16
+  %address = getelementptr inbounds nuw i8, ptr %22, i64 16
   %call58 = call ptr @evutil_format_sockaddr_port_(ptr noundef nonnull %address, ptr noundef nonnull %addrbuf, i64 noundef 128) #18
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.44, ptr noundef %call58)
   call void @evdns_request_timeout_callback(i32 poison, i16 signext poison, ptr noundef nonnull %req)
@@ -10487,11 +10487,11 @@ sw.bb55:                                          ; preds = %if.end43
 sw.default:                                       ; preds = %land.lhs.true33, %if.then21, %if.else40, %if.then14, %if.end43
   %error.0149 = phi i32 [ %4, %if.end43 ], [ 70, %land.lhs.true33 ], [ 66, %if.then21 ], [ 66, %if.else40 ], [ 65, %if.then14 ]
   %retransmit_via_tcp.0147 = phi i1 [ true, %if.end43 ], [ true, %land.lhs.true33 ], [ true, %if.then21 ], [ true, %if.else40 ], [ %cmp, %if.then14 ]
-  %handle59 = getelementptr inbounds i8, ptr %req, i64 192
+  %handle59 = getelementptr inbounds nuw i8, ptr %req, i64 192
   %23 = load ptr, ptr %handle59, align 8
-  %ns60 = getelementptr inbounds i8, ptr %req, i64 24
+  %ns60 = getelementptr inbounds nuw i8, ptr %req, i64 24
   %24 = load ptr, ptr %ns60, align 8
-  %probe_request = getelementptr inbounds i8, ptr %24, i64 416
+  %probe_request = getelementptr inbounds nuw i8, ptr %24, i64 416
   %25 = load ptr, ptr %probe_request, align 8
   %cmp61 = icmp eq ptr %23, %25
   br i1 %cmp61, label %if.then63, label %if.end66
@@ -10504,19 +10504,19 @@ if.then63:                                        ; preds = %sw.default
 if.end66:                                         ; preds = %if.then63, %sw.default
   %26 = phi ptr [ %.pre169, %if.then63 ], [ %24, %sw.default ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrbuf.i)
-  %base.i46 = getelementptr inbounds i8, ptr %26, i64 432
-  %state.i = getelementptr inbounds i8, ptr %26, i64 424
+  %base.i46 = getelementptr inbounds nuw i8, ptr %26, i64 432
+  %state.i = getelementptr inbounds nuw i8, ptr %26, i64 424
   %27 = load i8, ptr %state.i, align 8
   %tobool4.not.i = icmp eq i8 %27, 0
   br i1 %tobool4.not.i, label %if.end6.i, label %sw.epilog
 
 if.end6.i:                                        ; preds = %if.end66
-  %address.i = getelementptr inbounds i8, ptr %26, i64 16
+  %address.i = getelementptr inbounds nuw i8, ptr %26, i64 16
   %call.i = call ptr @evutil_format_sockaddr_port_(ptr noundef nonnull %address.i, ptr noundef nonnull %addrbuf.i, i64 noundef 128) #18
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 1, ptr noundef nonnull @.str.59, ptr noundef %call.i)
-  %timeout_event.i = getelementptr inbounds i8, ptr %26, i64 296
+  %timeout_event.i = getelementptr inbounds nuw i8, ptr %26, i64 296
   %call7.i = call i32 @event_del(ptr noundef nonnull %timeout_event.i) #18
-  %probe_request.i = getelementptr inbounds i8, ptr %26, i64 416
+  %probe_request.i = getelementptr inbounds nuw i8, ptr %26, i64 416
   %28 = load ptr, ptr %probe_request.i, align 8
   %tobool8.not.i = icmp eq ptr %28, null
   br i1 %tobool8.not.i, label %if.end13.i, label %if.then9.i
@@ -10529,12 +10529,12 @@ if.then9.i:                                       ; preds = %if.end6.i
 
 if.end13.i:                                       ; preds = %if.then9.i, %if.end6.i
   store i8 1, ptr %state.i, align 8
-  %failed_times.i = getelementptr inbounds i8, ptr %26, i64 148
+  %failed_times.i = getelementptr inbounds nuw i8, ptr %26, i64 148
   store i32 0, ptr %failed_times.i, align 4
-  %timedout.i = getelementptr inbounds i8, ptr %26, i64 152
+  %timedout.i = getelementptr inbounds nuw i8, ptr %26, i64 152
   store i32 0, ptr %timedout.i, align 8
   %30 = load ptr, ptr %base.i46, align 8
-  %global_good_nameservers.i = getelementptr inbounds i8, ptr %30, i64 40
+  %global_good_nameservers.i = getelementptr inbounds nuw i8, ptr %30, i64 40
   %31 = load i32, ptr %global_good_nameservers.i, align 8
   %inc.i47 = add nsw i32 %31, 1
   store i32 %inc.i47, ptr %global_good_nameservers.i, align 8
@@ -10546,25 +10546,25 @@ sw.epilog:                                        ; preds = %if.end13.i, %if.end
 
 if.then69:                                        ; preds = %sw.epilog
   %32 = load ptr, ptr %handle59, align 8
-  %tcp_flags71 = getelementptr inbounds i8, ptr %32, i64 156
+  %tcp_flags71 = getelementptr inbounds nuw i8, ptr %32, i64 156
   %33 = load i16, ptr %tcp_flags71, align 4
   %conv72 = zext i16 %33 to i32
-  %trans_id = getelementptr inbounds i8, ptr %req, i64 168
+  %trans_id = getelementptr inbounds nuw i8, ptr %req, i64 168
   %34 = load i16, ptr %trans_id, align 8
   %conv73 = zext i16 %34 to i32
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.45, i32 noundef %conv72, i32 noundef %conv73)
   %35 = load ptr, ptr %handle59, align 8
-  %tcp_flags75 = getelementptr inbounds i8, ptr %35, i64 156
+  %tcp_flags75 = getelementptr inbounds nuw i8, ptr %35, i64 156
   %36 = load i16, ptr %tcp_flags75, align 4
   %37 = or i16 %36, 2
   store i16 %37, ptr %tcp_flags75, align 4
   %38 = load ptr, ptr %handle59, align 8
   %39 = load ptr, ptr %38, align 8
-  %base1.i = getelementptr inbounds i8, ptr %39, i64 184
+  %base1.i = getelementptr inbounds nuw i8, ptr %39, i64 184
   %40 = load ptr, ptr %base1.i, align 8
-  %global_requests_inflight.i.i = getelementptr inbounds i8, ptr %40, i64 44
+  %global_requests_inflight.i.i = getelementptr inbounds nuw i8, ptr %40, i64 44
   %41 = load i32, ptr %global_requests_inflight.i.i, align 4
-  %global_max_requests_inflight.i.i = getelementptr inbounds i8, ptr %40, i64 52
+  %global_max_requests_inflight.i.i = getelementptr inbounds nuw i8, ptr %40, i64 52
   %42 = load i32, ptr %global_max_requests_inflight.i.i, align 4
   %cmp.i.i48 = icmp slt i32 %41, %42
   br i1 %cmp.i.i48, label %cond.true.i.i, label %cond.end.i.i
@@ -10589,20 +10589,20 @@ if.end6.i.i.i:                                    ; preds = %for.cond.i.i.i
   %conv.i.i.i.i = zext i16 %44 to i32
   %rem.i.i.i.i = srem i32 %conv.i.i.i.i, %base.val2.i.i.i
   %idxprom.i.i.i.i = zext nneg i32 %rem.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %base.val.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %base.val.i.i.i, i64 %idxprom.i.i.i.i
   %45 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool4.not.i.i.i.i = icmp eq ptr %45, null
   br i1 %tobool4.not.i.i.i.i, label %transaction_id_pick.exit.i.i, label %do.body6.i.i.i.i
 
 do.body6.i.i.i.i:                                 ; preds = %if.end6.i.i.i, %if.end12.i.i.i.i
   %req.0.i.i.i.i = phi ptr [ %47, %if.end12.i.i.i.i ], [ %45, %if.end6.i.i.i ]
-  %trans_id7.i.i.i.i = getelementptr inbounds i8, ptr %req.0.i.i.i.i, i64 168
+  %trans_id7.i.i.i.i = getelementptr inbounds nuw i8, ptr %req.0.i.i.i.i, i64 168
   %46 = load i16, ptr %trans_id7.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i16 %46, %44
   br i1 %cmp.i.i.i.i, label %for.cond.i.i.i.backedge, label %if.end12.i.i.i.i
 
 if.end12.i.i.i.i:                                 ; preds = %do.body6.i.i.i.i
-  %next.i.i.i.i = getelementptr inbounds i8, ptr %req.0.i.i.i.i, i64 32
+  %next.i.i.i.i = getelementptr inbounds nuw i8, ptr %req.0.i.i.i.i, i64 32
   %47 = load ptr, ptr %next.i.i.i.i, align 8
   %cmp13.not.i.i.i.i = icmp eq ptr %47, %45
   br i1 %cmp13.not.i.i.i.i, label %transaction_id_pick.exit.i.i, label %do.body6.i.i.i.i, !llvm.loop !18
@@ -10613,7 +10613,7 @@ transaction_id_pick.exit.i.i:                     ; preds = %if.end6.i.i.i, %if.
 
 cond.end.i.i:                                     ; preds = %transaction_id_pick.exit.i.i, %if.then69
   %cond3.i.i = phi i16 [ %44, %transaction_id_pick.exit.i.i ], [ -1, %if.then69 ]
-  %request_size.i.i = getelementptr inbounds i8, ptr %39, i64 8
+  %request_size.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %48 = load i16, ptr %request_size.i.i, align 8
   %conv5.i.i = zext i16 %48 to i64
   %call6.i.i = call ptr @event_mm_malloc_(i64 noundef %conv5.i.i) #18
@@ -10624,45 +10624,45 @@ if.end15.i.i:                                     ; preds = %cond.end.i.i
   %49 = load i16, ptr %request_size.i.i, align 8
   %conv17.i.i = zext i16 %49 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call6.i.i, ptr nonnull readonly align 8 %39, i64 %conv17.i.i, i1 false)
-  %timeout_event.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 48
-  %base18.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 184
+  %timeout_event.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 48
+  %base18.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 184
   %50 = load ptr, ptr %base18.i.i, align 8
-  %event_base.i.i = getelementptr inbounds i8, ptr %50, i64 32
+  %event_base.i.i = getelementptr inbounds nuw i8, ptr %50, i64 32
   %51 = load ptr, ptr %event_base.i.i, align 8
   %call19.i.i = call i32 @event_assign(ptr noundef nonnull %timeout_event.i.i, ptr noundef %51, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @evdns_request_timeout_callback, ptr noundef nonnull %call6.i.i) #18
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 200
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 200
   store ptr %add.ptr.i.i, ptr %call6.i.i, align 8
-  %trans_id1.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 168
+  %trans_id1.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 168
   store i16 %cond3.i.i, ptr %trans_id1.i.i.i, align 8
   %call.i.i.i = call zeroext i16 @htons(i16 noundef zeroext %cond3.i.i) #19
   store i16 %call.i.i.i, ptr %add.ptr.i.i, align 2
-  %tx_count.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 20
+  %tx_count.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 20
   store i32 0, ptr %tx_count.i.i, align 4
   br i1 %cmp.i.i48, label %cond.true22.i.i, label %if.end7.i
 
 cond.true22.i.i:                                  ; preds = %if.end15.i.i
-  %server_head.i.i.i = getelementptr inbounds i8, ptr %40, i64 16
+  %server_head.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 16
   %52 = load ptr, ptr %server_head.i.i.i, align 8
   %tobool5.not.i.i.i = icmp eq ptr %52, null
   br i1 %tobool5.not.i.i.i, label %if.end7.i, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %cond.true22.i.i
-  %global_good_nameservers.i.i.i = getelementptr inbounds i8, ptr %40, i64 40
+  %global_good_nameservers.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 40
   %53 = load i32, ptr %global_good_nameservers.i.i.i, align 8
   %tobool8.not.i.i.i = icmp eq i32 %53, 0
   br i1 %tobool8.not.i.i.i, label %if.then9.i.i.i, label %for.cond.i23.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end7.i.i.i
-  %next.i.i.i = getelementptr inbounds i8, ptr %52, i64 280
+  %next.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 280
   %54 = load ptr, ptr %next.i.i.i, align 8
   br label %return.sink.split.i.i.i
 
 for.cond.i23.i.i:                                 ; preds = %if.end7.i.i.i, %if.end21.i.i.i
   %55 = phi ptr [ %57, %if.end21.i.i.i ], [ %52, %if.end7.i.i.i ]
-  %state.i.i.i = getelementptr inbounds i8, ptr %55, i64 424
+  %state.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 424
   %56 = load i8, ptr %state.i.i.i, align 8
   %tobool15.not.i.i.i = icmp eq i8 %56, 0
-  %next23.i.i.i = getelementptr inbounds i8, ptr %55, i64 280
+  %next23.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 280
   %57 = load ptr, ptr %next23.i.i.i, align 8
   br i1 %tobool15.not.i.i.i, label %if.end21.i.i.i, label %return.sink.split.i.i.i
 
@@ -10672,7 +10672,7 @@ if.end21.i.i.i:                                   ; preds = %for.cond.i23.i.i
   br i1 %cmp.i24.i.i, label %do.end28.i.i.i, label %for.cond.i23.i.i
 
 do.end28.i.i.i:                                   ; preds = %if.end21.i.i.i
-  %next31.i.i.i = getelementptr inbounds i8, ptr %57, i64 280
+  %next31.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 280
   %58 = load ptr, ptr %next31.i.i.i, align 8
   br label %return.sink.split.i.i.i
 
@@ -10686,13 +10686,13 @@ return.sink.split.i.i.i:                          ; preds = %for.cond.i23.i.i, %
 if.end7.i:                                        ; preds = %return.sink.split.i.i.i, %cond.true22.i.i, %if.end15.i.i
   %59 = phi i16 [ %cond3.i.i, %if.end15.i.i ], [ %cond3.i.i, %cond.true22.i.i ], [ %.pre.i.i, %return.sink.split.i.i.i ]
   %cond26.i.i = phi ptr [ null, %if.end15.i.i ], [ null, %cond.true22.i.i ], [ %retval.0.ph.i.i.i, %return.sink.split.i.i.i ]
-  %ns.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 24
+  %ns.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 24
   store ptr %cond26.i.i, ptr %ns.i.i, align 8
-  %next.i.i49 = getelementptr inbounds i8, ptr %call6.i.i, i64 32
-  %handle.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 192
+  %next.i.i49 = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 32
+  %handle.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 192
   store ptr null, ptr %handle.i.i, align 8
   %conv28.i.i = zext i16 %59 to i32
-  %trans_id29.i.i = getelementptr inbounds i8, ptr %39, i64 168
+  %trans_id29.i.i = getelementptr inbounds nuw i8, ptr %39, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i49, i8 0, i64 16, i1 false)
   %60 = load i16, ptr %trans_id29.i.i, align 8
   %conv30.i.i = zext i16 %60 to i32
@@ -10701,11 +10701,11 @@ if.end7.i:                                        ; preds = %return.sink.split.i
   %62 = load ptr, ptr %61, align 8
   %63 = load i16, ptr %trans_id29.i.i, align 8
   %conv.i = zext i16 %63 to i32
-  %n_req_heads.i = getelementptr inbounds i8, ptr %61, i64 24
+  %n_req_heads.i = getelementptr inbounds nuw i8, ptr %61, i64 24
   %64 = load i32, ptr %n_req_heads.i, align 8
   %rem.i = srem i32 %conv.i, %64
   %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %62, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %62, i64 %idxprom.i
   call fastcc void @request_finished(ptr noundef %39, ptr noundef %arrayidx.i, i32 noundef 0)
   store ptr %call6.i.i, ptr %38, align 8
   store ptr %38, ptr %handle.i.i, align 8
@@ -10718,42 +10718,42 @@ if.then8.i.i:                                     ; preds = %if.end7.i
   %67 = load ptr, ptr %65, align 8
   %68 = load i16, ptr %trans_id1.i.i.i, align 8
   %conv.i.i = zext i16 %68 to i32
-  %n_req_heads.i.i = getelementptr inbounds i8, ptr %65, i64 24
+  %n_req_heads.i.i = getelementptr inbounds nuw i8, ptr %65, i64 24
   %69 = load i32, ptr %n_req_heads.i.i, align 8
   %rem.i.i = srem i32 %conv.i.i, %69
   %idxprom.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %67, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %67, i64 %idxprom.i.i
   %70 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool6.not.i.i.i = icmp eq ptr %70, null
   br i1 %tobool6.not.i.i.i, label %if.then7.i.i.i, label %if.end8.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.then8.i.i
   store ptr %call6.i.i, ptr %arrayidx.i.i, align 8
-  %prev.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 40
+  %prev.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 40
   store ptr %call6.i.i, ptr %prev.i.i.i, align 8
   store ptr %call6.i.i, ptr %next.i.i49, align 8
   br label %evdns_request_insert.exit.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.then8.i.i
-  %prev9.i.i.i = getelementptr inbounds i8, ptr %70, i64 40
+  %prev9.i.i.i = getelementptr inbounds nuw i8, ptr %70, i64 40
   %71 = load ptr, ptr %prev9.i.i.i, align 8
-  %prev10.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 40
+  %prev10.i.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 40
   store ptr %71, ptr %prev10.i.i.i, align 8
-  %next12.i.i.i = getelementptr inbounds i8, ptr %71, i64 32
+  %next12.i.i.i = getelementptr inbounds nuw i8, ptr %71, i64 32
   store ptr %call6.i.i, ptr %next12.i.i.i, align 8
   %72 = load ptr, ptr %arrayidx.i.i, align 8
   store ptr %72, ptr %next.i.i49, align 8
-  %prev14.i.i.i = getelementptr inbounds i8, ptr %72, i64 40
+  %prev14.i.i.i = getelementptr inbounds nuw i8, ptr %72, i64 40
   store ptr %call6.i.i, ptr %prev14.i.i.i, align 8
   br label %evdns_request_insert.exit.i.i
 
 evdns_request_insert.exit.i.i:                    ; preds = %if.end8.i.i.i, %if.then7.i.i.i
-  %global_requests_inflight.i13.i = getelementptr inbounds i8, ptr %65, i64 44
+  %global_requests_inflight.i13.i = getelementptr inbounds nuw i8, ptr %65, i64 44
   %73 = load i32, ptr %global_requests_inflight.i13.i, align 4
   %inc.i.i50 = add nsw i32 %73, 1
   store i32 %inc.i.i50, ptr %global_requests_inflight.i13.i, align 4
   %74 = load ptr, ptr %ns.i.i, align 8
-  %requests_inflight.i.i51 = getelementptr inbounds i8, ptr %74, i64 440
+  %requests_inflight.i.i51 = getelementptr inbounds nuw i8, ptr %74, i64 440
   %75 = load i32, ptr %requests_inflight.i.i51, align 8
   %inc10.i.i = add nsw i32 %75, 1
   store i32 %inc10.i.i, ptr %requests_inflight.i.i51, align 8
@@ -10761,33 +10761,33 @@ evdns_request_insert.exit.i.i:                    ; preds = %if.end8.i.i.i, %if.
   br label %if.end120
 
 if.else.i.i:                                      ; preds = %if.end7.i
-  %req_waiting_head.i.i = getelementptr inbounds i8, ptr %65, i64 8
+  %req_waiting_head.i.i = getelementptr inbounds nuw i8, ptr %65, i64 8
   %76 = load ptr, ptr %req_waiting_head.i.i, align 8
   %tobool6.not.i12.i.i = icmp eq ptr %76, null
   br i1 %tobool6.not.i12.i.i, label %if.then7.i19.i.i, label %if.end8.i13.i.i
 
 if.then7.i19.i.i:                                 ; preds = %if.else.i.i
   store ptr %call6.i.i, ptr %req_waiting_head.i.i, align 8
-  %prev.i20.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 40
+  %prev.i20.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 40
   store ptr %call6.i.i, ptr %prev.i20.i.i, align 8
   store ptr %call6.i.i, ptr %next.i.i49, align 8
   br label %evdns_request_insert.exit22.i.i
 
 if.end8.i13.i.i:                                  ; preds = %if.else.i.i
-  %prev9.i14.i.i = getelementptr inbounds i8, ptr %76, i64 40
+  %prev9.i14.i.i = getelementptr inbounds nuw i8, ptr %76, i64 40
   %77 = load ptr, ptr %prev9.i14.i.i, align 8
-  %prev10.i15.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 40
+  %prev10.i15.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 40
   store ptr %77, ptr %prev10.i15.i.i, align 8
-  %next12.i16.i.i = getelementptr inbounds i8, ptr %77, i64 32
+  %next12.i16.i.i = getelementptr inbounds nuw i8, ptr %77, i64 32
   store ptr %call6.i.i, ptr %next12.i16.i.i, align 8
   %78 = load ptr, ptr %req_waiting_head.i.i, align 8
   store ptr %78, ptr %next.i.i49, align 8
-  %prev14.i18.i.i = getelementptr inbounds i8, ptr %78, i64 40
+  %prev14.i18.i.i = getelementptr inbounds nuw i8, ptr %78, i64 40
   store ptr %call6.i.i, ptr %prev14.i18.i.i, align 8
   br label %evdns_request_insert.exit22.i.i
 
 evdns_request_insert.exit22.i.i:                  ; preds = %if.end8.i13.i.i, %if.then7.i19.i.i
-  %global_requests_waiting.i.i = getelementptr inbounds i8, ptr %65, i64 48
+  %global_requests_waiting.i.i = getelementptr inbounds nuw i8, ptr %65, i64 48
   %79 = load i32, ptr %global_requests_waiting.i.i, align 8
   %inc11.i.i = add nsw i32 %79, 1
   store i32 %inc11.i.i, ptr %global_requests_waiting.i.i, align 8
@@ -10795,31 +10795,31 @@ evdns_request_insert.exit22.i.i:                  ; preds = %if.end8.i13.i.i, %i
 
 if.end80:                                         ; preds = %if.then47, %request_swap_ns.exit.i, %sw.bb, %sw.epilog
   %error.0148154 = phi i32 [ %error.0149, %sw.epilog ], [ %4, %sw.bb ], [ %4, %request_swap_ns.exit.i ], [ %4, %if.then47 ]
-  %handle81 = getelementptr inbounds i8, ptr %req, i64 192
+  %handle81 = getelementptr inbounds nuw i8, ptr %req, i64 192
   %80 = load ptr, ptr %handle81, align 8
-  %search_state = getelementptr inbounds i8, ptr %80, i64 136
+  %search_state = getelementptr inbounds nuw i8, ptr %80, i64 136
   %81 = load ptr, ptr %search_state, align 8
   %tobool82.not = icmp eq ptr %81, null
   br i1 %tobool82.not, label %if.end93, label %land.lhs.true83
 
 land.lhs.true83:                                  ; preds = %if.end80
-  %request_type = getelementptr inbounds i8, ptr %req, i64 10
+  %request_type = getelementptr inbounds nuw i8, ptr %req, i64 10
   %82 = load i8, ptr %request_type, align 2
   %cmp85.not = icmp eq i8 %82, 12
   br i1 %cmp85.not, label %if.end93, label %if.then6.i
 
 if.then6.i:                                       ; preds = %land.lhs.true83
   %83 = load ptr, ptr %80, align 8
-  %base1.i53 = getelementptr inbounds i8, ptr %83, i64 184
+  %base1.i53 = getelementptr inbounds nuw i8, ptr %83, i64 184
   %84 = load ptr, ptr %base1.i53, align 8
-  %search_index.i = getelementptr inbounds i8, ptr %80, i64 128
+  %search_index.i = getelementptr inbounds nuw i8, ptr %80, i64 128
   %85 = load i32, ptr %search_index.i, align 8
   %inc.i54 = add nsw i32 %85, 1
   store i32 %inc.i54, ptr %search_index.i, align 8
-  %num_domains.i = getelementptr inbounds i8, ptr %81, i64 8
+  %num_domains.i = getelementptr inbounds nuw i8, ptr %81, i64 8
   %86 = load i32, ptr %num_domains.i, align 8
   %cmp.not.i = icmp slt i32 %inc.i54, %86
-  %search_origname23.i = getelementptr inbounds i8, ptr %80, i64 144
+  %search_origname23.i = getelementptr inbounds nuw i8, ptr %80, i64 144
   %87 = load ptr, ptr %search_origname23.i, align 8
   br i1 %cmp.not.i, label %if.end20.i, label %if.then9.i55
 
@@ -10831,7 +10831,7 @@ if.then9.i55:                                     ; preds = %if.then6.i
 while.body.i.i:                                   ; preds = %if.then9.i55, %while.body.i.i
   %call6.i.i56 = phi ptr [ %call.i.i58, %while.body.i.i ], [ %call3.i.i, %if.then9.i55 ]
   %count.05.i.i = phi i32 [ %inc.i.i57, %while.body.i.i ], [ 0, %if.then9.i55 ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call6.i.i56, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i56, i64 1
   %inc.i.i57 = add nuw nsw i32 %count.05.i.i, 1
   %call.i.i58 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i.i, i32 noundef 46) #20
   %tobool.not.i.i59 = icmp eq ptr %call.i.i58, null
@@ -10839,16 +10839,16 @@ while.body.i.i:                                   ; preds = %if.then9.i55, %whil
 
 string_num_dots.exit.i:                           ; preds = %while.body.i.i, %if.then9.i55
   %count.0.lcssa.i.i = phi i32 [ 0, %if.then9.i55 ], [ %inc.i.i57, %while.body.i.i ]
-  %ndots.i = getelementptr inbounds i8, ptr %81, i64 4
+  %ndots.i = getelementptr inbounds nuw i8, ptr %81, i64 4
   %88 = load i32, ptr %ndots.i, align 4
   %cmp11.i = icmp slt i32 %count.0.lcssa.i.i, %88
   br i1 %cmp11.i, label %if.then12.i, label %if.end93
 
 if.then12.i:                                      ; preds = %string_num_dots.exit.i
-  %request_type.i = getelementptr inbounds i8, ptr %83, i64 10
+  %request_type.i = getelementptr inbounds nuw i8, ptr %83, i64 10
   %89 = load i8, ptr %request_type.i, align 2
   %conv.i61 = zext i8 %89 to i32
-  %search_flags.i = getelementptr inbounds i8, ptr %80, i64 152
+  %search_flags.i = getelementptr inbounds nuw i8, ptr %80, i64 152
   %90 = load i32, ptr %search_flags.i, align 8
   %call14.i = call fastcc ptr @request_new(ptr noundef %84, ptr noundef null, i32 noundef %conv.i61, ptr noundef %87, i32 noundef %90)
   %91 = load ptr, ptr %search_origname23.i, align 8
@@ -10869,14 +10869,14 @@ if.end.i.i.i:                                     ; preds = %if.then17.i
   br i1 %tobool2.not.i.i.i, label %if.then3.i.i.i, label %search_state_decref.exit.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %head.i.i.i = getelementptr inbounds i8, ptr %92, i64 16
+  %head.i.i.i = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load ptr, ptr %head.i.i.i, align 8
   %tobool4.not7.i.i.i = icmp eq ptr %94, null
   br i1 %tobool4.not7.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.then3.i.i.i, %for.body.i.i.i
   %dom.08.i.i.i = phi ptr [ %95, %for.body.i.i.i ], [ %94, %if.then3.i.i.i ]
-  %next5.i.i.i = getelementptr inbounds i8, ptr %dom.08.i.i.i, i64 8
+  %next5.i.i.i = getelementptr inbounds nuw i8, ptr %dom.08.i.i.i, i64 8
   %95 = load ptr, ptr %next5.i.i.i, align 8
   call void @event_mm_free_(ptr noundef nonnull %dom.08.i.i.i) #18
   %tobool4.not.i.i.i = icmp eq ptr %95, null
@@ -10910,7 +10910,7 @@ if.end.i.i:                                       ; preds = %if.end20.i
   %arrayidx.i.i99 = getelementptr i8, ptr %97, i64 -1
   %98 = load i8, ptr %arrayidx.i.i99, align 1
   %cmp.i.i100 = icmp ne i8 %98, 46
-  %head.i.i = getelementptr inbounds i8, ptr %81, i64 16
+  %head.i.i = getelementptr inbounds nuw i8, ptr %81, i64 16
   %dom.023.i.i = load ptr, ptr %head.i.i, align 8
   %tobool3.not24.i.i = icmp eq ptr %dom.023.i.i, null
   br i1 %tobool3.not24.i.i, label %if.end93, label %for.body.i.i
@@ -10922,7 +10922,7 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.in
   br i1 %tobool4.not.i35.i, label %if.then5.i.i, label %for.inc.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i
-  %add.ptr.i.i103 = getelementptr inbounds i8, ptr %dom.026.i.i, i64 16
+  %add.ptr.i.i103 = getelementptr inbounds nuw i8, ptr %dom.026.i.i, i64 16
   %99 = load i32, ptr %dom.026.i.i, align 8
   %conv6.i.i = zext i1 %cmp.i.i100 to i64
   %add.i.i = add i64 %call.i33.i, %conv6.i.i
@@ -10944,23 +10944,23 @@ if.then15.i.i:                                    ; preds = %if.end13.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %dec.i.i101 = add nsw i32 %n.addr.025.i.i, -1
-  %next.i.i102 = getelementptr inbounds i8, ptr %dom.026.i.i, i64 8
+  %next.i.i102 = getelementptr inbounds nuw i8, ptr %dom.026.i.i, i64 8
   %dom.0.i.i = load ptr, ptr %next.i.i102, align 8
   %tobool3.not.i.i = icmp eq ptr %dom.0.i.i, null
   br i1 %tobool3.not.i.i, label %if.end93, label %for.body.i.i, !llvm.loop !51
 
 if.end27.i:                                       ; preds = %if.then15.i.i, %if.end13.i.i
   %add.ptr18.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 %call.i33.i
-  %add.ptr20.i.i = getelementptr inbounds i8, ptr %add.ptr18.i.i, i64 %conv6.i.i
+  %add.ptr20.i.i = getelementptr inbounds nuw i8, ptr %add.ptr18.i.i, i64 %conv6.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr20.i.i, ptr nonnull align 1 %add.ptr.i.i103, i64 %conv7.i.i, i1 false)
   %arrayidx26.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 %add8.i.i
   store i8 0, ptr %arrayidx26.i.i, align 1
   %100 = load i32, ptr %search_index.i, align 8
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.62, ptr noundef nonnull %call10.i.i, i32 noundef %100)
-  %request_type29.i = getelementptr inbounds i8, ptr %83, i64 10
+  %request_type29.i = getelementptr inbounds nuw i8, ptr %83, i64 10
   %101 = load i8, ptr %request_type29.i, align 2
   %conv30.i = zext i8 %101 to i32
-  %search_flags31.i = getelementptr inbounds i8, ptr %80, i64 152
+  %search_flags31.i = getelementptr inbounds nuw i8, ptr %80, i64 152
   %102 = load i32, ptr %search_flags31.i, align 8
   %call32.i = call fastcc ptr @request_new(ptr noundef %84, ptr noundef null, i32 noundef %conv30.i, ptr noundef nonnull %call10.i.i, i32 noundef %102)
   call void @event_mm_free_(ptr noundef nonnull %call10.i.i) #18
@@ -10971,68 +10971,68 @@ submit_next.i:                                    ; preds = %if.end27.i, %if.the
   %newreq.0.i = phi ptr [ %call32.i, %if.end27.i ], [ %call14.i, %if.end8.i.i ], [ %call14.i, %if.then10.i.i ]
   %103 = load ptr, ptr %base1.i53, align 8
   %104 = load ptr, ptr %103, align 8
-  %trans_id.i = getelementptr inbounds i8, ptr %83, i64 168
+  %trans_id.i = getelementptr inbounds nuw i8, ptr %83, i64 168
   %105 = load i16, ptr %trans_id.i, align 8
   %conv38.i = zext i16 %105 to i32
-  %n_req_heads.i62 = getelementptr inbounds i8, ptr %103, i64 24
+  %n_req_heads.i62 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %106 = load i32, ptr %n_req_heads.i62, align 8
   %rem.i63 = srem i32 %conv38.i, %106
   %idxprom.i64 = zext nneg i32 %rem.i63 to i64
-  %arrayidx.i65 = getelementptr inbounds ptr, ptr %104, i64 %idxprom.i64
+  %arrayidx.i65 = getelementptr inbounds nuw ptr, ptr %104, i64 %idxprom.i64
   call fastcc void @request_finished(ptr noundef %83, ptr noundef %arrayidx.i65, i32 noundef 0)
   store ptr %newreq.0.i, ptr %80, align 8
-  %handle41.i = getelementptr inbounds i8, ptr %newreq.0.i, i64 192
+  %handle41.i = getelementptr inbounds nuw i8, ptr %newreq.0.i, i64 192
   store ptr %80, ptr %handle41.i, align 8
-  %base1.i.i = getelementptr inbounds i8, ptr %newreq.0.i, i64 184
+  %base1.i.i = getelementptr inbounds nuw i8, ptr %newreq.0.i, i64 184
   %107 = load ptr, ptr %base1.i.i, align 8
-  %ns.i.i66 = getelementptr inbounds i8, ptr %newreq.0.i, i64 24
+  %ns.i.i66 = getelementptr inbounds nuw i8, ptr %newreq.0.i, i64 24
   %108 = load ptr, ptr %ns.i.i66, align 8
   %tobool7.not.i.i67 = icmp eq ptr %108, null
   br i1 %tobool7.not.i.i67, label %if.else.i.i86, label %if.then8.i.i68
 
 if.then8.i.i68:                                   ; preds = %submit_next.i
   %109 = load ptr, ptr %107, align 8
-  %trans_id.i.i = getelementptr inbounds i8, ptr %newreq.0.i, i64 168
+  %trans_id.i.i = getelementptr inbounds nuw i8, ptr %newreq.0.i, i64 168
   %110 = load i16, ptr %trans_id.i.i, align 8
   %conv.i.i69 = zext i16 %110 to i32
-  %n_req_heads.i.i70 = getelementptr inbounds i8, ptr %107, i64 24
+  %n_req_heads.i.i70 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %111 = load i32, ptr %n_req_heads.i.i70, align 8
   %rem.i.i71 = srem i32 %conv.i.i69, %111
   %idxprom.i.i72 = zext nneg i32 %rem.i.i71 to i64
-  %arrayidx.i36.i = getelementptr inbounds ptr, ptr %109, i64 %idxprom.i.i72
+  %arrayidx.i36.i = getelementptr inbounds nuw ptr, ptr %109, i64 %idxprom.i.i72
   %112 = load ptr, ptr %arrayidx.i36.i, align 8
   %tobool6.not.i.i.i73 = icmp eq ptr %112, null
   br i1 %tobool6.not.i.i.i73, label %if.then7.i.i.i83, label %if.end8.i.i.i74
 
 if.then7.i.i.i83:                                 ; preds = %if.then8.i.i68
   store ptr %newreq.0.i, ptr %arrayidx.i36.i, align 8
-  %prev.i.i.i84 = getelementptr inbounds i8, ptr %newreq.0.i, i64 40
+  %prev.i.i.i84 = getelementptr inbounds nuw i8, ptr %newreq.0.i, i64 40
   store ptr %newreq.0.i, ptr %prev.i.i.i84, align 8
-  %next.i.i.i85 = getelementptr inbounds i8, ptr %newreq.0.i, i64 32
+  %next.i.i.i85 = getelementptr inbounds nuw i8, ptr %newreq.0.i, i64 32
   store ptr %newreq.0.i, ptr %next.i.i.i85, align 8
   br label %evdns_request_insert.exit.i.i79
 
 if.end8.i.i.i74:                                  ; preds = %if.then8.i.i68
-  %prev9.i.i.i75 = getelementptr inbounds i8, ptr %112, i64 40
+  %prev9.i.i.i75 = getelementptr inbounds nuw i8, ptr %112, i64 40
   %113 = load ptr, ptr %prev9.i.i.i75, align 8
-  %prev10.i.i.i76 = getelementptr inbounds i8, ptr %newreq.0.i, i64 40
+  %prev10.i.i.i76 = getelementptr inbounds nuw i8, ptr %newreq.0.i, i64 40
   store ptr %113, ptr %prev10.i.i.i76, align 8
-  %next12.i.i.i77 = getelementptr inbounds i8, ptr %113, i64 32
+  %next12.i.i.i77 = getelementptr inbounds nuw i8, ptr %113, i64 32
   store ptr %newreq.0.i, ptr %next12.i.i.i77, align 8
   %114 = load ptr, ptr %arrayidx.i36.i, align 8
-  %next13.i.i.i = getelementptr inbounds i8, ptr %newreq.0.i, i64 32
+  %next13.i.i.i = getelementptr inbounds nuw i8, ptr %newreq.0.i, i64 32
   store ptr %114, ptr %next13.i.i.i, align 8
-  %prev14.i.i.i78 = getelementptr inbounds i8, ptr %114, i64 40
+  %prev14.i.i.i78 = getelementptr inbounds nuw i8, ptr %114, i64 40
   store ptr %newreq.0.i, ptr %prev14.i.i.i78, align 8
   br label %evdns_request_insert.exit.i.i79
 
 evdns_request_insert.exit.i.i79:                  ; preds = %if.end8.i.i.i74, %if.then7.i.i.i83
-  %global_requests_inflight.i.i80 = getelementptr inbounds i8, ptr %107, i64 44
+  %global_requests_inflight.i.i80 = getelementptr inbounds nuw i8, ptr %107, i64 44
   %115 = load i32, ptr %global_requests_inflight.i.i80, align 4
   %inc.i37.i = add nsw i32 %115, 1
   store i32 %inc.i37.i, ptr %global_requests_inflight.i.i80, align 4
   %116 = load ptr, ptr %ns.i.i66, align 8
-  %requests_inflight.i.i81 = getelementptr inbounds i8, ptr %116, i64 440
+  %requests_inflight.i.i81 = getelementptr inbounds nuw i8, ptr %116, i64 440
   %117 = load i32, ptr %requests_inflight.i.i81, align 8
   %inc10.i.i82 = add nsw i32 %117, 1
   store i32 %inc10.i.i82, ptr %requests_inflight.i.i81, align 8
@@ -11040,35 +11040,35 @@ evdns_request_insert.exit.i.i79:                  ; preds = %if.end8.i.i.i74, %i
   br label %if.end120
 
 if.else.i.i86:                                    ; preds = %submit_next.i
-  %req_waiting_head.i.i87 = getelementptr inbounds i8, ptr %107, i64 8
+  %req_waiting_head.i.i87 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %118 = load ptr, ptr %req_waiting_head.i.i87, align 8
   %tobool6.not.i12.i.i88 = icmp eq ptr %118, null
   br i1 %tobool6.not.i12.i.i88, label %if.then7.i19.i.i97, label %if.end8.i13.i.i89
 
 if.then7.i19.i.i97:                               ; preds = %if.else.i.i86
   store ptr %newreq.0.i, ptr %req_waiting_head.i.i87, align 8
-  %prev.i20.i.i98 = getelementptr inbounds i8, ptr %newreq.0.i, i64 40
+  %prev.i20.i.i98 = getelementptr inbounds nuw i8, ptr %newreq.0.i, i64 40
   store ptr %newreq.0.i, ptr %prev.i20.i.i98, align 8
-  %next.i21.i.i = getelementptr inbounds i8, ptr %newreq.0.i, i64 32
+  %next.i21.i.i = getelementptr inbounds nuw i8, ptr %newreq.0.i, i64 32
   store ptr %newreq.0.i, ptr %next.i21.i.i, align 8
   br label %evdns_request_insert.exit22.i.i94
 
 if.end8.i13.i.i89:                                ; preds = %if.else.i.i86
-  %prev9.i14.i.i90 = getelementptr inbounds i8, ptr %118, i64 40
+  %prev9.i14.i.i90 = getelementptr inbounds nuw i8, ptr %118, i64 40
   %119 = load ptr, ptr %prev9.i14.i.i90, align 8
-  %prev10.i15.i.i91 = getelementptr inbounds i8, ptr %newreq.0.i, i64 40
+  %prev10.i15.i.i91 = getelementptr inbounds nuw i8, ptr %newreq.0.i, i64 40
   store ptr %119, ptr %prev10.i15.i.i91, align 8
-  %next12.i16.i.i92 = getelementptr inbounds i8, ptr %119, i64 32
+  %next12.i16.i.i92 = getelementptr inbounds nuw i8, ptr %119, i64 32
   store ptr %newreq.0.i, ptr %next12.i16.i.i92, align 8
   %120 = load ptr, ptr %req_waiting_head.i.i87, align 8
-  %next13.i17.i.i = getelementptr inbounds i8, ptr %newreq.0.i, i64 32
+  %next13.i17.i.i = getelementptr inbounds nuw i8, ptr %newreq.0.i, i64 32
   store ptr %120, ptr %next13.i17.i.i, align 8
-  %prev14.i18.i.i93 = getelementptr inbounds i8, ptr %120, i64 40
+  %prev14.i18.i.i93 = getelementptr inbounds nuw i8, ptr %120, i64 40
   store ptr %newreq.0.i, ptr %prev14.i18.i.i93, align 8
   br label %evdns_request_insert.exit22.i.i94
 
 evdns_request_insert.exit22.i.i94:                ; preds = %if.end8.i13.i.i89, %if.then7.i19.i.i97
-  %global_requests_waiting.i.i95 = getelementptr inbounds i8, ptr %107, i64 48
+  %global_requests_waiting.i.i95 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %121 = load i32, ptr %global_requests_waiting.i.i95, align 8
   %inc11.i.i96 = add nsw i32 %121, 1
   store i32 %inc11.i.i96, ptr %global_requests_waiting.i.i95, align 8
@@ -11076,74 +11076,74 @@ evdns_request_insert.exit22.i.i94:                ; preds = %if.end8.i13.i.i89, 
 
 if.end93:                                         ; preds = %for.inc.i.i, %if.end.i.i, %if.then5.i.i, %if.end20.i, %if.end27.i, %string_num_dots.exit.i, %if.then12.i, %land.lhs.true83, %if.end80
   %122 = load ptr, ptr %handle81, align 8
-  %request_type.i104 = getelementptr inbounds i8, ptr %req, i64 10
+  %request_type.i104 = getelementptr inbounds nuw i8, ptr %req, i64 10
   %123 = load i8, ptr %request_type.i104, align 2
-  %request_type5.i = getelementptr inbounds i8, ptr %122, i64 80
+  %request_type5.i = getelementptr inbounds nuw i8, ptr %122, i64 80
   store i8 %123, ptr %request_type5.i, align 8
-  %ttl6.i = getelementptr inbounds i8, ptr %122, i64 84
+  %ttl6.i = getelementptr inbounds nuw i8, ptr %122, i64 84
   store i32 %ttl, ptr %ttl6.i, align 4
-  %err7.i = getelementptr inbounds i8, ptr %122, i64 88
+  %err7.i = getelementptr inbounds nuw i8, ptr %122, i64 88
   store i32 %error.0148154, ptr %err7.i, align 8
-  %pending_cb.i = getelementptr inbounds i8, ptr %122, i64 16
+  %pending_cb.i = getelementptr inbounds nuw i8, ptr %122, i64 16
   store i32 1, ptr %pending_cb.i, align 8
-  %deferred.i = getelementptr inbounds i8, ptr %122, i64 24
-  %timeout_event.i106 = getelementptr inbounds i8, ptr %req, i64 48
+  %deferred.i = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %timeout_event.i106 = getelementptr inbounds nuw i8, ptr %req, i64 48
   %call.i107 = call i32 @event_get_priority(ptr noundef nonnull %timeout_event.i106) #18
   %conv.i108 = trunc i32 %call.i107 to i8
-  %user_pointer.i = getelementptr inbounds i8, ptr %122, i64 72
+  %user_pointer.i = getelementptr inbounds nuw i8, ptr %122, i64 72
   %124 = load ptr, ptr %user_pointer.i, align 8
   call void @event_deferred_cb_init_(ptr noundef nonnull %deferred.i, i8 noundef zeroext %conv.i108, ptr noundef nonnull @reply_run_callback, ptr noundef %124) #18
   %125 = load ptr, ptr %base, align 8
-  %event_base.i = getelementptr inbounds i8, ptr %125, i64 32
+  %event_base.i = getelementptr inbounds nuw i8, ptr %125, i64 32
   %126 = load ptr, ptr %event_base.i, align 8
   %call14.i109 = call i32 @event_deferred_cb_schedule_(ptr noundef %126, ptr noundef nonnull %deferred.i) #18
   %127 = load ptr, ptr %base, align 8
   %128 = load ptr, ptr %127, align 8
-  %trans_id95 = getelementptr inbounds i8, ptr %req, i64 168
+  %trans_id95 = getelementptr inbounds nuw i8, ptr %req, i64 168
   %129 = load i16, ptr %trans_id95, align 8
   %conv96 = zext i16 %129 to i32
-  %n_req_heads = getelementptr inbounds i8, ptr %127, i64 24
+  %n_req_heads = getelementptr inbounds nuw i8, ptr %127, i64 24
   %130 = load i32, ptr %n_req_heads, align 8
   %rem = srem i32 %conv96, %130
   %idxprom98 = zext nneg i32 %rem to i64
-  %arrayidx99 = getelementptr inbounds ptr, ptr %128, i64 %idxprom98
+  %arrayidx99 = getelementptr inbounds nuw ptr, ptr %128, i64 %idxprom98
   call fastcc void @request_finished(ptr noundef nonnull %req, ptr noundef %arrayidx99, i32 noundef 1)
   br label %if.end120
 
 reply_schedule_callback.exit:                     ; preds = %lor.lhs.false8
-  %handle1.i110 = getelementptr inbounds i8, ptr %req, i64 192
+  %handle1.i110 = getelementptr inbounds nuw i8, ptr %req, i64 192
   %131 = load ptr, ptr %handle1.i110, align 8
-  %request_type.i111 = getelementptr inbounds i8, ptr %req, i64 10
+  %request_type.i111 = getelementptr inbounds nuw i8, ptr %req, i64 10
   %132 = load i8, ptr %request_type.i111, align 2
-  %request_type5.i112 = getelementptr inbounds i8, ptr %131, i64 80
+  %request_type5.i112 = getelementptr inbounds nuw i8, ptr %131, i64 80
   store i8 %132, ptr %request_type5.i112, align 8
-  %ttl6.i113 = getelementptr inbounds i8, ptr %131, i64 84
+  %ttl6.i113 = getelementptr inbounds nuw i8, ptr %131, i64 84
   store i32 %ttl, ptr %ttl6.i113, align 4
-  %err7.i114 = getelementptr inbounds i8, ptr %131, i64 88
+  %err7.i114 = getelementptr inbounds nuw i8, ptr %131, i64 88
   store i32 0, ptr %err7.i114, align 8
-  %have_reply.i = getelementptr inbounds i8, ptr %131, i64 81
+  %have_reply.i = getelementptr inbounds nuw i8, ptr %131, i64 81
   store i8 1, ptr %have_reply.i, align 1
-  %reply10.i = getelementptr inbounds i8, ptr %131, i64 96
+  %reply10.i = getelementptr inbounds nuw i8, ptr %131, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %reply10.i, ptr noundef nonnull align 8 dereferenceable(32) %reply, i64 32, i1 false)
-  %data.i = getelementptr inbounds i8, ptr %reply, i64 16
+  %data.i = getelementptr inbounds nuw i8, ptr %reply, i64 16
   store ptr null, ptr %data.i, align 8
-  %pending_cb.i118 = getelementptr inbounds i8, ptr %131, i64 16
+  %pending_cb.i118 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store i32 1, ptr %pending_cb.i118, align 8
-  %deferred.i119 = getelementptr inbounds i8, ptr %131, i64 24
-  %timeout_event.i120 = getelementptr inbounds i8, ptr %req, i64 48
+  %deferred.i119 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  %timeout_event.i120 = getelementptr inbounds nuw i8, ptr %req, i64 48
   %call.i121 = tail call i32 @event_get_priority(ptr noundef nonnull %timeout_event.i120) #18
   %conv.i122 = trunc i32 %call.i121 to i8
-  %user_pointer.i123 = getelementptr inbounds i8, ptr %131, i64 72
+  %user_pointer.i123 = getelementptr inbounds nuw i8, ptr %131, i64 72
   %133 = load ptr, ptr %user_pointer.i123, align 8
   tail call void @event_deferred_cb_init_(ptr noundef nonnull %deferred.i119, i8 noundef zeroext %conv.i122, ptr noundef nonnull @reply_run_callback, ptr noundef %133) #18
   %134 = load ptr, ptr %base, align 8
-  %event_base.i124 = getelementptr inbounds i8, ptr %134, i64 32
+  %event_base.i124 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %135 = load ptr, ptr %event_base.i124, align 8
   %call14.i125 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %135, ptr noundef nonnull %deferred.i119) #18
   %136 = load ptr, ptr %handle1.i110, align 8
-  %ns102 = getelementptr inbounds i8, ptr %req, i64 24
+  %ns102 = getelementptr inbounds nuw i8, ptr %req, i64 24
   %137 = load ptr, ptr %ns102, align 8
-  %probe_request103 = getelementptr inbounds i8, ptr %137, i64 416
+  %probe_request103 = getelementptr inbounds nuw i8, ptr %137, i64 416
   %138 = load ptr, ptr %probe_request103, align 8
   %cmp104 = icmp eq ptr %136, %138
   br i1 %cmp104, label %if.then106, label %if.end109
@@ -11156,19 +11156,19 @@ if.then106:                                       ; preds = %reply_schedule_call
 if.end109:                                        ; preds = %if.then106, %reply_schedule_callback.exit
   %139 = phi ptr [ %.pre, %if.then106 ], [ %137, %reply_schedule_callback.exit ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrbuf.i126)
-  %base.i127 = getelementptr inbounds i8, ptr %139, i64 432
-  %state.i128 = getelementptr inbounds i8, ptr %139, i64 424
+  %base.i127 = getelementptr inbounds nuw i8, ptr %139, i64 432
+  %state.i128 = getelementptr inbounds nuw i8, ptr %139, i64 424
   %140 = load i8, ptr %state.i128, align 8
   %tobool4.not.i129 = icmp eq i8 %140, 0
   br i1 %tobool4.not.i129, label %if.end6.i130, label %nameserver_up.exit143
 
 if.end6.i130:                                     ; preds = %if.end109
-  %address.i131 = getelementptr inbounds i8, ptr %139, i64 16
+  %address.i131 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %call.i132 = call ptr @evutil_format_sockaddr_port_(ptr noundef nonnull %address.i131, ptr noundef nonnull %addrbuf.i126, i64 noundef 128) #18
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 1, ptr noundef nonnull @.str.59, ptr noundef %call.i132)
-  %timeout_event.i133 = getelementptr inbounds i8, ptr %139, i64 296
+  %timeout_event.i133 = getelementptr inbounds nuw i8, ptr %139, i64 296
   %call7.i134 = call i32 @event_del(ptr noundef nonnull %timeout_event.i133) #18
-  %probe_request.i135 = getelementptr inbounds i8, ptr %139, i64 416
+  %probe_request.i135 = getelementptr inbounds nuw i8, ptr %139, i64 416
   %141 = load ptr, ptr %probe_request.i135, align 8
   %tobool8.not.i136 = icmp eq ptr %141, null
   br i1 %tobool8.not.i136, label %if.end13.i138, label %if.then9.i137
@@ -11181,12 +11181,12 @@ if.then9.i137:                                    ; preds = %if.end6.i130
 
 if.end13.i138:                                    ; preds = %if.then9.i137, %if.end6.i130
   store i8 1, ptr %state.i128, align 8
-  %failed_times.i139 = getelementptr inbounds i8, ptr %139, i64 148
+  %failed_times.i139 = getelementptr inbounds nuw i8, ptr %139, i64 148
   store i32 0, ptr %failed_times.i139, align 4
-  %timedout.i140 = getelementptr inbounds i8, ptr %139, i64 152
+  %timedout.i140 = getelementptr inbounds nuw i8, ptr %139, i64 152
   store i32 0, ptr %timedout.i140, align 8
   %143 = load ptr, ptr %base.i127, align 8
-  %global_good_nameservers.i141 = getelementptr inbounds i8, ptr %143, i64 40
+  %global_good_nameservers.i141 = getelementptr inbounds nuw i8, ptr %143, i64 40
   %144 = load i32, ptr %global_good_nameservers.i141, align 8
   %inc.i142 = add nsw i32 %144, 1
   store i32 %inc.i142, ptr %global_good_nameservers.i141, align 8
@@ -11196,14 +11196,14 @@ nameserver_up.exit143:                            ; preds = %if.end109, %if.end1
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %addrbuf.i126)
   %145 = load ptr, ptr %base, align 8
   %146 = load ptr, ptr %145, align 8
-  %trans_id113 = getelementptr inbounds i8, ptr %req, i64 168
+  %trans_id113 = getelementptr inbounds nuw i8, ptr %req, i64 168
   %147 = load i16, ptr %trans_id113, align 8
   %conv114 = zext i16 %147 to i32
-  %n_req_heads116 = getelementptr inbounds i8, ptr %145, i64 24
+  %n_req_heads116 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %148 = load i32, ptr %n_req_heads116, align 8
   %rem117 = srem i32 %conv114, %148
   %idxprom118 = zext nneg i32 %rem117 to i64
-  %arrayidx119 = getelementptr inbounds ptr, ptr %146, i64 %idxprom118
+  %arrayidx119 = getelementptr inbounds nuw ptr, ptr %146, i64 %idxprom118
   call fastcc void @request_finished(ptr noundef nonnull %req, ptr noundef %arrayidx119, i32 noundef 1)
   br label %if.end120
 
@@ -11215,18 +11215,18 @@ if.end120:                                        ; preds = %evdns_request_inser
 define internal fastcc void @nameserver_failed(ptr noundef %ns, ptr noundef %msg, i32 noundef range(i32 5, 4) %err) unnamed_addr #2 {
 entry:
   %addrbuf = alloca [128 x i8], align 16
-  %base1 = getelementptr inbounds i8, ptr %ns, i64 432
+  %base1 = getelementptr inbounds nuw i8, ptr %ns, i64 432
   %0 = load ptr, ptr %base1, align 8
-  %state = getelementptr inbounds i8, ptr %ns, i64 424
+  %state = getelementptr inbounds nuw i8, ptr %ns, i64 424
   %1 = load i8, ptr %state, align 8
   %tobool5.not = icmp eq i8 %1, 0
   br i1 %tobool5.not, label %for.end, label %if.end7
 
 if.end7:                                          ; preds = %entry
-  %address = getelementptr inbounds i8, ptr %ns, i64 16
+  %address = getelementptr inbounds nuw i8, ptr %ns, i64 16
   %call = call ptr @evutil_format_sockaddr_port_(ptr noundef nonnull %address, ptr noundef nonnull %addrbuf, i64 noundef 128) #18
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 1, ptr noundef nonnull @.str.46, ptr noundef %call, ptr noundef %msg)
-  %global_good_nameservers = getelementptr inbounds i8, ptr %0, i64 40
+  %global_good_nameservers = getelementptr inbounds nuw i8, ptr %0, i64 40
   %2 = load i32, ptr %global_good_nameservers, align 8
   %dec = add nsw i32 %2, -1
   store i32 %dec, ptr %global_good_nameservers, align 8
@@ -11239,17 +11239,17 @@ if.then11:                                        ; preds = %if.end7
 
 if.end12:                                         ; preds = %if.then11, %if.end7
   store i8 0, ptr %state, align 8
-  %failed_times = getelementptr inbounds i8, ptr %ns, i64 148
+  %failed_times = getelementptr inbounds nuw i8, ptr %ns, i64 148
   store i32 1, ptr %failed_times, align 4
-  %connection = getelementptr inbounds i8, ptr %ns, i64 8
+  %connection = getelementptr inbounds nuw i8, ptr %ns, i64 8
   %3 = load ptr, ptr %connection, align 8
   %tobool14.not = icmp eq ptr %3, null
   br i1 %tobool14.not, label %if.else, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end12
-  %state.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %state.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %state.i.i, align 8
-  %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %3, i64 12
+  %awaiting_packet_size.i.i = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i16 0, ptr %awaiting_packet_size.i.i, align 4
   %4 = load ptr, ptr %3, align 8
   %tobool1.not.i.i = icmp eq ptr %4, null
@@ -11276,7 +11276,7 @@ if.then19:                                        ; preds = %if.else
   %conv = zext i16 %6 to i32
   %call23 = call i32 @evutil_socket_(i32 noundef %conv, i32 noundef 526338, i32 noundef 0) #18
   store i32 %call23, ptr %ns, align 8
-  %global_outgoing_addrlen = getelementptr inbounds i8, ptr %0, i64 264
+  %global_outgoing_addrlen = getelementptr inbounds nuw i8, ptr %0, i64 264
   %7 = load i32, ptr %global_outgoing_addrlen, align 8
   %tobool25.not = icmp eq i32 %7, 0
   br i1 %tobool25.not, label %if.end37, label %land.lhs.true26
@@ -11288,7 +11288,7 @@ land.lhs.true26:                                  ; preds = %if.then19
 
 if.then29:                                        ; preds = %land.lhs.true26
   %8 = load i32, ptr %ns, align 8
-  %global_outgoing_address = getelementptr inbounds i8, ptr %0, i64 136
+  %global_outgoing_address = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i32, ptr %global_outgoing_addrlen, align 8
   %call32 = call i32 @bind(i32 noundef %8, ptr nonnull %global_outgoing_address, i32 noundef %9) #18
   %cmp33 = icmp slt i32 %call32, 0
@@ -11299,18 +11299,18 @@ if.then35:                                        ; preds = %if.then29
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then29, %if.then35, %land.lhs.true26, %if.then19
-  %event = getelementptr inbounds i8, ptr %ns, i64 160
+  %event = getelementptr inbounds nuw i8, ptr %ns, i64 160
   %call38 = call i32 @event_del(ptr noundef nonnull %event) #18
   %10 = load ptr, ptr %base1, align 8
-  %event_base = getelementptr inbounds i8, ptr %10, i64 32
+  %event_base = getelementptr inbounds nuw i8, ptr %10, i64 32
   %11 = load ptr, ptr %event_base, align 8
   %12 = load i32, ptr %ns, align 8
-  %write_waiting = getelementptr inbounds i8, ptr %ns, i64 426
+  %write_waiting = getelementptr inbounds nuw i8, ptr %ns, i64 426
   %13 = load i8, ptr %write_waiting, align 2
   %tobool43.not = icmp eq i8 %13, 0
   %conv45 = select i1 %tobool43.not, i16 18, i16 22
   %call46 = call i32 @event_assign(ptr noundef nonnull %event, ptr noundef %11, i32 noundef %12, i16 noundef signext %conv45, ptr noundef nonnull @nameserver_ready_callback, ptr noundef nonnull %ns) #18
-  %disable_when_inactive = getelementptr inbounds i8, ptr %0, i64 344
+  %disable_when_inactive = getelementptr inbounds nuw i8, ptr %0, i64 344
   %14 = load i32, ptr %disable_when_inactive, align 8
   %tobool47.not = icmp eq i32 %14, 0
   br i1 %tobool47.not, label %land.lhs.true48, label %if.end60
@@ -11328,8 +11328,8 @@ if.then53:                                        ; preds = %land.lhs.true48
   br label %if.end60
 
 if.end60:                                         ; preds = %if.else, %if.then53, %land.lhs.true48, %if.end37, %disconnect_and_free_connection.exit
-  %timeout_event = getelementptr inbounds i8, ptr %ns, i64 296
-  %global_nameserver_probe_initial_timeout = getelementptr inbounds i8, ptr %0, i64 96
+  %timeout_event = getelementptr inbounds nuw i8, ptr %ns, i64 296
+  %global_nameserver_probe_initial_timeout = getelementptr inbounds nuw i8, ptr %0, i64 96
   %call61 = call i32 @event_add(ptr noundef nonnull %timeout_event, ptr noundef nonnull %global_nameserver_probe_initial_timeout) #18
   %cmp62 = icmp slt i32 %call61, 0
   br i1 %cmp62, label %if.then64, label %if.end68
@@ -11345,33 +11345,33 @@ if.end68:                                         ; preds = %if.then64, %if.end6
   br i1 %tobool70.not, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end68
-  %n_req_heads = getelementptr inbounds i8, ptr %0, i64 24
+  %n_req_heads = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i32, ptr %n_req_heads, align 8
   %cmp7353 = icmp sgt i32 %17, 0
   br i1 %cmp7353, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %server_head.i = getelementptr inbounds i8, ptr %0, i64 16
+  %server_head.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %18 = phi i32 [ %17, %for.body.lr.ph ], [ %33, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %19 = load ptr, ptr %0, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %20 = load ptr, ptr %arrayidx, align 8
   %tobool75.not = icmp eq ptr %20, null
   br i1 %tobool75.not, label %for.inc, label %do.body77
 
 do.body77:                                        ; preds = %for.body, %if.end86
   %req.0 = phi ptr [ %32, %if.end86 ], [ %20, %for.body ]
-  %tx_count = getelementptr inbounds i8, ptr %req.0, i64 20
+  %tx_count = getelementptr inbounds nuw i8, ptr %req.0, i64 20
   %21 = load i32, ptr %tx_count, align 4
   %cmp78 = icmp eq i32 %21, 0
   br i1 %cmp78, label %land.lhs.true80, label %if.end86
 
 land.lhs.true80:                                  ; preds = %do.body77
-  %ns81 = getelementptr inbounds i8, ptr %req.0, i64 24
+  %ns81 = getelementptr inbounds nuw i8, ptr %req.0, i64 24
   %22 = load ptr, ptr %ns81, align 8
   %cmp82 = icmp eq ptr %22, %ns
   br i1 %cmp82, label %if.then84, label %if.end86
@@ -11388,13 +11388,13 @@ if.end7.i:                                        ; preds = %if.then84
 
 for.cond.i:                                       ; preds = %if.end7.i, %if.end21.i
   %25 = phi ptr [ %27, %if.end21.i ], [ %23, %if.end7.i ]
-  %state.i = getelementptr inbounds i8, ptr %25, i64 424
+  %state.i = getelementptr inbounds nuw i8, ptr %25, i64 424
   %26 = load i8, ptr %state.i, align 8
   %tobool15.not.i = icmp eq i8 %26, 0
   br i1 %tobool15.not.i, label %if.end21.i, label %nameserver_pick.exit.thread48
 
 if.end21.i:                                       ; preds = %for.cond.i
-  %next23.i = getelementptr inbounds i8, ptr %25, i64 280
+  %next23.i = getelementptr inbounds nuw i8, ptr %25, i64 280
   %27 = load ptr, ptr %next23.i, align 8
   store ptr %27, ptr %server_head.i, align 8
   %cmp.i = icmp eq ptr %27, %23
@@ -11402,13 +11402,13 @@ if.end21.i:                                       ; preds = %for.cond.i
 
 nameserver_pick.exit.thread48:                    ; preds = %if.end21.i, %for.cond.i
   %retval.0.ph.i.ph = phi ptr [ %25, %for.cond.i ], [ %27, %if.end21.i ]
-  %.sink.i.ph.in = getelementptr inbounds i8, ptr %retval.0.ph.i.ph, i64 280
+  %.sink.i.ph.in = getelementptr inbounds nuw i8, ptr %retval.0.ph.i.ph, i64 280
   %.sink.i.ph = load ptr, ptr %.sink.i.ph.in, align 8
   store ptr %.sink.i.ph, ptr %server_head.i, align 8
   br label %land.lhs.true.i
 
 nameserver_pick.exit:                             ; preds = %if.end7.i
-  %next.i = getelementptr inbounds i8, ptr %23, i64 280
+  %next.i = getelementptr inbounds nuw i8, ptr %23, i64 280
   %28 = load ptr, ptr %next.i, align 8
   store ptr %28, ptr %server_head.i, align 8
   %tobool.not.i44 = icmp eq ptr %28, null
@@ -11421,11 +11421,11 @@ land.lhs.true.i:                                  ; preds = %nameserver_pick.exi
   br i1 %cmp.not.i, label %if.end86, label %do.end.i
 
 do.end.i:                                         ; preds = %land.lhs.true.i
-  %requests_inflight.i = getelementptr inbounds i8, ptr %29, i64 440
+  %requests_inflight.i = getelementptr inbounds nuw i8, ptr %29, i64 440
   %30 = load i32, ptr %requests_inflight.i, align 8
   %dec.i = add nsw i32 %30, -1
   store i32 %dec.i, ptr %requests_inflight.i, align 8
-  %requests_inflight3.i = getelementptr inbounds i8, ptr %retval.0.ph.i52, i64 440
+  %requests_inflight3.i = getelementptr inbounds nuw i8, ptr %retval.0.ph.i52, i64 440
   %31 = load i32, ptr %requests_inflight3.i, align 8
   %inc.i = add nsw i32 %31, 1
   store i32 %inc.i, ptr %requests_inflight3.i, align 8
@@ -11433,7 +11433,7 @@ do.end.i:                                         ; preds = %land.lhs.true.i
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then84, %do.end.i, %land.lhs.true.i, %nameserver_pick.exit, %land.lhs.true80, %do.body77
-  %next = getelementptr inbounds i8, ptr %req.0, i64 32
+  %next = getelementptr inbounds nuw i8, ptr %req.0, i64 32
   %32 = load ptr, ptr %next, align 8
   %cmp87.not = icmp eq ptr %32, %20
   br i1 %cmp87.not, label %for.inc.loopexit, label %do.body77, !llvm.loop !52
@@ -11458,10 +11458,10 @@ declare ptr @evutil_format_sockaddr_port_(ptr noundef, ptr noundef, i64 noundef)
 ; Function Attrs: nounwind uwtable
 define internal void @evdns_request_timeout_callback(i32 %fd, i16 signext %events, ptr noundef %arg) #2 {
 entry:
-  %base1 = getelementptr inbounds i8, ptr %arg, i64 184
+  %base1 = getelementptr inbounds nuw i8, ptr %arg, i64 184
   %0 = load ptr, ptr %base1, align 8
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.55, ptr noundef %arg)
-  %lock = getelementptr inbounds i8, ptr %0, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 336
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -11472,75 +11472,75 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %tx_count = getelementptr inbounds i8, ptr %arg, i64 20
+  %tx_count = getelementptr inbounds nuw i8, ptr %arg, i64 20
   %3 = load i32, ptr %tx_count, align 4
   %4 = load ptr, ptr %base1, align 8
-  %global_max_retransmits = getelementptr inbounds i8, ptr %4, i64 76
+  %global_max_retransmits = getelementptr inbounds nuw i8, ptr %4, i64 76
   %5 = load i32, ptr %global_max_retransmits, align 4
   %cmp.not = icmp slt i32 %3, %5
   br i1 %cmp.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %do.end
-  %ns5 = getelementptr inbounds i8, ptr %arg, i64 24
+  %ns5 = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %6 = load ptr, ptr %ns5, align 8
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.56, ptr noundef nonnull %arg, i32 noundef %3)
-  %handle1.i = getelementptr inbounds i8, ptr %arg, i64 192
+  %handle1.i = getelementptr inbounds nuw i8, ptr %arg, i64 192
   %7 = load ptr, ptr %handle1.i, align 8
-  %request_type.i = getelementptr inbounds i8, ptr %arg, i64 10
+  %request_type.i = getelementptr inbounds nuw i8, ptr %arg, i64 10
   %8 = load i8, ptr %request_type.i, align 2
-  %request_type5.i = getelementptr inbounds i8, ptr %7, i64 80
+  %request_type5.i = getelementptr inbounds nuw i8, ptr %7, i64 80
   store i8 %8, ptr %request_type5.i, align 8
-  %ttl6.i = getelementptr inbounds i8, ptr %7, i64 84
+  %ttl6.i = getelementptr inbounds nuw i8, ptr %7, i64 84
   store i32 0, ptr %ttl6.i, align 4
-  %err7.i = getelementptr inbounds i8, ptr %7, i64 88
+  %err7.i = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i32 67, ptr %err7.i, align 8
-  %pending_cb.i = getelementptr inbounds i8, ptr %7, i64 16
+  %pending_cb.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %pending_cb.i, align 8
-  %deferred.i = getelementptr inbounds i8, ptr %7, i64 24
-  %timeout_event.i = getelementptr inbounds i8, ptr %arg, i64 48
+  %deferred.i = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %timeout_event.i = getelementptr inbounds nuw i8, ptr %arg, i64 48
   %call.i = tail call i32 @event_get_priority(ptr noundef nonnull %timeout_event.i) #18
   %conv.i = trunc i32 %call.i to i8
-  %user_pointer.i = getelementptr inbounds i8, ptr %7, i64 72
+  %user_pointer.i = getelementptr inbounds nuw i8, ptr %7, i64 72
   %9 = load ptr, ptr %user_pointer.i, align 8
   tail call void @event_deferred_cb_init_(ptr noundef nonnull %deferred.i, i8 noundef zeroext %conv.i, ptr noundef nonnull @reply_run_callback, ptr noundef %9) #18
   %10 = load ptr, ptr %base1, align 8
-  %event_base.i = getelementptr inbounds i8, ptr %10, i64 32
+  %event_base.i = getelementptr inbounds nuw i8, ptr %10, i64 32
   %11 = load ptr, ptr %event_base.i, align 8
   %call14.i = tail call i32 @event_deferred_cb_schedule_(ptr noundef %11, ptr noundef nonnull %deferred.i) #18
   %12 = load ptr, ptr %base1, align 8
   %13 = load ptr, ptr %12, align 8
-  %trans_id = getelementptr inbounds i8, ptr %arg, i64 168
+  %trans_id = getelementptr inbounds nuw i8, ptr %arg, i64 168
   %14 = load i16, ptr %trans_id, align 8
   %conv = zext i16 %14 to i32
-  %n_req_heads = getelementptr inbounds i8, ptr %12, i64 24
+  %n_req_heads = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = load i32, ptr %n_req_heads, align 8
   %rem = srem i32 %conv, %15
   %idxprom = zext nneg i32 %rem to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %13, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %13, i64 %idxprom
   tail call fastcc void @request_finished(ptr noundef nonnull %arg, ptr noundef %arrayidx, i32 noundef 1)
   br label %do.body34.sink.split
 
 if.else:                                          ; preds = %do.end
-  %handle = getelementptr inbounds i8, ptr %arg, i64 192
+  %handle = getelementptr inbounds nuw i8, ptr %arg, i64 192
   %16 = load ptr, ptr %handle, align 8
-  %tcp_flags = getelementptr inbounds i8, ptr %16, i64 156
+  %tcp_flags = getelementptr inbounds nuw i8, ptr %16, i64 156
   %17 = load i16, ptr %tcp_flags, align 4
   %18 = and i16 %17, 2
   %tobool10.not = icmp eq i16 %18, 0
   br i1 %tobool10.not, label %if.else16, label %if.then11
 
 if.then11:                                        ; preds = %if.else
-  %ns12 = getelementptr inbounds i8, ptr %arg, i64 24
+  %ns12 = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %19 = load ptr, ptr %ns12, align 8
-  %connection = getelementptr inbounds i8, ptr %19, i64 8
+  %connection = getelementptr inbounds nuw i8, ptr %19, i64 8
   %20 = load ptr, ptr %connection, align 8
   %tobool.not.i = icmp eq ptr %20, null
   br i1 %tobool.not.i, label %disconnect_and_free_connection.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then11
-  %state.i.i = getelementptr inbounds i8, ptr %20, i64 8
+  %state.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 0, ptr %state.i.i, align 8
-  %awaiting_packet_size.i.i = getelementptr inbounds i8, ptr %20, i64 12
+  %awaiting_packet_size.i.i = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i16 0, ptr %awaiting_packet_size.i.i, align 4
   %21 = load ptr, ptr %20, align 8
   %tobool1.not.i.i = icmp eq ptr %21, null
@@ -11558,12 +11558,12 @@ evdns_tcp_disconnect.exit.i:                      ; preds = %if.then2.i.i, %if.e
 
 disconnect_and_free_connection.exit:              ; preds = %if.then11, %evdns_tcp_disconnect.exit.i
   %22 = phi ptr [ %19, %if.then11 ], [ %.pre, %evdns_tcp_disconnect.exit.i ]
-  %connection14 = getelementptr inbounds i8, ptr %22, i64 8
+  %connection14 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr null, ptr %connection14, align 8
   %23 = load ptr, ptr %ns12, align 8
-  %base.i32 = getelementptr inbounds i8, ptr %23, i64 432
+  %base.i32 = getelementptr inbounds nuw i8, ptr %23, i64 432
   %24 = load ptr, ptr %base.i32, align 8
-  %n_req_heads23.i = getelementptr inbounds i8, ptr %24, i64 24
+  %n_req_heads23.i = getelementptr inbounds nuw i8, ptr %24, i64 24
   %25 = load i32, ptr %n_req_heads23.i, align 8
   %cmp24.i = icmp sgt i32 %25, 0
   br i1 %cmp24.i, label %for.body.i, label %do.body34
@@ -11572,33 +11572,33 @@ for.body.i:                                       ; preds = %disconnect_and_free
   %26 = phi ptr [ %46, %for.inc.i ], [ %24, %disconnect_and_free_connection.exit ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %disconnect_and_free_connection.exit ]
   %27 = load ptr, ptr %26, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
   %28 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i33 = icmp eq ptr %28, null
   br i1 %tobool.not.i33, label %for.inc.i, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body.i, %if.end19.i
   %req.0.i = phi ptr [ %45, %if.end19.i ], [ %28, %for.body.i ]
-  %ns.i = getelementptr inbounds i8, ptr %req.0.i, i64 24
+  %ns.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 24
   %29 = load ptr, ptr %ns.i, align 8
   %cmp2.i = icmp eq ptr %29, %23
   br i1 %cmp2.i, label %land.lhs.true.i, label %if.end19.i
 
 land.lhs.true.i:                                  ; preds = %do.body.i
-  %handle.i = getelementptr inbounds i8, ptr %req.0.i, i64 192
+  %handle.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 192
   %30 = load ptr, ptr %handle.i, align 8
-  %tcp_flags.i = getelementptr inbounds i8, ptr %30, i64 156
+  %tcp_flags.i = getelementptr inbounds nuw i8, ptr %30, i64 156
   %31 = load i16, ptr %tcp_flags.i, align 4
   %32 = and i16 %31, 2
   %tobool3.not.i = icmp eq i16 %32, 0
   br i1 %tobool3.not.i, label %if.end19.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
-  %tx_count.i = getelementptr inbounds i8, ptr %req.0.i, i64 20
+  %tx_count.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 20
   %33 = load i32, ptr %tx_count.i, align 4
-  %base5.i = getelementptr inbounds i8, ptr %req.0.i, i64 184
+  %base5.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 184
   %34 = load ptr, ptr %base5.i, align 8
-  %global_max_retransmits.i = getelementptr inbounds i8, ptr %34, i64 76
+  %global_max_retransmits.i = getelementptr inbounds nuw i8, ptr %34, i64 76
   %35 = load i32, ptr %global_max_retransmits.i, align 4
   %cmp6.not.i = icmp slt i32 %33, %35
   br i1 %cmp6.not.i, label %if.else.i, label %if.then8.i
@@ -11606,48 +11606,48 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
 if.then8.i:                                       ; preds = %if.then4.i
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.56, ptr noundef nonnull %req.0.i, i32 noundef %33)
   %36 = load ptr, ptr %handle.i, align 8
-  %request_type.i.i = getelementptr inbounds i8, ptr %req.0.i, i64 10
+  %request_type.i.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 10
   %37 = load i8, ptr %request_type.i.i, align 2
-  %request_type5.i.i = getelementptr inbounds i8, ptr %36, i64 80
+  %request_type5.i.i = getelementptr inbounds nuw i8, ptr %36, i64 80
   store i8 %37, ptr %request_type5.i.i, align 8
-  %ttl6.i.i = getelementptr inbounds i8, ptr %36, i64 84
+  %ttl6.i.i = getelementptr inbounds nuw i8, ptr %36, i64 84
   store i32 0, ptr %ttl6.i.i, align 4
-  %err7.i.i = getelementptr inbounds i8, ptr %36, i64 88
+  %err7.i.i = getelementptr inbounds nuw i8, ptr %36, i64 88
   store i32 67, ptr %err7.i.i, align 8
-  %pending_cb.i.i = getelementptr inbounds i8, ptr %36, i64 16
+  %pending_cb.i.i = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 1, ptr %pending_cb.i.i, align 8
-  %deferred.i.i = getelementptr inbounds i8, ptr %36, i64 24
-  %timeout_event.i.i = getelementptr inbounds i8, ptr %req.0.i, i64 48
+  %deferred.i.i = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %timeout_event.i.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 48
   %call.i.i = tail call i32 @event_get_priority(ptr noundef nonnull %timeout_event.i.i) #18
   %conv.i.i = trunc i32 %call.i.i to i8
-  %user_pointer.i.i = getelementptr inbounds i8, ptr %36, i64 72
+  %user_pointer.i.i = getelementptr inbounds nuw i8, ptr %36, i64 72
   %38 = load ptr, ptr %user_pointer.i.i, align 8
   tail call void @event_deferred_cb_init_(ptr noundef nonnull %deferred.i.i, i8 noundef zeroext %conv.i.i, ptr noundef nonnull @reply_run_callback, ptr noundef %38) #18
   %39 = load ptr, ptr %base5.i, align 8
-  %event_base.i.i = getelementptr inbounds i8, ptr %39, i64 32
+  %event_base.i.i = getelementptr inbounds nuw i8, ptr %39, i64 32
   %40 = load ptr, ptr %event_base.i.i, align 8
   %call14.i.i = tail call i32 @event_deferred_cb_schedule_(ptr noundef %40, ptr noundef nonnull %deferred.i.i) #18
   %41 = load ptr, ptr %base5.i, align 8
   %42 = load ptr, ptr %41, align 8
-  %trans_id.i = getelementptr inbounds i8, ptr %req.0.i, i64 168
+  %trans_id.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 168
   %43 = load i16, ptr %trans_id.i, align 8
   %conv12.i = zext i16 %43 to i32
-  %n_req_heads14.i = getelementptr inbounds i8, ptr %41, i64 24
+  %n_req_heads14.i = getelementptr inbounds nuw i8, ptr %41, i64 24
   %44 = load i32, ptr %n_req_heads14.i, align 8
   %rem.i = srem i32 %conv12.i, %44
   %idxprom15.i = zext nneg i32 %rem.i to i64
-  %arrayidx16.i = getelementptr inbounds ptr, ptr %42, i64 %idxprom15.i
+  %arrayidx16.i = getelementptr inbounds nuw ptr, ptr %42, i64 %idxprom15.i
   tail call fastcc void @request_finished(ptr noundef nonnull %req.0.i, ptr noundef %arrayidx16.i, i32 noundef 1)
   br label %if.end19.i
 
 if.else.i:                                        ; preds = %if.then4.i
-  %timeout_event.i34 = getelementptr inbounds i8, ptr %req.0.i, i64 48
+  %timeout_event.i34 = getelementptr inbounds nuw i8, ptr %req.0.i, i64 48
   %call.i35 = tail call i32 @event_del(ptr noundef nonnull %timeout_event.i34) #18
   tail call fastcc void @evdns_request_transmit(ptr noundef nonnull %req.0.i)
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.else.i, %if.then8.i, %land.lhs.true.i, %do.body.i
-  %next.i = getelementptr inbounds i8, ptr %req.0.i, i64 32
+  %next.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 32
   %45 = load ptr, ptr %next.i, align 8
   %cmp20.not.i = icmp eq ptr %45, %28
   br i1 %cmp20.not.i, label %for.inc.loopexit.i, label %do.body.i, !llvm.loop !54
@@ -11659,7 +11659,7 @@ for.inc.loopexit.i:                               ; preds = %if.end19.i
 for.inc.i:                                        ; preds = %for.inc.loopexit.i, %for.body.i
   %46 = phi ptr [ %.pre.i, %for.inc.loopexit.i ], [ %26, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %n_req_heads.i = getelementptr inbounds i8, ptr %46, i64 24
+  %n_req_heads.i = getelementptr inbounds nuw i8, ptr %46, i64 24
   %47 = load i32, ptr %n_req_heads.i, align 8
   %48 = sext i32 %47 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %48
@@ -11667,28 +11667,28 @@ for.inc.i:                                        ; preds = %for.inc.loopexit.i,
 
 if.else16:                                        ; preds = %if.else
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.58, ptr noundef nonnull %arg, i32 noundef %3)
-  %timeout_event = getelementptr inbounds i8, ptr %arg, i64 48
+  %timeout_event = getelementptr inbounds nuw i8, ptr %arg, i64 48
   %call18 = tail call i32 @event_del(ptr noundef nonnull %timeout_event) #18
-  %server_head.i = getelementptr inbounds i8, ptr %0, i64 16
+  %server_head.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %server_head.i, align 8
   %tobool5.not.i = icmp eq ptr %49, null
   br i1 %tobool5.not.i, label %request_swap_ns.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.else16
-  %global_good_nameservers.i = getelementptr inbounds i8, ptr %0, i64 40
+  %global_good_nameservers.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = load i32, ptr %global_good_nameservers.i, align 8
   %tobool8.not.i = icmp eq i32 %50, 0
   br i1 %tobool8.not.i, label %nameserver_pick.exit, label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end7.i, %if.end21.i
   %51 = phi ptr [ %53, %if.end21.i ], [ %49, %if.end7.i ]
-  %state.i = getelementptr inbounds i8, ptr %51, i64 424
+  %state.i = getelementptr inbounds nuw i8, ptr %51, i64 424
   %52 = load i8, ptr %state.i, align 8
   %tobool15.not.i = icmp eq i8 %52, 0
   br i1 %tobool15.not.i, label %if.end21.i, label %nameserver_pick.exit.thread43
 
 if.end21.i:                                       ; preds = %for.cond.i
-  %next23.i = getelementptr inbounds i8, ptr %51, i64 280
+  %next23.i = getelementptr inbounds nuw i8, ptr %51, i64 280
   %53 = load ptr, ptr %next23.i, align 8
   store ptr %53, ptr %server_head.i, align 8
   %cmp.i36 = icmp eq ptr %53, %49
@@ -11696,13 +11696,13 @@ if.end21.i:                                       ; preds = %for.cond.i
 
 nameserver_pick.exit.thread43:                    ; preds = %if.end21.i, %for.cond.i
   %retval.0.ph.i.ph = phi ptr [ %51, %for.cond.i ], [ %53, %if.end21.i ]
-  %.sink.i.ph.in = getelementptr inbounds i8, ptr %retval.0.ph.i.ph, i64 280
+  %.sink.i.ph.in = getelementptr inbounds nuw i8, ptr %retval.0.ph.i.ph, i64 280
   %.sink.i.ph = load ptr, ptr %.sink.i.ph.in, align 8
   store ptr %.sink.i.ph, ptr %server_head.i, align 8
   br label %land.lhs.true.i39
 
 nameserver_pick.exit:                             ; preds = %if.end7.i
-  %next.i37 = getelementptr inbounds i8, ptr %49, i64 280
+  %next.i37 = getelementptr inbounds nuw i8, ptr %49, i64 280
   %54 = load ptr, ptr %next.i37, align 8
   store ptr %54, ptr %server_head.i, align 8
   %tobool.not.i38 = icmp eq ptr %54, null
@@ -11710,17 +11710,17 @@ nameserver_pick.exit:                             ; preds = %if.end7.i
 
 land.lhs.true.i39:                                ; preds = %nameserver_pick.exit.thread43, %nameserver_pick.exit
   %retval.0.ph.i47 = phi ptr [ %retval.0.ph.i.ph, %nameserver_pick.exit.thread43 ], [ %54, %nameserver_pick.exit ]
-  %ns1.i = getelementptr inbounds i8, ptr %arg, i64 24
+  %ns1.i = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %55 = load ptr, ptr %ns1.i, align 8
   %cmp.not.i = icmp eq ptr %55, %retval.0.ph.i47
   br i1 %cmp.not.i, label %request_swap_ns.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %land.lhs.true.i39
-  %requests_inflight.i = getelementptr inbounds i8, ptr %55, i64 440
+  %requests_inflight.i = getelementptr inbounds nuw i8, ptr %55, i64 440
   %56 = load i32, ptr %requests_inflight.i, align 8
   %dec.i = add nsw i32 %56, -1
   store i32 %dec.i, ptr %requests_inflight.i, align 8
-  %requests_inflight3.i = getelementptr inbounds i8, ptr %retval.0.ph.i47, i64 440
+  %requests_inflight3.i = getelementptr inbounds nuw i8, ptr %retval.0.ph.i47, i64 440
   %57 = load i32, ptr %requests_inflight3.i, align 8
   %inc.i = add nsw i32 %57, 1
   store i32 %inc.i, ptr %requests_inflight3.i, align 8
@@ -11729,17 +11729,17 @@ do.end.i:                                         ; preds = %land.lhs.true.i39
 
 request_swap_ns.exit:                             ; preds = %if.else16, %nameserver_pick.exit, %land.lhs.true.i39, %do.end.i
   tail call fastcc void @evdns_request_transmit(ptr noundef nonnull %arg)
-  %ns21 = getelementptr inbounds i8, ptr %arg, i64 24
+  %ns21 = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %58 = load ptr, ptr %ns21, align 8
-  %timedout = getelementptr inbounds i8, ptr %58, i64 152
+  %timedout = getelementptr inbounds nuw i8, ptr %58, i64 152
   %59 = load i32, ptr %timedout, align 8
   %inc = add nsw i32 %59, 1
   store i32 %inc, ptr %timedout, align 8
   %60 = load ptr, ptr %ns21, align 8
-  %timedout23 = getelementptr inbounds i8, ptr %60, i64 152
+  %timedout23 = getelementptr inbounds nuw i8, ptr %60, i64 152
   %61 = load i32, ptr %timedout23, align 8
   %62 = load ptr, ptr %base1, align 8
-  %global_max_nameserver_timeout = getelementptr inbounds i8, ptr %62, i64 80
+  %global_max_nameserver_timeout = getelementptr inbounds nuw i8, ptr %62, i64 80
   %63 = load i32, ptr %global_max_nameserver_timeout, align 8
   %cmp25 = icmp sgt i32 %61, %63
   br i1 %cmp25, label %if.then27, label %do.body34
@@ -11782,9 +11782,9 @@ entry:
   %addrlen.i = alloca i32, align 4
   %addrbuf.i12 = alloca [128 x i8], align 16
   %addrbuf.i = alloca [128 x i8], align 16
-  %base = getelementptr inbounds i8, ptr %arg, i64 432
+  %base = getelementptr inbounds nuw i8, ptr %arg, i64 432
   %0 = load ptr, ptr %base, align 8
-  %lock = getelementptr inbounds i8, ptr %0, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 336
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -11800,10 +11800,10 @@ do.end:                                           ; preds = %entry, %if.then
   br i1 %tobool3.not, label %if.end10, label %if.then4
 
 if.then4:                                         ; preds = %do.end
-  %choked = getelementptr inbounds i8, ptr %arg, i64 425
+  %choked = getelementptr inbounds nuw i8, ptr %arg, i64 425
   store i8 0, ptr %choked, align 1
   %4 = load ptr, ptr %base, align 8
-  %n_req_heads.i = getelementptr inbounds i8, ptr %4, i64 24
+  %n_req_heads.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %5 = load i32, ptr %n_req_heads.i, align 8
   %cmp12.i = icmp sgt i32 %5, 0
   br i1 %cmp12.i, label %for.body.i, label %if.then8
@@ -11813,7 +11813,7 @@ for.body.i:                                       ; preds = %if.then4, %for.inc.
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then4 ]
   %did_try_to_transmit.014.i = phi i8 [ %did_try_to_transmit.3.i, %for.inc.i ], [ 0, %if.then4 ]
   %7 = load ptr, ptr %4, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %tobool4.not.i = icmp eq ptr %8, null
   br i1 %tobool4.not.i, label %for.inc.i, label %do.body9.i
@@ -11821,7 +11821,7 @@ for.body.i:                                       ; preds = %if.then4, %for.inc.
 do.body9.i:                                       ; preds = %for.body.i, %if.end12.i
   %did_try_to_transmit.1.i = phi i8 [ %did_try_to_transmit.2.i, %if.end12.i ], [ %did_try_to_transmit.014.i, %for.body.i ]
   %req.0.i = phi ptr [ %10, %if.end12.i ], [ %8, %for.body.i ]
-  %transmit_me.i = getelementptr inbounds i8, ptr %req.0.i, i64 170
+  %transmit_me.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 170
   %bf.load.i = load i8, ptr %transmit_me.i, align 2
   %9 = and i8 %bf.load.i, 2
   %tobool10.not.i = icmp eq i8 %9, 0
@@ -11833,7 +11833,7 @@ if.then11.i:                                      ; preds = %do.body9.i
 
 if.end12.i:                                       ; preds = %if.then11.i, %do.body9.i
   %did_try_to_transmit.2.i = phi i8 [ 1, %if.then11.i ], [ %did_try_to_transmit.1.i, %do.body9.i ]
-  %next.i = getelementptr inbounds i8, ptr %req.0.i, i64 32
+  %next.i = getelementptr inbounds nuw i8, ptr %req.0.i, i64 32
   %10 = load ptr, ptr %next.i, align 8
   %cmp13.not.i = icmp eq ptr %10, %8
   br i1 %cmp13.not.i, label %for.inc.loopexit.i, label %do.body9.i, !llvm.loop !19
@@ -11856,17 +11856,17 @@ evdns_transmit.exit:                              ; preds = %for.inc.i
 
 if.then8:                                         ; preds = %if.then4, %evdns_transmit.exit
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrbuf.i)
-  %write_waiting.i = getelementptr inbounds i8, ptr %arg, i64 426
+  %write_waiting.i = getelementptr inbounds nuw i8, ptr %arg, i64 426
   %13 = load i8, ptr %write_waiting.i, align 2
   %cmp.i10 = icmp eq i8 %13, 0
   br i1 %cmp.i10, label %nameserver_write_waiting.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then8
   store i8 0, ptr %write_waiting.i, align 2
-  %event.i = getelementptr inbounds i8, ptr %arg, i64 160
+  %event.i = getelementptr inbounds nuw i8, ptr %arg, i64 160
   %call.i11 = tail call i32 @event_del(ptr noundef nonnull %event.i) #18
   %14 = load ptr, ptr %base, align 8
-  %event_base.i = getelementptr inbounds i8, ptr %14, i64 32
+  %event_base.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   %15 = load ptr, ptr %event_base.i, align 8
   %16 = load i32, ptr %arg, align 8
   %call15.i = tail call i32 @event_assign(ptr noundef nonnull %event.i, ptr noundef %15, i32 noundef %16, i16 noundef signext 18, ptr noundef nonnull @nameserver_ready_callback, ptr noundef nonnull %arg) #18
@@ -11875,7 +11875,7 @@ if.end7.i:                                        ; preds = %if.then8
   br i1 %cmp18.i, label %if.then20.i, label %nameserver_write_waiting.exit
 
 if.then20.i:                                      ; preds = %if.end7.i
-  %address.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %address.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %call21.i = call ptr @evutil_format_sockaddr_port_(ptr noundef nonnull %address.i, ptr noundef nonnull %addrbuf.i, i64 noundef 128) #18
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef nonnull @.str.64, ptr noundef %call21.i)
   br label %nameserver_write_waiting.exit
@@ -11895,7 +11895,7 @@ if.then14:                                        ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %addrlen.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrbuf.i12)
   store i32 128, ptr %addrlen.i, align 4
-  %global_max_udp_size.i = getelementptr inbounds i8, ptr %.pre21, i64 88
+  %global_max_udp_size.i = getelementptr inbounds nuw i8, ptr %.pre21, i64 88
   %18 = load i16, ptr %global_max_udp_size.i, align 8
   %conv.i = zext i16 %18 to i64
   %call.i14 = call ptr @event_mm_malloc_(i64 noundef %conv.i) #18
@@ -11910,8 +11910,8 @@ for.cond.preheader.i:                             ; preds = %if.then14
   br i1 %cmp19.i, label %if.then11.i18, label %if.end20.lr.ph.i
 
 if.end20.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %address.i15 = getelementptr inbounds i8, ptr %arg, i64 16
-  %timedout.i = getelementptr inbounds i8, ptr %arg, i64 152
+  %address.i15 = getelementptr inbounds nuw i8, ptr %arg, i64 16
+  %timedout.i = getelementptr inbounds nuw i8, ptr %arg, i64 152
   br label %if.end20.i
 
 if.then6.i:                                       ; preds = %if.then14
@@ -11965,7 +11965,7 @@ nameserver_read.exit:                             ; preds = %if.then6.i, %done.i
 
 do.body16:                                        ; preds = %if.end10, %nameserver_read.exit
   %23 = phi ptr [ %.pre21, %if.end10 ], [ %.pre, %nameserver_read.exit ]
-  %lock18 = getelementptr inbounds i8, ptr %23, i64 336
+  %lock18 = getelementptr inbounds nuw i8, ptr %23, i64 336
   %24 = load ptr, ptr %lock18, align 8
   %tobool19.not = icmp eq ptr %24, null
   br i1 %tobool19.not, label %do.end25, label %if.then20
@@ -11990,9 +11990,9 @@ define internal void @nameserver_prod_callback(i32 %fd, i16 signext %events, ptr
 entry:
   %trans_id.i.i = alloca i16, align 2
   %addrbuf.i = alloca [128 x i8], align 16
-  %base = getelementptr inbounds i8, ptr %arg, i64 432
+  %base = getelementptr inbounds nuw i8, ptr %arg, i64 432
   %0 = load ptr, ptr %base, align 8
-  %lock = getelementptr inbounds i8, ptr %0, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 336
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -12004,7 +12004,7 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry, %if.then
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrbuf.i)
-  %address.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %address.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %call.i = call ptr @evutil_format_sockaddr_port_(ptr noundef nonnull %address.i, ptr noundef nonnull %addrbuf.i, i64 noundef 128) #18
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.70, ptr noundef %call.i)
   %call4.i = call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 160) #18
@@ -12012,9 +12012,9 @@ do.end:                                           ; preds = %entry, %if.then
   br i1 %tobool5.not.i, label %nameserver_send_probe.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %do.end
-  %user_callback.i = getelementptr inbounds i8, ptr %call4.i, i64 64
+  %user_callback.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 64
   store ptr @nameserver_probe_callback, ptr %user_callback.i, align 8
-  %user_pointer.i = getelementptr inbounds i8, ptr %call4.i, i64 72
+  %user_pointer.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 72
   store ptr %arg, ptr %user_pointer.i, align 8
   %3 = load ptr, ptr %base, align 8
   %call9.i = call fastcc ptr @request_new(ptr noundef %3, ptr noundef nonnull %call4.i, i32 noundef 1, ptr noundef nonnull @.str.71, i32 noundef 1)
@@ -12026,7 +12026,7 @@ if.then11.i:                                      ; preds = %if.end7.i
   br label %nameserver_send_probe.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %probe_request.i = getelementptr inbounds i8, ptr %arg, i64 416
+  %probe_request.i = getelementptr inbounds nuw i8, ptr %arg, i64 416
   store ptr %call4.i, ptr %probe_request.i, align 8
   %4 = load ptr, ptr %base, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %trans_id.i.i)
@@ -12048,34 +12048,34 @@ if.end6.i.i:                                      ; preds = %for.cond.i.i
   %conv.i.i.i = zext i16 %6 to i32
   %rem.i.i.i = srem i32 %conv.i.i.i, %base.val2.i.i
   %idxprom.i.i.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %base.val.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %base.val.i.i, i64 %idxprom.i.i.i
   %7 = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool4.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool4.not.i.i.i, label %transaction_id_pick.exit.i, label %do.body6.i.i.i
 
 do.body6.i.i.i:                                   ; preds = %if.end6.i.i, %if.end12.i.i.i
   %req.0.i.i.i = phi ptr [ %9, %if.end12.i.i.i ], [ %7, %if.end6.i.i ]
-  %trans_id7.i.i.i = getelementptr inbounds i8, ptr %req.0.i.i.i, i64 168
+  %trans_id7.i.i.i = getelementptr inbounds nuw i8, ptr %req.0.i.i.i, i64 168
   %8 = load i16, ptr %trans_id7.i.i.i, align 8
   %cmp.i.i.i = icmp eq i16 %8, %6
   br i1 %cmp.i.i.i, label %for.cond.i.i.backedge, label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %do.body6.i.i.i
-  %next.i.i.i = getelementptr inbounds i8, ptr %req.0.i.i.i, i64 32
+  %next.i.i.i = getelementptr inbounds nuw i8, ptr %req.0.i.i.i, i64 32
   %9 = load ptr, ptr %next.i.i.i, align 8
   %cmp13.not.i.i.i = icmp eq ptr %9, %7
   br i1 %cmp13.not.i.i.i, label %transaction_id_pick.exit.i, label %do.body6.i.i.i, !llvm.loop !18
 
 transaction_id_pick.exit.i:                       ; preds = %if.end6.i.i, %if.end12.i.i.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %trans_id.i.i)
-  %trans_id1.i.i = getelementptr inbounds i8, ptr %call9.i, i64 168
+  %trans_id1.i.i = getelementptr inbounds nuw i8, ptr %call9.i, i64 168
   store i16 %6, ptr %trans_id1.i.i, align 8
   %call.i.i = call zeroext i16 @htons(i16 noundef zeroext %6) #19
   %10 = load ptr, ptr %call9.i, align 8
   store i16 %call.i.i, ptr %10, align 2
-  %ns15.i = getelementptr inbounds i8, ptr %call9.i, i64 24
+  %ns15.i = getelementptr inbounds nuw i8, ptr %call9.i, i64 24
   store ptr %arg, ptr %ns15.i, align 8
-  %base1.i.i = getelementptr inbounds i8, ptr %call9.i, i64 184
+  %base1.i.i = getelementptr inbounds nuw i8, ptr %call9.i, i64 184
   %11 = load ptr, ptr %base1.i.i, align 8
   %tobool7.not.i.i = icmp eq ptr %arg, null
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
@@ -12084,44 +12084,44 @@ if.then8.i.i:                                     ; preds = %transaction_id_pick
   %12 = load ptr, ptr %11, align 8
   %13 = load i16, ptr %trans_id1.i.i, align 8
   %conv.i.i = zext i16 %13 to i32
-  %n_req_heads.i.i = getelementptr inbounds i8, ptr %11, i64 24
+  %n_req_heads.i.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load i32, ptr %n_req_heads.i.i, align 8
   %rem.i.i = srem i32 %conv.i.i, %14
   %idxprom.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %12, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %12, i64 %idxprom.i.i
   %15 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool6.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool6.not.i.i.i, label %if.then7.i.i.i, label %if.end8.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.then8.i.i
   store ptr %call9.i, ptr %arrayidx.i.i, align 8
-  %prev.i.i.i = getelementptr inbounds i8, ptr %call9.i, i64 40
+  %prev.i.i.i = getelementptr inbounds nuw i8, ptr %call9.i, i64 40
   store ptr %call9.i, ptr %prev.i.i.i, align 8
-  %next.i.i17.i = getelementptr inbounds i8, ptr %call9.i, i64 32
+  %next.i.i17.i = getelementptr inbounds nuw i8, ptr %call9.i, i64 32
   store ptr %call9.i, ptr %next.i.i17.i, align 8
   br label %evdns_request_insert.exit.i.i
 
 if.end8.i.i.i:                                    ; preds = %if.then8.i.i
-  %prev9.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
+  %prev9.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 40
   %16 = load ptr, ptr %prev9.i.i.i, align 8
-  %prev10.i.i.i = getelementptr inbounds i8, ptr %call9.i, i64 40
+  %prev10.i.i.i = getelementptr inbounds nuw i8, ptr %call9.i, i64 40
   store ptr %16, ptr %prev10.i.i.i, align 8
-  %next12.i.i.i = getelementptr inbounds i8, ptr %16, i64 32
+  %next12.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %call9.i, ptr %next12.i.i.i, align 8
   %17 = load ptr, ptr %arrayidx.i.i, align 8
-  %next13.i.i.i = getelementptr inbounds i8, ptr %call9.i, i64 32
+  %next13.i.i.i = getelementptr inbounds nuw i8, ptr %call9.i, i64 32
   store ptr %17, ptr %next13.i.i.i, align 8
-  %prev14.i.i.i = getelementptr inbounds i8, ptr %17, i64 40
+  %prev14.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %call9.i, ptr %prev14.i.i.i, align 8
   br label %evdns_request_insert.exit.i.i
 
 evdns_request_insert.exit.i.i:                    ; preds = %if.end8.i.i.i, %if.then7.i.i.i
-  %global_requests_inflight.i.i = getelementptr inbounds i8, ptr %11, i64 44
+  %global_requests_inflight.i.i = getelementptr inbounds nuw i8, ptr %11, i64 44
   %18 = load i32, ptr %global_requests_inflight.i.i, align 4
   %inc.i.i = add nsw i32 %18, 1
   store i32 %inc.i.i, ptr %global_requests_inflight.i.i, align 4
   %19 = load ptr, ptr %ns15.i, align 8
-  %requests_inflight.i.i = getelementptr inbounds i8, ptr %19, i64 440
+  %requests_inflight.i.i = getelementptr inbounds nuw i8, ptr %19, i64 440
   %20 = load i32, ptr %requests_inflight.i.i, align 8
   %inc10.i.i = add nsw i32 %20, 1
   store i32 %inc10.i.i, ptr %requests_inflight.i.i, align 8
@@ -12129,35 +12129,35 @@ evdns_request_insert.exit.i.i:                    ; preds = %if.end8.i.i.i, %if.
   br label %nameserver_send_probe.exit
 
 if.else.i.i:                                      ; preds = %transaction_id_pick.exit.i
-  %req_waiting_head.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %req_waiting_head.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load ptr, ptr %req_waiting_head.i.i, align 8
   %tobool6.not.i12.i.i = icmp eq ptr %21, null
   br i1 %tobool6.not.i12.i.i, label %if.then7.i19.i.i, label %if.end8.i13.i.i
 
 if.then7.i19.i.i:                                 ; preds = %if.else.i.i
   store ptr %call9.i, ptr %req_waiting_head.i.i, align 8
-  %prev.i20.i.i = getelementptr inbounds i8, ptr %call9.i, i64 40
+  %prev.i20.i.i = getelementptr inbounds nuw i8, ptr %call9.i, i64 40
   store ptr %call9.i, ptr %prev.i20.i.i, align 8
-  %next.i21.i.i = getelementptr inbounds i8, ptr %call9.i, i64 32
+  %next.i21.i.i = getelementptr inbounds nuw i8, ptr %call9.i, i64 32
   store ptr %call9.i, ptr %next.i21.i.i, align 8
   br label %evdns_request_insert.exit22.i.i
 
 if.end8.i13.i.i:                                  ; preds = %if.else.i.i
-  %prev9.i14.i.i = getelementptr inbounds i8, ptr %21, i64 40
+  %prev9.i14.i.i = getelementptr inbounds nuw i8, ptr %21, i64 40
   %22 = load ptr, ptr %prev9.i14.i.i, align 8
-  %prev10.i15.i.i = getelementptr inbounds i8, ptr %call9.i, i64 40
+  %prev10.i15.i.i = getelementptr inbounds nuw i8, ptr %call9.i, i64 40
   store ptr %22, ptr %prev10.i15.i.i, align 8
-  %next12.i16.i.i = getelementptr inbounds i8, ptr %22, i64 32
+  %next12.i16.i.i = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %call9.i, ptr %next12.i16.i.i, align 8
   %23 = load ptr, ptr %req_waiting_head.i.i, align 8
-  %next13.i17.i.i = getelementptr inbounds i8, ptr %call9.i, i64 32
+  %next13.i17.i.i = getelementptr inbounds nuw i8, ptr %call9.i, i64 32
   store ptr %23, ptr %next13.i17.i.i, align 8
-  %prev14.i18.i.i = getelementptr inbounds i8, ptr %23, i64 40
+  %prev14.i18.i.i = getelementptr inbounds nuw i8, ptr %23, i64 40
   store ptr %call9.i, ptr %prev14.i18.i.i, align 8
   br label %evdns_request_insert.exit22.i.i
 
 evdns_request_insert.exit22.i.i:                  ; preds = %if.end8.i13.i.i, %if.then7.i19.i.i
-  %global_requests_waiting.i.i = getelementptr inbounds i8, ptr %11, i64 48
+  %global_requests_waiting.i.i = getelementptr inbounds nuw i8, ptr %11, i64 48
   %24 = load i32, ptr %global_requests_waiting.i.i, align 8
   %inc11.i.i = add nsw i32 %24, 1
   store i32 %inc11.i.i, ptr %global_requests_waiting.i.i, align 8
@@ -12166,7 +12166,7 @@ evdns_request_insert.exit22.i.i:                  ; preds = %if.end8.i13.i.i, %i
 nameserver_send_probe.exit:                       ; preds = %do.end, %if.then11.i, %evdns_request_insert.exit.i.i, %evdns_request_insert.exit22.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %addrbuf.i)
   %25 = load ptr, ptr %base, align 8
-  %lock5 = getelementptr inbounds i8, ptr %25, i64 336
+  %lock5 = getelementptr inbounds nuw i8, ptr %25, i64 336
   %26 = load ptr, ptr %lock5, align 8
   %tobool6.not = icmp eq ptr %26, null
   br i1 %tobool6.not, label %do.end12, label %if.then7
@@ -12193,9 +12193,9 @@ entry:
   br i1 %cmp, label %do.end18, label %do.body
 
 do.body:                                          ; preds = %entry
-  %base = getelementptr inbounds i8, ptr %arg, i64 432
+  %base = getelementptr inbounds nuw i8, ptr %arg, i64 432
   %0 = load ptr, ptr %base, align 8
-  %lock = getelementptr inbounds i8, ptr %0, i64 336
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 336
   %1 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.end, label %if.then1
@@ -12206,7 +12206,7 @@ if.then1:                                         ; preds = %do.body
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then1
-  %probe_request = getelementptr inbounds i8, ptr %arg, i64 416
+  %probe_request = getelementptr inbounds nuw i8, ptr %arg, i64 416
   store ptr null, ptr %probe_request, align 8
   switch i32 %result, label %if.else [
     i32 3, label %if.then7
@@ -12215,16 +12215,16 @@ do.end:                                           ; preds = %do.body, %if.then1
 
 if.then7:                                         ; preds = %do.end, %do.end
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrbuf.i)
-  %state.i = getelementptr inbounds i8, ptr %arg, i64 424
+  %state.i = getelementptr inbounds nuw i8, ptr %arg, i64 424
   %3 = load i8, ptr %state.i, align 8
   %tobool4.not.i = icmp eq i8 %3, 0
   br i1 %tobool4.not.i, label %if.end6.i, label %nameserver_up.exit
 
 if.end6.i:                                        ; preds = %if.then7
-  %address.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %address.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %call.i = call ptr @evutil_format_sockaddr_port_(ptr noundef nonnull %address.i, ptr noundef nonnull %addrbuf.i, i64 noundef 128) #18
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 1, ptr noundef nonnull @.str.59, ptr noundef %call.i)
-  %timeout_event.i = getelementptr inbounds i8, ptr %arg, i64 296
+  %timeout_event.i = getelementptr inbounds nuw i8, ptr %arg, i64 296
   %call7.i = call i32 @event_del(ptr noundef nonnull %timeout_event.i) #18
   %4 = load ptr, ptr %probe_request, align 8
   %tobool8.not.i = icmp eq ptr %4, null
@@ -12238,12 +12238,12 @@ if.then9.i:                                       ; preds = %if.end6.i
 
 if.end13.i:                                       ; preds = %if.then9.i, %if.end6.i
   store i8 1, ptr %state.i, align 8
-  %failed_times.i = getelementptr inbounds i8, ptr %arg, i64 148
+  %failed_times.i = getelementptr inbounds nuw i8, ptr %arg, i64 148
   store i32 0, ptr %failed_times.i, align 4
-  %timedout.i = getelementptr inbounds i8, ptr %arg, i64 152
+  %timedout.i = getelementptr inbounds nuw i8, ptr %arg, i64 152
   store i32 0, ptr %timedout.i, align 8
   %6 = load ptr, ptr %base, align 8
-  %global_good_nameservers.i = getelementptr inbounds i8, ptr %6, i64 40
+  %global_good_nameservers.i = getelementptr inbounds nuw i8, ptr %6, i64 40
   %7 = load i32, ptr %global_good_nameservers.i, align 8
   %inc.i = add nsw i32 %7, 1
   store i32 %inc.i, ptr %global_good_nameservers.i, align 8
@@ -12256,22 +12256,22 @@ nameserver_up.exit:                               ; preds = %if.then7, %if.end13
 if.else:                                          ; preds = %do.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timeout.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrbuf.i10)
-  %timeout_event.i11 = getelementptr inbounds i8, ptr %arg, i64 296
+  %timeout_event.i11 = getelementptr inbounds nuw i8, ptr %arg, i64 296
   %call.i12 = tail call i32 @event_del(ptr noundef nonnull %timeout_event.i11) #18
-  %state.i13 = getelementptr inbounds i8, ptr %arg, i64 424
+  %state.i13 = getelementptr inbounds nuw i8, ptr %arg, i64 424
   %8 = load i8, ptr %state.i13, align 8
   %cmp.i = icmp eq i8 %8, 1
   br i1 %cmp.i, label %nameserver_probe_failed.exit, label %if.end6.i14
 
 if.end6.i14:                                      ; preds = %if.else
   %9 = load ptr, ptr %base, align 8
-  %global_nameserver_probe_initial_timeout.i = getelementptr inbounds i8, ptr %9, i64 96
+  %global_nameserver_probe_initial_timeout.i = getelementptr inbounds nuw i8, ptr %9, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout.i, ptr noundef nonnull align 8 dereferenceable(16) %global_nameserver_probe_initial_timeout.i, i64 16, i1 false)
-  %failed_times.i16 = getelementptr inbounds i8, ptr %arg, i64 148
+  %failed_times.i16 = getelementptr inbounds nuw i8, ptr %arg, i64 148
   %10 = load i32, ptr %failed_times.i16, align 4
   %timeout.promoted.i = load i64, ptr %timeout.i, align 8
   %cmp817.i = icmp sgt i32 %10, 0
-  %ns_max_probe_timeout.i = getelementptr inbounds i8, ptr %9, i64 348
+  %ns_max_probe_timeout.i = getelementptr inbounds nuw i8, ptr %9, i64 348
   br i1 %cmp817.i, label %land.rhs.lr.ph.i, label %if.end6.for.end_crit_edge.i
 
 if.end6.for.end_crit_edge.i:                      ; preds = %if.end6.i14
@@ -12280,8 +12280,8 @@ if.end6.for.end_crit_edge.i:                      ; preds = %if.end6.i14
   br label %for.end.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end6.i14
-  %ns_timeout_backoff_factor.i = getelementptr inbounds i8, ptr %9, i64 352
-  %tv_usec.i = getelementptr inbounds i8, ptr %timeout.i, i64 8
+  %ns_timeout_backoff_factor.i = getelementptr inbounds nuw i8, ptr %9, i64 352
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %timeout.i, i64 8
   %tv_usec.promoted.i = load i64, ptr %tv_usec.i, align 8
   %.pre.i = load i32, ptr %ns_max_probe_timeout.i, align 4
   %conv11.i = sext i32 %.pre.i to i64
@@ -12332,7 +12332,7 @@ for.end.i:                                        ; preds = %land.rhs.for.end_cr
 
 if.then35.i:                                      ; preds = %for.end.i
   store i64 %conv32.pre-phi.i, ptr %timeout.i, align 8
-  %tv_usec40.i = getelementptr inbounds i8, ptr %timeout.i, i64 8
+  %tv_usec40.i = getelementptr inbounds nuw i8, ptr %timeout.i, i64 8
   store i64 0, ptr %tv_usec40.i, align 8
   br label %if.end41.i
 
@@ -12344,7 +12344,7 @@ if.end41.i:                                       ; preds = %if.then35.i, %for.e
   br i1 %cmp45.i, label %if.then47.i, label %nameserver_probe_failed.exit
 
 if.then47.i:                                      ; preds = %if.end41.i
-  %address.i18 = getelementptr inbounds i8, ptr %arg, i64 16
+  %address.i18 = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %call48.i = call ptr @evutil_format_sockaddr_port_(ptr noundef nonnull %address.i18, ptr noundef nonnull %addrbuf.i10, i64 noundef 128) #18
   call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef nonnull @.str.52, ptr noundef %call48.i)
   br label %nameserver_probe_failed.exit
@@ -12356,7 +12356,7 @@ nameserver_probe_failed.exit:                     ; preds = %if.else, %if.end41.
 
 do.body9:                                         ; preds = %nameserver_up.exit, %nameserver_probe_failed.exit
   %14 = load ptr, ptr %base, align 8
-  %lock11 = getelementptr inbounds i8, ptr %14, i64 336
+  %lock11 = getelementptr inbounds nuw i8, ptr %14, i64 336
   %15 = load ptr, ptr %lock11, align 8
   %tobool12.not = icmp eq ptr %15, null
   br i1 %tobool12.not, label %do.end18, label %if.then13
@@ -12378,7 +12378,7 @@ declare i32 @event_get_priority(ptr noundef) local_unnamed_addr #3
 define internal void @reply_run_callback(ptr noundef %d, ptr noundef %user_pointer) #2 {
 entry:
   %name = alloca ptr, align 8
-  %request_type = getelementptr inbounds i8, ptr %d, i64 56
+  %request_type = getelementptr inbounds nuw i8, ptr %d, i64 56
   %0 = load i8, ptr %request_type, align 8
   switch i8 %0, label %sw.epilog [
     i8 1, label %sw.bb
@@ -12387,22 +12387,22 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %have_reply = getelementptr inbounds i8, ptr %d, i64 57
+  %have_reply = getelementptr inbounds nuw i8, ptr %d, i64 57
   %1 = load i8, ptr %have_reply, align 1
   %tobool.not = icmp eq i8 %1, 0
-  %user_callback9 = getelementptr inbounds i8, ptr %d, i64 40
+  %user_callback9 = getelementptr inbounds nuw i8, ptr %d, i64 40
   %2 = load ptr, ptr %user_callback9, align 8
-  %ttl10 = getelementptr inbounds i8, ptr %d, i64 60
+  %ttl10 = getelementptr inbounds nuw i8, ptr %d, i64 60
   %3 = load i32, ptr %ttl10, align 4
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %sw.bb
-  %rr_count = getelementptr inbounds i8, ptr %d, i64 80
+  %rr_count = getelementptr inbounds nuw i8, ptr %d, i64 80
   %4 = load i32, ptr %rr_count, align 8
-  %data = getelementptr inbounds i8, ptr %d, i64 88
+  %data = getelementptr inbounds nuw i8, ptr %d, i64 88
   %5 = load ptr, ptr %data, align 8
   tail call void %2(i32 noundef 0, i8 noundef signext 1, i32 noundef %4, i32 noundef %3, ptr noundef %5, ptr noundef %user_pointer) #18
-  %cname = getelementptr inbounds i8, ptr %d, i64 96
+  %cname = getelementptr inbounds nuw i8, ptr %d, i64 96
   %6 = load ptr, ptr %cname, align 8
   %tobool3.not = icmp eq ptr %6, null
   br i1 %tobool3.not, label %sw.epilog, label %if.then4
@@ -12414,55 +12414,55 @@ if.then4:                                         ; preds = %if.then
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb
-  %err = getelementptr inbounds i8, ptr %d, i64 64
+  %err = getelementptr inbounds nuw i8, ptr %d, i64 64
   %9 = load i32, ptr %err, align 8
   tail call void %2(i32 noundef %9, i8 noundef signext 0, i32 noundef 0, i32 noundef %3, ptr noundef null, ptr noundef %user_pointer) #18
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
-  %have_reply13 = getelementptr inbounds i8, ptr %d, i64 57
+  %have_reply13 = getelementptr inbounds nuw i8, ptr %d, i64 57
   %10 = load i8, ptr %have_reply13, align 1
   %tobool14.not = icmp eq i8 %10, 0
   br i1 %tobool14.not, label %if.else20, label %if.then15
 
 if.then15:                                        ; preds = %sw.bb12
-  %data17 = getelementptr inbounds i8, ptr %d, i64 88
+  %data17 = getelementptr inbounds nuw i8, ptr %d, i64 88
   %11 = load ptr, ptr %data17, align 8
   store ptr %11, ptr %name, align 8
-  %user_callback18 = getelementptr inbounds i8, ptr %d, i64 40
+  %user_callback18 = getelementptr inbounds nuw i8, ptr %d, i64 40
   %12 = load ptr, ptr %user_callback18, align 8
-  %ttl19 = getelementptr inbounds i8, ptr %d, i64 60
+  %ttl19 = getelementptr inbounds nuw i8, ptr %d, i64 60
   %13 = load i32, ptr %ttl19, align 4
   call void %12(i32 noundef 0, i8 noundef signext 2, i32 noundef 1, i32 noundef %13, ptr noundef nonnull %name, ptr noundef %user_pointer) #18
   br label %sw.epilog
 
 if.else20:                                        ; preds = %sw.bb12
-  %user_callback21 = getelementptr inbounds i8, ptr %d, i64 40
+  %user_callback21 = getelementptr inbounds nuw i8, ptr %d, i64 40
   %14 = load ptr, ptr %user_callback21, align 8
-  %err22 = getelementptr inbounds i8, ptr %d, i64 64
+  %err22 = getelementptr inbounds nuw i8, ptr %d, i64 64
   %15 = load i32, ptr %err22, align 8
-  %ttl23 = getelementptr inbounds i8, ptr %d, i64 60
+  %ttl23 = getelementptr inbounds nuw i8, ptr %d, i64 60
   %16 = load i32, ptr %ttl23, align 4
   tail call void %14(i32 noundef %15, i8 noundef signext 0, i32 noundef 0, i32 noundef %16, ptr noundef null, ptr noundef %user_pointer) #18
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
-  %have_reply26 = getelementptr inbounds i8, ptr %d, i64 57
+  %have_reply26 = getelementptr inbounds nuw i8, ptr %d, i64 57
   %17 = load i8, ptr %have_reply26, align 1
   %tobool27.not = icmp eq i8 %17, 0
-  %user_callback45 = getelementptr inbounds i8, ptr %d, i64 40
+  %user_callback45 = getelementptr inbounds nuw i8, ptr %d, i64 40
   %18 = load ptr, ptr %user_callback45, align 8
-  %ttl47 = getelementptr inbounds i8, ptr %d, i64 60
+  %ttl47 = getelementptr inbounds nuw i8, ptr %d, i64 60
   %19 = load i32, ptr %ttl47, align 4
   br i1 %tobool27.not, label %if.else44, label %if.then28
 
 if.then28:                                        ; preds = %sw.bb25
-  %rr_count31 = getelementptr inbounds i8, ptr %d, i64 80
+  %rr_count31 = getelementptr inbounds nuw i8, ptr %d, i64 80
   %20 = load i32, ptr %rr_count31, align 8
-  %data34 = getelementptr inbounds i8, ptr %d, i64 88
+  %data34 = getelementptr inbounds nuw i8, ptr %d, i64 88
   %21 = load ptr, ptr %data34, align 8
   tail call void %18(i32 noundef 0, i8 noundef signext 3, i32 noundef %20, i32 noundef %19, ptr noundef %21, ptr noundef %user_pointer) #18
-  %cname36 = getelementptr inbounds i8, ptr %d, i64 96
+  %cname36 = getelementptr inbounds nuw i8, ptr %d, i64 96
   %22 = load ptr, ptr %cname36, align 8
   %tobool37.not = icmp eq ptr %22, null
   br i1 %tobool37.not, label %sw.epilog, label %if.then38
@@ -12474,13 +12474,13 @@ if.then38:                                        ; preds = %if.then28
   br label %sw.epilog
 
 if.else44:                                        ; preds = %sw.bb25
-  %err46 = getelementptr inbounds i8, ptr %d, i64 64
+  %err46 = getelementptr inbounds nuw i8, ptr %d, i64 64
   %25 = load i32, ptr %err46, align 8
   tail call void %18(i32 noundef %25, i8 noundef signext 0, i32 noundef 0, i32 noundef %19, ptr noundef null, ptr noundef %user_pointer) #18
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %if.else44, %if.then38, %if.then28, %if.then15, %if.else20, %if.else, %if.then4, %if.then
-  %data50 = getelementptr inbounds i8, ptr %d, i64 88
+  %data50 = getelementptr inbounds nuw i8, ptr %d, i64 88
   %26 = load ptr, ptr %data50, align 8
   %tobool51.not = icmp eq ptr %26, null
   br i1 %tobool51.not, label %if.end55, label %if.then52
@@ -12490,7 +12490,7 @@ if.then52:                                        ; preds = %sw.epilog
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then52, %sw.epilog
-  %cname57 = getelementptr inbounds i8, ptr %d, i64 96
+  %cname57 = getelementptr inbounds nuw i8, ptr %d, i64 96
   %27 = load ptr, ptr %cname57, align 8
   %tobool58.not = icmp eq ptr %27, null
   br i1 %tobool58.not, label %if.end62, label %if.then59
@@ -12559,7 +12559,7 @@ if.end2:                                          ; preds = %entry
   %mul = fmul double %sub, 1.000000e+06
   %conv6 = fptosi double %mul to i32
   %conv7 = sext i32 %conv6 to i64
-  %tv_usec = getelementptr inbounds i8, ptr %out, i64 8
+  %tv_usec = getelementptr inbounds nuw i8, ptr %out, i64 8
   store i64 %conv7, ptr %tv_usec, align 8
   %cmp9 = icmp eq i32 %conv, 0
   %cmp12 = icmp slt i32 %conv6, 1000
@@ -12650,7 +12650,7 @@ if.then22:                                        ; preds = %if.else
   br i1 %tobool24.not, label %if.end52, label %if.then25
 
 if.then25:                                        ; preds = %if.then22
-  %global_search_state.i = getelementptr inbounds i8, ptr %base, i64 312
+  %global_search_state.i = getelementptr inbounds nuw i8, ptr %base, i64 312
   %0 = load ptr, ptr %global_search_state.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %search_state_decref.exit.i, label %if.end.i.i
@@ -12663,14 +12663,14 @@ if.end.i.i:                                       ; preds = %if.then25
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %search_state_decref.exit.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %head.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %head.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %head.i.i, align 8
   %tobool4.not7.i.i = icmp eq ptr %2, null
   br i1 %tobool4.not7.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then3.i.i, %for.body.i.i
   %dom.08.i.i = phi ptr [ %3, %for.body.i.i ], [ %2, %if.then3.i.i ]
-  %next5.i.i = getelementptr inbounds i8, ptr %dom.08.i.i, i64 8
+  %next5.i.i = getelementptr inbounds nuw i8, ptr %dom.08.i.i, i64 8
   %3 = load ptr, ptr %next5.i.i, align 8
   call void @event_mm_free_(ptr noundef nonnull %dom.08.i.i) #18
   %tobool4.not.i.i = icmp eq ptr %3, null
@@ -12686,10 +12686,10 @@ search_state_decref.exit.i:                       ; preds = %for.end.i.i, %if.en
   br i1 %tobool.not.i2.i, label %search_postfix_clear.exit, label %if.end.i3.i
 
 if.end.i3.i:                                      ; preds = %search_state_decref.exit.i
-  %4 = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i, align 8
-  %ndots.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %ndots.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 1, ptr %ndots.i.i, align 4
   br label %search_postfix_clear.exit
 
@@ -12701,7 +12701,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %sear
   %domain.addr.0.i = phi ptr [ %call23, %search_postfix_clear.exit ], [ %incdec.ptr.i, %while.cond.i ]
   %5 = load i8, ptr %domain.addr.0.i, align 1
   %cmp.i = icmp eq i8 %5, 46
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %domain.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %domain.addr.0.i, i64 1
   br i1 %cmp.i, label %while.cond.i, label %while.end.i, !llvm.loop !29
 
 while.end.i:                                      ; preds = %while.cond.i
@@ -12718,17 +12718,17 @@ if.end9.thread17.i:                               ; preds = %if.then6.i
   br label %if.end52
 
 if.end9.i:                                        ; preds = %if.then6.i
-  %6 = getelementptr inbounds i8, ptr %call.i.i22, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %call.i.i22, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i22, align 8
-  %ndots.i.i24 = getelementptr inbounds i8, ptr %call.i.i22, i64 4
+  %ndots.i.i24 = getelementptr inbounds nuw i8, ptr %call.i.i22, i64 4
   store i32 1, ptr %ndots.i.i24, align 4
   store ptr %call.i.i22, ptr %global_search_state.i, align 8
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end9.i, %while.end.i
   %7 = phi ptr [ %call.i.i22, %if.end9.i ], [ %call.i.i, %while.end.i ]
-  %num_domains.i = getelementptr inbounds i8, ptr %7, i64 8
+  %num_domains.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %num_domains.i, align 8
   %inc.i = add nsw i32 %8, 1
   store i32 %inc.i, ptr %num_domains.i, align 8
@@ -12738,17 +12738,17 @@ if.end13.i:                                       ; preds = %if.end9.i, %while.e
   br i1 %tobool16.not.i, label %if.end52, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end13.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %call15.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call15.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %domain.addr.0.i, i64 %call.i, i1 false)
   %9 = load ptr, ptr %global_search_state.i, align 8
-  %head.i = getelementptr inbounds i8, ptr %9, i64 16
+  %head.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %10 = load ptr, ptr %head.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %call15.i, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %call15.i, i64 8
   store ptr %10, ptr %next.i, align 8
   %conv20.i = trunc i64 %call.i to i32
   store i32 %conv20.i, ptr %call15.i, align 8
   %11 = load ptr, ptr %global_search_state.i, align 8
-  %head22.i = getelementptr inbounds i8, ptr %11, i64 16
+  %head22.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %call15.i, ptr %head22.i, align 8
   br label %if.end52
 
@@ -12759,7 +12759,7 @@ if.else27:                                        ; preds = %if.else
   br i1 %or.cond20, label %if.else37, label %if.then33
 
 if.then33:                                        ; preds = %if.else27
-  %global_search_state.i25 = getelementptr inbounds i8, ptr %base, i64 312
+  %global_search_state.i25 = getelementptr inbounds nuw i8, ptr %base, i64 312
   %12 = load ptr, ptr %global_search_state.i25, align 8
   %tobool.not.i.i26 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i26, label %search_state_decref.exit.i30, label %if.end.i.i27
@@ -12772,14 +12772,14 @@ if.end.i.i27:                                     ; preds = %if.then33
   br i1 %tobool2.not.i.i29, label %if.then3.i.i35, label %search_state_decref.exit.i30
 
 if.then3.i.i35:                                   ; preds = %if.end.i.i27
-  %head.i.i36 = getelementptr inbounds i8, ptr %12, i64 16
+  %head.i.i36 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %head.i.i36, align 8
   %tobool4.not7.i.i37 = icmp eq ptr %14, null
   br i1 %tobool4.not7.i.i37, label %for.end.i.i42, label %for.body.i.i38
 
 for.body.i.i38:                                   ; preds = %if.then3.i.i35, %for.body.i.i38
   %dom.08.i.i39 = phi ptr [ %15, %for.body.i.i38 ], [ %14, %if.then3.i.i35 ]
-  %next5.i.i40 = getelementptr inbounds i8, ptr %dom.08.i.i39, i64 8
+  %next5.i.i40 = getelementptr inbounds nuw i8, ptr %dom.08.i.i39, i64 8
   %15 = load ptr, ptr %next5.i.i40, align 8
   call void @event_mm_free_(ptr noundef nonnull %dom.08.i.i39) #18
   %tobool4.not.i.i41 = icmp eq ptr %15, null
@@ -12795,10 +12795,10 @@ search_state_decref.exit.i30:                     ; preds = %for.end.i.i42, %if.
   br i1 %tobool.not.i2.i32, label %search_postfix_clear.exit43, label %if.end.i3.i33
 
 if.end.i3.i33:                                    ; preds = %search_state_decref.exit.i30
-  %16 = getelementptr inbounds i8, ptr %call.i.i31, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %call.i.i31, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i31, align 8
-  %ndots.i.i34 = getelementptr inbounds i8, ptr %call.i.i31, i64 4
+  %ndots.i.i34 = getelementptr inbounds nuw i8, ptr %call.i.i31, i64 4
   store i32 1, ptr %ndots.i.i34, align 4
   br label %search_postfix_clear.exit43
 
@@ -12812,7 +12812,7 @@ while.cond.i44:                                   ; preds = %search_postfix_clea
   %domain.addr.0.i45 = phi ptr [ %domain.addr.0.i45.be, %while.cond.i44.backedge ], [ %call3574, %search_postfix_clear.exit43 ]
   %17 = load i8, ptr %domain.addr.0.i45, align 1
   %cmp.i46 = icmp eq i8 %17, 46
-  %incdec.ptr.i47 = getelementptr inbounds i8, ptr %domain.addr.0.i45, i64 1
+  %incdec.ptr.i47 = getelementptr inbounds nuw i8, ptr %domain.addr.0.i45, i64 1
   br i1 %cmp.i46, label %while.cond.i44.backedge, label %while.end.i48
 
 while.cond.i44.backedge:                          ; preds = %while.cond.i44, %search_postfix_add.exit70
@@ -12835,17 +12835,17 @@ if.end9.thread17.i69:                             ; preds = %if.then6.i64
   br label %search_postfix_add.exit70
 
 if.end9.i67:                                      ; preds = %if.then6.i64
-  %19 = getelementptr inbounds i8, ptr %call.i.i65, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %call.i.i65, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i65, align 8
-  %ndots.i.i68 = getelementptr inbounds i8, ptr %call.i.i65, i64 4
+  %ndots.i.i68 = getelementptr inbounds nuw i8, ptr %call.i.i65, i64 4
   store i32 1, ptr %ndots.i.i68, align 4
   store ptr %call.i.i65, ptr %global_search_state.i25, align 8
   br label %if.end13.i52
 
 if.end13.i52:                                     ; preds = %if.end9.i67, %while.end.i48
   %20 = phi ptr [ %call.i.i65, %if.end9.i67 ], [ %18, %while.end.i48 ]
-  %num_domains.i53 = getelementptr inbounds i8, ptr %20, i64 8
+  %num_domains.i53 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load i32, ptr %num_domains.i53, align 8
   %inc.i54 = add nsw i32 %21, 1
   store i32 %inc.i54, ptr %num_domains.i53, align 8
@@ -12855,17 +12855,17 @@ if.end13.i52:                                     ; preds = %if.end9.i67, %while
   br i1 %tobool16.not.i57, label %search_postfix_add.exit70, label %if.end18.i58
 
 if.end18.i58:                                     ; preds = %if.end13.i52
-  %add.ptr.i59 = getelementptr inbounds i8, ptr %call15.i56, i64 16
+  %add.ptr.i59 = getelementptr inbounds nuw i8, ptr %call15.i56, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i59, ptr nonnull align 1 %domain.addr.0.i45, i64 %call.i49, i1 false)
   %22 = load ptr, ptr %global_search_state.i25, align 8
-  %head.i60 = getelementptr inbounds i8, ptr %22, i64 16
+  %head.i60 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %23 = load ptr, ptr %head.i60, align 8
-  %next.i61 = getelementptr inbounds i8, ptr %call15.i56, i64 8
+  %next.i61 = getelementptr inbounds nuw i8, ptr %call15.i56, i64 8
   store ptr %23, ptr %next.i61, align 8
   %conv20.i62 = trunc i64 %call.i49 to i32
   store i32 %conv20.i62, ptr %call15.i56, align 8
   %24 = load ptr, ptr %global_search_state.i25, align 8
-  %head22.i63 = getelementptr inbounds i8, ptr %24, i64 16
+  %head22.i63 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %call15.i56, ptr %head22.i63, align 8
   br label %search_postfix_add.exit70
 
@@ -12876,7 +12876,7 @@ search_postfix_add.exit70:                        ; preds = %if.end9.thread17.i6
 
 while.end:                                        ; preds = %search_postfix_add.exit70, %search_postfix_clear.exit43
   %25 = load ptr, ptr %global_search_state.i25, align 8
-  %head.i72 = getelementptr inbounds i8, ptr %25, i64 16
+  %head.i72 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %26 = load ptr, ptr %head.i72, align 8
   %tobool4.not7.i = icmp eq ptr %26, null
   br i1 %tobool4.not7.i, label %search_reverse.exit, label %while.body.i
@@ -12884,7 +12884,7 @@ while.end:                                        ; preds = %search_postfix_add.
 while.body.i:                                     ; preds = %while.end, %while.body.i
   %cur.09.i = phi ptr [ %27, %while.body.i ], [ %26, %while.end ]
   %prev.08.i = phi ptr [ %cur.09.i, %while.body.i ], [ null, %while.end ]
-  %next5.i = getelementptr inbounds i8, ptr %cur.09.i, i64 8
+  %next5.i = getelementptr inbounds nuw i8, ptr %cur.09.i, i64 8
   %27 = load ptr, ptr %next5.i, align 8
   store ptr %prev.08.i, ptr %next5.i, align 8
   %tobool4.not.i = icmp eq ptr %27, null
@@ -12897,7 +12897,7 @@ while.end.loopexit.i:                             ; preds = %while.body.i
 search_reverse.exit:                              ; preds = %while.end, %while.end.loopexit.i
   %28 = phi ptr [ %25, %while.end ], [ %.pre.i, %while.end.loopexit.i ]
   %prev.0.lcssa.i = phi ptr [ null, %while.end ], [ %cur.09.i, %while.end.loopexit.i ]
-  %head8.i = getelementptr inbounds i8, ptr %28, i64 16
+  %head8.i = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %prev.0.lcssa.i, ptr %head8.i, align 8
   br label %if.end52
 
@@ -12915,7 +12915,7 @@ while.body44:                                     ; preds = %while.cond41.prehea
   %call4279 = phi ptr [ %call42, %while.body44 ], [ %call4277, %while.cond41.preheader ]
   %call45 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call4279, i32 noundef 58) #20
   %tobool46.not = icmp eq ptr %call45, null
-  %add.ptr = getelementptr inbounds i8, ptr %call45, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call45, i64 1
   %cond = select i1 %tobool46.not, ptr @.str.31, ptr %add.ptr
   %call47 = call fastcc i32 @evdns_base_set_option_impl(ptr noundef %base, ptr noundef nonnull %call4279, ptr noundef nonnull %cond, i32 noundef %flags)
   %call42 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.108, ptr noundef nonnull %strtok_state) #18
@@ -12930,7 +12930,7 @@ if.end52:                                         ; preds = %while.body44, %whil
 define internal fastcc void @search_set_from_hostname(ptr nocapture noundef %base) unnamed_addr #2 {
 entry:
   %hostname = alloca [256 x i8], align 16
-  %global_search_state.i = getelementptr inbounds i8, ptr %base, i64 312
+  %global_search_state.i = getelementptr inbounds nuw i8, ptr %base, i64 312
   %0 = load ptr, ptr %global_search_state.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %search_state_decref.exit.i, label %if.end.i.i
@@ -12943,14 +12943,14 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %search_state_decref.exit.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %head.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %head.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %head.i.i, align 8
   %tobool4.not7.i.i = icmp eq ptr %2, null
   br i1 %tobool4.not7.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then3.i.i, %for.body.i.i
   %dom.08.i.i = phi ptr [ %3, %for.body.i.i ], [ %2, %if.then3.i.i ]
-  %next5.i.i = getelementptr inbounds i8, ptr %dom.08.i.i, i64 8
+  %next5.i.i = getelementptr inbounds nuw i8, ptr %dom.08.i.i, i64 8
   %3 = load ptr, ptr %next5.i.i, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %dom.08.i.i) #18
   %tobool4.not.i.i = icmp eq ptr %3, null
@@ -12966,10 +12966,10 @@ search_state_decref.exit.i:                       ; preds = %for.end.i.i, %if.en
   br i1 %tobool.not.i2.i, label %search_postfix_clear.exit, label %if.end.i3.i
 
 if.end.i3.i:                                      ; preds = %search_state_decref.exit.i
-  %4 = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i, align 8
-  %ndots.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %ndots.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 1, ptr %ndots.i.i, align 4
   br label %search_postfix_clear.exit
 
@@ -12988,7 +12988,7 @@ while.cond.i:                                     ; preds = %if.end6, %while.con
   %domain.addr.0.i = phi ptr [ %incdec.ptr.i, %while.cond.i ], [ %call8, %if.end6 ]
   %5 = load i8, ptr %domain.addr.0.i, align 1
   %cmp.i = icmp eq i8 %5, 46
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %domain.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %domain.addr.0.i, i64 1
   br i1 %cmp.i, label %while.cond.i, label %while.end.i, !llvm.loop !29
 
 while.end.i:                                      ; preds = %while.cond.i
@@ -13007,17 +13007,17 @@ if.end9.thread17.i:                               ; preds = %if.then6.i
   br label %return
 
 if.end9.i:                                        ; preds = %if.then6.i
-  %7 = getelementptr inbounds i8, ptr %call.i.i5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %call.i.i5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 16, i1 false)
   store i32 1, ptr %call.i.i5, align 8
-  %ndots.i.i7 = getelementptr inbounds i8, ptr %call.i.i5, i64 4
+  %ndots.i.i7 = getelementptr inbounds nuw i8, ptr %call.i.i5, i64 4
   store i32 1, ptr %ndots.i.i7, align 4
   store ptr %call.i.i5, ptr %global_search_state.i, align 8
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end9.i, %while.end.i
   %8 = phi ptr [ %call.i.i5, %if.end9.i ], [ %6, %while.end.i ]
-  %num_domains.i = getelementptr inbounds i8, ptr %8, i64 8
+  %num_domains.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i32, ptr %num_domains.i, align 8
   %inc.i = add nsw i32 %9, 1
   store i32 %inc.i, ptr %num_domains.i, align 8
@@ -13027,17 +13027,17 @@ if.end13.i:                                       ; preds = %if.end9.i, %while.e
   br i1 %tobool16.not.i, label %return, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end13.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %call15.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call15.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %domain.addr.0.i, i64 %call.i, i1 false)
   %10 = load ptr, ptr %global_search_state.i, align 8
-  %head.i = getelementptr inbounds i8, ptr %10, i64 16
+  %head.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %head.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %call15.i, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %call15.i, i64 8
   store ptr %11, ptr %next.i, align 8
   %conv20.i = trunc i64 %call.i to i32
   store i32 %conv20.i, ptr %call15.i, align 8
   %12 = load ptr, ptr %global_search_state.i, align 8
-  %head22.i = getelementptr inbounds i8, ptr %12, i64 16
+  %head22.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %call15.i, ptr %head22.i, align 8
   br label %return
 
@@ -13084,14 +13084,14 @@ if.end16:                                         ; preds = %if.end7
   ]
 
 return.sink.split.i:                              ; preds = %if.end16, %if.end16
-  %2 = getelementptr inbounds i8, ptr %ss, i64 2
+  %2 = getelementptr inbounds nuw i8, ptr %ss, i64 2
   %ss.val19 = load i16, ptr %2, align 2
   %call7.i = call zeroext i16 @ntohs(i16 noundef zeroext %ss.val19) #19
   %3 = icmp eq i16 %call7.i, 0
   br i1 %3, label %while.cond.preheader, label %return
 
 while.cond.preheader:                             ; preds = %return.sink.split.i, %if.end16
-  %tqh_last = getelementptr inbounds i8, ptr %base, i64 328
+  %tqh_last = getelementptr inbounds nuw i8, ptr %base, i64 328
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %do.end37
@@ -13120,18 +13120,18 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool33.not, label %return, label %do.end37
 
 do.end37:                                         ; preds = %if.end30
-  %addr38 = getelementptr inbounds i8, ptr %call32, i64 16
+  %addr38 = getelementptr inbounds nuw i8, ptr %call32, i64 16
   %4 = load i32, ptr %socklen, align 4
   %conv39 = sext i32 %4 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %addr38, ptr nonnull align 8 %ss, i64 %conv39, i1 false)
-  %hostname40 = getelementptr inbounds i8, ptr %call32, i64 48
+  %hostname40 = getelementptr inbounds nuw i8, ptr %call32, i64 48
   %add41 = add i64 %call31, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %hostname40, ptr nonnull align 1 %call21, i64 %add41, i1 false)
-  %addrlen = getelementptr inbounds i8, ptr %call32, i64 44
+  %addrlen = getelementptr inbounds nuw i8, ptr %call32, i64 44
   store i32 %4, ptr %addrlen, align 4
   store ptr null, ptr %call32, align 8
   %5 = load ptr, ptr %tqh_last, align 8
-  %tqe_prev = getelementptr inbounds i8, ptr %call32, i64 8
+  %tqe_prev = getelementptr inbounds nuw i8, ptr %call32, i64 8
   store ptr %5, ptr %tqe_prev, align 8
   store ptr %call32, ptr %5, align 8
   store ptr %call32, ptr %tqh_last, align 8
@@ -13150,7 +13150,7 @@ declare void @evutil_freeaddrinfo(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @free_getaddrinfo_request(ptr noundef %data) unnamed_addr #2 {
 entry:
-  %pending_result = getelementptr inbounds i8, ptr %data, i64 120
+  %pending_result = getelementptr inbounds nuw i8, ptr %data, i64 120
   %0 = load ptr, ptr %pending_result, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -13160,7 +13160,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %cname_result = getelementptr inbounds i8, ptr %data, i64 112
+  %cname_result = getelementptr inbounds nuw i8, ptr %data, i64 112
   %1 = load ptr, ptr %cname_result, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -13170,7 +13170,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %timeout = getelementptr inbounds i8, ptr %data, i64 128
+  %timeout = getelementptr inbounds nuw i8, ptr %data, i64 128
   %call = tail call i32 @event_del(ptr noundef nonnull %timeout) #18
   tail call void @event_mm_free_(ptr noundef nonnull %data) #18
   ret void

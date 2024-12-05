@@ -277,7 +277,7 @@ define hidden void @proto_register_mpls() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @mpls_value(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @proto_mpls, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 0) #3
@@ -286,7 +286,7 @@ define internal ptr @mpls_value(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @mpls_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_mpls, align 4
   %6 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 0) #3
@@ -304,7 +304,7 @@ declare i32 @decode_as_default_change(ptr noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @pw_ach_value(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @proto_pw_ach, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 0) #3
@@ -313,7 +313,7 @@ define internal ptr @pw_ach_value(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @pw_ach_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_pw_ach, align 4
   %6 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 0) #3
@@ -338,7 +338,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mpls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.mplsinfo, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.45) #3
   %8 = load ptr, ptr %6, align 8
@@ -349,10 +349,10 @@ define internal i32 @dissect_mpls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %10, label %.lr.ph, label %83
 
 .lr.ph:                                           ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
-  %12 = getelementptr inbounds i8, ptr %5, i64 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 5
-  %14 = getelementptr inbounds i8, ptr %5, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %.not = icmp eq ptr %2, null
   br label %18
 
@@ -626,7 +626,7 @@ define internal i32 @dissect_pw_ach(ptr noundef %0, ptr noundef %1, ptr noundef 
 9:                                                ; preds = %4
   %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #3
   %11 = zext i16 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_pw_ach, align 4
   %15 = zext i16 %10 to i64

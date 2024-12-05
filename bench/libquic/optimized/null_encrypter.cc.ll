@@ -36,7 +36,7 @@ define dso_local noundef zeroext i1 @_ZN3net13NullEncrypter6SetKeyEN4base16Basic
 entry:
   %key = alloca %"class.base::BasicStringPiece", align 8
   store ptr %key.coerce0, ptr %key, align 8
-  %0 = getelementptr inbounds i8, ptr %key, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %key, i64 8
   store i64 %key.coerce1, ptr %0, align 8
   %call = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %key)
   ret i1 %call
@@ -49,7 +49,7 @@ define dso_local noundef zeroext i1 @_ZN3net13NullEncrypter14SetNoncePrefixEN4ba
 entry:
   %nonce_prefix = alloca %"class.base::BasicStringPiece", align 8
   store ptr %nonce_prefix.coerce0, ptr %nonce_prefix, align 8
-  %0 = getelementptr inbounds i8, ptr %nonce_prefix, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %nonce_prefix, i64 8
   store i64 %nonce_prefix.coerce1, ptr %0, align 8
   %call = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %nonce_prefix)
   ret i1 %call
@@ -62,7 +62,7 @@ entry:
   %hash = alloca %"class.net::uint128", align 8
   %agg.tmp = alloca %"class.net::uint128", align 8
   store ptr %associated_data.coerce0, ptr %associated_data, align 8
-  %2 = getelementptr inbounds i8, ptr %associated_data, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %associated_data, i64 8
   store i64 %associated_data.coerce1, ptr %2, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %plaintext)
   %add = add i64 %call, 12
@@ -77,14 +77,14 @@ if.end:                                           ; preds = %entry
   %call7 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %plaintext)
   %conv8 = trunc i64 %call7 to i32
   call void @_ZN3net9QuicUtils18FNV1a_128_Hash_TwoEPKciS2_i(ptr nonnull sret(%"class.net::uint128") align 8 %hash, ptr noundef %call4, i32 noundef %conv, ptr noundef %call6, i32 noundef %conv8)
-  %add.ptr = getelementptr inbounds i8, ptr %output, i64 12
+  %add.ptr = getelementptr inbounds nuw i8, ptr %output, i64 12
   %call10 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %plaintext)
   %call11 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %plaintext)
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %call10, i64 %call11, i1 false)
   %3 = load i64, ptr %hash, align 8
   store i64 %3, ptr %agg.tmp, align 8
-  %hi_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %hi_3.i = getelementptr inbounds i8, ptr %hash, i64 8
+  %hi_.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
+  %hi_3.i = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %4 = load i64, ptr %hi_3.i, align 8
   store i64 %4, ptr %hi_.i, align 8
   call void @_ZN3net9QuicUtils21SerializeUint128ShortENS_7uint128EPh(ptr noundef nonnull %agg.tmp, ptr noundef %output)
@@ -147,7 +147,7 @@ entry:
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %retval)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -162,7 +162,7 @@ entry:
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %retval)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert

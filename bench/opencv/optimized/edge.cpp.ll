@@ -160,7 +160,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 51:                                               ; preds = %34
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @image, i64 64), align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = load i32, ptr %52, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %55 to i64
@@ -173,15 +173,15 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %58 unwind label %44
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %9, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %9, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %60, align 4
   store i32 16842752, ptr %9, align 8
-  %61 = getelementptr inbounds i8, ptr %9, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @image, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %10, i64 8
-  %63 = getelementptr inbounds i8, ptr %10, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %63, align 8
   store i32 33619968, ptr %10, align 8
   store ptr @gray, ptr %62, align 8
@@ -430,28 +430,28 @@ define internal void @_ZL10onTrackbariPv(i32 %0, ptr nocapture readnone %1) #5 p
   %25 = alloca %"class.std::__cxx11::basic_string", align 8
   %26 = alloca %"class.std::allocator", align 1
   %27 = alloca %"class.cv::_InputArray", align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %29, align 4
   store i32 16842752, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @gray, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %32, align 8
   store i32 33619968, ptr %4, align 8
   store ptr @blurImage, ptr %31, align 8
   call void @_ZN2cv4blurERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEENS_6Point_IiEEi(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 12884901891, i64 -1, i32 noundef 4)
-  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %34, align 4
   store i32 16842752, ptr %5, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @blurImage, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %37, align 8
   store i32 33619968, ptr %6, align 8
   store ptr @edge1, ptr %36, align 8
@@ -462,17 +462,17 @@ define internal void @_ZL10onTrackbariPv(i32 %0, ptr nocapture readnone %1) #5 p
   call void @_ZN2cv5CannyERKNS_11_InputArrayERKNS_12_OutputArrayEddib(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, double noundef %39, double noundef %41, i32 noundef 3, i1 noundef zeroext false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %42 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) @cedge, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  %43 = getelementptr inbounds i8, ptr %8, i64 8
-  %44 = getelementptr inbounds i8, ptr %8, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %44, align 8
   store i32 33619968, ptr %8, align 8
   store ptr @cedge, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %9, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %9, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %46, align 4
   store i32 16842752, ptr %9, align 8
-  %47 = getelementptr inbounds i8, ptr %9, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @edge1, ptr %47, align 8
   call void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(96) @image, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
   %48 = load ptr, ptr @window_name1, align 8
@@ -481,12 +481,12 @@ define internal void @_ZL10onTrackbariPv(i32 %0, ptr nocapture readnone %1) #5 p
           to label %49 unwind label %93
 
 49:                                               ; preds = %2
-  %50 = getelementptr inbounds i8, ptr %12, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %12, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %51, align 4
   store i32 16842752, ptr %12, align 8
-  %52 = getelementptr inbounds i8, ptr %12, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @cedge, ptr %52, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %53 unwind label %95
@@ -496,15 +496,15 @@ define internal void @_ZL10onTrackbariPv(i32 %0, ptr nocapture readnone %1) #5 p
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #8
-  %54 = getelementptr inbounds i8, ptr %15, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %15, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 0, ptr %55, align 4
   store i32 16842752, ptr %15, align 8
-  %56 = getelementptr inbounds i8, ptr %15, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @blurImage, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %16, i64 8
-  %58 = getelementptr inbounds i8, ptr %16, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %58, align 8
   store i32 33619968, ptr %16, align 8
   store ptr %13, ptr %57, align 8
@@ -512,15 +512,15 @@ define internal void @_ZL10onTrackbariPv(i32 %0, ptr nocapture readnone %1) #5 p
           to label %59 unwind label %100
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %17, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %17, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 0, ptr %61, align 4
   store i32 16842752, ptr %17, align 8
-  %62 = getelementptr inbounds i8, ptr %17, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @blurImage, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %18, i64 8
-  %64 = getelementptr inbounds i8, ptr %18, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 0, ptr %64, align 8
   store i32 33619968, ptr %18, align 8
   store ptr %14, ptr %63, align 8
@@ -528,22 +528,22 @@ define internal void @_ZL10onTrackbariPv(i32 %0, ptr nocapture readnone %1) #5 p
           to label %65 unwind label %102
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %19, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %19, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 0, ptr %67, align 4
   store i32 16842752, ptr %19, align 8
-  %68 = getelementptr inbounds i8, ptr %19, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %13, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %20, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %20, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 0, ptr %70, align 4
   store i32 16842752, ptr %20, align 8
-  %71 = getelementptr inbounds i8, ptr %20, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %14, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %21, i64 8
-  %73 = getelementptr inbounds i8, ptr %21, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %73, align 8
   store i32 33619968, ptr %21, align 8
   store ptr @edge2, ptr %72, align 8
@@ -560,17 +560,17 @@ define internal void @_ZL10onTrackbariPv(i32 %0, ptr nocapture readnone %1) #5 p
           to label %80 unwind label %98
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %23, i64 8
-  %82 = getelementptr inbounds i8, ptr %23, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 0, ptr %82, align 8
   store i32 33619968, ptr %23, align 8
   store ptr @cedge, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %24, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %24, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i32 0, ptr %84, align 4
   store i32 16842752, ptr %24, align 8
-  %85 = getelementptr inbounds i8, ptr %24, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr @edge2, ptr %85, align 8
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(96) @image, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24)
           to label %86 unwind label %106
@@ -582,12 +582,12 @@ define internal void @_ZL10onTrackbariPv(i32 %0, ptr nocapture readnone %1) #5 p
           to label %88 unwind label %108
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %27, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 0, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %27, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i32 0, ptr %90, align 4
   store i32 16842752, ptr %27, align 8
-  %91 = getelementptr inbounds i8, ptr %27, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr @cedge, ptr %91, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(24) %27)
           to label %92 unwind label %110

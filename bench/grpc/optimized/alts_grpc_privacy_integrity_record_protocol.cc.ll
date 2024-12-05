@@ -75,22 +75,22 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %length = getelementptr inbounds i8, ptr %unprotected_slices, i64 32
+  %length = getelementptr inbounds nuw i8, ptr %unprotected_slices, i64 32
   %0 = load i64, ptr %length, align 8
-  %header_length = getelementptr inbounds i8, ptr %rp, i64 288
+  %header_length = getelementptr inbounds nuw i8, ptr %rp, i64 288
   %1 = load i64, ptr %header_length, align 8
   %add = add i64 %1, %0
-  %iovec_rp = getelementptr inbounds i8, ptr %rp, i64 8
+  %iovec_rp = getelementptr inbounds nuw i8, ptr %rp, i64 8
   %2 = load ptr, ptr %iovec_rp, align 8
   %call = tail call noundef i64 @_Z41alts_iovec_record_protocol_get_tag_lengthPK26alts_iovec_record_protocol(ptr noundef %2)
   %add4 = add i64 %add, %call
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %protected_slice, i64 noundef %add4)
   %3 = load ptr, ptr %protected_slice, align 8
   %tobool.not = icmp eq ptr %3, null
-  %data = getelementptr inbounds i8, ptr %protected_slice, i64 8
-  %bytes = getelementptr inbounds i8, ptr %protected_slice, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %protected_slice, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %protected_slice, i64 16
   %4 = load ptr, ptr %bytes, align 8
-  %bytes6 = getelementptr inbounds i8, ptr %protected_slice, i64 9
+  %bytes6 = getelementptr inbounds nuw i8, ptr %protected_slice, i64 9
   %cond = select i1 %tobool.not, ptr %bytes6, ptr %4
   %5 = load i64, ptr %data, align 8
   %conv = and i64 %5, 255
@@ -98,9 +98,9 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %error_details, align 8
   call void @_Z55alts_grpc_record_protocol_convert_slice_buffer_to_iovecP25alts_grpc_record_protocolPK17grpc_slice_buffer(ptr noundef nonnull %rp, ptr noundef nonnull %unprotected_slices)
   %6 = load ptr, ptr %iovec_rp, align 8
-  %iovec_buf = getelementptr inbounds i8, ptr %rp, i64 304
+  %iovec_buf = getelementptr inbounds nuw i8, ptr %rp, i64 304
   %7 = load ptr, ptr %iovec_buf, align 8
-  %count = getelementptr inbounds i8, ptr %unprotected_slices, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %unprotected_slices, i64 16
   %8 = load i64, ptr %count, align 8
   %call18 = call noundef i32 @_Z52alts_iovec_record_protocol_privacy_integrity_protectP26alts_iovec_record_protocolPK5iovecmS1_PPc(ptr noundef %6, ptr noundef %7, i64 noundef %8, ptr %cond, i64 %cond16, ptr noundef nonnull %error_details)
   %cmp19.not = icmp eq i32 %call18, 0
@@ -121,7 +121,7 @@ if.then.i:                                        ; preds = %if.then20
   br i1 %cmp.i.i, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %destroyer_fn_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %return
@@ -154,11 +154,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %length = getelementptr inbounds i8, ptr %protected_slices, i64 32
+  %length = getelementptr inbounds nuw i8, ptr %protected_slices, i64 32
   %0 = load i64, ptr %length, align 8
-  %header_length = getelementptr inbounds i8, ptr %rp, i64 288
+  %header_length = getelementptr inbounds nuw i8, ptr %rp, i64 288
   %1 = load i64, ptr %header_length, align 8
-  %tag_length = getelementptr inbounds i8, ptr %rp, i64 296
+  %tag_length = getelementptr inbounds nuw i8, ptr %rp, i64 296
   %2 = load i64, ptr %tag_length, align 8
   %add = add i64 %2, %1
   %cmp4 = icmp ult i64 %0, %add
@@ -173,15 +173,15 @@ if.end6:                                          ; preds = %if.end
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %unprotected_slice, i64 noundef %sub10)
   %3 = load ptr, ptr %unprotected_slice, align 8
   %tobool.not = icmp eq ptr %3, null
-  %data = getelementptr inbounds i8, ptr %unprotected_slice, i64 8
-  %bytes = getelementptr inbounds i8, ptr %unprotected_slice, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %unprotected_slice, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %unprotected_slice, i64 16
   %4 = load ptr, ptr %bytes, align 8
-  %bytes12 = getelementptr inbounds i8, ptr %unprotected_slice, i64 9
+  %bytes12 = getelementptr inbounds nuw i8, ptr %unprotected_slice, i64 9
   %cond = select i1 %tobool.not, ptr %bytes12, ptr %4
   %5 = load i64, ptr %data, align 8
   %conv = and i64 %5, 255
   %cond22 = select i1 %tobool.not, i64 %conv, i64 %5
-  %header_sb = getelementptr inbounds i8, ptr %rp, i64 16
+  %header_sb = getelementptr inbounds nuw i8, ptr %rp, i64 16
   call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %header_sb)
   %6 = load i64, ptr %header_length, align 8
   call void @grpc_slice_buffer_move_first(ptr noundef nonnull %protected_slices, i64 noundef %6, ptr noundef nonnull %header_sb)
@@ -190,14 +190,14 @@ if.end6:                                          ; preds = %if.end
   %8 = extractvalue { ptr, i64 } %call, 1
   store ptr null, ptr %error_details, align 8
   call void @_Z55alts_grpc_record_protocol_convert_slice_buffer_to_iovecP25alts_grpc_record_protocolPK17grpc_slice_buffer(ptr noundef nonnull %rp, ptr noundef nonnull %protected_slices)
-  %iovec_rp = getelementptr inbounds i8, ptr %rp, i64 8
+  %iovec_rp = getelementptr inbounds nuw i8, ptr %rp, i64 8
   %9 = load ptr, ptr %iovec_rp, align 8
-  %iovec_buf = getelementptr inbounds i8, ptr %rp, i64 304
+  %iovec_buf = getelementptr inbounds nuw i8, ptr %rp, i64 304
   %10 = load ptr, ptr %iovec_buf, align 8
-  %count = getelementptr inbounds i8, ptr %protected_slices, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %protected_slices, i64 16
   %11 = load i64, ptr %count, align 8
   store ptr %cond, ptr %agg.tmp25, align 8
-  %unprotected_iovec.sroa.2.0.agg.tmp25.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp25, i64 8
+  %unprotected_iovec.sroa.2.0.agg.tmp25.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp25, i64 8
   store i64 %cond22, ptr %unprotected_iovec.sroa.2.0.agg.tmp25.sroa_idx, align 8
   %call26 = call noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef %9, ptr %7, i64 %8, ptr noundef %10, i64 noundef %11, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp25, ptr noundef nonnull %error_details)
   %cmp27.not = icmp eq i32 %call26, 0
@@ -218,7 +218,7 @@ if.then.i:                                        ; preds = %if.then28
   br i1 %cmp.i.i, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %destroyer_fn_.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(16) %14)
   br label %return

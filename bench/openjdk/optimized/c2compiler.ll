@@ -116,7 +116,7 @@ _ZN7OptoReg8as_VMRegEi.exit.preheader:
 
 _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %_ZN7OptoReg8as_VMRegEi.exit.preheader, %10
   %indvars.iv = phi i64 [ 0, %_ZN7OptoReg8as_VMRegEi.exit.preheader ], [ %indvars.iv.next, %10 ]
-  %1 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %indvars.iv
+  %1 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %1, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
@@ -142,7 +142,7 @@ _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %_ZN7OptoReg8as_VMRe
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %13 = load ptr, ptr %12, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %13) #10
-  %14 = getelementptr inbounds i8, ptr %13, i64 1808
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1808
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef zeroext i1 @_ZN11OptoRuntime8generateEP5ciEnv(ptr noundef %15) #10
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
@@ -171,7 +171,7 @@ define hidden void @_ZN10C2Compiler10initializeEv(ptr noundef nonnull align 8 de
 
 _ZN7OptoReg8as_VMRegEi.exit.i:                    ; preds = %14, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %14 ]
-  %5 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i32
@@ -197,7 +197,7 @@ _ZN10C2Compiler15init_c2_runtimeEv.exit:          ; preds = %14
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %16 = load ptr, ptr %15, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %16) #10
-  %17 = getelementptr inbounds i8, ptr %16, i64 1808
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1808
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZN11OptoRuntime8generateEP5ciEnv(ptr noundef %18) #10
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #10
@@ -227,12 +227,12 @@ define hidden void @_ZN10C2Compiler14compile_methodEP5ciEnvP8ciMethodibP12Direct
   %14 = load i8, ptr @EliminateAutoBox, align 1
   %15 = load i8, ptr @EliminateLocks, align 1
   %16 = load i8, ptr @UseSuperWord, align 1
-  %17 = getelementptr inbounds i8, ptr %1, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %18 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %.sroa.8.0.insert.shift = select i1 %4, i64 72057594037927936, i64 0
-  %19 = getelementptr inbounds i8, ptr %8, i64 352
-  %20 = getelementptr inbounds i8, ptr %8, i64 376
-  %21 = getelementptr inbounds i8, ptr %8, i64 127
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 352
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 376
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 127
   br label %22
 
 22:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %6
@@ -249,15 +249,15 @@ define hidden void @_ZN10C2Compiler14compile_methodEP5ciEnvP8ciMethodibP12Direct
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 800
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 800
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %27, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %27, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = and i8 %.022, 1
   %37 = and i8 %.033, 1
@@ -288,7 +288,7 @@ define hidden void @_ZN10C2Compiler14compile_methodEP5ciEnvP8ciMethodibP12Direct
   %.sroa.0.0.insert.insert = or i64 %.sroa.0.0.insert.mask, %.sroa.0.0.insert.ext
   call void @_ZN7CompileC1EP5ciEnvP8ciMethodi7OptionsP12DirectiveSet(ptr noundef nonnull align 8 dereferenceable(2316) %8, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i64 %.sroa.0.0.insert.insert, ptr noundef %5) #10
   %43 = load ptr, ptr %19, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %45 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %45, null
   %46 = load ptr, ptr %20, align 8
@@ -460,7 +460,7 @@ declare void @_ZN5Phase12print_timersEv() local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN10C2Compiler22is_intrinsic_supportedERK12methodHandle(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i32
   %7 = tail call noundef zeroext i1 @_ZN10C2Compiler22is_intrinsic_supportedE13vmIntrinsicID(i32 noundef %6)

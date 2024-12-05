@@ -47,13 +47,13 @@ define dso_local ptr @find_inheritance_children_extended(i32 noundef %0, i1 noun
   unreachable
 
 has_subclass.exit:                                ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i64
   %17 = getelementptr i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 122
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 122
   %19 = load i8, ptr %18, align 2
   %20 = trunc i8 %19 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %8) #4
@@ -106,13 +106,13 @@ has_subclass.exit:                                ; preds = %5
 
 36:                                               ; preds = %60, %.lr.ph.us.us.us
   %37 = phi ptr [ %26, %.lr.ph.us.us.us ], [ %61, %60 ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 22
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 22
   %41 = load i8, ptr %40, align 2
   %42 = zext i8 %41 to i64
   %43 = getelementptr i8, ptr %39, i64 %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %.split.us.split.us.split.us.us.us.us
@@ -123,7 +123,7 @@ has_subclass.exit:                                ; preds = %5
   br i1 %48, label %49, label %.split.us.split.us.split.us.us.us.us
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %.pre179, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %.pre179, i64 20
   %51 = load i16, ptr %50, align 4
   %52 = and i16 %51, 768
   %53 = icmp eq i16 %52, 768
@@ -150,7 +150,7 @@ has_subclass.exit:                                ; preds = %5
 
 .split.us.split.us.split.us.us.us.us:             ; preds = %47, %36, %..split.us.split.us.split.us.us.us.us_crit_edge
   %62 = phi ptr [ %.pre178, %..split.us.split.us.split.us.us.us.us_crit_edge ], [ %.pre179, %47 ], [ %39, %36 ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 22
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 22
   %64 = load i8, ptr %63, align 2
   %65 = zext i8 %64 to i64
   %66 = getelementptr i8, ptr %62, i64 %65
@@ -185,13 +185,13 @@ has_subclass.exit:                                ; preds = %5
 
 78:                                               ; preds = %.lr.ph.us.us, %102
   %79 = phi ptr [ %68, %.lr.ph.us.us ], [ %103, %102 ]
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 22
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 22
   %83 = load i8, ptr %82, align 2
   %84 = zext i8 %83 to i64
   %85 = getelementptr i8, ptr %81, i64 %84
-  %86 = getelementptr inbounds i8, ptr %85, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 12
   %87 = load i8, ptr %86, align 4
   %88 = trunc i8 %87 to i1
   br i1 %88, label %89, label %.split.us.split.us.split.us98.us
@@ -203,7 +203,7 @@ has_subclass.exit:                                ; preds = %5
   br i1 %90, label %91, label %.split.us.split.us.split.us98.us
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %.pre177, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %.pre177, i64 20
   %93 = load i16, ptr %92, align 4
   %94 = and i16 %93, 768
   %95 = icmp eq i16 %94, 768
@@ -230,7 +230,7 @@ has_subclass.exit:                                ; preds = %5
 
 .split.us.split.us.split.us98.us:                 ; preds = %89, %78, %..split.us.split.us.split.us98.us_crit_edge
   %104 = phi ptr [ %.pre176, %..split.us.split.us.split.us98.us_crit_edge ], [ %.pre177, %89 ], [ %81, %78 ]
-  %105 = getelementptr inbounds i8, ptr %104, i64 22
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 22
   %106 = load i8, ptr %105, align 2
   %107 = zext i8 %106 to i64
   %108 = getelementptr i8, ptr %104, i64 %107
@@ -265,13 +265,13 @@ has_subclass.exit:                                ; preds = %5
 
 120:                                              ; preds = %.lr.ph.us, %155
   %121 = phi ptr [ %110, %.lr.ph.us ], [ %156, %155 ]
-  %122 = getelementptr inbounds i8, ptr %121, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 22
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 22
   %125 = load i8, ptr %124, align 2
   %126 = zext i8 %125 to i64
   %127 = getelementptr i8, ptr %123, i64 %126
-  %128 = getelementptr inbounds i8, ptr %127, i64 12
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 12
   %129 = load i8, ptr %128, align 4
   %130 = trunc i8 %129 to i1
   br i1 %130, label %131, label %.split.us.split.us94
@@ -289,7 +289,7 @@ has_subclass.exit:                                ; preds = %5
   br i1 %134, label %135, label %.split.us.split.us94
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %.pre175, i64 20
+  %136 = getelementptr inbounds nuw i8, ptr %.pre175, i64 20
   %137 = load i16, ptr %136, align 4
   %138 = and i16 %137, 768
   %139 = icmp eq i16 %138, 768
@@ -339,7 +339,7 @@ has_subclass.exit:                                ; preds = %5
 
 .split.us.split.us94:                             ; preds = %133, %120, %..split.us.split.us94_crit_edge
   %157 = phi ptr [ %.pre174, %..split.us.split.us94_crit_edge ], [ %.pre175, %133 ], [ %123, %120 ]
-  %158 = getelementptr inbounds i8, ptr %157, i64 22
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 22
   %159 = load i8, ptr %158, align 2
   %160 = zext i8 %159 to i64
   %161 = getelementptr i8, ptr %157, i64 %160
@@ -355,9 +355,9 @@ has_subclass.exit:                                ; preds = %5
   %.055.ph87.us114 = phi i32 [ %176, %.outer.us118 ], [ 0, %.lr.ph.lr.ph.split ]
   %.056.ph86.us115 = phi i32 [ %.157.us120, %.outer.us118 ], [ 32, %.lr.ph.lr.ph.split ]
   %.058.ph82.us116 = phi ptr [ %.159.us119, %.outer.us118 ], [ %22, %.lr.ph.lr.ph.split ]
-  %164 = getelementptr inbounds i8, ptr %163, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 22
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 22
   %167 = load i8, ptr %166, align 2
   %168 = zext i8 %167 to i64
   %169 = getelementptr i8, ptr %165, i64 %168
@@ -388,13 +388,13 @@ has_subclass.exit:                                ; preds = %5
   %.055.ph87 = phi i32 [ %199, %.outer ], [ 0, %.lr.ph.lr.ph.split ]
   %.056.ph86 = phi i32 [ %.157, %.outer ], [ 32, %.lr.ph.lr.ph.split ]
   %.058.ph82 = phi ptr [ %.159, %.outer ], [ %22, %.lr.ph.lr.ph.split ]
-  %181 = getelementptr inbounds i8, ptr %180, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 22
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 22
   %184 = load i8, ptr %183, align 2
   %185 = zext i8 %184 to i64
   %186 = getelementptr i8, ptr %182, i64 %185
-  %187 = getelementptr inbounds i8, ptr %186, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 12
   %188 = load i8, ptr %187, align 4
   %189 = trunc i8 %188 to i1
   br i1 %189, label %190, label %.split
@@ -402,7 +402,7 @@ has_subclass.exit:                                ; preds = %5
 190:                                              ; preds = %.lr.ph
   store i8 1, ptr %3, align 1
   %.pre = load ptr, ptr %181, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 22
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 22
   %.pre173 = load i8, ptr %.phi.trans.insert, align 2
   %.pre180 = zext i8 %.pre173 to i64
   br label %.split
@@ -514,13 +514,13 @@ define dso_local zeroext i1 @has_subclass(i32 noundef %0) local_unnamed_addr #0 
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 122
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 122
   %15 = load i8, ptr %14, align 2
   %16 = trunc i8 %15 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #4
@@ -579,24 +579,24 @@ define dso_local ptr @find_all_inheritors(i32 noundef %0, i32 noundef %1, ptr no
   %4 = alloca %struct.HASHCTL, align 8
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 8, ptr %8, align 8
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %9, ptr %10, align 8
   %11 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef 32, ptr noundef nonnull %4, i32 noundef 1064) #4
   %.sroa.016.0.insert.ext = zext i32 %0 to i64
   %12 = inttoptr i64 %.sroa.016.0.insert.ext to ptr
   %13 = call ptr @list_make1_impl(i32 noundef 455, ptr %12) #4
   %14 = call ptr @list_make1_impl(i32 noundef 454, ptr null) #4
-  %15 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %._crit_edge71, label %.lr.ph70
 
 .lr.ph70:                                         ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i32, ptr %15, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph84, label %._crit_edge71
@@ -609,12 +609,12 @@ define dso_local ptr @find_all_inheritors(i32 noundef %0, i32 noundef %1, ptr no
   %20 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv7881
   %21 = load i32, ptr %20, align 8
   %22 = call ptr @find_inheritance_children_extended(i32 noundef %21, i1 noundef zeroext true, i32 noundef %1, ptr noundef null, ptr noundef null)
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.not42 = icmp eq ptr %22, null
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph84
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i32, ptr %23, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph63, label %._crit_edge
@@ -633,7 +633,7 @@ define dso_local ptr @find_all_inheritors(i32 noundef %0, i32 noundef %1, ptr no
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %.lr.ph63
-  %34 = getelementptr inbounds i8, ptr %30, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr i8, ptr %.1335161, i64 16
   %.133.val = load ptr, ptr %36, align 8
@@ -649,13 +649,13 @@ define dso_local ptr @find_all_inheritors(i32 noundef %0, i32 noundef %1, ptr no
   br i1 %.not.i, label %list_length.exit, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %.15260, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.15260, i64 4
   %44 = load i32, ptr %43, align 4
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %41, %42
   %45 = phi i32 [ %44, %42 ], [ 0, %41 ]
-  %46 = getelementptr inbounds i8, ptr %30, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %45, ptr %46, align 4
   %47 = load i32, ptr %5, align 4
   %48 = call ptr @lappend_oid(ptr noundef %.15260, i32 noundef %47) #4
@@ -755,13 +755,13 @@ define dso_local noundef zeroext i1 @typeInheritsFrom(i32 noundef %0, i32 nounde
   unreachable
 
 has_subclass.exit:                                ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 22
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 22
   %18 = load i8, ptr %17, align 2
   %19 = zext i8 %18 to i64
   %20 = getelementptr i8, ptr %16, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 122
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 122
   %22 = load i8, ptr %21, align 2
   %23 = trunc i8 %22 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %11) #4
@@ -776,8 +776,8 @@ has_subclass.exit:                                ; preds = %9
   br i1 %.not, label %.thread, label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 4
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph78, label %.thread
@@ -804,13 +804,13 @@ has_subclass.exit:                                ; preds = %9
 .lr.ph:                                           ; preds = %36, %51
   %41 = phi ptr [ %53, %51 ], [ %40, %36 ]
   %.34058 = phi ptr [ %52, %51 ], [ %.0376076, %36 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 22
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 22
   %45 = load i8, ptr %44, align 2
   %46 = zext i8 %45 to i64
   %47 = getelementptr i8, ptr %43, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, %7
   br i1 %50, label %.thread51, label %51
@@ -867,15 +867,15 @@ define dso_local void @StoreSingleInheritance(i32 noundef %0, i32 noundef %1, i3
   %7 = zext i32 %0 to i64
   store i64 %7, ptr %4, align 16
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %9, align 8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %10, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
   store i32 0, ptr %5, align 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @heap_form_tuple(ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   call void @CatalogTupleInsert(ptr noundef %6, ptr noundef %15) #4
@@ -910,19 +910,19 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us, %20
   %10 = phi ptr [ %22, %20 ], [ %9, %.lr.ph.split.us ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %18 = load i8, ptr %17, align 4
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %.split35.us
 
 20:                                               ; preds = %.lr.ph.split.us.split.us.split
-  %21 = getelementptr inbounds i8, ptr %10, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %21) #4
   %22 = call ptr @systable_getnext(ptr noundef %8) #4
   %.not.us.us = icmp eq ptr %22, null
@@ -930,19 +930,19 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
 
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us, %33
   %23 = phi ptr [ %35, %33 ], [ %9, %.lr.ph.split.us ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 22
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 22
   %27 = load i8, ptr %26, align 2
   %28 = zext i8 %27 to i64
   %29 = getelementptr i8, ptr %25, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
   br i1 %32, label %.split.us, label %33
 
 33:                                               ; preds = %.lr.ph.split.us.split.split.us
-  %34 = getelementptr inbounds i8, ptr %23, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 4
   call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %34) #4
   %35 = call ptr @systable_getnext(ptr noundef %8) #4
   %.not.us.us54 = icmp eq ptr %35, null
@@ -954,25 +954,25 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split, %52
   %36 = phi ptr [ %53, %52 ], [ %9, %.lr.ph.split ]
   %.033.us36 = phi i1 [ %.1.us40, %52 ], [ false, %.lr.ph.split ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 22
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 22
   %40 = load i8, ptr %39, align 2
   %41 = zext i8 %40 to i64
   %42 = getelementptr i8, ptr %38, i64 %41
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, %1
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %.lr.ph.split.split.us.split
-  %47 = getelementptr inbounds i8, ptr %42, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %48 = load i8, ptr %47, align 4
   %49 = trunc i8 %48 to i1
   br i1 %49, label %50, label %.split35.us
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %36, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 4
   call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %51) #4
   br label %52
 
@@ -985,25 +985,25 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split, %70
   %54 = phi ptr [ %71, %70 ], [ %9, %.lr.ph.split ]
   %.033.us44 = phi i1 [ %.1.us47, %70 ], [ false, %.lr.ph.split ]
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 22
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 22
   %58 = load i8, ptr %57, align 2
   %59 = zext i8 %58 to i64
   %60 = getelementptr i8, ptr %56, i64 %59
-  %61 = getelementptr inbounds i8, ptr %60, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, %1
   br i1 %63, label %64, label %70
 
 64:                                               ; preds = %.lr.ph.split.split.split.us
-  %65 = getelementptr inbounds i8, ptr %60, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
   br i1 %67, label %.split.us, label %68
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %54, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %54, i64 4
   call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %69) #4
   br label %70
 
@@ -1065,13 +1065,13 @@ define dso_local zeroext i1 @PartitionHasPendingDetach(i32 noundef %0) local_unn
   br i1 %.not, label %17, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %15 = load i8, ptr %14, align 4
   %16 = trunc i8 %15 to i1
   call void @systable_endscan(ptr noundef %5) #4

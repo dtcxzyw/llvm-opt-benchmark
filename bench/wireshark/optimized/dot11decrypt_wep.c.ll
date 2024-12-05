@@ -90,15 +90,15 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr nocapture noundef readonl
   store i8 %40, ptr %6, align 1
   %41 = lshr i32 %.060.lcssa, 8
   %42 = trunc i32 %41 to i8
-  %43 = getelementptr inbounds i8, ptr %6, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %42, ptr %43, align 1
   %44 = lshr i32 %.060.lcssa, 16
   %45 = trunc i32 %44 to i8
-  %46 = getelementptr inbounds i8, ptr %6, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 %45, ptr %46, align 1
   %47 = lshr i32 %.060.lcssa, 24
   %48 = trunc nuw i32 %47 to i8
-  %49 = getelementptr inbounds i8, ptr %6, i64 3
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 %48, ptr %49, align 1
   br label %50
 

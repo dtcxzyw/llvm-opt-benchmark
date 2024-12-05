@@ -346,7 +346,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
 
 203:                                              ; preds = %200
   %204 = load ptr, ptr %201, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
   %206 = load ptr, ptr %205, align 8
   invoke void %206(ptr noundef nonnull align 8 dereferenceable(8) %201, ptr noundef %202)
           to label %1682 unwind label %208
@@ -436,7 +436,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   br i1 %218, label %.lr.ph3983.preheader, label %._crit_edge3984
 
 .lr.ph3983.preheader:                             ; preds = %261
-  %263 = getelementptr inbounds float, ptr %.225563985, i64 %217
+  %263 = getelementptr inbounds nuw float, ptr %.225563985, i64 %217
   %264 = load ptr, ptr %252, align 8
   %265 = load i32, ptr %259, align 4
   %266 = sext i32 %265 to i64
@@ -453,68 +453,68 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   %.025503978 = phi ptr [ %318, %.lr.ph3983 ], [ %270, %.lr.ph3983.preheader ]
   %271 = load float, ptr %.025503978, align 4
   store float %271, ptr %.025493979, align 4
-  %272 = getelementptr inbounds i8, ptr %.025503978, i64 4
+  %272 = getelementptr inbounds nuw i8, ptr %.025503978, i64 4
   %273 = load float, ptr %272, align 4
-  %274 = getelementptr inbounds i8, ptr %.025493979, i64 4
+  %274 = getelementptr inbounds nuw i8, ptr %.025493979, i64 4
   store float %273, ptr %274, align 4
-  %275 = getelementptr inbounds i8, ptr %.025503978, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %.025503978, i64 8
   %276 = load float, ptr %275, align 4
-  %277 = getelementptr inbounds i8, ptr %.025493979, i64 8
+  %277 = getelementptr inbounds nuw i8, ptr %.025493979, i64 8
   store float %276, ptr %277, align 4
-  %278 = getelementptr inbounds i8, ptr %.025503978, i64 12
+  %278 = getelementptr inbounds nuw i8, ptr %.025503978, i64 12
   %279 = load float, ptr %278, align 4
-  %280 = getelementptr inbounds i8, ptr %.025493979, i64 12
+  %280 = getelementptr inbounds nuw i8, ptr %.025493979, i64 12
   store float %279, ptr %280, align 4
-  %281 = getelementptr inbounds i8, ptr %.025503978, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %.025503978, i64 16
   %282 = load float, ptr %281, align 4
-  %283 = getelementptr inbounds i8, ptr %.025493979, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %.025493979, i64 16
   store float %282, ptr %283, align 4
-  %284 = getelementptr inbounds i8, ptr %.025503978, i64 20
+  %284 = getelementptr inbounds nuw i8, ptr %.025503978, i64 20
   %285 = load float, ptr %284, align 4
-  %286 = getelementptr inbounds i8, ptr %.025493979, i64 20
+  %286 = getelementptr inbounds nuw i8, ptr %.025493979, i64 20
   store float %285, ptr %286, align 4
-  %287 = getelementptr inbounds i8, ptr %.025503978, i64 24
+  %287 = getelementptr inbounds nuw i8, ptr %.025503978, i64 24
   %288 = load float, ptr %287, align 4
-  %289 = getelementptr inbounds i8, ptr %.025493979, i64 24
+  %289 = getelementptr inbounds nuw i8, ptr %.025493979, i64 24
   store float %288, ptr %289, align 4
-  %290 = getelementptr inbounds i8, ptr %.025503978, i64 28
+  %290 = getelementptr inbounds nuw i8, ptr %.025503978, i64 28
   %291 = load float, ptr %290, align 4
-  %292 = getelementptr inbounds i8, ptr %.025493979, i64 28
+  %292 = getelementptr inbounds nuw i8, ptr %.025493979, i64 28
   store float %291, ptr %292, align 4
-  %293 = getelementptr inbounds i8, ptr %.025503978, i64 32
+  %293 = getelementptr inbounds nuw i8, ptr %.025503978, i64 32
   %294 = load float, ptr %293, align 4
   store float %294, ptr %.025483980, align 4
-  %295 = getelementptr inbounds i8, ptr %.025503978, i64 36
+  %295 = getelementptr inbounds nuw i8, ptr %.025503978, i64 36
   %296 = load float, ptr %295, align 4
-  %297 = getelementptr inbounds i8, ptr %.025483980, i64 4
+  %297 = getelementptr inbounds nuw i8, ptr %.025483980, i64 4
   store float %296, ptr %297, align 4
-  %298 = getelementptr inbounds i8, ptr %.025503978, i64 40
+  %298 = getelementptr inbounds nuw i8, ptr %.025503978, i64 40
   %299 = load float, ptr %298, align 4
-  %300 = getelementptr inbounds i8, ptr %.025483980, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %.025483980, i64 8
   store float %299, ptr %300, align 4
-  %301 = getelementptr inbounds i8, ptr %.025503978, i64 44
+  %301 = getelementptr inbounds nuw i8, ptr %.025503978, i64 44
   %302 = load float, ptr %301, align 4
-  %303 = getelementptr inbounds i8, ptr %.025483980, i64 12
+  %303 = getelementptr inbounds nuw i8, ptr %.025483980, i64 12
   store float %302, ptr %303, align 4
-  %304 = getelementptr inbounds i8, ptr %.025503978, i64 48
+  %304 = getelementptr inbounds nuw i8, ptr %.025503978, i64 48
   %305 = load float, ptr %304, align 4
-  %306 = getelementptr inbounds i8, ptr %.025483980, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %.025483980, i64 16
   store float %305, ptr %306, align 4
-  %307 = getelementptr inbounds i8, ptr %.025503978, i64 52
+  %307 = getelementptr inbounds nuw i8, ptr %.025503978, i64 52
   %308 = load float, ptr %307, align 4
-  %309 = getelementptr inbounds i8, ptr %.025483980, i64 20
+  %309 = getelementptr inbounds nuw i8, ptr %.025483980, i64 20
   store float %308, ptr %309, align 4
-  %310 = getelementptr inbounds i8, ptr %.025503978, i64 56
+  %310 = getelementptr inbounds nuw i8, ptr %.025503978, i64 56
   %311 = load float, ptr %310, align 4
-  %312 = getelementptr inbounds i8, ptr %.025483980, i64 24
+  %312 = getelementptr inbounds nuw i8, ptr %.025483980, i64 24
   store float %311, ptr %312, align 4
-  %313 = getelementptr inbounds i8, ptr %.025503978, i64 60
+  %313 = getelementptr inbounds nuw i8, ptr %.025503978, i64 60
   %314 = load float, ptr %313, align 4
-  %315 = getelementptr inbounds i8, ptr %.025483980, i64 28
+  %315 = getelementptr inbounds nuw i8, ptr %.025483980, i64 28
   store float %314, ptr %315, align 4
-  %316 = getelementptr inbounds i8, ptr %.025493979, i64 32
-  %317 = getelementptr inbounds i8, ptr %.025483980, i64 32
-  %318 = getelementptr inbounds i8, ptr %.025503978, i64 64
+  %316 = getelementptr inbounds nuw i8, ptr %.025493979, i64 32
+  %317 = getelementptr inbounds nuw i8, ptr %.025483980, i64 32
+  %318 = getelementptr inbounds nuw i8, ptr %.025503978, i64 64
   %319 = add nuw nsw i32 %.025473981, 1
   %exitcond4285.not = icmp eq i32 %319, %97
   br i1 %exitcond4285.not, label %._crit_edge3984.loopexit, label %.lr.ph3983, !llvm.loop !8
@@ -560,9 +560,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   br i1 %218, label %.lr.ph3996.preheader, label %._crit_edge3997
 
 .lr.ph3996.preheader:                             ; preds = %331
-  %333 = getelementptr inbounds float, ptr %.425583998, i64 %225
-  %334 = getelementptr inbounds float, ptr %.425583998, i64 %217
-  %335 = getelementptr inbounds float, ptr %.425583998, i64 %223
+  %333 = getelementptr inbounds nuw float, ptr %.425583998, i64 %225
+  %334 = getelementptr inbounds nuw float, ptr %.425583998, i64 %217
+  %335 = getelementptr inbounds nuw float, ptr %.425583998, i64 %223
   %336 = load ptr, ptr %252, align 8
   %337 = load i32, ptr %329, align 4
   %338 = sext i32 %337 to i64
@@ -581,68 +581,68 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   %.025453989 = phi ptr [ %390, %.lr.ph3996 ], [ %342, %.lr.ph3996.preheader ]
   %343 = load float, ptr %.025453989, align 4
   store float %343, ptr %.025443990, align 4
-  %344 = getelementptr inbounds i8, ptr %.025453989, i64 4
+  %344 = getelementptr inbounds nuw i8, ptr %.025453989, i64 4
   %345 = load float, ptr %344, align 4
-  %346 = getelementptr inbounds i8, ptr %.025443990, i64 4
+  %346 = getelementptr inbounds nuw i8, ptr %.025443990, i64 4
   store float %345, ptr %346, align 4
-  %347 = getelementptr inbounds i8, ptr %.025453989, i64 8
+  %347 = getelementptr inbounds nuw i8, ptr %.025453989, i64 8
   %348 = load float, ptr %347, align 4
-  %349 = getelementptr inbounds i8, ptr %.025443990, i64 8
+  %349 = getelementptr inbounds nuw i8, ptr %.025443990, i64 8
   store float %348, ptr %349, align 4
-  %350 = getelementptr inbounds i8, ptr %.025453989, i64 12
+  %350 = getelementptr inbounds nuw i8, ptr %.025453989, i64 12
   %351 = load float, ptr %350, align 4
-  %352 = getelementptr inbounds i8, ptr %.025443990, i64 12
+  %352 = getelementptr inbounds nuw i8, ptr %.025443990, i64 12
   store float %351, ptr %352, align 4
-  %353 = getelementptr inbounds i8, ptr %.025453989, i64 16
+  %353 = getelementptr inbounds nuw i8, ptr %.025453989, i64 16
   %354 = load float, ptr %353, align 4
   store float %354, ptr %.025433991, align 4
-  %355 = getelementptr inbounds i8, ptr %.025453989, i64 20
+  %355 = getelementptr inbounds nuw i8, ptr %.025453989, i64 20
   %356 = load float, ptr %355, align 4
-  %357 = getelementptr inbounds i8, ptr %.025433991, i64 4
+  %357 = getelementptr inbounds nuw i8, ptr %.025433991, i64 4
   store float %356, ptr %357, align 4
-  %358 = getelementptr inbounds i8, ptr %.025453989, i64 24
+  %358 = getelementptr inbounds nuw i8, ptr %.025453989, i64 24
   %359 = load float, ptr %358, align 4
-  %360 = getelementptr inbounds i8, ptr %.025433991, i64 8
+  %360 = getelementptr inbounds nuw i8, ptr %.025433991, i64 8
   store float %359, ptr %360, align 4
-  %361 = getelementptr inbounds i8, ptr %.025453989, i64 28
+  %361 = getelementptr inbounds nuw i8, ptr %.025453989, i64 28
   %362 = load float, ptr %361, align 4
-  %363 = getelementptr inbounds i8, ptr %.025433991, i64 12
+  %363 = getelementptr inbounds nuw i8, ptr %.025433991, i64 12
   store float %362, ptr %363, align 4
-  %364 = getelementptr inbounds i8, ptr %.025453989, i64 32
+  %364 = getelementptr inbounds nuw i8, ptr %.025453989, i64 32
   %365 = load float, ptr %364, align 4
   store float %365, ptr %.025423992, align 4
-  %366 = getelementptr inbounds i8, ptr %.025453989, i64 36
+  %366 = getelementptr inbounds nuw i8, ptr %.025453989, i64 36
   %367 = load float, ptr %366, align 4
-  %368 = getelementptr inbounds i8, ptr %.025423992, i64 4
+  %368 = getelementptr inbounds nuw i8, ptr %.025423992, i64 4
   store float %367, ptr %368, align 4
-  %369 = getelementptr inbounds i8, ptr %.025453989, i64 40
+  %369 = getelementptr inbounds nuw i8, ptr %.025453989, i64 40
   %370 = load float, ptr %369, align 4
-  %371 = getelementptr inbounds i8, ptr %.025423992, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %.025423992, i64 8
   store float %370, ptr %371, align 4
-  %372 = getelementptr inbounds i8, ptr %.025453989, i64 44
+  %372 = getelementptr inbounds nuw i8, ptr %.025453989, i64 44
   %373 = load float, ptr %372, align 4
-  %374 = getelementptr inbounds i8, ptr %.025423992, i64 12
+  %374 = getelementptr inbounds nuw i8, ptr %.025423992, i64 12
   store float %373, ptr %374, align 4
-  %375 = getelementptr inbounds i8, ptr %.025453989, i64 48
+  %375 = getelementptr inbounds nuw i8, ptr %.025453989, i64 48
   %376 = load float, ptr %375, align 4
   store float %376, ptr %.025413993, align 4
-  %377 = getelementptr inbounds i8, ptr %.025453989, i64 52
+  %377 = getelementptr inbounds nuw i8, ptr %.025453989, i64 52
   %378 = load float, ptr %377, align 4
-  %379 = getelementptr inbounds i8, ptr %.025413993, i64 4
+  %379 = getelementptr inbounds nuw i8, ptr %.025413993, i64 4
   store float %378, ptr %379, align 4
-  %380 = getelementptr inbounds i8, ptr %.025453989, i64 56
+  %380 = getelementptr inbounds nuw i8, ptr %.025453989, i64 56
   %381 = load float, ptr %380, align 4
-  %382 = getelementptr inbounds i8, ptr %.025413993, i64 8
+  %382 = getelementptr inbounds nuw i8, ptr %.025413993, i64 8
   store float %381, ptr %382, align 4
-  %383 = getelementptr inbounds i8, ptr %.025453989, i64 60
+  %383 = getelementptr inbounds nuw i8, ptr %.025453989, i64 60
   %384 = load float, ptr %383, align 4
-  %385 = getelementptr inbounds i8, ptr %.025413993, i64 12
+  %385 = getelementptr inbounds nuw i8, ptr %.025413993, i64 12
   store float %384, ptr %385, align 4
-  %386 = getelementptr inbounds i8, ptr %.025443990, i64 16
-  %387 = getelementptr inbounds i8, ptr %.025433991, i64 16
-  %388 = getelementptr inbounds i8, ptr %.025423992, i64 16
-  %389 = getelementptr inbounds i8, ptr %.025413993, i64 16
-  %390 = getelementptr inbounds i8, ptr %.025453989, i64 64
+  %386 = getelementptr inbounds nuw i8, ptr %.025443990, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %.025433991, i64 16
+  %388 = getelementptr inbounds nuw i8, ptr %.025423992, i64 16
+  %389 = getelementptr inbounds nuw i8, ptr %.025413993, i64 16
+  %390 = getelementptr inbounds nuw i8, ptr %.025453989, i64 64
   %391 = add nuw nsw i32 %.025403994, 1
   %exitcond4287.not = icmp eq i32 %391, %97
   br i1 %exitcond4287.not, label %._crit_edge3997.loopexit, label %.lr.ph3996, !llvm.loop !10
@@ -688,21 +688,21 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   br i1 %218, label %.lr.ph4021.preheader, label %._crit_edge4022
 
 .lr.ph4021.preheader:                             ; preds = %403
-  %405 = getelementptr inbounds float, ptr %.625604023, i64 %249
-  %406 = getelementptr inbounds float, ptr %.625604023, i64 %247
-  %407 = getelementptr inbounds float, ptr %.625604023, i64 %245
-  %408 = getelementptr inbounds float, ptr %.625604023, i64 %225
-  %409 = getelementptr inbounds float, ptr %.625604023, i64 %243
-  %410 = getelementptr inbounds float, ptr %.625604023, i64 %241
-  %411 = getelementptr inbounds float, ptr %.625604023, i64 %239
-  %412 = getelementptr inbounds float, ptr %.625604023, i64 %217
-  %413 = getelementptr inbounds float, ptr %.625604023, i64 %237
-  %414 = getelementptr inbounds float, ptr %.625604023, i64 %235
-  %415 = getelementptr inbounds float, ptr %.625604023, i64 %233
-  %416 = getelementptr inbounds float, ptr %.625604023, i64 %223
-  %417 = getelementptr inbounds float, ptr %.625604023, i64 %231
-  %418 = getelementptr inbounds float, ptr %.625604023, i64 %229
-  %419 = getelementptr inbounds float, ptr %.625604023, i64 %227
+  %405 = getelementptr inbounds nuw float, ptr %.625604023, i64 %249
+  %406 = getelementptr inbounds nuw float, ptr %.625604023, i64 %247
+  %407 = getelementptr inbounds nuw float, ptr %.625604023, i64 %245
+  %408 = getelementptr inbounds nuw float, ptr %.625604023, i64 %225
+  %409 = getelementptr inbounds nuw float, ptr %.625604023, i64 %243
+  %410 = getelementptr inbounds nuw float, ptr %.625604023, i64 %241
+  %411 = getelementptr inbounds nuw float, ptr %.625604023, i64 %239
+  %412 = getelementptr inbounds nuw float, ptr %.625604023, i64 %217
+  %413 = getelementptr inbounds nuw float, ptr %.625604023, i64 %237
+  %414 = getelementptr inbounds nuw float, ptr %.625604023, i64 %235
+  %415 = getelementptr inbounds nuw float, ptr %.625604023, i64 %233
+  %416 = getelementptr inbounds nuw float, ptr %.625604023, i64 %223
+  %417 = getelementptr inbounds nuw float, ptr %.625604023, i64 %231
+  %418 = getelementptr inbounds nuw float, ptr %.625604023, i64 %229
+  %419 = getelementptr inbounds nuw float, ptr %.625604023, i64 %227
   %420 = load ptr, ptr %252, align 8
   %421 = load i32, ptr %401, align 4
   %422 = sext i32 %421 to i64
@@ -732,69 +732,69 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   %.025374003 = phi ptr [ %428, %.lr.ph4021 ], [ %.625604023, %.lr.ph4021.preheader ]
   %.025384002 = phi ptr [ %474, %.lr.ph4021 ], [ %426, %.lr.ph4021.preheader ]
   %427 = load float, ptr %.025384002, align 4
-  %428 = getelementptr inbounds i8, ptr %.025374003, i64 4
+  %428 = getelementptr inbounds nuw i8, ptr %.025374003, i64 4
   store float %427, ptr %.025374003, align 4
-  %429 = getelementptr inbounds i8, ptr %.025384002, i64 4
+  %429 = getelementptr inbounds nuw i8, ptr %.025384002, i64 4
   %430 = load float, ptr %429, align 4
-  %431 = getelementptr inbounds i8, ptr %.025364004, i64 4
+  %431 = getelementptr inbounds nuw i8, ptr %.025364004, i64 4
   store float %430, ptr %.025364004, align 4
-  %432 = getelementptr inbounds i8, ptr %.025384002, i64 8
+  %432 = getelementptr inbounds nuw i8, ptr %.025384002, i64 8
   %433 = load float, ptr %432, align 4
-  %434 = getelementptr inbounds i8, ptr %.025354005, i64 4
+  %434 = getelementptr inbounds nuw i8, ptr %.025354005, i64 4
   store float %433, ptr %.025354005, align 4
-  %435 = getelementptr inbounds i8, ptr %.025384002, i64 12
+  %435 = getelementptr inbounds nuw i8, ptr %.025384002, i64 12
   %436 = load float, ptr %435, align 4
-  %437 = getelementptr inbounds i8, ptr %.025344006, i64 4
+  %437 = getelementptr inbounds nuw i8, ptr %.025344006, i64 4
   store float %436, ptr %.025344006, align 4
-  %438 = getelementptr inbounds i8, ptr %.025384002, i64 16
+  %438 = getelementptr inbounds nuw i8, ptr %.025384002, i64 16
   %439 = load float, ptr %438, align 4
-  %440 = getelementptr inbounds i8, ptr %.025334007, i64 4
+  %440 = getelementptr inbounds nuw i8, ptr %.025334007, i64 4
   store float %439, ptr %.025334007, align 4
-  %441 = getelementptr inbounds i8, ptr %.025384002, i64 20
+  %441 = getelementptr inbounds nuw i8, ptr %.025384002, i64 20
   %442 = load float, ptr %441, align 4
-  %443 = getelementptr inbounds i8, ptr %.025324008, i64 4
+  %443 = getelementptr inbounds nuw i8, ptr %.025324008, i64 4
   store float %442, ptr %.025324008, align 4
-  %444 = getelementptr inbounds i8, ptr %.025384002, i64 24
+  %444 = getelementptr inbounds nuw i8, ptr %.025384002, i64 24
   %445 = load float, ptr %444, align 4
-  %446 = getelementptr inbounds i8, ptr %.025314009, i64 4
+  %446 = getelementptr inbounds nuw i8, ptr %.025314009, i64 4
   store float %445, ptr %.025314009, align 4
-  %447 = getelementptr inbounds i8, ptr %.025384002, i64 28
+  %447 = getelementptr inbounds nuw i8, ptr %.025384002, i64 28
   %448 = load float, ptr %447, align 4
-  %449 = getelementptr inbounds i8, ptr %.025304010, i64 4
+  %449 = getelementptr inbounds nuw i8, ptr %.025304010, i64 4
   store float %448, ptr %.025304010, align 4
-  %450 = getelementptr inbounds i8, ptr %.025384002, i64 32
+  %450 = getelementptr inbounds nuw i8, ptr %.025384002, i64 32
   %451 = load float, ptr %450, align 4
-  %452 = getelementptr inbounds i8, ptr %.025294011, i64 4
+  %452 = getelementptr inbounds nuw i8, ptr %.025294011, i64 4
   store float %451, ptr %.025294011, align 4
-  %453 = getelementptr inbounds i8, ptr %.025384002, i64 36
+  %453 = getelementptr inbounds nuw i8, ptr %.025384002, i64 36
   %454 = load float, ptr %453, align 4
-  %455 = getelementptr inbounds i8, ptr %.025284012, i64 4
+  %455 = getelementptr inbounds nuw i8, ptr %.025284012, i64 4
   store float %454, ptr %.025284012, align 4
-  %456 = getelementptr inbounds i8, ptr %.025384002, i64 40
+  %456 = getelementptr inbounds nuw i8, ptr %.025384002, i64 40
   %457 = load float, ptr %456, align 4
-  %458 = getelementptr inbounds i8, ptr %.025274013, i64 4
+  %458 = getelementptr inbounds nuw i8, ptr %.025274013, i64 4
   store float %457, ptr %.025274013, align 4
-  %459 = getelementptr inbounds i8, ptr %.025384002, i64 44
+  %459 = getelementptr inbounds nuw i8, ptr %.025384002, i64 44
   %460 = load float, ptr %459, align 4
-  %461 = getelementptr inbounds i8, ptr %.025264014, i64 4
+  %461 = getelementptr inbounds nuw i8, ptr %.025264014, i64 4
   store float %460, ptr %.025264014, align 4
-  %462 = getelementptr inbounds i8, ptr %.025384002, i64 48
+  %462 = getelementptr inbounds nuw i8, ptr %.025384002, i64 48
   %463 = load float, ptr %462, align 4
-  %464 = getelementptr inbounds i8, ptr %.025254015, i64 4
+  %464 = getelementptr inbounds nuw i8, ptr %.025254015, i64 4
   store float %463, ptr %.025254015, align 4
-  %465 = getelementptr inbounds i8, ptr %.025384002, i64 52
+  %465 = getelementptr inbounds nuw i8, ptr %.025384002, i64 52
   %466 = load float, ptr %465, align 4
-  %467 = getelementptr inbounds i8, ptr %.025244016, i64 4
+  %467 = getelementptr inbounds nuw i8, ptr %.025244016, i64 4
   store float %466, ptr %.025244016, align 4
-  %468 = getelementptr inbounds i8, ptr %.025384002, i64 56
+  %468 = getelementptr inbounds nuw i8, ptr %.025384002, i64 56
   %469 = load float, ptr %468, align 4
-  %470 = getelementptr inbounds i8, ptr %.025234017, i64 4
+  %470 = getelementptr inbounds nuw i8, ptr %.025234017, i64 4
   store float %469, ptr %.025234017, align 4
-  %471 = getelementptr inbounds i8, ptr %.025384002, i64 60
+  %471 = getelementptr inbounds nuw i8, ptr %.025384002, i64 60
   %472 = load float, ptr %471, align 4
-  %473 = getelementptr inbounds i8, ptr %.025224018, i64 4
+  %473 = getelementptr inbounds nuw i8, ptr %.025224018, i64 4
   store float %472, ptr %.025224018, align 4
-  %474 = getelementptr inbounds i8, ptr %.025384002, i64 64
+  %474 = getelementptr inbounds nuw i8, ptr %.025384002, i64 64
   %475 = add nuw nsw i32 %.025214019, 1
   %exitcond4291.not = icmp eq i32 %475, %97
   br i1 %exitcond4291.not, label %._crit_edge4022.loopexit, label %.lr.ph4021, !llvm.loop !12
@@ -840,7 +840,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   br i1 %218, label %.lr.ph4032.preheader, label %._crit_edge4033
 
 .lr.ph4032.preheader:                             ; preds = %487
-  %489 = getelementptr inbounds float, ptr %.825624034, i64 %223
+  %489 = getelementptr inbounds nuw float, ptr %.825624034, i64 %223
   %490 = load ptr, ptr %252, align 8
   %491 = load i32, ptr %485, align 4
   %492 = sext i32 %491 to i64
@@ -857,36 +857,36 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   %.025194027 = phi ptr [ %520, %.lr.ph4032 ], [ %496, %.lr.ph4032.preheader ]
   %497 = load float, ptr %.025194027, align 4
   store float %497, ptr %.025184028, align 4
-  %498 = getelementptr inbounds i8, ptr %.025194027, i64 4
+  %498 = getelementptr inbounds nuw i8, ptr %.025194027, i64 4
   %499 = load float, ptr %498, align 4
-  %500 = getelementptr inbounds i8, ptr %.025184028, i64 4
+  %500 = getelementptr inbounds nuw i8, ptr %.025184028, i64 4
   store float %499, ptr %500, align 4
-  %501 = getelementptr inbounds i8, ptr %.025194027, i64 8
+  %501 = getelementptr inbounds nuw i8, ptr %.025194027, i64 8
   %502 = load float, ptr %501, align 4
-  %503 = getelementptr inbounds i8, ptr %.025184028, i64 8
+  %503 = getelementptr inbounds nuw i8, ptr %.025184028, i64 8
   store float %502, ptr %503, align 4
-  %504 = getelementptr inbounds i8, ptr %.025194027, i64 12
+  %504 = getelementptr inbounds nuw i8, ptr %.025194027, i64 12
   %505 = load float, ptr %504, align 4
-  %506 = getelementptr inbounds i8, ptr %.025184028, i64 12
+  %506 = getelementptr inbounds nuw i8, ptr %.025184028, i64 12
   store float %505, ptr %506, align 4
-  %507 = getelementptr inbounds i8, ptr %.025194027, i64 16
+  %507 = getelementptr inbounds nuw i8, ptr %.025194027, i64 16
   %508 = load float, ptr %507, align 4
   store float %508, ptr %.025174029, align 4
-  %509 = getelementptr inbounds i8, ptr %.025194027, i64 20
+  %509 = getelementptr inbounds nuw i8, ptr %.025194027, i64 20
   %510 = load float, ptr %509, align 4
-  %511 = getelementptr inbounds i8, ptr %.025174029, i64 4
+  %511 = getelementptr inbounds nuw i8, ptr %.025174029, i64 4
   store float %510, ptr %511, align 4
-  %512 = getelementptr inbounds i8, ptr %.025194027, i64 24
+  %512 = getelementptr inbounds nuw i8, ptr %.025194027, i64 24
   %513 = load float, ptr %512, align 4
-  %514 = getelementptr inbounds i8, ptr %.025174029, i64 8
+  %514 = getelementptr inbounds nuw i8, ptr %.025174029, i64 8
   store float %513, ptr %514, align 4
-  %515 = getelementptr inbounds i8, ptr %.025194027, i64 28
+  %515 = getelementptr inbounds nuw i8, ptr %.025194027, i64 28
   %516 = load float, ptr %515, align 4
-  %517 = getelementptr inbounds i8, ptr %.025174029, i64 12
+  %517 = getelementptr inbounds nuw i8, ptr %.025174029, i64 12
   store float %516, ptr %517, align 4
-  %518 = getelementptr inbounds i8, ptr %.025184028, i64 16
-  %519 = getelementptr inbounds i8, ptr %.025174029, i64 16
-  %520 = getelementptr inbounds i8, ptr %.025194027, i64 32
+  %518 = getelementptr inbounds nuw i8, ptr %.025184028, i64 16
+  %519 = getelementptr inbounds nuw i8, ptr %.025174029, i64 16
+  %520 = getelementptr inbounds nuw i8, ptr %.025194027, i64 32
   %521 = add nuw nsw i32 %.025164030, 1
   %exitcond4295.not = icmp eq i32 %521, %97
   br i1 %exitcond4295.not, label %._crit_edge4033.loopexit, label %.lr.ph4032, !llvm.loop !14
@@ -932,13 +932,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   br i1 %218, label %.lr.ph4049.preheader, label %._crit_edge4050
 
 .lr.ph4049.preheader:                             ; preds = %533
-  %535 = getelementptr inbounds float, ptr %.1025644051, i64 %237
-  %536 = getelementptr inbounds float, ptr %.1025644051, i64 %235
-  %537 = getelementptr inbounds float, ptr %.1025644051, i64 %233
-  %538 = getelementptr inbounds float, ptr %.1025644051, i64 %223
-  %539 = getelementptr inbounds float, ptr %.1025644051, i64 %231
-  %540 = getelementptr inbounds float, ptr %.1025644051, i64 %229
-  %541 = getelementptr inbounds float, ptr %.1025644051, i64 %227
+  %535 = getelementptr inbounds nuw float, ptr %.1025644051, i64 %237
+  %536 = getelementptr inbounds nuw float, ptr %.1025644051, i64 %235
+  %537 = getelementptr inbounds nuw float, ptr %.1025644051, i64 %233
+  %538 = getelementptr inbounds nuw float, ptr %.1025644051, i64 %223
+  %539 = getelementptr inbounds nuw float, ptr %.1025644051, i64 %231
+  %540 = getelementptr inbounds nuw float, ptr %.1025644051, i64 %229
+  %541 = getelementptr inbounds nuw float, ptr %.1025644051, i64 %227
   %542 = load ptr, ptr %252, align 8
   %543 = load i32, ptr %531, align 4
   %544 = sext i32 %543 to i64
@@ -960,37 +960,37 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   %.025134039 = phi ptr [ %550, %.lr.ph4049 ], [ %.1025644051, %.lr.ph4049.preheader ]
   %.025144038 = phi ptr [ %572, %.lr.ph4049 ], [ %548, %.lr.ph4049.preheader ]
   %549 = load float, ptr %.025144038, align 4
-  %550 = getelementptr inbounds i8, ptr %.025134039, i64 4
+  %550 = getelementptr inbounds nuw i8, ptr %.025134039, i64 4
   store float %549, ptr %.025134039, align 4
-  %551 = getelementptr inbounds i8, ptr %.025144038, i64 4
+  %551 = getelementptr inbounds nuw i8, ptr %.025144038, i64 4
   %552 = load float, ptr %551, align 4
-  %553 = getelementptr inbounds i8, ptr %.025124040, i64 4
+  %553 = getelementptr inbounds nuw i8, ptr %.025124040, i64 4
   store float %552, ptr %.025124040, align 4
-  %554 = getelementptr inbounds i8, ptr %.025144038, i64 8
+  %554 = getelementptr inbounds nuw i8, ptr %.025144038, i64 8
   %555 = load float, ptr %554, align 4
-  %556 = getelementptr inbounds i8, ptr %.025114041, i64 4
+  %556 = getelementptr inbounds nuw i8, ptr %.025114041, i64 4
   store float %555, ptr %.025114041, align 4
-  %557 = getelementptr inbounds i8, ptr %.025144038, i64 12
+  %557 = getelementptr inbounds nuw i8, ptr %.025144038, i64 12
   %558 = load float, ptr %557, align 4
-  %559 = getelementptr inbounds i8, ptr %.025104042, i64 4
+  %559 = getelementptr inbounds nuw i8, ptr %.025104042, i64 4
   store float %558, ptr %.025104042, align 4
-  %560 = getelementptr inbounds i8, ptr %.025144038, i64 16
+  %560 = getelementptr inbounds nuw i8, ptr %.025144038, i64 16
   %561 = load float, ptr %560, align 4
-  %562 = getelementptr inbounds i8, ptr %.025094043, i64 4
+  %562 = getelementptr inbounds nuw i8, ptr %.025094043, i64 4
   store float %561, ptr %.025094043, align 4
-  %563 = getelementptr inbounds i8, ptr %.025144038, i64 20
+  %563 = getelementptr inbounds nuw i8, ptr %.025144038, i64 20
   %564 = load float, ptr %563, align 4
-  %565 = getelementptr inbounds i8, ptr %.025084044, i64 4
+  %565 = getelementptr inbounds nuw i8, ptr %.025084044, i64 4
   store float %564, ptr %.025084044, align 4
-  %566 = getelementptr inbounds i8, ptr %.025144038, i64 24
+  %566 = getelementptr inbounds nuw i8, ptr %.025144038, i64 24
   %567 = load float, ptr %566, align 4
-  %568 = getelementptr inbounds i8, ptr %.025074045, i64 4
+  %568 = getelementptr inbounds nuw i8, ptr %.025074045, i64 4
   store float %567, ptr %.025074045, align 4
-  %569 = getelementptr inbounds i8, ptr %.025144038, i64 28
+  %569 = getelementptr inbounds nuw i8, ptr %.025144038, i64 28
   %570 = load float, ptr %569, align 4
-  %571 = getelementptr inbounds i8, ptr %.025064046, i64 4
+  %571 = getelementptr inbounds nuw i8, ptr %.025064046, i64 4
   store float %570, ptr %.025064046, align 4
-  %572 = getelementptr inbounds i8, ptr %.025144038, i64 32
+  %572 = getelementptr inbounds nuw i8, ptr %.025144038, i64 32
   %573 = add nuw nsw i32 %.025054047, 1
   %exitcond4299.not = icmp eq i32 %573, %97
   br i1 %exitcond4299.not, label %._crit_edge4050.loopexit, label %.lr.ph4049, !llvm.loop !16
@@ -1036,9 +1036,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   br i1 %218, label %.lr.ph4062.preheader, label %._crit_edge4063
 
 .lr.ph4062.preheader:                             ; preds = %585
-  %587 = getelementptr inbounds float, ptr %.1225664064, i64 %231
-  %588 = getelementptr inbounds float, ptr %.1225664064, i64 %229
-  %589 = getelementptr inbounds float, ptr %.1225664064, i64 %227
+  %587 = getelementptr inbounds nuw float, ptr %.1225664064, i64 %231
+  %588 = getelementptr inbounds nuw float, ptr %.1225664064, i64 %229
+  %589 = getelementptr inbounds nuw float, ptr %.1225664064, i64 %227
   %590 = load ptr, ptr %252, align 8
   %591 = load i32, ptr %583, align 4
   %592 = sext i32 %591 to i64
@@ -1056,21 +1056,21 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   %.025024056 = phi ptr [ %598, %.lr.ph4062 ], [ %.1225664064, %.lr.ph4062.preheader ]
   %.025034055 = phi ptr [ %608, %.lr.ph4062 ], [ %596, %.lr.ph4062.preheader ]
   %597 = load float, ptr %.025034055, align 4
-  %598 = getelementptr inbounds i8, ptr %.025024056, i64 4
+  %598 = getelementptr inbounds nuw i8, ptr %.025024056, i64 4
   store float %597, ptr %.025024056, align 4
-  %599 = getelementptr inbounds i8, ptr %.025034055, i64 4
+  %599 = getelementptr inbounds nuw i8, ptr %.025034055, i64 4
   %600 = load float, ptr %599, align 4
-  %601 = getelementptr inbounds i8, ptr %.025014057, i64 4
+  %601 = getelementptr inbounds nuw i8, ptr %.025014057, i64 4
   store float %600, ptr %.025014057, align 4
-  %602 = getelementptr inbounds i8, ptr %.025034055, i64 8
+  %602 = getelementptr inbounds nuw i8, ptr %.025034055, i64 8
   %603 = load float, ptr %602, align 4
-  %604 = getelementptr inbounds i8, ptr %.025004058, i64 4
+  %604 = getelementptr inbounds nuw i8, ptr %.025004058, i64 4
   store float %603, ptr %.025004058, align 4
-  %605 = getelementptr inbounds i8, ptr %.025034055, i64 12
+  %605 = getelementptr inbounds nuw i8, ptr %.025034055, i64 12
   %606 = load float, ptr %605, align 4
-  %607 = getelementptr inbounds i8, ptr %.024994059, i64 4
+  %607 = getelementptr inbounds nuw i8, ptr %.024994059, i64 4
   store float %606, ptr %.024994059, align 4
-  %608 = getelementptr inbounds i8, ptr %.025034055, i64 16
+  %608 = getelementptr inbounds nuw i8, ptr %.025034055, i64 16
   %609 = add nuw nsw i32 %.024984060, 1
   %exitcond4303.not = icmp eq i32 %609, %97
   br i1 %exitcond4303.not, label %._crit_edge4063.loopexit, label %.lr.ph4062, !llvm.loop !18
@@ -1151,7 +1151,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
 
 646:                                              ; preds = %643
   %647 = load ptr, ptr %644, align 8
-  %648 = getelementptr inbounds i8, ptr %647, i64 24
+  %648 = getelementptr inbounds nuw i8, ptr %647, i64 24
   %649 = load ptr, ptr %648, align 8
   invoke void %649(ptr noundef nonnull align 8 dereferenceable(8) %644, ptr noundef %645)
           to label %652 unwind label %653
@@ -1557,68 +1557,68 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   %.024764096 = phi ptr [ %930, %.lr.ph4101 ], [ %882, %.lr.ph4101.preheader ]
   %883 = load float, ptr %.024764096, align 4
   store float %883, ptr %.024754097, align 4
-  %884 = getelementptr inbounds i8, ptr %.024764096, i64 4
+  %884 = getelementptr inbounds nuw i8, ptr %.024764096, i64 4
   %885 = load float, ptr %884, align 4
-  %886 = getelementptr inbounds i8, ptr %.024754097, i64 4
+  %886 = getelementptr inbounds nuw i8, ptr %.024754097, i64 4
   store float %885, ptr %886, align 4
-  %887 = getelementptr inbounds i8, ptr %.024764096, i64 8
+  %887 = getelementptr inbounds nuw i8, ptr %.024764096, i64 8
   %888 = load float, ptr %887, align 4
-  %889 = getelementptr inbounds i8, ptr %.024754097, i64 8
+  %889 = getelementptr inbounds nuw i8, ptr %.024754097, i64 8
   store float %888, ptr %889, align 4
-  %890 = getelementptr inbounds i8, ptr %.024764096, i64 12
+  %890 = getelementptr inbounds nuw i8, ptr %.024764096, i64 12
   %891 = load float, ptr %890, align 4
-  %892 = getelementptr inbounds i8, ptr %.024754097, i64 12
+  %892 = getelementptr inbounds nuw i8, ptr %.024754097, i64 12
   store float %891, ptr %892, align 4
-  %893 = getelementptr inbounds i8, ptr %.024764096, i64 16
+  %893 = getelementptr inbounds nuw i8, ptr %.024764096, i64 16
   %894 = load float, ptr %893, align 4
-  %895 = getelementptr inbounds i8, ptr %.024754097, i64 16
+  %895 = getelementptr inbounds nuw i8, ptr %.024754097, i64 16
   store float %894, ptr %895, align 4
-  %896 = getelementptr inbounds i8, ptr %.024764096, i64 20
+  %896 = getelementptr inbounds nuw i8, ptr %.024764096, i64 20
   %897 = load float, ptr %896, align 4
-  %898 = getelementptr inbounds i8, ptr %.024754097, i64 20
+  %898 = getelementptr inbounds nuw i8, ptr %.024754097, i64 20
   store float %897, ptr %898, align 4
-  %899 = getelementptr inbounds i8, ptr %.024764096, i64 24
+  %899 = getelementptr inbounds nuw i8, ptr %.024764096, i64 24
   %900 = load float, ptr %899, align 4
-  %901 = getelementptr inbounds i8, ptr %.024754097, i64 24
+  %901 = getelementptr inbounds nuw i8, ptr %.024754097, i64 24
   store float %900, ptr %901, align 4
-  %902 = getelementptr inbounds i8, ptr %.024764096, i64 28
+  %902 = getelementptr inbounds nuw i8, ptr %.024764096, i64 28
   %903 = load float, ptr %902, align 4
-  %904 = getelementptr inbounds i8, ptr %.024754097, i64 28
+  %904 = getelementptr inbounds nuw i8, ptr %.024754097, i64 28
   store float %903, ptr %904, align 4
-  %905 = getelementptr inbounds i8, ptr %.024764096, i64 32
+  %905 = getelementptr inbounds nuw i8, ptr %.024764096, i64 32
   %906 = load float, ptr %905, align 4
   store float %906, ptr %.024744098, align 4
-  %907 = getelementptr inbounds i8, ptr %.024764096, i64 36
+  %907 = getelementptr inbounds nuw i8, ptr %.024764096, i64 36
   %908 = load float, ptr %907, align 4
-  %909 = getelementptr inbounds i8, ptr %.024744098, i64 4
+  %909 = getelementptr inbounds nuw i8, ptr %.024744098, i64 4
   store float %908, ptr %909, align 4
-  %910 = getelementptr inbounds i8, ptr %.024764096, i64 40
+  %910 = getelementptr inbounds nuw i8, ptr %.024764096, i64 40
   %911 = load float, ptr %910, align 4
-  %912 = getelementptr inbounds i8, ptr %.024744098, i64 8
+  %912 = getelementptr inbounds nuw i8, ptr %.024744098, i64 8
   store float %911, ptr %912, align 4
-  %913 = getelementptr inbounds i8, ptr %.024764096, i64 44
+  %913 = getelementptr inbounds nuw i8, ptr %.024764096, i64 44
   %914 = load float, ptr %913, align 4
-  %915 = getelementptr inbounds i8, ptr %.024744098, i64 12
+  %915 = getelementptr inbounds nuw i8, ptr %.024744098, i64 12
   store float %914, ptr %915, align 4
-  %916 = getelementptr inbounds i8, ptr %.024764096, i64 48
+  %916 = getelementptr inbounds nuw i8, ptr %.024764096, i64 48
   %917 = load float, ptr %916, align 4
-  %918 = getelementptr inbounds i8, ptr %.024744098, i64 16
+  %918 = getelementptr inbounds nuw i8, ptr %.024744098, i64 16
   store float %917, ptr %918, align 4
-  %919 = getelementptr inbounds i8, ptr %.024764096, i64 52
+  %919 = getelementptr inbounds nuw i8, ptr %.024764096, i64 52
   %920 = load float, ptr %919, align 4
-  %921 = getelementptr inbounds i8, ptr %.024744098, i64 20
+  %921 = getelementptr inbounds nuw i8, ptr %.024744098, i64 20
   store float %920, ptr %921, align 4
-  %922 = getelementptr inbounds i8, ptr %.024764096, i64 56
+  %922 = getelementptr inbounds nuw i8, ptr %.024764096, i64 56
   %923 = load float, ptr %922, align 4
-  %924 = getelementptr inbounds i8, ptr %.024744098, i64 24
+  %924 = getelementptr inbounds nuw i8, ptr %.024744098, i64 24
   store float %923, ptr %924, align 4
-  %925 = getelementptr inbounds i8, ptr %.024764096, i64 60
+  %925 = getelementptr inbounds nuw i8, ptr %.024764096, i64 60
   %926 = load float, ptr %925, align 4
-  %927 = getelementptr inbounds i8, ptr %.024744098, i64 28
+  %927 = getelementptr inbounds nuw i8, ptr %.024744098, i64 28
   store float %926, ptr %927, align 4
-  %928 = getelementptr inbounds i8, ptr %.024754097, i64 32
-  %929 = getelementptr inbounds i8, ptr %.024744098, i64 32
-  %930 = getelementptr inbounds i8, ptr %.024764096, i64 64
+  %928 = getelementptr inbounds nuw i8, ptr %.024754097, i64 32
+  %929 = getelementptr inbounds nuw i8, ptr %.024744098, i64 32
+  %930 = getelementptr inbounds nuw i8, ptr %.024764096, i64 64
   %931 = add nuw nsw i32 %.024734099, 1
   %exitcond4315.not = icmp eq i32 %931, %858
   br i1 %exitcond4315.not, label %._crit_edge4102.loopexit, label %.lr.ph4101, !llvm.loop !25
@@ -1707,68 +1707,68 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   %.024714108 = phi ptr [ %1024, %.lr.ph4115 ], [ %976, %.lr.ph4115.preheader ]
   %977 = load float, ptr %.024714108, align 4
   store float %977, ptr %.024704109, align 4
-  %978 = getelementptr inbounds i8, ptr %.024714108, i64 4
+  %978 = getelementptr inbounds nuw i8, ptr %.024714108, i64 4
   %979 = load float, ptr %978, align 4
-  %980 = getelementptr inbounds i8, ptr %.024704109, i64 4
+  %980 = getelementptr inbounds nuw i8, ptr %.024704109, i64 4
   store float %979, ptr %980, align 4
-  %981 = getelementptr inbounds i8, ptr %.024714108, i64 8
+  %981 = getelementptr inbounds nuw i8, ptr %.024714108, i64 8
   %982 = load float, ptr %981, align 4
-  %983 = getelementptr inbounds i8, ptr %.024704109, i64 8
+  %983 = getelementptr inbounds nuw i8, ptr %.024704109, i64 8
   store float %982, ptr %983, align 4
-  %984 = getelementptr inbounds i8, ptr %.024714108, i64 12
+  %984 = getelementptr inbounds nuw i8, ptr %.024714108, i64 12
   %985 = load float, ptr %984, align 4
-  %986 = getelementptr inbounds i8, ptr %.024704109, i64 12
+  %986 = getelementptr inbounds nuw i8, ptr %.024704109, i64 12
   store float %985, ptr %986, align 4
-  %987 = getelementptr inbounds i8, ptr %.024714108, i64 16
+  %987 = getelementptr inbounds nuw i8, ptr %.024714108, i64 16
   %988 = load float, ptr %987, align 4
   store float %988, ptr %.024694110, align 4
-  %989 = getelementptr inbounds i8, ptr %.024714108, i64 20
+  %989 = getelementptr inbounds nuw i8, ptr %.024714108, i64 20
   %990 = load float, ptr %989, align 4
-  %991 = getelementptr inbounds i8, ptr %.024694110, i64 4
+  %991 = getelementptr inbounds nuw i8, ptr %.024694110, i64 4
   store float %990, ptr %991, align 4
-  %992 = getelementptr inbounds i8, ptr %.024714108, i64 24
+  %992 = getelementptr inbounds nuw i8, ptr %.024714108, i64 24
   %993 = load float, ptr %992, align 4
-  %994 = getelementptr inbounds i8, ptr %.024694110, i64 8
+  %994 = getelementptr inbounds nuw i8, ptr %.024694110, i64 8
   store float %993, ptr %994, align 4
-  %995 = getelementptr inbounds i8, ptr %.024714108, i64 28
+  %995 = getelementptr inbounds nuw i8, ptr %.024714108, i64 28
   %996 = load float, ptr %995, align 4
-  %997 = getelementptr inbounds i8, ptr %.024694110, i64 12
+  %997 = getelementptr inbounds nuw i8, ptr %.024694110, i64 12
   store float %996, ptr %997, align 4
-  %998 = getelementptr inbounds i8, ptr %.024714108, i64 32
+  %998 = getelementptr inbounds nuw i8, ptr %.024714108, i64 32
   %999 = load float, ptr %998, align 4
   store float %999, ptr %.024684111, align 4
-  %1000 = getelementptr inbounds i8, ptr %.024714108, i64 36
+  %1000 = getelementptr inbounds nuw i8, ptr %.024714108, i64 36
   %1001 = load float, ptr %1000, align 4
-  %1002 = getelementptr inbounds i8, ptr %.024684111, i64 4
+  %1002 = getelementptr inbounds nuw i8, ptr %.024684111, i64 4
   store float %1001, ptr %1002, align 4
-  %1003 = getelementptr inbounds i8, ptr %.024714108, i64 40
+  %1003 = getelementptr inbounds nuw i8, ptr %.024714108, i64 40
   %1004 = load float, ptr %1003, align 4
-  %1005 = getelementptr inbounds i8, ptr %.024684111, i64 8
+  %1005 = getelementptr inbounds nuw i8, ptr %.024684111, i64 8
   store float %1004, ptr %1005, align 4
-  %1006 = getelementptr inbounds i8, ptr %.024714108, i64 44
+  %1006 = getelementptr inbounds nuw i8, ptr %.024714108, i64 44
   %1007 = load float, ptr %1006, align 4
-  %1008 = getelementptr inbounds i8, ptr %.024684111, i64 12
+  %1008 = getelementptr inbounds nuw i8, ptr %.024684111, i64 12
   store float %1007, ptr %1008, align 4
-  %1009 = getelementptr inbounds i8, ptr %.024714108, i64 48
+  %1009 = getelementptr inbounds nuw i8, ptr %.024714108, i64 48
   %1010 = load float, ptr %1009, align 4
   store float %1010, ptr %.024674112, align 4
-  %1011 = getelementptr inbounds i8, ptr %.024714108, i64 52
+  %1011 = getelementptr inbounds nuw i8, ptr %.024714108, i64 52
   %1012 = load float, ptr %1011, align 4
-  %1013 = getelementptr inbounds i8, ptr %.024674112, i64 4
+  %1013 = getelementptr inbounds nuw i8, ptr %.024674112, i64 4
   store float %1012, ptr %1013, align 4
-  %1014 = getelementptr inbounds i8, ptr %.024714108, i64 56
+  %1014 = getelementptr inbounds nuw i8, ptr %.024714108, i64 56
   %1015 = load float, ptr %1014, align 4
-  %1016 = getelementptr inbounds i8, ptr %.024674112, i64 8
+  %1016 = getelementptr inbounds nuw i8, ptr %.024674112, i64 8
   store float %1015, ptr %1016, align 4
-  %1017 = getelementptr inbounds i8, ptr %.024714108, i64 60
+  %1017 = getelementptr inbounds nuw i8, ptr %.024714108, i64 60
   %1018 = load float, ptr %1017, align 4
-  %1019 = getelementptr inbounds i8, ptr %.024674112, i64 12
+  %1019 = getelementptr inbounds nuw i8, ptr %.024674112, i64 12
   store float %1018, ptr %1019, align 4
-  %1020 = getelementptr inbounds i8, ptr %.024704109, i64 16
-  %1021 = getelementptr inbounds i8, ptr %.024694110, i64 16
-  %1022 = getelementptr inbounds i8, ptr %.024684111, i64 16
-  %1023 = getelementptr inbounds i8, ptr %.024674112, i64 16
-  %1024 = getelementptr inbounds i8, ptr %.024714108, i64 64
+  %1020 = getelementptr inbounds nuw i8, ptr %.024704109, i64 16
+  %1021 = getelementptr inbounds nuw i8, ptr %.024694110, i64 16
+  %1022 = getelementptr inbounds nuw i8, ptr %.024684111, i64 16
+  %1023 = getelementptr inbounds nuw i8, ptr %.024674112, i64 16
+  %1024 = getelementptr inbounds nuw i8, ptr %.024714108, i64 64
   %1025 = add nuw nsw i32 %.024664113, 1
   %exitcond4323.not = icmp eq i32 %1025, %946
   br i1 %exitcond4323.not, label %._crit_edge4116.loopexit, label %.lr.ph4115, !llvm.loop !27
@@ -1904,69 +1904,69 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   %.024634123 = phi ptr [ %1108, %.lr.ph4141 ], [ %1100, %.lr.ph4141.preheader ]
   %.024644122 = phi ptr [ %1154, %.lr.ph4141 ], [ %1106, %.lr.ph4141.preheader ]
   %1107 = load float, ptr %.024644122, align 4
-  %1108 = getelementptr inbounds i8, ptr %.024634123, i64 4
+  %1108 = getelementptr inbounds nuw i8, ptr %.024634123, i64 4
   store float %1107, ptr %.024634123, align 4
-  %1109 = getelementptr inbounds i8, ptr %.024644122, i64 4
+  %1109 = getelementptr inbounds nuw i8, ptr %.024644122, i64 4
   %1110 = load float, ptr %1109, align 4
-  %1111 = getelementptr inbounds i8, ptr %.024624124, i64 4
+  %1111 = getelementptr inbounds nuw i8, ptr %.024624124, i64 4
   store float %1110, ptr %.024624124, align 4
-  %1112 = getelementptr inbounds i8, ptr %.024644122, i64 8
+  %1112 = getelementptr inbounds nuw i8, ptr %.024644122, i64 8
   %1113 = load float, ptr %1112, align 4
-  %1114 = getelementptr inbounds i8, ptr %.024614125, i64 4
+  %1114 = getelementptr inbounds nuw i8, ptr %.024614125, i64 4
   store float %1113, ptr %.024614125, align 4
-  %1115 = getelementptr inbounds i8, ptr %.024644122, i64 12
+  %1115 = getelementptr inbounds nuw i8, ptr %.024644122, i64 12
   %1116 = load float, ptr %1115, align 4
-  %1117 = getelementptr inbounds i8, ptr %.024604126, i64 4
+  %1117 = getelementptr inbounds nuw i8, ptr %.024604126, i64 4
   store float %1116, ptr %.024604126, align 4
-  %1118 = getelementptr inbounds i8, ptr %.024644122, i64 16
+  %1118 = getelementptr inbounds nuw i8, ptr %.024644122, i64 16
   %1119 = load float, ptr %1118, align 4
-  %1120 = getelementptr inbounds i8, ptr %.024594127, i64 4
+  %1120 = getelementptr inbounds nuw i8, ptr %.024594127, i64 4
   store float %1119, ptr %.024594127, align 4
-  %1121 = getelementptr inbounds i8, ptr %.024644122, i64 20
+  %1121 = getelementptr inbounds nuw i8, ptr %.024644122, i64 20
   %1122 = load float, ptr %1121, align 4
-  %1123 = getelementptr inbounds i8, ptr %.024584128, i64 4
+  %1123 = getelementptr inbounds nuw i8, ptr %.024584128, i64 4
   store float %1122, ptr %.024584128, align 4
-  %1124 = getelementptr inbounds i8, ptr %.024644122, i64 24
+  %1124 = getelementptr inbounds nuw i8, ptr %.024644122, i64 24
   %1125 = load float, ptr %1124, align 4
-  %1126 = getelementptr inbounds i8, ptr %.024574129, i64 4
+  %1126 = getelementptr inbounds nuw i8, ptr %.024574129, i64 4
   store float %1125, ptr %.024574129, align 4
-  %1127 = getelementptr inbounds i8, ptr %.024644122, i64 28
+  %1127 = getelementptr inbounds nuw i8, ptr %.024644122, i64 28
   %1128 = load float, ptr %1127, align 4
-  %1129 = getelementptr inbounds i8, ptr %.024564130, i64 4
+  %1129 = getelementptr inbounds nuw i8, ptr %.024564130, i64 4
   store float %1128, ptr %.024564130, align 4
-  %1130 = getelementptr inbounds i8, ptr %.024644122, i64 32
+  %1130 = getelementptr inbounds nuw i8, ptr %.024644122, i64 32
   %1131 = load float, ptr %1130, align 4
-  %1132 = getelementptr inbounds i8, ptr %.024554131, i64 4
+  %1132 = getelementptr inbounds nuw i8, ptr %.024554131, i64 4
   store float %1131, ptr %.024554131, align 4
-  %1133 = getelementptr inbounds i8, ptr %.024644122, i64 36
+  %1133 = getelementptr inbounds nuw i8, ptr %.024644122, i64 36
   %1134 = load float, ptr %1133, align 4
-  %1135 = getelementptr inbounds i8, ptr %.024544132, i64 4
+  %1135 = getelementptr inbounds nuw i8, ptr %.024544132, i64 4
   store float %1134, ptr %.024544132, align 4
-  %1136 = getelementptr inbounds i8, ptr %.024644122, i64 40
+  %1136 = getelementptr inbounds nuw i8, ptr %.024644122, i64 40
   %1137 = load float, ptr %1136, align 4
-  %1138 = getelementptr inbounds i8, ptr %.024534133, i64 4
+  %1138 = getelementptr inbounds nuw i8, ptr %.024534133, i64 4
   store float %1137, ptr %.024534133, align 4
-  %1139 = getelementptr inbounds i8, ptr %.024644122, i64 44
+  %1139 = getelementptr inbounds nuw i8, ptr %.024644122, i64 44
   %1140 = load float, ptr %1139, align 4
-  %1141 = getelementptr inbounds i8, ptr %.024524134, i64 4
+  %1141 = getelementptr inbounds nuw i8, ptr %.024524134, i64 4
   store float %1140, ptr %.024524134, align 4
-  %1142 = getelementptr inbounds i8, ptr %.024644122, i64 48
+  %1142 = getelementptr inbounds nuw i8, ptr %.024644122, i64 48
   %1143 = load float, ptr %1142, align 4
-  %1144 = getelementptr inbounds i8, ptr %.024514135, i64 4
+  %1144 = getelementptr inbounds nuw i8, ptr %.024514135, i64 4
   store float %1143, ptr %.024514135, align 4
-  %1145 = getelementptr inbounds i8, ptr %.024644122, i64 52
+  %1145 = getelementptr inbounds nuw i8, ptr %.024644122, i64 52
   %1146 = load float, ptr %1145, align 4
-  %1147 = getelementptr inbounds i8, ptr %.024504136, i64 4
+  %1147 = getelementptr inbounds nuw i8, ptr %.024504136, i64 4
   store float %1146, ptr %.024504136, align 4
-  %1148 = getelementptr inbounds i8, ptr %.024644122, i64 56
+  %1148 = getelementptr inbounds nuw i8, ptr %.024644122, i64 56
   %1149 = load float, ptr %1148, align 4
-  %1150 = getelementptr inbounds i8, ptr %.024494137, i64 4
+  %1150 = getelementptr inbounds nuw i8, ptr %.024494137, i64 4
   store float %1149, ptr %.024494137, align 4
-  %1151 = getelementptr inbounds i8, ptr %.024644122, i64 60
+  %1151 = getelementptr inbounds nuw i8, ptr %.024644122, i64 60
   %1152 = load float, ptr %1151, align 4
-  %1153 = getelementptr inbounds i8, ptr %.024484138, i64 4
+  %1153 = getelementptr inbounds nuw i8, ptr %.024484138, i64 4
   store float %1152, ptr %.024484138, align 4
-  %1154 = getelementptr inbounds i8, ptr %.024644122, i64 64
+  %1154 = getelementptr inbounds nuw i8, ptr %.024644122, i64 64
   %1155 = add nuw nsw i32 %.024474139, 1
   %exitcond4331.not = icmp eq i32 %1155, %1040
   br i1 %exitcond4331.not, label %._crit_edge4142.loopexit, label %.lr.ph4141, !llvm.loop !29
@@ -2047,36 +2047,36 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   %.024454148 = phi ptr [ %1218, %.lr.ph4153 ], [ %1194, %.lr.ph4153.preheader ]
   %1195 = load float, ptr %.024454148, align 4
   store float %1195, ptr %.024444149, align 4
-  %1196 = getelementptr inbounds i8, ptr %.024454148, i64 4
+  %1196 = getelementptr inbounds nuw i8, ptr %.024454148, i64 4
   %1197 = load float, ptr %1196, align 4
-  %1198 = getelementptr inbounds i8, ptr %.024444149, i64 4
+  %1198 = getelementptr inbounds nuw i8, ptr %.024444149, i64 4
   store float %1197, ptr %1198, align 4
-  %1199 = getelementptr inbounds i8, ptr %.024454148, i64 8
+  %1199 = getelementptr inbounds nuw i8, ptr %.024454148, i64 8
   %1200 = load float, ptr %1199, align 4
-  %1201 = getelementptr inbounds i8, ptr %.024444149, i64 8
+  %1201 = getelementptr inbounds nuw i8, ptr %.024444149, i64 8
   store float %1200, ptr %1201, align 4
-  %1202 = getelementptr inbounds i8, ptr %.024454148, i64 12
+  %1202 = getelementptr inbounds nuw i8, ptr %.024454148, i64 12
   %1203 = load float, ptr %1202, align 4
-  %1204 = getelementptr inbounds i8, ptr %.024444149, i64 12
+  %1204 = getelementptr inbounds nuw i8, ptr %.024444149, i64 12
   store float %1203, ptr %1204, align 4
-  %1205 = getelementptr inbounds i8, ptr %.024454148, i64 16
+  %1205 = getelementptr inbounds nuw i8, ptr %.024454148, i64 16
   %1206 = load float, ptr %1205, align 4
   store float %1206, ptr %.024434150, align 4
-  %1207 = getelementptr inbounds i8, ptr %.024454148, i64 20
+  %1207 = getelementptr inbounds nuw i8, ptr %.024454148, i64 20
   %1208 = load float, ptr %1207, align 4
-  %1209 = getelementptr inbounds i8, ptr %.024434150, i64 4
+  %1209 = getelementptr inbounds nuw i8, ptr %.024434150, i64 4
   store float %1208, ptr %1209, align 4
-  %1210 = getelementptr inbounds i8, ptr %.024454148, i64 24
+  %1210 = getelementptr inbounds nuw i8, ptr %.024454148, i64 24
   %1211 = load float, ptr %1210, align 4
-  %1212 = getelementptr inbounds i8, ptr %.024434150, i64 8
+  %1212 = getelementptr inbounds nuw i8, ptr %.024434150, i64 8
   store float %1211, ptr %1212, align 4
-  %1213 = getelementptr inbounds i8, ptr %.024454148, i64 28
+  %1213 = getelementptr inbounds nuw i8, ptr %.024454148, i64 28
   %1214 = load float, ptr %1213, align 4
-  %1215 = getelementptr inbounds i8, ptr %.024434150, i64 12
+  %1215 = getelementptr inbounds nuw i8, ptr %.024434150, i64 12
   store float %1214, ptr %1215, align 4
-  %1216 = getelementptr inbounds i8, ptr %.024444149, i64 16
-  %1217 = getelementptr inbounds i8, ptr %.024434150, i64 16
-  %1218 = getelementptr inbounds i8, ptr %.024454148, i64 32
+  %1216 = getelementptr inbounds nuw i8, ptr %.024444149, i64 16
+  %1217 = getelementptr inbounds nuw i8, ptr %.024434150, i64 16
+  %1218 = getelementptr inbounds nuw i8, ptr %.024454148, i64 32
   %1219 = add nuw nsw i32 %.024424151, 1
   %exitcond4339.not = icmp eq i32 %1219, %1170
   br i1 %exitcond4339.not, label %._crit_edge4154.loopexit, label %.lr.ph4153, !llvm.loop !31
@@ -2180,37 +2180,37 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   %.024394161 = phi ptr [ %1278, %.lr.ph4171 ], [ %1270, %.lr.ph4171.preheader ]
   %.024404160 = phi ptr [ %1300, %.lr.ph4171 ], [ %1276, %.lr.ph4171.preheader ]
   %1277 = load float, ptr %.024404160, align 4
-  %1278 = getelementptr inbounds i8, ptr %.024394161, i64 4
+  %1278 = getelementptr inbounds nuw i8, ptr %.024394161, i64 4
   store float %1277, ptr %.024394161, align 4
-  %1279 = getelementptr inbounds i8, ptr %.024404160, i64 4
+  %1279 = getelementptr inbounds nuw i8, ptr %.024404160, i64 4
   %1280 = load float, ptr %1279, align 4
-  %1281 = getelementptr inbounds i8, ptr %.024384162, i64 4
+  %1281 = getelementptr inbounds nuw i8, ptr %.024384162, i64 4
   store float %1280, ptr %.024384162, align 4
-  %1282 = getelementptr inbounds i8, ptr %.024404160, i64 8
+  %1282 = getelementptr inbounds nuw i8, ptr %.024404160, i64 8
   %1283 = load float, ptr %1282, align 4
-  %1284 = getelementptr inbounds i8, ptr %.024374163, i64 4
+  %1284 = getelementptr inbounds nuw i8, ptr %.024374163, i64 4
   store float %1283, ptr %.024374163, align 4
-  %1285 = getelementptr inbounds i8, ptr %.024404160, i64 12
+  %1285 = getelementptr inbounds nuw i8, ptr %.024404160, i64 12
   %1286 = load float, ptr %1285, align 4
-  %1287 = getelementptr inbounds i8, ptr %.024364164, i64 4
+  %1287 = getelementptr inbounds nuw i8, ptr %.024364164, i64 4
   store float %1286, ptr %.024364164, align 4
-  %1288 = getelementptr inbounds i8, ptr %.024404160, i64 16
+  %1288 = getelementptr inbounds nuw i8, ptr %.024404160, i64 16
   %1289 = load float, ptr %1288, align 4
-  %1290 = getelementptr inbounds i8, ptr %.024354165, i64 4
+  %1290 = getelementptr inbounds nuw i8, ptr %.024354165, i64 4
   store float %1289, ptr %.024354165, align 4
-  %1291 = getelementptr inbounds i8, ptr %.024404160, i64 20
+  %1291 = getelementptr inbounds nuw i8, ptr %.024404160, i64 20
   %1292 = load float, ptr %1291, align 4
-  %1293 = getelementptr inbounds i8, ptr %.024344166, i64 4
+  %1293 = getelementptr inbounds nuw i8, ptr %.024344166, i64 4
   store float %1292, ptr %.024344166, align 4
-  %1294 = getelementptr inbounds i8, ptr %.024404160, i64 24
+  %1294 = getelementptr inbounds nuw i8, ptr %.024404160, i64 24
   %1295 = load float, ptr %1294, align 4
-  %1296 = getelementptr inbounds i8, ptr %.024334167, i64 4
+  %1296 = getelementptr inbounds nuw i8, ptr %.024334167, i64 4
   store float %1295, ptr %.024334167, align 4
-  %1297 = getelementptr inbounds i8, ptr %.024404160, i64 28
+  %1297 = getelementptr inbounds nuw i8, ptr %.024404160, i64 28
   %1298 = load float, ptr %1297, align 4
-  %1299 = getelementptr inbounds i8, ptr %.024324168, i64 4
+  %1299 = getelementptr inbounds nuw i8, ptr %.024324168, i64 4
   store float %1298, ptr %.024324168, align 4
-  %1300 = getelementptr inbounds i8, ptr %.024404160, i64 32
+  %1300 = getelementptr inbounds nuw i8, ptr %.024404160, i64 32
   %1301 = add nuw nsw i32 %.024314169, 1
   %exitcond4347.not = icmp eq i32 %1301, %1234
   br i1 %exitcond4347.not, label %._crit_edge4172.loopexit, label %.lr.ph4171, !llvm.loop !33
@@ -2298,21 +2298,21 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
   %.024284179 = phi ptr [ %1348, %.lr.ph4185 ], [ %1340, %.lr.ph4185.preheader ]
   %.024294178 = phi ptr [ %1358, %.lr.ph4185 ], [ %1346, %.lr.ph4185.preheader ]
   %1347 = load float, ptr %.024294178, align 4
-  %1348 = getelementptr inbounds i8, ptr %.024284179, i64 4
+  %1348 = getelementptr inbounds nuw i8, ptr %.024284179, i64 4
   store float %1347, ptr %.024284179, align 4
-  %1349 = getelementptr inbounds i8, ptr %.024294178, i64 4
+  %1349 = getelementptr inbounds nuw i8, ptr %.024294178, i64 4
   %1350 = load float, ptr %1349, align 4
-  %1351 = getelementptr inbounds i8, ptr %.024274180, i64 4
+  %1351 = getelementptr inbounds nuw i8, ptr %.024274180, i64 4
   store float %1350, ptr %.024274180, align 4
-  %1352 = getelementptr inbounds i8, ptr %.024294178, i64 8
+  %1352 = getelementptr inbounds nuw i8, ptr %.024294178, i64 8
   %1353 = load float, ptr %1352, align 4
-  %1354 = getelementptr inbounds i8, ptr %.024264181, i64 4
+  %1354 = getelementptr inbounds nuw i8, ptr %.024264181, i64 4
   store float %1353, ptr %.024264181, align 4
-  %1355 = getelementptr inbounds i8, ptr %.024294178, i64 12
+  %1355 = getelementptr inbounds nuw i8, ptr %.024294178, i64 12
   %1356 = load float, ptr %1355, align 4
-  %1357 = getelementptr inbounds i8, ptr %.024254182, i64 4
+  %1357 = getelementptr inbounds nuw i8, ptr %.024254182, i64 4
   store float %1356, ptr %.024254182, align 4
-  %1358 = getelementptr inbounds i8, ptr %.024294178, i64 16
+  %1358 = getelementptr inbounds nuw i8, ptr %.024294178, i64 16
   %1359 = add nuw nsw i32 %.024244183, 1
   %exitcond4355.not = icmp eq i32 %1359, %1316
   br i1 %exitcond4355.not, label %._crit_edge4186.loopexit, label %.lr.ph4185, !llvm.loop !35
@@ -2402,7 +2402,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
 
 1404:                                             ; preds = %1401
   %1405 = load ptr, ptr %1402, align 8
-  %1406 = getelementptr inbounds i8, ptr %1405, i64 24
+  %1406 = getelementptr inbounds nuw i8, ptr %1405, i64 24
   %1407 = load ptr, ptr %1406, align 8
   invoke void %1407(ptr noundef nonnull align 8 dereferenceable(8) %1402, ptr noundef %1403)
           to label %1410 unwind label %1411
@@ -2441,7 +2441,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn17Concat_x86_avx5127forwa
 
 1420:                                             ; preds = %1417
   %1421 = load ptr, ptr %1418, align 8
-  %1422 = getelementptr inbounds i8, ptr %1421, i64 24
+  %1422 = getelementptr inbounds nuw i8, ptr %1421, i64 24
   %1423 = load ptr, ptr %1422, align 8
   invoke void %1423(ptr noundef nonnull align 8 dereferenceable(8) %1418, ptr noundef %1419)
           to label %1682 unwind label %1425

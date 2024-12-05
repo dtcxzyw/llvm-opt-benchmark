@@ -24,11 +24,11 @@ define void @nxmsg_initialize() local_unnamed_addr #0 {
   %.01216 = phi i32 [ 0, %.preheader ], [ %6, %2 ]
   %.01415 = phi ptr [ %g_msgfreelist.promoted, %.preheader ], [ %.017, %2 ]
   store ptr %.01415, ptr %.017, align 8
-  %3 = getelementptr inbounds i8, ptr %.017, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   store ptr @g_msgfreelist, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.01415, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.01415, i64 8
   store ptr %.017, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %.017, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %.017, i64 64
   %6 = add nuw nsw i32 %.01216, 1
   %exitcond.not = icmp eq i32 %6, 8
   br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !6
@@ -63,17 +63,17 @@ define range(i32 -12, 1) i32 @nxmsg_alloc(ptr nocapture noundef writeonly %0) lo
 
 6:                                                ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %7 = getelementptr inbounds ptr, ptr %.pre.i, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds ptr, ptr %.pre.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %indvars.iv.i
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   store ptr %2, ptr %11, align 8
   %13 = add nuw nsw i32 %12, 1
-  %14 = getelementptr inbounds i8, ptr %2, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %13, ptr %14, align 8
   br label %nxmsg_alloc_internal.exit
 
@@ -97,25 +97,25 @@ define range(i32 -12, 1) i32 @nxmsg_alloc(ptr nocapture noundef writeonly %0) lo
 22:                                               ; preds = %._crit_edge.i
   store ptr %19, ptr @g_msgqs, align 8
   %23 = zext i8 %4 to i64
-  %24 = getelementptr inbounds ptr, ptr %19, i64 %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %25, i8 0, i64 72, i1 false)
   store ptr %2, ptr %24, align 8
   %26 = add nuw nsw i32 %5, 1
-  %27 = getelementptr inbounds i8, ptr %2, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 %26, ptr %27, align 8
   %28 = add i8 %4, 10
   store i8 %28, ptr @g_nmsgq, align 1
   br label %nxmsg_alloc_internal.exit
 
 nxmsg_alloc_internal.exit:                        ; preds = %22, %10
-  %29 = getelementptr inbounds i8, ptr %2, i64 40
-  %30 = getelementptr inbounds i8, ptr %2, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %29, ptr %30, align 8
   store ptr %29, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 60
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i16 16, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %2, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i16 32, ptr %32, align 8
   store ptr %2, ptr %0, align 8
   br label %nxmsg_alloc_internal.exit.thread
@@ -131,7 +131,7 @@ define void @nxmsg_free(ptr noundef readonly %0) local_unnamed_addr #2 {
   br i1 %2, label %24, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 1
   %7 = load i8, ptr @g_nmsgq, align 1
@@ -141,26 +141,26 @@ define void @nxmsg_free(ptr noundef readonly %0) local_unnamed_addr #2 {
   br i1 %or.cond, label %24, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %.not32 = icmp eq ptr %13, %11
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.033 = phi ptr [ %.027, %.lr.ph ], [ %13, %10 ]
-  %.027.in = getelementptr inbounds i8, ptr %.033, i64 8
+  %.027.in = getelementptr inbounds nuw i8, ptr %.033, i64 8
   %.027 = load ptr, ptr %.027.in, align 8
   %14 = load ptr, ptr %.033, align 8
   store ptr %14, ptr %.027, align 8
   %15 = load ptr, ptr %.027.in, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %15, ptr %16, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.033, i8 0, i64 16, i1 false)
   %17 = load ptr, ptr @g_msgfreelist, align 8
   store ptr %17, ptr %.033, align 8
   store ptr @g_msgfreelist, ptr %.027.in, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %.033, ptr %18, align 8
   store ptr %.033, ptr @g_msgfreelist, align 8
   %.not = icmp eq ptr %.027, %11

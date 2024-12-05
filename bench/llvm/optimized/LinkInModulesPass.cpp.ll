@@ -64,7 +64,7 @@ define dso_local void @_ZN4llvm17LinkInModulesPass3runERNS_6ModuleERNS_15Analysi
   unreachable
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %22, i8 0, i64 72, i1 false), !alias.scope !10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %23, ptr %0, align 8, !alias.scope !10

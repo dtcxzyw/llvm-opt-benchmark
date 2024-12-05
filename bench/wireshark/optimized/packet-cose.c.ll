@@ -371,7 +371,7 @@ define hidden i32 @cose_param_key_hash(ptr nocapture noundef readonly %0) #0 {
 
 5:                                                ; preds = %3, %1
   %.0 = phi i32 [ %4, %3 ], [ 0, %1 ]
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %7, null
   br i1 %.not9, label %11, label %8
@@ -410,13 +410,13 @@ define hidden i32 @cose_param_key_equal(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not19, label %8, label %16
 
 8:                                                ; preds = %6, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not21 = icmp eq ptr %10, null
   br i1 %.not21, label %16, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not22 = icmp eq ptr %13, null
   br i1 %.not22, label %16, label %14
@@ -443,7 +443,7 @@ define hidden void @cose_param_key_free(ptr noundef %0) #0 {
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not7 = icmp eq ptr %6, null
   br i1 %.not7, label %8, label %7
@@ -578,7 +578,7 @@ define internal i32 @dissect_cose_msg_header_map(ptr noundef %0, ptr noundef %1,
   call fastcc void @dissect_header_map(ptr noundef %9, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %8)
   %10 = call ptr @except_pop() #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %11(ptr noundef %13) #7
   %14 = load i32, ptr %5, align 4
@@ -593,10 +593,10 @@ declare i32 @g_int64_equal(ptr noundef, ptr noundef) #1
 define internal range(i32 -1, -2147483648) i32 @dissect_cose_msg_tagged(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @wmem_list_head(ptr noundef %10) #7
   %.not24 = icmp eq ptr %11, null
@@ -606,7 +606,7 @@ define internal range(i32 -1, -2147483648) i32 @dissect_cose_msg_tagged(ptr noun
   %.02025 = phi ptr [ %21, %20 ], [ %11, %4 ]
   %12 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.02025) #7
   %13 = load ptr, ptr @table_cose_msg_tag, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = call ptr @dissector_get_custom_table_handle(ptr noundef %13, ptr noundef nonnull %14) #7
   %.not23 = icmp eq ptr %15, null
   br i1 %.not23, label %20, label %16
@@ -639,7 +639,7 @@ define internal range(i32 -1, -2147483648) i32 @dissect_cose_msg_tagged(ptr noun
 define internal i32 @dissect_cose_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = call i32 @wscbor_require_array_size(ptr noundef %8, i64 noundef 4, i64 noundef 4) #7
@@ -660,9 +660,9 @@ define internal i32 @dissect_cose_sign(ptr noundef %0, ptr noundef %1, ptr nound
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_msg_tag, align 4
   %19 = load i32, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @proto_tree_add_uint64(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %21, i64 noundef %23) #7
   br label %dissect_msg_tag.exit
@@ -671,7 +671,7 @@ dissect_msg_tag.exit:                             ; preds = %14, %17
   call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %5)
   %25 = load ptr, ptr %6, align 8
   %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5) #7
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %33
@@ -702,7 +702,7 @@ dissect_payload.exit:                             ; preds = %30, %33
 45:                                               ; preds = %dissect_payload.exit
   %46 = load i32, ptr @ett_sig_list, align 4
   %47 = call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %46) #7
-  %48 = getelementptr inbounds i8, ptr %39, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %49 = load i64, ptr %48, align 8
   %.not44 = icmp eq i64 %49, 0
   br i1 %.not44, label %.loopexit, label %.lr.ph
@@ -733,7 +733,7 @@ dissect_payload.exit:                             ; preds = %30, %33
 
 dissect_cose_signature.exit:                      ; preds = %.lr.ph, %57
   %66 = load i32, ptr %5, align 4
-  %67 = getelementptr inbounds i8, ptr %51, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = sub i32 %66, %68
   call void @proto_item_set_len(ptr noundef %54, i32 noundef %69) #7
@@ -744,7 +744,7 @@ dissect_cose_signature.exit:                      ; preds = %.lr.ph, %57
 
 .loopexit:                                        ; preds = %dissect_cose_signature.exit, %45, %dissect_payload.exit
   %73 = load i32, ptr %5, align 4
-  %74 = getelementptr inbounds i8, ptr %39, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %75 = load i32, ptr %74, align 8
   %76 = sub i32 %73, %75
   call void @proto_item_set_len(ptr noundef %42, i32 noundef %76) #7
@@ -765,7 +765,7 @@ define internal i32 @dissect_cose_sign_media_type(ptr noundef %0, ptr noundef %1
 define internal i32 @dissect_cose_sign1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = call i32 @wscbor_require_array_size(ptr noundef %8, i64 noundef 4, i64 noundef 4) #7
@@ -786,9 +786,9 @@ define internal i32 @dissect_cose_sign1(ptr noundef %0, ptr noundef %1, ptr noun
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_msg_tag, align 4
   %19 = load i32, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @proto_tree_add_uint64(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %21, i64 noundef %23) #7
   br label %dissect_msg_tag.exit
@@ -797,7 +797,7 @@ dissect_msg_tag.exit:                             ; preds = %14, %17
   call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %5)
   %25 = load ptr, ptr %6, align 8
   %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5) #7
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %33
@@ -838,7 +838,7 @@ define internal i32 @dissect_cose_sign1_media_type(ptr noundef %0, ptr noundef %
 define internal i32 @dissect_cose_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = call i32 @wscbor_require_array_size(ptr noundef %8, i64 noundef 4, i64 noundef 4) #7
@@ -859,9 +859,9 @@ define internal i32 @dissect_cose_encrypt(ptr noundef %0, ptr noundef %1, ptr no
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_msg_tag, align 4
   %19 = load i32, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @proto_tree_add_uint64(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %21, i64 noundef %23) #7
   br label %dissect_msg_tag.exit
@@ -870,7 +870,7 @@ dissect_msg_tag.exit:                             ; preds = %14, %17
   call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %5)
   %25 = load ptr, ptr %6, align 8
   %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5) #7
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %33
@@ -906,7 +906,7 @@ define internal i32 @dissect_cose_encrypt_media_type(ptr noundef %0, ptr noundef
 define internal i32 @dissect_cose_encrypt0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = call i32 @wscbor_require_array_size(ptr noundef %8, i64 noundef 3, i64 noundef 3) #7
@@ -927,9 +927,9 @@ define internal i32 @dissect_cose_encrypt0(ptr noundef %0, ptr noundef %1, ptr n
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_msg_tag, align 4
   %19 = load i32, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @proto_tree_add_uint64(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %21, i64 noundef %23) #7
   br label %dissect_msg_tag.exit
@@ -938,7 +938,7 @@ dissect_msg_tag.exit:                             ; preds = %14, %17
   call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %5)
   %25 = load ptr, ptr %6, align 8
   %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5) #7
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %33
@@ -970,7 +970,7 @@ define internal i32 @dissect_cose_encrypt0_media_type(ptr noundef %0, ptr nounde
 define internal i32 @dissect_cose_mac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = call i32 @wscbor_require_array_size(ptr noundef %8, i64 noundef 5, i64 noundef 5) #7
@@ -991,9 +991,9 @@ define internal i32 @dissect_cose_mac(ptr noundef %0, ptr noundef %1, ptr nounde
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_msg_tag, align 4
   %19 = load i32, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @proto_tree_add_uint64(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %21, i64 noundef %23) #7
   br label %dissect_msg_tag.exit
@@ -1002,7 +1002,7 @@ dissect_msg_tag.exit:                             ; preds = %14, %17
   call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %5)
   %25 = load ptr, ptr %6, align 8
   %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5) #7
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %33
@@ -1044,7 +1044,7 @@ define internal i32 @dissect_cose_mac_media_type(ptr noundef %0, ptr noundef %1,
 define internal i32 @dissect_cose_mac0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = call i32 @wscbor_require_array_size(ptr noundef %8, i64 noundef 4, i64 noundef 4) #7
@@ -1065,9 +1065,9 @@ define internal i32 @dissect_cose_mac0(ptr noundef %0, ptr noundef %1, ptr nound
 17:                                               ; preds = %14
   %18 = load i32, ptr @hf_msg_tag, align 4
   %19 = load i32, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @proto_tree_add_uint64(ptr noundef %16, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %21, i64 noundef %23) #7
   br label %dissect_msg_tag.exit
@@ -1076,7 +1076,7 @@ dissect_msg_tag.exit:                             ; preds = %14, %17
   call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %5)
   %25 = load ptr, ptr %6, align 8
   %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5) #7
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 7
   br i1 %29, label %30, label %33
@@ -1130,7 +1130,7 @@ define internal i32 @dissect_cose_key(ptr noundef %0, ptr noundef %1, ptr nounde
   call fastcc void @dissect_header_map(ptr noundef %11, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %10)
   %12 = call ptr @except_pop() #7
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load ptr, ptr %14, align 8
   call void %13(ptr noundef %15) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -1145,7 +1145,7 @@ define internal i32 @dissect_cose_key_set(ptr noundef %0, ptr noundef %1, ptr no
   %6 = alloca %struct.except_cleanup, align 8
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @wscbor_chunk_read(ptr noundef %9, ptr noundef %0, ptr noundef nonnull %7) #7
   %11 = call i32 @wscbor_require_array(ptr noundef %10) #7
@@ -1160,13 +1160,13 @@ define internal i32 @dissect_cose_key_set(ptr noundef %0, ptr noundef %1, ptr no
 16:                                               ; preds = %4
   %17 = load i32, ptr @ett_key_set, align 4
   %18 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %17) #7
-  %19 = getelementptr inbounds i8, ptr %10, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %20 = load i64, ptr %19, align 8
   %.not24 = icmp eq i64 %20, 0
   br i1 %.not24, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
@@ -1269,91 +1269,91 @@ define hidden void @proto_reg_handoff_cose() local_unnamed_addr #0 {
   %27 = load i32, ptr @proto_cose_params, align 4
   %28 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_salt, i32 noundef %27, ptr noundef nonnull @.str.35) #7
   %29 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %26, ptr %30, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %29, ptr noundef %28) #7
   %31 = tail call ptr @g_variant_new_int64(i64 noundef -2) #7
   %32 = load i32, ptr @proto_cose_params, align 4
   %33 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_static_key, i32 noundef %32, ptr noundef nonnull @.str.36) #7
   %34 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %31, ptr %35, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %34, ptr noundef %33) #7
   %36 = tail call ptr @g_variant_new_int64(i64 noundef -1) #7
   %37 = load i32, ptr @proto_cose_params, align 4
   %38 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_ephem_key, i32 noundef %37, ptr noundef nonnull @.str.37) #7
   %39 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %36, ptr %40, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %39, ptr noundef %38) #7
   %41 = tail call ptr @g_variant_new_int64(i64 noundef 1) #7
   %42 = load i32, ptr @proto_cose_params, align 4
   %43 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_alg, i32 noundef %42, ptr noundef nonnull @.str.38) #7
   %44 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %41, ptr %45, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %44, ptr noundef %43) #7
   %46 = tail call ptr @g_variant_new_int64(i64 noundef 2) #7
   %47 = load i32, ptr @proto_cose_params, align 4
   %48 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_crit, i32 noundef %47, ptr noundef nonnull @.str.39) #7
   %49 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %46, ptr %50, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %49, ptr noundef %48) #7
   %51 = tail call ptr @g_variant_new_int64(i64 noundef 3) #7
   %52 = load i32, ptr @proto_cose_params, align 4
   %53 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_ctype, i32 noundef %52, ptr noundef nonnull @.str.40) #7
   %54 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %51, ptr %55, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %54, ptr noundef %53) #7
   %56 = tail call ptr @g_variant_new_int64(i64 noundef 4) #7
   %57 = load i32, ptr @proto_cose_params, align 4
   %58 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_kid, i32 noundef %57, ptr noundef nonnull @.str.41) #7
   %59 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %56, ptr %60, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %59, ptr noundef %58) #7
   %61 = tail call ptr @g_variant_new_int64(i64 noundef 5) #7
   %62 = load i32, ptr @proto_cose_params, align 4
   %63 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_iv, i32 noundef %62, ptr noundef nonnull @.str.42) #7
   %64 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %61, ptr %65, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %64, ptr noundef %63) #7
   %66 = tail call ptr @g_variant_new_int64(i64 noundef 6) #7
   %67 = load i32, ptr @proto_cose_params, align 4
   %68 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_piv, i32 noundef %67, ptr noundef nonnull @.str.43) #7
   %69 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %66, ptr %70, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %69, ptr noundef %68) #7
   %71 = tail call ptr @g_variant_new_int64(i64 noundef 32) #7
   %72 = load i32, ptr @proto_cose_params, align 4
   %73 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_x5bag, i32 noundef %72, ptr noundef nonnull @.str.44) #7
   %74 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %71, ptr %75, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %74, ptr noundef %73) #7
   %76 = tail call ptr @g_variant_new_int64(i64 noundef 33) #7
   %77 = load i32, ptr @proto_cose_params, align 4
   %78 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_x5chain, i32 noundef %77, ptr noundef nonnull @.str.45) #7
   %79 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %76, ptr %80, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %79, ptr noundef %78) #7
   %81 = tail call ptr @g_variant_new_int64(i64 noundef 34) #7
   %82 = load i32, ptr @proto_cose_params, align 4
   %83 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_x5t, i32 noundef %82, ptr noundef nonnull @.str.46) #7
   %84 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %81, ptr %85, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %84, ptr noundef %83) #7
   %86 = tail call ptr @g_variant_new_int64(i64 noundef 35) #7
   %87 = load i32, ptr @proto_cose_params, align 4
   %88 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_x5u, i32 noundef %87, ptr noundef nonnull @.str.47) #7
   %89 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %86, ptr %90, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.20, ptr noundef %89, ptr noundef %88) #7
   %91 = load ptr, ptr @handle_cose_key, align 8
@@ -1364,35 +1364,35 @@ define hidden void @proto_reg_handoff_cose() local_unnamed_addr #0 {
   %94 = load i32, ptr @proto_cose_params, align 4
   %95 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_keyparam_kty, i32 noundef %94, ptr noundef nonnull @.str.50) #7
   %96 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store ptr %93, ptr %97, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %96, ptr noundef %95) #7
   %98 = tail call ptr @g_variant_new_int64(i64 noundef 2) #7
   %99 = load i32, ptr @proto_cose_params, align 4
   %100 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_kid, i32 noundef %99, ptr noundef nonnull @.str.41) #7
   %101 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store ptr %98, ptr %102, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %101, ptr noundef %100) #7
   %103 = tail call ptr @g_variant_new_int64(i64 noundef 3) #7
   %104 = load i32, ptr @proto_cose_params, align 4
   %105 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_header_alg, i32 noundef %104, ptr noundef nonnull @.str.38) #7
   %106 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %103, ptr %107, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %106, ptr noundef %105) #7
   %108 = tail call ptr @g_variant_new_int64(i64 noundef 4) #7
   %109 = load i32, ptr @proto_cose_params, align 4
   %110 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_keyparam_keyops, i32 noundef %109, ptr noundef nonnull @.str.51) #7
   %111 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %112 = getelementptr inbounds i8, ptr %111, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store ptr %108, ptr %112, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %111, ptr noundef %110) #7
   %113 = tail call ptr @g_variant_new_int64(i64 noundef 5) #7
   %114 = load i32, ptr @proto_cose_params, align 4
   %115 = tail call ptr @create_dissector_handle_with_name(ptr noundef nonnull @dissect_keyparam_baseiv, i32 noundef %114, ptr noundef nonnull @.str.52) #7
   %116 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr %113, ptr %117, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %116, ptr noundef %115) #7
   %118 = tail call ptr @g_variant_new_int64(i64 noundef 1) #7
@@ -1409,7 +1409,7 @@ define hidden void @proto_reg_handoff_cose() local_unnamed_addr #0 {
   br label %register_keyparam_dissector.exit
 
 register_keyparam_dissector.exit:                 ; preds = %0, %123
-  %125 = getelementptr inbounds i8, ptr %122, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store ptr %119, ptr %125, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %122, ptr noundef %121) #7
   %126 = tail call ptr @g_variant_new_int64(i64 noundef -2) #7
@@ -1424,7 +1424,7 @@ register_keyparam_dissector.exit:                 ; preds = %0, %123
   br label %register_keyparam_dissector.exit12
 
 register_keyparam_dissector.exit12:               ; preds = %register_keyparam_dissector.exit, %130
-  %132 = getelementptr inbounds i8, ptr %129, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store ptr %126, ptr %132, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %129, ptr noundef %128) #7
   %133 = tail call ptr @g_variant_new_int64(i64 noundef -3) #7
@@ -1439,7 +1439,7 @@ register_keyparam_dissector.exit12:               ; preds = %register_keyparam_d
   br label %register_keyparam_dissector.exit14
 
 register_keyparam_dissector.exit14:               ; preds = %register_keyparam_dissector.exit12, %137
-  %139 = getelementptr inbounds i8, ptr %136, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr %133, ptr %139, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %136, ptr noundef %135) #7
   tail call void @g_variant_unref(ptr noundef %118) #7
@@ -1457,7 +1457,7 @@ register_keyparam_dissector.exit14:               ; preds = %register_keyparam_d
   br label %register_keyparam_dissector.exit16
 
 register_keyparam_dissector.exit16:               ; preds = %register_keyparam_dissector.exit14, %145
-  %147 = getelementptr inbounds i8, ptr %144, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store ptr %141, ptr %147, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %144, ptr noundef %143) #7
   %148 = tail call ptr @g_variant_new_int64(i64 noundef -2) #7
@@ -1472,7 +1472,7 @@ register_keyparam_dissector.exit16:               ; preds = %register_keyparam_d
   br label %register_keyparam_dissector.exit18
 
 register_keyparam_dissector.exit18:               ; preds = %register_keyparam_dissector.exit16, %152
-  %154 = getelementptr inbounds i8, ptr %151, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store ptr %148, ptr %154, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %151, ptr noundef %150) #7
   %155 = tail call ptr @g_variant_new_int64(i64 noundef -3) #7
@@ -1487,7 +1487,7 @@ register_keyparam_dissector.exit18:               ; preds = %register_keyparam_d
   br label %register_keyparam_dissector.exit20
 
 register_keyparam_dissector.exit20:               ; preds = %register_keyparam_dissector.exit18, %159
-  %161 = getelementptr inbounds i8, ptr %158, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store ptr %155, ptr %161, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %158, ptr noundef %157) #7
   %162 = tail call ptr @g_variant_new_int64(i64 noundef -4) #7
@@ -1502,7 +1502,7 @@ register_keyparam_dissector.exit20:               ; preds = %register_keyparam_d
   br label %register_keyparam_dissector.exit22
 
 register_keyparam_dissector.exit22:               ; preds = %register_keyparam_dissector.exit20, %166
-  %168 = getelementptr inbounds i8, ptr %165, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store ptr %162, ptr %168, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %165, ptr noundef %164) #7
   tail call void @g_variant_unref(ptr noundef %140) #7
@@ -1520,7 +1520,7 @@ register_keyparam_dissector.exit22:               ; preds = %register_keyparam_d
   br label %register_keyparam_dissector.exit24
 
 register_keyparam_dissector.exit24:               ; preds = %register_keyparam_dissector.exit22, %174
-  %176 = getelementptr inbounds i8, ptr %173, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store ptr %170, ptr %176, align 8
   tail call void @dissector_add_custom_table_handle(ptr noundef nonnull @.str.24, ptr noundef %173, ptr noundef %172) #7
   tail call void @g_variant_unref(ptr noundef %169) #7
@@ -1537,7 +1537,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 define internal i32 @dissect_header_salt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = load ptr, ptr %6, align 8
@@ -1568,7 +1568,7 @@ define internal i32 @dissect_header_static_key(ptr noundef %0, ptr noundef %1, p
   call fastcc void @dissect_header_map(ptr noundef %13, ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef nonnull %7, ptr noundef %12)
   %14 = call ptr @except_pop() #7
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load ptr, ptr %16, align 8
   call void %15(ptr noundef %17) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -1595,7 +1595,7 @@ define internal i32 @dissect_header_ephem_key(ptr noundef %0, ptr noundef %1, pt
   call fastcc void @dissect_header_map(ptr noundef %13, ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef nonnull %7, ptr noundef %12)
   %14 = call ptr @except_pop() #7
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load ptr, ptr %16, align 8
   call void %15(ptr noundef %17) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -1608,10 +1608,10 @@ define internal i32 @dissect_header_ephem_key(ptr noundef %0, ptr noundef %1, pt
 define internal i32 @dissect_header_alg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %dissect_value_alg.exit [
     i32 0, label %11
@@ -1640,7 +1640,7 @@ dissect_value_alg.exit:                           ; preds = %4, %11, %16
 define internal i32 @dissect_header_crit(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = call i32 @wscbor_require_array(ptr noundef %8) #7
@@ -1654,7 +1654,7 @@ define internal i32 @dissect_header_crit(ptr noundef %0, ptr noundef %1, ptr nou
 14:                                               ; preds = %4
   %15 = load i32, ptr @ett_hdr_crit_list, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %15) #7
-  %17 = getelementptr inbounds i8, ptr %8, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = load i64, ptr %17, align 8
   %.not29 = icmp eq i64 %18, 0
   br i1 %.not29, label %.loopexit, label %.lr.ph
@@ -1663,7 +1663,7 @@ define internal i32 @dissect_header_crit(ptr noundef %0, ptr noundef %1, ptr nou
   %.028 = phi i64 [ %32, %31 ], [ 0, %14 ]
   %19 = load ptr, ptr %6, align 8
   %20 = call ptr @wscbor_chunk_read(ptr noundef %19, ptr noundef %0, ptr noundef nonnull %5) #7
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %31 [
     i32 0, label %23
@@ -1700,10 +1700,10 @@ define internal i32 @dissect_header_crit(ptr noundef %0, ptr noundef %1, ptr nou
 define internal i32 @dissect_header_ctype(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %19 [
     i32 0, label %11
@@ -1731,7 +1731,7 @@ define internal i32 @dissect_header_ctype(ptr noundef %0, ptr noundef %1, ptr no
 define internal i32 @dissect_header_kid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = load ptr, ptr %6, align 8
@@ -1756,13 +1756,13 @@ define internal i32 @dissect_header_kid(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i, label %proto_item_set_generated.exit, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %20, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not5.i = icmp eq ptr %23, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %23, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = or i32 %26, 2
   store i32 %27, ptr %25, align 4
@@ -1777,7 +1777,7 @@ proto_item_set_generated.exit:                    ; preds = %24, %21, %15, %13, 
 define internal i32 @dissect_header_iv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = load ptr, ptr %6, align 8
@@ -1792,7 +1792,7 @@ define internal i32 @dissect_header_iv(ptr noundef %0, ptr noundef %1, ptr nound
 define internal i32 @dissect_header_piv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = load ptr, ptr %6, align 8
@@ -1827,7 +1827,7 @@ define internal i32 @dissect_header_x5chain(ptr noundef %0, ptr noundef %1, ptr 
 define internal i32 @dissect_header_x5t(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = call i32 @wscbor_require_array_size(ptr noundef %8, i64 noundef 2, i64 noundef 2) #7
@@ -1843,7 +1843,7 @@ define internal i32 @dissect_header_x5t(ptr noundef %0, ptr noundef %1, ptr noun
   %16 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %15) #7
   %17 = load ptr, ptr %6, align 8
   %18 = call ptr @wscbor_chunk_read(ptr noundef %17, ptr noundef %0, ptr noundef nonnull %5) #7
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %dissect_value_alg.exit [
     i32 0, label %21
@@ -1881,7 +1881,7 @@ dissect_value_alg.exit:                           ; preds = %14, %21, %26
 define internal i32 @dissect_header_x5u(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = call i32 @wscbor_require_major_type(ptr noundef %8, i32 noundef 3) #7
@@ -1895,10 +1895,10 @@ define internal i32 @dissect_header_x5u(ptr noundef %0, ptr noundef %1, ptr noun
 define internal i32 @dissect_keyparam_kty(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %19 [
     i32 0, label %11
@@ -1927,7 +1927,7 @@ define internal i32 @dissect_keyparam_kty(ptr noundef %0, ptr noundef %1, ptr no
 define internal i32 @dissect_keyparam_keyops(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = call i32 @wscbor_require_array(ptr noundef %8) #7
@@ -1941,7 +1941,7 @@ define internal i32 @dissect_keyparam_keyops(ptr noundef %0, ptr noundef %1, ptr
 14:                                               ; preds = %4
   %15 = load i32, ptr @ett_keyops_list, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %15) #7
-  %17 = getelementptr inbounds i8, ptr %8, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = load i64, ptr %17, align 8
   %.not30 = icmp eq i64 %18, 0
   br i1 %.not30, label %.loopexit, label %.lr.ph
@@ -1950,7 +1950,7 @@ define internal i32 @dissect_keyparam_keyops(ptr noundef %0, ptr noundef %1, ptr
   %.029 = phi i64 [ %32, %31 ], [ 0, %14 ]
   %19 = load ptr, ptr %6, align 8
   %20 = call ptr @wscbor_chunk_read(ptr noundef %19, ptr noundef %0, ptr noundef nonnull %5) #7
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %31 [
     i32 0, label %23
@@ -1978,7 +1978,7 @@ define internal i32 @dissect_keyparam_keyops(ptr noundef %0, ptr noundef %1, ptr
 
 .loopexit:                                        ; preds = %31, %14, %4
   %35 = load i32, ptr %5, align 4
-  %36 = getelementptr inbounds i8, ptr %8, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = sub i32 %35, %37
   call void @proto_item_set_len(ptr noundef %11, i32 noundef %38) #7
@@ -1990,7 +1990,7 @@ define internal i32 @dissect_keyparam_keyops(ptr noundef %0, ptr noundef %1, ptr
 define internal i32 @dissect_keyparam_baseiv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = load ptr, ptr %6, align 8
@@ -2005,10 +2005,10 @@ define internal i32 @dissect_keyparam_baseiv(ptr noundef %0, ptr noundef %1, ptr
 define internal i32 @dissect_keyparam_crv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %19 [
     i32 0, label %11
@@ -2037,7 +2037,7 @@ define internal i32 @dissect_keyparam_crv(ptr noundef %0, ptr noundef %1, ptr no
 define internal i32 @dissect_keyparam_xcoord(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = load ptr, ptr %6, align 8
@@ -2052,7 +2052,7 @@ define internal i32 @dissect_keyparam_xcoord(ptr noundef %0, ptr noundef %1, ptr
 define internal i32 @dissect_keyparam_dcoord(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = load ptr, ptr %6, align 8
@@ -2067,10 +2067,10 @@ define internal i32 @dissect_keyparam_dcoord(ptr noundef %0, ptr noundef %1, ptr
 define internal i32 @dissect_keyparam_ycoord(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %17 [
     i32 7, label %11
@@ -2096,7 +2096,7 @@ define internal i32 @dissect_keyparam_ycoord(ptr noundef %0, ptr noundef %1, ptr
 define internal i32 @dissect_keyparam_k(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @wscbor_chunk_read(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %5) #7
   %9 = load ptr, ptr %6, align 8
@@ -2120,7 +2120,7 @@ define internal fastcc void @dissect_header_map(ptr noundef %0, ptr noundef %1, 
   %7 = alloca %struct.except_stacknode, align 8
   %8 = alloca %struct.except_cleanup, align 8
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @wscbor_chunk_read(ptr noundef %11, ptr noundef %1, ptr noundef nonnull %4) #7
   %13 = tail call i32 @wscbor_require_map(ptr noundef %12) #7
@@ -2143,7 +2143,7 @@ define internal fastcc void @dissect_header_map(ptr noundef %0, ptr noundef %1, 
 23:                                               ; preds = %18
   %24 = load i32, ptr %4, align 4
   store i32 %24, ptr %9, align 4
-  %25 = getelementptr inbounds i8, ptr %12, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %26 = load i64, ptr %25, align 8
   %.not58 = icmp eq i64 %26, 0
   br i1 %.not58, label %.loopexit, label %.lr.ph
@@ -2181,7 +2181,7 @@ define internal fastcc void @dissect_header_map(ptr noundef %0, ptr noundef %1, 
   br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %34, %36, %23, %18
-  %42 = getelementptr inbounds i8, ptr %12, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %43 = load i64, ptr %42, align 8
   %.not59 = icmp eq i64 %43, 0
   br i1 %.not59, label %._crit_edge, label %.lr.ph56
@@ -2201,7 +2201,7 @@ define internal fastcc void @dissect_header_map(ptr noundef %0, ptr noundef %1, 
 ._crit_edge:                                      ; preds = %44, %.lr.ph56, %.loopexit
   %49 = call ptr @except_pop() #7
   %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %8, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %52 = load ptr, ptr %51, align 8
   call void %50(ptr noundef %52) #7
   %53 = load ptr, ptr %10, align 8
@@ -2210,7 +2210,7 @@ define internal fastcc void @dissect_header_map(ptr noundef %0, ptr noundef %1, 
 
 54:                                               ; preds = %._crit_edge, %6
   %55 = load i32, ptr %4, align 4
-  %56 = getelementptr inbounds i8, ptr %12, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %57 = load i32, ptr %56, align 8
   %58 = sub i32 %55, %57
   call void @proto_item_set_len(ptr noundef %14, i32 noundef %58) #7
@@ -2244,7 +2244,7 @@ define internal void @cose_header_context_cleanup(ptr nocapture noundef %0) #0 {
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not7 = icmp eq ptr %6, null
   br i1 %.not7, label %8, label %7
@@ -2261,7 +2261,7 @@ define internal void @cose_header_context_cleanup(ptr nocapture noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_header_value(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = tail call ptr @wscbor_chunk_read(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) #7
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %16 [
     i32 0, label %7
@@ -2305,14 +2305,14 @@ define internal fastcc range(i32 0, 2) i32 @dissect_header_pair(ptr noundef %0, 
   %11 = alloca i32, align 4
   %12 = alloca %struct.except_stacknode, align 8
   %13 = alloca %struct.except_catch, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr @wscbor_chunk_read(ptr noundef %15, ptr noundef %2, ptr noundef nonnull %5) #7
   store volatile ptr null, ptr %7, align 8
   store volatile ptr null, ptr %8, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %42 [
     i32 0, label %20
@@ -2331,9 +2331,9 @@ define internal fastcc range(i32 0, 2) i32 @dissect_header_pair(ptr noundef %0, 
 25:                                               ; preds = %20
   %26 = load i64, ptr %22, align 8
   %27 = call ptr @g_variant_new_int64(i64 noundef %26) #7
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %9, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %27, ptr %29, align 8
   %30 = load ptr, ptr %14, align 8
   %31 = load i64, ptr %22, align 8
@@ -2350,9 +2350,9 @@ define internal fastcc range(i32 0, 2) i32 @dissect_header_pair(ptr noundef %0, 
 
 38:                                               ; preds = %33
   %39 = call ptr @g_variant_new_string(ptr noundef nonnull %35) #7
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %9, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %39, ptr %41, align 8
   br label %42
 
@@ -2422,7 +2422,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_header_pair(ptr noundef %0, 
 
 70:                                               ; preds = %63, %64, %67, %56
   %.0 = phi i1 [ false, %67 ], [ false, %64 ], [ true, %63 ], [ true, %56 ]
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8
   %.not90 = icmp eq ptr %72, null
   br i1 %.not90, label %74, label %73
@@ -2438,10 +2438,10 @@ define internal fastcc range(i32 0, 2) i32 @dissect_header_pair(ptr noundef %0, 
 75:                                               ; preds = %74
   store volatile i32 0, ptr %11, align 4
   call void @except_setup_try(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @dissect_header_pair.catch_spec, i64 noundef 1) #7
-  %76 = getelementptr inbounds i8, ptr %13, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %77 = call i32 @_setjmp(ptr noundef nonnull %76) #9
   %.not91 = icmp eq i32 %77, 0
-  %78 = getelementptr inbounds i8, ptr %13, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sink = select i1 %.not91, ptr null, ptr %78
   store volatile ptr %.sink, ptr %10, align 8
   %.0..0..0..0. = load volatile i32, ptr %11, align 4
@@ -2508,7 +2508,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_header_pair(ptr noundef %0, 
   unreachable
 
 99:                                               ; preds = %97, %95
-  %100 = getelementptr inbounds i8, ptr %13, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %101 = load volatile ptr, ptr %100, align 8
   call void @except_free(ptr noundef %101) #7
   %102 = call ptr @except_pop() #7
@@ -2587,7 +2587,7 @@ define internal fastcc void @dissect_headers(ptr noundef %0, ptr noundef %1, ptr
   %8 = alloca i32, align 4
   %9 = alloca %struct.except_stacknode, align 8
   %10 = alloca %struct.except_cleanup, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @wscbor_chunk_read(ptr noundef %12, ptr noundef %0, ptr noundef nonnull %3) #7
   %14 = load ptr, ptr %11, align 8
@@ -2615,7 +2615,7 @@ define internal fastcc void @dissect_headers(ptr noundef %0, ptr noundef %1, ptr
   call fastcc void @dissect_header_map(ptr noundef %24, ptr noundef nonnull %15, ptr noundef nonnull %1, ptr noundef %20, ptr noundef %8, ptr noundef %23)
   %25 = call ptr @except_pop() #7
   %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %10, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %28 = load ptr, ptr %27, align 8
   call void %26(ptr noundef %28) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -2640,7 +2640,7 @@ define internal fastcc void @dissect_headers(ptr noundef %0, ptr noundef %1, ptr
   call fastcc void @dissect_header_map(ptr noundef %37, ptr noundef %31, ptr noundef nonnull %1, ptr noundef %35, ptr noundef %5, ptr noundef %36)
   %38 = call ptr @except_pop() #7
   %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %41 = load ptr, ptr %40, align 8
   call void %39(ptr noundef %41) #7
   %42 = load i32, ptr %5, align 4
@@ -2668,7 +2668,7 @@ declare ptr @proto_tree_add_cbor_ctrl(ptr noundef, i32 noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_cose_recipient_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @wscbor_chunk_read(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %3) #7
   %8 = tail call i32 @wscbor_require_array(ptr noundef %7) #7
@@ -2682,7 +2682,7 @@ define internal fastcc void @dissect_cose_recipient_list(ptr noundef %0, ptr nou
 13:                                               ; preds = %4
   %14 = load i32, ptr @ett_recip_list, align 4
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %14) #7
-  %16 = getelementptr inbounds i8, ptr %7, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %17 = load i64, ptr %16, align 8
   %.not23 = icmp eq i64 %17, 0
   br i1 %.not23, label %.loopexit, label %.lr.ph
@@ -2705,7 +2705,7 @@ define internal fastcc void @dissect_cose_recipient_list(ptr noundef %0, ptr nou
   tail call fastcc void @dissect_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef nonnull %3)
   %28 = load ptr, ptr %5, align 8
   %29 = tail call ptr @wscbor_chunk_read(ptr noundef %28, ptr noundef %0, ptr noundef nonnull %3) #7
-  %30 = getelementptr inbounds i8, ptr %29, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 7
   br i1 %32, label %33, label %36
@@ -2723,7 +2723,7 @@ define internal fastcc void @dissect_cose_recipient_list(ptr noundef %0, ptr nou
   br label %dissect_ciphertext.exit
 
 dissect_ciphertext.exit:                          ; preds = %33, %36
-  %41 = getelementptr inbounds i8, ptr %19, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %42 = load i64, ptr %41, align 8
   %43 = icmp ugt i64 %42, 3
   br i1 %43, label %44, label %dissect_cose_recipient.exit
@@ -2734,7 +2734,7 @@ dissect_ciphertext.exit:                          ; preds = %33, %36
 
 dissect_cose_recipient.exit:                      ; preds = %.lr.ph, %dissect_ciphertext.exit, %44
   %45 = load i32, ptr %3, align 4
-  %46 = getelementptr inbounds i8, ptr %19, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = sub i32 %45, %47
   tail call void @proto_item_set_len(ptr noundef %22, i32 noundef %48) #7
@@ -2745,7 +2745,7 @@ dissect_cose_recipient.exit:                      ; preds = %.lr.ph, %dissect_ci
 
 .loopexit:                                        ; preds = %dissect_cose_recipient.exit, %13, %4
   %52 = load i32, ptr %3, align 4
-  %53 = getelementptr inbounds i8, ptr %7, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = sub i32 %52, %54
   tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %55) #7
@@ -2773,10 +2773,10 @@ define internal fastcc void @dissect_value_cosex509(ptr noundef %0, ptr noundef 
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
   %7 = load i32, ptr @ett_hdr_x5cert_list, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @wscbor_chunk_read(ptr noundef %10, ptr noundef %0, ptr noundef nonnull %4) #7
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %.loopexit [
     i32 4, label %14
@@ -2791,7 +2791,7 @@ define internal fastcc void @dissect_value_cosex509(ptr noundef %0, ptr noundef 
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %11, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %19 = load i64, ptr %18, align 8
   %.not26 = icmp eq i64 %19, 0
   br i1 %.not26, label %.loopexit, label %.lr.ph
@@ -2805,7 +2805,7 @@ define internal fastcc void @dissect_value_cosex509(ptr noundef %0, ptr noundef 
   br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 23:                                               ; preds = %5
-  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %25 = load i32, ptr %24, align 8
   store i32 %25, ptr %4, align 4
   tail call fastcc void @dissect_value_x5cert(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %8, ptr noundef %4)
@@ -2821,7 +2821,7 @@ define internal fastcc void @dissect_value_x5cert(ptr noundef %0, ptr noundef %1
   %6 = alloca i32, align 4
   %7 = alloca %struct.except_stacknode, align 8
   %8 = alloca %struct.except_catch, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @wscbor_chunk_read(ptr noundef %10, ptr noundef %0, ptr noundef nonnull %3) #7
   %12 = load ptr, ptr %9, align 8
@@ -2831,16 +2831,16 @@ define internal fastcc void @dissect_value_x5cert(ptr noundef %0, ptr noundef %1
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @col_get_text(ptr noundef %17, i32 noundef 25) #7
   %19 = call noalias ptr @wmem_strdup(ptr noundef %15, ptr noundef %18) #7
   store volatile i32 0, ptr %6, align 4
   call void @except_setup_try(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @dissect_value_x5cert.catch_spec, i64 noundef 1) #7
-  %20 = getelementptr inbounds i8, ptr %8, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %21 = call i32 @_setjmp(ptr noundef nonnull %20) #9
   %.not24 = icmp eq i32 %21, 0
-  %22 = getelementptr inbounds i8, ptr %8, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink = select i1 %.not24, ptr null, ptr %22
   store volatile ptr %.sink, ptr %5, align 8
   %.0..0..0..0. = load volatile i32, ptr %6, align 4
@@ -2905,7 +2905,7 @@ define internal fastcc void @dissect_value_x5cert(ptr noundef %0, ptr noundef %1
   unreachable
 
 43:                                               ; preds = %41, %39
-  %44 = getelementptr inbounds i8, ptr %8, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %45 = load volatile ptr, ptr %44, align 8
   call void @except_free(ptr noundef %45) #7
   %46 = call ptr @except_pop() #7

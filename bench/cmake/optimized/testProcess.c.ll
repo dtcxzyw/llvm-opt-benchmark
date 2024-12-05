@@ -389,7 +389,7 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
   ]
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(4) @.str.1) #17
   %17 = icmp eq i32 %16, 0
@@ -397,7 +397,7 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
 
 .sink.split:                                      ; preds = %13, %2
   %.sink = phi i64 [ 8, %2 ], [ 16, %13 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @atoi(ptr nocapture noundef %19) #17
   br label %21
@@ -456,7 +456,7 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
 35:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 8193, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %4, i8 46, i64 8192, i1 false)
-  %36 = getelementptr inbounds i8, ptr %4, i64 8192
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8192
   store i8 10, ptr %36, align 16
   br label %37
 
@@ -492,7 +492,7 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
 
 50:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %51, i8 0, i64 144, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8
   %52 = call i32 @sigemptyset(ptr noundef nonnull %51) #14
@@ -539,39 +539,39 @@ test9_grandchild.exit:                            ; preds = %50, %55
 
 78:                                               ; preds = %77
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %79 = getelementptr inbounds i8, ptr %5, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %5, i64 36
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 3, ptr %80, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, i8 0, i64 32, i1 false)
-  %81 = getelementptr inbounds i8, ptr %6, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 123, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %6, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %6, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %6, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 1, ptr %84, align 16
-  %85 = getelementptr inbounds i8, ptr %6, i64 36
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 1, ptr %85, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, i8 0, i64 32, i1 false)
-  %86 = getelementptr inbounds i8, ptr %7, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 1, ptr %86, align 16
-  %87 = getelementptr inbounds i8, ptr %7, i64 36
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 1, ptr %87, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %8, i8 0, i64 40, i1 false)
-  %88 = getelementptr inbounds i8, ptr %8, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 1, ptr %88, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, ptr noundef nonnull align 16 dereferenceable(40) @__const.main.repeat, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, i8 0, i64 32, i1 false)
-  %89 = getelementptr inbounds i8, ptr %10, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 1, ptr %89, align 16
-  %90 = getelementptr inbounds i8, ptr %10, i64 36
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 36
   store i32 1, ptr %90, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, i8 0, i64 32, i1 false)
-  %91 = getelementptr inbounds i8, ptr %11, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 3, ptr %91, align 16
-  %92 = getelementptr inbounds i8, ptr %11, i64 36
+  %92 = getelementptr inbounds nuw i8, ptr %11, i64 36
   store i32 2, ptr %92, align 4
   %93 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #14
   %.not = icmp eq ptr %93, null
@@ -591,13 +591,13 @@ test9_grandchild.exit:                            ; preds = %50, %55
 99:                                               ; preds = %94, %97, %78
   %100 = load ptr, ptr %1, align 8
   store ptr %100, ptr %12, align 16
-  %101 = getelementptr inbounds i8, ptr %12, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @.str.1, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %1, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %12, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %103, ptr %104, align 16
-  %105 = getelementptr inbounds i8, ptr %12, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr null, ptr %105, align 8
   %106 = load ptr, ptr @stdout, align 8
   %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.4, i32 noundef %.087) #14
@@ -608,25 +608,25 @@ test9_grandchild.exit:                            ; preds = %50, %55
   %112 = load ptr, ptr @stderr, align 8
   %113 = tail call i32 @fflush(ptr noundef %112)
   %114 = zext nneg i32 %22 to i64
-  %115 = getelementptr inbounds [10 x i32], ptr @__const.main.states, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw [10 x i32], ptr @__const.main.states, i64 0, i64 %114
   %116 = load i32, ptr %115, align 4
-  %117 = getelementptr inbounds [10 x i32], ptr %5, i64 0, i64 %114
+  %117 = getelementptr inbounds nuw [10 x i32], ptr %5, i64 0, i64 %114
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds [10 x i32], ptr %6, i64 0, i64 %114
+  %119 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %114
   %120 = load i32, ptr %119, align 4
-  %121 = getelementptr inbounds [10 x i32], ptr %7, i64 0, i64 %114
+  %121 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %114
   %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds [10 x i32], ptr @__const.main.outputs, i64 0, i64 %114
+  %123 = getelementptr inbounds nuw [10 x i32], ptr @__const.main.outputs, i64 0, i64 %114
   %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds [10 x double], ptr @__const.main.timeouts, i64 0, i64 %114
+  %125 = getelementptr inbounds nuw [10 x double], ptr @__const.main.timeouts, i64 0, i64 %114
   %126 = load double, ptr %125, align 8
-  %127 = getelementptr inbounds [10 x i32], ptr %8, i64 0, i64 %114
+  %127 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %114
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds [10 x i32], ptr %9, i64 0, i64 %114
+  %129 = getelementptr inbounds nuw [10 x i32], ptr %9, i64 0, i64 %114
   %130 = load i32, ptr %129, align 4
-  %131 = getelementptr inbounds [10 x i32], ptr %10, i64 0, i64 %114
+  %131 = getelementptr inbounds nuw [10 x i32], ptr %10, i64 0, i64 %114
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds [10 x i32], ptr %11, i64 0, i64 %114
+  %133 = getelementptr inbounds nuw [10 x i32], ptr %11, i64 0, i64 %114
   %134 = load i32, ptr %133, align 4
   %135 = call i32 @runChild(ptr noundef nonnull %12, i32 noundef %116, i32 noundef %118, i32 noundef %120, i32 noundef %122, i32 noundef %124, i32 poison, double noundef %126, i32 noundef %128, i32 noundef %130, i32 noundef 0, i32 noundef %132, i32 noundef %134)
   %136 = load ptr, ptr @stdout, align 8
@@ -644,20 +644,20 @@ test9_grandchild.exit:                            ; preds = %50, %55
   br i1 %145, label %sub_0, label %.tail.thread
 
 sub_0:                                            ; preds = %144
-  %146 = getelementptr inbounds i8, ptr %1, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %147 = load ptr, ptr %146, align 8
   %148 = load i8, ptr %147, align 1
   %.not94 = icmp eq i8 %148, 48
   br i1 %.not94, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %149 = getelementptr inbounds i8, ptr %147, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 1
   %150 = load i8, ptr %149, align 1
   %151 = icmp eq i8 %150, 0
   br i1 %151, label %152, label %.tail.thread
 
 152:                                              ; preds = %.tail
-  %153 = getelementptr inbounds i8, ptr %1, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %154 = tail call i32 @runChild(ptr noundef nonnull %153, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 poison, double noundef 0.000000e+00, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br label %158
 
@@ -736,11 +736,11 @@ define internal fastcc void @test4() unnamed_addr #5 {
 define internal fastcc range(i32 0, 2) i32 @test5(ptr %.0.val) unnamed_addr #6 {
   %1 = alloca [4 x ptr], align 16
   store ptr %.0.val, ptr %1, align 16
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str.1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @.str.36, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr @stdout, align 8
   %6 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 40, i64 1, ptr %5)
@@ -788,11 +788,11 @@ define internal fastcc void @test7() unnamed_addr #6 {
 define internal fastcc range(i32 0, 2) i32 @test8(ptr %.0.val) unnamed_addr #6 {
   %1 = alloca [4 x ptr], align 16
   store ptr %.0.val, ptr %1, align 16
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str.1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @.str.45, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr @stdout, align 8
   %6 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 41, i64 1, ptr %5)
@@ -818,11 +818,11 @@ define internal fastcc range(i32 0, 2) i32 @test8(ptr %.0.val) unnamed_addr #6 {
 define internal fastcc range(i32 0, 2) i32 @test9(ptr %.0.val) unnamed_addr #6 {
   %1 = alloca [4 x ptr], align 16
   store ptr %.0.val, ptr %1, align 16
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str.1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @.str.50, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr @stdout, align 8
   %6 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 41, i64 1, ptr %5)
@@ -849,11 +849,11 @@ define internal fastcc range(i32 0, 2) i32 @test9(ptr %.0.val) unnamed_addr #6 {
 define internal fastcc range(i32 0, 2) i32 @test10(ptr %.0.val) unnamed_addr #6 {
   %1 = alloca [4 x ptr], align 16
   store ptr %.0.val, ptr %1, align 16
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str.1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @.str.51, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr @stdout, align 8
   %6 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 41, i64 1, ptr %5)

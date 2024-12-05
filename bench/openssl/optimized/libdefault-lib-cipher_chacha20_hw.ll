@@ -21,22 +21,22 @@ entry:
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %key18 = getelementptr inbounds i8, ptr %bctx, i64 192
+  %key18 = getelementptr inbounds nuw i8, ptr %bctx, i64 192
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
-  %add.ptr = getelementptr inbounds i8, ptr %key, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw i8, ptr %key, i64 %indvars.iv
   %0 = load i32, ptr %add.ptr, align 1
   %1 = lshr exact i64 %indvars.iv, 2
-  %arrayidx19 = getelementptr inbounds [8 x i32], ptr %key18, i64 0, i64 %1
+  %arrayidx19 = getelementptr inbounds nuw [8 x i32], ptr %key18, i64 0, i64 %1
   store i32 %0, ptr %arrayidx19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %cmp1 = icmp samesign ult i64 %indvars.iv, 28
   br i1 %cmp1, label %for.body, label %if.end, !llvm.loop !4
 
 if.end:                                           ; preds = %for.body, %entry
-  %partial_len = getelementptr inbounds i8, ptr %bctx, i64 304
+  %partial_len = getelementptr inbounds nuw i8, ptr %bctx, i64 304
   store i32 0, ptr %partial_len, align 8
   ret i32 1
 }
@@ -44,7 +44,7 @@ if.end:                                           ; preds = %for.body, %entry
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @chacha20_cipher(ptr noundef %bctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #2 {
 entry:
-  %partial_len = getelementptr inbounds i8, ptr %bctx, i64 304
+  %partial_len = getelementptr inbounds nuw i8, ptr %bctx, i64 304
   %0 = load i32, ptr %partial_len, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end26, label %while.cond.preheader
@@ -56,7 +56,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %1, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %buf = getelementptr inbounds i8, ptr %bctx, i64 240
+  %buf = getelementptr inbounds nuw i8, ptr %bctx, i64 240
   %2 = zext nneg i32 %0 to i64
   br label %while.body
 
@@ -65,13 +65,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %out.addr.164 = phi ptr [ %out, %while.body.lr.ph ], [ %incdec.ptr5, %while.body ]
   %inl.addr.163 = phi i64 [ %inl, %while.body.lr.ph ], [ %dec, %while.body ]
   %in.addr.162 = phi ptr [ %in, %while.body.lr.ph ], [ %incdec.ptr, %while.body ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.162, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %in.addr.162, i64 1
   %3 = load i8, ptr %in.addr.162, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %buf, i64 0, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx, align 1
   %xor58 = xor i8 %4, %3
-  %incdec.ptr5 = getelementptr inbounds i8, ptr %out.addr.164, i64 1
+  %incdec.ptr5 = getelementptr inbounds nuw i8, ptr %out.addr.164, i64 1
   store i8 %xor58, ptr %out.addr.164, align 1
   %dec = add i64 %inl.addr.163, -1
   %cmp1 = icmp ne i64 %dec, 0
@@ -98,7 +98,7 @@ if.end:                                           ; preds = %while.end
 
 if.then12:                                        ; preds = %if.end
   store i32 0, ptr %partial_len, align 8
-  %counter = getelementptr inbounds i8, ptr %bctx, i64 224
+  %counter = getelementptr inbounds nuw i8, ptr %bctx, i64 224
   %7 = load i32, ptr %counter, align 8
   %inc15 = add i32 %7, 1
   store i32 %inc15, ptr %counter, align 8
@@ -106,7 +106,7 @@ if.then12:                                        ; preds = %if.end
   br i1 %cmp18, label %if.then20, label %if.end26
 
 if.then20:                                        ; preds = %if.then12
-  %arrayidx22 = getelementptr inbounds i8, ptr %bctx, i64 228
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %bctx, i64 228
   %8 = load i32, ptr %arrayidx22, align 4
   %inc23 = add i32 %8, 1
   store i32 %inc23, ptr %arrayidx22, align 4
@@ -119,14 +119,14 @@ if.end26:                                         ; preds = %if.end, %if.then20,
   %9 = trunc i64 %inl.addr.0 to i32
   %conv28 = and i32 %9, 63
   %sub = and i64 %inl.addr.0, -64
-  %counter30 = getelementptr inbounds i8, ptr %bctx, i64 224
+  %counter30 = getelementptr inbounds nuw i8, ptr %bctx, i64 224
   %cmp33.not69 = icmp eq i64 %sub, 0
   br i1 %cmp33.not69, label %while.end61, label %while.body35.lr.ph
 
 while.body35.lr.ph:                               ; preds = %if.end26
   %10 = load i32, ptr %counter30, align 8
-  %key = getelementptr inbounds i8, ptr %bctx, i64 192
-  %arrayidx58 = getelementptr inbounds i8, ptr %bctx, i64 228
+  %key = getelementptr inbounds nuw i8, ptr %bctx, i64 192
+  %arrayidx58 = getelementptr inbounds nuw i8, ptr %bctx, i64 228
   br label %while.body35
 
 while.body35:                                     ; preds = %while.body35.lr.ph, %if.end60
@@ -146,8 +146,8 @@ while.body35:                                     ; preds = %while.body35.lr.ph,
   %mul = shl nuw nsw i64 %spec.select59, 6
   tail call void @ChaCha20_ctr32(ptr noundef %out.addr.272, ptr noundef %in.addr.270, i64 noundef %mul, ptr noundef nonnull %key, ptr noundef nonnull %counter30) #6
   %sub50 = sub i64 %inl.addr.271, %mul
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.270, i64 %mul
-  %add.ptr51 = getelementptr inbounds i8, ptr %out.addr.272, i64 %mul
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.270, i64 %mul
+  %add.ptr51 = getelementptr inbounds nuw i8, ptr %out.addr.272, i64 %mul
   store i32 %spec.select, ptr %counter30, align 8
   %cmp54 = icmp eq i32 %spec.select, 0
   br i1 %cmp54, label %if.then56, label %if.end60
@@ -169,21 +169,21 @@ while.end61:                                      ; preds = %if.end60, %if.end26
   br i1 %cmp62.not, label %return, label %if.then64
 
 if.then64:                                        ; preds = %while.end61
-  %buf65 = getelementptr inbounds i8, ptr %bctx, i64 240
+  %buf65 = getelementptr inbounds nuw i8, ptr %bctx, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %buf65, i8 0, i64 64, i1 false)
-  %key71 = getelementptr inbounds i8, ptr %bctx, i64 192
+  %key71 = getelementptr inbounds nuw i8, ptr %bctx, i64 192
   tail call void @ChaCha20_ctr32(ptr noundef nonnull %buf65, ptr noundef nonnull %buf65, i64 noundef 64, ptr noundef nonnull %key71, ptr noundef nonnull %counter30) #6
   %wide.trip.count = and i64 %inl.addr.0, 63
   br label %for.body
 
 for.body:                                         ; preds = %if.then64, %for.body
   %indvars.iv78 = phi i64 [ 0, %if.then64 ], [ %indvars.iv.next79, %for.body ]
-  %arrayidx78 = getelementptr inbounds i8, ptr %in.addr.2.lcssa, i64 %indvars.iv78
+  %arrayidx78 = getelementptr inbounds nuw i8, ptr %in.addr.2.lcssa, i64 %indvars.iv78
   %12 = load i8, ptr %arrayidx78, align 1
-  %arrayidx82 = getelementptr inbounds [64 x i8], ptr %buf65, i64 0, i64 %indvars.iv78
+  %arrayidx82 = getelementptr inbounds nuw [64 x i8], ptr %buf65, i64 0, i64 %indvars.iv78
   %13 = load i8, ptr %arrayidx82, align 1
   %xor8456 = xor i8 %13, %12
-  %arrayidx87 = getelementptr inbounds i8, ptr %out.addr.2.lcssa, i64 %indvars.iv78
+  %arrayidx87 = getelementptr inbounds nuw i8, ptr %out.addr.2.lcssa, i64 %indvars.iv78
   store i8 %xor8456, ptr %arrayidx87, align 1
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
@@ -200,29 +200,29 @@ return:                                           ; preds = %while.end61, %for.e
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @chacha20_initiv(ptr nocapture noundef %bctx) #1 {
 entry:
-  %iv_set = getelementptr inbounds i8, ptr %bctx, i64 108
+  %iv_set = getelementptr inbounds nuw i8, ptr %bctx, i64 108
   %bf.load = load i8, ptr %iv_set, align 4
   %0 = and i8 %bf.load, 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %counter = getelementptr inbounds i8, ptr %bctx, i64 224
+  %counter = getelementptr inbounds nuw i8, ptr %bctx, i64 224
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
-  %add.ptr = getelementptr inbounds i8, ptr %bctx, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw i8, ptr %bctx, i64 %indvars.iv
   %1 = load i32, ptr %add.ptr, align 1
   %2 = lshr exact i64 %indvars.iv, 2
-  %arrayidx23 = getelementptr inbounds [4 x i32], ptr %counter, i64 0, i64 %2
+  %arrayidx23 = getelementptr inbounds nuw [4 x i32], ptr %counter, i64 0, i64 %2
   store i32 %1, ptr %arrayidx23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %cmp = icmp samesign ult i64 %indvars.iv, 12
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !9
 
 if.end:                                           ; preds = %for.body, %entry
-  %partial_len = getelementptr inbounds i8, ptr %bctx, i64 304
+  %partial_len = getelementptr inbounds nuw i8, ptr %bctx, i64 304
   store i32 0, ptr %partial_len, align 8
   ret i32 1
 }

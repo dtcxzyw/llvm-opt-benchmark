@@ -36,7 +36,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %vuc, i64 168
+  %arrayidx = getelementptr inbounds nuw i8, ptr %vuc, i64 168
   %0 = load i64, ptr %arrayidx, align 8
   %1 = inttoptr i64 %0 to ptr
   br label %return
@@ -99,10 +99,10 @@ for.body.us.preheader:                            ; preds = %if.end2.thread44, %
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %_ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPvES4_S4_S4_iS3_.exit.us
   %indvars.iv38 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next39, %_ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPvES4_S4_S4_iS3_.exit.us ]
-  %arrayidx.us = getelementptr inbounds ptr, ptr %stack, i64 %indvars.iv38
+  %arrayidx.us = getelementptr inbounds nuw ptr, ptr %stack, i64 %indvars.iv38
   %0 = load ptr, ptr %arrayidx.us, align 8
   %add.ptr.us = getelementptr inbounds i8, ptr %0, i64 -1
-  %arrayidx9.us = getelementptr inbounds i32, ptr %frame_sizes, i64 %indvars.iv38
+  %arrayidx9.us = getelementptr inbounds nuw i32, ptr %frame_sizes, i64 %indvars.iv38
   %1 = load i32, ptr %arrayidx9.us, align 4
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %tmp.i25)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i26)
@@ -129,9 +129,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPv
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN4absl18debugging_internal12_GLOBAL__N_118DumpPCAndFrameSizeEPFvPKcPvES4_S4_iS3_.exit
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %_ZN4absl18debugging_internal12_GLOBAL__N_118DumpPCAndFrameSizeEPFvPKcPvES4_S4_iS3_.exit ]
-  %arrayidx12 = getelementptr inbounds ptr, ptr %stack, i64 %indvars.iv
+  %arrayidx12 = getelementptr inbounds nuw ptr, ptr %stack, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx12, align 8
-  %arrayidx14 = getelementptr inbounds i32, ptr %frame_sizes, i64 %indvars.iv
+  %arrayidx14 = getelementptr inbounds nuw i32, ptr %frame_sizes, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx14, align 4
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %buf.i30)
   %cmp.i31 = icmp slt i32 %3, 1
@@ -206,7 +206,7 @@ for.body.lr.ph:                                   ; preds = %if.end3
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx.us = getelementptr inbounds ptr, ptr %stack.0, i64 %indvars.iv30
+  %arrayidx.us = getelementptr inbounds nuw ptr, ptr %stack.0, i64 %indvars.iv30
   %0 = load ptr, ptr %arrayidx.us, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %buf.i)
@@ -235,7 +235,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.e
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
-  %arrayidx10 = getelementptr inbounds ptr, ptr %stack.0, i64 %indvars.iv
+  %arrayidx10 = getelementptr inbounds nuw ptr, ptr %stack.0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx10, align 8
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %buf.i22)
   %call.i23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i22, i64 noundef 100, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef %3) #8

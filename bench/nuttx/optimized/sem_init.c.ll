@@ -7,8 +7,8 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @nxsem_init(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = trunc i32 %2 to i16
   store volatile i16 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 0, ptr %6, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   ret i32 0
@@ -29,8 +29,8 @@ define range(i32 -1, 1) i32 @sem_init(ptr noundef %0, i32 noundef %1, i32 nounde
 8:                                                ; preds = %3
   %9 = trunc nuw i32 %2 to i16
   store volatile i16 %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 0, ptr %11, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   br label %12

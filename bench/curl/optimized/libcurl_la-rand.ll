@@ -38,7 +38,7 @@ while.body4:                                      ; preds = %while.body4.prehead
   %left.09 = phi i64 [ %dec5, %while.body4 ], [ %cond, %while.body4.preheader ]
   %rnd.addr.17 = phi ptr [ %incdec.ptr, %while.body4 ], [ %rnd.addr.011, %while.body4.preheader ]
   %conv = trunc i32 %1 to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %rnd.addr.17, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %rnd.addr.17, i64 1
   store i8 %conv, ptr %rnd.addr.17, align 1
   %2 = load i32, ptr %r, align 4
   %shr = lshr i32 %2, 8
@@ -93,7 +93,7 @@ if.then13:                                        ; preds = %if.end11
   br i1 %tobool15.not, label %do.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then13
-  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
+  %verbose = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %2 = and i64 %bf.load, 536870912
   %tobool16.not = icmp eq i64 %2, 0
@@ -175,7 +175,7 @@ while.body4.i:                                    ; preds = %while.body4.i, %whi
   %left.09.i = phi i64 [ %dec5.i, %while.body4.i ], [ %cond.i, %while.body4.preheader.i ]
   %rnd.addr.17.i = phi ptr [ %incdec.ptr.i, %while.body4.i ], [ %rnd.addr.011.i, %while.body4.preheader.i ]
   %conv.i = trunc i32 %2 to i8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %rnd.addr.17.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %rnd.addr.17.i, i64 1
   store i8 %conv.i, ptr %rnd.addr.17.i, align 1
   %3 = load i32, ptr %r.i, align 4
   %shr.i = lshr i32 %3, 8
@@ -221,9 +221,9 @@ do.cond:                                          ; preds = %do.body1
 do.end3:                                          ; preds = %do.cond
   %rem = urem i32 %0, 62
   %idxprom = zext nneg i32 %rem to i64
-  %arrayidx = getelementptr inbounds [63 x i8], ptr @alnum, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [63 x i8], ptr @alnum, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %rnd.addr.010, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %rnd.addr.010, i64 1
   store i8 %1, ptr %rnd.addr.010, align 1
   %num.addr.0 = add i64 %num.addr.011, -1
   %tobool.not = icmp eq i64 %num.addr.0, 0

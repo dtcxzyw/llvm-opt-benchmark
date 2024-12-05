@@ -204,7 +204,7 @@ define hidden void @dissect_zbee_zdp_req_mgmt_leave(ptr noundef %0, ptr noundef 
   br label %13
 
 13:                                               ; preds = %9, %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr @eui64_to_display(ptr noundef %15, i64 noundef %7) #3
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %16) #3
@@ -229,7 +229,7 @@ define hidden void @dissect_zbee_zdp_req_mgmt_direct_join(ptr noundef %0, ptr no
   %6 = call i64 @zbee_parse_eui64(ptr noundef %2, i32 noundef %5, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 8, ptr noundef null) #3
   %7 = load i32, ptr @ett_zbee_zdp_cinfo, align 4
   %8 = call zeroext i8 @zdp_parse_cinfo(ptr noundef %2, i32 noundef %7, ptr noundef %0, ptr noundef nonnull %4) #3
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @eui64_to_display(ptr noundef %10, i64 noundef %6) #3
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %11) #3

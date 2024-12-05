@@ -456,7 +456,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 6:                                                ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 37) #3
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -465,7 +465,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %8 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %10, ptr noundef %3)
   store i64 %8, ptr %3, align 8
@@ -475,18 +475,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %11 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = load ptr, ptr %12, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %13, ptr noundef %3)
   store i64 %11, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %14 = getelementptr inbounds i8, ptr %2, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %15 to i64
@@ -497,7 +497,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 21:                                               ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.8, i64 noundef 29) #3
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %22)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -506,7 +506,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %23 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef %3)
   store i64 %23, ptr %3, align 8
@@ -516,18 +516,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %26 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %27 = getelementptr inbounds i8, ptr %2, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %28 = load ptr, ptr %27, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %28, ptr noundef %3)
   store i64 %26, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %29 = getelementptr inbounds i8, ptr %2, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %29)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %30 to i64
@@ -538,7 +538,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 36:                                               ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.9, i64 noundef 36) #3
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %37)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -547,7 +547,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %38 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %39 = getelementptr inbounds i8, ptr %2, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %40 = load ptr, ptr %39, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %40, ptr noundef %3)
   store i64 %38, ptr %3, align 8
@@ -557,18 +557,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %41 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %42 = getelementptr inbounds i8, ptr %2, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %43 = load ptr, ptr %42, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %43, ptr noundef %3)
   store i64 %41, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %44 = getelementptr inbounds i8, ptr %2, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %44)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %47 to i64
   %49 = ptrtoint ptr %45 to i64
@@ -579,7 +579,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 51:                                               ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef 21) #3
-  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %52)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -588,7 +588,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %53 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %54 = getelementptr inbounds i8, ptr %2, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %55 = load ptr, ptr %54, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %55, ptr noundef %3)
   store i64 %53, ptr %3, align 8
@@ -598,18 +598,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %56 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %57 = getelementptr inbounds i8, ptr %2, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %58 = load ptr, ptr %57, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %58, ptr noundef %3)
   store i64 %56, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %59 = getelementptr inbounds i8, ptr %2, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %59)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %62 = load ptr, ptr %61, align 8
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %60 to i64
@@ -620,12 +620,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 66:                                               ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef 27) #3
-  %67 = getelementptr inbounds i8, ptr %2, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %67)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %68 = getelementptr inbounds i8, ptr %2, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %69, 1
   %.not8845.not = icmp eq i16 %70, 0
@@ -643,7 +643,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 14) #3
-  %73 = getelementptr inbounds i8, ptr %2, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %74 = load i64, ptr %73, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %74) #3
   %75 = load i64, ptr %73, align 8
@@ -652,7 +652,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph9046:                                       ; preds = %72
   %76 = add i64 %75, -1
-  %77 = getelementptr inbounds i8, ptr %2, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.pre9187 = load i64, ptr %3, align 8
   br label %78
 
@@ -677,12 +677,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 88:                                               ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.22, i64 noundef 23) #3
-  %89 = getelementptr inbounds i8, ptr %2, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %89)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %90 = getelementptr inbounds i8, ptr %2, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 1
   %.not8844.not = icmp eq i16 %92, 0
@@ -700,7 +700,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.24, i64 noundef 13) #3
-  %95 = getelementptr inbounds i8, ptr %2, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %96 = load i64, ptr %95, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %96) #3
   %97 = load i64, ptr %95, align 8
@@ -709,7 +709,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph9042:                                       ; preds = %94
   %98 = add i64 %97, -1
-  %99 = getelementptr inbounds i8, ptr %2, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.pre9186 = load i64, ptr %3, align 8
   br label %100
 
@@ -735,7 +735,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge9043:                                  ; preds = %100, %94
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %110 = getelementptr inbounds i8, ptr %2, i64 48
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   br i1 %112, label %113, label %114
@@ -749,7 +749,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %110)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %115 = load ptr, ptr %110, align 8
-  %116 = getelementptr inbounds i8, ptr %2, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %117 = load ptr, ptr %116, align 8
   %118 = ptrtoint ptr %117 to i64
   %119 = ptrtoint ptr %115 to i64
@@ -761,7 +761,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 121:                                              ; preds = %114, %113
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %122 = getelementptr inbounds i8, ptr %2, i64 64
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, null
   br i1 %124, label %125, label %126
@@ -775,7 +775,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %122)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %127 = load ptr, ptr %122, align 8
-  %128 = getelementptr inbounds i8, ptr %2, i64 72
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %129 = load ptr, ptr %128, align 8
   %130 = ptrtoint ptr %129 to i64
   %131 = ptrtoint ptr %127 to i64
@@ -786,12 +786,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 133:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef 30) #3
-  %134 = getelementptr inbounds i8, ptr %2, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %134)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef 13) #3
-  %135 = getelementptr inbounds i8, ptr %2, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %136 = load ptr, ptr %135, align 8
   %137 = icmp eq ptr %136, null
   br i1 %137, label %138, label %139
@@ -813,7 +813,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 142:                                              ; preds = %139, %138
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 14) #3
-  %143 = getelementptr inbounds i8, ptr %2, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %144 = load i64, ptr %143, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %144) #3
   %145 = load i64, ptr %143, align 8
@@ -822,7 +822,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph9034:                                       ; preds = %142
   %146 = add i64 %145, -1
-  %147 = getelementptr inbounds i8, ptr %2, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.pre9184 = load i64, ptr %3, align 8
   br label %148
 
@@ -848,7 +848,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge9035:                                  ; preds = %148, %142
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.31, i64 noundef 9) #3
-  %158 = getelementptr inbounds i8, ptr %2, i64 56
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %159 = load ptr, ptr %158, align 8
   %160 = icmp eq ptr %159, null
   br i1 %160, label %161, label %162
@@ -870,7 +870,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 165:                                              ; preds = %162, %161
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef 10) #3
-  %166 = getelementptr inbounds i8, ptr %2, i64 64
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %167 = load i64, ptr %166, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %167) #3
   %168 = load i64, ptr %166, align 8
@@ -879,7 +879,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph9038:                                       ; preds = %165
   %169 = add i64 %168, -1
-  %170 = getelementptr inbounds i8, ptr %2, i64 80
+  %170 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %.pre9185 = load i64, ptr %3, align 8
   br label %171
 
@@ -905,7 +905,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge9039:                                  ; preds = %171, %165
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %181 = getelementptr inbounds i8, ptr %2, i64 88
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %182 = load ptr, ptr %181, align 8
   %183 = icmp eq ptr %182, null
   br i1 %183, label %184, label %185
@@ -919,7 +919,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %181)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %186 = load ptr, ptr %181, align 8
-  %187 = getelementptr inbounds i8, ptr %2, i64 96
+  %187 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %188 = load ptr, ptr %187, align 8
   %189 = ptrtoint ptr %188 to i64
   %190 = ptrtoint ptr %186 to i64
@@ -931,7 +931,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 192:                                              ; preds = %185, %184
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %193 = getelementptr inbounds i8, ptr %2, i64 104
+  %193 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %194 = load ptr, ptr %193, align 8
   %195 = icmp eq ptr %194, null
   br i1 %195, label %196, label %197
@@ -945,7 +945,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %193)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %198 = load ptr, ptr %193, align 8
-  %199 = getelementptr inbounds i8, ptr %2, i64 112
+  %199 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %200 = load ptr, ptr %199, align 8
   %201 = ptrtoint ptr %200 to i64
   %202 = ptrtoint ptr %198 to i64
@@ -956,7 +956,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 204:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.33, i64 noundef 23) #3
-  %205 = getelementptr inbounds i8, ptr %2, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %205)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -965,7 +965,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %206 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %207 = getelementptr inbounds i8, ptr %2, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %208 = load ptr, ptr %207, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %208, ptr noundef %3)
   store i64 %206, ptr %3, align 8
@@ -975,13 +975,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %209 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %210 = getelementptr inbounds i8, ptr %2, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %211 = load ptr, ptr %210, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %211, ptr noundef %3)
   store i64 %209, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %212 = getelementptr inbounds i8, ptr %2, i64 40
+  %212 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %213 = load ptr, ptr %212, align 8
   %214 = icmp eq ptr %213, null
   br i1 %214, label %215, label %216
@@ -995,7 +995,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %212)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %217 = load ptr, ptr %212, align 8
-  %218 = getelementptr inbounds i8, ptr %2, i64 48
+  %218 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %219 = load ptr, ptr %218, align 8
   %220 = ptrtoint ptr %219 to i64
   %221 = ptrtoint ptr %217 to i64
@@ -1006,12 +1006,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 223:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.36, i64 noundef 28) #3
-  %224 = getelementptr inbounds i8, ptr %2, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %224)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.35, i64 noundef 10) #3
-  %225 = getelementptr inbounds i8, ptr %2, i64 24
+  %225 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %226 = load ptr, ptr %225, align 8
   %227 = icmp eq ptr %226, null
   br i1 %227, label %228, label %229
@@ -1033,12 +1033,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 232:                                              ; preds = %229, %228
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %233 = getelementptr inbounds i8, ptr %2, i64 32
+  %233 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %233)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %2, i64 40
+  %235 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %236 = load ptr, ptr %235, align 8
   %237 = ptrtoint ptr %236 to i64
   %238 = ptrtoint ptr %234 to i64
@@ -1049,13 +1049,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 240:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.37, i64 noundef 35) #3
-  %241 = getelementptr inbounds i8, ptr %2, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %241)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %242 = getelementptr inbounds i8, ptr %2, i64 24
+  %242 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %243 = load i32, ptr %242, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %243)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -1063,12 +1063,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 244:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.39, i64 noundef 23) #3
-  %245 = getelementptr inbounds i8, ptr %2, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %245)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.40, i64 noundef 22) #3
-  %246 = getelementptr inbounds i8, ptr %2, i64 24
+  %246 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %247 = load ptr, ptr %246, align 8
   %248 = icmp eq ptr %247, null
   br i1 %248, label %249, label %250
@@ -1082,7 +1082,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %246)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %251 = load ptr, ptr %246, align 8
-  %252 = getelementptr inbounds i8, ptr %2, i64 32
+  %252 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %253 = load ptr, ptr %252, align 8
   %254 = ptrtoint ptr %253 to i64
   %255 = ptrtoint ptr %251 to i64
@@ -1094,7 +1094,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 257:                                              ; preds = %250, %249
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %258 = getelementptr inbounds i8, ptr %2, i64 40
+  %258 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %259 = load ptr, ptr %258, align 8
   %260 = icmp eq ptr %259, null
   br i1 %260, label %261, label %262
@@ -1116,7 +1116,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 265:                                              ; preds = %262, %261
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.42, i64 noundef 18) #3
-  %266 = getelementptr inbounds i8, ptr %2, i64 48
+  %266 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %267 = load ptr, ptr %266, align 8
   %268 = icmp eq ptr %267, null
   br i1 %268, label %269, label %270
@@ -1138,7 +1138,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 273:                                              ; preds = %270, %269
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.43, i64 noundef 16) #3
-  %274 = getelementptr inbounds i8, ptr %2, i64 56
+  %274 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %275 = load ptr, ptr %274, align 8
   %276 = icmp eq ptr %275, null
   br i1 %276, label %277, label %278
@@ -1160,7 +1160,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 281:                                              ; preds = %278, %277
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.44, i64 noundef 18) #3
-  %282 = getelementptr inbounds i8, ptr %2, i64 64
+  %282 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %283 = load ptr, ptr %282, align 8
   %284 = icmp eq ptr %283, null
   br i1 %284, label %285, label %286
@@ -1182,7 +1182,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 289:                                              ; preds = %286, %285
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 20) #3
-  %290 = getelementptr inbounds i8, ptr %2, i64 72
+  %290 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %291 = load ptr, ptr %290, align 8
   %292 = icmp eq ptr %291, null
   br i1 %292, label %293, label %294
@@ -1196,7 +1196,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %290)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %295 = load ptr, ptr %290, align 8
-  %296 = getelementptr inbounds i8, ptr %2, i64 80
+  %296 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %297 = load ptr, ptr %296, align 8
   %298 = ptrtoint ptr %297 to i64
   %299 = ptrtoint ptr %295 to i64
@@ -1207,12 +1207,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 301:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.46, i64 noundef 31) #3
-  %302 = getelementptr inbounds i8, ptr %2, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %302)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.47, i64 noundef 15) #3
-  %303 = getelementptr inbounds i8, ptr %2, i64 24
+  %303 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %304 = load ptr, ptr %303, align 8
   %305 = icmp eq ptr %304, null
   br i1 %305, label %306, label %307
@@ -1234,12 +1234,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 310:                                              ; preds = %307, %306
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %311 = getelementptr inbounds i8, ptr %2, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %311)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds i8, ptr %2, i64 40
+  %313 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %314 = load ptr, ptr %313, align 8
   %315 = ptrtoint ptr %314 to i64
   %316 = ptrtoint ptr %312 to i64
@@ -1250,12 +1250,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 318:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.48, i64 noundef 36) #3
-  %319 = getelementptr inbounds i8, ptr %2, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %319)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %320 = getelementptr inbounds i8, ptr %2, i64 2
+  %320 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %321 = load i16, ptr %320, align 2
   %322 = and i16 %321, 1
   %.not8843.not = icmp eq i16 %322, 0
@@ -1274,7 +1274,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %325 = getelementptr inbounds i8, ptr %2, i64 24
+  %325 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %326 = load i32, ptr %325, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %326)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -1282,20 +1282,20 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 327:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.50, i64 noundef 23) #3
-  %328 = getelementptr inbounds i8, ptr %2, i64 8
+  %328 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %328)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.51, i64 noundef 11) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.52, i64 noundef 2) #3
-  %329 = getelementptr inbounds i8, ptr %2, i64 24
+  %329 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %330 = load i64, ptr %329, align 8
   %.not9077 = icmp eq i64 %330, 0
   br i1 %.not9077, label %._crit_edge9031, label %.lr.ph9030
 
 .lr.ph9030:                                       ; preds = %327
-  %331 = getelementptr inbounds i8, ptr %2, i64 40
-  %332 = getelementptr inbounds i8, ptr %1, i64 528
+  %331 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %332 = getelementptr inbounds nuw i8, ptr %1, i64 528
   br label %333
 
 333:                                              ; preds = %.lr.ph9030, %336
@@ -1313,7 +1313,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %338 = getelementptr i32, ptr %337, i64 %334
   %339 = load i32, ptr %338, align 4
   %340 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %332, i32 noundef %339) #3
-  %341 = getelementptr inbounds i8, ptr %340, i64 8
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %342 = load i64, ptr %341, align 8
   %343 = trunc i64 %342 to i32
   %344 = load ptr, ptr %340, align 8
@@ -1328,7 +1328,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.54, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.55, i64 noundef 15) #3
-  %349 = getelementptr inbounds i8, ptr %2, i64 48
+  %349 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %350 = load ptr, ptr %349, align 8
   %351 = icmp eq ptr %350, null
   br i1 %351, label %352, label %353
@@ -1350,7 +1350,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 356:                                              ; preds = %353, %352
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.56, i64 noundef 9) #3
-  %357 = getelementptr inbounds i8, ptr %2, i64 56
+  %357 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %358 = load ptr, ptr %357, align 8
   %359 = icmp eq ptr %358, null
   br i1 %359, label %360, label %361
@@ -1372,12 +1372,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 364:                                              ; preds = %361, %360
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %365 = getelementptr inbounds i8, ptr %2, i64 64
+  %365 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %365)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds i8, ptr %2, i64 72
+  %367 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %368 = load ptr, ptr %367, align 8
   %369 = ptrtoint ptr %368 to i64
   %370 = ptrtoint ptr %366 to i64
@@ -1386,12 +1386,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %372 = getelementptr inbounds i8, ptr %2, i64 80
+  %372 = getelementptr inbounds nuw i8, ptr %2, i64 80
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %372)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %373 = load ptr, ptr %372, align 8
-  %374 = getelementptr inbounds i8, ptr %2, i64 88
+  %374 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %375 = load ptr, ptr %374, align 8
   %376 = ptrtoint ptr %375 to i64
   %377 = ptrtoint ptr %373 to i64
@@ -1402,12 +1402,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 379:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.57, i64 noundef 32) #3
-  %380 = getelementptr inbounds i8, ptr %2, i64 8
+  %380 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %380)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %381 = getelementptr inbounds i8, ptr %2, i64 2
+  %381 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %382 = load i16, ptr %381, align 2
   %383 = and i16 %382, 1
   %.not8841.not = icmp eq i16 %383, 0
@@ -1425,7 +1425,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
-  %386 = getelementptr inbounds i8, ptr %2, i64 24
+  %386 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %387 = load i32, ptr %386, align 8
   %388 = icmp eq i32 %387, 0
   br i1 %388, label %389, label %390
@@ -1444,7 +1444,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 392:                                              ; preds = %390, %389
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %393 = getelementptr inbounds i8, ptr %2, i64 32
+  %393 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %394 = load ptr, ptr %393, align 8
   %395 = icmp eq ptr %394, null
   br i1 %395, label %396, label %397
@@ -1458,7 +1458,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %393)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %398 = load ptr, ptr %393, align 8
-  %399 = getelementptr inbounds i8, ptr %2, i64 40
+  %399 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %400 = load ptr, ptr %399, align 8
   %401 = ptrtoint ptr %400 to i64
   %402 = ptrtoint ptr %398 to i64
@@ -1470,12 +1470,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 404:                                              ; preds = %397, %396
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %405 = getelementptr inbounds i8, ptr %2, i64 48
+  %405 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %405)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %406 = load ptr, ptr %405, align 8
-  %407 = getelementptr inbounds i8, ptr %2, i64 56
+  %407 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %408 = load ptr, ptr %407, align 8
   %409 = ptrtoint ptr %408 to i64
   %410 = ptrtoint ptr %406 to i64
@@ -1486,12 +1486,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 412:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.59, i64 noundef 33) #3
-  %413 = getelementptr inbounds i8, ptr %2, i64 8
+  %413 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %413)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.55, i64 noundef 15) #3
-  %414 = getelementptr inbounds i8, ptr %2, i64 24
+  %414 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %415 = load ptr, ptr %414, align 8
   %416 = icmp eq ptr %415, null
   br i1 %416, label %417, label %418
@@ -1513,7 +1513,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 421:                                              ; preds = %418, %417
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.51, i64 noundef 11) #3
-  %422 = getelementptr inbounds i8, ptr %2, i64 32
+  %422 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %423 = load i64, ptr %422, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %423) #3
   %424 = load i64, ptr %422, align 8
@@ -1522,7 +1522,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph9026:                                       ; preds = %421
   %425 = add i64 %424, -1
-  %426 = getelementptr inbounds i8, ptr %2, i64 48
+  %426 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.pre9183 = load i64, ptr %3, align 8
   br label %427
 
@@ -1548,7 +1548,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge9027:                                  ; preds = %427, %421
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %437 = getelementptr inbounds i8, ptr %2, i64 56
+  %437 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %438 = load ptr, ptr %437, align 8
   %439 = icmp eq ptr %438, null
   br i1 %439, label %440, label %441
@@ -1562,7 +1562,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %437)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %442 = load ptr, ptr %437, align 8
-  %443 = getelementptr inbounds i8, ptr %2, i64 64
+  %443 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %444 = load ptr, ptr %443, align 8
   %445 = ptrtoint ptr %444 to i64
   %446 = ptrtoint ptr %442 to i64
@@ -1574,7 +1574,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 448:                                              ; preds = %441, %440
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %449 = getelementptr inbounds i8, ptr %2, i64 72
+  %449 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %450 = load ptr, ptr %449, align 8
   %451 = icmp eq ptr %450, null
   br i1 %451, label %452, label %453
@@ -1588,7 +1588,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %449)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %454 = load ptr, ptr %449, align 8
-  %455 = getelementptr inbounds i8, ptr %2, i64 80
+  %455 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %456 = load ptr, ptr %455, align 8
   %457 = ptrtoint ptr %456 to i64
   %458 = ptrtoint ptr %454 to i64
@@ -1599,12 +1599,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 460:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.60, i64 noundef 23) #3
-  %461 = getelementptr inbounds i8, ptr %2, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %461)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 14) #3
-  %462 = getelementptr inbounds i8, ptr %2, i64 24
+  %462 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %463 = load ptr, ptr %462, align 8
   %464 = icmp eq ptr %463, null
   br i1 %464, label %465, label %466
@@ -1626,12 +1626,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 469:                                              ; preds = %466, %465
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %470 = getelementptr inbounds i8, ptr %2, i64 32
+  %470 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %470)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %471 = load ptr, ptr %470, align 8
-  %472 = getelementptr inbounds i8, ptr %2, i64 40
+  %472 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %473 = load ptr, ptr %472, align 8
   %474 = ptrtoint ptr %473 to i64
   %475 = ptrtoint ptr %471 to i64
@@ -1642,12 +1642,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 477:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.61, i64 noundef 30) #3
-  %478 = getelementptr inbounds i8, ptr %2, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %478)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %479 = getelementptr inbounds i8, ptr %2, i64 2
+  %479 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %480 = load i16, ptr %479, align 2
   %481 = and i16 %480, 1
   %.not8837 = icmp eq i16 %481, 0
@@ -1728,7 +1728,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.66, i64 noundef 13) #3
-  %506 = getelementptr inbounds i8, ptr %2, i64 24
+  %506 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %507 = load ptr, ptr %506, align 8
   %508 = icmp eq ptr %507, null
   br i1 %508, label %509, label %510
@@ -1750,7 +1750,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 513:                                              ; preds = %510, %509
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.67, i64 noundef 22) #3
-  %514 = getelementptr inbounds i8, ptr %2, i64 32
+  %514 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %515 = load ptr, ptr %514, align 8
   %516 = icmp eq ptr %515, null
   br i1 %516, label %517, label %518
@@ -1764,7 +1764,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %514)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %519 = load ptr, ptr %514, align 8
-  %520 = getelementptr inbounds i8, ptr %2, i64 40
+  %520 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %521 = load ptr, ptr %520, align 8
   %522 = ptrtoint ptr %521 to i64
   %523 = ptrtoint ptr %519 to i64
@@ -1776,7 +1776,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 525:                                              ; preds = %518, %517
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.68, i64 noundef 16) #3
-  %526 = getelementptr inbounds i8, ptr %2, i64 48
+  %526 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %527 = load ptr, ptr %526, align 8
   %528 = icmp eq ptr %527, null
   br i1 %528, label %529, label %530
@@ -1790,7 +1790,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %526)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %531 = load ptr, ptr %526, align 8
-  %532 = getelementptr inbounds i8, ptr %2, i64 56
+  %532 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %533 = load ptr, ptr %532, align 8
   %534 = ptrtoint ptr %533 to i64
   %535 = ptrtoint ptr %531 to i64
@@ -1803,25 +1803,25 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.69, i64 noundef 14) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %538 = getelementptr inbounds i8, ptr %2, i64 64
+  %538 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %539 = load i32, ptr %538, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %539)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.70, i64 noundef 15) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %540 = getelementptr inbounds i8, ptr %2, i64 68
+  %540 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %541 = load i32, ptr %540, align 4
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %541)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %542 = getelementptr inbounds i8, ptr %2, i64 72
+  %542 = getelementptr inbounds nuw i8, ptr %2, i64 72
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %542)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds i8, ptr %2, i64 80
+  %544 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %545 = load ptr, ptr %544, align 8
   %546 = ptrtoint ptr %545 to i64
   %547 = ptrtoint ptr %543 to i64
@@ -1834,7 +1834,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %549 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %550 = getelementptr inbounds i8, ptr %2, i64 88
+  %550 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %551 = load ptr, ptr %550, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %551, ptr noundef %3)
   store i64 %549, ptr %3, align 8
@@ -1842,12 +1842,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 552:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.71, i64 noundef 22) #3
-  %553 = getelementptr inbounds i8, ptr %2, i64 8
+  %553 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %553)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %554 = getelementptr inbounds i8, ptr %2, i64 2
+  %554 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %555 = load i16, ptr %554, align 2
   %556 = and i16 %555, 1
   %.not8833 = icmp eq i16 %556, 0
@@ -1928,7 +1928,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.66, i64 noundef 13) #3
-  %581 = getelementptr inbounds i8, ptr %2, i64 24
+  %581 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %582 = load ptr, ptr %581, align 8
   %583 = icmp eq ptr %582, null
   br i1 %583, label %584, label %585
@@ -1950,7 +1950,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 588:                                              ; preds = %585, %584
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.67, i64 noundef 22) #3
-  %589 = getelementptr inbounds i8, ptr %2, i64 32
+  %589 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %590 = load ptr, ptr %589, align 8
   %591 = icmp eq ptr %590, null
   br i1 %591, label %592, label %593
@@ -1964,7 +1964,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %589)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %594 = load ptr, ptr %589, align 8
-  %595 = getelementptr inbounds i8, ptr %2, i64 40
+  %595 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %596 = load ptr, ptr %595, align 8
   %597 = ptrtoint ptr %596 to i64
   %598 = ptrtoint ptr %594 to i64
@@ -1977,13 +1977,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %601 = getelementptr inbounds i8, ptr %2, i64 48
+  %601 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %602 = load i32, ptr %601, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %602)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.68, i64 noundef 16) #3
-  %603 = getelementptr inbounds i8, ptr %2, i64 56
+  %603 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %604 = load ptr, ptr %603, align 8
   %605 = icmp eq ptr %604, null
   br i1 %605, label %606, label %607
@@ -1997,7 +1997,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %603)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %608 = load ptr, ptr %603, align 8
-  %609 = getelementptr inbounds i8, ptr %2, i64 64
+  %609 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %610 = load ptr, ptr %609, align 8
   %611 = ptrtoint ptr %610 to i64
   %612 = ptrtoint ptr %608 to i64
@@ -2009,7 +2009,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 614:                                              ; preds = %607, %606
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %615 = getelementptr inbounds i8, ptr %2, i64 72
+  %615 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %616 = load ptr, ptr %615, align 8
   %617 = icmp eq ptr %616, null
   br i1 %617, label %618, label %619
@@ -2023,7 +2023,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %615)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %620 = load ptr, ptr %615, align 8
-  %621 = getelementptr inbounds i8, ptr %2, i64 80
+  %621 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %622 = load ptr, ptr %621, align 8
   %623 = ptrtoint ptr %622 to i64
   %624 = ptrtoint ptr %620 to i64
@@ -2035,7 +2035,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 626:                                              ; preds = %619, %618
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 14) #3
-  %627 = getelementptr inbounds i8, ptr %2, i64 88
+  %627 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %628 = load ptr, ptr %627, align 8
   %629 = icmp eq ptr %628, null
   br i1 %629, label %630, label %631
@@ -2057,7 +2057,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 634:                                              ; preds = %631, %630
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %635 = getelementptr inbounds i8, ptr %2, i64 96
+  %635 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %636 = load ptr, ptr %635, align 8
   %637 = icmp eq ptr %636, null
   br i1 %637, label %638, label %639
@@ -2071,7 +2071,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %635)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %640 = load ptr, ptr %635, align 8
-  %641 = getelementptr inbounds i8, ptr %2, i64 104
+  %641 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %642 = load ptr, ptr %641, align 8
   %643 = ptrtoint ptr %642 to i64
   %644 = ptrtoint ptr %640 to i64
@@ -2083,7 +2083,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 646:                                              ; preds = %639, %638
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.72, i64 noundef 10) #3
-  %647 = getelementptr inbounds i8, ptr %2, i64 112
+  %647 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %648 = load ptr, ptr %647, align 8
   %649 = icmp eq ptr %648, null
   br i1 %649, label %650, label %651
@@ -2104,12 +2104,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 654:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.73, i64 noundef 35) #3
-  %655 = getelementptr inbounds i8, ptr %2, i64 8
+  %655 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %655)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %656 = getelementptr inbounds i8, ptr %2, i64 2
+  %656 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %657 = load i16, ptr %656, align 2
   %658 = and i16 %657, 1
   %.not8829 = icmp eq i16 %658, 0
@@ -2190,7 +2190,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.66, i64 noundef 13) #3
-  %683 = getelementptr inbounds i8, ptr %2, i64 24
+  %683 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %684 = load ptr, ptr %683, align 8
   %685 = icmp eq ptr %684, null
   br i1 %685, label %686, label %687
@@ -2212,7 +2212,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 690:                                              ; preds = %687, %686
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.67, i64 noundef 22) #3
-  %691 = getelementptr inbounds i8, ptr %2, i64 32
+  %691 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %692 = load ptr, ptr %691, align 8
   %693 = icmp eq ptr %692, null
   br i1 %693, label %694, label %695
@@ -2226,7 +2226,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %691)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %696 = load ptr, ptr %691, align 8
-  %697 = getelementptr inbounds i8, ptr %2, i64 40
+  %697 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %698 = load ptr, ptr %697, align 8
   %699 = ptrtoint ptr %698 to i64
   %700 = ptrtoint ptr %696 to i64
@@ -2238,7 +2238,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 702:                                              ; preds = %695, %694
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.68, i64 noundef 16) #3
-  %703 = getelementptr inbounds i8, ptr %2, i64 48
+  %703 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %704 = load ptr, ptr %703, align 8
   %705 = icmp eq ptr %704, null
   br i1 %705, label %706, label %707
@@ -2252,7 +2252,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %703)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %708 = load ptr, ptr %703, align 8
-  %709 = getelementptr inbounds i8, ptr %2, i64 56
+  %709 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %710 = load ptr, ptr %709, align 8
   %711 = ptrtoint ptr %710 to i64
   %712 = ptrtoint ptr %708 to i64
@@ -2265,32 +2265,32 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.69, i64 noundef 14) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %715 = getelementptr inbounds i8, ptr %2, i64 64
+  %715 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %716 = load i32, ptr %715, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %716)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.70, i64 noundef 15) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %717 = getelementptr inbounds i8, ptr %2, i64 68
+  %717 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %718 = load i32, ptr %717, align 4
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %718)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.74, i64 noundef 13) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %719 = getelementptr inbounds i8, ptr %2, i64 72
+  %719 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %720 = load i32, ptr %719, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %720)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %721 = getelementptr inbounds i8, ptr %2, i64 80
+  %721 = getelementptr inbounds nuw i8, ptr %2, i64 80
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %721)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %722 = load ptr, ptr %721, align 8
-  %723 = getelementptr inbounds i8, ptr %2, i64 88
+  %723 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %724 = load ptr, ptr %723, align 8
   %725 = ptrtoint ptr %724 to i64
   %726 = ptrtoint ptr %722 to i64
@@ -2303,7 +2303,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %728 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %729 = getelementptr inbounds i8, ptr %2, i64 96
+  %729 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %730 = load ptr, ptr %729, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %730, ptr noundef %3)
   store i64 %728, ptr %3, align 8
@@ -2311,12 +2311,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 731:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.75, i64 noundef 29) #3
-  %732 = getelementptr inbounds i8, ptr %2, i64 8
+  %732 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %732)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %733 = getelementptr inbounds i8, ptr %2, i64 2
+  %733 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %734 = load i16, ptr %733, align 2
   %735 = and i16 %734, 1
   %.not8825 = icmp eq i16 %735, 0
@@ -2397,7 +2397,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.66, i64 noundef 13) #3
-  %760 = getelementptr inbounds i8, ptr %2, i64 24
+  %760 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %761 = load ptr, ptr %760, align 8
   %762 = icmp eq ptr %761, null
   br i1 %762, label %763, label %764
@@ -2419,7 +2419,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 767:                                              ; preds = %764, %763
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.67, i64 noundef 22) #3
-  %768 = getelementptr inbounds i8, ptr %2, i64 32
+  %768 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %769 = load ptr, ptr %768, align 8
   %770 = icmp eq ptr %769, null
   br i1 %770, label %771, label %772
@@ -2433,7 +2433,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %768)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %773 = load ptr, ptr %768, align 8
-  %774 = getelementptr inbounds i8, ptr %2, i64 40
+  %774 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %775 = load ptr, ptr %774, align 8
   %776 = ptrtoint ptr %775 to i64
   %777 = ptrtoint ptr %773 to i64
@@ -2445,7 +2445,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 779:                                              ; preds = %772, %771
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.68, i64 noundef 16) #3
-  %780 = getelementptr inbounds i8, ptr %2, i64 48
+  %780 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %781 = load ptr, ptr %780, align 8
   %782 = icmp eq ptr %781, null
   br i1 %782, label %783, label %784
@@ -2459,7 +2459,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %780)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %785 = load ptr, ptr %780, align 8
-  %786 = getelementptr inbounds i8, ptr %2, i64 56
+  %786 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %787 = load ptr, ptr %786, align 8
   %788 = ptrtoint ptr %787 to i64
   %789 = ptrtoint ptr %785 to i64
@@ -2472,25 +2472,25 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.69, i64 noundef 14) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %792 = getelementptr inbounds i8, ptr %2, i64 64
+  %792 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %793 = load i32, ptr %792, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %793)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.70, i64 noundef 15) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %794 = getelementptr inbounds i8, ptr %2, i64 68
+  %794 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %795 = load i32, ptr %794, align 4
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %795)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %796 = getelementptr inbounds i8, ptr %2, i64 72
+  %796 = getelementptr inbounds nuw i8, ptr %2, i64 72
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %796)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %797 = load ptr, ptr %796, align 8
-  %798 = getelementptr inbounds i8, ptr %2, i64 80
+  %798 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %799 = load ptr, ptr %798, align 8
   %800 = ptrtoint ptr %799 to i64
   %801 = ptrtoint ptr %797 to i64
@@ -2503,7 +2503,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %803 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %804 = getelementptr inbounds i8, ptr %2, i64 88
+  %804 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %805 = load ptr, ptr %804, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %805, ptr noundef %3)
   store i64 %803, ptr %3, align 8
@@ -2511,12 +2511,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 806:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.76, i64 noundef 28) #3
-  %807 = getelementptr inbounds i8, ptr %2, i64 8
+  %807 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %807)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %808 = getelementptr inbounds i8, ptr %2, i64 2
+  %808 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %809 = load i16, ptr %808, align 2
   %810 = and i16 %809, 1
   %.not8821 = icmp eq i16 %810, 0
@@ -2601,18 +2601,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %835 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %836 = getelementptr inbounds i8, ptr %2, i64 24
+  %836 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %837 = load ptr, ptr %836, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %837, ptr noundef %3)
   store i64 %835, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.67, i64 noundef 22) #3
-  %838 = getelementptr inbounds i8, ptr %2, i64 32
+  %838 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %838)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %839 = load ptr, ptr %838, align 8
-  %840 = getelementptr inbounds i8, ptr %2, i64 40
+  %840 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %841 = load ptr, ptr %840, align 8
   %842 = ptrtoint ptr %841 to i64
   %843 = ptrtoint ptr %839 to i64
@@ -2622,18 +2622,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %845 = getelementptr inbounds i8, ptr %2, i64 48
+  %845 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %846 = load i32, ptr %845, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %846)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.68, i64 noundef 16) #3
-  %847 = getelementptr inbounds i8, ptr %2, i64 56
+  %847 = getelementptr inbounds nuw i8, ptr %2, i64 56
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %847)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %848 = load ptr, ptr %847, align 8
-  %849 = getelementptr inbounds i8, ptr %2, i64 64
+  %849 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %850 = load ptr, ptr %849, align 8
   %851 = ptrtoint ptr %850 to i64
   %852 = ptrtoint ptr %848 to i64
@@ -2644,7 +2644,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 854:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.77, i64 noundef 32) #3
-  %855 = getelementptr inbounds i8, ptr %2, i64 8
+  %855 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %855)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -2653,7 +2653,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %856 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %857 = getelementptr inbounds i8, ptr %2, i64 24
+  %857 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %858 = load ptr, ptr %857, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %858, ptr noundef %3)
   store i64 %856, ptr %3, align 8
@@ -2663,18 +2663,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %859 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %860 = getelementptr inbounds i8, ptr %2, i64 32
+  %860 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %861 = load ptr, ptr %860, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %861, ptr noundef %3)
   store i64 %859, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %862 = getelementptr inbounds i8, ptr %2, i64 40
+  %862 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %862)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %863 = load ptr, ptr %862, align 8
-  %864 = getelementptr inbounds i8, ptr %2, i64 48
+  %864 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %865 = load ptr, ptr %864, align 8
   %866 = ptrtoint ptr %865 to i64
   %867 = ptrtoint ptr %863 to i64
@@ -2685,12 +2685,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 869:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.79, i64 noundef 27) #3
-  %870 = getelementptr inbounds i8, ptr %2, i64 8
+  %870 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %870)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.80, i64 noundef 14) #3
-  %871 = getelementptr inbounds i8, ptr %2, i64 24
+  %871 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %872 = load ptr, ptr %871, align 8
   %873 = icmp eq ptr %872, null
   br i1 %873, label %874, label %875
@@ -2712,7 +2712,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 878:                                              ; preds = %875, %874
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.81, i64 noundef 15) #3
-  %879 = getelementptr inbounds i8, ptr %2, i64 32
+  %879 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %880 = load i64, ptr %879, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %880) #3
   %881 = load i64, ptr %879, align 8
@@ -2721,7 +2721,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph9022:                                       ; preds = %878
   %882 = add i64 %881, -1
-  %883 = getelementptr inbounds i8, ptr %2, i64 48
+  %883 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.pre9167 = load i64, ptr %3, align 8
   br label %884
 
@@ -2747,7 +2747,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge9023:                                  ; preds = %884, %878
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.82, i64 noundef 15) #3
-  %894 = getelementptr inbounds i8, ptr %2, i64 56
+  %894 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %895 = load ptr, ptr %894, align 8
   %896 = icmp eq ptr %895, null
   br i1 %896, label %897, label %898
@@ -2769,12 +2769,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 901:                                              ; preds = %898, %897
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.83, i64 noundef 21) #3
-  %902 = getelementptr inbounds i8, ptr %2, i64 64
+  %902 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %902)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %903 = load ptr, ptr %902, align 8
-  %904 = getelementptr inbounds i8, ptr %2, i64 72
+  %904 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %905 = load ptr, ptr %904, align 8
   %906 = ptrtoint ptr %905 to i64
   %907 = ptrtoint ptr %903 to i64
@@ -2783,12 +2783,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 20) #3
-  %909 = getelementptr inbounds i8, ptr %2, i64 80
+  %909 = getelementptr inbounds nuw i8, ptr %2, i64 80
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %909)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %910 = load ptr, ptr %909, align 8
-  %911 = getelementptr inbounds i8, ptr %2, i64 88
+  %911 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %912 = load ptr, ptr %911, align 8
   %913 = ptrtoint ptr %912 to i64
   %914 = ptrtoint ptr %910 to i64
@@ -2799,12 +2799,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 916:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.84, i64 noundef 22) #3
-  %917 = getelementptr inbounds i8, ptr %2, i64 8
+  %917 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %917)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.80, i64 noundef 14) #3
-  %918 = getelementptr inbounds i8, ptr %2, i64 24
+  %918 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %919 = load ptr, ptr %918, align 8
   %920 = icmp eq ptr %919, null
   br i1 %920, label %921, label %922
@@ -2826,7 +2826,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 925:                                              ; preds = %922, %921
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.81, i64 noundef 15) #3
-  %926 = getelementptr inbounds i8, ptr %2, i64 32
+  %926 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %927 = load i64, ptr %926, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %927) #3
   %928 = load i64, ptr %926, align 8
@@ -2835,7 +2835,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph9018:                                       ; preds = %925
   %929 = add i64 %928, -1
-  %930 = getelementptr inbounds i8, ptr %2, i64 48
+  %930 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.pre9166 = load i64, ptr %3, align 8
   br label %931
 
@@ -2861,7 +2861,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge9019:                                  ; preds = %931, %925
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.82, i64 noundef 15) #3
-  %941 = getelementptr inbounds i8, ptr %2, i64 56
+  %941 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %942 = load ptr, ptr %941, align 8
   %943 = icmp eq ptr %942, null
   br i1 %943, label %944, label %945
@@ -2883,12 +2883,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 948:                                              ; preds = %945, %944
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.83, i64 noundef 21) #3
-  %949 = getelementptr inbounds i8, ptr %2, i64 64
+  %949 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %949)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %950 = load ptr, ptr %949, align 8
-  %951 = getelementptr inbounds i8, ptr %2, i64 72
+  %951 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %952 = load ptr, ptr %951, align 8
   %953 = ptrtoint ptr %952 to i64
   %954 = ptrtoint ptr %950 to i64
@@ -2897,12 +2897,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 20) #3
-  %956 = getelementptr inbounds i8, ptr %2, i64 80
+  %956 = getelementptr inbounds nuw i8, ptr %2, i64 80
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %956)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %957 = load ptr, ptr %956, align 8
-  %958 = getelementptr inbounds i8, ptr %2, i64 88
+  %958 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %959 = load ptr, ptr %958, align 8
   %960 = ptrtoint ptr %959 to i64
   %961 = ptrtoint ptr %957 to i64
@@ -2913,20 +2913,20 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 963:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.85, i64 noundef 23) #3
-  %964 = getelementptr inbounds i8, ptr %2, i64 8
+  %964 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %964)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.51, i64 noundef 11) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.52, i64 noundef 2) #3
-  %965 = getelementptr inbounds i8, ptr %2, i64 24
+  %965 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %966 = load i64, ptr %965, align 8
   %.not9073 = icmp eq i64 %966, 0
   br i1 %.not9073, label %._crit_edge9015, label %.lr.ph9014
 
 .lr.ph9014:                                       ; preds = %963
-  %967 = getelementptr inbounds i8, ptr %2, i64 40
-  %968 = getelementptr inbounds i8, ptr %1, i64 528
+  %967 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %968 = getelementptr inbounds nuw i8, ptr %1, i64 528
   br label %969
 
 969:                                              ; preds = %.lr.ph9014, %972
@@ -2944,7 +2944,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %974 = getelementptr i32, ptr %973, i64 %970
   %975 = load i32, ptr %974, align 4
   %976 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %968, i32 noundef %975) #3
-  %977 = getelementptr inbounds i8, ptr %976, i64 8
+  %977 = getelementptr inbounds nuw i8, ptr %976, i64 8
   %978 = load i64, ptr %977, align 8
   %979 = trunc i64 %978 to i32
   %980 = load ptr, ptr %976, align 8
@@ -2959,12 +2959,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.54, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.86, i64 noundef 22) #3
-  %985 = getelementptr inbounds i8, ptr %2, i64 48
+  %985 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %985)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %986 = load ptr, ptr %985, align 8
-  %987 = getelementptr inbounds i8, ptr %2, i64 56
+  %987 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %988 = load ptr, ptr %987, align 8
   %989 = ptrtoint ptr %988 to i64
   %990 = ptrtoint ptr %986 to i64
@@ -2977,13 +2977,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %992 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %993 = getelementptr inbounds i8, ptr %2, i64 64
+  %993 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %994 = load ptr, ptr %993, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %994, ptr noundef %3)
   store i64 %992, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.88, i64 noundef 29) #3
-  %995 = getelementptr inbounds i8, ptr %2, i64 72
+  %995 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %996 = load ptr, ptr %995, align 8
   %997 = icmp eq ptr %996, null
   br i1 %997, label %998, label %999
@@ -2997,7 +2997,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %995)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1000 = load ptr, ptr %995, align 8
-  %1001 = getelementptr inbounds i8, ptr %2, i64 80
+  %1001 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %1002 = load ptr, ptr %1001, align 8
   %1003 = ptrtoint ptr %1002 to i64
   %1004 = ptrtoint ptr %1000 to i64
@@ -3009,7 +3009,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1006:                                             ; preds = %999, %998
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.89, i64 noundef 15) #3
-  %1007 = getelementptr inbounds i8, ptr %2, i64 88
+  %1007 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %1008 = load ptr, ptr %1007, align 8
   %1009 = icmp eq ptr %1008, null
   br i1 %1009, label %1010, label %1011
@@ -3031,7 +3031,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1014:                                             ; preds = %1011, %1010
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.56, i64 noundef 9) #3
-  %1015 = getelementptr inbounds i8, ptr %2, i64 96
+  %1015 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %1016 = load ptr, ptr %1015, align 8
   %1017 = icmp eq ptr %1016, null
   br i1 %1017, label %1018, label %1019
@@ -3053,12 +3053,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1022:                                             ; preds = %1019, %1018
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 20) #3
-  %1023 = getelementptr inbounds i8, ptr %2, i64 104
+  %1023 = getelementptr inbounds nuw i8, ptr %2, i64 104
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1023)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1024 = load ptr, ptr %1023, align 8
-  %1025 = getelementptr inbounds i8, ptr %2, i64 112
+  %1025 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %1026 = load ptr, ptr %1025, align 8
   %1027 = ptrtoint ptr %1026 to i64
   %1028 = ptrtoint ptr %1024 to i64
@@ -3068,7 +3068,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1030 = getelementptr inbounds i8, ptr %2, i64 120
+  %1030 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %1031 = load i32, ptr %1030, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1031)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -3076,24 +3076,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1032:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.90, i64 noundef 39) #3
-  %1033 = getelementptr inbounds i8, ptr %2, i64 8
+  %1033 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1033)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1034 = getelementptr inbounds i8, ptr %2, i64 24
+  %1034 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1035 = load i32, ptr %1034, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1035)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1036 = getelementptr inbounds i8, ptr %2, i64 32
+  %1036 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1036)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1037 = load ptr, ptr %1036, align 8
-  %1038 = getelementptr inbounds i8, ptr %2, i64 40
+  %1038 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1039 = load ptr, ptr %1038, align 8
   %1040 = ptrtoint ptr %1039 to i64
   %1041 = ptrtoint ptr %1037 to i64
@@ -3102,12 +3102,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1043 = getelementptr inbounds i8, ptr %2, i64 48
+  %1043 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1043)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1044 = load ptr, ptr %1043, align 8
-  %1045 = getelementptr inbounds i8, ptr %2, i64 56
+  %1045 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1046 = load ptr, ptr %1045, align 8
   %1047 = ptrtoint ptr %1046 to i64
   %1048 = ptrtoint ptr %1044 to i64
@@ -3120,7 +3120,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1050 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1051 = getelementptr inbounds i8, ptr %2, i64 64
+  %1051 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1052 = load ptr, ptr %1051, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1052, ptr noundef %3)
   store i64 %1050, ptr %3, align 8
@@ -3128,24 +3128,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1053:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.91, i64 noundef 44) #3
-  %1054 = getelementptr inbounds i8, ptr %2, i64 8
+  %1054 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1054)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1055 = getelementptr inbounds i8, ptr %2, i64 24
+  %1055 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1056 = load i32, ptr %1055, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1056)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1057 = getelementptr inbounds i8, ptr %2, i64 32
+  %1057 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1057)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1058 = load ptr, ptr %1057, align 8
-  %1059 = getelementptr inbounds i8, ptr %2, i64 40
+  %1059 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1060 = load ptr, ptr %1059, align 8
   %1061 = ptrtoint ptr %1060 to i64
   %1062 = ptrtoint ptr %1058 to i64
@@ -3154,12 +3154,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1064 = getelementptr inbounds i8, ptr %2, i64 48
+  %1064 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1064)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1065 = load ptr, ptr %1064, align 8
-  %1066 = getelementptr inbounds i8, ptr %2, i64 56
+  %1066 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1067 = load ptr, ptr %1066, align 8
   %1068 = ptrtoint ptr %1067 to i64
   %1069 = ptrtoint ptr %1065 to i64
@@ -3172,14 +3172,14 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1071 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1072 = getelementptr inbounds i8, ptr %2, i64 64
+  %1072 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1073 = load ptr, ptr %1072, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1073, ptr noundef %3)
   store i64 %1071, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.74, i64 noundef 13) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1074 = getelementptr inbounds i8, ptr %2, i64 72
+  %1074 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %1075 = load i32, ptr %1074, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1075)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -3187,24 +3187,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1076:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.92, i64 noundef 38) #3
-  %1077 = getelementptr inbounds i8, ptr %2, i64 8
+  %1077 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1077)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1078 = getelementptr inbounds i8, ptr %2, i64 24
+  %1078 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1079 = load i32, ptr %1078, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1079)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1080 = getelementptr inbounds i8, ptr %2, i64 32
+  %1080 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1080)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1081 = load ptr, ptr %1080, align 8
-  %1082 = getelementptr inbounds i8, ptr %2, i64 40
+  %1082 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1083 = load ptr, ptr %1082, align 8
   %1084 = ptrtoint ptr %1083 to i64
   %1085 = ptrtoint ptr %1081 to i64
@@ -3213,12 +3213,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1087 = getelementptr inbounds i8, ptr %2, i64 48
+  %1087 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1087)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1088 = load ptr, ptr %1087, align 8
-  %1089 = getelementptr inbounds i8, ptr %2, i64 56
+  %1089 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1090 = load ptr, ptr %1089, align 8
   %1091 = ptrtoint ptr %1090 to i64
   %1092 = ptrtoint ptr %1088 to i64
@@ -3231,7 +3231,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1094 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1095 = getelementptr inbounds i8, ptr %2, i64 64
+  %1095 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1096 = load ptr, ptr %1095, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1096, ptr noundef %3)
   store i64 %1094, ptr %3, align 8
@@ -3239,13 +3239,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1097:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.93, i64 noundef 35) #3
-  %1098 = getelementptr inbounds i8, ptr %2, i64 8
+  %1098 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1098)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1099 = getelementptr inbounds i8, ptr %2, i64 24
+  %1099 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1100 = load i32, ptr %1099, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1100)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -3253,13 +3253,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1101:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.94, i64 noundef 37) #3
-  %1102 = getelementptr inbounds i8, ptr %2, i64 8
+  %1102 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1102)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1103 = getelementptr inbounds i8, ptr %2, i64 24
+  %1103 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1104 = load i32, ptr %1103, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1104)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -3267,24 +3267,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1105:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.95, i64 noundef 36) #3
-  %1106 = getelementptr inbounds i8, ptr %2, i64 8
+  %1106 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1106)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1107 = getelementptr inbounds i8, ptr %2, i64 24
+  %1107 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1108 = load i32, ptr %1107, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1108)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1109 = getelementptr inbounds i8, ptr %2, i64 32
+  %1109 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1109)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1110 = load ptr, ptr %1109, align 8
-  %1111 = getelementptr inbounds i8, ptr %2, i64 40
+  %1111 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1112 = load ptr, ptr %1111, align 8
   %1113 = ptrtoint ptr %1112 to i64
   %1114 = ptrtoint ptr %1110 to i64
@@ -3297,13 +3297,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1116 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1117 = getelementptr inbounds i8, ptr %2, i64 48
+  %1117 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1118 = load ptr, ptr %1117, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1118, ptr noundef %3)
   store i64 %1116, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1119 = getelementptr inbounds i8, ptr %2, i64 56
+  %1119 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1120 = load ptr, ptr %1119, align 8
   %1121 = icmp eq ptr %1120, null
   br i1 %1121, label %1122, label %1123
@@ -3317,7 +3317,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1119)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1124 = load ptr, ptr %1119, align 8
-  %1125 = getelementptr inbounds i8, ptr %2, i64 64
+  %1125 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1126 = load ptr, ptr %1125, align 8
   %1127 = ptrtoint ptr %1126 to i64
   %1128 = ptrtoint ptr %1124 to i64
@@ -3328,24 +3328,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1130:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.96, i64 noundef 34) #3
-  %1131 = getelementptr inbounds i8, ptr %2, i64 8
+  %1131 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1131)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1132 = getelementptr inbounds i8, ptr %2, i64 24
+  %1132 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1133 = load i32, ptr %1132, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1133)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1134 = getelementptr inbounds i8, ptr %2, i64 32
+  %1134 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1134)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1135 = load ptr, ptr %1134, align 8
-  %1136 = getelementptr inbounds i8, ptr %2, i64 40
+  %1136 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1137 = load ptr, ptr %1136, align 8
   %1138 = ptrtoint ptr %1137 to i64
   %1139 = ptrtoint ptr %1135 to i64
@@ -3354,12 +3354,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1141 = getelementptr inbounds i8, ptr %2, i64 48
+  %1141 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1141)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1142 = load ptr, ptr %1141, align 8
-  %1143 = getelementptr inbounds i8, ptr %2, i64 56
+  %1143 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1144 = load ptr, ptr %1143, align 8
   %1145 = ptrtoint ptr %1144 to i64
   %1146 = ptrtoint ptr %1142 to i64
@@ -3372,7 +3372,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1148 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1149 = getelementptr inbounds i8, ptr %2, i64 64
+  %1149 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1150 = load ptr, ptr %1149, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1150, ptr noundef %3)
   store i64 %1148, ptr %3, align 8
@@ -3380,24 +3380,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1151:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.97, i64 noundef 39) #3
-  %1152 = getelementptr inbounds i8, ptr %2, i64 8
+  %1152 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1152)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1153 = getelementptr inbounds i8, ptr %2, i64 24
+  %1153 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1154 = load i32, ptr %1153, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1154)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1155 = getelementptr inbounds i8, ptr %2, i64 32
+  %1155 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1155)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1156 = load ptr, ptr %1155, align 8
-  %1157 = getelementptr inbounds i8, ptr %2, i64 40
+  %1157 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1158 = load ptr, ptr %1157, align 8
   %1159 = ptrtoint ptr %1158 to i64
   %1160 = ptrtoint ptr %1156 to i64
@@ -3406,12 +3406,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1162 = getelementptr inbounds i8, ptr %2, i64 48
+  %1162 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1162)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1163 = load ptr, ptr %1162, align 8
-  %1164 = getelementptr inbounds i8, ptr %2, i64 56
+  %1164 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1165 = load ptr, ptr %1164, align 8
   %1166 = ptrtoint ptr %1165 to i64
   %1167 = ptrtoint ptr %1163 to i64
@@ -3424,14 +3424,14 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1169 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1170 = getelementptr inbounds i8, ptr %2, i64 64
+  %1170 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1171 = load ptr, ptr %1170, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1171, ptr noundef %3)
   store i64 %1169, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.74, i64 noundef 13) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1172 = getelementptr inbounds i8, ptr %2, i64 72
+  %1172 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %1173 = load i32, ptr %1172, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1173)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -3439,24 +3439,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1174:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.98, i64 noundef 33) #3
-  %1175 = getelementptr inbounds i8, ptr %2, i64 8
+  %1175 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1175)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1176 = getelementptr inbounds i8, ptr %2, i64 24
+  %1176 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1177 = load i32, ptr %1176, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1177)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1178 = getelementptr inbounds i8, ptr %2, i64 32
+  %1178 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1178)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1179 = load ptr, ptr %1178, align 8
-  %1180 = getelementptr inbounds i8, ptr %2, i64 40
+  %1180 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1181 = load ptr, ptr %1180, align 8
   %1182 = ptrtoint ptr %1181 to i64
   %1183 = ptrtoint ptr %1179 to i64
@@ -3465,12 +3465,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1185 = getelementptr inbounds i8, ptr %2, i64 48
+  %1185 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1185)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1186 = load ptr, ptr %1185, align 8
-  %1187 = getelementptr inbounds i8, ptr %2, i64 56
+  %1187 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1188 = load ptr, ptr %1187, align 8
   %1189 = ptrtoint ptr %1188 to i64
   %1190 = ptrtoint ptr %1186 to i64
@@ -3483,7 +3483,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1192 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1193 = getelementptr inbounds i8, ptr %2, i64 64
+  %1193 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1194 = load ptr, ptr %1193, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1194, ptr noundef %3)
   store i64 %1192, ptr %3, align 8
@@ -3491,7 +3491,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1195:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.99, i64 noundef 38) #3
-  %1196 = getelementptr inbounds i8, ptr %2, i64 8
+  %1196 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1196)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -3500,18 +3500,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1197 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1198 = getelementptr inbounds i8, ptr %2, i64 24
+  %1198 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1199 = load ptr, ptr %1198, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1199, ptr noundef %3)
   store i64 %1197, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1200 = getelementptr inbounds i8, ptr %2, i64 32
+  %1200 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1200)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1201 = load ptr, ptr %1200, align 8
-  %1202 = getelementptr inbounds i8, ptr %2, i64 40
+  %1202 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1203 = load ptr, ptr %1202, align 8
   %1204 = ptrtoint ptr %1203 to i64
   %1205 = ptrtoint ptr %1201 to i64
@@ -3524,7 +3524,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1207 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1208 = getelementptr inbounds i8, ptr %2, i64 48
+  %1208 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1209 = load ptr, ptr %1208, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1209, ptr noundef %3)
   store i64 %1207, ptr %3, align 8
@@ -3532,12 +3532,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1210:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.100, i64 noundef 30) #3
-  %1211 = getelementptr inbounds i8, ptr %2, i64 8
+  %1211 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1211)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.101, i64 noundef 11) #3
-  %1212 = getelementptr inbounds i8, ptr %2, i64 24
+  %1212 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1213 = load ptr, ptr %1212, align 8
   %1214 = icmp eq ptr %1213, null
   br i1 %1214, label %1215, label %1216
@@ -3563,18 +3563,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1220 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1221 = getelementptr inbounds i8, ptr %2, i64 32
+  %1221 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1222 = load ptr, ptr %1221, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1222, ptr noundef %3)
   store i64 %1220, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.103, i64 noundef 18) #3
-  %1223 = getelementptr inbounds i8, ptr %2, i64 40
+  %1223 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1223)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1224 = load ptr, ptr %1223, align 8
-  %1225 = getelementptr inbounds i8, ptr %2, i64 48
+  %1225 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1226 = load ptr, ptr %1225, align 8
   %1227 = ptrtoint ptr %1226 to i64
   %1228 = ptrtoint ptr %1224 to i64
@@ -3585,7 +3585,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1230:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.104, i64 noundef 43) #3
-  %1231 = getelementptr inbounds i8, ptr %2, i64 8
+  %1231 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1231)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -3594,18 +3594,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1232 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1233 = getelementptr inbounds i8, ptr %2, i64 24
+  %1233 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1234 = load ptr, ptr %1233, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1234, ptr noundef %3)
   store i64 %1232, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1235 = getelementptr inbounds i8, ptr %2, i64 32
+  %1235 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1235)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1236 = load ptr, ptr %1235, align 8
-  %1237 = getelementptr inbounds i8, ptr %2, i64 40
+  %1237 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1238 = load ptr, ptr %1237, align 8
   %1239 = ptrtoint ptr %1238 to i64
   %1240 = ptrtoint ptr %1236 to i64
@@ -3618,14 +3618,14 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1242 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1243 = getelementptr inbounds i8, ptr %2, i64 48
+  %1243 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1244 = load ptr, ptr %1243, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1244, ptr noundef %3)
   store i64 %1242, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.74, i64 noundef 13) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1245 = getelementptr inbounds i8, ptr %2, i64 56
+  %1245 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1246 = load i32, ptr %1245, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1246)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -3633,7 +3633,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1247:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.105, i64 noundef 37) #3
-  %1248 = getelementptr inbounds i8, ptr %2, i64 8
+  %1248 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1248)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -3642,18 +3642,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1249 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1250 = getelementptr inbounds i8, ptr %2, i64 24
+  %1250 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1251 = load ptr, ptr %1250, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1251, ptr noundef %3)
   store i64 %1249, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1252 = getelementptr inbounds i8, ptr %2, i64 32
+  %1252 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1252)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1253 = load ptr, ptr %1252, align 8
-  %1254 = getelementptr inbounds i8, ptr %2, i64 40
+  %1254 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1255 = load ptr, ptr %1254, align 8
   %1256 = ptrtoint ptr %1255 to i64
   %1257 = ptrtoint ptr %1253 to i64
@@ -3666,7 +3666,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1259 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1260 = getelementptr inbounds i8, ptr %2, i64 48
+  %1260 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1261 = load ptr, ptr %1260, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1261, ptr noundef %3)
   store i64 %1259, ptr %3, align 8
@@ -3674,12 +3674,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1262:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.106, i64 noundef 36) #3
-  %1263 = getelementptr inbounds i8, ptr %2, i64 8
+  %1263 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1263)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.101, i64 noundef 11) #3
-  %1264 = getelementptr inbounds i8, ptr %2, i64 24
+  %1264 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1265 = load ptr, ptr %1264, align 8
   %1266 = icmp eq ptr %1265, null
   br i1 %1266, label %1267, label %1268
@@ -3705,18 +3705,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1272 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1273 = getelementptr inbounds i8, ptr %2, i64 32
+  %1273 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1274 = load ptr, ptr %1273, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1274, ptr noundef %3)
   store i64 %1272, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.103, i64 noundef 18) #3
-  %1275 = getelementptr inbounds i8, ptr %2, i64 40
+  %1275 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1275)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1276 = load ptr, ptr %1275, align 8
-  %1277 = getelementptr inbounds i8, ptr %2, i64 48
+  %1277 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1278 = load ptr, ptr %1277, align 8
   %1279 = ptrtoint ptr %1278 to i64
   %1280 = ptrtoint ptr %1276 to i64
@@ -3727,7 +3727,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1282:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.107, i64 noundef 35) #3
-  %1283 = getelementptr inbounds i8, ptr %2, i64 8
+  %1283 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1283)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -3736,18 +3736,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1284 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1285 = getelementptr inbounds i8, ptr %2, i64 24
+  %1285 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1286 = load ptr, ptr %1285, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1286, ptr noundef %3)
   store i64 %1284, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1287 = getelementptr inbounds i8, ptr %2, i64 32
+  %1287 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1287)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1288 = load ptr, ptr %1287, align 8
-  %1289 = getelementptr inbounds i8, ptr %2, i64 40
+  %1289 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1290 = load ptr, ptr %1289, align 8
   %1291 = ptrtoint ptr %1290 to i64
   %1292 = ptrtoint ptr %1288 to i64
@@ -3760,7 +3760,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1294 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1295 = getelementptr inbounds i8, ptr %2, i64 48
+  %1295 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1296 = load ptr, ptr %1295, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1296, ptr noundef %3)
   store i64 %1294, ptr %3, align 8
@@ -3768,13 +3768,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1297:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.108, i64 noundef 30) #3
-  %1298 = getelementptr inbounds i8, ptr %2, i64 8
+  %1298 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1298)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1299 = getelementptr inbounds i8, ptr %2, i64 24
+  %1299 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1300 = load i32, ptr %1299, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1300)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -3782,13 +3782,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1301:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.109, i64 noundef 32) #3
-  %1302 = getelementptr inbounds i8, ptr %2, i64 8
+  %1302 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1302)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1303 = getelementptr inbounds i8, ptr %2, i64 24
+  %1303 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1304 = load i32, ptr %1303, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1304)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -3796,24 +3796,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1305:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.110, i64 noundef 31) #3
-  %1306 = getelementptr inbounds i8, ptr %2, i64 8
+  %1306 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1306)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1307 = getelementptr inbounds i8, ptr %2, i64 24
+  %1307 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1308 = load i32, ptr %1307, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1308)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1309 = getelementptr inbounds i8, ptr %2, i64 32
+  %1309 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1309)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1310 = load ptr, ptr %1309, align 8
-  %1311 = getelementptr inbounds i8, ptr %2, i64 40
+  %1311 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1312 = load ptr, ptr %1311, align 8
   %1313 = ptrtoint ptr %1312 to i64
   %1314 = ptrtoint ptr %1310 to i64
@@ -3826,18 +3826,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1316 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1317 = getelementptr inbounds i8, ptr %2, i64 48
+  %1317 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1318 = load ptr, ptr %1317, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1318, ptr noundef %3)
   store i64 %1316, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1319 = getelementptr inbounds i8, ptr %2, i64 56
+  %1319 = getelementptr inbounds nuw i8, ptr %2, i64 56
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1319)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1320 = load ptr, ptr %1319, align 8
-  %1321 = getelementptr inbounds i8, ptr %2, i64 64
+  %1321 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1322 = load ptr, ptr %1321, align 8
   %1323 = ptrtoint ptr %1322 to i64
   %1324 = ptrtoint ptr %1320 to i64
@@ -3848,24 +3848,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1326:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.111, i64 noundef 21) #3
-  %1327 = getelementptr inbounds i8, ptr %2, i64 8
+  %1327 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1327)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1328 = getelementptr inbounds i8, ptr %2, i64 24
+  %1328 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1329 = load i32, ptr %1328, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1329)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1330 = getelementptr inbounds i8, ptr %2, i64 32
+  %1330 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1330)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1331 = load ptr, ptr %1330, align 8
-  %1332 = getelementptr inbounds i8, ptr %2, i64 40
+  %1332 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1333 = load ptr, ptr %1332, align 8
   %1334 = ptrtoint ptr %1333 to i64
   %1335 = ptrtoint ptr %1331 to i64
@@ -3874,7 +3874,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.66, i64 noundef 13) #3
-  %1337 = getelementptr inbounds i8, ptr %2, i64 48
+  %1337 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1338 = load ptr, ptr %1337, align 8
   %1339 = icmp eq ptr %1338, null
   br i1 %1339, label %1340, label %1341
@@ -3896,7 +3896,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1344:                                             ; preds = %1341, %1340
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.55, i64 noundef 15) #3
-  %1345 = getelementptr inbounds i8, ptr %2, i64 56
+  %1345 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1346 = load ptr, ptr %1345, align 8
   %1347 = icmp eq ptr %1346, null
   br i1 %1347, label %1348, label %1349
@@ -3918,7 +3918,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1352:                                             ; preds = %1349, %1348
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.56, i64 noundef 9) #3
-  %1353 = getelementptr inbounds i8, ptr %2, i64 64
+  %1353 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1354 = load ptr, ptr %1353, align 8
   %1355 = icmp eq ptr %1354, null
   br i1 %1355, label %1356, label %1357
@@ -3941,14 +3941,14 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.51, i64 noundef 11) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.52, i64 noundef 2) #3
-  %1361 = getelementptr inbounds i8, ptr %2, i64 72
+  %1361 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %1362 = load i64, ptr %1361, align 8
   %.not9072 = icmp eq i64 %1362, 0
   br i1 %.not9072, label %._crit_edge9011, label %.lr.ph9010
 
 .lr.ph9010:                                       ; preds = %1360
-  %1363 = getelementptr inbounds i8, ptr %2, i64 88
-  %1364 = getelementptr inbounds i8, ptr %1, i64 528
+  %1363 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %1364 = getelementptr inbounds nuw i8, ptr %1, i64 528
   br label %1365
 
 1365:                                             ; preds = %.lr.ph9010, %1368
@@ -3966,7 +3966,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1370 = getelementptr i32, ptr %1369, i64 %1366
   %1371 = load i32, ptr %1370, align 4
   %1372 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %1364, i32 noundef %1371) #3
-  %1373 = getelementptr inbounds i8, ptr %1372, i64 8
+  %1373 = getelementptr inbounds nuw i8, ptr %1372, i64 8
   %1374 = load i64, ptr %1373, align 8
   %1375 = trunc i64 %1374 to i32
   %1376 = load ptr, ptr %1372, align 8
@@ -3981,12 +3981,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.54, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.112, i64 noundef 20) #3
-  %1381 = getelementptr inbounds i8, ptr %2, i64 96
+  %1381 = getelementptr inbounds nuw i8, ptr %2, i64 96
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1381)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1382 = load ptr, ptr %1381, align 8
-  %1383 = getelementptr inbounds i8, ptr %2, i64 104
+  %1383 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %1384 = load ptr, ptr %1383, align 8
   %1385 = ptrtoint ptr %1384 to i64
   %1386 = ptrtoint ptr %1382 to i64
@@ -3995,7 +3995,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1388 = getelementptr inbounds i8, ptr %2, i64 112
+  %1388 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %1389 = load ptr, ptr %1388, align 8
   %1390 = icmp eq ptr %1389, null
   br i1 %1390, label %1391, label %1392
@@ -4009,7 +4009,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1388)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1393 = load ptr, ptr %1388, align 8
-  %1394 = getelementptr inbounds i8, ptr %2, i64 120
+  %1394 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %1395 = load ptr, ptr %1394, align 8
   %1396 = ptrtoint ptr %1395 to i64
   %1397 = ptrtoint ptr %1393 to i64
@@ -4021,7 +4021,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1399:                                             ; preds = %1392, %1391
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.113, i64 noundef 15) #3
-  %1400 = getelementptr inbounds i8, ptr %2, i64 128
+  %1400 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %1401 = load ptr, ptr %1400, align 8
   %1402 = icmp eq ptr %1401, null
   br i1 %1402, label %1403, label %1404
@@ -4035,7 +4035,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1400)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1405 = load ptr, ptr %1400, align 8
-  %1406 = getelementptr inbounds i8, ptr %2, i64 136
+  %1406 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %1407 = load ptr, ptr %1406, align 8
   %1408 = ptrtoint ptr %1407 to i64
   %1409 = ptrtoint ptr %1405 to i64
@@ -4047,7 +4047,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1411:                                             ; preds = %1404, %1403
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.114, i64 noundef 15) #3
-  %1412 = getelementptr inbounds i8, ptr %2, i64 144
+  %1412 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %1413 = load ptr, ptr %1412, align 8
   %1414 = icmp eq ptr %1413, null
   br i1 %1414, label %1415, label %1416
@@ -4061,7 +4061,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1412)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1417 = load ptr, ptr %1412, align 8
-  %1418 = getelementptr inbounds i8, ptr %2, i64 152
+  %1418 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %1419 = load ptr, ptr %1418, align 8
   %1420 = ptrtoint ptr %1419 to i64
   %1421 = ptrtoint ptr %1417 to i64
@@ -4073,7 +4073,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1423:                                             ; preds = %1416, %1415
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.115, i64 noundef 14) #3
-  %1424 = getelementptr inbounds i8, ptr %2, i64 160
+  %1424 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %1425 = load ptr, ptr %1424, align 8
   %1426 = icmp eq ptr %1425, null
   br i1 %1426, label %1427, label %1428
@@ -4087,7 +4087,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1424)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1429 = load ptr, ptr %1424, align 8
-  %1430 = getelementptr inbounds i8, ptr %2, i64 168
+  %1430 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %1431 = load ptr, ptr %1430, align 8
   %1432 = ptrtoint ptr %1431 to i64
   %1433 = ptrtoint ptr %1429 to i64
@@ -4099,7 +4099,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1435:                                             ; preds = %1428, %1427
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 20) #3
-  %1436 = getelementptr inbounds i8, ptr %2, i64 176
+  %1436 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %1437 = load ptr, ptr %1436, align 8
   %1438 = icmp eq ptr %1437, null
   br i1 %1438, label %1439, label %1440
@@ -4113,7 +4113,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1436)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1441 = load ptr, ptr %1436, align 8
-  %1442 = getelementptr inbounds i8, ptr %2, i64 184
+  %1442 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %1443 = load ptr, ptr %1442, align 8
   %1444 = ptrtoint ptr %1443 to i64
   %1445 = ptrtoint ptr %1441 to i64
@@ -4124,12 +4124,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1447:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.116, i64 noundef 25) #3
-  %1448 = getelementptr inbounds i8, ptr %2, i64 8
+  %1448 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1448)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.113, i64 noundef 15) #3
-  %1449 = getelementptr inbounds i8, ptr %2, i64 24
+  %1449 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1450 = load ptr, ptr %1449, align 8
   %1451 = icmp eq ptr %1450, null
   br i1 %1451, label %1452, label %1453
@@ -4143,7 +4143,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1449)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1454 = load ptr, ptr %1449, align 8
-  %1455 = getelementptr inbounds i8, ptr %2, i64 32
+  %1455 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1456 = load ptr, ptr %1455, align 8
   %1457 = ptrtoint ptr %1456 to i64
   %1458 = ptrtoint ptr %1454 to i64
@@ -4159,13 +4159,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1461 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1462 = getelementptr inbounds i8, ptr %2, i64 40
+  %1462 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1463 = load ptr, ptr %1462, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1463, ptr noundef %3)
   store i64 %1461, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.114, i64 noundef 15) #3
-  %1464 = getelementptr inbounds i8, ptr %2, i64 48
+  %1464 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1465 = load ptr, ptr %1464, align 8
   %1466 = icmp eq ptr %1465, null
   br i1 %1466, label %1467, label %1468
@@ -4179,7 +4179,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1464)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1469 = load ptr, ptr %1464, align 8
-  %1470 = getelementptr inbounds i8, ptr %2, i64 56
+  %1470 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1471 = load ptr, ptr %1470, align 8
   %1472 = ptrtoint ptr %1471 to i64
   %1473 = ptrtoint ptr %1469 to i64
@@ -4191,12 +4191,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1475:                                             ; preds = %1468, %1467
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %1476 = getelementptr inbounds i8, ptr %2, i64 64
+  %1476 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1476)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1477 = load ptr, ptr %1476, align 8
-  %1478 = getelementptr inbounds i8, ptr %2, i64 72
+  %1478 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %1479 = load ptr, ptr %1478, align 8
   %1480 = ptrtoint ptr %1479 to i64
   %1481 = ptrtoint ptr %1477 to i64
@@ -4207,17 +4207,17 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1483:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.117, i64 noundef 22) #3
-  %1484 = getelementptr inbounds i8, ptr %2, i64 8
+  %1484 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1484)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.118, i64 noundef 21) #3
-  %1485 = getelementptr inbounds i8, ptr %2, i64 24
+  %1485 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1485)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1486 = load ptr, ptr %1485, align 8
-  %1487 = getelementptr inbounds i8, ptr %2, i64 32
+  %1487 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1488 = load ptr, ptr %1487, align 8
   %1489 = ptrtoint ptr %1488 to i64
   %1490 = ptrtoint ptr %1486 to i64
@@ -4226,7 +4226,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %1492 = getelementptr inbounds i8, ptr %2, i64 40
+  %1492 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1493 = load ptr, ptr %1492, align 8
   %1494 = icmp eq ptr %1493, null
   br i1 %1494, label %1495, label %1496
@@ -4248,7 +4248,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1499:                                             ; preds = %1496, %1495
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 20) #3
-  %1500 = getelementptr inbounds i8, ptr %2, i64 48
+  %1500 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1501 = load ptr, ptr %1500, align 8
   %1502 = icmp eq ptr %1501, null
   br i1 %1502, label %1503, label %1504
@@ -4262,7 +4262,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1500)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1505 = load ptr, ptr %1500, align 8
-  %1506 = getelementptr inbounds i8, ptr %2, i64 56
+  %1506 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1507 = load ptr, ptr %1506, align 8
   %1508 = ptrtoint ptr %1507 to i64
   %1509 = ptrtoint ptr %1505 to i64
@@ -4273,17 +4273,17 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1511:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.119, i64 noundef 36) #3
-  %1512 = getelementptr inbounds i8, ptr %2, i64 8
+  %1512 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1512)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %1513 = getelementptr inbounds i8, ptr %2, i64 24
+  %1513 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1513)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1514 = load ptr, ptr %1513, align 8
-  %1515 = getelementptr inbounds i8, ptr %2, i64 32
+  %1515 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1516 = load ptr, ptr %1515, align 8
   %1517 = ptrtoint ptr %1516 to i64
   %1518 = ptrtoint ptr %1514 to i64
@@ -4292,7 +4292,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %1520 = getelementptr inbounds i8, ptr %2, i64 40
+  %1520 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1521 = load ptr, ptr %1520, align 8
   %1522 = icmp eq ptr %1521, null
   br i1 %1522, label %1523, label %1524
@@ -4314,12 +4314,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1527:                                             ; preds = %1524, %1523
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %1528 = getelementptr inbounds i8, ptr %2, i64 48
+  %1528 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1528)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1529 = load ptr, ptr %1528, align 8
-  %1530 = getelementptr inbounds i8, ptr %2, i64 56
+  %1530 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1531 = load ptr, ptr %1530, align 8
   %1532 = ptrtoint ptr %1531 to i64
   %1533 = ptrtoint ptr %1529 to i64
@@ -4330,17 +4330,17 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1535:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.120, i64 noundef 34) #3
-  %1536 = getelementptr inbounds i8, ptr %2, i64 8
+  %1536 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1536)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1537 = getelementptr inbounds i8, ptr %2, i64 24
+  %1537 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1537)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1538 = load ptr, ptr %1537, align 8
-  %1539 = getelementptr inbounds i8, ptr %2, i64 32
+  %1539 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1540 = load ptr, ptr %1539, align 8
   %1541 = ptrtoint ptr %1540 to i64
   %1542 = ptrtoint ptr %1538 to i64
@@ -4353,7 +4353,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1544 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1545 = getelementptr inbounds i8, ptr %2, i64 40
+  %1545 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1546 = load ptr, ptr %1545, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1546, ptr noundef %3)
   store i64 %1544, ptr %3, align 8
@@ -4361,17 +4361,17 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1547:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.122, i64 noundef 24) #3
-  %1548 = getelementptr inbounds i8, ptr %2, i64 8
+  %1548 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1548)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.123, i64 noundef 23) #3
-  %1549 = getelementptr inbounds i8, ptr %2, i64 24
+  %1549 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1549)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1550 = load ptr, ptr %1549, align 8
-  %1551 = getelementptr inbounds i8, ptr %2, i64 32
+  %1551 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1552 = load ptr, ptr %1551, align 8
   %1553 = ptrtoint ptr %1552 to i64
   %1554 = ptrtoint ptr %1550 to i64
@@ -4380,7 +4380,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %1556 = getelementptr inbounds i8, ptr %2, i64 40
+  %1556 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1557 = load ptr, ptr %1556, align 8
   %1558 = icmp eq ptr %1557, null
   br i1 %1558, label %1559, label %1560
@@ -4402,12 +4402,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1563:                                             ; preds = %1560, %1559
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 20) #3
-  %1564 = getelementptr inbounds i8, ptr %2, i64 48
+  %1564 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1564)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1565 = load ptr, ptr %1564, align 8
-  %1566 = getelementptr inbounds i8, ptr %2, i64 56
+  %1566 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1567 = load ptr, ptr %1566, align 8
   %1568 = ptrtoint ptr %1567 to i64
   %1569 = ptrtoint ptr %1565 to i64
@@ -4418,19 +4418,19 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1571:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.124, i64 noundef 23) #3
-  %1572 = getelementptr inbounds i8, ptr %2, i64 8
+  %1572 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1572)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 1573:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.125, i64 noundef 29) #3
-  %1574 = getelementptr inbounds i8, ptr %2, i64 8
+  %1574 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1574)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef 13) #3
-  %1575 = getelementptr inbounds i8, ptr %2, i64 24
+  %1575 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1576 = load ptr, ptr %1575, align 8
   %1577 = icmp eq ptr %1576, null
   br i1 %1577, label %1578, label %1579
@@ -4456,13 +4456,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1583 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1584 = getelementptr inbounds i8, ptr %2, i64 32
+  %1584 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1585 = load ptr, ptr %1584, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1585, ptr noundef %3)
   store i64 %1583, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 14) #3
-  %1586 = getelementptr inbounds i8, ptr %2, i64 40
+  %1586 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1587 = load i64, ptr %1586, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %1587) #3
   %1588 = load i64, ptr %1586, align 8
@@ -4471,7 +4471,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph9006:                                       ; preds = %1582
   %1589 = add i64 %1588, -1
-  %1590 = getelementptr inbounds i8, ptr %2, i64 56
+  %1590 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.pre9165 = load i64, ptr %3, align 8
   br label %1591
 
@@ -4501,13 +4501,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1601 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1602 = getelementptr inbounds i8, ptr %2, i64 64
+  %1602 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1603 = load ptr, ptr %1602, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1603, ptr noundef %3)
   store i64 %1601, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %1604 = getelementptr inbounds i8, ptr %2, i64 72
+  %1604 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %1605 = load ptr, ptr %1604, align 8
   %1606 = icmp eq ptr %1605, null
   br i1 %1606, label %1607, label %1608
@@ -4521,7 +4521,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1604)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1609 = load ptr, ptr %1604, align 8
-  %1610 = getelementptr inbounds i8, ptr %2, i64 80
+  %1610 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %1611 = load ptr, ptr %1610, align 8
   %1612 = ptrtoint ptr %1611 to i64
   %1613 = ptrtoint ptr %1609 to i64
@@ -4533,7 +4533,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1615:                                             ; preds = %1608, %1607
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %1616 = getelementptr inbounds i8, ptr %2, i64 88
+  %1616 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %1617 = load ptr, ptr %1616, align 8
   %1618 = icmp eq ptr %1617, null
   br i1 %1618, label %1619, label %1620
@@ -4547,7 +4547,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1616)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1621 = load ptr, ptr %1616, align 8
-  %1622 = getelementptr inbounds i8, ptr %2, i64 96
+  %1622 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %1623 = load ptr, ptr %1622, align 8
   %1624 = ptrtoint ptr %1623 to i64
   %1625 = ptrtoint ptr %1621 to i64
@@ -4558,12 +4558,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1627:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.126, i64 noundef 26) #3
-  %1628 = getelementptr inbounds i8, ptr %2, i64 8
+  %1628 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1628)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %1629 = getelementptr inbounds i8, ptr %2, i64 2
+  %1629 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %1630 = load i16, ptr %1629, align 2
   %1631 = and i16 %1630, 1
   %.not8818.not = icmp eq i16 %1631, 0
@@ -4581,7 +4581,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.10, i64 noundef 9) #3
-  %1634 = getelementptr inbounds i8, ptr %2, i64 24
+  %1634 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1635 = load ptr, ptr %1634, align 8
   %1636 = icmp eq ptr %1635, null
   br i1 %1636, label %1637, label %1638
@@ -4603,7 +4603,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1641:                                             ; preds = %1638, %1637
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.11, i64 noundef 10) #3
-  %1642 = getelementptr inbounds i8, ptr %2, i64 32
+  %1642 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1643 = load ptr, ptr %1642, align 8
   %1644 = icmp eq ptr %1643, null
   br i1 %1644, label %1645, label %1646
@@ -4625,12 +4625,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1649:                                             ; preds = %1646, %1645
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1650 = getelementptr inbounds i8, ptr %2, i64 40
+  %1650 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1650)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1651 = load ptr, ptr %1650, align 8
-  %1652 = getelementptr inbounds i8, ptr %2, i64 48
+  %1652 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1653 = load ptr, ptr %1652, align 8
   %1654 = ptrtoint ptr %1653 to i64
   %1655 = ptrtoint ptr %1651 to i64
@@ -4641,19 +4641,19 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1657:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.128, i64 noundef 23) #3
-  %1658 = getelementptr inbounds i8, ptr %2, i64 8
+  %1658 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1658)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.35, i64 noundef 10) #3
-  %1659 = getelementptr inbounds i8, ptr %2, i64 24
+  %1659 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1660 = load double, ptr %1659, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.129, double noundef %1660) #3
   br label %common.ret9201
 
 1661:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.130, i64 noundef 21) #3
-  %1662 = getelementptr inbounds i8, ptr %2, i64 8
+  %1662 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1662)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -4662,7 +4662,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1663 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1664 = getelementptr inbounds i8, ptr %2, i64 24
+  %1664 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1665 = load ptr, ptr %1664, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1665, ptr noundef %3)
   store i64 %1663, ptr %3, align 8
@@ -4672,13 +4672,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1666 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1667 = getelementptr inbounds i8, ptr %2, i64 32
+  %1667 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1668 = load ptr, ptr %1667, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1668, ptr noundef %3)
   store i64 %1666, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %1669 = getelementptr inbounds i8, ptr %2, i64 40
+  %1669 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1670 = load ptr, ptr %1669, align 8
   %1671 = icmp eq ptr %1670, null
   br i1 %1671, label %1672, label %1673
@@ -4700,12 +4700,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1676:                                             ; preds = %1673, %1672
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.133, i64 noundef 20) #3
-  %1677 = getelementptr inbounds i8, ptr %2, i64 48
+  %1677 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1677)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1678 = load ptr, ptr %1677, align 8
-  %1679 = getelementptr inbounds i8, ptr %2, i64 56
+  %1679 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1680 = load ptr, ptr %1679, align 8
   %1681 = ptrtoint ptr %1680 to i64
   %1682 = ptrtoint ptr %1678 to i64
@@ -4714,12 +4714,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.134, i64 noundef 19) #3
-  %1684 = getelementptr inbounds i8, ptr %2, i64 64
+  %1684 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1684)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1685 = load ptr, ptr %1684, align 8
-  %1686 = getelementptr inbounds i8, ptr %2, i64 72
+  %1686 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %1687 = load ptr, ptr %1686, align 8
   %1688 = ptrtoint ptr %1687 to i64
   %1689 = ptrtoint ptr %1685 to i64
@@ -4728,7 +4728,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.135, i64 noundef 19) #3
-  %1691 = getelementptr inbounds i8, ptr %2, i64 80
+  %1691 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %1692 = load ptr, ptr %1691, align 8
   %1693 = icmp eq ptr %1692, null
   br i1 %1693, label %1694, label %1695
@@ -4742,7 +4742,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1691)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1696 = load ptr, ptr %1691, align 8
-  %1697 = getelementptr inbounds i8, ptr %2, i64 88
+  %1697 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %1698 = load ptr, ptr %1697, align 8
   %1699 = ptrtoint ptr %1698 to i64
   %1700 = ptrtoint ptr %1696 to i64
@@ -4754,12 +4754,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1702:                                             ; preds = %1695, %1694
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 20) #3
-  %1703 = getelementptr inbounds i8, ptr %2, i64 96
+  %1703 = getelementptr inbounds nuw i8, ptr %2, i64 96
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1703)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1704 = load ptr, ptr %1703, align 8
-  %1705 = getelementptr inbounds i8, ptr %2, i64 104
+  %1705 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %1706 = load ptr, ptr %1705, align 8
   %1707 = ptrtoint ptr %1706 to i64
   %1708 = ptrtoint ptr %1704 to i64
@@ -4770,26 +4770,26 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1710:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.136, i64 noundef 37) #3
-  %1711 = getelementptr inbounds i8, ptr %2, i64 8
+  %1711 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1711)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 1712:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.137, i64 noundef 37) #3
-  %1713 = getelementptr inbounds i8, ptr %2, i64 8
+  %1713 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1713)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 1714:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.138, i64 noundef 33) #3
-  %1715 = getelementptr inbounds i8, ptr %2, i64 8
+  %1715 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1715)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.72, i64 noundef 10) #3
-  %1716 = getelementptr inbounds i8, ptr %2, i64 24
+  %1716 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1717 = load ptr, ptr %1716, align 8
   %1718 = icmp eq ptr %1717, null
   br i1 %1718, label %1719, label %1720
@@ -4810,24 +4810,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1723:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.139, i64 noundef 40) #3
-  %1724 = getelementptr inbounds i8, ptr %2, i64 8
+  %1724 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1724)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1725 = getelementptr inbounds i8, ptr %2, i64 24
+  %1725 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1726 = load i32, ptr %1725, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1726)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1727 = getelementptr inbounds i8, ptr %2, i64 32
+  %1727 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1727)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1728 = load ptr, ptr %1727, align 8
-  %1729 = getelementptr inbounds i8, ptr %2, i64 40
+  %1729 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1730 = load ptr, ptr %1729, align 8
   %1731 = ptrtoint ptr %1730 to i64
   %1732 = ptrtoint ptr %1728 to i64
@@ -4836,12 +4836,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1734 = getelementptr inbounds i8, ptr %2, i64 48
+  %1734 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1734)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1735 = load ptr, ptr %1734, align 8
-  %1736 = getelementptr inbounds i8, ptr %2, i64 56
+  %1736 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1737 = load ptr, ptr %1736, align 8
   %1738 = ptrtoint ptr %1737 to i64
   %1739 = ptrtoint ptr %1735 to i64
@@ -4854,7 +4854,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1741 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1742 = getelementptr inbounds i8, ptr %2, i64 64
+  %1742 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1743 = load ptr, ptr %1742, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1743, ptr noundef %3)
   store i64 %1741, ptr %3, align 8
@@ -4862,24 +4862,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1744:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.140, i64 noundef 45) #3
-  %1745 = getelementptr inbounds i8, ptr %2, i64 8
+  %1745 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1745)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1746 = getelementptr inbounds i8, ptr %2, i64 24
+  %1746 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1747 = load i32, ptr %1746, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1747)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1748 = getelementptr inbounds i8, ptr %2, i64 32
+  %1748 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1748)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1749 = load ptr, ptr %1748, align 8
-  %1750 = getelementptr inbounds i8, ptr %2, i64 40
+  %1750 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1751 = load ptr, ptr %1750, align 8
   %1752 = ptrtoint ptr %1751 to i64
   %1753 = ptrtoint ptr %1749 to i64
@@ -4888,12 +4888,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1755 = getelementptr inbounds i8, ptr %2, i64 48
+  %1755 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1755)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1756 = load ptr, ptr %1755, align 8
-  %1757 = getelementptr inbounds i8, ptr %2, i64 56
+  %1757 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1758 = load ptr, ptr %1757, align 8
   %1759 = ptrtoint ptr %1758 to i64
   %1760 = ptrtoint ptr %1756 to i64
@@ -4906,14 +4906,14 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1762 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1763 = getelementptr inbounds i8, ptr %2, i64 64
+  %1763 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1764 = load ptr, ptr %1763, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1764, ptr noundef %3)
   store i64 %1762, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.74, i64 noundef 13) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1765 = getelementptr inbounds i8, ptr %2, i64 72
+  %1765 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %1766 = load i32, ptr %1765, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1766)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -4921,24 +4921,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1767:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.141, i64 noundef 39) #3
-  %1768 = getelementptr inbounds i8, ptr %2, i64 8
+  %1768 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1768)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1769 = getelementptr inbounds i8, ptr %2, i64 24
+  %1769 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1770 = load i32, ptr %1769, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1770)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1771 = getelementptr inbounds i8, ptr %2, i64 32
+  %1771 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1771)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1772 = load ptr, ptr %1771, align 8
-  %1773 = getelementptr inbounds i8, ptr %2, i64 40
+  %1773 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1774 = load ptr, ptr %1773, align 8
   %1775 = ptrtoint ptr %1774 to i64
   %1776 = ptrtoint ptr %1772 to i64
@@ -4947,12 +4947,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1778 = getelementptr inbounds i8, ptr %2, i64 48
+  %1778 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1778)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1779 = load ptr, ptr %1778, align 8
-  %1780 = getelementptr inbounds i8, ptr %2, i64 56
+  %1780 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1781 = load ptr, ptr %1780, align 8
   %1782 = ptrtoint ptr %1781 to i64
   %1783 = ptrtoint ptr %1779 to i64
@@ -4965,7 +4965,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1785 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1786 = getelementptr inbounds i8, ptr %2, i64 64
+  %1786 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1787 = load ptr, ptr %1786, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1787, ptr noundef %3)
   store i64 %1785, ptr %3, align 8
@@ -4973,13 +4973,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1788:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.142, i64 noundef 36) #3
-  %1789 = getelementptr inbounds i8, ptr %2, i64 8
+  %1789 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1789)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1790 = getelementptr inbounds i8, ptr %2, i64 24
+  %1790 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1791 = load i32, ptr %1790, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1791)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -4987,13 +4987,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1792:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.143, i64 noundef 38) #3
-  %1793 = getelementptr inbounds i8, ptr %2, i64 8
+  %1793 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1793)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1794 = getelementptr inbounds i8, ptr %2, i64 24
+  %1794 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1795 = load i32, ptr %1794, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1795)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -5001,24 +5001,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1796:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.144, i64 noundef 37) #3
-  %1797 = getelementptr inbounds i8, ptr %2, i64 8
+  %1797 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1797)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %1798 = getelementptr inbounds i8, ptr %2, i64 24
+  %1798 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1799 = load i32, ptr %1798, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1799)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %1800 = getelementptr inbounds i8, ptr %2, i64 32
+  %1800 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1800)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1801 = load ptr, ptr %1800, align 8
-  %1802 = getelementptr inbounds i8, ptr %2, i64 40
+  %1802 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1803 = load ptr, ptr %1802, align 8
   %1804 = ptrtoint ptr %1803 to i64
   %1805 = ptrtoint ptr %1801 to i64
@@ -5031,18 +5031,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1807 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1808 = getelementptr inbounds i8, ptr %2, i64 48
+  %1808 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1809 = load ptr, ptr %1808, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1809, ptr noundef %3)
   store i64 %1807, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %1810 = getelementptr inbounds i8, ptr %2, i64 56
+  %1810 = getelementptr inbounds nuw i8, ptr %2, i64 56
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1810)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1811 = load ptr, ptr %1810, align 8
-  %1812 = getelementptr inbounds i8, ptr %2, i64 64
+  %1812 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1813 = load ptr, ptr %1812, align 8
   %1814 = ptrtoint ptr %1813 to i64
   %1815 = ptrtoint ptr %1811 to i64
@@ -5053,17 +5053,17 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1817:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.145, i64 noundef 22) #3
-  %1818 = getelementptr inbounds i8, ptr %2, i64 8
+  %1818 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1818)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %1819 = getelementptr inbounds i8, ptr %2, i64 24
+  %1819 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1819)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1820 = load ptr, ptr %1819, align 8
-  %1821 = getelementptr inbounds i8, ptr %2, i64 32
+  %1821 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1822 = load ptr, ptr %1821, align 8
   %1823 = ptrtoint ptr %1822 to i64
   %1824 = ptrtoint ptr %1820 to i64
@@ -5072,7 +5072,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.24, i64 noundef 13) #3
-  %1826 = getelementptr inbounds i8, ptr %2, i64 40
+  %1826 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1827 = load i64, ptr %1826, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %1827) #3
   %1828 = load i64, ptr %1826, align 8
@@ -5081,7 +5081,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph9002:                                       ; preds = %1817
   %1829 = add i64 %1828, -1
-  %1830 = getelementptr inbounds i8, ptr %2, i64 56
+  %1830 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.pre9164 = load i64, ptr %3, align 8
   br label %1831
 
@@ -5107,12 +5107,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge9003:                                  ; preds = %1831, %1817
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %1841 = getelementptr inbounds i8, ptr %2, i64 64
+  %1841 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1841)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1842 = load ptr, ptr %1841, align 8
-  %1843 = getelementptr inbounds i8, ptr %2, i64 72
+  %1843 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %1844 = load ptr, ptr %1843, align 8
   %1845 = ptrtoint ptr %1844 to i64
   %1846 = ptrtoint ptr %1842 to i64
@@ -5123,12 +5123,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1848:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.146, i64 noundef 29) #3
-  %1849 = getelementptr inbounds i8, ptr %2, i64 8
+  %1849 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1849)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef 13) #3
-  %1850 = getelementptr inbounds i8, ptr %2, i64 24
+  %1850 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1851 = load ptr, ptr %1850, align 8
   %1852 = icmp eq ptr %1851, null
   br i1 %1852, label %1853, label %1854
@@ -5150,7 +5150,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1857:                                             ; preds = %1854, %1853
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.24, i64 noundef 13) #3
-  %1858 = getelementptr inbounds i8, ptr %2, i64 32
+  %1858 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1859 = load i64, ptr %1858, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %1859) #3
   %1860 = load i64, ptr %1858, align 8
@@ -5159,7 +5159,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8998:                                       ; preds = %1857
   %1861 = add i64 %1860, -1
-  %1862 = getelementptr inbounds i8, ptr %2, i64 48
+  %1862 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.pre9163 = load i64, ptr %3, align 8
   br label %1863
 
@@ -5185,7 +5185,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8999:                                  ; preds = %1863, %1857
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.31, i64 noundef 9) #3
-  %1873 = getelementptr inbounds i8, ptr %2, i64 56
+  %1873 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1874 = load ptr, ptr %1873, align 8
   %1875 = icmp eq ptr %1874, null
   br i1 %1875, label %1876, label %1877
@@ -5207,7 +5207,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1880:                                             ; preds = %1877, %1876
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %1881 = getelementptr inbounds i8, ptr %2, i64 64
+  %1881 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1882 = load ptr, ptr %1881, align 8
   %1883 = icmp eq ptr %1882, null
   br i1 %1883, label %1884, label %1885
@@ -5221,7 +5221,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1881)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1886 = load ptr, ptr %1881, align 8
-  %1887 = getelementptr inbounds i8, ptr %2, i64 72
+  %1887 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %1888 = load ptr, ptr %1887, align 8
   %1889 = ptrtoint ptr %1888 to i64
   %1890 = ptrtoint ptr %1886 to i64
@@ -5233,7 +5233,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1892:                                             ; preds = %1885, %1884
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %1893 = getelementptr inbounds i8, ptr %2, i64 80
+  %1893 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %1894 = load ptr, ptr %1893, align 8
   %1895 = icmp eq ptr %1894, null
   br i1 %1895, label %1896, label %1897
@@ -5247,7 +5247,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1893)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1898 = load ptr, ptr %1893, align 8
-  %1899 = getelementptr inbounds i8, ptr %2, i64 88
+  %1899 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %1900 = load ptr, ptr %1899, align 8
   %1901 = ptrtoint ptr %1900 to i64
   %1902 = ptrtoint ptr %1898 to i64
@@ -5258,12 +5258,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1904:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.147, i64 noundef 20) #3
-  %1905 = getelementptr inbounds i8, ptr %2, i64 8
+  %1905 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1905)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.148, i64 noundef 19) #3
-  %1906 = getelementptr inbounds i8, ptr %2, i64 24
+  %1906 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1907 = load ptr, ptr %1906, align 8
   %1908 = icmp eq ptr %1907, null
   br i1 %1908, label %1909, label %1910
@@ -5277,7 +5277,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1906)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1911 = load ptr, ptr %1906, align 8
-  %1912 = getelementptr inbounds i8, ptr %2, i64 32
+  %1912 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1913 = load ptr, ptr %1912, align 8
   %1914 = ptrtoint ptr %1913 to i64
   %1915 = ptrtoint ptr %1911 to i64
@@ -5293,13 +5293,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1918 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1919 = getelementptr inbounds i8, ptr %2, i64 40
+  %1919 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1920 = load ptr, ptr %1919, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1920, ptr noundef %3)
   store i64 %1918, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.149, i64 noundef 21) #3
-  %1921 = getelementptr inbounds i8, ptr %2, i64 48
+  %1921 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1922 = load ptr, ptr %1921, align 8
   %1923 = icmp eq ptr %1922, null
   br i1 %1923, label %1924, label %1925
@@ -5313,7 +5313,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1921)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1926 = load ptr, ptr %1921, align 8
-  %1927 = getelementptr inbounds i8, ptr %2, i64 56
+  %1927 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1928 = load ptr, ptr %1927, align 8
   %1929 = ptrtoint ptr %1928 to i64
   %1930 = ptrtoint ptr %1926 to i64
@@ -5325,7 +5325,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1932:                                             ; preds = %1925, %1924
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %1933 = getelementptr inbounds i8, ptr %2, i64 64
+  %1933 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1934 = load ptr, ptr %1933, align 8
   %1935 = icmp eq ptr %1934, null
   br i1 %1935, label %1936, label %1937
@@ -5347,7 +5347,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1940:                                             ; preds = %1937, %1936
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.82, i64 noundef 15) #3
-  %1941 = getelementptr inbounds i8, ptr %2, i64 72
+  %1941 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %1942 = load ptr, ptr %1941, align 8
   %1943 = icmp eq ptr %1942, null
   br i1 %1943, label %1944, label %1945
@@ -5369,7 +5369,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1948:                                             ; preds = %1945, %1944
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 20) #3
-  %1949 = getelementptr inbounds i8, ptr %2, i64 80
+  %1949 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %1950 = load ptr, ptr %1949, align 8
   %1951 = icmp eq ptr %1950, null
   br i1 %1951, label %1952, label %1953
@@ -5383,7 +5383,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1949)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1954 = load ptr, ptr %1949, align 8
-  %1955 = getelementptr inbounds i8, ptr %2, i64 88
+  %1955 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %1956 = load ptr, ptr %1955, align 8
   %1957 = ptrtoint ptr %1956 to i64
   %1958 = ptrtoint ptr %1954 to i64
@@ -5394,7 +5394,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1960:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.150, i64 noundef 27) #3
-  %1961 = getelementptr inbounds i8, ptr %2, i64 8
+  %1961 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1961)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -5403,7 +5403,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1962 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1963 = getelementptr inbounds i8, ptr %2, i64 24
+  %1963 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1964 = load ptr, ptr %1963, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1964, ptr noundef %3)
   store i64 %1962, ptr %3, align 8
@@ -5411,7 +5411,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1965:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.152, i64 noundef 26) #3
-  %1966 = getelementptr inbounds i8, ptr %2, i64 8
+  %1966 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1966)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -5420,7 +5420,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1967 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1968 = getelementptr inbounds i8, ptr %2, i64 24
+  %1968 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1969 = load ptr, ptr %1968, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1969, ptr noundef %3)
   store i64 %1967, ptr %3, align 8
@@ -5428,14 +5428,14 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1970:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.153, i64 noundef 30) #3
-  %1971 = getelementptr inbounds i8, ptr %2, i64 8
+  %1971 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1971)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 1972:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.154, i64 noundef 20) #3
-  %1973 = getelementptr inbounds i8, ptr %2, i64 8
+  %1973 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1973)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -5444,13 +5444,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1974 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %1975 = getelementptr inbounds i8, ptr %2, i64 24
+  %1975 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1976 = load ptr, ptr %1975, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1976, ptr noundef %3)
   store i64 %1974, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %1977 = getelementptr inbounds i8, ptr %2, i64 32
+  %1977 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1978 = load ptr, ptr %1977, align 8
   %1979 = icmp eq ptr %1978, null
   br i1 %1979, label %1980, label %1981
@@ -5472,12 +5472,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 1984:                                             ; preds = %1981, %1980
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.156, i64 noundef 11) #3
-  %1985 = getelementptr inbounds i8, ptr %2, i64 40
+  %1985 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1985)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1986 = load ptr, ptr %1985, align 8
-  %1987 = getelementptr inbounds i8, ptr %2, i64 48
+  %1987 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %1988 = load ptr, ptr %1987, align 8
   %1989 = ptrtoint ptr %1988 to i64
   %1990 = ptrtoint ptr %1986 to i64
@@ -5486,7 +5486,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.157, i64 noundef 13) #3
-  %1992 = getelementptr inbounds i8, ptr %2, i64 56
+  %1992 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1993 = load ptr, ptr %1992, align 8
   %1994 = icmp eq ptr %1993, null
   br i1 %1994, label %1995, label %1996
@@ -5500,7 +5500,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1992)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %1997 = load ptr, ptr %1992, align 8
-  %1998 = getelementptr inbounds i8, ptr %2, i64 64
+  %1998 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %1999 = load ptr, ptr %1998, align 8
   %2000 = ptrtoint ptr %1999 to i64
   %2001 = ptrtoint ptr %1997 to i64
@@ -5511,12 +5511,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2003:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.158, i64 noundef 31) #3
-  %2004 = getelementptr inbounds i8, ptr %2, i64 8
+  %2004 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2004)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %2005 = getelementptr inbounds i8, ptr %2, i64 2
+  %2005 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %2006 = load i16, ptr %2005, align 2
   %2007 = and i16 %2006, 1
   %.not8814 = icmp eq i16 %2007, 0
@@ -5597,7 +5597,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.66, i64 noundef 13) #3
-  %2032 = getelementptr inbounds i8, ptr %2, i64 24
+  %2032 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2033 = load ptr, ptr %2032, align 8
   %2034 = icmp eq ptr %2033, null
   br i1 %2034, label %2035, label %2036
@@ -5619,7 +5619,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2039:                                             ; preds = %2036, %2035
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.67, i64 noundef 22) #3
-  %2040 = getelementptr inbounds i8, ptr %2, i64 32
+  %2040 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2041 = load ptr, ptr %2040, align 8
   %2042 = icmp eq ptr %2041, null
   br i1 %2042, label %2043, label %2044
@@ -5633,7 +5633,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2040)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2045 = load ptr, ptr %2040, align 8
-  %2046 = getelementptr inbounds i8, ptr %2, i64 40
+  %2046 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2047 = load ptr, ptr %2046, align 8
   %2048 = ptrtoint ptr %2047 to i64
   %2049 = ptrtoint ptr %2045 to i64
@@ -5645,12 +5645,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2051:                                             ; preds = %2044, %2043
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %2052 = getelementptr inbounds i8, ptr %2, i64 48
+  %2052 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2052)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2053 = load ptr, ptr %2052, align 8
-  %2054 = getelementptr inbounds i8, ptr %2, i64 56
+  %2054 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2055 = load ptr, ptr %2054, align 8
   %2056 = ptrtoint ptr %2055 to i64
   %2057 = ptrtoint ptr %2053 to i64
@@ -5659,7 +5659,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 14) #3
-  %2059 = getelementptr inbounds i8, ptr %2, i64 64
+  %2059 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2060 = load ptr, ptr %2059, align 8
   %2061 = icmp eq ptr %2060, null
   br i1 %2061, label %2062, label %2063
@@ -5681,12 +5681,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2066:                                             ; preds = %2063, %2062
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %2067 = getelementptr inbounds i8, ptr %2, i64 72
+  %2067 = getelementptr inbounds nuw i8, ptr %2, i64 72
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2067)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2068 = load ptr, ptr %2067, align 8
-  %2069 = getelementptr inbounds i8, ptr %2, i64 80
+  %2069 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %2070 = load ptr, ptr %2069, align 8
   %2071 = ptrtoint ptr %2070 to i64
   %2072 = ptrtoint ptr %2068 to i64
@@ -5695,7 +5695,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.72, i64 noundef 10) #3
-  %2074 = getelementptr inbounds i8, ptr %2, i64 88
+  %2074 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %2075 = load ptr, ptr %2074, align 8
   %2076 = icmp eq ptr %2075, null
   br i1 %2076, label %2077, label %2078
@@ -5717,12 +5717,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2081:                                             ; preds = %2078, %2077
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2082 = getelementptr inbounds i8, ptr %2, i64 96
+  %2082 = getelementptr inbounds nuw i8, ptr %2, i64 96
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2082)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2083 = load ptr, ptr %2082, align 8
-  %2084 = getelementptr inbounds i8, ptr %2, i64 104
+  %2084 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %2085 = load ptr, ptr %2084, align 8
   %2086 = ptrtoint ptr %2085 to i64
   %2087 = ptrtoint ptr %2083 to i64
@@ -5735,7 +5735,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2089 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %2090 = getelementptr inbounds i8, ptr %2, i64 112
+  %2090 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %2091 = load ptr, ptr %2090, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2091, ptr noundef %3)
   store i64 %2089, ptr %3, align 8
@@ -5743,12 +5743,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2092:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.159, i64 noundef 36) #3
-  %2093 = getelementptr inbounds i8, ptr %2, i64 8
+  %2093 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2093)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %2094 = getelementptr inbounds i8, ptr %2, i64 2
+  %2094 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %2095 = load i16, ptr %2094, align 2
   %2096 = and i16 %2095, 1
   %.not8810 = icmp eq i16 %2096, 0
@@ -5829,7 +5829,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.66, i64 noundef 13) #3
-  %2121 = getelementptr inbounds i8, ptr %2, i64 24
+  %2121 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2122 = load ptr, ptr %2121, align 8
   %2123 = icmp eq ptr %2122, null
   br i1 %2123, label %2124, label %2125
@@ -5851,7 +5851,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2128:                                             ; preds = %2125, %2124
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.67, i64 noundef 22) #3
-  %2129 = getelementptr inbounds i8, ptr %2, i64 32
+  %2129 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2130 = load ptr, ptr %2129, align 8
   %2131 = icmp eq ptr %2130, null
   br i1 %2131, label %2132, label %2133
@@ -5865,7 +5865,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2129)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2134 = load ptr, ptr %2129, align 8
-  %2135 = getelementptr inbounds i8, ptr %2, i64 40
+  %2135 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2136 = load ptr, ptr %2135, align 8
   %2137 = ptrtoint ptr %2136 to i64
   %2138 = ptrtoint ptr %2134 to i64
@@ -5877,12 +5877,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2140:                                             ; preds = %2133, %2132
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %2141 = getelementptr inbounds i8, ptr %2, i64 48
+  %2141 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2141)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2142 = load ptr, ptr %2141, align 8
-  %2143 = getelementptr inbounds i8, ptr %2, i64 56
+  %2143 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2144 = load ptr, ptr %2143, align 8
   %2145 = ptrtoint ptr %2144 to i64
   %2146 = ptrtoint ptr %2142 to i64
@@ -5891,7 +5891,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 14) #3
-  %2148 = getelementptr inbounds i8, ptr %2, i64 64
+  %2148 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2149 = load ptr, ptr %2148, align 8
   %2150 = icmp eq ptr %2149, null
   br i1 %2150, label %2151, label %2152
@@ -5913,12 +5913,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2155:                                             ; preds = %2152, %2151
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %2156 = getelementptr inbounds i8, ptr %2, i64 72
+  %2156 = getelementptr inbounds nuw i8, ptr %2, i64 72
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2156)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2157 = load ptr, ptr %2156, align 8
-  %2158 = getelementptr inbounds i8, ptr %2, i64 80
+  %2158 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %2159 = load ptr, ptr %2158, align 8
   %2160 = ptrtoint ptr %2159 to i64
   %2161 = ptrtoint ptr %2157 to i64
@@ -5927,7 +5927,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.72, i64 noundef 10) #3
-  %2163 = getelementptr inbounds i8, ptr %2, i64 88
+  %2163 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %2164 = load ptr, ptr %2163, align 8
   %2165 = icmp eq ptr %2164, null
   br i1 %2165, label %2166, label %2167
@@ -5950,18 +5950,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.74, i64 noundef 13) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2171 = getelementptr inbounds i8, ptr %2, i64 96
+  %2171 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %2172 = load i32, ptr %2171, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2172)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2173 = getelementptr inbounds i8, ptr %2, i64 104
+  %2173 = getelementptr inbounds nuw i8, ptr %2, i64 104
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2173)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2174 = load ptr, ptr %2173, align 8
-  %2175 = getelementptr inbounds i8, ptr %2, i64 112
+  %2175 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %2176 = load ptr, ptr %2175, align 8
   %2177 = ptrtoint ptr %2176 to i64
   %2178 = ptrtoint ptr %2174 to i64
@@ -5974,7 +5974,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2180 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %2181 = getelementptr inbounds i8, ptr %2, i64 120
+  %2181 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %2182 = load ptr, ptr %2181, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2182, ptr noundef %3)
   store i64 %2180, ptr %3, align 8
@@ -5982,12 +5982,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2183:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 30) #3
-  %2184 = getelementptr inbounds i8, ptr %2, i64 8
+  %2184 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2184)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %2185 = getelementptr inbounds i8, ptr %2, i64 2
+  %2185 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %2186 = load i16, ptr %2185, align 2
   %2187 = and i16 %2186, 1
   %.not8806 = icmp eq i16 %2187, 0
@@ -6068,7 +6068,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.66, i64 noundef 13) #3
-  %2212 = getelementptr inbounds i8, ptr %2, i64 24
+  %2212 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2213 = load ptr, ptr %2212, align 8
   %2214 = icmp eq ptr %2213, null
   br i1 %2214, label %2215, label %2216
@@ -6090,7 +6090,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2219:                                             ; preds = %2216, %2215
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.67, i64 noundef 22) #3
-  %2220 = getelementptr inbounds i8, ptr %2, i64 32
+  %2220 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2221 = load ptr, ptr %2220, align 8
   %2222 = icmp eq ptr %2221, null
   br i1 %2222, label %2223, label %2224
@@ -6104,7 +6104,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2220)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2225 = load ptr, ptr %2220, align 8
-  %2226 = getelementptr inbounds i8, ptr %2, i64 40
+  %2226 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2227 = load ptr, ptr %2226, align 8
   %2228 = ptrtoint ptr %2227 to i64
   %2229 = ptrtoint ptr %2225 to i64
@@ -6116,12 +6116,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2231:                                             ; preds = %2224, %2223
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %2232 = getelementptr inbounds i8, ptr %2, i64 48
+  %2232 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2232)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2233 = load ptr, ptr %2232, align 8
-  %2234 = getelementptr inbounds i8, ptr %2, i64 56
+  %2234 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2235 = load ptr, ptr %2234, align 8
   %2236 = ptrtoint ptr %2235 to i64
   %2237 = ptrtoint ptr %2233 to i64
@@ -6130,7 +6130,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 14) #3
-  %2239 = getelementptr inbounds i8, ptr %2, i64 64
+  %2239 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2240 = load ptr, ptr %2239, align 8
   %2241 = icmp eq ptr %2240, null
   br i1 %2241, label %2242, label %2243
@@ -6152,12 +6152,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2246:                                             ; preds = %2243, %2242
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %2247 = getelementptr inbounds i8, ptr %2, i64 72
+  %2247 = getelementptr inbounds nuw i8, ptr %2, i64 72
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2247)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2248 = load ptr, ptr %2247, align 8
-  %2249 = getelementptr inbounds i8, ptr %2, i64 80
+  %2249 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %2250 = load ptr, ptr %2249, align 8
   %2251 = ptrtoint ptr %2250 to i64
   %2252 = ptrtoint ptr %2248 to i64
@@ -6166,7 +6166,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.72, i64 noundef 10) #3
-  %2254 = getelementptr inbounds i8, ptr %2, i64 88
+  %2254 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %2255 = load ptr, ptr %2254, align 8
   %2256 = icmp eq ptr %2255, null
   br i1 %2256, label %2257, label %2258
@@ -6188,12 +6188,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2261:                                             ; preds = %2258, %2257
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2262 = getelementptr inbounds i8, ptr %2, i64 96
+  %2262 = getelementptr inbounds nuw i8, ptr %2, i64 96
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2262)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2263 = load ptr, ptr %2262, align 8
-  %2264 = getelementptr inbounds i8, ptr %2, i64 104
+  %2264 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %2265 = load ptr, ptr %2264, align 8
   %2266 = ptrtoint ptr %2265 to i64
   %2267 = ptrtoint ptr %2263 to i64
@@ -6206,7 +6206,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2269 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %2270 = getelementptr inbounds i8, ptr %2, i64 112
+  %2270 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %2271 = load ptr, ptr %2270, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2271, ptr noundef %3)
   store i64 %2269, ptr %3, align 8
@@ -6214,12 +6214,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2272:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.161, i64 noundef 29) #3
-  %2273 = getelementptr inbounds i8, ptr %2, i64 8
+  %2273 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2273)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %2274 = getelementptr inbounds i8, ptr %2, i64 2
+  %2274 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %2275 = load i16, ptr %2274, align 2
   %2276 = and i16 %2275, 1
   %.not8802 = icmp eq i16 %2276, 0
@@ -6304,18 +6304,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2301 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %2302 = getelementptr inbounds i8, ptr %2, i64 24
+  %2302 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2303 = load ptr, ptr %2302, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2303, ptr noundef %3)
   store i64 %2301, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %2304 = getelementptr inbounds i8, ptr %2, i64 32
+  %2304 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2304)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2305 = load ptr, ptr %2304, align 8
-  %2306 = getelementptr inbounds i8, ptr %2, i64 40
+  %2306 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2307 = load ptr, ptr %2306, align 8
   %2308 = ptrtoint ptr %2307 to i64
   %2309 = ptrtoint ptr %2305 to i64
@@ -6324,7 +6324,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 14) #3
-  %2311 = getelementptr inbounds i8, ptr %2, i64 48
+  %2311 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %2312 = load ptr, ptr %2311, align 8
   %2313 = icmp eq ptr %2312, null
   br i1 %2313, label %2314, label %2315
@@ -6346,12 +6346,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2318:                                             ; preds = %2315, %2314
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %2319 = getelementptr inbounds i8, ptr %2, i64 56
+  %2319 = getelementptr inbounds nuw i8, ptr %2, i64 56
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2319)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2320 = load ptr, ptr %2319, align 8
-  %2321 = getelementptr inbounds i8, ptr %2, i64 64
+  %2321 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2322 = load ptr, ptr %2321, align 8
   %2323 = ptrtoint ptr %2322 to i64
   %2324 = ptrtoint ptr %2320 to i64
@@ -6360,7 +6360,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.72, i64 noundef 10) #3
-  %2326 = getelementptr inbounds i8, ptr %2, i64 72
+  %2326 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %2327 = load ptr, ptr %2326, align 8
   %2328 = icmp eq ptr %2327, null
   br i1 %2328, label %2329, label %2330
@@ -6381,24 +6381,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2333:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.162, i64 noundef 42) #3
-  %2334 = getelementptr inbounds i8, ptr %2, i64 8
+  %2334 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2334)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2335 = getelementptr inbounds i8, ptr %2, i64 24
+  %2335 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2336 = load i32, ptr %2335, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2336)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %2337 = getelementptr inbounds i8, ptr %2, i64 32
+  %2337 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2337)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2338 = load ptr, ptr %2337, align 8
-  %2339 = getelementptr inbounds i8, ptr %2, i64 40
+  %2339 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2340 = load ptr, ptr %2339, align 8
   %2341 = ptrtoint ptr %2340 to i64
   %2342 = ptrtoint ptr %2338 to i64
@@ -6407,12 +6407,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2344 = getelementptr inbounds i8, ptr %2, i64 48
+  %2344 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2344)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2345 = load ptr, ptr %2344, align 8
-  %2346 = getelementptr inbounds i8, ptr %2, i64 56
+  %2346 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2347 = load ptr, ptr %2346, align 8
   %2348 = ptrtoint ptr %2347 to i64
   %2349 = ptrtoint ptr %2345 to i64
@@ -6425,7 +6425,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2351 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %2352 = getelementptr inbounds i8, ptr %2, i64 64
+  %2352 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2353 = load ptr, ptr %2352, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2353, ptr noundef %3)
   store i64 %2351, ptr %3, align 8
@@ -6433,24 +6433,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2354:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.163, i64 noundef 47) #3
-  %2355 = getelementptr inbounds i8, ptr %2, i64 8
+  %2355 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2355)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2356 = getelementptr inbounds i8, ptr %2, i64 24
+  %2356 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2357 = load i32, ptr %2356, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2357)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %2358 = getelementptr inbounds i8, ptr %2, i64 32
+  %2358 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2358)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2359 = load ptr, ptr %2358, align 8
-  %2360 = getelementptr inbounds i8, ptr %2, i64 40
+  %2360 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2361 = load ptr, ptr %2360, align 8
   %2362 = ptrtoint ptr %2361 to i64
   %2363 = ptrtoint ptr %2359 to i64
@@ -6459,12 +6459,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2365 = getelementptr inbounds i8, ptr %2, i64 48
+  %2365 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2365)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2366 = load ptr, ptr %2365, align 8
-  %2367 = getelementptr inbounds i8, ptr %2, i64 56
+  %2367 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2368 = load ptr, ptr %2367, align 8
   %2369 = ptrtoint ptr %2368 to i64
   %2370 = ptrtoint ptr %2366 to i64
@@ -6477,14 +6477,14 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2372 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %2373 = getelementptr inbounds i8, ptr %2, i64 64
+  %2373 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2374 = load ptr, ptr %2373, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2374, ptr noundef %3)
   store i64 %2372, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.74, i64 noundef 13) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2375 = getelementptr inbounds i8, ptr %2, i64 72
+  %2375 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %2376 = load i32, ptr %2375, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2376)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -6492,24 +6492,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2377:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.164, i64 noundef 41) #3
-  %2378 = getelementptr inbounds i8, ptr %2, i64 8
+  %2378 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2378)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2379 = getelementptr inbounds i8, ptr %2, i64 24
+  %2379 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2380 = load i32, ptr %2379, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2380)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %2381 = getelementptr inbounds i8, ptr %2, i64 32
+  %2381 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2381)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2382 = load ptr, ptr %2381, align 8
-  %2383 = getelementptr inbounds i8, ptr %2, i64 40
+  %2383 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2384 = load ptr, ptr %2383, align 8
   %2385 = ptrtoint ptr %2384 to i64
   %2386 = ptrtoint ptr %2382 to i64
@@ -6518,12 +6518,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2388 = getelementptr inbounds i8, ptr %2, i64 48
+  %2388 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2388)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2389 = load ptr, ptr %2388, align 8
-  %2390 = getelementptr inbounds i8, ptr %2, i64 56
+  %2390 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2391 = load ptr, ptr %2390, align 8
   %2392 = ptrtoint ptr %2391 to i64
   %2393 = ptrtoint ptr %2389 to i64
@@ -6536,7 +6536,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2395 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %2396 = getelementptr inbounds i8, ptr %2, i64 64
+  %2396 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2397 = load ptr, ptr %2396, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2397, ptr noundef %3)
   store i64 %2395, ptr %3, align 8
@@ -6544,13 +6544,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2398:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.165, i64 noundef 38) #3
-  %2399 = getelementptr inbounds i8, ptr %2, i64 8
+  %2399 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2399)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2400 = getelementptr inbounds i8, ptr %2, i64 24
+  %2400 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2401 = load i32, ptr %2400, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2401)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -6558,13 +6558,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2402:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.166, i64 noundef 40) #3
-  %2403 = getelementptr inbounds i8, ptr %2, i64 8
+  %2403 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2403)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2404 = getelementptr inbounds i8, ptr %2, i64 24
+  %2404 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2405 = load i32, ptr %2404, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2405)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -6572,24 +6572,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2406:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.167, i64 noundef 39) #3
-  %2407 = getelementptr inbounds i8, ptr %2, i64 8
+  %2407 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2407)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2408 = getelementptr inbounds i8, ptr %2, i64 24
+  %2408 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2409 = load i32, ptr %2408, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2409)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %2410 = getelementptr inbounds i8, ptr %2, i64 32
+  %2410 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2410)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2411 = load ptr, ptr %2410, align 8
-  %2412 = getelementptr inbounds i8, ptr %2, i64 40
+  %2412 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2413 = load ptr, ptr %2412, align 8
   %2414 = ptrtoint ptr %2413 to i64
   %2415 = ptrtoint ptr %2411 to i64
@@ -6602,18 +6602,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2417 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %2418 = getelementptr inbounds i8, ptr %2, i64 48
+  %2418 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %2419 = load ptr, ptr %2418, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2419, ptr noundef %3)
   store i64 %2417, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2420 = getelementptr inbounds i8, ptr %2, i64 56
+  %2420 = getelementptr inbounds nuw i8, ptr %2, i64 56
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2420)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2421 = load ptr, ptr %2420, align 8
-  %2422 = getelementptr inbounds i8, ptr %2, i64 64
+  %2422 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2423 = load ptr, ptr %2422, align 8
   %2424 = ptrtoint ptr %2423 to i64
   %2425 = ptrtoint ptr %2421 to i64
@@ -6624,12 +6624,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2427:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.168, i64 noundef 25) #3
-  %2428 = getelementptr inbounds i8, ptr %2, i64 8
+  %2428 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2428)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %2429 = getelementptr inbounds i8, ptr %2, i64 2
+  %2429 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %2430 = load i16, ptr %2429, align 2
   %2431 = and i16 %2430, 1
   %.not8798 = icmp eq i16 %2431, 0
@@ -6710,7 +6710,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.35, i64 noundef 10) #3
-  %2456 = getelementptr inbounds i8, ptr %2, i64 24
+  %2456 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call void @pm_integer_string(ptr noundef %0, ptr noundef nonnull %2456) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -6718,12 +6718,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2457:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 43) #3
-  %2458 = getelementptr inbounds i8, ptr %2, i64 8
+  %2458 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2458)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %2459 = getelementptr inbounds i8, ptr %2, i64 2
+  %2459 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %2460 = load i16, ptr %2459, align 2
   %2461 = and i16 %2460, 1
   %.not8787 = icmp eq i16 %2461, 0
@@ -6944,12 +6944,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %2535 = getelementptr inbounds i8, ptr %2, i64 24
+  %2535 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2535)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2536 = load ptr, ptr %2535, align 8
-  %2537 = getelementptr inbounds i8, ptr %2, i64 32
+  %2537 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2538 = load ptr, ptr %2537, align 8
   %2539 = ptrtoint ptr %2538 to i64
   %2540 = ptrtoint ptr %2536 to i64
@@ -6958,7 +6958,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.185, i64 noundef 10) #3
-  %2542 = getelementptr inbounds i8, ptr %2, i64 40
+  %2542 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2543 = load i64, ptr %2542, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %2543) #3
   %2544 = load i64, ptr %2542, align 8
@@ -6967,7 +6967,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8994:                                       ; preds = %2534
   %2545 = add i64 %2544, -1
-  %2546 = getelementptr inbounds i8, ptr %2, i64 56
+  %2546 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.pre9147 = load i64, ptr %3, align 8
   br label %2547
 
@@ -6993,12 +6993,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8995:                                  ; preds = %2547, %2534
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %2557 = getelementptr inbounds i8, ptr %2, i64 64
+  %2557 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2557)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2558 = load ptr, ptr %2557, align 8
-  %2559 = getelementptr inbounds i8, ptr %2, i64 72
+  %2559 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %2560 = load ptr, ptr %2559, align 8
   %2561 = ptrtoint ptr %2560 to i64
   %2562 = ptrtoint ptr %2558 to i64
@@ -7009,12 +7009,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2564:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 47) #3
-  %2565 = getelementptr inbounds i8, ptr %2, i64 8
+  %2565 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2565)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %2566 = getelementptr inbounds i8, ptr %2, i64 2
+  %2566 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %2567 = load i16, ptr %2566, align 2
   %2568 = and i16 %2567, 1
   %.not8776 = icmp eq i16 %2568, 0
@@ -7235,12 +7235,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %2642 = getelementptr inbounds i8, ptr %2, i64 24
+  %2642 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2642)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2643 = load ptr, ptr %2642, align 8
-  %2644 = getelementptr inbounds i8, ptr %2, i64 32
+  %2644 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2645 = load ptr, ptr %2644, align 8
   %2646 = ptrtoint ptr %2645 to i64
   %2647 = ptrtoint ptr %2643 to i64
@@ -7249,7 +7249,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.185, i64 noundef 10) #3
-  %2649 = getelementptr inbounds i8, ptr %2, i64 40
+  %2649 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2650 = load i64, ptr %2649, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %2650) #3
   %2651 = load i64, ptr %2649, align 8
@@ -7258,7 +7258,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8990:                                       ; preds = %2641
   %2652 = add i64 %2651, -1
-  %2653 = getelementptr inbounds i8, ptr %2, i64 56
+  %2653 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.pre9136 = load i64, ptr %3, align 8
   br label %2654
 
@@ -7284,12 +7284,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8991:                                  ; preds = %2654, %2641
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %2664 = getelementptr inbounds i8, ptr %2, i64 64
+  %2664 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2664)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2665 = load ptr, ptr %2664, align 8
-  %2666 = getelementptr inbounds i8, ptr %2, i64 72
+  %2666 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %2667 = load ptr, ptr %2666, align 8
   %2668 = ptrtoint ptr %2667 to i64
   %2669 = ptrtoint ptr %2665 to i64
@@ -7300,12 +7300,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2671:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.187, i64 noundef 36) #3
-  %2672 = getelementptr inbounds i8, ptr %2, i64 8
+  %2672 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2672)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %2673 = getelementptr inbounds i8, ptr %2, i64 24
+  %2673 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2674 = load ptr, ptr %2673, align 8
   %2675 = icmp eq ptr %2674, null
   br i1 %2675, label %2676, label %2677
@@ -7319,7 +7319,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2673)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2678 = load ptr, ptr %2673, align 8
-  %2679 = getelementptr inbounds i8, ptr %2, i64 32
+  %2679 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2680 = load ptr, ptr %2679, align 8
   %2681 = ptrtoint ptr %2680 to i64
   %2682 = ptrtoint ptr %2678 to i64
@@ -7331,7 +7331,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2684:                                             ; preds = %2677, %2676
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.185, i64 noundef 10) #3
-  %2685 = getelementptr inbounds i8, ptr %2, i64 40
+  %2685 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2686 = load i64, ptr %2685, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %2686) #3
   %2687 = load i64, ptr %2685, align 8
@@ -7340,7 +7340,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8986:                                       ; preds = %2684
   %2688 = add i64 %2687, -1
-  %2689 = getelementptr inbounds i8, ptr %2, i64 56
+  %2689 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.pre9125 = load i64, ptr %3, align 8
   br label %2690
 
@@ -7366,7 +7366,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8987:                                  ; preds = %2690, %2684
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %2700 = getelementptr inbounds i8, ptr %2, i64 64
+  %2700 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2701 = load ptr, ptr %2700, align 8
   %2702 = icmp eq ptr %2701, null
   br i1 %2702, label %2703, label %2704
@@ -7380,7 +7380,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2700)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2705 = load ptr, ptr %2700, align 8
-  %2706 = getelementptr inbounds i8, ptr %2, i64 72
+  %2706 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %2707 = load ptr, ptr %2706, align 8
   %2708 = ptrtoint ptr %2707 to i64
   %2709 = ptrtoint ptr %2705 to i64
@@ -7391,12 +7391,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2711:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.188, i64 noundef 36) #3
-  %2712 = getelementptr inbounds i8, ptr %2, i64 8
+  %2712 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2712)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %2713 = getelementptr inbounds i8, ptr %2, i64 24
+  %2713 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2714 = load ptr, ptr %2713, align 8
   %2715 = icmp eq ptr %2714, null
   br i1 %2715, label %2716, label %2717
@@ -7410,7 +7410,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2713)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2718 = load ptr, ptr %2713, align 8
-  %2719 = getelementptr inbounds i8, ptr %2, i64 32
+  %2719 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2720 = load ptr, ptr %2719, align 8
   %2721 = ptrtoint ptr %2720 to i64
   %2722 = ptrtoint ptr %2718 to i64
@@ -7422,7 +7422,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2724:                                             ; preds = %2717, %2716
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.185, i64 noundef 10) #3
-  %2725 = getelementptr inbounds i8, ptr %2, i64 40
+  %2725 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2726 = load i64, ptr %2725, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %2726) #3
   %2727 = load i64, ptr %2725, align 8
@@ -7431,7 +7431,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8982:                                       ; preds = %2724
   %2728 = add i64 %2727, -1
-  %2729 = getelementptr inbounds i8, ptr %2, i64 56
+  %2729 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.pre9124 = load i64, ptr %3, align 8
   br label %2730
 
@@ -7457,7 +7457,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8983:                                  ; preds = %2730, %2724
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %2740 = getelementptr inbounds i8, ptr %2, i64 64
+  %2740 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2741 = load ptr, ptr %2740, align 8
   %2742 = icmp eq ptr %2741, null
   br i1 %2742, label %2743, label %2744
@@ -7471,7 +7471,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2740)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2745 = load ptr, ptr %2740, align 8
-  %2746 = getelementptr inbounds i8, ptr %2, i64 72
+  %2746 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %2747 = load ptr, ptr %2746, align 8
   %2748 = ptrtoint ptr %2747 to i64
   %2749 = ptrtoint ptr %2745 to i64
@@ -7482,17 +7482,17 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2751:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 37) #3
-  %2752 = getelementptr inbounds i8, ptr %2, i64 8
+  %2752 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2752)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %2753 = getelementptr inbounds i8, ptr %2, i64 24
+  %2753 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2753)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2754 = load ptr, ptr %2753, align 8
-  %2755 = getelementptr inbounds i8, ptr %2, i64 32
+  %2755 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2756 = load ptr, ptr %2755, align 8
   %2757 = ptrtoint ptr %2756 to i64
   %2758 = ptrtoint ptr %2754 to i64
@@ -7501,7 +7501,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.185, i64 noundef 10) #3
-  %2760 = getelementptr inbounds i8, ptr %2, i64 40
+  %2760 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2761 = load i64, ptr %2760, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %2761) #3
   %2762 = load i64, ptr %2760, align 8
@@ -7510,7 +7510,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8978:                                       ; preds = %2751
   %2763 = add i64 %2762, -1
-  %2764 = getelementptr inbounds i8, ptr %2, i64 56
+  %2764 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.pre9123 = load i64, ptr %3, align 8
   br label %2765
 
@@ -7536,12 +7536,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8979:                                  ; preds = %2765, %2751
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %2775 = getelementptr inbounds i8, ptr %2, i64 64
+  %2775 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2775)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2776 = load ptr, ptr %2775, align 8
-  %2777 = getelementptr inbounds i8, ptr %2, i64 72
+  %2777 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %2778 = load ptr, ptr %2777, align 8
   %2779 = ptrtoint ptr %2778 to i64
   %2780 = ptrtoint ptr %2776 to i64
@@ -7552,19 +7552,19 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2782:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.190, i64 noundef 30) #3
-  %2783 = getelementptr inbounds i8, ptr %2, i64 8
+  %2783 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2783)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 2784:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.191, i64 noundef 29) #3
-  %2785 = getelementptr inbounds i8, ptr %2, i64 8
+  %2785 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2785)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %2786 = getelementptr inbounds i8, ptr %2, i64 2
+  %2786 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %2787 = load i16, ptr %2786, align 2
   %2788 = and i16 %2787, 1
   %.not8775.not = icmp eq i16 %2788, 0
@@ -7582,7 +7582,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.24, i64 noundef 13) #3
-  %2791 = getelementptr inbounds i8, ptr %2, i64 24
+  %2791 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2792 = load i64, ptr %2791, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %2792) #3
   %2793 = load i64, ptr %2791, align 8
@@ -7591,7 +7591,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8975:                                       ; preds = %2790
   %2794 = add i64 %2793, -1
-  %2795 = getelementptr inbounds i8, ptr %2, i64 40
+  %2795 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.pre9122 = load i64, ptr %3, align 8
   br label %2796
 
@@ -7616,12 +7616,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2806:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 38) #3
-  %2807 = getelementptr inbounds i8, ptr %2, i64 8
+  %2807 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2807)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %2808 = getelementptr inbounds i8, ptr %2, i64 2
+  %2808 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %2809 = load i16, ptr %2808, align 2
   %2810 = and i16 %2809, 1
   %.not8774.not = icmp eq i16 %2810, 0
@@ -7639,7 +7639,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
-  %2813 = getelementptr inbounds i8, ptr %2, i64 24
+  %2813 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2814 = load i32, ptr %2813, align 8
   %2815 = icmp eq i32 %2814, 0
   br i1 %2815, label %2816, label %2817
@@ -7658,7 +7658,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2819:                                             ; preds = %2817, %2816
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %2820 = getelementptr inbounds i8, ptr %2, i64 32
+  %2820 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2821 = load ptr, ptr %2820, align 8
   %2822 = icmp eq ptr %2821, null
   br i1 %2822, label %2823, label %2824
@@ -7672,7 +7672,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2820)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2825 = load ptr, ptr %2820, align 8
-  %2826 = getelementptr inbounds i8, ptr %2, i64 40
+  %2826 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2827 = load ptr, ptr %2826, align 8
   %2828 = ptrtoint ptr %2827 to i64
   %2829 = ptrtoint ptr %2825 to i64
@@ -7684,12 +7684,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2831:                                             ; preds = %2824, %2823
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2832 = getelementptr inbounds i8, ptr %2, i64 48
+  %2832 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2832)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2833 = load ptr, ptr %2832, align 8
-  %2834 = getelementptr inbounds i8, ptr %2, i64 56
+  %2834 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2835 = load ptr, ptr %2834, align 8
   %2836 = ptrtoint ptr %2835 to i64
   %2837 = ptrtoint ptr %2833 to i64
@@ -7700,20 +7700,20 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2839:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.194, i64 noundef 24) #3
-  %2840 = getelementptr inbounds i8, ptr %2, i64 8
+  %2840 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2840)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.51, i64 noundef 11) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.52, i64 noundef 2) #3
-  %2841 = getelementptr inbounds i8, ptr %2, i64 24
+  %2841 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2842 = load i64, ptr %2841, align 8
   %.not9062 = icmp eq i64 %2842, 0
   br i1 %.not9062, label %._crit_edge8972, label %.lr.ph8971
 
 .lr.ph8971:                                       ; preds = %2839
-  %2843 = getelementptr inbounds i8, ptr %2, i64 40
-  %2844 = getelementptr inbounds i8, ptr %1, i64 528
+  %2843 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %2844 = getelementptr inbounds nuw i8, ptr %1, i64 528
   br label %2845
 
 2845:                                             ; preds = %.lr.ph8971, %2848
@@ -7731,7 +7731,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2850 = getelementptr i32, ptr %2849, i64 %2846
   %2851 = load i32, ptr %2850, align 4
   %2852 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %2844, i32 noundef %2851) #3
-  %2853 = getelementptr inbounds i8, ptr %2852, i64 8
+  %2853 = getelementptr inbounds nuw i8, ptr %2852, i64 8
   %2854 = load i64, ptr %2853, align 8
   %2855 = trunc i64 %2854 to i32
   %2856 = load ptr, ptr %2852, align 8
@@ -7746,12 +7746,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.54, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2861 = getelementptr inbounds i8, ptr %2, i64 48
+  %2861 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2861)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2862 = load ptr, ptr %2861, align 8
-  %2863 = getelementptr inbounds i8, ptr %2, i64 56
+  %2863 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2864 = load ptr, ptr %2863, align 8
   %2865 = ptrtoint ptr %2864 to i64
   %2866 = ptrtoint ptr %2862 to i64
@@ -7760,12 +7760,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %2868 = getelementptr inbounds i8, ptr %2, i64 64
+  %2868 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2868)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2869 = load ptr, ptr %2868, align 8
-  %2870 = getelementptr inbounds i8, ptr %2, i64 72
+  %2870 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %2871 = load ptr, ptr %2870, align 8
   %2872 = ptrtoint ptr %2871 to i64
   %2873 = ptrtoint ptr %2869 to i64
@@ -7774,12 +7774,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %2875 = getelementptr inbounds i8, ptr %2, i64 80
+  %2875 = getelementptr inbounds nuw i8, ptr %2, i64 80
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2875)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2876 = load ptr, ptr %2875, align 8
-  %2877 = getelementptr inbounds i8, ptr %2, i64 88
+  %2877 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %2878 = load ptr, ptr %2877, align 8
   %2879 = ptrtoint ptr %2878 to i64
   %2880 = ptrtoint ptr %2876 to i64
@@ -7788,7 +7788,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.55, i64 noundef 15) #3
-  %2882 = getelementptr inbounds i8, ptr %2, i64 96
+  %2882 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %2883 = load ptr, ptr %2882, align 8
   %2884 = icmp eq ptr %2883, null
   br i1 %2884, label %2885, label %2886
@@ -7810,7 +7810,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 2889:                                             ; preds = %2886, %2885
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.56, i64 noundef 9) #3
-  %2890 = getelementptr inbounds i8, ptr %2, i64 104
+  %2890 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %2891 = load ptr, ptr %2890, align 8
   %2892 = icmp eq ptr %2891, null
   br i1 %2892, label %2893, label %2894
@@ -7831,17 +7831,17 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2897:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.195, i64 noundef 39) #3
-  %2898 = getelementptr inbounds i8, ptr %2, i64 8
+  %2898 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2898)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %2899 = getelementptr inbounds i8, ptr %2, i64 24
+  %2899 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2899)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2900 = load ptr, ptr %2899, align 8
-  %2901 = getelementptr inbounds i8, ptr %2, i64 32
+  %2901 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2902 = load ptr, ptr %2901, align 8
   %2903 = ptrtoint ptr %2902 to i64
   %2904 = ptrtoint ptr %2900 to i64
@@ -7850,12 +7850,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2906 = getelementptr inbounds i8, ptr %2, i64 40
+  %2906 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2906)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2907 = load ptr, ptr %2906, align 8
-  %2908 = getelementptr inbounds i8, ptr %2, i64 48
+  %2908 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %2909 = load ptr, ptr %2908, align 8
   %2910 = ptrtoint ptr %2909 to i64
   %2911 = ptrtoint ptr %2907 to i64
@@ -7868,37 +7868,37 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2913 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %2914 = getelementptr inbounds i8, ptr %2, i64 56
+  %2914 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2915 = load ptr, ptr %2914, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2915, ptr noundef %3)
   store i64 %2913, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2916 = getelementptr inbounds i8, ptr %2, i64 64
+  %2916 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2917 = load i32, ptr %2916, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2917)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.196, i64 noundef 10) #3
-  %2918 = getelementptr inbounds i8, ptr %2, i64 68
+  %2918 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %2919 = load i32, ptr %2918, align 4
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.197, i32 noundef %2919) #3
   br label %common.ret9201
 
 2920:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.198, i64 noundef 44) #3
-  %2921 = getelementptr inbounds i8, ptr %2, i64 8
+  %2921 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2921)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %2922 = getelementptr inbounds i8, ptr %2, i64 24
+  %2922 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2922)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2923 = load ptr, ptr %2922, align 8
-  %2924 = getelementptr inbounds i8, ptr %2, i64 32
+  %2924 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2925 = load ptr, ptr %2924, align 8
   %2926 = ptrtoint ptr %2925 to i64
   %2927 = ptrtoint ptr %2923 to i64
@@ -7907,12 +7907,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2929 = getelementptr inbounds i8, ptr %2, i64 40
+  %2929 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2929)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2930 = load ptr, ptr %2929, align 8
-  %2931 = getelementptr inbounds i8, ptr %2, i64 48
+  %2931 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %2932 = load ptr, ptr %2931, align 8
   %2933 = ptrtoint ptr %2932 to i64
   %2934 = ptrtoint ptr %2930 to i64
@@ -7925,44 +7925,44 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2936 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %2937 = getelementptr inbounds i8, ptr %2, i64 56
+  %2937 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2938 = load ptr, ptr %2937, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2938, ptr noundef %3)
   store i64 %2936, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2939 = getelementptr inbounds i8, ptr %2, i64 64
+  %2939 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2940 = load i32, ptr %2939, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2940)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.74, i64 noundef 13) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2941 = getelementptr inbounds i8, ptr %2, i64 68
+  %2941 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %2942 = load i32, ptr %2941, align 4
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2942)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.196, i64 noundef 10) #3
-  %2943 = getelementptr inbounds i8, ptr %2, i64 72
+  %2943 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %2944 = load i32, ptr %2943, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.197, i32 noundef %2944) #3
   br label %common.ret9201
 
 2945:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.199, i64 noundef 38) #3
-  %2946 = getelementptr inbounds i8, ptr %2, i64 8
+  %2946 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2946)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %2947 = getelementptr inbounds i8, ptr %2, i64 24
+  %2947 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2947)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2948 = load ptr, ptr %2947, align 8
-  %2949 = getelementptr inbounds i8, ptr %2, i64 32
+  %2949 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %2950 = load ptr, ptr %2949, align 8
   %2951 = ptrtoint ptr %2950 to i64
   %2952 = ptrtoint ptr %2948 to i64
@@ -7971,12 +7971,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2954 = getelementptr inbounds i8, ptr %2, i64 40
+  %2954 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2954)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2955 = load ptr, ptr %2954, align 8
-  %2956 = getelementptr inbounds i8, ptr %2, i64 48
+  %2956 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %2957 = load ptr, ptr %2956, align 8
   %2958 = ptrtoint ptr %2957 to i64
   %2959 = ptrtoint ptr %2955 to i64
@@ -7989,87 +7989,87 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2961 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %2962 = getelementptr inbounds i8, ptr %2, i64 56
+  %2962 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2963 = load ptr, ptr %2962, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2963, ptr noundef %3)
   store i64 %2961, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2964 = getelementptr inbounds i8, ptr %2, i64 64
+  %2964 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2965 = load i32, ptr %2964, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2965)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.196, i64 noundef 10) #3
-  %2966 = getelementptr inbounds i8, ptr %2, i64 68
+  %2966 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %2967 = load i32, ptr %2966, align 4
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.197, i32 noundef %2967) #3
   br label %common.ret9201
 
 2968:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.200, i64 noundef 35) #3
-  %2969 = getelementptr inbounds i8, ptr %2, i64 8
+  %2969 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2969)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2970 = getelementptr inbounds i8, ptr %2, i64 24
+  %2970 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2971 = load i32, ptr %2970, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2971)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.196, i64 noundef 10) #3
-  %2972 = getelementptr inbounds i8, ptr %2, i64 28
+  %2972 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %2973 = load i32, ptr %2972, align 4
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.197, i32 noundef %2973) #3
   br label %common.ret9201
 
 2974:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.201, i64 noundef 37) #3
-  %2975 = getelementptr inbounds i8, ptr %2, i64 8
+  %2975 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2975)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2976 = getelementptr inbounds i8, ptr %2, i64 24
+  %2976 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2977 = load i32, ptr %2976, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2977)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.196, i64 noundef 10) #3
-  %2978 = getelementptr inbounds i8, ptr %2, i64 28
+  %2978 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %2979 = load i32, ptr %2978, align 4
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.197, i32 noundef %2979) #3
   br label %common.ret9201
 
 2980:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.202, i64 noundef 36) #3
-  %2981 = getelementptr inbounds i8, ptr %2, i64 8
+  %2981 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2981)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %2982 = getelementptr inbounds i8, ptr %2, i64 24
+  %2982 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2983 = load i32, ptr %2982, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2983)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.196, i64 noundef 10) #3
-  %2984 = getelementptr inbounds i8, ptr %2, i64 28
+  %2984 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %2985 = load i32, ptr %2984, align 4
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.197, i32 noundef %2985) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %2986 = getelementptr inbounds i8, ptr %2, i64 32
+  %2986 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2986)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2987 = load ptr, ptr %2986, align 8
-  %2988 = getelementptr inbounds i8, ptr %2, i64 40
+  %2988 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2989 = load ptr, ptr %2988, align 8
   %2990 = ptrtoint ptr %2989 to i64
   %2991 = ptrtoint ptr %2987 to i64
@@ -8082,18 +8082,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2993 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %2994 = getelementptr inbounds i8, ptr %2, i64 48
+  %2994 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %2995 = load ptr, ptr %2994, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2995, ptr noundef %3)
   store i64 %2993, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %2996 = getelementptr inbounds i8, ptr %2, i64 56
+  %2996 = getelementptr inbounds nuw i8, ptr %2, i64 56
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2996)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %2997 = load ptr, ptr %2996, align 8
-  %2998 = getelementptr inbounds i8, ptr %2, i64 64
+  %2998 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %2999 = load ptr, ptr %2998, align 8
   %3000 = ptrtoint ptr %2999 to i64
   %3001 = ptrtoint ptr %2997 to i64
@@ -8104,12 +8104,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3003:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.203, i64 noundef 31) #3
-  %3004 = getelementptr inbounds i8, ptr %2, i64 8
+  %3004 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3004)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %3005 = getelementptr inbounds i8, ptr %2, i64 2
+  %3005 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %3006 = load i16, ptr %3005, align 2
   %3007 = and i16 %3006, 1
   %.not8762 = icmp eq i16 %3007, 0
@@ -8330,12 +8330,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %3081 = getelementptr inbounds i8, ptr %2, i64 24
+  %3081 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3081)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3082 = load ptr, ptr %3081, align 8
-  %3083 = getelementptr inbounds i8, ptr %2, i64 32
+  %3083 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3084 = load ptr, ptr %3083, align 8
   %3085 = ptrtoint ptr %3084 to i64
   %3086 = ptrtoint ptr %3082 to i64
@@ -8344,12 +8344,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 16) #3
-  %3088 = getelementptr inbounds i8, ptr %2, i64 40
+  %3088 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3088)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3089 = load ptr, ptr %3088, align 8
-  %3090 = getelementptr inbounds i8, ptr %2, i64 48
+  %3090 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3091 = load ptr, ptr %3090, align 8
   %3092 = ptrtoint ptr %3091 to i64
   %3093 = ptrtoint ptr %3089 to i64
@@ -8358,12 +8358,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %3095 = getelementptr inbounds i8, ptr %2, i64 56
+  %3095 = getelementptr inbounds nuw i8, ptr %2, i64 56
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3095)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3096 = load ptr, ptr %3095, align 8
-  %3097 = getelementptr inbounds i8, ptr %2, i64 64
+  %3097 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %3098 = load ptr, ptr %3097, align 8
   %3099 = ptrtoint ptr %3098 to i64
   %3100 = ptrtoint ptr %3096 to i64
@@ -8373,7 +8373,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.205, i64 noundef 14) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.206, i64 noundef 2) #3
-  %3102 = getelementptr inbounds i8, ptr %2, i64 72
+  %3102 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3103 = tail call ptr @pm_string_source(ptr noundef nonnull %3102) #3
   %3104 = tail call i64 @pm_string_length(ptr noundef nonnull %3102) #3
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3103, i64 noundef %3104, i32 noundef 0) #3
@@ -8382,7 +8382,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3105:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.207, i64 noundef 32) #3
-  %3106 = getelementptr inbounds i8, ptr %2, i64 8
+  %3106 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3106)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -8391,7 +8391,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3107 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3108 = getelementptr inbounds i8, ptr %2, i64 24
+  %3108 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3109 = load ptr, ptr %3108, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3109, ptr noundef %3)
   store i64 %3107, ptr %3, align 8
@@ -8401,18 +8401,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3110 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3111 = getelementptr inbounds i8, ptr %2, i64 32
+  %3111 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3112 = load ptr, ptr %3111, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3112, ptr noundef %3)
   store i64 %3110, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %3113 = getelementptr inbounds i8, ptr %2, i64 40
+  %3113 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3113)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3114 = load ptr, ptr %3113, align 8
-  %3115 = getelementptr inbounds i8, ptr %2, i64 48
+  %3115 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3116 = load ptr, ptr %3115, align 8
   %3117 = ptrtoint ptr %3116 to i64
   %3118 = ptrtoint ptr %3114 to i64
@@ -8423,7 +8423,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3120:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.208, i64 noundef 31) #3
-  %3121 = getelementptr inbounds i8, ptr %2, i64 8
+  %3121 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3121)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -8432,7 +8432,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3122 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3123 = getelementptr inbounds i8, ptr %2, i64 24
+  %3123 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3124 = load ptr, ptr %3123, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3124, ptr noundef %3)
   store i64 %3122, ptr %3, align 8
@@ -8442,18 +8442,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3125 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3126 = getelementptr inbounds i8, ptr %2, i64 32
+  %3126 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3127 = load ptr, ptr %3126, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3127, ptr noundef %3)
   store i64 %3125, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %3128 = getelementptr inbounds i8, ptr %2, i64 40
+  %3128 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3128)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3129 = load ptr, ptr %3128, align 8
-  %3130 = getelementptr inbounds i8, ptr %2, i64 48
+  %3130 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3131 = load ptr, ptr %3130, align 8
   %3132 = ptrtoint ptr %3131 to i64
   %3133 = ptrtoint ptr %3129 to i64
@@ -8464,7 +8464,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3135:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.209, i64 noundef 28) #3
-  %3136 = getelementptr inbounds i8, ptr %2, i64 8
+  %3136 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3136)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -8473,13 +8473,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3137 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3138 = getelementptr inbounds i8, ptr %2, i64 24
+  %3138 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3139 = load ptr, ptr %3138, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3139, ptr noundef %3)
   store i64 %3137, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.211, i64 noundef 12) #3
-  %3140 = getelementptr inbounds i8, ptr %2, i64 32
+  %3140 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3141 = load i64, ptr %3140, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %3141) #3
   %3142 = load i64, ptr %3140, align 8
@@ -8488,7 +8488,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8968:                                       ; preds = %3135
   %3143 = add i64 %3142, -1
-  %3144 = getelementptr inbounds i8, ptr %2, i64 48
+  %3144 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.pre9111 = load i64, ptr %3, align 8
   br label %3145
 
@@ -8513,27 +8513,27 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3155:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.212, i64 noundef 25) #3
-  %3156 = getelementptr inbounds i8, ptr %2, i64 8
+  %3156 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3156)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 3157:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.213, i64 noundef 24) #3
-  %3158 = getelementptr inbounds i8, ptr %2, i64 8
+  %3158 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3158)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.51, i64 noundef 11) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.52, i64 noundef 2) #3
-  %3159 = getelementptr inbounds i8, ptr %2, i64 24
+  %3159 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3160 = load i64, ptr %3159, align 8
   %.not9060 = icmp eq i64 %3160, 0
   br i1 %.not9060, label %._crit_edge8965, label %.lr.ph8964
 
 .lr.ph8964:                                       ; preds = %3157
-  %3161 = getelementptr inbounds i8, ptr %2, i64 40
-  %3162 = getelementptr inbounds i8, ptr %1, i64 528
+  %3161 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %3162 = getelementptr inbounds nuw i8, ptr %1, i64 528
   br label %3163
 
 3163:                                             ; preds = %.lr.ph8964, %3166
@@ -8551,7 +8551,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3168 = getelementptr i32, ptr %3167, i64 %3164
   %3169 = load i32, ptr %3168, align 4
   %3170 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %3162, i32 noundef %3169) #3
-  %3171 = getelementptr inbounds i8, ptr %3170, i64 8
+  %3171 = getelementptr inbounds nuw i8, ptr %3170, i64 8
   %3172 = load i64, ptr %3171, align 8
   %3173 = trunc i64 %3172 to i32
   %3174 = load ptr, ptr %3170, align 8
@@ -8566,12 +8566,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.54, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.214, i64 noundef 23) #3
-  %3179 = getelementptr inbounds i8, ptr %2, i64 48
+  %3179 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3179)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3180 = load ptr, ptr %3179, align 8
-  %3181 = getelementptr inbounds i8, ptr %2, i64 56
+  %3181 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3182 = load ptr, ptr %3181, align 8
   %3183 = ptrtoint ptr %3182 to i64
   %3184 = ptrtoint ptr %3180 to i64
@@ -8584,13 +8584,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3186 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3187 = getelementptr inbounds i8, ptr %2, i64 64
+  %3187 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %3188 = load ptr, ptr %3187, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3188, ptr noundef %3)
   store i64 %3186, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.56, i64 noundef 9) #3
-  %3189 = getelementptr inbounds i8, ptr %2, i64 72
+  %3189 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3190 = load ptr, ptr %3189, align 8
   %3191 = icmp eq ptr %3190, null
   br i1 %3191, label %3192, label %3193
@@ -8612,12 +8612,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3196:                                             ; preds = %3193, %3192
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 20) #3
-  %3197 = getelementptr inbounds i8, ptr %2, i64 80
+  %3197 = getelementptr inbounds nuw i8, ptr %2, i64 80
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3197)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3198 = load ptr, ptr %3197, align 8
-  %3199 = getelementptr inbounds i8, ptr %2, i64 88
+  %3199 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %3200 = load ptr, ptr %3199, align 8
   %3201 = ptrtoint ptr %3200 to i64
   %3202 = ptrtoint ptr %3198 to i64
@@ -8627,7 +8627,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %3204 = getelementptr inbounds i8, ptr %2, i64 96
+  %3204 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %3205 = load i32, ptr %3204, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3205)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -8635,12 +8635,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3206:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.215, i64 noundef 29) #3
-  %3207 = getelementptr inbounds i8, ptr %2, i64 8
+  %3207 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3207)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.216, i64 noundef 10) #3
-  %3208 = getelementptr inbounds i8, ptr %2, i64 24
+  %3208 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3209 = load i64, ptr %3208, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %3209) #3
   %3210 = load i64, ptr %3208, align 8
@@ -8649,7 +8649,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8956:                                       ; preds = %3206
   %3211 = add i64 %3210, -1
-  %3212 = getelementptr inbounds i8, ptr %2, i64 40
+  %3212 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.pre9109 = load i64, ptr %3, align 8
   br label %3213
 
@@ -8675,7 +8675,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8957:                                  ; preds = %3213, %3206
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.31, i64 noundef 9) #3
-  %3223 = getelementptr inbounds i8, ptr %2, i64 48
+  %3223 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3224 = load ptr, ptr %3223, align 8
   %3225 = icmp eq ptr %3224, null
   br i1 %3225, label %3226, label %3227
@@ -8697,7 +8697,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3230:                                             ; preds = %3227, %3226
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.217, i64 noundef 11) #3
-  %3231 = getelementptr inbounds i8, ptr %2, i64 56
+  %3231 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3232 = load i64, ptr %3231, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %3232) #3
   %3233 = load i64, ptr %3231, align 8
@@ -8706,7 +8706,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8960:                                       ; preds = %3230
   %3234 = add i64 %3233, -1
-  %3235 = getelementptr inbounds i8, ptr %2, i64 72
+  %3235 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %.pre9110 = load i64, ptr %3, align 8
   br label %3236
 
@@ -8732,7 +8732,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8961:                                  ; preds = %3236, %3230
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.113, i64 noundef 15) #3
-  %3246 = getelementptr inbounds i8, ptr %2, i64 80
+  %3246 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %3247 = load ptr, ptr %3246, align 8
   %3248 = icmp eq ptr %3247, null
   br i1 %3248, label %3249, label %3250
@@ -8746,7 +8746,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3246)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3251 = load ptr, ptr %3246, align 8
-  %3252 = getelementptr inbounds i8, ptr %2, i64 88
+  %3252 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %3253 = load ptr, ptr %3252, align 8
   %3254 = ptrtoint ptr %3253 to i64
   %3255 = ptrtoint ptr %3251 to i64
@@ -8758,7 +8758,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3257:                                             ; preds = %3250, %3249
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.114, i64 noundef 15) #3
-  %3258 = getelementptr inbounds i8, ptr %2, i64 96
+  %3258 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %3259 = load ptr, ptr %3258, align 8
   %3260 = icmp eq ptr %3259, null
   br i1 %3260, label %3261, label %3262
@@ -8772,7 +8772,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3258)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3263 = load ptr, ptr %3258, align 8
-  %3264 = getelementptr inbounds i8, ptr %2, i64 104
+  %3264 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %3265 = load ptr, ptr %3264, align 8
   %3266 = ptrtoint ptr %3265 to i64
   %3267 = ptrtoint ptr %3263 to i64
@@ -8783,12 +8783,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3269:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.218, i64 noundef 28) #3
-  %3270 = getelementptr inbounds i8, ptr %2, i64 8
+  %3270 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3270)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.216, i64 noundef 10) #3
-  %3271 = getelementptr inbounds i8, ptr %2, i64 24
+  %3271 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3272 = load i64, ptr %3271, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %3272) #3
   %3273 = load i64, ptr %3271, align 8
@@ -8797,7 +8797,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8948:                                       ; preds = %3269
   %3274 = add i64 %3273, -1
-  %3275 = getelementptr inbounds i8, ptr %2, i64 40
+  %3275 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.pre9107 = load i64, ptr %3, align 8
   br label %3276
 
@@ -8823,7 +8823,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8949:                                  ; preds = %3276, %3269
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.31, i64 noundef 9) #3
-  %3286 = getelementptr inbounds i8, ptr %2, i64 48
+  %3286 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3287 = load ptr, ptr %3286, align 8
   %3288 = icmp eq ptr %3287, null
   br i1 %3288, label %3289, label %3290
@@ -8845,7 +8845,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3293:                                             ; preds = %3290, %3289
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.217, i64 noundef 11) #3
-  %3294 = getelementptr inbounds i8, ptr %2, i64 56
+  %3294 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3295 = load i64, ptr %3294, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %3295) #3
   %3296 = load i64, ptr %3294, align 8
@@ -8854,7 +8854,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8952:                                       ; preds = %3293
   %3297 = add i64 %3296, -1
-  %3298 = getelementptr inbounds i8, ptr %2, i64 72
+  %3298 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %.pre9108 = load i64, ptr %3, align 8
   br label %3299
 
@@ -8880,7 +8880,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8953:                                  ; preds = %3299, %3293
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.113, i64 noundef 15) #3
-  %3309 = getelementptr inbounds i8, ptr %2, i64 80
+  %3309 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %3310 = load ptr, ptr %3309, align 8
   %3311 = icmp eq ptr %3310, null
   br i1 %3311, label %3312, label %3313
@@ -8894,7 +8894,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3309)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3314 = load ptr, ptr %3309, align 8
-  %3315 = getelementptr inbounds i8, ptr %2, i64 88
+  %3315 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %3316 = load ptr, ptr %3315, align 8
   %3317 = ptrtoint ptr %3316 to i64
   %3318 = ptrtoint ptr %3314 to i64
@@ -8906,7 +8906,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3320:                                             ; preds = %3313, %3312
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.114, i64 noundef 15) #3
-  %3321 = getelementptr inbounds i8, ptr %2, i64 96
+  %3321 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %3322 = load ptr, ptr %3321, align 8
   %3323 = icmp eq ptr %3322, null
   br i1 %3323, label %3324, label %3325
@@ -8920,7 +8920,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3321)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3326 = load ptr, ptr %3321, align 8
-  %3327 = getelementptr inbounds i8, ptr %2, i64 104
+  %3327 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %3328 = load ptr, ptr %3327, align 8
   %3329 = ptrtoint ptr %3328 to i64
   %3330 = ptrtoint ptr %3326 to i64
@@ -8932,12 +8932,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3332:                                             ; preds = %3325, %3324
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %3333 = getelementptr inbounds i8, ptr %2, i64 112
+  %3333 = getelementptr inbounds nuw i8, ptr %2, i64 112
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3333)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3334 = load ptr, ptr %3333, align 8
-  %3335 = getelementptr inbounds i8, ptr %2, i64 120
+  %3335 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %3336 = load ptr, ptr %3335, align 8
   %3337 = ptrtoint ptr %3336 to i64
   %3338 = ptrtoint ptr %3334 to i64
@@ -8950,7 +8950,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3340 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3341 = getelementptr inbounds i8, ptr %2, i64 128
+  %3341 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %3342 = load ptr, ptr %3341, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3342, ptr noundef %3)
   store i64 %3340, ptr %3, align 8
@@ -8958,12 +8958,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3343:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.219, i64 noundef 22) #3
-  %3344 = getelementptr inbounds i8, ptr %2, i64 8
+  %3344 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3344)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 14) #3
-  %3345 = getelementptr inbounds i8, ptr %2, i64 24
+  %3345 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3346 = load ptr, ptr %3345, align 8
   %3347 = icmp eq ptr %3346, null
   br i1 %3347, label %3348, label %3349
@@ -8985,12 +8985,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3352:                                             ; preds = %3349, %3348
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %3353 = getelementptr inbounds i8, ptr %2, i64 32
+  %3353 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3353)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3354 = load ptr, ptr %3353, align 8
-  %3355 = getelementptr inbounds i8, ptr %2, i64 40
+  %3355 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3356 = load ptr, ptr %3355, align 8
   %3357 = ptrtoint ptr %3356 to i64
   %3358 = ptrtoint ptr %3354 to i64
@@ -9001,24 +9001,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3360:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.220, i64 noundef 21) #3
-  %3361 = getelementptr inbounds i8, ptr %2, i64 8
+  %3361 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3361)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 3362:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.221, i64 noundef 37) #3
-  %3363 = getelementptr inbounds i8, ptr %2, i64 8
+  %3363 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3363)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %3364 = getelementptr inbounds i8, ptr %2, i64 24
+  %3364 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3364)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3365 = load ptr, ptr %3364, align 8
-  %3366 = getelementptr inbounds i8, ptr %2, i64 32
+  %3366 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3367 = load ptr, ptr %3366, align 8
   %3368 = ptrtoint ptr %3367 to i64
   %3369 = ptrtoint ptr %3365 to i64
@@ -9027,12 +9027,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %3371 = getelementptr inbounds i8, ptr %2, i64 40
+  %3371 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3371)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3372 = load ptr, ptr %3371, align 8
-  %3373 = getelementptr inbounds i8, ptr %2, i64 48
+  %3373 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3374 = load ptr, ptr %3373, align 8
   %3375 = ptrtoint ptr %3374 to i64
   %3376 = ptrtoint ptr %3372 to i64
@@ -9043,12 +9043,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3378:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.222, i64 noundef 36) #3
-  %3379 = getelementptr inbounds i8, ptr %2, i64 8
+  %3379 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3379)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.223, i64 noundef 12) #3
-  %3380 = getelementptr inbounds i8, ptr %2, i64 24
+  %3380 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3381 = load i8, ptr %3380, align 8
   %3382 = zext i8 %3381 to i32
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.197, i32 noundef %3382) #3
@@ -9056,24 +9056,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3383:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.224, i64 noundef 39) #3
-  %3384 = getelementptr inbounds i8, ptr %2, i64 8
+  %3384 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3384)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.225, i64 noundef 11) #3
-  %3385 = getelementptr inbounds i8, ptr %2, i64 24
+  %3385 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3386 = load i32, ptr %3385, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.197, i32 noundef %3386) #3
   br label %common.ret9201
 
 3387:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.226, i64 noundef 42) #3
-  %3388 = getelementptr inbounds i8, ptr %2, i64 8
+  %3388 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3388)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %3389 = getelementptr inbounds i8, ptr %2, i64 2
+  %3389 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %3390 = load i16, ptr %3389, align 2
   %3391 = and i16 %3390, 1
   %.not8760.not = icmp eq i16 %3391, 0
@@ -9092,18 +9092,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %3394 = getelementptr inbounds i8, ptr %2, i64 24
+  %3394 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3395 = load i32, ptr %3394, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3395)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %3396 = getelementptr inbounds i8, ptr %2, i64 32
+  %3396 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3396)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3397 = load ptr, ptr %3396, align 8
-  %3398 = getelementptr inbounds i8, ptr %2, i64 40
+  %3398 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3399 = load ptr, ptr %3398, align 8
   %3400 = ptrtoint ptr %3399 to i64
   %3401 = ptrtoint ptr %3397 to i64
@@ -9116,7 +9116,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3403 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3404 = getelementptr inbounds i8, ptr %2, i64 48
+  %3404 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3405 = load ptr, ptr %3404, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3405, ptr noundef %3)
   store i64 %3403, ptr %3, align 8
@@ -9124,12 +9124,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3406:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.227, i64 noundef 35) #3
-  %3407 = getelementptr inbounds i8, ptr %2, i64 8
+  %3407 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3407)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %3408 = getelementptr inbounds i8, ptr %2, i64 2
+  %3408 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %3409 = load i16, ptr %3408, align 2
   %3410 = and i16 %3409, 1
   %.not8759.not = icmp eq i16 %3410, 0
@@ -9148,18 +9148,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %3413 = getelementptr inbounds i8, ptr %2, i64 24
+  %3413 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3414 = load i32, ptr %3413, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3414)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %3415 = getelementptr inbounds i8, ptr %2, i64 32
+  %3415 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3415)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3416 = load ptr, ptr %3415, align 8
-  %3417 = getelementptr inbounds i8, ptr %2, i64 40
+  %3417 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3418 = load ptr, ptr %3417, align 8
   %3419 = ptrtoint ptr %3418 to i64
   %3420 = ptrtoint ptr %3416 to i64
@@ -9168,12 +9168,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %3422 = getelementptr inbounds i8, ptr %2, i64 48
+  %3422 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3422)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3423 = load ptr, ptr %3422, align 8
-  %3424 = getelementptr inbounds i8, ptr %2, i64 56
+  %3424 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3425 = load ptr, ptr %3424, align 8
   %3426 = ptrtoint ptr %3425 to i64
   %3427 = ptrtoint ptr %3423 to i64
@@ -9186,7 +9186,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3429 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3430 = getelementptr inbounds i8, ptr %2, i64 64
+  %3430 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %3431 = load ptr, ptr %3430, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3431, ptr noundef %3)
   store i64 %3429, ptr %3, align 8
@@ -9194,7 +9194,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3432:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.228, i64 noundef 20) #3
-  %3433 = getelementptr inbounds i8, ptr %2, i64 8
+  %3433 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3433)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -9203,7 +9203,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3434 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3435 = getelementptr inbounds i8, ptr %2, i64 24
+  %3435 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3436 = load ptr, ptr %3435, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3436, ptr noundef %3)
   store i64 %3434, ptr %3, align 8
@@ -9213,18 +9213,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3437 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3438 = getelementptr inbounds i8, ptr %2, i64 32
+  %3438 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3439 = load ptr, ptr %3438, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3439, ptr noundef %3)
   store i64 %3437, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %3440 = getelementptr inbounds i8, ptr %2, i64 40
+  %3440 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3440)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3441 = load ptr, ptr %3440, align 8
-  %3442 = getelementptr inbounds i8, ptr %2, i64 48
+  %3442 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3443 = load ptr, ptr %3442, align 8
   %3444 = ptrtoint ptr %3443 to i64
   %3445 = ptrtoint ptr %3441 to i64
@@ -9235,12 +9235,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3447:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.229, i64 noundef 28) #3
-  %3448 = getelementptr inbounds i8, ptr %2, i64 8
+  %3448 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3448)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 14) #3
-  %3449 = getelementptr inbounds i8, ptr %2, i64 24
+  %3449 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3450 = load i64, ptr %3449, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %3450) #3
   %3451 = load i64, ptr %3449, align 8
@@ -9249,7 +9249,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8932:                                       ; preds = %3447
   %3452 = add i64 %3451, -1
-  %3453 = getelementptr inbounds i8, ptr %2, i64 40
+  %3453 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.pre9103 = load i64, ptr %3, align 8
   br label %3454
 
@@ -9275,7 +9275,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8933:                                  ; preds = %3454, %3447
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.230, i64 noundef 14) #3
-  %3464 = getelementptr inbounds i8, ptr %2, i64 48
+  %3464 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3465 = load i64, ptr %3464, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %3465) #3
   %3466 = load i64, ptr %3464, align 8
@@ -9284,7 +9284,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8936:                                       ; preds = %._crit_edge8933
   %3467 = add i64 %3466, -1
-  %3468 = getelementptr inbounds i8, ptr %2, i64 64
+  %3468 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %.pre9104 = load i64, ptr %3, align 8
   br label %3469
 
@@ -9310,7 +9310,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8937:                                  ; preds = %3469, %._crit_edge8933
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.31, i64 noundef 9) #3
-  %3479 = getelementptr inbounds i8, ptr %2, i64 72
+  %3479 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3480 = load ptr, ptr %3479, align 8
   %3481 = icmp eq ptr %3480, null
   br i1 %3481, label %3482, label %3483
@@ -9332,7 +9332,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3486:                                             ; preds = %3483, %3482
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef 10) #3
-  %3487 = getelementptr inbounds i8, ptr %2, i64 80
+  %3487 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %3488 = load i64, ptr %3487, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %3488) #3
   %3489 = load i64, ptr %3487, align 8
@@ -9341,7 +9341,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8940:                                       ; preds = %3486
   %3490 = add i64 %3489, -1
-  %3491 = getelementptr inbounds i8, ptr %2, i64 96
+  %3491 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.pre9105 = load i64, ptr %3, align 8
   br label %3492
 
@@ -9367,7 +9367,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8941:                                  ; preds = %3492, %3486
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.231, i64 noundef 13) #3
-  %3502 = getelementptr inbounds i8, ptr %2, i64 104
+  %3502 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %3503 = load i64, ptr %3502, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %3503) #3
   %3504 = load i64, ptr %3502, align 8
@@ -9376,7 +9376,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8944:                                       ; preds = %._crit_edge8941
   %3505 = add i64 %3504, -1
-  %3506 = getelementptr inbounds i8, ptr %2, i64 120
+  %3506 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %.pre9106 = load i64, ptr %3, align 8
   br label %3507
 
@@ -9402,7 +9402,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8945:                                  ; preds = %3507, %._crit_edge8941
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.232, i64 noundef 17) #3
-  %3517 = getelementptr inbounds i8, ptr %2, i64 128
+  %3517 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %3518 = load ptr, ptr %3517, align 8
   %3519 = icmp eq ptr %3518, null
   br i1 %3519, label %3520, label %3521
@@ -9424,7 +9424,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3524:                                             ; preds = %3521, %3520
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.72, i64 noundef 10) #3
-  %3525 = getelementptr inbounds i8, ptr %2, i64 136
+  %3525 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %3526 = load ptr, ptr %3525, align 8
   %3527 = icmp eq ptr %3526, null
   br i1 %3527, label %3528, label %3529
@@ -9445,12 +9445,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3532:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.233, i64 noundef 29) #3
-  %3533 = getelementptr inbounds i8, ptr %2, i64 8
+  %3533 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3533)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.56, i64 noundef 9) #3
-  %3534 = getelementptr inbounds i8, ptr %2, i64 24
+  %3534 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3535 = load ptr, ptr %3534, align 8
   %3536 = icmp eq ptr %3535, null
   br i1 %3536, label %3537, label %3538
@@ -9472,12 +9472,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3541:                                             ; preds = %3538, %3537
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %3542 = getelementptr inbounds i8, ptr %2, i64 32
+  %3542 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3542)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3543 = load ptr, ptr %3542, align 8
-  %3544 = getelementptr inbounds i8, ptr %2, i64 40
+  %3544 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3545 = load ptr, ptr %3544, align 8
   %3546 = ptrtoint ptr %3545 to i64
   %3547 = ptrtoint ptr %3543 to i64
@@ -9486,12 +9486,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %3549 = getelementptr inbounds i8, ptr %2, i64 48
+  %3549 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3549)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3550 = load ptr, ptr %3549, align 8
-  %3551 = getelementptr inbounds i8, ptr %2, i64 56
+  %3551 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3552 = load ptr, ptr %3551, align 8
   %3553 = ptrtoint ptr %3552 to i64
   %3554 = ptrtoint ptr %3550 to i64
@@ -9502,7 +9502,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3556:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.234, i64 noundef 34) #3
-  %3557 = getelementptr inbounds i8, ptr %2, i64 8
+  %3557 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3557)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -9511,18 +9511,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3558 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3559 = getelementptr inbounds i8, ptr %2, i64 24
+  %3559 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3560 = load ptr, ptr %3559, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3560, ptr noundef %3)
   store i64 %3558, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %3561 = getelementptr inbounds i8, ptr %2, i64 32
+  %3561 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3561)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3562 = load ptr, ptr %3561, align 8
-  %3563 = getelementptr inbounds i8, ptr %2, i64 40
+  %3563 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3564 = load ptr, ptr %3563, align 8
   %3565 = ptrtoint ptr %3564 to i64
   %3566 = ptrtoint ptr %3562 to i64
@@ -9531,12 +9531,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.113, i64 noundef 15) #3
-  %3568 = getelementptr inbounds i8, ptr %2, i64 48
+  %3568 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3568)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3569 = load ptr, ptr %3568, align 8
-  %3570 = getelementptr inbounds i8, ptr %2, i64 56
+  %3570 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3571 = load ptr, ptr %3570, align 8
   %3572 = ptrtoint ptr %3571 to i64
   %3573 = ptrtoint ptr %3569 to i64
@@ -9545,12 +9545,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.114, i64 noundef 15) #3
-  %3575 = getelementptr inbounds i8, ptr %2, i64 64
+  %3575 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3575)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3576 = load ptr, ptr %3575, align 8
-  %3577 = getelementptr inbounds i8, ptr %2, i64 72
+  %3577 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3578 = load ptr, ptr %3577, align 8
   %3579 = ptrtoint ptr %3578 to i64
   %3580 = ptrtoint ptr %3576 to i64
@@ -9561,7 +9561,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3582:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.235, i64 noundef 32) #3
-  %3583 = getelementptr inbounds i8, ptr %2, i64 8
+  %3583 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3583)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -9570,18 +9570,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3584 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3585 = getelementptr inbounds i8, ptr %2, i64 24
+  %3585 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3586 = load ptr, ptr %3585, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3586, ptr noundef %3)
   store i64 %3584, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %3587 = getelementptr inbounds i8, ptr %2, i64 32
+  %3587 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3587)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3588 = load ptr, ptr %3587, align 8
-  %3589 = getelementptr inbounds i8, ptr %2, i64 40
+  %3589 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3590 = load ptr, ptr %3589, align 8
   %3591 = ptrtoint ptr %3590 to i64
   %3592 = ptrtoint ptr %3588 to i64
@@ -9592,12 +9592,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3594:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.236, i64 noundef 31) #3
-  %3595 = getelementptr inbounds i8, ptr %2, i64 8
+  %3595 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3595)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %3596 = getelementptr inbounds i8, ptr %2, i64 24
+  %3596 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3597 = load ptr, ptr %3596, align 8
   %3598 = icmp eq ptr %3597, null
   br i1 %3598, label %3599, label %3600
@@ -9619,12 +9619,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3603:                                             ; preds = %3600, %3599
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %3604 = getelementptr inbounds i8, ptr %2, i64 32
+  %3604 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3604)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3605 = load ptr, ptr %3604, align 8
-  %3606 = getelementptr inbounds i8, ptr %2, i64 40
+  %3606 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3607 = load ptr, ptr %3606, align 8
   %3608 = ptrtoint ptr %3607 to i64
   %3609 = ptrtoint ptr %3605 to i64
@@ -9633,12 +9633,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %3611 = getelementptr inbounds i8, ptr %2, i64 48
+  %3611 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3611)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3612 = load ptr, ptr %3611, align 8
-  %3613 = getelementptr inbounds i8, ptr %2, i64 56
+  %3613 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3614 = load ptr, ptr %3613, align 8
   %3615 = ptrtoint ptr %3614 to i64
   %3616 = ptrtoint ptr %3612 to i64
@@ -9647,12 +9647,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %3618 = getelementptr inbounds i8, ptr %2, i64 64
+  %3618 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3618)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3619 = load ptr, ptr %3618, align 8
-  %3620 = getelementptr inbounds i8, ptr %2, i64 72
+  %3620 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3621 = load ptr, ptr %3620, align 8
   %3622 = ptrtoint ptr %3621 to i64
   %3623 = ptrtoint ptr %3619 to i64
@@ -9663,12 +9663,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3625:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.237, i64 noundef 30) #3
-  %3626 = getelementptr inbounds i8, ptr %2, i64 8
+  %3626 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3626)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %3627 = getelementptr inbounds i8, ptr %2, i64 24
+  %3627 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3628 = load ptr, ptr %3627, align 8
   %3629 = icmp eq ptr %3628, null
   br i1 %3629, label %3630, label %3631
@@ -9690,12 +9690,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3634:                                             ; preds = %3631, %3630
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %3635 = getelementptr inbounds i8, ptr %2, i64 32
+  %3635 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3635)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3636 = load ptr, ptr %3635, align 8
-  %3637 = getelementptr inbounds i8, ptr %2, i64 40
+  %3637 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3638 = load ptr, ptr %3637, align 8
   %3639 = ptrtoint ptr %3638 to i64
   %3640 = ptrtoint ptr %3636 to i64
@@ -9704,12 +9704,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %3642 = getelementptr inbounds i8, ptr %2, i64 48
+  %3642 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3642)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3643 = load ptr, ptr %3642, align 8
-  %3644 = getelementptr inbounds i8, ptr %2, i64 56
+  %3644 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3645 = load ptr, ptr %3644, align 8
   %3646 = ptrtoint ptr %3645 to i64
   %3647 = ptrtoint ptr %3643 to i64
@@ -9718,12 +9718,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %3649 = getelementptr inbounds i8, ptr %2, i64 64
+  %3649 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3649)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3650 = load ptr, ptr %3649, align 8
-  %3651 = getelementptr inbounds i8, ptr %2, i64 72
+  %3651 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3652 = load ptr, ptr %3651, align 8
   %3653 = ptrtoint ptr %3652 to i64
   %3654 = ptrtoint ptr %3650 to i64
@@ -9734,20 +9734,20 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3656:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.238, i64 noundef 25) #3
-  %3657 = getelementptr inbounds i8, ptr %2, i64 8
+  %3657 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3657)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.51, i64 noundef 11) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.52, i64 noundef 2) #3
-  %3658 = getelementptr inbounds i8, ptr %2, i64 24
+  %3658 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3659 = load i64, ptr %3658, align 8
   %.not9051 = icmp eq i64 %3659, 0
   br i1 %.not9051, label %._crit_edge8929, label %.lr.ph8928
 
 .lr.ph8928:                                       ; preds = %3656
-  %3660 = getelementptr inbounds i8, ptr %2, i64 40
-  %3661 = getelementptr inbounds i8, ptr %1, i64 528
+  %3660 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %3661 = getelementptr inbounds nuw i8, ptr %1, i64 528
   br label %3662
 
 3662:                                             ; preds = %.lr.ph8928, %3665
@@ -9765,7 +9765,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3667 = getelementptr i32, ptr %3666, i64 %3663
   %3668 = load i32, ptr %3667, align 4
   %3669 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %3661, i32 noundef %3668) #3
-  %3670 = getelementptr inbounds i8, ptr %3669, i64 8
+  %3670 = getelementptr inbounds nuw i8, ptr %3669, i64 8
   %3671 = load i64, ptr %3670, align 8
   %3672 = trunc i64 %3671 to i32
   %3673 = load ptr, ptr %3669, align 8
@@ -9784,7 +9784,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3678 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3679 = getelementptr inbounds i8, ptr %2, i64 48
+  %3679 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3680 = load ptr, ptr %3679, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3680, ptr noundef %3)
   store i64 %3678, ptr %3, align 8
@@ -9792,12 +9792,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3681:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.239, i64 noundef 23) #3
-  %3682 = getelementptr inbounds i8, ptr %2, i64 8
+  %3682 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3682)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %3683 = getelementptr inbounds i8, ptr %2, i64 2
+  %3683 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %3684 = load i16, ptr %3683, align 2
   %3685 = and i16 %3684, 1
   %.not8757.not = icmp eq i16 %3685, 0
@@ -9815,7 +9815,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.10, i64 noundef 9) #3
-  %3688 = getelementptr inbounds i8, ptr %2, i64 24
+  %3688 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3689 = load ptr, ptr %3688, align 8
   %3690 = icmp eq ptr %3689, null
   br i1 %3690, label %3691, label %3692
@@ -9837,7 +9837,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3695:                                             ; preds = %3692, %3691
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.11, i64 noundef 10) #3
-  %3696 = getelementptr inbounds i8, ptr %2, i64 32
+  %3696 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3697 = load ptr, ptr %3696, align 8
   %3698 = icmp eq ptr %3697, null
   br i1 %3698, label %3699, label %3700
@@ -9859,12 +9859,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3703:                                             ; preds = %3700, %3699
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %3704 = getelementptr inbounds i8, ptr %2, i64 40
+  %3704 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3704)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3705 = load ptr, ptr %3704, align 8
-  %3706 = getelementptr inbounds i8, ptr %2, i64 48
+  %3706 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3707 = load ptr, ptr %3706, align 8
   %3708 = ptrtoint ptr %3707 to i64
   %3709 = ptrtoint ptr %3705 to i64
@@ -9875,7 +9875,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3711:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.240, i64 noundef 26) #3
-  %3712 = getelementptr inbounds i8, ptr %2, i64 8
+  %3712 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3712)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -9884,7 +9884,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3713 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3714 = getelementptr inbounds i8, ptr %2, i64 24
+  %3714 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3715 = load ptr, ptr %3714, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3715, ptr noundef %3)
   store i64 %3713, ptr %3, align 8
@@ -9892,19 +9892,19 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3716:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.241, i64 noundef 22) #3
-  %3717 = getelementptr inbounds i8, ptr %2, i64 8
+  %3717 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3717)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 3718:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.242, i64 noundef 35) #3
-  %3719 = getelementptr inbounds i8, ptr %2, i64 8
+  %3719 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3719)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %3720 = getelementptr inbounds i8, ptr %2, i64 2
+  %3720 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %3721 = load i16, ptr %3720, align 2
   %3722 = and i16 %3721, 1
   %.not8746 = icmp eq i16 %3722, 0
@@ -10125,12 +10125,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %3796 = getelementptr inbounds i8, ptr %2, i64 24
+  %3796 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3796)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3797 = load ptr, ptr %3796, align 8
-  %3798 = getelementptr inbounds i8, ptr %2, i64 32
+  %3798 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3799 = load ptr, ptr %3798, align 8
   %3800 = ptrtoint ptr %3799 to i64
   %3801 = ptrtoint ptr %3797 to i64
@@ -10139,12 +10139,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 16) #3
-  %3803 = getelementptr inbounds i8, ptr %2, i64 40
+  %3803 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3803)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3804 = load ptr, ptr %3803, align 8
-  %3805 = getelementptr inbounds i8, ptr %2, i64 48
+  %3805 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3806 = load ptr, ptr %3805, align 8
   %3807 = ptrtoint ptr %3806 to i64
   %3808 = ptrtoint ptr %3804 to i64
@@ -10153,12 +10153,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %3810 = getelementptr inbounds i8, ptr %2, i64 56
+  %3810 = getelementptr inbounds nuw i8, ptr %2, i64 56
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3810)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3811 = load ptr, ptr %3810, align 8
-  %3812 = getelementptr inbounds i8, ptr %2, i64 64
+  %3812 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %3813 = load ptr, ptr %3812, align 8
   %3814 = ptrtoint ptr %3813 to i64
   %3815 = ptrtoint ptr %3811 to i64
@@ -10168,7 +10168,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.205, i64 noundef 14) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.206, i64 noundef 2) #3
-  %3817 = getelementptr inbounds i8, ptr %2, i64 72
+  %3817 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3818 = tail call ptr @pm_string_source(ptr noundef nonnull %3817) #3
   %3819 = tail call i64 @pm_string_length(ptr noundef nonnull %3817) #3
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3818, i64 noundef %3819, i32 noundef 0) #3
@@ -10177,12 +10177,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3820:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.243, i64 noundef 42) #3
-  %3821 = getelementptr inbounds i8, ptr %2, i64 8
+  %3821 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3821)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %3822 = getelementptr inbounds i8, ptr %2, i64 2
+  %3822 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %3823 = load i16, ptr %3822, align 2
   %3824 = and i16 %3823, 1
   %.not8745.not = icmp eq i16 %3824, 0
@@ -10201,18 +10201,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %3827 = getelementptr inbounds i8, ptr %2, i64 24
+  %3827 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3828 = load i32, ptr %3827, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3828)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %3829 = getelementptr inbounds i8, ptr %2, i64 32
+  %3829 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3829)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3830 = load ptr, ptr %3829, align 8
-  %3831 = getelementptr inbounds i8, ptr %2, i64 40
+  %3831 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3832 = load ptr, ptr %3831, align 8
   %3833 = ptrtoint ptr %3832 to i64
   %3834 = ptrtoint ptr %3830 to i64
@@ -10223,12 +10223,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3836:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.244, i64 noundef 35) #3
-  %3837 = getelementptr inbounds i8, ptr %2, i64 8
+  %3837 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3837)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %3838 = getelementptr inbounds i8, ptr %2, i64 2
+  %3838 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %3839 = load i16, ptr %3838, align 2
   %3840 = and i16 %3839, 1
   %.not8744.not = icmp eq i16 %3840, 0
@@ -10247,7 +10247,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
-  %3843 = getelementptr inbounds i8, ptr %2, i64 24
+  %3843 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3844 = load i32, ptr %3843, align 8
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3844)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
@@ -10255,7 +10255,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3845:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.245, i64 noundef 32) #3
-  %3846 = getelementptr inbounds i8, ptr %2, i64 8
+  %3846 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3846)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
@@ -10264,18 +10264,18 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3847 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3848 = getelementptr inbounds i8, ptr %2, i64 24
+  %3848 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3849 = load ptr, ptr %3848, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3849, ptr noundef %3)
   store i64 %3847, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %3850 = getelementptr inbounds i8, ptr %2, i64 32
+  %3850 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3850)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3851 = load ptr, ptr %3850, align 8
-  %3852 = getelementptr inbounds i8, ptr %2, i64 40
+  %3852 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3853 = load ptr, ptr %3852, align 8
   %3854 = ptrtoint ptr %3853 to i64
   %3855 = ptrtoint ptr %3851 to i64
@@ -10288,7 +10288,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3857 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %3858 = getelementptr inbounds i8, ptr %2, i64 48
+  %3858 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3859 = load ptr, ptr %3858, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3859, ptr noundef %3)
   store i64 %3857, ptr %3, align 8
@@ -10296,17 +10296,17 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3860:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.247, i64 noundef 24) #3
-  %3861 = getelementptr inbounds i8, ptr %2, i64 8
+  %3861 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3861)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %3862 = getelementptr inbounds i8, ptr %2, i64 24
+  %3862 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3862)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3863 = load ptr, ptr %3862, align 8
-  %3864 = getelementptr inbounds i8, ptr %2, i64 32
+  %3864 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3865 = load ptr, ptr %3864, align 8
   %3866 = ptrtoint ptr %3865 to i64
   %3867 = ptrtoint ptr %3863 to i64
@@ -10315,7 +10315,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.248, i64 noundef 15) #3
-  %3869 = getelementptr inbounds i8, ptr %2, i64 40
+  %3869 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3870 = load i64, ptr %3869, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %3870) #3
   %3871 = load i64, ptr %3869, align 8
@@ -10324,7 +10324,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8924:                                       ; preds = %3860
   %3872 = add i64 %3871, -1
-  %3873 = getelementptr inbounds i8, ptr %2, i64 56
+  %3873 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.pre9092 = load i64, ptr %3, align 8
   br label %3874
 
@@ -10350,7 +10350,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8925:                                  ; preds = %3874, %3860
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %3884 = getelementptr inbounds i8, ptr %2, i64 64
+  %3884 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %3885 = load ptr, ptr %3884, align 8
   %3886 = icmp eq ptr %3885, null
   br i1 %3886, label %3887, label %3888
@@ -10364,7 +10364,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3884)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3889 = load ptr, ptr %3884, align 8
-  %3890 = getelementptr inbounds i8, ptr %2, i64 72
+  %3890 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3891 = load ptr, ptr %3890, align 8
   %3892 = ptrtoint ptr %3891 to i64
   %3893 = ptrtoint ptr %3889 to i64
@@ -10376,7 +10376,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3895:                                             ; preds = %3888, %3887
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.249, i64 noundef 14) #3
-  %3896 = getelementptr inbounds i8, ptr %2, i64 80
+  %3896 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %3897 = load ptr, ptr %3896, align 8
   %3898 = icmp eq ptr %3897, null
   br i1 %3898, label %3899, label %3900
@@ -10398,7 +10398,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3903:                                             ; preds = %3900, %3899
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %3904 = getelementptr inbounds i8, ptr %2, i64 88
+  %3904 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %3905 = load ptr, ptr %3904, align 8
   %3906 = icmp eq ptr %3905, null
   br i1 %3906, label %3907, label %3908
@@ -10420,7 +10420,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3911:                                             ; preds = %3908, %3907
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.82, i64 noundef 15) #3
-  %3912 = getelementptr inbounds i8, ptr %2, i64 96
+  %3912 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %3913 = load ptr, ptr %3912, align 8
   %3914 = icmp eq ptr %3913, null
   br i1 %3914, label %3915, label %3916
@@ -10441,12 +10441,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3919:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.250, i64 noundef 31) #3
-  %3920 = getelementptr inbounds i8, ptr %2, i64 8
+  %3920 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3920)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %3921 = getelementptr inbounds i8, ptr %2, i64 2
+  %3921 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %3922 = load i16, ptr %3921, align 2
   %3923 = and i16 %3922, 1
   %.not8743.not = icmp eq i16 %3923, 0
@@ -10464,7 +10464,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.38, i64 noundef 9) #3
-  %3926 = getelementptr inbounds i8, ptr %2, i64 24
+  %3926 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3927 = load i32, ptr %3926, align 8
   %3928 = icmp eq i32 %3927, 0
   br i1 %3928, label %3929, label %3930
@@ -10483,7 +10483,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3932:                                             ; preds = %3930, %3929
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef 13) #3
-  %3933 = getelementptr inbounds i8, ptr %2, i64 32
+  %3933 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3934 = load ptr, ptr %3933, align 8
   %3935 = icmp eq ptr %3934, null
   br i1 %3935, label %3936, label %3937
@@ -10497,7 +10497,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3933)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3938 = load ptr, ptr %3933, align 8
-  %3939 = getelementptr inbounds i8, ptr %2, i64 40
+  %3939 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3940 = load ptr, ptr %3939, align 8
   %3941 = ptrtoint ptr %3940 to i64
   %3942 = ptrtoint ptr %3938 to i64
@@ -10509,12 +10509,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 3944:                                             ; preds = %3937, %3936
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %3945 = getelementptr inbounds i8, ptr %2, i64 48
+  %3945 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3945)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3946 = load ptr, ptr %3945, align 8
-  %3947 = getelementptr inbounds i8, ptr %2, i64 56
+  %3947 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3948 = load ptr, ptr %3947, align 8
   %3949 = ptrtoint ptr %3948 to i64
   %3950 = ptrtoint ptr %3946 to i64
@@ -10525,24 +10525,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3952:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.251, i64 noundef 23) #3
-  %3953 = getelementptr inbounds i8, ptr %2, i64 8
+  %3953 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3953)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 3954:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.252, i64 noundef 24) #3
-  %3955 = getelementptr inbounds i8, ptr %2, i64 8
+  %3955 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3955)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %3956 = getelementptr inbounds i8, ptr %2, i64 24
+  %3956 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3956)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3957 = load ptr, ptr %3956, align 8
-  %3958 = getelementptr inbounds i8, ptr %2, i64 32
+  %3958 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3959 = load ptr, ptr %3958, align 8
   %3960 = ptrtoint ptr %3959 to i64
   %3961 = ptrtoint ptr %3957 to i64
@@ -10551,7 +10551,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 14) #3
-  %3963 = getelementptr inbounds i8, ptr %2, i64 40
+  %3963 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3964 = load ptr, ptr %3963, align 8
   %3965 = icmp eq ptr %3964, null
   br i1 %3965, label %3966, label %3967
@@ -10572,27 +10572,27 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3970:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.253, i64 noundef 22) #3
-  %3971 = getelementptr inbounds i8, ptr %2, i64 8
+  %3971 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3971)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 3972:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.254, i64 noundef 32) #3
-  %3973 = getelementptr inbounds i8, ptr %2, i64 8
+  %3973 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3973)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.51, i64 noundef 11) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.52, i64 noundef 2) #3
-  %3974 = getelementptr inbounds i8, ptr %2, i64 24
+  %3974 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3975 = load i64, ptr %3974, align 8
   %.not9049 = icmp eq i64 %3975, 0
   br i1 %.not9049, label %._crit_edge8921, label %.lr.ph8920
 
 .lr.ph8920:                                       ; preds = %3972
-  %3976 = getelementptr inbounds i8, ptr %2, i64 40
-  %3977 = getelementptr inbounds i8, ptr %1, i64 528
+  %3976 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %3977 = getelementptr inbounds nuw i8, ptr %1, i64 528
   br label %3978
 
 3978:                                             ; preds = %.lr.ph8920, %3981
@@ -10610,7 +10610,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3983 = getelementptr i32, ptr %3982, i64 %3979
   %3984 = load i32, ptr %3983, align 4
   %3985 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %3977, i32 noundef %3984) #3
-  %3986 = getelementptr inbounds i8, ptr %3985, i64 8
+  %3986 = getelementptr inbounds nuw i8, ptr %3985, i64 8
   %3987 = load i64, ptr %3986, align 8
   %3988 = trunc i64 %3987 to i32
   %3989 = load ptr, ptr %3985, align 8
@@ -10625,12 +10625,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.54, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.86, i64 noundef 22) #3
-  %3994 = getelementptr inbounds i8, ptr %2, i64 48
+  %3994 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3994)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %3995 = load ptr, ptr %3994, align 8
-  %3996 = getelementptr inbounds i8, ptr %2, i64 56
+  %3996 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3997 = load ptr, ptr %3996, align 8
   %3998 = ptrtoint ptr %3997 to i64
   %3999 = ptrtoint ptr %3995 to i64
@@ -10639,12 +10639,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %4001 = getelementptr inbounds i8, ptr %2, i64 64
+  %4001 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4001)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4002 = load ptr, ptr %4001, align 8
-  %4003 = getelementptr inbounds i8, ptr %2, i64 72
+  %4003 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4004 = load ptr, ptr %4003, align 8
   %4005 = ptrtoint ptr %4004 to i64
   %4006 = ptrtoint ptr %4002 to i64
@@ -10657,13 +10657,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %4008 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %4009 = getelementptr inbounds i8, ptr %2, i64 80
+  %4009 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %4010 = load ptr, ptr %4009, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4010, ptr noundef %3)
   store i64 %4008, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.56, i64 noundef 9) #3
-  %4011 = getelementptr inbounds i8, ptr %2, i64 88
+  %4011 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %4012 = load ptr, ptr %4011, align 8
   %4013 = icmp eq ptr %4012, null
   br i1 %4013, label %4014, label %4015
@@ -10685,12 +10685,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 4018:                                             ; preds = %4015, %4014
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 20) #3
-  %4019 = getelementptr inbounds i8, ptr %2, i64 96
+  %4019 = getelementptr inbounds nuw i8, ptr %2, i64 96
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4019)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4020 = load ptr, ptr %4019, align 8
-  %4021 = getelementptr inbounds i8, ptr %2, i64 104
+  %4021 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4022 = load ptr, ptr %4021, align 8
   %4023 = ptrtoint ptr %4022 to i64
   %4024 = ptrtoint ptr %4020 to i64
@@ -10701,20 +10701,20 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4026:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.255, i64 noundef 32) #3
-  %4027 = getelementptr inbounds i8, ptr %2, i64 8
+  %4027 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4027)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 4028:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.256, i64 noundef 28) #3
-  %4029 = getelementptr inbounds i8, ptr %2, i64 8
+  %4029 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4029)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.257, i64 noundef 13) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.206, i64 noundef 2) #3
-  %4030 = getelementptr inbounds i8, ptr %2, i64 24
+  %4030 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4031 = tail call ptr @pm_string_source(ptr noundef nonnull %4030) #3
   %4032 = tail call i64 @pm_string_length(ptr noundef nonnull %4030) #3
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4031, i64 noundef %4032, i32 noundef 0) #3
@@ -10723,24 +10723,24 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4033:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.258, i64 noundef 28) #3
-  %4034 = getelementptr inbounds i8, ptr %2, i64 8
+  %4034 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4034)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 4035:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.259, i64 noundef 23) #3
-  %4036 = getelementptr inbounds i8, ptr %2, i64 8
+  %4036 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4036)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef 17) #3
-  %4037 = getelementptr inbounds i8, ptr %2, i64 24
+  %4037 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4037)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4038 = load ptr, ptr %4037, align 8
-  %4039 = getelementptr inbounds i8, ptr %2, i64 32
+  %4039 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4040 = load ptr, ptr %4039, align 8
   %4041 = ptrtoint ptr %4040 to i64
   %4042 = ptrtoint ptr %4038 to i64
@@ -10749,7 +10749,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.47, i64 noundef 15) #3
-  %4044 = getelementptr inbounds i8, ptr %2, i64 40
+  %4044 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4045 = load ptr, ptr %4044, align 8
   %4046 = icmp eq ptr %4045, null
   br i1 %4046, label %4047, label %4048
@@ -10770,12 +10770,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4051:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.260, i64 noundef 28) #3
-  %4052 = getelementptr inbounds i8, ptr %2, i64 8
+  %4052 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4052)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.56, i64 noundef 9) #3
-  %4053 = getelementptr inbounds i8, ptr %2, i64 24
+  %4053 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4054 = load i64, ptr %4053, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %4054) #3
   %4055 = load i64, ptr %4053, align 8
@@ -10784,7 +10784,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8917:                                       ; preds = %4051
   %4056 = add i64 %4055, -1
-  %4057 = getelementptr inbounds i8, ptr %2, i64 40
+  %4057 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.pre9091 = load i64, ptr %3, align 8
   br label %4058
 
@@ -10809,12 +10809,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4068:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.261, i64 noundef 24) #3
-  %4069 = getelementptr inbounds i8, ptr %2, i64 8
+  %4069 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4069)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %4070 = getelementptr inbounds i8, ptr %2, i64 2
+  %4070 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %4071 = load i16, ptr %4070, align 2
   %4072 = and i16 %4071, 1
   %.not8739 = icmp eq i16 %4072, 0
@@ -10875,7 +10875,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %4090 = getelementptr inbounds i8, ptr %2, i64 24
+  %4090 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4091 = load ptr, ptr %4090, align 8
   %4092 = icmp eq ptr %4091, null
   br i1 %4092, label %4093, label %4094
@@ -10889,7 +10889,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4090)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4095 = load ptr, ptr %4090, align 8
-  %4096 = getelementptr inbounds i8, ptr %2, i64 32
+  %4096 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4097 = load ptr, ptr %4096, align 8
   %4098 = ptrtoint ptr %4097 to i64
   %4099 = ptrtoint ptr %4095 to i64
@@ -10901,12 +10901,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 4101:                                             ; preds = %4094, %4093
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 16) #3
-  %4102 = getelementptr inbounds i8, ptr %2, i64 40
+  %4102 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4102)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4103 = load ptr, ptr %4102, align 8
-  %4104 = getelementptr inbounds i8, ptr %2, i64 48
+  %4104 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4105 = load ptr, ptr %4104, align 8
   %4106 = ptrtoint ptr %4105 to i64
   %4107 = ptrtoint ptr %4103 to i64
@@ -10915,7 +10915,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %4109 = getelementptr inbounds i8, ptr %2, i64 56
+  %4109 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4110 = load ptr, ptr %4109, align 8
   %4111 = icmp eq ptr %4110, null
   br i1 %4111, label %4112, label %4113
@@ -10929,7 +10929,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4109)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4114 = load ptr, ptr %4109, align 8
-  %4115 = getelementptr inbounds i8, ptr %2, i64 64
+  %4115 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4116 = load ptr, ptr %4115, align 8
   %4117 = ptrtoint ptr %4116 to i64
   %4118 = ptrtoint ptr %4114 to i64
@@ -10942,7 +10942,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.205, i64 noundef 14) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.206, i64 noundef 2) #3
-  %4121 = getelementptr inbounds i8, ptr %2, i64 72
+  %4121 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4122 = tail call ptr @pm_string_source(ptr noundef nonnull %4121) #3
   %4123 = tail call i64 @pm_string_length(ptr noundef nonnull %4121) #3
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4122, i64 noundef %4123, i32 noundef 0) #3
@@ -10951,17 +10951,17 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4124:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.263, i64 noundef 23) #3
-  %4125 = getelementptr inbounds i8, ptr %2, i64 8
+  %4125 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4125)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %4126 = getelementptr inbounds i8, ptr %2, i64 24
+  %4126 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4126)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4127 = load ptr, ptr %4126, align 8
-  %4128 = getelementptr inbounds i8, ptr %2, i64 32
+  %4128 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4129 = load ptr, ptr %4128, align 8
   %4130 = ptrtoint ptr %4129 to i64
   %4131 = ptrtoint ptr %4127 to i64
@@ -10970,7 +10970,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.113, i64 noundef 15) #3
-  %4133 = getelementptr inbounds i8, ptr %2, i64 40
+  %4133 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4134 = load ptr, ptr %4133, align 8
   %4135 = icmp eq ptr %4134, null
   br i1 %4135, label %4136, label %4137
@@ -10984,7 +10984,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4133)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4138 = load ptr, ptr %4133, align 8
-  %4139 = getelementptr inbounds i8, ptr %2, i64 48
+  %4139 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4140 = load ptr, ptr %4139, align 8
   %4141 = ptrtoint ptr %4140 to i64
   %4142 = ptrtoint ptr %4138 to i64
@@ -10996,7 +10996,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 4144:                                             ; preds = %4137, %4136
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 14) #3
-  %4145 = getelementptr inbounds i8, ptr %2, i64 56
+  %4145 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4146 = load ptr, ptr %4145, align 8
   %4147 = icmp eq ptr %4146, null
   br i1 %4147, label %4148, label %4149
@@ -11018,7 +11018,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 4152:                                             ; preds = %4149, %4148
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.114, i64 noundef 15) #3
-  %4153 = getelementptr inbounds i8, ptr %2, i64 64
+  %4153 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4154 = load ptr, ptr %4153, align 8
   %4155 = icmp eq ptr %4154, null
   br i1 %4155, label %4156, label %4157
@@ -11032,7 +11032,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4153)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4158 = load ptr, ptr %4153, align 8
-  %4159 = getelementptr inbounds i8, ptr %2, i64 72
+  %4159 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4160 = load ptr, ptr %4159, align 8
   %4161 = ptrtoint ptr %4160 to i64
   %4162 = ptrtoint ptr %4158 to i64
@@ -11044,7 +11044,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 4164:                                             ; preds = %4157, %4156
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.72, i64 noundef 10) #3
-  %4165 = getelementptr inbounds i8, ptr %2, i64 80
+  %4165 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %4166 = load ptr, ptr %4165, align 8
   %4167 = icmp eq ptr %4166, null
   br i1 %4167, label %4168, label %4169
@@ -11065,12 +11065,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4172:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.264, i64 noundef 24) #3
-  %4173 = getelementptr inbounds i8, ptr %2, i64 8
+  %4173 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4173)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %4174 = getelementptr inbounds i8, ptr %2, i64 2
+  %4174 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %4175 = load i16, ptr %4174, align 2
   %4176 = and i16 %4175, 1
   %.not8736 = icmp eq i16 %4176, 0
@@ -11131,7 +11131,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %4194 = getelementptr inbounds i8, ptr %2, i64 24
+  %4194 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4195 = load ptr, ptr %4194, align 8
   %4196 = icmp eq ptr %4195, null
   br i1 %4196, label %4197, label %4198
@@ -11145,7 +11145,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4194)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4199 = load ptr, ptr %4194, align 8
-  %4200 = getelementptr inbounds i8, ptr %2, i64 32
+  %4200 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4201 = load ptr, ptr %4200, align 8
   %4202 = ptrtoint ptr %4201 to i64
   %4203 = ptrtoint ptr %4199 to i64
@@ -11157,7 +11157,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 4205:                                             ; preds = %4198, %4197
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.265, i64 noundef 14) #3
-  %4206 = getelementptr inbounds i8, ptr %2, i64 40
+  %4206 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4207 = load ptr, ptr %4206, align 8
   %4208 = icmp eq ptr %4207, null
   br i1 %4208, label %4209, label %4210
@@ -11171,7 +11171,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4206)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4211 = load ptr, ptr %4206, align 8
-  %4212 = getelementptr inbounds i8, ptr %2, i64 48
+  %4212 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4213 = load ptr, ptr %4212, align 8
   %4214 = ptrtoint ptr %4213 to i64
   %4215 = ptrtoint ptr %4211 to i64
@@ -11183,7 +11183,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 4217:                                             ; preds = %4210, %4209
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %4218 = getelementptr inbounds i8, ptr %2, i64 56
+  %4218 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4219 = load ptr, ptr %4218, align 8
   %4220 = icmp eq ptr %4219, null
   br i1 %4220, label %4221, label %4222
@@ -11197,7 +11197,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4218)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4223 = load ptr, ptr %4218, align 8
-  %4224 = getelementptr inbounds i8, ptr %2, i64 64
+  %4224 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4225 = load ptr, ptr %4224, align 8
   %4226 = ptrtoint ptr %4225 to i64
   %4227 = ptrtoint ptr %4223 to i64
@@ -11210,7 +11210,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.205, i64 noundef 14) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.206, i64 noundef 2) #3
-  %4230 = getelementptr inbounds i8, ptr %2, i64 72
+  %4230 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4231 = tail call ptr @pm_string_source(ptr noundef nonnull %4230) #3
   %4232 = tail call i64 @pm_string_length(ptr noundef nonnull %4230) #3
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4231, i64 noundef %4232, i32 noundef 0) #3
@@ -11219,19 +11219,19 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4233:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.266, i64 noundef 22) #3
-  %4234 = getelementptr inbounds i8, ptr %2, i64 8
+  %4234 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4234)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   br label %common.ret9201
 
 4235:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.267, i64 noundef 23) #3
-  %4236 = getelementptr inbounds i8, ptr %2, i64 8
+  %4236 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4236)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.268, i64 noundef 10) #3
-  %4237 = getelementptr inbounds i8, ptr %2, i64 24
+  %4237 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4238 = load i64, ptr %4237, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %4238) #3
   %4239 = load i64, ptr %4237, align 8
@@ -11240,7 +11240,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph8913:                                       ; preds = %4235
   %4240 = add i64 %4239, -1
-  %4241 = getelementptr inbounds i8, ptr %2, i64 40
+  %4241 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.pre9086 = load i64, ptr %3, align 8
   br label %4242
 
@@ -11266,12 +11266,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge8914:                                  ; preds = %4242, %4235
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %4252 = getelementptr inbounds i8, ptr %2, i64 48
+  %4252 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4252)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4253 = load ptr, ptr %4252, align 8
-  %4254 = getelementptr inbounds i8, ptr %2, i64 56
+  %4254 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4255 = load ptr, ptr %4254, align 8
   %4256 = ptrtoint ptr %4255 to i64
   %4257 = ptrtoint ptr %4253 to i64
@@ -11282,17 +11282,17 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4259:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.269, i64 noundef 24) #3
-  %4260 = getelementptr inbounds i8, ptr %2, i64 8
+  %4260 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4260)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %4261 = getelementptr inbounds i8, ptr %2, i64 24
+  %4261 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4261)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4262 = load ptr, ptr %4261, align 8
-  %4263 = getelementptr inbounds i8, ptr %2, i64 32
+  %4263 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4264 = load ptr, ptr %4263, align 8
   %4265 = ptrtoint ptr %4264 to i64
   %4266 = ptrtoint ptr %4262 to i64
@@ -11305,13 +11305,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %4268 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %4269 = getelementptr inbounds i8, ptr %2, i64 40
+  %4269 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4270 = load ptr, ptr %4269, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4270, ptr noundef %3)
   store i64 %4268, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.149, i64 noundef 21) #3
-  %4271 = getelementptr inbounds i8, ptr %2, i64 48
+  %4271 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4272 = load ptr, ptr %4271, align 8
   %4273 = icmp eq ptr %4272, null
   br i1 %4273, label %4274, label %4275
@@ -11325,7 +11325,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4271)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4276 = load ptr, ptr %4271, align 8
-  %4277 = getelementptr inbounds i8, ptr %2, i64 56
+  %4277 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4278 = load ptr, ptr %4277, align 8
   %4279 = ptrtoint ptr %4278 to i64
   %4280 = ptrtoint ptr %4276 to i64
@@ -11337,7 +11337,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 4282:                                             ; preds = %4275, %4274
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %4283 = getelementptr inbounds i8, ptr %2, i64 64
+  %4283 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4284 = load ptr, ptr %4283, align 8
   %4285 = icmp eq ptr %4284, null
   br i1 %4285, label %4286, label %4287
@@ -11359,7 +11359,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 4290:                                             ; preds = %4287, %4286
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.82, i64 noundef 15) #3
-  %4291 = getelementptr inbounds i8, ptr %2, i64 72
+  %4291 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4292 = load ptr, ptr %4291, align 8
   %4293 = icmp eq ptr %4292, null
   br i1 %4293, label %4294, label %4295
@@ -11381,7 +11381,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 4298:                                             ; preds = %4295, %4294
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.45, i64 noundef 20) #3
-  %4299 = getelementptr inbounds i8, ptr %2, i64 80
+  %4299 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %4300 = load ptr, ptr %4299, align 8
   %4301 = icmp eq ptr %4300, null
   br i1 %4301, label %4302, label %4303
@@ -11395,7 +11395,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4299)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4304 = load ptr, ptr %4299, align 8
-  %4305 = getelementptr inbounds i8, ptr %2, i64 88
+  %4305 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %4306 = load ptr, ptr %4305, align 8
   %4307 = ptrtoint ptr %4306 to i64
   %4308 = ptrtoint ptr %4304 to i64
@@ -11406,12 +11406,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4310:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.270, i64 noundef 23) #3
-  %4311 = getelementptr inbounds i8, ptr %2, i64 8
+  %4311 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4311)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %4312 = getelementptr inbounds i8, ptr %2, i64 2
+  %4312 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %4313 = load i16, ptr %4312, align 2
   %4314 = and i16 %4313, 1
   %.not8735.not = icmp eq i16 %4314, 0
@@ -11429,12 +11429,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %4317 = getelementptr inbounds i8, ptr %2, i64 24
+  %4317 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4317)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4318 = load ptr, ptr %4317, align 8
-  %4319 = getelementptr inbounds i8, ptr %2, i64 32
+  %4319 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4320 = load ptr, ptr %4319, align 8
   %4321 = ptrtoint ptr %4320 to i64
   %4322 = ptrtoint ptr %4318 to i64
@@ -11443,7 +11443,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %4324 = getelementptr inbounds i8, ptr %2, i64 40
+  %4324 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4325 = load ptr, ptr %4324, align 8
   %4326 = icmp eq ptr %4325, null
   br i1 %4326, label %4327, label %4328
@@ -11457,7 +11457,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4324)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4329 = load ptr, ptr %4324, align 8
-  %4330 = getelementptr inbounds i8, ptr %2, i64 48
+  %4330 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4331 = load ptr, ptr %4330, align 8
   %4332 = ptrtoint ptr %4331 to i64
   %4333 = ptrtoint ptr %4329 to i64
@@ -11473,13 +11473,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %4336 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %4337 = getelementptr inbounds i8, ptr %2, i64 56
+  %4337 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4338 = load ptr, ptr %4337, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4338, ptr noundef %3)
   store i64 %4336, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %4339 = getelementptr inbounds i8, ptr %2, i64 64
+  %4339 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4340 = load ptr, ptr %4339, align 8
   %4341 = icmp eq ptr %4340, null
   br i1 %4341, label %4342, label %4343
@@ -11500,17 +11500,17 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4346:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.272, i64 noundef 22) #3
-  %4347 = getelementptr inbounds i8, ptr %2, i64 8
+  %4347 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4347)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %4348 = getelementptr inbounds i8, ptr %2, i64 24
+  %4348 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4348)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4349 = load ptr, ptr %4348, align 8
-  %4350 = getelementptr inbounds i8, ptr %2, i64 32
+  %4350 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4351 = load ptr, ptr %4350, align 8
   %4352 = ptrtoint ptr %4351 to i64
   %4353 = ptrtoint ptr %4349 to i64
@@ -11519,7 +11519,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.81, i64 noundef 15) #3
-  %4355 = getelementptr inbounds i8, ptr %2, i64 40
+  %4355 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4356 = load i64, ptr %4355, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.19, i64 noundef %4356) #3
   %4357 = load i64, ptr %4355, align 8
@@ -11528,7 +11528,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 .lr.ph:                                           ; preds = %4346
   %4358 = add i64 %4357, -1
-  %4359 = getelementptr inbounds i8, ptr %2, i64 56
+  %4359 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.pre9085 = load i64, ptr %3, align 8
   br label %4360
 
@@ -11554,7 +11554,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 ._crit_edge:                                      ; preds = %4360, %4346
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %4370 = getelementptr inbounds i8, ptr %2, i64 64
+  %4370 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4371 = load ptr, ptr %4370, align 8
   %4372 = icmp eq ptr %4371, null
   br i1 %4372, label %4373, label %4374
@@ -11575,12 +11575,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4377:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.273, i64 noundef 23) #3
-  %4378 = getelementptr inbounds i8, ptr %2, i64 8
+  %4378 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4378)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %4379 = getelementptr inbounds i8, ptr %2, i64 2
+  %4379 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %4380 = load i16, ptr %4379, align 2
   %4381 = and i16 %4380, 1
   %.not8734.not = icmp eq i16 %4381, 0
@@ -11598,12 +11598,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %4384 = getelementptr inbounds i8, ptr %2, i64 24
+  %4384 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4384)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4385 = load ptr, ptr %4384, align 8
-  %4386 = getelementptr inbounds i8, ptr %2, i64 32
+  %4386 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4387 = load ptr, ptr %4386, align 8
   %4388 = ptrtoint ptr %4387 to i64
   %4389 = ptrtoint ptr %4385 to i64
@@ -11612,7 +11612,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %4391 = getelementptr inbounds i8, ptr %2, i64 40
+  %4391 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4392 = load ptr, ptr %4391, align 8
   %4393 = icmp eq ptr %4392, null
   br i1 %4393, label %4394, label %4395
@@ -11626,7 +11626,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4391)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4396 = load ptr, ptr %4391, align 8
-  %4397 = getelementptr inbounds i8, ptr %2, i64 48
+  %4397 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4398 = load ptr, ptr %4397, align 8
   %4399 = ptrtoint ptr %4398 to i64
   %4400 = ptrtoint ptr %4396 to i64
@@ -11642,13 +11642,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %4403 = load i64, ptr %3, align 8
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
-  %4404 = getelementptr inbounds i8, ptr %2, i64 56
+  %4404 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4405 = load ptr, ptr %4404, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4405, ptr noundef %3)
   store i64 %4403, ptr %3, align 8
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 15) #3
-  %4406 = getelementptr inbounds i8, ptr %2, i64 64
+  %4406 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4407 = load ptr, ptr %4406, align 8
   %4408 = icmp eq ptr %4407, null
   br i1 %4408, label %4409, label %4410
@@ -11669,12 +11669,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4413:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.274, i64 noundef 25) #3
-  %4414 = getelementptr inbounds i8, ptr %2, i64 8
+  %4414 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4414)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef 10) #3
-  %4415 = getelementptr inbounds i8, ptr %2, i64 2
+  %4415 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %4416 = load i16, ptr %4415, align 2
   %4417 = and i16 %4416, 1
   %.not.not = icmp eq i16 %4417, 0
@@ -11708,12 +11708,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef 16) #3
-  %4423 = getelementptr inbounds i8, ptr %2, i64 24
+  %4423 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4423)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4424 = load ptr, ptr %4423, align 8
-  %4425 = getelementptr inbounds i8, ptr %2, i64 32
+  %4425 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4426 = load ptr, ptr %4425, align 8
   %4427 = ptrtoint ptr %4426 to i64
   %4428 = ptrtoint ptr %4424 to i64
@@ -11722,12 +11722,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 16) #3
-  %4430 = getelementptr inbounds i8, ptr %2, i64 40
+  %4430 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4430)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4431 = load ptr, ptr %4430, align 8
-  %4432 = getelementptr inbounds i8, ptr %2, i64 48
+  %4432 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4433 = load ptr, ptr %4432, align 8
   %4434 = ptrtoint ptr %4433 to i64
   %4435 = ptrtoint ptr %4431 to i64
@@ -11736,12 +11736,12 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.27, i64 noundef 16) #3
-  %4437 = getelementptr inbounds i8, ptr %2, i64 56
+  %4437 = getelementptr inbounds nuw i8, ptr %2, i64 56
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4437)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4438 = load ptr, ptr %4437, align 8
-  %4439 = getelementptr inbounds i8, ptr %2, i64 64
+  %4439 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4440 = load ptr, ptr %4439, align 8
   %4441 = ptrtoint ptr %4440 to i64
   %4442 = ptrtoint ptr %4438 to i64
@@ -11751,7 +11751,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.205, i64 noundef 14) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.206, i64 noundef 2) #3
-  %4444 = getelementptr inbounds i8, ptr %2, i64 72
+  %4444 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4445 = tail call ptr @pm_string_source(ptr noundef nonnull %4444) #3
   %4446 = tail call i64 @pm_string_length(ptr noundef nonnull %4444) #3
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4445, i64 noundef %4446, i32 noundef 0) #3
@@ -11760,17 +11760,17 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4447:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.275, i64 noundef 23) #3
-  %4448 = getelementptr inbounds i8, ptr %2, i64 8
+  %4448 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4448)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef 16) #3
-  %4449 = getelementptr inbounds i8, ptr %2, i64 24
+  %4449 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #3
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4449)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4450 = load ptr, ptr %4449, align 8
-  %4451 = getelementptr inbounds i8, ptr %2, i64 32
+  %4451 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4452 = load ptr, ptr %4451, align 8
   %4453 = ptrtoint ptr %4452 to i64
   %4454 = ptrtoint ptr %4450 to i64
@@ -11779,7 +11779,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.113, i64 noundef 15) #3
-  %4456 = getelementptr inbounds i8, ptr %2, i64 40
+  %4456 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4457 = load ptr, ptr %4456, align 8
   %4458 = icmp eq ptr %4457, null
   br i1 %4458, label %4459, label %4460
@@ -11793,7 +11793,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4456)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4461 = load ptr, ptr %4456, align 8
-  %4462 = getelementptr inbounds i8, ptr %2, i64 48
+  %4462 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4463 = load ptr, ptr %4462, align 8
   %4464 = ptrtoint ptr %4463 to i64
   %4465 = ptrtoint ptr %4461 to i64
@@ -11805,7 +11805,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 4467:                                             ; preds = %4460, %4459
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 14) #3
-  %4468 = getelementptr inbounds i8, ptr %2, i64 56
+  %4468 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4469 = load ptr, ptr %4468, align 8
   %4470 = icmp eq ptr %4469, null
   br i1 %4470, label %4471, label %4472
@@ -11827,7 +11827,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 4475:                                             ; preds = %4472, %4471
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.114, i64 noundef 15) #3
-  %4476 = getelementptr inbounds i8, ptr %2, i64 64
+  %4476 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4477 = load ptr, ptr %4476, align 8
   %4478 = icmp eq ptr %4477, null
   br i1 %4478, label %4479, label %4480
@@ -11841,7 +11841,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4476)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #3
   %4481 = load ptr, ptr %4476, align 8
-  %4482 = getelementptr inbounds i8, ptr %2, i64 72
+  %4482 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4483 = load ptr, ptr %4482, align 8
   %4484 = ptrtoint ptr %4483 to i64
   %4485 = ptrtoint ptr %4481 to i64
@@ -11857,15 +11857,15 @@ declare void @pm_buffer_append_string(ptr noundef, ptr noundef, i64 noundef) loc
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 552
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 616
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 616
   %7 = load i32, ptr %6, align 8
   %8 = tail call i64 @pm_newline_list_line_column(ptr noundef nonnull %4, ptr noundef %5, i32 noundef %7) #3
   %.sroa.01.0.extract.trunc = trunc i64 %8 to i32
   %.sroa.22.0.extract.shift = lshr i64 %8, 32
   %.sroa.22.0.extract.trunc = trunc nuw i64 %.sroa.22.0.extract.shift to i32
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %6, align 8
   %12 = tail call i64 @pm_newline_list_line_column(ptr noundef nonnull %4, ptr noundef %10, i32 noundef %11) #3
@@ -11886,9 +11886,9 @@ declare void @pm_buffer_append_format(ptr noundef, ptr noundef, ...) local_unnam
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 528
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %5 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %4, i32 noundef %2) #3
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
   %9 = load ptr, ptr %5, align 8

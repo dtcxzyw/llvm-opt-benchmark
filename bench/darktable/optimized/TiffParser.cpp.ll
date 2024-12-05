@@ -142,9 +142,9 @@ $_ZZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKczE3buf = comdat an
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN8rawspeed10TiffParserC2ENS_6BufferE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %0, ptr %1, i32 %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8, !tbaa !6
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %5, align 8, !tbaa !10
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10TiffParserE, i64 16), ptr %0, align 8, !tbaa !12
   ret void
@@ -153,9 +153,9 @@ define hidden void @_ZN8rawspeed10TiffParserC2ENS_6BufferE(ptr nocapture noundef
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed10TiffParser10getDecoderEPKNS_14CameraMetaDataE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture readnone %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.2", align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !10
   call void @_ZN8rawspeed10TiffParser5parseEPNS_7TiffIFDENS_6BufferE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %4, ptr noundef null, ptr %6, i32 %8)
   %9 = load ptr, ptr %5, align 8, !tbaa !6
@@ -170,8 +170,8 @@ define hidden void @_ZN8rawspeed10TiffParser10getDecoderEPKNS_14CameraMetaDataE(
 
 14:                                               ; preds = %11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %12, align 8, !tbaa !12
-  %15 = getelementptr inbounds i8, ptr %12, i64 56
-  %16 = getelementptr inbounds i8, ptr %12, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   invoke void @_ZNSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %17)
           to label %21 unwind label %18
@@ -184,9 +184,9 @@ define hidden void @_ZN8rawspeed10TiffParser10getDecoderEPKNS_14CameraMetaDataE(
   unreachable
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %12, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !19
-  %24 = getelementptr inbounds i8, ptr %12, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !21
   %26 = icmp eq ptr %23, %25
   br i1 %26, label %39, label %.preheader
@@ -199,14 +199,14 @@ define hidden void @_ZN8rawspeed10TiffParser10getDecoderEPKNS_14CameraMetaDataE(
 
 30:                                               ; preds = %.preheader
   %31 = load ptr, ptr %28, align 8, !tbaa !12
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(104) %28) #22
   br label %34
 
 34:                                               ; preds = %30, %.preheader
   store ptr null, ptr %27, align 8, !tbaa !6
-  %35 = getelementptr inbounds i8, ptr %27, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %36 = icmp eq ptr %35, %25
   br i1 %36, label %37, label %.preheader, !llvm.loop !22
 
@@ -336,8 +336,8 @@ define hidden void @_ZN8rawspeed10TiffParser11makeDecoderESt10unique_ptrINS_11Ti
 
 58:                                               ; preds = %54, %51, %48, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7
   %59 = phi i64 [ 0, %7 ], [ 16, %10 ], [ 32, %13 ], [ 48, %16 ], [ 64, %19 ], [ 80, %22 ], [ 96, %25 ], [ 112, %28 ], [ 128, %31 ], [ 144, %34 ], [ 160, %37 ], [ 176, %40 ], [ 192, %43 ], [ 208, %46 ], [ 224, %48 ], [ 240, %51 ], [ 256, %54 ]
-  %60 = getelementptr inbounds i8, ptr @_ZN8rawspeed10TiffParser3MapE, i64 %59
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr @_ZN8rawspeed10TiffParser3MapE, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !24
   tail call void %62(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2, i32 %3)
   ret void
@@ -363,13 +363,13 @@ define hidden void @_ZN8rawspeed10TiffParser5parseEPNS_7TiffIFDENS_6BufferE(ptr 
   ]
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !26
   %16 = icmp eq i8 %15, 73
   br i1 %16, label %22, label %21
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %2, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !26
   %20 = icmp eq i8 %19, 77
   br i1 %20, label %22, label %21
@@ -389,7 +389,7 @@ define hidden void @_ZN8rawspeed10TiffParser5parseEPNS_7TiffIFDENS_6BufferE(ptr 
   unreachable
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %2, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %29 = load i16, ptr %28, align 1
   %30 = tail call i16 @llvm.bswap.i16(i16 %29)
   %31 = select i1 %23, i16 %29, i16 %30
@@ -423,21 +423,21 @@ define hidden void @_ZN8rawspeed10TiffParser5parseEPNS_7TiffIFDENS_6BufferE(ptr 
 
 40:                                               ; preds = %33
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed11TiffRootIFDE, i64 16), ptr %34, align 8, !tbaa !12, !noalias !27
-  %41 = getelementptr inbounds i8, ptr %34, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 104
   store ptr %2, ptr %41, align 8, !noalias !27
-  %42 = getelementptr inbounds i8, ptr %34, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 112
   store i64 %35, ptr %42, align 8, !noalias !27
   store ptr %34, ptr %0, align 8, !tbaa !6, !alias.scope !27
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #22
-  %43 = getelementptr inbounds i8, ptr %5, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %43, align 8, !tbaa !30
-  %44 = getelementptr inbounds i8, ptr %5, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %44, align 8, !tbaa !14
-  %45 = getelementptr inbounds i8, ptr %5, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %43, ptr %45, align 8, !tbaa !31
-  %46 = getelementptr inbounds i8, ptr %5, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %43, ptr %46, align 8, !tbaa !32
-  %47 = getelementptr inbounds i8, ptr %5, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 0, ptr %47, align 8, !tbaa !33
   %48 = icmp samesign ult i32 %3, 8
   br i1 %48, label %49, label %51
@@ -450,7 +450,7 @@ define hidden void @_ZN8rawspeed10TiffParser5parseEPNS_7TiffIFDENS_6BufferE(ptr 
   unreachable
 
 51:                                               ; preds = %40
-  %52 = getelementptr inbounds i8, ptr %2, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %53 = load i32, ptr %52, align 1
   %54 = call i32 @llvm.bswap.i32(i32 %53)
   %55 = select i1 %23, i32 %53, i32 %54
@@ -458,7 +458,7 @@ define hidden void @_ZN8rawspeed10TiffParser5parseEPNS_7TiffIFDENS_6BufferE(ptr 
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %34, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %34, i64 32
   br label %69
 
 59:                                               ; preds = %83
@@ -514,7 +514,7 @@ define hidden void @_ZN8rawspeed10TiffParser5parseEPNS_7TiffIFDENS_6BufferE(ptr 
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %77, align 8, !tbaa !12
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   call void %82(ptr noundef nonnull align 8 dereferenceable(104) %77) #22
   br label %83
@@ -524,7 +524,7 @@ define hidden void @_ZN8rawspeed10TiffParser5parseEPNS_7TiffIFDENS_6BufferE(ptr 
   %84 = load ptr, ptr %58, align 8, !tbaa !6
   %85 = getelementptr inbounds i8, ptr %84, i64 -8
   %86 = load ptr, ptr %85, align 8, !tbaa !6
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i32, ptr %87, align 8, !tbaa !37
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %59, label %69, !llvm.loop !47
@@ -543,7 +543,7 @@ define hidden void @_ZN8rawspeed10TiffParser5parseEPNS_7TiffIFDENS_6BufferE(ptr 
 
 96:                                               ; preds = %92
   %97 = load ptr, ptr %94, align 8, !tbaa !12
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8
   call void %99(ptr noundef nonnull align 8 dereferenceable(104) %94) #22
   br label %100
@@ -570,8 +570,8 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN8rawspeed11TiffRootIFDESt14d
 
 4:                                                ; preds = %1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %2, align 8, !tbaa !12
-  %5 = getelementptr inbounds i8, ptr %2, i64 56
-  %6 = getelementptr inbounds i8, ptr %2, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   invoke void @_ZNSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7)
           to label %11 unwind label %8
@@ -584,9 +584,9 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN8rawspeed11TiffRootIFDESt14d
   unreachable
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !19
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !21
   %16 = icmp eq ptr %13, %15
   br i1 %16, label %29, label %.preheader
@@ -599,14 +599,14 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN8rawspeed11TiffRootIFDESt14d
 
 20:                                               ; preds = %.preheader
   %21 = load ptr, ptr %18, align 8, !tbaa !12
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(104) %18) #22
   br label %24
 
 24:                                               ; preds = %20, %.preheader
   store ptr null, ptr %17, align 8, !tbaa !6
-  %25 = getelementptr inbounds i8, ptr %17, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %26 = icmp eq ptr %25, %15
   br i1 %26, label %27, label %.preheader, !llvm.loop !48
 
@@ -667,7 +667,7 @@ declare void @_ZN8rawspeed7TiffIFD3addESt10unique_ptrIS0_St14default_deleteIS0_E
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed11NORangesSetINS_6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   invoke void @_ZNSt8_Rb_treeIN8rawspeed6BufferES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %7 unwind label %4
@@ -736,12 +736,12 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10IiqD
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !57
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !57
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !57
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10IiqDecoderE, i64 16), ptr %5, align 8, !tbaa !12, !noalias !57
-  %11 = getelementptr inbounds i8, ptr %5, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 0, ptr %11, align 8, !tbaa !60, !noalias !57
   store ptr %5, ptr %0, align 8, !tbaa !52
   ret void
@@ -762,12 +762,12 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10Cr2D
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !83
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !83
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !83
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10Cr2DecoderE, i64 16), ptr %5, align 8, !tbaa !12, !noalias !83
-  %11 = getelementptr inbounds i8, ptr %5, i64 108
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 108
   store i32 0, ptr %11, align 4, !tbaa !86, !noalias !83
   store ptr %5, ptr %0, align 8, !tbaa !52
   ret void
@@ -788,7 +788,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10NefD
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !88
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !88
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !88
@@ -812,7 +812,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10OrfD
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !91
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !91
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !91
@@ -836,14 +836,14 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10ArwD
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !94
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !94
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !94
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed10ArwDecoderE, i64 16), ptr %5, align 8, !tbaa !12, !noalias !94
-  %11 = getelementptr inbounds i8, ptr %5, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 0, ptr %11, align 8, !tbaa !97, !noalias !94
-  %12 = getelementptr inbounds i8, ptr %5, i64 108
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 108
   store i32 0, ptr %12, align 4, !tbaa !99, !noalias !94
   store ptr %5, ptr %0, align 8, !tbaa !52
   ret void
@@ -864,7 +864,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10PefD
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !100
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !100
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !100
@@ -888,7 +888,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10Rw2D
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !103
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !103
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !103
@@ -912,7 +912,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10SrwD
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !106
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !106
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !106
@@ -936,7 +936,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10MefD
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !109
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !109
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !109
@@ -960,7 +960,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10DcrD
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !112
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !112
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !112
@@ -985,7 +985,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10DcsD
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !115
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !115
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !115
@@ -1009,7 +1009,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10KdcD
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !118
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !118
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !118
@@ -1033,7 +1033,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10ErfD
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !121
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !121
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !121
@@ -1057,7 +1057,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_10StiD
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !124
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !124
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !124
@@ -1081,7 +1081,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10TiffParser11constructorINS_14Thre
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %10 = load i64, ptr %1, align 8, !tbaa !6, !noalias !127
   store i64 %10, ptr %9, align 8, !tbaa !6, !noalias !127
   store ptr null, ptr %1, align 8, !tbaa !6, !noalias !127
@@ -1195,10 +1195,10 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN8rawspeed6BufferES1_St9_Identit
 
 .preheader:                                       ; preds = %2, %.preheader
   %4 = phi ptr [ %8, %.preheader ], [ %1, %2 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !130
   tail call void @_ZNSt8_Rb_treeIN8rawspeed6BufferES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !131
   tail call void @_ZdlPv(ptr noundef nonnull %4) #23
   %9 = icmp eq ptr %8, null
@@ -1228,19 +1228,19 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_S
 
 .preheader:                                       ; preds = %2, %16
   %4 = phi ptr [ %8, %16 ], [ %1, %2 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !130
   tail call void @_ZNSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !131
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !6
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %.preheader
   %13 = load ptr, ptr %10, align 8, !tbaa !12
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(52) %10) #22
   br label %16

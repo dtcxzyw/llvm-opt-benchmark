@@ -18,7 +18,7 @@ define i32 @mca_coll_inter_reduce_inter(ptr noundef %0, ptr noundef %1, i32 noun
 
 10:                                               ; preds = %8
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   %15 = icmp eq i32 %2, 0
@@ -26,14 +26,14 @@ define i32 @mca_coll_inter_reduce_inter(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %or.cond.i, label %opal_datatype_span.exit, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %22 = load i64, ptr %21, align 8
   %23 = sub nsw i64 %20, %22
-  %24 = getelementptr inbounds i8, ptr %3, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %25 = load i64, ptr %24, align 8
   %26 = sub i64 %25, %18
   %27 = add nsw i64 %11, -1
@@ -51,13 +51,13 @@ opal_datatype_span.exit:                          ; preds = %10, %16
 32:                                               ; preds = %opal_datatype_span.exit
   %33 = sub i64 0, %.042
   %34 = getelementptr inbounds i8, ptr %30, i64 %33
-  %35 = getelementptr inbounds i8, ptr %6, i64 264
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 328
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 328
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 176
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 176
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 184
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 184
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 %40(ptr noundef %0, ptr noundef nonnull %34, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef 0, ptr noundef %36, ptr noundef %42) #4
   %44 = icmp eq i32 %.val, 0

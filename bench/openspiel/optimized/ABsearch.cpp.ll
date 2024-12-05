@@ -238,7 +238,7 @@ define noundef zeroext i1 @_Z9ABsearch1P3posiiP10ThreadData(ptr noundef nonnull 
   %11 = add nsw i32 %10, 1
   %12 = and i32 %11, 3
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 1
   %17 = xor i1 %16, true
@@ -314,7 +314,7 @@ define noundef zeroext i1 @_Z9ABsearch1P3posiiP10ThreadData(ptr noundef nonnull 
   store i16 %63, ptr %61, align 2
   %64 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %56
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds [4 x i32], ptr %39, i64 0, i64 %55
+  %66 = getelementptr inbounds nuw [4 x i32], ptr %39, i64 0, i64 %55
   %67 = load i32, ptr %66, align 4
   %68 = sub nsw i32 %67, %65
   store i32 %68, ptr %66, align 4
@@ -344,7 +344,7 @@ define noundef zeroext i1 @_Z9ABsearch1P3posiiP10ThreadData(ptr noundef nonnull 
   store i16 %89, ptr %87, align 2
   %90 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %82
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds [4 x i32], ptr %39, i64 0, i64 %81
+  %92 = getelementptr inbounds nuw [4 x i32], ptr %39, i64 0, i64 %81
   %93 = load i32, ptr %92, align 4
   %94 = add nsw i32 %93, %91
   store i32 %94, ptr %92, align 4
@@ -475,7 +475,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %31, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef %17, i32 noundef %14, ptr noundef nonnull %32, ptr noundef nonnull %33, i32 noundef %.0208, ptr noundef nonnull align 1 dereferenceable(1) %5)
   %.not = icmp eq ptr %37, null
@@ -488,15 +488,15 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
 
 40:                                               ; preds = %.preheader236, %40
   %indvars.iv = phi i64 [ 0, %.preheader236 ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds [4 x i16], ptr %32, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i16], ptr %32, i64 0, i64 %indvars.iv
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i64
-  %44 = getelementptr inbounds [4 x i8], ptr %38, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 0, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1
   %46 = sext i8 %45 to i64
   %47 = getelementptr inbounds [8192 x [14 x i16]], ptr @winRanks, i64 0, i64 %43, i64 %46
   %48 = load i16, ptr %47, align 2
-  %49 = getelementptr inbounds [50 x [4 x i16]], ptr %39, i64 0, i64 %12, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [50 x [4 x i16]], ptr %39, i64 0, i64 %12, i64 %indvars.iv
   store i16 %48, ptr %49, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -513,7 +513,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   %55 = load i8, ptr %54, align 1
   %56 = sext i8 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 4124
-  %58 = getelementptr inbounds [50 x %struct.moveType], ptr %57, i64 0, i64 %12
+  %58 = getelementptr inbounds nuw [50 x %struct.moveType], ptr %57, i64 0, i64 %12
   store i32 %56, ptr %58, align 4
   %59 = load i8, ptr %51, align 1
   %60 = sext i8 %59 to i32
@@ -622,7 +622,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %114 = load ptr, ptr %111, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 72
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 72
   %116 = load ptr, ptr %115, align 8
   %117 = call noundef ptr %116(ptr noundef nonnull align 8 dereferenceable(8) %111, i32 noundef %17, i32 noundef %14, ptr noundef nonnull %112, ptr noundef nonnull %113, i32 noundef %.0212, ptr noundef nonnull align 1 dereferenceable(1) %7)
   %.not220 = icmp eq ptr %117, null
@@ -635,10 +635,10 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
 
 120:                                              ; preds = %.preheader235, %120
   %indvars.iv261 = phi i64 [ 0, %.preheader235 ], [ %indvars.iv.next262, %120 ]
-  %121 = getelementptr inbounds [4 x i16], ptr %112, i64 0, i64 %indvars.iv261
+  %121 = getelementptr inbounds nuw [4 x i16], ptr %112, i64 0, i64 %indvars.iv261
   %122 = load i16, ptr %121, align 2
   %123 = zext i16 %122 to i64
-  %124 = getelementptr inbounds [4 x i8], ptr %118, i64 0, i64 %indvars.iv261
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 0, i64 %indvars.iv261
   %125 = load i8, ptr %124, align 1
   %126 = sext i8 %125 to i64
   %127 = getelementptr inbounds [8192 x [14 x i16]], ptr @winRanks, i64 0, i64 %123, i64 %126
@@ -883,7 +883,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   %279 = load ptr, ptr %278, align 8
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %281 = load ptr, ptr %279, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 80
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 80
   %283 = load ptr, ptr %282, align 8
   call void %283(ptr noundef nonnull align 8 dereferenceable(8) %279, i32 noundef %17, i32 noundef %14, ptr noundef nonnull %280, ptr noundef nonnull %159, ptr noundef nonnull align 1 dereferenceable(8) %8, i1 noundef zeroext %277)
   br label %.loopexit
@@ -940,7 +940,7 @@ define { i64, i32 } @_Z8EvaluatePK3posiPK10ThreadData(ptr nocapture noundef read
 
 20:                                               ; preds = %18, %16
   %21 = zext nneg i32 %.2 to i64
-  %22 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %48, label %52
@@ -973,7 +973,7 @@ define { i64, i32 } @_Z8EvaluatePK3posiPK10ThreadData(ptr nocapture noundef read
   %.378 = phi i32 [ %.051, %31 ], [ %.4, %33 ]
   %.35677 = phi i16 [ 0, %31 ], [ %.457, %33 ]
   %.36276 = phi i32 [ %.059, %31 ], [ %spec.select69, %33 ]
-  %34 = getelementptr inbounds [4 x [4 x i16]], ptr %0, i64 0, i64 %indvars.iv85, i64 %32
+  %34 = getelementptr inbounds nuw [4 x [4 x i16]], ptr %0, i64 0, i64 %indvars.iv85, i64 %32
   %35 = load i16, ptr %34, align 2
   %.not67 = icmp ne i16 %35, 0
   %36 = zext i1 %.not67 to i32
@@ -991,7 +991,7 @@ define { i64, i32 } @_Z8EvaluatePK3posiPK10ThreadData(ptr nocapture noundef read
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds [4 x i16], ptr %7, i64 0, i64 %32
+  %42 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %32
   store i16 %.457, ptr %42, align 2
   br label %43
 
@@ -1017,7 +1017,7 @@ define { i64, i32 } @_Z8EvaluatePK3posiPK10ThreadData(ptr nocapture noundef read
   %storemerge = phi i32 [ %54, %52 ], [ %51, %48 ]
   store i32 %storemerge, ptr %4, align 8
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.2.0.copyload, 1
@@ -1068,7 +1068,7 @@ define void @_Z5Make1P3posiPK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %30 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %21
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %33 = getelementptr inbounds [4 x i32], ptr %32, i64 0, i64 %20
+  %33 = getelementptr inbounds nuw [4 x i32], ptr %32, i64 0, i64 %20
   %34 = load i32, ptr %33, align 4
   %35 = sub nsw i32 %34, %31
   store i32 %35, ptr %33, align 4
@@ -1089,7 +1089,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   %9 = and i32 %8, 3
   %10 = xor i32 %9, 2
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 1
   %15 = add nsw i32 %2, 3
@@ -1161,7 +1161,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   store i16 %60, ptr %58, align 2
   %61 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %53
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds [4 x i32], ptr %36, i64 0, i64 %52
+  %63 = getelementptr inbounds nuw [4 x i32], ptr %36, i64 0, i64 %52
   %64 = load i32, ptr %63, align 4
   %65 = sub nsw i32 %64, %62
   store i32 %65, ptr %63, align 4
@@ -1191,7 +1191,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   store i16 %86, ptr %84, align 2
   %87 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %79
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds [4 x i32], ptr %36, i64 0, i64 %78
+  %89 = getelementptr inbounds nuw [4 x i32], ptr %36, i64 0, i64 %78
   %90 = load i32, ptr %89, align 4
   %91 = add nsw i32 %90, %88
   store i32 %91, ptr %89, align 4
@@ -1264,7 +1264,7 @@ define void @_Z5Undo2P3posiRK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %26 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %17
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = getelementptr inbounds [4 x i32], ptr %28, i64 0, i64 %16
+  %29 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %16
   %30 = load i32, ptr %29, align 4
   %31 = add nsw i32 %30, %27
   store i32 %31, ptr %29, align 4
@@ -1310,7 +1310,7 @@ define void @_Z5Make2P3posiPK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %30 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %21
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %33 = getelementptr inbounds [4 x i32], ptr %32, i64 0, i64 %20
+  %33 = getelementptr inbounds nuw [4 x i32], ptr %32, i64 0, i64 %20
   %34 = load i32, ptr %33, align 4
   %35 = sub nsw i32 %34, %31
   store i32 %35, ptr %33, align 4
@@ -1332,7 +1332,7 @@ define noundef zeroext i1 @_Z9ABsearch3P3posiiP10ThreadData(ptr noundef nonnull 
   %10 = add nsw i32 %9, 3
   %11 = and i32 %10, 3
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 1
   %16 = shl nsw i64 %7, 3
@@ -1429,7 +1429,7 @@ define noundef zeroext i1 @_Z9ABsearch3P3posiiP10ThreadData(ptr noundef nonnull 
   store i16 %80, ptr %78, align 2
   %81 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %73
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds [4 x i32], ptr %39, i64 0, i64 %72
+  %83 = getelementptr inbounds nuw [4 x i32], ptr %39, i64 0, i64 %72
   %84 = load i32, ptr %83, align 4
   %85 = add nsw i32 %84, %82
   store i32 %85, ptr %83, align 4
@@ -1443,7 +1443,7 @@ define noundef zeroext i1 @_Z9ABsearch3P3posiiP10ThreadData(ptr noundef nonnull 
 
 .lr.ph.i:                                         ; preds = %61, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %61 ]
-  %91 = getelementptr inbounds [4 x %struct.WinnerEntryType], ptr %44, i64 0, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [4 x %struct.WinnerEntryType], ptr %44, i64 0, i64 %indvars.iv.i
   %92 = load i32, ptr %91, align 4
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %94 = load i32, ptr %93, align 4
@@ -1490,7 +1490,7 @@ _Z5Undo0P3posiRK8moveTypePK10ThreadData.exit:     ; preds = %.lr.ph.i, %61
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.preheader ], [ 0, %117 ]
   %119 = getelementptr inbounds [50 x [4 x i16]], ptr %29, i64 0, i64 %35, i64 %indvars.iv98
   %120 = load i16, ptr %119, align 2
-  %121 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %indvars.iv98
+  %121 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %indvars.iv98
   %122 = load i16, ptr %121, align 2
   %123 = or i16 %122, %120
   %124 = getelementptr inbounds [50 x [4 x i16]], ptr %29, i64 0, i64 %7, i64 %indvars.iv98
@@ -1509,7 +1509,7 @@ _Z5Undo0P3posiRK8moveTypePK10ThreadData.exit:     ; preds = %.lr.ph.i, %61
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader78 ], [ 0, %117 ]
   %128 = getelementptr inbounds [50 x [4 x i16]], ptr %29, i64 0, i64 %35, i64 %indvars.iv
   %129 = load i16, ptr %128, align 2
-  %130 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %indvars.iv
   %131 = load i16, ptr %130, align 2
   %132 = or i16 %131, %129
   %133 = getelementptr inbounds [50 x [4 x i16]], ptr %29, i64 0, i64 %7, i64 %indvars.iv
@@ -1554,7 +1554,7 @@ define void @_Z5Undo3P3posiRK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %26 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %17
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = getelementptr inbounds [4 x i32], ptr %28, i64 0, i64 %16
+  %29 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %16
   %30 = load i32, ptr %29, align 4
   %31 = add nsw i32 %30, %27
   store i32 %31, ptr %29, align 4
@@ -1632,7 +1632,7 @@ define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, 
   %58 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %49
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %61 = getelementptr inbounds [4 x i32], ptr %60, i64 0, i64 %48
+  %61 = getelementptr inbounds nuw [4 x i32], ptr %60, i64 0, i64 %48
   %62 = load i32, ptr %61, align 4
   %63 = sub nsw i32 %62, %59
   store i32 %63, ptr %61, align 4
@@ -1653,7 +1653,7 @@ define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, 
 
 75:                                               ; preds = %40, %115
   %indvars.iv = phi i64 [ 0, %40 ], [ %indvars.iv.next, %115 ]
-  %76 = getelementptr inbounds [4 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv
   %77 = load i32, ptr %76, align 4
   %.not = icmp eq i32 %77, 0
   br i1 %.not, label %115, label %78
@@ -1664,7 +1664,7 @@ define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, 
   %81 = getelementptr inbounds [4 x %struct.WinnerEntryType], ptr %71, i64 0, i64 %80
   %82 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %82, ptr %81, align 4
-  %83 = getelementptr inbounds [4 x %struct.highCardType], ptr %72, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x %struct.highCardType], ptr %72, i64 0, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %84, ptr %85, align 4
@@ -1672,7 +1672,7 @@ define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, 
   %87 = load i32, ptr %86, align 4
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 %87, ptr %88, align 4
-  %89 = getelementptr inbounds [4 x %struct.highCardType], ptr %73, i64 0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x %struct.highCardType], ptr %73, i64 0, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 12
   store i32 %90, ptr %91, align 4
@@ -1683,12 +1683,12 @@ define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, 
   %95 = load i32, ptr %70, align 4
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %70, align 4
-  %97 = getelementptr inbounds [4 x i16], ptr %54, i64 0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [4 x i16], ptr %54, i64 0, i64 %indvars.iv
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i64
-  %100 = getelementptr inbounds [8192 x %struct.relRanksType], ptr %74, i64 0, i64 %99
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
-  %102 = getelementptr inbounds [4 x %struct.absRankType], ptr %101, i64 0, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [8192 x %struct.relRanksType], ptr %74, i64 0, i64 %99
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %102 = getelementptr inbounds nuw [4 x %struct.absRankType], ptr %101, i64 0, i64 %indvars.iv
   %103 = load i8, ptr %102, align 2
   %104 = sext i8 %103 to i32
   store i32 %104, ptr %83, align 4
@@ -1696,8 +1696,8 @@ define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, 
   %106 = load i8, ptr %105, align 1
   %107 = sext i8 %106 to i32
   store i32 %107, ptr %86, align 4
-  %108 = getelementptr inbounds i8, ptr %100, i64 16
-  %109 = getelementptr inbounds [4 x %struct.absRankType], ptr %108, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %109 = getelementptr inbounds nuw [4 x %struct.absRankType], ptr %108, i64 0, i64 %indvars.iv
   %110 = load i8, ptr %109, align 2
   %111 = sext i8 %110 to i32
   store i32 %111, ptr %89, align 4
@@ -1745,7 +1745,7 @@ define void @_Z5Undo0P3posiRK8moveTypePK10ThreadData(ptr nocapture noundef %0, i
   %27 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %18
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = getelementptr inbounds [4 x i32], ptr %29, i64 0, i64 %17
+  %30 = getelementptr inbounds nuw [4 x i32], ptr %29, i64 0, i64 %17
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %31, %28
   store i32 %32, ptr %30, align 4
@@ -1771,7 +1771,7 @@ define void @_Z5Undo0P3posiRK8moveTypePK10ThreadData(ptr nocapture noundef %0, i
 
 47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %48 = getelementptr inbounds [4 x %struct.WinnerEntryType], ptr %44, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x %struct.WinnerEntryType], ptr %44, i64 0, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %51 = load i32, ptr %50, align 4
@@ -1862,7 +1862,7 @@ define void @_Z11Make3SimpleP3posPtiPK8moveTypeP10ThreadData(ptr nocapture nound
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = zext nneg i32 %40 to i64
-  %56 = getelementptr inbounds [4 x i32], ptr %54, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i32], ptr %54, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = sub nsw i32 %57, %53
   store i32 %58, ptr %56, align 4
@@ -1893,7 +1893,7 @@ define void @_Z11Undo0SimpleP3posiRK8moveType(ptr nocapture noundef %0, i32 noun
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr inbounds [4 x i32], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = add nsw i32 %26, %22
   store i32 %27, ptr %25, align 4

@@ -160,7 +160,7 @@ for.body:                                         ; preds = %entry, %for.body
   %i.0.tr = trunc i64 %indvars.iv to i8
   %conv = shl i8 %i.0.tr, 1
   %0 = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @smbuf, i64 0, i64 %0
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @smbuf, i64 0, i64 %0
   store i8 %conv, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -411,7 +411,7 @@ PACKET_forward.exit:                              ; preds = %lor.lhs.false7
   br i1 %tobool15.not, label %return, label %PACKET_get_1.exit12
 
 PACKET_get_1.exit12:                              ; preds = %PACKET_forward.exit
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 254), align 2
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 254), align 2
   %call20 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 57, ptr noundef nonnull @.str.46, i32 noundef 1) #5
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %lor.lhs.false22
@@ -458,7 +458,7 @@ PACKET_forward.exit:                              ; preds = %lor.lhs.false7
   br i1 %tobool15.not, label %return, label %PACKET_get_4.exit24
 
 PACKET_get_4.exit24:                              ; preds = %PACKET_forward.exit
-  %2 = load i32, ptr getelementptr inbounds (i8, ptr @smbuf, i64 251), align 1
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 251), align 1
   %call20 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 74, ptr noundef nonnull @.str.51, i32 noundef 1) #5
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %lor.lhs.false22
@@ -489,7 +489,7 @@ entry:
 
 PACKET_get_net_2.exit:                            ; preds = %entry
   %0 = load i8, ptr @smbuf, align 16
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 1), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 1), align 1
   %call5 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 88, ptr noundef nonnull @.str.55, i32 noundef 1) #5
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %lor.lhs.false7
@@ -509,8 +509,8 @@ PACKET_forward.exit:                              ; preds = %lor.lhs.false7
   br i1 %tobool15.not, label %return, label %PACKET_get_net_2.exit16
 
 PACKET_get_net_2.exit16:                          ; preds = %PACKET_forward.exit
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 253), align 1
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 254), align 2
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 253), align 1
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 254), align 2
   %call20 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 91, ptr noundef nonnull @.str.55, i32 noundef 1) #5
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %lor.lhs.false22
@@ -544,8 +544,8 @@ entry:
 
 PACKET_get_net_3.exit:                            ; preds = %entry
   %0 = load i8, ptr @smbuf, align 16
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 1), align 1
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 2), align 2
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 1), align 1
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 2), align 2
   %call5 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 105, ptr noundef nonnull @.str.59, i32 noundef 1) #5
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %lor.lhs.false7
@@ -568,9 +568,9 @@ PACKET_forward.exit:                              ; preds = %lor.lhs.false7
   br i1 %tobool15.not, label %return, label %PACKET_get_net_3.exit20
 
 PACKET_get_net_3.exit20:                          ; preds = %PACKET_forward.exit
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 252), align 4
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 253), align 1
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 254), align 2
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 252), align 4
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 253), align 1
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 254), align 2
   %call20 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 108, ptr noundef nonnull @.str.59, i32 noundef 1) #5
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %lor.lhs.false22
@@ -607,9 +607,9 @@ entry:
 
 PACKET_get_net_4.exit:                            ; preds = %entry
   %0 = load i8, ptr @smbuf, align 16
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 1), align 1
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 2), align 2
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 3), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 1), align 1
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 2), align 2
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 3), align 1
   %call5 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 122, ptr noundef nonnull @.str.63, i32 noundef 1) #5
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %lor.lhs.false7
@@ -635,10 +635,10 @@ PACKET_forward.exit:                              ; preds = %lor.lhs.false7
   br i1 %tobool15.not, label %return, label %PACKET_get_net_4.exit24
 
 PACKET_get_net_4.exit24:                          ; preds = %PACKET_forward.exit
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 251), align 1
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 252), align 4
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 253), align 1
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 254), align 2
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 251), align 1
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 252), align 4
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 253), align 1
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 254), align 2
   %call20 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 125, ptr noundef nonnull @.str.63, i32 noundef 1) #5
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %lor.lhs.false22
@@ -683,9 +683,9 @@ PACKET_get_sub_packet.exit:                       ; preds = %entry
 
 PACKET_get_net_4.exit:                            ; preds = %PACKET_get_sub_packet.exit
   %0 = load i8, ptr @smbuf, align 16
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 1), align 1
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 2), align 2
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 3), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 1), align 1
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 2), align 2
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 3), align 1
   %call11 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 140, ptr noundef nonnull @.str.67, i32 noundef 1) #5
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %lor.lhs.false13
@@ -721,10 +721,10 @@ PACKET_get_sub_packet.exit19:                     ; preds = %PACKET_forward.exit
   br i1 %tobool31.not, label %return, label %PACKET_get_net_4.exit39
 
 PACKET_get_net_4.exit39:                          ; preds = %PACKET_get_sub_packet.exit19
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 251), align 1
-  %5 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 252), align 4
-  %6 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 253), align 1
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 254), align 2
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 251), align 1
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 252), align 4
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 253), align 1
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 254), align 2
   %call36 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 145, ptr noundef nonnull @.str.67, i32 noundef 1) #5
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %return, label %lor.lhs.false38
@@ -779,19 +779,19 @@ lor.lhs.false7:                                   ; preds = %PACKET_get_bytes.ex
   br i1 %tobool9.not, label %return, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false7
-  %1 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 1), align 1
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 1), align 1
   %call12 = tail call i32 @test_uchar_eq(ptr noundef nonnull @.str.25, i32 noundef 162, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.28, i8 noundef zeroext %1, i8 noundef zeroext 4) #5
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %return, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %lor.lhs.false10
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 2), align 2
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 2), align 2
   %call16 = tail call i32 @test_uchar_eq(ptr noundef nonnull @.str.25, i32 noundef 163, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i8 noundef zeroext %2, i8 noundef zeroext 6) #5
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %lor.lhs.false14
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 3), align 1
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 3), align 1
   %call20 = tail call i32 @test_uchar_eq(ptr noundef nonnull @.str.25, i32 noundef 164, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, i8 noundef zeroext %3, i8 noundef zeroext 8) #5
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %lor.lhs.false22
@@ -897,7 +897,7 @@ PACKET_forward.exit:                              ; preds = %lor.lhs.false22
   br i1 %tobool31.not, label %return, label %PACKET_copy_bytes.exit12
 
 PACKET_copy_bytes.exit12:                         ; preds = %PACKET_forward.exit
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @smbuf, i64 251), align 1
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 251), align 1
   %bytes.sroa.4.0.extract.shift25 = lshr i32 %1, 8
   %bytes.sroa.4.0.extract.trunc26 = trunc i32 %bytes.sroa.4.0.extract.shift25 to i8
   %bytes.sroa.6.0.extract.shift28 = lshr i32 %1, 16
@@ -1014,7 +1014,7 @@ PACKET_forward.exit:                              ; preds = %lor.lhs.false10
 
 if.end.i8:                                        ; preds = %PACKET_forward.exit
   tail call void @CRYPTO_free(ptr noundef %call1.i, ptr noundef nonnull @.str.93, i32 noundef 454) #5
-  %call1.i9 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull getelementptr inbounds (i8, ptr @smbuf, i64 10), i64 noundef 245, ptr noundef nonnull @.str.93, i32 noundef 463) #5
+  %call1.i9 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @smbuf, i64 10), i64 noundef 245, ptr noundef nonnull @.str.93, i32 noundef 463) #5
   %cmp2.i10 = icmp ne ptr %call1.i9, null
   %spec.select29 = select i1 %cmp2.i10, i64 245, i64 0
   %spec.select30 = zext i1 %cmp2.i10 to i32
@@ -1028,7 +1028,7 @@ lor.lhs.false26:                                  ; preds = %if.end.i8
   br i1 %tobool28.not, label %end, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %lor.lhs.false26
-  %call31 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.25, i32 noundef 233, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, ptr noundef %call1.i9, i64 noundef %spec.select29, ptr noundef nonnull getelementptr inbounds (i8, ptr @smbuf, i64 10), i64 noundef %spec.select29) #5
+  %call31 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.25, i32 noundef 233, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, ptr noundef %call1.i9, i64 noundef %spec.select29, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @smbuf, i64 10), i64 noundef %spec.select29) #5
   %tobool32.not = icmp ne i32 %call31, 0
   %spec.select = zext i1 %tobool32.not to i32
   br label %end
@@ -1047,7 +1047,7 @@ entry:
   %buf2 = alloca [10 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buf1, i8 120, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buf2, i8 121, i64 10, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %buf2, i64 5
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buf2, i64 5
   store i8 0, ptr %arrayidx, align 1
   %call3 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 252, ptr noundef nonnull @.str.94, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call3, 0
@@ -1113,7 +1113,7 @@ entry:
   %buf2 = alloca [10 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buf1, i8 120, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buf2, i8 121, i64 10, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %buf2, i64 5
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buf2, i64 5
   store i8 0, ptr %arrayidx, align 1
   %call3 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 277, ptr noundef nonnull @.str.94, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call3, 0
@@ -1164,7 +1164,7 @@ PACKET_get_bytes.exit:                            ; preds = %PACKET_forward.exit
   br i1 %tobool12.not, label %return, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %PACKET_get_bytes.exit
-  %0 = load i8, ptr getelementptr inbounds (i8, ptr @smbuf, i64 1), align 1
+  %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @smbuf, i64 1), align 1
   %call14 = tail call i32 @test_uchar_eq(ptr noundef nonnull @.str.25, i32 noundef 294, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.28, i8 noundef zeroext %0, i8 noundef zeroext 4) #5
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %PACKET_forward.exit11
@@ -1201,7 +1201,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %for.body ]
   %storemerge.tr = trunc i64 %indvars.iv to i8
   %conv = shl i8 %storemerge.tr, 1
-  %arrayidx1 = getelementptr inbounds [255 x i8], ptr %buf1, i64 0, i64 %indvars.iv
+  %arrayidx1 = getelementptr inbounds nuw [255 x i8], ptr %buf1, i64 0, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx1, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 255
@@ -1218,7 +1218,7 @@ lor.lhs.false:                                    ; preds = %for.end
   br i1 %tobool10.not, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buf1, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buf1, i64 1
   %call15 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 362, ptr noundef nonnull @.str.107, i32 noundef 1) #5
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %return, label %lor.lhs.false17
@@ -1230,7 +1230,7 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false.i
 
 PACKET_get_net_2.exit:                            ; preds = %lor.lhs.false17
   %0 = load i8, ptr %add.ptr.i.i.i, align 1
-  %add.ptr.i.i.i.sroa.gep = getelementptr inbounds i8, ptr %buf1, i64 2
+  %add.ptr.i.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %buf1, i64 2
   %1 = load i8, ptr %add.ptr.i.i.i.sroa.gep, align 2
   %call25 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 364, ptr noundef nonnull @.str.108, i32 noundef 1) #5
   %tobool26.not = icmp eq i32 %call25, 0
@@ -1272,7 +1272,7 @@ for.body:                                         ; preds = %entry, %for.body
   %storemerge.tr = trunc i64 %indvars.iv to i8
   %conv = shl i8 %storemerge.tr, 1
   %0 = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %buf1, i64 0, i64 %0
+  %arrayidx = getelementptr inbounds nuw [1024 x i8], ptr %buf1, i64 0, i64 %0
   store i8 %conv, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1025
@@ -1292,12 +1292,12 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   %1 = load i8, ptr %buf1, align 16
   %conv.i.i.i = zext i8 %1 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buf1, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buf1, i64 1
   %2 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv2.i.i.i = zext i8 %2 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv2.i.i.i
   %cmp.i.i4.i = icmp samesign ult i64 %or.i.i.i, 1023
-  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %buf1, i64 2
+  %add.ptr.i2.i.i = getelementptr inbounds nuw i8, ptr %buf1, i64 2
   %subpkt.sroa.7.0 = select i1 %cmp.i.i4.i, i64 %or.i.i.i, i64 0
   %retval.0.i = zext i1 %cmp.i.i4.i to i32
   %call14 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 386, ptr noundef nonnull @.str.112, i32 noundef %retval.0.i) #5
@@ -1317,7 +1317,7 @@ if.end.i3:                                        ; preds = %lor.lhs.false20
   %3 = load i8, ptr %add.ptr.i2.i.i, align 2
   %conv.i.i = zext i8 %3 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
-  %add.ptr.i2.i.i.sroa.gep = getelementptr inbounds i8, ptr %buf1, i64 3
+  %add.ptr.i2.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %buf1, i64 3
   %subpkt.sroa.0.0.sroa.sel = select i1 %cmp.i.i4.i, ptr %add.ptr.i2.i.i.sroa.gep, ptr inttoptr (i64 1 to ptr)
   %4 = load i8, ptr %subpkt.sroa.0.0.sroa.sel, align 1
   %conv2.i.i = zext i8 %4 to i32
@@ -1366,7 +1366,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %storemerge.tr = trunc i64 %indvars.iv to i8
   %conv = shl i8 %storemerge.tr, 1
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %buf1, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1024 x i8], ptr %buf1, i64 0, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
@@ -1386,17 +1386,17 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   %0 = load i8, ptr %buf1, align 16
   %conv.i.i.i = zext i8 %0 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 16
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buf1, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buf1, i64 1
   %1 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv2.i.i.i = zext i8 %1 to i64
   %shl3.i.i.i = shl nuw nsw i64 %conv2.i.i.i, 8
   %or.i.i.i = or disjoint i64 %shl3.i.i.i, %shl.i.i.i
-  %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %buf1, i64 2
+  %add.ptr5.i.i.i = getelementptr inbounds nuw i8, ptr %buf1, i64 2
   %2 = load i8, ptr %add.ptr5.i.i.i, align 2
   %conv6.i.i.i = zext i8 %2 to i64
   %or7.i.i.i = or disjoint i64 %or.i.i.i, %conv6.i.i.i
   %cmp.i.i4.i = icmp samesign ult i64 %or7.i.i.i, 1022
-  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %buf1, i64 3
+  %add.ptr.i2.i.i = getelementptr inbounds nuw i8, ptr %buf1, i64 3
   %subpkt.sroa.7.0 = select i1 %cmp.i.i4.i, i64 %or7.i.i.i, i64 0
   %retval.0.i = zext i1 %cmp.i.i4.i to i32
   %call14 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 410, ptr noundef nonnull @.str.115, i32 noundef %retval.0.i) #5
@@ -1416,7 +1416,7 @@ if.end.i3:                                        ; preds = %lor.lhs.false20
   %3 = load i8, ptr %add.ptr.i2.i.i, align 1
   %conv.i.i = zext i8 %3 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
-  %add.ptr.i2.i.i.sroa.gep = getelementptr inbounds i8, ptr %buf1, i64 4
+  %add.ptr.i2.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %buf1, i64 4
   %subpkt.sroa.0.0.sroa.sel = select i1 %cmp.i.i4.i, ptr %add.ptr.i2.i.i.sroa.gep, ptr inttoptr (i64 1 to ptr)
   %4 = load i8, ptr %subpkt.sroa.0.0.sroa.sel, align 1
   %conv2.i.i = zext i8 %4 to i32
@@ -1509,7 +1509,7 @@ for.body:                                         ; preds = %entry, %for.body
   %i.0.tr = trunc i64 %indvars.iv to i8
   %conv = shl i8 %i.0.tr, 1
   %0 = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 %0
+  %arrayidx = getelementptr inbounds nuw [1024 x i8], ptr %buf, i64 0, i64 %0
   store i8 %conv, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1025
@@ -1529,7 +1529,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   %1 = load i8, ptr %buf, align 16
   %conv.i.i.i = zext i8 %1 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buf, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 1
   %2 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv2.i.i.i = zext i8 %2 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv2.i.i.i
@@ -1583,7 +1583,7 @@ for.cond:                                         ; preds = %lor.lhs.false12
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.08 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
-  %arrayidx = getelementptr inbounds [20 x %struct.quic_test_case], ptr @test_PACKET_get_quic_vlint.cases, i64 0, i64 %i.08
+  %arrayidx = getelementptr inbounds nuw [20 x %struct.quic_test_case], ptr @test_PACKET_get_quic_vlint.cases, i64 0, i64 %i.08
   %call2 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 509, ptr noundef nonnull @.str.126, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end.i
@@ -1601,14 +1601,14 @@ if.end.i:                                         ; preds = %for.body
   br i1 %tobool7.not, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %if.end.i
-  %value = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %2 = load i64, ptr %value, align 8
   %call10 = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.25, i32 noundef 511, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.129, i64 noundef %call7.i, i64 noundef %2) #5
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false8
-  %expected_read_count = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %expected_read_count = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %3 = load i64, ptr %expected_read_count, align 16
   %sub = sub i64 16, %3
   %call15 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 513, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.130, i64 noundef %sub.i.i, i64 noundef %sub) #5
@@ -1629,14 +1629,14 @@ for.body:                                         ; preds = %entry, %for.inc
   %i.051 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   %subpkt.sroa.3.050 = phi i64 [ 0, %entry ], [ %subpkt.sroa.3.13944, %for.inc ]
   %subpkt.sroa.0.049 = phi ptr [ null, %entry ], [ %subpkt.sroa.0.13846, %for.inc ]
-  %arrayidx = getelementptr inbounds [8 x %struct.quic_test_case.0], ptr @test_PACKET_get_quic_length_prefixed.cases, i64 0, i64 %i.051
-  %fail = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %arrayidx = getelementptr inbounds nuw [8 x %struct.quic_test_case.0], ptr @test_PACKET_get_quic_length_prefixed.cases, i64 0, i64 %i.051
+  %fail = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %0 = load i32, ptr %fail, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %cond.end, label %PACKET_buf_init.exit.thread
 
 cond.end:                                         ; preds = %for.body
-  %len = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %1 = load i64, ptr %len, align 8
   %add = add i64 %1, 1
   %cmp.i = icmp sgt i64 %add, -1
@@ -1673,7 +1673,7 @@ lor.lhs.false1.i:                                 ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %PACKET_get_quic_length_prefixed.exit, label %if.end.i12
 
 if.end.i12:                                       ; preds = %lor.lhs.false1.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.12329, i64 %conv1.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %pkt.sroa.0.12329, i64 %conv1.i.i.i
   %add.ptr.i.i4.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %call7.i.i
   br label %PACKET_get_quic_length_prefixed.exit
 
@@ -1703,13 +1703,13 @@ if.then18:                                        ; preds = %if.end14
 if.end26:                                         ; preds = %PACKET_get_quic_length_prefixed.exit.thread, %if.end14
   %subpkt.sroa.0.13845 = phi ptr [ %subpkt.sroa.0.1, %if.end14 ], [ %subpkt.sroa.0.049, %PACKET_get_quic_length_prefixed.exit.thread ]
   %subpkt.sroa.3.13943 = phi i64 [ %subpkt.sroa.3.1, %if.end14 ], [ %subpkt.sroa.3.050, %PACKET_get_quic_length_prefixed.exit.thread ]
-  %add.ptr = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   %call33 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 564, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, ptr noundef %subpkt.sroa.0.13845, ptr noundef nonnull %add.ptr) #5
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %return, label %if.end36
 
 if.end36:                                         ; preds = %if.end26
-  %len38 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %len38 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %4 = load i64, ptr %len38, align 8
   %call39 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 567, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.139, i64 noundef %subpkt.sroa.3.13943, i64 noundef %4) #5
   %tobool40.not = icmp eq i32 %call39, 0

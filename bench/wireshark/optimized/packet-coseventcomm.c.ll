@@ -89,13 +89,13 @@ declare void @register_giop_user_module(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_coseventcomm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) #0 {
   %8 = tail call i32 @is_big_endian(ptr noundef %4) #3
-  %9 = getelementptr inbounds i8, ptr %4, i64 7
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 7
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 1
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %decode_CosEventComm_PushConsumer_push.exit, label %.thread
@@ -122,7 +122,7 @@ define internal range(i32 0, 2) i32 @dissect_coseventcomm(ptr noundef %0, ptr no
   br i1 %11, label %24, label %27
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.24, ptr noundef %5) #3
   br label %27
@@ -134,13 +134,13 @@ define internal range(i32 0, 2) i32 @dissect_coseventcomm(ptr noundef %0, ptr no
   br i1 %.not.i.i, label %process_RequestOperation.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %32 = load ptr, ptr %31, align 8
   %.not5.i.i = icmp eq ptr %32, null
   br i1 %.not5.i.i, label %process_RequestOperation.exit, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %32, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %35 = load i32, ptr %34, align 4
   %36 = or i32 %35, 2
   store i32 %36, ptr %34, align 4
@@ -175,7 +175,7 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
   br label %decode_CosEventComm_PushConsumer_push.exit
 
 47:                                               ; preds = %start_dissecting.exit
-  %48 = getelementptr inbounds i8, ptr %4, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %49 = load i32, ptr %48, align 8
   %switch.i = icmp ult i32 %49, 2
   br i1 %switch.i, label %decode_CosEventComm_PushConsumer_push.exit, label %50
@@ -207,7 +207,7 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
   br i1 %11, label %63, label %66
 
 63:                                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load ptr, ptr %64, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %65, i32 noundef 25, ptr noundef nonnull @.str.24, ptr noundef %5) #3
   br label %66
@@ -219,13 +219,13 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
   br i1 %.not.i.i171, label %process_RequestOperation.exit173, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %68, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %71 = load ptr, ptr %70, align 8
   %.not5.i.i172 = icmp eq ptr %71, null
   br i1 %.not5.i.i172, label %process_RequestOperation.exit173, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %71, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 28
   %74 = load i32, ptr %73, align 4
   %75 = or i32 %74, 2
   store i32 %75, ptr %73, align 4
@@ -255,7 +255,7 @@ start_dissecting.exit176:                         ; preds = %process_RequestOper
   ]
 
 85:                                               ; preds = %start_dissecting.exit176
-  %86 = getelementptr inbounds i8, ptr %4, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %87 = load i32, ptr %86, align 8
   %switch.i177 = icmp ult i32 %87, 2
   br i1 %switch.i177, label %decode_CosEventComm_PushConsumer_push.exit, label %88
@@ -287,7 +287,7 @@ start_dissecting.exit176:                         ; preds = %process_RequestOper
   br i1 %11, label %101, label %104
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %1, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %103 = load ptr, ptr %102, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %103, i32 noundef 25, ptr noundef nonnull @.str.24, ptr noundef %5) #3
   br label %104
@@ -299,13 +299,13 @@ start_dissecting.exit176:                         ; preds = %process_RequestOper
   br i1 %.not.i.i178, label %process_RequestOperation.exit180, label %107
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %106, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %109 = load ptr, ptr %108, align 8
   %.not5.i.i179 = icmp eq ptr %109, null
   br i1 %.not5.i.i179, label %process_RequestOperation.exit180, label %110
 
 110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %109, i64 28
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 28
   %112 = load i32, ptr %111, align 4
   %113 = or i32 %112, 2
   store i32 %113, ptr %111, align 4
@@ -335,7 +335,7 @@ start_dissecting.exit183:                         ; preds = %process_RequestOper
   ]
 
 123:                                              ; preds = %start_dissecting.exit183
-  %124 = getelementptr inbounds i8, ptr %4, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %125 = load i32, ptr %124, align 8
   %switch.i184 = icmp ult i32 %125, 2
   br i1 %switch.i184, label %decode_CosEventComm_PushConsumer_push.exit, label %126
@@ -367,7 +367,7 @@ start_dissecting.exit183:                         ; preds = %process_RequestOper
   br i1 %11, label %139, label %142
 
 139:                                              ; preds = %138
-  %140 = getelementptr inbounds i8, ptr %1, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %141 = load ptr, ptr %140, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %141, i32 noundef 25, ptr noundef nonnull @.str.24, ptr noundef %5) #3
   br label %142
@@ -379,13 +379,13 @@ start_dissecting.exit183:                         ; preds = %process_RequestOper
   br i1 %.not.i.i185, label %process_RequestOperation.exit187, label %145
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %144, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %147 = load ptr, ptr %146, align 8
   %.not5.i.i186 = icmp eq ptr %147, null
   br i1 %.not5.i.i186, label %process_RequestOperation.exit187, label %148
 
 148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %147, i64 28
+  %149 = getelementptr inbounds nuw i8, ptr %147, i64 28
   %150 = load i32, ptr %149, align 4
   %151 = or i32 %150, 2
   store i32 %151, ptr %149, align 4
@@ -416,7 +416,7 @@ start_dissecting.exit190:                         ; preds = %process_RequestOper
   ]
 
 161:                                              ; preds = %start_dissecting.exit190
-  %162 = getelementptr inbounds i8, ptr %4, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %163 = load i32, ptr %162, align 8
   switch i32 %163, label %165 [
     i32 0, label %164
@@ -454,7 +454,7 @@ start_dissecting.exit190:                         ; preds = %process_RequestOper
   br i1 %11, label %178, label %181
 
 178:                                              ; preds = %177
-  %179 = getelementptr inbounds i8, ptr %1, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %180 = load ptr, ptr %179, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %180, i32 noundef 25, ptr noundef nonnull @.str.24, ptr noundef %5) #3
   br label %181
@@ -466,13 +466,13 @@ start_dissecting.exit190:                         ; preds = %process_RequestOper
   br i1 %.not.i.i191, label %process_RequestOperation.exit193, label %184
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i8, ptr %183, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 32
   %186 = load ptr, ptr %185, align 8
   %.not5.i.i192 = icmp eq ptr %186, null
   br i1 %.not5.i.i192, label %process_RequestOperation.exit193, label %187
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %186, i64 28
+  %188 = getelementptr inbounds nuw i8, ptr %186, i64 28
   %189 = load i32, ptr %188, align 4
   %190 = or i32 %189, 2
   store i32 %190, ptr %188, align 4
@@ -503,7 +503,7 @@ start_dissecting.exit196:                         ; preds = %process_RequestOper
   ]
 
 200:                                              ; preds = %start_dissecting.exit196
-  %201 = getelementptr inbounds i8, ptr %4, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %202 = load i32, ptr %201, align 8
   switch i32 %202, label %210 [
     i32 0, label %203
@@ -547,7 +547,7 @@ start_dissecting.exit196:                         ; preds = %process_RequestOper
   br i1 %11, label %223, label %226
 
 223:                                              ; preds = %222
-  %224 = getelementptr inbounds i8, ptr %1, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %225 = load ptr, ptr %224, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %225, i32 noundef 25, ptr noundef nonnull @.str.24, ptr noundef %5) #3
   br label %226
@@ -559,13 +559,13 @@ start_dissecting.exit196:                         ; preds = %process_RequestOper
   br i1 %.not.i.i197, label %process_RequestOperation.exit199, label %229
 
 229:                                              ; preds = %226
-  %230 = getelementptr inbounds i8, ptr %228, i64 32
+  %230 = getelementptr inbounds nuw i8, ptr %228, i64 32
   %231 = load ptr, ptr %230, align 8
   %.not5.i.i198 = icmp eq ptr %231, null
   br i1 %.not5.i.i198, label %process_RequestOperation.exit199, label %232
 
 232:                                              ; preds = %229
-  %233 = getelementptr inbounds i8, ptr %231, i64 28
+  %233 = getelementptr inbounds nuw i8, ptr %231, i64 28
   %234 = load i32, ptr %233, align 4
   %235 = or i32 %234, 2
   store i32 %235, ptr %233, align 4
@@ -595,7 +595,7 @@ start_dissecting.exit202:                         ; preds = %process_RequestOper
   ]
 
 245:                                              ; preds = %start_dissecting.exit202
-  %246 = getelementptr inbounds i8, ptr %4, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %247 = load i32, ptr %246, align 8
   %switch.i203 = icmp ult i32 %247, 2
   br i1 %switch.i203, label %decode_CosEventComm_PushConsumer_push.exit, label %248
@@ -649,7 +649,7 @@ define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr nocaptu
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.24, ptr noundef %3) #3
   br label %9
@@ -661,13 +661,13 @@ define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr nocaptu
   br i1 %.not.i, label %proto_item_set_generated.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 2
   store i32 %18, ptr %16, align 4
@@ -698,7 +698,7 @@ define internal fastcc void @start_dissecting(ptr noundef %0, ptr %.8.val, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_CosEventComm_PullConsumer_disconnect_pull_consumer(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 7
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
     i8 0, label %14
@@ -706,7 +706,7 @@ define internal fastcc void @decode_CosEventComm_PullConsumer_disconnect_pull_co
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
   %switch = icmp ult i32 %8, 2
   br i1 %switch, label %14, label %9

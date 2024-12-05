@@ -248,7 +248,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @witness_dissect_struct_notifyResponse(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -275,7 +275,7 @@ define hidden i32 @witness_dissect_struct_notifyResponse(ptr noundef %0, i32 nou
 22:                                               ; preds = %18, %8
   %.049 = phi ptr [ %19, %18 ], [ null, %8 ]
   %.048 = phi ptr [ %21, %18 ], [ null, %8 ]
-  %23 = getelementptr inbounds i8, ptr %2, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef 4) #4
   %26 = load i32, ptr @hf_witness_witness_notifyResponse_type, align 4
@@ -303,15 +303,15 @@ witness_dissect_element_notifyResponse_type.exit: ; preds = %.thread.i.i, %28
   %34 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef nonnull %2, ptr noundef %.048, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
   %35 = load i32, ptr @hf_witness_witness_notifyResponse_num, align 4
   %36 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef nonnull %2, ptr noundef %.048, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
-  %37 = getelementptr inbounds i8, ptr %4, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %25, ptr %37, align 8
   %38 = load i32, ptr @hf_witness_witness_notifyResponse_messages, align 4
   %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef nonnull %2, ptr noundef %.048, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @witness_dissect_element_notifyResponse_messages, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %38) #4
   %40 = sub i32 %39, %.1
   call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #4
-  %41 = getelementptr inbounds i8, ptr %4, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 1
   %.not55 = icmp eq i32 %45, 0
@@ -353,7 +353,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @witness_dissect_struct_IPaddrInfoList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
   %.not = icmp eq ptr %3, null
@@ -452,7 +452,7 @@ declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define hidden i32 @witness_dissect_bitmap_interfaceInfo_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -501,7 +501,7 @@ define hidden i32 @witness_dissect_struct_interfaceInfo(ptr noundef %0, i32 noun
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %13 = load i32, ptr %12, align 4
   %.not = icmp ne i32 %13, 0
   %14 = and i32 %1, 3
@@ -541,7 +541,7 @@ witness_dissect_element_interfaceInfo_group_name.exit: ; preds = %22, %27
   %.lcssa.i = phi i32 [ %23, %22 ], [ 520, %27 ]
   %.014.lcssa.i = phi i32 [ %.02.i, %22 ], [ 520, %27 ]
   %29 = load i32, ptr @hf_witness_witness_interfaceInfo_group_name, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %.053, i32 noundef %29, ptr noundef %0, i32 noundef %.0, i32 noundef %.014.lcssa.i, i32 noundef -2147483644, ptr noundef %31, ptr noundef nonnull %11) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.113, i32 noundef %.lcssa.i) #4
@@ -567,9 +567,9 @@ witness_dissect_element_interfaceInfo_group_name.exit: ; preds = %22, %27
   %44 = call i32 @witness_dissect_bitmap_interfaceInfo_flags(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %43, i32 poison)
   %45 = sub i32 %44, %.0
   call void @proto_item_set_len(ptr noundef %.054, i32 noundef %45) #4
-  %46 = getelementptr inbounds i8, ptr %4, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 1
   %.not58 = icmp eq i32 %50, 0
@@ -595,13 +595,13 @@ witness_dissect_element_interfaceInfo_group_name.exit: ; preds = %22, %27
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @witness_dissect_struct_interfaceList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -649,14 +649,14 @@ define hidden i32 @witness_dissect_struct_interfaceList(ptr noundef %0, i32 noun
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -725,7 +725,7 @@ define hidden i32 @witness_dissect_enum_ResourceChange_type(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @witness_dissect_struct_ResourceChange(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = load i32, ptr %10, align 8
   store i32 1, ptr %10, align 8
   %.not = icmp eq ptr %3, null
@@ -758,7 +758,7 @@ define hidden i32 @witness_dissect_struct_ResourceChange(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define hidden i32 @witness_dissect_bitmap_IPaddrInfo_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -800,7 +800,7 @@ define hidden i32 @witness_dissect_bitmap_IPaddrInfo_flags(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @witness_dissect_struct_IPaddrInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
   %.not = icmp eq ptr %3, null
@@ -830,7 +830,7 @@ define hidden noundef i32 @witness_dissect_struct_IPaddrInfo(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define hidden i32 @witness_dissect_bitmap_RegisterEx_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -902,7 +902,7 @@ declare i32 @dissect_ndr_ucarray_block(ptr noundef, i32 noundef, ptr noundef, pt
 define internal i32 @witness_dissect_notifyResponse_message_(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture readnone %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [4 x i8], align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %11 = load ptr, ptr %10, align 8
   store i32 16, ptr %9, align 4
   %12 = load i32, ptr %11, align 4
@@ -969,13 +969,13 @@ declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %28
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = load i32, ptr %10, align 8
   %.not24 = icmp eq i32 %11, 0
   br i1 %.not24, label %12, label %16
@@ -993,14 +993,14 @@ define internal fastcc noundef i32 @PIDL_dissect_ipv4address(ptr noundef %0, i32
 16:                                               ; preds = %14, %12, %9
   %.022 = phi i32 [ %1, %9 ], [ %15, %14 ], [ %1, %12 ]
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %.022, i32 noundef 4, i32 noundef 0) #4
-  %18 = getelementptr inbounds i8, ptr %2, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @tvb_address_to_str(ptr noundef %19, ptr noundef %0, i32 noundef 2, i32 noundef %.022) #4
   %21 = tail call ptr @proto_registrar_get_nth(i32 noundef %5) #4
   %22 = tail call ptr @proto_tree_get_parent(ptr noundef %3) #4
   %23 = load ptr, ptr %21, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.115, ptr noundef %23, ptr noundef %20) #4
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %21, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.115, ptr noundef %26, ptr noundef %20) #4
@@ -1022,13 +1022,13 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %28
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = load i32, ptr %10, align 8
   %.not24 = icmp eq i32 %11, 0
   br i1 %.not24, label %12, label %16
@@ -1046,14 +1046,14 @@ define internal fastcc noundef i32 @PIDL_dissect_ipv6address(ptr noundef %0, i32
 16:                                               ; preds = %14, %12, %9
   %.022 = phi i32 [ %1, %9 ], [ %15, %14 ], [ %1, %12 ]
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %.022, i32 noundef 16, i32 noundef 0) #4
-  %18 = getelementptr inbounds i8, ptr %2, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @tvb_address_to_str(ptr noundef %19, ptr noundef %0, i32 noundef 3, i32 noundef %.022) #4
   %21 = tail call ptr @proto_registrar_get_nth(i32 noundef %5) #4
   %22 = tail call ptr @proto_tree_get_parent(ptr noundef %3) #4
   %23 = load ptr, ptr %21, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.115, ptr noundef %23, ptr noundef %20) #4
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %21, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.115, ptr noundef %26, ptr noundef %20) #4
@@ -1086,7 +1086,7 @@ declare i32 @dissect_null_term_wstring(ptr noundef, i32 noundef, ptr noundef, pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @witness_dissect_GetInterfaceList_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.133, ptr %7, align 8
   ret i32 %1
 }
@@ -1094,7 +1094,7 @@ define internal noundef i32 @witness_dissect_GetInterfaceList_request(ptr nocapt
 ; Function Attrs: nounwind uwtable
 define internal i32 @witness_dissect_GetInterfaceList_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.133, ptr %8, align 8
   %9 = load i32, ptr @hf_witness_witness_GetInterfaceList_interface_list, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @witness_dissect_element_GetInterfaceList_interface_list_, i32 noundef 1, ptr noundef nonnull @.str.140, i32 noundef %9) #4
@@ -1106,7 +1106,7 @@ define internal i32 @witness_dissect_GetInterfaceList_response(ptr noundef %0, i
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.139) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.138, ptr noundef %18) #4
@@ -1119,7 +1119,7 @@ define internal i32 @witness_dissect_GetInterfaceList_response(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @witness_dissect_Register_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.134, ptr %8, align 8
   %9 = load i32, ptr @hf_witness_witness_Register_version, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -1142,7 +1142,7 @@ define internal i32 @witness_dissect_Register_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @witness_dissect_Register_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.134, ptr %8, align 8
   %9 = load i32, ptr @hf_witness_witness_Register_context_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @witness_dissect_element_Register_context_handle_, i32 noundef 1, ptr noundef nonnull @.str.144, i32 noundef %9) #4
@@ -1154,7 +1154,7 @@ define internal i32 @witness_dissect_Register_response(ptr noundef %0, i32 nound
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.139) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.138, ptr noundef %18) #4
@@ -1166,7 +1166,7 @@ define internal i32 @witness_dissect_Register_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @witness_dissect_UnRegister_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.135, ptr %7, align 8
   %8 = load i32, ptr @hf_witness_witness_UnRegister_context_handle, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -1177,7 +1177,7 @@ define internal i32 @witness_dissect_UnRegister_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @witness_dissect_UnRegister_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.135, ptr %8, align 8
   %9 = load i32, ptr @hf_witness_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -1186,7 +1186,7 @@ define internal i32 @witness_dissect_UnRegister_response(ptr noundef %0, i32 nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.139) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.138, ptr noundef %15) #4
@@ -1198,7 +1198,7 @@ define internal i32 @witness_dissect_UnRegister_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @witness_dissect_AsyncNotify_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.136, ptr %7, align 8
   %8 = load i32, ptr @hf_witness_witness_AsyncNotify_context_handle, align 4
   %9 = tail call i32 @PIDL_dissect_policy_hnd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -1209,7 +1209,7 @@ define internal i32 @witness_dissect_AsyncNotify_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @witness_dissect_AsyncNotify_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.136, ptr %8, align 8
   %9 = load i32, ptr @hf_witness_witness_AsyncNotify_response, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @witness_dissect_element_AsyncNotify_response_, i32 noundef 1, ptr noundef nonnull @.str.145, i32 noundef %9) #4
@@ -1221,7 +1221,7 @@ define internal i32 @witness_dissect_AsyncNotify_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.139) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.138, ptr noundef %18) #4
@@ -1234,7 +1234,7 @@ define internal i32 @witness_dissect_AsyncNotify_response(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @witness_dissect_RegisterEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.137, ptr %8, align 8
   %9 = load i32, ptr @hf_witness_witness_RegisterEx_version, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -1266,7 +1266,7 @@ define internal i32 @witness_dissect_RegisterEx_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @witness_dissect_RegisterEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.137, ptr %8, align 8
   %9 = load i32, ptr @hf_witness_witness_RegisterEx_context_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @witness_dissect_element_RegisterEx_context_handle_, i32 noundef 1, ptr noundef nonnull @.str.144, i32 noundef %9) #4
@@ -1278,7 +1278,7 @@ define internal i32 @witness_dissect_RegisterEx_response(ptr noundef %0, i32 nou
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.139) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.138, ptr noundef %18) #4

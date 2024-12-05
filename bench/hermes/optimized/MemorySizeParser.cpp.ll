@@ -57,9 +57,9 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i)
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull @.str.1) #5, !noalias !7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %call.i) #5
-  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %LHSKind.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i8 4, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
+  %RHSKind.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %ref.tmp3, ptr %ref.tmp, align 8
   br label %return.sink.split
@@ -81,9 +81,9 @@ if.then8:                                         ; preds = %sw.bb25, %sw.bb20, 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i17)
   %call.i23 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull @.str.1) #5, !noalias !13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(32) %call.i23) #5
-  %LHSKind.i24 = getelementptr inbounds i8, ptr %ref.tmp9, i64 16
+  %LHSKind.i24 = getelementptr inbounds nuw i8, ptr %ref.tmp9, i64 16
   store i8 4, ptr %LHSKind.i24, align 8
-  %RHSKind.i25 = getelementptr inbounds i8, ptr %ref.tmp9, i64 17
+  %RHSKind.i25 = getelementptr inbounds nuw i8, ptr %ref.tmp9, i64 17
   store i8 1, ptr %RHSKind.i25, align 1
   store ptr %ref.tmp10, ptr %ref.tmp9, align 8
   br label %return.sink.split
@@ -94,7 +94,7 @@ if.end15:                                         ; preds = %if.end15.backedge, 
   %cmp21 = phi i1 [ %cmp21.ph, %if.end15.outer ], [ %cmp21.be, %if.end15.backedge ]
   %cmp17 = phi i1 [ false, %if.end15.outer ], [ %cmp17.be, %if.end15.backedge ]
   %incdec.ptr4244 = phi ptr [ %incdec.ptr4244.ph, %if.end15.outer ], [ %incdec.ptr, %if.end15.backedge ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr4244, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr4244, i64 1
   %1 = load i8, ptr %incdec.ptr4244, align 1
   switch i8 %1, label %sw.default [
     i8 0, label %sw.bb
@@ -157,9 +157,9 @@ sw.default:                                       ; preds = %if.end15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp1.i27)
   %call.i33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef nonnull @.str.1) #5, !noalias !21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(32) %call.i33) #5
-  %LHSKind.i34 = getelementptr inbounds i8, ptr %ref.tmp44, i64 16
+  %LHSKind.i34 = getelementptr inbounds nuw i8, ptr %ref.tmp44, i64 16
   store i8 4, ptr %LHSKind.i34, align 8
-  %RHSKind.i35 = getelementptr inbounds i8, ptr %ref.tmp44, i64 17
+  %RHSKind.i35 = getelementptr inbounds nuw i8, ptr %ref.tmp44, i64 17
   store i8 1, ptr %RHSKind.i35, align 1
   store ptr %ref.tmp45, ptr %ref.tmp44, align 8
   br label %return.sink.split

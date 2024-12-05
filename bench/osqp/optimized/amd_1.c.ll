@@ -21,11 +21,11 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.0145 = phi i64 [ %23, %.lr.ph ], [ 0, %10 ]
   %.0128144 = phi i64 [ %22, %.lr.ph ], [ 0, %10 ]
-  %18 = getelementptr inbounds i64, ptr %7, i64 %.0145
+  %18 = getelementptr inbounds nuw i64, ptr %7, i64 %.0145
   store i64 %.0128144, ptr %18, align 8
-  %19 = getelementptr inbounds i64, ptr %11, i64 %.0145
+  %19 = getelementptr inbounds nuw i64, ptr %11, i64 %.0145
   store i64 %.0128144, ptr %19, align 8
-  %20 = getelementptr inbounds i64, ptr %5, i64 %.0145
+  %20 = getelementptr inbounds nuw i64, ptr %5, i64 %.0145
   %21 = load i64, ptr %20, align 8
   %22 = add nsw i64 %21, %.0128144
   %23 = add nuw nsw i64 %.0145, 1
@@ -34,16 +34,16 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
 
 24:                                               ; preds = %.lr.ph154, %.loopexit138
   %.0125152 = phi i64 [ 0, %.lr.ph154 ], [ %27, %.loopexit138 ]
-  %25 = getelementptr inbounds i64, ptr %1, i64 %.0125152
+  %25 = getelementptr inbounds nuw i64, ptr %1, i64 %.0125152
   %26 = load i64, ptr %25, align 8
   %27 = add nuw nsw i64 %.0125152, 1
-  %28 = getelementptr inbounds i64, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %1, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = icmp slt i64 %26, %29
   br i1 %30, label %.lr.ph150, label %.loopexit138
 
 .lr.ph150:                                        ; preds = %24
-  %31 = getelementptr inbounds i64, ptr %11, i64 %.0125152
+  %31 = getelementptr inbounds nuw i64, ptr %11, i64 %.0125152
   br label %32
 
 32:                                               ; preds = %.lr.ph150, %.loopexit137
@@ -116,7 +116,7 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
 
 .loopexit138:                                     ; preds = %.loopexit137, %24, %49
   %.1127 = phi i64 [ %spec.select, %49 ], [ %26, %24 ], [ %29, %.loopexit137 ]
-  %67 = getelementptr inbounds i64, ptr %15, i64 %.0125152
+  %67 = getelementptr inbounds nuw i64, ptr %15, i64 %.0125152
   store i64 %.1127, ptr %67, align 8
   %exitcond170.not = icmp eq i64 %27, %0
   br i1 %exitcond170.not, label %.lr.ph159, label %24, !llvm.loop !8
@@ -127,16 +127,16 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
 
 .lr.ph159:                                        ; preds = %.loopexit138, %.loopexit
   %.1158 = phi i64 [ %70, %.loopexit ], [ 0, %.loopexit138 ]
-  %68 = getelementptr inbounds i64, ptr %15, i64 %.1158
+  %68 = getelementptr inbounds nuw i64, ptr %15, i64 %.1158
   %69 = load i64, ptr %68, align 8
   %70 = add nuw nsw i64 %.1158, 1
-  %71 = getelementptr inbounds i64, ptr %1, i64 %70
+  %71 = getelementptr inbounds nuw i64, ptr %1, i64 %70
   %72 = load i64, ptr %71, align 8
   %73 = icmp slt i64 %69, %72
   br i1 %73, label %.lr.ph156, label %.loopexit
 
 .lr.ph156:                                        ; preds = %.lr.ph159
-  %74 = getelementptr inbounds i64, ptr %11, i64 %.1158
+  %74 = getelementptr inbounds nuw i64, ptr %11, i64 %.1158
   br label %75
 
 75:                                               ; preds = %.lr.ph156, %75

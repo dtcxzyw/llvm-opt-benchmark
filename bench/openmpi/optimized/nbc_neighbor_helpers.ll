@@ -6,18 +6,18 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -5, 1) i32 @NBC_Comm_neighbors_count(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 224
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 256
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %16, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 280
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = shl nsw i32 %14, 1
   store i32 %15, ptr %1, align 4
@@ -42,17 +42,17 @@ define range(i32 -5, 1) i32 @NBC_Comm_neighbors_count(ptr noundef %0, ptr nocapt
   br i1 %.not16, label %36, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 280
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load i32, ptr %29, align 8
   store i32 %30, ptr %1, align 4
   %31 = load ptr, ptr %25, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 52
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 52
   %35 = load i32, ptr %34, align 4
   br label %.sink.split
 
@@ -76,18 +76,18 @@ define range(i32 -5, 1) i32 @NBC_Comm_neighbors(ptr noundef %0, ptr nocapture no
   store ptr null, ptr %3, align 8
   store ptr null, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %9 = getelementptr inbounds i8, ptr %0, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 256
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %20, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = shl nsw i32 %18, 1
   br label %37
@@ -110,13 +110,13 @@ define range(i32 -5, 1) i32 @NBC_Comm_neighbors(ptr noundef %0, ptr nocapture no
   br i1 %.not16.i, label %NBC_Comm_neighbors_count.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 280
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 52
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 52
   %36 = load i32, ptr %35, align 4
   br label %37
 
@@ -180,11 +180,11 @@ NBC_Comm_neighbors_count.exit:                    ; preds = %26
   br i1 %.not49, label %81, label %.preheader
 
 .preheader:                                       ; preds = %.thread
-  %55 = getelementptr inbounds i8, ptr %0, i64 280
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 96
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i32, ptr %59, align 8
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %.lr.ph, label %.loopexit
@@ -195,25 +195,25 @@ NBC_Comm_neighbors_count.exit:                    ; preds = %26
   %62 = call i32 @mca_topo_base_cart_shift(ptr noundef nonnull %0, i32 noundef %.04267, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %63 = load i32, ptr %7, align 4
   %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
   store i32 %63, ptr %65, align 4
   %66 = load ptr, ptr %1, align 8
-  %67 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv
   store i32 %63, ptr %67, align 4
   %68 = or disjoint i64 %indvars.iv, 1
   %69 = load i32, ptr %8, align 4
   %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds i32, ptr %70, i64 %68
+  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %68
   store i32 %69, ptr %71, align 4
   %72 = load ptr, ptr %1, align 8
-  %73 = getelementptr inbounds i32, ptr %72, i64 %68
+  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %68
   store i32 %69, ptr %73, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %74 = add nuw nsw i32 %.04267, 1
   %75 = load ptr, ptr %55, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 96
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 96
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load i32, ptr %78, align 8
   %80 = icmp slt i32 %74, %79
   br i1 %80, label %.lr.ph, label %.loopexit, !llvm.loop !4

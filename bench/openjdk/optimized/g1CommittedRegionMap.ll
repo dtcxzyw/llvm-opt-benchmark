@@ -45,7 +45,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE6prefixEPcm =
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17G1HeapRegionRangeC2Ejj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4
   ret void
 }
@@ -53,27 +53,27 @@ define hidden void @_ZN17G1HeapRegionRangeC2Ejj(ptr nocapture noundef nonnull wr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN20G1CommittedRegionMapC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 25), (32, 49), (56, 64)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20G1CommittedRegionMap, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2, i8 0, i64 16, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 5, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %4, i8 0, i64 16, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 5, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 60
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %7, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20G1CommittedRegionMap10initializeEj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   tail call void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %4, i1 noundef zeroext true) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %4, i1 noundef zeroext true) #10
   ret void
 }
@@ -82,21 +82,21 @@ declare void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(ptr noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK20G1CommittedRegionMap10num_activeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK20G1CommittedRegionMap12num_inactiveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK20G1CommittedRegionMap10max_lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   ret i32 %4
@@ -104,7 +104,7 @@ define hidden noundef i32 @_ZNK20G1CommittedRegionMap10max_lengthEv(ptr nocaptur
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20G1CommittedRegionMap8activateEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -116,12 +116,12 @@ define hidden void @_ZN20G1CommittedRegionMap8activateEjj(ptr noundef nonnull al
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = zext i32 %1 to i64
   %11 = zext i32 %2 to i64
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %10, i64 noundef %11, i1 noundef zeroext true) #10
   %12 = sub i32 %2, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i32, ptr %13, align 8
   %15 = add i32 %12, %14
   store i32 %15, ptr %13, align 8
@@ -142,12 +142,12 @@ define hidden void @_ZN20G1CommittedRegionMap16active_set_rangeEjj(ptr noundef n
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = zext i32 %1 to i64
   %8 = zext i32 %2 to i64
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %7, i64 noundef %8, i1 noundef zeroext true) #10
   %9 = sub i32 %2, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %9, %11
   store i32 %12, ptr %10, align 8
@@ -156,7 +156,7 @@ define hidden void @_ZN20G1CommittedRegionMap16active_set_rangeEjj(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20G1CommittedRegionMap10reactivateEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -168,23 +168,23 @@ define hidden void @_ZN20G1CommittedRegionMap10reactivateEjj(ptr noundef nonnull
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = zext i32 %1 to i64
   %11 = zext i32 %2 to i64
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %10, i64 noundef %11, i1 noundef zeroext true) #10
   %12 = sub i32 %2, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i32, ptr %13, align 8
   %15 = add i32 %12, %14
   store i32 %15, ptr %13, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %10, i64 noundef %11, i1 noundef zeroext false) #10
   %.neg.i = sub i32 %1, %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %21 = load i32, ptr %20, align 4
   %22 = add i32 %.neg.i, %21
   store i32 %22, ptr %20, align 4
@@ -194,15 +194,15 @@ define hidden void @_ZN20G1CommittedRegionMap10reactivateEjj(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20G1CommittedRegionMap20inactive_clear_rangeEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = zext i32 %1 to i64
   %9 = zext i32 %2 to i64
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %8, i64 noundef %9, i1 noundef zeroext false) #10
   %.neg = sub i32 %1, %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 60
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %.neg, %11
   store i32 %12, ptr %10, align 4
@@ -211,7 +211,7 @@ define hidden void @_ZN20G1CommittedRegionMap20inactive_clear_rangeEjj(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20G1CommittedRegionMap10deactivateEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -223,23 +223,23 @@ define hidden void @_ZN20G1CommittedRegionMap10deactivateEjj(ptr noundef nonnull
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = zext i32 %1 to i64
   %11 = zext i32 %2 to i64
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %10, i64 noundef %11, i1 noundef zeroext false) #10
   %.neg.i = sub i32 %1, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %.neg.i, %13
   store i32 %14, ptr %12, align 8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %10, i64 noundef %11, i1 noundef zeroext true) #10
   %19 = sub i32 %2, %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %21 = load i32, ptr %20, align 4
   %22 = add i32 %19, %21
   store i32 %22, ptr %20, align 4
@@ -251,12 +251,12 @@ define hidden void @_ZN20G1CommittedRegionMap18active_clear_rangeEjj(ptr noundef
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = zext i32 %1 to i64
   %8 = zext i32 %2 to i64
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %7, i64 noundef %8, i1 noundef zeroext false) #10
   %.neg = sub i32 %1, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %.neg, %10
   store i32 %11, ptr %9, align 8
@@ -266,15 +266,15 @@ define hidden void @_ZN20G1CommittedRegionMap18active_clear_rangeEjj(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20G1CommittedRegionMap18inactive_set_rangeEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = zext i32 %1 to i64
   %9 = zext i32 %2 to i64
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %8, i64 noundef %9, i1 noundef zeroext true) #10
   %10 = sub i32 %2, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 60
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %10, %12
   store i32 %13, ptr %11, align 4
@@ -283,7 +283,7 @@ define hidden void @_ZN20G1CommittedRegionMap18inactive_set_rangeEjj(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20G1CommittedRegionMap8uncommitEjj(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -293,15 +293,15 @@ define hidden void @_ZN20G1CommittedRegionMap8uncommitEjj(ptr noundef nonnull al
 
 6:                                                ; preds = %3, %5
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(64) %0) #10
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = zext i32 %1 to i64
   %12 = zext i32 %2 to i64
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %11, i64 noundef %12, i1 noundef zeroext false) #10
   %.neg.i = sub i32 %1, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 60
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %.neg.i, %14
   store i32 %15, ptr %13, align 4
@@ -310,9 +310,9 @@ define hidden void @_ZN20G1CommittedRegionMap8uncommitEjj(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @_ZNK20G1CommittedRegionMap17next_active_rangeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %6, %4
   br i1 %7, label %8, label %.loopexit.i.i.i
@@ -320,7 +320,7 @@ define hidden i64 @_ZNK20G1CommittedRegionMap17next_active_rangeEj(ptr nocapture
 8:                                                ; preds = %2
   %9 = lshr i64 %4, 6
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i64, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %9
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %4, 63
   %14 = lshr i64 %12, %13
@@ -344,7 +344,7 @@ define hidden i64 @_ZNK20G1CommittedRegionMap17next_active_rangeEj(ptr nocapture
   br i1 %23, label %24, label %.loopexit.i.i.i
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i64, ptr %10, i64 %22
+  %25 = getelementptr inbounds nuw i64, ptr %10, i64 %22
   %26 = load i64, ptr %25, align 8
   %.not36.i.i.i = icmp eq i64 %26, 0
   br i1 %.not36.i.i.i, label %21, label %27, !llvm.loop !6
@@ -383,7 +383,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit._ZNK6BitMap20find_first_clear_bitEm.exit_
 39:                                               ; preds = %36
   %40 = lshr i64 %37, 6
   %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds i64, ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %40
   %43 = load i64, ptr %42, align 8
   %44 = xor i64 %43, -1
   %45 = and i64 %.0.i.i.i, 63
@@ -408,7 +408,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit._ZNK6BitMap20find_first_clear_bitEm.exit_
   br i1 %55, label %56, label %.loopexit.i.i.i7
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i64, ptr %41, i64 %54
+  %57 = getelementptr inbounds nuw i64, ptr %41, i64 %54
   %58 = load i64, ptr %57, align 8
   %.not36.i.i.i13 = icmp eq i64 %58, -1
   br i1 %.not36.i.i.i13, label %53, label %59, !llvm.loop !8
@@ -439,9 +439,9 @@ _ZNK6BitMap20find_first_clear_bitEm.exit:         ; preds = %_ZNK6BitMap18find_f
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @_ZNK20G1CommittedRegionMap22next_committable_rangeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %6, %4
   br i1 %7, label %8, label %.loopexit.i.i.i
@@ -449,7 +449,7 @@ define hidden i64 @_ZNK20G1CommittedRegionMap22next_committable_rangeEj(ptr noca
 8:                                                ; preds = %2
   %9 = lshr i64 %4, 6
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i64, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %9
   %12 = load i64, ptr %11, align 8
   %13 = xor i64 %12, -1
   %14 = and i64 %4, 63
@@ -474,7 +474,7 @@ define hidden i64 @_ZNK20G1CommittedRegionMap22next_committable_rangeEj(ptr noca
   br i1 %24, label %25, label %.loopexit.i.i.i
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i64, ptr %10, i64 %23
+  %26 = getelementptr inbounds nuw i64, ptr %10, i64 %23
   %27 = load i64, ptr %26, align 8
   %.not36.i.i.i = icmp eq i64 %27, -1
   br i1 %.not36.i.i.i, label %22, label %28, !llvm.loop !8
@@ -514,7 +514,7 @@ _ZNK6BitMap20find_first_clear_bitEm.exit._ZNK6BitMap18find_first_set_bitEm.exit_
 41:                                               ; preds = %38
   %42 = lshr i64 %39, 6
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds i64, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %42
   %45 = load i64, ptr %44, align 8
   %46 = and i64 %.0.i.i.i, 63
   %47 = lshr i64 %45, %46
@@ -538,7 +538,7 @@ _ZNK6BitMap20find_first_clear_bitEm.exit._ZNK6BitMap18find_first_set_bitEm.exit_
   br i1 %56, label %57, label %.loopexit.i.i.i7
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i64, ptr %43, i64 %55
+  %58 = getelementptr inbounds nuw i64, ptr %43, i64 %55
   %59 = load i64, ptr %58, align 8
   %.not36.i.i.i13 = icmp eq i64 %59, 0
   br i1 %.not36.i.i.i13, label %54, label %60, !llvm.loop !6
@@ -568,9 +568,9 @@ _ZNK6BitMap18find_first_set_bitEm.exit:           ; preds = %_ZNK6BitMap20find_f
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @_ZNK20G1CommittedRegionMap19next_inactive_rangeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %6, %4
   br i1 %7, label %8, label %.loopexit.i.i.i
@@ -578,7 +578,7 @@ define hidden i64 @_ZNK20G1CommittedRegionMap19next_inactive_rangeEj(ptr nocaptu
 8:                                                ; preds = %2
   %9 = lshr i64 %4, 6
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i64, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %9
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %4, 63
   %14 = lshr i64 %12, %13
@@ -602,7 +602,7 @@ define hidden i64 @_ZNK20G1CommittedRegionMap19next_inactive_rangeEj(ptr nocaptu
   br i1 %23, label %24, label %.loopexit.i.i.i
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i64, ptr %10, i64 %22
+  %25 = getelementptr inbounds nuw i64, ptr %10, i64 %22
   %26 = load i64, ptr %25, align 8
   %.not36.i.i.i = icmp eq i64 %26, 0
   br i1 %.not36.i.i.i, label %21, label %27, !llvm.loop !6
@@ -625,7 +625,7 @@ define hidden i64 @_ZNK20G1CommittedRegionMap19next_inactive_rangeEj(ptr nocaptu
 _ZNK6BitMap18find_first_set_bitEm.exit:           ; preds = %8, %29, %.loopexit.i.i.i
   %.0.i.i.i = phi i64 [ %6, %.loopexit.i.i.i ], [ %4, %8 ], [ %31, %29 ]
   %33 = trunc i64 %.0.i.i.i to i32
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i64, ptr %34, align 8
   %36 = trunc i64 %35 to i32
   %37 = icmp eq i32 %36, %33
@@ -643,7 +643,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit._ZNK6BitMap20find_first_clear_bitEm.exit_
 41:                                               ; preds = %38
   %42 = lshr i64 %39, 6
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds i64, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %42
   %45 = load i64, ptr %44, align 8
   %46 = xor i64 %45, -1
   %47 = and i64 %.0.i.i.i, 63
@@ -668,7 +668,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit._ZNK6BitMap20find_first_clear_bitEm.exit_
   br i1 %57, label %58, label %.loopexit.i.i.i7
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i64, ptr %43, i64 %56
+  %59 = getelementptr inbounds nuw i64, ptr %43, i64 %56
   %60 = load i64, ptr %59, align 8
   %.not36.i.i.i13 = icmp eq i64 %60, -1
   br i1 %.not36.i.i.i13, label %55, label %61, !llvm.loop !8
@@ -712,7 +712,7 @@ define hidden void @_ZNK20G1CommittedRegionMap26guarantee_mt_safety_activeEv(ptr
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(888) %9) #10
   br i1 %13, label %24, label %14
@@ -763,7 +763,7 @@ define hidden void @_ZNK20G1CommittedRegionMap28guarantee_mt_safety_inactiveEv(p
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(888) %9) #10
   br i1 %13, label %24, label %14

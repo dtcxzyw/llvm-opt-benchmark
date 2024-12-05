@@ -52,19 +52,19 @@ for.end:                                          ; preds = %for.body, %entry
 define internal fastcc void @sha256_update(ptr nocapture noundef readonly %b, ptr nocapture noundef %hash) unnamed_addr #2 {
 entry:
   %hash_old.sroa.0.0.copyload = load i32, ptr %hash, align 4
-  %hash_old.sroa.3.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 4
+  %hash_old.sroa.3.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 4
   %hash_old.sroa.3.0.copyload = load i32, ptr %hash_old.sroa.3.0.hash.sroa_idx, align 4
-  %hash_old.sroa.4.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 8
+  %hash_old.sroa.4.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %hash_old.sroa.4.0.copyload = load i32, ptr %hash_old.sroa.4.0.hash.sroa_idx, align 4
-  %hash_old.sroa.5.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 12
+  %hash_old.sroa.5.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 12
   %hash_old.sroa.5.0.copyload = load i32, ptr %hash_old.sroa.5.0.hash.sroa_idx, align 4
-  %hash_old.sroa.6.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 16
+  %hash_old.sroa.6.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 16
   %hash_old.sroa.6.0.copyload = load i32, ptr %hash_old.sroa.6.0.hash.sroa_idx, align 4
-  %hash_old.sroa.7.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 20
+  %hash_old.sroa.7.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 20
   %hash_old.sroa.7.0.copyload = load i32, ptr %hash_old.sroa.7.0.hash.sroa_idx, align 4
-  %hash_old.sroa.8.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 24
+  %hash_old.sroa.8.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 24
   %hash_old.sroa.8.0.copyload = load i32, ptr %hash_old.sroa.8.0.hash.sroa_idx, align 4
-  %hash_old.sroa.9.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 28
+  %hash_old.sroa.9.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 28
   %hash_old.sroa.9.0.copyload = load i32, ptr %hash_old.sroa.9.0.hash.sroa_idx, align 4
   %b.val = load i32, ptr %b, align 1
   %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %b.val)
@@ -2370,13 +2370,13 @@ entry:
   %arrayidx = getelementptr [128 x i8], ptr %last, i64 0, i64 %conv
   store i8 -128, ptr %arrayidx, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp, i64 120, i64 56
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call fastcc void @sha256_update(ptr noundef nonnull %last, ptr noundef %hash)
   br i1 %cmp, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %entry
-  %.sroa.gep5 = getelementptr inbounds i8, ptr %last, i64 64
+  %.sroa.gep5 = getelementptr inbounds nuw i8, ptr %last, i64 64
   call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep5, ptr noundef %hash)
   br label %if.end13
 
@@ -2417,19 +2417,19 @@ entry:
   %7 = load i32, ptr %arrayidx54, align 4
   %or7.i37 = tail call noundef i32 @llvm.bswap.i32(i32 %7)
   store i32 %or7.i, ptr %h, align 1
-  %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 4
+  %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 4
   store i32 %or7.i31, ptr %hbuf.sroa.3.0.h.sroa_idx, align 1
-  %hbuf.sroa.4.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 8
+  %hbuf.sroa.4.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 8
   store i32 %or7.i32, ptr %hbuf.sroa.4.0.h.sroa_idx, align 1
-  %hbuf.sroa.5.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 12
+  %hbuf.sroa.5.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 12
   store i32 %or7.i33, ptr %hbuf.sroa.5.0.h.sroa_idx, align 1
-  %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 16
+  %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 16
   store i32 %or7.i34, ptr %hbuf.sroa.6.0.h.sroa_idx, align 1
-  %hbuf.sroa.7.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 20
+  %hbuf.sroa.7.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 20
   store i32 %or7.i35, ptr %hbuf.sroa.7.0.h.sroa_idx, align 1
-  %hbuf.sroa.8.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 24
+  %hbuf.sroa.8.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 24
   store i32 %or7.i36, ptr %hbuf.sroa.8.0.h.sroa_idx, align 1
-  %hbuf.sroa.9.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 28
+  %hbuf.sroa.9.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 28
   store i32 %or7.i37, ptr %hbuf.sroa.9.0.h.sroa_idx, align 1
   ret void
 }
@@ -2470,13 +2470,13 @@ entry:
   %arrayidx.i = getelementptr [128 x i8], ptr %last.i, i64 0, i64 %conv.i
   store i8 -128, ptr %arrayidx.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 120, i64 56
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call fastcc void @sha256_update(ptr noundef nonnull %last.i, ptr noundef %st)
   br i1 %cmp.i, label %if.then12.i, label %Hacl_SHA2_Scalar32_sha256_update_last.exit
 
 if.then12.i:                                      ; preds = %entry
-  %.sroa.gep5.i = getelementptr inbounds i8, ptr %last.i, i64 64
+  %.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %last.i, i64 64
   call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep5.i, ptr noundef %st)
   br label %Hacl_SHA2_Scalar32_sha256_update_last.exit
 
@@ -2509,17 +2509,17 @@ entry:
   %6 = load i32, ptr %arrayidx46, align 4
   %or7.i36 = tail call noundef i32 @llvm.bswap.i32(i32 %6)
   store i32 %or7.i, ptr %h, align 1
-  %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 4
+  %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 4
   store i32 %or7.i31, ptr %hbuf.sroa.3.0.h.sroa_idx, align 1
-  %hbuf.sroa.4.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 8
+  %hbuf.sroa.4.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 8
   store i32 %or7.i32, ptr %hbuf.sroa.4.0.h.sroa_idx, align 1
-  %hbuf.sroa.5.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 12
+  %hbuf.sroa.5.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 12
   store i32 %or7.i33, ptr %hbuf.sroa.5.0.h.sroa_idx, align 1
-  %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 16
+  %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 16
   store i32 %or7.i34, ptr %hbuf.sroa.6.0.h.sroa_idx, align 1
-  %hbuf.sroa.7.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 20
+  %hbuf.sroa.7.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 20
   store i32 %or7.i35, ptr %hbuf.sroa.7.0.h.sroa_idx, align 1
-  %hbuf.sroa.8.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 24
+  %hbuf.sroa.8.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 24
   store i32 %or7.i36, ptr %hbuf.sroa.8.0.h.sroa_idx, align 1
   ret void
 }
@@ -2573,19 +2573,19 @@ for.end:                                          ; preds = %for.body, %entry
 define internal fastcc void @sha512_update(ptr nocapture noundef readonly %b, ptr nocapture noundef %hash) unnamed_addr #2 {
 entry:
   %hash_old.sroa.0.0.copyload = load i64, ptr %hash, align 8
-  %hash_old.sroa.3.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 8
+  %hash_old.sroa.3.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %hash_old.sroa.3.0.copyload = load i64, ptr %hash_old.sroa.3.0.hash.sroa_idx, align 8
-  %hash_old.sroa.4.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 16
+  %hash_old.sroa.4.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 16
   %hash_old.sroa.4.0.copyload = load i64, ptr %hash_old.sroa.4.0.hash.sroa_idx, align 8
-  %hash_old.sroa.5.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 24
+  %hash_old.sroa.5.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 24
   %hash_old.sroa.5.0.copyload = load i64, ptr %hash_old.sroa.5.0.hash.sroa_idx, align 8
-  %hash_old.sroa.6.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 32
+  %hash_old.sroa.6.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 32
   %hash_old.sroa.6.0.copyload = load i64, ptr %hash_old.sroa.6.0.hash.sroa_idx, align 8
-  %hash_old.sroa.7.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 40
+  %hash_old.sroa.7.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 40
   %hash_old.sroa.7.0.copyload = load i64, ptr %hash_old.sroa.7.0.hash.sroa_idx, align 8
-  %hash_old.sroa.8.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 48
+  %hash_old.sroa.8.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 48
   %hash_old.sroa.8.0.copyload = load i64, ptr %hash_old.sroa.8.0.hash.sroa_idx, align 8
-  %hash_old.sroa.9.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 56
+  %hash_old.sroa.9.0.hash.sroa_idx = getelementptr inbounds nuw i8, ptr %hash, i64 56
   %hash_old.sroa.9.0.copyload = load i64, ptr %hash_old.sroa.9.0.hash.sroa_idx, align 8
   %b.val = load i64, ptr %b, align 1
   %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %b.val)
@@ -5501,16 +5501,16 @@ entry:
   %arrayidx = getelementptr [256 x i8], ptr %last, i64 0, i64 %conv
   store i8 -128, ptr %arrayidx, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp, i64 240, i64 112
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
   %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp, i64 248, i64 120
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i3.i.i, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call fastcc void @sha512_update(ptr noundef nonnull %last, ptr noundef %hash)
   br i1 %cmp, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %entry
-  %.sroa.gep5 = getelementptr inbounds i8, ptr %last, i64 128
+  %.sroa.gep5 = getelementptr inbounds nuw i8, ptr %last, i64 128
   call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep5, ptr noundef %hash)
   br label %if.end13
 
@@ -5545,19 +5545,19 @@ entry:
   %7 = load i64, ptr %arrayidx54, align 8
   %or19.i37 = tail call noundef i64 @llvm.bswap.i64(i64 %7)
   store i64 %or19.i, ptr %h, align 1
-  %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 8
+  %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 8
   store i64 %or19.i31, ptr %hbuf.sroa.3.0.h.sroa_idx, align 1
-  %hbuf.sroa.4.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 16
+  %hbuf.sroa.4.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 16
   store i64 %or19.i32, ptr %hbuf.sroa.4.0.h.sroa_idx, align 1
-  %hbuf.sroa.5.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 24
+  %hbuf.sroa.5.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 24
   store i64 %or19.i33, ptr %hbuf.sroa.5.0.h.sroa_idx, align 1
-  %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 32
+  %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 32
   store i64 %or19.i34, ptr %hbuf.sroa.6.0.h.sroa_idx, align 1
-  %hbuf.sroa.7.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 40
+  %hbuf.sroa.7.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 40
   store i64 %or19.i35, ptr %hbuf.sroa.7.0.h.sroa_idx, align 1
-  %hbuf.sroa.8.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 48
+  %hbuf.sroa.8.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 48
   store i64 %or19.i36, ptr %hbuf.sroa.8.0.h.sroa_idx, align 1
-  %hbuf.sroa.9.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 56
+  %hbuf.sroa.9.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 56
   store i64 %or19.i37, ptr %hbuf.sroa.9.0.h.sroa_idx, align 1
   ret void
 }
@@ -5624,16 +5624,16 @@ entry:
   %arrayidx.i = getelementptr [256 x i8], ptr %last.i, i64 0, i64 %conv.i
   store i8 -128, ptr %arrayidx.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 240, i64 112
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
   %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 248, i64 120
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i3.i.i.i, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call fastcc void @sha512_update(ptr noundef nonnull %last.i, ptr noundef %st)
   br i1 %cmp.i, label %if.then12.i, label %Hacl_SHA2_Scalar32_sha512_update_last.exit
 
 if.then12.i:                                      ; preds = %entry
-  %.sroa.gep5.i = getelementptr inbounds i8, ptr %last.i, i64 128
+  %.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %last.i, i64 128
   call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep5.i, ptr noundef %st)
   br label %Hacl_SHA2_Scalar32_sha512_update_last.exit
 
@@ -5663,15 +5663,15 @@ entry:
   %5 = load i64, ptr %arrayidx38, align 8
   %or19.i35 = tail call noundef i64 @llvm.bswap.i64(i64 %5)
   store i64 %or19.i, ptr %h, align 1
-  %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 8
+  %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 8
   store i64 %or19.i31, ptr %hbuf.sroa.3.0.h.sroa_idx, align 1
-  %hbuf.sroa.4.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 16
+  %hbuf.sroa.4.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 16
   store i64 %or19.i32, ptr %hbuf.sroa.4.0.h.sroa_idx, align 1
-  %hbuf.sroa.5.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 24
+  %hbuf.sroa.5.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 24
   store i64 %or19.i33, ptr %hbuf.sroa.5.0.h.sroa_idx, align 1
-  %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 32
+  %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 32
   store i64 %or19.i34, ptr %hbuf.sroa.6.0.h.sroa_idx, align 1
-  %hbuf.sroa.7.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 40
+  %hbuf.sroa.7.0.h.sroa_idx = getelementptr inbounds nuw i8, ptr %h, i64 40
   store i64 %or19.i35, ptr %hbuf.sroa.7.0.h.sroa_idx, align 1
   ret void
 }
@@ -5683,9 +5683,9 @@ entry:
   %call1 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 8, i64 noundef 4) #16
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
   store ptr %call1, ptr %call4, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 8
+  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
+  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store i32 1779033703, ptr %call1, align 4
   %arrayidx8.i = getelementptr i8, ptr %call1, i64 4
@@ -5715,9 +5715,9 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_copy_256(ptr nocapture noundef readonly %s0) local_unnamed_addr #8 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s0, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 16
   %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
   %call = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %call, ptr noundef nonnull align 1 dereferenceable(64) %scrut.sroa.2.0.copyload, i64 64, i1 false)
@@ -5725,9 +5725,9 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call3, ptr noundef nonnull align 4 dereferenceable(32) %scrut.sroa.0.0.copyload, i64 32, i1 false)
   %call7 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
   store ptr %call3, ptr %call7, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call7, i64 8
+  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 8
   store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call7, i64 16
+  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 16
   store i64 %scrut.sroa.3.0.copyload, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   ret ptr %call7
 }
@@ -5736,9 +5736,9 @@ entry:
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_256(ptr nocapture noundef initializes((16, 24)) %s) local_unnamed_addr #9 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 16
   store i32 1779033703, ptr %scrut.sroa.0.0.copyload, align 4
   %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 4
   store i32 -1150833019, ptr %arrayidx8.i, align 4
@@ -5770,7 +5770,7 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc zeroext range(i8 0, 4) i8 @update_224_256(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #10 {
 entry:
-  %s.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
+  %s.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
   %conv = zext i32 %len to i64
   %sub = sub i64 2305843009213693951, %s.sroa.1.0.copyload
@@ -5790,7 +5790,7 @@ if.end:                                           ; preds = %entry
 
 if.then14:                                        ; preds = %if.end
   %s1.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s1.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %s1.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %s1.sroa.2.0.copyload = load ptr, ptr %s1.sroa.2.0..sroa_idx, align 8
   %.rem18 = select i1 %or.cond, i64 64, i64 %rem
   %add.ptr = getelementptr i8, ptr %s1.sroa.2.0.copyload, i64 %.rem18
@@ -5806,7 +5806,7 @@ if.else34:                                        ; preds = %if.end
 
 if.then37:                                        ; preds = %if.else34
   %s138.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s138.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %s138.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %s138.sroa.2.0.copyload = load ptr, ptr %s138.sroa.2.0..sroa_idx, align 8
   %or.cond76 = xor i1 %cmp3, %or.cond
   br i1 %or.cond76, label %if.end60, label %for.body.i.preheader
@@ -5854,7 +5854,7 @@ if.else90:                                        ; preds = %if.else34
   %idx.ext94 = zext nneg i32 %sub11 to i64
   %add.ptr95 = getelementptr i8, ptr %data, i64 %idx.ext94
   %s196.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s196.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %s196.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %s196.sroa.2.0.copyload = load ptr, ptr %s196.sroa.2.0..sroa_idx, align 8
   %.rem100 = select i1 %or.cond, i64 64, i64 %rem
   %add.ptr113 = getelementptr i8, ptr %s196.sroa.2.0.copyload, i64 %.rem100
@@ -5923,9 +5923,9 @@ entry:
   %last.i = alloca [128 x i8], align 16
   %tmp_block_state = alloca [8 x i32], align 16
   %scrut.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
   %rem = and i64 %scrut.sroa.3.0.copyload, 63
   %cmp = icmp eq i64 %rem, 0
@@ -5954,13 +5954,13 @@ entry:
   %arrayidx.i = getelementptr [128 x i8], ptr %last.i, i64 0, i64 %idx.ext
   store i8 -128, ptr %arrayidx.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 120, i64 56
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call fastcc void @sha256_update(ptr noundef nonnull %last.i, ptr noundef nonnull %tmp_block_state)
   br i1 %cmp.i, label %if.then12.i, label %Hacl_SHA2_Scalar32_sha256_update_last.exit
 
 if.then12.i:                                      ; preds = %entry
-  %.sroa.gep5.i = getelementptr inbounds i8, ptr %last.i, i64 64
+  %.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %last.i, i64 64
   call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep5.i, ptr noundef nonnull %tmp_block_state)
   br label %Hacl_SHA2_Scalar32_sha256_update_last.exit
 
@@ -5968,41 +5968,41 @@ Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %entry, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i)
   %2 = load i32, ptr %tmp_block_state, align 16
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
-  %arrayidx6.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 4
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 4
   %3 = load i32, ptr %arrayidx6.i, align 4
   %or7.i31.i = tail call noundef i32 @llvm.bswap.i32(i32 %3)
-  %arrayidx14.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 8
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 8
   %4 = load i32, ptr %arrayidx14.i, align 8
   %or7.i32.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
-  %arrayidx22.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 12
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 12
   %5 = load i32, ptr %arrayidx22.i, align 4
   %or7.i33.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
-  %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
+  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 16
   %6 = load i32, ptr %arrayidx30.i, align 16
   %or7.i34.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
-  %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 20
+  %arrayidx38.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 20
   %7 = load i32, ptr %arrayidx38.i, align 4
   %or7.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %7)
-  %arrayidx46.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
+  %arrayidx46.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 24
   %8 = load i32, ptr %arrayidx46.i, align 8
   %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %8)
-  %arrayidx54.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 28
+  %arrayidx54.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 28
   %9 = load i32, ptr %arrayidx54.i, align 4
   %or7.i37.i = tail call noundef i32 @llvm.bswap.i32(i32 %9)
   store i32 %or7.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 4
+  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 4
   store i32 %or7.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i32 %or7.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 12
+  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 12
   store i32 %or7.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 16
+  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
   store i32 %or7.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 20
+  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 20
   store i32 %or7.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 24
+  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
   store i32 %or7.i36.i, ptr %hbuf.sroa.8.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.9.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 28
+  %hbuf.sroa.9.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 28
   store i32 %or7.i37.i, ptr %hbuf.sroa.9.0.h.sroa_idx.i, align 1
   ret void
 }
@@ -6011,7 +6011,7 @@ Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %entry, %if.then12.i
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_256(ptr nocapture noundef %s) local_unnamed_addr #12 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   tail call void @free(ptr noundef %scrut.sroa.0.0.copyload) #18
   tail call void @free(ptr noundef %scrut.sroa.2.0.copyload) #18
@@ -6028,19 +6028,19 @@ entry:
   %last.i = alloca [128 x i8], align 16
   %st = alloca [8 x i32], align 16
   store i32 1779033703, ptr %st, align 16
-  %arrayidx8.i = getelementptr inbounds i8, ptr %st, i64 4
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %st, i64 4
   store i32 -1150833019, ptr %arrayidx8.i, align 4
-  %arrayidx15.i = getelementptr inbounds i8, ptr %st, i64 8
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %st, i64 8
   store i32 1013904242, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr inbounds i8, ptr %st, i64 12
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %st, i64 12
   store i32 -1521486534, ptr %arrayidx22.i, align 4
-  %arrayidx29.i = getelementptr inbounds i8, ptr %st, i64 16
+  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %st, i64 16
   store i32 1359893119, ptr %arrayidx29.i, align 16
-  %arrayidx36.i = getelementptr inbounds i8, ptr %st, i64 20
+  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %st, i64 20
   store i32 -1694144372, ptr %arrayidx36.i, align 4
-  %arrayidx43.i = getelementptr inbounds i8, ptr %st, i64 24
+  %arrayidx43.i = getelementptr inbounds nuw i8, ptr %st, i64 24
   store i32 528734635, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr inbounds i8, ptr %st, i64 28
+  %arrayidx50.i = getelementptr inbounds nuw i8, ptr %st, i64 28
   store i32 1541459225, ptr %arrayidx50.i, align 4
   %rem1 = and i32 %input_len, 63
   %conv = zext i32 %input_len to i64
@@ -6076,13 +6076,13 @@ Hacl_SHA2_Scalar32_sha256_update_nblocks.exit:    ; preds = %for.body.i, %entry
   %arrayidx.i = getelementptr [128 x i8], ptr %last.i, i64 0, i64 %idx.ext5
   store i8 -128, ptr %arrayidx.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 120, i64 56
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call fastcc void @sha256_update(ptr noundef nonnull %last.i, ptr noundef nonnull %st)
   br i1 %cmp.i, label %if.then12.i, label %Hacl_SHA2_Scalar32_sha256_update_last.exit
 
 if.then12.i:                                      ; preds = %Hacl_SHA2_Scalar32_sha256_update_nblocks.exit
-  %.sroa.gep5.i = getelementptr inbounds i8, ptr %last.i, i64 64
+  %.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %last.i, i64 64
   call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep5.i, ptr noundef nonnull %st)
   br label %Hacl_SHA2_Scalar32_sha256_update_last.exit
 
@@ -6105,19 +6105,19 @@ Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_
   %9 = load i32, ptr %arrayidx50.i, align 4
   %or7.i37.i = tail call noundef i32 @llvm.bswap.i32(i32 %9)
   store i32 %or7.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 4
+  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 4
   store i32 %or7.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i32 %or7.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 12
+  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 12
   store i32 %or7.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 16
+  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
   store i32 %or7.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 20
+  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 20
   store i32 %or7.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 24
+  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
   store i32 %or7.i36.i, ptr %hbuf.sroa.8.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.9.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 28
+  %hbuf.sroa.9.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 28
   store i32 %or7.i37.i, ptr %hbuf.sroa.9.0.h.sroa_idx.i, align 1
   ret void
 }
@@ -6129,9 +6129,9 @@ entry:
   %call1 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 8, i64 noundef 4) #16
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
   store ptr %call1, ptr %call4, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 8
+  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
+  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store i32 -1056596264, ptr %call1, align 4
   %arrayidx8.i = getelementptr i8, ptr %call1, i64 4
@@ -6155,9 +6155,9 @@ entry:
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_224(ptr nocapture noundef initializes((16, 24)) %s) local_unnamed_addr #9 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 16
   store i32 -1056596264, ptr %scrut.sroa.0.0.copyload, align 4
   %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 4
   store i32 914150663, ptr %arrayidx8.i, align 4
@@ -6192,9 +6192,9 @@ entry:
   %last.i.i = alloca [128 x i8], align 16
   %tmp_block_state = alloca [8 x i32], align 16
   %scrut.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
   %rem = and i64 %scrut.sroa.3.0.copyload, 63
   %cmp = icmp eq i64 %rem, 0
@@ -6223,13 +6223,13 @@ entry:
   %arrayidx.i.i = getelementptr [128 x i8], ptr %last.i.i, i64 0, i64 %idx.ext
   store i8 -128, ptr %arrayidx.i.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 120, i64 56
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call fastcc void @sha256_update(ptr noundef nonnull %last.i.i, ptr noundef nonnull %tmp_block_state)
   br i1 %cmp.i.i, label %if.then12.i.i, label %Hacl_SHA2_Scalar32_sha224_update_last.exit
 
 if.then12.i.i:                                    ; preds = %entry
-  %.sroa.gep5.i.i = getelementptr inbounds i8, ptr %last.i.i, i64 64
+  %.sroa.gep5.i.i = getelementptr inbounds nuw i8, ptr %last.i.i, i64 64
   call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep5.i.i, ptr noundef nonnull %tmp_block_state)
   br label %Hacl_SHA2_Scalar32_sha224_update_last.exit
 
@@ -6237,36 +6237,36 @@ Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %entry, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i.i)
   %2 = load i32, ptr %tmp_block_state, align 16
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
-  %arrayidx6.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 4
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 4
   %3 = load i32, ptr %arrayidx6.i, align 4
   %or7.i31.i = tail call noundef i32 @llvm.bswap.i32(i32 %3)
-  %arrayidx14.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 8
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 8
   %4 = load i32, ptr %arrayidx14.i, align 8
   %or7.i32.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
-  %arrayidx22.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 12
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 12
   %5 = load i32, ptr %arrayidx22.i, align 4
   %or7.i33.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
-  %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
+  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 16
   %6 = load i32, ptr %arrayidx30.i, align 16
   %or7.i34.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
-  %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 20
+  %arrayidx38.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 20
   %7 = load i32, ptr %arrayidx38.i, align 4
   %or7.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %7)
-  %arrayidx46.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
+  %arrayidx46.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 24
   %8 = load i32, ptr %arrayidx46.i, align 8
   %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %8)
   store i32 %or7.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 4
+  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 4
   store i32 %or7.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i32 %or7.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 12
+  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 12
   store i32 %or7.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 16
+  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
   store i32 %or7.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 20
+  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 20
   store i32 %or7.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 24
+  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
   store i32 %or7.i36.i, ptr %hbuf.sroa.8.0.h.sroa_idx.i, align 1
   ret void
 }
@@ -6275,7 +6275,7 @@ Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %entry, %if.then12.i
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_224(ptr nocapture noundef %p) local_unnamed_addr #12 {
 entry:
   %scrut.sroa.0.0.copyload.i = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 8
+  %scrut.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %scrut.sroa.2.0.copyload.i = load ptr, ptr %scrut.sroa.2.0..sroa_idx.i, align 8
   tail call void @free(ptr noundef %scrut.sroa.0.0.copyload.i) #18
   tail call void @free(ptr noundef %scrut.sroa.2.0.copyload.i) #18
@@ -6289,19 +6289,19 @@ entry:
   %last.i.i = alloca [128 x i8], align 16
   %st = alloca [8 x i32], align 16
   store i32 -1056596264, ptr %st, align 16
-  %arrayidx8.i = getelementptr inbounds i8, ptr %st, i64 4
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %st, i64 4
   store i32 914150663, ptr %arrayidx8.i, align 4
-  %arrayidx15.i = getelementptr inbounds i8, ptr %st, i64 8
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %st, i64 8
   store i32 812702999, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr inbounds i8, ptr %st, i64 12
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %st, i64 12
   store i32 -150054599, ptr %arrayidx22.i, align 4
-  %arrayidx29.i = getelementptr inbounds i8, ptr %st, i64 16
+  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %st, i64 16
   store i32 -4191439, ptr %arrayidx29.i, align 16
-  %arrayidx36.i = getelementptr inbounds i8, ptr %st, i64 20
+  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %st, i64 20
   store i32 1750603025, ptr %arrayidx36.i, align 4
-  %arrayidx43.i = getelementptr inbounds i8, ptr %st, i64 24
+  %arrayidx43.i = getelementptr inbounds nuw i8, ptr %st, i64 24
   store i32 1694076839, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr inbounds i8, ptr %st, i64 28
+  %arrayidx50.i = getelementptr inbounds nuw i8, ptr %st, i64 28
   store i32 -1090891868, ptr %arrayidx50.i, align 4
   %rem1 = and i32 %input_len, 63
   %conv = zext i32 %input_len to i64
@@ -6337,13 +6337,13 @@ sha224_update_nblocks.exit:                       ; preds = %for.body.i.i, %entr
   %arrayidx.i.i = getelementptr [128 x i8], ptr %last.i.i, i64 0, i64 %idx.ext5
   store i8 -128, ptr %arrayidx.i.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 120, i64 56
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call fastcc void @sha256_update(ptr noundef nonnull %last.i.i, ptr noundef nonnull %st)
   br i1 %cmp.i.i, label %if.then12.i.i, label %Hacl_SHA2_Scalar32_sha224_update_last.exit
 
 if.then12.i.i:                                    ; preds = %sha224_update_nblocks.exit
-  %.sroa.gep5.i.i = getelementptr inbounds i8, ptr %last.i.i, i64 64
+  %.sroa.gep5.i.i = getelementptr inbounds nuw i8, ptr %last.i.i, i64 64
   call fastcc void @sha256_update(ptr noundef nonnull %.sroa.gep5.i.i, ptr noundef nonnull %st)
   br label %Hacl_SHA2_Scalar32_sha224_update_last.exit
 
@@ -6364,17 +6364,17 @@ Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %sha224_update_nbloc
   %8 = load i32, ptr %arrayidx43.i, align 8
   %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %8)
   store i32 %or7.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 4
+  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 4
   store i32 %or7.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i32 %or7.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 12
+  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 12
   store i32 %or7.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 16
+  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
   store i32 %or7.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 20
+  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 20
   store i32 %or7.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 24
+  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
   store i32 %or7.i36.i, ptr %hbuf.sroa.8.0.h.sroa_idx.i, align 1
   ret void
 }
@@ -6386,9 +6386,9 @@ entry:
   %call1 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #16
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
   store ptr %call1, ptr %call4, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 8
+  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
+  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store i64 7640891576956012808, ptr %call1, align 8
   %arrayidx8.i = getelementptr i8, ptr %call1, i64 8
@@ -6412,9 +6412,9 @@ entry:
 define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_copy_512(ptr nocapture noundef readonly %s0) local_unnamed_addr #8 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s0, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 16
   %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
   %call = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 128, i64 noundef 1) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %call, ptr noundef nonnull align 1 dereferenceable(128) %scrut.sroa.2.0.copyload, i64 128, i1 false)
@@ -6422,9 +6422,9 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call3, ptr noundef nonnull align 8 dereferenceable(64) %scrut.sroa.0.0.copyload, i64 64, i1 false)
   %call7 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
   store ptr %call3, ptr %call7, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call7, i64 8
+  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 8
   store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call7, i64 16
+  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 16
   store i64 %scrut.sroa.3.0.copyload, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   ret ptr %call7
 }
@@ -6433,9 +6433,9 @@ entry:
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_512(ptr nocapture noundef initializes((16, 24)) %s) local_unnamed_addr #9 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 16
   store i64 7640891576956012808, ptr %scrut.sroa.0.0.copyload, align 8
   %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
   store i64 -4942790177534073029, ptr %arrayidx8.i, align 8
@@ -6467,7 +6467,7 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc zeroext range(i8 0, 4) i8 @update_384_512(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #10 {
 entry:
-  %s.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
+  %s.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
   %conv = zext i32 %len to i64
   %sub = xor i64 %s.sroa.1.0.copyload, -1
@@ -6487,7 +6487,7 @@ if.end:                                           ; preds = %entry
 
 if.then14:                                        ; preds = %if.end
   %s1.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s1.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %s1.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %s1.sroa.2.0.copyload = load ptr, ptr %s1.sroa.2.0..sroa_idx, align 8
   %.rem18 = select i1 %or.cond, i64 128, i64 %rem
   %add.ptr = getelementptr i8, ptr %s1.sroa.2.0.copyload, i64 %.rem18
@@ -6503,7 +6503,7 @@ if.else34:                                        ; preds = %if.end
 
 if.then37:                                        ; preds = %if.else34
   %s138.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s138.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %s138.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %s138.sroa.2.0.copyload = load ptr, ptr %s138.sroa.2.0..sroa_idx, align 8
   %or.cond76 = xor i1 %cmp3, %or.cond
   br i1 %or.cond76, label %if.end60, label %for.body.i.preheader
@@ -6551,7 +6551,7 @@ if.else90:                                        ; preds = %if.else34
   %idx.ext94 = zext nneg i32 %sub11 to i64
   %add.ptr95 = getelementptr i8, ptr %data, i64 %idx.ext94
   %s196.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s196.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %s196.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %s196.sroa.2.0.copyload = load ptr, ptr %s196.sroa.2.0..sroa_idx, align 8
   %.rem100 = select i1 %or.cond, i64 128, i64 %rem
   %add.ptr113 = getelementptr i8, ptr %s196.sroa.2.0.copyload, i64 %.rem100
@@ -6620,9 +6620,9 @@ entry:
   %last.i = alloca [256 x i8], align 16
   %tmp_block_state = alloca [8 x i64], align 16
   %scrut.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
   %rem = and i64 %scrut.sroa.3.0.copyload, 127
   %cmp = icmp eq i64 %rem, 0
@@ -6657,16 +6657,16 @@ entry:
   %arrayidx.i = getelementptr [256 x i8], ptr %last.i, i64 0, i64 %idx.ext
   store i8 -128, ptr %arrayidx.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 240, i64 112
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
   %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 248, i64 120
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i3.i.i.i, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call fastcc void @sha512_update(ptr noundef nonnull %last.i, ptr noundef nonnull %tmp_block_state)
   br i1 %cmp.i, label %if.then12.i, label %Hacl_SHA2_Scalar32_sha512_update_last.exit
 
 if.then12.i:                                      ; preds = %entry
-  %.sroa.gep5.i = getelementptr inbounds i8, ptr %last.i, i64 128
+  %.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %last.i, i64 128
   call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep5.i, ptr noundef nonnull %tmp_block_state)
   br label %Hacl_SHA2_Scalar32_sha512_update_last.exit
 
@@ -6674,41 +6674,41 @@ Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %entry, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i)
   %3 = load i64, ptr %tmp_block_state, align 16
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %3)
-  %arrayidx6.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 8
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 8
   %4 = load i64, ptr %arrayidx6.i, align 8
   %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
-  %arrayidx14.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 16
   %5 = load i64, ptr %arrayidx14.i, align 16
   %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
-  %arrayidx22.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 24
   %6 = load i64, ptr %arrayidx22.i, align 8
   %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
-  %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 32
+  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 32
   %7 = load i64, ptr %arrayidx30.i, align 16
   %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
-  %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 40
+  %arrayidx38.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 40
   %8 = load i64, ptr %arrayidx38.i, align 8
   %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
-  %arrayidx46.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 48
+  %arrayidx46.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 48
   %9 = load i64, ptr %arrayidx46.i, align 16
   %or19.i36.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
-  %arrayidx54.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 56
+  %arrayidx54.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 56
   %10 = load i64, ptr %arrayidx54.i, align 8
   %or19.i37.i = tail call noundef i64 @llvm.bswap.i64(i64 %10)
   store i64 %or19.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 16
+  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
   store i64 %or19.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 24
+  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
   store i64 %or19.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 32
+  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 32
   store i64 %or19.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 40
+  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 40
   store i64 %or19.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 48
+  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 48
   store i64 %or19.i36.i, ptr %hbuf.sroa.8.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.9.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 56
+  %hbuf.sroa.9.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 56
   store i64 %or19.i37.i, ptr %hbuf.sroa.9.0.h.sroa_idx.i, align 1
   ret void
 }
@@ -6717,7 +6717,7 @@ Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %entry, %if.then12.i
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_512(ptr nocapture noundef %s) local_unnamed_addr #12 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   tail call void @free(ptr noundef %scrut.sroa.0.0.copyload) #18
   tail call void @free(ptr noundef %scrut.sroa.2.0.copyload) #18
@@ -6731,19 +6731,19 @@ entry:
   %last.i = alloca [256 x i8], align 16
   %st = alloca [8 x i64], align 16
   store i64 7640891576956012808, ptr %st, align 16
-  %arrayidx8.i = getelementptr inbounds i8, ptr %st, i64 8
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %st, i64 8
   store i64 -4942790177534073029, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr inbounds i8, ptr %st, i64 16
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %st, i64 16
   store i64 4354685564936845355, ptr %arrayidx15.i, align 16
-  %arrayidx22.i = getelementptr inbounds i8, ptr %st, i64 24
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %st, i64 24
   store i64 -6534734903238641935, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr inbounds i8, ptr %st, i64 32
+  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %st, i64 32
   store i64 5840696475078001361, ptr %arrayidx29.i, align 16
-  %arrayidx36.i = getelementptr inbounds i8, ptr %st, i64 40
+  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %st, i64 40
   store i64 -7276294671716946913, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr inbounds i8, ptr %st, i64 48
+  %arrayidx43.i = getelementptr inbounds nuw i8, ptr %st, i64 48
   store i64 2270897969802886507, ptr %arrayidx43.i, align 16
-  %arrayidx50.i = getelementptr inbounds i8, ptr %st, i64 56
+  %arrayidx50.i = getelementptr inbounds nuw i8, ptr %st, i64 56
   store i64 6620516959819538809, ptr %arrayidx50.i, align 8
   %rem1 = and i32 %input_len, 127
   %conv = zext i32 %input_len to i64
@@ -6779,16 +6779,16 @@ Hacl_SHA2_Scalar32_sha512_update_nblocks.exit:    ; preds = %for.body.i, %entry
   %arrayidx.i = getelementptr [256 x i8], ptr %last.i, i64 0, i64 %idx.ext5
   store i8 -128, ptr %arrayidx.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 240, i64 112
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 0, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
   %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 248, i64 120
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i3.i.i.i, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call fastcc void @sha512_update(ptr noundef nonnull %last.i, ptr noundef nonnull %st)
   br i1 %cmp.i, label %if.then12.i, label %Hacl_SHA2_Scalar32_sha512_update_last.exit
 
 if.then12.i:                                      ; preds = %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit
-  %.sroa.gep5.i = getelementptr inbounds i8, ptr %last.i, i64 128
+  %.sroa.gep5.i = getelementptr inbounds nuw i8, ptr %last.i, i64 128
   call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep5.i, ptr noundef nonnull %st)
   br label %Hacl_SHA2_Scalar32_sha512_update_last.exit
 
@@ -6811,19 +6811,19 @@ Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_
   %9 = load i64, ptr %arrayidx50.i, align 8
   %or19.i37.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
   store i64 %or19.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 16
+  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
   store i64 %or19.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 24
+  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
   store i64 %or19.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 32
+  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 32
   store i64 %or19.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 40
+  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 40
   store i64 %or19.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 48
+  %hbuf.sroa.8.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 48
   store i64 %or19.i36.i, ptr %hbuf.sroa.8.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.9.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 56
+  %hbuf.sroa.9.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 56
   store i64 %or19.i37.i, ptr %hbuf.sroa.9.0.h.sroa_idx.i, align 1
   ret void
 }
@@ -6835,9 +6835,9 @@ entry:
   %call1 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #16
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
   store ptr %call1, ptr %call4, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 8
+  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
+  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store i64 -3766243637369397544, ptr %call1, align 8
   %arrayidx8.i = getelementptr i8, ptr %call1, i64 8
@@ -6861,9 +6861,9 @@ entry:
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_384(ptr nocapture noundef initializes((16, 24)) %s) local_unnamed_addr #9 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 16
   store i64 -3766243637369397544, ptr %scrut.sroa.0.0.copyload, align 8
   %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
   store i64 7105036623409894663, ptr %arrayidx8.i, align 8
@@ -6898,9 +6898,9 @@ entry:
   %last.i.i = alloca [256 x i8], align 16
   %tmp_block_state = alloca [8 x i64], align 16
   %scrut.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
   %rem = and i64 %scrut.sroa.3.0.copyload, 127
   %cmp = icmp eq i64 %rem, 0
@@ -6935,16 +6935,16 @@ entry:
   %arrayidx.i.i = getelementptr [256 x i8], ptr %last.i.i, i64 0, i64 %idx.ext
   store i8 -128, ptr %arrayidx.i.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 240, i64 112
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i.i.i.i.i, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
   %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 248, i64 120
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i3.i.i.i.i, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call fastcc void @sha512_update(ptr noundef nonnull %last.i.i, ptr noundef nonnull %tmp_block_state)
   br i1 %cmp.i.i, label %if.then12.i.i, label %Hacl_SHA2_Scalar32_sha384_update_last.exit
 
 if.then12.i.i:                                    ; preds = %entry
-  %.sroa.gep5.i.i = getelementptr inbounds i8, ptr %last.i.i, i64 128
+  %.sroa.gep5.i.i = getelementptr inbounds nuw i8, ptr %last.i.i, i64 128
   call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep5.i.i, ptr noundef nonnull %tmp_block_state)
   br label %Hacl_SHA2_Scalar32_sha384_update_last.exit
 
@@ -6952,31 +6952,31 @@ Hacl_SHA2_Scalar32_sha384_update_last.exit:       ; preds = %entry, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i.i)
   %3 = load i64, ptr %tmp_block_state, align 16
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %3)
-  %arrayidx6.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 8
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 8
   %4 = load i64, ptr %arrayidx6.i, align 8
   %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
-  %arrayidx14.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 16
   %5 = load i64, ptr %arrayidx14.i, align 16
   %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
-  %arrayidx22.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 24
   %6 = load i64, ptr %arrayidx22.i, align 8
   %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
-  %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 32
+  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 32
   %7 = load i64, ptr %arrayidx30.i, align 16
   %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
-  %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 40
+  %arrayidx38.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 40
   %8 = load i64, ptr %arrayidx38.i, align 8
   %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
   store i64 %or19.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 16
+  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
   store i64 %or19.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 24
+  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
   store i64 %or19.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 32
+  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 32
   store i64 %or19.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 40
+  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 40
   store i64 %or19.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
   ret void
 }
@@ -6985,7 +6985,7 @@ Hacl_SHA2_Scalar32_sha384_update_last.exit:       ; preds = %entry, %if.then12.i
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_free_384(ptr nocapture noundef %p) local_unnamed_addr #12 {
 entry:
   %scrut.sroa.0.0.copyload.i = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %p, i64 8
+  %scrut.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %scrut.sroa.2.0.copyload.i = load ptr, ptr %scrut.sroa.2.0..sroa_idx.i, align 8
   tail call void @free(ptr noundef %scrut.sroa.0.0.copyload.i) #18
   tail call void @free(ptr noundef %scrut.sroa.2.0.copyload.i) #18
@@ -6999,19 +6999,19 @@ entry:
   %last.i.i = alloca [256 x i8], align 16
   %st = alloca [8 x i64], align 16
   store i64 -3766243637369397544, ptr %st, align 16
-  %arrayidx8.i = getelementptr inbounds i8, ptr %st, i64 8
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %st, i64 8
   store i64 7105036623409894663, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr inbounds i8, ptr %st, i64 16
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %st, i64 16
   store i64 -7973340178411365097, ptr %arrayidx15.i, align 16
-  %arrayidx22.i = getelementptr inbounds i8, ptr %st, i64 24
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %st, i64 24
   store i64 1526699215303891257, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr inbounds i8, ptr %st, i64 32
+  %arrayidx29.i = getelementptr inbounds nuw i8, ptr %st, i64 32
   store i64 7436329637833083697, ptr %arrayidx29.i, align 16
-  %arrayidx36.i = getelementptr inbounds i8, ptr %st, i64 40
+  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %st, i64 40
   store i64 -8163818279084223215, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr inbounds i8, ptr %st, i64 48
+  %arrayidx43.i = getelementptr inbounds nuw i8, ptr %st, i64 48
   store i64 -2662702644619276377, ptr %arrayidx43.i, align 16
-  %arrayidx50.i = getelementptr inbounds i8, ptr %st, i64 56
+  %arrayidx50.i = getelementptr inbounds nuw i8, ptr %st, i64 56
   store i64 5167115440072839076, ptr %arrayidx50.i, align 8
   %rem1 = and i32 %input_len, 127
   %conv = zext i32 %input_len to i64
@@ -7047,16 +7047,16 @@ Hacl_SHA2_Scalar32_sha384_update_nblocks.exit:    ; preds = %for.body.i.i, %entr
   %arrayidx.i.i = getelementptr [256 x i8], ptr %last.i.i, i64 0, i64 %idx.ext5
   store i8 -128, ptr %arrayidx.i.i, align 1
   %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 240, i64 112
-  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 0, ptr %..sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 16
   %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i, i64 248, i64 120
-  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %last.i.i, i64 %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i64 %or19.i3.i.i.i.i, ptr %..sroa.sel.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call fastcc void @sha512_update(ptr noundef nonnull %last.i.i, ptr noundef nonnull %st)
   br i1 %cmp.i.i, label %if.then12.i.i, label %Hacl_SHA2_Scalar32_sha384_update_last.exit
 
 if.then12.i.i:                                    ; preds = %Hacl_SHA2_Scalar32_sha384_update_nblocks.exit
-  %.sroa.gep5.i.i = getelementptr inbounds i8, ptr %last.i.i, i64 128
+  %.sroa.gep5.i.i = getelementptr inbounds nuw i8, ptr %last.i.i, i64 128
   call fastcc void @sha512_update(ptr noundef nonnull %.sroa.gep5.i.i, ptr noundef nonnull %st)
   br label %Hacl_SHA2_Scalar32_sha384_update_last.exit
 
@@ -7075,15 +7075,15 @@ Hacl_SHA2_Scalar32_sha384_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_
   %7 = load i64, ptr %arrayidx36.i, align 8
   %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
   store i64 %or19.i.i, ptr %dst, align 1
-  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 16
+  %hbuf.sroa.4.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
   store i64 %or19.i32.i, ptr %hbuf.sroa.4.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 24
+  %hbuf.sroa.5.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 24
   store i64 %or19.i33.i, ptr %hbuf.sroa.5.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 32
+  %hbuf.sroa.6.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 32
   store i64 %or19.i34.i, ptr %hbuf.sroa.6.0.h.sroa_idx.i, align 1
-  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 40
+  %hbuf.sroa.7.0.h.sroa_idx.i = getelementptr inbounds nuw i8, ptr %dst, i64 40
   store i64 %or19.i35.i, ptr %hbuf.sroa.7.0.h.sroa_idx.i, align 1
   ret void
 }

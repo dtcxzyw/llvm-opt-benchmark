@@ -19,11 +19,11 @@ define ptr @PaUtil_CreateAllocationGroup() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %2
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %2 ]
-  %4 = getelementptr inbounds %struct.PaUtilAllocationGroupLink, ptr %1, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw %struct.PaUtilAllocationGroupLink, ptr %1, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %6 = getelementptr inbounds %struct.PaUtilAllocationGroupLink, ptr %1, i64 %indvars.iv.next.i
+  %6 = getelementptr inbounds nuw %struct.PaUtilAllocationGroupLink, ptr %1, i64 %indvars.iv.next.i
   store ptr %6, ptr %4, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %7, label %.lr.ph.i, !llvm.loop !4
@@ -39,7 +39,7 @@ define ptr @PaUtil_CreateAllocationGroup() local_unnamed_addr #0 {
   store i64 16, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -105,11 +105,11 @@ define ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr nocapture noundef %0, 
 
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %11 ]
-  %14 = getelementptr inbounds %struct.PaUtilAllocationGroupLink, ptr %10, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw %struct.PaUtilAllocationGroupLink, ptr %10, i64 %indvars.iv.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %15, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds %struct.PaUtilAllocationGroupLink, ptr %10, i64 %indvars.iv.next.i
+  %16 = getelementptr inbounds nuw %struct.PaUtilAllocationGroupLink, ptr %10, i64 %indvars.iv.next.i
   store ptr %16, ptr %14, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %6
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !4
@@ -122,7 +122,7 @@ define ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr nocapture noundef %0, 
   %20 = shl nsw i64 %19, 1
   store i64 %20, ptr %0, align 8
   store ptr %10, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %21, ptr %3, align 8
   br label %.thread
 

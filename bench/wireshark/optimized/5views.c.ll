@@ -44,7 +44,7 @@ define hidden range(i32 -1, 2) i32 @_5views_open(ptr noundef %0, ptr noundef %1,
   br i1 %.not23, label %11, label %37
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i32, ptr %12, align 4
   %cond = icmp eq i32 %13, 65536
   br i1 %cond, label %16, label %14
@@ -56,7 +56,7 @@ define hidden range(i32 -1, 2) i32 @_5views_open(ptr noundef %0, ptr noundef %1,
   br label %37
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, -16777216
   %.not24 = icmp eq i32 %19, 402653184
@@ -74,7 +74,7 @@ define hidden range(i32 -1, 2) i32 @_5views_open(ptr noundef %0, ptr noundef %1,
 
 23:                                               ; preds = %22
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = call i32 @wtap_read_bytes(ptr noundef %24, ptr noundef nonnull %25, i32 noundef 24, ptr noundef %1, ptr noundef %2) #5
   %.not25 = icmp eq i32 %26, 0
   br i1 %.not25, label %37, label %29
@@ -87,17 +87,17 @@ define hidden range(i32 -1, 2) i32 @_5views_open(ptr noundef %0, ptr noundef %1,
 
 29:                                               ; preds = %23
   %30 = load i32, ptr @_5views_file_type_subtype, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_5views_read, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @_5views_seek_read, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 144
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 148
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 9, ptr %36, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #5
   br label %37
@@ -114,18 +114,18 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @_5views_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
   %7 = alloca %struct.t_5VW_TimeStamped_Header, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
-  %10 = getelementptr inbounds i8, ptr %7, i64 28
-  %11 = getelementptr inbounds i8, ptr %1, i64 232
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = getelementptr inbounds i8, ptr %1, i64 64
-  %16 = getelementptr inbounds i8, ptr %1, i64 68
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
-  %18 = getelementptr inbounds i8, ptr %1, i64 80
-  %19 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 12
   br label %20
 
 20:                                               ; preds = %39, %6
@@ -204,7 +204,7 @@ _5views_read_header.exit.thread:                  ; preds = %20, %39, %27, %47, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_5views_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.t_5VW_TimeStamped_Header, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @file_seek(ptr noundef %9, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
   %11 = icmp eq i64 %10, -1
@@ -228,34 +228,34 @@ define internal i32 @_5views_seek_read(ptr nocapture noundef readonly %0, i64 no
   br label %38
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = getelementptr inbounds i8, ptr %7, i64 24
-  %22 = getelementptr inbounds i8, ptr %7, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 0, ptr %2, align 8
   %23 = call ptr @wtap_block_create(i32 noundef 5) #5
-  %24 = getelementptr inbounds i8, ptr %2, i64 232
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %25, align 4
   %26 = load i32, ptr %21, align 4
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %27, ptr %28, align 8
   %29 = load i32, ptr %22, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %29, ptr %30, align 8
   %31 = load i32, ptr %20, align 4
-  %32 = getelementptr inbounds i8, ptr %2, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 68
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %31, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 144
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %35 = load i32, ptr %34, align 8
   %cond.i = icmp eq i32 %35, 1
   br i1 %cond.i, label %36, label %_5views_read_header.exit
 
 36:                                               ; preds = %19
-  %37 = getelementptr inbounds i8, ptr %2, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 0, ptr %37, align 8
   br label %_5views_read_header.exit
 
@@ -318,12 +318,12 @@ define internal range(i32 0, 2) i32 @_5views_dump_open(ptr noundef %0, ptr nound
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @_5views_dump, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @_5views_dump_finish, ptr %8, align 8
   %9 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #6
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %9, ptr %10, align 8
   store i32 0, ptr %9, align 4
   br label %11
@@ -338,7 +338,7 @@ declare i64 @wtap_dump_file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_5views_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.t_5VW_TimeStamped_Header, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %9, 0
@@ -349,10 +349,10 @@ define internal range(i32 0, 2) i32 @_5views_dump(ptr noundef %0, ptr nocapture 
   br label %49
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
-  %15 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %16 = load i32, ptr %15, align 8
   %.not22 = icmp eq i32 %13, %16
   br i1 %.not22, label %18, label %17
@@ -372,17 +372,17 @@ define internal range(i32 0, 2) i32 @_5views_dump(ptr noundef %0, ptr nocapture 
 
 22:                                               ; preds = %18
   store i32 859041518, ptr %6, align 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 36, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 16384, ptr %24, align 2
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 -2147483648, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %6, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %6, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 1, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load i64, ptr %28, align 8
   %or.cond = icmp ugt i64 %29, 4294967295
   br i1 %or.cond, label %30, label %31
@@ -393,17 +393,17 @@ define internal range(i32 0, 2) i32 @_5views_dump(ptr noundef %0, ptr nocapture 
 
 31:                                               ; preds = %22
   %32 = trunc nuw i64 %29 to i32
-  %33 = getelementptr inbounds i8, ptr %6, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 68
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %6, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %6, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %40, align 4
   %41 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 36, ptr noundef %3) #5
   %.not23 = icmp eq i32 %41, 0
@@ -430,7 +430,7 @@ define internal range(i32 0, 2) i32 @_5views_dump(ptr noundef %0, ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_5views_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.t_5VW_Capture_Header, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @wtap_dump_file_seek(ptr noundef %0, i64 noundef 0, i32 noundef 0, ptr noundef %1) #5
   %8 = icmp eq i64 %7, -1
@@ -438,43 +438,43 @@ define internal range(i32 0, 2) i32 @_5views_dump_finish(ptr noundef %0, ptr nou
 
 9:                                                ; preds = %3
   store i32 -1431655766, ptr %4, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 32, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 65536, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 24, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
   %16 = getelementptr [2 x i32], ptr @wtap_encap, i64 0, i64 %15
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 -2147483641, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i16 4, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 38
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 38
   store i16 1, ptr %24, align 2
   %25 = tail call i64 @time(ptr noundef null) #5
   %26 = trunc i64 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %4, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %4, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 536870912, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %4, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i16 4, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %4, i64 50
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 50
   store i16 1, ptr %30, align 2
   %31 = load i32, ptr %6, align 4
-  %32 = getelementptr inbounds i8, ptr %4, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 %31, ptr %32, align 4
   %33 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 56, ptr noundef %1) #5
   %.not = icmp ne i32 %33, 0

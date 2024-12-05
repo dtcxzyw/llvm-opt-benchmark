@@ -199,11 +199,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @french_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %7
 
 7:                                                ; preds = %92, %1
@@ -409,7 +409,7 @@ define hidden range(i32 -2147483648, 2) i32 @french_ISO_8859_1_stem(ptr noundef 
 
 98:                                               ; preds = %.thread140.i.thread
   store i32 %3, ptr %2, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr i8, ptr %100, i64 8
   store i32 %94, ptr %101, align 4
@@ -545,7 +545,7 @@ define hidden range(i32 -2147483648, 2) i32 @french_ISO_8859_1_stem(ptr noundef 
   br label %r_mark_regions.exit
 
 r_mark_regions.exit:                              ; preds = %142, %145, %150, %157, %162
-  %166 = getelementptr inbounds i8, ptr %0, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %106, ptr %166, align 8
   %167 = load i32, ptr %5, align 4
   store i32 %167, ptr %2, align 8

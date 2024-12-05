@@ -20,8 +20,8 @@ define noundef ptr @wcsncat(ptr noundef returned %0, ptr nocapture noundef reado
 
 7:                                                ; preds = %.lr.ph
   %8 = add i64 %.in, -1
-  %9 = getelementptr inbounds i8, ptr %.0913, i64 4
-  %10 = getelementptr inbounds i8, ptr %.014, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0913, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   store i32 %6, ptr %.014, align 4
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !6

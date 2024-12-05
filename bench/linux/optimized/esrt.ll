@@ -113,7 +113,7 @@ define dso_local void @efi_esrt_init() local_unnamed_addr #0 section ".init.text
   br i1 %19, label %27, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = freeze i64 %22
   %24 = icmp sgt i64 %23, -1
@@ -156,7 +156,7 @@ define dso_local void @efi_esrt_init() local_unnamed_addr #0 section ".init.text
 
 43:                                               ; preds = %36
   %44 = load i32, ptr %37, align 1
-  %45 = getelementptr inbounds i8, ptr %37, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %46 = load i64, ptr %45, align 1
   call void @early_memunmap(ptr noundef nonnull %37, i64 noundef 16) #11
   %47 = icmp eq i64 %46, 1
@@ -361,7 +361,7 @@ declare dso_local ptr @kset_create_and_add(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc range(i32 -2147483648, 1) i32 @register_entries() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load ptr, ptr @esrt, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %4 = and i64 %3, 4
   %5 = icmp eq i64 %4, 0
@@ -385,7 +385,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @register_entries() unnamed
 .preheader:                                       ; preds = %9, %12
   %17 = phi ptr [ %14, %12 ], [ %1, %9 ]
   %18 = phi i32 [ %13, %12 ], [ 0, %9 ]
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 1
   br i1 %21, label %22, label %44
@@ -400,33 +400,33 @@ define internal fastcc range(i32 -2147483648, 1) i32 @register_entries() unnamed
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr @esrt_kset, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %29, ptr %31, align 8
   %32 = load ptr, ptr @esrt, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 1
   br i1 %35, label %36, label %.thread5
 
 36:                                               ; preds = %28
   store ptr %24, ptr %26, align 8
-  %37 = tail call i32 (ptr, ptr, ptr, ptr, ...) @kobject_init_and_add(ptr noundef %30, ptr noundef nonnull @esre1_ktype, ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef %18) #11
+  %37 = tail call i32 (ptr, ptr, ptr, ptr, ...) @kobject_init_and_add(ptr noundef nonnull %30, ptr noundef nonnull @esre1_ktype, ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef %18) #11
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.thread5, label %42
 
 .thread5:                                         ; preds = %28, %36
-  %39 = getelementptr inbounds i8, ptr %26, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @entry_list, i64 8), align 8
   store ptr %39, ptr getelementptr inbounds (i8, ptr @entry_list, i64 8), align 8
   store ptr @entry_list, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %26, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 80
   store ptr %40, ptr %41, align 8
   store volatile ptr %39, ptr %40, align 8
   br label %12
 
 42:                                               ; preds = %36
-  tail call void @kobject_put(ptr noundef %30) #11
+  tail call void @kobject_put(ptr noundef nonnull %30) #11
   %43 = icmp slt i32 %37, 0
   br i1 %43, label %.thread, label %12
 
@@ -467,7 +467,7 @@ define internal zeroext i16 @esrt_attr_is_visible(ptr nocapture readnone %0, ptr
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i16, ptr %11, align 8
   br label %13
 
@@ -491,7 +491,7 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_resource_count_max_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = load ptr, ptr @esrt, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %6) #11
   %8 = sext i32 %7 to i64
@@ -501,7 +501,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_resource_coun
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_resource_version_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #6 align 16 {
   %4 = load ptr, ptr @esrt, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.18, i64 noundef %6) #11
   %8 = sext i32 %7 to i64
@@ -521,7 +521,7 @@ define internal void @esre_release(ptr noundef %0) #9 align 16 {
   %4 = getelementptr i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %7, align 8
   store volatile ptr %6, ptr %5, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %3, align 8
@@ -536,7 +536,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @esre_attr_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #9 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 %6(ptr noundef %4, ptr noundef %2) #11
   ret i64 %7
@@ -562,7 +562,7 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_type_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %5) #11
   %7 = sext i32 %6 to i64
@@ -572,7 +572,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_type_show(ptr
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_version_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %5) #11
   %7 = sext i32 %6 to i64
@@ -582,7 +582,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_version_show(
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @lowest_supported_fw_version_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %5) #11
   %7 = sext i32 %6 to i64
@@ -592,7 +592,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @lowest_supported
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @capsule_flags_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %5) #11
   %7 = sext i32 %6 to i64
@@ -602,7 +602,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @capsule_flags_sh
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @last_attempt_version_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %5) #11
   %7 = sext i32 %6 to i64
@@ -612,7 +612,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @last_attempt_ver
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @last_attempt_status_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %5) #11
   %7 = sext i32 %6 to i64

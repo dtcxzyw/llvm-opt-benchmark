@@ -285,7 +285,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %m.074 = phi i64 [ %offset, %for.body.lr.ph ], [ %add44, %for.cond.cleanup41 ]
   %add = add i64 %m.074, %multiplier
   %vtable = load ptr, ptr %cs, align 8, !tbaa !32
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8
   %call29 = invoke noundef double %26(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %m.074, i64 noundef %add)
           to label %invoke.cont28 unwind label %lpad27
@@ -319,7 +319,7 @@ for.body42:                                       ; preds = %invoke.cont28, %inv
   %32 = load double, ptr %add.ptr.i50, align 8, !tbaa !28
   %add44 = add i64 %m.171, 1
   %vtable45 = load ptr, ptr %cs, align 8, !tbaa !32
-  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 16
+  %vfn46 = getelementptr inbounds nuw i8, ptr %vtable45, i64 16
   %33 = load ptr, ptr %vfn46, align 8
   %call49 = invoke noundef double %33(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %add44, i64 noundef %m.171)
           to label %invoke.cont52 unwind label %lpad47
@@ -450,7 +450,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !32
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -463,7 +463,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !32
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1039,7 +1039,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %add.ptr.i122.us = getelementptr inbounds nuw double, ptr %70, i64 %add118.us
   %72 = load double, ptr %add.ptr.i122.us, align 8, !tbaa !28
   %vtable.us = load ptr, ptr %cs, align 8, !tbaa !32
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 16
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 16
   %73 = load ptr, ptr %vfn.us, align 8
   %call128.us = invoke noundef double %73(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %add113.us, i64 noundef %add118.us)
           to label %invoke.cont127.us unwind label %lpad126.split.us
@@ -1059,7 +1059,7 @@ invoke.cont127.us:                                ; preds = %for.body.us
 for.body136.us:                                   ; preds = %invoke.cont127.us, %invoke.cont146.us
   %j.0180.us = phi i64 [ 0, %invoke.cont127.us ], [ %inc.us, %invoke.cont146.us ]
   %vtable137.us = load ptr, ptr %cs, align 8, !tbaa !32
-  %vfn138.us = getelementptr inbounds i8, ptr %vtable137.us, i64 24
+  %vfn138.us = getelementptr inbounds nuw i8, ptr %vtable137.us, i64 24
   %76 = load ptr, ptr %vfn138.us, align 8
   %call141.us = invoke noundef double %76(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %j.0180.us)
           to label %invoke.cont146.us unwind label %lpad139.split.us
@@ -1100,7 +1100,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %mul117 = mul i64 %i.0182, %multiplier
   %add118 = add i64 %mul117, %offset
   %vtable = load ptr, ptr %cs, align 8, !tbaa !32
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %82 = load ptr, ptr %vfn, align 8
   %call128 = invoke noundef double %82(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %add113, i64 noundef %add118)
           to label %invoke.cont127 unwind label %lpad126.split
@@ -1409,7 +1409,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %add.ptr.i60 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i41, i64 %i.0104
   store double %28, ptr %add.ptr.i60, align 8, !tbaa !28
   %vtable = load ptr, ptr %cs, align 8, !tbaa !32
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %29 = load ptr, ptr %vfn, align 8
   %call47 = invoke noundef double %29(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %add41, i64 noundef 0)
           to label %invoke.cont46 unwind label %ehcleanup55.thread

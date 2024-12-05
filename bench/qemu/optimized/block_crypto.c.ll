@@ -192,11 +192,11 @@ declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @block_crypto_amend_prepare(ptr noundef %bs, ptr noundef %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %updating_keys = getelementptr inbounds i8, ptr %0, i64 8
+  %updating_keys = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %updating_keys, align 8
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_child_refresh_perms(ptr noundef %bs, ptr noundef %1, ptr noundef %errp) #9
   %cmp = icmp slt i32 %call, 0
@@ -214,12 +214,12 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @block_crypto_amend_cleanup(ptr noundef %bs) #0 {
 entry:
   %errp = alloca ptr, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   store ptr null, ptr %errp, align 8
-  %updating_keys = getelementptr inbounds i8, ptr %0, i64 8
+  %updating_keys = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %updating_keys, align 8
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call = call i32 @bdrv_child_refresh_perms(ptr noundef %bs, ptr noundef %1, ptr noundef nonnull %errp) #9
   %2 = load ptr, ptr %errp, align 8
@@ -244,7 +244,7 @@ entry:
 define internal range(i32 -2147483648, 1) i32 @block_crypto_open_luks(ptr noundef %bs, ptr noundef %options, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %ret.i.i = alloca ptr, align 8
-  %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque.i = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque.i, align 8
   %call.i = tail call zeroext i1 @qemu_in_main_thread() #9
   br i1 %call.i, label %do.end.i, label %if.else.i
@@ -260,13 +260,13 @@ do.end.i:                                         ; preds = %entry
 
 if.end3.i:                                        ; preds = %do.end.i
   tail call void @bdrv_graph_rdlock_main_loop() #9
-  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file.i = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file.i, align 8
   %2 = load ptr, ptr %1, align 8
-  %supported_write_flags.i = getelementptr inbounds i8, ptr %2, i64 16588
+  %supported_write_flags.i = getelementptr inbounds nuw i8, ptr %2, i64 16588
   %3 = load i32, ptr %supported_write_flags.i, align 4
   %and.i = and i32 %3, 16
-  %supported_write_flags6.i = getelementptr inbounds i8, ptr %bs, i64 16588
+  %supported_write_flags6.i = getelementptr inbounds nuw i8, ptr %bs, i64 16588
   store i32 %and.i, ptr %supported_write_flags6.i, align 4
   %call7.i = tail call ptr @qemu_opts_create(ptr noundef nonnull @block_crypto_runtime_opts_luks, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #9
   %call8.i = tail call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef %call7.i, ptr noundef %options, ptr noundef %errp) #9
@@ -302,7 +302,7 @@ if.end15.i:                                       ; preds = %block_crypto_open_o
   br i1 %tobool22.not.i, label %cleanup.i, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end15.i
-  %encrypted.i = getelementptr inbounds i8, ptr %bs, i64 4
+  %encrypted.i = getelementptr inbounds nuw i8, ptr %bs, i64 4
   store i8 1, ptr %encrypted.i, align 4
   br label %cleanup.i
 
@@ -313,7 +313,7 @@ cleanup.i:                                        ; preds = %if.end24.i, %if.end
   br i1 %tobool25.not.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %cleanup.i
-  %refcnt.i.i = getelementptr inbounds i8, ptr %call11.i, i64 8
+  %refcnt.i.i = getelementptr inbounds nuw i8, ptr %call11.i, i64 8
   %5 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %5, 0
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
@@ -347,7 +347,7 @@ block_crypto_open_generic.exit:                   ; preds = %do.end.i, %glib_aut
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @block_crypto_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @qcrypto_block_free(ptr noundef %1) #9
@@ -369,32 +369,32 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds i8, ptr %create_options, i64 72
+  %file = getelementptr inbounds nuw i8, ptr %create_options, i64 72
   %1 = load ptr, ptr %file, align 8
   %call = tail call ptr @bdrv_co_open_blockdev_ref(ptr noundef %1, ptr noundef %errp) #9
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %u = getelementptr inbounds i8, ptr %create_options, i64 8
-  %.compoundliteral.sroa.2.8.u4.sroa_idx = getelementptr inbounds i8, ptr %.compoundliteral.sroa.2, i64 4
+  %u = getelementptr inbounds nuw i8, ptr %create_options, i64 8
+  %.compoundliteral.sroa.2.8.u4.sroa_idx = getelementptr inbounds nuw i8, ptr %.compoundliteral.sroa.2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.compoundliteral.sroa.2.8.u4.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %u, i64 64, i1 false)
   store i32 1, ptr %create_opts, align 8
-  %.compoundliteral.sroa.2.0.create_opts.sroa_idx = getelementptr inbounds i8, ptr %create_opts, i64 4
+  %.compoundliteral.sroa.2.0.create_opts.sroa_idx = getelementptr inbounds nuw i8, ptr %create_opts, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %.compoundliteral.sroa.2.0.create_opts.sroa_idx, ptr noundef nonnull align 4 dereferenceable(68) %.compoundliteral.sroa.2, i64 68, i1 false)
-  %has_preallocation = getelementptr inbounds i8, ptr %create_options, i64 88
+  %has_preallocation = getelementptr inbounds nuw i8, ptr %create_options, i64 88
   %2 = load i8, ptr %has_preallocation, align 8
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end3
-  %preallocation7 = getelementptr inbounds i8, ptr %create_options, i64 92
+  %preallocation7 = getelementptr inbounds nuw i8, ptr %create_options, i64 92
   %3 = load i32, ptr %preallocation7, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end3
   %preallocation.0 = phi i32 [ %3, %if.then6 ], [ 0, %if.end3 ]
-  %size = getelementptr inbounds i8, ptr %create_options, i64 80
+  %size = getelementptr inbounds nuw i8, ptr %create_options, i64 80
   %4 = load i64, ptr %size, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %data.i)
   %call.i = tail call ptr @blk_co_new_with_bs(ptr noundef nonnull %call, i64 noundef 10, i64 noundef 15, ptr noundef %errp) #9
@@ -405,9 +405,9 @@ if.end.i:                                         ; preds = %if.end8
   %cmp.i = icmp eq i32 %preallocation.0, 1
   %spec.store.select.i = select i1 %cmp.i, i32 0, i32 %preallocation.0
   store ptr %call.i, ptr %data.i, align 8
-  %.compoundliteral.sroa.2.0.data.sroa_idx.i = getelementptr inbounds i8, ptr %data.i, i64 8
+  %.compoundliteral.sroa.2.0.data.sroa_idx.i = getelementptr inbounds nuw i8, ptr %data.i, i64 8
   store i64 %4, ptr %.compoundliteral.sroa.2.0.data.sroa_idx.i, align 8
-  %.compoundliteral.sroa.3.0.data.sroa_idx.i = getelementptr inbounds i8, ptr %data.i, i64 16
+  %.compoundliteral.sroa.3.0.data.sroa_idx.i = getelementptr inbounds nuw i8, ptr %data.i, i64 16
   store i32 %spec.store.select.i, ptr %.compoundliteral.sroa.3.0.data.sroa_idx.i, align 8
   %call6.i = call ptr @qcrypto_block_create(ptr noundef nonnull %create_opts, ptr noundef null, ptr noundef nonnull @block_crypto_create_init_func, ptr noundef nonnull @block_crypto_create_write_func, ptr noundef nonnull %data.i, ptr noundef %errp) #9
   %tobool7.not.i = icmp eq ptr %call6.i, null
@@ -487,9 +487,9 @@ if.end.i23:                                       ; preds = %if.end14
   %cmp.i = icmp eq i32 %call2, 1
   %spec.store.select.i = select i1 %cmp.i, i32 0, i32 %call2
   store ptr %call.i21, ptr %data.i, align 8
-  %.compoundliteral.sroa.2.0.data.sroa_idx.i = getelementptr inbounds i8, ptr %data.i, i64 8
+  %.compoundliteral.sroa.2.0.data.sroa_idx.i = getelementptr inbounds nuw i8, ptr %data.i, i64 8
   store i64 %call, ptr %.compoundliteral.sroa.2.0.data.sroa_idx.i, align 8
-  %.compoundliteral.sroa.3.0.data.sroa_idx.i = getelementptr inbounds i8, ptr %data.i, i64 16
+  %.compoundliteral.sroa.3.0.data.sroa_idx.i = getelementptr inbounds nuw i8, ptr %data.i, i64 16
   store i32 %spec.store.select.i, ptr %.compoundliteral.sroa.3.0.data.sroa_idx.i, align 8
   %call6.i = call ptr @qcrypto_block_create(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @block_crypto_create_init_func, ptr noundef nonnull @block_crypto_create_write_func, ptr noundef nonnull %data.i, ptr noundef %errp) #9
   %tobool7.not.i = icmp eq ptr %call6.i, null
@@ -524,7 +524,7 @@ if.end21:                                         ; preds = %if.then20, %fail
   br i1 %tobool22.not, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end21
-  %refcnt.i = getelementptr inbounds i8, ptr %call3, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   %2 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %2, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -553,7 +553,7 @@ define internal i32 @block_crypto_amend_options_luks(ptr noundef %bs, ptr nounde
 entry:
   %errp.i = alloca ptr, align 8
   %ret.i = alloca ptr, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -592,7 +592,7 @@ block_crypto_amend_opts_init.exit:                ; preds = %if.end4, %if.end.i
   br i1 %tobool6.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %block_crypto_amend_opts_init.exit
-  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -617,9 +617,9 @@ qobject_unref_impl.exit:                          ; preds = %block_crypto_amend_
 
 if.end10:                                         ; preds = %qobject_unref_impl.exit
   %4 = load ptr, ptr %opaque, align 8
-  %updating_keys.i = getelementptr inbounds i8, ptr %4, i64 8
+  %updating_keys.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 1, ptr %updating_keys.i, align 8
-  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file.i = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %5 = load ptr, ptr %file.i, align 8
   %call.i14 = call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %bs, ptr noundef %5, ptr noundef %errp) #9
   %cmp.i15 = icmp slt i32 %call.i14, 0
@@ -660,7 +660,7 @@ perm_cleanup:                                     ; preds = %block_crypto_amend_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %errp.i)
   %8 = load ptr, ptr %opaque, align 8
   store ptr null, ptr %errp.i, align 8
-  %updating_keys.i24 = getelementptr inbounds i8, ptr %8, i64 8
+  %updating_keys.i24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 0, ptr %updating_keys.i24, align 8
   %9 = load ptr, ptr %file.i, align 8
   %call.i26 = call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %bs, ptr noundef %9, ptr noundef nonnull %errp.i) #9
@@ -685,12 +685,12 @@ cleanup:                                          ; preds = %qobject_unref_impl.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @block_crypto_refresh_limits(ptr nocapture noundef initializes((16464, 16468)) %bs, ptr nocapture readnone %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i64 @qcrypto_block_get_sector_size(ptr noundef %1) #9
   %conv = trunc i64 %call to i32
-  %bl = getelementptr inbounds i8, ptr %bs, i64 16464
+  %bl = getelementptr inbounds nuw i8, ptr %bs, i64 16464
   store i32 %conv, ptr %bl, align 8
   ret void
 }
@@ -698,7 +698,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @block_crypto_child_perms(ptr noundef %bs, ptr noundef %c, i32 noundef %role, ptr noundef %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef %nperm, ptr noundef %nshared) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @bdrv_default_perms(ptr noundef %bs, ptr noundef %c, i32 noundef %role, ptr noundef %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef %nperm, ptr noundef %nshared) #9
   %and = and i64 %shared, 10
@@ -710,7 +710,7 @@ entry:
   %and2 = and i64 %perm, 10
   %or3 = or disjoint i64 %and1, %and2
   store i64 %or3, ptr %nperm, align 8
-  %updating_keys = getelementptr inbounds i8, ptr %0, i64 8
+  %updating_keys = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %updating_keys, align 8
   %tobool = trunc i8 %3 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -741,13 +741,13 @@ define internal i32 @block_crypto_co_amend_luks(ptr noundef %bs, ptr nocapture n
 entry:
   %amend_opts = alloca %struct.QCryptoBlockAmendOptions, align 8
   %.compoundliteral.sroa.2 = alloca [68 x i8], align 4
-  %u1 = getelementptr inbounds i8, ptr %opts, i64 8
-  %.compoundliteral.sroa.2.8.u.sroa_idx = getelementptr inbounds i8, ptr %.compoundliteral.sroa.2, i64 4
+  %u1 = getelementptr inbounds nuw i8, ptr %opts, i64 8
+  %.compoundliteral.sroa.2.8.u.sroa_idx = getelementptr inbounds nuw i8, ptr %.compoundliteral.sroa.2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.compoundliteral.sroa.2.8.u.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %u1, i64 64, i1 false)
   store i32 1, ptr %amend_opts, align 8
-  %.compoundliteral.sroa.2.0.amend_opts.sroa_idx = getelementptr inbounds i8, ptr %amend_opts, i64 4
+  %.compoundliteral.sroa.2.0.amend_opts.sroa_idx = getelementptr inbounds nuw i8, ptr %amend_opts, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %.compoundliteral.sroa.2.0.amend_opts.sroa_idx, ptr noundef nonnull align 4 dereferenceable(68) %.compoundliteral.sroa.2, i64 68, i1 false)
-  %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque.i = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -774,7 +774,7 @@ block_crypto_amend_options_generic_luks.exit:     ; preds = %if.end.i
 define internal i32 @block_crypto_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %hd_qiov = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i64 @qcrypto_block_get_sector_size(ptr noundef %1) #9
@@ -806,13 +806,13 @@ if.else10:                                        ; preds = %if.end6
   unreachable
 
 if.end11:                                         ; preds = %if.end6
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   %3 = load i32, ptr %niov, align 8
   call void @qemu_iovec_init(ptr noundef nonnull %hd_qiov, i32 noundef %3) #9
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %4 = load ptr, ptr %file, align 8
   %5 = load ptr, ptr %4, align 8
-  %size = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   %6 = load i64, ptr %size, align 8
   %cond = call i64 @llvm.umin.i64(i64 %6, i64 1048576)
   %call14 = call ptr @qemu_try_blockalign(ptr noundef %5, i64 noundef %cond) #9
@@ -864,7 +864,7 @@ cleanup:                                          ; preds = %while.body, %if.end
 define internal i32 @block_crypto_co_pwritev(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %hd_qiov = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i64 @qcrypto_block_get_sector_size(ptr noundef %1) #9
@@ -897,13 +897,13 @@ if.else10:                                        ; preds = %if.end6
   unreachable
 
 if.end11:                                         ; preds = %if.end6
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   %3 = load i32, ptr %niov, align 8
   call void @qemu_iovec_init(ptr noundef nonnull %hd_qiov, i32 noundef %3) #9
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %4 = load ptr, ptr %file, align 8
   %5 = load ptr, ptr %4, align 8
-  %size = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   %6 = load i64, ptr %size, align 8
   %cond = call i64 @llvm.umin.i64(i64 %6, i64 1048576)
   %call14 = call ptr @qemu_try_blockalign(ptr noundef %5, i64 noundef %cond) #9
@@ -954,7 +954,7 @@ cleanup:                                          ; preds = %if.end29, %if.end36
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @block_crypto_co_truncate(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 %flags, ptr noundef %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i64 @qcrypto_block_get_payload_offset(ptr noundef %1) #9
@@ -968,7 +968,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %add = add i64 %call, %offset
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file, align 8
   %call1 = tail call i32 @bdrv_co_truncate(ptr noundef %2, i64 noundef %add, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 noundef 0, ptr noundef %errp) #9
   br label %return
@@ -981,9 +981,9 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @block_crypto_co_getlength(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %2) #9
@@ -1049,7 +1049,7 @@ block_crypto_create_opts_init.exit:               ; preds = %if.end4, %if.end.i
   br i1 %tobool7.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %block_crypto_create_opts_init.exit
-  %refcnt.i = getelementptr inbounds i8, ptr %call5, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %2 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %2, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -1080,7 +1080,7 @@ cleanup.thread:                                   ; preds = %if.end11
   %call15 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #11
   %3 = load i64, ptr %luks_payload_size, align 8
   %add = add i64 %3, %size.0
-  %fully_allocated = getelementptr inbounds i8, ptr %call15, i64 8
+  %fully_allocated = getelementptr inbounds nuw i8, ptr %call15, i64 8
   store i64 %add, ptr %fully_allocated, align 8
   store i64 %add, ptr %call15, align 8
   br label %if.then.i.i
@@ -1109,7 +1109,7 @@ glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit: ; preds = %cleanup.thread19
 define internal i32 @block_crypto_co_get_info_luks(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #0 {
 entry:
   %subbdi = alloca %struct.BlockDriverInfo, align 8
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   %call = call i32 @bdrv_co_get_info(ptr noundef %1, ptr noundef nonnull %subbdi) #9
@@ -1128,7 +1128,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noalias noundef ptr @block_crypto_get_specific_info_luks(ptr nocapture noundef readonly %bs, ptr noundef %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call ptr @qcrypto_block_get_info(ptr noundef %1, ptr noundef %errp) #9
@@ -1148,9 +1148,9 @@ if.end2:                                          ; preds = %if.end
   %call3 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #11
   store i32 2, ptr %call3, align 8
   %call4 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #11
-  %u = getelementptr inbounds i8, ptr %call3, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %call3, i64 8
   store ptr %call4, ptr %u, align 8
-  %u7 = getelementptr inbounds i8, ptr %call, i64 8
+  %u7 = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call4, ptr noundef nonnull align 8 dereferenceable(56) %u7, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %u7, i8 0, i64 56, i1 false)
   tail call void @qapi_free_QCryptoBlockInfo(ptr noundef nonnull %call) #9
@@ -1196,7 +1196,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #9
-  %file = getelementptr inbounds i8, ptr %opaque, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %opaque, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call2 = tail call i32 @bdrv_pread(ptr noundef %0, i64 noundef %offset, i64 noundef %buflen, ptr noundef %buf, i32 noundef 0) #9
   %cmp = icmp slt i32 %call2, 0
@@ -1244,9 +1244,9 @@ if.end:                                           ; preds = %entry
   %cmp = icmp eq i32 %prealloc, 1
   %spec.store.select = select i1 %cmp, i32 0, i32 %prealloc
   store ptr %call, ptr %data, align 8
-  %.compoundliteral.sroa.2.0.data.sroa_idx = getelementptr inbounds i8, ptr %data, i64 8
+  %.compoundliteral.sroa.2.0.data.sroa_idx = getelementptr inbounds nuw i8, ptr %data, i64 8
   store i64 %size, ptr %.compoundliteral.sroa.2.0.data.sroa_idx, align 8
-  %.compoundliteral.sroa.3.0.data.sroa_idx = getelementptr inbounds i8, ptr %data, i64 16
+  %.compoundliteral.sroa.3.0.data.sroa_idx = getelementptr inbounds nuw i8, ptr %data, i64 16
   store i32 %spec.store.select, ptr %.compoundliteral.sroa.3.0.data.sroa_idx, align 8
   %call6 = call ptr @qcrypto_block_create(ptr noundef %opts, ptr noundef null, ptr noundef nonnull @block_crypto_create_init_func, ptr noundef nonnull @block_crypto_create_write_func, ptr noundef nonnull %data, ptr noundef %errp) #9
   %tobool7.not = icmp eq ptr %call6, null
@@ -1272,7 +1272,7 @@ define internal range(i32 -2147483648, 1) i32 @block_crypto_create_init_func(ptr
 entry:
   %local_error = alloca ptr, align 8
   store ptr null, ptr %local_error, align 8
-  %size = getelementptr inbounds i8, ptr %opaque, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load i64, ptr %size, align 8
   %cmp = icmp slt i64 %0, 0
   %sub = sub nuw nsw i64 9223372036854775807, %0
@@ -1283,7 +1283,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %opaque, align 8
   %add = add nuw i64 %0, %headerlen
-  %prealloc = getelementptr inbounds i8, ptr %opaque, i64 16
+  %prealloc = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %2 = load i32, ptr %prealloc, align 8
   %call = call i32 @blk_truncate(ptr noundef %1, i64 noundef %add, i1 noundef zeroext false, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %local_error) #9
   %cmp4 = icmp sgt i32 %call, -1
@@ -1377,7 +1377,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #9
-  %file = getelementptr inbounds i8, ptr %opaque, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %opaque, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call2 = tail call i32 @bdrv_pwrite(ptr noundef %0, i64 noundef %offset, i64 noundef %buflen, ptr noundef %buf, i32 noundef 0) #9
   %cmp = icmp slt i32 %call2, 0

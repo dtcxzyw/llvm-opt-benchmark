@@ -88,7 +88,7 @@ define dso_local void @_ZN4llvm22CoroConditionalWrapper13printPipelineERNS_11raw
 15:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, ptr noundef nonnull align 1 dereferenceable(9) @.str, i64 9, i1 false)
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 9
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 9
   store ptr %17, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -103,7 +103,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 22:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %23 = getelementptr inbounds i8, ptr %18, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %23, ptr %7, align 8
   store i8 40, ptr %18, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -120,7 +120,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %20, %22
   br label %_ZN4llvm11raw_ostreamlsEc.exit9
 
 28:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %29 = getelementptr inbounds i8, ptr %24, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %29, ptr %7, align 8
   store i8 41, ptr %24, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit9

@@ -61,19 +61,19 @@ declare void @_ZN12ZStatCounterC1EPKcS1_PFv15LogTargetHandleRK12ZStatSamplerRK19
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8ZLiveMapC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   store volatile i32 0, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store volatile i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = tail call i32 @llvm.umax.i32(i32 %1, i32 64)
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   tail call void @_ZN11CHeapBitMapC2Em8MEMFLAGSb(ptr noundef nonnull align 8 dereferenceable(17) %6, i64 noundef %9, i8 noundef zeroext 5, i1 noundef zeroext false) #7
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 6
   %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %13, i1 true)
@@ -89,7 +89,7 @@ define hidden void @_ZN8ZLiveMap5resetE13ZGenerationId(ptr noundef nonnull align
   %.0.i = select i1 %3, ptr %_ZN11ZGeneration6_youngE.val.i, ptr %_ZN11ZGeneration4_oldE.val.i
   %4 = load volatile i32, ptr %0, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 3220
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3220
   %6 = load i32, ptr %5, align 4
   %.not17 = icmp eq i32 %4, %6
   br i1 %.not17, label %.loopexit, label %.lr.ph
@@ -111,11 +111,11 @@ define hidden void @_ZN8ZLiveMap5resetE13ZGenerationId(ptr noundef nonnull align
   br i1 %12, label %_ZN6BitMap5clearEv.exit12, label %17
 
 _ZN6BitMap5clearEv.exit12:                        ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store volatile i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %16 = load i32, ptr %5, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
@@ -127,7 +127,7 @@ _ZN6BitMap5clearEv.exit12:                        ; preds = %10
 
 18:                                               ; preds = %17
   tail call void @_Z8ZStatIncRK12ZStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) @_ZL33ZCounterMarkSeqNumResetContention, i64 noundef 1) #7
-  %19 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not15 = icmp eq ptr %19, null
   br i1 %.not15, label %24, label %20
 
@@ -164,9 +164,9 @@ declare noundef ptr @_ZN6ZUtils11thread_nameEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8ZLiveMap13reset_segmentEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = lshr i64 %1, 6
-  %5 = getelementptr inbounds i64, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %4
   %6 = and i64 %1, 63
   %7 = shl nuw i64 1, %6
   %8 = load volatile i64, ptr %5, align 8
@@ -180,8 +180,8 @@ define hidden void @_ZN8ZLiveMap13reset_segmentEm(ptr noundef nonnull align 8 de
   br i1 %.not.not.not.i.not.not.not.i.not, label %_ZN8ZLiveMap13claim_segmentEm.exit.preheader, label %16
 
 _ZN8ZLiveMap13claim_segmentEm.exit.preheader:     ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i64, ptr %11, i64 %4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %4
   %13 = load volatile i64, ptr %12, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %14 = and i64 %13, %7
@@ -190,7 +190,7 @@ _ZN8ZLiveMap13claim_segmentEm.exit.preheader:     ; preds = %9
 
 .lr.ph:                                           ; preds = %_ZN8ZLiveMap13claim_segmentEm.exit.preheader
   tail call void @_Z8ZStatIncRK12ZStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) @_ZL34ZCounterMarkSegmentResetContention, i64 noundef 1) #7
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not13 = icmp eq ptr %15, null
   br i1 %.not13, label %_ZN8ZLiveMap13claim_segmentEm.exit.preheader21, label %19
 
@@ -219,14 +219,14 @@ _ZN8ZLiveMap13claim_segmentEm.exit:               ; preds = %_ZN8ZLiveMap13claim
   br i1 %.not, label %_ZN8ZLiveMap13claim_segmentEm.exit, label %_ZN8ZLiveMap16set_segment_liveEm.exit, !llvm.loop !12
 
 27:                                               ; preds = %16
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8
   %30 = lshr i64 %29, 6
   %31 = mul i64 %30, %1
   %32 = add i64 %1, 1
   %33 = mul i64 %30, %32
   %34 = icmp ugt i64 %29, 131071
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %34, label %36, label %37
 
 36:                                               ; preds = %27
@@ -238,8 +238,8 @@ _ZN8ZLiveMap13claim_segmentEm.exit:               ; preds = %_ZN8ZLiveMap13claim
   br label %38
 
 38:                                               ; preds = %37, %36
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
-  %40 = getelementptr inbounds i64, ptr %39, i64 %4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %4
   %41 = load volatile i64, ptr %40, align 8
   br label %42
 
@@ -267,18 +267,18 @@ define hidden void @_ZN8ZLiveMap6resizeEj(ptr noundef nonnull align 8 dereferenc
   %3 = tail call i32 @llvm.umax.i32(i32 %1, i32 64)
   %4 = zext i32 %3 to i64
   %5 = shl nuw nsw i64 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, %5
   br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN14GrowableBitMapI11CHeapBitMapE12reinitializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %5, i1 noundef zeroext false) #7
   %10 = load i64, ptr %6, align 8
   %11 = lshr i64 %10, 6
   %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %11, i1 true)
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %12, ptr %13, align 8
   br label %14
 

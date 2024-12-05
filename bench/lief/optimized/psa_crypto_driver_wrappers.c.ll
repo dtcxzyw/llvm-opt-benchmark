@@ -31,7 +31,7 @@ declare i32 @psa_verify_message_builtin(ptr noundef, ptr noundef, i64 noundef, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_sign_hash(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8) local_unnamed_addr #1 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %cond = icmp ult i32 %11, 256
   br i1 %cond, label %12, label %14
@@ -49,7 +49,7 @@ declare i32 @psa_sign_hash_builtin(ptr noundef, ptr noundef, i64 noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_verify_hash(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #1 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %cond = icmp ult i32 %10, 256
   br i1 %cond, label %11, label %13
@@ -79,7 +79,7 @@ define hidden noundef i32 @psa_driver_wrapper_get_key_buffer_size(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_generate_key(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %cond = icmp ult i32 %6, 256
   br i1 %cond, label %7, label %9
@@ -161,7 +161,7 @@ define hidden noundef i32 @psa_driver_wrapper_copy_key(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_cipher_encrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10) local_unnamed_addr #1 {
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %cond = icmp ult i32 %13, 256
   br i1 %cond, label %14, label %16
@@ -179,7 +179,7 @@ declare i32 @mbedtls_psa_cipher_encrypt(ptr noundef, ptr noundef, i64 noundef, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_cipher_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8) local_unnamed_addr #1 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %cond = icmp ult i32 %11, 256
   br i1 %cond, label %12, label %14
@@ -197,13 +197,13 @@ declare i32 @mbedtls_psa_cipher_decrypt(ptr noundef, ptr noundef, i64 noundef, i
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @psa_driver_wrapper_cipher_encrypt_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %cond = icmp ult i32 %7, 256
   br i1 %cond, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = tail call i32 @mbedtls_psa_cipher_encrypt_setup(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #5
   %cond12 = icmp eq i32 %10, 0
   br i1 %cond12, label %11, label %12
@@ -221,13 +221,13 @@ declare i32 @mbedtls_psa_cipher_encrypt_setup(ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_cipher_decrypt_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %cond = icmp ult i32 %7, 256
   br i1 %cond, label %8, label %13
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = tail call i32 @mbedtls_psa_cipher_decrypt_setup(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #5
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13
@@ -250,7 +250,7 @@ define hidden i32 @psa_driver_wrapper_cipher_set_iv(ptr noundef %0, ptr noundef 
   br i1 %cond, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call i32 @mbedtls_psa_cipher_set_iv(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2) #5
   br label %8
 
@@ -268,7 +268,7 @@ define hidden i32 @psa_driver_wrapper_cipher_update(ptr noundef %0, ptr noundef 
   br i1 %cond, label %8, label %11
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = tail call i32 @mbedtls_psa_cipher_update(ptr noundef nonnull %9, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #5
   br label %11
 
@@ -286,7 +286,7 @@ define hidden i32 @psa_driver_wrapper_cipher_finish(ptr noundef %0, ptr noundef 
   br i1 %cond, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call i32 @mbedtls_psa_cipher_finish(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #5
   br label %9
 
@@ -304,7 +304,7 @@ define hidden i32 @psa_driver_wrapper_cipher_abort(ptr noundef %0) local_unnamed
   br i1 %cond, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call i32 @mbedtls_psa_cipher_abort(ptr noundef nonnull %4) #5
   br label %6
 
@@ -325,7 +325,7 @@ declare i32 @mbedtls_psa_hash_compute(i32 noundef, ptr noundef, i64 noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_hash_setup(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call i32 @mbedtls_psa_hash_setup(ptr noundef nonnull %3, i32 noundef %1) #5
   %cond = icmp eq i32 %4, 0
   br i1 %cond, label %5, label %6
@@ -348,8 +348,8 @@ define hidden i32 @psa_driver_wrapper_hash_clone(ptr noundef %0, ptr noundef %1)
 
 4:                                                ; preds = %2
   store i32 1, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = tail call i32 @mbedtls_psa_hash_clone(ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   br label %8
 
@@ -367,7 +367,7 @@ define hidden i32 @psa_driver_wrapper_hash_update(ptr noundef %0, ptr noundef %1
   br i1 %cond, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call i32 @mbedtls_psa_hash_update(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2) #5
   br label %8
 
@@ -385,7 +385,7 @@ define hidden i32 @psa_driver_wrapper_hash_finish(ptr noundef %0, ptr noundef %1
   br i1 %cond, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call i32 @mbedtls_psa_hash_finish(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #5
   br label %9
 
@@ -403,7 +403,7 @@ define hidden i32 @psa_driver_wrapper_hash_abort(ptr noundef %0) local_unnamed_a
   br i1 %cond, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call i32 @mbedtls_psa_hash_abort(ptr noundef nonnull %4) #5
   br label %6
 
@@ -416,7 +416,7 @@ declare i32 @mbedtls_psa_hash_abort(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_aead_encrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10, i64 noundef %11, ptr noundef %12) local_unnamed_addr #1 {
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %cond = icmp ult i32 %15, 256
   br i1 %cond, label %16, label %18
@@ -434,7 +434,7 @@ declare i32 @mbedtls_psa_aead_encrypt(ptr noundef, ptr noundef, i64 noundef, i32
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_aead_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10, i64 noundef %11, ptr noundef %12) local_unnamed_addr #1 {
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %cond = icmp ult i32 %15, 256
   br i1 %cond, label %16, label %18
@@ -458,7 +458,7 @@ define hidden range(i32 -135, 1) i32 @psa_driver_get_tag_len(ptr noundef readonl
   br i1 %or.cond, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 47
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 47
   %7 = load i8, ptr %6, align 1
   store i8 %7, ptr %1, align 1
   br label %8
@@ -470,14 +470,14 @@ define hidden range(i32 -135, 1) i32 @psa_driver_get_tag_len(ptr noundef readonl
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_aead_encrypt_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %cond = icmp ult i32 %7, 256
   br i1 %cond, label %8, label %11
 
 8:                                                ; preds = %5
   store i32 1, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = tail call i32 @mbedtls_psa_aead_encrypt_setup(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #5
   br label %11
 
@@ -490,14 +490,14 @@ declare i32 @mbedtls_psa_aead_encrypt_setup(ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_aead_decrypt_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %cond = icmp ult i32 %7, 256
   br i1 %cond, label %8, label %11
 
 8:                                                ; preds = %5
   store i32 1, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = tail call i32 @mbedtls_psa_aead_decrypt_setup(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #5
   br label %11
 
@@ -515,7 +515,7 @@ define hidden i32 @psa_driver_wrapper_aead_set_nonce(ptr noundef %0, ptr noundef
   br i1 %cond, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = tail call i32 @mbedtls_psa_aead_set_nonce(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2) #5
   br label %8
 
@@ -533,7 +533,7 @@ define hidden i32 @psa_driver_wrapper_aead_set_lengths(ptr noundef %0, i64 nound
   br i1 %cond, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = tail call i32 @mbedtls_psa_aead_set_lengths(ptr noundef nonnull %6, i64 noundef %1, i64 noundef %2) #5
   br label %8
 
@@ -551,7 +551,7 @@ define hidden i32 @psa_driver_wrapper_aead_update_ad(ptr noundef %0, ptr noundef
   br i1 %cond, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = tail call i32 @mbedtls_psa_aead_update_ad(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2) #5
   br label %8
 
@@ -569,7 +569,7 @@ define hidden i32 @psa_driver_wrapper_aead_update(ptr noundef %0, ptr noundef %1
   br i1 %cond, label %8, label %11
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = tail call i32 @mbedtls_psa_aead_update(ptr noundef nonnull %9, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #5
   br label %11
 
@@ -587,7 +587,7 @@ define hidden i32 @psa_driver_wrapper_aead_finish(ptr noundef %0, ptr noundef %1
   br i1 %cond, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = tail call i32 @mbedtls_psa_aead_finish(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #5
   br label %12
 
@@ -607,7 +607,7 @@ define hidden i32 @psa_driver_wrapper_aead_verify(ptr noundef %0, ptr noundef %1
   br i1 %cond, label %10, label %25
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = call i32 @mbedtls_psa_aead_finish(ptr noundef nonnull %11, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull %7, i64 noundef 16, ptr noundef nonnull %8) #5
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %mbedtls_psa_safer_memcmp.exit.thread
@@ -660,7 +660,7 @@ define hidden i32 @psa_driver_wrapper_aead_abort(ptr noundef %0) local_unnamed_a
   br i1 %cond, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = tail call i32 @mbedtls_psa_aead_abort(ptr noundef nonnull %4) #5
   br label %6
 
@@ -673,7 +673,7 @@ declare i32 @mbedtls_psa_aead_abort(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_mac_compute(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8) local_unnamed_addr #1 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %cond = icmp ult i32 %11, 256
   br i1 %cond, label %12, label %14
@@ -691,13 +691,13 @@ declare i32 @mbedtls_psa_mac_compute(ptr noundef, ptr noundef, i64 noundef, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @psa_driver_wrapper_mac_sign_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %cond = icmp ult i32 %7, 256
   br i1 %cond, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = tail call i32 @mbedtls_psa_mac_sign_setup(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #5
   %cond12 = icmp eq i32 %10, 0
   br i1 %cond12, label %11, label %12
@@ -715,13 +715,13 @@ declare i32 @mbedtls_psa_mac_sign_setup(ptr noundef, ptr noundef, ptr noundef, i
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @psa_driver_wrapper_mac_verify_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %cond = icmp ult i32 %7, 256
   br i1 %cond, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = tail call i32 @mbedtls_psa_mac_verify_setup(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #5
   %cond12 = icmp eq i32 %10, 0
   br i1 %cond12, label %11, label %12
@@ -744,7 +744,7 @@ define hidden i32 @psa_driver_wrapper_mac_update(ptr noundef %0, ptr noundef %1,
   br i1 %cond, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call i32 @mbedtls_psa_mac_update(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2) #5
   br label %8
 
@@ -762,7 +762,7 @@ define hidden i32 @psa_driver_wrapper_mac_sign_finish(ptr noundef %0, ptr nounde
   br i1 %cond, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call i32 @mbedtls_psa_mac_sign_finish(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2, ptr noundef %3) #5
   br label %9
 
@@ -780,7 +780,7 @@ define hidden i32 @psa_driver_wrapper_mac_verify_finish(ptr noundef %0, ptr noun
   br i1 %cond, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call i32 @mbedtls_psa_mac_verify_finish(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2) #5
   br label %8
 
@@ -798,7 +798,7 @@ define hidden i32 @psa_driver_wrapper_mac_abort(ptr noundef %0) local_unnamed_ad
   br i1 %cond, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call i32 @mbedtls_psa_mac_abort(ptr noundef nonnull %4) #5
   br label %6
 
@@ -811,7 +811,7 @@ declare i32 @mbedtls_psa_mac_abort(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_asymmetric_encrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10) local_unnamed_addr #1 {
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %cond = icmp ult i32 %13, 256
   br i1 %cond, label %14, label %16
@@ -829,7 +829,7 @@ declare i32 @mbedtls_psa_asymmetric_encrypt(ptr noundef, ptr noundef, i64 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_driver_wrapper_asymmetric_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef %10) local_unnamed_addr #1 {
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %cond = icmp ult i32 %13, 256
   br i1 %cond, label %14, label %16

@@ -89,11 +89,11 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   tail call void @gtk_dialog_set_default_response(ptr noundef %18, i32 noundef -3) #9
   %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %17) #9
   tail call void @dt_gui_dialog_add_help(ptr noundef %19, ptr noundef nonnull @.str.3) #9
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %16, ptr %20, align 8, !tbaa !24
   %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %12) #9
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !6
-  %23 = getelementptr inbounds i8, ptr %22, i64 1448
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1448
   %24 = load double, ptr %23, align 8, !tbaa !26
   %25 = fmul reassoc nsz arcp contract afn double %24, 5.000000e+02
   %26 = fptosi double %25 to i32
@@ -171,7 +171,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   tail call void @gtk_box_pack_start(ptr noundef %74, ptr noundef %73, i32 noundef 0, i32 noundef 1, i32 noundef 10) #9
   %75 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 5) #9
   %76 = tail call ptr @gtk_check_button_new_with_label(ptr noundef %75) #9
-  %77 = getelementptr inbounds i8, ptr %7, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %76, ptr %77, align 8, !tbaa !27
   %78 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #9
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %76, ptr noundef %78) #9
@@ -180,7 +180,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   tail call void @gtk_box_pack_start(ptr noundef %79, ptr noundef %80, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
   %81 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 5) #9
   %82 = tail call ptr @gtk_check_button_new_with_label(ptr noundef %81) #9
-  %83 = getelementptr inbounds i8, ptr %7, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %82, ptr %83, align 8, !tbaa !28
   %84 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #9
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %82, ptr noundef %84) #9
@@ -189,7 +189,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   tail call void @gtk_box_pack_start(ptr noundef %85, ptr noundef %86, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
   %87 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 5) #9
   %88 = tail call ptr @gtk_check_button_new_with_label(ptr noundef %87) #9
-  %89 = getelementptr inbounds i8, ptr %7, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr %88, ptr %89, align 8, !tbaa !29
   %90 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #9
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %88, ptr noundef %90) #9
@@ -252,7 +252,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   %131 = tail call ptr @g_type_check_instance_cast(ptr noundef %113, i64 noundef 80) #9
   %132 = tail call i64 @g_signal_connect_data(ptr noundef %131, ptr noundef nonnull @.str.34, ptr noundef nonnull @_key_press_on_list, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #9
   %133 = tail call ptr (i32, ...) @gtk_list_store_new(i32 noundef 3, i64 noundef 64, i64 noundef 64, i64 noundef 64) #9
-  %134 = getelementptr inbounds i8, ptr %7, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %133, ptr %134, align 8, !tbaa !31
   %135 = tail call i64 @gtk_tree_sortable_get_type() #10
   %136 = tail call ptr @g_type_check_instance_cast(ptr noundef %133, i64 noundef %135) #9
@@ -262,7 +262,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   tail call void @gtk_tree_view_set_model(ptr noundef %113, ptr noundef %138) #9
   tail call void @g_object_unref(ptr noundef %133) #9
   %139 = tail call ptr (...) @dt_exif_get_exiv2_taglist() #9
-  %140 = getelementptr inbounds i8, ptr %7, i64 48
+  %140 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %139, ptr %140, align 8, !tbaa !32
   %141 = tail call ptr @dt_util_str_to_glist(ptr noundef nonnull @.str.35, ptr noundef %0) #9
   %142 = icmp eq ptr %141, null
@@ -280,7 +280,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
 .preheader4:                                      ; preds = %143, %153
   %149 = phi ptr [ %159, %153 ], [ %147, %143 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8, !tbaa !35
   %152 = icmp eq ptr %151, null
   br i1 %152, label %161, label %153
@@ -293,7 +293,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   %157 = load ptr, ptr %134, align 8, !tbaa !31
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %157, ptr noundef nonnull %3, i32 noundef 0, ptr noundef %154, i32 noundef 2, ptr noundef %155, i32 noundef -1) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
-  %158 = getelementptr inbounds i8, ptr %151, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !35
   %160 = icmp eq ptr %159, null
   br i1 %160, label %.loopexit5, label %.preheader4
@@ -538,13 +538,13 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define internal void @_tags_toggled(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %0) #9
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   tail call void @gtk_widget_set_sensitive(ptr noundef %5, i32 noundef %3) #9
-  %6 = getelementptr inbounds i8, ptr %1, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   tail call void @gtk_widget_set_sensitive(ptr noundef %7, i32 noundef %3) #9
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   tail call void @gtk_widget_set_sensitive(ptr noundef %9, i32 noundef %3) #9
   ret void
@@ -583,7 +583,7 @@ declare void @g_object_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 define internal void @_formula_edited(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = alloca %struct._GtkTreeIter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = tail call i64 @gtk_tree_model_get_type() #10
   %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %8) #9
@@ -619,13 +619,13 @@ define internal noundef range(i32 0, 2) i32 @_key_press_on_list(ptr nocapture re
   br i1 %7, label %8, label %29
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %10 = load i32, ptr %9, align 4, !tbaa !40
   %11 = icmp eq i32 %10, 65535
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !41
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %29
@@ -633,7 +633,7 @@ define internal noundef range(i32 0, 2) i32 @_key_press_on_list(ptr nocapture re
 16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !31
   %19 = tail call i64 @gtk_tree_model_get_type() #10
   %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %18, i64 noundef %19) #9
@@ -705,7 +705,7 @@ declare void @gtk_box_pack_end(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 define internal void @_add_tag_button_clicked(ptr nocapture readnone %0, ptr noundef initializes((32, 40)) %1) #0 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 5) #9
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   %7 = tail call i64 @gtk_window_get_type() #10
   %8 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %7) #9
@@ -717,7 +717,7 @@ define internal void @_add_tag_button_clicked(ptr nocapture readnone %0, ptr nou
   tail call void @gtk_dialog_set_default_response(ptr noundef %13, i32 noundef -1) #9
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %7) #9
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !6
-  %16 = getelementptr inbounds i8, ptr %15, i64 1448
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1448
   %17 = load double, ptr %16, align 8, !tbaa !26
   %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e+02
   %19 = fptosi double %18 to i32
@@ -734,7 +734,7 @@ define internal void @_add_tag_button_clicked(ptr nocapture readnone %0, ptr nou
   %28 = tail call ptr @g_type_check_instance_cast(ptr noundef %23, i64 noundef %27) #9
   tail call void @gtk_box_pack_start(ptr noundef %28, ptr noundef %24, i32 noundef 1, i32 noundef 1, i32 noundef 0) #9
   %29 = tail call ptr @gtk_entry_new() #9
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %29, ptr %30, align 8, !tbaa !42
   %31 = tail call i64 @gtk_entry_get_type() #10
   %32 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %31) #9
@@ -756,7 +756,7 @@ define internal void @_add_tag_button_clicked(ptr nocapture readnone %0, ptr nou
   %42 = tail call ptr @gtk_tree_view_new() #9
   %43 = tail call i64 @gtk_tree_view_get_type() #10
   %44 = tail call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %43) #9
-  %45 = getelementptr inbounds i8, ptr %1, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %44, ptr %45, align 8, !tbaa !43
   %46 = tail call ptr @g_type_check_instance_cast(ptr noundef %38, i64 noundef %25) #9
   %47 = tail call i64 @gtk_widget_get_type() #10
@@ -782,7 +782,7 @@ define internal void @_add_tag_button_clicked(ptr nocapture readnone %0, ptr nou
   %64 = tail call i64 @gtk_tree_model_filter_get_type() #10
   %65 = tail call ptr @g_type_check_instance_cast(ptr noundef %63, i64 noundef %64) #9
   tail call void @gtk_tree_model_filter_set_visible_column(ptr noundef %65, i32 noundef 3) #9
-  %66 = getelementptr inbounds i8, ptr %1, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %67 = load ptr, ptr %66, align 8, !tbaa !36
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.loopexit4, label %.preheader3
@@ -816,14 +816,14 @@ define internal void @_add_tag_button_clicked(ptr nocapture readnone %0, ptr nou
 
 81:                                               ; preds = %.preheader3
   store i8 0, ptr %78, align 1, !tbaa !44
-  %82 = getelementptr inbounds i8, ptr %78, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 1
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %60, ptr noundef nonnull %3, i32 noundef 0, ptr noundef %77, i32 noundef 1, ptr noundef nonnull %82, i32 noundef 3, i32 noundef 1, i32 noundef -1) #9
   store i8 44, ptr %78, align 1, !tbaa !44
   br label %83
 
 83:                                               ; preds = %81, %80
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
-  %84 = getelementptr inbounds i8, ptr %76, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !36
   %86 = icmp eq ptr %85, null
   br i1 %86, label %.loopexit4, label %.preheader3
@@ -848,7 +848,7 @@ define internal void @_delete_tag_button_clicked(ptr nocapture readnone %0, ptr 
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = tail call i64 @gtk_tree_model_get_type() #10
   %8 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %7) #9
@@ -916,14 +916,14 @@ declare void @gtk_entry_set_activates_default(ptr noundef, i32 noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal void @_tag_name_changed(ptr nocapture readnone %0, ptr noundef initializes((40, 48)) %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !42
   %5 = tail call i64 @gtk_entry_get_type() #10
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %5) #9
   %7 = tail call ptr @gtk_entry_get_text(ptr noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %7, ptr %8, align 8, !tbaa !45
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !43
   %11 = tail call ptr @gtk_tree_view_get_model(ptr noundef %10) #9
   %12 = tail call i64 @gtk_tree_model_filter_get_type() #10
@@ -968,7 +968,7 @@ define internal fastcc void @_add_selected_metadata(ptr noundef %0, ptr nocaptur
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   %13 = load ptr, ptr %6, align 8, !tbaa !36
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %13, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %7, i32 noundef -1) #9
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !31
   %16 = tail call i64 @gtk_tree_model_get_type() #10
   %17 = call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #9
@@ -1044,7 +1044,7 @@ define internal noundef i32 @_set_matching_tag_visibility(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store ptr null, ptr %5, align 8, !tbaa !36
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5, i32 noundef -1) #9
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !45
   %8 = load i8, ptr %7, align 1, !tbaa !44
   %9 = icmp eq i8 %8, 0

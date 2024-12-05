@@ -571,7 +571,7 @@ define weak_odr void @_ZN5boost7archive21basic_text_iprimitiveISt13basic_istream
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %22, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %24 = getelementptr inbounds i8, ptr %5, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %24, i8 0, i64 9, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 44
@@ -868,7 +868,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost7archive9iterators18dataflow_e
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK5boost7archive9iterators18dataflow_exception4whatEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK5boost7archive9iterators18dataflow_exception4whatEv, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 

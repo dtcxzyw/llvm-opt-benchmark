@@ -649,12 +649,12 @@ define internal i32 @dissect_smcr_infiniband(ptr noundef %0, ptr nocapture nound
   %.str.364.sink = phi ptr [ @.str.364, %11 ], [ @.str.332, %8 ]
   %.str.365.sink = phi ptr [ @.str.365, %11 ], [ @.str.363, %8 ]
   %.0 = phi i16 [ %12, %11 ], [ %10, %8 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull %.str.364.sink) #3
   %16 = load ptr, ptr %14, align 8
   tail call void @col_append_str(ptr noundef %16, i32 noundef 25, ptr noundef nonnull %.str.365.sink) #3
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @val_to_str_const(i32 noundef %6, ptr noundef nonnull @smcr_llc_message_txt, ptr noundef nonnull @.str.344) #3
   tail call void @col_append_str(ptr noundef %18, i32 noundef 25, ptr noundef %19) #3
@@ -1235,7 +1235,7 @@ define internal i32 @dissect_smc_tcp_pdu(ptr noundef %0, ptr nocapture noundef r
   %10 = icmp ugt i8 %8, 31
   %11 = icmp eq i8 %6, 1
   %or.cond = select i1 %10, i1 %11, i1 false
-  %12 = getelementptr inbounds i8, ptr %1, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 3
   br i1 %or.cond, label %.thread, label %18
@@ -1257,7 +1257,7 @@ define internal i32 @dissect_smc_tcp_pdu(ptr noundef %0, ptr nocapture noundef r
   %.str.300.sink = phi ptr [ @.str.342, %.thread ], [ %spec.select125, %18 ]
   %.087113 = phi i8 [ %17, %.thread ], [ %spec.select, %18 ]
   %.088111 = phi i8 [ %15, %.thread ], [ %spec.select, %18 ]
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @col_set_str(ptr noundef %22, i32 noundef 34, ptr noundef nonnull %.str.300.sink) #3
   br i1 %11, label %23, label %42
@@ -1291,7 +1291,7 @@ define internal i32 @dissect_smc_tcp_pdu(ptr noundef %0, ptr nocapture noundef r
 
 get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
   %.0.i = phi i8 [ %.087113, %26 ], [ %.088111, %25 ], [ 3, %27 ], [ %spec.select.i, %30 ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i8 %.0.i to i32
   %36 = tail call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @smcv2_clc_col_info_message_txt, ptr noundef nonnull @.str.344) #3
@@ -1299,7 +1299,7 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
   br label %63
 
 37:                                               ; preds = %23
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = zext nneg i8 %.088111 to i32
   %41 = tail call ptr @val_to_str_const(i32 noundef %40, ptr noundef nonnull @smc_clc_col_info_message_txt, ptr noundef nonnull @.str.344) #3
@@ -1314,12 +1314,12 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
   br i1 %or.cond93, label %45, label %52
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @val_to_str_const(i32 noundef %7, ptr noundef nonnull @smcr_clc_message_txt, ptr noundef nonnull @.str.344) #3
   %.str.345..str.346 = select i1 %10, ptr @.str.345, ptr @.str.346
   tail call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %47, i32 noundef 25, ptr noundef nonnull %.str.345..str.346, ptr noundef %48) #3
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 38) #3
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.347, i32 noundef %51) #3
@@ -1328,7 +1328,7 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
 52:                                               ; preds = %42
   %53 = icmp eq i8 %.087113, 1
   %or.cond94 = select i1 %53, i1 %or.cond6, i1 false
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr @val_to_str_const(i32 noundef %7, ptr noundef nonnull @smcr_clc_message_txt, ptr noundef nonnull @.str.344) #3
   br i1 %or.cond94, label %57, label %60

@@ -20,13 +20,13 @@ define ptr @wcsstr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not15, label %twoway_wcsstr.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %.not16 = icmp eq i32 %10, 0
   br i1 %.not16, label %twoway_wcsstr.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %13 = load i32, ptr %12, align 4
   %.not17 = icmp eq i32 %13, 0
   br i1 %.not17, label %twoway_wcsstr.exit, label %.lr.ph.i

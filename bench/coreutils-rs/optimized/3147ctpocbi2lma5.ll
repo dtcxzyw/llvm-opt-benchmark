@@ -24,13 +24,13 @@ define hidden void @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$6
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %5, align 8
   br label %9
 
 6:                                                ; preds = %2
   %7 = tail call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
   br label %9
 
@@ -47,13 +47,13 @@ define hidden void @_ZN3nix6unistd5write17h023005b3601ee0cbE(ptr noalias nocaptu
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %5, ptr %8, align 8, !alias.scope !5, !noalias !8
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2dc314c5ebe28c17E.llvm.12372031650670403472.exit"
 
 9:                                                ; preds = %4
   %10 = tail call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !4, !noalias !10
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %10, ptr %11, align 4, !alias.scope !5, !noalias !8
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2dc314c5ebe28c17E.llvm.12372031650670403472.exit"
 
@@ -117,16 +117,16 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h2dc314c5ebe28c17
   br i1 %trunc, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !13
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %7, align 8
   br label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4, !range !4, !noundef !13
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %10, ptr %11, align 4
   br label %12
 

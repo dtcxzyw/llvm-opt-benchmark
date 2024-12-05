@@ -135,7 +135,7 @@ define i32 @PMPI_Info_set(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 52:                                               ; preds = %50, %.lr.ph.i
   %53 = phi i8 [ %46, %.lr.ph.i ], [ %.pre.i.i, %50 ]
   %54 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.i
   %56 = load ptr, ptr %55, align 8
   %57 = trunc i8 %53 to i1
   br i1 %57, label %58, label %opal_pointer_array_get_item.exit.i
@@ -147,13 +147,13 @@ define i32 @PMPI_Info_set(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 opal_pointer_array_get_item.exit.i:               ; preds = %58, %52
   %60 = phi i8 [ %53, %52 ], [ %.pre.i, %58 ]
-  %61 = getelementptr inbounds i8, ptr %56, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, %37
   br i1 %63, label %64, label %42
 
 64:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %65 = getelementptr inbounds i8, ptr %56, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %66 = load i32, ptr %65, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

@@ -525,7 +525,7 @@ define internal range(i32 0, -2147483644) i32 @dissect_iso14443(ptr noundef %0, 
   br i1 %.not70, label %20, label %172
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @col_set_str(ptr noundef %22, i32 noundef 34, ptr noundef nonnull @.str.212) #4
   %23 = load ptr, ptr %21, align 8
@@ -553,16 +553,16 @@ define internal range(i32 0, -2147483644) i32 @dissect_iso14443(ptr noundef %0, 
 .sink.split.i:                                    ; preds = %20, %20, %20, %20
   %37 = and i8 %12, -5
   %or.cond11.i = icmp ne i8 %37, -6
-  %38 = getelementptr inbounds i8, ptr %1, i64 208
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 7, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 212
-  %40 = getelementptr inbounds i8, ptr %1, i64 216
-  %41 = getelementptr inbounds i8, ptr %1, i64 224
-  %42 = getelementptr inbounds i8, ptr %1, i64 232
-  %43 = getelementptr inbounds i8, ptr %1, i64 236
-  %44 = getelementptr inbounds i8, ptr %1, i64 240
-  %45 = getelementptr inbounds i8, ptr %1, i64 248
-  %46 = getelementptr inbounds i8, ptr %1, i64 348
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %..i = select i1 %or.cond11.i, i32 5, i32 4
   %.str.249..str.250.i = select i1 %or.cond11.i, ptr @.str.250, ptr @.str.249
   %.25.i = select i1 %or.cond11.i, i32 4, i32 5
@@ -587,16 +587,16 @@ define internal range(i32 0, -2147483644) i32 @dissect_iso14443(ptr noundef %0, 
   %52 = zext i1 %51 to i32
   store i32 %52, ptr %6, align 4
   store i32 1, ptr %5, align 16
-  %53 = getelementptr inbounds i8, ptr %5, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %5, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %54, align 16
-  %55 = getelementptr inbounds i8, ptr %1, i64 20
-  %56 = getelementptr inbounds i8, ptr %5, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 0, ptr %57, align 16
-  %58 = getelementptr inbounds i8, ptr %5, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr null, ptr %58, align 8
   %59 = load i32, ptr %46, align 4
   %60 = icmp ne i32 %59, 0
@@ -608,9 +608,9 @@ define internal range(i32 0, -2147483644) i32 @dissect_iso14443(ptr noundef %0, 
   br i1 %or.cond44.i.i, label %62, label %95
 
 62:                                               ; preds = %.sink.split.i
-  %63 = getelementptr inbounds i8, ptr %1, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 50
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 50
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, 8
   %.not41.i.i = icmp eq i16 %67, 0
@@ -629,7 +629,7 @@ define internal range(i32 0, -2147483644) i32 @dissect_iso14443(ptr noundef %0, 
   br i1 %74, label %75, label %118
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %70, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %77 = load i32, ptr %76, align 4
   %.not43.i.i = icmp eq i32 %77, 0
   br i1 %.not43.i.i, label %118, label %78
@@ -641,13 +641,13 @@ define internal range(i32 0, -2147483644) i32 @dissect_iso14443(ptr noundef %0, 
   br i1 %.not.i.i.i, label %118, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %80, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %83 = load ptr, ptr %82, align 8
   %.not5.i.i.i = icmp eq ptr %83, null
   br i1 %.not5.i.i.i, label %118, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %83, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 28
   %86 = load i32, ptr %85, align 4
   %87 = or i32 %86, 2
   store i32 %87, ptr %85, align 4
@@ -658,9 +658,9 @@ define internal range(i32 0, -2147483644) i32 @dissect_iso14443(ptr noundef %0, 
   %90 = call noalias ptr @wmem_alloc(ptr noundef %89, i64 noundef 12) #4
   %91 = load i32, ptr %55, align 4
   store i32 %91, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %90, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 0, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %90, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i32 7, ptr %93, align 4
   %94 = load ptr, ptr @transactions, align 8
   call void @wmem_tree_insert32_array(ptr noundef %94, ptr noundef nonnull %5, ptr noundef nonnull %90) #4
@@ -682,7 +682,7 @@ define internal range(i32 0, -2147483644) i32 @dissect_iso14443(ptr noundef %0, 
   br i1 %.not.i.i, label %dissect_iso14443_msg.exit.thread, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %100, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 0
   %.pre.i.i = load i32, ptr %55, align 4
@@ -704,13 +704,13 @@ define internal range(i32 0, -2147483644) i32 @dissect_iso14443(ptr noundef %0, 
   br i1 %.not.i46.i.i, label %118, label %111
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %110, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %113 = load ptr, ptr %112, align 8
   %.not5.i47.i.i = icmp eq ptr %113, null
   br i1 %.not5.i47.i.i, label %118, label %114
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %113, i64 28
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 28
   %116 = load i32, ptr %115, align 4
   %117 = or i32 %116, 2
   store i32 %117, ptr %115, align 4
@@ -772,7 +772,7 @@ dissect_iso14443_msg.exit.thread:                 ; preds = %68, %95, %98
   br i1 %narrow.i.not.i.i, label %iso14443_get_cmd_type.exit.i, label %150
 
 139:                                              ; preds = %118
-  %140 = getelementptr inbounds i8, ptr %.0.i.ph.i, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %.0.i.ph.i, i64 8
   %141 = load i32, ptr %140, align 4
   %.not.i33.i = icmp eq i32 %141, 7
   br i1 %.not.i33.i, label %142, label %150
@@ -791,7 +791,7 @@ dissect_iso14443_msg.exit.thread:                 ; preds = %68, %95, %98
 
 150:                                              ; preds = %142, %139, %131, %128, %127, %126, %125, %124, %121
   %.0.i34.ph.i = phi i32 [ 6, %142 ], [ %141, %139 ], [ 6, %131 ], [ 3, %128 ], [ 1, %124 ], [ 0, %121 ], [ 4, %127 ], [ 5, %126 ], [ 2, %125 ]
-  %151 = getelementptr inbounds i8, ptr %.0.i.ph.i, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %.0.i.ph.i, i64 8
   store i32 %.0.i34.ph.i, ptr %151, align 4
   br label %iso14443_get_cmd_type.exit.i
 
@@ -822,7 +822,7 @@ dissect_iso14443_msg.exit:                        ; preds = %iso14443_get_cmd_ty
 164:                                              ; preds = %20
   %165 = load ptr, ptr %21, align 8
   tail call void @col_set_str(ptr noundef %165, i32 noundef 25, ptr noundef nonnull %14) #4
-  %166 = getelementptr inbounds i8, ptr %1, i64 20
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %167 = load i32, ptr %166, align 4
   %168 = tail call ptr @find_conversation_by_id(i32 noundef %167, i32 noundef 18, i32 noundef 0) #4
   %.not71 = icmp eq ptr %168, null
@@ -830,7 +830,7 @@ dissect_iso14443_msg.exit:                        ; preds = %iso14443_get_cmd_ty
 
 169:                                              ; preds = %164
   %170 = load i32, ptr %166, align 4
-  %171 = getelementptr inbounds i8, ptr %168, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 32
   store i32 %170, ptr %171, align 8
   br label %172
 
@@ -882,7 +882,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @dissect_iso14443_cmd_type_wupa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #4
-  %6 = getelementptr inbounds i8, ptr %1, i64 348
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %50 [
     i32 0, label %8
@@ -900,14 +900,14 @@ define internal range(i32 0, 3) i32 @dissect_iso14443_cmd_type_wupa(ptr noundef 
 
 14:                                               ; preds = %8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.252, ptr noundef nonnull %11) #4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 25, ptr noundef nonnull %11) #4
   br label %50
 
 17:                                               ; preds = %4
   %18 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0) #4
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.253) #4
   %21 = zext i16 %18 to i32
@@ -944,13 +944,13 @@ default.unreachable:                              ; preds = %17
   br i1 %.not.i, label %proto_item_set_generated.exit, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %34, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not5.i = icmp eq ptr %37, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %37, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %40 = load i32, ptr %39, align 4
   %41 = or i32 %40, 2
   store i32 %41, ptr %39, align 4
@@ -979,7 +979,7 @@ define internal range(i32 0, 16) i32 @dissect_iso14443_cmd_type_wupb(ptr noundef
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #4
   %6 = ptrtoint ptr %3 to i64
   %7 = trunc i64 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %1, i64 348
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %dissect_iso14443_atqb.exit [
     i32 0, label %10
@@ -999,7 +999,7 @@ define internal range(i32 0, 16) i32 @dissect_iso14443_cmd_type_wupb(ptr noundef
   %20 = zext i8 %15 to i32
   %21 = and i32 %20, 8
   %22 = tail call ptr @tfs_get_string(i32 noundef %21, ptr noundef nonnull @tfs_wupb_reqb) #4
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @col_set_str(ptr noundef %24, i32 noundef 25, ptr noundef %22) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.252, ptr noundef %22) #4
@@ -1020,7 +1020,7 @@ define internal range(i32 0, 16) i32 @dissect_iso14443_cmd_type_wupb(ptr noundef
 
 35:                                               ; preds = %4
   %36 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #4
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void @col_set_str(ptr noundef %38, i32 noundef 25, ptr noundef nonnull @.str.256) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.257) #4
@@ -1085,13 +1085,13 @@ define internal range(i32 0, 16) i32 @dissect_iso14443_cmd_type_wupb(ptr noundef
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %77
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %79 = load ptr, ptr %78, align 8
   %.not5.i.i = icmp eq ptr %79, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %82 = load i32, ptr %81, align 4
   %83 = or i32 %82, 2
   store i32 %83, ptr %81, align 4
@@ -1166,7 +1166,7 @@ dissect_iso14443_atqb.exit:                       ; preds = %126, %110, %4, %10,
 define internal range(i32 2, 5) i32 @dissect_iso14443_cmd_type_hlta(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.78) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.260) #4
@@ -1194,7 +1194,7 @@ define internal range(i32 0, 11) i32 @dissect_iso14443_cmd_type_uid(ptr noundef 
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i32
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #4
-  %8 = getelementptr inbounds i8, ptr %1, i64 348
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %72 [
     i32 0, label %10
@@ -1208,7 +1208,7 @@ define internal range(i32 0, 11) i32 @dissect_iso14443_cmd_type_uid(ptr noundef 
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
   %15 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #4
   %16 = icmp eq i32 %15, 0
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   br i1 %16, label %19, label %20
 
@@ -1256,7 +1256,7 @@ dissect_iso14443_uid_part.exit:                   ; preds = %20, %23
   br i1 %41, label %42, label %55
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   tail call void @col_set_str(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.265) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.266) #4
@@ -1281,7 +1281,7 @@ dissect_iso14443_uid_part.exit:                   ; preds = %20, %23
   br i1 %57, label %58, label %72
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = load ptr, ptr %59, align 8
   tail call void @col_set_str(ptr noundef %60, i32 noundef 25, ptr noundef nonnull @.str.267) #4
   %61 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
@@ -1314,7 +1314,7 @@ define internal range(i32 0, 258) i32 @dissect_iso14443_cmd_type_ats(ptr noundef
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i32
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #4
-  %8 = getelementptr inbounds i8, ptr %1, i64 348
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %dissect_iso14443_ats.exit [
     i32 0, label %10
@@ -1322,7 +1322,7 @@ define internal range(i32 0, 258) i32 @dissect_iso14443_cmd_type_ats(ptr noundef
   ]
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.268) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.269) #4
@@ -1347,13 +1347,13 @@ define internal range(i32 0, 258) i32 @dissect_iso14443_cmd_type_ats(ptr noundef
   br i1 %.not.i, label %proto_item_set_generated.exit, label %28
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %27, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not5.i = icmp eq ptr %30, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %30, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = or i32 %33, 2
   store i32 %34, ptr %32, align 4
@@ -1378,11 +1378,11 @@ proto_item_set_generated.exit:                    ; preds = %31, %28, %21, %10
 
 46:                                               ; preds = %4
   %47 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #4
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8
   tail call void @col_set_str(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.270) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.271) #4
-  %50 = getelementptr inbounds i8, ptr %1, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %51 = load i32, ptr %50, align 4
   %52 = tail call nonnull ptr @conversation_new_by_id(i32 noundef %51, i32 noundef 18, i32 noundef 0) #4
   %53 = load i32, ptr @proto_iso14443, align 4
@@ -1423,13 +1423,13 @@ proto_item_set_generated.exit:                    ; preds = %31, %28, %21, %10
   br i1 %.not.i.i, label %89, label %82
 
 82:                                               ; preds = %75
-  %83 = getelementptr inbounds i8, ptr %81, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %84 = load ptr, ptr %83, align 8
   %.not5.i.i = icmp eq ptr %84, null
   br i1 %.not5.i.i, label %89, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %84, i64 28
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 28
   %87 = load i32, ptr %86, align 4
   %88 = or i32 %87, 2
   store i32 %88, ptr %86, align 4
@@ -1539,7 +1539,7 @@ define internal i32 @dissect_iso14443_cmd_type_attrib(ptr noundef %0, ptr nounde
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i32
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #4
-  %8 = getelementptr inbounds i8, ptr %1, i64 348
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %dissect_iso14443_attrib.exit [
     i32 0, label %10
@@ -1548,7 +1548,7 @@ define internal i32 @dissect_iso14443_cmd_type_attrib(ptr noundef %0, ptr nounde
 
 10:                                               ; preds = %4
   %11 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.274) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.275) #4
@@ -1595,13 +1595,13 @@ define internal i32 @dissect_iso14443_cmd_type_attrib(ptr noundef %0, ptr nounde
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %51
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %50, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %53 = load ptr, ptr %52, align 8
   %.not5.i.i = icmp eq ptr %53, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %53, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = or i32 %56, 2
   store i32 %57, ptr %55, align 4
@@ -1648,11 +1648,11 @@ proto_item_set_generated.exit.i:                  ; preds = %54, %51, %44, %10
   br label %dissect_iso14443_attrib.exit
 
 88:                                               ; preds = %4
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8
   tail call void @col_set_str(ptr noundef %90, i32 noundef 25, ptr noundef nonnull @.str.272) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.273) #4
-  %91 = getelementptr inbounds i8, ptr %1, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %92 = load i32, ptr %91, align 4
   %93 = tail call nonnull ptr @conversation_new_by_id(i32 noundef %92, i32 noundef 18, i32 noundef 0) #4
   %94 = load i32, ptr @proto_iso14443, align 4
@@ -1710,7 +1710,7 @@ define internal range(i32 1, 261) i32 @dissect_iso14443_cmd_type_block(ptr nound
 
 13:                                               ; preds = %4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.252, ptr noundef nonnull %12) #4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 25, ptr noundef nonnull %12) #4
   br label %16
@@ -1732,7 +1732,7 @@ define internal range(i32 1, 261) i32 @dissect_iso14443_cmd_type_block(ptr nound
   ]
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = and i32 %9, 16
   %28 = tail call ptr @tfs_get_string(i32 noundef %27, ptr noundef nonnull @tfs_nak_ack) #4
@@ -1752,7 +1752,7 @@ default.unreachable:                              ; preds = %16
   unreachable
 
 37:                                               ; preds = %16
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = and i32 %9, 16
   %.not138 = icmp eq i32 %40, 0
@@ -1786,7 +1786,7 @@ default.unreachable:                              ; preds = %16
   %59 = and i8 %58, 3
   %60 = load i32, ptr @hf_iso14443_s_blk_cmd, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %60, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = zext nneg i8 %59 to i32
   %65 = tail call ptr @val_to_str(i32 noundef %64, ptr noundef nonnull @iso14443_s_block_cmd, ptr noundef nonnull @.str.278) #4
@@ -1814,7 +1814,7 @@ default.unreachable:                              ; preds = %16
 74:                                               ; preds = %69
   %75 = load i32, ptr @ett_iso14443_inf, align 4
   %76 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %75) #4
-  %77 = getelementptr inbounds i8, ptr %1, i64 348
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, 1
   br i1 %79, label %80, label %83
@@ -1862,7 +1862,7 @@ default.unreachable:                              ; preds = %16
   br i1 %.not145, label %101, label %118
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %1, i64 20
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %103 = load i32, ptr %102, align 4
   %104 = tail call ptr @find_conversation_by_id(i32 noundef %103, i32 noundef 18, i32 noundef 0) #4
   %.not146 = icmp eq ptr %104, null

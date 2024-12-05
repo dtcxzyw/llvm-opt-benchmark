@@ -23,11 +23,11 @@ $_ZTI8RAR_EXIT = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN12ErrorHandlerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) initializes((0, 14)) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
   ret void
 }
@@ -35,11 +35,11 @@ define void @_ZN12ErrorHandlerC2Ev(ptr nocapture noundef nonnull writeonly align
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN12ErrorHandler5CleanEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) initializes((0, 14)) %0) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
   ret void
 }
@@ -52,21 +52,21 @@ define void @_ZN12ErrorHandler11MemoryErrorEv(ptr nocapture noundef nonnull alig
 
 3:                                                ; preds = %3, %1
   %indvars.iv.i.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i.i, %3 ]
-  %4 = getelementptr inbounds [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i.i
+  %4 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i.i
   store ptr @.str, ptr %4, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
   br i1 %exitcond.not.i.i.i, label %_ZN12ErrorHandler14MemoryErrorMsgEv.exit, label %3, !llvm.loop !4
 
 _ZN12ErrorHandler14MemoryErrorMsgEv.exit:         ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 64
-  %6 = getelementptr inbounds i8, ptr %2, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 7, ptr %6, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %2)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2)
   store i32 8, ptr %0, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 4
@@ -89,21 +89,21 @@ define void @_ZN12ErrorHandler14MemoryErrorMsgEv(ptr nocapture noundef nonnull a
 
 3:                                                ; preds = %3, %1
   %indvars.iv.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i, %3 ]
-  %4 = getelementptr inbounds [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i
+  %4 = getelementptr inbounds nuw [8 x ptr], ptr %2, i64 0, i64 %indvars.iv.i.i
   store ptr @.str, ptr %4, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit, label %3, !llvm.loop !4
 
 _Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit:          ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 64
-  %6 = getelementptr inbounds i8, ptr %2, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 7, ptr %6, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %2)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2)
   store i32 8, ptr %0, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 4
@@ -121,7 +121,7 @@ define void @_ZN12ErrorHandler4ExitE8RAR_EXIT(ptr nocapture noundef nonnull alig
   br label %13
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
   br i1 %7, label %.split3.i, label %_ZN12ErrorHandler5ThrowE8RAR_EXIT.exit
@@ -136,7 +136,7 @@ define void @_ZN12ErrorHandler4ExitE8RAR_EXIT(ptr nocapture noundef nonnull alig
   br label %_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit.i
 
 _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit.i: ; preds = %.sink.split.i.i, %.split3.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -160,7 +160,7 @@ define void @_ZN12ErrorHandler9OpenErrorEPKw(ptr nocapture noundef nonnull readn
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12ErrorHandler10CloseErrorEPKw(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %13, label %7
@@ -171,18 +171,18 @@ define void @_ZN12ErrorHandler10CloseErrorEPKw(ptr nocapture noundef nonnull ali
 
 8:                                                ; preds = %8, %7
   %indvars.iv.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i.i, %8 ]
-  %9 = getelementptr inbounds [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
   store ptr @.str, ptr %9, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit, label %8, !llvm.loop !4
 
 _Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit:      ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %3, i64 64
-  %11 = getelementptr inbounds i8, ptr %3, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   store i32 10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i32 1, ptr %12, align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
@@ -199,7 +199,7 @@ _Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit:      ; preds = %8
   br label %_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit
 
 _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %13, %.sink.split.i
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 4
@@ -241,7 +241,7 @@ define void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr nocapture noundef non
   br label %10
 
 10:                                               ; preds = %.sink.split, %8, %6, %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -252,7 +252,7 @@ define void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr nocapture noundef non
 define void @_ZN12ErrorHandler9ReadErrorEPKw(ptr nocapture noundef nonnull align 4 dereferenceable(14) initializes((0, 4)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 align 2 {
   tail call void @_Z7uiAlarm12UIALARM_TYPE(i32 noundef 0)
   store i32 12, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr %3, align 4
@@ -265,7 +265,7 @@ define void @_ZN12ErrorHandler9ReadErrorEPKw(ptr nocapture noundef nonnull align
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr nocapture noundef nonnull align 4 dereferenceable(14) initializes((0, 4)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %3, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %4) local_unnamed_addr #4 align 2 {
   store i32 12, ptr %0, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 4
@@ -277,7 +277,7 @@ define void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr nocapture noundef 
 define void @_ZN12ErrorHandler10WriteErrorEPKwS1_(ptr nocapture noundef nonnull align 4 dereferenceable(14) initializes((0, 4)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #5 align 2 {
   tail call void @_Z7uiAlarm12UIALARM_TYPE(i32 noundef 0)
   store i32 5, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, 1
   store i32 %6, ptr %4, align 4
@@ -295,7 +295,7 @@ define noundef zeroext i1 @_ZN12ErrorHandler14AskRepeatWriteEPKwb(ptr nocapture 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN12ErrorHandler9SeekErrorEPKw(ptr nocapture noundef nonnull align 4 dereferenceable(14) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %13, label %7
@@ -306,18 +306,18 @@ define void @_ZN12ErrorHandler9SeekErrorEPKw(ptr nocapture noundef nonnull align
 
 8:                                                ; preds = %8, %7
   %indvars.iv.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i.i, %8 ]
-  %9 = getelementptr inbounds [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
   store ptr @.str, ptr %9, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit, label %8, !llvm.loop !4
 
 _Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit:      ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %3, i64 64
-  %11 = getelementptr inbounds i8, ptr %3, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   store i32 11, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i32 1, ptr %12, align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
@@ -335,7 +335,7 @@ _Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit:      ; preds = %8
   br label %_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit
 
 _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %13, %.sink.split.i
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 4
@@ -357,18 +357,18 @@ define void @_ZN12ErrorHandler13GeneralErrMsgEPKwz(ptr nocapture noundef nonnull
 
 7:                                                ; preds = %7, %2
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %7 ]
-  %8 = getelementptr inbounds [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
   store ptr @.str, ptr %8, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA1024_wEEv14UIMESSAGE_CODEDpOT_.exit, label %7, !llvm.loop !4
 
 _Z5uiMsgIJRA1024_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %3, i64 64
-  %10 = getelementptr inbounds i8, ptr %3, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i32 1, ptr %11, align 8
   store ptr %5, ptr %3, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
@@ -394,26 +394,26 @@ define void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr nocapture noundef nonnull a
 
 4:                                                ; preds = %4, %2
   %indvars.iv.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i.i, %4 ]
-  %5 = getelementptr inbounds [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i.i
+  %5 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i.i
   store ptr @.str, ptr %5, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
   br i1 %exitcond.not.i.i.i, label %_ZN12ErrorHandler12OpenErrorMsgEPKwS1_.exit, label %4, !llvm.loop !4
 
 _ZN12ErrorHandler12OpenErrorMsgEPKwS1_.exit:      ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
-  %7 = getelementptr inbounds i8, ptr %3, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store i32 8, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr null, ptr %3, align 8
   store i32 2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %9, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
   store i32 6, ptr %0, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -429,26 +429,26 @@ define void @_ZN12ErrorHandler12OpenErrorMsgEPKwS1_(ptr nocapture noundef nonnul
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %5 ]
-  %6 = getelementptr inbounds [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
   store ptr @.str, ptr %6, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit, label %5, !llvm.loop !4
 
 _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 64
-  %8 = getelementptr inbounds i8, ptr %4, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   store i32 8, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %1, ptr %4, align 8
   store i32 2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
   store i32 6, ptr %0, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -466,26 +466,26 @@ define void @_ZN12ErrorHandler14CreateErrorMsgEPKw(ptr nocapture noundef nonnull
 
 4:                                                ; preds = %4, %2
   %indvars.iv.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i.i, %4 ]
-  %5 = getelementptr inbounds [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i.i
+  %5 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i.i
   store ptr @.str, ptr %5, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
   br i1 %exitcond.not.i.i.i, label %_ZN12ErrorHandler14CreateErrorMsgEPKwS1_.exit, label %4, !llvm.loop !4
 
 _ZN12ErrorHandler14CreateErrorMsgEPKwS1_.exit:    ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
-  %7 = getelementptr inbounds i8, ptr %3, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store i32 9, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr null, ptr %3, align 8
   store i32 2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %9, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
   store i32 9, ptr %0, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -500,26 +500,26 @@ define void @_ZN12ErrorHandler14CreateErrorMsgEPKwS1_(ptr nocapture noundef nonn
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %5 ]
-  %6 = getelementptr inbounds [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
   store ptr @.str, ptr %6, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit, label %5, !llvm.loop !4
 
 _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 64
-  %8 = getelementptr inbounds i8, ptr %4, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   store i32 9, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %1, ptr %4, align 8
   store i32 2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
   store i32 9, ptr %0, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -534,26 +534,26 @@ define void @_ZN12ErrorHandler12ReadErrorMsgEPKw(ptr nocapture noundef nonnull a
 
 4:                                                ; preds = %4, %2
   %indvars.iv.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i.i, %4 ]
-  %5 = getelementptr inbounds [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i.i
+  %5 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i.i
   store ptr @.str, ptr %5, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
   br i1 %exitcond.not.i.i.i, label %_ZN12ErrorHandler12ReadErrorMsgEPKwS1_.exit, label %4, !llvm.loop !4
 
 _ZN12ErrorHandler12ReadErrorMsgEPKwS1_.exit:      ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
-  %7 = getelementptr inbounds i8, ptr %3, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store i32 12, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr null, ptr %3, align 8
   store i32 2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %9, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
   store i32 12, ptr %0, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -568,26 +568,26 @@ define void @_ZN12ErrorHandler12ReadErrorMsgEPKwS1_(ptr nocapture noundef nonnul
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %5 ]
-  %6 = getelementptr inbounds [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
   store ptr @.str, ptr %6, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit, label %5, !llvm.loop !4
 
 _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 64
-  %8 = getelementptr inbounds i8, ptr %4, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   store i32 12, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %1, ptr %4, align 8
   store i32 2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
   store i32 12, ptr %0, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -602,26 +602,26 @@ define void @_ZN12ErrorHandler13WriteErrorMsgEPKwS1_(ptr nocapture noundef nonnu
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %5 ]
-  %6 = getelementptr inbounds [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
   store ptr @.str, ptr %6, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit, label %5, !llvm.loop !4
 
 _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 64
-  %8 = getelementptr inbounds i8, ptr %4, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   store i32 13, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %1, ptr %4, align 8
   store i32 2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
   store i32 5, ptr %0, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -636,18 +636,18 @@ define void @_ZN12ErrorHandler12ArcBrokenMsgEPKw(ptr nocapture noundef nonnull a
 
 4:                                                ; preds = %4, %2
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %4 ]
-  %5 = getelementptr inbounds [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %5 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
   store ptr @.str, ptr %5, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit, label %4, !llvm.loop !4
 
 _Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit:      ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
-  %7 = getelementptr inbounds i8, ptr %3, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store i32 25, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i32 1, ptr %8, align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
@@ -661,7 +661,7 @@ _Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit:      ; preds = %4
   br label %_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit
 
 _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %_Z5uiMsgIJRPKwEEv14UIMESSAGE_CODEDpOT_.exit, %.sink.split.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -676,21 +676,21 @@ define void @_ZN12ErrorHandler17ChecksumFailedMsgEPKwS1_(ptr nocapture noundef n
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %5 ]
-  %6 = getelementptr inbounds [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
   store ptr @.str, ptr %6, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit, label %5, !llvm.loop !4
 
 _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 64
-  %8 = getelementptr inbounds i8, ptr %4, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   store i32 3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %1, ptr %4, align 8
   store i32 2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
@@ -703,7 +703,7 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
   br label %_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit
 
 _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %_Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit, %.sink.split.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, 1
   store i32 %14, ptr %12, align 4
@@ -718,21 +718,21 @@ define void @_ZN12ErrorHandler16UnknownMethodMsgEPKwS1_(ptr nocapture noundef no
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %5 ]
-  %6 = getelementptr inbounds [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw [8 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i
   store ptr @.str, ptr %6, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit, label %5, !llvm.loop !4
 
 _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 64
-  %8 = getelementptr inbounds i8, ptr %4, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   store i32 33, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %1, ptr %4, align 8
   store i32 2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8
   call void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %4)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
@@ -745,9 +745,9 @@ _Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %5
   br label %_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit
 
 _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %_Z5uiMsgIJRPKwS2_EEv14UIMESSAGE_CODEDpOT_.exit, %.sink.split.i
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @ErrHandler, i64 4), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ErrHandler, i64 4), align 4
   %13 = add i32 %12, 1
-  store i32 %13, ptr getelementptr inbounds (i8, ptr @ErrHandler, i64 4), align 4
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @ErrHandler, i64 4), align 4
   ret void
 }
 
@@ -763,7 +763,7 @@ define void @_ZN12ErrorHandler5ThrowE8RAR_EXIT(ptr nocapture noundef nonnull ali
   br label %14
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
   br i1 %7, label %.split3, label %13
@@ -778,7 +778,7 @@ define void @_ZN12ErrorHandler5ThrowE8RAR_EXIT(ptr nocapture noundef nonnull ali
   br label %_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit
 
 _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %.split3, %.sink.split.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -797,7 +797,7 @@ _ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT.exit:   ; preds = %.split3, %.sink.spl
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z13ProcessSignali(i32 %0) #9 {
   store i8 1, ptr getelementptr inbounds (i8, ptr @ErrHandler, i64 12), align 4
-  store i8 1, ptr getelementptr inbounds (i8, ptr @ErrHandler, i64 10), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ErrHandler, i64 10), align 2
   %2 = load i32, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4
   %3 = add i32 %2, 1
   store i32 %3, ptr @_ZZ13ProcessSignaliE10BreakCount, align 4
@@ -818,7 +818,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12ErrorHandler17SetSignalHandlersEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) initializes((8, 9)) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = zext i1 %1 to i8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %3, ptr %4, align 4
   %5 = select i1 %1, ptr @_Z13ProcessSignali, ptr inttoptr (i64 1 to ptr)
   %6 = tail call ptr @signal(i32 noundef 2, ptr noundef nonnull %5) #18

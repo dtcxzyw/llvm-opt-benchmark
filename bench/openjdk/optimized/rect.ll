@@ -35,7 +35,7 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
 18:                                               ; preds = %.lr.ph.us, %68
   %.17091.us = phi ptr [ %.069105.us, %.lr.ph.us ], [ %69, %68 ]
   %.17590.us = phi i32 [ %.074103.us, %.lr.ph.us ], [ %70, %68 ]
-  %19 = getelementptr inbounds i8, ptr %.17091.us, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %.17091.us, i64 3
   %20 = load i8, ptr %19, align 1
   %.not.us = icmp eq i8 %20, 0
   br i1 %.not.us, label %68, label %.critedge.preheader.us
@@ -44,15 +44,15 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
   %.276.lcssa.us = phi i32 [ %1, %.critedge.us ], [ %.17590.us, %.critedge.preheader.us ]
   %21 = trunc i32 %.17590.us to i16
   store i16 %21, ptr %.172104.us, align 2
-  %22 = getelementptr inbounds i8, ptr %.172104.us, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.172104.us, i64 2
   store i16 %17, ptr %22, align 2
   %23 = sub nsw i32 %.276.lcssa.us, %.17590.us
   %24 = trunc i32 %23 to i16
-  %25 = getelementptr inbounds i8, ptr %.172104.us, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.172104.us, i64 4
   store i16 %24, ptr %25, align 2
-  %26 = getelementptr inbounds i8, ptr %.172104.us, i64 6
+  %26 = getelementptr inbounds nuw i8, ptr %.172104.us, i64 6
   store i16 1, ptr %26, align 2
-  %27 = getelementptr inbounds i8, ptr %.172104.us, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.172104.us, i64 8
   br label %.critedge.thread.us
 
 .critedge.thread.us:                              ; preds = %.critedge2.us, %68, %.critedge2.thread.us
@@ -76,17 +76,17 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
 
 .lr.ph108.us:                                     ; preds = %.lr.ph108.us.preheader, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph108.us.preheader ], [ %indvars.iv.next, %55 ]
-  %39 = getelementptr inbounds %struct.XRectangle, ptr %.0122.us, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0122.us, i64 %indvars.iv
   %40 = load i16, ptr %39, align 2
-  %41 = getelementptr inbounds %struct.XRectangle, ptr %.071119.us, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.XRectangle, ptr %.071119.us, i64 %indvars.iv
   %42 = load i16, ptr %41, align 2
   %43 = icmp eq i16 %40, %42
   br i1 %43, label %44, label %.critedge4.us
 
 44:                                               ; preds = %.lr.ph108.us
-  %45 = getelementptr inbounds i8, ptr %39, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %46 = load i16, ptr %45, align 2
-  %47 = getelementptr inbounds i8, ptr %41, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %48 = load i16, ptr %47, align 2
   %49 = icmp eq i16 %46, %48
   br i1 %49, label %55, label %.critedge4.us
@@ -106,7 +106,7 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
 
 .lr.ph115.us:                                     ; preds = %.lr.ph115.us.preheader, %.lr.ph115.us
   %indvars.iv142 = phi i64 [ 0, %.lr.ph115.us.preheader ], [ %indvars.iv.next143, %.lr.ph115.us ]
-  %52 = getelementptr inbounds %struct.XRectangle, ptr %.0122.us, i64 %indvars.iv142, i32 3
+  %52 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0122.us, i64 %indvars.iv142, i32 3
   %53 = load i16, ptr %52, align 2
   %54 = add i16 %53, 1
   store i16 %54, ptr %52, align 2
@@ -129,13 +129,13 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
 .lr.ph96.us:                                      ; preds = %.critedge.preheader.us, %.critedge.us
   %.295.us = phi ptr [ %58, %.critedge.us ], [ %.17091.us, %.critedge.preheader.us ]
   %.27694.us = phi i32 [ %59, %.critedge.us ], [ %.17590.us, %.critedge.preheader.us ]
-  %56 = getelementptr inbounds i8, ptr %.295.us, i64 3
+  %56 = getelementptr inbounds nuw i8, ptr %.295.us, i64 3
   %57 = load i8, ptr %56, align 1
   %.not82.us = icmp eq i8 %57, 0
   br i1 %.not82.us, label %.critedge2.us, label %.critedge.us
 
 .critedge.us:                                     ; preds = %.lr.ph96.us
-  %58 = getelementptr inbounds i8, ptr %.295.us, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.295.us, i64 4
   %59 = add i32 %.27694.us, 1
   %exitcond.not = icmp eq i32 %59, %1
   br i1 %exitcond.not, label %.critedge2.thread.us, label %.lr.ph96.us, !llvm.loop !10
@@ -143,20 +143,20 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
 .critedge2.us:                                    ; preds = %.lr.ph96.us
   %60 = trunc i32 %.17590.us to i16
   store i16 %60, ptr %.172104.us, align 2
-  %61 = getelementptr inbounds i8, ptr %.172104.us, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %.172104.us, i64 2
   store i16 %17, ptr %61, align 2
   %62 = sub nsw i32 %.27694.us, %.17590.us
   %63 = trunc i32 %62 to i16
-  %64 = getelementptr inbounds i8, ptr %.172104.us, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.172104.us, i64 4
   store i16 %63, ptr %64, align 2
-  %65 = getelementptr inbounds i8, ptr %.172104.us, i64 6
+  %65 = getelementptr inbounds nuw i8, ptr %.172104.us, i64 6
   store i16 1, ptr %65, align 2
-  %66 = getelementptr inbounds i8, ptr %.172104.us, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.172104.us, i64 8
   %67 = icmp slt i32 %.27694.us, %1
   br i1 %67, label %.lr.ph.us, label %.critedge.thread.us
 
 68:                                               ; preds = %18
-  %69 = getelementptr inbounds i8, ptr %.17091.us, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.17091.us, i64 4
   %70 = add nsw i32 %.17590.us, 1
   %71 = icmp slt i32 %70, %1
   br i1 %71, label %18, label %.critedge.thread.us, !llvm.loop !11

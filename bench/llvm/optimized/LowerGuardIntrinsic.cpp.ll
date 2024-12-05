@@ -43,7 +43,7 @@ define dso_local void @_ZN4llvm23LowerGuardIntrinsicPass3runERNS_8FunctionERNS_1
   br i1 %16, label %.sink.split6, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %18, i64 noundef 8) #5
   %.sroa.036.044.i = load ptr, ptr %14, align 8
   %.not4145.i = icmp eq ptr %.sroa.036.044.i, null
@@ -122,7 +122,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallInstELb1EE9push_backES2_.exit.i: ; pr
   %57 = load ptr, ptr %.02648.i, align 8
   call void @_ZN4llvm28makeGuardControlFlowExplicitEPNS_8FunctionEPNS_8CallInstEb(ptr noundef nonnull %46, ptr noundef %57, i1 noundef zeroext false) #5
   %58 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %57) #5
-  %59 = getelementptr inbounds i8, ptr %.02648.i, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.02648.i, i64 8
   %.not29.i = icmp eq ptr %59, %56
   br i1 %.not29.i, label %.loopexit.i, label %.lr.ph50.i
 
@@ -156,7 +156,7 @@ _ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit.sink.split: ; preds = %.loopexit.
 _ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit:   ; preds = %_ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit.sink.split, %.loopexit.i.thread, %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %69 = getelementptr inbounds i8, ptr %0, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %69, i8 0, i64 72, i1 false), !alias.scope !4
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %70, ptr %0, align 8, !alias.scope !4

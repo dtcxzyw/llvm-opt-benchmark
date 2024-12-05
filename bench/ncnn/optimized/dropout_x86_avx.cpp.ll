@@ -71,7 +71,7 @@ define hidden noundef i32 @_ZNK4ncnn15Dropout_x86_avx15forward_inplaceERNS_3MatE
   %indvars.iv325 = phi i64 [ 0, %.lr.ph286.preheader ], [ %indvars.iv.next326, %.lr.ph286 ]
   %23 = load ptr, ptr %1, align 8
   %.idx343 = shl nsw i64 %indvars.iv325, 5
-  %24 = getelementptr inbounds i8, ptr %23, i64 %.idx343
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx343
   %25 = load <8 x float>, ptr %24, align 1
   %26 = fmul fast <8 x float> %25, %21
   store <8 x float> %26, ptr %24, align 1
@@ -109,7 +109,7 @@ define hidden noundef i32 @_ZNK4ncnn15Dropout_x86_avx15forward_inplaceERNS_3MatE
   %39 = load <8 x float>, ptr %.0220289.us, align 1
   %40 = fmul fast <8 x float> %39, %21
   store <8 x float> %40, ptr %.0220289.us, align 1
-  %41 = getelementptr inbounds i8, ptr %.0220289.us, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.0220289.us, i64 32
   %42 = add nuw nsw i32 %.0221288.us, 1
   %exitcond330.not = icmp eq i32 %42, %14
   br i1 %exitcond330.not, label %._crit_edge292.us, label %38, !llvm.loop !6
@@ -155,7 +155,7 @@ define hidden noundef i32 @_ZNK4ncnn15Dropout_x86_avx15forward_inplaceERNS_3MatE
   %56 = load <8 x float>, ptr %.0223298.us, align 1
   %57 = fmul fast <8 x float> %56, %21
   store <8 x float> %57, ptr %.0223298.us, align 1
-  %58 = getelementptr inbounds i8, ptr %.0223298.us, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %.0223298.us, i64 32
   %59 = add nuw nsw i32 %.0224297.us, 1
   %exitcond336.not = icmp eq i32 %59, %19
   br i1 %exitcond336.not, label %._crit_edge301.us, label %55, !llvm.loop !8
@@ -193,7 +193,7 @@ define hidden noundef i32 @_ZNK4ncnn15Dropout_x86_avx15forward_inplaceERNS_3MatE
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %71 = load ptr, ptr %1, align 8
   %.idx = shl nsw i64 %indvars.iv, 4
-  %72 = getelementptr inbounds i8, ptr %71, i64 %.idx
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx
   %73 = load <4 x float>, ptr %72, align 1
   %74 = fmul fast <4 x float> %73, %69
   store <4 x float> %74, ptr %72, align 1
@@ -231,7 +231,7 @@ define hidden noundef i32 @_ZNK4ncnn15Dropout_x86_avx15forward_inplaceERNS_3MatE
   %87 = load <4 x float>, ptr %.0214268.us, align 1
   %88 = fmul fast <4 x float> %87, %69
   store <4 x float> %88, ptr %.0214268.us, align 1
-  %89 = getelementptr inbounds i8, ptr %.0214268.us, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.0214268.us, i64 16
   %90 = add nuw nsw i32 %.0213269.us, 1
   %exitcond313.not = icmp eq i32 %90, %62
   br i1 %exitcond313.not, label %._crit_edge272.us, label %86, !llvm.loop !11
@@ -277,7 +277,7 @@ define hidden noundef i32 @_ZNK4ncnn15Dropout_x86_avx15forward_inplaceERNS_3MatE
   %104 = load <4 x float>, ptr %.0211277.us, align 1
   %105 = fmul fast <4 x float> %104, %69
   store <4 x float> %105, ptr %.0211277.us, align 1
-  %106 = getelementptr inbounds i8, ptr %.0211277.us, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.0211277.us, i64 16
   %107 = add nuw nsw i32 %.0278.us, 1
   %exitcond319.not = icmp eq i32 %107, %67
   br i1 %exitcond319.not, label %._crit_edge281.us, label %103, !llvm.loop !13

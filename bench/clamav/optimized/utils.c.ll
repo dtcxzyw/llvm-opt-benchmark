@@ -42,19 +42,19 @@ define dso_local range(i32 0, 3) i32 @onas_fan_checkowner(i32 noundef %0, ptr no
   %8 = tail call ptr @optget(ptr noundef %1, ptr noundef nonnull @.str) #8
   %9 = tail call ptr @optget(ptr noundef %1, ptr noundef nonnull @.str.1) #8
   %10 = tail call ptr @optget(ptr noundef %1, ptr noundef nonnull @.str.2) #8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %19
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load i32, ptr %14, align 8
   %.not44 = icmp eq i32 %15, 0
   br i1 %.not44, label %16, label %19
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %10, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %18 = load i32, ptr %17, align 8
   %.not45 = icmp eq i32 %18, 0
   br i1 %.not45, label %.loopexit, label %19
@@ -71,26 +71,26 @@ define dso_local range(i32 0, 3) i32 @onas_fan_checkowner(i32 noundef %0, ptr no
   br i1 %.not48, label %.loopexit52, label %.preheader50
 
 .preheader50:                                     ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %4, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
   br label %28
 
 28:                                               ; preds = %.preheader50, %32
   %.035 = phi ptr [ %34, %32 ], [ %8, %.preheader50 ]
-  %29 = getelementptr inbounds i8, ptr %.035, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.035, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, %27
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %.035, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.035, i64 48
   %34 = load ptr, ptr %33, align 8
   %.old1.not = icmp eq ptr %34, null
   br i1 %.old1.not, label %.loopexit52, label %28
 
 .loopexit52:                                      ; preds = %32, %23
-  %35 = getelementptr inbounds i8, ptr %10, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = icmp ne i32 %36, 0
   %38 = icmp ne ptr %10, null
@@ -98,13 +98,13 @@ define dso_local range(i32 0, 3) i32 @onas_fan_checkowner(i32 noundef %0, ptr no
   br i1 %or.cond4, label %.preheader, label %.loopexit52..loopexit49_crit_edge
 
 .loopexit52..loopexit49_crit_edge:                ; preds = %.loopexit52
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 28
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %.loopexit49
 
 .preheader:                                       ; preds = %.loopexit52
   %39 = tail call ptr @__errno_location() #9
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   br label %43
 
@@ -167,7 +167,7 @@ define dso_local range(i32 0, 3) i32 @onas_fan_checkowner(i32 noundef %0, ptr no
   br label %.loopexit
 
 68:                                               ; preds = %43
-  %69 = getelementptr inbounds i8, ptr %.134, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.134, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %44, align 8
   %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #10
@@ -176,13 +176,13 @@ define dso_local range(i32 0, 3) i32 @onas_fan_checkowner(i32 noundef %0, ptr no
   br i1 %.not46, label %.loopexit, label %74
 
 74:                                               ; preds = %68, %46
-  %75 = getelementptr inbounds i8, ptr %.134, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %.134, i64 48
   %76 = load ptr, ptr %75, align 8
   br label %42
 
 .loopexit49:                                      ; preds = %42, %.loopexit52..loopexit49_crit_edge
   %77 = phi i32 [ %.pre, %.loopexit52..loopexit49_crit_edge ], [ %41, %42 ]
-  %78 = getelementptr inbounds i8, ptr %9, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %79 = load i32, ptr %78, align 8
   %80 = icmp ne i32 %79, 0
   %81 = icmp eq i32 %77, 0
@@ -277,7 +277,7 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr nocapture noundef in
   br i1 %.not6567, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %.lr.ph
 
 19:                                               ; preds = %9
@@ -363,7 +363,7 @@ sub_0:                                            ; preds = %59
   br i1 %.not70, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %70 = getelementptr inbounds i8, ptr %66, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %71 = load i8, ptr %70, align 1
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %73, label %.tail.thread
@@ -418,7 +418,7 @@ sub_0:                                            ; preds = %59
 
 .lr.ph.i:                                         ; preds = %100, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %100 ]
-  %97 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw ptr, ptr %.0.ph68, i64 %indvars.iv.i
   %98 = load ptr, ptr %97, align 8
   %.not.i = icmp eq ptr %98, null
   br i1 %.not.i, label %100, label %99
@@ -478,7 +478,7 @@ define dso_local void @free_opt_list(ptr nocapture noundef %0, i32 noundef %1) l
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
-  %4 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6

@@ -131,9 +131,9 @@ define linkonce_odr hidden void @_ZN5boost13property_tree11basic_ptreeINSt7__cxx
 .noexc2:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load ptr, ptr %1, align 8, !tbaa !10
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = getelementptr inbounds i8, ptr %4, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = icmp eq ptr %6, null
   %8 = getelementptr inbounds i8, ptr %6, i64 -96
@@ -143,7 +143,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree11basic_ptreeINSt7__cxx
 
 .noexc5:                                          ; preds = %.noexc2, %.noexc6
   %.0.i.i8 = phi ptr [ %14, %.noexc6 ], [ %9, %.noexc2 ]
-  %10 = getelementptr inbounds i8, ptr %.0.i.i8, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i.i8, i64 104
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = icmp eq ptr %11, null
   %13 = getelementptr inbounds i8, ptr %11, i64 -96
@@ -208,9 +208,9 @@ define linkonce_odr hidden void @_ZN5boost13property_tree11basic_ptreeINSt7__cxx
 .noexc1:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load ptr, ptr %1, align 8, !tbaa !23
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !27
-  %5 = getelementptr inbounds i8, ptr %4, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = icmp eq ptr %6, null
   %8 = getelementptr inbounds i8, ptr %6, i64 -96
@@ -220,7 +220,7 @@ define linkonce_odr hidden void @_ZN5boost13property_tree11basic_ptreeINSt7__cxx
 
 .noexc3:                                          ; preds = %.noexc1, %.noexc4
   %.0.i.i6 = phi ptr [ %14, %.noexc4 ], [ %9, %.noexc1 ]
-  %10 = getelementptr inbounds i8, ptr %.0.i.i6, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i.i6, i64 104
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = icmp eq ptr %11, null
   %13 = getelementptr inbounds i8, ptr %11, i64 -96

@@ -19,7 +19,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_name_read(ptr noundef %0, p
   br label %19
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   %spec.select = select i1 %.not, ptr @.str, ptr %8
@@ -28,18 +28,18 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_name_read(ptr noundef %0, p
   %11 = add i64 %10, 32
   %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #11
   store i32 1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 22, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %9, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 1 %spec.select, i64 %9, i1 false)
   %17 = getelementptr inbounds [1 x i8], ptr %16, i64 0, i64 %9
   store i8 0, ptr %17, align 1
   store ptr %12, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %18, align 8
   br label %19
 
@@ -67,7 +67,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_entities_read(ptr noundef %
 
 6:                                                ; preds = %2
   tail call void @php_dom_create_iterator(ptr noundef %1, i32 noundef 1) #9
-  %7 = getelementptr inbounds i8, ptr %3, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -24
@@ -95,7 +95,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_notations_read(ptr noundef 
 
 6:                                                ; preds = %2
   tail call void @php_dom_create_iterator(ptr noundef %1, i32 noundef 1) #9
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -24
@@ -118,7 +118,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_public_id_read(ptr noundef 
   br label %23
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %20, label %9
@@ -129,25 +129,25 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_public_id_read(ptr noundef 
   %12 = add i64 %11, 32
   %13 = tail call noalias ptr @_emalloc(i64 noundef %12) #11
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 22, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %10, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 1 %8, i64 %10, i1 false)
   %18 = getelementptr inbounds [1 x i8], ptr %17, i64 0, i64 %10
   store i8 0, ptr %18, align 1
   store ptr %13, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %19, align 8
   br label %23
 
 20:                                               ; preds = %6
   %21 = load ptr, ptr @zend_empty_string, align 8
   store ptr %21, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %22, align 8
   br label %23
 
@@ -167,7 +167,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_system_id_read(ptr noundef 
   br label %23
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %20, label %9
@@ -178,25 +178,25 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_system_id_read(ptr noundef 
   %12 = add i64 %11, 32
   %13 = tail call noalias ptr @_emalloc(i64 noundef %12) #11
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 22, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %10, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 1 %8, i64 %10, i1 false)
   %18 = getelementptr inbounds [1 x i8], ptr %17, i64 0, i64 %10
   store i8 0, ptr %18, align 1
   store ptr %13, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %19, align 8
   br label %23
 
 20:                                               ; preds = %6
   %21 = load ptr, ptr @zend_empty_string, align 8
   store ptr %21, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %22, align 8
   br label %23
 
@@ -217,7 +217,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   br label %92
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge.thread, label %10
@@ -229,13 +229,13 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
 
 12:                                               ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.0142166 = load ptr, ptr %13, align 8
   %.not157167 = icmp eq ptr %.0142166, null
   br i1 %.not157167, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %15
 
 15:                                               ; preds = %.lr.ph, %36
@@ -254,7 +254,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   br i1 %.not164, label %27, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %20
   %26 = load i64, ptr %14, align 8
@@ -265,7 +265,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   %.0143 = phi i64 [ %20, %17 ], [ %25, %22 ]
   call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0143) #9
   %.pre = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre169 = load i64, ptr %.phi.trans.insert, align 8
   br label %28
 
@@ -273,17 +273,17 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   %29 = phi i64 [ %.pre169, %27 ], [ %24, %22 ]
   %30 = phi ptr [ %.pre, %27 ], [ %21, %22 ]
   %.1 = phi i64 [ %.0143, %27 ], [ %25, %22 ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = getelementptr inbounds i8, ptr %31, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %19, i64 %20, i1 false)
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 %.1, ptr %34, align 8
   %35 = call i32 @xmlOutputBufferClose(ptr noundef nonnull %16) #9
   br label %36
 
 36:                                               ; preds = %28, %15
-  %37 = getelementptr inbounds i8, ptr %.0142168, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %.0142168, i64 48
   %.0142 = load ptr, ptr %37, align 8
   %.not157 = icmp eq ptr %.0142, null
   br i1 %.not157, label %._crit_edge, label %15
@@ -294,8 +294,8 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   br i1 %.not158, label %._crit_edge.thread, label %38
 
 38:                                               ; preds = %._crit_edge
-  %39 = getelementptr inbounds i8, ptr %.pre170, i64 24
-  %40 = getelementptr inbounds i8, ptr %.pre170, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.pre170, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.pre170, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds [1 x i8], ptr %39, i64 0, i64 %41
   store i8 0, ptr %42, align 1
@@ -304,15 +304,15 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   br i1 %.not159, label %84, label %44
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %48 = load i64, ptr %47, align 8
   %49 = icmp ugt i64 %46, %48
   br i1 %49, label %50, label %84
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %43, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 64
   %.not160 = icmp eq i32 %53, 0
@@ -327,11 +327,11 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   %58 = and i64 %48, -8
   %59 = add i64 %58, 32
   %60 = call ptr @_erealloc(ptr noundef nonnull %43, i64 noundef %59) #12
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i64 %48, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i64 0, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, -513
   store i32 %65, ptr %63, align 4
@@ -342,14 +342,14 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   %68 = add i64 %67, 32
   %69 = call noalias ptr @_emalloc(i64 noundef %68) #11
   store i32 1, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 22, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 0, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i64 %48, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %69, i64 24
-  %74 = getelementptr inbounds i8, ptr %43, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %75 = load i64, ptr %47, align 8
   %. = call i64 @llvm.umin.i64(i64 %48, i64 %75)
   %76 = add nuw i64 %., 1
@@ -376,17 +376,17 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   %85 = phi ptr [ %.0, %83 ], [ %43, %44 ], [ null, %38 ]
   store ptr null, ptr %3, align 8
   store ptr %85, ptr %1, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, 64
   %.not162 = icmp eq i32 %88, 0
   %89 = select i1 %.not162, i32 262, i32 6
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %89, ptr %90, align 8
   br label %92
 
 ._crit_edge.thread:                               ; preds = %12, %7, %10, %._crit_edge
-  %91 = getelementptr inbounds i8, ptr %1, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %91, align 8
   br label %92
 

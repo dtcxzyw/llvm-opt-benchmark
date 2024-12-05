@@ -354,10 +354,10 @@ define hidden void @proto_register_cimd() local_unnamed_addr #0 {
   %4 = getelementptr [38 x ptr], ptr %1, i64 0, i64 %indvars.iv.next
   store ptr %3, ptr %4, align 8
   %5 = getelementptr [38 x %struct.cimd_parameter_t], ptr @vals_hdr_PC, i64 0, i64 %indvars.iv
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %6, align 8
   %7 = getelementptr [37 x i32], ptr @hf_index, i64 0, i64 %indvars.iv
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %8, align 8
   %9 = getelementptr [37 x ptr], ptr @cimd_pc_handles, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
@@ -392,7 +392,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %7, label %102, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @tvb_get_string_enc(ptr noundef %10, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #4
   %12 = tail call i64 @strtoul(ptr nocapture noundef %11, ptr noundef null, i32 noundef 10) #4
@@ -411,7 +411,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %24, label %.thread56, label %27
 
 .thread56:                                        ; preds = %8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @col_set_str(ptr noundef %26, i32 noundef 34, ptr noundef nonnull @.str.97) #4
   br label %43
@@ -423,7 +423,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %or.cond5, label %32, label %.thread
 
 .thread:                                          ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void @col_set_str(ptr noundef %31, i32 noundef 34, ptr noundef nonnull @.str.97) #4
   br label %48
@@ -452,7 +452,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %32
   %.048.lcssa = phi i16 [ 0, %32 ], [ %40, %._crit_edge.loopexit ]
   %.not = icmp eq i16 %.048.lcssa, %36
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void @col_set_str(ptr noundef %42, i32 noundef 34, ptr noundef nonnull @.str.97) #4
   br i1 %.not, label %43, label %48
@@ -597,7 +597,7 @@ define internal range(i32 0, 2) i32 @dissect_cimd_heur(ptr noundef %0, ptr nocap
   br i1 %11, label %27, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @tvb_get_string_enc(ptr noundef %14, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #4
   %16 = tail call i64 @strtoul(ptr nocapture noundef %15, ptr noundef null, i32 noundef 10) #4
@@ -636,7 +636,7 @@ define internal void @dissect_cimd_parameter(ptr noundef %0, ptr noundef %1, i32
   %7 = sub i32 %4, %6
   %8 = sext i32 %2 to i64
   %9 = getelementptr [38 x %struct.cimd_parameter_t], ptr @vals_hdr_PC, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr [38 x %struct._value_string], ptr @cimd_vals_PC, i64 0, i64 %8, i32 1
@@ -644,7 +644,7 @@ define internal void @dissect_cimd_parameter(ptr noundef %0, ptr noundef %1, i32
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %14) #4
   %16 = load i32, ptr @hf_cimd_pcode_indicator, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0) #4
-  %18 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %3, 5
@@ -659,7 +659,7 @@ define internal void @dissect_cimd_dcs(ptr noundef %0, ptr noundef %1, i32 nound
   %7 = sub i32 %4, %6
   %8 = sext i32 %2 to i64
   %9 = getelementptr [38 x %struct.cimd_parameter_t], ptr @vals_hdr_PC, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr [38 x %struct._value_string], ptr @cimd_vals_PC, i64 0, i64 %8, i32 1
@@ -673,7 +673,7 @@ define internal void @dissect_cimd_dcs(ptr noundef %0, ptr noundef %1, i32 nound
   %21 = tail call ptr @tvb_get_string_enc(ptr noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef %20, i32 noundef 0) #4
   %22 = tail call i64 @strtoul(ptr nocapture noundef %21, ptr noundef null, i32 noundef 10) #4
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %9, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
   %27 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %26, ptr noundef %0, i32 noundef %18, i32 noundef %20, i32 noundef %23) #4
@@ -731,7 +731,7 @@ define internal void @dissect_cimd_ud(ptr noundef %0, ptr noundef %1, i32 nounde
   %8 = sub i32 %4, %7
   %9 = sext i32 %2 to i64
   %10 = getelementptr [38 x %struct.cimd_parameter_t], ptr @vals_hdr_PC, i64 0, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr [38 x %struct._value_string], ptr @cimd_vals_PC, i64 0, i64 %9, i32 1
@@ -752,9 +752,9 @@ define internal void @dissect_cimd_ud(ptr noundef %0, ptr noundef %1, i32 nounde
 
 .lr.ph:                                           ; preds = %5
   %27 = add nsw i32 %20, -2
-  %28 = getelementptr inbounds i8, ptr %6, i64 1
-  %29 = getelementptr inbounds i8, ptr %6, i64 2
-  %30 = getelementptr inbounds i8, ptr %6, i64 3
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %31
 
 31:                                               ; preds = %.lr.ph, %50
@@ -805,7 +805,7 @@ define internal void @dissect_cimd_ud(ptr noundef %0, ptr noundef %1, i32 nounde
   %56 = trunc i64 %55 to i32
   %57 = call ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %53, ptr noundef %54, i32 noundef %56) #4
   call void @wmem_strbuf_destroy(ptr noundef %25) #4
-  %58 = getelementptr inbounds i8, ptr %10, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %59, align 4
   %61 = call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %60, ptr noundef %0, i32 noundef %19, i32 noundef %20, ptr noundef %57) #4
@@ -818,7 +818,7 @@ define internal void @dissect_cimd_error_code(ptr noundef %0, ptr noundef %1, i3
   %7 = sub i32 %4, %6
   %8 = sext i32 %2 to i64
   %9 = getelementptr [38 x %struct.cimd_parameter_t], ptr @vals_hdr_PC, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr [38 x %struct._value_string], ptr @cimd_vals_PC, i64 0, i64 %8, i32 1
@@ -832,7 +832,7 @@ define internal void @dissect_cimd_error_code(ptr noundef %0, ptr noundef %1, i3
   %21 = tail call ptr @tvb_get_string_enc(ptr noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %20, i32 noundef 0) #4
   %22 = tail call i64 @strtoul(ptr nocapture noundef %21, ptr noundef null, i32 noundef 10) #4
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %9, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
   %27 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %26, ptr noundef %0, i32 noundef %19, i32 noundef %20, i32 noundef %23) #4

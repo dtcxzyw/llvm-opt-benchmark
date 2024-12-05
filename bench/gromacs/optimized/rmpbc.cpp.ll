@@ -34,9 +34,9 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z14gmx_rmpbc_initRK22InteractionDefinitions7PbcTypei(ptr noundef nonnull align 8 dereferenceable(2736) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 123, i64 noundef 1, i64 noundef 40)
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %1, ptr %6, align 4
   store ptr %0, ptr %4, align 8
   ret ptr %4
@@ -47,11 +47,11 @@ declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noun
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z14gmx_rmpbc_initPK6t_idef7PbcTypei(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 141, i64 noundef 1, i64 noundef 40)
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %7, align 8
   %8 = load i32, ptr %0, align 8
   %9 = icmp slt i32 %8, 1
@@ -72,26 +72,26 @@ define void @_Z14gmx_rmpbc_doneP9gmx_rmpbc(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not, label %33, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %6
 
 6:                                                ; preds = %.lr.ph, %25
   %7 = phi i32 [ %3, %.lr.ph ], [ %26, %25 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct.rmpbc_graph_t, ptr %8, i64 %indvars.iv, i32 1
+  %9 = getelementptr inbounds nuw %struct.rmpbc_graph_t, ptr %8, i64 %indvars.iv, i32 1
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %25, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %10, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorI5egColSaIS0_EED2Ev.exit.i, label %15
@@ -101,7 +101,7 @@ define void @_Z14gmx_rmpbc_doneP9gmx_rmpbc(ptr noundef %0) local_unnamed_addr #0
   br label %_ZNSt6vectorI5egColSaIS0_EED2Ev.exit.i
 
 _ZNSt6vectorI5egColSaIS0_EED2Ev.exit.i:           ; preds = %15, %12
-  %16 = getelementptr inbounds i8, ptr %10, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.i1.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIN3gmx11BasicVectorIiEESaIS2_EED2Ev.exit.i, label %18
@@ -111,8 +111,8 @@ _ZNSt6vectorI5egColSaIS0_EED2Ev.exit.i:           ; preds = %15, %12
   br label %_ZNSt6vectorIN3gmx11BasicVectorIiEESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN3gmx11BasicVectorIiEESaIS2_EED2Ev.exit.i: ; preds = %18, %_ZNSt6vectorI5egColSaIS0_EED2Ev.exit.i
-  %19 = getelementptr inbounds i8, ptr %10, i64 16
-  %20 = getelementptr inbounds i8, ptr %10, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, label %22
@@ -143,7 +143,7 @@ _ZN7t_graphD2Ev.exit:                             ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %28, label %6, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %25, %.preheader
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not11 = icmp eq ptr %30, null
   br i1 %.not11, label %32, label %31
@@ -173,7 +173,7 @@ define void @_Z15gmx_rmpbc_applyP9gmx_rmpbciPA3_KfPA3_f(ptr noundef %0, i32 noun
   br i1 %.not.i, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %.not6.i = icmp eq i32 %7, 4
   br i1 %.not6.i, label %8, label %_ZL14gmx_rmpbc_ePBCP9gmx_rmpbcPA3_Kf.exit
@@ -212,7 +212,7 @@ define internal fastcc noundef ptr @_ZL19gmx_rmpbc_get_graphP9gmx_rmpbc7PbcTypei
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %57, label %14
@@ -223,13 +223,13 @@ define internal fastcc noundef ptr @_ZL19gmx_rmpbc_get_graphP9gmx_rmpbc7PbcTypei
   br i1 %16, label %57, label %17
 
 17:                                               ; preds = %14, %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %23
@@ -237,7 +237,7 @@ define internal fastcc noundef ptr @_ZL19gmx_rmpbc_get_graphP9gmx_rmpbc7PbcTypei
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %.03745 = phi ptr [ null, %.lr.ph ], [ %spec.select, %23 ]
-  %24 = getelementptr inbounds %struct.rmpbc_graph_t, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %struct.rmpbc_graph_t, ptr %22, i64 %indvars.iv
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %2, %25
   %spec.select = select i1 %26, ptr %24, ptr %.03745
@@ -250,7 +250,7 @@ define internal fastcc noundef ptr @_ZL19gmx_rmpbc_get_graphP9gmx_rmpbc7PbcTypei
   br i1 %27, label %._crit_edge.thread, label %54
 
 ._crit_edge.thread:                               ; preds = %17, %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp sgt i32 %2, %29
   br i1 %30, label %31, label %36
@@ -273,7 +273,7 @@ define internal fastcc noundef ptr @_ZL19gmx_rmpbc_get_graphP9gmx_rmpbc7PbcTypei
 36:                                               ; preds = %._crit_edge.thread
   %37 = add nsw i32 %19, 1
   store i32 %37, ptr %18, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = sext i32 %37 to i64
   %40 = load ptr, ptr %38, align 8
   %41 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef %40, i64 noundef range(i64 -2147483647, 2147483648) %39, i64 noundef 16)
@@ -292,7 +292,7 @@ define internal fastcc noundef ptr @_ZL19gmx_rmpbc_get_graphP9gmx_rmpbc7PbcTypei
   br label %.sink.split
 
 49:                                               ; preds = %36
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef ptr @_Z8mk_graphP8_IO_FILEPK6t_idefibb(ptr noundef null, ptr noundef %51, i32 noundef %2, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %.sink.split
@@ -305,7 +305,7 @@ define internal fastcc noundef ptr @_ZL19gmx_rmpbc_get_graphP9gmx_rmpbc7PbcTypei
 
 54:                                               ; preds = %.sink.split, %._crit_edge
   %.2 = phi ptr [ %spec.select, %._crit_edge ], [ %45, %.sink.split ]
-  %55 = getelementptr inbounds i8, ptr %.2, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %56 = load ptr, ptr %55, align 8
   br label %57
 
@@ -335,7 +335,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #14
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -343,7 +343,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -392,7 +392,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -446,7 +446,7 @@ define void @_Z14gmx_rmpbc_copyP9gmx_rmpbciPA3_KfPA3_fS5_(ptr noundef %0, i32 no
   br i1 %.not.i, label %9, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %.not6.i = icmp eq i32 %8, 4
   br i1 %.not6.i, label %9, label %_ZL14gmx_rmpbc_ePBCP9gmx_rmpbcPA3_Kf.exit
@@ -477,17 +477,17 @@ _ZL14gmx_rmpbc_ePBCP9gmx_rmpbcPA3_Kf.exit:        ; preds = %6, %9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds [3 x float], ptr %3, i64 %indvars.iv
-  %16 = getelementptr inbounds [3 x float], ptr %4, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv
   %17 = load float, ptr %15, align 4
   store float %17, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %15, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store float %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store float %22, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -501,24 +501,24 @@ declare void @_Z7shift_xPK7t_graphPA3_KfS4_PA3_f(ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z15gmx_rmpbc_trxfrP9gmx_rmpbcP10t_trxframe(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %25
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %25
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 116
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %15, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %.not6.i = icmp eq i32 %14, 4
   br i1 %.not6.i, label %15, label %_ZL14gmx_rmpbc_ePBCP9gmx_rmpbcPA3_Kf.exit
@@ -529,7 +529,7 @@ define void @_Z15gmx_rmpbc_trxfrP9gmx_rmpbcP10t_trxframe(ptr noundef %0, ptr nou
 
 _ZL14gmx_rmpbc_ePBCP9gmx_rmpbcPA3_Kf.exit:        ; preds = %12, %15
   %.0.i = phi i32 [ %16, %15 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = tail call fastcc noundef ptr @_ZL19gmx_rmpbc_get_graphP9gmx_rmpbc7PbcTypei(ptr noundef %0, i32 noundef %.0.i, i32 noundef %18)
   %.not = icmp eq ptr %19, null
@@ -537,7 +537,7 @@ _ZL14gmx_rmpbc_ePBCP9gmx_rmpbcPA3_Kf.exit:        ; preds = %12, %15
 
 20:                                               ; preds = %_ZL14gmx_rmpbc_ePBCP9gmx_rmpbcPA3_Kf.exit
   %21 = load ptr, ptr @stdout, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
   tail call void @_Z9mk_mshiftP8_IO_FILEP7t_graph7PbcTypePA3_KfS6_(ptr noundef %21, ptr noundef nonnull %19, i32 noundef %.0.i, ptr noundef nonnull %11, ptr noundef %23)
   %24 = load ptr, ptr %22, align 8
@@ -562,14 +562,14 @@ define void @_Z9rm_gropbcPK7t_atomsPA3_fPA3_Kf(ptr nocapture noundef readonly %0
 6:                                                ; preds = %.preheader38, %.loopexit
   %indvars.iv58 = phi i64 [ 2, %.preheader38 ], [ %indvars.iv.next59, %.loopexit ]
   %indvars.iv56 = phi i64 [ 3, %.preheader38 ], [ %indvars.iv.next57, %.loopexit ]
-  %7 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv63, i64 %indvars.iv58
+  %7 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv63, i64 %indvars.iv58
   %8 = load float, ptr %7, align 4
   %9 = getelementptr [3 x float], ptr %invariant.gep, i64 %indvars.iv63, i64 %indvars.iv58
   %10 = load float, ptr %9, align 4
   %11 = fsub float %8, %10
   %12 = tail call noundef float @llvm.fabs.f32(float %11)
   %13 = fpext float %12 to double
-  %14 = getelementptr inbounds [3 x float], ptr %2, i64 %indvars.iv58, i64 %indvars.iv58
+  %14 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv58, i64 %indvars.iv58
   %15 = load float, ptr %14, align 4
   %16 = fpext float %15 to double
   %17 = fmul double %16, 9.000000e-01
@@ -582,9 +582,9 @@ define void @_Z9rm_gropbcPK7t_atomsPA3_fPA3_Kf(ptr nocapture noundef readonly %0
 
 .lr.ph43:                                         ; preds = %19, %.lr.ph43
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.lr.ph43 ], [ 0, %19 ]
-  %21 = getelementptr inbounds [3 x float], ptr %2, i64 %indvars.iv58, i64 %indvars.iv51
+  %21 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv58, i64 %indvars.iv51
   %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv63, i64 %indvars.iv51
+  %23 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv63, i64 %indvars.iv51
   %24 = load float, ptr %23, align 4
   %25 = fsub float %24, %22
   store float %25, ptr %23, align 4
@@ -594,9 +594,9 @@ define void @_Z9rm_gropbcPK7t_atomsPA3_fPA3_Kf(ptr nocapture noundef readonly %0
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %19 ]
-  %26 = getelementptr inbounds [3 x float], ptr %2, i64 %indvars.iv58, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv58, i64 %indvars.iv
   %27 = load float, ptr %26, align 4
-  %28 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv63, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv63, i64 %indvars.iv
   %29 = load float, ptr %28, align 4
   %30 = fadd float %27, %29
   store float %30, ptr %28, align 4

@@ -18,32 +18,32 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm15HandleRootOwner12markGCScopesERNS0_12RootAcceptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) local_unnamed_addr #0 align 2 {
 entry:
-  %gcScope.0.in3 = getelementptr inbounds i8, ptr %this, i64 8
+  %gcScope.0.in3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %gcScope.04 = load ptr, ptr %gcScope.0.in3, align 8
   %tobool.not5 = icmp eq ptr %gcScope.04, null
   br i1 %tobool.not5, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit
   %gcScope.06 = phi ptr [ %gcScope.0, %_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit ], [ %gcScope.04, %entry ]
-  %chunks_.i = getelementptr inbounds i8, ptr %gcScope.06, i64 144
+  %chunks_.i = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 144
   %0 = load ptr, ptr %chunks_.i, align 8
-  %curChunkIndex_.i = getelementptr inbounds i8, ptr %gcScope.06, i64 208
+  %curChunkIndex_.i = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 208
   %1 = load i32, ptr %curChunkIndex_.i, align 8
   %idx.ext.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %idx.ext.i
-  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %0, i64 %idx.ext.i
+  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %cmp.not10.i = icmp eq ptr %0, %add.ptr2.i
   br i1 %cmp.not10.i, label %_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body
-  %curChunkEnd_.i = getelementptr inbounds i8, ptr %gcScope.06, i64 200
-  %next_.i = getelementptr inbounds i8, ptr %gcScope.06, i64 192
+  %curChunkEnd_.i = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 200
+  %next_.i = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 192
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc8.i, %for.body.lr.ph.i
   %it.011.i = phi ptr [ %0, %for.body.lr.ph.i ], [ %incdec.ptr9.i, %for.inc8.i ]
   %2 = load ptr, ptr %it.011.i, align 8
-  %add.ptr3.i = getelementptr inbounds i8, ptr %2, i64 128
+  %add.ptr3.i = getelementptr inbounds nuw i8, ptr %2, i64 128
   %3 = load ptr, ptr %curChunkEnd_.i, align 8
   %cmp4.i = icmp eq ptr %3, %add.ptr3.i
   %4 = load ptr, ptr %next_.i, align 8
@@ -54,20 +54,20 @@ for.body.i:                                       ; preds = %for.inc8.i, %for.bo
 for.body7.i:                                      ; preds = %for.body.i, %for.body7.i
   %first.09.i = phi ptr [ %incdec.ptr.i, %for.body7.i ], [ %2, %for.body.i ]
   %vtable.i = load ptr, ptr %acceptor, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 48
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %first.09.i) #3
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.09.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %first.09.i, i64 8
   %cmp6.not.i = icmp eq ptr %incdec.ptr.i, %last.0.i
   br i1 %cmp6.not.i, label %for.inc8.i, label %for.body7.i, !llvm.loop !4
 
 for.inc8.i:                                       ; preds = %for.body7.i, %for.body.i
-  %incdec.ptr9.i = getelementptr inbounds i8, ptr %it.011.i, i64 8
+  %incdec.ptr9.i = getelementptr inbounds nuw i8, ptr %it.011.i, i64 8
   %cmp.not.i = icmp eq ptr %it.011.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit, label %for.body.i, !llvm.loop !6
 
 _ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE.exit: ; preds = %for.inc8.i, %for.body
-  %gcScope.0.in = getelementptr inbounds i8, ptr %gcScope.06, i64 8
+  %gcScope.0.in = getelementptr inbounds nuw i8, ptr %gcScope.06, i64 8
   %gcScope.0 = load ptr, ptr %gcScope.0.in, align 8
   %tobool.not = icmp eq ptr %gcScope.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !7
@@ -79,25 +79,25 @@ for.end:                                          ; preds = %_ZN6hermes2vm7GCSco
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(212) %this, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) local_unnamed_addr #0 align 2 {
 entry:
-  %chunks_ = getelementptr inbounds i8, ptr %this, i64 144
+  %chunks_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %chunks_, align 8
-  %curChunkIndex_ = getelementptr inbounds i8, ptr %this, i64 208
+  %curChunkIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %1 = load i32, ptr %curChunkIndex_, align 8
   %idx.ext = zext i32 %1 to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.ext
-  %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %0, i64 %idx.ext
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %cmp.not10 = icmp eq ptr %0, %add.ptr2
   br i1 %cmp.not10, label %for.end10, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %curChunkEnd_ = getelementptr inbounds i8, ptr %this, i64 200
-  %next_ = getelementptr inbounds i8, ptr %this, i64 192
+  %curChunkEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 200
+  %next_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc8
   %it.011 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr9, %for.inc8 ]
   %2 = load ptr, ptr %it.011, align 8
-  %add.ptr3 = getelementptr inbounds i8, ptr %2, i64 128
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %3 = load ptr, ptr %curChunkEnd_, align 8
   %cmp4 = icmp eq ptr %3, %add.ptr3
   %4 = load ptr, ptr %next_, align 8
@@ -108,15 +108,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body7:                                        ; preds = %for.body, %for.body7
   %first.09 = phi ptr [ %incdec.ptr, %for.body7 ], [ %2, %for.body ]
   %vtable = load ptr, ptr %acceptor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %first.09) #3
-  %incdec.ptr = getelementptr inbounds i8, ptr %first.09, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %first.09, i64 8
   %cmp6.not = icmp eq ptr %incdec.ptr, %last.0
   br i1 %cmp6.not, label %for.inc8, label %for.body7, !llvm.loop !4
 
 for.inc8:                                         ; preds = %for.body7, %for.body
-  %incdec.ptr9 = getelementptr inbounds i8, ptr %it.011, i64 8
+  %incdec.ptr9 = getelementptr inbounds nuw i8, ptr %it.011, i64 8
   %cmp.not = icmp eq ptr %it.011, %add.ptr
   br i1 %cmp.not, label %for.end10, label %for.body, !llvm.loop !6
 
@@ -127,30 +127,30 @@ for.end10:                                        ; preds = %for.inc8, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm7GCScopeD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(212) %this) unnamed_addr #0 align 2 {
 entry:
-  %prevScope_ = getelementptr inbounds i8, ptr %this, i64 8
+  %prevScope_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %prevScope_, align 8
   %1 = load ptr, ptr %this, align 8
-  %topGCScope_ = getelementptr inbounds i8, ptr %1, i64 8
+  %topGCScope_ = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %topGCScope_, align 8
-  %chunks_ = getelementptr inbounds i8, ptr %this, i64 144
+  %chunks_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %2 = load ptr, ptr %chunks_, align 8
-  %Size.i = getelementptr inbounds i8, ptr %this, i64 152
+  %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %3 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %3 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 3
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %add.ptr.i.idx
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i32 %3, 1
   br i1 %cmp.not5, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %it.04 = getelementptr inbounds i8, ptr %2, i64 8
+  %it.04 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %it.06 = phi ptr [ %it.0, %for.body ], [ %it.04, %for.body.preheader ]
   %4 = load ptr, ptr %it.06, align 8
   tail call void @free(ptr noundef %4) #3
-  %it.0 = getelementptr inbounds i8, ptr %it.06, i64 8
+  %it.0 = getelementptr inbounds nuw i8, ptr %it.06, i64 8
   %cmp.not = icmp eq ptr %it.0, %add.ptr.i
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
 
@@ -160,7 +160,7 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %5 = phi ptr [ %.pre, %for.end.loopexit ], [ %2, %entry ]
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %cmp.i.i.i = icmp eq ptr %5, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes2vm17PinnedHermesValueELj4EED2Ev.exit, label %if.then.i.i
 
@@ -178,12 +178,12 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %this, i64 %value.coerce) local_unnamed_addr #0 align 2 {
 entry:
-  %curChunkIndex_ = getelementptr inbounds i8, ptr %this, i64 208
+  %curChunkIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load i32, ptr %curChunkIndex_, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %curChunkIndex_, align 8
-  %chunks_ = getelementptr inbounds i8, ptr %this, i64 144
-  %Size.i = getelementptr inbounds i8, ptr %this, i64 152
+  %chunks_ = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %1 = load i32, ptr %Size.i, align 8
   %cmp = icmp eq i32 %1, %inc
   br i1 %cmp, label %if.then, label %if.else
@@ -191,13 +191,13 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i = tail call noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef 128) #3
   %2 = load i32, ptr %Size.i, align 8
-  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 156
+  %Capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 156
   %3 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %2, %3
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_backERKS4_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %chunks_, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, i64 noundef 8) #3
   %.pre.i = load i32, ptr %Size.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_backERKS4_.exit
@@ -206,7 +206,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_bac
   %4 = phi i32 [ %.pre.i, %if.then.i ], [ %2, %if.then ]
   %5 = load ptr, ptr %chunks_, align 8
   %conv.i3.i = zext i32 %4 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %5, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %5, i64 %conv.i3.i
   %6 = ptrtoint ptr %call.i to i64
   store i64 %6, ptr %add.ptr.i.i, align 1
   %7 = load i32, ptr %Size.i, align 8
@@ -214,24 +214,24 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_bac
   store i32 %add.i, ptr %Size.i, align 8
   %8 = load ptr, ptr %chunks_, align 8
   %conv.i.i = zext i32 %add.i to i64
-  %add.ptr.i.i2 = getelementptr inbounds ptr, ptr %8, i64 %conv.i.i
+  %add.ptr.i.i2 = getelementptr inbounds nuw ptr, ptr %8, i64 %conv.i.i
   %arrayidx.i3 = getelementptr inbounds i8, ptr %add.ptr.i.i2, i64 -8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %conv = zext i32 %inc to i64
   %9 = load ptr, ptr %chunks_, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %conv
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_backERKS4_.exit
   %.in = phi ptr [ %arrayidx.i, %if.else ], [ %arrayidx.i3, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes2vm17PinnedHermesValueELb1EE9push_backERKS4_.exit ]
   %10 = load ptr, ptr %.in, align 8
-  %next_12 = getelementptr inbounds i8, ptr %this, i64 192
-  %add.ptr = getelementptr inbounds i8, ptr %10, i64 128
-  %curChunkEnd_ = getelementptr inbounds i8, ptr %this, i64 200
+  %next_12 = getelementptr inbounds nuw i8, ptr %this, i64 192
+  %add.ptr = getelementptr inbounds nuw i8, ptr %10, i64 128
+  %curChunkEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   store ptr %add.ptr, ptr %curChunkEnd_, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %10, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %incdec.ptr, ptr %next_12, align 8
   store i64 %value.coerce, ptr %10, align 8
   ret ptr %10

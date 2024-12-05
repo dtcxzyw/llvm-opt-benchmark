@@ -39,7 +39,7 @@ define hidden i32 @ReadPNG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
   store volatile ptr null, ptr %6, align 8
   store volatile ptr null, ptr %7, align 8
   store volatile ptr null, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %20, align 8
   store volatile i32 0, ptr %13, align 4
   store volatile ptr null, ptr %16, align 8
@@ -52,7 +52,7 @@ define hidden i32 @ReadPNG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
 
 24:                                               ; preds = %5
   store ptr %0, ptr %9, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %1, ptr %25, align 8
   %26 = call noalias ptr @png_create_read_struct_2(ptr noundef nonnull @.str, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @MallocFunc, ptr noundef nonnull @FreeFunc) #15
   store volatile ptr %26, ptr %6, align 8
@@ -263,7 +263,7 @@ define hidden i32 @ReadPNG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
   %124 = load volatile ptr, ptr %6, align 8
   call void @png_read_rows(ptr noundef %124, ptr noundef nonnull %19, ptr noundef null, i32 noundef 1) #15
   %125 = load ptr, ptr %19, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 %109
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %109
   store ptr %126, ptr %19, align 8
   %127 = add nuw i32 %.05067, 1
   %128 = load i32, ptr %15, align 4
@@ -298,10 +298,10 @@ define hidden i32 @ReadPNG(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 n
 
 142:                                              ; preds = %134, %._crit_edge70
   %143 = load i32, ptr %14, align 4
-  %144 = getelementptr inbounds i8, ptr %2, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %143, ptr %144, align 8
   %145 = load i32, ptr %15, align 4
-  %146 = getelementptr inbounds i8, ptr %2, i64 12
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %145, ptr %146, align 4
   %147 = icmp eq i8 %103, 4
   %.0..0..0..0.12 = load volatile ptr, ptr %16, align 8
@@ -404,9 +404,9 @@ declare void @png_set_read_fn(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal void @ReadFunc(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 {
   %4 = tail call ptr @png_get_io_ptr(ptr noundef %0) #15
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %6, %8
   %10 = icmp ult i64 %9, %2
@@ -474,7 +474,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %4
@@ -492,7 +492,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %14 = phi ptr [ %43, %.loopexit ], [ %.pre, %.preheader.preheader ]
   %.02436 = phi i32 [ %42, %.loopexit ], [ 0, %.preheader.preheader ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(22) @.str.6) #21
   %.not2847 = icmp eq i32 %17, 0
@@ -505,7 +505,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   br i1 %exitcond, label %.loopexit, label %18, !llvm.loop !10
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds [5 x %struct.anon], ptr @kPNGMetadataMap, i64 0, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [5 x %struct.anon], ptr @kPNGMetadataMap, i64 0, i64 %indvars.iv.next
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %20) #21
   %.not28 = icmp eq i32 %21, 0
@@ -513,7 +513,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
 
 ._crit_edge49:                                    ; preds = %18, %.preheader
   %.lcssa = phi ptr [ @kPNGMetadataMap, %.preheader ], [ %19, %18 ]
-  %22 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 %23
   %25 = load ptr, ptr %24, align 8
@@ -531,11 +531,11 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
   %.off = add i32 %30, -1
   %switch = icmp ult i32 %.off, 2
   %.0.in.v = select i1 %switch, i64 32, i64 24
-  %.0.in = getelementptr inbounds i8, ptr %14, i64 %.0.in.v
+  %.0.in = getelementptr inbounds nuw i8, ptr %14, i64 %.0.in.v
   %.0 = load i64, ptr %.0.in, align 8
-  %31 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %14, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 %32(ptr noundef %34, i64 noundef %.0, ptr noundef nonnull %24) #15
   %.not30 = icmp eq i32 %35, 0
@@ -544,7 +544,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr @stderr, align 8
-  %38 = getelementptr inbounds i8, ptr %.pre43, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.pre43, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.5, ptr noundef %39) #19
   br label %.loopexit31
@@ -552,7 +552,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromPNG(ptr noundef %
 .loopexit:                                        ; preds = %.lr.ph, %29, %26
   %41 = phi ptr [ %.pre43, %29 ], [ %.pre42, %26 ], [ %14, %.lr.ph ]
   %42 = add nuw i32 %.02436, 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 56
   store ptr %43, ptr %5, align 8
   %exitcond41.not = icmp eq i32 %42, %13
   br i1 %exitcond41.not, label %._crit_edge, label %.preheader, !llvm.loop !11
@@ -637,7 +637,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   br label %51
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %17
 
 17:                                               ; preds = %19, %15
@@ -647,7 +647,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   br i1 %.not20, label %.critedge, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %.015, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   %.not21 = icmp eq i8 %18, 10
   br i1 %.not21, label %.critedge, label %17, !llvm.loop !13
 
@@ -666,7 +666,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   br label %51
 
 28:                                               ; preds = %.critedge
-  %29 = getelementptr inbounds i8, ptr %22, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %29, ptr %6, align 8
   %sext = shl i64 %21, 32
   %30 = ashr exact i64 %sext, 32
@@ -681,8 +681,8 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %33 = getelementptr inbounds i8, ptr %5, i64 1
-  %34 = getelementptr inbounds i8, ptr %5, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %35
 
 35:                                               ; preds = %46, %.lr.ph.i
@@ -696,7 +696,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   ]
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.02026.i, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.02026.i, i64 1
   store i8 %36, ptr %5, align 1
   %39 = load i8, ptr %38, align 1
   store i8 %39, ptr %33, align 1
@@ -709,7 +709,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   br i1 %.not24.i, label %43, label %.critedge.i
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %.028.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
   %45 = add nuw i64 %.01827.i, 1
   br label %46
 
@@ -717,7 +717,7 @@ define internal range(i32 0, 2) i32 @ProcessRawProfile(ptr noundef %0, i64 nound
   %.121.i = phi ptr [ %38, %43 ], [ %.02026.i, %35 ]
   %.119.i = phi i64 [ %45, %43 ], [ %.01827.i, %35 ]
   %.1.i = phi ptr [ %44, %43 ], [ %.028.i, %35 ]
-  %47 = getelementptr inbounds i8, ptr %.121.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.121.i, i64 1
   %48 = icmp ult i64 %.119.i, %30
   br i1 %48, label %35, label %.critedge.i, !llvm.loop !14
 
@@ -740,7 +740,7 @@ HexStringToBytes.exit:                            ; preds = %.critedge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5)
   store ptr %31, ptr %2, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %30, ptr %50, align 8
   br label %51
 

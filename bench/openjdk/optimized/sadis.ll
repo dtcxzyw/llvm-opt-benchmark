@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i64 @Java_sun_jvm_hotspot_asm_Disassembler_load_1library(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1352
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1352
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #6
   %8 = icmp eq ptr %7, null
@@ -24,7 +24,7 @@ define i64 @Java_sun_jvm_hotspot_asm_Disassembler_load_1library(ptr noundef %0, 
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0) #6
   %.not = icmp eq ptr %13, null
@@ -49,7 +49,7 @@ define i64 @Java_sun_jvm_hotspot_asm_Disassembler_load_1library(ptr noundef %0, 
 21:                                               ; preds = %.thread, %16
   %.021 = phi i64 [ 0, %.thread ], [ %18, %16 ]
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1360
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1360
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %7) #6
   br label %25
@@ -74,11 +74,11 @@ declare ptr @dlerror() local_unnamed_addr #1
 define void @Java_sun_jvm_hotspot_asm_Disassembler_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.decode_env, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1472
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1472
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #6
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0) #6
   %.not = icmp eq ptr %16, null
@@ -86,17 +86,17 @@ define void @Java_sun_jvm_hotspot_asm_Disassembler_decode(ptr noundef %0, ptr no
 
 17:                                               ; preds = %7
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1368
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1368
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(ptr noundef nonnull %0, ptr noundef %4) #6
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %12, i64 %22
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1352
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1352
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef %5, ptr noundef null) #6
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef nonnull %0) #6
   %.not66 = icmp eq ptr %31, null
@@ -104,28 +104,28 @@ define void @Java_sun_jvm_hotspot_asm_Disassembler_decode(ptr noundef %0, ptr no
   br i1 %.not66, label %36, label %33
 
 33:                                               ; preds = %17
-  %34 = getelementptr inbounds i8, ptr %32, i64 1536
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 1536
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %12, i32 noundef 2) #6
   br label %87
 
 36:                                               ; preds = %17
-  %37 = getelementptr inbounds i8, ptr %32, i64 248
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 248
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef nonnull %0, ptr noundef %1) #6
   store ptr %0, ptr %8, align 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %8, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %2, ptr %41, align 8
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 264
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 264
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr %44(ptr noundef nonnull %0, ptr noundef %39, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #6
-  %46 = getelementptr inbounds i8, ptr %8, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %45, ptr %46, align 8
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 120
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr %49(ptr noundef nonnull %0) #6
   %.not67 = icmp eq ptr %50, null
@@ -133,23 +133,23 @@ define void @Java_sun_jvm_hotspot_asm_Disassembler_decode(ptr noundef %0, ptr no
   br i1 %.not67, label %58, label %52
 
 52:                                               ; preds = %36
-  %53 = getelementptr inbounds i8, ptr %51, i64 1536
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 1536
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %12, i32 noundef 2) #6
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1360
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1360
   %57 = load ptr, ptr %56, align 8
   tail call void %57(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %27) #6
   br label %87
 
 58:                                               ; preds = %36
-  %59 = getelementptr inbounds i8, ptr %51, i64 264
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 264
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr %60(ptr noundef nonnull %0, ptr noundef %39, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #6
-  %62 = getelementptr inbounds i8, ptr %8, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %61, ptr %62, align 8
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 120
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 120
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr %65(ptr noundef nonnull %0) #6
   %.not68 = icmp eq ptr %66, null
@@ -157,11 +157,11 @@ define void @Java_sun_jvm_hotspot_asm_Disassembler_decode(ptr noundef %0, ptr no
 
 67:                                               ; preds = %58
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1536
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1536
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %12, i32 noundef 2) #6
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 1360
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1360
   %73 = load ptr, ptr %72, align 8
   tail call void %73(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %27) #6
   br label %87
@@ -174,11 +174,11 @@ define void @Java_sun_jvm_hotspot_asm_Disassembler_decode(ptr noundef %0, ptr no
   %79 = sub i64 %77, %78
   %80 = call ptr %75(i64 noundef %3, i64 noundef %79, ptr noundef %12, i64 noundef %22, ptr noundef nonnull @event_to_env, ptr noundef nonnull %8, ptr noundef nonnull @printf_to_env, ptr noundef nonnull %8, ptr noundef %27, i32 noundef 0) #6
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 1536
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1536
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %12, i32 noundef 2) #6
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 1360
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1360
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %27) #6
   br label %87
@@ -191,11 +191,11 @@ define void @Java_sun_jvm_hotspot_asm_Disassembler_decode(ptr noundef %0, ptr no
 define internal ptr @event_to_env(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1336
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1336
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %4, ptr noundef %1) #6
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %4) #6
   %.not = icmp eq ptr %12, null
@@ -203,18 +203,18 @@ define internal ptr @event_to_env(ptr nocapture noundef readonly %0, ptr noundef
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 416
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 416
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %2 to i64
   %24 = tail call i64 (ptr, ptr, ptr, ...) %16(ptr noundef nonnull %4, ptr noundef %18, ptr noundef %20, ptr noundef %22, ptr noundef %8, i64 noundef %23) #6
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 120
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %4) #6
   %.not19 = icmp eq ptr %28, null
@@ -222,7 +222,7 @@ define internal ptr @event_to_env(ptr nocapture noundef readonly %0, ptr noundef
 
 29:                                               ; preds = %13
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 136
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull %4) #6
   br label %35
@@ -257,13 +257,13 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 37
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 37) #7
   %19 = icmp eq ptr %18, null
   %20 = add i64 %5, -1
@@ -277,11 +277,11 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
   %.04763 = phi ptr [ %1, %21 ], [ %13, %16 ]
   %.04862 = phi i64 [ %5, %21 ], [ %20, %16 ]
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1336
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1336
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %4, ptr noundef nonnull %.04763) #6
   %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %4) #6
   %.not52 = icmp eq ptr %29, null
@@ -289,20 +289,20 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
 
 30:                                               ; preds = %.thread58
   %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 488
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 488
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   tail call void (ptr, ptr, ptr, ...) %33(ptr noundef nonnull %4, ptr noundef %35, ptr noundef %37, ptr noundef %39, ptr noundef %25) #6
   br label %40
 
 40:                                               ; preds = %30, %.thread58
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 120
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr %43(ptr noundef nonnull %4) #6
   %.not53 = icmp eq ptr %44, null
@@ -310,7 +310,7 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
 
 45:                                               ; preds = %40
   %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 136
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull %4) #6
   br label %49
@@ -321,15 +321,15 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
 
 .thread:                                          ; preds = %16, %9, %12, %21
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = call i32 @vsnprintf(ptr noundef nonnull %51, i64 noundef 4096, ptr noundef %1, ptr noundef nonnull %3) #6
   call void @llvm.va_end.p0(ptr nonnull %3)
   %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1336
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1336
   %55 = load ptr, ptr %54, align 8
   %56 = call ptr %55(ptr noundef nonnull %4, ptr noundef nonnull %51) #6
   %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 120
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 120
   %59 = load ptr, ptr %58, align 8
   %60 = call ptr %59(ptr noundef nonnull %4) #6
   %.not50 = icmp eq ptr %60, null
@@ -337,20 +337,20 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
 
 61:                                               ; preds = %.thread
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 488
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 488
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load ptr, ptr %69, align 8
   call void (ptr, ptr, ptr, ...) %64(ptr noundef nonnull %4, ptr noundef %66, ptr noundef %68, ptr noundef %70, ptr noundef %56) #6
   br label %71
 
 71:                                               ; preds = %61, %.thread
   %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 120
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 120
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr %74(ptr noundef nonnull %4) #6
   %.not51 = icmp eq ptr %75, null
@@ -358,7 +358,7 @@ define internal noundef i32 @printf_to_env(ptr noundef %0, ptr noundef %1, ...) 
 
 76:                                               ; preds = %71
   %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 136
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 136
   %79 = load ptr, ptr %78, align 8
   call void %79(ptr noundef nonnull %4) #6
   br label %80

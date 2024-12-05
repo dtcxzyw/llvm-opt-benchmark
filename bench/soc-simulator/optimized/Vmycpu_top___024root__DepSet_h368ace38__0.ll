@@ -5,8 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_Z41Vmycpu_top___024root___eval_triggers__icoP20Vmycpu_top___024root(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 19216
-  %3 = getelementptr inbounds i8, ptr %0, i64 220
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 19216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %4 = load i8, ptr %3, align 4
   %5 = icmp ne i8 %4, 0
   %6 = load i64, ptr %2, align 8
@@ -19,20 +19,20 @@ define dso_local void @_Z41Vmycpu_top___024root___eval_triggers__icoP20Vmycpu_to
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_Z41Vmycpu_top___024root___eval_triggers__actP20Vmycpu_top___024root(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 19232
-  %3 = getelementptr inbounds i8, ptr %0, i64 162
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 19232
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 162
   %4 = load i8, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 221
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 221
   %6 = load i8, ptr %5, align 1
   %7 = icmp ne i8 %4, %6
   %8 = load i64, ptr %2, align 8
   %9 = and i64 %8, -4
   %10 = zext i1 %7 to i64
   %11 = or disjoint i64 %9, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8
   %14 = zext i8 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 222
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 222
   %16 = load i8, ptr %15, align 2
   %17 = zext i8 %16 to i32
   %18 = xor i32 %17, -1
@@ -43,7 +43,7 @@ define dso_local void @_Z41Vmycpu_top___024root___eval_triggers__actP20Vmycpu_to
   store i64 %21, ptr %2, align 8
   store i8 %4, ptr %5, align 1
   store i8 %13, ptr %15, align 2
-  %22 = getelementptr inbounds i8, ptr %0, i64 223
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 223
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 1
   %.not.not = icmp eq i8 %24, 0

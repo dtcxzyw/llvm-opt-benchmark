@@ -229,7 +229,7 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false25
 
 lor.lhs.false37:                                  ; preds = %lor.lhs.false31
   %1 = load ptr, ptr @buf, align 8
-  %data = getelementptr inbounds i8, ptr %1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %written, align 8
   %call38 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef %2, i64 noundef %3, ptr noundef nonnull @simple1, i64 noundef 1) #3
@@ -271,7 +271,7 @@ lor.lhs.false58:                                  ; preds = %lor.lhs.false52
 
 lor.lhs.false64:                                  ; preds = %lor.lhs.false58
   %5 = load ptr, ptr @buf, align 8
-  %data65 = getelementptr inbounds i8, ptr %5, i64 8
+  %data65 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %data65, align 8
   %7 = load i64, ptr %written, align 8
   %call66 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19, ptr noundef %6, i64 noundef %7, ptr noundef nonnull @simple2, i64 noundef 2) #3
@@ -313,7 +313,7 @@ lor.lhs.false88:                                  ; preds = %lor.lhs.false82
 
 lor.lhs.false94:                                  ; preds = %lor.lhs.false88
   %9 = load ptr, ptr @buf, align 8
-  %data95 = getelementptr inbounds i8, ptr %9, i64 8
+  %data95 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load ptr, ptr %data95, align 8
   %11 = load i64, ptr %written, align 8
   %call96 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 101, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.21, ptr noundef %10, i64 noundef %11, ptr noundef nonnull @simple3, i64 noundef 5) #3
@@ -588,7 +588,7 @@ lor.lhs.false85:                                  ; preds = %lor.lhs.false79
 
 lor.lhs.false91:                                  ; preds = %lor.lhs.false85
   %2 = load ptr, ptr @buf, align 8
-  %data = getelementptr inbounds i8, ptr %2, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %data, align 8
   %4 = load i64, ptr %written, align 8
   %call92 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 182, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19, ptr noundef %3, i64 noundef %4, ptr noundef nonnull @simple2, i64 noundef 2) #3
@@ -676,7 +676,7 @@ lor.lhs.false37:                                  ; preds = %lor.lhs.false31
 
 lor.lhs.false43:                                  ; preds = %lor.lhs.false37
   %1 = load ptr, ptr @buf, align 8
-  %data = getelementptr inbounds i8, ptr %1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %written, align 8
   %call44 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 205, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef %2, i64 noundef %3, ptr noundef nonnull @simple1, i64 noundef 1) #3
@@ -734,7 +734,7 @@ lor.lhs.false76:                                  ; preds = %lor.lhs.false70
 
 lor.lhs.false82:                                  ; preds = %lor.lhs.false76
   %5 = load ptr, ptr @buf, align 8
-  %data83 = getelementptr inbounds i8, ptr %5, i64 8
+  %data83 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %data83, align 8
   %7 = load i64, ptr %written, align 8
   %call84 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 215, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19, ptr noundef %6, i64 noundef %7, ptr noundef nonnull @simple2, i64 noundef 2) #3
@@ -844,7 +844,7 @@ lor.lhs.false154:                                 ; preds = %lor.lhs.false148
 
 lor.lhs.false160:                                 ; preds = %lor.lhs.false154
   %11 = load ptr, ptr @buf, align 8
-  %data161 = getelementptr inbounds i8, ptr %11, i64 8
+  %data161 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %data161, align 8
   %13 = load i64, ptr %written, align 8
   %call162 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 232, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.43, ptr noundef %12, i64 noundef %13, ptr noundef nonnull @nestedsub, i64 noundef 4) #3
@@ -926,7 +926,7 @@ lor.lhs.false214:                                 ; preds = %lor.lhs.false208
 
 lor.lhs.false220:                                 ; preds = %lor.lhs.false214
   %15 = load ptr, ptr @buf, align 8
-  %data221 = getelementptr inbounds i8, ptr %15, i64 8
+  %data221 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load ptr, ptr %data221, align 8
   %17 = load i64, ptr %written, align 8
   %call222 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 245, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.44, ptr noundef %16, i64 noundef %17, ptr noundef nonnull @seqsub, i64 noundef 4) #3
@@ -1036,7 +1036,7 @@ lor.lhs.false292:                                 ; preds = %lor.lhs.false286
 
 lor.lhs.false298:                                 ; preds = %lor.lhs.false292
   %21 = load ptr, ptr @buf, align 8
-  %data299 = getelementptr inbounds i8, ptr %21, i64 8
+  %data299 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %22 = load ptr, ptr %data299, align 8
   %23 = load i64, ptr %written, align 8
   %call300 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 262, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.43, ptr noundef %22, i64 noundef %23, ptr noundef nonnull @nestedsub, i64 noundef 4) #3
@@ -1115,7 +1115,7 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false19
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false25
   %1 = load ptr, ptr @buf, align 8
-  %data = getelementptr inbounds i8, ptr %1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %written, align 8
   %call32 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 283, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef %2, i64 noundef %3, ptr noundef nonnull @simple1, i64 noundef 1) #3
@@ -1189,7 +1189,7 @@ lor.lhs.false76:                                  ; preds = %lor.lhs.false70
 
 lor.lhs.false82:                                  ; preds = %lor.lhs.false76
   %5 = load ptr, ptr @buf, align 8
-  %data83 = getelementptr inbounds i8, ptr %5, i64 8
+  %data83 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %data83, align 8
   %7 = load i64, ptr %written, align 8
   %call84 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 296, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef %6, i64 noundef %7, ptr noundef nonnull @simple1, i64 noundef 1) #3
@@ -1286,7 +1286,7 @@ lor.lhs.false147:                                 ; preds = %lor.lhs.false141
 
 lor.lhs.false153:                                 ; preds = %lor.lhs.false147
   %11 = load ptr, ptr @buf, align 8
-  %data154 = getelementptr inbounds i8, ptr %11, i64 8
+  %data154 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %data154, align 8
   %13 = load i64, ptr %written, align 8
   %call155 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 314, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.50, ptr noundef %12, i64 noundef %13, ptr noundef nonnull @empty, i64 noundef 1) #3
@@ -1352,7 +1352,7 @@ lor.lhs.false195:                                 ; preds = %lor.lhs.false189
 
 lor.lhs.false201:                                 ; preds = %lor.lhs.false195
   %15 = load ptr, ptr @buf, align 8
-  %data202 = getelementptr inbounds i8, ptr %15, i64 8
+  %data202 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load ptr, ptr %data202, align 8
   %17 = load i64, ptr %written, align 8
   %call203 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 325, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19, ptr noundef %16, i64 noundef %17, ptr noundef nonnull @simple2, i64 noundef 2) #3
@@ -1394,7 +1394,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %1 = load ptr, ptr %bytes, align 8
   store i8 -2, ptr %1, align 1
   %2 = load ptr, ptr %bytes, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %2, i64 1
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 -1, ptr %arrayidx8, align 1
   %call9 = call i32 @WPACKET_finish(ptr noundef nonnull %pkt) #3
   %cmp10 = icmp ne i32 %call9, 0
@@ -1413,7 +1413,7 @@ lor.lhs.false14:                                  ; preds = %if.end
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false14
   %3 = load ptr, ptr @buf, align 8
-  %data = getelementptr inbounds i8, ptr %3, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %data, align 8
   %5 = load i64, ptr %written, align 8
   %call21 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 343, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.29, ptr noundef %4, i64 noundef %5, ptr noundef nonnull @alloc, i64 noundef 3) #3
@@ -1441,7 +1441,7 @@ if.end39:                                         ; preds = %lor.lhs.false31
   %7 = load ptr, ptr %bytes, align 8
   store i8 -2, ptr %7, align 1
   %8 = load ptr, ptr %bytes, align 8
-  %arrayidx41 = getelementptr inbounds i8, ptr %8, i64 1
+  %arrayidx41 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 -1, ptr %arrayidx41, align 1
   %call42 = call i32 @WPACKET_finish(ptr noundef nonnull %pkt) #3
   %cmp43 = icmp ne i32 %call42, 0
@@ -1460,7 +1460,7 @@ lor.lhs.false47:                                  ; preds = %if.end39
 
 lor.lhs.false53:                                  ; preds = %lor.lhs.false47
   %9 = load ptr, ptr @buf, align 8
-  %data54 = getelementptr inbounds i8, ptr %9, i64 8
+  %data54 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load ptr, ptr %data54, align 8
   %11 = load i64, ptr %written, align 8
   %call55 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 354, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.53, ptr noundef %10, i64 noundef %11, ptr noundef nonnull @submem, i64 noundef 4) #3
@@ -1517,7 +1517,7 @@ lor.lhs.false13:                                  ; preds = %lor.lhs.false7
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false13
   %1 = load ptr, ptr @buf, align 8
-  %data = getelementptr inbounds i8, ptr %1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %written, align 8
   %call20 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 370, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.29, ptr noundef %2, i64 noundef %3, ptr noundef nonnull @alloc, i64 noundef 3) #3
@@ -1559,7 +1559,7 @@ lor.lhs.false41:                                  ; preds = %lor.lhs.false35
 
 lor.lhs.false47:                                  ; preds = %lor.lhs.false41
   %5 = load ptr, ptr @buf, align 8
-  %data48 = getelementptr inbounds i8, ptr %5, i64 8
+  %data48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %data48, align 8
   %7 = load i64, ptr %written, align 8
   %call49 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 378, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.53, ptr noundef %6, i64 noundef %7, ptr noundef nonnull @submem, i64 noundef 4) #3
@@ -1588,14 +1588,14 @@ entry:
   store i32 50462976, ptr %testdata, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(259) %testdata2, i8 0, i64 259, i1 false)
   store i8 -126, ptr %testdata2, align 16
-  %0 = getelementptr inbounds i8, ptr %testdata2, i64 1
+  %0 = getelementptr inbounds nuw i8, ptr %testdata2, i64 1
   store i8 1, ptr %0, align 1
   %call = call i32 @WPACKET_init_der(ptr noundef nonnull %pkt, ptr noundef nonnull %sbuf, i64 noundef 1024) #3
   %cmp = icmp ne i32 %call, 0
   %conv = zext i1 %cmp to i32
   %call1 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 396, ptr noundef nonnull @.str.56, i32 noundef %conv) #3
   %tobool.not = icmp eq i32 %call1, 0
-  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %written, i64 8
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %written, i64 8
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -1713,7 +1713,7 @@ if.then:                                          ; preds = %lor.lhs.false77, %l
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false77
-  %arrayidx83 = getelementptr inbounds i8, ptr %testdata2, i64 3
+  %arrayidx83 = getelementptr inbounds nuw i8, ptr %testdata2, i64 3
   %call84 = call i32 @RAND_bytes(ptr noundef nonnull %arrayidx83, i32 noundef 256) #3
   %call85 = call i32 @test_int_gt(ptr noundef nonnull @.str, i32 noundef 417, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.49, i32 noundef %call84, i32 noundef 0) #3
   %tobool86.not = icmp eq i32 %call85, 0
@@ -1789,7 +1789,7 @@ if.then141:                                       ; preds = %lor.lhs.false134, %
 
 for.end:                                          ; preds = %for.cond
   %4 = load i64, ptr %written, align 16
-  %arrayidx145 = getelementptr inbounds i8, ptr %written, i64 8
+  %arrayidx145 = getelementptr inbounds nuw i8, ptr %written, i64 8
   %5 = load i64, ptr %arrayidx145, align 8
   %call146 = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 447, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i64 noundef %4, i64 noundef %5) #3
   %tobool147.not = icmp eq i32 %call146, 0
@@ -1881,7 +1881,7 @@ lor.lhs.false37:                                  ; preds = %lor.lhs.false31
 
 lor.lhs.false43:                                  ; preds = %lor.lhs.false37
   %1 = load ptr, ptr @buf, align 8
-  %data = getelementptr inbounds i8, ptr %1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %written, align 8
   %call44 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 475, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.77, ptr noundef %2, i64 noundef %3, ptr noundef nonnull @quic1, i64 noundef 5) #3
@@ -1955,7 +1955,7 @@ lor.lhs.false88:                                  ; preds = %lor.lhs.false82
 
 lor.lhs.false94:                                  ; preds = %lor.lhs.false88
   %5 = load ptr, ptr @buf, align 8
-  %data95 = getelementptr inbounds i8, ptr %5, i64 8
+  %data95 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %data95, align 8
   %7 = load i64, ptr %written, align 8
   %call96 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 487, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.79, ptr noundef %6, i64 noundef %7, ptr noundef nonnull @quic2, i64 noundef 2) #3
@@ -2029,7 +2029,7 @@ lor.lhs.false142:                                 ; preds = %lor.lhs.false136
 
 lor.lhs.false148:                                 ; preds = %lor.lhs.false142
   %9 = load ptr, ptr @buf, align 8
-  %data149 = getelementptr inbounds i8, ptr %9, i64 8
+  %data149 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load ptr, ptr %data149, align 8
   %11 = load i64, ptr %written, align 8
   %call150 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 499, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.82, ptr noundef %10, i64 noundef %11, ptr noundef nonnull @quic3, i64 noundef 4) #3
@@ -2103,7 +2103,7 @@ lor.lhs.false196:                                 ; preds = %lor.lhs.false190
 
 lor.lhs.false202:                                 ; preds = %lor.lhs.false196
   %13 = load ptr, ptr @buf, align 8
-  %data203 = getelementptr inbounds i8, ptr %13, i64 8
+  %data203 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load ptr, ptr %data203, align 8
   %15 = load i64, ptr %written, align 8
   %call204 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 511, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.85, ptr noundef %14, i64 noundef %15, ptr noundef nonnull @quic4, i64 noundef 12) #3
@@ -2177,7 +2177,7 @@ lor.lhs.false250:                                 ; preds = %lor.lhs.false244
 
 lor.lhs.false256:                                 ; preds = %lor.lhs.false250
   %17 = load ptr, ptr @buf, align 8
-  %data257 = getelementptr inbounds i8, ptr %17, i64 8
+  %data257 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %18 = load ptr, ptr %data257, align 8
   %19 = load i64, ptr %written, align 8
   %call258 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 523, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.87, ptr noundef %18, i64 noundef %19, ptr noundef nonnull @quic5, i64 noundef 16) #3
@@ -2205,10 +2205,10 @@ if.end276:                                        ; preds = %lor.lhs.false268
   %21 = load ptr, ptr %bytes, align 8
   store i8 85, ptr %21, align 1
   %22 = load ptr, ptr %bytes, align 8
-  %arrayidx277 = getelementptr inbounds i8, ptr %22, i64 1
+  %arrayidx277 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 102, ptr %arrayidx277, align 1
   %23 = load ptr, ptr %bytes, align 8
-  %arrayidx278 = getelementptr inbounds i8, ptr %23, i64 2
+  %arrayidx278 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i8 119, ptr %arrayidx278, align 1
   %call279 = call i32 @WPACKET_finish(ptr noundef nonnull %pkt) #3
   %cmp280 = icmp ne i32 %call279, 0
@@ -2227,7 +2227,7 @@ lor.lhs.false284:                                 ; preds = %if.end276
 
 lor.lhs.false290:                                 ; preds = %lor.lhs.false284
   %24 = load ptr, ptr @buf, align 8
-  %data291 = getelementptr inbounds i8, ptr %24, i64 8
+  %data291 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %25 = load ptr, ptr %data291, align 8
   %26 = load i64, ptr %written, align 8
   %call292 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 537, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.89, ptr noundef %25, i64 noundef %26, ptr noundef nonnull @quic6, i64 noundef 4) #3
@@ -2445,7 +2445,7 @@ lor.lhs.false440:                                 ; preds = %lor.lhs.false434
 
 lor.lhs.false446:                                 ; preds = %lor.lhs.false440
   %32 = load ptr, ptr @buf, align 8
-  %data447 = getelementptr inbounds i8, ptr %32, i64 8
+  %data447 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %33 = load ptr, ptr %data447, align 8
   %34 = load i64, ptr %written, align 8
   %call448 = call i32 @test_mem_eq(ptr noundef nonnull @.str, i32 noundef 568, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.99, ptr noundef %33, i64 noundef %34, ptr noundef nonnull @quic7, i64 noundef 19) #3
@@ -2490,7 +2490,7 @@ entry:
   %written = alloca i64, align 8
   %rand_data = alloca [9 x i8], align 8
   %pkt = alloca %struct.wpacket_st, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %rand_data, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %rand_data, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end46
@@ -2508,7 +2508,7 @@ if.end:                                           ; preds = %for.body
   %1 = load i8, ptr %arrayidx, align 8
   %2 = and i8 %1, 3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.test_WPACKET_quic_vlint_random, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.test_WPACKET_quic_vlint_random, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %and10 = and i64 %0, %switch.load
   %4 = load ptr, ptr @buf, align 8
@@ -2537,7 +2537,7 @@ lor.lhs.false21:                                  ; preds = %lor.lhs.false
 
 if.end29:                                         ; preds = %lor.lhs.false21
   %5 = load ptr, ptr @buf, align 8
-  %data = getelementptr inbounds i8, ptr %5, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %data, align 8
   %7 = load i64, ptr %written, align 8
   %cmp.i = icmp sgt i64 %7, -1
@@ -2563,7 +2563,7 @@ if.end.i8:                                        ; preds = %lor.lhs.false35
 
 if.end5.i:                                        ; preds = %if.end.i8
   %call7.i = call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %read_pkt.sroa.0.1) #3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %read_pkt.sroa.0.1, i64 %conv1.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %read_pkt.sroa.0.1, i64 %conv1.i.i
   %sub.i.i = sub nuw i64 %read_pkt.sroa.5.1, %conv1.i.i
   br label %PACKET_get_quic_vlint.exit
 

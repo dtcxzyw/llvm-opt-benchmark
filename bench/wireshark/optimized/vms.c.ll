@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -1, 2) i32 @vms_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [240 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %4, i64 239
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 239
   store i8 0, ptr %5, align 1
   br label %6
 
@@ -114,18 +114,18 @@ vms_check_file_type.exit._crit_edge:              ; preds = %vms_check_file_type
   br label %42
 
 34:                                               ; preds = %vms_check_file_type.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 7, ptr %35, align 8
   %36 = load i32, ptr @vms_file_type_subtype, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @vms_read, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @vms_seek_read, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 148
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 2, ptr %41, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #7
   br label %42
@@ -161,7 +161,7 @@ define internal range(i32 0, 2) i32 @vms_read(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @vms_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = add i64 %1, -1
   %10 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %9, i32 noundef 0, ptr noundef %4) #7
@@ -229,15 +229,15 @@ define internal fastcc range(i32 0, 2) i32 @parse_vms_packet(ptr noundef %0, ptr
   store i32 0, ptr %8, align 4
   store i32 101, ptr %10, align 4
   store i32 5128522, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %11, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 1970, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 1, ptr %18, align 4
   store i32 1, ptr %11, align 8
   %19 = call ptr @file_gets(ptr noundef nonnull %7, i32 noundef 240, ptr noundef %0) #7
@@ -245,7 +245,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_vms_packet(ptr noundef %0, ptr
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %7, i64 240
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %.pre.i = load ptr, ptr @g_ascii_table, align 8
   br label %26
 
@@ -470,30 +470,30 @@ isdumpline.exit:                                  ; preds = %87
   %112 = load i32, ptr %14, align 4
   %113 = add i32 %112, -1900
   store i32 %113, ptr %14, align 4
-  %114 = getelementptr inbounds i8, ptr %11, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 -1, ptr %114, align 8
   store i32 0, ptr %1, align 8
   %115 = call ptr @wtap_block_create(i32 noundef 5) #7
-  %116 = getelementptr inbounds i8, ptr %1, i64 232
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %115, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %1, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 1, ptr %117, align 4
   %118 = call i64 @mktime(ptr noundef nonnull %11) #7
-  %119 = getelementptr inbounds i8, ptr %1, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %118, ptr %119, align 8
   %120 = load i32, ptr %10, align 4
   %121 = mul i32 %120, 10000000
-  %122 = getelementptr inbounds i8, ptr %1, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %121, ptr %122, align 8
   %123 = load i32, ptr %8, align 4
-  %124 = getelementptr inbounds i8, ptr %1, i64 64
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %123, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %1, i64 68
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %123, ptr %125, align 4
   %126 = zext i32 %123 to i64
   call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef %126) #7
   %127 = load ptr, ptr %2, align 8
-  %128 = getelementptr inbounds i8, ptr %2, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %129 = load i64, ptr %128, align 8
   %130 = getelementptr i8, ptr %127, i64 %129
   %131 = load i32, ptr %8, align 4
@@ -501,9 +501,9 @@ isdumpline.exit:                                  ; preds = %87
   br i1 %.not166, label %._crit_edge165, label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %111
-  %132 = getelementptr inbounds i8, ptr %6, i64 2
-  %133 = getelementptr inbounds i8, ptr %7, i64 45
-  %134 = getelementptr inbounds i8, ptr %6, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %133 = getelementptr inbounds nuw i8, ptr %7, i64 45
+  %134 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %135
 
 135:                                              ; preds = %.lr.ph164, %.loopexit

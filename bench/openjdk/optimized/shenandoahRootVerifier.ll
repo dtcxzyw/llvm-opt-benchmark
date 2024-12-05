@@ -48,11 +48,11 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 define hidden void @_ZN25ShenandoahGCStateResetterC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(9) initializes((0, 9)) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %2, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noundef signext i8 @_ZNK14ShenandoahHeap8gc_stateEv(ptr noundef nonnull align 8 dereferenceable(2657) %2) #4
   store i8 %4, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 769
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 769
   %7 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %6) #4, !srcloc !6
   ret void
 }
@@ -62,9 +62,9 @@ declare noundef signext i8 @_ZNK14ShenandoahHeap8gc_stateEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN25ShenandoahGCStateResetterD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 769
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 769
   br label %6
 
 6:                                                ; preds = %9, %1
@@ -90,18 +90,18 @@ define hidden void @_ZN22ShenandoahRootVerifier8roots_doEP10OopClosure(ptr nound
   %3 = alloca %class.CLDToOopClosure, align 8
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %5 = tail call noundef signext i8 @_ZNK14ShenandoahHeap8gc_stateEv(ptr noundef nonnull align 8 dereferenceable(2657) %4) #4
-  %6 = getelementptr inbounds i8, ptr %4, i64 769
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 769
   %7 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %6) #4, !srcloc !6
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 0, ptr %9, align 8
   call void @_ZN9CodeCache11nmethods_doEP14NMethodClosure(ptr noundef nonnull %2) #4
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %11, align 8
   call void @_ZN20ClassLoaderDataGraph6cld_doEP10CLDClosure(ptr noundef nonnull %3) #4
   br label %12
@@ -109,21 +109,21 @@ define hidden void @_ZN22ShenandoahRootVerifier8roots_doEP10OopClosure(ptr nound
 12:                                               ; preds = %1, %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit
   %.sroa.0.012 = phi i32 [ 0, %1 ], [ %30, %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit ]
   %13 = call noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongIdEEEP10OopStorageT_(i32 noundef %.sroa.0.012) #4
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef i64 @_ZNK10OopStorage11ActiveArray11block_countEv(ptr noundef nonnull align 8 dereferenceable(20) %15) #4
   %.not10.not.i.i.i = icmp eq i64 %16, 0
   br i1 %.not10.not.i.i.i, label %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %15, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 24
   br label %18
 
 18:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i, %.lr.ph.i.i.i
   %.0911.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %29, %_ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i ]
   %19 = getelementptr inbounds ptr, ptr %17, i64 %.0911.i.i.i
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 512
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 512
   %22 = load volatile i64, ptr %21, align 8
   %.not9.i.i.i.i.i = icmp eq i64 %22, 0
   br i1 %.not9.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -133,7 +133,7 @@ define hidden void @_ZN22ShenandoahRootVerifier8roots_doEP10OopClosure(ptr nound
   %23 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i, i1 true)
   %24 = shl nuw i64 1, %23
   %25 = xor i64 %24, %.0810.i.i.i.i.i
-  %26 = getelementptr inbounds [64 x ptr], ptr %20, i64 0, i64 %23
+  %26 = getelementptr inbounds nuw [64 x ptr], ptr %20, i64 0, i64 %23
   %27 = load ptr, ptr %0, align 8
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %26) #4
@@ -183,12 +183,12 @@ define hidden void @_ZN22ShenandoahRootVerifier15strong_roots_doEP10OopClosure(p
   %3 = alloca %class.NMethodToOopClosure, align 8
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %5 = tail call noundef signext i8 @_ZNK14ShenandoahHeap8gc_stateEv(ptr noundef nonnull align 8 dereferenceable(2657) %4) #4
-  %6 = getelementptr inbounds i8, ptr %4, i64 769
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 769
   %7 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %6) #4, !srcloc !6
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %9, align 8
   call void @_ZN20ClassLoaderDataGraph20always_strong_cld_doEP10CLDClosure(ptr noundef nonnull %2) #4
   br label %10
@@ -196,21 +196,21 @@ define hidden void @_ZN22ShenandoahRootVerifier15strong_roots_doEP10OopClosure(p
 10:                                               ; preds = %1, %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit
   %.sroa.0.012 = phi i32 [ 0, %1 ], [ %28, %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit ]
   %11 = call noundef ptr @_ZN13OopStorageSet11get_storageINS_8StrongIdEEEP10OopStorageT_(i32 noundef %.sroa.0.012) #4
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = call noundef i64 @_ZNK10OopStorage11ActiveArray11block_countEv(ptr noundef nonnull align 8 dereferenceable(20) %13) #4
   %.not10.not.i.i.i = icmp eq i64 %14, 0
   br i1 %.not10.not.i.i.i, label %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %13, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %16
 
 16:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i, %.lr.ph.i.i.i
   %.0911.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %27, %_ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i ]
   %17 = getelementptr inbounds ptr, ptr %15, i64 %.0911.i.i.i
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 512
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 512
   %20 = load volatile i64, ptr %19, align 8
   %.not9.i.i.i.i.i = icmp eq i64 %20, 0
   br i1 %.not9.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_5OopFnI10OopClosureEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -220,7 +220,7 @@ define hidden void @_ZN22ShenandoahRootVerifier15strong_roots_doEP10OopClosure(p
   %21 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i, i1 true)
   %22 = shl nuw i64 1, %21
   %23 = xor i64 %22, %.0810.i.i.i.i.i
-  %24 = getelementptr inbounds [64 x ptr], ptr %18, i64 0, i64 %21
+  %24 = getelementptr inbounds nuw [64 x ptr], ptr %18, i64 0, i64 %21
   %25 = load ptr, ptr %0, align 8
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %24) #4
@@ -239,9 +239,9 @@ _ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit:  ; preds = %_ZN10OopStorage5Blo
 
 29:                                               ; preds = %_ZN10OopStorage7oops_doI10OopClosureEEvPT_.exit
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %31, align 8
   call void @_ZN7Threads25possibly_parallel_oops_doEbP10OopClosureP14NMethodClosure(i1 noundef zeroext true, ptr noundef %0, ptr noundef nonnull %3) #4
   br label %32

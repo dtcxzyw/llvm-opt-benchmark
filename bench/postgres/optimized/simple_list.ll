@@ -7,9 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @simple_oid_list_append(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @pg_malloc(i64 noundef 16) #6
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %. = select i1 %.not, ptr %0, ptr %6
@@ -31,7 +31,7 @@ define dso_local noundef zeroext i1 @simple_oid_list_member(ptr nocapture nounde
   br i1 %.not.not.not.not.not.not, label %4, label %8
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %1
   br i1 %7, label %8, label %3, !llvm.loop !5
@@ -46,11 +46,11 @@ define dso_local void @simple_string_list_append(ptr nocapture noundef %0, ptr n
   %4 = add i64 %3, 10
   %5 = tail call ptr @pg_malloc(i64 noundef %4) #6
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 9
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   %. = select i1 %.not, ptr %0, ptr %10
@@ -76,13 +76,13 @@ define dso_local noundef zeroext i1 @simple_string_list_member(ptr nocapture nou
   br i1 %.not.not.not.not.not.not, label %4, label %.loopexit
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.0, i64 9
+  %5 = getelementptr inbounds nuw i8, ptr %.0, i64 9
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #7
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %3, !llvm.loop !7
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %.0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i8 1, ptr %9, align 8
   br label %.loopexit
 
@@ -140,13 +140,13 @@ define dso_local ptr @simple_string_list_not_touched(ptr nocapture noundef reado
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %.0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %2, label %7, !llvm.loop !10
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.0, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %.0, i64 9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %7
@@ -158,9 +158,9 @@ define dso_local ptr @simple_string_list_not_touched(ptr nocapture noundef reado
 define dso_local void @simple_ptr_list_append(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @pg_malloc(i64 noundef 16) #6
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %. = select i1 %.not, ptr %0, ptr %6

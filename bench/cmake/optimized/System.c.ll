@@ -117,7 +117,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nocap
   %42 = tail call ptr @__ctype_b_loc() #9
   %43 = load ptr, ptr %42, align 8
   %44 = zext i8 %16 to i64
-  %45 = getelementptr inbounds i16, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw i16, ptr %43, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = and i16 %46, 8192
   %.not57.i = icmp eq i16 %47, 0
@@ -210,17 +210,17 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nocap
   %.145.i = phi i32 [ 0, %66 ], [ 0, %37 ], [ 0, %40 ], [ 1, %33 ], [ 0, %48 ]
   %.143.i = phi i32 [ 0, %66 ], [ %spec.select124.i, %37 ], [ 0, %40 ], [ %.042107.i.ph, %33 ], [ %.042107.i.ph, %48 ]
   %.141.i = phi i32 [ 0, %66 ], [ 0, %37 ], [ %spec.select126.i, %40 ], [ %.040108.i.ph, %33 ], [ %.040108.i.ph, %48 ]
-  %84 = getelementptr inbounds i8, ptr %.038109.i, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.038109.i, i64 1
   %85 = load i8, ptr %84, align 1
   %.not.i = icmp eq i8 %85, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i.outer, !llvm.loop !5
 
 .thread:                                          ; preds = %17, %50, %68, %.sink.split.sink.split.i
   %.sink128.i = phi ptr [ %18, %17 ], [ %51, %50 ], [ %69, %68 ], [ %.sink128.ph.i, %.sink.split.sink.split.i ]
-  %86 = getelementptr inbounds i8, ptr %.sink128.i, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.sink128.i, i64 1
   store ptr %86, ptr %10, align 8
   store i8 %16, ptr %.sink128.i, align 1
-  %87 = getelementptr inbounds i8, ptr %.038109.i, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.038109.i, i64 1
   %88 = load i8, ptr %87, align 1
   %.not.i8 = icmp eq i8 %88, 0
   br i1 %.not.i8, label %.thread.i, label %.lr.ph.i, !llvm.loop !5
@@ -348,7 +348,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysSystem__AppendArgument(ptr noun
 
 26:                                               ; preds = %22, %8
   %27 = phi ptr [ %.pre.i, %22 ], [ %9, %8 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %28, ptr %6, align 8
   store i8 0, ptr %27, align 1
   %29 = load ptr, ptr %2, align 8
@@ -409,7 +409,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysSystem__AppendArgument(ptr noun
   %61 = sub i64 %59, %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr align 1 %57, i64 %61, i1 false)
   %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %63, ptr %2, align 8
   %64 = load ptr, ptr %5, align 8
   store ptr %64, ptr %6, align 8

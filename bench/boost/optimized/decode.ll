@@ -78,7 +78,7 @@ define noundef signext i8 @_ZN5boost4urls6detail10decode_oneEPKc(ptr nocapture n
 
 _ZN5boost4urls7grammar12hexdig_valueEc.exit:      ; preds = %1, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17
   %.0.i = phi i8 [ -32, %17 ], [ -48, %16 ], [ -64, %15 ], [ -80, %14 ], [ -96, %13 ], [ -112, %12 ], [ -128, %11 ], [ 112, %10 ], [ 96, %9 ], [ 80, %8 ], [ 64, %7 ], [ 48, %6 ], [ 32, %5 ], [ 16, %4 ], [ 0, %3 ], [ -16, %1 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !3
   %switch.tableidx = add i8 %19, -48
   %20 = icmp ult i8 %switch.tableidx, 55
@@ -86,7 +86,7 @@ _ZN5boost4urls7grammar12hexdig_valueEc.exit:      ; preds = %1, %3, %4, %5, %6, 
 
 switch.lookup:                                    ; preds = %_ZN5boost4urls7grammar12hexdig_valueEc.exit
   %21 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [55 x i8], ptr @switch.table._ZN5boost4urls6detail10decode_oneEPKc, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw [55 x i8], ptr @switch.table._ZN5boost4urls6detail10decode_oneEPKc, i64 0, i64 %21
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN5boost4urls7grammar12hexdig_valueEc.exit4
 
@@ -113,7 +113,7 @@ define noundef i64 @_ZN5boost4urls6detail19decode_bytes_unsafeENS_4core17basic_s
   %8 = load i8, ptr %.115, align 1, !tbaa !3
   %.not = icmp eq i8 %8, 37
   %.2.v = select i1 %.not, i64 3, i64 1
-  %.2 = getelementptr inbounds i8, ptr %.115, i64 %.2.v
+  %.2 = getelementptr inbounds nuw i8, ptr %.115, i64 %.2.v
   %9 = add i64 %.11114, 1
   %10 = icmp ult ptr %.2, %6
   br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !6
@@ -199,7 +199,7 @@ define noundef i64 @_ZN5boost4urls6detail13decode_unsafeEPcPKcNS_4core17basic_st
 27:                                               ; preds = %18
   %28 = tail call noundef signext i8 @_ZN5boost4urls6detail10decode_oneEPKc(ptr noundef nonnull %19) #4
   store i8 %28, ptr %.037.i, align 1, !tbaa !3
-  %29 = getelementptr inbounds i8, ptr %.02836.i, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %.02836.i, i64 3
   br label %.backedge.i
 
 30:                                               ; preds = %14
@@ -251,7 +251,7 @@ define noundef i64 @_ZN5boost4urls6detail13decode_unsafeEPcPKcNS_4core17basic_st
 51:                                               ; preds = %43
   %52 = tail call noundef signext i8 @_ZN5boost4urls6detail10decode_oneEPKc(ptr noundef nonnull %42) #4
   store i8 %52, ptr %.035.i, align 1, !tbaa !3
-  %53 = getelementptr inbounds i8, ptr %.02834.i, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %.02834.i, i64 3
   br label %.backedge.i11
 
 .backedge.i11:                                    ; preds = %54, %51

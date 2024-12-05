@@ -25,10 +25,10 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_Z13pj_log_activeP6pj_ctxi(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   %or.cond = select i1 %8, i1 %5, i1 false
@@ -47,7 +47,7 @@ define hidden noundef zeroext i1 @_Z13pj_log_activeP6pj_ctxi(ptr nocapture nound
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z6pj_logP6pj_ctxiPKcz(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %1, %6
   br i1 %7, label %25, label %8
@@ -56,7 +56,7 @@ define hidden void @_Z6pj_logP6pj_ctxiPKcz(ptr nocapture noundef readonly %0, i3
   call void @llvm.va_start.p0(ptr nonnull %4)
   %9 = load i32, ptr %5, align 4
   %10 = icmp sgt i32 %9, -1
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp ne i32 %12, 0
   %or.cond.i.not26.i = select i1 %13, i1 true, i1 %10
@@ -72,11 +72,11 @@ define hidden void @_Z6pj_logP6pj_ctxiPKcz(ptr nocapture noundef readonly %0, i3
 
 18:                                               ; preds = %15
   %19 = call i32 @vsnprintf(ptr noundef nonnull %16, i64 noundef 100000, ptr noundef %2, ptr noundef nonnull %4) #12
-  %20 = getelementptr inbounds i8, ptr %16, i64 99999
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 99999
   store i8 0, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8
   call void %22(ptr noundef %24, i32 noundef %1, ptr noundef nonnull %16)
   call void @free(ptr noundef nonnull %16) #12
@@ -97,10 +97,10 @@ declare void @llvm.va_start.p0(ptr) #4
 define internal fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, -1
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp ne i32 %12, 0
   %or.cond.i.not26 = select i1 %13, i1 true, i1 %10
@@ -119,7 +119,7 @@ define internal fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %26
@@ -161,11 +161,11 @@ define internal fastcc void @_ZL7pj_vlogP6pj_ctxiPK8PJconstsPKcP13__va_list_tag(
   br label %44
 
 38:                                               ; preds = %31, %24
-  %39 = getelementptr inbounds i8, ptr %16, i64 99999
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 99999
   store i8 0, ptr %39, align 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = load ptr, ptr %42, align 8
   call void %41(ptr noundef %43, i32 noundef %1, ptr noundef nonnull %16)
   call void @free(ptr noundef nonnull %16) #12
@@ -194,7 +194,7 @@ define range(i32 0, -2147483648) i32 @proj_log_level(ptr noundef %0, i32 noundef
 
 .thread:                                          ; preds = %2, %4
   %.0812 = phi ptr [ %5, %4 ], [ %0, %2 ]
-  %7 = getelementptr inbounds i8, ptr %.0812, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %.0812, i64 36
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
   %10 = icmp eq i32 %1, 4
@@ -240,10 +240,10 @@ define hidden void @_Z14proj_log_debugP8PJconstsPKcz(ptr noundef %0, ptr noundef
 define hidden void @_Z22proj_context_log_debugP6pj_ctxPKcz(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, -1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp ne i32 %8, 0
   %or.cond.i.not26.i = select i1 %9, i1 true, i1 %6
@@ -259,11 +259,11 @@ define hidden void @_Z22proj_context_log_debugP6pj_ctxPKcz(ptr nocapture noundef
 
 14:                                               ; preds = %11
   %15 = call i32 @vsnprintf(ptr noundef nonnull %12, i64 noundef 100000, ptr noundef %1, ptr noundef nonnull %3) #12
-  %16 = getelementptr inbounds i8, ptr %12, i64 99999
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 99999
   store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   call void %18(ptr noundef %20, i32 noundef 2, ptr noundef nonnull %12)
   call void @free(ptr noundef nonnull %12) #12
@@ -295,13 +295,13 @@ define void @proj_log_func(ptr noundef writeonly %0, ptr noundef %1, ptr noundef
 
 7:                                                ; preds = %5, %3
   %.0 = phi ptr [ %6, %5 ], [ %0, %3 ]
-  %8 = getelementptr inbounds i8, ptr %.0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   store ptr %1, ptr %8, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %.0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   store ptr %2, ptr %10, align 8
   br label %11
 

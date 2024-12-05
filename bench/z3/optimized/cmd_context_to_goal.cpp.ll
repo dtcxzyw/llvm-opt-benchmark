@@ -78,7 +78,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %call2, label %land.lhs.true3, label %if.end12
 
 land.lhs.true3:                                   ; preds = %if.end
-  %m_assertions.i = getelementptr inbounds i8, ptr %ctx, i64 752
+  %m_assertions.i = getelementptr inbounds nuw i8, ptr %ctx, i64 752
   %1 = load ptr, ptr %m_assertions.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit, label %if.end.i
@@ -90,7 +90,7 @@ if.end.i:                                         ; preds = %land.lhs.true3
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %land.lhs.true3, %if.end.i
   %retval.0.i = phi i32 [ %2, %if.end.i ], [ 0, %land.lhs.true3 ]
-  %m_assertion_names.i = getelementptr inbounds i8, ptr %ctx, i64 784
+  %m_assertion_names.i = getelementptr inbounds nuw i8, ptr %ctx, i64 784
   %3 = load ptr, ptr %m_assertion_names.i, align 8
   %cmp.i25 = icmp eq ptr %3, null
   br i1 %cmp.i25, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit29, label %if.end.i26
@@ -121,12 +121,12 @@ lpad10:                                           ; preds = %if.then8
 
 if.end12:                                         ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit29, %if.end
   %6 = load ptr, ptr %t, align 8
-  %m_proofs_enabled.i = getelementptr inbounds i8, ptr %t, i64 120
+  %m_proofs_enabled.i = getelementptr inbounds nuw i8, ptr %t, i64 120
   %bf.load.i = load i32, ptr %m_proofs_enabled.i, align 8
   %7 = and i32 %bf.load.i, 134217728
   %tobool.i.not = icmp eq i32 %7, 0
   %call15 = tail call noundef zeroext i1 @_ZNK11cmd_context19produce_unsat_coresEv(ptr noundef nonnull align 8 dereferenceable(872) %ctx)
-  %m_assertions.i30 = getelementptr inbounds i8, ptr %ctx, i64 752
+  %m_assertions.i30 = getelementptr inbounds nuw i8, ptr %ctx, i64 752
   %8 = load ptr, ptr %m_assertions.i30, align 8
   %cmp.i.i = icmp eq ptr %8, null
   br i1 %call15, label %if.then16, label %if.else
@@ -138,12 +138,12 @@ _ZNK6vectorIP4exprLb0EjE3endEv.exit:              ; preds = %if.then16
   %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i, align 4
   %10 = zext i32 %9 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %10
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %8, i64 %10
   %cmp23.not43 = icmp eq i32 %9, 0
   br i1 %cmp23.not43, label %if.end42, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6vectorIP4exprLb0EjE3endEv.exit
-  %m_assertion_names.i32 = getelementptr inbounds i8, ptr %ctx, i64 784
+  %m_assertion_names.i32 = getelementptr inbounds nuw i8, ptr %ctx, i64 784
   %11 = load ptr, ptr %m_assertion_names.i32, align 8
   br i1 %tobool.i.not, label %for.body.us, label %for.body
 
@@ -154,8 +154,8 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %13 = load ptr, ptr %it2.044.us, align 8
   %call25.us = tail call noundef ptr @_ZN11ast_manager7mk_leafEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %6, ptr noundef %13)
   tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %t, ptr noundef %12, ptr noundef null, ptr noundef %call25.us)
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %it.045.us, i64 8
-  %incdec.ptr26.us = getelementptr inbounds i8, ptr %it2.044.us, i64 8
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %it.045.us, i64 8
+  %incdec.ptr26.us = getelementptr inbounds nuw i8, ptr %it2.044.us, i64 8
   %cmp23.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i
   br i1 %cmp23.not.us, label %if.end42, label %for.body.us, !llvm.loop !4
 
@@ -167,8 +167,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %15 = load ptr, ptr %it2.044, align 8
   %call25 = tail call noundef ptr @_ZN11ast_manager7mk_leafEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %6, ptr noundef %15)
   tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %t, ptr noundef %14, ptr noundef %call24, ptr noundef %call25)
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.045, i64 8
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %it2.044, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %it.045, i64 8
+  %incdec.ptr26 = getelementptr inbounds nuw i8, ptr %it2.044, i64 8
   %cmp23.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp23.not, label %if.end42, label %for.body, !llvm.loop !4
 
@@ -179,7 +179,7 @@ _ZNK6vectorIP4exprLb0EjE3endEv.exit39:            ; preds = %if.else
   %arrayidx.i.i36 = getelementptr inbounds i8, ptr %8, i64 -4
   %16 = load i32, ptr %arrayidx.i.i36, align 4
   %17 = zext i32 %16 to i64
-  %add.ptr.i38 = getelementptr inbounds ptr, ptr %8, i64 %17
+  %add.ptr.i38 = getelementptr inbounds nuw ptr, ptr %8, i64 %17
   %cmp31.not41 = icmp eq i32 %16, 0
   br i1 %cmp31.not41, label %if.end42, label %for.body32.lr.ph
 
@@ -190,7 +190,7 @@ for.body32.us:                                    ; preds = %for.body32.lr.ph, %
   %__begin2.042.us = phi ptr [ %incdec.ptr40.us, %for.body32.us ], [ %8, %for.body32.lr.ph ]
   %18 = load ptr, ptr %__begin2.042.us, align 8
   tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %t, ptr noundef %18, ptr noundef null, ptr noundef null)
-  %incdec.ptr40.us = getelementptr inbounds i8, ptr %__begin2.042.us, i64 8
+  %incdec.ptr40.us = getelementptr inbounds nuw i8, ptr %__begin2.042.us, i64 8
   %cmp31.not.us = icmp eq ptr %incdec.ptr40.us, %add.ptr.i38
   br i1 %cmp31.not.us, label %if.end42, label %for.body32.us
 
@@ -199,7 +199,7 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
   %19 = load ptr, ptr %__begin2.042, align 8
   %call35 = tail call noundef ptr @_ZN11ast_manager11mk_assertedEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %6, ptr noundef %19)
   tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %t, ptr noundef %19, ptr noundef %call35, ptr noundef null)
-  %incdec.ptr40 = getelementptr inbounds i8, ptr %__begin2.042, i64 8
+  %incdec.ptr40 = getelementptr inbounds nuw i8, ptr %__begin2.042, i64 8
   %cmp31.not = icmp eq ptr %incdec.ptr40, %add.ptr.i38
   br i1 %cmp31.not, label %if.end42, label %for.body32
 
@@ -257,14 +257,14 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
-  %m_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #12
   store ptr getelementptr inbounds (i8, ptr @_ZTV13cmd_exception, i64 16), ptr %this, align 8
-  %m_line = getelementptr inbounds i8, ptr %this, i64 40
+  %m_line = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 -1, ptr %m_line, align 8
-  %m_pos = getelementptr inbounds i8, ptr %this, i64 44
+  %m_pos = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 -1, ptr %m_pos, align 4
   ret void
 
@@ -287,7 +287,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define linkonce_odr hidden void @_ZN13cmd_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
-  %m_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i) #12
   ret void
 }
@@ -314,7 +314,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr hidden void @_ZN13cmd_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
-  %m_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void

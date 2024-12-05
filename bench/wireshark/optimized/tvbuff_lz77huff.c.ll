@@ -33,10 +33,10 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %16 = call noalias ptr @wmem_array_sized_new(ptr noundef %14, i64 noundef 1, i32 noundef %15) #10
   store volatile i32 0, ptr %10, align 4
   call void @except_setup_try(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @tvb_uncompress_lz77huff.catch_spec, i64 noundef 1) #10
-  %17 = getelementptr inbounds i8, ptr %12, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %18 = call i32 @_setjmp(ptr noundef nonnull %17) #11
   %.not = icmp eq i32 %18, 0
-  %19 = getelementptr inbounds i8, ptr %12, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sink = select i1 %.not, ptr null, ptr %19
   store volatile ptr %.sink, ptr %9, align 8
   %.0..0..0..0.5 = load volatile i32, ptr %10, align 4
@@ -76,16 +76,16 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %32
 
 32:                                               ; preds = %32, %30
   %indvars.iv.i.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i.i, %32 ]
   %33 = getelementptr [1024 x %struct.prefix_code_node], ptr %31, i64 0, i64 %indvars.iv.i.i
   store i16 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store i8 0, ptr %34, align 2
-  %35 = getelementptr inbounds i8, ptr %33, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i16 -1, ptr %35, align 4
   %36 = getelementptr i8, ptr %33, i64 6
   store i16 -1, ptr %36, align 2
@@ -108,7 +108,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %44 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %43) #10
   %45 = and i8 %44, 15
   %46 = zext nneg i8 %45 to i16
-  %47 = getelementptr inbounds i8, ptr %41, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 2
   store i16 %46, ptr %47, align 2
   %48 = or disjoint i64 %39, 1
   %49 = trunc i64 %48 to i16
@@ -117,7 +117,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %51 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %43) #10
   %52 = lshr i8 %51, 4
   %53 = zext nneg i8 %52 to i16
-  %54 = getelementptr inbounds i8, ptr %50, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 2
   store i16 %53, ptr %54, align 2
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %exitcond77.not.i.i = icmp eq i64 %indvars.iv.next75.i.i, 256
@@ -141,19 +141,19 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
 
 .critedge.thread.i.i:                             ; preds = %60
   store ptr %31, ptr %5, align 8
-  %61 = getelementptr inbounds i8, ptr %5, i64 10
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i8 0, ptr %61, align 2
   br label %.loopexit79.i
 
 .critedge.i.i:                                    ; preds = %56
   store ptr %31, ptr %5, align 8
-  %62 = getelementptr inbounds i8, ptr %5, i64 10
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i8 0, ptr %62, align 2
   %63 = icmp samesign ult i64 %indvars.iv78.i.i, 512
   br i1 %63, label %.lr.ph.i.i, label %.loopexit79.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge.i.i
-  %64 = getelementptr inbounds i8, ptr %5, i64 8200
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 8200
   br label %65
 
 65:                                               ; preds = %102, %.lr.ph.i.i
@@ -174,7 +174,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %.offs.i.i = or disjoint i64 %.idx.i.i, 2
   %71 = getelementptr i8, ptr %31, i64 %.offs.i.i
   store i8 1, ptr %71, align 2
-  %72 = getelementptr inbounds i8, ptr %67, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 2
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = sub nsw i32 %74, %.04667.i.i
@@ -193,7 +193,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %81 = add nsw i32 %.028.i.i.i, -1
   %82 = lshr i32 %76, %81
   %83 = and i32 %82, 1
-  %84 = getelementptr inbounds i8, ptr %.027.i.i.i, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.027.i.i.i, i64 4
   %85 = zext nneg i32 %83 to i64
   %86 = getelementptr [2 x i16], ptr %84, i64 0, i64 %85
   %87 = load i16, ptr %86, align 2
@@ -228,7 +228,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
 
 102:                                              ; preds = %78
   %103 = trunc nuw i32 %.05364.i.i to i16
-  %104 = getelementptr inbounds i8, ptr %.027.i.i.i, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %.027.i.i.i, i64 4
   %105 = and i32 %76, 1
   %106 = zext nneg i32 %105 to i64
   %107 = getelementptr [2 x i16], ptr %104, i64 0, i64 %106
@@ -252,7 +252,7 @@ PrefixCodeTreeRebuild.exit.thread.i:              ; preds = %65, %97, %89, %37
   %114 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %113) #10
   %115 = zext i16 %114 to i32
   %116 = or disjoint i32 %112, %115
-  %117 = getelementptr inbounds i8, ptr %5, i64 8200
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 8200
   %invariant.op = add i32 %1, 1
   br label %.loopexit.i
 
@@ -292,7 +292,7 @@ bitstring_skip.exit.i.i:                          ; preds = %124, %bitstring_loo
   %.sroa.7.4.i = phi i32 [ %131, %124 ], [ %.sroa.7.3.i, %bitstring_lookup.exit.i.i ]
   %.sroa.20.2.i = phi i32 [ %130, %124 ], [ %121, %bitstring_lookup.exit.i.i ]
   %.sroa.32.2.i = phi i32 [ %132, %124 ], [ %122, %bitstring_lookup.exit.i.i ]
-  %133 = getelementptr inbounds i8, ptr %.0.i33.i, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %.0.i33.i, i64 4
   %134 = getelementptr [2 x i16], ptr %133, i64 0, i64 %.0.i.i.i
   %135 = load i16, ptr %134, align 2
   %136 = sext i16 %135 to i64
@@ -303,7 +303,7 @@ bitstring_skip.exit.i.i:                          ; preds = %124, %bitstring_loo
   br i1 %narrow.i.not.i.i, label %do_uncompress.exit, label %139
 
 139:                                              ; preds = %bitstring_skip.exit.i.i
-  %140 = getelementptr inbounds i8, ptr %137, i64 2
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 2
   %141 = load i8, ptr %140, align 2
   %142 = icmp eq i8 %141, 0
   br i1 %142, label %bitstring_lookup.exit.i.i, label %143, !llvm.loop !10
@@ -470,7 +470,7 @@ do_uncompress.exit:                               ; preds = %167, %176, %bitstri
   unreachable
 
 212:                                              ; preds = %210, %208
-  %213 = getelementptr inbounds i8, ptr %12, i64 40
+  %213 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %214 = load volatile ptr, ptr %213, align 8
   call void @except_free(ptr noundef %214) #10
   %215 = call ptr @except_pop() #10
@@ -560,9 +560,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @compare_symbols(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %6 = load i16, ptr %5, align 2
   %7 = icmp ult i16 %4, %6
   br i1 %7, label %16, label %8

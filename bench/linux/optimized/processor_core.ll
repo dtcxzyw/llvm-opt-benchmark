@@ -55,7 +55,7 @@ define internal fastcc i32 @map_madt_entry(ptr noundef %0, i32 noundef %1, i32 n
 
 5:                                                ; preds = %3
   %6 = ptrtoint ptr %0 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 1
   %9 = zext i32 %8 to i64
   %10 = add i64 %9, %6
@@ -82,27 +82,27 @@ define internal fastcc i32 @map_madt_entry(ptr noundef %0, i32 noundef %1, i32 n
   ]
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %16, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %20 = load i32, ptr %19, align 1
   %21 = and i32 %20, 1
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %16, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = icmp eq i32 %2, %26
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %16, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 3
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   br label %.thread12
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds i8, ptr %16, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %34 = load i32, ptr %33, align 1
   %35 = and i32 %34, 1
   %36 = icmp eq i32 %35, 0
@@ -110,18 +110,18 @@ define internal fastcc i32 @map_madt_entry(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %37, label %.thread, label %38
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %16, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %40 = load i32, ptr %39, align 1
   %41 = icmp eq i32 %40, %2
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %16, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %44 = load i32, ptr %43, align 1
   br label %.thread12
 
 45:                                               ; preds = %.lr.ph
-  %46 = getelementptr inbounds i8, ptr %16, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %47 = load i32, ptr %46, align 1
   %48 = and i32 %47, 1
   %49 = icmp eq i32 %48, 0
@@ -131,37 +131,37 @@ define internal fastcc i32 @map_madt_entry(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %11, label %59, label %51
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %16, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %53 = load i8, ptr %52, align 1
   %54 = icmp ult i8 %53, 16
   br i1 %54, label %.thread, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %16, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %57 = load i32, ptr %56, align 1
   %58 = icmp eq i32 %57, %2
   br i1 %58, label %64, label %.thread
 
 59:                                               ; preds = %50
-  %60 = getelementptr inbounds i8, ptr %16, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = icmp eq i32 %2, %62
   br i1 %63, label %64, label %.thread
 
 64:                                               ; preds = %55, %59
-  %65 = getelementptr inbounds i8, ptr %16, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 3
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = shl nuw nsw i32 %67, 8
-  %69 = getelementptr inbounds i8, ptr %16, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %68, %71
   br label %.thread12
 
 73:                                               ; preds = %.lr.ph
-  %74 = getelementptr inbounds i8, ptr %16, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %75 = load i32, ptr %74, align 1
   %76 = and i32 %75, 1
   %77 = icmp eq i32 %76, 0
@@ -169,19 +169,19 @@ define internal fastcc i32 @map_madt_entry(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %78, label %.thread, label %79
 
 79:                                               ; preds = %73
-  %80 = getelementptr inbounds i8, ptr %16, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %81 = load i32, ptr %80, align 1
   %82 = icmp eq i32 %81, %2
   br i1 %82, label %83, label %.thread
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %16, i64 68
+  %84 = getelementptr inbounds nuw i8, ptr %16, i64 68
   %85 = load i64, ptr %84, align 1
   %86 = trunc i64 %85 to i32
   br label %.thread12
 
 87:                                               ; preds = %.lr.ph
-  %88 = getelementptr inbounds i8, ptr %16, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %89 = load i32, ptr %88, align 1
   %90 = and i32 %89, 1
   %91 = icmp eq i32 %90, 0
@@ -189,19 +189,19 @@ define internal fastcc i32 @map_madt_entry(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %92, label %.thread, label %93
 
 93:                                               ; preds = %87
-  %94 = getelementptr inbounds i8, ptr %16, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %95 = load i32, ptr %94, align 1
   %96 = icmp eq i32 %95, %2
   br i1 %96, label %97, label %.thread
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %16, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %99 = load i64, ptr %98, align 1
   %100 = trunc i64 %99 to i32
   br label %.thread12
 
 101:                                              ; preds = %.lr.ph
-  %102 = getelementptr inbounds i8, ptr %16, i64 11
+  %102 = getelementptr inbounds nuw i8, ptr %16, i64 11
   %103 = load i32, ptr %102, align 1
   %104 = and i32 %103, 1
   %105 = icmp eq i32 %104, 0
@@ -209,18 +209,18 @@ define internal fastcc i32 @map_madt_entry(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %106, label %.thread, label %107
 
 107:                                              ; preds = %101
-  %108 = getelementptr inbounds i8, ptr %16, i64 3
+  %108 = getelementptr inbounds nuw i8, ptr %16, i64 3
   %109 = load i32, ptr %108, align 1
   %110 = icmp eq i32 %109, %2
   br i1 %110, label %111, label %.thread
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %16, i64 7
+  %112 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %113 = load i32, ptr %112, align 1
   br label %.thread12
 
 .thread:                                          ; preds = %107, %101, %93, %87, %79, %73, %55, %51, %59, %45, %38, %32, %23, %18, %.lr.ph
-  %114 = getelementptr inbounds i8, ptr %16, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i64
   %117 = add i64 %15, %116
@@ -245,7 +245,7 @@ define dso_local i32 @acpi_get_phys_id(ptr noundef %0, i32 noundef %1, i32 nound
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   store i64 -1, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   store i32 -1, ptr %5, align 4
@@ -267,13 +267,13 @@ define dso_local i32 @acpi_get_phys_id(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %16, label %17, label %thread-pre-split
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.pre.pre, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp ult i32 %19, 2
   br i1 %20, label %thread-pre-split, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %.pre.pre, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i8, ptr %23, align 1
   switch i8 %24, label %thread-pre-split [
@@ -285,21 +285,21 @@ define dso_local i32 @acpi_get_phys_id(ptr noundef %0, i32 noundef %1, i32 nound
   ]
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = load i32, ptr %26, align 1
   %28 = and i32 %27, 1
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %thread-pre-split, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %23, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = icmp eq i32 %2, %33
   br i1 %34, label %.thread, label %thread-pre-split
 
 .thread:                                          ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %23, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 3
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   call void @kfree(ptr noundef nonnull %.pre.pre) #7
@@ -312,7 +312,7 @@ define dso_local i32 @acpi_get_phys_id(ptr noundef %0, i32 noundef %1, i32 nound
   br label %thread-pre-split
 
 39:                                               ; preds = %21
-  %40 = getelementptr inbounds i8, ptr %23, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %41 = load i32, ptr %40, align 1
   %42 = and i32 %41, 1
   %43 = icmp eq i32 %42, 0
@@ -321,18 +321,18 @@ define dso_local i32 @acpi_get_phys_id(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %45, label %thread-pre-split, label %46
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %23, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %48 = load i32, ptr %47, align 1
   %49 = icmp eq i32 %48, %2
   br i1 %49, label %50, label %thread-pre-split
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %23, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %52 = load i32, ptr %51, align 1
   br label %82
 
 53:                                               ; preds = %21
-  %54 = getelementptr inbounds i8, ptr %23, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %55 = load i32, ptr %54, align 1
   %56 = and i32 %55, 1
   %57 = icmp eq i32 %56, 0
@@ -341,19 +341,19 @@ define dso_local i32 @acpi_get_phys_id(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %59, label %thread-pre-split, label %60
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds i8, ptr %23, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %62 = load i32, ptr %61, align 1
   %63 = icmp eq i32 %62, %2
   br i1 %63, label %64, label %thread-pre-split
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %23, i64 68
+  %65 = getelementptr inbounds nuw i8, ptr %23, i64 68
   %66 = load i64, ptr %65, align 1
   %67 = trunc i64 %66 to i32
   br label %82
 
 68:                                               ; preds = %21
-  %69 = getelementptr inbounds i8, ptr %23, i64 11
+  %69 = getelementptr inbounds nuw i8, ptr %23, i64 11
   %70 = load i32, ptr %69, align 1
   %71 = and i32 %70, 1
   %72 = icmp eq i32 %71, 0
@@ -362,13 +362,13 @@ define dso_local i32 @acpi_get_phys_id(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %74, label %thread-pre-split, label %75
 
 75:                                               ; preds = %68
-  %76 = getelementptr inbounds i8, ptr %23, i64 3
+  %76 = getelementptr inbounds nuw i8, ptr %23, i64 3
   %77 = load i32, ptr %76, align 1
   %78 = icmp eq i32 %77, %2
   br i1 %78, label %79, label %thread-pre-split
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %23, i64 7
+  %80 = getelementptr inbounds nuw i8, ptr %23, i64 7
   %81 = load i32, ptr %80, align 1
   br label %82
 
@@ -522,7 +522,7 @@ define dso_local range(i32 -1, 256) i32 @acpi_get_ioapic_id(ptr noundef %0, i32 
   %4 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   store i64 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
   %6 = call i32 @acpi_evaluate_object(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull %4) #7
   %7 = icmp eq i32 %6, 0
@@ -542,20 +542,20 @@ define dso_local range(i32 -1, 256) i32 @acpi_get_ioapic_id(ptr noundef %0, i32 
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.pre, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp ult i32 %18, 2
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 1
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %27 = load i32, ptr %26, align 1
   %28 = icmp eq i32 %27, %1
   br i1 %28, label %31, label %.thread
@@ -568,11 +568,11 @@ define dso_local range(i32 -1, 256) i32 @acpi_get_ioapic_id(ptr noundef %0, i32 
   br i1 %30, label %38, label %45
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %22, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %33 = load i32, ptr %32, align 1
   %34 = zext i32 %33 to i64
   store i64 %34, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %22, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   call void @kfree(ptr noundef nonnull %.pre) #7
@@ -601,7 +601,7 @@ define dso_local range(i32 -1, 256) i32 @acpi_get_ioapic_id(ptr noundef %0, i32 
 
 48:                                               ; preds = %45
   %49 = ptrtoint ptr %46 to i64
-  %50 = getelementptr inbounds i8, ptr %46, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %51 = load i32, ptr %50, align 1
   %52 = zext i32 %51 to i64
   %53 = add i64 %52, %49
@@ -621,23 +621,23 @@ define dso_local range(i32 -1, 256) i32 @acpi_get_ioapic_id(ptr noundef %0, i32 
   br i1 %62, label %63, label %73
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %60, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %65 = load i32, ptr %64, align 1
   %66 = icmp eq i32 %65, %1
   br i1 %66, label %.thread4, label %73
 
 .thread4:                                         ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %60, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %68 = load i32, ptr %67, align 1
   %69 = zext i32 %68 to i64
   store i64 %69, ptr %2, align 8
-  %70 = getelementptr inbounds i8, ptr %60, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 2
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
   br label %.loopexit
 
 73:                                               ; preds = %63, %58
-  %74 = getelementptr inbounds i8, ptr %60, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i64
   %77 = add i64 %59, %76
@@ -652,7 +652,7 @@ define dso_local range(i32 -1, 256) i32 @acpi_get_ioapic_id(ptr noundef %0, i32 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal fastcc void @map_lsapic_id(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #6 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 1
   %7 = and i32 %6, 1
   %8 = icmp eq i32 %7, 0
@@ -663,30 +663,30 @@ define internal fastcc void @map_lsapic_id(ptr nocapture noundef readonly %0, i3
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp ult i8 %13, 16
   br i1 %14, label %33, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 1
   %18 = icmp eq i32 %17, %2
   br i1 %18, label %24, label %33
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds i8, ptr %0, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = icmp eq i32 %2, %22
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %19, %15
-  %25 = getelementptr inbounds i8, ptr %0, i64 3
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = shl nuw nsw i32 %27, 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = or disjoint i32 %28, %31

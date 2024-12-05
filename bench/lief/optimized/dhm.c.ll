@@ -53,23 +53,23 @@ define hidden i32 @mbedtls_dhm_get_value(ptr noundef %0, i32 noundef %1, ptr nou
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %14
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %14
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %14
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %14
 
 14:                                               ; preds = %3, %12, %10, %8, %6, %4
@@ -98,11 +98,11 @@ define hidden i32 @mbedtls_dhm_read_params(ptr noundef %0, ptr nocapture noundef
   %11 = load i8, ptr %5, align 1
   %12 = zext i8 %11 to i32
   %13 = shl nuw nsw i32 %12, 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = or disjoint i32 %13, %16
-  %18 = getelementptr inbounds i8, ptr %5, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store ptr %18, ptr %1, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %6, %19
@@ -118,7 +118,7 @@ define hidden i32 @mbedtls_dhm_read_params(ptr noundef %0, ptr nocapture noundef
 
 dhm_read_bignum.exit.thread31:                    ; preds = %23
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
   store ptr %27, ptr %1, align 8
   br label %29
 
@@ -133,7 +133,7 @@ dhm_read_bignum.exit._crit_edge:                  ; preds = %dhm_read_bignum.exi
 
 29:                                               ; preds = %dhm_read_bignum.exit._crit_edge, %dhm_read_bignum.exit.thread31
   %30 = phi ptr [ %.pre, %dhm_read_bignum.exit._crit_edge ], [ %27, %dhm_read_bignum.exit.thread31 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %6, %32
   %34 = icmp slt i64 %33, 2
@@ -143,11 +143,11 @@ dhm_read_bignum.exit._crit_edge:                  ; preds = %dhm_read_bignum.exi
   %36 = load i8, ptr %30, align 1
   %37 = zext i8 %36 to i32
   %38 = shl nuw nsw i32 %37, 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = or disjoint i32 %38, %41
-  %43 = getelementptr inbounds i8, ptr %30, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 2
   store ptr %43, ptr %1, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %6, %44
@@ -163,7 +163,7 @@ dhm_read_bignum.exit._crit_edge:                  ; preds = %dhm_read_bignum.exi
 
 dhm_read_bignum.exit23.thread36:                  ; preds = %48
   %51 = load ptr, ptr %1, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 %49
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %49
   store ptr %52, ptr %1, align 8
   br label %54
 
@@ -178,7 +178,7 @@ dhm_read_bignum.exit23._crit_edge:                ; preds = %dhm_read_bignum.exi
 
 54:                                               ; preds = %dhm_read_bignum.exit23._crit_edge, %dhm_read_bignum.exit23.thread36
   %55 = phi ptr [ %.pre44, %dhm_read_bignum.exit23._crit_edge ], [ %52, %dhm_read_bignum.exit23.thread36 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %6, %57
   %59 = icmp slt i64 %58, 2
@@ -188,11 +188,11 @@ dhm_read_bignum.exit23._crit_edge:                ; preds = %dhm_read_bignum.exi
   %61 = load i8, ptr %55, align 1
   %62 = zext i8 %61 to i32
   %63 = shl nuw nsw i32 %62, 8
-  %64 = getelementptr inbounds i8, ptr %55, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = or disjoint i32 %63, %66
-  %68 = getelementptr inbounds i8, ptr %55, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 2
   store ptr %68, ptr %1, align 8
   %69 = ptrtoint ptr %68 to i64
   %70 = sub i64 %6, %69
@@ -208,7 +208,7 @@ dhm_read_bignum.exit23._crit_edge:                ; preds = %dhm_read_bignum.exi
 
 dhm_read_bignum.exit26.thread41:                  ; preds = %73
   %76 = load ptr, ptr %1, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 %74
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %74
   store ptr %77, ptr %1, align 8
   br label %79
 
@@ -256,11 +256,11 @@ define hidden range(i32 -2147483648, 2147470976) i32 @mbedtls_dhm_make_params(pt
 
 8:                                                ; preds = %6
   %9 = tail call i64 @mbedtls_mpi_size(ptr noundef %0) #10
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = tail call i64 @mbedtls_mpi_size(ptr noundef nonnull %10) #10
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = tail call i64 @mbedtls_mpi_size(ptr noundef nonnull %12) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %15 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef %0, ptr noundef nonnull %14, i64 noundef %9) #10
   %.not48 = icmp eq i32 %15, 0
   br i1 %.not48, label %16, label %40
@@ -268,12 +268,12 @@ define hidden range(i32 -2147483648, 2147470976) i32 @mbedtls_dhm_make_params(pt
 16:                                               ; preds = %8
   %17 = lshr i64 %9, 8
   %18 = trunc i64 %17 to i8
-  %19 = getelementptr inbounds i8, ptr %2, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %18, ptr %2, align 1
   %20 = trunc i64 %9 to i8
   store i8 %20, ptr %19, align 1
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = getelementptr inbounds i8, ptr %21, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %23 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %10, ptr noundef nonnull %22, i64 noundef %11) #10
   %.not49 = icmp eq i32 %23, 0
   br i1 %.not49, label %24, label %40
@@ -281,12 +281,12 @@ define hidden range(i32 -2147483648, 2147470976) i32 @mbedtls_dhm_make_params(pt
 24:                                               ; preds = %16
   %25 = lshr i64 %11, 8
   %26 = trunc i64 %25 to i8
-  %27 = getelementptr inbounds i8, ptr %21, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store i8 %26, ptr %21, align 1
   %28 = trunc i64 %11 to i8
   store i8 %28, ptr %27, align 1
   %29 = getelementptr inbounds i8, ptr %22, i64 %11
-  %30 = getelementptr inbounds i8, ptr %29, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %31 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %12, ptr noundef nonnull %30, i64 noundef %13) #10
   %.not50 = icmp eq i32 %31, 0
   br i1 %.not50, label %.thread, label %40
@@ -294,7 +294,7 @@ define hidden range(i32 -2147483648, 2147470976) i32 @mbedtls_dhm_make_params(pt
 .thread:                                          ; preds = %24
   %32 = lshr i64 %13, 8
   %33 = trunc i64 %32 to i8
-  %34 = getelementptr inbounds i8, ptr %29, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store i8 %33, ptr %29, align 1
   %35 = trunc i64 %13 to i8
   store i8 %35, ptr %34, align 1
@@ -330,7 +330,7 @@ define internal fastcc i32 @dhm_make_common(ptr noundef %0, i32 noundef %1, ptr 
   %10 = zext nneg i32 %1 to i64
   %11 = tail call i64 @mbedtls_mpi_size(ptr noundef %0) #10
   %12 = icmp ugt i64 %11, %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %12, label %14, label %16
 
 14:                                               ; preds = %9
@@ -358,10 +358,10 @@ dhm_random_below.exit:                            ; preds = %16, %18
   br label %36
 
 21:                                               ; preds = %dhm_random_below.exit, %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
-  %25 = getelementptr inbounds i8, ptr %0, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %26 = tail call i32 @mbedtls_mpi_exp_mod(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef %0, ptr noundef nonnull %25) #10
   %.not31 = icmp eq i32 %26, 0
   br i1 %.not31, label %27, label %36
@@ -406,7 +406,7 @@ define hidden range(i32 -2147483648, 2147469952) i32 @mbedtls_dhm_set_group(ptr 
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = tail call i32 @mbedtls_mpi_copy(ptr noundef nonnull %6, ptr noundef %2) #10
   %.not8 = icmp eq i32 %7, 0
   br i1 %.not8, label %10, label %8
@@ -432,7 +432,7 @@ define hidden range(i32 -2147483648, 2147470848) i32 @mbedtls_dhm_read_public(pt
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = tail call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %9, ptr noundef %1, i64 noundef %2) #10
   %.not = icmp eq i32 %10, 0
   %11 = add nsw i32 %10, -12800
@@ -464,7 +464,7 @@ define hidden range(i32 -2147483648, 2147470720) i32 @mbedtls_dhm_make_public(pt
   ]
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %14, ptr noundef %2, i64 noundef %3) #10
   br label %16
 
@@ -496,7 +496,7 @@ define hidden i32 @mbedtls_dhm_calc_secret(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %13, label %85, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @mbedtls_mpi_init(ptr noundef nonnull %8) #10
   %16 = call i32 @mbedtls_mpi_sub_int(ptr noundef nonnull %8, ptr noundef %0, i64 noundef 2) #10
@@ -525,8 +525,8 @@ dhm_check_range.exit.thread:                      ; preds = %14, %20, %17
   call void @mbedtls_mpi_init(ptr noundef nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @mbedtls_mpi_init(ptr noundef nonnull %7) #10
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
-  %25 = getelementptr inbounds i8, ptr %0, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %26 = call i32 @mbedtls_mpi_cmp_mpi(ptr noundef nonnull %24, ptr noundef nonnull %25) #10
   %.not.i45 = icmp eq i32 %26, 0
   br i1 %.not.i45, label %35, label %27
@@ -537,19 +537,19 @@ dhm_check_range.exit.thread:                      ; preds = %14, %20, %17
   br i1 %.not72.i, label %29, label %dhm_update_blinding.exit.thread52
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %31 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %30, i64 noundef 1) #10
   %.not73.i = icmp eq i32 %31, 0
   br i1 %.not73.i, label %32, label %dhm_update_blinding.exit.thread52
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %34 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %33, i64 noundef 1) #10
   %.not74.i = icmp eq i32 %34, 0
   br i1 %.not74.i, label %dhm_update_blinding.exit.thread, label %dhm_update_blinding.exit.thread52
 
 35:                                               ; preds = %23
-  %36 = getelementptr inbounds i8, ptr %0, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %37 = call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %36, i64 noundef 1) #10
   %.not60.i = icmp eq i32 %37, 0
   br i1 %.not60.i, label %47, label %38
@@ -565,7 +565,7 @@ dhm_check_range.exit.thread:                      ; preds = %14, %20, %17
   br i1 %.not69.i, label %42, label %dhm_update_blinding.exit.thread52
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 192
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %44 = call i32 @mbedtls_mpi_mul_mpi(ptr noundef nonnull %43, ptr noundef nonnull %43, ptr noundef nonnull %43) #10
   %.not70.i = icmp eq i32 %44, 0
   br i1 %.not70.i, label %45, label %dhm_update_blinding.exit.thread52
@@ -596,7 +596,7 @@ dhm_random_below.exit77.i:                        ; preds = %50
   br i1 %.not62.i, label %53, label %dhm_update_blinding.exit.thread52
 
 53:                                               ; preds = %dhm_random_below.exit77.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 192
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %55 = call i32 @mbedtls_mpi_mul_mpi(ptr noundef nonnull %54, ptr noundef nonnull %36, ptr noundef nonnull %7) #10
   %.not63.i = icmp eq i32 %55, 0
   br i1 %.not63.i, label %56, label %dhm_update_blinding.exit.thread52
@@ -632,7 +632,7 @@ dhm_update_blinding.exit.thread52:                ; preds = %27, %29, %32, %38, 
   br label %.thread
 
 dhm_update_blinding.exit:                         ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %0, i64 144
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %65 = call i32 @mbedtls_mpi_exp_mod(ptr noundef nonnull %54, ptr noundef nonnull %54, ptr noundef nonnull %24, ptr noundef %0, ptr noundef nonnull %64) #10
   call void @mbedtls_mpi_free(ptr noundef nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -640,7 +640,7 @@ dhm_update_blinding.exit:                         ; preds = %62
   br i1 %.not38, label %66, label %.thread
 
 66:                                               ; preds = %dhm_update_blinding.exit.thread, %dhm_update_blinding.exit
-  %67 = getelementptr inbounds i8, ptr %0, i64 168
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %68 = call i32 @mbedtls_mpi_mul_mpi(ptr noundef nonnull %9, ptr noundef nonnull %15, ptr noundef nonnull %67) #10
   %.not39 = icmp eq i32 %68, 0
   br i1 %.not39, label %69, label %.thread
@@ -651,14 +651,14 @@ dhm_update_blinding.exit:                         ; preds = %62
   br i1 %.not40, label %71, label %.thread
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %0, i64 120
-  %73 = getelementptr inbounds i8, ptr %0, i64 144
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %74 = call i32 @mbedtls_mpi_exp_mod(ptr noundef nonnull %72, ptr noundef nonnull %9, ptr noundef nonnull %24, ptr noundef %0, ptr noundef nonnull %73) #10
   %.not41 = icmp eq i32 %74, 0
   br i1 %.not41, label %75, label %.thread
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %0, i64 192
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %77 = call i32 @mbedtls_mpi_mul_mpi(ptr noundef nonnull %72, ptr noundef nonnull %72, ptr noundef nonnull %76) #10
   %.not42 = icmp eq i32 %77, 0
   br i1 %.not42, label %78, label %.thread
@@ -707,23 +707,23 @@ define hidden void @mbedtls_dhm_free(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %2, label %13, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %4) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %5) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %6) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %7) #10
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %8) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %9) #10
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %10) #10
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %11) #10
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %12) #10
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %0) #10
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 240) #10
@@ -766,7 +766,7 @@ define hidden i32 @mbedtls_dhm_parse_dhm(ptr noundef %0, ptr noundef %1, i64 nou
   br label %.thread40
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %4, align 8
   %19 = load ptr, ptr %7, align 8
@@ -790,7 +790,7 @@ define hidden i32 @mbedtls_dhm_parse_dhm(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %.not28, label %29, label %38
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = call i32 @mbedtls_asn1_get_mpi(ptr noundef nonnull %6, ptr noundef %27, ptr noundef nonnull %30) #10
   %.not29 = icmp eq i32 %31, 0
   br i1 %.not29, label %32, label %38
@@ -934,23 +934,23 @@ define hidden range(i32 0, 2) i32 @mbedtls_dhm_self_test(i32 noundef %0) local_u
 
 9:                                                ; preds = %3, %7, %8
   %.0 = phi i32 [ 0, %8 ], [ 1, %7 ], [ %spec.select, %3 ]
-  %10 = getelementptr inbounds i8, ptr %2, i64 216
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 216
   call void @mbedtls_mpi_free(ptr noundef nonnull %10) #10
-  %11 = getelementptr inbounds i8, ptr %2, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 192
   call void @mbedtls_mpi_free(ptr noundef nonnull %11) #10
-  %12 = getelementptr inbounds i8, ptr %2, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 168
   call void @mbedtls_mpi_free(ptr noundef nonnull %12) #10
-  %13 = getelementptr inbounds i8, ptr %2, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 144
   call void @mbedtls_mpi_free(ptr noundef nonnull %13) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 120
   call void @mbedtls_mpi_free(ptr noundef nonnull %14) #10
-  %15 = getelementptr inbounds i8, ptr %2, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 96
   call void @mbedtls_mpi_free(ptr noundef nonnull %15) #10
-  %16 = getelementptr inbounds i8, ptr %2, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 72
   call void @mbedtls_mpi_free(ptr noundef nonnull %16) #10
-  %17 = getelementptr inbounds i8, ptr %2, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @mbedtls_mpi_free(ptr noundef nonnull %17) #10
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @mbedtls_mpi_free(ptr noundef nonnull %18) #10
   call void @mbedtls_mpi_free(ptr noundef nonnull %2) #10
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 240) #10

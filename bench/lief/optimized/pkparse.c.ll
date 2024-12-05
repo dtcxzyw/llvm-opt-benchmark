@@ -191,11 +191,11 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store ptr %25, ptr %11, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %27, ptr %28, align 8
   %29 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %11) #10
   %cond.i = icmp eq i32 %29, 1
@@ -203,7 +203,7 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
   %.0.i = select i1 %cond.i, ptr %30, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %31 = load ptr, ptr %13, align 8
-  %32 = getelementptr inbounds i8, ptr %13, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = call fastcc i32 @pk_parse_key_pkcs1_der(ptr noundef %.0.i, ptr noundef %31, i64 noundef %33)
   %.not123 = icmp eq i32 %34, 0
@@ -247,11 +247,11 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store ptr %46, ptr %10, align 8
-  %49 = getelementptr inbounds i8, ptr %10, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %48, ptr %49, align 8
   %50 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %10) #10
   %.off.i = add i32 %50, -2
@@ -260,7 +260,7 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
   %.0.i124 = select i1 %switch.i, ptr %51, ptr null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %52 = load ptr, ptr %13, align 8
-  %53 = getelementptr inbounds i8, ptr %13, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %54 = load i64, ptr %53, align 8
   %55 = call fastcc i32 @pk_parse_key_sec1_der(ptr noundef %.0.i124, ptr noundef %52, i64 noundef %54, ptr noundef %5, ptr noundef %6)
   %.not121 = icmp eq i32 %55, 0
@@ -296,7 +296,7 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %13, align 8
-  %64 = getelementptr inbounds i8, ptr %13, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %65 = load i64, ptr %64, align 8
   %66 = call fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, ptr noundef %63, i64 noundef %65, ptr noundef %5, ptr noundef %6)
   %.not119 = icmp eq i32 %66, 0
@@ -324,7 +324,7 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr %13, align 8
-  %74 = getelementptr inbounds i8, ptr %13, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %75 = load i64, ptr %74, align 8
   %76 = call fastcc i32 @pk_parse_key_pkcs8_encrypted_der(ptr noundef %0, ptr noundef %73, i64 noundef %75, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6)
   %.not118 = icmp eq i32 %76, 0
@@ -377,11 +377,11 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %96 = load ptr, ptr %95, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store ptr %94, ptr %9, align 8
-  %97 = getelementptr inbounds i8, ptr %9, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %96, ptr %97, align 8
   %98 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %9) #10
   %cond.i125 = icmp eq i32 %98, 1
@@ -402,11 +402,11 @@ define hidden i32 @mbedtls_pk_parse_key(ptr noundef %0, ptr noundef %1, i64 noun
 
 106:                                              ; preds = %102
   %107 = load ptr, ptr %0, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %109 = load ptr, ptr %108, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %107, ptr %8, align 8
-  %110 = getelementptr inbounds i8, ptr %8, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %109, ptr %110, align 8
   %111 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %8) #10
   %.off.i127 = add i32 %111, -2
@@ -498,15 +498,15 @@ define hidden i32 @mbedtls_pk_parse_public_key(ptr noundef %0, ptr noundef %1, i
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 %27
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %29, ptr %5, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %31, ptr %32, align 8
   %33 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %5) #10
   %cond.i = icmp eq i32 %33, 1
@@ -544,7 +544,7 @@ define hidden i32 @mbedtls_pk_parse_public_key(ptr noundef %0, ptr noundef %1, i
 42:                                               ; preds = %40
   %43 = load ptr, ptr %8, align 8
   store ptr %43, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %8, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %43, i64 %45
   %47 = call i32 @mbedtls_pk_parse_subpubkey(ptr noundef nonnull %6, ptr noundef %46, ptr noundef %0)
@@ -569,11 +569,11 @@ define hidden i32 @mbedtls_pk_parse_public_key(ptr noundef %0, ptr noundef %1, i
 53:                                               ; preds = %51
   store ptr %1, ptr %6, align 8
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %54, ptr %4, align 8
-  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %56, ptr %57, align 8
   %58 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %4) #10
   %cond.i51 = icmp eq i32 %58, 1
@@ -645,7 +645,7 @@ define hidden i32 @mbedtls_pk_parse_subpubkey(ptr noundef %0, ptr noundef %1, pt
   ]
 
 26:                                               ; preds = %24, %24
-  %27 = getelementptr inbounds i8, ptr %9, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %28 = load i64, ptr %27, align 8
   %.not15.i = icmp eq i64 %28, 0
   br i1 %.not15.i, label %pk_get_pk_alg.exit.thread52, label %pk_get_pk_alg.exit.thread
@@ -699,11 +699,11 @@ pk_get_pk_alg.exit:                               ; preds = %14
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = load ptr, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %48, ptr %6, align 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %50, ptr %51, align 8
   %52 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %6) #10
   %cond.i = icmp eq i32 %52, 1
@@ -720,11 +720,11 @@ pk_get_pk_alg.exit:                               ; preds = %14
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds i8, ptr %2, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %60 = load ptr, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %58, ptr %5, align 8
-  %61 = getelementptr inbounds i8, ptr %5, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %60, ptr %61, align 8
   %62 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %5) #10
   %.off.i = add i32 %62, -2
@@ -741,7 +741,7 @@ pk_get_pk_alg.exit:                               ; preds = %14
   %68 = load ptr, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %67, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %68, ptr %69, align 8
   %70 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %4) #10
   %.off.i47 = add i32 %70, -2
@@ -927,16 +927,16 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   br i1 %.not58.i.i, label %32, label %pk_group_id_from_specified.exit.thread
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %31, i64 7
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 7
   store ptr %33, ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = call i32 @mbedtls_asn1_get_mpi(ptr noundef nonnull %4, ptr noundef %26, ptr noundef nonnull %34) #10
   %.not59.i.i = icmp eq i32 %35, 0
   br i1 %.not59.i.i, label %36, label %pk_group_from_specified.exit.i
 
 36:                                               ; preds = %32
   %37 = call i64 @mbedtls_mpi_bitlen(ptr noundef nonnull %34) #10
-  %38 = getelementptr inbounds i8, ptr %7, i64 176
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store i64 %37, ptr %38, align 8
   %39 = load ptr, ptr %4, align 8
   %.not60.i.i = icmp eq ptr %39, %26
@@ -956,7 +956,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   br i1 %.not62.i.i, label %47, label %pk_group_from_specified.exit.i
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %7, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %49 = load ptr, ptr %4, align 8
   %50 = load i64, ptr %5, align 8
   %51 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %48, ptr noundef %49, i64 noundef %50) #10
@@ -973,7 +973,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   br i1 %.not64.i.i, label %57, label %pk_group_from_specified.exit.i
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %7, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %59 = load ptr, ptr %4, align 8
   %60 = load i64, ptr %5, align 8
   %61 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %58, ptr noundef %59, i64 noundef %60) #10
@@ -1007,7 +1007,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   br i1 %.not67.i.i, label %75, label %pk_group_from_specified.exit.i
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %7, i64 80
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %77 = load ptr, ptr %4, align 8
   %78 = load i64, ptr %5, align 8
   %79 = call i32 @mbedtls_ecp_point_read_binary(ptr noundef nonnull %7, ptr noundef nonnull %76, ptr noundef %77, i64 noundef %78) #10
@@ -1032,7 +1032,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %4, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1
   %91 = load i64, ptr %5, align 8
   %92 = add i64 %91, -1
   %93 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %76, ptr noundef nonnull %90, i64 noundef %92) #10
@@ -1040,7 +1040,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   br i1 %.not73.i.i, label %94, label %pk_group_id_from_specified.exit.thread
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds i8, ptr %7, i64 104
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %96 = load ptr, ptr %4, align 8
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i64
@@ -1050,7 +1050,7 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   br i1 %.not74.i.i, label %101, label %pk_group_id_from_specified.exit.thread
 
 101:                                              ; preds = %94
-  %102 = getelementptr inbounds i8, ptr %7, i64 128
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %103 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %102, i64 noundef 1) #10
   %.not75.i.i = icmp eq i32 %103, 0
   br i1 %.not75.i.i, label %104, label %pk_group_id_from_specified.exit.thread
@@ -1060,14 +1060,14 @@ define internal fastcc i32 @pk_use_ecparams(ptr noundef nonnull %0, ptr noundef 
   %106 = load ptr, ptr %4, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 %105
   store ptr %107, ptr %4, align 8
-  %108 = getelementptr inbounds i8, ptr %7, i64 152
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %109 = call i32 @mbedtls_asn1_get_mpi(ptr noundef nonnull %4, ptr noundef %16, ptr noundef nonnull %108) #10
   %.not76.i.i = icmp eq i32 %109, 0
   br i1 %.not76.i.i, label %pk_group_from_specified.exit.thread8.i, label %pk_group_from_specified.exit.i
 
 pk_group_from_specified.exit.thread8.i:           ; preds = %104
   %110 = call i64 @mbedtls_mpi_bitlen(ptr noundef nonnull %108) #10
-  %111 = getelementptr inbounds i8, ptr %7, i64 184
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i64 %110, ptr %111, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -1096,29 +1096,29 @@ pk_group_from_specified.exit.i:                   ; preds = %104, %73, %57, %52,
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %3)
   call void @mbedtls_ecp_group_init(ptr noundef nonnull %3) #10
   %113 = call ptr @mbedtls_ecp_grp_id_list() #10
-  %114 = getelementptr inbounds i8, ptr %7, i64 104
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %115 = load i32, ptr %113, align 4
   %.not20.i.i = icmp eq i32 %115, 0
   br i1 %.not20.i.i, label %pk_group_id_from_group.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %7, i64 176
-  %117 = getelementptr inbounds i8, ptr %3, i64 176
-  %118 = getelementptr inbounds i8, ptr %7, i64 184
-  %119 = getelementptr inbounds i8, ptr %3, i64 184
-  %120 = getelementptr inbounds i8, ptr %7, i64 8
-  %121 = getelementptr inbounds i8, ptr %3, i64 8
-  %122 = getelementptr inbounds i8, ptr %7, i64 32
-  %123 = getelementptr inbounds i8, ptr %3, i64 32
-  %124 = getelementptr inbounds i8, ptr %7, i64 56
-  %125 = getelementptr inbounds i8, ptr %3, i64 56
-  %126 = getelementptr inbounds i8, ptr %7, i64 152
-  %127 = getelementptr inbounds i8, ptr %3, i64 152
-  %128 = getelementptr inbounds i8, ptr %7, i64 80
-  %129 = getelementptr inbounds i8, ptr %3, i64 80
-  %130 = getelementptr inbounds i8, ptr %7, i64 128
-  %131 = getelementptr inbounds i8, ptr %3, i64 128
-  %132 = getelementptr inbounds i8, ptr %3, i64 104
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 184
+  %120 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %126 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  %127 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %130 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 104
   br label %133
 
 133:                                              ; preds = %167, %.lr.ph.i.i
@@ -1179,7 +1179,7 @@ pk_group_from_specified.exit.i:                   ; preds = %104, %73, %57, %52,
   br i1 %166, label %pk_group_id_from_group.exit.i, label %167
 
 167:                                              ; preds = %163, %160, %157, %154, %151, %148, %145, %141, %137
-  %168 = getelementptr inbounds i8, ptr %.021.i.i, i64 4
+  %168 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 4
   %169 = load i32, ptr %168, align 4
   %.not.i5.i = icmp eq i32 %169, 0
   br i1 %.not.i5.i, label %pk_group_id_from_group.exit.i, label %133, !llvm.loop !4
@@ -1224,7 +1224,7 @@ pk_group_id_from_specified.exit:                  ; preds = %pk_group_from_speci
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @pk_get_ecpubkey(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 272
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -1348,7 +1348,7 @@ asn1_get_nonzero_mpi.exit:                        ; preds = %23
   br i1 %.not64, label %45, label %asn1_get_nonzero_mpi.exit.thread
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %0, i64 136
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %47 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %46, ptr noundef nonnull %7) #10
   %.not65 = icmp eq i32 %47, 0
   br i1 %.not65, label %48, label %asn1_get_nonzero_mpi.exit.thread
@@ -1359,7 +1359,7 @@ asn1_get_nonzero_mpi.exit:                        ; preds = %23
   br i1 %.not66, label %50, label %asn1_get_nonzero_mpi.exit.thread
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 160
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %52 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %51, ptr noundef nonnull %7) #10
   %.not67 = icmp eq i32 %52, 0
   br i1 %.not67, label %53, label %asn1_get_nonzero_mpi.exit.thread
@@ -1370,7 +1370,7 @@ asn1_get_nonzero_mpi.exit:                        ; preds = %23
   br i1 %.not68, label %55, label %asn1_get_nonzero_mpi.exit.thread
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 184
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %57 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %56, ptr noundef nonnull %7) #10
   %.not69 = icmp eq i32 %57, 0
   br i1 %.not69, label %58, label %asn1_get_nonzero_mpi.exit.thread
@@ -1456,7 +1456,7 @@ define internal fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %1
   br label %77
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 248
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %29 = load ptr, ptr %9, align 8
   %30 = load i64, ptr %7, align 8
   %31 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %28, ptr noundef %29, i64 noundef %30) #10
@@ -1550,8 +1550,8 @@ define internal fastcc i32 @pk_parse_key_sec1_der(ptr noundef %0, ptr noundef %1
   br label %77
 
 .critedge:                                        ; preds = %65, %52, %50
-  %69 = getelementptr inbounds i8, ptr %0, i64 272
-  %70 = getelementptr inbounds i8, ptr %0, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %71 = call i32 @mbedtls_ecp_mul(ptr noundef %0, ptr noundef nonnull %69, ptr noundef nonnull %28, ptr noundef nonnull %70, ptr noundef %3, ptr noundef %4) #10
   %.not73 = icmp eq i32 %71, 0
   br i1 %.not73, label %74, label %72
@@ -1639,7 +1639,7 @@ define internal fastcc i32 @pk_parse_key_pkcs8_unencrypted_der(ptr noundef %0, p
   ]
 
 37:                                               ; preds = %35, %35
-  %38 = getelementptr inbounds i8, ptr %12, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %39 = load i64, ptr %38, align 8
   %.not15.i = icmp eq i64 %39, 0
   br i1 %.not15.i, label %pk_get_pk_alg.exit.thread50, label %pk_get_pk_alg.exit.thread
@@ -1691,11 +1691,11 @@ pk_get_pk_alg.exit:                               ; preds = %28
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %58, ptr %8, align 8
-  %61 = getelementptr inbounds i8, ptr %8, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %60, ptr %61, align 8
   %62 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %8) #10
   %cond.i = icmp eq i32 %62, 1
@@ -1719,11 +1719,11 @@ pk_get_pk_alg.exit:                               ; preds = %28
 
 70:                                               ; preds = %68
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %71, ptr %7, align 8
-  %74 = getelementptr inbounds i8, ptr %7, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %73, ptr %74, align 8
   %75 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %7) #10
   %.off.i = add i32 %75, -2
@@ -1740,7 +1740,7 @@ pk_get_pk_alg.exit:                               ; preds = %28
   %80 = load ptr, ptr %72, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %79, ptr %6, align 8
-  %81 = getelementptr inbounds i8, ptr %6, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %80, ptr %81, align 8
   %82 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %6) #10
   %.off.i45 = add i32 %82, -2
@@ -1828,13 +1828,13 @@ define internal fastcc i32 @pk_parse_key_pkcs8_encrypted_der(ptr noundef %0, ptr
   br label %.critedge38
 
 42:                                               ; preds = %31
-  %43 = getelementptr inbounds i8, ptr %10, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %44 = load i64, ptr %43, align 8
   %.not34 = icmp eq i64 %44, 9
   br i1 %.not34, label %45, label %.critedge38
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %10, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %47 = load ptr, ptr %46, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) @.str.16, ptr noundef nonnull dereferenceable(9) %47, i64 9)
   %.not35 = icmp eq i32 %bcmp, 0
@@ -1962,7 +1962,7 @@ define internal fastcc range(i32 -2147483648, 2147468032) i32 @pk_get_ecparams(p
   ]
 
 12:                                               ; preds = %9, %9
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = tail call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %13, i32 noundef %11) #10
   %.not20 = icmp eq i32 %14, 0
   br i1 %.not20, label %17, label %15
@@ -1973,7 +1973,7 @@ define internal fastcc range(i32 -2147483648, 2147468032) i32 @pk_get_ecparams(p
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %18, ptr %19, align 8
   %20 = load i64, ptr %13, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 %20

@@ -152,11 +152,11 @@ define hidden void @_ZN14JfrSymbolTableC2Ev(ptr noundef nonnull align 8 derefere
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 16, i32 noundef 0) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1009, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 48, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %7, align 8
   %8 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %9 = icmp eq i32 %8, 3
@@ -171,18 +171,18 @@ _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EEC2EPS4_m.exit: ; 
   store ptr %11, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8072) %11, i8 0, i64 8072, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %0, ptr %12, align 8
   store ptr %4, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 16, i32 noundef 0) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 1009, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 48, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 0, ptr %17, align 8
   %18 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %19 = icmp eq i32 %18, 3
@@ -197,14 +197,14 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EEC2EPS3_m.exit: ; preds 
   store ptr %21, ptr %14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8072) %21, i8 0, i64 8072, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  %22 = getelementptr inbounds i8, ptr %14, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %0, ptr %22, align 8
   store ptr %14, ptr %13, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
   store i64 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %25, align 8
   %26 = call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 48) #15
   %27 = icmp eq ptr %26, null
@@ -212,19 +212,19 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EEC2EPS3_m.exit: ; preds 
 
 28:                                               ; preds = %_ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EEC2EPS3_m.exit
   store ptr null, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr @.str, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %30, i8 0, i64 27, i1 false)
   br label %31
 
 31:                                               ; preds = %28, %_ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EEC2EPS3_m.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %26, ptr @_ZL9bootstrap, align 8
   %33 = load i64, ptr @_ZL13checkpoint_id, align 8
   %34 = shl i64 %33, 24
   %35 = or disjoint i64 %34, 1
-  %36 = getelementptr inbounds i8, ptr %26, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i64 %35, ptr %36, align 8
   store ptr %26, ptr %32, align 8
   ret void
@@ -238,13 +238,13 @@ define hidden void @_ZN14JfrSymbolTableD2Ev(ptr nocapture noundef nonnull align 
   br i1 %3, label %21, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %.not16.i.i = icmp eq i64 %6, 0
   br i1 %.not16.i.i, label %_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EED2Ev.exit, label %.lr.ph14.i.i
 
 .lr.ph14.i.i:                                     ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %8
 
 8:                                                ; preds = %._crit_edge.i.i, %.lr.ph14.i.i
@@ -262,7 +262,7 @@ define hidden void @_ZN14JfrSymbolTableD2Ev(ptr nocapture noundef nonnull align 
   %13 = load i64, ptr %7, align 8
   %14 = add i64 %13, -1
   store i64 %14, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %.0911.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.0911.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %16) #15
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.0911.i.i, i64 noundef 48) #15
@@ -283,19 +283,19 @@ _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EED2Ev.exit: ; pred
   br label %21
 
 21:                                               ; preds = %_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EED2Ev.exit, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %44, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load i64, ptr %26, align 8
   %.not16.i.i3 = icmp eq i64 %27, 0
   br i1 %.not16.i.i3, label %_ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EED2Ev.exit, label %.lr.ph14.i.i4
 
 .lr.ph14.i.i4:                                    ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %23, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
   br label %29
 
 29:                                               ; preds = %._crit_edge.i.i10, %.lr.ph14.i.i4
@@ -313,9 +313,9 @@ _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EED2Ev.exit: ; pred
   %34 = load i64, ptr %28, align 8
   %35 = add i64 %34, -1
   store i64 %35, ptr %28, align 8
-  %36 = getelementptr inbounds i8, ptr %.0911.i.i8, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i8, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #16
   tail call void @_ZN11JfrCHeapObj4freeEPvm(ptr noundef %37, i64 noundef %39) #15
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.0911.i.i8, i64 noundef 48) #15
@@ -351,13 +351,13 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EED2Ev.exit: ; preds = %.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14JfrSymbolTable5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   %.not16.i = icmp eq i64 %7, 0
   br i1 %.not16.i, label %_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv.exit, label %.lr.ph14.i
@@ -377,7 +377,7 @@ define hidden void @_ZN14JfrSymbolTable5clearEv(ptr nocapture noundef nonnull al
   %12 = load i64, ptr %3, align 8
   %13 = add i64 %12, -1
   store i64 %13, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %.0911.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %15) #15
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.0911.i, i64 noundef 48) #15
@@ -392,15 +392,15 @@ define hidden void @_ZN14JfrSymbolTable5clearEv(ptr nocapture noundef nonnull al
   br i1 %18, label %.lr.ph14.i, label %_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv.exit, !llvm.loop !8
 
 _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv.exit: ; preds = %._crit_edge.i, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i64, ptr %21, align 8
   %.not9 = icmp eq i64 %22, 0
   br i1 %.not9, label %_ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv.exit, label %23
 
 23:                                               ; preds = %_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv.exit
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %25 = load i64, ptr %24, align 8
   %.not16.i1 = icmp eq i64 %25, 0
   br i1 %.not16.i1, label %_ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv.exit, label %.lr.ph14.i2
@@ -420,9 +420,9 @@ _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv
   %30 = load i64, ptr %21, align 8
   %31 = add i64 %30, -1
   store i64 %31, ptr %21, align 8
-  %32 = getelementptr inbounds i8, ptr %.0911.i6, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0911.i6, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #16
   tail call void @_ZN11JfrCHeapObj4freeEPvm(ptr noundef %33, i64 noundef %35) #15
   tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.0911.i6, i64 noundef 48) #15
@@ -437,16 +437,16 @@ _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv
   br i1 %38, label %.lr.ph14.i2, label %_ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv.exit, !llvm.loop !10
 
 _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv.exit: ; preds = %._crit_edge.i8, %23, %_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   %42 = load ptr, ptr @_ZL9bootstrap, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %43, i8 0, i64 11, i1 false)
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %42, ptr %44, align 8
   ret void
 }
@@ -454,7 +454,7 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE13clear_entriesEv.exit:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN14JfrSymbolTable16set_class_unloadEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((56, 57)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = zext i1 %1 to i8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %3, ptr %4, align 8
   ret void
 }
@@ -470,7 +470,7 @@ define hidden void @_ZN14JfrSymbolTable23increment_checkpoint_idEv(ptr nocapture
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14JfrSymbolTable7on_linkEPK9ListEntryIPK6SymbolmE(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0, ptr noundef initializes((24, 40)) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %3, align 8
@@ -479,14 +479,14 @@ define hidden void @_ZN14JfrSymbolTable7on_linkEPK9ListEntryIPK6SymbolmE(ptr noc
   %7 = shl i64 %6, 24
   %8 = or i64 %7, %5
   %9 = select i1 %.not.i.i, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %12) #15
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %14, ptr %15, align 8
   store ptr %1, ptr %13, align 8
   ret void
@@ -496,9 +496,9 @@ declare void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 deref
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN14JfrSymbolTable9on_equalsEmPK9ListEntryIPK6SymbolmE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
   ret i1 %8
@@ -506,7 +506,7 @@ define hidden noundef zeroext i1 @_ZN14JfrSymbolTable9on_equalsEmPK9ListEntryIPK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14JfrSymbolTable9on_unlinkEPK9ListEntryIPK6SymbolmE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(57) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %4) #15
   ret void
@@ -516,7 +516,7 @@ declare void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14JfrSymbolTable7on_linkEPK9ListEntryIPKcmE(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0, ptr noundef initializes((24, 40)) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %3, align 8
@@ -525,9 +525,9 @@ define hidden void @_ZN14JfrSymbolTable7on_linkEPK9ListEntryIPKcmE(ptr nocapture
   %7 = shl i64 %6, 24
   %8 = or i64 %7, %5
   %9 = select i1 %.not.i.i, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #16
   %14 = add i64 %13, 1
@@ -535,9 +535,9 @@ define hidden void @_ZN14JfrSymbolTable7on_linkEPK9ListEntryIPKcmE(ptr nocapture
   tail call void @_ZN11JfrCHeapObj20on_memory_allocationEPKvm(ptr noundef %15, i64 noundef %14) #15
   %16 = tail call ptr @strncpy(ptr noundef %15, ptr noundef readonly %12, i64 noundef %14) #15
   store ptr %15, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %18, ptr %19, align 8
   store ptr %1, ptr %17, align 8
   ret void
@@ -545,9 +545,9 @@ define hidden void @_ZN14JfrSymbolTable7on_linkEPK9ListEntryIPKcmE(ptr nocapture
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN14JfrSymbolTable9on_equalsEmPK9ListEntryIPKcmE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %5) #16
   %9 = tail call i32 @strncmp(ptr noundef readonly %5, ptr noundef readonly %7, i64 noundef %8) #16
@@ -557,9 +557,9 @@ define hidden noundef zeroext i1 @_ZN14JfrSymbolTable9on_equalsEmPK9ListEntryIPK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14JfrSymbolTable9on_unlinkEPK9ListEntryIPKcmE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(57) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #16
   tail call void @_ZN11JfrCHeapObj4freeEPvm(ptr noundef %4, i64 noundef %6) #15
   ret void
@@ -576,12 +576,12 @@ define hidden noundef i64 @_ZN14JfrSymbolTable14bootstrap_nameEb(ptr nocapture n
   br i1 %1, label %3, label %5
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %.pre, i64 42
+  %4 = getelementptr inbounds nuw i8, ptr %.pre, i64 42
   store i8 1, ptr %4, align 2
   br label %5
 
 5:                                                ; preds = %3, %2
-  %6 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %7 = load i64, ptr %6, align 8
   ret i64 %7
 }
@@ -593,16 +593,16 @@ define hidden noundef i64 @_ZN14JfrSymbolTable4markEPK6Symbolb(ptr nocapture nou
   %6 = trunc i64 %5 to i32
   %7 = lshr i32 %6, 3
   %8 = load volatile i32, ptr %1, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i16, ptr %9, align 4
   %11 = zext i16 %10 to i32
   %12 = shl nuw nsw i32 %11, 8
   %13 = xor i32 %12, %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 7
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %17, %20
@@ -611,17 +611,17 @@ define hidden noundef i64 @_ZN14JfrSymbolTable4markEPK6Symbolb(ptr nocapture nou
   %24 = zext i32 %23 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %25, align 8
   %26 = load ptr, ptr %0, align 8
   %27 = call noundef nonnull align 8 dereferenceable(43) ptr @_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS2_(ptr noundef nonnull align 8 dereferenceable(40) %26, i64 noundef %24, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %3
-  %32 = getelementptr inbounds i8, ptr %27, i64 41
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 41
   store i8 1, ptr %32, align 1
   br label %33
 
@@ -629,12 +629,12 @@ define hidden noundef i64 @_ZN14JfrSymbolTable4markEPK6Symbolb(ptr nocapture nou
   br i1 %2, label %34, label %_ZN14JfrSymbolTable4markEmPK6Symbolb.exit
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %27, i64 42
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 42
   store i8 1, ptr %35, align 2
   br label %_ZN14JfrSymbolTable4markEmPK6Symbolb.exit
 
 _ZN14JfrSymbolTable4markEmPK6Symbolb.exit:        ; preds = %33, %34
-  %36 = getelementptr inbounds i8, ptr %27, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %37 = load i64, ptr %36, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %37
@@ -644,17 +644,17 @@ _ZN14JfrSymbolTable4markEmPK6Symbolb.exit:        ; preds = %33, %34
 define hidden noundef i64 @_ZN14JfrSymbolTable4markEmPK6Symbolb(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((32, 40)) %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = call noundef nonnull align 8 dereferenceable(43) ptr @_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS2_(ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %8, i64 41
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 41
   store i8 1, ptr %13, align 1
   br label %14
 
@@ -662,19 +662,19 @@ define hidden noundef i64 @_ZN14JfrSymbolTable4markEmPK6Symbolb(ptr nocapture no
   br i1 %3, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %8, i64 42
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 42
   store i8 1, ptr %16, align 2
   br label %17
 
 17:                                               ; preds = %15, %14
-  %18 = getelementptr inbounds i8, ptr %8, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = load i64, ptr %18, align 8
   ret i64 %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(43) ptr @_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = urem i64 %1, %5
   %7 = load ptr, ptr %0, align 8
@@ -685,21 +685,21 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(43) ptr @_ZN1
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   br label %13
 
 13:                                               ; preds = %22, %.lr.ph.i
   %.012.i = phi ptr [ %9, %.lr.ph.i ], [ %23, %22 ]
-  %14 = getelementptr inbounds i8, ptr %.012.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %1
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %18, %20
   br i1 %21, label %_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE11lookup_onlyEm.exit, label %22
@@ -716,21 +716,21 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(43) ptr @_ZN1
 
 26:                                               ; preds = %.loopexit
   store ptr null, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load ptr, ptr %2, align 8
   store ptr %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 %1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %30, i8 0, i64 19, i1 false)
   br label %_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE3putEmRKS2_.exit
 
 _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE3putEmRKS2_.exit: ; preds = %.loopexit, %26
   %31 = load i64, ptr %4, align 8
   %32 = urem i64 %1, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8
@@ -739,14 +739,14 @@ _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE3putEmRKS2_.exit:
   %39 = shl i64 %38, 24
   %40 = or i64 %39, %37
   %41 = select i1 %.not.i.i.i.i.i, i64 0, i64 %40
-  %42 = getelementptr inbounds i8, ptr %24, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %24, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %44 = load ptr, ptr %43, align 8
   tail call void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %44) #15
-  %45 = getelementptr inbounds i8, ptr %34, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %24, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %46, ptr %47, align 8
   store ptr %24, ptr %45, align 8
   %48 = load ptr, ptr %0, align 8
@@ -758,7 +758,7 @@ _ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE3putEmRKS2_.exit:
   %52 = getelementptr inbounds %class.JfrHashtableBucket, ptr %51, i64 %32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   store volatile ptr %24, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, 1
   store i64 %55, ptr %53, align 8
@@ -786,7 +786,7 @@ define hidden noundef i64 @_ZN14JfrSymbolTable4markEPKcb(ptr nocapture noundef n
   %10 = load i8, ptr %.056.i.i, align 1
   %11 = zext i8 %10 to i32
   %12 = add i32 %9, %11
-  %13 = getelementptr inbounds i8, ptr %.056.i.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.056.i.i, i64 1
   %14 = icmp samesign ugt i32 %.047.i.i, 1
   br i1 %14, label %.lr.ph.i.i, label %_ZN16java_lang_String9hash_codeEPKai.exit.loopexit.i, !llvm.loop !13
 
@@ -798,36 +798,36 @@ _ZL11string_hashPKc.exit:                         ; preds = %3, %_ZN16java_lang_
   %.0.lcssa.i.i = phi i64 [ 0, %3 ], [ %15, %_ZN16java_lang_String9hash_codeEPKai.exit.loopexit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = urem i64 %.0.lcssa.i.i, %20
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds %class.JfrHashtableBucket.31, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw %class.JfrHashtableBucket.31, ptr %22, i64 %21
   %24 = load volatile ptr, ptr %23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   %.not11.i.i.i = icmp eq ptr %24, null
   br i1 %.not11.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZL11string_hashPKc.exit
-  %25 = getelementptr inbounds i8, ptr %18, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   br label %28
 
 28:                                               ; preds = %39, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %40, %39 ]
-  %29 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, %.0.lcssa.i.i
   br i1 %31, label %32, label %39
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %27, align 8
-  %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %33) #16
   %37 = tail call i32 @strncmp(ptr noundef readonly %33, ptr noundef readonly %35, i64 noundef %36) #16
@@ -845,13 +845,13 @@ _ZL11string_hashPKc.exit:                         ; preds = %3, %_ZN16java_lang_
 
 _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS1_.exit.i: ; preds = %32, %.loopexit.i.i
   %42 = phi ptr [ %41, %.loopexit.i.i ], [ %.012.i.i.i, %32 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load i8, ptr %43, align 8
   %45 = trunc i8 %44 to i1
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %_ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS1_.exit.i
-  %47 = getelementptr inbounds i8, ptr %42, i64 41
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 41
   store i8 1, ptr %47, align 1
   br label %48
 
@@ -859,12 +859,12 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS1_.exi
   br i1 %2, label %49, label %_ZN14JfrSymbolTable4markEmPKcb.exit
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %42, i64 42
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 42
   store i8 1, ptr %50, align 2
   br label %_ZN14JfrSymbolTable4markEmPKcb.exit
 
 _ZN14JfrSymbolTable4markEmPKcb.exit:              ; preds = %48, %49
-  %51 = getelementptr inbounds i8, ptr %42, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %52 = load i64, ptr %51, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %52
@@ -874,11 +874,11 @@ _ZN14JfrSymbolTable4markEmPKcb.exit:              ; preds = %48, %49
 define hidden noundef i64 @_ZN14JfrSymbolTable4markEmPKcb(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((40, 48)) %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = urem i64 %1, %10
   %12 = load ptr, ptr %8, align 8
@@ -889,21 +889,21 @@ define hidden noundef i64 @_ZN14JfrSymbolTable4markEmPKcb(ptr nocapture noundef 
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %8, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   br label %18
 
 18:                                               ; preds = %29, %.lr.ph.i.i
   %.012.i.i = phi ptr [ %14, %.lr.ph.i.i ], [ %30, %29 ]
-  %19 = getelementptr inbounds i8, ptr %.012.i.i, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, %1
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %23) #16
   %27 = tail call i32 @strncmp(ptr noundef readonly %23, ptr noundef readonly %25, i64 noundef %26) #16
@@ -921,13 +921,13 @@ define hidden noundef i64 @_ZN14JfrSymbolTable4markEmPKcb(ptr nocapture noundef 
 
 _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS1_.exit: ; preds = %22, %.loopexit.i
   %32 = phi ptr [ %31, %.loopexit.i ], [ %.012.i.i, %22 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load i8, ptr %33, align 8
   %35 = trunc i8 %34 to i1
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %_ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS1_.exit
-  %37 = getelementptr inbounds i8, ptr %32, i64 41
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 41
   store i8 1, ptr %37, align 1
   br label %38
 
@@ -935,19 +935,19 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS1_.exi
   br i1 %3, label %39, label %41
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %32, i64 42
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 42
   store i8 1, ptr %40, align 2
   br label %41
 
 41:                                               ; preds = %39, %38
-  %42 = getelementptr inbounds i8, ptr %32, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %43 = load i64, ptr %42, align 8
   ret i64 %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN14JfrSymbolTable22hidden_klass_name_hashEPK13InstanceKlass(ptr nocapture noundef nonnull readnone align 8 dereferenceable(57) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ZNK5Klass24java_mirror_no_keepaliveEv.exit, label %6
@@ -992,13 +992,13 @@ _ZN7oopDesc13identity_hashEv.exit:                ; preds = %15, %18, %.thread.i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN14JfrSymbolTable15is_hidden_klassEPK5Klass(ptr nocapture noundef nonnull readnone align 8 dereferenceable(57) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 5
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 164
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %.sroa.0.0.copyload.i.i = load i32, ptr %7, align 4
   %8 = and i32 %.sroa.0.0.copyload.i.i, 67108864
   %9 = icmp ne i32 %8, 0
@@ -1013,7 +1013,7 @@ define hidden noundef zeroext i1 @_ZN14JfrSymbolTable15is_hidden_klassEPK5Klass(
 define hidden noundef i64 @_ZN14JfrSymbolTable22mark_hidden_klass_nameEPK13InstanceKlassb(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((40, 48)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca [40 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i, label %9
@@ -1066,9 +1066,9 @@ _ZN14JfrSymbolTable22hidden_klass_name_hashEPK13InstanceKlass.exit: ; preds = %1
 _ZL26create_hidden_klass_symbolPK13InstanceKlassm.exit: ; preds = %_ZN14JfrSymbolTable22hidden_klass_name_hashEPK13InstanceKlass.exit, %27
   %30 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef nonnull %5, i64 noundef 40, ptr noundef nonnull @.str.10, i64 noundef %.0.i.i) #15
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #16
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i16, ptr %34, align 4
   %36 = zext i16 %35 to i32
   %37 = zext i16 %35 to i64
@@ -1078,16 +1078,16 @@ _ZL26create_hidden_klass_symbolPK13InstanceKlassm.exit: ; preds = %_ZN14JfrSymbo
   %41 = load ptr, ptr %32, align 8
   %42 = add nuw nsw i32 %36, 1
   %43 = call noundef ptr @_ZNK6Symbol22as_klass_external_nameEPci(ptr noundef nonnull align 4 dereferenceable(8) %41, ptr noundef %40, i32 noundef %42) #15
-  %44 = getelementptr inbounds i8, ptr %40, i64 %37
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %37
   %45 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %5) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %40, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %40, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = urem i64 %.0.i.i, %50
   %52 = load ptr, ptr %48, align 8
@@ -1098,21 +1098,21 @@ _ZL26create_hidden_klass_symbolPK13InstanceKlassm.exit: ; preds = %_ZN14JfrSymbo
   br i1 %.not11.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZL26create_hidden_klass_symbolPK13InstanceKlassm.exit
-  %55 = getelementptr inbounds i8, ptr %48, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   br label %58
 
 58:                                               ; preds = %69, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i ], [ %70, %69 ]
-  %59 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, %.0.i.i
   br i1 %61, label %62, label %69
 
 62:                                               ; preds = %58
   %63 = load ptr, ptr %57, align 8
-  %64 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %63) #16
   %67 = call i32 @strncmp(ptr noundef readonly %63, ptr noundef readonly %65, i64 noundef %66) #16
@@ -1130,13 +1130,13 @@ _ZL26create_hidden_klass_symbolPK13InstanceKlassm.exit: ; preds = %_ZN14JfrSymbo
 
 _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS1_.exit.i: ; preds = %62, %.loopexit.i.i
   %72 = phi ptr [ %71, %.loopexit.i.i ], [ %.012.i.i.i, %62 ]
-  %73 = getelementptr inbounds i8, ptr %0, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %74 = load i8, ptr %73, align 8
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %_ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS1_.exit.i
-  %77 = getelementptr inbounds i8, ptr %72, i64 41
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 41
   store i8 1, ptr %77, align 1
   br label %78
 
@@ -1144,12 +1144,12 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS1_.exi
   br i1 %2, label %79, label %_ZN14JfrSymbolTable4markEmPKcb.exit
 
 79:                                               ; preds = %78
-  %80 = getelementptr inbounds i8, ptr %72, i64 42
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 42
   store i8 1, ptr %80, align 2
   br label %_ZN14JfrSymbolTable4markEmPKcb.exit
 
 _ZN14JfrSymbolTable4markEmPKcb.exit:              ; preds = %78, %79
-  %81 = getelementptr inbounds i8, ptr %72, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %82 = load i64, ptr %81, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %82
@@ -1158,13 +1158,13 @@ _ZN14JfrSymbolTable4markEmPKcb.exit:              ; preds = %78, %79
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN14JfrSymbolTable4markEPK5Klassb(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %6, 5
   br i1 %7, label %_ZN14JfrSymbolTable15is_hidden_klassEPK5Klass.exit, label %_ZN14JfrSymbolTable15is_hidden_klassEPK5Klass.exit.thread
 
 _ZN14JfrSymbolTable15is_hidden_klassEPK5Klass.exit: ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 164
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %8, align 4
   %9 = and i32 %.sroa.0.0.copyload.i.i.i, 67108864
   %.not9 = icmp eq i32 %9, 0
@@ -1175,7 +1175,7 @@ _ZN14JfrSymbolTable15is_hidden_klassEPK5Klass.exit: ; preds = %3
   br label %48
 
 _ZN14JfrSymbolTable15is_hidden_klassEPK5Klass.exit.thread: ; preds = %3, %_ZN14JfrSymbolTable15is_hidden_klassEPK5Klass.exit
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %48, label %14
@@ -1185,16 +1185,16 @@ _ZN14JfrSymbolTable15is_hidden_klassEPK5Klass.exit.thread: ; preds = %3, %_ZN14J
   %16 = trunc i64 %15 to i32
   %17 = lshr i32 %16, 3
   %18 = load volatile i32, ptr %13, align 4
-  %19 = getelementptr inbounds i8, ptr %13, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %20 = load i16, ptr %19, align 4
   %21 = zext i16 %20 to i32
   %22 = shl nuw nsw i32 %21, 8
   %23 = xor i32 %22, %17
-  %24 = getelementptr inbounds i8, ptr %13, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 6
   %25 = load i8, ptr %24, align 2
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 8
-  %28 = getelementptr inbounds i8, ptr %13, i64 7
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 7
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
@@ -1203,17 +1203,17 @@ _ZN14JfrSymbolTable15is_hidden_klassEPK5Klass.exit.thread: ; preds = %3, %_ZN14J
   %34 = zext i32 %33 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %13, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %13, ptr %35, align 8
   %36 = load ptr, ptr %0, align 8
   %37 = call noundef nonnull align 8 dereferenceable(43) ptr @_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS2_(ptr noundef nonnull align 8 dereferenceable(40) %36, i64 noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %14
-  %42 = getelementptr inbounds i8, ptr %37, i64 41
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 41
   store i8 1, ptr %42, align 1
   br label %43
 
@@ -1221,12 +1221,12 @@ _ZN14JfrSymbolTable15is_hidden_klassEPK5Klass.exit.thread: ; preds = %3, %_ZN14J
   br i1 %2, label %44, label %_ZN14JfrSymbolTable4markEPK6Symbolb.exit
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %37, i64 42
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 42
   store i8 1, ptr %45, align 2
   br label %_ZN14JfrSymbolTable4markEPK6Symbolb.exit
 
 _ZN14JfrSymbolTable4markEPK6Symbolb.exit:         ; preds = %43, %44
-  %46 = getelementptr inbounds i8, ptr %37, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %47 = load i64, ptr %46, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %48
@@ -1244,16 +1244,16 @@ define hidden noundef i64 @_ZN14JfrSymbolTable3addEPK6Symbol(ptr noundef %0) loc
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 3
   %7 = load volatile i32, ptr %0, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i32
   %11 = shl nuw nsw i32 %10, 8
   %12 = xor i32 %11, %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 7
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = or disjoint i32 %16, %19
@@ -1262,22 +1262,22 @@ define hidden noundef i64 @_ZN14JfrSymbolTable3addEPK6Symbol(ptr noundef %0) loc
   %23 = zext i32 %22 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %0, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %0, ptr %24, align 8
   %25 = load ptr, ptr %3, align 8
   %26 = call noundef nonnull align 8 dereferenceable(43) ptr @_ZN13HashTableHostIPK6Symbolm9ListEntry14JfrSymbolTableLm1009EE10lookup_putEmRKS2_(ptr noundef nonnull align 8 dereferenceable(40) %25, i64 noundef %23, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %27 = getelementptr inbounds i8, ptr %3, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %_ZN14JfrSymbolTable8add_implI6SymbolEEmPKT_.exit
 
 30:                                               ; preds = %1
-  %31 = getelementptr inbounds i8, ptr %26, i64 41
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 41
   store i8 1, ptr %31, align 1
   br label %_ZN14JfrSymbolTable8add_implI6SymbolEEmPKT_.exit
 
 _ZN14JfrSymbolTable8add_implI6SymbolEEmPKT_.exit: ; preds = %1, %30
-  %32 = getelementptr inbounds i8, ptr %26, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %33 = load i64, ptr %32, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   ret i64 %33
@@ -1391,7 +1391,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
   %2 = load i8, ptr @UseCompressedOops, align 1
   %3 = trunc i8 %2 to i1
   %4 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %switch.tableidx = add i32 %6, -1
   %7 = icmp ult i32 %switch.tableidx, 6
@@ -1451,9 +1451,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %4, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm544868ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 769
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   %10 = and i8 %9, 4
@@ -1462,12 +1462,12 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 2248
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 2248
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %3 to i64
   %16 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
   %17 = lshr i64 %15, %16
-  %18 = getelementptr inbounds i8, ptr %14, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
@@ -1475,7 +1475,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i25.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread.i.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.i.i: ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %14, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = sub i64 %15, %24
@@ -1486,10 +1486,10 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.i.i: ; preds = %11
   %30 = lshr i64 %27, %29
   %31 = and i64 %30, 63
   %32 = shl i64 3, %31
-  %33 = getelementptr inbounds i8, ptr %14, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = lshr i64 %30, 6
-  %36 = getelementptr inbounds i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %32, %37
   %.not32.i.i = icmp eq i64 %38, 0
@@ -1586,9 +1586,9 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   br i1 %4, label %5, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 769
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   %10 = and i8 %9, 1
@@ -1597,13 +1597,13 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 2440
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 2440
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %1 to i64
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = lshr i64 %15, %17
-  %19 = getelementptr inbounds i8, ptr %14, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   %22 = load i8, ptr %21, align 1
@@ -1623,7 +1623,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   br i1 %30, label %31, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %12, i64 769
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 769
   %33 = load volatile i8, ptr %32, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   %34 = and i8 %33, 4
@@ -1634,8 +1634,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 2448
-  %40 = getelementptr inbounds i8, ptr %37, i64 41
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 2448
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 41
   %41 = load i8, ptr %40, align 1
   %42 = add i8 %41, 1
   store i8 %42, ptr %40, align 1
@@ -1647,7 +1647,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   br label %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit
 
 45:                                               ; preds = %35
-  %46 = getelementptr inbounds i8, ptr %37, i64 42
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 42
   %47 = load i8, ptr %46, align 2
   %48 = trunc i8 %47 to i1
   br i1 %48, label %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit, label %49
@@ -1677,7 +1677,7 @@ _ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit:      ; preds = %44, %45, %49, %54
   br i1 %60, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %61
 
 61:                                               ; preds = %_ZN22ShenandoahEvacOOMScopeC2EP6Thread.exit
-  %62 = getelementptr inbounds i8, ptr %57, i64 2448
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 2448
   tail call void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull %37) #15
   br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
@@ -1710,7 +1710,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -1724,7 +1724,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -1762,9 +1762,9 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
   %39 = load i64, ptr @ZAddressOffsetMask, align 8
   %40 = and i64 %39, %21
   %41 = lshr i64 %40, 21
-  %42 = getelementptr inbounds i8, ptr %38, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
   %45 = load volatile ptr, ptr %44, align 8
   %.not.i6.i.i = icmp eq ptr %45, null
   %46 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1790,7 +1790,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -1851,9 +1851,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %4, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm544836ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 769
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   %10 = and i8 %9, 4
@@ -1862,12 +1862,12 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 2248
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 2248
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %3 to i64
   %16 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
   %17 = lshr i64 %15, %16
-  %18 = getelementptr inbounds i8, ptr %14, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %17
   %21 = load ptr, ptr %20, align 8
@@ -1875,7 +1875,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i25.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.i.i, label %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.thread.i.i
 
 _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.i.i: ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %14, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = sub i64 %15, %24
@@ -1886,10 +1886,10 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit26.i.i: ; preds = %11
   %30 = lshr i64 %27, %29
   %31 = and i64 %30, 63
   %32 = shl i64 3, %31
-  %33 = getelementptr inbounds i8, ptr %14, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = lshr i64 %30, 6
-  %36 = getelementptr inbounds i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %32, %37
   %.not32.i.i = icmp eq i64 %38, 0
@@ -2005,22 +2005,22 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(43) ptr @_ZN1
 
 6:                                                ; preds = %3
   store ptr null, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %2, align 8
   store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %10, i8 0, i64 19, i1 false)
   br label %_ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE9new_entryEmRKS1_.exit
 
 _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE9new_entryEmRKS1_.exit: ; preds = %3, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = urem i64 %1, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, 1
   store i64 %18, ptr %16, align 8
@@ -2029,9 +2029,9 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE9new_entryEmRKS1_.exit:
   %20 = shl i64 %19, 24
   %21 = or i64 %20, %18
   %22 = select i1 %.not.i.i.i.i, i64 0, i64 %21
-  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %25) #16
   %27 = add i64 %26, 1
@@ -2039,9 +2039,9 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE9new_entryEmRKS1_.exit:
   tail call void @_ZN11JfrCHeapObj20on_memory_allocationEPKvm(ptr noundef %28, i64 noundef %27) #15
   %29 = tail call ptr @strncpy(ptr noundef %28, ptr noundef readonly %25, i64 noundef %27) #15
   store ptr %28, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %15, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %31, ptr %32, align 8
   store ptr %4, ptr %30, align 8
   %33 = load ptr, ptr %0, align 8
@@ -2053,7 +2053,7 @@ _ZN13HashTableHostIPKcm9ListEntry14JfrSymbolTableLm1009EE9new_entryEmRKS1_.exit:
   %37 = getelementptr inbounds %class.JfrHashtableBucket.31, ptr %36, i64 %13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
   store volatile ptr %4, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, 1
   store i64 %40, ptr %38, align 8

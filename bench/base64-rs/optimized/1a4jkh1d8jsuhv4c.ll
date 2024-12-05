@@ -22,7 +22,7 @@ define hidden { i64, i64 } @_ZN6base646engine15general_purpose6decode22GeneralPu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef i64 @"_ZN114_$LT$base64..engine..general_purpose..decode..GeneralPurposeEstimate$u20$as$u20$base64..engine..DecodeEstimate$GT$20decoded_len_estimate17he2469593f517c1c8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   ret i64 %3
 }
@@ -59,16 +59,16 @@ define hidden void @_ZN6base646engine15general_purpose6decode18complete_quads_le
 
 22:                                               ; preds = %18
   %23 = zext i8 %20 to i64
-  %24 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1, !noundef !4
   %26 = icmp eq i8 %25, -1
   br i1 %26, label %27, label %10
 
 27:                                               ; preds = %22
   store i8 0, ptr %0, align 8
-  %.sroa.48.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %20, ptr %.sroa.48.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %.sroa.6.0..sroa_idx, align 8
   br label %28
 
@@ -76,7 +76,7 @@ define hidden void @_ZN6base646engine15general_purpose6decode18complete_quads_le
   ret void
 
 29:                                               ; preds = %10
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %14, ptr %30, align 8
   store i8 5, ptr %0, align 8
   br label %28

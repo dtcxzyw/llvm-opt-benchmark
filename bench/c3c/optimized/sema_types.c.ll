@@ -79,20 +79,20 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br i1 %.not277, label %11, label %553
 
 11:                                               ; preds = %.critedge
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !7, !noundef !7
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 40
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %13, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %18 = load ptr, ptr %17, align 8
   br label %19
 
 19:                                               ; preds = %11, %16
   %.0240 = phi ptr [ %18, %16 ], [ %13, %11 ]
-  %20 = getelementptr inbounds i8, ptr %.0240, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.0240, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %553 [
@@ -101,11 +101,11 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   ]
 
 23:                                               ; preds = %19, %19
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %15, label %25, label %28
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %13, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %27 = load ptr, ptr %26, align 8
   br label %28
 
@@ -122,7 +122,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %30, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %36 = load ptr, ptr %35, align 8
   br label %37
 
@@ -137,7 +137,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
 41:                                               ; preds = %3
   %42 = and i16 %6, 504
   %43 = icmp eq i16 %42, 104
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %43, label %45, label %47
 
 45:                                               ; preds = %41
@@ -146,7 +146,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br label %51
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %1, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = load i64, ptr %44, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %50, ptr noundef nonnull @.str.10, ptr noundef %49) #5
@@ -157,7 +157,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   %53 = and i16 %52, -505
   store i16 %53, ptr %1, align 8
   %54 = load ptr, ptr @poisoned_type, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %54, ptr %55, align 8
   %56 = and i16 %52, -512
   %57 = or disjoint i16 %56, 2
@@ -218,7 +218,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   unreachable
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %1, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = load i16, ptr %74, align 8
   %76 = and i16 %75, 504
@@ -232,18 +232,18 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br i1 %or.cond282, label %79, label %82
 
 79:                                               ; preds = %72
-  %80 = getelementptr inbounds i8, ptr %74, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %81 = load i64, ptr %80, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %81, ptr noundef nonnull @.str.19) #5
   br label %99
 
 82:                                               ; preds = %72
-  %83 = getelementptr inbounds i8, ptr %74, i64 24
-  %84 = getelementptr inbounds i8, ptr %74, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %83, align 8
-  %87 = getelementptr inbounds i8, ptr %74, i64 16
-  %88 = getelementptr inbounds i8, ptr %1, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %89 = load ptr, ptr %88, align 8
   %90 = load i64, ptr %87, align 8
   %91 = tail call ptr @sema_analyse_parameterized_identifier(ptr noundef %0, ptr noundef %85, ptr noundef %86, i64 %90, ptr noundef %89) #5
@@ -251,16 +251,16 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br i1 %.not269, label %.critedge2, label %92
 
 92:                                               ; preds = %82
-  %93 = getelementptr inbounds i8, ptr %91, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, 127
   %.not270 = icmp eq i64 %95, 0
   br i1 %.not270, label %99, label %.critedge2
 
 .critedge2:                                       ; preds = %82, %92
-  %96 = getelementptr inbounds i8, ptr %91, i64 72
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 72
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %97, ptr %98, align 8
   br label %sema_resolve_type_identifier.exit.thread
 
@@ -269,7 +269,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   %101 = and i16 %100, -505
   store i16 %101, ptr %1, align 8
   %102 = load ptr, ptr @poisoned_type, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %102, ptr %103, align 8
   %104 = and i16 %100, -512
   %105 = or disjoint i16 %104, 2
@@ -277,27 +277,27 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br label %553
 
 106:                                              ; preds = %68
-  %107 = getelementptr inbounds i8, ptr %0, i64 48
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %108 = load ptr, ptr %107, align 8
   %.not263 = icmp eq ptr %108, null
   br i1 %.not263, label %109, label %113
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %1, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %111 = tail call ptr @token_type_to_string(i32 noundef 180) #5
   %112 = load i64, ptr %110, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %112, ptr noundef nonnull @.str.20, ptr noundef %111) #5
   br label %.critedge286
 
 113:                                              ; preds = %106
-  %114 = getelementptr inbounds i8, ptr %1, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %115 = load ptr, ptr %114, align 8
   %116 = tail call ptr @sema_expr_analyse_ct_arg_index(ptr noundef nonnull %0, ptr noundef %115, ptr noundef null, i1 noundef zeroext true) #5
   %117 = icmp eq ptr %116, null
   br i1 %117, label %.critedge4, label %118
 
 118:                                              ; preds = %113
-  %119 = getelementptr inbounds i8, ptr %116, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %120 = load i16, ptr %119, align 8
   %121 = and i16 %120, 255
   %.not264 = icmp eq i16 %121, 0
@@ -308,24 +308,24 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br i1 %122, label %123, label %.critedge286
 
 123:                                              ; preds = %.critedge4
-  %124 = getelementptr inbounds i8, ptr %116, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %125 = load i16, ptr %124, align 8
   %126 = and i16 %125, 255
   %.not265 = icmp eq i16 %126, 62
   br i1 %.not265, label %130, label %127
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %116, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %129 = load i64, ptr %128, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %129, ptr noundef nonnull @.str.21) #5
   br label %.critedge286
 
 130:                                              ; preds = %123
-  %131 = getelementptr inbounds i8, ptr %116, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %134, ptr %135, align 8
   br label %sema_resolve_type_identifier.exit.thread
 
@@ -334,7 +334,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   %137 = and i16 %136, -505
   store i16 %137, ptr %1, align 8
   %138 = load ptr, ptr @poisoned_type, align 8
-  %139 = getelementptr inbounds i8, ptr %1, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %138, ptr %139, align 8
   %140 = and i16 %136, -512
   %141 = or disjoint i16 %140, 2
@@ -342,27 +342,27 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br label %553
 
 142:                                              ; preds = %68, %68
-  %143 = getelementptr inbounds i8, ptr %1, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr @type_string, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %144, %147
-  %149 = getelementptr inbounds i8, ptr %1, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %150 = load ptr, ptr %149, align 8
   %.not.i = icmp eq ptr %150, null
   %or.cond.i = select i1 %148, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %151, label %._crit_edge.i
 
 151:                                              ; preds = %142
-  %152 = getelementptr inbounds i8, ptr %1, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %145, ptr %152, align 8
   %153 = or disjoint i16 %59, 2
   store i16 %153, ptr %1, align 8
   br label %sema_resolve_type_identifier.exit.thread
 
 ._crit_edge.i:                                    ; preds = %142
-  %154 = getelementptr inbounds i8, ptr %1, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %155 = load i64, ptr %154, align 8
   %156 = tail call ptr @sema_resolve_symbol(ptr noundef %0, ptr noundef %144, ptr noundef %150, i64 %155) #5
   %.not58.i = icmp eq ptr %156, null
@@ -373,7 +373,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br label %.critedge.i
 
 157:                                              ; preds = %._crit_edge.i
-  %158 = getelementptr inbounds i8, ptr %156, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 24
   %159 = load i64, ptr %158, align 8
   %160 = and i64 %159, 127
   %.not59.i = icmp eq i64 %160, 0
@@ -394,9 +394,9 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br i1 %168, label %169, label %172
 
 169:                                              ; preds = %.critedge.i
-  %170 = getelementptr inbounds i8, ptr %156, i64 88
+  %170 = getelementptr inbounds nuw i8, ptr %156, i64 88
   %171 = load ptr, ptr %170, align 8
-  %.phi.trans.insert63.i = getelementptr inbounds i8, ptr %171, i64 24
+  %.phi.trans.insert63.i = getelementptr inbounds nuw i8, ptr %171, i64 24
   %.pre64.i = load i64, ptr %.phi.trans.insert63.i, align 8
   br label %172
 
@@ -440,9 +440,9 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   unreachable
 
 177:                                              ; preds = %172, %172, %172, %172, %172, %172
-  %178 = getelementptr inbounds i8, ptr %.0.i, i64 72
+  %178 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %1, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %179, ptr %180, align 8
   %181 = load i16, ptr %1, align 8
   %182 = and i16 %181, -8
@@ -451,9 +451,9 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br label %sema_resolve_type_identifier.exit.thread
 
 184:                                              ; preds = %172
-  %185 = getelementptr inbounds i8, ptr %.0.i, i64 72
+  %185 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %1, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %186, ptr %187, align 8
   %188 = load i16, ptr %1, align 8
   %189 = and i16 %188, -8
@@ -474,9 +474,9 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br label %sema_resolve_type_identifier.exit
 
 198:                                              ; preds = %191
-  %199 = getelementptr inbounds i8, ptr %.0.i, i64 72
+  %199 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %1, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %200, ptr %201, align 8
   %202 = load i16, ptr %1, align 8
   %203 = and i16 %202, -8
@@ -493,7 +493,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br label %sema_resolve_type_identifier.exit
 
 210:                                              ; preds = %172
-  %211 = getelementptr inbounds i8, ptr %.0.i, i64 80
+  %211 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
   %212 = load i32, ptr %211, align 8
   %trunc.i = trunc i32 %212 to i8
   switch i8 %trunc.i, label %223 [
@@ -504,7 +504,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
 213:                                              ; preds = %210, %210
   %214 = or i32 %212, 4096
   store i32 %214, ptr %211, align 8
-  %215 = getelementptr inbounds i8, ptr %.0.i, i64 88
+  %215 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
   %216 = load ptr, ptr %215, align 8
   %.not60.i = icmp eq ptr %216, null
   br i1 %.not60.i, label %217, label %220
@@ -517,7 +517,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br label %sema_resolve_type_identifier.exit
 
 220:                                              ; preds = %213
-  %221 = getelementptr inbounds i8, ptr %216, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %222 = load ptr, ptr %221, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %222, i64 40, i1 false)
   br label %sema_resolve_type_identifier.exit.thread
@@ -545,7 +545,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   %232 = and i16 %231, -505
   store i16 %232, ptr %1, align 8
   %233 = load ptr, ptr @poisoned_type, align 8
-  %234 = getelementptr inbounds i8, ptr %1, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %233, ptr %234, align 8
   %235 = and i16 %231, -512
   %236 = or disjoint i16 %235, 2
@@ -553,7 +553,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br label %553
 
 237:                                              ; preds = %68
-  %238 = getelementptr inbounds i8, ptr %1, i64 24
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %239 = load ptr, ptr %238, align 8
   %240 = tail call ptr @sema_ct_eval_expr(ptr noundef %0, i1 noundef zeroext true, ptr noundef %239, i1 noundef zeroext true) #5
   %.not259 = icmp eq ptr %240, null
@@ -567,26 +567,26 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br label %.critedge290
 
 245:                                              ; preds = %237
-  %246 = getelementptr inbounds i8, ptr %240, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %240, i64 16
   %247 = load i16, ptr %246, align 8
   %248 = and i16 %247, 255
   %.not260 = icmp eq i16 %248, 62
   br i1 %.not260, label %252, label %249
 
 249:                                              ; preds = %245
-  %250 = getelementptr inbounds i8, ptr %239, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %251 = load i64, ptr %250, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %251, ptr noundef nonnull @.str.25) #5
   br label %.critedge290
 
 252:                                              ; preds = %245
-  %253 = getelementptr inbounds i8, ptr %240, i64 24
+  %253 = getelementptr inbounds nuw i8, ptr %240, i64 24
   %254 = load ptr, ptr %253, align 8
   %255 = tail call fastcc zeroext i1 @sema_resolve_type(ptr noundef %0, ptr noundef %254, i32 noundef %.0229)
   br i1 %255, label %256, label %.critedge290
 
 256:                                              ; preds = %252
-  %257 = getelementptr inbounds i8, ptr %254, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %258 = load ptr, ptr %257, align 8
   %259 = load ptr, ptr @type_void, align 8
   %.not261 = icmp eq ptr %258, %259
@@ -612,19 +612,19 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   ]
 
 263:                                              ; preds = %.lr.ph328
-  %264 = getelementptr inbounds i8, ptr %.0228327, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %.0228327, i64 8
   %265 = load ptr, ptr %264, align 8
   %266 = icmp eq ptr %265, %260
   br i1 %266, label %._crit_edge329, label %.lr.ph328
 
 ._crit_edge329:                                   ; preds = %.lr.ph328, %.lr.ph328, %.lr.ph328, %.lr.ph328, %.lr.ph328, %263, %.preheader
-  %267 = getelementptr inbounds i8, ptr %239, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %268 = load i64, ptr %267, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %268, ptr noundef nonnull @.str.26) #5
   br label %.critedge290
 
 .critedge288:                                     ; preds = %.lr.ph328, %256
-  %269 = getelementptr inbounds i8, ptr %1, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %258, ptr %269, align 8
   br label %sema_resolve_type_identifier.exit.thread
 
@@ -633,7 +633,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   %271 = and i16 %270, -505
   store i16 %271, ptr %1, align 8
   %272 = load ptr, ptr @poisoned_type, align 8
-  %273 = getelementptr inbounds i8, ptr %1, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %272, ptr %273, align 8
   %274 = and i16 %270, -512
   %275 = or disjoint i16 %274, 2
@@ -641,7 +641,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br label %553
 
 276:                                              ; preds = %68
-  %277 = getelementptr inbounds i8, ptr %1, i64 24
+  %277 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %278 = load ptr, ptr %277, align 8
   %279 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %278) #5
   br i1 %279, label %280, label %.critedge294
@@ -672,13 +672,13 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   ]
 
 286:                                              ; preds = %.lr.ph
-  %287 = getelementptr inbounds i8, ptr %.0231316, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %.0231316, i64 8
   %288 = load ptr, ptr %287, align 8
   %289 = icmp eq ptr %288, %283
   br i1 %289, label %.critedge294.sink.split, label %.lr.ph
 
 .critedge292:                                     ; preds = %.lr.ph, %280
-  %290 = getelementptr inbounds i8, ptr %1, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %281, ptr %290, align 8
   br label %sema_resolve_type_identifier.exit.thread
 
@@ -687,7 +687,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   %291 = load ptr, ptr @type_wildcard, align 8
   %292 = icmp eq ptr %281, %291
   %spec.select = select i1 %292, ptr @.str.27, ptr %.str.28.sink
-  %293 = getelementptr inbounds i8, ptr %278, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %294 = load i64, ptr %293, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %294, ptr noundef nonnull %spec.select) #5
   br label %.critedge294
@@ -697,7 +697,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   %296 = and i16 %295, -505
   store i16 %296, ptr %1, align 8
   %297 = load ptr, ptr @poisoned_type, align 8
-  %298 = getelementptr inbounds i8, ptr %1, i64 8
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %297, ptr %298, align 8
   %299 = and i16 %295, -512
   %300 = or disjoint i16 %299, 2
@@ -705,35 +705,35 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br label %553
 
 301:                                              ; preds = %68
-  %302 = getelementptr inbounds i8, ptr %1, i64 24
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %303 = load ptr, ptr %302, align 8
   %304 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %303) #5
   br i1 %304, label %305, label %.critedge296
 
 305:                                              ; preds = %301
-  %306 = getelementptr inbounds i8, ptr %303, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %303, i64 16
   %307 = load i16, ptr %306, align 8
   %308 = and i16 %307, 255
   %309 = icmp eq i16 %308, 14
   br i1 %309, label %310, label %314
 
 310:                                              ; preds = %305
-  %311 = getelementptr inbounds i8, ptr %303, i64 24
+  %311 = getelementptr inbounds nuw i8, ptr %303, i64 24
   %312 = load i16, ptr %311, align 8
   %313 = and i16 %312, 255
   %.not256 = icmp eq i16 %313, 8
   br i1 %.not256, label %317, label %314
 
 314:                                              ; preds = %310, %305
-  %315 = getelementptr inbounds i8, ptr %303, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %303, i64 8
   %316 = load i64, ptr %315, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %316, ptr noundef nonnull @.str.30) #5
   br label %.critedge296
 
 317:                                              ; preds = %310
-  %318 = getelementptr inbounds i8, ptr %303, i64 32
+  %318 = getelementptr inbounds nuw i8, ptr %303, i64 32
   %319 = load ptr, ptr %318, align 8
-  %320 = getelementptr inbounds i8, ptr %1, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %319, ptr %320, align 8
   br label %sema_resolve_type_identifier.exit.thread
 
@@ -742,7 +742,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   %322 = and i16 %321, -505
   store i16 %322, ptr %1, align 8
   %323 = load ptr, ptr @poisoned_type, align 8
-  %324 = getelementptr inbounds i8, ptr %1, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %323, ptr %324, align 8
   %325 = and i16 %321, -512
   %326 = or disjoint i16 %325, 2
@@ -763,7 +763,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br i1 %or.cond297, label %332, label %343
 
 332:                                              ; preds = %329
-  %333 = getelementptr inbounds i8, ptr %1, i64 16
+  %333 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %334 = icmp eq i16 %330, 80
   %335 = select i1 %334, ptr @.str.15, ptr @.str.16
   %336 = load i64, ptr %333, align 8
@@ -772,7 +772,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   %338 = and i16 %337, -505
   store i16 %338, ptr %1, align 8
   %339 = load ptr, ptr @poisoned_type, align 8
-  %340 = getelementptr inbounds i8, ptr %1, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %339, ptr %340, align 8
   %341 = and i16 %337, -512
   %342 = or disjoint i16 %341, 2
@@ -782,21 +782,21 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
 343:                                              ; preds = %329, %327, %68, %68, %68
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %344 = getelementptr inbounds i8, ptr %1, i64 24
+  %344 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %345 = load ptr, ptr %344, align 8
   %346 = tail call fastcc zeroext i1 @sema_resolve_type(ptr noundef %0, ptr noundef %345, i32 noundef %.0229)
   br i1 %346, label %347, label %466
 
 347:                                              ; preds = %343
-  %348 = getelementptr inbounds i8, ptr %1, i64 24
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
   br label %351
 
 351:                                              ; preds = %.backedge, %347
   %.0.i305.in = phi ptr [ %350, %347 ], [ %.0.i305.in.be, %.backedge ]
   %.0.i305 = load ptr, ptr %.0.i305.in, align 8
-  %352 = getelementptr inbounds i8, ptr %.0.i305, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %.0.i305, i64 8
   %353 = load ptr, ptr %352, align 8
   %354 = load i32, ptr %353, align 8
   switch i32 %354, label %.loopexit [
@@ -807,15 +807,15 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   ]
 
 355:                                              ; preds = %351
-  %356 = getelementptr inbounds i8, ptr %353, i64 56
+  %356 = getelementptr inbounds nuw i8, ptr %353, i64 56
   %357 = load ptr, ptr %356, align 8
-  %358 = getelementptr inbounds i8, ptr %357, i64 96
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 96
   %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds i8, ptr %359, i64 8
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
   br label %.backedge
 
 361:                                              ; preds = %351
-  %362 = getelementptr inbounds i8, ptr %353, i64 56
+  %362 = getelementptr inbounds nuw i8, ptr %353, i64 56
   br label %.backedge
 
 .backedge:                                        ; preds = %361, %355
@@ -827,9 +827,9 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   unreachable
 
 364:                                              ; preds = %351
-  %365 = getelementptr inbounds i8, ptr %353, i64 56
+  %365 = getelementptr inbounds nuw i8, ptr %353, i64 56
   %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 24
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 24
   %368 = load i64, ptr %367, align 8
   %369 = and i64 %368, 896
   %370 = icmp eq i64 %369, 256
@@ -841,22 +841,22 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br i1 %.not100.i, label %.loopexit, label %373
 
 373:                                              ; preds = %371
-  %374 = getelementptr inbounds i8, ptr %1, i64 16
+  %374 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %375 = load i64, ptr %374, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %375, ptr noundef nonnull @.str.31) #5
   br label %466
 
 376:                                              ; preds = %364
-  %377 = getelementptr inbounds i8, ptr %0, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %378 = load ptr, ptr %377, align 8
-  %379 = getelementptr inbounds i8, ptr %378, i64 232
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 232
   %380 = load ptr, ptr %379, align 8
   %381 = tail call fastcc ptr @expand_(ptr noundef %380)
   %382 = load ptr, ptr %377, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 232
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 232
   store ptr %381, ptr %383, align 8
   %384 = load ptr, ptr %377, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 232
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 232
   %386 = load ptr, ptr %385, align 8
   %.not99.i = icmp eq ptr %386, null
   br i1 %.not99.i, label %392, label %387
@@ -870,14 +870,14 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
 
 392:                                              ; preds = %387, %376
   %.0.i304 = phi i64 [ %391, %387 ], [ 4294967295, %376 ]
-  %393 = getelementptr inbounds ptr, ptr %386, i64 %.0.i304
+  %393 = getelementptr inbounds nuw ptr, ptr %386, i64 %.0.i304
   store ptr %1, ptr %393, align 8
   %.pre = load ptr, ptr %348, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %351, %392, %371
   %394 = phi ptr [ %.pre, %392 ], [ %349, %371 ], [ %349, %351 ]
-  %395 = getelementptr inbounds i8, ptr %394, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %394, i64 8
   %396 = load ptr, ptr %395, align 8
   %397 = load i16, ptr %1, align 8
   %398 = lshr i16 %397, 3
@@ -895,7 +895,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br i1 %401, label %406, label %402
 
 402:                                              ; preds = %400
-  %403 = getelementptr inbounds i8, ptr %394, i64 16
+  %403 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %404 = tail call ptr @type_quoted_error_string(ptr noundef %396) #5
   %405 = load i64, ptr %403, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %405, ptr noundef nonnull @.str.32, ptr noundef %404) #5
@@ -903,7 +903,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
 
 406:                                              ; preds = %400
   %407 = load ptr, ptr %348, align 8
-  %408 = getelementptr inbounds i8, ptr %407, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %407, i64 8
   %409 = load ptr, ptr %408, align 8
   %410 = tail call ptr @type_get_subarray(ptr noundef %409) #5
   br label %sema_resolve_array_type.exit
@@ -913,7 +913,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br i1 %412, label %417, label %413
 
 413:                                              ; preds = %411
-  %414 = getelementptr inbounds i8, ptr %394, i64 16
+  %414 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %415 = tail call ptr @type_quoted_error_string(ptr noundef %396) #5
   %416 = load i64, ptr %414, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %416, ptr noundef nonnull @.str.33, ptr noundef %415) #5
@@ -921,7 +921,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
 
 417:                                              ; preds = %411
   %418 = load ptr, ptr %348, align 8
-  %419 = getelementptr inbounds i8, ptr %418, i64 8
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
   %420 = load ptr, ptr %419, align 8
   %421 = tail call ptr @type_get_inferred_array(ptr noundef %420) #5
   br label %sema_resolve_array_type.exit
@@ -931,7 +931,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br i1 %423, label %428, label %424
 
 424:                                              ; preds = %422
-  %425 = getelementptr inbounds i8, ptr %394, i64 16
+  %425 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %426 = tail call ptr @type_quoted_error_string(ptr noundef %396) #5
   %427 = load i64, ptr %425, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %427, ptr noundef nonnull @.str.34, ptr noundef %426) #5
@@ -939,7 +939,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
 
 428:                                              ; preds = %422
   %429 = load ptr, ptr %348, align 8
-  %430 = getelementptr inbounds i8, ptr %429, i64 8
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 8
   %431 = load ptr, ptr %430, align 8
   %432 = tail call ptr @type_get_inferred_vector(ptr noundef %431) #5
   br label %sema_resolve_array_type.exit
@@ -953,7 +953,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br i1 %436, label %441, label %437
 
 437:                                              ; preds = %435
-  %438 = getelementptr inbounds i8, ptr %394, i64 16
+  %438 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %439 = tail call ptr @type_quoted_error_string(ptr noundef %396) #5
   %440 = load i64, ptr %438, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %440, ptr noundef nonnull @.str.34, ptr noundef %439) #5
@@ -961,7 +961,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
 
 441:                                              ; preds = %435
   %442 = load ptr, ptr %348, align 8
-  %443 = getelementptr inbounds i8, ptr %442, i64 8
+  %443 = getelementptr inbounds nuw i8, ptr %442, i64 8
   %444 = load ptr, ptr %443, align 8
   %445 = load i32, ptr %4, align 4
   %446 = tail call ptr @type_get_vector(ptr noundef %444, i32 noundef %445) #5
@@ -972,7 +972,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br i1 %448, label %453, label %449
 
 449:                                              ; preds = %447
-  %450 = getelementptr inbounds i8, ptr %394, i64 16
+  %450 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %451 = tail call ptr @type_quoted_error_string(ptr noundef %396) #5
   %452 = load i64, ptr %450, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %452, ptr noundef nonnull @.str.33, ptr noundef %451) #5
@@ -984,7 +984,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
 
 455:                                              ; preds = %453
   %456 = load ptr, ptr %348, align 8
-  %457 = getelementptr inbounds i8, ptr %456, i64 8
+  %457 = getelementptr inbounds nuw i8, ptr %456, i64 8
   %458 = load ptr, ptr %457, align 8
   %459 = load i32, ptr %5, align 4
   %460 = tail call ptr @type_get_array(ptr noundef %458, i32 noundef %459) #5
@@ -996,7 +996,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
 
 sema_resolve_array_type.exit:                     ; preds = %406, %417, %428, %441, %455
   %.sink = phi ptr [ %410, %406 ], [ %421, %417 ], [ %432, %428 ], [ %446, %441 ], [ %460, %455 ]
-  %462 = getelementptr inbounds i8, ptr %1, i64 8
+  %462 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.sink, ptr %462, align 8
   %463 = load i16, ptr %1, align 8
   %464 = and i16 %463, -8
@@ -1016,13 +1016,13 @@ sema_resolve_array_type.exit:                     ; preds = %406, %417, %428, %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   store i16 %470, ptr %1, align 8
   %471 = load ptr, ptr @poisoned_type, align 8
-  %472 = getelementptr inbounds i8, ptr %1, i64 8
+  %472 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %471, ptr %472, align 8
   store i16 %470, ptr %1, align 8
   br label %553
 
 473:                                              ; preds = %68
-  %474 = getelementptr inbounds i8, ptr %1, i64 24
+  %474 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %475 = load ptr, ptr %474, align 8
   %476 = or i32 %.0229, 6
   %477 = tail call fastcc zeroext i1 @sema_resolve_type(ptr noundef %0, ptr noundef %475, i32 noundef %476)
@@ -1030,10 +1030,10 @@ sema_resolve_array_type.exit:                     ; preds = %406, %417, %428, %4
 
 sema_resolve_ptr_type.exit.thread:                ; preds = %473
   %478 = load ptr, ptr %474, align 8
-  %479 = getelementptr inbounds i8, ptr %478, i64 8
+  %479 = getelementptr inbounds nuw i8, ptr %478, i64 8
   %480 = load ptr, ptr %479, align 8
   %481 = tail call ptr @type_get_ptr(ptr noundef %480) #5
-  %482 = getelementptr inbounds i8, ptr %1, i64 8
+  %482 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %481, ptr %482, align 8
   %483 = load i16, ptr %1, align 8
   %484 = and i16 %483, -8
@@ -1043,7 +1043,7 @@ sema_resolve_ptr_type.exit.thread:                ; preds = %473
 
 485:                                              ; preds = %473
   %486 = load i16, ptr %1, align 8
-  %487 = getelementptr inbounds i8, ptr %1, i64 8
+  %487 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %488 = and i16 %486, -512
   %storemerge.i = or disjoint i16 %488, 2
   store i16 %storemerge.i, ptr %1, align 8
@@ -1053,7 +1053,7 @@ sema_resolve_ptr_type.exit.thread:                ; preds = %473
   br label %553
 
 sema_resolve_type_identifier.exit.thread:         ; preds = %151, %177, %184, %198, %220, %sema_resolve_ptr_type.exit.thread, %sema_resolve_array_type.exit, %317, %.critedge292, %.critedge288, %130, %.critedge2, %68
-  %490 = getelementptr inbounds i8, ptr %1, i64 8
+  %490 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %491 = load ptr, ptr %490, align 8
   %492 = load i32, ptr %491, align 8
   switch i32 %492, label %517 [
@@ -1067,7 +1067,7 @@ sema_resolve_type_identifier.exit.thread:         ; preds = %151, %177, %184, %1
   br i1 %.not272, label %495, label %517
 
 495:                                              ; preds = %493
-  %496 = getelementptr inbounds i8, ptr %1, i64 16
+  %496 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %497 = load i64, ptr %496, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %497, ptr noundef nonnull @.str.17) #5
   %498 = load i16, ptr %1, align 8
@@ -1086,7 +1086,7 @@ sema_resolve_type_identifier.exit.thread:         ; preds = %151, %177, %184, %1
   br i1 %.not271, label %505, label %517
 
 505:                                              ; preds = %503
-  %506 = getelementptr inbounds i8, ptr %1, i64 16
+  %506 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %507 = tail call ptr @type_quoted_error_string(ptr noundef nonnull %491) #5
   %508 = load ptr, ptr %490, align 8
   %509 = tail call ptr @type_get_ptr(ptr noundef %508) #5
@@ -1163,7 +1163,7 @@ sema_resolve_type_identifier.exit.thread:         ; preds = %151, %177, %184, %1
   br i1 %541, label %542, label %546
 
 542:                                              ; preds = %539
-  %543 = getelementptr inbounds i8, ptr %535, i64 8
+  %543 = getelementptr inbounds nuw i8, ptr %535, i64 8
   %544 = load ptr, ptr %543, align 8
   %545 = load i32, ptr %544, align 8
   br label %546
@@ -1194,7 +1194,7 @@ sema_resolve_type_identifier.exit.thread:         ; preds = %151, %177, %184, %1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @sema_resolve_array_like_len(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.Int, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %6) #5
   br i1 %7, label %15, label %8
@@ -1204,7 +1204,7 @@ define dso_local noundef zeroext i1 @sema_resolve_array_like_len(ptr noundef %0,
   %10 = and i16 %9, -505
   store i16 %10, ptr %1, align 8
   %11 = load ptr, ptr @poisoned_type, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %11, ptr %12, align 8
   %13 = and i16 %9, -512
   %14 = or disjoint i16 %13, 2
@@ -1212,21 +1212,21 @@ define dso_local noundef zeroext i1 @sema_resolve_array_like_len(ptr noundef %0,
   br label %98
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, 255
   %19 = icmp eq i16 %18, 14
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %22, ptr noundef nonnull @.str) #5
   %23 = load i16, ptr %1, align 8
   %24 = and i16 %23, -505
   store i16 %24, ptr %1, align 8
   %25 = load ptr, ptr @poisoned_type, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %25, ptr %26, align 8
   %27 = and i16 %23, -512
   %28 = or disjoint i16 %27, 2
@@ -1235,14 +1235,14 @@ define dso_local noundef zeroext i1 @sema_resolve_array_like_len(ptr noundef %0,
 
 29:                                               ; preds = %15
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 31
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %32, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 8
   br label %39
@@ -1254,14 +1254,14 @@ define dso_local noundef zeroext i1 @sema_resolve_array_like_len(ptr noundef %0,
   br i1 %41, label %51, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %44 = load i64, ptr %43, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %44, ptr noundef nonnull @.str.1) #5
   %45 = load i16, ptr %1, align 8
   %46 = and i16 %45, -505
   store i16 %46, ptr %1, align 8
   %47 = load ptr, ptr @poisoned_type, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %47, ptr %48, align 8
   %49 = and i16 %45, -512
   %50 = or disjoint i16 %49, 2
@@ -1272,13 +1272,13 @@ define dso_local noundef zeroext i1 @sema_resolve_array_like_len(ptr noundef %0,
   %52 = load i16, ptr %1, align 8
   %53 = and i16 %52, 504
   %54 = icmp eq i16 %53, 64
-  %55 = getelementptr inbounds i8, ptr %6, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
   %56 = tail call zeroext i1 @int_is_neg(ptr noundef nonnull byval(%struct.Int) align 8 %55) #5
   br i1 %56, label %57, label %67
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %6, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %59 = select i1 %54, ptr @.str.2, ptr @.str.3
   %60 = load i64, ptr %58, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %60, ptr noundef nonnull %59) #5
@@ -1286,7 +1286,7 @@ define dso_local noundef zeroext i1 @sema_resolve_array_like_len(ptr noundef %0,
   %62 = and i16 %61, -505
   store i16 %62, ptr %1, align 8
   %63 = load ptr, ptr @poisoned_type, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %63, ptr %64, align 8
   %65 = and i16 %61, -512
   %66 = or disjoint i16 %65, 2
@@ -1298,7 +1298,7 @@ define dso_local noundef zeroext i1 @sema_resolve_array_like_len(ptr noundef %0,
   br i1 %68, label %69, label %79
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %6, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %71 = select i1 %54, ptr @.str.4, ptr @.str.5
   %72 = load i64, ptr %70, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %72, ptr noundef nonnull %71) #5
@@ -1306,7 +1306,7 @@ define dso_local noundef zeroext i1 @sema_resolve_array_like_len(ptr noundef %0,
   %74 = and i16 %73, -505
   store i16 %74, ptr %1, align 8
   %75 = load ptr, ptr @poisoned_type, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %75, ptr %76, align 8
   %77 = and i16 %73, -512
   %78 = or disjoint i16 %77, 2
@@ -1319,7 +1319,7 @@ define dso_local noundef zeroext i1 @sema_resolve_array_like_len(ptr noundef %0,
   br i1 %81, label %82, label %94
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %6, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %84 = load i64, ptr %83, align 8
   br i1 %54, label %85, label %86
 
@@ -1336,7 +1336,7 @@ define dso_local noundef zeroext i1 @sema_resolve_array_like_len(ptr noundef %0,
   %89 = and i16 %88, -505
   store i16 %89, ptr %1, align 8
   %90 = load ptr, ptr @poisoned_type, align 8
-  %91 = getelementptr inbounds i8, ptr %1, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %90, ptr %91, align 8
   %92 = and i16 %88, -512
   %93 = or disjoint i16 %92, 2
@@ -1344,7 +1344,7 @@ define dso_local noundef zeroext i1 @sema_resolve_array_like_len(ptr noundef %0,
   br label %98
 
 94:                                               ; preds = %79
-  %95 = getelementptr inbounds i8, ptr %4, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %96 = load i64, ptr %95, align 8
   %97 = trunc i64 %96 to i32
   store i32 %97, ptr %2, align 4
@@ -1400,7 +1400,7 @@ define internal fastcc nonnull ptr @expand_(ptr noundef %0) unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = tail call ptr @calloc_arena(i64 noundef 72) #5
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 8, ptr %4, align 4
   br label %7
 
@@ -1418,13 +1418,13 @@ define internal fastcc nonnull ptr @expand_(ptr noundef %0) unnamed_addr #0 {
   br i1 %10, label %11, label %25
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %.0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %13 = shl i32 %8, 1
   %14 = zext i32 %13 to i64
   %15 = shl nuw nsw i64 %14, 3
   %16 = or disjoint i64 %15, 8
   %17 = tail call ptr @calloc_arena(i64 noundef %16) #5
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %13, ptr %18, align 4
   %19 = load i32, ptr %12, align 4
   %20 = zext i32 %19 to i64
@@ -1442,7 +1442,7 @@ define internal fastcc nonnull ptr @expand_(ptr noundef %0) unnamed_addr #0 {
   %.1 = phi ptr [ %17, %11 ], [ %.0, %7 ]
   %27 = add i32 %26, 1
   store i32 %27, ptr %.1, align 4
-  %28 = getelementptr inbounds i8, ptr %.1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   ret ptr %28
 }
 

@@ -56,7 +56,7 @@ entry:
   br i1 %cmp, label %if.then.i, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %config_.i = getelementptr inbounds i8, ptr %node, i64 616
+  %config_.i = getelementptr inbounds nuw i8, ptr %node, i64 616
   %0 = load ptr, ptr %config_.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i

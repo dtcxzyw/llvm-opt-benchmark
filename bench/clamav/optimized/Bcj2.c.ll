@@ -10,7 +10,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
 
 12:                                               ; preds = %10, %12
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds [258 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [258 x i16], ptr %11, i64 0, i64 %indvars.iv
   store i16 1024, ptr %13, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 258
@@ -29,7 +29,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
   %.0122170 = phi i32 [ %22, %.split ], [ 0, %14 ]
   %.0131169 = phi ptr [ %19, %.split ], [ %6, %14 ]
   %18 = shl i32 %.0122170, 8
-  %19 = getelementptr inbounds i8, ptr %.0131169, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.0131169, i64 1
   %20 = load i8, ptr %.0131169, align 1
   %21 = zext i8 %20 to i32
   %22 = or disjoint i32 %18, %21
@@ -100,10 +100,10 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
   %44 = add i64 %.1130174, 1
   %45 = icmp eq i8 %28, -24
   %46 = zext i8 %.1120175.lcssa to i64
-  %47 = getelementptr inbounds i16, ptr %11, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr %11, i64 %46
   %48 = icmp eq i8 %28, -23
   %..v.sroa.sel.v.sroa.sel.v = select i1 %48, i64 512, i64 514
-  %..v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %11, i64 %..v.sroa.sel.v.sroa.sel.v
+  %..v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %11, i64 %..v.sroa.sel.v.sroa.sel.v
   %.0113 = select i1 %45, ptr %47, ptr %..v.sroa.sel.v.sroa.sel
   %49 = load i16, ptr %.0113, align 2
   %50 = zext i16 %49 to i32
@@ -128,7 +128,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
 62:                                               ; preds = %60
   %63 = shl nuw i32 %52, 8
   %64 = shl i32 %.1123185, 8
-  %65 = getelementptr inbounds i8, ptr %.1132182, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.1132182, i64 1
   %66 = load i8, ptr %.1132182, align 1
   %67 = zext i8 %66 to i32
   %68 = or disjoint i32 %64, %67
@@ -150,7 +150,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
 77:                                               ; preds = %75
   %78 = shl nuw i32 %70, 8
   %79 = shl i32 %71, 8
-  %80 = getelementptr inbounds i8, ptr %.1132182, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.1132182, i64 1
   %81 = load i8, ptr %.1132182, align 1
   %82 = zext i8 %81 to i32
   %83 = or disjoint i32 %79, %82
@@ -167,7 +167,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
   br i1 %86, label %.loopexit, label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %.0104190, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %.0104190, i64 4
   %89 = add i64 %.0107189, -4
   br label %95
 
@@ -176,7 +176,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
   br i1 %91, label %.loopexit, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %.0110188, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %.0110188, i64 4
   %94 = add i64 %.0114187, -4
   br label %95
 
@@ -189,17 +189,17 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr nocapture noundef readonly %0, i64 n
   %96 = load i8, ptr %.0, align 1
   %97 = zext i8 %96 to i32
   %98 = shl nuw i32 %97, 24
-  %99 = getelementptr inbounds i8, ptr %.0, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = shl nuw nsw i32 %101, 16
   %103 = or disjoint i32 %102, %98
-  %104 = getelementptr inbounds i8, ptr %.0, i64 2
+  %104 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
   %107 = shl nuw nsw i32 %106, 8
   %108 = or disjoint i32 %103, %107
-  %109 = getelementptr inbounds i8, ptr %.0, i64 3
+  %109 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
   %112 = or disjoint i32 %108, %111
